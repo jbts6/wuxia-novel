@@ -8,11 +8,11 @@ base-ref: 46578f079e8de641f503eb4abd518ed91fddbda7
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** 将《天龙八部》50章小说文本转化为游戏可用的结构化JSON数据 + context-mode可检索文本索引。
+**Goal:** 将《天龙八部》50章小说文本转化为 Obsidian Markdown 卡片（YAML frontmatter + `[[wikilinks]]` 关系图谱）+ context-mode可检索文本索引。
 
-**Architecture:** 两阶段LLM提取（骨架→深度）→ 智能合并 → 游戏化赋值 → RAG切片。JSON Schema定义数据结构，Python脚本驱动管道，prompt模板指导LLM提取。
+**Architecture:** 两阶段LLM提取（骨架→深度）→ 智能合并 → 游戏化赋值 → RAG切片。Markdown + YAML frontmatter 定义数据结构（Obsidian 原生支持），Python脚本驱动管道，prompt模板指导LLM提取。所有卡片通过 `[[wikilinks]]` 建立关系，Obsidian 关系图谱自动可视化。
 
-**Tech Stack:** Python 3, JSON Schema, context-mode MCP (FTS5), LLM API
+**Tech Stack:** Python 3, Markdown + YAML frontmatter, context-mode MCP (FTS5), LLM API, Obsidian
 
 **Sub-Agent约束:**
 
@@ -29,25 +29,24 @@ base-ref: 46578f079e8de641f503eb4abd518ed91fddbda7
 ```
 wuxia_novel/
 ├── framework/
-│   ├── schema/
-│   │   ├── character.schema.json      # 角色卡Schema
-│   │   ├── skill.schema.json          # 功法卡Schema
-│   │   ├── technique.schema.json      # 招式卡Schema
-│   │   ├── faction.schema.json        # 门派卡Schema
-│   │   └── location.schema.json       # 场景卡Schema
 │   ├── templates/
-│   │   ├── archetypes.json            # 角色原型模板
+│   │   ├── character-template.md      # 角色卡Markdown模板
+│   │   ├── skill-template.md          # 功法卡Markdown模板
+│   │   ├── technique-template.md      # 招式卡Markdown模板
+│   │   ├── faction-template.md        # 门派卡Markdown模板
+│   │   ├── location-template.md       # 场景卡Markdown模板
+│   │   ├── archetypes.json            # 角色原型数值模板
 │   │   └── factions.json              # 门派加成模板
 │   └── balance/
 │       └── combat-formula.json        # 战斗公式
 ├── 金庸/天龙八部/                          # 每本小说自包含
 │   ├── 天龙八部.txt                   # 原始小说
-│   ├── chapters/                      # 逐章JSON（50个skeleton + 50个deep）
-│   ├── characters/                    # 合并后角色卡
-│   ├── skills/                        # 合并后技能卡
-│   ├── factions/                      # 合并后门派卡
-│   ├── locations/                     # 合并后场景卡
-│   ├── chunks/                        # RAG文本块
+│   ├── chapters/                      # 逐章JSON（50个skeleton + 50个deep，中间数据）
+│   ├── characters/                    # 合并后角色卡（Markdown）
+│   ├── skills/                        # 合并后技能卡（Markdown）
+│   ├── factions/                      # 合并后门派卡（Markdown）
+│   ├── locations/                     # 合并后场景卡（Markdown）
+│   ├── chunks/                        # RAG文本块（JSON，程序用）
 │   └── progress.json                 # 进度追踪
 ├── tools/
 │   ├── extract/
@@ -56,13 +55,13 @@ wuxia_novel/
 │   │   ├── extract-skeleton.py        # 骨架提取脚本
 │   │   └── extract-deep.py            # 深度提取脚本
 │   ├── merge/
-│   │   └── merge-chapters.py          # 合并脚本
+│   │   └── merge-chapters.py          # 合并脚本（输出Markdown）
 │   ├── gamify/
-│   │   └── assign-stats.py            # 游戏化赋值脚本
+│   │   └── assign-stats.py            # 游戏化赋值脚本（更新YAML frontmatter）
 │   ├── rag/
 │   │   └── chunk-text.py              # RAG切片脚本
 │   └── validate/
-│       └── validate.py                # 校验脚本
+│       └── validate.py                # 校验脚本（校验Markdown frontmatter）
 ├── 金庸/                              # 其他小说原始目录
 │   └── ...
 └── docs/                              # 设计文档
@@ -70,6 +69,13 @@ wuxia_novel/
         ├── specs/                     # Design Doc
         └── plans/                     # 实施计划
 ```
+
+**数据格式约定：**
+- 所有卡片使用 Markdown + YAML frontmatter
+- YAML frontmatter 包含结构化字段（id, type, rank 等）
+- 正文使用 `[[wikilinks]]` 引用其他卡片，Obsidian 自动建立关系图谱
+- 章节中间数据（skeleton/deep）仍用 JSON，仅最终合并卡片用 Markdown
+- RAG chunks 用 JSON（程序检索用）
 
 ---
 
@@ -121,413 +127,223 @@ git commit -m "feat: create directory structure and initial progress tracking"
 
 ---
 
-## Task 2: 定义角色卡JSON Schema
+## Task 2: 定义角色卡Markdown模板
 
 **Files:**
-- Create: `framework/schema/character.schema.json`
+- Create: `framework/templates/character-template.md`
 
-- [ ] **Step 1: 创建角色卡Schema**
+- [ ] **Step 1: 创建角色卡模板**
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Character Card",
-  "description": "武侠游戏角色卡",
-  "type": "object",
-  "required": ["id", "name", "role", "faction", "personality", "known_skills", "related_skills", "first_appearance"],
-  "properties": {
-    "id": {
-      "type": "string",
-      "pattern": "^char_[a-z_]+$",
-      "description": "唯一标识，格式: char_名字拼音"
-    },
-    "name": {
-      "type": "string",
-      "description": "正式名称"
-    },
-    "alias": {
-      "type": "array",
-      "items": {"type": "string"},
-      "description": "别名列表"
-    },
-    "identity": {
-      "type": "string",
-      "description": "身份描述"
-    },
-    "faction": {
-      "oneOf": [
-        {"type": "string", "description": "所属门派id"},
-        {"type": "null"}
-      ]
-    },
-    "role": {
-      "type": "string",
-      "enum": ["protagonist", "companion", "npc", "villain"],
-      "description": "角色类型"
-    },
-    "personality": {
-      "type": "object",
-      "properties": {
-        "traits": {
-          "type": "array",
-          "items": {"type": "string"},
-          "description": "性格特征标签"
-        },
-        "speech_style": {
-          "type": "string",
-          "description": "说话风格描述"
-        },
-        "temperament": {
-          "type": "string",
-          "description": "气质/处事方式"
-        }
-      },
-      "required": ["traits", "speech_style", "temperament"]
-    },
-    "known_skills": {
-      "type": "array",
-      "items": {"type": "string"},
-      "description": "已掌握的功法id列表"
-    },
-    "known_techniques": {
-      "type": "array",
-      "items": {"type": "string"},
-      "description": "已掌握的招式id列表（不属于完整功法的独立招式）"
-    },
-    "related_skills": {
-      "type": "array",
-      "items": {"type": "string"},
-      "description": "关联但未学会的功法id列表"
-    },
-    "relationships": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "target": {"type": "string", "description": "目标角色id"},
-          "type": {
-            "type": "string",
-            "enum": ["love", "sworn_brother", "master_student", "enemy", "complicated", "family", "friend", "rival"],
-            "description": "关系类型"
-          },
-          "intensity": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 100,
-            "description": "关系强度"
-          },
-          "bond_level": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 5,
-            "description": "羁绊等级"
-          },
-          "dynamic": {
-            "type": "string",
-            "description": "关系变化描述"
-          }
-        },
-        "required": ["target", "type", "intensity"]
-      }
-    },
-    "rag_refs": {
-      "type": "object",
-      "properties": {
-        "appearance": {"type": "string"},
-        "personality": {"type": "string"},
-        "key_dialogue": {
-          "type": "array",
-          "items": {"type": "string"}
-        }
-      }
-    },
-    "first_appearance": {
-      "type": "integer",
-      "description": "首次出场章节号"
-    },
-    "archetype": {
-      "type": "string",
-      "enum": ["scholar", "warrior", "monk", "assassin", "healer"],
-      "description": "角色原型，用于游戏化赋值"
-    },
-    "rank": {
-      "type": "string",
-      "enum": ["返璞归真", "登峰造极", "出神入化", "炉火纯青", "登堂入室", "略有小成", "初窥门径", "平平无奇"],
-      "description": "实力评级，武侠世界观术语"
-    }
-  }
-}
+```markdown
+# {{name}}
+
+---
+id: {{id}}
+role: {{role}}                    # protagonist/companion/npc/villain
+archetype: {{archetype}}          # scholar/warrior/monk/assassin/healer
+rank: {{rank}}                    # 返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇
+faction: "[[{{faction}}]]"        # 门派引用
+alias: [{{alias}}]                # 别名列表
+identity: {{identity}}            # 身份描述
+first_appearance: {{first_appearance}}  # 首次出场章节号
+known_skills:                     # 已掌握的功法
+  - "[[{{skill_name}}]]"
+related_skills:                   # 关联但未学会的功法
+  - "[[{{skill_name}}]]"
+known_techniques:                 # 独立招式（不属于完整功法）
+  - "[[{{technique_name}}]]"
+game_stats:                       # 游戏化数值（由assign-stats.py填充）
+  hp: 0
+  mp: 0
+  atk: 0
+  def: 0
+  spd: 0
+  wiz: 0
+---
+
+## 性格
+- **特征**: {{traits}}
+- **说话风格**: {{speech_style}}
+- **气质**: {{temperament}}
+
+## 关系
+- [[{{target}}]] — {{relation_type}}（强度: {{intensity}}）
+
+## 外貌
+{{appearance}}
+
+## 关键对话
+> "{{dialogue}}"
+> —— 对{{listener}}，{{tone}}
+
+## 生平概要
+{{biography}}
 ```
 
 - [ ] **Step 2: Commit**
 
 ```bash
-git add framework/schema/character.schema.json
-git commit -m "feat: add character card JSON Schema"
+git add framework/templates/character-template.md
+git commit -m "feat: add character card Markdown template with wikilinks"
 ```
 
 ---
 
-## Task 3: 定义功法卡和招式卡JSON Schema
+## Task 3: 定义功法卡和招式卡Markdown模板
 
 **Files:**
-- Create: `framework/schema/skill.schema.json`
-- Create: `framework/schema/technique.schema.json`
+- Create: `framework/templates/skill-template.md`
+- Create: `framework/templates/technique-template.md`
 
-- [ ] **Step 1: 创建功法卡Schema**
+- [ ] **Step 1: 创建功法卡模板**
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Skill Card",
-  "description": "武侠游戏功法卡",
-  "type": "object",
-  "required": ["id", "name", "type", "faction", "description", "techniques"],
-  "properties": {
-    "id": {
-      "type": "string",
-      "pattern": "^skill_[a-z_]+$",
-      "description": "唯一标识"
-    },
-    "name": {
-      "type": "string",
-      "description": "功法名称"
-    },
-    "type": {
-      "type": "string",
-      "enum": ["sword_art", "finger_art", "palm_art", "fist_art", "internal", "movement", "hidden_weapon", "beast", "staff_art", "blade_art"],
-      "description": "功法类型"
-    },
-    "faction": {
-      "type": "string",
-      "description": "所属门派id"
-    },
-    "description": {
-      "type": "string",
-      "description": "功法描述"
-    },
-    "techniques": {
-      "type": "array",
-      "items": {"type": "string"},
-      "description": "包含的招式id列表"
-    },
-    "rank": {
-      "type": "string",
-      "enum": ["返璞归真", "登峰造极", "出神入化", "炉火纯青", "登堂入室", "略有小成", "初窥门径", "平平无奇"],
-      "description": "功法等级，同角色8级体系"
-    },
-    "combat_style": {
-      "type": "string",
-      "description": "战斗风格描述"
-    },
-    "progression": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "level": {"type": "integer", "minimum": 1, "maximum": 5},
-          "unlock": {"type": "string", "description": "解锁条件/效果描述"},
-          "damage_mult": {"type": "number", "description": "伤害倍率"}
-        },
-        "required": ["level", "unlock"]
-      },
-      "description": "升级路径"
-    },
-    "counters": {
-      "type": "object",
-      "properties": {
-        "strong_against": {"type": "array", "items": {"type": "string"}},
-        "weak_against": {"type": "array", "items": {"type": "string"}},
-        "nullified_by": {"type": "array", "items": {"type": "string"}}
-      }
-    },
-    "effects": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "type": {"type": "string", "description": "效果类型"},
-          "condition": {"type": "string", "description": "触发条件"},
-          "description": {"type": "string"}
-        }
-      },
-      "description": "特殊效果"
-    }
-  }
-}
+```markdown
+# {{name}}
+
+---
+id: {{id}}
+type: {{type}}                    # sword_art/finger_art/palm_art/fist_art/internal/movement/hidden_weapon/beast/staff_art/blade_art
+rank: {{rank}}                    # 返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇
+faction: "[[{{faction}}]]"        # 所属门派
+combat_style: {{combat_style}}    # 战斗风格
+techniques:                       # 包含的招式
+  - "[[{{technique_name}}]]"
+game_stats:                       # 游戏化数值（由assign-stats.py填充）
+  damage_base: 0
+  mp_cost: 0
+  cooldown: 0
+  range: melee
+---
+
+## 描述
+{{description}}
+
+## 招式列表
+| 招式 | 类型 | 描述 |
+|------|------|------|
+| [[{{technique}}]] | {{type}} | {{desc}} |
+
+## 升级路径
+| 等级 | 解锁条件 | 伤害倍率 |
+|------|---------|---------|
+| {{level}} | {{unlock}} | {{damage_mult}} |
+
+## 克制关系
+- **克制**: {{strong_against}}
+- **被克**: {{weak_against}}
+- **无效化**: {{nullified_by}}
+
+## 特殊效果
+- {{type}}: {{description}}（触发: {{condition}}）
+
+## 掌握者
+- [[{{character}}]]
 ```
 
-- [ ] **Step 2: 创建招式卡Schema**
+- [ ] **Step 2: 创建招式卡模板**
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Technique Card",
-  "description": "武侠游戏招式卡",
-  "type": "object",
-  "required": ["id", "name", "type", "description"],
-  "properties": {
-    "id": {
-      "type": "string",
-      "pattern": "^tech_[a-z_]+$",
-      "description": "唯一标识"
-    },
-    "name": {
-      "type": "string",
-      "description": "招式名称"
-    },
-    "parent_skill": {
-      "oneOf": [
-        {"type": "string", "description": "所属功法id"},
-        {"type": "null", "description": "独立招式（不属于任何功法）"}
-      ]
-    },
-    "type": {
-      "type": "string",
-      "enum": ["attack", "defense", "buff", "debuff", "heal", "movement", "feint", "beast", "special"],
-      "description": "招式类型"
-    },
-    "description": {
-      "type": "string",
-      "description": "招式描述"
-    },
-    "effects": {
-      "type": "object",
-      "properties": {
-        "damage": {"type": "string", "description": "伤害描述"},
-        "target": {"type": "string", "enum": ["self", "single_enemy", "aoe", "ally"]},
-        "special": {"type": "string", "description": "特殊效果"}
-      }
-    },
-    "unlock_condition": {
-      "type": "string",
-      "description": "解锁条件"
-    }
-  }
-}
+```markdown
+# {{name}}
+
+---
+id: {{id}}
+type: {{type}}                    # attack/defense/buff/debuff/heal/movement/feint/beast/special
+parent_skill: "[[{{parent_skill}}]]"  # 所属功法（null表示独立招式）
+---
+
+## 描述
+{{description}}
+
+## 效果
+- **伤害**: {{damage}}
+- **目标**: {{target}}          # self/single_enemy/aoe/ally
+- **特殊**: {{special}}
+
+## 解锁条件
+{{unlock_condition}}
+
+## 使用者
+- [[{{character}}]]
 ```
 
 - [ ] **Step 3: Commit**
 
 ```bash
-git add framework/schema/skill.schema.json framework/schema/technique.schema.json
-git commit -m "feat: add skill and technique card JSON Schemas"
+git add framework/templates/skill-template.md framework/templates/technique-template.md
+git commit -m "feat: add skill and technique card Markdown templates with wikilinks"
 ```
 
 ---
 
-## Task 4: 定义门派卡和场景卡JSON Schema
+## Task 4: 定义门派卡和场景卡Markdown模板
 
 **Files:**
-- Create: `framework/schema/faction.schema.json`
-- Create: `framework/schema/location.schema.json`
+- Create: `framework/templates/faction-template.md`
+- Create: `framework/templates/location-template.md`
 
-- [ ] **Step 1: 创建门派卡Schema**
+- [ ] **Step 1: 创建门派卡模板**
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Faction Card",
-  "description": "武侠游戏门派卡",
-  "type": "object",
-  "required": ["id", "name", "type", "location", "description"],
-  "properties": {
-    "id": {
-      "type": "string",
-      "pattern": "^faction_[a-z_]+$",
-      "description": "唯一标识"
-    },
-    "name": {
-      "type": "string",
-      "description": "门派名称"
-    },
-    "type": {
-      "type": "string",
-      "enum": ["sect", "gang", "royal_family", "cult", "mercenary", "hidden"],
-      "description": "门派类型"
-    },
-    "location": {
-      "type": "string",
-      "description": "所在地点id"
-    },
-    "sub_divisions": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {"type": "string"},
-          "leader": {"type": "string", "description": "领导人角色id"},
-          "note": {"type": "string"}
-        },
-        "required": ["name"]
-      },
-      "description": "宗门分支"
-    },
-    "description": {
-      "type": "string",
-      "description": "门派描述"
-    },
-    "special_rules": {
-      "type": "array",
-      "items": {"type": "string"},
-      "description": "门派特殊规则（游戏机制）"
-    }
-  }
-}
+```markdown
+# {{name}}
+
+---
+id: {{id}}
+type: {{type}}                    # sect/gang/royal_family/cult/mercenary/hidden
+location: "[[{{location}}]]"      # 所在地点
+---
+
+## 描述
+{{description}}
+
+## 分支
+| 分支 | 掌门 | 备注 |
+|------|------|------|
+| {{name}} | [[{{leader}}]] | {{note}} |
+
+## 成员
+- [[{{character}}]] — {{role}}
+
+## 镇派武学
+- [[{{skill}}]]
+
+## 特殊规则
+- {{rule}}
+
+## 相关地点
+- [[{{location}}]]
 ```
 
-- [ ] **Step 2: 创建场景卡Schema**
+- [ ] **Step 2: 创建场景卡模板**
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Location Card",
-  "description": "武侠游戏场景卡",
-  "type": "object",
-  "required": ["id", "name", "region", "description"],
-  "properties": {
-    "id": {
-      "type": "string",
-      "pattern": "^loc_[a-z_]+$",
-      "description": "唯一标识"
-    },
-    "name": {
-      "type": "string",
-      "description": "地点名称"
-    },
-    "region": {
-      "type": "string",
-      "description": "地理区域"
-    },
-    "description": {
-      "type": "string",
-      "description": "地点描述"
-    },
-    "sub_locations": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {"type": "string"},
-          "description": {"type": "string"}
-        }
-      },
-      "description": "子场景"
-    },
-    "connected_to": {
-      "type": "array",
-      "items": {"type": "string"},
-      "description": "相连地点id"
-    }
-  }
-}
+```markdown
+# {{name}}
+
+---
+id: {{id}}
+region: {{region}}                # 地理区域
+---
+
+## 描述
+{{description}}
+
+## 子场景
+- **{{sub_name}}**: {{sub_description}}
+
+## 相连地点
+- [[{{connected_location}}]]
+
+## 出现人物
+- [[{{character}}]]
+
+## 相关门派
+- [[{{faction}}]]
 ```
 
 - [ ] **Step 3: Commit**
 
 ```bash
-git add framework/schema/faction.schema.json framework/schema/location.schema.json
-git commit -m "feat: add faction and location card JSON Schemas"
+git add framework/templates/faction-template.md framework/templates/location-template.md
+git commit -m "feat: add faction and location card Markdown templates with wikilinks"
 ```
 
 ---
@@ -1288,12 +1104,12 @@ if __name__ == "__main__":
 
 ```bash
 git add tools/merge/merge-chapters.py
-git commit -m "feat: add chapter merge script with smart dedup"
+git commit -m "feat: add chapter merge script outputting Obsidian Markdown cards"
 ```
 
 ---
 
-## Task 11: 创建游戏化赋值脚本
+## Task 11: 创建游戏化赋值脚本（更新YAML frontmatter）
 
 **Files:**
 - Create: `tools/gamify/assign-stats.py`
@@ -1651,12 +1467,14 @@ git commit -m "feat: add RAG chunking script with metadata annotation"
 
 ---
 
-## Task 13: 创建校验脚本
+## Task 13: 创建校验脚本（校验Markdown frontmatter）
 
 **Files:**
 - Create: `tools/validate/validate.py`
 
 - [ ] **Step 1: 创建数据校验脚本**
+
+脚本读取 Markdown 卡片的 YAML frontmatter，校验数据完整性和一致性。校验项目：ID唯一性、`[[wikilinks]]` 引用完整性、关系双向性、必需字段存在性。
 
 ```python
 #!/usr/bin/env python3
@@ -1983,13 +1801,13 @@ git commit -m "feat: complete deep extraction for all 50 chapters"
 
 ---
 
-## Task 17: 执行合并
+## Task 17: 执行合并（输出Markdown卡片）
 
 **Files:**
-- Create: `金庸/天龙八部/characters.json`
-- Create: `金庸/天龙八部/skills.json`
-- Create: `金庸/天龙八部/factions.json`
-- Create: `金庸/天龙八部/locations.json`
+- Create: `金庸/天龙八部/characters/*.md` (每个角色一个文件)
+- Create: `金庸/天龙八部/skills/*.md` (每个技能一个文件)
+- Create: `金庸/天龙八部/factions/*.md` (每个门派一个文件)
+- Create: `金庸/天龙八部/locations/*.md` (每个地点一个文件)
 
 - [ ] **Step 1: 运行合并脚本**
 
@@ -1998,32 +1816,33 @@ cd C:\git\wuxia_novel
 python tools/merge/merge-chapters.py
 ```
 
-预期输出：4个合并后的JSON文件。
+预期输出：Markdown 卡片文件，每个角色/技能/门派/地点一个 .md 文件。
 
 - [ ] **Step 2: 抽查合并结果**
 
-检查 `characters.json` 中关键角色是否存在：段誉、萧峰、虚竹。
-检查 `skills.json` 中关键技能是否存在：六脉神剑、降龙十八掌、北冥神功。
+检查 `characters/段誉.md`、`characters/萧峰.md`、`characters/虚竹.md` 是否存在。
+检查 `skills/六脉神剑.md`、`skills/降龙十八掌.md`、`skills/北冥神功.md` 是否存在。
+检查 `[[wikilinks]]` 引用格式是否正确。
 
 - [ ] **Step 3: Commit**
 
 ```bash
-git add 金庸/天龙八部/characters.json 金庸/天龙八部/skills.json
-git add 金庸/天龙八部/factions.json 金庸/天龙八部/locations.json
-git commit -m "feat: merge all chapters into global data files"
+git add 金庸/天龙八部/characters/ 金庸/天龙八部/skills/
+git add 金庸/天龙八部/factions/ 金庸/天龙八部/locations/
+git commit -m "feat: merge all chapters into Obsidian Markdown cards"
 ```
 
 ---
 
-## Task 18: 执行游戏化赋值
+## Task 18: 执行游戏化赋值（更新YAML frontmatter）
 
 **Files:**
-- Create: `金庸/天龙八部/game_characters.json`
-- Create: `金庸/天龙八部/game_skills.json`
+- Modify: `金庸/天龙八部/characters/*.md` (更新 game_stats 字段)
+- Modify: `金庸/天龙八部/skills/*.md` (更新 game_stats 字段)
 
 - [ ] **Step 1: 为角色添加archetype和rank**
 
-在合并后的 `characters.json` 中，为关键角色手动补充 `archetype` 和 `rank`：
+在 Markdown 卡片的 YAML frontmatter 中，为关键角色补充 `archetype` 和 `rank`：
 - 段誉: archetype=scholar, rank=登峰造极
 - 萧峰: archetype=warrior, rank=登峰造极
 - 虚竹: archetype=monk, rank=登峰造极
@@ -2048,8 +1867,8 @@ python tools/gamify/assign-stats.py
 - [ ] **Step 4: Commit**
 
 ```bash
-git add 金庸/天龙八部/game_characters.json 金庸/天龙八部/game_skills.json
-git commit -m "feat: assign game stats to characters and skills"
+git add 金庸/天龙八部/characters/ 金庸/天龙八部/skills/
+git commit -m "feat: assign game stats to Markdown cards via YAML frontmatter"
 ```
 
 ---

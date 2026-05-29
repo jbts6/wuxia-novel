@@ -8,9 +8,11 @@ canonical_spec: openspec
 
 ## 概述
 
-将武侠小说纯文本转化为游戏可用的结构化数据（JSON）+ 可检索文本索引（context-mode FTS5）。
+将武侠小说纯文本转化为 **Obsidian Markdown 卡片**（YAML frontmatter + `[[wikilinks]]` 关系图谱）+ 可检索文本索引（context-mode FTS5）。
 
 目标：2D像素风武侠RPG，重剧情探索、队友羁绊、功法装备Build。
+
+**数据格式：** 最终数据统一使用 Markdown + YAML frontmatter，利用 Obsidian 的关系图谱能力自动可视化角色/技能/门派/地点之间的关系。章节中间数据仍用 JSON，RAG chunks 用 JSON。
 
 ## 基本原则
 
@@ -27,7 +29,7 @@ canonical_spec: openspec
 
 | 层 | 用途 | 技术 |
 |---|------|------|
-| 结构化数据 | 属性/数值/关系/状态（精确查询） | JSON文件 |
+| 结构化数据 | 属性/数值/关系/状态（精确查询） | Markdown + YAML frontmatter（Obsidian 关系图谱） |
 | 文本索引 | 场景/对话/描写（文本检索） | context-mode FTS5 |
 | 运行时 | 理解+生成 | LLM消费检索结果 |
 
