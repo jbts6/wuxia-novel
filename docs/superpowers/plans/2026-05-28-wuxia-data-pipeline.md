@@ -12,7 +12,9 @@ base-ref: 46578f079e8de641f503eb4abd518ed91fddbda7
 
 **Architecture:** 两阶段LLM提取（骨架→深度）→ 智能合并 → 游戏化赋值 → RAG切片。JSON Schema定义数据结构，Python脚本驱动管道，prompt模板指导LLM提取。
 
-**Tech Stack:** Python 3, JSON Schema, context-mode MCP (FTS5), LLM API (Sonnet)
+**Tech Stack:** Python 3, JSON Schema, context-mode MCP (FTS5), LLM API
+
+**Sub-Agent约束:** 所有sub-agent必须使用与主agent相同的模型（不指定model参数，自动继承）。禁止覆盖为sonnet/opus/haiku。
 
 ---
 
