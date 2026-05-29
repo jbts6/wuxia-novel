@@ -29,7 +29,7 @@
 ## Phase 4: RAG索引
 
 - [x] 4.1 编写RAG切片脚本 (`tools/rag/chunk-text.py`)
-- [ ] 4.2 对天龙八部执行RAG切片并建立context-mode索引
+- [x] 4.2 对天龙八部执行RAG切片并建立context-mode索引
 
 ## Phase 5: 验证
 
