@@ -218,10 +218,14 @@ region: {location.get('region', '')}
 
 
 def main():
-    # 加载数据
-    characters = load_json(os.path.join(NOVELS_DIR, 'characters.json'))
-    skills = load_json(os.path.join(NOVELS_DIR, 'skills.json'))
-    factions = load_json(os.path.join(NOVELS_DIR, 'factions.json'))
+    # 加载数据（优先使用游戏化后的数据）
+    game_chars_path = os.path.join(NOVELS_DIR, 'game_characters.json')
+    game_skills_path = os.path.join(NOVELS_DIR, 'game_skills.json')
+    game_factions_path = os.path.join(NOVELS_DIR, 'game_factions.json')
+
+    characters = load_json(game_chars_path if os.path.exists(game_chars_path) else os.path.join(NOVELS_DIR, 'characters.json'))
+    skills = load_json(game_skills_path if os.path.exists(game_skills_path) else os.path.join(NOVELS_DIR, 'skills.json'))
+    factions = load_json(game_factions_path if os.path.exists(game_factions_path) else os.path.join(NOVELS_DIR, 'factions.json'))
     locations = load_json(os.path.join(NOVELS_DIR, 'locations.json'))
 
     # 转换并保存角色卡
