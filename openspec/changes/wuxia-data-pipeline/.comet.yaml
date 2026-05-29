@@ -1,7 +1,7 @@
 workflow: full
-phase: build
-build_mode: null
-isolation: null
+phase: verify
+build_mode: subagent-driven-development
+isolation: branch
 verify_mode: null
 base_ref: null
 design_doc: docs/superpowers/specs/2026-05-28-wuxia-data-pipeline-design.md
@@ -14,3 +14,4 @@ verified_at: null
 archived: false
 handoff_context: openspec/changes/wuxia-data-pipeline/.comet/handoff/design-context.json
 handoff_hash: 436c50cb095b96b76e9fa7084ea3a00a6d30bff5d4408295e2ae0b86dc7cfdd1
+direct_override: true
