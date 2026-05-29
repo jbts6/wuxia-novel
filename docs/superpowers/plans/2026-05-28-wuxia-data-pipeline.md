@@ -40,15 +40,15 @@ wuxia_novel/
 │   │   └── factions.json              # 门派加成模板
 │   └── balance/
 │       └── combat-formula.json        # 战斗公式
-├── novels/
-│   └── tianlong-babu/
-│       ├── chapters/                  # 逐章JSON（50个skeleton + 50个deep）
-│       ├── characters/                # 合并后角色卡
-│       ├── skills/                    # 合并后技能卡
-│       ├── factions/                  # 合并后门派卡
-│       ├── locations/                 # 合并后场景卡
-│       ├── chunks/                    # RAG文本块
-│       └── progress.json             # 进度追踪
+├── 天龙八部/                          # 每本小说自包含
+│   ├── 天龙八部.txt                   # 原始小说
+│   ├── chapters/                      # 逐章JSON（50个skeleton + 50个deep）
+│   ├── characters/                    # 合并后角色卡
+│   ├── skills/                        # 合并后技能卡
+│   ├── factions/                      # 合并后门派卡
+│   ├── locations/                     # 合并后场景卡
+│   ├── chunks/                        # RAG文本块
+│   └── progress.json                 # 进度追踪
 ├── tools/
 │   ├── extract/
 │   │   ├── skeleton-prompt.md         # 骨架提取prompt
@@ -63,10 +63,12 @@ wuxia_novel/
 │   │   └── chunk-text.py              # RAG切片脚本
 │   └── validate/
 │       └── validate.py                # 校验脚本
-└── 金庸/
-    ├── chapters/
-    │   └── chapter_01.json            # 已有：第一章提取结果（参考）
-    └── 天龙八部.txt                    # 原始小说
+├── 金庸/                              # 其他小说原始目录
+│   └── ...
+└── docs/                              # 设计文档
+    └── superpowers/
+        ├── specs/                     # Design Doc
+        └── plans/                     # 实施计划
 ```
 
 ---
@@ -75,7 +77,7 @@ wuxia_novel/
 
 **Files:**
 - Create: `framework/schema/`, `framework/templates/`, `framework/balance/`
-- Create: `novels/tianlong-babu/chapters/`, `characters/`, `skills/`, `factions/`, `locations/`, `chunks/`
+- Create: `天龙八部/chapters/`, `characters/`, `skills/`, `factions/`, `locations/`, `chunks/`
 - Create: `tools/extract/`, `tools/merge/`, `tools/gamify/`, `tools/rag/`, `tools/validate/`
 
 - [ ] **Step 1: 创建所有目录**
@@ -83,24 +85,24 @@ wuxia_novel/
 ```bash
 cd C:\git\wuxia_novel
 mkdir -p framework/schema framework/templates framework/balance
-mkdir -p novels/tianlong-babu/chapters novels/tianlong-babu/characters
-mkdir -p novels/tianlong-babu/skills novels/tianlong-babu/factions
-mkdir -p novels/tianlong-babu/locations novels/tianlong-babu/chunks
+mkdir -p 天龙八部/chapters 天龙八部/characters
+mkdir -p 天龙八部/skills 天龙八部/factions
+mkdir -p 天龙八部/locations 天龙八部/chunks
 mkdir -p tools/extract tools/merge tools/gamify tools/rag tools/validate
 ```
 
 - [ ] **Step 2: 提取第一章到标准位置（参考用）**
 
-将已有的 `金庸/chapters/chapter_01.json` 复制到 `novels/tianlong-babu/chapters/ch_01_reference.json` 作为格式参考。
+将已有的 `金庸/chapters/chapter_01.json` 复制到 `天龙八部/chapters/ch_01_reference.json` 作为格式参考。
 
 ```bash
-cp 金庸/chapters/chapter_01.json novels/tianlong-babu/chapters/ch_01_reference.json
+cp 金庸/chapters/chapter_01.json 天龙八部/chapters/ch_01_reference.json
 ```
 
 - [ ] **Step 3: 创建初始进度文件**
 
 ```json
-// novels/tianlong-babu/progress.json
+// 天龙八部/progress.json
 {
   "skeleton": {"total": 50, "done": [], "failed": [], "pending": []},
   "deep": {"total": 50, "done": [], "failed": [], "pending": []},
@@ -113,7 +115,7 @@ cp 金庸/chapters/chapter_01.json novels/tianlong-babu/chapters/ch_01_reference
 - [ ] **Step 4: Commit**
 
 ```bash
-git add framework/ novels/tianlong-babu/ tools/ 金庸/chapters/
+git add framework/ 天龙八部/ tools/ 金庸/chapters/
 git commit -m "feat: create directory structure and initial progress tracking"
 ```
 
@@ -818,11 +820,11 @@ import glob
 import re
 
 # 配置
-NOVEL_DIR = "金庸"
+NOVEL_DIR = "天龙八部"
 NOVEL_FILE = "天龙八部.txt"
-CHAPTERS_OUTPUT = "novels/tianlong-babu/chapters"
+CHAPTERS_OUTPUT = "天龙八部/chapters"
 PROMPT_FILE = "tools/extract/skeleton-prompt.md"
-PROGRESS_FILE = "novels/tianlong-babu/progress.json"
+PROGRESS_FILE = "天龙八部/progress.json"
 
 # 章节边界：每章以 "一\t" "二\t" 等数字开头
 CHAPTER_PATTERN = re.compile(r'^[一二三四五六七八九十百千]+[　\s\t]+', re.MULTILINE)
@@ -983,9 +985,9 @@ import sys
 import json
 import re
 
-CHAPTERS_DIR = "novels/tianlong-babu/chapters"
+CHAPTERS_DIR = "天龙八部/chapters"
 PROMPT_FILE = "tools/extract/deep-prompt.md"
-PROGRESS_FILE = "novels/tianlong-babu/progress.json"
+PROGRESS_FILE = "天龙八部/progress.json"
 
 
 def load_progress():
@@ -1117,9 +1119,9 @@ import os
 import json
 import glob
 
-CHAPTERS_DIR = "novels/tianlong-babu/chapters"
-OUTPUT_DIR = "novels/tianlong-babu"
-PROGRESS_FILE = "novels/tianlong-babu/progress.json"
+CHAPTERS_DIR = "天龙八部/chapters"
+OUTPUT_DIR = "天龙八部"
+PROGRESS_FILE = "天龙八部/progress.json"
 
 
 def load_all_chapters():
@@ -1305,7 +1307,7 @@ git commit -m "feat: add chapter merge script with smart dedup"
 import os
 import json
 
-NOVELS_DIR = "novels/tianlong-babu"
+NOVELS_DIR = "天龙八部"
 TEMPLATES_DIR = "framework/templates"
 BALANCE_DIR = "framework/balance"
 
@@ -1465,11 +1467,11 @@ import os
 import json
 import re
 
-NOVEL_DIR = "金庸"
+NOVEL_DIR = "天龙八部"
 NOVEL_FILE = "天龙八部.txt"
-CHAPTERS_DIR = "novels/tianlong-babu/chapters"
-CHUNKS_DIR = "novels/tianlong-babu/chunks"
-PROGRESS_FILE = "novels/tianlong-babu/progress.json"
+CHAPTERS_DIR = "天龙八部/chapters"
+CHUNKS_DIR = "天龙八部/chunks"
+PROGRESS_FILE = "天龙八部/progress.json"
 
 CHAPTER_PATTERN = re.compile(r'^[一二三四五六七八九十百千]+[　\s\t]+', re.MULTILINE)
 
@@ -1664,7 +1666,7 @@ import os
 import json
 from collections import Counter
 
-NOVELS_DIR = "novels/tianlong-babu"
+NOVELS_DIR = "天龙八部"
 
 
 def load_json(path):
@@ -1834,7 +1836,7 @@ cd C:\git\wuxia_novel
 python tools/extract/extract-skeleton.py 1
 ```
 
-将prompt送入LLM，保存结果到 `novels/tianlong-babu/chapters/ch_01_skeleton.json`。
+将prompt送入LLM，保存结果到 `天龙八部/chapters/ch_01_skeleton.json`。
 
 - [ ] **Step 2: 骨架提取第10、25章**
 
@@ -1892,7 +1894,7 @@ python tools/validate/validate.py
 - [ ] **Step 9: 试运行通过后Commit**
 
 ```bash
-git add novels/tianlong-babu/ -A
+git add 天龙八部/ -A
 git commit -m "feat: trial run on chapters 1/10/25 - pipeline validated"
 ```
 
@@ -1901,7 +1903,7 @@ git commit -m "feat: trial run on chapters 1/10/25 - pipeline validated"
 ## Task 15: 执行骨架提取（50章）
 
 **Files:**
-- Create: `novels/tianlong-babu/chapters/ch_XX_skeleton.json` (50个)
+- Create: `天龙八部/chapters/ch_XX_skeleton.json` (50个)
 
 - [ ] **Step 1: 运行骨架提取脚本生成prompts**
 
@@ -1910,7 +1912,7 @@ cd C:\git\wuxia_novel
 python tools/extract/extract-skeleton.py
 ```
 
-预期输出：50个 `ch_XX_skeleton_prompt.txt` 文件写入 `novels/tianlong-babu/chapters/`
+预期输出：50个 `ch_XX_skeleton_prompt.txt` 文件写入 `天龙八部/chapters/`
 
 - [ ] **Step 2: 用Agent并行执行LLM提取**
 
@@ -1932,7 +1934,7 @@ python tools/extract/extract-skeleton.py
 
 ```bash
 cd C:\git\wuxia_novel
-ls novels/tianlong-babu/chapters/ch_*_skeleton.json | wc -l
+ls 天龙八部/chapters/ch_*_skeleton.json | wc -l
 ```
 
 预期：50个文件
@@ -1940,7 +1942,7 @@ ls novels/tianlong-babu/chapters/ch_*_skeleton.json | wc -l
 - [ ] **Step 4: Commit**
 
 ```bash
-git add novels/tianlong-babu/chapters/ch_*_skeleton.json
+git add 天龙八部/chapters/ch_*_skeleton.json
 git commit -m "feat: complete skeleton extraction for all 50 chapters"
 ```
 
@@ -1949,7 +1951,7 @@ git commit -m "feat: complete skeleton extraction for all 50 chapters"
 ## Task 16: 执行深度提取（50章）
 
 **Files:**
-- Create: `novels/tianlong-babu/chapters/ch_XX_deep.json` (50个)
+- Create: `天龙八部/chapters/ch_XX_deep.json` (50个)
 
 - [ ] **Step 1: 运行深度提取脚本生成prompts**
 
@@ -1967,7 +1969,7 @@ python tools/extract/extract-deep.py
 - [ ] **Step 3: 验证深度提取完整性**
 
 ```bash
-ls novels/tianlong-babu/chapters/ch_*_deep.json | wc -l
+ls 天龙八部/chapters/ch_*_deep.json | wc -l
 ```
 
 预期：50个文件
@@ -1975,7 +1977,7 @@ ls novels/tianlong-babu/chapters/ch_*_deep.json | wc -l
 - [ ] **Step 4: Commit**
 
 ```bash
-git add novels/tianlong-babu/chapters/ch_*_deep.json
+git add 天龙八部/chapters/ch_*_deep.json
 git commit -m "feat: complete deep extraction for all 50 chapters"
 ```
 
@@ -1984,10 +1986,10 @@ git commit -m "feat: complete deep extraction for all 50 chapters"
 ## Task 17: 执行合并
 
 **Files:**
-- Create: `novels/tianlong-babu/characters.json`
-- Create: `novels/tianlong-babu/skills.json`
-- Create: `novels/tianlong-babu/factions.json`
-- Create: `novels/tianlong-babu/locations.json`
+- Create: `天龙八部/characters.json`
+- Create: `天龙八部/skills.json`
+- Create: `天龙八部/factions.json`
+- Create: `天龙八部/locations.json`
 
 - [ ] **Step 1: 运行合并脚本**
 
@@ -2006,8 +2008,8 @@ python tools/merge/merge-chapters.py
 - [ ] **Step 3: Commit**
 
 ```bash
-git add novels/tianlong-babu/characters.json novels/tianlong-babu/skills.json
-git add novels/tianlong-babu/factions.json novels/tianlong-babu/locations.json
+git add 天龙八部/characters.json 天龙八部/skills.json
+git add 天龙八部/factions.json 天龙八部/locations.json
 git commit -m "feat: merge all chapters into global data files"
 ```
 
@@ -2016,8 +2018,8 @@ git commit -m "feat: merge all chapters into global data files"
 ## Task 18: 执行游戏化赋值
 
 **Files:**
-- Create: `novels/tianlong-babu/game_characters.json`
-- Create: `novels/tianlong-babu/game_skills.json`
+- Create: `天龙八部/game_characters.json`
+- Create: `天龙八部/game_skills.json`
 
 - [ ] **Step 1: 为角色添加archetype和rank**
 
@@ -2046,7 +2048,7 @@ python tools/gamify/assign-stats.py
 - [ ] **Step 4: Commit**
 
 ```bash
-git add novels/tianlong-babu/game_characters.json novels/tianlong-babu/game_skills.json
+git add 天龙八部/game_characters.json 天龙八部/game_skills.json
 git commit -m "feat: assign game stats to characters and skills"
 ```
 
@@ -2055,7 +2057,7 @@ git commit -m "feat: assign game stats to characters and skills"
 ## Task 19: 执行RAG切片
 
 **Files:**
-- Create: `novels/tianlong-babu/chunks/all_chunks.json`
+- Create: `天龙八部/chunks/all_chunks.json`
 
 - [ ] **Step 1: 运行RAG切片脚本**
 
@@ -2077,7 +2079,7 @@ python tools/rag/chunk-text.py
 - [ ] **Step 4: Commit**
 
 ```bash
-git add novels/tianlong-babu/chunks/
+git add 天龙八部/chunks/
 git commit -m "feat: create RAG chunks with metadata annotation"
 ```
 

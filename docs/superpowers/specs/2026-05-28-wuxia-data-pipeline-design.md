@@ -213,14 +213,17 @@ wuxia_novel/
 │   ├── schema/              # JSON Schema
 │   ├── templates/           # 数值模板
 │   └── balance/             # 平衡公式
-├── novels/
-│   └── tianlong-babu/
-│       ├── chapters/        # 逐章JSON
-│       ├── characters/      # 合并后角色
-│       ├── skills/          # 合并后技能
-│       ├── factions/        # 合并后门派
-│       ├── locations/       # 合并后场景
-│       └── chunks/          # RAG文本块
+├── 天龙八部/                # 每本小说自包含
+│   ├── 天龙八部.txt         # 原始小说
+│   ├── chapters/            # 逐章JSON
+│   ├── characters/          # 合并后角色
+│   ├── skills/              # 合并后技能
+│   ├── factions/            # 合并后门派
+│   ├── locations/           # 合并后场景
+│   ├── chunks/              # RAG文本块
+│   └── progress.json        # 进度追踪
+├── 金庸/                    # 其他小说（保留原始目录）
+│   └── ...
 └── tools/
     ├── extract/             # 提取脚本+prompt
     ├── merge/               # 合并脚本
