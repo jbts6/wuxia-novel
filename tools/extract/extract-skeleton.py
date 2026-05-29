@@ -78,7 +78,7 @@ def get_missing_chapters(progress):
 def main():
     # 读取小说
     novel_path = os.path.join(NOVEL_DIR, NOVEL_FILE)
-    with open(novel_path, 'r', encoding='gbk', errors='replace') as f:
+    with open(novel_path, 'r', encoding='utf-8', errors='replace') as f:
         text = f.read()
 
     # 分割章节
