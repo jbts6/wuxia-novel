@@ -1837,14 +1837,19 @@ python tools/extract/extract-skeleton.py
 
 - [ ] **Step 2: 用Agent并行执行LLM提取**
 
-对每个prompt文件，调用LLM获取JSON结果。使用5个并行agent，每个处理10章：
-- Agent 1: ch_01 ~ ch_10
-- Agent 2: ch_11 ~ ch_20
-- Agent 3: ch_21 ~ ch_30
-- Agent 4: ch_31 ~ ch_40
-- Agent 5: ch_41 ~ ch_50
+对每个prompt文件，调用LLM获取JSON结果。使用10个并行agent，每个处理5章（RPM=100，10并发安全）：
+- Agent 1:  ch_01 ~ ch_05
+- Agent 2:  ch_06 ~ ch_10
+- Agent 3:  ch_11 ~ ch_15
+- Agent 4:  ch_16 ~ ch_20
+- Agent 5:  ch_21 ~ ch_25
+- Agent 6:  ch_26 ~ ch_30
+- Agent 7:  ch_31 ~ ch_35
+- Agent 8:  ch_36 ~ ch_40
+- Agent 9:  ch_41 ~ ch_45
+- Agent 10: ch_46 ~ ch_50
 
-每个agent读取prompt文件，调用LLM，将结果保存为 `ch_XX_skeleton.json`。
+每个agent读取prompt文件，调用LLM，将结果保存为 `ch_XX_skeleton.json`。不指定model参数，继承主模型。
 
 - [ ] **Step 3: 验证骨架提取完整性**
 
@@ -1880,7 +1885,7 @@ python tools/extract/extract-deep.py
 
 - [ ] **Step 2: 用Agent并行执行LLM提取**
 
-同Task 14的并行策略，5个agent各处理10章。
+同Task 14的并行策略，10个agent各处理5章。不指定model参数，继承主模型。
 
 - [ ] **Step 3: 验证深度提取完整性**
 
