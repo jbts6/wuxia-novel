@@ -76,6 +76,13 @@ def assign_character_stats(characters, archetypes, factions, formula):
 
 def assign_skill_stats(skills, archetypes):
     """为技能计算游戏属性"""
+    # 冷却时间根据评级
+    rank_cooldown = {
+        "返璞归真": 1, "登峰造极": 2, "出神入化": 2,
+        "炉火纯青": 3, "登堂入室": 3, "略有小成": 4,
+        "初窥门径": 4, "平平无奇": 5,
+    }
+
     for skill in skills:
         rank = skill.get('rank', '登堂入室')
         skill_type = skill.get('type', 'sword_art')
@@ -91,7 +98,7 @@ def assign_skill_stats(skills, archetypes):
         skill['game_stats'] = {
             'damage_base': base_damage,
             'mp_cost': int(base_damage * 0.3),
-            'cooldown': max(1, 5 - (rank or 30) // 10),
+            'cooldown': rank_cooldown.get(rank, 3),
             'range': 'melee' if skill_type in ['sword_art', 'palm_art', 'fist_art'] else 'ranged'
         }
 
