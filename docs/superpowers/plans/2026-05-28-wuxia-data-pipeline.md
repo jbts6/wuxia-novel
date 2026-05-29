@@ -14,7 +14,13 @@ base-ref: 46578f079e8de641f503eb4abd518ed91fddbda7
 
 **Tech Stack:** Python 3, JSON Schema, context-mode MCP (FTS5), LLM API
 
-**Sub-Agent约束:** 所有sub-agent必须使用与主agent相同的模型（不指定model参数，自动继承）。禁止覆盖为sonnet/opus/haiku。
+**Sub-Agent约束:**
+
+| 任务类别 | 模型选择 | 理由 |
+|---------|---------|------|
+| 骨架提取、深度提取、RAG切片 | 主模型（继承，不指定model） | 需要语言理解和语境把握 |
+| 游戏化数值计算、Schema校验 | 子模型（model: "sonnet"） | 数学计算和规则匹配更强 |
+| 合并脚本、数据处理 | 直接执行（Python脚本） | 纯数据处理，不需要LLM |
 
 ---
 
