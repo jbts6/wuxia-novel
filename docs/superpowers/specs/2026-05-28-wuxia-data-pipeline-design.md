@@ -101,7 +101,10 @@ Skill（功法）= 技能槽位
 |------|------|------|
 | id | string | 唯一标识 |
 | name | string | 正式名 |
+| gender | enum | male/female |
+| age | object | {approximate: int, stage: enum, description: string} |
 | role | enum | protagonist/companion/npc/villain |
+| rank | enum | 返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇 |
 | personality | object | traits[], speech_style, temperament |
 | known_skills | string[] | 已掌握功法id |
 | related_skills | string[] | 关联未学会功法id |
@@ -115,7 +118,7 @@ Skill（功法）= 技能槽位
 | id | string | 唯一标识 |
 | type | enum | sword_art/finger_art/palm_art/internal/movement/hidden_weapon/beast |
 | techniques | string[] | 包含的招式id |
-| novel_power_rank | int | 小说内实力排名 |
+| rank | enum | 功法等级（同角色8级体系） |
 | progression | array | Lv1-5解锁效果 |
 | counters | object | strong_against, weak_against |
 
@@ -141,7 +144,7 @@ Skill（功法）= 技能槽位
 ### 公式
 
 ```
-最终属性 = Base(role) × Archetype修正 × PowerRank倍率 + Faction加成
+最终属性 = Base(role) × Archetype修正 × Rank倍率 + Faction加成
 ```
 
 ### 角色模板 (Base)
@@ -163,15 +166,20 @@ Skill（功法）= 技能槽位
 | assassin | 0.9 | 0.8 | 1.4 | 0.7 | 1.3 | 0.9 |
 | healer | 0.9 | 1.4 | 0.6 | 0.9 | 0.8 | 1.2 |
 
-### 实力排名倍率 (PowerRank)
+### 实力评级 (Rank)
 
-| 排名 | 倍率 |
-|------|------|
-| 1 | 1.5 |
-| 2-3 | 1.3 |
-| 4-10 | 1.1 |
-| 11-30 | 1.0 |
-| 31+ | 0.9 |
+8级体系，用武侠世界观术语，不用字母/Tier。
+
+| Rank | 含义 | 倍率 | 天龙代表 |
+|------|------|------|---------|
+| 返璞归真 | 超越武学极限 | 2.0 | 扫地僧 |
+| 登峰造极 | 绝对巅峰 | 1.5 | 萧峰、虚竹、段誉（后期） |
+| 出神入化 | 超一流 | 1.3 | 鸠摩智、慕容复、丁春秋 |
+| 炉火纯青 | 一流高手 | 1.2 | 段正淳、四大恶人 |
+| 登堂入室 | 二流高手 | 1.0 | 无量剑掌门 |
+| 略有小成 | 三流 | 0.8 | 钟灵（靠闪电貂） |
+| 初窥门径 | 入门 | 0.6 | 无量剑弟子 |
+| 平平无奇 | 普通 | 0.4 | 马五德 |
 
 ### 门派加成 (Faction)
 
