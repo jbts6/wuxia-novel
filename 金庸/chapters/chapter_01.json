@@ -1,0 +1,263 @@
+{
+  "meta": {
+    "source": "tianlong-babu",
+    "chapter": 1,
+    "title": "青衫磊落险峰行",
+    "line_start": 8,
+    "line_end": 216,
+    "extracted_at": "2026-05-28"
+  },
+
+  "characters": [
+    {
+      "id": "char_duan_yu",
+      "name": "段誉",
+      "alias": ["段公子", "段世兄"],
+      "identity": "大理镇南王世子",
+      "faction": "dali_duan",
+      "role": "protagonist",
+      "personality": {
+        "traits": ["善良", "诙谐", "机智", "厌恶武功", "爱看热闹"],
+        "speech_style": "文雅书生气，引经据典，面对武学会推辞",
+        "temperament": "温和但固执，面对危险毫无惧色"
+      },
+      "known_skills": [],
+      "known_techniques": [],
+      "related_skills": ["skill_yiyangzhi"],
+      "first_appearance": 1
+    },
+    {
+      "id": "char_zhong_ling",
+      "name": "钟灵",
+      "alias": ["那少女", "梁上少女"],
+      "identity": "神秘少女",
+      "faction": null,
+      "role": "companion",
+      "personality": {
+        "traits": ["天真", "活泼", "胆大", "调皮"],
+        "speech_style": "说话娇且糯，爱撒娇",
+        "temperament": "好奇心强，爱看热闹"
+      },
+      "known_skills": [],
+      "known_techniques": ["tech_shandian_diao"],
+      "related_skills": [],
+      "first_appearance": 1
+    },
+    {
+      "id": "char_zuo_zimu",
+      "name": "左子穆",
+      "alias": ["左师兄"],
+      "identity": "无量剑东宗掌门",
+      "faction": "faction_wuliang",
+      "role": "npc",
+      "personality": {
+        "traits": ["自尊心强", "城府深", "冷静"],
+        "speech_style": "老成持重，话中带刺",
+        "temperament": "大敌当前不失冷静，对戏弄颇为恼怒"
+      },
+      "known_skills": ["skill_wuliangjian"],
+      "known_techniques": [],
+      "related_skills": [],
+      "first_appearance": 1
+    },
+    {
+      "id": "char_shuang_qing",
+      "name": "辛双清",
+      "alias": ["辛师妹", "双清"],
+      "identity": "无量剑西宗掌门",
+      "faction": "faction_wuliang",
+      "role": "npc",
+      "personality": {
+        "traits": ["克制", "隐忍"],
+        "speech_style": "含讽带刺",
+        "temperament": "心有不甘但表面克制"
+      },
+      "known_skills": ["skill_wuliangjian"],
+      "known_techniques": [],
+      "related_skills": [],
+      "first_appearance": 1
+    },
+    {
+      "id": "char_guang_jie",
+      "name": "龚光杰",
+      "alias": ["光杰"],
+      "identity": "无量剑东宗大弟子",
+      "faction": "faction_wuliang",
+      "role": "npc",
+      "personality": {
+        "traits": ["性情急躁", "粗暴无礼"],
+        "speech_style": "直接粗暴",
+        "temperament": "急躁"
+      },
+      "known_skills": ["skill_wuliangjian"],
+      "known_techniques": ["tech_diepubu"],
+      "related_skills": [],
+      "first_appearance": 1,
+      "note": "比剑胜出后因触碰毒信中毒身亡"
+    },
+    {
+      "id": "char_ma_wude",
+      "name": "马五德",
+      "alias": ["马五爷", "马老儿"],
+      "identity": "滇南普洱老武师/大茶商",
+      "faction": null,
+      "role": "npc",
+      "personality": {
+        "traits": ["随和", "豪富好客"],
+        "speech_style": "客气谦逊",
+        "temperament": "颇有孟尝之风"
+      },
+      "known_skills": [],
+      "known_techniques": [],
+      "related_skills": [],
+      "first_appearance": 1
+    },
+    {
+      "id": "char_chu_wanli",
+      "name": "褚万里",
+      "alias": ["褚师弟"],
+      "identity": "无量剑西宗弟子",
+      "faction": "faction_wuliang",
+      "role": "npc",
+      "personality": {
+        "traits": ["虽败不馁", "恭敬"],
+        "speech_style": "恭敬有礼",
+        "temperament": "坚韧"
+      },
+      "known_skills": ["skill_wuliangjian"],
+      "known_techniques": [],
+      "related_skills": [],
+      "first_appearance": 1
+    },
+    {
+      "id": "char_sikong_xuan",
+      "name": "司空玄",
+      "alias": [],
+      "identity": "神农帮帮主",
+      "faction": "faction_shennong",
+      "role": "npc",
+      "personality": {
+        "traits": [],
+        "speech_style": "未直接对话",
+        "temperament": "身中生死符，求生不得求死不能"
+      },
+      "known_skills": [],
+      "known_techniques": [],
+      "related_skills": [],
+      "first_appearance": 1,
+      "note": "本章未直接出场，仅被提及"
+    }
+  ],
+
+  "factions": [
+    {
+      "id": "faction_wuliang",
+      "name": "无量剑",
+      "type": "sect",
+      "location": "loc_wuliangshan",
+      "sub_divisions": [
+        {"name": "东宗", "leader": "char_zuo_zimu"},
+        {"name": "西宗", "leader": "char_shuang_qing"},
+        {"name": "北宗", "note": "已式微，迁往山西，不再参预比剑"}
+      ],
+      "description": "五代后唐年间在南诏无量山创派，分东西北三宗，每隔五年在剑湖宫比武斗剑，胜者入住五年"
+    },
+    {
+      "id": "faction_shennong",
+      "name": "神农帮",
+      "type": "gang",
+      "location": "loc_yunnan",
+      "sub_divisions": [],
+      "description": "以采药贩药为生的帮派，奉缥缈峰灵鹫宫号令行事，帮主司空玄身中生死符"
+    },
+    {
+      "id": "dali_duan",
+      "name": "大理段氏",
+      "type": "royal_family",
+      "location": "loc_dali",
+      "sub_divisions": [],
+      "description": "大理国皇族，以一阳指闻名天下"
+    }
+  ],
+
+  "locations": [
+    {
+      "id": "loc_wuliangshan",
+      "name": "无量山",
+      "region": "云南（南诏）",
+      "description": "无量剑所在地，山水清幽，后山有通天草等药草"
+    },
+    {
+      "id": "loc_jianhugong",
+      "name": "剑湖宫",
+      "region": "loc_wuliangshan",
+      "description": "无量剑掌门居住之所，练武厅中东西两宗弟子定期比试"
+    },
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "云南",
+      "description": "大理国都城，段姓是大理国的国姓"
+    },
+    {
+      "id": "loc_puer",
+      "name": "普洱",
+      "region": "云南",
+      "description": "马五德的家乡，大茶商所在地"
+    },
+    {
+      "id": "loc_lancangjiang",
+      "name": "澜沧江畔",
+      "region": "云南",
+      "description": "无量剑与神农帮二次冲突之处"
+    },
+    {
+      "id": "loc_bailongfeng",
+      "name": "白龙峰",
+      "region": "loc_wuliangshan",
+      "description": "无量山中一峰，畔有镜面石，平滑如镜"
+    }
+  ],
+
+  "skills": [
+    {
+      "id": "skill_wuliangjian",
+      "name": "无量剑法",
+      "type": "sword_art",
+      "faction": "faction_wuliang",
+      "description": "无量剑门派剑法，东西二宗弟子比武所用",
+      "techniques": ["tech_diepubu"]
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "finger_art",
+      "faction": "dali_duan",
+      "description": "大理段氏家传武功，以指力隔空伤人",
+      "techniques": []
+    }
+  ],
+
+  "techniques": [
+    {
+      "id": "tech_diepubu",
+      "name": "跌扑步",
+      "parent_skill": "skill_wuliangjian",
+      "type": "feint",
+      "description": "无量剑法中的虚招步法，佯装失足诱敌",
+      "effects": {"type": "debuff", "target": "enemy", "description": "诱敌露出破绽"}
+    },
+    {
+      "id": "tech_shandian_diao",
+      "name": "闪电貂攻击",
+      "parent_skill": null,
+      "type": "beast",
+      "description": "钟灵驯养的白色毒貂，动若闪电，咬人中毒令腕臂麻木",
+      "effects": {"type": "poison", "target": "enemy", "description": "令敌人腕臂麻木"}
+    }
+  ],
+
+  "events": [],
+
+  "rag_chunks": []
+}
