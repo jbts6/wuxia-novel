@@ -24,7 +24,7 @@
 
 - [x] 3.1 编写合并脚本 (`tools/merge/merge-chapters.py`) — 输出Obsidian Markdown卡片
 - [x] 3.2 编写游戏化赋值脚本 (`tools/gamify/assign-stats.py`) — 更新YAML frontmatter
-- [ ] 3.3 对天龙八部执行合并+游戏化
+- [x] 3.3 对天龙八部执行合并+游戏化
 
 ## Phase 4: RAG索引
 
