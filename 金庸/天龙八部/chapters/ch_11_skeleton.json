@@ -1,0 +1,228 @@
+{
+  "chapter": 11,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": ["大理王子"],
+      "identity": "大理镇南王之子",
+      "faction": "faction_dali_duanshi",
+      "role": "protagonist",
+      "one_line": "被鸠摩智胁迫前往参合庄的大理王子，身怀六脉神剑却未精通",
+      "personality": "善良厚道，书生意气，虽被胁迫仍不失君子之风",
+      "known_skills": ["skill_liumai_shenjian", "skill_lingbo_weibu"],
+      "related_skills": ["skill_yiyang_zhi"]
+    },
+    {
+      "id": "char_jiumozhi",
+      "name": "鸠摩智",
+      "alias": ["吐蕃国师"],
+      "identity": "吐蕃国师",
+      "faction": null,
+      "role": "villain",
+      "one_line": "以火焰刀和化功大法闻名的吐蕃番僧，为求六脉神剑不择手段",
+      "personality": "阴险狡诈，表面谦恭实则心狠手辣，诡计多出",
+      "known_skills": ["skill_huoyandao", "skill_huagong_dafa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_abi",
+      "name": "阿碧",
+      "alias": [],
+      "identity": "慕容家侍女",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "慕容复的贴身侍女，温婉可人，精通音律",
+      "personality": "温柔体贴，说话声音极甜极清，加上十二分的温柔",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": [],
+      "identity": "慕容家侍女",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "慕容复的侍女，擅长易容术，机灵聪慧",
+      "personality": "活泼机灵，善于伪装和易容",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_cuibaiquan",
+      "name": "崔百泉",
+      "alias": ["崔绿华之兄"],
+      "identity": "慕容家旧门客",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "原慕容家门客，为查崔绿华之事来到参合庄",
+      "personality": "耿直忠厚，念旧恩义",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_guoyanzhi",
+      "name": "过彦之",
+      "alias": [],
+      "identity": "崔百泉弟子",
+      "faction": null,
+      "role": "npc",
+      "one_line": "崔百泉的弟子，随师前来参合庄",
+      "personality": "年轻气盛，跟随师父行事",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_murongbo",
+      "name": "慕容博",
+      "alias": [],
+      "identity": "慕容复之父",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "慕容复之父，已故，留下参合庄基业",
+      "personality": "深谋远虑，为复兴大燕耗尽心血",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_muwanqing",
+      "name": "木婉清",
+      "alias": [],
+      "identity": "秦红棉之女",
+      "faction": null,
+      "role": "npc",
+      "one_line": "段誉曾相识的女子，在本章中被提及",
+      "personality": "刚烈泼辣，对段誉有情",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baodingdi",
+      "name": "保定帝",
+      "alias": ["段正明"],
+      "identity": "大理皇帝",
+      "faction": "faction_dali_duanshi",
+      "role": "npc",
+      "one_line": "大理国皇帝段正明，在本章中被提及",
+      "personality": "仁厚宽和，以佛法治国",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_murongjia",
+      "name": "慕容家",
+      "type": "家族",
+      "location": "loc_yanziwu",
+      "sub_divisions": [],
+      "one_line": "姑苏慕容氏，以'以彼之道还施彼身'闻名江湖"
+    },
+    {
+      "id": "faction_dali_duanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": ["天龙寺"],
+      "one_line": "大理国皇族段氏，以一阳指和六脉神剑著称"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_canhezhuang",
+      "name": "参合庄",
+      "region": "姑苏燕子坞",
+      "one_line": "慕容家在燕子坞的庄园，内有还施水阁藏书"
+    },
+    {
+      "id": "loc_tingyuju",
+      "name": "听雨居",
+      "region": "姑苏",
+      "one_line": "燕子坞中的雅致居所，阿碧弹琴之处"
+    },
+    {
+      "id": "loc_yanziwu",
+      "name": "燕子坞",
+      "region": "姑苏",
+      "one_line": "慕容家所在之处，位于姑苏城外"
+    },
+    {
+      "id": "loc_huanshui_ge",
+      "name": "还施水阁",
+      "region": "姑苏燕子坞",
+      "one_line": "慕容家藏书阁，收藏各门各派武功秘籍"
+    },
+    {
+      "id": "loc_tingshuangxiang",
+      "name": "听香水榭",
+      "region": "姑苏",
+      "one_line": "燕子坞中的水榭，阿朱居所"
+    },
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "云南",
+      "one_line": "大理国都城，段氏皇族所在地"
+    },
+    {
+      "id": "loc_tianlongsi",
+      "name": "天龙寺",
+      "region": "大理",
+      "one_line": "大理国皇家寺院，段氏高僧修行之所"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_liumai_shenjian",
+      "name": "六脉神剑",
+      "type": "指法",
+      "faction": "faction_dali_duanshi",
+      "one_line": "大理段氏最高绝学，以无形剑气伤敌"
+    },
+    {
+      "id": "skill_huoyandao",
+      "name": "火焰刀",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "鸠摩智的绝技，以深厚内力化为灼热刀气"
+    },
+    {
+      "id": "skill_huagong_dafa",
+      "name": "化功大法",
+      "type": "内功",
+      "faction": "",
+      "one_line": "鸠摩智所用邪功，可化解他人内力"
+    },
+    {
+      "id": "skill_yiyang_zhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_dali_duanshi",
+      "one_line": "大理段氏指法绝学，为六脉神剑基础"
+    },
+    {
+      "id": "skill_lingbo_weibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "段誉所学轻功，步法飘逸如凌波仙子"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_qin",
+      "name": "琴",
+      "type": "special",
+      "owner": "char_abi",
+      "one_line": "阿碧弹奏的古琴，琴声悠扬动听"
+    },
+    {
+      "id": "item_biluochun",
+      "name": "碧螺春",
+      "type": "special",
+      "owner": null,
+      "one_line": "听雨居中待客的名茶"
+    }
+  ]
+}

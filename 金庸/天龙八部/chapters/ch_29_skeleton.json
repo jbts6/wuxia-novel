@@ -1,0 +1,224 @@
+{
+  "chapter": 29,
+  "characters": [
+    {
+      "id": "char_a_zi",
+      "name": "阿紫",
+      "alias": [],
+      "identity": "星宿派弟子",
+      "faction": "faction_xingxiu_pai",
+      "role": "protagonist",
+      "one_line": "用冰蚕喂养毒虫，修炼毒掌功夫",
+      "personality": "心狠手辣，为练功不择手段",
+      "known_skills": ["skill_du_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_you_tanzhi",
+      "name": "游坦之",
+      "alias": ["铁丑"],
+      "identity": "被阿紫囚禁的少年",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "被迫以血喂养冰蚕，险些丧命",
+      "personality": "痴情执着，对阿紫言听计从",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ding_chunqiu",
+      "name": "丁春秋",
+      "alias": ["星宿老仙"],
+      "identity": "星宿派掌门",
+      "faction": "faction_xingxiu_pai",
+      "role": "villain",
+      "one_line": "使用化功大法的邪派高手",
+      "personality": "阴险狡诈，心狠手辣",
+      "known_skills": ["skill_huagong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duan_yu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理段氏公子",
+      "faction": "faction_duan",
+      "role": "protagonist",
+      "one_line": "大理段氏传人，擅长六脉神剑",
+      "personality": "仁厚善良，书生气重",
+      "known_skills": ["skill_liu_mai_shen_jian", "skill_lingbo_weibu"],
+      "related_skills": ["skill_yiyang_zhi"]
+    },
+    {
+      "id": "char_wang_yuyan",
+      "name": "王语嫣",
+      "alias": [],
+      "identity": "慕容复的表妹",
+      "faction": null,
+      "role": "companion",
+      "one_line": "熟知天下武功招式",
+      "personality": "温柔贤淑，精通武学",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bao_buchong",
+      "name": "包不同",
+      "alias": [],
+      "identity": "慕容家四大家臣之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "慕容复的忠心部下，爱与人抬杠",
+      "personality": "爱抬杠，说话直率",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_feng_boe",
+      "name": "风波恶",
+      "alias": [],
+      "identity": "慕容家四大家臣之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "慕容复的忠心部下，好勇斗狠",
+      "personality": "好勇斗狠，忠诚",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xu_zhu",
+      "name": "虚竹",
+      "alias": [],
+      "identity": "少林寺和尚",
+      "faction": "faction_shaolin",
+      "role": "protagonist",
+      "one_line": "少林寺小和尚，后成为灵鹫宫主人",
+      "personality": "憨厚老实，心地善良",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_deng_baichuan",
+      "name": "邓百川",
+      "alias": [],
+      "identity": "慕容家四大家臣之首",
+      "faction": null,
+      "role": "npc",
+      "one_line": "慕容复的忠心部下，老成持重",
+      "personality": "老成持重，有主见",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuan_nan",
+      "name": "玄难",
+      "alias": [],
+      "identity": "少林寺高僧",
+      "faction": "faction_shaolin",
+      "role": "npc",
+      "one_line": "少林寺玄字辈高僧",
+      "personality": "慈悲为怀",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_xingxiu_pai",
+      "name": "星宿派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "丁春秋所创门派，擅长用毒"
+    },
+    {
+      "id": "faction_duan",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": [],
+      "one_line": "大理国皇室家族，以一阳指和六脉神剑著称"
+    },
+    {
+      "id": "faction_shaolin",
+      "name": "少林派",
+      "type": "武林门派",
+      "location": "loc_shaolin",
+      "sub_divisions": [],
+      "one_line": "武林泰山北斗，天下武学总源"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_shaolin",
+      "name": "少林寺",
+      "region": "中原",
+      "one_line": "武林圣地，天下武学总源"
+    },
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "西南",
+      "one_line": "大理国都城"
+    },
+    {
+      "id": "loc_xue_residence",
+      "name": "薛神医宅邸",
+      "region": "中原",
+      "one_line": "薛神医的住所，设有陷阱"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_du_zhang",
+      "name": "毒掌",
+      "type": "掌法",
+      "faction": "faction_xingxiu_pai",
+      "one_line": "阿紫以冰蚕毒素修炼的掌法"
+    },
+    {
+      "id": "skill_huagong",
+      "name": "化功大法",
+      "type": "内功",
+      "faction": "faction_xingxiu_pai",
+      "one_line": "丁春秋绝学，能化去对手内力"
+    },
+    {
+      "id": "skill_liu_mai_shen_jian",
+      "name": "六脉神剑",
+      "type": "指法",
+      "faction": "faction_duan",
+      "one_line": "大理段氏绝学，以真气化为无形剑气"
+    },
+    {
+      "id": "skill_lingbo_weibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "段誉所使轻功，步法飘逸"
+    },
+    {
+      "id": "skill_beiming",
+      "name": "北冥神功",
+      "type": "内功",
+      "faction": "",
+      "one_line": "逍遥派绝学，能吸人内力"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_ice_silkworm",
+      "name": "冰蚕",
+      "type": "special",
+      "owner": "char_a_zi",
+      "one_line": "罕见毒虫，可使周围温度骤降"
+    },
+    {
+      "id": "item_iron_mask",
+      "name": "铁罩",
+      "type": "special",
+      "owner": "char_you_tanzhi",
+      "one_line": "游坦之头上戴的铁制面具"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "chapter": 50,
+  "characters": [
+    {
+      "id": "char_xiaofeng",
+      "name": "萧峰",
+      "alias": ["乔峰"],
+      "identity": "丐帮前帮主",
+      "faction": "faction_gaibang",
+      "role": "protagonist",
+      "one_line": "丐帮前帮主，契丹人身份曝光后被逐出中原",
+      "personality": "豪迈磊落，重情重义",
+      "known_skills": ["skill_xianglongshibazhang", "skill_dagoubangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azi",
+      "name": "阿紫",
+      "alias": [],
+      "identity": "星宿派弟子",
+      "faction": "faction_xingxupai",
+      "role": "companion",
+      "one_line": "丁春秋弟子，萧峰挚爱",
+      "personality": "刁蛮任性，心狠手辣",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_youtanzhi",
+      "name": "游坦之",
+      "alias": ["铁头人"],
+      "identity": "聚贤庄少庄主",
+      "faction": null,
+      "role": "npc",
+      "one_line": "聚贤庄少庄主，对阿紫痴心不改",
+      "personality": "痴情懦弱",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yelvjiqi",
+      "name": "耶律基",
+      "alias": ["辽帝"],
+      "identity": "辽国皇帝",
+      "faction": "faction_liaoguo",
+      "role": "npc",
+      "one_line": "辽国皇帝，萧峰结义兄弟",
+      "personality": "雄才大略，重情重义",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanhongmian",
+      "name": "段正明",
+      "alias": ["保定帝"],
+      "identity": "大理前皇帝",
+      "faction": "faction_daliduanshi",
+      "role": "npc",
+      "one_line": "大理前皇帝，已传位给段誉",
+      "personality": "英明睿智",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理新帝",
+      "faction": "faction_daliduanshi",
+      "role": "npc",
+      "one_line": "继承大理皇位的新皇帝",
+      "personality": "仁厚爱民",
+      "known_skills": ["skill_lingboweibu"],
+      "related_skills": ["skill_yiyangzhi", "skill_liumaishenjian"]
+    },
+    {
+      "id": "char_xuzhu",
+      "name": "虚竹",
+      "alias": [],
+      "identity": "灵鹫宫宫主",
+      "faction": "faction_lingjiugong",
+      "role": "npc",
+      "one_line": "少林寺僧人出身，现任灵鹫宫宫主",
+      "personality": "憨厚老实，武功高强",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": "loc_zhongyuan",
+      "sub_divisions": [],
+      "one_line": "天下第一大帮"
+    },
+    {
+      "id": "faction_xingxupai",
+      "name": "星宿派",
+      "type": "武林门派",
+      "location": "loc_xingxiuhaixin",
+      "sub_divisions": [],
+      "one_line": "丁春秋所创的邪派"
+    },
+    {
+      "id": "faction_liaoguo",
+      "name": "辽国",
+      "type": "朝廷",
+      "location": "loc_liaoguo",
+      "sub_divisions": [],
+      "one_line": "北方契丹王朝"
+    },
+    {
+      "id": "faction_daliduanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": ["天龙寺"],
+      "one_line": "大理国皇族，武学世家"
+    },
+    {
+      "id": "faction_lingjiugong",
+      "name": "灵鹫宫",
+      "type": "武林门派",
+      "location": "loc_wushan",
+      "sub_divisions": [],
+      "one_line": "天山童姥所创，虚竹继任宫主"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_zhongyuan",
+      "name": "中原",
+      "region": "大宋",
+      "one_line": "汉人聚居之地"
+    },
+    {
+      "id": "loc_xingxiuhaixin",
+      "name": "星宿海",
+      "region": "西域",
+      "one_line": "星宿派所在地"
+    },
+    {
+      "id": "loc_liaoguo",
+      "name": "辽国",
+      "region": "北方",
+      "one_line": "契丹王朝都城"
+    },
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "云南",
+      "one_line": "大理国都城"
+    },
+    {
+      "id": "loc_wushan",
+      "name": "天山",
+      "region": "西域",
+      "one_line": "灵鹫宫所在地"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_xianglongshibazhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮镇帮之宝，刚猛无比"
+    },
+    {
+      "id": "skill_dagoubangfa",
+      "name": "打狗棒法",
+      "type": "棍法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮帮主独传武功，灵巧多变"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "逍遥派轻功，步法飘逸灵动"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_shuxinzhi",
+      "name": "书信",
+      "type": "special",
+      "owner": null,
+      "one_line": "辽国发兵的文书"
+    }
+  ]
+}

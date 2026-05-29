@@ -1,0 +1,283 @@
+{
+  "chapter": 2,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理国段氏子弟",
+      "faction": "faction_duanshi",
+      "role": "protagonist",
+      "one_line": "失足坠入深谷，发现神仙姊姊玉像和武功秘籍",
+      "personality": "痴情执着，善良迂腐，不愿学武",
+      "known_skills": [],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_ganguanghao",
+      "name": "干光豪",
+      "alias": [],
+      "identity": "无量剑东宗弟子",
+      "faction": "faction_wuliangjian",
+      "role": "npc",
+      "one_line": "无量剑东宗大弟子，与葛师妹背师私逃",
+      "personality": "偷懒逃学，为爱私奔",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_geshimei",
+      "name": "葛师妹",
+      "alias": [],
+      "identity": "无量剑西宗弟子",
+      "faction": "faction_wuliangjian",
+      "role": "npc",
+      "one_line": "与干光豪相恋的西宗女弟子",
+      "personality": "温柔，有些害怕",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongling",
+      "name": "钟灵",
+      "alias": [],
+      "identity": "钟家少女",
+      "faction": null,
+      "role": "companion",
+      "one_line": "被神农帮扣押，托段誉报信",
+      "personality": "娇俏可爱，刁钻古怪",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongwanchou",
+      "name": "钟万仇",
+      "alias": ["马王神"],
+      "identity": "万劫谷谷主",
+      "faction": "faction_wanjiegu",
+      "role": "npc",
+      "one_line": "钟灵之父，丑陋马脸，深爱妻子甘宝宝",
+      "personality": "多疑善妒，暴躁但深情",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ganbaobao",
+      "name": "甘宝宝",
+      "alias": ["俏夜叉", "钟夫人"],
+      "identity": "万劫谷谷主夫人",
+      "faction": "faction_wanjiegu",
+      "role": "npc",
+      "one_line": "钟灵之母，容色清秀，与段正淳有旧情",
+      "personality": "温柔端庄，内心复杂",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jinxier",
+      "name": "进喜儿",
+      "alias": [],
+      "identity": "万劫谷仆人",
+      "faction": "faction_wanjiegu",
+      "role": "npc",
+      "one_line": "忠心耿耿服侍多年，被岳老三扭断脖子",
+      "personality": "忠厚老实",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_laifuer",
+      "name": "来福儿",
+      "alias": [],
+      "identity": "万劫谷仆人",
+      "faction": "faction_wanjiegu",
+      "role": "npc",
+      "one_line": "向钟夫人禀报进喜儿被杀之事",
+      "personality": "惊魂未定",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yuelaosan",
+      "name": "岳老三",
+      "alias": ["岳老二"],
+      "identity": "四大恶人之一",
+      "faction": null,
+      "role": "villain",
+      "one_line": "四大恶人之一，暴躁凶残，扭断进喜儿脖子",
+      "personality": "暴躁凶残，喜怒无常",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun",
+      "name": "段正淳",
+      "alias": [],
+      "identity": "大理段氏",
+      "faction": "faction_duanshi",
+      "role": "npc",
+      "one_line": "段誉之父，被钟万仇深恨",
+      "personality": "未直接出场",
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_xiaoziyu",
+      "name": "小玉",
+      "alias": [],
+      "identity": "万劫谷丫鬟",
+      "faction": "faction_wanjiegu",
+      "role": "npc",
+      "one_line": "钟夫人的丫鬟，迎接段誉入谷",
+      "personality": "谨慎小心",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_wuliangjian",
+      "name": "无量剑",
+      "type": "武林门派",
+      "location": "loc_wuliangshan",
+      "sub_divisions": ["东宗", "西宗", "北宗"],
+      "one_line": "五代后唐年间在南诏无量山创派，分为东西北三宗"
+    },
+    {
+      "id": "faction_wanjiegu",
+      "name": "万劫谷",
+      "type": "家族",
+      "location": "loc_wanjiegu",
+      "sub_divisions": [],
+      "one_line": "钟万仇与甘宝宝隐居之所，谷口有'姓段者入此谷杀无赦'"
+    },
+    {
+      "id": "faction_duanshi",
+      "name": "段氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "大理国姓段的家族，以一阳指闻名"
+    },
+    {
+      "id": "faction_xiaoyao",
+      "name": "逍遥派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "神秘门派，有北冥神功、凌波微步等绝学"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_wuliangshan",
+      "name": "无量山",
+      "region": "云南",
+      "one_line": "山水清幽，无量剑派所在之地"
+    },
+    {
+      "id": "loc_jianhu",
+      "name": "剑湖",
+      "region": "无量山",
+      "one_line": "无量山深谷中的清澈大湖，有瀑布注入"
+    },
+    {
+      "id": "loc_hugu",
+      "name": "湖底石室",
+      "region": "无量山",
+      "one_line": "剑湖湖底的秘密石室，有玉像和武功秘籍"
+    },
+    {
+      "id": "loc_langhuanfudi",
+      "name": "琅擐福地",
+      "region": "无量山",
+      "one_line": "湖底石室中的藏书洞，原有各门各派武功典籍"
+    },
+    {
+      "id": "loc_sharendu",
+      "name": "善人渡",
+      "region": "云南",
+      "one_line": "澜沧江上的铁索桥"
+    },
+    {
+      "id": "loc_wanjiegu",
+      "name": "万劫谷",
+      "region": "云南",
+      "one_line": "澜沧江西岸的隐秘山谷，钟万仇夫妇隐居之所"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_beiming",
+      "name": "北冥神功",
+      "type": "内功",
+      "faction": "faction_xiaoyao",
+      "one_line": "逍遥派内功，引世人之内力而为我有"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "faction_xiaoyao",
+      "one_line": "逍遥派步法，以易经方位为基础，用于保身和积聚内力"
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_duanshi",
+      "one_line": "段家点穴功夫天下无双"
+    },
+    {
+      "id": "skill_zhenlong",
+      "name": "珍珑",
+      "type": "棋艺",
+      "faction": "",
+      "one_line": "石室中的复杂棋局，劫中有劫，既有共活又有长生"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_yuxiang",
+      "name": "玉像",
+      "type": "special",
+      "owner": null,
+      "one_line": "逍遥子为秋水妹所雕的白玉美女像，与生人一般大小"
+    },
+    {
+      "id": "item_bojuan",
+      "name": "帛卷",
+      "type": "special",
+      "owner": "char_duanyu",
+      "one_line": "记载北冥神功和凌波微步的武功秘籍"
+    },
+    {
+      "id": "item_huangjindianhe",
+      "name": "黄金钿盒",
+      "type": "special",
+      "owner": "char_ganbaobao",
+      "one_line": "钟夫人交给段誉的精致金盒，内有生辰八字纸片"
+    },
+    {
+      "id": "item_shengchenbazi",
+      "name": "生辰八字",
+      "type": "special",
+      "owner": "char_ganbaobao",
+      "one_line": "纸片上写着'庚申年二月初五丑时女'，十六年前的女婴八字"
+    },
+    {
+      "id": "item_huaxie",
+      "name": "花鞋",
+      "type": "special",
+      "owner": "char_zhongling",
+      "one_line": "钟灵的葱绿色花鞋，作为信物"
+    },
+    {
+      "id": "item_qixuanqin",
+      "name": "七玄琴",
+      "type": "special",
+      "owner": null,
+      "one_line": "湖底石室中悬挂的古琴，玄线俱已断绝"
+    }
+  ]
+}

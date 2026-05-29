@@ -1,0 +1,139 @@
+{
+  "chapter": 30,
+  "characters": [
+    {
+      "id": "char_ding_chunqiu",
+      "name": "丁春秋",
+      "alias": ["星宿老仙"],
+      "identity": "星宿派掌门",
+      "faction": "faction_xingxiu_pai",
+      "role": "villain",
+      "one_line": "威逼薛慕华为虚竹疗伤",
+      "personality": "阴险狡诈，心狠手辣",
+      "known_skills": ["skill_huagong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_xue_muhua",
+      "name": "薛慕华",
+      "alias": ["薛神医"],
+      "identity": "逍遥派弟子，神医",
+      "faction": "faction_xiaoyao",
+      "role": "npc",
+      "one_line": "被丁春秋逼迫为虚竹疗伤的神医",
+      "personality": "医术高明，重情重义",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_kang_guangling",
+      "name": "康广陵",
+      "alias": [],
+      "identity": "逍遥派大弟子",
+      "faction": "faction_xiaoyao",
+      "role": "npc",
+      "one_line": "薛慕华的大师兄，宁死不屈",
+      "personality": "刚烈不屈，重师门情义",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xu_zhu",
+      "name": "虚竹",
+      "alias": [],
+      "identity": "少林寺和尚",
+      "faction": "faction_shaolin",
+      "role": "protagonist",
+      "one_line": "身受重伤，需要薛慕华医治",
+      "personality": "憨厚老实，心地善良",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bao_buchong",
+      "name": "包不同",
+      "alias": [],
+      "identity": "慕容家四大家臣之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "在场的江湖人士",
+      "personality": "爱抬杠，说话直率",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_feng_boe",
+      "name": "风波恶",
+      "alias": [],
+      "identity": "慕容家四大家臣之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "在场的江湖人士",
+      "personality": "好勇斗狠，忠诚",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuan_nan",
+      "name": "玄难",
+      "alias": [],
+      "identity": "少林寺高僧",
+      "faction": "faction_shaolin",
+      "role": "npc",
+      "one_line": "少林寺玄字辈高僧",
+      "personality": "慈悲为怀",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_xingxiu_pai",
+      "name": "星宿派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "丁春秋所创门派，擅长用毒"
+    },
+    {
+      "id": "faction_xiaoyao",
+      "name": "逍遥派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "神秘门派，弟子各有所长"
+    },
+    {
+      "id": "faction_shaolin",
+      "name": "少林派",
+      "type": "武林门派",
+      "location": "loc_shaolin",
+      "sub_divisions": [],
+      "one_line": "武林泰山北斗，天下武学总源"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_shaolin",
+      "name": "少林寺",
+      "region": "中原",
+      "one_line": "武林圣地"
+    },
+    {
+      "id": "loc_xue_residence",
+      "name": "薛慕华宅邸",
+      "region": "中原",
+      "one_line": "薛慕华的住所，逍遥派弟子聚集之处"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_huagong",
+      "name": "化功大法",
+      "type": "内功",
+      "faction": "faction_xingxiu_pai",
+      "one_line": "丁春秋绝学，能化去对手内力"
+    }
+  ],
+  "items": []
+}

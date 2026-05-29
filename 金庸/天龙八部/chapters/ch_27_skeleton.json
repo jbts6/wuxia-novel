@@ -1,0 +1,130 @@
+{
+  "chapter": 27,
+  "characters": [
+    {
+      "id": "char_xiao_feng",
+      "name": "萧峰",
+      "alias": ["乔峰"],
+      "identity": "契丹人，曾为丐帮帮主",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "在草原上遇到义兄耶律基的部下，被引入辽国军营",
+      "personality": "豪迈直率，重情重义，内心矛盾于宋辽之间",
+      "known_skills": ["skill_neigong", "skill_zhangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_a_zi",
+      "name": "阿紫",
+      "alias": [],
+      "identity": "星宿派弟子，阿朱之妹",
+      "faction": "faction_xingxiu_pai",
+      "role": "companion",
+      "one_line": "跟随萧峰在草原上，伤势已渐恢复",
+      "personality": "顽皮任性，对萧峰言听计从",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_you_tanzhi",
+      "name": "游坦之",
+      "alias": ["庄聚贤"],
+      "identity": "丐帮帮主，被辽兵俘获的宋人",
+      "faction": "faction_gai_bang",
+      "role": "npc",
+      "one_line": "被辽兵打草谷俘获，萧峰将其释放",
+      "personality": "性格刚烈，宁死不屈",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shili",
+      "name": "室里",
+      "alias": [],
+      "identity": "辽国大帐皮室军队长",
+      "faction": "faction_liao",
+      "role": "npc",
+      "one_line": "耶律基的部下，负责迎接萧峰",
+      "personality": "忠诚守礼，对萧峰恭敬",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yelv_ji",
+      "name": "耶律基",
+      "alias": ["辽国皇帝"],
+      "identity": "辽国皇帝，萧峰的义兄",
+      "faction": "faction_liao",
+      "role": "npc",
+      "one_line": "辽国皇帝，与萧峰结为义兄弟",
+      "personality": "豪爽大方，重义气",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_liao",
+      "name": "辽国",
+      "type": "国家",
+      "location": "loc_caoyuan",
+      "sub_divisions": ["大帐皮室军", "飞熊队", "飞虎队", "飞豹队"],
+      "one_line": "北方强大帝国，与宋朝对峙"
+    },
+    {
+      "id": "faction_xingxiu_pai",
+      "name": "星宿派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "阿紫所属门派"
+    },
+    {
+      "id": "faction_gai_bang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "天下第一大帮，游坦之曾为帮主"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_caoyuan",
+      "name": "草原",
+      "region": "塞外",
+      "one_line": "辽国骑兵操练与围猎的广阔草原"
+    },
+    {
+      "id": "loc_liao_junying",
+      "name": "辽国军营",
+      "region": "塞外",
+      "one_line": "萧峰被引入的辽国中央大帐所在地"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_neigong",
+      "name": "内力真气",
+      "type": "内功",
+      "faction": "",
+      "one_line": "萧峰深厚的内功修为"
+    },
+    {
+      "id": "skill_zhangfa",
+      "name": "掌法",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "萧峰的掌法武功"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_yijinjing",
+      "name": "梵文易筋经",
+      "type": "special",
+      "owner": "char_xiao_feng",
+      "one_line": "阿朱从少林寺盗出，交给萧峰保管的佛经"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "chapter": 26,
+  "characters": [
+    {
+      "id": "char_xiao_feng",
+      "name": "萧峰",
+      "alias": ["乔峰"],
+      "identity": "丐帮前任帮主，契丹人",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "武功高强的丐帮前任帮主，身世为契丹人，此刻正带着受伤的阿紫逃亡",
+      "personality": "豪迈直率，重情重义，此刻内心充满愧疚与焦急",
+      "known_skills": ["skill_neigong", "skill_zhangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_a_zi",
+      "name": "阿紫",
+      "alias": [],
+      "identity": "星宿派弟子，阿朱之妹",
+      "faction": "faction_xingxiu_pai",
+      "role": "companion",
+      "one_line": "被萧峰误伤后奄奄一息，被萧峰以内力救回",
+      "personality": "顽皮任性，此刻虚弱无助",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_qidan",
+      "name": "契丹",
+      "type": "民族",
+      "location": "loc_caoyuan",
+      "sub_divisions": [],
+      "one_line": "北方游牧民族，以骑射著称"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_caoyuan",
+      "name": "草原",
+      "region": "塞外",
+      "one_line": "契丹人聚居的辽阔草原，地势平坦"
+    },
+    {
+      "id": "loc_xiao_shi",
+      "name": "小市镇",
+      "region": "塞外",
+      "one_line": "萧峰带着阿紫经过的边陲小镇"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_neigong",
+      "name": "内力真气",
+      "type": "内功",
+      "faction": "",
+      "one_line": "萧峰以深厚内力为阿紫疗伤"
+    },
+    {
+      "id": "skill_zhangfa",
+      "name": "掌法",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "萧峰以掌按住阿紫背心输送真气"
+    }
+  ],
+  "items": []
+}

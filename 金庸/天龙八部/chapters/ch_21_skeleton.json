@@ -1,0 +1,293 @@
+{
+  "chapter": 21,
+  "characters": [
+    {
+      "id": "char_qiaofeng",
+      "name": "乔峰",
+      "alias": ["萧峰", "阿朱口中乔大爷"],
+      "identity": "前丐帮帮主，契丹人后裔",
+      "faction": "faction_gaibang",
+      "role": "protagonist",
+      "one_line": "契丹人后裔，被诬陷杀害养父母和恩师，追查身世真相",
+      "personality": "豪迈义气，恩怨分明，刚毅果敢",
+      "known_skills": ["skill_qinnashou", "skill_duandaqingong", "skill_taizichangquan"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": ["阮姑娘"],
+      "identity": "慕容复丫鬟，易容高手",
+      "faction": "faction_murong",
+      "role": "companion",
+      "one_line": "机灵聪慧的女子，擅长易容术，与萧峰相爱",
+      "personality": "温柔体贴，机智灵敏，对萧峰忠贞不渝",
+      "known_skills": ["skill_yirong", "skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_tanpo",
+      "name": "谭婆",
+      "alias": ["小娟"],
+      "identity": "武林前辈，赵钱孙师妹",
+      "faction": null,
+      "role": "npc",
+      "one_line": "赵钱孙的师妹，与师兄有旧情，后被神秘高手杀害",
+      "personality": "重情重义，性格刚强",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhaoqiansun",
+      "name": "赵钱孙",
+      "alias": [],
+      "identity": "武林前辈，谭婆师兄",
+      "faction": null,
+      "role": "npc",
+      "one_line": "痴情于师妹谭婆，知道带头大哥身份却宁死不言，后被杀害",
+      "personality": "痴情执着，重义轻生",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tangong",
+      "name": "谭公",
+      "alias": [],
+      "identity": "谭婆丈夫",
+      "faction": null,
+      "role": "npc",
+      "one_line": "谭婆的丈夫，见妻死后悲愤自尽",
+      "personality": "性格沉稳，重情重义",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhineng",
+      "name": "智光",
+      "alias": ["智光大师", "智光禅师", "万家生佛"],
+      "identity": "天台山止观禅寺高僧",
+      "faction": "faction_shaolin",
+      "role": "npc",
+      "one_line": "曾参与雁门关伏击，后发愿行医济世，武功全失，告知萧峰身世后服毒自尽",
+      "personality": "慈悲为怀，看破红尘",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_puzhe",
+      "name": "朴者",
+      "alias": [],
+      "identity": "智光弟子",
+      "faction": null,
+      "role": "npc",
+      "one_line": "智光的弟子，奉师命迎接萧峰",
+      "personality": "恭谨守礼",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mafuren",
+      "name": "马夫人",
+      "alias": ["康敏"],
+      "identity": "丐帮副帮主马大元之妻",
+      "faction": "faction_gaibang",
+      "role": "villain",
+      "one_line": "马大元遗孀，冷若冰霜，透露带头大哥是段正淳",
+      "personality": "冷漠阴狠，心机深沉",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun",
+      "name": "段正淳",
+      "alias": ["镇南王", "带头大哥"],
+      "identity": "大理国镇南王",
+      "faction": "faction_duan",
+      "role": "villain",
+      "one_line": "被马夫人指认为当年雁门关事件的带头大哥",
+      "personality": "权位尊崇，为人仁义",
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理段氏子弟",
+      "faction": "faction_duan",
+      "role": "npc",
+      "one_line": "萧峰的义弟，武功奇特，会六脉神剑",
+      "personality": "纯真善良",
+      "known_skills": ["skill_liumaishenjian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_xiaokuangsheng",
+      "name": "徐长老",
+      "alias": [],
+      "identity": "丐帮长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮长老，前胸后背肋骨尽断而死",
+      "personality": "正直",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "江湖第一大帮，帮规废弛，追杀乔峰"
+    },
+    {
+      "id": "faction_duan",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": [],
+      "one_line": "大理国皇族，以一阳指和六脉神剑闻名"
+    },
+    {
+      "id": "faction_shaolin",
+      "name": "少林派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "天下武学正宗，以易筋经为镇派之宝"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_yanmenguan",
+      "name": "雁门关",
+      "region": "山西",
+      "one_line": "萧峰身世真相的关键地点"
+    },
+    {
+      "id": "loc_sanJiazhen",
+      "name": "三甲镇",
+      "region": "晋南",
+      "one_line": "萧峰和阿朱听到徐长老死讯的小镇"
+    },
+    {
+      "id": "loc_weihui",
+      "name": "卫辉",
+      "region": "河南",
+      "one_line": "徐长老开吊之处，谭公谭婆赵钱孙被害之地"
+    },
+    {
+      "id": "loc_taian",
+      "name": "泰安",
+      "region": "山东",
+      "one_line": "铁面判官单正世居之地，单家庄被烧成白地"
+    },
+    {
+      "id": "loc_tiantaishan",
+      "name": "天台山",
+      "region": "浙东",
+      "one_line": "止观禅寺所在地，智光大师居住之处"
+    },
+    {
+      "id": "loc_zhiguansi",
+      "name": "止观禅寺",
+      "region": "天台山",
+      "one_line": "智光大师所居的小庙"
+    },
+    {
+      "id": "loc_zhenjiang",
+      "name": "镇江",
+      "region": "江南",
+      "one_line": "萧峰和阿朱游览金山寺之处"
+    },
+    {
+      "id": "loc_xinyang",
+      "name": "信阳",
+      "region": "河南",
+      "one_line": "马大元家所在，萧峰和阿朱套问马夫人真相"
+    },
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "云南",
+      "one_line": "大理国都城，段氏皇族所在地"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_qinnashou",
+      "name": "擒拿手",
+      "type": "指法",
+      "faction": "",
+      "one_line": "萧峰在船舱中与谭公谭婆对战时使用的近身功夫"
+    },
+    {
+      "id": "skill_duandaqingong",
+      "name": "短打轻功",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "萧峰在狭窄船舱中施展的近攻功夫"
+    },
+    {
+      "id": "skill_yirong",
+      "name": "易容术",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "阿朱精通的伪装术，可改变容貌扮成他人"
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_duan",
+      "one_line": "大理段氏绝学，天下点穴功夫第一"
+    },
+    {
+      "id": "skill_liumaishenjian",
+      "name": "六脉神剑",
+      "type": "剑法",
+      "faction": "faction_duan",
+      "one_line": "大理段氏最高绝学，以指代剑发出剑气"
+    },
+    {
+      "id": "skill_yijinjing",
+      "name": "易筋经",
+      "type": "内功",
+      "faction": "faction_shaolin",
+      "one_line": "少林派镇派内功秘笈，梵文所写"
+    },
+    {
+      "id": "skill_taizichangquan",
+      "name": "太祖长拳",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "萧峰在聚贤庄力斗群雄时使用的拳法"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_yuchaichai",
+      "name": "玉钗",
+      "type": "special",
+      "owner": "char_tanpo",
+      "one_line": "萧峰从谭婆头上拔下，用来威胁谭公交出带头大哥姓名"
+    },
+    {
+      "id": "item_yijinjing",
+      "name": "易筋经",
+      "type": "special",
+      "owner": "char_azhu",
+      "one_line": "阿朱从少林寺菩提院盗出的梵文内功秘笈"
+    },
+    {
+      "id": "item_youbu",
+      "name": "油布小包",
+      "type": "special",
+      "owner": "char_azhu",
+      "one_line": "包裹易筋经的油布包"
+    }
+  ]
+}

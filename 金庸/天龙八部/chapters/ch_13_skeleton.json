@@ -1,0 +1,179 @@
+{
+  "chapter": 13,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": ["大理王子"],
+      "identity": "大理镇南王之子",
+      "faction": "faction_dali_duanshi",
+      "role": "protagonist",
+      "one_line": "在听香水榭中与王语嫣、包不同等人相遇的大理王子",
+      "personality": "痴情执着，对王语嫣一片真心，为人正直厚道",
+      "known_skills": ["skill_liumai_shenjian", "skill_lingbo_weibu"],
+      "related_skills": ["skill_yiyang_zhi"]
+    },
+    {
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "alias": ["神仙姐姐"],
+      "identity": "慕容复表妹",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "本章核心人物，熟读天下武功秘籍的绝色女子",
+      "personality": "温婉聪慧，对慕容复一片痴心，对段誉态度暧昧",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_abi",
+      "name": "阿碧",
+      "alias": [],
+      "identity": "慕容家侍女",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "慕容复的贴身侍女，在听香水榭中照料众人",
+      "personality": "温柔体贴，忠心耿耿",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": [],
+      "identity": "慕容家侍女",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "慕容复的侍女，精通易容术，本章提及最多的人物之一",
+      "personality": "活泼机灵，善于伪装，对阿碧情同姐妹",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baobutong",
+      "name": "包不同",
+      "alias": ["包三先生"],
+      "identity": "慕容家四大家臣之三",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "慕容家四大家臣之一，人称包三先生，好与人抬杠",
+      "personality": "口无遮拦，喜欢反驳他人，但忠心耿耿",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_murongfu",
+      "name": "慕容复",
+      "alias": ["慕容公子"],
+      "identity": "姑苏慕容氏传人",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "慕容家少主，本章中被提及",
+      "personality": "城府极深，野心勃勃",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_murongjia",
+      "name": "慕容家",
+      "type": "家族",
+      "location": "loc_yanziwu",
+      "sub_divisions": [],
+      "one_line": "姑苏慕容氏，以'以彼之道还施彼身'闻名江湖"
+    },
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "天下第一大帮，在本章中被提及"
+    },
+    {
+      "id": "faction_shaolin",
+      "name": "少林寺",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "武林泰斗，在本章中被提及"
+    },
+    {
+      "id": "faction_tubo",
+      "name": "吐蕃",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "吐蕃国，在本章中被提及"
+    },
+    {
+      "id": "faction_dali_duanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": ["天龙寺"],
+      "one_line": "大理国皇族段氏，以一阳指和六脉神剑著称"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_tingshuangxiang",
+      "name": "听香水榭",
+      "region": "姑苏",
+      "one_line": "燕子坞中的水榭，段誉与众人相遇的主要场所"
+    },
+    {
+      "id": "loc_gusu",
+      "name": "姑苏",
+      "region": "江南",
+      "one_line": "江南名城，慕容家所在地"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_liumai_shenjian",
+      "name": "六脉神剑",
+      "type": "指法",
+      "faction": "faction_dali_duanshi",
+      "one_line": "大理段氏最高绝学，以无形剑气伤敌"
+    },
+    {
+      "id": "skill_xiuli_qiankun",
+      "name": "袖里乾坤",
+      "type": "掌法",
+      "faction": "faction_murongjia",
+      "one_line": "慕容家绝学之一，袖中暗藏杀机"
+    },
+    {
+      "id": "skill_lingbo_weibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "段誉所学轻功，步法飘逸如凌波仙子"
+    },
+    {
+      "id": "skill_yiyang_zhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_dali_duanshi",
+      "one_line": "大理段氏指法绝学，为六脉神剑基础"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_qin",
+      "name": "琴",
+      "type": "special",
+      "owner": "char_abi",
+      "one_line": "听香水榭中的古琴"
+    },
+    {
+      "id": "item_shu",
+      "name": "书",
+      "type": "special",
+      "owner": "char_wangyuyan",
+      "one_line": "王语嫣所读各派武功秘籍"
+    }
+  ]
+}

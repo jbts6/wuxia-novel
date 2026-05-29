@@ -1,0 +1,169 @@
+{
+  "chapter": 17,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": ["段公子"],
+      "identity": "大理段氏王子",
+      "faction": "faction_daliduanshi",
+      "role": "protagonist",
+      "one_line": "大理王子，为救王语嫣与西夏武士李延宗对战，首次在实战中使用六脉神剑",
+      "personality": "痴情执着，危急时刻英勇无畏，嘴上功夫厉害但内心善良",
+      "known_skills": ["skill_liumaihenjian", "skill_lingboweibu", "skill_beimingshengong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "alias": ["王姑娘"],
+      "identity": "慕容复的表妹",
+      "faction": "faction_gususumurong",
+      "role": "companion",
+      "one_line": "与段誉一同逃亡，被西夏武士李延宗下毒，博通天下武功",
+      "personality": "温柔聪慧，博学多识，一心只念表哥慕容复",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": [],
+      "identity": "慕容复的贴身侍女",
+      "faction": "faction_gususumurong",
+      "role": "companion",
+      "one_line": "慕容府丫鬟，与阿碧一同被西夏武士擒获",
+      "personality": "机敏灵巧，忠心护主",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_abi",
+      "name": "阿碧",
+      "alias": [],
+      "identity": "慕容复的贴身侍女",
+      "faction": "faction_gususumurong",
+      "role": "companion",
+      "one_line": "慕容府丫鬟，与阿朱一同被西夏武士擒获",
+      "personality": "温柔安静，对慕容复忠心耿耿",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_murongfu",
+      "name": "慕容复",
+      "alias": ["慕容公子"],
+      "identity": "姑苏慕容氏传人",
+      "faction": "faction_gususumurong",
+      "role": "npc",
+      "one_line": "姑苏慕容氏传人，王语嫣表哥，本章被提及但未直接出场",
+      "personality": "志向远大，以复兴大燕为己任",
+      "known_skills": ["skill_douzhuanxingyi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_liyanzong",
+      "name": "李延宗",
+      "alias": [],
+      "identity": "西夏一品堂武士",
+      "faction": "faction_xixia_yipintang",
+      "role": "villain",
+      "one_line": "西夏一品堂高手，擒获阿朱阿碧，与段誉对战",
+      "personality": "傲慢自负，武功高强",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_daliduanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": [],
+      "one_line": "大理国王族，以一阳指和六脉神剑闻名天下"
+    },
+    {
+      "id": "faction_gususumurong",
+      "name": "姑苏慕容",
+      "type": "家族",
+      "location": "loc_suzhou",
+      "sub_divisions": [],
+      "one_line": "姑苏慕容氏，以斗转星移绝技闻名武林"
+    },
+    {
+      "id": "faction_xixia_yipintang",
+      "name": "西夏一品堂",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "西夏国招揽武林高手的官方机构"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_wuxi",
+      "name": "无锡",
+      "region": "江南",
+      "one_line": "段誉与王语嫣逃离之地"
+    },
+    {
+      "id": "loc_suzhou",
+      "name": "姑苏",
+      "region": "江南",
+      "one_line": "慕容府所在之地"
+    },
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "云南",
+      "one_line": "大理国都城，段誉的家乡"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_liumaihenjian",
+      "name": "六脉神剑",
+      "type": "指法",
+      "faction": "faction_daliduanshi",
+      "one_line": "大理段氏绝学，以真气化剑，段誉首次在实战中使用少阳剑"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "段誉赖以闪避敌人攻击的精妙步法，本章多次使用"
+    },
+    {
+      "id": "skill_beimingshengong",
+      "name": "北冥神功",
+      "type": "内功",
+      "faction": "",
+      "one_line": "段誉体内所藏内功，为其提供深厚真气"
+    },
+    {
+      "id": "skill_huagongdafa",
+      "name": "化功大法",
+      "type": "内功",
+      "faction": "",
+      "one_line": "王语嫣提及的邪派武功，能化去他人内力"
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_daliduanshi",
+      "one_line": "大理段氏指法绝学"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_changjian",
+      "name": "长剑",
+      "type": "weapon",
+      "owner": "char_liyanzong",
+      "one_line": "李延宗所使长剑，被段誉六脉神剑击落"
+    }
+  ]
+}

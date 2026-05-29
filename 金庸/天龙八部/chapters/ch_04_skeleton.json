@@ -1,0 +1,167 @@
+{
+  "chapter": 4,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理国段氏子弟",
+      "faction": "faction_duanshi",
+      "role": "protagonist",
+      "one_line": "与木婉清困于崖顶，用石头击退追兵，初见南海鳄神",
+      "personality": "善良正直，不喜杀人，危难中仍保持仁慈",
+      "known_skills": [],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_muwanqing",
+      "name": "木婉清",
+      "alias": [],
+      "identity": "黑衣蒙面女郎",
+      "faction": null,
+      "role": "companion",
+      "one_line": "身受重伤与段誉困于崖顶，被南海鳄神追踪",
+      "personality": "冷傲泼辣，重伤中流露温柔",
+      "known_skills": ["skill_duanjian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieishen",
+      "name": "南海鳄神",
+      "alias": ["岳老三", "岳老二"],
+      "identity": "四大恶人之一",
+      "faction": null,
+      "role": "villain",
+      "one_line": "四大恶人之一，大脑袋阔嘴，武功高强，为弟子孙三霸寻仇",
+      "personality": "暴躁凶残，但有些天真憨直",
+      "known_skills": ["skill_niuzibozi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_sunsanba",
+      "name": "孙三霸",
+      "alias": ["小煞神"],
+      "identity": "南海鳄神的弟子",
+      "faction": null,
+      "role": "npc",
+      "one_line": "南海鳄神心爱的弟子，被木婉清所杀",
+      "personality": "未直接出场",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_duanshi",
+      "name": "段氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "大理国姓段的家族"
+    },
+    {
+      "id": "faction_wuliangjian",
+      "name": "无量剑",
+      "type": "武林门派",
+      "location": "loc_wuliangshan",
+      "sub_divisions": ["东宗", "西宗"],
+      "one_line": "南诏无量山的武林门派"
+    },
+    {
+      "id": "faction_shennongbang",
+      "name": "神农帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "以采药贩药为生的帮派"
+    },
+    {
+      "id": "faction_wanjiegu",
+      "name": "万劫谷",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "钟万仇与甘宝宝隐居之所"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_wuliangshan",
+      "name": "无量山",
+      "region": "云南",
+      "one_line": "山水清幽，无量剑派所在之地"
+    },
+    {
+      "id": "loc_lancangjiang",
+      "name": "澜沧江",
+      "region": "云南",
+      "one_line": "碧绿大江，水流湍急"
+    },
+    {
+      "id": "loc_yading",
+      "name": "崖顶",
+      "region": "无量山",
+      "one_line": "澜沧江边的高崖，段誉与木婉清被困之处"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_niuzibozi",
+      "name": "扭断脖子",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "南海鳄神的杀人手法，喀喇一声扭断敌人脖子"
+    },
+    {
+      "id": "skill_duanjian",
+      "name": "毒箭",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "木婉清使用的黑色短箭，见血封喉"
+    },
+    {
+      "id": "skill_toushi",
+      "name": "投石",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "段誉用石头击退攀崖追兵"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_heimeigui",
+      "name": "黑玫瑰",
+      "type": "special",
+      "owner": "char_muwanqing",
+      "one_line": "木婉清的黑色骏马，坠入深谷身亡"
+    },
+    {
+      "id": "item_gangzhui",
+      "name": "钢锥",
+      "type": "weapon",
+      "owner": null,
+      "one_line": "插在木婉清左肩上的凶器"
+    },
+    {
+      "id": "item_yanzhi",
+      "name": "胭脂",
+      "type": "pill",
+      "owner": "char_muwanqing",
+      "one_line": "木婉清的药盒中的红色药膏，实为金创药"
+    },
+    {
+      "id": "item_duanjian",
+      "name": "短箭",
+      "type": "hidden_weapon",
+      "owner": "char_muwanqing",
+      "one_line": "木婉清使用的黑色毒箭"
+    },
+    {
+      "id": "item_jieyao",
+      "name": "断肠散解药",
+      "type": "pill",
+      "owner": "char_duanyu",
+      "one_line": "司空玄给的断肠散解药"
+    }
+  ]
+}

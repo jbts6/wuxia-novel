@@ -1,0 +1,313 @@
+{
+  "chapter": 5,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理国段氏子弟",
+      "faction": "faction_duanshi",
+      "role": "protagonist",
+      "one_line": "被人所制七日后脱身赶来，与木婉清重逢",
+      "personality": "善良正直，深情执着",
+      "known_skills": [],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_muwanqing",
+      "name": "木婉清",
+      "alias": [],
+      "identity": "黑衣蒙面女郎",
+      "faction": null,
+      "role": "companion",
+      "one_line": "苦等段誉七日七夜，与四大恶人周旋",
+      "personality": "冷傲泼辣，内心深情",
+      "known_skills": ["skill_duanjian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen",
+      "name": "南海鳄神",
+      "alias": ["岳老三", "岳老二"],
+      "identity": "四大恶人之三",
+      "faction": null,
+      "role": "villain",
+      "one_line": "四大恶人之一，使用鳄嘴剪和鳄尾鞭，等候段誉拜师",
+      "personality": "暴躁凶残，有些天真憨直",
+      "known_skills": ["skill_ezuijian", "skill_ewei bian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yunzhonghe",
+      "name": "云中鹤",
+      "alias": [],
+      "identity": "四大恶人之四",
+      "faction": null,
+      "role": "villain",
+      "one_line": "四大恶人之一，身材极高极瘦，使用钢抓，好色淫邪",
+      "personality": "穷凶极恶，好色贪婪",
+      "known_skills": ["skill_gangzhua"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yeerniang",
+      "name": "叶二娘",
+      "alias": [],
+      "identity": "四大恶人之二",
+      "faction": null,
+      "role": "villain",
+      "one_line": "四大恶人之一，每日杀害婴儿，掳走左子穆之子",
+      "personality": "无恶不作，外表慈爱内心残忍",
+      "known_skills": ["skill_anqi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zuozimu",
+      "name": "左子穆",
+      "alias": [],
+      "identity": "无量剑东宗掌门",
+      "faction": "faction_wuliangjian",
+      "role": "npc",
+      "one_line": "无量剑东宗掌门，儿子被叶二娘掳走",
+      "personality": "爱子心切，无可奈何",
+      "known_skills": ["skill_baihongguanri", "skill_wanhui_zhengyan"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zuoshanshan",
+      "name": "左山山",
+      "alias": [],
+      "identity": "左子穆之子",
+      "faction": "faction_wuliangjian",
+      "role": "npc",
+      "one_line": "左子穆的幼儿，被叶二娘掳走",
+      "personality": "年幼无知",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chuwanli",
+      "name": "褚万里",
+      "alias": [],
+      "identity": "大理国护卫",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "大理国褚古傅朱四大护卫之一，手持铁杆软索",
+      "personality": "正义凛然",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_guducheng",
+      "name": "古笃诚",
+      "alias": [],
+      "identity": "大理国护卫",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "大理国四大护卫之一，手持板斧",
+      "personality": "勇猛刚直",
+      "known_skills": ["skill_pangencuojieshibaifu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_fusigui",
+      "name": "傅思归",
+      "alias": [],
+      "identity": "大理国护卫",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "大理国四大护卫之一，手持熟铜齐眉棍",
+      "personality": "悲怒交集",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhudanchen",
+      "name": "朱丹臣",
+      "alias": [],
+      "identity": "大理国护卫",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "大理国四大护卫之一，手持判官笔",
+      "personality": "沉稳冷静",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_gaojunhou",
+      "name": "高君候",
+      "alias": ["宽袍客"],
+      "identity": "大理国高人",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "宽袍大袖的中年男子，手持铁笛，武功高强",
+      "personality": "形貌高雅，武功了得",
+      "known_skills": ["skill_tiedi"],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_wuliangjian",
+      "name": "无量剑",
+      "type": "武林门派",
+      "location": "loc_wuliangshan",
+      "sub_divisions": ["东宗", "西宗"],
+      "one_line": "南诏无量山的武林门派"
+    },
+    {
+      "id": "faction_dali",
+      "name": "大理国",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "大理国皇室及护卫"
+    },
+    {
+      "id": "faction_duanshi",
+      "name": "段氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "大理国姓段的家族"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_wuliangshan",
+      "name": "无量山",
+      "region": "云南",
+      "one_line": "山水清幽，无量剑派所在之地"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_ezuijian",
+      "name": "鳄嘴剪",
+      "type": "武器",
+      "faction": "",
+      "one_line": "南海鳄神的奇形剪刀，剪口尽是锯齿"
+    },
+    {
+      "id": "skill_eweibian",
+      "name": "鳄尾鞭",
+      "type": "武器",
+      "faction": "",
+      "one_line": "南海鳄神的锯齿软鞭，成鳄鱼尾巴之形"
+    },
+    {
+      "id": "skill_gangzhua",
+      "name": "钢抓",
+      "type": "武器",
+      "faction": "",
+      "one_line": "云中鹤的兵刃，柄长三尺，抓头如人手"
+    },
+    {
+      "id": "skill_tiedi",
+      "name": "铁笛",
+      "type": "武器",
+      "faction": "faction_dali",
+      "one_line": "高君候的兵刃，以内力烫得铁笛如熔炉取出"
+    },
+    {
+      "id": "skill_pangencuojieshibaifu",
+      "name": "盘根错节十八斧",
+      "type": "武器",
+      "faction": "faction_dali",
+      "one_line": "古笃诚的斧法绝招"
+    },
+    {
+      "id": "skill_baihongguanri",
+      "name": "白虹贯日",
+      "type": "剑法",
+      "faction": "faction_wuliangjian",
+      "one_line": "左子穆的剑招，剑尖刺向敌人咽喉"
+    },
+    {
+      "id": "skill_wanhui_zhengyan",
+      "name": "万卉争艳",
+      "type": "剑法",
+      "faction": "faction_wuliangjian",
+      "one_line": "左子穆的剑招，剑光乱颤封住上盘"
+    },
+    {
+      "id": "skill_duanjian",
+      "name": "毒箭",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "木婉清使用的黑色短箭，见血封喉"
+    },
+    {
+      "id": "skill_anqi",
+      "name": "暗器",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "叶二娘使用的各种小儿身上的金器银器"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_ezuijian",
+      "name": "鳄嘴剪",
+      "type": "weapon",
+      "owner": "char_nanhaieshen",
+      "one_line": "南海鳄神的奇形剪刀，能剪断钢抓"
+    },
+    {
+      "id": "item_eweibian",
+      "name": "鳄尾鞭",
+      "type": "weapon",
+      "owner": "char_nanhaieshen",
+      "one_line": "南海鳄神的锯齿软鞭"
+    },
+    {
+      "id": "item_gangzhua",
+      "name": "钢抓",
+      "type": "weapon",
+      "owner": "char_yunzhonghe",
+      "one_line": "云中鹤的兵刃，五根钢指"
+    },
+    {
+      "id": "item_tiedi",
+      "name": "铁笛",
+      "type": "weapon",
+      "owner": "char_gaojunhou",
+      "one_line": "高君候的兵刃，以内力加热"
+    },
+    {
+      "id": "item_bingtonggun",
+      "name": "熟铜齐眉棍",
+      "type": "weapon",
+      "owner": "char_fusigui",
+      "one_line": "傅思归的兵刃"
+    },
+    {
+      "id": "item_banfu",
+      "name": "板斧",
+      "type": "weapon",
+      "owner": "char_guducheng",
+      "one_line": "古笃诚的兵刃"
+    },
+    {
+      "id": "item_panguanbi",
+      "name": "判官笔",
+      "type": "weapon",
+      "owner": "char_zhudanchen",
+      "one_line": "朱丹臣的兵刃"
+    },
+    {
+      "id": "item_duanjian",
+      "name": "短箭",
+      "type": "hidden_weapon",
+      "owner": "char_muwanqing",
+      "one_line": "木婉清使用的黑色毒箭"
+    },
+    {
+      "id": "item_tieshaozi",
+      "name": "铁哨子",
+      "type": "special",
+      "owner": null,
+      "one_line": "召集四大恶人的尖锐铁哨"
+    }
+  ]
+}

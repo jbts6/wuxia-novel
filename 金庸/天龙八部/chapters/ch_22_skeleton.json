@@ -1,0 +1,231 @@
+{
+  "chapter": 22,
+  "characters": [
+    {
+      "id": "char_qiaofeng",
+      "name": "萧峰",
+      "alias": ["乔峰", "乔帮主"],
+      "identity": "前丐帮帮主，契丹人后裔",
+      "faction": "faction_gaibang",
+      "role": "protagonist",
+      "one_line": "契丹人后裔，在小镜湖救下段正淳",
+      "personality": "豪迈义气，恩怨分明",
+      "known_skills": ["skill_qinnashou", "skill_taizichangquan"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": [],
+      "identity": "慕容复丫鬟，易容高手",
+      "faction": "faction_murong",
+      "role": "companion",
+      "one_line": "机灵聪慧，与萧峰同行",
+      "personality": "温柔体贴，机智灵敏",
+      "known_skills": ["skill_yirong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun",
+      "name": "段正淳",
+      "alias": ["镇南王"],
+      "identity": "大理国镇南王",
+      "faction": "faction_duan",
+      "role": "npc",
+      "one_line": "大理国镇南王，被段延庆追杀",
+      "personality": "风流多情，为人仁义",
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhi",
+      "name": "阿紫",
+      "alias": [],
+      "identity": "段正淳之女",
+      "faction": "faction_duan",
+      "role": "npc",
+      "one_line": "段正淳之女，性格刁蛮",
+      "personality": "刁蛮任性，心狠手辣",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ruanxingzhu",
+      "name": "阮星竹",
+      "alias": [],
+      "identity": "段正淳情人",
+      "faction": null,
+      "role": "npc",
+      "one_line": "段正淳的情人之一，阿紫之母",
+      "personality": "温柔贤淑",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyanqing",
+      "name": "段延庆",
+      "alias": ["恶贯满盈"],
+      "identity": "四大恶人之首",
+      "faction": null,
+      "role": "villain",
+      "one_line": "四大恶人之首，使用铁杖追杀段正淳",
+      "personality": "阴险狠毒，武功高强",
+      "known_skills": ["skill_tiezhang", "skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_fusigui",
+      "name": "傅思归",
+      "alias": [],
+      "identity": "大理国护卫",
+      "faction": "faction_duan",
+      "role": "npc",
+      "one_line": "大理国护卫，为主公报讯",
+      "personality": "忠义护主",
+      "known_skills": ["skill_fafa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_guducheng",
+      "name": "古笃诚",
+      "alias": [],
+      "identity": "大理国护卫",
+      "faction": "faction_duan",
+      "role": "npc",
+      "one_line": "大理国护卫之一",
+      "personality": "忠诚",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhudanchen",
+      "name": "朱丹臣",
+      "alias": [],
+      "identity": "大理国护卫",
+      "faction": "faction_duan",
+      "role": "npc",
+      "one_line": "大理国护卫之一",
+      "personality": "沉稳",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_fanhua",
+      "name": "范骅",
+      "alias": [],
+      "identity": "大理国护卫",
+      "faction": "faction_duan",
+      "role": "npc",
+      "one_line": "大理国护卫之一",
+      "personality": "忠诚",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "江湖第一大帮"
+    },
+    {
+      "id": "faction_duan",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": [],
+      "one_line": "大理国皇族"
+    },
+    {
+      "id": "faction_murong",
+      "name": "姑苏慕容",
+      "type": "家族",
+      "location": "loc_suzhou",
+      "sub_divisions": [],
+      "one_line": "姑苏慕容氏，以斗转星移闻名"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_xiaojinghu",
+      "name": "小镜湖",
+      "region": "中原",
+      "one_line": "段正淳与阮星竹居住之地"
+    },
+    {
+      "id": "loc_fangzhulin",
+      "name": "方竹林",
+      "region": "中原",
+      "one_line": "小镜湖附近的竹林"
+    },
+    {
+      "id": "loc_qingshiqiao",
+      "name": "青石桥",
+      "region": "中原",
+      "one_line": "段延庆与段正淳约定决斗之地"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_qinnashou",
+      "name": "擒拿手",
+      "type": "指法",
+      "faction": "",
+      "one_line": "萧峰使用的近身功夫"
+    },
+    {
+      "id": "skill_taizichangquan",
+      "name": "太祖长拳",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "萧峰在聚贤庄使用的拳法"
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_duan",
+      "one_line": "大理段氏绝学，天下点穴功夫第一"
+    },
+    {
+      "id": "skill_tiezhang",
+      "name": "铁杖功夫",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "段延庆使用铁杖的武功"
+    },
+    {
+      "id": "skill_fafa",
+      "name": "斧法",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "傅思归使用的斧法"
+    },
+    {
+      "id": "skill_yirong",
+      "name": "易容术",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "阿朱精通的伪装术"
+    },
+    {
+      "id": "skill_rousiwang",
+      "name": "柔丝网",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "一种特殊的网状武器"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_banfu",
+      "name": "板斧",
+      "type": "weapon",
+      "owner": "char_fusigui",
+      "one_line": "傅思归使用的纯钢大斧"
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "chapter": 12,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": ["大理王子"],
+      "identity": "大理镇南王之子",
+      "faction": "faction_dali_duanshi",
+      "role": "protagonist",
+      "one_line": "流落江湖的大理王子，初到曼陀山庄，对王语嫣一见倾心",
+      "personality": "痴情善良，书生气重，对武功心存抵触却屡遭变故",
+      "known_skills": ["skill_liumai_shenjian", "skill_lingbo_weibu"],
+      "related_skills": ["skill_yiyang_zhi", "skill_beiming_shengong"]
+    },
+    {
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "alias": ["神仙姐姐"],
+      "identity": "慕容复表妹",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "曼陀山庄中段誉初遇的绝色女子，熟读天下武功秘籍",
+      "personality": "温婉聪慧，对慕容复一片痴心，通晓各派武功却不习武",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_abi",
+      "name": "阿碧",
+      "alias": [],
+      "identity": "慕容家侍女",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "慕容复的贴身侍女，温柔可人，声音极甜极清",
+      "personality": "温柔体贴，忠心耿耿",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": [],
+      "identity": "慕容家侍女",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "慕容复的侍女，精通易容术，机灵聪慧",
+      "personality": "活泼机灵，善于伪装",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_murongfu",
+      "name": "慕容复",
+      "alias": ["慕容公子"],
+      "identity": "姑苏慕容氏传人",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "慕容家少主，志在复兴大燕，鲜少露面",
+      "personality": "城府极深，野心勃勃，为复国不惜一切",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jiumozhi",
+      "name": "鸠摩智",
+      "alias": ["吐蕃国师"],
+      "identity": "吐蕃国师",
+      "faction": null,
+      "role": "villain",
+      "one_line": "吐蕃番僧，在本章中被提及",
+      "personality": "阴险狡诈，诡计百出",
+      "known_skills": ["skill_huoyandao", "skill_huagong_dafa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_dengbaichuan",
+      "name": "邓百川",
+      "alias": [],
+      "identity": "慕容家管家",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "慕容家四大管家之首",
+      "personality": "沉稳老练，忠心护主",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhudanchen",
+      "name": "朱丹臣",
+      "alias": [],
+      "identity": "大理国四大护卫之一",
+      "faction": "faction_dali_duanshi",
+      "role": "npc",
+      "one_line": "大理四大护卫之一，奉命寻找段誉",
+      "personality": "忠诚可靠，文武双全",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun",
+      "name": "段正淳",
+      "alias": ["镇南王"],
+      "identity": "大理镇南王",
+      "faction": "faction_dali_duanshi",
+      "role": "npc",
+      "one_line": "段誉之父，大理镇南王，在本章中被提及",
+      "personality": "风流多情，对段誉关爱有加",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baodingdi",
+      "name": "保定帝",
+      "alias": ["段正明"],
+      "identity": "大理皇帝",
+      "faction": "faction_dali_duanshi",
+      "role": "npc",
+      "one_line": "大理国皇帝，在本章中被提及",
+      "personality": "仁厚宽和",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongling",
+      "name": "钟灵",
+      "alias": [],
+      "identity": "钟万仇之女",
+      "faction": null,
+      "role": "npc",
+      "one_line": "段誉在无量山相识的少女，在本章中被提及",
+      "personality": "活泼可爱，天真烂漫",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiaofeng",
+      "name": "乔峰",
+      "alias": ["萧峰"],
+      "identity": "丐帮帮主",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮帮主，在本章中被提及",
+      "personality": "豪迈义气，光明磊落",
+      "known_skills": ["skill_xianglong_shibazhang", "skill_dagou_bangfa"],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_murongjia",
+      "name": "慕容家",
+      "type": "家族",
+      "location": "loc_yanziwu",
+      "sub_divisions": [],
+      "one_line": "姑苏慕容氏，以'以彼之道还施彼身'闻名江湖"
+    },
+    {
+      "id": "faction_dali_duanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": ["天龙寺"],
+      "one_line": "大理国皇族段氏，以一阳指和六脉神剑著称"
+    },
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "天下第一大帮，以降龙十八掌和打狗棒法为镇帮绝学"
+    },
+    {
+      "id": "faction_shaolin",
+      "name": "少林寺",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "武林泰斗，天下武学之源，在本章中被提及"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_mantuoshanzhuang",
+      "name": "曼陀山庄",
+      "region": "姑苏",
+      "one_line": "王夫人所居山庄，种满山茶花，段誉初遇王语嫣之地"
+    },
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "云南",
+      "one_line": "大理国都城，段氏皇族所在地"
+    },
+    {
+      "id": "loc_wuliangshan",
+      "name": "无量山",
+      "region": "云南",
+      "one_line": "段誉此前被困之地，无量剑派所在"
+    },
+    {
+      "id": "loc_yanziwu",
+      "name": "燕子坞",
+      "region": "姑苏",
+      "one_line": "慕容家所在之处，在本章中被提及"
+    },
+    {
+      "id": "loc_huanshui_ge",
+      "name": "还施水阁",
+      "region": "姑苏燕子坞",
+      "one_line": "慕容家藏书阁，在本章中被提及"
+    },
+    {
+      "id": "loc_tingshuangxiang",
+      "name": "听香水榭",
+      "region": "姑苏",
+      "one_line": "燕子坞中的水榭，在本章中被提及"
+    },
+    {
+      "id": "loc_canhezhuang",
+      "name": "参合庄",
+      "region": "姑苏燕子坞",
+      "one_line": "慕容家庄园，在本章中被提及"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_liumai_shenjian",
+      "name": "六脉神剑",
+      "type": "指法",
+      "faction": "faction_dali_duanshi",
+      "one_line": "大理段氏最高绝学，以无形剑气伤敌"
+    },
+    {
+      "id": "skill_yiyang_zhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_dali_duanshi",
+      "one_line": "大理段氏指法绝学，为六脉神剑基础"
+    },
+    {
+      "id": "skill_beiming_shengong",
+      "name": "北冥神功",
+      "type": "内功",
+      "faction": "",
+      "one_line": "逍遥派绝学，可吸收他人内力"
+    },
+    {
+      "id": "skill_xianglong_shibazhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮镇帮绝学，天下至刚至猛的掌法"
+    },
+    {
+      "id": "skill_dagou_bangfa",
+      "name": "打狗棒法",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮帮主代代相传的棒法，轻灵精妙"
+    },
+    {
+      "id": "skill_huagong_dafa",
+      "name": "化功大法",
+      "type": "内功",
+      "faction": "",
+      "one_line": "鸠摩智所用邪功，可化解他人内力"
+    },
+    {
+      "id": "skill_lingbo_weibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "段誉所学轻功，步法飘逸如凌波仙子"
+    },
+    {
+      "id": "skill_huoyandao",
+      "name": "火焰刀",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "鸠摩智的绝技，以深厚内力化为灼热刀气"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_qin",
+      "name": "琴",
+      "type": "special",
+      "owner": "char_abi",
+      "one_line": "阿碧弹奏的古琴"
+    },
+    {
+      "id": "item_shu",
+      "name": "书",
+      "type": "special",
+      "owner": "char_wangyuyan",
+      "one_line": "王语嫣所读各派武功秘籍"
+    }
+  ]
+}

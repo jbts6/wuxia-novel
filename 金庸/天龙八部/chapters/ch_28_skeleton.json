@@ -1,0 +1,94 @@
+{
+  "chapter": 28,
+  "characters": [
+    {
+      "id": "char_you_tanzhi",
+      "name": "游坦之",
+      "alias": ["庄聚贤"],
+      "identity": "聚贤庄游氏双雄的子侄",
+      "faction": "faction_juxian_zhuang",
+      "role": "protagonist",
+      "one_line": "自幼体弱无法学武，后因复仇戴上铁罩，流落中原",
+      "personality": "性格刚烈执着，为复仇不惜一切",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_you_ju",
+      "name": "游驹",
+      "alias": [],
+      "identity": "聚贤庄庄主，游坦之的父亲",
+      "faction": "faction_juxian_zhuang",
+      "role": "npc",
+      "one_line": "游坦之之父，见儿子学武无成后放弃让他习武",
+      "personality": "务实稳重",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_you_ji",
+      "name": "游骥",
+      "alias": [],
+      "identity": "聚贤庄庄主，游坦之的伯父",
+      "faction": "faction_juxian_zhuang",
+      "role": "npc",
+      "one_line": "游坦之的伯父，与弟弟游驹并称游氏双雄",
+      "personality": "豪爽仗义",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xiao_feng",
+      "name": "萧峰",
+      "alias": ["乔峰"],
+      "identity": "丐帮前任帮主",
+      "faction": null,
+      "role": "villain",
+      "one_line": "游坦之的杀父仇人",
+      "personality": "豪迈直率",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_juxian_zhuang",
+      "name": "聚贤庄",
+      "type": "武林世家",
+      "location": "loc_juxian_zhuang",
+      "sub_divisions": [],
+      "one_line": "游氏双雄所创的武林世家"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_juxian_zhuang",
+      "name": "聚贤庄",
+      "region": "中原",
+      "one_line": "游坦之的家乡，游氏双雄的居所"
+    },
+    {
+      "id": "loc_minzhong_temple",
+      "name": "悯忠寺",
+      "region": "中原",
+      "one_line": "游坦之追踪冰蚕所到的宏伟寺庙"
+    }
+  ],
+  "skills": [],
+  "items": [
+    {
+      "id": "item_iron_mask",
+      "name": "铁罩",
+      "type": "special",
+      "owner": "char_you_tanzhi",
+      "one_line": "游坦之头上戴的铁制面具，因容貌被毁而佩戴"
+    },
+    {
+      "id": "item_ice_silkworm",
+      "name": "冰蚕",
+      "type": "special",
+      "owner": null,
+      "one_line": "游坦之追踪的罕见毒虫"
+    }
+  ]
+}

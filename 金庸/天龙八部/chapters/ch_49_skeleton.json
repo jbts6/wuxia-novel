@@ -1,0 +1,140 @@
+{
+  "chapter": 49,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理新帝",
+      "faction": "faction_daliduanshi",
+      "role": "protagonist",
+      "one_line": "继承大理皇位的新皇帝",
+      "personality": "仁厚爱民，不愿为帝",
+      "known_skills": ["skill_lingboweibu"],
+      "related_skills": ["skill_yiyangzhi", "skill_liumaishenjian"]
+    },
+    {
+      "id": "char_duanzhengming",
+      "name": "段正明",
+      "alias": ["保定帝"],
+      "identity": "大理前皇帝",
+      "faction": "faction_daliduanshi",
+      "role": "npc",
+      "one_line": "大理前皇帝，将帝位传给段誉",
+      "personality": "英明睿智，爱护子民",
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhaoxu",
+      "name": "赵煦",
+      "alias": ["宋哲宗"],
+      "identity": "大宋皇帝",
+      "faction": "faction_songchao",
+      "role": "npc",
+      "one_line": "大宋哲宗皇帝，受制于太皇太后",
+      "personality": "隐忍多谋，渴望亲政",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_taihuangtaihou",
+      "name": "太皇太后",
+      "alias": ["高太后"],
+      "identity": "大宋太皇太后",
+      "faction": "faction_songchao",
+      "role": "npc",
+      "one_line": "垂帘听政九年的太皇太后",
+      "personality": "老谋深算，掌控朝政",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wanganshi",
+      "name": "王安石",
+      "alias": [],
+      "identity": "宋朝宰相",
+      "faction": "faction_songchao",
+      "role": "npc",
+      "one_line": "推行新法的改革家",
+      "personality": "有才干但急躁冒进",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_simaguang",
+      "name": "司马光",
+      "alias": [],
+      "identity": "宋朝大臣",
+      "faction": "faction_songchao",
+      "role": "npc",
+      "one_line": "反对新法的保守派领袖",
+      "personality": "守旧固执",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_daliduanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": ["天龙寺"],
+      "one_line": "大理国皇族，武学世家"
+    },
+    {
+      "id": "faction_songchao",
+      "name": "大宋朝廷",
+      "type": "朝廷",
+      "location": "loc_bianliang",
+      "sub_divisions": [],
+      "one_line": "中原正统王朝"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "云南",
+      "one_line": "大理国都城"
+    },
+    {
+      "id": "loc_bianliang",
+      "name": "汴梁",
+      "region": "中原",
+      "one_line": "大宋京城"
+    },
+    {
+      "id": "loc_chongqiandian",
+      "name": "崇庆殿",
+      "region": "汴梁皇宫",
+      "one_line": "太皇太后寝宫"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_daliduanshi",
+      "one_line": "大理段氏绝学，以阳刚内力凝于指尖"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "逍遥派轻功，步法飘逸灵动"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_liaoguozouzhang",
+      "name": "辽国奏章",
+      "type": "special",
+      "owner": "char_zhaoxu",
+      "one_line": "辽国宰相评价太皇太后施政的奏章"
+    }
+  ]
+}

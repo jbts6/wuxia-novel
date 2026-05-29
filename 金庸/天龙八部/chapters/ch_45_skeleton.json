@@ -1,0 +1,396 @@
+{
+  "chapter": 45,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": ["段公子"],
+      "identity": "大理国镇南王世子",
+      "faction": "faction_duanshi",
+      "role": "protagonist",
+      "one_line": "在枯井底与王语嫣互诉衷情，定下三生之约",
+      "personality": "仁厚善良，痴情专一",
+      "known_skills": ["skill_liumaishenjian", "skill_lingboweibu", "skill_beimigong"],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "alias": ["王姑娘"],
+      "identity": "慕容复表妹",
+      "faction": "faction_murong",
+      "role": "companion",
+      "one_line": "因慕容复绝情而跳崖自尽被救，在枯井中与段誉定情",
+      "personality": "温柔娴雅，痴情执着",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanrongfu",
+      "name": "慕容复",
+      "alias": ["南慕容"],
+      "identity": "姑苏慕容氏传人",
+      "faction": "faction_murong",
+      "role": "villain",
+      "one_line": "为做西夏驸马抛弃王语嫣，将段誉投入枯井，被鸠摩智制服",
+      "personality": "心高气傲，为复国不择手段",
+      "known_skills": ["skill_douzhuanxingyi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_jiumozhi",
+      "name": "鸠摩智",
+      "alias": ["大轮明王", "国师"],
+      "identity": "吐蕃国师",
+      "faction": "faction_tubo",
+      "role": "villain",
+      "one_line": "内息走岔走火入魔，将易筋经掉入枯井，自己也跌入井中",
+      "personality": "自负傲慢",
+      "known_skills": ["skill_huoyandao", "skill_wuxiangjiezhi", "skill_xiaowuxianggong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_xiaofeng",
+      "name": "萧峰",
+      "alias": ["乔峰"],
+      "identity": "前丐帮帮主/辽国南院大王",
+      "faction": "faction_gaibang",
+      "role": "protagonist",
+      "one_line": "与虚竹同行，答应段誉不去做西夏驸马",
+      "personality": "豪迈磊落",
+      "known_skills": ["skill_xianglongshibazhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuzhu",
+      "name": "虚竹",
+      "alias": ["虚竹子"],
+      "identity": "少林僧/灵鹫宫主人",
+      "faction": "faction_shaolin",
+      "role": "protagonist",
+      "one_line": "与萧峰同行，心中惦念梦姑",
+      "personality": "质朴厚道",
+      "known_skills": ["skill_tianshanliuyangzhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongling",
+      "name": "钟灵",
+      "alias": ["灵妹妹", "小师娘"],
+      "identity": "钟万仇之女",
+      "faction": null,
+      "role": "companion",
+      "one_line": "陪伴段誉，得知段誉心中只有王语嫣",
+      "personality": "天真活泼",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_muwanqing",
+      "name": "木婉清",
+      "alias": ["木姊姊"],
+      "identity": "段正淳之女",
+      "faction": "faction_duanshi",
+      "role": "companion",
+      "one_line": "女扮男装去西夏，与段誉重逢",
+      "personality": "心高气傲，冷若冰霜",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen",
+      "name": "南海鳄神",
+      "alias": ["岳老二", "岳老三"],
+      "identity": "四大恶人之二",
+      "faction": null,
+      "role": "companion",
+      "one_line": "与段延庆云中鹤同行，救人有功",
+      "personality": "直率好胜",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyanqing",
+      "name": "段延庆",
+      "alias": ["老大"],
+      "identity": "四大恶人之首",
+      "faction": null,
+      "role": "npc",
+      "one_line": "四大恶人之首，用钢杖救人",
+      "personality": "阴鸷狠毒",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yunzhonghe",
+      "name": "云中鹤",
+      "alias": ["穷凶极恶"],
+      "identity": "四大恶人之四",
+      "faction": null,
+      "role": "npc",
+      "one_line": "四大恶人之一，抓王语嫣头发救人",
+      "personality": "凶残好色",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_batianshi",
+      "name": "巴天石",
+      "alias": [],
+      "identity": "大理国臣子",
+      "faction": "faction_duanshi",
+      "role": "npc",
+      "one_line": "大理臣子，投递求亲书信",
+      "personality": "精明谨慎",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhudanchen",
+      "name": "朱丹臣",
+      "alias": [],
+      "identity": "大理国臣子",
+      "faction": "faction_duanshi",
+      "role": "npc",
+      "one_line": "大理臣子",
+      "personality": "文采儒雅",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baobutong",
+      "name": "包不同",
+      "alias": ["包三哥"],
+      "identity": "慕容复属下四大家臣之三",
+      "faction": "faction_murong",
+      "role": "companion",
+      "one_line": "在灵州与巴天石口舌之争",
+      "personality": "诙谐多嘴",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_fengboe",
+      "name": "风波恶",
+      "alias": ["风四弟"],
+      "identity": "慕容复属下四大家臣之四",
+      "faction": "faction_murong",
+      "role": "companion",
+      "one_line": "在灵州驱赶吐蕃武士",
+      "personality": "好战勇猛",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_taoshilang",
+      "name": "陶侍郎",
+      "alias": [],
+      "identity": "西夏礼部侍郎",
+      "faction": null,
+      "role": "npc",
+      "one_line": "西夏礼部官员，迎接段誉入住宾馆",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_shaolin",
+      "name": "少林派",
+      "type": "武林门派",
+      "location": "loc_shaoshi",
+      "sub_divisions": [],
+      "one_line": "中原武林首领"
+    },
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "天下第一大帮"
+    },
+    {
+      "id": "faction_murong",
+      "name": "姑苏慕容",
+      "type": "家族",
+      "location": "loc_yanziwu",
+      "sub_divisions": [],
+      "one_line": "姑苏燕子坞慕容氏"
+    },
+    {
+      "id": "faction_duanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "大理国王族"
+    },
+    {
+      "id": "faction_tubo",
+      "name": "吐蕃国",
+      "type": "国家",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "吐蕃国，派人把守西夏要道"
+    },
+    {
+      "id": "faction_xixia",
+      "name": "西夏国",
+      "type": "国家",
+      "location": null,
+      "sub_divisions": ["一品堂"],
+      "one_line": "西夏国，公主招驸马"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_shaoshi",
+      "name": "少室山",
+      "region": "中原河南",
+      "one_line": "少林寺所在地"
+    },
+    {
+      "id": "loc_lingzhou",
+      "name": "灵州",
+      "region": "西夏",
+      "one_line": "西夏国大城，公主招婿之地"
+    },
+    {
+      "id": "loc_yanziwu",
+      "name": "姑苏燕子坞",
+      "region": "江南",
+      "one_line": "慕容氏故居"
+    },
+    {
+      "id": "loc_kujing",
+      "name": "枯井",
+      "region": "灵州城外",
+      "one_line": "段誉王语嫣鸠摩智慕容复共陷其中的枯井"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_xianglongshibazhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮镇帮神功"
+    },
+    {
+      "id": "skill_liumaishenjian",
+      "name": "六脉神剑",
+      "type": "剑法",
+      "faction": "faction_duanshi",
+      "one_line": "大理天龙寺绝学"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "逍遥派轻功步法"
+    },
+    {
+      "id": "skill_beimigong",
+      "name": "北冥神功",
+      "type": "内功",
+      "faction": "",
+      "one_line": "逍遥派内功，可吸取敌人内力"
+    },
+    {
+      "id": "skill_douzhuanxingyi",
+      "name": "斗转星移",
+      "type": "武功",
+      "faction": "faction_murong",
+      "one_line": "姑苏慕容家传绝技"
+    },
+    {
+      "id": "skill_huoyandao",
+      "name": "火焰刀",
+      "type": "武功",
+      "faction": "faction_tubo",
+      "one_line": "鸠摩智绝技"
+    },
+    {
+      "id": "skill_xiaowuxianggong",
+      "name": "小无相功",
+      "type": "内功",
+      "faction": "",
+      "one_line": "逍遥派内功"
+    },
+    {
+      "id": "skill_tianshanliuyangzhang",
+      "name": "天山六阳掌",
+      "type": "掌法",
+      "faction": "faction_lingjiu",
+      "one_line": "逍遥派掌法"
+    },
+    {
+      "id": "skill_qinlongshou",
+      "name": "擒龙手",
+      "type": "武功",
+      "faction": "",
+      "one_line": "凌空取物的武功"
+    },
+    {
+      "id": "skill_bihuyouqiangong",
+      "name": "壁虎游墙功",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "贴壁攀爬的轻功"
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_duanshi",
+      "one_line": "大理段氏家传绝学"
+    },
+    {
+      "id": "skill_yijinjing",
+      "name": "易筋经",
+      "type": "内功",
+      "faction": "faction_shaolin",
+      "one_line": "少林寺上乘内功秘笈"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_yijinjing",
+      "name": "易筋经",
+      "type": "special",
+      "owner": "char_jiumozhi",
+      "one_line": "从游坦之处夺来的少林内功秘笈，掉入枯井"
+    },
+    {
+      "id": "item_ezuijian",
+      "name": "鳄嘴剪",
+      "type": "weapon",
+      "owner": "char_nanhaieshen",
+      "one_line": "南海鳄神的独门兵器"
+    },
+    {
+      "id": "item_gangzhang",
+      "name": "钢杖",
+      "type": "weapon",
+      "owner": "char_duanyanqing",
+      "one_line": "段延庆的兵器，钩住松树救人"
+    },
+    {
+      "id": "item_dafu",
+      "name": "大斧",
+      "type": "weapon",
+      "owner": null,
+      "one_line": "吐蕃矮胖子用来砍松树的斧头"
+    },
+    {
+      "id": "item_shuxin",
+      "name": "段正淳求亲书信",
+      "type": "special",
+      "owner": "char_duanzhengchun",
+      "one_line": "段正淳写给西夏皇帝的求亲函件"
+    }
+  ]
+}

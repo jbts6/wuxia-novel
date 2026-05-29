@@ -1,0 +1,205 @@
+{
+  "chapter": 15,
+  "characters": [
+    {
+      "id": "char_qiaofeng",
+      "name": "乔峰",
+      "alias": ["萧峰", "丐帮帮主"],
+      "identity": "丐帮帮主",
+      "faction": "faction_gaibang",
+      "role": "protagonist",
+      "one_line": "丐帮帮主，本章核心人物，面临帮中大变",
+      "personality": "豪迈义气，光明磊落，面对帮中叛乱镇定自若",
+      "known_skills": ["skill_xianglong_shibazhang", "skill_dagou_bangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_murongfu",
+      "name": "慕容复",
+      "alias": ["慕容公子"],
+      "identity": "姑苏慕容氏传人",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "慕容家少主，在丐帮事变中现身",
+      "personality": "城府极深，趁乱图谋",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": ["大理王子"],
+      "identity": "大理镇南王之子",
+      "faction": "faction_dali_duanshi",
+      "role": "protagonist",
+      "one_line": "乔峰的结义兄弟，在旁见证丐帮变故",
+      "personality": "善良正直，重情重义",
+      "known_skills": ["skill_liumai_shenjian", "skill_lingbo_weibu"],
+      "related_skills": ["skill_yiyang_zhi"]
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": [],
+      "identity": "慕容家侍女",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "慕容复的侍女，在本章中随慕容复出现",
+      "personality": "活泼机灵，忠心护主",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "alias": ["神仙姐姐"],
+      "identity": "慕容复表妹",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "慕容复的表妹，随慕容复出现在丐帮",
+      "personality": "温婉聪慧",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_fengboe",
+      "name": "风波恶",
+      "alias": [],
+      "identity": "慕容家四大家臣之四",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "慕容家四大家臣之一，随慕容复出现在丐帮",
+      "personality": "好勇斗狠，忠心护主",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_abi",
+      "name": "阿碧",
+      "alias": [],
+      "identity": "慕容家侍女",
+      "faction": "faction_murongjia",
+      "role": "companion",
+      "one_line": "慕容复的贴身侍女",
+      "personality": "温柔体贴",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_gongyegan",
+      "name": "公冶乾",
+      "alias": [],
+      "identity": "慕容家四大家臣之二",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "慕容家四大家臣之一，掌力号称江南第二",
+      "personality": "沉稳老练，忠心护主",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baobutong",
+      "name": "包不同",
+      "alias": ["包三先生"],
+      "identity": "慕容家四大家臣之三",
+      "faction": "faction_murongjia",
+      "role": "npc",
+      "one_line": "慕容家四大家臣之一，在本章中被提及",
+      "personality": "口无遮拦，喜欢反驳",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "天下第一大帮，本章发生重大内乱"
+    },
+    {
+      "id": "faction_murongjia",
+      "name": "慕容家",
+      "type": "家族",
+      "location": "loc_yanziwu",
+      "sub_divisions": [],
+      "one_line": "姑苏慕容氏，四大家臣随慕容复现身丐帮"
+    },
+    {
+      "id": "faction_dali_duanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": ["天龙寺"],
+      "one_line": "大理国皇族段氏"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_xingzilin",
+      "name": "杏子林",
+      "region": "无锡",
+      "one_line": "丐帮聚会之地，本章主要场景"
+    },
+    {
+      "id": "loc_wuxi",
+      "name": "无锡",
+      "region": "江南",
+      "one_line": "江南名城，丐帮活动之地"
+    },
+    {
+      "id": "loc_gusu",
+      "name": "姑苏",
+      "region": "江南",
+      "one_line": "江南名城，在本章中被提及"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_xianglong_shibazhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮镇帮绝学，天下至刚至猛的掌法"
+    },
+    {
+      "id": "skill_dagou_bangfa",
+      "name": "打狗棒法",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮帮主代代相传的棒法"
+    },
+    {
+      "id": "skill_liumai_shenjian",
+      "name": "六脉神剑",
+      "type": "指法",
+      "faction": "faction_dali_duanshi",
+      "one_line": "大理段氏最高绝学，以无形剑气伤敌"
+    },
+    {
+      "id": "skill_lingbo_weibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "段誉所学轻功，步法飘逸如凌波仙子"
+    },
+    {
+      "id": "skill_yiyang_zhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_dali_duanshi",
+      "one_line": "大理段氏指法绝学，为六脉神剑基础"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_shu",
+      "name": "书",
+      "type": "special",
+      "owner": null,
+      "one_line": "在本章中被提及"
+    }
+  ]
+}

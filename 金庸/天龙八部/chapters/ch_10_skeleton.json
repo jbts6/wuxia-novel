@@ -1,0 +1,403 @@
+{
+  "chapter": 10,
+  "title": "剑气碧烟横",
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": ["誉儿"],
+      "identity": "大理镇南王世子",
+      "faction": "faction_dali_duanshi",
+      "role": "protagonist",
+      "one_line": "体内真气暴涨无法控制，被带往天龙寺，后被鸠摩智掳走",
+      "personality": "迂腐善良，际遇奇诡",
+      "known_skills": ["skill_lingbo_weibu", "skill_beiming_shengong"],
+      "related_skills": ["skill_yiyang_zhi", "skill_liumai_shenjian"]
+    },
+    {
+      "id": "char_duanzhengming",
+      "name": "段正明",
+      "alias": ["保定帝"],
+      "identity": "大理皇帝",
+      "faction": "faction_dali_duanshi",
+      "role": "companion",
+      "one_line": "大理皇帝，带段誉往天龙寺求治，参与六脉神剑合练",
+      "personality": "仁慈宽厚，武学造诣深厚",
+      "known_skills": ["skill_yiyang_zhi", "skill_guanchong_jian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanchun",
+      "name": "段正淳",
+      "alias": ["镇南王"],
+      "identity": "大理镇南王",
+      "faction": "faction_dali_duanshi",
+      "role": "companion",
+      "one_line": "镇南王，带同三公四护卫辞别保定帝北上",
+      "personality": "风流多情",
+      "known_skills": [],
+      "related_skills": ["skill_yiyang_zhi"]
+    },
+    {
+      "id": "char_benyin",
+      "name": "本因",
+      "alias": [],
+      "identity": "天龙寺方丈",
+      "faction": "faction_tianlongsi",
+      "role": "companion",
+      "one_line": "天龙寺方丈，以俗家辈份是保定帝叔辈，主练商阳剑",
+      "personality": "持重沉稳",
+      "known_skills": ["skill_shangyang_jian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_benguan",
+      "name": "本观",
+      "alias": [],
+      "identity": "天龙寺高僧",
+      "faction": "faction_tianlongsi",
+      "role": "companion",
+      "one_line": "天龙寺高僧，本因师兄，主练中冲剑",
+      "personality": "内敛沉着",
+      "known_skills": ["skill_zhongchong_jian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_benxiang",
+      "name": "本相",
+      "alias": [],
+      "identity": "天龙寺高僧",
+      "faction": "faction_tianlongsi",
+      "role": "companion",
+      "one_line": "天龙寺高僧，本因师兄，主练少冲剑",
+      "personality": "沉默寡言",
+      "known_skills": ["skill_shaochong_jian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_bencan",
+      "name": "本参",
+      "alias": [],
+      "identity": "天龙寺高僧",
+      "faction": "faction_tianlongsi",
+      "role": "companion",
+      "one_line": "天龙寺高僧，本因师弟，魁梧僧人，主练少泽剑",
+      "personality": "豪爽直率",
+      "known_skills": ["skill_shaoze_jian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_kurong",
+      "name": "枯荣",
+      "alias": ["枯荣长老"],
+      "identity": "天龙寺辈份最高的长老",
+      "faction": "faction_tianlongsi",
+      "role": "companion",
+      "one_line": "天龙寺辈份最高的长老，面壁数十年，焚毁六脉神剑图谱",
+      "personality": "深不可测",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huangmeiseng",
+      "name": "黄眉僧",
+      "alias": [],
+      "identity": "天龙寺高僧",
+      "faction": "faction_tianlongsi",
+      "role": "companion",
+      "one_line": "天龙寺高僧，曾在万劫谷对敌",
+      "personality": "机智过人",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jiumozhi",
+      "name": "鸠摩智",
+      "alias": [],
+      "identity": "吐蕃国护国法王",
+      "faction": "faction_tubo",
+      "role": "villain",
+      "one_line": "吐蕃护国法王，精通佛法与火焰刀，以交换绝技为名闯入天龙寺强夺六脉神剑图谱",
+      "personality": "野心勃勃，贪图武学，伪装高僧实为强盗",
+      "known_skills": ["skill_huoyandao", "skill_xiaowuxianggong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyanqing",
+      "name": "段延庆",
+      "alias": ["恶贯满盈"],
+      "identity": "四大恶人之首",
+      "faction": "faction_sida_eren",
+      "role": "villain",
+      "one_line": "前大理太子，身有残疾，本章中提及其毒素仍在段誉体内",
+      "personality": "阴险毒辣",
+      "known_skills": ["skill_yiyang_zhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_cuibaiquan",
+      "name": "崔百泉",
+      "alias": [],
+      "identity": "武林人士",
+      "faction": null,
+      "role": "npc",
+      "one_line": "与过彦之一同北上",
+      "personality": "仗义",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_guoyanzhi",
+      "name": "过彦之",
+      "alias": [],
+      "identity": "少林弟子",
+      "faction": "faction_shaolin",
+      "role": "npc",
+      "one_line": "少林弟子，与崔百泉北上",
+      "personality": "忠厚",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_muwanqing",
+      "name": "木婉清",
+      "alias": [],
+      "identity": "秦红棉之女",
+      "faction": null,
+      "role": "npc",
+      "one_line": "随母亲秦红棉离去",
+      "personality": "刚烈深情",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qinhongmian",
+      "name": "秦红棉",
+      "alias": ["修罗刀"],
+      "identity": "段正淳旧情人",
+      "faction": null,
+      "role": "npc",
+      "one_line": "带木婉清离去",
+      "personality": "刚烈",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duabaifeng",
+      "name": "刀白凤",
+      "alias": ["玉虚散人"],
+      "identity": "大理镇南王妃",
+      "faction": "faction_dali_duanshi",
+      "role": "npc",
+      "one_line": "镇南王妃",
+      "personality": "外柔内刚",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhai_e",
+      "name": "南海鳄神",
+      "alias": ["岳老三"],
+      "identity": "四大恶人之三",
+      "faction": "faction_sida_eren",
+      "role": "villain",
+      "one_line": "提及在万劫谷的事件",
+      "personality": "凶狠鲁莽",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yeerniang",
+      "name": "叶二娘",
+      "alias": [],
+      "identity": "四大恶人之二",
+      "faction": "faction_sida_eren",
+      "role": "villain",
+      "one_line": "提及在万劫谷的事件",
+      "personality": "阴险狠毒",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yunzhonghe",
+      "name": "云中鹤",
+      "alias": [],
+      "identity": "四大恶人之四",
+      "faction": "faction_sida_eren",
+      "role": "villain",
+      "one_line": "提及在万劫谷的事件",
+      "personality": "好色贪婪",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_dali_duanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": [],
+      "one_line": "大理国王室家族"
+    },
+    {
+      "id": "faction_tianlongsi",
+      "name": "天龙寺",
+      "type": "武林门派",
+      "location": "loc_tianlongsi",
+      "sub_divisions": [],
+      "one_line": "大理城外名寺，大理段氏武学重镇，藏有六脉神剑图谱"
+    },
+    {
+      "id": "faction_tubo",
+      "name": "吐蕃",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "鸠摩智所属的吐蕃国势力"
+    },
+    {
+      "id": "faction_sida_eren",
+      "name": "四大恶人",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "江湖四大恶人"
+    },
+    {
+      "id": "faction_shaolin",
+      "name": "少林",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "天下武学正宗，过彦之所属门派"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "云南",
+      "one_line": "大理国都城"
+    },
+    {
+      "id": "loc_tianlongsi",
+      "name": "天龙寺",
+      "region": "大理城外点苍山",
+      "one_line": "正式寺名叫崇圣寺，在点苍山中岳峰之北，背负苍山面临洱水，大理段氏武学重镇"
+    },
+    {
+      "id": "loc_munitang",
+      "name": "牟尼堂",
+      "region": "天龙寺",
+      "one_line": "天龙寺中高僧修炼之所，六脉神剑图谱悬挂于此"
+    },
+    {
+      "id": "loc_zhennanwangfu",
+      "name": "镇南王府",
+      "region": "大理",
+      "one_line": "段正淳的府邸，段誉在此发病"
+    },
+    {
+      "id": "loc_diancangshan",
+      "name": "点苍山",
+      "region": "大理",
+      "one_line": "天龙寺所在的山脉"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_yiyang_zhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_dali_duanshi",
+      "one_line": "大理段氏绝学，保定帝等人以此攻击鸠摩智的无形刀网"
+    },
+    {
+      "id": "skill_liumai_shenjian",
+      "name": "六脉神剑",
+      "type": "剑法",
+      "faction": "faction_tianlongsi",
+      "one_line": "大理段氏最高武学，以手指发射无形剑气，威力无穷"
+    },
+    {
+      "id": "skill_shangyang_jian",
+      "name": "商阳剑",
+      "type": "剑法",
+      "faction": "faction_tianlongsi",
+      "one_line": "六脉神剑之一，食指所发剑气，本因主练"
+    },
+    {
+      "id": "skill_zhongchong_jian",
+      "name": "中冲剑",
+      "type": "剑法",
+      "faction": "faction_tianlongsi",
+      "one_line": "六脉神剑之一，中指所发剑气，本观主练"
+    },
+    {
+      "id": "skill_shaoze_jian",
+      "name": "少泽剑",
+      "type": "剑法",
+      "faction": "faction_tianlongsi",
+      "one_line": "六脉神剑之一，左手小指所发剑气，本参主练"
+    },
+    {
+      "id": "skill_shaochong_jian",
+      "name": "少冲剑",
+      "type": "剑法",
+      "faction": "faction_tianlongsi",
+      "one_line": "六脉神剑之一，小指所发剑气，本相主练"
+    },
+    {
+      "id": "skill_guanchong_jian",
+      "name": "关冲剑",
+      "type": "剑法",
+      "faction": "faction_tianlongsi",
+      "one_line": "六脉神剑之一，无名指所发剑气，保定帝主练"
+    },
+    {
+      "id": "skill_shaoshang_jian",
+      "name": "少商剑",
+      "type": "剑法",
+      "faction": "faction_tianlongsi",
+      "one_line": "六脉神剑之一，大拇指所发剑气，图谱悬于枯荣大师面前"
+    },
+    {
+      "id": "skill_huoyandao",
+      "name": "火焰刀",
+      "type": "掌法",
+      "faction": "faction_tubo",
+      "one_line": "鸠摩智绝技，以无形内力化为刀锋，虚无缥缈却能杀人于无形"
+    },
+    {
+      "id": "skill_xiaowuxianggong",
+      "name": "小无相功",
+      "type": "内功",
+      "faction": "faction_tubo",
+      "one_line": "鸠摩智所练内功，可模拟各门各派武功"
+    },
+    {
+      "id": "skill_lingbo_weibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "段誉所学的伏羲六十四卦步法"
+    },
+    {
+      "id": "skill_beiming_shengong",
+      "name": "北冥神功",
+      "type": "内功",
+      "faction": "",
+      "one_line": "段誉所学内功，可吸收他人内力"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_liumai_tupu",
+      "name": "六脉神剑图谱",
+      "type": "special",
+      "owner": null,
+      "one_line": "六脉神剑的武功图谱，悬于天龙寺牟尼堂中，被枯荣大师焚毁"
+    }
+  ]
+}

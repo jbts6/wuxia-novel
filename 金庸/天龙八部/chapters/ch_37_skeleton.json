@@ -1,0 +1,217 @@
+{
+  "chapter": 37,
+  "characters": [
+    {
+      "id": "char_xuzhu",
+      "name": "虚竹",
+      "alias": ["梦郎"],
+      "identity": "逍遥派掌门人/灵鹫宫主人",
+      "faction": "faction_shaolin",
+      "role": "protagonist",
+      "one_line": "身集逍遥派三大高手功力，成为灵鹫宫新主人，为群豪解除生死符",
+      "personality": "善良正直、谦恭仁厚",
+      "known_skills": ["skill_tianshanzhemeishou", "skill_tianshanliuyangzhang", "skill_beimingzhenqi", "skill_xiaowuxianggong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_tonglao",
+      "name": "天山童姥",
+      "alias": ["童姥", "姥姥"],
+      "identity": "灵鹫宫主人/逍遥派大师姐",
+      "faction": "faction_xiaoyao",
+      "role": "villain",
+      "one_line": "与李秋水在冰窖中生死相搏，假死诱敌，最终先于李秋水身亡",
+      "personality": "狡诈多谋、坚韧好胜",
+      "known_skills": ["skill_bahuangliuhe", "skill_tianshanzhemeishou", "skill_tianshanliuyangzhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_liqiushui",
+      "name": "李秋水",
+      "alias": [],
+      "identity": "逍遥派师妹/西夏国皇太妃",
+      "faction": "faction_xiaoyao",
+      "role": "villain",
+      "one_line": "与童姥内力相搏导致两败俱伤，最终发现画中人非自己而是小妹，大笑而亡",
+      "personality": "工于心计、用情至深",
+      "known_skills": ["skill_xiaowuxianggong", "skill_baihongzhangli", "skill_guixigong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yupo",
+      "name": "余婆婆",
+      "alias": ["小余"],
+      "identity": "昊天部首领",
+      "faction": "faction_lingjiu",
+      "role": "npc",
+      "one_line": "灵鹫宫昊天部老妇，率先找到童姥，对虚竹极为恭敬",
+      "personality": "忠诚恭敬",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shisao",
+      "name": "石嫂",
+      "alias": [],
+      "identity": "朱天部首领",
+      "faction": "faction_lingjiu",
+      "role": "npc",
+      "one_line": "灵鹫宫朱天部首领，性格激昂",
+      "personality": "刚烈激昂",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_fuminyi",
+      "name": "符敏仪",
+      "alias": [],
+      "identity": "阳天部首领",
+      "faction": "faction_lingjiu",
+      "role": "npc",
+      "one_line": "灵鹫宫阳天部首领，号称针神，为虚竹缝制法衣",
+      "personality": "心灵手巧",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chengqingshuang",
+      "name": "程青霜",
+      "alias": [],
+      "identity": "钧天部副首领",
+      "faction": "faction_lingjiu",
+      "role": "npc",
+      "one_line": "钧天部副首领，断臂重伤下峰求援",
+      "personality": "忠诚坚毅",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理国王子",
+      "faction": "faction_duan",
+      "role": "companion",
+      "one_line": "章末在灵鹫宫与虚竹结拜为兄弟",
+      "personality": "仁厚善良、多情",
+      "known_skills": ["skill_lingboweibu"],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_xiaoyao",
+      "name": "逍遥派",
+      "type": "武林门派",
+      "location": "loc_piaomiao",
+      "sub_divisions": [],
+      "one_line": "武林神秘门派，三位同门师姐弟为情纠缠数十年"
+    },
+    {
+      "id": "faction_lingjiu",
+      "name": "灵鹫宫",
+      "type": "武林门派",
+      "location": "loc_piaomiao",
+      "sub_divisions": ["昊天部", "阳天部", "赤天部", "朱天部", "成天部", "幽天部", "玄天部", "鸾天部", "钧天部"],
+      "one_line": "缥缈峰上的神秘势力，九天九部均由女子组成，奉虚竹为新主人"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_piaomiao",
+      "name": "缥缈峰",
+      "region": "西夏",
+      "one_line": "终年云封雾锁的山峰，灵鹫宫所在地，有十八处天险"
+    },
+    {
+      "id": "loc_bingku",
+      "name": "冰库",
+      "region": "西夏皇宫地下",
+      "one_line": "皇宫地下三层冰窖，童姥与李秋水最终决斗之处"
+    },
+    {
+      "id": "loc_duanhunya",
+      "name": "断魂崖",
+      "region": "缥缈峰",
+      "one_line": "缥缈峰十八天险之一"
+    },
+    {
+      "id": "loc_shizuyan",
+      "name": "失足岩",
+      "region": "缥缈峰",
+      "one_line": "缥缈峰十八天险之一"
+    },
+    {
+      "id": "loc_baizhajian",
+      "name": "百丈涧",
+      "region": "缥缈峰",
+      "one_line": "缥缈峰十八天险之一，接天桥连接之处"
+    },
+    {
+      "id": "loc_jietianqiao",
+      "name": "接天桥",
+      "region": "缥缈峰",
+      "one_line": "横跨峭壁的铁索桥，连接百丈涧与仙愁门，被砍断后难以飞渡"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_chuanyinsouhun",
+      "name": "传音搜魂大法",
+      "type": "内功",
+      "faction": "faction_xiaoyao",
+      "one_line": "李秋水以高深内力送声入冰窖，扰乱童姥心神的功夫"
+    },
+    {
+      "id": "skill_tianshanliuyangzhang",
+      "name": "天山六阳掌",
+      "type": "掌法",
+      "faction": "faction_xiaoyao",
+      "one_line": "逍遥派掌法，虚竹用以化解生死符，亦用于实战"
+    },
+    {
+      "id": "skill_tianshanzhemeishou",
+      "name": "天山折梅手",
+      "type": "掌法",
+      "faction": "faction_xiaoyao",
+      "one_line": "逍遥派擒拿手，虚竹以此夺下卓不凡长剑"
+    },
+    {
+      "id": "skill_guixigong",
+      "name": "龟息功",
+      "type": "内功",
+      "faction": "",
+      "one_line": "李秋水在冰水中闭气与童姥内力相搏的功夫"
+    },
+    {
+      "id": "skill_baihongzhangli",
+      "name": "白虹掌力",
+      "type": "掌法",
+      "faction": "faction_xiaoyao",
+      "one_line": "李秋水所练掌力，曲直如意，可绕过虚竹身畔攻击童姥"
+    },
+    {
+      "id": "skill_xingwan.tiaozhi",
+      "name": "星丸跳掷",
+      "type": "指法",
+      "faction": "",
+      "one_line": "虚竹凌空弹指之法，以北冥真气射入穴道为人疗伤"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_qibaozhihuan",
+      "name": "七宝指环",
+      "type": "special",
+      "owner": "char_xuzhu",
+      "one_line": "逍遥派掌门信物，虚竹从李秋水手指上取回"
+    },
+    {
+      "id": "item_heise_diaoguan",
+      "name": "黑色短管",
+      "type": "special",
+      "owner": "char_tonglao",
+      "one_line": "童姥发出的信号管，弹上天后发出哨声召集灵鹫宫部众"
+    }
+  ]
+}

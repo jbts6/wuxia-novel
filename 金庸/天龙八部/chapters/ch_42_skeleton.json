@@ -1,0 +1,485 @@
+{
+  "chapter": 42,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": ["段公子"],
+      "identity": "大理国镇南王世子",
+      "faction": "faction_duanshi",
+      "role": "protagonist",
+      "one_line": "以六脉神剑击败慕容复，得到萧峰指点专使一路剑法",
+      "personality": "仁厚善良，痴情专一",
+      "known_skills": ["skill_liumaishenjian", "skill_lingboweibu"],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_duanrongfu",
+      "name": "慕容复",
+      "alias": ["南慕容"],
+      "identity": "姑苏慕容氏传人",
+      "faction": "faction_murong",
+      "role": "companion",
+      "one_line": "被段誉六脉神剑逼败，羞愤欲自刎，被灰衣僧劝止",
+      "personality": "心高气傲，以兴复大燕为志",
+      "known_skills": ["skill_douzhuanxingyi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_xiaofeng",
+      "name": "萧峰",
+      "alias": ["乔峰", "北乔峰"],
+      "identity": "前丐帮帮主/辽国南院大王",
+      "faction": "faction_gaibang",
+      "role": "protagonist",
+      "one_line": "指点段誉六脉神剑，踢断游坦之双腿，以一敌二战慕容复游坦之",
+      "personality": "豪迈磊落，义薄云天",
+      "known_skills": ["skill_xianglongshibazhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuzhu",
+      "name": "虚竹",
+      "alias": ["虚竹子"],
+      "identity": "少林僧/灵鹫宫主人",
+      "faction": "faction_shaolin",
+      "role": "protagonist",
+      "one_line": "以生死符制服丁春秋，被叶二娘认出是亲生儿子",
+      "personality": "质朴厚道，心怀慈悲",
+      "known_skills": ["skill_tianshanliuyangzhang", "skill_tianshanzhemeishou", "skill_shengsifu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_dingchunqiu",
+      "name": "丁春秋",
+      "alias": ["星宿老仙", "星宿老怪"],
+      "identity": "星宿派掌门人",
+      "faction": "faction_xingxiu",
+      "role": "villain",
+      "one_line": "被虚竹生死符制服，痛苦不堪，被迫交出解药",
+      "personality": "残忍狡诈，贪图虚荣",
+      "known_skills": ["skill_fushidu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_youtanzhi",
+      "name": "游坦之",
+      "alias": ["庄聚贤"],
+      "identity": "丐帮帮主",
+      "faction": "faction_gaibang",
+      "role": "villain",
+      "one_line": "被萧峰踢断双腿，众丐不再奉其为帮主",
+      "personality": "懦弱痴情",
+      "known_skills": ["skill_yijinjing"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azi",
+      "name": "阿紫",
+      "alias": [],
+      "identity": "星宿派弟子/段正淳之女",
+      "faction": "faction_xingxiu",
+      "role": "companion",
+      "one_line": "自封星宿派掌门，与游坦之同行",
+      "personality": "任性狠辣，痴恋萧峰",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "alias": ["王姑娘"],
+      "identity": "慕容复表妹",
+      "faction": "faction_murong",
+      "role": "companion",
+      "one_line": "为表哥求情，段誉因此收手",
+      "personality": "温柔娴雅",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huiyiseng",
+      "name": "灰衣僧",
+      "alias": ["慕容博"],
+      "identity": "慕容复之父/假死隐居少林",
+      "faction": "faction_murong",
+      "role": "npc",
+      "one_line": "慕容博假死隐居少林寺三十年，指点慕容复参合指",
+      "personality": "深谋远虑，为复国不惜一切",
+      "known_skills": ["skill_canhezhi", "skill_weituocho"],
+      "related_skills": []
+    },
+    {
+      "id": "char_heiyiseng",
+      "name": "黑衣僧",
+      "alias": ["萧远山"],
+      "identity": "萧峰之父",
+      "faction": null,
+      "role": "npc",
+      "one_line": "萧峰生父，隐居少林寺三十年，杀害乔三槐夫妇和玄苦",
+      "personality": "犷悍刚烈，复仇心切",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yueniang",
+      "name": "叶二娘",
+      "alias": ["无恶不作"],
+      "identity": "四大恶人之二/虚竹之母",
+      "faction": null,
+      "role": "npc",
+      "one_line": "四大恶人之一，与玄慈私通生下虚竹，认子后自尽",
+      "personality": "凶狠残忍但情深义重",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuanci",
+      "name": "玄慈",
+      "alias": [],
+      "identity": "少林寺方丈",
+      "faction": "faction_shaolin",
+      "role": "npc",
+      "one_line": "少林方丈，被揭破与叶二娘私通，受杖责二百后自绝经脉",
+      "personality": "慈悲刚烈，勇于担当",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yupo",
+      "name": "余婆",
+      "alias": [],
+      "identity": "灵鹫宫昊天部首领",
+      "faction": "faction_lingjiu",
+      "role": "npc",
+      "one_line": "灵鹫宫属下，率八部赶来少室山护主",
+      "personality": "忠诚恭敬",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jujian",
+      "name": "菊剑",
+      "alias": [],
+      "identity": "灵鹫宫四姝之一",
+      "faction": "faction_lingjiu",
+      "role": "npc",
+      "one_line": "虚竹侍女，以酒水助虚竹施展生死符，被毒雨所伤",
+      "personality": "娇憨活泼",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baobutong",
+      "name": "包不同",
+      "alias": ["包三哥"],
+      "identity": "慕容复属下四大家臣之三",
+      "faction": "faction_murong",
+      "role": "companion",
+      "one_line": "嘲讽少林寺是养私生子的善地",
+      "personality": "诙谐多嘴，忠心耿耿",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_kangguangling",
+      "name": "康广陵",
+      "alias": ["琴颠"],
+      "identity": "函谷八友之首",
+      "faction": "faction_xiaoyao",
+      "role": "npc",
+      "one_line": "逍遥派弟子，苏星河大弟子，为虚竹助威",
+      "personality": "痴迷琴艺",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuemuhua",
+      "name": "薛慕华",
+      "alias": ["神医"],
+      "identity": "函谷八友之一",
+      "faction": "faction_xiaoyao",
+      "role": "npc",
+      "one_line": "逍遥派弟子，人称薛神医",
+      "personality": "精于医术",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen",
+      "name": "南海鳄神",
+      "alias": ["岳老二", "岳老三"],
+      "identity": "四大恶人之二",
+      "faction": null,
+      "role": "companion",
+      "one_line": "因叶二娘之死甘愿退让排名",
+      "personality": "直率好胜，重辈分面子",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yunzhonghe",
+      "name": "云中鹤",
+      "alias": ["穷凶极恶"],
+      "identity": "四大恶人之四",
+      "faction": null,
+      "role": "npc",
+      "one_line": "四大恶人之一",
+      "personality": "凶残好色",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jiumozhi",
+      "name": "鸠摩智",
+      "alias": ["大轮明王", "国师"],
+      "identity": "吐蕃国师",
+      "faction": "faction_tubo",
+      "role": "villain",
+      "one_line": "吐蕃国师，精通少林七十二绝技，暗算段誉",
+      "personality": "自负傲慢",
+      "known_skills": ["skill_huoyandao", "skill_wuxiangjiezhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wuminglaoseng",
+      "name": "无名老僧",
+      "alias": [],
+      "identity": "少林寺扫地僧",
+      "faction": "faction_shaolin",
+      "role": "npc",
+      "one_line": "少林寺神秘扫地僧，武功深不可测，点化萧远山慕容博",
+      "personality": "慈悲智慧，深不可测",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_batianshi",
+      "name": "巴天石",
+      "alias": [],
+      "identity": "大理国臣子",
+      "faction": "faction_duanshi",
+      "role": "npc",
+      "one_line": "大理臣子，助段誉拔出判官笔治伤",
+      "personality": "精明谨慎",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_shaolin",
+      "name": "少林派",
+      "type": "武林门派",
+      "location": "loc_shaoshi",
+      "sub_divisions": [],
+      "one_line": "中原武林首领，千年古刹"
+    },
+    {
+      "id": "faction_xingxiu",
+      "name": "星宿派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "西域门派，以谄谀和阴毒武功著称"
+    },
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "天下第一大帮"
+    },
+    {
+      "id": "faction_murong",
+      "name": "姑苏慕容",
+      "type": "家族",
+      "location": "loc_yanziwu",
+      "sub_divisions": [],
+      "one_line": "姑苏燕子坞慕容氏，以斗转星移和以彼之道还施彼身闻名"
+    },
+    {
+      "id": "faction_duanshi",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "大理国王族，以一阳指和六脉神剑闻名"
+    },
+    {
+      "id": "faction_lingjiu",
+      "name": "灵鹫宫",
+      "type": "武林门派",
+      "location": "loc_piaomiao",
+      "sub_divisions": ["昊天部", "玄天部", "鸾天部"],
+      "one_line": "缥缈峰灵鹫宫，统领三十六洞七十二岛"
+    },
+    {
+      "id": "faction_xiaoyao",
+      "name": "逍遥派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "逍遥派，武功飘逸出尘"
+    },
+    {
+      "id": "faction_tubo",
+      "name": "吐蕃国",
+      "type": "国家",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "吐蕃国，与大宋西夏相邻"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_shaoshi",
+      "name": "少室山",
+      "region": "中原河南",
+      "one_line": "少林寺所在地，群雄聚集比武之地"
+    },
+    {
+      "id": "loc_yanziwu",
+      "name": "姑苏燕子坞",
+      "region": "江南",
+      "one_line": "慕容氏故居"
+    },
+    {
+      "id": "loc_piaomiao",
+      "name": "缥缈峰",
+      "region": "西夏",
+      "one_line": "灵鹫宫所在地"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_liumaishenjian",
+      "name": "六脉神剑",
+      "type": "剑法",
+      "faction": "faction_duanshi",
+      "one_line": "以无形剑气伤人的大理绝学"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "逍遥派轻功步法"
+    },
+    {
+      "id": "skill_xianglongshibazhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮镇帮神功"
+    },
+    {
+      "id": "skill_douzhuanxingyi",
+      "name": "斗转星移",
+      "type": "武功",
+      "faction": "faction_murong",
+      "one_line": "将对方招数反施于对方"
+    },
+    {
+      "id": "skill_tianshanliuyangzhang",
+      "name": "天山六阳掌",
+      "type": "掌法",
+      "faction": "faction_lingjiu",
+      "one_line": "逍遥派掌法"
+    },
+    {
+      "id": "skill_tianshanzhemeishou",
+      "name": "天山折梅手",
+      "type": "武功",
+      "faction": "faction_lingjiu",
+      "one_line": "逍遥派擒拿手法"
+    },
+    {
+      "id": "skill_shengsifu",
+      "name": "生死符",
+      "type": "暗器",
+      "faction": "faction_lingjiu",
+      "one_line": "灵鹫宫独门暗器，以酒水化冰附内力打入穴道令人麻痒难当"
+    },
+    {
+      "id": "skill_canhezhi",
+      "name": "参合指",
+      "type": "指法",
+      "faction": "faction_murong",
+      "one_line": "慕容家传指法，凌虚点穴"
+    },
+    {
+      "id": "skill_weituocho",
+      "name": "韦陀杵",
+      "type": "武功",
+      "faction": "faction_shaolin",
+      "one_line": "少林七十二绝技之一"
+    },
+    {
+      "id": "skill_fushidu",
+      "name": "腐尸毒",
+      "type": "毒功",
+      "faction": "faction_xingxiu",
+      "one_line": "星宿派阴毒武功"
+    },
+    {
+      "id": "skill_yijinjing",
+      "name": "易筋经",
+      "type": "内功",
+      "faction": "faction_shaolin",
+      "one_line": "少林寺上乘内功秘笈"
+    },
+    {
+      "id": "skill_huoyandao",
+      "name": "火焰刀",
+      "type": "武功",
+      "faction": "faction_tubo",
+      "one_line": "鸠摩智绝技，以掌力化刀气伤人"
+    },
+    {
+      "id": "skill_wuxiangjiezhi",
+      "name": "无相劫指",
+      "type": "指法",
+      "faction": "faction_shaolin",
+      "one_line": "少林七十二绝技之一，凌空点穴"
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_duanshi",
+      "one_line": "大理段氏家传绝学"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_shoujiegun",
+      "name": "守戒棍",
+      "type": "weapon",
+      "owner": null,
+      "one_line": "少林寺戒律院执法僧所用刑杖"
+    },
+    {
+      "id": "item_zhenyangwan",
+      "name": "镇痒丸",
+      "type": "pill",
+      "owner": "char_jujian",
+      "one_line": "可止生死符发作之痒的药丸"
+    },
+    {
+      "id": "item_jiezhi",
+      "name": "大燕皇帝之宝",
+      "type": "special",
+      "owner": "char_duanrongfu",
+      "one_line": "慕容氏传国玉玺"
+    },
+    {
+      "id": "item_shipu",
+      "name": "大燕皇帝世系谱表",
+      "type": "special",
+      "owner": "char_duanrongfu",
+      "one_line": "慕容氏鲜卑皇族世系家谱"
+    }
+  ]
+}

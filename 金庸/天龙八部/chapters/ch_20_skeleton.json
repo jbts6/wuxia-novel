@@ -1,0 +1,194 @@
+{
+  "chapter": 20,
+  "characters": [
+    {
+      "id": "char_qiaofeng",
+      "name": "乔峰",
+      "alias": ["萧峰", "乔帮主"],
+      "identity": "丐帮前帮主",
+      "faction": "faction_gaibang",
+      "role": "protagonist",
+      "one_line": "携阿朱重返雁门关，探寻身世真相，回忆当年大战情景",
+      "personality": "悲愤慷慨，重情重义，对身世之谜执着追寻",
+      "known_skills": ["skill_xianglongshibazhang", "skill_dagoubang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": [],
+      "identity": "慕容复的贴身侍女",
+      "faction": "faction_gususumurong",
+      "role": "companion",
+      "one_line": "与乔峰同行至雁门关，身受重伤仍陪伴左右",
+      "personality": "温柔坚贞，对乔峰深情不移",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhiguang",
+      "name": "智光",
+      "alias": ["智光大师"],
+      "identity": "天台山高僧",
+      "faction": "faction_tiantaishan",
+      "role": "npc",
+      "one_line": "天台山高僧，继续讲述雁门关往事，揭示更多身世线索",
+      "personality": "德高望重，慈悲为怀",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhaoqiansun",
+      "name": "赵钱孙",
+      "alias": [],
+      "identity": "雁门关伏击参与者",
+      "faction": null,
+      "role": "npc",
+      "one_line": "参与雁门关伏击的武林人士，补充讲述当年细节",
+      "personality": "直率坦荡",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuzhanglao",
+      "name": "徐长老",
+      "alias": [],
+      "identity": "丐帮长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮长老，继续参与身世调查",
+      "personality": "稳重威严",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baishijing",
+      "name": "白世镜",
+      "alias": [],
+      "identity": "丐帮执法长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮执法长老",
+      "personality": "严肃刚正",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_danzheng",
+      "name": "单正",
+      "alias": ["铁面判官"],
+      "identity": "太行山判官",
+      "faction": null,
+      "role": "npc",
+      "one_line": "铁面判官，参与身世调查",
+      "personality": "铁面无私",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_abi",
+      "name": "阿碧",
+      "alias": [],
+      "identity": "慕容复的贴身侍女",
+      "faction": "faction_gususumurong",
+      "role": "npc",
+      "one_line": "慕容府丫鬟",
+      "personality": "温柔安静",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mafuren",
+      "name": "马夫人",
+      "alias": ["康敏"],
+      "identity": "马大元之妻",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "马大元遗孀",
+      "personality": "外表柔弱，内心深沉",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": "loc_wuxi",
+      "sub_divisions": [],
+      "one_line": "江湖上第一大帮"
+    },
+    {
+      "id": "faction_shaolin",
+      "name": "少林寺",
+      "type": "武林门派",
+      "location": "loc_shaolin",
+      "sub_divisions": [],
+      "one_line": "天下武学之源"
+    },
+    {
+      "id": "faction_tiantaishan",
+      "name": "天台山",
+      "type": "武林门派",
+      "location": "loc_tiantaishan",
+      "sub_divisions": [],
+      "one_line": "智光大师所属的佛门圣地"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_yanmenguan",
+      "name": "雁门关",
+      "region": "塞北",
+      "one_line": "乔峰携阿朱重返之地，三十年前大战的战场，绝壁无字"
+    },
+    {
+      "id": "loc_wuxi",
+      "name": "无锡",
+      "region": "江南",
+      "one_line": "丐帮杏子林聚会之地"
+    },
+    {
+      "id": "loc_xingzilin",
+      "name": "杏子林",
+      "region": "无锡城外",
+      "one_line": "丐帮众人聚集讨论乔峰身世之地"
+    },
+    {
+      "id": "loc_shaolin",
+      "name": "少林寺",
+      "region": "河南嵩山",
+      "one_line": "天下武学之源"
+    },
+    {
+      "id": "loc_juxianzhuang",
+      "name": "聚贤庄",
+      "region": "无锡东北七十里",
+      "one_line": "乔峰大战群雄之地"
+    },
+    {
+      "id": "loc_luoyang",
+      "name": "洛阳",
+      "region": "中原",
+      "one_line": "丐帮总舵所在地"
+    }
+  ],
+  "skills": [],
+  "items": [
+    {
+      "id": "item_xin",
+      "name": "书信",
+      "type": "special",
+      "owner": null,
+      "one_line": "涉及乔峰身世的关键书信"
+    },
+    {
+      "id": "item_anqi",
+      "name": "暗器（钢镖/袖箭/飞刀/铁锥）",
+      "type": "hidden_weapon",
+      "owner": null,
+      "one_line": "当年雁门关伏击时使用的各类暗器"
+    }
+  ]
+}

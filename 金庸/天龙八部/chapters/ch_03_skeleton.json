@@ -1,0 +1,247 @@
+{
+  "chapter": 3,
+  "characters": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理国段氏子弟",
+      "faction": "faction_duanshi",
+      "role": "protagonist",
+      "one_line": "骑黑玫瑰借马报讯，卷入木婉清与追兵的纷争",
+      "personality": "善良正直，路见不平拔刀相助",
+      "known_skills": [],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_muwanqing",
+      "name": "木婉清",
+      "alias": [],
+      "identity": "黑衣蒙面女郎",
+      "faction": null,
+      "role": "companion",
+      "one_line": "黑衣蒙面少女，武功高强，使用毒箭，被瑞婆婆等人追捕",
+      "personality": "冷傲泼辣，外表凶狠内心善良",
+      "known_skills": ["skill_duanjian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongling",
+      "name": "钟灵",
+      "alias": [],
+      "identity": "钟家少女",
+      "faction": "faction_wanjiegu",
+      "role": "companion",
+      "one_line": "被神农帮扣押，后被段誉和木婉清救出",
+      "personality": "娇俏可爱，天真烂漫",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ruipopopo",
+      "name": "瑞婆婆",
+      "alias": [],
+      "identity": "追捕木婉清的老妪",
+      "faction": null,
+      "role": "villain",
+      "one_line": "白发老妪，手持铁拐杖，奉命从江南追到大理",
+      "personality": "凶狠阴险",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_pingpopo",
+      "name": "平婆婆",
+      "alias": [],
+      "identity": "追捕木婉清的胖老妪",
+      "faction": null,
+      "role": "villain",
+      "one_line": "肥胖老妪，双手各持短刀，杀死来福儿",
+      "personality": "凶悍暴躁",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhulaoo",
+      "name": "祝老头",
+      "alias": [],
+      "identity": "被瑞婆婆拉来凑热闹的老者",
+      "faction": null,
+      "role": "npc",
+      "one_line": "须发苍然的老者，被平婆婆暗算杀死",
+      "personality": "胆小怕事",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ganguanghao",
+      "name": "干光豪",
+      "alias": [],
+      "identity": "无量剑东宗弟子",
+      "faction": "faction_wuliangjian",
+      "role": "npc",
+      "one_line": "与葛光佩私奔的东宗弟子，被木婉清毒箭射死",
+      "personality": "偷懒逃学，为爱私奔",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_geguangpei",
+      "name": "葛光佩",
+      "alias": [],
+      "identity": "无量剑西宗弟子",
+      "faction": "faction_wuliangjian",
+      "role": "npc",
+      "one_line": "与干光豪私奔的西宗女弟子，被木婉清毒箭射死",
+      "personality": "温柔但心狠",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sikongxuan",
+      "name": "司空玄",
+      "alias": [],
+      "identity": "神农帮帮主",
+      "faction": "faction_shennongbang",
+      "role": "villain",
+      "one_line": "神农帮帮主，误认段誉等为灵鹫宫圣使",
+      "personality": "阴沉，惧怕灵鹫宫",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_laifuer",
+      "name": "来福儿",
+      "alias": [],
+      "identity": "万劫谷仆人",
+      "faction": "faction_wanjiegu",
+      "role": "npc",
+      "one_line": "陪段誉借马，被平婆婆杀害",
+      "personality": "忠厚老实",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_wuliangjian",
+      "name": "无量剑",
+      "type": "武林门派",
+      "location": "loc_wuliangshan",
+      "sub_divisions": ["东宗", "西宗", "北宗"],
+      "one_line": "五代后唐年间在南诏无量山创派"
+    },
+    {
+      "id": "faction_wanjiegu",
+      "name": "万劫谷",
+      "type": "家族",
+      "location": "loc_wanjiegu",
+      "sub_divisions": [],
+      "one_line": "钟万仇与甘宝宝隐居之所"
+    },
+    {
+      "id": "faction_shennongbang",
+      "name": "神农帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "以采药贩药为生，奉灵鹫宫号令"
+    },
+    {
+      "id": "faction_lingjiugong",
+      "name": "灵鹫宫",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "缥缈峰上的神秘门派，神农帮奉其号令"
+    },
+    {
+      "id": "faction_duanshi",
+      "name": "段氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "大理国姓段的家族"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_wanjiegu",
+      "name": "万劫谷",
+      "region": "云南",
+      "one_line": "澜沧江西岸的隐秘山谷，钟万仇夫妇隐居之所"
+    },
+    {
+      "id": "loc_wuliangshan",
+      "name": "无量山",
+      "region": "云南",
+      "one_line": "山水清幽，无量剑派所在之地"
+    },
+    {
+      "id": "loc_jianhugong",
+      "name": "剑湖宫",
+      "region": "无量山",
+      "one_line": "无量剑掌门人居住的地方"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_duanjian",
+      "name": "毒箭",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "木婉清使用的黑色短箭，见血封喉"
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_duanshi",
+      "one_line": "段家点穴功夫天下无双"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_heimeigui",
+      "name": "黑玫瑰",
+      "type": "special",
+      "owner": "char_muwanqing",
+      "one_line": "木婉清的黑色骏马，脚力非凡"
+    },
+    {
+      "id": "item_huangjindianhe",
+      "name": "黄金钿盒",
+      "type": "special",
+      "owner": "char_ganbaobao",
+      "one_line": "钟夫人交给段誉的精致金盒，内有生辰八字"
+    },
+    {
+      "id": "item_doupeng",
+      "name": "碧绿斗篷",
+      "type": "armor",
+      "owner": "char_muwanqing",
+      "one_line": "灵鹫宫部属的碧绿锦缎斗篷，胸口绣着黑鹫"
+    },
+    {
+      "id": "item_duanjian",
+      "name": "短箭",
+      "type": "hidden_weapon",
+      "owner": "char_muwanqing",
+      "one_line": "木婉清使用的黑色毒箭，见血封喉"
+    },
+    {
+      "id": "item_bishou",
+      "name": "匕首",
+      "type": "weapon",
+      "owner": "char_muwanqing",
+      "one_line": "木婉清随身携带的匕首"
+    },
+    {
+      "id": "item_huaxie",
+      "name": "花鞋",
+      "type": "special",
+      "owner": "char_zhongling",
+      "one_line": "钟灵的葱绿色花鞋，作为信物"
+    }
+  ]
+}
