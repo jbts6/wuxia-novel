@@ -1821,7 +1821,84 @@ git commit -m "feat: add data validation script"
 
 ---
 
-## Task 14: 执行骨架提取（50章）
+## Task 14: 试运行（3章端到端验证）
+
+**目的:** 用第1、10、25章跑通完整管道（骨架→深度→合并→游戏化→RAG），验证所有环节再批量执行。
+
+- [ ] **Step 1: 骨架提取第1章**
+
+已有 `金庸/chapters/chapter_01.json` 作为参考。用提取脚本对第1章重新提取，对比结果质量。
+
+```bash
+cd C:\git\wuxia_novel
+python tools/extract/extract-skeleton.py 1
+```
+
+将prompt送入LLM，保存结果到 `novels/tianlong-babu/chapters/ch_01_skeleton.json`。
+
+- [ ] **Step 2: 骨架提取第10、25章**
+
+同上，对第10章和第25章执行骨架提取。
+
+```bash
+python tools/extract/extract-skeleton.py 10 25
+```
+
+- [ ] **Step 3: 深度提取第1、10、25章**
+
+```bash
+python tools/extract/extract-deep.py 1 10 25
+```
+
+- [ ] **Step 4: 合并试运行**
+
+```bash
+python tools/merge/merge-chapters.py
+```
+
+检查合并结果：人物数量是否合理，有无重复id。
+
+- [ ] **Step 5: 游戏化试运行**
+
+```bash
+python tools/gamify/assign-stats.py
+```
+
+抽查段誉属性：应为高MP高WIZ低ATK。
+
+- [ ] **Step 6: RAG试运行**
+
+```bash
+python tools/rag/chunk-text.py
+```
+
+检查chunk数量和质量。
+
+- [ ] **Step 7: 校验试运行**
+
+```bash
+python tools/validate/validate.py
+```
+
+- [ ] **Step 8: 人工审查**
+
+对比第1章提取结果和 `金庸/chapters/chapter_01.json`（已有参考），检查：
+- 人物数量是否一致
+- 门派/技能是否遗漏
+- 性格描述是否准确
+
+如有问题，修复prompt或脚本后重跑。
+
+- [ ] **Step 9: 试运行通过后Commit**
+
+```bash
+git add novels/tianlong-babu/ -A
+git commit -m "feat: trial run on chapters 1/10/25 - pipeline validated"
+```
+
+---
+
+## Task 15: 执行骨架提取（50章）
 
 **Files:**
 - Create: `novels/tianlong-babu/chapters/ch_XX_skeleton.json` (50个)
@@ -1869,7 +1946,7 @@ git commit -m "feat: complete skeleton extraction for all 50 chapters"
 
 ---
 
-## Task 15: 执行深度提取（50章）
+## Task 16: 执行深度提取（50章）
 
 **Files:**
 - Create: `novels/tianlong-babu/chapters/ch_XX_deep.json` (50个)
@@ -1904,7 +1981,7 @@ git commit -m "feat: complete deep extraction for all 50 chapters"
 
 ---
 
-## Task 16: 执行合并
+## Task 17: 执行合并
 
 **Files:**
 - Create: `novels/tianlong-babu/characters.json`
@@ -1936,7 +2013,7 @@ git commit -m "feat: merge all chapters into global data files"
 
 ---
 
-## Task 17: 执行游戏化赋值
+## Task 18: 执行游戏化赋值
 
 **Files:**
 - Create: `novels/tianlong-babu/game_characters.json`
@@ -1975,7 +2052,7 @@ git commit -m "feat: assign game stats to characters and skills"
 
 ---
 
-## Task 18: 执行RAG切片
+## Task 19: 执行RAG切片
 
 **Files:**
 - Create: `novels/tianlong-babu/chunks/all_chunks.json`
@@ -2006,7 +2083,7 @@ git commit -m "feat: create RAG chunks with metadata annotation"
 
 ---
 
-## Task 19: 数据校验
+## Task 20: 数据校验
 
 - [ ] **Step 1: 运行校验脚本**
 
@@ -2032,7 +2109,7 @@ git commit -m "fix: resolve validation errors"
 
 ---
 
-## Task 20: 更新tasks.md并完成
+## Task 21: 更新tasks.md并完成
 
 - [ ] **Step 1: 勾选tasks.md中所有完成的任务**
 
