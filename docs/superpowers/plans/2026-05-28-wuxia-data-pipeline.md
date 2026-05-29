@@ -1932,12 +1932,12 @@ git commit -m "feat: merge all chapters into global data files"
 - [ ] **Step 1: 为角色添加archetype和rank**
 
 在合并后的 `characters.json` 中，为关键角色手动补充 `archetype` 和 `rank`：
-- 段誉: archetype=scholar, rank=出神入化
-- 萧峰: archetype=warrior, rank=出神入化
-- 虚竹: archetype=monk, rank=出神入化
+- 段誉: archetype=scholar, rank=登峰造极
+- 萧峰: archetype=warrior, rank=登峰造极
+- 虚竹: archetype=monk, rank=登峰造极
 - 扫地僧: archetype=monk, rank=返璞归真
-- 鸠摩智: archetype=warrior, rank=炉火纯青
-- 慕容复: archetype=warrior, rank=炉火纯青
+- 鸠摩智: archetype=warrior, rank=出神入化
+- 慕容复: archetype=warrior, rank=出神入化
 
 其他角色由LLM根据personality推断。
 
