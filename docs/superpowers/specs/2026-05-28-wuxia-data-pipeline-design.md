@@ -2,6 +2,9 @@
 comet_change: wuxia-data-pipeline
 role: technical-design
 canonical_spec: openspec
+archived_with: wuxia-data-pipeline
+status: archived
+archived_at: 2026-05-29
 ---
 
 # 武侠小说拆解系统 - 技术设计文档

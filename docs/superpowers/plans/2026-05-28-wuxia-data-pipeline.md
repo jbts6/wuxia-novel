@@ -2,6 +2,8 @@
 change: wuxia-data-pipeline
 design-doc: docs/superpowers/specs/2026-05-28-wuxia-data-pipeline-design.md
 base-ref: 46578f079e8de641f503eb4abd518ed91fddbda7
+archived_with: wuxia-data-pipeline
+archived_at: 2026-05-29
 ---
 
 # 武侠小说拆解系统 实施计划
