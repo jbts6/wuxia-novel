@@ -35,6 +35,7 @@ wuxia_novel/
 │   │   ├── technique-template.md      # 招式卡Markdown模板
 │   │   ├── faction-template.md        # 门派卡Markdown模板
 │   │   ├── location-template.md       # 场景卡Markdown模板
+│   │   ├── item-template.md           # 物品卡Markdown模板
 │   │   ├── archetypes.json            # 角色原型数值模板
 │   │   └── factions.json              # 门派加成模板
 │   └── balance/
@@ -46,6 +47,7 @@ wuxia_novel/
 │   ├── skills/                        # 合并后技能卡（Markdown）
 │   ├── factions/                      # 合并后门派卡（Markdown）
 │   ├── locations/                     # 合并后场景卡（Markdown）
+│   ├── items/                         # 合并后物品卡（Markdown）
 │   ├── chunks/                        # RAG文本块（JSON，程序用）
 │   └── progress.json                 # 进度追踪
 ├── tools/
@@ -275,11 +277,12 @@ git commit -m "feat: add skill and technique card Markdown templates with wikili
 
 ---
 
-## Task 4: 定义门派卡和场景卡Markdown模板
+## Task 4: 定义门派卡、场景卡和物品卡Markdown模板
 
 **Files:**
 - Create: `framework/templates/faction-template.md`
 - Create: `framework/templates/location-template.md`
+- Create: `framework/templates/item-template.md`
 
 - [ ] **Step 1: 创建门派卡模板**
 
@@ -339,11 +342,45 @@ region: {{region}}                # 地理区域
 - [[{{faction}}]]
 ```
 
-- [ ] **Step 3: Commit**
+- [ ] **Step 3: 创建物品卡模板**
+
+```markdown
+# {{name}}
+
+---
+id: {{id}}
+type: {{type}}                    # weapon(武器)/armor(防具)/pill(丹药)/poison(毒药)/hidden_weapon(暗器)/special(特殊物品) — 随小说进度补充
+rank: {{rank}}                    # 返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇
+owner: "[[{{owner}}]]"            # 当前持有者
+first_appearance: {{first_appearance}}  # 首次出场章节号
+---
+
+## 描述
+{{description}}
+
+## 效果
+- **类型**: {{effect_type}}      # attack(攻击)/defense(防御)/heal(治疗)/buff(增益)/debuff(减益)/special(特殊)
+- **数值**: {{effect_value}}
+- **特殊**: {{special_effect}}
+
+## 关联武学
+- [[{{skill}}]]
+
+## 流转记录
+| 持有者 | 章节范围 | 备注 |
+|--------|---------|------|
+| [[{{character}}]] | ch.{{start}}-{{end}} | {{note}} |
+
+## 出现场景
+> "{{quote}}"
+> —— 第{{chapter}}章
+```
+
+- [ ] **Step 4: Commit**
 
 ```bash
-git add framework/templates/faction-template.md framework/templates/location-template.md
-git commit -m "feat: add faction and location card Markdown templates with wikilinks"
+git add framework/templates/faction-template.md framework/templates/location-template.md framework/templates/item-template.md
+git commit -m "feat: add faction, location, and item card Markdown templates with wikilinks"
 ```
 
 ---
@@ -457,6 +494,7 @@ git commit -m "feat: add game stat templates and combat formula"
 2. **门派**：名字 + 类型 + 地点
 3. **地点**：名字 + 地理位置 + 一句话描述
 4. **武功**：名字 + 类型（剑法/掌法/内功/轻功/暗器）+ 简要描述
+5. **物品**：名字 + 类型（武器/防具/丹药/毒药/暗器/特殊物品）+ 持有者 + 简要描述
 
 规则：
 - 只提取本章实际出现的人物/门派/地点/武功
@@ -506,6 +544,15 @@ git commit -m "feat: add game stat templates and combat formula"
       "name": "名字",
       "type": "剑法/掌法/内功/轻功/暗器/指法",
       "faction": "所属门派id或空字符串",
+      "one_line": "一句话描述"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_xxx",
+      "name": "名字",
+      "type": "weapon/armor/pill/poison/hidden_weapon/special",
+      "owner": "持有者角色id或null",
       "one_line": "一句话描述"
     }
   ]

@@ -46,7 +46,8 @@ canonical_spec: openspec
   "characters": [{"name": "段誉", "identity": "大理世子", "faction": "大理段氏"}],
   "factions": [{"name": "无量剑", "type": "sect", "sub_divisions": ["东宗","西宗"]}],
   "locations": [{"name": "无量山", "region": "云南"}],
-  "skills": [{"name": "六脉神剑", "type": "finger_sword"}]
+  "skills": [{"name": "六脉神剑", "type": "finger_sword"}],
+  "items": [{"name": "含光剑", "type": "weapon", "owner": "慕容复"}]
 }
 ```
 
@@ -57,6 +58,7 @@ canonical_spec: openspec
 每章1次LLM调用，输入：章节原文 + 骨架索引。输出详细数据：
 - 角色卡（personality, relationships, known_skills, related_skills）
 - 技能卡（techniques, effects, progression）
+- 物品卡（effects, 流转记录）
 - 事件链
 - 对话片段（标记语气）
 

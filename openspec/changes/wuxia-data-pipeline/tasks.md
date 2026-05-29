@@ -7,9 +7,10 @@
 - [ ] 1.3 创建招式卡Markdown模板 (`framework/templates/technique-template.md`)
 - [ ] 1.4 创建门派卡Markdown模板 (`framework/templates/faction-template.md`)
 - [ ] 1.5 创建场景卡Markdown模板 (`framework/templates/location-template.md`)
-- [ ] 1.6 创建角色原型数值模板 (`framework/templates/archetypes.json`)
-- [ ] 1.7 创建门派加成模板 (`framework/templates/factions.json`)
-- [ ] 1.8 创建数值平衡公式 (`framework/balance/combat-formula.json`)
+- [ ] 1.6 创建物品卡Markdown模板 (`framework/templates/item-template.md`)
+- [ ] 1.7 创建角色原型数值模板 (`framework/templates/archetypes.json`)
+- [ ] 1.8 创建门派加成模板 (`framework/templates/factions.json`)
+- [ ] 1.9 创建数值平衡公式 (`framework/balance/combat-formula.json`)
 
 ## Phase 2: 提取管道
 
