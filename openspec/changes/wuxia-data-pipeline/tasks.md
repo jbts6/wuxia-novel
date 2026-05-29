@@ -18,7 +18,7 @@
 - [x] 2.2 编写深度提取prompt模板 (`tools/extract/deep-prompt.md`)
 - [x] 2.3 编写骨架提取脚本 (`tools/extract/extract-skeleton.py`)
 - [x] 2.4 编写深度提取脚本 (`tools/extract/extract-deep.py`)
-- [ ] 2.5 对天龙八部50章执行骨架提取
+- [x] 2.5 对天龙八部50章执行骨架提取
 
 ## Phase 3: 合并与游戏化（输出Markdown卡片）
 
