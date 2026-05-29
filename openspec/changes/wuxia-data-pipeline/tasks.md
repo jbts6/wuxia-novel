@@ -33,8 +33,8 @@
 
 ## Phase 5: 验证
 
-- [ ] 5.1 验证Markdown卡片完整性（wikilinks引用、必需字段）
-- [ ] 5.2 验证游戏化数值合理性
+- [x] 5.1 验证Markdown卡片完整性（wikilinks引用、必需字段）
+- [x] 5.2 验证游戏化数值合理性
 - [ ] 5.3 验证context-mode检索效果
 - [ ] 5.4 验证Obsidian关系图谱显示
 
