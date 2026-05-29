@@ -7,10 +7,54 @@ import json
 NOVELS_DIR = "金庸/天龙八部"
 TEMPLATES_DIR = "framework/templates"
 
+# ID 到中文名的映射表
+ID_TO_NAME = {}
+
 
 def load_json(path):
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def build_id_mapping(characters, skills, factions, locations):
+    """构建 ID 到中文名的映射"""
+    global ID_TO_NAME
+    ID_TO_NAME = {}
+
+    for char in characters:
+        char_id = char.get('id', '')
+        name = char.get('name', '')
+        if char_id and name:
+            ID_TO_NAME[char_id] = name
+
+    for skill in skills:
+        skill_id = skill.get('id', '')
+        name = skill.get('name', '')
+        if skill_id and name:
+            ID_TO_NAME[skill_id] = name
+
+    for faction in factions:
+        faction_id = faction.get('id', '')
+        name = faction.get('name', '')
+        if faction_id and name:
+            ID_TO_NAME[faction_id] = name
+
+    for location in locations:
+        loc_id = location.get('id', '')
+        name = location.get('name', '')
+        if loc_id and name:
+            ID_TO_NAME[loc_id] = name
+
+
+def id_to_wikilink(entity_id):
+    """将 ID 转换为 wikilink（使用中文名）"""
+    if not entity_id:
+        return ""
+    # 如果已经是中文名，直接返回
+    if not entity_id.startswith(('char_', 'skill_', 'faction_', 'loc_', 'item_')):
+        return entity_id
+    # 从映射中获取中文名
+    return ID_TO_NAME.get(entity_id, entity_id)
 
 
 def save_markdown(output_dir, filename, content):
@@ -33,18 +77,18 @@ id: {char_id}
 role: {char.get('role', 'npc')}
 archetype: {char.get('archetype', 'warrior')}
 rank: {char.get('rank', '登堂入室')}
-faction: "[[{char.get('faction', '')}]]"
+faction: "[[{id_to_wikilink(char.get('faction', ''))}]]"
 alias: {json.dumps(char.get('alias', []), ensure_ascii=False)}
 identity: {char.get('identity', '')}
 first_appearance: {char.get('first_appearance', '')}
 known_skills:"""
 
     for skill in char.get('known_skills', []):
-        frontmatter += f'\n  - "[[{skill}]]"'
+        frontmatter += f'\n  - "[[{id_to_wikilink(skill)}]]"'
 
     frontmatter += "\nrelated_skills:"
     for skill in char.get('related_skills', []):
-        frontmatter += f'\n  - "[[{skill}]]"'
+        frontmatter += f'\n  - "[[{id_to_wikilink(skill)}]]"'
 
     # Game stats
     game_stats = char.get('game_stats', {})
@@ -83,7 +127,7 @@ game_stats:
             target = rel.get('target', '')
             rel_type = rel.get('type', '')
             intensity = rel.get('intensity', 0)
-            body += f"- [[{target}]] — {rel_type}（强度: {intensity}）\n"
+            body += f"- [[{id_to_wikilink(target)}]] — {rel_type}（强度: {intensity}）\n"
 
     body += f"""
 ## 外貌
@@ -106,7 +150,7 @@ def skill_to_markdown(skill):
 id: {skill_id}
 type: {skill.get('type', 'sword_art')}
 rank: {skill.get('rank', '登堂入室')}
-faction: "[[{skill.get('faction', '')}]]"
+faction: "[[{id_to_wikilink(skill.get('faction', ''))}]]"
 combat_style: {skill.get('combat_style', '')}
 techniques:"""
 
@@ -144,7 +188,7 @@ game_stats:
 """
 
     for char_id in skill.get('masters', []):
-        body += f"- [[{char_id}]]\n"
+        body += f"- [[{id_to_wikilink(char_id)}]]\n"
 
     return f"# {name}\n\n{frontmatter}\n{body}"
 
@@ -158,7 +202,7 @@ def faction_to_markdown(faction):
     frontmatter = f"""---
 id: {faction_id}
 type: {faction.get('type', 'sect')}
-location: "[[{faction.get('location', '')}]]"
+location: "[[{id_to_wikilink(faction.get('location', ''))}]]"
 ---"""
 
     # Body
@@ -171,16 +215,16 @@ location: "[[{faction.get('location', '')}]]"
 
     for member in faction.get('members', []):
         if isinstance(member, dict):
-            body += f"- [[{member.get('id', '')}]] — {member.get('role', '')}\n"
+            body += f"- [[{id_to_wikilink(member.get('id', ''))}]] — {member.get('role', '')}\n"
         else:
-            body += f"- [[{member}]]\n"
+            body += f"- [[{id_to_wikilink(member)}]]\n"
 
     body += f"""
 ## 镇派武学
 """
 
     for skill in faction.get('signature_skills', []):
-        body += f"- [[{skill}]]\n"
+        body += f"- [[{id_to_wikilink(skill)}]]\n"
 
     return f"# {name}\n\n{frontmatter}\n{body}"
 
@@ -205,14 +249,14 @@ region: {location.get('region', '')}
 """
 
     for connected in location.get('connected', []):
-        body += f"- [[{connected}]]\n"
+        body += f"- [[{id_to_wikilink(connected)}]]\n"
 
     body += f"""
 ## 出现人物
 """
 
     for char in location.get('characters', []):
-        body += f"- [[{char}]]\n"
+        body += f"- [[{id_to_wikilink(char)}]]\n"
 
     return f"# {name}\n\n{frontmatter}\n{body}"
 
@@ -227,6 +271,11 @@ def main():
     skills = load_json(game_skills_path if os.path.exists(game_skills_path) else os.path.join(NOVELS_DIR, 'skills.json'))
     factions = load_json(game_factions_path if os.path.exists(game_factions_path) else os.path.join(NOVELS_DIR, 'factions.json'))
     locations = load_json(os.path.join(NOVELS_DIR, 'locations.json'))
+
+    # 构建 ID 到中文名的映射
+    print("构建 ID 映射...")
+    build_id_mapping(characters, skills, factions, locations)
+    print(f"  已映射 {len(ID_TO_NAME)} 个实体")
 
     # 转换并保存角色卡
     print("转换角色卡...")
