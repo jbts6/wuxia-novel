@@ -4,33 +4,96 @@
     {
       "id": "char_xiao_feng",
       "personality": {
-        "traits": ["恩怨分明", "武功盖世", "豪迈不羁", "细致敏锐", "重义轻利"],
+        "traits": [
+          "恩怨分明",
+          "武功盖世",
+          "豪迈不羁",
+          "细致敏锐",
+          "重义轻利"
+        ],
         "speech_style": "言语豪爽直率，对英雄好汉坦诚相见自报契丹人身份，对敌人冷峻威严",
         "temperament": "豪迈刚毅"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "enemy", "intensity": 100, "bond_level": 5, "dynamic": "认定段正淳是带头大哥杀父仇人，出手救他是为了亲手报仇不容旁人杀死"},
-        {"target": "char_a_zhu", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "一路相随，察觉阿朱见阿紫金锁片后情绪激荡，对她关怀备至"},
-        {"target": "char_a_zi", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "识破阿紫装死和毒针暗算，打她耳光教训其歹毒，但未下重手"},
-        {"target": "char_duan_yan_qing", "type": "rival", "intensity": 60, "bond_level": 3, "dynamic": "显露武功以脚擦去段延庆铁笔刻字，震慑对方使之知难而退"},
-        {"target": "char_nan_hai_e_shen", "type": "enemy", "intensity": 20, "bond_level": 1, "dynamic": "将骂他杂种的南海鳄神摔入湖中，对方反来请教武功"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "enemy",
+          "intensity": 100,
+          "bond_level": 5,
+          "dynamic": "认定段正淳是带头大哥杀父仇人，出手救他是为了亲手报仇不容旁人杀死"
+        },
+        {
+          "target": "char_a_zhu",
+          "type": "love",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "一路相随，察觉阿朱见阿紫金锁片后情绪激荡，对她关怀备至"
+        },
+        {
+          "target": "char_a_zi",
+          "type": "enemy",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "识破阿紫装死和毒针暗算，打她耳光教训其歹毒，但未下重手"
+        },
+        {
+          "target": "char_duan_yan_qing",
+          "type": "rival",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "显露武功以脚擦去段延庆铁笔刻字，震慑对方使之知难而退"
+        },
+        {
+          "target": "char_nan_hai_e_shen",
+          "type": "enemy",
+          "intensity": 20,
+          "bond_level": 1,
+          "dynamic": "将骂他杂种的南海鳄神摔入湖中，对方反来请教武功"
+        }
       ],
-      "known_skills": ["skill_qin_long_gong", "skill_long_zhua_shou"],
+      "known_skills": [
+        "skill_qin_long_gong",
+        "skill_long_zhua_shou"
+      ],
       "related_skills": []
     },
     {
       "id": "char_a_zhu",
       "personality": {
-        "traits": ["聪明伶俐", "心思细腻", "幽默调皮", "情深义重", "善良温柔"],
+        "traits": [
+          "聪明伶俐",
+          "心思细腻",
+          "幽默调皮",
+          "情深义重",
+          "善良温柔"
+        ],
         "speech_style": "言语俏皮机智，学酒保口吻调侃，对萧峰温柔体贴",
         "temperament": "灵动聪慧"
       },
       "archetype": "assassin",
       "relationships": [
-        {"target": "char_xiao_feng", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "随萧峰赴小镜湖，见阿紫金锁片后激动落泪，心中隐藏身世秘密"},
-        {"target": "char_ruan_xing_zhu", "type": "family", "intensity": 80, "bond_level": 4, "dynamic": "见阮星竹认出阿紫金锁片后泪流满面，察觉阮星竹可能是自己生母"},
-        {"target": "char_a_zi", "type": "family", "intensity": 50, "bond_level": 2, "dynamic": "见阿紫金锁片后心神激荡，察觉姐妹关系但未明言"}
+        {
+          "target": "char_xiao_feng",
+          "type": "love",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "随萧峰赴小镜湖，见阿紫金锁片后激动落泪，心中隐藏身世秘密"
+        },
+        {
+          "target": "char_ruan_xing_zhu",
+          "type": "family",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "见阮星竹认出阿紫金锁片后泪流满面，察觉阮星竹可能是自己生母"
+        },
+        {
+          "target": "char_a_zi",
+          "type": "family",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "见阿紫金锁片后心神激荡，察觉姐妹关系但未明言"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -38,33 +101,98 @@
     {
       "id": "char_duan_zheng_chun",
       "personality": {
-        "traits": ["风流倜傥", "重情重义", "爱惜名声", "武功不俗", "怜香惜玉"],
+        "traits": [
+          "风流倜傥",
+          "重情重义",
+          "爱惜名声",
+          "武功不俗",
+          "怜香惜玉"
+        ],
         "speech_style": "言语潇洒温和，对情人温柔深情，对敌人不卑不亢，重英雄气概",
         "temperament": "风流潇洒"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_ruan_xing_zhu", "type": "love", "intensity": 85, "bond_level": 5, "dynamic": "在小镜湖与旧情人双宿双飞，对她千依百顺"},
-        {"target": "char_a_zi", "type": "family", "intensity": 70, "bond_level": 3, "dynamic": "认出阿紫是亲生女儿后既怜惜又恼怒其顽劣，褚万里死后责备阿紫"},
-        {"target": "char_duan_yan_qing", "type": "enemy", "intensity": 90, "bond_level": 4, "dynamic": "以段家剑与段延庆拚死一搏，为保存大理段氏体面甘愿单打独斗"},
-        {"target": "char_chu_wan_li", "type": "family", "intensity": 85, "bond_level": 4, "dynamic": "视褚万里如兄弟，对其死自责不已，跪地垂泪"},
-        {"target": "char_xiao_feng", "type": "complicated", "intensity": 50, "bond_level": 2, "dynamic": "被萧峰所救不知对方是来杀自己的仇人"}
+        {
+          "target": "char_ruan_xing_zhu",
+          "type": "love",
+          "intensity": 85,
+          "bond_level": 5,
+          "dynamic": "在小镜湖与旧情人双宿双飞，对她千依百顺"
+        },
+        {
+          "target": "char_a_zi",
+          "type": "family",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "认出阿紫是亲生女儿后既怜惜又恼怒其顽劣，褚万里死后责备阿紫"
+        },
+        {
+          "target": "char_duan_yan_qing",
+          "type": "enemy",
+          "intensity": 90,
+          "bond_level": 4,
+          "dynamic": "以段家剑与段延庆拚死一搏，为保存大理段氏体面甘愿单打独斗"
+        },
+        {
+          "target": "char_chu_wan_li",
+          "type": "family",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "视褚万里如兄弟，对其死自责不已，跪地垂泪"
+        },
+        {
+          "target": "char_xiao_feng",
+          "type": "complicated",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "被萧峰所救不知对方是来杀自己的仇人"
+        }
       ],
-      "known_skills": ["skill_yi_yang_zhi", "skill_duan_jia_jian"],
-      "related_skills": ["skill_liu_mai_shen_jian"]
+      "known_skills": [
+        "skill_yi_yang_zhi",
+        "skill_duan_jia_jian"
+      ],
+      "related_skills": [
+        "skill_liu_mai_shen_jian"
+      ]
     },
     {
       "id": "char_ruan_xing_zhu",
       "personality": {
-        "traits": ["言语刁钻", "天真娇媚", "水性极佳", "深情专一", "爱闹小脾气"],
+        "traits": [
+          "言语刁钻",
+          "天真娇媚",
+          "水性极佳",
+          "深情专一",
+          "爱闹小脾气"
+        ],
         "speech_style": "声音娇媚，说话带三分倔强，爱调侃情人，当着外人也无所忌惮",
         "temperament": "娇媚率真"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "隐居小镜湖苦候段正淳，重逢后双宿双飞，愿为他赴死"},
-        {"target": "char_a_zi", "type": "family", "intensity": 85, "bond_level": 4, "dynamic": "从金锁片和肩头记号认出阿紫是亲生女儿，喜极而泣"},
-        {"target": "char_a_zhu", "type": "family", "intensity": 60, "bond_level": 2, "dynamic": "阿朱见金锁片后情绪异样，阮星竹尚未察觉阿朱也是女儿"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "love",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "隐居小镜湖苦候段正淳，重逢后双宿双飞，愿为他赴死"
+        },
+        {
+          "target": "char_a_zi",
+          "type": "family",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "从金锁片和肩头记号认出阿紫是亲生女儿，喜极而泣"
+        },
+        {
+          "target": "char_a_zhu",
+          "type": "family",
+          "intensity": 60,
+          "bond_level": 2,
+          "dynamic": "阿朱见金锁片后情绪异样，阮星竹尚未察觉阿朱也是女儿"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -72,47 +200,127 @@
     {
       "id": "char_a_zi",
       "personality": {
-        "traits": ["刁蛮任性", "心狠手辣", "顽皮恶劣", "毫无是非", "狡诈机灵"],
+        "traits": [
+          "刁蛮任性",
+          "心狠手辣",
+          "顽皮恶劣",
+          "毫无是非",
+          "狡诈机灵"
+        ],
         "speech_style": "说话卷舌咬字不正如外国人学汉语，语气天真中带着残忍，喜欢冷嘲热讽",
         "temperament": "邪气乖张"
       },
       "archetype": "assassin",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "family", "intensity": 40, "bond_level": 1, "dynamic": "对生父毫无敬意，以装死戏弄众人，说褚叔叔死不足惜"},
-        {"target": "char_ruan_xing_zhu", "type": "family", "intensity": 50, "bond_level": 2, "dynamic": "刚与生母相认便以冷言冷语相向"},
-        {"target": "char_xiao_feng", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "以碧磷针暗算萧峰被识破，被打耳光后心中畏惧"},
-        {"target": "char_chu_wan_li", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "以柔丝网缚褚万里致其受辱，间接导致其战死"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "family",
+          "intensity": 40,
+          "bond_level": 1,
+          "dynamic": "对生父毫无敬意，以装死戏弄众人，说褚叔叔死不足惜"
+        },
+        {
+          "target": "char_ruan_xing_zhu",
+          "type": "family",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "刚与生母相认便以冷言冷语相向"
+        },
+        {
+          "target": "char_xiao_feng",
+          "type": "enemy",
+          "intensity": 40,
+          "bond_level": 1,
+          "dynamic": "以碧磷针暗算萧峰被识破，被打耳光后心中畏惧"
+        },
+        {
+          "target": "char_chu_wan_li",
+          "type": "enemy",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "以柔丝网缚褚万里致其受辱，间接导致其战死"
+        }
       ],
-      "known_skills": ["skill_gui_xi_gong"],
-      "related_skills": ["skill_hua_gong_da_fa"]
+      "known_skills": [
+        "skill_gui_xi_gong"
+      ],
+      "related_skills": [
+        "skill_hua_gong_da_fa"
+      ]
     },
     {
       "id": "char_duan_yan_qing",
       "personality": {
-        "traits": ["冷峻阴狠", "武功高强", "心机深沉", "王者气度", "残酷无情"],
+        "traits": [
+          "冷峻阴狠",
+          "武功高强",
+          "心机深沉",
+          "王者气度",
+          "残酷无情"
+        ],
         "speech_style": "以腹语术说话声音怪异，写地传意，出手狠辣不留余地",
         "temperament": "阴沉冷酷"
       },
       "archetype": "assassin",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "enemy", "intensity": 100, "bond_level": 5, "dynamic": "以段家剑法光明正大与段正淳比试，欲以正宗武功夺回皇位"},
-        {"target": "char_chu_wan_li", "type": "enemy", "intensity": 70, "bond_level": 2, "dynamic": "以铁杖在褚万里身上刺了十几个深孔最终将其戳死"},
-        {"target": "char_xiao_feng", "type": "rival", "intensity": 70, "bond_level": 3, "dynamic": "见萧峰神功自知不敌，以铁棒刻地试功后一笔勾销退走"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "enemy",
+          "intensity": 100,
+          "bond_level": 5,
+          "dynamic": "以段家剑法光明正大与段正淳比试，欲以正宗武功夺回皇位"
+        },
+        {
+          "target": "char_chu_wan_li",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 2,
+          "dynamic": "以铁杖在褚万里身上刺了十几个深孔最终将其戳死"
+        },
+        {
+          "target": "char_xiao_feng",
+          "type": "rival",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "见萧峰神功自知不敌，以铁棒刻地试功后一笔勾销退走"
+        }
       ],
-      "known_skills": ["skill_yi_yang_zhi", "skill_duan_jia_jian", "skill_fu_yu_shu"],
+      "known_skills": [
+        "skill_yi_yang_zhi",
+        "skill_duan_jia_jian",
+        "skill_fu_yu_shu"
+      ],
       "related_skills": []
     },
     {
       "id": "char_nan_hai_e_shen",
       "personality": {
-        "traits": ["莽撞直率", "头脑简单", "武痴", "自视甚高", "滑稽可笑"],
+        "traits": [
+          "莽撞直率",
+          "头脑简单",
+          "武痴",
+          "自视甚高",
+          "滑稽可笑"
+        ],
         "speech_style": "满口粗话骂骂咧咧，被摔入湖中爬出来还要问对方用的什么手法",
         "temperament": "凶蛮暴躁"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_xiao_feng", "type": "enemy", "intensity": 20, "bond_level": 1, "dynamic": "被萧峰摔入湖中后反而上来请教武功名称"},
-        {"target": "char_duan_yan_qing", "type": "family", "intensity": 50, "bond_level": 3, "dynamic": "对段延庆唯命是从，跟着追杀段正淳"}
+        {
+          "target": "char_xiao_feng",
+          "type": "enemy",
+          "intensity": 20,
+          "bond_level": 1,
+          "dynamic": "被萧峰摔入湖中后反而上来请教武功名称"
+        },
+        {
+          "target": "char_duan_yan_qing",
+          "type": "family",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "对段延庆唯命是从，跟着追杀段正淳"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -120,13 +328,24 @@
     {
       "id": "char_ye_er_niang",
       "personality": {
-        "traits": ["妖媚歹毒", "阴阳怪气", "出手狠辣", "武功诡异"],
+        "traits": [
+          "妖媚歹毒",
+          "阴阳怪气",
+          "出手狠辣",
+          "武功诡异"
+        ],
         "speech_style": "言语带笑却暗藏杀机，调笑段正淳风流",
         "temperament": "阴鸷妖媚"
       },
       "archetype": "assassin",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "随段延庆追杀段正淳，与范骅对峙"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "enemy",
+          "intensity": 40,
+          "bond_level": 1,
+          "dynamic": "随段延庆追杀段正淳，与范骅对峙"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -134,14 +353,31 @@
     {
       "id": "char_yun_zhong_he",
       "personality": {
-        "traits": ["轻功极佳", "阴狠", "自负", "武功受损"],
+        "traits": [
+          "轻功极佳",
+          "阴狠",
+          "自负",
+          "武功受损"
+        ],
         "speech_style": "言语不多，藏身树上暗中观察",
         "temperament": "阴狠自负"
       },
       "archetype": "assassin",
       "relationships": [
-        {"target": "char_xiao_feng", "type": "enemy", "intensity": 70, "bond_level": 2, "dynamic": "认出萧峰是在聚贤庄打伤自己的乔峰，向段延庆指认"},
-        {"target": "char_ba_tian_shi", "type": "rival", "intensity": 40, "bond_level": 1, "dynamic": "被巴天石识破藏身树上，轻功已大不如前"}
+        {
+          "target": "char_xiao_feng",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 2,
+          "dynamic": "认出萧峰是在聚贤庄打伤自己的乔峰，向段延庆指认"
+        },
+        {
+          "target": "char_ba_tian_shi",
+          "type": "rival",
+          "intensity": 40,
+          "bond_level": 1,
+          "dynamic": "被巴天石识破藏身树上，轻功已大不如前"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -149,15 +385,38 @@
     {
       "id": "char_chu_wan_li",
       "personality": {
-        "traits": ["刚烈忠义", "宁死不辱", "勇猛不屈", "知耻重义"],
+        "traits": [
+          "刚烈忠义",
+          "宁死不辱",
+          "勇猛不屈",
+          "知耻重义"
+        ],
         "speech_style": "言语不多，对主公忠诚，临死前语壮烈",
         "temperament": "刚烈勇毅"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "family", "intensity": 100, "bond_level": 5, "dynamic": "宁死不辱，以生命洗刷被阿紫束缚之耻，临死说对得住大理段家"},
-        {"target": "char_a_zi", "type": "enemy", "intensity": 80, "bond_level": 3, "dynamic": "被阿紫以柔丝网所缚受奇耻大辱，萌生死志"},
-        {"target": "char_duan_yan_qing", "type": "enemy", "intensity": 90, "bond_level": 4, "dynamic": "以命相搏疯狂进攻段延庆，身被十几个血洞仍酣斗不止"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "family",
+          "intensity": 100,
+          "bond_level": 5,
+          "dynamic": "宁死不辱，以生命洗刷被阿紫束缚之耻，临死说对得住大理段家"
+        },
+        {
+          "target": "char_a_zi",
+          "type": "enemy",
+          "intensity": 80,
+          "bond_level": 3,
+          "dynamic": "被阿紫以柔丝网所缚受奇耻大辱，萌生死志"
+        },
+        {
+          "target": "char_duan_yan_qing",
+          "type": "enemy",
+          "intensity": 90,
+          "bond_level": 4,
+          "dynamic": "以命相搏疯狂进攻段延庆，身被十几个血洞仍酣斗不止"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -165,14 +424,31 @@
     {
       "id": "char_zhu_dan_chen",
       "personality": {
-        "traits": ["机敏儒雅", "忠心护主", "足智多谋", "文武双全"],
+        "traits": [
+          "机敏儒雅",
+          "忠心护主",
+          "足智多谋",
+          "文武双全"
+        ],
         "speech_style": "谈吐文雅，以倒画布疑阵阻拦萧峰，言语间暗藏机锋",
         "temperament": "儒雅机敏"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "以倒画布疑阵拖延强敌为段正淳争取时间"},
-        {"target": "char_xiao_feng", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "误认萧峰为敌人，在青石桥设阻"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "family",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "以倒画布疑阵拖延强敌为段正淳争取时间"
+        },
+        {
+          "target": "char_xiao_feng",
+          "type": "enemy",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "误认萧峰为敌人，在青石桥设阻"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -180,14 +456,31 @@
     {
       "id": "char_gu_du_cheng",
       "personality": {
-        "traits": ["忠义护主", "性烈如火", "神智不清", "勇猛无畏"],
+        "traits": [
+          "忠义护主",
+          "性烈如火",
+          "神智不清",
+          "勇猛无畏"
+        ],
         "speech_style": "语无伦次疯癫状态，反复呼喊快报主公",
         "temperament": "刚烈狂躁"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "family", "intensity": 100, "bond_level": 5, "dynamic": "疯癫中仍忠义护主，耗尽精力也要阻挡大恶人"},
-        {"target": "char_xiao_feng", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "被萧峰制住后托他向小镜湖报讯"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "family",
+          "intensity": 100,
+          "bond_level": 5,
+          "dynamic": "疯癫中仍忠义护主，耗尽精力也要阻挡大恶人"
+        },
+        {
+          "target": "char_xiao_feng",
+          "type": "companion",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "被萧峰制住后托他向小镜湖报讯"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -195,14 +488,30 @@
     {
       "id": "char_fu_si_gui",
       "personality": {
-        "traits": ["沉稳感恩", "忠勇坚毅", "重伤不屈"],
+        "traits": [
+          "沉稳感恩",
+          "忠勇坚毅",
+          "重伤不屈"
+        ],
         "speech_style": "言语诚恳简洁，不透露主人姓名以保安全",
         "temperament": "沉稳坚毅"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "family", "intensity": 95, "bond_level": 5, "dynamic": "被段延庆铁棒重伤后托萧峰赴小镜湖报讯"},
-        {"target": "char_xiao_feng", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "受萧峰点穴止血裹伤之恩，跪谢后催其速去"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "family",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "被段延庆铁棒重伤后托萧峰赴小镜湖报讯"
+        },
+        {
+          "target": "char_xiao_feng",
+          "type": "companion",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "受萧峰点穴止血裹伤之恩，跪谢后催其速去"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -210,14 +519,31 @@
     {
       "id": "char_fan_hua",
       "personality": {
-        "traits": ["智谋过人", "调度有方", "沉稳周密", "忠心护主"],
+        "traits": [
+          "智谋过人",
+          "调度有方",
+          "沉稳周密",
+          "忠心护主"
+        ],
         "speech_style": "言辞果断，调度指挥三公四卫分工迎敌，顾全大局",
         "temperament": "沉稳周密"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "family", "intensity": 95, "bond_level": 5, "dynamic": "调度群臣对付四大恶人，劝段正淳以社稷为重退避"},
-        {"target": "char_duan_yan_qing", "type": "enemy", "intensity": 80, "bond_level": 3, "dynamic": "安排华赫艮朱丹臣夹攻南海鳄神，巴天石斗云中鹤，自己迎战叶二娘"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "family",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "调度群臣对付四大恶人，劝段正淳以社稷为重退避"
+        },
+        {
+          "target": "char_duan_yan_qing",
+          "type": "enemy",
+          "intensity": 80,
+          "bond_level": 3,
+          "dynamic": "安排华赫艮朱丹臣夹攻南海鳄神，巴天石斗云中鹤，自己迎战叶二娘"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -225,13 +551,23 @@
     {
       "id": "char_hua_he_gen",
       "personality": {
-        "traits": ["沉稳持重", "武功不俗", "忠心不二"],
+        "traits": [
+          "沉稳持重",
+          "武功不俗",
+          "忠心不二"
+        ],
         "speech_style": "言语不多，以行动护主",
         "temperament": "沉稳果决"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duan_zheng_chun", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "以钢铲与朱丹臣铁笔夹攻南海鳄神"}
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "family",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "以钢铲与朱丹臣铁笔夹攻南海鳄神"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -239,14 +575,31 @@
     {
       "id": "char_ba_tian_shi",
       "personality": {
-        "traits": ["机警敏捷", "轻功高超", "明察秋毫", "忠心耿耿"],
+        "traits": [
+          "机警敏捷",
+          "轻功高超",
+          "明察秋毫",
+          "忠心耿耿"
+        ],
         "speech_style": "言辞犀利，识破云中鹤时出言讽刺",
         "temperament": "机敏干练"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_yun_zhong_he", "type": "rival", "intensity": 50, "bond_level": 2, "dynamic": "识破云中鹤藏身树上，以其轻功退步讽刺"},
-        {"target": "char_duan_zheng_chun", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "反手拉住冲向段延庆的阮星竹，避免无谓牺牲"}
+        {
+          "target": "char_yun_zhong_he",
+          "type": "rival",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "识破云中鹤藏身树上，以其轻功退步讽刺"
+        },
+        {
+          "target": "char_duan_zheng_chun",
+          "type": "family",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "反手拉住冲向段延庆的阮星竹，避免无谓牺牲"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -255,87 +608,233 @@
   "skills_detail": [
     {
       "id": "skill_qin_long_gong",
-      "techniques": [],
-      "progression": [],
+      "techniques": [
+        {
+          "id": "tech_qinlong_shuai_e",
+          "name": "隔空掷鳄",
+          "type": "attack",
+          "description": "萧峰以擒龙功隔空擒拿南海鳄神，随手将其摔入小镜湖中，出手迅捷不容抗拒"
+        }
+      ],
+      "progression": [
+        {
+          "level": 8,
+          "unlock": "隔空擒拿随手将南海鳄神摔入湖中，出手迅捷无比，不容对方有分毫抗拒余地"
+        }
+      ],
       "effects": [
-        {"type": "控制", "condition": "隔空施展", "description": "萧峰以内力隔空擒拿，将南海鳄神摔入湖中迅捷无比"}
+        {
+          "type": "控制",
+          "condition": "隔空施展",
+          "description": "萧峰以内力隔空擒拿，将南海鳄神摔入湖中迅捷无比"
+        }
       ],
       "combat_style": "隔空擒拿，劲力吞吐自如"
     },
     {
       "id": "skill_long_zhua_shou",
       "techniques": [
-        {"id": "tech_long_zhua_zhi_fu", "name": "龙爪制敌", "type": "attack", "description": "萧峰以龙爪手制服疯癫中的古笃诚，夺其双斧使其动弹不得"}
+        {
+          "id": "tech_long_zhua_zhi_fu",
+          "name": "龙爪制敌",
+          "type": "attack",
+          "description": "萧峰以龙爪手制服疯癫中的古笃诚，夺其双斧使其动弹不得"
+        }
       ],
-      "progression": [],
+      "progression": [
+        {
+          "level": 7,
+          "unlock": "一举制服疯狂挥舞板斧的古笃诚，夺其双斧令其动弹不得，对方神智昏迷而武功不失仍被一招制住"
+        }
+      ],
       "effects": [
-        {"type": "控制", "condition": "近身擒拿", "description": "一举制服神智不清仍能挥斧的高手，令其动弹不得"}
+        {
+          "type": "控制",
+          "condition": "近身擒拿",
+          "description": "一举制服神智不清仍能挥斧的高手，令其动弹不得"
+        }
       ],
       "combat_style": "近身擒拿，爪力凌厉"
     },
     {
       "id": "skill_yi_yang_zhi",
       "techniques": [
-        {"id": "tech_yiyangzhi_she_xiang", "name": "一阳指射向铁棒", "type": "attack", "description": "段正淳剑将折断时以一指之力射向段延庆铁棒，连点三指使长剑渐复原状"},
-        {"id": "tech_yiyangzhi_bang_dai_zhi", "name": "以棒代指", "type": "attack", "description": "段延庆以铁棒运使一阳指手法，棒力与指力无异，棒长及远威力更增"}
+        {
+          "id": "tech_yiyangzhi_she_xiang",
+          "name": "一阳指射向铁棒",
+          "type": "attack",
+          "description": "段正淳剑将折断时以一指之力射向段延庆铁棒，连点三指使长剑渐复原状"
+        },
+        {
+          "id": "tech_yiyangzhi_bang_dai_zhi",
+          "name": "以棒代指",
+          "type": "attack",
+          "description": "段延庆以铁棒运使一阳指手法，棒力与指力无异，棒长及远威力更增"
+        }
       ],
       "progression": [
-        {"level": 3, "unlock": "一指之力可及三尺之外，段正淳功力不及保定帝"},
-        {"level": 4, "unlock": "以棒代指，调运内息意到即至，段延庆造诣远在段正淳之上"}
+        {
+          "level": 3,
+          "unlock": "一指之力可及三尺之外，段正淳功力不及保定帝"
+        },
+        {
+          "level": 4,
+          "unlock": "以棒代指，调运内息意到即至，段延庆造诣远在段正淳之上"
+        }
       ],
       "effects": [
-        {"type": "攻击", "condition": "指力/棒力相撞", "description": "段正淳以一阳指力与段延庆铁棒相交，手臂酸麻，连点三指方扳回劣势"},
-        {"type": "攻击", "condition": "铁棒灌注一阳指内劲", "description": "段延庆九棒连出，第九棒插入段正淳左肩"}
+        {
+          "type": "攻击",
+          "condition": "指力/棒力相撞",
+          "description": "段正淳以一阳指力与段延庆铁棒相交，手臂酸麻，连点三指方扳回劣势"
+        },
+        {
+          "type": "攻击",
+          "condition": "铁棒灌注一阳指内劲",
+          "description": "段延庆九棒连出，第九棒插入段正淳左肩"
+        }
       ],
       "combat_style": "以指力或杖力隔空伤敌，刚柔并济"
     },
     {
       "id": "skill_duan_jia_jian",
       "techniques": [
-        {"id": "tech_duanjian_qi_shou", "name": "其得断金", "type": "attack", "description": "段家剑起手招数，段正淳以此招向段延庆发起挑战"},
-        {"id": "tech_duanjian_jinma", "name": "金马腾空", "type": "attack", "description": "段正淳第四剑横飞而出，刚猛凌厉"},
-        {"id": "tech_duanjian_biji", "name": "碧鸡报晓", "type": "defense", "description": "段延庆左手铁棒以此招点了过去，棒剑相交粘在一起"}
+        {
+          "id": "tech_duanjian_qi_shou",
+          "name": "其得断金",
+          "type": "attack",
+          "description": "段家剑起手招数，段正淳以此招向段延庆发起挑战"
+        },
+        {
+          "id": "tech_duanjian_jinma",
+          "name": "金马腾空",
+          "type": "attack",
+          "description": "段正淳第四剑横飞而出，刚猛凌厉"
+        },
+        {
+          "id": "tech_duanjian_biji",
+          "name": "碧鸡报晓",
+          "type": "defense",
+          "description": "段延庆左手铁棒以此招点了过去，棒剑相交粘在一起"
+        }
       ],
       "progression": [
-        {"level": 4, "unlock": "大开大合端凝自重，以铁杖使出不失王者气象"}
+        {
+          "level": 4,
+          "unlock": "大开大合端凝自重，以铁杖使出不失王者气象"
+        }
       ],
       "effects": [
-        {"type": "防御", "condition": "剑棒相交", "description": "段延庆以铁杖使段家剑，举轻若重，内力不断加重压制对方"},
-        {"type": "攻击", "condition": "内力比拼", "description": "二人以段家剑拆六十余招，实为内力对拼，段正淳渐落下风"}
+        {
+          "type": "防御",
+          "condition": "剑棒相交",
+          "description": "段延庆以铁杖使段家剑，举轻若重，内力不断加重压制对方"
+        },
+        {
+          "type": "攻击",
+          "condition": "内力比拼",
+          "description": "二人以段家剑拆六十余招，实为内力对拼，段正淳渐落下风"
+        }
       ],
       "combat_style": "大开大合，正大堂皇，有王者气象"
     },
     {
       "id": "skill_fu_yu_shu",
-      "techniques": [],
-      "progression": [],
+      "techniques": [
+        {
+          "id": "tech_fuyu_mixin",
+          "name": "腹语迷心",
+          "type": "special",
+          "description": "段延庆以腹语术配合上乘内功迷人心魄乱人神智，因知萧峰内力胜过自己而不敢贸然使用"
+        }
+      ],
+      "progression": [
+        {
+          "level": 5,
+          "unlock": "腹语术与上乘内功相结合，能以铁棒在青石板上写字深入石里，内力骇人"
+        }
+      ],
       "effects": [
-        {"type": "控制", "condition": "以内力催动", "description": "腹语术能与上乘内功相结合，能迷人心魄乱人神智"}
+        {
+          "type": "控制",
+          "condition": "以内力催动",
+          "description": "腹语术能与上乘内功相结合，能迷人心魄乱人神智"
+        }
       ],
       "combat_style": "以声惑敌，邪异诡秘"
     },
     {
       "id": "skill_gui_xi_gong",
-      "techniques": [],
-      "progression": [],
+      "techniques": [
+        {
+          "id": "tech_guixi_bigi",
+          "name": "龟息闭气",
+          "type": "special",
+          "description": "装死时心停气绝耳目闭塞，连萧峰初时也被瞒过，后以内力探脉方察觉其运内力抗御"
+        }
+      ],
+      "progression": [
+        {
+          "level": 4,
+          "unlock": "阿紫已练成闭气装死之术，可瞒过一流高手的耳目，萧峰以内力探脉方察觉破绽"
+        }
+      ],
       "effects": [
-        {"type": "特殊", "condition": "闭气装死", "description": "阿紫以此功装死，心停气绝耳目闭塞，连萧峰初时也未看破"}
+        {
+          "type": "特殊",
+          "condition": "闭气装死",
+          "description": "阿紫以此功装死，心停气绝耳目闭塞，连萧峰初时也未看破"
+        }
       ],
       "combat_style": "闭气假死，欺敌脱身"
     },
     {
       "id": "skill_liu_mai_shen_jian",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {
+          "id": "tech_liumai_jianqi",
+          "name": "六脉剑气",
+          "type": "attack",
+          "description": "以指力化无形剑气伤人，大理段氏至高武学，萧峰暗自担心此功了得"
+        }
+      ],
+      "progression": [
+        {
+          "level": 2,
+          "unlock": "萧峰观战后察觉段正淳似不会六脉神剑，心中稍宽但仍警惕此绝世神功"
+        }
+      ],
+      "effects": [
+        {
+          "type": "攻击",
+          "condition": "内力催动指力",
+          "description": "以无形剑气远距攻击，萧峰自认颇有不及，为大理段氏不传之秘"
+        }
+      ],
       "combat_style": "以指力化剑气，大理段氏至高武学"
     },
     {
       "id": "skill_hua_gong_da_fa",
-      "techniques": [],
-      "progression": [],
+      "techniques": [
+        {
+          "id": "tech_huagong_xiaoli",
+          "name": "化功消力",
+          "type": "attack",
+          "description": "星宿老怪丁春秋的邪功，接触对方身体即消其内力，为天下学武之人大忌"
+        }
+      ],
+      "progression": [
+        {
+          "level": 5,
+          "unlock": "星宿老怪丁春秋的成名绝技，专门消人内力，武林中人闻之色变"
+        }
+      ],
       "effects": [
-        {"type": "攻击", "condition": "接触对方", "description": "星宿老怪丁春秋的邪功，专门消人内力，为天下学武之人大忌"}
+        {
+          "type": "攻击",
+          "condition": "接触对方",
+          "description": "星宿老怪丁春秋的邪功，专门消人内力，为天下学武之人大忌"
+        }
       ],
       "combat_style": "消人内力，歹毒邪异"
     }
@@ -344,7 +843,11 @@
     {
       "id": "evt_22_gu_dian_feng_ban_fu",
       "name": "萧峰遇古笃诚疯使板斧",
-      "participants": ["char_xiao_feng", "char_a_zhu", "char_gu_du_cheng"],
+      "participants": [
+        "char_xiao_feng",
+        "char_a_zhu",
+        "char_gu_du_cheng"
+      ],
       "location": "loc_xin_yang",
       "description": "萧峰阿朱在信阳客店外遇一疯汉手使双板斧狂舞乱劈，正是段正淳护卫古笃诚，萧峰以龙爪手制服他后得知大恶人将至、需赴小镜湖报讯",
       "chapter": 22
@@ -352,7 +855,11 @@
     {
       "id": "evt_22_fu_si_gui_shou_shang",
       "name": "傅思归受重伤托萧峰报讯",
-      "participants": ["char_xiao_feng", "char_a_zhu", "char_fu_si_gui"],
+      "participants": [
+        "char_xiao_feng",
+        "char_a_zhu",
+        "char_fu_si_gui"
+      ],
       "location": "loc_xiao_jing_hu",
       "description": "萧峰阿朱途中遇扮作农夫的傅思归，胸口被段延庆铁棒戳穿一孔身受重伤，托二人速赴小镜湖方竹林报讯",
       "chapter": 22
@@ -360,7 +867,11 @@
     {
       "id": "evt_22_zhu_dan_chen_dao_hua",
       "name": "朱丹臣青石桥倒画阻敌",
-      "participants": ["char_xiao_feng", "char_a_zhu", "char_zhu_dan_chen"],
+      "participants": [
+        "char_xiao_feng",
+        "char_a_zhu",
+        "char_zhu_dan_chen"
+      ],
       "location": "loc_qing_shi_qiao",
       "description": "朱丹臣在青石桥上以白纸铺桥面倒画山水，欲引萧峰走上青石桥绕远路，被萧峰识破后踏上木桥，桥板折断萧峰带阿朱跃至彼岸",
       "chapter": 22
@@ -368,7 +879,11 @@
     {
       "id": "evt_22_a_zi_rou_si_wang_bu_chu",
       "name": "阿紫以柔丝网缚褚万里",
-      "participants": ["char_a_zi", "char_chu_wan_li", "char_duan_zheng_chun"],
+      "participants": [
+        "char_a_zi",
+        "char_chu_wan_li",
+        "char_duan_zheng_chun"
+      ],
       "location": "loc_xiao_jing_hu",
       "description": "阿紫在小镜湖畔以透明柔丝网暗算褚万里，渔网遇物即缩越挣越紧，褚万里受制被缚受奇耻大辱，后段正淳亦无法解开",
       "chapter": 22
@@ -376,7 +891,13 @@
     {
       "id": "evt_22_a_zi_zhuang_si_jin_suo_pian",
       "name": "阿紫装死被阮星竹认出女儿",
-      "participants": ["char_a_zi", "char_ruan_xing_zhu", "char_duan_zheng_chun", "char_a_zhu", "char_xiao_feng"],
+      "participants": [
+        "char_a_zi",
+        "char_ruan_xing_zhu",
+        "char_duan_zheng_chun",
+        "char_a_zhu",
+        "char_xiao_feng"
+      ],
       "location": "loc_fang_zhu_lin",
       "description": "段正淳将阿紫摔入湖中，阿紫以龟息功装死，阮星竹下水救起后从金锁片和肩头记号认出阿紫是亲生女儿，萧峰识破阿紫装死点其穴道",
       "chapter": 22
@@ -384,7 +905,10 @@
     {
       "id": "evt_22_a_zi_bi_lin_zhen_an_suan",
       "name": "阿紫以碧磷针暗算萧峰被识破",
-      "participants": ["char_a_zi", "char_xiao_feng"],
+      "participants": [
+        "char_a_zi",
+        "char_xiao_feng"
+      ],
       "location": "loc_fang_zhu_lin",
       "description": "阿紫假意扶萧峰肩头实则手指夹碧磷毒针欲刺入其身体，萧峰眼明手快反手一掌将她打飞，认出碧磷针、无形粉等乃星宿老怪丁春秋的歹毒暗器",
       "chapter": 22
@@ -392,7 +916,12 @@
     {
       "id": "evt_22_a_zi_jin_shi_xing_xu_di_zi",
       "name": "萧峰揭露阿紫乃星宿派弟子",
-      "participants": ["char_xiao_feng", "char_a_zi", "char_duan_zheng_chun", "char_ruan_xing_zhu"],
+      "participants": [
+        "char_xiao_feng",
+        "char_a_zi",
+        "char_duan_zheng_chun",
+        "char_ruan_xing_zhu"
+      ],
       "location": "loc_fang_zhu_lin",
       "description": "萧峰喝破阿紫的师父是星宿老怪丁春秋，众人闻之色变，段正淳阮星竹得知女儿拜入邪派门下既怜惜又担心",
       "chapter": 22
@@ -400,7 +929,13 @@
     {
       "id": "evt_22_da_li_san_gong_si_wei_ju_qi",
       "name": "大理群臣齐聚小镜湖护驾",
-      "participants": ["char_fan_hua", "char_hua_he_gen", "char_ba_tian_shi", "char_zhu_dan_chen", "char_duan_zheng_chun"],
+      "participants": [
+        "char_fan_hua",
+        "char_hua_he_gen",
+        "char_ba_tian_shi",
+        "char_zhu_dan_chen",
+        "char_duan_zheng_chun"
+      ],
       "location": "loc_xiao_jing_hu",
       "description": "范骅华赫艮巴天石救护古笃诚傅思归后赶到段正淳身旁，大理三公四卫齐聚小镜湖畔共御四大恶人",
       "chapter": 22
@@ -408,7 +943,17 @@
     {
       "id": "evt_22_si_da_e_ren_wei_gong",
       "name": "四大恶人围攻小镜湖",
-      "participants": ["char_duan_yan_qing", "char_nan_hai_e_shen", "char_ye_er_niang", "char_yun_zhong_he", "char_duan_zheng_chun", "char_fan_hua", "char_ba_tian_shi", "char_hua_he_gen", "char_chu_wan_li"],
+      "participants": [
+        "char_duan_yan_qing",
+        "char_nan_hai_e_shen",
+        "char_ye_er_niang",
+        "char_yun_zhong_he",
+        "char_duan_zheng_chun",
+        "char_fan_hua",
+        "char_ba_tian_shi",
+        "char_hua_he_gen",
+        "char_chu_wan_li"
+      ],
       "location": "loc_xiao_jing_hu",
       "description": "段延庆率南海鳄神叶二娘云中鹤追杀至小镜湖，范骅调度分派：华赫艮朱丹臣夹攻南海鳄神，巴天石斗云中鹤，范骅褚万里迎战叶二娘",
       "chapter": 22
@@ -416,7 +961,11 @@
     {
       "id": "evt_22_chu_wan_li_li_zhan_er_si",
       "name": "褚万里力战段延庆而死",
-      "participants": ["char_chu_wan_li", "char_duan_yan_qing", "char_duan_zheng_chun"],
+      "participants": [
+        "char_chu_wan_li",
+        "char_duan_yan_qing",
+        "char_duan_zheng_chun"
+      ],
       "location": "loc_xiao_jing_hu",
       "description": "褚万里受阿紫束缚之辱早萌死志，以傅思归铜棍疯狂进攻段延庆，宁死不退，身被十几洞仍大呼酣斗，被段延庆一杖自前胸直透后背而死",
       "chapter": 22
@@ -424,7 +973,10 @@
     {
       "id": "evt_22_er_duan_jue_zhan",
       "name": "段正淳与段延庆以段家剑决生死",
-      "participants": ["char_duan_zheng_chun", "char_duan_yan_qing"],
+      "participants": [
+        "char_duan_zheng_chun",
+        "char_duan_yan_qing"
+      ],
       "location": "loc_xiao_jing_hu",
       "description": "段正淳挺剑与段延庆单打独斗，以段家剑法相搏，段延庆以铁杖代剑举轻若重，六十余招后内力碾压，第九棒插入段正淳左肩",
       "chapter": 22
@@ -432,7 +984,11 @@
     {
       "id": "evt_22_xiao_feng_jiu_duan_zheng_chun",
       "name": "萧峰出手救段正淳",
-      "participants": ["char_xiao_feng", "char_duan_zheng_chun", "char_duan_yan_qing"],
+      "participants": [
+        "char_xiao_feng",
+        "char_duan_zheng_chun",
+        "char_duan_yan_qing"
+      ],
       "location": "loc_xiao_jing_hu",
       "description": "段延庆铁棒离段正淳脑门百会穴不到三寸时萧峰纵身上前以神功拉开段正淳，段延庆连出二十七棒均未沾到段正淳一片衣角",
       "chapter": 22
@@ -440,7 +996,10 @@
     {
       "id": "evt_22_xiao_feng_zhen_tui_duan_yan_qing",
       "name": "萧峰以足底功夫震慑段延庆",
-      "participants": ["char_xiao_feng", "char_duan_yan_qing"],
+      "participants": [
+        "char_xiao_feng",
+        "char_duan_yan_qing"
+      ],
       "location": "loc_xiao_jing_hu",
       "description": "段延庆以铁棒在青石板刻字质问萧峰，萧峰一言不发伸脚将十六字擦得干干净净，段延庆自知不敌，铁棒划下一笔勾销后飘然退走",
       "chapter": 22
@@ -448,7 +1007,11 @@
     {
       "id": "evt_22_nan_hai_e_shen_bei_shuai_ru_hu",
       "name": "南海鳄神被萧峰摔入湖中",
-      "participants": ["char_nan_hai_e_shen", "char_xiao_feng", "char_a_zi"],
+      "participants": [
+        "char_nan_hai_e_shen",
+        "char_xiao_feng",
+        "char_a_zi"
+      ],
       "location": "loc_xiao_jing_hu",
       "description": "南海鳄神骂萧峰杂种，萧峰将其提起摔入小镜湖，南海鳄神水淋淋爬上来后反而追问萧峰用的什么手法，阿紫戏称掷龟功",
       "chapter": 22

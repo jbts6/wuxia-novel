@@ -161,7 +161,9 @@
         {"id": "tech_kanglongyouhui_43", "name": "亢龙有悔", "type": "attack", "description": "萧峰在藏经阁以十成力使出，要向慕容复数掌间取命"},
         {"id": "tech_jianlongzaitian_43", "name": "见龙在田", "type": "attack", "description": "呼的一掌向慕容复猛击过去"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 10, "unlock": "萧峰以降龙十八掌与慕容博对掌，掌力穿透防御将两座书架震成数截，扫地僧赞'降龙十八掌果然天下第一'"}
+      ],
       "effects": [
         {"type": "冲击", "condition": "正面击中慕容博掌力", "description": "喀喇喇一声左首两座书架木片纷飞断成数截"},
         {"type": "重伤", "condition": "打中老僧胸口", "description": "砰的一声喀喇喇几声，老僧肋骨断了几根"}
@@ -174,7 +176,9 @@
       "techniques": [
         {"id": "tech_huoyandao_43", "name": "火焰刀", "type": "attack", "description": "鸠摩智以掌力凝聚内力化为无形刀气突袭"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 7, "unlock": "鸠摩智以火焰刀无形刀气在段誉不备时当胸偷袭，段誉毫无抵御之力即被击晕"}
+      ],
       "effects": [
         {"type": "偷袭", "condition": "段誉不备时", "description": "一股凌厉之极的劲风当胸射来，段誉胸口一痛人事不知"}
       ],
@@ -183,17 +187,30 @@
     {
       "id": "skill_canhezhijiao",
       "name": "参合指",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_canhe_xuzhi_43", "name": "参合指力", "type": "attack", "description": "凌虚出指以无形指力隔空攻击，精微奥妙威力惊人"}
+      ],
+      "progression": [
+        {"level": 8, "unlock": "慕容博在藏经阁以参合指配合掌力与萧峰降龙十八掌对撼，虽掌力被震偏但仍令书架断裂"}
+      ],
+      "effects": [
+        {"type": "穿透", "condition": "指力击中", "description": "无形指力穿透力极强，可与降龙十八掌掌力相抗"}
+      ],
       "combat_style": "慕容氏家传神指，精微奥妙威力惊人"
     },
     {
       "id": "skill_xiaowuxianggong",
       "name": "小无相功",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_xiaowuxiang_yunshi", "name": "小无相运使法", "type": "defense", "description": "以小无相功为根基运使少林七十二绝技，虽细微曲折之处似是而非但威力极大"}
+      ],
+      "progression": [
+        {"level": 6, "unlock": "鸠摩智以小无相功运转少林七十二绝技，被扫地僧点破'次序颠倒，大难已在旦夕之间'"}
+      ],
+      "effects": [
+        {"type": "模拟", "condition": "运使武功时", "description": "小无相功精微渊深，可模拟天下任何武功的内力运转法门"},
+        {"type": "反噬", "condition": "强行修炼少林绝技", "description": "不配合相应佛法化解则戾气深入脏腑，承泣颊车诸穴现危机"}
+      ],
       "combat_style": "逍遥派精微内功，可运使天下任何武功"
     }
   ],

@@ -168,33 +168,45 @@
     {
       "id": "skill_lingboweibu",
       "techniques": [
-        {"id": "tech_lingbo_liushisigua", "name": "六十四卦步法", "type": "defense", "description": "按易经六十四卦方位行走，每一步暗合经脉运行，可自行闪避攻击"}
+        {"id": "tech_lingbo_liushisigua", "name": "六十四卦步法", "type": "defense", "description": "按易经六十四卦方位行走，每一步暗合经脉运行，可自行闪避攻击"},
+        {"id": "tech_lingbo_jiejin", "name": "凌波趋近", "type": "movement", "description": "身形飘忽如风，两步之间抢至敌人身前，旁观者只觉人影一闪"}
       ],
-      "progression": [],
-      "effects": [],
-      "combat_style": "飘逸灵动，闪避第一"
+      "progression": [
+        {"level": 2, "unlock": "主动施展步法快速接近敌人，在山道狭窄处仍能灵活趋避，配合北冥神功近身制敌"}
+      ],
+      "effects": [
+        {"type": "趋进", "condition": "运起步法时", "description": "如风掠至两名大汉身前，旁观众人只觉人影一闪段誉已到近前"}
+      ],
+      "combat_style": "飘逸灵动，闪避第一，趋进如风"
     },
     {
       "id": "skill_bingcan",
       "techniques": [
-        {"id": "tech_bingcan_zhang", "name": "冰蚕毒掌", "type": "attack", "description": "阴寒无比的掌力，中者寒冷彻骨，立时毙命"}
+        {"id": "tech_bingcan_zhang", "name": "冰蚕毒掌", "type": "attack", "description": "阴寒无比的掌力，中者寒冷彻骨，立时毙命"},
+        {"id": "tech_bingcan_quan", "name": "冰蚕毒拳", "type": "attack", "description": "以拳发出阴寒内力，与掌力同等威力，一拳将宋长老打飞出门"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 3, "unlock": "一掌可同时击杀四人，一拳可击飞武功高手，阴寒之气充塞满室令旁观者战栗"}
+      ],
       "effects": [
-        {"type": "冰冻", "condition": "掌力击中", "description": "房中突然一阵寒冷彻骨，丐帮弟子哼也没哼便尸横就地"}
+        {"type": "冰冻", "condition": "掌力击中", "description": "房中突然一阵寒冷彻骨，丐帮弟子哼也没哼便尸横就地"},
+        {"type": "震飞", "condition": "拳力击中", "description": "宋长老举拳一挡，惨呼一声摔出大门"}
       ],
-      "combat_style": "阴寒毒辣，中者立毙"
+      "combat_style": "阴寒毒辣，中者立毙，远距离掌风杀人"
     },
     {
       "id": "skill_jiuzhuanshewan",
       "techniques": [
-        {"id": "tech_jiuzhuan", "name": "九转熊蛇丸", "type": "heal", "description": "灵鹫宫治伤灵药，止血生肌效果神奇"}
+        {"id": "tech_jiuzhuan", "name": "九转熊蛇丸", "type": "heal", "description": "灵鹫宫治伤灵药，止血生肌效果神奇"},
+        {"id": "tech_jiuzhuan_dianxue", "name": "九转点穴止血", "type": "heal", "description": "配合灵药先点穴止血再喂药，药效更佳"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "初次施展，点段誉伤口周围穴道止住血流后喂药，片刻间伤口无血流出，神智清醒"}
+      ],
       "effects": [
-        {"type": "治疗", "condition": "口服后片刻", "description": "伤口无血流出，神智渐渐清醒，中气渐旺"}
+        {"type": "治疗", "condition": "口服后片刻", "description": "伤口无血流出，神智渐渐清醒，中气渐旺，说话连贯有力"}
       ],
-      "combat_style": "疗伤圣药"
+      "combat_style": "疗伤圣药，点穴止血再服药疗效倍增"
     }
   ],
   "events": [

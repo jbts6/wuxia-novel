@@ -225,7 +225,9 @@
       "techniques": [
         {"id": "tech_jianlongzaitian_42", "name": "见龙在田", "type": "attack", "description": "从旁拍击过去，掌风将判官笔激得弯曲飞回"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 10, "unlock": "萧峰以降龙十八掌硬拼游坦之冰蚕毒掌数招后，倏地横扫一腿踢断其双胫骨，刚猛掌力令游坦之无法近身"}
+      ],
       "effects": [
         {"type": "反弹", "condition": "击打飞行暗器", "description": "掌力将判官笔激得弯曲，从段誉脑后绕弯射回慕容复"}
       ],
@@ -234,9 +236,15 @@
     {
       "id": "skill_tianshanzhemei",
       "name": "天山折梅手",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_tianshanzhemei_zhua", "name": "天山折梅擒拿手", "type": "attack", "description": "逍遥派精妙擒拿手法，变化繁复妙着纷呈，与天山六阳掌配合使用攻守兼备"}
+      ],
+      "progression": [
+        {"level": 4, "unlock": "虚竹在与丁春秋剧斗中天山折梅手与天山六阳掌交替使用，虽临敌经验不足但招式精妙令丁春秋无法施展毒功"}
+      ],
+      "effects": [
+        {"type": "牵制", "condition": "与天山六阳掌交替使用", "description": "虚竹双手分使折梅手与六阳掌，逼得丁春秋无法使用毒功只能以本门掌法相接"}
+      ],
       "combat_style": "逍遥派擒拿手法，虚竹以此与丁春秋周旋"
     },
     {
@@ -260,7 +268,9 @@
       "techniques": [
         {"id": "tech_canhe_xuzhi", "name": "参合指", "type": "attack", "description": "凌虚出指，指风所到隔空点倒段正淳和巴天石"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 8, "unlock": "慕容博以参合指凌空虚点三下，指风隔空点倒段正淳与巴天石，令判官笔从段誉肩头反跃而出插入地下"}
+      ],
       "effects": [
         {"type": "隔空点穴", "condition": "指风点到", "description": "段正淳和巴天石胸口一麻立即摔倒，判官笔从段誉肩头反跃而出插入地下"}
       ],
@@ -269,9 +279,16 @@
     {
       "id": "skill_huagongdafa",
       "name": "化功大法",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_huagong_shengsifu_jie", "name": "化功毒掌", "type": "attack", "description": "以毒功化去对手内力，掌力中蕴含剧毒沾者即中"}
+      ],
+      "progression": [
+        {"level": 9, "unlock": "丁春秋数十年来以化功大法横行天下，连毙少林玄难玄痛二僧，但被虚竹以生死符制住后一身毒功无从施展"}
+      ],
+      "effects": [
+        {"type": "化功", "condition": "掌力接实", "description": "毒素侵入经络可化去对方内力，歹毒无伦"},
+        {"type": "中毒", "condition": "毒酒拂出沾染", "description": "酒水化作毒雨，菊剑站得较近身沾毒雨当即倒地"}
+      ],
       "combat_style": "毒功为主，以毒化人内力"
     }
   ],

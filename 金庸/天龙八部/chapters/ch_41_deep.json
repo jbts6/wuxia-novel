@@ -270,9 +270,12 @@
       "id": "skill_huagongdafa",
       "name": "化功大法",
       "techniques": [
-        {"id": "tech_huagong_fushidu", "name": "腐尸毒", "type": "attack", "description": "将活人抓死后喂以剧毒，掷出攻敌，沾者立中尸毒"}
+        {"id": "tech_huagong_fushidu", "name": "腐尸毒", "type": "attack", "description": "将活人抓死后喂以剧毒，掷出攻敌，沾者立中尸毒"},
+        {"id": "tech_lianzhu_fushidu", "name": "连珠腐尸毒", "type": "attack", "description": "以连珠手法将多名门人接连掷出，如发射连珠箭般迅猛无伦令对手措手不及"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 9, "unlock": "丁春秋以柔丝索配合腐尸毒功夫在七八丈外擒人掷尸，连毙丐帮弟子十八人，化功大法已达炉火纯青之境"}
+      ],
       "effects": [
         {"type": "尸毒", "condition": "掷出毒尸撞中", "description": "中者满脸黑气，抽搐数下毙命"}
       ],
@@ -284,7 +287,9 @@
       "techniques": [
         {"id": "tech_tianshan_liuyang", "name": "天山六阳掌法", "type": "attack", "description": "逍遥派精妙掌法，盘旋飞舞着着进迫，姿式优雅如舞蹈"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 5, "unlock": "虚竹继承无崖子七十年内力后使开天山六阳掌，轻灵飘逸闲雅清隽，将逍遥二字发挥到淋漓尽致"}
+      ],
       "effects": [
         {"type": "压制", "condition": "与丁春秋对掌", "description": "逼得丁春秋不敢使用毒功，只能以本门掌法相接"}
       ],
@@ -293,9 +298,15 @@
     {
       "id": "skill_qinlonggong",
       "name": "擒龙功",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_qinlong_gekong", "name": "隔空擒拿", "type": "attack", "description": "以绝顶内力凌空取物擒敌，功夫练到上乘境界可在四五尺外夺人兵刃擒拿敌人"}
+      ],
+      "progression": [
+        {"level": 10, "unlock": "萧峰已将擒龙功练至化境，天下无双的隔空擒拿功夫令江湖高手无不钦服"}
+      ],
+      "effects": [
+        {"type": "凌空", "condition": "运功擒拿", "description": "凌空取物，可在数尺外夺人兵刃、擒拿敌人"}
+      ],
       "combat_style": "隔空擒拿，天下无双"
     }
   ],
@@ -370,6 +381,14 @@
       "participants": ["char_youtanzhi", "char_dingchunqiu", "char_azi"],
       "location": "loc_shaolin",
       "description": "丁春秋以阿紫性命相胁，要游坦之拜其为师，游坦之毫不迟疑双膝跪倒，丐帮上下愤慨莫名",
+      "chapter": 41
+    },
+    {
+      "id": "evt_41_nanhaiduan_zhanmurong",
+      "name": "南海鳄神与段正淳联手救段誉",
+      "participants": ["char_nanhaieshen", "char_duanzhengchun", "char_furongfu", "char_duanyu"],
+      "location": "loc_shaolin",
+      "description": "段誉被慕容复踩在脚下，南海鳄神为保辈分以鳄嘴剪猛攻慕容复，段正淳以六脉神剑一阳指夹击，误伤南海鳄神后被慕容复点中中庭穴吐血",
       "chapter": 41
     }
   ],

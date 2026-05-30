@@ -155,7 +155,11 @@
         {"id": "tech_douzhuan_zhuanxiang", "name": "斗转星移转向", "type": "defense", "description": "拨动金带带头拍的一声，金带与银带缠在一起；以刀柄撞晕两人而不伤性命"},
         {"id": "tech_douzhuan_fanzhuo", "name": "以刀还刀", "type": "defense", "description": "王语嫣指点使金灯万盏转披襟当风，令矮子双锤自击震断双臂"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "转移有形兵刃拳脚方向，令对手自作自受"},
+        {"level": 2, "unlock": "利用地形或第三方作反弹媒介，将劲力转移到第三者身上"},
+        {"level": 3, "unlock": "以金灯万盏等招式引导对方劲力自相攻击，令对手双锤互击震断手臂"}
+      ],
       "effects": [
         {"type": "借力", "condition": "敌人攻来", "description": "将敌人攻击劲力转移，使对手自相伤害"}
       ],
@@ -167,7 +171,10 @@
         {"id": "tech_lingbo_chongzhen", "name": "凌波微步冲锋", "type": "defense", "description": "背负王语嫣在数百高手中左斜右歪弯弯曲曲冲将出去，众人兵刃拳脚纷纷落空"},
         {"id": "tech_lingbo_xiaodiao", "name": "凌波微步突袭", "type": "attack", "description": "一抬足已到乌老大身后，伸手按其后心天宗穴和清冷渊"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "背负一人仍可在数百高手中左斜右歪弯弯曲曲冲出重围，众人兵刃拳脚纷纷落空"},
+        {"level": 2, "unlock": "步法精妙，一抬足已到对手身后，可瞬间欺近偷袭罩门"}
+      ],
       "effects": [
         {"type": "闪避", "condition": "被围攻", "description": "步法精妙绝伦，在围攻中如入无人之境"}
       ],
