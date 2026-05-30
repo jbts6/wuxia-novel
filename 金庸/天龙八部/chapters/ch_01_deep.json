@@ -1,0 +1,194 @@
+{
+  "chapter": 1,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["慈悲为怀", "天真烂漫", "固执", "胆大妄为", "书生气"],
+        "speech_style": "文雅带书卷气，喜欢引用佛经和孟子，谈吐斯文",
+        "temperament": "平和乐观"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_zhongling", "type": "companion", "intensity": 40, "bond_level": 1, "dynamic": "初识，一见如故的惺惺相惜"}
+      ],
+      "known_skills": [],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_zhongling",
+      "personality": {
+        "traits": ["活泼调皮", "古灵精怪", "善良", "好奇"],
+        "speech_style": "娇糯俏皮，喜欢开玩笑，说话直率",
+        "temperament": "活泼外向"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyu", "type": "companion", "intensity": 35, "bond_level": 1, "dynamic": "初识，对他不会武功感到好奇"}
+      ],
+      "known_skills": ["skill_yushe", "skill_qinggong_zhong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zuozimu",
+      "personality": {
+        "traits": ["自负", "固执", "好面子", "严厉"],
+        "speech_style": "威严带傲慢，对晚辈居高临下",
+        "temperament": "易怒暴躁"
+      },
+      "archetype": "warrior",
+      "relationships": [],
+      "known_skills": ["skill_wuliangjianfa", "skill_jinzhendujie"],
+      "related_skills": []
+    },
+    {
+      "id": "char_xinshuangqing",
+      "personality": {
+        "traits": ["沉默寡言", "隐忍"],
+        "speech_style": "冷淡简练",
+        "temperament": "内敛"
+      },
+      "archetype": "warrior",
+      "relationships": [],
+      "known_skills": ["skill_wuliangjianfa"],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_yiyangzhi",
+      "techniques": [
+        {"id": "tech_yiyangzhi_dianxue", "name": "一阳指点穴", "type": "attack", "description": "以一阳指内力点人穴道，使人麻痒难当、动弹不得"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "基础点穴"}
+      ],
+      "effects": [
+        {"type": "控制", "condition": "点中穴道", "description": "目标全身无法动弹，麻痒难当"}
+      ],
+      "combat_style": "点穴制敌，以指代剑"
+    },
+    {
+      "id": "skill_wuliangjianfa",
+      "techniques": [
+        {"id": "tech_wuliang_jiben", "name": "无量剑基础剑法", "type": "attack", "description": "无量剑派基本功"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": ""
+    },
+    {
+      "id": "skill_jinzhendujie",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "出剑如风，精准迅捷"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_wuliang_bijian",
+      "name": "无量剑东西宗比剑",
+      "participants": ["char_zuozimu", "char_xinshuangqing", "char_gongguangjie", "char_chu"],
+      "location": "loc_jianhugong",
+      "description": "无量剑东西宗每五年一次的比剑争宫，东宗四赛三胜",
+      "chapter": 1
+    },
+    {
+      "id": "evt_rongziju_bei_hai",
+      "name": "容子矩被杀",
+      "participants": ["char_rongziju"],
+      "location": "loc_jianhugong",
+      "description": "容子矩被神农帮以剧毒药物在胸口写'神农帮诛灭无量剑'后毙命",
+      "chapter": 1
+    },
+    {
+      "id": "evt_duanyu_shijie_zhongling",
+      "name": "段誉结识钟灵",
+      "participants": ["char_duanyu", "char_zhongling"],
+      "location": "loc_jianhugong",
+      "description": "段誉在剑湖宫初遇钟灵，钟灵以蛇和貂相助段誉，二人成为朋友",
+      "chapter": 1
+    },
+    {
+      "id": "evt_gongguangjie_zhongdu",
+      "name": "龚光杰读信中毒身亡",
+      "participants": ["char_gongguangjie", "char_zuozimu"],
+      "location": "loc_jianhugong",
+      "description": "神农帮来信上涂毒，龚光杰读信后手掌变黑中毒身亡",
+      "chapter": 1
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_zhongling",
+      "listener": "char_duanyu",
+      "text": "你当直一点儿也不会武功，那可就奇了。",
+      "tone": "好奇",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_zhongling",
+      "text": "有什么奇怪？",
+      "tone": "坦然",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_zhongling",
+      "listener": "char_duanyu",
+      "text": "你不会武功，却单身到这儿来，那是定会给这些恶人欺侮的。你来干什么？",
+      "tone": "关切",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_zhongling",
+      "listener": "char_zuozimu",
+      "text": "他们不会杀我的，神农帮只杀无量剑的人。我在路上听到了消息，因此赶来瞧瞧杀人的热闹。长胡子老头，你们剑法不错，可是不会使毒，斗不过神农帮的。",
+      "tone": "调侃",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_zhongling",
+      "listener": "char_zuozimu",
+      "text": "我听神农帮的说什么'无量玉壁'，那是什么玩意儿？",
+      "tone": "好奇",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_zhongling",
+      "listener": "char_zuozimu",
+      "text": "他们说奉了缥缈峰灵鹫宫的号令，要占剑湖宫，为的是要查明'无量玉壁'的真相。",
+      "tone": "认真",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_zhongling",
+      "text": "咱们有福共享，有难同当，瓜子一齐吃，刀剑一块挨。",
+      "tone": "潇洒",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_zhongling",
+      "listener": "char_duanyu",
+      "text": "你这人很够朋友，也不枉咱们相识一场，走吧！",
+      "tone": "开心",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_zhongling",
+      "text": "我从小受了佛戒。爹爹请了一位老师教我念四书五经、诗词歌赋，请了一位高僧教我念佛经。十多年来，我学的是儒家的仁人之心，推已极人，佛家的戒杀戒嗔，慈悲为怀，忽然爹爹教我练武，学打人杀人的法子，我自然觉得不对头。",
+      "tone": "认真",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_zhongling",
+      "listener": "char_duanyu",
+      "text": "你段家的点穴功夫天下无双，叫做'一阳指'。学武的人一听到'一阳指'三个字，那真是垂涎三尺，羡慕得十天十夜睡不着觉。",
+      "tone": "郑重",
+      "chapter": 1
+    }
+  ]
+}

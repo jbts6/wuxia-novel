@@ -1,0 +1,245 @@
+{
+  "chapter": 4,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["书生气", "善良", "倔强", "机敏", "重情"],
+        "speech_style": "引经据典，善用言辞辩论",
+        "temperament": "温和但有原则，遇强不惧"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_muwanqing", "type": "love", "intensity": 50, "bond_level": 3, "dynamic": "在她重伤之际悉心照料，答应娶她为妻，已生情愫"},
+        {"target": "char_nanhaieshen", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "被强收为徒，以言辞辩论周旋"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_muwanqing",
+      "personality": {
+        "traits": ["冷若冰霜", "刚烈", "痴情", "野性未驯"],
+        "speech_style": "言语冷厉，但在段誉面前渐露温柔",
+        "temperament": "外冷内热，一旦认定便至死不渝"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyu", "type": "love", "intensity": 80, "bond_level": 4, "dynamic": "被迫揭开面幕示人后，认定段誉为夫，愿同生共死"},
+        {"target": "char_nanhaieshen", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "被他挟持作为要挟段誉的人质"}
+      ],
+      "known_skills": ["skill_dujian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen",
+      "personality": {
+        "traits": ["暴躁", "好杀", "爱面子", "直率", "重规矩"],
+        "speech_style": "粗声粗气，爱说「这话倒也有理」",
+        "temperament": "喜怒形于色，有原则但原则奇特"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "complicated", "intensity": 60, "bond_level": 2, "dynamic": "非要收段誉为徒不可，欣赏他的资质"},
+        {"target": "char_muwanqing", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "将她作为人质要挟段誉"},
+        {"target": "char_eyuanyingkui", "type": "complicated", "intensity": 70, "bond_level": 2, "dynamic": "打不过老大，不得不服"},
+        {"target": "char_yeer_niang", "type": "complicated", "intensity": 30, "bond_level": 2, "dynamic": "想抢老二排名，但斗不过"}
+      ],
+      "known_skills": ["skill_crocshear", "skill_croctail"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yeer_niang",
+      "personality": {
+        "traits": ["外表温柔", "内心残忍", "变态"],
+        "speech_style": "温言细语，唱着儿歌，言语却令人毛骨悚然",
+        "temperament": "表面慈爱，实则凶残"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_nanhaieshen", "type": "complicated", "intensity": 20, "bond_level": 2, "dynamic": "同列四大恶人，互相忌惮"},
+        {"target": "char_muwanqing", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "要挖她的眼睛"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_crocshear",
+      "techniques": [
+        {"id": "tech_crocshear_grip", "name": "鳄嘴剪绞", "type": "attack", "description": "用鳄嘴剪夹住对方兵器并绞断"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "disarm", "condition": "夹住兵器", "description": "可剪断纯钢打就的兵器"}
+      ],
+      "combat_style": "凶猛刚烈，以力破巧"
+    },
+    {
+      "id": "skill_croctail",
+      "techniques": [
+        {"id": "tech_croctail_whip", "name": "鳄尾鞭卷", "type": "attack", "description": "锯齿软鞭疾卷敌人"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "配合鳄嘴剪使用，刚柔并济"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_4_heimeigui_fall",
+      "name": "黑玫瑰坠谷",
+      "participants": ["char_muwanqing", "char_duanyu"],
+      "location": "loc_gaoya",
+      "description": "黑玫瑰跃涧失败坠入深谷，木婉清和段誉被困高崖",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_treat_wound",
+      "name": "段誉为木婉清治伤",
+      "participants": ["char_duanyu", "char_muwanqing"],
+      "location": "loc_gaoya",
+      "description": "木婉清中钢锥重伤，段誉取胭脂药膏为其敷伤，见到她半面容貌",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_kill_attackers",
+      "name": "段誉投石杀人",
+      "participants": ["char_duanyu"],
+      "location": "loc_gaoya",
+      "description": "段誉为保护木婉清，投石击退攀崖敌人，失手杀死三人",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_nanhaieshen_appear",
+      "name": "南海鳄神出现",
+      "participants": ["char_nanhaieshen", "char_muwanqing", "char_duanyu"],
+      "location": "loc_gaoya",
+      "description": "南海鳄神强行登山，为徒弟孙三霸报仇而来",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_unveil_face",
+      "name": "木婉清揭开面幕",
+      "participants": ["char_muwanqing", "char_duanyu", "char_nanhaieshen"],
+      "location": "loc_gaoya",
+      "description": "南海鳄神逼迫之下，木婉清揭开面幕，段誉见到她绝世容颜",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_nanhaieshen_accept",
+      "name": "南海鳄神要收段誉为徒",
+      "participants": ["char_nanhaieshen", "char_duanyu"],
+      "location": "loc_gaoya",
+      "description": "南海鳄神认定段誉资质非凡，非要收他为徒，段誉巧言推托",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_kill_swordsman",
+      "name": "南海鳄神扭断使剑汉子脖子",
+      "participants": ["char_nanhaieshen"],
+      "location": "loc_gaoya",
+      "description": "南海鳄神为替段誉撑腰，扭断瑞婆婆手下使剑汉子的脖子",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_nanhaieshen_summoned",
+      "name": "老大哨声召走南海鳄神",
+      "participants": ["char_nanhaieshen"],
+      "location": "loc_gaoya",
+      "description": "铁哨声传来，南海鳄神被老大召走，临走吩咐等候",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_poison_pain",
+      "name": "段誉断肠散毒发",
+      "participants": ["char_duanyu", "char_muwanqing"],
+      "location": "loc_gaoya",
+      "description": "段誉腹中剧痛，木婉清悉心照料，两人互诉衷情",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_nanhaieshen_return",
+      "name": "南海鳄神返回劫走木婉清",
+      "participants": ["char_nanhaieshen", "char_muwanqing", "char_duanyu"],
+      "location": "loc_gaoya",
+      "description": "南海鳄神返回轻伤，劫走木婉清为人质要挟段誉拜师",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_yeer_niang_yunzhonghe",
+      "name": "叶二娘与云中鹤出现",
+      "participants": ["char_yeer_niang", "char_yunzhonghe", "char_nanhaieshen", "char_muwanqing"],
+      "location": "loc_gaofeng",
+      "description": "四大恶人在高峰聚集，叶二娘每日害一婴儿，云中鹤觊觎木婉清美色",
+      "chapter": 4
+    },
+    {
+      "id": "evt_4_muwanqing_wait",
+      "name": "木婉清苦等段誉七日",
+      "participants": ["char_muwanqing"],
+      "location": "loc_gaofeng",
+      "description": "木婉清被南海鳄神看守，苦等段誉七日，从希望到绝望",
+      "chapter": 4
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing",
+      "text": "上天有好生之德，我……我无故杀人，罪业非小。",
+      "tone": "悲痛",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_duanyu",
+      "text": "你也有父母妻儿，是不是？",
+      "tone": "冷笑",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_nanhaieshen",
+      "text": "你位列'四大恶人'，这么高的身份，这么大的威名，岂能和一个身受重伤的女子动手？",
+      "tone": "讽刺",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_nanhaieshen",
+      "text": "江湖上到处都说南海鳄神是大大的英雄好汉，别说决不欺侮受了伤的女子，便是受了伤的男子也不打。",
+      "tone": "奉承",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_nanhaieshen",
+      "listener": "char_duanyu",
+      "text": "你这小子有意思。下次你听到有谁说老子英雄了得，须得牢牢记住他姓名。",
+      "tone": "得意",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_duanyu",
+      "text": "从今而后，你便是我的丈夫了。不过我不许你拜这恶人为师，学了他的本事来扭我脖子。",
+      "tone": "坚决",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_duanyu",
+      "text": "郎君，我木婉清虽是个杀人不眨眼的女子，却也愿为自己丈夫舍了性命。",
+      "tone": "深情",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing",
+      "text": "只要我命不久长，这样美丽的容貌，没多少时刻能见到了。",
+      "tone": "感伤",
+      "chapter": 4
+    }
+  ]
+}

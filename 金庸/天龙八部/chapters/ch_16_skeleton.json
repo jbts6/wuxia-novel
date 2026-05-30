@@ -4,206 +4,509 @@
     {
       "id": "char_qiaofeng",
       "name": "乔峰",
-      "alias": ["萧峰", "乔帮主"],
-      "identity": "丐帮帮主",
+      "alias": [],
+      "identity": "丐帮前任帮主，契丹后裔，自知情世后辞位",
       "faction": "faction_gaibang",
       "role": "protagonist",
-      "one_line": "丐帮帮主，因身世被揭发为契丹人后裔而陷入身份危机",
-      "personality": "豪迈正直，有肝胆有骨气，重情义轻生死",
-      "known_skills": ["skill_xianglongshibazhang", "skill_dagoubang"],
-      "related_skills": []
-    },
-    {
-      "id": "char_duanyu",
-      "name": "段誉",
-      "alias": ["段公子"],
-      "identity": "大理段氏王子",
-      "faction": "faction_daliduanshi",
-      "role": "protagonist",
-      "one_line": "大理王子，追随乔峰至杏子林，对王语嫣一见倾心",
-      "personality": "温文尔雅，痴情执着，不愿伤人性命",
-      "known_skills": ["skill_liumaihenjian", "skill_lingboweibu", "skill_beimingshengong"],
-      "related_skills": []
-    },
-    {
-      "id": "char_azhu",
-      "name": "阿朱",
-      "alias": [],
-      "identity": "慕容复的贴身侍女",
-      "faction": "faction_gususumurong",
-      "role": "companion",
-      "one_line": "慕容府丫鬟，机智聪慧，替慕容复辩白冤屈",
-      "personality": "机敏灵巧，善于应变，忠心护主",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_wangyuyan",
-      "name": "王语嫣",
-      "alias": ["王姑娘"],
-      "identity": "慕容复的表妹",
-      "faction": "faction_gususumurong",
-      "role": "companion",
-      "one_line": "慕容复表妹，博通天下武功招式，与段誉同行",
-      "personality": "温柔善良，心思细腻，念念不忘表哥慕容复",
-      "known_skills": [],
-      "related_skills": []
+      "one_line": "丐帮帮主，惊悉自己是契丹人后辞去帮主之位",
+      "personality": "慷慨豪迈，重情重义，刚烈正直",
+      "known_skills": ["skill_xianglongshibazhang", "skill_dagoubangfa"],
+      "related_skills": [],
+      "rag_refs": [10, 62, 64, 222, 228, 258, 362, 472, 496, 500, 576, 596, 610]
     },
     {
       "id": "char_zhiguang",
-      "name": "智光",
-      "alias": ["智光大师", "知光大师"],
-      "identity": "天台山高僧",
-      "faction": "faction_tiantaishan",
+      "name": "智光大师",
+      "alias": ["智光", "知光"],
+      "identity": "天台山老僧，当年雁门关之战参与者，武功全失",
+      "faction": null,
       "role": "npc",
-      "one_line": "天台山高僧，曾参与三十年前雁门关伏击，讲述当年往事",
-      "personality": "德高望重，慈悲为怀，勇于承认过错",
+      "one_line": "天台山高僧，三十年前参与雁门关之战，后出家为僧",
+      "personality": "德高望重，慈悲为怀，勇于承担罪孽",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [6, 10, 16, 24, 32, 38, 46, 52, 58, 68, 74, 86, 98, 102, 108, 114, 130, 154, 164, 180, 208, 214, 226, 284, 288, 292, 304, 314, 326]
     },
     {
       "id": "char_zhaoqiansun",
       "name": "赵钱孙",
       "alias": [],
-      "identity": "雁门关伏击参与者",
+      "identity": "当年雁门关之战参与者，武功高强",
       "faction": null,
       "role": "npc",
-      "one_line": "三十年前参与雁门关伏击的武林人士，与智光一同讲述往事",
-      "personality": "直率坦荡，对往事耿耿于怀",
+      "one_line": "行为疯癫的武林前辈，雁门关之战的幸存者",
+      "personality": "疯疯癫癫，玩世不恭，对谭婆痴情",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [18, 30, 46, 82, 128, 140, 148, 188, 268, 338]
     },
     {
       "id": "char_xuzhanglao",
       "name": "徐长老",
-      "alias": [],
-      "identity": "丐帮长老",
+      "alias": ["徐长老"],
+      "identity": "丐帮徐长老，帮中辈分最高",
       "faction": "faction_gaibang",
       "role": "npc",
-      "one_line": "丐帮长老，召集众人揭发乔峰身世",
-      "personality": "稳重威严，维护帮规",
+      "one_line": "丐帮元老，主持揭发乔峰身世之事",
+      "personality": "沉稳老练，有大局观",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [4, 22, 36, 254, 306, 352, 366, 460, 476, 514, 634, 660, 682, 740, 762, 906]
     },
     {
-      "id": "char_danzheng",
+      "id": "char_shanzheng",
       "name": "单正",
       "alias": ["铁面判官"],
-      "identity": "太行山判官",
-      "faction": null,
+      "identity": "太行山单家掌门，山东武林名宿",
+      "faction": "faction_shanjia",
       "role": "npc",
-      "one_line": "太行山铁面判官，与徐长老联名召集众人",
-      "personality": "铁面无私，刚正不阿",
+      "one_line": "铁面判官单正，太行山豪侠，携五子赴会",
+      "personality": "正直公道，行事稳重",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [234, 250, 600]
     },
     {
-      "id": "char_baishijing",
-      "name": "白世镜",
+      "id": "char_shanzhongshan",
+      "name": "单仲山",
       "alias": [],
-      "identity": "丐帮执法长老",
-      "faction": "faction_gaibang",
+      "identity": "单正之子",
+      "faction": "faction_shanjia",
       "role": "npc",
-      "one_line": "丐帮执法长老，掌管帮规执行",
-      "personality": "严肃刚正，执法如山",
+      "one_line": "单正次子",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [238, 240]
     },
     {
-      "id": "char_quanguanqing",
-      "name": "全冠清",
+      "id": "char_shanshushan",
+      "name": "单叔山",
       "alias": [],
-      "identity": "丐帮长老",
-      "faction": "faction_gaibang",
-      "role": "villain",
-      "one_line": "丐帮长老，利用乔峰契丹人身世煽动帮众反叛",
-      "personality": "阴险狡诈，野心勃勃",
+      "identity": "单正之子",
+      "faction": "faction_shanjia",
+      "role": "npc",
+      "one_line": "单正三子",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [238, 240]
     },
     {
-      "id": "char_mafuren",
-      "name": "马夫人",
-      "alias": ["康敏"],
-      "identity": "马大元之妻",
-      "faction": "faction_gaibang",
+      "id": "char_shanjishan",
+      "name": "单季山",
+      "alias": [],
+      "identity": "单正之子",
+      "faction": "faction_shanjia",
       "role": "npc",
-      "one_line": "丐帮副帮主马大元遗孀，出示汪帮主遗书揭露乔峰身世",
-      "personality": "外表柔弱，内心深沉，工于心计",
+      "one_line": "单正四子，被乔峰踏住头颅",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [238, 240, 278]
     },
     {
       "id": "char_tangong",
       "name": "谭公",
       "alias": [],
-      "identity": "武林前辈",
+      "identity": "谭婆之夫，武林前辈",
       "faction": null,
       "role": "npc",
-      "one_line": "与谭婆同行的武林前辈，参与杏子林聚会",
-      "personality": "沉稳老练",
+      "one_line": "谭婆的丈夫，虽与赵钱孙是情敌却帮他说话",
+      "personality": "宽厚大度",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [340]
     },
     {
       "id": "char_tanpo",
       "name": "谭婆",
-      "alias": [],
-      "identity": "武林前辈",
+      "alias": ["小娟"],
+      "identity": "赵钱孙旧情人，谭公之妻",
       "faction": null,
       "role": "npc",
-      "one_line": "与谭婆同行的武林前辈",
-      "personality": "性格爽朗",
+      "one_line": "武林前辈女侠，赵钱孙痴恋之人",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": []
+    },
+    {
+      "id": "char_mafuren",
+      "name": "马夫人",
+      "alias": [],
+      "identity": "马大元遗孀，丐帮副帮主夫人",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "马大元之妻，步步紧逼指证乔峰",
+      "personality": "心思缜密，言辞锋利，城府极深",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [394, 402, 406, 410, 428, 434, 440, 450, 454, 484, 490, 586, 592]
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": [],
+      "identity": "慕容复的侍女，擅易容术",
+      "faction": "faction_murongshi",
+      "role": "companion",
+      "one_line": "慕容复的丫头，心思机敏，代慕容复辩白",
+      "personality": "聪明伶俐，机敏善辩",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [416, 424, 446, 806, 919]
     },
     {
       "id": "char_abi",
       "name": "阿碧",
       "alias": [],
-      "identity": "慕容复的贴身侍女",
-      "faction": "faction_gususumurong",
-      "role": "npc",
-      "one_line": "慕容府丫鬟，与阿朱一同随侍",
-      "personality": "温柔安静",
+      "identity": "慕容复的侍女",
+      "faction": "faction_murongshi",
+      "role": "companion",
+      "one_line": "慕容复的丫环，陪伴王语嫣和阿朱",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [806, 919]
     },
     {
-      "id": "char_mafudaoyuan",
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "alias": [],
+      "identity": "慕容复的表妹，精通天下武功",
+      "faction": "faction_murongshi",
+      "role": "companion",
+      "one_line": "慕容复的表妹，过目不忘精通各家武学",
+      "personality": "痴情于慕容复，聪慧博学",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [624, 628, 844, 850, 856, 871, 877, 889, 919, 937]
+    },
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "alias": [],
+      "identity": "大理段氏公子，乔峰结义兄弟",
+      "faction": "faction_dali",
+      "role": "protagonist",
+      "one_line": "大理段氏公子，与乔峰结义，痴恋王语嫣",
+      "personality": "书生气重，痴情执着，心地善良",
+      "known_skills": ["skill_liumaishenjian", "skill_lingboweibu"],
+      "related_skills": ["skill_yiyangzhi"],
+      "rag_refs": [620, 632, 774, 788, 804, 842, 927, 937, 941]
+    },
+    {
+      "id": "char_wangjiantong",
+      "name": "汪剑通",
+      "alias": ["汪帮主", "剑髯"],
+      "identity": "前任丐帮帮主，已故",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "前任丐帮帮主，收乔峰为徒并传位给他，留下密令",
+      "personality": "深沉周密，对乔峰既爱又防",
+      "known_skills": ["skill_xianglongshibazhang", "skill_dagoubangfa"],
+      "related_skills": [],
+      "rag_refs": [80, 196, 210, 292, 300, 358, 362, 464]
+    },
+    {
+      "id": "char_quanguanqing",
+      "name": "全冠清",
+      "alias": [],
+      "identity": "丐帮中人，反乔峰一派",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮中反乔峰的核心人物，知道乔峰身世内情",
+      "personality": "阴险狡诈，善于鼓动人心",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [378, 550, 556]
+    },
+    {
+      "id": "char_songzhanglao",
+      "name": "宋长老",
+      "alias": ["宋长老"],
+      "identity": "丐帮宋长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮长老，力挺乔峰留任",
+      "personality": "忠义直爽",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [518, 536, 572, 636]
+    },
+    {
+      "id": "char_xizhanglao",
+      "name": "奚长老",
+      "alias": ["奚长老"],
+      "identity": "丐帮奚长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮长老，与云中鹤交手受伤",
+      "personality": "勇猛刚烈",
+      "known_skills": ["skill_fumozhang"],
+      "related_skills": [],
+      "rag_refs": [536, 552, 830, 834, 840, 858]
+    },
+    {
+      "id": "char_wuzhanglao",
+      "name": "吴长老",
+      "alias": ["吴长老"],
+      "identity": "丐帮吴长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮长老，用奇门三才刀伤了云中鹤",
+      "personality": "武艺精湛",
+      "known_skills": ["skill_qimensancai"],
+      "related_skills": [],
+      "rag_refs": [536, 564, 640, 867, 887]
+    },
+    {
+      "id": "char_chenzhanglao",
+      "name": "陈长老",
+      "alias": ["陈长老"],
+      "identity": "丐帮陈长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮长老",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [544, 564]
+    },
+    {
+      "id": "char_baishijing",
+      "name": "白世镜",
+      "alias": ["白长老", "执法长老"],
+      "identity": "丐帮执法长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮执法长老，铁面无私",
+      "personality": "公正严明，行事果决",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [430, 548, 668, 700, 712, 718]
+    },
+    {
+      "id": "char_chuangongzhanglao",
+      "name": "传功长老",
+      "alias": ["传功长老"],
+      "identity": "丐帮传功长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮传功长老，武功高强，守护打狗棒",
+      "personality": "沉默寡言",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [544, 754, 756]
+    },
+    {
+      "id": "char_jiangduozhu",
+      "name": "蒋舵主",
+      "alias": [],
+      "identity": "丐帮大义分舵舵主",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮大义分舵舵主",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [652, 662, 676]
+    },
+    {
+      "id": "char_fangduozhu",
+      "name": "方舵主",
+      "alias": [],
+      "identity": "丐帮大勇分舵舵主",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮大勇分舵舵主",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [652]
+    },
+    {
+      "id": "char_helian",
+      "name": "赫连铁树",
+      "alias": [],
+      "identity": "西夏征东大将军，一品堂统领",
+      "faction": "faction_yipintang",
+      "role": "npc",
+      "one_line": "西夏征东大将军，统领一品堂，率众来犯丐帮",
+      "personality": "傲慢自大",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [732, 895]
+    },
+    {
+      "id": "char_nuerhai",
+      "name": "努儿海",
+      "alias": [],
+      "identity": "西夏一品堂武士，赫连铁树部下",
+      "faction": "faction_yipintang",
+      "role": "npc",
+      "one_line": "西夏一品堂的大鼻汉子，出言侮辱丐帮",
+      "personality": "傲慢阴险，口齿伶俐",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [744, 756, 762, 772, 895, 901, 935]
+    },
+    {
+      "id": "char_nanhai'eshen",
+      "name": "南海鳄神",
+      "alias": ["岳老三"],
+      "identity": "天下四恶之三",
+      "faction": "faction_tianxiasie",
+      "role": "villain",
+      "one_line": "天下四恶之三，拜段誉为师后受制",
+      "personality": "凶悍粗鲁但守信，认师不赖账",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [778, 786, 793, 800]
+    },
+    {
+      "id": "char_yunzhonghe",
+      "name": "云中鹤",
+      "alias": [],
+      "identity": "天下四恶之四",
+      "faction": "faction_tianxiasie",
+      "role": "villain",
+      "one_line": "天下四恶之末，身形极高极瘦，轻功了得",
+      "personality": "好色轻浮，手段狠辣",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [808, 826, 856, 869, 885]
+    },
+    {
+      "id": "char_yeer'niang",
+      "name": "叶二娘",
+      "alias": [],
+      "identity": "天下四恶之二",
+      "faction": "faction_tianxiasie",
+      "role": "villain",
+      "one_line": "天下四恶之二，怀抱小儿笑吟吟站着",
+      "personality": "阴狠毒辣",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [814, 939]
+    },
+    {
+      "id": "char_duanyanqing",
+      "name": "段延庆",
+      "alias": ["延庆太子", "恶贯满盈"],
+      "identity": "天下四恶之首，大理前太子",
+      "faction": "faction_tianxiasie",
+      "role": "villain",
+      "one_line": "天下四恶之首，虽依附一品堂却独来独往",
+      "personality": "高傲孤僻",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [814, 818, 824]
+    },
+    {
+      "id": "char_madayuan",
       "name": "马大元",
       "alias": ["马副帮主"],
-      "identity": "丐帮副帮主",
+      "identity": "丐帮副帮主，已故",
       "faction": "faction_gaibang",
       "role": "npc",
-      "one_line": "丐帮副帮主，已故，其遗书成为揭露乔峰身世的关键",
-      "personality": "诚稳笃实，拙于言词",
+      "one_line": "丐帮副帮主，已惨遭横死",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [38, 394]
     },
     {
-      "id": "char_chenguhen",
-      "name": "陈孤雁",
+      "id": "char_qiaosanhuai",
+      "name": "乔三槐",
       "alias": [],
-      "identity": "丐帮长老",
-      "faction": "faction_gaibang",
+      "identity": "少室山下农人，乔峰养父",
+      "faction": null,
       "role": "npc",
-      "one_line": "丐帮长老，跟随全冠清反叛乔峰",
-      "personality": "性格孤僻",
+      "one_line": "少室山下农人，抚养契丹婴儿长大",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [226]
     },
     {
-      "id": "char_wuchangfeng",
-      "name": "吴长风",
-      "alias": [],
-      "identity": "丐帮长老",
-      "faction": "faction_gaibang",
+      "id": "char_xuanku",
+      "name": "玄苦大师",
+      "alias": ["玄苦"],
+      "identity": "少林寺高僧，传授乔峰武功",
+      "faction": "faction_shaolin",
       "role": "npc",
-      "one_line": "丐帮长老，随奚长老支持乔峰",
-      "personality": "刚直豪爽",
+      "one_line": "少林寺高僧，受带头大哥之托传授乔峰武功",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [286]
+    },
+    {
+      "id": "char_daitouren",
+      "name": "带头大哥",
+      "alias": [],
+      "identity": "三十年前雁门关之战首领，身份未明",
+      "faction": null,
+      "role": "npc",
+      "one_line": "三十年前率众伏击契丹武士的带头大哥，身份成谜",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [80, 88, 90, 104, 120, 144, 156, 196, 208, 220, 288, 316]
+    },
+    {
+      "id": "char_wangweiyi",
+      "name": "王维义",
+      "alias": ["万胜刀"],
+      "identity": "万胜刀王老英雄",
+      "faction": null,
+      "role": "npc",
+      "one_line": "当年雁门关之战参与者，武林第一流高手",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [80]
+    },
+    {
+      "id": "char_heyundaozhang",
+      "name": "鹤云道长",
+      "alias": ["地绝剑"],
+      "identity": "地绝剑黄山鹤云道长",
+      "faction": null,
+      "role": "npc",
+      "one_line": "当年雁门关之战参与者",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [80]
+    },
+    {
+      "id": "char_fangdaxiong",
+      "name": "方大雄",
+      "alias": ["铁塔方大雄"],
+      "identity": "山西大同府好汉",
+      "faction": null,
+      "role": "npc",
+      "one_line": "山西大同好汉，雁门关之战中第一个冲上前却被辽人断臂",
+      "personality": "鲁莽",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [120, 122]
+    },
+    {
+      "id": "char_dusanshi",
+      "name": "杜氏三雄",
+      "alias": ["杜二哥"],
+      "identity": "江西杜氏三雄",
+      "faction": null,
+      "role": "npc",
+      "one_line": "江西三兄弟，雁门关之战中被辽人撕裂",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [134, 140]
     }
   ],
   "factions": [
@@ -212,62 +515,128 @@
       "name": "丐帮",
       "type": "帮派",
       "location": "loc_wuxi",
-      "sub_divisions": ["大仁分舵", "大信分舵", "大义分舵", "大智分舵"],
-      "one_line": "江湖上第一大帮，此时正因帮主身世问题发生内乱"
+      "sub_divisions": ["大仁分舵", "大信分舵", "大义分舵", "大智分舵", "大勇分舵"],
+      "one_line": "天下第一大帮，以行侠仗义闻名，帮主乔峰因身世被迫退位",
+      "rag_refs": [10, 50, 106, 112, 152, 210, 300, 362, 366, 378, 388, 432, 476, 498, 514, 540, 546, 578, 634, 704, 762]
     },
     {
-      "id": "faction_tiantaishan",
-      "name": "天台山",
+      "id": "faction_yipintang",
+      "name": "一品堂",
       "type": "武林门派",
-      "location": "loc_tiantaishan",
+      "location": null,
       "sub_divisions": [],
-      "one_line": "智光大师所属的佛门圣地"
+      "one_line": "西夏国设立的讲武馆，招聘天下武功高强之士传授西夏军官武艺",
+      "rag_refs": [656, 702, 704, 706, 822]
     },
     {
-      "id": "faction_gususumurong",
-      "name": "姑苏慕容",
-      "type": "家族",
-      "location": "loc_suzhou",
+      "id": "faction_shaolin",
+      "name": "少林寺",
+      "type": "武林门派",
+      "location": "loc_shaoshi",
       "sub_divisions": [],
-      "one_line": "姑苏慕容氏，以斗转星移绝技闻名武林"
+      "one_line": "中土武学泰山北斗，藏有数百年武功图谱",
+      "rag_refs": [48, 50, 54, 212, 218, 286, 716]
+    },
+    {
+      "id": "faction_shanjia",
+      "name": "单家",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "山东太行山单家，铁面判官单正与五子并称单氏五虎",
+      "rag_refs": [24, 238, 242, 250]
+    },
+    {
+      "id": "faction_tianxiasie",
+      "name": "天下四恶",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "四大恶人团伙，投靠西夏一品堂",
+      "rag_refs": [810, 820, 822]
+    },
+    {
+      "id": "faction_murongshi",
+      "name": "慕容氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "鲜卑后裔，姑苏慕容氏，与契丹同为胡虏",
+      "rag_refs": [376, 428]
+    },
+    {
+      "id": "faction_dali",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "大理国皇族段氏，段誉出身",
+      "rag_refs": [933]
     }
   ],
   "locations": [
     {
+      "id": "loc_xingzilin",
+      "name": "杏子林",
+      "region": "无锡",
+      "one_line": "无锡城外杏子林，丐帮集会之地，揭穿乔峰身世",
+      "rag_refs": [1, 392, 650, 694, 921]
+    },
+    {
+      "id": "loc_yanmen'guan",
+      "name": "雁门关",
+      "region": "宋辽边境",
+      "one_line": "宋辽边境关隘，三十年前血战之地",
+      "rag_refs": [30, 32, 54, 68, 88, 132, 186, 218, 292, 350]
+    },
+    {
+      "id": "loc_luanshigu",
+      "name": "乱石谷",
+      "region": "雁门关外",
+      "one_line": "雁门关外深谷，契丹武士跳崖处",
+      "rag_refs": [30, 32, 90, 160, 168, 186, 194]
+    },
+    {
       "id": "loc_wuxi",
       "name": "无锡",
       "region": "江南",
-      "one_line": "丐帮杏子林聚会所在地，乔峰身世被揭发之处"
+      "one_line": "无锡城，丐帮聚会之地",
+      "rag_refs": [24]
     },
     {
-      "id": "loc_xingzilin",
-      "name": "杏子林",
-      "region": "无锡城外",
-      "one_line": "无锡城外杏树林，丐帮众人聚集讨论乔峰身世之地"
-    },
-    {
-      "id": "loc_yanmenguan",
-      "name": "雁门关",
-      "region": "塞北",
-      "one_line": "三十年前中原武林伏击契丹武士的战场，乱石谷大战之地"
-    },
-    {
-      "id": "loc_tiantaishan",
+      "id": "loc_tiantai",
       "name": "天台山",
       "region": "浙江",
-      "one_line": "智光大师修行之地，距无锡不远"
+      "one_line": "智光大师修行之地",
+      "rag_refs": [6, 24]
     },
     {
-      "id": "loc_shaolin",
-      "name": "少林寺",
-      "region": "河南嵩山",
-      "one_line": "天下武学之源，契丹人曾图谋抢夺其武功秘笈"
+      "id": "loc_shaoshi",
+      "name": "少室山",
+      "region": "河南",
+      "one_line": "少林寺所在之山，山脚下有农家收养契丹婴儿",
+      "rag_refs": [220, 284]
     },
     {
-      "id": "loc_taixingshan",
-      "name": "太行山",
-      "region": "山西",
-      "one_line": "单正一家所在之地"
+      "id": "loc_huishan",
+      "name": "惠山",
+      "region": "无锡",
+      "one_line": "无锡惠山，丐帮与西夏一品堂原定约会之地",
+      "rag_refs": [650, 656]
+    },
+    {
+      "id": "loc_bianliang",
+      "name": "汴梁",
+      "region": "大宋",
+      "one_line": "大宋国都，西夏一品堂来朝之地",
+      "rag_refs": [706]
+    },
+    {
+      "id": "loc_luoyang",
+      "name": "洛阳",
+      "region": "大宋",
+      "one_line": "丐帮总舵所在地",
+      "rag_refs": [712]
     }
   ],
   "skills": [
@@ -276,58 +645,130 @@
       "name": "降龙十八掌",
       "type": "掌法",
       "faction": "faction_gaibang",
-      "one_line": "丐帮镇帮绝学，天下至刚至猛的掌法"
+      "one_line": "丐帮两大绝技之一，乔峰的招牌武功",
+      "rag_refs": [764, 766]
     },
     {
-      "id": "skill_dagoubang",
+      "id": "skill_dagoubangfa",
       "name": "打狗棒法",
-      "type": "棒法",
+      "type": "掌法",
       "faction": "faction_gaibang",
-      "one_line": "丐帮帮主代代相传的武功，轻灵精妙"
+      "one_line": "丐帮两大绝技之一，历代帮主秘传",
+      "rag_refs": [504, 506, 508, 516, 764, 766]
     },
     {
-      "id": "skill_liumaihenjian",
+      "id": "skill_liumaishenjian",
       "name": "六脉神剑",
       "type": "指法",
-      "faction": "faction_daliduanshi",
-      "one_line": "大理段氏绝学，以真气化剑，威力无穷"
+      "faction": "faction_dali",
+      "one_line": "大理段氏至高武学，以指尖真气激射伤人",
+      "rag_refs": [933]
     },
     {
       "id": "skill_lingboweibu",
       "name": "凌波微步",
       "type": "轻功",
-      "faction": "",
-      "one_line": "奇特步法，踏八卦方位，闪避敌人攻击"
+      "faction": null,
+      "one_line": "逍遥派轻功步法，行走时暗合易经方位",
+      "rag_refs": [937]
+    },
+    {
+      "id": "skill_fumozhang",
+      "name": "五台山二十四路伏魔杖",
+      "type": "杖法",
+      "faction": null,
+      "one_line": "奚长老所使杖法，威猛有余沉稳不足",
+      "rag_refs": [834, 852]
+    },
+    {
+      "id": "skill_qimensancai",
+      "name": "奇门三才刀",
+      "type": "刀法",
+      "faction": null,
+      "one_line": "吴长老的刀法，精妙多变",
+      "rag_refs": [867, 871, 873, 891, 893]
+    },
+    {
+      "id": "skill_heshebada",
+      "name": "鹤蛇八打",
+      "type": "暗器",
+      "faction": null,
+      "one_line": "克制四象六合刀法的武功",
+      "rag_refs": [873, 893]
+    },
+    {
+      "id": "skill_sixiangliuhedao",
+      "name": "四象六合刀法",
+      "type": "刀法",
+      "faction": null,
+      "one_line": "含有八卦生克变化的刀法，王语嫣故意错认",
+      "rag_refs": [871, 893]
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_dali",
+      "one_line": "大理段氏家传指法绝学",
+      "rag_refs": []
     }
   ],
   "items": [
-    {
-      "id": "item_wangshu",
-      "name": "汪帮主遗书",
-      "type": "special",
-      "owner": "char_mafudaoyuan",
-      "one_line": "丐帮前帮主汪剑通留下的手谕，揭露乔峰契丹人身世"
-    },
     {
       "id": "item_dagoubang",
       "name": "打狗棒",
       "type": "weapon",
       "owner": "char_qiaofeng",
-      "one_line": "丐帮帮主信物，碧绿晶莹，坚逾金铁"
+      "one_line": "丐帮镇帮之宝，晶莹碧绿的竹棒，见棒如见帮主",
+      "rag_refs": [500, 514, 610, 616, 618, 744, 754]
     },
     {
-      "id": "item_anqi",
-      "name": "暗器（钢镖/袖箭/飞刀/铁锥）",
-      "type": "hidden_weapon",
+      "id": "item_zheshan_qiao",
+      "name": "折扇",
+      "type": "special",
+      "owner": "char_qiaofeng",
+      "one_line": "乔峰的折扇，汪帮主题诗徐长老绘图，被偷陷害乔峰",
+      "rag_refs": [458, 460, 462, 464, 470, 476]
+    },
+    {
+      "id": "item_beisuqingfeng",
+      "name": "悲酥清风",
+      "type": "poison",
       "owner": null,
-      "one_line": "三十年前雁门关伏击时使用的各类暗器"
+      "one_line": "西夏一品堂的毒气，无色无臭，中毒后泪下如雨全身不能动弹",
+      "rag_refs": [921, 923, 924, 927]
     },
     {
-      "id": "item_bintiegun",
-      "name": "镔铁棍",
+      "id": "item_dandao",
+      "name": "单刀",
       "type": "weapon",
-      "owner": null,
-      "one_line": "方大雄所使兵器，被契丹男子一拗折断"
+      "owner": "char_shanzheng",
+      "one_line": "单正所用之刀，被乔峰隔空夺取后弹断",
+      "rag_refs": [598, 600, 602]
+    },
+    {
+      "id": "item_gangzhang",
+      "name": "钢杖",
+      "type": "weapon",
+      "owner": "char_xizhanglao",
+      "one_line": "奚长老的兵器，长达丈余，沉重威猛",
+      "rag_refs": [830, 834, 836, 840]
+    },
+    {
+      "id": "item_guidaodao",
+      "name": "鬼头刀",
+      "type": "weapon",
+      "owner": "char_wuzhanglao",
+      "one_line": "吴长老的兵器",
+      "rag_refs": [867]
+    },
+    {
+      "id": "item_gangzhua",
+      "name": "钢抓",
+      "type": "weapon",
+      "owner": "char_yunzhonghe",
+      "one_line": "云中鹤的奇形兵刃，柄长三尺，尖端是五指钢抓",
+      "rag_refs": [808, 856, 885]
     }
   ]
 }

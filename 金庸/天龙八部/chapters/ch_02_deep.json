@@ -1,0 +1,218 @@
+{
+  "chapter": 2,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["书生气", "痴情", "善良", "儒雅", "狂放不羁", "心软"],
+        "speech_style": "出口成章，喜引经据典，言语幽默风趣",
+        "temperament": "温和浪漫，遇事多思考少动武，但关键时刻有骨气"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_zhongling", "type": "friend", "intensity": 40, "bond_level": 2, "dynamic": "滴水之恩涌泉相报，牵挂她的安危"},
+        {"target": "char_zhongfuren", "type": "complicated", "intensity": 20, "bond_level": 1, "dynamic": "初次见面，彬彬有礼，发现与自己父亲有旧"},
+        {"target": "char_zhongwanchou", "type": "complicated", "intensity": 10, "bond_level": 1, "dynamic": "被疑为奸夫，以坦荡应对，反生怜悯"},
+        {"target": "char_yuxiang", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "对玉像一见倾心，由爱生敬由敬成痴，甘愿拜服"}
+      ],
+      "known_skills": [],
+      "related_skills": ["skill_beiming", "skill_lingboweibu"]
+    },
+    {
+      "id": "char_ganuanghao",
+      "personality": {
+        "traits": ["背师叛门", "狠毒", "胆小", "色迷"],
+        "speech_style": "油嘴滑舌",
+        "temperament": "自私自利"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_geguangpei", "type": "love", "intensity": 60, "bond_level": 3, "dynamic": "私奔恋人，已结为夫妇"}
+      ],
+      "known_skills": ["skill_wuliangjianfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_geguangpei",
+      "personality": {
+        "traits": ["胆小", "有心计", "狠毒"],
+        "speech_style": "谨慎而多疑",
+        "temperament": "阴柔"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_ganuanghao", "type": "love", "intensity": 60, "bond_level": 3, "dynamic": "私奔恋人，已结为夫妇"}
+      ],
+      "known_skills": ["skill_wuliangjianfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongling",
+      "personality": {
+        "traits": ["天真", "活泼", "善良"],
+        "speech_style": "清脆直率",
+        "temperament": "阳光开朗"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "friend", "intensity": 50, "bond_level": 3, "dynamic": "信任段誉，托他求救"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongfuren",
+      "personality": {
+        "traits": ["温柔", "刚烈", "深情", "有心计"],
+        "speech_style": "温婉之中偶有狠辣",
+        "temperament": "外柔内刚"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_zhongwanchou", "type": "complicated", "intensity": 50, "bond_level": 3, "dynamic": "夫妻情深，但心中另有牵挂之人"},
+        {"target": "char_duanyu", "type": "complicated", "intensity": 30, "bond_level": 2, "dynamic": "因其父段正淳而另眼相看，暗中托付"},
+        {"target": "char_duanzhengchun", "type": "complicated", "intensity": 70, "bond_level": 4, "dynamic": "旧识旧情，设法托段誉传信"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongwanchou",
+      "personality": {
+        "traits": ["多疑", "善妒", "暴躁", "深情", "自卑"],
+        "speech_style": "粗声粗气，喜怒形于色",
+        "temperament": "烈火般刚烈，但妻子面前却温柔"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "因得知其姓段而暴怒，视其为情敌之子"},
+        {"target": "char_zhongfuren", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "深爱妻子却因自卑而常疑心"},
+        {"target": "char_duanzhengchun", "type": "enemy", "intensity": 100, "bond_level": 1, "dynamic": "恨之入骨，但不敢正面为敌"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_beiming",
+      "techniques": [
+        {"id": "tech_shaoshang_qu", "name": "少商取内力", "type": "attack", "description": "以拇指少商穴引他人内力入己身"},
+        {"id": "tech_handaiyin", "name": "手太阴肺经行功法", "type": "buff", "description": "逆练手太阴肺经，自少商至云门"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "手太阴肺经第一课，可引他人内力"}
+      ],
+      "effects": [
+        {"type": "transfer", "condition": "拇指与对方相接", "description": "引他人内力为己有"},
+        {"type": "danger", "condition": "对方内力强于己", "description": "海水倒灌而入江河，凶险莫甚"}
+      ],
+      "combat_style": "以蓄内力为根本，借力打力，后发制人"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "techniques": [
+        {"id": "tech_liushisigua_step", "name": "六十四卦步法", "type": "defense", "description": "以易经六十四卦方位为基础的步法，用于闪避逃遁"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "evasion", "condition": "面对强敌时施展", "description": "以此保身，再积内力"}
+      ],
+      "combat_style": "以闪避为主，脱身为上"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_er_lovebirds",
+      "name": "干光豪与葛光佩私奔",
+      "participants": ["char_ganuanghao", "char_geguangpei"],
+      "location": "loc_wuliangshan",
+      "description": "干光豪与葛光佩趁神农帮来袭之际私奔出逃，在溪边倾吐爱意",
+      "chapter": 2
+    },
+    {
+      "id": "evt_er_fall_into_valley",
+      "name": "段誉坠入深谷",
+      "participants": ["char_duanyu"],
+      "location": "loc_wuliangshan",
+      "description": "段誉为躲避干光豪追杀，失足坠入无量山深谷，幸得古松救命",
+      "chapter": 2
+    },
+    {
+      "id": "evt_er_discover_jade_statue",
+      "name": "发现玉像与武功秘笈",
+      "participants": ["char_duanyu"],
+      "location": "loc_gudi",
+      "description": "段誉在谷底发现石室中的玉像，磕首千遍后获得北冥神功和凌波微步帛卷",
+      "chapter": 2
+    },
+    {
+      "id": "evt_er_escape_valley",
+      "name": "段誉逃出谷底",
+      "participants": ["char_duanyu"],
+      "location": "loc_lancangjiang",
+      "description": "段誉从石室暗道爬出，来到澜沧江畔，经善人渡铁索桥前往万劫谷",
+      "chapter": 2
+    },
+    {
+      "id": "evt_er_wanjiedu",
+      "name": "段誉造访万劫谷",
+      "participants": ["char_duanyu", "char_zhongfuren", "char_zhongwanchou"],
+      "location": "loc_wanjiedu",
+      "description": "段誉前往万劫谷报讯，见到钟夫人甘宝宝和钟万仇，引发钟万仇的妒恨",
+      "chapter": 2
+    },
+    {
+      "id": "evt_er_zhongfuren_entrust",
+      "name": "钟夫人托付黄金钿盒",
+      "participants": ["char_duanyu", "char_zhongfuren", "char_zhongwanchou"],
+      "location": "loc_wanjiedu",
+      "description": "钟万仇受伤后，钟夫人将黄金钿盒交给段誉，托他带回大理给自己父亲",
+      "chapter": 2
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_ganuanghao",
+      "listener": "char_geguangpei",
+      "text": "葛师妹，五年前剑湖宫比剑，我败在你剑下之后……",
+      "tone": "柔情",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_geguangpei",
+      "listener": "char_ganuanghao",
+      "text": "别再说你败在我剑下。当时你假装内力不济，故意让我，别人虽然瞧不出来，难道我自己也不知道？",
+      "tone": "娇嗔",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": null,
+      "text": "神仙姊姊，小生段誉今日得睹芳容，死而无憾。姊姊在此离世独居，不也太寂寞了么？",
+      "tone": "痴迷",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": null,
+      "text": "神仙姊姊，你若能活过来跟我说一句话，我便为你死一千遍，一万遍，也如身登极乐，欢喜无限。",
+      "tone": "痴情",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_zhongwanchou",
+      "text": "我姓段，你要杀就快快动手。不清不楚的胡言乱语什么？",
+      "tone": "愤怒",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_zhongwanchou",
+      "listener": "char_zhongfuren",
+      "text": "阿宝，你………终于要离我而去了？",
+      "tone": "悲苦",
+      "chapter": 2
+    }
+  ]
+}

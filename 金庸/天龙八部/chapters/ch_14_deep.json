@@ -1,0 +1,163 @@
+{
+  "chapter": 14,
+  "title": "剧饮千杯男儿事",
+  "characters_detail": [
+    {
+      "id": "char_duan_yu",
+      "personality": {
+        "traits": ["豪爽", "率真", "深情", "善解人意"],
+        "speech_style": "文雅风趣，对乔峰坦诚相告自己的倒霉经历",
+        "temperament": "虽因王语嫣失落但遇乔峰后重拾豪情"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_qiao_feng", "type": "sworn_brother", "intensity": 90, "bond_level": 5, "dynamic": "斗酒结拜，一见如故，对大哥无比敬佩"},
+        {"target": "char_wang_yu_yan", "type": "love", "intensity": 90, "bond_level": 2, "dynamic": "再次见到她心情复杂，深知她只心系慕容复"},
+        {"target": "char_feng_bo_e", "type": "friend", "intensity": 40, "bond_level": 2, "dynamic": "冒死为风四哥吸毒救命"}
+      ],
+      "known_skills": ["skill_liu_mai_shen_jian", "skill_ling_bo_wei_bu"],
+      "related_skills": ["skill_yi_yang_zhi"]
+    },
+    {
+      "id": "char_qiao_feng",
+      "personality": {
+        "traits": ["豪迈英武", "仁义过人", "粗中有细", "领袖气度", "沉着冷静"],
+        "speech_style": "言语豪迈有礼，对帮众宽厚，对敌人则果断凌厉",
+        "temperament": "外表粗豪内心精细，危难之际更显沉着"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duan_yu", "type": "sworn_brother", "intensity": 90, "bond_level": 5, "dynamic": "一见如故，结为金兰兄弟"},
+        {"target": "char_mu_rong_fu", "type": "complicated", "intensity": 40, "bond_level": 1, "dynamic": "怀疑其杀害马副帮主，但谨慎调查不愿妄定"},
+        {"target": "char_quan_guan_qing", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "被其煽动叛乱，一招制住对方"},
+        {"target": "char_bao_butong", "type": "neutral", "intensity": 20, "bond_level": 1, "dynamic": "以龙爪手制服但不伤和气"}
+      ],
+      "known_skills": ["skill_qin_long_gong", "skill_long_zhua_shou"],
+      "related_skills": []
+    },
+    {
+      "id": "char_feng_bo_e",
+      "personality": {
+        "traits": ["嗜斗如命", "不计生死", "潇洒豁达", "精力旺盛"],
+        "speech_style": "跳跃活泼，以打架为人生至乐",
+        "temperament": "受了重伤转眼又精神抖擞找人打架"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duan_yu", "type": "friend", "intensity": 60, "bond_level": 3, "dynamic": "被其救了一命，深深一揖称谢"},
+        {"target": "char_qiao_feng", "type": "admiration", "intensity": 50, "bond_level": 2, "dynamic": "见识擒龙功后怔住，输得心服"},
+        {"target": "char_chen_zhang_lao", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "被其毒蝎所伤"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_qin_long_gong",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "attack", "condition": "虚空抓握", "description": "一股气流激动兵刃，可隔空取物"}
+      ],
+      "combat_style": "隔空御物，神妙莫测"
+    },
+    {
+      "id": "skill_long_zhua_shou",
+      "techniques": [
+        {"id": "tech_qiang_zhu_san_shi", "name": "抢珠三式", "type": "attack", "description": "龙爪手招式"},
+        {"id": "tech_pei_ran_you_yu", "name": "沛然有雨", "type": "attack", "description": "左肘撞胸口、右掌斩腰胁、左手抓气户穴"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "刚猛凌厉，一出手即制敌"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_14_song_he_lou_dou_jiu",
+      "name": "松鹤楼斗酒结拜",
+      "participants": ["char_duan_yu", "char_qiao_feng"],
+      "location": "loc_song_he_lou",
+      "description": "段誉与乔峰在松鹤楼比拼酒量，段誉以六脉神剑逼出酒水作弊，二人各饮四十大碗后结拜为兄弟",
+      "chapter": 14
+    },
+    {
+      "id": "evt_14_bi_jiao_li",
+      "name": "比试脚力",
+      "participants": ["char_duan_yu", "char_qiao_feng"],
+      "location": "loc_wu_xi",
+      "description": "乔峰与段誉比试脚力，段誉以凌波微步和浑厚内力紧随其后，乔峰暗自佩服",
+      "chapter": 14
+    },
+    {
+      "id": "evt_14_bao_feng_zhan_zhang_lao",
+      "name": "包不同风波恶战丐帮长老",
+      "participants": ["char_bao_butong", "char_feng_bo_e", "char_song_zhang_lao", "char_xi_zhang_lao", "char_chen_zhang_lao", "char_wu_zhang_lao"],
+      "location": "loc_xing_zi_lin",
+      "description": "包不同、风波恶在杏子林与丐帮四长老激战，风波恶被陈长老五色彩蝎所伤",
+      "chapter": 14
+    },
+    {
+      "id": "evt_14_duan_yu_xi_du",
+      "name": "段誉为风波恶吸毒",
+      "participants": ["char_duan_yu", "char_feng_bo_e"],
+      "location": "loc_xing_zi_lin",
+      "description": "段誉以莽牯朱蛤体质吸出风波恶手背上的蝎毒，救其一命",
+      "chapter": 14
+    },
+    {
+      "id": "evt_14_qiao_feng_zhi_bao_feng",
+      "name": "乔峰制服包不同风波恶",
+      "participants": ["char_qiao_feng", "char_bao_butong", "char_feng_bo_e"],
+      "location": "loc_xing_zi_lin",
+      "description": "乔峰以龙爪手制住包不同，以擒龙功震慑风波恶，二人认输离去",
+      "chapter": 14
+    },
+    {
+      "id": "evt_14_gai_bang_nei_luan",
+      "name": "丐帮内乱",
+      "participants": ["char_qiao_feng", "char_quan_guan_qing", "char_bai_shi_jing", "char_song_zhang_lao", "char_chen_zhang_lao"],
+      "location": "loc_xing_zi_lin",
+      "description": "全冠清煽动四长老囚禁传功执法长老，乔峰先发制人制住全冠清，传功执法长老获救后齐至杏子林",
+      "chapter": 14
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_qiao_feng",
+      "listener": "char_duan_yu",
+      "text": "兄台何必明知故问？大家不拘形迹，喝上几碗，岂非大是妙事？待得敌我分明，便没有余味了。",
+      "tone": "豪迈洒脱",
+      "chapter": 14
+    },
+    {
+      "speaker": "char_qiao_feng",
+      "listener": "char_duan_yu",
+      "text": "段兄，你这人十分直爽，我生平从所未遇，你我一见如故，咱俩结为金兰兄弟如何？",
+      "tone": "真诚热忱",
+      "chapter": 14
+    },
+    {
+      "speaker": "char_feng_bo_e",
+      "listener": "char_qiao_feng",
+      "text": "我打你不过，强弱相差太远，打起来兴味索然，乔帮主，再见了。",
+      "tone": "洒脱不羁",
+      "chapter": 14
+    },
+    {
+      "speaker": "char_bao_butong",
+      "listener": null,
+      "text": "技不如人兮，脸上无光！再练十年兮，又输精光！不如罢休兮，吃尽当光！",
+      "tone": "自嘲洒脱",
+      "chapter": 14
+    },
+    {
+      "speaker": "char_wang_yu_yan",
+      "listener": null,
+      "text": "这位乔帮主武功如此了得，我表哥跟他齐名，江湖上有道是'北乔峰，南慕容'，可是……可是我表哥的武功，怎能……怎能……",
+      "tone": "忧虑不安",
+      "chapter": 14
+    }
+  ]
+}

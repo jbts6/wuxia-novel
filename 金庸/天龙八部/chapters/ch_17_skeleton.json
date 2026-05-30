@@ -4,166 +4,272 @@
     {
       "id": "char_duanyu",
       "name": "段誉",
-      "alias": ["段公子"],
-      "identity": "大理段氏王子",
-      "faction": "faction_daliduanshi",
+      "alias": [],
+      "identity": "大理段氏公子，内力深厚但武功时灵时不灵",
+      "faction": "faction_dali",
       "role": "protagonist",
-      "one_line": "大理王子，为救王语嫣与西夏武士李延宗对战，首次在实战中使用六脉神剑",
-      "personality": "痴情执着，危急时刻英勇无畏，嘴上功夫厉害但内心善良",
-      "known_skills": ["skill_liumaihenjian", "skill_lingboweibu", "skill_beimingshengong"],
-      "related_skills": []
+      "one_line": "大理段氏公子，以凌波微步和六脉神剑连杀十余名西夏武士",
+      "personality": "书生气重，仁善心软，痴情于王语嫣",
+      "known_skills": ["skill_liumaishenjian", "skill_lingboweibu", "skill_beimingshengong"],
+      "related_skills": ["skill_yiyangzhi"],
+      "rag_refs": [4, 60, 168, 230, 286, 304, 372, 406, 544, 570, 596, 620, 650, 656, 674, 806, 838, 844, 886, 892, 908, 956, 964, 1032, 1066, 1096, 1122, 1144, 1160, 1190]
     },
     {
       "id": "char_wangyuyan",
       "name": "王语嫣",
-      "alias": ["王姑娘"],
-      "identity": "慕容复的表妹",
-      "faction": "faction_gususumurong",
-      "role": "companion",
-      "one_line": "与段誉一同逃亡，被西夏武士李延宗下毒，博通天下武功",
-      "personality": "温柔聪慧，博学多识，一心只念表哥慕容复",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_azhu",
-      "name": "阿朱",
       "alias": [],
-      "identity": "慕容复的贴身侍女",
-      "faction": "faction_gususumurong",
+      "identity": "慕容复表妹，精通天下武学",
+      "faction": "faction_murongshi",
       "role": "companion",
-      "one_line": "慕容府丫鬟，与阿碧一同被西夏武士擒获",
-      "personality": "机敏灵巧，忠心护主",
+      "one_line": "慕容复表妹，博闻强识指点段誉杀敌",
+      "personality": "痴情于慕容复，聪慧博学，羞怯",
       "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_abi",
-      "name": "阿碧",
-      "alias": [],
-      "identity": "慕容复的贴身侍女",
-      "faction": "faction_gususumurong",
-      "role": "companion",
-      "one_line": "慕容府丫鬟，与阿朱一同被西夏武士擒获",
-      "personality": "温柔安静，对慕容复忠心耿耿",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_murongfu",
-      "name": "慕容复",
-      "alias": ["慕容公子"],
-      "identity": "姑苏慕容氏传人",
-      "faction": "faction_gususumurong",
-      "role": "npc",
-      "one_line": "姑苏慕容氏传人，王语嫣表哥，本章被提及但未直接出场",
-      "personality": "志向远大，以复兴大燕为己任",
-      "known_skills": ["skill_douzhuanxingyi"],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [8, 30, 56, 64, 98, 108, 122, 134, 166, 178, 190, 200, 216, 276, 302, 312, 336, 346, 382, 516, 570, 586, 608, 618, 634, 648, 656, 714, 730, 744, 752, 756, 770, 834, 866, 932, 940, 962, 996, 1010, 1036, 1056, 1070, 1080, 1108, 1130, 1156, 1166, 1204, 1216]
     },
     {
       "id": "char_liyanzong",
       "name": "李延宗",
       "alias": [],
-      "identity": "西夏一品堂武士",
-      "faction": "faction_xixia_yipintang",
-      "role": "villain",
-      "one_line": "西夏一品堂高手，擒获阿朱阿碧，与段誉对战",
-      "personality": "傲慢自负，武功高强",
+      "identity": "西夏一品堂武士，精通多家武功",
+      "faction": "faction_yipintang",
+      "role": "npc",
+      "one_line": "西夏武士，精通一十七种不同派别的武功，后赠解药离去",
+      "personality": "傲慢自负，脸上木无表情，心思深沉",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [420, 546, 558, 564, 590, 636, 668, 732, 742, 746, 752, 774, 808, 820, 852, 864, 882, 894, 904, 930, 936, 944, 956]
+    },
+    {
+      "id": "char_jin'ae'r",
+      "name": "金阿二",
+      "alias": [],
+      "identity": "碾坊农家青年",
+      "faction": null,
+      "role": "npc",
+      "one_line": "碾坊中的农家青年，被西夏武士杀害",
+      "personality": "倔强不屈",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [112, 114, 136, 138, 144]
+    },
+    {
+      "id": "char_nongnv",
+      "name": "农女",
+      "alias": [],
+      "identity": "碾坊农家女",
+      "faction": null,
+      "role": "npc",
+      "one_line": "碾坊中的农家女，被西夏武士杀害",
+      "personality": "善良质朴",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [80, 98, 100, 108, 142, 146, 152]
+    },
+    {
+      "id": "char_qiaofeng",
+      "name": "乔峰",
+      "alias": [],
+      "identity": "前任丐帮帮主",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "前任丐帮帮主（被提及），被王语嫣评为武功远在李延宗之上",
+      "personality": "",
+      "known_skills": ["skill_xianglongshibazhang", "skill_dagoubangfa"],
+      "related_skills": [],
+      "rag_refs": [746, 752]
+    },
+    {
+      "id": "char_azhu",
+      "name": "阿朱",
+      "alias": [],
+      "identity": "慕容复的侍女",
+      "faction": "faction_murongshi",
+      "role": "npc",
+      "one_line": "慕容复的侍女，失陷于西夏武士手中",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [1064]
+    },
+    {
+      "id": "char_abi",
+      "name": "阿碧",
+      "alias": [],
+      "identity": "慕容复的侍女",
+      "faction": "faction_murongshi",
+      "role": "npc",
+      "one_line": "慕容复的侍女，失陷于西夏武士手中",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [1064]
+    },
+    {
+      "id": "char_murongfu",
+      "name": "慕容复",
+      "alias": ["慕容公子"],
+      "identity": "姑苏慕容氏，王语嫣的表哥",
+      "faction": "faction_murongshi",
+      "role": "npc",
+      "one_line": "姑苏慕容公子，王语嫣的心上人，被王语嫣提到排在乔峰之后",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [714, 746, 1130]
     }
   ],
   "factions": [
     {
-      "id": "faction_daliduanshi",
-      "name": "大理段氏",
-      "type": "家族",
-      "location": "loc_dali",
+      "id": "faction_yipintang",
+      "name": "一品堂",
+      "type": "武林门派",
+      "location": null,
       "sub_divisions": [],
-      "one_line": "大理国王族，以一阳指和六脉神剑闻名天下"
+      "one_line": "西夏国讲武馆，此次派出大批高手追杀段誉和王语嫣",
+      "rag_refs": [232, 432, 566]
     },
     {
-      "id": "faction_gususumurong",
-      "name": "姑苏慕容",
-      "type": "家族",
-      "location": "loc_suzhou",
-      "sub_divisions": [],
-      "one_line": "姑苏慕容氏，以斗转星移绝技闻名武林"
-    },
-    {
-      "id": "faction_xixia_yipintang",
-      "name": "西夏一品堂",
+      "id": "faction_gaibang",
+      "name": "丐帮",
       "type": "帮派",
       "location": null,
       "sub_divisions": [],
-      "one_line": "西夏国招揽武林高手的官方机构"
+      "one_line": "天下第一大帮，众人中了悲酥清风之毒（被提及）",
+      "rag_refs": [1064]
+    },
+    {
+      "id": "faction_murongshi",
+      "name": "慕容氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "鲜卑后裔，姑苏慕容氏，以彼之道还施彼身",
+      "rag_refs": [714, 746]
+    },
+    {
+      "id": "faction_dali",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "大理国皇族段氏",
+      "rag_refs": [782]
     }
   ],
   "locations": [
     {
+      "id": "loc_nianfang",
+      "name": "碾坊",
+      "region": "无锡郊外",
+      "one_line": "溪边的水碾坊，段誉和王语嫣在此避雨并与西夏武士大战",
+      "rag_refs": [46, 48, 74, 118, 234, 256, 358, 568, 826, 1094]
+    },
+    {
+      "id": "loc_xingzilin",
+      "name": "杏子林",
+      "region": "无锡",
+      "one_line": "之前丐帮集会的杏林，段誉和王语嫣返回查看",
+      "rag_refs": [1188, 1196, 1198, 1200]
+    },
+    {
       "id": "loc_wuxi",
-      "name": "无锡",
+      "name": "无锡城",
       "region": "江南",
-      "one_line": "段誉与王语嫣逃离之地"
-    },
-    {
-      "id": "loc_suzhou",
-      "name": "姑苏",
-      "region": "江南",
-      "one_line": "慕容府所在之地"
-    },
-    {
-      "id": "loc_dali",
-      "name": "大理",
-      "region": "云南",
-      "one_line": "大理国都城，段誉的家乡"
+      "one_line": "无锡城，段誉和王语嫣计划去城中探听消息",
+      "rag_refs": [898, 1206, 1214]
     }
   ],
   "skills": [
     {
-      "id": "skill_liumaihenjian",
+      "id": "skill_liumaishenjian",
       "name": "六脉神剑",
       "type": "指法",
-      "faction": "faction_daliduanshi",
-      "one_line": "大理段氏绝学，以真气化剑，段誉首次在实战中使用少阳剑"
+      "faction": "faction_dali",
+      "one_line": "大理段氏至高武学，以指尖真气激射伤人，段誉时灵时不灵",
+      "rag_refs": [168, 184, 262, 288, 372, 406, 532, 560]
     },
     {
       "id": "skill_lingboweibu",
       "name": "凌波微步",
       "type": "轻功",
-      "faction": "",
-      "one_line": "段誉赖以闪避敌人攻击的精妙步法，本章多次使用"
+      "faction": null,
+      "one_line": "逍遥派轻功步法，按易经六十四卦方位行走，敌人无法沾身",
+      "rag_refs": [286, 300, 304, 306, 326, 456, 806, 812, 828]
     },
     {
       "id": "skill_beimingshengong",
       "name": "北冥神功",
       "type": "内功",
-      "faction": "",
-      "one_line": "段誉体内所藏内功，为其提供深厚真气"
+      "faction": null,
+      "one_line": "段誉的奇遇内功，可吸人内力为己用",
+      "rag_refs": [524, 782]
     },
     {
-      "id": "skill_huagongdafa",
-      "name": "化功大法",
-      "type": "内功",
-      "faction": "",
-      "one_line": "王语嫣提及的邪派武功，能化去他人内力"
+      "id": "skill_xianglongshibazhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮绝技，乔峰的招牌武功（被提及）",
+      "rag_refs": []
+    },
+    {
+      "id": "skill_dagoubangfa",
+      "name": "打狗棒法",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮绝技（被提及）",
+      "rag_refs": []
     },
     {
       "id": "skill_yiyangzhi",
       "name": "一阳指",
       "type": "指法",
-      "faction": "faction_daliduanshi",
-      "one_line": "大理段氏指法绝学"
+      "faction": "faction_dali",
+      "one_line": "大理段氏指法绝学，段誉未掌握（被提及）",
+      "rag_refs": [560]
     }
   ],
   "items": [
     {
-      "id": "item_changjian",
-      "name": "长剑",
-      "type": "weapon",
-      "owner": "char_liyanzong",
-      "one_line": "李延宗所使长剑，被段誉六脉神剑击落"
+      "id": "item_xiujian",
+      "name": "袖箭",
+      "type": "hidden_weapon",
+      "owner": null,
+      "one_line": "西夏武士射入段誉左肩的暗器",
+      "rag_refs": [162, 164, 190, 212, 214]
+    },
+    {
+      "id": "item_beisu_jieyao",
+      "name": "悲酥清风解药",
+      "type": "pill",
+      "owner": null,
+      "one_line": "李延宗所赠的瓷瓶，内装解药，嗅之可解悲酥清风之毒",
+      "rag_refs": [956, 980, 982, 988, 1000, 1004, 1010, 1016]
+    },
+    {
+      "id": "item_jincha",
+      "name": "金钗",
+      "type": "special",
+      "owner": "char_wangyuyan",
+      "one_line": "王语嫣赠予农女的金钗，镶有两颗大珠",
+      "rag_refs": [98, 100, 106]
+    },
+    {
+      "id": "item_gangbiao",
+      "name": "钢镖",
+      "type": "hidden_weapon",
+      "owner": null,
+      "one_line": "西夏汉人好手射向段誉的暗器",
+      "rag_refs": [476]
+    },
+    {
+      "id": "item_mifen",
+      "name": "米粉",
+      "type": "special",
+      "owner": null,
+      "one_line": "碾坊中的细米粉，被汉人好手抓起掷向段誉以遮蔽视线",
+      "rag_refs": [448, 450, 456]
     }
   ]
 }

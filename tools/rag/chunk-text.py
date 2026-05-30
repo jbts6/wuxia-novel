@@ -1,46 +1,31 @@
 #!/usr/bin/env python3
-"""RAG切片脚本：将小说文本切为200-500字的chunk，附加元数据"""
+"""RAG切片脚本：从ch_formatted读取排版后文本，切为200-500字的chunk，附加元数据"""
 
 import os
 import json
 import re
 
 NOVEL_DIR = "金庸/天龙八部"
-NOVEL_FILE = "天龙八部.txt"
-CHAPTERS_DIR = "金庸/天龙八部/chapters"
-CHUNKS_DIR = "金庸/天龙八部/chunks"
-PROGRESS_FILE = "金庸/天龙八部/progress.json"
+FORMATTED_DIR = os.path.join(NOVEL_DIR, "ch_formatted")
+CHAPTERS_DIR = os.path.join(NOVEL_DIR, "chapters")
+CHUNKS_DIR = os.path.join(NOVEL_DIR, "chunks")
+PROGRESS_FILE = os.path.join(NOVEL_DIR, "progress.json")
 
-CHAPTER_PATTERN = re.compile(r'^[一二三四五六七八九十百千]+[　\s\t]+', re.MULTILINE)
+CHAPTER_FILE_PATTERN = re.compile(r'ch_(\d+)\.md$')
 
 
-def split_chapters(text):
-    """分割章节"""
-    lines = text.split('\n')
+def load_formatted_chapters():
+    """从ch_formatted目录读取所有格式化章节，按编号排序"""
     chapters = []
-    current_start = None
-    current_num = 0
-
-    for i, line in enumerate(lines):
-        stripped = line.strip()
-        if CHAPTER_PATTERN.match(stripped):
-            if current_start is not None:
-                chapters.append({
-                    'num': current_num,
-                    'start': current_start,
-                    'end': i
-                })
-            current_num += 1
-            current_start = i
-
-    if current_start is not None:
-        chapters.append({
-            'num': current_num,
-            'start': current_start,
-            'end': len(lines)
-        })
-
-    return chapters, lines
+    for fname in os.listdir(FORMATTED_DIR):
+        m = CHAPTER_FILE_PATTERN.match(fname)
+        if m:
+            path = os.path.join(FORMATTED_DIR, fname)
+            with open(path, 'r', encoding='utf-8', errors='replace') as f:
+                text = f.read()
+            chapters.append({'num': int(m.group(1)), 'text': text, 'file': fname})
+    chapters.sort(key=lambda c: c['num'])
+    return chapters
 
 
 def chunk_paragraph(text, min_size=100, max_size=500):
@@ -120,14 +105,9 @@ def annotate_chunk(chunk_text, skeleton):
 
 
 def main():
-    # 读取小说
-    novel_path = os.path.join(NOVEL_DIR, NOVEL_FILE)
-    with open(novel_path, 'r', encoding='utf-8', errors='replace') as f:
-        text = f.read()
-
-    # 分割章节
-    chapters, lines = split_chapters(text)
-    print(f"检测到 {len(chapters)} 个章节")
+    # 从ch_formatted读取格式化章节
+    formatted_chapters = load_formatted_chapters()
+    print(f"检测到 {len(formatted_chapters)} 个格式化章节")
 
     # 确保输出目录存在
     os.makedirs(CHUNKS_DIR, exist_ok=True)
@@ -135,11 +115,10 @@ def main():
     all_chunks = []
     chunk_id = 0
 
-    for ch in chapters:
-        ch_text = '\n'.join(lines[ch['start']:ch['end']])
+    for ch in formatted_chapters:
         skeleton = load_skeleton(ch['num'])
 
-        chunks = chunk_paragraph(ch_text)
+        chunks = chunk_paragraph(ch['text'])
         print(f"第{ch['num']}章: {len(chunks)} 个chunk")
 
         for i, chunk_text in enumerate(chunks):

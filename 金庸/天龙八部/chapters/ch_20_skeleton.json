@@ -4,110 +4,80 @@
     {
       "id": "char_qiaofeng",
       "name": "乔峰",
-      "alias": ["萧峰", "乔帮主"],
-      "identity": "丐帮前帮主",
-      "faction": "faction_gaibang",
+      "alias": [],
+      "identity": "确认是契丹人，前任丐帮帮主",
+      "faction": null,
       "role": "protagonist",
-      "one_line": "携阿朱重返雁门关，探寻身世真相，回忆当年大战情景",
-      "personality": "悲愤慷慨，重情重义，对身世之谜执着追寻",
-      "known_skills": ["skill_xianglongshibazhang", "skill_dagoubang"],
-      "related_skills": []
+      "one_line": "雁门关外确认自己是契丹人，决心报杀父母之仇",
+      "personality": "悲愤刚烈，豪迈坚韧，渐从激愤中走出",
+      "known_skills": ["skill_xianglongshibazhang"],
+      "related_skills": [],
+      "rag_refs": [2, 42, 52, 68, 92, 96, 104, 126, 146, 156, 164, 172, 188, 210, 226, 230, 238, 270, 276, 284, 302, 316, 338, 352, 360, 370, 392, 400, 408, 418, 438, 448, 478, 484, 490, 496, 520, 526, 538, 548, 560, 586, 598, 608, 614]
     },
     {
       "id": "char_azhu",
       "name": "阿朱",
       "alias": [],
-      "identity": "慕容复的贴身侍女",
-      "faction": "faction_gususumurong",
+      "identity": "慕容复侍婢，精于易容改装",
+      "faction": "faction_murongshi",
       "role": "companion",
-      "one_line": "与乔峰同行至雁门关，身受重伤仍陪伴左右",
-      "personality": "温柔坚贞，对乔峰深情不移",
+      "one_line": "假扮薛神医脱险后到雁门关等候乔峰，决心终身跟随",
+      "personality": "聪明伶俐，痴情坚定，善解人意",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [180, 188, 192, 198, 208, 214, 220, 228, 238, 246, 256, 266, 274, 278, 296, 304, 316, 322, 334, 348, 356, 368, 396, 424, 492, 528, 534, 542, 558, 564, 570, 580, 588, 598, 616]
     },
     {
-      "id": "char_zhiguang",
-      "name": "智光",
-      "alias": ["智光大师"],
-      "identity": "天台山高僧",
-      "faction": "faction_tiantaishan",
-      "role": "npc",
-      "one_line": "天台山高僧，继续讲述雁门关往事，揭示更多身世线索",
-      "personality": "德高望重，慈悲为怀",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_zhaoqiansun",
-      "name": "赵钱孙",
+      "id": "char_heiyingdahan",
+      "name": "黑衣大汉",
       "alias": [],
-      "identity": "雁门关伏击参与者",
+      "identity": "蒙面人，以长绳救走乔峰的绝顶高手",
       "faction": null,
       "role": "npc",
-      "one_line": "参与雁门关伏击的武林人士，补充讲述当年细节",
-      "personality": "直率坦荡",
+      "one_line": "蒙面黑衣大汉，以长绳绝技救乔峰出聚贤庄并安置养伤",
+      "personality": "古怪高傲，武功深不可测",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [20, 22, 30, 38, 44, 50, 56, 62, 72, 80, 86, 92, 100, 106]
     },
     {
-      "id": "char_xuzhanglao",
-      "name": "徐长老",
+      "id": "char_qiagehan",
+      "name": "契丹老汉",
       "alias": [],
-      "identity": "丐帮长老",
-      "faction": "faction_gaibang",
+      "identity": "被宋兵掳掠的契丹年老牧人",
+      "faction": null,
       "role": "npc",
-      "one_line": "丐帮长老，继续参与身世调查",
-      "personality": "稳重威严",
+      "one_line": "胸口有狼头刺青的契丹老汉，被宋兵残杀",
+      "personality": "刚烈不屈",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [464, 468, 474, 476, 488, 498]
+    },
+    {
+      "id": "char_danshanxiao",
+      "name": "单小山",
+      "alias": [],
+      "identity": "单正第五子",
+      "faction": "faction_shanjia",
+      "role": "npc",
+      "one_line": "单正幼子，挺刀刺乔峰时被黑衣人投下的尸体撞死",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [4, 8, 10]
     },
     {
       "id": "char_baishijing",
       "name": "白世镜",
-      "alias": [],
+      "alias": ["执法长老"],
       "identity": "丐帮执法长老",
       "faction": "faction_gaibang",
       "role": "npc",
-      "one_line": "丐帮执法长老",
-      "personality": "严肃刚正",
+      "one_line": "以七招缠丝擒拿手换取薛神医为阿朱治伤",
+      "personality": "重情重义",
       "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_danzheng",
-      "name": "单正",
-      "alias": ["铁面判官"],
-      "identity": "太行山判官",
-      "faction": null,
-      "role": "npc",
-      "one_line": "铁面判官，参与身世调查",
-      "personality": "铁面无私",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_abi",
-      "name": "阿碧",
-      "alias": [],
-      "identity": "慕容复的贴身侍女",
-      "faction": "faction_gususumurong",
-      "role": "npc",
-      "one_line": "慕容府丫鬟",
-      "personality": "温柔安静",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_mafuren",
-      "name": "马夫人",
-      "alias": ["康敏"],
-      "identity": "马大元之妻",
-      "faction": "faction_gaibang",
-      "role": "npc",
-      "one_line": "马大元遗孀",
-      "personality": "外表柔弱，内心深沉",
-      "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [6, 214]
     }
   ],
   "factions": [
@@ -115,80 +85,101 @@
       "id": "faction_gaibang",
       "name": "丐帮",
       "type": "帮派",
-      "location": "loc_wuxi",
+      "location": null,
       "sub_divisions": [],
-      "one_line": "江湖上第一大帮"
+      "one_line": "白世镜以绝技换薛神医为阿朱治伤（被提及）",
+      "rag_refs": [214]
     },
     {
-      "id": "faction_shaolin",
-      "name": "少林寺",
-      "type": "武林门派",
-      "location": "loc_shaolin",
+      "id": "faction_murongshi",
+      "name": "慕容氏",
+      "type": "家族",
+      "location": null,
       "sub_divisions": [],
-      "one_line": "天下武学之源"
-    },
-    {
-      "id": "faction_tiantaishan",
-      "name": "天台山",
-      "type": "武林门派",
-      "location": "loc_tiantaishan",
-      "sub_divisions": [],
-      "one_line": "智光大师所属的佛门圣地"
+      "one_line": "阿朱的主家，慕容夫人曾说阿朱可自由离去",
+      "rag_refs": [568]
     }
   ],
   "locations": [
     {
-      "id": "loc_yanmenguan",
+      "id": "loc_yanmen'guan",
       "name": "雁门关",
-      "region": "塞北",
-      "one_line": "乔峰携阿朱重返之地，三十年前大战的战场，绝壁无字"
+      "region": "宋辽边境",
+      "one_line": "大宋北边重镇，石壁上刻字已被凿去，乔峰在此确认契丹身份",
+      "rag_refs": [128, 140, 142, 146, 148, 154, 166, 238, 404, 420, 596]
     },
     {
-      "id": "loc_wuxi",
-      "name": "无锡",
-      "region": "江南",
-      "one_line": "丐帮杏子林聚会之地"
+      "id": "loc_shandong_yangshang",
+      "name": "山洞",
+      "region": "雁门关附近深山",
+      "one_line": "黑衣大汉安置乔峰养伤的隐秘山洞，备有干粮美酒",
+      "rag_refs": [50, 58, 110, 112, 124]
     },
     {
-      "id": "loc_xingzilin",
-      "name": "杏子林",
-      "region": "无锡城外",
-      "one_line": "丐帮众人聚集讨论乔峰身世之地"
-    },
-    {
-      "id": "loc_shaolin",
-      "name": "少林寺",
-      "region": "河南嵩山",
-      "one_line": "天下武学之源"
+      "id": "loc_daizhou",
+      "name": "代州",
+      "region": "河东路",
+      "one_line": "雁门关南三十里，乔峰在此饱餐饮酒后出关",
+      "rag_refs": [140, 144]
     },
     {
       "id": "loc_juxianzhuang",
       "name": "聚贤庄",
-      "region": "无锡东北七十里",
-      "one_line": "乔峰大战群雄之地"
-    },
-    {
-      "id": "loc_luoyang",
-      "name": "洛阳",
-      "region": "中原",
-      "one_line": "丐帮总舵所在地"
+      "region": "河南",
+      "one_line": "黑衣人救出乔峰之处（被提及）",
+      "rag_refs": [36]
     }
   ],
-  "skills": [],
-  "items": [
+  "skills": [
     {
-      "id": "item_xin",
-      "name": "书信",
-      "type": "special",
-      "owner": null,
-      "one_line": "涉及乔峰身世的关键书信"
+      "id": "skill_xianglongshibazhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "乔峰的招牌武功",
+      "rag_refs": []
     },
     {
-      "id": "item_anqi",
-      "name": "暗器（钢镖/袖箭/飞刀/铁锥）",
-      "type": "hidden_weapon",
+      "id": "skill_tiannvsanhua",
+      "name": "天女散花",
+      "type": "暗器",
+      "faction": null,
+      "one_line": "黑衣大汉的软鞭功夫，以长绳同时挥击数十人",
+      "rag_refs": [38]
+    },
+    {
+      "id": "skill_chansiqinda",
+      "name": "缠丝擒拿手",
+      "type": "掌法",
+      "faction": null,
+      "one_line": "白世镜答应传授薛神医的武功（被提及）",
+      "rag_refs": [214]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_changsheng",
+      "name": "长绳",
+      "type": "weapon",
       "owner": null,
-      "one_line": "当年雁门关伏击时使用的各类暗器"
+      "one_line": "黑衣大汉的兵器，甩出卷人荡越山峡，威力惊人",
+      "rag_refs": [14, 16, 22, 26, 30, 38, 48]
+    },
+    {
+      "id": "item_jiutan",
+      "name": "酒坛",
+      "type": "special",
+      "owner": null,
+      "one_line": "黑衣大汉备在洞中的上等美酒",
+      "rag_refs": [110, 112, 114, 124]
+    },
+    {
+      "id": "item_jinshangyao",
+      "name": "金创药",
+      "type": "pill",
+      "owner": null,
+      "one_line": "黑衣大汉给乔峰敷的药，极具灵效",
+      "rag_refs": [40, 116]
     }
   ]
 }

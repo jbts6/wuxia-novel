@@ -1,0 +1,239 @@
+{
+  "chapter": 12,
+  "title": "从此醉",
+  "characters_detail": [
+    {
+      "id": "char_duan_yu",
+      "personality": {
+        "traits": ["痴情", "书呆", "机智幽默", "怜香惜玉", "冒险精神"],
+        "speech_style": "文雅风趣，常引经据典，对王语嫣说话时极度讨好",
+        "temperament": "乐观豁达，逆境中也能自嘲解嘲"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_wang_yu_yan", "type": "love", "intensity": 95, "bond_level": 2, "dynamic": "初见即惊为天人，一见钟情，但知对方心属慕容复"},
+        {"target": "char_wang_fu_ren", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "以茶花知识求得活命，但仍被罚做花匠"},
+        {"target": "char_yan_ma_ma", "type": "enemy", "intensity": 65, "bond_level": 1, "dynamic": "以吸内力之法制伏严妈妈救出众人"},
+        {"target": "char_a_zhu", "type": "friend", "intensity": 55, "bond_level": 3, "dynamic": "共同冒险，互相帮助"},
+        {"target": "char_a_bi", "type": "friend", "intensity": 55, "bond_level": 3, "dynamic": "共同冒险，互相帮助"}
+      ],
+      "known_skills": ["skill_liu_mai_shen_jian", "skill_ling_bo_wei_bu", "skill_bei_ming_shen_gong"],
+      "related_skills": ["skill_yi_yang_zhi"]
+    },
+    {
+      "id": "char_wang_yu_yan",
+      "personality": {
+        "traits": ["温柔美丽", "痴情专一", "聪慧博学", "自怜自伤", "涉世未深"],
+        "speech_style": "声音娇柔动听，谈到表哥时柔情似水，对其他人则礼貌中带疏离",
+        "temperament": "外表温柔端庄，内心为情所苦"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_mu_rong_fu", "type": "love", "intensity": 98, "bond_level": 5, "dynamic": "痴恋表哥，为他苦记武功典籍，但他不解风情"},
+        {"target": "char_duan_yu", "type": "complicated", "intensity": 30, "bond_level": 2, "dynamic": "初认为书呆子，后视其为可倾诉心事之人"},
+        {"target": "char_wang_fu_ren", "type": "complicated", "intensity": 60, "bond_level": 3, "dynamic": "畏惧母亲权威，但最终决心逃离"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_fu_ren",
+      "personality": {
+        "traits": ["残忍暴戾", "喜怒无常", "极度自负", "偏爱茶花", "对大理人和姓段者有莫名仇恨"],
+        "speech_style": "极具威严，动辄下令杀人，又常冷笑",
+        "temperament": "乖戾暴躁，但遇真才实学之人可暂时压下怒气"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duan_yu", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "因段誉是大理姓段之人想杀他，后因茶花知识改为主仆"},
+        {"target": "char_wang_yu_yan", "type": "complicated", "intensity": 55, "bond_level": 3, "dynamic": "对女儿控制极严，不许与外界接触"},
+        {"target": "char_mu_rong_fu", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "极端厌恶外甥慕容复"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yan_ma_ma",
+      "personality": {
+        "traits": ["凶残", "丑陋", "忠心", "自作聪明", "嗜杀"],
+        "speech_style": "桀桀怪笑，语气阴森",
+        "temperament": "以杀人为乐，最恨美貌女子"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duan_yu", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "被段誉吸去内力后反被制服"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_a_zhu",
+      "personality": {
+        "traits": ["精灵", "机智"],
+        "speech_style": "快人快语，苏州口音",
+        "temperament": "活泼"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_wang_yu_yan", "type": "friend", "intensity": 50, "bond_level": 3, "dynamic": "主仆关系但亲密"},
+        {"target": "char_wang_fu_ren", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "险些被砍手"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_a_bi",
+      "personality": {
+        "traits": ["温柔", "腼腆"],
+        "speech_style": "苏州口音，语气柔和",
+        "temperament": "温婉"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_wang_yu_yan", "type": "friend", "intensity": 50, "bond_level": 3, "dynamic": "主仆关系"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_bei_ming_shen_gong",
+      "techniques": [],
+      "progression": [
+        {"level": 3, "unlock": "段誉内力越强，北冥神功的吸力越大，吸取严妈妈仅片刻之功"}
+      ],
+      "effects": [
+        {"type": "debuff", "condition": "抓住对方手腕", "description": "将对方内力源源不断吸取，对方越挣扎流失越快"}
+      ],
+      "combat_style": "被动接触型吸功"
+    },
+    {
+      "id": "skill_da_gou_bang_fa",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "unknown", "condition": "王语嫣指出", "description": "有几路须越慢越好，有几路须忽快忽慢，一味抢快则有大害"}
+      ],
+      "combat_style": "棒法，变化多端"
+    },
+    {
+      "id": "skill_wei_tuo_chu",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "attack", "condition": "以韦陀杵手法伤人", "description": "少林七十二绝技第四十八门，十九招杵法，极为威猛"}
+      ],
+      "combat_style": "威猛刚烈"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_12_man_tuo_shan_zhuang",
+      "name": "进入曼陀山庄",
+      "participants": ["char_duan_yu", "char_a_zhu", "char_a_bi", "char_you_cao"],
+      "location": "loc_man_tuo_shan_zhuang",
+      "description": "阿朱阿碧带段誉入曼陀山庄解手，遇幽草，得知王夫人不在",
+      "chapter": 12
+    },
+    {
+      "id": "evt_12_chu_jian_wang_yu_yan",
+      "name": "初见王语嫣",
+      "participants": ["char_duan_yu", "char_wang_yu_yan"],
+      "location": "loc_man_tuo_shan_zhuang",
+      "description": "段誉在花林迷路，偷听到王语嫣与阿朱阿碧谈论慕容复，惊为天人",
+      "chapter": 12
+    },
+    {
+      "id": "evt_12_wang_fu_ren_hui_zhuang",
+      "name": "王夫人回庄发怒",
+      "participants": ["char_duan_yu", "char_wang_fu_ren", "char_a_zhu", "char_a_bi", "char_tang_guang_xiong"],
+      "location": "loc_man_tuo_shan_zhuang",
+      "description": "王夫人回庄，下令活埋唐光雄，令另一公子杀妻另娶，罚段誉做花匠",
+      "chapter": 12
+    },
+    {
+      "id": "evt_12_duan_yu_lun_cha",
+      "name": "段誉论茶花",
+      "participants": ["char_duan_yu", "char_wang_fu_ren"],
+      "location": "loc_yun_jin_lou",
+      "description": "段誉以渊博的茶花知识折服王夫人，获免死并设宴款待",
+      "chapter": 12
+    },
+    {
+      "id": "evt_12_duan_yu_wang_yu_yan_tan_xin",
+      "name": "段誉与王语嫣谈心",
+      "participants": ["char_duan_yu", "char_wang_yu_yan", "char_xiao_ming"],
+      "location": "loc_man_tuo_shan_zhuang",
+      "description": "段誉在种茶花时再遇王语嫣，互报姓名，谈论慕容复、少林寺等事",
+      "chapter": 12
+    },
+    {
+      "id": "evt_12_jiu_yuan_zhu_bi",
+      "name": "营救阿朱阿碧",
+      "participants": ["char_duan_yu", "char_wang_yu_yan", "char_yan_ma_ma", "char_a_zhu", "char_a_bi"],
+      "location": "loc_hua_fei_fang",
+      "description": "王语嫣谎称母亲要问话试图救阿朱阿碧，被严妈妈识破。段誉以北冥神功吸严妈妈内力，救出众人",
+      "chapter": 12
+    },
+    {
+      "id": "evt_12_tao_li_man_tuo",
+      "name": "逃离曼陀山庄",
+      "participants": ["char_duan_yu", "char_wang_yu_yan", "char_a_zhu", "char_a_bi"],
+      "location": "loc_tai_hu",
+      "description": "四人同船逃离曼陀山庄，划向听香水榭",
+      "chapter": 12
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_wang_yu_yan",
+      "listener": null,
+      "text": "丐帮'打狗棒法'与'降龙十八掌'两大神技，是丐帮的不传之秘。你们'还施水阁'和我家'琅擐玉洞'的藏谱拼凑起来，也只一些残缺不全的棒法、掌法。运功的心法却全然没有。你家公子可怎生练？",
+      "tone": "担忧关切",
+      "chapter": 12
+    },
+    {
+      "speaker": "char_duan_yu",
+      "listener": "char_wang_yu_yan",
+      "text": "神仙姊姊，我……我想得你好苦！弟子段誉拜见师父。",
+      "tone": "惊喜痴迷",
+      "chapter": 12
+    },
+    {
+      "speaker": "char_wang_yu_yan",
+      "listener": "char_wang_fu_ren",
+      "text": "妈，那少林派的玄悲和尚决不是表哥杀的，他不会使……他的武功只怕还够不上。",
+      "tone": "焦急辩护",
+      "chapter": 12
+    },
+    {
+      "speaker": "char_wang_yu_yan",
+      "listener": "char_duan_yu",
+      "text": "他……他是很快的，一年到头，从早到晚，没什么空闲的时候。他和我在一起时，不是跟我谈论武功，便是谈论国家大事。我……我讨厌武功。",
+      "tone": "幽怨伤感",
+      "chapter": 12
+    },
+    {
+      "speaker": "char_wang_yu_yan",
+      "listener": "char_duan_yu",
+      "text": "他……他比我大十岁，一直只当我是他的小妹妹，以为我除了读书、除了记书上的武功之外，什么也不懂。他一直不知道，我读书是为他读的，记忆武功也是为他记的。若不是为了他，我宁可养些小鸡儿玩玩，或者是弹弹琴，写写字。",
+      "tone": "深情自白",
+      "chapter": 12
+    },
+    {
+      "speaker": "char_duan_yu",
+      "listener": "char_wang_yu_yan",
+      "text": "你老是住在曼陀山庄之中，不去瞧瞧外面的花花世界么？",
+      "tone": "怂恿鼓动",
+      "chapter": 12
+    },
+    {
+      "speaker": "char_wang_yu_yan",
+      "listener": null,
+      "text": "每逢天上飞过流星，我这愿总是许不成。",
+      "tone": "惆怅黯然",
+      "chapter": 12
+    }
+  ]
+}
