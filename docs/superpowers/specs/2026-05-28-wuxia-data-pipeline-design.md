@@ -5,6 +5,8 @@ canonical_spec: openspec
 archived_with: wuxia-data-pipeline
 status: archived
 archived_at: 2026-05-29
+archived-with: 2026-05-31-wuxia-data-pipeline
+status: final
 ---
 
 # 武侠小说拆解系统 - 技术设计文档
