@@ -8,11 +8,38 @@ description: Batch format Chinese wuxia novel chapters using sub-agent for intel
 ## 工作流
 
 ```
-ch_original/  → nod/scripts/split-chapter.js --batch → .ch_groups/{chapter}/
+{book_dir}/ch_original/  → node scripts/split-chapter.js --batch {book_dir}/ch_original
+                         → {book_dir}/.ch_groups/{chapter}/
   → sub agent（逐组排版→写回→progress.js --done）
-  → node scripts/merge-groups.js --batch → ch_formatted/
-  → node scripts/post-process.js --dir ch_original ch_formatted
-  → node scripts/post-process.js --validate ch_formatted
+  → node scripts/merge-groups.js --batch {book_dir}/.ch_groups {book_dir}/ch_formatted
+  → node scripts/post-process.js --dir {book_dir}/ch_original {book_dir}/ch_formatted
+  → node scripts/post-process.js --validate {book_dir}/ch_formatted
+```
+
+## 目录约定
+
+```
+{book_dir}/
+├── ch_original/               # 原始章节目录
+├── ch_formatted/              # 排版后章节目录
+└── .ch_groups/                # 分组文件+progress.json（自动生成）
+    ├── ch_001/
+    │   ├── ch_001_g001.md
+    │   ├── ch_001_g002.md
+    │   └── ...
+    ├── ch_002/
+    │   └── ...
+    └── progress.json
+```
+
+`.ch_groups` 始终生成在 `ch_original` 的父目录（即书籍目录）下。脚本通过路径中 `ch_original` 段自动检测书籍目录，因此调用时**必须使用含书籍目录的完整路径**：
+
+```bash
+# ✅ 正确：含书籍目录路径
+node scripts/split-chapter.js "金庸/天龙八部/ch_original/ch_01.md"
+
+# ❌ 错误：纯相对路径导致 .ch_groups 生成在 CWD 下
+node scripts/split-chapter.js ch_original/ch_01.md
 ```
 
 ### 1. 扫描
@@ -22,10 +49,14 @@ ch_original/  → nod/scripts/split-chapter.js --batch → .ch_groups/{chapter}/
 ### 2. 标准化分组
 
 ```bash
-node scripts/split-chapter.js --batch ch_original
+# 单章拆分（自动检测书籍目录，生成到 {book_dir}/.ch_groups/{chapter}/）
+node scripts/split-chapter.js "金庸/天龙八部/ch_original/ch_04.md"
+
+# 批量拆分（输入目录含 ch_original 段即可自动检测）
+node scripts/split-chapter.js --batch "金庸/天龙八部/ch_original"
 ```
 
-输出到 `.ch_groups/{chapter}/`，每组一个文件（如 `ch_001_g001.md`）。
+每组一个文件（如 `ch_04_g001.md`），输出到 `{book_dir}/.ch_groups/{chapter}/`。
 
 ### 3. Sub Agent 排版（关键）
 
@@ -48,28 +79,37 @@ for each 分组文件 in .ch_groups/{chapter}/:
 每章拆分后自动生成 `.ch_groups/progress.json`。合并脚本自动检查未完成组。
 
 ```bash
-node scripts/progress.js --status                # 查看全部进度
-node scripts/progress.js --done <group-file>     # 标记一组完成
-node scripts/progress.js --check <chapter>       # 检查一章是否完成
-node scripts/progress.js --reset <chapter>       # 重置一章
+# --done 自动从文件路径检测 groups 目录，其余需要 --groups-dir
+node scripts/progress.js --status                # 查看全部进度（需 --groups-dir 或上级命令）
+node scripts/progress.js --done <group-file>     # 标记一组完成（自动检测目录）
+node scripts/progress.js --groups-dir <dir> --status   # 指定 groups 目录查看进度
+node scripts/progress.js --groups-dir <dir> --check <chapter>
+node scripts/progress.js --groups-dir <dir> --reset <chapter>
 ```
 
 ### 5. 合并
 
 ```bash
-node scripts/merge-groups.js --batch .ch_groups ch_formatted
+# 单章合并（自动检测 groups 目录）
+node scripts/merge-groups.js ch_04 {book_dir}/ch_formatted/ch_04.md
+
+# 批量合并（指定完整路径）
+node scripts/merge-groups.js --batch {book_dir}/.ch_groups {book_dir}/ch_formatted
+
+# 或从 ch_original 自动检测 book_dir
+node scripts/merge-groups.js --batch {book_dir}/.ch_groups {book_dir}/ch_formatted
 ```
 
 ### 6. 后处理
 
 ```bash
-node scripts/post-process.js --dir ch_original ch_formatted
+node scripts/post-process.js --dir {book_dir}/ch_original {book_dir}/ch_formatted
 ```
 
 ### 7. 验证
 
 ```bash
-node scripts/post-process.js --validate ch_formatted
+node scripts/post-process.js --validate {book_dir}/ch_formatted
 ```
 
 验证报告：
@@ -90,7 +130,7 @@ ch_002.md  行数: 132  2 个警告
 | 对话独立成行 | 说话标记后空一行，对话单独一行 |
 | 短对话合并 | 标记+对话 < 20 字时不换行 |
 | 空行分隔 | 段落/对话之间空行 |
-| 行长度 | 每行建议 40-60 字 |
+| 行长度 | 40-80 字，在句号处拆分，禁止逗号截断 |
 | 引号 | 统一 `"`，确保配对 |
 
 完整规则见 [REFERENCE.md](./REFERENCE.md)。

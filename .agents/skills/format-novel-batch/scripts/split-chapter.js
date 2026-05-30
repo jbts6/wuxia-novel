@@ -17,13 +17,43 @@ const path = require('path');
 const progress = require('./progress');
 
 const DEFAULT_GROUP_SIZE = 15;
-const TEMP_DIR = '.ch_groups';
+const DEFAULT_GROUPS_ROOT = '.ch_groups';
+
+/**
+ * 从输入路径自动检测书籍目录
+ * 规则：寻找路径中的 "ch_original" 段，取其父目录作为 bookDir
+ * 例如 "金庸/天龙八部/ch_original/ch_04.md" → "金庸/天龙八部"
+ *      "ch_original/ch_01.md" → "." （项目根目录）
+ */
+function detectBookDir(inputPath) {
+  const resolved = path.resolve(inputPath);
+  const sep = path.sep;
+  const parts = resolved.split(sep);
+  const chIdx = parts.indexOf('ch_original');
+  if (chIdx !== -1) {
+    const bookDir = parts.slice(0, chIdx).join(sep);
+    return bookDir || '.';
+  }
+  return null;
+}
+
+function resolveGroupsRoot(inputPath) {
+  const bookDir = detectBookDir(inputPath);
+  if (bookDir) {
+    return path.join(bookDir, DEFAULT_GROUPS_ROOT);
+  }
+  return DEFAULT_GROUPS_ROOT;
+}
 
 function splitFile(inputFile, groupSize, groupsRoot) {
   const content = fs.readFileSync(inputFile, 'utf8');
   const lines = content.split('\n');
   const basename = path.basename(inputFile, '.md');
-  const outDir = path.join(groupsRoot || TEMP_DIR, basename);
+  const resolvedRoot = groupsRoot || DEFAULT_GROUPS_ROOT;
+  const outDir = path.join(resolvedRoot, basename);
+
+  // 通知 progress 模块 groupsRoot 位置
+  progress.setGroupsRoot(resolvedRoot);
 
   if (!fs.existsSync(outDir)) {
     fs.mkdirSync(outDir, { recursive: true });
@@ -55,10 +85,13 @@ function batchSplit(inputDir, groupSize) {
     return;
   }
 
+  // 批量模式下用输入目录检测 bookDir
+  const groupsRoot = resolveGroupsRoot(inputDir);
+
   let totalGroups = 0;
   for (const file of files) {
     const inputPath = path.join(inputDir, file);
-    const result = splitFile(inputPath, groupSize, TEMP_DIR);
+    const result = splitFile(inputPath, groupSize, groupsRoot);
     console.log(`${file}  → ${result.groups} 组 (${result.totalLines} 行)`);
     totalGroups += result.groups;
   }
@@ -98,10 +131,12 @@ if (require.main === module) {
       console.error('错误: 文件不存在 - ' + inputFile);
       process.exit(1);
     }
-    const result = splitFile(inputFile, groupSize);
+    const groupsRoot = resolveGroupsRoot(inputFile);
+    const result = splitFile(inputFile, groupSize, groupsRoot);
     console.log(`文件: ${path.basename(inputFile)}`);
     console.log(`行数: ${result.totalLines}`);
     console.log(`分组: ${result.groups} 组 (每组 ${groupSize} 行)`);
+    console.log('分组目录: ' + result.outDir);
     console.log('分组文件:');
     result.groupFiles.forEach(f => console.log('  ' + f));
   }
