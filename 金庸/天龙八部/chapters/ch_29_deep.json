@@ -1,0 +1,371 @@
+{
+  "chapter": 29,
+  "characters_detail": [
+    {
+      "id": "char_youtanzhi",
+      "name": "游坦之",
+      "personality": {
+        "traits": ["痴情卑微", "逆来顺受", "忍辱负重", "因祸得福", "单纯无知", "奴性深重"],
+        "speech_style": "低声下气，自称小人，对阿紫敬畏有加，对强敌哀求饶命",
+        "temperament": "懦弱卑微"
+      },
+      "archetype": "victim",
+      "relationships": [
+        {"target": "char_azi", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "对阿紫痴迷至深，甘愿以身喂冰蚕助其练毒掌，被抛弃后仍念念不忘"},
+        {"target": "char_dingchunqiu", "type": "master_student", "intensity": 50, "bond_level": 3, "dynamic": "被迫拜师，丁春秋觊觎其体内冰蚕毒质，表面收徒实则图谋"},
+        {"target": "char_fengboe", "type": "associate", "intensity": 30, "bond_level": 1, "dynamic": "风波恶好心要替他削去铁罩，游坦之惶急之下出掌重伤对方"}
+      ],
+      "known_skills": ["skill_bingcanshenzhang", "skill_yijinjing"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azi",
+      "name": "阿紫",
+      "personality": {
+        "traits": ["残忍任性", "自私凉薄", "工于心计", "无情无义", "喜怒无常"],
+        "speech_style": "言语随意任性，对游坦之呼来喝去如同奴仆，语气中毫无怜悯",
+        "temperament": "冷酷任性"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_youtanzhi", "type": "master_servant", "intensity": 10, "bond_level": 1, "dynamic": "视游坦之为练功工具，对其生死毫不挂心，取冰蚕浆血后示意将其抛尸"},
+        {"target": "char_dingchunqiu", "type": "master_student", "intensity": 20, "bond_level": 1, "dynamic": "盗取神木王鼎叛离师门，以诡计摆脱追捕"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_quanguanqing",
+      "name": "全冠清",
+      "personality": {
+        "traits": ["阴险狡诈", "智谋出众", "野心勃勃", "善于权术", "口才便给"],
+        "speech_style": "言辞得体却暗藏机锋，对上有礼对下威严，善于煽动人心",
+        "temperament": "深沉机诈"
+      },
+      "archetype": "schemer",
+      "relationships": [
+        {"target": "char_duanyu", "type": "associate", "intensity": 20, "bond_level": 1, "dynamic": "表面恭敬接待段誉，心中因曾被他目睹驱逐出帮的丑态而尴尬"},
+        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 85, "bond_level": 3, "dynamic": "以巨蟒阵对抗丁春秋，智计百出但仍不敌其剧毒"},
+        {"target": "char_xiaofeng", "type": "enemy", "intensity": 80, "bond_level": 4, "dynamic": "曾是揭发乔峰契丹身份的急先锋，一心想取代乔峰成为丐帮帮主"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_dingchunqiu",
+      "name": "丁春秋",
+      "personality": {
+        "traits": ["阴狠毒辣", "虚荣自负", "工于心计", "武功高强", "喜怒无常", "残暴嗜杀"],
+        "speech_style": "言语傲慢自负，对己方弟子颐指气使，对敌手轻蔑讥讽，常以'星宿老仙'自称",
+        "temperament": "骄横阴狠"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {"target": "char_youtanzhi", "type": "master_student", "intensity": 40, "bond_level": 2, "dynamic": "见游坦之体内毒性比己更烈，想收其为徒套取练功法门，实则别有用心"},
+        {"target": "char_quanguanqing", "type": "enemy", "intensity": 70, "bond_level": 3, "dynamic": "以口哨毒功击杀丐帮弟子，虽有巨蟒缠身之窘但终以毒破敌"},
+        {"target": "char_huijing", "type": "prey", "intensity": 80, "bond_level": 2, "dynamic": "为捉冰蚕而掳走慧净和尚，欲逼其带路前往昆仑山"},
+        {"target": "char_xuannan", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "少林达摩院首座遇上了星宿老怪，虽未直接交手但彼此戒备"}
+      ],
+      "known_skills": ["skill_huagongdafa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "personality": {
+        "traits": ["痴情", "聪慧过人", "书卷气重", "心地善良", "执着"],
+        "speech_style": "文雅谦和，引经据典，言语中常含佛理和哲思",
+        "temperament": "温文儒雅"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_wangyuyan", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "朝思暮想，为寻王语嫣在河南漫无目的游荡，时刻牵挂"},
+        {"target": "char_quanguanqing", "type": "associate", "intensity": 15, "bond_level": 1, "dynamic": "替父亲送信至丐帮，对全冠清心存疑虑不喜其人"},
+        {"target": "char_suxinghe", "type": "acquaintance", "intensity": 25, "bond_level": 1, "dynamic": "收到聪辩先生弈棋请帖，颇感兴趣，约定届时赴会"}
+      ],
+      "known_skills": ["skill_lingboweibu", "skill_liumaizhijian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_fengboe",
+      "name": "风波恶",
+      "personality": {
+        "traits": ["好斗成性", "侠义心肠", "冲动鲁莽", "轻功了得", "爱打抱不平"],
+        "speech_style": "言语直爽粗豪，兴致勃勃想打架，对弱者有同情心",
+        "temperament": "悍勇急躁"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_youtanzhi", "type": "associate", "intensity": 20, "bond_level": 1, "dynamic": "见游坦之铁罩可怜，想用匕首替他削去，反被其寒毒掌所伤"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baobuton",
+      "name": "包不同",
+      "personality": {
+        "traits": ["抬杠成性", "口舌锋利", "忠心耿耿", "幽默诙谐", "倔强好胜"],
+        "speech_style": "开口即'非也非也'，专与人抬杠，言语犀利幽默，从不吃亏",
+        "temperament": "尖酸诙谐"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_youtanzhi", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "四弟被游坦之寒毒掌所伤，对星宿派深恶痛绝"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuannan",
+      "name": "玄难",
+      "personality": {
+        "traits": ["慈祥稳重", "武功高深", "有德高僧", "胸襟宽广", "谦逊有礼"],
+        "speech_style": "言语温和谦逊，不失高僧风范，对事客观公允",
+        "temperament": "仁厚慈祥"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 50, "bond_level": 2, "dynamic": "少林高僧与星宿老怪正邪不两立，虽未直接交手但立场分明"},
+        {"target": "char_furongfu", "type": "acquaintance", "intensity": 30, "bond_level": 2, "dynamic": "奉方丈之命送英雄帖至燕子坞，要与慕容复了结玄悲大师之死的疑案"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuzhu",
+      "name": "虚竹",
+      "personality": {
+        "traits": ["慈悲善良", "迂腐老实", "谦虚自卑", "恪守戒律", "心地纯净"],
+        "speech_style": "言语谦恭有礼，迂腐守旧，处处以出家人身份自持",
+        "temperament": "淳朴老实"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_baobuton", "type": "associate", "intensity": 10, "bond_level": 1, "dynamic": "被包不同言语戏弄，仍恭敬有加，不以为意"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huijing",
+      "name": "慧净",
+      "personality": {
+        "traits": ["贪馋好食", "不守清规", "身形痴肥"],
+        "speech_style": "言语不多，提及冰蚕时语气急切",
+        "temperament": "庸俗贪婪"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_dingchunqiu", "type": "prey", "intensity": 40, "bond_level": 2, "dynamic": "被丁春秋掳走，欲逼其带路去昆仑山捉冰蚕"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_bingcanshenzhang",
+      "name": "冰蚕毒掌",
+      "techniques": [
+        {"id": "tech_bingcan_hanzhang", "name": "寒毒掌", "type": "attack", "description": "以冰蚕剧毒混合易筋经内力催发，中掌者如坠冰窟，寒毒入骨，需以内力长时间驱除"},
+        {"id": "tech_bingcan_hanqi", "name": "阴寒内力", "type": "defense", "description": "体内冰蚕毒质形成阴寒内力，可反激伤敌，与敌手对掌时寒毒反震"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "掌毙饿狼，初觉内力威力"},
+        {"level": 2, "unlock": "一掌击伤风波恶，寒毒令其全身发颤，牙关相击"},
+        {"level": 3, "unlock": "与丁春秋对掌，体内毒质之多让丁春秋也为之动容"}
+      ],
+      "effects": [
+        {"type": "寒毒", "condition": "击中或沾身", "description": "中者全身冰冷，寒毒在体内肆虐，普通解毒药石无效，需极高内力驱除"},
+        {"type": "反震", "condition": "被人击中身体", "description": "体内冰蚕寒毒自动反激，伤害攻击者"}
+      ],
+      "combat_style": "以内力中的冰蚕寒毒伤人，掌力阴寒至极，兼有剧毒"
+    },
+    {
+      "id": "skill_yijinjing",
+      "name": "易筋经",
+      "techniques": [
+        {"id": "tech_yijin_xiangtu", "name": "图形练功", "type": "cultivation", "description": "书中遇水显现裸僧图形，按图中姿式存想，引导体内冰蚕寒气行走经脉"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "按图引导冰蚕寒线行走，全身舒畅"},
+        {"level": 2, "unlock": "手足轻灵，纵跃远，奔跑速，非以前所能"},
+        {"level": 3, "unlock": "寒毒内力与体质融合，可凭本能运使"}
+      ],
+      "effects": [
+        {"type": "疗愈", "condition": "正确运功", "description": "化解冰蚕毒气，令寒气按经脉运行，身心舒畅"},
+        {"type": "强化", "condition": "持续修习", "description": "筋骨渐强，身法敏捷，内力日益深厚"}
+      ],
+      "combat_style": "以无心之心练功，不存修习之念，反而暗合武学至理，内力自然增长"
+    },
+    {
+      "id": "skill_huagongdafa",
+      "name": "化功大法",
+      "techniques": [
+        {"id": "tech_huagong_zhangli", "name": "化功掌力", "type": "attack", "description": "掌中所蓄剧毒随内劲送出，中者内力于顷刻间化尽或当场立毙"},
+        {"id": "tech_huagong_koushao", "name": "口哨毒功", "type": "attack", "description": "撮唇力吹发出尖锐之声，以羽扇拨送出去，中者倒地身亡"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "化功", "condition": "身体接触", "description": "内力被剧毒化去，四十五载修为可毁于一旦"},
+        {"type": "中毒", "condition": "沾身即中", "description": "衣衫头发上凝聚剧毒，人畜触之即毙"}
+      ],
+      "combat_style": "周身是毒，以化功大法化去敌人内力，令对手武功尽失"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_29_youtanzhi_xi_can",
+      "name": "游坦之喂冰蚕吸血练毒掌",
+      "participants": ["char_youtanzhi", "char_azi"],
+      "location": "loc_nanjing_piandian",
+      "description": "游坦之遵阿紫之命伸手入瓮让冰蚕吸血，以易筋经运功化解毒气，冰蚕血在他与冰蚕之间循环流转，最终冰蚕被阿紫捣烂取浆涂掌练功",
+      "chapter": 29
+    },
+    {
+      "id": "evt_29_youtanzhi_sihouf_sheng",
+      "name": "游坦之死里逃生发现易筋经奥秘",
+      "participants": ["char_youtanzhi"],
+      "location": "loc_xiaoxi",
+      "description": "游坦之被抛尸溪中，体内寒冰融化后苏醒，发现浸湿的易筋经显现裸僧图形，按图修习引导体内冰蚕寒线行走，功力日进",
+      "chapter": 29
+    },
+    {
+      "id": "evt_29_gaibang_ju_hui",
+      "name": "丐帮大智分舵聚会推选帮主",
+      "participants": ["char_quanguanqing"],
+      "location": "loc_shangu",
+      "description": "全冠清召集丐帮大智分舵帮众聚会，商议推选新帮主，帮众力推全冠清为帮主，全冠清假意推辞",
+      "chapter": 29
+    },
+    {
+      "id": "evt_29_duanyu_song_xin",
+      "name": "段誉代父送信至丐帮",
+      "participants": ["char_duanyu", "char_quanguanqing"],
+      "location": "loc_shangu_huodui",
+      "description": "段誉奉段正淳之命送信至丐帮大智分舵，信中说明白世镜和马夫人之死的真相，为萧峰辩白，随后收到聪辩先生弈棋请帖",
+      "chapter": 29
+    },
+    {
+      "id": "evt_29_quanguanqing_an_suan_tianlangzi",
+      "name": "全冠清以布袋暗算天狼子",
+      "participants": ["char_quanguanqing", "char_tianlangzi"],
+      "location": "loc_shangu",
+      "description": "星宿派天狼子前来索要毒蛇毒虫，全冠清假意顺从，趁其不备以布袋罩住其头，袋中毒蛇毒蝎咬伤天狼子，天狼子滚入河中逃走",
+      "chapter": 29
+    },
+    {
+      "id": "evt_29_dingchunqiu_she_jumang_zhen",
+      "name": "丁春秋大战丐帮巨蟒阵",
+      "participants": ["char_dingchunqiu", "char_quanguanqing"],
+      "location": "loc_shangu",
+      "description": "丁春秋率星宿派众弟子前来，以口哨毒功击杀丐帮弟子；全冠清以铁笛驱赶巨蟒围攻丁春秋及众弟子，丁春秋被数条巨蟒缠身，动弹不得",
+      "chapter": 29
+    },
+    {
+      "id": "evt_29_youtanzhi_fang_huo_qu_she",
+      "name": "游坦之放火驱蛇解救星宿派",
+      "participants": ["char_youtanzhi", "char_dingchunqiu"],
+      "location": "loc_shangu",
+      "description": "游坦之在草丛中目睹大战，被星宿派弟子甜言蜜语诱出，点燃枯草以火攻驱散巨蟒和毒蛇，救了丁春秋等人之命",
+      "chapter": 29
+    },
+    {
+      "id": "evt_29_dingchunqiu_shou_tu",
+      "name": "丁春秋收游坦之为徒",
+      "participants": ["char_dingchunqiu", "char_youtanzhi"],
+      "location": "loc_shangu",
+      "description": "丁春秋见游坦之触摸中毒丐帮弟子而不死，又以内力试探发现其体内毒质深厚，遂以生死胁迫收游坦之为弟子，图谋其体内的冰蚕毒质",
+      "chapter": 29
+    },
+    {
+      "id": "evt_29_youtanzhi_shang_fengboe",
+      "name": "游坦之寒毒掌伤风波恶",
+      "participants": ["char_youtanzhi", "char_fengboe"],
+      "location": "loc_liangting",
+      "description": "风波恶在凉亭中见游坦之铁罩可怜，欲以匕首替他削去，游坦之惶急之下一掌击出，冰蚕寒毒掌重伤风波恶，其后又与玄痛对掌、与包不同对掌，三人均中寒毒",
+      "chapter": 29
+    },
+    {
+      "id": "evt_29_dingchunqiu_lue_huijing",
+      "name": "丁春秋掳走慧净和尚",
+      "participants": ["char_dingchunqiu", "char_xuannan", "char_huijing"],
+      "location": "loc_liangting",
+      "description": "丁春秋认出担架上的慧净和尚便是冰蚕原主，在混乱中以袍袖毒粉迷住众人双目，趁机掳走慧净，众人追之不及",
+      "chapter": 29
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_azi",
+      "listener": "char_youtanzhi",
+      "text": "铁丑，今日咱们要杀这冰蚕了，你伸手到瓦瓮中，让蚕儿吸血吧！",
+      "tone": "随意冷淡",
+      "chapter": 29
+    },
+    {
+      "speaker": "char_youtanzhi",
+      "listener": "char_azi",
+      "text": "姑娘，你练成毒掌之后，别忘了为你而死的小人。我姓游，名坦之，可不是什么铁丑。",
+      "tone": "哀切卑微",
+      "chapter": 29
+    },
+    {
+      "speaker": "char_youtanzhi",
+      "listener": null,
+      "text": "冰蚕的鬼魂真灵！",
+      "tone": "惊喜",
+      "chapter": 29
+    },
+    {
+      "speaker": "char_quanguanqing",
+      "listener": "char_duanyu",
+      "text": "不知段王子过访，未克远迎，尚请恕罪。",
+      "tone": "客气恭谨",
+      "chapter": 29
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_quanguanqing",
+      "text": "白长老和马夫人不是乔大哥害死的，杀害马副帮主的也另有其人。家父这通书信之中，写得明明白白。",
+      "tone": "郑重",
+      "chapter": 29
+    },
+    {
+      "speaker": "char_quanguanqing",
+      "listener": "char_tianlangzi",
+      "text": "阁下要毒蛇毒虫，那是小事一桩，不必挂怀。",
+      "tone": "假意恭顺",
+      "chapter": 29
+    },
+    {
+      "speaker": "char_dingchunqiu",
+      "listener": "char_quanguanqing",
+      "text": "你们丐帮中有个人叫乔峰，他在哪里？快叫他来见我。",
+      "tone": "傲慢",
+      "chapter": 29
+    },
+    {
+      "speaker": "char_baobuton",
+      "listener": "char_xuzhu",
+      "text": "非也，非也。我二哥复姓公冶，你叫他公施主，那就错之极矣。",
+      "tone": "抬杠",
+      "chapter": 29
+    },
+    {
+      "speaker": "char_fengboe",
+      "listener": "char_youtanzhi",
+      "text": "朋友，你这个面具，到底是怎么搅的？姓风的走遍天下，可从没见过你这样的脸面。",
+      "tone": "好奇",
+      "chapter": 29
+    },
+    {
+      "speaker": "char_dingchunqiu",
+      "listener": "char_youtanzhi",
+      "text": "你抗毒的功夫，却也厉害得很啊。",
+      "tone": "阴冷",
+      "chapter": 29
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "chapter": 31,
+  "characters_detail": [
+    {
+      "id": "char_xuzhu",
+      "name": "虚竹",
+      "personality": {
+        "traits": ["慈悲善良", "迂腐老实", "谦虚自卑", "恪守戒律", "心地纯净", "福缘深厚"],
+        "speech_style": "言语谦恭有礼，自称小僧，处处以出家人身份自持，从不与人争",
+        "temperament": "淳朴老实"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_wuyazi", "type": "master_student", "intensity": 80, "bond_level": 5, "dynamic": "无意中破解珍珑棋局，被无崖子化去少林内力，传入七十余年逍遥派功力，成为逍遥派掌门"},
+        {"target": "char_duanyanqing", "type": "savior", "intensity": 70, "bond_level": 4, "dynamic": "以自杀式下棋扰乱棋局，无意中救了走火入魔的段延庆；段延庆以传音入密回报，暗中指点他下棋"},
+        {"target": "char_suxinghe", "type": "family", "intensity": 50, "bond_level": 3, "dynamic": "破解珍珑后成为苏星河的师弟，被苏星河以掌力送入木屋"},
+        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 60, "bond_level": 3, "dynamic": "丁春秋欲杀虚竹灭口，以掌力暗袭，被段延庆和苏星河化解"}
+      ],
+      "known_skills": ["skill_beimingshengong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "personality": {
+        "traits": ["痴情至极", "聪慧过人", "书卷气重", "心地善良", "执着痴迷", "自怨自艾"],
+        "speech_style": "文雅谦和，引经据典，心中充满对王语嫣的痴情思念",
+        "temperament": "温文儒雅"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_wangyuyan", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "对王语嫣痴迷至深，见她对慕容复的倾慕爱恋，心中凄苦，自叹命中注定受苦"},
+        {"target": "char_furongfu", "type": "love_rival", "intensity": 50, "bond_level": 2, "dynamic": "初见慕容复，见人中之龙俊雅清贵，自惭形秽，但仍以六脉神剑救了欲自刎的慕容复"},
+        {"target": "char_nanhaieshen", "type": "master_student", "intensity": 25, "bond_level": 2, "dynamic": "南海鳄神被迫称段誉为师父，在众人面前仍不敢违抗"},
+        {"target": "char_suxinghe", "type": "acquaintance", "intensity": 20, "bond_level": 1, "dynamic": "受弈棋邀请率先尝试破解珍珑，因爱心太重不肯弃子而失败"}
+      ],
+      "known_skills": ["skill_liumaizhijian", "skill_lingboweibu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_furongfu",
+      "name": "慕容复",
+      "personality": {
+        "traits": ["人中龙凤", "执着权势", "光复大燕心切", "潇洒闲雅", "心高气傲"],
+        "speech_style": "言语谦和，着意结交，但内心深处对复国大业极度执着",
+        "temperament": "俊雅清贵"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_jiumozhi", "type": "rival", "intensity": 60, "bond_level": 3, "dynamic": "与鸠摩智对弈，被其言语刺激'连边角上的纠缠也摆脱不了，还想逐鹿中原么'，触动心病"},
+        {"target": "char_dengbaichuan", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "慕容家臣之首，对他忠心耿耿"},
+        {"target": "char_wangyuyan", "type": "love", "intensity": 40, "bond_level": 2, "dynamic": "表妹对他一往情深，但慕容复心中复国大业为重，对儿女私情不甚在意"}
+      ],
+      "known_skills": ["skill_douzhuanxingyi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_jiumozhi",
+      "name": "鸠摩智",
+      "personality": {
+        "traits": ["宝相庄严", "武功高深", "城府深密", "言辞机锋", "好胜心强"],
+        "speech_style": "言语谦和恭敬，实则暗藏机锋，笑里藏刀",
+        "temperament": "深沉自信"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_furongfu", "type": "rival", "intensity": 60, "bond_level": 3, "dynamic": "以棋子干扰慕容复破解珍珑，言语激其心魔"},
+        {"target": "char_xuzhu", "type": "associate", "intensity": 15, "bond_level": 1, "dynamic": "运起控鹤功欲将虚竹从木屋中拉出，被苏星河化解"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "personality": {
+        "traits": ["倾国倾城", "痴情于表哥", "博闻强识", "心思细腻", "目中无人"],
+        "speech_style": "言语温柔，对表哥一往情深，对旁人视而不见",
+        "temperament": "温柔痴情"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_furongfu", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "痴痴地瞧着慕容复，满脸倾慕爱恋之情，容光焕发，如全身都要笑出来"},
+        {"target": "char_duanyu", "type": "acquaintance", "intensity": 5, "bond_level": 1, "dynamic": "对段誉视而不见，眼光虽然相接却视若无物，丝毫不放在心上"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyanqing",
+      "name": "段延庆",
+      "personality": {
+        "traits": ["阴狠毒辣", "城府极深", "自卑自弃", "武功盖世", "心中怨毒"],
+        "speech_style": "以腹语术传音入密，声音金属相擦，言语中充满愤恨和自怜",
+        "temperament": "阴沉冷酷"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "savior", "intensity": 70, "bond_level": 4, "dynamic": "虚竹胡乱下棋救了他走火入魔之命，段延庆以传音入密指点虚竹棋路以报恩"},
+        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 80, "bond_level": 4, "dynamic": "丁春秋以言语诱他走火入魔，欲借机除去他"}
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_suxinghe",
+      "name": "苏星河",
+      "personality": {
+        "traits": ["聪慧博学", "忍辱负重", "尊师重道", "多才多艺", "坚韧不拔"],
+        "speech_style": "平日装聋作哑不言不语，一旦开口则言语清晰有条理，不失前辈风范",
+        "temperament": "内敛坚韧"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_wuyazi", "type": "family", "intensity": 100, "bond_level": 5, "dynamic": "对师父无崖子忠心不二，三十年来忍辱负重装聋作哑，只为完成师父遗愿"},
+        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 100, "bond_level": 5, "dynamic": "叛师灭祖的师弟，三十年前暗算师父，与苏星河势不两立"},
+        {"target": "char_xuzhu", "type": "family", "intensity": 60, "bond_level": 3, "dynamic": "虚竹破解珍珑后成为逍遥派掌门，苏星河称其为师弟，以掌力送他入木屋"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wuyazi",
+      "name": "无崖子",
+      "personality": {
+        "traits": ["学究天人", "神采飞扬", "威严慈祥", "慧眼识人", "旷达通透"],
+        "speech_style": "言语间初时失望于虚竹相貌丑陋，后转为慈祥和蔼，临终前从容交代后事",
+        "temperament": "超凡脱俗"
+      },
+      "archetype": "sage",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "master_student", "intensity": 90, "bond_level": 5, "dynamic": "将七十余年修为尽数传给虚竹，授以逍遥派掌门之位，要他诛杀叛徒丁春秋"},
+        {"target": "char_suxinghe", "type": "family", "intensity": 80, "bond_level": 5, "dynamic": "大弟子苏星河忍辱负重三十年，守护珍珑以待有缘人"},
+        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 100, "bond_level": 5, "dynamic": "逆徒丁春秋暗算将他打入深谷，临终遗命诛杀此贼"}
+      ],
+      "known_skills": ["skill_beimingshengong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen",
+      "name": "南海鳄神",
+      "personality": {
+        "traits": ["凶悍鲁莽", "头脑迟钝", "自视甚高", "言出必行", "可笑可憎"],
+        "speech_style": "粗声粗气，思维简单，易被绕晕",
+        "temperament": "凶蛮暴躁"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "master_student", "intensity": 20, "bond_level": 2, "dynamic": "被段誉一声'好徒儿'唤住，不敢伤害虚竹"},
+        {"target": "char_duanyanqing", "type": "family", "intensity": 50, "bond_level": 3, "dynamic": "对老大又敬又怕，见段延庆走火入魔时抓起虚竹掷向老大以解围"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_beimingshengong",
+      "name": "北冥神功",
+      "techniques": [
+        {"id": "tech_beiming_shu_gong", "name": "输功大法", "type": "cultivation", "description": "逆运北冥神功，将自身七十余年功力经头顶百会穴尽数传入对方体内"},
+        {"id": "tech_beiming_hua_gong", "name": "化功心法", "type": "defense", "description": "化去对方原有的内力，令其全身酸软，内力尽失"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "一掌拍垮半堵板壁，劲力远超从前"},
+        {"level": 2, "unlock": "轻轻一跃冲破屋顶，轻功匪夷所思"}
+      ],
+      "effects": [
+        {"type": "传功", "condition": "头顶相接", "description": "将毕生修为从头顶百会穴灌入，受者全身轻飘飘如腾云驾雾"},
+        {"type": "化功", "condition": "脉门接触", "description": "令对方原本内力如泥牛入海，全身酸软无力"}
+      ],
+      "combat_style": "以深厚内力为基础，可攻可守，出手便有排山倒海之势"
+    },
+    {
+      "id": "skill_liumaizhijian",
+      "name": "六脉神剑",
+      "techniques": [
+        {"id": "tech_liumai_zhijian", "name": "六脉神剑指", "type": "attack", "description": "以无形剑气隔空射出，可达数丈之外，威力惊人"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "击落兵刃", "condition": "对准目标", "description": "以无形剑气击中慕容复手中长剑，长剑脱手落地"}
+      ],
+      "combat_style": "以无形剑气远程攻击，令人防不胜防"
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
+      "techniques": [
+        {"id": "tech_yiyang_zhi_dian", "name": "一阳指力", "type": "attack", "description": "以铁杖吸起棋子，隔空落于棋盘之上，内力深厚可见一斑"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "以指力隔空点穴或取物，内力精纯"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_31_suxinghe_bai_zhenlong",
+      "name": "苏星河摆设珍珑棋局邀天下高手破解",
+      "participants": ["char_suxinghe", "char_duanyu", "char_fanbailing", "char_furongfu", "char_jiumozhi", "char_duanyanqing", "char_xuzhu"],
+      "location": "loc_leigu_shan",
+      "description": "苏星河在擂鼓山摆下恩师无崖子所制珍珑棋局，段誉先试因爱心太重不肯弃子而败，范百龄再试呕血倒地，慕容复被鸠摩智言语刺激拔剑自刎被段誉所救，段延庆被丁春秋诱入魔道",
+      "chapter": 31
+    },
+    {
+      "id": "evt_31_xuzhu_po_zhenlong",
+      "name": "虚竹闭目瞎下一子意外破解珍珑",
+      "participants": ["char_xuzhu", "char_suxinghe", "char_duanyanqing"],
+      "location": "loc_leigu_shan",
+      "description": "虚竹见段延庆走火入魔，慈悲心大发，闭目随手将白子放在棋局中自填一气杀死自己一大块白棋，段延庆被惊醒后以传音入密指点虚竹下棋，竟无意中破解了珍珑棋局",
+      "chapter": 31
+    },
+    {
+      "id": "evt_31_xuzhu_ru_mu_wu",
+      "name": "虚竹进入木屋面见无崖子",
+      "participants": ["char_xuzhu", "char_wuyazi", "char_suxinghe", "char_dingchunqiu", "char_jiumozhi", "char_duanyanqing"],
+      "location": "loc_muwu",
+      "description": "苏星河请虚竹进入无门木屋，虚竹以掌劈开门板入内；丁春秋暗施掌力要制虚竹死命，鸠摩智运控鹤功要拉他出来，段延庆和苏星河合力化解，将虚竹送入屋内",
+      "chapter": 31
+    },
+    {
+      "id": "evt_31_wuyazi_chuan_gong",
+      "name": "无崖子将毕生功力传给虚竹",
+      "participants": ["char_wuyazi", "char_xuzhu"],
+      "location": "loc_muwu",
+      "description": "无崖子以头顶相接之法，逆运北冥神功，将七十余年修为尽数灌入虚竹体内，又化去其少林内力，虚竹从一个武功低微的少林僧一跃成为内力绝顶的高手",
+      "chapter": 31
+    },
+    {
+      "id": "evt_31_wuyazi_tuo_gu",
+      "name": "无崖子传掌门之位后仙逝",
+      "participants": ["char_wuyazi", "char_xuzhu"],
+      "location": "loc_muwu",
+      "description": "无崖子将逍遥派掌门宝石指环交给虚竹，命他诛杀叛徒丁春秋，叮嘱他去无量山石洞中寻武学典籍，大笑三声后额头撞地气绝身亡",
+      "chapter": 31
+    },
+    {
+      "id": "evt_31_duanyan_qing_fu_duanyu_she",
+      "name": "四大恶人至擂鼓山赴棋会",
+      "participants": ["char_duanyanqing", "char_yeerniang", "char_nanhaieshen", "char_yunzhonghe", "char_duanyu"],
+      "location": "loc_leigu_shan",
+      "description": "段延庆率叶二娘、南海鳄神、云中鹤三大恶人到来，段延庆尝试破解珍珑，被丁春秋以言语诱入魔道险些自杀，被虚竹胡乱落子所救",
+      "chapter": 31
+    },
+    {
+      "id": "evt_31_duanyu_jiu_furongfu",
+      "name": "段誉以六脉神剑救慕容复",
+      "participants": ["char_furongfu", "char_duanyu", "char_wangyuyan"],
+      "location": "loc_leigu_shan",
+      "description": "慕容复破解珍珑时被鸠摩智言语刺激，陷入幻境拔剑自刎，王语嫣等人救援不及，段誉情急之下以六脉神剑击落慕容复手中长剑，救其一命",
+      "chapter": 31
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_suxinghe",
+      "listener": "char_duanyu",
+      "text": "公子棋思精密，这十几路棋已臻极高的境界，只是未能再想深一步，可惜，可惜。唉，可惜，可惜！",
+      "tone": "惋惜诚挚",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_jiumozhi",
+      "listener": "char_furongfu",
+      "text": "慕容公子，你连我在边角上的纠缠也摆脱不了，还想逐鹿中原么？",
+      "tone": "机锋讥刺",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_duanyanqing",
+      "listener": null,
+      "text": "前无去路，后有追兵，正也不是，邪也不是，那可难也！",
+      "tone": "凄然自伤",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_dingchunqiu",
+      "listener": "char_duanyanqing",
+      "text": "是啊！一个人由正入邪易，改邪归正难，你这一生啊，注定是毁了，毁了，毁了！唉，可惜，一失足成千古恨，再想回首，那也是不能了！",
+      "tone": "假意怜惜实则诱其入魔",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_xuzhu",
+      "listener": null,
+      "text": "我来解这棋局。",
+      "tone": "坚决",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_suxinghe",
+      "listener": "char_xuzhu",
+      "text": "胡闹，胡闹，你自填一气，自己杀死一块白棋，哪有这等下棋的法子？",
+      "tone": "怒斥",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_wuyazi",
+      "listener": "char_xuzhu",
+      "text": "唉，原来是个小和尚！唉，还是个相貌好生丑陋的小和尚，难，难，难！唉，难，难，难！",
+      "tone": "失望叹息",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_wuyazi",
+      "listener": "char_xuzhu",
+      "text": "行啦，我已用本门'北冥神功'，将你的少林内力都化去啦！",
+      "tone": "欣慰",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_wuyazi",
+      "listener": "char_xuzhu",
+      "text": "乘天地之正，御六气之辩，以游于无穷，是为逍遥。你向上一跳试试！",
+      "tone": "慈祥",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_wuyazi",
+      "listener": "char_xuzhu",
+      "text": "好……好！你是我的第三个弟子，见到苏星河，你……你就叫他大师哥。",
+      "tone": "虚弱欣慰",
+      "chapter": 31
+    }
+  ]
+}

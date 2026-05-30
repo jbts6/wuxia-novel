@@ -1,0 +1,665 @@
+{
+  "chapter": 9,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["心地纯良", "坚忍不拔", "坚守礼教", "聪慧过人", "慈悲为怀", "急中生智"],
+        "speech_style": "言语谦和，即便身处绝境仍不失礼数，对敌人以理相劝，善于以巧破力",
+        "temperament": "温文尔雅"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_muwanqing", "type": "love", "intensity": 75, "bond_level": 4, "dynamic": "虽知双方为兄妹，仍难割舍，木婉清持修罗刀逼其殉情，段誉惶惧拒绝"},
+        {"target": "char_zhongling", "type": "family", "intensity": 60, "bond_level": 3, "dynamic": "先以为是自己姬妾，后知是亲妹妹，牵挂她被云中鹤掳走，极力相救"},
+        {"target": "char_nanhaieshen", "type": "master_student", "intensity": 40, "bond_level": 2, "dynamic": "以师徒名分使唤南海鳄神，智激他去救钟灵"},
+        {"target": "char_duanyanqing", "type": "enemy", "intensity": 85, "bond_level": 4, "dynamic": "无意中抓铁杖吸取其内力，导致延庆太子落败"},
+        {"target": "char_huangmeiseng", "type": "companion", "intensity": 60, "bond_level": 3, "dynamic": "黄眉僧对段誉有好感，二人有弈棋之缘"}
+      ],
+      "known_skills": ["skill_lingboweibu", "skill_beiming"],
+      "related_skills": []
+    },
+    {
+      "id": "char_baodingdi",
+      "name": "保定帝",
+      "personality": {
+        "traits": ["仁慈宽厚", "沉着稳重", "深谋远虑", "不拘小节", "爱民如子", "以江湖规矩行事"],
+        "speech_style": "言辞威严而不失温和，以江湖掌门身份处理争端，不摆皇帝架子",
+        "temperament": "仁厚威严"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "伯侄情深，为救段誉再次亲赴万劫谷"},
+        {"target": "char_duanyanqing", "type": "enemy", "intensity": 80, "bond_level": 4, "dynamic": "见黄眉僧与其比斗至凶险处，回顾战局"},
+        {"target": "char_huangmeiseng", "type": "companion", "intensity": 85, "bond_level": 5, "dynamic": "以废除盐税为诺请其出手，对其智勇十分敬佩"}
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun",
+      "name": "段正淳",
+      "personality": {
+        "traits": ["风流多情", "潇洒倜傥", "武功高强", "重情重义", "左右为难", "机智幽默"],
+        "speech_style": "言语风趣，善用调侃反击钟万仇，对旧情人柔肠百结",
+        "temperament": "风流倜傥"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_ganbaobao", "type": "love", "intensity": 85, "bond_level": 5, "dynamic": "深夜钻地道与甘宝宝重逢，誓言不做王爷也要与她在一起"},
+        {"target": "char_zhongwanchou", "type": "enemy", "intensity": 70, "bond_level": 3, "dynamic": "以反讽言语激怒钟万仇，嘲讽其害人反害己"},
+        {"target": "char_zhongling", "type": "family", "intensity": 30, "bond_level": 1, "dynamic": "从金盒推算中醒悟钟灵也是自己私生女儿，大惊失色"},
+        {"target": "char_daobaifeng", "type": "love", "intensity": 70, "bond_level": 4, "dynamic": "因私生女钟灵之事被刀白凤掌掴，被关在房门外"}
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_daobaifeng",
+      "name": "刀白凤",
+      "personality": {
+        "traits": ["刚烈", "护子心切", "爱憎分明", "心直口快", "醋意浓", "机智"],
+        "speech_style": "言语直接，对情敌冷嘲热讽，对丈夫又气又爱",
+        "temperament": "刚烈任情"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanzhengchun", "type": "love", "intensity": 65, "bond_level": 4, "dynamic": "发现钟灵也是段正淳私生女后怒掴其面，闭门不纳"},
+        {"target": "char_ganbaobao", "type": "enemy", "intensity": 70, "bond_level": 3, "dynamic": "出言讥刺甘宝宝送女儿生辰八字，要堵死地道防段正淳钻"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyanqing",
+      "name": "段延庆",
+      "personality": {
+        "traits": ["阴狠毒辣", "城府极深", "怨毒满腔", "武功盖世", "腹语传音", "自负身份"],
+        "speech_style": "以腹语术说话，声音怪异沉闷，言辞中充满愤恨，输棋后一言不发离去",
+        "temperament": "阴沉冷酷"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyu", "type": "enemy", "intensity": 90, "bond_level": 4, "dynamic": "段誉抓其铁杖吸取内力，导致他无意中填死活眼而输棋"},
+        {"target": "char_huangmeiseng", "type": "enemy", "intensity": 70, "bond_level": 4, "dynamic": "与黄眉僧比拼内力兼弈棋一日一夜，棋差一着落败"},
+        {"target": "char_zhongwanchou", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "与钟万仇合谋陷害段氏，以石屋关押段誉木婉清"}
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huangmeiseng",
+      "name": "黄眉僧",
+      "personality": {
+        "traits": ["大智大慧", "慈悲为怀", "武功高深", "幽默达观", "执着于弈棋", "有过往阴影"],
+        "speech_style": "语气平和慈祥，常带禅机，谈及慕容博时流露恐惧",
+        "temperament": "慈悲祥和"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_duanyanqing", "type": "enemy", "intensity": 60, "bond_level": 3, "dynamic": "以弈棋拖住延庆太子一日一夜，内力比拼中渐落下风"},
+        {"target": "char_duanyu", "type": "companion", "intensity": 65, "bond_level": 3, "dynamic": "对段誉和善，事后重返万劫谷复盘棋局"},
+        {"target": "char_cuibaiquan", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "地道中互不相识却出手相助，内力同被段誉吸取"}
+      ],
+      "known_skills": ["skill_jingangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongwanchou",
+      "name": "钟万仇",
+      "personality": {
+        "traits": ["妒火中烧", "性情暴躁", "护妻心切", "心胸狭窄", "害人反害己"],
+        "speech_style": "言语粗鲁，动辄大怒，被段正淳反讽时怒不可遏",
+        "temperament": "暴躁易怒"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanzhengchun", "type": "enemy", "intensity": 90, "bond_level": 4, "dynamic": "妒火中烧，发觉地道中有男人，冲入后擒住崔百泉又失望"},
+        {"target": "char_zhongling", "type": "family", "intensity": 70, "bond_level": 3, "dynamic": "以为女儿被辱便掌掴她，后又追救被云中鹤掳走的她"},
+        {"target": "char_ganbaobao", "type": "love", "intensity": 75, "bond_level": 3, "dynamic": "深爱妻子但疑心极重，动辄怀疑她有奸情"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ganbaobao",
+      "name": "甘宝宝",
+      "personality": {
+        "traits": ["深居简出", "忍辱负重", "念旧", "深情款款", "内心挣扎"],
+        "speech_style": "言语温柔幽怨，对段正淳倾诉衷肠时如泣如诉",
+        "temperament": "内敛隐忍"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanzhengchun", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "地道重逢被段正淳搂抱亲热，欢喜欲晕，愿跟他做小贼强盗"},
+        {"target": "char_zhongwanchou", "type": "family", "intensity": 40, "bond_level": 2, "dynamic": "对丈夫只有名分无真情，以谎言搪塞地道之事"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_muwanqing",
+      "name": "木婉清",
+      "personality": {
+        "traits": ["刚烈", "深情", "倔强", "孤傲", "敢爱敢恨", "决绝"],
+        "speech_style": "言语简短倔强，对心爱之人却温柔顺从，绝望时言语凄厉",
+        "temperament": "冷傲刚烈"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyu", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "知兄妹身份后仍不死心，以修罗刀逼段誉殉情以求来世做夫妻"},
+        {"target": "char_qinhongmian", "type": "family", "intensity": 80, "bond_level": 4, "dynamic": "跟随母亲秦红棉离开镇南王府，临走交出金盒"}
+      ],
+      "known_skills": ["skill_xiuluodao"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhongling",
+      "name": "钟灵",
+      "personality": {
+        "traits": ["天真活泼", "善良单纯", "胆大心细", "机灵可爱", "勇敢"],
+        "speech_style": "言语天真，语速快，想到什么说什么，毫无机心",
+        "temperament": "活泼开朗"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "love", "intensity": 65, "bond_level": 3, "dynamic": "与段誉同处石室后情愫暗生，段誉竭力相救"},
+        {"target": "char_yunzhonghe", "type": "enemy", "intensity": 80, "bond_level": 3, "dynamic": "被云中鹤掳走，以呵痒之法侥幸逃脱"},
+        {"target": "char_zhongwanchou", "type": "family", "intensity": 55, "bond_level": 2, "dynamic": "被父亲怀疑不是亲生，遭掌掴和责骂"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen",
+      "name": "南海鳄神",
+      "personality": {
+        "traits": ["凶悍鲁莽", "头脑迟钝", "自视甚高", "言出必行", "可笑可憎", "重辈分"],
+        "speech_style": "粗声粗气，满口脏话，思维简单易被绕晕，极在意排名辈分",
+        "temperament": "凶蛮暴躁"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "master_student", "intensity": 40, "bond_level": 2, "dynamic": "想逼段誉拜自己为师，反被段誉以师徒名分利用去救钟灵"},
+        {"target": "char_yunzhonghe", "type": "family", "intensity": 40, "bond_level": 2, "dynamic": "与云中鹤争夺钟灵，意见不合又互相依存"},
+        {"target": "char_zhongwanchou", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "为争辈分与钟万仇动手，不愿比钟万仇矮两辈"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yeerniang",
+      "name": "叶二娘",
+      "personality": {
+        "traits": ["阴险毒辣", "阴阳怪气", "手段诡异", "武功奇特", "喜怒无常"],
+        "speech_style": "娇声嗲气，言语调侃，对左子穆以孙子相称",
+        "temperament": "阴鸷诡异"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_zuozimu", "type": "enemy", "intensity": 50, "bond_level": 2, "dynamic": "以掳劫其幼儿之事恐吓左子穆"},
+        {"target": "char_duanyu", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "内力被段誉从地道中吸取一大半"},
+        {"target": "char_xinshuangqing", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "辛双清指责四大恶人，叶二娘言语反击"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yunzhonghe",
+      "name": "云中鹤",
+      "personality": {
+        "traits": ["轻功卓绝", "自负", "凶狠", "桀骜不驯", "好色", "肆无忌惮"],
+        "speech_style": "言语不多，但肆无忌惮，公然说要杀钟万仇占其妻女",
+        "temperament": "阴狠自负"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_zhongling", "type": "enemy", "intensity": 70, "bond_level": 2, "dynamic": "两次掳走钟灵，被她以呵痒之法克制罩门"},
+        {"target": "char_zhongwanchou", "type": "enemy", "intensity": 70, "bond_level": 2, "dynamic": "公然挑衅，说要杀其夫而占其妻"},
+        {"target": "char_nanhaieshen", "type": "family", "intensity": 40, "bond_level": 2, "dynamic": "与南海鳄神既合作又互相算计"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qinhongmian",
+      "name": "秦红棉",
+      "personality": {
+        "traits": ["刚烈", "嫉恨", "怨气深重", "手段狠辣", "旧情难忘", "护女"],
+        "speech_style": "言语尖刻，对刀白凤充满敌意，劝女儿死心时语气无奈",
+        "temperament": "刚烈尖锐"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_muwanqing", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "带女儿离开镇南王府，劝她死心"},
+        {"target": "char_daobaifeng", "type": "enemy", "intensity": 85, "bond_level": 3, "dynamic": "不愿进府中见刀白凤"},
+        {"target": "char_duanzhengchun", "type": "love", "intensity": 60, "bond_level": 3, "dynamic": "旧情难忘但知已无可能"}
+      ],
+      "known_skills": ["skill_xiuluodao"],
+      "related_skills": []
+    },
+    {
+      "id": "char_cuibaiquan",
+      "name": "崔百泉",
+      "personality": {
+        "traits": ["深藏不露", "恩怨分明", "义气深重", "胆小怕事", "嗜酒如命", "隐忍多年"],
+        "speech_style": "平时装疯卖傻，但提及姑苏慕容时神不守舍，满口脏话",
+        "temperament": "外庸内智"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanzhengchun", "type": "companion", "intensity": 75, "bond_level": 4, "dynamic": "在镇南王府躲藏多年感恩图报，深夜主动去寻钟灵以表心意"},
+        {"target": "char_guoyanzhi", "type": "family", "intensity": 85, "bond_level": 5, "dynamic": "师侄关系，闻师兄被害决心赴姑苏报仇"},
+        {"target": "char_huangmeiseng", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "地道中被黄眉僧援手相助"}
+      ],
+      "known_skills": ["skill_jinsuanpan"],
+      "related_skills": []
+    },
+    {
+      "id": "char_guoyanzhi",
+      "name": "过彦之",
+      "personality": {
+        "traits": ["忠义", "刚烈", "尊师重道", "豪迈直率"],
+        "speech_style": "言语直爽悲愤，以礼待人",
+        "temperament": "刚直豪迈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_cuibaiquan", "type": "family", "intensity": 85, "bond_level": 5, "dynamic": "师叔关系，千里前来报丧求援"},
+        {"target": "char_duanzhengchun", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "初识大理段氏，以礼相见"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_gaoshengtai",
+      "name": "高升泰",
+      "personality": {
+        "traits": ["沉稳干练", "武功卓绝", "忠心耿耿", "善于谋略", "洞察全局"],
+        "speech_style": "言语简洁有力，行事果决，言语中敲打崔百泉",
+        "temperament": "沉稳果断"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_cuibaiquan", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "早已看破崔百泉伪装身份，只是不说破"},
+        {"target": "char_baodingdi", "type": "family", "intensity": 95, "bond_level": 5, "dynamic": "忠心辅佐保定帝多年"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huihuizhen",
+      "name": "慧真",
+      "personality": {
+        "traits": ["沉稳", "有礼", "悲愤", "隐忍"],
+        "speech_style": "言语谦恭有礼，叙述师父遇害时痛哭失声",
+        "temperament": "沉稳悲愤"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_baodingdi", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "奉师命前来报讯，请求大理段氏协助"},
+        {"target": "char_duanzhengchun", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "呈送少林寺方丈书信"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huahuagen",
+      "name": "华赫艮",
+      "personality": {
+        "traits": ["忠义", "有奇才", "心思缜密", "不忘本", "盗墓出身"],
+        "speech_style": "言语得当，虽出身低微却不卑不亢",
+        "temperament": "沉稳缜密"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_baodingdi", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "从盗墓贼到位列三公，以地道之术立功"},
+        {"target": "char_duanyu", "type": "family", "intensity": 60, "bond_level": 3, "dynamic": "挖掘地道救出段誉，差点被北冥神功吸住"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_batianshi",
+      "name": "巴天石",
+      "personality": {
+        "traits": ["精明能干", "轻功绝顶", "忠心不二", "低调谦逊"],
+        "speech_style": "言语谦恭有礼，行事利落，奉命撰写书信",
+        "temperament": "内敛干练"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_baodingdi", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "奉旨撰写书信，随行办事"},
+        {"target": "char_huahuagen", "type": "companion", "intensity": 70, "bond_level": 4, "dynamic": "与华赫艮、范骅合力挖掘地道掉包钟灵与木婉清"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_fanhua",
+      "name": "范骅",
+      "personality": {
+        "traits": ["机敏", "足智多谋", "忠心"],
+        "speech_style": "言语得当，好出妙计",
+        "temperament": "机智灵活"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_baodingdi", "type": "family", "intensity": 85, "bond_level": 5, "dynamic": "大理司马，忠心辅佐"},
+        {"target": "char_huahuagen", "type": "companion", "intensity": 70, "bond_level": 4, "dynamic": "共同策划掉包计"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zuozimu",
+      "name": "左子穆",
+      "personality": {
+        "traits": ["谨慎", "心有余悸", "武功平平"],
+        "speech_style": "言语恭敬，不敢得罪叶二娘",
+        "temperament": "谨慎畏缩"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_yeerniang", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "儿子曾被叶二娘掳走，至今心有余悸"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_yiyangzhi",
+      "techniques": [
+        {"id": "tech_yiyangzhi_dianxue", "name": "一阳指点穴", "type": "attack", "description": "以指力隔空点穴，可制敌于无形"},
+        {"id": "tech_yiyangzhi_wuzhi", "name": "五指轮转", "type": "attack", "description": "拇指、食指、中指、无名指、小指依次发出不同力道"},
+        {"id": "tech_yiyangzhi_duijue", "name": "一阳指对诀", "type": "defense", "description": "两人以指力相拼，内力相抗，可辨功力高下"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "能以指力在青石上刻划如刀"},
+        {"level": 4, "unlock": "五指轮转，各指法皆纯熟"}
+      ],
+      "effects": [
+        {"type": "伤害", "condition": "正面击中穴道", "description": "指力透体而入，可令人瘫痪或致命"},
+        {"type": "防御", "condition": "以指力对拼", "description": "内力相抗，可检验功力深浅"}
+      ],
+      "combat_style": "以指代剑，点穴制敌，讲究精准狠辣"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "techniques": [
+        {"id": "tech_lingbo_xunhuan", "name": "凌波微步循环", "type": "defense", "description": "按易经六十四卦方位行走，每一步均暗合经脉运行"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "按步法行走可平息情欲、镇定心神"}
+      ],
+      "effects": [
+        {"type": "增益", "condition": "持续行走", "description": "内息按经脉运行，可驱散杂念、压制药性"}
+      ],
+      "combat_style": "以巧取胜，步法精妙，闪避第一"
+    },
+    {
+      "id": "skill_beiming",
+      "techniques": [
+        {"id": "tech_beiming_xiji", "name": "北冥吸功", "type": "attack", "description": "大拇指少商穴与他人穴道相接时，可将对方内力强行吸入自身"},
+        {"id": "tech_beiming_zhuna", "name": "北冥真气存储", "type": "defense", "description": "吸入的内力可储存于膻中气海，转化为己用"},
+        {"id": "tech_beiming_chuanlian", "name": "连环吸力", "type": "attack", "description": "通过多人体串联，以前人足踝后人拇指的方式连环吸取内力"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "仅练成手太阴肺经，唯少商穴可吸人内力"},
+        {"level": 2, "unlock": "可抵抗大量内力涌入体内而不自伤"}
+      ],
+      "effects": [
+        {"type": "吸取", "condition": "少商穴接触对方穴道且双方同时运劲", "description": "对方内力如河水决堤般涌入自身"},
+        {"type": "吸收", "condition": "内力入体后", "description": "吸入内力可存储于膻中穴，但过多会胀痛难当"}
+      ],
+      "combat_style": "以逸待劳，借力吸力，化敌内力为己用"
+    },
+    {
+      "id": "skill_jingangzhi",
+      "techniques": [
+        {"id": "tech_jingang_luoshi", "name": "金刚指力碎石", "type": "attack", "description": "以金刚指力在青石上刻划棋盘、陷石成子"},
+        {"id": "tech_jingang_cixiong", "name": "金刚指穿心", "type": "attack", "description": "一指刺入心窝，凌厉无比，杀人于无形"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "黄眉僧四十三年前已练成三成火候的金刚指力"}
+      ],
+      "effects": [
+        {"type": "伤害", "condition": "指力击中要害", "description": "一指入心，中者立毙"},
+        {"type": "刻划", "condition": "凝聚指力于石面", "description": "可在坚硬青石上刻字画线，如切豆腐"}
+      ],
+      "combat_style": "刚猛凌厉，以指力贯穿金石"
+    },
+    {
+      "id": "skill_jinsuanpan",
+      "techniques": [
+        {"id": "tech_jinsuanpa_danshu", "name": "金算盘弹珠", "type": "attack", "description": "以内力震断算盘竹柱，激射算珠伤人，七十七枚算珠随时可用弹簧弹出"},
+        {"id": "tech_jinsuanpa_dingzhu", "name": "算珠钉穴", "type": "attack", "description": "算盘珠精确打入敌人穴道，嵌入肉中难以取出"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "嵌入", "condition": "算珠击中穴道", "description": "算珠嵌肉，遇雨天酸痛难当"},
+        {"type": "伤害", "condition": "算珠高速射出", "description": "力道足以穿肉钉骨"}
+      ],
+      "combat_style": "以算盘为奇门兵器，暗器与点穴结合"
+    },
+    {
+      "id": "skill_xiuluodao",
+      "techniques": [
+        {"id": "tech_xiuluo_shizijiao", "name": "十字斫", "type": "attack", "description": "双刀交叉斩击，快如飘风，是修罗刀成名绝技"},
+        {"id": "tech_xiuluo_dujian", "name": "修罗毒箭", "type": "attack", "description": "连环射出淬毒短箭，分射上中下三路，歹毒无比"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "中毒", "condition": "箭矢擦伤", "description": "刀身呈蓝印之光，见血即毙"}
+      ],
+      "combat_style": "双刀迅猛如修罗，暗藏毒箭狠辣"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_09_zhongji_zhuanbian",
+      "name": "段誉从石室抱出钟灵，钟万仇害人反害己",
+      "participants": ["char_duanyu", "char_zhongling", "char_zhongwanchou", "char_duanzhengchun", "char_baodingdi", "char_daobaifeng"],
+      "location": "loc_wanjiegue",
+      "description": "钟万仇与四大恶人合力推开石屋大石，本欲当众羞辱段誉与木婉清乱伦，不料段誉抱出的是钟灵。钟万仇害人反害己，羞怒交加掌掴女儿。段正淳反讽说钟灵已是他段家之人",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_didao_diaobao",
+      "name": "华赫艮以地道掉包木婉清与钟灵",
+      "participants": ["char_huahuagen", "char_fanhua", "char_batianshi", "char_duanyu", "char_muwanqing", "char_zhongling"],
+      "location": "loc_wanjiegue",
+      "description": "华赫艮奉保定帝之命挖掘地道至石屋，大理三公本欲救段誉，但段誉狂走疾奔不可接近。范骅灵机一动，将钟灵外衫给木婉清穿上，抱起钟灵交给段誉，自己带木婉清从地道逃走",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_huangmei_duiyi",
+      "name": "黄眉僧与延庆太子弈棋比拼内力",
+      "participants": ["char_huangmeiseng", "char_duanyanqing", "char_duanyu"],
+      "location": "loc_wanjiegue",
+      "description": "黄眉僧与段延庆比拼内力兼弈棋一日一夜，双方在青石上刻棋盘对弈，正打一个生死劫。段誉见黄眉僧将败，伸手抓延庆太子铁杖，以北冥神功吸取其内力，延庆太子内力失控铁杖误落填死活眼，棋差一着败走",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_zhongling_shenshi",
+      "name": "木婉清交出金盒，揭穿钟灵身份",
+      "participants": ["char_muwanqing", "char_duanzhengchun", "char_daobaifeng"],
+      "location": "loc_dali",
+      "description": "宴席上木婉清将甘宝宝所托金盒交给段正淳，内装钟灵生辰八字。段正淳从背后小字推算钟灵是自己亲生女儿，刀白凤看穿后怒掴段正淳，钟灵与段誉的婚事作罢",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_shaolin_baoxun",
+      "name": "少林寺慧真慧观报玄悲大师死讯",
+      "participants": ["char_huihuizhen", "char_baodingdi", "char_duanzhengchun", "char_huangmeiseng"],
+      "location": "loc_dali",
+      "description": "少林寺慧真慧观二僧奉方丈玄慈之命送信，称玄悲大师在陆凉州身戒寺圆寂，胸口中大韦陀杵而死。五叶方丈推断凶手是姑苏慕容氏，以彼之道还施彼身",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_guoyanzhi_daofang",
+      "name": "追魂鞭过彦之来访，崔百泉身份暴露",
+      "participants": ["char_guoyanzhi", "char_cuibaiquan", "char_duanzhengchun", "char_gaoshengtai"],
+      "location": "loc_dali",
+      "description": "过彦之到镇南王府，高升泰点破帐房霍先生即是金算盘崔百泉。崔百泉跪地请罪，言十八年前因杀人被慕容博夫妇以算盘珠钉穴，被迫隐居大理段府避难",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_huangmei_xueshi",
+      "name": "黄眉僧讲述四十三年前被慕容博所伤",
+      "participants": ["char_huangmeiseng", "char_baodingdi", "char_duanzhengchun", "char_cuibaiquan", "char_guoyanzhi", "char_duanyu"],
+      "location": "loc_dali",
+      "description": "黄眉僧自述四十三年前在青豹岗以金刚指毙四盗，被一少年以金刚指力反击，一指点穿左胸，因心脏偏右才得活命。这对母子正是姑苏慕容氏",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_muwanqing_liqu",
+      "name": "木婉清断门离去，以修罗刀逼段誉殉情",
+      "participants": ["char_muwanqing", "char_qinhongmian", "char_duanyu"],
+      "location": "loc_dali",
+      "description": "深夜木婉清与秦红棉翻墙欲走，段誉追至花园。木婉清以修罗刀切断门闩，逼段誉伸脖子让她一刀割断然后她自杀，以求来世做夫妻。段誉惊惧拒绝，木婉清失望而去",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_duanzhengchun_didao",
+      "name": "段正淳夜钻地道与甘宝宝私会",
+      "participants": ["char_duanzhengchun", "char_ganbaobao", "char_zhongwanchou"],
+      "location": "loc_wanjiegue",
+      "description": "段正淳从地道爬入甘宝宝卧室，二人重逢拥抱亲热。钟万仇在门外听到男人声音破门而入却找不到人，段正淳已从地道逃走。后崔百泉与黄眉僧相继入地道相助",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_didao_xili",
+      "name": "地道连环吸取内力奇观",
+      "participants": ["char_duanyu", "char_yeerniang", "char_nanhaieshen", "char_zhongwanchou", "char_yunzhonghe", "char_zhongling", "char_cuibaiquan", "char_huangmeiseng"],
+      "location": "loc_wanjiegue",
+      "description": "地道中云中鹤抓钟灵足踝，钟万仇抓云中鹤，南海鳄神抓钟万仇，叶二娘抓南海鳄神，段誉抓叶二娘。段誉以北冥神功连环吸取五人之内力，一半内力转移至段誉体内。黄眉僧与崔百泉后来加入也被吸走部分内力",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_nanhaieshen_zhuazou",
+      "name": "南海鳄神抓走段誉欲逼拜师",
+      "participants": ["char_nanhaieshen", "char_duanyu"],
+      "location": "loc_dali",
+      "description": "段誉在花园中呆立时被南海鳄神抓住后颈提起，南海鳄神想出一套先磕还头再拜师的所谓妙计，逼段誉磕十六个响头。段誉宁死不从，以师徒名分令南海鳄神不知所措",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_duanyu_shaoce",
+      "name": "段誉烧毁神仙姊姊卷轴",
+      "participants": ["char_duanyu"],
+      "location": "loc_dali",
+      "description": "段誉发现怀中的北冥神功卷轴已在石屋中扯成碎片，残存无几。他如释重负，将碎帛投入火炉烧成灰烬，心想如此可免亵渎神仙姊姊",
+      "chapter": 9
+    },
+    {
+      "id": "evt_09_dali_jiaodai",
+      "name": "保定帝叮嘱持正忍让，安排祭奠玄悲",
+      "participants": ["char_baodingdi", "char_duanzhengchun", "char_huangmeiseng"],
+      "location": "loc_dali",
+      "description": "保定帝命段正淳率三公去身戒寺祭奠玄悲大师，叮嘱不得参与中原武林仇杀，只可持正忍让。黄眉僧辞别后独自重返万劫谷复盘棋局",
+      "chapter": 9
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_baodingdi",
+      "listener": "char_zhongwanchou",
+      "text": "舍倒段誉得罪行了钟谷主，被扣贵处，在下今日一来求情，二来请罪。还望钟谷主瞧在下薄面，恕过小儿无知，在下感激不尽。",
+      "tone": "谦和",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_duanzhengchun",
+      "listener": "char_zhongwanchou",
+      "text": "钟谷主，你对我孩儿可优待得紧啊，怕他独自一个儿寂静，竟命你令爱千金相陪。在下实在感激之至。既然如此，令爱已是我段家的人了，在下这可不能不管。",
+      "tone": "讥讽",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_nanhaieshen",
+      "text": "岳老三，你师父有命，快将这个小姑娘夺下来。你拜了我为师，头也磕过了，难道想赖？你说过的话是放屁么？你定是想做乌龟儿子王八蛋了！",
+      "tone": "激将",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_nanhaieshen",
+      "text": "这个姓钟的小姑娘是我妻子，就是你的师娘，快去给我夺回来。这云中鹤侮辱她，就是辱你师娘，你太也丢脸了，太不是英雄好汉了。",
+      "tone": "激将",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_duanyu",
+      "text": "你伸过脖子来，让我一刀割断了，我立刻自杀。咱俩投胎再世做人，那时不是兄妹，就好做夫妻了。",
+      "tone": "决绝",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_duanyu",
+      "text": "我肯，你为什么不肯？要不然你先杀我，你再自镣。",
+      "tone": "凄厉",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_huangmeiseng",
+      "listener": "char_zhongwanchou",
+      "text": "三个恶人，今日便饶了你们性命，今后再到大理来罗唣，休怪老僧无情！",
+      "tone": "威严",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_cuibaiquan",
+      "listener": "char_duanzhengchun",
+      "text": "我这可要上姑苏去了。我师哥跟我是亲兄弟一般。杀兄之仇，岂能不报？",
+      "tone": "激昂",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_ganbaobao",
+      "listener": "char_duanzhengchun",
+      "text": "倘若你不是王爷，只是个耕田打猎的汉子，要不然，是偷鸡摸狗的小贼也好，是打家劫舍的强人出好，我便能跟了你去……我一辈了跟了你去……",
+      "tone": "幽怨",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_duanzhengchun",
+      "listener": "char_ganbaobao",
+      "text": "你跟我逃走！我去做小贼、强盗，我不做王爷了！",
+      "tone": "深情",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_qinhongmian",
+      "listener": "char_duanyu",
+      "text": "进来干什么？好让你妈妈杀了我吗？",
+      "tone": "冷淡",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_huangmeiseng",
+      "listener": "char_duanyanqing",
+      "text": "纵横十九道，迷煞多少人。居士可有清兴，与老僧手谈一局么？",
+      "tone": "平和",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_duanzhengchun",
+      "listener": "char_daobaifeng",
+      "text": "钟万仇这家伙……这家伙心术太坏，安排了这等毒计，陷害我段氏满门，咱们决不能……决不能跟他结成亲家。此事无论如何不可！",
+      "tone": "慌乱",
+      "chapter": 9
+    },
+    {
+      "speaker": "char_daobaifeng",
+      "listener": "char_duanzhengchun",
+      "text": "原来……原来，哈哈，钟灵这小丫头，也是你的私生女儿。",
+      "tone": "怒极而笑",
+      "chapter": 9
+    }
+  ]
+}

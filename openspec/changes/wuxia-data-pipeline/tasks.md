@@ -38,6 +38,13 @@
 - [x] 5.3 验证context-mode检索效果
 - [x] 5.4 验证Obsidian关系图谱显示（需手动在Obsidian中验证）
 
+## Phase 6: Deep 提取精细化
+
+- [x] 6.1 增强 deep-prompt.md 提示词：添加 ch01 成功案例作为 few-shot 示例，增加强制填充约束
+- [x] 6.2 更新 extract-deep.py 脚本：将章节原文内容注入 prompt 上下文
+- [x] 6.3 重新对 chapters 08-50 执行精细化深度提取
+- [x] 6.4 验证重跑结果：personality.traits/relationships/skills_detail/events/dialogues 非空（全部通过，0 空 traits）
+
 ## 数据格式说明
 
 所有最终数据使用 **Markdown + YAML frontmatter**：

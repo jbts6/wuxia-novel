@@ -1,135 +1,206 @@
 {
   "chapter": 20,
+  "title": "悄立雁门，绝壁无余字",
   "characters_detail": [
     {
       "id": "char_qiaofeng",
+      "name": "乔峰",
       "personality": {
-        "traits": ["刚烈悲愤", "重情重义", "豪迈坚韧", "民族认同冲突"],
-        "speech_style": "悲愤时声震屋瓦，平静时言语深沉，对阿朱渐露温柔",
-        "temperament": "刚烈悲凉"
+        "traits": ["豪迈刚烈", "恩怨分明", "坚忍不拔", "重情重义", "悲愤激荡"],
+        "speech_style": "言语豪爽坦荡，对恩人谦恭有礼，对敌人斩钉截铁，悲愤时声如洪钟，自责时语气低沉",
+        "temperament": "豪迈悲壮"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_azhu", "type": "love", "intensity": 70, "bond_level": 3, "dynamic": "从舍命相救到渐生情愫，最终接受她同行"},
-        {"target": "char_heiyingdahan", "type": "companion", "intensity": 80, "bond_level": 4, "dynamic": "救命恩人，虽不知身份但感佩其武功极高"},
-        {"target": "char_qiagehan", "type": "tribe", "intensity": 75, "bond_level": 3, "dynamic": "因狼头刺青确认同族，见其惨死愤而杀尽宋兵"},
-        {"target": "char_danshanxiao", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "被黑衣人投尸撞死"}
+        {"target": "char_heiyingdahan", "type": "companion", "intensity": 70, "bond_level": 3, "dynamic": "被黑衣大汉舍命救出聚贤庄，深感救命之恩，欲见庐山面目"},
+        {"target": "char_azhu", "type": "love", "intensity": 75, "bond_level": 4, "dynamic": "雁门关外重逢，阿朱痴心等待五日五夜，乔峰从感激渐生情愫，但仍以契丹胡虏自惭"},
+        {"target": "char_qiagehan", "type": "kinship", "intensity": 85, "bond_level": 5, "dynamic": "见契丹老汉胸口狼头刺青与己相同，确认契丹身份，心灵相通之感油然而生"}
       ],
-      "known_skills": ["skill_xianglongshibazhang"],
+      "known_skills": ["skill_xianglongshibazhang", "skill_qinlonggong"],
       "related_skills": []
     },
     {
       "id": "char_azhu",
+      "name": "阿朱",
       "personality": {
-        "traits": ["聪明伶俐", "痴情坚定", "善解人意", "顽皮机智", "勇敢"],
-        "speech_style": "娇俏甜美时而顽皮胡诌，认真时诚挚感人",
-        "temperament": "活泼温柔"
+        "traits": ["聪明伶俐", "痴情坚定", "古灵精怪", "善解人意", "勇敢无畏"],
+        "speech_style": "言语俏皮风趣，对乔峰温柔体贴，讲述经历时绘声绘色，危急时亦能谈笑自若",
+        "temperament": "灵动温柔"
       },
-      "archetype": "assassin",
+      "archetype": "trickster",
       "relationships": [
-        {"target": "char_qiaofeng", "type": "love", "intensity": 85, "bond_level": 4, "dynamic": "从感激到深爱，愿终身相随，至死不渝"},
-        {"target": "char_murongfu", "type": "companion", "intensity": 70, "bond_level": 3, "dynamic": "主仆之义，但已决心离开慕容家跟随乔峰"},
-        {"target": "char_xueshenyi", "type": "complicated", "intensity": 30, "bond_level": 1, "dynamic": "假扮他剃其胡须后脱身"}
+        {"target": "char_qiaofeng", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "在雁门关苦等五日五夜，决心终身跟随，不以他是契丹人为意，愿做丫环服侍终身"},
+        {"target": "char_baishijing", "type": "companion", "intensity": 30, "bond_level": 1, "dynamic": "白世镜以七招缠丝擒拿手换薛神医为其治伤"}
+      ],
+      "known_skills": ["skill_yirong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_heiyingdahan",
+      "name": "黑衣大汉",
+      "personality": {
+        "traits": ["武功深不可测", "性情古怪", "出手狠辣", "外冷内热", "神秘莫测"],
+        "speech_style": "言语简短冷峻，骂人时直言不讳，长笑声中带着悲凉愤慨之意",
+        "temperament": "阴沉高傲"
+      },
+      "archetype": "hermit",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "companion", "intensity": 50, "bond_level": 3, "dynamic": "拼死救出乔峰，安置山洞养伤，又打他一耳光试其武功，骂其为女子枉送性命"}
+      ],
+      "known_skills": ["skill_tiannvsanhua"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiagehan",
+      "name": "契丹老汉",
+      "personality": {
+        "traits": ["刚烈不屈", "悲壮勇悍", "重亲情"],
+        "speech_style": "悲声叫号，垂死时如狼嗥般高叫，以契丹语痛骂",
+        "temperament": "悲壮刚烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "kinship", "intensity": 80, "bond_level": 5, "dynamic": "胸口狼头刺青与乔峰相同，使乔峰千真万确确认自己契丹身份"}
       ],
       "known_skills": [],
       "related_skills": []
     },
     {
-      "id": "char_heiyingdahan",
+      "id": "char_baishijing",
+      "name": "白世镜",
       "personality": {
-        "traits": ["古怪高傲", "武功深不可测", "言语犀利"],
-        "speech_style": "大声斥骂，语气悲凉愤慨",
-        "temperament": "冷傲孤僻"
+        "traits": ["重情重义", "顾全大局", "铁面无私"],
+        "speech_style": "言语沉稳，执法长老风范",
+        "temperament": "刚正不阿"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_qiaofeng", "type": "companion", "intensity": 60, "bond_level": 2, "dynamic": "出手相救但打其一巴掌骂其愚不可及"}
+        {"target": "char_azhu", "type": "companion", "intensity": 30, "bond_level": 2, "dynamic": "以七招缠丝擒拿手换薛神医为阿朱治伤"},
+        {"target": "char_qiaofeng", "type": "companion", "intensity": 60, "bond_level": 4, "dynamic": "旧日帮中执法长老，因乔峰被逼离开丐帮，关系紧张"}
       ],
-      "known_skills": ["skill_tiannvsanhua"],
+      "known_skills": ["skill_chansiqinda"],
+      "related_skills": []
+    },
+    {
+      "id": "char_danshanxiao",
+      "name": "单小山",
+      "personality": {
+        "traits": ["勇猛", "护父心切"],
+        "speech_style": "",
+        "temperament": "激烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "enemy", "intensity": 70, "bond_level": 2, "dynamic": "挺刀刺乔峰时为黑衣人投下的尸体撞死"}
+      ],
+      "known_skills": [],
       "related_skills": []
     }
   ],
   "skills_detail": [
     {
+      "id": "skill_xianglongshibazhang",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "伤害", "condition": "掌力击出", "description": "势道威猛，山壁上石屑四溅，威力惊人"}
+      ],
+      "combat_style": "以刚猛见长，掌力雄浑，大开大阖"
+    },
+    {
       "id": "skill_tiannvsanhua",
       "techniques": [
-        {"id": "tech_shengfa_tiannv", "name": "天女散花", "type": "attack", "description": "以长绳当作兵刃，同时挥击数十人的软鞭功夫"}
+        {"id": "tech_tiannv_changsheng", "name": "长绳天女散花", "type": "attack", "description": "黑衣大汉以长绳当作兵刃，同时挥击数十人，软鞭功夫精妙绝伦"},
+        {"id": "tech_tiannv_feidu", "name": "长绳飞渡", "type": "movement", "description": "黑衣大汉以长绳卷住远处大树或旗杆，借力荡越，翻山越峡如履平地"}
       ],
       "progression": [],
-      "effects": [],
-      "combat_style": "以长绳为兵器，刚柔并济，借力腾跃"
+      "effects": [
+        {"type": "控制", "condition": "长绳卷中目标", "description": "以长绳缠绕敌人或物件，力道精准，可攻可走"}
+      ],
+      "combat_style": "以长绳为兵，既刚且柔，远攻近守，变化莫测"
     },
     {
       "id": "skill_chansiqinda",
-      "techniques": [],
+      "techniques": [
+        {"id": "tech_chansi_qina", "name": "缠丝擒拿手", "type": "attack", "description": "丐帮执法长老白世镜的绝技，答应传授给薛神医以换取为阿朱治伤"}
+      ],
       "progression": [],
       "effects": [],
-      "combat_style": "擒拿手法"
+      "combat_style": "以擒拿缠丝之法制敌，手法绵密"
+    },
+    {
+      "id": "skill_qinlonggong",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "防御", "condition": "以指对掌", "description": "乔峰重伤之际以食指指向对方穴道，迫使黑衣大汉变招，虚发虚接，足见上乘武功"}
+      ],
+      "combat_style": "以内力指穴破敌，后发先至，以静制动"
     }
   ],
   "events": [
     {
-      "id": "evt_heiying_jiuren",
-      "name": "黑衣大汉救乔峰",
-      "participants": ["char_heiyingdahan", "char_qiaofeng", "char_danshanxiao"],
+      "id": "evt_20_heiying_jiuchu",
+      "name": "黑衣大汉以长绳救乔峰出聚贤庄",
+      "participants": ["char_qiaofeng", "char_heiyingdahan"],
       "location": "loc_juxianzhuang",
-      "description": "以长绳甩下两具尸体撞死单小山，卷起乔峰腾空而去",
+      "description": "乔峰三处伤口血流如注，黑衣大汉以长绳从屋顶缠卷乔峰腰间，挟之飞出，以长绳荡越旗杆大树，连跃数个起落，走得无影无踪",
       "chapter": 20
     },
     {
-      "id": "evt_shandong_yangshang",
-      "name": "乔峰山洞养伤",
+      "id": "evt_20_shandong_daizhao",
+      "name": "黑衣大汉与乔峰在山洞中拆招",
       "participants": ["char_qiaofeng", "char_heiyingdahan"],
       "location": "loc_shandong_yangshang",
-      "description": "黑衣大汉将乔峰安置在隐秘山洞，敷药备粮，打一耳光后离去",
+      "description": "黑衣大汉打了乔峰一耳光，第二掌却再难打中。乔峰以手指指向对方穴道，虚发虚接，连拆二十招上乘武功，黑衣大汉收掌后骂他愚不可及",
       "chapter": 20
     },
     {
-      "id": "evt_yanmen_shibi",
-      "name": "雁门关观石壁",
+      "id": "evt_20_yanmen_queshi",
+      "name": "乔峰赴雁门关查看石壁被凿",
       "participants": ["char_qiaofeng"],
       "location": "loc_yanmen'guan",
-      "description": "乔峰到雁门关外查看石壁遗文，发现字迹已被凿去",
+      "description": "乔峰出雁门关到当年伏击之地，发现石壁上的字迹已被人以斧凿削去，呆呆立在石壁前怒火上冲，一掌掌劈向山壁，掌出血印仍不停歇",
       "chapter": 20
     },
     {
-      "id": "evt_azhu_deng_hou",
-      "name": "阿朱等候五日",
-      "participants": ["char_azhu", "char_qiaofeng"],
+      "id": "evt_20_azhu_dengdai",
+      "name": "阿朱雁门关外苦等乔峰",
+      "participants": ["char_qiaofeng", "char_azhu"],
       "location": "loc_yanmen'guan",
-      "description": "阿朱假扮薛神医逃出聚贤庄后到雁门关等候乔峰五天五夜",
+      "description": "阿朱在雁门关外花树下等候了五日五夜，见乔峰终于前来，纵身扑入他怀中哭泣。乔峰见她伤势已愈，惊喜交集",
       "chapter": 20
     },
     {
-      "id": "evt_azhu_jie_peihe",
-      "name": "阿朱解释假扮误会",
-      "participants": ["char_azhu", "char_qiaofeng"],
+      "id": "evt_20_azhu_jiangshu",
+      "name": "阿朱讲述假扮薛神医脱险",
+      "participants": ["char_qiaofeng", "char_azhu"],
       "location": "loc_yanmen'guan",
-      "description": "乔峰怀疑阿朱假扮他杀父母师父，被阿朱以武功见识说服",
+      "description": "阿朱讲述如何假扮薛神医逃出聚贤庄：剃其胡须黏在脸上，点穴绑缚，大模大样走出，出庄后改装易容，令人寻不着",
       "chapter": 20
     },
     {
-      "id": "evt_songbing_can_sha",
-      "name": "宋兵残杀契丹妇孺",
+      "id": "evt_20_shibei_maoren",
+      "name": "乔峰质问阿朱是否冒充自己杀人",
+      "participants": ["char_qiaofeng", "char_azhu"],
+      "location": "loc_yanmen'guan",
+      "description": "乔峰见阿朱披其外衣的背影，恍然认出她就是冒充自己之人。厉声质问是否假扮自己去杀父母师父，阿朱惊恐否认，乔峰转念一想以阿朱武功绝不可能震死玄苦，方才释疑",
+      "chapter": 20
+    },
+    {
+      "id": "evt_20_qiagehan_langtou",
+      "name": "乔峰见契丹老汉胸口狼头确认身份",
       "participants": ["char_qiaofeng", "char_qiagehan"],
       "location": "loc_yanmen'guan",
-      "description": "大宋官兵掳掠契丹牧人踩死婴儿残杀老汉，乔峰怒杀全部官兵",
+      "description": "乔峰见宋兵残杀契丹百姓，愤而掷杀官兵。见一契丹老汉直立而死，胸口刺有狼头。乔峰撕开自己衣衫，胸口狼头刺青与之相同。又见其余契丹人各解衣衫，均有狼头记号，至此千真万确确认自己是契丹人",
       "chapter": 20
     },
     {
-      "id": "evt_langtou_ciqing",
-      "name": "狼头刺青认祖归宗",
-      "participants": ["char_qiaofeng", "char_qiagehan"],
+      "id": "evt_20_azhu_biaoqing",
+      "name": "阿朱表白终身相随",
+      "participants": ["char_qiaofeng", "char_azhu"],
       "location": "loc_yanmen'guan",
-      "description": "乔峰见契丹老汉胸口狼头刺青与自己一模一样，确认自己是契丹人",
-      "chapter": 20
-    },
-    {
-      "id": "evt_azhu_xin_zhong",
-      "name": "阿朱誓死追随",
-      "participants": ["char_azhu", "char_qiaofeng"],
-      "location": "loc_yanmen'guan",
-      "description": "阿朱以跳谷相胁，乔峰终允其同行，二人相伴踏上复仇之路",
+      "description": "乔峰痛苦自嘲是契丹胡虏，要阿朱离开。阿朱道汉人中有好人坏人，契丹人中也有好人坏人，自己性命是他所救，他是契丹人也全无分别。更以跳谷相胁，乔峰感动之下握住她手",
       "chapter": 20
     }
   ],
@@ -137,22 +208,43 @@
     {
       "speaker": "char_heiyingdahan",
       "listener": "char_qiaofeng",
-      "text": "你这人愚不可及，我本来不该救你。",
-      "tone": "斥骂",
+      "text": "你这人愚不中及，我本来不该救你。",
+      "tone": "冷峻斥责",
       "chapter": 20
     },
     {
       "speaker": "char_heiyingdahan",
       "listener": "char_qiaofeng",
-      "text": "你这臭骡子，练就了这样一身天下无敌的武功，怎地去为一个瘦骨伶仃的女娃子枉送性命？她跟你非亲非故，无恩无义，又不是什么倾国倾城的美貌佳人，只不过是一个低三下四的小丫头而已。天下哪有你这等大傻瓜？",
-      "tone": "愤慨斥责",
+      "text": "你这臭骡子，练就了这样一身天下无敌的武功，怎地去为一个瘦骨伶仃的女娃子枉送性命？她跟你非亲非故，无恩无义，只不过是一个低三下四的小丫头而已。天下哪有你这等大傻瓜？",
+      "tone": "怒其不争",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_azhu",
+      "text": "我是猪狗也不如的契丹胡虏，自今而后，你不用再见我了。",
+      "tone": "痛苦自弃",
       "chapter": 20
     },
     {
       "speaker": "char_azhu",
       "listener": "char_qiaofeng",
-      "text": "乔大爷，我……我在这里已等了你五日五夜，我只怕你不能来。你……你果然来了，谢谢老天爷保佑，你终于安好无恙。",
-      "tone": "喜悦哽咽",
+      "text": "乔大爷，你若撇下我而去，我便跳入这山谷之中。阿朱说得出做得到，你是契丹的英雄好汉，瞧不起我这低三下四的丫环贱人，我还不如自己死了的好。",
+      "tone": "决绝深情",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_azhu",
+      "listener": "char_qiaofeng",
+      "text": "汉人中有好人坏人，契丹人中，自然也有好人坏人。乔大爷，你别把这种事放在心上。阿朱的性命是你救的，你是汉人也好，是契丹人也好，对我全无分别。",
+      "tone": "温柔坚定",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_azhu",
+      "text": "我一向只道契丹人凶恶残暴，虐害汉人，但今日亲眼见到大宋官兵残杀契丹的老弱妇孺，我……我……阿朱，我是契丹人，从今而后，不再以契丹人为耻，也不以大宋为荣。",
+      "tone": "沉痛觉悟",
       "chapter": 20
     },
     {
@@ -166,42 +258,7 @@
       "speaker": "char_azhu",
       "listener": "char_qiaofeng",
       "text": "我没……杀你父母，没……没杀你师父。你师父这么大……大的本事，我怎能杀得了他？",
-      "tone": "颤抖委屈",
-      "chapter": 20
-    },
-    {
-      "speaker": "char_qiaofeng",
-      "listener": "null",
-      "text": "我一向只道契丹人凶恶残暴，虐害汉人，但今日亲眼见到大宋官兵残杀契丹的老弱妇孺，我……我……阿朱，我是契丹人，从今而后，不再以契丹人为耻，也不以大宋为荣。",
-      "tone": "沉痛决绝",
-      "chapter": 20
-    },
-    {
-      "speaker": "char_qiaofeng",
-      "listener": "char_azhu",
-      "text": "我是猪狗也不如的契丹胡虏，自今而后，你不用再见我了。",
-      "tone": "自暴自弃",
-      "chapter": 20
-    },
-    {
-      "speaker": "char_azhu",
-      "listener": "char_qiaofeng",
-      "text": "汉人中有好人坏人，契丹人中，自然也有好人坏人。乔大爷，你别把这种事放在心上。阿朱的性命是你救的，你是汉人也好，是契丹人也好，对我全无分别。",
-      "tone": "诚挚温柔",
-      "chapter": 20
-    },
-    {
-      "speaker": "char_azhu",
-      "listener": "char_qiaofeng",
-      "text": "乔大爷，你若撇下我而去，我便跳入这山谷之中。阿朱说得出做得到，你是契丹的英雄好汉，瞧不起我这低三下四的丫环贱人，我还不如自己死了的好。",
-      "tone": "坚定决绝",
-      "chapter": 20
-    },
-    {
-      "speaker": "char_qiaofeng",
-      "listener": "char_azhu",
-      "text": "阿朱，咱们找丐帮的徐长老去。",
-      "tone": "平静接受",
+      "tone": "惊恐含泪",
       "chapter": 20
     }
   ]

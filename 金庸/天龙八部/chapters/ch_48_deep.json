@@ -1,0 +1,349 @@
+{
+  "chapter": 48,
+  "title": "王孙落魄 怎生消得 杨枝玉露",
+  "characters_detail": [
+    {
+      "id": "char_duanyanqing",
+      "name": "段延庆",
+      "personality": {
+        "traits": ["凶残狠辣", "刚愎自用", "怨毒满腔", "渴望亲情", "腹语传音"],
+        "speech_style": "以腹语术说话，声音极尖锐难听，动怒时钢杖贯胸杀人",
+        "temperament": "阴鸷凶残"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_murongfu", "type": "ally", "intensity": 55, "bond_level": 3, "dynamic": "结为义父子，段延庆允诺传位于慕容复，实则互相算计"},
+        {"target": "char_nanhaieshen", "type": "family", "intensity": 40, "bond_level": 2, "dynamic": "因段誉之事一杖刺死南海鳄神，事后稍感悔意但一闪即泯"},
+        {"target": "char_daobaifeng", "type": "love", "intensity": 60, "bond_level": 3, "dynamic": "认出刀白凤就是当年天龙寺外舍身相救的白衣观音"},
+        {"target": "char_duanyu", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "从刀白凤处得知段誉乃自己亲生儿子，惊喜交集，兴奋得钢杖坠地"},
+        {"target": "char_duanzhengchun", "type": "enemy", "intensity": 80, "bond_level": 4, "dynamic": "擒住段正淳，逼其禅位，但段正淳宁死不屈"}
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_murongfu",
+      "name": "慕容复",
+      "personality": {
+        "traits": ["心狠手辣", "野心炽盛", "不择手段", "虚伪矫饰", "冷酷无情"],
+        "speech_style": "表面彬彬有礼、谦恭有加，实则处处算计，翻脸无情",
+        "temperament": "阴狠虚伪"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyanqing", "type": "ally", "intensity": 50, "bond_level": 2, "dynamic": "拜段延庆为义父，以兴复大燕为由借兵，实则互不信任"},
+        {"target": "char_baobutang", "type": "family", "intensity": 30, "bond_level": 1, "dynamic": "因包不同直言反对投靠大理，一掌将其击杀"},
+        {"target": "char_dengbaichuan", "type": "family", "intensity": 25, "bond_level": 1, "dynamic": "邓百川、公冶乾、风波恶因包不同之死而离去，慕容复众叛亲离"},
+        {"target": "char_duanyu", "type": "enemy", "intensity": 90, "bond_level": 4, "dynamic": "欲杀段誉以绝后患，却被段誉以凌波微步戏耍，最终不敌而逃"},
+        {"target": "char_wangfuren", "type": "family", "intensity": 35, "bond_level": 2, "dynamic": "以悲酥清风迷倒舅母，连杀阮星竹、秦红棉、甘宝宝、王夫人四女"}
+      ],
+      "known_skills": ["skill_douzhuanshenxing"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "personality": {
+        "traits": ["至情至性", "聪颖过人", "仁厚善良", "内心矛盾", "身世迷离"],
+        "speech_style": "言语真挚，激动时略显语无伦次，得知真相后困惑痛苦",
+        "temperament": "仁厚真挚"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_wangyuyan", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "听闻王语嫣乃自己同父异母之妹，痛不欲生，走火入魔"},
+        {"target": "char_duanzhengchun", "type": "family", "intensity": 85, "bond_level": 5, "dynamic": "眼见父亲自刎，悲痛欲绝"},
+        {"target": "char_daobaifeng", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "母亲临终告知真正身世，得知段延庆才是生父，震惊不已"},
+        {"target": "char_duanyanqing", "type": "family", "intensity": -30, "bond_level": 1, "dynamic": "无法接受段延庆为生父，愤怒拒绝相认，但终因母命不杀"},
+        {"target": "char_murongfu", "type": "enemy", "intensity": 85, "bond_level": 4, "dynamic": "激战中扯下蒙眼黑布，以六脉神剑击败慕容复，将其逐走"},
+        {"target": "char_nanhaieshen", "type": "master_student", "intensity": 40, "bond_level": 2, "dynamic": "南海鳄神为救自己被段延庆一杖刺死，段誉深感伤痛"}
+      ],
+      "known_skills": ["skill_liumaizhijian", "skill_lingboweibu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun",
+      "name": "段正淳",
+      "personality": {
+        "traits": ["风流多情", "重情重义", "视死如归", "温柔体贴", "至死不渝"],
+        "speech_style": "对情人温柔缠绵，对敌人淡然从容，临终之言真情流露",
+        "temperament": "风流倜傥"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wangfuren", "type": "love", "intensity": 75, "bond_level": 4, "dynamic": "爱恨交织，先假意痛骂以保其性命，后吐露真心"},
+        {"target": "char_ruanxingzhu", "type": "love", "intensity": 80, "bond_level": 4, "dynamic": "因自己不肯屈服而眼睁睁见阮星竹被慕容复杀害"},
+        {"target": "char_qinhongmian", "type": "love", "intensity": 75, "bond_level": 4, "dynamic": "秦红棉亦为保护他而死"},
+        {"target": "char_ganbaobao", "type": "love", "intensity": 70, "bond_level": 3, "dynamic": "甘宝宝为保其清白被慕容复杀害"},
+        {"target": "char_daobaifeng", "type": "love", "intensity": 85, "bond_level": 5, "dynamic": "临终向夫人道歉，坦言爱她与爱其他女子皆是真诚"},
+        {"target": "char_duanyu", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "视段誉为亲生儿子，不知其真实身世"}
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_daobaifeng",
+      "name": "刀白凤",
+      "personality": {
+        "traits": ["刚烈决绝", "忍辱负重", "爱恨鲜明", "深藏秘密", "最终释然"],
+        "speech_style": "平素刚强，临终向儿子吐露秘密时轻柔而坚定",
+        "temperament": "刚烈深沉"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyanqing", "type": "love", "intensity": 20, "bond_level": 1, "dynamic": "当年因报复丈夫拈花惹草，以一念之差与段延庆春风一度，产下段誉"},
+        {"target": "char_duanzhengchun", "type": "love", "intensity": 85, "bond_level": 5, "dynamic": "深爱丈夫，但不满其用情不专，临终前坦白真相"},
+        {"target": "char_duanyu", "type": "family", "intensity": 95, "bond_level": 5, "dynamic": "临死前告知段誉真正身世，嘱咐他不可杀段延庆"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen",
+      "name": "南海鳄神",
+      "personality": {
+        "traits": ["凶悍鲁莽", "言出必行", "尊师重道", "头脑简单", "忠义可嘉"],
+        "speech_style": "粗声粗气，对段誉称师父，对段延庆称老大",
+        "temperament": "凶蛮率直"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "master_student", "intensity": 50, "bond_level": 3, "dynamic": "坚持认段誉为师，不顾段延庆阻止，上前救师被一杖刺死"},
+        {"target": "char_duanyanqing", "type": "family", "intensity": 30, "bond_level": 1, "dynamic": "不听段延庆号令，被其一杖贯胸而死，死不瞑目"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangfuren",
+      "name": "王夫人",
+      "personality": {
+        "traits": ["爱憎极端", "痴情易妒", "性情暴躁", "最终痴心不改"],
+        "speech_style": "平日泼辣蛮横，面对段正淳时流露出少女般的柔肠",
+        "temperament": "刚烈痴情"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanzhengchun", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "虽被段正淳假意痛骂，仍死心塌地，最终撞上慕容复长剑而死"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baobutang",
+      "name": "包不同",
+      "personality": {
+        "traits": ["忠义刚正", "心直口快", "宁折不弯", "视死如归"],
+        "speech_style": "口头禅'非也非也'，直言敢谏，不畏生死",
+        "temperament": "刚直不阿"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_murongfu", "type": "family", "intensity": 40, "bond_level": 2, "dynamic": "直言劝阻慕容复拜段延庆为义父，被慕容复一掌打死"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yunzhonghe",
+      "name": "云中鹤",
+      "personality": {
+        "traits": ["轻功卓绝", "为人阴狠", "幸灾乐祸"],
+        "speech_style": "言语不多",
+        "temperament": "阴狠"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_nanhaieshen", "type": "companion", "intensity": -20, "bond_level": 1, "dynamic": "与南海鳄神不睦，见其被杀反而暗喜"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_beisuqingfeng",
+      "name": "悲酥清风",
+      "techniques": [
+        {"id": "tech_beisu_mihun", "name": "悲酥清风迷药", "type": "attack", "description": "无色无味的迷药，闻之即筋骨酸软、内力难提，慕容复改良后少了一种刺目流泪的气息，令人更难防备"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "麻痹", "condition": "吸入", "description": "内息提不上来，四肢无力，运功逼毒适得其反"},
+        {"type": "解毒", "condition": "闻解药恶臭", "description": "以瓷瓶中所贮恶臭药末投于鼻端，嗅之立解"}
+      ],
+      "combat_style": "暗中下毒，防不胜防"
+    },
+    {
+      "id": "skill_liumaizhijian",
+      "name": "六脉神剑",
+      "techniques": [
+        {"id": "tech_shangyang_jian", "name": "商阳剑", "type": "attack", "description": "段誉以右手食指使出，凌厉无比，剑气纵横"},
+        {"id": "tech_shaoze_jian", "name": "少泽剑", "type": "attack", "description": "段誉以小指发出剑气，威力惊人"},
+        {"id": "tech_liumai_weili", "name": "六脉全发", "type": "attack", "description": "得鸠摩智内功后六脉神剑威力大增，数招间便令慕容复长剑脱手"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "得鸠摩智全部内力后，六脉神剑威力大幅提升"},
+        {"level": 3, "unlock": "双眼蒙布亦可听声辨位发出剑气"}
+      ],
+      "effects": [
+        {"type": "伤害", "condition": "正面击中", "description": "无形剑气透体而入，可斩断兵刃"},
+        {"type": "压制", "condition": "持续攻击", "description": "剑气连绵不绝，令对手左支右绌"}
+      ],
+      "combat_style": "以指代剑，无形无相，远程攻击"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_48_duanyanqing_zhanshen",
+      "name": "段延庆以一敌五力压慕容复等人",
+      "participants": ["char_duanyanqing", "char_murongfu", "char_dengbaichuan", "char_gongyeqian", "char_baobutang", "char_fengboe"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "段延庆以钢杖迎战慕容复、邓百川、公冶乾、包不同、风波恶五人围攻，游刃有余，震碎风波恶单刀，逼慕容复认输",
+      "chapter": 48
+    },
+    {
+      "id": "evt_48_murongfu_lianmeng",
+      "name": "慕容复与段延庆结盟",
+      "participants": ["char_murongfu", "char_duanyanqing"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "慕容复以助段延庆夺位为名结盟，提出借兵一万兴复大燕，段延庆表面允诺实则打算事后杀人灭口",
+      "chapter": 48
+    },
+    {
+      "id": "evt_48_nanhaieshen_beisha",
+      "name": "南海鳄神救师被段延庆刺死",
+      "participants": ["char_nanhaieshen", "char_duanyanqing", "char_duanyu"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "南海鳄神坚持认段誉为师，出手解其捆缚，段延庆为防段誉脱困一杖贯胸，南海鳄神死不瞑目",
+      "chapter": 48
+    },
+    {
+      "id": "evt_48_daobaifeng_shensi",
+      "name": "刀白凤揭示段誉身世",
+      "participants": ["char_daobaifeng", "char_duanyanqing", "char_duanyu"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "刀白凤吟出'天龙寺外，菩提树下，化学邋遢，观音长发'十六字，暗示当年在天龙寺外与段延庆有私，段誉实乃段延庆之子",
+      "chapter": 48
+    },
+    {
+      "id": "evt_48_murongfu_shasifu",
+      "name": "慕容复用悲酥清风迷倒众人连杀四女",
+      "participants": ["char_murongfu", "char_duanyanqing", "char_wangfuren", "char_ruanxingzhu", "char_qinhongmian", "char_ganbaobao"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "慕容复以悲酥清风迷倒段延庆及众人，连杀阮星竹、秦红棉、甘宝宝三女，王夫人撞剑而死，段正淳心痛欲绝",
+      "chapter": 48
+    },
+    {
+      "id": "evt_48_baobutang_zhisi",
+      "name": "包不同劝谏被杀邓公风波恶离去",
+      "participants": ["char_baobutang", "char_murongfu", "char_dengbaichuan", "char_gongyeqian", "char_fengboe"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "包不同直言劝慕容复不可拜段延庆为义父，被慕容复一掌击毙；邓百川、公冶乾、风波恶三人心寒，抬尸离去",
+      "chapter": 48
+    },
+    {
+      "id": "evt_48_duanzhengchun_zijin",
+      "name": "段正淳自刎殉情",
+      "participants": ["char_duanzhengchun", "char_daobaifeng", "char_duanyu"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "段正淳见四位情人皆死于非命，心灰意冷引剑自刎；刀白凤拔剑欲陪葬，刺中腹部，临终向段誉交代身世之谜后死去",
+      "chapter": 48
+    },
+    {
+      "id": "evt_48_duanyu_jienan",
+      "name": "段誉挣脱束缚击退慕容复",
+      "participants": ["char_duanyu", "char_murongfu"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "段誉为救母亲走火入魔自愈，扯断牛筋，以凌波微步避剑、六脉神剑反击，慕容复不敌败逃",
+      "chapter": 48
+    },
+    {
+      "id": "evt_48_duanyanqing_renzi",
+      "name": "段延庆认子后飘然而去",
+      "participants": ["char_duanyanqing", "char_duanyu"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "段延庆以传音入密之术与段誉相认，段誉拒绝接受；段延庆不忍杀子，解开其穴道，大笑飘然而去",
+      "chapter": 48
+    },
+    {
+      "id": "evt_48_duanzhengming_chanyu",
+      "name": "保定帝传位于段誉",
+      "participants": ["char_duanzhengming", "char_duanyu"],
+      "location": "loc_dali_palace",
+      "description": "段正明闻听段正淳死讯，见段誉坦诚身世，遂将帝位传于段誉，自己已剃度出家，叮嘱爱民纳谏二事",
+      "chapter": 48
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_murongfu",
+      "listener": "char_duanyanqing",
+      "text": "段先生，多谢你手下留情。你我本来并无仇怨，自今以后，姑苏慕容氏对你甘拜下风。",
+      "tone": "假意恭敬",
+      "chapter": 48
+    },
+    {
+      "speaker": "char_duanyanqing",
+      "listener": "char_murongfu",
+      "text": "你要做大理国皇帝，非得我相助不可。",
+      "tone": "阴冷",
+      "chapter": 48
+    },
+    {
+      "speaker": "char_murongfu",
+      "listener": "char_duanyanqing",
+      "text": "慕容复若得恢复祖宗基业，世世代代为大理屏藩，决不敢忘了陛下的大恩大德。",
+      "tone": "激动哽咽",
+      "chapter": 48
+    },
+    {
+      "speaker": "char_nanhaieshen",
+      "listener": "char_duanyanqing",
+      "text": "不成！老大，今日岳老三可不听你的话了，我非救师父不可。",
+      "tone": "坚决",
+      "chapter": 48
+    },
+    {
+      "speaker": "char_duanyanqing",
+      "listener": "char_daobaifeng",
+      "text": "天龙寺外，菩提树下，化学邋遢，观音长发！",
+      "tone": "震惊颤抖",
+      "chapter": 48
+    },
+    {
+      "speaker": "char_wangfuren",
+      "listener": "char_duanzhengchun",
+      "text": "都是你这没良心的薄幸汉子，害了我不算，还害了你的亲生女儿。语嫣……语嫣……她……她可是你的亲骨肉。",
+      "tone": "泣不成声",
+      "chapter": 48
+    },
+    {
+      "speaker": "char_baobutang",
+      "listener": "char_murongfu",
+      "text": "公子爷要是拜这个人不像人、鬼不像鬼的家伙做义父，就算将来做得成皇帝，也不光采。",
+      "tone": "慷慨激昂",
+      "chapter": 48
+    },
+    {
+      "speaker": "char_duanzhengchun",
+      "listener": "char_wangfuren",
+      "text": "阿萝，我这般骂你，是为了想救你性命。今日重会，我真是说不出的欢喜。我怎会恨你？我对你的心意，永如当年送你一朵曼陀花之日。",
+      "tone": "温柔悲痛",
+      "chapter": 48
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_duanyanqing",
+      "text": "不认，不认！我不相信，我不相信！",
+      "tone": "激动抗拒",
+      "chapter": 48
+    },
+    {
+      "speaker": "char_duanzhengming",
+      "listener": "char_duanyu",
+      "text": "身世之事，从今再也休提。你父、你母待你如何？……这就是了，你若想报答亲恩，便当保全他们的令名。",
+      "tone": "慈祥庄严",
+      "chapter": 48
+    }
+  ]
+}

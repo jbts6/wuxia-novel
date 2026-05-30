@@ -1,0 +1,317 @@
+{
+  "chapter": 46,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["至情至性", "痴恋已得回报后心境舒畅", "机智应答", "善良宽厚", "不失幽默"],
+        "speech_style": "在三问作答时话语质朴深情，以'枯井烂泥'作答尽显赤子之心，平日温文尔雅不失机智",
+        "temperament": "温厚深情"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_wangyuyan", "type": "love", "intensity": 98, "bond_level": 6, "dynamic": "井底互诉衷肠后两情相悦，不再牵挂表哥之事，心境豁然开朗"},
+        {"target": "char_murongfu", "type": "love_rival", "intensity": 30, "bond_level": 1, "dynamic": "已不再视其为情敌，王语嫣已选择自己"},
+        {"target": "char_muwanqing", "type": "family", "intensity": 70, "bond_level": 4, "dynamic": "暗中关照以兄长相待"},
+        {"target": "char_xuzhu", "type": "sworn_brother", "intensity": 85, "bond_level": 5, "dynamic": "得虚竹暗中传纸条提醒他回宫"},
+        {"target": "char_ciaofeng", "type": "sworn_brother", "intensity": 90, "bond_level": 5, "dynamic": "与大哥同赴银川，得大哥照料"},
+        {"target": "char_zongzan", "type": "love_rival", "intensity": 40, "bond_level": 1, "dynamic": "宗赞王子骄横跋扈令段誉心中不喜"}
+      ],
+      "known_skills": ["skill_beiming", "skill_lingboweibu", "skill_liumaizhijian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangyuyan",
+      "personality": {
+        "traits": ["娴静聪慧", "死心后豁然开朗", "温柔依人", "决绝果断"],
+        "speech_style": "对段誉温柔体贴，言语间情意绵绵，与表哥相关之事不再多提",
+        "temperament": "温柔婉约"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_duanyu", "type": "love", "intensity": 95, "bond_level": 6, "dynamic": "与段誉两情相悦，枯井后心境大变再无遗憾"},
+        {"target": "char_murongfu", "type": "complicated", "intensity": 40, "bond_level": 2, "dynamic": "已不怨恨表哥，只觉缘分已尽"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_murongfu",
+      "personality": {
+        "traits": ["野心不泯", "城府深沉", "面如冠玉心如铁石", "为复国不择手段"],
+        "speech_style": "在对答时语出惊人，答'快乐'时冷然说'没有'，尽显其偏执人格",
+        "temperament": "冷酷高傲"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyanqing", "type": "complicated", "intensity": 60, "bond_level": 3, "dynamic": "与段延庆有所密谋，但西夏一行仍以自己求亲为主"},
+        {"target": "char_zongzan", "type": "love_rival", "intensity": 50, "bond_level": 2, "dynamic": "宗赞王子是西夏求亲的强劲对手"},
+        {"target": "char_duanyu", "type": "love_rival", "intensity": 40, "bond_level": 2, "dynamic": "段誉突然出现令他意外，井底之事被揭穿后无地自容"}
+      ],
+      "known_skills": ["skill_douzhuanyixing"],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuzhu",
+      "personality": {
+        "traits": ["忠厚老实", "不善言辞", "天真纯朴", "思念梦姑", "运气极好"],
+        "speech_style": "三问作答时结结巴巴，只说了'黑暗冰窖'四字却打动了公主的心",
+        "temperament": "淳朴憨厚"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_menggu", "type": "love", "intensity": 100, "bond_level": 6, "dynamic": "三问作答'黑暗冰窖'令银川公主认出他就是梦郎，二人终得重逢"},
+        {"target": "char_duanyu", "type": "sworn_brother", "intensity": 85, "bond_level": 5, "dynamic": "偷偷给段誉递纸条提醒他回灵州"},
+        {"target": "char_meizhu", "type": "family", "intensity": 70, "bond_level": 4, "dynamic": "梅兰竹菊四剑始终跟随照料"}
+      ],
+      "known_skills": ["skill_tianshanliuyang", "skill_tianshanzhemei"],
+      "related_skills": []
+    },
+    {
+      "id": "char_menggu",
+      "personality": {
+        "traits": ["深情温婉", "聪明细腻", "大胆追爱", "温柔贤淑", "高贵典雅"],
+        "speech_style": "侍女代白，但被认出后亲自出面与虚竹相见，言语温柔关切",
+        "temperament": "温婉深情"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "love", "intensity": 100, "bond_level": 6, "dynamic": "虚竹作答'黑暗冰窖'后立即确认他就是梦郎，派人将他请入内宫相认"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_muwanqing",
+      "personality": {
+        "traits": ["刚烈果断", "急智应变", "忠心护兄", "胆大心细"],
+        "speech_style": "以段誉身份应对时声音模仿得惟妙惟肖，干脆利落",
+        "temperament": "刚烈果敢"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyu", "type": "family", "intensity": 75, "bond_level": 4, "dynamic": "女扮男装冒充段誉替他稳住局面"},
+        {"target": "char_baoming", "type": "companion", "intensity": 60, "bond_level": 3, "dynamic": "危急时刻报信说有人要杀段正淳"}
+      ],
+      "known_skills": ["skill_dujian", "skill_xiuluodao"],
+      "related_skills": []
+    },
+    {
+      "id": "char_baoming",
+      "personality": {
+        "traits": ["忠厚老实", "粗豪直爽", "不善言辞"],
+        "speech_style": "直来直去，说话简短",
+        "temperament": "粗豪直率"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "family", "intensity": 70, "bond_level": 3, "dynamic": "赶到银川报信，情急之下不及细说"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zongzan",
+      "personality": {
+        "traits": ["骄横跋扈", "狂妄自大", "粗鲁无礼", "占有欲强"],
+        "speech_style": "语气张扬跋扈，自吹自擂，一副天下英雄舍我其谁的气派",
+        "temperament": "骄横狂妄"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "love_rival", "intensity": 60, "bond_level": 2, "dynamic": "以吐蕃王子身份与段誉争抢驸马"},
+        {"target": "char_murongfu", "type": "love_rival", "intensity": 50, "bond_level": 2, "dynamic": "同样视慕容复为求亲对手"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bao_button",
+      "personality": {
+        "traits": ["耿直豪爽", "反应敏捷", "心直口快", "不畏权贵"],
+        "speech_style": "三问作答时'在瓷器店里打碎碗'的回答出人意料又充满哲理，语速快而响亮",
+        "temperament": "直爽豪迈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_murongfu", "type": "family", "intensity": 80, "bond_level": 4, "dynamic": "以慕容家臣身份护主求亲，但心中不齿慕容复所作所为"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_meizhu",
+      "personality": {
+        "traits": ["活泼机灵", "四人心意相通", "忠于灵鹫宫", "调皮爱闹"],
+        "speech_style": "四人同步言动，语速轻快，俏皮活泼",
+        "temperament": "活泼俏皮"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "family", "intensity": 80, "bond_level": 4, "dynamic": "尊虚竹为主人，照料出入起居"},
+        {"target": "char_yinchuan_gongzhu", "type": "new_master", "intensity": 60, "bond_level": 3, "dynamic": "被赐给银川公主随侍"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_beiming",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "此章段誉未用武功"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_46_muwanqing_jiamao",
+      "name": "木婉清冒充段誉赴宴",
+      "participants": ["char_muwanqing", "char_batianshi", "char_zhudanchen", "char_duanyu"],
+      "location": "loc_xi_xia",
+      "description": "段誉失踪不至，巴天石让木婉清女扮男装冒充段誉入宫赴宴。木婉清模仿段誉声音惟妙惟肖，一时无人识破",
+      "chapter": 46
+    },
+    {
+      "id": "evt_46_sanwenda",
+      "name": "青凤阁三问答婿",
+      "participants": ["char_bao_button", "char_duanyu", "char_murongfu", "char_zongzan", "char_xuzhu", "char_menggu"],
+      "location": "loc_xi_xia",
+      "description": "银川公主设三问招亲：一生中最快乐的地方、最爱之人、最爱之人的相貌。包不同答'瓷器店'，段誉答'枯井烂泥中'，宗赞答'洞房'，慕容复答'没有'，虚竹答'黑暗冰窖'触动公主心怀",
+      "chapter": 46
+    },
+    {
+      "id": "evt_46_xuzhu_rentong_menggu",
+      "name": "虚竹与梦姑相认",
+      "participants": ["char_xuzhu", "char_menggu"],
+      "location": "loc_xi_xia",
+      "description": "银川公主听到'黑暗冰窖'四字立时认出虚竹就是冰窖中的梦郎，派宫女将虚竹请入内宫相见。公主称已禀明父王，非虚竹不嫁",
+      "chapter": 46
+    },
+    {
+      "id": "evt_46_duanyu_shoutiao",
+      "name": "段誉接虚竹求援纸条",
+      "participants": ["char_duanyu", "char_xuzhu", "char_wangyuyan"],
+      "location": "loc_xi_xia",
+      "description": "虚竹托人在公主面前写过字的纸条递给段誉，段誉看后笑意盎然。此时梅兰竹菊四剑从屏风后走出，已被公主赐给虚竹",
+      "chapter": 46
+    },
+    {
+      "id": "evt_46_duanzhengchun_yuwei",
+      "name": "段正淳遭遇杀身之祸",
+      "participants": ["char_muwanqing", "char_baoming", "char_duanyu"],
+      "location": "loc_xi_xia",
+      "description": "巴天石带来紧急消息：有人要杀段正淳。包不同证实真有此事。段誉大惊失色，立即与萧峰虚竹商议对策",
+      "chapter": 46
+    },
+    {
+      "id": "evt_46_zhongren_likai",
+      "name": "众人离开灵州赶赴救援",
+      "participants": ["char_ciaofeng", "char_duanyu", "char_wangyuyan", "char_xuzhu"],
+      "location": "loc_xi_xia",
+      "description": "萧峰与西域少林僧人会面后，众人离开灵州，段誉拉着王语嫣的手同行，两情相悦再无隔阂",
+      "chapter": 46
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_bao_button",
+      "listener": null,
+      "text": "我最快乐的地方，是在一个瓷器店里。",
+      "tone": "响亮爽快",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_bao_button",
+      "listener": null,
+      "text": "我最爱之人，是瓷器店的老板。",
+      "tone": "大声回答",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_bao_button",
+      "listener": null,
+      "text": "他最奇的相貌，是鼻子很大，而且是个酒糟鼻子。",
+      "tone": "理直气壮",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": null,
+      "text": "我最快乐的地方，是在一口枯井的烂泥之中。",
+      "tone": "温柔深情",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": null,
+      "text": "她……她是我这一生最爱的女子。",
+      "tone": "温柔坚定",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": null,
+      "text": "她容貌极美，我怎也看不厌。",
+      "tone": "深情自然",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_zongzan",
+      "listener": null,
+      "text": "我最快乐的地方，是在洞房花烛夜，和新娘子一同在喜堂里。",
+      "tone": "张扬自信",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_murongfu",
+      "listener": null,
+      "text": "我没有。",
+      "tone": "冷然",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_murongfu",
+      "listener": null,
+      "text": "我没有最爱的人。",
+      "tone": "冷然",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_xuzhu",
+      "listener": null,
+      "text": "黑暗的冰窖。",
+      "tone": "结结巴巴",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_xuzhu",
+      "listener": null,
+      "text": "她……她是我这一生最爱的女子。",
+      "tone": "结结巴巴",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_xuzhu",
+      "listener": null,
+      "text": "她容貌极美，我怎也看不厌。",
+      "tone": "结结巴巴",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_meizhu",
+      "listener": "char_xuzhu",
+      "text": "主人，我们四姊妹已给公主赐了给银川公主，今后随侍公主。",
+      "tone": "活泼",
+      "chapter": 46
+    },
+    {
+      "speaker": "char_menggu",
+      "listener": "char_xuzhu",
+      "text": "梦郎，我终于将你盼来了！",
+      "tone": "惊喜",
+      "chapter": 46
+    }
+  ]
+}

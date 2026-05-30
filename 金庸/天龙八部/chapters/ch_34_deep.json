@@ -1,0 +1,331 @@
+{
+  "chapter": 34,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "personality": {
+        "traits": ["痴情至深", "舍命护花", "内力深厚但不会用", "书生意气", "心地仁慈"],
+        "speech_style": "言语痴迷，对王语嫣说的话句句入心，对旁人则心不在焉，常引经据典吟诗抒怀",
+        "temperament": "痴情温文"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_wangyuyan", "type": "love", "intensity": 98, "bond_level": 5, "dynamic": "舍命冲入重围救王语嫣于刀下，背负她杀出战阵，知她心念慕容复仍甘愿赴死"},
+        {"target": "char_furongfu", "type": "companion", "intensity": 30, "bond_level": 2, "dynamic": "因王语嫣之故冒险救慕容复，对其既羡又妒"},
+        {"target": "char_wulaoda", "type": "companion", "intensity": 20, "bond_level": 1, "dynamic": "以凌波微步抓住乌老大罩门天宗清冷渊二穴，意在为王语嫣出气"}
+      ],
+      "known_skills": ["skill_liumaizhijian", "skill_lingboweibu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "personality": {
+        "traits": ["绝顶聪明", "武学百科全书", "一心系于表哥", "羞怯温柔"],
+        "speech_style": "说话温婉有礼，论武学时自信从容，对段誉的痴情感激却不逾矩",
+        "temperament": "温婉聪慧"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_furongfu", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "心念表哥安危，不顾羞赧要段誉背负自己前去相救"},
+        {"target": "char_duanyu", "type": "companion", "intensity": 25, "bond_level": 1, "dynamic": "感激段誉救命之恩，但刻意保持距离，称自己是姑苏慕容家的人"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_furongfu",
+      "name": "慕容复",
+      "personality": {
+        "traits": ["雄才大略", "珍视名声", "善于笼络", "权衡利弊", "决断果敢"],
+        "speech_style": "言语得体，对洞主岛主客气有礼，不亢不卑，见机转舵答应合作",
+        "temperament": "沉稳果敢"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wulaoda", "type": "companion", "intensity": 50, "bond_level": 3, "dynamic": "决定助三十六洞七十二岛对抗天山童姥，以图借力为己所用"},
+        {"target": "char_bupingdaoren", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "以礼相待但并不信任，心存防范"},
+        {"target": "char_tianshantonglao", "type": "enemy", "intensity": 0, "bond_level": 0, "dynamic": "尚未见面，但从众人畏惧之色得知其厉害，心生戒惧"}
+      ],
+      "known_skills": ["skill_douzhuanxingyi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_bupingdaoren",
+      "name": "不平道人",
+      "personality": {
+        "traits": ["高深莫测", "笑里藏刀", "见识广博", "善于挑拨"],
+        "speech_style": "言语温和却暗含机锋，笑声中步步紧逼，令乌老大不得不屈服",
+        "temperament": "深沉机变"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wulaoda", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "以揭露秘密要挟乌老大坦诚相告，实则以帮忙为名另有图谋"},
+        {"target": "char_furongfu", "type": "companion", "intensity": 30, "bond_level": 2, "dynamic": "极力拉拢慕容复入伙共同对付天山童姥"},
+        {"target": "char_duanyu", "type": "companion", "intensity": 10, "bond_level": 1, "dynamic": "被段誉北冥神功吸住内力又忽被松开，惊疑不定"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wulaoda",
+      "name": "乌老大",
+      "personality": {
+        "traits": ["隐忍多年", "果断干练", "深知进退", "善于统率", "心有余悸"],
+        "speech_style": "言语诚恳，对天山童姥之事讳莫如深，被迫无奈才吐露实情",
+        "temperament": "沉稳隐忍"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tianshantonglao", "type": "enemy", "intensity": 95, "bond_level": 5, "dynamic": "被生死符控制凌辱数十年，终于抓住童姥患病之机谋划反叛"},
+        {"target": "char_furongfu", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "起初不愿慕容复参与机密，后不得已请其加盟"},
+        {"target": "char_bupingdaoren", "type": "companion", "intensity": 35, "bond_level": 2, "dynamic": "被不平道人一语道破反叛意图，惊惧之下只得合作"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_andongzhu",
+      "name": "安洞主",
+      "personality": {
+        "traits": ["武功高强", "轻功绝顶", "口吃不善言辞", "心思缜密"],
+        "speech_style": "口吃得厉害，说话断断续续，因此不喜与人交往",
+        "temperament": "内敛沉静"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_tianshantonglao", "type": "enemy", "intensity": 90, "bond_level": 4, "dynamic": "众人之中轻功最佳，被推举冒险潜回缥缈峰探听童姥病情"},
+        {"target": "char_wulaoda", "type": "companion", "intensity": 70, "bond_level": 4, "dynamic": "同被童姥压制多年的患难之交"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sangtugong",
+      "name": "桑土公",
+      "personality": {
+        "traits": ["矮胖笨拙", "精于土遁", "机关毒术高超", "迟钝木讷"],
+        "speech_style": "说话嘶哑，反应迟钝，被骂了也浑如不觉",
+        "temperament": "迟钝木讷"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_furongfu", "type": "enemy", "intensity": 50, "bond_level": 2, "dynamic": "以牛毛针射伤公冶乾风波恶，被慕容复擒拿后老实交出解药"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tianshantonglao",
+      "name": "天山童姥",
+      "personality": {
+        "traits": ["神秘莫测", "手段残酷", "武功深不可测", "杀人只用一招"],
+        "speech_style": "无人见过其面更无人听过其声",
+        "temperament": "神秘冷酷"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wulaoda", "type": "enemy", "intensity": 95, "bond_level": 5, "dynamic": "以生死符和残酷刑罚统治三十六洞七十二岛数十年"},
+        {"target": "char_andongzhu", "type": "enemy", "intensity": 90, "bond_level": 4, "dynamic": "童姥重病被安洞主探知，引发众人反叛计划"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_liumaizhijian",
+      "techniques": [
+        {"id": "tech_liumai_shanyang", "name": "六脉神剑少阳剑", "type": "attack", "description": "真气自手指射出，斩断头陀右臂，戒刀连手跌落"},
+        {"id": "tech_liumai_zhenci", "name": "六脉神剑刺刀", "type": "attack", "description": "一招少阳剑刺中断臂所握戒刀，刀身一震从断手中脱落"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "时灵时不灵，靠情急之下自然激发"},
+        {"level": 2, "unlock": "为救王语嫣可稳定使出"}
+      ],
+      "effects": [
+        {"type": "斩切", "condition": "真气充沛时", "description": "无形剑气可断人肢体、击落兵刃"}
+      ],
+      "combat_style": "以指为剑，远距离剑气攻击，步法配合"
+    },
+    {
+      "id": "skill_douzhuanxingyi",
+      "techniques": [
+        {"id": "tech_douzhuan_zhuanxiang", "name": "斗转星移转向", "type": "defense", "description": "拨动金带带头拍的一声，金带与银带缠在一起；以刀柄撞晕两人而不伤性命"},
+        {"id": "tech_douzhuan_fanzhuo", "name": "以刀还刀", "type": "defense", "description": "王语嫣指点使金灯万盏转披襟当风，令矮子双锤自击震断双臂"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "借力", "condition": "敌人攻来", "description": "将敌人攻击劲力转移，使对手自相伤害"}
+      ],
+      "combat_style": "借力打力，四两拨千斤"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "techniques": [
+        {"id": "tech_lingbo_chongzhen", "name": "凌波微步冲锋", "type": "defense", "description": "背负王语嫣在数百高手中左斜右歪弯弯曲曲冲将出去，众人兵刃拳脚纷纷落空"},
+        {"id": "tech_lingbo_xiaodiao", "name": "凌波微步突袭", "type": "attack", "description": "一抬足已到乌老大身后，伸手按其后心天宗穴和清冷渊"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "闪避", "condition": "被围攻", "description": "步法精妙绝伦，在围攻中如入无人之境"}
+      ],
+      "combat_style": "步法奇幻，以闪避为主，配合王语嫣指点攻击对手罩门"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_34_duanyu_liumai_jiuyuan",
+      "name": "段誉以六脉神剑救王语嫣",
+      "participants": ["char_duanyu", "char_wangyuyan"],
+      "location": "loc_shangu",
+      "description": "头陀举戒刀要杀王语嫣，段誉情急之下使出六脉神剑斩断头陀右臂，负起王语嫣以凌波微步冲出重围",
+      "chapter": 34
+    },
+    {
+      "id": "evt_34_duanyu_beiwang_chanzhan",
+      "name": "段誉背负王语嫣再入战阵",
+      "participants": ["char_duanyu", "char_wangyuyan", "char_furongfu"],
+      "location": "loc_shangu",
+      "description": "王语嫣心系表哥，不顾羞赧让段誉再背负自己同救慕容复。段誉在王语嫣指点下连破数敌，被毒蛇咬伤但因莽牯朱蛤之体反克毒蛇",
+      "chapter": 34
+    },
+    {
+      "id": "evt_34_bupingdaoren_changjing",
+      "name": "不平道人现身调停",
+      "participants": ["char_bupingdaoren", "char_furongfu", "char_wulaoda", "char_sangtugong"],
+      "location": "loc_shangu",
+      "description": "不平道人身在树顶凭虚临风而降，以轻功折服众人。桑土公取出解药治伤，不平道人一语道破三十六洞七十二岛反抗天山童姥的计划",
+      "chapter": 34
+    },
+    {
+      "id": "evt_34_wulaoda_toulu_jimi",
+      "name": "乌老大吐露反叛机密",
+      "participants": ["char_wulaoda", "char_bupingdaoren", "char_furongfu"],
+      "location": "loc_shangu",
+      "description": "不平道人当众说出天山童姥之名，乌老大色变，被迫承认反叛意图。远处剑神和芙蓉仙子呼应，乌老大无奈请不平道人和慕容复共商大计",
+      "chapter": 34
+    },
+    {
+      "id": "evt_34_furongfu_daying_jiaru",
+      "name": "慕容复答应加入同盟",
+      "participants": ["char_furongfu", "char_wulaoda"],
+      "location": "loc_shangu",
+      "description": "原本想抽身的慕容复转念一想，三十六洞七十二岛高手众多可收为己用，于是慷慨答应相助，言道祸福与共患难相助，众人大喜过望",
+      "chapter": 34
+    },
+    {
+      "id": "evt_34_duanyu_beiming_xili",
+      "name": "段誉误吸不平道人和乌老大内力",
+      "participants": ["char_duanyu", "char_bupingdaoren", "char_wulaoda"],
+      "location": "loc_shangu",
+      "description": "不平道人和乌老大各扣段誉手掌想让他吃苦头，反而北冥神功发动被吸走内力，乌老大惊叫化功大法，慕容复用内力震开二人",
+      "chapter": 34
+    },
+    {
+      "id": "evt_34_wulaoda_shu_tongnu",
+      "name": "乌老大详述天山童姥的暴政",
+      "participants": ["char_wulaoda"],
+      "location": "loc_shangu",
+      "description": "乌老大讲述众洞主岛主在童姥治下所受苦难：每年挨骂方算过关，蟒鞭抽打背脊伤痕纵横，附骨钉钉入体内多年不取，琵琶骨穿铁链等惨状",
+      "chapter": 34
+    },
+    {
+      "id": "evt_34_andongzhu_tanting",
+      "name": "安洞主探知童姥病重",
+      "participants": ["char_wulaoda", "char_andongzhu"],
+      "location": "loc_tianshan",
+      "description": "发现缥缈峰下九翼道人身有两处剑伤，众人由此怀疑童姥有变。安洞主以轻功潜回峰上探得童姥身患重病出外采药，众人绝处逢生",
+      "chapter": 34
+    },
+    {
+      "id": "evt_34_wangyuyan_baishoufenxi",
+      "name": "王语嫣分析九翼道人死因",
+      "participants": ["char_wangyuyan", "char_wulaoda"],
+      "location": "loc_shangu",
+      "description": "乌老大考问慕容复九翼道人两处剑伤原因，王语嫣推测出右腿风市伏兔穴和后心悬枢穴被斩，与事实分毫不差，乌老大惊服不已",
+      "chapter": 34
+    },
+    {
+      "id": "evt_34_duanyu_shangxin_shuci",
+      "name": "段誉因王语嫣一句伤心",
+      "participants": ["char_duanyu", "char_wangyuyan"],
+      "location": "loc_shangu",
+      "description": "王语嫣说自己是姑苏慕容家的人，段誉眼前一黑身子摇晃；王语嫣宁让邓百川扶也不叫段誉扶，段誉知她刻意疏远，心灰意冷",
+      "chapter": 34
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_wangyuyan",
+      "text": "为了王姑娘，你要我投降一千次、一万次也成。",
+      "tone": "急切",
+      "chapter": 34
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_wangyuyan",
+      "text": "王姑娘，只要你叫我去冒险，万死不辞。",
+      "tone": "诚挚",
+      "chapter": 34
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "null",
+      "text": "天长地久有时尽，此恨绵绵无绝期。",
+      "tone": "痴叹",
+      "chapter": 34
+    },
+    {
+      "speaker": "char_wangyuyan",
+      "listener": "char_furongfu",
+      "text": "表哥，此人武功破绽，是在肩后天宗穴和肘后清冷渊，你出手攻他这两处，便能克制他。",
+      "tone": "低声",
+      "chapter": 34
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_wulaoda",
+      "text": "在下不会武功，这全凭王姑娘的指点。",
+      "tone": "坦然",
+      "chapter": 34
+    },
+    {
+      "speaker": "char_bupingdaoren",
+      "listener": "char_wulaoda",
+      "text": "乌先生，三十六洞洞主、七十二岛岛主在此聚会，是为了天山那个人的事么？",
+      "tone": "意有所指",
+      "chapter": 34
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_wangyuyan",
+      "text": "给毒蛇咬死，也是一样的。王姑娘，日后你对你孙子说……",
+      "tone": "自暴自弃",
+      "chapter": 34
+    },
+    {
+      "speaker": "char_wulaoda",
+      "listener": "null",
+      "text": "我们这些人甘心受天山童姥的欺压凌辱，她说什么也不敢说半个不字。老实说，我们都是她的奴隶。",
+      "tone": "悲愤",
+      "chapter": 34
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "null",
+      "text": "月出皎兮，佼人僚兮；舒缭纠兮，劳心悄兮！",
+      "tone": "痴迷",
+      "chapter": 34
+    },
+    {
+      "speaker": "char_wulaoda",
+      "listener": "char_furongfu",
+      "text": "我们这些人这些年来所过的日子，只怕在阿鼻地狱中受苦的鬼魂也不过如此。",
+      "tone": "痛楚",
+      "chapter": 34
+    }
+  ]
+}
