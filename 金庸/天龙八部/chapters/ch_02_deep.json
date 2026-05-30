@@ -3,91 +3,266 @@
   "characters_detail": [
     {
       "id": "char_duanyu",
+      "name": "段誉",
       "personality": {
-        "traits": ["书生气", "痴情", "善良", "儒雅", "狂放不羁", "心软"],
-        "speech_style": "出口成章，喜引经据典，言语幽默风趣",
-        "temperament": "温和浪漫，遇事多思考少动武，但关键时刻有骨气"
+        "traits": [
+          "书生气重",
+          "痴情浪漫",
+          "敬爱若狂",
+          "聪慧过人",
+          "重诺守信",
+          "心地纯良"
+        ],
+        "speech_style": "对玉像痴语喃喃，谦恭有礼如对真人，内心独白丰富，引经据典自解心结",
+        "temperament": "温文痴情"
       },
       "archetype": "scholar",
       "relationships": [
-        {"target": "char_zhongling", "type": "friend", "intensity": 40, "bond_level": 2, "dynamic": "滴水之恩涌泉相报，牵挂她的安危"},
-        {"target": "char_zhongfuren", "type": "complicated", "intensity": 20, "bond_level": 1, "dynamic": "初次见面，彬彬有礼，发现与自己父亲有旧"},
-        {"target": "char_zhongwanchou", "type": "complicated", "intensity": 10, "bond_level": 1, "dynamic": "被疑为奸夫，以坦荡应对，反生怜悯"},
-        {"target": "char_yuxiang", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "对玉像一见倾心，由爱生敬由敬成痴，甘愿拜服"}
+        {
+          "target": "char_zhongfuren",
+          "type": "family",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "受托带黄金钿盒去大理，受其热忱款待"
+        },
+        {
+          "target": "char_zhongwanchou",
+          "type": "neutral",
+          "intensity": 25,
+          "bond_level": 1,
+          "dynamic": "钟万仇因他姓段而充满敌意，段誉莫名其妙"
+        },
+        {
+          "target": "char_yuxiang",
+          "type": "love",
+          "intensity": 100,
+          "bond_level": 5,
+          "dynamic": "对玉像一见倾心，磕首千遍，痴迷颠倒，奉若神明"
+        }
       ],
-      "known_skills": [],
-      "related_skills": ["skill_beiming", "skill_lingboweibu"]
+      "known_skills": [
+        "skill_beiming",
+        "skill_lingboweibu"
+      ],
+      "related_skills": []
     },
     {
       "id": "char_ganuanghao",
+      "name": "干光豪",
       "personality": {
-        "traits": ["背师叛门", "狠毒", "胆小", "色迷"],
-        "speech_style": "油嘴滑舌",
-        "temperament": "自私自利"
+        "traits": [
+          "背师叛门",
+          "贪淫好色",
+          "心狠手辣",
+          "自作聪明"
+        ],
+        "speech_style": "对葛师妹甜言蜜语，提及师门则语气阴冷",
+        "temperament": "轻浮阴狠"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_geguangpei", "type": "love", "intensity": 60, "bond_level": 3, "dynamic": "私奔恋人，已结为夫妇"}
+        {
+          "target": "char_geguangpei",
+          "type": "love",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "与西宗女弟子葛光佩私奔，相约终身厮守"
+        },
+        {
+          "target": "char_duanyu",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 2,
+          "dynamic": "在溪边私会被段誉偷听，追杀段誉灭口"
+        }
       ],
-      "known_skills": ["skill_wuliangjianfa"],
+      "known_skills": [
+        "skill_wuliangjianfa"
+      ],
       "related_skills": []
     },
     {
       "id": "char_geguangpei",
+      "name": "葛光佩",
       "personality": {
-        "traits": ["胆小", "有心计", "狠毒"],
-        "speech_style": "谨慎而多疑",
-        "temperament": "阴柔"
+        "traits": [
+          "背师叛门",
+          "胆小多疑",
+          "心狠手辣",
+          "颇有姿色"
+        ],
+        "speech_style": "语音发颤，对干光豪时而温柔时而警惕",
+        "temperament": "狐疑狠辣"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_ganuanghao", "type": "love", "intensity": 60, "bond_level": 3, "dynamic": "私奔恋人，已结为夫妇"}
+        {
+          "target": "char_ganuanghao",
+          "type": "love",
+          "intensity": 65,
+          "bond_level": 4,
+          "dynamic": "与干光豪私奔，心中害怕却愿共赴患难"
+        }
       ],
-      "known_skills": ["skill_wuliangjianfa"],
-      "related_skills": []
-    },
-    {
-      "id": "char_zhongling",
-      "personality": {
-        "traits": ["天真", "活泼", "善良"],
-        "speech_style": "清脆直率",
-        "temperament": "阳光开朗"
-      },
-      "archetype": "warrior",
-      "relationships": [
-        {"target": "char_duanyu", "type": "friend", "intensity": 50, "bond_level": 3, "dynamic": "信任段誉，托他求救"}
+      "known_skills": [
+        "skill_wuliangjianfa"
       ],
-      "known_skills": [],
       "related_skills": []
     },
     {
       "id": "char_zhongfuren",
+      "name": "甘宝宝",
       "personality": {
-        "traits": ["温柔", "刚烈", "深情", "有心计"],
-        "speech_style": "温婉之中偶有狠辣",
-        "temperament": "外柔内刚"
+        "traits": [
+          "温柔贞静",
+          "心思细腻",
+          "情深义重",
+          "看似柔弱却有主见"
+        ],
+        "speech_style": "言语温和，提及旧事语气感伤，对丈夫钟万仇柔声安抚",
+        "temperament": "温柔坚韧"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_zhongwanchou", "type": "complicated", "intensity": 50, "bond_level": 3, "dynamic": "夫妻情深，但心中另有牵挂之人"},
-        {"target": "char_duanyu", "type": "complicated", "intensity": 30, "bond_level": 2, "dynamic": "因其父段正淳而另眼相看，暗中托付"},
-        {"target": "char_duanzhengchun", "type": "complicated", "intensity": 70, "bond_level": 4, "dynamic": "旧识旧情，设法托段誉传信"}
+        {
+          "target": "char_duanyu",
+          "type": "companion",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "得知段誉是来求救后热情款待，托其带金钿盒去大理"
+        },
+        {
+          "target": "char_zhongwanchou",
+          "type": "love",
+          "intensity": 60,
+          "bond_level": 4,
+          "dynamic": "夫妻情深，但钟万仇因段正淳旧事而多疑善妒"
+        },
+        {
+          "target": "char_duanzhengchun",
+          "type": "love",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "旧日情缘，往事深埋心底，不愿多提"
+        }
       ],
       "known_skills": [],
       "related_skills": []
     },
     {
       "id": "char_zhongwanchou",
+      "name": "钟万仇",
       "personality": {
-        "traits": ["多疑", "善妒", "暴躁", "深情", "自卑"],
-        "speech_style": "粗声粗气，喜怒形于色",
-        "temperament": "烈火般刚烈，但妻子面前却温柔"
+        "traits": [
+          "多疑善妒",
+          "性烈如火",
+          "深爱妻子",
+          "心胸狭窄",
+          "冲动暴躁"
+        ],
+        "speech_style": "粗声大气，动辄大怒，对姓段之人充满仇恨",
+        "temperament": "暴躁易怒"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duanyu", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "因得知其姓段而暴怒，视其为情敌之子"},
-        {"target": "char_zhongfuren", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "深爱妻子却因自卑而常疑心"},
-        {"target": "char_duanzhengchun", "type": "enemy", "intensity": 100, "bond_level": 1, "dynamic": "恨之入骨，但不敢正面为敌"}
+        {
+          "target": "char_zhongfuren",
+          "type": "love",
+          "intensity": 85,
+          "bond_level": 5,
+          "dynamic": "深爱妻子但极怕她与旧情人段正淳旧情复燃"
+        },
+        {
+          "target": "char_duanyu",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 2,
+          "dynamic": "一听说段誉姓段便勃然大怒，立时充满敌意"
+        },
+        {
+          "target": "char_yueliaosan",
+          "type": "neutral",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "对四大恶人有所顾忌，容其入谷"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yueliaosan",
+      "name": "岳老三",
+      "personality": {
+        "traits": [
+          "凶悍暴躁",
+          "自视甚高",
+          "蛮横无理",
+          "出手杀人",
+          "在意排行称呼"
+        ],
+        "speech_style": "粗声暴喝，自称'岳老二'，不允许别人叫错他的排行",
+        "temperament": "凶蛮自负"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_zhongwanchou",
+          "type": "companion",
+          "intensity": 20,
+          "bond_level": 1,
+          "dynamic": "受钟万仇邀请入谷，举手投足间打死进喜儿"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_laifuer",
+      "name": "来福儿",
+      "personality": {
+        "traits": [
+          "恭谨有礼",
+          "忠于主人",
+          "沉稳可靠"
+        ],
+        "speech_style": "恭敬得体",
+        "temperament": "恭顺稳重"
+      },
+      "archetype": "merchant",
+      "relationships": [
+        {
+          "target": "char_zhongfuren",
+          "type": "family",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "钟府家人，奉命引段誉出谷借马"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jinxier",
+      "name": "进喜儿",
+      "personality": {
+        "traits": [
+          "忠仆",
+          "无辜丧命",
+          "老实本分"
+        ],
+        "speech_style": "未及开口便遭毒手",
+        "temperament": "本分朴实"
+      },
+      "archetype": "merchant",
+      "relationships": [
+        {
+          "target": "char_yueliaosan",
+          "type": "enemy",
+          "intensity": 60,
+          "bond_level": 1,
+          "dynamic": "被岳老三打死，横死万劫谷"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -96,78 +271,278 @@
   "skills_detail": [
     {
       "id": "skill_beiming",
+      "name": "北冥神功",
       "techniques": [
-        {"id": "tech_shaoshang_qu", "name": "少商取内力", "type": "attack", "description": "以拇指少商穴引他人内力入己身"},
-        {"id": "tech_handaiyin", "name": "手太阴肺经行功法", "type": "buff", "description": "逆练手太阴肺经，自少商至云门"}
+        {
+          "id": "tech_beiming_shoushe",
+          "name": "手太阴肺经吸纳",
+          "type": "special",
+          "description": "自少商穴而至云门穴，反其道而行之，拇指与人相接即可引彼之内力入己身"
+        },
+        {
+          "id": "tech_beiming_zhulu",
+          "name": "诸穴贮蓄",
+          "type": "special",
+          "description": "引来的内力贮于云门等诸穴，以积蓄内力为第一要义"
+        },
+        {
+          "id": "tech_beiming_fanbi",
+          "name": "反噬防范",
+          "type": "defense",
+          "description": "若敌之内力胜于己，则海水倒灌而入江河，凶险莫甚，需谨慎使用"
+        }
       ],
       "progression": [
-        {"level": 1, "unlock": "手太阴肺经第一课，可引他人内力"}
+        {
+          "level": 1,
+          "unlock": "习得手太阴肺经吸纳法，可从拇指少商穴引他人内力"
+        }
       ],
       "effects": [
-        {"type": "transfer", "condition": "拇指与对方相接", "description": "引他人内力为己有"},
-        {"type": "danger", "condition": "对方内力强于己", "description": "海水倒灌而入江河，凶险莫甚"}
+        {
+          "type": "吸纳",
+          "condition": "拇指与对方身体相接",
+          "description": "彼之内力即入我身，贮于云门等诸穴"
+        },
+        {
+          "type": "风险",
+          "condition": "对方内力高于自己",
+          "description": "内力倒灌，凶险莫甚"
+        }
       ],
-      "combat_style": "以蓄内力为根本，借力打力，后发制人"
+      "combat_style": "以逸待劳，借力打力，引他人内力为己有"
     },
     {
       "id": "skill_lingboweibu",
+      "name": "凌波微步",
       "techniques": [
-        {"id": "tech_liushisigua_step", "name": "六十四卦步法", "type": "defense", "description": "以易经六十四卦方位为基础的步法，用于闪避逃遁"}
+        {
+          "id": "tech_lingbo_liushisigua",
+          "name": "六十四卦步法",
+          "type": "defense",
+          "description": "按易经六十四卦方位行走，足印密密麻麻，以绿线贯串，繁复无比"
+        },
+        {
+          "id": "tech_lingbo_baoshen",
+          "name": "保身步法",
+          "type": "defense",
+          "description": "猝遇强敌时以此保身，可脱身逃走"
+        }
       ],
-      "progression": [],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "习得基本步法定位，可依易经方位行走"
+        }
+      ],
       "effects": [
-        {"type": "evasion", "condition": "面对强敌时施展", "description": "以此保身，再积内力"}
+        {
+          "type": "闪避",
+          "condition": "遭遇强敌时行走",
+          "description": "步法精妙，可于战斗中保全自身"
+        },
+        {
+          "type": "增益",
+          "condition": "步法行走",
+          "description": "同时可积蓄内力"
+        }
       ],
-      "combat_style": "以闪避为主，脱身为上"
+      "combat_style": "以巧取胜，步法精妙，逃遁第一"
+    },
+    {
+      "id": "skill_wuliangjianfa",
+      "name": "无量剑法",
+      "techniques": [
+        {
+          "id": "tech_wuliang_putong",
+          "name": "普通剑招",
+          "type": "attack",
+          "description": "无量剑派东宗西宗所传剑法"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "干光豪与葛光佩私奔所携无量剑法，追杀段誉时施展基础剑招"
+        }
+      ],
+      "effects": [
+        {
+          "type": "攻击",
+          "condition": "出剑直刺",
+          "description": "无量剑派所传剑法，招式中规中矩"
+        }
+      ],
+      "combat_style": "刚猛迅捷"
     }
   ],
   "events": [
     {
-      "id": "evt_er_lovebirds",
-      "name": "干光豪与葛光佩私奔",
-      "participants": ["char_ganuanghao", "char_geguangpei"],
+      "id": "evt_02_touting_sibei",
+      "name": "段誉偷听干光豪葛光佩私奔",
+      "participants": [
+        "char_duanyu",
+        "char_ganuanghao",
+        "char_geguangpei"
+      ],
       "location": "loc_wuliangshan",
-      "description": "干光豪与葛光佩趁神农帮来袭之际私奔出逃，在溪边倾吐爱意",
+      "description": "段誉在溪边喝水时，听到干光豪与葛光佩私奔对话，二人盼望师门尽遭神农帮毒手，段誉忍不住嗤笑暴露行踪",
       "chapter": 2
     },
     {
-      "id": "evt_er_fall_into_valley",
-      "name": "段誉坠入深谷",
-      "participants": ["char_duanyu"],
+      "id": "evt_02_duanyu_zhuya",
+      "name": "段誉被追杀坠崖",
+      "participants": [
+        "char_duanyu",
+        "char_ganuanghao",
+        "char_geguangpei"
+      ],
       "location": "loc_wuliangshan",
-      "description": "段誉为躲避干光豪追杀，失足坠入无量山深谷，幸得古松救命",
+      "description": "干光豪发现段誉后持剑追杀，段誉慌不择路逃到无量剑禁地悬崖边，一脚踏空坠入深谷",
       "chapter": 2
     },
     {
-      "id": "evt_er_discover_jade_statue",
-      "name": "发现玉像与武功秘笈",
-      "participants": ["char_duanyu"],
+      "id": "evt_02_gusong_jiuyuan",
+      "name": "古松救命段誉坠谷底",
+      "participants": [
+        "char_duanyu"
+      ],
+      "location": "loc_wuliangshan",
+      "description": "段誉下坠途中撞到崖边古松，古松枝干断折消去下坠之力，段誉沿崖缝攀爬终于到达谷底——一个瀑布注入的清澈大湖之畔",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_wuliangyubi_jie",
+      "name": "段誉悟出无量玉壁真相",
+      "participants": [
+        "char_duanyu"
+      ],
+      "location": "loc_wuliangyubi",
+      "description": "段誉见对面石壁平整如镜，联想到干光豪所说的玉壁剑仙之谜，悟出剑仙影子其实是月光将湖对面的人影映上玉壁，并非仙人舞剑",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_caise_jianying",
+      "name": "段誉发现彩色剑影",
+      "participants": [
+        "char_duanyu"
+      ],
       "location": "loc_gudi",
-      "description": "段誉在谷底发现石室中的玉像，磕首千遍后获得北冥神功和凌波微步帛卷",
+      "description": "月光西沉时，段誉见自己刻的'段'字下有彩色剑影，抬头发现峭壁洞孔中悬有一柄镶宝石的宝剑，月光透过宝石映出绚丽剑影",
       "chapter": 2
     },
     {
-      "id": "evt_er_escape_valley",
-      "name": "段誉逃出谷底",
-      "participants": ["char_duanyu"],
+      "id": "evt_02_tuishi_faxian",
+      "name": "段誉推转巨石发现洞穴入口",
+      "participants": [
+        "char_duanyu"
+      ],
+      "location": "loc_gudi",
+      "description": "段誉发现彩色剑影的剑尖指向一块大岩石，经推转发现岩石如门般转动，露出一个三尺高的洞穴",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_shuishi_shishi",
+      "name": "段誉进入水底石室",
+      "participants": [
+        "char_duanyu"
+      ],
+      "location": "loc_gudi",
+      "description": "段誉穿过黑暗通道，推开铜门进入圆形石室，透过水晶窗可见鱼虾游动，方知自己已走到剑湖湖底",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_yuxiang_ketou",
+      "name": "段誉遇白玉雕像磕首千遍",
+      "participants": [
+        "char_duanyu"
+      ],
+      "location": "loc_gudi",
+      "description": "段誉发现一座与真人一般大小的宫装美女白玉雕像，为玉像美色所迷，跪在蒲团上恭恭敬敬磕了一千个头，磕破蒲团发现内藏绸包",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_beiming_huode",
+      "name": "段誉获得北冥神功与凌波微步帛卷",
+      "participants": [
+        "char_duanyu"
+      ],
+      "location": "loc_gudi",
+      "description": "段誉打开绸包中得到帛卷，上载逍遥派北冥神功（以积蓄内力为要，可引他人内力为己用）和凌波微步（以易经六十四卦为基的绝妙步法）",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_langhuan_kongku",
+      "name": "段誉发现琅擐福地已空",
+      "participants": [
+        "char_duanyu"
+      ],
+      "location": "loc_langhuanfudi",
+      "description": "段誉进入琅擐福地，只见一排排空书架，贴有昆仑派、少林派等标签，但书籍已被人搬空，大理段氏的签条下注缺一阳指法和六脉神剑",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_chukou_lancang",
+      "name": "段誉出洞到澜沧江",
+      "participants": [
+        "char_duanyu"
+      ],
       "location": "loc_lancangjiang",
-      "description": "段誉从石室暗道爬出，来到澜沧江畔，经善人渡铁索桥前往万劫谷",
+      "description": "段誉沿石级上行数百级，从仅可容身的洞穴爬出，外面怒涛汹涌已是澜沧江畔，他爬上山岩将地形记在心中",
       "chapter": 2
     },
     {
-      "id": "evt_er_wanjiedu",
-      "name": "段誉造访万劫谷",
-      "participants": ["char_duanyu", "char_zhongfuren", "char_zhongwanchou"],
-      "location": "loc_wanjiedu",
-      "description": "段誉前往万劫谷报讯，见到钟夫人甘宝宝和钟万仇，引发钟万仇的妒恨",
+      "id": "evt_02_shanrendu",
+      "name": "段誉过善人渡铁索桥",
+      "participants": [
+        "char_duanyu"
+      ],
+      "location": "loc_shanrendu",
+      "description": "段誉行到善人渡铁索桥，战战兢兢扶着铁索走过滔滔江面，终于到达彼岸",
       "chapter": 2
     },
     {
-      "id": "evt_er_zhongfuren_entrust",
-      "name": "钟夫人托付黄金钿盒",
-      "participants": ["char_duanyu", "char_zhongfuren", "char_zhongwanchou"],
+      "id": "evt_02_wanjiedu_rukou",
+      "name": "段誉找到万劫谷入口",
+      "participants": [
+        "char_duanyu"
+      ],
       "location": "loc_wanjiedu",
-      "description": "钟万仇受伤后，钟夫人将黄金钿盒交给段誉，托他带回大理给自己父亲",
+      "description": "段誉依钟灵指点，在大松林中找到藏在树洞中的万劫谷入口，穿过地下石级到达谷中，见一大松上写着九个血红大字'姓段者入此谷杀无赦'",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_zhongfuren_xiangjian",
+      "name": "段誉会见钟夫人甘宝宝",
+      "participants": [
+        "char_duanyu",
+        "char_zhongfuren",
+        "char_zhongwanchou"
+      ],
+      "location": "loc_wanjiedu",
+      "description": "段誉经过重重关卡见到钟夫人，刚说出钟灵被困事，钟万仇闯入，一听说段誉姓段便勃然大怒，钟夫人柔声劝解",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_yueliaosan_sharen",
+      "name": "岳老三打死进喜儿",
+      "participants": [
+        "char_yueliaosan",
+        "char_jinxier"
+      ],
+      "location": "loc_wanjiedu",
+      "description": "四大恶人之一的岳老三（南海鳄神）随后来到万劫谷，举手投足间打死仆人进喜儿，钟万仇对四大恶人也颇顾忌",
+      "chapter": 2
+    },
+    {
+      "id": "evt_02_zhongfuren_weituo",
+      "name": "钟夫人托段誉带金钿盒去大理",
+      "participants": [
+        "char_duanyu",
+        "char_zhongfuren"
+      ],
+      "location": "loc_wanjiedu",
+      "description": "钟夫人趁钟万仇被岳老三缠住，将黄金钿盒交给段誉，让他带去大理交给自己父亲，说盒内存有生辰八字，可救钟灵性命",
       "chapter": 2
     }
   ],
@@ -175,43 +550,78 @@
     {
       "speaker": "char_ganuanghao",
       "listener": "char_geguangpei",
-      "text": "葛师妹，五年前剑湖宫比剑，我败在你剑下之后……",
-      "tone": "柔情",
+      "text": "我一见你面，心里就发下了重誓，说什么也要跟你终身厮守。幸好今日碰上了千载难逢的良机。",
+      "tone": "深情",
       "chapter": 2
     },
     {
       "speaker": "char_geguangpei",
       "listener": "char_ganuanghao",
-      "text": "别再说你败在我剑下。当时你假装内力不济，故意让我，别人虽然瞧不出来，难道我自己也不知道？",
-      "tone": "娇嗔",
+      "text": "咱们这番背师私逃，武林中是再也不能立足了，该当逃得越远越好，总得找个十分隐僻的所在。",
+      "tone": "害怕",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_ganuanghao",
+      "listener": "char_geguangpei",
+      "text": "前面是本派禁地，任何外人不得擅入。你再向前数丈，干犯禁忌，可叫你死葬身之地。",
+      "tone": "威吓",
       "chapter": 2
     },
     {
       "speaker": "char_duanyu",
-      "listener": null,
+      "listener": "self",
+      "text": "松树老爷子，亏得你今日大显神通，救了我段誉一命。当年你的祖先秦始皇遮雨，秦始皇封他为'五大夫'。救人性命，又怎是遮蔽风雨之可比？我要封你为'六大夫'，不，'七大夫'、'八大夫'。",
+      "tone": "诙谐自嘲",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "yuxiang",
       "text": "神仙姊姊，小生段誉今日得睹芳容，死而无憾。姊姊在此离世独居，不也太寂寞了么？",
       "tone": "痴迷",
       "chapter": 2
     },
     {
       "speaker": "char_duanyu",
-      "listener": null,
+      "listener": "yuxiang",
       "text": "神仙姊姊，你若能活过来跟我说一句话，我便为你死一千遍，一万遍，也如身登极乐，欢喜无限。",
       "tone": "痴情",
       "chapter": 2
     },
     {
       "speaker": "char_duanyu",
+      "listener": "yuxiang",
+      "text": "神仙姊姊，你吩咐我朝午晚三次练功，段誉不敢有违。今后我对人加倍客气，别人不会来打我，我自然也不会去吸他的内力。你这套'凌波微步'我更要用心练熟，眼见不对，立刻溜之大吉。",
+      "tone": "虔诚",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_zhongfuren",
       "listener": "char_zhongwanchou",
-      "text": "我姓段，你要杀就快快动手。不清不楚的胡言乱语什么？",
-      "tone": "愤怒",
+      "text": "我在客中相谈，你喝什么醋？你怎地不问情由，一上来就得罪人。我这一生，总叫你给弄得惨了。",
+      "tone": "幽怨",
       "chapter": 2
     },
     {
       "speaker": "char_zhongwanchou",
       "listener": "char_zhongfuren",
-      "text": "阿宝，你………终于要离我而去了？",
-      "tone": "悲苦",
+      "text": "姓段的就没有一个好人！你……你怎地如此没出息，见了姓段的青年，就……就……",
+      "tone": "妒怒",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_zhongfuren",
+      "listener": "char_duanyu",
+      "text": "你将这只盒子带去大理，交给你的父亲。你一到家，就给你父亲瞧这只金盒，请他务须照着盒中之物办理。",
+      "tone": "郑重",
+      "chapter": 2
+    },
+    {
+      "speaker": "char_yueliaosan",
+      "listener": "char_zhongwanchou",
+      "text": "你叫我岳老三便了，可不许叫我岳老二。老二字是不能让的，倘若你叫我岳老二，我定要跟你打一架。",
+      "tone": "蛮横",
       "chapter": 2
     }
   ]
