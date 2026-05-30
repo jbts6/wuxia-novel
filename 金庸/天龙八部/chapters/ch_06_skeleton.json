@@ -1,252 +1,322 @@
 {
   "chapter": 6,
-  "title": "谁家子弟谁家院",
   "characters": [
     {
       "id": "char_duanyu",
       "name": "段誉",
-      "alias": ["誉儿"],
+      "alias": [],
       "identity": "大理镇南王世子",
-      "faction": "faction_dali_duanshi",
+      "faction": "faction_dali",
       "role": "protagonist",
-      "one_line": "大理镇南王之子，心地善良不会武功，误入无量山学会凌波微步",
-      "personality": "迂腐书呆子气，善良仁厚，贪恋美色却又有礼有节",
-      "known_skills": ["skill_lingbo_weibu"],
-      "related_skills": ["skill_yiyang_zhi", "skill_beiming_shengong"]
+      "one_line": "携木婉清被朱丹臣寻获，途中遭遇云中鹤追杀，逃至玉虚观得母亲相救，回大理后以凌波微步戏斗南海鳄神并吸其内力",
+      "personality": "书生气质，善良执着，对木婉清深情不移",
+      "known_skills": ["skill_beiming", "skill_lingboweibu"],
+      "related_skills": ["skill_yiyangzhi_6"],
+      "rag_refs": [3,5,9,17,25,31,37,41,49,53,59,75,77,79,87,95,97,101,105,113,119,123,125,133,143,147,157,165,167,171,177,185,191,193,195,205,235,237,241,251,253,255,267,275,279,283,293,297,305,315,323,327,331,347,349,369,385,391,441,443,449,509,515,547,553,555,559,565,569,573,583,587,593,595,609,617,625,629,633,635,639,649,653,659,661,671,673,681,701,719,727,737,741,743,749,761,843,869,877,881,893,897,905,913,921,929,933,941,949,955,961,967,971,979,987,991,993,997,1005,1009,1015,1017,1021,1035,1041,1049,1057,1069,1073,1075,1077,1079,1083,1085,1087,1089,1091,1097,1101,1103,1105,1117,1125,1131,1133,1135,1137,1141,1143,1149,1151,1153,1167,1171,1173,1175,1179,1181,1183,1187,1189,1193,1195,1199,1201,1203,1213,1217,1229,1237,1245,1253,1257]
     },
     {
-      "id": "char_muwanqing",
+      "id": "char_muwanqing_5",
       "name": "木婉清",
       "alias": [],
-      "identity": "秦红棉之女，段誉心上人",
+      "identity": "段誉挚爱，山野女子",
       "faction": null,
       "role": "companion",
-      "one_line": "黑衣蒙面少女，性格刚烈，用毒箭伤人，对段誉情深意重",
-      "personality": "外冷内热，敢爱敢恨，妒心颇重",
-      "known_skills": [],
-      "related_skills": []
+      "one_line": "与段誉双双被寻获，共同逃亡遇险，初见段母玉虚散人并吃醋，后入大理皇宫",
+      "personality": "刚烈倔强，不通世故，对段誉痴情至深",
+      "known_skills": ["skill_dujian"],
+      "related_skills": [],
+      "rag_refs": [3,7,13,21,45,57,65,77,83,89,95,99,101,105,109,117,123,129,139,147,151,153,157,165,167,187,195,203,205,209,213,237,239,243,253,255,265,271,275,281,283,287,293,303,309,315,317,319,327,331,335,337,343,357,361,373,379,387,395,421,427,431,457,465,477,495,509,529,539,553,555,565,569,577,593,603,605,623,633,681,685,697,701,705,709,713,743,747,751,753,759,763,769,773,777,779,785,787,789,791,809,813,821,831,835,843,847,853,857,863,869,927,1017,1109,1113,1205,1225,1249]
     },
     {
       "id": "char_zhudanchen",
       "name": "朱丹臣",
       "alias": [],
-      "identity": "大理四大卫护之一",
-      "faction": "faction_dali_duanshi",
-      "role": "companion",
-      "one_line": "文武双全的大理护卫，善用判官笔，随身携带诗集",
-      "personality": "儒雅风趣，忠心耿耿",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_zuomu",
-      "name": "左子穆",
-      "alias": [],
-      "identity": "无量剑东宗掌门",
-      "faction": "faction_wuliang_jian",
+      "identity": "大理四大护卫之四",
+      "faction": "faction_dali",
       "role": "npc",
-      "one_line": "无量剑东宗掌门，儿子被钟灵的闪电貂咬伤",
-      "personality": "拘谨守礼，身为一派宗师却常受气",
-      "known_skills": [],
-      "related_skills": []
+      "one_line": "奉命寻回段誉，以文采诗词劝诫，舍身阻挡云中鹤",
+      "personality": "文武全才，忠厚机智，以诗词含蓄劝主",
+      "known_skills": ["skill_panguanbi_6"],
+      "related_skills": [],
+      "rag_refs": [23,25,27,35,41,47,49,57,61,63,67,79,83,87,89,91,93,95,97,99,163,167,171,181,191,193,205,207,215,217,219,229,231,235,237,241,247,255,259,265,279,281,397,415,425,427,435,439,441,453,481,483,489,509,555,749,757,1027]
     },
     {
-      "id": "char_duanchun",
+      "id": "char_yunzhonghe_5",
+      "name": "云中鹤",
+      "alias": ["穷凶极恶"],
+      "identity": "四大恶人之四",
+      "faction": "faction_sidaeren",
+      "role": "villain",
+      "one_line": "在小店偶遇段誉一行后追杀，被朱丹臣所阻，至玉虚观不敌而退",
+      "personality": "轻功绝顶，好色凶残",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [203,209,217,219,221,225,229,231,233,235,239,241,243,261,263,279,281,303,311,317,321,337,399,403,411,413,417,419,423,425,427,431,443,457,869,991]
+    },
+    {
+      "id": "char_yuxusanren_6",
+      "name": "玉虚散人",
+      "alias": [],
+      "identity": "段誉之母，出家人",
+      "faction": null,
+      "role": "npc",
+      "one_line": "段正淳原配妻子，因故出家居于玉虚观，遇子归来后为御敌回到镇南王府",
+      "personality": "温婉中带刚烈，对丈夫有怨，深爱儿子",
+      "known_skills": ["skill_fuzhu_6"],
+      "related_skills": [],
+      "rag_refs": [397,419,423,425,435,439,441,447,455,459,461,469,477,481,493,499,503,509,513,519,521,525,531,537,539,543,553,555,591,621,637,643,647,653,657,659,665,677,723,735,741,869,963,1023,1093,1107,1161,1165]
+    },
+    {
+      "id": "char_duanzhengchun_6",
       "name": "段正淳",
-      "alias": ["镇南王"],
+      "alias": ["镇南王", "保国大将军"],
       "identity": "大理镇南王，段誉之父",
-      "faction": "faction_dali_duanshi",
-      "role": "companion",
-      "one_line": "大理镇南王，风流多情，武功不弱",
-      "personality": "风流倜傥，对旧情念念不忘",
-      "known_skills": [],
-      "related_skills": ["skill_yiyang_zhi"]
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "率队迎接妻子回府，以深厚内力暗助段誉制服南海鳄神",
+      "personality": "威猛王者之相，对妻子有心亏欠，对儿子宽严并济",
+      "known_skills": ["skill_yiyangzhi_6"],
+      "related_skills": [],
+      "rag_refs": [623,627,637,643,659,671,681,685,689,691,693,699,703,717,719,727,731,735,741,743,749,757,773,869,873,883,889,891,897,899,901,905,925,931,939,991,1017,1087,1089,1093,1117,1121,1125,1137,1153,1157,1165,1193,1197,1201,1233,1255,1261]
     },
     {
-      "id": "char_duanzhengming",
-      "name": "段正明",
-      "alias": ["保定帝"],
-      "identity": "大理皇帝",
-      "faction": "faction_dali_duanshi",
-      "role": "companion",
-      "one_line": "大理国皇帝，段誉伯父，武功高强为人慈和",
-      "personality": "仁慈宽厚，不喜拘礼，有帝王气度",
-      "known_skills": ["skill_yiyang_zhi"],
-      "related_skills": []
+      "id": "char_baodingdi_6",
+      "name": "保定帝",
+      "alias": ["段正明"],
+      "identity": "大理国皇帝",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "与皇后同至镇南王府见弟妇，对木婉清天真性格颇为喜爱",
+      "personality": "性情随和，不怒自威，对侄儿疼爱有加",
+      "known_skills": ["skill_yiyangzhi_6"],
+      "related_skills": [],
+      "rag_refs": [793,807,809,817,827,831,839,851,853,925,969,1017,1037,1093,1137,1145,1237,1241,1253,1255,1259]
     },
     {
-      "id": "char_gaoshengtai",
+      "id": "char_gaoshengtai_6",
       "name": "高升泰",
-      "alias": ["善阐侯"],
-      "identity": "大理善阐侯",
-      "faction": "faction_dali_duanshi",
-      "role": "companion",
-      "one_line": "大理善阐侯，武功不弱，四大卫护之首",
-      "personality": "沉稳干练",
+      "alias": ["善阐侯", "高侯爷"],
+      "identity": "大理国善阐侯",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "追击叶二娘时受伤，回大理后受镇南王以内力疗伤",
+      "personality": "忠勇沉稳",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [35,39,41,79,149,509,513,517,519,521,523,527,531,535,555,591,601,685,689,693,697,699,743,749,757,765,773,777,779,783,785,787,789,869,925,1023,1025,1037,1093,1255]
     },
     {
-      "id": "char_chuwanli",
+      "id": "char_nanhaieshen_5",
+      "name": "南海鳄神",
+      "alias": ["岳老三", "岳老二"],
+      "identity": "四大恶人之一",
+      "faction": "faction_sidaeren",
+      "role": "villain",
+      "one_line": "闯入镇南王府强收段誉为徒，被段誉以凌波微步戏耍，内力被吸受制，被迫拜师",
+      "personality": "暴躁凶悍，重诺守信，头脑简单，痴迷收徒",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [11,79,149,509,867,869,875,885,897,901,907,909,917,929,937,941,945,947,951,957,959,971,973,975,983,991,997,1001,1003,1005,1007,1009,1011,1021,1031,1037,1043,1045,1053,1057,1065,1073,1077,1081,1087,1089,1091,1097,1099,1103,1105,1111,1113,1129,1131,1133,1135,1139,1141,1149,1151,1169,1171,1175,1177,1181,1183,1189,1197,1199,1201,1207,1209,1211,1215,1217]
+    },
+    {
+      "id": "char_chuyuanli",
       "name": "褚万里",
       "alias": [],
-      "identity": "大理四大卫护之一",
-      "faction": "faction_dali_duanshi",
-      "role": "companion",
-      "one_line": "大理四大卫护之一",
-      "personality": "忠诚勇武",
+      "identity": "大理四大护卫之一",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "随高升泰一同前来，铁杆受损，奉命守护",
+      "personality": "豪迈忠勇",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [231,493,499,509,511,553,555,557,561,699,749,863,871,1027,1029,1039,1221]
     },
     {
       "id": "char_guducheng",
       "name": "古笃诚",
       "alias": [],
-      "identity": "大理四大卫护之一",
-      "faction": "faction_dali_duanshi",
-      "role": "companion",
-      "one_line": "大理四大卫护之一",
-      "personality": "忠诚勇武",
+      "identity": "大理四大护卫之二",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "随同保护段誉，身上带伤",
+      "personality": "粗豪勇猛",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [93,231,493,499,555,749,1027,1233]
     },
     {
       "id": "char_fusigui",
       "name": "傅思归",
       "alias": [],
-      "identity": "大理四大卫护之一",
-      "faction": "faction_dali_duanshi",
-      "role": "companion",
-      "one_line": "大理四大卫护之一",
-      "personality": "忠诚勇武",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_nanhai_e",
-      "name": "南海鳄神",
-      "alias": ["岳老三"],
-      "identity": "四大恶人之三，凶鳄",
-      "faction": "faction_sida_eren",
-      "role": "villain",
-      "one_line": "四大恶人中排行第三，性情凶残但有些憨直",
-      "personality": "凶狠鲁莽，说话算话，有些呆气",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_yeerniang",
-      "name": "叶二娘",
-      "alias": [],
-      "identity": "四大恶人之二，无恶不作",
-      "faction": "faction_sida_eren",
-      "role": "villain",
-      "one_line": "四大恶人中排行第二，专门偷抢婴儿",
-      "personality": "阴险狠毒",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_yunzhonghe",
-      "name": "云中鹤",
-      "alias": [],
-      "identity": "四大恶人之四，穷凶极恶",
-      "faction": "faction_sida_eren",
-      "role": "villain",
-      "one_line": "四大恶人中排行第四，轻功极高，好色之徒",
-      "personality": "好色贪婪，轻功了得",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_mawude",
-      "name": "马五德",
-      "alias": [],
-      "identity": "武林中人",
-      "faction": null,
+      "identity": "大理四大护卫之三",
+      "faction": "faction_dali",
       "role": "npc",
-      "one_line": "大理武林中人，段誉曾寄居其家中",
-      "personality": "世故圆滑",
+      "one_line": "脸受兵刃之伤，奉命回府报讯",
+      "personality": "勇猛刚烈",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [493,499,503,535,537,551,1027,1233]
+    },
+    {
+      "id": "char_huanghou_6",
+      "name": "皇后",
+      "alias": [],
+      "identity": "保定帝皇后",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "与保定帝同至镇南王府，赠玉镯予木婉清",
+      "personality": "温和慈祥",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [727,745,827,829,831,853,855,857,939,969,1017,1023,1033,1259,1261]
+    },
+    {
+      "id": "char_huo_6",
+      "name": "霍先生",
+      "alias": [],
+      "identity": "镇南王府管帐师爷手下",
+      "faction": "faction_dali",
+      "role": "npc",
+      "one_line": "被段誉拉来假充师父戏弄南海鳄神",
+      "personality": "畏缩胆小，嗜赌",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [963,967,1235]
     }
   ],
   "factions": [
     {
-      "id": "faction_dali_duanshi",
+      "id": "faction_dali",
       "name": "大理段氏",
       "type": "家族",
       "location": "loc_dali",
-      "sub_divisions": ["四大卫护"],
-      "one_line": "大理国王室家族，以一阳指和六脉神剑闻名天下"
+      "sub_divisions": [],
+      "one_line": "大理国皇族，一阳指神功传家，有四大护卫",
+      "rag_refs": [797,1159,1163,1195]
     },
     {
-      "id": "faction_sida_eren",
+      "id": "faction_sidaeren",
       "name": "四大恶人",
       "type": "帮派",
       "location": null,
       "sub_divisions": [],
-      "one_line": "江湖上臭名昭著的四大恶人团伙"
+      "one_line": "江湖四大恶人，恶贯满盈、无恶不作、凶神恶煞、穷凶极恶",
+      "rag_refs": [35,79,397,439,441,453,455,531]
     },
     {
-      "id": "faction_wuliang_jian",
-      "name": "无量剑",
+      "id": "faction_nanhaipai_6",
+      "name": "南海派",
       "type": "武林门派",
-      "location": "loc_wuliangshan",
-      "sub_divisions": ["东宗", "西宗"],
-      "one_line": "云南无量山上的剑派，分为东西两宗"
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "南海鳄神自称的门派",
+      "rag_refs": [1067,1091]
     }
   ],
   "locations": [
     {
-      "id": "loc_wuliangshan",
-      "name": "无量山",
-      "region": "云南大理",
-      "one_line": "大理境内的高山，无量剑派所在地，段誉在此学会凌波微步"
-    },
-    {
       "id": "loc_dali",
       "name": "大理",
       "region": "云南",
-      "one_line": "大理国都城，段氏王室所在地"
+      "one_line": "大理国都城",
+      "rag_refs": [35,189,191,249,429,439,531,545,555,569,585,623,701,703,705,711,793,795,797,805,811,819,991,1037,1159,1195]
     },
     {
-      "id": "loc_zhennanwangfu",
+      "id": "loc_yuxuguan_6",
+      "name": "玉虚观",
+      "region": "大理城外",
+      "one_line": "玉虚散人出家居所，段誉逃至此得母亲相救",
+      "rag_refs": [303,535,643]
+    },
+    {
+      "id": "loc_zhennanwangfu_6",
       "name": "镇南王府",
-      "region": "大理",
-      "one_line": "段正淳的府邸，段誉的家"
+      "region": "大理城内",
+      "one_line": "段正淳府邸，皇帝皇后亲临，南海鳄神闯入闹事",
+      "rag_refs": [717,727,731,757,873,991,1261]
+    },
+    {
+      "id": "loc_shengcigong_6",
+      "name": "圣慈宫",
+      "region": "大理城内",
+      "one_line": "大理皇宫的正殿门户",
+      "rag_refs": [713]
     }
   ],
   "skills": [
     {
-      "id": "skill_lingbo_weibu",
-      "name": "凌波微步",
-      "type": "轻功",
-      "faction": "",
-      "one_line": "按伏羲六十四卦方位排列的精妙步法，用于闪避敌人攻击"
-    },
-    {
-      "id": "skill_yiyang_zhi",
-      "name": "一阳指",
-      "type": "指法",
-      "faction": "faction_dali_duanshi",
-      "one_line": "大理段氏绝学，以一指之力点穴伤人，天下独一无二"
-    },
-    {
-      "id": "skill_beiming_shengong",
+      "id": "skill_beiming",
       "name": "北冥神功",
       "type": "内功",
       "faction": "",
-      "one_line": "段誉在山洞中所学内功，可吸收他人内力"
+      "one_line": "以膻中、神阙等任脉要穴吸取他人内力为己用",
+      "rag_refs": [1079]
+    },
+    {
+      "id": "skill_lingboweibu",
+      "name": "凌波微步",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "以易经六十四卦方位为基础的闪避步法，行走同时增长内力",
+      "rag_refs": [1057]
+    },
+    {
+      "id": "skill_yiyangzhi_6",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": "faction_dali",
+      "one_line": "大理段氏绝学，以食指输入内力，可疗伤克敌",
+      "rag_refs": [1195,1201]
+    },
+    {
+      "id": "skill_dujian",
+      "name": "毒箭",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "木婉清发射的黑色短箭，箭尖淬毒",
+      "rag_refs": [99,373,427,431]
+    },
+    {
+      "id": "skill_panguanbi_6",
+      "name": "判官笔法",
+      "type": "兵器",
+      "faction": "faction_dali",
+      "one_line": "朱丹臣使判官笔的点穴功夫",
+      "rag_refs": [227,229,259,415,425]
+    },
+    {
+      "id": "skill_fuzhu_6",
+      "name": "拂麈功",
+      "type": "兵器",
+      "faction": "",
+      "one_line": "玉虚散人以拂麈为兵刃，可卷夺对方兵器",
+      "rag_refs": [333,335,337,409,415,419,423,425]
     }
   ],
   "items": [
     {
-      "id": "item_wangchangling_ji",
+      "id": "item_gangzhua",
+      "name": "钢抓",
+      "type": "weapon",
+      "owner": "char_yunzhonghe_5",
+      "one_line": "云中鹤的奇门兵刃，形如人手，五指钢铸",
+      "rag_refs": [259,317,407,411,413,417,419,423,427,429,433,443]
+    },
+    {
+      "id": "item_fuzhu_6",
+      "name": "拂麈",
+      "type": "weapon",
+      "owner": "char_yuxusanren_6",
+      "one_line": "玉虚散人的兵器，麈尾可卷缠对方武器",
+      "rag_refs": [333,335,337,375,409,411,413,423,427,433,443]
+    },
+    {
+      "id": "item_wangchanglingji_6",
       "name": "王昌龄集",
       "type": "special",
       "owner": "char_zhudanchen",
-      "one_line": "朱丹臣随身携带的诗集，用以引诗化解尴尬"
+      "one_line": "朱丹臣随身携带的诗集，用以含蓄劝诫段誉",
+      "rag_refs": [47,49]
     }
   ]
 }

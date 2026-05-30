@@ -1,0 +1,520 @@
+{
+  "chapter": 16,
+  "characters_detail": [
+    {
+      "id": "char_qiaofeng",
+      "personality": {
+        "traits": ["慷慨豪迈", "刚烈正直", "重情重义", "悲愤", "心乱如麻"],
+        "speech_style": "慷慨激昂，但得知身世后声音嘶哑、语带悲愤",
+        "temperament": "豪迈刚烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_zhiguang", "type": "complicated", "intensity": 70, "bond_level": 2, "dynamic": "初时尊敬，后因身世真相而激烈冲突，最终克制"},
+        {"target": "char_duanyu", "type": "sworn_brother", "intensity": 80, "bond_level": 4, "dynamic": "结义兄弟，离别时段誉欲追随"},
+        {"target": "char_mafuren", "type": "enemy", "intensity": 85, "bond_level": 1, "dynamic": "被其层层指证为杀夫凶手"},
+        {"target": "char_wangjiantong", "type": "complicated", "intensity": 90, "bond_level": 4, "dynamic": "原以为恩师慈父，后知其留有密令防备自己"},
+        {"target": "char_daitouren", "type": "complicated", "intensity": 80, "bond_level": 1, "dynamic": "杀父仇人与暗中栽培恩人并存的复杂关系"},
+        {"target": "char_qiaosanhuai", "type": "family", "intensity": 60, "bond_level": 3, "dynamic": "以为生父实为养父"},
+        {"target": "char_quanguanqing", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "被其煽动帮众反叛"},
+        {"target": "char_baishijing", "type": "companion", "intensity": 50, "bond_level": 3, "dynamic": "原为下属，退位后执法长老为难"},
+        {"target": "char_songzhanglao", "type": "companion", "intensity": 70, "bond_level": 4, "dynamic": "宋长老力挺他留任"},
+        {"target": "char_xizhanglao", "type": "companion", "intensity": 65, "bond_level": 3, "dynamic": "奚长老甘愿代他受刀"},
+        {"target": "char_tangong", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "谭公出口劝他凡事三思"}
+      ],
+      "known_skills": ["skill_xianglongshibazhang", "skill_dagoubangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhiguang",
+      "personality": {
+        "traits": ["慈悲为怀", "勇于担当", "德高望重", "内疚", "坦诚"],
+        "speech_style": "温和慈悲，语带感慨，直言不讳",
+        "temperament": "慈悲沉着"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "complicated", "intensity": 70, "bond_level": 2, "dynamic": "说出真相后愿一身承担全部罪孽"},
+        {"target": "char_zhaoqiansun", "type": "companion", "intensity": 60, "bond_level": 3, "dynamic": "当年同赴雁门关的战友"},
+        {"target": "char_daitouren", "type": "companion", "intensity": 75, "bond_level": 4, "dynamic": "追随带头大哥行动，为其保密身份"},
+        {"target": "char_wangjiantong", "type": "companion", "intensity": 70, "bond_level": 3, "dynamic": "当年并肩作战，不愿损其死后的声名"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhaoqiansun",
+      "personality": {
+        "traits": ["疯疯癫癫", "玩世不恭", "痴情", "坦率"],
+        "speech_style": "讽刺自嘲，带着讥嘲和漫不在乎，提到谭婆时语气改变",
+        "temperament": "狂放不羁"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tanpo", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "一生痴恋谭婆（小娟），为此行尸走肉"},
+        {"target": "char_tangong", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "情敌关系，但谭公在危难时也出言相助"},
+        {"target": "char_zhiguang", "type": "companion", "intensity": 55, "bond_level": 3, "dynamic": "当年并肩作战的战友"},
+        {"target": "char_qiaofeng", "type": "complicated", "intensity": 50, "bond_level": 1, "dynamic": "直言乔峰是契丹人，坦承自己吓得晕倒的丑事"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mafuren",
+      "personality": {
+        "traits": ["城府极深", "言辞锋利", "工于心计", "冷静", "狠辣"],
+        "speech_style": "看似谦卑实则字字诛心，层层递进步步紧逼",
+        "temperament": "冷静阴狠"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "enemy", "intensity": 90, "bond_level": 1, "dynamic": "用遗书和折扇连环指证乔峰杀夫"},
+        {"target": "char_madayuan", "type": "family", "intensity": 80, "bond_level": 4, "dynamic": "为亡夫报仇请托众位武林前辈"},
+        {"target": "char_baishijing", "type": "complicated", "intensity": 60, "bond_level": 2, "dynamic": "以帮规激白世镜表态"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "personality": {
+        "traits": ["聪明伶俐", "机敏善辩", "胆大心细"],
+        "speech_style": "清脆悦耳，条理清晰，得体有礼",
+        "temperament": "机灵活泼"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_murongfu", "type": "companion", "intensity": 85, "bond_level": 4, "dynamic": "忠心护主，代慕容复辩白"},
+        {"target": "char_wangyuyan", "type": "companion", "intensity": 75, "bond_level": 3, "dynamic": "同为慕容复相关之人"},
+        {"target": "char_mafuren", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "质疑马夫人的指控逻辑"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangyuyan",
+      "personality": {
+        "traits": ["痴情", "聪慧博学", "纯真", "护短"],
+        "speech_style": "娇柔温婉，论武时侃侃而谈，对表哥之事极为上心",
+        "temperament": "温柔痴情"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_murongfu", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "心心念念皆为表哥，要去找他告知被冤枉之事"},
+        {"target": "char_duanyu", "type": "companion", "intensity": 30, "bond_level": 1, "dynamic": "段誉暗恋她，她全然不觉"},
+        {"target": "char_yunzhonghe", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "被云中鹤调戏并威胁"},
+        {"target": "char_xizhanglao", "type": "enemy", "intensity": 20, "bond_level": 1, "dynamic": "因丐帮冤枉表哥而讨厌丐帮人"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["书生气重", "痴情执着", "心地善良", "胆大", "急智"],
+        "speech_style": "文雅但有时迂腐，对王语嫣言听计从",
+        "temperament": "文雅温和"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "sworn_brother", "intensity": 80, "bond_level": 4, "dynamic": "结义兄长辞位后欲追随，却因王语嫣留下"},
+        {"target": "char_wangyuyan", "type": "love", "intensity": 90, "bond_level": 3, "dynamic": "一见倾心无法自拔，自称护送实则暗恋"},
+        {"target": "char_nanhai'eshen", "type": "master_student", "intensity": 60, "bond_level": 2, "dynamic": "南海鳄神被迫拜段誉为师，师徒名分仍在"},
+        {"target": "char_azhu", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "同路同行"},
+        {"target": "char_yunzhonghe", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "知他是恶人不欲相助"}
+      ],
+      "known_skills": ["skill_liumaishenjian", "skill_lingboweibu"],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_nanhai'eshen",
+      "personality": {
+        "traits": ["凶悍粗鲁", "守信认理", "暴躁", "愚直"],
+        "speech_style": "大吼大叫，骂人粗俗但对自己说过的话不抵赖",
+        "temperament": "凶悍狂暴"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "master_student", "intensity": 50, "bond_level": 2, "dynamic": "虽拜段誉为师但心中不服，勉强磕头后怒啸而去"},
+        {"target": "char_yunzhonghe", "type": "companion", "intensity": 60, "bond_level": 2, "dynamic": "同为天下四恶"},
+        {"target": "char_yeer'niang", "type": "companion", "intensity": 60, "bond_level": 2, "dynamic": "同为天下四恶"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yunzhonghe",
+      "personality": {
+        "traits": ["好色轻浮", "轻功高绝", "嘴甜却毒"],
+        "speech_style": "调戏轻薄，言语轻佻",
+        "temperament": "轻浮邪佞"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_wangyuyan", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "调戏并威胁要杀她意中人"},
+        {"target": "char_xizhanglao", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "与奚长老交手，以轻功游斗"},
+        {"target": "char_wuzhanglao", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "被吴长老奇门三才刀伤左手"},
+        {"target": "char_helian", "type": "companion", "intensity": 40, "bond_level": 1, "dynamic": "投靠西夏一品堂"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_songzhanglao",
+      "personality": {
+        "traits": ["忠义", "直爽", "感恩"],
+        "speech_style": "大声直率，粗犷豪迈",
+        "temperament": "忠直刚正"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "companion", "intensity": 85, "bond_level": 4, "dynamic": "力挺乔峰留任，称其大仁大义"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xizhanglao",
+      "personality": {
+        "traits": ["勇猛", "忠诚"],
+        "speech_style": "粗犷豪放",
+        "temperament": "勇烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "companion", "intensity": 80, "bond_level": 4, "dynamic": "甘愿代乔峰受刀，率众站到支持方"},
+        {"target": "char_yunzhonghe", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "交手被钢抓划伤"}
+      ],
+      "known_skills": ["skill_fumozhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wuzhanglao",
+      "personality": {
+        "traits": ["武艺精湛", "恩怨分明"],
+        "speech_style": "冷笑讥讽",
+        "temperament": "冷峻"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wangyuyan", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "多谢她指出刀法"},
+        {"target": "char_yunzhonghe", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "用奇门三才刀伤其左手"}
+      ],
+      "known_skills": ["skill_qimensancai"],
+      "related_skills": []
+    },
+    {
+      "id": "char_baishijing",
+      "personality": {
+        "traits": ["公正严明", "行事果决", "迟疑"],
+        "speech_style": "凛然坚定，但在处理乔峰之事时迟疑不决",
+        "temperament": "严正"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "complicated", "intensity": 60, "bond_level": 3, "dynamic": "执法长老，面对帮规与旧情的矛盾"},
+        {"target": "char_mafuren", "type": "complicated", "intensity": 40, "bond_level": 1, "dynamic": "被其以帮规相激"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_helian",
+      "name": "赫连铁树",
+      "personality": {
+        "traits": ["傲慢", "自大", "阴险"],
+        "speech_style": "高高在上，不言自威",
+        "temperament": "傲慢威严"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_nuerhai", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "主仆关系，努儿海替他传话"},
+        {"target": "char_yeer'niang", "type": "companion", "intensity": 40, "bond_level": 1, "dynamic": "招揽四大恶人入一品堂"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nuerhai",
+      "personality": {
+        "traits": ["傲慢阴险", "口舌伶俐", "献计有余办事不足"],
+        "speech_style": "阴阳怪气，尖酸刻薄",
+        "temperament": "阴鸷狡黠"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_helian", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "部下，献计后被令亲自执行"},
+        {"target": "char_duanyu", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "被段誉六脉神剑断臂"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_quanguanqing",
+      "personality": {
+        "traits": ["阴险狡诈", "善于煽动", "有心机"],
+        "speech_style": "慷慨陈词以民族大义煽动人心",
+        "temperament": "阴沉有谋"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "策划反乔峰的核心人物"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shanzheng",
+      "personality": {
+        "traits": ["正直", "稳重", "护子"],
+        "speech_style": "行事讲规矩，向乔峰求情时放低姿态",
+        "temperament": "正直公道"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "complicated", "intensity": 50, "bond_level": 2, "dynamic": "赴会作证却见子被制，不得不出声相求"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_xianglongshibazhang",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "刚猛绝伦，天下至刚"
+    },
+    {
+      "id": "skill_dagoubangfa",
+      "techniques": [],
+      "progression": [
+        {"level": 1, "unlock": "基本棒法"}
+      ],
+      "effects": [],
+      "combat_style": "丐帮秘传棒法，威力无穷"
+    },
+    {
+      "id": "skill_liumaishenjian",
+      "techniques": [
+        {"id": "tech_liumaishenjian_jichu", "name": "六脉神剑剑气", "type": "attack", "description": "以指尖真气激射而出，嗤嗤有声，无形剑气可断人手臂"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "远程穿透", "condition": "真气充足时", "description": "无形剑气射出击断敌人臂骨"}
+      ],
+      "combat_style": "以指代剑，无形剑气远程攻击"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "techniques": [
+        {"id": "tech_lingbo_jichu", "name": "凌波微步基础步法", "type": "buff", "description": "按易经方位行走，斜行倒退，令敌人无法预判"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "闪避", "condition": "敌人攻击时", "description": "步法忽斜行忽横跨，自动避开攻击"}
+      ],
+      "combat_style": "飘逸灵动，以步法避敌"
+    },
+    {
+      "id": "skill_fumozhang",
+      "techniques": [
+        {"id": "tech_qinwangbianshi", "name": "秦王鞭石", "type": "attack", "description": "伏魔杖法中的一招，威猛但下盘不稳"},
+        {"id": "tech_dapengzhanchi", "name": "大鹏展翅", "type": "attack", "description": "伏魔杖法中的一招，同样下盘不稳"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "弱点", "condition": "使秦王鞭石和大鹏展翅时", "description": "右侧下盘是弱点"}
+      ],
+      "combat_style": "威猛刚劲但下盘有破绽"
+    },
+    {
+      "id": "skill_qimensancai",
+      "techniques": [
+        {"id": "tech_qimen_sancai", "name": "奇门三才刀法", "type": "attack", "description": "刀法凝重看似不成章法，实则暗含变化，慢中藏快"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "凝重缓慢示敌以弱，实则突施快攻"
+    },
+    {
+      "id": "skill_heshebada",
+      "techniques": [
+        {"id": "tech_heshe", "name": "鹤蛇八打", "type": "attack", "description": "模拟鹤蛇相斗的招式，可破四象六合刀"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "以仙鹤灵蛇之形攻敌"
+    },
+    {
+      "id": "skill_sixiangliuhedao",
+      "techniques": [
+        {"id": "tech_sixiang_liuhe", "name": "四象六合刀法", "type": "attack", "description": "含有八卦生克变化的刀法"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "蕴含八卦变化"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_zhiguang_xuanshi",
+      "name": "智光揭乔峰身世",
+      "participants": ["char_zhiguang", "char_qiaofeng", "char_zhaoqiansun", "char_xuzhanglao", "char_shanzheng", "char_quanguanqing", "char_mafuren", "char_songzhanglao"],
+      "location": "loc_xingzilin",
+      "description": "智光大师详述三十年前雁门关之战始末，揭出乔峰实为契丹婴儿的身世",
+      "chapter": 16
+    },
+    {
+      "id": "evt_yanmen_pass_battle",
+      "name": "雁门关之战回忆",
+      "participants": ["char_daitouren", "char_zhiguang", "char_zhaoqiansun", "char_wangjiantong", "char_wangweiyi", "char_heyundaozhang"],
+      "location": "loc_yanmen'guan",
+      "description": "三十年前中原群雄误信讯息，在雁门关外伏击契丹武士，酿成惨剧",
+      "chapter": 16
+    },
+    {
+      "id": "evt_mafuren_zhizheng",
+      "name": "马夫人连环指证",
+      "participants": ["char_mafuren", "char_qiaofeng", "char_xuzhanglao", "char_azhu", "char_baishijing"],
+      "location": "loc_xingzilin",
+      "description": "马夫人出示遗书和折扇，层层递进指证乔峰为杀夫凶手",
+      "chapter": 16
+    },
+    {
+      "id": "evt_qiaofeng_ciguan",
+      "name": "乔峰辞去帮主之位",
+      "participants": ["char_qiaofeng", "char_songzhanglao", "char_xizhanglao", "char_quanguanqing", "char_baishijing", "char_wuzhanglao"],
+      "location": "loc_xingzilin",
+      "description": "乔峰自承契丹身世后辞去帮主之位，掷回打狗棒，丐帮分裂",
+      "chapter": 16
+    },
+    {
+      "id": "evt_gaibang_fenlie",
+      "name": "丐帮分裂为两派",
+      "participants": ["char_songzhanglao", "char_xizhanglao", "char_wuzhanglao", "char_quanguanqing", "char_chenzhanglao"],
+      "location": "loc_xingzilin",
+      "description": "乔峰辞位后丐帮分为支持派和反对派，约三成留下五成支持乔峰",
+      "chapter": 16
+    },
+    {
+      "id": "evt_yipintang_touxi",
+      "name": "西夏一品堂突袭",
+      "participants": ["char_helian", "char_nuerhai", "char_xuzhanglao", "char_baishijing", "char_nanhai'eshen", "char_yunzhonghe", "char_yeer'niang"],
+      "location": "loc_xingzilin",
+      "description": "西夏一品堂赫连铁树率众杀到，施放悲酥清风毒倒丐帮众人",
+      "chapter": 16
+    },
+    {
+      "id": "evt_duanyu_jiu_yuyan",
+      "name": "段誉救王语嫣突围",
+      "participants": ["char_duanyu", "char_wangyuyan", "char_nuerhai"],
+      "location": "loc_xingzilin",
+      "description": "段誉以六脉神剑断努儿海手臂、凌波微步躲避毒针，救王语嫣骑马突围",
+      "chapter": 16
+    },
+    {
+      "id": "evt_xiwu_yunzhonghe",
+      "name": "奚长老与云中鹤交手",
+      "participants": ["char_xizhanglao", "char_yunzhonghe", "char_wangyuyan"],
+      "location": "loc_xingzilin",
+      "description": "奚长老以伏魔杖对云中鹤，被王语嫣道破弱点后伤于钢抓之下",
+      "chapter": 16
+    },
+    {
+      "id": "evt_wuzhanglao_shang_he",
+      "name": "吴长老伤云中鹤",
+      "participants": ["char_wuzhanglao", "char_yunzhonghe", "char_wangyuyan"],
+      "location": "loc_xingzilin",
+      "description": "吴长老以奇门三才刀伤云中鹤左手，王语嫣用计误导云中鹤",
+      "chapter": 16
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_zhiguang",
+      "listener": "char_qiaofeng",
+      "text": "乔帮主，倘若你得知了这项讯息，那便如何？",
+      "tone": "试探",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_zhiguang",
+      "text": "智光大师，乔某见识浅陋，才德不足以服众，致令帮中兄弟见疑，说来好生惭愧。但乔某纵然无能，却也是个有肝胆、有骨气的男儿汉，于这大节大义份上决不致不明是非。我大宋受辽狗欺凌，家国之仇，谁不思报？倘若得知了这项讯息，自当率同本帮弟兄，星夜赶去阻截。",
+      "tone": "慷慨激昂",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_zhiguang",
+      "text": "智光大师，那……那少室山下的农人，他，他，他姓什么？",
+      "tone": "颤抖震惊",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_zhiguang",
+      "listener": "char_qiaofeng",
+      "text": "你既已猜到，我也不必隐瞒。那农人姓乔，名字叫作三槐。",
+      "tone": "平静沉重",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_zhiguang",
+      "text": "不，不！你胡说八道，捏造这么一篇鬼话来诬陷我。我是堂堂汉人，如何是契丹胡虏？我……我……三槐公是我亲生的爹爹，你再瞎说……",
+      "tone": "愤怒悲愤",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_zhaoqiansun",
+      "listener": "char_qiaofeng",
+      "text": "可笑啊可笑！汉人未必高人一等，契丹人也未必便猪狗不如！明明是契丹，却硬要冒充汉人，那有什么滋味？连自己的亲生父母也不肯认，枉自称什么男子汉、大丈夫？",
+      "tone": "讽刺愤慨",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_mafuren",
+      "listener": null,
+      "text": "各位伯伯叔叔，先夫不幸亡故，到底是何人下的毒手，此时自是难加断言。但想先夫平生诚稳笃实，拙于言词，江湖上并无仇家，妾身实在想不出，为何有人要取他性命。然而常言道得好：'慢藏诲盗'，是不是因为先夫手中握有什么重要物事，别人想得之而甘心？别人是不是怕他泄漏机密，坏了大事，因而要杀他灭口？",
+      "tone": "哀怨含沙射影",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": null,
+      "text": "青山不改，绿水长流，众位好兄弟，咱们再见了。乔某是汉人也好，是契丹人也罢，有生之年，决不伤一条汉人的性命，若违此誓，有如此刀。",
+      "tone": "豪迈悲壮",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_wangyuyan",
+      "text": "王姑娘，你们要到那里去？",
+      "tone": "温柔关切",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_wangyuyan",
+      "listener": "char_duanyu",
+      "text": "表哥给人家冤枉，说不定他自己还不知道呢，我得去告知他才是。",
+      "tone": "焦急关切",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_nanhai'eshen",
+      "text": "乖徒儿，丐帮帮主是我结义的兄长，这些人是你的师伯师叔，你不得无礼。快快回家去吧！",
+      "tone": "调侃戏谑",
+      "chapter": 16
+    },
+    {
+      "speaker": "char_nuerhai",
+      "listener": null,
+      "text": "丐帮丐人约在惠山见面，毁约不至，原来都鬼鬼祟祟的躲在这里，嘿嘿嘿，可笑啊可笑。",
+      "tone": "阴阳怪气",
+      "chapter": 16
+    }
+  ]
+}

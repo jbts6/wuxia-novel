@@ -1,0 +1,202 @@
+{
+  "chapter": 3,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["书生气", "侠义", "倔强", "善良", "幽默"],
+        "speech_style": "出口成章，常引经据典，语带幽默",
+        "temperament": "温和但有骨气，宁死不屈"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_muwanqing", "type": "complicated", "intensity": 30, "bond_level": 2, "dynamic": "被她折磨却又感其相救之恩，既怕又怜"},
+        {"target": "char_zhongling", "type": "friend", "intensity": 50, "bond_level": 3, "dynamic": "牵挂她的安危，竭力相救"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_muwanqing",
+      "personality": {
+        "traits": ["冷若冰霜", "脾气古怪", "言语刻薄", "出手狠辣", "内心柔软"],
+        "speech_style": "冷冰冰不带暖意，简短尖刻",
+        "temperament": "外冷内热，恩怨分明"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyu", "type": "complicated", "intensity": 40, "bond_level": 2, "dynamic": "初见时折磨他，后被他舍命报讯的义举所动"},
+        {"target": "char_zhongling", "type": "friend", "intensity": 30, "bond_level": 2, "dynamic": "朋友关系，但不愿她亲近段誉"}
+      ],
+      "known_skills": ["skill_dujian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ruipo",
+      "personality": {
+        "traits": ["阴沉", "老练", "狠毒"],
+        "speech_style": "嘶哑低沉，老谋深算",
+        "temperament": "沉稳狠辣"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_muwanqing", "type": "enemy", "intensity": 90, "bond_level": 1, "dynamic": "奉命追杀木婉清"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_pingpo",
+      "personality": {
+        "traits": ["暴躁", "凶狠", "悍不畏死"],
+        "speech_style": "粗俗骂人",
+        "temperament": "狂暴凶悍"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_muwanqing", "type": "enemy", "intensity": 90, "bond_level": 1, "dynamic": "疯狂追杀木婉清"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sikongxuan",
+      "personality": {
+        "traits": ["畏惧", "忠诚"],
+        "speech_style": "恭敬惶恐",
+        "temperament": "对灵鹫宫极为敬畏"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "被段誉假扮圣使欺骗"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_dujian",
+      "techniques": [
+        {"id": "tech_xiuzhong_dujian", "name": "袖中毒箭", "type": "attack", "description": "从袖中发射黑色短箭，见血封喉"},
+        {"id": "tech_lianzhu_dujian", "name": "连珠毒箭", "type": "attack", "description": "连续发射多枚毒箭"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "instant_kill", "condition": "命中要害", "description": "见血封喉，中者立毙"},
+        {"type": "poison", "condition": "擦伤", "description": "剧毒无比"}
+      ],
+      "combat_style": "暗器先行，剑法辅助，以快制胜"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_3_borrow_horse",
+      "name": "段誉借马",
+      "participants": ["char_duanyu", "char_laifuer"],
+      "location": "loc_wanjiedu",
+      "description": "来福儿带段誉借得黑玫瑰骏马",
+      "chapter": 3
+    },
+    {
+      "id": "evt_3_warn_muwanqing",
+      "name": "段誉折返报讯",
+      "participants": ["char_duanyu", "char_muwanqing"],
+      "location": null,
+      "description": "段誉遇伏后折返向木婉清报讯，卷入门派仇杀",
+      "chapter": 3
+    },
+    {
+      "id": "evt_3_muwanqing_escape",
+      "name": "木婉清突围",
+      "participants": ["char_muwanqing", "char_duanyu"],
+      "location": null,
+      "description": "木婉清以毒箭退敌，带段誉骑马突围",
+      "chapter": 3
+    },
+    {
+      "id": "evt_3_kill_gan_ge",
+      "name": "木婉清杀干光豪夫妇",
+      "participants": ["char_muwanqing", "char_ganuanghao", "char_geguangpei"],
+      "location": "loc_xiaozhen",
+      "description": "在小镇饭店中，木婉清用毒箭射死干光豪和葛光佩",
+      "chapter": 3
+    },
+    {
+      "id": "evt_3_four_hook_women",
+      "name": "四使钩女子拦路",
+      "participants": ["char_muwanqing", "char_duanyu"],
+      "location": null,
+      "description": "四个绿衣使钩女子拦路，被木婉清和段誉合力杀死",
+      "chapter": 3
+    },
+    {
+      "id": "evt_3_fake_lingjiu",
+      "name": "假扮灵鹫宫圣使",
+      "participants": ["char_duanyu", "char_muwanqing", "char_sikongxuan", "char_zhongling"],
+      "location": null,
+      "description": "段誉和木婉清穿上缴获的绿色斗篷假扮灵鹫宫圣使，从司空玄手中救出钟灵",
+      "chapter": 3
+    },
+    {
+      "id": "evt_3_meet_zhongling",
+      "name": "与钟灵重逢",
+      "participants": ["char_duanyu", "char_zhongling", "char_muwanqing"],
+      "location": null,
+      "description": "救出钟灵后三人同行，木婉清公布自己真名",
+      "chapter": 3
+    },
+    {
+      "id": "evt_3_ruipo_ambush",
+      "name": "瑞婆婆再伏击",
+      "participants": ["char_muwanqing", "char_duanyu", "char_zhongling"],
+      "location": null,
+      "description": "瑞婆婆等人再次围攻，木婉清受伤",
+      "chapter": 3
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing",
+      "text": "大丈夫行事，但求义所当为，有何后悔可言？",
+      "tone": "凛然",
+      "chapter": 3
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_duanyu",
+      "text": "你手无缚鸡之力，逞什么英雄好汉？",
+      "tone": "讥讽",
+      "chapter": 3
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing",
+      "text": "你动不动便打人，快放了我，我不要跟你在一起。",
+      "tone": "愤怒",
+      "chapter": 3
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_duanyu",
+      "text": "我本不想杀你，可是你私自逃走不算，还偷了我的黑玫瑰，这还算是大丈夫吗？",
+      "tone": "冰冷",
+      "chapter": 3
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": null,
+      "text": "我又不是你奴仆，要走便走，怎说得上'私自逃走'四字？黑玫瑰是你先前借给我的，我并没还你，可算不得偷。你要杀就杀好了。",
+      "tone": "昂然",
+      "chapter": 3
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_duanyu",
+      "text": "你到底是生来心好呢，还是个傻瓜？",
+      "tone": "调侃",
+      "chapter": 3
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "chapter": 19,
+  "characters_detail": [
+    {
+      "id": "char_qiaofeng",
+      "personality": {
+        "traits": ["豪迈刚烈", "侠骨柔情", "愈战愈勇", "高傲倔强", "孤胆英雄"],
+        "speech_style": "豪迈时慷慨激昂，怒时声震屋瓦，面对群雄侃侃而谈不失英雄气概",
+        "temperament": "刚烈悲壮"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_azhu", "type": "complicated", "intensity": 65, "bond_level": 3, "dynamic": "舍命救她求医，由侠义之心渐生羁绊"},
+        {"target": "char_xueshenyi", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "求医被拒，后生死相搏"},
+        {"target": "char_youji", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "大战中逼得游氏双雄自刎，颇有悔意"},
+        {"target": "char_xizhanglao", "type": "complicated", "intensity": 50, "bond_level": 2, "dynamic": "醉酒误杀，丐帮旧属"},
+        {"target": "char_baishijing", "type": "companion", "intensity": 60, "bond_level": 3, "dynamic": "含泪喝绝交酒，托孤阿朱"},
+        {"target": "char_xuanji", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "制住后念及少林授艺之恩释放"},
+        {"target": "char_tanqing", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "一掌毙其于无形"},
+        {"target": "char_yunzhonghe", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "凌空一掌重伤"}
+      ],
+      "known_skills": ["skill_xianglongshibazhang", "skill_taizuchangquan"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "personality": {
+        "traits": ["聪慧机敏", "顽皮伶牙俐齿", "重伤下仍坚强"],
+        "speech_style": "重伤时虚弱无力，仍不忘伶牙俐齿编谎话吓唬少林僧",
+        "temperament": "活泼俏皮"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "complicated", "intensity": 70, "bond_level": 3, "dynamic": "他舍命相救，心中感激又愧疚"},
+        {"target": "char_tanpo", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "谭婆欲杀她，乔峰救之"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xueshenyi",
+      "personality": {
+        "traits": ["嫉恶如仇", "好面子", "医道如神但武功平平"],
+        "speech_style": "倨傲自信，对乔峰冷言冷语",
+        "temperament": "傲气清高"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "因痛恨其罪行而拒医阿朱，反被乔峰威胁"},
+        {"target": "char_xuannan", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "对少林武功颇为推崇"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_youji",
+      "personality": {
+        "traits": ["刚烈", "重名节", "守信"],
+        "speech_style": "豪爽好客",
+        "temperament": "刚烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "大战后盾失，为守师命自刎"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baoqianling",
+      "personality": {
+        "traits": ["机灵谨慎", "敬畏乔峰"],
+        "speech_style": "世故圆滑",
+        "temperament": "精明"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "complicated", "intensity": 40, "bond_level": 1, "dynamic": "惧怕乔峰又不得不引路，言语中仍为其说话"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baishijing",
+      "personality": {
+        "traits": ["重义气", "重国仇", "有情有义"],
+        "speech_style": "凛然方正，含泪对乔峰说话",
+        "temperament": "刚正有情"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "complicated", "intensity": 75, "bond_level": 4, "dynamic": "多年好兄弟化友为敌，泪中承诺照顾阿朱"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_taizuchangquan",
+      "techniques": [
+        {"id": "tech_zhenzhenzhanjiang", "name": "冲阵斩将", "type": "attack", "description": "太祖长拳中的一招，乔峰使出时潇洒大方刚柔并济"},
+        {"id": "tech_heliweiding", "name": "河朔立威", "type": "attack", "description": "太祖长拳中的一招"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "堂堂正正，后发先至，每一招克制敌手相应招式"
+    },
+    {
+      "id": "skill_xiulikunqian",
+      "techniques": [
+        {"id": "tech_xiuli", "name": "袖里乾坤基础法", "type": "attack", "description": "衣袖鼓风，拳劲藏于袖底，衣袖本身也蓄有凌厉劲力"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "化解", "condition": "与敌人对掌时", "description": "被乔峰一掌震碎衣袖"}
+      ],
+      "combat_style": "以袖掩拳，虚实不定"
+    },
+    {
+      "id": "skill_changjingsandielang",
+      "techniques": [
+        {"id": "tech_sandielang", "name": "长江三叠浪掌法", "type": "attack", "description": "左掌拍出右掌疾跟，左掌缩回又加在右掌之上，掌力叠加三倍"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "叠加", "condition": "连环出掌时", "description": "后浪推前浪，一掌比一掌更强"}
+      ],
+      "combat_style": "连环叠浪，一掌强过一掌"
+    },
+    {
+      "id": "skill_tianzhufozhi",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "指力嗤嗤有声，点穴精准"
+    },
+    {
+      "id": "skill_fuyushu",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "精神控制", "condition": "对方内功不及施术者时", "description": "以腹语结合上乘内功，迷得对方心神迷惘失魂而死"},
+        {"type": "反噬", "condition": "遇到功力更深的对手", "description": "施术不灵反受其害"}
+      ],
+      "combat_style": "以音惑敌，以术杀人"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_qiaofeng_ye_liu_zi",
+      "name": "乔峰夜留字条",
+      "participants": ["char_qiaofeng", "char_baoqianling", "char_kuidaoqi", "char_xiangwanghai"],
+      "location": "loc_xuji",
+      "description": "乔峰夜入鲍千灵等三人房内，在兵器上贴乔峰拜上四字",
+      "chapter": 19
+    },
+    {
+      "id": "evt_juxianzhuang_yingxiong_yan",
+      "name": "聚贤庄英雄宴",
+      "participants": ["char_xueshenyi", "char_youji", "char_youju", "char_baoqianling", "char_xuannan", "char_xuanji"],
+      "location": "loc_juxianzhuang",
+      "description": "薛神医和游氏双雄联名邀集天下英雄，商议对付乔峰",
+      "chapter": 19
+    },
+    {
+      "id": "evt_qiaofeng_tuo_gu",
+      "name": "乔峰托孤阿朱",
+      "participants": ["char_qiaofeng", "char_baishijing", "char_azhu"],
+      "location": "loc_juxianzhuang",
+      "description": "乔峰与丐帮诸长老喝绝交酒，托白世镜照顾阿朱",
+      "chapter": 19
+    },
+    {
+      "id": "evt_juxianzhuang_dazhan",
+      "name": "聚贤庄大战",
+      "participants": ["char_qiaofeng", "char_youji", "char_youju", "char_xuannan", "char_xuanji", "char_zhaoqiansun", "char_tangong", "char_tanpo"],
+      "location": "loc_juxianzhuang",
+      "description": "乔峰独战群雄，以太祖长拳碾压玄难，用圆盾击杀多人，奚长老、单仲山、单伯山、快刀祁六等死",
+      "chapter": 19
+    },
+    {
+      "id": "evt_you_shi_shuang_xiong_zi_jing",
+      "name": "游氏双雄自刎",
+      "participants": ["char_youji", "char_youju", "char_qiaofeng"],
+      "location": "loc_juxianzhuang",
+      "description": "乔峰击落游氏双雄圆盾，二人因盾在人在盾亡人亡的师训而自刎",
+      "chapter": 19
+    },
+    {
+      "id": "evt_qiaofeng_fang_xuanji",
+      "name": "乔峰释放玄寂",
+      "participants": ["char_qiaofeng", "char_xuanji"],
+      "location": "loc_juxianzhuang",
+      "description": "乔峰制住玄寂后念及少林授艺之恩释之，坦然待死",
+      "chapter": 19
+    },
+    {
+      "id": "evt_tanqing_yunzhonghe",
+      "name": "乔峰毙谭青伤云中鹤",
+      "participants": ["char_qiaofeng", "char_tanqing", "char_yunzhonghe"],
+      "location": "loc_juxianzhuang",
+      "description": "云中鹤来救谭青，被乔峰凌空一掌重伤吐血，谭青死于腹语反噬",
+      "chapter": 19
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_qiaofeng",
+      "listener": null,
+      "text": "这里众家英雄，多有乔峰往日旧交，今日既有见疑之意，咱们干杯绝交。哪一位朋友要杀乔某的，先来对饮一碗，从此而后，往日交情一笔勾销。我杀你不是忘恩，你杀我不算负义。天下英雄，俱为证见。",
+      "tone": "慷慨悲壮",
+      "chapter": 19
+    },
+    {
+      "speaker": "char_mafuren",
+      "listener": "char_qiaofeng",
+      "text": "先夫命丧你手，我跟你还有什么故旧之情？",
+      "tone": "森然冰冷",
+      "chapter": 19
+    },
+    {
+      "speaker": "char_baishijing",
+      "listener": "char_qiaofeng",
+      "text": "乔兄放心，白世镜定当恳求薛神医赐予医治。这位阮姑娘若有三长两短，白世镜自刎以谢乔兄便了。",
+      "tone": "坚决沉痛",
+      "chapter": 19
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_xuanji",
+      "text": "我一身武功，最初出自少林，饮水思源，岂可杀戮少林高僧？乔某今日反正是死了，多杀一人，又有何益？",
+      "tone": "悲凉慷慨",
+      "chapter": 19
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": null,
+      "text": "乔峰自行了断，不死于鼠辈之手！",
+      "tone": "吼声悲壮",
+      "chapter": 19
+    },
+    {
+      "speaker": "char_azhu",
+      "listener": "char_qiaofeng",
+      "text": "乔大爷，我不成啦，你别理我，快……快自己去吧！",
+      "tone": "虚弱哀求",
+      "chapter": 19
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_azhu",
+      "text": "事到如今，他们也决不容你活了，咱们死在一起便是。",
+      "tone": "决绝悲愤",
+      "chapter": 19
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": null,
+      "text": "你们说我是契丹人，那么乔三槐老公公和老婆婆，便不是我的父母了。莫说这两位老人家我生平敬爱有加，绝无加害之意，就算是我杀的，又怎能加我'杀父、杀母'的罪名？玄苦大师是我受业恩师，少林派倘若承认玄苦大师是我师父，乔某便算是少林弟子，各位这等围攻一个少林弟子，所为何来？",
+      "tone": "凛然辩驳",
+      "chapter": 19
+    }
+  ]
+}

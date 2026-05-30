@@ -5,133 +5,131 @@
       "id": "char_duanyu",
       "name": "段誉",
       "alias": [],
-      "identity": "大理国段氏子弟",
-      "faction": "faction_duanshi",
+      "identity": "大理段氏公子，不会武功",
+      "faction": "faction_dali",
       "role": "protagonist",
-      "one_line": "失足坠入深谷，发现神仙姊姊玉像和武功秘籍",
-      "personality": "痴情执着，善良迂腐，不愿学武",
+      "one_line": "大理段氏的年轻公子，无意中坠入深谷发现玉像和武功秘笈",
+      "personality": "书生气重，痴情浪漫，对玉像一见倾心，敬爱有加",
       "known_skills": [],
-      "related_skills": ["skill_yiyangzhi"]
+      "related_skills": ["skill_beiming", "skill_lingboweibu", "skill_yiyangzhi", "skill_liumaishenjian"],
+      "rag_refs": [2, 11, 16, 22, 32, 36, 54, 60, 64, 70, 74, 78, 84, 88, 92, 100, 112, 120, 122, 128, 132, 134, 138, 144, 150, 154, 160, 164, 168, 172, 176, 180, 184, 190, 192, 198, 200, 204, 210, 216, 222, 234, 240, 244, 250, 254, 258, 264, 268, 276, 286, 290, 294, 300, 308, 312, 320, 324, 330, 346, 350, 356, 360, 370, 378, 382, 394, 400, 408, 414, 418, 440, 454, 464, 468, 480, 494, 498, 506, 512, 520, 530, 534, 540, 544, 548, 552, 558, 564, 572, 586, 598, 614, 620, 628, 636, 644, 648, 654, 658, 662, 668, 670, 676, 686, 694, 718, 744, 748, 772, 788, 794, 810, 814, 834, 846, 858, 864, 872, 884, 888, 900, 904, 910, 918, 922, 924, 930, 936, 944, 954, 962, 1000, 1010, 1020, 1026, 1034]
     },
     {
-      "id": "char_ganguanghao",
+      "id": "char_ganuanghao",
       "name": "干光豪",
       "alias": [],
-      "identity": "无量剑东宗弟子",
-      "faction": "faction_wuliangjian",
+      "identity": "左子穆弟子，无量剑东宗",
+      "faction": "faction_wuliangjian_dong",
       "role": "npc",
-      "one_line": "无量剑东宗大弟子，与葛师妹背师私逃",
-      "personality": "偷懒逃学，为爱私奔",
-      "known_skills": [],
-      "related_skills": []
+      "one_line": "左子穆的弟子，与葛师妹私奔",
+      "personality": "贪生怕死，背师叛门，对同门狠毒盼望其全死",
+      "known_skills": ["skill_wuliangjianfa"],
+      "related_skills": [],
+      "rag_refs": [3, 4, 7, 12, 14, 24, 30, 40, 46, 48, 56, 62, 74, 82, 104]
     },
     {
-      "id": "char_geshimei",
-      "name": "葛师妹",
-      "alias": [],
-      "identity": "无量剑西宗弟子",
-      "faction": "faction_wuliangjian",
+      "id": "char_geguangpei",
+      "name": "葛光佩",
+      "alias": ["葛师妹"],
+      "identity": "无量剑西宗女弟子",
+      "faction": "faction_wuliangjian_xi",
       "role": "npc",
-      "one_line": "与干光豪相恋的西宗女弟子",
-      "personality": "温柔，有些害怕",
-      "known_skills": [],
-      "related_skills": []
+      "one_line": "无量剑西宗女弟子，与干光豪私奔",
+      "personality": "胆小多疑，却也狠毒",
+      "known_skills": ["skill_wuliangjianfa"],
+      "related_skills": [],
+      "rag_refs": [8, 10, 12, 14, 22, 24, 26, 28, 30, 38, 42, 44, 46, 48, 50, 52, 62, 104]
     },
     {
       "id": "char_zhongling",
       "name": "钟灵",
       "alias": [],
-      "identity": "钟家少女",
-      "faction": null,
+      "identity": "钟万仇和甘宝宝之女，十六七岁少女",
+      "faction": "faction_wanjiedu",
       "role": "companion",
-      "one_line": "被神农帮扣押，托段誉报信",
-      "personality": "娇俏可爱，刁钻古怪",
+      "one_line": "钟万仇的女儿，被神农帮扣押，托段誉求救",
+      "personality": "天真活泼",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [66, 132, 156, 160, 162, 546, 548, 570, 586, 588, 594, 662, 864, 868, 872, 1002]
+    },
+    {
+      "id": "char_zhongfuren",
+      "name": "甘宝宝",
+      "alias": ["钟夫人", "俏夜叉"],
+      "identity": "钟万仇之妻，钟灵之母，外号俏夜叉",
+      "faction": "faction_wanjiedu",
+      "role": "npc",
+      "one_line": "钟万仇之妻，容颜秀丽，段正淳旧识",
+      "personality": "温柔中带刚烈，心思细腻，对往事情深",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [626, 628, 636, 642, 648, 656, 660, 666, 672, 682, 690, 694, 702, 720, 728, 732, 748, 752, 760, 764, 782, 806, 818, 846, 848, 856, 860, 872, 878, 882, 890, 896, 900, 916, 920, 930, 938, 942, 946, 952, 972, 978, 982, 988, 994, 1000, 1012, 1016, 1024, 1026]
     },
     {
       "id": "char_zhongwanchou",
       "name": "钟万仇",
       "alias": ["马王神"],
       "identity": "万劫谷谷主",
-      "faction": "faction_wanjiegu",
+      "faction": "faction_wanjiedu",
       "role": "npc",
-      "one_line": "钟灵之父，丑陋马脸，深爱妻子甘宝宝",
-      "personality": "多疑善妒，暴躁但深情",
+      "one_line": "万劫谷谷主，相貌丑陋，深爱妻子",
+      "personality": "多疑善妒，性烈如火，对妻子既爱且敬，对段正淳恨之入骨",
       "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_ganbaobao",
-      "name": "甘宝宝",
-      "alias": ["俏夜叉", "钟夫人"],
-      "identity": "万劫谷谷主夫人",
-      "faction": "faction_wanjiegu",
-      "role": "npc",
-      "one_line": "钟灵之母，容色清秀，与段正淳有旧情",
-      "personality": "温柔端庄，内心复杂",
-      "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_jinxier",
-      "name": "进喜儿",
-      "alias": [],
-      "identity": "万劫谷仆人",
-      "faction": "faction_wanjiegu",
-      "role": "npc",
-      "one_line": "忠心耿耿服侍多年，被岳老三扭断脖子",
-      "personality": "忠厚老实",
-      "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [698, 708, 714, 720, 734, 740, 744, 754, 762, 772, 776, 782, 792, 796, 806, 822, 830, 836, 844, 916, 918, 922, 932, 938, 948, 954, 958, 968, 972, 976, 984, 988, 994, 1002]
     },
     {
       "id": "char_laifuer",
       "name": "来福儿",
       "alias": [],
-      "identity": "万劫谷仆人",
-      "faction": "faction_wanjiegu",
+      "identity": "钟万仇的家人",
+      "faction": "faction_wanjiedu",
       "role": "npc",
-      "one_line": "向钟夫人禀报进喜儿被杀之事",
-      "personality": "惊魂未定",
+      "one_line": "钟万仇的仆人",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [726, 728]
     },
     {
-      "id": "char_yuelaosan",
+      "id": "char_jinxier",
+      "name": "进喜儿",
+      "alias": [],
+      "identity": "钟万仇的家人",
+      "faction": "faction_wanjiedu",
+      "role": "npc",
+      "one_line": "钟万仇的仆人，被岳老三打死",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [680, 706, 726]
+    },
+    {
+      "id": "char_yueliaosan",
       "name": "岳老三",
-      "alias": ["岳老二"],
+      "alias": ["岳老二", "南海鳄神"],
       "identity": "四大恶人之一",
       "faction": null,
       "role": "villain",
-      "one_line": "四大恶人之一，暴躁凶残，扭断进喜儿脖子",
-      "personality": "暴躁凶残，喜怒无常",
+      "one_line": "四大恶人之一，脾气暴躁，出手杀人",
+      "personality": "暴躁蛮横，极好面子，在意排行称呼",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [706, 734]
     },
     {
-      "id": "char_duanzhengchun",
-      "name": "段正淳",
-      "alias": [],
-      "identity": "大理段氏",
-      "faction": "faction_duanshi",
+      "id": "char_sikongxuan",
+      "name": "司空玄",
+      "alias": ["山羊胡子"],
+      "identity": "神农帮帮主",
+      "faction": "faction_shennongbang",
       "role": "npc",
-      "one_line": "段誉之父，被钟万仇深恨",
-      "personality": "未直接出场",
-      "known_skills": ["skill_yiyangzhi"],
-      "related_skills": []
-    },
-    {
-      "id": "char_xiaoziyu",
-      "name": "小玉",
-      "alias": [],
-      "identity": "万劫谷丫鬟",
-      "faction": "faction_wanjiegu",
-      "role": "npc",
-      "one_line": "钟夫人的丫鬟，迎接段誉入谷",
-      "personality": "谨慎小心",
+      "one_line": "神农帮帮主，被闪电貂咬伤，扣押钟灵",
+      "personality": "阴狠，但畏惧灵鹫宫",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [162, 1002]
     }
   ],
   "factions": [
@@ -140,32 +138,63 @@
       "name": "无量剑",
       "type": "武林门派",
       "location": "loc_wuliangshan",
-      "sub_divisions": ["东宗", "西宗", "北宗"],
-      "one_line": "五代后唐年间在南诏无量山创派，分为东西北三宗"
+      "sub_divisions": ["东宗", "西宗"],
+      "one_line": "云南无量山的剑派，分东、西二宗",
+      "rag_refs": [22, 40, 42, 46, 76, 138, 232]
     },
     {
-      "id": "faction_wanjiegu",
-      "name": "万劫谷",
-      "type": "家族",
-      "location": "loc_wanjiegu",
+      "id": "faction_wuliangjian_dong",
+      "name": "无量剑东宗",
+      "type": "武林门派",
+      "location": "loc_jianhugong",
       "sub_divisions": [],
-      "one_line": "钟万仇与甘宝宝隐居之所，谷口有'姓段者入此谷杀无赦'"
+      "one_line": "无量剑东宗，掌门左子穆",
+      "rag_refs": [7, 14, 40, 46, 48]
     },
     {
-      "id": "faction_duanshi",
-      "name": "段氏",
-      "type": "家族",
+      "id": "faction_wuliangjian_xi",
+      "name": "无量剑西宗",
+      "type": "武林门派",
+      "location": "loc_jianhugong",
+      "sub_divisions": [],
+      "one_line": "无量剑西宗，掌门辛双清",
+      "rag_refs": [22, 40, 42, 46, 48]
+    },
+    {
+      "id": "faction_shennongbang",
+      "name": "神农帮",
+      "type": "帮派",
       "location": null,
       "sub_divisions": [],
-      "one_line": "大理国姓段的家族，以一阳指闻名"
+      "one_line": "以采药贩药为生的帮派，受灵鹫宫辖制",
+      "rag_refs": [12, 14, 24, 66, 162, 872]
     },
     {
-      "id": "faction_xiaoyao",
+      "id": "faction_wanjiedu",
+      "name": "万劫谷",
+      "type": "帮派",
+      "location": "loc_wanjiedu",
+      "sub_divisions": [],
+      "one_line": "钟万仇的居所，地处隐秘，对姓段之人仇视",
+      "rag_refs": [544, 548, 558]
+    },
+    {
+      "id": "faction_xiaoyaopai",
       "name": "逍遥派",
       "type": "武林门派",
       "location": null,
       "sub_divisions": [],
-      "one_line": "神秘门派，有北冥神功、凌波微步等绝学"
+      "one_line": "神秘的武林门派，武功精妙，以逍遥子、秋水妹为代表",
+      "rag_refs": [390, 396, 404, 406, 438, 466]
+    },
+    {
+      "id": "faction_dali",
+      "name": "大理段氏",
+      "type": "家族",
+      "location": "loc_dali",
+      "sub_divisions": [],
+      "one_line": "大理国皇族段氏家族",
+      "rag_refs": [812, 814]
     }
   ],
   "locations": [
@@ -173,37 +202,64 @@
       "id": "loc_wuliangshan",
       "name": "无量山",
       "region": "云南",
-      "one_line": "山水清幽，无量剑派所在之地"
+      "one_line": "云南大山，无量剑派创立之地",
+      "rag_refs": [2, 14, 40]
+    },
+    {
+      "id": "loc_wuliangyubi",
+      "name": "无量玉壁",
+      "region": "无量山",
+      "one_line": "无量山中的一面巨大石壁，传说有仙人舞剑的影子",
+      "rag_refs": [38, 42, 46, 134, 136, 138, 168, 190, 198, 202]
     },
     {
       "id": "loc_jianhu",
       "name": "剑湖",
       "region": "无量山",
-      "one_line": "无量山深谷中的清澈大湖，有瀑布注入"
+      "one_line": "无量山中的湖泊，在瀑布之下，清澈异常",
+      "rag_refs": [112, 114, 118, 124, 128, 134, 138, 142, 200, 212, 216, 288]
     },
     {
-      "id": "loc_hugu",
-      "name": "湖底石室",
-      "region": "无量山",
-      "one_line": "剑湖湖底的秘密石室，有玉像和武功秘籍"
+      "id": "loc_gudi",
+      "name": "谷底石室",
+      "region": "无量山剑湖底",
+      "one_line": "剑湖底的石室，有玉像、棋局和琅擐福地",
+      "rag_refs": [252, 276, 284, 286, 290, 294, 300, 380, 468, 476, 496, 498, 508, 516]
     },
     {
       "id": "loc_langhuanfudi",
       "name": "琅擐福地",
-      "region": "无量山",
-      "one_line": "湖底石室中的藏书洞，原有各门各派武功典籍"
+      "region": "无量山剑湖底",
+      "one_line": "逍遥派收藏天下武功典籍的石洞，书籍已被人搬空",
+      "rag_refs": [494, 496, 498, 504, 508]
     },
     {
-      "id": "loc_sharendu",
-      "name": "善人渡",
+      "id": "loc_lancangjiang",
+      "name": "澜沧江",
       "region": "云南",
-      "one_line": "澜沧江上的铁索桥"
+      "one_line": "云南大江，水流湍急",
+      "rag_refs": [522, 524, 530]
     },
     {
-      "id": "loc_wanjiegu",
+      "id": "loc_shanrendu",
+      "name": "善人渡",
+      "region": "澜沧江",
+      "one_line": "澜沧江上的铁索桥渡口",
+      "rag_refs": [532, 534]
+    },
+    {
+      "id": "loc_wanjiedu",
       "name": "万劫谷",
       "region": "云南",
-      "one_line": "澜沧江西岸的隐秘山谷，钟万仇夫妇隐居之所"
+      "one_line": "钟万仇的居所，谷口隐蔽在大松树中",
+      "rag_refs": [544, 546, 548, 558, 614]
+    },
+    {
+      "id": "loc_dali",
+      "name": "大理",
+      "region": "云南",
+      "one_line": "大理国，段氏皇族所在地",
+      "rag_refs": [812, 834, 1022]
     }
   ],
   "skills": [
@@ -211,73 +267,91 @@
       "id": "skill_beiming",
       "name": "北冥神功",
       "type": "内功",
-      "faction": "faction_xiaoyao",
-      "one_line": "逍遥派内功，引世人之内力而为我有"
+      "faction": "faction_xiaoyaopai",
+      "one_line": "逍遥派内功，引他人内力为己有，以积蓄内力为第一要义",
+      "rag_refs": [408, 412, 434, 436, 438, 440]
     },
     {
       "id": "skill_lingboweibu",
       "name": "凌波微步",
       "type": "轻功",
-      "faction": "faction_xiaoyao",
-      "one_line": "逍遥派步法，以易经方位为基础，用于保身和积聚内力"
+      "faction": "faction_xiaoyaopai",
+      "one_line": "逍遥派步法，以易经六十四卦方位为基础的精妙步法，用于逃遁",
+      "rag_refs": [454, 458, 460, 464]
     },
     {
       "id": "skill_yiyangzhi",
       "name": "一阳指",
       "type": "指法",
-      "faction": "faction_duanshi",
-      "one_line": "段家点穴功夫天下无双"
+      "faction": "faction_dali",
+      "one_line": "大理段氏家传指法绝技",
+      "rag_refs": [502, 960]
     },
     {
-      "id": "skill_zhenlong",
-      "name": "珍珑",
-      "type": "棋艺",
-      "faction": "",
-      "one_line": "石室中的复杂棋局，劫中有劫，既有共活又有长生"
+      "id": "skill_liumaishenjian",
+      "name": "六脉神剑",
+      "type": "剑法",
+      "faction": "faction_dali",
+      "one_line": "大理段氏家传剑法绝技",
+      "rag_refs": [502]
+    },
+    {
+      "id": "skill_wuliangjianfa",
+      "name": "无量剑法",
+      "type": "剑法",
+      "faction": "faction_wuliangjian",
+      "one_line": "无量剑派的剑法",
+      "rag_refs": [40, 42]
     }
   ],
   "items": [
     {
       "id": "item_yuxiang",
-      "name": "玉像",
+      "name": "白玉雕像",
       "type": "special",
       "owner": null,
-      "one_line": "逍遥子为秋水妹所雕的白玉美女像，与生人一般大小"
+      "one_line": "与真人一般大小的白玉女子雕像，容貌绝世，似逍遥派秋水妹",
+      "rag_refs": [306, 308, 312, 316, 320, 326, 328, 338, 354, 358, 370, 382, 390, 406, 416, 464, 508]
     },
     {
-      "id": "item_bojuan",
-      "name": "帛卷",
+      "id": "item_beiming_scroll",
+      "name": "北冥神功帛卷",
       "type": "special",
       "owner": "char_duanyu",
-      "one_line": "记载北冥神功和凌波微步的武功秘籍"
-    },
-    {
-      "id": "item_huangjindianhe",
-      "name": "黄金钿盒",
-      "type": "special",
-      "owner": "char_ganbaobao",
-      "one_line": "钟夫人交给段誉的精致金盒，内有生辰八字纸片"
-    },
-    {
-      "id": "item_shengchenbazi",
-      "name": "生辰八字",
-      "type": "special",
-      "owner": "char_ganbaobao",
-      "one_line": "纸片上写着'庚申年二月初五丑时女'，十六年前的女婴八字"
+      "one_line": "记载北冥神功和凌波微步的帛卷，上有裸女经脉图",
+      "rag_refs": [382, 388, 390, 406, 408, 414, 416, 424, 450, 454, 460]
     },
     {
       "id": "item_huaxie",
       "name": "花鞋",
       "type": "special",
       "owner": "char_zhongling",
-      "one_line": "钟灵的葱绿色花鞋，作为信物"
+      "one_line": "钟灵的花鞋，作为信物交给段誉",
+      "rag_refs": [160, 182, 184, 188, 662, 864, 882]
     },
     {
-      "id": "item_qixuanqin",
-      "name": "七玄琴",
+      "id": "item_huangjindianhe",
+      "name": "黄金钿盒",
+      "type": "special",
+      "owner": "char_zhongfuren",
+      "one_line": "钟夫人交给段誉的黄金小盒，内藏生辰八字纸条",
+      "rag_refs": [1026, 1030, 1032]
+    },
+    {
+      "id": "item_baojian",
+      "name": "悬壁宝剑",
+      "type": "weapon",
+      "owner": null,
+      "one_line": "悬在峭壁洞孔中的宝剑，剑上镶嵌诸色宝石，月光映出彩色剑影",
+      "rag_refs": [218, 220, 224, 226, 232, 236, 240]
+    },
+    {
+      "id": "item_qixianqin",
+      "name": "七弦琴",
       "type": "special",
       "owner": null,
-      "one_line": "湖底石室中悬挂的古琴，玄线俱已断绝"
+      "one_line": "石室壁上悬挂的七弦琴，弦线已断",
+      "rag_refs": [474, 478]
     }
   ]
 }

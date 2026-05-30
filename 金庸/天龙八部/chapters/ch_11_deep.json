@@ -1,0 +1,283 @@
+{
+  "chapter": 11,
+  "title": "向来痴",
+  "characters_detail": [
+    {
+      "id": "char_duan_yu",
+      "personality": {
+        "traits": ["书生气", "怜香惜玉", "坚韧不屈", "聪明机敏", "幽默豁达"],
+        "speech_style": "文雅风趣，常用诗词典故，善辩且带书呆子气",
+        "temperament": "温文儒雅中带几分狡黠，面对生死亦能谈笑自若"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_jiu_mo_zhi", "type": "enemy", "intensity": 90, "bond_level": 1, "dynamic": "从被擒之敌到识破对方用心，智斗周旋"},
+        {"target": "char_a_bi", "type": "admiration", "intensity": 60, "bond_level": 2, "dynamic": "初见即赞赏其音律才貌，得救后心怀感激"},
+        {"target": "char_a_zhu", "type": "admiration", "intensity": 55, "bond_level": 2, "dynamic": "识破乔装却为之保密，并甘心磕头"},
+        {"target": "char_cui_bai_quan", "type": "friend", "intensity": 40, "bond_level": 2, "dynamic": "旧识，崔曾躲藏于镇南王府"},
+        {"target": "char_guo_yan_zhi", "type": "acquaintance", "intensity": 20, "bond_level": 1, "dynamic": "与崔百泉一同出现"}
+      ],
+      "known_skills": ["skill_liu_mai_shen_jian", "skill_ling_bo_wei_bu"],
+      "related_skills": ["skill_yi_yang_zhi"]
+    },
+    {
+      "id": "char_jiu_mo_zhi",
+      "personality": {
+        "traits": ["表面慈悲", "内里阴狠", "城府极深", "聪明机智", "不择手段", "能屈能伸"],
+        "speech_style": "对外时自称'小僧'语气谦和，发怒时则自称'佛爷'凶相毕露",
+        "temperament": "喜怒不形于色，越愤怒外表越慈和"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_duan_yu", "type": "enemy", "intensity": 85, "bond_level": 1, "dynamic": "欲逼取剑谱但忌惮对方以假谱相欺"},
+        {"target": "char_mu_rong_bo", "type": "complicated", "intensity": 70, "bond_level": 3, "dynamic": "自称知交，实为利用旧约获取武学"},
+        {"target": "char_a_bi", "type": "hostile", "intensity": 60, "bond_level": 1, "dynamic": "以阿碧为质逼迫段誉出手"},
+        {"target": "char_a_zhu", "type": "hostile", "intensity": 50, "bond_level": 1, "dynamic": "被其乔装戏弄后识破"},
+        {"target": "char_cui_bai_quan", "type": "neutral", "intensity": 20, "bond_level": 1, "dynamic": "不屑一顾但利用其带路"},
+        {"target": "char_guo_yan_zhi", "type": "neutral", "intensity": 20, "bond_level": 1, "dynamic": "不屑一顾但利用其带路"}
+      ],
+      "known_skills": ["skill_huo_yan_dao"],
+      "related_skills": []
+    },
+    {
+      "id": "char_a_bi",
+      "personality": {
+        "traits": ["温柔腼腆", "天真善良", "精通音律", "体贴周到", "略带羞怯"],
+        "speech_style": "一口苏州土白，语声清柔如奏管弦，总是以商量的语气说话",
+        "temperament": "温婉可人，内心单纯"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_duan_yu", "type": "friend", "intensity": 50, "bond_level": 3, "dynamic": "初见即欣赏对方的音律修养，冒死相救"},
+        {"target": "char_a_zhu", "type": "complicated", "intensity": 75, "bond_level": 4, "dynamic": "亲密的主仆兼姐妹，彼此关心"},
+        {"target": "char_jiu_mo_zhi", "type": "enemy", "intensity": 55, "bond_level": 1, "dynamic": "遭其威胁攻击"},
+        {"target": "char_mu_rong_fu", "type": "complicated", "intensity": 65, "bond_level": 3, "dynamic": "对公子暗怀情愫，但自觉只是微不足道的丫头"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_a_zhu",
+      "personality": {
+        "traits": ["精灵古怪", "聪慧机敏", "活泼顽皮", "精于乔装", "伶牙俐齿"],
+        "speech_style": "同样说苏州话，但比阿碧更加快人快语，常调侃戏弄人",
+        "temperament": "机灵跳脱，喜怒皆形于色"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duan_yu", "type": "friend", "intensity": 55, "bond_level": 3, "dynamic": "被段誉识破乔装但对方巧妙维护，心生好感"},
+        {"target": "char_a_bi", "type": "complicated", "intensity": 80, "bond_level": 5, "dynamic": "亲如姐妹，常一起戏弄敌人"},
+        {"target": "char_jiu_mo_zhi", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "戏弄对方后被识破"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_cui_bai_quan",
+      "personality": {
+        "traits": ["老江湖", "知恩图报", "谨慎多疑", "看似猥琐实则仗义"],
+        "speech_style": "江湖腔调，言语间透露出阅历",
+        "temperament": "表面圆滑，内心刚硬"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duan_yu", "type": "friend", "intensity": 60, "bond_level": 3, "dynamic": "因藏身王府之恩而冒险相救"},
+        {"target": "char_guo_yan_zhi", "type": "complicated", "intensity": 70, "bond_level": 4, "dynamic": "师叔侄关系，一同报仇"},
+        {"target": "char_jiu_mo_zhi", "type": "enemy", "intensity": 65, "bond_level": 1, "dynamic": "自知不敌仍要一试"},
+        {"target": "char_mu_rong_fu", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "认定慕容氏杀了师兄柯百岁"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_guo_yan_zhi",
+      "personality": {
+        "traits": ["性烈如火", "报仇心切", "刚直不阿", "对弱者可生怜悯"],
+        "speech_style": "粗声粗气，直来直去",
+        "temperament": "暴躁刚烈，但并非全无柔情"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_ke_bai_sui", "type": "complicated", "intensity": 90, "bond_level": 5, "dynamic": "师徒情深，报仇乃此行唯一目的"},
+        {"target": "char_cui_bai_quan", "type": "friend", "intensity": 70, "bond_level": 4, "dynamic": "师叔侄一同复仇"},
+        {"target": "char_jiu_mo_zhi", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "被夺兵刃折了锐气"},
+        {"target": "char_a_bi", "type": "complicated", "intensity": 25, "bond_level": 2, "dynamic": "虽对慕容家恨之入骨，却不忍对这天真丫头下手"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_liu_mai_shen_jian",
+      "techniques": [
+        {"id": "tech_shao_ze_jian", "name": "少泽剑", "type": "attack", "description": "左手小指发出剑气"},
+        {"id": "tech_zhong_chong_jian", "name": "中冲剑", "type": "attack", "description": "右手中指发出剑气，使段誉手指炙热"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "段誉已记全剑谱，可发出剑气但不会运用"}
+      ],
+      "effects": [
+        {"type": "damage", "condition": "中指/小指运内力发出", "description": "以无形剑气伤人，可刺穿门窗板壁"}
+      ],
+      "combat_style": "段誉内力极强但不会武功招式，剑气东引西带不得其法"
+    },
+    {
+      "id": "skill_huo_yan_dao",
+      "techniques": [
+        {"id": "tech_huo_yan_dao_ji", "name": "火焰刀", "type": "attack", "description": "以掌力凝聚内力化为无形刀气"}
+      ],
+      "progression": [
+        {"level": 4, "unlock": "鸠摩智闭关九年修炼此功，可凌空发刀削断树枝、劈裂桌椅"}
+      ],
+      "effects": [
+        {"type": "damage", "condition": "运掌力发出", "description": "无形气劲可斩断实物，如刀剑劈削"},
+        {"type": "attack", "condition": "凌空挥掌", "description": "可远距离攻击，曾削断段誉头巾"}
+      ],
+      "combat_style": "以内力外放攻击，无影无踪难以防御"
+    },
+    {
+      "id": "skill_ling_bo_wei_bu",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "movement", "condition": "真气通畅可用", "description": "极高明的轻功步法，段誉穴道被封则无法使用"}
+      ],
+      "combat_style": "步法变幻莫测"
+    },
+    {
+      "id": "skill_hua_gong_da_fa",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "debuff", "condition": "对方内力攻入自身穴道", "description": "可将对方内力化解吸收，段誉误用此功吸了鸠摩智的内力"}
+      ],
+      "combat_style": "被动化功，段誉为误打误撞"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_11_jiu_mo_zhi_xie_yu_bei_xing",
+      "name": "鸠摩智挟段誉北行",
+      "participants": ["char_duan_yu", "char_jiu_mo_zhi"],
+      "location": "loc_dali",
+      "description": "鸠摩智点了段誉穴道，以皮带缚其腰，提着他穿越荒山野岭向北行走十余日至苏州",
+      "chapter": 11
+    },
+    {
+      "id": "evt_11_jiu_mo_zhi_bi_xie_jian_pu",
+      "name": "鸠摩智逼写剑谱",
+      "participants": ["char_duan_yu", "char_jiu_mo_zhi"],
+      "location": "loc_suzhou",
+      "description": "在小城客店中，鸠摩智以纸墨笔砚逼段誉写出六脉神剑剑谱，段誉识破其用心坚拒不写",
+      "chapter": 11
+    },
+    {
+      "id": "evt_11_duan_yu_xi_jin_jiu_mo_zhi_nei_li",
+      "name": "段誉吸走鸠摩智内力",
+      "participants": ["char_duan_yu", "char_jiu_mo_zhi"],
+      "location": "loc_suzhou",
+      "description": "鸠摩智以掌力按段誉膻中穴逼供，内力被段誉体内化功大法吸走，大惊收手",
+      "chapter": 11
+    },
+    {
+      "id": "evt_11_yu_jian_cui_guo",
+      "name": "路遇崔百泉过彦之",
+      "participants": ["char_duan_yu", "char_jiu_mo_zhi", "char_cui_bai_quan", "char_guo_yan_zhi"],
+      "location": "loc_suzhou",
+      "description": "在苏州城外遇上前来寻慕容氏报仇的崔百泉和过彦之，鸠摩智一招夺二人兵刃",
+      "chapter": 11
+    },
+    {
+      "id": "evt_11_a_bi_yin_lu",
+      "name": "阿碧引路至琴韵小筑",
+      "participants": ["char_duan_yu", "char_jiu_mo_zhi", "char_a_bi", "char_cui_bai_quan", "char_guo_yan_zhi"],
+      "location": "loc_qin_yun_xiao_zhu",
+      "description": "阿碧划舟接引四人至琴韵小筑，以苏州小曲和音乐招待",
+      "chapter": 11
+    },
+    {
+      "id": "evt_11_a_zhu_qiao_zhuang",
+      "name": "阿朱乔装戏弄鸠摩智",
+      "participants": ["char_jiu_mo_zhi", "char_a_zhu", "char_duan_yu", "char_a_bi"],
+      "location": "loc_qin_yun_xiao_zhu",
+      "description": "阿朱先后乔装为老仆黄伯、管家孙三、慕容老夫人，与阿碧一搭一挡戏弄鸠摩智",
+      "chapter": 11
+    },
+    {
+      "id": "evt_11_liu_mai_shen_jian_zhan_huo_yan_dao",
+      "name": "六脉神剑大战火焰刀",
+      "participants": ["char_duan_yu", "char_jiu_mo_zhi", "char_a_zhu", "char_a_bi"],
+      "location": "loc_qin_yun_xiao_zhu",
+      "description": "鸠摩智以火焰刀攻击阿碧逼段誉出手，段誉以六脉神剑相抗，内力尚在鸠摩智之上但不会使用",
+      "chapter": 11
+    },
+    {
+      "id": "evt_11_ting_yu_ju_tuo_xian",
+      "name": "听雨居机关脱险",
+      "participants": ["char_duan_yu", "char_jiu_mo_zhi", "char_a_zhu", "char_a_bi"],
+      "location": "loc_ting_yu_ju",
+      "description": "阿朱阿碧以听雨居翻板机关让段誉坠入预先藏好的小船，三人逃脱，鸠摩智追至湖中因不会划船一度受阻",
+      "chapter": 11
+    },
+    {
+      "id": "evt_11_hu_zhong_duo_bi",
+      "name": "太湖躲避鸠摩智",
+      "participants": ["char_duan_yu", "char_a_zhu", "char_a_bi"],
+      "location": "loc_tai_hu",
+      "description": "二女和段誉划小船入太湖深处，以菱叶塞耳抵御鸠摩智的摄心术，躲入百曲湖",
+      "chapter": 11
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_jiu_mo_zhi",
+      "listener": null,
+      "text": "段公子会错意了。小僧当年与慕容先生有约，要借贵门六脉神剑经去给他一观。此约未践，一直耿耿于怀。幸得段公子心中记得此经，无可奈何，只有将你带到慕容先生墓前焚化，好让小僧不致失信于故人。然而公子人中龙凤，小僧与你无冤无仇，岂敢伤残？这中间尚有一个两全其美的法子。公子只须将经文图谱一无遗漏的写出来，小僧自己绝不看上一眼，立即固封，拿去在慕容先生墓前火化，了此宿愿，便即恭送公子回归大理。",
+      "tone": "谦和虚伪",
+      "chapter": 11
+    },
+    {
+      "speaker": "char_duan_yu",
+      "listener": "char_jiu_mo_zhi",
+      "text": "你说当年对慕容先生有此诺言，是真是假，谁也不知。你拿到了六脉神剑剑谱，自己必定细读一番，是否要去慕容先生墓前焚化，谁也不知。就算真要焚化，以大师的聪明才智，读得几遍之后，岂有记不住之的？说不定还怕记错了，要笔录副本，然后再去焚化。",
+      "tone": "理智冷嘲",
+      "chapter": 11
+    },
+    {
+      "speaker": "char_duan_yu",
+      "listener": "char_jiu_mo_zhi",
+      "text": "我不写此经，你终不死心，舍不得便杀了我。我倘若写了出来，你怎么还能容我活命？我写经便是自杀，鸠摩智大师，这一节，我在十三天之前便已想明白了。",
+      "tone": "冷静透彻",
+      "chapter": 11
+    },
+    {
+      "speaker": "char_duan_yu",
+      "listener": "char_jiu_mo_zhi",
+      "text": "我倘若受逼不过，只好胡乱写些，那就未必全对。你如伤残我肢体，我恨你切骨，写出来的剑谱更加不知所云。这样吧，反正我写的剑谱，你要拿去在慕容先生墓前焚化，你说过立即固封，决计不看上一眼，是对是错，跟你并不相干。我胡乱书写，不过是我骗了慕容先生的阴魂，他在阴间练得走火入魔，自绝鬼脉，也不会来怪你。",
+      "tone": "调侃威胁",
+      "chapter": 11
+    },
+    {
+      "speaker": "char_duan_yu",
+      "listener": "char_jiu_mo_zhi",
+      "text": "你本来是信口开河嘛。你既与慕容先生有约，干么不早日到大理来取剑经？却等到慕容先生仙逝之后，死无对证，这才到慕容府上来罗唣不休。我瞧你啊，乃是心慕姑苏慕容氏武功高强，捏造一派谎话，想骗得老太太应允你到藏书阁中，去偷看慕容氏的拳经剑谱，学一学慕容氏'以彼之道，还施彼身'的法门。",
+      "tone": "讽刺揭穿",
+      "chapter": 11
+    },
+    {
+      "speaker": "char_duan_yu",
+      "listener": "null",
+      "text": "贪嗔爱欲痴，大和尚一应俱全，居然妄称为佛门高僧，当真是浪得虚名。",
+      "tone": "斥责轻蔑",
+      "chapter": 11
+    },
+    {
+      "speaker": "char_duan_yu",
+      "listener": "char_a_zhu",
+      "text": "我只觉老天爷的本事，当真令人大为钦佩。他既挖空心思，造了阿碧姊姊这样一位美人儿出来，江南的灵秀之气，该当是一举用得干干净净了。那知又能另造一位阿朱姊姊。两个儿的相貌全然不同，却各有各的好看，叫我想赞美几句，却偏偏一句也说不出口。",
+      "tone": "风趣赞美",
+      "chapter": 11
+    }
+  ]
+}

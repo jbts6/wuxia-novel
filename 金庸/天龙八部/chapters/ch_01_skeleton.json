@@ -5,85 +5,79 @@
       "id": "char_duanyu",
       "name": "段誉",
       "alias": [],
-      "identity": "大理国段氏子弟",
-      "faction": "faction_duanshi",
+      "identity": "大理段氏公子，不会武功",
+      "faction": "faction_dali",
       "role": "protagonist",
-      "one_line": "不会武功的书生，被卷入江湖纷争",
-      "personality": "书呆子气，善良迂腐，不愿学武",
+      "one_line": "大理段氏的年轻公子，不会武功却胆大妄为，喜欢游山玩水",
+      "personality": "书生气重，天真烂漫，说话狂放不羁却无恶意",
       "known_skills": [],
-      "related_skills": ["skill_yiyangzhi"]
-    },
-    {
-      "id": "char_zhongling",
-      "name": "钟灵",
-      "alias": [],
-      "identity": "钟家少女",
-      "faction": null,
-      "role": "companion",
-      "one_line": "十六七岁少女，笑靥如花，玩弄毒蛇与闪电貂",
-      "personality": "娇俏可爱，刁钻古怪，天真烂漫",
-      "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [12, 35, 37, 38, 46, 47, 48, 50]
     },
     {
       "id": "char_zuozimu",
       "name": "左子穆",
       "alias": [],
       "identity": "无量剑东宗掌门",
-      "faction": "faction_wuliangjian",
+      "faction": "faction_wuliangjian_dong",
       "role": "npc",
-      "one_line": "长须老者，神情得意，无量剑东宗掌门",
-      "personality": "颐指气使，狠霸霸，但也有忍让的时候",
-      "known_skills": ["skill_jinzhendujie"],
-      "related_skills": []
+      "one_line": "无量剑东宗掌门，五十余岁老者，剑术精湛",
+      "personality": "自负好面子，对门派声誉极为看重",
+      "known_skills": ["skill_wuliangjianfa", "skill_jinzhendujie"],
+      "related_skills": [],
+      "rag_refs": [7, 25, 38, 50, 52, 88]
     },
     {
       "id": "char_xinshuangqing",
       "name": "辛双清",
-      "alias": [],
-      "identity": "无量剑西宗掌门",
-      "faction": "faction_wuliangjian",
+      "alias": ["双清"],
+      "identity": "无量剑西宗掌门，中年道姑",
+      "faction": "faction_wuliangjian_xi",
       "role": "npc",
-      "one_line": "中年道姑，无量剑西宗掌门",
-      "personality": "强忍怒气，冷静",
-      "known_skills": [],
-      "related_skills": []
+      "one_line": "无量剑西宗掌门，中年道姑，铁青着脸",
+      "personality": "沉默寡言，强忍怒气，与东宗互有芥蒂",
+      "known_skills": ["skill_wuliangjianfa"],
+      "related_skills": [],
+      "rag_refs": [6, 20, 24, 25]
     },
     {
       "id": "char_gongguangjie",
       "name": "龚光杰",
       "alias": [],
-      "identity": "无量剑东宗弟子",
-      "faction": "faction_wuliangjian",
+      "identity": "左子穆弟子，中年汉子",
+      "faction": "faction_wuliangjian_dong",
       "role": "npc",
-      "one_line": "左子穆的弟子，与褚师弟比剑获胜后被毒蛇咬死",
-      "personality": "狠霸霸，仗势欺人",
-      "known_skills": ["skill_diepubu"],
-      "related_skills": []
+      "one_line": "左子穆的大弟子，剑术不错但性格暴躁",
+      "personality": "暴躁易怒，欺软怕硬",
+      "known_skills": ["skill_wuliangjianfa"],
+      "related_skills": [],
+      "rag_refs": [3, 16, 32, 50, 55, 62, 69, 74, 94, 97]
+    },
+    {
+      "id": "char_chu",
+      "name": "褚师弟",
+      "alias": [],
+      "identity": "无量剑西宗年轻弟子",
+      "faction": "faction_wuliangjian_xi",
+      "role": "npc",
+      "one_line": "西宗年轻弟子，在比剑中输给龚光杰",
+      "personality": "好强，脸色苍白仍不服输",
+      "known_skills": ["skill_wuliangjianfa"],
+      "related_skills": [],
+      "rag_refs": [4, 14, 15, 16, 17]
     },
     {
       "id": "char_rongziju",
       "name": "容子矩",
       "alias": [],
-      "identity": "无量剑东宗弟子",
-      "faction": "faction_wuliangjian",
+      "identity": "左子穆的师弟",
+      "faction": "faction_wuliangjian_dong",
       "role": "npc",
-      "one_line": "左子穆师弟，被神农帮所杀",
-      "personality": "正直刚烈",
+      "one_line": "左子穆的师弟，闯入剑湖宫后身亡",
+      "personality": "",
       "known_skills": [],
-      "related_skills": []
-    },
-    {
-      "id": "char_sikongxuan",
-      "name": "司空玄",
-      "alias": [],
-      "identity": "神农帮帮主",
-      "faction": "faction_shennongbang",
-      "role": "villain",
-      "one_line": "瘦小老者，山羊胡子，神态倨傲，身中生死符",
-      "personality": "阴沉，狠辣，但也有凄恻自伤之意",
-      "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [150, 154, 160, 166]
     },
     {
       "id": "char_mawude",
@@ -92,22 +86,37 @@
       "identity": "滇南普洱老武师，大茶商",
       "faction": null,
       "role": "npc",
-      "one_line": "豪富好客，颇有孟尝之风，武功平平",
-      "personality": "随和，好客",
+      "one_line": "滇南大茶商，江湖豪爽好客，武功平平",
+      "personality": "生性随和，乐于助人",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [35, 36, 41, 43, 49, 50]
     },
     {
-      "id": "char_ganguanghao",
+      "id": "char_ganuanghao",
       "name": "干光豪",
       "alias": [],
-      "identity": "无量剑东宗弟子",
-      "faction": "faction_wuliangjian",
+      "identity": "左子穆弟子",
+      "faction": "faction_wuliangjian_dong",
       "role": "npc",
-      "one_line": "无量剑东宗大弟子",
-      "personality": "谨慎稳重",
+      "one_line": "左子穆的弟子",
+      "personality": "",
+      "known_skills": ["skill_wuliangjianfa"],
+      "related_skills": [],
+      "rag_refs": [167, 168]
+    },
+    {
+      "id": "char_zhongling",
+      "name": "钟灵",
+      "alias": [],
+      "identity": "十六七岁少女，擅驭毒蛇灵貂",
+      "faction": null,
+      "role": "companion",
+      "one_line": "天真活泼的少女，以毒蛇和灵貂为伴",
+      "personality": "活泼调皮，爱笑爱闹，心性善良",
       "known_skills": [],
-      "related_skills": []
+      "related_skills": [],
+      "rag_refs": [92, 95, 97, 100, 119, 122, 126, 127, 146, 148, 150, 156, 161]
     }
   ],
   "factions": [
@@ -117,7 +126,26 @@
       "type": "武林门派",
       "location": "loc_wuliangshan",
       "sub_divisions": ["东宗", "西宗", "北宗"],
-      "one_line": "五代后唐年间在南诏无量山创派，分为东西北三宗，每隔五年比武斗剑"
+      "one_line": "云南无量山的剑派，分东、西、北三宗，每五年比剑争夺剑湖宫居住权",
+      "rag_refs": [25, 26, 27, 28, 29, 30, 31]
+    },
+    {
+      "id": "faction_wuliangjian_dong",
+      "name": "无量剑东宗",
+      "type": "武林门派",
+      "location": "loc_jianhugong",
+      "sub_divisions": [],
+      "one_line": "无量剑东宗，掌门左子穆，当前占据剑湖宫",
+      "rag_refs": [7, 25, 38]
+    },
+    {
+      "id": "faction_wuliangjian_xi",
+      "name": "无量剑西宗",
+      "type": "武林门派",
+      "location": "loc_jianhugong",
+      "sub_divisions": [],
+      "one_line": "无量剑西宗，掌门辛双清",
+      "rag_refs": [6, 24, 25]
     },
     {
       "id": "faction_shennongbang",
@@ -125,23 +153,8 @@
       "type": "帮派",
       "location": null,
       "sub_divisions": [],
-      "one_line": "以采药、贩药为生，奉缥缈峰灵鹫宫号令"
-    },
-    {
-      "id": "faction_duanshi",
-      "name": "段氏",
-      "type": "家族",
-      "location": null,
-      "sub_divisions": [],
-      "one_line": "大理国姓段的家族，以一阳指闻名"
-    },
-    {
-      "id": "faction_lingjiugong",
-      "name": "灵鹫宫",
-      "type": "武林门派",
-      "location": null,
-      "sub_divisions": [],
-      "one_line": "缥缈峰上的神秘门派，神农帮奉其号令"
+      "one_line": "以采药贩药为生的帮派，与无量剑结仇",
+      "rag_refs": [160, 162, 168, 170]
     }
   ],
   "locations": [
@@ -149,92 +162,89 @@
       "id": "loc_wuliangshan",
       "name": "无量山",
       "region": "云南",
-      "one_line": "山水清幽，无量剑派所在之地"
+      "one_line": "云南大山，无量剑派创立之地",
+      "rag_refs": [27]
     },
     {
       "id": "loc_jianhugong",
       "name": "剑湖宫",
       "region": "无量山",
-      "one_line": "无量剑掌门人居住的地方，每隔五年比武斗剑之处"
+      "one_line": "无量剑派掌门居住和比武之地",
+      "rag_refs": [19, 26, 29]
     },
     {
-      "id": "loc_bailongfeng",
-      "name": "白龙峰",
-      "region": "无量山",
-      "one_line": "有镜面石（无量玉壁）之处"
+      "id": "loc_puer",
+      "name": "普洱",
+      "region": "滇南",
+      "one_line": "滇南普洱，马五德的住所",
+      "rag_refs": [35]
     },
     {
-      "id": "loc_lancangjiang",
-      "name": "澜沧江",
+      "id": "loc_dali",
+      "name": "大理",
       "region": "云南",
-      "one_line": "河流，钟灵所居山谷在其西岸"
+      "one_line": "大理国，段氏皇族所在地",
+      "rag_refs": [36]
     }
   ],
   "skills": [
     {
-      "id": "skill_yiyangzhi",
-      "name": "一阳指",
-      "type": "指法",
-      "faction": "faction_duanshi",
-      "one_line": "段家点穴功夫天下无双"
+      "id": "skill_wuliangjianfa",
+      "name": "无量剑法",
+      "type": "剑法",
+      "faction": "faction_wuliangjian",
+      "one_line": "无量剑派的剑法，分东、西、北三宗传承",
+      "rag_refs": [2, 3, 4, 26, 27]
     },
     {
       "id": "skill_jinzhendujie",
       "name": "金针渡劫",
       "type": "剑法",
-      "faction": "faction_wuliangjian",
-      "one_line": "左子穆的剑招，剑尖及于徒儿眼皮而止"
+      "faction": "faction_wuliangjian_dong",
+      "one_line": "左子穆的剑招，出剑迅捷，精准至极",
+      "rag_refs": [136]
     },
     {
       "id": "skill_diepubu",
       "name": "跌扑步",
-      "type": "轻功",
+      "type": "剑法",
       "faction": "faction_wuliangjian",
-      "one_line": "无量剑虚招，佯出虚招诱敌"
+      "one_line": "装作摔跌的虚招，诱敌取胜",
+      "rag_refs": [10, 38]
     }
   ],
   "items": [
     {
-      "id": "item_shandandiao",
+      "id": "item_qinggangjian",
+      "name": "青钢剑",
+      "type": "weapon",
+      "owner": "char_chu",
+      "one_line": "使剑少年的兵器",
+      "rag_refs": [2, 4]
+    },
+    {
+      "id": "item_chilian_snake",
+      "name": "赤练蛇",
+      "type": "special",
+      "owner": "char_zhongling",
+      "one_line": "钟灵豢养的毒蛇，青红斑斓",
+      "rag_refs": [92, 95, 97]
+    },
+    {
+      "id": "item_xiaodiao",
       "name": "闪电貂",
       "type": "special",
       "owner": "char_zhongling",
-      "one_line": "钟灵从小养大的毒貂，眼射红光，剧毒无比"
-    },
-    {
-      "id": "item_huaxie",
-      "name": "花鞋",
-      "type": "special",
-      "owner": "char_zhongling",
-      "one_line": "钟灵的葱绿色花鞋，作为信物交给段誉"
-    },
-    {
-      "id": "item_duanchangsan",
-      "name": "断肠散",
-      "type": "poison",
-      "owner": "char_sikongxuan",
-      "one_line": "七日之后毒发，肚肠寸断而亡的毒药"
+      "one_line": "钟灵豢养的白色小貂，行动迅捷无比，以蛇为食",
+      "rag_refs": [124, 126, 127, 129, 130, 132, 140, 146, 148, 150, 156]
     },
     {
       "id": "item_zheshan",
       "name": "折扇",
       "type": "special",
       "owner": "char_duanyu",
-      "one_line": "段誉手中轻摇的折扇"
-    },
-    {
-      "id": "item_chilianshe",
-      "name": "赤练蛇",
-      "type": "special",
-      "owner": "char_zhongling",
-      "one_line": "尺许长的毒蛇，钟灵用来喂貂"
-    },
-    {
-      "id": "item_wulangyubi",
-      "name": "无量玉壁",
-      "type": "special",
-      "owner": null,
-      "one_line": "无量山白龙峰畔的镜面石，平滑如镜能照见毛发"
+      "one_line": "段誉随身携带的摺扇",
+      "rag_refs": [48]
     }
   ]
 }

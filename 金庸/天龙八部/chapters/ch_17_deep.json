@@ -1,0 +1,223 @@
+{
+  "chapter": 17,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["慈悲仁善", "痴情至诚", "书生气", "心软胆小", "婆婆妈妈"],
+        "speech_style": "文雅迂腐，喜欢自言自语胡思乱想，对王语嫣千依百顺",
+        "temperament": "温和痴情"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_wangyuyan", "type": "love", "intensity": 95, "bond_level": 4, "dynamic": "痴恋王语嫣，为她不惜性命，但被她婉言拒绝后决定克制"},
+        {"target": "char_liyanzong", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "生死相搏，因王语嫣说情对方才赠解药离去"},
+        {"target": "char_jin'ae'r", "type": "companion", "intensity": 30, "bond_level": 1, "dynamic": "碾坊中无辜被害的农家青年，段誉深感自责"},
+        {"target": "char_murongfu", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "情敌，因王语嫣心中只有慕容复而痛苦"}
+      ],
+      "known_skills": ["skill_liumaishenjian", "skill_lingboweibu", "skill_beimingshengong"],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_wangyuyan",
+      "personality": {
+        "traits": ["痴情于表哥", "聪慧博学", "羞怯温婉", "机变"],
+        "speech_style": "温婉有礼，论武时侃侃而谈如数家珍，被表白时端庄正色",
+        "temperament": "温柔知性"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_duanyu", "type": "complicated", "intensity": 40, "bond_level": 2, "dynamic": "感激他的救命之恩但明确拒绝其爱意，称心早属他人"},
+        {"target": "char_murongfu", "type": "love", "intensity": 98, "bond_level": 5, "dynamic": "心心念念全是表哥慕容复，要去找他"},
+        {"target": "char_liyanzong", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "以武学见识慑服对方，称可杀他"},
+        {"target": "char_azhu", "type": "companion", "intensity": 60, "bond_level": 3, "dynamic": "同为慕容复相关之人，急于相救"},
+        {"target": "char_abi", "type": "companion", "intensity": 60, "bond_level": 3, "dynamic": "同为慕容复相关之人，急于相救"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liyanzong",
+      "personality": {
+        "traits": ["傲慢自负", "心思深沉", "脸上木无表情", "心胸狭窄", "不好女色"],
+        "speech_style": "冷冰冰的毫无感情，用词平直无起伏，每个字平平而出",
+        "temperament": "冷漠深沉"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyu", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "数次欲杀段誉，后因王语嫣之言赠解药离去"},
+        {"target": "char_wangyuyan", "type": "complicated", "intensity": 40, "bond_level": 1, "dynamic": "对她的武学见识颇感好奇，最终赠药"},
+        {"target": "char_qiaofeng", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "不服乔峰名气在自己之上"},
+        {"target": "char_murongfu", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "不服慕容复名气在自己之上"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_liumaishenjian",
+      "techniques": [
+        {"id": "tech_shaoshang", "name": "少商剑", "type": "attack", "description": "拇指少商剑，六脉神剑之一"},
+        {"id": "tech_shangyang", "name": "商阳剑", "type": "attack", "description": "食指商阳剑，六脉神剑之一"},
+        {"id": "tech_zhongchong", "name": "中冲剑", "type": "attack", "description": "中手中冲剑，六脉神剑之一"},
+        {"id": "tech_guanchong", "name": "关冲剑", "type": "attack", "description": "无名指关冲剑，六脉神剑之一"},
+        {"id": "tech_shaochong", "name": "少冲剑", "type": "attack", "description": "小指少冲剑，六脉神剑之一"},
+        {"id": "tech_shaoze", "name": "少泽剑", "type": "attack", "description": "小指少泽剑，六脉神剑之一"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "偶然激发出剑气"}
+      ],
+      "effects": [
+        {"type": "远程穿透", "condition": "真气激荡时激发", "description": "无形剑气射穿敌人身体，留下小孔鲜血直喷"},
+        {"type": "反弹", "condition": "真气击中墙壁后反弹", "description": "真气撞墙反弹击中敌人罩门"}
+      ],
+      "combat_style": "远程无形剑气，段誉使用时灵时不灵，情急之下往往奏功"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "techniques": [
+        {"id": "tech_liushisixiang", "name": "六十四卦步法", "type": "buff", "description": "按易经六十四卦方位行走，步法变幻莫测"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "闪避", "condition": "敌人攻击时", "description": "自管自踏步，敌人无法预判落点，兵刃自动打在空处"},
+        {"type": "混乱", "condition": "多人围攻时", "description": "步法引敌人自相攻击"}
+      ],
+      "combat_style": "飘逸自在，如御风行水，敌人永远慢一步"
+    },
+    {
+      "id": "skill_beimingshengong",
+      "techniques": [
+        {"id": "tech_beiming_xigong", "name": "北冥吸功", "type": "special", "description": "可吸入他人内力为己用"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "以吸为主，借力打力"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_nianfang_biyu",
+      "name": "碾坊避雨遇袭",
+      "participants": ["char_duanyu", "char_wangyuyan", "char_jin'ae'r", "char_nongnv"],
+      "location": "loc_nianfang",
+      "description": "段誉带王语嫣入碾坊避雨，遇到一对农家情侣，随后西夏武士追到",
+      "chapter": 17
+    },
+    {
+      "id": "evt_nianfang_dazhan",
+      "name": "碾坊大战西夏武士",
+      "participants": ["char_duanyu", "char_wangyuyan", "char_liyanzong"],
+      "location": "loc_nianfang",
+      "description": "段誉以六脉神剑和凌波微步连杀十余名西夏武士，金阿二和农女惨死",
+      "chapter": 17
+    },
+    {
+      "id": "evt_duanyu_lianbi_sharen",
+      "name": "段誉连毙众人",
+      "participants": ["char_duanyu"],
+      "location": "loc_nianfang",
+      "description": "段誉在碾坊中连杀十五名西夏武士和四名一品堂高手后悲恸自责",
+      "chapter": 17
+    },
+    {
+      "id": "evt_liyanzong_jiaoshou",
+      "name": "李延宗考验段誉",
+      "participants": ["char_liyanzong", "char_duanyu", "char_wangyuyan"],
+      "location": "loc_nianfang",
+      "description": "李延宗以凌波微步困住段誉，以王语嫣为饵骗段誉分神胜之，后赠解药离去",
+      "chapter": 17
+    },
+    {
+      "id": "evt_wangyuyan_jiedu",
+      "name": "王语嫣解毒",
+      "participants": ["char_wangyuyan", "char_duanyu"],
+      "location": "loc_nianfang",
+      "description": "李延宗所赠的悲酥清风解药使王语嫣恢复行动能力",
+      "chapter": 17
+    },
+    {
+      "id": "evt_fenghuo_nianfang",
+      "name": "火烧碾坊",
+      "participants": ["char_duanyu", "char_wangyuyan"],
+      "location": "loc_nianfang",
+      "description": "段誉和王语嫣火烧碾坊焚烧尸首后离开",
+      "chapter": 17
+    },
+    {
+      "id": "evt_wangyuyan_jujue",
+      "name": "王语嫣婉拒段誉",
+      "participants": ["char_wangyuyan", "char_duanyu"],
+      "location": null,
+      "description": "王语嫣正色告诉段誉心早属他人，请他言语有礼",
+      "chapter": 17
+    },
+    {
+      "id": "evt_huifan_xingzilin",
+      "name": "返回杏子林",
+      "participants": ["char_duanyu", "char_wangyuyan"],
+      "location": "loc_xingzilin",
+      "description": "二人商议后决定返回杏子林查看，发现空无一人",
+      "chapter": 17
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_wangyuyan",
+      "listener": "char_duanyu",
+      "text": "段公子，你的脚步甚是巧妙繁复，一时之间我瞧不清楚。最好你踏完一遍，再踏一遍。",
+      "tone": "好奇赞叹",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_wangyuyan",
+      "text": "王姑娘，我跟你来生再见了。段誉四面楚歌，自身难保，只好先去黄泉路上等你。",
+      "tone": "夸张戏谑",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_liyanzong",
+      "text": "士可杀而不可辱，要我向你磕头哀求，再也休想，你要杀，现下就杀便是。",
+      "tone": "慷慨不屈",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_wangyuyan",
+      "listener": "char_liyanzong",
+      "text": "当今之世，单是以我所见，便有二人的武功远远在你之上。第一位是丐帮的前任帮主乔峰乔帮主。第二位便是我表哥，江南慕容复慕容公子。",
+      "tone": "自信从容",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_wangyuyan",
+      "listener": "char_liyanzong",
+      "text": "到得将来，武功天下第一的，多半便是这位段公子了。",
+      "tone": "认真肯定",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_wangyuyan",
+      "text": "姓段的除非给人杀了，那是无法可想，只教有一口气在，自当保护姑娘周全。",
+      "tone": "坚定诚恳",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_wangyuyan",
+      "listener": "char_duanyu",
+      "text": "段公子，今日相救的大德，我永不敢忘。但我心……我心早属他人，盼你言语有礼，以留他日相见的地步。",
+      "tone": "端庄礼貌疏离",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": null,
+      "text": "她美丽绝伦，爱美之心，尽人皆然，如果人人都爱慕她，我段誉对她这般倾倒又有什么珍贵？我段誉还不是和普天下的男子一模一样？唉，甘心为她而死，那有什么了不起？",
+      "tone": "自嘲自语",
+      "chapter": 17
+    }
+  ]
+}

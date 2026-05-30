@@ -1,0 +1,455 @@
+{
+  "chapter": 6,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["书生气", "痴情", "善良", "机敏", "诙谐", "孝顺"],
+        "speech_style": "引经据典，谈吐风雅，与南海鳄神对答时诙谐调皮",
+        "temperament": "温和宽厚，危险关头亦能沉着应变"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_muwanqing_5", "type": "love", "intensity": 85, "bond_level": 4, "dynamic": "叫她'婉妹'，搂抱亲吻，不愿回家以陪她"},
+        {"target": "char_zhudanchen", "type": "friendship", "intensity": 70, "bond_level": 4, "dynamic": "称'朱四哥'为最好的朋友，以诗互答莫逆于心"},
+        {"target": "char_yuxusanren_6", "type": "parent", "intensity": 95, "bond_level": 5, "dynamic": "与母亲重逢，撒娇逗母亲开心，不让她独自冒险"},
+        {"target": "char_duanzhengchun_6", "type": "parent", "intensity": 75, "bond_level": 4, "dynamic": "插科打诨调和父母矛盾，在父亲鼓励下再战南海鳄神"},
+        {"target": "char_nanhaieshen_5", "type": "complicated", "intensity": 40, "bond_level": 2, "dynamic": "被迫收其为徒，虽侥幸获胜仍心有余悸"},
+        {"target": "char_baodingdi_6", "type": "family", "intensity": 80, "bond_level": 4, "dynamic": "伯父对其疼爱有加"},
+        {"target": "char_yunzhonghe_5", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "被其追杀"},
+        {"target": "char_gaoshengtai_6", "type": "friendship", "intensity": 65, "bond_level": 3, "dynamic": "关心高叔叔伤势"}
+      ],
+      "known_skills": ["skill_beiming", "skill_lingboweibu"],
+      "related_skills": ["skill_yiyangzhi_6"]
+    },
+    {
+      "id": "char_muwanqing_5",
+      "personality": {
+        "traits": ["刚烈", "痴情", "不通世故", "醋意重", "野性", "直率"],
+        "speech_style": "直来直去，不懂诗书，不谙礼数，对皇帝亦不跪拜",
+        "temperament": "外刚内柔，面对皇家威仪心生孤寂"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyu", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "认定段郎为夫君，患难与共，初见其母时醋意大发"},
+        {"target": "char_yuxusanren_6", "type": "complicated", "intensity": 40, "bond_level": 2, "dynamic": "初见误会吃醋欲射箭，得知是段母后转为同情"},
+        {"target": "char_yunzhonghe_5", "type": "enemy", "intensity": 85, "bond_level": 1, "dynamic": "被穷追不舍，射马射箭奋力抵抗"},
+        {"target": "char_baodingdi_6", "type": "friendship", "intensity": 50, "bond_level": 2, "dynamic": "天真诚朴，得皇帝欢心"},
+        {"target": "char_huanghou_6", "type": "friendship", "intensity": 40, "bond_level": 2, "dynamic": "受赠玉镯"},
+        {"target": "char_nanhaieshen_5", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "言语相激逼他拜师"}
+      ],
+      "known_skills": ["skill_dujian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhudanchen",
+      "personality": {
+        "traits": ["忠厚", "文雅", "机智", "细心", "稳重"],
+        "speech_style": "文诌诌引经据典，以诗句含蓄劝主",
+        "temperament": "沉静内敛，遇敌则勇"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_duanyu", "type": "subordinate", "intensity": 85, "bond_level": 4, "dynamic": "以死相报公子，虽为主仆但有文友之交"},
+        {"target": "char_yunzhonghe_5", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "面汤泼敌，舍身阻挡"},
+        {"target": "char_yuxusanren_6", "type": "subordinate", "intensity": 60, "bond_level": 3, "dynamic": "恭敬行礼，求王妃回府"},
+        {"target": "char_gaoshengtai_6", "type": "comrade", "intensity": 60, "bond_level": 3, "dynamic": "同僚关系"}
+      ],
+      "known_skills": ["skill_panguanbi_6"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yuxusanren_6",
+      "personality": {
+        "traits": ["温婉", "执拗", "深藏怨苦", "爱子深切", "善良"],
+        "speech_style": "温和中带嗔怨，被儿子逗笑时亦不失慈爱",
+        "temperament": "外柔内刚，因丈夫负心而出家"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_duanyu", "type": "parent", "intensity": 95, "bond_level": 5, "dynamic": "深爱儿子，为他不惜回王府"},
+        {"target": "char_duanzhengchun_6", "type": "complicated", "intensity": 30, "bond_level": 2, "dynamic": "因丈夫另有爱宠而出家，虽有怨但在儿子撮合下渐缓和"},
+        {"target": "char_muwanqing_5", "type": "friendship", "intensity": 50, "bond_level": 2, "dynamic": "初见因毒箭疑其与秦红棉有关，后释然"},
+        {"target": "char_yunzhonghe_5", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "联手退敌"},
+        {"target": "char_gaoshengtai_6", "type": "acquaintance", "intensity": 50, "bond_level": 2, "dynamic": "关心其伤势"}
+      ],
+      "known_skills": ["skill_fuzhu_6"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun_6",
+      "personality": {
+        "traits": ["威猛", "王者之相", "对妻有亏", "爱子", "重义气"],
+        "speech_style": "威严中带温和，对儿子佯怒实喜",
+        "temperament": "刚柔并济，顾全大局"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "parent", "intensity": 85, "bond_level": 4, "dynamic": "表面严厉实则疼爱，以自己的内力暗助儿子"},
+        {"target": "char_yuxusanren_6", "type": "complicated", "intensity": 40, "bond_level": 2, "dynamic": "有亏欠，亲自迎接陪不是"},
+        {"target": "char_gaoshengtai_6", "type": "sworn_brother", "intensity": 90, "bond_level": 5, "dynamic": "以自身内力为高升泰疗伤"},
+        {"target": "char_nanhaieshen_5", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "对掌知对方深浅"}
+      ],
+      "known_skills": ["skill_yiyangzhi_6"],
+      "related_skills": []
+    },
+    {
+      "id": "char_baodingdi_6",
+      "personality": {
+        "traits": ["随和", "仁厚", "不怒自威", "好性情"],
+        "speech_style": "平易近人，谈吐温和",
+        "temperament": "宽厚明君"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "family", "intensity": 85, "bond_level": 4, "dynamic": "对侄儿宠爱有加，准他戏弄南海鳄神"},
+        {"target": "char_muwanqing_5", "type": "friendship", "intensity": 60, "bond_level": 3, "dynamic": "赞她'浑金朴玉'，十分喜爱"},
+        {"target": "char_duanzhengchun_6", "type": "family", "intensity": 80, "bond_level": 4, "dynamic": "兄弟情深"}
+      ],
+      "known_skills": ["skill_yiyangzhi_6"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen_5",
+      "personality": {
+        "traits": ["暴躁", "凶悍", "重诺守信", "头脑简单", "痴迷收徒"],
+        "speech_style": "粗声粗气，骂骂咧咧，盛怒之下仍守承诺",
+        "temperament": "冲动易怒，但言出必行"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "complicated", "intensity": 50, "bond_level": 2, "dynamic": "本想收其为徒反被击败，被迫拜师"},
+        {"target": "char_duanzhengchun_6", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "对掌知对方武功高"},
+        {"target": "char_muwanqing_5", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "被她言语相激"},
+        {"target": "char_yunzhonghe_5", "type": "comrade", "intensity": 20, "bond_level": 1, "dynamic": "同属四大恶人，但各自行动"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_gaoshengtai_6",
+      "personality": {
+        "traits": ["忠勇", "沉稳", "恭敬"],
+        "speech_style": "谨慎恭敬",
+        "temperament": "沉稳持重"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanzhengchun_6", "type": "sworn_brother", "intensity": 90, "bond_level": 5, "dynamic": "受其以内力疗伤"},
+        {"target": "char_duanyu", "type": "subordinate", "intensity": 60, "bond_level": 3, "dynamic": "恭敬称小王爷"},
+        {"target": "char_yuxusanren_6", "type": "subordinate", "intensity": 60, "bond_level": 3, "dynamic": "恭敬行礼，劝其回王府"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huanghou_6",
+      "personality": {
+        "traits": ["温和", "慈祥"],
+        "speech_style": "温和平易",
+        "temperament": "慈祥仁厚"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_muwanqing_5", "type": "friendship", "intensity": 40, "bond_level": 2, "dynamic": "赠玉镯示好"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_beiming",
+      "techniques": [
+        {"id": "tech_dianxue_beiming_6", "name": "膻中神阙吸功法", "type": "attack", "description": "以大拇指按住敌方膻中穴或神阙穴，内力急泻而出被吸入己身"},
+        {"id": "tech_beiming_fanzhen_6", "name": "内力反冲", "type": "defense", "description": "当吸入内力过强时，自身立足不定，需他人引导"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "可在移动中以膻中穴、神阙穴吸取内力"}
+      ],
+      "effects": [
+        {"type": "absorb", "condition": "手指按住敌方膻中穴或神阙穴", "description": "对方内力汹涌而出，自己内力修为大增"},
+        {"type": "overload", "condition": "吸入内力量过大时", "description": "身子摇幌立足不定，需要引导"}
+      ],
+      "combat_style": "以内力吸取为核心，制敌而不杀敌"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "techniques": [
+        {"id": "tech_liushisigua_bufa_6", "name": "六十四卦步法", "type": "defense", "description": "按易经六十四卦方位行走，左上右下斜进直退，令对手无法捉摸"},
+        {"id": "tech_guanyin_jinsheng_6", "name": "观我生进退步", "type": "defense", "description": "口中默念卦辞，心无旁骛只看方位不看敌人攻势"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "可放慢步法主动走向敌人"},
+        {"level": 3, "unlock": "与敌人身形相合时可自动碰撞至手指处"}
+      ],
+      "effects": [
+        {"type": "evasion", "condition": "敌人掌力攻击时", "description": "始终差一两尺打不到身上"},
+        {"type": "collision", "condition": "双方同时移动时", "description": "敌人胸口可自动凑到段誉手指上"}
+      ],
+      "combat_style": "纯闪避，用以保命和制造反击时机"
+    },
+    {
+      "id": "skill_yiyangzhi_6",
+      "techniques": [
+        {"id": "tech_yiyang_zhuliao_6", "name": "一阳指助疗", "type": "buff", "description": "以食指抵住后心大椎穴，输入融和暖气激发内息、疗伤克敌"},
+        {"id": "tech_yiyang_zhufa_6", "name": "一阳指暗助", "type": "attack", "description": "隔空或抵背输入内力助他人制服对手"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "heal", "condition": "抵住后心大椎穴", "description": "一股融和暖气透过去，激发对方内息"},
+        {"type": "reinforce", "condition": "输入段誉体内时", "description": "激发段誉原有内力，合两人之力制服南海鳄神"}
+      ],
+      "combat_style": "以指力医人制敌，大理段氏镇门绝学"
+    },
+    {
+      "id": "skill_fuzhu_6",
+      "techniques": [
+        {"id": "tech_fuzhu_juan_6", "name": "拂麈卷夺", "type": "defense", "description": "以麈尾半空画圈卷住对方手腕或兵器"},
+        {"id": "tech_fuzhu_shejian_6", "name": "拂麈射箭", "type": "attack", "description": "以拂麈卷住小箭激射而出"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "trap", "condition": "敌人攻击时", "description": "麈尾卷住对方兵器或手腕"}
+      ],
+      "combat_style": "以柔克刚，卷缠制敌"
+    },
+    {
+      "id": "skill_panguanbi_6",
+      "techniques": [
+        {"id": "tech_panguan_dian_6", "name": "判官笔点穴", "type": "attack", "description": "以判官笔点向敌人胸口要穴"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "点穴快攻"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_6_zhudanchen_find",
+      "name": "朱丹臣寻获段誉",
+      "participants": ["char_duanyu", "char_muwanqing_5", "char_zhudanchen"],
+      "location": "loc_yuxuguan_6",
+      "description": "朱丹臣奉段正明、段正淳之命寻回段誉，以王昌龄诗句含蓄劝其回家",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_midnight_escape",
+      "name": "段木二人夜逃",
+      "participants": ["char_duanyu", "char_muwanqing_5"],
+      "location": "loc_dali",
+      "description": "段誉不愿回家，半夜携木婉清翻墙逃走",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_zhudanchen_ambush",
+      "name": "朱丹臣拦路劝回",
+      "participants": ["char_duanyu", "char_muwanqing_5", "char_zhudanchen"],
+      "location": "loc_dali",
+      "description": "朱丹臣早有预料提前绕道拦阻，以魏征述怀诗劝段誉言而有信",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_yunzhonghe_encounter",
+      "name": "小店遭遇云中鹤",
+      "participants": ["char_duanyu", "char_muwanqing_5", "char_zhudanchen", "char_yunzhonghe_5"],
+      "location": "loc_dali",
+      "description": "三人小店吃面，云中鹤到来，朱丹臣以面汤泼之掩护段木逃走",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_yunzhonghe_pursuit",
+      "name": "云中鹤追杀",
+      "participants": ["char_duanyu", "char_muwanqing_5", "char_zhudanchen", "char_yunzhonghe_5"],
+      "location": "loc_dali",
+      "description": "云中鹤长力追击，段誉坠马，木婉清携其共乘，朱丹臣舍身断后",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_yuxuguan_battle",
+      "name": "玉虚观退敌",
+      "participants": ["char_duanyu", "char_muwanqing_5", "char_yuxusanren_6", "char_yunzhonghe_5", "char_zhudanchen"],
+      "location": "loc_yuxuguan_6",
+      "description": "三人逃至玉虚观，段誉大叫母亲相救，玉虚散人以拂麈退敌，木婉清射马助攻，云中鹤不敌退走",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_mother_son_reunion",
+      "name": "段誉母子重逢",
+      "participants": ["char_duanyu", "char_yuxusanren_6"],
+      "location": "loc_yuxuguan_6",
+      "description": "段誉终于见到出家多年的母亲，撒娇逗母亲开心",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_gaoshengtai_wounded",
+      "name": "高升泰受伤归来",
+      "participants": ["char_gaoshengtai_6", "char_duanyu", "char_yuxusanren_6"],
+      "location": "loc_yuxuguan_6",
+      "description": "高升泰追击叶二娘时被背后偷袭，督脉受伤，伏马而来",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_return_to_dali",
+      "name": "一家人回大理",
+      "participants": ["char_duanyu", "char_muwanqing_5", "char_yuxusanren_6", "char_duanzhengchun_6", "char_gaoshengtai_6"],
+      "location": "loc_dali",
+      "description": "玉虚散人为免众人冒险，决定回大理，段誉大喜",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_zhengnan_welcome",
+      "name": "段正淳亲迎",
+      "participants": ["char_duanyu", "char_muwanqing_5", "char_duanzhengchun_6", "char_yuxusanren_6"],
+      "location": "loc_dali",
+      "description": "段正淳率队亲迎妻儿回府，以自身内力为高升泰疗伤",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_imperial_audience",
+      "name": "保定帝皇后接见",
+      "participants": ["char_baodingdi_6", "char_huanghou_6", "char_duanyu", "char_muwanqing_5", "char_gaoshengtai_6"],
+      "location": "loc_zhennanwangfu_6",
+      "description": "保定帝与皇后亲临镇南王府接见木婉清，木婉清天真不拘礼数得帝后喜爱",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_nanhai_breaks_in",
+      "name": "南海鳄神闯入王府",
+      "participants": ["char_duanyu", "char_nanhaieshen_5", "char_duanzhengchun_6"],
+      "location": "loc_zhennanwangfu_6",
+      "description": "南海鳄神闻讯闯入镇南王府，要强收段誉为徒",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_duanyu_nanhai_duel",
+      "name": "段誉智斗南海鳄神",
+      "participants": ["char_duanyu", "char_nanhaieshen_5", "char_duanzhengchun_6", "char_baodingdi_6"],
+      "location": "loc_zhennanwangfu_6",
+      "description": "段誉以凌波微步连避三招，以易经戏弄，最后以北冥神功吸取其内力，合父亲一阳指之力制服南海鳄神",
+      "chapter": 6
+    },
+    {
+      "id": "evt_6_nanhai_kowtow",
+      "name": "南海鳄神拜师",
+      "participants": ["char_duanyu", "char_nanhaieshen_5", "char_muwanqing_5"],
+      "location": "loc_zhennanwangfu_6",
+      "description": "南海鳄神重诺守信，磕八个响头拜段誉为师，挖心杀一卫士后离去",
+      "chapter": 6
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing_5",
+      "text": "婉妹，婉妹！我这么叫你好不好？",
+      "tone": "温柔缠绵",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_muwanqing_5",
+      "listener": "char_duanyu",
+      "text": "我是你什么人？还是木姑娘、木姑娘的叫我。",
+      "tone": "娇嗔",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_zhudanchen",
+      "listener": "char_duanyu",
+      "text": "仗剑行千里，微躯敢一言。曾为大梁客，不负信陵恩。",
+      "tone": "慷慨含蓄",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_zhudanchen",
+      "text": "映门淮水绿，留骑主人心。明月随良椽，春潮夜夜深。",
+      "tone": "绸缪雅致",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_yuxusanren_6",
+      "text": "妈，我叫妈妈，你没听见么？",
+      "tone": "撒娇",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_muwanqing_5",
+      "listener": "char_yuxusanren_6",
+      "text": "你揽着他干么？快放开！",
+      "tone": "醋意冲天",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_yuxusanren_6",
+      "text": "妈，你别生气。",
+      "tone": "劝慰",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_muwanqing_5",
+      "listener": "char_baodingdi_6",
+      "text": "你就是皇帝么？",
+      "tone": "天真直率",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_muwanqing_5",
+      "listener": "char_baodingdi_6",
+      "text": "我只道皇帝总是个很凶很可怕的人，那知道你……你很好！",
+      "tone": "天真真诚",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_nanhaieshen_5",
+      "text": "我问你：'风雷、益。君子以见善则迁，有过则改'，那是什么意思？",
+      "tone": "戏弄调侃",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_nanhaieshen_5",
+      "listener": "char_duanyu",
+      "text": "那有什么意思？胡说八道。",
+      "tone": "暴躁困惑",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_nanhaieshen_5",
+      "text": "我说的都是武功秘诀，其中奥妙无穷，料你也不懂。你这等井底之蛙，居然想做我师父，岂不笑歪了天下人的嘴巴？",
+      "tone": "诙谐得意",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_nanhaieshen_5",
+      "listener": "char_muwanqing_5",
+      "text": "都不愿。我要跟他打过。",
+      "tone": "固执恼怒",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_muwanqing_5",
+      "listener": "char_nanhaieshen_5",
+      "text": "岳老三，你三招打他不倒，自己反被他摔了一交，快磕头拜师啊。",
+      "tone": "挑衅激将",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_nanhaieshen_5",
+      "listener": "char_duanyu",
+      "text": "我偏偏叫你料想不到，拜师便拜师，这乌龟儿子王八蛋，岳老二是决计不做的。",
+      "tone": "赌气发誓",
+      "chapter": 6
+    },
+    {
+      "speaker": "char_duanzhengchun_6",
+      "listener": "char_duanyu",
+      "text": "我大理段氏子孙，焉有与人对敌而临阵退缩的？",
+      "tone": "严厉激昂",
+      "chapter": 6
+    }
+  ]
+}

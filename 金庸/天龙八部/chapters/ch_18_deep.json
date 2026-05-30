@@ -1,0 +1,263 @@
+{
+  "chapter": 18,
+  "characters_detail": [
+    {
+      "id": "char_qiaofeng",
+      "personality": {
+        "traits": ["豪迈悲愤", "重情重义", "精明勇武", "内心痛苦", "悲凉孤独"],
+        "speech_style": "豪迈时慷慨激昂，悲愤时语带凄凉，对阿朱时温柔耐心",
+        "temperament": "刚烈悲凉"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_azhu", "type": "companion", "intensity": 70, "bond_level": 3, "dynamic": "初时青眼有加（因慕容复），后以内力为她续命，渐生亲近"},
+        {"target": "char_xuanku", "type": "master_student", "intensity": 95, "bond_level": 5, "dynamic": "恩师被害，誓言报仇"},
+        {"target": "char_qiaosanhuai", "type": "family", "intensity": 85, "bond_level": 4, "dynamic": "养父养母被害，悲愤异常"},
+        {"target": "char_xuanci", "type": "enemy", "intensity": 60, "bond_level": 1, "dynamic": "被其误认为凶手，交手交锋"},
+        {"target": "char_duanyu", "type": "sworn_brother", "intensity": 75, "bond_level": 4, "dynamic": "结义兄弟（未直接见面）"},
+        {"target": "char_helian", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "西夏将军，但未直接交手"}
+      ],
+      "known_skills": ["skill_xianglongshibazhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azhu",
+      "personality": {
+        "traits": ["天真烂漫", "聪明调皮", "易容术超凡", "胆小怕死", "善解人意"],
+        "speech_style": "清脆娇美，说话俏皮活泼，重伤后柔弱可怜",
+        "temperament": "活泼灵动机智"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "companion", "intensity": 70, "bond_level": 3, "dynamic": "被他以内力救活，感激依赖，渐生亲近"},
+        {"target": "char_murongfu", "type": "companion", "intensity": 85, "bond_level": 4, "dynamic": "忠心侍女，入少林寺意图寻找公子"},
+        {"target": "char_duanyu", "type": "companion", "intensity": 60, "bond_level": 3, "dynamic": "并肩假扮乔峰和慕容复救人"},
+        {"target": "char_wangyuyan", "type": "companion", "intensity": 70, "bond_level": 3, "dynamic": "同为慕容复相关之人"},
+        {"target": "char_xuanci", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "被其劈空掌重伤"},
+        {"target": "char_zhizhan", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "易容后踢倒他盗取藏经"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "personality": {
+        "traits": ["书生气", "痴情", "温柔", "善良"],
+        "speech_style": "文雅有礼，说话诙谐",
+        "temperament": "文雅温和"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_azhu", "type": "companion", "intensity": 60, "bond_level": 3, "dynamic": "配合阿朱假扮慕容复救丐帮"},
+        {"target": "char_wangyuyan", "type": "love", "intensity": 90, "bond_level": 3, "dynamic": "暗恋中"},
+        {"target": "char_nanhai'eshen", "type": "master_student", "intensity": 55, "bond_level": 2, "dynamic": "以凌波微步震慑徒儿"},
+        {"target": "char_qiaofeng", "type": "sworn_brother", "intensity": 80, "bond_level": 4, "dynamic": "结义兄长"}
+      ],
+      "known_skills": ["skill_liumaishenjian", "skill_lingboweibu"],
+      "related_skills": ["skill_yiyangzhi"]
+    },
+    {
+      "id": "char_xuanku",
+      "personality": {
+        "traits": ["慈悲为怀", "深通佛法", "宁静淡泊"],
+        "speech_style": "浑厚沉着，说佛法时语气平静",
+        "temperament": "宁静慈悲"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_qiaofeng", "type": "master_student", "intensity": 95, "bond_level": 5, "dynamic": "亲手调教的徒儿，被害前仍念及"},
+        {"target": "char_xuanci", "type": "companion", "intensity": 80, "bond_level": 4, "dynamic": "同门师兄弟"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhai'eshen",
+      "personality": {
+        "traits": ["凶悍", "守信", "钦佩英雄", "粗鲁"],
+        "speech_style": "怪声怪气，大声喊叫",
+        "temperament": "凶悍直爽"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "master_student", "intensity": 50, "bond_level": 2, "dynamic": "服了假慕容复的凌波微步，赞其比师父更行"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_xianglongshibazhang",
+      "techniques": [
+        {"id": "tech_kanglongyouhui", "name": "亢龙有悔", "type": "attack", "description": "降龙十八掌之一，掌力刚猛霸道"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "正面碰撞", "condition": "与敌人对掌时", "description": "掌力相交嗤嗤有声，与玄寂一拍两散对掌双方各退三步"}
+      ],
+      "combat_style": "刚猛绝伦、以力破巧"
+    },
+    {
+      "id": "skill_yipailiangsan",
+      "techniques": [
+        {"id": "tech_yipai", "name": "一拍两散", "type": "attack", "description": "毕生功力所聚的一招，拍石石散，拍人魂飞魄散"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "极致伤害", "condition": "正面击中时", "description": "掌力排山倒海，敌人当场毙命"}
+      ],
+      "combat_style": "一招定胜负，掌力雄浑至极"
+    },
+    {
+      "id": "skill_lingboweibu",
+      "techniques": [
+        {"id": "tech_lingbo_shifan", "name": "凌波微步演示", "type": "buff", "description": "段誉蒙眼行走凌波微步，令南海鳄神叹服"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "闪避", "condition": "蒙眼亦可", "description": "步法自动避开一切攻击"}
+      ],
+      "combat_style": "飘逸灵动"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_azhu_jiu_gaibang",
+      "name": "阿朱假扮乔峰救丐帮",
+      "participants": ["char_azhu", "char_duanyu", "char_helian", "char_nuerhai", "char_nanhai'eshen"],
+      "location": "loc_tianningsi",
+      "description": "阿朱假扮乔峰，段誉假扮慕容复闯入天宁寺，以悲酥清风反制西夏人，救出丐帮",
+      "chapter": 18
+    },
+    {
+      "id": "evt_qiaofeng_huijia",
+      "name": "乔峰回家发现父母被杀",
+      "participants": ["char_qiaofeng", "char_qiaosanhuai"],
+      "location": "loc_shaoshi",
+      "description": "乔峰回到少室山家中，发现乔三槐夫妇已被人以掌力击毙",
+      "chapter": 18
+    },
+    {
+      "id": "evt_shanlin_seng_weigong",
+      "name": "少林僧围乔峰",
+      "participants": ["char_qiaofeng", "char_chijieseng", "char_shoulvseng"],
+      "location": "loc_shaoshi",
+      "description": "少林持戒守律二僧率众围住乔峰，指责他杀父母灭口",
+      "chapter": 18
+    },
+    {
+      "id": "evt_xuanku_yujian",
+      "name": "玄苦大师被害",
+      "participants": ["char_xuanku", "char_qiaofeng", "char_xuanci", "char_xuannan", "char_xuanji"],
+      "location": "loc_zhengdaoyuan",
+      "description": "乔峰潜入少林寺见玄苦大师，但玄苦已先受重伤见到乔峰后圆寂",
+      "chapter": 18
+    },
+    {
+      "id": "evt_azhu_daojing",
+      "name": "阿朱盗取菩提院藏经",
+      "participants": ["char_azhu", "char_zhizhan", "char_zhiyuan", "char_xuanci"],
+      "location": "loc_putiyuan",
+      "description": "阿朱假扮止清踢倒五僧，以密语打开铜镜盗取经书",
+      "chapter": 18
+    },
+    {
+      "id": "evt_qiaofeng_san_seng",
+      "name": "乔峰力战少林三高僧",
+      "participants": ["char_qiaofeng", "char_xuanci", "char_xuannan", "char_xuanji"],
+      "location": "loc_putiyuan",
+      "description": "玄慈、玄难、玄寂三僧围攻乔峰，乔峰推倒佛像以铜镜为盾，接玄寂一拍两散后携阿朱离去",
+      "chapter": 18
+    },
+    {
+      "id": "evt_azhu_zhongshang",
+      "name": "阿朱被劈空掌重伤",
+      "participants": ["char_azhu", "char_xuanci", "char_qiaofeng"],
+      "location": "loc_putiyuan",
+      "description": "玄慈的劈空掌力透过铜镜传入阿朱体内，乔峰以内力为她续命",
+      "chapter": 18
+    },
+    {
+      "id": "evt_jia_zhishi_qing",
+      "name": "假止清真面目",
+      "participants": ["char_qiaofeng", "char_azhu"],
+      "location": null,
+      "description": "乔峰发现假止清竟是阿朱，以寒玉冰蟾膏为其治伤",
+      "chapter": 18
+    },
+    {
+      "id": "evt_qiaofeng_jiang_gushi",
+      "name": "乔峰讲故事哄阿朱",
+      "participants": ["char_qiaofeng", "char_azhu"],
+      "location": "loc_xuji",
+      "description": "阿朱重伤后要乔峰陪她唱歌讲故事，乔峰讲述七岁时杀医生的事",
+      "chapter": 18
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_xuanku",
+      "listener": null,
+      "text": "小弟受戒之日，先师给我取名为玄苦。佛祖所说七苦，乃是生、老、病、死、怨憎会、爱别离、求不得。小弟勉力脱此七苦，只能渡己，不能渡人，说来惭愧。这'怨憎会'的苦，原是人生必有之境，宿因所种，该当有此业报。众位师兄、师弟见我偿此宿业，该当为我欢喜才是。",
+      "tone": "平静坦然",
+      "chapter": 18
+    },
+    {
+      "speaker": "char_xuanku",
+      "listener": "char_qiaofeng",
+      "text": "你……你……原来便是你，你便是乔峰，我……我亲手调教出来的好徒儿？",
+      "tone": "惊骇痛苦",
+      "chapter": 18
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_xuanci",
+      "text": "师父，弟子报讯来迟，你已遭人毒手。弟子和那奸人的仇恨又深了一层。弟子纵然历尽万难，也要找到这奸人来碎尸万段，为恩师报仇。",
+      "tone": "悲愤发誓",
+      "chapter": 18
+    },
+    {
+      "speaker": "char_azhu",
+      "listener": "char_qiaofeng",
+      "text": "乔大爷，我不愿死，你别抛下我在这里不理我。",
+      "tone": "可怜哀求",
+      "chapter": 18
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_azhu",
+      "text": "决计不会的，你放心好啦。我乔峰是什么人，怎能舍弃身遭危难的朋友？",
+      "tone": "坚决诚恳",
+      "chapter": 18
+    },
+    {
+      "speaker": "char_azhu",
+      "listener": "char_qiaofeng",
+      "text": "这样凶狠的孩子，倒像是契丹的恶人！",
+      "tone": "无心之言",
+      "chapter": 18
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": null,
+      "text": "你……你说什么？",
+      "tone": "震惊",
+      "chapter": 18
+    },
+    {
+      "speaker": "char_qiaofeng",
+      "listener": "char_azhu",
+      "text": "阿朱，倘若我真是契丹人呢，你还受不受我看顾？",
+      "tone": "试探悲伤",
+      "chapter": 18
+    },
+    {
+      "speaker": "char_azhu",
+      "listener": "char_qiaofeng",
+      "text": "契丹族中要是能出如你这样的好人，咱们大家也不会痛恨契丹人了。",
+      "tone": "安慰抚慰",
+      "chapter": 18
+    }
+  ]
+}
