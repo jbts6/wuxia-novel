@@ -16,7 +16,23 @@ const fs = require('fs');
 const path = require('path');
 const progress = require('./progress');
 
-const TEMP_DIR = '.ch_groups';
+const DEFAULT_GROUPS_ROOT = '.ch_groups';
+
+function detectBookDir(inputPath) {
+  const resolved = path.resolve(inputPath);
+  const sep = path.sep;
+  const parts = resolved.split(sep);
+  const chIdx = parts.indexOf('ch_original');
+  if (chIdx !== -1) {
+    return parts.slice(0, chIdx).join(sep) || '.';
+  }
+  return null;
+}
+
+function resolveGroupsRoot(inputPath) {
+  const bookDir = detectBookDir(inputPath);
+  return bookDir ? path.join(bookDir, DEFAULT_GROUPS_ROOT) : DEFAULT_GROUPS_ROOT;
+}
 
 /**
  * 合并单个章节的分组文件
@@ -95,12 +111,21 @@ function batchMerge(inputDir, outputDir) {
 if (require.main === module) {
   const args = process.argv.slice(2);
 
+  // 支持 --groups-dir 参数（必须在子命令前）
+  let groupsDir = DEFAULT_GROUPS_ROOT;
+  const gdIdx = args.indexOf('--groups-dir');
+  if (gdIdx !== -1 && gdIdx + 1 < args.length) {
+    groupsDir = args[gdIdx + 1];
+    progress.setGroupsRoot(groupsDir);
+    args.splice(gdIdx, 2);
+  }
+
   if (args.length === 0) {
     console.log('小说章节分组合并脚本');
     console.log('');
     console.log('用法:');
-    console.log('  node scripts/merge-groups.js <basename> [output-path]');
-    console.log('  node scripts/merge-groups.js --batch [input-dir] [output-dir]');
+    console.log('  node scripts/merge-groups.js [--groups-dir <dir>] <basename> [output-path]');
+    console.log('  node scripts/merge-groups.js --batch [--groups-dir <dir>] [input-dir] [output-dir]');
     console.log('');
     console.log('示例:');
     console.log('  node scripts/merge-groups.js ch_001');
@@ -110,12 +135,25 @@ if (require.main === module) {
   }
 
   if (args[0] === '--batch') {
-    const inputDir = args[1] || TEMP_DIR;
+    const inputDir = args[1] || groupsDir;
     const outputDir = args[2] || 'ch_formatted';
+    // 自动检测 groupsRoot（如果 inputDir 包含 ch_original）
+    const detectedRoot = resolveGroupsRoot(inputDir);
+    if (detectedRoot && fs.existsSync(detectedRoot)) {
+      progress.setGroupsRoot(detectedRoot);
+    }
     batchMerge(inputDir, outputDir);
   } else {
     const basename = args[0];
-    const groupDir = path.join(TEMP_DIR, basename);
+    // 如果未指定 --groups-dir，从输出路径自动检测
+    if (gdIdx === -1 && args[1]) {
+      const detectedRoot = resolveGroupsRoot(args[1]);
+      if (detectedRoot) {
+        groupsDir = detectedRoot;
+        progress.setGroupsRoot(groupsDir);
+      }
+    }
+    const groupDir = path.join(groupsDir, basename);
     const outputPath = args[1] || path.join('ch_formatted', basename + '.md');
     const groups = mergeGroups(basename, groupDir, outputPath);
     if (groups > 0) {

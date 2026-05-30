@@ -13,12 +13,35 @@
 const fs = require('fs');
 const path = require('path');
 
-const PROGRESS_FILE = path.join('.ch_groups', 'progress.json');
+const DEFAULT_GROUPS_ROOT = '.ch_groups';
+let _groupsRoot = DEFAULT_GROUPS_ROOT;
+
+function getProgressFile() {
+  return path.join(_groupsRoot, 'progress.json');
+}
+
+function setGroupsRoot(root) {
+  _groupsRoot = root || DEFAULT_GROUPS_ROOT;
+}
+
+function detectGroupsRootFromPath(filePath) {
+  const resolved = path.resolve(filePath);
+  const sep = path.sep;
+  const parts = resolved.split(sep);
+  const idx = parts.indexOf(DEFAULT_GROUPS_ROOT);
+  if (idx !== -1) {
+    const root = parts.slice(0, idx + 1).join(sep);
+    setGroupsRoot(root);
+    return root;
+  }
+  return null;
+}
 
 function loadProgress() {
   try {
-    if (fs.existsSync(PROGRESS_FILE)) {
-      return JSON.parse(fs.readFileSync(PROGRESS_FILE, 'utf8'));
+    const pf = getProgressFile();
+    if (fs.existsSync(pf)) {
+      return JSON.parse(fs.readFileSync(pf, 'utf8'));
     }
   } catch (err) {
     console.error('读取进度文件失败: ' + err.message);
@@ -27,11 +50,12 @@ function loadProgress() {
 }
 
 function saveProgress(data) {
-  const dir = path.dirname(PROGRESS_FILE);
+  const pf = getProgressFile();
+  const dir = path.dirname(pf);
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
-  fs.writeFileSync(PROGRESS_FILE, JSON.stringify(data, null, 2), 'utf8');
+  fs.writeFileSync(pf, JSON.stringify(data, null, 2), 'utf8');
 }
 
 /**
@@ -52,6 +76,8 @@ function initChapter(basename, totalLines, groupFiles, groupSize) {
  * @param {string} groupFilePath - 分组文件的完整路径
  */
 function markDone(groupFilePath) {
+  detectGroupsRootFromPath(groupFilePath);
+
   const gName = path.basename(groupFilePath, '.md');
   const parts = gName.split('_g');
   if (parts.length < 2) {
@@ -149,14 +175,23 @@ function showProgress(chapterFilter) {
 if (require.main === module) {
   const args = process.argv.slice(2);
 
+  // 支持 --groups-dir 参数（必须在子命令前）
+  let groupsDir = DEFAULT_GROUPS_ROOT;
+  const gdIdx = args.indexOf('--groups-dir');
+  if (gdIdx !== -1 && gdIdx + 1 < args.length) {
+    groupsDir = args[gdIdx + 1];
+    setGroupsRoot(groupsDir);
+    args.splice(gdIdx, 2);
+  }
+
   if (args.length === 0) {
     console.log('排版进度追踪脚本');
     console.log('');
     console.log('用法:');
-    console.log('  node scripts/progress.js --status [chapter]');
+    console.log('  node scripts/progress.js [--groups-dir <dir>] --status [chapter]');
     console.log('  node scripts/progress.js --done <group-file>');
-    console.log('  node scripts/progress.js --check <chapter>');
-    console.log('  node scripts/progress.js --reset <chapter>');
+    console.log('  node scripts/progress.js [--groups-dir <dir>] --check <chapter>');
+    console.log('  node scripts/progress.js [--groups-dir <dir>] --reset <chapter>');
     process.exit(1);
   }
 
@@ -201,4 +236,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { initChapter, markDone, isChapterComplete, getIncompleteGroups, resetChapter, showProgress };
+module.exports = { initChapter, markDone, isChapterComplete, getIncompleteGroups, resetChapter, showProgress, setGroupsRoot };
