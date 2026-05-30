@@ -138,8 +138,12 @@
         {"id": "tech_huagong_huasuan", "name": "化功大法", "type": "attack", "description": "化去对手内力使对方成为废人"},
         {"id": "tech_sanxiaoxiaoyaosan", "name": "三笑逍遥散", "type": "attack", "description": "以内力送毒弹射到对方身上，中毒者脸上现出古怪笑容，笑到第三笑便即气绝身亡"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "以掌力消解对手内力，使对方功力尽失，成为废人"},
+        {"level": 2, "unlock": "配合三笑逍遥散暗算，以内力送毒弹射到对方身上，中毒者不觉，笑至第三笑气绝"}
+      ],
       "effects": [
+        {"type": "化功", "condition": "掌力相触", "description": "化去对手内力使对方功力全失"},
         {"type": "中毒", "condition": "吸入或接触", "description": "三笑逍遥散无色无臭，中者不知不觉，毒发前脸上出现诡秘笑容"}
       ],
       "combat_style": "以掌力化人内力为主，暗施毒药为辅，防不胜防"
@@ -151,7 +155,10 @@
         {"id": "tech_baihui_fuji", "name": "百会穴拍击", "type": "support", "description": "在天灵盖百会穴击以一掌，固本培元恢复被化功大法消去的功力根基"},
         {"id": "tech_zhenqi_xuedao", "name": "真气刺穴化毒", "type": "support", "description": "以手指刺穴，化去星宿派内力"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "气刀割体：以北冥真气在伤处一击，开宣泄口驱除冰蚕寒毒"},
+        {"level": 2, "unlock": "百会穴灵台穴拍击：固本培元，恢复被化功大法消去的功力根基"}
+      ],
       "effects": [
         {"type": "治疗", "condition": "冰蚕寒毒入体", "description": "一掌击下，寒毒迅速从受击处涌出体外"},
         {"type": "固本", "condition": "化功大法伤后", "description": "百会穴一击可固本培元"}

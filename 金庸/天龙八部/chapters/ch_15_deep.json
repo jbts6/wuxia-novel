@@ -249,7 +249,10 @@
       "techniques": [
         {"id": "tech_qinlong_yige", "name": "擒龙功隔空取物", "type": "attack", "description": "以气流隔空夺物，震慑群雄"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 3, "unlock": "能以气流隔空摄物，虚空一抓便将地下单刀吸入手中"},
+        {"level": 4, "unlock": "能以指力凌空拨刀，在空中倒转刀柄递向对手"}
+      ],
       "effects": [
         {"type": "震慑", "condition": "施展时", "description": "虚空抓物令敌我皆惊，彰显绝世武功"}
       ],
@@ -260,8 +263,14 @@
       "techniques": [
         {"id": "tech_longzhua_zhuona", "name": "龙爪手擒拿", "type": "attack", "description": "少林擒拿手法，凌厉精准"}
       ],
-      "progression": [],
-      "effects": [],
+      "progression": [
+        {"level": 5, "unlock": "反手擒拿快如闪电，可于举手间从对手手中抢过兵刃"},
+        {"level": 6, "unlock": "出手前毫无征兆，一招之内制住一流高手"}
+      ],
+      "effects": [
+        {"type": "擒拿制敌", "condition": "扣住穴道", "description": "中者全身酸软无力，动弹不得"},
+        {"type": "震慑", "condition": "施展时", "description": "迅猛凌厉，旁观众人无不衷心钦佩"}
+      ],
       "combat_style": "以擒拿制人，出手精准迅捷"
     }
   ],

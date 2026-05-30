@@ -122,7 +122,9 @@
         "temperament": "阴沉冷酷"
       },
       "archetype": "assassin",
-      "relationships": [],
+      "relationships": [
+        {"target": "char_duanyu", "type": "enemy", "intensity": 70, "bond_level": 3, "dynamic": "曾在棋会中对段誉虎视眈眈，众人听闻段延庆也曾与会，幸好没对段誉下手，皆捏一把汗"}
+      ],
       "known_skills": ["skill_yiyangzhi"],
       "related_skills": []
     },
@@ -135,7 +137,9 @@
         "temperament": "深沉幽默"
       },
       "archetype": "monk",
-      "relationships": [],
+      "relationships": [
+        {"target": "char_duanyu", "type": "enemy", "intensity": 60, "bond_level": 3, "dynamic": "曾以祭慕容先生墓为名将段誉从大理骗至江南，险些使段誉遭其毒手"}
+      ],
       "known_skills": [],
       "related_skills": []
     },
@@ -179,7 +183,10 @@
         {"id": "tech_huagong_zhuawo", "name": "化功大法抓握", "type": "attack", "description": "手掌抓住对方拳头后，内力如石沉大海，对方不论多强内力都会被化散殆尽"},
         {"id": "tech_jianzhong_duju", "name": "指甲藏毒", "type": "attack", "description": "弹杯送毒时以指甲中的剧毒敷在杯沿，酒不沾唇即毙命"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "手掌抓住对方后内力如石沉大海，不论多强的内力都会被化散殆尽"},
+        {"level": 2, "unlock": "配合指甲藏毒等暗算手段弹杯送毒，酒不沾唇即毙命"}
+      ],
       "effects": [
         {"type": "化功", "condition": "肢体接触", "description": "化去对手内力使其成为废人，无法反抗"}
       ],

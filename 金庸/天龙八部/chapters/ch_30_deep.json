@@ -5,30 +5,67 @@
       "id": "char_xuannan",
       "name": "玄难",
       "personality": {
-        "traits": ["慈祥稳重", "武功高深", "有德高僧", "胸襟宽广", "临危不惧"],
+        "traits": [
+          "慈祥稳重",
+          "武功高深",
+          "有德高僧",
+          "胸襟宽广",
+          "临危不惧"
+        ],
         "speech_style": "言语温和谦逊，不失高僧风范，对事客观公允",
         "temperament": "仁厚慈悲"
       },
       "archetype": "monk",
       "relationships": [
-        {"target": "char_xuantong", "type": "family", "intensity": 80, "bond_level": 5, "dynamic": "师兄弟情深，玄痛被苟读言语点化圆寂后，玄难为其念往生咒"},
-        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 80, "bond_level": 4, "dynamic": "少林达摩院首座与星宿老怪正邪对决，玄难中毒后内力被化"},
-        {"target": "char_dengbaichuan", "type": "companion", "intensity": 50, "bond_level": 3, "dynamic": "同遭危难同舟共济，由敌对转为携手抗敌"}
+        {
+          "target": "char_xuantong",
+          "type": "family",
+          "intensity": 80,
+          "bond_level": 5,
+          "dynamic": "师兄弟情深，玄痛被苟读言语点化圆寂后，玄难为其念往生咒"
+        },
+        {
+          "target": "char_dingchunqiu",
+          "type": "enemy",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "少林达摩院首座与星宿老怪正邪对决，玄难中毒后内力被化"
+        },
+        {
+          "target": "char_dengbaichuan",
+          "type": "companion",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "同遭危难同舟共济，由敌对转为携手抗敌"
+        }
       ],
-      "known_skills": ["skill_shaolin_kuai_zhang"],
+      "known_skills": [
+        "skill_shaolin_kuai_zhang"
+      ],
       "related_skills": []
     },
     {
       "id": "char_xuantong",
       "name": "玄痛",
       "personality": {
-        "traits": ["刚烈如火", "嫉恶如仇", "性情急躁", "勇猛果断"],
+        "traits": [
+          "刚烈如火",
+          "嫉恶如仇",
+          "性情急躁",
+          "勇猛果断"
+        ],
         "speech_style": "语气刚猛，言语直率，少说多做",
         "temperament": "刚烈勇猛"
       },
       "archetype": "monk",
       "relationships": [
-        {"target": "char_goudu", "type": "associate", "intensity": 30, "bond_level": 2, "dynamic": "被苟读以儒家经典和佛经偈句点化，顿悟大彻大悟，抛下戒刀圆寂"}
+        {
+          "target": "char_goudu",
+          "type": "associate",
+          "intensity": 30,
+          "bond_level": 2,
+          "dynamic": "被苟读以儒家经典和佛经偈句点化，顿悟大彻大悟，抛下戒刀圆寂"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -37,14 +74,32 @@
       "id": "char_xuzhu",
       "name": "虚竹",
       "personality": {
-        "traits": ["慈悲善良", "迂腐老实", "谦虚自卑", "恪守戒律", "心地纯净"],
+        "traits": [
+          "慈悲善良",
+          "迂腐老实",
+          "谦虚自卑",
+          "恪守戒律",
+          "心地纯净"
+        ],
         "speech_style": "言语谦恭有礼，迂腐守旧，处处以出家人身份自持",
         "temperament": "淳朴老实"
       },
       "archetype": "monk",
       "relationships": [
-        {"target": "char_xuannan", "type": "family", "intensity": 70, "bond_level": 4, "dynamic": "对师伯祖玄难恭敬有加，一路随行照顾"},
-        {"target": "char_baobuton", "type": "associate", "intensity": 15, "bond_level": 1, "dynamic": "被包不同言语戏弄，仍不以为意"}
+        {
+          "target": "char_xuannan",
+          "type": "family",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "对师伯祖玄难恭敬有加，一路随行照顾"
+        },
+        {
+          "target": "char_baobuton",
+          "type": "associate",
+          "intensity": 15,
+          "bond_level": 1,
+          "dynamic": "被包不同言语戏弄，仍不以为意"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -53,15 +108,39 @@
       "id": "char_dengbaichuan",
       "name": "邓百川",
       "personality": {
-        "traits": ["沉稳干练", "武功高强", "忠义无双", "有领袖风范", "气度恢宏"],
+        "traits": [
+          "沉稳干练",
+          "武功高强",
+          "忠义无双",
+          "有领袖风范",
+          "气度恢宏"
+        ],
         "speech_style": "言语稳重有分寸，临危不惧，对阵敌人有理有节",
         "temperament": "沉稳厚重"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_furongfu", "type": "family", "intensity": 95, "bond_level": 5, "dynamic": "姑苏慕容氏家臣之首，对慕容复忠心耿耿"},
-        {"target": "char_xuannan", "type": "companion", "intensity": 50, "bond_level": 3, "dynamic": "同舟共济共抗星宿老怪，化敌为友"},
-        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 80, "bond_level": 4, "dynamic": "被丁春秋化去内力，虽败犹荣"}
+        {
+          "target": "char_furongfu",
+          "type": "family",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "姑苏慕容氏家臣之首，对慕容复忠心耿耿"
+        },
+        {
+          "target": "char_xuannan",
+          "type": "companion",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "同舟共济共抗星宿老怪，化敌为友"
+        },
+        {
+          "target": "char_dingchunqiu",
+          "type": "enemy",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "被丁春秋化去内力，虽败犹荣"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -70,13 +149,26 @@
       "id": "char_baobuton",
       "name": "包不同",
       "personality": {
-        "traits": ["抬杠成性", "口舌锋利", "忠心耿耿", "幽默诙谐", "倔强好胜", "铁骨铮铮"],
+        "traits": [
+          "抬杠成性",
+          "口舌锋利",
+          "忠心耿耿",
+          "幽默诙谐",
+          "倔强好胜",
+          "铁骨铮铮"
+        ],
         "speech_style": "开口即'非也非也'，专与人抬杠，言语犀利幽默，从不吃亏",
         "temperament": "尖酸诙谐"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_kangguangling", "type": "associate", "intensity": 30, "bond_level": 2, "dynamic": "与康广陵斗嘴抬杠，互称傻子，言语交锋妙趣横生"}
+        {
+          "target": "char_kangguangling",
+          "type": "associate",
+          "intensity": 30,
+          "bond_level": 2,
+          "dynamic": "与康广陵斗嘴抬杠，互称傻子，言语交锋妙趣横生"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -85,32 +177,82 @@
       "id": "char_xuemuhua",
       "name": "薛慕华",
       "personality": {
-        "traits": ["医术通神", "傲骨铮铮", "智勇双全", "重情重义", "刚柔并济"],
+        "traits": [
+          "医术通神",
+          "傲骨铮铮",
+          "智勇双全",
+          "重情重义",
+          "刚柔并济"
+        ],
         "speech_style": "言语中透着医者的自信与傲骨，对星宿派毫不妥协",
         "temperament": "刚直坚韧"
       },
       "archetype": "healer",
       "relationships": [
-        {"target": "char_kangguangling", "type": "family", "intensity": 80, "bond_level": 5, "dynamic": "函谷八友之五，对大师兄康广陵十分尊敬"},
-        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 95, "bond_level": 5, "dynamic": "星宿老怪是师门大仇人，薛慕华为保师兄弟性命和师父安危被迫屈服"},
-        {"target": "char_suxinghe", "type": "family", "intensity": 100, "bond_level": 5, "dynamic": "虽被逐出师门但始终不忘师恩，因师父安危而屈服于丁春秋"}
+        {
+          "target": "char_kangguangling",
+          "type": "family",
+          "intensity": 80,
+          "bond_level": 5,
+          "dynamic": "函谷八友之五，对大师兄康广陵十分尊敬"
+        },
+        {
+          "target": "char_dingchunqiu",
+          "type": "enemy",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "星宿老怪是师门大仇人，薛慕华为保师兄弟性命和师父安危被迫屈服"
+        },
+        {
+          "target": "char_suxinghe",
+          "type": "family",
+          "intensity": 100,
+          "bond_level": 5,
+          "dynamic": "虽被逐出师门但始终不忘师恩，因师父安危而屈服于丁春秋"
+        }
       ],
-      "known_skills": ["skill_yishu"],
+      "known_skills": [
+        "skill_yishu"
+      ],
       "related_skills": []
     },
     {
       "id": "char_kangguangling",
       "name": "康广陵",
       "personality": {
-        "traits": ["琴艺超凡", "疯疯癫癫", "率真幼稚", "重情重义", "不拘小节"],
+        "traits": [
+          "琴艺超凡",
+          "疯疯癫癫",
+          "率真幼稚",
+          "重情重义",
+          "不拘小节"
+        ],
         "speech_style": "说话颠三倒四，时而大哭时而大笑，言语间充满琴痴本色",
         "temperament": "天真癫狂"
       },
       "archetype": "scholar",
       "relationships": [
-        {"target": "char_goudu", "type": "family", "intensity": 70, "bond_level": 5, "dynamic": "函谷八友大哥，与众师弟情同手足"},
-        {"target": "char_xuannan", "type": "associate", "intensity": 30, "bond_level": 2, "dynamic": "与玄难初见面就哭诉知音难觅，要将玄苦骨灰黏在琴上"},
-        {"target": "char_baobuton", "type": "associate", "intensity": 20, "bond_level": 1, "dynamic": "与包不同斗嘴取乐，二人互称傻子"}
+        {
+          "target": "char_goudu",
+          "type": "family",
+          "intensity": 70,
+          "bond_level": 5,
+          "dynamic": "函谷八友大哥，与众师弟情同手足"
+        },
+        {
+          "target": "char_xuannan",
+          "type": "associate",
+          "intensity": 30,
+          "bond_level": 2,
+          "dynamic": "与玄难初见面就哭诉知音难觅，要将玄苦骨灰黏在琴上"
+        },
+        {
+          "target": "char_baobuton",
+          "type": "associate",
+          "intensity": 20,
+          "bond_level": 1,
+          "dynamic": "与包不同斗嘴取乐，二人互称傻子"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -119,13 +261,25 @@
       "id": "char_goudu",
       "name": "苟读",
       "personality": {
-        "traits": ["博览群书", "书呆子气", "机智过人", "妙语连珠", "辩才无碍"],
+        "traits": [
+          "博览群书",
+          "书呆子气",
+          "机智过人",
+          "妙语连珠",
+          "辩才无碍"
+        ],
         "speech_style": "满口之乎者也，引经据典，以儒家经典和佛经与人论辩",
         "temperament": "迂阔机敏"
       },
       "archetype": "scholar",
       "relationships": [
-        {"target": "char_xuantong", "type": "associate", "intensity": 25, "bond_level": 2, "dynamic": "以论语和鸠摩罗什偈句与玄痛论辩，竟令玄痛大彻大悟圆寂"}
+        {
+          "target": "char_xuantong",
+          "type": "associate",
+          "intensity": 25,
+          "bond_level": 2,
+          "dynamic": "以论语和鸠摩罗什偈句与玄痛论辩，竟令玄痛大彻大悟圆寂"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -134,47 +288,113 @@
       "id": "char_dingchunqiu",
       "name": "丁春秋",
       "personality": {
-        "traits": ["阴狠毒辣", "虚荣自负", "工于心计", "武功高强", "卑鄙无耻", "凶残暴戾"],
+        "traits": [
+          "阴狠毒辣",
+          "虚荣自负",
+          "工于心计",
+          "武功高强",
+          "卑鄙无耻",
+          "凶残暴戾"
+        ],
         "speech_style": "言语傲慢自负，动辄以老仙自居，以生死威胁他人",
         "temperament": "骄横阴狠"
       },
       "archetype": "villain",
       "relationships": [
-        {"target": "char_xuannan", "type": "enemy", "intensity": 80, "bond_level": 4, "dynamic": "以化功大法化去玄难全身内力，少林高僧倒地不起"},
-        {"target": "char_xuemuhua", "type": "enemy", "intensity": 90, "bond_level": 5, "dynamic": "以薛慕华师兄弟性命相威胁，逼其医治慧净"},
-        {"target": "char_youtanzhi", "type": "master_student", "intensity": 45, "bond_level": 3, "dynamic": "指点游坦之七八招掌法，利用其冰蚕寒毒对付众人"},
-        {"target": "char_suxinghe", "type": "enemy", "intensity": 95, "bond_level": 5, "dynamic": "背叛师门的师弟，欲将师兄苏星河及其门下斩尽杀绝"}
+        {
+          "target": "char_xuannan",
+          "type": "enemy",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "以化功大法化去玄难全身内力，少林高僧倒地不起"
+        },
+        {
+          "target": "char_xuemuhua",
+          "type": "enemy",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "以薛慕华师兄弟性命相威胁，逼其医治慧净"
+        },
+        {
+          "target": "char_youtanzhi",
+          "type": "master_student",
+          "intensity": 45,
+          "bond_level": 3,
+          "dynamic": "指点游坦之七八招掌法，利用其冰蚕寒毒对付众人"
+        },
+        {
+          "target": "char_suxinghe",
+          "type": "enemy",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "背叛师门的师弟，欲将师兄苏星河及其门下斩尽杀绝"
+        }
       ],
-      "known_skills": ["skill_huagongdafa"],
+      "known_skills": [
+        "skill_huagongdafa"
+      ],
       "related_skills": []
     },
     {
       "id": "char_youtanzhi",
       "name": "游坦之",
       "personality": {
-        "traits": ["痴情卑微", "逆来顺受", "忍辱负重", "单纯无知", "奴性深重", "武功大增"],
+        "traits": [
+          "痴情卑微",
+          "逆来顺受",
+          "忍辱负重",
+          "单纯无知",
+          "奴性深重",
+          "武功大增"
+        ],
         "speech_style": "低声下气，自称小人，对师父畏惧服从",
         "temperament": "懦弱卑微"
       },
       "archetype": "victim",
       "relationships": [
-        {"target": "char_dingchunqiu", "type": "master_student", "intensity": 40, "bond_level": 2, "dynamic": "拜丁春秋为师，经其指点学会几招掌法，以冰蚕寒毒大显威力"},
-        {"target": "char_xuemuhua", "type": "associate", "intensity": 15, "bond_level": 1, "dynamic": "自称是薛神医故人之子，恳求医治铁罩，并杀死同门以表诚意"}
+        {
+          "target": "char_dingchunqiu",
+          "type": "master_student",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "拜丁春秋为师，经其指点学会几招掌法，以冰蚕寒毒大显威力"
+        },
+        {
+          "target": "char_xuemuhua",
+          "type": "associate",
+          "intensity": 15,
+          "bond_level": 1,
+          "dynamic": "自称是薛神医故人之子，恳求医治铁罩，并杀死同门以表诚意"
+        }
       ],
-      "known_skills": ["skill_bingcanshenzhang"],
+      "known_skills": [
+        "skill_bingcanshenzhang"
+      ],
       "related_skills": []
     },
     {
       "id": "char_likuilei",
       "name": "李傀儡",
       "personality": {
-        "traits": ["痴迷戏文", "疯疯癫癫", "不畏强权", "机智幽默", "演艺精湛"],
+        "traits": [
+          "痴迷戏文",
+          "疯疯癫癫",
+          "不畏强权",
+          "机智幽默",
+          "演艺精湛"
+        ],
         "speech_style": "忽男忽女，时而扮梅妃时而扮霸王，以唱戏方式表达情感",
         "temperament": "癫狂潇洒"
       },
       "archetype": "scholar",
       "relationships": [
-        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 75, "bond_level": 4, "dynamic": "痛骂丁春秋为老贼，被丁春秋以磷火烧伤"}
+        {
+          "target": "char_dingchunqiu",
+          "type": "enemy",
+          "intensity": 75,
+          "bond_level": 4,
+          "dynamic": "痛骂丁春秋为老贼，被丁春秋以磷火烧伤"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -183,13 +403,25 @@
       "id": "char_fenga-san",
       "name": "冯阿三",
       "personality": {
-        "traits": ["巧匠神工", "机警沉着", "沉默寡言", "精通机关", "临危不乱"],
+        "traits": [
+          "巧匠神工",
+          "机警沉着",
+          "沉默寡言",
+          "精通机关",
+          "临危不乱"
+        ],
         "speech_style": "言语不多，做事专注，关键时刻沉稳果决",
         "temperament": "沉稳机敏"
       },
       "archetype": "artisan",
       "relationships": [
-        {"target": "char_dingchunqiu", "type": "enemy", "intensity": 70, "bond_level": 4, "dynamic": "以精湛机关术与丁春秋周旋，发现地洞机关并破解炸药陷阱"}
+        {
+          "target": "char_dingchunqiu",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "以精湛机关术与丁春秋周旋，发现地洞机关并破解炸药陷阱"
+        }
       ],
       "known_skills": [],
       "related_skills": []
@@ -200,13 +432,44 @@
       "id": "skill_huagongdafa",
       "name": "化功大法",
       "techniques": [
-        {"id": "tech_huagong_linshuo", "name": "磷火术", "type": "attack", "description": "袍袖中飞出碧油油磷火，沾身即燃，焚烧敌人"},
-        {"id": "tech_huagong_xingong", "name": "化功心法", "type": "attack", "description": "双掌相交时，内力源源不绝向外飞散，无法凝聚"}
+        {
+          "id": "tech_huagong_linshuo",
+          "name": "磷火术",
+          "type": "attack",
+          "description": "袍袖中飞出碧油油磷火，沾身即燃，焚烧敌人"
+        },
+        {
+          "id": "tech_huagong_xingong",
+          "name": "化功心法",
+          "type": "attack",
+          "description": "双掌相交时，内力源源不绝向外飞散，无法凝聚"
+        }
       ],
-      "progression": [],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "以化功大法化去玄难全身内力，令少林达摩院首座扑地虚脱，内力源源外泄"
+        },
+        {
+          "level": 2,
+          "unlock": "袍袖中飞出碧油油磷火烧伤李傀儡、冯阿三等人，磷火越滚越旺扑之不熄"
+        },
+        {
+          "level": 3,
+          "unlock": "连环出手击败邓百川、公冶乾、包不同等慕容氏高手，化功大法所向披靡"
+        }
+      ],
       "effects": [
-        {"type": "化功", "condition": "掌力接触", "description": "对方内力如泥牛入海，全身虚脱，修为毁于一旦"},
-        {"type": "燃烧", "condition": "磷火沾身", "description": "碧磷火越滚越旺，扑之不熄"}
+        {
+          "type": "化功",
+          "condition": "掌力接触",
+          "description": "对方内力如泥牛入海，全身虚脱，修为毁于一旦"
+        },
+        {
+          "type": "燃烧",
+          "condition": "磷火沾身",
+          "description": "碧磷火越滚越旺，扑之不熄"
+        }
       ],
       "combat_style": "以剧毒化功大法为主，辅以磷火暗器，周身皆毒"
     },
@@ -214,11 +477,29 @@
       "id": "skill_bingcanshenzhang",
       "name": "冰蚕毒掌",
       "techniques": [
-        {"id": "tech_bingcan_fanji", "name": "寒毒反激", "type": "defense", "description": "被人击中时，体内冰蚕寒毒自动反激，令攻击者反受其害"}
+        {
+          "id": "tech_bingcan_fanji",
+          "name": "寒毒反激",
+          "type": "defense",
+          "description": "被人击中时，体内冰蚕寒毒自动反激，令攻击者反受其害"
+        }
       ],
-      "progression": [],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "经丁春秋指点七八招掌法后，以寒毒掌击倒公冶乾和范百龄，二人倒地发抖"
+        },
+        {
+          "level": 2,
+          "unlock": "体内冰蚕寒毒自动反激，击中他的人反受其害，连包不同等高手也抵挡不住"
+        }
+      ],
       "effects": [
-        {"type": "寒毒", "condition": "中掌", "description": "寒毒入骨，冷得牙关相击，全身发颤，久久难愈"}
+        {
+          "type": "寒毒",
+          "condition": "中掌",
+          "description": "寒毒入骨，冷得牙关相击，全身发颤，久久难愈"
+        }
       ],
       "combat_style": "以浑厚内力配合冰蚕寒毒，守时反震伤人，攻时寒毒摧心"
     },
@@ -226,13 +507,44 @@
       "id": "skill_shaolin_kuai_zhang",
       "name": "少林快掌",
       "techniques": [
-        {"id": "tech_kuai_zhang_18", "name": "一十八掌连环", "type": "attack", "description": "双掌连环而出，左掌未收右掌已出，快速无伦，令敌无暇使毒"},
-        {"id": "tech_kuai_tui_36", "name": "三十六腿鸳鸯连环", "type": "attack", "description": "双腿连环踢出，腿影飘飘，配合快掌连击"}
+        {
+          "id": "tech_kuai_zhang_18",
+          "name": "一十八掌连环",
+          "type": "attack",
+          "description": "双掌连环而出，左掌未收右掌已出，快速无伦，令敌无暇使毒"
+        },
+        {
+          "id": "tech_kuai_tui_36",
+          "name": "三十六腿鸳鸯连环",
+          "type": "attack",
+          "description": "双腿连环踢出，腿影飘飘，配合快掌连击"
+        }
       ],
-      "progression": [],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "一十八掌连环而出，左掌未收右掌已出，快得令丁春秋无法施毒，被迫连退十八步"
+        },
+        {
+          "level": 2,
+          "unlock": "三十六腿鸳鸯连环，腿影飘飘虚虚实实，配合拳击打中丁春秋肩头"
+        },
+        {
+          "level": 3,
+          "unlock": "双拳齐出与丁春秋硬拼内力，虽中毒后内力外泄，但掌力之雄浑令星宿老怪也赞'好厉害'"
+        }
+      ],
       "effects": [
-        {"type": "压制", "condition": "连续攻击", "description": "快速连击令丁春秋无法施毒，接连倒退"},
-        {"type": "中毒", "condition": "击中喂毒之衣", "description": "玄难击中丁春秋后头脑眩晕，中了暗算"}
+        {
+          "type": "压制",
+          "condition": "连续攻击",
+          "description": "快速连击令丁春秋无法施毒，接连倒退"
+        },
+        {
+          "type": "中毒",
+          "condition": "击中喂毒之衣",
+          "description": "玄难击中丁春秋后头脑眩晕，中了暗算"
+        }
       ],
       "combat_style": "以快制胜，掌腿连环，不给敌人喘息之机"
     }
@@ -241,7 +553,13 @@
     {
       "id": "evt_30_hangu_bayou_ju_shou",
       "name": "函谷八友齐聚薛神医家",
-      "participants": ["char_kangguangling", "char_xuemuhua", "char_goudu", "char_fenga-san", "char_likuilei"],
+      "participants": [
+        "char_kangguangling",
+        "char_xuemuhua",
+        "char_goudu",
+        "char_fenga-san",
+        "char_likuilei"
+      ],
       "location": "loc_xueshenyi_jia",
       "description": "薛慕华老仆以流星火炮传讯，函谷八友康广陵、范百龄、苟读、吴领军、冯阿三、石清露、李傀儡先后赶到薛家，与玄难一行和慕容家臣遭遇，双方发生混战",
       "chapter": 30
@@ -249,7 +567,10 @@
     {
       "id": "evt_30_xuantong_yuanji",
       "name": "玄痛被苟读言语点化圆寂",
-      "participants": ["char_xuantong", "char_goudu"],
+      "participants": [
+        "char_xuantong",
+        "char_goudu"
+      ],
       "location": "loc_xueshenyi_jia",
       "description": "苟读以儒家论语和鸠摩罗什偈句与玄痛论辩，玄痛被点中禅机，陡然间大彻大悟，抛下双刀盘膝而坐，含笑圆寂",
       "chapter": 30
@@ -257,7 +578,9 @@
     {
       "id": "evt_30_xuemuhua_jia_si",
       "name": "薛慕华假死布毒棺陷阱",
-      "participants": ["char_xuemuhua"],
+      "participants": [
+        "char_xuemuhua"
+      ],
       "location": "loc_xueshenyi_jia",
       "description": "薛慕华因杀了两名星宿派弟子，怕丁春秋报复，假装身死，在棺中暗藏剧毒诱敌上钩，其家人则藏入祖传地洞中",
       "chapter": 30
@@ -265,7 +588,12 @@
     {
       "id": "evt_30_hangu_bayou_lai_li",
       "name": "薛慕华讲述函谷八友来历和逍遥派恩怨",
-      "participants": ["char_xuemuhua", "char_kangguangling", "char_xuannan", "char_dengbaichuan"],
+      "participants": [
+        "char_xuemuhua",
+        "char_kangguangling",
+        "char_xuannan",
+        "char_dengbaichuan"
+      ],
       "location": "loc_didong",
       "description": "薛慕华在地洞中向众人详述逍遥派师门恩怨：祖师爷收了苏星河和丁春秋两个弟子，丁春秋暗算祖师爷后叛门，苏星河被迫装聋作哑，函谷八友虽被逐出师门但始终不忘师恩",
       "chapter": 30
@@ -273,7 +601,11 @@
     {
       "id": "evt_30_dingchunqiu_gong_ru",
       "name": "丁春秋以炸药攻破地洞",
-      "participants": ["char_dingchunqiu", "char_xuannan", "char_dengbaichuan"],
+      "participants": [
+        "char_dingchunqiu",
+        "char_xuannan",
+        "char_dengbaichuan"
+      ],
       "location": "loc_xueshenyi_jia",
       "description": "丁春秋以炸药硬炸薛家地洞，玄难率众人出洞迎战，玄难施展少林快掌打得丁春秋连连后退，但终因中毒被化去内力，众人纷纷被丁春秋和游坦之打倒",
       "chapter": 30
@@ -281,7 +613,11 @@
     {
       "id": "evt_30_dingchunqiu_bi_yi",
       "name": "丁春秋以师兄弟性命逼迫薛慕华",
-      "participants": ["char_dingchunqiu", "char_xuemuhua", "char_kangguangling"],
+      "participants": [
+        "char_dingchunqiu",
+        "char_xuemuhua",
+        "char_kangguangling"
+      ],
       "location": "loc_xueshenyi_jia",
       "description": "丁春秋以杀害函谷八友和聪辩先生苏星河为要挟，逼薛慕华医治慧净，薛慕华为保师父性命，只得屈服",
       "chapter": 30
@@ -289,9 +625,52 @@
     {
       "id": "evt_30_dingchunqiu_sha_chefu_shao_fang",
       "name": "丁春秋杀车夫烧薛家押送众人",
-      "participants": ["char_dingchunqiu", "char_youtanzhi"],
+      "participants": [
+        "char_dingchunqiu",
+        "char_youtanzhi"
+      ],
       "location": "loc_xueshenyi_jia",
       "description": "丁春秋命人雇了十辆驴车，将车夫全部杀死灭口，把玄难、邓百川、函谷八友等数十人塞入车中，放火烧了薛家，押送众人不知去向",
+      "chapter": 30
+    },
+    {
+      "id": "evt_30_hangu_bayou_zao_yu",
+      "name": "包不同风波恶与函谷八友混战误会",
+      "participants": [
+        "char_fengboe",
+        "char_baobuton",
+        "char_kangguangling",
+        "char_goudu",
+        "char_wulingjun",
+        "char_likuilei"
+      ],
+      "location": "loc_xueshenyi_jia",
+      "description": "风波恶见到函谷八友李傀儡扮戏子便挥刀猛砍，包不同与康广陵斗嘴抬杠，玄痛双刀大战吴领军和苟读，双方各不相让，混战成一团",
+      "chapter": 30
+    },
+    {
+      "id": "evt_30_dingchunqiu_linhuo_shao_ren",
+      "name": "丁春秋以磷火烧伤李傀儡等函谷八友",
+      "participants": [
+        "char_dingchunqiu",
+        "char_likuilei",
+        "char_fenga-san",
+        "char_fanbailing",
+        "char_xuannan"
+      ],
+      "location": "loc_xueshenyi_jia",
+      "description": "李傀儡扮老妇痛骂丁春秋，丁春秋怒不可遏，袍袖中飞出碧油油磷火射向李傀儡，李傀儡全身着火就地打滚，范百龄和冯阿三也被点燃，玄难以掌力扑熄磷火",
+      "chapter": 30
+    },
+    {
+      "id": "evt_30_fengboe_chu_dong",
+      "name": "风波恶率先出洞大战星宿弟子",
+      "participants": [
+        "char_fengboe",
+        "char_dingchunqiu"
+      ],
+      "location": "loc_xueshenyi_jia",
+      "description": "冯阿三以火炮炸开地洞机关后，风波恶第一个窜将出去，喊道'哪一个是星宿老怪'，冲入星宿派人群中拳打脚踢，虽因寒毒伤后无力却勇猛不减",
       "chapter": 30
     }
   ],
@@ -343,6 +722,20 @@
       "listener": "char_dingchunqiu",
       "text": "丁老贼，你那个胖和尚外伤易愈，内伤难治，已活不了几天啦，你想逼我治病救人，那是一百个休想！",
       "tone": "愤怒",
+      "chapter": 30
+    },
+    {
+      "speaker": "char_likuilei",
+      "listener": "char_dingchunqiu",
+      "text": "我乃星宿老怪的母是也。我当年跟二郎神的哮天犬私通，生下你这小畜生。我打断你的狗腿！",
+      "tone": "戏谑痛骂",
+      "chapter": 30
+    },
+    {
+      "speaker": "char_kangguangling",
+      "listener": "char_xuannan",
+      "text": "玄苦，你怎么不知会我一声，就此死了？这不是岂有此理么？我这一曲'梵音普安泰'，许多人听过都不懂其中道理，你却说此曲之中，含禅意，听了一遍，又是一遍。我这个玄难师弟，未必有你这么悟性，我若弹给他听，多半是要对牛弹琴了！",
+      "tone": "悲恸哭诉",
       "chapter": 30
     },
     {

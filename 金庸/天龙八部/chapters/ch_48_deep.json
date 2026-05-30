@@ -166,7 +166,10 @@
       "techniques": [
         {"id": "tech_beisu_mihun", "name": "悲酥清风迷药", "type": "attack", "description": "无色无味的迷药，闻之即筋骨酸软、内力难提，慕容复改良后少了一种刺目流泪的气息，令人更难防备"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "原版悲酥清风，源自西夏一品堂，吸入后筋骨酸软内力难提，且伴有刺目流泪之气"},
+        {"level": 2, "unlock": "慕容复加以改良，去除刺目流泪气息，令人更难防备，段延庆在喜极忘形之际亦中此毒"}
+      ],
       "effects": [
         {"type": "麻痹", "condition": "吸入", "description": "内息提不上来，四肢无力，运功逼毒适得其反"},
         {"type": "解毒", "condition": "闻解药恶臭", "description": "以瓷瓶中所贮恶臭药末投于鼻端，嗅之立解"}
