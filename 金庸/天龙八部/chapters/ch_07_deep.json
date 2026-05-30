@@ -3,166 +3,805 @@
   "characters_detail": [
     {
       "id": "char_duanyu",
-      "personality": {"traits": ["孝順", "善良", "天真"], "speech_style": "文雅恭敬", "temperament": "平和"},
+      "name": "段誉",
+      "personality": {
+        "traits": [
+          "孝心至诚",
+          "坚守伦理",
+          "自制力强",
+          "善用易经自持",
+          "宁死不辱"
+        ],
+        "speech_style": "遇险引易经定心，对木婉清以兄妹相称，面对恶人宁折不弯",
+        "temperament": "仁厚刚正"
+      },
       "archetype": "scholar",
       "relationships": [
-        {"target": "char_muwanqing_5", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "已訂婚約，但不知對方是自己妹妹"},
-        {"target": "char_yuxusanren_6", "type": "master_student", "intensity": 80, "bond_level": 4, "dynamic": "孝順母親"},
-        {"target": "char_duanzhengchun_6", "type": "master_student", "intensity": 60, "bond_level": 3, "dynamic": "尊敬父親，但理念不合"}
+        {
+          "target": "char_muwanqing",
+          "type": "family",
+          "intensity": 75,
+          "bond_level": 4,
+          "dynamic": "得知是亲妹后以兄妹之道相待，虽遭春药考验以易经自持"
+        },
+        {
+          "target": "char_daobaifeng",
+          "type": "family",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "以身挡毒箭救母，孝心感人"
+        },
+        {
+          "target": "char_duanzhengchun",
+          "type": "family",
+          "intensity": 85,
+          "bond_level": 5,
+          "dynamic": "被掳后坚信父亲和伯父会来相救"
+        },
+        {
+          "target": "char_qinzhonghe",
+          "type": "enemy",
+          "intensity": 90,
+          "bond_level": 4,
+          "dynamic": "被青袍客下春药关在石室，宁死不辱段氏清誉"
+        }
       ],
-      "known_skills": ["skill_lingboweibu", "skill_yiyangzhi_6"],
+      "known_skills": [
+        "skill_beiming",
+        "skill_lingboweibu"
+      ],
       "related_skills": []
     },
     {
-      "id": "char_muwanqing_5",
-      "personality": {"traits": ["剛烈", "癡情", "單純", "倔強"], "speech_style": "直率冷峻", "temperament": "激烈外放"},
+      "id": "char_muwanqing",
+      "name": "木婉清",
+      "personality": {
+        "traits": [
+          "刚烈决绝",
+          "痴情至深",
+          "命运多舛",
+          "不通世故",
+          "野性难驯"
+        ],
+        "speech_style": "言语直接，时而决绝时而温柔，情绪大起大落",
+        "temperament": "刚烈率真"
+      },
       "archetype": "assassin",
       "relationships": [
-        {"target": "char_duanyu", "type": "love", "intensity": 70, "bond_level": 3, "dynamic": "深愛段譽，得知他是自己哥哥後崩潰"},
-        {"target": "char_qinhongmian_7", "type": "master_student", "intensity": 60, "bond_level": 3, "dynamic": "原是師徒，後知是母女"},
-        {"target": "char_duanzhengchun_6", "type": "complicated", "intensity": 30, "bond_level": 1, "dynamic": "剛知他是父親，情感複雜"}
+        {
+          "target": "char_duanyu",
+          "type": "family",
+          "intensity": 90,
+          "bond_level": 4,
+          "dynamic": "得知段誉是亲兄后万念俱灰，自杀未遂，面对春药仍坚守伦理"
+        },
+        {
+          "target": "char_daobaifeng",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "奉师命射杀刀白凤，误伤段誉后懊悔不已"
+        },
+        {
+          "target": "char_qinzhonghe",
+          "type": "family",
+          "intensity": 60,
+          "bond_level": 2,
+          "dynamic": "得知秦红棉是生母，一时难以接受"
+        },
+        {
+          "target": "char_duanzhengchun",
+          "type": "family",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "得知段正淳是生父后心境复杂"
+        },
+        {
+          "target": "char_qingpaoke",
+          "type": "utilizer",
+          "intensity": 50,
+          "bond_level": 1,
+          "dynamic": "被其利用关入石室，许诺将哥哥变丈夫"
+        }
       ],
-      "known_skills": ["skill_xiuluodao_7", "skill_dujian", "skill_wuluoqingyan_7"],
+      "known_skills": [
+        "skill_dujian"
+      ],
       "related_skills": []
     },
     {
-      "id": "char_duanzhengchun_6",
-      "personality": {"traits": ["多情", "風流", "內疚", "溫柔"], "speech_style": "溫柔深情，時帶苦澀", "temperament": "多愁善感"},
+      "id": "char_daobaifeng",
+      "name": "刀白凤（玉虚散人）",
+      "personality": {
+        "traits": [
+          "刚烈自尊",
+          "隐忍多年",
+          "外冷内热",
+          "慈悲为怀"
+        ],
+        "speech_style": "言语幽怨冷淡，对儿子温柔关切，对木婉清大度宽容",
+        "temperament": "淡泊刚烈"
+      },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_yuxusanren_6", "type": "love", "intensity": 60, "bond_level": 3, "dynamic": "夫妻，但因風流債生隙"},
-        {"target": "char_qinhongmian_7", "type": "love", "intensity": 50, "bond_level": 2, "dynamic": "舊情人，愧對她"},
-        {"target": "char_muwanqing_5", "type": "complicated", "intensity": 40, "bond_level": 1, "dynamic": "剛相認的女兒"},
-        {"target": "char_duanyu", "type": "master_student", "intensity": 60, "bond_level": 3, "dynamic": "父子"}
+        {
+          "target": "char_muwanqing",
+          "type": "family",
+          "intensity": -30,
+          "bond_level": 1,
+          "dynamic": "被木婉清射箭后宽容待之，猜到其中缘由"
+        },
+        {
+          "target": "char_qinzhonghe",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "知秦红棉派木婉清来杀自己，但未追究"
+        },
+        {
+          "target": "char_duanzhengchun",
+          "type": "love",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "因丈夫风流出家多年，伤心失望"
+        }
       ],
-      "known_skills": ["skill_wuluoqingyan_7", "skill_yiyangzhi_6"],
+      "known_skills": [
+        "skill_fuzhu"
+      ],
       "related_skills": []
     },
     {
-      "id": "char_yuxusanren_6",
-      "personality": {"traits": ["剛烈", "自尊心強", "隱忍"], "speech_style": "冷淡簡練", "temperament": "內斂倔強"},
+      "id": "char_duanzhengchun",
+      "name": "段正淳（镇南王）",
+      "personality": {
+        "traits": [
+          "风流多情",
+          "深情负心",
+          "武功高强",
+          "机智善变",
+          "伤心人"
+        ],
+        "speech_style": "对旧情人甜言蜜语，对儿子慈爱关切，对敌人谈笑用兵",
+        "temperament": "风流儒雅"
+      },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_duanzhengchun_6", "type": "love", "intensity": 40, "bond_level": 2, "dynamic": "失望離去"},
-        {"target": "char_duanyu", "type": "master_student", "intensity": 80, "bond_level": 4, "dynamic": "慈母關懷"}
+        {
+          "target": "char_qinzhonghe",
+          "type": "love",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "昔日情人，见之既喜且愧，以修罗刀旧情打动之"
+        },
+        {
+          "target": "char_ganbaobao",
+          "type": "love",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "对甘宝宝尚存旧情，但闻其以礼自持肃然起敬"
+        },
+        {
+          "target": "char_muwanqing",
+          "type": "family",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "发现木婉清是亲生女儿，痛悔前尘"
+        },
+        {
+          "target": "char_duanyu",
+          "type": "family",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "见儿子中毒箭焦急万分，被掳后投鼠忌器"
+        }
+      ],
+      "known_skills": [
+        "skill_yiyangzhi",
+        "skill_wuluoqingyan"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_qinzhonghe",
+      "name": "秦红棉（修罗刀）",
+      "personality": {
+        "traits": [
+          "刚烈凶狠",
+          "痴情至深",
+          "自苦十八年",
+          "性情偏激"
+        ],
+        "speech_style": "言语锋利，对段正淳恨中有爱，爱中有恨",
+        "temperament": "刚烈偏激"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_duanzhengchun",
+          "type": "love",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "十八年未见仍深情不渝，被其一席话打动"
+        },
+        {
+          "target": "char_muwanqing",
+          "type": "family",
+          "intensity": 90,
+          "bond_level": 4,
+          "dynamic": "以师父身份养大亲生女儿，不敢相认"
+        },
+        {
+          "target": "char_daobaifeng",
+          "type": "enemy",
+          "intensity": 80,
+          "bond_level": 3,
+          "dynamic": "深恨刀白凤夺爱"
+        }
+      ],
+      "known_skills": [
+        "skill_xiuluodao",
+        "skill_wuluoqingyan"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_ganbaobao",
+      "name": "甘宝宝（俏药叉/钟夫人）",
+      "personality": {
+        "traits": [
+          "娇俏精明",
+          "以礼自持",
+          "嫁作人妇后守着夫妻名节"
+        ],
+        "speech_style": "言语俏皮中带着决绝，对段正淳既念旧情又严守妇道",
+        "temperament": "娇俏坚贞"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_duanzhengchun",
+          "type": "love",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "昔日情人，今以礼自防"
+        },
+        {
+          "target": "char_zhongwanchou",
+          "type": "family",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "对丈夫忠诚，丈夫吃醋犹自维护"
+        }
       ],
       "known_skills": [],
       "related_skills": []
     },
     {
-      "id": "char_qinhongmian_7",
-      "personality": {"traits": ["倔強", "偏執", "深情"], "speech_style": "憂怨", "temperament": "偏激內向"},
-      "archetype": "assassin",
+      "id": "char_zhongwanchou",
+      "name": "钟万仇",
+      "personality": {
+        "traits": [
+          "丑陋暴躁",
+          "醋性奇重",
+          "深爱妻子",
+          "性情偏狭"
+        ],
+        "speech_style": "言语粗鲁，动辄骂人，对妻子温柔",
+        "temperament": "暴躁偏狭"
+      },
+      "archetype": "villain",
       "relationships": [
-        {"target": "char_duanzhengchun_6", "type": "love", "intensity": 60, "bond_level": 2, "dynamic": "舊情人，幽居多年"},
-        {"target": "char_muwanqing_5", "type": "master_student", "intensity": 70, "bond_level": 3, "dynamic": "母女關係未公開"}
+        {
+          "target": "char_ganbaobao",
+          "type": "love",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "爱妻至深，因妻子与段正淳旧情而醋海翻波"
+        },
+        {
+          "target": "char_duanzhengchun",
+          "type": "enemy",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "深恨段正淳，与刀白凤联手闯入王府"
+        },
+        {
+          "target": "char_duanyu",
+          "type": "enemy",
+          "intensity": 60,
+          "bond_level": 2,
+          "dynamic": "掳其子以为质"
+        }
       ],
-      "known_skills": ["skill_xiuluodao_7", "skill_wuluoqingyan_7", "skill_dujian"],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qingpaoke",
+      "name": "青袍客（段延庆）",
+      "personality": {
+        "traits": [
+          "阴鸷深沉",
+          "武功深不可测",
+          "残废多年",
+          "仇恨段氏",
+          "手段狠辣"
+        ],
+        "speech_style": "以腹语术说话，语调阴冷，虽不能动口但言辞犀利",
+        "temperament": "阴鸷狠毒"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {
+          "target": "char_duanzhengchun",
+          "type": "enemy",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "与段正明仇深似海，以段誉和木婉清乱伦之事报复"
+        },
+        {
+          "target": "char_duanyu",
+          "type": "enemy",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "下阴阳和合散逼其与亲妹乱伦，以毁段氏清誉"
+        },
+        {
+          "target": "char_muwanqing",
+          "type": "utilizer",
+          "intensity": 40,
+          "bond_level": 1,
+          "dynamic": "利用其痴心，许诺将哥哥变丈夫"
+        }
+      ],
+      "known_skills": [
+        "skill_fuyu",
+        "skill_tiezhuang",
+        "skill_yiyangzhi"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen",
+      "name": "南海鳄神",
+      "personality": {
+        "traits": [
+          "暴躁",
+          "重名声",
+          "听命于人"
+        ],
+        "speech_style": "粗声粗气",
+        "temperament": "凶蛮"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {
+          "target": "char_duanyu",
+          "type": "adversary",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "将段誉从床上掳去，但仍以师父相称"
+        }
+      ],
+      "known_skills": [],
       "related_skills": []
     }
   ],
   "skills_detail": [
     {
-      "id": "skill_wuluoqingyan_7",
+      "id": "skill_yiyangzhi",
+      "name": "一阳指",
       "techniques": [
-        {"id": "tech_wuluo_zhangfa", "name": "五羅輕煙掌", "type": "attack", "description": "出掌如行雲流水，瀟灑之極，可隔空劈熄燭火"}
+        {
+          "id": "tech_yiyang_gekong",
+          "name": "隔空解穴",
+          "type": "support",
+          "description": "凭空出指，不碰触对方身体即可解开被点的穴道"
+        },
+        {
+          "id": "tech_yiyang_dianxue",
+          "name": "点穴擒拿",
+          "type": "attack",
+          "description": "无声无息点中对方腰间章门穴、腿上环跳曲泉等穴"
+        },
+        {
+          "id": "tech_yiyang_fengxue",
+          "name": "封穴阻毒",
+          "type": "defense",
+          "description": "飞指而出连点中箭处周围八处穴道，使毒血暂时不能归心"
+        }
       ],
-      "progression": [],
-      "effects": [],
-      "combat_style": "輕靈飄逸，以掌風傷敵"
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "段正淳以点穴擒拿无声无息制住秦红棉和甘宝宝"
+        },
+        {
+          "level": 2,
+          "unlock": "保定帝隔空出指为甘宝宝解穴，真气穿空不碰触身体"
+        }
+      ],
+      "effects": [
+        {
+          "type": "解穴",
+          "condition": "隔空出指",
+          "description": "丹田上部一热，两道暖流通向双腿，血脉畅通"
+        },
+        {
+          "type": "封锁",
+          "condition": "连点八穴",
+          "description": "毒血暂时不能归心"
+        }
+      ],
+      "combat_style": "以指力为主，点穴、解穴、疗伤、制敌皆可"
     },
     {
-      "id": "skill_dujian",
+      "id": "skill_wuluoqingyan",
+      "name": "五罗轻烟掌",
       "techniques": [
-        {"id": "tech_dujian_sheji", "name": "毒箭", "type": "attack", "description": "袖中發射短箭，見血封喉"}
+        {
+          "id": "tech_wuluo_pi",
+          "name": "劈烛",
+          "type": "attack",
+          "description": "左掌向后斜劈，烛火随掌风而灭，出掌如行云流水"
+        }
       ],
-      "progression": [],
-      "effects": [{"type": "劇毒", "condition": "射中目標", "description": "中毒者瞬間斃命"}],
-      "combat_style": "暗器偷襲"
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "段正淳连劈五掌熄灭五枝红烛，掌风行云流水轻灵飘逸"
+        }
+      ],
+      "effects": [
+        {
+          "type": "熄灭",
+          "condition": "掌风劈向烛火",
+          "description": "烛火随掌风熄灭"
+        }
+      ],
+      "combat_style": "轻灵飘逸，段正淳原传与秦红棉的掌法"
+    },
+    {
+      "id": "skill_xiuluodao",
+      "name": "修罗刀",
+      "techniques": [
+        {
+          "id": "tech_xiuluo_shuangdao",
+          "name": "修罗双刀",
+          "type": "attack",
+          "description": "秦红棉以雌雄双刀出手，刀法凶狠凌厉"
+        },
+        {
+          "id": "tech_xiuluo_feng",
+          "name": "修罗刀风",
+          "type": "attack",
+          "description": "双刀挥舞虎虎生风，刀光笼罩四方"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "秦红棉以修罗刀纵横江湖多年，刀法阴狠毒辣"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "双刀斩中",
+          "description": "刀法凶狠凌厉，中者非死即伤"
+        }
+      ],
+      "combat_style": "双刀纵横江湖，出手凶狠"
+    },
+    {
+      "id": "skill_fuyu",
+      "name": "腹语术",
+      "techniques": [
+        {
+          "id": "tech_fuyu_sheng",
+          "name": "腹语发声",
+          "type": "special",
+          "description": "以肚腹震动发声，嘴唇紧闭而说话清楚明白，需深湛内功"
+        },
+        {
+          "id": "tech_fuyu_huo",
+          "name": "腹语惑敌",
+          "type": "trick",
+          "description": "以腹语说话令人惊异，分散对手注意力"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "青袍客以腹语术说话阴冷，不需开口即可与人交谈"
+        }
+      ],
+      "effects": [
+        {
+          "type": "腹语",
+          "condition": "嘴唇紧闭",
+          "description": "以肚子震动发声，说话清楚明白，需要深湛内功"
+        }
+      ],
+      "combat_style": "以腹语惑敌"
+    },
+    {
+      "id": "skill_tiezhuang",
+      "name": "铁杖功",
+      "techniques": [
+        {
+          "id": "tech_tiezhuang_dian",
+          "name": "铁杖点穴",
+          "type": "attack",
+          "description": "以细细黑铁杖快若飘风般点人穴道"
+        },
+        {
+          "id": "tech_tiezhuang_yi",
+          "name": "铁杖代足",
+          "type": "defense",
+          "description": "双足残废，以两根七八尺长铁杖代步，上山过岭如行平地"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "青袍客以铁杖代步兼攻击，身法飘忽快若飘风"
+        }
+      ],
+      "effects": [
+        {
+          "type": "攻击",
+          "condition": "铁杖点中穴道",
+          "description": "铁杖快若飘风点人穴道，精准无比"
+        },
+        {
+          "type": "行动",
+          "condition": "山岭行走",
+          "description": "以铁杖代步，上山过岭如行平地"
+        }
+      ],
+      "combat_style": "以铁杖代步兼攻击，身法飘忽"
     }
   ],
   "events": [
     {
-      "id": "evt_muwanqing_anli",
-      "name": "木婉清刺殺刀白鳳",
-      "participants": ["char_muwanqing_5", "char_yuxusanren_6", "char_duanyu", "char_duanzhengchun_6"],
-      "location": "loc_dali_wangfu",
-      "description": "木婉清奉師命刺殺刀白鳳，發毒箭射中擋在母親身前的段譽，段譽因莽牯朱蛤而無恙",
+      "id": "evt_07_family_dinner",
+      "name": "镇南王府家宴",
+      "participants": [
+        "char_duanzhengchun",
+        "char_daobaifeng",
+        "char_duanyu",
+        "char_muwanqing"
+      ],
+      "location": "loc_zhennanwangfu",
+      "description": "段正淳夫妇与段誉木婉清共进家宴，木婉清见刀白凤腕上红记，认出其身份",
       "chapter": 7
     },
     {
-      "id": "evt_duanzhengchun_xiangren",
-      "name": "段正淳與木婉清相認",
-      "participants": ["char_duanzhengchun_6", "char_muwanqing_5"],
-      "location": "loc_dali_wangfu",
-      "description": "段正淳告知木婉清秦紅棉是她母親、自己是她父親，段譽是她親哥哥",
+      "id": "evt_07_mu_shoots_dao",
+      "name": "木婉清毒箭射刀白凤",
+      "participants": [
+        "char_muwanqing",
+        "char_daobaifeng",
+        "char_duanyu",
+        "char_duanzhengchun"
+      ],
+      "location": "loc_zhennanwangfu",
+      "description": "木婉清奉师命两箭射刀白凤，段誉以凌波微步挡在母亲身前中箭，毒箭被莽牯朱蛤化解",
       "chapter": 7
     },
     {
-      "id": "evt_daobai_feng_likai",
-      "name": "刀白鳳負氣離去",
-      "participants": ["char_yuxusanren_6", "char_duanzhengchun_6"],
-      "location": "loc_dali_wangfu",
-      "description": "刀白鳳因段正淳風流舊事傷心，飛身從窗口躍出離去",
+      "id": "evt_07_dao_leaves",
+      "name": "刀白凤伤心离去",
+      "participants": [
+        "char_daobaifeng",
+        "char_duanzhengchun"
+      ],
+      "location": "loc_zhennanwangfu",
+      "description": "刀白凤听木婉清说起师父之事，伤心往事勾起，从窗口跃出离去",
       "chapter": 7
     },
     {
-      "id": "evt_qinhongmian_xianshen",
-      "name": "秦紅棉現身",
-      "participants": ["char_qinhongmian_7", "char_muwanqing_5", "char_duanzhengchun_6"],
-      "location": "loc_dali_wangfu",
-      "description": "秦紅棉在窗外現身，要帶木婉清回家",
+      "id": "evt_07_zhengchun_wuluo",
+      "name": "段正淳施展五罗轻烟掌",
+      "participants": [
+        "char_duanzhengchun",
+        "char_muwanqing"
+      ],
+      "location": "loc_zhennanwangfu",
+      "description": "段正淳连劈五掌熄灭五枝红烛，木婉清认出五罗轻烟掌乃师父所传",
+      "chapter": 7
+    },
+    {
+      "id": "evt_07_qin_hongmian_appears",
+      "name": "秦红棉现身窗外",
+      "participants": [
+        "char_qinzhonghe",
+        "char_muwanqing",
+        "char_duanzhengchun"
+      ],
+      "location": "loc_zhennanwangfu",
+      "description": "段正淳说出木婉清身世——其生父是段正淳、生母是秦红棉，木婉清悲痛欲绝",
+      "chapter": 7
+    },
+    {
+      "id": "evt_07_zhong_dao_arrive",
+      "name": "钟万仇与刀白凤闯入",
+      "participants": [
+        "char_zhongwanchou",
+        "char_daobaifeng",
+        "char_duanzhengchun"
+      ],
+      "location": "loc_zhennanwangfu",
+      "description": "钟万仇醋性大发寻妻，遇到刀白凤，二人联手闯入王府",
+      "chapter": 7
+    },
+    {
+      "id": "evt_07_zhengchun_captures",
+      "name": "段正淳点穴擒二女",
+      "participants": [
+        "char_duanzhengchun",
+        "char_qinzhonghe",
+        "char_ganbaobao"
+      ],
+      "location": "loc_zhennanwangfu",
+      "description": "段正淳以关心为名接近秦红棉和甘宝宝，无声无息点中二人章门穴擒获",
+      "chapter": 7
+    },
+    {
+      "id": "evt_07_baodingdi_frees",
+      "name": "保定帝隔空解穴",
+      "participants": [
+        "char_baodingdi",
+        "char_ganbaobao",
+        "char_zhongwanchou"
+      ],
+      "location": "loc_zhennanwangfu",
+      "description": "保定帝凭空出指隔空解穴，展现深不可测的内功，以段氏光明磊落身份放三人离去",
+      "chapter": 7
+    },
+    {
+      "id": "evt_07_gao_zhengchun_demonstration",
+      "name": "高升泰断裤带示威",
+      "participants": [
+        "char_gaoshengtai",
+        "char_zhongwanchou"
+      ],
+      "location": "loc_zhennanwangfu",
+      "description": "高升泰在围墙上以铁板桥让过钟万仇双掌，暗中捏断其裤带以示手下留情",
+      "chapter": 7
+    },
+    {
+      "id": "evt_07_mu_wanders",
+      "name": "木婉清江边徘徊遇青袍客",
+      "participants": [
+        "char_muwanqing",
+        "char_qingpaoke"
+      ],
+      "location": "loc_lancangjiang",
+      "description": "木婉清万念俱灰欲跳澜沧江自尽，遇青袍怪人以腹语术说话，允诺将哥哥变作丈夫",
+      "chapter": 7
+    },
+    {
+      "id": "evt_07_locked_in_stone_room",
+      "name": "木婉清被关石屋与段誉重逢",
+      "participants": [
+        "char_muwanqing",
+        "char_duanyu",
+        "char_qingpaoke"
+      ],
+      "location": "loc_wanjiegu_stone_room",
+      "description": "青袍客将木婉清关入万劫谷后山石屋，段誉已在其中，兄妹二人在绝望中重逢",
+      "chapter": 7
+    },
+    {
+      "id": "evt_07_aphrodisiac",
+      "name": "春药考验",
+      "participants": [
+        "char_duanyu",
+        "char_muwanqing",
+        "char_qingpaoke"
+      ],
+      "location": "loc_wanjiegu_stone_room",
+      "description": "青袍客在食物中下阴阳和合散，段誉以易经自持教木婉清八卦，宁死不辱段氏清誉",
+      "chapter": 7
+    },
+    {
+      "id": "evt_07_qingpao_reveals",
+      "name": "青袍客自曝身份",
+      "participants": [
+        "char_qingpaoke",
+        "char_duanyu"
+      ],
+      "location": "loc_wanjiegu_stone_room",
+      "description": "段誉质问其与段家之仇，青袍客自称四大恶人之首——恶贯满盈",
       "chapter": 7
     }
   ],
   "dialogues": [
     {
-      "speaker": "char_muwanqing_5",
-      "listener": "char_duanzhengchun_6",
-      "text": "这‘五罗轻烟掌’，你怎样么也会？",
-      "tone": "驚訝",
+      "speaker": "char_muwanqing",
+      "listener": "char_daobaifeng",
+      "text": "师恩深重，师命难违！",
+      "tone": "决绝",
       "chapter": 7
     },
     {
-      "speaker": "char_duanzhengchun_6",
-      "listener": "char_muwanqing_5",
-      "text": "这‘五罗轻烟掌’，是我教你师父的。",
-      "tone": "苦澀",
+      "speaker": "char_duanzhengchun",
+      "listener": "char_muwanqing",
+      "text": "你不能和誉儿成婚，也不能杀他。因为……段誉是你的亲哥哥！",
+      "tone": "痛楚",
       "chapter": 7
     },
     {
-      "speaker": "char_duanzhengchun_6",
-      "listener": "char_muwanqing_5",
-      "text": "婉儿，日后我要好好待你，方能补我一些过失。你有什么心愿，说给我听，我一定尽力给你办到。",
-      "tone": "溫柔愧疚",
+      "speaker": "char_duanzhengchun",
+      "listener": "char_qinzhonghe",
+      "text": "红棉，红棉，这几年来，我想得你好苦。",
+      "tone": "深情",
       "chapter": 7
     },
     {
-      "speaker": "char_muwanqing_5",
-      "listener": "char_duanzhengchun_6",
-      "text": "我和他的婚事，你要给我们作主，不许他负心薄幸。",
-      "tone": "羞怯期待",
+      "speaker": "char_duanzhengchun",
+      "listener": "char_qinzhonghe",
+      "text": "修罗刀下死，做鬼也风流！",
+      "tone": "深情",
       "chapter": 7
     },
     {
-      "speaker": "char_duanzhengchun_6",
-      "listener": "char_muwanqing_5",
-      "text": "你不能和誉儿成婚，也不能杀他。",
-      "tone": "沉痛",
+      "speaker": "char_ganbaobao",
+      "listener": "char_duanzhengchun",
+      "text": "我是有夫之妇，决不能坏了我丈夫的名声。你只要碰我一下，我立时咬断舌头，死在你的面前。",
+      "tone": "凛然",
       "chapter": 7
     },
     {
-      "speaker": "char_duanzhengchun_6",
-      "listener": "char_muwanqing_5",
-      "text": "因为……因为……因为段誉是你的亲哥哥！",
-      "tone": "痛苦",
+      "speaker": "char_qingpaoke",
+      "listener": "char_muwanqing",
+      "text": "我有个法子，能叫段誉变成不是你的亲哥哥，又成为你的好丈夫。",
+      "tone": "诱惑",
       "chapter": 7
     },
     {
-      "speaker": "char_muwanqing_5",
-      "listener": "char_duanzhengchun_6",
-      "text": "我不信！我不信！我……我不信！",
-      "tone": "震驚崩潰",
+      "speaker": "char_qingpaoke",
+      "listener": "char_duanyu",
+      "text": "老夫位居四大恶人之首，'恶贯满盈'便是我！",
+      "tone": "阴冷",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing",
+      "text": "我是你哥哥，别叫我段郎，该叫我大哥。我把八卦图形的歌诀说给你听……乾三连，坤六断；震仰盂，艮覆碗；离中虚，坎中满；兑上缺，巽下断。",
+      "tone": "克制",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing",
+      "text": "婉妹，我是你的亲哥哥，你是我亲妹子，知道么？你懂不懂易经？",
+      "tone": "急切",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": null,
+      "text": "你害死了我的黑玫瑰，害得我心中老大不痛快，害得我师父变成了我妈妈，害得你爹爹成为我的爹爹，害得你自己变成我的哥哥！我不要，我通统不要。",
+      "tone": "悲痛",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_qingpaoke",
+      "listener": "char_duanyu",
+      "text": "你死也好，活也好，我才不理呢。你们倘若自寻死路，我将你们二人的尸体剥得赤条条地，身上一丝不挂，写明是大理段正明的侄儿侄女，段正淳的儿子女儿，私下奸通，被人撞见，以致羞愤自杀。",
+      "tone": "恶毒",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_qingpaoke",
+      "text": "到得最后关头，我自会在石壁上一头撞死，我大理段氏子孙，宁死不辱，你想在我身上报仇，再也休想。",
+      "tone": "凛然",
       "chapter": 7
     }
   ]
