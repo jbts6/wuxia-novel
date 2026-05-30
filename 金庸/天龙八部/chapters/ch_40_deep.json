@@ -97,7 +97,7 @@
       },
       "archetype": "monk",
       "relationships": [
-        {"target": "char_xuzhu", "type": "famly", "intensity": 30, "bond_level": 1, "dynamic": "戒律院首座，宣布对虚竹的三重处罚极为公正"},
+        {"target": "char_xuzhu", "type": "family", "intensity": 30, "bond_level": 1, "dynamic": "戒律院首座，宣布对虚竹的三重处罚极为公正"},
         {"target": "char_huilun", "type": "family", "intensity": 30, "bond_level": 1, "dynamic": "罚慧轮受杖三十棍入戒律院面壁忏悔三年"}
       ],
       "known_skills": [],
@@ -339,7 +339,11 @@
         {"id": "tech_weituo_shanmenhufa", "name": "山门护法", "type": "defense", "description": "斜身略避双掌推出，招式平平但力道雄浑"},
         {"id": "tech_weituo_henghubei", "name": "恒河入海", "type": "attack", "description": "双掌自左向右划下，带着浩浩真气如洪水滔滔东流赴海"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 3, "unlock": "虚竹在少林练了十余年韦陀掌纯熟无比，以逍遥派深厚内力催动威力大增"},
+        {"level": 4, "unlock": "以韦陀掌灵山礼佛起手，双掌一拜下僧衣鼓起真气流转护住全身"},
+        {"level": 5, "unlock": "以恒河入海双掌带着浩浩真气迎战鸠摩智，中其大金刚拳后北冥真气护体恍若不觉"}
+      ],
       "effects": [
         {"type": "防御", "condition": "灵山礼佛起手式", "description": "僧衣微微鼓起，真气流转护住全身"}
       ],
@@ -351,7 +355,10 @@
       "techniques": [
         {"id": "tech_luohan_heihtouxin", "name": "黑虎偷心", "type": "attack", "description": "最粗浅的一招拳法，但附以小无相功后可消解多罗指指力，每发一拳将鸠摩智逼退半尺"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 3, "unlock": "虚竹在少林练了十余年罗汉拳纯熟无比，以此最粗浅拳法迎战鸠摩智的七十二绝技"},
+        {"level": 4, "unlock": "黑虎偷心附以小无相功后将两下穿金破石的多罗指指力消于中途"}
+      ],
       "effects": [
         {"type": "逼退", "condition": "反复使出黑虎偷心", "description": "每发一拳将鸠摩智逼退半尺，令其种种神妙招数不能及身"}
       ],
@@ -377,7 +384,10 @@
       "techniques": [
         {"id": "tech_zhemo_qinna", "name": "折梅擒拿", "type": "control", "description": "三根手指搭上对方手腕大拇指和小指收拢，令对方无法挣脱"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 4, "unlock": "虚竹被鸠摩智以龙爪功拗住手指时自然而然地使出天山折梅手，右腕转个小圈翻将过来拿住鸠摩智左腕"},
+        {"level": 5, "unlock": "三根手指搭上鸠摩智手腕大拇指与小指收拢，其左腕如套铁箍三次运劲无法挣脱"}
+      ],
       "effects": [
         {"type": "控制", "condition": "抓住鸠摩智左腕", "description": "如套在一只铁箍之中无法挣脱，令其双掌连环交互为用的妙着无法使出"}
       ],
@@ -390,7 +400,10 @@
         {"id": "tech_huoyan_duanjian", "name": "火焰刀削剑", "type": "attack", "description": "右掌一划，无形刀气将三柄长剑从中断绝"},
         {"id": "tech_huoyan_luomao", "name": "火焰刀落帽", "type": "attack", "description": "合着双手向旁一分，暗运火焰刀将四姝头上僧帽无风自落，断发而不伤人"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 8, "unlock": "右掌一划运火焰刀神功，当当当三声将梅兰竹三姝长剑从中断绝"},
+        {"level": 9, "unlock": "暗运火焰刀以无形气劲削落四姝头上僧帽，数百茎断发飘下而头皮无伤"}
+      ],
       "effects": [
         {"type": "破坏", "condition": "气劲削剑", "description": "三柄长剑从中断绝"},
         {"type": "震慑", "condition": "削落僧帽不伤肌肤", "description": "四姝青丝秀发飘落，断发而头皮无伤"}
@@ -400,9 +413,15 @@
     {
       "id": "skill_liumaizhijian",
       "name": "六脉神剑",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_liumaizhi_shaoshang", "name": "六脉神剑基础剑路", "type": "attack", "description": "以右手大拇指少商剑为主的无形剑气，可在远距离伤人"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "段誉已掌握六脉神剑基本剑路但内力时灵时不灵，此章中冲入大殿及奔出救人均使凌波微步未施展六脉神剑"}
+      ],
+      "effects": [
+        {"type": "攻击", "condition": "以指力发出无形剑气", "description": "可凌空伤敌威力极强，但段誉在此章中未使用"}
+      ],
       "combat_style": "以指力化气为剑"
     }
   ],
@@ -478,6 +497,14 @@
       "location": "loc_shulin",
       "description": "公冶乾翻译榜文后邓百川提出西夏联姻是复兴大燕的良机，慕容复动摇后决意去西夏应驸马之选，对王语嫣谎称先去丐帮送榜文让她去燕子坞暂住",
       "chapter": 40
+    },
+    {
+      "id": "evt_40_xuzhu_chenshu",
+      "name": "虚竹跪述半年经历",
+      "participants": ["char_xuzhu", "char_xuancheng", "char_huilun"],
+      "location": "loc_shaolinsi_daxiong",
+      "description": "玄慈命虚竹将经历从头道来，虚竹跪在佛像前禀告如何下山投帖、解珍珑棋局成逍遥派掌门、玄难死于丁春秋剧毒、阿紫作弄破荤戒、遇天山童姥入西夏皇宫冰窖成灵鹫宫主人等事，连淫戒也吞吞吐吐说了",
+      "chapter": 40
     }
   ],
   "dialogues": [
@@ -538,7 +565,7 @@
       "chapter": 40
     },
     {
-      "speaker": "char_xuanci",
+      "speaker": "char_xuancheng",
       "listener": null,
       "text": "虚竹，老衲罚你破门出寺，却非对你心存恶念，断你皈依我佛之路。天下庄严宝刹，何止千千万万。盼你另投名寺，拜高僧为师，清净身心，早证正觉。",
       "tone": "慈和恳切",

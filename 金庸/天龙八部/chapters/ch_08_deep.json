@@ -258,12 +258,16 @@
       "id": "char_zhuduange",
       "name": "褚万里",
       "personality": {
-        "traits": ["忠勇", "直率", "护主心切"],
+        "traits": ["忠勇", "直率", "护主心切", "勇猛善战", "尽职尽责"],
         "speech_style": "言语豪爽，对敌时毫不客气",
         "temperament": "刚勇豪迈"
       },
       "archetype": "warrior",
-      "relationships": [],
+      "relationships": [
+        {"target": "char_baodingdi", "type": "family", "intensity": 85, "bond_level": 5, "dynamic": "大理四大护卫之首，忠心护主，勇闯万劫谷"},
+        {"target": "char_zhongwanchou", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "铁杆戮向钟万仇头颈，替段正淳接下对手"},
+        {"target": "char_nanhaieshen", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "与傅思归双战南海鳄神，长杆钢丝软鞭与鳄尾鞭相斗"}
+      ],
       "known_skills": [],
       "related_skills": []
     },
@@ -271,12 +275,15 @@
       "id": "char_guducheng",
       "name": "古笃诚",
       "personality": {
-        "traits": ["勇猛", "反应敏捷", "忠心"],
+        "traits": ["勇猛", "反应敏捷", "忠心", "悍不畏死", "行动果决"],
         "speech_style": "言语不多，行动为主",
         "temperament": "刚勇"
       },
       "archetype": "warrior",
-      "relationships": [],
+      "relationships": [
+        {"target": "char_baodingdi", "type": "family", "intensity": 85, "bond_level": 5, "dynamic": "大理四大护卫之一，随驾攻打万劫谷"},
+        {"target": "char_yeerniang", "type": "enemy", "intensity": 65, "bond_level": 2, "dynamic": "被叶二娘薄刀偷袭险被削鼻，以七十二路乱披风斧法迎战，得朱丹臣夹击相助"}
+      ],
       "known_skills": [],
       "related_skills": []
     },
@@ -333,7 +340,10 @@
         {"id": "tech_xiuluo_shizijiao", "name": "十字斫", "type": "attack", "description": "双刀交叉斩击，快如飘风，是修罗刀成名绝技"},
         {"id": "tech_xiuluo_dujian", "name": "修罗毒箭", "type": "attack", "description": "连环射出淬毒短箭，分射上中下三路，歹毒无比"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "双刀快攻『十字斫』，出手迅猛如飘风"},
+        {"level": 2, "unlock": "连发三支毒箭分射上中下三路，且能中途变招续射六箭"}
+      ],
       "effects": [
         {"type": "中毒", "condition": "箭矢擦伤", "description": "刀身呈蓝印之光，见血即毙"}
       ],

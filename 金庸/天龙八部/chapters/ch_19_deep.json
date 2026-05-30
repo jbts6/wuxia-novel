@@ -163,7 +163,10 @@
         {"id": "tech_tz_heshuolizhi", "name": "河朔立威", "type": "attack", "description": "太祖长拳招式，精妙绝伦，招招后发先至"},
         {"id": "tech_tz_qianlihengxing", "name": "千里横行", "type": "attack", "description": "太祖长拳招式，玄难所使威力强大"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 5, "unlock": "以太祖长拳后发先至，招招克制玄难的同一路拳法，群雄情不自禁喝采"},
+        {"level": 6, "unlock": "每一招皆后发先至，看准对方拳招再出恰好克制的拳法，最寻常拳法亦发挥最强威力"}
+      ],
       "effects": [
         {"type": "压制", "condition": "后发先至", "description": "乔峰以太祖长拳后发先至，招招克制玄难的同一路拳法"},
         {"type": "震慑", "condition": "以本朝太祖武功对阵", "description": "群雄见乔峰使本朝太祖拳法，情不自禁喝采"}
@@ -175,7 +178,9 @@
       "techniques": [
         {"id": "tech_xlk_xiuyi", "name": "袖里乾坤", "type": "attack", "description": "少林七十二绝技之一，拳藏袖底，衣袖亦蓄有凌厉劲力"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 4, "unlock": "玄难以之攻乔峰，衣袖被乔峰一掌震碎，成名绝技告破"}
+      ],
       "effects": [
         {"type": "破碎", "condition": "被掌力震碎", "description": "乔峰一掌拍去，衣袖化为数十只灰蝶纷飞，玄难露出光膀"}
       ],
@@ -186,7 +191,9 @@
       "techniques": [
         {"id": "tech_cjsdl_sanlang", "name": "长江三叠浪", "type": "attack", "description": "连环三掌，后浪推前浪并力齐发，掌力比单掌大三倍"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 3, "unlock": "谭公以之攻乔峰，连环三掌后浪推前浪并力齐发，掌力比单掌大三倍"}
+      ],
       "effects": [
         {"type": "伤害", "condition": "与乔峰对掌", "description": "乔峰以单掌对三叠浪，两股掌力相互激荡，余波将旁人逼退"}
       ],
@@ -197,8 +204,12 @@
       "techniques": [
         {"id": "tech_tzf_zhi", "name": "天竺佛指", "type": "attack", "description": "少林点穴绝技，出指有嗤嗤声响"}
       ],
-      "progression": [],
-      "effects": [],
+      "progression": [
+        {"level": 3, "unlock": "玄寂以之攻乔峰，出指有极轻微嗤嗤声响，被乔峰侧身避过"}
+      ],
+      "effects": [
+        {"type": "伤害", "condition": "命中穴道", "description": "少林点穴绝技，出指有嗤嗤声响，指力锐利可隔空点穴"}
+      ],
       "combat_style": "以指点穴，指力劲锐"
     },
     {
@@ -206,7 +217,9 @@
       "techniques": [
         {"id": "tech_fys_fuyu", "name": "腹语术", "type": "special", "description": "口唇不动而发声，与上乘内功结合可迷人心魄"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 3, "unlock": "以腹语术辱骂群雄，被乔峰一声怒喝震碎魂魄而死"}
+      ],
       "effects": [
         {"type": "迷魂", "condition": "对功力浅者", "description": "能迷得对方心神迷惘，失魂而死"},
         {"type": "反噬", "condition": "遇功力更高者", "description": "施术不灵反受其害，被乔峰震碎魂魄而死"}

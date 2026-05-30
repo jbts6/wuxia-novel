@@ -117,36 +117,49 @@
     {
       "id": "skill_huoyandao",
       "techniques": [
-        {"id": "tech_huoyandao_yingong", "name": "火焰刀阴劲", "type": "attack", "description": "掌刀发出热力灼人，可隔空数尺以内劲伤人五脏六腑"}
+        {"id": "tech_huoyandao_yingong", "name": "火焰刀阴劲", "type": "attack", "description": "掌刀发出热力灼人，可隔空数尺以内劲伤人五脏六腑"},
+        {"id": "tech_huoyandao_bianzhao", "name": "火焰刀变招", "type": "attack", "description": "一拳打到半途化为指，手抓出去近身变为掌，诸般招数一时齐至令人无法招架"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 5, "unlock": "已达炉火纯青之境，十招之内逼得慕容复只能防守毫无还手之力，招数奇幻变化莫测"}
+      ],
       "effects": [
-        {"type": "灼伤", "condition": "真气催发", "description": "指尖热力如烧红烙铁，段誉中掌处衣衫烧出一洞，皮肤焦黑"}
+        {"type": "灼伤", "condition": "真气催发", "description": "指尖热力如烧红烙铁，段誉中掌处衣衫烧出一洞，皮肤焦黑"},
+        {"type": "压制", "condition": "全力施展时", "description": "四面八方皆是掌影人影，慕容复双掌飞舞只能守不能攻"}
       ],
-      "combat_style": "看似僧袍拂拭实则以热劲伤人"
+      "combat_style": "看似僧袍拂拭实则以热劲伤人，招数奇幻变化无方"
     },
     {
       "id": "skill_yijinjing",
       "techniques": [
-        {"id": "tech_yijin_zouhuorumo", "name": "易筋经走火入魔", "type": "other", "description": "强行修炼至高境界时血气逆行，全身真气横冲直撞不可遏制"}
+        {"id": "tech_yijin_zouhuorumo", "name": "易筋经走火入魔", "type": "other", "description": "强行修炼至高境界时血气逆行，全身真气横冲直撞不可遏制"},
+        {"id": "tech_yijin_zhendou", "name": "易筋经震颤之症", "type": "other", "description": "走火后四肢百骸不由自主颤抖，手指眉梢唇角肩头不住牵动永无休止"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 6, "unlock": "强练至最高层次时反噬爆发，内息如潮在各处经脉穴道冲突盘旋欲炸体而出，四肢颤抖不止"},
+        {"level": -1, "unlock": "走火入魔后真气失控，反而经由北冥神功被吸走全身内力，武功尽废"}
+      ],
       "effects": [
         {"type": "走火入魔", "condition": "强练至深", "description": "鸠摩智狂喊'不对了！不对了！'，全身欲爆，抓碎胸口衣裳抓出道道血痕"},
-        {"type": "真气失控", "condition": "走火后", "description": "丹田中烈火熊熊各线真气乱窜，不住跳出又钻入没有片刻安宁"}
+        {"type": "真气失控", "condition": "走火后", "description": "丹田中烈火熊熊各线真气乱窜，不住跳出又钻入没有片刻安宁"},
+        {"type": "全身颤抖", "condition": "内息紊乱时", "description": "手指嘴角眉梢肩头不由自主牵动，永无止息，丑态毕露"}
       ],
-      "combat_style": "一旦走火则内力尽失武功全废"
+      "combat_style": "一旦走火则内力尽失武功全废，全身颤抖不受控制"
     },
     {
       "id": "skill_douzhuanyixing",
       "techniques": [
-        {"id": "tech_douzhuan_xie", "name": "斗转星移借力", "type": "defense", "description": "以彼之道还施彼身，借力打力反转对手招式方向"}
+        {"id": "tech_douzhuan_xie", "name": "斗转星移借力", "type": "defense", "description": "以彼之道还施彼身，借力打力反转对手招式方向"},
+        {"id": "tech_douzhuan_dufang", "name": "斗转星移纯守", "type": "defense", "description": "面对奇幻变招无从借力时，双掌飞舞凝运功力只守不攻，以不变应万变"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 4, "unlock": "借力技巧纯熟，但面对鸠摩智奇幻招数时无从借力，被迫转为纯守势自保"}
+      ],
       "effects": [
-        {"type": "借力转力", "condition": "接挡之时", "description": "将鸠摩智的掌力引向段誉打去"}
+        {"type": "借力转力", "condition": "接挡之时", "description": "将鸠摩智的掌力引向段誉打去"},
+        {"type": "纯守", "condition": "面对奇幻招数无从借力时", "description": "守紧要害缝隙极小，令对手须打完十招才能觅到破绽点中穴道"}
       ],
-      "combat_style": "借力打力，反弹攻击"
+      "combat_style": "借力打力，反弹攻击，无从借力时转为纯守"
     }
   ],
   "events": [
@@ -212,6 +225,22 @@
       "participants": ["char_wangyuyan", "char_duanyu"],
       "location": "loc_lingzhou_city",
       "description": "王语嫣在黑暗中摸到段誉，担忧他伤势。段誉为她裹伤，王语嫣突然抱住段誉献吻，两人互诉衷肠。段誉多年的痴恋终得回应",
+      "chapter": 45
+    },
+    {
+      "id": "evt_45_pool_sadness",
+      "name": "段誉月下池塘边遇王语嫣倾诉",
+      "participants": ["char_duanyu", "char_wangyuyan"],
+      "location": "loc_lingzhou_city",
+      "description": "深夜段誉信步出庙见王语嫣在池塘边垂泪，知她为慕容复求亲之事伤心欲绝。段誉承诺代抢驸马让慕容复与王语嫣团聚，王语嫣感激握住他手。段誉狂喜之下热血上涌摔入池塘",
+      "chapter": 45
+    },
+    {
+      "id": "evt_45_toudi_wenshu",
+      "name": "巴天石投递求亲文书众人迁入宾馆",
+      "participants": ["char_duanyu", "char_batianshi", "char_zhudanchen", "char_ciaofeng", "char_xuzhu", "char_wangyuyan"],
+      "location": "loc_lingzhou_city",
+      "description": "巴天石向西夏礼部投递求亲文书获礼部尚书接见，众人迁入宾馆。吐蕃武士上门挑衅辱骂，包不同风波恶出手将众人打出门外。萧峰段誉虚竹三人围坐饮酒商议对策",
       "chapter": 45
     }
   ],

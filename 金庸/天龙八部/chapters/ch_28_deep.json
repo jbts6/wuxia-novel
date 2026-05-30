@@ -100,7 +100,10 @@
       "techniques": [
         {"id": "tech_duwu_xixue", "name": "毒虫吸血练功法", "type": "cultivation", "description": "以神木王鼎诱捕毒虫，以鸡血喂养七日后，令毒虫吸人血，待毒虫僵毙后将滴出的黑血吸入掌中练功"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "以神木鼎诱捕蜈蚣，以鸡血喂养七日后令游坦之伸手入瓮供蜈蚣吸血，待蜈蚣僵毙后将滴下黑血吸入掌中练功"},
+        {"level": 2, "unlock": "以同样法门用青蜘蛛、大蝎子轮流练功，手掌如玉无瑕不见半点血污，毒质尽数化入掌内"}
+      ],
       "effects": [
         {"type": "练功", "condition": "吸足毒虫之血", "description": "手掌如玉无瑕，不见半点血污，毒质尽数化入掌内"}
       ],
@@ -178,6 +181,14 @@
       "participants": ["char_youtanzhi", "char_huijing"],
       "location": "loc_minzhongsi",
       "description": "阿紫以神木鼎诱来一条通体透明的冰蚕，此蚕能烧穿蟒蛇令其裂为两半。蚕逃走至悯忠寺，游坦之发现此蚕乃胖僧慧净从昆仑山带来，趁其被叫去做晚课，以酒葫芦将冰蚕偷走",
+      "chapter": 28
+    },
+    {
+      "id": "evt_28_huagong_chenggong",
+      "name": "阿紫以游坦之之血练成化功大法",
+      "participants": ["char_azi", "char_youtanzhi"],
+      "location": "loc_duanfugong",
+      "description": "阿紫以神木鼎诱捕大蜈蚣，以鸡血喂养七日后命游坦之伸手入瓮供蜈蚣吸血，再将蜈蚣放入木鼎中逼出毒血，伸掌接住滴下黑血吸入掌中练功。此后连续用青蜘蛛、大蝎子依样练功，手掌如玉无瑕",
       "chapter": 28
     }
   ],

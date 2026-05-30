@@ -354,16 +354,28 @@
   "skills_detail": [
     {
       "id": "skill_xianglongshibazhang",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_xianglong_weiming", "name": "降龙掌法", "type": "attack", "description": "丐帮两大绝技之一，西夏一品堂指名要见识，但乔峰未及施展便辞位离去"}
+      ],
+      "progression": [
+        {"level": 9, "unlock": "乔峰已臻化境，但本回中仅被西夏武士提及，未及施展"}
+      ],
+      "effects": [
+        {"type": "威慑", "condition": "名号传播", "description": "与打狗棒法并称丐帮两大镇帮绝技，天下武林无不敬畏"}
+      ],
       "combat_style": "丐帮绝技，掌法刚猛无俦，天下无双"
     },
     {
       "id": "skill_dagoubangfa",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_dagou_chuanbang", "name": "打狗棒法", "type": "attack", "description": "丐帮镇帮绝技，历代帮主秘传，本回中未施展，仅以竹棒作为帮主信物传承"}
+      ],
+      "progression": [
+        {"level": 8, "unlock": "乔峰虽已得传打狗棒法，但本回中未及演示即辞去帮主之位，将竹棒掷出"}
+      ],
+      "effects": [
+        {"type": "象征", "condition": "竹棒在手", "description": "见棒如见帮主，乃丐帮号令群丐的信物，乔峰掷棒时尚有余劲直插地下"}
+      ],
       "combat_style": "丐帮镇帮绝技，历代帮主秘传，以竹棒使出"
     },
     {
@@ -398,8 +410,14 @@
         {"id": "tech_fumo_qinwang", "name": "秦王鞭石", "type": "attack", "description": "伏魔杖法招式，威猛有余"},
         {"id": "tech_fumo_dapeng", "name": "大鹏展翅", "type": "attack", "description": "伏魔杖法招式，沉稳不足"}
       ],
-      "progression": [],
-      "effects": [],
+      "progression": [
+        {"level": 3, "unlock": "能施展五台山二十四路伏魔杖法，钢杖凌空下击势挟风雷"},
+        {"level": 4, "unlock": "秦王鞭石与大鹏展翅两招虽威力惊人，但下盘有破绽可被高手所乘"}
+      ],
+      "effects": [
+        {"type": "伤害", "condition": "钢杖击中地面", "description": "杖头陷入尺许，泥土四溅，威力惊人"},
+        {"type": "弱点", "condition": "使秦王鞭石与大鹏展翅时", "description": "下盘不稳，右侧容易被高手趁虚攻击"}
+      ],
       "combat_style": "钢杖长达丈余，凌空下击，威猛刚烈"
     },
     {
@@ -407,7 +425,10 @@
       "techniques": [
         {"id": "tech_qimen_sanshi", "name": "奇门三才刀攻势", "type": "attack", "description": "左砍四刀右砍四刀上四刀下削四刀，四四一十六刀来势凶猛"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 2, "unlock": "刀法凝重缓慢中暗藏快招，虚实相生，看似不成章法实则暗藏杀机"},
+        {"level": 3, "unlock": "四四一十六刀连绵不绝，可在对方被迷惑时突然快攻三刀，出其不意"}
+      ],
       "effects": [
         {"type": "伤害", "condition": "刀锋触及", "description": "刀法凝重中突然快砍三刀，可削伤敌手"}
       ],
@@ -416,11 +437,17 @@
     {
       "id": "skill_heshebada",
       "techniques": [
-        {"id": "tech_heshe_bapo", "name": "鹤蛇八打破四象", "type": "attack", "description": "可以破解四象六合刀法的精妙招式"}
+        {"id": "tech_heshe_bapo", "name": "鹤蛇八打破四象", "type": "attack", "description": "长腿远跨钢抓横掠如仙鹤，可破解四象六合刀法"}
       ],
-      "progression": [],
-      "effects": [],
-      "combat_style": "破刀法专用武功"
+      "progression": [
+        {"level": 2, "unlock": "长腿远跨钢抓横掠宛如仙鹤，可破常见刀法套路"},
+        {"level": 3, "unlock": "专克四象六合刀法，遇针对性误导则易中计受伤"}
+      ],
+      "effects": [
+        {"type": "破解", "condition": "对方使四象六合刀法时", "description": "可应手而破，令对方刀法失效"},
+        {"type": "弱点", "condition": "对方使用非套路刀法时", "description": "易被误导，轻敌冒进则反遭削伤"}
+      ],
+      "combat_style": "破刀法专用武功，钢抓横掠身形如鹤"
     }
   ],
   "events": [

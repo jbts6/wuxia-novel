@@ -158,10 +158,18 @@
   "skills_detail": [
     {
       "id": "skill_beiming",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
-      "combat_style": "此章段誉未用武功"
+      "techniques": [
+        {"id": "tech_beiming_quchi", "name": "北冥曲池引功", "type": "attack", "description": "敌人在自身曲池穴受刺激时息关大开，内力急泻而出经任脉注入段誉气海"},
+        {"id": "tech_beiming_renmai", "name": "北冥任脉引气", "type": "attack", "description": "内力经廉泉穴入任脉，过天突璇玑华盖紫宫中庭直通膻中气海"}
+      ],
+      "progression": [
+        {"level": 5, "unlock": "经曲池穴触发后自动吸取鸠摩智毕生内力，吸力之强连王语嫣在旁也被连带吸去浅浅内力"}
+      ],
+      "effects": [
+        {"type": "吸尽殆尽", "condition": "曲池穴被咬触发后", "description": "鸠摩智毕生内力真气源源不绝注入段誉体内，涓滴不剩，段誉一跃而起力大无穷"},
+        {"type": "无差别吸取", "condition": "身体接触", "description": "连王语嫣在内也被北冥神功不分敌我吸去浅浅内力"}
+      ],
+      "combat_style": "被动触发型吸功，曲池穴破防后吸力无可阻挡"
     }
   ],
   "events": [
@@ -211,6 +219,38 @@
       "participants": ["char_ciaofeng", "char_duanyu", "char_wangyuyan", "char_xuzhu"],
       "location": "loc_xi_xia",
       "description": "萧峰与西域少林僧人会面后，众人离开灵州，段誉拉着王语嫣的手同行，两情相悦再无隔阂",
+      "chapter": 46
+    },
+    {
+      "id": "evt_46_kujing_suxing",
+      "name": "段誉王语嫣井中苏醒互诉衷情",
+      "participants": ["char_duanyu", "char_wangyuyan", "char_jiujingzhi"],
+      "location": "loc_lingzhou_city",
+      "description": "王语嫣先醒以为段誉已死抱尸痛哭表白，段誉醒来听到狂喜。鸠摩智内力尽失反得保全性命，大彻大悟将易筋经托付段誉还少林。三人先后攀绳出井",
+      "chapter": 46
+    },
+    {
+      "id": "evt_46_washing_river",
+      "name": "段誉与王语嫣溪边冲洗温存",
+      "participants": ["char_duanyu", "char_wangyuyan"],
+      "location": "loc_lingzhou_city",
+      "description": "段誉王语嫣出井后到溪边冲洗浑身污泥，四手相握心意相通。两人在山石旁倚靠温存半日直至日落，段誉终于得偿所愿",
+      "chapter": 46
+    },
+    {
+      "id": "evt_46_meet_murong",
+      "name": "段誉王语嫣遇慕容复同入皇宫",
+      "participants": ["char_duanyu", "char_wangyuyan", "char_murongfu"],
+      "location": "loc_xi_xia",
+      "description": "段誉与王语嫣回宾馆途中遇慕容复，知木婉清冒充段誉入宫。王语嫣向慕容复道歉表明心已属段誉，慕容复大喜少一劲敌。三人同赴皇宫逾墙而入",
+      "chapter": 46
+    },
+    {
+      "id": "evt_46_zongzan_qiangshu",
+      "name": "宗赞王子抢夺书笺被震飞",
+      "participants": ["char_duanyu", "char_zongzan", "char_muwanqing"],
+      "location": "loc_xi_xia",
+      "description": "宗赞王子见宫女递书笺给段誉误会是公主邀约，两度扑上抢夺被段誉内力弹飞摔得狼狈不堪。木婉清趁机告之段正淳在蜀南遇险，众人立即动身离开灵州",
       "chapter": 46
     }
   ],

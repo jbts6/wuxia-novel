@@ -115,9 +115,9 @@
       "name": "阮星竹",
       "alias": [],
       "personality": {
-        "traits": ["情深", "忍让"],
-        "speech_style": "言语温和",
-        "temperament": "温婉"
+        "traits": ["情深", "忍让", "妒火中烧", "巧舌如簧"],
+        "speech_style": "言语温和中带醋意，对情郎痴心一片，对旁人能言善辩化解干戈",
+        "temperament": "温婉善妒"
       },
       "archetype": "warrior",
       "relationships": [
@@ -131,9 +131,15 @@
   "skills_detail": [
     {
       "id": "skill_jianglong18",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_jianglong_tuqiang", "name": "降龙掌破墙传劲", "type": "attack", "description": "萧峰在土墙外暗运内力，拳头无声无息陷入墙中，以雄浑掌力透过墙洞传入段正淳体内"}
+      ],
+      "progression": [
+        {"level": 1, "description": "萧峰内力雄浑无比，可隔墙传功、以指力扯断牛筋丝绳，掌力收发自如已达化境"}
+      ],
+      "effects": [
+        {"type": "解穴", "condition": "内力透过物体传递", "description": "萧峰以内力涌入段正淳经脉，助其恢复行动力并发出一阳指制敌"}
+      ],
       "combat_style": "丐帮绝学，阳刚威猛"
     },
     {
@@ -141,7 +147,9 @@
       "techniques": [
         {"id": "tech_suohou_suo", "name": "锁喉擒拿手", "type": "attack", "description": "马大元家传绝技，神秘人以此招逼问白世镜并捏碎其喉骨"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "description": "神秘人使得出神入化，出手无声无息，以冰冷铁手一抓捏碎白世镜喉骨，对方全无还手之力"}
+      ],
       "effects": [
         {"type": "控制", "condition": "掐住喉头", "description": "可捏碎喉骨致人死命"}
       ],
@@ -152,7 +160,9 @@
       "techniques": [
         {"id": "tech_yiyang_dianxue", "name": "一阳指点穴", "type": "attack", "description": "段正淳得萧峰内力相助后从背后发出一阳指，点中马夫人肋下要穴"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "description": "段正淳被十香迷魂散所制内力全失，得萧峰内力相助后仍能发出一阳指神功，精准点中马夫人肋下要穴"}
+      ],
       "effects": [
         {"type": "控制", "condition": "隔空点穴", "description": "中者动弹不得"}
       ],
