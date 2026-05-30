@@ -29,7 +29,7 @@ node scripts/split-chapter.js --batch ch_original
 
 ### 3. Sub Agent 排版（关键）
 
-**Sub agent 只做一件事**：读内容 → 按 [REFERENCE.md](REFERENCE.md) 的规则排版 → 输出格式化文本。
+**Sub agent 只做一件事**：读内容 → 按 [REFERENCE.md](./REFERENCE.md) 的规则排版 → 输出格式化文本。
 
 | 角色 | 做的事 | 不做 |
 |------|--------|------|
@@ -93,7 +93,7 @@ ch_002.md  行数: 132  2 个警告
 | 行长度 | 每行建议 40-60 字 |
 | 引号 | 统一 `"`，确保配对 |
 
-完整规则见 [REFERENCE.md](REFERENCE.md)。
+完整规则见 [REFERENCE.md](./REFERENCE.md)。
 
 ## 注意事项
 
