@@ -1,0 +1,316 @@
+{
+  "chapter": 24,
+  "title": "烛畔鬓云有旧盟",
+  "characters_detail": [
+    {
+      "id": "char_xiaofeng",
+      "name": "萧峰",
+      "alias": [],
+      "personality": {
+        "traits": ["悲愤填膺", "坚韧不拔", "重情重义", "冷静沉着", "是非分明"],
+        "speech_style": "言语沉郁有力，对马夫人审问时冷静凌厉，谈及阿朱时声音酸楚低沉",
+        "temperament": "沉郁刚毅"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_madamen", "type": "enemy", "intensity": 95, "bond_level": 4, "dynamic": "质问马夫人为何陷害段正淳，得知一切源于洛阳百花会自己未正眼瞧她，震惊愤怒"},
+        {"target": "char_duanzhengchun", "type": "acquaintance", "intensity": 40, "bond_level": 2, "dynamic": "暗中出手相救，因阿朱之故不愿段正淳死于马夫人之手"},
+        {"target": "char_azi", "type": "family", "intensity": 25, "bond_level": 1, "dynamic": "对阿紫残忍折磨马夫人极为不齿，念及阿朱遗言强忍怒气"}
+      ],
+      "known_skills": ["skill_jianglong18", "skill_dafugong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_madamen",
+      "name": "马夫人",
+      "alias": ["康敏", "小康"],
+      "personality": {
+        "traits": ["妖媚入骨", "心狠手辣", "嫉妒成狂", "报复心理极强", "天性凉薄", "虚荣自负"],
+        "speech_style": "对段正淳腻中带涩、荡气回肠的娇媚语调；对萧峰转为首刻毒咒骂、市井秽语；讲述往事时阴森可怖",
+        "temperament": "艳媚阴毒"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanzhengchun", "type": "love", "intensity": 80, "bond_level": 4, "dynamic": "旧日情人，因得不到长久厮守而生毁灭之念，下毒、捆绑、噬肉，手段残忍至极"},
+        {"target": "char_xiaofeng", "type": "enemy", "intensity": 95, "bond_level": 5, "dynamic": "洛阳百花会中萧峰未正眼瞧她，引为奇耻大辱，设局揭露其契丹身世令其身败名裂"},
+        {"target": "char_bai_shijing", "type": "companion", "intensity": 50, "bond_level": 3, "dynamic": "以美色诱使白世镜杀夫，事成后将其玩弄于股掌之间"},
+        {"target": "char_azi", "type": "enemy", "intensity": 100, "bond_level": 4, "dynamic": "被阿紫挑断手筋脚筋、割伤全身、以蜜糖引蚁噬体，受尽折磨而死"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun",
+      "name": "段正淳",
+      "alias": ["段郎", "大理段二"],
+      "personality": {
+        "traits": ["风流多情", "临危不乱", "能言善辩", "定力惊人", "死到临头仍谈笑自若"],
+        "speech_style": "言语风趣潇洒，对马夫人甜言蜜语，危机中沉着应对，调笑中暗藏机锋",
+        "temperament": "风流倜傥"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_madamen", "type": "love", "intensity": 65, "bond_level": 3, "dynamic": "旧日情人重逢，被下十香迷魂散、捆绑、噬肉，仍以甜言蜜语周旋，意志坚韧"},
+        {"target": "char_xiaofeng", "type": "ally", "intensity": 50, "bond_level": 2, "dynamic": "不知萧峰暗中助他，先被土墙外传入内力解穴，后得萧峰扯断牛筋丝绳"},
+        {"target": "char_bai_shijing", "type": "enemy", "intensity": 80, "bond_level": 3, "dynamic": "被白世镜扭断双腕，无还手之力"}
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": ["skill_liu_mai_shen_jian"]
+    },
+    {
+      "id": "char_bai_shijing",
+      "name": "白世镜",
+      "alias": [],
+      "personality": {
+        "traits": ["表面刚正", "内里懦弱", "贪恋美色", "背信弃义", "铁面无私面目下藏污纳垢"],
+        "speech_style": "对马夫人粗声喝骂实则惧内，对段正淳冷厉狠辣，自称铁面无私",
+        "temperament": "外刚内怯"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_madamen", "type": "love", "intensity": 70, "bond_level": 4, "dynamic": "被她美色所惑，杀马大元、陷害萧峰，最终被她玩弄于股掌"},
+        {"target": "char_xiaofeng", "type": "enemy", "intensity": 70, "bond_level": 3, "dynamic": "曾为丐帮执法长老，后背叛萧峰，与全冠清合谋"},
+        {"target": "char_duanzhengchun", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "一现身便扭断段正淳双腕，欲置其于死地"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shenmiren",
+      "name": "神秘人",
+      "alias": [],
+      "personality": {
+        "traits": ["武功绝顶", "装神弄鬼", "手段狠辣", "恩怨分明"],
+        "speech_style": "一言不发，以行动代替言语，刻意压低嗓音掩饰身份",
+        "temperament": "神秘冷酷"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_bai_shijing", "type": "enemy", "intensity": 80, "bond_level": 3, "dynamic": "以锁喉擒拿手逼问真相后将其捏死"},
+        {"target": "char_xiaofeng", "type": "acquaintance", "intensity": 40, "bond_level": 1, "dynamic": "与萧峰比拼脚力百余里，称赞萧峰名不虚传，但不愿以真面目相见"}
+      ],
+      "known_skills": ["skill_suohou_qinna"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azi",
+      "name": "阿紫",
+      "alias": [],
+      "personality": {
+        "traits": ["残忍恶毒", "幸灾乐祸", "无法无天", "刁钻古怪", "天真面孔下藏蛇蝎心肠"],
+        "speech_style": "言语娇俏中带尖刻，以天真无邪的口吻说出最残忍的话",
+        "temperament": "邪气刁毒"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_madamen", "type": "enemy", "intensity": 95, "bond_level": 4, "dynamic": "挑断其手筋脚筋、割伤全身、以蜜糖引蚁噬体，折磨至死"},
+        {"target": "char_xiaofeng", "type": "companion", "intensity": 20, "bond_level": 1, "dynamic": "纠缠萧峰要同行，言语轻薄谈及阿朱之死"},
+        {"target": "char_duanzhengchun", "type": "family", "intensity": 40, "bond_level": 2, "dynamic": "为父报仇出手折磨马夫人，但段正淳昏迷不知"}
+      ],
+      "known_skills": ["skill_gui_xi_gong"],
+      "related_skills": ["skill_hua_gong_da_fa"]
+    },
+    {
+      "id": "char_ruanxingzhu",
+      "name": "阮星竹",
+      "alias": [],
+      "personality": {
+        "traits": ["情深", "忍让"],
+        "speech_style": "言语温和",
+        "temperament": "温婉"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanzhengchun", "type": "love", "intensity": 85, "bond_level": 5, "dynamic": "在窗外听情郎与马夫人调情，妒火如焚"},
+        {"target": "char_azi", "type": "family", "intensity": 70, "bond_level": 3, "dynamic": "喝止阿紫折磨马夫人但无力阻止"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_jianglong18",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "丐帮绝学，阳刚威猛"
+    },
+    {
+      "id": "skill_suohou_qinna",
+      "techniques": [
+        {"id": "tech_suohou_suo", "name": "锁喉擒拿手", "type": "attack", "description": "马大元家传绝技，神秘人以此招逼问白世镜并捏碎其喉骨"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "控制", "condition": "掐住喉头", "description": "可捏碎喉骨致人死命"}
+      ],
+      "combat_style": "快准狠辣，专攻咽喉要害"
+    },
+    {
+      "id": "skill_yiyangzhi",
+      "techniques": [
+        {"id": "tech_yiyang_dianxue", "name": "一阳指点穴", "type": "attack", "description": "段正淳得萧峰内力相助后从背后发出一阳指，点中马夫人肋下要穴"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "控制", "condition": "隔空点穴", "description": "中者动弹不得"}
+      ],
+      "combat_style": "指力精准制敌"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_24_duanma_sihui",
+      "name": "段正淳与马夫人私会",
+      "participants": ["char_duanzhengchun", "char_madamen"],
+      "location": "loc_ma_jia",
+      "description": "萧峰在马家窗外窥见段正淳与马夫人饮酒调情，马夫人缟素衣裳内露红缎抹胸，言语缠绵宛转，二人轻怜密爱全无仇怨",
+      "chapter": 24
+    },
+    {
+      "id": "evt_24_madamen_xiadu",
+      "name": "马夫人下十香迷魂散毒害段正淳",
+      "participants": ["char_duanzhengchun", "char_madamen"],
+      "location": "loc_ma_jia",
+      "description": "马夫人在酒中下十香迷魂散，段正淳内力全失，马夫人以言语试探虚实，段正淳以写字传意虚张声势，终被马夫人识破",
+      "chapter": 24
+    },
+    {
+      "id": "evt_24_madamen_jianggushi",
+      "name": "马夫人讲述童年剪新衣故事",
+      "participants": ["char_madamen", "char_duanzhengchun", "char_xiaofeng"],
+      "location": "loc_ma_jia",
+      "description": "马夫人讲述七岁那年因得不到花衣新裤，半夜潜入邻居家剪碎江家姊姊的新衣裳，以此揭示性格：得不到的东西就要毁掉",
+      "chapter": 24
+    },
+    {
+      "id": "evt_24_madamen_yiaoren",
+      "name": "马夫人捆绑噬咬段正淳",
+      "participants": ["char_madamen", "char_duanzhengchun"],
+      "location": "loc_ma_jia",
+      "description": "马夫人以牛筋丝绳捆绑段正淳手足，用匕首刺入胸口半寸，又一口口咬下他肩头血肉，段正淳谈笑自若，说死在美人樱桃小口下不枉此生",
+      "chapter": 24
+    },
+    {
+      "id": "evt_24_baishijing_xianshen",
+      "name": "白世镜现身揭露真相",
+      "participants": ["char_bai_shijing", "char_madamen", "char_duanzhengchun"],
+      "location": "loc_ma_jia",
+      "description": "白世镜走进房中，扭断段正淳双腕。萧峰认出白世镜后恍然大悟：原来白世镜与马夫人有奸情，盗扇、陷害萧峰、杀马大元皆出二人之手",
+      "chapter": 24
+    },
+    {
+      "id": "evt_24_shenmiren_zhusha",
+      "name": "神秘人以锁喉擒拿手击杀白世镜",
+      "participants": ["char_shenmiren", "char_bai_shijing", "char_madamen"],
+      "location": "loc_ma_jia",
+      "description": "神秘人吹灭烛火后现身，以马大元家传锁喉擒拿手逼问白世镜，白世镜误以为是马大元鬼魂，吐出与马夫人合谋杀夫真相后被捏碎喉骨而死",
+      "chapter": 24
+    },
+    {
+      "id": "evt_24_xiaofeng_zhuiren",
+      "name": "萧峰追神秘人不果",
+      "participants": ["char_xiaofeng", "char_shenmiren"],
+      "location": "loc_ma_jia",
+      "description": "萧峰追踪神秘人百余里，二人轻功不相上下，神秘人称赞萧峰名不虚传后消失于林中，萧峰感叹不能与此等英雄结交",
+      "chapter": 24
+    },
+    {
+      "id": "evt_24_azi_zhenuo_madamen",
+      "name": "阿紫残酷折磨马夫人",
+      "participants": ["char_azi", "char_madamen"],
+      "location": "loc_ma_jia",
+      "description": "阿紫挑断马夫人手筋脚筋，割伤全身，在伤口中倒入蜜糖水引来蚂蚁噬咬，使其饱受痛楚，求生不得求死不能",
+      "chapter": 24
+    },
+    {
+      "id": "evt_24_madamen_guzhenxiang",
+      "name": "马夫人临终揭露陷害萧峰真相",
+      "participants": ["char_madamen", "char_xiaofeng"],
+      "location": "loc_ma_jia",
+      "description": "马夫人临终揭露因洛阳百花会萧峰未正眼瞧她而怀恨在心，偷看汪帮主遗书后，逼马大元揭露萧峰身世不成，遂勾结白世镜杀夫，又指使全冠清徐长老反叛萧峰",
+      "chapter": 24
+    },
+    {
+      "id": "evt_24_daitou_dage_chengmi",
+      "name": "带头大哥身份随马夫人之死成谜",
+      "participants": ["char_madamen", "char_xiaofeng"],
+      "location": "loc_ma_jia",
+      "description": "马夫人要求萧峰抱她亲她才肯说出带头大哥名字，阿紫拿镜子照其丑陋面容，马夫人被自己丑陋模样吓死，萧峰痛失最后知情人",
+      "chapter": 24
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_madamen",
+      "listener": "char_duanzhengchun",
+      "text": "我当家的为人所害，你总该听到传闻，也不赶来瞧瞧我？我当家的已死，你不用再避什么嫌疑了吧！",
+      "tone": "幽怨撒娇",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_madamen",
+      "listener": "char_duanzhengchun",
+      "text": "要是一件物事我日思夜想，得不到手，偏偏旁人运气好得到了，那么我说什么也得毁了这件物事。小时候使的是笨法子，年纪慢慢大起来，人也聪明了些，就使些巧妙点的法子啦。",
+      "tone": "阴冷自白",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_madamen",
+      "listener": "char_duanzhengchun",
+      "text": "段郎，我实在非常非常的想你、爱你，只盼时时刻刻将你抱在怀里亲你、疼你，只因为我要不了你，只好毁了你，这是我天生的脾气，那也没有法子。",
+      "tone": "幽幽叹息",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_bai_shijing",
+      "listener": "char_duanzhengchun",
+      "text": "小淫妇，瞧我不好好炮制你。姓段的，我可不听你这一套，你会讨女人欢心，片面么她又来害你？请了，明年今日，是你的周年祭。",
+      "tone": "凶狠嫉妒",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_bai_shijing",
+      "listener": "char_shenmiren",
+      "text": "大元兄弟，都是这贱淫妇出的主意，是她逼我干的，跟我……跟我可不相干。",
+      "tone": "惊恐求饶",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_madamen",
+      "listener": "char_xiaofeng",
+      "text": "百花会中一千多个男人，就只你自始至终没瞧我。你是丐帮的大头脑，天下闻名的英雄好汉。洛阳百花会中，男子汉以你居首，女子自然以我为第一。你竟不向我好好的瞧上几眼，我再自负美貌，又有什么用？",
+      "tone": "怨毒控诉",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_madamen",
+      "listener": "char_xiaofeng",
+      "text": "我叫老色鬼杀了马大元这脓包，他不肯，我就要揭露他强奸我。这老贼对着旁人，一脸孔的铁面无私，在老娘跟前，什么丑样少得了？",
+      "tone": "得意自夸",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_xiaofeng",
+      "listener": "char_madamen",
+      "text": "你好狠毒！自己的丈夫要杀，跟你有过私情的男人，你要杀；没来瞧瞧你容貌的男人，你也要杀。",
+      "tone": "森然冷峻",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_azi",
+      "listener": "char_xiaofeng",
+      "text": "乔峰，你这人太也不要脸啦！害死了我姊姊，又来抱住了我爹爹的情人亲嘴偷情，你害不害臊？",
+      "tone": "尖酸讥讽",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_madamen",
+      "listener": "char_xiaofeng",
+      "text": "乔峰，我恼恨你不屑细细瞧我，以致酿成这种种祸事，你要我告知那带头大哥的名字，那也不难，只须你将我抱在怀里，好好的瞧我半天。",
+      "tone": "妩媚诱惑",
+      "chapter": 24
+    }
+  ]
+}

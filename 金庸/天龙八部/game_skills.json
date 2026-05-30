@@ -1,0 +1,2447 @@
+[
+  {
+    "id": "skill_wuliangjianfa",
+    "name": "无量剑法",
+    "type": "剑法",
+    "faction": "faction_wuliangjian",
+    "one_line": "无量剑派的剑法",
+    "rag_refs": [
+      2,
+      3,
+      4,
+      26,
+      27,
+      40,
+      42,
+      645,
+      243,
+      245,
+      247,
+      249,
+      255,
+      257,
+      259
+    ],
+    "techniques": [
+      {
+        "id": "tech_wuliang_jiben",
+        "name": "无量剑基础剑法",
+        "type": "attack",
+        "description": "无量剑派基本功"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_jinzhendujie",
+    "name": "金针渡劫",
+    "type": "剑法",
+    "faction": "faction_wuliangjian_dong",
+    "one_line": "左子穆的剑招，出剑迅捷，精准至极",
+    "rag_refs": [
+      136
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "出剑如风，精准迅捷",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_diepubu",
+    "name": "跌扑步",
+    "type": "剑法",
+    "faction": "faction_wuliangjian",
+    "one_line": "装作摔跌的虚招，诱敌取胜",
+    "rag_refs": [
+      10,
+      38
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_beiming",
+    "name": "北冥神功",
+    "type": "武功",
+    "faction": "faction_xiaoyaopai",
+    "one_line": "北冥神功",
+    "rag_refs": [
+      408,
+      412,
+      434,
+      436,
+      438,
+      440,
+      633,
+      635,
+      637,
+      639,
+      641,
+      643,
+      645,
+      647,
+      649,
+      651,
+      653,
+      655,
+      659,
+      661,
+      821,
+      823,
+      825,
+      827,
+      829,
+      831,
+      833,
+      835,
+      837,
+      839,
+      841,
+      843,
+      845,
+      847,
+      849,
+      851,
+      853,
+      855,
+      857,
+      859,
+      861,
+      863,
+      865,
+      867,
+      869,
+      871,
+      873,
+      875,
+      877,
+      879,
+      881,
+      883,
+      885,
+      887,
+      889,
+      891,
+      893,
+      895,
+      897,
+      899,
+      901,
+      903,
+      905,
+      907,
+      909,
+      911,
+      913,
+      915,
+      917,
+      919,
+      921,
+      923,
+      925,
+      927,
+      929,
+      931,
+      933,
+      935,
+      937,
+      939,
+      941,
+      943,
+      945,
+      947,
+      949,
+      951,
+      953,
+      955,
+      957,
+      959,
+      961,
+      963,
+      965,
+      977,
+      1079,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "techniques": [
+      {
+        "id": "tech_shaoshang_qu",
+        "name": "少商取内力",
+        "type": "attack",
+        "description": "以拇指少商穴引他人内力入己身"
+      },
+      {
+        "id": "tech_handaiyin",
+        "name": "手太阴肺经行功法",
+        "type": "buff",
+        "description": "逆练手太阴肺经，自少商至云门"
+      },
+      {
+        "id": "tech_shaoshang_yin",
+        "name": "少商引内力",
+        "type": "attack",
+        "description": "以大拇指少商穴对准对方，吸取内力入膻中气海"
+      },
+      {
+        "id": "tech_renmai_xing",
+        "name": "任脉行功法",
+        "type": "buff",
+        "description": "逆练任脉，自断基至会阴"
+      },
+      {
+        "id": "tech_dianxue_beiming_6",
+        "name": "膻中神阙吸功法",
+        "type": "attack",
+        "description": "以大拇指按住敌方膻中穴或神阙穴，内力急泻而出被吸入己身"
+      },
+      {
+        "id": "tech_beiming_fanzhen_6",
+        "name": "内力反冲",
+        "type": "defense",
+        "description": "当吸入内力过强时，自身立足不定，需他人引导"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "手太阴肺经第一课，可引他人内力"
+      },
+      {
+        "level": 1,
+        "unlock": "手太阴肺经入门"
+      },
+      {
+        "level": 2,
+        "unlock": "任脉贯通后，可自动吸取接触者的内力"
+      },
+      {
+        "level": 2,
+        "unlock": "可在移动中以膻中穴、神阙穴吸取内力"
+      }
+    ],
+    "effects": [
+      {
+        "type": "transfer",
+        "condition": "拇指与对方相接",
+        "description": "引他人内力为己有"
+      },
+      {
+        "type": "danger",
+        "condition": "对方内力强于己",
+        "description": "海水倒灌而入江河，凶险莫甚"
+      },
+      {
+        "type": "absorb",
+        "condition": "拇指与对方大拇指相接且双方都使劲",
+        "description": "对方内力如江河决堤涌入己身"
+      },
+      {
+        "type": "storage",
+        "condition": "内力入膻中穴",
+        "description": "膻中气海可无限存储内力"
+      },
+      {
+        "type": "absorb",
+        "condition": "手指按住敌方膻中穴或神阙穴",
+        "description": "对方内力汹涌而出，自己内力修为大增"
+      },
+      {
+        "type": "overload",
+        "condition": "吸入内力量过大时",
+        "description": "身子摇幌立足不定，需要引导"
+      }
+    ],
+    "combat_style": "以内力吸取为核心，制敌而不杀敌",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_lingboweibu",
+    "name": "凌波微步",
+    "type": "轻功",
+    "faction": "faction_xiaoyaopai",
+    "one_line": "段誉在假慕容复时展示给南海鳄神看",
+    "rag_refs": [
+      454,
+      458,
+      460,
+      464,
+      663,
+      665,
+      667,
+      669,
+      671,
+      673,
+      759,
+      761,
+      763,
+      765,
+      767,
+      769,
+      771,
+      773,
+      775,
+      777,
+      779,
+      781,
+      783,
+      787,
+      789,
+      791,
+      793,
+      795,
+      797,
+      799,
+      809,
+      839,
+      841,
+      843,
+      845,
+      847,
+      849,
+      851,
+      853,
+      855,
+      857,
+      859,
+      861,
+      1057,
+      1045,
+      1047,
+      1195,
+      1,
+      2,
+      3,
+      4,
+      5,
+      937,
+      286,
+      300,
+      304,
+      306,
+      326,
+      456,
+      806,
+      812,
+      828,
+      322,
+      330,
+      340,
+      348,
+      358
+    ],
+    "techniques": [
+      {
+        "id": "tech_liushisigua_step",
+        "name": "六十四卦步法",
+        "type": "defense",
+        "description": "以易经六十四卦方位为基础的步法，用于闪避逃遁"
+      },
+      {
+        "id": "tech_liushisigua",
+        "name": "六十四卦步法",
+        "type": "defense",
+        "description": "以易经六十四卦方位行走，纯熟后可自动闪避攻击"
+      },
+      {
+        "id": "tech_liushisigua_bufa_6",
+        "name": "六十四卦步法",
+        "type": "defense",
+        "description": "按易经六十四卦方位行走，左上右下斜进直退，令对手无法捉摸"
+      },
+      {
+        "id": "tech_guanyin_jinsheng_6",
+        "name": "观我生进退步",
+        "type": "defense",
+        "description": "口中默念卦辞，心无旁骛只看方位不看敌人攻势"
+      },
+      {
+        "id": "tech_lingbo_jichu",
+        "name": "凌波微步基础步法",
+        "type": "buff",
+        "description": "按易经方位行走，斜行倒退，令敌人无法预判"
+      },
+      {
+        "id": "tech_liushisixiang",
+        "name": "六十四卦步法",
+        "type": "buff",
+        "description": "按易经六十四卦方位行走，步法变幻莫测"
+      },
+      {
+        "id": "tech_lingbo_shifan",
+        "name": "凌波微步演示",
+        "type": "buff",
+        "description": "段誉蒙眼行走凌波微步，令南海鳄神叹服"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "学会步法但需思考方可踏出"
+      },
+      {
+        "level": 2,
+        "unlock": "步法纯熟后，每一步与内息相应，可修内功"
+      },
+      {
+        "level": 2,
+        "unlock": "可放慢步法主动走向敌人"
+      },
+      {
+        "level": 3,
+        "unlock": "与敌人身形相合时可自动碰撞至手指处"
+      }
+    ],
+    "effects": [
+      {
+        "type": "evasion",
+        "condition": "面对强敌时施展",
+        "description": "以此保身，再积内力"
+      },
+      {
+        "type": "evasion",
+        "condition": "敌人攻击时",
+        "description": "自动闪避"
+      },
+      {
+        "type": "inner_power",
+        "condition": "行走时",
+        "description": "每走一遍六十四卦，内力便有一分进益"
+      },
+      {
+        "type": "evasion",
+        "condition": "敌人掌力攻击时",
+        "description": "始终差一两尺打不到身上"
+      },
+      {
+        "type": "collision",
+        "condition": "双方同时移动时",
+        "description": "敌人胸口可自动凑到段誉手指上"
+      },
+      {
+        "type": "闪避",
+        "condition": "敌人攻击时",
+        "description": "步法忽斜行忽横跨，自动避开攻击"
+      },
+      {
+        "type": "闪避",
+        "condition": "敌人攻击时",
+        "description": "自管自踏步，敌人无法预判落点，兵刃自动打在空处"
+      },
+      {
+        "type": "混乱",
+        "condition": "多人围攻时",
+        "description": "步法引敌人自相攻击"
+      },
+      {
+        "type": "闪避",
+        "condition": "蒙眼亦可",
+        "description": "步法自动避开一切攻击"
+      }
+    ],
+    "combat_style": "飘逸灵动",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_yiyangzhi",
+    "name": "一阳指",
+    "type": "武功",
+    "faction": "faction_dali",
+    "one_line": "一阳指",
+    "rag_refs": [
+      502,
+      960,
+      964,
+      1,
+      2,
+      3,
+      4,
+      5,
+      560
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_liumaishenjian",
+    "name": "六脉神剑",
+    "type": "指法",
+    "faction": "faction_dali",
+    "one_line": "段誉的武功（本章未使用）",
+    "rag_refs": [
+      502,
+      933,
+      168,
+      184,
+      262,
+      288,
+      372,
+      406,
+      532,
+      560
+    ],
+    "techniques": [
+      {
+        "id": "tech_liumaishenjian_jichu",
+        "name": "六脉神剑剑气",
+        "type": "attack",
+        "description": "以指尖真气激射而出，嗤嗤有声，无形剑气可断人手臂"
+      },
+      {
+        "id": "tech_shaoshang",
+        "name": "少商剑",
+        "type": "attack",
+        "description": "拇指少商剑，六脉神剑之一"
+      },
+      {
+        "id": "tech_shangyang",
+        "name": "商阳剑",
+        "type": "attack",
+        "description": "食指商阳剑，六脉神剑之一"
+      },
+      {
+        "id": "tech_zhongchong",
+        "name": "中冲剑",
+        "type": "attack",
+        "description": "中手中冲剑，六脉神剑之一"
+      },
+      {
+        "id": "tech_guanchong",
+        "name": "关冲剑",
+        "type": "attack",
+        "description": "无名指关冲剑，六脉神剑之一"
+      },
+      {
+        "id": "tech_shaochong",
+        "name": "少冲剑",
+        "type": "attack",
+        "description": "小指少冲剑，六脉神剑之一"
+      },
+      {
+        "id": "tech_shaoze",
+        "name": "少泽剑",
+        "type": "attack",
+        "description": "小指少泽剑，六脉神剑之一"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "偶然激发出剑气"
+      }
+    ],
+    "effects": [
+      {
+        "type": "远程穿透",
+        "condition": "真气充足时",
+        "description": "无形剑气射出击断敌人臂骨"
+      },
+      {
+        "type": "远程穿透",
+        "condition": "真气激荡时激发",
+        "description": "无形剑气射穿敌人身体，留下小孔鲜血直喷"
+      },
+      {
+        "type": "反弹",
+        "condition": "真气击中墙壁后反弹",
+        "description": "真气撞墙反弹击中敌人罩门"
+      }
+    ],
+    "combat_style": "远程无形剑气，段誉使用时灵时不灵，情急之下往往奏功",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_dujian",
+    "name": "毒箭",
+    "type": "暗器",
+    "faction": "",
+    "one_line": "木婉清袖中毒箭，见血封喉",
+    "rag_refs": [
+      345,
+      347,
+      561,
+      563,
+      565,
+      567,
+      627,
+      629,
+      643,
+      653,
+      699,
+      701,
+      703,
+      705,
+      707,
+      1015,
+      1063,
+      1065,
+      1099,
+      1111,
+      660,
+      664,
+      99,
+      373,
+      427,
+      431,
+      51,
+      55,
+      59,
+      63,
+      71,
+      79,
+      139,
+      245,
+      377,
+      397,
+      411,
+      843,
+      857,
+      1083,
+      1231
+    ],
+    "techniques": [
+      {
+        "id": "tech_xiuzhong_dujian",
+        "name": "袖中毒箭",
+        "type": "attack",
+        "description": "从袖中发射黑色短箭，见血封喉"
+      },
+      {
+        "id": "tech_lianzhu_dujian",
+        "name": "连珠毒箭",
+        "type": "attack",
+        "description": "连续发射多枚毒箭"
+      },
+      {
+        "id": "tech_dujian_sheji",
+        "name": "毒箭",
+        "type": "attack",
+        "description": "袖中發射短箭，見血封喉"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "instant_kill",
+        "condition": "命中要害",
+        "description": "见血封喉，中者立毙"
+      },
+      {
+        "type": "poison",
+        "condition": "擦伤",
+        "description": "剧毒无比"
+      },
+      {
+        "type": "劇毒",
+        "condition": "射中目標",
+        "description": "中毒者瞬間斃命"
+      }
+    ],
+    "combat_style": "暗器偷襲",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_crocshear",
+    "name": "鳄嘴剪",
+    "type": "暗器",
+    "faction": "faction_nanhaipai",
+    "one_line": "南海鳄神的奇形兵器，短柄长口如鳄鱼嘴巴，剪口锋利能剪断纯钢",
+    "rag_refs": [
+      149,
+      155,
+      157,
+      187
+    ],
+    "techniques": [
+      {
+        "id": "tech_crocshear_grip",
+        "name": "鳄嘴剪绞",
+        "type": "attack",
+        "description": "用鳄嘴剪夹住对方兵器并绞断"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "disarm",
+        "condition": "夹住兵器",
+        "description": "可剪断纯钢打就的兵器"
+      }
+    ],
+    "combat_style": "凶猛刚烈，以力破巧",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_croctail",
+    "name": "鳄尾鞭",
+    "type": "暗器",
+    "faction": "faction_nanhaipai",
+    "one_line": "南海鳄神的锯齿软鞭，形如鳄鱼尾巴",
+    "rag_refs": [
+      149,
+      151,
+      161,
+      165,
+      187
+    ],
+    "techniques": [
+      {
+        "id": "tech_croctail_whip",
+        "name": "鳄尾鞭卷",
+        "type": "attack",
+        "description": "锯齿软鞭疾卷敌人"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "配合鳄嘴剪使用，刚柔并济",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_dujian_5",
+    "name": "毒箭",
+    "type": "暗器",
+    "faction": "",
+    "one_line": "木婉清袖中发射的黑色短箭",
+    "rag_refs": [
+      105,
+      129,
+      133,
+      307,
+      311,
+      627
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_tiedi",
+    "name": "铁笛功",
+    "type": "剑法",
+    "faction": "faction_dali",
+    "one_line": "高君候的铁笛武功，以内力催动至灼热",
+    "rag_refs": [
+      397,
+      399,
+      401,
+      403,
+      405,
+      407,
+      409,
+      427
+    ],
+    "techniques": [
+      {
+        "id": "tech_tiedi_re",
+        "name": "铁笛热功",
+        "type": "attack",
+        "description": "以上乘内力将铁笛烫如红炭，逼退敌人"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "burn",
+        "condition": "敌人抓住笛身",
+        "description": "铁笛烫手如同红炭"
+      }
+    ],
+    "combat_style": "以内力催动兵器，以音波扰敌",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_yiyangzhi_6",
+    "name": "一阳指",
+    "type": "指法",
+    "faction": "faction_dali",
+    "one_line": "大理段氏绝学，保定帝更可隔空解穴",
+    "rag_refs": [
+      1195,
+      1201,
+      459,
+      583
+    ],
+    "techniques": [
+      {
+        "id": "tech_yiyang_zhuliao_6",
+        "name": "一阳指助疗",
+        "type": "buff",
+        "description": "以食指抵住后心大椎穴，输入融和暖气激发内息、疗伤克敌"
+      },
+      {
+        "id": "tech_yiyang_zhufa_6",
+        "name": "一阳指暗助",
+        "type": "attack",
+        "description": "隔空或抵背输入内力助他人制服对手"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "heal",
+        "condition": "抵住后心大椎穴",
+        "description": "一股融和暖气透过去，激发对方内息"
+      },
+      {
+        "type": "reinforce",
+        "condition": "输入段誉体内时",
+        "description": "激发段誉原有内力，合两人之力制服南海鳄神"
+      }
+    ],
+    "combat_style": "以指力医人制敌，大理段氏镇门绝学",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_panguanbi_6",
+    "name": "判官笔法",
+    "type": "兵器",
+    "faction": "faction_dali",
+    "one_line": "朱丹臣使判官笔的点穴功夫",
+    "rag_refs": [
+      227,
+      229,
+      259,
+      415,
+      425
+    ],
+    "techniques": [
+      {
+        "id": "tech_panguan_dian_6",
+        "name": "判官笔点穴",
+        "type": "attack",
+        "description": "以判官笔点向敌人胸口要穴"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "点穴快攻",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_fuzhu_6",
+    "name": "拂麈功",
+    "type": "兵器",
+    "faction": "",
+    "one_line": "玉虚散人以拂麈为兵刃，可卷夺对方兵器",
+    "rag_refs": [
+      333,
+      335,
+      337,
+      409,
+      415,
+      419,
+      423,
+      425
+    ],
+    "techniques": [
+      {
+        "id": "tech_fuzhu_juan_6",
+        "name": "拂麈卷夺",
+        "type": "defense",
+        "description": "以麈尾半空画圈卷住对方手腕或兵器"
+      },
+      {
+        "id": "tech_fuzhu_shejian_6",
+        "name": "拂麈射箭",
+        "type": "attack",
+        "description": "以拂麈卷住小箭激射而出"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "trap",
+        "condition": "敌人攻击时",
+        "description": "麈尾卷住对方兵器或手腕"
+      }
+    ],
+    "combat_style": "以柔克刚，卷缠制敌",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_wuluoqingyan_7",
+    "name": "五罗轻烟掌",
+    "type": "掌法",
+    "faction": "",
+    "one_line": "段正淳传授给秦红棉的掌法，以掌风劈熄烛火",
+    "rag_refs": [
+      161,
+      177
+    ],
+    "techniques": [
+      {
+        "id": "tech_wuluo_zhangfa",
+        "name": "五羅輕煙掌",
+        "type": "attack",
+        "description": "出掌如行雲流水，瀟灑之極，可隔空劈熄燭火"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "輕靈飄逸，以掌風傷敵",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_xiuluodao_7",
+    "name": "修罗刀",
+    "type": "刀法",
+    "faction": "",
+    "one_line": "秦红棉的看家武功，外号由此而来",
+    "rag_refs": [
+      89,
+      91,
+      97,
+      243,
+      245,
+      487,
+      489,
+      491
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_fuyushu_7",
+    "name": "腹语术",
+    "type": "特殊",
+    "faction": "",
+    "one_line": "青袍客以深厚内功从腹中发音，口唇不动而能说话",
+    "rag_refs": [
+      751,
+      797,
+      799,
+      803,
+      809
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_liumaizhijian",
+    "name": "六脉神剑",
+    "type": "武功",
+    "faction": "",
+    "one_line": "六脉神剑",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_liu_mai_shen_jian",
+    "name": "六脉神剑",
+    "type": "剑法",
+    "faction": "faction_dali_duan",
+    "one_line": "大理段氏至高武学，阿朱担心萧峰因此吃亏",
+    "techniques": [
+      {
+        "id": "tech_shao_ze_jian",
+        "name": "少泽剑",
+        "type": "attack",
+        "description": "左手小指发出剑气"
+      },
+      {
+        "id": "tech_zhong_chong_jian",
+        "name": "中冲剑",
+        "type": "attack",
+        "description": "右手中指发出剑气，使段誉手指炙热"
+      },
+      {
+        "id": "tech_liu_mai_shen_jian",
+        "name": "六脉神剑",
+        "type": "attack",
+        "description": "以指力化无形剑气，大理段氏至高武学"
+      }
+    ],
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "段誉已记全剑谱，可发出剑气但不会运用"
+      }
+    ],
+    "effects": [
+      {
+        "type": "damage",
+        "condition": "中指/小指运内力发出",
+        "description": "以无形剑气伤人，可刺穿门窗板壁"
+      }
+    ],
+    "combat_style": "以指力化剑气，大理段氏至高武学，萧峰自知不及",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_huo_yan_dao",
+    "name": "火焰刀",
+    "type": "掌法",
+    "faction": "",
+    "one_line": "鸠摩智的绝技，以内力化无形刀气",
+    "techniques": [
+      {
+        "id": "tech_huo_yan_dao_ji",
+        "name": "火焰刀",
+        "type": "attack",
+        "description": "以掌力凝聚内力化为无形刀气"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "鸠摩智闭关九年修炼此功，可凌空发刀削断树枝、劈裂桌椅"
+      }
+    ],
+    "effects": [
+      {
+        "type": "damage",
+        "condition": "运掌力发出",
+        "description": "无形气劲可斩断实物，如刀剑劈削"
+      },
+      {
+        "type": "attack",
+        "condition": "凌空挥掌",
+        "description": "可远距离攻击，曾削断段誉头巾"
+      }
+    ],
+    "combat_style": "以内力外放攻击，无影无踪难以防御",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_ling_bo_wei_bu",
+    "name": "凌波微步",
+    "type": "轻功",
+    "faction": "",
+    "one_line": "段誉以此步法与乔峰比脚力",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "movement",
+        "condition": "真气通畅可用",
+        "description": "极高明的轻功步法，段誉穴道被封则无法使用"
+      }
+    ],
+    "combat_style": "步法变幻莫测",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_hua_gong_da_fa",
+    "name": "化功大法",
+    "type": "内功",
+    "faction": "faction_xing_xu",
+    "one_line": "星宿老怪丁春秋的邪功，专门消人内力",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "debuff",
+        "condition": "对方内力攻入自身穴道",
+        "description": "可将对方内力化解吸收，段誉误用此功吸了鸠摩智的内力"
+      }
+    ],
+    "combat_style": "被动化功，段誉为误打误撞",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_yi_yang_zhi",
+    "name": "一阳指",
+    "type": "指法",
+    "faction": "faction_dali_duan",
+    "one_line": "大理段氏指法，段正淳精于此道",
+    "techniques": [
+      {
+        "id": "tech_yi_yang_zhi",
+        "name": "一阳指",
+        "type": "attack",
+        "description": "大理段氏绝世指法，天下点穴功夫第一"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "基本点穴，三尺之内"
+      },
+      {
+        "level": 3,
+        "unlock": "隔空指力，可达三尺外（段正淳水平）"
+      },
+      {
+        "level": 5,
+        "unlock": "以棒代指，棒长及远，运力如风，意到即至（段延庆水平）"
+      }
+    ],
+    "effects": [
+      {
+        "type": "attack",
+        "condition": "指力命中",
+        "description": "高深点穴功夫，可破解对方兵刃上的内力"
+      }
+    ],
+    "combat_style": "精妙绝伦，以指力伤敌于数尺之外",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_yi_bi_zhi_dao_huan_shi_bi_shen",
+    "name": "以彼之道还施彼身",
+    "type": "特殊",
+    "faction": "faction_murong",
+    "one_line": "姑苏慕容氏的成名绝技",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_bei_ming_shen_gong",
+    "name": "北冥神功",
+    "type": "内功",
+    "faction": "",
+    "one_line": "段誉实际练成的内功，可吸取他人内力",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "段誉内力越强，北冥神功的吸力越大，吸取严妈妈仅片刻之功"
+      }
+    ],
+    "effects": [
+      {
+        "type": "debuff",
+        "condition": "抓住对方手腕",
+        "description": "将对方内力源源不断吸取，对方越挣扎流失越快"
+      }
+    ],
+    "combat_style": "被动接触型吸功",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_da_gou_bang_fa",
+    "name": "打狗棒法",
+    "type": "棒法",
+    "faction": "faction_gai_bang",
+    "one_line": "丐帮两大神技之一，慕容复在练的武功",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "unknown",
+        "condition": "王语嫣指出",
+        "description": "有几路须越慢越好，有几路须忽快忽慢，一味抢快则有大害"
+      }
+    ],
+    "combat_style": "棒法，变化多端",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_xiang_long_shi_ba_zhang",
+    "name": "降龙十八掌",
+    "type": "掌法",
+    "faction": "faction_gai_bang",
+    "one_line": "丐帮两大神技之一（仅提及）",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_wei_tuo_chu",
+    "name": "韦陀杵",
+    "type": "杵法",
+    "faction": "faction_shao_lin",
+    "one_line": "少林七十二绝技之一，玄悲大师的绝技，被用以杀死玄悲",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "attack",
+        "condition": "以韦陀杵手法伤人",
+        "description": "少林七十二绝技第四十八门，十九招杵法，极为威猛"
+      }
+    ],
+    "combat_style": "威猛刚烈",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_qing_liang_shan",
+    "name": "清凉扇法",
+    "type": "扇法",
+    "faction": "",
+    "one_line": "朱丹臣的武功，含'透骨扇'等招式",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_liu_yang_rong_xue_gong",
+    "name": "六阳融雪功",
+    "type": "内功",
+    "faction": "faction_dali_duan",
+    "one_line": "段誉编造的武功名称，用以解释北冥神功的吸力",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_tian_ling_qian_sui",
+    "name": "天灵千碎",
+    "type": "鞭法",
+    "faction": "faction_funiu",
+    "one_line": "伏牛派百胜软鞭招式，柯百岁死于该招",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_wu_hu_duan_men_dao",
+    "name": "五虎断门刀",
+    "type": "刀法",
+    "faction": "faction_qin_zhai",
+    "one_line": "秦家寨刀法，原六十四招，失传五招，姚伯当只会五十七招",
+    "techniques": [
+      {
+        "id": "tech_hu_duan_dao_1",
+        "name": "负子渡河",
+        "type": "attack",
+        "description": "五虎断门刀失传的招数之一"
+      },
+      {
+        "id": "tech_hu_duan_dao_2",
+        "name": "重节守义",
+        "type": "attack",
+        "description": "五虎断门刀失传的招数之一"
+      },
+      {
+        "id": "tech_hu_duan_dao_3",
+        "name": "白虎跳涧",
+        "type": "attack",
+        "description": "五虎断门刀失传的五招之一"
+      },
+      {
+        "id": "tech_hu_duan_dao_4",
+        "name": "一啸风生",
+        "type": "attack",
+        "description": "失传招数"
+      },
+      {
+        "id": "tech_hu_duan_dao_5",
+        "name": "剪扑自如",
+        "type": "attack",
+        "description": "失传招数"
+      },
+      {
+        "id": "tech_hu_duan_dao_6",
+        "name": "雄霸群山",
+        "type": "attack",
+        "description": "失传招数"
+      },
+      {
+        "id": "tech_hu_duan_dao_7",
+        "name": "伏象胜狮",
+        "type": "attack",
+        "description": "失传招数"
+      },
+      {
+        "id": "tech_wang_zi_si_dao",
+        "name": "王字四刀",
+        "type": "attack",
+        "description": "五虎断门刀最刚最猛的绝招，三横一直，秦伯起被此招所杀"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "刚猛霸道",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_qing_zi_jiu_da",
+    "name": "青字九打",
+    "type": "暗器",
+    "faction": "faction_qing_cheng",
+    "one_line": "青城派九种暗器功夫",
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以各种暗器配合雷公轰发射",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_cheng_zi_shi_ba_po",
+    "name": "城字十八破",
+    "type": "特殊",
+    "faction": "faction_qing_cheng",
+    "one_line": "青城派十八种破法，含破月锥、破甲、破盾、破牌等",
+    "techniques": [
+      {
+        "id": "tech_po_yue_zhui",
+        "name": "破月锥",
+        "type": "attack",
+        "description": "五指成尖锥形戳出，以浑厚内力穿破敌人耳鼓"
+      },
+      {
+        "id": "tech_po_jia",
+        "name": "破甲",
+        "type": "attack",
+        "description": "城字十八破中的一式"
+      },
+      {
+        "id": "tech_po_dun",
+        "name": "破盾",
+        "type": "attack",
+        "description": "城字十八破中的一式"
+      },
+      {
+        "id": "tech_po_pai",
+        "name": "破牌",
+        "type": "attack",
+        "description": "城字十八破中的一式"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "诡变险狠",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_lei_gong_hong",
+    "name": "雷公轰",
+    "type": "兵刃",
+    "faction": "faction_qing_cheng",
+    "one_line": "青城派独门兵刃，左手钢锥右手小锤",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_qing_feng_ding",
+    "name": "青蜂钉",
+    "type": "暗器",
+    "faction": "faction_qing_cheng",
+    "one_line": "青城派独门暗器，从雷公轰中发射",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_tian_wang_bu_xin_zhen",
+    "name": "天王补心针",
+    "type": "暗器",
+    "faction": "faction_peng_lai",
+    "one_line": "蓬莱派暗器，外形与青蜂钉相同但劲力不同",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "attack",
+        "condition": "从雷公轰中发射",
+        "description": "钢针内置机簧，力道强劲，可破空尖啸"
+      }
+    ],
+    "combat_style": "隐蔽狠辣",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_xiu_li_qian_kun",
+    "name": "袖里乾坤",
+    "type": "暗器",
+    "faction": "faction_qing_cheng",
+    "one_line": "青城派司马家传绝技，在袖中发射青蜂钉",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_po_yue_zhui",
+    "name": "破月锥",
+    "type": "指法",
+    "faction": "faction_qing_cheng",
+    "one_line": "城字十二破之一，五指成锥形戳出，可穿破耳鼓",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_qin_long_gong",
+    "name": "擒龙功",
+    "type": "内功",
+    "faction": "",
+    "one_line": "萧峰的隔空取物绝技",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "attack",
+        "condition": "虚空抓握",
+        "description": "一股气流激动兵刃，可隔空取物"
+      }
+    ],
+    "combat_style": "隔空御物，神妙莫测",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_long_zhua_shou",
+    "name": "龙爪手",
+    "type": "擒拿",
+    "faction": "",
+    "one_line": "萧峰使用的少林擒拿手法",
+    "techniques": [
+      {
+        "id": "tech_qiang_zhu_san_shi",
+        "name": "抢珠三式",
+        "type": "attack",
+        "description": "龙爪手招式"
+      },
+      {
+        "id": "tech_pei_ran_you_yu",
+        "name": "沛然有雨",
+        "type": "attack",
+        "description": "左肘撞胸口、右掌斩腰胁、左手抓气户穴"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "刚猛凌厉，一出手即制敌",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_tong_bi_quan",
+    "name": "通臂拳",
+    "type": "拳法",
+    "faction": "",
+    "one_line": "陈长老练成的高明拳法，拳力尽处又有新力生出",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_da_gou_zhen",
+    "name": "打狗阵",
+    "type": "阵法",
+    "faction": "faction_gai_bang",
+    "one_line": "丐帮群战阵法，发动后此上彼下，不死不止",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_xianglongshibazhang",
+    "name": "降龙十八掌",
+    "type": "掌法",
+    "faction": "faction_gaibang",
+    "one_line": "乔峰的招牌武功",
+    "rag_refs": [
+      764,
+      766,
+      1290
+    ],
+    "techniques": [
+      {
+        "id": "tech_kanglongyouhui",
+        "name": "亢龙有悔",
+        "type": "attack",
+        "description": "降龙十八掌之一，掌力刚猛霸道"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "正面碰撞",
+        "condition": "与敌人对掌时",
+        "description": "掌力相交嗤嗤有声，与玄寂一拍两散对掌双方各退三步"
+      }
+    ],
+    "combat_style": "刚猛绝伦、以力破巧",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_dagoubangfa",
+    "name": "打狗棒法",
+    "type": "掌法",
+    "faction": "faction_gaibang",
+    "one_line": "丐帮绝技（被提及）",
+    "rag_refs": [
+      504,
+      506,
+      508,
+      516,
+      764,
+      766
+    ],
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "基本棒法"
+      }
+    ],
+    "effects": [],
+    "combat_style": "丐帮秘传棒法，威力无穷",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_fumozhang",
+    "name": "五台山二十四路伏魔杖",
+    "type": "杖法",
+    "faction": null,
+    "one_line": "奚长老所使杖法，威猛有余沉稳不足",
+    "rag_refs": [
+      834,
+      852
+    ],
+    "techniques": [
+      {
+        "id": "tech_qinwangbianshi",
+        "name": "秦王鞭石",
+        "type": "attack",
+        "description": "伏魔杖法中的一招，威猛但下盘不稳"
+      },
+      {
+        "id": "tech_dapengzhanchi",
+        "name": "大鹏展翅",
+        "type": "attack",
+        "description": "伏魔杖法中的一招，同样下盘不稳"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "弱点",
+        "condition": "使秦王鞭石和大鹏展翅时",
+        "description": "右侧下盘是弱点"
+      }
+    ],
+    "combat_style": "威猛刚劲但下盘有破绽",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_qimensancai",
+    "name": "奇门三才刀",
+    "type": "刀法",
+    "faction": null,
+    "one_line": "吴长老的刀法，精妙多变",
+    "rag_refs": [
+      867,
+      871,
+      873,
+      891,
+      893
+    ],
+    "techniques": [
+      {
+        "id": "tech_qimen_sancai",
+        "name": "奇门三才刀法",
+        "type": "attack",
+        "description": "刀法凝重看似不成章法，实则暗含变化，慢中藏快"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "凝重缓慢示敌以弱，实则突施快攻",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_heshebada",
+    "name": "鹤蛇八打",
+    "type": "暗器",
+    "faction": null,
+    "one_line": "克制四象六合刀法的武功",
+    "rag_refs": [
+      873,
+      893
+    ],
+    "techniques": [
+      {
+        "id": "tech_heshe",
+        "name": "鹤蛇八打",
+        "type": "attack",
+        "description": "模拟鹤蛇相斗的招式，可破四象六合刀"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以仙鹤灵蛇之形攻敌",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_sixiangliuhedao",
+    "name": "四象六合刀法",
+    "type": "刀法",
+    "faction": null,
+    "one_line": "含有八卦生克变化的刀法，王语嫣故意错认",
+    "rag_refs": [
+      871,
+      893
+    ],
+    "techniques": [
+      {
+        "id": "tech_sixiang_liuhe",
+        "name": "四象六合刀法",
+        "type": "attack",
+        "description": "含有八卦生克变化的刀法"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "蕴含八卦变化",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_beimingshengong",
+    "name": "北冥神功",
+    "type": "内功",
+    "faction": null,
+    "one_line": "段誉的奇遇内功，可吸人内力为己用",
+    "rag_refs": [
+      524,
+      782
+    ],
+    "techniques": [
+      {
+        "id": "tech_beiming_xigong",
+        "name": "北冥吸功",
+        "type": "special",
+        "description": "可吸入他人内力为己用"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以吸为主，借力打力",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_yipailiangsan",
+    "name": "一拍两散",
+    "type": "掌法",
+    "faction": "faction_shaolin",
+    "one_line": "玄寂的掌法，只有一招但掌力排山倒海",
+    "rag_refs": [
+      1296,
+      1298
+    ],
+    "techniques": [
+      {
+        "id": "tech_yipai",
+        "name": "一拍两散",
+        "type": "attack",
+        "description": "毕生功力所聚的一招，拍石石散，拍人魂飞魄散"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "极致伤害",
+        "condition": "正面击中时",
+        "description": "掌力排山倒海，敌人当场毙命"
+      }
+    ],
+    "combat_style": "一招定胜负，掌力雄浑至极",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_taizuchangquan",
+    "name": "太祖长拳",
+    "type": "拳法",
+    "faction": null,
+    "one_line": "宋太祖赵匡胤所传拳法，乔峰以此碾压玄难的少林武功",
+    "rag_refs": [
+      816,
+      820,
+      826,
+      832,
+      842,
+      856,
+      886
+    ],
+    "techniques": [
+      {
+        "id": "tech_zhenzhenzhanjiang",
+        "name": "冲阵斩将",
+        "type": "attack",
+        "description": "太祖长拳中的一招，乔峰使出时潇洒大方刚柔并济"
+      },
+      {
+        "id": "tech_heliweiding",
+        "name": "河朔立威",
+        "type": "attack",
+        "description": "太祖长拳中的一招"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "堂堂正正，后发先至，每一招克制敌手相应招式",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_xiulikunqian",
+    "name": "袖里乾坤",
+    "type": "拳法",
+    "faction": "faction_shaolin",
+    "one_line": "少林七十二绝技之一，拳藏袖底形相雅观，衣袖也蓄有凌厉劲力",
+    "rag_refs": [
+      792,
+      796,
+      798,
+      802,
+      806
+    ],
+    "techniques": [
+      {
+        "id": "tech_xiuli",
+        "name": "袖里乾坤基础法",
+        "type": "attack",
+        "description": "衣袖鼓风，拳劲藏于袖底，衣袖本身也蓄有凌厉劲力"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "化解",
+        "condition": "与敌人对掌时",
+        "description": "被乔峰一掌震碎衣袖"
+      }
+    ],
+    "combat_style": "以袖掩拳，虚实不定",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_changjingsandielang",
+    "name": "长江三叠浪",
+    "type": "掌法",
+    "faction": null,
+    "one_line": "谭公的连环三掌掌法，后浪推前浪并力齐发",
+    "rag_refs": [
+      732,
+      738
+    ],
+    "techniques": [
+      {
+        "id": "tech_sandielang",
+        "name": "长江三叠浪掌法",
+        "type": "attack",
+        "description": "左掌拍出右掌疾跟，左掌缩回又加在右掌之上，掌力叠加三倍"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "叠加",
+        "condition": "连环出掌时",
+        "description": "后浪推前浪，一掌比一掌更强"
+      }
+    ],
+    "combat_style": "连环叠浪，一掌强过一掌",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_tianzhufozhi",
+    "name": "天竺佛指",
+    "type": "指法",
+    "faction": "faction_shaolin",
+    "one_line": "少林点穴绝技，出指有嗤嗤声响",
+    "rag_refs": [
+      862,
+      864
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "指力嗤嗤有声，点穴精准",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_luohanquan",
+    "name": "罗汉拳",
+    "type": "拳法",
+    "faction": "faction_shaolin",
+    "one_line": "少林派基础拳法",
+    "rag_refs": [
+      880
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_dajingangzhang",
+    "name": "大金刚掌",
+    "type": "掌法",
+    "faction": "faction_shaolin",
+    "one_line": "少林七十二绝技之一，威力奇大，数十年才有奇才能练成",
+    "rag_refs": [
+      380,
+      382,
+      386,
+      392,
+      418
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_fuyushu",
+    "name": "腹语术",
+    "type": "暗器",
+    "faction": null,
+    "one_line": "谭青的奇门功夫，能不动嘴唇而发出声音，与上乘内功结合可迷人心魄",
+    "rag_refs": [
+      544,
+      546
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "精神控制",
+        "condition": "对方内功不及施术者时",
+        "description": "以腹语结合上乘内功，迷得对方心神迷惘失魂而死"
+      },
+      {
+        "type": "反噬",
+        "condition": "遇到功力更深的对手",
+        "description": "施术不灵反受其害"
+      }
+    ],
+    "combat_style": "以音惑敌，以术杀人",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_tiannvsanhua",
+    "name": "天女散花",
+    "type": "暗器",
+    "faction": null,
+    "one_line": "黑衣大汉的软鞭功夫，以长绳同时挥击数十人",
+    "rag_refs": [
+      38
+    ],
+    "techniques": [
+      {
+        "id": "tech_shengfa_tiannv",
+        "name": "天女散花",
+        "type": "attack",
+        "description": "以长绳当作兵刃，同时挥击数十人的软鞭功夫"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以长绳为兵器，刚柔并济，借力腾跃",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_chansiqinda",
+    "name": "缠丝擒拿手",
+    "type": "掌法",
+    "faction": null,
+    "one_line": "白世镜答应传授薛神医的武功（被提及）",
+    "rag_refs": [
+      214
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "擒拿手法",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_tai_zu_chang_quan",
+    "name": "太祖长拳",
+    "type": "拳法",
+    "faction": "",
+    "one_line": "萧峰在聚贤庄以此会战群雄",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_yi_jin_jing",
+    "name": "易筋经",
+    "type": "内功",
+    "faction": "faction_shaolin",
+    "one_line": "少林派至高无上的内功秘笈，阿朱从菩提院盗出",
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "少林派至高内功，练成后可将平庸武功化腐朽为神奇",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_jin_gang_zhi",
+    "name": "金刚指",
+    "type": "指法",
+    "faction": "faction_shaolin",
+    "one_line": "少林派点穴功夫",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_duo_po_zhi",
+    "name": "夺魄指",
+    "type": "指法",
+    "faction": "",
+    "one_line": "河北沧州郑家的点穴功夫",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_duan_jia_jian",
+    "name": "段家剑",
+    "type": "剑法",
+    "faction": "faction_dali_duan",
+    "one_line": "段家祖传剑法，段延庆以铁杖代剑使出",
+    "techniques": [
+      {
+        "id": "tech_qi_de_duan_jin",
+        "name": "其利断金",
+        "type": "attack",
+        "description": "段家剑起手招数"
+      },
+      {
+        "id": "tech_jin_ma_teng_kong",
+        "name": "金马腾空",
+        "type": "attack",
+        "description": "段正淳使出的快招"
+      },
+      {
+        "id": "tech_bi_ji_bao_xiao",
+        "name": "碧鸡报晓",
+        "type": "attack",
+        "description": "段延庆以铁棒使出的段家剑招"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "大开大合，端凝自重，不失王者气象",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_fu_yu_shu",
+    "name": "腹语术",
+    "type": "内功",
+    "faction": "",
+    "one_line": "段延庆的邪术，能与上乘内功相结合迷人心魄",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "buff",
+        "condition": "内力修为胜过对手",
+        "description": "以心力克制对方，能迷人心魄乱人神智"
+      },
+      {
+        "type": "debuff",
+        "condition": "对手内力修为胜过自己",
+        "description": "反受其害"
+      }
+    ],
+    "combat_style": "以腹语配合内功，不用开口便能说话迷惑敌人",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_gui_xi_gong",
+    "name": "龟息功",
+    "type": "内功",
+    "faction": "faction_xing_xu",
+    "one_line": "星宿派闭气装死功夫",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "buff",
+        "condition": "主动施展",
+        "description": "心停气绝，耳目闭塞，装死骗过所有人"
+      }
+    ],
+    "combat_style": "星宿派闭气装死功夫",
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_jianglong18",
+    "name": "降龙十八掌",
+    "type": "武功",
+    "faction": "",
+    "one_line": "降龙十八掌",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_huagongdafa",
+    "name": "化功大法",
+    "type": "武功",
+    "faction": "",
+    "one_line": "化功大法",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_bingcan",
+    "name": "冰蚕毒掌",
+    "type": "武功",
+    "faction": "",
+    "one_line": "冰蚕毒掌",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_lingboweiju",
+    "name": "skill_lingboweiju",
+    "type": "武功",
+    "faction": "",
+    "one_line": "skill_lingboweiju",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_yibidaohuanshi",
+    "name": "skill_yibidaohuanshi",
+    "type": "武功",
+    "faction": "",
+    "one_line": "skill_yibidaohuanshi",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_tianshanliuyang",
+    "name": "天山六阳掌",
+    "type": "武功",
+    "faction": "",
+    "one_line": "天山六阳掌",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_tianshanzhemei",
+    "name": "天山折梅手",
+    "type": "武功",
+    "faction": "",
+    "one_line": "天山折梅手",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_boluohua",
+    "name": "skill_boluohua",
+    "type": "武功",
+    "faction": "",
+    "one_line": "skill_boluohua",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  },
+  {
+    "id": "skill_weituozhang",
+    "name": "韦陀掌",
+    "type": "武功",
+    "faction": "",
+    "one_line": "韦陀掌",
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "game_stats": {
+      "damage_base": 150,
+      "mp_cost": 45,
+      "cooldown": 3,
+      "range": "ranged"
+    }
+  }
+]

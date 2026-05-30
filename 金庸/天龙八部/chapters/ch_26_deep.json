@@ -1,0 +1,298 @@
+{
+  "chapter": 26,
+  "characters_detail": [
+    {
+      "id": "char_xiaofeng",
+      "personality": {
+        "traits": ["重情重义", "勇猛刚烈", "坚忍不拔", "光明磊落", "豪迈不羁"],
+        "speech_style": "言语豪爽直接，对敌人威严果断，对朋友诚挚热情，少言寡语但言出必行",
+        "temperament": "豪迈刚烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_azi", "type": "companion", "intensity": 65, "bond_level": 3, "dynamic": "因误伤阿紫心怀愧疚，不顾性命以真气续命，视其为阿朱托付的责任"},
+        {"target": "char_wan_yanaguda", "type": "friendship", "intensity": 80, "bond_level": 4, "dynamic": "雪原中一见如故，空手屠虎赢得女真族人敬佩，结下深厚友谊"},
+        {"target": "char_yelu_ji", "type": "brother", "intensity": 85, "bond_level": 5, "dynamic": "战场擒敌却不杀，惺惺相惜结为金兰兄弟，义薄云天"}
+      ],
+      "known_skills": ["skill_jianglong18"],
+      "related_skills": []
+    },
+    {
+      "id": "char_azi",
+      "personality": {
+        "traits": ["刁蛮任性", "心机深沉", "狡狯多智", "残忍自私", "偏执痴情"],
+        "speech_style": "言语机巧多变，时而撒娇天真，时而阴冷刻毒，善用言语操控他人",
+        "temperament": "刁钻阴狠"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_xiaofeng", "type": "love", "intensity": 85, "bond_level": 4, "dynamic": "深恋萧峰不舍，重伤后反觉欣喜因可被他贴身照料，以脆弱姿态换取陪伴"},
+        {"target": "char_wanyanaguda", "type": "companion", "intensity": 20, "bond_level": 1, "dynamic": "受女真族人照料养伤，但内心冷淡不以为意"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wanyanaguda",
+      "name": "完颜阿骨打",
+      "personality": {
+        "traits": ["勇悍善战", "豪爽仗义", "精明干练", "敬重英雄", "质朴真诚"],
+        "speech_style": "言语不多但热情，以行动表达敬意，对英雄由衷钦佩",
+        "temperament": "豪迈质朴"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_xiaofeng", "type": "friendship", "intensity": 85, "bond_level": 4, "dynamic": "亲见萧峰空手毙虎，惊为天人，待如上宾，结下生死之交"},
+        {"target": "char_yelu_ji", "type": "enemy", "intensity": 70, "bond_level": 2, "dynamic": "契丹与女真世代为敌，在草原上遭遇时互相厮杀"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_helibu",
+      "name": "和哩布",
+      "personality": {
+        "traits": ["沉稳威严", "治族有方", "通情达理", "知人善任"],
+        "speech_style": "话不多而威严，对英雄敬重，对敌人果决",
+        "temperament": "沉稳威严"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_xiaofeng", "type": "friendship", "intensity": 75, "bond_level": 3, "dynamic": "女真族长，热情款待萧峰，信任其英雄气概"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_polasu",
+      "name": "颇拉苏",
+      "personality": {
+        "traits": ["精明能干", "善于谋略", "务实贪财", "老于世故"],
+        "speech_style": "言语周到，精于谈判，漫天要价不失礼数",
+        "temperament": "精明世故"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_yelu_ji", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "将耶律基视为赎金来源，开口索要十倍赎金"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yelu_ji",
+      "name": "耶律基",
+      "personality": {
+        "traits": ["气度豪迈", "胆识过人", "宁死不屈", "知恩图报", "精明果决"],
+        "speech_style": "言语掷地有声，不卑不亢，既显帝王气度又不失江湖豪情",
+        "temperament": "豪迈威严"
+      },
+      "archetype": "ruler",
+      "relationships": [
+        {"target": "char_xiaofeng", "type": "brother", "intensity": 90, "bond_level": 5, "dynamic": "被萧峰擒而不杀，感其英雄气概，主动结为兄弟，事后重金相赠"},
+        {"target": "char_wanyanaguda", "type": "enemy", "intensity": 65, "bond_level": 2, "dynamic": "契丹首领与女真族敌对，被擒后仍不失威严"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuzhuocheng",
+      "name": "许卓诚",
+      "personality": {
+        "traits": ["精明", "通晓多族语言", "善于交际", "圆滑周到"],
+        "speech_style": "言语客气周到，充当翻译时尽心尽力",
+        "temperament": "圆滑周到"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_xiaofeng", "type": "companion", "intensity": 40, "bond_level": 2, "dynamic": "充当萧峰通译，教其女真和契丹语言"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangtongzhi",
+      "name": "王通治",
+      "personality": {
+        "traits": ["迂腐自大", "目光短浅", "嘴碎刻薄", "不识好歹"],
+        "speech_style": "言语刻薄带讽，自以为高明实则庸医，不知轻重",
+        "temperament": "迂腐刻薄"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_xiaofeng", "type": "companion", "intensity": 10, "bond_level": 1, "dynamic": "误诊阿紫为已死，冷嘲热讽，险些被萧峰一掌打死而不自知"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_jianglong18",
+      "techniques": [
+        {"id": "tech_paiyun_shuangzhang", "name": "排云双掌", "type": "attack", "description": "萧峰得意功夫，双掌齐出，正中猛虎肚腹柔软之处，将猛虎五脏震裂"},
+        {"id": "tech_pikong_zhang", "name": "劈空掌", "type": "attack", "description": "掌力凌空而至无形无影，一掌将契丹老者从马背上击飞数丈，口喷鲜血而死"}
+      ],
+      "progression": [
+        {"level": 7, "unlock": "七成掌力可令猛虎摔斛斗，加至八成可斩断虎腰"}
+      ],
+      "effects": [
+        {"type": "伤害", "condition": "击中猛虎额脑门", "description": "裂石开碑的掌力打在虎头上居然只令其摔斛斗，虎头坚骨之粗令人惊叹"},
+        {"type": "伤害", "condition": "劈空掌远距离攻击", "description": "掌力无影无踪如妖法，震慑众契丹骑兵不敢上前"}
+      ],
+      "combat_style": "刚猛无俦，大开大阖，以绝对力量碾压对手"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_26_xiaofeng_wushang_azi",
+      "name": "萧峰误伤阿紫，以内力续命",
+      "participants": ["char_xiaofeng", "char_azi"],
+      "location": "loc_xingxiu_hai",
+      "description": "阿紫以毒针暗算萧峰在前，萧峰本能反应一掌将其震飞，阿紫经脉重伤气息奄奄。萧峰愧疚至极，连日以真气输入阿紫体内续命，数昼夜掌不离身",
+      "chapter": 26
+    },
+    {
+      "id": "evt_26_shenmu_ding",
+      "name": "萧峰发现神木王鼎",
+      "participants": ["char_xiaofeng", "char_azi"],
+      "location": "loc_inn",
+      "description": "萧峰取银两时发现阿紫裙中所藏神木王鼎，知是星宿派修炼化功大法之物，心生厌憎。鼎内有两毒虫互斗，萧峰倒出踏死",
+      "chapter": 26
+    },
+    {
+      "id": "evt_26_wangtongzhi_wuzhen",
+      "name": "庸医王通治误诊阿紫为死人",
+      "participants": ["char_xiaofeng", "char_wangtongzhi"],
+      "location": "loc_medical_shop",
+      "description": "萧峰抱阿紫求医，王通治诊脉后断言阿紫已死多时，说萧峰心神错乱抱尸看医。萧峰以人参熬汤喂阿紫，竟能吞咽续命",
+      "chapter": 26
+    },
+    {
+      "id": "evt_26_xueyuan_yuhu",
+      "name": "萧峰雪原空手屠虎遇完颜阿骨打",
+      "participants": ["char_xiaofeng", "char_wanyanaguda"],
+      "location": "loc_changbai_mountain",
+      "description": "萧峰在长白山雪原迷路，遇两头猛虎奔来，以排云双掌空手毙虎。女真猎人完颜阿骨打赶来，见其神威惊为天人，两人以手语结交",
+      "chapter": 26
+    },
+    {
+      "id": "evt_26_nvzhen_zuoying",
+      "name": "萧峰在女真部落养伤做客",
+      "participants": ["char_xiaofeng", "char_azi", "char_wanyanaguda", "char_helibu", "char_xuzhuocheng"],
+      "location": "loc_nvzhen_camp",
+      "description": "阿骨打引萧峰回女真部落，族长和哩布热情款待。萧峰以海量饮酒折服女真族人，日间打猎夜间学语，数月间阿紫以人参为粮伤势渐好",
+      "chapter": 26
+    },
+    {
+      "id": "evt_26_caoyuan_jiefeng",
+      "name": "萧峰草原遭遇契丹人马擒耶律基",
+      "participants": ["char_xiaofeng", "char_yelu_ji", "char_wanyanaguda"],
+      "location": "loc_grassland",
+      "description": "萧峰随女真人猎熊时遭遇契丹大队人马，双方激战。萧峰不愿多伤族人，冲入敌阵擒获红袍首领耶律基，逼其下令退兵并杀马弃追",
+      "chapter": 26
+    },
+    {
+      "id": "evt_26_songhuan_jieyi",
+      "name": "萧峰释放耶律基并结为兄弟",
+      "participants": ["char_xiaofeng", "char_yelu_ji"],
+      "location": "loc_grassland",
+      "description": "萧峰敬耶律基是条好汉，赠还武器释放。耶律基感其大恩主动提出结义，二人插箭为香，拜了八拜。耶律基自称三十一岁，萧峰年长十三岁为弟",
+      "chapter": 26
+    },
+    {
+      "id": "evt_26_ye_lü_songli",
+      "name": "耶律基遣使送厚礼",
+      "participants": ["char_xiaofeng", "char_wanyanaguda", "char_helibu", "char_polasu"],
+      "location": "loc_nvzhen_camp",
+      "description": "耶律基遣队长室里送来黄金五千两、白银五万两等巨额礼物，牛羊马匹漫山遍野。萧峰将礼物尽数转赠女真族人，全族大宴数日",
+      "chapter": 26
+    },
+    {
+      "id": "evt_26_xifang_manyou",
+      "name": "萧峰阿紫西游大草原",
+      "participants": ["char_xiaofeng", "char_azi"],
+      "location": "loc_grassland",
+      "description": "阿紫伤情好转，央求西行看大草原。萧峰携帐幕干粮同行，阿紫吐露当初射毒针只为让他动弹不得永远相伴。二人行至草原深处，望见契丹骑兵围猎",
+      "chapter": 26
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_xiaofeng",
+      "listener": "char_azi",
+      "text": "阿紫，阿紫，你别死，我说什么也要救活你。",
+      "tone": "焦急",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_xiaofeng",
+      "listener": "char_wangtongzhi",
+      "text": "大夫，是请你看我妹子的病，不是在下自己求医。",
+      "tone": "不悦",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_wangtongzhi",
+      "listener": "char_xiaofeng",
+      "text": "我瞧你有病，神不知不清，心神颠倒错乱，要好好治一治。",
+      "tone": "嘲讽",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_wanyanaguda",
+      "listener": "char_xiaofeng",
+      "text": "完颜阿骨打！",
+      "tone": "豪迈",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_xiaofeng",
+      "listener": "char_wanyanaguda",
+      "text": "萧峰！契丹！",
+      "tone": "爽朗",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_xiaofeng",
+      "listener": "char_yelu_ji",
+      "text": "你叫他们退去，否则当场便挟死了你。",
+      "tone": "威严",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_yelu_ji",
+      "listener": "char_xiaofeng",
+      "text": "好本领，好功夫！今日得见当世第一的大英雄，真算不枉了。萧峰英雄，你以力威逼，要我违心屈从，那可办不到。你要杀便杀。契丹人然斗你过，骨气却跟你是一般的硬朗。",
+      "tone": "慷慨激昂",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_xiaofeng",
+      "listener": "char_yelu_ji",
+      "text": "不是！萧某生平敬重的是英雄，爱惜的是好汉。你武功虽不如我，却是大大的英雄好汉，萧某交了你这个朋友！你回自族去吧。",
+      "tone": "诚恳豪迈",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_yelu_ji",
+      "listener": "char_xiaofeng",
+      "text": "在下耶律基，却恩公？你是大了一十三岁。",
+      "tone": "谦逊",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_azi",
+      "listener": "char_xiaofeng",
+      "text": "我宁可永远动弹不得，你便天天这般陪着。等我伤好了，你又要赶我走了。",
+      "tone": "幽怨",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_xiaofeng",
+      "listener": "char_azi",
+      "text": "我是个粗鲁汉子，那次一不小心，便将你打成这生模样。你天天陪着我，又有什么好？",
+      "tone": "愧疚",
+      "chapter": 26
+    }
+  ]
+}

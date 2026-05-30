@@ -1,0 +1,169 @@
+{
+  "chapter": 7,
+  "characters_detail": [
+    {
+      "id": "char_duanyu",
+      "personality": {"traits": ["孝順", "善良", "天真"], "speech_style": "文雅恭敬", "temperament": "平和"},
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_muwanqing_5", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "已訂婚約，但不知對方是自己妹妹"},
+        {"target": "char_yuxusanren_6", "type": "master_student", "intensity": 80, "bond_level": 4, "dynamic": "孝順母親"},
+        {"target": "char_duanzhengchun_6", "type": "master_student", "intensity": 60, "bond_level": 3, "dynamic": "尊敬父親，但理念不合"}
+      ],
+      "known_skills": ["skill_lingboweibu", "skill_yiyangzhi_6"],
+      "related_skills": []
+    },
+    {
+      "id": "char_muwanqing_5",
+      "personality": {"traits": ["剛烈", "癡情", "單純", "倔強"], "speech_style": "直率冷峻", "temperament": "激烈外放"},
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanyu", "type": "love", "intensity": 70, "bond_level": 3, "dynamic": "深愛段譽，得知他是自己哥哥後崩潰"},
+        {"target": "char_qinhongmian_7", "type": "master_student", "intensity": 60, "bond_level": 3, "dynamic": "原是師徒，後知是母女"},
+        {"target": "char_duanzhengchun_6", "type": "complicated", "intensity": 30, "bond_level": 1, "dynamic": "剛知他是父親，情感複雜"}
+      ],
+      "known_skills": ["skill_xiuluodao_7", "skill_dujian", "skill_wuluoqingyan_7"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun_6",
+      "personality": {"traits": ["多情", "風流", "內疚", "溫柔"], "speech_style": "溫柔深情，時帶苦澀", "temperament": "多愁善感"},
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_yuxusanren_6", "type": "love", "intensity": 60, "bond_level": 3, "dynamic": "夫妻，但因風流債生隙"},
+        {"target": "char_qinhongmian_7", "type": "love", "intensity": 50, "bond_level": 2, "dynamic": "舊情人，愧對她"},
+        {"target": "char_muwanqing_5", "type": "complicated", "intensity": 40, "bond_level": 1, "dynamic": "剛相認的女兒"},
+        {"target": "char_duanyu", "type": "master_student", "intensity": 60, "bond_level": 3, "dynamic": "父子"}
+      ],
+      "known_skills": ["skill_wuluoqingyan_7", "skill_yiyangzhi_6"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yuxusanren_6",
+      "personality": {"traits": ["剛烈", "自尊心強", "隱忍"], "speech_style": "冷淡簡練", "temperament": "內斂倔強"},
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanzhengchun_6", "type": "love", "intensity": 40, "bond_level": 2, "dynamic": "失望離去"},
+        {"target": "char_duanyu", "type": "master_student", "intensity": 80, "bond_level": 4, "dynamic": "慈母關懷"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qinhongmian_7",
+      "personality": {"traits": ["倔強", "偏執", "深情"], "speech_style": "憂怨", "temperament": "偏激內向"},
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_duanzhengchun_6", "type": "love", "intensity": 60, "bond_level": 2, "dynamic": "舊情人，幽居多年"},
+        {"target": "char_muwanqing_5", "type": "master_student", "intensity": 70, "bond_level": 3, "dynamic": "母女關係未公開"}
+      ],
+      "known_skills": ["skill_xiuluodao_7", "skill_wuluoqingyan_7", "skill_dujian"],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_wuluoqingyan_7",
+      "techniques": [
+        {"id": "tech_wuluo_zhangfa", "name": "五羅輕煙掌", "type": "attack", "description": "出掌如行雲流水，瀟灑之極，可隔空劈熄燭火"}
+      ],
+      "progression": [],
+      "effects": [],
+      "combat_style": "輕靈飄逸，以掌風傷敵"
+    },
+    {
+      "id": "skill_dujian",
+      "techniques": [
+        {"id": "tech_dujian_sheji", "name": "毒箭", "type": "attack", "description": "袖中發射短箭，見血封喉"}
+      ],
+      "progression": [],
+      "effects": [{"type": "劇毒", "condition": "射中目標", "description": "中毒者瞬間斃命"}],
+      "combat_style": "暗器偷襲"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_muwanqing_anli",
+      "name": "木婉清刺殺刀白鳳",
+      "participants": ["char_muwanqing_5", "char_yuxusanren_6", "char_duanyu", "char_duanzhengchun_6"],
+      "location": "loc_dali_wangfu",
+      "description": "木婉清奉師命刺殺刀白鳳，發毒箭射中擋在母親身前的段譽，段譽因莽牯朱蛤而無恙",
+      "chapter": 7
+    },
+    {
+      "id": "evt_duanzhengchun_xiangren",
+      "name": "段正淳與木婉清相認",
+      "participants": ["char_duanzhengchun_6", "char_muwanqing_5"],
+      "location": "loc_dali_wangfu",
+      "description": "段正淳告知木婉清秦紅棉是她母親、自己是她父親，段譽是她親哥哥",
+      "chapter": 7
+    },
+    {
+      "id": "evt_daobai_feng_likai",
+      "name": "刀白鳳負氣離去",
+      "participants": ["char_yuxusanren_6", "char_duanzhengchun_6"],
+      "location": "loc_dali_wangfu",
+      "description": "刀白鳳因段正淳風流舊事傷心，飛身從窗口躍出離去",
+      "chapter": 7
+    },
+    {
+      "id": "evt_qinhongmian_xianshen",
+      "name": "秦紅棉現身",
+      "participants": ["char_qinhongmian_7", "char_muwanqing_5", "char_duanzhengchun_6"],
+      "location": "loc_dali_wangfu",
+      "description": "秦紅棉在窗外現身，要帶木婉清回家",
+      "chapter": 7
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_muwanqing_5",
+      "listener": "char_duanzhengchun_6",
+      "text": "这‘五罗轻烟掌’，你怎样么也会？",
+      "tone": "驚訝",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_duanzhengchun_6",
+      "listener": "char_muwanqing_5",
+      "text": "这‘五罗轻烟掌’，是我教你师父的。",
+      "tone": "苦澀",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_duanzhengchun_6",
+      "listener": "char_muwanqing_5",
+      "text": "婉儿，日后我要好好待你，方能补我一些过失。你有什么心愿，说给我听，我一定尽力给你办到。",
+      "tone": "溫柔愧疚",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_muwanqing_5",
+      "listener": "char_duanzhengchun_6",
+      "text": "我和他的婚事，你要给我们作主，不许他负心薄幸。",
+      "tone": "羞怯期待",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_duanzhengchun_6",
+      "listener": "char_muwanqing_5",
+      "text": "你不能和誉儿成婚，也不能杀他。",
+      "tone": "沉痛",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_duanzhengchun_6",
+      "listener": "char_muwanqing_5",
+      "text": "因为……因为……因为段誉是你的亲哥哥！",
+      "tone": "痛苦",
+      "chapter": 7
+    },
+    {
+      "speaker": "char_muwanqing_5",
+      "listener": "char_duanzhengchun_6",
+      "text": "我不信！我不信！我……我不信！",
+      "tone": "震驚崩潰",
+      "chapter": 7
+    }
+  ]
+}

@@ -1,0 +1,389 @@
+{
+  "chapter": 21,
+  "characters_detail": [
+    {
+      "id": "char_xiao_feng",
+      "personality": {
+        "traits": ["豪迈重义", "情深义重", "恩怨分明", "意志坚定", "武功盖世"],
+        "speech_style": "言语豪爽直率，怒时咄咄逼人，对阿朱温柔体贴，谈及血仇则咬牙切齿",
+        "temperament": "豪迈刚烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_a_zhu", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "天台山互通心曲正式定情，阿朱愿随其塞外牧羊终生相守，萧峰认定此生至爱"},
+        {"target": "char_tan_gong", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "为逼问带头大哥身份以谭婆性命要挟，谭公咬舌自尽后心中恻然"},
+        {"target": "char_zhi_guang", "type": "complicated", "intensity": 50, "bond_level": 3, "dynamic": "智光告知生父姓名及石壁遗文，后智光圆寂，萧峰凄然无语"},
+        {"target": "char_ma_fu_ren", "type": "complicated", "intensity": 40, "bond_level": 1, "dynamic": "以阿朱易容之计套问，终从马夫人口中得知带头大哥即段正淳"},
+        {"target": "char_zhao_qian_sun", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "点穴逼问带头大哥身份，赵钱孙宁死不说，后被人重手打死"},
+        {"target": "char_duan_zheng_chun", "type": "enemy", "intensity": 100, "bond_level": 5, "dynamic": "从马夫人口中得知段正淳就是带头大哥，立誓将其斩成十七八块以报血仇"}
+      ],
+      "known_skills": ["skill_qin_long_gong", "skill_long_zhua_shou", "skill_tai_zu_chang_quan"],
+      "related_skills": ["skill_yi_jin_jing"]
+    },
+    {
+      "id": "char_a_zhu",
+      "personality": {
+        "traits": ["聪明伶俐", "机警善变", "巧舌如簧", "情深一往", "幽默风趣"],
+        "speech_style": "言语俏皮机敏，易容后语气模仿惟妙惟肖，与萧峰相处时温柔娇媚",
+        "temperament": "灵动聪慧"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_xiao_feng", "type": "love", "intensity": 100, "bond_level": 5, "dynamic": "正式定情，愿随萧峰塞外牧牛放羊，赠易筋经助其报仇，称其大哥"},
+        {"target": "char_ma_fu_ren", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "易容为白世镜套话，对马夫人精明的城府感到可怕厌憎"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhao_qian_sun",
+      "personality": {
+        "traits": ["痴情固执", "宁死不屈", "重恩义", "性情偏执"],
+        "speech_style": "语带深情，对谭婆柔声央求，对萧峰则强硬决绝，宁死不吐露恩人姓名",
+        "temperament": "痴情刚烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tan_po", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "痴恋师妹数十年，约其于船中相会听唱旧歌，宁死也不肯连累她"},
+        {"target": "char_xiao_feng", "type": "enemy", "intensity": 60, "bond_level": 2, "dynamic": "被萧峰点穴逼问带头大哥身份，宁死不屈，后被神秘人重手打死"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tan_po",
+      "personality": {
+        "traits": ["刚烈决绝", "重情义", "念旧", "心存愧疚"],
+        "speech_style": "语带叹息，对师哥怀旧情却恪守妇道，被胁迫时辞色决绝",
+        "temperament": "内敛刚烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_zhao_qian_sun", "type": "love", "intensity": 65, "bond_level": 3, "dynamic": "念及旧情赴约唱曲，但已为人妇心存愧疚，宁死也不出卖恩人"},
+        {"target": "char_tan_gong", "type": "love", "intensity": 70, "bond_level": 4, "dynamic": "深爱丈夫，与之相貌不配但夫妻情深"},
+        {"target": "char_xiao_feng", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "被萧峰点穴威胁要说出带头大哥身份，最终宁死不吐"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tan_gong",
+      "personality": {
+        "traits": ["性烈如火", "重义轻生", "深爱妻子", "宁折不弯"],
+        "speech_style": "言语干脆，怒时骂粗话，对乔峰宁死不屈，慷慨激烈",
+        "temperament": "刚烈暴躁"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tan_po", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "深爱妻子，见妻与赵钱孙双双毙命后咬舌自尽殉情"},
+        {"target": "char_xiao_feng", "type": "enemy", "intensity": 80, "bond_level": 3, "dynamic": "被萧峰以玉钗诱至船边，受其武功压制，宁死不出卖朋友"},
+        {"target": "char_zhao_qian_sun", "type": "enemy", "intensity": 50, "bond_level": 1, "dynamic": "恼恨赵钱孙纠缠妻子，但最终同死一船"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhi_guang",
+      "personality": {
+        "traits": ["慈悲为怀", "济世救人", "看破生死", "大智大慧", "舍身成仁"],
+        "speech_style": "语气平和慈悲，谈禅机佛理，临别以手指写字留下偈语，从容圆寂",
+        "temperament": "慈悲祥和"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_xiao_feng", "type": "complicated", "intensity": 40, "bond_level": 2, "dynamic": "告知萧峰生父萧远山及石壁遗文，以死避免说出带头大哥身份"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_pu_zhe",
+      "personality": {
+        "traits": ["憨厚老实", "不会武功", "忠厚勤恳"],
+        "speech_style": "言语恭敬，实话实说，不通机巧",
+        "temperament": "朴实敦厚"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_zhi_guang", "type": "family", "intensity": 70, "bond_level": 4, "dynamic": "奉师命迎接萧峰阿朱上山，对师父尊敬有加"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ma_fu_ren",
+      "personality": {
+        "traits": ["表面冰清玉洁", "城府极深", "精明敏锐", "心如槁木", "善于掩饰"],
+        "speech_style": "语态冷淡疏离，看似心如死水实则暗藏机锋，说话点到即止，极善操控人心",
+        "temperament": "冷峻深沉"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_xiao_feng", "type": "enemy", "intensity": 90, "bond_level": 4, "dynamic": "认定萧峰杀夫仇人，但被阿朱假扮白世镜套出带头大哥姓名"},
+        {"target": "char_a_zhu", "type": "enemy", "intensity": 50, "bond_level": 2, "dynamic": "被阿朱假扮白世镜所骗，但阿朱对其城府深感可怕厌憎"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xu_zhang_lao",
+      "personality": {
+        "traits": ["资历深厚", "死于非命", "帮中宿老"],
+        "speech_style": "",
+        "temperament": ""
+      },
+      "archetype": "warrior",
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_qin_long_gong",
+      "techniques": [
+        {"id": "tech_qin_long_kong_qu", "name": "隔空擒龙", "type": "attack", "description": "以内力隔空取物或制敌，萧峰以此抢夺谭婆玉钗"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "控制", "condition": "施展内力", "description": "隔空取物，令对方防不胜防"}
+      ],
+      "combat_style": "隔空制敌，劲力吞吐自如"
+    },
+    {
+      "id": "skill_long_zhua_shou",
+      "techniques": [
+        {"id": "tech_long_zhua_duan_da", "name": "擒拿短打", "type": "attack", "description": "在狭窄船舱中以擒拿手和短打近攻功夫，灵动之极，七回合内制住赵钱孙谭婆两大高手"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "控制", "condition": "近身缠斗", "description": "在不及丈许的狭窄空间中大有大斗小有小打，擒拿手法出神入化"}
+      ],
+      "combat_style": "近身擒拿，短打凌厉"
+    },
+    {
+      "id": "skill_tai_zu_chang_quan",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "增益", "condition": "以平凡拳法对敌", "description": "萧峰以内力为根基，使太祖长拳化腐朽为神奇，在聚贤庄力斗群雄"}
+      ],
+      "combat_style": "以简驭繁，内力驱动"
+    },
+    {
+      "id": "skill_yi_yang_zhi",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "大理段氏至高指法，天下点穴第一"
+    },
+    {
+      "id": "skill_liu_mai_shen_jian",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "以指力化剑气，段誉曾以此功逼酒，萧峰自认不及"
+    },
+    {
+      "id": "skill_yi_jin_jing",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {"type": "增益", "condition": "练成", "description": "少林派至高无上内功，可化腐朽为神奇，慕容博认为可破六脉神剑"}
+      ],
+      "combat_style": "内功根基，武功之本"
+    },
+    {
+      "id": "skill_jin_gang_zhi",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "少林派点穴功夫"
+    },
+    {
+      "id": "skill_duo_po_zhi",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "河北沧州郑家点穴功夫"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_21_yi_rong_nan_xia",
+      "name": "萧峰阿朱易容改装南行",
+      "participants": ["char_xiao_feng", "char_a_zhu"],
+      "location": "loc_yan_men_guan",
+      "description": "萧峰与阿朱绕过雁门关南下，阿朱以面粉浆糊墨胶为萧峰易容，二人乔装成寻常江湖豪士，昼伏夜出南行",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_san_jia_zhen_wen_xun",
+      "name": "三甲镇听闻徐长老死讯",
+      "participants": ["char_xiao_feng", "char_a_zhu"],
+      "location": "loc_san_jia_zhen",
+      "description": "二人在晋南三甲镇面店吃面，听门外丐帮弟子说起徐长老被人害死，胸口肋骨尽断，将于卫辉开吊",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_wei_hui_diao_ji",
+      "name": "卫辉吊祭徐长老追踪赵钱孙",
+      "participants": ["char_xiao_feng", "char_a_zhu", "char_zhao_qian_sun", "char_tan_po"],
+      "location": "loc_wei_hui",
+      "description": "萧峰阿朱赴卫辉废园吊祭徐长老，萧峰偶见赵钱孙谭婆鬼祟出城，追踪至浚河大木船中撞破二人相会",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_chuan_zhong_xiang_po",
+      "name": "萧峰船舱制住赵钱孙谭婆",
+      "participants": ["char_xiao_feng", "char_zhao_qian_sun", "char_tan_po"],
+      "location": "loc_jun_he",
+      "description": "萧峰闯入船舱以擒拿短打功夫七回合内点中赵钱孙腰间、击中谭婆背心，点穴制住二人，逼问带头大哥身份，二人宁死不屈",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_yu_chai_you_tan_gong",
+      "name": "萧峰以玉钗诱谭公",
+      "participants": ["char_xiao_feng", "char_tan_gong"],
+      "location": "loc_wei_hui",
+      "description": "萧峰拔下谭婆玉钗回到卫辉城中寻到谭公，以玉钗诱其至船边，谭公见妻与赵钱孙已被重手打死，悲愤咬舌自尽殉情",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_tan_shi_quan_si",
+      "name": "谭公谭婆赵钱孙三人惨死",
+      "participants": ["char_xiao_feng", "char_tan_gong", "char_tan_po", "char_zhao_qian_sun"],
+      "location": "loc_jun_he",
+      "description": "萧峰发现谭婆和赵钱孙已被人以重手掌力打死，胸口瘀黑掌印竟似萧峰自己所留，谭公见状咬舌自尽，三人同日死于浚河船中",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_dan_jia_zhuang_da_huo",
+      "name": "单家庄被烧为白地",
+      "participants": ["char_xiao_feng", "char_a_zhu"],
+      "location": "loc_shan_jia_zhuang",
+      "description": "萧峰阿朱赶赴泰山单家庄，发现单家已被人放火烧成白地，全家三十余口无一幸免，萧峰判断是大恶人斩草除根销毁书信",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_jin_shan_si_tui_ci",
+      "name": "金山寺推敲大恶人",
+      "participants": ["char_xiao_feng", "char_a_zhu"],
+      "location": "loc_jin_shan_si",
+      "description": "萧峰阿朱在镇江金山寺纵览江景，推敲出带头大哥与大恶人可能是一人，且此人可能就在杏子林中",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_zhi_guan_si_fang_zhi_guang",
+      "name": "天台山止观寺访智光",
+      "participants": ["char_xiao_feng", "char_a_zhu", "char_zhi_guang", "char_pu_zhe"],
+      "location": "loc_zhi_guan_si",
+      "description": "萧峰阿朱到天台山止观寺拜访智光大师，智光告知萧峰生父姓萧名远山，赐予石壁遗文拓片，萧峰当场改名萧峰",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_zhi_guang_yuan_ji",
+      "name": "智光大师圆寂",
+      "participants": ["char_xiao_feng", "char_a_zhu", "char_zhi_guang"],
+      "location": "loc_zhi_guan_si",
+      "description": "智光以手指在积尘中写下八句偈语后闭目圆寂，萧峰推测是大恶人先来告知智光说萧峰要寻仇，智光自忖难逃而服毒自尽",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_xiao_feng_a_zhu_ding_qing",
+      "name": "萧峰阿朱天台山定情",
+      "participants": ["char_xiao_feng", "char_a_zhu"],
+      "location": "loc_tian_tai_shan",
+      "description": "下天台山途中阿朱吐露愿与萧峰塞外牧牛放羊终生厮守，萧峰感动不已，二人正式以大哥阿妹相称，约定报仇后同赴塞外",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_a_zhu_jia_ban_tao_hua",
+      "name": "阿朱假扮白世镜套问马夫人",
+      "participants": ["char_xiao_feng", "char_a_zhu", "char_ma_fu_ren"],
+      "location": "loc_ma_jia",
+      "description": "阿朱易容为丐帮执法长老白世镜，萧峰扮作五袋弟子随从，傍晚至信阳马家拜访马夫人，巧妙套问出带头大哥即大理镇南王段正淳",
+      "chapter": 21
+    },
+    {
+      "id": "evt_21_a_zhu_zeng_yi_jin_jing",
+      "name": "阿朱赠易筋经于萧峰",
+      "participants": ["char_xiao_feng", "char_a_zhu"],
+      "location": "loc_xin_yang",
+      "description": "回到客店后阿朱将从少林菩提院盗出的易筋经梵本赠予萧峰，助其练成上乘内功以对抗大理段氏六脉神剑，惜乎全书为梵文无人能识",
+      "chapter": 21
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_zhao_qian_sun",
+      "listener": "char_tan_po",
+      "text": "小娟，今日咱俩相会，不知此后何日再得重逢，只怕我命不久长，你便再要唱歌给我听，我也是无福来听的了。",
+      "tone": "恳求",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_xiao_feng",
+      "listener": "char_tan_gong",
+      "text": "你若不说，你自己性命先就送了。",
+      "tone": "冷酷",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_tan_gong",
+      "listener": "char_xiao_feng",
+      "text": "你当谭某是何等样人？我岂能贪生怕死，出卖朋友？",
+      "tone": "激昂",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_zhi_guang",
+      "listener": "char_xiao_feng",
+      "text": "善哉，善哉！乔施主，你本是姓萧，自己可知道么？",
+      "tone": "平和",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_xiao_feng",
+      "listener": "char_a_zhu",
+      "text": "从今而后，我是萧峰，不是乔峰了。",
+      "tone": "感慨",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_zhi_guang",
+      "listener": "char_xiao_feng",
+      "text": "万物一般，众生平等。圣贤畜生，一视同仁。汉人契丹，亦幻亦真。恩怨荣辱，俱在灰尘。",
+      "tone": "慈悲",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_a_zhu",
+      "listener": "char_xiao_feng",
+      "text": "便跟着你杀人放火，打家劫舍，也永不后悔。跟着你吃尽千般苦楚，万种熬煎，也是欢欢喜喜。",
+      "tone": "深情",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_a_zhu",
+      "listener": "char_xiao_feng",
+      "text": "有一个人敬重你、钦佩你、感激你、愿意永永远远、生生世世、陪在你身边，和你一同抵受患难屈辱、艰险困苦。",
+      "tone": "诚挚",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_ma_fu_ren",
+      "listener": "char_a_zhu",
+      "text": "这位带头大哥，乃大理国当今皇帝的亲弟，姓段名正淳，封为镇南王的便是。",
+      "tone": "冷淡",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_xiao_feng",
+      "listener": "char_a_zhu",
+      "text": "阿朱，你对我这么好，不以我是契丹贱种而厌弃我么？",
+      "tone": "深情",
+      "chapter": 21
+    }
+  ]
+}

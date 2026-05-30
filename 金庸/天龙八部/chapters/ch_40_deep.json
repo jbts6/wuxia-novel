@@ -1,0 +1,583 @@
+{
+  "chapter": 40,
+  "characters_detail": [
+    {
+      "id": "char_xuzhu",
+      "personality": {
+        "traits": ["慈悲仁厚", "不通世务", "至诚至性", "严守戒律", "优柔寡断"],
+        "speech_style": "言语谦卑恭顺，在方丈面前唯唯诺诺，自认罪重孽大甘领责罚，不敢稍有反抗",
+        "temperament": "温厚仁懦"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_jiumozhi", "type": "enemy", "intensity": 75, "bond_level": 3, "dynamic": "与鸠摩智激斗数百招，以韦陀掌罗汉拳黑虎偷心硬撼七十二绝技，以天山折梅手抓住对方手腕僵持"},
+        {"target": "char_xuancheng", "type": "family", "intensity": 70, "bond_level": 4, "dynamic": "方丈宣布将他逐出少林，虚竹痛哭伏地求情但终被破门出教"},
+        {"target": "char_mojian", "type": "family", "intensity": 70, "bond_level": 4, "dynamic": "四姝假扮僧人在少林寺现身暗护虚竹，以剑刺鸠摩智咽喉暴露身份"},
+        {"target": "char_xuanshan", "type": "family", "intensity": 50, "bond_level": 3, "dynamic": "被惩戒前愿代师父慧轮受三十杖责"},
+        {"target": "char_duanyu", "type": "companion", "intensity": 60, "bond_level": 4, "dynamic": "再见三弟想问梦中女郎的下落，面红耳赤不敢开口"},
+        {"target": "char_xuansi", "type": "family", "intensity": 40, "bond_level": 2, "dynamic": "玄寂宣布将他破门出教时心中酸楚泪如雨下"}
+      ],
+      "known_skills": ["skill_tianshanliuyang", "skill_beiming", "skill_tianshanzhemo", "skill_shengsifu", "skill_xiaowuxiangong", "skill_weituozhang", "skill_luohanquan"],
+      "related_skills": []
+    },
+    {
+      "id": "char_jiumozhi",
+      "name": "鸠摩智",
+      "personality": {
+        "traits": ["武学奇才", "野心勃勃", "心高气傲", "机智狡诈", "不择手段"],
+        "speech_style": "言语从容自信咄咄逼人，以言语挤兑对手只准使少林功夫，被虚竹拿住后仍谈笑自如",
+        "temperament": "高傲自负"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "enemy", "intensity": 80, "bond_level": 3, "dynamic": "激斗中连使十六门少林绝技奈何不了虚竹的黑虎偷心，被天山折梅手拿住左腕后用匕首偷袭"},
+        {"target": "char_mojian", "type": "enemy", "intensity": 40, "bond_level": 2, "dynamic": "以火焰刀削断三姝长剑又以无形气劲削落四姝僧帽示众"},
+        {"target": "char_xuancheng", "type": "enemy", "intensity": 50, "bond_level": 2, "dynamic": "当众揭露四女假扮僧人之事令少林颜面扫地"},
+        {"target": "char_duanyu", "type": "neutral", "intensity": 30, "bond_level": 1, "dynamic": "以言语戏弄段正淳说段誉形销骨立"}
+      ],
+      "known_skills": ["skill_xiaowuxiangong", "skill_huoyandao", "skill_borezhang", "skill_mohezhifan", "skill_dajingangquan"],
+      "related_skills": []
+    },
+    {
+      "id": "char_mojian",
+      "name": "梅剑",
+      "personality": {
+        "traits": ["冷峻刚直", "忠心护主", "杀伐果断", "不畏强敌"],
+        "speech_style": "言语对敌人冷厉，对主人恭敬，在少林大殿上公然顶撞方丈视若无物",
+        "temperament": "冷峻刚烈"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "family", "intensity": 85, "bond_level": 5, "dynamic": "四姝假扮僧人潜入少林保护虚竹，以剑指鸠摩智咽喉后又威胁玄慈老和尚"},
+        {"target": "char_xuanshan", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "被玄惭以龙爪功拿住手腕动弹不得"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuancheng",
+      "name": "玄慈",
+      "personality": {
+        "traits": ["慈悲庄严", "戒律方正", "沉稳持重", "深明大义", "宁折不弯"],
+        "speech_style": "言语庄重平和，宣布处罚时慈和恳切，末了仍劝虚竹另投名寺潜心向佛",
+        "temperament": "慈严方正"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "family", "intensity": 60, "bond_level": 4, "dynamic": "虽要驱逐虚竹出寺但言语慈和恳切，劝他还俗后可再求剃度"},
+        {"target": "char_jiumozhi", "type": "enemy", "intensity": 60, "bond_level": 3, "dynamic": "面色铁青处理四女之事，公开宣布处罚虚竹赢得鸠摩智等人钦佩"},
+        {"target": "char_duanzhengchun", "type": "companion", "intensity": 50, "bond_level": 2, "dynamic": "率众迎接段正淳作为强助"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuandu",
+      "name": "玄渡",
+      "personality": {
+        "traits": ["慈祥和善", "念旧重情", "言出肺腑", "深谋远虑"],
+        "speech_style": "言语温和，为虚竹求情说六件大事未了不宜逐出",
+        "temperament": "慈和宽厚"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "family", "intensity": 75, "bond_level": 4, "dynamic": "扶伤到大雄宝殿，说虚竹救我一命不算什么但六件大事须留他在寺"},
+        {"target": "char_xuansi", "type": "companion", "intensity": 60, "bond_level": 3, "dynamic": "与玄寂论六件大事包括玄悲玄苦玄痛玄难四僧之死"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_xuansi",
+      "name": "玄寂",
+      "personality": {
+        "traits": ["铁面无私", "执掌戒律", "公正严明", "有威严"],
+        "speech_style": "言语冷峻威严，宣布戒律斩钉截铁不容置疑",
+        "temperament": "冷面无私"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "famly", "intensity": 30, "bond_level": 1, "dynamic": "戒律院首座，宣布对虚竹的三重处罚极为公正"},
+        {"target": "char_huilun", "type": "family", "intensity": 30, "bond_level": 1, "dynamic": "罚慧轮受杖三十棍入戒律院面壁忏悔三年"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyu",
+      "name": "段誉",
+      "personality": {
+        "traits": ["痴情至性", "心地善良", "书生意气", "古道热肠", "不计前嫌"],
+        "speech_style": "言辞文雅不失风趣，对王语嫣痴情不改，对虚竹亲热称二哥",
+        "temperament": "痴情儒雅"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_duanzhengchun", "type": "family", "intensity": 95, "bond_level": 5, "dynamic": "父子相见说不出的欢喜，段誉听父亲声音凌波微步抢进殿来"},
+        {"target": "char_xuzhu", "type": "companion", "intensity": 70, "bond_level": 5, "dynamic": "再称虚竹二哥，说你又做和尚了"},
+        {"target": "char_wangyuyan", "type": "love", "intensity": 95, "bond_level": 5, "dynamic": "听说慕容复被丁春秋打得无招架之力，飞步奔出要去救王语嫣"},
+        {"target": "char_nanhaieshen", "type": "family", "intensity": 30, "bond_level": 2, "dynamic": "叫南海鳄神乖徒儿，对方恶狠狠回骂他妈的臭师父"},
+        {"target": "char_duanyanqing", "type": "neutral", "intensity": 10, "bond_level": 1, "dynamic": "听到段延庆声音脸上变色"}
+      ],
+      "known_skills": ["skill_lingboweibu", "skill_beiming", "skill_liumaizhijian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanzhengchun",
+      "name": "段正淳",
+      "personality": {
+        "traits": ["风流多情", "舐犊情深", "潇洒大方", "王者气度"],
+        "speech_style": "言语得体大方，被鸠摩智戏弄仍然不卑不亢，谈笑自若",
+        "temperament": "风流潇洒"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "family", "intensity": 95, "bond_level": 5, "dynamic": "牵挂爱子数月不得音讯，见到段誉欢喜无限"},
+        {"target": "char_jiumozhi", "type": "neutral", "intensity": 25, "bond_level": 1, "dynamic": "被鸠摩智以段誉下落戏弄，脸色数变后镇定下来"},
+        {"target": "char_ruanxingzhu", "type": "love", "intensity": 70, "bond_level": 4, "dynamic": "阮星竹改装为男子相伴而来"}
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ruanxingzhu",
+      "name": "阮星竹",
+      "personality": {
+        "traits": ["娇柔活泼", "擅长乔装", "幽默风趣", "不拘小节"],
+        "speech_style": "声音娇嫩但粗声粗气模仿男子，说话风趣爱调侃",
+        "temperament": "活泼娇俏"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanzhengchun", "type": "love", "intensity": 80, "bond_level": 4, "dynamic": "阿朱之母，改装成男子相伴段正淳数月"},
+        {"target": "char_duanyu", "type": "family", "intensity": 20, "bond_level": 1, "dynamic": "玩笑说段家小皇子家学渊源将门虎子"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_murongfu",
+      "name": "慕容复",
+      "personality": {
+        "traits": ["沉雄内敛", "复国志坚", "傲骨嶙峋", "心机深沉", "重名节"],
+        "speech_style": "言语不多而神态傲然，关键时刻语气果决，对王语嫣温柔却疏离",
+        "temperament": "沉雄孤傲"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wangyuyan", "type": "love", "intensity": 40, "bond_level": 2, "dynamic": "决意去西夏求亲后对表妹心生愧疚，想先送她回家后被拒"},
+        {"target": "char_dengbaichuan", "type": "family", "intensity": 80, "bond_level": 5, "dynamic": "与四大家将商议去西夏应征驸马以求强援复国"},
+        {"target": "char_yidadabiao", "type": "neutral", "intensity": 20, "bond_level": 1, "dynamic": "受易大彪临终托付西夏招驸马榜文"}
+      ],
+      "known_skills": ["skill_douzhuanxingyi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangyuyan",
+      "name": "王语嫣",
+      "personality": {
+        "traits": ["聪慧过人", "痴恋表哥", "不通武功", "弱质纤纤", "天真单纯"],
+        "speech_style": "声音轻柔，对表哥一往情深，听到去燕子坞住心下窃喜",
+        "temperament": "温柔痴情"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_murongfu", "type": "love", "intensity": 98, "bond_level": 5, "dynamic": "一心想伴在表哥身边，听说要去燕子坞住芳心窃喜，不知表哥已决意去西夏求亲"},
+        {"target": "char_duanyu", "type": "companion", "intensity": 25, "bond_level": 1, "dynamic": "段誉一路追随她也未驱赶，但心中只有表哥"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_dengbaichuan",
+      "name": "邓百川",
+      "personality": {
+        "traits": ["沉稳持重", "忠义无双", "老成谋国", "有大局观"],
+        "speech_style": "言语沉稳，以复国大业为重，主张光明磊落行事",
+        "temperament": "沉稳老练"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_murongfu", "type": "family", "intensity": 95, "bond_level": 5, "dynamic": "慕容氏四大家将之首，提出西夏联姻是复兴大燕的良机"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_gongyegan",
+      "name": "公冶乾",
+      "personality": {
+        "traits": ["学识渊博", "精通文字", "心思缜密", "善于分析"],
+        "speech_style": "言语有条有理善于分析局势，为慕容复出谋划策",
+        "temperament": "儒雅缜密"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_murongfu", "type": "family", "intensity": 95, "bond_level": 5, "dynamic": "识得西夏榜文，分析宋夏联姻可助大燕复兴"},
+        {"target": "char_baobutongshen", "type": "family", "intensity": 70, "bond_level": 4, "dynamic": "知包不同脾气，故意说想法和包不同不同少他抬杠"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_baobutongshen",
+      "name": "包不同",
+      "personality": {
+        "traits": ["好辩成性", "口不择言", "执拗鲁莽", "忠肝义胆"],
+        "speech_style": "开口闭口非也非也，对谁都针锋相对，但大事上并不糊涂",
+        "temperament": "偏执鲁直"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_murongfu", "type": "family", "intensity": 90, "bond_level": 5, "dynamic": "虽口无遮拦但忠心耿耿，说到复国大业时慷慨激昂"},
+        {"target": "char_duanyu", "type": "neutral", "intensity": 15, "bond_level": 1, "dynamic": "沿途冷嘲热讽段誉但他如听不见"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_fengboe",
+      "name": "风波恶",
+      "personality": {
+        "traits": ["天不怕地不怕", "好勇斗狠", "直爽豪迈", "善良仗义"],
+        "speech_style": "言语豪迈直爽，做事凭直觉，是个血性汉子",
+        "temperament": "豪勇好斗"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "neutral", "intensity": 20, "bond_level": 1, "dynamic": "丁春秋之战中与星宿派门徒乱斗"},
+        {"target": "char_yidadabiao", "type": "neutral", "intensity": 30, "bond_level": 1, "dynamic": "喂伤药给易大彪"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duanyanqing",
+      "name": "段延庆",
+      "personality": {
+        "traits": ["阴狠毒辣", "城府极深", "怨毒满腔", "腹语传音"],
+        "speech_style": "以腹语术说话阴恻恻，冷言冷语令人不寒而栗",
+        "temperament": "阴沉冷酷"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_xuzhu", "type": "neutral", "intensity": 10, "bond_level": 1, "dynamic": "率四大恶人到少林，说慕容复与丁春秋恶斗方酣"},
+        {"target": "char_yieniang", "type": "family", "intensity": 40, "bond_level": 2, "dynamic": "四大恶人之首，叶二娘随他进殿"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yieniang",
+      "name": "叶二娘",
+      "personality": {
+        "traits": ["阴险狠辣", "阴阳怪气", "手段诡异"],
+        "speech_style": "言语带笑实则阴森，说丁春秋将慕容复打得全无招架之功",
+        "temperament": "阴鸷诡异"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_murongfu", "type": "neutral", "intensity": 20, "bond_level": 1, "dynamic": "说丁春秋大显神通已将慕容公子打得全无招架之功"},
+        {"target": "char_duanyanqing", "type": "family", "intensity": 50, "bond_level": 3, "dynamic": "四大恶人中的老二，跟随老大行动"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanhaieshen",
+      "name": "南海鳄神",
+      "personality": {
+        "traits": ["凶悍鲁莽", "头脑迟钝", "自视甚高", "可笑可憎"],
+        "speech_style": "粗声粗气，被段誉叫乖徒儿恶狠狠回应他妈的臭师父",
+        "temperament": "凶蛮暴躁"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_duanyu", "type": "family", "intensity": 30, "bond_level": 2, "dynamic": "一见到段誉就满脸通红想逃，被当众叫徒儿无可奈何"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yidadabiao",
+      "name": "易大彪",
+      "personality": {
+        "traits": ["忠义刚烈", "明辨是非", "尽忠职守", "至死不屈"],
+        "speech_style": "说话断续中气不足，但事关丐帮存亡和天下苍生十分郑重",
+        "temperament": "忠义刚烈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_murongfu", "type": "neutral", "intensity": 20, "bond_level": 1, "dynamic": "临终前托付西夏榜文，认出慕容复后惊道是本帮大仇人抢回榜文"},
+        {"target": "char_quanqing", "type": "enemy", "intensity": 80, "bond_level": 3, "dynamic": "痛骂全冠清是奸贼，说庄聚贤只是傀儡"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_dingchunqiu",
+      "name": "丁春秋",
+      "personality": {
+        "traits": ["阴险毒辣", "善于用毒", "广收徒众", "野心勃勃"],
+        "speech_style": "未见其人先闻其名，以星宿派毒功闻名",
+        "temperament": "阴毒霸道"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_murongfu", "type": "enemy", "intensity": 70, "bond_level": 3, "dynamic": "在少室山下与慕容复激战，相传已打得慕容复全无招架之功"}
+      ],
+      "known_skills": ["skill_sanxiaoxiaosandu"],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_weituozhang",
+      "name": "韦陀掌",
+      "techniques": [
+        {"id": "tech_weituo_linghsiangsha", "name": "灵山礼佛", "type": "defense", "description": "双掌一直拜下，礼敬敌手的姿式，真气流转护住全身"},
+        {"id": "tech_weituo_shanmenhufa", "name": "山门护法", "type": "defense", "description": "斜身略避双掌推出，招式平平但力道雄浑"},
+        {"id": "tech_weituo_henghubei", "name": "恒河入海", "type": "attack", "description": "双掌自左向右划下，带着浩浩真气如洪水滔滔东流赴海"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "防御", "condition": "灵山礼佛起手式", "description": "僧衣微微鼓起，真气流转护住全身"}
+      ],
+      "combat_style": "少林扎根基武功，招式简单但内功至纯"
+    },
+    {
+      "id": "skill_luohanquan",
+      "name": "罗汉拳",
+      "techniques": [
+        {"id": "tech_luohan_heihtouxin", "name": "黑虎偷心", "type": "attack", "description": "最粗浅的一招拳法，但附以小无相功后可消解多罗指指力，每发一拳将鸠摩智逼退半尺"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "逼退", "condition": "反复使出黑虎偷心", "description": "每发一拳将鸠摩智逼退半尺，令其种种神妙招数不能及身"}
+      ],
+      "combat_style": "笨拙单一但内力雄浑，以不变应万变"
+    },
+    {
+      "id": "skill_tianshanliuyang",
+      "name": "天山六阳掌",
+      "techniques": [
+        {"id": "tech_liuyang_yingjie", "name": "六阳掌化解", "type": "defense", "description": "双手以天山六阳掌化解鸠摩智势若狂飙的连续攻击"}
+      ],
+      "progression": [
+        {"level": 5, "unlock": "虚竹在灵鹫宫石壁习武后精微变化了然于胸，与鸠摩智拆数百招后领悟越来越多"}
+      ],
+      "effects": [
+        {"type": "反攻", "condition": "拆解百余招后", "description": "惊恐之心渐去，十招中能还击一招，后增至二三成乃至四成攻势"}
+      ],
+      "combat_style": "初时不熟渐入佳境，由守转攻"
+    },
+    {
+      "id": "skill_tianshanzhemo",
+      "name": "天山折梅手",
+      "techniques": [
+        {"id": "tech_zhemo_qinna", "name": "折梅擒拿", "type": "control", "description": "三根手指搭上对方手腕大拇指和小指收拢，令对方无法挣脱"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "控制", "condition": "抓住鸠摩智左腕", "description": "如套在一只铁箍之中无法挣脱，令其双掌连环交互为用的妙着无法使出"}
+      ],
+      "combat_style": "擒拿控制，令对手有力难施"
+    },
+    {
+      "id": "skill_huoyandao",
+      "name": "火焰刀",
+      "techniques": [
+        {"id": "tech_huoyan_duanjian", "name": "火焰刀削剑", "type": "attack", "description": "右掌一划，无形刀气将三柄长剑从中断绝"},
+        {"id": "tech_huoyan_luomao", "name": "火焰刀落帽", "type": "attack", "description": "合着双手向旁一分，暗运火焰刀将四姝头上僧帽无风自落，断发而不伤人"}
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "破坏", "condition": "气劲削剑", "description": "三柄长剑从中断绝"},
+        {"type": "震慑", "condition": "削落僧帽不伤肌肤", "description": "四姝青丝秀发飘落，断发而头皮无伤"}
+      ],
+      "combat_style": "凌虚掌力化气为刀，锐不可当"
+    },
+    {
+      "id": "skill_liumaizhijian",
+      "name": "六脉神剑",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "以指力化气为剑"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_40_xuzhu_zhan_jiumozhi",
+      "name": "虚竹大战鸠摩智",
+      "participants": ["char_xuzhu", "char_jiumozhi"],
+      "location": "loc_shaolinsi_daxiong",
+      "description": "虚竹以韦陀掌罗汉拳迎战鸠摩智的少林七十二绝技，一招黑虎偷心反复使出将鸠摩智逼退，以天山折梅手抓住对方左腕，双方僵持数百招，虚竹越战越勇渐占四成攻势",
+      "chapter": 40
+    },
+    {
+      "id": "evt_40_jiumozhi_touxi",
+      "name": "鸠摩智匕首偷袭虚竹",
+      "participants": ["char_xuzhu", "char_jiumozhi"],
+      "location": "loc_shaolinsi_daxiong",
+      "description": "鸠摩智连运三次内力无法挣脱虚竹的手，杀意陡生从布袜取出匕首刺入虚竹肩头直没至柄",
+      "chapter": 40
+    },
+    {
+      "id": "evt_40_sijian_louchun",
+      "name": "梅兰菊竹四姝暴露身份",
+      "participants": ["char_mojian", "char_jiumozhi", "char_xuzhu"],
+      "location": "loc_shaolinsi_daxiong",
+      "description": "四姝假扮僧人以四柄长剑同刺鸠摩智咽喉，被鸠摩智以火焰刀削断长剑削落僧帽露出满头青丝，少林声誉受辱",
+      "chapter": 40
+    },
+    {
+      "id": "evt_40_xuzhu_chusi",
+      "name": "虚竹被破门出教",
+      "participants": ["char_xuzhu", "char_xuancheng", "char_xuansi", "char_huilun"],
+      "location": "loc_shaolinsi_daxiong",
+      "description": "玄慈当众宣布虚竹犯杀淫荤酒四戒、私学旁门武功、擅任旁门掌门，玄寂宣布重打一百杖、废去少林武功、破门出教，虚竹伏地大哭愿代师父受三十杖",
+      "chapter": 40
+    },
+    {
+      "id": "evt_40_qunhao_beshan",
+      "name": "天下英雄齐聚少林",
+      "participants": ["char_xuancheng"],
+      "location": "loc_shaolinsi",
+      "description": "丐帮庄聚贤广发英雄帖邀群雄六月十五赴少林争夺武林盟主，河朔山东淮南两湖江南川陕两广各路英雄不约而同于一日内蜂拥而至",
+      "chapter": 40
+    },
+    {
+      "id": "evt_40_duanshi_fuzi",
+      "name": "段正淳段誉父子少林重逢",
+      "participants": ["char_duanzhengchun", "char_duanyu", "char_jiumozhi", "char_ruanxingzhu"],
+      "location": "loc_shaolinsi_daxiong",
+      "description": "段正淳牵挂爱子前来少林，被鸠摩智言语戏弄说段誉形销骨立，段誉以凌波微步抢入大殿扑在父亲怀中，父子尽欢",
+      "chapter": 40
+    },
+    {
+      "id": "evt_40_sidaeren_zhanshao",
+      "name": "四大恶人现身少林",
+      "participants": ["char_duanyanqing", "char_yieniang", "char_nanhaieshen", "char_yunzhonghe"],
+      "location": "loc_shaolinsi_daxiong",
+      "description": "段延庆率叶二娘南海鳄神云中鹤齐至少林大殿，叶二娘笑说丁春秋已将慕容复打得全无招架之功",
+      "chapter": 40
+    },
+    {
+      "id": "evt_40_yidadabiao_tuofu",
+      "name": "易大彪临终托付西夏榜文",
+      "participants": ["char_murongfu", "char_yidadabiao", "char_fengboe", "char_gongyegan"],
+      "location": "loc_shulin",
+      "description": "慕容复一行在林中遇丐帮内斗尸首，重伤老丐易大彪说庄聚贤是傀儡全冠清是奸贼，托付西夏国招驸马榜文后认出慕容复是本帮大仇人抢回榜文而亡",
+      "chapter": 40
+    },
+    {
+      "id": "evt_40_murongfu_juece",
+      "name": "慕容复决定赴西夏求亲",
+      "participants": ["char_murongfu", "char_dengbaichuan", "char_gongyegan", "char_baobutongshen", "char_fengboe"],
+      "location": "loc_shulin",
+      "description": "公冶乾翻译榜文后邓百川提出西夏联姻是复兴大燕的良机，慕容复动摇后决意去西夏应驸马之选，对王语嫣谎称先去丐帮送榜文让她去燕子坞暂住",
+      "chapter": 40
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_jiumozhi",
+      "listener": "char_xuzhu",
+      "text": "小师父服了么？",
+      "tone": "得意",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_xuzhu",
+      "listener": "char_jiumozhi",
+      "text": "国师手下留情！",
+      "tone": "谦恭",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_jiumozhi",
+      "listener": null,
+      "text": "少林寺不但倚多为胜，而且暗藏春色，数百年令誉，原来如此，我今日可领教了！",
+      "tone": "嘲讽",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_mojian",
+      "listener": "char_xuzhu",
+      "text": "主人，咱姊妹私自下山，前来服侍你，你可别责怪。",
+      "tone": "坦然",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_xuzhu",
+      "listener": "char_mojian",
+      "text": "胡闹，胡闹！",
+      "tone": "窘迫",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_zhujian",
+      "listener": "char_xuzhu",
+      "text": "主人，你也别做什么劳什子的和尚啦，大伙儿不如回缥缈峰去罢，在这儿青菜豆腐，没半点油水，又得受人管束，有什么好！",
+      "tone": "直爽",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_xuancheng",
+      "listener": null,
+      "text": "老衲职为本寺方丈，于此六件大事，无一件能善为料理，实是汗颜无地。",
+      "tone": "沉重",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_xuzhu",
+      "listener": "char_xuancheng",
+      "text": "弟子无明障重，尘垢不除，一遇外魔，便即把持不定，连犯荤戒、酒戒、杀戒、淫戒，背弃本门，学练旁门外道的武功，又招致四位姑娘入寺，败坏本寺清誉，罪大恶极，罚不胜罚，只求我佛慈悲，方丈慈悲。",
+      "tone": "悲切",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_xuanci",
+      "listener": null,
+      "text": "虚竹，老衲罚你破门出寺，却非对你心存恶念，断你皈依我佛之路。天下庄严宝刹，何止千千万万。盼你另投名寺，拜高僧为师，清净身心，早证正觉。",
+      "tone": "慈和恳切",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_xuansi",
+      "listener": "char_xuzhu",
+      "text": "虚竹，方丈所指罪业，你都承认么？有何辩解？",
+      "tone": "冷峻",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_yieniang",
+      "listener": null,
+      "text": "丁春秋大显神通，已将慕容公子打得全无招架之功。大伙可要去瞧瞧热闹么？",
+      "tone": "阴笑",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_jiumozhi",
+      "listener": "char_duanzhengchun",
+      "text": "慕容公子，既已上得少室山来，怎地还不进寺礼佛？",
+      "tone": "挑衅",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_baobutongshen",
+      "listener": "char_murongfu",
+      "text": "公子爷做晋文公，咱四兄弟便是狐毛、狐偃、介子推……",
+      "tone": "激昂",
+      "chapter": 40
+    },
+    {
+      "speaker": "char_wangyuyan",
+      "listener": null,
+      "text": "表哥，这……这是去燕子坞的路么？",
+      "tone": "疑惑",
+      "chapter": 40
+    }
+  ]
+}

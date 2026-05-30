@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""深度提取脚本：基于骨架索引，逐章调用LLM提取详细数据"""
+"""精细化深度提取脚本：基于骨架索引+章节原文，逐章生成LLM提取prompt"""
 
 import os
 import sys
@@ -7,6 +7,7 @@ import json
 import re
 
 CHAPTERS_DIR = "金庸/天龙八部/chapters"
+CHAPTER_TEXT_DIR = "金庸/天龙八部/ch_formatted"
 PROMPT_FILE = "tools/extract/deep-prompt.md"
 PROGRESS_FILE = "金庸/天龙八部/progress.json"
 
@@ -21,6 +22,17 @@ def load_progress():
 def save_progress(progress):
     with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
         json.dump(progress, f, ensure_ascii=False, indent=2)
+
+
+def load_chapter_text(ch_num):
+    """加载章节格式化原文"""
+    path = os.path.join(CHAPTER_TEXT_DIR, f"ch_{ch_num:02d}.md")
+    if not os.path.exists(path):
+        path = os.path.join("金庸/天龙八部/ch_original", f"ch_{ch_num:02d}.md")
+    if not os.path.exists(path):
+        return None
+    with open(path, 'r', encoding='utf-8') as f:
+        return f.read()
 
 
 def load_skeleton(ch_num):
@@ -85,9 +97,14 @@ def main():
             print(f"[SKIP] 章节 {ch_num} - 骨架文件不存在")
             continue
 
+        chapter_text = load_chapter_text(ch_num)
+        if chapter_text is None:
+            print(f"[SKIP] 章节 {ch_num} - 章节原文不存在")
+            continue
+
         deep_output = os.path.join(CHAPTERS_DIR, f"ch_{ch_num:02d}_deep.json")
         if os.path.exists(deep_output):
-            print(f"[SKIP] 章节 {ch_num} - 深度提取已存在")
+            print(f"[SKIP] 章节 {ch_num} - 深度提取已存在（如需重跑请先删除）")
             if ch_num not in progress["deep"]["done"]:
                 progress["deep"]["done"].append(ch_num)
             continue
@@ -96,17 +113,17 @@ def main():
         skeleton_index = format_skeleton_index(skeleton)
 
         # 替换prompt中的占位符
-        full_prompt = prompt_template.replace("{{SKELETON_INDEX}}", skeleton_index)
+        full_prompt = prompt_template
+        full_prompt = full_prompt.replace("{{CHAPTER_TEXT}}", chapter_text)
+        full_prompt = full_prompt.replace("{{SKELETON_INDEX}}", skeleton_index)
 
-        # 读取章节原文
-        # 注意：需要从原始小说中读取对应章节
-        # 这里简化处理，实际需要和extract-skeleton.py相同的章节分割逻辑
+        # 写入prompt文件供LLM调用
         prompt_output = os.path.join(CHAPTERS_DIR, f"ch_{ch_num:02d}_deep_prompt.txt")
         with open(prompt_output, 'w', encoding='utf-8') as f:
             f.write(full_prompt)
 
-        print(f"[INFO] 章节 {ch_num} - 深度提取prompt已写入 {prompt_output}")
-        print(f"[TODO] 章节 {ch_num} - 需要调用LLM获取结果并保存到 {deep_output}")
+        print(f"[INFO] 章节 {ch_num} - 精细化深度提取prompt已写入 {prompt_output}")
+        print(f"[ACTION] 章节 {ch_num} - 请将 {prompt_output} 发送给LLM，将输出保存到 {deep_output}")
 
     save_progress(progress)
     print("完成！")
