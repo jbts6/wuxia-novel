@@ -436,7 +436,10 @@
         {"id": "tech_jinsuanpa_danshu", "name": "金算盘弹珠", "type": "attack", "description": "以内力震断算盘竹柱，激射算珠伤人，七十七枚算珠随时可用弹簧弹出"},
         {"id": "tech_jinsuanpa_dingzhu", "name": "算珠钉穴", "type": "attack", "description": "算盘珠精确打入敌人穴道，嵌入肉中难以取出"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "以内力震断算盘竹柱，弹簧激射算珠，七十七枚可连发"},
+        {"level": 2, "unlock": "算珠精准钉入对方穴道，嵌入肉中遇雨天酸痛难当"}
+      ],
       "effects": [
         {"type": "嵌入", "condition": "算珠击中穴道", "description": "算珠嵌肉，遇雨天酸痛难当"},
         {"type": "伤害", "condition": "算珠高速射出", "description": "力道足以穿肉钉骨"}
@@ -447,9 +450,14 @@
       "id": "skill_xiuluodao",
       "techniques": [
         {"id": "tech_xiuluo_shizijiao", "name": "十字斫", "type": "attack", "description": "双刀交叉斩击，快如飘风，是修罗刀成名绝技"},
-        {"id": "tech_xiuluo_dujian", "name": "修罗毒箭", "type": "attack", "description": "连环射出淬毒短箭，分射上中下三路，歹毒无比"}
+        {"id": "tech_xiuluo_dujian", "name": "修罗毒箭", "type": "attack", "description": "连环射出淬毒短箭，分射上中下三路，歹毒无比"},
+        {"id": "tech_xiuluo_gemen", "name": "修罗断门", "type": "attack", "description": "以修罗刀锋从门缝中插入切断门闩，刀锋蓝印印，锋利无比"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "双刀快攻『十字斫』，出手迅猛如飘风"},
+        {"level": 2, "unlock": "连发毒箭，分射上中下三路，诡变莫测"},
+        {"level": 3, "unlock": "以修罗刀切金断木，削铁如泥，可断门闩、切器物"}
+      ],
       "effects": [
         {"type": "中毒", "condition": "箭矢擦伤", "description": "刀身呈蓝印之光，见血即毙"}
       ],

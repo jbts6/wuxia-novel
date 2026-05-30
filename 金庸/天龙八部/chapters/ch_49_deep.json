@@ -105,16 +105,26 @@
     {
       "id": "skill_jianglong18",
       "name": "降龙十八掌",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_jianglong_weili", "name": "降龙掌力", "type": "attack", "description": "萧峰以内力催动掌法，刚猛无俦，天下无双，本回中因拒统兵南征故未在战阵中施展"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "萧峰武功已至化境，辽帝虽命其统兵南征，萧峰宁可自囚也不愿以掌法屠戮宋人"}
+      ],
+      "effects": [
+        {"type": "刚猛冲击", "condition": "掌力正面击中", "description": "降龙十八掌号称天下第一刚猛掌法，掌力雄浑无匹，中者筋折骨裂"}
+      ],
       "combat_style": "刚猛无俦，天下第一刚猛掌法"
     },
     {
       "id": "skill_bingcan",
       "name": "冰蚕毒掌",
-      "techniques": [],
-      "progression": [],
+      "techniques": [
+        {"id": "tech_bingcan_handu", "name": "冰蚕寒毒掌力", "type": "attack", "description": "以冰蚕寒毒为根基的阴毒掌力，中者寒毒入骨，游坦之一身武功皆系于此，本回中未出手"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "游坦之从冰蚕吸取寒毒内力，练成冰蚕毒掌，成为丐帮帮主庄聚贤"}
+      ],
       "effects": [
         {"type": "剧毒", "condition": "掌力击中", "description": "以冰蚕寒毒为根基，中者寒毒入体"},
         {"type": "寒冷", "condition": "内力催动", "description": "掌力中蕴含极寒之气"}
@@ -193,6 +203,14 @@
       "participants": ["char_azi", "char_xiaofeng"],
       "location": "loc_nanjing_baimaqiao",
       "description": "萧峰被押回王府途中经过白马桥，阿紫飞身跃入河中，以超强水性潜水而逃，萧峰故意说她自杀以掩护",
+      "chapter": 49
+    },
+    {
+      "id": "evt_49_yeluhongji_diaobing",
+      "name": "耶律洪基调兵围困王府",
+      "participants": ["char_yeluhongji", "char_xiaofeng", "char_muguifei"],
+      "location": "loc_nanjing_nanyuanwangfu",
+      "description": "耶律洪基得知萧峰挂印欲逃，勃然大怒，调遣御营飞龙、飞虎、飞豹三营及重兵围困南院大王府，穆贵妃献计以圣水骗阿紫下毒",
       "chapter": 49
     }
   ],

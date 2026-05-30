@@ -241,7 +241,10 @@
       "techniques": [
         {"id": "tech_liuyang_yanggetianjun", "name": "阳歌天钧", "type": "attack", "description": "天山六阳掌掌法，阳和内力可为对方化解生死符寒毒"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 2, "unlock": "得童姥传授天山六阳掌化解生死符之法，以阳歌天钧镇住胖岛主体内寒毒令其神智恢复"},
+        {"level": 3, "unlock": "以天山六阳掌纯阳之力为哈大霸化去悬枢、气海、丝空竹三穴的寒冰生死符"}
+      ],
       "effects": [
         {"type": "治疗", "condition": "在背上灵台穴一拍", "description": "以阳和内力镇住生死符寒毒，令发狂者神智恢复"},
         {"type": "治疗", "condition": "找到生死符所在穴道", "description": "以六阳掌纯阳之力将穴道中的寒冰生死符化去"}
@@ -255,7 +258,10 @@
         {"id": "tech_zhemo_duojian", "name": "折梅手夺剑", "type": "defense", "description": "以极快手法抓住对方兵刃夺下，连抓十三件兵器包括飞刀和长剑"},
         {"id": "tech_zhemo_fuxue", "name": "折梅手拂穴", "type": "control", "description": "以小指拂对手太渊穴令其手麻松剑，内含最上乘小无相功"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 2, "unlock": "以天山折梅手小指轻拂卓不凡右腕太渊穴，夺下其手中长剑，再顺手塞还"},
+        {"level": 3, "unlock": "天山折梅手施展开来，将崔绿华十二柄飞刀及卓不凡长剑共十三件兵刃随抓随抛尽数夺下"}
+      ],
       "effects": [
         {"type": "反制", "condition": "对方以兵刃攻击", "description": "随抓随抛，顷刻间将对方兵刃尽数夺下置于脚边"},
         {"type": "震慑", "condition": "同时夺下十三件兵器", "description": "令场中卓不凡和崔绿华惊惧失色"}
@@ -265,8 +271,16 @@
     {
       "id": "skill_beiming",
       "name": "北冥真气",
-      "techniques": [],
-      "progression": [],
+      "techniques": [
+        {"id": "tech_beiming_zhenjiao", "name": "北冥真气贯刃", "type": "attack", "description": "北冥真气运到刃锋之上，普通柳叶刀切铁链如斩竹木"},
+        {"id": "tech_beiming_huti", "name": "北冥真气护体", "type": "defense", "description": "体内北冥真气充盈流转宛若实质，长剑刺上撞到真气便即滑开"},
+        {"id": "tech_beiming_fanzhen", "name": "北冥真气反震", "type": "defense", "description": "双掌运力击胸，猛烈无比的力道反击而来将攻击者弹飞撞墙重伤"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "北冥真气贯注利刃，以普通柳叶刀切铁链如斩竹木"},
+        {"level": 4, "unlock": "体内北冥真气充盈流转宛若实质，自动护体令卓不凡长剑滑开"},
+        {"level": 5, "unlock": "北冥真气反震之力将崔绿华弹飞撞墙，喷出两口鲜血"}
+      ],
       "effects": [
         {"type": "防御", "condition": "真气贯注利刃之上", "description": "以普通柳叶刀切铁链如斩竹木"},
         {"type": "增益", "condition": "真气充盈流转", "description": "宛若实质护体，卓不凡长剑刺上撞到真气便滑开"},
@@ -282,7 +296,10 @@
         {"id": "tech_zhougong_bamang", "name": "天如穹庐与白雾茫茫", "type": "attack", "description": "两招混一以剑光圈人，九虚一实"},
         {"id": "tech_zhougong_yudai", "name": "玉带围腰", "type": "attack", "description": "横剑削向对手胁下，一剑连攻前后右三个方位"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 7, "unlock": "卓不凡在长白山巧得前辈遗留剑经，勤练三十年，剑术大成自信天下无敌"},
+        {"level": 8, "unlock": "剑尖生出半尺吞吐不定的青芒，可刺入坚硬花岗石柱中深入尺许"}
+      ],
       "effects": [
         {"type": "震慑", "condition": "井字斩切桌", "description": "九块木板大小阔狭全无差别，如尺量后慢慢剖成"},
         {"type": "剑芒", "condition": "运足真气", "description": "剑尖生出半尺吞吐不定的青芒可刺入花岗石柱尺余"}
@@ -295,7 +312,9 @@
       "techniques": [
         {"id": "tech_douzhuan_yishou", "name": "斗转星移借力打力", "type": "defense", "description": "一带之间将两般兵刃互撞，鬼头刀砍向大铁椎，大铁椎砸向鬼头刀"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 6, "unlock": "慕容复以斗转星移一带之间将鬼头刀与大铁椎相互对撞，化解乌老大与哈大霸的双面夹击"}
+      ],
       "effects": [
         {"type": "化解", "condition": "双兵刃同时攻来", "description": "慕容复以斗转星移将乌老大鬼头刀和哈大霸大铁椎相互对撞化解"}
       ],

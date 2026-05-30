@@ -153,7 +153,11 @@
         {"id": "tech_ditang_gongfu", "name": "地堂功夫", "type": "defense", "description": "战阵中在马腹下翻滚腾挪，从千百马蹄践踏中穿梭自如，是中原武林的平实地堂功夫"},
         {"id": "tech_yue_zhong_er_qi", "name": "纵跃擒王", "type": "attack", "description": "在数十万军中纵身而起，从三十几面盾牌之上飞跃而过，落入敌阵生擒皇太叔"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 8, "unlock": "马腹藏身连珠箭法：藏身马腹之下以双脚踢马操控方向，连开硬弓箭附内劲，在千军万马中射杀楚王"},
+        {"level": 9, "unlock": "地堂功夫用于战阵：在千军万马马蹄下翻滚腾挪，从千百马蹄践踏中穿梭自如，逼近皇太叔"},
+        {"level": 10, "unlock": "纵跃擒王：在数十万军中纵身而起从三十几面盾牌之上飞跃而过，落入敌阵生擒皇太叔，一声大喝压过十余万人喧哗令叛军军心瓦解"}
+      ],
       "effects": [
         {"type": "战阵", "condition": "马腹藏身连珠箭", "description": "箭附内力，楚王以鞭击箭只拨得稍歪，仍被射入左肩，第二箭透胸而死"},
         {"type": "威慑", "condition": "生擒皇太叔", "description": "在千军万马中生擒敌军首领，一声大喝盖过十余万人喧哗，令叛军军心瓦解"}
@@ -232,6 +236,14 @@
       "participants": ["char_xiaofeng", "char_youtanzhi", "char_azi"],
       "location": "loc_nanjing_outskirts",
       "description": "游坦之混在俘虏中，谎称有机密求见。趁萧峰不备以石灰包掷面，被萧峰挥鞭击落。游坦之自称聚贤庄游氏双雄子侄，欲自杀但被萧峰阻止放行",
+      "chapter": 27
+    },
+    {
+      "id": "evt_27_azi_fengchen",
+      "name": "阿紫巧言奉承耶律洪基",
+      "participants": ["char_xiaofeng", "char_yelu_hongji", "char_azi"],
+      "location": "loc_pishi_dazhang",
+      "description": "耶律洪基在皮室大帐称赞萧峰为辽国第一英雄好汉，阿紫插口说萧峰只能是第二位，第一位是陛下，精于谄谀之术令洪基大喜，顺势要封萧峰大官",
       "chapter": 27
     }
   ],

@@ -158,7 +158,10 @@
         "temperament": "阴沉狠毒"
       },
       "archetype": "assassin",
-      "relationships": [],
+      "relationships": [
+        {"target": "char_murongfu", "type": "ally", "intensity": 30, "bond_level": 2, "dynamic": "慕容复与王夫人密谋以醉人蜂加害，段延庆早已察觉并突然现身，言语阴冷，反客为主"},
+        {"target": "char_wangfuren", "type": "enemy", "intensity": 40, "bond_level": 2, "dynamic": "王夫人设醉人蜂之局本想擒段正淳，段延庆早已在侧窥视，令王夫人与慕容复惊惧"}
+      ],
       "known_skills": ["skill_yiyangzhi"],
       "related_skills": []
     }
@@ -171,7 +174,11 @@
         {"id": "tech_zhuirenfeng_mihun", "name": "醉人蜂刺", "type": "attack", "description": "以特殊药物培养的蜜蜂，蜂刺上有麻药和迷药，被刺后四五日不省人事"},
         {"id": "tech_zhuirenfeng_yindao", "name": "药引诱蜂", "type": "support", "description": "在食物中掺入无色无臭略带苦味的药物，再以木柱中暗藏药粉与灯油药气混合，吸引醉人蜂攻击"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "unlock": "初代醉人蜂培育成功，在蜂食蜂蜜中逐步加入麻药，蜂刺可致人麻痹"},
+        {"level": 2, "unlock": "十余年培育，以药喂蜂，蜂毒中麻药剂量大增，被刺数百针后可昏迷四五日"},
+        {"level": 3, "unlock": "完善诱蜂系统：食物掺药、灯油藏药、柱中药粉，三种药气混合方可引蜂攻击，环环相扣"}
+      ],
       "effects": [
         {"type": "麻痹昏迷", "condition": "被蜂刺中数百针", "description": "除蜂毒外有麻药，连段誉吃过莽牯朱蛤后仍被迷倒"},
         {"type": "引蜂", "condition": "三种药气混合", "description": "食物药、灯油药、柱中药混合香气，驱使醉人蜂攻击"}
@@ -242,6 +249,22 @@
       "participants": ["char_duanyanqing", "char_murongfu", "char_wangfuren"],
       "location": "loc_wangfuren_zhuang",
       "description": "慕容复与王夫人密谋之际，段延庆以极尖锐难听的声音传话，说早已到来，请他们布置醉人蜂，情节突转",
+      "chapter": 47
+    },
+    {
+      "id": "evt_47_touxiang_mimi",
+      "name": "段誉隔室偷听王夫人与慕容复密谈",
+      "participants": ["char_duanyu", "char_wangfuren", "char_murongfu"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "段誉被擒后关在邻室，听到王夫人与慕容复对话，得知王夫人乃父亲段正淳旧情人，又获悉醉人蜂的详细布置手段，心中惊恐",
+      "chapter": 47
+    },
+    {
+      "id": "evt_47_baobutang_beichi",
+      "name": "包不同插嘴被王夫人呵斥",
+      "participants": ["char_baobutang", "char_wangfuren"],
+      "location": "loc_wangfuren_zhuang",
+      "description": "包不同在窗外为段誉和王语嫣说话，称二人乃天生一对，王夫人怒斥要杀其女，包不同天不怕地不怕却因上下之分而噤若寒蝉",
       "chapter": 47
     }
   ],

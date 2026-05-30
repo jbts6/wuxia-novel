@@ -189,7 +189,10 @@
       "techniques": [
         {"id": "tech_liumai_danding", "name": "六脉全发", "type": "attack", "description": "得鸠摩智全部内力后威力震古铄今，萧峰自认全力应对也未必能敌"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 3, "unlock": "内力震古铄今，凌波微步施展开来万军之中无人可阻，如游鱼般穿过长矛刀斧缝隙"},
+        {"level": 4, "unlock": "与虚竹合力于千军万马中生擒辽帝耶律洪基，助萧峰逼其立誓退兵"}
+      ],
       "effects": [
         {"type": "伤害", "condition": "剑气击中", "description": "无形剑气可洞穿一切"},
         {"type": "擒拿", "condition": "配合凌波微步", "description": "在千军万马中如游鱼般穿行，直取辽帝"}
@@ -202,8 +205,13 @@
       "techniques": [
         {"id": "tech_liuyang_kongshou", "name": "空手夺白刃", "type": "attack", "description": "虚竹以掌搭住耶律洪基宝刀刀背，顺势抓住其手腕，夺刀擒人"}
       ],
-      "progression": [],
-      "effects": [],
+      "progression": [
+        {"level": 2, "unlock": "武功随心所欲无往不利，以天山六阳掌空手夺白刃，擒获辽帝耶律洪基"}
+      ],
+      "effects": [
+        {"type": "擒拿", "condition": "掌力搭住兵刃", "description": "以掌搭住宝刀刀背，乘势滑落抓住敌腕，夺刀擒人"},
+        {"type": "制敌", "condition": "扣住手腕脉门", "description": "手掌翻处抓住敌手腕脉，使其丧失反抗能力"}
+      ],
       "combat_style": "轻灵飘逸，以巧取胜，随心所欲"
     }
   ],

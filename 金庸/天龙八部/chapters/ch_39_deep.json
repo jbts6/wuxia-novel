@@ -223,8 +223,13 @@
     {
       "id": "skill_xiaowuxiangong",
       "name": "小无相功",
-      "techniques": [],
-      "progression": [],
+      "techniques": [
+        {"id": "tech_xiaowuxiang_cuidong", "name": "小无相功催动", "type": "attack", "description": "以道家小无相功内力催动般若掌、摩诃指、大金刚拳、袈裟伏魔功等少林绝技的招数，不着形相无迹可寻"}
+      ],
+      "progression": [
+        {"level": 8, "unlock": "鸠摩智以一门小无相功催动大金刚拳洛钟东应、般若掌慑伏外道、摩诃指三入地狱、袈裟伏魔功等多项少林绝技，威力强劲镇慑当场"},
+        {"level": 9, "unlock": "虚竹得无崖子亲传小无相功，后在灵鹫宫石壁领悟秘奥，一眼看破鸠摩智以道代佛的实质"}
+      ],
       "effects": [
         {"type": "催动", "condition": "以道家内力催动佛门武学招数", "description": "以一门小无相功催动般若掌、摩诃指、大金刚拳等少林绝技的招数，威力强劲"},
         {"type": "伪装", "condition": "蓄意模仿", "description": "不着形相无迹可寻，若非同道高手决计看不出其内功本质"}
@@ -237,7 +242,10 @@
       "techniques": [
         {"id": "tech_nianhua_santan", "name": "拈花三弹", "type": "attack", "description": "右手食指中指轻轻搭住作拈花之状，向对方弹三弹，指力凌厉如利刃"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 6, "unlock": "玄渡以生平修炼的拈花指与鸠摩智对拼三弹指力，被三道凌厉指力射穿胸口"},
+        {"level": 7, "unlock": "虚竹以掌力将玄渡胸口三股血水逼回胸中，轮指封住伤口上下十一处穴道并喂九转熊蛇丸救回"}
+      ],
       "effects": [
         {"type": "伤害", "condition": "指力击中胸口", "description": "玄渡胸口被射穿三支血箭，激喷数尺"},
         {"type": "治疗", "condition": "虚竹救玄渡", "description": "虚竹以掌力将三股血水逼回玄渡胸中，轮指虚点封穴道止血"}
@@ -252,8 +260,14 @@
         {"id": "tech_boruo_shefu", "name": "慑伏外道", "type": "attack", "description": "般若掌招数，掌力如宝刀利刃可在铜鼎上割下手掌般一块"},
         {"id": "tech_boruo_xiagu", "name": "峡谷天风", "type": "attack", "description": "双掌一立似行礼却不合拢，一股掌力从双掌间疾吐而出"}
       ],
-      "progression": [],
-      "effects": [],
+      "progression": [
+        {"level": 5, "unlock": "玄生以般若掌天衣无缝袭击波罗星，被神山一瞥间看破虚右实左精义所在"},
+        {"level": 6, "unlock": "鸠摩智以般若掌慑伏外道掌力如宝刀利刃，将铜鼎割去手掌形一块"}
+      ],
+      "effects": [
+        {"type": "攻击", "condition": "虚实掌力交互", "description": "右掌力微而实左掌力沉而虚，虚实交互为用，敌人不察极易上当"},
+        {"type": "破坏", "condition": "掌力如宝刀利刃触鼎", "description": "铜鼎上被割去手掌般一块，割口处黄光灿然"}
+      ],
       "combat_style": "最精奥掌法，循序而进永无穷尽，掌力越练越强"
     },
     {
@@ -263,8 +277,14 @@
         {"id": "tech_mohe_sanru", "name": "三入地狱", "type": "attack", "description": "大拇指向外一捺，凌厉指力射出可令铜鼎平移"},
         {"id": "tech_mohe_yidaidaolao", "name": "以逸待劳", "type": "attack", "description": "左手食指削向对方掌缘，全身之力聚于一指可废人手掌"}
       ],
-      "progression": [],
-      "effects": [],
+      "progression": [
+        {"level": 5, "unlock": "玄生以摩诃指以逸待劳突袭波罗星，部位之准力道之凝非同凡俗"},
+        {"level": 6, "unlock": "鸠摩智以摩诃指正宗招数三入地狱连捺三下，铜鼎移开一尺半，所蕴功力超凡入圣"}
+      ],
+      "effects": [
+        {"type": "击退", "condition": "大拇指捺出指力", "description": "凌厉指力射将过去，铜鼎向左移开了半尺"},
+        {"type": "连击", "condition": "连捺三下", "description": "铜鼎移开一尺又半才落地，指力所蕴功力实已到了超凡入圣的境地"}
+      ],
       "combat_style": "指法精纯，用功极苦"
     },
     {
@@ -274,8 +294,14 @@
         {"id": "tech_dajingang_luozhong", "name": "洛钟东应", "type": "attack", "description": "右拳直击而出，拳不着鼎而铜鼎向上跳起，拳力之巧深得秘要"},
         {"id": "tech_dajingang_qixingjuhui", "name": "七星聚会", "type": "attack", "description": "连出七拳分击对方额颚颈肩臂胸背七个部位，快得难以形容"}
       ],
-      "progression": [],
-      "effects": [],
+      "progression": [
+        {"level": 5, "unlock": "玄生以大金刚拳七星聚会连出七拳突袭波罗星，快得电光石火"},
+        {"level": 6, "unlock": "鸠摩智以大金刚拳洛钟东应拳不着鼎而铜鼎镗的一声向上跳起，拳力之巧实已深得秘要"}
+      ],
+      "effects": [
+        {"type": "凌空", "condition": "拳劲击出而不触铜鼎", "description": "右拳呼的一声直击而出，铜鼎镗的一声跳了起来，拳不着鼎而铜鼎发声"},
+        {"type": "连击", "condition": "瞬间出七拳", "description": "分击额、颚、颈、肩、臂、胸、背七个部位，快得难以形容"}
+      ],
       "combat_style": "刚猛霸道，拳力可凌空击物"
     },
     {
@@ -284,8 +310,12 @@
       "techniques": [
         {"id": "tech_jia'ya_yixiu", "name": "袈裟伏魔袖功", "type": "attack", "description": "袍袖一拂，以袖力令七尺外的铜鼎连打几个转，鼎身被剜去手掌形一块"}
       ],
-      "progression": [],
-      "effects": [],
+      "progression": [
+        {"level": 7, "unlock": "鸠摩智以袈裟伏魔功袍袖一拂，七尺外铜鼎连打几个转，鼎身正中剜去手掌形一块割口黄光灿然"}
+      ],
+      "effects": [
+        {"type": "破坏", "condition": "袍袖拂出", "description": "七尺外铜鼎连打几个转，鼎身正中剜去一只手掌之形，割口黄光灿然"}
+      ],
       "combat_style": "袖功精纯，谈笑间运劲不泄真气"
     },
     {
@@ -294,7 +324,9 @@
       "techniques": [
         {"id": "tech_liuyang_zhenshe", "name": "六阳掌镇伤", "type": "heal", "description": "以阳和浑厚力道透入人体内，为走火入魔的四姝治伤"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 4, "unlock": "以天山六阳掌阳和浑厚力道在四姝背心穴道上轻拍，为其治疗观看石壁图谱走火入魔之内伤"}
+      ],
       "effects": [
         {"type": "治疗", "condition": "在背心穴道上轻拍", "description": "一股阳和浑厚的力道透入体内，令脸色登时平和，额头渗出汗珠"}
       ],

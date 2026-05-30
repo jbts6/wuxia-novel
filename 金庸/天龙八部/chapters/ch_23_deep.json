@@ -172,7 +172,9 @@
       "techniques": [
         {"id": "tech_qinlong_gekong", "name": "隔空取物", "type": "attack", "description": "萧峰以擒龙功隔空夺取断刀，内力到处拍的一声将钢刀震断为两截"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "description": "已臻化境，可隔空抓取兵器，以内力震断刀剑，以袍袖劲风操控十数枚暗器钉入墙体，收发自如"}
+      ],
       "effects": [
         {"type": "控制", "condition": "内力运转", "description": "隔空抓取兵器，内力震断刀剑"}
       ],
@@ -183,7 +185,9 @@
       "techniques": [
         {"id": "tech_longzhua_qinna", "name": "龙爪擒拿", "type": "attack", "description": "少林擒拿手法，萧峰以此制住秦红棉母女"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 1, "description": "出手如电，擒拿锁扣与点穴制敌兼具，一招之内可同时制住两名对手，令其动弹不得"}
+      ],
       "effects": [
         {"type": "控制", "condition": "擒拿锁扣", "description": "出手如电，可制住对手要穴令其动弹不得"}
       ],
@@ -191,9 +195,15 @@
     },
     {
       "id": "skill_yi_yang_zhi",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
+      "techniques": [
+        {"id": "tech_yiyang_zhifa", "name": "一阳指", "type": "attack", "description": "大理段氏家传上乘指法，段正淳精通此技，但本章中未实际施展"}
+      ],
+      "progression": [
+        {"level": 1, "description": "段正淳自幼修习一阳指，按大理段氏家传修炼法门已有深厚根基，但本章未展示实战修为"}
+      ],
+      "effects": [
+        {"type": "点穴", "condition": "内力运于指尖凌空发出", "description": "以精纯指力隔空点穴，中者穴道被封动弹不得"}
+      ],
       "combat_style": "大理段氏指法绝技"
     }
   ],

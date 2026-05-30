@@ -154,7 +154,10 @@
         {"id": "tech_leigong_fengdiantou", "name": "凤点头连敲", "type": "attack", "description": "小锤连续三击，招数怪异纯熟"},
         {"id": "tech_leigong_dileimiwang", "name": "地母雷网", "type": "attack", "description": "多人以雷公轰地堂功夫围攻，组成合击网"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 5, "unlock": "青城派弟子可掌握基本雷公轰招式用于单人对敌"},
+        {"level": 8, "unlock": "高手可配合地堂功夫如雷公着地轰，多人组成地母雷网围攻"}
+      ],
       "effects": [
         {"type": "伤害", "condition": "近身击中", "description": "兵刃短小精悍，近身肉搏杀伤力强"},
         {"type": "暗器", "condition": "扣动机关", "description": "从钢锥中发射青蜂钉或天王补心针"}
@@ -195,7 +198,10 @@
       "techniques": [
         {"id": "tech_tianwangzhen", "name": "天王补心针", "type": "attack", "description": "蓬莱派独门暗器，外形似青蜂钉但劲力不同，锥中有强力机簧可连发十二枚钢针"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 6, "unlock": "蓬莱派高手可掌握以雷公轰发射天王补心针，外形伪装成青蜂钉"},
+        {"level": 9, "unlock": "锥中可装十二枚钢针连发，劲力强劲可射入屋梁"}
+      ],
       "effects": [
         {"type": "伤害", "condition": "射出命中", "description": "钢针速度极快劲力极强，可射入梁中"}
       ],
@@ -206,7 +212,10 @@
       "techniques": [
         {"id": "tech_xiuli_fashe", "name": "袖中发射", "type": "attack", "description": "双手笼在袖中暗中扳动青蜂钉机括发射，神不知鬼不觉"}
       ],
-      "progression": [],
+      "progression": [
+        {"level": 7, "unlock": "司马氏家传绝技，可在袖中暗装青蜂钉机关伺机发射"},
+        {"level": 10, "unlock": "不动声色间暗中扳动袖中机括发射青蜂钉，神鬼莫测"}
+      ],
       "effects": [
         {"type": "伤害", "condition": "近距离暗算", "description": "在袖中发射青蜂钉，防不胜防"}
       ],
@@ -269,6 +278,30 @@
       "location": "loc_ting_xiang_shui_xie",
       "description": "公冶乾以飞鸽传书密信通知西夏国一品堂大批好手来到江南，包不同决定带王语嫣阿朱阿碧去查探后再赴河南与慕容复会合",
       "chapter": 13
+    },
+    {
+      "id": "evt_13_wang_yu_yan_quan_jie",
+      "name": "王语嫣以人品论劝姚伯当不可取笑麻脸",
+      "participants": ["char_wangyuyan", "char_yaobodang", "char_zhubaokun"],
+      "location": "loc_ting_xiang_shui_xie",
+      "description": "姚伯当取笑诸保昆麻脸，王语嫣劝道：男子汉大丈夫第一论人品心肠、第二论才干事业、第三论文学武功，脸蛋俊不俊有什么相干？姚伯当哑口无言坦承其过",
+      "chapter": 13
+    },
+    {
+      "id": "evt_13_yao_sima_dan_tiao",
+      "name": "姚伯当与司马林单打独斗",
+      "participants": ["char_yaobodang", "char_simalin"],
+      "location": "loc_ting_xiang_shui_xie",
+      "description": "姚伯当单刀对司马林的雷公轰，两人拆七十余招。王语嫣指出姚伯当失传的不止五招。司马林小锤击中姚伯当鼻梁胜出，欲赶尽杀绝时秦家寨副寨主率众飞刀救主",
+      "chapter": 13
+    },
+    {
+      "id": "evt_13_duan_yu_fei_ye_fan_ji",
+      "name": "段誉以非也非也回敬包不同斗嘴",
+      "participants": ["char_duanyu", "char_baobutong", "char_azhu", "char_abi"],
+      "location": "loc_ting_xiang_shui_xie",
+      "description": "包不同说段誉点头即心中认为他说得有理，段誉学包不同的口头禅非也非也反驳：第一只是点头而非连连点头，第二是实情如此而非单只包兄有理。包不同哈哈大笑赞其乃以彼之道还施彼身",
+      "chapter": 13
     }
   ],
   "dialogues": [
@@ -326,6 +359,20 @@
       "listener": "char_yaobodang",
       "text": "你那脓包师弟秦伯起，他再练三十年，也不配慕容公子去砍他一刀。再练一百二十年，慕容公子也不屑去砍他四刀。我不许你说一句话，快快给我滚了出去。",
       "tone": "极度轻蔑",
+      "chapter": 13
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_baobutong",
+      "text": "非也，非也！第一，我只不这点了一点头，而非连连点头。第二，那是实情如此，而非单只包兄说得有理。",
+      "tone": "巧妙反击",
+      "chapter": 13
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_azhu",
+      "text": "你们还是赶紧去和慕容公子相会为是。我再撞上和尚，最多也不过给他烧了。我又不是你们的表兄表弟，公子少爷，何劳关怀？",
+      "tone": "酸楚赌气",
       "chapter": 13
     }
   ]

@@ -116,17 +116,29 @@
     },
     {
       "id": "skill_liu_mai_shen_jian",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
-      "combat_style": "本章未使用"
+      "techniques": [
+        {"id": "tech_zhongchong_jian", "name": "中冲剑", "type": "attack", "description": "右手内劲聚于中冲穴激射而出，剑气无形无质"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "能激发出剑气但不会灵活运用，本章未实际施展"}
+      ],
+      "effects": [
+        {"type": "伤害", "condition": "击中目标", "description": "剑气可刺穿门窗板壁"}
+      ],
+      "combat_style": "以指力化无形剑气，段誉虽已掌握基本运劲法门但尚不能自如运用"
     },
     {
       "id": "skill_ling_bo_wei_bu",
-      "techniques": [],
-      "progression": [],
-      "effects": [],
-      "combat_style": "本章未使用"
+      "techniques": [
+        {"id": "tech_lingbo_tiqi", "name": "凌波提气", "type": "movement", "description": "按凌波微步法门提气轻身，步法飘逸灵动"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "段誉已掌握步法，在本章中因穴道被封真气受阻尝试施展但摔倒"}
+      ],
+      "effects": [
+        {"type": "移动", "condition": "真气畅通时", "description": "步法神妙迅捷，常人难以追上"}
+      ],
+      "combat_style": "以易经六十四卦为基础的轻功步法，闪避腾挪极佳但需内息通畅才能使用"
     }
   ],
   "events": [
@@ -185,6 +197,30 @@
       "location": "loc_tai_hu",
       "description": "夜色中四人划向听香水榭，一颗流星划过天空，王语嫣低声许愿被段誉听见。江南传说流星消失前说出愿望便能实现，但流星一闪即逝，愿望总难说全",
       "chapter": 12
+    },
+    {
+      "id": "evt_12_duanyu_zuo_hua_jiang",
+      "name": "段誉被罚做花匠种茶花",
+      "participants": ["char_duanyu", "char_wang_furen"],
+      "location": "loc_man_tuo_shan_zhuang",
+      "description": "王夫人罚段誉做花匠照料四盆白茶。段誉选中绿竹之畔幽静处移植四盆白茶，以大理皇室的莳花经验分别配植，自嘲大理王子做了花匠却可借机再见王语嫣",
+      "chapter": 12
+    },
+    {
+      "id": "evt_12_wang_yu_yan_qiu_qing",
+      "name": "王语嫣为阿朱阿碧向母亲求情",
+      "participants": ["char_wangyuyan", "char_wang_furen"],
+      "location": "loc_man_tuo_shan_zhuang",
+      "description": "王语嫣为救阿朱阿碧和探听表哥消息向母亲求情，王夫人拒绝并痛骂慕容家。母女关于慕容家的争执揭示两家宿怨，王夫人严禁女儿与慕容家往来",
+      "chapter": 12
+    },
+    {
+      "id": "evt_12_gu_dong_li_jia",
+      "name": "段誉鼓动王语嫣离家出走救表哥",
+      "participants": ["char_duanyu", "char_wangyuyan"],
+      "location": "loc_man_tuo_shan_zhuang",
+      "description": "王语嫣求情失败后忧心表哥，段誉以自身离家出走的经历鼓励她偷偷离开曼陀山庄去帮慕容复，又提议先救阿朱阿碧再一同前往，王语嫣心动决定同行",
+      "chapter": 12
     }
   ],
   "dialogues": [
@@ -242,6 +278,20 @@
       "listener": "char_wangyuyan",
       "text": "我这不是化功大法，这是我大理段氏家传的六阳融雪功，是从一阳指和六脉神剑中变化出来的。",
       "tone": "编造搪塞",
+      "chapter": 12
+    },
+    {
+      "speaker": "char_wangyuyan",
+      "listener": "char_duanyu",
+      "text": "你怎么会使化功大法？这等污秽的功夫，学来干什么？",
+      "tone": "诧异鄙夷",
+      "chapter": 12
+    },
+    {
+      "speaker": "char_wangyuyan",
+      "listener": "char_duanyu",
+      "text": "他比我大十岁，一直当我是他的小妹妹，以为我除了读书、除了记书上的武功之外，什么也不懂。他一直不知道，我读书是为他读的，记忆武功也是为他记的。若不是为了他，我宁可养些小鸡儿玩玩，或者是弹弹琴，写写字。",
+      "tone": "幽怨深情",
       "chapter": 12
     }
   ]
