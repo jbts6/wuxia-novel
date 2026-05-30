@@ -3,284 +3,887 @@
   "characters_detail": [
     {
       "id": "char_duanyu",
+      "name": "段誉",
       "personality": {
-        "traits": ["书生气", "善良", "坚毅", "好学", "自我宽解"],
-        "speech_style": "引经据典，内心独白丰富",
-        "temperament": "温和但关键时刻有决断力"
+        "traits": [
+          "书呆气重",
+          "善良宽厚",
+          "机智圆滑",
+          "坚守不习武原则",
+          "知恩图报"
+        ],
+        "speech_style": "谦和有礼中带书卷气，常引经据典自解，面对强敌则以言辞周旋",
+        "temperament": "温厚儒雅"
       },
       "archetype": "scholar",
       "relationships": [
-        {"target": "char_muwanqing_5", "type": "love", "intensity": 60, "bond_level": 3, "dynamic": "脱困后立即赶去救她，两人终相见"},
-        {"target": "char_zuozimu_5", "type": "npc", "intensity": 10, "bond_level": 1, "dynamic": "被其囚禁，后趁乱逃脱"}
+        {
+          "target": "char_muwanqing",
+          "type": "love",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "苦等七日后重逢，见她受伤心痛不已，但对其婚姻宣言仍半推半就"
+        },
+        {
+          "target": "char_yuguangbiao",
+          "type": "enemy",
+          "intensity": 20,
+          "bond_level": 1,
+          "dynamic": "被其看守囚禁，无意中吸走其内力"
+        }
       ],
-      "known_skills": ["skill_beiming", "skill_lingboweibu"],
+      "known_skills": [
+        "skill_beiming",
+        "skill_lingboweibu"
+      ],
       "related_skills": []
     },
     {
-      "id": "char_muwanqing_5",
+      "id": "char_muwanqing",
+      "name": "木婉清",
       "personality": {
-        "traits": ["刚烈", "痴情", "野性", "倔强"],
-        "speech_style": "冷厉渐转温柔",
-        "temperament": "外刚内柔"
+        "traits": [
+          "刚烈倔强",
+          "痴情至深",
+          "不通世故",
+          "恩怨分明",
+          "野性未驯"
+        ],
+        "speech_style": "言语直接不讳，对段誉时而温柔时而凶狠，对外人冷峻",
+        "temperament": "刚烈率真"
       },
       "archetype": "assassin",
       "relationships": [
-        {"target": "char_duanyu", "type": "love", "intensity": 90, "bond_level": 5, "dynamic": "苦等七日七夜，终于相见，喜极而泣又打耳光"},
-        {"target": "char_nanhaieshen_5", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "挑拨他与云中鹤互斗"},
-        {"target": "char_yeer_niang_5", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "险些被她挖去眼睛"}
+        {
+          "target": "char_duanyu",
+          "type": "love",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "苦等七日七夜心力交瘁，重逢后打他耳光又靠在他怀里，情根深种"
+        },
+        {
+          "target": "char_nanhaieshen",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 2,
+          "dynamic": "挑拨他与云中鹤相斗，暂得喘息"
+        },
+        {
+          "target": "char_yunzhonghe",
+          "type": "enemy",
+          "intensity": 85,
+          "bond_level": 3,
+          "dynamic": "面幕被其抢走，险遭侮辱"
+        }
       ],
-      "known_skills": ["skill_dujian_5"],
+      "known_skills": [
+        "skill_dujian"
+      ],
       "related_skills": []
     },
     {
-      "id": "char_yeer_niang_5",
+      "id": "char_nanhaieshen",
+      "name": "南海鳄神",
       "personality": {
-        "traits": ["残忍", "变态", "表面温柔"],
-        "speech_style": "温声细语，唱着儿歌",
-        "temperament": "表里不一"
+        "traits": [
+          "暴躁",
+          "头脑简单",
+          "重虚名",
+          "易被挑拨",
+          "固执己见"
+        ],
+        "speech_style": "粗声粗气，动辄骂人，易被言语左右",
+        "temperament": "凶蛮冲动"
       },
-      "archetype": "assassin",
+      "archetype": "villain",
       "relationships": [
-        {"target": "char_muwanqing_5", "type": "enemy", "intensity": 80, "bond_level": 1, "dynamic": "要挖她眼睛献给老大"},
-        {"target": "char_zuozimu_5", "type": "enemy", "intensity": 70, "bond_level": 1, "dynamic": "掳走他儿子作为人质"}
+        {
+          "target": "char_yunzhonghe",
+          "type": "enemy",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "被木婉清挑拨后与云中鹤大战一场，鳄嘴剪剪断其钢抓手指"
+        },
+        {
+          "target": "char_muwanqing",
+          "type": "enemy",
+          "intensity": 60,
+          "bond_level": 2,
+          "dynamic": "被其利用挑拨，但仍惦记着要收段誉为徒"
+        }
+      ],
+      "known_skills": [
+        "skill_crocshear",
+        "skill_croctail"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_yeerniang",
+      "name": "叶二娘",
+      "personality": {
+        "traits": [
+          "外表慈柔",
+          "内心残忍变态",
+          "每日杀婴",
+          "喜怒无常"
+        ],
+        "speech_style": "言语温柔关怀，哄婴儿如慈母，实则冷血无情",
+        "temperament": "阴鸷变态"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {
+          "target": "char_zuozimu",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 2,
+          "dynamic": "掳走其子左山山为质，以婴儿为人肉盾牌"
+        },
+        {
+          "target": "char_gaojunhou",
+          "type": "enemy",
+          "intensity": 60,
+          "bond_level": 2,
+          "dynamic": "被高君侯铁笛内功惊退"
+        }
       ],
       "known_skills": [],
       "related_skills": []
     },
     {
-      "id": "char_nanhaieshen_5",
+      "id": "char_yunzhonghe",
+      "name": "云中鹤",
       "personality": {
-        "traits": ["暴躁", "直率", "爱面子", "头脑简单"],
-        "speech_style": "粗声粗气",
-        "temperament": "容易被挑拨"
+        "traits": [
+          "好色",
+          "轻功绝顶",
+          "心狠手辣",
+          "自负"
+        ],
+        "speech_style": "声音忽尖忽粗，言语轻浮",
+        "temperament": "阴狠好色"
       },
-      "archetype": "warrior",
+      "archetype": "villain",
       "relationships": [
-        {"target": "char_yunzhonghe_5", "type": "enemy", "intensity": 40, "bond_level": 1, "dynamic": "被木婉清挑拨与云中鹤争斗"},
-        {"target": "char_muwanqing_5", "type": "enemy", "intensity": 30, "bond_level": 1, "dynamic": "虽知被挑拨，但爱惜段誉资质"}
+        {
+          "target": "char_nanhaieshen",
+          "type": "enemy",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "钢抓被鳄嘴剪断二指，后偷袭左子穆出气"
+        },
+        {
+          "target": "char_muwanqing",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 2,
+          "dynamic": "抢走其面幕，觊觎其美色"
+        }
       ],
-      "known_skills": ["skill_crocshear", "skill_croctail"],
+      "known_skills": [],
       "related_skills": []
     },
     {
-      "id": "char_zuozimu_5",
+      "id": "char_zuozimu",
+      "name": "左子穆",
       "personality": {
-        "traits": ["贪生怕死", "爱子心切"],
-        "speech_style": "恭敬中带着恐惧",
-        "temperament": "在儿子面前失去骨气"
+        "traits": [
+          "贪生怕死",
+          "爱子心切",
+          "见风使舵"
+        ],
+        "speech_style": "在强者面前低声下气，对弱者则颐指气使",
+        "temperament": "懦弱势利"
+      },
+      "archetype": "npc",
+      "relationships": [
+        {
+          "target": "char_yeerniang",
+          "type": "enemy",
+          "intensity": 80,
+          "bond_level": 3,
+          "dynamic": "儿子被掳被迫听从差遣，受制于人"
+        },
+        {
+          "target": "char_fushengshi",
+          "type": "family",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "无量剑归附灵鹫宫后须听命于她"
+        }
+      ],
+      "known_skills": [
+        "skill_wuliangjianfa"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_xinshuangqing",
+      "name": "辛双清",
+      "personality": {
+        "traits": [
+          "沉默寡言",
+          "服从听令",
+          "精明务实"
+        ],
+        "speech_style": "言语简洁，不敢与灵鹫宫使者对视",
+        "temperament": "沉默务实"
+      },
+      "archetype": "npc",
+      "relationships": [
+        {
+          "target": "char_fushengshi",
+          "type": "family",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "被符圣使任命为无量洞之主"
+        }
+      ],
+      "known_skills": [
+        "skill_wuliangjianfa"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_chuyuanli",
+      "name": "褚万里",
+      "personality": {
+        "traits": [
+          "英气逼人",
+          "忠诚勇武",
+          "粗豪直率"
+        ],
+        "speech_style": "言语干脆利落，见左子穆卑鄙行为冷笑斥责",
+        "temperament": "英武刚直"
       },
       "archetype": "warrior",
       "relationships": [
-        {"target": "char_yeer_niang_5", "type": "enemy", "intensity": 90, "bond_level": 1, "dynamic": "儿子被抢走，受制于人"}
+        {
+          "target": "char_muwanqing",
+          "type": "companion",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "出手相救木婉清于叶二娘手下"
+        }
       ],
-      "known_skills": ["skill_wuliangjianfa"],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_guducheng",
+      "name": "古笃诚",
+      "personality": {
+        "traits": [
+          "粗豪",
+          "勇猛",
+          "忠心"
+        ],
+        "speech_style": "言语粗豪",
+        "temperament": "粗豪勇猛"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_chuyuanli",
+          "type": "family",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "同为大理四大护卫之一，并肩作战多年"
+        },
+        {
+          "target": "char_fusigui",
+          "type": "family",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "同为大理四大护卫之一，协作默契"
+        },
+        {
+          "target": "char_zhudanchen",
+          "type": "family",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "同为大理四大护卫之一，以兄弟相称"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_fusigui",
+      "name": "傅思归",
+      "personality": {
+        "traits": [
+          "勇猛",
+          "忠于主人",
+          "沉默寡言"
+        ],
+        "speech_style": "言语不多，行动为主",
+        "temperament": "刚勇"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_chuyuanli",
+          "type": "family",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "同为大理四大护卫之一，并肩作战多年"
+        },
+        {
+          "target": "char_guducheng",
+          "type": "family",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "同为大理四大护卫之一，协作默契"
+        },
+        {
+          "target": "char_zhudanchen",
+          "type": "family",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "同为大理四大护卫之一，以兄弟相称"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhudanchen",
+      "name": "朱丹臣",
+      "personality": {
+        "traits": [
+          "文雅知礼",
+          "文武全才",
+          "忠诚机智"
+        ],
+        "speech_style": "言语文雅，虽为武官喜作诗文",
+        "temperament": "文雅机智"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_gaojunhou",
+          "type": "family",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "向高君侯汇报情况，配合出手"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_gaojunhou",
+      "name": "高君侯",
+      "personality": {
+        "traits": [
+          "气度不凡",
+          "武功高深",
+          "沉着冷静"
+        ],
+        "speech_style": "言语不多，微笑从容，出手时凌厉无比",
+        "temperament": "沉稳高深"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_yeerniang",
+          "type": "enemy",
+          "intensity": 60,
+          "bond_level": 2,
+          "dynamic": "以铁笛内功惊退叶二娘，救下左子穆幼子"
+        }
+      ],
+      "known_skills": [
+        "skill_tiedi"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_fushengshi",
+      "name": "符圣使",
+      "personality": {
+        "traits": [
+          "冷傲威严",
+          "年轻干练",
+          "喜怒不形于色"
+        ],
+        "speech_style": "言语不多但威严十足，不容置疑",
+        "temperament": "冷傲威严"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_sikongxuan",
+          "type": "enemy",
+          "intensity": 50,
+          "bond_level": 1,
+          "dynamic": "拒赐生死符解药，致司空玄绝望自尽"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sikongxuan",
+      "name": "司空玄",
+      "personality": {
+        "traits": [
+          "畏惧灵鹫宫",
+          "走投无路",
+          "刚烈"
+        ],
+        "speech_style": "言语战战兢兢，绝望时语带悲壮",
+        "temperament": "悲壮绝望"
+      },
+      "archetype": "npc",
+      "relationships": [
+        {
+          "target": "char_fushengshi",
+          "type": "enemy",
+          "intensity": 70,
+          "bond_level": 2,
+          "dynamic": "因灵鹫宫未赐解药而绝望跳澜沧江自尽"
+        }
+      ],
+      "known_skills": [],
       "related_skills": []
     }
   ],
   "skills_detail": [
     {
       "id": "skill_beiming",
+      "name": "北冥神功",
       "techniques": [
-        {"id": "tech_shaoshang_yin", "name": "少商引内力", "type": "attack", "description": "以大拇指少商穴对准对方，吸取内力入膻中气海"},
-        {"id": "tech_renmai_xing", "name": "任脉行功法", "type": "buff", "description": "逆练任脉，自断基至会阴"}
+        {
+          "id": "tech_beiming_shaoshang",
+          "name": "少商取内力",
+          "type": "attack",
+          "description": "以拇指少商穴吸取他人内力，经手太阴肺经送至任脉天突穴，再转至膻中穴储藏"
+        },
+        {
+          "id": "tech_beiming_qihai",
+          "name": "气海纳流",
+          "type": "passive",
+          "description": "膻中穴为气海，可无限储藏吸来的内力，取一分储一分，永不泄尽"
+        }
       ],
       "progression": [
-        {"level": 1, "unlock": "手太阴肺经入门"},
-        {"level": 2, "unlock": "任脉贯通后，可自动吸取接触者的内力"}
+        {
+          "level": 1,
+          "unlock": "领悟手太阴肺经和任脉的逆运之法，可接收他人打入膻中穴的内力"
+        },
+        {
+          "level": 2,
+          "unlock": "少商穴与对方拇指相接时，可主动吸取对方内力"
+        }
       ],
       "effects": [
-        {"type": "absorb", "condition": "拇指与对方大拇指相接且双方都使劲", "description": "对方内力如江河决堤涌入己身"},
-        {"type": "storage", "condition": "内力入膻中穴", "description": "膻中气海可无限存储内力"}
+        {
+          "type": "吸收",
+          "condition": "少商穴接触对方身体且对方运劲",
+          "description": "对方内力如江河决堤般涌入自身气海"
+        },
+        {
+          "type": "转化",
+          "condition": "对方内力打入膻中穴",
+          "description": "内力自动转化为己有，走一个周天便可永存体内"
+        }
       ],
-      "combat_style": "以内力为根基，吸他人内力为己用"
+      "combat_style": "以逸待劳，借力打力，不主动攻击而以接收对方内力为主"
     },
     {
       "id": "skill_lingboweibu",
+      "name": "凌波微步",
       "techniques": [
-        {"id": "tech_liushisigua", "name": "六十四卦步法", "type": "defense", "description": "以易经六十四卦方位行走，纯熟后可自动闪避攻击"}
+        {
+          "id": "tech_lingbo_64gua",
+          "name": "六十四卦步法",
+          "type": "defense",
+          "description": "以易经六十四卦方位行走，步法左歪右斜，无一步笔直进退"
+        },
+        {
+          "id": "tech_lingbo_breath",
+          "name": "步法行气",
+          "type": "passive",
+          "description": "走一步吸一口气，走两步呼出，每踏遍六十四卦一个周天，内力便有一分进益"
+        }
       ],
       "progression": [
-        {"level": 1, "unlock": "学会步法但需思考方可踏出"},
-        {"level": 2, "unlock": "步法纯熟后，每一步与内息相应，可修内功"}
+        {
+          "level": 1,
+          "unlock": "学会六十四卦步法，可缓慢行走不岔气"
+        },
+        {
+          "level": 2,
+          "unlock": "步法纯熟可疾行无阻，不须再数呼吸"
+        }
       ],
       "effects": [
-        {"type": "evasion", "condition": "敌人攻击时", "description": "自动闪避"},
-        {"type": "inner_power", "condition": "行走时", "description": "每走一遍六十四卦，内力便有一分进益"}
+        {
+          "type": "闪避",
+          "condition": "敌人攻击",
+          "description": "步法精妙能避敌手攻击，但须纯熟无比方能想也不想出步"
+        },
+        {
+          "type": "增益",
+          "condition": "步法行走一个周天",
+          "description": "内力随步法运行自然增长"
+        }
       ],
-      "combat_style": "以闪避为主，用于保命逃遁"
+      "combat_style": "以闪避为主，配合北冥神功可在闪避中反击"
     },
     {
       "id": "skill_tiedi",
+      "name": "铁笛功",
       "techniques": [
-        {"id": "tech_tiedi_re", "name": "铁笛热功", "type": "attack", "description": "以上乘内力将铁笛烫如红炭，逼退敌人"}
+        {
+          "id": "tech_tiedi_neili",
+          "name": "铁笛热力",
+          "type": "attack",
+          "description": "以上乘内力将铁笛烫得如同刚从熔炉中取出一般，触碰即伤"
+        },
+        {
+          "id": "tech_tiedi_feng",
+          "name": "笛风",
+          "type": "attack",
+          "description": "鼓气疾吹铁笛，尾端飞出劲风攻敌面部"
+        }
       ],
-      "progression": [],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "高君侯以铁笛热力逼退叶二娘，笛尾劲风破空杀伤"
+        }
+      ],
       "effects": [
-        {"type": "burn", "condition": "敌人抓住笛身", "description": "铁笛烫手如同红炭"}
+        {
+          "type": "灼伤",
+          "condition": "铁笛接触肌肤",
+          "description": "笛身因内力变得赤热如炭"
+        }
       ],
-      "combat_style": "以内力催动兵器，以音波扰敌"
+      "combat_style": "以内力催动铁笛，兼具远程劲风和近战灼伤"
+    },
+    {
+      "id": "skill_dujian",
+      "name": "毒箭",
+      "techniques": [
+        {
+          "id": "tech_dujian_lianfa",
+          "name": "连环毒箭",
+          "type": "attack",
+          "description": "从袖中连续发射黑色短箭，一按机括便连珠射出，无声无息"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "木婉清以毒箭射杀多名追兵，箭出见血封喉"
+        }
+      ],
+      "effects": [
+        {
+          "type": "中毒",
+          "condition": "射中目标",
+          "description": "见血封喉的剧毒"
+        }
+      ],
+      "combat_style": "袖中暗箭，出其不意"
+    },
+    {
+      "id": "skill_wuliangjianfa",
+      "name": "无量剑法",
+      "techniques": [
+        {
+          "id": "tech_wuliang_baihong",
+          "name": "白虹贯日",
+          "type": "attack",
+          "description": "剑尖直刺咽喉"
+        },
+        {
+          "id": "tech_wuliang_wanhui",
+          "name": "万卉争艳",
+          "type": "defense",
+          "description": "剑光乱颤封住上盘"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "左子穆与辛双清在峰顶施展无量剑法应对强敌"
+        }
+      ],
+      "effects": [
+        {
+          "type": "攻击",
+          "condition": "出剑攻敌",
+          "description": "无量剑派剑法，白虹贯日直取咽喉，万卉争艳封住上盘"
+        }
+      ],
+      "combat_style": "名门正派剑法，招式中规中矩"
     }
   ],
   "events": [
     {
-      "id": "evt_5_yeerniang_babies",
-      "name": "叶二娘杀害婴儿",
-      "participants": ["char_yeer_niang_5", "char_muwanqing_5"],
+      "id": "evt_05_dead_babies",
+      "name": "木婉清发现六具婴儿尸体",
+      "participants": [
+        "char_muwanqing",
+        "char_yeerniang"
+      ],
       "location": "loc_gaofeng",
-      "description": "木婉清发现叶二娘在峰上六天害死了六个婴儿",
+      "description": "木婉清在草丛中发现叶二娘丢弃的六具婴儿尸身，目睹其每日害死一婴的残忍行径",
       "chapter": 5
     },
     {
-      "id": "evt_5_yunzhonghe_unveil",
+      "id": "evt_05_nanhai_yun_fight",
+      "name": "南海鳄神与云中鹤大战",
+      "participants": [
+        "char_nanhaieshen",
+        "char_yunzhonghe",
+        "char_muwanqing"
+      ],
+      "location": "loc_gaofeng",
+      "description": "木婉清挑拨南海鳄神，使其误信云中鹤害死了段誉，两人大打出手，鳄嘴剪剪断钢抓二指",
+      "chapter": 5
+    },
+    {
+      "id": "evt_05_yun_steals_veil",
       "name": "云中鹤抢走木婉清面幕",
-      "participants": ["char_yunzhonghe_5", "char_muwanqing_5"],
+      "participants": [
+        "char_yunzhonghe",
+        "char_muwanqing"
+      ],
       "location": "loc_gaofeng",
-      "description": "云中鹤趁南海鳄神和木婉清对话之际，抓走她的面幕",
+      "description": "云中鹤趁虚抓走木婉清面幕，见到其秀丽容貌淫笑不止",
       "chapter": 5
     },
     {
-      "id": "evt_5_nanhai_yun_duel",
-      "name": "南海鳄神斗云中鹤",
-      "participants": ["char_nanhaieshen_5", "char_yunzhonghe_5", "char_muwanqing_5", "char_yeer_niang_5"],
+      "id": "evt_05_zuozimu_son_kidnapped",
+      "name": "叶二娘掳左子穆之子",
+      "participants": [
+        "char_yeerniang",
+        "char_zuozimu",
+        "char_yunzhonghe"
+      ],
       "location": "loc_gaofeng",
-      "description": "木婉清挑拨二人互斗，南海鳄神用鳄嘴剪断了云中鹤钢抓的两指",
+      "description": "叶二娘抱着左子穆的幼子左山山上峰，以小孩为盾牌挡剑，左子穆投鼠忌器被云中鹤所伤",
       "chapter": 5
     },
     {
-      "id": "evt_5_zuozimu_son_taken",
-      "name": "左子穆之子被掳",
-      "participants": ["char_zuozimu_5", "char_yeer_niang_5", "char_yunzhonghe_5"],
+      "id": "evt_05_dali_guards_arrive",
+      "name": "大理四大护卫救木婉清",
+      "participants": [
+        "char_chuyuanli",
+        "char_guducheng",
+        "char_fusigui",
+        "char_zhudanchen",
+        "char_muwanqing",
+        "char_yeerniang",
+        "char_zuozimu"
+      ],
       "location": "loc_gaofeng",
-      "description": "叶二娘掳走左子穆之子左山山，左子穆受制于人",
+      "description": "褚古傅朱四大护卫赶到，以铁杆软索卷走左子穆长剑，四人合围叶二娘",
       "chapter": 5
     },
     {
-      "id": "evt_5_dali_guardians",
-      "name": "大理四大护卫和高君候现身",
-      "participants": ["char_chuyuanli", "char_guducheng", "char_fusigui", "char_zhudanchen", "char_gaojunhou", "char_yeer_niang_5"],
+      "id": "evt_05_gao_tiedi",
+      "name": "高君侯铁笛惊退叶二娘",
+      "participants": [
+        "char_gaojunhou",
+        "char_yeerniang",
+        "char_zuozimu"
+      ],
       "location": "loc_gaofeng",
-      "description": "大理四大护卫和高君候到来，从叶二娘手中救下左子穆之子",
+      "description": "宽袍客高君侯吹笛而出，铁笛尾端劲风逼退叶二娘，大袖卷起婴儿掷还左子穆",
       "chapter": 5
     },
     {
-      "id": "evt_5_sikongxuan_suicide",
+      "id": "evt_05_duanyu_reunites",
+      "name": "段誉与木婉清重逢",
+      "participants": [
+        "char_duanyu",
+        "char_muwanqing"
+      ],
+      "location": "loc_gaofeng",
+      "description": "段誉挣脱囚禁后赶赴山峰寻木婉清，木婉清苦等七日心力交瘁，重逢后晕倒在他怀中",
+      "chapter": 5
+    },
+    {
+      "id": "evt_05_lingjiu_envoy",
+      "name": "灵鹫宫符圣使驾临",
+      "participants": [
+        "char_fushengshi",
+        "char_duanyu",
+        "char_zuozimu",
+        "char_xinshuangqing"
+      ],
+      "location": "loc_gaofeng",
+      "description": "灵鹫宫年轻女圣使率八名绿衣女子上峰，司空玄因未得解药绝望跳澜沧江自尽",
+      "chapter": 5
+    },
+    {
+      "id": "evt_05_sikong_suicide",
       "name": "司空玄跳江自尽",
-      "participants": ["char_sikongxuan_5"],
+      "participants": [
+        "char_sikongxuan"
+      ],
       "location": "loc_gaofeng",
-      "description": "灵鹫宫符圣使责备司空玄，他绝望之下跳入澜沧江自尽",
+      "description": "司空玄因灵鹫宫拒赐生死符解药，绝望之下奔到崖边跳入澜沧江自尽",
       "chapter": 5
     },
     {
-      "id": "evt_5_duanyu_imprisoned",
-      "name": "段誉被囚无量洞",
-      "participants": ["char_duanyu", "char_zuozimu_5", "char_xinshuangqing_5"],
+      "id": "evt_05_duanyu_imprisoned",
+      "name": "段誉被关无量洞",
+      "participants": [
+        "char_duanyu",
+        "char_yuguangbiao",
+        "char_wuguangsheng"
+      ],
       "location": "loc_wuliangdong",
-      "description": "无量剑将段誉囚禁，由郁光标和吴光胜看守",
+      "description": "辛双清令人将段誉关入无量洞小屋，郁光标吴光胜看守，奉灵鹫宫之命不得释放",
       "chapter": 5
     },
     {
-      "id": "evt_5_learn_lingboweibu",
-      "name": "段誉苦练凌波微步",
-      "participants": ["char_duanyu"],
+      "id": "evt_05_learns_beiming",
+      "name": "段誉修习北冥神功与凌波微步",
+      "participants": [
+        "char_duanyu"
+      ],
       "location": "loc_wuliangdong",
-      "description": "段誉在囚室中修习北冥神功和凌波微步",
+      "description": "段誉在囚室中遵照卷轴修习北冥神功手太阴肺经和任脉，又学了凌波微步六十四卦步法",
       "chapter": 5
     },
     {
-      "id": "evt_5_absorb_neili",
-      "name": "段誉无意中吸走七人内力",
-      "participants": ["char_duanyu", "char_yuguangbiao", "char_wuguangsheng"],
+      "id": "evt_05_first_qi_absorption",
+      "name": "段誉无意中吸郁光标内力",
+      "participants": [
+        "char_duanyu",
+        "char_yuguangbiao"
+      ],
       "location": "loc_wuliangdong",
-      "description": "段誉无意中以北冥神功吸走了七名无量剑弟子的全部内力",
+      "description": "郁光标一拳打在段誉膻中穴，内力被北冥神功自动吸收，段誉自此开始拥有内力",
       "chapter": 5
     },
     {
-      "id": "evt_5_escape_wuliang",
-      "name": "段誉逃出无量洞",
-      "participants": ["char_duanyu"],
+      "id": "evt_05_mass_absorption",
+      "name": "段誉吸尽七名无量剑弟子内力",
+      "participants": [
+        "char_duanyu",
+        "char_yuguangbiao",
+        "char_wuguangsheng"
+      ],
       "location": "loc_wuliangdong",
-      "description": "趁左子穆儿子被劫之乱，段誉逃出无量洞",
+      "description": "段誉逃跑时被郁光标抓住拇指，北冥神功自动运转吸尽七名弟子内力，膻中穴胀痛欲裂",
       "chapter": 5
     },
     {
-      "id": "evt_5_manggu_zhuha",
-      "name": "莽牯朱蛤入腹",
-      "participants": ["char_duanyu"],
-      "location": null,
-      "description": "段誉被闪电貂咬伤后，莽牯朱蛤追蜈蚣入他腹中，以毒攻毒，朱蛤毒融入段誉内力",
+      "id": "evt_05_manggu_zhuha",
+      "name": "莽牯朱蛤与蜈蚣入腹",
+      "participants": [
+        "char_duanyu"
+      ],
+      "location": "loc_wuliangshan",
+      "description": "段誉被闪电貂咬伤后动弹不得，眼睁睁看大蜈蚣爬入口中，莽牯朱蛤追入腹中，以毒攻毒反而解毒",
       "chapter": 5
     },
     {
-      "id": "evt_5_rescue_muwanqing",
-      "name": "段誉赶救木婉清",
-      "participants": ["char_duanyu", "char_muwanqing_5"],
-      "location": "loc_gaofeng",
-      "description": "段誉终于赶到高峰与木婉清重逢",
+      "id": "evt_05_zuozimu_chase",
+      "name": "段誉跟随左子穆上峰",
+      "participants": [
+        "char_duanyu",
+        "char_zuozimu"
+      ],
+      "location": "loc_wuliangshan",
+      "description": "段誉出林后遇到左子穆提剑急奔，悄悄跟随其后上峰，大喊木婉清的名字",
       "chapter": 5
     }
   ],
   "dialogues": [
     {
-      "speaker": "char_muwanqing_5",
-      "listener": "char_duanyu",
-      "text": "段郎！",
-      "tone": "悲喜交加",
+      "speaker": "char_muwanqing",
+      "listener": "char_nanhaieshen",
+      "text": "你徒儿定是给这云中鹤害了，否则他在那高崖之上，自己如何能够下来？这云中鹤轻功了得，定是窜到崖上，将你徒儿带到隐僻之处杀了。",
+      "tone": "挑拨",
       "chapter": 5
     },
     {
-      "speaker": "char_duanyu",
-      "listener": "char_muwanqing_5",
-      "text": "啊，你终于醒转了。",
-      "tone": "欣喜",
+      "speaker": "char_yunzhonghe",
+      "listener": "char_muwanqing",
+      "text": "妙啊，这小娘儿好标致。只是不够风骚，尚未十全十美……",
+      "tone": "淫邪",
       "chapter": 5
     },
     {
-      "speaker": "char_muwanqing_5",
-      "listener": "char_duanyu",
-      "text": "哼！你这人良心坏极，这七天七晚之中，你又不来寻我？",
-      "tone": "怨怼",
-      "chapter": 5
-    },
-    {
-      "speaker": "char_duanyu",
-      "listener": "char_muwanqing_5",
-      "text": "我一直为人所制，动弹不得，日夜牵挂着你，真是焦急死了。我一得脱身，立即赶来。",
-      "tone": "歉疚",
-      "chapter": 5
-    },
-    {
-      "speaker": "char_nanhaieshen_5",
-      "listener": "char_duanyu",
-      "text": "你还没磕头拜师，我放心不下，生怕给那一个不要脸的家伙抢先收了去做徒儿。",
-      "tone": "焦躁",
-      "chapter": 5
-    },
-    {
-      "speaker": "char_duanyu",
-      "listener": "char_nanhaieshen_5",
-      "text": "我师父的功夫，料想你半点也不会。这周易中的'卦象'、'系辞'，你懂么？",
-      "tone": "狡黠",
-      "chapter": 5
-    },
-    {
-      "speaker": "char_yeer_niang_5",
-      "listener": null,
-      "text": "乖宝心肝，妈妈疼你惜你，别怕这个丑八怪三叔，他斗不过你妈。你白白胖胖的，多么有趣，妈妈要玩到你晚上，这才弄死你，这会儿可还舍不得。",
-      "tone": "温柔而恐怖",
+      "speaker": "char_yeerniang",
+      "listener": "char_zuozimu",
+      "text": "你瞧这孩儿皮光肉滑，养得多壮！毕竟是武学名家的子弟，跟寻常农家的孩儿大不相同。",
+      "tone": "轻松残忍",
       "chapter": 5
     },
     {
       "speaker": "char_gaojunhou",
-      "listener": "char_yeer_niang_5",
-      "text": "阁下武功好生了得，想不到小小大理，竟有这样的高人。",
-      "tone": "客气",
+      "listener": "char_yeerniang",
+      "text": "叶二娘驾临敝境，幸会，幸会。大理国该当一尽地主之谊才是。",
+      "tone": "从容",
+      "chapter": 5
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing",
+      "text": "咦！你落在他手中，我若不来，他定会难为你，那怎么得了？",
+      "tone": "关切",
+      "chapter": 5
+    },
+    {
+      "speaker": "char_muwanqing",
+      "listener": "char_duanyu",
+      "text": "哼！你这人良心坏极，这七天七晚之中，你又不来寻我？",
+      "tone": "幽怨",
+      "chapter": 5
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing",
+      "text": "我一得脱身，立即赶来。",
+      "tone": "歉然",
+      "chapter": 5
+    },
+    {
+      "speaker": "char_fushengshi",
+      "listener": "char_sikongxuan",
+      "text": "你在灵鹫宫属下，时候不少了吧？连我们姊妹也认不出，这么胡涂，还能给童姥她老人家办什么事？今年生死符的解药，不用指望了吧。",
+      "tone": "冷淡",
+      "chapter": 5
+    },
+    {
+      "speaker": "char_sikongxuan",
+      "listener": "char_fushengshi",
+      "text": "符圣使，请你上覆童姥，司空玄对不起她老人家。",
+      "tone": "悲愤",
+      "chapter": 5
+    },
+    {
+      "speaker": "char_duanyu",
+      "listener": "char_muwanqing",
+      "text": "总而言之，我这一生要多做好事，不做坏事。巨象可负千斤，蝼蚁仅曳一芥，力大则所做好事亦大，做起坏事来也厉害。",
+      "tone": "自省",
+      "chapter": 5
+    },
+    {
+      "speaker": "char_yuguangbiao",
+      "listener": "char_wuguangsheng",
+      "text": "干光豪跟葛光佩这对狗男女，是不是逃得掉？……我猜这对狗男女定是逃入深山，撞上了莽牯朱蛤。",
+      "tone": "粗鄙",
       "chapter": 5
     },
     {
       "speaker": "char_duanyu",
       "listener": null,
-      "text": "神仙姊姊，我是遵你吩咐，修习神功，可不是想偷看你的贵体，亵渎莫怪。",
-      "tone": "虔诚",
+      "text": "这位万毒之王在我肚里似有久居之计，这般安居乐业起来，如何了得？非请它来个乔迁之喜不可。",
+      "tone": "自嘲",
       "chapter": 5
     }
   ]
