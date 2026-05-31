@@ -1,3 +1,12 @@
+---
+id: item_zheshan_qiao
+type: special
+owner: "[[乔峰]]"
+tags:
+  - 天龙八部
+  - item
+---
+
 # 折扇
 
 ## 基本信息

@@ -1,8 +1,9 @@
-# skill_lingboweiju
-
 ---
 id: skill_lingboweiju
 type: 武功
+tags:
+  - 天龙八部
+  - skill
 rank: 登堂入室
 faction: "[[]]"
 combat_style: 
@@ -13,6 +14,8 @@ game_stats:
   cooldown: 3
   range: ranged
 ---
+
+# skill_lingboweiju
 
 ## 描述
 skill_lingboweiju

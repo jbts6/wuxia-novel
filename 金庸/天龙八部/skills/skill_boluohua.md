@@ -1,8 +1,9 @@
-# skill_boluohua
-
 ---
 id: skill_boluohua
 type: 武功
+tags:
+  - 天龙八部
+  - skill
 rank: 登堂入室
 faction: "[[]]"
 combat_style: 
@@ -13,6 +14,8 @@ game_stats:
   cooldown: 3
   range: ranged
 ---
+
+# skill_boluohua
 
 ## 描述
 skill_boluohua

@@ -1,3 +1,12 @@
+---
+id: item_ruanbian
+type: weapon
+owner: "[[鲍千灵]]"
+tags:
+  - 天龙八部
+  - item
+---
+
 # 软鞭
 
 ## 基本信息

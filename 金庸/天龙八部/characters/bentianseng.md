@@ -1,7 +1,9 @@
-# bentianseng
-
 ---
 id: char_bentianseng
+type: character
+tags:
+  - 天龙八部
+  - character
 role: npc
 archetype: warrior
 rank: 登堂入室
@@ -20,6 +22,8 @@ game_stats:
   spd: 36
   wiz: 24
 ---
+
+# bentianseng
 
 ## 性格
 - **特征**: 
