@@ -2,13 +2,13 @@
 
 ## Phase 1: 运行已有卡片生成脚本
 
-- [ ] 1.1 运行 `tools/convert/json-to-markdown.py` → 生成角色/功法/门派/地点卡片
+- [x] 1.1 运行 `tools/convert/json-to-markdown.py` → 生成角色/功法/门派/地点卡片
   - 输入: `金庸/天龙八部/game_characters.json`, `game_skills.json`, `game_factions.json`, `locations.json`
   - 输出: `金庸/天龙八部/characters/*.md`, `skills/*.md`, `factions/*.md`, `locations/*.md`
-- [ ] 1.2 运行 `tools/convert/generate-event-cards.py` → 生成事件卡片 + 时间线
+- [x] 1.2 运行 `tools/convert/generate-event-cards.py` → 生成事件卡片 + 时间线
   - 输入: `金庸/天龙八部/chapters/ch_XX_deep.json` (50章)
   - 输出: `金庸/天龙八部/events/*.md`, `金庸/天龙八部/事件时间线.md`
-- [ ] 1.3 验证卡片数量和质量（wikilinks、YAML frontmatter 完整性）
+- [x] 1.3 验证卡片数量和质量（wikilinks、YAML frontmatter 完整性）
 
 ## Phase 2: 修复 techniques.json
 
