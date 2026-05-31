@@ -116,6 +116,85 @@ def verify_item_card_count() -> None:
         fail(f"item cards missing frontmatter ids for {len(missing)} items: {sample}")
 
 
+def frontmatter_id(path: Path) -> str | None:
+    frontmatter = get_frontmatter(path.read_text(encoding="utf-8"))
+    if frontmatter is None:
+        return None
+    for line in frontmatter.splitlines():
+        if line.startswith("id:"):
+            return line.split(":", 1)[1].strip()
+    return None
+
+
+def skill_quality_score(skill: dict) -> tuple[int, str]:
+    score = 0
+    if skill.get("name") and not str(skill.get("name")).startswith("skill_"):
+        score += 100
+    if skill.get("faction"):
+        score += 30
+    score += len(skill.get("techniques") or []) * 10
+    score += len(skill.get("progression") or []) * 4
+    score += len(skill.get("effects") or []) * 4
+    score += len(skill.get("rag_refs") or [])
+    if skill.get("combat_style"):
+        score += 5
+    if skill.get("game_stats"):
+        score += 3
+    return score, str(skill.get("id") or "")
+
+
+def expected_skill_cards(skills: list[dict]) -> dict[str, dict]:
+    by_name: dict[str, dict] = {}
+    for skill in skills:
+        name = skill.get("name")
+        if not name or str(name).startswith("skill_"):
+            continue
+        current = by_name.get(name)
+        if current is None or skill_quality_score(skill) > skill_quality_score(current):
+            by_name[name] = skill
+    return by_name
+
+
+def verify_skill_cards() -> None:
+    skills = load_json(NOVEL_DIR / "skills.json")
+    expected = expected_skill_cards(skills)
+    skill_cards = sorted((NOVEL_DIR / "skills").glob("*.md"))
+    found = {path.stem: frontmatter_id(path) for path in skill_cards}
+
+    missing = sorted(set(expected) - set(found))
+    extra = sorted(set(found) - set(expected))
+    wrong_ids = []
+    for name, skill in expected.items():
+        card_id = found.get(name)
+        expected_id = skill.get("id")
+        if card_id and card_id != expected_id:
+            wrong_ids.append(f"{name}: {card_id} != {expected_id}")
+
+    if missing:
+        sample = ", ".join(missing[:10])
+        fail(f"missing skill cards for {len(missing)} skills: {sample}")
+    if extra:
+        sample = ", ".join(extra[:10])
+        fail(f"stale or placeholder skill cards found: {sample}")
+    if wrong_ids:
+        sample = "; ".join(wrong_ids[:10])
+        fail(f"skill cards do not use the deepest canonical records: {sample}")
+
+
+def verify_item_related_skill_ids() -> None:
+    skills = load_json(NOVEL_DIR / "skills.json")
+    skill_ids = {skill.get("id") for skill in skills if skill.get("id")}
+    missing = []
+    for item in load_json(NOVEL_DIR / "items.json"):
+        for skill_id in item.get("related_skills") or []:
+            if skill_id not in skill_ids:
+                missing.append(f"{item.get('id')}: {skill_id}")
+
+    if missing:
+        sample = "; ".join(missing[:10])
+        fail(f"items reference unknown skill ids: {sample}")
+
+
 def item_ids_from_skeleton(chapter_num: int) -> set[str]:
     skeleton_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}_skeleton.json"
     if not skeleton_path.exists():
@@ -169,6 +248,8 @@ def main() -> None:
     verify_techniques()
     verify_markdown_cards()
     verify_item_card_count()
+    verify_skill_cards()
+    verify_item_related_skill_ids()
     verify_items_detail_outputs()
     print("card-output-pipeline verification passed")
 

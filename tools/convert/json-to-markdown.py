@@ -10,13 +10,20 @@ TEMPLATES_DIR = "framework/templates"
 # ID 到中文名的映射表
 ID_TO_NAME = {}
 
+MANUAL_SKILL_ALIASES = {
+    'skill_ling_bo_wei_bu': 'skill_lingboweibu',
+    'skill_lingbo_weibu': 'skill_lingboweibu',
+    'skill_beiming_shengong': 'skill_beimingshengong',
+    'skill_yibidaohuanshi': 'skill_yi_bi_zhi_dao_huan_shi_bi_shen',
+}
+
 
 def load_json(path):
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
-def build_id_mapping(characters, skills, factions, locations):
+def build_id_mapping(characters, skills, factions, locations, skill_aliases=None):
     """构建 ID 到中文名的映射"""
     global ID_TO_NAME
     ID_TO_NAME = {}
@@ -32,6 +39,10 @@ def build_id_mapping(characters, skills, factions, locations):
         name = skill.get('name', '')
         if skill_id and name:
             ID_TO_NAME[skill_id] = name
+
+    for alias, target_id in (skill_aliases or {}).items():
+        if target_id in ID_TO_NAME:
+            ID_TO_NAME[alias] = ID_TO_NAME[target_id]
 
     for faction in factions:
         faction_id = faction.get('id', '')
@@ -64,6 +75,117 @@ def save_markdown(output_dir, filename, content):
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(content)
     return filepath
+
+
+def clear_markdown_output(output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    for filename in os.listdir(output_dir):
+        if filename.endswith('.md'):
+            os.remove(os.path.join(output_dir, filename))
+
+
+def dedupe_list(values):
+    deduped = []
+    seen = set()
+    for value in values or []:
+        if isinstance(value, dict) and value.get('id'):
+            marker = ('id', value['id'])
+        else:
+            marker = ('value', json.dumps(value, ensure_ascii=False, sort_keys=True))
+        if marker in seen:
+            continue
+        seen.add(marker)
+        deduped.append(value)
+    return deduped
+
+
+def merge_record(target, source):
+    for k, v in source.items():
+        if k == 'id':
+            continue
+        if isinstance(v, list):
+            target[k] = dedupe_list(list(target.get(k) or []) + v)
+        elif isinstance(v, dict):
+            merged = dict(target.get(k) or {})
+            for sub_key, sub_value in v.items():
+                if sub_value not in (None, '', [], {}):
+                    merged.setdefault(sub_key, sub_value)
+            target[k] = merged
+        elif target.get(k) in (None, '', [], {}):
+            target[k] = v
+
+
+def skill_quality_score(skill):
+    score = 0
+    name = skill.get('name', '')
+    if name and not name.startswith('skill_'):
+        score += 100
+    if skill.get('faction'):
+        score += 30
+    score += len(skill.get('techniques') or []) * 10
+    score += len(skill.get('progression') or []) * 4
+    score += len(skill.get('effects') or []) * 4
+    score += len(skill.get('rag_refs') or [])
+    if skill.get('combat_style'):
+        score += 5
+    if skill.get('game_stats'):
+        score += 3
+    return (score, skill.get('id', ''))
+
+
+def is_placeholder_skill(skill):
+    name = skill.get('name', '')
+    return name.startswith('skill_') and skill.get('one_line', '') in ('', name)
+
+
+def coalesce_skills(skills):
+    by_name = {}
+    for skill in skills:
+        if is_placeholder_skill(skill):
+            continue
+        name = skill.get('name') or skill.get('id')
+        by_name.setdefault(name, []).append(skill)
+
+    coalesced = []
+    aliases = dict(MANUAL_SKILL_ALIASES)
+    for records in by_name.values():
+        canonical = max(records, key=skill_quality_score)
+        merged = dict(canonical)
+        for record in records:
+            record_id = record.get('id')
+            if record_id and record_id != canonical.get('id'):
+                aliases[record_id] = canonical.get('id')
+            merge_record(merged, record)
+        for key, value in list(merged.items()):
+            if isinstance(value, list):
+                merged[key] = dedupe_list(value)
+        coalesced.append(merged)
+    return coalesced, aliases
+
+
+def attach_game_stats(skills, game_skills):
+    stats_by_id = {
+        skill.get('id'): skill.get('game_stats')
+        for skill in game_skills
+        if skill.get('id') and skill.get('game_stats')
+    }
+    stats_by_name = {}
+    for skill in game_skills:
+        name = skill.get('name')
+        stats = skill.get('game_stats')
+        if name and stats:
+            current = stats_by_name.get(name)
+            if current is None or skill_quality_score(skill) > skill_quality_score(current):
+                stats_by_name[name] = skill
+
+    for skill in skills:
+        if skill.get('game_stats'):
+            continue
+        stats = stats_by_id.get(skill.get('id'))
+        if stats is None and skill.get('name') in stats_by_name:
+            stats = stats_by_name[skill.get('name')].get('game_stats')
+        if stats:
+            skill['game_stats'] = stats
 
 
 def char_to_markdown(char):
@@ -280,19 +402,22 @@ region: {location.get('region', '')}
 
 
 def main():
-    # 加载数据（优先使用游戏化后的数据）
+    # 加载数据；技能卡以深度合并后的 skills.json 为内容源，game_skills.json 只补游戏数值。
     game_chars_path = os.path.join(NOVELS_DIR, 'game_characters.json')
     game_skills_path = os.path.join(NOVELS_DIR, 'game_skills.json')
     game_factions_path = os.path.join(NOVELS_DIR, 'game_factions.json')
 
     characters = load_json(game_chars_path if os.path.exists(game_chars_path) else os.path.join(NOVELS_DIR, 'characters.json'))
-    skills = load_json(game_skills_path if os.path.exists(game_skills_path) else os.path.join(NOVELS_DIR, 'skills.json'))
+    raw_skills = load_json(os.path.join(NOVELS_DIR, 'skills.json'))
+    skills, skill_aliases = coalesce_skills(raw_skills)
+    if os.path.exists(game_skills_path):
+        attach_game_stats(skills, load_json(game_skills_path))
     factions = load_json(game_factions_path if os.path.exists(game_factions_path) else os.path.join(NOVELS_DIR, 'factions.json'))
     locations = load_json(os.path.join(NOVELS_DIR, 'locations.json'))
 
     # 构建 ID 到中文名的映射
     print("构建 ID 映射...")
-    build_id_mapping(characters, skills, factions, locations)
+    build_id_mapping(characters, skills, factions, locations, skill_aliases)
     print(f"  已映射 {len(ID_TO_NAME)} 个实体")
 
     # 转换并保存角色卡
@@ -305,6 +430,7 @@ def main():
 
     # 转换并保存技能卡
     print("转换技能卡...")
+    clear_markdown_output(os.path.join(NOVELS_DIR, 'skills'))
     for skill in skills:
         name = skill.get('name', 'unknown')
         markdown = skill_to_markdown(skill)
