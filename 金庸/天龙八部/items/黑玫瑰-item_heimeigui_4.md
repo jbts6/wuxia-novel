@@ -1,3 +1,12 @@
+---
+id: item_heimeigui_4
+type: special
+owner: "[[木婉清]]"
+tags:
+  - 天龙八部
+  - item
+---
+
 # 黑玫瑰
 
 ## 基本信息

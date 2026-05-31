@@ -65,6 +65,15 @@ def item_to_markdown(item):
     owner_name = id_to_wikilink(owner_id) if owner_id else '无'
     owner_link = f"[[{owner_name}]]" if owner_id and owner_name != '无' else owner_name
 
+    frontmatter = f"""---
+id: {item.get('id', '')}
+type: {item_type}
+owner: "{owner_link}"
+tags:
+  - 天龙八部
+  - item
+---"""
+
     # Body
     body = f"""
 ## 基本信息
@@ -122,7 +131,7 @@ def item_to_markdown(item):
         rarity_cn = rarity_map.get(rarity, rarity)
         body += f"\n**稀有度**: {rarity_cn}\n"
 
-    return f"# {name}\n{body}"
+    return f"{frontmatter}\n\n# {name}\n{body}"
 
 
 def save_markdown(output_dir, filename, content):
@@ -130,6 +139,20 @@ def save_markdown(output_dir, filename, content):
     path = os.path.join(output_dir, filename)
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
+
+
+def clear_markdown_output(output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    for filename in os.listdir(output_dir):
+        if filename.endswith('.md'):
+            os.remove(os.path.join(output_dir, filename))
+
+
+def item_filename(item, duplicate_names):
+    name = item.get('name', '未命名物品')
+    if name not in duplicate_names:
+        return f"{name}.md"
+    return f"{name}-{item.get('id', 'unknown')}.md"
 
 
 def main():
@@ -140,10 +163,17 @@ def main():
     build_id_mapping(characters, items)
     print(f"  已映射 {len(ID_TO_NAME)} 个实体")
 
+    name_counts = {}
+    for item in items:
+        name = item.get('name', '未命名物品')
+        name_counts[name] = name_counts.get(name, 0) + 1
+    duplicate_names = {name for name, count in name_counts.items() if count > 1}
+
     print("转换物品卡...")
+    clear_markdown_output(OUTPUT_DIR)
     for item in items:
         markdown = item_to_markdown(item)
-        filename = f"{item['name']}.md"
+        filename = item_filename(item, duplicate_names)
         save_markdown(OUTPUT_DIR, filename, markdown)
 
     print(f"  已转换 {len(items)} 个物品卡")

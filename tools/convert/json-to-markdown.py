@@ -74,6 +74,10 @@ def char_to_markdown(char):
     # YAML frontmatter
     frontmatter = f"""---
 id: {char_id}
+type: character
+tags:
+  - 天龙八部
+  - character
 role: {char.get('role', 'npc')}
 archetype: {char.get('archetype', 'warrior')}
 rank: {char.get('rank', '登堂入室')}
@@ -141,7 +145,7 @@ game_stats:
 {char.get('biography', char.get('one_line', ''))}
 """
 
-    return f"# {name}\n\n{frontmatter}\n{body}"
+    return f"{frontmatter}\n\n# {name}\n{body}"
 
 
 def skill_to_markdown(skill):
@@ -153,6 +157,9 @@ def skill_to_markdown(skill):
     frontmatter = f"""---
 id: {skill_id}
 type: {skill.get('type', 'sword_art')}
+tags:
+  - 天龙八部
+  - skill
 rank: {skill.get('rank', '登堂入室')}
 faction: "[[{id_to_wikilink(skill.get('faction', ''))}]]"
 combat_style: {skill.get('combat_style', '')}
@@ -194,7 +201,7 @@ game_stats:
     for char_id in skill.get('masters', []):
         body += f"- [[{id_to_wikilink(char_id)}]]\n"
 
-    return f"# {name}\n\n{frontmatter}\n{body}"
+    return f"{frontmatter}\n\n# {name}\n{body}"
 
 
 def faction_to_markdown(faction):
@@ -206,6 +213,9 @@ def faction_to_markdown(faction):
     frontmatter = f"""---
 id: {faction_id}
 type: {faction.get('type', 'sect')}
+tags:
+  - 天龙八部
+  - faction
 location: "[[{id_to_wikilink(faction.get('location', ''))}]]"
 ---"""
 
@@ -230,7 +240,7 @@ location: "[[{id_to_wikilink(faction.get('location', ''))}]]"
     for skill in faction.get('signature_skills', []):
         body += f"- [[{id_to_wikilink(skill)}]]\n"
 
-    return f"# {name}\n\n{frontmatter}\n{body}"
+    return f"{frontmatter}\n\n# {name}\n{body}"
 
 
 def location_to_markdown(location):
@@ -241,6 +251,10 @@ def location_to_markdown(location):
     # YAML frontmatter
     frontmatter = f"""---
 id: {loc_id}
+type: location
+tags:
+  - 天龙八部
+  - location
 region: {location.get('region', '')}
 ---"""
 
@@ -262,7 +276,7 @@ region: {location.get('region', '')}
     for char in location.get('characters', []):
         body += f"- [[{id_to_wikilink(char)}]]\n"
 
-    return f"# {name}\n\n{frontmatter}\n{body}"
+    return f"{frontmatter}\n\n# {name}\n{body}"
 
 
 def main():

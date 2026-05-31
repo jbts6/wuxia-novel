@@ -65,6 +65,24 @@ def merge_list(existing, new, key='id'):
     return list(by_id.values())
 
 
+def extract_techniques_from_skills(skills):
+    """从合并后的 skills 数据中提取并去重 techniques。"""
+    techniques_by_id = {}
+    for skill in skills:
+        skill_id = skill.get('id', '')
+        for technique in skill.get('techniques', []):
+            if not isinstance(technique, dict):
+                continue
+            technique_id = technique.get('id')
+            if not technique_id or technique_id in techniques_by_id:
+                continue
+            extracted = dict(technique)
+            if skill_id:
+                extracted.setdefault('source_skill', skill_id)
+            techniques_by_id[technique_id] = extracted
+    return list(techniques_by_id.values())
+
+
 def merge_all(chapters):
     """合并所有章节数据"""
     all_characters = []
@@ -136,6 +154,8 @@ def merge_all(chapters):
             all_techniques.extend(dp.get('techniques', []))
             all_events.extend(dp.get('events', []))
             all_dialogues.extend(dp.get('dialogues', []))
+
+    all_techniques = merge_list(all_techniques, extract_techniques_from_skills(all_skills))
 
     return {
         'characters': all_characters,

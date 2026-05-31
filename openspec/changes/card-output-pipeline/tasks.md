@@ -29,5 +29,12 @@
   - 管道已验证可用，prompt 已更新
   - 50 章 items_detail 补全可作为后台批处理任务执行：`python tools/extract/extract-deep.py 1 2 3 ...`
 - [x] 3.7 运行 merge + items 卡片生成，验证完整性
-  - 已生成 59 个物品和 53 个物品卡片
-  - 验证 wikilinks 和格式正确性通过
+  - 已生成 59 个物品和 59 个物品卡片
+  - 已补齐 generated card YAML frontmatter，并通过 `tools/verify/verify-card-output-pipeline.py`
+
+## Phase 4: Verify 回退修复
+
+- [x] 4.1 新增 `tools/verify/verify-card-output-pipeline.py`，覆盖 techniques 去重和卡片 frontmatter 验收
+- [x] 4.2 修复 `merge-chapters.py` / `extract-techniques.py`，从 `skills.json` 内嵌 techniques 生成非空 `techniques.json`
+- [x] 4.3 修复角色、武功、门派、地点、事件、物品卡片生成脚本，确保 YAML frontmatter 位于文件开头并包含必要字段
+- [x] 4.4 记录 `items_detail` 批量补全依赖外部 LLM 输出，作为后台任务继续执行

@@ -1,7 +1,9 @@
-# benxiangseng
-
 ---
 id: char_benxiangseng
+type: character
+tags:
+  - 天龙八部
+  - character
 role: npc
 archetype: warrior
 rank: 登堂入室
@@ -20,6 +22,8 @@ game_stats:
   spd: 36
   wiz: 24
 ---
+
+# benxiangseng
 
 ## 性格
 - **特征**: 

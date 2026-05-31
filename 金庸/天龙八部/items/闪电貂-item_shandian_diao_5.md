@@ -1,3 +1,12 @@
+---
+id: item_shandian_diao_5
+type: special
+owner: "[[钟灵]]"
+tags:
+  - 天龙八部
+  - item
+---
+
 # 闪电貂
 
 ## 基本信息

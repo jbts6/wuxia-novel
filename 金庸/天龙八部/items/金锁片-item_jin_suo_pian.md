@@ -1,3 +1,12 @@
+---
+id: item_jin_suo_pian
+type: special
+owner: "[[阿朱]]"
+tags:
+  - 天龙八部
+  - item
+---
+
 # 金锁片
 
 ## 基本信息

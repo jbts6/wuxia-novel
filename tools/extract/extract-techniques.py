@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""从 game_skills.json 提取 techniques 并去重写入 techniques.json"""
+"""从 skills.json 提取 techniques 并去重写入 techniques.json"""
 
 import json
 from pathlib import Path
 
 def extract_techniques():
     base_dir = Path('金庸/天龙八部')
-    skills_file = base_dir / 'game_skills.json'
+    skills_file = base_dir / 'skills.json'
+    if not skills_file.exists():
+        skills_file = base_dir / 'game_skills.json'
     output_file = base_dir / 'techniques.json'
 
     # 读取 skills
@@ -25,9 +27,12 @@ def extract_techniques():
             if not tech_id:
                 continue
 
-            # 去重：如果已存在，保留第一个
             if tech_id not in techniques_map:
-                techniques_map[tech_id] = tech
+                extracted = dict(tech)
+                skill_id = skill.get('id')
+                if skill_id:
+                    extracted.setdefault('source_skill', skill_id)
+                techniques_map[tech_id] = extracted
 
     # 转换为列表
     techniques = list(techniques_map.values())

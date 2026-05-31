@@ -1,3 +1,12 @@
+---
+id: item_gangzhua
+type: weapon
+owner: "[[云中鹤]]"
+tags:
+  - 天龙八部
+  - item
+---
+
 # 钢抓
 
 ## 基本信息
