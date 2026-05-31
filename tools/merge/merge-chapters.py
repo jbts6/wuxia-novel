@@ -16,9 +16,11 @@ def load_all_chapters():
     for i in range(1, 51):
         sk_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_skeleton.json")
         dp_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_deep.json")
+        items_detail_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_items_detail.json")
 
         sk_data = None
         dp_data = None
+        items_detail_data = None
 
         if os.path.exists(sk_path):
             with open(sk_path, 'r', encoding='utf-8') as f:
@@ -28,10 +30,15 @@ def load_all_chapters():
             with open(dp_path, 'r', encoding='utf-8') as f:
                 dp_data = json.load(f)
 
+        if os.path.exists(items_detail_path):
+            with open(items_detail_path, 'r', encoding='utf-8') as f:
+                items_detail_data = json.load(f)
+
         chapters.append({
             'num': i,
             'skeleton': sk_data,
-            'deep': dp_data
+            'deep': dp_data,
+            'items_detail': items_detail_data
         })
 
     return chapters
@@ -136,24 +143,30 @@ def merge_all(chapters):
                                 skill[k] = v
                         break
 
-            for detail in dp.get('items_detail', []):
-                for item in all_items:
-                    if item['id'] == detail['id']:
-                        for k, v in detail.items():
-                            if k == 'id':
-                                continue
-                            if isinstance(v, list) and isinstance(item.get(k), list):
-                                existing = set(str(x) for x in item[k])
-                                for x in v:
-                                    if str(x) not in existing:
-                                        item[k].append(x)
-                            elif v is not None and v != '':
-                                item[k] = v
-                        break
-
             all_techniques.extend(dp.get('techniques', []))
             all_events.extend(dp.get('events', []))
             all_dialogues.extend(dp.get('dialogues', []))
+
+        item_details = []
+        if ch['deep']:
+            item_details.extend(ch['deep'].get('items_detail', []))
+        if ch.get('items_detail'):
+            item_details.extend(ch['items_detail'].get('items_detail', []))
+
+        for detail in item_details:
+            for item in all_items:
+                if item['id'] == detail['id']:
+                    for k, v in detail.items():
+                        if k == 'id':
+                            continue
+                        if isinstance(v, list) and isinstance(item.get(k), list):
+                            existing = set(str(x) for x in item[k])
+                            for x in v:
+                                if str(x) not in existing:
+                                    item[k].append(x)
+                        elif v is not None and v != '':
+                            item[k] = v
+                    break
 
     all_techniques = merge_list(all_techniques, extract_techniques_from_skills(all_skills))
 

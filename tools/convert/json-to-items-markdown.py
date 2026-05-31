@@ -111,6 +111,14 @@ tags:
 {origin}
 """
 
+    # 相关人物（如果有）
+    related_characters = item.get('related_characters', [])
+    if related_characters:
+        body += "\n## 相关人物\n"
+        for char_id in related_characters:
+            char_name = id_to_wikilink(char_id)
+            body += f"- [[{char_name}]]\n"
+
     # 相关技能（如果有）
     related_skills = item.get('related_skills', [])
     if related_skills:

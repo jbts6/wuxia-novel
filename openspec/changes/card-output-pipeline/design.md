@@ -22,7 +22,7 @@ Phase 3: chapters/*.json → 更新 prompts → 重新提取 → merge → items
 - Phase 3.5/3.6 需要重新运行 50 章提取
 - 策略：检查现有 JSON 是否已有 items 字段，有则跳过
 - 避免覆盖已有的 characters/skills/events 数据
-- 实施偏差：当前提取脚本只生成 LLM prompt，不直接调用 LLM API；本 change 验证 prompt、merge、card 输出管道，完整 `items_detail` 批量补全作为后续后台任务执行。
+- 实施更新：items 深度信息沿用现有项目的 prompt → 外部 LLM → JSON 回填方式；脚本生成 `ch_XX_items_detail_prompt.txt`，LLM 结果保存为 `ch_XX_items_detail.json`，再由 merge 管道合并进 `items.json`。
 
 ## 约束
 - 不修改现有 game_*.json 结构
@@ -32,4 +32,4 @@ Phase 3: chapters/*.json → 更新 prompts → 重新提取 → merge → items
 ## 风险
 - Phase 3 重提取可能耗时较长（50 章 × 2 次提取）
 - items 数据模型尚未定义，需要在 Phase 3.1 明确
-- `items_detail` 批量补全依赖外部 LLM 输出，可能在本 change 之后继续后台执行。
+- 对包含 `items` 的章节，`items_detail` 输出必须覆盖该章节全部 item id；缺失时 verification 失败，不能归档。

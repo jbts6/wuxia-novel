@@ -80,7 +80,7 @@ canonical_spec: openspec
 - 执行顺序：
   1. skeleton 提取（50章）
   2. deep 提取（50章）
-- 实施偏差：当前 extraction 脚本只生成供 LLM 使用的 prompt，不直接调用 LLM API；本 change 验证 prompt、merge、card 输出管道，完整 `items_detail` 批量补全作为后续后台任务执行。
+- 实施更新：items 深度信息沿用现有项目的 prompt → 外部 LLM → JSON 回填方式；脚本生成 `ch_XX_items_detail_prompt.txt`，LLM 结果保存为 `ch_XX_items_detail.json`，再由 merge 管道合并进 `items.json`。
 
 #### 3.7: 验证
 - 运行 merge 生成 `game_items.json`
@@ -148,4 +148,4 @@ Phase 3:
 - 现有脚本假设输入文件存在且格式正确
 - 卡片输出目录需要预先创建（或脚本内自动创建）
 - items 数据可能为空（某些章节可能没有物品描述）
-- `items_detail` 可能暂时为空；这表示深度 LLM 输出尚未批量回填，不影响本 change 对 items 管道和卡片生成的验证范围。
+- 对包含 `items` 的章节，`items_detail` 输出必须覆盖该章节全部 item id；缺失时 verification 失败，不能归档。

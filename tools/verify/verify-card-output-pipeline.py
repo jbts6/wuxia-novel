@@ -10,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 NOVEL_DIR = ROOT / "金庸" / "天龙八部"
+CHAPTERS_DIR = NOVEL_DIR / "chapters"
 CARD_DIRS = ("characters", "skills", "factions", "locations", "events", "items")
 
 
@@ -99,10 +100,60 @@ def verify_item_card_count() -> None:
         fail(f"item card count mismatch: {len(item_cards)} markdown files for {len(items)} items")
 
 
+def item_ids_from_skeleton(chapter_num: int) -> set[str]:
+    skeleton_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}_skeleton.json"
+    if not skeleton_path.exists():
+        return set()
+    skeleton = load_json(skeleton_path)
+    return {item.get("id") for item in skeleton.get("items", []) if item.get("id")}
+
+
+def item_detail_ids(chapter_num: int) -> set[str]:
+    detail_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}_items_detail.json"
+    if detail_path.exists():
+        detail = load_json(detail_path)
+        return {item.get("id") for item in detail.get("items_detail", []) if item.get("id")}
+
+    deep_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}_deep.json"
+    if deep_path.exists():
+        deep = load_json(deep_path)
+        return {item.get("id") for item in deep.get("items_detail", []) if item.get("id")}
+
+    return set()
+
+
+def verify_items_detail_outputs() -> None:
+    missing_outputs = []
+    missing_ids = []
+
+    for chapter_num in range(1, 51):
+        expected = item_ids_from_skeleton(chapter_num)
+        if not expected:
+            continue
+
+        actual = item_detail_ids(chapter_num)
+        if not actual:
+            missing_outputs.append(chapter_num)
+            continue
+
+        missing = sorted(expected - actual)
+        if missing:
+            missing_ids.append(f"ch_{chapter_num:02d}: {', '.join(missing[:8])}")
+
+    if missing_outputs:
+        sample = ", ".join(f"ch_{n:02d}" for n in missing_outputs[:10])
+        fail(f"missing items_detail outputs for {len(missing_outputs)} chapters with items: {sample}")
+
+    if missing_ids:
+        sample = "; ".join(missing_ids[:6])
+        fail(f"items_detail outputs do not cover skeleton item ids: {sample}")
+
+
 def main() -> None:
     verify_techniques()
     verify_markdown_cards()
     verify_item_card_count()
+    verify_items_detail_outputs()
     print("card-output-pipeline verification passed")
 
 

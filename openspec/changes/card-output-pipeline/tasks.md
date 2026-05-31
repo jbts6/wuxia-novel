@@ -37,4 +37,12 @@
 - [x] 4.1 新增 `tools/verify/verify-card-output-pipeline.py`，覆盖 techniques 去重和卡片 frontmatter 验收
 - [x] 4.2 修复 `merge-chapters.py` / `extract-techniques.py`，从 `skills.json` 内嵌 techniques 生成非空 `techniques.json`
 - [x] 4.3 修复角色、武功、门派、地点、事件、物品卡片生成脚本，确保 YAML frontmatter 位于文件开头并包含必要字段
-- [x] 4.4 记录 `items_detail` 批量补全依赖外部 LLM 输出，作为后台任务继续执行
+- [x] 4.4 记录 `items_detail` 批量补全依赖外部 LLM 输出
+
+## Phase 5: 物品深度详情补全
+
+- [x] 5.1 新增 `tools/extract/items-detail-prompt.md` 和 `tools/extract/generate-items-detail-prompts.py`
+- [x] 5.2 修改 `tools/merge/merge-chapters.py`，读取 `ch_XX_items_detail.json` companion 文件并合并到 `items.json`
+- [x] 5.3 修改 `tools/verify/verify-card-output-pipeline.py`，要求有 items 的章节必须有完整 `items_detail`
+- [ ] 5.4 将生成的 `ch_XX_items_detail_prompt.txt` 发送给外部 LLM，并保存为对应 `ch_XX_items_detail.json`
+- [ ] 5.5 重新运行 merge、物品卡片生成和 `tools/verify/verify-card-output-pipeline.py`
