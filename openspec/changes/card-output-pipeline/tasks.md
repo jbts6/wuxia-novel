@@ -12,9 +12,9 @@
 
 ## Phase 2: 修复 techniques.json
 
-- [ ] 2.1 分析 skills.json 中内嵌的 techniques 数据分布
-- [ ] 2.2 编写脚本或修改 merge-chapters.py，从 skills 提取并去重 techniques 写入 techniques.json
-- [ ] 2.3 验证 techniques.json 非空且与 skills 引用一致
+- [x] 2.1 分析 skills.json 中内嵌的 techniques 数据分布
+- [x] 2.2 编写脚本或修改 merge-chapters.py，从 skills 提取并去重 techniques 写入 techniques.json
+- [x] 2.3 验证 techniques.json 非空且与 skills 引用一致
 
 ## Phase 3: 物品卡片管道
 
