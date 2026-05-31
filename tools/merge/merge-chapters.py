@@ -71,6 +71,7 @@ def merge_all(chapters):
     all_factions = []
     all_locations = []
     all_skills = []
+    all_items = []
     all_techniques = []
     all_events = []
     all_dialogues = []
@@ -82,6 +83,7 @@ def merge_all(chapters):
             all_factions = merge_list(all_factions, sk.get('factions', []))
             all_locations = merge_list(all_locations, sk.get('locations', []))
             all_skills = merge_list(all_skills, sk.get('skills', []))
+            all_items = merge_list(all_items, sk.get('items', []))
 
         if ch['deep']:
             dp = ch['deep']
@@ -116,6 +118,21 @@ def merge_all(chapters):
                                 skill[k] = v
                         break
 
+            for detail in dp.get('items_detail', []):
+                for item in all_items:
+                    if item['id'] == detail['id']:
+                        for k, v in detail.items():
+                            if k == 'id':
+                                continue
+                            if isinstance(v, list) and isinstance(item.get(k), list):
+                                existing = set(str(x) for x in item[k])
+                                for x in v:
+                                    if str(x) not in existing:
+                                        item[k].append(x)
+                            elif v is not None and v != '':
+                                item[k] = v
+                        break
+
             all_techniques.extend(dp.get('techniques', []))
             all_events.extend(dp.get('events', []))
             all_dialogues.extend(dp.get('dialogues', []))
@@ -125,6 +142,7 @@ def merge_all(chapters):
         'factions': all_factions,
         'locations': all_locations,
         'skills': all_skills,
+        'items': all_items,
         'techniques': all_techniques,
         'events': all_events,
         'dialogues': all_dialogues

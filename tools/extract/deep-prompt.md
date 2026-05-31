@@ -41,6 +41,15 @@
 - `effects`: 本章展示的实战效果
 - `combat_style`: 战斗风格描述
 
+### 物品详细卡
+对骨架中**每个**在本章出现的物品，提取：
+
+- `description`: 物品详细描述（外观、材质、特性等，至少20字）
+- `effects`: 物品效果列表（如武器的攻击力、防具的防御力、丹药的疗效等）
+- `origin`: 物品来源或制作者（如果原文有提及）
+- `rarity`: 稀有度（common/uncommon/rare/legendary）
+- `related_skills`: 使用该物品需要的技能id列表（如特殊武器需要特定武功）
+
 ### 事件卡
 提取本章中发生的**所有**重要事件：
 - id: "evt_章节号_序号" 格式
@@ -101,6 +110,16 @@
       "progression": [{"level": 1, "unlock": "隔空点穴"}],
       "effects": [{"type": "控制", "condition": "点中穴道", "description": "目标全身无法动弹，失去战斗力"}],
       "combat_style": "点穴制敌，以指代剑"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_xxx",
+      "description": "物品详细描述，包括外观、材质、特性等",
+      "effects": [{"type": "攻击", "value": "+10", "description": "增加攻击力"}],
+      "origin": "制作者或来源",
+      "rarity": "rare",
+      "related_skills": ["skill_xxx"]
     }
   ],
   "events": [
