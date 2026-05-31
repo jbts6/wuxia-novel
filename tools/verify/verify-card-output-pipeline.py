@@ -99,6 +99,22 @@ def verify_item_card_count() -> None:
     if len(item_cards) != len(items):
         fail(f"item card count mismatch: {len(item_cards)} markdown files for {len(items)} items")
 
+    expected_ids = {item.get("id") for item in items if item.get("id")}
+    found_ids = set()
+    for path in item_cards:
+        frontmatter = get_frontmatter(path.read_text(encoding="utf-8"))
+        if frontmatter is None:
+            continue
+        for line in frontmatter.splitlines():
+            if line.startswith("id:"):
+                found_ids.add(line.split(":", 1)[1].strip())
+                break
+
+    missing = sorted(expected_ids - found_ids)
+    if missing:
+        sample = ", ".join(missing[:10])
+        fail(f"item cards missing frontmatter ids for {len(missing)} items: {sample}")
+
 
 def item_ids_from_skeleton(chapter_num: int) -> set[str]:
     skeleton_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}_skeleton.json"
