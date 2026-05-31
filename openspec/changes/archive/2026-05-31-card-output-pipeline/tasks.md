@@ -1,3 +1,7 @@
+---
+archived-with: 2026-05-31-card-output-pipeline
+status: final
+---
 # 卡片产出 + 数据补全
 
 ## Phase 1: 运行已有卡片生成脚本

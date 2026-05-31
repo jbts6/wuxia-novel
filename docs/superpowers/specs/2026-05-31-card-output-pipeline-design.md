@@ -2,6 +2,8 @@
 comet_change: card-output-pipeline
 role: technical-design
 canonical_spec: openspec
+archived-with: 2026-05-31-card-output-pipeline
+status: final
 ---
 
 # 卡片产出 + 数据补全 - 技术设计
