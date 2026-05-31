@@ -104,7 +104,11 @@ game_stats:
 
     # Body - handle personality as string or dict
     personality = char.get('personality', {})
-    if isinstance(personality, str):
+    if personality is None:
+        traits = ''
+        speech_style = ''
+        temperament = ''
+    elif isinstance(personality, str):
         traits = personality
         speech_style = ''
         temperament = ''

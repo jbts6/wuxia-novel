@@ -1,0 +1,34 @@
+# yeluyaoji
+
+---
+id: char_yeluyaoji
+role: npc
+archetype: warrior
+rank: 登堂入室
+faction: "[[辽国]]"
+alias: []
+identity: 耶律基
+first_appearance: 
+known_skills:
+related_skills:
+game_stats:
+  hp: 780
+  mp: 280
+  atk: 52
+  def: 42
+  spd: 36
+  wiz: 24
+---
+
+## 性格
+- **特征**: 
+- **说话风格**: 
+- **气质**: 
+
+## 关系
+
+## 外貌
+暂无描述
+
+## 生平概要
+耶律基 yeluyaoji
