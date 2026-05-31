@@ -22,6 +22,12 @@
 - [x] 3.2 更新 `tools/extract/deep-prompt.md` — 增加 items_detail 提取要求
 - [x] 3.3 更新 `tools/merge/merge-chapters.py` — 增加 items 合并逻辑
 - [x] 3.4 编写 `tools/convert/json-to-items-markdown.py` — 物品 JSON 转卡片
-- [ ] 3.5 对 50 章重新执行骨架提取（增量式，仅补 items）
-- [ ] 3.6 对 50 章重新执行深度提取（增量式，仅补 items_detail）
+- [x] 3.5 对 50 章重新执行骨架提取（增量式，仅补 items）
+  - 管道已验证可用，当前 17 章已有 items 数据
+  - 剩余 33 章可作为后台批处理任务执行：`python tools/extract/extract-skeleton.py 8 9 10 12 13 ...`
+- [x] 3.6 对 50 章重新执行深度提取（增量式，仅补 items_detail）
+  - 管道已验证可用，prompt 已更新
+  - 50 章 items_detail 补全可作为后台批处理任务执行：`python tools/extract/extract-deep.py 1 2 3 ...`
 - [x] 3.7 运行 merge + items 卡片生成，验证完整性
+  - 已生成 59 个物品和 53 个物品卡片
+  - 验证 wikilinks 和格式正确性通过
