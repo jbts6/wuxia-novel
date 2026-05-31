@@ -4,10 +4,17 @@
 import os
 import json
 import glob
+import copy
 
 CHAPTERS_DIR = "金庸/天龙八部/chapters"
 OUTPUT_DIR = "金庸/天龙八部"
 PROGRESS_FILE = "金庸/天龙八部/progress.json"
+
+MANUAL_SKILL_ALIASES = {
+    'skill_lingbo_weibu': 'skill_lingboweibu',
+    'skill_beiming_shengong': 'skill_beimingshengong',
+    'skill_yibidaohuanshi': 'skill_yi_bi_zhi_dao_huan_shi_bi_shen',
+}
 
 
 def load_all_chapters():
@@ -70,6 +77,99 @@ def merge_list(existing, new, key='id'):
         else:
             by_id[item_id] = item
     return list(by_id.values())
+
+
+def dedupe_list(values):
+    """按 id/完整内容去重，保留首次出现顺序。"""
+    deduped = []
+    seen = set()
+    for value in values or []:
+        if isinstance(value, dict) and value.get('id'):
+            marker = ('id', value['id'])
+        else:
+            marker = ('value', json.dumps(value, ensure_ascii=False, sort_keys=True))
+        if marker in seen:
+            continue
+        seen.add(marker)
+        deduped.append(value)
+    return deduped
+
+
+def merge_record(target, source):
+    for k, v in source.items():
+        if k == 'id':
+            continue
+        if isinstance(v, list):
+            target[k] = dedupe_list(list(target.get(k) or []) + v)
+        elif isinstance(v, dict):
+            merged = dict(target.get(k) or {})
+            for sub_key, sub_value in v.items():
+                if sub_value not in (None, '', [], {}):
+                    merged.setdefault(sub_key, sub_value)
+            target[k] = merged
+        elif target.get(k) in (None, '', [], {}):
+            target[k] = v
+
+
+def skill_quality_score(skill):
+    score = 0
+    name = skill.get('name', '')
+    if name and not name.startswith('skill_'):
+        score += 100
+    if skill.get('faction'):
+        score += 30
+    score += len(skill.get('techniques') or []) * 10
+    score += len(skill.get('progression') or []) * 4
+    score += len(skill.get('effects') or []) * 4
+    score += len(skill.get('rag_refs') or [])
+    if skill.get('combat_style'):
+        score += 5
+    return (score, skill.get('id', ''))
+
+
+def is_placeholder_skill(skill):
+    name = skill.get('name', '')
+    return name.startswith('skill_') and skill.get('one_line', '') in ('', name)
+
+
+def normalize_skills(skills):
+    """合并同名功法变体，移除占位技能，并返回旧 id 到 canonical id 的映射。"""
+    by_name = {}
+    aliases = dict(MANUAL_SKILL_ALIASES)
+
+    for skill in skills:
+        if is_placeholder_skill(skill):
+            continue
+        name = skill.get('name') or skill.get('id')
+        by_name.setdefault(name, []).append(skill)
+
+    normalized = []
+    for records in by_name.values():
+        canonical = max(records, key=skill_quality_score)
+        merged = copy.deepcopy(canonical)
+        for record in records:
+            record_id = record.get('id')
+            if record_id and record_id != canonical.get('id'):
+                aliases[record_id] = canonical.get('id')
+            merge_record(merged, record)
+        for key, value in list(merged.items()):
+            if isinstance(value, list):
+                merged[key] = dedupe_list(value)
+        normalized.append(merged)
+
+    valid_ids = {skill.get('id') for skill in normalized if skill.get('id')}
+    aliases = {old: new for old, new in aliases.items() if new in valid_ids}
+    return normalized, aliases
+
+
+def rewrite_skill_refs(value, aliases):
+    if isinstance(value, str):
+        return aliases.get(value, value)
+    if isinstance(value, list):
+        return dedupe_list([rewrite_skill_refs(item, aliases) for item in value])
+    if isinstance(value, dict):
+        return {k: rewrite_skill_refs(v, aliases) for k, v in value.items()}
+    return value
 
 
 def extract_techniques_from_skills(skills):
@@ -168,6 +268,14 @@ def merge_all(chapters):
                             item[k] = v
                     break
 
+    all_skills, skill_aliases = normalize_skills(all_skills)
+    all_characters = rewrite_skill_refs(all_characters, skill_aliases)
+    all_factions = rewrite_skill_refs(all_factions, skill_aliases)
+    all_items = rewrite_skill_refs(all_items, skill_aliases)
+    all_events = rewrite_skill_refs(all_events, skill_aliases)
+    all_dialogues = rewrite_skill_refs(all_dialogues, skill_aliases)
+
+    all_techniques = rewrite_skill_refs(all_techniques, skill_aliases)
     all_techniques = merge_list(all_techniques, extract_techniques_from_skills(all_skills))
 
     return {

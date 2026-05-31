@@ -10,13 +10,20 @@ OUTPUT_DIR = os.path.join(NOVELS_DIR, "items")
 # ID 到中文名的映射表
 ID_TO_NAME = {}
 
+MANUAL_SKILL_ALIASES = {
+    'skill_ling_bo_wei_bu': 'skill_lingboweibu',
+    'skill_lingbo_weibu': 'skill_lingboweibu',
+    'skill_beiming_shengong': 'skill_beimingshengong',
+    'skill_yibidaohuanshi': 'skill_yi_bi_zhi_dao_huan_shi_bi_shen',
+}
+
 
 def load_json(path):
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
-def build_id_mapping(characters, items):
+def build_id_mapping(characters, items, skills):
     """构建 ID 到中文名的映射"""
     global ID_TO_NAME
     ID_TO_NAME = {}
@@ -32,6 +39,16 @@ def build_id_mapping(characters, items):
         name = item.get('name', '')
         if item_id and name:
             ID_TO_NAME[item_id] = name
+
+    for skill in skills:
+        skill_id = skill.get('id', '')
+        name = skill.get('name', '')
+        if skill_id and name:
+            ID_TO_NAME[skill_id] = name
+
+    for alias, target_id in MANUAL_SKILL_ALIASES.items():
+        if target_id in ID_TO_NAME:
+            ID_TO_NAME[alias] = ID_TO_NAME[target_id]
 
 
 def id_to_wikilink(entity_id):
@@ -167,8 +184,9 @@ def main():
     print("构建 ID 映射...")
     characters = load_json(os.path.join(NOVELS_DIR, "game_characters.json"))
     items = load_json(os.path.join(NOVELS_DIR, "items.json"))
+    skills = load_json(os.path.join(NOVELS_DIR, "skills.json"))
 
-    build_id_mapping(characters, items)
+    build_id_mapping(characters, items, skills)
     print(f"  已映射 {len(ID_TO_NAME)} 个实体")
 
     name_counts = {}
