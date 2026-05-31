@@ -18,10 +18,10 @@
 
 ## Phase 3: 物品卡片管道
 
-- [ ] 3.1 更新 `tools/extract/skeleton-prompt.md` — 增加 items 提取要求
-- [ ] 3.2 更新 `tools/extract/deep-prompt.md` — 增加 items_detail 提取要求
-- [ ] 3.3 更新 `tools/merge/merge-chapters.py` — 增加 items 合并逻辑
-- [ ] 3.4 编写 `tools/convert/json-to-items-markdown.py` — 物品 JSON 转卡片
+- [x] 3.1 更新 `tools/extract/skeleton-prompt.md` — 增加 items 提取要求
+- [x] 3.2 更新 `tools/extract/deep-prompt.md` — 增加 items_detail 提取要求
+- [x] 3.3 更新 `tools/merge/merge-chapters.py` — 增加 items 合并逻辑
+- [x] 3.4 编写 `tools/convert/json-to-items-markdown.py` — 物品 JSON 转卡片
 - [ ] 3.5 对 50 章重新执行骨架提取（增量式，仅补 items）
 - [ ] 3.6 对 50 章重新执行深度提取（增量式，仅补 items_detail）
-- [ ] 3.7 运行 merge + items 卡片生成，验证完整性
+- [x] 3.7 运行 merge + items 卡片生成，验证完整性

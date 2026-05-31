@@ -135,7 +135,7 @@ def save_markdown(output_dir, filename, content):
 def main():
     print("构建 ID 映射...")
     characters = load_json(os.path.join(NOVELS_DIR, "game_characters.json"))
-    items = load_json(os.path.join(NOVELS_DIR, "game_items.json"))
+    items = load_json(os.path.join(NOVELS_DIR, "items.json"))
 
     build_id_mapping(characters, items)
     print(f"  已映射 {len(ID_TO_NAME)} 个实体")
