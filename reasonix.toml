@@ -25,31 +25,31 @@ is changed; once approved, work through the steps, updating the task list as you
 max_steps   = 0
 temperature = 0.0
 auto_plan   = "ask"   # off|ask|on; ask/on auto-enter plan mode for complex tasks
-auto_plan_classifier = "mimo-flash"   # optional; only used for borderline tasks
+# auto_plan_classifier = "mimo-flash"   # optional; only used for borderline tasks
 planner_model = "mimo-pro"   # optional: enable two-model collaboration
 subagent_model = "mimo-pro"   # optional default for runAs=subagent skills
 subagent_models = { review = "mimo-pro", security_review = "mimo-pro" }   # per-skill overrides
 # output_style = "explanatory"   # explanatory | learning | concise | custom; empty = default
 
-[[providers]]
-name        = "deepseek-flash"
-kind        = "openai"
-base_url    = "https://api.deepseek.com"
-model       = "deepseek-v4-flash"
-api_key_env = "DEEPSEEK_API_KEY"
-balance_url = "https://api.deepseek.com/user/balance"   # optional; wallet-balance endpoint shown in the status bar
-context_window = 1000000   # tokens; compaction triggers near this limit
-price       = { cache_hit = 0.02, input = 1, output = 2, currency = "¥" }   # per 1M tokens
+# [[providers]]
+# name        = "deepseek-flash"
+# kind        = "openai"
+# base_url    = "https://api.deepseek.com"
+# model       = "deepseek-v4-flash"
+# api_key_env = "DEEPSEEK_API_KEY"
+# balance_url = "https://api.deepseek.com/user/balance"   # optional; wallet-balance endpoint shown in the status bar
+# context_window = 1000000   # tokens; compaction triggers near this limit
+# price       = { cache_hit = 0.02, input = 1, output = 2, currency = "¥" }   # per 1M tokens
 
-[[providers]]
-name        = "deepseek-pro"
-kind        = "openai"
-base_url    = "https://api.deepseek.com"
-model       = "deepseek-v4-pro"
-api_key_env = "DEEPSEEK_API_KEY"
-balance_url = "https://api.deepseek.com/user/balance"   # optional; wallet-balance endpoint shown in the status bar
-context_window = 1000000   # tokens; compaction triggers near this limit
-price       = { cache_hit = 0.025, input = 3, output = 6, currency = "¥" }   # per 1M tokens
+# [[providers]]
+# name        = "deepseek-pro"
+# kind        = "openai"
+# base_url    = "https://api.deepseek.com"
+# model       = "deepseek-v4-pro"
+# api_key_env = "DEEPSEEK_API_KEY"
+# balance_url = "https://api.deepseek.com/user/balance"   # optional; wallet-balance endpoint shown in the status bar
+# context_window = 1000000   # tokens; compaction triggers near this limit
+# price       = { cache_hit = 0.025, input = 3, output = 6, currency = "¥" }   # per 1M tokens
 
 [[providers]]
 name        = "mimo-pro"
