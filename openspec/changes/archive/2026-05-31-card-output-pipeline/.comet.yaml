@@ -1,0 +1,19 @@
+workflow: full
+phase: archive
+build_mode: direct
+isolation: branch
+verify_mode: full
+base_ref: 6b9baba8a9519cf2c8f7dad6c58f7f326c372dc8
+design_doc: docs/superpowers/specs/2026-05-31-card-output-pipeline-design.md
+plan: openspec/changes/card-output-pipeline/tasks.md
+verify_result: pass
+verification_report: docs/superpowers/reports/2026-05-31-card-output-pipeline-verify.md
+branch_status: handled
+created_at: 2026-05-31
+verified_at: 2026-05-31
+archived: true
+archived_at: null
+direct_override: true
+handoff_context: openspec/changes/card-output-pipeline/.comet/handoff/design-context.json
+handoff_hash: 29716c79732b697b3a428c8372ec009c275f717f7395d7065eca1c40506c4751
+build_command: python -c "import os; assert os.path.exists('金庸/天龙八部/characters'), 'characters 目录不存在'; assert os.path.exists('金庸/天龙八部/items'), 'items 目录不存在'; assert os.path.exists('金庸/天龙八部/techniques.json'), 'techniques.json 不存在'; print('验证通过：所有产物已生成')"
