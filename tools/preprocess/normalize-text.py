@@ -5,148 +5,109 @@
 - 添加首行缩进（全角空格）
 - 段落之间添加空行
 - 保留章节标题格式
+
+用法:
+    python normalize-text.py <小说目录>
+    
+示例:
+    python normalize-text.py 金庸/天龙八部
 """
 
 import os
+import sys
 import re
 import shutil
+import glob
 
-NOVEL_DIR = "金庸/天龙八部"
-NOVEL_FILE = "天龙八部.txt"
+# 从命令行参数获取路径
+if len(sys.argv) < 2:
+    print("❌ 错误: 请提供小说目录路径")
+    print("用法: python normalize-text.py <小说目录>")
+    sys.exit(1)
+
+NOVEL_DIR = sys.argv[1]
+
+# 自动检测小说文件（.txt 文件）
+novel_files = glob.glob(os.path.join(NOVEL_DIR, "*.txt"))
+if novel_files:
+    NOVEL_FILE = os.path.basename(novel_files[0])
+else:
+    NOVEL_FILE = None
 
 
 def backup_original(novel_dir, novel_file):
     """备份原文"""
     src = os.path.join(novel_dir, novel_file)
-    dst = os.path.join(novel_dir, novel_file + ".bak")
+    backup_dir = os.path.join(novel_dir, "ch_original")
+    os.makedirs(backup_dir, exist_ok=True)
+    dst = os.path.join(backup_dir, novel_file)
     if not os.path.exists(dst):
         shutil.copy2(src, dst)
-        print(f"已备份原文到: {dst}")
-    else:
-        print(f"备份已存在: {dst}")
-
-
-def is_chapter_title(line):
-    """判断是否为章节标题"""
-    # 匹配 "一　　青衫磊落险峰行" 这种格式
-    if re.match(r'^[一二三四五六七八九十百千]+[　\s]+', line):
-        return True
-    # 匹配 "第一章 xxx" 这种格式
-    if re.match(r'^第[一二三四五六七八九十百千零]+[章节回]', line):
-        return True
-    return False
-
-
-def is_poem_or_song(line):
-    """判断是否为诗词/歌词（目录部分）"""
-    # 目录中的诗词通常有特定格式
-    if re.match(r'^[一二三四五六七八九十]+[、.]', line):
-        return True
-    return False
+        print(f"已备份原文到 {dst}")
+    return backup_dir
 
 
 def normalize_text(text):
     """标准化文本"""
     lines = text.split('\n')
-    normalized_lines = []
-
+    normalized = []
+    
     for line in lines:
-        stripped = line.strip()
-
-        # 跳过空行（后面会统一处理段落间距）
-        if not stripped:
+        line = line.strip()
+        if not line:
+            normalized.append('')
             continue
-
-        # 章节标题：保留原格式，前后加空行
-        if is_chapter_title(stripped):
-            if normalized_lines and normalized_lines[-1] != '':
-                normalized_lines.append('')  # 标题前空行
-            normalized_lines.append(stripped)
-            normalized_lines.append('')  # 标题后空行
+        
+        # 章节标题（以数字开头）
+        if re.match(r'^[一二三四五六七八九十百千]+[　\s\t]+', line):
+            normalized.append('')
+            normalized.append(line)
+            normalized.append('')
             continue
-
-        # 目录诗词：保留原格式
-        if is_poem_or_song(stripped):
-            normalized_lines.append(stripped)
-            continue
-
-        # 普通段落：拆分长行并添加缩进
-        if len(stripped) > 100:
-            # 长行需要拆分
-            sentences = re.split(r'([。！？])', stripped)
-            current_line = ""
-
-            for i in range(0, len(sentences), 2):
-                sentence = sentences[i]
-                punct = sentences[i + 1] if i + 1 < len(sentences) else ""
-
-                if len(current_line) + len(sentence) + len(punct) > 100:
-                    if current_line:
-                        # 添加首行缩进
-                        normalized_lines.append('　　' + current_line)
-                    current_line = sentence + punct
-                else:
-                    current_line += sentence + punct
-
-            if current_line:
-                normalized_lines.append('　　' + current_line)
-        else:
-            # 短行：直接添加缩进
-            normalized_lines.append('　　' + stripped)
-
-    # 清理：合并连续空行，确保段落之间只有一个空行
-    result = []
-    prev_empty = False
-
-    for line in normalized_lines:
-        if line == '':
-            if not prev_empty:
-                result.append(line)
-            prev_empty = True
-        else:
-            result.append(line)
-            prev_empty = False
-
-    # 确保文件以换行符结尾
-    if result and result[-1] != '':
-        result.append('')
-
-    return '\n'.join(result)
+        
+        # 普通段落：添加首行缩进
+        if line:
+            normalized.append('　　' + line)
+    
+    return '\n'.join(normalized)
 
 
 def main():
+    print(f"📂 小说目录: {NOVEL_DIR}")
+    
+    if not NOVEL_FILE:
+        print("❌ 错误: 未找到小说 .txt 文件")
+        sys.exit(1)
+    
+    print(f"📄 小说文件: {NOVEL_FILE}")
+    
     # 备份原文
     backup_original(NOVEL_DIR, NOVEL_FILE)
-
+    
     # 读取原文
-    novel_path = os.path.join(NOVEL_DIR, NOVEL_FILE)
-    with open(novel_path, 'r', encoding='utf-8', errors='replace') as f:
+    src_path = os.path.join(NOVEL_DIR, NOVEL_FILE)
+    with open(src_path, 'r', encoding='utf-8', errors='replace') as f:
         text = f.read()
-
-    original_lines = len(text.split('\n'))
-    print(f"原文行数: {original_lines}")
-    print(f"原文字符数: {len(text)}")
-
+    
     # 标准化
+    print("标准化文本...")
     normalized = normalize_text(text)
-    normalized_lines = normalized.split('\n')
-
-    print(f"标准化后行数: {len(normalized_lines)}")
-
-    # 统计行长分布
-    line_lengths = [len(line) for line in normalized_lines if line.strip()]
-    if line_lengths:
-        avg_len = sum(line_lengths) / len(line_lengths)
-        max_len = max(line_lengths)
-        print(f"平均行长: {avg_len:.1f} 字符")
-        print(f"最大行长: {max_len} 字符")
-
-    # 覆盖原文件
-    with open(novel_path, 'w', encoding='utf-8') as f:
-        f.write(normalized)
-
-    print(f"\n已标准化并保存到: {novel_path}")
-    print(f"原文备份在: {novel_path}.bak")
+    
+    # 保存到 ch_formatted 目录
+    formatted_dir = os.path.join(NOVEL_DIR, "ch_formatted")
+    os.makedirs(formatted_dir, exist_ok=True)
+    
+    # 按章节分割保存
+    chapters = normalized.split('\n\n\n')
+    chapter_num = 0
+    for chapter in chapters:
+        if chapter.strip():
+            chapter_num += 1
+            output_path = os.path.join(formatted_dir, f"ch_{chapter_num:02d}.md")
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(chapter.strip())
+    
+    print(f"✅ 完成：共 {chapter_num} 个章节已保存到 {formatted_dir}")
 
 
 if __name__ == "__main__":

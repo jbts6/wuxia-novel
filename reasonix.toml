@@ -4,6 +4,8 @@
 
 default_model = "mimo-flash"
 language      = "zh"   # ui/model language; empty = auto-detect from $LANG / $REASONIX_LANG
+mouseTracking = false
+historyScrollMode = "native"
 
 [agent]
 system_prompt = """

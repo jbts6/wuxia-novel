@@ -1,15 +1,30 @@
 #!/usr/bin/env python3
-"""Generate item-detail prompts for chapters with skeleton items."""
+"""Generate item-detail prompts for chapters with skeleton items.
+
+用法:
+    python generate-items-detail-prompts.py <小说目录> [章节号...]
+    
+示例:
+    python generate-items-detail-prompts.py 金庸/天龙八部           # 处理所有章节
+    python generate-items-detail-prompts.py 金庸/天龙八部 1 2 3    # 只处理第1-3章
+"""
 
 from __future__ import annotations
 
 import json
 import os
 import sys
+import glob
 
+# 从命令行参数获取路径
+if len(sys.argv) < 2:
+    print("❌ 错误: 请提供小说目录路径")
+    print("用法: python generate-items-detail-prompts.py <小说目录> [章节号...]")
+    sys.exit(1)
 
-CHAPTERS_DIR = "金庸/天龙八部/chapters"
-CHAPTER_TEXT_DIR = "金庸/天龙八部/ch_formatted"
+NOVEL_DIR = sys.argv[1]
+CHAPTERS_DIR = os.path.join(NOVEL_DIR, "chapters")
+CHAPTER_TEXT_DIR = os.path.join(NOVEL_DIR, "ch_formatted")
 PROMPT_FILE = "tools/extract/items-detail-prompt.md"
 
 
@@ -21,7 +36,7 @@ def load_json(path):
 def load_chapter_text(ch_num):
     path = os.path.join(CHAPTER_TEXT_DIR, f"ch_{ch_num:02d}.md")
     if not os.path.exists(path):
-        path = os.path.join("金庸/天龙八部/ch_original", f"ch_{ch_num:02d}.md")
+        path = os.path.join(NOVEL_DIR, "ch_original", f"ch_{ch_num:02d}.md")
     if not os.path.exists(path):
         return None
     with open(path, "r", encoding="utf-8") as f:
@@ -71,19 +86,39 @@ def format_item_index(items):
     return "\n".join(lines)
 
 
-def target_chapters_from_args():
-    if len(sys.argv) > 1:
-        return [int(arg) for arg in sys.argv[1:]]
-    return list(range(1, 51))
-
-
 def main():
+    print(f"📂 小说目录: {NOVEL_DIR}")
+    
+    # 自动检测章节数量
+    chapter_files = glob.glob(os.path.join(CHAPTERS_DIR, "ch_*_skeleton.json"))
+    max_chapter = 0
+    for f in chapter_files:
+        basename = os.path.basename(f)
+        try:
+            num = int(basename.split('_')[1])
+            max_chapter = max(max_chapter, num)
+        except:
+            pass
+    
+    if max_chapter == 0:
+        print("❌ 错误: 未找到骨架文件")
+        sys.exit(1)
+    
+    print(f"检测到 {max_chapter} 个章节")
+    
+    # 获取目标章节
+    if len(sys.argv) > 2:
+        target_chapters = [int(arg) for arg in sys.argv[2:]]
+    else:
+        target_chapters = list(range(1, max_chapter + 1))
+    
+    # 读取prompt模板
     with open(PROMPT_FILE, "r", encoding="utf-8") as f:
         template = f.read()
 
     generated = 0
     skipped = 0
-    for ch_num in target_chapters_from_args():
+    for ch_num in target_chapters:
         skeleton = load_skeleton(ch_num)
         if not skeleton:
             skipped += 1
@@ -120,7 +155,7 @@ def main():
         print(f"[ACTION] 请将 LLM JSON 输出保存到 {result_output}")
         generated += 1
 
-    print(f"完成：生成 {generated} 个 prompt，跳过 {skipped} 个章节")
+    print(f"\n✅ 完成：生成 {generated} 个 prompt，跳过 {skipped} 个章节")
 
 
 if __name__ == "__main__":

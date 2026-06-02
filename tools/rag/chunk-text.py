@@ -1,11 +1,26 @@
 #!/usr/bin/env python3
-"""RAG切片脚本：从ch_formatted读取排版后文本，切为200-500字的chunk，附加元数据"""
+"""RAG切片脚本：从ch_formatted读取排版后文本，切为200-500字的chunk，附加元数据
+
+用法:
+    python chunk-text.py <小说目录>
+    
+示例:
+    python chunk-text.py 金庸/天龙八部
+"""
 
 import os
+import sys
 import json
 import re
+import glob
 
-NOVEL_DIR = "金庸/天龙八部"
+# 从命令行参数获取路径
+if len(sys.argv) < 2:
+    print("❌ 错误: 请提供小说目录路径")
+    print("用法: python chunk-text.py <小说目录>")
+    sys.exit(1)
+
+NOVEL_DIR = sys.argv[1]
 FORMATTED_DIR = os.path.join(NOVEL_DIR, "ch_formatted")
 CHAPTERS_DIR = os.path.join(NOVEL_DIR, "chapters")
 CHUNKS_DIR = os.path.join(NOVEL_DIR, "chunks")
@@ -18,141 +33,101 @@ def load_formatted_chapters():
     """从ch_formatted目录读取所有格式化章节，按编号排序"""
     chapters = []
     for fname in os.listdir(FORMATTED_DIR):
-        m = CHAPTER_FILE_PATTERN.match(fname)
-        if m:
-            path = os.path.join(FORMATTED_DIR, fname)
-            with open(path, 'r', encoding='utf-8', errors='replace') as f:
-                text = f.read()
-            chapters.append({'num': int(m.group(1)), 'text': text, 'file': fname})
-    chapters.sort(key=lambda c: c['num'])
+        match = CHAPTER_FILE_PATTERN.match(fname)
+        if not match:
+            continue
+        ch_num = int(match.group(1))
+        filepath = os.path.join(FORMATTED_DIR, fname)
+        with open(filepath, 'r', encoding='utf-8') as f:
+            text = f.read()
+        chapters.append({'num': ch_num, 'text': text, 'file': fname})
+    
+    chapters.sort(key=lambda x: x['num'])
     return chapters
 
 
-def chunk_paragraph(text, min_size=100, max_size=500):
-    """将文本按段落切分为chunk"""
-    paragraphs = [p.strip() for p in text.split('\n') if p.strip()]
+def split_into_chunks(text, min_size=200, max_size=500):
+    """将文本切分为chunks"""
     chunks = []
-    current_chunk = ""
-
+    paragraphs = text.split('\n\n')
+    current_chunk = []
+    current_size = 0
+    
     for para in paragraphs:
-        if len(current_chunk) + len(para) < min_size:
-            current_chunk += para + "\n"
-        elif len(current_chunk) + len(para) <= max_size:
-            current_chunk += para + "\n"
+        para = para.strip()
+        if not para:
+            continue
+        
+        para_size = len(para)
+        
+        if current_size + para_size > max_size and current_size >= min_size:
+            chunks.append('\n\n'.join(current_chunk))
+            current_chunk = [para]
+            current_size = para_size
         else:
-            if current_chunk:
-                chunks.append(current_chunk.strip())
-            # 处理超长段落
-            if len(para) > max_size:
-                # 按句号拆分
-                sentences = re.split(r'([。！？])', para)
-                temp = ""
-                for sent in sentences:
-                    if len(temp) + len(sent) <= max_size:
-                        temp += sent
-                    else:
-                        if temp:
-                            chunks.append(temp.strip())
-                        temp = sent
-                if temp:
-                    current_chunk = temp + "\n"
-                else:
-                    current_chunk = ""
-            else:
-                current_chunk = para + "\n"
-
-    if current_chunk.strip():
-        chunks.append(current_chunk.strip())
-
+            current_chunk.append(para)
+            current_size += para_size
+    
+    if current_chunk:
+        chunks.append('\n\n'.join(current_chunk))
+    
     return chunks
 
 
-def load_skeleton(ch_num):
-    """加载骨架数据用于元数据标注"""
-    path = os.path.join(CHAPTERS_DIR, f"ch_{ch_num:02d}_skeleton.json")
-    if os.path.exists(path):
-        with open(path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    return None
-
-
-def annotate_chunk(chunk_text, skeleton):
-    """为chunk添加元数据"""
-    metadata = {
-        'characters': [],
-        'locations': [],
-        'type': 'narration'
+def create_chunk_metadata(chapter_num, chunk_index, chunk_text):
+    """创建chunk元数据"""
+    return {
+        'id': f'ch{chapter_num:02d}_chunk{chunk_index:03d}',
+        'chapter': chapter_num,
+        'chunk_index': chunk_index,
+        'text': chunk_text,
+        'char_count': len(chunk_text),
+        'paragraph_count': len([p for p in chunk_text.split('\n\n') if p.strip()])
     }
-
-    if skeleton:
-        # 检测chunk中出现的人物
-        for char in skeleton.get('characters', []):
-            if char['name'] in chunk_text:
-                metadata['characters'].append(char['id'])
-
-        # 检测chunk中出现的地点
-        for loc in skeleton.get('locations', []):
-            if loc['name'] in chunk_text:
-                metadata['locations'].append(loc['id'])
-
-    # 检测类型
-    if '"' in chunk_text or '"' in chunk_text or '道：' in chunk_text:
-        metadata['type'] = 'dialogue'
-    elif '只见' in chunk_text or '眼前' in chunk_text or '远处' in chunk_text:
-        metadata['type'] = 'scene'
-
-    return metadata
 
 
 def main():
-    # 从ch_formatted读取格式化章节
-    formatted_chapters = load_formatted_chapters()
-    print(f"检测到 {len(formatted_chapters)} 个格式化章节")
-
+    print(f"📂 小说目录: {NOVEL_DIR}")
+    
+    # 加载章节
+    print("加载格式化章节...")
+    chapters = load_formatted_chapters()
+    print(f"  找到 {len(chapters)} 个章节")
+    
     # 确保输出目录存在
     os.makedirs(CHUNKS_DIR, exist_ok=True)
-
+    
     all_chunks = []
-    chunk_id = 0
-
-    for ch in formatted_chapters:
-        skeleton = load_skeleton(ch['num'])
-
-        chunks = chunk_paragraph(ch['text'])
-        print(f"第{ch['num']}章: {len(chunks)} 个chunk")
-
-        for i, chunk_text in enumerate(chunks):
-            chunk_id += 1
-            metadata = annotate_chunk(chunk_text, skeleton)
-            metadata['chapter'] = ch['num']
-            metadata['chunk_index'] = i
-            metadata['id'] = f"chunk_{chunk_id:04d}"
-
-            all_chunks.append({
-                'id': f"chunk_{chunk_id:04d}",
-                'chapter': ch['num'],
-                'text': chunk_text,
-                'metadata': metadata
-            })
-
+    
+    for chapter in chapters:
+        ch_num = chapter['num']
+        text = chapter['text']
+        
+        # 切分文本
+        text_chunks = split_into_chunks(text)
+        
+        # 创建带元数据的chunks
+        for i, chunk_text in enumerate(text_chunks):
+            metadata = create_chunk_metadata(ch_num, i, chunk_text)
+            all_chunks.append(metadata)
+        
+        print(f"  第 {ch_num} 章: {len(text_chunks)} 个chunks")
+    
     # 保存chunks
-    output_path = os.path.join(CHUNKS_DIR, 'all_chunks.json')
+    output_path = os.path.join(CHUNKS_DIR, "chunks.json")
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(all_chunks, f, ensure_ascii=False, indent=2)
-
-    print(f"\n总共 {len(all_chunks)} 个chunk，保存到 {output_path}")
-
+    
+    print(f"\n✅ 完成：共 {len(all_chunks)} 个chunks已保存到 {output_path}")
+    
     # 更新进度
-    progress_path = os.path.join(NOVEL_DIR, 'progress.json')
     progress = {}
-    if os.path.exists(progress_path):
-        with open(progress_path, 'r', encoding='utf-8') as f:
+    if os.path.exists(PROGRESS_FILE):
+        with open(PROGRESS_FILE, 'r', encoding='utf-8') as f:
             progress = json.load(f)
     progress['rag'] = True
-    with open(progress_path, 'w', encoding='utf-8') as f:
+    with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
         json.dump(progress, f, ensure_ascii=False, indent=2)
-
-    print("RAG切片完成！")
 
 
 if __name__ == "__main__":
