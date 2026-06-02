@@ -458,6 +458,7 @@ def main():
 
     # 转换并保存角色卡
     print("转换角色卡...")
+    clear_markdown_output(os.path.join(NOVELS_DIR, 'characters'))
     char_name_counts = {}
     for c in characters:
         n = c.get('name', 'unknown')
@@ -506,6 +507,7 @@ def main():
 
     # 转换并保存门派卡
     print("转换门派卡...")
+    clear_markdown_output(os.path.join(NOVELS_DIR, 'factions'))
     faction_name_counts = {}
     for f in factions:
         n = f.get('name', 'unknown')
@@ -519,6 +521,7 @@ def main():
 
     # 转换并保存地点卡
     print("转换地点卡...")
+    clear_markdown_output(os.path.join(NOVELS_DIR, 'locations'))
     loc_name_counts = {}
     for l in locations:
         n = l.get('name', 'unknown')

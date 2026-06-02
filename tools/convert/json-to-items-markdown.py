@@ -84,7 +84,7 @@ type: {item.get('type', 'special')}
 tags:
   - {NOVEL_NAME}
   - item
-rarity: {item.get('rarity', 'common')}
+rarity: {item.get('rarity', '寻常凡品')}
 owner: "[[{id_to_wikilink(item.get('owner', ''))}]]"
 ---"""
 
@@ -134,6 +134,10 @@ def main():
     # 转换并保存物品卡
     print("转换物品卡...")
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    # 清空旧文件
+    for f in os.listdir(OUTPUT_DIR):
+        if f.endswith('.md'):
+            os.remove(os.path.join(OUTPUT_DIR, f))
     # 先检测重名，重名物品用 id 作文件名避免覆盖
     name_count = {}
     for item in items:
