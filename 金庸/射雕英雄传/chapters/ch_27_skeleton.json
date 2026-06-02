@@ -1,0 +1,328 @@
+{
+  "chapter": 27,
+  "characters": [
+    {
+      "id": "char_guojing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "洪七公弟子",
+      "faction": "faction_gaibang",
+      "role": "protagonist",
+      "one_line": "洪七公弟子，被丐帮三老设计擒获，后脱缚力战群丐，领悟天罡北斗阵与九阴真经相通之理。",
+      "personality": "憨厚老实，被人问话只知点头，但武功高强、义气深重。",
+      "known_skills": ["skill_jianglongshibazhang", "skill_tiangangbeidouzhen", "skill_jiuyinzhenjing_suogufa", "skill_jinlongbianfa", "skill_shuangshouhubo"],
+      "related_skills": ["skill_yijinduangu", "skill_duanjingpanfa"]
+    },
+    {
+      "id": "char_huangrong",
+      "name": "黄蓉",
+      "alias": [],
+      "identity": "黄药师之女、洪七公弟子",
+      "faction": "faction_gaibang",
+      "role": "protagonist",
+      "one_line": "机智聪慧，在君山丐帮大会上揭穿杨康冒充帮主的阴谋，夺回打狗棒。",
+      "personality": "聪明伶俐、临危不乱，善于言辞辩驳，随机应变。",
+      "known_skills": ["skill_dagoubangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yangkang",
+      "name": "杨康",
+      "alias": ["完颜康"],
+      "identity": "完颜洪烈之子",
+      "faction": null,
+      "role": "villain",
+      "one_line": "冒充丐帮第十九代帮主，假传洪七公遗命，企图借丐帮势力谋取私利。",
+      "personality": "奸诈狡猾、胆大妄为，善于编造谎言，关键时刻懦弱无能。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_pengzhanglao",
+      "name": "彭长老",
+      "alias": [],
+      "identity": "丐帮净衣派长老",
+      "faction": "faction_gaibang",
+      "role": "villain",
+      "one_line": "白胖笑脸的丐帮长老，擅慑心之术，设计迷晕郭靖黄蓉，力挺杨康为帮主。",
+      "personality": "笑里藏刀、善于谄媚，对杨康极力逢迎。",
+      "known_skills": ["skill_shezhishu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_luyoujiao",
+      "name": "鲁有脚",
+      "alias": [],
+      "identity": "丐帮污衣派长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮污衣派长老，忠义刚烈，反对南撤，被裘千仞捏断双指仍骂声不绝。",
+      "personality": "性格暴躁、刚直忠义，宁死不屈。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jianzhanglao",
+      "name": "简长老",
+      "alias": [],
+      "identity": "丐帮净衣派东路长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮四大长老之首，须眉皆白、五短身材，武功非泛泛之辈。",
+      "personality": "威信颇高，处事迟疑，被裘千仞威势所慑。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liangzhanglao",
+      "name": "梁长老",
+      "alias": [],
+      "identity": "丐帮净衣派长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮净衣派长老，使刀，随众附和。",
+      "personality": "附和从众，无鲜明主见。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiucunren",
+      "name": "裘千仞",
+      "alias": ["裘老帮主"],
+      "identity": "铁掌帮帮主",
+      "faction": "faction_tiezhangbang",
+      "role": "villain",
+      "one_line": "铁掌帮帮主，率黑衣帮众拜山君山，展示铁掌功夫震慑丐帮，意图胁迫丐帮南撤。",
+      "personality": "阴险狡诈、武功高强，与金人勾结，以武力威压他人。",
+      "known_skills": ["skill_tiezhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_lisheng",
+      "name": "黎生",
+      "alias": [],
+      "identity": "丐帮八袋弟子",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮八袋弟子，曾得洪七公传授一招降龙十八掌，为保丐帮尊严自刎而死。",
+      "personality": "侠义刚烈、宁死不辱。",
+      "known_skills": ["skill_jianglongshibazhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yuzhaoxing",
+      "name": "余兆兴",
+      "alias": [],
+      "identity": "丐帮帮众",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮帮众，黎生自刎后亦追随自尽，义不受辱。",
+      "personality": "忠义热血、视死如归。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hongqigong",
+      "name": "洪七公",
+      "alias": ["洪帮主", "北丐"],
+      "identity": "丐帮第十八代帮主",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "丐帮帮主，本章中被杨康谎称已死，实际未亡。",
+      "personality": "侠义为怀、威望极高，爱饮爱食。",
+      "known_skills": ["skill_jianglongshibazhang", "skill_dagoubangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wanyan_honglie",
+      "name": "完颜洪烈",
+      "alias": ["赵王爷"],
+      "identity": "大金国赵王",
+      "faction": null,
+      "role": "npc",
+      "one_line": "大金国赵王爷，托裘千仞送礼丐帮，意图令丐帮南撤以利金兵南下。",
+      "personality": "城府极深、善于谋略。",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "江湖帮派",
+      "location": "君山",
+      "sub_divisions": [
+        {"id": "sub_jingyipai", "name": "净衣派", "one_line": "平时起居与常人无异，多为江湖豪杰投入丐帮，长老有简、彭、梁三人。"},
+        {"id": "sub_wuyipai", "name": "污衣派", "one_line": "真正以行乞为生，严守戒律，长老为鲁有脚，中下层弟子占多数。"}
+      ],
+      "one_line": "天下第一大帮，帮主洪七公，分净衣、污衣两派，帮中圣物为绿竹杖（打狗棒）。"
+    },
+    {
+      "id": "faction_tiezhangbang",
+      "name": "铁掌帮",
+      "type": "江湖帮派",
+      "location": "川湘",
+      "sub_divisions": [],
+      "one_line": "川湘大帮会，帮主裘千仞，与金人勾结，帮中标志为铁掌令。"
+    },
+    {
+      "id": "faction_quanzhen",
+      "name": "全真派",
+      "type": "道教门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "全真七子所在门派，被杨康嫁祸为害死洪七公的凶手之一。"
+    },
+    {
+      "id": "faction_taohuadao",
+      "name": "桃花岛",
+      "type": "武林势力",
+      "location": "桃花岛",
+      "sub_divisions": [],
+      "one_line": "黄药师所居之地，被杨康嫁祸为害死洪七公的凶手之一。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_junshan",
+      "name": "君山",
+      "region": "洞庭湖",
+      "one_line": "洞庭湖中小峰，丐帮七月十五大会之地，山顶有轩辕台。"
+    },
+    {
+      "id": "loc_xuanyuantai",
+      "name": "轩辕台",
+      "region": "君山",
+      "one_line": "君山山顶高台，相传黄帝铸鼎升天之处，丐帮大会举行之地。"
+    },
+    {
+      "id": "loc_dongtinghu",
+      "name": "洞庭湖",
+      "region": "岳州",
+      "one_line": "君山所在之大湖，丐帮群丐聚会之处。"
+    },
+    {
+      "id": "loc_yueyanglou",
+      "name": "岳阳楼",
+      "region": "岳州",
+      "one_line": "郭靖黄蓉饮酒处，后被丐帮三老设计迷昏带走。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_jianglongshibazhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "丐帮",
+      "one_line": "丐帮绝学，天下无双，黎生得传一招'神龙摆尾'，郭靖亦会此技。"
+    },
+    {
+      "id": "skill_dagoubangfa",
+      "name": "打狗棒法",
+      "type": "棒法",
+      "faction": "丐帮",
+      "one_line": "丐帮帮主专属棒法，黄蓉以此棒法中'獒口夺杖'一招从杨康手中夺回竹杖。"
+    },
+    {
+      "id": "skill_shezhishu",
+      "name": "慑心术",
+      "type": "心法",
+      "faction": null,
+      "one_line": "彭长老所用邪术，以眼神和声音催人入睡，使受术者任人摆布。"
+    },
+    {
+      "id": "skill_tiezhang",
+      "name": "铁掌",
+      "type": "掌法",
+      "faction": "铁掌帮",
+      "one_line": "裘千仞成名绝技，掌力可灼热如炭、拗弯钢杖，威力惊人。"
+    },
+    {
+      "id": "skill_jiuyinzhenjing_suogufa",
+      "name": "收筋缩骨法",
+      "type": "内功",
+      "faction": null,
+      "one_line": "九阴真经下卷所载功夫，郭靖以此法挣脱钢丝牛皮绳索束缚。"
+    },
+    {
+      "id": "skill_tiangangbeidouzhen",
+      "name": "天罡北斗阵",
+      "type": "阵法",
+      "faction": "全真派",
+      "one_line": "全真七子阵法，郭靖观北斗领悟其攻守之理，运用于实战之中。"
+    },
+    {
+      "id": "skill_jinlongbianfa",
+      "name": "金龙鞭法",
+      "type": "鞭法",
+      "faction": null,
+      "one_line": "韩宝驹所授鞭法，郭靖以钢索代鞭施展'断胫盘打'等招式。"
+    },
+    {
+      "id": "skill_yijinduangu",
+      "name": "易筋锻骨篇",
+      "type": "内功",
+      "faction": null,
+      "one_line": "九阴真经所载内功基础，郭靖在明霞岛上已练有小成。"
+    },
+    {
+      "id": "skill_shuangshouhubo",
+      "name": "双手互搏",
+      "type": "武技",
+      "faction": null,
+      "one_line": "周伯通所授一心二用之术，郭靖左手解索右手迎敌，丝毫不乱。"
+    },
+    {
+      "id": "skill_yishu",
+      "name": "移魂大法",
+      "type": "心法",
+      "faction": null,
+      "one_line": "九阴真经上卷所载法门，与慑心术类似，郭靖忆起但未及施展。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_lvzhuzhang",
+      "name": "绿竹杖（打狗棒）",
+      "type": "帮主信物",
+      "owner": "char_huangrong",
+      "one_line": "丐帮历代帮主传承之圣物，碧绿晶莹，杨康假冒洪七公遗命持之自立帮主，后被黄蓉以打狗棒法夺回。"
+    },
+    {
+      "id": "item_tiezhangling",
+      "name": "铁掌令",
+      "type": "帮派令牌",
+      "owner": "char_huangrong",
+      "one_line": "铁掌帮标志令牌，朱聪从裘千仞处偷来，黄蓉在大会上举起以证杨康与铁掌帮勾结。"
+    },
+    {
+      "id": "item_bishou",
+      "name": "匕首",
+      "type": "兵器",
+      "owner": "char_guojing",
+      "one_line": "丘处机赠予郭靖的匕首，上刻郭靖名字，被杨康搜出示众以构陷罪名。"
+    },
+    {
+      "id": "item_ruanweijia",
+      "name": "软猬甲",
+      "type": "防具",
+      "owner": "char_huangrong",
+      "one_line": "黄蓉所穿护身宝甲，杨康发出的两枚钢锥被其弹开，无法伤及黄蓉。"
+    },
+    {
+      "id": "item_gangzhui",
+      "name": "钢锥",
+      "type": "暗器",
+      "owner": "char_yangkang",
+      "one_line": "杨康发射的暗器，两枚直射黄蓉胸口，被软猬甲弹落。"
+    },
+    {
+      "id": "item_gangzhang",
+      "name": "钢杖",
+      "type": "兵器",
+      "owner": "char_jianzhanglao",
+      "one_line": "简长老兵器，千练百锤极为坚韧，被裘千仞拗弯后插入山石之中。"
+    }
+  ]
+}

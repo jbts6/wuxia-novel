@@ -1,0 +1,521 @@
+{
+  "chapter": 24,
+  "characters": [
+    {
+      "id": "char_guo_jing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "江南六怪之徒，成吉思汗金刀驸马",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "重伤在密室中与黄蓉双掌相抵疗伤，忍住不杀完颜洪烈，克制内心冲动。",
+      "personality": "正直沉稳，重情重义，受伤之际仍能克制冲动听从黄蓉劝告。",
+      "known_skills": ["skill_jiu_yin_zhen_jing_liao_shang_pian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_rong",
+      "name": "黄蓉",
+      "alias": ["蓉儿"],
+      "identity": "桃花岛主黄药师之女，丐帮帮主洪七公之徒",
+      "faction": "faction_tao_hua_dao",
+      "role": "protagonist",
+      "one_line": "在密室中全力为郭靖疗伤，机智用双头鬼怪吓退群奸，时刻保护郭靖安全。",
+      "personality": "聪慧机敏，胆大心细，对郭靖深情呵护，遇险时临危不乱。",
+      "known_skills": ["skill_jiu_yin_zhen_jing_liao_shang_pian"],
+      "related_skills": ["skill_bi_bo_zhang_fa"]
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "name": "黄药师",
+      "alias": ["黄岛主"],
+      "identity": "桃花岛岛主，武林五绝之一",
+      "faction": "faction_tao_hua_dao",
+      "role": "companion",
+      "one_line": "戴人皮面具现身牛家村酒店，暗发金针助傻姑击打梁子翁，逼群奸从胯下钻过，扯断侯通海手臂。",
+      "personality": "性情乖僻，护短爱徒，武艺通神，行事霸道不容人忤逆。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wan_yan_hong_lie",
+      "name": "完颜洪烈",
+      "alias": ["王爷"],
+      "identity": "大金国赵王",
+      "faction": null,
+      "role": "villain",
+      "one_line": "率众到牛家村搜寻武穆遗书，打开石盒却空无一物，深夜独坐思念包惜弱，拾残砖破瓦追忆往事。",
+      "personality": "深谋远虑，对包惜弱一往情深，失败后沮丧但不放弃。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_feng",
+      "name": "欧阳锋",
+      "alias": ["老毒物", "欧阳先生"],
+      "identity": "西域白驼山主，武林五绝之一（西毒）",
+      "faction": null,
+      "role": "villain",
+      "one_line": "取出空石盒供众人观看，主张当晚再入皇宫搜寻武穆遗书，领众人二次入宫。",
+      "personality": "狂妄自大，心怀鬼胎，若有武功秘籍则据为己有。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yang_kang",
+      "name": "杨康",
+      "alias": ["康儿", "世子"],
+      "identity": "完颜洪烈养子，丘处机之徒",
+      "faction": null,
+      "role": "villain",
+      "one_line": "打开空石盒，深夜见完颜洪烈伏桌而睡，拿起银刀药瓶出神却不下手，反为其披衣防寒。",
+      "personality": "对养父完颜洪烈感情复杂，认贼作父不忍加害。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_ke",
+      "name": "欧阳克",
+      "alias": [],
+      "identity": "欧阳锋之侄（实为私生子）",
+      "faction": null,
+      "role": "villain",
+      "one_line": "双腿断骨未愈，始终躺在稻草堆中静卧养伤。",
+      "personality": "重伤卧床，无力参与行动。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hou_tong_hai",
+      "name": "侯通海",
+      "alias": ["三头蛟", "侯老爷"],
+      "identity": "沙通天师弟",
+      "faction": null,
+      "role": "villain",
+      "one_line": "双耳被割后仍坚信遇鬼，以粪便攻击陆冠英程瑶迦，与三人激斗被擒，最终被黄药师扯断一臂。",
+      "personality": "鲁莽愚蠢，一惊一乍，胆大妄为却又怕鬼。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_peng_lian_hu",
+      "name": "彭连虎",
+      "alias": [],
+      "identity": "武林高手，完颜洪烈麾下",
+      "faction": null,
+      "role": "villain",
+      "one_line": "双颊被打肿后逃回，精于暗器听风之术识破黄药师弹针手法，率先从黄药师胯下钻过逃命。",
+      "personality": "精明老练，见风使舵，能屈能伸。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sha_tong_tian",
+      "name": "沙通天",
+      "alias": ["沙大哥"],
+      "identity": "侯通海师兄，黄河帮高手",
+      "faction": null,
+      "role": "villain",
+      "one_line": "衣服被撕碎后逃回，识破双头怪物不过装神弄鬼，率众重返酒店擒住陆冠英尹志平。",
+      "personality": "沉稳老练，关心师弟，较有主见。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liang_zi_weng",
+      "name": "梁子翁",
+      "alias": [],
+      "identity": "长白山参仙老怪",
+      "faction": null,
+      "role": "villain",
+      "one_line": "满头白发被拔精光变成光头，欺辱傻姑时被黄药师暗发金针连中三拳，羞愤至吐血流泪。",
+      "personality": "急躁易怒，受辱后激愤难当。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ling_zhi_shang_ren",
+      "name": "灵智上人",
+      "alias": [],
+      "identity": "西藏密宗高手",
+      "faction": null,
+      "role": "villain",
+      "one_line": "双手被铁链反缚逃回，跟随众人行动，最终从黄药师胯下钻过。",
+      "personality": "跟随众人，存在感较弱。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sha_gu",
+      "name": "傻姑",
+      "alias": [],
+      "identity": "牛家村酒店中的痴傻女子，桃花岛再传弟子",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "在店中唱儿歌抛石子，遭梁子翁欺辱时得黄药师暗中相助以一拳还三拳报仇。",
+      "personality": "天真烂漫，痴傻不通世事，所学虽不精但招式出自桃花岛正宗。",
+      "known_skills": ["skill_bi_bo_zhang_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_cheng_yao_jia",
+      "name": "程瑶迦",
+      "alias": ["程大小姐", "程师妹"],
+      "identity": "孙不二之徒，宝应县千金小姐",
+      "faction": "faction_quan_zhen",
+      "role": "npc",
+      "one_line": "千里迢迢寻郭靖到牛家村，与侯通海激斗后结识陆冠英，芳心暗转于陆。",
+      "personality": "害羞温婉，闺中千金初涉江湖，心肠柔软，聪明细心。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_lu_guan_ying",
+      "name": "陆冠英",
+      "alias": ["陆相公", "陆大哥"],
+      "identity": "归云庄少庄主，太湖群盗首领，陆乘风之子",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "受父命寻郭靖报讯黄药师欲杀六怪之事，对灶王爷倾诉心事，恳请全真七子出面调解。",
+      "personality": "聪明机智，为父分忧尽孝，行事有分寸，侠义心肠。",
+      "known_skills": ["skill_luo_han_dao_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yin_zhi_ping",
+      "name": "尹志平",
+      "alias": ["尹师兄"],
+      "identity": "丘处机之徒，全真教弟子",
+      "faction": "faction_quan_zhen",
+      "role": "npc",
+      "one_line": "奉师命到牛家村寻郭靖传讯，与陆冠英联手制服侯通海，对黄药师出言不逊。",
+      "personality": "豪迈直爽，年少气盛，好胜心强，以全真派正宗自居。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bao_xi_ruo",
+      "name": "包惜弱",
+      "alias": [],
+      "identity": "杨康之母，完颜洪烈之妻",
+      "faction": null,
+      "role": "npc",
+      "one_line": "完颜洪烈深夜怀念她在牛家村救己之事，遗下银刀药瓶勾起旧日记忆。",
+      "personality": "温婉善良（通过回忆呈现）。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhou_bo_tong",
+      "name": "周伯通",
+      "alias": ["老顽童", "周大哥"],
+      "identity": "全真教中神通王重阳之师弟",
+      "faction": "faction_quan_zhen",
+      "role": "companion",
+      "one_line": "在皇宫中戴面具扮鬼吓退彭连虎等人，被黄蓉提及但疯疯癫癫担当不了正事。",
+      "personality": "疯疯癫癫，爱玩闹，行事不靠谱。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "name": "洪七公",
+      "alias": [],
+      "identity": "丐帮帮主，武林五绝之一（北丐）",
+      "faction": "faction_gai_bang",
+      "role": "companion",
+      "one_line": "所授竹棒被黄蓉握在手中准备御敌。",
+      "personality": "侠义为怀（本章仅通过物品被提及）。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yue_fei",
+      "name": "岳飞",
+      "alias": ["岳爷爷"],
+      "identity": "南宋抗金名将",
+      "faction": null,
+      "role": "npc",
+      "one_line": "所留武穆遗书成为众人争夺的焦点，石盒藏于翠寒堂东十五步。",
+      "personality": "忠义报国（本章仅被提及）。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_cheng_ji_si_han",
+      "name": "成吉思汗",
+      "alias": [],
+      "identity": "蒙古大汗",
+      "faction": null,
+      "role": "npc",
+      "one_line": "所赐金刀被郭靖腰间佩戴，郭靖曾想用它掷杀完颜洪烈。",
+      "personality": "（本章仅被提及）。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chu_ji",
+      "name": "丘处机",
+      "alias": ["长春真人", "长春子", "丘师伯"],
+      "identity": "全真七子之一，号长春子",
+      "faction": "faction_quan_zhen",
+      "role": "npc",
+      "one_line": "命尹志平到牛家村寻郭靖传讯，抢先到嘉兴为江南六怪报信。",
+      "personality": "豪侠仗义（本章仅被提及）。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sun_bu_er",
+      "name": "孙不二",
+      "alias": ["清净散人", "孙真人"],
+      "identity": "全真七子之一，号清净散人",
+      "faction": "faction_quan_zhen",
+      "role": "npc",
+      "one_line": "程瑶迦的师父，被程瑶迦搬出名号震慑侯通海。",
+      "personality": "（本章仅被提及）。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mei_chao_feng",
+      "name": "梅超风",
+      "alias": ["梅师伯"],
+      "identity": "黄药师弟子，桃花岛叛徒",
+      "faction": "faction_tao_hua_dao",
+      "role": "villain",
+      "one_line": "被提及奉黄药师之命帮同寻找六怪下落，与六怪有深怨大仇。",
+      "personality": "（本章仅被提及）。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_lu_cheng_feng",
+      "name": "陆乘风",
+      "alias": ["陆庄主"],
+      "identity": "归云庄庄主，黄药师弟子",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "陆冠英之父，受黄药师之命寻六怪却内心为难，仰天长叹吐露心事。",
+      "personality": "重义不忍害人，但不敢公然违背师命（本章通过陆冠英转述）。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ku_mu_chan_shi",
+      "name": "枯木禅师",
+      "alias": [],
+      "identity": "佛门高手",
+      "faction": null,
+      "role": "npc",
+      "one_line": "所授罗汉刀法为陆冠英的看家本领。",
+      "personality": "（本章仅被提及）。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_li_sheng",
+      "name": "黎生",
+      "alias": [],
+      "identity": "丐帮弟子",
+      "faction": "faction_gai_bang",
+      "role": "npc",
+      "one_line": "曾在宝应出手救程瑶迦但非欧阳克之敌。",
+      "personality": "（本章仅被提及）。",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_quan_zhen",
+      "name": "全真教",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "尹志平、程瑶迦所属门派，全真七子分头寻访六怪传讯示警，被尹志平自夸为天下武术正宗。"
+    },
+    {
+      "id": "faction_tao_hua_dao",
+      "name": "桃花岛",
+      "type": "武林门派",
+      "location": "loc_tao_hua_dao",
+      "sub_divisions": [],
+      "one_line": "黄药师所创门派，傻姑、陆冠英均属此门，黄药师护短不容外人欺侮本门弟子。"
+    },
+    {
+      "id": "faction_gai_bang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "黎生曾在宝应出手相救程瑶迦，洪七公传竹棒于黄蓉。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_niu_jia_cun",
+      "name": "牛家村",
+      "region": "临安府钱塘江边",
+      "one_line": "郭靖故乡，完颜洪烈十九年前被包惜弱救命之处，本章所有事件的发生地。"
+    },
+    {
+      "id": "loc_mi_shi",
+      "name": "密室",
+      "region": "牛家村小酒店内",
+      "one_line": "酒店橱柜后的秘密小室，设有天窗、气孔和窥视小镜，郭靖黄蓉在此疗伤七日七夜。"
+    },
+    {
+      "id": "loc_cui_han_tang",
+      "name": "翠寒堂",
+      "region": "南宋皇宫内",
+      "one_line": "完颜洪烈推断武穆遗书藏于翠寒堂东十五步之处，众奸首次入宫搜寻。"
+    },
+    {
+      "id": "loc_tai_hu",
+      "name": "太湖",
+      "region": "江南",
+      "one_line": "归云庄所在之地，陆冠英请尹志平程瑶迦他日路过时来盘桓。"
+    },
+    {
+      "id": "loc_jia_xing",
+      "name": "嘉兴",
+      "region": "江南",
+      "one_line": "丘处机赶赴嘉兴为江南六怪报讯，但六怪已出门游玩。"
+    },
+    {
+      "id": "loc_tao_hua_dao",
+      "name": "桃花岛",
+      "region": "东海",
+      "one_line": "黄药师的居所，陆冠英画桃花代指祖师爷以避直书名讳。"
+    },
+    {
+      "id": "loc_bao_ying_xian",
+      "name": "宝应县",
+      "region": "江南",
+      "one_line": "程瑶迦的家乡，曾在此被欧阳克所掳后为郭靖黄蓉所救。"
+    },
+    {
+      "id": "loc_gui_yun_zhuang",
+      "name": "归云庄",
+      "region": "太湖畔",
+      "one_line": "陆乘风父子所居山庄，黄药师曾到庄上吩咐寻六怪之事。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_jiu_yin_zhen_jing_liao_shang_pian",
+      "name": "九阴真经疗伤篇",
+      "type": "内功",
+      "faction": "",
+      "one_line": "郭靖背诵经文，与黄蓉双掌相抵运转小周天，以内功调理真元治疗内伤，七转后两人俱感舒畅。"
+    },
+    {
+      "id": "skill_bi_bo_zhang_fa",
+      "name": "碧波掌法",
+      "type": "掌法",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "桃花岛武学，傻姑所学虽不精但掌法甚为奥妙，反手一掌结结实实打在梁子翁手背上。"
+    },
+    {
+      "id": "skill_luo_han_dao_fa",
+      "name": "罗汉刀法",
+      "type": "刀法",
+      "faction": "",
+      "one_line": "枯木禅师所授，陆冠英与侯通海交手时使出此刀法紧紧守住门户。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_bi_shou",
+      "name": "匕首",
+      "type": "weapon",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉用匕首穿通密室气孔，又递给郭靖准备御敌。"
+    },
+    {
+      "id": "item_zhu_bang",
+      "name": "竹棒",
+      "type": "weapon",
+      "owner": "char_huang_rong",
+      "one_line": "洪七公所授，黄蓉在密室中握紧竹棒准备抵御来犯之敌。"
+    },
+    {
+      "id": "item_emei_gang_ci",
+      "name": "峨眉钢刺",
+      "type": "hidden_weapon",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉握紧峨眉钢刺，准备在有人旋开橱门时掷刺御敌。"
+    },
+    {
+      "id": "item_shi_he",
+      "name": "石盒",
+      "type": "other",
+      "owner": null,
+      "one_line": "欧阳锋从怀中取出的石盒，杨康打开后发现空无一物，完颜洪烈摔碎也未见夹层。"
+    },
+    {
+      "id": "item_wu_mu_yi_shu",
+      "name": "武穆遗书",
+      "type": "book",
+      "owner": null,
+      "one_line": "岳飞所留兵法奇书，完颜洪烈推测藏于翠寒堂东十五步，但石盒中为空，实为众人争夺焦点。"
+    },
+    {
+      "id": "item_xiao_yin_dao",
+      "name": "小银刀",
+      "type": "other",
+      "owner": "char_wan_yan_hong_lie",
+      "one_line": "包惜弱遗物，完颜洪烈深夜取出抚摸把玩追忆亡妻，杨康亦曾拿起观看却未用它报仇。"
+    },
+    {
+      "id": "item_xiao_yao_ping",
+      "name": "小药瓶",
+      "type": "pill",
+      "owner": "char_wan_yan_hong_lie",
+      "one_line": "包惜弱遗物，曾在赵王府中为小兔治伤，完颜洪烈随身携带以寄哀思。"
+    },
+    {
+      "id": "item_jin_dao",
+      "name": "金刀",
+      "type": "weapon",
+      "owner": "char_guo_jing",
+      "one_line": "成吉思汗所赐，郭靖曾拔出欲掷杀完颜洪烈，被黄蓉劝阻后插回刀鞘。"
+    },
+    {
+      "id": "item_san_gu_cha",
+      "name": "三股叉",
+      "type": "weapon",
+      "owner": "char_hou_tong_hai",
+      "one_line": "侯通海的兵器，钢环当当作响，与陆冠英程瑶迦激斗时被陆冠英单刀荡开后脱手落地。"
+    },
+    {
+      "id": "item_ren_pi_mian_ju",
+      "name": "人皮面具",
+      "type": "other",
+      "owner": "char_huang_yao_shi",
+      "one_line": "黄药师佩戴的面具，木然不动没半点表情，众人见之不寒而栗。"
+    },
+    {
+      "id": "item_fu_chen",
+      "name": "拂尘",
+      "type": "weapon",
+      "owner": "char_yin_zhi_ping",
+      "one_line": "尹志平的兵器，尘尾是马鬃夹银丝，卷住侯通海钢叉后被挣脱。"
+    },
+    {
+      "id": "item_tie_wan",
+      "name": "铁碗",
+      "type": "other",
+      "owner": null,
+      "one_line": "嵌在橱柜中的机关，左右旋转可打开密室铁门，侯通海发现后使蛮力拔不起来。"
+    },
+    {
+      "id": "item_jin_zhen",
+      "name": "金针",
+      "type": "hidden_weapon",
+      "owner": "char_huang_yao_shi",
+      "one_line": "黄药师在衣袖中弹指发出的暗器，无声无息打中梁子翁曲池穴等穴道。"
+    }
+  ]
+}

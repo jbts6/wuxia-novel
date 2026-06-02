@@ -207,6 +207,53 @@ def rewrite_skill_refs(value, aliases):
     return value
 
 
+def merge_items_by_name(items):
+    """按名称合并重复物品：同名物品综合所有章的信息，保留最佳 ID"""
+    by_name = {}
+    for item in items:
+        name = item.get('name', '')
+        if not name:
+            by_name.setdefault(item.get('id', ''), []).append(item)
+            continue
+        by_name.setdefault(name, []).append(item)
+
+    merged = []
+    for name, group in by_name.items():
+        if len(group) == 1:
+            merged.append(group[0])
+            continue
+
+        # 多个同名物品：合并为一个
+        # 选择最佳 ID：优先 char_xxx 格式中最短的，否则第一个
+        best = min(group, key=lambda x: (len(x.get('id', '')), x.get('id', '')))
+        result = dict(best)
+
+        for item in group:
+            if item is best:
+                continue
+            for k, v in item.items():
+                if k == 'id' or k == 'name':
+                    continue
+                if isinstance(v, list) and isinstance(result.get(k), list):
+                    existing = set(str(x) for x in result[k])
+                    for x in v:
+                        if str(x) not in existing:
+                            result[k].append(x)
+                elif isinstance(v, str) and v and v != result.get(k, ''):
+                    # 字符串字段：拼接不同值
+                    existing = result.get(k, '')
+                    if existing and v not in existing:
+                        result[k] = existing + '；' + v
+                    elif not existing:
+                        result[k] = v
+                elif v is not None and v != '' and v != [] and v != result.get(k):
+                    result[k] = v
+
+        merged.append(result)
+
+    return merged
+
+
 def extract_techniques_from_skills(skills):
     """从合并后的 skills 数据中提取并去重 techniques。"""
     techniques_by_id = {}
@@ -302,6 +349,9 @@ def merge_all(chapters):
                         elif v is not None and v != '':
                             item[k] = v
                     break
+
+    # 按名称合并重复物品：同名物品取最佳 ID，综合所有章的信息
+    all_items = merge_items_by_name(all_items)
 
     all_skills, skill_aliases = normalize_skills(all_skills)
     all_characters = rewrite_skill_refs(all_characters, skill_aliases)

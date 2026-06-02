@@ -1,0 +1,969 @@
+{
+  "chapter": 4,
+  "characters_detail": [
+    {
+      "id": "char_guo_jing",
+      "personality": {
+        "traits": ["憨厚笨拙", "勇敢倔强", "重义气", "天资鲁钝", "刚烈果敢"],
+        "speech_style": "言语简短朴素，口齿不利，从不说谎，说话直来直去",
+        "temperament": "朴实憨厚，外拙内刚，危急时刻迸发出惊人勇气"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tuo_lei", "type": "挚友", "intensity": 85, "bond_level": 8, "dynamic": "两人年龄相仿、形影不离，郭靖保护拖雷不畏强暴"},
+        {"target": "char_du_shi", "type": "对头", "intensity": 60, "bond_level": 2, "dynamic": "郭靖挺头撞倒都史保护拖雷，不惧其家世权势"},
+        {"target": "char_han_xiao_ying", "type": "师徒（初定）", "intensity": 40, "bond_level": 5, "dynamic": "韩小莹给郭靖擦鼻血、温言安慰，郭靖临终前向张阿生磕头拜师"},
+        {"target": "char_zhu_cong", "type": "师徒（初定）", "intensity": 40, "bond_level": 5, "dynamic": "朱聪偷其匕首后归还，以戏法吸引郭靖注意，最终引导其拜师"},
+        {"target": "char_chen_xuan_feng", "type": "仇敌", "intensity": 70, "bond_level": 1, "dynamic": "郭靖在慌恐中以匕首刺入陈玄风练门，意外杀死武功高强的铜尸"},
+        {"target": "char_ke_zhen_e", "type": "师徒（初定）", "intensity": 35, "bond_level": 5, "dynamic": "柯镇恶以报仇之问引导郭靖认识学武必要性"},
+        {"target": "char_li_ping", "type": "母子", "intensity": 95, "bond_level": 10, "dynamic": "郭靖牢记母亲教诲不敢与人打架，匕首为母亲所赐"},
+        {"target": "char_zhang_a_sheng", "type": "师徒（初定）", "intensity": 30, "bond_level": 4, "dynamic": "张阿生临终前郭靖磕头拜师，张阿生叮嘱其用功"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuo_lei",
+      "personality": {
+        "traits": ["聪明伶俐", "不甘受辱", "重情义", "倔强好胜"],
+        "speech_style": "口齿清晰，言辞利落，面对欺辱敢于还嘴",
+        "temperament": "机灵活泼，自尊心强，受辱后怒而不忘寻求帮手"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "挚友", "intensity": 85, "bond_level": 8, "dynamic": "二人手拉手出外游玩，拖雷催郭靖回家保护好友"},
+        {"target": "char_du_shi", "type": "对头", "intensity": 60, "bond_level": 2, "dynamic": "拖雷射中白兔被都史抢夺，都史侮辱铁木真令拖雷气得脸色苍白"},
+        {"target": "char_bo_er_hu", "type": "师徒", "intensity": 50, "bond_level": 7, "dynamic": "博尔忽是拖雷师父，拖雷为之辩护不怕豹子"},
+        {"target": "char_zhu_cong", "type": "临时师徒", "intensity": 40, "bond_level": 4, "dynamic": "朱聪教拖雷三招格斗术，拖雷学得极快"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tie_mu_zhen",
+      "personality": {
+        "traits": ["刚勇无双", "胸怀宽广", "善于笼络人心", "沉着冷静", "深谋远虑"],
+        "speech_style": "言语豪迈大气，善用激励之词，称呼部下亲切",
+        "temperament": "王者气度，受辱不怒，以智慧和气度化解尴尬，令人心甘情愿效命"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wang_han", "type": "义父子", "intensity": 70, "bond_level": 7, "dynamic": "铁木真对义父恭敬有加，凡事让义父先行"},
+        {"target": "char_sang_kun", "type": "义兄弟（隐忍）", "intensity": 30, "bond_level": 3, "dynamic": "桑昆处处挑衅，铁木真为顾全大局屡次忍让"},
+        {"target": "char_zhe_bie", "type": "君臣/知遇", "intensity": 85, "bond_level": 9, "dynamic": "铁木真当众升哲别为百夫长，以铁盔赐酒表达最高敬意"},
+        {"target": "char_wan_yan_hong_lie", "type": "外交对手", "intensity": 40, "bond_level": 3, "dynamic": "察觉完颜洪烈言语挑拨之意，暗自警惕"},
+        {"target": "char_zha_mu_he", "type": "义兄弟（安答）", "intensity": 65, "bond_level": 7, "dynamic": "二人同为王罕义子，共同领兵作战"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_han",
+      "personality": {
+        "traits": ["威严持重", "爱面子", "器重铁木真", "对儿子溺爱纵容"],
+        "speech_style": "语调缓慢从容，自称老汉，言语间流露对义子的赞赏",
+        "temperament": "老练世故，排场阔绰，对铁木真心存忌惮又倚重"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "义父子", "intensity": 70, "bond_level": 7, "dynamic": "公开赞赏铁木真刚勇无双、将士骁勇"},
+        {"target": "char_sang_kun", "type": "父子", "intensity": 60, "bond_level": 8, "dynamic": "明知桑昆胡闹仍只口头喝斥，管教不严"},
+        {"target": "char_wan_yan_hong_xi", "type": "主客", "intensity": 50, "bond_level": 4, "dynamic": "隆重迎接、盛情款待完颜兄弟"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sang_kun",
+      "personality": {
+        "traits": ["心胸狭隘", "嫉妒心强", "骄横跋扈", "争强好胜", "欺软怕硬"],
+        "speech_style": "语带嘲讽，冷言冷语，处处贬低铁木真抬高自己",
+        "temperament": "狂妄自大，以侮辱他人为乐，目中无人"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "义兄弟（嫉恨）", "intensity": 20, "bond_level": 3, "dynamic": "处处与铁木真争锋，侮辱哲别、放猎豹挑衅四杰"},
+        {"target": "char_zhe_bie", "type": "敌对", "intensity": 15, "bond_level": 1, "dynamic": "当众阻止哲别用金杯饮酒，施以极大侮辱"},
+        {"target": "char_wang_han", "type": "父子", "intensity": 60, "bond_level": 8, "dynamic": "仗着父亲权势骄横行事"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wan_yan_hong_lie",
+      "personality": {
+        "traits": ["精明老练", "善于挑拨", "深藏不露", "观察力极强"],
+        "speech_style": "言语含蓄隐晦，看似随意提问实则暗含挑拨之意",
+        "temperament": "深沉阴鸷，不动声色间已在观察各方势力"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "外交对手", "intensity": 35, "bond_level": 2, "dynamic": "暗中挑拨王罕与铁木真关系，心中暗赞铁木真乃人杰"},
+        {"target": "char_wang_han", "type": "主客/利用", "intensity": 40, "bond_level": 3, "dynamic": "言语间引诱王罕说出将士不及铁木真的话，激化矛盾"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wan_yan_hong_xi",
+      "personality": {
+        "traits": ["轻浮好热闹", "贪图享乐", "好奇鲁莽"],
+        "speech_style": "语调轻快，看热闹不嫌事大，随口许赏",
+        "temperament": "浮躁浅薄，只顾眼前乐趣"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_sang_kun", "type": "看客/利用", "intensity": 30, "bond_level": 2, "dynamic": "对桑昆所说猎豹充满好奇，以红宝石戒指作赏观看人豹相斗"},
+        {"target": "char_wang_han", "type": "主客", "intensity": 40, "bond_level": 3, "dynamic": "受王罕盛情款待，讨要女奴"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zha_mu_he",
+      "personality": {
+        "traits": ["沉稳内敛", "足智多谋", "处事冷静"],
+        "speech_style": "本章少有言语，多以沉默和皱眉表达态度",
+        "temperament": "老成持重，暗中观察形势"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "安答（义兄弟）", "intensity": 65, "bond_level": 7, "dynamic": "与铁木真同为义子，桑昆挑衅时皱眉不语表示不满"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhe_bie",
+      "personality": {
+        "traits": ["勇猛善战", "刚烈不屈", "知恩图报", "自尊心极强"],
+        "speech_style": "言辞简练有力，受辱后低声赞叹大汗恩义",
+        "temperament": "豪迈刚直，受辱则怒，受恩则感，宁折不弯"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "君臣/知遇之恩", "intensity": 95, "bond_level": 9, "dynamic": "铁木真以铁盔赐酒，哲别感激涕零，甘愿效死"},
+        {"target": "char_sang_kun", "type": "敌对", "intensity": 15, "bond_level": 1, "dynamic": "被桑昆当众侮辱饮酒，怒视桑昆后昂首出帐"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhe_le_mi",
+      "personality": {
+        "traits": ["忠诚", "勤谨", "服从"],
+        "speech_style": "无独立台词，忠实执行命令",
+        "temperament": "沉稳可靠的贴身侍从"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "主仆/忠诚", "intensity": 80, "bond_level": 8, "dynamic": "双手呈上铁盔供大汗赐酒"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mu_hua_li",
+      "personality": {
+        "traits": ["温雅沉稳", "善于用兵", "识大体", "冷静理智"],
+        "speech_style": "言语条理分明，以理服人",
+        "temperament": "儒将风度，临危不乱，以大局为重"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "君臣", "intensity": 80, "bond_level": 8, "dynamic": "铁木真四杰之首，识大体阻止赤老温与猎豹搏斗"},
+        {"target": "char_chi_lao_wen", "type": "同僚/劝阻", "intensity": 60, "bond_level": 7, "dynamic": "一把拉住冲动的赤老温，指出四杰之能在于统兵作战"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bo_er_shu",
+      "personality": {
+        "traits": ["身材魁梧", "目光锐利", "沉稳可靠"],
+        "speech_style": "本章无台词，以形象出场",
+        "temperament": "沉稳威武"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "君臣/好友", "intensity": 75, "bond_level": 8, "dynamic": "铁木真好友，四杰之一"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bo_er_hu",
+      "personality": {
+        "traits": ["短小精悍", "身手矫捷", "低调务实"],
+        "speech_style": "本章无台词，以形象出场",
+        "temperament": "精干利落"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "君臣", "intensity": 75, "bond_level": 8, "dynamic": "铁木真四杰之一"},
+        {"target": "char_tuo_lei", "type": "师徒", "intensity": 60, "bond_level": 7, "dynamic": "拖雷的授业师父，拖雷为之辩护不怕豹子"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chi_lao_wen",
+      "personality": {
+        "traits": ["性烈如火", "勇猛无畏", "血性刚烈", "满脸刀疤"],
+        "speech_style": "冲动直言，主动请缨",
+        "temperament": "暴烈勇悍，不甘受辱，宁死不退"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_tie_mu_zhen", "type": "君臣/救命之恩", "intensity": 90, "bond_level": 9, "dynamic": "曾救铁木真性命，主动请缨空手斗猎豹为大汗争脸"},
+        {"target": "char_sang_kun", "type": "敌对", "intensity": 15, "bond_level": 1, "dynamic": "被桑昆挑衅激怒，欲与猎豹搏斗证明四杰实力"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_du_shi",
+      "personality": {
+        "traits": ["骄横跋扈", "仗势欺人", "蛮不讲理", "恃强凌弱"],
+        "speech_style": "语带威胁，张口就是家世炫耀，动辄打人骂人",
+        "temperament": "霸道蛮横，被纵容惯了，不知天高地厚"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "对头", "intensity": 60, "bond_level": 1, "dynamic": "被郭靖挺头撞倒后暴怒追打"},
+        {"target": "char_tuo_lei", "type": "对头", "intensity": 55, "bond_level": 1, "dynamic": "抢夺拖雷射中的白兔、打耳光、侮辱铁木真"},
+        {"target": "char_sang_kun", "type": "父子", "intensity": 70, "bond_level": 9, "dynamic": "桑昆独子，被十分宠爱纵得骄横之极"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ke_zhen_e",
+      "personality": {
+        "traits": ["刚毅果决", "老练沉着", "耳音极灵", "报仇心切", "顾惜兄弟"],
+        "speech_style": "语调低沉冷厉，关键时刻果断下令，平素沉稳少言",
+        "temperament": "外冷内热，心高气傲但从不服输，危急时先顾兄弟安危"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_chen_xuan_feng", "type": "血仇", "intensity": 95, "bond_level": 0, "dynamic": "兄长柯辟邪死于陈玄风掌下，自己双目被毁，伺机报仇"},
+        {"target": "char_mei_chao_feng", "type": "血仇", "intensity": 90, "bond_level": 0, "dynamic": "毒菱射瞎梅超风双目，黑暗中与其丈夫搏斗"},
+        {"target": "char_guo_jing", "type": "师徒（初定）", "intensity": 40, "bond_level": 5, "dynamic": "以仇人之名引导郭靖认识学武必要性"},
+        {"target": "char_ke_pi_xie", "type": "兄弟（已故）", "intensity": 100, "bond_level": 10, "dynamic": "兄长死于黑风双煞之手，报仇是其毕生心愿"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhu_cong",
+      "personality": {
+        "traits": ["机智灵活", "动念奇速", "善于应变", "手法伶俐", "戏法精湛"],
+        "speech_style": "笑嘻嘻的说话语气，善用诱导和激将，急智应对",
+        "temperament": "洒脱诙谐，临危不惧，救人时不顾武术家大忌"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "师徒（初定）", "intensity": 45, "bond_level": 5, "dynamic": "先偷匕首后归还，用戏法吸引郭靖，引导其上山拜师"},
+        {"target": "char_mei_chao_feng", "type": "敌人", "intensity": 60, "bond_level": 1, "dynamic": "以铁扇试探梅超风练门，被抓住手腕后以铁扇脱身"},
+        {"target": "char_han_bao_ju", "type": "结义兄弟", "intensity": 80, "bond_level": 9, "dynamic": "配合默契，共同对敌"}
+      ],
+      "known_skills": ["skill_kong_shou_ru_bai_ren"],
+      "related_skills": []
+    },
+    {
+      "id": "char_han_bao_ju",
+      "personality": {
+        "traits": ["性急鲁莽", "勇猛好斗", "重义气", "形貌奇丑"],
+        "speech_style": "急躁直率，动辄大喝怒骂",
+        "temperament": "急躁火爆，对兄弟情深义重"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_ke_zhen_e", "type": "结义兄弟", "intensity": 85, "bond_level": 9, "dynamic": "金龙鞭卷住飞向大哥的铁杖救了柯镇恶性命"},
+        {"target": "char_mei_chao_feng", "type": "敌人", "intensity": 55, "bond_level": 1, "dynamic": "地堂鞭法攻梅超风下盘，被抓住鞭梢夺去"},
+        {"target": "char_guo_jing", "type": "师徒（初定）", "intensity": 35, "bond_level": 5, "dynamic": "斥责郭靖胆小，参与教导"}
+      ],
+      "known_skills": ["skill_di_tang_bian_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nan_xi_ren",
+      "personality": {
+        "traits": ["沉默寡言", "思虑周详", "言必有中", "功力深厚", "坚韧不拔"],
+        "speech_style": "惜字如金，每句话都经过深思熟虑，简练精准",
+        "temperament": "沉稳内敛，外表木讷内心明澈，是七怪中的定心骨"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "师徒（初定）", "intensity": 40, "bond_level": 5, "dynamic": "认为郭靖'孩子很好'，以自身幼时也很笨的经历为郭靖正名"},
+        {"target": "char_chen_xuan_feng", "type": "敌人", "intensity": 55, "bond_level": 1, "dynamic": "扁担击中陈玄风后心，左臂被震断"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhang_a_sheng",
+      "personality": {
+        "traits": ["憨厚善良", "深情内敛", "勇猛无畏", "终日嘻嘻哈哈"],
+        "speech_style": "平日嘻嘻哈哈傻笑，临终时语调惨然却仍安慰他人",
+        "temperament": "外憨内刚，对韩小莹深藏爱意，为爱舍命毫不犹豫"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_han_xiao_ying", "type": "暗恋/夫妻（临终）", "intensity": 95, "bond_level": 9, "dynamic": "以身挡下九阴白骨爪救韩小莹，临终韩小莹承诺永不再嫁"},
+        {"target": "char_chen_xuan_feng", "type": "仇敌", "intensity": 70, "bond_level": 0, "dynamic": "被九阴白骨爪抓伤背心和小腿，头顶被重击"},
+        {"target": "char_guo_jing", "type": "师徒（临终）", "intensity": 35, "bond_level": 4, "dynamic": "临终嘱托兄弟们教好郭靖，叮嘱郭靖用功"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_quan_jin_fa",
+      "personality": {
+        "traits": ["细心谨慎", "观察力强", "跟踪术高明", "心思缜密"],
+        "speech_style": "平实稳健，善于提出实际建议",
+        "temperament": "务实细致，是七怪中的耳目"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_mei_chao_feng", "type": "敌人", "intensity": 50, "bond_level": 1, "dynamic": "秤锤击中梅超风后心两下，但未能破其横练功夫"},
+        {"target": "char_ke_zhen_e", "type": "结义兄弟", "intensity": 80, "bond_level": 9, "dynamic": "发现骷髅头骨并报告柯镇恶，细心跟踪找到郭靖住处"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_han_xiao_ying",
+      "personality": {
+        "traits": ["生性豪迈", "外柔内刚", "重情重义", "一心好武"],
+        "speech_style": "语调温柔但坚定，对敌人喝斥时果决，对爱人哭诉时深情",
+        "temperament": "柔中带刚，巾帼不让须眉，生死关头毫不犹豫下山救人"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_zhang_a_sheng", "type": "暗恋/夫妻（临终）", "intensity": 95, "bond_level": 9, "dynamic": "张阿生为救她而死，她抱尸痛哭承诺永不再嫁"},
+        {"target": "char_guo_jing", "type": "师徒（初定）", "intensity": 45, "bond_level": 5, "dynamic": "给郭靖擦鼻血、温言安慰，舍身下山救郭靖"},
+        {"target": "char_chen_xuan_feng", "type": "仇敌", "intensity": 65, "bond_level": 1, "dynamic": "越女剑法与陈玄风交手，一招凤点头虚刺后直取敌目"}
+      ],
+      "known_skills": ["skill_yue_nu_jian_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_mei_chao_feng",
+      "personality": {
+        "traits": ["凶狠残忍", "武功高强", "对丈夫情深意重", "抗毒体质", "蛮横泼辣"],
+        "speech_style": "自称老娘，语带狠厉，对丈夫称'贼汉子'，外粗内含深情",
+        "temperament": "狂暴凶悍中藏着对丈夫的至深柔情，双目被毁后更加疯狂"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_chen_xuan_feng", "type": "夫妻", "intensity": 100, "bond_level": 10, "dynamic": "闻丈夫惨叫疾冲下山，扑到身旁不离不弃，携尸身逃走"},
+        {"target": "char_ke_zhen_e", "type": "宿敌", "intensity": 90, "bond_level": 0, "dynamic": "被柯镇恶毒菱射瞎双目，双方有旧仇"},
+        {"target": "char_huang_yao_shi", "type": "师徒（叛离）", "intensity": 30, "bond_level": 2, "dynamic": "偷经叛逃桃花岛，惧怕师父追捕"}
+      ],
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao"],
+      "related_skills": ["skill_cui_xin_zhang"]
+    },
+    {
+      "id": "char_chen_xuan_feng",
+      "personality": {
+        "traits": ["生性残忍", "武艺高强", "对妻子深情厚意", "临死犹念经书", "贪多务得"],
+        "speech_style": "骂妻为'贼婆娘'实含深情，临死时气息微弱仍嘱妻子快逃",
+        "temperament": "外表冷酷如僵尸，内心对妻子一片赤诚，武功愈高愈是残暴"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_mei_chao_feng", "type": "夫妻", "intensity": 100, "bond_level": 10, "dynamic": "临死前嘱妻子快逃，告知经书秘要在胸口"},
+        {"target": "char_ke_zhen_e", "type": "宿敌", "intensity": 85, "bond_level": 0, "dynamic": "杀死柯镇恶之兄柯辟邪，毁柯镇恶双目，黑暗中搏斗"},
+        {"target": "char_guo_jing", "type": "被杀", "intensity": 30, "bond_level": 0, "dynamic": "轻视幼童不加防备，被郭靖以匕首刺中练门身亡"},
+        {"target": "char_huang_yao_shi", "type": "师徒（叛离）", "intensity": 30, "bond_level": 2, "dynamic": "偷走半部九阴真经逃离桃花岛"}
+      ],
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_cui_xin_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_li_ping",
+      "personality": {
+        "traits": ["朴实坚强", "教子有方", "身处异域不忘仇恨"],
+        "speech_style": "反复教导儿子记住仇人名字，不识字但口述清晰",
+        "temperament": "坚韧不拔，将亡夫遗物匕首交给儿子护身"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "母子", "intensity": 95, "bond_level": 10, "dynamic": "将匕首交给郭靖，教导他记住仇人段天德之名"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chu_ji",
+      "personality": {
+        "traits": ["好胜心强", "武功高强"],
+        "speech_style": "本章仅被提及",
+        "temperament": "（本章仅被提及）"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_ke_zhen_e", "type": "赌约对手", "intensity": 50, "bond_level": 3, "dynamic": "与江南七怪打赌比赛，各自寻找郭杨两家后人教导武艺"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "personality": {
+        "traits": ["性情暴烈", "武功自成一派", "迁怒无辜"],
+        "speech_style": "本章仅被提及",
+        "temperament": "暴烈偏激，因弟子叛逃迁怒其余弟子"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_chen_xuan_feng", "type": "师徒（叛离）", "intensity": 20, "bond_level": 2, "dynamic": "陈玄风偷走半部九阴真经"},
+        {"target": "char_mei_chao_feng", "type": "师徒（叛离）", "intensity": 20, "bond_level": 2, "dynamic": "与陈玄风同门私通叛逃"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duan_tian_de",
+      "personality": {
+        "traits": ["阴险毒辣"],
+        "speech_style": "本章仅被提及",
+        "temperament": "（本章仅被提及）"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "杀父仇人（被提及）", "intensity": 80, "bond_level": 0, "dynamic": "郭靖口中的杀父仇人，江南七怪追寻六年无果"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ke_pi_xie",
+      "personality": {
+        "traits": ["勇武正义"],
+        "speech_style": "本章仅被提及",
+        "temperament": "（本章仅被提及，已故）"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_ke_zhen_e", "type": "兄弟（已故）", "intensity": 100, "bond_level": 10, "dynamic": "撞见黑风双煞练功，死于陈玄风掌下"},
+        {"target": "char_chen_xuan_feng", "type": "仇敌（被提及）", "intensity": 90, "bond_level": 0, "dynamic": "死于陈玄风掌下"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_jiu_yin_bai_gu_zhao",
+      "techniques": [
+        {"id": "tech_jybgz_claw_strike", "name": "九阴白骨爪抓击", "type": "attack", "description": "五指如钢抓铁钩，直接插入敌人头骨或身体，能洞穿头骨五个血孔"},
+        {"id": "tech_jybgz_arm_extend", "name": "手臂陡长", "type": "feint", "description": "关节喀喇声响，手臂斗然长出数寸，出敌不意触及要害"},
+        {"id": "tech_jybgz_ten_claw_circle", "name": "十爪舞圆", "type": "attack", "description": "双爪在身前一尺处舞圆圈猛扑，黑暗中护住身形同时进攻"}
+      ],
+      "progression": [
+        {"level": 4, "unlock": "火候已到十之八九，配合横练功夫可无视普通兵刃"},
+        {"level": 5, "unlock": "十指可插入树干，撕裂皮衣如布，抓下连衣带肉"}
+      ],
+      "effects": ["五指洞穿头骨和身体", "手臂可陡然伸长数寸", "十指如钢钩般嵌入肉中", "配合横练功夫全身几无弱点"],
+      "combat_style": "凶狠近身搏杀，以爪为主，硬夺兵刃，不惧刀剑"
+    },
+    {
+      "id": "skill_cui_xin_zhang",
+      "techniques": [
+        {"id": "tech_cxz_palm_strike", "name": "摧心掌击", "type": "attack", "description": "击人外表无伤而内脏震碎，以活人练功查看内脏碎裂程度"},
+        {"id": "tech_cxz_nine_palm_combo", "name": "连发九掌", "type": "attack", "description": "一掌快似一掌，一掌猛似一掌，九掌后内脏尽碎"}
+      ],
+      "progression": [
+        {"level": 4, "unlock": "连发九掌可震碎活人内脏而不折断骨骼"}
+      ],
+      "effects": ["外表无伤而内脏震碎", "活人作靶验证功力进度"],
+      "combat_style": "掌法为主，外表无形内伤致命，需以活人验证功力"
+    },
+    {
+      "id": "skill_yue_nu_jian_fa",
+      "techniques": [
+        {"id": "tech_ynjf_feng_dian_tou", "name": "凤点头", "type": "feint", "description": "剑走轻灵疾往敌胁虚刺，跟着身子微侧剑尖直取敌目，又狠又准"},
+        {"id": "tech_ynjf_bai_lu_heng_jiang", "name": "白露横江", "type": "defense", "description": "横削敌人手臂，攻守兼备"},
+        {"id": "tech_ynjf_dian_zhao_chang_kong", "name": "电照长空", "type": "attack", "description": "直刺要害，十拿九稳可穿敌个透明窟窿"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "招式轻灵狠准，可与横练高手缠斗"}
+      ],
+      "effects": ["轻灵身法配合剑招，绕敌游走", "虚实结合，先虚刺再直取要害"],
+      "combat_style": "轻灵狠准，以轻灵身法绕敌转动，虚实结合"
+    },
+    {
+      "id": "skill_di_tang_bian_fa",
+      "techniques": [
+        {"id": "tech_dtbf_ground_roll", "name": "着地滚进", "type": "attack", "description": "着地滚进专向对方下盘急攻，盘打挥缠"},
+        {"id": "tech_dtbf_rolling_chain", "name": "连环三鞭", "type": "attack", "description": "刷刷刷连环三鞭连攻敌人后心"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "着地滚进分散敌人注意力，为同伴创造进攻机会"}
+      ],
+      "effects": ["专攻下盘使敌人分心", "盘打挥缠缠住敌人"],
+      "combat_style": "矮身滚地进攻下盘，配合软鞭远近皆可"
+    },
+    {
+      "id": "skill_kong_shou_ru_bai_ren",
+      "techniques": [
+        {"id": "tech_ksrbr_disarm", "name": "空手夺刃", "type": "special", "description": "赤手夺取对方手中兵刃，夹手抢走匕首，手法极快"},
+        {"id": "tech_ksrbr_escape_grip", "name": "手腕脱困", "type": "defense", "description": "被梅超风抓住手腕时，手掌翻动将铁扇塞入对方掌心趁机挣脱"}
+      ],
+      "progression": [
+        {"level": 4, "unlock": "即便武艺精熟的大人也拿不住手中兵刃"}
+      ],
+      "effects": ["瞬间夺走敌人兵刃", "危急时以手中物品换取脱身机会"],
+      "combat_style": "手法伶俐，近身巧取，以快取胜"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_bi_shou",
+      "description": "李萍交给郭靖的亡父郭啸天遗物，八寸长的匕首，刃身隐隐发出蓝光游走不定，锋锐无匹，柄上刻有'杨康'二字。为杨铁心与郭啸天交换之信物。",
+      "effects": [
+        {"type": "attack", "value": "致命一击", "description": "刺入陈玄风肚脐练门直没至柄，立时毙命"},
+        {"type": "special", "value": "蓝光特异", "description": "阳光下闪烁如彩虹，引起朱聪注意"}
+      ],
+      "origin": "郭啸天遗物，丘处机为两家交换信物，刻有'杨康'二字",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_zhang",
+      "description": "柯镇恶的铁铸长杖，既是兵器也是助行之具，盲人赖以探路辨向。在黑暗中与陈玄风对战时挥舞呼呼作响，后被陈玄风夺去如标枪般掷回。",
+      "effects": [
+        {"type": "attack", "value": "杖击", "description": "黑暗中连中陈玄风两杖"},
+        {"type": "defense", "value": "格挡", "description": "以杖抵挡九阴白骨爪进攻"}
+      ],
+      "origin": "柯镇恶随身兵器",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_jin_long_bian",
+      "description": "韩宝驹使用的软鞭，鞭身金光闪亮。曾被梅超风抓住鞭梢夺去，后用此鞭卷住飞向柯镇恶的铁杖，救了大哥性命。",
+      "effects": [
+        {"type": "attack", "value": "鞭击下盘", "description": "配合地堂鞭法着地滚进攻敌下盘"},
+        {"type": "defense", "value": "卷物救急", "description": "卷住飞掷的铁杖救柯镇恶一命"}
+      ],
+      "origin": "韩宝驹随身兵器",
+      "rarity": "uncommon",
+      "related_skills": ["skill_di_tang_bian_fa"]
+    },
+    {
+      "id": "item_tie_shan",
+      "description": "朱聪的点穴铁扇，用于试探梅超风练门所在，连打敌人'百会''廉泉''神阙''中枢'等十余处穴道。危急时塞入梅超风掌中脱身。",
+      "effects": [
+        {"type": "attack", "value": "点穴", "description": "连试十余处穴道查探练门"},
+        {"type": "special", "value": "脱身道具", "description": "塞入敌掌挣脱擒拿"}
+      ],
+      "origin": "朱聪随身兵器",
+      "rarity": "uncommon",
+      "related_skills": ["skill_kong_shou_ru_bai_ren"]
+    },
+    {
+      "id": "item_bian_dan",
+      "description": "南希仁的兵器，一根粗重的扁担，曾击中陈玄风后心，痛得铜尸哇哇怪叫。南希仁左臂被陈玄风震断后扁担脱手。",
+      "effects": [
+        {"type": "attack", "value": "重击", "description": "击中陈玄风后心令其分心"}
+      ],
+      "origin": "南希仁随身兵器，南山樵子之名由来",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_cheng_chui",
+      "description": "全金发的秤锤兵刃，战斗中曾击中梅超风后心两下，但未能重伤她的横练功夫，可见铁尸功夫之硬。",
+      "effects": [
+        {"type": "attack", "value": "锤击", "description": "击中梅超风后心两下但未破横练功夫"}
+      ],
+      "origin": "全金发随身兵器，闹市侠隐之名由来",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_chang_jian",
+      "description": "韩小莹的长剑，施展越女剑法时招式轻灵狠准，与梅超风和陈玄风交手时剑尖光芒闪动。",
+      "effects": [
+        {"type": "attack", "value": "剑击", "description": "凤点头虚刺、白露横江横削、电照长空直刺"},
+        {"type": "defense", "value": "格挡", "description": "不敢被梅超风硬抓，急忙缩剑退步"}
+      ],
+      "origin": "韩小莹随身兵器",
+      "rarity": "uncommon",
+      "related_skills": ["skill_yue_nu_jian_fa"]
+    },
+    {
+      "id": "item_jian_dao",
+      "description": "张阿生的屠牛尖刀，锋利异常，梅超风对其不敢以身硬接，战斗中曾刺向陈玄风胸口。陈玄风伸手格开后尖刀脱手。",
+      "effects": [
+        {"type": "attack", "value": "尖刀刺击", "description": "梅超风不敢硬接，证明其锋利程度"}
+      ],
+      "origin": "张阿生随身兵器，笑弥陀之名由来",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_du_ling",
+      "description": "柯镇恶的喂毒暗器，菱形铁制。藏身石坑时发射六枚射瞎梅超风双目，后在黑暗中又向陈玄风发射六枚但被尽数避开。毒性极烈，梅超风因长期服食砒霜练功才未毒发身亡。",
+      "effects": [
+        {"type": "debuff", "value": "射瞎双目", "description": "两枚同时命中梅超风双目，致其失明"},
+        {"type": "debuff", "value": "剧毒", "description": "暗器喂毒，令梅超风头脑昏晕，长期发作"}
+      ],
+      "origin": "柯镇恶独门暗器",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_tou_gu_zhui",
+      "description": "南希仁的暗器，在梅超风追击韩宝驹时与全金发袖箭同时射向敌人，被梅超风中指弹落。",
+      "effects": [
+        {"type": "attack", "value": "暗器偷袭", "description": "与袖箭双发夹击，但被梅超风弹落"}
+      ],
+      "origin": "南希仁暗器",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_xu_jian",
+      "description": "全金发的袖箭暗器，与南希仁透骨锥同时射向梅超风，被她中指弹落。在朱聪暗算时也有使用。",
+      "effects": [
+        {"type": "attack", "value": "暗器偷袭", "description": "与透骨锥双发夹击，但被梅超风弹落"}
+      ],
+      "origin": "全金发暗器",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_kui",
+      "description": "铁木真戴了杀敌的战盔，结实沉重。铁木真当众以此盔盛酒赐给哲别，表达对勇士的最高敬意，以此挽回哲别被桑昆侮辱的尊严。",
+      "effects": [
+        {"type": "buff", "value": "荣耀象征", "description": "以战盔当酒杯赐酒，是蒙古最高敬意的表达"},
+        {"type": "buff", "value": "收买人心", "description": "哲别满心感激，从此死心塌地"}
+      ],
+      "origin": "铁木真随身战盔",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_jin_bei",
+      "description": "桑昆的金杯，哲别欲用此饮酒时被桑昆当众阻止侮辱，引发蒙古习俗中的极大冲突。",
+      "effects": [
+        {"type": "debuff", "value": "侮辱象征", "description": "阻止哲别用金杯饮酒，是蒙古习俗中极大的侮辱"}
+      ],
+      "origin": "桑昆之物",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_hong_bao_shi_jie_zhi",
+      "description": "完颜洪熙手上戴的鲜红宝石戒指，投于地下作赏观看人豹相斗。人豹相斗未遂后被铁木真拾起转交桑昆。",
+      "effects": [
+        {"type": "buff", "value": "赏赐", "description": "完颜洪熙以之作赏观看搏斗"}
+      ],
+      "origin": "完颜洪熙之物",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing",
+      "description": "上古奇书，载有九阴白骨爪、摧心掌等绝世武功。陈玄风偷自桃花岛的半部经书（下半部），陈玄风临死前告知已将经书烧毁，秘要藏于胸口。因缺少上半部内功心法，黑风双煞练出的皆是阴毒功夫。",
+      "effects": [
+        {"type": "buff", "value": "绝世武功秘籍", "description": "载有九阴白骨爪、摧心掌等武功，练成后横行江湖无敌"},
+        {"type": "debuff", "value": "缺失上半部", "description": "无内功心法根基，练出的功夫偏于阴毒，有走火入魔之险"}
+      ],
+      "origin": "黄药师桃花岛秘藏，被陈玄风偷走下半部",
+      "rarity": "legendary",
+      "related_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_cui_xin_zhang"]
+    },
+    {
+      "id": "item_xiao_gong_xiao_jian",
+      "description": "拖雷的随身小弓箭，射中白兔肚腹引发了与都史的冲突，是本章故事的导火索。",
+      "effects": [
+        {"type": "attack", "value": "射兔", "description": "射中白兔肚腹但年幼力微未致命"}
+      ],
+      "origin": "拖雷随身玩物",
+      "rarity": "common",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_4_01",
+      "name": "王罕宴请完颜兄弟",
+      "participants": ["char_wang_han", "char_tie_mu_zhen", "char_zha_mu_he", "char_sang_kun", "char_wan_yan_hong_xi", "char_wan_yan_hong_lie"],
+      "location": "loc_wang_han_ying_zhang",
+      "description": "王罕大张筵席宴请完颜兄弟，帐幕华贵铺满貂皮狐皮。完颜洪烈暗中挑拨王罕与铁木真关系，王罕公开赞赏铁木真刚勇无双，桑昆在旁很不痛快。"
+    },
+    {
+      "id": "evt_4_02",
+      "name": "桑昆侮辱哲别饮酒",
+      "participants": ["char_sang_kun", "char_zhe_bie", "char_tie_mu_zhen", "char_wan_yan_hong_lie"],
+      "location": "loc_wang_han_ying_zhang",
+      "description": "哲别进帐谢赐酒，桑昆当众阻止其用金杯饮酒，施以蒙古习俗中极大的侮辱。哲别又惊又怒，铁木真隐忍替哲别饮下酒水，化解尴尬。"
+    },
+    {
+      "id": "evt_4_03",
+      "name": "铁木真以铁盔赐酒哲别",
+      "participants": ["char_tie_mu_zhen", "char_zhe_bie", "char_zhe_le_mi"],
+      "location": "loc_da_mo",
+      "description": "铁木真当众升哲别为百夫长，以自己戴了杀敌的铁盔盛酒赐给哲别，表达对勇士的最高敬意。哲别满心感激半跪接酒，众人高声欢呼。完颜洪烈暗赞铁木真乃人杰。"
+    },
+    {
+      "id": "evt_4_04",
+      "name": "桑昆放猎豹挑衅四杰",
+      "participants": ["char_sang_kun", "char_tie_mu_zhen", "char_mu_hua_li", "char_chi_lao_wen", "char_bo_er_shu", "char_bo_er_hu", "char_wan_yan_hong_xi"],
+      "location": "loc_da_mo",
+      "description": "桑昆放出两头金钱大豹，要求铁木真四杰空手搏杀豹子。赤老温主动请缨被木华黎拉住，指出四杰之能在于统兵作战。铁木真主动认输拾起红宝石戒指交给桑昆，神色自若。"
+    },
+    {
+      "id": "evt_4_05",
+      "name": "拖雷射兔与都史冲突",
+      "participants": ["char_tuo_lei", "char_guo_jing", "char_du_shi"],
+      "location": "loc_da_mo",
+      "description": "拖雷射中白兔被桑昆之子都史抢夺，都史殴打拖雷侮辱铁木真。郭靖忍无可忍挺头撞倒都史，两人被围殴。韩宝驹、韩小莹路过喝止，但孩子们反复追赶。"
+    },
+    {
+      "id": "evt_4_06",
+      "name": "朱聪发现匕首与杨康之名",
+      "participants": ["char_zhu_cong", "char_guo_jing", "char_ke_zhen_e", "char_quan_jin_fa"],
+      "location": "loc_da_mo",
+      "description": "朱聪以空手入白刃抢走郭靖匕首，发现刃身蓝光特异、柄上刻有'杨康'二字。全金发推测与杨铁心有关，朱聪归还匕首后追问，但郭靖不知杨康是谁。"
+    },
+    {
+      "id": "evt_4_07",
+      "name": "江南七怪确认找到郭靖",
+      "participants": ["char_ke_zhen_e", "char_han_xiao_ying", "char_guo_jing", "char_tuo_lei"],
+      "location": "loc_da_mo",
+      "description": "柯镇恶耳音锐敏听到'郭靖'二字，追问下郭靖说出仇人'段天德'之名。七怪六年来寻人之苦终获回报，人人欣喜若狂。"
+    },
+    {
+      "id": "evt_4_08",
+      "name": "朱聪教拖雷三招格斗术",
+      "participants": ["char_zhu_cong", "char_tuo_lei", "char_guo_jing", "char_han_bao_ju"],
+      "location": "loc_da_mo",
+      "description": "朱聪以戏法吸引孩子注意，教拖雷三招基本格斗术（扯臂勾脚、虚晃拳击、肩撞腰眼）。拖雷聪明一学就会，郭靖呆呆出神未学会，七怪失望。"
+    },
+    {
+      "id": "evt_4_09",
+      "name": "南希仁为郭靖正名",
+      "participants": ["char_nan_xi_ren", "char_ke_zhen_e", "char_zhu_cong", "char_han_bao_ju"],
+      "location": "loc_da_mo",
+      "description": "七怪议论郭靖资质太差想放弃，南希仁一言定音说'孩子很好'，并以自己幼时也很笨的经历为郭靖正名。六怪尊重其意见，决定再观察。"
+    },
+    {
+      "id": "evt_4_10",
+      "name": "荒山发现骷髅头骨堆",
+      "participants": ["char_ke_zhen_e", "char_zhu_cong", "char_quan_jin_fa"],
+      "location": "loc_huang_shan",
+      "description": "七怪在荒山上等待郭靖时发现三堆叠得整整齐齐的死人骷髅头骨，每堆九个。柯镇恶凭经验判断是黑风双煞练功所为，面色大变下令布阵伏击。"
+    },
+    {
+      "id": "evt_4_11",
+      "name": "梅超风以活人练摧心掌",
+      "participants": ["char_mei_chao_feng"],
+      "location": "loc_huang_shan",
+      "description": "梅超风在荒山月光下以活人为靶连发九掌摧心掌，内脏震碎而骨骼无损，随后撕开死人胸腹检视心肺肝脾以考查功力进度，随后打坐调息。"
+    },
+    {
+      "id": "evt_4_12",
+      "name": "柯镇恶伏击梅超风",
+      "participants": ["char_ke_zhen_e", "char_mei_chao_feng", "char_han_bao_ju", "char_nan_xi_ren", "char_zhu_cong", "char_han_xiao_ying", "char_zhang_a_sheng", "char_quan_jin_fa"],
+      "location": "loc_huang_shan",
+      "description": "韩宝驹藏身树上被梅超风发觉，六怪合力围攻铁尸。梅超风武功高强横练功夫厉害，六怪久战不下反被抓伤数人。朱聪引梅超风至石坑前，柯镇恶从坑中跃出发射六枚毒菱，两枚射瞎梅超风双目。"
+    },
+    {
+      "id": "evt_4_13",
+      "name": "陈玄风赶来救援大战",
+      "participants": ["char_chen_xuan_feng", "char_ke_zhen_e", "char_zhu_cong", "char_han_bao_ju", "char_nan_xi_ren", "char_han_xiao_ying", "char_zhang_a_sheng", "char_quan_jin_fa", "char_guo_jing"],
+      "location": "loc_huang_shan",
+      "description": "陈玄风闻梅超风长啸赶来，先后伤南希仁左臂、朱聪胸口、张阿生背心。张阿生以身护韩小莹挡下九阴白骨爪，身受重伤。韩宝驹金龙鞭卷住飞掷的铁杖救了柯镇恶。"
+    },
+    {
+      "id": "evt_4_14",
+      "name": "雷雨黑暗中柯镇恶独战陈玄风",
+      "participants": ["char_ke_zhen_e", "char_chen_xuan_feng"],
+      "location": "loc_huang_shan",
+      "description": "雷雨骤至乌云掩月伸手不见五指，柯镇恶凭极灵耳音占尽优势，连中陈玄风两杖。陈玄风借闪电光亮欺身抓住铁杖，一拳击中柯镇恶胸口，掷铁杖如标枪飞射。韩宝驹金龙鞭卷住铁杖再救大哥。"
+    },
+    {
+      "id": "evt_4_15",
+      "name": "郭靖刺杀陈玄风",
+      "participants": ["char_guo_jing", "char_chen_xuan_feng"],
+      "location": "loc_huang_shan",
+      "description": "陈玄风脚绊到郭靖将其抓起，电光一闪中郭靖惊骇之下拔出匕首刺入陈玄风小腹肚脐练门，八寸长匕首直没至柄。一身横练功夫的铜尸竟丧命于全然不会武功的幼童之手。"
+    },
+    {
+      "id": "evt_4_16",
+      "name": "陈玄风临死托付经书",
+      "participants": ["char_chen_xuan_feng", "char_mei_chao_feng"],
+      "location": "loc_huang_shan",
+      "description": "陈玄风临死前告诉梅超风经书已烧、秘要在胸口，话未说完便气绝。梅超风在丈夫胸口摸索却无一物，悲痛欲绝。"
+    },
+    {
+      "id": "evt_4_17",
+      "name": "梅超风携尸逃走",
+      "participants": ["char_mei_chao_feng", "char_han_bao_ju", "char_han_xiao_ying", "char_quan_jin_fa"],
+      "location": "loc_huang_shan",
+      "description": "韩宝驹、韩小莹、全金发三人趁微光攻向梅超风，但双目已盲的铁尸仍以擒拿手凌厉反击。狂风再起，风息后梅超风与陈玄风尸身均不知去向。"
+    },
+    {
+      "id": "evt_4_18",
+      "name": "张阿生临终与郭靖拜师",
+      "participants": ["char_zhang_a_sheng", "char_han_xiao_ying", "char_guo_jing", "char_zhu_cong"],
+      "location": "loc_huang_shan",
+      "description": "张阿生连中九阴白骨爪和脑门重拳，性命垂危。韩小莹抱住他痛哭承诺永不再嫁，张阿生含笑而逝。郭靖在朱聪指引下向张阿生磕头拜师，七怪将张阿生葬于荒山。"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_wang_han",
+      "listener": "char_wan_yan_hong_lie",
+      "text": "我这两个义儿，就是蒙古人中最出名的英雄好汉。",
+      "tone": "自豪赞赏",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_sang_kun",
+      "listener": "char_zhe_bie",
+      "text": "你这小小的十夫长，怎敢用我的金杯喝酒？",
+      "tone": "轻蔑侮辱",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_tie_mu_zhen",
+      "listener": "char_zhe_bie",
+      "text": "这是我戴了杀敌的铁盔，现今给勇士当酒杯！",
+      "tone": "豪迈激昂",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_zhe_bie",
+      "listener": "char_tie_mu_zhen",
+      "text": "镶满天下最贵重宝石的金杯，也不及大汗的铁盔。",
+      "tone": "感激涕零",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_tie_mu_zhen",
+      "listener": "char_sang_kun",
+      "text": "我爱四杰如同性命，怎能让他们跟豹子相斗？",
+      "tone": "坚定护短",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_mu_hua_li",
+      "listener": "char_chi_lao_wen",
+      "text": "咱们威震大漠，是杀敌人杀得多。豹子能指挥军队吗？能打埋伏包围敌人吗？",
+      "tone": "理智劝阻",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_du_shi",
+      "listener": "char_tuo_lei",
+      "text": "兔子是我养的，我不要你赔已经好啦！",
+      "tone": "蛮横霸道",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_du_shi",
+      "listener": "char_tuo_lei",
+      "text": "你爹爹是胆小鬼，怕我爷爷，也怕我爹爹。",
+      "tone": "嚣张挑衅",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_ke_zhen_e",
+      "text": "他……名叫段天德！",
+      "tone": "咬牙切齿",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_ke_zhen_e",
+      "listener": "char_guo_jing",
+      "text": "你爹爹一身好武艺，尚且给他杀了。你不学本事，当然打他不过，又怎能报仇？",
+      "tone": "低沉有力",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_nan_xi_ren",
+      "listener": "char_ke_zhen_e",
+      "text": "很好。……孩子很好。……我小时候也很笨。",
+      "tone": "沉稳笃定",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_ke_zhen_e",
+      "listener": "char_mei_chao_feng",
+      "text": "梅超风，你可记得飞天神龙柯辟邪、飞天蝙蝠柯镇恶吗？",
+      "tone": "冷冷宣战",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_mei_chao_feng",
+      "listener": "char_ke_zhen_e",
+      "text": "好小子，你还没死！你是给飞天神龙报仇来着？",
+      "tone": "长笑惊怒",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_chen_xuan_feng",
+      "listener": "char_mei_chao_feng",
+      "text": "贼婆娘，你放心，一个也跑不了。你……痛不痛？站着别动。",
+      "tone": "关切焦急",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_mei_chao_feng",
+      "listener": "char_chen_xuan_feng",
+      "text": "快杀啊，老娘死不了。",
+      "tone": "怒而不屈",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_chen_xuan_feng",
+      "listener": "char_mei_chao_feng",
+      "text": "不成啦，贼……贼婆……快逃命吧。……那部经……经……已经给我烧啦，秘要……在我胸……",
+      "tone": "气若游丝",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_han_xiao_ying",
+      "listener": "char_zhang_a_sheng",
+      "text": "五哥，我嫁给你作老婆罢，你说好吗？……五哥，你放心，我已是你张家的人，这生这世决不再嫁别人。我死之后，永远和你厮守。",
+      "tone": "悲痛欲绝",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_zhang_a_sheng",
+      "listener": "char_han_xiao_ying",
+      "text": "七妹，我一向待你不好。我……我也配不上你。",
+      "tone": "惨然微笑",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_zhang_a_sheng",
+      "listener": "char_guo_jing",
+      "text": "好孩子，我没能授你本事……你天资也不好，可千万要用功。想要贪懒时，就想到五师父这时的模样吧……",
+      "tone": "临终嘱托",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_zhang_a_sheng",
+      "listener": "char_han_xiao_ying",
+      "text": "把孩子教好，别输在……臭道士手里……",
+      "tone": "气若游丝",
+      "chapter": 4
+    },
+    {
+      "speaker": "char_wan_yan_hong_lie",
+      "listener": "null",
+      "text": "铁木真这人真乃人杰。这时候他就叫哲别死一万次，那人也是心甘情愿。朝中大臣一向总是说，北方蛮人尽是些没脑子的番儿，可将人瞧得小了。",
+      "tone": "暗自赞叹",
+      "chapter": 4
+    }
+  ]
+}

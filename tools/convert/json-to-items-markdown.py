@@ -16,6 +16,7 @@ import json
 if len(sys.argv) < 2:
     print("❌ 错误: 请提供小说目录路径")
     print("用法: python json-to-items-markdown.py <小说目录>")
+    print("示例: python json-to-items-markdown.py 金庸/天龙八部")
     sys.exit(1)
 
 NOVELS_DIR = sys.argv[1]
@@ -133,10 +134,17 @@ def main():
     # 转换并保存物品卡
     print("转换物品卡...")
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    # 先检测重名，重名物品用 id 作文件名避免覆盖
+    name_count = {}
     for item in items:
         name = item.get('name', 'unknown')
+        name_count[name] = name_count.get(name, 0) + 1
+    for item in items:
+        name = item.get('name', 'unknown')
+        item_id = item.get('id', name)
+        filename = item_id if name_count.get(name, 0) > 1 else name
         markdown = item_to_markdown(item)
-        filepath = os.path.join(OUTPUT_DIR, f"{name}.md")
+        filepath = os.path.join(OUTPUT_DIR, f"{filename}.md")
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(markdown)
     print(f"  已转换 {len(items)} 个物品卡")

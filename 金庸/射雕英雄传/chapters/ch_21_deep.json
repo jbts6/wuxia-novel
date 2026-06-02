@@ -1,0 +1,760 @@
+{
+  "chapter": 21,
+  "characters_detail": [
+    {
+      "id": "char_guo_jing",
+      "personality": {
+        "traits": ["憨厚质朴", "舍己救人", "勇猛无畏", "光明磊落"],
+        "speech_style": "言辞直率质朴，不善机巧，常以真心直述",
+        "temperament": "刚毅木讷，临危不惧，对师长忠孝，对爱人深情"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huang_rong",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "二人在荒岛上捡贝壳、梳头嬉戏，感情深厚，郭靖不忍偷袭欧阳锋，黄蓉亦温柔相从"
+        },
+        {
+          "target": "char_hong_qi_gong",
+          "type": "师徒",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "郭靖不顾性命以摔跤术缠住欧阳锋以护师父，听闻师父无恙则大喜"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "敌对",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "郭靖拚命缠斗欧阳锋救师父，后二人海上漂流数日竟同桅共济，关系微妙复杂"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "对手",
+          "intensity": 3,
+          "bond_level": 0,
+          "dynamic": "郭靖对欧阳克被巨岩压住心存不忍，主动提出相助"
+        }
+      ],
+      "known_skills": ["降龙十八掌", "摔跤术"],
+      "related_skills": ["九阴真经"]
+    },
+    {
+      "id": "char_huang_rong",
+      "personality": {
+        "traits": ["机智聪慧", "情深义重", "古灵精怪", "临危不惧", "才智过人"],
+        "speech_style": "伶牙俐齿，善用反话激将，时而天真烂漫时而老谋深算",
+        "temperament": "外柔内刚，遇险时虽慌乱却能迅速恢复冷静，心思缜密善用巧计"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "以为郭靖已死时痛不欲生，重逢后惊喜交集，为他梳头挽髻深情无限"
+        },
+        {
+          "target": "char_hong_qi_gong",
+          "type": "师徒",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "不顾安危救师父入海，接受帮主之位与打狗棒法传承，照顾师父起居"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "敌对",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "智斗欧阳锋，利用潮水浮力原理救人，谈判约法三章，以智取胜"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "敌对",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "多次设计杀欧阳克未果，先以钢刺刺伤他，又设巨岩机关压住他，最终救他脱困"
+        }
+      ],
+      "known_skills": ["打狗棒法"],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "personality": {
+        "traits": ["侠义心肠", "嫉恶如仇", "达观幽默", "仁厚宽恕"],
+        "speech_style": "豪迈爽快，说话直率，爱开玩笑，临危时亦能达观处之",
+        "temperament": "正气凛然，不忍见死不救，即使被害亦不后悔，重伤之际仍牵挂帮务传承"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "师徒",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "重见郭靖时大喜过望，得知他平安归来十分欣慰"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "师徒",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "临危传位黄蓉为第十九代丐帮帮主，倾囊传授打狗棒法，柔声安慰哭泣的弟子"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "敌对/救命恩人",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "不忍欧阳锋被烧死出手相救，反遭蛇杖暗算和蛤蟆功掌击，武功尽废"
+        }
+      ],
+      "known_skills": ["降龙十八掌", "打狗棒法", "擒拿手"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_feng",
+      "personality": {
+        "traits": ["阴险狠毒", "恩将仇报", "武功高强", "心肠刚硬"],
+        "speech_style": "言语阴沉傲慢，有求于人时低声下气，翻脸时冷酷无情",
+        "temperament": "冷酷无情却对侄儿有亲情，为救侄儿不惜向黄蓉低头，心狠手辣却也有束手无策之时"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_hong_qi_gong",
+          "type": "仇敌/被救者",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "被洪七公从火中救出后恩将仇报，以蛇杖毒蛇暗算又以蛤蟆功掌击恩人"
+        },
+        {
+          "target": "char_guo_jing",
+          "type": "敌对",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "与郭靖海上漂流数日同桅共济，心中却暗忖要除掉这个读过九阴真经的少年"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "叔侄(实为父子)",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "为救侄儿不惜向黄蓉求情，内心暗祷鬼神，得知侄儿是亲生骨肉后胸口酸楚"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "敌对/被求者",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "被黄蓉智计制衡，有求于她时忍气吞声，暗中仍盘算加害"
+        }
+      ],
+      "known_skills": ["灵蛇拳法", "蛤蟆功"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_ke",
+      "personality": {
+        "traits": ["好色轻薄", "胆小怕死", "痴心妄想", "识时务"],
+        "speech_style": "油嘴滑舌，善于讨好，色厉内荏",
+        "temperament": "表面轻浮风流，实则贪生怕死，但对黄蓉有一份真心痴恋"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huang_rong",
+          "type": "单恋/纠缠",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "对黄蓉百般纠缠讨好，被巨岩压住后仍对黄蓉出力相救感到欢喜"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "叔侄(实为父子)",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "被巨岩压住后依赖叔叔相救，气若游丝时求叔叔一掌了结自己"
+        },
+        {
+          "target": "char_hong_qi_gong",
+          "type": "敌对",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "见洪七公重伤企图对黄蓉施暴，被洪七公余威震慑跪地求饶"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhou_bo_tong",
+      "personality": {
+        "traits": ["顽皮好胜", "不拘小节"],
+        "speech_style": "",
+        "temperament": "性情豪放，行事不循常理"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_ou_yang_feng",
+          "type": "赌赛对手",
+          "intensity": 2,
+          "bond_level": 0,
+          "dynamic": "曾与欧阳锋赌赛屠鲨，取尽其怪蛇毒液（仅被提及）"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "personality": {
+        "traits": ["博学多才", "亦正亦邪", "精通阴阳五行"],
+        "speech_style": "",
+        "temperament": "孤高自许，才学渊博"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_huang_rong",
+          "type": "父女",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "黄蓉以其父阴阳五行之术唬住欧阳锋，称有其父必有其女"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mu_nian_ci",
+      "personality": {
+        "traits": ["温婉", "坚贞"],
+        "speech_style": "",
+        "temperament": "温婉"
+      },
+      "archetype": "warrior",
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_li_sheng",
+      "personality": {
+        "traits": ["好客"],
+        "speech_style": "",
+        "temperament": "热情好客"
+      },
+      "archetype": "warrior",
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_ling_she_quan_fa",
+      "techniques": [
+        {
+          "id": "tech_lingshe_01",
+          "name": "灵蛇拳",
+          "type": "attack",
+          "description": "手臂似乎能于无法弯曲处弯曲，从万难料想的方位出拳，如蛇般灵动，敌人只道已将来拳架开，忽有一拳从意想不到处打到"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "欧阳锋苦思两年、勤练三年所成"
+        }
+      ],
+      "effects": ["手臂弯曲出拳角度匪夷所思", "令敌人防不胜防"],
+      "combat_style": "取意于蛇类身形扭动，出拳方位诡异，旨在攻其不备"
+    },
+    {
+      "id": "skill_ha_ma_gong",
+      "techniques": [
+        {
+          "id": "tech_hama_01",
+          "name": "蛤蟆功掌力",
+          "type": "attack",
+          "description": "蹲下身来，双手弯曲推出，阁阁数声叫喊，掌力雄浑无比，可齐腰折断碗口粗柏树，亦能推断海碗粗柏树"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "欧阳锋上乘内功掌力"
+        }
+      ],
+      "effects": ["掌力雄厚可碎巨木", "掌击可震碎副桅", "一掌可在背心留下黑色掌印深陷入肌"],
+      "combat_style": "上乘内功掌力，正面硬拚时威力无穷，近身缠斗时难以施展"
+    },
+    {
+      "id": "skill_qin_na_shou",
+      "techniques": [
+        {
+          "id": "tech_qinna_01",
+          "name": "勾腕擒拿",
+          "type": "defense",
+          "description": "勾腕伸爪，以擒拿手法拿住敌人拳头，又快又准，克制灵蛇拳法的巧妙法门"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "洪七公经数昼夜凝思，此后又不断练习而成"
+        }
+      ],
+      "effects": ["克制灵蛇拳法", "奇兵突出攻其不备"],
+      "combat_style": "以巧破力，专门针对灵蛇拳法，原为尚嫌不足但有奇效"
+    },
+    {
+      "id": "skill_jiang_long_shi_ba_zhang",
+      "techniques": [
+        {
+          "id": "tech_jianglong_01",
+          "name": "双龙取水",
+          "type": "attack",
+          "description": "双掌齐发，猛击敌人后腰，掌力凌厉"
+        },
+        {
+          "id": "tech_jianglong_02",
+          "name": "震树掌法",
+          "type": "attack",
+          "description": "以掌法震断碗口粗柏树，掌风锋锐凌厉"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "郭靖已学得数招"
+        }
+      ],
+      "effects": ["掌力可震断树木", "掌风可震碎副桅"],
+      "combat_style": "刚猛霸道的外家掌法，以力取胜"
+    },
+    {
+      "id": "skill_da_gou_bang_fa",
+      "techniques": [
+        {
+          "id": "tech_dagou_01",
+          "name": "打狗棒法刺打盘挑",
+          "type": "attack",
+          "description": "棒身晃动，似刺上盘又似缠下三路，变幻莫测，绿影飞舞"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "洪七公口传心授三十六路棒法大要"
+        },
+        {
+          "level": 2,
+          "unlock": "黄蓉在荒岛上由洪七公指点精微变化与攻合之道"
+        }
+      ],
+      "effects": ["变化精微招术奇妙", "初学即能逼退欧阳锋数招", "为丐帮帮主历代相传镇帮之宝"],
+      "combat_style": "以巧制敌，棒法变化精微，刺打盘挑各具奥妙"
+    },
+    {
+      "id": "skill_shuai_jiao_shu",
+      "techniques": [
+        {
+          "id": "tech_shuaijiao_01",
+          "name": "骆驼扳",
+          "type": "attack",
+          "description": "左手从敌人左腋下穿出，在其后颈猛力扳落，手法巧妙，以骆驼之庞然大物亦不免颈骨断折为喻"
+        },
+        {
+          "id": "tech_shuaijiao_02",
+          "name": "断山绞",
+          "type": "attack",
+          "description": "双手互叉同时从两侧穿出扳住敌人后颈用劲捺落，被绞者陷于绝地，不论臂力多强只有投降否则颈骨立断"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "郭靖在蒙古所学摔跤技艺"
+        }
+      ],
+      "effects": ["近身缠斗时可克制上乘武功", "使敌人蛤蟆功灵蛇拳等无法施展"],
+      "combat_style": "蒙古摔跤技艺，近身搂抱扭打，以蛮力与技巧结合，不顾死活的缠斗之法"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_she_zhang",
+      "description": "欧阳锋的兵器，杖上附有剧毒怪蛇",
+      "effects": [
+        {
+          "type": "poison",
+          "value": "剧毒",
+          "description": "杖上怪蛇剧毒无比，咬伤洪七公后颈致其中毒深重，蛇毒炙热异常"
+        },
+        {
+          "type": "weapon",
+          "value": "暗算",
+          "description": "趁洪七公救己之际暗算咬伤其后颈，恩将仇报的凶器"
+        }
+      ],
+      "origin": "白驼山",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_da_gou_bang",
+      "description": "丐帮帮主信物，绿竹棒，用以追击蛇杖与近身搏斗，亦是打狗棒法的专用兵器",
+      "effects": [
+        {
+          "type": "authority",
+          "value": "帮主信物",
+          "description": "持此棒者即为丐帮帮主，见棒如见帮主"
+        }
+      ],
+      "origin": "丐帮历代帮主传承",
+      "rarity": "legendary",
+      "related_skills": ["skill_da_gou_bang_fa"]
+    },
+    {
+      "id": "item_e_mei_gang_ci",
+      "description": "黄蓉随身近身兵器，可刺可攻",
+      "effects": [
+        {
+          "type": "attack",
+          "value": "近身刺击",
+          "description": "黄蓉从腰间取出刺向欧阳锋背心未中，又刺伤欧阳克右腿，亦可割切藤枝设机关"
+        }
+      ],
+      "origin": "黄蓉随身携带",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_lu_guan",
+      "description": "黄蓉从山脚芦苇丛中割取的芦管，一端可含在口中通气",
+      "effects": [
+        {
+          "type": "survival",
+          "value": "水下呼吸",
+          "description": "插入欧阳克口中使其在海水淹没时仍能呼吸保命，死里逃生"
+        }
+      ],
+      "origin": "荒岛山脚芦苇丛",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_xiang_jin_yu_shu",
+      "description": "黄蓉随身携带的小巧镶金玉梳",
+      "effects": [
+        {
+          "type": "tool",
+          "value": "梳头",
+          "description": "黄蓉在荒岛上为郭靖梳头挽髻，表达深厚感情"
+        }
+      ],
+      "origin": "黄蓉随身携带",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing",
+      "description": "郭靖熟读的武功秘籍",
+      "effects": [
+        {
+          "type": "knowledge",
+          "value": "武功根基",
+          "description": "郭靖内功根柢的重要来源，欧阳锋认为留他终是祸胎"
+        }
+      ],
+      "origin": "仅被提及",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_mao",
+      "description": "船头铁锚，锚爪锋利",
+      "effects": [
+        {
+          "type": "tool",
+          "value": "救火",
+          "description": "洪七公以锚爪钩住横桁拉开着火的大帆，救出被困的欧阳锋"
+        }
+      ],
+      "origin": "沉没大船",
+      "rarity": "common",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_21_01",
+      "name": "洪七公破解灵蛇拳法",
+      "participants": ["char_hong_qi_gong", "char_ou_yang_feng"],
+      "location": "大船",
+      "description": "欧阳锋在危急关头使出苦练五年的灵蛇拳法，手臂如蛇般从匪夷所思的方位出拳，洪七公早于宝应窥到关窍，经数昼夜凝思练成擒拿手破解之法，勾腕伸爪拿住其拳，奇兵突出攻其不备"
+    },
+    {
+      "id": "evt_21_02",
+      "name": "洪七公火中救欧阳锋",
+      "participants": ["char_hong_qi_gong", "char_ou_yang_feng"],
+      "location": "大船",
+      "description": "着火大帆从天落下罩住欧阳锋，欧阳锋因灵蛇拳法被破茫然失神不及闪避，蛇杖被桅杆压住。洪七公不忍见其活活烧死，以铁锚锚爪钩住横桁将帆拉开救出欧阳锋，又抢住通红铁链防止扫到欧阳锋，双手被烫得嗤嗤作响"
+    },
+    {
+      "id": "evt_21_03",
+      "name": "欧阳锋恩将仇报暗算洪七公",
+      "participants": ["char_ou_yang_feng", "char_hong_qi_gong"],
+      "location": "大船",
+      "description": "洪七公救出欧阳锋后，后颈微微一麻，回头见蛇杖刚掠过，毒蛇满口鲜血。原来欧阳锋以蛇杖暗算恩人，毒蛇咬伤洪七公后颈。洪七公中蛇毒后又遭欧阳锋猛力一掌击在背心正中，口喷鲜血俯身跌倒，全身劲力尽失武功全废"
+    },
+    {
+      "id": "evt_21_04",
+      "name": "郭靖摔跤术缠斗欧阳锋",
+      "participants": ["char_guo_jing", "char_ou_yang_feng"],
+      "location": "大船",
+      "description": "郭靖不顾自身安危纵身抱住欧阳锋头颈，胁下被反手扫中仍不放手，以蒙古摔跤术近身缠斗：先使骆驼扳扳住其后颈，又以断山绞双手互叉绞住后颈令其陷于绝地，欧阳锋以上乘轻功从郭靖胯下翻出才得脱困。二人滚倒甲板，衣发满是火焰"
+    },
+    {
+      "id": "evt_21_05",
+      "name": "大船沉没与众人失散",
+      "participants": ["char_guo_jing", "char_huang_rong", "char_hong_qi_gong", "char_ou_yang_feng", "char_ou_yang_ke"],
+      "location": "东海",
+      "description": "黄蓉救洪七公入海脱离火海，攀住小艇逼欧阳克拉洪七公上艇。山崩般巨响后半截大船沉入海中形成大漩涡，郭靖与欧阳锋随船沉没无影无踪。黄蓉在海中搜寻十余圈无果，筋疲力尽后昏厥"
+    },
+    {
+      "id": "evt_21_06",
+      "name": "漂流至荒岛与洪七公传位",
+      "participants": ["char_huang_rong", "char_hong_qi_gong", "char_ou_yang_ke"],
+      "location": "荒岛",
+      "description": "小舢舨随海流漂至荒岛。洪七公告知黄蓉自己蛇毒加掌伤武功已废，将丐帮帮主之位传给黄蓉为第十九代帮主，交予绿竹棒，又口传心授三十六路打狗棒法。洪七公晕倒后欧阳克企图对黄蓉施暴，被洪七公拄棒现身余威震慑而逃"
+    },
+    {
+      "id": "evt_21_07",
+      "name": "黄蓉智斗欧阳克",
+      "participants": ["char_huang_rong", "char_ou_yang_ke"],
+      "location": "荒岛",
+      "description": "欧阳克窥出洪七公武功已失，闯入岩洞欲对黄蓉用强，黄蓉与之苦斗五六十招。欧阳克点中黄蓉穴道欲施暴，洪七公拼死现身以余威喝退欧阳克。次日黄蓉假装摔倒诱欧阳克入海，将其推入深水中灌海水，欧阳克险些溺死后从海底逃上岸"
+    },
+    {
+      "id": "evt_21_08",
+      "name": "巨岩机关压住欧阳克",
+      "participants": ["char_huang_rong", "char_ou_yang_ke", "char_ou_yang_feng", "char_guo_jing"],
+      "location": "荒岛悬崖",
+      "description": "黄蓉发现悬崖上数万斤巨岩仅靠藤枝维持平衡，割断非连接藤枝制造机关。引诱欧阳克追至崖下，欧阳克踏中未断藤枝触发巨岩坠落。欧阳锋及时赶到将侄儿拉后数尺，但欧阳克双腿仍被巨岩压住"
+    },
+    {
+      "id": "evt_21_09",
+      "name": "郭靖欧阳锋海上漂流重逢",
+      "participants": ["char_guo_jing", "char_ou_yang_feng"],
+      "location": "东海/荒岛",
+      "description": "大船沉没后二人被潜流带出数里，在海中各被抓住后放开，同抱断桅漂流数日。遇海鱼以掌力击晕分食生鱼渡日，同桅共济。海流将二人送至同一荒岛，正遇上巨岩坠落压住欧阳克"
+    },
+    {
+      "id": "evt_21_10",
+      "name": "芦管救急与浮力绞盘救出欧阳克",
+      "participants": ["char_huang_rong", "char_guo_jing", "char_ou_yang_feng"],
+      "location": "荒岛悬崖",
+      "description": "黄蓉用芦管插入欧阳克口中使其在潮水中呼吸保命。首次以树皮巨缆绞盘抬巨岩因缆断失败。黄蓉利用浮力原理，在巨岩周围缚上十余条大木增加浮力，次日潮涨时再以绞盘成功抬起巨岩，欧阳锋潜入水底抱出侄儿"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_ou_yang_feng",
+      "text": "老叫化今日归天！",
+      "tone": "绝望自叹（欧阳锋内心独白引述）",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_huang_rong",
+      "text": "师父是不中用的了。这恶贼武功远胜于你，只有跟他斗智不斗力。",
+      "tone": "惨然沉痛",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_huang_rong",
+      "text": "孩子，师父迫不得已，想求你做一件十分艰难、大违你本性之事，你能不能担当？",
+      "tone": "郑重迟疑",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_huang_rong",
+      "text": "祖师爷，您手创丐帮，传到弟子手里，弟子无德无能，不能光大我帮。今日事急，弟子不得不卸此重担。祖师爷在天之灵，要佑庇这孩子逢凶化吉，履险如夷，为普天下我帮受苦受难的众兄弟造福。",
+      "tone": "庄严虔诚",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_huang_rong",
+      "text": "牙齿啊牙齿，你不负我，给老叫化咬过普天下的珍馐美味。看来老叫化天年已尽，你先要离我而去了！",
+      "tone": "达观幽默",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_ou_yang_ke",
+      "text": "你要死还是要活？",
+      "tone": "冷冷威严",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_ou_yang_feng",
+      "text": "我给她喝了'百日醉'的美酒，又点了她的昏睡穴，三个月之内，只怕难以醒转。",
+      "tone": "戏谑打趣",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_ou_yang_ke",
+      "text": "快拉我师父上去，小心了，你弄一点儿鬼，我把你在水里浸足三个时辰。",
+      "tone": "威吓警告",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_ou_yang_ke",
+      "text": "自从识得你以来，第一次见到你做了件好事。",
+      "tone": "微笑讽刺",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_ou_yang_ke",
+      "text": "快跳下海去！",
+      "tone": "愤怒厌恶",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_ou_yang_feng",
+      "text": "我爹爹精通阴阳五行之术，他女儿自然也会三分，虽然及不上黄老邪，但这一点儿未卜先知之术，又算得了甚么。",
+      "tone": "得意矜持",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_ou_yang_feng",
+      "text": "欧阳伯伯，你要将我杀了，给你侄儿殉葬，是不是？",
+      "tone": "笑吟吟嘲讽",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "靖哥哥，你头发乱成这个样子啦，来，我给你梳梳。",
+      "tone": "温柔亲昵",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "怎生想个法儿将西毒叔侄赶走，咱俩和师父三人就住在这岛上不走了，岂不是好？",
+      "tone": "天真憧憬",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "靖哥哥，怎样才会生孩子，你知道么？",
+      "tone": "天真好奇",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": null,
+      "text": "你不用谢我。这是我布下的机关，你知道么？",
+      "tone": "坦率歉疚",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_ou_yang_feng",
+      "text": "欧阳世伯，不知几时我才得练到您这样的功夫。",
+      "tone": "诚恳惊佩",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "师父叫你当帮主，你怎么又来问我？",
+      "tone": "直率朴拙",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "你会得使，跟我会使还不是一样。",
+      "tone": "深情流露",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "背后伤人，太不光明。",
+      "tone": "正直坚守",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_ou_yang_ke",
+      "text": "你好好去罢，我知道你的心事，你一心要娶黄老邪的闺女为妻，我必能令你如愿。",
+      "tone": "哽咽酸楚",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_ou_yang_ke",
+      "text": "我这就去杀了黄老邪的闺女，将她和你同穴而葬。人都有死，你和她虽生不得同室，但死能同穴，也可瞑目了。",
+      "tone": "阴狠决绝",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_huang_rong",
+      "text": "好姑娘，你真聪明，那才叫做家学渊源，有其父必有其女。",
+      "tone": "赞叹佩服",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_huang_rong",
+      "text": "小丫头别再胡言乱语，快救我侄儿去。",
+      "tone": "急怒焦躁",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_ou_yang_ke",
+      "listener": "char_huang_rong",
+      "text": "妹子，你我两人终老于此，过神仙一般的日子。我前生不知是如何修得！",
+      "tone": "轻薄痴心",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_ou_yang_ke",
+      "listener": "char_huang_rong",
+      "text": "黄姑娘，多谢你相救。我是活不成的了，但见到你出力救我，我是死也欢喜。",
+      "tone": "微弱感激",
+      "chapter": 21
+    },
+    {
+      "speaker": "char_ou_yang_ke",
+      "listener": "char_ou_yang_feng",
+      "text": "叔叔，你一掌打死我罢。我……我实是受不住啦。",
+      "tone": "痛苦哀求",
+      "chapter": 21
+    }
+  ]
+}

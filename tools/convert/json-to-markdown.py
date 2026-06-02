@@ -96,6 +96,12 @@ def save_markdown(output_dir, filename, content):
     return filepath
 
 
+def get_filename(entity, name_counts):
+    """重名实体用 id 作文件名"""
+    name = entity.get('name', 'unknown')
+    entity_id = entity.get('id', name)
+    return entity_id if name_counts.get(name, 0) > 1 else name
+
 def clear_markdown_output(output_dir):
     os.makedirs(output_dir, exist_ok=True)
     for filename in os.listdir(output_dir):
@@ -306,7 +312,15 @@ faction: "[[{id_to_wikilink(skill.get('faction', ''))}]]"
 combat_style: {skill.get('combat_style', '')}
 techniques:"""
 
+    # 招式按名称去重，保留首次出现
+    seen_techs = set()
+    unique_techniques = []
     for tech in skill.get('techniques', []):
+        tname = tech.get('name', '')
+        if tname and tname not in seen_techs:
+            seen_techs.add(tname)
+            unique_techniques.append(tech)
+    for tech in unique_techniques:
         frontmatter += f'\n  - "[[{tech.get("name", "")}]]"'
 
     # Game stats
@@ -329,7 +343,7 @@ game_stats:
 |------|------|------|
 """
 
-    for tech in skill.get('techniques', []):
+    for tech in unique_techniques:
         tech_name = tech.get('name', '')
         tech_type = tech.get('type', '')
         tech_desc = tech.get('description', '')
@@ -444,35 +458,76 @@ def main():
 
     # 转换并保存角色卡
     print("转换角色卡...")
+    char_name_counts = {}
+    for c in characters:
+        n = c.get('name', 'unknown')
+        char_name_counts[n] = char_name_counts.get(n, 0) + 1
     for char in characters:
         name = char.get('name', 'unknown')
+        filename = get_filename(char, char_name_counts)
         markdown = char_to_markdown(char)
-        save_markdown(os.path.join(NOVELS_DIR, 'characters'), name, markdown)
+        save_markdown(os.path.join(NOVELS_DIR, 'characters'), filename, markdown)
     print(f"  已转换 {len(characters)} 个角色卡")
 
     # 转换并保存技能卡
     print("转换技能卡...")
     clear_markdown_output(os.path.join(NOVELS_DIR, 'skills'))
-    for skill in skills:
+    # 过滤掉属于其他功法的招式，不生成独立卡片
+    all_tech_names = set()
+    for s in skills:
+        for t in (s.get('techniques') or []):
+            if t.get('name'):
+                all_tech_names.add(t['name'])
+    pure_skills = [s for s in skills if s.get('name') not in all_tech_names or not any(
+        t.get('name') == s.get('name') and t.get('id', '') != ''
+        for other in skills if other.get('id') != s.get('id')
+        for t in (other.get('techniques') or [])
+    )]
+    # 排除名称是其他功法招式的条目
+    tech_to_parent = {}
+    for s in skills:
+        for t in (s.get('techniques') or []):
+            if t.get('name'):
+                tech_to_parent.setdefault(t['name'], []).append(s.get('id'))
+    pure_skills = [s for s in skills if not (
+        any(pid != s.get('id') for pid in tech_to_parent.get(s.get('name'), [])) or
+        # 功法·招式 模式：名称含·且前缀是另一个有招式的功法
+        ('·' in (s.get('name') or '') and any(
+            other.get('id') != s.get('id') and (other.get('techniques') or []) and
+            (s.get('name') or '').startswith(other.get('name') + '·')
+            for other in skills
+        ))
+    )]
+    for skill in pure_skills:
         name = skill.get('name', 'unknown')
         markdown = skill_to_markdown(skill)
         save_markdown(os.path.join(NOVELS_DIR, 'skills'), name, markdown)
-    print(f"  已转换 {len(skills)} 个技能卡")
+    print(f"  已转换 {len(pure_skills)} 个技能卡 (过滤掉 {len(skills) - len(pure_skills)} 个招式)")
 
     # 转换并保存门派卡
     print("转换门派卡...")
+    faction_name_counts = {}
+    for f in factions:
+        n = f.get('name', 'unknown')
+        faction_name_counts[n] = faction_name_counts.get(n, 0) + 1
     for faction in factions:
         name = faction.get('name', 'unknown')
+        filename = get_filename(faction, faction_name_counts)
         markdown = faction_to_markdown(faction)
-        save_markdown(os.path.join(NOVELS_DIR, 'factions'), name, markdown)
+        save_markdown(os.path.join(NOVELS_DIR, 'factions'), filename, markdown)
     print(f"  已转换 {len(factions)} 个门派卡")
 
     # 转换并保存地点卡
     print("转换地点卡...")
+    loc_name_counts = {}
+    for l in locations:
+        n = l.get('name', 'unknown')
+        loc_name_counts[n] = loc_name_counts.get(n, 0) + 1
     for location in locations:
         name = location.get('name', 'unknown')
+        filename = get_filename(location, loc_name_counts)
         markdown = location_to_markdown(location)
-        save_markdown(os.path.join(NOVELS_DIR, 'locations'), name, markdown)
+        save_markdown(os.path.join(NOVELS_DIR, 'locations'), filename, markdown)
     print(f"  已转换 {len(locations)} 个地点卡")
 
     print("\n✅ 转换完成！")

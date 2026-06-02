@@ -1,0 +1,1499 @@
+{
+  "chapter": 24,
+  "characters_detail": [
+    {
+      "id": "char_guo_jing",
+      "personality": {
+        "traits": ["正直沉稳", "重情重义", "克制冲动"],
+        "speech_style": "言语朴实直率，多低声细语，受伤时仍不失刚毅",
+        "temperament": "刚正坚忍，能听从黄蓉劝告压制杀意，重伤之际仍克制心猿意马"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huang_rong",
+          "type": "未婚夫妻/疗伤伴侣",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "双掌相抵运功疗伤，黄蓉全力保护其安全，二人患难与共、肌肤相亲"
+        },
+        {
+          "target": "char_wan_yan_hong_lie",
+          "type": "杀父仇人",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "欲掷金刀杀之报仇，被黄蓉劝阻，强忍怒火"
+        },
+        {
+          "target": "char_yang_kang",
+          "type": "义兄弟（对方不知）",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "目睹杨康不杀完颜洪烈反为其披衣，深感气愤不解"
+        }
+      ],
+      "known_skills": ["skill_jiu_yin_zhen_jing_liao_shang_pian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_rong",
+      "personality": {
+        "traits": ["聪慧机敏", "胆大心细", "深情护人", "临危不乱"],
+        "speech_style": "语调柔中带俏，安慰郭靖时温柔体贴，面对危机时果断冷静",
+        "temperament": "机敏灵活，心思缜密，对郭靖深情呵护，危急关头能急中生智"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "未婚妻/疗伤搭档",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "全力为其疗伤、守卫，以'你妈妈和蓉儿要你好好活着'劝止其冲动"
+        },
+        {
+          "target": "char_huang_yao_shi",
+          "type": "父女",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "闻其声即知是爹爹，惊喜交集，关心其安危"
+        },
+        {
+          "target": "char_wan_yan_hong_lie",
+          "type": "敌对",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "想毁掉武穆遗书不让落入其手，安慰郭靖养好伤再追杀"
+        },
+        {
+          "target": "char_sha_gu",
+          "type": "戒备",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "曾想杀傻姑灭口以防泄密，后因郭靖而放弃，仍视其为隐患"
+        }
+      ],
+      "known_skills": ["skill_jiu_yin_zhen_jing_liao_shang_pian"],
+      "related_skills": ["skill_bi_bo_zhang_fa"]
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "personality": {
+        "traits": ["性情乖僻", "护短霸道", "武艺通神", "不容忤逆"],
+        "speech_style": "语气冰冷傲慢，发号施令不容置疑",
+        "temperament": "极度护短，本门弟子绝不容外人欺侮，出手狠辣不留情面"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_sha_gu",
+          "type": "师门后辈（再传弟子）",
+          "intensity": 7,
+          "bond_level": 5,
+          "dynamic": "看出傻姑是本门弟子后暗发金针助她打梁子翁，一拳还三拳报仇"
+        },
+        {
+          "target": "char_liang_zi_weng",
+          "type": "惩罚对象",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "因梁子翁欺辱本门弟子傻姑，暗发金针封其穴道，令其连中三拳"
+        },
+        {
+          "target": "char_hou_tong_hai",
+          "type": "惩罚对象",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "侯通海冲撞，被其硬生生扯断一条手臂"
+        },
+        {
+          "target": "char_peng_lian_hu",
+          "type": "威慑对象",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "逼其从胯下钻过，彭连虎率先屈服"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wan_yan_hong_lie",
+      "personality": {
+        "traits": ["深谋远虑", "一往情深", "执着坚韧", "文雅有礼"],
+        "speech_style": "措辞文雅有礼，自谦称'小王'，感伤时语调低沉",
+        "temperament": "对包惜弱一往情深，十九年后仍追忆旧事拾残砖破瓦，失败后沮丧但不放弃"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_yang_kang",
+          "type": "养父子",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "对杨康信任有加，命其开石盒，深夜独处时杨康为其披衣"
+        },
+        {
+          "target": "char_bao_xi_ruo",
+          "type": "亡妻（追忆）",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "深夜取出其遗物小银刀小药瓶抚摸把玩，独往故居拾残砖破瓦追忆"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "盟友/倚重",
+          "intensity": 6,
+          "bond_level": 5,
+          "dynamic": "倚重欧阳锋为首功，对其二次入宫搜寻武穆遗书拱手感谢"
+        },
+        {
+          "target": "char_yue_fei",
+          "type": "争夺对象（遗书）",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "推算岳飞遗书藏于翠寒堂东十五步，千方百计搜寻"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_feng",
+      "personality": {
+        "traits": ["狂妄自大", "心怀鬼胎", "精明狡猾", "目空一切"],
+        "speech_style": "干笑声如破钹，言语自信霸道",
+        "temperament": "若有武功秘籍则据为己有，无用则乐做人情"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_wan_yan_hong_lie",
+          "type": "盟友",
+          "intensity": 5,
+          "bond_level": 4,
+          "dynamic": "为其效力搜寻武穆遗书，但内心另有盘算"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "叔侄（实为父子）",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "铺稻草安置断腿侄儿静卧养伤，安排其与完颜洪烈留守"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yang_kang",
+      "personality": {
+        "traits": ["感情复杂", "认贼作父", "不忍加害", "犹豫不决"],
+        "speech_style": "应声简短，对完颜洪烈称呼恭敬",
+        "temperament": "对养父完颜洪烈有真感情，面对报仇良机却下不了手，反为其披衣防寒"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_wan_yan_hong_lie",
+          "type": "养父子（感情复杂）",
+          "intensity": 7,
+          "bond_level": 7,
+          "dynamic": "深夜见其伏桌熟睡，拿起银刀药瓶出神却不下手，脱衣为其披盖防寒"
+        },
+        {
+          "target": "char_guo_jing",
+          "type": "义兄弟（互不知情/对立方）",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "郭靖气愤其不杀仇人，浑不解其关怀完颜洪烈之举"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_ke",
+      "personality": {
+        "traits": ["重伤卧床", "无力行动"],
+        "speech_style": "本章无对白",
+        "temperament": "双腿断骨未愈，始终静卧养伤"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_ou_yang_feng",
+          "type": "叔侄（实为父子）",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "被欧阳锋安置于稻草上静卧"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hou_tong_hai",
+      "personality": {
+        "traits": ["鲁莽愚蠢", "一惊一乍", "胆大妄为", "怕鬼信邪"],
+        "speech_style": "粗野无礼，满口脏话，自称'侯老爷'",
+        "temperament": "浑人一个，坚信遇鬼，以粪便攻敌，但被擒后仍破口大骂"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_sha_tong_tian",
+          "type": "师兄弟",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "惧怕师兄斥责但仍辩称遇鬼"
+        },
+        {
+          "target": "char_lu_guan_ying",
+          "type": "敌人",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "以粪便攻敌后与陆冠英激斗，后被三人合力制服"
+        },
+        {
+          "target": "char_cheng_yao_jia",
+          "type": "敌人",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "举粪包掷向程瑶迦，后以钢叉刺击"
+        },
+        {
+          "target": "char_huang_yao_shi",
+          "type": "受害者",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "冲撞黄药师后被硬生生扯断一条手臂"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_peng_lian_hu",
+      "personality": {
+        "traits": ["精明老练", "见风使舵", "能屈能伸", "暗器精通"],
+        "speech_style": "善于奉承拍马，语调响亮，求饶时毫不犹豫",
+        "temperament": "绝不与强于己者硬拼，率先从黄药师胯下钻过保命"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_wan_yan_hong_lie",
+          "type": "下属",
+          "intensity": 5,
+          "bond_level": 4,
+          "dynamic": "奉承恭贺王爷得获兵法奇书"
+        },
+        {
+          "target": "char_huang_yao_shi",
+          "type": "畏惧",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "精于暗器听风之术识破其弹针手法，打定主意不与之动手，率先钻胯逃命"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sha_tong_tian",
+      "personality": {
+        "traits": ["沉稳老练", "关心师弟", "较有主见", "胆大心细"],
+        "speech_style": "斥责师弟时严厉，与众人商量时沉稳",
+        "temperament": "识破双头怪物非鬼而是装神弄鬼，率众重返酒店"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_hou_tong_hai",
+          "type": "师兄弟",
+          "intensity": 7,
+          "bond_level": 7,
+          "dynamic": "斥责师弟说鬼道怪丢人，但关心其安危率众来救"
+        },
+        {
+          "target": "char_lu_guan_ying",
+          "type": "敌人",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "双手分抓拿住陆冠英手腕，后抱住师弟撤退"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liang_zi_weng",
+      "personality": {
+        "traits": ["急躁易怒", "受辱激愤", "欺软怕硬"],
+        "speech_style": "破口大骂时污言秽语，受辱后羞愤交加",
+        "temperament": "满头白发被拔精光已极为恼怒，再被傻姑连打三拳后愤激吐血流泪"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_sha_gu",
+          "type": "欺凌者→被反击者",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "伸手去拿傻姑手臂反被碧波掌法打手背，后连中三拳"
+        },
+        {
+          "target": "char_huang_yao_shi",
+          "type": "受害者",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "被黄药师暗发金针封穴，连中傻姑三拳后愤激吐血流泪"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ling_zhi_shang_ren",
+      "personality": {
+        "traits": ["跟随众人", "存在感弱"],
+        "speech_style": "本章无对白",
+        "temperament": "双手被铁链反缚逃回，跟随众人行动，最后从黄药师胯下钻过"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huang_yao_shi",
+          "type": "畏惧",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "从黄药师胯下钻过逃命"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sha_gu",
+      "personality": {
+        "traits": ["天真烂漫", "痴傻不通世事", "不知畏惧"],
+        "speech_style": "语无伦次，唱儿歌哄自己，叫人'吃西瓜的妹子'",
+        "temperament": "遭打后大叫求救，见人流泪反去安慰，浑不知天高地厚"
+      },
+      "archetype": "npc",
+      "relationships": [
+        {
+          "target": "char_liang_zi_weng",
+          "type": "反击者",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "反手碧波掌法打其手背，得黄药师暗助连打三拳"
+        },
+        {
+          "target": "char_huang_yao_shi",
+          "type": "被保护者",
+          "intensity": 6,
+          "bond_level": 4,
+          "dynamic": "黄药师看出她是本门弟子，暗发金针助她报仇"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "邻人",
+          "intensity": 3,
+          "bond_level": 2,
+          "dynamic": "唱儿歌引发黄蓉思母之情，危急时叫'吃西瓜的妹子'求救"
+        }
+      ],
+      "known_skills": ["skill_bi_bo_zhang_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_cheng_yao_jia",
+      "personality": {
+        "traits": ["害羞温婉", "闺秀初涉江湖", "心肠柔软", "细心知礼"],
+        "speech_style": "低声细语，常脸红害羞，帮人打架先致歉",
+        "temperament": "从未独自出门，情窦初开，见到陆冠英后芳心暗转"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_lu_guan_ying",
+          "type": "暗生情愫",
+          "intensity": 7,
+          "bond_level": 4,
+          "dynamic": "与陆冠英合力战侯通海后互报姓名，见其风流俊雅芳心暗转，临别不舍"
+        },
+        {
+          "target": "char_guo_jing",
+          "type": "单相思（已淡化）",
+          "intensity": 3,
+          "bond_level": 2,
+          "dynamic": "原为寻郭靖而来，闻其是黄药师女婿后心事释然，芳心转投陆冠英"
+        },
+        {
+          "target": "char_yin_zhi_ping",
+          "type": "同门师兄妹",
+          "intensity": 5,
+          "bond_level": 5,
+          "dynamic": "行师门之礼，互称师兄师妹，转述陆冠英心事"
+        },
+        {
+          "target": "char_hou_tong_hai",
+          "type": "敌人",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "遭粪包攻击后仗剑加入战团助陆冠英"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_lu_guan_ying",
+      "personality": {
+        "traits": ["聪明机智", "为父分忧", "侠义心肠", "知礼守分"],
+        "speech_style": "文雅有礼自称'小人'，对灶王爷倾诉时诚恳真挚",
+        "temperament": "为父分忧尽孝不惜冒险，恨人轻侮师门时不顾性命"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_cheng_yao_jia",
+          "type": "互生好感",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "危急中拉手后心中突突乱跳，分别时程瑶迦大感不舍"
+        },
+        {
+          "target": "char_yin_zhi_ping",
+          "type": "合作→冲突",
+          "intensity": 6,
+          "bond_level": 2,
+          "dynamic": "合力制服侯通海后因全真派轻侮桃花岛而争吵比武"
+        },
+        {
+          "target": "char_hou_tong_hai",
+          "type": "敌人",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "以长凳架叉后拔刀激斗，后三人合力将其制服"
+        },
+        {
+          "target": "char_lu_cheng_feng",
+          "type": "父子",
+          "intensity": 8,
+          "bond_level": 9,
+          "dynamic": "受父命寻郭靖报讯，为父分忧连夜赶来"
+        },
+        {
+          "target": "char_huang_yao_shi",
+          "type": "祖师爷（敬畏）",
+          "intensity": 7,
+          "bond_level": 5,
+          "dynamic": "不敢直书其名只画桃花代指，恳请全真七子恭敬说合不得罪祖师爷"
+        }
+      ],
+      "known_skills": ["skill_luo_han_dao_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yin_zhi_ping",
+      "personality": {
+        "traits": ["豪迈直爽", "年少气盛", "好胜心强", "以正宗自居"],
+        "speech_style": "语气自信张扬，冷笑嘲讽，爱充好汉",
+        "temperament": "以全真派正宗自居不容人轻侮，轻敌冒进后能调整战术"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_qiu_chu_ji",
+          "type": "师徒",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "奉师命到牛家村寻郭靖传讯"
+        },
+        {
+          "target": "char_lu_guan_ying",
+          "type": "合作者→冲突者",
+          "intensity": 6,
+          "bond_level": 2,
+          "dynamic": "合力制服侯通海后因全真桃花之争翻脸比武"
+        },
+        {
+          "target": "char_cheng_yao_jia",
+          "type": "同门师兄妹",
+          "intensity": 5,
+          "bond_level": 5,
+          "dynamic": "见其扭扭捏捏暗暗好笑，叙师门之谊"
+        },
+        {
+          "target": "char_hou_tong_hai",
+          "type": "敌人",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "挥拂尘进招与陆冠英合力将其制服"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bao_xi_ruo",
+      "personality": {
+        "traits": ["温婉善良"],
+        "speech_style": "本章无对白，仅通过回忆呈现",
+        "temperament": "十九年前在此村中救完颜洪烈性命，以鸡汤喂之"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {
+          "target": "char_wan_yan_hong_lie",
+          "type": "妻（已故）",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "完颜洪烈深夜取出其遗物追忆，拾残砖破瓦缅怀故居"
+        },
+        {
+          "target": "char_yang_kang",
+          "type": "母子",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "其遗物银刀药瓶被杨康拿起观看"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhou_bo_tong",
+      "personality": {
+        "traits": ["疯疯癫癫", "爱玩闹", "行事不靠谱"],
+        "speech_style": "本章无直接对白，黄蓉提及其担当不了正事",
+        "temperament": "戴面具扮鬼吓退群贼大逞威风，但不可指望其正经办事"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huang_rong",
+          "type": "盟友（被提及）",
+          "intensity": 4,
+          "bond_level": 5,
+          "dynamic": "黄蓉买面具给他戴，在皇宫扮鬼大逞威风"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "personality": {
+        "traits": ["侠义为怀"],
+        "speech_style": "本章无对白，仅通过竹棒被提及",
+        "temperament": "所授竹棒为黄蓉握在手中准备御敌"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huang_rong",
+          "type": "师徒",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "竹棒为其所授，黄蓉握之御敌"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yue_fei",
+      "personality": {
+        "traits": ["忠义报国"],
+        "speech_style": "本章仅被提及",
+        "temperament": "所留武穆遗书成为众人争夺焦点"
+      },
+      "archetype": "warrior",
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_cheng_ji_si_han",
+      "personality": {
+        "traits": ["雄才大略"],
+        "speech_style": "本章仅被提及",
+        "temperament": "所赐金刀为郭靖佩戴"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "君臣/赐物之恩",
+          "intensity": 4,
+          "bond_level": 5,
+          "dynamic": "所赐金刀被郭靖拔出欲掷杀完颜洪烈"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chu_ji",
+      "personality": {
+        "traits": ["豪侠仗义", "急人之难"],
+        "speech_style": "本章仅被提及",
+        "temperament": "命尹志平寻郭靖传讯，已抢先到嘉兴为六怪报信"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_yin_zhi_ping",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 7,
+          "dynamic": "派尹志平到牛家村寻郭靖"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sun_bu_er",
+      "personality": {
+        "traits": ["清修正道"],
+        "speech_style": "本章仅被提及",
+        "temperament": "程瑶迦之师，被搬出名号震慑侯通海"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_cheng_yao_jia",
+          "type": "师徒",
+          "intensity": 6,
+          "bond_level": 6,
+          "dynamic": "程瑶迦为其门下弟子"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mei_chao_feng",
+      "personality": {
+        "traits": ["叛师有罪"],
+        "speech_style": "本章仅被提及",
+        "temperament": "与六怪有深怨大仇，受黄药师之命帮同寻找六怪下落"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huang_yao_shi",
+          "type": "师徒（叛师）",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "受命寻六怪下落"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_lu_cheng_feng",
+      "personality": {
+        "traits": ["重义不忍害人", "不敢违背师命"],
+        "speech_style": "本章通过陆冠英转述，仰天长叹喃喃自语",
+        "temperament": "内心为难，受命寻六怪却不愿加害忠义之人"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_lu_guan_ying",
+          "type": "父子",
+          "intensity": 8,
+          "bond_level": 9,
+          "dynamic": "陆冠英为父分忧连夜赶来报讯"
+        },
+        {
+          "target": "char_huang_yao_shi",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 6,
+          "dynamic": "受命寻六怪却内心为难"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ku_mu_chan_shi",
+      "personality": {
+        "traits": ["佛门高手"],
+        "speech_style": "本章仅被提及",
+        "temperament": "所授罗汉刀法为陆冠英看家本领"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_lu_guan_ying",
+          "type": "师徒",
+          "intensity": 5,
+          "bond_level": 5,
+          "dynamic": "罗汉刀法为其所授"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_li_sheng",
+      "personality": {
+        "traits": ["侠义出手"],
+        "speech_style": "本章仅被提及",
+        "temperament": "曾在宝应出手救程瑶迦但非欧阳克之敌"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_cheng_yao_jia",
+          "type": "救助者",
+          "intensity": 3,
+          "bond_level": 2,
+          "dynamic": "曾在宝应出手相救但不敌欧阳克"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_jiu_yin_zhen_jing_liao_shang_pian",
+      "techniques": [
+        {
+          "id": "tech_liao_shang_yun_gong",
+          "name": "双掌相抵运功疗伤",
+          "type": "buff",
+          "description": "郭靖背诵经文，与黄蓉双掌相抵运转小周天，以内功调理真元治疗内伤，七转后两人俱感舒畅"
+        },
+        {
+          "id": "tech_liao_shang_diao_xi",
+          "name": "调理真元",
+          "type": "buff",
+          "description": "为高手以气功击伤后，如何以气功调理真元治疗内伤的法门"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "郭靖背诵经文，黄蓉听一遍即记住，二人共同推究参详后通晓"
+        },
+        {
+          "level": 2,
+          "unlock": "练习两个时辰后休息，黄蓉剖西瓜分食，两人手掌不分开"
+        },
+        {
+          "level": 3,
+          "unlock": "练到未牌时分，郭靖胸口闷塞松动，腰间疼痛稍减"
+        }
+      ],
+      "effects": ["调理内伤真元", "疏通胸口闷塞", "缓解腰间疼痛", "神清气爽"],
+      "combat_style": "非战斗功法，双掌相抵静坐运功，以内力调理伤势"
+    },
+    {
+      "id": "skill_bi_bo_zhang_fa",
+      "techniques": [
+        {
+          "id": "tech_bi_bo_fan_shou",
+          "name": "碧波掌法反手掌",
+          "type": "attack",
+          "description": "傻姑手臂疾缩，反手一掌结结实实打在梁子翁手背上，落手着实不轻"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "傻姑所学虽不精但掌法甚为奥妙"
+        }
+      ],
+      "effects": ["出其不意反手击打", "掌法奥妙令高手无防备"],
+      "combat_style": "桃花岛正宗掌法，反手出掌，招式奥妙"
+    },
+    {
+      "id": "skill_luo_han_dao_fa",
+      "techniques": [
+        {
+          "id": "tech_luo_han_shou_men",
+          "name": "罗汉刀法守势",
+          "type": "defense",
+          "description": "陆冠英使开罗汉刀法紧紧守住门户，不求有功但求无过"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "枯木禅师所授，陆冠英以此为看家本领"
+        }
+      ],
+      "effects": ["守住门户", "刀沉力猛"],
+      "combat_style": "以守为主，刀法沉猛，紧守门户不求冒进"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_bi_shou",
+      "description": "黄蓉的匕首，用以穿通密室气孔通风，危急时递给郭靖准备御敌",
+      "effects": [
+        {
+          "type": "utility",
+          "value": "穿通气孔",
+          "description": "用匕首穿通密室被尘土闭塞的气孔，使秽气散出"
+        },
+        {
+          "type": "weapon",
+          "value": "近身防御",
+          "description": "黄蓉将匕首递给郭靖，准备在有人旋开橱门时御敌"
+        }
+      ],
+      "origin": "黄蓉随身携带",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_zhu_bang",
+      "description": "丐帮帮主洪七公所授竹棒，黄蓉在密室中握紧竹棒准备抵御来犯之敌",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "近身防御",
+          "description": "黄蓉握紧竹棒准备在有人闯入时搏斗"
+        },
+        {
+          "type": "identity",
+          "value": "帮主信物",
+          "description": "洪七公传承之物，代表丐帮帮主身份"
+        }
+      ],
+      "origin": "洪七公传授黄蓉",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_emei_gang_ci",
+      "description": "峨眉钢刺暗器，黄蓉握紧准备在有人旋开橱门时掷刺御敌",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "投掷暗器",
+          "description": "黄蓉准备在敌人旋开密室门时掷出钢刺攻击"
+        }
+      ],
+      "origin": "黄蓉随身携带",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_shi_he",
+      "description": "欧阳锋从怀中取出的石盒，杨康打开后发现空无一物，完颜洪烈摔碎也未见夹层，原为藏武穆遗书之容器",
+      "effects": [
+        {
+          "type": "quest",
+          "value": "空",
+          "description": "盒内空空如也，既无兵书也无夹层，令完颜洪烈沮丧万分"
+        }
+      ],
+      "origin": "翠寒堂东十五步地下挖出",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_wu_mu_yi_shu",
+      "description": "岳飞所留兵法奇书，完颜洪烈推测藏于翠寒堂东十五步，石盒中为空，实为众人争夺焦点",
+      "effects": [
+        {
+          "type": "quest",
+          "value": "兵法韬略",
+          "description": "记载行军打仗兵法韬略的奇书，完颜洪烈欲据为己有以助大金国平定天下"
+        }
+      ],
+      "origin": "南宋名将岳飞所留",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_xiao_yin_dao",
+      "description": "包惜弱遗物小银刀，完颜洪烈深夜取出抚摸把玩追忆亡妻，杨康亦曾拿起观看却未用它报仇",
+      "effects": [
+        {
+          "type": "sentimental",
+          "value": "追忆",
+          "description": "完颜洪烈以此寄托对包惜弱的哀思，十九年前包惜弱曾以此为他治伤"
+        }
+      ],
+      "origin": "包惜弱遗物，十九年前牛家村旧物",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_xiao_yao_ping",
+      "description": "包惜弱遗物小药瓶，曾在赵王府中为小兔治伤，完颜洪烈随身携带以寄哀思",
+      "effects": [
+        {
+          "type": "sentimental",
+          "value": "追忆",
+          "description": "包惜弱曾以此为小兔治伤，完颜洪烈随身携带思念亡妻"
+        }
+      ],
+      "origin": "包惜弱遗物",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_jin_dao",
+      "description": "成吉思汗所赐金刀，郭靖曾拔出欲掷杀完颜洪烈，被黄蓉劝阻后插回刀鞘",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "投掷击杀",
+          "description": "郭靖欲将此刀掷出杀死不到十步远的完颜洪烈，被黄蓉劝阻"
+        },
+        {
+          "type": "identity",
+          "value": "驸马信物",
+          "description": "成吉思汗所赐，代表金刀驸马身份"
+        }
+      ],
+      "origin": "成吉思汗赐予郭靖",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_san_gu_cha",
+      "description": "侯通海的兵器三股叉，钢环当当作响，与陆冠英程瑶迦激斗时被荡开后脱手落地",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "近战攻击",
+          "description": "钢环当当作响，叉法迅捷狠辣，刺入墙壁"
+        }
+      ],
+      "origin": "侯通海随身兵器",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_ren_pi_mian_ju",
+      "description": "黄药师佩戴的人皮面具，木然不动没半点表情，众人见之不寒而栗",
+      "effects": [
+        {
+          "type": "disguise",
+          "value": "遮蔽面容",
+          "description": "面具使其面容木然不动，不像活人脸，令众人胆战心惊"
+        }
+      ],
+      "origin": "黄药师所有",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_fu_chen",
+      "description": "尹志平的兵器拂尘，尘尾是马鬃夹银丝，卷住侯通海钢叉后被挣脱",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "近战攻防",
+          "description": "尘尾可卷缠敌方兵器，也可挥扫攻击面部，扫中则鲜血淋漓"
+        }
+      ],
+      "origin": "尹志平随身兵器",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_wan",
+      "description": "嵌在橱柜中的机关铁碗，左右旋转可打开密室铁门，侯通海发现后使蛮力拔不起来",
+      "effects": [
+        {
+          "type": "mechanism",
+          "value": "开启密室",
+          "description": "左右旋转可旋开密室铁门，蛮力无法拔起"
+        }
+      ],
+      "origin": "密室建造者设置",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_jin_zhen",
+      "description": "黄药师在衣袖中弹指发出的暗器金针，无声无息打中梁子翁曲池穴、臂儒穴、白海穴等穴道",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "封穴暗器",
+          "description": "金针穿破衣袖打中穴道，无影无踪倏忽而至，令梁子翁手臂不能动弹"
+        }
+      ],
+      "origin": "黄药师所有",
+      "rarity": "rare",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_24_01",
+      "name": "黄蓉布置密室准备疗伤",
+      "participants": ["char_huang_rong", "char_guo_jing"],
+      "location": "loc_mi_shi",
+      "description": "黄蓉用匕首穿通密室气孔通风，搬开两具骸骨到北边角落，铺稻草、围西瓜，拂拭小镜察看外面动静，安排就绪后开始运功疗伤"
+    },
+    {
+      "id": "evt_24_02",
+      "name": "郭靖黄蓉运功疗伤",
+      "participants": ["char_guo_jing", "char_huang_rong"],
+      "location": "loc_mi_shi",
+      "description": "郭靖背诵九阴真经疗伤篇，二人双掌相抵运转小周天疗伤。练至未牌时分郭靖胸口松动腰痛稍减，到第三次休息时已近黄昏，二人俱感神清气爽"
+    },
+    {
+      "id": "evt_24_03",
+      "name": "完颜洪烈等到达牛家村酒店",
+      "participants": ["char_wan_yan_hong_lie", "char_ou_yang_feng", "char_yang_kang", "char_peng_lian_hu", "char_hou_tong_hai", "char_liang_zi_weng", "char_sha_tong_tian", "char_ling_zhi_shang_ren", "char_ou_yang_ke"],
+      "location": "loc_niu_jia_cun",
+      "description": "侯通海等急奔入店叫饭菜，欧阳锋安置欧阳克于稻草上静卧，彭连虎奉承完颜洪烈得获兵法奇书，完颜洪烈感叹十九年前曾来过此村"
+    },
+    {
+      "id": "evt_24_04",
+      "name": "石盒打开发现空无一物",
+      "participants": ["char_ou_yang_feng", "char_wan_yan_hong_lie", "char_yang_kang"],
+      "location": "loc_niu_jia_cun",
+      "description": "欧阳锋取出石盒供众人观看，杨康揭去封条掀开盒盖，发现盒内空空如也。完颜洪烈摔碎石盒也未见夹层，沮丧万分"
+    },
+    {
+      "id": "evt_24_05",
+      "name": "欧阳锋率众二次入宫",
+      "participants": ["char_ou_yang_feng", "char_peng_lian_hu", "char_sha_tong_tian", "char_liang_zi_weng", "char_ling_zhi_shang_ren"],
+      "location": "loc_cui_han_tang",
+      "description": "欧阳锋主张当晚再入皇宫搜寻武穆遗书，领众人二次入宫。完颜洪烈与杨康、欧阳克留守牛家村"
+    },
+    {
+      "id": "evt_24_06",
+      "name": "完颜洪烈深夜怀念包惜弱",
+      "participants": ["char_wan_yan_hong_lie"],
+      "location": "loc_niu_jia_cun",
+      "description": "完颜洪烈深夜独坐取出包惜弱遗物小银刀和小药瓶抚摸把玩，感叹十九年前在此村初遇，提蜡烛出门往故居拾残砖破瓦回来追忆"
+    },
+    {
+      "id": "evt_24_07",
+      "name": "杨康对完颜洪烈不下手反为其披衣",
+      "participants": ["char_yang_kang", "char_wan_yan_hong_lie"],
+      "location": "loc_niu_jia_cun",
+      "description": "杨康见完颜洪烈伏桌而睡，悄悄拿起银刀药瓶观看出神，却不下手报仇，反脱下长袍轻轻披在完颜洪烈身上防他夜寒着凉"
+    },
+    {
+      "id": "evt_24_08",
+      "name": "郭靖欲杀完颜洪烈被黄蓉劝止",
+      "participants": ["char_guo_jing", "char_huang_rong"],
+      "location": "loc_mi_shi",
+      "description": "郭靖见完颜洪烈近在咫尺，拔出金刀欲掷杀之。黄蓉劝道'你妈妈和蓉儿要你好好活着'，郭靖点头将金刀插回刀鞘"
+    },
+    {
+      "id": "evt_24_09",
+      "name": "侯通海等逃回诉说遇鬼经历",
+      "participants": ["char_hou_tong_hai", "char_sha_tong_tian", "char_ling_zhi_shang_ren", "char_peng_lian_hu", "char_liang_zi_weng"],
+      "location": "loc_niu_jia_cun",
+      "description": "侯通海双耳被割、灵智上人双手被铁链反缚、彭连虎双颊红肿、梁子翁满头白发被拔精光，先后逃回诉说在皇宫遇鬼怪之事，实为周伯通戴面具扮鬼"
+    },
+    {
+      "id": "evt_24_10",
+      "name": "黄蓉用双头鬼怪吓退群奸",
+      "participants": ["char_huang_rong"],
+      "location": "loc_mi_shi",
+      "description": "侯通海发现铁碗机关，黄蓉急中生智将两个骷髅头骨嵌在西瓜上做成双头怪物，顶在头上从橱门钻出哇哇鬼叫，众人惊魂未定纷纷逃窜"
+    },
+    {
+      "id": "evt_24_11",
+      "name": "程瑶迦到牛家村寻郭靖",
+      "participants": ["char_cheng_yao_jia", "char_sha_gu"],
+      "location": "loc_niu_jia_cun",
+      "description": "锦衣女子程瑶迦千里迢迢到牛家村寻郭靖，与傻姑交谈得知此处即牛家村，闻郭靖是黄药师女婿后芳心暗转"
+    },
+    {
+      "id": "evt_24_12",
+      "name": "陆冠英到牛家村寻郭靖传讯",
+      "participants": ["char_lu_guan_ying", "char_cheng_yao_jia"],
+      "location": "loc_niu_jia_cun",
+      "description": "陆冠英受父命寻郭靖报讯黄药师欲杀六怪之事，与程瑶迦在店中相遇，二人互通姓名"
+    },
+    {
+      "id": "evt_24_13",
+      "name": "侯通海以粪攻战陆程二人",
+      "participants": ["char_hou_tong_hai", "char_lu_guan_ying", "char_cheng_yao_jia"],
+      "location": "loc_niu_jia_cun",
+      "description": "侯通海以为陆程二人是双头鬼化身，以粪便攻击后举三股叉猛刺。陆冠英举长凳招架，程瑶迦拔刀相助，三人激斗"
+    },
+    {
+      "id": "evt_24_14",
+      "name": "尹志平到来合力制服侯通海",
+      "participants": ["char_yin_zhi_ping", "char_lu_guan_ying", "char_cheng_yao_jia", "char_hou_tong_hai"],
+      "location": "loc_niu_jia_cun",
+      "description": "尹志平闻侯通海口出狂言侮辱全真七子，挥拂尘加入战团，三人合力将侯通海制服绑缚，尹志平撕衣襟塞其口中"
+    },
+    {
+      "id": "evt_24_15",
+      "name": "陆冠英对灶王爷倾诉心事",
+      "participants": ["char_lu_guan_ying", "char_cheng_yao_jia"],
+      "location": "loc_niu_jia_cun",
+      "description": "陆冠英对灶王爷倾诉：黄药师命杀六怪，其父陆乘风为难，请求全真七子出面说合调解，但不能直说以免背叛师门。程瑶迦偷听后转告尹志平"
+    },
+    {
+      "id": "evt_24_16",
+      "name": "尹志平与陆冠英因言语冲突比武",
+      "participants": ["char_yin_zhi_ping", "char_lu_guan_ying"],
+      "location": "loc_niu_jia_cun",
+      "description": "二人背对灶王爷对话，尹志平称全真派为天下武术正宗、轻侮黄药师，陆冠英怒而反驳，二人各打塌灶头一角后拔刃相斗。尹志平渐占上风，程瑶迦举剑架住救陆冠英"
+    },
+    {
+      "id": "evt_24_17",
+      "name": "彭连虎等回店擒住尹陆程三人",
+      "participants": ["char_peng_lian_hu", "char_sha_tong_tian", "char_wan_yan_hong_lie", "char_yang_kang", "char_yin_zhi_ping", "char_lu_guan_ying", "char_cheng_yao_jia", "char_hou_tong_hai"],
+      "location": "loc_niu_jia_cun",
+      "description": "沙通天探知店中无人高手，率众闯入。沙通天双手分抓拿住尹陆二人手腕，彭连虎解开侯通海绑带，侯通海猛攻程瑶迦，陆冠英挣脱后被彭连虎踢倒"
+    },
+    {
+      "id": "evt_24_18",
+      "name": "黄药师现身助傻姑打梁子翁",
+      "participants": ["char_huang_yao_shi", "char_sha_gu", "char_liang_zi_weng"],
+      "location": "loc_niu_jia_cun",
+      "description": "黄药师戴人皮面具现身门口，看出傻姑是本门弟子，暗发金针封梁子翁穴道，助傻姑一拳还三拳打梁子翁鼻子。梁子翁连中三拳后愤激吐血流泪"
+    },
+    {
+      "id": "evt_24_19",
+      "name": "黄药师扯断侯通海手臂逼群奸钻胯",
+      "participants": ["char_huang_yao_shi", "char_hou_tong_hai", "char_peng_lian_hu", "char_sha_tong_tian", "char_wan_yan_hong_lie", "char_yang_kang", "char_liang_zi_weng", "char_ling_zhi_shang_ren"],
+      "location": "loc_niu_jia_cun",
+      "description": "黄药师喝令众人从胯下钻过。侯通海怒扑被其高高提起硬生生扯断一臂。彭连虎率先钻过，沙通天抱住师弟、杨康扶着完颜洪烈等一一钻过逃窜"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "在这里养伤真是再好也没有。只是陪着两个死人，你不害怕吗？",
+      "tone": "微笑宽慰",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "一个是我师哥，他决不能害我；另一个是饭桶将官，活的我尚不怕，死鬼更加吓唬不了人。",
+      "tone": "强作不在乎",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "你在想甚么？我的伤不打紧，你别难过。",
+      "tone": "温柔关切",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_peng_lian_hu",
+      "listener": "char_wan_yan_hong_lie",
+      "text": "这些御林军、禁军虽然脓包没用，可是到处钻来钻去，阴魂不散，累得咱们一天没好好吃饭。王爷您是北人，却知道这里钱塘江边有个荒僻的村子，领着大伙儿过来。真是能者无所不能。",
+      "tone": "奉承",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_wan_yan_hong_lie",
+      "listener": "char_peng_lian_hu",
+      "text": "十九年之前，我曾来过这里的。",
+      "tone": "感伤叹息",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_peng_lian_hu",
+      "listener": "char_wan_yan_hong_lie",
+      "text": "王爷今日得获兵法奇书，行见大金国威振天下，平定万方，咱们大伙向王爷恭贺。",
+      "tone": "恭贺",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": null,
+      "text": "此处甚是偏僻，宋兵定然搜寻不到。那岳飞的遗书到底是个什么样儿，大伙儿都来见识见识。",
+      "tone": "自信霸道",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_wan_yan_hong_lie",
+      "listener": "char_yang_kang",
+      "text": "康儿，你将石盒打开吧。",
+      "tone": "捻须含笑",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_wan_yan_hong_lie",
+      "listener": null,
+      "text": "我知道石盒另有夹层，岂知却又没有。",
+      "tone": "沮丧",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_wan_yan_hong_lie",
+      "text": "那也没甚么大不了，咱们今晚再去宫中搜寻便是。",
+      "tone": "轻松自信",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_wan_yan_hong_lie",
+      "listener": null,
+      "text": "十九年前，就在这村子之中，我初次和你相见……唉，不知现下你的故居是怎样了……",
+      "tone": "低沉感伤",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "你把门旋开了。",
+      "tone": "低声急切",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "不成！刺杀他虽是轻而易举，但咱们藏身的所在定会给人发见。",
+      "tone": "急忙劝阻",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "再过六天六晚，不知他又到了哪里。",
+      "tone": "颤声焦急",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "你妈妈和蓉儿要你好好活着。",
+      "tone": "低语温柔",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "别心急，养好伤后，这奸贼就是逃到天边，咱们也能追得到。他又不是欧阳锋，要杀他还不容易？",
+      "tone": "安慰",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "好险！若不是你阻拦，我沉不住气，差点儿就坏了事。",
+      "tone": "低声庆幸",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "还有六日六夜，你答应要听我话。",
+      "tone": "竖指含笑",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "我想抱着你，亲亲你。",
+      "tone": "低头讷讷",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "我不生气。我在想，将来你总会抱我亲我的，我是要做你妻子的啊。",
+      "tone": "嫣然柔声",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_hou_tong_hai",
+      "listener": "char_wan_yan_hong_lie",
+      "text": "我们运气不好，昨晚在皇宫里撞到了鬼，他妈的，老侯一双耳朵给鬼割去啦。",
+      "tone": "气极败坏",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_hou_tong_hai",
+      "listener": "char_lu_guan_ying",
+      "text": "双头鬼，你有本事就到太阳底下来，三头蛟侯老爷跟你斗斗。我比你还多一个头，青天白日的，侯老爷可不怕你。",
+      "tone": "色厉内荏",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_hou_tong_hai",
+      "listener": "char_lu_guan_ying",
+      "text": "好大胆的妖魔，侯老爷当堂要你现出原形！",
+      "tone": "壮胆大喝",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_lu_guan_ying",
+      "listener": "char_cheng_yao_jia",
+      "text": "男子汉大丈夫，为难人家姑娘不算英雄。你找我姓陆的一人便是，快让这位姑娘退出。",
+      "tone": "奋勇担当",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_cheng_yao_jia",
+      "listener": "char_lu_guan_ying",
+      "text": "我师父姓孙，人称清净散人。我……我……",
+      "tone": "羞涩低语",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_cheng_yao_jia",
+      "listener": "char_hou_tong_hai",
+      "text": "喂，疯汉子，你不可伤了这位相公。我师父是全真派的孙真人，她老人家就要到啦。",
+      "tone": "鼓勇喝止",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_yin_zhi_ping",
+      "listener": "char_hou_tong_hai",
+      "text": "谁活得不耐烦了，在这儿胡说八道？",
+      "tone": "朗声冷喝",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_yin_zhi_ping",
+      "listener": "char_lu_guan_ying",
+      "text": "你连全真七子的徒弟也打不过，还说要宰了全真七子？",
+      "tone": "嘲笑",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_yin_zhi_ping",
+      "listener": "char_cheng_yao_jia",
+      "text": "师姊是孙师叔门下的罢？小弟尹志平参见师姊。",
+      "tone": "躬身行礼",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_yin_zhi_ping",
+      "listener": "char_lu_guan_ying",
+      "text": "我师父长春真人无意中听到讯息，得知桃花岛主恼恨江南六怪，要杀他六家满门。我师父抢在头里，赶到嘉兴去报讯，六怪却不在家，出门游玩去了。",
+      "tone": "述说正事",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_lu_guan_ying",
+      "listener": null,
+      "text": "小人陆冠英，是太湖畔归云庄陆庄主之子……祖师爷来到庄上，说道要杀江南六怪的满门良贱……我父却知江南六怪心存忠义，乃是响当当的英雄好汉，杀之不义……",
+      "tone": "对灶王爷诚恳倾诉",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_lu_guan_ying",
+      "listener": null,
+      "text": "我想全真七子侠义为怀，威名既盛，武功又高……只须有头脸的人物出面说合，谅无不成之理。",
+      "tone": "恳切",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_yin_zhi_ping",
+      "listener": null,
+      "text": "灶王爷，全真七子还能忌惮别人吗？……管他黄药师、黑药师，全真教自然有得叫他好看的。",
+      "tone": "狂傲自大",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_lu_guan_ying",
+      "listener": null,
+      "text": "灶王爷，弟子适才说过的话，你只当是梦话。要是有人瞧不起我们，天大的人情我们也不领。",
+      "tone": "气往上冲",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_yin_zhi_ping",
+      "listener": "char_lu_guan_ying",
+      "text": "好小子，你骂人。",
+      "tone": "大怒",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_lu_guan_ying",
+      "listener": "char_yin_zhi_ping",
+      "text": "我岂敢骂你？我是骂目中无人的狂徒。",
+      "tone": "怒喝",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_yin_zhi_ping",
+      "listener": "char_lu_guan_ying",
+      "text": "好啊，咱们这就比划比划，瞧瞧到底是谁目中无人了。",
+      "tone": "冷笑挑衅",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_yin_zhi_ping",
+      "listener": "char_lu_guan_ying",
+      "text": "这是全真派的高招，记住了！",
+      "tone": "得意叫嚣",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_yin_zhi_ping",
+      "listener": "char_lu_guan_ying",
+      "text": "好啊，程师妹帮起外人来啦。你两口子齐上罢。",
+      "tone": "冷笑嘲讽",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_sha_gu",
+      "listener": "char_liang_zi_weng",
+      "text": "别哭啦，你不用害怕，我不再打你就是了。",
+      "tone": "天真安慰",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_yao_shi",
+      "listener": "char_sha_gu",
+      "text": "傻孩子，人家打了你，你怎不去打还呀？",
+      "tone": "温和引导",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_yao_shi",
+      "listener": "char_sha_gu",
+      "text": "谁说你打他不过？他打你鼻子，你也打他鼻子，一拳还三拳。",
+      "tone": "指点",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_liang_zi_weng",
+      "listener": "char_huang_yao_shi",
+      "text": "阁下是谁？暗中伤人，算甚么英雄好汉？",
+      "tone": "羞愤怒问",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_yao_shi",
+      "listener": "char_liang_zi_weng",
+      "text": "凭你也配问我的名号？",
+      "tone": "冷笑蔑视",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_yao_shi",
+      "listener": null,
+      "text": "通统给我滚出去！",
+      "tone": "高声喝令",
+      "chapter": 24
+    },
+    {
+      "speaker": "char_huang_yao_shi",
+      "listener": null,
+      "text": "要我让路，谅你们也不配。要性命的，都从我胯下钻过去罢。",
+      "tone": "冰冷霸道",
+      "chapter": 24
+    }
+  ]
+}

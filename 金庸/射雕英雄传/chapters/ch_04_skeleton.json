@@ -1,0 +1,592 @@
+{
+  "chapter": 4,
+  "characters": [
+    {
+      "id": "char_guo_jing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "郭啸天与李萍之子，幼居蒙古大漠",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "protagonist",
+      "one_line": "本章挺身撞倒都史保护拖雷，最终在荒山上以匕首刺入陈玄风练门将其杀死，拜江南七怪为师。",
+      "personality": "憨厚笨拙但勇敢倔强，重义气，资质虽差却有刚烈之心。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuo_lei",
+      "name": "拖雷",
+      "alias": [],
+      "identity": "铁木真之子，郭靖的好友",
+      "faction": "faction_tie_mu_zhen_bu",
+      "role": "companion",
+      "one_line": "与郭靖射兔时与都史发生冲突，被都史殴打欺辱，朱聪教了他三招基本格斗术。",
+      "personality": "聪明伶俐，不甘受辱，重情义。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tie_mu_zhen",
+      "name": "铁木真",
+      "alias": ["大汗"],
+      "identity": "蒙古乞颜部大汗，王罕义子",
+      "faction": "faction_tie_mu_zhen_bu",
+      "role": "npc",
+      "one_line": "设宴款待完颜兄弟，以铁盔当酒杯赐哲别，展现非凡气度与御人之术。",
+      "personality": "刚勇无双，胸怀宽广，善于笼络人心，深具领袖魅力。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_han",
+      "name": "王罕",
+      "alias": [],
+      "identity": "蒙古克烈部大汗，铁木真义父",
+      "faction": "faction_wang_han_bu",
+      "role": "npc",
+      "one_line": "率部隆重迎接完颜兄弟，帐幕华贵，对铁木真赞赏有加。",
+      "personality": "身材肥胖、须发如银，神态威严，对义子铁木真颇为看重。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sang_kun",
+      "name": "桑昆",
+      "alias": [],
+      "identity": "王罕之子",
+      "faction": "faction_wang_han_bu",
+      "role": "villain",
+      "one_line": "宴席上侮辱哲别饮酒，放出猎豹挑衅铁木真四杰，处处与铁木真争锋。",
+      "personality": "心胸狭隘、嫉妒心强，骄横跋扈，处处刁难铁木真。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wan_yan_hong_xi",
+      "name": "完颜洪熙",
+      "alias": [],
+      "identity": "大金国太子",
+      "faction": "faction_da_jin_guo",
+      "role": "npc",
+      "one_line": "受王罕盛情款待，对蒙古诸部武力颇感兴趣，以红宝石戒指为赏观看人豹相斗。",
+      "personality": "轻浮好热闹，只图享乐看戏。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wan_yan_hong_lie",
+      "name": "完颜洪烈",
+      "alias": [],
+      "identity": "大金国太子",
+      "faction": "faction_da_jin_guo",
+      "role": "npc",
+      "one_line": "在宴席上暗中挑拨王罕与铁木真关系，观察蒙古各方势力，心机深沉。",
+      "personality": "精明老练，善于察言观色，言语中暗含挑拨离间之意。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zha_mu_he",
+      "name": "札木合",
+      "alias": [],
+      "identity": "蒙古札答阑部首领，铁木真义兄弟（安答）",
+      "faction": null,
+      "role": "npc",
+      "one_line": "参与迎接完颜兄弟，被王罕赞为足智多谋，桑昆挑衅四杰时皱眉不语。",
+      "personality": "沉稳内敛，处事冷静。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhe_bie",
+      "name": "哲别",
+      "alias": [],
+      "identity": "铁木真部下十夫长，后升为百夫长",
+      "faction": "faction_tie_mu_zhen_bu",
+      "role": "npc",
+      "one_line": "战场上冲锋陷阵勇不可当，被桑昆当众侮辱饮酒，铁木真以铁盔赐酒为他挽回尊严。",
+      "personality": "勇猛善战，刚烈不屈，受辱后怒视桑昆。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhe_le_mi",
+      "name": "者勒米",
+      "alias": [],
+      "identity": "铁木真随从",
+      "faction": "faction_tie_mu_zhen_bu",
+      "role": "npc",
+      "one_line": "为铁木真呈上铁盔，供大汗以盔当杯赐酒哲别。",
+      "personality": "忠诚侍从。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mu_hua_li",
+      "name": "木华黎",
+      "alias": [],
+      "identity": "铁木真四杰之一，善于用兵",
+      "faction": "faction_tie_mu_zhen_bu",
+      "role": "npc",
+      "one_line": "入帐觐见时相貌温雅，识大体阻止赤老温与猎豹搏斗，指出四杰之能在于统兵作战。",
+      "personality": "温雅沉稳，善于用兵，识大体。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bo_er_shu",
+      "name": "博尔术",
+      "alias": [],
+      "identity": "铁木真四杰之一，铁木真好友",
+      "faction": "faction_tie_mu_zhen_bu",
+      "role": "npc",
+      "one_line": "入帐觐见时身材魁梧、目光如鹰，是铁木真的好友。",
+      "personality": "身材魁梧，目光锐利。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bo_er_hu",
+      "name": "博尔忽",
+      "alias": [],
+      "identity": "铁木真四杰之一，拖雷的师父",
+      "faction": "faction_tie_mu_zhen_bu",
+      "role": "npc",
+      "one_line": "入帐觐见时短小精悍、脚步矫捷，是拖雷的授业师父。",
+      "personality": "短小精悍，身手矫捷。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chi_lao_wen",
+      "name": "赤老温",
+      "alias": [],
+      "identity": "铁木真四杰之一，曾救铁木真性命",
+      "faction": "faction_tie_mu_zhen_bu",
+      "role": "npc",
+      "one_line": "满脸刀疤面红似血，性烈如火，主动请缨要空手斗猎豹，被木华黎拉住。",
+      "personality": "性烈如火，勇猛无畏。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_du_shi",
+      "name": "都史",
+      "alias": [],
+      "identity": "桑昆独子，王罕之孙",
+      "faction": "faction_wang_han_bu",
+      "role": "villain",
+      "one_line": "抢夺拖雷射中的白兔，殴打拖雷和郭靖，骄横跋扈仗势欺人。",
+      "personality": "骄横之极，仗着家世欺人，蛮不讲理。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ke_zhen_e",
+      "name": "柯镇恶",
+      "alias": ["飞天蝙蝠"],
+      "identity": "江南七怪之首，双目失明",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "发现黑风双煞踪迹后制定伏击计划，藏身石坑中以毒菱暗器射瞎梅超风双目，在黑暗中与陈玄风单打独斗。",
+      "personality": "刚毅果决，老练沉着，双目虽盲但耳音极灵，黑夜中毫无障碍。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhu_cong",
+      "name": "朱聪",
+      "alias": ["妙手书生"],
+      "identity": "江南七怪排行第二",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "先用戏法吸引郭靖注意，后在战斗中以铁扇点穴试探梅超风练门，伏击时与全金发配合偷袭。",
+      "personality": "机智灵活，动念奇速，善于应变，手法伶俐。",
+      "known_skills": ["skill_kong_shou_ru_bai_ren"],
+      "related_skills": []
+    },
+    {
+      "id": "char_han_bao_ju",
+      "name": "韩宝驹",
+      "alias": [],
+      "identity": "江南七怪排行第三",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "战斗中以地堂鞭法攻击梅超风下盘，用金龙鞭卷住陈玄风掷向柯镇恶的铁杖救了大哥。",
+      "personality": "性急鲁莽，勇猛好斗。",
+      "known_skills": ["skill_di_tang_bian_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nan_xi_ren",
+      "name": "南希仁",
+      "alias": ["南山樵子"],
+      "identity": "江南七怪排行第四",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "以扁担击中陈玄风后心，后被陈玄风震断左臂；平日沉默寡言但言必有中，认为郭靖虽笨但很好。",
+      "personality": "沉默寡言，思虑周详，不言则已言必有中。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhang_a_sheng",
+      "name": "张阿生",
+      "alias": ["笑弥陀"],
+      "identity": "江南七怪排行第五",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "为保护韩小莹以身挡下陈玄风九阴白骨爪，身受重伤后含笑而逝，临终拜托兄弟们教好郭靖。",
+      "personality": "憨厚善良，终日嘻嘻哈哈，对韩小莹深情暗藏。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_quan_jin_fa",
+      "name": "全金发",
+      "alias": ["闹市侠隐"],
+      "identity": "江南七怪排行第六",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "发现骷髅头骨堆并报告柯镇恶，战斗中以秤锤击中梅超风，后细心跟踪找到郭靖住处。",
+      "personality": "为人细心谨慎，观察力强。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_han_xiao_ying",
+      "name": "韩小莹",
+      "alias": [],
+      "identity": "江南七怪排行第七，七怪中唯一女性",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "以越女剑法与梅超风交手，舍身下山救郭靖遇陈玄风险些丧命，张阿生死后悲痛欲绝承诺永不再嫁。",
+      "personality": "生性豪迈，一心好武，外柔内刚，重情重义。",
+      "known_skills": ["skill_yue_nu_jian_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_mei_chao_feng",
+      "name": "梅超风",
+      "alias": ["铁尸"],
+      "identity": "黑风双煞之一，桃花岛黄药师弟子，陈玄风之妻",
+      "faction": "faction_tao_hua_dao",
+      "role": "villain",
+      "one_line": "在荒山以活人练九阴白骨爪，遭江南七怪伏击被毒菱射瞎双目，但仍以横练功夫力战六怪，最终趁风雨携丈夫尸身逃走。",
+      "personality": "凶狠残忍，武功高强，对丈夫情深意重。",
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao"],
+      "related_skills": ["skill_cui_xin_zhang"]
+    },
+    {
+      "id": "char_chen_xuan_feng",
+      "name": "陈玄风",
+      "alias": ["铜尸"],
+      "identity": "黑风双煞之一，桃花岛黄药师弟子，梅超风之夫",
+      "faction": "faction_tao_hua_dao",
+      "role": "villain",
+      "one_line": "赶赴荒山救援梅超风，连伤江南数怪，最终被郭靖以匕首刺中肚脐练门而死。",
+      "personality": "生性残忍，武艺高强，对妻子深情厚意，临死犹念经书秘要。",
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_cui_xin_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_li_ping",
+      "name": "李萍",
+      "alias": [],
+      "identity": "郭啸天之妻，郭靖之母",
+      "faction": null,
+      "role": "npc",
+      "one_line": "本章未直接出场，但将亡夫匕首交给郭靖护身，并反复教导儿子记住仇人段天德之名。",
+      "personality": "朴实坚强，身处异域不忘教导儿子为父报仇。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chu_ji",
+      "name": "丘处机",
+      "alias": ["长春子"],
+      "identity": "全真教道士",
+      "faction": "faction_quan_zhen_jiao",
+      "role": "npc",
+      "one_line": "被提及：与江南七怪打赌比赛，各自寻找郭杨两家后人教导武艺。",
+      "personality": "（本章仅被提及）",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "name": "黄药师",
+      "alias": [],
+      "identity": "东海桃花岛岛主",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "被提及：陈梅二人的师父，因弟子叛逃盗经而迁怒其余弟子，将他们尽数挑断筋脉逐出桃花岛。",
+      "personality": "（本章仅被提及）武功自成一派，性情暴烈。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duan_tian_de",
+      "name": "段天德",
+      "alias": [],
+      "identity": "害死郭啸天的仇人",
+      "faction": null,
+      "role": "villain",
+      "one_line": "被提及：郭靖口中的杀父仇人，江南七怪追寻此人六年无果。",
+      "personality": "（本章仅被提及）",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ke_pi_xie",
+      "name": "柯辟邪",
+      "alias": ["飞天神龙"],
+      "identity": "柯镇恶之兄",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "npc",
+      "one_line": "被提及：当年撞见黑风双煞练功，死于陈玄风掌下。",
+      "personality": "（本章仅被提及，已故）",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_jiang_nan_qi_guai",
+      "name": "江南七怪",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "江南七位武林人士义结金兰，为与丘处机打赌远赴大漠寻找郭靖，与黑风双煞激战后收郭靖为徒。"
+    },
+    {
+      "id": "faction_tao_hua_dao",
+      "name": "桃花岛",
+      "type": "武林门派",
+      "location": "loc_tao_hua_dao",
+      "sub_divisions": [],
+      "one_line": "东海桃花岛黄药师所创门派，陈玄风、梅超风为其叛逃弟子，武功自成一派。"
+    },
+    {
+      "id": "faction_quan_zhen_jiao",
+      "name": "全真教",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "本章仅被提及，丘处机为该教道士，与江南七怪约定赌赛。"
+    },
+    {
+      "id": "faction_tie_mu_zhen_bu",
+      "name": "铁木真部",
+      "type": "部落",
+      "location": "loc_da_mo",
+      "sub_divisions": [],
+      "one_line": "铁木真统领的蒙古乞颜部，部下有四杰、哲别等猛将，军纪严明骁勇善战。"
+    },
+    {
+      "id": "faction_wang_han_bu",
+      "name": "王罕部",
+      "type": "部落",
+      "location": "loc_da_mo",
+      "sub_divisions": [],
+      "one_line": "王罕统领的蒙古克烈部，兵将众多但纪律不及铁木真部，桑昆为其子。"
+    },
+    {
+      "id": "faction_da_jin_guo",
+      "name": "大金国",
+      "type": "朝廷",
+      "location": "loc_zhong_du",
+      "sub_divisions": [],
+      "one_line": "完颜洪熙、完颜洪烈代表大金国出使蒙古，封赏蒙古首领。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_da_mo",
+      "name": "大漠",
+      "region": "漠北蒙古",
+      "one_line": "蒙古草原大漠，故事主要发生地，铁木真部与王罕部的驻牧之地。"
+    },
+    {
+      "id": "loc_wang_han_ying_zhang",
+      "name": "王罕帐幕",
+      "region": "漠北蒙古",
+      "one_line": "王罕居所，铺满貂皮狐皮器用华贵，当晚大张筵席宴请完颜兄弟。"
+    },
+    {
+      "id": "loc_huang_shan",
+      "name": "荒山",
+      "region": "漠北",
+      "one_line": "大漠中的一座荒山，骷髅头骨堆叠之处，江南七怪与黑风双煞激战的主战场。"
+    },
+    {
+      "id": "loc_tao_hua_dao",
+      "name": "桃花岛",
+      "region": "东海",
+      "one_line": "黄药师所居之岛，陈玄风梅超风出身之地，二人偷经后逃离此岛。"
+    },
+    {
+      "id": "loc_zhong_du",
+      "name": "中都",
+      "region": "金国",
+      "one_line": "大金国都城，完颜兄弟出发之地。"
+    },
+    {
+      "id": "loc_jia_xing_zui_xian_lou",
+      "name": "嘉兴醉仙楼",
+      "region": "江南嘉兴",
+      "one_line": "江南七怪与丘处机约定赌赛后相会比试之地。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_jiu_yin_bai_gu_zhao",
+      "name": "九阴白骨爪",
+      "type": "指法",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "载于《九阴真经》，以五指洞穿头骨，陈玄风梅超风以此阴毒功夫横行江湖，十指如钢抓铁钩。"
+    },
+    {
+      "id": "skill_cui_xin_zhang",
+      "name": "摧心掌",
+      "type": "掌法",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "载于《九阴真经》，击人外表无伤而内脏震碎，陈玄风以活人练此功查看内脏碎裂程度。"
+    },
+    {
+      "id": "skill_yue_nu_jian_fa",
+      "name": "越女剑法",
+      "type": "剑法",
+      "faction": "faction_jiang_nan_qi_guai",
+      "one_line": "韩小莹所使剑法，招式轻灵狠准，有'凤点头''白露横江''电照长空'等招式。"
+    },
+    {
+      "id": "skill_di_tang_bian_fa",
+      "name": "地堂鞭法",
+      "type": "其他",
+      "faction": "faction_jiang_nan_qi_guai",
+      "one_line": "韩宝驹所使鞭法，着地滚进专攻对方下盘，以盘打挥缠为主。"
+    },
+    {
+      "id": "skill_kong_shou_ru_bai_ren",
+      "name": "空手入白刃",
+      "type": "擒拿手",
+      "faction": null,
+      "one_line": "朱聪施展的上乘武技，赤手夺取对方手中兵刃，曾夹手抢走郭靖匕首。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_bi_shou",
+      "name": "匕首",
+      "type": "weapon",
+      "owner": "char_guo_jing",
+      "one_line": "李萍交给郭靖的亡父遗物，刃身隐发蓝光锋锐无匹，柄上刻有'杨康'二字，最终刺入陈玄风练门将其杀死。"
+    },
+    {
+      "id": "item_tie_zhang",
+      "name": "铁杖",
+      "type": "weapon",
+      "owner": "char_ke_zhen_e",
+      "one_line": "柯镇恶的兵器兼助行之具，在黑暗中与陈玄风对战时使用，后被陈玄风夺去掷回。"
+    },
+    {
+      "id": "item_jin_long_bian",
+      "name": "金龙鞭",
+      "type": "weapon",
+      "owner": "char_han_bao_ju",
+      "one_line": "韩宝驹的软鞭，曾被梅超风抓住鞭梢夺去，后用此鞭卷住飞向柯镇恶的铁杖救了大哥。"
+    },
+    {
+      "id": "item_tie_shan",
+      "name": "铁扇",
+      "type": "weapon",
+      "owner": "char_zhu_cong",
+      "one_line": "朱聪的点穴铁扇，用于试探梅超风练门所在，危急时塞入梅超风掌中脱身。"
+    },
+    {
+      "id": "item_bian_dan",
+      "name": "扁担",
+      "type": "weapon",
+      "owner": "char_nan_xi_ren",
+      "one_line": "南希仁的兵器，曾击中陈玄风后心，后南希仁左臂被陈玄风震断。"
+    },
+    {
+      "id": "item_cheng_chui",
+      "name": "秤锤",
+      "type": "weapon",
+      "owner": "char_quan_jin_fa",
+      "one_line": "全金发的兵刃，战斗中曾击中梅超风后心两下，但未能重伤她的横练功夫。"
+    },
+    {
+      "id": "item_chang_jian",
+      "name": "长剑",
+      "type": "weapon",
+      "owner": "char_han_xiao_ying",
+      "one_line": "韩小莹的兵器，施展越女剑法与梅超风、陈玄风交手，招式轻灵狠准。"
+    },
+    {
+      "id": "item_jian_dao",
+      "name": "屠牛尖刀",
+      "type": "weapon",
+      "owner": "char_zhang_a_sheng",
+      "one_line": "张阿生的兵器，梅超风对其不敢以身硬接，战斗中曾刺向陈玄风胸口。"
+    },
+    {
+      "id": "item_du_ling",
+      "name": "毒菱",
+      "type": "hidden_weapon",
+      "owner": "char_ke_zhen_e",
+      "one_line": "柯镇恶的喂毒暗器，藏身石坑时发射六枚射瞎梅超风双目，后在黑暗中又射向陈玄风。"
+    },
+    {
+      "id": "item_tou_gu_zhui",
+      "name": "透骨锥",
+      "type": "hidden_weapon",
+      "owner": "char_nan_xi_ren",
+      "one_line": "南希仁的暗器，在梅超风追击韩宝驹时与全金发袖箭同时射向敌人。"
+    },
+    {
+      "id": "item_xu_jian",
+      "name": "袖箭",
+      "type": "hidden_weapon",
+      "owner": "char_quan_jin_fa",
+      "one_line": "全金发的暗器，与南希仁透骨锥同时射向梅超风，被她中指弹落。"
+    },
+    {
+      "id": "item_tie_kui",
+      "name": "铁盔",
+      "type": "armor",
+      "owner": "char_tie_mu_zhen",
+      "one_line": "铁木真戴了杀敌的战盔，用来盛酒赐给哲别，以此表达对勇士的最高敬意。"
+    },
+    {
+      "id": "item_jin_bei",
+      "name": "金杯",
+      "type": "other",
+      "owner": "char_sang_kun",
+      "one_line": "桑昆的金杯，哲别欲用此饮酒时被桑昆当众阻止侮辱。"
+    },
+    {
+      "id": "item_hong_bao_shi_jie_zhi",
+      "name": "红宝石戒指",
+      "type": "other",
+      "owner": "char_sang_kun",
+      "one_line": "完颜洪熙的手上宝石戒指，投于地下作赏，人豹相斗未遂后被铁木真拾起转交桑昆。"
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing",
+      "name": "九阴真经",
+      "type": "book",
+      "owner": null,
+      "one_line": "陈玄风偷自桃花岛的半部经书，载有九阴白骨爪、摧心掌等武功，陈玄风临死前告知已将经书烧毁，秘要藏于胸口。"
+    },
+    {
+      "id": "item_xiao_gong_xiao_jian",
+      "name": "小弓小箭",
+      "type": "weapon",
+      "owner": "char_tuo_lei",
+      "one_line": "拖雷的随身小弓箭，射中白兔肚腹引发了与都史的冲突。"
+    }
+  ]
+}

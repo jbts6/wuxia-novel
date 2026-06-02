@@ -1,0 +1,705 @@
+{
+  "chapter": 23,
+  "characters_detail": [
+    {
+      "id": "char_guo_jing",
+      "personality": {
+        "traits": ["忠厚老实", "重情重义", "视死如归", "刚毅果敢", "忧国忧民"],
+        "speech_style": "言语质朴直白，不善辞令，常以简短话语表达决心",
+        "temperament": "沉稳坚忍，面对强敌毫不退缩，宁死不退"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "恋人", "intensity": 10, "bond_level": 10, "dynamic": "生死相依，黄蓉为他七日七夜疗伤不离不弃"},
+        {"target": "char_hong_qi_gong", "type": "师徒", "intensity": 9, "bond_level": 9, "dynamic": "对师父伤势忧心如焚，背负师父千里赴临安"},
+        {"target": "char_zhou_bo_tong", "type": "义兄弟", "intensity": 7, "bond_level": 8, "dynamic": "尊敬义兄，顺从其意，但被黄蓉阻止其胡闹"},
+        {"target": "char_ou_yang_feng", "type": "宿敌", "intensity": 8, "bond_level": 2, "dynamic": "拼死硬拚欧阳锋蛤蟆功，明知不敌仍守洞口"},
+        {"target": "char_yang_kang", "type": "义兄弟反目", "intensity": 7, "bond_level": 2, "dynamic": "被结义兄弟杨康匕首刺伤，但仍挂念其为人"},
+        {"target": "char_wan_yan_hong_lie", "type": "仇敌", "intensity": 9, "bond_level": 1, "dynamic": "视完颜洪烈为杀父仇人，决意阻止其盗取武穆遗书"}
+      ],
+      "known_skills": ["skill_jiang_long_shi_ba_zhang", "skill_kong_ming_quan", "skill_yi_jin_duan_gu_pian"],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_huang_rong",
+      "personality": {
+        "traits": ["聪慧机敏", "心思缜密", "深情不移", "果决狠辣", "博学多识"],
+        "speech_style": "口齿伶俐、善辩能言，常以机智言语化解困境或调侃他人",
+        "temperament": "外表娇俏灵动，内里刚毅果决，对郭靖柔情似水，对敌人心狠手辣"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "恋人", "intensity": 10, "bond_level": 10, "dynamic": "甘愿为郭靖辛苦七十年，背负重伤的他半夜奔驰回牛家村"},
+        {"target": "char_hong_qi_gong", "type": "师徒", "intensity": 9, "bond_level": 9, "dynamic": "关心师父饮食心愿，含泪答应为其入宫偷菜"},
+        {"target": "char_zhou_bo_tong", "type": "盟友/晚辈", "intensity": 6, "bond_level": 7, "dynamic": "善于拿捏老顽童脾性，赠面具笼络，令其听话相助"},
+        {"target": "char_sha_gu", "type": "怜悯/警惕", "intensity": 5, "bond_level": 4, "dynamic": "认出碧波掌法后探查其身世，最终为保密一度欲杀之"},
+        {"target": "char_ou_yang_feng", "type": "敌对", "intensity": 8, "bond_level": 1, "dynamic": "知欧阳锋武功绝顶不可力敌，以智谋周旋"},
+        {"target": "char_qu_ling_feng", "type": "同门", "intensity": 6, "bond_level": 6, "dynamic": "在密室中发现曲灵风遗骸及铁八卦，确认其为师哥并深感哀痛"}
+      ],
+      "known_skills": ["skill_bi_bo_zhang_fa", "skill_da_gou_bang_fa", "skill_yi_jin_duan_gu_pian"],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "personality": {
+        "traits": ["豁达洒脱", "贪吃豪迈", "视死如归", "不拘小节", "侠义心肠"],
+        "speech_style": "语气随和幽默，自称'老叫化'，临终仍惦念美食，笑谈生死",
+        "temperament": "豁达乐观，伤病缠身仍谈笑自若，将生死置之度外"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "师徒", "intensity": 9, "bond_level": 9, "dynamic": "对弟子慈爱有加，郭靖背负其进京"},
+        {"target": "char_huang_rong", "type": "师徒", "intensity": 9, "bond_level": 9, "dynamic": "信任蓉儿能力，委托其入宫偷食"},
+        {"target": "char_zhou_bo_tong", "type": "同辈友人", "intensity": 6, "bond_level": 7, "dynamic": "对周伯通的胡闹虽无奈但不阻拦"},
+        {"target": "char_ou_yang_feng", "type": "宿敌", "intensity": 9, "bond_level": 1, "dynamic": "被欧阳锋透骨打穴法重伤，内伤层层加深，病危将死"}
+      ],
+      "known_skills": ["skill_jiang_long_shi_ba_zhang", "skill_da_gou_bang_fa"],
+      "related_skills": ["skill_tou_gu_da_xue_fa"]
+    },
+    {
+      "id": "char_zhou_bo_tong",
+      "personality": {
+        "traits": ["天真烂漫", "童心未泯", "爱热闹起哄", "不谙世事", "好胜好玩"],
+        "speech_style": "说话直来直去、嬉笑怒骂，常打断别人谈话，自说自话",
+        "temperament": "永远像个孩童，对新奇事物极度兴奋，对严肃事情漫不经心"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "义兄弟", "intensity": 7, "bond_level": 8, "dynamic": "称郭靖为'郭兄弟'，拉他下海当鱼饵毫不客气"},
+        {"target": "char_huang_rong", "type": "晚辈/盟友", "intensity": 6, "bond_level": 7, "dynamic": "既怕黄蓉责骂又被她笼络，赌气后被面具收买答应助战"},
+        {"target": "char_hong_qi_gong", "type": "同辈友人", "intensity": 5, "bond_level": 6, "dynamic": "不顾洪七公伤病要下海玩耍，被黄蓉斥责才收敛"},
+        {"target": "char_ou_yang_feng", "type": "敌对", "intensity": 7, "bond_level": 2, "dynamic": "答应以双手两种拳法对付欧阳锋，主动请缨守厨"}
+      ],
+      "known_skills": ["skill_kong_ming_quan"],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_sha_gu",
+      "personality": {
+        "traits": ["痴痴呆呆", "天真纯朴", "不谙世事", "力大莽撞", "直率可爱"],
+        "speech_style": "言语简单重复，自称'傻姑'，不懂谎言却也不善保密",
+        "temperament": "混沌天真，不知危险为何物，见人哭泣好奇追问"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "临时同伴", "intensity": 4, "bond_level": 4, "dynamic": "被黄蓉制伏后答应保密，替她拔出郭靖腰间匕首"},
+        {"target": "char_guo_jing", "type": "同居", "intensity": 3, "bond_level": 3, "dynamic": "住在同一野店，替郭靖煮粥、帮忙拔匕首"},
+        {"target": "char_qu_ling_feng", "type": "父女或师徒", "intensity": 7, "bond_level": 8, "dynamic": "从曲灵风处习得碧波掌法，见尖刀时若有所思"}
+      ],
+      "known_skills": ["skill_bi_bo_zhang_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_feng",
+      "personality": {
+        "traits": ["阴险狡诈", "武功绝顶", "自负狂傲", "痴迷武学", "心狠手辣"],
+        "speech_style": "语气傲慢冷淡，干笑数声作常态，常以宗师身份发号施令",
+        "temperament": "孤高自大，不屑与宵小为伍，但为九阴真经可屈身利用任何人"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "利用/敌对", "intensity": 8, "bond_level": 2, "dynamic": "视郭靖为九阴真经武学的关键，逼他出拳以便观摩印证，不肯杀之"},
+        {"target": "char_wan_yan_hong_lie", "type": "合作", "intensity": 5, "bond_level": 5, "dynamic": "受完颜洪烈之邀入宫盗书，被激将后才出全力"},
+        {"target": "char_yang_kang", "type": "利用/轻蔑", "intensity": 4, "bond_level": 3, "dynamic": "杨康刺伤郭靖后被欧阳锋怒目而视，因其坏了自己的大事"},
+        {"target": "char_hong_qi_gong", "type": "宿敌", "intensity": 9, "bond_level": 1, "dynamic": "曾以透骨打穴法重伤洪七公，致其病危"},
+        {"target": "char_ling_zhi_shang_ren", "type": "轻蔑", "intensity": 2, "bond_level": 2, "dynamic": "抓住灵智上人后颈肥肉随手甩出，不容其插手"}
+      ],
+      "known_skills": ["skill_ha_ma_gong", "skill_tou_gu_da_xue_fa"],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_wan_yan_hong_lie",
+      "personality": {
+        "traits": ["老谋深算", "志在灭宋", "临危不乱", "博学善断", "礼贤下士"],
+        "speech_style": "言语文雅有礼，自称'小王'，引经据典，善用激将法",
+        "temperament": "深沉稳重，纵使局势危急仍不慌乱，善驭人心"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_yang_kang", "type": "父子", "intensity": 8, "bond_level": 9, "dynamic": "与杨康以父子相称，命其随欧阳锋入洞取书"},
+        {"target": "char_ou_yang_feng", "type": "合作者", "intensity": 6, "bond_level": 5, "dynamic": "善用激将法促使欧阳锋出手，称其为'欧阳先生'"},
+        {"target": "char_guo_jing", "type": "敌对", "intensity": 7, "bond_level": 1, "dynamic": "不直接交手，但其盗书行为被郭靖拼死阻止"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yang_kang",
+      "personality": {
+        "traits": ["阴毒狠辣", "忘恩负义", "杀心极盛", "趋炎附势", "偶有歉疚"],
+        "speech_style": "对完颜洪烈语气亲热称'爹爹'，对郭靖假惺惺提及'结义之情'",
+        "temperament": "表面温顺实则狠毒，在义气与利益之间选择利益"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "义兄弟反目", "intensity": 7, "bond_level": 2, "dynamic": "趁郭靖全力对抗欧阳锋时以匕首刺其腰间，事后微感歉疚但不悔"},
+        {"target": "char_wan_yan_hong_lie", "type": "养父子", "intensity": 8, "bond_level": 9, "dynamic": "对完颜洪烈言听计从，随其入宫盗书"},
+        {"target": "char_ou_yang_feng", "type": "依附", "intensity": 5, "bond_level": 4, "dynamic": "随欧阳锋进洞取书，被其推开不得先取石盒"},
+        {"target": "char_huang_rong", "type": "敌对", "intensity": 5, "bond_level": 1, "dynamic": "听到黄蓉声音后惊慌逃跑，不敢拔出匕首"}
+      ],
+      "known_skills": ["skill_jiu_yin_bai_zhua_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_peng_lian_hu",
+      "personality": {
+        "traits": ["老练沉稳", "警觉机敏", "世故圆滑"],
+        "speech_style": "低声细语，做事谨慎，遇险不贸然行动",
+        "temperament": "沉稳老练，知道何时该进何时该退"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_wan_yan_hong_lie", "type": "部属", "intensity": 5, "bond_level": 6, "dynamic": "跟随完颜洪烈入宫盗书，抄接铜钹以防惊动宫卫"},
+        {"target": "char_huang_rong", "type": "敌对", "intensity": 5, "bond_level": 1, "dynamic": "在屋顶追赶黄蓉，后因宫卫聚集不敢久追"},
+        {"target": "char_hou_tong_hai", "type": "同僚", "intensity": 4, "bond_level": 5, "dynamic": "关心侯通海伤势，上前低声询问"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sha_tong_tian",
+      "personality": {
+        "traits": ["勇猛莽撞", "水性极佳", "争先好胜"],
+        "speech_style": "简短直接，行动先于言语",
+        "temperament": "冲锋在前不知后退，但被击退后知道收敛"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wan_yan_hong_lie", "type": "部属", "intensity": 5, "bond_level": 6, "dynamic": "率先钻入瀑布探路，忠心效力"},
+        {"target": "char_guo_jing", "type": "敌对", "intensity": 5, "bond_level": 1, "dynamic": "被洞中郭靖掌力逼出瀑布"},
+        {"target": "char_hou_tong_hai", "type": "师兄弟", "intensity": 5, "bond_level": 6, "dynamic": "与侯通海同门"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ling_zhi_shang_ren",
+      "personality": {
+        "traits": ["暴躁好斗", "不自量力", "粗鲁无礼"],
+        "speech_style": "大声吼叫，被击败后以藏语咒骂，旁人听不懂",
+        "temperament": "性急好斗，屡败屡冲，不知进退"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wan_yan_hong_lie", "type": "部属", "intensity": 5, "bond_level": 6, "dynamic": "穿红袍冲入瀑布激斗，忠心为完颜洪烈效力"},
+        {"target": "char_ou_yang_feng", "type": "同僚/被轻蔑", "intensity": 3, "bond_level": 2, "dynamic": "欲助欧阳锋却被其抓住后颈甩出，灌了满嘴瀑布水"},
+        {"target": "char_guo_jing", "type": "敌对", "intensity": 5, "bond_level": 1, "dynamic": "在洞中与郭靖激斗被打败"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liang_zi_weng",
+      "personality": {
+        "traits": ["谨慎小心", "武功不弱", "善于配合"],
+        "speech_style": "较少言语，行动配合众人",
+        "temperament": "谨慎但参与积极，左路包抄配合追击"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_wan_yan_hong_lie", "type": "部属", "intensity": 5, "bond_level": 6, "dynamic": "跟随入宫，配合行动"},
+        {"target": "char_guo_jing", "type": "敌对", "intensity": 4, "bond_level": 1, "dynamic": "跃入水帘后被棒端扫中脚胫跌出瀑布"},
+        {"target": "char_huang_rong", "type": "敌对", "intensity": 4, "bond_level": 1, "dynamic": "在屋顶自左包抄追击黄蓉"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hou_tong_hai",
+      "personality": {
+        "traits": ["鲁莽冲动", "不自量力", "粗鄙无礼"],
+        "speech_style": "粗口连篇，被打败后大声呼痛骂人",
+        "temperament": "不知深浅，师兄失利仍强冲，被打得屁股剧痛"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_sha_tong_tian", "type": "师兄弟", "intensity": 5, "bond_level": 6, "dynamic": "不顾师兄已败仍强冲瀑布"},
+        {"target": "char_peng_lian_hu", "type": "同僚", "intensity": 4, "bond_level": 5, "dynamic": "被打出后彭连虎上前关心询问"},
+        {"target": "char_wan_yan_hong_lie", "type": "部属", "intensity": 5, "bond_level": 6, "dynamic": "随众入宫行动"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qu_ling_feng",
+      "personality": {
+        "traits": ["忠于师门", "武功卓绝", "至死不渝"],
+        "speech_style": "已故无对话，通过遗物和痕迹展现其生前行为",
+        "temperament": "为师门不惜以残躯偷盗宫中珍宝，临死掷刀杀敌"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_sha_gu", "type": "父女或师徒", "intensity": 8, "bond_level": 9, "dynamic": "传其碧波掌法，傻姑独守野店与密室"},
+        {"target": "char_shi_yan_ming", "type": "同归于尽", "intensity": 8, "bond_level": 1, "dynamic": "与石彦明在密室中同归于尽，临死掷刀刺死对方"}
+      ],
+      "known_skills": ["skill_bi_bo_zhang_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_shi_yan_ming",
+      "personality": {
+        "traits": ["忠于职守", "武功不详"],
+        "speech_style": "已故无对话",
+        "temperament": "身为朝廷武官追击盗贼，最终与曲灵风同归于尽"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_qu_ling_feng", "type": "同归于尽", "intensity": 8, "bond_level": 1, "dynamic": "打伤曲灵风使其肋骨尽折，但被曲灵风临死掷刀刺死"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_ha_ma_gong",
+      "techniques": [
+        {"id": "tech_ha_ma_gong_tui", "name": "蛤蟆功双掌齐推", "type": "attack", "description": "蹲地运气后双掌齐发，毕生功力之所聚，第一推将郭靖逼退，第二推与降龙十八掌硬拚对峙"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "本章中欧阳锋全力施展，与郭靖降龙十八掌对峙，劲力一消一长"}
+      ],
+      "effects": ["重伤郭靖前胸致其俯身跌倒", "击碎山洞石壁泥沙纷落", "侧击黄蓉后心致其呼吸急促眼花头晕"],
+      "combat_style": "蹲伏蓄力后全力推出，威力惊天动地，但出招前有'阁'声叫喊的征兆"
+    },
+    {
+      "id": "skill_jiang_long_shi_ba_zhang",
+      "techniques": [
+        {"id": "tech_fei_long_zai_tian", "name": "飞龙在天", "type": "attack", "description": "郭靖扑向欧阳锋时使出的险招，人未到掌先至"},
+        {"id": "tech_zhen_jing_bai_li", "name": "震惊百里", "type": "attack", "description": "降龙十八掌中威力极大的一招，双掌向前平推，与蛤蟆功硬拚对峙"},
+        {"id": "tech_tui_zhen", "name": "推震", "type": "attack", "description": "郭靖在断桥酒家中奋力推震打断大柱，致屋顶塌下"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "郭靖以'震惊百里'硬接欧阳锋蛤蟆功第二推，虽力不能胜但拼死不退"}
+      ],
+      "effects": ["与蛤蟆功对峙片刻", "打断酒家大柱致屋顶塌陷"],
+      "combat_style": "刚猛无俦，以力搏力，威力极大但消耗亦巨"
+    },
+    {
+      "id": "skill_bi_bo_zhang_fa",
+      "techniques": [
+        {"id": "tech_bi_bo_qi_shou", "name": "碧波掌法起手势", "type": "attack", "description": "傻姑所使刷刷两掌为起手招式，掌势如波，方位姿势确为桃花岛武功但手法笨拙"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "傻姑只会六七招且手法笨拙，连最简易的变化也全然不知"}
+      ],
+      "effects": ["掌势如波，含桃花岛武学基本道理"],
+      "combat_style": "桃花岛入门掌法，招式浅近但含基本道理，本门家数一见即知"
+    },
+    {
+      "id": "skill_kong_ming_quan",
+      "techniques": [
+        {"id": "tech_kong_ming_huan_shou", "name": "空明拳还击", "type": "attack", "description": "郭靖在洞口以空明拳法还击欧阳锋，掌影飘忽、手法离奇，劲力虽不如降龙十八掌但变化奇妙"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "欧阳锋见招数精微变化奇妙，以为是九阴真经武功，暗自称赏"}
+      ],
+      "effects": ["掌影飘忽令欧阳锋难以捉摸", "令欧阳锋有意观摩印证而不下杀手"],
+      "combat_style": "以巧取胜，掌影飘忽手法离奇，与降龙十八掌的刚猛风格形成对比"
+    },
+    {
+      "id": "skill_da_gou_bang_fa",
+      "techniques": [
+        {"id": "tech_da_gou_heng_sao", "name": "打狗棒横扫", "type": "attack", "description": "黄蓉以棒横扫洞口，来势奇刁，扫中梁子翁脚胫"},
+        {"id": "tech_da_gou_chan_rao", "name": "打狗棒缠绕", "type": "attack", "description": "黄蓉以打狗棒法守洞口，变化奇幻妙用无穷，缠得沙通天等人手忙脚乱"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "黄蓉在瀑布后以打狗棒法连败沙通天、灵智上人、梁子翁三人"}
+      ],
+      "effects": ["扫中梁子翁脚胫致其跌出瀑布", "缠住沙通天使其手忙脚乱被掌力推出"],
+      "combat_style": "变化奇幻，妙用无穷，以杆棒为兵器，兼攻兼守"
+    },
+    {
+      "id": "skill_tou_gu_da_xue_fa",
+      "techniques": [],
+      "progression": [],
+      "effects": ["洪七公被点中后穴道虽已解开，内伤却又加深一层"],
+      "combat_style": "点穴手法，穴道虽解内伤却层层加深，极为阴毒"
+    },
+    {
+      "id": "skill_yi_jin_duan_gu_pian",
+      "techniques": [],
+      "progression": [
+        {"level": 1, "unlock": "黄蓉练后功力大进，出手劲急，以巧劲连败傻姑；郭靖凭此进境神速，令欧阳锋惊讶其小小年纪掌力已如此厉害"}
+      ],
+      "effects": ["黄蓉出手劲急功力大进", "郭靖进境神速掌力惊人"],
+      "combat_style": "九阴真经中的修习法门，修炼后可大幅提升功力"
+    },
+    {
+      "id": "skill_jiu_yin_bai_zhua_gong",
+      "techniques": [
+        {"id": "tech_jiu_yin_sha_wei_shi", "name": "九阴白爪功杀卫士", "type": "attack", "description": "杨康双手分别插入两名卫士顶门，一举奏功，血腥气冲鼻"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "杨康以此功瞬间杀死两名冲入瀑布的宫中卫士"}
+      ],
+      "effects": ["瞬间击杀两名卫士", "激发杨康杀心大盛"],
+      "combat_style": "以手指插入对手要害，凶残血腥"
+    },
+    {
+      "id": "skill_jiu_yin_zhen_jing",
+      "techniques": [
+        {"id": "tech_liao_shang_zhi_fa", "name": "九阴真经疗伤法", "type": "buff", "description": "两人各出一掌相抵，同时运气用功，七日七夜手掌不可离开，气息相通，可治蛤蟆功之伤"}
+      ],
+      "progression": [],
+      "effects": ["可疗治蛤蟆功所致重伤", "需七日七夜不间断运功"],
+      "combat_style": "疗伤心法，需二人配合，功行圆满前不可受外界干扰否则走火入魔"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_jiu_hua_yu_lu_wan",
+      "description": "黄蓉随身携带的灵药，可止痛减苦，先后喂洪七公和郭靖服用",
+      "effects": [
+        {"type": "heal", "value": "缓解痛楚", "description": "洪七公服用后痛楚稍减但气喘仍急，郭靖服用后止痛"}
+      ],
+      "origin": "桃花岛",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_ba_gua",
+      "description": "密室中仰天骸骨背心肋骨处取出的铁片，黄蓉和郭靖均认出是铁八卦，与归云庄陆庄主所用相同，确认死者为桃花岛弟子曲灵风",
+      "effects": [],
+      "origin": "桃花岛曲灵风遗物",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_jian_dao",
+      "description": "插在铁箱骸骨肋骨间的长刀，刀刃上刻有一个'曲'字，为曲灵风临死前掷出刺死石彦明所用",
+      "effects": [
+        {"type": "attack", "value": "致命", "description": "穿过石彦明骸骨肋骨之间刺入铁箱盖，与敌同归于尽"}
+      ],
+      "origin": "曲灵风所有",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_huang_jin_pai",
+      "description": "镶拇指大玛瑙的黄金牌子，牌上刻有'钦赐武功大夫忠州防御使带御器械石彦明'字样，确认铁箱上骸骨的身份",
+      "effects": [],
+      "origin": "石彦明所有，钦赐官职凭证",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_xiang",
+      "description": "密室中装满珍宝的大铁箱，有夹层：上层为珠玉珍玩，中层为铜绿斑斓的青铜古物（龙文鼎、商彝等），下层为二十余轴大名家书画卷轴（吴道子、韩干、南唐李后主、徽宗等）",
+      "effects": [],
+      "origin": "曲灵风从宫中盗出珍藏于此",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_wu_mu_yi_shu",
+      "description": "岳飞遗留的兵书，藏于皇宫翠寒堂东十五步瀑布后山洞石盒中，完颜洪烈根据岳飞密函和高宗孝宗文献推断其位置，率众闯宫欲夺",
+      "effects": [],
+      "origin": "岳飞遗书",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_shi_he",
+      "description": "山洞正中石几上两尺见方的石盒，盒口贴有封条因年深日久字迹不可辨，内藏武穆遗书，被欧阳锋挟走",
+      "effects": [],
+      "origin": "藏于皇宫瀑布后山洞",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_mian_ju",
+      "description": "黄蓉在中瓦子武林园面具店花五钱银子购得的十多个面具（钟馗、判官、灶君、土地、神兵、鬼使等），赠与周伯通，周伯通戴之扮演判官小鬼城隍菩萨取乐",
+      "effects": [],
+      "origin": "临安城中瓦子面具店",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_bi_shou",
+      "description": "杨康从靴筒拔出的利刃，趁郭靖全力抵御欧阳锋时刺入其左腰，刃锋深入肉里数寸，后被傻姑猛力拔出",
+      "effects": [
+        {"type": "attack", "value": "重伤", "description": "刺入郭靖左腰数寸深，拔出时鲜血如泉水喷涌"}
+      ],
+      "origin": "杨康所有",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_luo_che",
+      "description": "黄蓉兑了首饰购买的骡车，让洪七公在车中安卧养伤，四人乘车往临安进发",
+      "effects": [],
+      "origin": "黄蓉购于市镇",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_jin_zhen",
+      "description": "黄蓉的金针，用于刺郭靖左腰伤口上下穴道以缓血流减痛楚，后发出一把射倒数名追赶的宫中护卫",
+      "effects": [
+        {"type": "heal", "value": "止血缓痛", "description": "刺穴止血并减痛楚"},
+        {"type": "attack", "value": "击倒数人", "description": "发出一把金针射倒数名宫中护卫"}
+      ],
+      "origin": "黄蓉所有",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_tong_bo",
+      "description": "灵智上人的兵器，从瀑布水帘中飞出后由彭连虎急忙抄住，以防落地作声惊动宫卫",
+      "effects": [],
+      "origin": "灵智上人所有",
+      "rarity": "common",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_23_01",
+      "name": "洪七公临终心愿",
+      "participants": ["char_hong_qi_gong", "char_guo_jing", "char_huang_rong", "char_zhou_bo_tong"],
+      "location": "loc_qian_tang_jiang",
+      "description": "洪七公病势愈重，自言只剩一个心愿——吃一碗大内御厨做的鸳鸯五珍脍。黄蓉含泪答应，四人决定前往临安皇宫。黄蓉兑首饰买骡车让洪七公安卧养伤。"
+    },
+    {
+      "id": "evt_23_02",
+      "name": "牛家村发现傻姑",
+      "participants": ["char_huang_rong", "char_guo_jing", "char_zhou_bo_tong", "char_hong_qi_gong", "char_sha_gu"],
+      "location": "loc_niu_jia_cun",
+      "description": "四人途经临安郊外破败荒村，在野店遇到自称傻姑的少女，店内满是尘土蛛网。黄蓉淘米做饭，取碗时发现铁铸碗为机关。"
+    },
+    {
+      "id": "evt_23_03",
+      "name": "黄蓉发现密室机关",
+      "participants": ["char_huang_rong", "char_sha_gu"],
+      "location": "loc_niu_jia_cun",
+      "description": "黄蓉发现橱中铁碗无法提起，旋转后橱壁向两旁分开露出密洞。她疑心傻姑为黑店同伙，与之交手，认出其使的是桃花岛碧波掌法。"
+    },
+    {
+      "id": "evt_23_04",
+      "name": "密室发现曲灵风与石彦明遗骸",
+      "participants": ["char_huang_rong", "char_guo_jing", "char_zhou_bo_tong"],
+      "location": "loc_niu_jia_cun",
+      "description": "黄蓉与周伯通进入密室，发现两具骸骨：一具仰天躺着肋骨齐断（曲灵风），一具伏在铁箱上被尖刀穿肋而死（石彦明）。通过铁八卦和刻'曲'字尖刀确认死者身份，黄蓉认出曲灵风为师哥。"
+    },
+    {
+      "id": "evt_23_05",
+      "name": "铁箱中发现珍宝",
+      "participants": ["char_huang_rong", "char_guo_jing"],
+      "location": "loc_niu_jia_cun",
+      "description": "二人打开铁箱，上层全是珠玉珍玩，中层为青铜古物，下层为二十余轴大名家书画卷轴（吴道子、韩干、南唐李后主、徽宗等），件件价值连城。黄蓉感叹爹爹收藏远不及此。"
+    },
+    {
+      "id": "evt_23_06",
+      "name": "前往临安城",
+      "participants": ["char_guo_jing", "char_huang_rong", "char_hong_qi_gong", "char_zhou_bo_tong", "char_sha_gu"],
+      "location": "loc_lin_an",
+      "description": "四人一车往临安，自候潮门进城，到皇城正门丽正门前被禁卫驱赶。黄蓉教训周伯通不可闯宫以免惊动厨子，四人入住御街西首锦华居客店。"
+    },
+    {
+      "id": "evt_23_07",
+      "name": "西湖断桥打砸酒家",
+      "participants": ["char_guo_jing", "char_huang_rong"],
+      "location": "loc_duan_qiao",
+      "description": "郭靖黄蓉在断桥酒家饮酒赏荷，见屏风题有俞国宝词作且被宋高宗改过，文士吹捧昏君，郭靖怒斥高宗害死岳飞，飞脚踢碎屏风，将文士栽入酒缸，以降龙十八掌打断大柱，酒家化为废墟。"
+    },
+    {
+      "id": "evt_23_08",
+      "name": "翠微亭窃听密谋",
+      "participants": ["char_guo_jing", "char_huang_rong", "char_wan_yan_hong_lie", "char_ou_yang_feng", "char_yang_kang"],
+      "location": "loc_cui_wei_ting",
+      "description": "二人在飞来峰翠微亭赏岳飞诗碑时，完颜洪烈、欧阳锋、杨康三人在亭中谈论韩世忠岳飞，完颜洪烈赞金主亮'立马吴山'之志。二人躲在花丛中窃听后决定跟踪。"
+    },
+    {
+      "id": "evt_23_09",
+      "name": "三元楼窃听盗书计划",
+      "participants": ["char_guo_jing", "char_huang_rong", "char_wan_yan_hong_lie", "char_ou_yang_feng", "char_yang_kang"],
+      "location": "loc_lin_an",
+      "description": "二人尾随完颜洪烈到三元楼，在隔壁阁子窃听完颜洪烈讲金主亮南征之志和杨康亲热称'爹爹'。黄蓉放火搅扰后继续跟踪至冠盖居客店，确认其落脚处。"
+    },
+    {
+      "id": "evt_23_10",
+      "name": "四人夜入皇宫御厨",
+      "participants": ["char_guo_jing", "char_huang_rong", "char_hong_qi_gong", "char_zhou_bo_tong"],
+      "location": "loc_yu_chu_fang",
+      "description": "二更时分四人翻入宫墙，洪七公指路至嘉明殿之东御厨房。洪七公坐梁上等候厨子做鸳鸯五珍脍，周伯通答应留下陪洪七公，让郭靖黄蓉去监视完颜洪烈。"
+    },
+    {
+      "id": "evt_23_11",
+      "name": "发现翠寒堂瀑布地形",
+      "participants": ["char_guo_jing", "char_huang_rong"],
+      "location": "loc_cui_han_tang",
+      "description": "二人出御厨后循花香至翠寒堂，见银瀑从山边泻下注入池塘，堂前茉莉素馨等香花环绕。二人在凉床上嬉笑扮演皇帝，被护卫发现后躲入假山。"
+    },
+    {
+      "id": "evt_23_12",
+      "name": "瀑布洞口激战守护武穆遗书",
+      "participants": ["char_guo_jing", "char_huang_rong", "char_ou_yang_feng", "char_wan_yan_hong_lie", "char_yang_kang", "char_sha_tong_tian", "char_ling_zhi_shang_ren", "char_liang_zi_weng", "char_hou_tong_hai", "char_peng_lian_hu"],
+      "location": "loc_cui_han_tang",
+      "description": "完颜洪烈率众入宫，沙通天率先钻入瀑布发现铁门。郭靖黄蓉抢先潜入洞口守卫：黄蓉以打狗棒法击败梁子翁，郭靖以掌力逼退沙通天，侯通海强冲被打出，灵智上人冲入激斗后袈裟铜钹均飞出。欧阳锋以蛤蟆功破铁门，与郭靖在洞口以空明拳拆招印证。完颜洪烈用激将法令欧阳锋全力出击。"
+    },
+    {
+      "id": "evt_23_13",
+      "name": "杨康刺伤郭靖",
+      "participants": ["char_guo_jing", "char_yang_kang", "char_ou_yang_feng", "char_wan_yan_hong_lie"],
+      "location": "loc_cui_han_tang",
+      "description": "郭靖以'震惊百里'与欧阳锋蛤蟆功硬拚对峙，杨康以九阴白爪功杀死两名冲入的卫士后，趁郭靖全力抵御掌力之际，拔匕首刺入其左腰。郭靖前胸同时受蛤蟆功之力俯身跌倒。欧阳锋挟走石盒中的武穆遗书，三人退去。"
+    },
+    {
+      "id": "evt_23_14",
+      "name": "黄蓉背负郭靖逃回牛家村",
+      "participants": ["char_huang_rong", "char_guo_jing", "char_sha_gu", "char_peng_lian_hu", "char_liang_zi_weng"],
+      "location": "loc_niu_jia_cun",
+      "description": "黄蓉在屋顶与彭连虎、梁子翁大捉迷藏引开敌人后，钻入瀑布发现郭靖浑身是血，背负他从假山后溜出，以金针射倒追赶护卫，连夜翻出城墙赶回牛家村。傻姑猛力拔出郭靖腰间匕首致鲜血喷涌，黄蓉惊怒掌掴傻姑。郭靖醒转后告知九阴真经中有疗伤之法。"
+    },
+    {
+      "id": "evt_23_15",
+      "name": "计划密室疗伤七日七夜",
+      "participants": ["char_huang_rong", "char_guo_jing", "char_sha_gu"],
+      "location": "loc_niu_jia_cun",
+      "description": "郭靖说明须二人掌心相抵运功七日七夜且不可受打扰。黄蓉决定躲在密室中疗伤，买了一担西瓜搬入密室，叮嘱傻姑保密。黄蓉一度动念杀傻姑以防泄密，拿起匕首便要出橱动手。"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_guo_jing",
+      "text": "就算再活一百年，到头来还是得死。好孩子，我只剩下一个心愿，趁着老叫化还有一口气在，你们去给我办了罢。",
+      "tone": "豁达从容",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_huang_rong",
+      "text": "报仇雪恨么，也算不得是甚么心愿，我是想吃一碗大内御厨做的鸳鸯五珍脍。",
+      "tone": "馋涎欲滴",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_hong_qi_gong",
+      "text": "那老毒物我向来就瞧着不顺眼，我师哥临死之时，为了老毒物还得先装一次假死。一个人死两次，你道好开心吗？老叫化，你死只管死你的，放心好啦，我给你报仇，去杀了他。",
+      "tone": "嬉笑无忌",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_sha_gu",
+      "text": "你这'碧波掌法'自何处学来？你师父是谁？",
+      "tone": "急切追问",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_sha_gu",
+      "listener": "char_huang_rong",
+      "text": "你打我不过了，哈哈！",
+      "tone": "天真得意",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "躺在地下的是我师哥，是曲师哥。",
+      "tone": "震惊悲痛",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": null,
+      "text": "这是大宋京师之地，这些读书做官的人整日价只是喝酒赏花，难道光复中原之事，就再也不理会了吗？",
+      "tone": "愤怒慨叹",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": null,
+      "text": "这高宗皇帝，便是重用秦桧、害死岳爷爷的昏君！",
+      "tone": "怒不可遏",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_wan_yan_hong_lie",
+      "listener": "char_yang_kang",
+      "text": "小王仔细参详岳飞遗下来的密函，又查考了高宗、孝宗两朝的文献，断得定那部武穆遗书，乃是藏在大内翠寒堂之东十五步的处所。",
+      "tone": "笃定自信",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_wan_yan_hong_lie",
+      "listener": "char_yang_kang",
+      "text": "金主亮提兵南征，立马吴山之志虽然不酬，但他这番投鞭渡江的豪气，却是咱们做子孙的人所当效法的。",
+      "tone": "慷慨激昂",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_yang_kang",
+      "listener": "char_wan_yan_hong_lie",
+      "text": "爹爹",
+      "tone": "亲热恭敬",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_wan_yan_hong_lie",
+      "listener": "char_ou_yang_feng",
+      "text": "欧阳先生，你能把这小子赶开么？",
+      "tone": "轻描淡写激将",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_wan_yan_hong_lie",
+      "text": "那有甚么不能？",
+      "tone": "傲慢自信",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_yang_kang",
+      "listener": "char_guo_jing",
+      "text": "你就不识好歹，爱管闲事，可别怪我不顾结义之情。",
+      "tone": "阴冷假惺惺",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "你放心，奸贼得不了手的……",
+      "tone": "安慰隐瞒",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "蓉儿，你放心，《九阴真经》中载得有疗伤之法，我不会死的。",
+      "tone": "虚弱安慰",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_guo_jing",
+      "text": "就是为你辛苦七十年，你知道我也是乐意的。",
+      "tone": "深情坚定",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_huang_rong",
+      "text": "得找一处清静的地方，咱俩依着真经上的法门，同时运气用功。两人各出一掌相抵，以你的功力，助我治伤。难就难在七日七夜之间，两人手掌不可有片刻离开，你我气息相通，虽可说话，但决不可与第三人说一句话，更不可起立行走半步。",
+      "tone": "郑重虚弱",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_sha_gu",
+      "listener": "char_huang_rong",
+      "text": "你们要躲在里面吃西瓜，不给人知道，吃完了西瓜才出来。傻姑不说。",
+      "tone": "天真憨直",
+      "chapter": 23
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_sha_gu",
+      "text": "是啊，傻姑不说，傻姑是好姑娘。傻姑说了，傻姑就是坏姑娘。",
+      "tone": "郑重叮嘱",
+      "chapter": 23
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "chapter": 26,
+  "characters": [
+    {
+      "id": "char_guojing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "蒙古金刀驸马，江南六怪弟子，洪七公弟子",
+      "faction": "faction_jiangnanliuguai",
+      "role": "protagonist",
+      "one_line": "为救恩师出手阻止黄药师杀六怪，得黄药师助其完成内功修炼；面对华筝与黄蓉的感情抉择，坚守旧约选择华筝。",
+      "personality": "木讷老实，重信守义，尊师重道",
+      "known_skills": ["skill_jianglongshibaizhang", "skill_jiuyinjing"],
+      "related_skills": ["skill_tanzhishentong"]
+    },
+    {
+      "id": "char_huangyaoshi",
+      "name": "黄药师",
+      "alias": ["东邪"],
+      "identity": "桃花岛主，五绝之一",
+      "faction": "faction_taohuadao",
+      "role": "protagonist",
+      "one_line": "误与六怪冲突后借梅超风尸身攻敌，认出曲灵风遗物与傻姑身份后收其为徒；得知郭靖已有婚约后愤怒，终因女儿深情而妥协离去。",
+      "personality": "孤傲高绝，喜怒无常，爱女情深，非汤武而薄周孔",
+      "known_skills": ["skill_tanzhishentong", "skill_bibozhangfa"],
+      "related_skills": ["skill_jiuyinbaiguzhua"]
+    },
+    {
+      "id": "char_huangrong",
+      "name": "黄蓉",
+      "alias": [],
+      "identity": "黄药师之女，丐帮帮主",
+      "faction": "faction_gaibang",
+      "role": "companion",
+      "one_line": "向众人讲述历险经历，拆穿裘千仞骗术并扇其耳光；得知郭靖选择华筝后虽伤心，仍说要与他多耽一天便多一天欢喜。",
+      "personality": "聪慧机敏，伶牙俐齿，至情至性",
+      "known_skills": ["skill_dagoubangfa", "skill_bibozhangfa"],
+      "related_skills": ["skill_jiuyinjing"]
+    },
+    {
+      "id": "char_meichaofeng",
+      "name": "梅超风",
+      "alias": [],
+      "identity": "黄药师弟子",
+      "faction": "faction_taohuadao",
+      "role": "npc",
+      "one_line": "临终前自断腕骨弃武功以赎罪，得黄药师重新收归门下后含笑而逝。",
+      "personality": "至死不忘师恩，刚烈决绝",
+      "known_skills": ["skill_jiuyinbaiguzhua", "skill_cuixinzhang"],
+      "related_skills": ["skill_jiuyinjing"]
+    },
+    {
+      "id": "char_kezheng'e",
+      "name": "柯镇恶",
+      "alias": ["飞天蝙蝠"],
+      "identity": "江南六怪之首",
+      "faction": "faction_jiangnanliuguai",
+      "role": "companion",
+      "one_line": "与黄药师冲突时率先察觉门后有人；赞郭靖拜洪七公为师并蒙黄药师许婚。",
+      "personality": "耳朵极灵，刚直豪爽",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhucong",
+      "name": "朱聪",
+      "alias": [],
+      "identity": "江南六怪之一",
+      "faction": "faction_jiangnanliuguai",
+      "role": "companion",
+      "one_line": "机敏善言，向黄药师寒暄周旋；从裘千仞怀中顺走铁掌令牌和伸缩剑等物。",
+      "personality": "机智灵活，善于随机应变",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hanbaoju",
+      "name": "韩宝驹",
+      "alias": [],
+      "identity": "江南六怪之一",
+      "faction": "faction_jiangnanliuguai",
+      "role": "companion",
+      "one_line": "与黄药师交手时右臂中掌、脸上被抓五条爪印；提供小红马供郭靖赶路。",
+      "personality": "勇猛直率",
+      "known_skills": ["skill_jinlongbian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanxiren",
+      "name": "南希仁",
+      "alias": [],
+      "identity": "江南六怪之一",
+      "faction": "faction_jiangnanliuguai",
+      "role": "companion",
+      "one_line": "以扁担抵御黄药师攻击。",
+      "personality": "沉默寡言，忠厚朴实",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_quanjinfa",
+      "name": "全金发",
+      "alias": [],
+      "identity": "江南六怪之一",
+      "faction": "faction_jiangnanliuguai",
+      "role": "companion",
+      "one_line": "以秤锤飞击协助抵御黄药师。",
+      "personality": "谨慎务实",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hanxiaoying",
+      "name": "韩小莹",
+      "alias": [],
+      "identity": "江南六怪之一",
+      "faction": "faction_jiangnanliuguai",
+      "role": "companion",
+      "one_line": "被梅超风尸身吓到手足酸软，遭黄药师击中腰间。",
+      "personality": "心地善良，偶有怯意",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shagu",
+      "name": "傻姑",
+      "alias": [],
+      "identity": "曲灵风之女，黄药师新收弟子",
+      "faction": "faction_taohuadao",
+      "role": "npc",
+      "one_line": "在黄药师追问下展示偷学的碧波掌法，被黄药师收归门下；传递周伯通纸条信息。",
+      "personality": "痴傻天真，似受刺激所致",
+      "known_skills": ["skill_bibozhangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ouyangfeng",
+      "name": "欧阳锋",
+      "alias": ["西毒"],
+      "identity": "白驼山主，五绝之一",
+      "faction": "faction_baituoshan",
+      "role": "villain",
+      "one_line": "在林中与裘千仞绑缚拖雷等人；得知欧阳克死后悲愤，向黄药师偷袭未遂后离去。",
+      "personality": "阴狠毒辣，工于算计，悲子之情",
+      "known_skills": ["skill_hamagong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuqianren",
+      "name": "裘千仞",
+      "alias": ["铁掌水上飘"],
+      "identity": "铁掌帮帮主",
+      "faction": "faction_tiezhangbang",
+      "role": "villain",
+      "one_line": "与欧阳锋合谋绑缚蒙古使者，被黄蓉连扇耳光后装腹痛金蝉脱壳逃走。",
+      "personality": "欺世盗名，厚颜无耻，善于脱身",
+      "known_skills": ["skill_tiezhangshenggong", "skill_liuetongbibei"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yangkang",
+      "name": "杨康",
+      "alias": [],
+      "identity": "完颜洪烈之子（实为杨铁心之子）",
+      "faction": null,
+      "role": "villain",
+      "one_line": "持打狗棒骗取拖雷信任后西去岳州；在岳阳楼现身被郭靖撞见后惊惶逃离。",
+      "personality": "阴险狡诈，反复无常",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuolei",
+      "name": "拖雷",
+      "alias": [],
+      "identity": "成吉思汗之子，郭靖义兄",
+      "faction": null,
+      "role": "npc",
+      "one_line": "被欧阳锋与裘千仞绑缚后获救；面对郭靖选择华筝欣喜，折箭断义后约定北归相见。",
+      "personality": "豪爽果断，重情重义",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huazheng",
+      "name": "华筝",
+      "alias": [],
+      "identity": "成吉思汗之女，郭靖未婚妻",
+      "faction": null,
+      "role": "npc",
+      "one_line": "被郭靖确认为将娶之人，赠白雕给郭靖，嘱其早日回来。",
+      "personality": "英气爽朗，深情",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhebie",
+      "name": "哲别",
+      "alias": [],
+      "identity": "蒙古神箭手，郭靖箭术师父",
+      "faction": null,
+      "role": "npc",
+      "one_line": "随拖雷被绑缚后获救，与郭靖道别北归。",
+      "personality": "英勇善射",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_boershui",
+      "name": "博尔术",
+      "alias": [],
+      "identity": "蒙古将领",
+      "faction": null,
+      "role": "npc",
+      "one_line": "随拖雷被绑缚后获救，与郭靖道别北归。",
+      "personality": "忠诚勇武",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_luyoujiao",
+      "name": "鲁有脚",
+      "alias": [],
+      "identity": "丐帮西路长老，污衣派首领",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "在岳阳楼与郭靖黄蓉结识，介绍裘千仞与铁掌帮来历及丐帮净衣污衣两派之争。",
+      "personality": "直率豪爽，自尊心强",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_taohuadao",
+      "name": "桃花岛",
+      "type": "门派",
+      "location": "location_taohuadao",
+      "sub_divisions": [],
+      "one_line": "黄药师所创门派，以奇门五行、碧波掌法等武功闻名，弟子多遭逐出门墙。"
+    },
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": ["subdiv_jingyipai", "subdiv_wuyipai"],
+      "one_line": "天下第一大帮，洪七公为帮主，黄蓉接任，帮内分为净衣、污衣两派。"
+    },
+    {
+      "id": "faction_tiezhangbang",
+      "name": "铁掌帮",
+      "type": "帮派",
+      "location": "两湖四川一带",
+      "sub_divisions": [],
+      "one_line": "裘千仞所领帮派，威震川湘，帮众杀人越货，私通金国。"
+    },
+    {
+      "id": "faction_jiangnanliuguai",
+      "name": "江南六怪",
+      "type": "侠客组合",
+      "location": "嘉兴",
+      "sub_divisions": [],
+      "one_line": "郭靖的六位师父，结义同门，武功各有擅长。"
+    },
+    {
+      "id": "faction_baituoshan",
+      "name": "白驼山",
+      "type": "门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "欧阳锋所创门派，以蛤蟆功等西域武功著称。"
+    },
+    {
+      "id": "subdiv_jingyipai",
+      "name": "净衣派",
+      "type": "丐帮内部派系",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "丐帮中穿着整洁的一派，由三位长老为首。"
+    },
+    {
+      "id": "subdiv_wuyipai",
+      "name": "污衣派",
+      "type": "丐帮内部派系",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "丐帮中保持乞丐本色的一派，鲁有脚为领袖。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_niujiacun",
+      "name": "牛家村",
+      "region": "临安",
+      "one_line": "故事发生的主要场所，曲灵风旧居与密室所在。"
+    },
+    {
+      "id": "loc_mishi",
+      "name": "密室",
+      "region": "牛家村曲灵风旧居内",
+      "one_line": "曲灵风所建，内有铁箱宝物、遗书及字画，黄蓉与郭靖在此修炼内功。"
+    },
+    {
+      "id": "loc_taohuadao",
+      "name": "桃花岛",
+      "region": "东海",
+      "one_line": "黄药师居所，六怪曾赴约未见其人。"
+    },
+    {
+      "id": "loc_lin'an",
+      "name": "临安",
+      "region": "江南",
+      "one_line": "南宋都城，郭靖与黄蓉在此寻找洪七公未果。"
+    },
+    {
+      "id": "loc_yueyanglou",
+      "name": "岳阳楼",
+      "region": "荆湖南路岳州",
+      "one_line": "郭靖黄蓉在此饮酒观赏洞庭湖，遇鲁有脚及杨康。"
+    },
+    {
+      "id": "loc_shulin",
+      "name": "树林",
+      "region": "牛家村附近",
+      "one_line": "欧阳锋与裘千仞绑缚拖雷等人之处，各方势力在此对峙交锋。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_jiuyinbaiguzhua",
+      "name": "九阴白骨爪",
+      "type": "外功",
+      "faction": "faction_taohuadao",
+      "one_line": "梅超风偷学九阴真经所练武功，临终前自断手腕以弃此功。"
+    },
+    {
+      "id": "skill_cuixinzhang",
+      "name": "摧心掌",
+      "type": "外功",
+      "faction": "faction_taohuadao",
+      "one_line": "梅超风所练九阴真经上武功，临终自断手腕以弃之。"
+    },
+    {
+      "id": "skill_jiuyinjing",
+      "name": "九阴真经",
+      "type": "内功心法",
+      "faction": null,
+      "one_line": "绝世武学秘籍，梅超风偷学后被要求交回，郭靖亦曾修习。"
+    },
+    {
+      "id": "skill_jianglongshibaizhang",
+      "name": "降龙十八掌",
+      "type": "外功",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮绝学，郭靖以此掌击裘千仞使其狼狈不堪。"
+    },
+    {
+      "id": "skill_tiezhangshenggong",
+      "name": "铁掌神功",
+      "type": "外功",
+      "faction": "faction_tiezhangbang",
+      "one_line": "裘千仞所练绝技，曾令衡山派一蹶不振，但裘千仞在本章未真正施展。"
+    },
+    {
+      "id": "skill_hamagong",
+      "name": "蛤蟆功",
+      "type": "内功",
+      "faction": "faction_baituoshan",
+      "one_line": "欧阳锋绝学，此前曾以此功击伤郭靖。"
+    },
+    {
+      "id": "skill_tanzhishentong",
+      "name": "弹指神通",
+      "type": "暗器手法",
+      "faction": "faction_taohuadao",
+      "one_line": "黄药师绝技，以中指弹出铁剑劲射裘千仞。"
+    },
+    {
+      "id": "skill_bibozhangfa",
+      "name": "碧波掌法",
+      "type": "外功",
+      "faction": "faction_taohuadao",
+      "one_line": "桃花岛基础掌法，傻姑偷学曲灵风练功时所会的六七招。"
+    },
+    {
+      "id": "skill_dagoubangfa",
+      "name": "打狗棒法",
+      "type": "外功",
+      "faction": "faction_gaibang",
+      "one_line": "丐帮帮主绝学，黄蓉已习得。"
+    },
+    {
+      "id": "skill_liuetongbibei",
+      "name": "六合通臂拳法",
+      "type": "外功",
+      "faction": null,
+      "one_line": "裘千仞在与黄蓉交手时所用拳法。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_jiuyinzhenjing",
+      "name": "《九阴真经》",
+      "type": "武功秘籍",
+      "owner": null,
+      "one_line": "武学至高经典，梅超风偷学其上武功，黄药师令其交回。"
+    },
+    {
+      "id": "item_dagoubang",
+      "name": "打狗棒",
+      "type": "法杖/兵器",
+      "owner": "char_yangkang",
+      "one_line": "丐帮帮主信物，被杨康夺去，黄药师认为须夺回以免为祸丐帮。"
+    },
+    {
+      "id": "item_jinlongbian",
+      "name": "金龙鞭",
+      "type": "兵器",
+      "owner": "char_hanbaoju",
+      "one_line": "韩宝驹兵器，被黄药师一脚踩住鞭梢无法抽动。"
+    },
+    {
+      "id": "item_xiaohongma",
+      "name": "小红马",
+      "type": "坐骑",
+      "owner": "char_guojing",
+      "one_line": "郭靖的汗血宝马，脚程极快，众人用其赶路追敌。"
+    },
+    {
+      "id": "item_shuaidiao",
+      "name": "白雕",
+      "type": "灵禽",
+      "owner": "char_huazheng",
+      "one_line": "华筝赠予郭靖的一对白雕，负责领路传讯。"
+    },
+    {
+      "id": "item_jindao",
+      "name": "金刀",
+      "type": "信物",
+      "owner": "char_guojing",
+      "one_line": "成吉思汗所赐，象征郭靖蒙古金刀驸马身份。"
+    },
+    {
+      "id": "item_bishou",
+      "name": "匕首",
+      "type": "兵器/信物",
+      "owner": "char_guojing",
+      "one_line": "丘处机所赠匕首。"
+    },
+    {
+      "id": "item_tiezhang",
+      "name": "铁掌令",
+      "type": "信物/令牌",
+      "owner": null,
+      "one_line": "铁掌帮帮主令牌，朱聪从裘千仞怀中扒来，掌心刻'裘'字，掌背刻水纹。"
+    },
+    {
+      "id": "item_shensuojian",
+      "name": "伸缩铁剑",
+      "type": "骗人道具",
+      "owner": null,
+      "one_line": "三截可伸缩环套的假剑，裘千仞用于假装利剑入腹的把戏，被朱聪扒走。"
+    },
+    {
+      "id": "item_shuzhier",
+      "name": "纸猴儿",
+      "type": "信物",
+      "owner": null,
+      "one_line": "周伯通托傻姑转交黄蓉的纸猴，内藏字条称洪七公失踪。"
+    },
+    {
+      "id": "item_huahanshihua",
+      "name": "泼墨山水画",
+      "type": "字画",
+      "owner": "char_guojing",
+      "one_line": "曲灵风从皇宫所盗字画，画中藏武穆遗书线索，韩世忠题岳飞诗。"
+    },
+    {
+      "id": "item_qulingfengtiesu",
+      "name": "曲灵风铁箱",
+      "type": "宝物箱",
+      "owner": null,
+      "one_line": "密室中存放曲灵风从皇宫盗取的珍贵字画器皿。"
+    },
+    {
+      "id": "item_zhenzhulian",
+      "name": "珍珠项链",
+      "type": "珠宝",
+      "owner": "char_huangrong",
+      "one_line": "黄药师从铁箱取出给黄蓉佩戴的颗颗一般大的珍珠串。"
+    },
+    {
+      "id": "item_shujinnang",
+      "name": "蜀锦文囊",
+      "type": "随身物品",
+      "owner": null,
+      "one_line": "欧阳克遗物，上绣白骆驼，黄药师斜挂肩头引起欧阳锋注意。"
+    },
+    {
+      "id": "item_langyayuiling",
+      "name": "狼牙雕翎箭",
+      "type": "兵器",
+      "owner": "char_tuolei",
+      "one_line": "拖雷折断此箭以示与郭靖断义。"
+    }
+  ]
+}
