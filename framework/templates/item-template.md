@@ -3,7 +3,7 @@
 ---
 id: {{id}}
 type: {{type}}                    # weapon(武器)/armor(防具)/pill(丹药)/poison(毒药)/hidden_weapon(暗器)/special(特殊物品) — 随小说进度补充
-rank: {{rank}}                    # 神品/绝品/极品/上品/凡品
+rarity: {{rarity}}                 # 绝世神兵/稀世珍品/上乘佳品/寻常凡品
 owner: "[[{{owner}}]]"            # 当前持有者
 first_appearance: {{first_appearance}}  # 首次出场章节号
 ---

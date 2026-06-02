@@ -134,6 +134,10 @@ def main():
     print("生成事件卡片...")
     events_dir = os.path.join(NOVELS_DIR, 'events')
     os.makedirs(events_dir, exist_ok=True)
+    # 清空旧文件
+    for f in os.listdir(events_dir):
+        if f.endswith('.md'):
+            os.remove(os.path.join(events_dir, f))
     
     # 重名事件用 id 作文件名
     name_counts = {}
