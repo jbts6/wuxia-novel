@@ -1,0 +1,480 @@
+{
+  "chapter": 23,
+  "characters": [
+    {
+      "id": "char_guo_jing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "蒙古长大、习武的青年侠士",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "背洪七公进京、在瀑布洞口以降龙十八掌和空明拳死守武穆遗书，被杨康匕首刺伤、欧阳锋蛤蟆功击倒。",
+      "personality": "忠厚老实、重情重义、面对强敌毫不退缩。",
+      "known_skills": [
+        "skill_jiang_long_shi_ba_zhang",
+        "skill_kong_ming_quan",
+        "skill_yi_jin_duan_gu_pian"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_rong",
+      "name": "黄蓉",
+      "alias": [
+        "蓉儿"
+      ],
+      "identity": "桃花岛主黄药师之女，丐帮帮主洪七公之徒",
+      "faction": "faction_tao_hua_dao",
+      "role": "protagonist",
+      "one_line": "发现傻姑会使碧波掌法并探明密室骸骨来历，入宫大闹引开敌人，背负重伤郭靖逃回牛家村。",
+      "personality": "聪慧机敏、心思缜密、对郭靖深情不移。",
+      "known_skills": [
+        "skill_bi_bo_zhang_fa",
+        "skill_da_gou_bang_fa",
+        "skill_yi_jin_duan_gu_pian"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "name": "洪七公",
+      "alias": [
+        "老叫化"
+      ],
+      "identity": "丐帮帮主，五绝之一'北丐'",
+      "faction": "faction_gai_bang",
+      "role": "companion",
+      "one_line": "被欧阳锋透骨打穴法所伤后病重，临终心愿只想吃一碗鸳鸯五珍脍，在御厨梁上等候厨子。",
+      "personality": "豁达洒脱、贪吃豪迈、视死如归。",
+      "known_skills": [
+        "skill_jiang_long_shi_ba_zhang",
+        "skill_da_gou_bang_fa"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhou_bo_tong",
+      "name": "周伯通",
+      "alias": [
+        "老顽童"
+      ],
+      "identity": "全真教王重阳师弟，武功绝顶",
+      "faction": null,
+      "role": "companion",
+      "one_line": "一路上嬉闹不已，进宫后留在御厨戴面具玩耍，答应以双手两种拳法对付欧阳锋。",
+      "personality": "天真烂漫、童心未泯、爱热闹起哄。",
+      "known_skills": [
+        "skill_kong_ming_quan"
+      ],
+      "related_skills": [
+        "skill_jiu_yin_zhen_jing"
+      ]
+    },
+    {
+      "id": "char_sha_gu",
+      "name": "傻姑",
+      "alias": [],
+      "identity": "牛家村荒店少女，疑为曲灵风之女或弟子",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "在荒村野店独居，会使六七招碧波掌法，被黄蓉制伏后拔出郭靖腰间匕首，答应替二人保守躲入密室的秘密。",
+      "personality": "痴痴呆呆、天真纯朴、不谙世事。",
+      "known_skills": [
+        "skill_bi_bo_zhang_fa"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_feng",
+      "name": "欧阳锋",
+      "alias": [
+        "老毒物",
+        "西毒"
+      ],
+      "identity": "西域白驼山主，五绝之一'西毒'",
+      "faction": null,
+      "role": "villain",
+      "one_line": "率众入皇宫盗取武穆遗书，在瀑布洞口以蛤蟆功与郭靖对掌，借机逼郭靖使出空明拳以研习九阴真经。",
+      "personality": "阴险狡诈、武功绝顶、一心想弄通九阴真经。",
+      "known_skills": [
+        "skill_ha_ma_gong",
+        "skill_tou_gu_da_xue_fa"
+      ],
+      "related_skills": [
+        "skill_jiu_yin_zhen_jing"
+      ]
+    },
+    {
+      "id": "char_wan_yan_hong_lie",
+      "name": "完颜洪烈",
+      "alias": [],
+      "identity": "金国六王子",
+      "faction": null,
+      "role": "villain",
+      "one_line": "根据岳飞密函和宫廷文献推断武穆遗书藏于翠寒堂东瀑布后，率众闯入皇宫盗书。",
+      "personality": "老谋深算、志在灭宋、临危不乱。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yang_kang",
+      "name": "杨康",
+      "alias": [
+        "康儿"
+      ],
+      "identity": "完颜洪烈养子",
+      "faction": null,
+      "role": "villain",
+      "one_line": "以九阴白爪功杀卫士，趁郭靖与欧阳锋对峙时以匕首刺伤郭靖腰间。",
+      "personality": "阴毒狠辣、忘恩负义、杀心极盛。",
+      "known_skills": [
+        "skill_jiu_yin_bai_zhua_gong"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_peng_lian_hu",
+      "name": "彭连虎",
+      "alias": [],
+      "identity": "完颜洪烈手下高手",
+      "faction": null,
+      "role": "villain",
+      "one_line": "入宫后在屋顶追截黄蓉，并抄接灵智上人飞出的铜钹以防惊动宫卫。",
+      "personality": "老练沉稳。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sha_tong_tian",
+      "name": "沙通天",
+      "alias": [
+        "鬼门龙王"
+      ],
+      "identity": "完颜洪烈手下高手，水性极佳",
+      "faction": null,
+      "role": "villain",
+      "one_line": "率先钻入瀑布探路发现铁门洞口，后被洞中郭靖掌力逼出。",
+      "personality": "勇猛莽撞。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ling_zhi_shang_ren",
+      "name": "灵智上人",
+      "alias": [],
+      "identity": "西藏僧人，完颜洪烈手下高手",
+      "faction": null,
+      "role": "villain",
+      "one_line": "穿红袍冲入瀑布与洞中守卫激斗，被打出后袈裟和铜钹均飞出水帘。",
+      "personality": "暴躁好斗。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liang_zi_weng",
+      "name": "梁子翁",
+      "alias": [],
+      "identity": "完颜洪烈手下高手",
+      "faction": null,
+      "role": "villain",
+      "one_line": "跟沙通天跃入水帘后被棒端扫中脚胫，跌出瀑布之外。",
+      "personality": "谨慎但武功不弱。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hou_tong_hai",
+      "name": "侯通海",
+      "alias": [
+        "三头蛟"
+      ],
+      "identity": "沙通天师弟，完颜洪烈手下",
+      "faction": null,
+      "role": "villain",
+      "one_line": "强冲入瀑布后被人一掌打出，摔得屁股剧痛，大骂不止。",
+      "personality": "鲁莽冲动、不自量力。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qu_ling_feng",
+      "name": "曲灵风",
+      "alias": [],
+      "identity": "桃花岛黄药师大弟子，已故",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "骸骨躺在密室地下，腿骨被黄药师打折，偷盗宫中珍宝藏于铁箱，与石彦明同归于尽。",
+      "personality": "武功最强、最得师父欢心。",
+      "known_skills": [
+        "skill_bi_bo_zhang_fa"
+      ],
+      "related_skills": []
+    },
+    {
+      "id": "char_shi_yan_ming",
+      "name": "石彦明",
+      "alias": [],
+      "identity": "钦赐武功大夫忠州防御使带御器械，已故",
+      "faction": null,
+      "role": "npc",
+      "one_line": "骸骨伏于铁箱上，被曲灵风临死前掷刀刺死，留有金牌为证。",
+      "personality": "不详。",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_tao_hua_dao",
+      "name": "桃花岛",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "黄蓉出身门派，碧波掌法为其入门武学，曲灵风、傻姑均与此岛有渊源。"
+    },
+    {
+      "id": "faction_gai_bang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "洪七公为帮主，打狗棒法为丐帮绝学，黄蓉亦习得。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_lin_an",
+      "name": "临安",
+      "region": "南宋都城",
+      "one_line": "南宋京师，四人自候潮门进城，皇宫、御街、西湖均在此处。"
+    },
+    {
+      "id": "loc_niu_jia_cun",
+      "name": "牛家村",
+      "region": "临安郊外",
+      "one_line": "郭靖故居所在荒村，傻姑独居的破败野店即在此处，密室藏有珍宝骸骨。"
+    },
+    {
+      "id": "loc_huang_gong",
+      "name": "皇宫",
+      "region": "临安城内",
+      "one_line": "南宋大内禁宫，金钉朱户画栋雕栏，四人夜入御厨偷食，完颜洪烈率众闯入盗书。"
+    },
+    {
+      "id": "loc_cui_han_tang",
+      "name": "翠寒堂",
+      "region": "皇宫内",
+      "one_line": "皇宫中茉莉素馨环绕的华堂，瀑布在其东十五步，武穆遗书藏于瀑布后山洞。"
+    },
+    {
+      "id": "loc_yu_chu_fang",
+      "name": "御厨房",
+      "region": "皇宫嘉明殿之东",
+      "one_line": "皇宫御厨，洪七公心心念念的鸳鸯五珍脍即由此处出品，四人夜间潜入偷食。"
+    },
+    {
+      "id": "loc_xi_hu",
+      "name": "西湖",
+      "region": "临安城西",
+      "one_line": "二人饮酒赏荷处，断桥残雪为十景之一，湖畔多风花雪月诗词。"
+    },
+    {
+      "id": "loc_duan_qiao",
+      "name": "断桥",
+      "region": "西湖",
+      "one_line": "西湖十景之一'断桥残雪'所在，桥边酒家屏风题有俞国宝词作，被郭靖一脚踢碎。"
+    },
+    {
+      "id": "loc_fei_lai_feng",
+      "name": "飞来峰",
+      "region": "临安",
+      "one_line": "峰前有翠微亭，亭中石碑刻有岳飞诗作，由韩世忠题额。"
+    },
+    {
+      "id": "loc_cui_wei_ting",
+      "name": "翠微亭",
+      "region": "飞来峰前",
+      "one_line": "韩世忠为纪念岳飞所建，亭中石碑刻岳飞'经年尘土满征衣'一诗。"
+    },
+    {
+      "id": "loc_qian_tang_jiang",
+      "name": "钱塘江",
+      "region": "临安附近",
+      "one_line": "四人乘骡车过了钱塘江后到达临安郊外。"
+    },
+    {
+      "id": "loc_jin_hua_ju",
+      "name": "锦华居",
+      "region": "临安御街西首",
+      "one_line": "四人在临安城中所住的大客店。"
+    },
+    {
+      "id": "loc_guan_gai_ju",
+      "name": "冠盖居",
+      "region": "临安西市场",
+      "one_line": "完颜洪烈、欧阳锋、杨康三人入住的客店。"
+    },
+    {
+      "id": "loc_li_zheng_men",
+      "name": "丽正门",
+      "region": "临安皇城",
+      "one_line": "皇城正门，四人曾携骡车至此门前。"
+    },
+    {
+      "id": "loc_jia_ming_dian",
+      "name": "嘉明殿",
+      "region": "皇宫内",
+      "one_line": "供进御膳的所在，与寝宫勤政殿相邻。"
+    },
+    {
+      "id": "loc_qin_zheng_dian",
+      "name": "勤政殿",
+      "region": "皇宫内",
+      "one_line": "皇帝寝宫所在。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_ha_ma_gong",
+      "name": "蛤蟆功",
+      "type": "内功",
+      "faction": "",
+      "one_line": "欧阳锋毕生功力所聚的绝学，双掌齐发威力惊人，曾重伤郭靖和洪七公。"
+    },
+    {
+      "id": "skill_jiang_long_shi_ba_zhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gai_bang",
+      "one_line": "郭靖以'震惊百里''飞龙在天'等招与欧阳锋硬拚，并用以打塌酒家大柱。"
+    },
+    {
+      "id": "skill_bi_bo_zhang_fa",
+      "name": "碧波掌法",
+      "type": "掌法",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "桃花岛入门武学，掌势如波，傻姑只会六七招且手法笨拙，曲灵风所传。"
+    },
+    {
+      "id": "skill_kong_ming_quan",
+      "name": "空明拳",
+      "type": "拳法",
+      "faction": "",
+      "one_line": "郭靖在瀑布洞口以空明拳还击欧阳锋，掌影飘忽手法离奇，欧阳锋借机观摩印证。"
+    },
+    {
+      "id": "skill_da_gou_bang_fa",
+      "name": "打狗棒法",
+      "type": "棒法",
+      "faction": "faction_gai_bang",
+      "one_line": "黄蓉以打狗棒法在瀑布后守洞口，变化奇幻妙用无穷，缠得沙通天等人手忙脚乱。"
+    },
+    {
+      "id": "skill_tou_gu_da_xue_fa",
+      "name": "透骨打穴法",
+      "type": "点穴",
+      "faction": "",
+      "one_line": "欧阳锋以此法点中洪七公，穴道虽解内伤却加重一层。"
+    },
+    {
+      "id": "skill_yi_jin_duan_gu_pian",
+      "name": "易筋锻骨篇",
+      "type": "内功",
+      "faction": "",
+      "one_line": "九阴真经中的修习法门，黄蓉练后功力大进，郭靖亦凭此进境神速。"
+    },
+    {
+      "id": "skill_jiu_yin_bai_zhua_gong",
+      "name": "九阴白爪功",
+      "type": "擒拿手",
+      "faction": "",
+      "one_line": "杨康以此功双手插入两名卫士顶门，一举奏功，血腥气冲鼻。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_jiu_hua_yu_lu_wan",
+      "name": "九花玉露丸",
+      "type": "pill",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉喂洪七公和郭靖服用的灵药，可止痛减苦。"
+    },
+    {
+      "id": "item_tie_ba_gua",
+      "name": "铁八卦",
+      "type": "other",
+      "owner": null,
+      "one_line": "密室中骸骨背心肋骨处取出的铁片，为曲灵风遗物。"
+    },
+    {
+      "id": "item_jian_dao",
+      "name": "尖刀",
+      "type": "weapon",
+      "owner": null,
+      "one_line": "插在铁箱骸骨肋骨间的长刀，刀刃刻有'曲'字，为曲灵风刺死石彦明所用。"
+    },
+    {
+      "id": "item_huang_jin_pai",
+      "name": "黄金牌子",
+      "type": "other",
+      "owner": null,
+      "one_line": "镶拇指大玛瑙的金牌，刻有'钦赐武功大夫忠州防御使带御器械石彦明'字样。"
+    },
+    {
+      "id": "item_tie_xiang",
+      "name": "铁箱",
+      "type": "other",
+      "owner": null,
+      "one_line": "密室中装满珠玉珍玩、青铜古物和书画卷轴的宝箱，有夹层。"
+    },
+    {
+      "id": "item_wu_mu_yi_shu",
+      "name": "武穆遗书",
+      "type": "book",
+      "owner": null,
+      "one_line": "岳飞遗书，藏于皇宫翠寒堂东瀑布后山洞石盒中，完颜洪烈率众闯宫欲夺，郭靖舍命守护。"
+    },
+    {
+      "id": "item_shi_he",
+      "name": "石盒",
+      "type": "other",
+      "owner": null,
+      "one_line": "山洞中两尺见方的石盒，盒口贴有封条，内藏武穆遗书。"
+    },
+    {
+      "id": "item_mian_ju",
+      "name": "面具",
+      "type": "other",
+      "owner": "char_zhou_bo_tong",
+      "one_line": "黄蓉赠与周伯通的面具，周伯通戴之扮演判官小鬼、城隍菩萨取乐。"
+    },
+    {
+      "id": "item_bi_shou",
+      "name": "匕首",
+      "type": "weapon",
+      "owner": "char_yang_kang",
+      "one_line": "杨康从靴筒拔出刺入郭靖左腰的利刃，后被傻姑猛力拔出。"
+    },
+    {
+      "id": "item_luo_che",
+      "name": "骡车",
+      "type": "other",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉兑了首饰买的车，让洪七公安卧养伤，四人乘车往临安进发。"
+    },
+    {
+      "id": "item_jin_zhen",
+      "name": "金针",
+      "type": "hidden_weapon",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉用来刺穴止血并发出伤敌的暗器，曾射倒数名追赶的宫中护卫。"
+    },
+    {
+      "id": "item_tong_bo",
+      "name": "铜钹",
+      "type": "weapon",
+      "owner": "char_ling_zhi_shang_ren",
+      "one_line": "灵智上人的兵器，被打飞出水帘后由彭连虎抄住以防作声惊动宫卫。"
+    }
+  ]
+}

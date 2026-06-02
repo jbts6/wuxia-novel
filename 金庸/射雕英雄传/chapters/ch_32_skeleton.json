@@ -1,0 +1,225 @@
+{
+  "chapter": 32,
+  "characters": [
+    {
+      "id": "char_guojing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "蒙古金刀驸马、江南七怪弟子",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "与黄蓉乘船东行，途中听穆念慈讲述杨康往事，在青龙滩与裘千仞激战，救瑛姑脱险",
+      "personality": "忠厚老实、重情重义、心思迟钝但心地善良",
+      "known_skills": ["skill_jiuyinzhenjing", "skill_xianglongshiba-zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huangrong",
+      "name": "黄蓉",
+      "alias": [],
+      "identity": "桃花岛主黄药师之女、洪七公弟子",
+      "faction": null,
+      "role": "companion",
+      "one_line": "与郭靖同行，机智聪慧，以竹棒和金针御敌，伤后未愈仍强撑战斗，深爱郭靖却忧心离别",
+      "personality": "聪明伶俐、古灵精怪、深情细腻、任性中带倔强",
+      "known_skills": ["skill_dagou-bangfa"],
+      "related_skills": ["skill_jinzhenshu"]
+    },
+    {
+      "id": "char_munianci",
+      "name": "穆念慈",
+      "alias": [],
+      "identity": "杨铁心义女",
+      "faction": null,
+      "role": "npc",
+      "one_line": "向郭靖黄蓉讲述杨康叛国往事，将铁掌帮帮史册子交托郭靖后独自离去",
+      "personality": "刚烈自尊、深爱杨康却无法容忍其卖国行径",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yangkang",
+      "name": "杨康",
+      "alias": ["小王爷"],
+      "identity": "完颜洪烈养子、杨铁心亲子",
+      "faction": "f_tiezhangbang",
+      "role": "villain",
+      "one_line": "在穆念慈回忆中展现其勾结铁掌帮、密谋迎合金兵南下的卖国行径",
+      "personality": "贪慕富贵、趋炎附势、虚伪狡诈",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuqianren",
+      "name": "裘千仞",
+      "alias": ["铁掌水上飘"],
+      "identity": "铁掌帮帮主",
+      "faction": "f_tiezhangbang",
+      "role": "villain",
+      "one_line": "在青龙滩江面上以铁掌功夫迎战郭靖黄蓉，被瑛姑认出后拼死搏斗，最终跳水逃上岸",
+      "personality": "武功高强、阴险狠辣、临危尚能冷静脱身",
+      "known_skills": ["skill_tiezhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yinggu",
+      "name": "瑛姑",
+      "alias": ["神算子"],
+      "identity": "隐居黑沼的奇女子",
+      "faction": null,
+      "role": "npc",
+      "one_line": "被铁掌帮用迷药擒上船，获黄蓉解救后认出裘千仞的笑声，疯狂扑击裘千仞意图同归于尽",
+      "personality": "偏执疯狂、爱恨分明、为子报仇不顾一切",
+      "known_skills": ["skill_xiaoqinnashou"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiaozhaizhu",
+      "name": "乔寨主",
+      "alias": [],
+      "identity": "铁掌帮寨主",
+      "faction": "f_tiezhangbang",
+      "role": "villain",
+      "one_line": "铁掌帮小头目，在夜间密谋于青龙滩设伏谋害郭靖黄蓉",
+      "personality": "阴险狡猾、听命行事",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "f_gaibang",
+      "name": "丐帮",
+      "type": "江湖帮派",
+      "location": null,
+      "sub_divisions": ["净衣派", "污衣派"],
+      "one_line": "天下第一大帮，因洪七公传位引发内乱，净衣派与污衣派争斗不休"
+    },
+    {
+      "id": "f_tiezhangbang",
+      "name": "铁掌帮",
+      "type": "江湖帮派",
+      "location": "loc_tiezhangshan",
+      "sub_divisions": [],
+      "one_line": "盘踞铁掌山的帮派，原为上官剑南所创的忠义帮会，至裘千仞时已沦为勾结金人的势力"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_yuanjiang",
+      "name": "沅江",
+      "region": "湘西",
+      "one_line": "水流湍急、滩险浪恶，郭靖黄蓉乘船东行与裘千仞激战的主要场景"
+    },
+    {
+      "id": "loc_qinglongtan",
+      "name": "青龙滩",
+      "region": "湘西沅江",
+      "one_line": "沅江中凶险急滩，铁掌帮设伏之处，梢公在此砍断船舵制造险情"
+    },
+    {
+      "id": "loc_qinglongji",
+      "name": "青龙集",
+      "region": "湘西沅江畔",
+      "one_line": "青龙滩旁的码头小镇，船只在此由纤夫拉过险段"
+    },
+    {
+      "id": "loc_tiezhangshan",
+      "name": "铁掌山",
+      "region": "湘西",
+      "one_line": "铁掌帮总坛所在，中指峰藏有武穆遗书"
+    },
+    {
+      "id": "loc_junshan",
+      "name": "君山",
+      "region": "岳州洞庭湖",
+      "one_line": "丐帮大会召开之地，杨康在此因帮中内乱而退让帮主之位"
+    },
+    {
+      "id": "loc_yuezhou",
+      "name": "岳州",
+      "region": "湖南",
+      "one_line": "丐帮大会前穆念慈等候杨康之处"
+    },
+    {
+      "id": "loc_heizhao",
+      "name": "黑沼",
+      "region": "不详",
+      "one_line": "瑛姑隐居之所，曾收留郭靖黄蓉，裘千仞为此与瑛姑结怨"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_tiezhang",
+      "name": "铁掌",
+      "type": "掌法",
+      "faction": "f_tiezhangbang",
+      "one_line": "铁掌帮镇帮绝学，掌法精奇巧妙，裘千仞凭此与郭靖黄蓉对战"
+    },
+    {
+      "id": "skill_xianglongshiba-zhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "f_gaibang",
+      "one_line": "丐帮绝学，郭靖以其中飞龙在天等招式与裘千仞对敌"
+    },
+    {
+      "id": "skill_dagou-bangfa",
+      "name": "打狗棒法",
+      "type": "棒法",
+      "faction": "f_gaibang",
+      "one_line": "丐帮帮主绝学，黄蓉以竹棒施展，配合封字诀攻守兼备"
+    },
+    {
+      "id": "skill_jiuyinzhenjing",
+      "name": "九阴真经",
+      "type": "内功",
+      "faction": null,
+      "one_line": "郭靖在船中默记一灯大师所授梵文内功，依法修习后功力又深一层"
+    },
+    {
+      "id": "skill_xiaoqinnashou",
+      "name": "小擒拿手",
+      "type": "擒拿",
+      "faction": null,
+      "one_line": "瑛姑施展此技从黄蓉手中夺过钢刀"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_tiezhang-bangshi",
+      "name": "铁掌帮帮史册子",
+      "type": "书籍",
+      "owner": "char_guojing",
+      "one_line": "铁掌帮第十三代帮主上官剑南所书帮中大事记，穆念慈从裘千丈处取得后转交郭靖"
+    },
+    {
+      "id": "item_dagou-bang",
+      "name": "竹棒（打狗棒）",
+      "type": "兵器",
+      "owner": "char_huangrong",
+      "one_line": "丐帮帮主信物，黄蓉持此施展打狗棒法御敌"
+    },
+    {
+      "id": "item_jinzhen",
+      "name": "金针",
+      "type": "暗器",
+      "owner": "char_huangrong",
+      "one_line": "黄蓉以金针射伤船上欲行凶的黑衣汉子手腕"
+    },
+    {
+      "id": "item_zhuchou",
+      "name": "竹筹",
+      "type": "兵器",
+      "owner": "char_yinggu",
+      "one_line": "瑛姑的随身兵器，双筹纵点横打攻击黄蓉"
+    },
+    {
+      "id": "item_ciping",
+      "name": "瓷瓶",
+      "type": "药物容器",
+      "owner": null,
+      "one_line": "裘千丈交给杨康的迷药瓶，杨康向穆念慈坦白后将其掷出窗外"
+    }
+  ]
+}

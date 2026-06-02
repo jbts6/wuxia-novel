@@ -35,53 +35,84 @@ MANUAL_SKILL_ALIASES = {
 
 
 def load_all_chapters():
-    """加载所有章节的骨架+深度数据"""
+    """加载所有章节数据（兼容新单文件格式和旧骨架+精细双文件格式）"""
     chapters = []
     
-    # 自动检测章节数量
-    chapter_files = glob.glob(os.path.join(CHAPTERS_DIR, "ch_*_skeleton.json"))
-    max_chapter = 0
-    for f in chapter_files:
-        basename = os.path.basename(f)
-        try:
-            num = int(basename.split('_')[1])
-            max_chapter = max(max_chapter, num)
-        except:
-            pass
+    # 自动检测章节数量（优先新格式 ch_XX.json，回退到旧格式 ch_XX_skeleton.json）
+    new_files = glob.glob(os.path.join(CHAPTERS_DIR, "ch_??.json"))
+    old_files = glob.glob(os.path.join(CHAPTERS_DIR, "ch_*_skeleton.json"))
     
-    if max_chapter == 0:
-        print(f"⚠️ 警告: 在 {CHAPTERS_DIR} 中未找到骨架文件")
-        return chapters
+    if new_files:
+        # 新格式：单文件 ch_XX.json
+        max_chapter = 0
+        for f in new_files:
+            basename = os.path.basename(f)
+            try:
+                num = int(basename.split('_')[1].split('.')[0])
+                max_chapter = max(max_chapter, num)
+            except:
+                pass
+        
+        print(f"检测到 {max_chapter} 个章节（新格式）")
+        
+        for i in range(1, max_chapter + 1):
+            ch_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}.json")
+            if os.path.exists(ch_path):
+                with open(ch_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                chapters.append({
+                    'num': i,
+                    'skeleton': data,
+                    'deep': data,
+                    'items_detail': None,
+                    'combined': True
+                })
+            else:
+                chapters.append({'num': i, 'skeleton': None, 'deep': None, 'items_detail': None, 'combined': False})
     
-    print(f"检测到 {max_chapter} 个章节")
-    
-    for i in range(1, max_chapter + 1):
-        sk_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_skeleton.json")
-        dp_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_deep.json")
-        items_detail_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_items_detail.json")
+    elif old_files:
+        # 旧格式：ch_XX_skeleton.json + ch_XX_deep.json
+        max_chapter = 0
+        for f in old_files:
+            basename = os.path.basename(f)
+            try:
+                num = int(basename.split('_')[1])
+                max_chapter = max(max_chapter, num)
+            except:
+                pass
+        
+        print(f"检测到 {max_chapter} 个章节（旧格式）")
+        
+        for i in range(1, max_chapter + 1):
+            sk_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_skeleton.json")
+            dp_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_deep.json")
+            items_detail_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_items_detail.json")
 
-        sk_data = None
-        dp_data = None
-        items_detail_data = None
+            sk_data = None
+            dp_data = None
+            items_detail_data = None
 
-        if os.path.exists(sk_path):
-            with open(sk_path, 'r', encoding='utf-8') as f:
-                sk_data = json.load(f)
+            if os.path.exists(sk_path):
+                with open(sk_path, 'r', encoding='utf-8') as f:
+                    sk_data = json.load(f)
 
-        if os.path.exists(dp_path):
-            with open(dp_path, 'r', encoding='utf-8') as f:
-                dp_data = json.load(f)
+            if os.path.exists(dp_path):
+                with open(dp_path, 'r', encoding='utf-8') as f:
+                    dp_data = json.load(f)
 
-        if os.path.exists(items_detail_path):
-            with open(items_detail_path, 'r', encoding='utf-8') as f:
-                items_detail_data = json.load(f)
+            if os.path.exists(items_detail_path):
+                with open(items_detail_path, 'r', encoding='utf-8') as f:
+                    items_detail_data = json.load(f)
 
-        chapters.append({
-            'num': i,
-            'skeleton': sk_data,
-            'deep': dp_data,
-            'items_detail': items_detail_data
-        })
+            chapters.append({
+                'num': i,
+                'skeleton': sk_data,
+                'deep': dp_data,
+                'items_detail': items_detail_data,
+                'combined': False
+            })
+    else:
+        print(f"⚠️ 警告: 在 {CHAPTERS_DIR} 中未找到章节文件")
 
     return chapters
 
@@ -207,6 +238,53 @@ def rewrite_skill_refs(value, aliases):
     return value
 
 
+def merge_items_by_name(items):
+    """按名称合并重复物品：同名物品综合所有章的信息，保留最佳 ID"""
+    by_name = {}
+    for item in items:
+        name = item.get('name', '')
+        if not name:
+            by_name.setdefault(item.get('id', ''), []).append(item)
+            continue
+        by_name.setdefault(name, []).append(item)
+
+    merged = []
+    for name, group in by_name.items():
+        if len(group) == 1:
+            merged.append(group[0])
+            continue
+
+        # 多个同名物品：合并为一个
+        # 选择最佳 ID：优先 char_xxx 格式中最短的，否则第一个
+        best = min(group, key=lambda x: (len(x.get('id', '')), x.get('id', '')))
+        result = dict(best)
+
+        for item in group:
+            if item is best:
+                continue
+            for k, v in item.items():
+                if k == 'id' or k == 'name':
+                    continue
+                if isinstance(v, list) and isinstance(result.get(k), list):
+                    existing = set(str(x) for x in result[k])
+                    for x in v:
+                        if str(x) not in existing:
+                            result[k].append(x)
+                elif isinstance(v, str) and v and v != result.get(k, ''):
+                    # 字符串字段：拼接不同值
+                    existing = result.get(k, '')
+                    if existing and v not in existing:
+                        result[k] = existing + '；' + v
+                    elif not existing:
+                        result[k] = v
+                elif v is not None and v != '' and v != [] and v != result.get(k):
+                    result[k] = v
+
+        merged.append(result)
+
+    return merged
+
+
 def extract_techniques_from_skills(skills):
     """从合并后的 skills 数据中提取并去重 techniques。"""
     techniques_by_id = {}
@@ -226,7 +304,7 @@ def extract_techniques_from_skills(skills):
 
 
 def merge_all(chapters):
-    """合并所有章节数据"""
+    """合并所有章节数据（兼容新单文件格式和旧双文件格式）"""
     all_characters = []
     all_factions = []
     all_locations = []
@@ -236,8 +314,24 @@ def merge_all(chapters):
     all_events = []
     all_dialogues = []
 
+    is_combined = any(ch.get('combined') for ch in chapters)
+
     for ch in chapters:
-        if ch['skeleton']:
+        if not ch.get('skeleton'):
+            continue
+
+        if is_combined:
+            # 新格式：characters/skills/items 已包含全部字段，直接合并
+            sk = ch['skeleton']
+            all_characters = merge_list(all_characters, sk.get('characters', []))
+            all_factions = merge_list(all_factions, sk.get('factions', []))
+            all_locations = merge_list(all_locations, sk.get('locations', []))
+            all_skills = merge_list(all_skills, sk.get('skills', []))
+            all_items = merge_list(all_items, sk.get('items', []))
+            all_events.extend(sk.get('events', []))
+            all_dialogues.extend(sk.get('dialogues', []))
+        else:
+            # 旧格式：先合并骨架，再叠加精细数据
             sk = ch['skeleton']
             all_characters = merge_list(all_characters, sk.get('characters', []))
             all_factions = merge_list(all_factions, sk.get('factions', []))
@@ -245,63 +339,62 @@ def merge_all(chapters):
             all_skills = merge_list(all_skills, sk.get('skills', []))
             all_items = merge_list(all_items, sk.get('items', []))
 
-        if ch['deep']:
-            dp = ch['deep']
-            # 合并详细数据到已有条目
-            for detail in dp.get('characters_detail', []):
-                for char in all_characters:
-                    if char['id'] == detail['id']:
+            if ch.get('deep'):
+                dp = ch['deep']
+                for detail in dp.get('characters_detail', []):
+                    for char in all_characters:
+                        if char['id'] == detail['id']:
+                            for k, v in detail.items():
+                                if k == 'id': continue
+                                if isinstance(v, list) and isinstance(char.get(k), list):
+                                    existing = set(str(x) for x in char[k])
+                                    for x in v:
+                                        if str(x) not in existing: char[k].append(x)
+                                elif v is not None and v != '': char[k] = v
+                            break
+
+                for detail in dp.get('skills_detail', []):
+                    for skill in all_skills:
+                        if skill['id'] == detail['id']:
+                            for k, v in detail.items():
+                                if k == 'id': continue
+                                if isinstance(v, list) and isinstance(skill.get(k), list):
+                                    existing = set(str(x) for x in skill[k])
+                                    for x in v:
+                                        if str(x) not in existing: skill[k].append(x)
+                                elif v is not None and v != '': skill[k] = v
+                            break
+
+                all_techniques.extend(dp.get('techniques', []))
+                all_events.extend(dp.get('events', []))
+                all_dialogues.extend(dp.get('dialogues', []))
+
+            item_details = []
+            if ch.get('deep'): item_details.extend(ch['deep'].get('items_detail', []))
+            if ch.get('items_detail'): item_details.extend(ch['items_detail'].get('items_detail', []))
+
+            for detail in item_details:
+                for item in all_items:
+                    if item['id'] == detail['id']:
                         for k, v in detail.items():
-                            if k == 'id':
-                                continue
-                            if isinstance(v, list) and isinstance(char.get(k), list):
-                                existing = set(str(x) for x in char[k])
+                            if k == 'id': continue
+                            if isinstance(v, list) and isinstance(item.get(k), list):
+                                existing = set(str(x) for x in item[k])
                                 for x in v:
-                                    if str(x) not in existing:
-                                        char[k].append(x)
-                            elif v is not None and v != '':
-                                char[k] = v
+                                    if str(x) not in existing: item[k].append(x)
+                            elif v is not None and v != '': item[k] = v
                         break
 
-            for detail in dp.get('skills_detail', []):
-                for skill in all_skills:
-                    if skill['id'] == detail['id']:
-                        for k, v in detail.items():
-                            if k == 'id':
-                                continue
-                            if isinstance(v, list) and isinstance(skill.get(k), list):
-                                existing = set(str(x) for x in skill[k])
-                                for x in v:
-                                    if str(x) not in existing:
-                                        skill[k].append(x)
-                            elif v is not None and v != '':
-                                skill[k] = v
-                        break
 
-            all_techniques.extend(dp.get('techniques', []))
-            all_events.extend(dp.get('events', []))
-            all_dialogues.extend(dp.get('dialogues', []))
+    # 按名称合并重复角色：同名角色取最佳 ID，综合所有章的信息
+    all_characters = merge_items_by_name(all_characters)
 
-        item_details = []
-        if ch['deep']:
-            item_details.extend(ch['deep'].get('items_detail', []))
-        if ch.get('items_detail'):
-            item_details.extend(ch['items_detail'].get('items_detail', []))
+        # 按名称合并重复门派和地点
+    all_factions = merge_items_by_name(all_factions)
+    all_locations = merge_items_by_name(all_locations)
 
-        for detail in item_details:
-            for item in all_items:
-                if item['id'] == detail['id']:
-                    for k, v in detail.items():
-                        if k == 'id':
-                            continue
-                        if isinstance(v, list) and isinstance(item.get(k), list):
-                            existing = set(str(x) for x in item[k])
-                            for x in v:
-                                if str(x) not in existing:
-                                    item[k].append(x)
-                        elif v is not None and v != '':
-                            item[k] = v
-                    break
+        # 按名称合并重复物品：同名物品取最佳 ID，综合所有章的信息
+    all_items = merge_items_by_name(all_items)
 
     all_skills, skill_aliases = normalize_skills(all_skills)
     all_characters = rewrite_skill_refs(all_characters, skill_aliases)
@@ -334,6 +427,31 @@ def save_merged(data):
         print(f"保存 {len(items)} 个 {key} 到 {output_path}")
 
 
+def cleanup_invalid_refs(data):
+    """清理 items/characters 中引用了不存在的 skill ID"""
+    valid_skill_ids = set(s.get('id') for s in data.get('skills', []))
+    cleaned = 0
+
+    # 清理 items 的 related_skills
+    for item in data.get('items', []):
+        before = len(item.get('related_skills', []))
+        item['related_skills'] = [sid for sid in item.get('related_skills', []) if sid in valid_skill_ids]
+        if len(item.get('related_skills', [])) != before:
+            cleaned += 1
+
+    # 清理 characters 的 known_skills / related_skills
+    for char in data.get('characters', []):
+        for key in ('known_skills', 'related_skills'):
+            before = len(char.get(key, []))
+            char[key] = [sid for sid in char.get(key, []) if sid in valid_skill_ids]
+            if len(char.get(key, [])) != before:
+                cleaned += 1
+
+    if cleaned > 0:
+        print(f"  🧹 清理了 {cleaned} 个无效技能引用")
+    return data
+
+
 def main():
     print(f"📂 小说目录: {NOVEL_DIR}")
     print("加载章节数据...")
@@ -347,6 +465,7 @@ def main():
     merged = merge_all(chapters)
 
     print("保存结果...")
+    merged = cleanup_invalid_refs(merged)
     save_merged(merged)
 
     # 更新进度

@@ -1,0 +1,493 @@
+{
+  "chapter": 13,
+  "characters": [
+    {
+      "id": "char_guo_jing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "蒙古长大、洪七公弟子",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "与黄蓉游太湖至归云庄，旁观陆冠英斗完颜康、裘千仞炫技，目睹梅超风与欧阳克对峙。",
+      "personality": "淳朴厚道，不善言辞，尊重长辈",
+      "known_skills": ["skill_jiang_long_shi_ba_zhang"],
+      "related_skills": ["skill_pi_kong_zhang"]
+    },
+    {
+      "id": "char_huang_rong",
+      "name": "黄蓉",
+      "alias": [],
+      "identity": "东邪黄药师之女，女扮男装",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "与郭靖泛舟太湖、入住归云庄，识破奇门八卦布局暗助穆念慈救完颜康，与裘千仞对答如流。",
+      "personality": "聪慧绝顶，博学多才，顽皮机灵，善于鉴赏诗词书画",
+      "known_skills": ["skill_pi_kong_zhang"],
+      "related_skills": ["skill_jiang_long_shi_ba_zhang"]
+    },
+    {
+      "id": "char_mu_nian_ci",
+      "name": "穆念慈",
+      "alias": [],
+      "identity": "杨铁心义女，完颜康恋人",
+      "faction": null,
+      "role": "companion",
+      "one_line": "夜入归云庄救完颜康未果，受黄蓉暗中指路，后赴苏州北郊荒山放置腰带求救信，遭欧阳克调戏，幸得青衣怪人箫声解围。",
+      "personality": "痴情坚贞，深明大义，但对完颜康心存幻想",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wan_yan_kang",
+      "name": "完颜康",
+      "alias": ["小王爷", "金国钦使"],
+      "identity": "大金国小王爷、钦使，丘处机与梅超风之徒",
+      "faction": "faction_jin_guo",
+      "role": "villain",
+      "one_line": "被太湖群雄擒获后以九阴白骨爪挣脱，与陆冠英单挑获胜却被陆庄主制服，被囚归云庄，暗托穆念慈带信给师父梅超风求救。",
+      "personality": "武功不凡但贪图富贵，对穆念慈有真情却不愿放弃金国身份",
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_quan_zhen_quan_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_lu_cheng_feng",
+      "name": "陆乘风",
+      "alias": ["五湖废人", "陆庄主"],
+      "identity": "归云庄庄主，半身不遂，被逐出师门的武学高手",
+      "faction": "faction_gui_yun_zhuang",
+      "role": "npc",
+      "one_line": "以儒雅面目接待郭黄二人，展示诗词书画鉴赏功力，出手以精妙擒拿法制服完颜康，赠九花玉露丸与黄金，自知对头将至存必死之心。",
+      "personality": "文雅博学，深藏不露，重义轻生，对师门恩义感怀至深",
+      "known_skills": [],
+      "related_skills": ["skill_pi_kong_zhang"]
+    },
+    {
+      "id": "char_lu_guan_ying",
+      "name": "陆冠英",
+      "alias": ["少庄主"],
+      "identity": "归云庄少庄主，太湖群雄总头领，枯木大师弟子",
+      "faction": "faction_gui_yun_zhuang",
+      "role": "npc",
+      "one_line": "率太湖群雄截击金国官兵船队大获全胜，与完颜康单挑以怀心腿绝招踢中对手但最终落败，后在裘千仞面前演练罗汉伏虎拳。",
+      "personality": "斯文有礼又能领袖群豪，武艺出众，临敌不惧",
+      "known_skills": ["skill_luo_han_fu_hu_quan", "skill_huai_xin_tui"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_qian_ren",
+      "name": "裘千仞",
+      "alias": ["铁掌水上飘"],
+      "identity": "铁掌帮帮主，隐居二十余年的武林高手",
+      "faction": "faction_tie_zhang_bang",
+      "role": "npc",
+      "one_line": "头顶铁缸踏水过湖现身归云庄，表演口喷烟雾、手碎砖石等绝技，自诩武功天下第一，纵论华山论剑五绝，声称金兵将南征劝陆庄主起事。",
+      "personality": "老谋深算，好大喜功，言辞间轻视五绝，心怀大事",
+      "known_skills": ["skill_tie_zhang_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_ke",
+      "name": "欧阳克",
+      "alias": [],
+      "identity": "西毒欧阳锋之侄，白衣儒生打扮",
+      "faction": null,
+      "role": "villain",
+      "one_line": "在苏州北郊荒山设蛇阵伏击梅超风欲夺九阴真经，调戏穆念慈，被青衣怪人的箫声魔音逼得咬舌逃遁。",
+      "personality": "轻薄好色，阴险狡诈，武功不弱但忌惮高手",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mei_chao_feng",
+      "name": "梅超风",
+      "alias": ["铁尸"],
+      "identity": "黑风双煞之一，陈玄风之妻，完颜康之师",
+      "faction": null,
+      "role": "villain",
+      "one_line": "夜赴荒山骷髅标记处被欧阳克蛇阵围困，以银鞭和无形钉苦战，命悬一线之际青衣怪人箫声驱散蛇阵化解危局。",
+      "personality": "凶狠顽强，对亡夫深情，对师门有愧，盲目后武功仍极强",
+      "known_skills": ["skill_wu_xing_ding"],
+      "related_skills": ["skill_jiu_yin_bai_gu_zhao"]
+    },
+    {
+      "id": "char_ma_qing_xiong",
+      "name": "马青雄",
+      "alias": ["夺魄鞭"],
+      "identity": "黄河四鬼之一，沙通天弟子",
+      "faction": null,
+      "role": "npc",
+      "one_line": "在太湖群雄议事时反对截击金国钦使，被陆冠英击败后遭众盗乱刀砍死。",
+      "personality": "贪生怕死，临阵退缩",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duan_zhi_hui_shi",
+      "name": "段指挥使",
+      "alias": ["段大人"],
+      "identity": "大金国兵马指挥使",
+      "faction": "faction_jin_guo",
+      "role": "npc",
+      "one_line": "率兵护送金国钦使过太湖，被太湖群雄截击全军覆没，本人被擒。",
+      "personality": "满面胡子，神色惶恐",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shi_zhai_zhu",
+      "name": "石寨主",
+      "alias": ["金头鳌"],
+      "identity": "太湖莫厘峰寨主",
+      "faction": "faction_tai_hu_qun_xiong",
+      "role": "npc",
+      "one_line": "怒骂完颜康并率先出手攻击，被完颜康轻松甩出。",
+      "personality": "性情暴烈，勇猛莽撞",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhang_zhai_zhu",
+      "name": "张寨主",
+      "alias": ["张大哥"],
+      "identity": "太湖群雄寨主",
+      "faction": "faction_tai_hu_qun_xiong",
+      "role": "npc",
+      "one_line": "负责哨探金国钦使行踪，押送俘虏，领完颜康出庄，后在湖中迎接到六位异人。",
+      "personality": "干练忠诚",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qing_yi_guai_ren",
+      "name": "青衣怪人",
+      "alias": [],
+      "identity": "面容怪异如死人的高瘦青衣文士，轻功绝顶",
+      "faction": null,
+      "role": "npc",
+      "one_line": "尾随梅超风至荒山，坐于松巅吹奏玉箫，以箫声魔音控制群蛇与欧阳克众人，迫使欧阳克咬舌逃遁，化解梅超风危局。",
+      "personality": "沉默寡言，形如鬼魅，武功深不可测",
+      "known_skills": ["skill_dong_xiao_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chu_ji",
+      "name": "丘处机",
+      "alias": ["长春真人", "长春子"],
+      "identity": "全真七子之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "本章中被提及为完颜康的师父之一，曾传其全真派拳法。",
+      "personality": "刚烈正直",
+      "known_skills": ["skill_quan_zhen_quan_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "name": "洪七公",
+      "alias": ["七公"],
+      "identity": "丐帮帮主，北丐",
+      "faction": null,
+      "role": "npc",
+      "one_line": "本章中被黄蓉郭靖多次提及，传授郭靖降龙十五掌后离去。",
+      "personality": "豪迈洒脱",
+      "known_skills": ["skill_jiang_long_shi_ba_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "name": "黄药师",
+      "alias": ["东邪"],
+      "identity": "桃花岛主，五绝之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "本章中多次被提及为黄蓉之父，精通奇门八卦诗词书画，裘千仞论五绝时将其列为天下高手之一。",
+      "personality": "博学多才，狂傲不羁",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_chong_yang",
+      "name": "王重阳",
+      "alias": ["中神通"],
+      "identity": "全真教创始人，已故",
+      "faction": null,
+      "role": "npc",
+      "one_line": "本章中被裘千仞提及为华山论剑天下第一，拥有九阴真经后传给师弟周伯通。",
+      "personality": "德高望重",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhou_bo_tong",
+      "name": "周伯通",
+      "alias": [],
+      "identity": "王重阳师弟",
+      "faction": null,
+      "role": "npc",
+      "one_line": "本章中被裘千仞提及，王重阳临终将九阴真经传给他，后被黄药师抢走半部。",
+      "personality": "天真好玩",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ku_mu_da_shi",
+      "name": "枯木大师",
+      "alias": [],
+      "identity": "临安府云栖寺高僧，仙霞派好手",
+      "faction": "faction_xian_xia_pai",
+      "role": "npc",
+      "one_line": "本章中被提及为陆冠英的师父，仙霞派属少林旁支。",
+      "personality": "未描写",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_gui_yun_zhuang",
+      "name": "归云庄",
+      "type": "帮派",
+      "location": "loc_gui_yun_zhuang",
+      "sub_divisions": [],
+      "one_line": "太湖群雄总舵，由陆乘风父子主持，庄内按伏羲六十四卦方位建造，道路奇诡难行。"
+    },
+    {
+      "id": "faction_tai_hu_qun_xiong",
+      "name": "太湖群雄",
+      "type": "帮派",
+      "location": "loc_tai_hu",
+      "sub_divisions": [],
+      "one_line": "太湖诸寨联盟，由归云庄少庄主陆冠英统率，夜间集结截击金国官兵船队大获全胜。"
+    },
+    {
+      "id": "faction_tie_zhang_bang",
+      "name": "铁掌帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "裘千仞创立的帮派，本雄霸湖广，裘千仞封剑归隐二十余年后势力不显。"
+    },
+    {
+      "id": "faction_xian_xia_pai",
+      "name": "仙霞派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "少林派旁支，枯木大师为其好手，陆冠英为其弟子。"
+    },
+    {
+      "id": "faction_jin_guo",
+      "name": "大金国",
+      "type": "朝廷",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "完颜康以钦使身份率段指挥使兵马南下，被太湖群雄截击。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_tai_hu",
+      "name": "太湖",
+      "region": "江南",
+      "one_line": "襟带三州、周行五百里的大湖，本章主要场景，郭靖黄蓉泛舟游览，太湖群雄在此截击金国官兵。"
+    },
+    {
+      "id": "loc_gui_yun_zhuang",
+      "name": "归云庄",
+      "region": "太湖水洲之上",
+      "one_line": "太湖群雄总舵，按伏羲六十四卦方位建造的宏伟庄院，内有书房、大厅、客房等。"
+    },
+    {
+      "id": "loc_yi_xing",
+      "name": "宜兴",
+      "region": "江南",
+      "one_line": "天下闻名的陶都，郭靖黄蓉途经之地，附近有张公洞、善卷洞。"
+    },
+    {
+      "id": "loc_su_zhou",
+      "name": "苏州",
+      "region": "江南",
+      "one_line": "东南繁华之地，穆念慈渡太湖后经此，赴北郊荒山寻找梅超风的骷髅标记。"
+    },
+    {
+      "id": "loc_mo_li_feng",
+      "name": "莫厘峰",
+      "region": "太湖",
+      "one_line": "太湖中山峰，金头鳌石寨主的地盘。"
+    },
+    {
+      "id": "loc_piao_miao_feng",
+      "name": "缥缈峰",
+      "region": "太湖",
+      "one_line": "太湖中山峰，郭头领率部在此截击金国钦使时被枪搠死。"
+    },
+    {
+      "id": "loc_zhang_gong_dong",
+      "name": "张公洞",
+      "region": "宜兴附近",
+      "one_line": "陆庄主提及的天下奇景之一，郭靖黄蓉曾前往游览。"
+    },
+    {
+      "id": "loc_shan_juan_dong",
+      "name": "善卷洞",
+      "region": "宜兴附近",
+      "one_line": "陆庄主提及的天下奇景之一，郭靖黄蓉曾前往游览。"
+    },
+    {
+      "id": "loc_hua_shan",
+      "name": "华山",
+      "region": "中原",
+      "one_line": "裘千仞提及的华山论剑之地，二十五年一次的武林盛事即将再次举行。"
+    },
+    {
+      "id": "loc_huang_jiao_shan",
+      "name": "苏州北郊荒山",
+      "region": "苏州",
+      "one_line": "穆念慈在此找到九颗骷髅标记放置腰带，欧阳克设蛇阵伏击梅超风之处。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_jiang_long_shi_ba_zhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "洪七公传授郭靖的绝学，郭靖已学得十五掌，黄蓉提及想偷藏打狗棒逼七公教余下三掌。"
+    },
+    {
+      "id": "skill_jiu_yin_bai_gu_zhao",
+      "name": "九阴白骨爪",
+      "type": "指法",
+      "faction": "",
+      "one_line": "梅超风所传阴毒爪功，完颜康以此撕断绳索挣脱束缚，击败陆冠英并伤其小腿。"
+    },
+    {
+      "id": "skill_luo_han_fu_hu_quan",
+      "name": "罗汉伏虎拳",
+      "type": "拳法",
+      "faction": "faction_xian_xia_pai",
+      "one_line": "陆冠英生平最得意的拳法，包含猛虎罗汉双形，威猛凌厉，裘千仞评其制胜无用。"
+    },
+    {
+      "id": "skill_pi_kong_zhang",
+      "name": "劈空掌",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "以铁八卦为靶练功的掌法，黄蓉练过一个月，虚劈即可灭烛火。"
+    },
+    {
+      "id": "skill_huai_xin_tui",
+      "name": "怀心腿",
+      "type": "其他",
+      "faction": "",
+      "one_line": "陆冠英自幼苦练的绝招，出腿如电倏忽过顶，踢中完颜康胸口。"
+    },
+    {
+      "id": "skill_quan_zhen_quan_fa",
+      "name": "全真派拳法",
+      "type": "拳法",
+      "faction": "",
+      "one_line": "丘处机传授完颜康的拳法，完颜康与陆冠英对战时施展。"
+    },
+    {
+      "id": "skill_wu_xing_ding",
+      "name": "无形钉",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "梅超风发射的阴毒暗器，去如电闪，击倒欧阳克两名白衣女子。"
+    },
+    {
+      "id": "skill_tie_zhang_gong",
+      "name": "铁掌功",
+      "type": "掌法",
+      "faction": "faction_tie_zhang_bang",
+      "one_line": "裘千仞的绝技，双手轻描淡写将砖头捏成粉末，头顶数百斤铁缸行走如常。"
+    },
+    {
+      "id": "skill_dong_xiao_gong",
+      "name": "洞箫功",
+      "type": "其他",
+      "faction": "",
+      "one_line": "青衣怪人吹奏玉箫发出的魔音，令群蛇起舞、众人狂乱，欧阳克被迫咬舌逃遁。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_jiu_hua_yu_lu_wan",
+      "name": "九花玉露丸",
+      "type": "pill",
+      "owner": "char_lu_cheng_feng",
+      "one_line": "陆庄主以恩师所授医药道理配制的珍贵药丸，清香沁脾，服后延年益寿，赠予郭靖黄蓉数十颗。"
+    },
+    {
+      "id": "item_tie_ba_gua",
+      "name": "铁八卦",
+      "type": "other",
+      "owner": "char_lu_cheng_feng",
+      "one_line": "钉在陆庄主书房门楣上的八片铁片，排作不规则八卦形状，是练习劈空掌的器具。"
+    },
+    {
+      "id": "item_yin_bian",
+      "name": "银鞭",
+      "type": "weapon",
+      "owner": "char_mei_chao_feng",
+      "one_line": "梅超风的烂银长鞭，舞动时闪起千条银光，用以抵御群蛇围攻。"
+    },
+    {
+      "id": "item_jin_yin",
+      "name": "金印",
+      "type": "other",
+      "owner": "char_wan_yan_kang",
+      "one_line": "大金国钦使之印，完颜康原想让穆念慈携此印赴临安求见史丞相办事。"
+    },
+    {
+      "id": "item_jin_huan_yao_dai",
+      "name": "金环腰带",
+      "type": "other",
+      "owner": "char_wan_yan_kang",
+      "one_line": "完颜康的腰带，穆念慈在其金环上刻字后放置于骷髅头下作为求救信号。"
+    },
+    {
+      "id": "item_yu_xiao",
+      "name": "玉箫",
+      "type": "weapon",
+      "owner": "char_qing_yi_guai_ren",
+      "one_line": "青衣怪人手持的乐器，以此吹奏魔音控制蛇群与人心，轻描淡写拨落欧阳克的银梭暗器。"
+    },
+    {
+      "id": "item_liu_ye_dao",
+      "name": "柳叶刀",
+      "type": "weapon",
+      "owner": "char_mu_nian_ci",
+      "one_line": "穆念慈的随身兵刃，向欧阳克砍去但被夺走抛下。"
+    },
+    {
+      "id": "item_zhe_shan",
+      "name": "折扇",
+      "type": "weapon",
+      "owner": "char_ou_yang_ke",
+      "one_line": "欧阳克随身携带的折扇，既为饰物亦作武器。"
+    },
+    {
+      "id": "item_da_tie_gang",
+      "name": "大铁缸",
+      "type": "other",
+      "owner": "char_qiu_qian_ren",
+      "one_line": "裘千仞头顶行走的数百斤生铁铸成大缸，内盛清水，踏水过河如履平地。"
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing",
+      "name": "九阴真经",
+      "type": "book",
+      "owner": null,
+      "one_line": "华山论剑的争夺之物，裘千仞讲述其从王重阳传至周伯通、被黄药师抢走半部、又被黑风双煞盗去的经过，欧阳克欲从梅超风处夺取。"
+    },
+    {
+      "id": "item_ku_lou_tou",
+      "name": "骷髅头",
+      "type": "other",
+      "owner": "char_mei_chao_feng",
+      "one_line": "九颗叠成上一中三下五的白骨骷髅头，是梅超风的标记和联络信号，顶上有五指洞孔。"
+    }
+  ]
+}

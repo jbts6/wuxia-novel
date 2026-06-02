@@ -1,0 +1,450 @@
+{
+  "chapter": 18,
+  "characters": [
+    {
+      "id": "char_guo_jing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "蒙古长大、江南七怪弟子、洪七公弟子",
+      "faction": "faction_gai_bang",
+      "role": "protagonist",
+      "one_line": "潜入桃花岛竹林，以双手互搏之术击败欧阳克，又以竹枝击节扰乱黄药师箫声，最终背诵九阴真经全文，获黄药师许婚。",
+      "personality": "憨厚老实、资质鲁钝却坚毅诚笃，对黄蓉一片痴情。",
+      "known_skills": ["skill_xiang_long_shi_ba_zhang", "skill_kong_ming_quan", "skill_shuang_shou_hu_bo_shu", "skill_quan_zhen_pai_nei_gong"],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_huang_rong",
+      "name": "黄蓉",
+      "alias": [],
+      "identity": "黄药师之女，洪七公弟子",
+      "faction": "faction_taohua_dao",
+      "role": "companion",
+      "one_line": "以金针暗算欧阳克、打岔干扰欧阳克背书、以匕首抵胸威胁拒嫁，全力帮助郭靖通过黄药师三道试题。",
+      "personality": "聪慧机敏、古灵精怪、敢爱敢恨，对父亲撒娇耍赖，对郭靖深情不移。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_yaoshi",
+      "name": "黄药师",
+      "alias": ["东邪", "黄老邪", "药兄", "黄岛主"],
+      "identity": "桃花岛岛主，天下五绝之一",
+      "faction": "faction_taohua_dao",
+      "role": "npc",
+      "one_line": "以箫声与欧阳锋铁筝比拚内力，出三道试题考较郭靖与欧阳克，最终认定郭靖为女婿。",
+      "personality": "绝顶聪明、心高气傲、偏爱欧阳克却信守承诺，思念亡妻。",
+      "known_skills": ["skill_bi_hai_chao_sheng_qu"],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_ouyang_feng",
+      "name": "欧阳锋",
+      "alias": ["西毒", "老毒物", "锋兄"],
+      "identity": "白驼山主人，欧阳克之叔，天下五绝之一",
+      "faction": "faction_bai_tuo_shan",
+      "role": "villain",
+      "one_line": "率众携蛇阵来桃花岛为侄儿求亲，以铁筝与黄药师箫声比拚，与洪七公拆千余招不分胜负，最终侄儿落败仍不甘心。",
+      "personality": "口蜜腹剑、狡猾之极、武功上向来不肯服人。",
+      "known_skills": ["skill_ha_ma_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ouyang_ke",
+      "name": "欧阳克",
+      "alias": [],
+      "identity": "欧阳锋之侄，白驼山少主",
+      "faction": "faction_bai_tuo_shan",
+      "role": "villain",
+      "one_line": "来桃花岛求亲，在松树比试中被郭靖以摔跤之术击败，背书时被黄蓉打岔忘文，三场比试尽落下风。",
+      "personality": "自命风流倜傥、好色轻薄，对黄蓉迷恋至深，要强好胜。",
+      "known_skills": ["skill_ling_she_quan"],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "name": "洪七公",
+      "alias": ["北丐", "老叫化", "七兄", "七公"],
+      "identity": "丐帮帮主，天下五绝之一",
+      "faction": "faction_gai_bang",
+      "role": "companion",
+      "one_line": "闻讯赶来桃花岛，与欧阳锋拆千余招不分胜负，以郭靖黄蓉师父身份向黄药师求亲。",
+      "personality": "滑稽玩世、正直行侠、性情刚硬、好美食。",
+      "known_skills": ["skill_xiang_long_shi_ba_zhang", "skill_man_tian_hua_yu_zhi_jin_zhen"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhou_botong",
+      "name": "周伯通",
+      "alias": ["周大哥"],
+      "identity": "王重阳师弟，被困桃花岛十五年",
+      "faction": "faction_quan_zhen_pai",
+      "role": "npc",
+      "one_line": "虽未出场，但其教授郭靖的空明拳、双手互搏术及九阴真经经文在本章发挥关键作用。",
+      "personality": "天真顽皮、不善讲解、曾犯情孽。",
+      "known_skills": ["skill_kong_ming_quan", "skill_shuang_shou_hu_bo_shu"],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_mei_chaofeng",
+      "name": "梅超风",
+      "alias": ["梅前辈"],
+      "identity": "黄药师弟子，已叛出桃花岛",
+      "faction": "faction_taohua_dao",
+      "role": "npc",
+      "one_line": "黄药师质问郭靖是否得到梅超风失落的九阴真经下卷。",
+      "personality": "叛逆狠辣。",
+      "known_skills": [],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_wang_chongyang",
+      "name": "王重阳",
+      "alias": [],
+      "identity": "全真派创始人，天下五绝之首",
+      "faction": "faction_quan_zhen_pai",
+      "role": "npc",
+      "one_line": "被提及曾以一阳指破去欧阳锋蛤蟆功，已故。",
+      "personality": "武功天下第一。",
+      "known_skills": ["skill_yi_yang_zhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duan_zhixing",
+      "name": "段智兴",
+      "alias": ["段皇爷", "南帝"],
+      "identity": "大理段氏，天下五绝之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "洪七公提及欲邀段皇爷助拳，黄药师提及华山论剑时他也将出手。",
+      "personality": "武功高强。",
+      "known_skills": ["skill_yi_yang_zhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_feng_heng",
+      "name": "冯蘅",
+      "alias": ["阿衡", "黄夫人", "拙荆"],
+      "identity": "黄药师亡妻",
+      "faction": null,
+      "role": "npc",
+      "one_line": "黄药师之妻，因硬默九阴真经而心智虚耗小产逝世，所默册子成为第三道试题。",
+      "personality": "智慧过人。",
+      "known_skills": [],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_mu_nianci",
+      "name": "穆念慈",
+      "alias": ["穆姊姊"],
+      "identity": "杨铁义女",
+      "faction": null,
+      "role": "npc",
+      "one_line": "黄蓉假称欧阳克将穆念慈闷死在祠堂棺材中，以此分散欧阳克心神。",
+      "personality": "温婉善良。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yang_kang",
+      "name": "杨康",
+      "alias": [],
+      "identity": "完颜洪烈之子",
+      "faction": null,
+      "role": "villain",
+      "one_line": "黄蓉提及穆念慈与杨康在中都比武招亲之事。",
+      "personality": "轻浮薄幸。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sha_tongtian",
+      "name": "沙通天",
+      "alias": [],
+      "identity": "黄河帮帮主",
+      "faction": null,
+      "role": "villain",
+      "one_line": "黄蓉提及在赵王府中与沙通天等人联手对付她。",
+      "personality": "凶狠。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_peng_lianhu",
+      "name": "彭连虎",
+      "alias": [],
+      "identity": "千手人屠",
+      "faction": null,
+      "role": "villain",
+      "one_line": "黄蓉提及在赵王府中与彭连虎等人联手对付她。",
+      "personality": "凶残。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liang_ziweng",
+      "name": "梁子翁",
+      "alias": [],
+      "identity": "参仙老怪",
+      "faction": null,
+      "role": "villain",
+      "one_line": "黄蓉提及在赵王府中与梁子翁等人联手对付她。",
+      "personality": "阴险。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_lingzhi_heshang",
+      "name": "灵智和尚",
+      "alias": [],
+      "identity": "藏僧",
+      "faction": null,
+      "role": "villain",
+      "one_line": "黄蓉提及在赵王府中与灵智和尚等人联手对付她。",
+      "personality": "凶恶。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuo_lei",
+      "name": "拖雷",
+      "alias": [],
+      "identity": "铁木真之子，郭靖幼时好友",
+      "faction": null,
+      "role": "npc",
+      "one_line": "回忆中提及郭靖自幼与拖雷等在大漠摔跤相扑。",
+      "personality": "豪爽。",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_taohua_dao",
+      "name": "桃花岛",
+      "type": "武林门派",
+      "location": "loc_tao_hua_dao",
+      "sub_divisions": [],
+      "one_line": "黄药师所创，以奇门五行之术闻名，岛上布阵严密，外人不得允可难以出岛。"
+    },
+    {
+      "id": "faction_gai_bang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "洪七公为帮主，弟子郭靖与黄蓉，以降龙十八掌和打狗棒法闻名天下。"
+    },
+    {
+      "id": "faction_bai_tuo_shan",
+      "name": "白驼山",
+      "type": "武林门派",
+      "location": "loc_bai_tuo_shan",
+      "sub_divisions": [],
+      "one_line": "欧阳锋叔侄的根据地，位于西域，擅用毒物蛇虫。"
+    },
+    {
+      "id": "faction_quan_zhen_pai",
+      "name": "全真派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "王重阳所创，郭靖修习其内功抵御箫声筝音，周伯通为其门人。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_tao_hua_dao",
+      "name": "桃花岛",
+      "region": "东海",
+      "one_line": "黄药师居所，本章三道试题的主场，竹林中有积翠亭，岛上奇门布置艰深。"
+    },
+    {
+      "id": "loc_ji_cui_ting",
+      "name": "积翠亭",
+      "region": "桃花岛竹林内",
+      "one_line": "竹枝搭成的凉亭，悬有'桃花影里飞神剑，碧海潮生按玉箫'对联，为三道试题的比试场所。"
+    },
+    {
+      "id": "loc_hua_shan",
+      "name": "华山",
+      "region": "中原",
+      "one_line": "提及二十年前华山论剑、东邪西毒南帝北丐中神通首次交锋之地。"
+    },
+    {
+      "id": "loc_bai_tuo_shan",
+      "name": "白驼山",
+      "region": "西域",
+      "one_line": "欧阳锋根据地，欧阳锋从白驼山兼程赶来桃花岛求亲。"
+    },
+    {
+      "id": "loc_zhao_wang_fu",
+      "name": "赵王府",
+      "region": "北京",
+      "one_line": "黄蓉提及在赵王府中遭欧阳克及沙通天等人联手追捕。"
+    },
+    {
+      "id": "loc_bao_ying",
+      "name": "宝应",
+      "region": "江南",
+      "one_line": "提及郭靖在此与欧阳克第二次比武的往事。"
+    },
+    {
+      "id": "loc_gui_yun_zhuang",
+      "name": "归云庄",
+      "region": "江南",
+      "one_line": "提及郭靖在此与黄药师过招时曾脱臼的往事。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_xiang_long_shi_ba_zhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gai_bang",
+      "one_line": "洪七公与郭靖的绝学，郭靖以双手互搏同时使出'鸿渐于陆'与'亢龙有悔'击败欧阳克，洪七公以此掌法与欧阳锋蛤蟆功拚斗千余招。"
+    },
+    {
+      "id": "skill_ha_ma_gong",
+      "name": "蛤蟆功",
+      "type": "内功",
+      "faction": "faction_bai_tuo_shan",
+      "one_line": "欧阳锋绝技，蹲地蓄势如青蛙，以静制动猛烈反击，与洪七公降龙十八掌正面相拚不分胜负。"
+    },
+    {
+      "id": "skill_bi_hai_chao_sheng_qu",
+      "name": "碧海潮生曲",
+      "type": "其他",
+      "faction": "faction_taohua_dao",
+      "one_line": "黄药师以玉箫吹奏的曲子，模拟大海潮水变幻莫测，具有极大魔力可乱人心神，用于考较内力与定力。"
+    },
+    {
+      "id": "skill_ling_she_quan",
+      "name": "灵蛇拳",
+      "type": "拳法",
+      "faction": "faction_bai_tuo_shan",
+      "one_line": "欧阳克所使拳法，黄蓉从众女蛇形舞姿中联想到此拳。"
+    },
+    {
+      "id": "skill_kong_ming_quan",
+      "name": "空明拳",
+      "type": "拳法",
+      "faction": null,
+      "one_line": "周伯通所授七十二路拳法，要旨在'以空而明'，郭靖以此拳诀领悟箫筝比拚中的攻守之道。"
+    },
+    {
+      "id": "skill_shuang_shou_hu_bo_shu",
+      "name": "双手互搏之术",
+      "type": "其他",
+      "faction": null,
+      "one_line": "周伯通所授，一人化二左右分击，郭靖以此术同时施展两招降龙十八掌击败欧阳克，又以双手分打竹枝扰乱箫声。"
+    },
+    {
+      "id": "skill_yi_yang_zhi",
+      "name": "一阳指",
+      "type": "指法",
+      "faction": null,
+      "one_line": "被提及曾由王重阳用来破去欧阳锋蛤蟆功，段智兴亦擅此指法。"
+    },
+    {
+      "id": "skill_man_tian_hua_yu_zhi_jin_zhen",
+      "name": "满天花雨掷金针",
+      "type": "暗器",
+      "faction": "faction_gai_bang",
+      "one_line": "洪七公的暗器绝技，欧阳锋提及洪七公曾以此技出手救欧阳克性命。"
+    },
+    {
+      "id": "skill_quan_zhen_pai_nei_gong",
+      "name": "全真派内功",
+      "type": "内功",
+      "faction": "faction_quan_zhen_pai",
+      "one_line": "郭靖运起全真派道家内功抵御筝声，宁神屏思使心跳趋缓，后又以此功抵御箫声中的寒意。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_tong_xi_di_long_wan",
+      "name": "通犀地龙丸",
+      "type": "pill",
+      "owner": "char_huang_rong",
+      "one_line": "欧阳锋从西域异兽之体取得并配药材制炼的黄色圆球，佩在身上百毒不侵，普天下仅此一颗，作为见面礼赠予黄蓉。"
+    },
+    {
+      "id": "item_she_zhang",
+      "name": "蛇杖",
+      "type": "weapon",
+      "owner": "char_ouyang_feng",
+      "one_line": "欧阳锋的弯弯曲曲黑色粗杖，杖头铸着裂口笑的人头，盘有两条剧毒银鳞小蛇，杖头可射出奇形暗器。"
+    },
+    {
+      "id": "item_yu_xiao",
+      "name": "玉箫",
+      "type": "special",
+      "owner": "char_huang_yaoshi",
+      "one_line": "黄药师的乐器兼兵器，以之吹奏碧海潮生曲与欧阳锋铁筝比拚内力，又以之考较郭靖与欧阳克音律。"
+    },
+    {
+      "id": "item_tie_zheng",
+      "name": "铁筝",
+      "type": "special",
+      "owner": "char_ouyang_feng",
+      "one_line": "欧阳锋的西域铁筝，声调凄厉酸楚，以此与黄药师箫声正面对抗比拚内力。"
+    },
+    {
+      "id": "item_jin_zhen",
+      "name": "金针",
+      "type": "hidden_weapon",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉掷出的一把金针暗袭欧阳克，被黄药师左袖拂开，此前已有一两枚中入欧阳克左胸。"
+    },
+    {
+      "id": "item_ruan_wei_jia",
+      "name": "软猬甲",
+      "type": "armor",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉所穿护身宝甲，替郭靖挡住欧阳克三枚飞燕银梭时银梭无法穿透，只感疼痛而无伤害。"
+    },
+    {
+      "id": "item_fei_yin_yin_suo",
+      "name": "飞燕银梭",
+      "type": "hidden_weapon",
+      "owner": "char_ouyang_ke",
+      "one_line": "欧阳克暗中发射三枚银梭射向郭靖背心，被黄蓉以身相挡，银梭打中软猬甲无功而返。"
+    },
+    {
+      "id": "item_zhu_bang",
+      "name": "竹棒",
+      "type": "weapon",
+      "owner": "char_hong_qi_gong",
+      "one_line": "洪七公随身竹杖，与欧阳锋过招时放在竹几上，为丐帮帮主标志性的打狗棒。"
+    },
+    {
+      "id": "item_hong_hu_lu",
+      "name": "红葫芦",
+      "type": "other",
+      "owner": "char_hong_qi_gong",
+      "one_line": "洪七公背负的大红葫芦，内盛美酒，与黄药师争论时拔塞豪饮。"
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing_xia_juan",
+      "name": "《九阴真经》下卷",
+      "type": "book",
+      "owner": "char_huang_yaoshi",
+      "one_line": "黄药师亡妻冯蘅临终前硬默的手抄册子，红绫面楷书缮写，文字多有脱漏颠倒，作为第三道试题让郭靖与欧阳克背诵。"
+    },
+    {
+      "id": "item_bi_shou",
+      "name": "匕首",
+      "type": "weapon",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉以匕首抵在胸口威胁自杀拒嫁，被欧阳锋从蛇杖射出的暗器击落。"
+    },
+    {
+      "id": "item_zhe_shan",
+      "name": "折扇",
+      "type": "weapon",
+      "owner": "char_ouyang_ke",
+      "one_line": "欧阳克手持折扇，身穿白缎金线绣花长袍，在竹亭观战时轻挥折扇显得风流倜傥。"
+    }
+  ]
+}

@@ -13,8 +13,7 @@ SUB_DIRS = ["chapters", "characters", "skills", "factions", "locations", "chunks
 
 # 初始进度文件模板
 INITIAL_PROGRESS = {
-    "skeleton": {"total": 0, "done": [], "failed": [], "pending": []},
-    "deep": {"total": 0, "done": [], "failed": [], "pending": []},
+    "extract": {"total": 0, "done": [], "failed": [], "pending": []},
     "merge": False,
     "gamify": False,
     "rag": False

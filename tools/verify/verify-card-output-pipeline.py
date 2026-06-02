@@ -187,11 +187,29 @@ def skill_quality_score(skill: dict) -> tuple[int, str]:
 
 
 def expected_skill_cards(skills: list[dict]) -> dict[str, dict]:
+    # 构建招式->父功法映射，排除属于其他功法的招式
+    tech_to_parent: dict[str, list[str]] = {}
+    for skill in skills:
+        for tech in (skill.get("techniques") or []):
+            tname = tech.get("name")
+            if tname:
+                tech_to_parent.setdefault(tname, []).append(skill.get("id", ""))
+
     by_name: dict[str, dict] = {}
     for skill in skills:
         name = skill.get("name")
         if not name or str(name).startswith("skill_"):
             continue
+        # 排除名称是其他功法招式的条目
+        parents = tech_to_parent.get(name, [])
+        if any(pid != skill.get("id") for pid in parents):
+            continue
+        # 排除 功法·招式 模式
+        if '·' in name:
+            prefix = name.split('·')[0]
+            parent_skill = next((s for s in skills if s.get('name') == prefix and (s.get('techniques') or [])), None)
+            if parent_skill and parent_skill.get('id') != skill.get('id'):
+                continue
         current = by_name.get(name)
         if current is None or skill_quality_score(skill) > skill_quality_score(current):
             by_name[name] = skill

@@ -1,0 +1,1606 @@
+{
+  "chapter": 25,
+  "characters_detail": [
+    {
+      "id": "char_guojing",
+      "personality": {
+        "traits": ["憨厚正直", "重情重义", "意志坚忍", "心思迟钝"],
+        "speech_style": "言语质朴，不善辞令，常直言心中所想",
+        "temperament": "沉稳坚忍，面对心魔侵扰仍能克制自律"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 5,
+          "dynamic": "深爱黄蓉，疗伤时受心魔侵扰几乎失控，全赖黄蓉守护相助；得知华筝为未婚妻后心中纠结，但明确表示不愿另娶"
+        },
+        {
+          "target": "char_huangyaoshi",
+          "type": "准岳父",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "隔室旁观黄药师行事，对其亦正亦邪心存敬畏"
+        },
+        {
+          "target": "char_mayu",
+          "type": "前辈恩人",
+          "intensity": 6,
+          "bond_level": 4,
+          "dynamic": "曾受马钰在蒙古传授内功口诀，对其心存感激；旁观天罡北斗阵领悟九阴真经要旨"
+        },
+        {
+          "target": "char_huazheng",
+          "type": "义妹/名义未婚妻",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "视华筝为亲妹亲弟，不愿娶她为妻，但受大汗许婚之约困扰，不忍负义背信"
+        },
+        {
+          "target": "char_yangkang",
+          "type": "义弟",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "盼杨康改过迁善，对其刺杀欧阳克心存感激，却不知杨康已嫁祸自己之死"
+        },
+        {
+          "target": "char_tuolei",
+          "type": "结义兄弟",
+          "intensity": 7,
+          "bond_level": 4,
+          "dynamic": "与拖雷安答之情深厚，闻其声而惊喜，却因华筝之事心中不安"
+        },
+        {
+          "target": "char_qiuchuji",
+          "type": "师父之一",
+          "intensity": 6,
+          "bond_level": 4,
+          "dynamic": "隔室听丘处机怀念父亲，心中难过"
+        }
+      ],
+      "known_skills": ["九阴真经内功", "降龙十八掌"],
+      "related_skills": ["天罡北斗阵（旁观领悟）"]
+    },
+    {
+      "id": "char_huangrong",
+      "personality": {
+        "traits": ["聪慧机敏", "心思细腻", "果敢泼辣", "对郭靖深情"],
+        "speech_style": "语调轻快俏皮，善于随机应变，偶有调侃戏谑",
+        "temperament": "冷静沉着，危急中不失理智，对父亲又敬又怕"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 5,
+          "dynamic": "七日七夜守护郭靖疗伤，以内力相助，危急时以兰花拂穴手和软猬甲刺针唤醒失控的郭靖"
+        },
+        {
+          "target": "char_huangyaoshi",
+          "type": "父女",
+          "intensity": 9,
+          "bond_level": 5,
+          "dynamic": "隔室旁观父亲行事，数次欲开门呼叫又忍住，怕被带回桃花岛而耽误郭靖疗伤"
+        },
+        {
+          "target": "char_ouyangke",
+          "type": "仇敌",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "以打狗棒法抵御欧阳克侵入密室，出手狠辣，被夺去竹棒后掷出钢针"
+        },
+        {
+          "target": "char_yangkang",
+          "type": "感激/怀疑",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "感激杨康解救大难，但对其诡计多端心存警惕"
+        }
+      ],
+      "known_skills": ["打狗棒法", "兰花拂穴手"],
+      "related_skills": ["落英神剑掌法（自幼随父学习，临阵领悟虚实变化）"]
+    },
+    {
+      "id": "char_huangyaoshi",
+      "personality": {
+        "traits": ["蔑视礼法", "亦正亦邪", "爱女情深", "行事乖张"],
+        "speech_style": "语气傲慢不羁，讥讽世俗礼教，偶有感伤低语",
+        "temperament": "狂放不羁，喜怒无常，对有骨气之人另眼相看"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_luguanying",
+          "type": "祖师爷",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "强行为徒孙主婚，对其爽快应允感到满意"
+        },
+        {
+          "target": "char_chengyaojia",
+          "type": "徒孙之妻",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "赞赏其危难中挺身护师兄的骨气，逼问其心意后主持婚事"
+        },
+        {
+          "target": "char_yinzhiding",
+          "type": "小辈",
+          "intensity": 4,
+          "bond_level": 1,
+          "dynamic": "打落尹志平半口牙齿，却因其胆大倔强起了相惜之意，甩出门外并未伤他"
+        },
+        {
+          "target": "char_meichaofeng",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 3,
+          "dynamic": "见梅超风舍命护己挡下欧阳锋一击，重伤将死，慢慢扶起她"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "同行/敌手",
+          "intensity": 7,
+          "bond_level": 2,
+          "dynamic": "与欧阳锋比赛脚力后同回牛家村，遭其背后暗算，怒斥'老毒物好毒'"
+        },
+        {
+          "target": "char_qiuchuji",
+          "type": "对手",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "与全真七子激战大半个时辰，连变十三般奇门武功，最终未能分出胜负"
+        },
+        {
+          "target": "char_zhoubotong",
+          "type": "比赛对手",
+          "intensity": 4,
+          "bond_level": 1,
+          "dynamic": "与周伯通、欧阳锋三人比赛脚力，奔驰数百里不分上下"
+        }
+      ],
+      "known_skills": ["落英神剑掌法"],
+      "related_skills": ["弹指神通（隔空飞木块击落尹志平牙齿）"]
+    },
+    {
+      "id": "char_luguanying",
+      "personality": {
+        "traits": ["忠厚老实", "尊师重道", "重情守义"],
+        "speech_style": "恭敬谦逊，称黄药师为祖师爷，对新婚妻子温柔",
+        "temperament": "温厚有礼，危急时挺身护妻"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangyaoshi",
+          "type": "徒孙",
+          "intensity": 7,
+          "bond_level": 4,
+          "dynamic": "对祖师爷言听计从，恭恭敬敬跪拜，在其威严下不敢违拗"
+        },
+        {
+          "target": "char_chengyaojia",
+          "type": "新婚妻子",
+          "intensity": 9,
+          "bond_level": 5,
+          "dynamic": "被黄药师主婚与程瑶迦成亲，新婚之夜嬉闹调笑，危难中以身护妻"
+        },
+        {
+          "target": "char_yinzhiding",
+          "type": "争执对手",
+          "intensity": 4,
+          "bond_level": 1,
+          "dynamic": "与尹志平斗口，后举刀砍他实为好意，想救他性命"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["桃花岛武功（师承陆乘风）"]
+    },
+    {
+      "id": "char_chengyaojia",
+      "personality": {
+        "traits": ["温婉腼腆", "外柔内刚", "重情守节"],
+        "speech_style": "声细如蚊，羞涩腼腆，危急时语调惨然决绝",
+        "temperament": "外表柔弱，面对欧阳克胁迫宁死不屈，横剑自刎"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {
+          "target": "char_luguanying",
+          "type": "新婚丈夫",
+          "intensity": 9,
+          "bond_level": 5,
+          "dynamic": "心中千情万愿却羞于出口，最终在黄药师主持下成亲，新婚甜蜜"
+        },
+        {
+          "target": "char_huangyaoshi",
+          "type": "祖师爷",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "受黄药师主婚，对其蔑视礼法的言行又惊又敬"
+        },
+        {
+          "target": "char_ouyangke",
+          "type": "仇敌/受害者",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "被欧阳克胁迫欺辱，宁死不屈，横剑自刎被欧阳克打落长剑"
+        },
+        {
+          "target": "char_sunbuer",
+          "type": "师父",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "全真教孙不二门下弟子，危难中挺身而出维护全真门风"
+        },
+        {
+          "target": "char_yinzhiding",
+          "type": "师兄妹",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "仗剑为尹志平挡刀，并肩面对黄药师，展现全真同门之义"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["全真派武功（孙不二门下）"]
+    },
+    {
+      "id": "char_munianci",
+      "personality": {
+        "traits": ["刚烈深情", "爱憎分明", "坚韧不屈", "心软念旧"],
+        "speech_style": "语调凛然，面对杨康时柔中带刚，面对仇敌时决绝",
+        "temperament": "外柔内刚，对杨康既爱又恨，对其贪慕富贵深感失望"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_yangkang",
+          "type": "恋人/未婚妻",
+          "intensity": 9,
+          "bond_level": 4,
+          "dynamic": "护送杨铁心夫妇灵柩南下安葬，与杨康重逢后又爱又恨，要求他报杀父之仇方可成亲"
+        },
+        {
+          "target": "char_ouyangke",
+          "type": "仇敌/受害者",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "曾被欧阳克在宝应擒获藏于空棺，此番再遇大惊，被其搂抱擒拿"
+        },
+        {
+          "target": "char_qiuchuji",
+          "type": "长辈",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "丘处机欲主持她与杨康婚事，她提出须先报杀父之仇的条件"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["洪七公所传武功（少年时曾得洪七公传艺三日）"]
+    },
+    {
+      "id": "char_meichaofeng",
+      "personality": {
+        "traits": ["凶悍顽强", "对师父忠心不二", "知恩图报", "性子强悍"],
+        "speech_style": "声音阴森嘶哑，自称'老娘'，面对师父时语气恭谨",
+        "temperament": "狠辣而不失忠诚，舍命护师，对马钰曾留情面之恩铭记于心"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_huangyaoshi",
+          "type": "师父",
+          "intensity": 10,
+          "bond_level": 5,
+          "dynamic": "舍命扑在黄药师背上代接欧阳锋蛤蟆功一击，喷血重伤将死"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "仇敌",
+          "intensity": 8,
+          "bond_level": 1,
+          "dynamic": "被欧阳锋蛤蟆功击中，重伤将死"
+        },
+        {
+          "target": "char_tanchuduan",
+          "type": "追击目标",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "追击谭处端至牛家村，顾念马钰之情未下杀手"
+        },
+        {
+          "target": "char_mayu",
+          "type": "感念",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "顾念马钰当年在蒙古悬崖上留情面之恩，对其师弟谭处端手下留情"
+        },
+        {
+          "target": "char_qiuchuji",
+          "type": "对手",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "被丘处机连称'妖妇'激怒，奋力搏斗"
+        }
+      ],
+      "known_skills": ["九阴白骨爪", "催心掌"],
+      "related_skills": ["毒龙鞭法"]
+    },
+    {
+      "id": "char_ouyangke",
+      "personality": {
+        "traits": ["好色轻薄", "恃强凌弱", "诡计多端", "死不悔改"],
+        "speech_style": "语调轻佻淫邪，嬉笑无度，威胁恐吓",
+        "temperament": "色厉内荏，受重伤后仍起邪念，临死前追问死因不肯瞑目"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "单恋/觊觎",
+          "intensity": 8,
+          "bond_level": 1,
+          "dynamic": "闯入密室欲夺黄蓉，被打狗棒法击退后夺去竹棒"
+        },
+        {
+          "target": "char_chengyaojia",
+          "type": "欺辱对象",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "以陆冠英性命相威胁，逼迫程瑶迦脱衣，被其宁死不屈所阻"
+        },
+        {
+          "target": "char_munianci",
+          "type": "欺辱对象",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "将穆念慈搂在怀中大施轻薄"
+        },
+        {
+          "target": "char_yangkang",
+          "type": "盟友转仇敌",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "与杨康饮酒作乐，被其趁仰头饮酒时以铁枪枪头刺入小腹身亡"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "叔侄",
+          "intensity": 7,
+          "bond_level": 4,
+          "dynamic": "挂念叔父，欲待欧阳锋回来报仇"
+        }
+      ],
+      "known_skills": ["擒拿法"],
+      "related_skills": ["白驼山武学"]
+    },
+    {
+      "id": "char_ouyangfeng",
+      "personality": {
+        "traits": ["阴险毒辣", "工于心计", "善用嫁祸离间之术"],
+        "speech_style": "语调阴沉，临走时出言挑拨嫁祸",
+        "temperament": "阴鸷狠辣，表面相助实则暗算，坐观鹬蚌相争"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_huangyaoshi",
+          "type": "同行/暗算对象",
+          "intensity": 8,
+          "bond_level": 1,
+          "dynamic": "假意助黄药师，先三成力伤谭处端破阵，再以毕生功力偷袭黄药师背后"
+        },
+        {
+          "target": "char_tanchuduan",
+          "type": "暗算目标",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "以三成蛤蟆功力从背后偷袭谭处端，将其前后肋骨和脊骨打折致死"
+        },
+        {
+          "target": "char_meichaofeng",
+          "type": "误伤/暗算",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "全力一击被梅超风舍命挡住"
+        },
+        {
+          "target": "char_zhoubotong",
+          "type": "比赛对手",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "与周伯通比赛脚力，一日一夜奔驰数百里"
+        },
+        {
+          "target": "char_qiuchuji",
+          "type": "仇敌",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "临走嫁祸黄药师，离间全真派与桃花岛"
+        }
+      ],
+      "known_skills": ["蛤蟆功"],
+      "related_skills": ["白驼山武学"]
+    },
+    {
+      "id": "char_yangkang",
+      "personality": {
+        "traits": ["诡计多端", "贪慕富贵", "反复无常", "心狠手辣"],
+        "speech_style": "善于逢场作戏，痛哭流涕时亦真假难辨，对穆念慈柔声低语",
+        "temperament": "城府极深，表面随和实则阴险，杀欧阳克既为穆念慈更为拜师之利"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {
+          "target": "char_munianci",
+          "type": "恋人/利用",
+          "intensity": 7,
+          "bond_level": 3,
+          "dynamic": "与穆念慈重逢后柔情蜜意，但杀欧阳克的真实目的是拜师欧阳锋，令穆念慈寒心"
+        },
+        {
+          "target": "char_ouyangke",
+          "type": "仇敌/谋杀对象",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "趁欧阳克仰头饮酒时以铁枪枪头刺入其小腹，表面为救穆念慈，实图拜师欧阳锋"
+        },
+        {
+          "target": "char_tuolei",
+          "type": "欺骗对象",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "假冒郭靖义弟身份，哭诉郭靖被害，企图骗取拖雷信任以便北上刺杀"
+        },
+        {
+          "target": "char_huazheng",
+          "type": "欺骗对象",
+          "intensity": 4,
+          "bond_level": 0,
+          "dynamic": "编造郭靖被害谎言，令华筝悲痛欲绝"
+        },
+        {
+          "target": "char_qiuchuji",
+          "type": "师父",
+          "intensity": 5,
+          "bond_level": 2,
+          "dynamic": "在师父面前表示改过自新复姓为杨，暗中却嫁祸黄药师杀害郭靖"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "图谋拜师",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "杀欧阳克后图谋拜其叔父欧阳锋为师，利用一脉单传之规"
+        },
+        {
+          "target": "char_guojing",
+          "type": "义兄/被嫁祸者",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "向拖雷等人谎称郭靖已死，嫁祸黄药师和段天德"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["全真派武功（丘处机门下）"]
+    },
+    {
+      "id": "char_qiuqianren",
+      "personality": {
+        "traits": ["奸诈狡猾", "善于伪装欺骗", "口蜜腹剑"],
+        "speech_style": "装腔作势，自称'老夫'，言语故作高深",
+        "temperament": "老奸巨猾，以利剑刺腹等骗术惑众，受完颜洪烈之聘煽动中原武林内斗"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {
+          "target": "char_mayu",
+          "type": "欺骗对象",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "在全真六子面前散布周伯通被黄药师所害的谣言，以利剑入腹骗术惑众"
+        },
+        {
+          "target": "char_qiuchuji",
+          "type": "欺骗对象",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "令丘处机深信不疑，加剧全真派对黄药师的仇恨"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["铁掌功"]
+    },
+    {
+      "id": "char_mayu",
+      "personality": {
+        "traits": ["沉稳持重", "处事老练", "宽厚仁和"],
+        "speech_style": "语调平和冲淡，吟诗诵经，气度从容",
+        "temperament": "大将风度，率众布阵从容不迫，力主持重不轻启战端"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_qiuchuji",
+          "type": "师兄弟",
+          "intensity": 7,
+          "bond_level": 5,
+          "dynamic": "力劝丘处机不要轻率去找黄药师，统率全真七子布阵迎敌"
+        },
+        {
+          "target": "char_huangyaoshi",
+          "type": "对手",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "率全真七子以天罡北斗阵迎战黄药师大半个时辰不分胜负"
+        },
+        {
+          "target": "char_huazheng",
+          "type": "旧识",
+          "intensity": 3,
+          "bond_level": 2,
+          "dynamic": "华筝认出他是在蒙古帮她捉白雕的道人"
+        }
+      ],
+      "known_skills": ["天罡北斗阵", "全真剑法"],
+      "related_skills": ["全真内功"]
+    },
+    {
+      "id": "char_qiuchuji",
+      "personality": {
+        "traits": ["嫉恶如仇", "脾气火爆", "重情重义"],
+        "speech_style": "声如洪钟，破口大骂，怒气冲冲",
+        "temperament": "性如烈火，闻师叔被害即拔剑而起，但武功为七子之首"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangyaoshi",
+          "type": "仇敌",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "大骂黄药师邪魔恶鬼，先害周伯通又害谭处端"
+        },
+        {
+          "target": "char_tanchuduan",
+          "type": "师兄弟",
+          "intensity": 8,
+          "bond_level": 5,
+          "dynamic": "见谭处端被欧阳锋暗算致死，眼中如欲喷火，仗剑追出"
+        },
+        {
+          "target": "char_yangkang",
+          "type": "师父",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "见杨康复姓为杨、与穆念慈亲善，大为欣慰"
+        },
+        {
+          "target": "char_meichaofeng",
+          "type": "仇敌",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "连称梅超风为妖妇，激怒其全力搏斗"
+        }
+      ],
+      "known_skills": ["天罡北斗阵", "全真剑法"],
+      "related_skills": ["全真内功"]
+    },
+    {
+      "id": "char_wangchuyi",
+      "personality": {
+        "traits": ["沉稳老练", "见识广博"],
+        "speech_style": "语调稳重，有礼有节",
+        "temperament": "冷静自持，曾见过东邪西毒，处变不惊"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_huangyaoshi",
+          "type": "对手",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "曾在华山绝顶见过黄药师，欲向前见礼却被掌掴"
+        },
+        {
+          "target": "char_luguanying",
+          "type": "晚辈婚姻主持",
+          "intensity": 3,
+          "bond_level": 2,
+          "dynamic": "提议丘处机为杨康与穆念慈作主成亲"
+        }
+      ],
+      "known_skills": ["天罡北斗阵", "全真剑法"],
+      "related_skills": ["全真内功"]
+    },
+    {
+      "id": "char_sunbuer",
+      "personality": {
+        "traits": ["清修淡泊", "沉静内敛"],
+        "speech_style": "少言寡语，吟诗时语调平和",
+        "temperament": "道心虔诚，纪念先师王重阳，道袍上绣骷髅图形以自警"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_chengyaojia",
+          "type": "师父",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "程瑶迦为其门下弟子"
+        },
+        {
+          "target": "char_tanchuduan",
+          "type": "师兄弟",
+          "intensity": 6,
+          "bond_level": 4,
+          "dynamic": "扶着谭处端身子大哭"
+        }
+      ],
+      "known_skills": ["天罡北斗阵"],
+      "related_skills": ["全真剑法"]
+    },
+    {
+      "id": "char_tanchuduan",
+      "personality": {
+        "traits": ["侠义心肠", "坚韧不屈", "壮烈从容"],
+        "speech_style": "声音粗豪，临终吟诗从容赴死",
+        "temperament": "铁匠出身，体魄魁梧，侠义除害不惧强敌，临终从容"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_meichaofeng",
+          "type": "追击/被追击",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "见梅超风以活人练功，侠义心肠上前除害，不敌被追赶至此"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "被害者",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "被欧阳锋从背后以蛤蟆功偷袭，前后肋骨和脊骨打折，吟诗而逝"
+        }
+      ],
+      "known_skills": ["天罡北斗阵"],
+      "related_skills": ["全真剑法"]
+    },
+    {
+      "id": "char_liuchuxuan",
+      "personality": {
+        "traits": ["沉稳干练", "身形瘦小声音洪亮"],
+        "speech_style": "声音洪亮，吟诗有力",
+        "temperament": "冷静果断，追赶不及仍持续搜索"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_zhoubotong",
+          "type": "师侄",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "追赶周伯通不及，但亲眼见到其与二人奔跑"
+        },
+        {
+          "target": "char_meichaofeng",
+          "type": "对手",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "掌力带动梅超风长鞭飞出打在墙上"
+        }
+      ],
+      "known_skills": ["天罡北斗阵"],
+      "related_skills": ["全真剑法"]
+    },
+    {
+      "id": "char_haodatong",
+      "personality": {
+        "traits": ["精研易理", "道心虔诚", "感恩尊师"],
+        "speech_style": "语调平和，自述来历",
+        "temperament": "虔诚感恩，穿无袖道袍纪念师恩"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_zhoubotong",
+          "type": "师侄",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "追出七八里不见周伯通踪影"
+        },
+        {
+          "target": "char_meichaofeng",
+          "type": "对手",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "在天罡北斗阵中主开阳之位，合力抵挡梅超风"
+        }
+      ],
+      "known_skills": ["天罡北斗阵"],
+      "related_skills": ["全真内功"]
+    },
+    {
+      "id": "char_yinzhiding",
+      "personality": {
+        "traits": ["倔强硬气", "胆大敢言", "宁死不屈"],
+        "speech_style": "叫骂激昂，面对黄药师时放肆辱骂",
+        "temperament": "骨头极硬，明知不敌仍当面辱骂黄药师，颇有黄药师少年时风范"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangyaoshi",
+          "type": "受辱/相惜",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "被黄药师打落半口牙齿仍叫骂不止，黄药师因其骨气起了相惜之意"
+        },
+        {
+          "target": "char_qiuchuji",
+          "type": "师徒",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "忙去临安禀告师父黄药师之事"
+        },
+        {
+          "target": "char_chengyaojia",
+          "type": "师兄妹",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "程瑶迦仗剑为其挡刀，二人并肩面对黄药师"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["全真派武功"]
+    },
+    {
+      "id": "char_huazheng",
+      "personality": {
+        "traits": ["直爽刚烈", "对郭靖情深", "巾帼气概"],
+        "speech_style": "蒙古语为主，哭诉时悲痛欲绝",
+        "temperament": "刚烈果敢，闻郭靖死讯欲横刀自刎，后挥刀砍桌发誓报仇"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "未婚妻",
+          "intensity": 10,
+          "bond_level": 5,
+          "dynamic": "南下寻访郭靖，白雕引路，闻郭靖死讯悲痛欲绝欲自刎"
+        },
+        {
+          "target": "char_tuolei",
+          "type": "兄妹",
+          "intensity": 8,
+          "bond_level": 5,
+          "dynamic": "与哥哥在牛家村会合，互相道别来之情"
+        },
+        {
+          "target": "char_yangkang",
+          "type": "被骗者",
+          "intensity": 4,
+          "bond_level": 0,
+          "dynamic": "轻信杨康谎言，以为郭靖被害"
+        },
+        {
+          "target": "char_mayu",
+          "type": "旧识",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "认出马钰是在蒙古帮她捉白雕的道人"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["骑射之术"]
+    },
+    {
+      "id": "char_tuolei",
+      "personality": {
+        "traits": ["豪爽重义", "英武果决"],
+        "speech_style": "蒙古语，语调豪迈",
+        "temperament": "王子气度，对宋朝君臣苟安鄙夷，闻郭靖死讯悲痛"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "结义安答",
+          "intensity": 9,
+          "bond_level": 5,
+          "dynamic": "闻郭靖死讯捶胸大哭，欲立即去找仇人报仇"
+        },
+        {
+          "target": "char_yangkang",
+          "type": "被骗者",
+          "intensity": 4,
+          "bond_level": 0,
+          "dynamic": "轻信杨康编造的郭靖被害故事"
+        },
+        {
+          "target": "char_huazheng",
+          "type": "兄妹",
+          "intensity": 8,
+          "bond_level": 5,
+          "dynamic": "出使临安后北返，在牛家村与华筝会合"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["蒙古骑射"]
+    },
+    {
+      "id": "char_zhebie",
+      "personality": {
+        "traits": ["忠勇善战", "重义轻生"],
+        "speech_style": "蒙古语，语调忠诚",
+        "temperament": "忠义之士，闻郭靖死讯捶胸大哭"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "故友/恩人之子",
+          "intensity": 7,
+          "bond_level": 4,
+          "dynamic": "与郭靖情谊深厚，闻其死讯与众人一同痛哭"
+        },
+        {
+          "target": "char_tuolei",
+          "type": "主公",
+          "intensity": 7,
+          "bond_level": 4,
+          "dynamic": "随拖雷出行，忠诚护卫"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["蒙古骑射"]
+    },
+    {
+      "id": "char_boershishu",
+      "personality": {
+        "traits": ["忠诚勇武"],
+        "speech_style": "蒙古语，语调质朴",
+        "temperament": "忠诚将领，闻郭靖死讯悲痛"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "故友",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "与郭靖情谊深厚，闻其死讯捶胸大哭"
+        },
+        {
+          "target": "char_tuolei",
+          "type": "主公",
+          "intensity": 7,
+          "bond_level": 4,
+          "dynamic": "随拖雷出行护卫"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["蒙古骑射"]
+    },
+    {
+      "id": "char_shagua",
+      "personality": {
+        "traits": ["憨傻天真"],
+        "speech_style": "未有台词",
+        "temperament": "天真懵懂"
+      },
+      "archetype": "npc",
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhoubotong",
+      "personality": {
+        "traits": ["好玩喜斗", "不拘小节", "童心未泯"],
+        "speech_style": "嬉笑怒骂，自称'老顽童'，语调诙谐",
+        "temperament": "率性而为，说不比就不比，中途想起洪七公安危便弃赛而去"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_ouyangfeng",
+          "type": "比赛对手",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "与欧阳锋比赛脚力一日一夜，比到忍屎忍尿"
+        },
+        {
+          "target": "char_huangyaoshi",
+          "type": "比赛对手",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "三人比赛脚力奔驰数百里不分上下"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["空明拳", "双手互搏"]
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_jiuyinzhenjingneigong",
+      "techniques": [
+        {
+          "id": "tech_jiuyin_healing",
+          "name": "九阴真经疗伤心法",
+          "type": "buff",
+          "description": "郭靖以九阴真经内功疗伤七日七夜，将内息自尾闾升至泥丸宫再降回丹田，功行圆满后内力精进"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "郭靖经七日七夜修习，功行圆满，内伤痊愈，内力大增"},
+        {"level": 2, "unlock": "旁观天罡北斗阵领悟九阴真经体用诀窍，旁证道家武学同源之理"}
+      ],
+      "effects": ["疗伤", "内力提升", "领悟道家武学要旨"],
+      "combat_style": "内功心法，非直接用于搏击，以静坐内视运息为主"
+    },
+    {
+      "id": "skill_dagoubangfa",
+      "techniques": [
+        {
+          "id": "tech_dagou_bangdagoutou",
+          "name": "棒打狗头",
+          "type": "attack",
+          "description": "黄蓉以竹棒向欧阳克头顶击去，出手狠辣，为打狗棒法中的高招"
+        },
+        {
+          "id": "tech_dagou_fanjiegunpi",
+          "name": "反截狗臀",
+          "type": "attack",
+          "description": "黄蓉欲追击欧阳克时使出的变招，因盘膝坐定无法移动而未能施展"
+        }
+      ],
+      "progression": [],
+      "effects": ["攻击", "变招灵活"],
+      "combat_style": "杖法，招式灵活多变，虚实相间"
+    },
+    {
+      "id": "skill_lanhuafuxueshou",
+      "techniques": [
+        {
+          "id": "tech_lanhuafuxue_zhangmen",
+          "name": "拂章门穴",
+          "type": "debuff",
+          "description": "黄蓉以兰花拂穴手拂郭靖左胸第十一肋骨处章门穴，欲封其穴道阻止起身，因郭靖内功精深肌肉自转而连拂两下未中"
+        }
+      ],
+      "progression": [],
+      "effects": ["封穴", "制敌"],
+      "combat_style": "指法，以巧劲拂穴制敌"
+    },
+    {
+      "id": "skill_tiangangbeidouzhen",
+      "techniques": [
+        {
+          "id": "tech_tiangang_lianhe",
+          "name": "七人内力合一",
+          "type": "buff",
+          "description": "全真七子按北斗方位坐定，各出一掌另一掌搭在身旁道侣肩上，七人内力合而为一，正面受攻者由身旁道侣侧击反攻"
+        },
+        {
+          "id": "tech_tiangang_weibiqu",
+          "name": "围逼困敌",
+          "type": "debuff",
+          "description": "击首则尾应，击尾则首应，击腰则首尾皆应，将敌人困在阵中，因势带引将敌兵器裹入阵中"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "七子内力相连，威力远超单打独斗"},
+        {"level": 2, "unlock": "阵法运转一招快似一招，非天权位收阵则无法停止"}
+      ],
+      "effects": ["内力合一", "困敌", "以静制动", "围逼"],
+      "combat_style": "阵法，七人按天枢、天璇、天玑、天权、玉衡、开阳、摇光方位布阵，以静制动"
+    },
+    {
+      "id": "skill_luoyingshenjianzhangfa",
+      "techniques": [
+        {
+          "id": "tech_luoying_xushi",
+          "name": "五虚七虚变实招",
+          "type": "feint",
+          "description": "落英神剑掌法虚实变化，五虚一实、七虚一实，临阵之际虚招均可变为实招，掌影翻飞"
+        }
+      ],
+      "progression": [],
+      "effects": ["攻击", "虚实变化", "身形灵动"],
+      "combat_style": "掌法，身形灵动，滴滴溜溜乱转，虚实相间"
+    },
+    {
+      "id": "skill_hamagong",
+      "techniques": [
+        {
+          "id": "tech_hama_touxi",
+          "name": "蛤蟆功暗算",
+          "type": "attack",
+          "description": "欧阳锋先以三成力偷袭谭处端，再以毕生功力从黄药师背后推出，势如排山倒海"
+        }
+      ],
+      "progression": [],
+      "effects": ["重击", "碎骨", "致命"],
+      "combat_style": "内功，双掌推出势如排山倒海，适合蓄力突袭"
+    },
+    {
+      "id": "skill_jiuyinbaiguzhua",
+      "techniques": [
+        {
+          "id": "tech_jiuyin_baiguzhua_attack",
+          "name": "九阴白骨爪攻击",
+          "type": "attack",
+          "description": "梅超风以九阴白骨爪冲出天罡北斗阵重围，左掌护身右抓迎头扑下，凌厉狠辣"
+        }
+      ],
+      "progression": [],
+      "effects": ["攻击", "穿骨"],
+      "combat_style": "爪法，认准发声之处迎头扑下，凌厉狠辣"
+    },
+    {
+      "id": "skill_cuixinzhang",
+      "techniques": [
+        {
+          "id": "tech_cuixin_attack",
+          "name": "催心掌攻击",
+          "type": "attack",
+          "description": "梅超风在天罡北斗阵中连使催心掌，欲冲出重围"
+        }
+      ],
+      "progression": [],
+      "effects": ["攻击", "伤心"],
+      "combat_style": "掌法，与九阴白骨爪配合使用"
+    },
+    {
+      "id": "skill_quanzhenjianfa",
+      "techniques": [
+        {
+          "id": "tech_quanzhen_shuangjian",
+          "name": "双剑连势",
+          "type": "attack",
+          "description": "丘处机与王处一双剑齐出连绵而上，全真剑法变化精微，双剑连势威力极盛"
+        }
+      ],
+      "progression": [],
+      "effects": ["攻击", "连绵不断"],
+      "combat_style": "剑法，变化精微，双剑配合威力倍增"
+    },
+    {
+      "id": "skill_qinnafa",
+      "techniques": [
+        {
+          "id": "tech_qinna_goudasuoji",
+          "name": "勾打锁击",
+          "type": "attack",
+          "description": "欧阳克施展开擒拿法，隔着密室之门与黄蓉相斗，勾打锁击，十余招即令黄蓉左支右绌"
+        }
+      ],
+      "progression": [],
+      "effects": ["擒拿", "近身格斗"],
+      "combat_style": "擒拿术，出手极快，适合近身搏斗"
+    },
+    {
+      "id": "skill_dulongbian",
+      "techniques": [
+        {
+          "id": "tech_dulong_yinhengeng",
+          "name": "毒龙鞭横扫",
+          "type": "attack",
+          "description": "梅超风挥动生满倒钩的银色长鞭，鞭如大蟒缓缓游来，去势虽慢却极为狠辣"
+        }
+      ],
+      "progression": [],
+      "effects": ["远程攻击", "倒钩伤人"],
+      "combat_style": "鞭法，数丈长鞭可远程攻击，鞭身生满倒钩"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_dagoubang",
+      "description": "丐帮帮主信物，碧绿晶莹的竹棒，迥非常物",
+      "effects": [
+        {"type": "身份象征", "value": "帮主权威", "description": "见打狗棒如见帮主本人，丐帮弟子见之必行大礼"}
+      ],
+      "origin": "丐帮传承",
+      "rarity": "legendary",
+      "related_skills": ["skill_dagoubangfa"]
+    },
+    {
+      "id": "item_ruanweijia",
+      "description": "黄蓉所穿护甲，上附尖针",
+      "effects": [
+        {"type": "防御", "value": "护体", "description": "穿戴者受到贴身攻击时尖针反伤敌人"},
+        {"type": "唤醒", "value": "刺痛清醒", "description": "郭靖走火入魔时，软猬甲尖针刺入其臂肉，令其从心魔中清醒"}
+      ],
+      "origin": "桃花岛",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_tieqiangqiangtou",
+      "description": "杨铁心遗物，半截铁枪枪头",
+      "effects": [
+        {"type": "致命一击", "value": "刺杀", "description": "杨康以铁枪枪头刺入欧阳克小腹没入五六寸深，致其身亡"}
+      ],
+      "origin": "杨铁心遗物",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_dulongbian",
+      "description": "梅超风的银色长鞭，鞭身生满倒钩，数丈之长",
+      "effects": [
+        {"type": "攻击", "value": "远程鞭击", "description": "可远距离攻击，鞭身倒钩可撕裂皮肉"}
+      ],
+      "origin": "梅超风兵器",
+      "rarity": "uncommon",
+      "related_skills": ["skill_dulongbian"]
+    },
+    {
+      "id": "item_renpimianju",
+      "description": "黄药师所戴面具，用以遮掩面目",
+      "effects": [
+        {"type": "伪装", "value": "隐藏身份", "description": "黄药师戴上面具后不露行藏，令陆冠英等人不敢确认其身份"}
+      ],
+      "origin": "桃花岛",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_qiannrenjian",
+      "description": "裘千仞的骗人道具，共分三截的利剑，剑尖受力后一二截依次缩入第三截，嵌入腰带夹缝",
+      "effects": [
+        {"type": "欺骗", "value": "伪装利剑入腹", "description": "看似整柄剑刺入小腹，实为机关骗术，令旁人以为裘千仞刀枪不入"}
+      ],
+      "origin": "裘千仞骗术道具",
+      "rarity": "common",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_25_01",
+      "name": "黄药师威压尹志平",
+      "participants": ["char_huangyaoshi", "char_yinzhiding", "char_luguanying"],
+      "location": "loc_niucun",
+      "description": "黄药师以木块击落尹志平半口牙齿，尹志平当面辱骂其为妖魔邪道，黄药师因其胆大骨硬起了相惜之意，将他甩出门外饶其性命"
+    },
+    {
+      "id": "evt_25_02",
+      "name": "黄药师强主婚事",
+      "participants": ["char_huangyaoshi", "char_luguanying", "char_chengyaojia"],
+      "location": "loc_niucun",
+      "description": "黄药师逼问陆冠英与程瑶迦心意，二人先后默认后，当场主持拜天地成亲，并令二人洞房花烛，自己横卧门口守卫"
+    },
+    {
+      "id": "evt_25_03",
+      "name": "郭靖心魔侵扰",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_niucun",
+      "description": "郭靖疗伤时受陆程二人亲热笑语刺激，加上身旁黄蓉，渐觉全身情热如沸，几乎把持不定起身。黄蓉先以兰花拂穴手未能拂中，后以软猬甲尖针刺醒郭靖，鸡鸣时郭靖头脑清明"
+    },
+    {
+      "id": "evt_25_04",
+      "name": "周伯通与欧阳锋比赛脚力途经",
+      "participants": ["char_zhoubotong", "char_ouyangfeng", "char_huangyaoshi"],
+      "location": "loc_niucun",
+      "description": "周伯通与欧阳锋一日一夜奔驰临安至嘉兴来回五百余里比赛脚力，途经牛家村，黄药师闻声追出，三人一齐远去"
+    },
+    {
+      "id": "evt_25_05",
+      "name": "欧阳克闯入密室",
+      "participants": ["char_ouyangke", "char_huangrong", "char_guojing"],
+      "location": "loc_niucun",
+      "description": "欧阳克听出黄蓉语声，移桌近橱找到密室机关，黄蓉以打狗棒法棒打狗头击退他，但被夺去竹棒后掷出钢针"
+    },
+    {
+      "id": "evt_25_06",
+      "name": "欧阳克胁迫程瑶迦",
+      "participants": ["char_ouyangke", "char_chengyaojia", "char_luguanying"],
+      "location": "loc_niucun",
+      "description": "欧阳克抓住陆冠英为人质，逼迫程瑶迦脱衣，程瑶迦宁可让他杀了丈夫也不屈服，横剑自刎被欧阳克打落长剑"
+    },
+    {
+      "id": "evt_25_07",
+      "name": "穆念慈扶柩回乡",
+      "participants": ["char_munianci", "char_ouyangke"],
+      "location": "loc_niucun",
+      "description": "穆念慈护送杨铁心夫妇灵柩南下至牛家村安葬，进门即撞见欧阳克，被其擒获搂抱"
+    },
+    {
+      "id": "evt_25_08",
+      "name": "杨康刺杀欧阳克",
+      "participants": ["char_yangkang", "char_ouyangke", "char_munianci"],
+      "location": "loc_niucun",
+      "description": "杨康趁欧阳克仰头饮酒时，从桌底以铁枪枪头猛刺其小腹没入五六寸深。欧阳克临死前追问原因，杨康指穆念慈为未过门妻子，欧阳克举掌欲拍其天灵盖却力竭气绝"
+    },
+    {
+      "id": "evt_25_09",
+      "name": "杨康嫁祸郭靖之死",
+      "participants": ["char_yangkang", "char_tuolei", "char_huazheng", "char_zhebie", "char_boershishu"],
+      "location": "loc_niucun",
+      "description": "杨康向拖雷、华筝跪地大哭，编造郭靖被段天德以铁枪刺死的谎言，骗取蒙古众人信任，图谋随其北返刺杀拖雷以利金国"
+    },
+    {
+      "id": "evt_25_10",
+      "name": "裘千仞散布谣言",
+      "participants": ["char_qiuqianren", "char_mayu", "char_qiuchuji"],
+      "location": "loc_niucun",
+      "description": "裘千仞在全真六子面前谎称周伯通已被黄药师所害，并以利剑刺腹的骗术展示刀枪不入，令全真派对黄药师仇恨加剧"
+    },
+    {
+      "id": "evt_25_11",
+      "name": "杨康骗得打狗棒",
+      "participants": ["char_yangkang"],
+      "location": "loc_niucun",
+      "description": "杨康拾起欧阳克从黄蓉手中夺来的打狗棒，被两名丐帮八袋弟子误认为帮主法杖持有者，恭敬相随"
+    },
+    {
+      "id": "evt_25_12",
+      "name": "丘处机欲为杨康穆念慈主婚",
+      "participants": ["char_qiuchuji", "char_yangkang", "char_munianci", "char_wangchuyi"],
+      "location": "loc_niucun",
+      "description": "王处一提议丘处机为杨康穆念慈主婚，穆念慈要求杨康先报杀父之仇方可成亲，杨康踌躇未答"
+    },
+    {
+      "id": "evt_25_13",
+      "name": "梅超风追击谭处端至牛家村",
+      "participants": ["char_meichaofeng", "char_tanchuduan", "char_mayu", "char_qiuchuji"],
+      "location": "loc_niucun",
+      "description": "谭处端追赶周伯通不及，归途中见梅超风以活人练功上前除害，不敌被追赶至牛家村，全真七子布天罡北斗阵迎战"
+    },
+    {
+      "id": "evt_25_14",
+      "name": "天罡北斗阵围困梅超风",
+      "participants": ["char_meichaofeng", "char_mayu", "char_qiuchuji", "char_tanchuduan", "char_liuchuxuan", "char_wangchuyi", "char_haodatong", "char_sunbuer"],
+      "location": "loc_niucun",
+      "description": "全真七子以天罡北斗阵盘膝坐定，内力合一围困梅超风。梅超风使九阴白骨爪和催心掌均无法冲出，长鞭被裹住半条，深陷阵中"
+    },
+    {
+      "id": "evt_25_15",
+      "name": "黄药师大战全真七子",
+      "participants": ["char_huangyaoshi", "char_mayu", "char_qiuchuji", "char_tanchuduan", "char_liuchuxuan", "char_wangchuyi", "char_haodatong", "char_sunbuer", "char_meichaofeng", "char_ouyangfeng"],
+      "location": "loc_niucun",
+      "description": "黄药师与欧阳锋同回牛家村，黄药师连打五子耳光后被天罡北斗阵围住，连变十三般奇门武功大战大半个时辰不分胜负，最终踏八卦方位发掌，双方越打越慢"
+    },
+    {
+      "id": "evt_25_16",
+      "name": "欧阳锋暗算谭处端与黄药师",
+      "participants": ["char_ouyangfeng", "char_tanchuduan", "char_huangyaoshi", "char_meichaofeng"],
+      "location": "loc_niucun",
+      "description": "欧阳锋假意助黄药师，先以三成蛤蟆功从背后偷袭谭处端致其肋骨脊骨折断，再以毕生功力推击黄药师后背。梅超风飞身扑在黄药师背上代接一击，喷血重伤"
+    },
+    {
+      "id": "evt_25_17",
+      "name": "谭处端壮烈身亡",
+      "participants": ["char_tanchuduan", "char_mayu", "char_qiuchuji", "char_sunbuer"],
+      "location": "loc_niucun",
+      "description": "谭处端肋骨脊骨折断，缓缓吟道'手握灵珠常奋笔，心开天籁不吹箫'后闭目而逝，全真六子低首祝告后抱尸离去"
+    },
+    {
+      "id": "evt_25_18",
+      "name": "郭靖功行圆满",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_niucun",
+      "description": "郭靖七昼夜功行已满，闭目内视将内息自尾闾经夹脊、天柱、玉枕升至泥丸宫，再从正面下降经鹊桥、重楼回至丹田，脸色红润神光灿然"
+    },
+    {
+      "id": "evt_25_19",
+      "name": "郭靖旁观天罡北斗阵领悟九阴真经",
+      "participants": ["char_guojing"],
+      "location": "loc_niucun",
+      "description": "郭靖旁观全真七子行功布阵，九阴真经中诸多不解辞句豁然而悟，领悟道家武学同源之理，旁证真经中北斗大法的体用诀窍，功力大进"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_yinzhiding",
+      "text": "我便是黄药师、黑药师，你全真派要我怎么好看了啊？",
+      "tone": "冷傲威压",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_yinzhiding",
+      "listener": "char_huangyaoshi",
+      "text": "你是武林的大宗师，何以行事如此乖张？江南六怪是侠义之人，你凭甚么要苦苦相逼？",
+      "tone": "愤怒质问",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_yinzhiding",
+      "listener": "char_huangyaoshi",
+      "text": "我不怕你，偏要骂你这妖魔老怪。",
+      "tone": "豁命叫骂",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_yinzhiding",
+      "text": "好，有胆量，有骨气。我黄老邪本来就是邪魔外道，也没算骂错了。你师父尚是我晚辈，我岂能跟你小道士一般见识？去罢！",
+      "tone": "傲慢欣赏",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_chengyaojia",
+      "text": "你愿意嫁给他做妻子，是不是？",
+      "tone": "直接逼问",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_chengyaojia",
+      "text": "黄老邪生平最恨的是仁义礼法，最恶的是圣贤节烈，这些都是欺骗愚夫愚妇的东西。我黄药师偏不信这吃人不吐骨头的礼教。",
+      "tone": "慷慨激昂",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_luguanying",
+      "text": "配得上的！你是我的徒孙，就是公主娘娘也配得上！",
+      "tone": "霸气果断",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_chengyaojia",
+      "listener": "char_luguanying",
+      "text": "不摇头，就……就……是点头了……",
+      "tone": "细若蚊鸣、羞涩",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": null,
+      "text": "王重阳一生豪气干云，却收了这般扭扭捏捏的一个徒孙，当真好笑。好好，今日我就给你们成亲。",
+      "tone": "大笑调侃",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "你说他捉得住程大小姐么？",
+      "tone": "轻声好奇",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "一定捉得住。",
+      "tone": "轻笑",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "我不成啦，蓉儿，我……我……",
+      "tone": "急促失控",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "坐着！你一动我就点你穴道。",
+      "tone": "厉声喝止",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_ouyangke",
+      "listener": "char_chengyaojia",
+      "text": "昨晚你两个成亲，我在隔壁听得清清楚楚。洞房花烛，竟不宽衣解带，天下没这般的夫妻。你把全身衣裳脱个干净，只要剩下一丝半缕，我立时送你丈夫归天。",
+      "tone": "淫邪威胁",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_chengyaojia",
+      "listener": "char_ouyangke",
+      "text": "你杀了他罢！",
+      "tone": "惨然决绝",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_ouyangke",
+      "listener": "char_huangrong",
+      "text": "黄家妹子，你也来罢。",
+      "tone": "得意洋洋",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_munianci",
+      "listener": "char_yangkang",
+      "text": "你爹爹妈妈的灵柩，我给搬回来啦。",
+      "tone": "平静克制",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_ouyangke",
+      "listener": "char_yangkang",
+      "text": "我姓欧阳的纵横半生，想不到今日死在你这小子手里，只是我心中实在不明白，小王爷，你到底为甚么要杀我？",
+      "tone": "困惑苦笑",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_yangkang",
+      "listener": "char_ouyangke",
+      "text": "她是我未过门的妻子，你两次强加戏侮，我岂能容你？",
+      "tone": "冷笑",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_ouyangke",
+      "listener": "char_yangkang",
+      "text": "原来如此，咱们同赴阴世罢。",
+      "tone": "苦笑",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_munianci",
+      "listener": "char_yangkang",
+      "text": "原来昨天你冒险杀他，并非为了救我，却是另有图谋。",
+      "tone": "颤声失望",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_munianci",
+      "listener": "char_yangkang",
+      "text": "大丈夫敢作敢为，你既害怕，昨日就不该杀他。",
+      "tone": "不悦斥责",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_munianci",
+      "listener": "char_yangkang",
+      "text": "你是愿意作大宋的忠义之民呢，还是贪图富贵不可限量，仍要去认贼作父？",
+      "tone": "厉声质问",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "她是蒙古大汗成吉思汗的女儿，是我的未婚妻子。",
+      "tone": "坦诚无奈",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "你……你有了未婚妻子？你怎么从来不跟我说？",
+      "tone": "惊愕含泪",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "现今，蓉儿啊，我怎能撇下你去另娶别人？",
+      "tone": "诚恳深情",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "只要你心中永远待我好，你就是娶了她，我也不在乎。",
+      "tone": "叹息深情",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_yangkang",
+      "listener": "char_tuolei",
+      "text": "我是郭靖的结义兄弟，郭大哥被人用这铁枪的枪头刺死了。那奸贼是宋朝军官，料来是受了宰相史弥远的指使。",
+      "tone": "痛哭流涕、虚伪",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huazheng",
+      "listener": null,
+      "text": "不给郭靖安答报仇，誓不为人。",
+      "tone": "悲愤挥刀",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_qiuchuji",
+      "listener": "char_huangyaoshi",
+      "text": "全真门下弟子马钰等拜见桃花岛黄岛主。",
+      "tone": "朗声",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_qiuchuji",
+      "listener": "char_yangkang",
+      "text": "郭靖是谁害死的，快说！",
+      "tone": "厉声逼问",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_yangkang",
+      "listener": "char_qiuchuji",
+      "text": "那便是桃花岛黄岛主。",
+      "tone": "恨恨",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_qiuqianren",
+      "listener": "char_mayu",
+      "text": "老顽童么？他早给黄药师杀了。",
+      "tone": "故作沉痛",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_meichaofeng",
+      "listener": "char_mayu",
+      "text": "马道长，别来无恙啊！",
+      "tone": "朗声",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_qiuchuji",
+      "listener": "char_meichaofeng",
+      "text": "好妖妇，快叫你师父来见识见识全真七子的手段。",
+      "tone": "怒骂",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_wangchuyi",
+      "listener": "char_meichaofeng",
+      "text": "我们是七个，你只一个人，又加眼睛不能见物，全真七子再不肖，也不能跟你动兵器。我们坐着不动，你进招罢！",
+      "tone": "坦荡",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_ouyangfeng",
+      "text": "锋兄，王重阳居然还留下了这一手！",
+      "tone": "轻描淡写",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_huangyaoshi",
+      "text": "药兄，我来助你。",
+      "tone": "假装好意",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_huangyaoshi",
+      "text": "那我就助他们！",
+      "tone": "阴险",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_ouyangfeng",
+      "text": "老毒物好毒，果然名不虚传！",
+      "tone": "冷笑怒斥",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": null,
+      "text": "黄老邪，我助你破了王重阳的阵法，又替你除去桃花岛的叛师孽徒，余下的六个杂毛你独自对付得了，咱们再见啦！",
+      "tone": "得意离间",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_tanchuduan",
+      "listener": null,
+      "text": "手握灵珠常奋笔，心开天籁不吹箫。",
+      "tone": "低吟从容",
+      "chapter": 25
+    },
+    {
+      "speaker": "char_qiuchuji",
+      "listener": "char_huangyaoshi",
+      "text": "我全真派跟你有何怨何仇？你这邪魔恶鬼，先害死我们周师叔，又害死我们谭师哥，所为何来？",
+      "tone": "戟指怒骂",
+      "chapter": 25
+    }
+  ]
+}

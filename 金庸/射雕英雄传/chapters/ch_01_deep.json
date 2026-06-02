@@ -1,0 +1,967 @@
+{
+  "chapter": 1,
+  "characters_detail": [
+    {
+      "id": "char_zhang_shi_wu",
+      "personality": {
+        "traits": ["见多识广", "忧国忧民", "谨慎胆小", "能说会唱"],
+        "speech_style": "说书人口吻，引经据典、出口成章，喜欢用诗句总结时事，词锋犀利但谈及眼前朝政时转为含蓄",
+        "temperament": "忧郁沉痛型，满腔悲愤借说书抒发，但面对现实权力时知难而退"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guo_xiao_tian",
+          "type": "酒友/倾诉对象",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "郭啸天主动邀其饮酒，张十五借酒论国事，双方一见如故"
+        },
+        {
+          "target": "char_yang_tie_xin",
+          "type": "酒友/倾诉对象",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "杨铁心续酒痛骂秦桧，张十五与其同仇敌忾"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_guo_xiao_tian",
+      "personality": {
+        "traits": ["身材魁梧", "豪迈好客", "嫉恶如仇", "重义轻生", "性格直率"],
+        "speech_style": "山东口音，说话直来直去、掷地有声，拍桌怒骂毫不掩饰，兄弟之间毫不客套",
+        "temperament": "刚烈豪爽型，听闻不平之事便拍案而起，但也有审时度势的理性判断"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_yang_tie_xin",
+          "type": "义结金兰",
+          "intensity": 9,
+          "bond_level": 5,
+          "dynamic": "八拜为交、比邻而居，生死与共，郭啸天临终托弟救嫂保全骨血"
+        },
+        {
+          "target": "char_li_ping",
+          "type": "夫妻",
+          "intensity": 7,
+          "bond_level": 5,
+          "dynamic": "李萍怀有身孕，郭啸天对她呵护有加"
+        },
+        {
+          "target": "char_qiu_chu_ji",
+          "type": "敬仰结交",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "初以为歹人后知是大侠，纳头便拜，向其讨教武功"
+        },
+        {
+          "target": "char_duan_tian_de",
+          "type": "仇敌",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "段天德砍断其右臂致其身亡，为杀身之仇"
+        },
+        {
+          "target": "char_qu_san",
+          "type": "邻居/敬畏",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "不知曲三身怀绝技，发现后心生敬畏，替其掩埋尸体守口如瓶"
+        }
+      ],
+      "known_skills": ["skill_ji_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yang_tie_xin",
+      "personality": {
+        "traits": ["白净面皮", "性情刚勇急躁", "重情重义", "嫉恶如仇", "临危不惧"],
+        "speech_style": "说话直接豪爽，怒时口无遮拦，对妻子温柔体贴，战斗时高声呼喝气势十足",
+        "temperament": "刚烈冲动型，遇不平事即刻发作，但对妻子和义兄感情极深，生死关头绝不抛弃"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guo_xiao_tian",
+          "type": "义结金兰",
+          "intensity": 9,
+          "bond_level": 5,
+          "dynamic": "八拜为交、比邻而居，见义兄被杀后拼命冲杀报仇，拼死救出嫂子李萍"
+        },
+        {
+          "target": "char_bao_xi_ruo",
+          "type": "夫妻",
+          "intensity": 8,
+          "bond_level": 5,
+          "dynamic": "对妻子怜爱有加事事顺着她的性子，生死关头被迫分离，极度痛苦"
+        },
+        {
+          "target": "char_qiu_chu_ji",
+          "type": "敬仰结交",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "初误会对打，得知身份后恭敬讨教，获赠短剑约定十年后传艺"
+        },
+        {
+          "target": "char_duan_tian_de",
+          "type": "仇敌",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "段天德毒打杨铁心，砍杀郭啸天，杨铁心发誓报仇"
+        },
+        {
+          "target": "char_qu_san",
+          "type": "邻居/敬畏",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "发现曲三武功高强后心生敬畏，按其要求守秘掩埋尸体"
+        },
+        {
+          "target": "char_li_ping",
+          "type": "叔嫂",
+          "intensity": 6,
+          "bond_level": 4,
+          "dynamic": "义兄之妻，拼死从官兵手中救出李萍，保全郭家骨血"
+        }
+      ],
+      "known_skills": ["skill_yang_jia_qiang_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_bao_xi_ruo",
+      "personality": {
+        "traits": ["心地仁慈", "性格柔和", "缺乏主见", "见伤必救", "柔弱多情"],
+        "speech_style": "语调轻柔、声音微弱，常带哭泣，说话怯生生缺乏自信，但内心善良温柔",
+        "temperament": "温婉柔弱型，遇事优柔寡断，大难之后孤苦无依更显脆弱，易受人左右"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {
+          "target": "char_yang_tie_xin",
+          "type": "夫妻",
+          "intensity": 8,
+          "bond_level": 5,
+          "dynamic": "夫妻情深，杨铁心对她百般怜爱，得知丈夫死讯后数度晕厥决意殉夫"
+        },
+        {
+          "target": "char_yan_lie",
+          "type": "救命恩人/被蒙蔽者",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "先救了受伤的颜烈，后被颜烈所救，听信杨铁心已死，受其蒙蔽随其北上"
+        },
+        {
+          "target": "char_li_ping",
+          "type": "妯娌/情同姊妹",
+          "intensity": 6,
+          "bond_level": 4,
+          "dynamic": "与李萍情同姊妹，两人常在一起说话"
+        },
+        {
+          "target": "char_qiu_chu_ji",
+          "type": "恩人",
+          "intensity": 3,
+          "bond_level": 2,
+          "dynamic": "丘处机诊出其有孕并赠短剑"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_li_ping",
+      "personality": {
+        "traits": ["身子壮健", "刚勇坚韧", "农家本色", "不畏强暴"],
+        "speech_style": "说话朴实直接，带农家女子的爽利，被缚时仍奋力抗争大喊大叫",
+        "temperament": "坚韧刚勇型，虽不会武功但拼命蛮打自有一股刚勇之气"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guo_xiao_tian",
+          "type": "夫妻",
+          "intensity": 7,
+          "bond_level": 5,
+          "dynamic": "怀有郭家骨血，郭啸天临终念念不忘保全其安全"
+        },
+        {
+          "target": "char_yang_tie_xin",
+          "type": "叔嫂",
+          "intensity": 6,
+          "bond_level": 4,
+          "dynamic": "被杨铁心从官兵手中救出，二人同乘逃命"
+        },
+        {
+          "target": "char_bao_xi_ruo",
+          "type": "妯娌/情同姊妹",
+          "intensity": 6,
+          "bond_level": 4,
+          "dynamic": "与包惜弱情同姊妹，互相关怀"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chu_ji",
+      "personality": {
+        "traits": ["嫉恶如仇", "豪爽磊落", "武功卓绝", "文武双全", "侠义心肠"],
+        "speech_style": "道士自称'贫道'，语气豪迈自信，论及奸贼时咬牙切齿，结交后爽朗大笑，给人取名时沉吟有致",
+        "temperament": "豪迈刚正型，见奸贼必杀之而后快，但对忠良之后礼敬有加"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_guo_xiao_tian",
+          "type": "结交/传艺之约",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "初误以为歹人后知是忠良之后肃然起敬，为其子取名郭靖并赠短剑"
+        },
+        {
+          "target": "char_yang_tie_xin",
+          "type": "结交/传艺之约",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "与杨铁心比武后确认其杨家枪法正传，为其子取名杨康并赠短剑"
+        },
+        {
+          "target": "char_wang_dao_qian",
+          "type": "追杀",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "追杀十多天后将其斩首，割取头颅心肝"
+        },
+        {
+          "target": "char_duan_tian_de",
+          "type": "间接仇敌",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "丘处机杀官差之事被官府追究，段天德奉命围捕与丘处机有关的郭杨二人"
+        }
+      ],
+      "known_skills": ["skill_jian_fa", "skill_zhang_fa", "skill_kong_shou_duo_bai_ren", "skill_shuai_shou_jian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duan_tian_de",
+      "personality": {
+        "traits": ["残暴狠毒", "凶恶跋扈", "有武功底子", "仗势欺人"],
+        "speech_style": "自称'老爷'，语气嚣张狂妄，边打边骂毫不留情，自报姓名毫不掩饰",
+        "temperament": "暴虐残忍型，对俘虏毫不手软，鞭打砍杀如家常便饭"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_guo_xiao_tian",
+          "type": "杀害者",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "砍断郭啸天右臂致其气绝身亡"
+        },
+        {
+          "target": "char_yang_tie_xin",
+          "type": "施暴者",
+          "intensity": 8,
+          "bond_level": 0,
+          "dynamic": "鞭打杨铁心、锯伤其左肩"
+        },
+        {
+          "target": "char_bao_xi_ruo",
+          "type": "间接加害者",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "率兵围村导致包惜弱与丈夫失散"
+        }
+      ],
+      "known_skills": ["skill_bang_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qu_san",
+      "personality": {
+        "traits": ["沉默寡言", "意兴阑珊", "行事神秘", "腿废心高", "洞察世事"],
+        "speech_style": "极少开口，开口则一语中的直指要害，偶尔冷笑，指点他人身世时从容不迫",
+        "temperament": "孤傲落寞型，双腿已废却武功极高，对世事洞若观火但心灰意冷"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_guo_xiao_tian",
+          "type": "邻居/暗中监视",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "早已查清郭杨二人底细，击杀侍卫后请二人帮忙掩埋尸体，赠予金器"
+        },
+        {
+          "target": "char_yang_tie_xin",
+          "type": "邻居/暗中监视",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "识破杨铁心护兄心切挡在前面的举动，赞其有义气"
+        }
+      ],
+      "known_skills": ["skill_guai_fa", "skill_qing_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yan_lie",
+      "personality": {
+        "traits": ["表面斯文有礼", "善于伪装", "心机深沉", "居心叵测", "殷勤备至"],
+        "speech_style": "自称'小人'极尽谦卑，言语温文尔雅，善于用道义说辞打动人心，暗藏不可告人目的",
+        "temperament": "阴险伪装型，外表至诚君子实则别有用心，对包惜弱步步设计"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_bao_xi_ruo",
+          "type": "蒙蔽/利用",
+          "intensity": 6,
+          "bond_level": 2,
+          "dynamic": "先被包惜弱所救，后隐瞒杨铁心生死真相，以报仇为名骗取信任带其北上"
+        },
+        {
+          "target": "char_yang_tie_xin",
+          "type": "隐瞒其生死",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "向包惜弱谎称杨铁心已死，实际杨铁心只是中箭昏迷"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_dao_qian",
+      "personality": {
+        "traits": ["卖国求荣", "贪生怕死", "勾结外敌"],
+        "speech_style": "文中无直接对白，仅通过丘处机和张十五的转述呈现其行径",
+        "temperament": "卑劣型，身为宋廷官员却与金人勾结图谋侵犯江南"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_qiu_chu_ji",
+          "type": "被追杀者",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "被丘处机追杀十多天后斩首"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_yang_jia_qiang_fa",
+      "techniques": [
+        {
+          "id": "tech_yjqf_du_long",
+          "name": "毒龙出洞",
+          "type": "attack",
+          "description": "杨家枪法攻击招式，铁枪疾刺如毒龙出洞"
+        },
+        {
+          "id": "tech_yjqf_hui_ma",
+          "name": "回马枪",
+          "type": "attack",
+          "description": "杨家枪法攻击招式，回身反刺"
+        },
+        {
+          "id": "tech_yjqf_bai_hong",
+          "name": "白虹经天",
+          "type": "attack",
+          "description": "杨铁心倒转枪来一招扫倒三名兵丁"
+        },
+        {
+          "id": "tech_yjqf_chun_lei",
+          "name": "春雷震怒",
+          "type": "attack",
+          "description": "枪柄跳起一兵惯入人堆"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "杨再兴所传七十二路枪法，用于马上冲锋陷阵所向无敌"
+        },
+        {
+          "level": 2,
+          "unlock": "步战时须更求变化不可拘泥成法，丘处机指点后有所领悟"
+        }
+      ],
+      "effects": ["马上步下皆有变化", "传子不传女的家传绝艺"],
+      "combat_style": "长兵器近战，招式变化灵动，以刺、扫、挑为主，马上冲锋威力极大"
+    },
+    {
+      "id": "skill_kong_shou_duo_bai_ren",
+      "techniques": [
+        {
+          "id": "tech_ksdbr_ji_wan",
+          "name": "掌缘击腕夺刃",
+          "type": "feint",
+          "description": "丘处机以掌缘在杨铁心手腕上一击，使其酸麻无力，五指松开，随即夹手夺去匕首，视对手如无物"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "对杨铁心施展，瞬间夺去匕首"
+        }
+      ],
+      "effects": ["令对手腕部酸麻无力", "瞬间解除对手武装"],
+      "combat_style": "近身擒拿，以巧劲化解对方攻势并夺取兵器"
+    },
+    {
+      "id": "skill_zhang_fa",
+      "techniques": [
+        {
+          "id": "tech_zf_pi_tou",
+          "name": "劈掌碎骨",
+          "type": "attack",
+          "description": "丘处机一掌劈下击碎王道乾头骨，连桌面也裂开一条大缝，声震屋瓦"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "掌力雄浑，可碎骨裂桌"
+        }
+      ],
+      "effects": ["掌力极重可碎头骨", "余劲可裂开木桌"],
+      "combat_style": "刚猛掌法，以力取胜"
+    },
+    {
+      "id": "skill_jian_fa",
+      "techniques": [
+        {
+          "id": "tech_jf_jian_guang",
+          "name": "剑光连闪",
+          "type": "attack",
+          "description": "丘处机拔剑跃下，剑光起处敌人纷纷中剑，出剑之快令杨铁心连瞧也瞧不清楚，战斗中来去如风以剑刺杀伤敌人"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "对十余名黑衣人施展，剑光连闪顷刻间杀伤多人"
+        }
+      ],
+      "effects": ["出剑极快对手无法看清", "可连续击杀多名敌人"],
+      "combat_style": "快剑近战，以速度取胜，配合身法来去如风"
+    },
+    {
+      "id": "skill_shuai_shou_jian",
+      "techniques": [
+        {
+          "id": "tech_ssj_fan_zhi",
+          "name": "接箭反掷",
+          "type": "attack",
+          "description": "丘处机闪开四枝羽箭接住最后一枝，以甩手箭手法反掷回去射杀黑衣人，一箭正中敌人使其落马"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "接住敌人射来的羽箭并以甩手箭手法反掷杀敌"
+        }
+      ],
+      "effects": ["化敌之攻为己之攻", "精准度极高一击致命"],
+      "combat_style": "暗器手法，利用敌人射来的箭矢反击"
+    },
+    {
+      "id": "skill_guai_fa",
+      "techniques": [
+        {
+          "id": "tech_gf_lian_huan",
+          "name": "双拐连环",
+          "type": "attack",
+          "description": "曲三双拐此起彼落快速无伦，一拐撑地支持身子一拐对敌，右拐戳胸口、点面门、扫腰间、击顶门"
+        },
+        {
+          "id": "tech_gf_cheng_guai",
+          "name": "撑拐跃起",
+          "type": "defense",
+          "description": "右拐在地下一撑飞身而起躲于树后"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "双腿已废但仍以双拐为辅施展高强武功"
+        }
+      ],
+      "effects": ["以拐代腿弥补腿废之不足", "双拐交替攻守变化多端"],
+      "combat_style": "拐杖近战，因腿废必须一拐撑地一拐攻击，但丝毫不落下风"
+    },
+    {
+      "id": "skill_qing_gong",
+      "techniques": [
+        {
+          "id": "tech_qg_fei_yue",
+          "name": "飞身跃起",
+          "type": "special",
+          "description": "曲三右拐一撑便飞身而起躲于树后，轻身功夫高明之极，虽双腿已废仍能灵活飞跃"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "以拐撑地辅助飞身跃起"
+        }
+      ],
+      "effects": ["弥补腿废的不足", "行动敏捷出人意料"],
+      "combat_style": "以拐杖辅助的轻功身法"
+    },
+    {
+      "id": "skill_ji_fa",
+      "techniques": [
+        {
+          "id": "tech_jf_shuang_ji",
+          "name": "双戟短打",
+          "type": "attack",
+          "description": "郭盛所传家传戟法，郭啸天变长为短化单成双，以双短戟为兵刃近身搏斗"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "继承家传戟法，自行改良为双短戟"
+        }
+      ],
+      "effects": ["梁山好汉郭盛家传武艺", "变长为短化单成双的改良"],
+      "combat_style": "双短戟近战，需双戟在手方能发挥全力"
+    },
+    {
+      "id": "skill_bang_fa",
+      "techniques": [
+        {
+          "id": "tech_bf_ju_chi",
+          "name": "锯齿刀法",
+          "type": "attack",
+          "description": "段天德使锯齿刀，向前一送便在杨铁心左肩上锯了一道口子，刀法凶狠"
+        },
+        {
+          "id": "tech_bf_lang_ya",
+          "name": "狼牙棒法",
+          "type": "attack",
+          "description": "段天德也使狼牙棒，有几分武功底子"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "有几分武功底子，使狼牙棒和锯齿刀"
+        }
+      ],
+      "effects": ["锯齿刀可造成锯裂伤口", "以蛮力配合兵器重击"],
+      "combat_style": "重兵器暴力打法，以锯齿刀和狼牙棒为主要兵器"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_tie_ba_gua",
+      "description": "铁铸盘形八卦暗器，曲三的独门暗器，沉重锋利",
+      "effects": [
+        {
+          "type": "hidden_weapon",
+          "value": "一击毙命",
+          "description": "嵌入逃跑武官后脑数寸深，一击毙命"
+        }
+      ],
+      "origin": "曲三随身携带",
+      "rarity": "rare",
+      "related_skills": ["skill_guai_fa"]
+    },
+    {
+      "id": "item_duan_jian_yi_dui",
+      "description": "一对短剑，绿皮鞘、金吞口、乌木剑柄，剑刃锋利冷气森森，一柄刻'郭靖'一柄刻'杨康'",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "锋利短剑",
+          "description": "剑刃虽短但锋锐之极，冷气森森"
+        },
+        {
+          "type": "symbolic",
+          "value": "指腹为婚信物",
+          "description": "两家交换短剑作为文定之礼，约定若一男一女则结为夫妻"
+        }
+      ],
+      "origin": "丘处机无意中得来",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_qiang",
+      "description": "杨铁心的家传兵器铁枪，杨家枪法的载体",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "长兵器",
+          "description": "杨家枪法的载体，可用于马上步下作战"
+        }
+      ],
+      "origin": "杨再兴家传",
+      "rarity": "uncommon",
+      "related_skills": ["skill_yang_jia_qiang_fa"]
+    },
+    {
+      "id": "item_shuang_ji",
+      "description": "郭啸天的家传兵器，变长为短化单成双的短戟一对",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "双短戟",
+          "description": "家传戟法的载体，近身格斗利器"
+        }
+      ],
+      "origin": "郭盛家传",
+      "rarity": "uncommon",
+      "related_skills": ["skill_ji_fa"]
+    },
+    {
+      "id": "item_bi_shou",
+      "description": "杨铁心随身匕首，后被丘处机夺去用以在短剑上刻字",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "短兵器",
+          "description": "杨铁心怀中防身匕首，被丘处机空手夺去"
+        },
+        {
+          "type": "tool",
+          "value": "刻字工具",
+          "description": "丘处机用此匕首在两柄短剑上分别刻下'郭靖''杨康'二字"
+        }
+      ],
+      "origin": "杨铁心随身携带",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_ju_chi_dao",
+      "description": "段天德的兵器锯齿刀，刀刃带锯齿，杀伤力极大",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "锯裂伤口",
+          "description": "以此刀锯伤杨铁心左肩、砍断郭啸天右臂，造成无法包扎的巨大创口"
+        }
+      ],
+      "origin": "段天德随身兵器",
+      "rarity": "uncommon",
+      "related_skills": ["skill_bang_fa"]
+    },
+    {
+      "id": "item_dan_dao",
+      "description": "三名宫中带刀侍卫所持单刀，青光闪动",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "制式兵器",
+          "description": "宫中侍卫佩刀，被曲三双拐一一击破"
+        }
+      ],
+      "origin": "宫中带刀侍卫佩刀",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_gong_jian",
+      "description": "郭杨二人打猎和战斗所用弓箭，杨铁心箭术精湛",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "远程攻击",
+          "description": "杨铁心连射官兵箭如连珠，射倒武官射死追兵"
+        }
+      ],
+      "origin": "郭杨二人日常打猎所用",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_lang_ya_bang",
+      "description": "黑衣武士所使沉重狼牙棒，棒法奇特似非中原武术家数，疑为金兵将官兵器",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "重击兵器",
+          "description": "份量沉重需极大臂力方能运用，金兵将官惯用"
+        }
+      ],
+      "origin": "金兵将官兵器",
+      "rarity": "uncommon",
+      "related_skills": ["skill_bang_fa"]
+    },
+    {
+      "id": "item_ge_nang",
+      "description": "丘处机随身携带的皮囊，内装王道乾的头颅和心肝",
+      "effects": [
+        {
+          "type": "container",
+          "value": "装盛首级",
+          "description": "丘处机斩杀汉奸王道乾后，将其头颅和心肝装入革囊携带"
+        }
+      ],
+      "origin": "丘处机随身携带",
+      "rarity": "common",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_1_01",
+      "name": "张十五牛家村说书",
+      "participants": ["char_zhang_shi_wu", "char_guo_xiao_tian", "char_yang_tie_xin"],
+      "location": "loc_niu_jia_cun",
+      "description": "说书人张十五在牛家村松树下为村民说唱'叶三姐节烈记'，讲述金兵暴行和百姓惨祸，引发郭啸天、杨铁心对时局的感慨，二人邀其到村头小酒店饮酒论国事"
+    },
+    {
+      "id": "evt_1_02",
+      "name": "小酒店论国事",
+      "participants": ["char_zhang_shi_wu", "char_guo_xiao_tian", "char_yang_tie_xin", "char_qu_san"],
+      "location": "loc_niu_jia_cun_xiao_jiu_dian",
+      "description": "三人在曲三小酒店饮酒痛论宋金形势，从徽钦二帝被掳说到岳飞被害、高宗称臣，曲三冷不防指出害死岳飞的罪魁祸首是高宗而非秦桧，令三人哑然。张十五醉后向东往临安而去"
+    },
+    {
+      "id": "evt_1_03",
+      "name": "夜猎目睹曲三杀侍卫",
+      "participants": ["char_guo_xiao_tian", "char_yang_tie_xin", "char_qu_san"],
+      "location": "loc_niu_jia_cun_shu_lin",
+      "description": "郭杨二人夜间在村西七里树林打猎，目睹跛子曲三连毙三名宫中带刀侍卫，以双拐和铁八卦暗器杀人，武功之高为二人生平未见。曲三发现二人后请其帮忙掩埋尸体，并透露早已查清二人身世底细"
+    },
+    {
+      "id": "evt_1_04",
+      "name": "曲三赠金器分说身世",
+      "participants": ["char_guo_xiao_tian", "char_yang_tie_xin", "char_qu_san"],
+      "location": "loc_niu_jia_cun_shu_lin",
+      "description": "曲三将从临安皇宫盗来的道君皇帝书画和金器中的金壶金杯分赠郭杨二人，点破郭啸天为郭盛后代、杨铁心为杨再兴曾孙，二人震惊之余只得收下，此后对曲三多了几分敬畏"
+    },
+    {
+      "id": "evt_1_05",
+      "name": "雪夜丘处机途经牛家村",
+      "participants": ["char_qiu_chu_ji", "char_guo_xiao_tian", "char_yang_tie_xin"],
+      "location": "loc_niu_jia_cun_xiao_jiu_dian",
+      "description": "风雪之夜，道士丘处机头戴斗笠身披蓑衣大步独行途经牛家村，郭杨二人见其气概非凡邀其饮酒。丘处机误认二人为官府鹰犬态度冷傲，杨铁心与其发生肢体冲突被空手夺去匕首"
+    },
+    {
+      "id": "evt_1_06",
+      "name": "丘处机展示王道乾首级",
+      "participants": ["char_qiu_chu_ji", "char_guo_xiao_tian", "char_yang_tie_xin", "char_bao_xi_ruo"],
+      "location": "loc_niu_jia_cun",
+      "description": "丘处机解下革囊倒在桌上，滚出汉奸王道乾的血肉模糊人头和人心人肝，包惜弱惊叫逃入内室。丘处机用杨铁心匕首将人心人肝剁碎，一掌劈碎人头，连桌面也裂开一条大缝"
+    },
+    {
+      "id": "evt_1_07",
+      "name": "丘处机与杨铁心比武",
+      "participants": ["char_qiu_chu_ji", "char_yang_tie_xin", "char_guo_xiao_tian"],
+      "location": "loc_niu_jia_cun",
+      "description": "杨铁心持铁枪在雪地与丘处机对战，丘处机徒手应对，先夺枪尖再震飞铁枪，见杨家枪法后确认其为杨再兴后人，双方误会化解，丘处机肃然起敬并为之前的无礼致歉"
+    },
+    {
+      "id": "evt_1_08",
+      "name": "丘处机夜战杀尽追兵",
+      "participants": ["char_qiu_chu_ji", "char_guo_xiao_tian", "char_yang_tie_xin"],
+      "location": "loc_niu_jia_cun",
+      "description": "十余骑黑衣人追踪而至，其中有金兵混入。丘处机先掷王道乾头颅砸死一人，接箭反掷杀一人，拔剑跃下连伤数人，来去如风一鼓歼灭全部来敌。从尸身上搜出金国腰牌和临安府密令，揭示宋廷竟听金人号令"
+    },
+    {
+      "id": "evt_1_09",
+      "name": "丘处机诊脉赐名赠剑",
+      "participants": ["char_qiu_chu_ji", "char_guo_xiao_tian", "char_yang_tie_xin", "char_bao_xi_ruo"],
+      "location": "loc_niu_jia_cun",
+      "description": "丘处机诊出包惜弱有孕，又知李萍也怀有身孕，为两家孩子取名'郭靖''杨康'以记靖康之耻。丘处机取出一对绿皮鞘短剑，用杨铁心匕首在剑柄上分别刻字，赠予未出世的孩子并约定十年后传艺"
+    },
+    {
+      "id": "evt_1_10",
+      "name": "郭杨交换短剑指腹为婚",
+      "participants": ["char_guo_xiao_tian", "char_yang_tie_xin", "char_bao_xi_ruo"],
+      "location": "loc_niu_jia_cun",
+      "description": "杨铁心提议两家人若同为男儿则结为兄弟、同为女儿则结为姊妹、一男一女则结为夫妻，二人交换短剑作为文定之礼。包惜弱和李萍得知后也甚欢喜"
+    },
+    {
+      "id": "evt_1_11",
+      "name": "包惜弱雪夜救颜烈",
+      "participants": ["char_bao_xi_ruo", "char_yan_lie"],
+      "location": "loc_gu_fen",
+      "description": "包惜弱在后院发现雪地血迹追踪至屋后古坟，发现一名受伤的黑衣人（颜烈）肩中狼牙利箭奄奄一息。她心慈不忍，用小刀割开肌肉拔出箭头，以止血散救治，用门板拖回柴房，喂以鸡汤"
+    },
+    {
+      "id": "evt_1_12",
+      "name": "官兵围村火烧牛家村",
+      "participants": ["char_guo_xiao_tian", "char_yang_tie_xin", "char_bao_xi_ruo", "char_li_ping", "char_duan_tian_de"],
+      "location": "loc_niu_jia_cun",
+      "description": "午夜官兵四面包围牛家村，手持火把点燃草房，宣读韩佗胄手谕称郭杨二人'勾结巨寇图谋不轨'。段天德率众武官兵丁围捕，杨铁心以杨家枪法扫倒兵丁，郭啸天弯弓搭箭射倒武官"
+    },
+    {
+      "id": "evt_1_13",
+      "name": "段天德杀害郭啸天",
+      "participants": ["char_guo_xiao_tian", "char_yang_tie_xin", "char_duan_tian_de", "char_bao_xi_ruo", "char_li_ping"],
+      "location": "loc_niu_jia_cun",
+      "description": "郭啸天为保妻子投降被缚，段天德鞭打杨铁心。郭啸天飞脚踢段天德救义弟，段天德下令乱枪戳死，用锯齿刀砍断郭啸天右臂。郭啸天伤重气绝，临终嘱杨铁心去救弟妇与嫂子保全郭家骨血"
+    },
+    {
+      "id": "evt_1_14",
+      "name": "杨铁心浴血突围救李萍",
+      "participants": ["char_yang_tie_xin", "char_li_ping"],
+      "location": "loc_niu_jia_cun",
+      "description": "杨铁心挣断绳索拼死突围，戳死数名官兵夺马而逃。追上掳走包惜弱的武官射死之夺回妻子，又追至树林救出正与兵士厮打的李萍。杨铁心中冷箭昏迷，李萍大惊呼叫"
+    },
+    {
+      "id": "evt_1_15",
+      "name": "颜烈欺骗包惜弱北上",
+      "participants": ["char_yan_lie", "char_bao_xi_ruo"],
+      "location": "loc_jia_xing",
+      "description": "颜烈谎称杨铁心已被官兵杀害，以报仇为名取得包惜弱信任。包惜弱性格柔弱缺乏主见，孤苦无依之下只得随颜烈北上。二人经长安镇、硖石镇到达嘉兴秀水客栈，颜烈处处殷勤伪装至诚君子"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_zhang_shi_wu",
+      "listener": null,
+      "text": "宁作太平犬，莫为乱世人。小人张十五，今日路经贵地，服侍众位看官这一段说话，叫作'叶三姐节烈记'。",
+      "tone": "感慨悲凉",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_guo_xiao_tian",
+      "listener": "char_zhang_shi_wu",
+      "text": "饮上三杯，那便相识了。我姓郭，叫郭啸天。",
+      "tone": "豪爽热情",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_zhang_shi_wu",
+      "listener": ["char_guo_xiao_tian", "char_yang_tie_xin"],
+      "text": "我中国百姓，比女真人多上一百倍也还不止。只要朝廷肯用忠臣良将，咱们一百个打他一个，金兵如何能够抵挡？",
+      "tone": "慷慨激昂",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_guo_xiao_tian",
+      "listener": null,
+      "text": "不要脸，不要脸！这鸟皇帝算是那一门子的皇帝！",
+      "tone": "愤怒拍桌",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_qu_san",
+      "listener": ["char_zhang_shi_wu", "char_guo_xiao_tian", "char_yang_tie_xin"],
+      "text": "秦桧做的是宰相，议和也好，不议和也好，他都做他的宰相。可是岳爷爷一心一意要灭了金国，迎接徽钦二帝回来。这两个皇帝一回来，高宗皇帝他又做什么呀？",
+      "tone": "冷冷淡淡",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_yang_tie_xin",
+      "listener": "char_qu_san",
+      "text": "你使杨家枪法，这猎叉还将就用得。你义兄使的是一对短戟，兵刃可太不就手了，因此你挡在他身前。好好，有义气！",
+      "tone": "赞叹",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_qu_san",
+      "listener": ["char_guo_xiao_tian", "char_yang_tie_xin"],
+      "text": "郭兄，你是梁山泊好汉地佑星赛仁贵郭盛的后代，使的是家传戟法。杨兄，你祖上杨再兴是岳爷爷麾下的名将。你二位是忠义之后。",
+      "tone": "从容",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_qiu_chu_ji",
+      "listener": null,
+      "text": "鹰爪子，动手了吗？",
+      "tone": "冷笑",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_qiu_chu_ji",
+      "listener": null,
+      "text": "无耻鼠辈，道爷今日要大开杀戒了！",
+      "tone": "怒喝",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_yang_tie_xin",
+      "listener": "char_qiu_chu_ji",
+      "text": "来来来，教你知道杨家枪法的厉害。",
+      "tone": "怒气冲冲",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_qiu_chu_ji",
+      "listener": "char_yang_tie_xin",
+      "text": "你使的果然是杨家枪法，得罪了。请教贵姓。",
+      "tone": "恍然大悟致歉",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_qiu_chu_ji",
+      "listener": null,
+      "text": "贫道姓丘名处机……",
+      "tone": "自报家门",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_qiu_chu_ji",
+      "listener": ["char_guo_xiao_tian", "char_yang_tie_xin"],
+      "text": "这人名叫王道乾，是个大大的汉奸。去岁皇帝派他去向金主庆贺生辰，他竟与金人勾结，图谋侵犯江南。贫道追了他十多天，才把他干了。",
+      "tone": "愤慨",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_qiu_chu_ji",
+      "listener": ["char_guo_xiao_tian", "char_yang_tie_xin"],
+      "text": "郭大哥的孩子就叫郭靖，杨二哥的孩子叫杨康，不论男女，都可用这两个名字。",
+      "tone": "沉吟后微笑",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_qiu_chu_ji",
+      "listener": ["char_guo_xiao_tian", "char_yang_tie_xin"],
+      "text": "金人窃据北方，对百姓暴虐之极，其势必不可久。两位好自为之吧。",
+      "tone": "郑重",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_bao_xi_ruo",
+      "listener": "char_yan_lie",
+      "text": "他……他可是死了？",
+      "tone": "颤抖恐惧",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_yan_lie",
+      "listener": "char_bao_xi_ruo",
+      "text": "娘子，官人为贼兵所害，含冤莫白，你不设法为他报仇，却只是一意寻死。官人生前是英雄豪杰之士，他在九泉之下，只怕也不能瞑目吧？",
+      "tone": "正色劝慰",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_duan_tian_de",
+      "listener": "char_yang_tie_xin",
+      "text": "老爷行不改姓，坐不改名，姓段名天德，上天有好生之德的天德。记住了么？你到阎王老子那里去告状吧。",
+      "tone": "嚣张跋扈",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_guo_xiao_tian",
+      "listener": "char_yang_tie_xin",
+      "text": "兄弟，别管我……快，快走！",
+      "tone": "虚弱恳求",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_yang_tie_xin",
+      "listener": "char_bao_xi_ruo",
+      "text": "大哥已死，我无论如何要救大嫂出来，保全郭家的骨血。要是天可怜见，你我将来还有相见之日。",
+      "tone": "悲痛决绝",
+      "chapter": 1
+    }
+  ]
+}

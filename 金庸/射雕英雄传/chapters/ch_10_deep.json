@@ -1,0 +1,742 @@
+{
+  "chapter": 10,
+  "characters_detail": [
+    {
+      "id": "char_guo_jing",
+      "personality": {
+        "traits": ["憨厚老实", "舍己为人", "重情重义", "临危不惧"],
+        "speech_style": "言辞质朴直率，不善巧言令色，面对强敌威胁时仍直言不讳，对梅超风宁死不传内功秘诀，对黄蓉安危则念念不忘高声呼唤。",
+        "temperament": "木讷刚毅，生死关头仍以他人安危为先，宁死不屈但讲求信义，听闻梅超风答应送药便愿传功。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "恋人", "intensity": 95, "bond_level": 9, "dynamic": "不顾自身性命安危，念念不忘黄蓉脱险，以传内功秘诀换取梅超风答应救黄蓉"},
+        {"target": "char_mei_chao_feng", "type": "敌对转合作", "intensity": 70, "bond_level": 3, "dynamic": "初为杀夫仇人身份对立，后以全真内功秘诀交换达成交易，郭靖背负梅超风共同作战"},
+        {"target": "char_liang_zi_weng", "type": "追杀者", "intensity": 80, "bond_level": 1, "dynamic": "梁子翁觊觎郭靖宝血，郭靖偷其药物后被追杀入地洞"},
+        {"target": "char_wang_chu_yi", "type": "义助对象", "intensity": 60, "bond_level": 4, "dynamic": "为王处一治伤而潜入赵王府偷药，不顾危险为之奔走"},
+        {"target": "char_wanyan_kang", "type": "对峙", "intensity": 50, "bond_level": 2, "dynamic": "喝令完颜康向亲生父亲磕头，劝其认父"},
+        {"target": "char_yang_tiexin", "type": "世交叔辈", "intensity": 40, "bond_level": 5, "dynamic": "为杨铁心打抱不平，帮助其带包惜弱逃走"}
+      ],
+      "known_skills": ["skill_quan_zhen_nei_gong", "skill_xuan_men_zheng_zong_nei_gong"],
+      "related_skills": ["skill_yang_jia_qiang"]
+    },
+    {
+      "id": "char_huang_rong",
+      "personality": {
+        "traits": ["机灵聪慧", "古灵精怪", "胆大心细", "深情款款"],
+        "speech_style": "言语俏皮灵动，善用激将法和诡辩术，能以三言两语化解危局；对郭靖温柔体贴，对敌人则嘲讽讥刺、毫不留情。",
+        "temperament": "外表娇俏顽皮，内心极有主见，面对众多高手围困仍不慌不乱，以智取胜；听闻郭靖不顾性命念她安危时感动落泪。"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "恋人", "intensity": 95, "bond_level": 9, "dynamic": "听郭靖不顾性命念她安危而热泪盈眶，及时现身救郭靖，以桃花岛身份震慑梅超风"},
+        {"target": "char_mei_chao_feng", "type": "同门师姐", "intensity": 65, "bond_level": 5, "dynamic": "以黄药师女儿身份威慑梅超风，谎称父亲到来令其臣服，利用她对付欧阳克等人"},
+        {"target": "char_ou_yang_ke", "type": "被追求/对抗", "intensity": 70, "bond_level": 2, "dynamic": "以智谋周旋，先用言语激将使欧阳克召来众姬，再以诡计僵住欧阳克使其不能追击"},
+        {"target": "char_peng_lian_hu", "type": "比试对手", "intensity": 40, "bond_level": 2, "dynamic": "与彭连虎十招赌约取胜，以诋毁黑风双煞言论洗脱嫌疑"},
+        {"target": "char_huang_yao_shi", "type": "父女", "intensity": 90, "bond_level": 10, "dynamic": "以父亲名号震慑梅超风，熟知桃花岛掌故和武功，桃花岛身份是最大依仗"}
+      ],
+      "known_skills": ["skill_ling_ao_bu", "skill_luo_ying_shen_jian_zhang", "skill_hui_feng_fu_liu", "skill_xing_he_zai_tian"],
+      "related_skills": ["skill_bi_hai_chao_sheng_yu_xiao", "skill_tan_zhi_shen_tong"]
+    },
+    {
+      "id": "char_mei_chao_feng",
+      "personality": {
+        "traits": ["乖戾凶狠", "深情不渝", "骄傲倔强", "对师敬畏至深"],
+        "speech_style": "说话阴森冷厉，时而气喘嘶哑，回忆往事时语调温柔哀伤；对郭靖威胁恐吓，提及黄药师时惊惧颤声。",
+        "temperament": "性情极端，杀人不眨眼但对亡夫陈玄风刻骨铭心；宁死不肯受后辈恩惠，宁逼人背她也不接受好意；一听黄药师之名便吓得魂飞天外。"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "杀夫仇人转交易对手", "intensity": 85, "bond_level": 3, "dynamic": "初认出郭靖为杀夫仇人欲杀之，后因走火入魔需内功秘诀而妥协交易"},
+        {"target": "char_huang_rong", "type": "同门师妹", "intensity": 60, "bond_level": 5, "dynamic": "对黄蓉起初不识，后听其报出桃花岛暗号和闺名后惊惧臣服，甘愿听命"},
+        {"target": "char_huang_yao_shi", "type": "师父", "intensity": 95, "bond_level": 8, "dynamic": "对师父又惧又愧，一听黄药师到来便魂飞魄散、伏地求死，自认猪狗不如"},
+        {"target": "char_chen_xuan_feng", "type": "亡夫", "intensity": 100, "bond_level": 10, "dynamic": "割下亡夫胸口皮肤随身携带，日夜贴身，十余年念念不忘报仇"},
+        {"target": "char_ou_yang_ke", "type": "对敌", "intensity": 70, "bond_level": 2, "dynamic": "一抓撕破欧阳克衣襟、折断折扇，击杀其四名姬妾"},
+        {"target": "char_liang_zi_weng", "type": "对敌", "intensity": 60, "bond_level": 2, "dynamic": "在地洞中以银鞭暗袭梁子翁脚踝，逼其知难而退"},
+        {"target": "char_wanyan_kang", "type": "徒弟（暗中传授）", "intensity": 50, "bond_level": 6, "dynamic": "暗中教完颜康武功多年，完颜康称之为'公子师父'，对其颇为宠爱"}
+      ],
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_cui_xin_zhang", "skill_yin_bian_gong"],
+      "related_skills": ["skill_tan_zhi_shen_tong", "skill_luo_ying_shen_jian_zhang"]
+    },
+    {
+      "id": "char_wanyan_kang",
+      "personality": {
+        "traits": ["身份矛盾踌躇", "骄纵任性", "弑父未遂心软"],
+        "speech_style": "以王府小王爷口吻呵斥，对杨铁心初时敌视，面对母亲撞墙后惊慌失措。",
+        "temperament": "面对亲生父亲身份难以接受，既不舍富贵又无法彻底绝情，枪杆折断后终让杨铁心带包惜弱逃走。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_yang_tiexin", "type": "亲生父亲", "intensity": 55, "bond_level": 3, "dynamic": "初以铁枪刺杀杨铁心，枪杆折断后踌躇难决，最终放走"},
+        {"target": "char_bao_xiruo", "type": "亲生母亲", "intensity": 75, "bond_level": 6, "dynamic": "见母亲撞墙满额鲜血后大惊收枪，手足无措"},
+        {"target": "char_mei_chao_feng", "type": "暗中师父", "intensity": 60, "bond_level": 7, "dynamic": "暗中向梅超风学武多年，称其'公子师父'，为其保守秘密"},
+        {"target": "char_wanyan_hong_lie", "type": "养父子", "intensity": 70, "bond_level": 8, "dynamic": "仍视完颜洪烈为父亲，不舍赵王府富贵"}
+      ],
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_cui_xin_zhang"],
+      "related_skills": ["skill_hui_ma_qiang"]
+    },
+    {
+      "id": "char_yang_tiexin",
+      "personality": {
+        "traits": ["重情重义", "武艺精湛", "坚毅果敢"],
+        "speech_style": "语气沉稳刚毅，以长辈口吻教训完颜康'这招枪法我杨家传子不传女'，对妻子深情呵护。",
+        "temperament": "不惧强敌，抱妻夺门而逃，面对追杀果断撤退，行动利落。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wanyan_kang", "type": "亲生儿子", "intensity": 65, "bond_level": 5, "dynamic": "以回马枪半招制住完颜康枪法，告知其为亲生父亲"},
+        {"target": "char_bao_xiruo", "type": "夫妻", "intensity": 90, "bond_level": 9, "dynamic": "俯身抱起撞墙昏迷的妻子夺门而出，拼死带其逃离"},
+        {"target": "char_mu_nian_ci", "type": "养父女", "intensity": 70, "bond_level": 7, "dynamic": "穆念慈在外接应，父女二人越墙逃出王府"},
+        {"target": "char_guo_jing", "type": "世交子侄", "intensity": 40, "bond_level": 5, "dynamic": "郭靖喝令完颜康磕头认父，协助杨铁心逃走"}
+      ],
+      "known_skills": ["skill_yang_jia_qiang", "skill_hui_ma_qiang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_bao_xiruo",
+      "personality": {
+        "traits": ["柔弱痴情", "以死相逼", "爱子心切"],
+        "speech_style": "哭喊哀求，对完颜康大叫'这是你亲生的爹爹啊'，情急之下语无伦次。",
+        "temperament": "外表柔弱但关键时刻不惜以死明志，撞墙自尽以证明杨铁心身份。"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {"target": "char_wanyan_kang", "type": "亲生母亲", "intensity": 85, "bond_level": 8, "dynamic": "对完颜康哭喊真相，见其不信后撞墙自尽以明志"},
+        {"target": "char_yang_tiexin", "type": "夫妻", "intensity": 90, "bond_level": 9, "dynamic": "分别多年后在王府重逢，不惜一切要与丈夫团聚"},
+        {"target": "char_wanyan_hong_lie", "type": "名义夫妻", "intensity": 40, "bond_level": 5, "dynamic": "身为赵王王妃但心中始终挂念杨铁心"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mu_nian_ci",
+      "personality": {
+        "traits": ["孝顺干练", "沉着冷静", "行动利落"],
+        "speech_style": "本章无台词，以行动表现为主。",
+        "temperament": "默默接应，不多言，执行力强。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_yang_tiexin", "type": "养父女", "intensity": 75, "bond_level": 8, "dynamic": "在屋外接应杨铁心，父女越墙逃出"},
+        {"target": "char_bao_xiruo", "type": "继母", "intensity": 50, "bond_level": 5, "dynamic": "协助杨铁心带包惜弱逃离"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_ke",
+      "personality": {
+        "traits": ["自负风流", "好色轻薄", "武功精湛", "仗势横行"],
+        "speech_style": "言语轻薄挑逗，对黄蓉说'你打我，我喜欢还来不及，怎舍得还手'，以调情口吻说话。",
+        "temperament": "外表潇洒风度翩翩，内心自负好色，见美色便神魂飘荡，但有言在先也能信守。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "觊觎美色", "intensity": 85, "bond_level": 2, "dynamic": "见黄蓉绝色而神魂飘荡，设法以赌约留人，领众姬追寻"},
+        {"target": "char_mei_chao_feng", "type": "对敌", "intensity": 70, "bond_level": 2, "dynamic": "轻敌出手被梅超风一抓撕衣折扇，四名姬妾被杀后展开神驼雪山掌进攻"},
+        {"target": "char_liang_zi_weng", "type": "同僚", "intensity": 40, "bond_level": 4, "dynamic": "共同夹攻梅超风"},
+        {"target": "char_peng_lian_hu", "type": "同僚", "intensity": 35, "bond_level": 4, "dynamic": "同为赵王府效力的武林高手"}
+      ],
+      "known_skills": ["skill_jie_li_da_li", "skill_shen_tuo_xue_shan_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_liang_zi_weng",
+      "personality": {
+        "traits": ["阴险狠辣", "贪觎宝血", "老谋深算"],
+        "speech_style": "叫骂粗鲁，'浑小子，老子在这儿候得久啦！把头颈伸过来，让老子吸你的血'，粗鄙直接。",
+        "temperament": "耐心伏击、不死不休，追入地洞仍不放弃，被梅超风击退后仍不甘心。"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "追杀目标", "intensity": 90, "bond_level": 1, "dynamic": "觊觎郭靖宝血，暗中伏击追杀入地洞"},
+        {"target": "char_mei_chao_feng", "type": "对敌", "intensity": 65, "bond_level": 2, "dynamic": "追入地洞与梅超风交手，被银鞭暗袭、掌力击退后逃出"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_peng_lian_hu",
+      "personality": {
+        "traits": ["江湖老练", "讲信用", "眼力敏锐"],
+        "speech_style": "说话老江湖口吻，'小姑娘，算你赢啦。老彭很佩服，想请教你的芳名'，守诺识趣。",
+        "temperament": "重承诺守信义，十招认不出门户便放行，但一旦认出黑风双煞便追击。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "比试对手", "intensity": 45, "bond_level": 2, "dynamic": "十招赌约输后守信放行，后认出黑风双煞追出捉拿黄蓉"},
+        {"target": "char_mei_chao_feng", "type": "对敌", "intensity": 60, "bond_level": 2, "dynamic": "认出黑风双煞身份后追出"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_sha_tong_tian",
+      "personality": {
+        "traits": ["粗中有细", "行动果决", "江湖经验丰富"],
+        "speech_style": "言语简短直白，'还用你说？我抓住她头发拖了回来'，不容置疑。",
+        "temperament": "见多识广，得知软猬甲后立即想出抓头发的对策。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "追捕者", "intensity": 50, "bond_level": 1, "dynamic": "提出抓头发拖回的计策追捕黄蓉"},
+        {"target": "char_hou_tong_hai", "type": "师兄弟", "intensity": 55, "bond_level": 7, "dynamic": "与师弟配合追捕，斥其嚷嚷"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hou_tong_hai",
+      "personality": {
+        "traits": ["鲁莽愚蠢", "屡屡出丑", "头脑简单"],
+        "speech_style": "说话咋咋呼呼，'师哥，臭小子头上也生刺……刺猬！''不来了，不再来！'，大惊小怪。",
+        "temperament": "行动鲁莽，多次试图抓黄蓉头发均失败，先被软猬甲所伤后被蛾眉钢刺刺穿手掌。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "追捕者", "intensity": 55, "bond_level": 1, "dynamic": "数次抓黄蓉头发均失败，被蛾眉钢刺刺穿手掌"},
+        {"target": "char_sha_tong_tian", "type": "师兄弟", "intensity": 55, "bond_level": 7, "dynamic": "听从师兄指令但执行笨拙"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ling_zhi",
+      "personality": {
+        "traits": ["凶悍暴烈", "重伤不退", "武功凶狠"],
+        "speech_style": "本章无对白，以行动示人。",
+        "temperament": "重伤之下仍以铜钹和大手印攻击黄蓉，不退不缩。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "对敌", "intensity": 60, "bond_level": 1, "dynamic": "以铜钹和大手印攻击黄蓉，掌击被软猬甲所伤"}
+      ],
+      "known_skills": ["skill_da_shou_yin", "skill_tong_bo_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wanyan_hong_lie",
+      "personality": {
+        "traits": ["权高位重", "宠爱儿子", "惊怒果断"],
+        "speech_style": "本章无直接对白，以行动叙述为主。",
+        "temperament": "得知王妃被掳后惊怒交集，立即点兵出府追赶。"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_wanyan_kang", "type": "养父子", "intensity": 80, "bond_level": 8, "dynamic": "宠爱儿子，凡事依从"},
+        {"target": "char_bao_xiruo", "type": "夫妻", "intensity": 70, "bond_level": 7, "dynamic": "得知王妃被掳后惊怒交集，点兵追赶"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tang_zu_de",
+      "personality": {
+        "traits": ["忠于职守", "执行有力", "尽职尽责"],
+        "speech_style": "本章无对白，以行动叙述为主。",
+        "temperament": "率领卫队大呼小叫搜捕刺客，忠心耿耿。"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wanyan_hong_lie", "type": "主从", "intensity": 60, "bond_level": 7, "dynamic": "率卫队搜捕刺客，忠于赵王府"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "personality": {
+        "traits": ["行事怪僻", "爱逾性命", "武功出神入化"],
+        "speech_style": "本章未出场，仅在黄蓉口中及梅超风回忆中被提及。",
+        "temperament": "不拘礼法，对女儿溺爱至极，对叛逃弟子震怒，挑断其余弟子脚筋。"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "父女", "intensity": 95, "bond_level": 10, "dynamic": "独生爱女，爱逾性命，不加管束致其骄纵"},
+        {"target": "char_mei_chao_feng", "type": "师徒", "intensity": 80, "bond_level": 6, "dynamic": "梅超风对其畏惧至深，一听其名便伏地求死"}
+      ],
+      "known_skills": [],
+      "related_skills": ["skill_tan_zhi_shen_tong", "skill_luo_ying_shen_jian_zhang"]
+    },
+    {
+      "id": "char_chen_xuan_feng",
+      "personality": {
+        "traits": ["深情果决", "为爱不惜一切", "行事谨慎"],
+        "speech_style": "在梅超风回忆中以'贼汉子'口吻出现，'贼婆娘，我是为了你好'。",
+        "temperament": "将真经刺于胸腹皮肉后烧毁原经，以身护经，对梅超风深情不渝。"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_mei_chao_feng", "type": "夫妻", "intensity": 100, "bond_level": 10, "dynamic": "已故亡夫，将真经刺于胸口随身携带，梅超风割下皮肉硝制随身"}
+      ],
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_cui_xin_zhang"],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_yang_jia_qiang",
+      "techniques": [
+        {"id": "tech_xing_bu_deng_hu", "name": "行步蹬虎", "type": "attack", "description": "杨家枪起手招式，完颜康以此枪式刺向杨铁心咽喉"},
+        {"id": "tech_chao_tian_yi_zhu_xiang", "name": "朝天一炷香", "type": "attack", "description": "杨家枪招式，枪尖闪闪直刺，配合行步蹬虎连续进攻"},
+        {"id": "tech_gu_yan_chu_qun", "name": "孤雁出群", "type": "attack", "description": "完颜康追击杨铁心时所使，枪势如风往背心刺去"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "战阵实用，正宗嫡传招式精妙"},
+        {"level": 5, "unlock": "世代秘传绝招如回马枪，变化莫测"}
+      ],
+      "effects": ["近身枪刺攻击", "战阵无敌的实战枪法"],
+      "combat_style": "以枪为主要兵器，枪法凌厉、攻势连绵，讲究实战应用，战阵中威力极大"
+    },
+    {
+      "id": "skill_hui_ma_qiang",
+      "techniques": [
+        {"id": "tech_hui_ma_san_ban", "name": "回马枪第三变半招", "type": "feint", "description": "杨家世代秘传绝技，传子不传女，杨铁心以左手拿住枪头之后五寸处，本应右手一枪迎面搠去，因抱着妻子仅使出半招变化"}
+      ],
+      "progression": [
+        {"level": 4, "unlock": "掌握左手变化擒拿枪杆的技巧"},
+        {"level": 5, "unlock": "完整招式：左手夺枪后右手迎面刺出"}
+      ],
+      "effects": ["以巧破力夺人兵器", "出其不意的反制招式"],
+      "combat_style": "以退为进、诱敌深入后突然反击，枪法中暗含擒拿手法"
+    },
+    {
+      "id": "skill_jiu_yin_bai_gu_zhao",
+      "techniques": [
+        {"id": "tech_wu_zhi_ru_rou", "name": "五指入肉", "type": "attack", "description": "每爪入肉五孔，头顶鲜血和脑浆从五个指孔中涌出，一击毙命"},
+        {"id": "tech_bao_shen_bao_suo", "name": "暴伸暴缩", "type": "attack", "description": "手臂能在瞬息之间暴伸暴缩，如通臂猿猴般追击敌人"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "外门神功初成，不需内功也可施展"},
+        {"level": 4, "unlock": "爪力凌厉，每爪入肉五孔，击杀高手"},
+        {"level": 5, "unlock": "手臂暴伸暴缩，抓力凶猛无匹"}
+      ],
+      "effects": ["爪击入肉五孔致命", "撕裂衣甲折断兵器", "击杀四名姬妾一击毙命"],
+      "combat_style": "十指尖利如钢爪，出手快速狠毒，每抓挟嗤嗤劲风，攻敌要害一击必杀"
+    },
+    {
+      "id": "skill_cui_xin_zhang",
+      "techniques": [
+        {"id": "tech_ding_men_pai_zhang", "name": "顶门拍掌", "type": "attack", "description": "梅超风绝招，举掌往敌人顶门拍下，威力极大，郭靖功力相差太远无法化解"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "掌力刚猛，足以震伤内力不弱之人"},
+        {"level": 4, "unlock": "配合九阴白骨爪形成立体攻势"}
+      ],
+      "effects": ["掌击顶门可致命", "内力传导震伤五脏"],
+      "combat_style": "刚猛掌法，配合九阴白骨爪使用，以掌力震击为主"
+    },
+    {
+      "id": "skill_ling_ao_bu",
+      "techniques": [
+        {"id": "tech_ling_ao_shen_fa", "name": "灵鳌步法", "type": "special", "description": "黄蓉最后所使身法，步法灵动如灵鳌游水，彭连虎误认为黑风双煞所传"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "基础步法灵活闪避"},
+        {"level": 4, "unlock": "可迷惑对手判断门户宗派"}
+      ],
+      "effects": ["快速闪避身法", "迷惑对手武功路数判断"],
+      "combat_style": "以灵巧步法闪避为主，配合其他掌法使用"
+    },
+    {
+      "id": "skill_luo_ying_shen_jian_zhang",
+      "techniques": [
+        {"id": "tech_jiang_cheng_fei_hua", "name": "江城飞花", "type": "attack", "description": "落英神剑掌中招式，黄蓉跃起丈余在半空连转两个圈子，凌空挥掌向梅超风当头击到，用以证明桃花岛身份"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "初窥门径，可施展单招证明身份"},
+        {"level": 5, "unlock": "桃花岛绝学大成，凌空变化莫测"}
+      ],
+      "effects": ["凌空攻击", "招式包含桃花岛独有身法和掌法变化"],
+      "combat_style": "掌法中寓剑意，身法如落英缤纷，空中转身出掌，飘逸灵动"
+    },
+    {
+      "id": "skill_hui_feng_fu_liu",
+      "techniques": [
+        {"id": "tech_hui_feng_qing_zhao", "name": "回风轻招", "type": "attack", "description": "黄蓉左掌轻招，劲含阴柔，与星河在天同发攻向欧阳克肩背"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "掌力轻柔但含有内劲"},
+        {"level": 4, "unlock": "可与星河在天同时发出形成立体攻势"}
+      ],
+      "effects": ["阴柔掌力攻击", "配合星河在天刚柔并济"],
+      "combat_style": "轻柔掌法，左掌阴柔为主，配合右掌重击形成刚柔合击"
+    },
+    {
+      "id": "skill_xing_he_zai_tian",
+      "techniques": [
+        {"id": "tech_xing_he_zhong_zhao", "name": "星河重招", "type": "attack", "description": "黄蓉右掌重招，劲含刚猛，与回风拂柳同时击中欧阳克肩背"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "掌力刚猛，击中高手肩背"},
+        {"level": 4, "unlock": "与回风拂柳配合刚柔并济"}
+      ],
+      "effects": ["刚猛掌力攻击", "配合回风拂柳形成立体攻势"],
+      "combat_style": "刚猛掌法，右掌重击为主，与回风拂柳一左一右同时发出"
+    },
+    {
+      "id": "skill_shen_tuo_xue_shan_zhang",
+      "techniques": [
+        {"id": "tech_piao_hu_jin_gong", "name": "飘忽进攻", "type": "attack", "description": "欧阳克家传掌法，身形飘忽出掌进攻梅超风，但在九阴白骨爪前难以近身"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "身形飘忽、出掌迅捷"},
+        {"level": 5, "unlock": "可在强敌爪风下趋避进退"}
+      ],
+      "effects": ["身形飘忽难以捉摸", "配合身法连续出掌"],
+      "combat_style": "以身法飘忽配合掌法连续进攻，但面对顶级爪法难以近身"
+    },
+    {
+      "id": "skill_jie_li_da_li",
+      "techniques": [
+        {"id": "tech_fan_dan_zhang_li", "name": "反弹掌力", "type": "defense", "description": "欧阳克内功精湛，不还手却将黄蓉掌力原力反弹，令其站立不稳险些跌出圈子"}
+      ],
+      "progression": [
+        {"level": 4, "unlock": "内功深厚，可将对手掌力完全反弹"},
+        {"level": 5, "unlock": "手足不动即可反弹攻击，不还手亦能取胜"}
+      ],
+      "effects": ["将对手掌力原力反弹", "不还手即可令对手站立不稳"],
+      "combat_style": "以内功深厚为基础的防御反击术，以静制动、借力打力"
+    },
+    {
+      "id": "skill_tong_bo_fa",
+      "techniques": [
+        {"id": "tech_fei_bo_gong_ji", "name": "飞钹攻击", "type": "attack", "description": "灵智以一对铜钹双手合处发出震耳欲聋之声，随即一上一下疾飞攻击，钹边锋利如刀可将人切成三截"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "铜钹远距离飞掷攻击"},
+        {"level": 4, "unlock": "双钹上下配合形成立体杀伤"}
+      ],
+      "effects": ["远距离飞钹切割攻击", "钹边锋利可致命"],
+      "combat_style": "以铜钹为暗器远距离攻击，钹边锋利如刀，双钹上下夹击"
+    },
+    {
+      "id": "skill_da_shou_yin",
+      "techniques": [
+        {"id": "tech_ju_zhang_pai_ji", "name": "巨掌拍击", "type": "attack", "description": "灵智藏僧武功，巨掌向黄蓉拍去，力道虽巨但被软猬甲所伤"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "掌力雄厚，巨掌拍击威力极大"},
+        {"level": 5, "unlock": "可配合铜钹法形成立体攻势"}
+      ],
+      "effects": ["巨掌掌力震击", "可震伤筋骨五脏"],
+      "combat_style": "以藏传密宗大手印为基，掌力雄厚刚猛，巨掌拍击力道极大"
+    },
+    {
+      "id": "skill_yin_bian_gong",
+      "techniques": [
+        {"id": "tech_an_bian_tou_xi", "name": "暗鞭偷袭", "type": "attack", "description": "梅超风在黑暗中以银鞭无声无息攻击梁子翁脚踝，鞭来如电，暗中如处白昼拿穴精准"}
+      ],
+      "progression": [
+        {"level": 3, "unlock": "黑暗中无声出鞭"},
+        {"level": 5, "unlock": "暗中精准拿穴，鞭法配合指法"}
+      ],
+      "effects": ["暗中无声攻击", "精准拿穴令敌麻木"],
+      "combat_style": "暗中以银鞭无声攻击，配合精准拿穴手法，在黑暗中如处白昼"
+    },
+    {
+      "id": "skill_quan_zhen_nei_gong",
+      "techniques": [
+        {"id": "tech_wu_xin_xiang_tian", "name": "五心向天", "type": "buff", "description": "马钰所传正宗内功修炼法门，盘膝而坐、双手掌心双足掌心头顶心朝天，郭靖以此抵御梅超风扼喉"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "基础呼吸吐纳，内力初成"},
+        {"level": 3, "unlock": "数年修习后内力不弱，可抵御高手扼喉"},
+        {"level": 5, "unlock": "玄门正宗内功大成，内力精纯深厚"}
+      ],
+      "effects": ["增强内力抵御外敌", "内力精纯可对抗高手"],
+      "combat_style": "玄门正宗内功，以内力修炼为根本，增强体质和抗击打能力"
+    },
+    {
+      "id": "skill_xuan_men_zheng_zong_nei_gong",
+      "techniques": [
+        {"id": "tech_nei_li_dikang", "name": "内力抵抗", "type": "defense", "description": "梅超风试出郭靖体内有此正宗内力根基，数年修习使郭靖内力已不弱"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "体内有正宗内力根基"},
+        {"level": 4, "unlock": "内力深厚可与高手抗衡数招"}
+      ],
+      "effects": ["玄门正宗内力护体", "增强内力对抗能力"],
+      "combat_style": "以内力修为为根基的防御型内功，增强整体战斗力"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_ruan_wei_jia",
+      "description": "东海桃花岛镇岛之宝，一套贴身软甲，刀枪不入且生满倒刺，灵智掌击黄蓉背部时手掌被刺破十多个小孔，鲜血淋漓。",
+      "effects": [
+        {"type": "defense", "value": "极高", "description": "刀枪不入的贴身防护"},
+        {"type": "counter", "value": "反弹伤害", "description": "生满倒刺，任何攻击者触碰均被刺伤，灵智手掌被刺穿十余孔"}
+      ],
+      "origin": "东海桃花岛",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_qiang",
+      "description": "完颜康与杨铁心交手所用铁枪，年代长久杆子早已朽坏，二人争夺力量齐发时齐腰折断。",
+      "effects": [
+        {"type": "attack", "value": "中等", "description": "铁枪可刺击，但年代久远杆子朽坏，经不住大力"}
+      ],
+      "origin": "赵王府兵器库",
+      "rarity": "common",
+      "related_skills": ["skill_yang_jia_qiang"]
+    },
+    {
+      "id": "item_bi_shou",
+      "description": "丘处机赠杨铁心的信物匕首，柄刻'杨康'二字，郭啸天与杨铁心互换作为子女婚约信物，后被郭靖幼时用于刺死陈玄风。",
+      "effects": [
+        {"type": "attack", "value": "锋利", "description": "寒光闪闪的锋利匕首，可刺入人体"},
+        {"type": "plot", "value": "信物", "description": "柄刻杨康二字，是确认身份和杀夫仇人的关键信物"}
+      ],
+      "origin": "丘处机赠杨铁心",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_tong_bo",
+      "description": "灵智藏僧的兵器铜钹，一上一下疾飞攻击黄蓉，钹边闪闪生光锋利异常，打中可将人切成三截。",
+      "effects": [
+        {"type": "attack", "value": "极高", "description": "双钹上下夹击，钹边锋利如刀可致命"},
+        {"type": "intimidate", "value": "震慑", "description": "双手合处当声震耳欲聋，震慑对手"}
+      ],
+      "origin": "西藏密宗",
+      "rarity": "rare",
+      "related_skills": ["skill_tong_bo_fa"]
+    },
+    {
+      "id": "item_zhe_shan",
+      "description": "欧阳克随身兵器折扇，风度翩翩之物亦可为武器，与梅超风交手时被九阴白骨爪一抓折为两截。",
+      "effects": [
+        {"type": "attack", "value": "中等", "description": "折扇可格挡进攻，兼具风雅与攻击功能"},
+        {"type": "defense", "value": "低", "description": "可格挡腕骨但遇顶级爪法即断"}
+      ],
+      "origin": "白驼山",
+      "rarity": "uncommon",
+      "related_skills": ["skill_shen_tuo_xue_shan_zhang"]
+    },
+    {
+      "id": "item_jin_yao_dai",
+      "description": "欧阳克解下递给黄蓉缚手的金丝腰带，用金丝织成坚韧异常，内力崩它不断，用以赌约束缚双手。",
+      "effects": [
+        {"type": "restraint", "value": "束缚", "description": "金丝织成坚韧异常，内力无法崩断"},
+        {"type": "plot", "value": "赌约道具", "description": "用于与黄蓉比武赌约中束缚双手"}
+      ],
+      "origin": "白驼山",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_yin_bian",
+      "description": "梅超风暗中修炼银鞭功所用兵器，在地洞中以此鞭无声攻击梁子翁脚踝，鞭来如电无声无息。",
+      "effects": [
+        {"type": "attack", "value": "高", "description": "暗中无声出鞭攻击，鞭来如电精准拿穴"},
+        {"type": "stealth", "value": "隐蔽", "description": "黑暗中无声无息攻击，敌人难以察觉"}
+      ],
+      "origin": "梅超风自制",
+      "rarity": "uncommon",
+      "related_skills": ["skill_yin_bian_gong"]
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing",
+      "description": "九阴真经下半部，陈玄风将经文秘要刺于胸腹皮肉上后烧毁原经，梅超风割下亡夫胸口皮肉硝制随身携带，日夜贴身不离。",
+      "effects": [
+        {"type": "knowledge", "value": "绝世武功秘要", "description": "记载九阴白骨爪、摧心掌等外门神功，但缺上半部内功根基"},
+        {"type": "plot", "value": "核心道具", "description": "刺于皮肉的经文是梅超风修炼的唯一依据"}
+      ],
+      "origin": "桃花岛黄药师处盗得下半部",
+      "rarity": "legendary",
+      "related_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_cui_xin_zhang"]
+    },
+    {
+      "id": "item_e_mei_gang_ci",
+      "description": "黄蓉从脑后插入头髻的暗器蛾眉钢刺，侯通海抓她头发时手掌被对穿而过，痛得双脚大跳。",
+      "effects": [
+        {"type": "attack", "value": "高", "description": "隐藏在发髻中的钢刺，敌人抓头发时手掌被对穿"},
+        {"type": "trap", "value": "陷阱", "description": "以头发为诱饵引诱敌人上当"}
+      ],
+      "origin": "黄蓉随身携带",
+      "rarity": "uncommon",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_10_01",
+      "name": "完颜康刺杀杨铁心",
+      "participants": ["char_wanyan_kang", "char_yang_tiexin", "char_bao_xiruo", "char_guo_jing"],
+      "location": "loc_zhao_wang_fu",
+      "description": "完颜康认出杨铁心后以铁枪行步蹬虎、朝天一炷香直刺其咽喉，包惜弱哭喊真相后撞墙自尽未遂，杨铁心以回马枪半招夺枪，铁枪齐腰折断后抱妻夺门逃走。"
+    },
+    {
+      "id": "evt_10_02",
+      "name": "黄蓉与彭连虎十招赌约",
+      "participants": ["char_huang_rong", "char_peng_lian_hu"],
+      "location": "loc_xiang_xue_ting",
+      "description": "彭连虎拦住黄蓉询问门户来历，黄蓉以十招赌约取胜，最后一招灵鳌步被误认为黑风双煞所传，黄蓉以诋毁双煞言论洗脱嫌疑，彭连虎守信放行。"
+    },
+    {
+      "id": "evt_10_03",
+      "name": "黄蓉与欧阳克圈中比武",
+      "participants": ["char_huang_rong", "char_ou_yang_ke"],
+      "location": "loc_xiang_xue_ting",
+      "description": "欧阳克以足尖画圈定规矩，缚手不还手应战。黄蓉回风拂柳、星河在天双掌齐发击中其肩背，却被借力打力反弹，随即以诡计自行走出圈子声称不败而胜，欧阳克有言在先不便追赶。"
+    },
+    {
+      "id": "evt_10_04",
+      "name": "灵智铜钹大手印攻击黄蓉",
+      "participants": ["char_ling_zhi", "char_huang_rong"],
+      "location": "loc_xiang_xue_ting",
+      "description": "灵智从太师椅上连椅跃起截住黄蓉去路，掷出铜钹上下夹击，黄蓉从双钹间窜过，灵智以大手印击其背部，反被软猬甲刺穿十余孔鲜血淋漓，黄蓉借掌力飞出厅外脱身。"
+    },
+    {
+      "id": "evt_10_05",
+      "name": "郭靖被梁子翁追入地洞遇梅超风",
+      "participants": ["char_guo_jing", "char_liang_zi_weng", "char_mei_chao_feng"],
+      "location": "loc_di_dong",
+      "description": "梁子翁在墙边伏击郭靖欲吸其鲜血，郭靖狂奔跌入深洞，梁子翁追入，地洞中梅超风喝止梁子翁并以银鞭暗袭逼退之，郭靖获救但随即被梅超风认出杀夫仇人身份扼住咽喉。"
+    },
+    {
+      "id": "evt_10_06",
+      "name": "梅超风回忆往事",
+      "participants": ["char_mei_chao_feng"],
+      "location": "loc_di_dong",
+      "description": "梅超风扼住郭靖后回忆一生往事：本名梅若华被黄药师收为弟子，在桃花岛与陈玄风相爱私奔，盗经练功、横行江湖得黑风双煞之名，荒山之夜丈夫被杀、自己眼瞎，割下亡夫胸口皮肉带走九阴真经秘要。"
+    },
+    {
+      "id": "evt_10_07",
+      "name": "郭靖以全真内功秘诀换命",
+      "participants": ["char_guo_jing", "char_mei_chao_feng"],
+      "location": "loc_di_dong",
+      "description": "梅超风欲逼郭靖传授全真派内功秘诀以解决走火入魔之困，郭靖初不屈服，梅超风答应送药救王处一后郭靖同意传授五心向天法门，又追加条件要求梅超风救黄蓉脱险。"
+    },
+    {
+      "id": "evt_10_08",
+      "name": "黄蓉亮出桃花岛身份震慑梅超风",
+      "participants": ["char_huang_rong", "char_mei_chao_feng", "char_guo_jing"],
+      "location": "loc_di_dong",
+      "description": "黄蓉喊出梅超风闺名梅若华和桃花岛暗号'桃花影落飞神剑，碧海潮生按玉箫'，提及弹指峰、清音洞等旧地，以落英神剑掌江城飞花一招证明身份，梅超风惊惧万分伏地求饶，黄蓉趁机拉走郭靖。"
+    },
+    {
+      "id": "evt_10_09",
+      "name": "梅超风击杀欧阳克四姬",
+      "participants": ["char_mei_chao_feng", "char_ou_yang_ke"],
+      "location": "loc_di_dong",
+      "description": "欧阳克追至欲拿黄蓉，梅超风坐地出手，一抓撕破衣襟、折断折扇，四名姬妾天灵盖各中一抓毙命，欧阳克展开神驼雪山掌与梁子翁夹攻梅超风。"
+    },
+    {
+      "id": "evt_10_10",
+      "name": "郭靖背负梅超风共同作战",
+      "participants": ["char_guo_jing", "char_mei_chao_feng", "char_ou_yang_ke", "char_liang_zi_weng"],
+      "location": "loc_di_dong",
+      "description": "梅超风半身瘫痪不能移动，令郭靖抱起她放在肩头，依其口示前趋后避，凌空下击立占上风，郭靖边战边传五心向天秘诀，梅超风精神大振伤及梁子翁肩头。"
+    },
+    {
+      "id": "evt_10_11",
+      "name": "黄蓉戏弄侯通海",
+      "participants": ["char_huang_rong", "char_hou_tong_hai", "char_sha_tong_tian"],
+      "location": "loc_di_dong",
+      "description": "侯通海数次抓黄蓉头发均落空，黄蓉将蛾眉钢刺插入头髻诱其上当，侯通海一把抓去手掌被钢刺对穿，痛得大跳；黄蓉笑称'你头上三只角斗不过我头上一只角'。"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_bao_xiruo",
+      "listener": "char_wanyan_kang",
+      "text": "这是你亲生的爹爹啊，你……你还不信吗？",
+      "tone": "悲痛哀求",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_yang_tiexin",
+      "listener": "char_wanyan_kang",
+      "text": "这招枪法我杨家传子不传女，谅你师父没有教过。",
+      "tone": "刚毅沉稳",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_liang_zi_weng",
+      "listener": "char_guo_jing",
+      "text": "浑小子，老子在这儿候得久啦！把头颈伸过来，让老子吸你的血！",
+      "tone": "凶狠霸道",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_peng_lian_hu",
+      "text": "你说十招中认不出我的门户宗派，就让我走，你好好一个大男人，怎么如此无赖？",
+      "tone": "俏皮嘲讽",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_ou_yang_ke",
+      "listener": "char_huang_rong",
+      "text": "你打我，我喜欢还来不及，怎舍得还手？",
+      "tone": "轻薄调情",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_mei_chao_feng",
+      "listener": "char_guo_jing",
+      "text": "你杀我丈夫，那是不用指望活命的了。不过你如听我话，我让你痛痛快快的死了；要是倔强，我要折磨得你受尽苦楚，先将你一根根手指都咬了下来，慢慢的一根根嚼来吃了。",
+      "tone": "阴狠威胁",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_mei_chao_feng",
+      "text": "你想得内功真传，乘早死了这条心。",
+      "tone": "宁死不屈",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_mei_chao_feng",
+      "listener": "char_guo_jing",
+      "text": "姓郭的……姓郭的臭小子说了全真教内功法门，我梅超风如不将药物送交王处一，教我全身动弹不得，永远受苦。",
+      "tone": "无奈发誓",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_mei_chao_feng",
+      "text": "梅若华，快放手！",
+      "tone": "威严果断",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_mei_chao_feng",
+      "text": "桃花影落飞神剑，碧海潮生按玉箫！我姓黄。",
+      "tone": "朗声自报",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_mei_chao_feng",
+      "listener": "char_huang_rong",
+      "text": "弟子罪该万死，只求师父可怜弟子双目已盲，半身残废，从宽赐死。弟子对不起您老人家，当真是猪狗不如。",
+      "tone": "惊恐颤栗",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_hou_tong_hai",
+      "text": "你头上三只角，斗不过我头上一只角，咱们再来！",
+      "tone": "俏皮得意",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_mei_chao_feng",
+      "listener": "char_guo_jing",
+      "text": "修练内功时姿式怎样？",
+      "tone": "急切渴求",
+      "chapter": 10
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_mei_chao_feng",
+      "text": "盘膝而坐，五心向天。",
+      "tone": "平静坦然",
+      "chapter": 10
+    }
+  ]
+}

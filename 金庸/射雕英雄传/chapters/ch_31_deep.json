@@ -1,0 +1,851 @@
+{
+  "chapter": 31,
+  "characters_detail": [
+    {
+      "id": "char_guojing",
+      "personality": {
+        "traits": ["忠厚老实", "舍己为人", "临危不惧", "质朴木讷", "重情重义"],
+        "speech_style": "言辞质朴直白，不善巧言，偶有口拙，但句句出自真心",
+        "temperament": "沉稳坚毅，逆来顺受不怒，遇险则奋不顾身"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "生死相依、互为牵挂，黄蓉主导智谋、郭靖担当险阻，彼此宁伤己不伤人"
+        },
+        {
+          "target": "char_yideng",
+          "type": "恩人/晚辈对长辈",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "受一灯治伤大恩，舍命假扮一灯替其受刀，事后磕头谢罪，一灯赞其宅心忠厚"
+        },
+        {
+          "target": "char_yinggu",
+          "type": "敌对/同情",
+          "intensity": 5,
+          "bond_level": 2,
+          "dynamic": "在石桥荷塘与瑛姑交手阻其寻仇，以空明拳和小擒拿手对抗，被其借荷塘泥泞之利突破"
+        },
+        {
+          "target": "char_munianci",
+          "type": "世交兄妹",
+          "intensity": 4,
+          "bond_level": 5,
+          "dynamic": "称其为世妹，对其遭遇杨康之事心存同情，从其处获知铁掌帮阴谋"
+        },
+        {
+          "target": "char_zhoubocong",
+          "type": "义兄弟",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "与周伯通结拜为义兄弟，忆起其念四张机之词及劝阻自己接近女子之言"
+        }
+      ],
+      "known_skills": ["skill_xianglongshibazhang", "skill_kongmingquan", "skill_xiaoqinnashou"],
+      "related_skills": ["skill_jiuyinzhenjing"]
+    },
+    {
+      "id": "char_huangrong",
+      "personality": {
+        "traits": ["机智过人", "伶牙俐齿", "胆大心细", "好胜心强", "古灵精怪"],
+        "speech_style": "言辞犀利俏皮，善于话中有话、旁敲侧击，常以玩笑化解紧张局面，偶尔直言不讳驳斥长辈",
+        "temperament": "外松内紧，嬉笑间暗藏深算，危急时刻冷静果断"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "主导全局智谋，设金蝉脱壳之计救一灯，与郭靖默契配合，互为生命之重"
+        },
+        {
+          "target": "char_yideng",
+          "type": "恩人/晚辈对长辈",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "受一灯治伤救命之恩，全力回报设法化解瑛姑之仇，一灯赞其不愧药兄之女"
+        },
+        {
+          "target": "char_yinggu",
+          "type": "敌手/利用",
+          "intensity": 6,
+          "bond_level": 2,
+          "dynamic": "以算题、打狗棒法、油灯竹签阵层层阻拦拖延瑛姑，同时以话术触动其心事，试图化解仇怨"
+        },
+        {
+          "target": "char_munianci",
+          "type": "姐妹情谊",
+          "intensity": 5,
+          "bond_level": 5,
+          "dynamic": "主动亲近穆念慈，为其拭泪，追问杨康欺侮之事，提出找杨康算账"
+        },
+        {
+          "target": "char_yuren",
+          "type": "临时盟友",
+          "intensity": 4,
+          "bond_level": 4,
+          "dynamic": "与渔樵耕读四人商议救一灯之策，虽被四人误解心地凉薄，实则暗中布局"
+        }
+      ],
+      "known_skills": ["skill_dagoubangfa", "skill_saoyetuifa"],
+      "related_skills": ["skill_jiuyinzhenjing"]
+    },
+    {
+      "id": "char_yideng",
+      "personality": {
+        "traits": ["慈悲为怀", "深怀愧疚", "坦然面对生死", "佛学精深", "痴情隐忍"],
+        "speech_style": "语调低沉柔和，叙述往事时自言自语般沉入回忆，偶露禅机，对瑛姑说话温柔如慈父",
+        "temperament": "内敛克制，十馀年日日等候瑛姑复仇，大彻大悟后坦然受死"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_yinggu",
+          "type": "旧日夫妻/深怀愧疚",
+          "intensity": 9,
+          "bond_level": 6,
+          "dynamic": "当年身为皇帝未能救治其子，心怀十馀年愧疚，等候其来复仇，最终以佛法感化使其放下匕首"
+        },
+        {
+          "target": "char_guojing",
+          "type": "恩人与被救者",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "为郭靖治伤是恩，郭靖舍命代其受刀是报，赞其宅心忠厚将来必有大成"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "恩人与被救者/欣赏",
+          "intensity": 7,
+          "bond_level": 7,
+          "dynamic": "赞黄蓉聪明伶俐不愧药兄之女，为其讲解武学精义，托付靖蓉九阴真经总纲"
+        },
+        {
+          "target": "char_zhoubocong",
+          "type": "旧日情敌/宽容",
+          "intensity": 5,
+          "bond_level": 4,
+          "dynamic": "因周伯通与刘贵妃之事曾怒火填膺，但碍于王重阳面子未追究，后释怀"
+        },
+        {
+          "target": "char_yuren",
+          "type": "师徒/君臣",
+          "intensity": 7,
+          "bond_level": 9,
+          "dynamic": "渔樵耕读四弟子随其出家隐居，忠心护主，但对师父往事不详知"
+        }
+      ],
+      "known_skills": ["skill_yiyangzhi", "skill_xiantiangong"],
+      "related_skills": ["skill_jiuyinzhenjing"]
+    },
+    {
+      "id": "char_yinggu",
+      "personality": {
+        "traits": ["偏执记仇", "心狠手辣", "深爱周伯通", "内心矛盾", "才智不凡"],
+        "speech_style": "语气阴冷怨毒，自称老娘以显泼辣，偶有柔情流露时声调骤变",
+        "temperament": "外刚内柔，十馀年苦修只为复仇，当胸一刀后反念旧情，被一灯真情触动后匕首落地"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_yideng",
+          "type": "仇人/旧日丈夫",
+          "intensity": 10,
+          "bond_level": 3,
+          "dynamic": "十馀年处心积虑复仇，处心积虑以毒药和九花玉露丸双管齐下谋害一灯，被其真情打动后弃刀离去"
+        },
+        {
+          "target": "char_zhoubocong",
+          "type": "旧情人",
+          "intensity": 10,
+          "bond_level": 5,
+          "dynamic": "与周伯通生子后被抛弃，仍深爱不忘，苦学术数欲救其出桃花岛，听闻已获释后茫然若失"
+        },
+        {
+          "target": "char_guojing",
+          "type": "敌手",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "在石桥荷塘与郭靖交手，以泥鳅功在泥水中占优突破其防线"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "敌手/被利用",
+          "intensity": 6,
+          "bond_level": 2,
+          "dynamic": "被黄蓉以算题、打狗棒法和话术层层阻拦拖延，内心被触动后与黄蓉多番言语交锋"
+        }
+      ],
+      "known_skills": ["skill_niuchiugong", "skill_dianxuegongfu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yuren",
+      "personality": {
+        "traits": ["忠诚耿直", "尊师重道", "威武不屈"],
+        "speech_style": "简洁有力，多为命令与喝止之辞",
+        "temperament": "刚直勇猛，面对瑛姑毫不退缩"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_yideng",
+          "type": "师徒/旧君臣",
+          "intensity": 8,
+          "bond_level": 9,
+          "dynamic": "忠心护主，在石梁阻拦瑛姑，愿粉身碎骨以报师恩"
+        },
+        {
+          "target": "char_yinggu",
+          "type": "敌对",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "在石梁阻拦瑛姑，但因其泥鳅功滑溜无法抓实，不敢与她身子相碰"
+        }
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_caozi",
+      "personality": {
+        "traits": ["沉稳忠厚", "勇武果断", "尊师重道"],
+        "speech_style": "语气沉稳，出言谨慎，偶有厉声喝止同伴失礼之举",
+        "temperament": "沉着冷静，关键时刻挺身而出"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_yideng",
+          "type": "师徒/旧君臣",
+          "intensity": 8,
+          "bond_level": 9,
+          "dynamic": "忠心侍奉一灯，参与救护中毒的书生和农夫，事后呼叫师叔天竺僧人救治"
+        },
+        {
+          "target": "char_yinggu",
+          "type": "敌对",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "伸手抓瑛姑肩头却碰到油滑身躯抓之不住，惊觉其武功远超当年"
+        }
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nongfu",
+      "personality": {
+        "traits": ["性情急躁", "勇猛刚烈", "尊师重道", "嫉恶如仇"],
+        "speech_style": "声音洪亮，常大声喝斥，对不敬之言怒不可遏",
+        "temperament": "暴烈易怒，不顾性命冲向敌人，但对师父忠心耿耿"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_yideng",
+          "type": "师徒/旧君臣",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "见师父为人所制如疯虎般不顾性命猛冲，中金针毒后仍强撑直到师父无恙才倒"
+        },
+        {
+          "target": "char_yinggu",
+          "type": "敌对",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "被瑛姑金针刺中食指商阳穴中毒倒地"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "临时盟友/不信任",
+          "intensity": 3,
+          "bond_level": 3,
+          "dynamic": "对黄蓉打岔无礼之举恼怒喝斥，后被其打狗棒法逼退"
+        }
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_shusheng",
+      "personality": {
+        "traits": ["足智多谋", "沉稳有礼", "博学多才", "尊师重道"],
+        "speech_style": "文辞典雅，引经据典，应对得体，面对瑛姑时恭谨而有理有据",
+        "temperament": "儒雅内敛，虽为宰相之才亦有心头烦躁之时"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_yideng",
+          "type": "师徒/旧君臣",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "四弟子中最具谋略者，已猜到五六成往事，恳求黄蓉指点明路救师"
+        },
+        {
+          "target": "char_yinggu",
+          "type": "敌对",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "出指欲点瑛姑手腕穴道反被金针刺中食指中毒"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "临时盟友",
+          "intensity": 5,
+          "bond_level": 4,
+          "dynamic": "请求黄蓉指点救师之策，粉身碎骨亦当相报"
+        }
+      ],
+      "known_skills": ["skill_yiyangzhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_tianzhuseng",
+      "personality": {
+        "traits": ["沉默寡言", "医术精湛", "虔诚修行"],
+        "speech_style": "说梵语为主，偶尔以梵语赞人，经一灯翻译后众人才知其意",
+        "temperament": "恬淡平和，专注于疗毒解伤"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {
+          "target": "char_yideng",
+          "type": "师兄弟",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "一灯师弟，参与翻译九阴真经梵文总纲，为中毒弟子疗毒"
+        },
+        {
+          "target": "char_shusheng",
+          "type": "师叔与师侄",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "为书生和农夫解毒疗伤，割指放血、用药救治"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_munianci",
+      "personality": {
+        "traits": ["痴情善良", "身世坎坷", "隐忍内敛", "侠义心肠"],
+        "speech_style": "低沉轻柔，说话时多叹气低头，关键警示之言简洁有力",
+        "temperament": "外表柔弱楚楚可怜，内心坚强，为报恩暗中示警"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "世交兄妹",
+          "intensity": 5,
+          "bond_level": 5,
+          "dynamic": "暗中跟踪警示郭靖铁掌帮阴谋，揭开面纱后被黄蓉抱住痛哭"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "姐妹情谊",
+          "intensity": 5,
+          "bond_level": 5,
+          "dynamic": "被黄蓉关怀安慰，告知铁掌帮设下陷阱加害二人"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yashaogong",
+      "personality": {
+        "traits": ["伪装巧妙", "善于欺骗", "心怀叵测"],
+        "speech_style": "假装哑巴以手势交流，声音响亮恐被识破故始终不开口",
+        "temperament": "沉稳老练，伪装无破绽"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "阴谋暗害",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "铁掌帮派来假扮哑巴梢公，企图在船上加害靖蓉二人，被穆念慈揭穿"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "阴谋暗害",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "在避秦酒楼接下生意，以哑巴身份博取信任，实为铁掌帮好手"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_yiyangzhi",
+      "techniques": [
+        {
+          "id": "tech_yyz_dianxue",
+          "name": "一阳指点穴",
+          "type": "attack",
+          "description": "以食指发出精纯内力点人穴道，出指如闪电，一灯用以点中郭靖凤尾、精促二穴，渔樵耕读四弟子亦以此技对抗瑛姑"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "渔樵耕读四弟子得自一灯亲传，算第一流点穴功夫"},
+        {"level": 3, "unlock": "一灯大师出神入化，虽元气大伤仍能破势反击拿住郭靖手腕"}
+      ],
+      "effects": ["点穴制敌", "攻敌要害"],
+      "combat_style": "以指力精纯见长，点穴精准，攻守兼备"
+    },
+    {
+      "id": "skill_xiantiangong",
+      "techniques": [
+        {
+          "id": "tech_xtg_xiulian",
+          "name": "先天功修炼",
+          "type": "buff",
+          "description": "上乘内功，修炼时须禁欲，段皇爷当年因此冷落刘贵妃，一灯借此功为黄蓉推拿治伤"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "一灯大师修炼此功需禁欲，导致与刘贵妃疏远"}
+      ],
+      "effects": ["增强内力", "须禁欲修炼", "可用于推拿疗伤"],
+      "combat_style": "以内功深厚见长，静修为主"
+    },
+    {
+      "id": "skill_dagoubangfa",
+      "techniques": [
+        {
+          "id": "tech_dgbf_feng",
+          "name": "封字诀",
+          "type": "defense",
+          "description": "竹棒横使化成碧墙挡在面门，不攻击敌身，敌人若施攻击则受反打，黄蓉以此诀阻拦瑛姑进路"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "黄蓉以竹棒施展封字诀，棒端反戳瑛姑手背又疼又麻"}
+      ],
+      "effects": ["阻拦敌人前进", "反打攻击者", "化棒成墙"],
+      "combat_style": "以巧制拙，横棒封路，敌人进则受反伤"
+    },
+    {
+      "id": "skill_niuchiugong",
+      "techniques": [
+        {
+          "id": "tech_ncg_huaniu",
+          "name": "泥鳅滑溜",
+          "type": "feint",
+          "description": "身体如泥鳅般油滑，被抓触即滑脱，在泥水中威力倍增，指戳掌打比陆上迅速数倍"
+        },
+        {
+          "id": "tech_ncg_lanni",
+          "name": "烂泥攻击",
+          "type": "attack",
+          "description": "在荷塘污泥中捞起烂泥没头没脑向敌人抹去，封住口鼻眼目"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "瑛姑在黑沼中观泥鳅穿泥游行悟出，陆上已滑溜异常"},
+        {"level": 2, "unlock": "入软泥浮沙后如虎添翼，连过四弟子和郭靖防线"}
+      ],
+      "effects": ["身体油滑抓之不住", "泥水中威力倍增", "可突破多人合围"],
+      "combat_style": "以滑溜身法避实击虚，善用地形，近身缠斗"
+    },
+    {
+      "id": "skill_kongmingquan",
+      "techniques": [
+        {
+          "id": "tech_kmq_fanzhen",
+          "name": "回振反弹",
+          "type": "defense",
+          "description": "左臂后抄回振反弹，柔中带韧的拳风迎面扑至，逼得瑛姑非倒退不可"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "周伯通所授，郭靖在石桥上以此拳法阻拦瑛姑过桥"}
+      ],
+      "effects": ["柔中带韧", "逼退敌人", "反弹制敌"],
+      "combat_style": "以柔克刚，后发制人"
+    },
+    {
+      "id": "skill_xiaoqinnashou",
+      "techniques": [
+        {
+          "id": "tech_xqns_qianfenghou",
+          "name": "前封喉闭气",
+          "type": "attack",
+          "description": "左手从敌右腋下穿过绕至背后抓住左肩，中指卷曲扣向咽喉，大指食指施劲捏落，一捏而中则气管封闭呼吸立绝"
+        },
+        {
+          "id": "tech_xqns_houjiajing",
+          "name": "后挟颈闭气",
+          "type": "attack",
+          "description": "右臂弯挟向敌人头颈的闭气之法，郭靖在荷塘中以此招对付瑛姑"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "郭靖与瑛姑在石桥落入荷塘瞬间各施三招近身肉搏"}
+      ],
+      "effects": ["封闭气管", "近身锁喉", "快速擒拿"],
+      "combat_style": "近身快速擒拿，招招致命"
+    },
+    {
+      "id": "skill_saoyetuifa",
+      "techniques": [
+        {
+          "id": "tech_sytfd_deng",
+          "name": "竹签阵中步法",
+          "type": "special",
+          "description": "黄蓉以扫叶腿法在竹签油灯阵中快速移动，落点精准不踩竹签，同时以长袖拂灭油灯"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "黄蓉在禅院中以此腿法配合记忆方位，在竹签阵中穿梭自如"}
+      ],
+      "effects": ["精准落点", "快速移动", "配合记忆方位"],
+      "combat_style": "轻灵飘逸，落点精准"
+    },
+    {
+      "id": "skill_dianxuegongfu",
+      "techniques": [
+        {
+          "id": "tech_dxg_chuanshou",
+          "name": "肌肤相接传功",
+          "type": "special",
+          "description": "周伯通传授刘贵妃点穴功夫，须周身穴道一一摸到点到，男女肌肤相接，日久生情"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "刘贵妃求周伯通传授，二人日久生情的起因"}
+      ],
+      "effects": ["学习点穴", "须肌肤相接"],
+      "combat_style": "点穴制敌，需贴身接触"
+    },
+    {
+      "id": "skill_jiuyinzhenjing",
+      "techniques": [
+        {
+          "id": "tech_jyzj_fanwen",
+          "name": "梵文总纲",
+          "type": "buff",
+          "description": "九阴真经上卷最后一章总旨，黄裳以梵文撰写，郭靖囫囵吞枣背熟，一灯译为汉语传授靖蓉二人"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "郭靖背诵梵文，一灯翻译为汉语写在纸上"},
+        {"level": 2, "unlock": "一灯以此功修复玄功，原需五年复元，练真经不用三月即可"}
+      ],
+      "effects": ["恢复元气", "修复玄功", "武学最高处殊途同归"],
+      "combat_style": "道家内功心法，精微奥妙，可助练功者恢复功力"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_yuanyangjinpa",
+      "description": "刘贵妃赠周伯通的定情手帕，上绣鸳鸯戏水图与四张机词，后周伯通归还落在段皇爷足边，后改制为婴儿肚兜",
+      "effects": [
+        {"type": "emotional", "value": "贯穿全章情感线索", "description": "鸳鸯织就欲双飞的绣图象征爱情，未老头先白的词句预示悲剧"}
+      ],
+      "origin": "刘贵妃亲手刺绣赠予周伯通",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_yingerdudou",
+      "description": "用鸳鸯锦帕改制的婴儿肚兜，上有刀孔和血迹，孩子被母亲刺死后，一灯将其置于蒲团前等候瑛姑",
+      "effects": [
+        {"type": "emotional", "value": "丧子之痛象征", "description": "刀孔与血迹记录了刘贵妃亲手杀子的惨剧，十馀年后仍是瑛姑复仇的导火索"}
+      ],
+      "origin": "用鸳鸯锦帕改制",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_yuhuan",
+      "description": "段皇爷当年刘贵妃入宫时赐给她的玉环，瑛姑誓言归还之日即为复仇之时，最终放在肚兜之上",
+      "effects": [
+        {"type": "emotional", "value": "复仇信物", "description": "瑛姑指着玉环说'那天我把玉环还你，那天这匕首跟着她来了'，最终兑现誓言"}
+      ],
+      "origin": "段皇爷赐予刘贵妃",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_bishou",
+      "description": "瑛姑用以刺杀的利器，刺入郭靖伪装的一灯胸口半寸，郭靖以两指捏住刃锋两侧，后被一灯交还，瑛姑掷地离去",
+      "effects": [
+        {"type": "attack", "value": "致命一击", "description": "瑛姑十馀年苦练当胸一刺，直没至柄，郭靖指力强劲才仅入肉半寸"}
+      ],
+      "origin": "瑛姑随身携带的复仇利器",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_zhubang",
+      "description": "丐帮帮主信物，晶莹碧绿，黄蓉以此施展打狗棒法阻拦瑛姑，封字诀化棒成碧墙",
+      "effects": [
+        {"type": "defense", "value": "封路阻敌", "description": "以封字诀横使竹棒化成碧墙挡路，敌人攻击则受反打"}
+      ],
+      "origin": "丐帮帮主传承信物",
+      "rarity": "rare",
+      "related_skills": ["skill_dagoubangfa"]
+    },
+    {
+      "id": "item_jinzhenjinhuan",
+      "description": "瑛姑戴在右手食指上的暗器，金环上突出三分来长的金针，针上淬以剧毒，从刺绣中悟出用法，苦练数年可穿飞蝇",
+      "effects": [
+        {"type": "attack", "value": "专克点穴功夫", "description": "以金针对准敌人指尖，让敌人自行戳在金针上，刺中商阳穴即中毒"},
+        {"type": "poison", "value": "剧毒", "description": "书生和农夫中毒后强撑至瑛姑离去方才倒地，需天竺僧人医治两月"}
+      ],
+      "origin": "瑛姑从女红刺绣中悟出的暗器",
+      "rarity": "rare",
+      "related_skills": ["skill_dianxuegongfu"]
+    },
+    {
+      "id": "item_baidiao",
+      "description": "从桃花岛飞回报信的白雕，雌雕左胸中箭受伤血肉模糊，箭枝已自行拔去，雄雕脚缚青布条，神态委顿",
+      "effects": [
+        {"type": "intelligence", "value": "传递情报", "description": "青布条从黄药师衣衫撕下，暗示桃花岛来了强敌，黄药师忙于迎敌"}
+      ],
+      "origin": "郭靖所豢养",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_xiaohongma",
+      "description": "郭靖的骏马，二人下山后骑乘赶路，四足凌空速度极快，半日即到桃源县",
+      "effects": [
+        {"type": "transport", "value": "快速坐骑", "description": "电驰而出四足犹似凌空，极快到达目的地"}
+      ],
+      "origin": "郭靖坐骑",
+      "rarity": "uncommon",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_31_01",
+      "name": "一灯讲述往事",
+      "participants": ["char_yideng", "char_guojing", "char_huangrong", "char_yuren", "char_caozi", "char_nongfu", "char_shusheng"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "一灯大师向众人讲述与刘贵妃、周伯通的往事：周伯通在园中教刘贵妃点穴功夫，二人日久生情，周伯通拒绝娶刘贵妃后出走，刘贵妃生下周伯通之子，孩子被蒙面刺客打伤，一灯因嫉妒拒绝救治，刘贵妃亲手杀死孩子后离去，一灯大彻大悟出家为僧"
+    },
+    {
+      "id": "evt_31_02",
+      "name": "瑛姑送来婴儿肚兜",
+      "participants": ["char_yideng", "char_huangrong"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "小沙弥捧入一个布包，内装锦帕所制婴儿肚兜，上有刀孔和黑血迹，一灯凄然不语，确认瑛姑即将前来复仇"
+    },
+    {
+      "id": "evt_31_03",
+      "name": "黄蓉设金蝉脱壳之计",
+      "participants": ["char_huangrong", "char_guojing", "char_yuren", "char_caozi", "char_nongfu", "char_shusheng"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "黄蓉向四弟子提出冒奇险的救师之策：郭靖假扮一灯代受瑛姑一刀。郭靖点了一灯穴道，四弟子为郭靖剃光头、剃一灯胡子黏作白须，准备金蝉脱壳"
+    },
+    {
+      "id": "evt_31_04",
+      "name": "四弟子石梁阻拦瑛姑",
+      "participants": ["char_yuren", "char_caozi", "char_nongfu", "char_shusheng", "char_yinggu"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "渔樵耕读四人在石梁尽处等候，瑛姑一身黑衣如飞而至。四人阻拦却被泥鳅功一一滑脱，书生和农夫先后被金针刺中食指中毒倒地"
+    },
+    {
+      "id": "evt_31_05",
+      "name": "郭靖桥头阻截瑛姑",
+      "participants": ["char_guojing", "char_yinggu"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "郭靖在石桥阻拦瑛姑，以空明拳回振反弹逼其退步。二人近身肉搏用小擒拿手各施三招，双双落入荷塘。瑛姑在泥水中以泥鳅功和烂泥攻击占优，郭靖被污泥封住口鼻眼目，瑛姑趁机跃上石桥闯入禅院"
+    },
+    {
+      "id": "evt_31_06",
+      "name": "黄蓉在大殿阻拦瑛姑",
+      "participants": ["char_huangrong", "char_yinggu"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "黄蓉在佛殿等候瑛姑，以老顽童消息和三道算题吸引其注意，用打狗棒法封字诀阻路，再布油灯竹签阵考较记心。瑛姑换签时暗中捏断竹签，随后大步踏断闯入后院"
+    },
+    {
+      "id": "evt_31_07",
+      "name": "瑛姑刺中假扮一灯的郭靖",
+      "participants": ["char_yinggu", "char_guojing", "char_yideng"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "瑛姑闯入禅房，见蒲团上坐著银须老僧（郭靖假扮），蒲团前放有肚兜和玉环。她心中刚硬提起匕首刺入胸口直没至柄，郭靖以两指捏住刃锋仅入肉半寸。瑛姑转身欲逃时见真正一灯立于门口"
+    },
+    {
+      "id": "evt_31_08",
+      "name": "一灯现身感化瑛姑",
+      "participants": ["char_yideng", "char_yinggu"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "一灯解开僧袍说'你来刺罢，我等了你很久了'，瑛姑如雷轰电掣，手一松匕首落地，双手掩面疾奔而出。一灯的慈悲与真情最终化解了十馀年的仇恨"
+    },
+    {
+      "id": "evt_31_09",
+      "name": "天竺僧人为书生农夫解毒",
+      "participants": ["char_tianzhuseng", "char_shusheng", "char_nongfu"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "书生和农夫中金针毒后强撑至师父无恙方才倒地，天竺僧人取出药来给二人服下，割开手指放出黑血，说梵语判断二人性命无妨但需医治两月"
+    },
+    {
+      "id": "evt_31_10",
+      "name": "翻译九阴真经梵文总纲",
+      "participants": ["char_guojing", "char_huangrong", "char_yideng", "char_tianzhuseng"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "天竺僧人说梵语触发郭靖记忆，郭靖背诵九阴真经梵文总纲，一灯翻译为汉语写在纸上传授二人。一灯感叹此经原为黄裳用梵文加密以防心术不正之人，郭靖因缘际会记熟实属天意"
+    },
+    {
+      "id": "evt_31_11",
+      "name": "白雕回报桃花岛有变",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "双雕从桃花岛飞回，雌雕左胸中箭受伤，雄雕脚缚青布条但无金娃娃。黄蓉认出青布从父亲衫上撕下，推测桃花岛来了强敌，二人挂念黄药师安危决定告别下山"
+    },
+    {
+      "id": "evt_31_12",
+      "name": "一灯讲述武学精义送别",
+      "participants": ["char_yideng", "char_guojing", "char_huangrong", "char_yuren", "char_caozi", "char_nongfu", "char_shusheng"],
+      "location": "loc_daxueshanchanyuan",
+      "description": "一灯命渔樵耕读四弟子齐聚，让靖蓉二人坐于蒲团之上，讲述武学精义一个多时辰。一灯建议二人将九阴神功告知洪七公以助其恢复功力。渔人樵子送到山脚执手而别"
+    },
+    {
+      "id": "evt_31_13",
+      "name": "桃源酒楼遇穆念慈",
+      "participants": ["char_guojing", "char_huangrong", "char_munianci"],
+      "location": "loc_taoxuanxian",
+      "description": "靖蓉二人到达桃源县避秦酒楼，雇了哑梢公的船。一灰布道姑在楼角出现，黄蓉识破是穆念慈。下楼后跟踪道姑出城五六里，穆念慈揭露哑梢公实为铁掌帮好手假扮"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_yideng",
+      "listener": "char_huangrong",
+      "text": "我大理国小君，虽不如中华天子那般后宫三千，但后妃嫔御，人数也是众多……内中有一个姓刘的贵妃，天资特别颖悟，竟然一教便会，一点即透。",
+      "tone": "低沉感慨",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_yideng",
+      "text": "他们并非夫妇，却有了夫妇之事——啊，我知道啦，老顽童和刘贵妃生了个儿子。",
+      "tone": "恍然大悟中带俏皮",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_yideng",
+      "listener": "char_huangrong",
+      "text": "大丈夫生当世间，受人如此欺辱，枉为一国之君……好，你们俩要白头偕老，却把我冷冷清清的撇在宫里做皇帝！这是你俩生的孩子，我为甚麽要耗损精力来救活他？",
+      "tone": "怒火填膺转刚硬",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_yideng",
+      "text": "伯伯，你心中十分爱她，一点儿也没讲错。若是不爱，就不会老是不开心啦。",
+      "tone": "直言不讳",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_yideng",
+      "listener": "char_yinggu",
+      "text": "大家不许难为她，要好好让她下山。好啦，你来刺罢，我等了你很久很久了。",
+      "tone": "十分柔和慈悲",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_yuren",
+      "text": "我等身受尊师厚恩，眼见尊师有难，岂能袖手不顾？适才冒犯，实是意图相救。",
+      "tone": "庄重恳切",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_yinggu",
+      "listener": "char_yuren",
+      "text": "甚么娘娘不娘娘？刘贵妃早死了，我是瑛姑。大丞相，大将军，水军都督，御林军总管，都在这里。我道皇爷当真是看破世情，削发为僧，却原来躲在这深山之中，还是在做他的太平安乐皇帝。",
+      "tone": "怨毒讥刺",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_yinggu",
+      "text": "瑛姑前辈，我先谢你救命之恩。",
+      "tone": "客气有礼",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_yinggu",
+      "text": "三人同行七十稀，五树梅花廿一枝，七子团圆正半月，馀百零五便得知。",
+      "tone": "轻松俏皮",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_yinggu",
+      "listener": "char_huangrong",
+      "text": "朝闻道，夕可死矣。你再罗唆，我可容你不得啦。",
+      "tone": "不耐烦",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_yinggu",
+      "text": "冤有头，债有主，是谁害死你心爱之人，你该走遍天涯海角，找这凶手报仇才是。迁怒旁人，又有何用？",
+      "tone": "正色劝诫",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_munianci",
+      "listener": "char_guojing",
+      "text": "你们雇的船是铁掌帮的。他们安排了诡计，要加害你们。那哑巴梢公不是哑巴，他是铁掌帮里的好手。",
+      "tone": "急切警示",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "我宁可一点儿武功也没有，只要你平平安安。",
+      "tone": "深情朴实",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_yideng",
+      "listener": "char_guojing",
+      "text": "此中原委，我曾听重阳真人说过。撰述九阴真经的那位高人黄裳不但读遍道藏，更精通内典，识得梵文……你不懂梵文，却记熟了这些咒语一般的长篇大论，当真是难得之极的因缘。",
+      "tone": "惊叹感慨",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_yideng",
+      "listener": "char_guojing",
+      "text": "我玄功有损，原须修习五年方得复元，但依这真经练去，看来不用三月便能有五年之功。武学到得最高处，殊途同归，与佛门所传亦无大别。",
+      "tone": "欣喜赞叹",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "咱俩相识以来，不知遇到了多少危难，但每吃一次亏，多少总有点好处。像这次我挨了裘千仞那老家伙两掌，却换得了九阴神功的秘奥，就算当年王重阳，却也不知。",
+      "tone": "得意调侃",
+      "chapter": 31
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "不管怎样，我可不能再让你受伤啦。上次在临安府自己受伤倒不怎样，这几天瞧着你挨痛受苦，唉，那当真不好过。",
+      "tone": "心疼关切",
+      "chapter": 31
+    }
+  ]
+}
