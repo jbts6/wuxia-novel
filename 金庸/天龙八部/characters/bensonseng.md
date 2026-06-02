@@ -7,12 +7,12 @@ tags:
 role: npc
 archetype: warrior
 rank: 登堂入室
-faction: "[[天龙寺]]"
+faction: "[[locations/天龙寺]]"
 alias: []
 identity: 本观
 first_appearance: 
 known_skills:
-  - "[[一阳指]]"
+  - "[[skills/一阳指]]"
 related_skills:
 game_stats:
   hp: 780

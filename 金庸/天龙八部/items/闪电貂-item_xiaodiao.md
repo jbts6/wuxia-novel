@@ -1,7 +1,7 @@
 ---
 id: item_xiaodiao
 type: special
-owner: "[[钟灵]]"
+owner: "[[characters/钟灵]]"
 tags:
   - 天龙八部
   - item
@@ -11,7 +11,7 @@ tags:
 
 ## 基本信息
 - **类型**: 特殊物品
-- **持有者**: [[钟灵]]
+- **持有者**: [[characters/钟灵]]
 - **简介**: 钟灵豢养的白色小貂，行动迅捷无比，以蛇为食
 
 ## 描述
@@ -25,6 +25,6 @@ tags:
 钟灵豢养并藏在左腰皮囊中的小貂，听她嘘声驱使。
 
 ## 相关人物
-- [[钟灵]]
-- [[char_gong_guangjie]]
-- [[char_sikong_xuan]]
+- [[characters/钟灵]]
+- [[characters/龚光杰]]
+- [[characters/司空玄]]

@@ -1,7 +1,7 @@
 ---
 id: item_zhu_gongji
 type: weapon
-owner: "[[云中鹤]]"
+owner: "[[characters/云中鹤]]"
 tags:
   - 天龙八部
   - item
@@ -11,7 +11,7 @@ tags:
 
 ## 基本信息
 - **类型**: 武器
-- **持有者**: [[云中鹤]]
+- **持有者**: [[characters/云中鹤]]
 - **简介**: 云中鹤的奇特兵刃，柄长三尺，抓头如人手，指头蓝汪汪带毒
 
 ## 描述
@@ -25,5 +25,5 @@ tags:
 云中鹤随身携带的奇特兵刃，与南海鳄神交手时从腰间取出。
 
 ## 相关人物
-- [[云中鹤]]
-- [[char_nanhai_eshen]]
+- [[characters/云中鹤]]
+- [[characters/南海鳄神]]

@@ -7,7 +7,7 @@ tags:
 role: npc
 archetype: warrior
 rank: 登堂入室
-faction: "[[灵鹫宫]]"
+faction: "[[locations/灵鹫宫]]"
 alias: []
 identity: 灵鹫宫下属
 first_appearance: 
