@@ -1,0 +1,960 @@
+{
+  "chapter": 28,
+  "characters_detail": [
+    {
+      "id": "char_guojing",
+      "personality": {
+        "traits": ["憨厚正直", "重情重义", "临危不惧", "忠诚敦厚", "勇猛刚毅"],
+        "speech_style": "言语质朴直率，常用'蓉儿'称呼黄蓉，表达简洁有力，不善辞令但句句真诚",
+        "temperament": "沉稳刚毅，遇强敌不退缩，对黄蓉关怀备至，对岳飞忠义之气深感共鸣"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "生死相依，背负黄蓉闯铁掌峰，在石洞中为其朗读岳飞遗书，抱她乘雕脱险，黄蓉因他危急时撇开自己而流泪责备"
+        },
+        {
+          "target": "char_qiuqianren",
+          "type": "敌对",
+          "intensity": 8,
+          "bond_level": 1,
+          "dynamic": "与裘千仞掌力硬拚落于下风，但仍奋力护黄蓉撤退，用降龙十八掌'神龙摆尾'抵挡追击"
+        },
+        {
+          "target": "char_qiuqianzhang",
+          "type": "对手",
+          "intensity": 4,
+          "bond_level": 1,
+          "dynamic": "识破裘千丈武功浅薄后点其穴道，后在石洞中解开其穴道并听闻真相"
+        },
+        {
+          "target": "char_yangkang",
+          "type": "义兄弟",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "顾念两代结义之情，眼见杨康逃走却不加阻拦，黄蓉对此恨恨不已"
+        },
+        {
+          "target": "char_jianzhanglao",
+          "type": "对手",
+          "intensity": 5,
+          "bond_level": 2,
+          "dynamic": "为替黄蓉解围，以左右互搏同使降龙二掌将钢杖震飞，震慑简长老"
+        }
+      ],
+      "known_skills": ["skill_xianglongshibaizhang", "skill_dagoubangfa"],
+      "related_skills": ["skill_quanzhenneigong", "skill_jiuyinzhenjing"]
+    },
+    {
+      "id": "char_huangrong",
+      "personality": {
+        "traits": ["聪慧机敏", "巧舌善辩", "胆大心细", "俏皮灵动", "临危不惧"],
+        "speech_style": "言语伶俐犀利，善用激将法和反语嘲讽，时而撒娇时而正色，能以言辞挑动群丐情绪",
+        "temperament": "机变百出，面对强敌镇定自若，对郭靖深情挚爱，受重伤仍强作笑容不令郭靖担忧"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "深爱郭靖，因郭靖危急时撇开自己而含泪责备'难道你死了我还能活么'，伤后偎在郭靖怀中"
+        },
+        {
+          "target": "char_jianzhanglao",
+          "type": "比武对手",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "以打狗棒法'缠'字诀和'转'字诀制服简长老，令其心服口服参见帮主"
+        },
+        {
+          "target": "char_pengzhanglao",
+          "type": "敌对",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "彭长老以慑心术暗算黄蓉，黄蓉以移魂大法反制令其狂笑不止，后革去其长老之位"
+        },
+        {
+          "target": "char_liangzhanglao",
+          "type": "比武对手",
+          "intensity": 5,
+          "bond_level": 2,
+          "dynamic": "不使用打狗棒法，以兰花拂穴手配合软猬甲击败梁长老，展现博学武功"
+        },
+        {
+          "target": "char_qiuqianren",
+          "type": "敌对",
+          "intensity": 9,
+          "bond_level": 1,
+          "dynamic": "误认裘千仞为裘千丈而轻敌，被铁掌震伤双肩气息闭绝，差点丧命"
+        },
+        {
+          "target": "char_qiuqianzhang",
+          "type": "对手",
+          "intensity": 4,
+          "bond_level": 1,
+          "dynamic": "在岳阳楼附近以打狗棒法'绊'字诀连绊裘千丈五交，识破其骗子面目"
+        },
+        {
+          "target": "char_luyoujiao",
+          "type": "盟友",
+          "intensity": 4,
+          "bond_level": 4,
+          "dynamic": "鲁有脚力挺黄蓉为帮主，黄蓉对鲁有脚为人最为信任，嘱咐一应大事全听他吩咐"
+        }
+      ],
+      "known_skills": ["skill_dagoubangfa", "skill_xiaoyaoyou", "skill_lanhuafuxueshou", "skill_yihundafa"],
+      "related_skills": ["skill_lianhuazhang", "skill_tongchuishou", "skill_huntiangong", "skill_tiezhuituifa"]
+    },
+    {
+      "id": "char_yangkang",
+      "personality": {
+        "traits": ["狡诈嘴硬", "见风使舵", "花言巧语", "贪生怕死"],
+        "speech_style": "强词夺理，被拆穿时仍嘴硬死撑，对穆念慈甜言蜜语，善于诡辩",
+        "temperament": "外强中干，心虚胆怯，形势不利时立刻逃窜"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "敌对",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "冒充帮主被黄蓉逐一拆穿，连打狗棒真名都不知道，群丐对其怒目相视"
+        },
+        {
+          "target": "char_munianci",
+          "type": "欺骗利用",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "以花言巧语骗穆念慈成亲，假称联手刺杀完颜洪烈以图其就范"
+        },
+        {
+          "target": "char_qiuqianren",
+          "type": "依附",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "见黄蓉占上风后央求裘千仞相救，趁乱随铁掌帮帮众逃走"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuqianren",
+      "personality": {
+        "traits": ["威严狠辣", "武功高强", "老谋深算", "铁掌无情"],
+        "speech_style": "言辞威严，喝问时声色俱厉，自视甚高",
+        "temperament": "沉稳老练，率帮众围困铁掌峰，使火攻逼敌，武功深厚不逊欧阳锋"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "敌对",
+          "intensity": 8,
+          "bond_level": 1,
+          "dynamic": "与郭靖掌力硬拚令其处于下风，被神龙摆尾震得微晃，追击郭黄上峰"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "敌对",
+          "intensity": 9,
+          "bond_level": 1,
+          "dynamic": "双掌猛拍黄蓉双肩致其重伤气息闭绝，掌心被软猬甲尖刺所伤流血"
+        },
+        {
+          "target": "char_qiuqianzhang",
+          "type": "兄弟",
+          "intensity": 3,
+          "bond_level": 5,
+          "dynamic": "孪生兄弟，容貌一般无异，幼时合用一个名号，武功远胜兄长"
+        },
+        {
+          "target": "char_yangkang",
+          "type": "利用",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "带杨康下船离岛，杨康随其逃至铁掌山"
+        }
+      ],
+      "known_skills": ["skill_tiezhanggong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuqianzhang",
+      "personality": {
+        "traits": ["爱吹牛", "无真才实学", "见风使舵", "贪生怕死", "厚颜无耻"],
+        "speech_style": "满口大话，被揭穿后面不改色，自称'爷爷'，危急时连声叫苦求救",
+        "temperament": "无赖狡猾，被点穴后破口大骂，生死关头不顾一切扑向雕背"
+      },
+      "archetype": "npc",
+      "relationships": [
+        {
+          "target": "char_qiuqianren",
+          "type": "兄弟",
+          "intensity": 3,
+          "bond_level": 5,
+          "dynamic": "孪生弟弟武功高强，自己冒其名号在外招摇撞骗"
+        },
+        {
+          "target": "char_guojing",
+          "type": "对手",
+          "intensity": 4,
+          "bond_level": 1,
+          "dynamic": "武功浅薄被郭靖轻易制住，被点'阴都穴'后不得动弹"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "对手",
+          "intensity": 3,
+          "bond_level": 1,
+          "dynamic": "被黄蓉打狗棒法连绊五交，欲扑上雕背抢逃被黄蓉拒绝"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_luyoujiao",
+      "personality": {
+        "traits": ["正直刚毅", "不畏强权", "坚持原则", "重证据轻传言"],
+        "speech_style": "言辞恳切有力，主张查明真相，有理有据不卑不亢",
+        "temperament": "刚烈不屈，双手指骨被裘千仞捏碎仍咬牙苦忍，言辞丝毫不让"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "支持者",
+          "intensity": 5,
+          "bond_level": 5,
+          "dynamic": "力主查明真相，承认黄蓉打狗棒法为老帮主真传，力挺黄蓉为帮主"
+        },
+        {
+          "target": "char_jianzhanglao",
+          "type": "同僚争执",
+          "intensity": 4,
+          "bond_level": 3,
+          "dynamic": "与简长老就黄蓉是否应为帮主争论不休，主张详加询问查明真相"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jianzhanglao",
+      "personality": {
+        "traits": ["武功高强", "识大体", "知错能改", "遵守帮规"],
+        "speech_style": "初时冷硬质疑，服气后恭敬有加，称'小人参见帮主'",
+        "temperament": "持重老成，初时维护杨康，经棒法较量后心悦诚服归顺黄蓉"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "比武对手→臣服",
+          "intensity": 7,
+          "bond_level": 4,
+          "dynamic": "初不信黄蓉，以掌法挑战，被打狗棒法制服后死心塌地奉其为帮主"
+        },
+        {
+          "target": "char_pengzhanglao",
+          "type": "同僚",
+          "intensity": 4,
+          "bond_level": 3,
+          "dynamic": "既已奉黄蓉为帮主后保她周全，制止彭长老对帮主行慑心术"
+        }
+      ],
+      "known_skills": ["skill_fengmozhangfa", "skill_dalijingangzhangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_pengzhanglao",
+      "personality": {
+        "traits": ["心术不正", "狡猾阴险", "暗箭伤人", "谄媚权贵"],
+        "speech_style": "言语柔和甜腻以施展慑心术，对杨康低声出谋划策",
+        "temperament": "阴险毒辣，趁黄蓉不备以慑心术暗算，被移魂大法反噬后狂笑不止委顿不堪"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "敌对",
+          "intensity": 8,
+          "bond_level": 1,
+          "dynamic": "以慑心术暗算黄蓉，被移魂大法反噬后狂笑不止，被革去长老降为八袋弟子"
+        },
+        {
+          "target": "char_yangkang",
+          "type": "附庸",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "拥护杨康为帮主，为其出谋划策保驾"
+        }
+      ],
+      "known_skills": ["skill_shexinshu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_liangzhanglao",
+      "personality": {
+        "traits": ["性急暴躁", "刀法精妙", "知错知退", "豪爽直率"],
+        "speech_style": "直来直去，'打狗棒法是真是假，一试便知，看刀！'",
+        "temperament": "急躁鲁莽，率先出手却被制服，见砍中黄蓉后大悔，急跃退开"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "比武对手",
+          "intensity": 5,
+          "bond_level": 2,
+          "dynamic": "率先扑向黄蓉用刀砍劈，被软猬甲所挡又被兰花拂穴手制服，惊得不敢答话"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_munianci",
+      "personality": {
+        "traits": ["重情守义", "易受蒙蔽", "坚持底线", "外柔内刚"],
+        "speech_style": "言辞质朴，坚持要杨康先报父母之仇再谈儿女之情",
+        "temperament": "虽被杨康花言巧语所动，仍坚持报仇为先的底线"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_yangkang",
+          "type": "恋人",
+          "intensity": 7,
+          "bond_level": 4,
+          "dynamic": "被杨康花言巧语蒙骗，坚持要杨康先杀完颜洪烈报仇，沉吟中已有允意"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_dagoubangfa",
+      "techniques": [
+        {
+          "id": "tech_dgbf_ban",
+          "name": "绊",
+          "type": "attack",
+          "description": "打狗棒法第一诀，着地扫去如长江大河绵绵而至，一绊不中二绊续至，中间蕴藏千变万化，黄蓉以此连绊裘千丈五六交"
+        },
+        {
+          "id": "tech_dgbf_pi",
+          "name": "劈",
+          "type": "attack",
+          "description": "打狗棒法八诀之一"
+        },
+        {
+          "id": "tech_dgbf_chan",
+          "name": "缠",
+          "type": "debuff",
+          "description": "随敌东西，竹棒如极坚韧的细藤缠住大树，任敌横挺直长休想脱却束缚，粘住简长老钢杖使其无法摆脱"
+        },
+        {
+          "id": "tech_dgbf_chuo",
+          "name": "戳",
+          "type": "attack",
+          "description": "打狗棒法八诀之一"
+        },
+        {
+          "id": "tech_dgbf_tiao",
+          "name": "挑",
+          "type": "attack",
+          "description": "搭住钢杖向上甩出，将简长老疾奔的力道传到杖上，钢杖急飞上天；亦用'拨狗朝天'挑起简长老杖头"
+        },
+        {
+          "id": "tech_dgbf_yin",
+          "name": "引",
+          "type": "defense",
+          "description": "打狗棒法八诀之一"
+        },
+        {
+          "id": "tech_dgbf_feng",
+          "name": "封",
+          "type": "defense",
+          "description": "打狗棒法八诀之一"
+        },
+        {
+          "id": "tech_dgbf_zhuan",
+          "name": "转",
+          "type": "attack",
+          "description": "令敌随己，竹棒化成碧影猛点敌后心'强间''风府''大椎''灵台''悬枢'各大要穴，逼敌向前飞奔无法转身"
+        },
+        {
+          "id": "tech_dgbf_bangdashaungqun",
+          "name": "棒打双犬",
+          "type": "attack",
+          "description": "竹棒横扫足胫，逼简、梁二老跃起避过"
+        },
+        {
+          "id": "tech_dgbf_yajianbeigou",
+          "name": "压肩狗背",
+          "type": "special",
+          "description": "四两拨千斤之精妙招数，棒头搭在钢杖腰里轻轻按落，力道恰到好处，将疾飞钢杖稳稳压在台上"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "黄蓉展示绊、劈、缠、转等诀，群丐确认为老帮主真传"}
+      ],
+      "effects": ["令群丐心服口服", "制服简长老使其参见帮主", "连绊裘千丈五六交令其无法起身"],
+      "combat_style": "以柔克刚、借力制敌，竹棒轻灵变化多端，八诀各有所用，精微奥妙不以力取胜"
+    },
+    {
+      "id": "skill_xianglongshibaizhang",
+      "techniques": [
+        {
+          "id": "tech_xlsbz_shichengliulong",
+          "name": "时乘六龙",
+          "type": "attack",
+          "description": "郭靖以此掌力劈向钢杖，带动其转头斜飞"
+        },
+        {
+          "id": "tech_xlsbz_miyunbuyu",
+          "name": "密云不雨",
+          "type": "attack",
+          "description": "郭靖左手握住杖头所使掌招，与'损则有孚'左右互搏同使"
+        },
+        {
+          "id": "tech_xlsbz_sunzeyoufu",
+          "name": "损则有孚",
+          "type": "attack",
+          "description": "郭靖右手握住杖尾所使掌招，与'密云不雨'左右互搏同使，两股力道将弧形钢杖慢慢伸直"
+        },
+        {
+          "id": "tech_xlsbz_jianlongzaitian",
+          "name": "见龙在田",
+          "type": "attack",
+          "description": "双手撒掌一合，掌缘击在杖腰，将钢杖疾向简长老飞去"
+        },
+        {
+          "id": "tech_xlsbz_shenlongbaiwei",
+          "name": "神龙摆尾",
+          "type": "defense",
+          "description": "降龙十八掌救命绝招，郭靖不回身右手向后挥出，挡住裘千仞追击，情急之下威力倍增"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "郭靖以左右互搏之术同使双掌，将弯弧钢杖拉直后震飞，展现惊人功力"}
+      ],
+      "effects": ["震飞简长老钢杖", "挡住裘千仞追击", "令裘千仞身子微晃"],
+      "combat_style": "至刚至猛，力道雄浑，配合左右互搏可同使两掌，威力倍增"
+    },
+    {
+      "id": "skill_lanhuafuxueshou",
+      "techniques": [
+        {
+          "id": "tech_lhfxs_huizong",
+          "name": "拂中会宗穴",
+          "type": "attack",
+          "description": "黄蓉趁梁长老收势不及之际，拂中其腕后三寸处'会宗穴'，令其单刀脱手"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "黄蓉家传绝技，在梁长老砍中软猬甲惊愕之际出其不意拂中穴道"}
+      ],
+      "effects": ["令梁长老单刀脱手跌落", "制服成名已久的丐帮高手"],
+      "combat_style": "指法精妙，出其不意攻敌不备，配合软猬甲护身形成绝妙配合"
+    },
+    {
+      "id": "skill_yihundafa",
+      "techniques": [
+        {
+          "id": "tech_yhdf_fanzhi",
+          "name": "精神反噬",
+          "type": "special",
+          "description": "九阴真经所载心法，以止观法门由'制心止'至'体真止'，以精神力量反制彭长老慑心术，令其不由自主捧腹狂笑不止"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "郭靖在黄蓉耳边背诵经文，黄蓉一点即透，闭目默念后达忘我境界，睁开眼一笑即胜"}
+      ],
+      "effects": ["令彭长老狂笑不止", "逆转慑心术的控制", "一盏茶时分即致彭长老气息难通满脸紫胀"],
+      "combat_style": "以专一精神力量控制对方心灵，后世或称催眠术，施术者精神越集中反噬越重"
+    },
+    {
+      "id": "skill_shexinshu",
+      "techniques": [
+        {
+          "id": "tech_sxs_muguang",
+          "name": "目光摄魂",
+          "type": "debuff",
+          "description": "以目光精光逼射控制对手心神，令人不由自主想再看一眼"
+        },
+        {
+          "id": "tech_sxs_shengyin",
+          "name": "声音惑心",
+          "type": "debuff",
+          "description": "以柔和悦耳的声音催眠对手，'帮主您累啦，歇歇罢'令黄蓉全身倦怠欲睡"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "彭长老趁黄蓉不备以目光和声音双管齐下施展慑心术"}
+      ],
+      "effects": ["令黄蓉全身酸软欲睡", "被移魂大法反噬后施术者自受其害"],
+      "combat_style": "以精神力量暗算对手，需对方注意力被吸引方可奏效，遇更强精神力则反受其害"
+    },
+    {
+      "id": "skill_xiaoyaoyou",
+      "techniques": [
+        {
+          "id": "tech_xyy_lingdong",
+          "name": "灵动身法",
+          "type": "feint",
+          "description": "洪七公亲授身法，灵动如燕，黄蓉以此从简、梁二老间斜身而过直欺杨康面前，简长老近在咫尺反手擒拿竟拿了个空"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "黄蓉施展此身法三夺打狗棒，起落之快无人看清手法"}
+      ],
+      "effects": ["闪避近身擒拿", "快速夺取打狗棒"],
+      "combat_style": "灵动轻捷如燕，用于闪避和突进"
+    },
+    {
+      "id": "skill_fengmozhangfa",
+      "techniques": [
+        {
+          "id": "tech_fmzf_qinwangbianshi",
+          "name": "秦王鞭石",
+          "type": "attack",
+          "description": "梁山泊好汉鲁智深传下来的杖法，从背后以肩为支扳击而下，威猛异常"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "简长老对黄蓉让过三招后以此杖法正式出手"}
+      ],
+      "effects": ["威猛一击，竹棒若被杖尾扫到纵有猬甲亦难免内伤"],
+      "combat_style": "传自鲁智深一路，威猛刚烈，配合三十斤重钢杖使用"
+    },
+    {
+      "id": "skill_dalijingangzhangfa",
+      "techniques": [
+        {
+          "id": "tech_dljgzf_huhu",
+          "name": "呼呼风响",
+          "type": "attack",
+          "description": "简长老硬功杖法，力贯双膀将钢杖运得呼呼风响，但仍无法摆脱打狗棒法的粘缠"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "简长老在疯魔杖法和七八路杖法均无法摆脱竹棒后使出此硬功杖法"}
+      ],
+      "effects": ["声势骇人但无法克制打狗棒法"],
+      "combat_style": "硬功重击，力道刚猛但不及打狗棒法精妙"
+    },
+    {
+      "id": "skill_tiezhanggong",
+      "techniques": [
+        {
+          "id": "tech_tzg_zhenshang",
+          "name": "铁掌震伤",
+          "type": "attack",
+          "description": "双掌猛拍黄蓉左右双肩，掌力锋锐狠辣，虽隔软猬甲仍将黄蓉震伤至气息闭绝，掌心被猬甲尖刺所伤流血"
+        },
+        {
+          "id": "tech_tzg_tiesha",
+          "name": "铁沙熬炼",
+          "type": "buff",
+          "description": "裘千仞以铁镬中热铁沙熬炼双掌，再击打悬空布袋练功，一掌打得布袋纹丝不动，显示深厚功力"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "裘千仞闭居铁掌峰苦练十余年，有心二次论剑夺取天下第一"}
+      ],
+      "effects": ["震伤黄蓉双肩致气息闭绝", "与郭靖降龙十八掌硬拚令其处下风", "掌心被猬甲刺伤"],
+      "combat_style": "铁掌帮镇帮绝技，掌力锋锐狠辣，功力深厚可与欧阳锋比肩"
+    },
+    {
+      "id": "skill_lianhuazhang",
+      "techniques": [],
+      "progression": [],
+      "effects": ["被群丐辨认为洪七公武功"],
+      "combat_style": "洪七公所传掌法"
+    },
+    {
+      "id": "skill_tongchuishou",
+      "techniques": [],
+      "progression": [],
+      "effects": ["被群丐辨认为洪七公武功"],
+      "combat_style": "洪七公所传手法"
+    },
+    {
+      "id": "skill_huntiangong",
+      "techniques": [],
+      "progression": [],
+      "effects": ["被群丐辨认为洪七公武功"],
+      "combat_style": "洪七公所传内功"
+    },
+    {
+      "id": "skill_tiezhuituifa",
+      "techniques": [
+        {
+          "id": "tech_tztf_chuishoupodi",
+          "name": "垂手破敌",
+          "type": "attack",
+          "description": "铁帚腿法中招式，被群丐辨认出为洪七公武功"
+        }
+      ],
+      "progression": [],
+      "effects": ["被群丐辨认为洪七公武功"],
+      "combat_style": "洪七公所传腿法"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_dagoubang",
+      "description": "碧绿晶莹的竹杖，丐帮帮主世代相传的信物和兵器，只十余两重",
+      "effects": [
+        {"type": "authority", "value": "帮主信物", "description": "持有此棒即为丐帮帮主身份的象征"},
+        {"type": "combat", "value": "打狗棒法载体", "description": "配合打狗棒法可制服持有重兵器的对手，四两拨千斤"}
+      ],
+      "origin": "丐帮历代帮主相传",
+      "rarity": "legendary",
+      "related_skills": ["skill_dagoubangfa"]
+    },
+    {
+      "id": "item_ruanweijia",
+      "description": "刀枪不入的护身宝甲，上有尖刺，穿于衣服之内",
+      "effects": [
+        {"type": "defense", "value": "刀枪不入", "description": "挡住梁长老单刀劈砍，黄蓉丝毫无损"},
+        {"type": "defense", "value": "抵挡铁掌", "description": "虽挡不住裘千仞掌力冲击但保住性命，否则两掌已要了黄蓉的命"},
+        {"type": "counterattack", "value": "尖刺反击", "description": "掌心被猬甲尖刺刺伤流血，裘千仞惊怒交集"}
+      ],
+      "origin": "黄药师家传",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_pojinyaojue",
+      "description": "岳飞遗书，藏于铁掌峰中指峰石洞骸骨旁木盒中，木盒上刻'破金要诀'四字，内含两本册子：一厚一薄，薄册为岳飞历年奏疏、表檄、题记、书启、诗词（含《五岳祠盟记》《满江红》《小重山》《题鄱阳龙居寺》等），厚册为岳飞亲笔所书兵法",
+      "effects": [
+        {"type": "knowledge", "value": "兵法宝典", "description": "岳飞亲笔兵法，第一页写'重搜选，谨训习，公赏罚，明号令，严纪律，同甘苦'十八字"},
+        {"type": "plot", "value": "核心线索", "description": "完颜洪烈做梦也想得到此书，郭靖得之可为抗金利器"}
+      ],
+      "origin": "岳飞（岳武穆王）亲笔所书",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_tiezhang",
+      "description": "铁掌帮帮主信物，铁铸手掌形状",
+      "effects": [
+        {"type": "authority", "value": "帮主信物", "description": "出示此物可号令铁掌帮帮众，守卫见之躬身行礼闪让道旁"}
+      ],
+      "origin": "铁掌帮历代帮主相传",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_xiaohongma",
+      "description": "郭靖的坐骑小红马，神骏无俦",
+      "effects": [
+        {"type": "transport", "value": "日行千里", "description": "从沪溪到铁掌山六十余里片刻即至"}
+      ],
+      "origin": "郭靖所有",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_shuangdiao",
+      "description": "一对白雕，神骏非凡，可负人飞行",
+      "effects": [
+        {"type": "transport", "value": "载人飞行", "description": "双雕振翅而起比翼北去，负郭靖黄蓉从铁掌峰顶飞离火海脱险"},
+        {"type": "combat", "value": "攻击敌人", "description": "雄雕钢喙啄中裘千丈顶门，令其松手坠崖"}
+      ],
+      "origin": "郭靖黄蓉所驯",
+      "rarity": "rare",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_28_01",
+      "name": "君山丐帮大会争端",
+      "participants": ["char_guojing", "char_huangrong", "char_yangkang", "char_luyoujiao", "char_jianzhanglao", "char_pengzhanglao", "char_liangzhanglao"],
+      "location": "loc_xuanyuantai",
+      "description": "丐帮四长老聚议争执帮主归属，净衣三老拥杨康，鲁有脚主张查明真相。彭长老率众欲擒黄蓉，郭靖跃上台护她。黄蓉朗声辩解洪七公尚在人世，杨康不知打狗棒真名露馅，群丐对其怒目相视。"
+    },
+    {
+      "id": "evt_28_02",
+      "name": "黄蓉三夺打狗棒",
+      "participants": ["char_huangrong", "char_yangkang", "char_jianzhanglao"],
+      "location": "loc_xuanyuantai",
+      "description": "黄蓉递棒诱杨康接住，以逍遥游身法倏忽间三次夺回打狗棒，一次快似一次，台下群丐疑心大起纷纷议论。"
+    },
+    {
+      "id": "evt_28_03",
+      "name": "黄蓉制服梁长老",
+      "participants": ["char_huangrong", "char_liangzhanglao"],
+      "location": "loc_xuanyuantai",
+      "description": "梁长老性急率先挺刀扑向黄蓉，黄蓉不用打狗棒法，连换十几套武功应对，以软猬甲挡住刀砍，兰花拂穴手拂中其'会宗穴'夺刀，群丐中辨认出莲花掌、铜锤手、混天功、铁帚腿法等洪七公武功。"
+    },
+    {
+      "id": "evt_28_04",
+      "name": "黄蓉以打狗棒法制服简长老",
+      "participants": ["char_huangrong", "char_jianzhanglao"],
+      "location": "loc_xuanyuantai",
+      "description": "简长老以疯魔杖法出手挑战，黄蓉展开打狗棒法，先以'缠'字诀粘住钢杖，再以'转'字诀逼简长老绕圈飞奔不得转身，最终简长老高呼服输参见帮主，台下群丐齐声高叫。"
+    },
+    {
+      "id": "evt_28_05",
+      "name": "彭长老慑心术被移魂大法反制",
+      "participants": ["char_pengzhanglao", "char_huangrong", "char_guojing", "char_jianzhanglao"],
+      "location": "loc_xuanyuantai",
+      "description": "彭长老以目光和声音施展慑心术暗算黄蓉，黄蓉全身酸软欲睡。危急中想起九阴真经中'移魂大法'，郭靖在耳边背诵经文后黄蓉闭目默念达忘我境界，睁眼一笑反制彭长老，令其捧腹狂笑不止。黄蓉以此要挟免去群丐唾吐之礼，后革彭长老为八袋弟子。"
+    },
+    {
+      "id": "evt_28_06",
+      "name": "杨康趁乱逃走",
+      "participants": ["char_yangkang", "char_qiuqianren"],
+      "location": "loc_junshan",
+      "description": "杨康见黄蓉占上风，趁众人全神观斗之际悄悄溜到铁掌帮帮众之中，央求裘千仞相救，裘千仞率帮众带杨康下船离岛。郭靖因顾念结义之情未加阻拦。"
+    },
+    {
+      "id": "evt_28_07",
+      "name": "黄蓉暂代帮主",
+      "participants": ["char_huangrong", "char_luyoujiao", "char_jianzhanglao", "char_liangzhanglao"],
+      "location": "loc_xuanyuantai",
+      "description": "黄蓉执打狗棒宣布暂署帮主事宜，令简、梁二长老率八袋弟子东下迎接洪七公，鲁长老留此养伤，嘱咐一应大事全听鲁有脚吩咐，群丐欢声雷动。"
+    },
+    {
+      "id": "evt_28_08",
+      "name": "岳阳楼赏景再遇裘千丈",
+      "participants": ["char_guojing", "char_huangrong", "char_qiuqianzhang"],
+      "location": "loc_yueyanglou",
+      "description": "郭黄回到岳阳楼对饮赏日出，黄蓉责备郭靖危急时撇开自己，二人深情相对。忽见裘千仞上楼，黄蓉跟踪出去，两人绕大宅围墙追逐相遇两次，黄蓉以打狗棒法绊字诀连绊裘千丈五交。裘千丈耍赖拉断裤带以放裤子威胁，黄蓉啐了一口转身逃走。"
+    },
+    {
+      "id": "evt_28_09",
+      "name": "破解曲灵风遗画秘字",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_yueyanglou",
+      "description": "黄蓉推详曲灵风遗画中的四行秘字，结合裘千丈所说'铁掌山形如五指向天'，破译出'武穆遗书，在铁掌山，中指峰下，第二指节'，二人决定前往铁掌山盗书。"
+    },
+    {
+      "id": "evt_28_10",
+      "name": "夜探铁掌山",
+      "participants": ["char_guojing", "char_huangrong", "char_qiuqianren", "char_yangkang", "char_munianci"],
+      "location": "loc_tiezhangshan",
+      "description": "郭黄夜至铁掌山，黄蓉以铁掌信物骗过守卫。二人窥见裘千仞在西厢以铁沙熬炼铁掌功夫，又在东厢发现杨康花言巧语骗穆念慈成亲。"
+    },
+    {
+      "id": "evt_28_11",
+      "name": "裘千仞铁掌震伤黄蓉",
+      "participants": ["char_guojing", "char_huangrong", "char_qiuqianren"],
+      "location": "loc_tiezhangshan",
+      "description": "真正的裘千仞现身，黄蓉误认其为裘千丈不予躲避，裘千仞双掌猛拍黄蓉双肩将其震伤至气息闭绝。郭靖与裘千仞掌力硬拚落于下风，以神龙摆尾勉强挡住追击，抱黄蓉向峰顶飞跑。"
+    },
+    {
+      "id": "evt_28_12",
+      "name": "中指峰石洞发现双胞胎之谜",
+      "participants": ["char_guojing", "char_huangrong", "char_qiuqianzhang", "char_qiuqianren"],
+      "location": "loc_tiezhangshan",
+      "description": "郭靖背黄蓉闯入铁掌帮禁地中指峰石洞，发现洞内竟有另一个裘千仞（裘千丈）。洞外裘千仞率帮众喊骂却不敢进入禁地。郭靖点住裘千丈'阴都穴'，黄蓉识破双胞胎之谜，裘千丈坦白二人是孪生兄弟，自己冒名招摇，弟弟武功高强隐居苦练。"
+    },
+    {
+      "id": "evt_28_13",
+      "name": "郭靖发现岳飞遗书",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_tiezhangshan",
+      "description": "郭靖深入石洞内部，见十余具历代帮主骸骨及陪葬宝物，发现东壁骸骨旁木盒上刻'破金要诀'四字。取回后与黄蓉共同阅读：薄册为岳飞奏疏诗词（含《五岳祠盟记》《满江红》《题鄱阳龙居寺》等），厚册为岳飞亲笔兵法。郭靖朗声诵读，慷慨激昂。"
+    },
+    {
+      "id": "evt_28_14",
+      "name": "铁掌帮火烧中指峰",
+      "participants": ["char_guojing", "char_huangrong", "char_qiuqianzhang", "char_qiuqianren"],
+      "location": "loc_tiezhangshan",
+      "description": "铁掌帮众不敢违反禁规上峰，改为放火烧山，火墙缓缓烧上峰来。郭靖解开裘千丈穴道，携黄蓉和木盒攀上峰顶。"
+    },
+    {
+      "id": "evt_28_15",
+      "name": "双雕救主脱险，裘千丈坠崖身亡",
+      "participants": ["char_guojing", "char_huangrong", "char_qiuqianzhang"],
+      "location": "loc_tiezhangshan",
+      "description": "黄蓉提议叫双雕负人飞下，郭靖以啸声唤来白雕。郭靖扶黄蓉伏于雌雕背上用衣带缚住，自己伏上雄雕。裘千丈求带不允后飞身扑向黄蓉企图抢上雕背，雌雕不堪重负向深谷急落。危急间雄雕钢喙啄中裘千丈顶门，裘千丈松手坠崖惨死，双雕振翅比翼北去。"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_huangrong",
+      "listener": null,
+      "text": "洪帮主眼下好端端在临安大内禁宫之中，只因爱吃御厨食物，不暇分身，是以命我代领本帮帮主之位。待他吃饱喝足，自来与各位相见。",
+      "tone": "朗声从容",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_yangkang",
+      "text": "洪帮主若是授你打狗棒，怎能不授你打狗棒法？若是授了你打狗棒法，这打狗棒又怎能让我夺来？",
+      "tone": "犀利反问",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_jianzhanglao",
+      "text": "这一招的名称，可得罪了，叫作'棒打双犬'！",
+      "tone": "俏皮得意",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_liangzhanglao",
+      "text": "对你也用得着打狗棒法？你配么？",
+      "tone": "轻蔑挑衅",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_luyoujiao",
+      "listener": null,
+      "text": "自来打狗棒法，非丐帮帮主不传，简长老难道不知这个规矩？",
+      "tone": "严肃质问",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_jianzhanglao",
+      "listener": null,
+      "text": "只要这位姑娘以棒法打败了我这对肉掌，姓简的死心塌地奉她为主。若是再有二心，教我万箭透身，千刀分尸。",
+      "tone": "郑重立誓",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_jianzhanglao",
+      "listener": "char_huangrong",
+      "text": "黄姑娘手下容情，我服你啦！",
+      "tone": "高声求饶",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_pengzhanglao",
+      "listener": "char_huangrong",
+      "text": "帮主，您累啦，您歇歇罢！",
+      "tone": "声音柔和催眠",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "靖哥哥，你说真经中有甚么'移魂大法'？",
+      "tone": "半昏迷中急切呼救",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_pengzhanglao",
+      "text": "这彭长老心术不正，革了他的长老，叫他做个八袋弟子罢。",
+      "tone": "笑语处置",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "靖哥哥，你不好！昨晚咱俩受丐帮阵法挤迫，眼见性命不保，你干么撇开我？难道你死了我还能活么？",
+      "tone": "含泪责备深情",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "是我不好，咱俩原须死在一起才是。",
+      "tone": "愧疚真诚",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_qiuqianzhang",
+      "listener": null,
+      "text": "你走不走，我要放手啦！",
+      "tone": "无赖威胁",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "第一行少了的，必是个'武'字，凑起来就是'武穆遗书'四字。第二行我本来猜想不出，给那老儿一说，那就容易不过，不是'山'字，就是个'峰'字。",
+      "tone": "聪慧推理",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": null,
+      "text": "裘老爷子，我跟你请安来啦。七日之约没误期么？",
+      "tone": "笑语讽刺",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_qiuqianren",
+      "listener": null,
+      "text": "是谁擅自上我山来？",
+      "tone": "威严喝问",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "傻哥哥，你还不明白，有两个裘千仞啊，一个武功高强，一个却就会吹牛。他俩生得一模一样。这是个净长着一张嘴的。",
+      "tone": "低声点破",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_qiuqianzhang",
+      "listener": null,
+      "text": "人家爱怎生叫就怎生叫，你管得着么？十尺为丈，七尺为仞，倒还是'千丈'比'千仞'长了三千尺。",
+      "tone": "洋洋自如",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": null,
+      "text": "怪不得爹爹常说，只恨迟生了数十年，不能亲眼见到这位大英雄。你再读读他的诗词。",
+      "tone": "低叹感慨",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "岳武穆王念念不忘百姓疾苦，这才是真英雄大豪杰啊。",
+      "tone": "出神赞叹",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "大英雄的诗，小英雄来读，旁边还有一位老英雄躺在地下听着，那更是锦上添花。",
+      "tone": "微笑调侃",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "叫雕儿负了咱们飞下去啊。",
+      "tone": "灵机一动",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_qiuqianzhang",
+      "text": "我这雕儿负不起两人。你求你弟弟救你，不就成啦？你比他多三千尺，他非听你号令不可。",
+      "tone": "嘲讽拒绝",
+      "chapter": 28
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "自中原板荡，夷狄交侵，余发愤河朔，起自相台，总发从军，历二百余战……北逾沙漠，喋血虏廷，尽屠夷种，迎二圣归京阙，取故土下版图，朝廷无虞，主上奠枕，余之愿也。河朔岳飞题。",
+      "tone": "朗声诵读慷慨激昂",
+      "chapter": 28
+    }
+  ]
+}

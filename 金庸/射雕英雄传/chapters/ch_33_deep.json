@@ -1,0 +1,1252 @@
+{
+  "chapter": 33,
+  "characters_detail": [
+    {
+      "id": "char_guojing",
+      "personality": {
+        "traits": ["憨厚正直", "重情重义", "尊师重道", "言出必行", "临事果断又易心软"],
+        "speech_style": "言辞质朴恳切，动辄磕头自责，对长辈恭敬至极，对黄蓉深情真挚",
+        "temperament": "外刚内柔，义薄云天但常陷于忠义两难"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "深爱之极，承诺留桃花岛陪她一辈子，宁舍天下人也要护她"
+        },
+        {
+          "target": "char_kezhen_e",
+          "type": "师徒",
+          "intensity": 9,
+          "bond_level": 8,
+          "dynamic": "尊师如父，无意中伤师父愧疚万分，欲砍手腕谢罪"
+        },
+        {
+          "target": "char_hongqigong",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "敬爱师父，为其伤愈欣喜，对其治伤方案深信不疑"
+        },
+        {
+          "target": "char_zhoubotong",
+          "type": "结义兄弟",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "关心周大哥安危，见其未受伤方才宽怀"
+        },
+        {
+          "target": "char_penglianhu",
+          "type": "敌手",
+          "intensity": 6,
+          "bond_level": -3,
+          "dynamic": "信守烟雨楼之约放走对方，被其巧言脱身"
+        },
+        {
+          "target": "char_huangyaoshi",
+          "type": "未来岳父/仇人",
+          "intensity": 6,
+          "bond_level": -2,
+          "dynamic": "夹在师父恨意与恋人亲情之间，左右为难"
+        }
+      ],
+      "known_skills": ["skill_jianglong_shiba_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huangrong",
+      "personality": {
+        "traits": ["聪慧机敏", "深情善感", "料事如神", "机变百出", "外强内柔、暗藏恐惧"],
+        "speech_style": "言辞伶俐，讥讽时辛辣俏皮，对郭靖深情时低回婉转，骗人时真假难辨",
+        "temperament": "表面嬉笑自若，内心深藏忧惧，极度害怕失去所爱之人"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "爱到极致反生恐惧，惧怕柯镇恶恨意终将逼郭靖杀己，伏肩啜泣恳求留岛"
+        },
+        {
+          "target": "char_kezhen_e",
+          "type": "仇敌",
+          "intensity": 8,
+          "bond_level": -7,
+          "dynamic": "被柯镇仇恨入骨髓欲杀，心知其恨已无法化解，深感恐惧"
+        },
+        {
+          "target": "char_hongqigong",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "敬爱师父，为他讲述别来诸般情由，传一灯译文助其治伤"
+        },
+        {
+          "target": "char_zhoubotong",
+          "type": "盟友/利用",
+          "intensity": 5,
+          "bond_level": 5,
+          "dynamic": "以瑛姑之名智骗老顽童，获得其承诺听命于己"
+        },
+        {
+          "target": "char_liangziweng",
+          "type": "敌手",
+          "intensity": 4,
+          "bond_level": -3,
+          "dynamic": "以打狗棒法轻松击败，嘲讽其变成'狗'"
+        },
+        {
+          "target": "char_huangyaoshi",
+          "type": "父女",
+          "intensity": 7,
+          "bond_level": 9,
+          "dynamic": "欲请爹爹赴烟雨楼助战、杀完颜洪烈、接郭靖母亲、向六位师父赔不是"
+        }
+      ],
+      "known_skills": ["skill_dagou_bangfa", "skill_luoying_shenjian_zhang", "skill_yan_shuangfei"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhoubotong",
+      "personality": {
+        "traits": ["贪玩好耍", "毫无机心", "童心未泯", "好胜争强", "畏惧瑛姑"],
+        "speech_style": "说话随意天真，自称'老顽童'，输了就大叫不算，对瑛姑畏若蛇蝎",
+        "temperament": "嬉笑怒骂随性而发，面对赌赛认真执着，一听瑛姑名号拔腿就跑"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "盟友/被骗",
+          "intensity": 5,
+          "bond_level": 5,
+          "dynamic": "被黄蓉以瑛姑之名吓走，临走承诺听她吩咐"
+        },
+        {
+          "target": "char_lingzhi_shangren",
+          "type": "赌赛对手",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "中彭连虎奸计与之赌赛打坐，坐得稳如泰山一心要赢"
+        },
+        {
+          "target": "char_hongqigong",
+          "type": "友人",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "在皇宫中搜寻洪七公，背他到牛家村寻郭靖黄蓉"
+        },
+        {
+          "target": "char_yinggu",
+          "type": "畏惧回避",
+          "intensity": 8,
+          "bond_level": -5,
+          "dynamic": "一听黄蓉提起'鸳鸯织就欲双飞'便大惊失色，拔足向北奔逃"
+        },
+        {
+          "target": "char_penglianhu",
+          "type": "受骗者",
+          "intensity": 4,
+          "bond_level": -3,
+          "dynamic": "中了彭连虎设计的赌赛骗局而不自知"
+        },
+        {
+          "target": "char_guojing",
+          "type": "结义兄弟",
+          "intensity": 4,
+          "bond_level": 6,
+          "dynamic": "关心郭靖安危，赶来山坳相助"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_kezhen_e",
+      "personality": {
+        "traits": ["刚烈暴躁", "嫉恶如仇", "义薄云天", "宁折不弯", "至死不屈"],
+        "speech_style": "言辞激烈决绝，动辄怒斥喝骂，打落牙齿和血吞，宁断师徒之义也要报仇",
+        "temperament": "狂怒时不可抑制，悲愤交加，将门牙吞入腹中以示决绝"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "师徒→决裂",
+          "intensity": 9,
+          "bond_level": 3,
+          "dynamic": "恨郭靖认贼作父忘恩负义，怒令割黄药师父女之头，悲愤离去断师徒之义"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "仇敌",
+          "intensity": 9,
+          "bond_level": -8,
+          "dynamic": "恨之入骨，以伏魔杖法毒招欲击杀黄蓉，被郭靖阻拦"
+        },
+        {
+          "target": "char_huangyaoshi",
+          "type": "深仇大恨",
+          "intensity": 10,
+          "bond_level": -10,
+          "dynamic": "与黄药师结下极深梁子，恨入骨髓欲杀其全家"
+        },
+        {
+          "target": "char_hongqigong",
+          "type": "战友/被护者",
+          "intensity": 6,
+          "bond_level": 6,
+          "dynamic": "白衣素缟舍命护洪七公于山洞中，凭毒菱暗器拒敌支撑"
+        },
+        {
+          "target": "char_liangziweng",
+          "type": "敌手",
+          "intensity": 4,
+          "bond_level": -4,
+          "dynamic": "以毒菱打退梁子翁偷袭，暗器厉害令群敌不敢强闯山洞"
+        }
+      ],
+      "known_skills": ["skill_fumo_zhangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_hongqigong",
+      "personality": {
+        "traits": ["豁达风趣", "贪吃豪爽", "侠义为怀", "深谋远虑", "生死看淡"],
+        "speech_style": "自称'老叫化'，言语幽默豁达，讲起御厨名菜滔滔不绝，论及往事感慨深沉",
+        "temperament": "大风大浪中处之泰然，对生死看得极淡，对朋友义气深重"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "赞赏徒弟功夫大进，主动为其与柯镇恶说和"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "携黄蓉之手安抚郭靖，听取她讲述别来情由"
+        },
+        {
+          "target": "char_kezhen_e",
+          "type": "敬重",
+          "intensity": 6,
+          "bond_level": 6,
+          "dynamic": "感念柯镇恶舍命护己，承诺烟雨楼比武后为其说和"
+        },
+        {
+          "target": "char_yideng_dashi",
+          "type": "知己故交",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "亲历段皇爷传功出家全过程，深感其情义，坚拒不学以保其性命"
+        },
+        {
+          "target": "char_wangchongyang",
+          "type": "旧友",
+          "intensity": 3,
+          "bond_level": 5,
+          "dynamic": "提及王重阳传授段皇爷先天功之往事"
+        },
+        {
+          "target": "char_zhoubotong",
+          "type": "友人",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "被周伯通背至牛家村，感念其搜寻之功又气其胡涂惹祸"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "宿敌",
+          "intensity": 4,
+          "bond_level": -5,
+          "dynamic": "称其'老毒物'，知其将被邀至烟雨楼压阵"
+        }
+      ],
+      "known_skills": ["skill_jianglong_shiba_zhang", "skill_dagou_bangfa"],
+      "related_skills": ["skill_yizhi_yang", "skill_xiantian_gong"]
+    },
+    {
+      "id": "char_lingzhi_shangren",
+      "personality": {
+        "traits": ["沉默寡言", "坚忍沉稳", "闭穴功夫了得"],
+        "speech_style": "极少开口，被推倒后仍一言不发如泥塑木雕",
+        "temperament": "隐忍不动，配合同伙行事"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_zhoubotong",
+          "type": "赌赛对手",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "被彭连虎设计封穴后与周伯通赌赛打坐，靠被封穴道始终不败"
+        },
+        {
+          "target": "char_penglianhu",
+          "type": "同伙",
+          "intensity": 4,
+          "bond_level": 3,
+          "dynamic": "被彭连虎利用为赌赛工具，周身大穴被同伙封住"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liangziweng",
+      "personality": {
+        "traits": ["狡诈胆怯", "见风使舵", "心有余悸"],
+        "speech_style": "被打后以'冲着洪老帮主面子'为台阶仓皇求退",
+        "temperament": "欺软怕硬，见强敌则逃"
+      },
+      "archetype": "healer",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "敌手",
+          "intensity": 4,
+          "bond_level": -3,
+          "dynamic": "欲偷袭郭靖被柯镇恶毒菱所阻"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "敌手/手下败将",
+          "intensity": 5,
+          "bond_level": -4,
+          "dynamic": "被黄蓉打狗棒法击败，头顶疼痛心中糊涂脸上尴尬"
+        },
+        {
+          "target": "char_kezhen_e",
+          "type": "敌手",
+          "intensity": 4,
+          "bond_level": -4,
+          "dynamic": "被柯镇恶毒菱割断头发，惊恐跃开"
+        },
+        {
+          "target": "char_hongqigong",
+          "type": "畏惧",
+          "intensity": 5,
+          "bond_level": -4,
+          "dynamic": "当年被洪七公整治得死去活来，心有余悸，见打狗棒法即逃"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shatongtian",
+      "personality": {
+        "traits": ["凶悍", "不敌则退", "不够义气"],
+        "speech_style": "本章无独立台词",
+        "temperament": "联手攻敌但不敌即逃"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "敌手",
+          "intensity": 5,
+          "bond_level": -3,
+          "dynamic": "与彭连虎联手攻郭靖，被左肘回撞逼退三步，不敌而逃"
+        },
+        {
+          "target": "char_penglianhu",
+          "type": "同伙",
+          "intensity": 4,
+          "bond_level": 3,
+          "dynamic": "联手攻敌但先于彭连虎逃走"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_penglianhu",
+      "personality": {
+        "traits": ["诡计多端", "能言善辩", "善于脱身", "暗骂同伙"],
+        "speech_style": "急中生智时以信义大义压人，被提起后巧用中秋之约脱身",
+        "temperament": "临危不乱，擅长用言语化解困境"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "敌手",
+          "intensity": 6,
+          "bond_level": -3,
+          "dynamic": "被郭靖高高提起险遭击打，以信义之约巧脱身，暗自惊讶其武功大进"
+        },
+        {
+          "target": "char_zhoubotong",
+          "type": "设计者",
+          "intensity": 5,
+          "bond_level": -4,
+          "dynamic": "设计令灵智上人封穴与周伯通赌赛，将老顽童稳稳绊住"
+        },
+        {
+          "target": "char_lingzhi_shangren",
+          "type": "利用",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "设计封住灵智上人穴道使其成为赌赛工具"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "敌手",
+          "intensity": 3,
+          "bond_level": -3,
+          "dynamic": "暗自佩服其武功计谋但不敢恋战"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_houtonghai",
+      "personality": {
+        "traits": ["鲁莽无谋", "不堪一击", "有勇无谋"],
+        "speech_style": "本章无台词",
+        "temperament": "被擒时毫无还手之力"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "敌手/手下败将",
+          "intensity": 3,
+          "bond_level": -3,
+          "dynamic": "被郭靖抓住后心甩出，毫无还手之力"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ouyangfeng",
+      "personality": {
+        "traits": ["阴险毒辣", "武功盖世", "伺机而动"],
+        "speech_style": "本章未出场发言，仅被黄蓉提及可能窥伺在旁",
+        "temperament": "深沉阴鸷"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_hongqigong",
+          "type": "宿敌",
+          "intensity": 4,
+          "bond_level": -6,
+          "dynamic": "黄蓉判断烟雨楼比武对方必邀其压阵"
+        },
+        {
+          "target": "char_yideng_dashi",
+          "type": "宿敌/制衡",
+          "intensity": 3,
+          "bond_level": -5,
+          "dynamic": "一灯大师的先天功与一阳指原为制衡其蛤蟆功"
+        }
+      ],
+      "known_skills": ["skill_hama_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yideng_dashi",
+      "personality": {
+        "traits": ["慈悲深沉", "重情重义", "宁死不累他人", "舍身求法"],
+        "speech_style": "本章未直接出场，通过洪七公追述其言语：神情颓伤，吐露真情",
+        "temperament": "因情伤而颓废，最终退位出家，大彻大悟"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_hongqigong",
+          "type": "知己故交",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "邀洪七公南下欲传先天功一阳指，被坚拒后退一步出家为僧"
+        },
+        {
+          "target": "char_wangchongyang",
+          "type": "师承",
+          "intensity": 4,
+          "bond_level": 7,
+          "dynamic": "得王重阳传授先天功，恐失传无面目见其于地下"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "制衡",
+          "intensity": 3,
+          "bond_level": -5,
+          "dynamic": "其先天功与一阳指为天下唯一能制衡欧阳锋蛤蟆功之术"
+        }
+      ],
+      "known_skills": ["skill_yizhi_yang", "skill_xiantian_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yinggu",
+      "personality": {
+        "traits": ["怪僻疯癫", "痴情执念", "令人畏惧"],
+        "speech_style": "本章未出场，仅以诗句'鸳鸯织就欲双飞''晓寒深处，相对浴红衣'被提及",
+        "temperament": "疯癫可怖，令周伯通畏若蛇蝎"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_zhoubotong",
+          "type": "痴缠/恐惧对象",
+          "intensity": 8,
+          "bond_level": -5,
+          "dynamic": "周伯通一听其名便大惊奔逃，避之惟恐不及"
+        },
+        {
+          "target": "char_hongqigong",
+          "type": "关联人物",
+          "intensity": 3,
+          "bond_level": 0,
+          "dynamic": "洪七公闻其在青龙滩发疯面色微变"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huangyaoshi",
+      "personality": {
+        "traits": ["孤傲不群", "护女情深", "武功绝世"],
+        "speech_style": "本章未出场，仅被多人提及",
+        "temperament": "黄蓉欲请其助战，柯镇恶恨之入骨"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "父女",
+          "intensity": 7,
+          "bond_level": 9,
+          "dynamic": "黄蓉欲求爹爹赴烟雨楼助战、报仇、接母、赔罪"
+        },
+        {
+          "target": "char_kezhen_e",
+          "type": "深仇",
+          "intensity": 10,
+          "bond_level": -10,
+          "dynamic": "柯镇恶恨之入骨，令郭靖割其头来见"
+        },
+        {
+          "target": "char_hongqigong",
+          "type": "齐名高手",
+          "intensity": 3,
+          "bond_level": 0,
+          "dynamic": "东邪西毒南帝北丐齐名，华山论剑打成平手"
+        }
+      ],
+      "known_skills": ["skill_pikong_zhang", "skill_tanzhi_shentong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wangchongyang",
+      "personality": {
+        "traits": ["一代宗师", "武功绝顶", "德高望重"],
+        "speech_style": "本章未出场，仅被洪七公提及",
+        "temperament": "传功段皇爷以制衡欧阳锋"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_yideng_dashi",
+          "type": "传功前辈",
+          "intensity": 3,
+          "bond_level": 7,
+          "dynamic": "将先天功传授段皇爷，段皇爷恐失传无面目见其于地下"
+        },
+        {
+          "target": "char_hongqigong",
+          "type": "旧识",
+          "intensity": 2,
+          "bond_level": 5,
+          "dynamic": "洪七公提及重阳真人传授先天功之往事"
+        }
+      ],
+      "known_skills": ["skill_xiantian_gong"],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_jianglong_shiba_zhang",
+      "techniques": [
+        {
+          "id": "tech_jl_掌拨铁杖",
+          "name": "掌带铁杖",
+          "type": "defense",
+          "description": "郭靖左手疾带以降龙十八掌手法拨开柯镇恶铁杖，右手抓住杖头，用力过猛竟将师父摔倒"
+        },
+        {
+          "id": "tech_jl_掌力催迫",
+          "name": "掌力催迫",
+          "type": "attack",
+          "description": "以凌厉掌力催迫沙通天与彭连虎，令二人只剩招架之功不住倒退"
+        },
+        {
+          "id": "tech_jl_肘撞横扫",
+          "name": "左肘回撞横扫",
+          "type": "attack",
+          "description": "左肘回撞逼退沙通天三步，左手随势横扫掌风凌厉逼退彭连虎"
+        }
+      ],
+      "progression": [
+        {
+          "level": 2,
+          "unlock": "功力大进，连郭靖自己都未料到，每次见他武功便增长几分"
+        }
+      ],
+      "effects": ["掌风凌厉势不可当", "功力大进令敌手震惊", "无意中伤及师长"],
+      "combat_style": "刚猛正大，以力取胜，掌力雄浑一往无前"
+    },
+    {
+      "id": "skill_dagou_bangfa",
+      "techniques": [
+        {
+          "id": "tech_dg_棒打狗头",
+          "name": "棒打狗头",
+          "type": "attack",
+          "description": "竹棒端忽地抖动滑出敌人手掌，进入守御圈子后夹头夹脑猛击一记，令梁子翁翻身倒地"
+        },
+        {
+          "id": "tech_dg_恶狗拦路",
+          "name": "恶狗拦路",
+          "type": "defense",
+          "description": "竹棒从旁递出拦在铁杖与人之间，待铁杖击到竹棒侧抖旁缠向外斜甩，顺势借力将铁杖掠在一旁"
+        }
+      ],
+      "progression": [
+        {
+          "level": 2,
+          "unlock": "黄蓉已得洪七公真传，配合打狗棒可击败梁子翁等高手"
+        }
+      ],
+      "effects": ["精妙无比以弱胜强", "顺势借力巧夺天工", "令曾受洪七公整治的敌手心有余悸"],
+      "combat_style": "灵活精妙，以巧取胜，借力打力变幻莫测"
+    },
+    {
+      "id": "skill_fumo_zhangfa",
+      "techniques": [
+        {
+          "id": "tech_fm_毒招后击",
+          "name": "杖击后脑",
+          "type": "attack",
+          "description": "举铁杖猛向黄蓉后脑击落，出手又快又狠，专为对付失目力之人使其闻风声已趋避不及"
+        }
+      ],
+      "progression": [
+        {
+          "level": 3,
+          "unlock": "当年在蒙古大漠中苦练而成，专门对付梅超风的毒招"
+        }
+      ],
+      "effects": ["出手又快又狠", "专克失明之人", "杖风笼罩全身令人无法趋避"],
+      "combat_style": "凶狠毒辣，暗中突袭，不留余地"
+    },
+    {
+      "id": "skill_luoying_shenjian_zhang",
+      "techniques": [
+        {
+          "id": "tech_ly_花下掌法",
+          "name": "落英掌法身法",
+          "type": "buff",
+          "description": "黄蓉在桃花岛花树下舞蹈时夹杂此掌法身法，转头起臂间花瓣纷飞"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "与燕双飞配合用于舞蹈，身法轻灵飘逸"
+        }
+      ],
+      "effects": ["身法灵动如落英缤纷", "与舞蹈融为一体"],
+      "combat_style": "轻灵飘逸，掌中有舞"
+    },
+    {
+      "id": "skill_yan_shuangfei",
+      "techniques": [
+        {
+          "id": "tech_ys_树间飞跃",
+          "name": "燕双飞轻功",
+          "type": "buff",
+          "description": "黄蓉纵身跃到树上，从一株树跳到另一株树，轻盈如燕"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "与落英神剑掌配合用于花下舞蹈"
+        }
+      ],
+      "effects": ["轻盈飞跃于树间", "喜悦至极时的自然流露"],
+      "combat_style": "轻盈灵动，飞燕双翔"
+    },
+    {
+      "id": "skill_yizhi_yang",
+      "techniques": [
+        {
+          "id": "tech_yz_指法治伤",
+          "name": "一阳指",
+          "type": "special",
+          "description": "段皇爷以此指法与降龙十八掌等打成平手，亦可打通他人奇经八脉治伤，但施术者须大伤元气"
+        }
+      ],
+      "progression": [
+        {
+          "level": 3,
+          "unlock": "段皇爷曾欲传给洪七公，被坚拒；已臻登峰造极之境"
+        }
+      ],
+      "effects": ["与降龙十八掌打成平手", "可打通奇经八脉治伤", "施术者大伤元气三五年难恢复"],
+      "combat_style": "指法精妙，攻守兼备，可远攻可治伤"
+    },
+    {
+      "id": "skill_xiantian_gong",
+      "techniques": [
+        {
+          "id": "tech_xt_内功修炼",
+          "name": "先天功",
+          "type": "buff",
+          "description": "王重阳传授段皇爷的绝顶内功，二次华山论剑武功天下第一之根基"
+        }
+      ],
+      "progression": [
+        {
+          "level": 3,
+          "unlock": "段皇爷得王重阳亲传，若失传则无面目见重阳真人于地下"
+        }
+      ],
+      "effects": ["绝顶内功", "配合一阳指可臻天下第一", "为制衡欧阳锋蛤蟆功之关键"],
+      "combat_style": "内功根基，提升一切外功威力"
+    },
+    {
+      "id": "skill_hama_gong",
+      "techniques": [
+        {
+          "id": "tech_hm_蛤蟆功",
+          "name": "蛤蟆功",
+          "type": "attack",
+          "description": "欧阳锋绝技，华山论剑时与一阳指、降龙十八掌、劈空掌打成平手"
+        }
+      ],
+      "progression": [
+        {
+          "level": 3,
+          "unlock": "欧阳锋独门绝技，需先天功与一阳指方可制衡"
+        }
+      ],
+      "effects": ["与四绝武功打成平手", "威力骇人"],
+      "combat_style": "蓄势待发，以静制动"
+    },
+    {
+      "id": "skill_pikong_zhang",
+      "techniques": [
+        {
+          "id": "tech_pk_劈空掌",
+          "name": "劈空掌",
+          "type": "attack",
+          "description": "黄药师武功，华山论剑时与各路高手打成平手"
+        }
+      ],
+      "progression": [
+        {
+          "level": 2,
+          "unlock": "黄药师独门绝技，与弹指神通并为其看家本领"
+        }
+      ],
+      "effects": ["远程掌力", "华山论剑四绝武功之一"],
+      "combat_style": "隔空发力，飘逸凌厉"
+    },
+    {
+      "id": "skill_tanzhi_shentong",
+      "techniques": [
+        {
+          "id": "tech_tz_弹指神通",
+          "name": "弹指神通",
+          "type": "attack",
+          "description": "黄药师绝技，华山论剑时与各路高手打成平手"
+        }
+      ],
+      "progression": [
+        {
+          "level": 2,
+          "unlock": "黄药师独门绝技，与劈空掌并为其看家本领"
+        }
+      ],
+      "effects": ["指力弹射", "华山论剑四绝武功之一"],
+      "combat_style": "弹指间暗劲迸发，精准凌厉"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_dagou_bang",
+      "description": "丐帮帮主信物，竹制棒，黄蓉持此棒施展打狗棒法击败梁子翁、格挡柯镇恶铁杖",
+      "effects": [
+        {
+          "type": "combat_enhancement",
+          "value": "high",
+          "description": "配合打狗棒法威力倍增，令曾受洪七公整治的敌手心有余悸"
+        },
+        {
+          "type": "symbolic",
+          "value": "legendary",
+          "description": "丐帮帮主信物，见此棒如见帮主"
+        }
+      ],
+      "origin": "丐帮历代帮主传承",
+      "rarity": "legendary",
+      "related_skills": ["skill_dagou_bangfa"]
+    },
+    {
+      "id": "item_tie_zhang",
+      "description": "柯镇恶的铁制兵刃，用以攻击黄蓉被郭靖拨开，又用以挡开郭靖砍腕之剑",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "medium",
+          "description": "铁制沉重兵刃，配合伏魔杖法施展毒招"
+        }
+      ],
+      "origin": "柯镇恶随身兵刃",
+      "rarity": "uncommon",
+      "related_skills": ["skill_fumo_zhangfa"]
+    },
+    {
+      "id": "item_du_ling",
+      "description": "柯镇恶喂有剧毒的暗器，打退梁子翁偷袭，割断其头髻数缕头发，令其冷汗直冒",
+      "effects": [
+        {
+          "type": "poison",
+          "value": "high",
+          "description": "喂有剧毒，打中即中毒，当日彭连虎就险些丧生于此下"
+        },
+        {
+          "type": "ranged_attack",
+          "value": "high",
+          "description": "暗器破空风声劲急，可远距精准投掷"
+        }
+      ],
+      "origin": "柯镇恶独门暗器",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_tougu_ding",
+      "description": "梁子翁的暗器，欲从洞左悄悄绕近射入洞中还报柯镇恶，被黄蓉石子击落",
+      "effects": [
+        {
+          "type": "ranged_attack",
+          "value": "medium",
+          "description": "可远程投射的暗器，穿透力强"
+        }
+      ],
+      "origin": "梁子翁随身暗器",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_duanjian",
+      "description": "郭靖随身短剑，他欲以此砍断左腕以谢冒犯师父之罪，被柯镇恶铁杖挡开",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "low",
+          "description": "随身短剑，轻巧锋利，被柯镇恶杖剑相交火花迸发"
+        }
+      ],
+      "origin": "郭靖随身兵刃",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_xiaohong_ma",
+      "description": "郭靖的宝马骏马，洪七公骑此马北赴嘉兴，日行千里无人能追",
+      "effects": [
+        {
+          "type": "speed",
+          "value": "high",
+          "description": "日行千里的宝马，奔跑极快任谁也追赶不上"
+        }
+      ],
+      "origin": "郭靖坐骑",
+      "rarity": "rare",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_33_01",
+      "name": "山坳夜探",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_shan_ao",
+      "description": "郭靖黄蓉听到'老顽童'三字心中一凛，跟踪两名夜行人出镇五六里来到山坳，发现周伯通与灵智上人盘膝对坐不动，洞外梁子翁、沙通天、彭连虎、侯通海等人吆喝叫骂不敢近洞。"
+    },
+    {
+      "id": "evt_33_02",
+      "name": "郭靖救师出手",
+      "participants": ["char_guojing", "char_houtonghai", "char_shatongtian", "char_penglianhu", "char_kezhen_e"],
+      "location": "loc_shan_ao",
+      "description": "郭靖听到大师父柯镇恶在洞中应声，纵身而出，人随声至手起掌落抓住侯通海后心甩出。沙通天与彭连虎并肩攻上，梁子翁绕到身后欲施偷袭。"
+    },
+    {
+      "id": "evt_33_03",
+      "name": "毒菱退敌",
+      "participants": ["char_kezhen_e", "char_liangziweng"],
+      "location": "loc_shan_dong",
+      "description": "梁子翁欲偷袭郭靖，柯镇恶在洞中扬手一枚毒菱往他背心打去，暗器破空风声劲急，毒菱从梁子翁顶心掠过割断头髻数缕头发，梁子翁吓得冷汗直冒急忙跃开。"
+    },
+    {
+      "id": "evt_33_04",
+      "name": "棒打参仙老怪",
+      "participants": ["char_huangrong", "char_liangziweng"],
+      "location": "loc_shan_ao",
+      "description": "梁子翁取出透骨钉欲射入洞中，被黄蓉石子击落手腕。梁子翁攻黄蓉欲夺竹棒，黄蓉以打狗棒法'棒打狗头'一招击败梁子翁，梁子翁见是打狗棒法惊恐逃走，招呼两名弟子转身便奔。"
+    },
+    {
+      "id": "evt_33_05",
+      "name": "力擒彭连虎",
+      "participants": ["char_guojing", "char_penglianhu", "char_shatongtian"],
+      "location": "loc_shan_ao",
+      "description": "郭靖左肘回撞逼退沙通天三步，左手横扫掌风凌厉逼退彭连虎，右手勾转抓住彭连虎后心高高提起，双足凌空四肢全然没了力气。"
+    },
+    {
+      "id": "evt_33_06",
+      "name": "烟雨楼中秋之约",
+      "participants": ["char_guojing", "char_penglianhu"],
+      "location": "loc_shan_ao",
+      "description": "彭连虎被提起后急中生智，以八月十五嘉兴烟雨楼比武之约质问郭靖信义，郭靖信守承诺将他掷开放走。彭连虎心中暗惊郭靖每次武功都增长几分。"
+    },
+    {
+      "id": "evt_33_07",
+      "name": "赌赛骗局揭穿",
+      "participants": ["char_huangrong", "char_zhoubotong", "char_lingzhi_shangren"],
+      "location": "loc_shan_ao",
+      "description": "黄蓉猜知彭连虎奸计——灵智上人被同伙封穴后与周伯通赌赛。黄蓉提议同时呵痒裁判，周伯通先受不了跃起认输。黄蓉推倒灵智上人，发现他周身八处大穴被封，揭穿骗局。"
+    },
+    {
+      "id": "evt_33_08",
+      "name": "瑛姑吓退老顽童",
+      "participants": ["char_huangrong", "char_zhoubotong"],
+      "location": "loc_shan_ao",
+      "description": "黄蓉以'鸳鸯织就欲双飞'和'晓寒深处，相对浴红衣'暗示瑛姑来找，周伯通大惊一跃三尺，向南一指后拔足向北奔逃，承诺'老顽童一言既出决无反悔'，听黄蓉吩咐。"
+    },
+    {
+      "id": "evt_33_09",
+      "name": "洪七公出洞",
+      "participants": ["char_hongqigong", "char_zhoubotong", "char_guojing", "char_huangrong"],
+      "location": "loc_shan_dong",
+      "description": "周伯通弯腰解开灵智上人穴道后奔入山洞，扶出左手持葫芦右手拿白鸡口咬鸡腿满脸笑容的洪七公。靖蓉二人大喜齐声叫师父。"
+    },
+    {
+      "id": "evt_33_10",
+      "name": "杖袭黄蓉",
+      "participants": ["char_kezhen_e", "char_huangrong", "char_guojing"],
+      "location": "loc_shan_ao",
+      "description": "黄蓉乍见洪七公惊喜交集之际，柯镇恶突以伏魔杖法毒招猛击其后脑。郭靖情急之下以降龙十八掌手法拨开铁杖，用力过猛将柯镇恶摔倒撞落两颗门牙。"
+    },
+    {
+      "id": "evt_33_11",
+      "name": "师徒决裂",
+      "participants": ["char_kezhen_e", "char_guojing", "char_huangrong", "char_hongqigong", "char_zhoubotong"],
+      "location": "loc_shan_ao",
+      "description": "柯镇恶将门牙和血吞入腹中，怒斥郭靖忘恩负义。郭靖欲砍断左腕谢罪被柯镇恶挡开，柯镇恶令其去割黄药师和黄蓉的头来见。黄蓉以打狗棒法'恶狗拦路'挡开柯镇恶再击的铁杖，柯镇恶悲愤向北疾驰而去。"
+    },
+    {
+      "id": "evt_33_12",
+      "name": "皇宫养伤往事",
+      "participants": ["char_hongqigong", "char_guojing", "char_huangrong"],
+      "location": "loc_huanggong",
+      "description": "洪七公讲述在皇宫御厨连吃四次鸳鸯五珍脍等名菜，被侍卫发现后逃到萼绿华堂养伤十余天，周伯通在宫中到处搜寻，最终在半夜装鬼哭猫叫找到他。又讲周伯通抓着梁子翁等恶贼饱打一顿逼其寻找郭靖黄蓉，搓泥丸假毒药制服众人的趣事。"
+    },
+    {
+      "id": "evt_33_13",
+      "name": "段皇爷传功往事",
+      "participants": ["char_hongqigong", "char_yideng_dashi", "char_wangchongyang"],
+      "location": "loc_huanggong",
+      "description": "洪七公讲述段皇爷邀他南下，以切磋武功为名欲将先天功和一阳指传给他。洪七公察觉蹊跷，与段皇爷四大弟子商量后发现段皇爷传功后欲自戕。洪七公坚拒不学以保其性命，段皇爷无奈退一步退位为僧出家，洪七公亲见其落发。"
+    },
+    {
+      "id": "evt_33_14",
+      "name": "传功自愈之法",
+      "participants": ["char_huangrong", "char_guojing", "char_hongqigong"],
+      "location": "loc_shan_ao",
+      "description": "黄蓉将一灯大师译出的经文念给洪七公听，洪七公思索良久大喜跃起连叫'妙'，认为可用此法自行打通奇经八脉，但至少需一年半载才见功效，无须旁人相助。"
+    },
+    {
+      "id": "evt_33_15",
+      "name": "烟雨楼战略布局",
+      "participants": ["char_huangrong", "char_hongqigong", "char_guojing"],
+      "location": "loc_shan_ao",
+      "description": "黄蓉分析烟雨楼比武对方必邀欧阳锋压阵，周伯通虽功夫不输但疯癫难保不出乱子，须回桃花岛请黄药师助战方有必胜把握。洪七公先骑小红马赴嘉兴，郭靖黄蓉同赴桃花岛。"
+    },
+    {
+      "id": "evt_33_16",
+      "name": "洪七公骑马北上",
+      "participants": ["char_hongqigong", "char_guojing", "char_huangrong"],
+      "location": "loc_shan_ao",
+      "description": "洪七公骑郭靖的小红马，骨都都喝了一大口酒，双腿一夹，小红马向靖蓉二人长嘶道别，向北风驰而去。郭靖望着影踪不见，又想起柯镇恶之事闷闷不乐。"
+    },
+    {
+      "id": "evt_33_17",
+      "name": "扬帆赴桃花岛",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_taohua_dao",
+      "description": "黄蓉不相劝郭靖的愁闷，自去雇了船，二人扬帆直赴桃花岛。到岛后打发船夫离去，回到黄蓉故居。"
+    },
+    {
+      "id": "evt_33_18",
+      "name": "桃花岛恳谈惧祸",
+      "participants": ["char_guojing", "char_huangrong", "char_kezhen_e"],
+      "location": "loc_taohua_dao",
+      "description": "黄蓉反复追问郭靖若六位师父、母亲、朋友都逼他杀她时怎么办，述说柯镇恶要杀她的恐惧。黄蓉伏在郭靖肩头啜泣，坦言不知害怕什么，只是想到柯镇恶的神情便心中慌乱，总觉得有一天郭靖会听师父的话杀了她。"
+    },
+    {
+      "id": "evt_33_19",
+      "name": "承诺留岛",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_taohua_dao",
+      "description": "郭靖被黄蓉真情打动，答应不离开桃花岛。黄蓉计划由爹爹去烟雨楼助战、杀完颜洪烈报仇、到蒙古接郭靖母亲、向六位师父赔不是，要叫郭靖心里再没一件放不下的事。"
+    },
+    {
+      "id": "evt_33_20",
+      "name": "花下起舞",
+      "participants": ["char_huangrong", "char_guojing"],
+      "location": "loc_taohua_dao",
+      "description": "黄蓉喜极叫道'若是再要甚么，老天爷也不容我'，长袖轻举在花树下翩翩起舞，转头金环耀日起臂白衣凌风，越舞越急摇动花树，花瓣纷飞如蝴蝶绕身，夹杂燕双飞与落英神剑掌身法，郭靖看得心醉神迷。"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "瞧清楚了再说。",
+      "tone": "低声谨慎",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_penglianhu",
+      "listener": null,
+      "text": "贼厮鸟，再不出来，老子要用烟来薰了。",
+      "tone": "喝骂威胁",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_kezhen_e",
+      "listener": null,
+      "text": "有甚么臭本钱，尽数抖出来罢。",
+      "tone": "沉着无惧",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "师父，徒儿郭靖来啦！",
+      "tone": "大声急切",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_liangziweng",
+      "text": "快跪下，又要吃棒儿啦！",
+      "tone": "笑谑得意",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_liangziweng",
+      "text": "你知道这棒法的名字，既给我打中了，你可变成甚么啦？",
+      "tone": "调侃嘲弄",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_liangziweng",
+      "listener": null,
+      "text": "冲着洪老帮主的面子，咱们就避一避罢！",
+      "tone": "恐惧仓皇",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_penglianhu",
+      "listener": "char_guojing",
+      "text": "咱们约定八月十五在嘉兴烟雨楼比武决胜，此刻地非嘉兴，时非中秋，你怎能伤我？",
+      "tone": "急切狡辩",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_penglianhu",
+      "listener": "char_guojing",
+      "text": "你顾不顾信义？男子汉大丈夫说了话算不算数？",
+      "tone": "激将质问",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": "char_lingzhi_shangren",
+      "text": "胖和尚，真有你的，老顽童服了你啦！",
+      "tone": "呵呵大笑认输",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_zhoubotong",
+      "text": "老顽童，'鸳鸯织就欲双飞'找你来啦，你还不快去见她？",
+      "tone": "故作正经吓唬",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": "char_huangrong",
+      "text": "我永不见她。好姑娘，以后你叫我做甚么我就做甚么，可千万别跟她说曾见到过我……",
+      "tone": "惊恐哀求",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "老顽童一言既出，决无反悔。",
+      "tone": "远远传来",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "师父，徒儿郭靖来啦！",
+      "tone": "大声急切",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_kezhen_e",
+      "listener": "char_guojing",
+      "text": "去割了黄老邪和他女儿的头来见我。",
+      "tone": "咬牙切齿",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_kezhen_e",
+      "listener": null,
+      "text": "给你！",
+      "tone": "冷冷决绝",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_kezhen_e",
+      "listener": null,
+      "text": "好啊，常言道：打落牙齿和血吞。我给你作甚？",
+      "tone": "愤怒刚烈",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_kezhen_e",
+      "text": "弟子该死，求师父重重责打。",
+      "tone": "跪地哭求",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "这只手掌得罪了大师父，弟子也不能要啦！",
+      "tone": "悲愤自责",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_hongqigong",
+      "listener": "char_kezhen_e",
+      "text": "柯大侠，师徒过招，一个失手也是稀松平常之事。适才靖儿带你这一招是我所授，算是老叫化的不是，这厢跟你赔礼了。",
+      "tone": "诚恳赔礼",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_hongqigong",
+      "listener": null,
+      "text": "我的性命本就是捡来的，送在谁手里都是一样。",
+      "tone": "豁达淡然",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_hongqigong",
+      "listener": null,
+      "text": "他当日以一阳指和我的降龙十八掌、老毒物的蛤蟆功、黄老邪的劈空掌与弹指神通打成平手，如今又得王重阳传授了先天功，二次华山论剑武功天下第一的名号非他莫属，为甚竟要将这两门绝技平白无端的传给老叫化？",
+      "tone": "感慨追忆",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_hongqigong",
+      "text": "师父，这可好了，原来不须旁人相助，奇经八脉自己也能通的。",
+      "tone": "惊喜",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "靖哥哥，你说这桃花岛美么？",
+      "tone": "轻声柔婉",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "我只想在这儿活下去，不愿给你杀了。",
+      "tone": "叹息哀婉",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "就是普天下的人要一齐跟你为难，我也始终护着你。",
+      "tone": "昂然坚定",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "你为了我，肯把这一切人都舍下么？",
+      "tone": "焦虑追问",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "当初你答允那蒙古公主的婚事，何尝想到日后会要反悔？从前我只知道自己爱怎么就怎么，现今才知道……唉！你想得好好的，老天偏偏尽跟你闹别扭。",
+      "tone": "感慨忧伤",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "好！我不离开这里就是！",
+      "tone": "冲动深情",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "我还要甚么？甚么也不要啦！",
+      "tone": "喜极而泣",
+      "chapter": 33
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": null,
+      "text": "若是再要甚么，老天爷也不容我。",
+      "tone": "欢悦感叹",
+      "chapter": 33
+    }
+  ]
+}

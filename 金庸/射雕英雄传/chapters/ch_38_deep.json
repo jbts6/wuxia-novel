@@ -1,0 +1,1694 @@
+{
+  "chapter": 38,
+  "characters_detail": [
+    {
+      "id": "char_guojing",
+      "personality": {
+        "traits": ["忠厚仁义", "重情重义", "宁死不卖国", "坚毅果敢", "心地善良"],
+        "speech_style": "言语朴实直率，少有花巧，常用直白之词表心意",
+        "temperament": "外朴内刚，临大事不惧，哀痛至极时仍守大义"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "以为黄蓉死于沼泽，悲痛欲绝，终生不娶"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "仇敌兼恩人",
+          "intensity": 8,
+          "bond_level": 2,
+          "dynamic": "恨其逼迫练武，却三次饶其性命守信"
+        },
+        {
+          "target": "char_liping",
+          "type": "母子",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "母亲自尽殉国，郭靖抱母突围终葬于土冈"
+        },
+        {
+          "target": "char_huazheng",
+          "type": "名义未婚妻",
+          "intensity": 4,
+          "bond_level": 5,
+          "dynamic": "心系黄蓉，对华筝无意，嘱其另嫁"
+        },
+        {
+          "target": "char_zhoubotong",
+          "type": "义兄弟",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "石屋中联手对敌，互相信任"
+        },
+        {
+          "target": "char_tuolei",
+          "type": "安答(义兄弟)",
+          "intensity": 8,
+          "bond_level": 9,
+          "dynamic": "拖雷救命赠马，二人洒泪而别"
+        },
+        {
+          "target": "char_zhebie",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "哲别报恩射断箭头，放其南归"
+        },
+        {
+          "target": "char_chengjisihan",
+          "type": "君臣决裂",
+          "intensity": 7,
+          "bond_level": 3,
+          "dynamic": "拒攻宋邦，被大汗下令处斩"
+        }
+      ],
+      "known_skills": ["skill_shenlongbaowei", "skill_kanglongyouhui", "skill_feixujin", "skill_zuoyouhubo"],
+      "related_skills": ["skill_yijindagupian"]
+    },
+    {
+      "id": "char_huangrong",
+      "personality": {
+        "traits": ["聪慧机敏", "性格倔强", "善用奇门之术", "深情执着"],
+        "speech_style": "语调俏皮灵慧，善讥讽试探",
+        "temperament": "外柔内刚，受情伤后决绝离去"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "误会郭靖不辞婚，携画离去后陷沼泽失踪"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "追逐者与被追者",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "以奇门术迷惑欧阳锋追迹"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ouyangfeng",
+      "personality": {
+        "traits": ["阴险狠毒", "武学痴迷", "不择手段", "记仇好胜"],
+        "speech_style": "语气傲慢霸道，常以威胁命令口吻说话",
+        "temperament": "功利冷静，为达目的不惜一切"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "囚禁者与被囚者",
+          "intensity": 8,
+          "bond_level": 2,
+          "dynamic": "囚郭靖逼其练功偷学真经，三次被饶"
+        },
+        {
+          "target": "char_zhoubotong",
+          "type": "对手",
+          "intensity": 7,
+          "bond_level": 2,
+          "dynamic": "石屋黑暗中混战交手"
+        },
+        {
+          "target": "char_huangrong",
+          "type": "追击者",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "追黄蓉入沼泽反被困"
+        }
+      ],
+      "known_skills": ["skill_hamagong", "skill_lianhuanYuanyangtui"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huazheng",
+      "personality": {
+        "traits": ["深情专一", "温柔体贴", "天真率直"],
+        "speech_style": "语气娇嗔亲昵，直诉情意",
+        "temperament": "外向热情，情感表达直接"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "单恋",
+          "intensity": 9,
+          "bond_level": 7,
+          "dynamic": "一心痴恋郭靖，致黄蓉误会出走"
+        },
+        {
+          "target": "char_liping",
+          "type": "未来婆媳",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "陪李萍闲谈，照料备至"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuchuji",
+      "personality": {
+        "traits": ["正义有道", "劝善止杀", "耿直不屈"],
+        "speech_style": "言辞正大，引经据典，以道理论人",
+        "temperament": "刚正不阿，以苍生为念"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_chengjisihan",
+          "type": "谏臣与君主",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "力劝大汗爱民少杀，救活百姓无数"
+        },
+        {
+          "target": "char_guojing",
+          "type": "故交",
+          "intensity": 4,
+          "bond_level": 5,
+          "dynamic": "辞行赠言，当年取名寄意"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liping",
+      "personality": {
+        "traits": ["深明大义", "刚烈坚贞", "爱子情深", "沉着机智"],
+        "speech_style": "语调温柔而坚定，临终前用汉语教导儿子不忘国耻",
+        "temperament": "外柔内刚，大义面前视死如归"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "母子",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "以死明志，教子不可卖国求荣"
+        },
+        {
+          "target": "char_chengjisihan",
+          "type": "臣属之母",
+          "intensity": 6,
+          "bond_level": 2,
+          "dynamic": "识破密令，以自尽抗拒其威逼"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chengjisihan",
+      "personality": {
+        "traits": ["雄才大略", "威严霸气", "不容忤逆", "深谋远虑"],
+        "speech_style": "语气威严果断，以命令口吻发号施令",
+        "temperament": "喜怒无常，对叛逆者绝不留情"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "君主与叛臣",
+          "intensity": 8,
+          "bond_level": 4,
+          "dynamic": "爱其才却恨其叛，下令处斩"
+        },
+        {
+          "target": "char_tuolei",
+          "type": "父子",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "命其统率左军伐金"
+        },
+        {
+          "target": "char_qiuchuji",
+          "type": "敬而远之",
+          "intensity": 3,
+          "bond_level": 3,
+          "dynamic": "知其有道之士，不便拂其劝谏"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhoubotong",
+      "personality": {
+        "traits": ["童心未泯", "好武成痴", "不拘礼法", "重信守诺"],
+        "speech_style": "嬉笑怒骂，言语无忌，爱捉弄人",
+        "temperament": "天真烂漫，视斗殴为游戏"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_qiuqianren",
+          "type": "追击者与被追者",
+          "intensity": 6,
+          "bond_level": 2,
+          "dynamic": "受黄蓉之托万里追杀裘千仞"
+        },
+        {
+          "target": "char_guojing",
+          "type": "义兄弟",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "石屋中误打误撞后联手对敌"
+        },
+        {
+          "target": "char_ouyangfeng",
+          "type": "对手",
+          "intensity": 7,
+          "bond_level": 2,
+          "dynamic": "黑暗混战中交手，视为好玩"
+        }
+      ],
+      "known_skills": ["skill_zuoyouhubo"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuqianren",
+      "personality": {
+        "traits": ["阴沉狡诈", "武功高强", "坚韧不拔"],
+        "speech_style": "言语不多，常以武功回应",
+        "temperament": "隐忍老辣，善于逃跑求生"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_zhoubotong",
+          "type": "被追击者",
+          "intensity": 7,
+          "bond_level": 2,
+          "dynamic": "被周伯通万里追杀至西域石屋"
+        },
+        {
+          "target": "char_guojing",
+          "type": "混战对手",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "黑暗中误认敌友后交手"
+        }
+      ],
+      "known_skills": ["skill_tiezhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuolei",
+      "personality": {
+        "traits": ["重兄弟情义", "忠孝两难", "豪爽大方"],
+        "speech_style": "言语诚恳，临别时简短有力",
+        "temperament": "外刚内柔，重情重义"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "安答(义兄弟)",
+          "intensity": 9,
+          "bond_level": 10,
+          "dynamic": "冒死求情，赠马赠金送别"
+        },
+        {
+          "target": "char_chengjisihan",
+          "type": "父子",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "为郭靖求情，遵父命统左军"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhebie",
+      "personality": {
+        "traits": ["知恩图报", "义气深重", "磊落坦荡"],
+        "speech_style": "简明坦荡，以行动代替言语",
+        "temperament": "刚直守义，宁受军法也要报恩"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "师徒兼恩人",
+          "intensity": 8,
+          "bond_level": 9,
+          "dynamic": "受命追捕却故意放行，赠马赠枪"
+        },
+        {
+          "target": "char_chengjisihan",
+          "type": "君臣",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "违令放走郭靖，甘受军棍"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chilaowen",
+      "personality": {
+        "traits": ["忠于大汗", "令行禁止", "勇猛果敢"],
+        "speech_style": "以军令传话，简短有力",
+        "temperament": "刚毅果断，执行命令毫不含糊"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_chengjisihan",
+          "type": "将领与君主",
+          "intensity": 7,
+          "bond_level": 7,
+          "dynamic": "忠心执行大汗一切命令"
+        },
+        {
+          "target": "char_guojing",
+          "type": "押解者",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "奉命押解郭靖至金帐受审"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_boerhu",
+      "personality": {
+        "traits": ["忠勇善战", "服从军令"],
+        "speech_style": "无台词，以行动表明立场",
+        "temperament": "勇猛忠直"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guojing",
+          "type": "拦截者与突围者",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "领军拦截郭靖，被其冲破千人队"
+        },
+        {
+          "target": "char_chengjisihan",
+          "type": "将领与君主",
+          "intensity": 7,
+          "bond_level": 7,
+          "dynamic": "忠心执行追捕命令"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wo_kuotai",
+      "personality": {
+        "traits": ["顺从父命", "用兵谨慎"],
+        "speech_style": "少言寡语，服从父汗安排",
+        "temperament": "沉稳内敛"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_chengjisihan",
+          "type": "父子兼将领",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "遵父命统率中路军伐金"
+        },
+        {
+          "target": "char_guojing",
+          "type": "同僚",
+          "intensity": 4,
+          "bond_level": 4,
+          "dynamic": "共领锦囊密令，同议伐金之策"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_luyoujiao",
+      "personality": {
+        "traits": ["忠诚可靠", "任劳任怨"],
+        "speech_style": "无台词描写",
+        "temperament": "沉稳忠诚"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "帮主与长老",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "率帮众在宫外接应黄蓉"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jianzhanglao",
+      "personality": {
+        "traits": ["忠诚", "尽职尽责"],
+        "speech_style": "无台词描写",
+        "temperament": "沉稳忠诚"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "帮主与长老",
+          "intensity": 4,
+          "bond_level": 5,
+          "dynamic": "随帮主率帮众接应郭靖"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liangzhanglao",
+      "personality": {
+        "traits": ["忠诚", "尽职尽责"],
+        "speech_style": "无台词描写",
+        "temperament": "沉稳忠诚"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huangrong",
+          "type": "帮主与长老",
+          "intensity": 4,
+          "bond_level": 5,
+          "dynamic": "随帮主率帮众接应郭靖"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_lizhichang",
+      "personality": {
+        "traits": ["恭敬守礼"],
+        "speech_style": "无台词描写",
+        "temperament": "安静守礼"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_qiuchuji",
+          "type": "师徒",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "随师父丘处机至郭靖处辞行"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yinzhiping",
+      "personality": {
+        "traits": ["恭敬守礼"],
+        "speech_style": "无台词描写",
+        "temperament": "安静守礼"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_qiuchuji",
+          "type": "师徒",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "随师父丘处机至郭靖处辞行"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_shenlongbaowei",
+      "techniques": [
+        {
+          "id": "tech_shenlongbaowei_1",
+          "name": "神龙摆尾",
+          "type": "defense",
+          "description": "郭靖骑马奔逃时，右掌向后拍出，抵挡欧阳锋伸手抓马尾的攻击，两人掌力相交"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "郭靖在石屋前骑马逃遁时使用"
+        }
+      ],
+      "effects": [
+        {
+          "type": "defense",
+          "value": "化解身后突袭",
+          "description": "右掌后拍与欧阳锋全力相交，虽被推离马鞍，但成功阻止其追击"
+        }
+      ],
+      "combat_style": "以退为进，身后反击"
+    },
+    {
+      "id": "skill_kanglongyouhui",
+      "techniques": [
+        {
+          "id": "tech_kanglongyouhui_1",
+          "name": "亢龙有悔",
+          "type": "attack",
+          "description": "郭靖在石屋黑暗中察觉欧阳锋以蛤蟆功偷袭周伯通，急拍而出正面对抗"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "石屋混战中紧急使用"
+        }
+      ],
+      "effects": [
+        {
+          "type": "attack",
+          "value": "正面硬撼蛤蟆功",
+          "description": "以降龙十八掌中最刚猛的一招正面对抗欧阳锋的蛤蟆功全力一击"
+        }
+      ],
+      "combat_style": "刚猛正面对攻"
+    },
+    {
+      "id": "skill_hamagong",
+      "techniques": [
+        {
+          "id": "tech_hamagong_1",
+          "name": "蛤蟆功",
+          "type": "attack",
+          "description": "欧阳锋蹲地运功，双手齐推，从西端向东猛击，势道凌厉之极"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "石屋黑暗混战中使用"
+        }
+      ],
+      "effects": [
+        {
+          "type": "attack",
+          "value": "全力猛攻",
+          "description": "蹲地蓄势后全力推出，劲力极猛，与郭靖亢龙有悔势均力敌"
+        }
+      ],
+      "combat_style": "蹲伏蓄力后爆发突进"
+    },
+    {
+      "id": "skill_lianhuanYuanyangtui",
+      "techniques": [
+        {
+          "id": "tech_lianhuanYuanyangtui_1",
+          "name": "连环鸳鸯腿",
+          "type": "special",
+          "description": "欧阳锋左脚深陷泥沼后，横身倒卧滚转，右脚用力踢向空中借势，左足跟著上踢，从陷坑中拔出"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "沼泽陷泥时自救使用"
+        }
+      ],
+      "effects": [
+        {
+          "type": "escape",
+          "value": "泥沼脱困",
+          "description": "借连环踢腿之势将深陷泥中的左足拔出，泥沙飞溅"
+        }
+      ],
+      "combat_style": "借力腾挪，以巧脱困"
+    },
+    {
+      "id": "skill_feixujin",
+      "techniques": [
+        {
+          "id": "tech_feixujin_1",
+          "name": "飞絮劲",
+          "type": "defense",
+          "description": "郭靖从九阴真经中习得的巧劲，手掌一滑斜开，使欧阳锋掌抹攻势化于无形，顺势反击斩其颈"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "石屋中用不到两个时辰练就"
+        }
+      ],
+      "effects": [
+        {
+          "type": "defense",
+          "value": "化解掌抹攻势",
+          "description": "将欧阳锋凌厉掌力滑向一旁，使对手身子不由自主前倾，露出破绽"
+        }
+      ],
+      "combat_style": "以柔克刚，四两拨千斤"
+    },
+    {
+      "id": "skill_zuoyouhubo",
+      "techniques": [
+        {
+          "id": "tech_zuoyouhubo_1",
+          "name": "左右互搏",
+          "type": "defense",
+          "description": "郭靖以左右互搏术同时分挡欧阳锋与裘千仞二人联手，左掌挡欧、右拳击裘"
+        },
+        {
+          "id": "tech_zuoyouhubo_2",
+          "name": "左右互搏",
+          "type": "attack",
+          "description": "周伯通在石屋混战中使用此术，右手攻欧阳锋，左掌回挡身后来掌"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "郭靖与周伯通此前均已习得"
+        }
+      ],
+      "effects": [
+        {
+          "type": "buff",
+          "value": "一人当二人",
+          "description": "左右手分别独立作战，可同时应对两个高手的夹攻"
+        }
+      ],
+      "combat_style": "左右分击，以一敌二"
+    },
+    {
+      "id": "skill_yijindagupian",
+      "techniques": [
+        {
+          "id": "tech_yijindagupian_1",
+          "name": "易筋锻骨篇",
+          "type": "buff",
+          "description": "九阴真经基础功法，郭靖此前已练成，为后续武功精进奠基，使他在月余苦练中武功突飞猛进"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "此前已练成"
+        }
+      ],
+      "effects": [
+        {
+          "type": "buff",
+          "value": "基础稳固",
+          "description": "使郭靖基础扎稳，经中要旨了然于胸，月余磨练后武功大进"
+        }
+      ],
+      "combat_style": "内功根基，厚积薄发"
+    },
+    {
+      "id": "skill_tiezhang",
+      "techniques": [
+        {
+          "id": "tech_tiezhang_1",
+          "name": "铁掌",
+          "type": "attack",
+          "description": "裘千仞在石屋混战中铁掌拍石，一掌击在大石上，力道刚猛"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "石屋混战中使用"
+        }
+      ],
+      "effects": [
+        {
+          "type": "attack",
+          "value": "刚猛掌力",
+          "description": "掌击大石上，力道沉雄，被郭靖以大石挡住并反推"
+        }
+      ],
+      "combat_style": "刚猛沉雄，掌力惊人"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_xiaohongma",
+      "description": "汗血宝马，脚力天下无双，四蹄如飞犹似凌空御风，红色汗珠溅在雪地如樱花绽放",
+      "effects": [
+        {
+          "type": "transport",
+          "value": "极速奔跑",
+          "description": "全速奔驰可甩脱欧阳锋轻功追击，穿越沼泽不陷"
+        },
+        {
+          "type": "bond",
+          "value": "灵性通主",
+          "description": "自寻觅食避过战祸，主动找到主人舔脸亲热"
+        }
+      ],
+      "origin": "拖雷归还",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_jinhuan",
+      "description": "黄澄澄的束发金环，黄蓉遗落于沼泽小树枝上",
+      "effects": [
+        {
+          "type": "clue",
+          "value": "追踪线索",
+          "description": "郭靖发现后确认黄蓉曾至此处，心中几乎要从腔中跳出"
+        }
+      ],
+      "origin": "黄蓉遗落",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_jinzhuhua",
+      "description": "黄蓉襟头常佩的一朵金镶珠花，遗落在雪地中熠熠生光",
+      "effects": [
+        {
+          "type": "clue",
+          "value": "加深忧虑",
+          "description": "郭靖拾起后更加焦急，大叫蓉儿名字"
+        }
+      ],
+      "origin": "黄蓉遗落",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_heidiaochu",
+      "description": "黑貂裘，当日在张家口郭靖所赠，黄蓉脱于雪地铺着",
+      "effects": [
+        {
+          "type": "clue",
+          "value": "确认踪迹",
+          "description": "郭靖拾起后愈加焦急，绕貂裘急兜圈子大叫蓉儿"
+        }
+      ],
+      "origin": "郭靖昔日赠予黄蓉",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_bishou",
+      "description": "丘处机所赠匕首，柄上刻有'郭靖'二字，锋锐异常",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "锋锐切割",
+          "description": "李萍以此割断郭靖手上绳索，随即转剑尖刺入自己胸膛"
+        },
+        {
+          "type": "symbol",
+          "value": "靖康之耻",
+          "description": "丘道长取名寓意不可忘靖康之耻"
+        }
+      ],
+      "origin": "丘处机当年所赠",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_jinnang",
+      "description": "火漆密封锦囊，漆上盖有大汗印章，内藏破金后灭宋的密令",
+      "effects": [
+        {
+          "type": "command",
+          "value": "灭宋密令",
+          "description": "命破金后立即移师南向攻破临安灭宋，违令者斩"
+        }
+      ],
+      "origin": "成吉思汗交付三军统帅",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_hutoujindao",
+      "description": "大汗所赐虎头金刀，郭靖出逃时留于帐中不取",
+      "effects": [
+        {
+          "type": "symbol",
+          "value": "驸马身份",
+          "description": "象征郭靖在蒙古的尊贵地位，他弃之不取表明与蒙古决裂"
+        }
+      ],
+      "origin": "成吉思汗所赐",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_tiejian",
+      "description": "郭靖在村中死尸旁拾得的铁剑，用于与欧阳锋木杖过招练剑",
+      "effects": [
+        {
+          "type": "weapon",
+          "value": "练剑对敌",
+          "description": "经月余苦练，欧阳锋木杖已震不掉此剑"
+        }
+      ],
+      "origin": "蒙古军屠村后的遗物",
+      "rarity": "common",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_38_01",
+      "name": "黄蓉误会出走",
+      "participants": ["char_guojing", "char_huangrong", "char_huazheng"],
+      "location": "location_menggucaoyuan",
+      "description": "华筝从宫中奔出拉住郭靖手，黄蓉见状变色闪避，误以为郭靖不肯辞婚，携画出东门而去"
+    },
+    {
+      "id": "evt_38_02",
+      "name": "郭靖雪原追踪",
+      "participants": ["char_guojing"],
+      "location": "location_zhaoze",
+      "description": "郭靖骑小红马沿雪地蹄印追黄蓉，发现欧阳锋巨大足印在旁追赶，黄蓉以奇门术东绕西转迷惑追兵"
+    },
+    {
+      "id": "evt_38_03",
+      "name": "沼泽发现遗物",
+      "participants": ["char_guojing"],
+      "location": "location_zhaoze",
+      "description": "郭靖在沼泽雪地中依次发现黄蓉的束发金环、金镶珠花、黑貂裘，认定黄蓉已陷死沙中，悲痛欲绝"
+    },
+    {
+      "id": "evt_38_04",
+      "name": "沼泽中与欧阳锋交手",
+      "participants": ["char_guojing", "char_ouyangfeng"],
+      "location": "location_zhaoze",
+      "description": "欧阳锋追上郭靖欲上马歇脚，郭靖怒斥其追赶黄蓉之过，以神龙摆尾掌击欧阳锋，欧阳锋左脚深陷泥沼后以连环鸳鸯腿脱困"
+    },
+    {
+      "id": "evt_38_05",
+      "name": "小红马甩脱欧阳锋",
+      "participants": ["char_guojing", "char_ouyangfeng"],
+      "location": "location_zhaoze",
+      "description": "小红马全速奔驰穿越沼泽，红色汗珠如樱花般溅在雪地，终将欧阳锋抛得不知去向"
+    },
+    {
+      "id": "evt_38_06",
+      "name": "郭靖重返沼泽救欧阳锋",
+      "participants": ["char_guojing", "char_ouyangfeng"],
+      "location": "location_zhaoze",
+      "description": "郭靖不忍欧阳锋陷泥身亡，以长衣为绳纵马将其从软沙中拖出，欧阳锋破口大骂后终被救出"
+    },
+    {
+      "id": "evt_38_07",
+      "name": "欧阳锋反制郭靖",
+      "participants": ["char_guojing", "char_ouyangfeng"],
+      "location": "location_zhaoze",
+      "description": "郭靖望黄蓉蹄印发呆时被欧阳锋按住背心陶道穴，欧阳锋决定不杀他而要逼其译解经文"
+    },
+    {
+      "id": "evt_38_08",
+      "name": "石屋囚禁练武月余",
+      "participants": ["char_guojing", "char_ouyangfeng"],
+      "location": "location_shiwucun",
+      "description": "欧阳锋押郭靖至蒙古军屠村后的废弃石屋，逼其练真经功夫以便偷学，郭靖练成飞絮劲等新招，月余武功突飞猛进"
+    },
+    {
+      "id": "evt_38_09",
+      "name": "石屋四高手黑暗混战",
+      "participants": ["char_guojing", "char_ouyangfeng", "char_zhoubotong", "char_qiuqianren"],
+      "location": "location_shiwucun",
+      "description": "周伯通追裘千仞闯入石屋，欧阳锋灭灯，四人在漆黑斗室中辨不清敌友大打出手，郭靖以左右互搏分挡欧阳锋与裘千仞"
+    },
+    {
+      "id": "evt_38_10",
+      "name": "郭靖破屋脱逃",
+      "participants": ["char_guojing", "char_ouyangfeng", "char_zhoubotong", "char_qiuqianren"],
+      "location": "location_shiwucun",
+      "description": "郭靖将大石掷上屋顶破洞而出，周伯通、欧阳锋、裘千仞三人继续混战，郭靖逃至小树林休息后小红马自行寻来"
+    },
+    {
+      "id": "evt_38_11",
+      "name": "丘处机辞行劝善",
+      "participants": ["char_qiuchuji", "char_chengjisihan"],
+      "location": "location_menggucaoyuan",
+      "description": "丘处机携十八弟子随大军东归，一路上力劝成吉思汗爱民少杀，百姓凭其一言而全活者不计其数"
+    },
+    {
+      "id": "evt_38_12",
+      "name": "成吉思汗议伐金策略",
+      "participants": ["char_chengjisihan", "char_guojing", "char_wo_kuotai", "char_tuolei"],
+      "location": "location_jinzhang",
+      "description": "成吉思汗召三军统帅议伐金，郭靖分析佯攻大梁歼敌城下的策略，与大汗所画行军路线全无二致"
+    },
+    {
+      "id": "evt_38_13",
+      "name": "交付锦囊密令",
+      "participants": ["char_chengjisihan", "char_guojing", "char_wo_kuotai", "char_tuolei"],
+      "location": "location_jinzhang",
+      "description": "成吉思汗交付三个火漆密封锦囊，命破金后在大梁金銮殿上共同开拆依计行事"
+    },
+    {
+      "id": "evt_38_14",
+      "name": "李萍识破灭宋密令",
+      "participants": ["char_liping", "char_guojing"],
+      "location": "location_jinzhang",
+      "description": "李萍以临安织锦术挑开锦囊取出密令，发现命破金后立即移师灭宋，违者斩首母亦凌迟"
+    },
+    {
+      "id": "evt_38_15",
+      "name": "金帐受审",
+      "participants": ["char_guojing", "char_chengjisihan", "char_liping", "char_tuolei", "char_chilaowen"],
+      "location": "location_jinzhang",
+      "description": "赤老温押郭靖至金帐，成吉思汗怒斥其叛，郭靖昂然自称大宋臣民拒攻邦国，大汗下令处斩，拖雷赤裸赶来求情"
+    },
+    {
+      "id": "evt_38_16",
+      "name": "李萍教子自尽殉国",
+      "participants": ["char_liping", "char_guojing"],
+      "location": "location_jinzhang",
+      "description": "李萍以汉语讲述靖康之耻和养育之恩，教导郭靖不可卖国求荣，随即以匕首割断郭靖绳索后刺入自己胸膛自尽"
+    },
+    {
+      "id": "evt_38_17",
+      "name": "郭靖冲帐突围",
+      "participants": ["char_guojing", "char_chilaowen", "char_boerhu"],
+      "location": "location_jinzhang",
+      "description": "郭靖抱母一个扫堂腿扫飞刀斧手，拉倒半座金帐罩住诸将，冲出赤老温阵后又突破博尔忽千人队，浑身血迹"
+    },
+    {
+      "id": "evt_38_18",
+      "name": "哲别放行报恩",
+      "participants": ["char_zhebie", "char_guojing"],
+      "location": "location_menggucaoyuan",
+      "description": "哲别受命追捕郭靖，故意射断箭头示警，将箭壶铁弓长枪坐骑尽数相赠，说出'当年你舍命救我'之语放行"
+    },
+    {
+      "id": "evt_38_19",
+      "name": "拖雷赠马送别",
+      "participants": ["char_tuolei", "char_guojing"],
+      "location": "location_menggucaoyuan",
+      "description": "拖雷骑小红马追来，赠黄金千两，二人并骑南驰三十余里，下马互拜洒泪而别，拖雷怅望南天良久方回"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "没事吗？",
+      "tone": "关切轻松",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "运气不错，刚碰着丘道长到来，大汗心情正好。",
+      "tone": "庆幸",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "我怕大汗发怒要杀你，领人在这里相救。大汗怎么说？答应了你辞婚么？",
+      "tone": "急切询问",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "我没辞婚。",
+      "tone": "踌躇",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_huazheng",
+      "listener": "char_guojing",
+      "text": "郭靖哥哥。你想不到我会来罢？你见到我高不高兴？",
+      "tone": "欢喜亲昵",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "蓉儿必道我见到华筝妹子，这才不肯向大汗辞婚。",
+      "tone": "暗暗叫苦",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huazheng",
+      "text": "妹子，我挂着一件要事，先得去瞧瞧，回头再跟你说话。",
+      "tone": "焦急",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "快来，黄姑娘陷进沙里去啦。",
+      "tone": "焦急呼喊",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_ouyangfeng",
+      "text": "黄姑娘呢？",
+      "tone": "惊慌",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "我跟着她马蹄足印一路追来，到了这里，就没了踪迹。你瞧！",
+      "tone": "解释",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "蓉儿！蓉儿！你在哪里？",
+      "tone": "悲痛欲绝",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "我要上马歇歇，咱们一块寻黄姑娘去。",
+      "tone": "趁机要挟",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_ouyangfeng",
+      "text": "若不是你追赶，她怎会奔到这沼泽之中？",
+      "tone": "愤怒",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "快救人哪！",
+      "tone": "恐惧求救",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_ouyangfeng",
+      "text": "你害死我恩师，又害死了黄姑娘，要我相救，再也休想。",
+      "tone": "切齿痛恨",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "咱们曾击掌为誓，你须饶我三次。这次是第三次，难道你不顾信义了？",
+      "tone": "厉声斥责",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_ouyangfeng",
+      "text": "黄姑娘已不在人世，咱们的盟约还有何用处？",
+      "tone": "垂泪",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_ouyangfeng",
+      "text": "你用绳子拖我。",
+      "tone": "无奈",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "你要杀便杀，咱们可不曾立约要你饶我。",
+      "tone": "淡然",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "这傻小子和那丫头情义深重，我若杀他，倒遂了他殉情的心愿。那丫头既已陷死沙中，倒要着落在他身上译解经文。",
+      "tone": "盘算",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "你现下为我所擒，我也不来杀你。只要打得过我，你就可出去。",
+      "tone": "得意霸道",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "等你吃饱了，咱们就打。",
+      "tone": "自信从容",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_ouyangfeng",
+      "text": "要打便打，有什么饱不饱的？",
+      "tone": "愤怒",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "今日到此为止，你练几招真经上的功夫，明日再跟你打过。",
+      "tone": "得意",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "他有心要学真经功夫的诀窍，盼我演将出来，便可从旁观摩，我偏不上当。",
+      "tone": "警惕",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_guojing",
+      "text": "好功夫，这是经中的么？叫什么名字？",
+      "tone": "又惊又喜",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_ouyangfeng",
+      "text": "沙察以推，爱末琴儿。",
+      "tone": "故意哄骗",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "这傻子一股牛劲，只可巧计诈取，硬逼无用。",
+      "tone": "感叹",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "好奸贼，往哪里逃？",
+      "tone": "喝骂追击",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "你跟我捉迷藏，老顽童最是开心不过，可别再让你溜出去了。",
+      "tone": "兴奋",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "喂，臭贼，你在哪里？",
+      "tone": "寻觅",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "主人别慌，我是来拿一个小贼，捉着马上出去。",
+      "tone": "嬉笑",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "好贼子，原来在这里伏下了帮手。",
+      "tone": "吃惊",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "你们帮手越来越多，老顽童可要失陪了。",
+      "tone": "故作退缩",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_zhoubotong",
+      "text": "老顽童，你知我是谁？",
+      "tone": "挑衅",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "老毒物，你在这里？",
+      "tone": "惊叫",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": "char_guojing",
+      "text": "郭兄弟！",
+      "tone": "惊喜",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_qiuqianren",
+      "listener": "char_guojing",
+      "text": "郭靖！",
+      "tone": "惊呼",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_qiuqianren",
+      "text": "裘千仞！",
+      "tone": "惊呼",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": "char_guojing",
+      "text": "好兄弟，你要试试大哥的功夫来着？小心了！",
+      "tone": "嬉笑",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": "char_guojing",
+      "text": "兄弟，你从哪里学来的功夫？",
+      "tone": "又惊又喜",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": "char_guojing",
+      "text": "好，你不肯说，却卖什么关子？",
+      "tone": "怒嗔",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": "char_guojing",
+      "text": "让你一人斗斗他们两个。",
+      "tone": "幸灾乐祸",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "别怕，别怕。危险时我会帮你。",
+      "tone": "鼓励",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_zhoubotong",
+      "text": "周大哥你这傻老头，尽缠住我干什么？",
+      "tone": "惊怒交集",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "瞧得见了，还有什么好玩？",
+      "tone": "大为扫兴",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhoubotong",
+      "listener": null,
+      "text": "别走，别走，陪我玩儿。",
+      "tone": "不舍",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_chengjisihan",
+      "text": "我是大宋臣民，岂能听你号令，攻打自己邦国？",
+      "tone": "昂然不屈",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_chengjisihan",
+      "listener": "char_guojing",
+      "text": "我待你不薄，自小将你养大，又将爱女许你为妻。小贼，你胆敢叛我？",
+      "tone": "暴怒",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_chengjisihan",
+      "listener": null,
+      "text": "推出去斩了。",
+      "tone": "怒喝",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_chengjisihan",
+      "text": "你与大宋联盟攻金，中途背弃盟约，言而无信，算什么英雄？",
+      "tone": "大叫",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_chengjisihan",
+      "listener": "char_guojing",
+      "text": "待我破了金国，与赵宋之盟已然完成。那时南下攻宋，岂是背约？快快斩了！",
+      "tone": "暴怒",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": null,
+      "text": "刀下留人！",
+      "tone": "急切",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": "char_chengjisihan",
+      "text": "父王，郭靖安答立有大功，曾救你救我性命，虽犯死罪，不可处斩。",
+      "tone": "恳求",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_chengjisihan",
+      "listener": "char_guojing",
+      "text": "你心念赵宋，有何好处？你曾跟我说过岳飞之事，他如此尽忠报国，到头来仍被处死。你为我平了赵宋，我今日当着众人之前，答应封你为宋王，让你统御南朝江山。",
+      "tone": "利诱",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_chengjisihan",
+      "text": "我非敢背叛大汗。但若要我卖国求荣，虽受千刀万箭，亦不能奉命。",
+      "tone": "坚决",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": "char_guojing",
+      "text": "安答，你自小生长蒙古，就与蒙古人一般无异。赵宋贪官勾结金人，害死你的父亲，逼得你母亲无家可归。若非父王收留，你岂有今日？你我兄弟情深义重，我不能累你做个不孝之人，盼你回心转意，遵奉大汗令旨。",
+      "tone": "苦劝",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_chengjisihan",
+      "text": "大汗，只怕这孩子一时想不明白，待我劝劝他如何？",
+      "tone": "恳切",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "二十年前，我在临安府牛家村，身上有了你这孩子。一天大雪，丘处机丘道长与你爹结识，赚了两把匕首，一把给你爹，一把给你杨叔父。丘道长给你取名郭靖，给杨叔父的孩子取名杨康，你可知是什么意思？",
+      "tone": "温柔教导",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_liping",
+      "text": "丘道长是叫我们不可忘了靖康之耻。",
+      "tone": "领悟",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "是啊。杨家那孩子认贼作父，落得个身败名裂，那也不用多说了，只可惜杨叔父一世豪杰，身后子孙却玷污了他的英名。",
+      "tone": "叹息",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "想我当年忍辱蒙垢，在北国苦寒之地将你养大，所为何来？难道为的是要养大一个卖国奸贼，好叫你父在黄泉之下痛心疾首么？",
+      "tone": "悲愤",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "人生百年，转眼即过，生死又有什么大不了？只要一生行事无愧于心，也就不枉了这人世走一遭。若是别人负了我们，也不必念他过恶。你记着我的话罢！",
+      "tone": "语重心长",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "孩子，你好好照顾自己罢！",
+      "tone": "温柔诀别",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_liping",
+      "text": "妈！",
+      "tone": "伤痛",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_chengjisihan",
+      "listener": null,
+      "text": "快拿！",
+      "tone": "吃惊",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_chengjisihan",
+      "text": "你与大宋联盟攻金，中途背弃盟约，言而无信，算什么英雄？",
+      "tone": "大叫斥责",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhebie",
+      "listener": "char_guojing",
+      "text": "正是。",
+      "tone": "坦然",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_zhebie",
+      "text": "师父，你来拿我回去么？",
+      "tone": "淡然",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_zhebie",
+      "text": "好，让我先葬了母亲。",
+      "tone": "平静",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhebie",
+      "listener": "char_guojing",
+      "text": "你去罢，咱们只怕再也不能相见了。",
+      "tone": "感伤",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_zhebie",
+      "text": "师父！",
+      "tone": "愕然",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhebie",
+      "listener": "char_guojing",
+      "text": "当年你舍命救我，难道我不是男子汉大丈夫，就不会舍命救你？",
+      "tone": "豪迈",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_zhebie",
+      "text": "师父，你干犯大汗军令，为祸不小。",
+      "tone": "担忧",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhebie",
+      "listener": "char_guojing",
+      "text": "想我东征西讨，立下不少汗马功劳。大汗最多打我军棍，不至砍头。你快快去罢。",
+      "tone": "坦然",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_zhebie",
+      "listener": "char_guojing",
+      "text": "我只怕部属不听号令，这番带来的都是你的西征旧部。你且过去问问，他们肯不肯贪图富贵拿你？",
+      "tone": "自信",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": "char_guojing",
+      "text": "安答，你没受伤么？",
+      "tone": "关切",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": "char_guojing",
+      "text": "安答，你骑了这小红马快去罢。这里是黄金千两，你我兄弟后会有期。",
+      "tone": "豪爽",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_tuolei",
+      "text": "你叫华筝妹子多多保重，另嫁他人，勿以我为念。",
+      "tone": "惆怅",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": "char_guojing",
+      "text": "华筝妹子是永远不肯另嫁别人的。我瞧她定会南下找你，那时我自当派人护送。",
+      "tone": "叹惋",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_tuolei",
+      "text": "不，不用来找我。且别说天下之大，难以找着，即令相逢，也只有徒增烦恼。",
+      "tone": "坚决",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": "char_guojing",
+      "text": "走罢，我送你一程。",
+      "tone": "沉痛",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_tuolei",
+      "text": "安答，送君千里，终须一别，你请回罢！",
+      "tone": "不舍",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": "char_guojing",
+      "text": "我再送你一程。",
+      "tone": "不舍",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "靖儿，公主定是在外边等你，你也出去和她说一会话儿。",
+      "tone": "温和",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "咱们在北国一住二十年，虽然多承大汗眷顾，我却是想家得紧。但愿你此去灭了金国，母子俩早日回归故乡。",
+      "tone": "感慨",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_liping",
+      "text": "孩儿当日早跟公主言明，蓉儿既死，孩儿是终生不娶的了。",
+      "tone": "坚定",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "大汗说你西征立了大功，特地赏你的。其实咱们清寒惯了，那用得着这许多物事？",
+      "tone": "淡泊",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "我是女流之辈，有什么高见？只是细细想来，大汗是要逼咱们做什么事。",
+      "tone": "忧虑",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_liping",
+      "text": "妈，若不是你破囊见此密令，我母子性命不保。想我是大宋之人，岂能卖国求荣？",
+      "tone": "震惊坚定",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "为今之计，该当如何？",
+      "tone": "沉着",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_liping",
+      "text": "妈，你老人家只好辛苦些，咱俩连夜逃回南边去。",
+      "tone": "果断",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_liping",
+      "listener": "char_guojing",
+      "text": "正是，你快去收拾，可别泄露了形迹。",
+      "tone": "催促",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_chengjisihan",
+      "listener": "char_guojing",
+      "text": "你善能用兵，深得我心。我问你，攻下大梁之后怎样？",
+      "tone": "微笑考问",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_chengjisihan",
+      "text": "不攻大梁。既不是攻，也不是不攻；是攻而不攻，不攻而攻。",
+      "tone": "深思",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_chengjisihan",
+      "listener": "char_guojing",
+      "text": "说得好，说得好！",
+      "tone": "拊掌大笑",
+      "chapter": 38
+    },
+    {
+      "speaker": "char_chengjisihan",
+      "listener": null,
+      "text": "恨不早生百年，与这位英雄交一交手。今日世间，能有谁是我敌手？",
+      "tone": "寂寞慨叹",
+      "chapter": 38
+    }
+  ]
+}

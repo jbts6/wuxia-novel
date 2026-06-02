@@ -1,0 +1,630 @@
+{
+  "chapter": 16,
+  "characters": [
+    {
+      "id": "char_guo_jing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "江南七侠弟子，洪七公传人",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "击退金兵救下拖雷等人，在桃花岛上结识周伯通并义结金兰，听周伯通讲述九阴真经来历。",
+      "personality": "忠厚老实，不善言辞，但心胸博大、义气深重。",
+      "known_skills": ["skill_xiang_long_shi_ba_zhang"],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_huang_rong",
+      "name": "黄蓉",
+      "alias": ["蓉儿"],
+      "identity": "桃花岛主黄药师之女",
+      "faction": "faction_tao_hua_dao",
+      "role": "companion",
+      "one_line": "与郭靖同行，献计等待完颜洪烈，协助找到穆念慈，陪郭靖赴桃花岛。",
+      "personality": "聪慧机灵、胆大心细，但怕鬼怕棺材，时而顽皮娇憨。",
+      "known_skills": ["skill_pi_kong_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yang_kang",
+      "name": "杨康",
+      "alias": [],
+      "identity": "杨铁心之子，完颜洪烈养子",
+      "faction": null,
+      "role": "npc",
+      "one_line": "暗中救走完颜洪烈并藏于祠堂棺材房，与穆念慈发生激烈争吵后负气离去。",
+      "personality": "内心矛盾纠结，认贼作父又贪图富贵，对穆念慈始乱终弃。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhou_bo_tong",
+      "name": "周伯通",
+      "alias": ["老顽童"],
+      "identity": "王重阳师弟，全真教弟子",
+      "faction": "faction_quan_zhen_jiao",
+      "role": "companion",
+      "one_line": "被困桃花岛十五年，与郭靖义结金兰，向郭靖详述九阴真经的来历和华山论剑往事。",
+      "personality": "天真烂漫、嗜武成癖，如孩童般嬉闹，却有赤子之心。",
+      "known_skills": [],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_wan_yan_hong_lie",
+      "name": "完颜洪烈",
+      "alias": ["六王爷"],
+      "identity": "金国六王爷",
+      "faction": null,
+      "role": "villain",
+      "one_line": "亲自率兵追杀拖雷一行，被郭靖击溃后藏匿于祠堂棺材房中，后被杨康暗中救走。",
+      "personality": "精明强干、野心勃勃，意图灭宋称帝。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mu_nian_ci",
+      "name": "穆念慈",
+      "alias": [],
+      "identity": "杨铁心义女",
+      "faction": null,
+      "role": "npc",
+      "one_line": "被欧阳克囚于祠堂空棺中，获救后怒斥杨康认贼作父，割发明志后愤然离去。",
+      "personality": "刚烈贞洁、深明大义，面对杨康的背叛宁死不屈。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuo_lei",
+      "name": "拖雷",
+      "alias": ["四王爷", "安答"],
+      "identity": "成吉思汗之子，蒙古四王爷",
+      "faction": null,
+      "role": "npc",
+      "one_line": "奉父命南下联合宋朝夹攻金国，遭金兵追杀至宝应，被郭靖所救后匆匆告别。",
+      "personality": "重义气、有担当，与郭靖安答情深。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhe_bie",
+      "name": "哲别",
+      "alias": ["神箭手"],
+      "identity": "蒙古将领，神箭手",
+      "faction": null,
+      "role": "npc",
+      "one_line": "随拖雷南下，箭法精绝，从旗斗中射杀多名金兵。",
+      "personality": "沉稳勇猛，箭术精湛。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bo_er_hu",
+      "name": "博尔忽",
+      "alias": [],
+      "identity": "蒙古将领",
+      "faction": null,
+      "role": "npc",
+      "one_line": "随拖雷南下，与哲别并肩从旗斗中射箭御敌。",
+      "personality": "忠诚勇武。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_ke",
+      "name": "欧阳克",
+      "alias": [],
+      "identity": "白驼山少主，欧阳锋之侄",
+      "faction": "faction_bai_tuo_shan",
+      "role": "villain",
+      "one_line": "曾擒获穆念慈囚于祠堂空棺，夜间与杨康密谈后率众姬离去。",
+      "personality": "自负风流、好色轻薄，以才调自矜。",
+      "known_skills": ["skill_dian_xue"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "name": "黄药师",
+      "alias": ["黄老邪", "东邪"],
+      "identity": "桃花岛主，五绝之一",
+      "faction": "faction_tao_hua_dao",
+      "role": "villain",
+      "one_line": "暗中以碧海潮生曲试探郭靖与周伯通，被郭靖无意搅局后斥骂离去。",
+      "personality": "才华横溢、性格乖僻，精通奇门五行与诸般杂学。",
+      "known_skills": ["skill_bi_hai_chao_sheng_qu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qian_qing_jian",
+      "name": "钱青健",
+      "alias": ["丧门斧"],
+      "identity": "黄河四鬼之一",
+      "faction": null,
+      "role": "villain",
+      "one_line": "率金兵追杀拖雷，被郭靖一掌击飞肩胛骨碎裂，仓皇逃走。",
+      "personality": "凶狠但不堪一击。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shen_qing_gang",
+      "name": "沈青刚",
+      "alias": ["断魂刀"],
+      "identity": "黄河四鬼之一",
+      "faction": null,
+      "role": "villain",
+      "one_line": "与郭靖交手被踢飞长刀，与师弟相撞昏迷后逃跑。",
+      "personality": "鲁莽急躁。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wu_qing_lie",
+      "name": "吴青烈",
+      "alias": ["追命枪"],
+      "identity": "黄河四鬼之一",
+      "faction": null,
+      "role": "villain",
+      "one_line": "枪刺郭靖被抓住枪头扯倒，被师兄刀砍差点丧命，后与师兄互撞昏迷。",
+      "personality": "急躁冒进。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "name": "洪七公",
+      "alias": ["九指神丐", "北丐"],
+      "identity": "丐帮帮主，五绝之一",
+      "faction": "faction_gai_bang",
+      "role": "npc",
+      "one_line": "周伯通讲述其参与华山论剑的往事，本章中被提及但未亲自出场。",
+      "personality": "光明磊落、为人正派。",
+      "known_skills": ["skill_xiang_long_shi_ba_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_chong_yang",
+      "name": "王重阳",
+      "alias": ["中神通", "王真人"],
+      "identity": "全真教创教祖师，五绝之首",
+      "faction": "faction_quan_zhen_jiao",
+      "role": "npc",
+      "one_line": "周伯通讲述其华山论剑夺魁、收藏九阴真经及临终前后的往事。",
+      "personality": "胸怀天下，武功绝顶却不以经谋私。",
+      "known_skills": [],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_ma_yu",
+      "name": "马钰",
+      "alias": ["丹阳子", "丹阳真人"],
+      "identity": "全真七子之首",
+      "faction": "faction_quan_zhen_jiao",
+      "role": "npc",
+      "one_line": "周伯通提及马钰得王重阳法统，曾传郭靖内功。",
+      "personality": "清静淡泊。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chu_ji",
+      "name": "丘处机",
+      "alias": [],
+      "identity": "全真七子之一",
+      "faction": "faction_quan_zhen_jiao",
+      "role": "npc",
+      "one_line": "周伯通提及丘处机功夫最高但耽于武学、荒废道家功夫。",
+      "personality": "好武执着。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_chu_yi",
+      "name": "王处一",
+      "alias": [],
+      "identity": "全真七子之一",
+      "faction": "faction_quan_zhen_jiao",
+      "role": "npc",
+      "one_line": "周伯通提及王处一武功不及丘处机但高于马钰。",
+      "personality": "稳重端正。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_feng",
+      "name": "欧阳锋",
+      "alias": ["西毒"],
+      "identity": "白驼山之主，五绝之一",
+      "faction": "faction_bai_tuo_shan",
+      "role": "villain",
+      "one_line": "周伯通讲述其在王重阳灵前来抢九阴真经、打伤周伯通的往事。",
+      "personality": "出手狠辣、趁人之危。",
+      "known_skills": [],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_duan_huang_ye",
+      "name": "段皇爷",
+      "alias": ["南帝"],
+      "identity": "大理段氏皇爷，五绝之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "郭靖与周伯通谈论五绝时提及。",
+      "personality": "顾及身分，光明正大。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_shang",
+      "name": "黄裳",
+      "alias": [],
+      "identity": "北宋文官，九阴真经著者",
+      "faction": null,
+      "role": "npc",
+      "one_line": "周伯通讲述其校阅道藏悟武、与明教交手、隐居四十余年创出九阴真经的故事。",
+      "personality": "聪明绝顶、钻研不辍，悟性极高。",
+      "known_skills": [],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_hua_zheng",
+      "name": "华筝",
+      "alias": [],
+      "identity": "成吉思汗之女，郭靖在蒙古的伴侣",
+      "faction": null,
+      "role": "npc",
+      "one_line": "托拖雷带白雕给郭靖，并捎话让郭靖尽早回蒙古。",
+      "personality": "深情体贴。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ke_zhen_e",
+      "name": "柯镇恶",
+      "alias": [],
+      "identity": "江南七侠之首",
+      "faction": null,
+      "role": "npc",
+      "one_line": "周伯通问郭靖是否为柯镇恶一伙的弟子。",
+      "personality": "刚正不阿。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chen_xuan_feng",
+      "name": "陈玄风",
+      "alias": [],
+      "identity": "黑风双煞之一，黄药师叛徒弟子",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "郭靖提及幼时无意刺死陈玄风之事，周伯通讲述其偷练九阴真经的往事。",
+      "personality": "阴狠毒辣。",
+      "known_skills": [],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_mei_chao_feng",
+      "name": "梅超风",
+      "alias": [],
+      "identity": "黑风双煞之一，黄药师叛徒弟子",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "郭靖与周伯通谈论其练九阴真经走入邪道之事。",
+      "personality": "阴毒邪恶（据郭靖所述）。",
+      "known_skills": [],
+      "related_skills": ["skill_jiu_yin_zhen_jing"]
+    },
+    {
+      "id": "char_cheng_ji_si_han",
+      "name": "成吉思汗",
+      "alias": [],
+      "identity": "蒙古大汗",
+      "faction": null,
+      "role": "npc",
+      "one_line": "拖雷提及父汗命其南下联合宋朝夹攻金国。",
+      "personality": "雄才大略。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ma_qing_xiong",
+      "name": "马青雄",
+      "alias": ["夺魄鞭"],
+      "identity": "黄河四鬼之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "被提及已混入太湖盗帮后被陆冠英重手震死。",
+      "personality": "凶悍。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_lu_guan_ying",
+      "name": "陆冠英",
+      "alias": [],
+      "identity": "太湖盗帮首领",
+      "faction": null,
+      "role": "npc",
+      "one_line": "被提及曾用重手震死马青雄。",
+      "personality": "侠义果断。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_lu_cheng_feng",
+      "name": "陆乘风",
+      "alias": [],
+      "identity": "黄药师弟子，归云庄庄主",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "被提及其劈空掌功夫远胜黄蓉。",
+      "personality": "忠厚老成。",
+      "known_skills": ["skill_pi_kong_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_qian_ren",
+      "name": "裘千仞",
+      "alias": [],
+      "identity": "铁掌帮帮主",
+      "faction": null,
+      "role": "npc",
+      "one_line": "郭靖提及曾会过一个自称与五绝齐名的裘千仞，但武功甚是平常。",
+      "personality": "有名无实。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhu_cong",
+      "name": "朱聪",
+      "alias": [],
+      "identity": "江南七侠之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "被提及曾从梅超风身上取来一柄匕首交给郭靖。",
+      "personality": "机智灵活。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_cheng_daxiaojie",
+      "name": "程大小姐",
+      "alias": [],
+      "identity": "宝应大户人家小姐",
+      "faction": null,
+      "role": "npc",
+      "one_line": "宴会上亲自烧菜备酒招待郭靖黄蓉。",
+      "personality": "知恩图报。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_li_sheng",
+      "name": "黎生",
+      "alias": [],
+      "identity": "丐帮弟子",
+      "faction": "faction_gai_bang",
+      "role": "npc",
+      "one_line": "设宴向洪七公及郭靖黄蓉道贺，与郭黄二人畅饮。",
+      "personality": "豪爽好客。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_feng_shi",
+      "name": "冯氏",
+      "alias": [],
+      "identity": "黄药师之妻，黄蓉之母",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "郭靖在桃花岛白花丛中见到其墓碑，恭恭敬敬跪拜。",
+      "personality": "早逝，仅以墓碑出现。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shi_mi_yuan",
+      "name": "史弥远",
+      "alias": ["史丞相"],
+      "identity": "南宋丞相",
+      "faction": null,
+      "role": "npc",
+      "one_line": "被提及杨康原要去临安见史弥远丞相商议杀害蒙古使者之事。",
+      "personality": "权臣。",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_quan_zhen_jiao",
+      "name": "全真教",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "周伯通详述全真教主王重阳华山论剑夺魁、收藏九阴真经的往事。"
+    },
+    {
+      "id": "faction_tao_hua_dao",
+      "name": "桃花岛",
+      "type": "武林门派",
+      "location": "loc_tao_hua_dao",
+      "sub_divisions": [],
+      "one_line": "郭靖黄蓉登岛赴约，黄药师以碧海潮生曲试探，岛上花树依八阵图布局。"
+    },
+    {
+      "id": "faction_gai_bang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "黎生等丐帮群雄设宴道贺，程大小姐亦备酒菜送来。"
+    },
+    {
+      "id": "faction_bai_tuo_shan",
+      "name": "白驼山",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "欧阳克为白驼山少主，周伯通讲述其叔欧阳锋抢夺九阴真经之事。"
+    },
+    {
+      "id": "faction_ming_jiao",
+      "name": "明教",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "周伯通讲述黄裳奉旨剿灭明教，因教徒中多武功高手而引发九阴真经的创作。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_bao_ying",
+      "name": "宝应",
+      "region": "江南",
+      "one_line": "郭靖黄蓉在此遇到蒙古追兵，于刘氏祠堂中搜寻完颜洪烈并救出穆念慈。"
+    },
+    {
+      "id": "loc_liu_shi_zong_ci",
+      "name": "刘氏宗祠",
+      "region": "宝应",
+      "one_line": "祠堂规模宏大但已破败，杨康藏匿完颜洪烈于此，穆念慈亦被囚于空棺中。"
+    },
+    {
+      "id": "loc_tao_hua_dao",
+      "name": "桃花岛",
+      "region": "东海",
+      "one_line": "黄蓉故地，花树繁密依八阵图布局，周伯通被困于此十五年。"
+    },
+    {
+      "id": "loc_jia_xing",
+      "name": "嘉兴",
+      "region": "江南",
+      "one_line": "郭靖途经此地留信给江南六侠，约定赴桃花岛之约。"
+    },
+    {
+      "id": "loc_zhou_shan",
+      "name": "舟山",
+      "region": "浙东沿海",
+      "one_line": "郭靖黄蓉在此雇海船前往桃花岛。"
+    },
+    {
+      "id": "loc_hua_shan",
+      "name": "华山",
+      "region": "陕西",
+      "one_line": "周伯通讲述五绝在此论剑七天七夜，王重阳夺得天下第一与九阴真经。"
+    },
+    {
+      "id": "loc_lin_an_fu",
+      "name": "临安府",
+      "region": "浙江",
+      "one_line": "被提及杨康原要去见史弥远丞相，完颜洪烈提及十九年前牛家村往事亦在此。"
+    },
+    {
+      "id": "loc_bei_jing",
+      "name": "北京",
+      "region": "华北",
+      "one_line": "杨康问黄蓉是否同上北京，完颜洪烈半年内不敢回此地。"
+    },
+    {
+      "id": "loc_niu_jia_cun",
+      "name": "牛家村",
+      "region": "临安",
+      "one_line": "完颜洪烈提及十九年前此地往事，心生内疚。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_xiang_long_shi_ba_zhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "faction_gai_bang",
+      "one_line": "郭靖以此掌法一招'神龙摆尾'击飞钱青健，威力惊人连郭靖自己都始料未及。"
+    },
+    {
+      "id": "skill_shen_long_bai_wei",
+      "name": "神龙摆尾",
+      "type": "掌法",
+      "faction": "faction_gai_bang",
+      "one_line": "降龙十八掌中一招，郭靖以此反打钱青健，将其肩胛骨击碎。"
+    },
+    {
+      "id": "skill_bi_hai_chao_sheng_qu",
+      "name": "碧海潮生曲",
+      "type": "其他",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "黄药师以箫声吹奏此曲，先柔靡后急促，能惑人心神，郭靖靠内功抵御，周伯通险些失控。"
+    },
+    {
+      "id": "skill_pi_kong_zhang",
+      "name": "劈空掌",
+      "type": "掌法",
+      "faction": null,
+      "one_line": "黄蓉欲以此掌劈棺材试探，但功力未到无法凌空虚劈，远不及陆乘风。"
+    },
+    {
+      "id": "skill_dian_xue",
+      "name": "点穴",
+      "type": "点穴",
+      "faction": "faction_bai_tuo_shan",
+      "one_line": "欧阳克以此手法点闭穆念慈涌泉穴，手法怪异非中土武林所常见。"
+    },
+    {
+      "id": "skill_jiu_yin_zhen_jing",
+      "name": "九阴真经武学",
+      "type": "内功",
+      "faction": null,
+      "one_line": "黄裳所创包含普天下各家各派功夫的武学体系，周伯通详述其来历及引发的江湖纷争。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_jin_kui",
+      "name": "金盔",
+      "type": "armor",
+      "owner": "char_wan_yan_hong_lie",
+      "one_line": "完颜洪烈所戴金盔，镶三粒龙眼大宝石，战后遗落在祠堂后院被郭靖拾获。"
+    },
+    {
+      "id": "item_bi_shou_mei_chao_feng",
+      "name": "匕首（刻经秘要）",
+      "type": "weapon",
+      "owner": "char_mu_nian_ci",
+      "one_line": "朱聪从梅超风身上取来，外包薄革上以针刺满九阴真经下卷秘要，郭靖转赠穆念慈。"
+    },
+    {
+      "id": "item_ruan_wei_jia",
+      "name": "软猬甲",
+      "type": "armor",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉身穿此甲，金兵射来的劲箭无法穿透，斜跌于脚旁。"
+    },
+    {
+      "id": "item_bai_diao",
+      "name": "白雕",
+      "type": "other",
+      "owner": "char_guo_jing",
+      "one_line": "一对白色大雕，华筝托拖雷带来给郭靖，认出主人后欢声啼叫停于肩上，后转赠黄蓉。"
+    },
+    {
+      "id": "item_xiao_hong_ma",
+      "name": "小红马",
+      "type": "other",
+      "owner": "char_guo_jing",
+      "one_line": "郭靖的坐骑，跟主人跳上桃花岛后在花树丛中走失。"
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing",
+      "name": "九阴真经",
+      "type": "book",
+      "owner": null,
+      "one_line": "黄裳毕生心血所著上下两卷武学经典，周伯通详述其创作、争夺、华山论剑归属及王重阳临终安排的全过程。"
+    },
+    {
+      "id": "item_ying_jian",
+      "name": "硬箭",
+      "type": "hidden_weapon",
+      "owner": "char_zhe_bie",
+      "one_line": "哲别专用硬箭，箭杆包一圈熟铁、刻有豹头，比寻常羽箭重二两，郭靖凭此确认友人身份。"
+    }
+  ]
+}

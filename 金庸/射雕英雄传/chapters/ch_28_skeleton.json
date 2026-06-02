@@ -1,0 +1,298 @@
+{
+  "chapter": 28,
+  "characters": [
+    {
+      "id": "char_guojing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "丐帮弟子",
+      "faction": "fac_gaibang",
+      "role": "protagonist",
+      "one_line": "背负黄蓉闯铁掌峰，得岳飞遗书，借双雕脱险",
+      "personality": "憨厚正直、重情重义、临危不惧",
+      "known_skills": ["skill_xianglongshibaizhang", "skill_dagoubangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huangrong",
+      "name": "黄蓉",
+      "alias": ["小妖女"],
+      "identity": "丐帮帮主（暂代）",
+      "faction": "fac_gaibang",
+      "role": "companion",
+      "one_line": "以打狗棒法折服丐帮众长老，击退彭长老慑心术，负伤随郭靖逃出铁掌峰",
+      "personality": "聪慧机敏、巧舌善辩、临危不惧",
+      "known_skills": ["skill_dagoubangfa", "skill_xiaoyaoyou", "skill_lanhuafuxueshou", "skill_yihundafa"],
+      "related_skills": ["skill_lianhuazhang", "skill_tongchuishou", "skill_huntiangong", "skill_tiezhuituifa"]
+    },
+    {
+      "id": "char_yangkang",
+      "name": "杨康",
+      "alias": ["完颜小贼"],
+      "identity": "金国王子",
+      "faction": null,
+      "role": "villain",
+      "one_line": "冒充丐帮帮主被黄蓉拆穿，趁乱随裘千仞逃离君山",
+      "personality": "狡诈嘴硬、见风使舵",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuqianren",
+      "name": "裘千仞",
+      "alias": ["铁掌水上飘"],
+      "identity": "铁掌帮帮主",
+      "faction": "fac_tiezhangbang",
+      "role": "villain",
+      "one_line": "铁掌功夫深厚，震伤黄蓉，率帮众围困郭黄于铁掌峰",
+      "personality": "威严狠辣、武功高强",
+      "known_skills": ["skill_tiezhanggong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuqianzhang",
+      "name": "裘千丈",
+      "alias": [],
+      "identity": "裘千仞之孪生兄长",
+      "faction": null,
+      "role": "npc",
+      "one_line": "冒充弟弟裘千仞之名招摇撞骗，被困铁掌峰石洞，坠崖而亡",
+      "personality": "爱吹牛、无真才实学、见风使舵",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_luyoujiao",
+      "name": "鲁有脚",
+      "alias": [],
+      "identity": "丐帮长老（污衣派）",
+      "faction": "fac_gaibang",
+      "role": "npc",
+      "one_line": "力主查明真相，承认黄蓉打狗棒法为真传，指骨被裘千仞捏碎仍不屈",
+      "personality": "正直刚毅、不畏强权",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jianzhanglao",
+      "name": "简长老",
+      "alias": [],
+      "identity": "丐帮净衣派长老",
+      "faction": "fac_gaibang",
+      "role": "npc",
+      "one_line": "与黄蓉比武落败后心服口服，率群丐奉黄蓉为帮主",
+      "personality": "武功高强、识大体",
+      "known_skills": ["skill_fengmozhangfa", "skill_dalijingangzhangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_pengzhanglao",
+      "name": "彭长老",
+      "alias": [],
+      "identity": "丐帮净衣派长老",
+      "faction": "fac_gaibang",
+      "role": "villain",
+      "one_line": "以慑心术暗算黄蓉，反被移魂大法反噬，被革去长老降为八袋弟子",
+      "personality": "心术不正、狡猾阴险",
+      "known_skills": ["skill_shexinshu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_liangzhanglao",
+      "name": "梁长老",
+      "alias": [],
+      "identity": "丐帮净衣派长老",
+      "faction": "fac_gaibang",
+      "role": "npc",
+      "one_line": "性子暴躁，率先与黄蓉交手，被软猬甲和兰花拂穴手制服",
+      "personality": "性急暴躁、刀法精妙",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_munianci",
+      "name": "穆念慈",
+      "alias": [],
+      "identity": "武林女子",
+      "faction": null,
+      "role": "npc",
+      "one_line": "在铁掌山被杨康花言巧语蒙骗，坚持要杨康先杀完颜洪烈报仇",
+      "personality": "重情守义、但易受蒙蔽",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "fac_gaibang",
+      "name": "丐帮",
+      "type": "帮会",
+      "location": null,
+      "sub_divisions": ["净衣派", "污衣派"],
+      "one_line": "天下第一大帮，帮主洪七公暂缺席，黄蓉以打狗棒法接任帮主"
+    },
+    {
+      "id": "fac_tiezhangbang",
+      "name": "铁掌帮",
+      "type": "帮会",
+      "location": "loc_tiezhangshan",
+      "sub_divisions": [],
+      "one_line": "裘千仞所掌之帮，盘踞铁掌山，帮规严苛，中指峰为历代帮主埋骨圣地"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_junshan",
+      "name": "君山",
+      "region": "洞庭湖",
+      "one_line": "丐帮大会召开之地，轩辕台为帮主即位之所"
+    },
+    {
+      "id": "loc_xuanyuantai",
+      "name": "轩辕台",
+      "region": "君山",
+      "one_line": "君山上的高台，黄蓉在此展示打狗棒法折服群丐"
+    },
+    {
+      "id": "loc_yueyanglou",
+      "name": "岳阳楼",
+      "region": "岳阳",
+      "one_line": "郭靖黄蓉事毕后饮酒赏景之处，再遇裘千仞"
+    },
+    {
+      "id": "loc_tiezhangshan",
+      "name": "铁掌山",
+      "region": "湘西",
+      "one_line": "五峰如手指，中指峰为铁掌帮圣地，峰顶石洞藏岳飞遗书"
+    },
+    {
+      "id": "loc_dongtinghu",
+      "name": "洞庭湖",
+      "region": "湖南",
+      "one_line": "丐帮聚会君山所在的湖泊"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_dagoubangfa",
+      "name": "打狗棒法",
+      "type": "棒法",
+      "faction": "fac_gaibang",
+      "one_line": "丐帮帮主世传绝学，含绊、劈、缠、戳、挑、引、封、转八诀，非帮主不传"
+    },
+    {
+      "id": "skill_xiaoyaoyou",
+      "name": "逍遥游",
+      "type": "身法",
+      "faction": "fac_gaibang",
+      "one_line": "洪七公所传身法，灵动如燕"
+    },
+    {
+      "id": "skill_xianglongshibaizhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "fac_gaibang",
+      "one_line": "丐帮绝世掌法，郭靖以左右互搏同使双掌，威力惊人"
+    },
+    {
+      "id": "skill_lanhuafuxueshou",
+      "name": "兰花拂穴手",
+      "type": "指法",
+      "faction": null,
+      "one_line": "黄药师家传绝技，黄蓉以此拂中梁长老'会宗穴'夺刀"
+    },
+    {
+      "id": "skill_shexinshu",
+      "name": "慑心术",
+      "type": "精神类",
+      "faction": null,
+      "one_line": "彭长老以目光和声音控制对手心神的邪术"
+    },
+    {
+      "id": "skill_yihundafa",
+      "name": "移魂大法",
+      "type": "精神类",
+      "faction": null,
+      "one_line": "九阴真经所载心法，以精神力量反制彭长老慑心术，令其狂笑不止"
+    },
+    {
+      "id": "skill_fengmozhangfa",
+      "name": "疯魔杖法",
+      "type": "杖法",
+      "faction": null,
+      "one_line": "简长老所使杖法，传自鲁智深一路，威猛刚烈"
+    },
+    {
+      "id": "skill_dalijingangzhangfa",
+      "name": "大力金刚杖法",
+      "type": "杖法",
+      "faction": null,
+      "one_line": "简长老硬功杖法，杖势呼呼风响"
+    },
+    {
+      "id": "skill_lianhuazhang",
+      "name": "莲花掌",
+      "type": "掌法",
+      "faction": "fac_gaibang",
+      "one_line": "洪七公武功之一，黄蓉炫示时群丐认出"
+    },
+    {
+      "id": "skill_tongchuishou",
+      "name": "铜锤手",
+      "type": "手法",
+      "faction": "fac_gaibang",
+      "one_line": "洪七公武功之一，黄蓉炫示时群丐认出"
+    },
+    {
+      "id": "skill_huntiangong",
+      "name": "混天功",
+      "type": "内功",
+      "faction": "fac_gaibang",
+      "one_line": "洪七公武功之一，黄蓉炫示时群丐认出"
+    },
+    {
+      "id": "skill_tiezhuituifa",
+      "name": "铁帚腿法",
+      "type": "腿法",
+      "faction": "fac_gaibang",
+      "one_line": "洪七公武功之一，招式'垂手破敌'被群丐辨认"
+    },
+    {
+      "id": "skill_tiezhanggong",
+      "name": "铁掌功",
+      "type": "掌法",
+      "faction": "fac_tiezhangbang",
+      "one_line": "铁掌帮镇帮绝技，裘千仞以此震伤黄蓉，掌力锋锐狠辣"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_dagoubang",
+      "name": "打狗棒",
+      "type": "兵器/信物",
+      "owner": "char_huangrong",
+      "one_line": "丐帮帮主信物，碧绿晶莹竹杖，黄蓉以此施展打狗棒法折服群丐"
+    },
+    {
+      "id": "item_ruanweijia",
+      "name": "软猬甲",
+      "type": "护具",
+      "owner": "char_huangrong",
+      "one_line": "刀枪不入的护身宝甲，上有尖刺，挡住梁长老刀劈和裘千仞铁掌"
+    },
+    {
+      "id": "item_pojinyaojue",
+      "name": "破金要诀",
+      "type": "兵书",
+      "owner": null,
+      "one_line": "岳飞遗书，藏于铁掌峰中指峰石洞骸骨旁木盒中，含奏疏诗词及兵法"
+    },
+    {
+      "id": "item_tiezhang",
+      "name": "铁掌",
+      "type": "信物",
+      "owner": "char_qiuqianren",
+      "one_line": "铁掌帮帮主信物，黄蓉借以骗过铁掌帮守卫潜入山中"
+    }
+  ]
+}

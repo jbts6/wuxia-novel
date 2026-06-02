@@ -1,0 +1,867 @@
+{
+  "chapter": 26,
+  "characters_detail": [
+    {
+      "id": "char_guojing",
+      "personality": {
+        "traits": ["木讷老实", "重信守义", "尊师重道", "心思迟钝但心地纯善"],
+        "speech_style": "说话迟钝，词不达意，言辞简朴直白，从不打诳",
+        "temperament": "敦厚坚忍，临难不退，宁可自己受苦也不背弃承诺"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huangrong", "type": "恋人", "intensity": 10, "bond_level": 9, "dynamic": "深爱黄蓉却因旧约选择华筝，承诺与真心的撕裂"},
+        {"target": "char_huazheng", "type": "未婚妻（旧约）", "intensity": 6, "bond_level": 6, "dynamic": "视如亲妹但守信不悔，言出如山选择履约"},
+        {"target": "char_huangyaoshi", "type": "准岳父", "intensity": 6, "bond_level": 5, "dynamic": "被黄药师助完内功修炼并称为靖儿，但因旧婚约引发冲突"},
+        {"target": "char_kezheng'e", "type": "师父", "intensity": 8, "bond_level": 9, "dynamic": "养育之恩与父母无异，不顾丹田之气未稳破橱门救师父"},
+        {"target": "char_tuolei", "type": "结义安答", "intensity": 7, "bond_level": 8, "dynamic": "幼时结义情深，因选华筝而被拖雷折箭断义但仍互有关怀"},
+        {"target": "char_ouyangfeng", "type": "仇敌", "intensity": 8, "bond_level": 2, "dynamic": "以降龙十八掌击裘千仞，危急时挡欧阳锋劈空掌护黄蓉"},
+        {"target": "char_qiuqianren", "type": "敌人", "intensity": 6, "bond_level": 1, "dynamic": "痛恨其挑拨是非，一招亢龙有悔当胸击去使其狼狈"}
+      ],
+      "known_skills": ["skill_jianglongshibaizhang", "skill_jiuyinjing"],
+      "related_skills": ["skill_tanzhishentong"]
+    },
+    {
+      "id": "char_huangyaoshi",
+      "personality": {
+        "traits": ["孤傲高绝", "喜怒无常", "爱女情深", "非汤武而薄周孔", "宁折不弯"],
+        "speech_style": "言辞犀利典雅，常引经据典，认错时岔开话题不肯低头",
+        "temperament": "表面冷傲实则深情，因爱女而一再迁就，终不忍强拆鸳鸯"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_huangrong", "type": "父女", "intensity": 10, "bond_level": 10, "dynamic": "独生爱女，因她容貌神似亡妻而更加疼惜，为她一再迁就郭靖"},
+        {"target": "char_guojing", "type": "准女婿", "intensity": 5, "bond_level": 5, "dynamic": "本嫌其鲁钝，狂喜之下称其靖儿认婿，但得知旧婚约后怒欲杀人"},
+        {"target": "char_meichaofeng", "type": "师徒（已逐）", "intensity": 7, "bond_level": 7, "dynamic": "内疚于当年逐徒之过，梅超风临终重收门下，葬于后园百感交集"},
+        {"target": "char_shagu", "type": "新收弟子", "intensity": 4, "bond_level": 4, "dynamic": "为曲灵风遗孤收归门下，决意亲自教她武艺诗琴奇门五行"},
+        {"target": "char_kezheng'e", "type": "仇敌/误会化解", "intensity": 4, "bond_level": 2, "dynamic": "以梅超风尸身攻六怪，事后心有歉意但不肯认错"},
+        {"target": "char_ouyangfeng", "type": "五绝对头", "intensity": 7, "bond_level": 2, "dynamic": "被欧阳锋偷袭一揖，左掌立右拳钩还礼化解，互有忌惮"},
+        {"target": "char_qulingfeng", "type": "师徒（已亡）", "intensity": 8, "bond_level": 8, "dynamic": "见遗书泪下，感叹其武功最强却惨死，深悔当年逐徒"}
+      ],
+      "known_skills": ["skill_tanzhishentong", "skill_bibozhangfa"],
+      "related_skills": ["skill_jiuyinbaiguzhua"]
+    },
+    {
+      "id": "char_huangrong",
+      "personality": {
+        "traits": ["聪慧机敏", "伶牙俐齿", "至情至性", "俏皮善谑", "不顾世俗礼教"],
+        "speech_style": "语音清脆，言辞华瞻，描绘惊险处有声有色，善用反语讥讽",
+        "temperament": "外刚内柔，敢爱敢恨，宁受委屈也不离郭靖"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_guojing", "type": "恋人", "intensity": 10, "bond_level": 10, "dynamic": "明知郭靖选华筝仍说'多耽一天便多一天欢喜'，情根深种"},
+        {"target": "char_huangyaoshi", "type": "父女", "intensity": 10, "bond_level": 10, "dynamic": "与父亲对答如流，黄药师为其一再迁就"},
+        {"target": "char_huazheng", "type": "情敌", "intensity": 5, "bond_level": 1, "dynamic": "见华筝与郭靖亲密心中不喜，但仍出手救华筝免被父亲杀"},
+        {"target": "char_qiuqianren", "type": "敌人", "intensity": 6, "bond_level": 1, "dynamic": "连扇耳光戏弄裘千仞，拆穿其骗术"},
+        {"target": "char_luyoujiao", "type": "丐帮长老", "intensity": 4, "bond_level": 3, "dynamic": "初识鲁有脚，因说污衣派该洗衣服而得罪对方"}
+      ],
+      "known_skills": ["skill_dagoubangfa", "skill_bibozhangfa"],
+      "related_skills": ["skill_jiuyinjing"]
+    },
+    {
+      "id": "char_meichaofeng",
+      "personality": {
+        "traits": ["至死不忘师恩", "刚烈决绝", "含泪自弃武功"],
+        "speech_style": "临终言语简短恳切，对恩师恭敬感恩",
+        "temperament": "忠诚刚烈，以自断手腕赎罪的方式表达悔意"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huangyaoshi", "type": "师父", "intensity": 10, "bond_level": 9, "dynamic": "临终自断手腕弃武功赎罪，重归桃花岛门下后含笑而逝"},
+        {"target": "char_guojing", "type": "同门（间接）", "intensity": 3, "bond_level": 2, "dynamic": "九阴真经同源，郭靖亦曾修习其上武功"}
+      ],
+      "known_skills": ["skill_jiuyinbaiguzhua", "skill_cuixinzhang"],
+      "related_skills": ["skill_jiuyinjing"]
+    },
+    {
+      "id": "char_kezheng'e",
+      "personality": {
+        "traits": ["耳朵极灵", "刚直豪爽", "喜怒形于色"],
+        "speech_style": "直来直去，赞郭靖拜洪七公为师并蒙许婚时喜形于色",
+        "temperament": "豪爽率真，对黄药师虽有歉意但仍暗暗摇头其惊世骇俗之言"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guojing", "type": "师父", "intensity": 8, "bond_level": 9, "dynamic": "赞徒儿造化，暗赞其是硬骨头好汉子"},
+        {"target": "char_huangyaoshi", "type": "敌/缓和", "intensity": 5, "bond_level": 2, "dynamic": "被黄药师以尸身攻击，后听黄蓉调停暂息冲突"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhucong",
+      "personality": {
+        "traits": ["机智灵活", "善于随机应变", "眼快手快"],
+        "speech_style": "言辞得体周旋，善于化解尴尬场面",
+        "temperament": "冷静机敏，危急中仍能顺手扒走裘千仞怀中之物"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_huangyaoshi", "type": "敌/缓和", "intensity": 4, "bond_level": 2, "dynamic": "主动寒暄周旋，后委婉说明郭靖蒙古定亲之事"},
+        {"target": "char_qiuqianren", "type": "对手", "intensity": 5, "bond_level": 1, "dynamic": "趁拍肩递草纸时扒走铁掌令和伸缩铁剑"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hanbaoju",
+      "personality": {
+        "traits": ["勇猛直率", "不畏强敌", "性急"],
+        "speech_style": "言语直白，不善文辞",
+        "temperament": "勇武果敢，右臂中掌仍不退缩"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huangyaoshi", "type": "敌/受伤", "intensity": 5, "bond_level": 1, "dynamic": "右臂中掌脸上被抓五条爪印，金龙鞭被踩住"},
+        {"target": "char_guojing", "type": "师父", "intensity": 7, "bond_level": 8, "dynamic": "提供小红马供郭靖赶路"}
+      ],
+      "known_skills": ["skill_jinlongbian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_nanxiren",
+      "personality": {
+        "traits": ["沉默寡言", "忠厚朴实", "临危不惧"],
+        "speech_style": "极少言语，以行动表态",
+        "temperament": "沉稳刚毅"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huangyaoshi", "type": "敌/抵抗", "intensity": 4, "bond_level": 1, "dynamic": "以扁担抵御黄药师攻击"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_quanjinfa",
+      "personality": {
+        "traits": ["谨慎务实", "善于配合", "沉着冷静"],
+        "speech_style": "简洁实用",
+        "temperament": "沉稳配合，与韩小莹在欧阳锋面前不敢阻挡"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huangyaoshi", "type": "敌/抵抗", "intensity": 4, "bond_level": 1, "dynamic": "以秤锤飞击协助抵御黄药师"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hanxiaoying",
+      "personality": {
+        "traits": ["心地善良", "偶有怯意", "性情柔弱"],
+        "speech_style": "少言，受惊后多以行动反应",
+        "temperament": "见到可怖景象易手足酸软"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huangyaoshi", "type": "敌/受伤", "intensity": 4, "bond_level": 1, "dynamic": "被梅超风尸身吓到手足酸软，遭黄药师击中腰间"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_shagu",
+      "personality": {
+        "traits": ["痴傻天真", "似受刺激所致", "本能机敏"],
+        "speech_style": "言语简单天真，常答非所问",
+        "temperament": "懵懂无知但对武功有本能领悟"
+      },
+      "archetype": "npc",
+      "relationships": [
+        {"target": "char_huangyaoshi", "type": "新拜师父", "intensity": 4, "bond_level": 4, "dynamic": "展示偷学碧波掌法，被黄药师收归门下"},
+        {"target": "char_huangrong", "type": "师姑（新认）", "intensity": 3, "bond_level": 3, "dynamic": "传周伯通纸条，称黄蓉为姑姑"}
+      ],
+      "known_skills": ["skill_bibozhangfa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ouyangfeng",
+      "personality": {
+        "traits": ["阴狠毒辣", "工于算计", "悲子之情", "临危冷静"],
+        "speech_style": "声音难听如金铁交鸣，冷笑时暗藏杀机",
+        "temperament": "惊闻亲子被杀仍能冷静审察敌我形势，伺机暗算"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_huangyaoshi", "type": "五绝对头", "intensity": 8, "bond_level": 1, "dynamic": "趁笑偷袭一揖未遂，转身暗施劈空掌袭黄蓉被挡"},
+        {"target": "char_guojing", "type": "仇敌", "intensity": 8, "bond_level": 1, "dynamic": "误以为郭靖杀了欧阳克，恨之入骨"},
+        {"target": "char_qiuqianren", "type": "临时同盟", "intensity": 4, "bond_level": 2, "dynamic": "合谋绑缚蒙古使者，但见裘千仞不堪一击后心生疑虑"},
+        {"target": "char_yangkang", "type": "杀子仇人（不知）", "intensity": 9, "bond_level": 0, "dynamic": "实为杨康杀欧阳克，但欧阳锋误认郭靖为凶手"}
+      ],
+      "known_skills": ["skill_hamagong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuqianren",
+      "personality": {
+        "traits": ["欺世盗名", "厚颜无耻", "善于脱身", "见风使舵"],
+        "speech_style": "大言不惭，装腔作势，被揭穿后装腹痛逃遁",
+        "temperament": "外强中干，不敢与高手真打，以金蝉脱壳之计保命"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_huangrong", "type": "对手", "intensity": 5, "bond_level": 1, "dynamic": "被黄蓉连扇耳光还手不得，装腹痛逃走"},
+        {"target": "char_ouyangfeng", "type": "临时同盟", "intensity": 4, "bond_level": 2, "dynamic": "合谋绑缚蒙古使者，奉大金国使命挑拨江南豪杰"},
+        {"target": "char_huangyaoshi", "type": "对手", "intensity": 6, "bond_level": 1, "dynamic": "被黄蓉扒去铁掌令和伸缩剑，金蝉脱壳逃脱黄药师弹剑"}
+      ],
+      "known_skills": ["skill_tiezhangshenggong", "skill_liuetongbibei"],
+      "related_skills": []
+    },
+    {
+      "id": "char_yangkang",
+      "personality": {
+        "traits": ["阴险狡诈", "反复无常", "胆小怕事"],
+        "speech_style": "表面热心仗义，实则口蜜腹剑",
+        "temperament": "见郭靖未死即惊惶逃离，骗取拖雷三匹骏马"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_guojing", "type": "义兄弟（虚伪）", "intensity": 3, "bond_level": 1, "dynamic": "造谣郭靖惨亡骗取信任，见其未死惊怖逃离"},
+        {"target": "char_tuolei", "type": "欺骗对象", "intensity": 3, "bond_level": 1, "dynamic": "持打狗棒骗取信任，夜欲刺杀未遂，骗马西去"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuolei",
+      "personality": {
+        "traits": ["豪爽果断", "重情重义", "一言九鼎"],
+        "speech_style": "言辞斩钉截铁，蒙古语与汉语并用",
+        "temperament": "刚毅决绝，折箭断义但承诺奉养郭靖之母"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guojing", "type": "结义安答（断义）", "intensity": 8, "bond_level": 7, "dynamic": "因郭靖选华筝而欣喜，折箭断义约定北归相见"},
+        {"target": "char_huazheng", "type": "兄妹", "intensity": 7, "bond_level": 8, "dynamic": "维护妹妹尊严，不许郭靖犹疑"},
+        {"target": "char_yangkang", "type": "被骗者", "intensity": 3, "bond_level": 1, "dynamic": "被杨康骗走三匹骏马，险些被刺杀"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huazheng",
+      "personality": {
+        "traits": ["英气爽朗", "深情专一", "天真直率"],
+        "speech_style": "满口蒙古语，欢声大叫表达喜怒",
+        "temperament": "爽朗大方，对郭靖一片痴心"
+      },
+      "archetype": "npc",
+      "relationships": [
+        {"target": "char_guojing", "type": "未婚妻", "intensity": 8, "bond_level": 7, "dynamic": "被郭靖确认为将娶之人，赠白雕嘱其早日回来"},
+        {"target": "char_huangrong", "type": "情敌", "intensity": 4, "bond_level": 1, "dynamic": "不知黄蓉心意，只是咭咭咯咯向郭靖诉说"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhebie",
+      "personality": {
+        "traits": ["英勇善射", "沉着忠诚", "寡言少语"],
+        "speech_style": "极少言语",
+        "temperament": "忠诚武勇"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guojing", "type": "箭术师父", "intensity": 5, "bond_level": 6, "dynamic": "与郭靖道别北归"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_boershui",
+      "personality": {
+        "traits": ["忠诚勇武", "沉稳可靠"],
+        "speech_style": "沉默寡言",
+        "temperament": "忠厚沉稳"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guojing", "type": "蒙古战友", "intensity": 4, "bond_level": 5, "dynamic": "与郭靖道别北归"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_luyoujiao",
+      "personality": {
+        "traits": ["直率豪爽", "自尊心强", "嫉恶如仇"],
+        "speech_style": "言语直率，自称臭脚踢狗，一言不合便怒气冲冲",
+        "temperament": "性格刚烈，闻黄蓉说污衣派该洗衣服便大怒拂袖而去"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huangrong", "type": "丐帮下属", "intensity": 4, "bond_level": 3, "dynamic": "介绍铁掌帮来历与丐帮两派之争，被黄蓉失言得罪"},
+        {"target": "char_qiuqianren", "type": "对手（未正面交手）", "intensity": 5, "bond_level": 1, "dynamic": "详述铁掌帮危害，警告不可轻视裘千仞"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_jiuyinbaiguzhua",
+      "techniques": [
+        {"id": "tech_jiuyinbaiguzhua_1", "name": "手爪抓击", "type": "attack", "description": "以手指骨节抓击敌人，劲力奇重，可抓出五条爪印，手爪带剧毒（气绝后毒散）"}
+      ],
+      "progression": [
+        {"level": 0, "unlock": "梅超风偷学九阴真经所练"},
+        {"level": -1, "unlock": "临终自断手腕弃此功以赎罪"}
+      ],
+      "effects": ["抓伤可致五条爪印", "手爪带剧毒"],
+      "combat_style": "以死人手掌借力发出，劲力奇重，直击要害"
+    },
+    {
+      "id": "skill_cuixinzhang",
+      "techniques": [
+        {"id": "tech_cuixinzhang_1", "name": "摧心掌", "type": "attack", "description": "九阴真经上武功，可伤人内脏"}
+      ],
+      "progression": [
+        {"level": 0, "unlock": "梅超风修习"},
+        {"level": -1, "unlock": "临终自断手腕弃此功"}
+      ],
+      "effects": ["伤人内脏"],
+      "combat_style": "以内力透过掌力击伤敌人内脏"
+    },
+    {
+      "id": "skill_jiuyinjing",
+      "techniques": [
+        {"id": "tech_jiuyinjing_1", "name": "内功修炼法", "type": "buff", "description": "郭靖密室中七日七夜修练内功，丹田之气凝聚周流，需黄药师以深厚内力相助方圆满"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "郭靖开始密室修炼"},
+        {"level": 2, "unlock": "黄药师以左掌相抵，右手推拿周身要穴，一顿饭功夫助郭靖功行圆满"}
+      ],
+      "effects": ["修炼时丹田之气翻滚，数次欲跃起大叫", "圆满后气定神闲，内息周流"],
+      "combat_style": "内功心法，非直接攻击，修炼过程极凶险"
+    },
+    {
+      "id": "skill_jianglongshibaizhang",
+      "techniques": [
+        {"id": "tech_kanglong_1", "name": "亢龙有悔", "type": "attack", "description": "六分发四分收，劲道去而复回，掌风可使裘千仞不由自主前跌"}
+      ],
+      "progression": [
+        {"level": 2, "unlock": "郭靖此掌已非同小可，可令裘千仞狼狈不堪"}
+      ],
+      "effects": ["掌风强劲，敌人被带动前跌", "左掌反手一巴掌可打得人牙落舌断"],
+      "combat_style": "刚猛无俦，正面当胸击去，六分发四分收，劲道可回"
+    },
+    {
+      "id": "skill_tiezhangshenggong",
+      "techniques": [
+        {"id": "tech_tiezhang_1", "name": "铁掌神功", "type": "attack", "description": "曾令衡山派众武师死伤枕藉一蹶不振，但本章裘千仞未真正施展"}
+      ],
+      "progression": [],
+      "effects": ["传说威震川湘"],
+      "combat_style": "裘千仞声称修炼十多年未下山，本章实未施展"
+    },
+    {
+      "id": "skill_hamagong",
+      "techniques": [
+        {"id": "tech_hama_1", "name": "蛤蟆功暗劲", "type": "attack", "description": "欧阳锋此前以此功击伤郭靖，本章以劈空掌偷袭黄蓉未遂"}
+      ],
+      "progression": [],
+      "effects": ["此前击伤郭靖，致其需要密室修炼七日七夜"],
+      "combat_style": "阴狠内劲，善于借敌劲反打"
+    },
+    {
+      "id": "skill_tanzhishentong",
+      "techniques": [
+        {"id": "tech_tanzhi_1", "name": "弹指射剑", "type": "attack", "description": "黄药师将三截铁剑平放左掌，右手中指弹剑柄，铁剑激射而出比强弓硬弩更劲急，直没至柄"}
+      ],
+      "progression": [],
+      "effects": ["铁剑直没至柄，纵木刀竹刃亦可伤人致命", "用以试探裘千仞真功夫"],
+      "combat_style": "以中指弹射暗器，劲力奇大，远距精准"
+    },
+    {
+      "id": "skill_bibozhangfa",
+      "techniques": [
+        {"id": "tech_bibo_1", "name": "碧波掌法", "type": "attack", "description": "桃花岛基础掌法，傻姑偷看曲灵风练功学得六七招，不成章法"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "傻姑偷学六七招，只会打上盘中盘不会下盘"}
+      ],
+      "effects": ["下盘功夫缺失说明非正式传授"],
+      "combat_style": "基础掌法，傻姑所学残缺不全"
+    },
+    {
+      "id": "skill_dagoubangfa",
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "黄蓉已习得，但本章未施展打狗棒法"
+    },
+    {
+      "id": "skill_liuetongbibei",
+      "techniques": [
+        {"id": "tech_liuhe_1", "name": "六合通臂拳", "type": "defense", "description": "裘千仞与黄蓉交手时横伸格挡所用拳法"}
+      ],
+      "progression": [],
+      "effects": ["格挡虚招失败，右颊又吃耳光"],
+      "combat_style": "裘千仞格挡黄蓉掌击时使用，但未能防住虚招"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_jiuyinzhenjing",
+      "description": "武学至高经典，梅超风偷学其上武功，黄药师令其交回",
+      "effects": [{"type": "buff", "value": "修习后武功大进但修炼凶险", "description": "郭靖密室中修炼七日七夜方圆满，需深厚内力者相助"}],
+      "origin": "黄药师收藏",
+      "rarity": "legendary",
+      "related_skills": ["skill_jiuyinjing", "skill_jiuyinbaiguzhua", "skill_cuixinzhang"]
+    },
+    {
+      "id": "item_dagoubang",
+      "description": "丐帮帮主信物，打狗棒法专用竹棒",
+      "effects": [{"type": "buff", "value": "持有者可号令丐帮", "description": "杨康持此棒骗取拖雷信任，黄药师警告须夺回以免为祸丐帮"}],
+      "origin": "丐帮历代帮主传承",
+      "rarity": "legendary",
+      "related_skills": ["skill_dagoubangfa"]
+    },
+    {
+      "id": "item_jinlongbian",
+      "description": "韩宝驹的长鞭兵器",
+      "effects": [{"type": "attack", "value": "着地卷出攻击", "description": "韩宝驹以此鞭着地卷出攻击黄药师，被黄药师左足踩住鞭梢无法抽动"}],
+      "origin": "韩宝驹",
+      "rarity": "common",
+      "related_skills": ["skill_jinlongbian"]
+    },
+    {
+      "id": "item_xiaohongma",
+      "description": "郭靖的汗血宝马，脚程极快，奔腾如风驰电掣，小红马与主人睽别甚久重逢后欢嘶不已",
+      "effects": [{"type": "buff", "value": "极速奔驰", "description": "众人骑此马追赶杨康，双雕飞行虽速小红马竟追随得上"}],
+      "origin": "蒙古草原",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_shuaidiao",
+      "description": "华筝赠予郭靖的一对白雕，能飞行领路传讯",
+      "effects": [{"type": "buff", "value": "领路传讯", "description": "白雕发现小红马踪迹南飞，后又带郭靖黄蓉赶到树林救拖雷等人"}],
+      "origin": "华筝赠予",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_jindao",
+      "description": "成吉思汗所赐金刀，象征蒙古金刀驸马身份",
+      "effects": [{"type": "buff", "value": "驸马身份象征", "description": "郭靖瞥见腰间金刀想起与华筝的婚约由成吉思汗所定"}],
+      "origin": "成吉思汗赐予",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_bishou",
+      "description": "丘处机所赠匕首，郭靖随身携带",
+      "effects": [{"type": "attack", "value": "随身兵器", "description": "郭靖瞥见匕首想起杨铁心遗命，感叹尊长安排未必定须遵行"}],
+      "origin": "丘处机赠予",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_tiezhang",
+      "description": "铁掌帮帮主令牌，铁铸手掌，掌心刻'裘'字，掌背刻水纹，二十多年前在江湖上威势极大，东至九江西至成都通行无阻",
+      "effects": [{"type": "buff", "value": "号令铁掌帮", "description": "黄药师验看此令牌后对裘千仞身份起疑，欧阳锋见之亦诧异"}],
+      "origin": "朱聪从裘千仞怀中扒来",
+      "rarity": "rare",
+      "related_skills": ["skill_tiezhangshenggong"]
+    },
+    {
+      "id": "item_shensuojian",
+      "description": "三截可伸缩环套的假铁剑，裘千仞用于假装利剑入腹的骗人把戏",
+      "effects": [{"type": "debuff", "value": "揭露骗局", "description": "黄蓉当众展示伸缩机关拆穿裘千仞骗术，黄药师后以弹指神通射出此剑试探裘千仞"}],
+      "origin": "朱聪从裘千仞怀中扒来",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_shuzhier",
+      "description": "周伯通托傻姑转交黄蓉的黄皮纸折猴，内藏字条写着'老叫化不见也，老顽童乖乖不得了'",
+      "effects": [{"type": "debuff", "value": "传递洪七公失踪消息", "description": "黄蓉见字条后急问师父去向，黄药师判断周伯通必能相救"}],
+      "origin": "周伯通托傻姑转交",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_huahanshihua",
+      "description": "曲灵风从皇宫所盗泼墨山水画，画中峰西老松下朱笔画迎风舞剑将军，韩世忠题岳飞诗。大雨淋湿后衬底夹层显现四行字迹：'穆遗书…铁掌…中…峰…第二…节'",
+      "effects": [{"type": "buff", "value": "武穆遗书线索", "description": "画纸淋湿后显现藏字，揭示武穆遗书与铁掌帮有关的关键线索"}],
+      "origin": "曲灵风从皇宫盗取，黄药师转赠郭靖",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_qulingfengtiesu",
+      "description": "密室铁箱存放曲灵风从皇宫盗取的珍贵字画器皿，黄药师逐层查看愈珍奇愈伤痛",
+      "effects": [{"type": "buff", "value": "珍宝收藏", "description": "内有徽宗花鸟人物画等珍贵文物，黄药师感慨玩物丧志"}],
+      "origin": "曲灵风从皇宫盗取",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_zhenzhulian",
+      "description": "颗颗一般大的珍珠串，黄药师从铁箱取出给黄蓉佩戴",
+      "effects": [{"type": "buff", "value": "父女温情", "description": "黄药师为女儿挂于颈中，父女相视一笑温馨无限"}],
+      "origin": "曲灵风铁箱中的宝物",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_shujinnang",
+      "description": "欧阳克遗物，蜀锦文囊上用白丝线绣着一只白骆驼",
+      "effects": [{"type": "debuff", "value": "暴露欧阳克死讯", "description": "黄药师斜挂此囊引起欧阳锋注意，导致欧阳锋得知侄儿已死"}],
+      "origin": "欧阳克遗物，黄药师从其身边取回桃花岛总图时带走",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_langyayuiling",
+      "description": "拖雷箭壶中的狼牙雕翎长箭",
+      "effects": [{"type": "debuff", "value": "断义信物", "description": "拖雷折断此箭投于马前以示与郭靖断绝兄弟之义"}],
+      "origin": "拖雷",
+      "rarity": "common",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_26_01",
+      "name": "梅超风临终弃武重归师门",
+      "participants": ["char_meichaofeng", "char_huangyaoshi"],
+      "location": "loc_mishi",
+      "description": "梅超风临终前以右手折断左腕、右手击碎手骨，自弃九阴白骨爪和摧心掌功夫以赎罪。黄药师含泪重新收她为桃花岛弟子，梅超风磕到第三个头便气绝身亡，含笑而逝。"
+    },
+    {
+      "id": "evt_26_02",
+      "name": "黄药师借梅超风尸身攻击六怪",
+      "participants": ["char_huangyaoshi", "char_kezheng'e", "char_zhucong", "char_hanbaoju", "char_nanxiren", "char_quanjinfa", "char_hanxiaoying"],
+      "location": "loc_niujiacun",
+      "description": "黄药师欲借梅超风之手杀六怪报仇，以她尸身手掌打韩宝驹右臂、以左臂击韩小莹腰间、踩住韩宝驹金龙鞭、以手爪抓韩宝驹面门。数合之间六怪险象环生，若非黄药师要使梅超风亲手报仇，六怪早已死伤殆尽。"
+    },
+    {
+      "id": "evt_26_03",
+      "name": "郭靖破橱门出助内功圆满",
+      "participants": ["char_guojing", "char_huangrong", "char_huangyaoshi"],
+      "location": "loc_mishi",
+      "description": "郭靖在密室中听到六位师父危急，不顾丹田之气未稳，闭气凝息发掌将橱门打得粉碎。黄蓉大惊怕他伤命。黄药师乍见爱女惊喜交集，盘膝坐下以左掌抵住郭靖手掌，右手在其周身要穴推拿，一顿饭功夫助郭靖七日七夜的内功修练大功告成。"
+    },
+    {
+      "id": "evt_26_04",
+      "name": "黄蓉讲述历险众人倾听",
+      "participants": ["char_huangrong", "char_huangyaoshi", "char_guojing", "char_kezheng'e", "char_zhucong", "char_hanbaoju", "char_nanxiren", "char_quanjinfa", "char_hanxiaoying"],
+      "location": "loc_niujiacun",
+      "description": "黄蓉咭咭咯咯讲述历险经历，神采飞扬妙语如珠，足足说了大半个时辰。郭靖因说话迟钝变成听话人，六怪也被吸引过去倾听。黄药师得知爱女做了丐帮帮主，戏称洪七公想改称'北邪'。"
+    },
+    {
+      "id": "evt_26_05",
+      "name": "黄药师认曲灵风遗物收傻姑为徒",
+      "participants": ["char_huangyaoshi", "char_shagu", "char_huangrong"],
+      "location": "loc_mishi",
+      "description": "黄药师见密室格局是自己独创，找到曲灵风血书遗禀，知其为讨好师父冒险入宫盗宝终被侍卫围攻而亡。他追问傻姑是否会打拳，傻姑展示偷学的六七招碧波掌法。黄蓉踢倒傻姑试其下盘，证实曲灵风未正式传授。黄药师令傻姑称黄蓉为姑姑，正式收归门下，决意亲自教她武艺诗琴奇门五行。"
+    },
+    {
+      "id": "evt_26_06",
+      "name": "安葬梅超风与曲灵风遗骸凭吊",
+      "participants": ["char_huangyaoshi", "char_huangrong"],
+      "location": "loc_niujiacun",
+      "description": "众人将梅超风在后园安葬。黄药师望着新坟百感交集，又到密室望着曲灵风骸骨垂泪，感叹其武功最强却因断腿惨死。打开铁箱逐层查看宝物，愈珍奇愈伤痛，感慨徽宗画精妙却把江山拱手送金人。"
+    },
+    {
+      "id": "evt_26_07",
+      "name": "周伯通传信洪七公失踪",
+      "participants": ["char_shagu", "char_huangrong", "char_huangyaoshi"],
+      "location": "loc_niujiacun",
+      "description": "傻姑持黄皮纸折猴传周伯通字条：'老叫化不见也，老顽童乖乖不得了。'黄蓉急问师父去向。黄药师判断老顽童功夫了得，七公若未死必能相救，但指出杨康持打狗棒将为祸丐帮，须赶去夺回。"
+    },
+    {
+      "id": "evt_26_08",
+      "name": "白雕报信郭靖黄蓉骑马救人",
+      "participants": ["char_guojing", "char_huangrong", "char_huangyaoshi"],
+      "location": "loc_shulin",
+      "description": "白雕飞来啄住郭靖衣服向外拉扯，郭靖神色惊惶称义兄义妹有难。黄蓉让小红马回去接黄药师，二人骑小红马由双雕领路赶到树林，发现拖雷、华筝、哲别、博尔术被绑在树上，欧阳锋与裘千仞在前，一名大宋将军已被欧阳锋掌力击毙。"
+    },
+    {
+      "id": "evt_26_09",
+      "name": "黄蓉戏弄裘千仞连扇耳光",
+      "participants": ["char_huangrong", "char_qiuqianren"],
+      "location": "loc_shulin",
+      "description": "黄蓉以'大吹法螺''反打厚脸皮'等招式名讥嘲裘千仞，右掌清脆打了他一个耳光，左掌虚招右颊又吃耳光。裘千仞以六合通臂拳法格挡不住，被黄蓉两只小手如玉蝶翻飞打得狼狈不堪，急忙冲拳退开。"
+    },
+    {
+      "id": "evt_26_10",
+      "name": "裘千仞装腹痛金蝉脱壳",
+      "participants": ["char_qiuqianren", "char_huangrong", "char_zhucong", "char_huangyaoshi"],
+      "location": "loc_shulin",
+      "description": "裘千仞声称要出恭，双手捧肚装腹痛跑开。朱聪赶上递草纸时从其怀中扒走铁掌令和伸缩铁剑。黄蓉当众展示伸缩假剑拆穿裘千仞利剑入腹骗术。黄药师以弹指神通弹射铁剑试探，铁剑插入裘千仞背心至柄，但裘千仞早已金蝉脱壳，以黄葛短衣罩矮树掩人耳目逃走。东邪西毒同时大笑。"
+    },
+    {
+      "id": "evt_26_11",
+      "name": "欧阳锋得知欧阳克死讯偷袭未遂",
+      "participants": ["char_ouyangfeng", "char_huangyaoshi", "char_guojing"],
+      "location": "loc_shulin",
+      "description": "欧阳锋见到黄药师肩头斜挂的蜀锦文囊（白骆驼刺绣），惊问侄儿下落。黄药师冷冷告知与梅超风同样下场。欧阳锋悲愤之极仍冷静审敌，命裘千仞杀八人、自己对付黄药师。裘千仞逃走后，欧阳锋趁笑声正酣偷袭黄药师一揖到地，黄药师左掌立右拳钩还礼化解。欧阳锋转身暗施劈空掌袭黄蓉，被黄药师挡开，反打郭靖被其就地滚开躲过。"
+    },
+    {
+      "id": "evt_26_12",
+      "name": "郭靖面对感情抉择选择华筝",
+      "participants": ["char_guojing", "char_huangrong", "char_huangyaoshi", "char_tuolei", "char_huazheng", "char_kezheng'e", "char_zhucong"],
+      "location": "loc_shulin",
+      "description": "黄药师追问郭靖婚约之事，郭靖老实答道真心只有黄蓉。黄药师命他杀华筝或断绝相见，郭靖均不从。拖雷折箭断义言辞斩钉截铁，郭靖想起大漠豪事，昂然宣布须与华筝结亲。黄蓉伤心打量华筝后叹'你们是大漠白雕，我只是江南燕儿'。黄药师怒欲杀华筝被黄蓉拦住，见女儿情状如亡妻临终，叹气吟贾谊之赋，长啸而去。"
+    },
+    {
+      "id": "evt_26_13",
+      "name": "拖雷折箭断义赠雕北归",
+      "participants": ["char_tuolei", "char_guojing", "char_huazheng", "char_zhebie", "char_boershui"],
+      "location": "loc_shulin",
+      "description": "拖雷折断狼牙雕翎箭投于马前与郭靖断义，但承诺善养郭靖母亲、派人护送其南来。华筝赠白雕给郭靖，嘱其早日回来。郭靖嘱华筝转告母亲必手刃仇人为父报仇。哲别博尔术与郭靖道别，四人连骑北归。"
+    },
+    {
+      "id": "evt_26_14",
+      "name": "郭靖黄蓉返临安寻洪七公未果西行",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_lin'an",
+      "description": "柯镇嘱咐郭靖见到洪七公请他到嘉兴养伤。郭靖拜别六位师父，与黄蓉返回临安大内在御厨周围仔细寻找洪七公，逼问太监均说无奸细刺客出现。料想洪七公必有脱身之策，次日清晨连骑西行赶赴丐帮大会。"
+    },
+    {
+      "id": "evt_26_15",
+      "name": "大雨浸画显现武穆遗书线索",
+      "participants": ["char_guojing", "char_huangrong"],
+      "location": "loc_changling",
+      "description": "江南西路长岭上遇暴雨，伞被风吹毁。郭靖所携泼墨山水画被雨水浸坏，纸张破损墨迹模糊，但韩世忠题诗旁衬底夹层纸上显现四行残缺字迹：'穆遗书…铁掌…中…峰…第二…节'。黄蓉推断武穆遗书与裘千仞铁掌帮有关。"
+    },
+    {
+      "id": "evt_26_16",
+      "name": "岳阳楼遇鲁有脚谈铁掌帮",
+      "participants": ["char_guojing", "char_huangrong", "char_luyoujiao", "char_yangkang"],
+      "location": "loc_yueyanglou",
+      "description": "七月十五前二人到岳州岳阳楼饮酒观洞庭湖。郭靖高诵'先天下之忧而忧'，黄蓉论范仲淹事迹。楼角老丐鲁有脚自报家门，详述铁掌帮在两湖四川杀人越货私通金国，介绍丐帮净衣污衣两派之争。黄蓉失言说污衣派该洗衣服得罪鲁有脚，鲁有脚怒而离去。杨康带胖瘦二丐登楼，见郭靖未死惊惶逃离。"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_meichaofeng",
+      "listener": "char_huangyaoshi",
+      "text": "恩师，您在归云庄上叫弟子做三件事，头两件事弟子是来不及做了。",
+      "tone": "恳切哀伤",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_meichaofeng",
+      "text": "好！好！余下那两件事也算不了甚么。我再收你为桃花岛的弟子罢。",
+      "tone": "含泪欣慰",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_huangrong",
+      "text": "蓉儿，蓉儿，当真是你？",
+      "tone": "惊喜交集，恍在梦中",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_huangrong",
+      "text": "洪七兄这一招希奇古怪，大有邪气。莫非他北丐想抢我外号，改称'北邪'？",
+      "tone": "诙谐调侃",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_kezheng'e",
+      "text": "我要去杀欧阳锋、灵智和尚、裘千仞、杨康四个恶贼，孩子，你随我瞧势闹去罢。",
+      "tone": "口中说杀人却满脸笑意",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_kezheng'e",
+      "listener": "char_guojing",
+      "text": "你竟如此造化，得拜九指神丐为师，又蒙桃花岛主将爱女许婚，我们喜之不尽，岂有不许之理？",
+      "tone": "欣喜赞叹",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_ouyangfeng",
+      "text": "老贼，你们在这里干甚么？又想害人么？",
+      "tone": "愤怒喝斥",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_qiuqianren",
+      "text": "接招，我这招叫做'大吹法螺'！",
+      "tone": "俏皮讥嘲",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_qiuqianren",
+      "text": "这招叫做'反打厚脸皮'！",
+      "tone": "得意调侃",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_qiuqianren",
+      "listener": "char_huangrong",
+      "text": "姑娘，你身上已受内伤，快回去密室中休养七七四十九日，不可见风，否则小命不保。",
+      "tone": "故作郑重",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_qiuqianren",
+      "listener": "char_huangrong",
+      "text": "你等一回儿，我忽然肚子痛，要出恭！",
+      "tone": "愁眉苦脸装模作样",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_huangyaoshi",
+      "text": "我侄儿怎样啦？",
+      "tone": "颤声惊恐",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_ouyangfeng",
+      "text": "我徒儿梅超风怎样啦，你侄儿也就怎样啦。",
+      "tone": "冷冷回应",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_ouyangfeng",
+      "listener": "char_huangyaoshi",
+      "text": "黄老邪，咱哥儿俩后会有期。",
+      "tone": "阴冷不甘",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": null,
+      "text": "臭小子，贱女人，两个一起宰了！我父女俩焉能任人欺辱？",
+      "tone": "怒不可抑",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": "char_guojing",
+      "text": "喂，小子，那么你把这番邦女子杀了，表明自己心迹。",
+      "tone": "冷冷命令",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangyaoshi",
+      "text": "我只盼一生和蓉儿厮守，若是没了蓉儿，我定然活不成。",
+      "tone": "诚恳直白",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": null,
+      "text": "黄岛主，六位恩师，拖雷安答和哲别、博尔术两位师父，郭靖并非无信无义之辈，我须得和华筝妹子结亲。",
+      "tone": "昂然坚定",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": "char_guojing",
+      "text": "郭靖安答，男子汉纵横天下，行事一言而决！你既对我妹子无情，成吉思汗的英雄儿女岂能向你求恳？你我兄弟之义，请从此绝！",
+      "tone": "斩钉截铁",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "靖哥哥，我懂啦，她和你是一路人。你们俩是大漠上的一对白雕，我只是江南柳枝底下的一只燕儿罢啦。",
+      "tone": "凄然心碎",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "蓉儿，我不知道你说得对不对，我心中却只有你，你是明白的。不管旁人说该是不该，就算把我身子烧成了飞灰，我心中仍是只有你。",
+      "tone": "深情坚定",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "我跟他多耽一天，便多一天欢喜。",
+      "tone": "凄惋欲绝",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_huangyaoshi",
+      "text": "他要娶别人，那我也嫁别人。他心中只有我一个，那我心中也只有他一个。",
+      "tone": "倔强深情",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": null,
+      "text": "且夫天地为炉兮，造化为工！阴阳为炭兮，万物为铜！",
+      "tone": "感慨悲叹",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangyaoshi",
+      "listener": null,
+      "text": "我门下诸弟子中，以灵风武功最强，若不是他双腿断了，便一百名大内护卫也伤他不得。",
+      "tone": "垂泪感叹",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huangrong",
+      "listener": "char_guojing",
+      "text": "靖哥哥，有本书上讲到一个故事。一日天下大雨，道上行人纷纷飞奔，只有一人却缓步行走。旁人奇了，问他干么不快跑。那人道：'前面也下大雨，跑过去还不是一般的淋湿？'",
+      "tone": "闲适幽默中隐含忧伤",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_guojing",
+      "listener": "char_huangrong",
+      "text": "先天下之忧而忧，后天下之乐而乐，大英雄大豪杰固当如此胸怀！",
+      "tone": "仰慕敬佩",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_luyoujiao",
+      "listener": "char_guojing",
+      "text": "裘千仞是铁掌帮帮主，这铁掌帮在两湖四川一带声势极大，帮众杀人越货，无恶不作。更可恨的是私通金国，干那里应外合的勾当。",
+      "tone": "正色严肃",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_luyoujiao",
+      "listener": "char_huangrong",
+      "text": "你是有钱人家的小姐，自然嫌叫化子臭。",
+      "tone": "愤怒不快",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_luyoujiao",
+      "listener": "char_guojing",
+      "text": "常言道：穷人无棒被犬欺。我棒是没有，可是有一双臭脚。犬儿若来欺我，我对准了狗头，直娘贼的就是一脚，也要叫它夹着尾巴，落荒而逃。",
+      "tone": "直率豪迈",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_huazheng",
+      "listener": "char_guojing",
+      "text": "这对白雕你带在身边，你要早日回来。",
+      "tone": "深情叮嘱",
+      "chapter": 26
+    },
+    {
+      "speaker": "char_tuolei",
+      "listener": "char_guojing",
+      "text": "安答，盼你大事早成，北归相见。",
+      "tone": "豪爽期盼",
+      "chapter": 26
+    }
+  ]
+}

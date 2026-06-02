@@ -1,0 +1,409 @@
+{
+  "chapter": 38,
+  "characters": [
+    {
+      "id": "char_guojing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "蒙古右军统帅、金刀驸马",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "追黄蓉入沼泽未果，被欧阳锋囚于石屋练武月余；归蒙古后因锦囊密令拒绝攻宋，母亲自尽后在哲别、拖雷帮助下南逃",
+      "personality": "忠厚仁义、重情重义、宁死不卖国",
+      "known_skills": ["skill_shenlongbaowei", "skill_kanglongyouhui", "skill_feixujin", "skill_zuoyouhubo"],
+      "related_skills": ["skill_yijindagupian"]
+    },
+    {
+      "id": "char_huangrong",
+      "name": "黄蓉",
+      "alias": [],
+      "identity": "丐帮帮主、黄药师之女",
+      "faction": "faction_gaibang",
+      "role": "companion",
+      "one_line": "误以为郭靖不肯辞婚，携画出东门而去，以奇门之术迷惑追兵，最终在沼泽中失踪，被郭靖认为已陷死沙中",
+      "personality": "聪慧机敏、善用奇门之术、性格倔强",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ouyangfeng",
+      "name": "欧阳锋",
+      "alias": ["老毒物"],
+      "identity": "白驼山主、西毒",
+      "faction": null,
+      "role": "villain",
+      "one_line": "追赶黄蓉入沼泽反被困，被郭靖救出后反将郭靖擒住，囚于石屋逼其练功月余企图偷学九阴真经",
+      "personality": "阴险狠毒、武学痴迷、不择手段",
+      "known_skills": ["skill_hamagong", "skill_lianhuanYuanyangtui"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huazheng",
+      "name": "华筝",
+      "alias": [],
+      "identity": "成吉思汗之女、公主",
+      "faction": null,
+      "role": "npc",
+      "one_line": "从宫中奔出迎接郭靖，导致黄蓉误会离去；后在李萍帐中陪伴，最终与郭靖洒泪相别",
+      "personality": "深情专一、温柔体贴",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuchuji",
+      "name": "丘处机",
+      "alias": ["丘道长"],
+      "identity": "全真七子之一",
+      "faction": "faction_quanzhen",
+      "role": "npc",
+      "one_line": "携十八弟子来辞行，随蒙古大军东归途中力劝大汗爱民少杀，救活百姓无数",
+      "personality": "正义有道、劝善止杀",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liping",
+      "name": "李萍",
+      "alias": [],
+      "identity": "郭靖之母",
+      "faction": null,
+      "role": "npc",
+      "one_line": "识破锦囊密令中灭宋阴谋，教导郭靖不可卖国求荣，在金帐中以匕首割断郭靖绳索后自尽殉国",
+      "personality": "深明大义、刚烈坚贞、爱子情深",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chengjisihan",
+      "name": "成吉思汗",
+      "alias": ["大汗"],
+      "identity": "蒙古大汗",
+      "faction": "faction_menggu",
+      "role": "npc",
+      "one_line": "部署伐金战略并发出锦囊密令命破金后灭宋，因郭靖抗拒攻宋而欲将其处斩，后被拖雷求情暂缓",
+      "personality": "雄才大略、威严霸气、不容忤逆",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhoubotong",
+      "name": "周伯通",
+      "alias": ["老顽童"],
+      "identity": "全真教中神通王重阳师弟",
+      "faction": "faction_quanzhen",
+      "role": "companion",
+      "one_line": "受黄蓉之托追杀裘千仞万里至西域，追入石屋后与郭靖、欧阳锋、裘千仞四人在黑暗中混战",
+      "personality": "童心未泯、好武成痴、不拘礼法",
+      "known_skills": ["skill_zuoyouhubo"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiuqianren",
+      "name": "裘千仞",
+      "alias": [],
+      "identity": "铁掌帮帮主",
+      "faction": "faction_tiezhang",
+      "role": "villain",
+      "one_line": "被周伯通万里追杀至西域石屋，在黑暗混战中与郭靖、欧阳锋、周伯通轮番交手",
+      "personality": "阴沉狡诈、武功高强",
+      "known_skills": ["skill_tiezhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuolei",
+      "name": "拖雷",
+      "alias": [],
+      "identity": "成吉思汗四子、郭靖安答",
+      "faction": "faction_menggu",
+      "role": "npc",
+      "one_line": "为郭靖求情免死，赠小红马与黄金千两，亲送郭靖三十余里洒泪而别",
+      "personality": "重兄弟情义、忠孝两难",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhebie",
+      "name": "哲别",
+      "alias": ["神箭将军"],
+      "identity": "蒙古神箭将军",
+      "faction": "faction_menggu",
+      "role": "npc",
+      "one_line": "受命追捕郭靖却故意射断箭头示警，赠马赠枪助郭靖脱逃，报答当年救命之恩",
+      "personality": "知恩图报、义气深重",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chilaowen",
+      "name": "赤老温",
+      "alias": [],
+      "identity": "蒙古开国四杰之一",
+      "faction": "faction_menggu",
+      "role": "npc",
+      "one_line": "奉命押解郭靖至金帐受审，后率军追击逃走的郭靖",
+      "personality": "忠于大汗、令行禁止",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_boerhu",
+      "name": "博尔忽",
+      "alias": [],
+      "identity": "蒙古大将",
+      "faction": "faction_menggu",
+      "role": "npc",
+      "one_line": "领军拦截郭靖，被郭靖冲破所领千人队",
+      "personality": "忠勇善战",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wo_kuotai",
+      "name": "窝阔台",
+      "alias": [],
+      "identity": "成吉思汗三子、中路军统帅",
+      "faction": "faction_menggu",
+      "role": "npc",
+      "one_line": "受命统率中路军伐金，与拖雷、郭靖共领锦囊密令",
+      "personality": "顺从父命",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_luyoujiao",
+      "name": "鲁有脚",
+      "alias": ["鲁长老"],
+      "identity": "丐帮长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "率丐帮帮众在宫外接应黄蓉，随大军东归后辞别南归",
+      "personality": "忠诚可靠",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_jianzhanglao",
+      "name": "简长老",
+      "alias": [],
+      "identity": "丐帮长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "随黄蓉率丐帮帮众在宫外接应郭靖",
+      "personality": "忠诚",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_liangzhanglao",
+      "name": "梁长老",
+      "alias": [],
+      "identity": "丐帮长老",
+      "faction": "faction_gaibang",
+      "role": "npc",
+      "one_line": "随黄蓉率丐帮帮众在宫外接应郭靖",
+      "personality": "忠诚",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_lizhichang",
+      "name": "李志常",
+      "alias": [],
+      "identity": "丘处机弟子",
+      "faction": "faction_quanzhen",
+      "role": "npc",
+      "one_line": "随丘处机至郭靖处辞行",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_yinzhiping",
+      "name": "尹志平",
+      "alias": [],
+      "identity": "丘处机弟子",
+      "faction": "faction_quanzhen",
+      "role": "npc",
+      "one_line": "随丘处机至郭靖处辞行",
+      "personality": "",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_gaibang",
+      "name": "丐帮",
+      "type": "江湖帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "黄蓉率三长老及千余帮众在宫外接应郭靖，后随大军东归南返"
+    },
+    {
+      "id": "faction_quanzhen",
+      "name": "全真教",
+      "type": "道教门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "丘处机率弟子辞行并随军东归，周伯通亦现身西域"
+    },
+    {
+      "id": "faction_menggu",
+      "name": "蒙古",
+      "type": "帝国",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "成吉思汗统率大军东归后部署伐金，密令破金后灭宋一统天下"
+    },
+    {
+      "id": "faction_tiezhang",
+      "name": "铁掌帮",
+      "type": "江湖帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "帮主裘千仞被周伯通万里追杀至西域"
+    }
+  ],
+  "locations": [
+    {
+      "id": "location_jinzhang",
+      "name": "金帐",
+      "region": "蒙古",
+      "one_line": "成吉思汗议事大帐，郭靖在此受审、李萍自尽、拖雷求情的生死之地"
+    },
+    {
+      "id": "location_zhaoze",
+      "name": "沼泽",
+      "region": "西域大漠",
+      "one_line": "黄蓉失踪之处，欧阳锋深陷其中呼救，郭靖骑小红马往返搜救"
+    },
+    {
+      "id": "location_shiwucun",
+      "name": "石屋村落",
+      "region": "西域大漠",
+      "one_line": "蒙古军屠村后的废弃村落，欧阳锋囚郭靖练武月余之地，后成四高手混战之所"
+    },
+    {
+      "id": "location_menggucaoyuan",
+      "name": "蒙古草原",
+      "region": "蒙古",
+      "one_line": "郭靖携母南逃、哲别放行、拖雷送别的最终告别之地"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_shenlongbaowei",
+      "name": "神龙摆尾",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "郭靖以此招右掌后拍抵挡欧阳锋抓马尾"
+    },
+    {
+      "id": "skill_kanglongyouhui",
+      "name": "亢龙有悔",
+      "type": "掌法",
+      "faction": "faction_gaibang",
+      "one_line": "郭靖以此招急拍而出抵挡欧阳锋蛤蟆功偷袭"
+    },
+    {
+      "id": "skill_hamagong",
+      "name": "蛤蟆功",
+      "type": "内功",
+      "faction": null,
+      "one_line": "欧阳锋在石屋中蹲地运功猛攻郭靖的绝技"
+    },
+    {
+      "id": "skill_lianhuanYuanyangtui",
+      "name": "连环鸳鸯腿",
+      "type": "腿法",
+      "faction": null,
+      "one_line": "欧阳锋在沼泽中以此招借力踢出左足从陷坑脱困"
+    },
+    {
+      "id": "skill_feixujin",
+      "name": "飞絮劲",
+      "type": "巧劲",
+      "faction": null,
+      "one_line": "郭靖从九阴真经习得的巧劲，用以化解欧阳锋掌抹攻势"
+    },
+    {
+      "id": "skill_zuoyouhubo",
+      "name": "左右互搏",
+      "type": "拳法",
+      "faction": null,
+      "one_line": "郭靖以此术分挡欧阳锋与裘千仞二人联手；周伯通亦用此术追斗"
+    },
+    {
+      "id": "skill_yijindagupian",
+      "name": "易筋锻骨篇",
+      "type": "内功心法",
+      "faction": null,
+      "one_line": "郭靖此前已练成的九阴真经基础功法，为后续武功精进奠基"
+    },
+    {
+      "id": "skill_tiezhang",
+      "name": "铁掌",
+      "type": "掌法",
+      "faction": "faction_tiezhang",
+      "one_line": "裘千仞的看家掌法，在石屋混战中以此掌击石攻敌"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_xiaohongma",
+      "name": "小红马",
+      "type": "坐骑",
+      "owner": "char_guojing",
+      "one_line": "汗血宝马，驮郭靖穿越沼泽甩脱欧阳锋，后被拖雷归还助郭靖南逃"
+    },
+    {
+      "id": "item_jinhuan",
+      "name": "金环",
+      "type": "饰物",
+      "owner": "char_huangrong",
+      "one_line": "黄蓉束发金环，遗落于沼泽小树枝上，郭靖发现后确认黄蓉曾至此处"
+    },
+    {
+      "id": "item_jinzhuhua",
+      "name": "金镶珠花",
+      "type": "饰物",
+      "owner": "char_huangrong",
+      "one_line": "黄蓉襟头常佩的珠花，遗落在雪地中，加深郭靖对其安危的忧虑"
+    },
+    {
+      "id": "item_heidiaochu",
+      "name": "黑貂裘",
+      "type": "衣物",
+      "owner": "char_guojing",
+      "one_line": "郭靖昔日张家口所赠，黄蓉脱于雪地，郭靖拾起后愈加焦急"
+    },
+    {
+      "id": "item_bishou",
+      "name": "匕首",
+      "type": "武器",
+      "owner": "char_guojing",
+      "one_line": "丘处机所赠刻有郭靖之名的匕首，李萍以此割断郭靖绳索后自尽"
+    },
+    {
+      "id": "item_jinnang",
+      "name": "锦囊",
+      "type": "密令",
+      "owner": "char_chengjisihan",
+      "one_line": "成吉思汗交付三军统帅的火漆密封锦囊，内藏破金后灭宋的密令"
+    },
+    {
+      "id": "item_hutoujindao",
+      "name": "虎头金刀",
+      "type": "武器",
+      "owner": "char_chengjisihan",
+      "one_line": "大汗所赐，郭靖出逃时留于帐中不取"
+    },
+    {
+      "id": "item_tiejian",
+      "name": "铁剑",
+      "type": "武器",
+      "owner": "char_guojing",
+      "one_line": "郭靖在村中死尸旁拾得，用于与欧阳锋木杖过招练剑"
+    }
+  ]
+}
