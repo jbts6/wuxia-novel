@@ -20,10 +20,8 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 // 脚本路径
-const PROJECT_ROOT = path.resolve(__dirname, '..', '..', '..', '..');
-const FORMAT_NOVEL_BATCH_SCRIPTS = path.join(PROJECT_ROOT, '.agents', 'skills', 'format-novel-batch', 'scripts');
-const SPLIT_SCRIPT = path.join(__dirname, 'split-by-chapter.js');  // 使用按章节拆分
-const FORMAT_SCRIPT = path.join(FORMAT_NOVEL_BATCH_SCRIPTS, 'auto-format.js');
+const SPLIT_SCRIPT = path.join(__dirname, 'split-by-chapter.js');
+const FORMAT_SCRIPT = path.join(__dirname, 'auto-format.js');
 
 // ANSI 颜色
 const GREEN = '\x1b[32m';

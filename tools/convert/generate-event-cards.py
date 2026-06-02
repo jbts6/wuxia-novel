@@ -40,28 +40,39 @@ def save_markdown(output_dir, filename, content):
 
 
 def extract_events_from_chapters():
-    """从所有章节的深度提取结果中收集事件"""
+    """从所有章节的深度提取结果中收集事件（兼容新旧格式）"""
     all_events = []
     
-    # 自动检测章节数量
-    import glob
-    chapter_files = glob.glob(os.path.join(CHAPTERS_DIR, "ch_*_deep.json"))
-    max_chapter = 0
-    for f in chapter_files:
-        basename = os.path.basename(f)
-        try:
-            num = int(basename.split('_')[1])
-            max_chapter = max(max_chapter, num)
-        except:
-            pass
+    # 优先从 events.json 读取（合并后的全局文件）
+    events_json = os.path.join(NOVELS_DIR, "events.json")
+    if os.path.exists(events_json):
+        data = load_json(events_json)
+        if data:
+            return data
     
-    for i in range(1, max_chapter + 1):
-        deep_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_deep.json")
-        deep_data = load_json(deep_path)
-        if deep_data and 'events' in deep_data:
-            for event in deep_data['events']:
-                event['chapter'] = i
-                all_events.append(event)
+    # 回退：从章节文件读取
+    import glob
+    new_files = glob.glob(os.path.join(CHAPTERS_DIR, "ch_??.json"))
+    old_files = glob.glob(os.path.join(CHAPTERS_DIR, "ch_*_deep.json"))
+    
+    if new_files:
+        max_chapter = max(int(os.path.basename(f).split("_")[1].split(".")[0]) for f in new_files)
+        for i in range(1, max_chapter + 1):
+            ch_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}.json")
+            ch_data = load_json(ch_path)
+            if ch_data and "events" in ch_data:
+                for event in ch_data["events"]:
+                    event["chapter"] = i
+                    all_events.append(event)
+    elif old_files:
+        max_chapter = max(int(os.path.basename(f).split("_")[1]) for f in old_files)
+        for i in range(1, max_chapter + 1):
+            deep_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_deep.json")
+            deep_data = load_json(deep_path)
+            if deep_data and "events" in deep_data:
+                for event in deep_data["events"]:
+                    event["chapter"] = i
+                    all_events.append(event)
     
     return all_events
 

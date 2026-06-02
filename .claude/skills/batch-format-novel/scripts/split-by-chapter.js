@@ -3,6 +3,7 @@
  * split-by-chapter.js - 按章节标题拆分小说 txt 文件
  *
  * 支持格式：
+ * - 中文数字章节（如：一　灭门、二　聆秘）
  * - 第X章、第X回、第X节
  * - （第X回完）
  * - 纯数字章节：001、002 等
@@ -19,6 +20,8 @@ const path = require('path');
 
 // 章节标题正则
 const CHAPTER_PATTERNS = [
+  // 中文数字章节标题（如：一　灭门、二　聆秘、十四　论杯）
+  /^[\s　]*[一二三四五六七八九十百千]+[　\s\t]+[^\s　]/m,
   // 第X章、第X回、第X节（支持中文数字和阿拉伯数字）
   /^[\s　]*[（(]?第[一二三四五六七八九十百千万\d]+[章回节卷][）)]?/m,
   // （第X回完）
@@ -105,6 +108,7 @@ function main() {
     console.error('错误: 未检测到章节标题');
     console.log('');
     console.log('支持的章节格式:');
+    console.log('  - 中文数字：一、二、三...');
     console.log('  - 第X章、第X回、第X节');
     console.log('  - （第X回完）');
     console.log('  - 纯数字：001、002 等');
