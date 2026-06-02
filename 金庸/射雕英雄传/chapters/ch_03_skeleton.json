@@ -1,0 +1,465 @@
+{
+  "chapter": 3,
+  "characters": [
+    {
+      "id": "char_guo_jing",
+      "name": "郭靖",
+      "alias": [],
+      "identity": "郭啸天与李萍之子，六岁蒙古草原牧羊童",
+      "faction": null,
+      "role": "protagonist",
+      "one_line": "宁死不肯向术赤说出哲别藏身之处，以牧羊犬力抗六头巨獒，获铁木真赏识。",
+      "personality": "憨厚木讷但倔强刚毅，宁折不弯。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_li_ping",
+      "name": "李萍",
+      "alias": [],
+      "identity": "郭啸天遗孀，郭靖之母",
+      "faction": null,
+      "role": "companion",
+      "one_line": "被段天德挟持北逃，途中装疯留痕引追兵，雪地中诞下郭靖，含辛茹苦在蒙古抚养儿子。",
+      "personality": "坚韧顽强，粗中有细，深爱儿子，时刻不忘为夫报仇。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chu_ji",
+      "name": "丘处机",
+      "alias": ["丘道长"],
+      "identity": "全真教道士，精通医道与剑法",
+      "faction": "faction_quan_zhen_jiao",
+      "role": "npc",
+      "one_line": "一人打倒江南七怪，深感愧疚后提出十八年赌约，约定各教郭杨后人成才再比高下。",
+      "personality": "性情刚烈急躁，但知错能改，行事磊落，善用激将法。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ke_zhen_e",
+      "name": "柯镇恶",
+      "alias": ["柯大哥"],
+      "identity": "江南七怪之首，双目失明，擅用铁杖与暗器",
+      "faction": null,
+      "role": "npc",
+      "one_line": "脾气乖戾，不肯认输，向丘处机提出再决胜负，最终被激将法打动接受十八年赌约。",
+      "personality": "性格怪僻倔强，瞎眼后更加乖戾，但侠义心肠不改。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhu_cong",
+      "name": "朱聪",
+      "alias": ["朱二哥", "朱二侠"],
+      "identity": "江南七怪之二，善于偷盗，以扇子为兵器",
+      "faction": null,
+      "role": "npc",
+      "one_line": "醉仙楼斗酒输给丘处机，起初嫌赌约费事被激将，最终应允担当教养郭靖之责。",
+      "personality": "机智狡黠，爱面子，有侠义心。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_han_bao_ju",
+      "name": "韩宝驹",
+      "alias": ["韩三爷", "三哥"],
+      "identity": "江南七怪之三，擅骑术，以金龙鞭为兵器，骑追风黄名驹",
+      "faction": null,
+      "role": "npc",
+      "one_line": "从铜缸中脱出后怒欲追杀段天德，骑追风黄四处追踪但始终未找到人。",
+      "personality": "性子极急，勇猛直率。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_han_xiao_ying",
+      "name": "韩小莹",
+      "alias": [],
+      "identity": "江南七怪中唯一女性，韩宝驹之妹",
+      "faction": null,
+      "role": "npc",
+      "one_line": "率先开口请丘处机示下善后之策，对赌约连声催促'快说快说'，性格爽利。",
+      "personality": "爽朗直率，好胜心强。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_quan_jin_fa",
+      "name": "全金发",
+      "alias": [],
+      "identity": "江南七怪之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "腰间受重伤，忍痛劝阻韩宝驹不要冲动行事。",
+      "personality": "沉稳冷静，顾全大局。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nan_xi_ren",
+      "name": "南希仁",
+      "alias": [],
+      "identity": "江南七怪之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "所受内伤甚重，在寺中养伤。",
+      "personality": "沉默寡言。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhang_a_sheng",
+      "name": "张阿生",
+      "alias": [],
+      "identity": "江南七怪之一",
+      "faction": null,
+      "role": "npc",
+      "one_line": "胳臂折断胸口受震，醒后无大碍，与众人一同接受赌约。",
+      "personality": "朴实憨厚。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_duan_tian_de",
+      "name": "段天德",
+      "alias": [],
+      "identity": "临安武官，杀害郭啸天的恶人",
+      "faction": null,
+      "role": "villain",
+      "one_line": "挟持李萍沿运河北逃，一路躲避七怪追击，到中都燕京后被金兵抓为脚夫，在蒙古乱军中与李萍失散。",
+      "personality": "卑鄙无耻，贪生怕死，欺软怕硬。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tie_mu_zhen",
+      "name": "铁木真",
+      "alias": ["大汗"],
+      "identity": "蒙古部落大汗",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "率部歼灭世仇泰亦赤兀部，中箭负伤仍坚持指挥，赏识哲别神勇收为部下，喜爱郭靖风骨。",
+      "personality": "威严果断，爱惜英雄，治军极严。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhe_bie",
+      "name": "哲别",
+      "alias": ["神箭手"],
+      "identity": "原泰亦赤兀部神箭手，蒙古语意为'枪矛'或'神箭手'",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "以黑袍将军身份射伤铁木真，比箭惜败于博尔术后归降蒙古，感念郭靖救命之恩欲倾囊相授箭法。",
+      "personality": "英勇豪迈，知恩图报，宁死不屈。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_bo_er_shu",
+      "name": "博尔术",
+      "alias": ["好朋友"],
+      "identity": "蒙古大将，铁木真患难之交，开国四大功臣之一",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "与哲别展开精彩比箭，使出连珠箭神技，最终以无头箭手下留情，英雄惜英雄。",
+      "personality": "武艺精熟，光明磊落，惺惺相惜。",
+      "known_skills": ["skill_lian_zhu_jian"],
+      "related_skills": []
+    },
+    {
+      "id": "char_shu_chi",
+      "name": "术赤",
+      "alias": ["大王子"],
+      "identity": "铁木真长子",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "追捕哲别时暴打郭靖逼问下落，拔刀欲劈郭靖时被哲别挡下。",
+      "personality": "残酷狠辣，名闻大漠。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_cha_he_tai",
+      "name": "察合台",
+      "alias": ["二王子"],
+      "identity": "铁木真二子，酷爱养狗",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "下令放出六头巨獒搜寻哲别，围攻郭靖的牧羊犬。",
+      "personality": "果断急躁。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wo_kuo_tai",
+      "name": "窝阔台",
+      "alias": ["三王子"],
+      "identity": "铁木真三子",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "在战场上为父亲铁木真拔箭裹伤，将自己的坐骑借给哲别比箭。",
+      "personality": "沉稳孝顺。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuo_lei",
+      "name": "拖雷",
+      "alias": [],
+      "identity": "铁木真幼子",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "在旁观看父兄行事，见术赤被郭靖抱住狼狈大笑。",
+      "personality": "年幼天真。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hu_du_hu",
+      "name": "忽都虎",
+      "alias": [],
+      "identity": "铁木真义弟",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "率三千精兵守卫土山，箭尽枪折仍死战不退，抢回敌将骏马。",
+      "personality": "忠勇无畏。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhe_le_mi",
+      "name": "者勒米",
+      "alias": [],
+      "identity": "蒙古猛将",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "红眼狂叫冲入敌阵，单枪匹马砍倒三名持纛大汉，夺回三杆黑纛。",
+      "personality": "悍勇狂猛，视死如归。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mu_hua_li",
+      "name": "木华黎",
+      "alias": [],
+      "identity": "蒙古将领，开国四大功臣之一",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "受铁木真之命与二王子带队向西退却，诱敌包围。",
+      "personality": "忠诚善战。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chi_lao_wen",
+      "name": "赤老温",
+      "alias": [],
+      "identity": "蒙古将领，开国四大功臣之一",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "受命率队向北退却；回忆中曾仗义藏匿被泰亦赤兀部追捕的铁木真。",
+      "personality": "仗义勇敢。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hu_bi_lai",
+      "name": "忽必来",
+      "alias": [],
+      "identity": "蒙古将领",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "受铁木真之命与速不台带队向南退却，参与包围歼灭战。",
+      "personality": "忠诚善战。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_su_bu_tai",
+      "name": "速不台",
+      "alias": [],
+      "identity": "蒙古将领",
+      "faction": "faction_meng_gu_bu",
+      "role": "npc",
+      "one_line": "受铁木真之命与忽必来带队向南退却，参与包围歼灭战。",
+      "personality": "忠诚善战。",
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_quan_zhen_jiao",
+      "name": "全真教",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "丘处机所属道门，以剑法与内功闻名武林。"
+    },
+    {
+      "id": "faction_meng_gu_bu",
+      "name": "蒙古部",
+      "type": "部族",
+      "location": "loc_da_mo",
+      "sub_divisions": [],
+      "one_line": "铁木真统领的蒙古部落，军纪严明，以铁木真为核心崛起于大漠。"
+    },
+    {
+      "id": "faction_tai_yi_chi_wu_bu",
+      "name": "泰亦赤兀部",
+      "type": "部族",
+      "location": "loc_wo_nan_he",
+      "sub_divisions": [],
+      "one_line": "蒙古世仇部族，曾擒拿少年铁木真，本章被铁木真大军歼灭大半。"
+    },
+    {
+      "id": "faction_da_jin_guo",
+      "name": "大金国",
+      "type": "朝廷",
+      "location": "loc_zhong_du_yan_jing",
+      "sub_divisions": [],
+      "one_line": "女真族建立的北方强权，派使者封赏铁木真，兵势雄强威震天下。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_fa_hua_si",
+      "name": "法华寺",
+      "region": "江南",
+      "one_line": "焦木禅师所在寺院，江南七怪与丘处机激战之地，本章开篇众人在此养伤并定下赌约。"
+    },
+    {
+      "id": "loc_yun_qi_si",
+      "name": "云栖寺",
+      "region": "杭州",
+      "one_line": "枯木禅师所在寺院，法华寺派人前往报信。"
+    },
+    {
+      "id": "loc_zui_xian_lou",
+      "name": "醉仙楼",
+      "region": "嘉兴府",
+      "one_line": "丘处机与江南七怪约定十八年后再会、让两个孩子比试武艺的地点。"
+    },
+    {
+      "id": "loc_lin_an",
+      "name": "临安",
+      "region": "浙江",
+      "one_line": "南宋京城，段天德原为临安武官，不敢回京怕被伯父追究。"
+    },
+    {
+      "id": "loc_yang_zhou",
+      "name": "扬州",
+      "region": "江苏",
+      "one_line": "段天德携李萍逃经之地，险些被韩氏兄妹追上发现。"
+    },
+    {
+      "id": "loc_zhong_du_yan_jing",
+      "name": "中都燕京",
+      "region": "河北",
+      "one_line": "金国京城，段天德与李萍到此后被金兵抓住充当脚夫北上。"
+    },
+    {
+      "id": "loc_da_mo",
+      "name": "大漠",
+      "region": "蒙古",
+      "one_line": "李萍雪地产子、含辛茹苦抚养郭靖长大的蒙古草原大漠。"
+    },
+    {
+      "id": "loc_wo_nan_he",
+      "name": "斡难河",
+      "region": "蒙古",
+      "one_line": "回忆中泰亦赤兀部宴会之地，铁木真曾在此被套木枷受辱。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_lian_zhu_jian",
+      "name": "连珠箭",
+      "type": "暗器",
+      "faction": "",
+      "one_line": "博尔术的箭法神技，连续发射多箭如箭链般疾射不绝，令哲别难以招架。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_jin_long_bian",
+      "name": "金龙鞭",
+      "type": "weapon",
+      "owner": "char_han_bao_ju",
+      "one_line": "韩宝驹的成名兵器，从铜缸中脱出后便欲以之击打丘处机。"
+    },
+    {
+      "id": "item_tie_zhang",
+      "name": "铁杖",
+      "type": "weapon",
+      "owner": "char_ke_zhen_e",
+      "one_line": "柯镇恶的随身兵器兼拐杖，与丘处机对话时重重顿地以示豪气。"
+    },
+    {
+      "id": "item_chang_jian",
+      "name": "长剑",
+      "type": "weapon",
+      "owner": "char_qiu_chu_ji",
+      "one_line": "丘处机的护身兵器，曾以此剑刺伤柯镇恶双腿与韩小莹，柯镇恶欲索此剑被拒。"
+    },
+    {
+      "id": "item_duan_jian",
+      "name": "短剑",
+      "type": "weapon",
+      "owner": "char_li_ping",
+      "one_line": "丘处机赠予李萍的锋利短剑，贴肉而藏未被段天德搜去，曾砍断段天德腰刀。"
+    },
+    {
+      "id": "item_zhui_feng_huang",
+      "name": "追风黄",
+      "type": "other",
+      "owner": "char_han_bao_ju",
+      "one_line": "韩宝驹的名驹坐骑，奔驰如风，韩宝驹骑之四处追击段天德。"
+    },
+    {
+      "id": "item_shan_zi",
+      "name": "扇子",
+      "type": "weapon",
+      "owner": "char_zhu_cong",
+      "one_line": "朱聪随身携带的折扇，应允赌约时扇子一张以示决心。"
+    },
+    {
+      "id": "item_yao_dao",
+      "name": "腰刀",
+      "type": "weapon",
+      "owner": "char_duan_tian_de",
+      "one_line": "段天德的佩刀，欲砍杀李萍时被短剑削断半截。"
+    },
+    {
+      "id": "item_bai_kou_ming_ju",
+      "name": "白口名驹",
+      "type": "other",
+      "owner": "char_tie_mu_zhen",
+      "one_line": "铁木真的心爱坐骑，奔跑迅速久经战阵，比箭时被哲别一箭射杀。"
+    },
+    {
+      "id": "item_duan_tou_ma_dao",
+      "name": "断头马刀",
+      "type": "weapon",
+      "owner": "char_zhe_bie",
+      "one_line": "哲别的残损兵器，从草堆中疾伸而出挡住术赤劈向郭靖的长刀。"
+    },
+    {
+      "id": "item_jie_du_yao",
+      "name": "解毒药",
+      "type": "pill",
+      "owner": "char_ke_zhen_e",
+      "one_line": "柯镇恶怀中所藏解毒药物，命僧人分别给丘处机与韩小莹服下解毒。"
+    },
+    {
+      "id": "item_xiao_gong_xiao_jian",
+      "name": "小弓小箭",
+      "type": "weapon",
+      "owner": "char_guo_jing",
+      "one_line": "郭靖平日玩耍的玩具弓箭，哲别询问时郭靖取出但嫌太小不合用。"
+    }
+  ]
+}

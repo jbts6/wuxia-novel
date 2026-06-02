@@ -134,11 +134,22 @@ def main():
     print("生成事件卡片...")
     events_dir = os.path.join(NOVELS_DIR, 'events')
     os.makedirs(events_dir, exist_ok=True)
+    # 清空旧文件
+    for f in os.listdir(events_dir):
+        if f.endswith('.md'):
+            os.remove(os.path.join(events_dir, f))
     
+    # 重名事件用 id 作文件名
+    name_counts = {}
+    for e in events:
+        n = e.get('name', 'unknown')
+        name_counts[n] = name_counts.get(n, 0) + 1
     for event in events:
         name = event.get('name', 'unknown')
+        event_id = event.get('id', name)
+        filename = event_id if name_counts.get(name, 0) > 1 else name
         markdown = event_to_markdown(event)
-        save_markdown(events_dir, name, markdown)
+        save_markdown(events_dir, filename, markdown)
     print(f"  已生成 {len(events)} 个事件卡")
 
     # 生成时间线

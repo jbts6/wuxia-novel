@@ -1,0 +1,664 @@
+{
+  "chapter": 13,
+  "characters_detail": [
+    {
+      "id": "char_guo_jing",
+      "personality": {
+        "traits": ["淳朴厚道", "不善言辞", "尊重长辈", "好学但基础薄弱", "正义感强"],
+        "speech_style": "言辞简朴直接，常用'蓉儿'称呼黄蓉，对不解之事坦然发问",
+        "temperament": "沉稳踏实，不争强好胜，遇事尊重主人与同伴意见"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "恋人", "intensity": 9, "bond_level": 9, "dynamic": "二人携手游太湖，互称靖哥哥与蓉儿，感情深厚默契"},
+        {"target": "char_lu_cheng_feng", "type": "知交", "intensity": 5, "bond_level": 4, "dynamic": "尊重陆庄主的博学与礼遇，不忍弃之不顾"},
+        {"target": "char_mu_nian_ci", "type": "旧识", "intensity": 4, "bond_level": 3, "dynamic": "关心穆念慈处境，曾为她与完颜康的事出力"},
+        {"target": "char_wan_yan_kang", "type": "对手", "intensity": 4, "bond_level": 2, "dynamic": "对其为虎作伥不满，但主张救其性命令其悔改"},
+        {"target": "char_qiu_qian_ren", "type": "晚辈对前辈", "intensity": 3, "bond_level": 2, "dynamic": "敬重其武功高强，起身告辞时被按下"},
+        {"target": "char_hong_qi_gong", "type": "师徒", "intensity": 7, "bond_level": 8, "dynamic": "已学降龙十五掌，心存感激，不敢对七公无礼"}
+      ],
+      "known_skills": ["skill_jiang_long_shi_ba_zhang"],
+      "related_skills": ["skill_pi_kong_zhang"]
+    },
+    {
+      "id": "char_huang_rong",
+      "personality": {
+        "traits": ["聪慧绝顶", "博学多才", "顽皮机灵", "善于鉴赏诗词书画", "胆大好奇"],
+        "speech_style": "言辞机敏，常引经据典，好用比喻，偶带俏皮与讥讽，笑语盈盈",
+        "temperament": "活泼灵动，好奇心极重，爱看热闹，对父亲黄药师的学识极为自信"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "恋人", "intensity": 9, "bond_level": 9, "dynamic": "主动引导郭靖游历、讲解典故，处处维护照顾"},
+        {"target": "char_lu_cheng_feng", "type": "知音", "intensity": 6, "bond_level": 5, "dynamic": "品评诗画一语道破陆庄主心事，被视作生平第一知己"},
+        {"target": "char_mu_nian_ci", "type": "友人", "intensity": 5, "bond_level": 4, "dynamic": "暗中指路帮穆念慈找到完颜康，但不急于归还匕首"},
+        {"target": "char_qiu_qian_ren", "type": "晚辈对前辈", "intensity": 4, "bond_level": 2, "dynamic": "初时佩服其绝技，后因他轻视黄药师而气恼，言语讥讽"},
+        {"target": "char_huang_yao_shi", "type": "父女", "intensity": 9, "bond_level": 10, "dynamic": "频繁提及父亲所教诗词书画奇门八卦之术，深以父学为傲"},
+        {"target": "char_wan_yan_kang", "type": "敌对", "intensity": 4, "bond_level": 2, "dynamic": "认为完颜康不是好东西，气他为金国办事，故意不让穆念慈早救"}
+      ],
+      "known_skills": ["skill_pi_kong_zhang"],
+      "related_skills": ["skill_jiang_long_shi_ba_zhang"]
+    },
+    {
+      "id": "char_mu_nian_ci",
+      "personality": {
+        "traits": ["痴情坚贞", "深明大义", "勇敢果决", "对完颜康心存幻想但有底线"],
+        "speech_style": "语气恳切，时而哀求时而严正，会以死相逼要求完颜康改过",
+        "temperament": "柔中带刚，深陷情网但不肯助纣为虐，民族大义面前不含糊"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wan_yan_kang", "type": "恋人", "intensity": 9, "bond_level": 7, "dynamic": "一往情深，夜入归云庄冒险相救，但坚持要求其不认贼作父"},
+        {"target": "char_mei_chao_feng", "type": "间接求助", "intensity": 3, "bond_level": 1, "dynamic": "受完颜康之托去骷髅标记处放置腰带求救信"},
+        {"target": "char_ou_yang_ke", "type": "受害者", "intensity": 5, "bond_level": 0, "dynamic": "在荒山遭欧阳克调戏侮辱，几失清白"},
+        {"target": "char_huang_rong", "type": "受益者", "intensity": 4, "bond_level": 3, "dynamic": "获黄蓉暗中指路找到囚禁完颜康之处，事后望空叩谢"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wan_yan_kang",
+      "personality": {
+        "traits": ["武功不凡", "贪图富贵", "贪花好色", "摇摆不定", "口齿伶俐善于推脱"],
+        "speech_style": "时而霸道时而柔情，擅长甜言蜜语哄穆念慈，遇强敌则冷笑挑衅",
+        "temperament": "心高气傲，被俘仍不屈服，但在国族认同上始终含糊其辞"
+      },
+      "archetype": "villain",
+      "relationships": [
+        {"target": "char_mu_nian_ci", "type": "恋人", "intensity": 7, "bond_level": 6, "dynamic": "有真情但利用穆念慈传信求救，不肯立誓放弃金国身份"},
+        {"target": "char_lu_cheng_feng", "type": "囚徒与主人", "intensity": 5, "bond_level": 1, "dynamic": "先以九阴白骨爪击败陆冠英，后被陆庄主精妙擒拿法制服囚禁"},
+        {"target": "char_lu_guan_ying", "type": "对手", "intensity": 5, "bond_level": 1, "dynamic": "与陆冠英单挑先败后胜，被怀心腿踢中胸口后以九阴白骨爪反击"},
+        {"target": "char_mei_chao_feng", "type": "师徒", "intensity": 6, "bond_level": 5, "dynamic": "托穆念慈向师父梅超风求救，但不知其来历身份"},
+        {"target": "char_qiu_chu_ji", "type": "师徒", "intensity": 3, "bond_level": 3, "dynamic": "丘处机为其另一师父，传全真派拳法"}
+      ],
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_quan_zhen_quan_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_lu_cheng_feng",
+      "personality": {
+        "traits": ["文雅博学", "深藏不露", "重义轻生", "对师门感怀至深", "鉴赏力极精"],
+        "speech_style": "言辞儒雅，引经据典，与人对答时自称'晚辈'或'在下'，谦和有礼",
+        "temperament": "表面淡泊从容，内心存深仇大恨，得知对头来临时存必死之心"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "知音", "intensity": 7, "bond_level": 5, "dynamic": "被黄蓉一语道破画中愤激之心，引为生平第一知己"},
+        {"target": "char_guo_jing", "type": "知交", "intensity": 5, "bond_level": 4, "dynamic": "以礼相待，赠金赠药，临别嘱托不可理会怪异动静"},
+        {"target": "char_lu_guan_ying", "type": "父子", "intensity": 8, "bond_level": 9, "dynamic": "暗中护子，关键时刻出手制服完颜康，但不向儿子透露师门往事"},
+        {"target": "char_wan_yan_kang", "type": "审问者", "intensity": 5, "bond_level": 1, "dynamic": "识出九阴白骨爪的来历，追问黑风双煞关系，将其囚禁"},
+        {"target": "char_qiu_qian_ren", "type": "主人待客", "intensity": 4, "bond_level": 3, "dynamic": "素仰其威名，借其到来心下大慰，以礼相待"},
+        {"target": "char_huang_yao_shi", "type": "隐秘师承", "intensity": 6, "bond_level": 7, "dynamic": "武功掌法点穴功夫全与桃花岛一路，暗示其为黄药师被逐弟子"}
+      ],
+      "known_skills": [],
+      "related_skills": ["skill_pi_kong_zhang"]
+    },
+    {
+      "id": "char_lu_guan_ying",
+      "personality": {
+        "traits": ["斯文有礼", "能领袖群豪", "武艺出众", "临敌不惧", "孝顺父亲"],
+        "speech_style": "对父亲恭顺，对群盗号令分明，待客谦称'小侄'",
+        "temperament": "文武兼备，平时儒雅，战时果断，指挥若定井井有条"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_lu_cheng_feng", "type": "父子", "intensity": 8, "bond_level": 9, "dynamic": "不知父亲会武，得知真相后心中难受，处处维护"},
+        {"target": "char_wan_yan_kang", "type": "对手", "intensity": 6, "bond_level": 2, "dynamic": "先以怀心腿踢中完颜康，后被其九阴白骨爪所伤，最终被父亲解围"},
+        {"target": "char_qiu_qian_ren", "type": "晚辈", "intensity": 4, "bond_level": 2, "dynamic": "渴望高人指点，演练罗汉伏虎拳，被评'制胜无用'后默然受教"},
+        {"target": "char_ma_qing_xiong", "type": "上下级", "intensity": 4, "bond_level": 1, "dynamic": "马青雄临阵退缩，陆冠英果断将其击杀以正军纪"}
+      ],
+      "known_skills": ["skill_luo_han_fu_hu_quan", "skill_huai_xin_tui"],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_qian_ren",
+      "personality": {
+        "traits": ["老谋深算", "好大喜功", "轻视五绝", "自视武功天下第一", "心怀大事"],
+        "speech_style": "口称老夫、老朽，语气自信到狂妄，纵论天下高手如数家珍，暗示金兵南征大事",
+        "temperament": "沉稳中带傲慢，好为人师，先示绝技震慑众人，再以大事要挟"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_lu_cheng_feng", "type": "前辈对晚辈", "intensity": 5, "bond_level": 3, "dynamic": "探问归云庄实力，暗示可为庄主出头，欲拉拢其起事"},
+        {"target": "char_lu_guan_ying", "type": "考校者", "intensity": 3, "bond_level": 2, "dynamic": "令其演练拳法，评其'制胜无用'，展示碎砖绝技"},
+        {"target": "char_huang_rong", "type": "长辈", "intensity": 3, "bond_level": 2, "dynamic": "黄蓉因其轻视黄药师而言语讥讽，裘千仞不以为忤"},
+        {"target": "char_wan_yan_kang", "type": "利用对象", "intensity": 4, "bond_level": 1, "dynamic": "命人将完颜康押上席间，借其金国钦使身份说明天下大势"}
+      ],
+      "known_skills": ["skill_tie_zhang_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_ke",
+      "personality": {
+        "traits": ["轻薄好色", "阴险狡诈", "武功不弱", "忌惮高手", "贪恋九阴真经"],
+        "speech_style": "语气轻佻，对女子言语调戏，对梅超风则威胁利诱并施",
+        "temperament": "欺软怕硬，精心设伏但遇真正高手即逃，咬舌求存不失果断"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {"target": "char_mu_nian_ci", "type": "骚扰者", "intensity": 6, "bond_level": 0, "dynamic": "在荒山调戏穆念慈，如猫戏鼠般尽情玩弄"},
+        {"target": "char_mei_chao_feng", "type": "仇敌/掠夺者", "intensity": 7, "bond_level": 0, "dynamic": "设蛇阵围困梅超风，逼其交出九阴真经"},
+        {"target": "char_qing_yi_guai_ren", "type": "被压制者", "intensity": 8, "bond_level": 0, "dynamic": "被箫声魔音控制，咬舌逃遁，精疲力尽如生大病"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mei_chao_feng",
+      "personality": {
+        "traits": ["凶狠顽强", "对亡夫深情", "对师门有愧", "盲目后武功仍极强", "宁死不屈"],
+        "speech_style": "自称'姑奶奶'，语气凶悍，临危不惧，宁毁经文也不屈服",
+        "temperament": "刚烈决绝，身处绝境仍保持战斗意志，将九阴真经看得比性命更重"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_ou_yang_ke", "type": "仇敌", "intensity": 7, "bond_level": 0, "dynamic": "被蛇阵围困，以银鞭和无形钉苦战，宁死不交出九阴真经"},
+        {"target": "char_wan_yan_kang", "type": "师徒", "intensity": 5, "bond_level": 5, "dynamic": "传授完颜康武功，完颜康托穆念慈求其来救"},
+        {"target": "char_qing_yi_guai_ren", "type": "被救者", "intensity": 5, "bond_level": 1, "dynamic": "命悬一线之际被青衣怪人箫声解围"}
+      ],
+      "known_skills": ["skill_wu_xing_ding"],
+      "related_skills": ["skill_jiu_yin_bai_gu_zhao"]
+    },
+    {
+      "id": "char_ma_qing_xiong",
+      "personality": {
+        "traits": ["贪生怕死", "临阵退缩", "不守盟誓"],
+        "speech_style": "语气傲慢自大，反对截击金国钦使，被击败后无遗言",
+        "temperament": "怯懦自私，见利忘义"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_lu_guan_ying", "type": "下级抗命者", "intensity": 5, "bond_level": 1, "dynamic": "临阵反对截击，拔匕首反抗，被陆冠英击杀"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qing_yi_guai_ren",
+      "personality": {
+        "traits": ["沉默寡言", "形如鬼魅", "武功深不可测", "面容怪异如死人"],
+        "speech_style": "全章无一句对白，仅以箫声和行动表达",
+        "temperament": "冷寂诡异，来去无声，出手控制全场但从不伤人性命"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_mei_chao_feng", "type": "暗中守护者", "intensity": 6, "bond_level": 2, "dynamic": "尾随梅超风至荒山，关键时刻以箫声驱散蛇阵解围"},
+        {"target": "char_ou_yang_ke", "type": "压制者", "intensity": 7, "bond_level": 0, "dynamic": "以洞箫功魔音控制群蛇与众人，迫使欧阳克咬舌逃遁"}
+      ],
+      "known_skills": ["skill_dong_xiao_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_duan_zhi_hui_shi",
+      "personality": {
+        "traits": ["满面胡子", "神色惶恐", "贪财搜刮"],
+        "speech_style": "被俘后无台词，仅以惶恐神态出现",
+        "temperament": "怯懦无能"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wan_yan_kang", "type": "下属", "intensity": 3, "bond_level": 2, "dynamic": "率兵护送金国钦使过太湖，一同被擒"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhang_zhai_zhu",
+      "personality": {
+        "traits": ["干练忠诚", "执行力强"],
+        "speech_style": "简短有力，遵令行事，对完颜康语气不客气",
+        "temperament": "忠诚服从，少庄主令下即行"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_lu_guan_ying", "type": "下属", "intensity": 4, "bond_level": 4, "dynamic": "负责哨探、押送俘虏、领路，在湖中迎接到六位异人"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chu_ji",
+      "personality": {
+        "traits": ["刚烈正直"],
+        "speech_style": "未出场，仅被提及",
+        "temperament": "未描写"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_wan_yan_kang", "type": "师徒", "intensity": 4, "bond_level": 4, "dynamic": "传完颜康全真派拳法，完颜康另有师父梅超风"}
+      ],
+      "known_skills": ["skill_quan_zhen_quan_fa"],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "personality": {
+        "traits": ["豪迈洒脱"],
+        "speech_style": "未出场，仅被提及",
+        "temperament": "说走便走，不留痕迹"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_guo_jing", "type": "师徒", "intensity": 7, "bond_level": 8, "dynamic": "传授郭靖降龙十五掌后离去，黄蓉欲藏打狗棒逼其教余下三掌"}
+      ],
+      "known_skills": ["skill_jiang_long_shi_ba_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "personality": {
+        "traits": ["博学多才", "狂傲不羁"],
+        "speech_style": "未出场，仅被黄蓉引用其言论",
+        "temperament": "读圣人书时骂'不对不对胡说八道放狗屁'"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {"target": "char_huang_rong", "type": "父女", "intensity": 9, "bond_level": 10, "dynamic": "黄蓉所学诗词书画奇门八卦皆由父亲传授"},
+        {"target": "char_lu_cheng_feng", "type": "师徒（隐）", "intensity": 6, "bond_level": 7, "dynamic": "陆庄主武功掌法点穴与桃花岛一路，暗示为其被逐弟子"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_chong_yang",
+      "personality": {
+        "traits": ["德高望重"],
+        "speech_style": "未出场，仅被提及",
+        "temperament": "未描写"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_zhou_bo_tong", "type": "师兄弟", "intensity": 5, "bond_level": 6, "dynamic": "临终将九阴真经传给师弟周伯通"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhou_bo_tong",
+      "personality": {
+        "traits": ["天真好玩"],
+        "speech_style": "未出场，仅被提及",
+        "temperament": "未描写"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {"target": "char_wang_chong_yang", "type": "师兄弟", "intensity": 5, "bond_level": 6, "dynamic": "接受师兄传经，后被黄药师抢走半部"},
+        {"target": "char_huang_yao_shi", "type": "敌对", "intensity": 5, "bond_level": 1, "dynamic": "不是黄药师对手，被抢走半部九阴真经"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ku_mu_da_shi",
+      "personality": {
+        "traits": ["未描写"],
+        "speech_style": "未出场，仅被提及",
+        "temperament": "未描写"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {"target": "char_lu_guan_ying", "type": "师徒", "intensity": 4, "bond_level": 5, "dynamic": "临安府云栖寺高僧，陆冠英为其门下弟子"}
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_jiang_long_shi_ba_zhang",
+      "techniques": [
+        {"id": "jl_01", "name": "降龙十八掌（十五掌）", "type": "attack", "description": "洪七公传授郭靖的掌法绝学，郭靖已学会十五掌，余下三掌未学。黄蓉提及欲藏打狗棒逼七公教完。"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "已学十五掌，得洪七公随口点拨上乘武学精义，武功突飞猛进"}
+      ],
+      "effects": ["使郭靖修为已不逊于江南六位师父"],
+      "combat_style": "刚猛掌法，以力取胜"
+    },
+    {
+      "id": "skill_jiu_yin_bai_gu_zhao",
+      "techniques": [
+        {"id": "jy_01", "name": "九阴白骨爪", "type": "attack", "description": "阴毒指爪功夫，以手指在骷髅头顶戳五个洞孔为标志。完颜康以此撕断绳索挣脱束缚，五指插入陆冠英小腿致其鲜血淋漓。"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "完颜康已练此功但未到家，陆庄主一眼识出其来历与黑风双煞有关"}
+      ],
+      "effects": ["撕断绳索", "五指穿肉伤人", "陆冠英小腿重伤"],
+      "combat_style": "阴毒指法，以手指戳洞穿肉"
+    },
+    {
+      "id": "skill_luo_han_fu_hu_quan",
+      "techniques": [
+        {"id": "lh_01", "name": "罗汉伏虎拳", "type": "attack", "description": "陆冠英生平最得意的拳法，包含猛虎罗汉双形。猛虎剪扑之势、罗汉搏击之状同时显示，最后以左手擎天右足踢斗的罗汉佛像之姿收势。"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "陆冠英已精通此拳，在裘千仞面前完整演练"}
+      ],
+      "effects": ["拳风虎虎", "烛影摇晃四座风生", "一拳碎裂方砖"],
+      "combat_style": "外家拳法，威猛凌厉，先虎形后罗汉形"
+    },
+    {
+      "id": "skill_pi_kong_zhang",
+      "techniques": [
+        {"id": "pk_01", "name": "劈空掌", "type": "attack", "description": "以铁八卦为靶练功的掌法，虚劈即可灭烛火。黄蓉练过一个月便搁下。"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "黄蓉已练至虚劈灭烛火的程度，自称'闹着玩还可以，要打人全无用处'"}
+      ],
+      "effects": ["虚劈灭烛火"],
+      "combat_style": "远程掌力，以铁八卦练劲"
+    },
+    {
+      "id": "skill_huai_xin_tui",
+      "techniques": [
+        {"id": "hx_01", "name": "怀心腿", "type": "attack", "description": "陆冠英自幼苦练的绝招，用绳子缚住足踝绕过屋梁逐日拉扯悬吊，临敌时一腿飞出倏忽过顶，足心朝天踢向敌人心胸。"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "陆冠英自幼苦练此技，实战中踢中完颜康胸口"}
+      ],
+      "effects": ["出腿如电", "倏忽过顶", "踢中完颜康胸口"],
+      "combat_style": "奇袭腿法，出其不意攻敌上盘"
+    },
+    {
+      "id": "skill_quan_zhen_quan_fa",
+      "techniques": [
+        {"id": "qz_01", "name": "全真派拳法", "type": "attack", "description": "丘处机传授完颜康的拳法，完颜康与陆冠英对战时施展。"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "完颜康习得此拳法用于实战"}
+      ],
+      "effects": [],
+      "combat_style": "全真正宗拳法"
+    },
+    {
+      "id": "skill_wu_xing_ding",
+      "techniques": [
+        {"id": "wx_01", "name": "无形钉", "type": "attack", "description": "梅超风发射的阴毒暗器，去如电闪。三枚无形钉击倒欧阳克两名白衣女子，欧阳克危急中着地滚倒方避过。"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "梅超风使用此暗器对付欧阳克蛇阵围困"}
+      ],
+      "effects": ["击倒两名白衣女子", "去如电闪难以闪避"],
+      "combat_style": "暗器突袭，趁敌不备"
+    },
+    {
+      "id": "skill_tie_zhang_gong",
+      "techniques": [
+        {"id": "tz_01", "name": "铁掌功（碎砖）", "type": "attack", "description": "裘千仞双手轻描淡写将砖头捏成碎块再碾成粉末，展示惊人内力。"},
+        {"id": "tz_02", "name": "铁掌功（顶缸踏水）", "type": "buff", "description": "头顶数百斤生铁大缸内盛清水，踏水过河如履平地，河水仅浸及小腿。"},
+        {"id": "tz_03", "name": "铁掌功（口喷烟雾）", "type": "special", "description": "盘膝而坐双目微闭，嘴里喷出一缕缕烟雾连续不断，为极高深内功的表征。"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "裘千仞在归云庄完整展示三项绝技，震慑全场"}
+      ],
+      "effects": ["碎砖成粉", "踏水行走", "口喷烟雾", "震慑众人"],
+      "combat_style": "内力深厚，以力压人，外功与内功兼修"
+    },
+    {
+      "id": "skill_dong_xiao_gong",
+      "techniques": [
+        {"id": "dx_01", "name": "洞箫功（驱蛇）", "type": "debuff", "description": "吹奏玉箫发出魔音，群蛇争先恐后涌到松树下随箫声摇头摆脑舞动，三名驱蛇男子和六名姬人围着乱转狂舞如痴如狂。"},
+        {"id": "dx_02", "name": "洞箫功（拨暗器）", "type": "defense", "description": "以箫尾轻描淡写逐一拨落欧阳克六枚喂毒银梭，击暗器时口唇未离箫边，乐声未有片刻停滞。"},
+        {"id": "dx_03", "name": "洞箫功（控心）", "type": "debuff", "description": "箫声美妙之极，令欧阳克热血沸腾心神荡漾，差点手舞足蹈至死方休。欧阳克咬舌方逃脱。"}
+      ],
+      "progression": [
+        {"level": 1, "unlock": "青衣怪人坐于松树之巅吹奏，控制全场"}
+      ],
+      "effects": ["群蛇起舞", "众人狂乱撕衣抓脸", "欧阳克被迫咬舌逃遁", "梅超风低头行功抵御"],
+      "combat_style": "以音制敌，控制心神与蛇群，不战而屈人之兵"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_jiu_hua_yu_lu_wan",
+      "description": "陆庄主以恩师所授医药道理配制的珍贵朱红色药丸，散发清香沁人心脾。",
+      "effects": [
+        {"type": "heal", "value": "延年益寿", "description": "服后延年益寿，配制需九种花瓣清晨露水，凑天时季节极费功夫"}
+      ],
+      "origin": "陆庄主依恩师医药道理配制",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_ba_gua",
+      "description": "钉在陆庄主书房门楣上的八片铁片，排作不规则八卦形状，疏疏落落歪斜不称。",
+      "effects": [
+        {"type": "training", "value": "劈空掌靶具", "description": "用以练习劈空掌的器具，黄蓉由此识出陆庄主会武"}
+      ],
+      "origin": "陆庄主书房",
+      "rarity": "uncommon",
+      "related_skills": ["skill_pi_kong_zhang"]
+    },
+    {
+      "id": "item_yin_bian",
+      "description": "梅超风的烂银长鞭，舞动时闪起千条银光。",
+      "effects": [
+        {"type": "defense", "value": "护住全身", "description": "舞动银鞭护住全身抵御群蛇围攻，一盏茶功夫前后左右均被毒蛇围住仍不破防"}
+      ],
+      "origin": "梅超风随身兵器",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_jin_yin",
+      "description": "大金国钦使之印，系于项颈之上。",
+      "effects": [
+        {"type": "authority", "value": "钦使印信", "description": "完颜康欲让穆念慈携此印赴临安求见史丞相，传达金国密旨"}
+      ],
+      "origin": "大金国朝廷颁发给完颜康",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_jin_huan_yao_dai",
+      "description": "完颜康的腰带，上有金环。",
+      "effects": [
+        {"type": "signal", "value": "求救信物", "description": "穆念慈在金环上用刀尖刻'完颜康有难，在太湖西畔归云庄'十三字，放在骷髅头下作为给梅超风的求救信号"}
+      ],
+      "origin": "完颜康随身之物",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_yu_xiao",
+      "description": "青衣怪人手持的玉制洞箫。",
+      "effects": [
+        {"type": "weapon", "value": "乐器/兵器", "description": "以此吹奏魔音控制蛇群与人心，又能轻描淡写拨落欧阳克的六枚喂毒银梭"}
+      ],
+      "origin": "青衣怪人随身之物",
+      "rarity": "rare",
+      "related_skills": ["skill_dong_xiao_gong"]
+    },
+    {
+      "id": "item_liu_ye_dao",
+      "description": "穆念慈的随身兵刃。",
+      "effects": [
+        {"type": "attack", "value": "近战兵器", "description": "穆念慈向欧阳克砍去但被夺走抛下"}
+      ],
+      "origin": "穆念慈随身兵器",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_zhe_shan",
+      "description": "欧阳克随身携带的折扇，儒生打扮。",
+      "effects": [
+        {"type": "weapon", "value": "饰物兼武器", "description": "既为饰物亦作武器，欧阳克扇子一张便欲翩翩起舞"}
+      ],
+      "origin": "欧阳克随身之物",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_da_tie_gang",
+      "description": "裘千仞头顶行走的数百斤生铁铸成大缸，内盛清水。",
+      "effects": [
+        {"type": "display", "value": "武功展示", "description": "头顶铁缸踏水过河如履平地，缸中清水加上缸重数百斤"}
+      ],
+      "origin": "裘千仞用于展示绝技",
+      "rarity": "uncommon",
+      "related_skills": ["skill_tie_zhang_gong"]
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing",
+      "description": "华山论剑的争夺之物，武学至宝。",
+      "effects": [
+        {"type": "knowledge", "value": "武学至宝", "description": "王重阳华山论剑赢得，临终传给周伯通，被黄药师抢走半部，又被黑风双煞盗去部分，欧阳克欲从梅超风处夺取"}
+      ],
+      "origin": "华山论剑争夺之物",
+      "rarity": "legendary",
+      "related_skills": ["skill_jiu_yin_bai_gu_zhao"]
+    },
+    {
+      "id": "item_ku_lou_tou",
+      "description": "九颗叠成上一中三下五的白骨骷髅头，顶上有五指洞孔。",
+      "effects": [
+        {"type": "signal", "value": "联络标记", "description": "梅超风的标记和联络信号，穆念慈将金环腰带放在其下作为求救信物"}
+      ],
+      "origin": "梅超风所设",
+      "rarity": "uncommon",
+      "related_skills": ["skill_jiu_yin_bai_gu_zhao"]
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_13_01",
+      "name": "郭靖黄蓉泛舟太湖谈古论今",
+      "participants": ["char_guo_jing", "char_huang_rong"],
+      "location": "loc_tai_hu",
+      "description": "二人沿运河南下至太湖，借小船荡入湖中。黄蓉讲述范蠡西施归隐太湖、伍子胥文种为国尽忠的故事，又引《水龙吟》词抒怀。二人探讨圣人之言与黄药师的学问，提及降龙十八掌与打狗棒。"
+    },
+    {
+      "id": "evt_13_02",
+      "name": "渔人邀客入归云庄",
+      "participants": ["char_lu_cheng_feng", "char_guo_jing", "char_huang_rong"],
+      "location": "loc_tai_hu",
+      "description": "湖上垂钓渔人（陆乘风）接唱《水龙吟》下半阕，与黄蓉谈诗词甚为投机，邀二人至庄上盘桓。二人随僮儿乘大船至太湖水洲上的归云庄，见庄院宏伟出乎意料。"
+    },
+    {
+      "id": "evt_13_03",
+      "name": "黄蓉品评书画识破陆庄主",
+      "participants": ["char_lu_cheng_feng", "char_huang_rong"],
+      "location": "loc_gui_yun_zhuang",
+      "description": "陆庄主以渔人打扮改着儒生衣巾在书房待客。黄蓉品评其岳飞《小重山》画作，一语道破其笔力锋芒毕露、满腔愤激委曲的心情，陆庄主引为生平第一知己。黄蓉又见门楣铁八卦识出庄主会武，夜间虚劈灭烛演示劈空掌。"
+    },
+    {
+      "id": "evt_13_04",
+      "name": "太湖群雄夜间截击金国官兵",
+      "participants": ["char_lu_guan_ying", "char_ma_qing_xiong", "char_duan_zhi_hui_shi"],
+      "location": "loc_tai_hu",
+      "description": "郭靖黄蓉夜闻海螺声偷随陆冠英出庄，见太湖群盗千船集结。马青雄反对截击钦使被陆冠英击杀。群盗夜袭段指挥使官兵船队，官兵全军覆没，段指挥使被擒。"
+    },
+    {
+      "id": "evt_13_05",
+      "name": "群盗擒获完颜康",
+      "participants": ["char_lu_guan_ying", "char_wan_yan_kang"],
+      "location": "loc_tai_hu",
+      "description": "群盗掉头追击金国钦使船队，完颜康骁勇连伤数位寨主（贺、彭、董寨主受伤，缥缈峰郭头领被枪搠死）。水鬼凿穿船底，完颜康落水被擒。"
+    },
+    {
+      "id": "evt_13_06",
+      "name": "完颜康挣脱束缚与陆冠英书房激战",
+      "participants": ["char_wan_yan_kang", "char_lu_guan_ying"],
+      "location": "loc_gui_yun_zhuang",
+      "description": "完颜康被解到归云庄，以九阴白骨爪撕断绳索逃脱，慌不择路闯入陆庄主书房。与陆冠英激战数十招，被怀心腿踢中胸口后以九阴白骨爪反击插入陆冠英小腿。"
+    },
+    {
+      "id": "evt_13_07",
+      "name": "陆庄主出手制服完颜康",
+      "participants": ["char_lu_cheng_feng", "char_wan_yan_kang"],
+      "location": "loc_gui_yun_zhuang",
+      "description": "陆庄主凭榻跃起，以精妙擒拿法捏住完颜康手腕，连施五六下杀手，肘锤打中肩井穴，双手手腕关节错脱，借力跃回木榻稳坐。完颜康被上精钢双重脚镣手铐囚禁。陆庄主追问九阴白骨爪来历。"
+    },
+    {
+      "id": "evt_13_08",
+      "name": "穆念慈夜入归云庄救完颜康未果",
+      "participants": ["char_mu_nian_ci", "char_wan_yan_kang", "char_huang_rong"],
+      "location": "loc_gui_yun_zhuang",
+      "description": "穆念慈夜潜归云庄迷路，黄蓉暗中掷泥指路帮她找到囚禁处。完颜康因铁链锁柱无法带走，要求穆念慈携金印去见宋朝史丞相传金国密旨。穆念慈怒斥其认贼作父，完颜康改口答应归隐，转而托穆念慈去苏州荒山骷髅标记处放腰带求救梅超风。"
+    },
+    {
+      "id": "evt_13_09",
+      "name": "穆念慈放置求救腰带遭欧阳克调戏",
+      "participants": ["char_mu_nian_ci", "char_ou_yang_ke"],
+      "location": "loc_huang_jiao_shan",
+      "description": "穆念慈在苏州北郊荒山找到九颗骷髅头，在金环上刻字后放置腰带。欧阳克现身调戏穆念慈如猫戏鼠，夺走柳叶刀，搂住脉门使其动弹不得。穆念慈晕去又醒来，被手帕缚嘴。"
+    },
+    {
+      "id": "evt_13_10",
+      "name": "欧阳克蛇阵围困梅超风",
+      "participants": ["char_ou_yang_ke", "char_mei_chao_feng"],
+      "location": "loc_huang_jiao_shan",
+      "description": "欧阳克布下数千条青蛇阵势等候梅超风。梅超风到后被蛇群围困，以银鞭舞动护住全身，发射三枚无形钉击倒两名白衣女子。双方僵持近两个时辰，梅超风内力渐竭，经文刺于亡夫腹皮上宁死不交。"
+    },
+    {
+      "id": "evt_13_11",
+      "name": "青衣怪人箫声驱蛇解梅超风之围",
+      "participants": ["char_qing_yi_guai_ren", "char_mei_chao_feng", "char_ou_yang_ke"],
+      "location": "loc_huang_jiao_shan",
+      "description": "青衣怪人坐于松树之巅吹奏玉箫，魔音令群蛇起舞、驱蛇男子与姬人狂乱自撕衣服抓搔头脸。欧阳克六枚喂毒银梭被箫尾拨落，箫声未断。欧阳克咬舌剧痛之际发足狂奔数里逃脱。梅超风盘膝低头行功抵御。"
+    },
+    {
+      "id": "evt_13_12",
+      "name": "陆庄主赠金赠药送别郭黄二人",
+      "participants": ["char_lu_cheng_feng", "char_guo_jing", "char_huang_rong"],
+      "location": "loc_gui_yun_zhuang",
+      "description": "梅超风骷髅标记送达归云庄，陆庄主面色大变，命陆冠英护送家眷离庄、约束群盗三日内不离本寨。赠郭黄四十两黄金和数十颗九花玉露丸，嘱二人即速过湖，不论遇上何怪异动静千万不可理会。自知对头将至存必死之心，只求拚个同归于尽报答师恩。"
+    },
+    {
+      "id": "evt_13_13",
+      "name": "裘千仞头顶铁缸踏水现身归云庄",
+      "participants": ["char_qiu_qian_ren", "char_lu_guan_ying", "char_guo_jing", "char_huang_rong"],
+      "location": "loc_gui_yun_zhuang",
+      "description": "郭黄正要上船离开，忽见白须老头头顶数百斤生铁大缸踏水过河如履平地。裘千仞自报铁掌水上飘名号，陆冠英大喜邀入庄中。陆庄主素仰其威名，得知黑风双煞与其无关后心下大慰。"
+    },
+    {
+      "id": "evt_13_14",
+      "name": "裘千仞展示绝技并论天下高手",
+      "participants": ["char_qiu_qian_ren", "char_lu_guan_ying", "char_lu_cheng_feng", "char_guo_jing", "char_huang_rong"],
+      "location": "loc_gui_yun_zhuang",
+      "description": "裘千仞书房盘坐口喷烟雾展示内功，令陆庄主等人偷窥称奇。宴席上评陆冠英罗汉伏虎拳'制胜无用'，双手将砖头捏成粉末。纵论华山论剑五绝及九阴真经流传始末，自诩武功第一，轻视五绝。"
+    },
+    {
+      "id": "evt_13_15",
+      "name": "裘千仞暗示金兵南征劝陆庄主起事",
+      "participants": ["char_qiu_qian_ren", "char_lu_cheng_feng", "char_lu_guan_ying", "char_guo_jing", "char_huang_rong", "char_wan_yan_kang", "char_duan_zhi_hui_shi"],
+      "location": "loc_gui_yun_zhuang",
+      "description": "裘千仞声称半年内金兵大举南征大宋不保，提出只有一条路可免万民遭劫。命人将完颜康与段指挥使押上席间，暗示陆庄主结连江南豪杰起事。张寨主在湖中迎到六位异人抵达庄前，陆庄主脸上变色命快请。"
+    }
+  ],
+  "dialogues": [
+    {"speaker": "char_huang_rong", "listener": "char_guo_jing", "text": "从前范大夫载西施泛于五湖，真是聪明，老死在这里，岂不强于做那劳什子的官么？", "tone": "感慨抒怀", "chapter": 13},
+    {"speaker": "char_guo_jing", "listener": "char_huang_rong", "text": "范蠡当然聪明，但像伍子胥与文种那样，到死还是为国尽忠，那是更加不易了。", "tone": "诚恳感叹", "chapter": 13},
+    {"speaker": "char_huang_rong", "listener": "char_guo_jing", "text": "国家政局清明，你做了大官，但不变从前的操守；国家朝政腐败，你宁可杀身成仁，也不肯亏了气节，这才是响当当的好男儿大丈夫。", "tone": "正色教诲", "chapter": 13},
+    {"speaker": "char_huang_rong", "listener": "char_guo_jing", "text": "啊哟，我想得出，那不变了圣人？这是孔夫子的话。我小时候爹爹教我读的。", "tone": "笑语自谦", "chapter": 13},
+    {"speaker": "char_huang_rong", "listener": "char_guo_jing", "text": "我爹爹常说，大圣人的话，有许多是全然不通的。我见爹爹读书之时，常说：'不对，不对，胡说八道，岂有此理！'有时说：'大圣人，放狗屁！'", "tone": "笑语转述", "chapter": 13},
+    {"speaker": "char_huang_rong", "listener": "char_guo_jing", "text": "可惜七公说走便走，否则的话，我把他的打狗棒儿偷偷藏了起来，要他教了你那余下的三掌，才把棒儿还他。", "tone": "俏皮调皮", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_huang_rong", "text": "得聆清音，胸间尘俗顿消。在下姓陆。两位小哥今日可是初次来太湖游览吗？", "tone": "风雅谦和", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_huang_rong", "text": "小哥年纪轻轻，居然能领会词中深意，也真难得。", "tone": "赞赏称奇", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_huang_rong", "text": "老弟，这幅画怎样，请你品题品题。", "tone": "考校请教", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_huang_rong", "text": "黄老弟说哪里话来？我这番心情，今日才被你看破，老弟真可说得是我生平第一知己。至于笔墨过于剑拔弩张，更是我改不过来的大毛病。承老弟指教，甚是甚是。", "tone": "感慨感激", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_huang_rong", "text": "才人不遇，古今同慨。", "tone": "叹惋", "chapter": 13},
+    {"speaker": "char_huang_rong", "listener": "char_guo_jing", "text": "这人必定会武，而且还是高手，你见到了他书房中的铁八卦么？那是用来练劈空掌的家伙。爹爹教过我这套掌法，我嫌气闷，练不到一个月便搁下了。", "tone": "低声分析", "chapter": 13},
+    {"speaker": "char_lu_guan_ying", "listener": "char_lu_guan_ying", "text": "这些民脂民膏，不义之财，打从太湖里来，不取有违天道。咱们尽数取来，一半?散给湖滨贫民，另一半各寨分了。", "tone": "慷慨豪迈", "chapter": 13},
+    {"speaker": "char_ma_qing_xiong", "listener": "char_lu_guan_ying", "text": "咱们做这没本钱买卖的，吃吃富商大贾，也就够啦。这般和官家大动干戈，咱们在湖边还耽得下去么？大金国钦使更加得罪不得。", "tone": "冷冷反对", "chapter": 13},
+    {"speaker": "char_lu_guan_ying", "listener": "char_ma_qing_xiong", "text": "马大哥初来，不知这里规矩，既然大家齐心要干，咱们就是闹个全军覆没，那也是死而无悔。", "tone": "正色决断", "chapter": 13},
+    {"speaker": "char_wan_yan_kang", "listener": "char_lu_guan_ying", "text": "我在北京时久闻江南豪客的大名，只道当真都是光明磊落的好男子，哼哼，今日一见，却原来……嘿嘿，行使诡计凿沉船只。", "tone": "冷笑挑衅", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_wan_yan_kang", "text": "这阴毒的九阴白骨爪是谁传你的？", "tone": "怒喝质问", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_wan_yan_kang", "text": "我腿有残疾，不能行走，你过来。", "tone": "沉稳自信", "chapter": 13},
+    {"speaker": "char_mu_nian_ci", "listener": "char_wan_yan_kang", "text": "我一直当你是个智勇双全的好男儿，当你假意在金国做小王爷，只不过等待机会，要给大宋出一口气。你，你真的竟然会认贼作父么？", "tone": "愤怒失望", "chapter": 13},
+    {"speaker": "char_wan_yan_kang", "listener": "char_mu_nian_ci", "text": "等我脱难之后，我不再做甚么劳什子的钦使，也不回到金国去了。我跟你隐居归农，总好过成日心中难受。", "tone": "柔情哄劝", "chapter": 13},
+    {"speaker": "char_mu_nian_ci", "listener": "char_wan_yan_kang", "text": "你得立个誓，决不能再认贼作父，卖国害民。", "tone": "严正要求", "chapter": 13},
+    {"speaker": "char_wan_yan_kang", "listener": "char_mu_nian_ci", "text": "我一切弄明白之后，自然会照良心行事。你这时逼我立誓，又有甚么用？", "tone": "怫然不悦", "chapter": 13},
+    {"speaker": "char_mu_nian_ci", "listener": "char_wan_yan_kang", "text": "将来要是你不做好人，我也无法可想，只怨我命苦，惟有死在你的面前。", "tone": "斩钉截铁", "chapter": 13},
+    {"speaker": "char_ou_yang_ke", "listener": "char_mei_chao_feng", "text": "姓梅的妖婆子，我也不要你的性命，你把《九阴真经》交出来，公子爷就放你走路。", "tone": "威胁利诱", "chapter": 13},
+    {"speaker": "char_mei_chao_feng", "listener": "char_ou_yang_ke", "text": "好，你姑奶奶认栽啦，你来拿罢。", "tone": "假装屈服实则暗算", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_guo_jing", "text": "两位还没走，真好极了。这位裘老前辈武功极高，常人难以望其项背，天幸今日凑巧到来，我还忌惮甚么对头？", "tone": "宽慰欣喜", "chapter": 13},
+    {"speaker": "char_qiu_qian_ren", "listener": "char_lu_guan_ying", "text": "少庄主一拳碎砖，当然也算不易。但你想，敌人又不是砖头，岂能死板板的放在那里不动？任由你伸拳去打？再说，敌人的内劲若是强过了你，你这拳打在他身上，反弹出来，自己不免反受重伤。", "tone": "指点教导", "chapter": 13},
+    {"speaker": "char_qiu_qian_ren", "listener": "char_huang_rong", "text": "武林中自来都说东邪、西毒、南帝、北丐、中神通五人为天下之最。讲到功力深厚，确以中神通王重阳居首……但有长必有短，只要明白了各人的短处，攻隙击弱，要制服他们却也不难。", "tone": "自负傲然", "chapter": 13},
+    {"speaker": "char_qiu_qian_ren", "listener": "char_lu_cheng_feng", "text": "不出半年，大宋就是大祸临头了……六个月之内，金兵便要大举南征，这次兵势极盛，大宋江山必定不保。", "tone": "严肃警告", "chapter": 13},
+    {"speaker": "char_qiu_qian_ren", "listener": "char_guo_jing", "text": "年轻人懂得甚么？宋朝若是有了防备，只有兵祸更惨。", "tone": "轻蔑斥责", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_guo_jing", "text": "在下与两位萍水相逢，极是投缘，本盼多聚几日……要是下侥幸逃得性命，将来尚有重见之日。不过……不过那也是渺茫得很了。", "tone": "惨然苦笑", "chapter": 13},
+    {"speaker": "char_lu_cheng_feng", "listener": "char_guo_jing", "text": "这里已备下船只，请两位即速过湖，路上不论遇上甚么怪异动静，千万不可理会，要紧要紧！", "tone": "郑重叮嘱", "chapter": 13}
+  ]
+}

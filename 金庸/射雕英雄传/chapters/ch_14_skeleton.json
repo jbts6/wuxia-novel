@@ -1,0 +1,479 @@
+{
+  "chapter": 14,
+  "characters": [
+    {
+      "id": "char_guo_jing",
+      "name": "郭靖",
+      "alias": ["靖哥哥"],
+      "identity": "江南七怪之徒，洪七公传人",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "protagonist",
+      "one_line": "在归云庄与师父重逢，以降龙十八掌击败裘千仞，两度与梅超风交手，被黄药师试招脱臼手腕。",
+      "personality": "忠厚老实，尊师重道，为师父不惜性命。",
+      "known_skills": ["skill_jiang_long_shi_ba_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_rong",
+      "name": "黄蓉",
+      "alias": ["蓉儿"],
+      "identity": "桃花岛主黄药师之女",
+      "faction": "faction_tao_hua_dao",
+      "role": "companion",
+      "one_line": "智揭裘千仞骗局，与郭靖比武消父怒，见父亲险伤郭靖愤而投湖。",
+      "personality": "聪慧机敏，刁钻古怪，对郭靖深情一片。",
+      "known_skills": ["skill_luo_ying_shen_jian_zhang", "skill_lan_hua_fu_xue_shou"],
+      "related_skills": ["skill_xuan_feng_sao_ye_tui"]
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "name": "黄药师",
+      "alias": ["东邪", "黄老前辈"],
+      "identity": "桃花岛岛主，天下五绝之一",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "戴人皮面具暗中跟踪梅超风至归云庄，以绝世武功震慑众人，宽恕弟子并传授旋风扫叶腿法。",
+      "personality": "傲慢孤高，邪中自有深情，对女儿宠爱至极。",
+      "known_skills": ["skill_tan_zhi_shen_tong", "skill_luo_ying_shen_jian_zhang", "skill_xuan_feng_sao_ye_tui", "skill_ji_qiao_gong_fu"],
+      "related_skills": []
+    },
+    {
+      "id": "char_mei_chao_feng",
+      "name": "梅超风",
+      "alias": ["铁尸"],
+      "identity": "桃花岛叛徒弟子，陈玄风之妻",
+      "faction": "faction_tao_hua_dao",
+      "role": "villain",
+      "one_line": "双目已盲，携青衣怪客（黄药师）至归云庄，与郭靖两度交手皆败，被师父以附骨针惩戒。",
+      "personality": "凶狠残暴却又对师父存有真情，孤苦伶仃。",
+      "known_skills": ["skill_jiu_yin_bai_gu_zha", "skill_cui_xin_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_lu_cheng_feng",
+      "name": "陆乘风",
+      "alias": ["陆庄主"],
+      "identity": "归云庄庄主，桃花岛弟子，双腿残废",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "接待江南六怪和裘千仞，怒斥裘千仞投降金人之言，重见恩师黄药师后悲喜交集。",
+      "personality": "忠义正直，尊师重道，二十年未忘师恩。",
+      "known_skills": [],
+      "related_skills": ["skill_xuan_feng_sao_ye_tui"]
+    },
+    {
+      "id": "char_lu_guan_ying",
+      "name": "陆冠英",
+      "alias": [],
+      "identity": "陆乘风之子，仙霞派枯木大师门下",
+      "faction": "faction_gui_yun_zhuang",
+      "role": "npc",
+      "one_line": "归云庄少主，助父接待来客，被裘千仞推开拦阻，获黄药师允可学父传武功。",
+      "personality": "孝顺有礼，武功尚浅。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_qian_ren",
+      "name": "裘千仞",
+      "alias": ["铁掌水上飘", "裘老前辈", "糟老头子"],
+      "identity": "欺世盗名的江湖骗子",
+      "faction": null,
+      "role": "villain",
+      "one_line": "以假内功炫人耳目，散布黄药师死讯，劝众人降金被逐，骗局尽被朱聪识破后仓皇逃离。",
+      "personality": "虚伪狡诈，贪生怕死，惯以假象欺人。",
+      "known_skills": ["skill_tong_biu_lu_he_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ke_zhen_e",
+      "name": "柯镇恶",
+      "alias": ["大师父"],
+      "identity": "江南七怪之首，双目失明",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "率众兄弟与裘千仞、梅超风先后对峙，铁杖迎敌毫不畏惧。",
+      "personality": "刚烈正直，嫉恶如仇。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhu_cong",
+      "name": "朱聪",
+      "alias": ["二师父"],
+      "identity": "江南七怪老二，机智善辩",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "巧手偷取裘千仞金刚石戒指，当众拆穿其全部骗术，并为郭靖接上脱臼手腕。",
+      "personality": "机智幽默，妙手空空。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_han_bao_ju",
+      "name": "韩宝驹",
+      "alias": ["三师父", "马王神"],
+      "identity": "江南七怪老三",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "率先挑战裘千仞，挥金龙鞭攻击梅超风，性情最为火爆。",
+      "personality": "性如烈火，直率急躁。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_nan_xi_ren",
+      "name": "南希仁",
+      "alias": ["四师父"],
+      "identity": "江南七怪老四",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "以纯钢扁担参战，教导郭靖'打不过逃'四字诀。",
+      "personality": "沉默寡言，务实简练。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_quan_jin_fa",
+      "name": "全金发",
+      "alias": ["六师父"],
+      "identity": "江南七怪老六",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "拉住韩宝驹韩小莹避免冲动，以秤杆和铁锤参战。",
+      "personality": "沉稳持重，善于观察。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_han_xiao_ying",
+      "name": "韩小莹",
+      "alias": ["七师父"],
+      "identity": "江南七怪老七，韩宝驹之妹",
+      "faction": "faction_jiang_nan_qi_guai",
+      "role": "companion",
+      "one_line": "最早发现黄蓉女扮男装，以长剑参战。",
+      "personality": "细心敏锐，巾帼不让须眉。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wan_yan_kang",
+      "name": "完颜康",
+      "alias": [],
+      "identity": "梅超风之徒",
+      "faction": null,
+      "role": "npc",
+      "one_line": "见到师父梅超风到来上前拜见，众人见师徒关系均感诧异。",
+      "personality": "见风使舵。",
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_chen_xuan_feng",
+      "name": "陈玄风",
+      "alias": ["铜尸", "陈师哥", "玄风师哥"],
+      "identity": "桃花岛叛徒弟子，梅超风之夫，已故",
+      "faction": "faction_tao_hua_dao",
+      "role": "npc",
+      "one_line": "被郭靖年幼时失手杀死，其死引发梅超风与江南七怪的仇恨。",
+      "personality": "桃花岛叛徒。",
+      "known_skills": ["skill_jiu_yin_bai_gu_zha", "skill_cui_xin_zhang"],
+      "related_skills": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_tao_hua_dao",
+      "name": "桃花岛",
+      "type": "武林门派",
+      "location": "loc_tao_hua_dao",
+      "sub_divisions": [],
+      "one_line": "黄药师所创门派，弟子因盗经被逐，本章中师徒在归云庄重聚。"
+    },
+    {
+      "id": "faction_jiang_nan_qi_guai",
+      "name": "江南七怪",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "嘉兴七侠，郭靖之师，本章中与裘千仞和梅超风先后交锋。"
+    },
+    {
+      "id": "faction_gui_yun_zhuang",
+      "name": "归云庄",
+      "type": "家族",
+      "location": "loc_gui_yun_zhuang",
+      "sub_divisions": [],
+      "one_line": "陆乘风所建庄园，太湖之畔，本章主要故事发生地。"
+    },
+    {
+      "id": "faction_quan_zhen_jiao",
+      "name": "全真教",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": ["全真七子"],
+      "one_line": "裘千仞谎称其围攻黄药师致死，实为王重阳门下正道门派。"
+    },
+    {
+      "id": "faction_xian_xia_pai",
+      "name": "仙霞派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "陆冠英所拜门派，黄药师嗤其功夫微末。"
+    },
+    {
+      "id": "faction_tie_zhang_bang",
+      "name": "铁掌帮",
+      "type": "帮派",
+      "location": "loc_heng_shan",
+      "sub_divisions": [],
+      "one_line": "裘千仞提及的帮派，位于衡山，第二十六代帮主即其兄长。"
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_gui_yun_zhuang",
+      "name": "归云庄",
+      "region": "太湖",
+      "one_line": "陆乘风的庄园，位于太湖之畔，本章主要故事发生地。"
+    },
+    {
+      "id": "loc_tai_hu",
+      "name": "太湖",
+      "region": "江南",
+      "one_line": "江南六怪乘船经过的湖泊，归云庄所在之地。"
+    },
+    {
+      "id": "loc_tao_hua_dao",
+      "name": "桃花岛",
+      "region": "东海",
+      "one_line": "黄药师的隐居之地，弟子被逐出此岛，陆乘风欲前往探望恩师。"
+    },
+    {
+      "id": "loc_jia_xing",
+      "name": "嘉兴",
+      "region": "江南",
+      "one_line": "江南六怪的故乡，六怪自北南归途经太湖。"
+    },
+    {
+      "id": "loc_meng_gu_da_mo",
+      "name": "蒙古大漠",
+      "region": "漠北",
+      "one_line": "梅超风提及夫妇被逼前往之地，陈玄风在此遇害。"
+    },
+    {
+      "id": "loc_tai_shan",
+      "name": "泰山",
+      "region": "山东",
+      "one_line": "裘千仞谎称在此与洪七公比武并获胜。"
+    },
+    {
+      "id": "loc_heng_shan",
+      "name": "衡山",
+      "region": "湖南",
+      "one_line": "裘千仞所指铁掌帮所在地。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_jiang_long_shi_ba_zhang",
+      "name": "降龙十八掌",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "洪七公所传绝学，郭靖以'亢龙有悔''龙战于野''震惊百里'等招式击败裘千仞和梅超风。"
+    },
+    {
+      "id": "skill_jiu_yin_bai_gu_zha",
+      "name": "九阴白骨爪",
+      "type": "擒拿手",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "梅超风练自九阴真经的爪法，十指发绿光，专攻对方难以发招之时。"
+    },
+    {
+      "id": "skill_cui_xin_zhang",
+      "name": "摧心掌",
+      "type": "掌法",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "梅超风练自九阴真经的掌法，被黄药师命其废去。"
+    },
+    {
+      "id": "skill_luo_ying_shen_jian_zhang",
+      "name": "落英神剑掌",
+      "type": "掌法",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "黄药师自创掌法，黄蓉以'雨急风狂'等招式与郭靖过招。"
+    },
+    {
+      "id": "skill_xuan_feng_sao_ye_tui",
+      "name": "旋风扫叶腿法",
+      "type": "腿法",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "黄药师新创内功秘籍，写于白纸上赐予陆乘风，可助残腿者恢复行走。"
+    },
+    {
+      "id": "skill_lan_hua_fu_xue_shou",
+      "name": "兰花拂穴手",
+      "type": "点穴",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "黄蓉以此手法拂中裘千仞'神道穴'，逼问黄药师生死。"
+    },
+    {
+      "id": "skill_tong_biu_lu_he_zhang",
+      "name": "通臂六合掌",
+      "type": "掌法",
+      "faction": "",
+      "one_line": "裘千仞所使掌法，由通臂五行掌变化而来，双手互为应援连环不断。"
+    },
+    {
+      "id": "skill_tan_zhi_shen_tong",
+      "name": "弹指神通",
+      "type": "指法",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "黄药师以手指弹石子指点梅超风方位，力道劲急非凡。"
+    },
+    {
+      "id": "skill_ji_qiao_gong_fu",
+      "name": "巧劲功夫",
+      "type": "内功",
+      "faction": "faction_tao_hua_dao",
+      "one_line": "黄药师以身体内陷之术令郭靖掌力落空，使其手腕脱臼。"
+    },
+    {
+      "id": "skill_qing_gong_shui_shang_piao",
+      "name": "水上飘轻功",
+      "type": "轻功",
+      "faction": "",
+      "one_line": "裘千仞自称的独门轻功，实为水下打桩的骗术。"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_du_long_yin_bian",
+      "name": "毒龙银鞭",
+      "type": "weapon",
+      "owner": "char_mei_chao_feng",
+      "one_line": "梅超风的银色鞭子，将裘千仞卷起摔入鱼缸。"
+    },
+    {
+      "id": "item_tie_zhang",
+      "name": "铁杖",
+      "type": "weapon",
+      "owner": "char_ke_zhen_e",
+      "one_line": "柯镇恶的兵刃，落于方砖上当当作响，威慑力十足。"
+    },
+    {
+      "id": "item_jin_long_bian",
+      "name": "金龙鞭",
+      "type": "weapon",
+      "owner": "char_han_bao_ju",
+      "one_line": "韩宝驹的鞭类兵器，用于夹攻梅超风。"
+    },
+    {
+      "id": "item_cheng_gan",
+      "name": "秤杆",
+      "type": "weapon",
+      "owner": "char_quan_jin_fa",
+      "one_line": "全金发的兵器，带铁锤，被黄药师夺下后震为两截。"
+    },
+    {
+      "id": "item_chun_bian_gan_dan",
+      "name": "纯钢扁担",
+      "type": "weapon",
+      "owner": "char_nan_xi_ren",
+      "one_line": "南希仁的兵器，用于夹攻梅超风。"
+    },
+    {
+      "id": "item_chang_jian",
+      "name": "长剑",
+      "type": "weapon",
+      "owner": "char_han_xiao_ying",
+      "one_line": "韩小莹的兵器，被黄药师夺下后震为两截。"
+    },
+    {
+      "id": "item_tie_shan",
+      "name": "铁扇",
+      "type": "weapon",
+      "owner": "char_zhu_cong",
+      "one_line": "朱聪的兵器，用于夹攻梅超风。"
+    },
+    {
+      "id": "item_jin_gang_shi_jie_zhi",
+      "name": "金刚石戒指",
+      "type": "other",
+      "owner": "char_qiu_qian_ren",
+      "one_line": "裘千仞用于伪造削杯内功的戒指，被朱聪偷取后骗局败露。"
+    },
+    {
+      "id": "item_fen_zhuan",
+      "name": "面粉砖头",
+      "type": "other",
+      "owner": "char_qiu_qian_ren",
+      "one_line": "裘千仞衣袖中面粉制成的假砖头，用于假装捏砖成粉的内功。"
+    },
+    {
+      "id": "item_yi_pi_mian_ju",
+      "name": "人皮面具",
+      "type": "other",
+      "owner": "char_huang_yao_shi",
+      "one_line": "黄药师所戴面具，使其面目僵硬如死人，后揭下露出本来面目。"
+    },
+    {
+      "id": "item_fu_gu_zhen",
+      "name": "附骨针",
+      "type": "hidden_weapon",
+      "owner": "char_huang_yao_shi",
+      "one_line": "黄药师独门暗器，拍入体内钉于骨骼关节，毒药缓发折磨一两年方取命。"
+    },
+    {
+      "id": "item_jiu_hua_yu_lu_wan",
+      "name": "九花玉露丸",
+      "type": "pill",
+      "owner": "char_lu_cheng_feng",
+      "one_line": "桃花岛灵药，黄蓉从陆乘风处得来后又归还。"
+    },
+    {
+      "id": "item_jie_yao",
+      "name": "解药",
+      "type": "pill",
+      "owner": "char_mei_chao_feng",
+      "one_line": "梅超风九阴白骨爪的解药，朱聪从其身上取来救治郭靖。"
+    },
+    {
+      "id": "item_bi_shou",
+      "name": "匕首",
+      "type": "weapon",
+      "owner": "char_guo_jing",
+      "one_line": "原属郭靖的匕首，外裹九阴真经经文人皮，朱聪从梅超风处取回归还郭靖。"
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing_ren_pi",
+      "name": "九阴真经经文人皮",
+      "type": "book",
+      "owner": null,
+      "one_line": "刻有九阴真经的陈玄风胸口人皮，包于匕首外，梅超风寻而不得。"
+    },
+    {
+      "id": "item_xuan_feng_sao_ye_tui_mi_ji",
+      "name": "旋风扫叶腿法秘籍",
+      "type": "book",
+      "owner": "char_lu_cheng_feng",
+      "one_line": "黄药师亲笔书写于两张白纸上的内功口诀，赐予陆乘风以治腿疾。"
+    },
+    {
+      "id": "item_mei_mei_gang_ci",
+      "name": "蛾眉钢刺",
+      "type": "weapon",
+      "owner": "char_huang_rong",
+      "one_line": "黄蓉的短兵器，抵在裘千仞胸口逼问，又用来阻止其跃出鱼缸。"
+    },
+    {
+      "id": "item_qing_se_bu_pao",
+      "name": "青色布袍",
+      "type": "other",
+      "owner": "char_huang_yao_shi",
+      "one_line": "黄药师伪装时所穿青色长袍，身形高瘦如鬼魅。"
+    }
+  ]
+}

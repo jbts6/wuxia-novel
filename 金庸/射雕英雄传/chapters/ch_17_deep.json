@@ -1,0 +1,1195 @@
+{
+  "chapter": 17,
+  "characters_detail": [
+    {
+      "id": "char_zhou_bo_tong",
+      "personality": {
+        "traits": ["天真烂漫", "爱武如狂", "胡闹顽皮", "好奇心极重", "说话直率无机心", "好胜心盛"],
+        "speech_style": "口语化，爱用夸张语气，时常自夸得意，话多爱讲故事，喜欢用'老顽童'自称，偶有俏皮话",
+        "temperament": "活泼好动、乐观豁达、孩童般天真，见武技则忘忧，遇蛇虫则惊恐"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "义兄弟/师徒",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "以兄长自居，教郭靖武功，二人肝胆相照如同数十年知己，郭靖舍命救他蛇毒，他对郭靖的呆功夫暗暗佩服"
+        },
+        {
+          "target": "char_wang_chongyang",
+          "type": "师兄弟",
+          "intensity": 9,
+          "bond_level": 10,
+          "dynamic": "敬重师兄遗训不敢违背，将经书保管视为头等大事，回忆师兄假死复活击破蛤蟆功一事引以为豪"
+        },
+        {
+          "target": "char_huang_yaoshi",
+          "type": "宿敌/对峙",
+          "intensity": 8,
+          "bond_level": 2,
+          "dynamic": "被黄药师打断双腿囚禁洞中十五年，二人斗智斗勇各不相让，周伯通练成双手互搏后盼与之一决高下"
+        },
+        {
+          "target": "char_huang_furen",
+          "type": "对手（打石弹）",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "被黄夫人以激将法骗借经书，黄夫人超凡记忆力令其惊骇，后得知其因强记经文而亡，周伯通感到愧疚"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "仇敌",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "被欧阳锋掉包经书，决心苦练武功赴西域索书，对欧阳锋的狡猾深恶痛绝"
+        },
+        {
+          "target": "char_ma_yu",
+          "type": "师叔侄",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "周伯通后悔未与马钰商量经书之事，自认好胜心盛以致受愚弄"
+        },
+        {
+          "target": "char_qiu_chuji",
+          "type": "师叔侄",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "丘处机两次来访报告黑风双煞及黄药师偷经之事，周伯通对丘处机提供的信息甚为重视"
+        }
+      ],
+      "known_skills": ["skill_kong_ming_quan", "skill_shuang_shou_hu_bo"],
+      "related_skills": ["skill_jiu_yin_shen_zhua", "skill_jiu_yin_zhen_jing_shang_juan"]
+    },
+    {
+      "id": "char_guo_jing",
+      "personality": {
+        "traits": ["忠厚老实", "毅力过人", "重情重义", "资质愚钝但刻苦勤奋", "舍己为人"],
+        "speech_style": "言辞质朴，称呼长辈恭敬有礼（'大哥''洪恩师''马道长'），遇急事时语气慌张恳切",
+        "temperament": "沉稳坚韧、临危不乱、重义轻利，宁舍命救友"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_zhou_bo_tong",
+          "type": "义兄弟/师徒",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "拜师学艺极为恭敬，被摔七八百跤仍咬牙坚持，危急时吮吸蛇毒、割臂放血舍命相救"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 9,
+          "dynamic": "得知西毒求婚心急如焚，刻'一起活，一起死'表明心意，愿在桃花岛迷路而死也要去找她"
+        },
+        {
+          "target": "char_huang_yaoshi",
+          "type": "敬畏",
+          "intensity": 4,
+          "bond_level": 2,
+          "dynamic": "对黄药师心存畏惧，喊救命时呼其名号，为黄蓉之事对其忧心"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "敌对",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "认同西毒奸猾非算帐不可，但主要敌意来自西毒求婚威胁黄蓉之事"
+        },
+        {
+          "target": "char_mei_chaofeng",
+          "type": "曾经对手",
+          "intensity": 3,
+          "bond_level": 1,
+          "dynamic": "忆起梅超风用活人练功的残暴，对九阴白骨爪起疑，联想赵王府中梅超风坐在自己肩头之事"
+        },
+        {
+          "target": "char_zhu_cong",
+          "type": "师徒",
+          "intensity": 5,
+          "bond_level": 7,
+          "dynamic": "忆起二师父朱聪在归云庄从梅超风怀中盗得人皮匕首之事"
+        }
+      ],
+      "known_skills": ["skill_nan_shan_quan", "skill_yue_nv_jian"],
+      "related_skills": ["skill_jiu_yin_shen_zhua", "skill_jiu_yin_zhen_jing_shang_juan", "skill_jiu_yin_zhen_jing_xia_juan"]
+    },
+    {
+      "id": "char_huang_rong",
+      "personality": {
+        "traits": ["聪明伶俐", "精灵古怪", "深情不渝", "果敢刚烈"],
+        "speech_style": "书信中称'靖哥哥'，语气亲昵而紧迫，言语间流露对父亲的无奈和对郭靖的深情",
+        "temperament": "外柔内刚，宁死不屈，以死明志的气魄与柔情并存"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 9,
+          "dynamic": "为郭靖烹饪菜肴传书报信，藏蜡丸于馒头中传递消息，事急时以死明志，托白雕传信"
+        },
+        {
+          "target": "char_huang_yaoshi",
+          "type": "父女",
+          "intensity": 8,
+          "bond_level": 7,
+          "dynamic": "被父亲管束严紧不得出门，称已与爹爹和好，正在求父亲放郭靖"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "厌恶/排斥",
+          "intensity": 7,
+          "bond_level": 0,
+          "dynamic": "不愿嫁给欧阳克，视求婚为威胁，以此为由以死相胁"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_yaoshi",
+      "personality": {
+        "traits": ["骄傲自负", "聪明绝顶", "亦正亦邪", "对爱妻深情至极"],
+        "speech_style": "言辞文雅而自信，善于激将法，说话常带威胁口吻却不失风度，如'言出如山'",
+        "temperament": "自视甚高、不肯示弱、丧妻后迁怒旁人，理智与情感交织"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_zhou_bo_tong",
+          "type": "宿敌/对峙",
+          "intensity": 8,
+          "bond_level": 3,
+          "dynamic": "用激将法骗取经书，后以碧海潮生曲等手段诱周伯通出洞十五年，打断其双腿囚禁"
+        },
+        {
+          "target": "char_huang_furen",
+          "type": "夫妻",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "对少年夫人宠爱有加，丧妻后痛哭流涕迁怒周伯通，欲以真经火化祭夫人"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "同辈高手/对手",
+          "intensity": 6,
+          "bond_level": 3,
+          "dynamic": "答允西毒侄儿求婚之事，与欧阳锋武功各有所长"
+        },
+        {
+          "target": "char_mei_chaofeng",
+          "type": "师徒（叛逃）",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "因梅超风偷经叛逃，迁怒打断四名无辜弟子腿骨逐出师门"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "父女",
+          "intensity": 9,
+          "bond_level": 8,
+          "dynamic": "管束女儿严紧不准出门，但已与女儿和好"
+        }
+      ],
+      "known_skills": ["skill_tan_zhi_shen_tong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_feng",
+      "personality": {
+        "traits": ["狡猾无比", "阴险毒辣", "不择手段", "贪得无厌"],
+        "speech_style": "极少直接出场，主要通过他人转述其言行，策略性强",
+        "temperament": "阴沉狡诈、隐忍善谋，被王重阳破功后忍辱退回西域"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_wang_chongyang",
+          "type": "死敌",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "被王重阳假死复活以一阳指击破蛤蟆功，逃回西域十年不敢履中土"
+        },
+        {
+          "target": "char_zhou_bo_tong",
+          "type": "仇敌",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "趁王重阳假死时掉包真经书，用假经替换真经"
+        },
+        {
+          "target": "char_huang_yaoshi",
+          "type": "联姻/对手",
+          "intensity": 5,
+          "bond_level": 3,
+          "dynamic": "为侄儿欧阳克向黄药师求婚要娶黄蓉"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "叔侄",
+          "intensity": 7,
+          "bond_level": 7,
+          "dynamic": "为侄儿操办婚事，向黄药师提亲"
+        }
+      ],
+      "known_skills": ["skill_ha_ma_gong"],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_chongyang",
+      "personality": {
+        "traits": ["仁义为怀", "深谋远虑", "武功通玄", "为武林除害不存私心"],
+        "speech_style": "遗言简练严肃，行事果断",
+        "temperament": "正气凛然、大义为先、从容赴死"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_zhou_bo_tong",
+          "type": "师兄弟",
+          "intensity": 9,
+          "bond_level": 10,
+          "dynamic": "遗命周伯通分藏真经，周伯通敬重遗训不敢违背"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "死敌",
+          "intensity": 9,
+          "bond_level": 0,
+          "dynamic": "假死复活以一阳指正中眉心破去蛤蟆功，为武林除一大害"
+        },
+        {
+          "target": "char_ma_yu",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 9,
+          "dynamic": "遗训不许全真弟子习练九阴真经武功"
+        }
+      ],
+      "known_skills": ["skill_yi_yang_zhi"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_furen",
+      "personality": {
+        "traits": ["聪明灵慧", "精灵古怪", "超凡记忆力", "善用激将法"],
+        "speech_style": "言语活泼，善解人意，对周伯通以'周大哥'相称，用激将法含蓄巧妙",
+        "temperament": "聪慧机敏、温柔中含刚强，为夫不惜心力"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_huang_yaoshi",
+          "type": "夫妻",
+          "intensity": 10,
+          "bond_level": 10,
+          "dynamic": "为帮丈夫强记九阴真经全部经文，怀孕八月苦苦思索默写导致心力交瘁流产而亡"
+        },
+        {
+          "target": "char_zhou_bo_tong",
+          "type": "对手（博弈）",
+          "intensity": 5,
+          "bond_level": 4,
+          "dynamic": "以激将法借得经书，以超凡记忆力看两遍即一字不漏记住，识破假经掉包之实"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_mei_chaofeng",
+      "personality": {
+        "traits": ["凶狠残忍", "误入歧途", "执着求武"],
+        "speech_style": "未直接出场，通过他人转述其行为",
+        "temperament": "阴戾暴虐，以活人练功，对道家内功全无所知"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_huang_yaoshi",
+          "type": "师徒（叛逃）",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "偷走经书叛出桃花岛，被中原豪杰围攻后逃匿"
+        },
+        {
+          "target": "char_chen_xuanfeng",
+          "type": "同门/同伙",
+          "intensity": 7,
+          "bond_level": 6,
+          "dynamic": "与陈玄风一同偷走九阴真经下卷，为黑风双煞"
+        },
+        {
+          "target": "char_guo_jing",
+          "type": "曾经对手",
+          "intensity": 4,
+          "bond_level": 1,
+          "dynamic": "曾在赵王府坐在郭靖肩头迎敌，苦苦追问道家内功秘诀"
+        },
+        {
+          "target": "char_zhu_cong",
+          "type": "被盗者",
+          "intensity": 3,
+          "bond_level": 0,
+          "dynamic": "在归云庄被朱聪从怀中盗走刺字人皮与匕首"
+        }
+      ],
+      "known_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_cui_xin_zhang"],
+      "related_skills": []
+    },
+    {
+      "id": "char_chen_xuanfeng",
+      "personality": {
+        "traits": ["凶狠残忍"],
+        "speech_style": "未直接出场",
+        "temperament": "阴戾"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_mei_chaofeng",
+          "type": "同门/同伙",
+          "intensity": 7,
+          "bond_level": 6,
+          "dynamic": "与梅超风共同偷走九阴真经下卷，为黑风双煞"
+        },
+        {
+          "target": "char_huang_yaoshi",
+          "type": "师徒（叛逃）",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "叛出桃花岛，被中原豪杰围攻后逃匿"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ma_yu",
+      "personality": {
+        "traits": ["沉稳持重"],
+        "speech_style": "未直接出场",
+        "temperament": "稳重可靠"
+      },
+      "archetype": "monk",
+      "relationships": [
+        {
+          "target": "char_zhou_bo_tong",
+          "type": "师叔侄",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "周伯通后悔未与之商量经书之事"
+        },
+        {
+          "target": "char_guo_jing",
+          "type": "传功师长",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "曾传郭靖内功，郭靖觉周伯通所传经中内功与马钰所传理路一贯"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_chuji",
+      "personality": {
+        "traits": ["刚烈果敢", "办事干练"],
+        "speech_style": "未直接出场，通过转述体现其直言不讳",
+        "temperament": "果断刚毅"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_zhou_bo_tong",
+          "type": "师叔侄",
+          "intensity": 5,
+          "bond_level": 6,
+          "dynamic": "两次来访报告重要消息：黑风双煞偷经及黄药师从周伯通处偷经"
+        },
+        {
+          "target": "char_mei_chaofeng",
+          "type": "追踪者/对手",
+          "intensity": 4,
+          "bond_level": 0,
+          "dynamic": "与丘处一赶到河南追查黑风双煞，但双煞已逃"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qigong",
+      "personality": {
+        "traits": ["刚正不阿"],
+        "speech_style": "未直接出场",
+        "temperament": "正直豪迈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huang_yaoshi",
+          "type": "同辈高手",
+          "intensity": 4,
+          "bond_level": 3,
+          "dynamic": "东邪西毒南帝北丐四人武功各有所长谁也胜不了谁"
+        },
+        {
+          "target": "char_guo_jing",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "降龙十八掌是天下之至刚，外家功夫练到尽头，郭靖以降龙十八掌功夫与周伯通对掌"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_qiu_qianren",
+      "personality": {
+        "traits": ["武功高强"],
+        "speech_style": "未直接出场",
+        "temperament": "未知"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_huang_yaoshi",
+          "type": "同辈高手",
+          "intensity": 3,
+          "bond_level": 2,
+          "dynamic": "被黄药师提及武功了得但未参加华山论剑"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhu_cong",
+      "personality": {
+        "traits": ["机智灵敏"],
+        "speech_style": "未直接出场",
+        "temperament": "聪敏机警"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_mei_chaofeng",
+          "type": "对手",
+          "intensity": 3,
+          "bond_level": 0,
+          "dynamic": "在归云庄从梅超风怀中连匕首一起盗得刺字人皮"
+        },
+        {
+          "target": "char_guo_jing",
+          "type": "师徒",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "郭靖述说二师父朱聪如何盗得人皮"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_tuo_lei",
+      "personality": {
+        "traits": ["豪爽义气"],
+        "speech_style": "未直接出场",
+        "temperament": "豪迈"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "义兄弟",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "从大漠带来两头白雕，郭靖以此雕与黄蓉传信"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_shang",
+      "personality": {
+        "traits": ["聪慧绝伦"],
+        "speech_style": "未直接出场，通过周伯通转述",
+        "temperament": "坚忍执着"
+      },
+      "archetype": "scholar",
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_ke",
+      "personality": {
+        "traits": ["好色轻浮"],
+        "speech_style": "未直接出场",
+        "temperament": "轻浮"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_ou_yang_feng",
+          "type": "叔侄",
+          "intensity": 7,
+          "bond_level": 7,
+          "dynamic": "西毒为其向黄药师求婚要娶黄蓉"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "求婚者",
+          "intensity": 5,
+          "bond_level": 0,
+          "dynamic": "欲娶黄蓉为妻，黄蓉抵死不从"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_yi_yang_zhi",
+      "techniques": [
+        {
+          "id": "yi_yang_zhi_strike",
+          "name": "一阳指",
+          "type": "attack",
+          "description": "王重阳假死后从棺中飞跃而出，迎面一招正点中欧阳锋眉心，破去其多年苦练的蛤蟆功"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "极耗精神，使用后需运气养神，王重阳因此真气耗尽而亡"}
+      ],
+      "effects": [
+        {"type": "破功", "value": "破去蛤蟆功", "description": "点中眉心即可破去欧阳锋多年苦练的蛤蟆功，十年内欧阳锋逊于黄药师"}
+      ],
+      "combat_style": "以内力聚于指尖，精准击中要害，一击必中，但极耗精神"
+    },
+    {
+      "id": "skill_ha_ma_gong",
+      "techniques": [
+        {
+          "id": "ha_ma_gong_cultivate",
+          "name": "蛤蟆功",
+          "type": "buff",
+          "description": "欧阳锋多年苦练的绝技，被王重阳一阳指破去后十年内逊于黄药师一筹"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "多年苦练方可大成，被一阳指破去后需重新修炼"}
+      ],
+      "effects": [
+        {"type": "内功增强", "value": "极深厚内力", "description": "欧阳锋的核心内功，被破后功力大减"}
+      ],
+      "combat_style": "内功修炼型，功力深厚但惧一阳指"
+    },
+    {
+      "id": "skill_jiu_yin_bai_gu_zhao",
+      "techniques": [
+        {
+          "id": "jiu_yin_bai_gu_zhao_grab",
+          "name": "九阴白骨爪",
+          "type": "attack",
+          "description": "梅超风从九阴真经下卷偷练的邪恶武功，误以活人头盖骨练功，将五指插入活人头盖骨中"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "梅超风不知正法，误将'摧敌首脑'理解为以五指插入敌人头盖，练法走上邪路"}
+      ],
+      "effects": [
+        {"type": "攻击", "value": "五指穿骨", "description": "梅超风以活人头盖骨练习，凶残至极，但非正宗练法"}
+      ],
+      "combat_style": "邪派擒拿手，以五指抓敌要害，但梅超风误解经文练入邪道"
+    },
+    {
+      "id": "skill_cui_xin_zhang",
+      "techniques": [
+        {
+          "id": "cui_xin_zhang_strike",
+          "name": "摧心掌",
+          "type": "attack",
+          "description": "梅超风与陈玄风从九阴真经下卷偷练的邪恶掌法武功"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "攻击", "value": "摧心", "description": "掌法猛烈，可摧毁对手心脉"}
+      ],
+      "combat_style": "邪派掌法，与九阴白骨爪同为黑风双煞横行江湖的武功"
+    },
+    {
+      "id": "skill_tan_zhi_shen_tong",
+      "techniques": [
+        {
+          "id": "tan_zhi_flick",
+          "name": "弹指神通",
+          "type": "attack",
+          "description": "黄药师的暗器绝技天下有名，打石弹时暗运潜力，三颗弹子出去将周伯通弹子打得粉碎而己弹完好"
+        },
+        {
+          "id": "tan_zhi_deceive",
+          "name": "暗运潜力",
+          "type": "feint",
+          "description": "黄药师在打石弹比赛中暗使此技，表面是孩童游戏，实则运内力碎对方弹子"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "暗器精准", "value": "当世独步", "description": "取准能力远超常人，能在石弹游戏中精准击碎对手弹子"}
+      ],
+      "combat_style": "以内力驱动暗器或弹射，取准精准无比，可化腐朽为神奇"
+    },
+    {
+      "id": "skill_kong_ming_quan",
+      "techniques": [
+        {
+          "id": "kong_ming_empty_soft",
+          "name": "空柔拳理",
+          "type": "defense",
+          "description": "以虚击实、以不足胜有余，劲力陡发陡收，使对手脚下站立不稳前跌"
+        },
+        {
+          "id": "kong_ming_throw",
+          "name": "摔跌手法",
+          "type": "attack",
+          "description": "掌力忽虚令对手收势不及跌倒，再以另一手挥出让对手空中翻筋斗着地"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "周伯通在洞中十五年所创，初窥门径"},
+        {"level": 2, "unlock": "郭靖被摔七八百交后习得七十二手空明拳"}
+      ],
+      "effects": [
+        {"type": "摔跌", "value": "以柔克刚", "description": "令对手脚下不稳自动前跌，实战中可突然改变掌力方向令对手措手不及"}
+      ],
+      "combat_style": "全真派最上乘武功，要旨在'空、柔'二字，大成若缺、大盈若冲，柔中蓄刚"
+    },
+    {
+      "id": "skill_shuang_shou_hu_bo",
+      "techniques": [
+        {
+          "id": "shuang_shou_independent",
+          "name": "左右分击",
+          "type": "special",
+          "description": "左手右手各打不同套路武功，心有二用，左手画方右手画圆，临敌时以二敌一"
+        },
+        {
+          "id": "shuang_shou_four_way",
+          "name": "四人混战",
+          "type": "special",
+          "description": "周伯通创出的玩法：左手一人、右手一人、郭靖双手二人，四人混战互相攻防"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "从左手画方右手画圆起始，需先练全真派内功一神守内一神游外"},
+        {"level": 2, "unlock": "双手能任意各成方圆，开始练习不同拳法分使"},
+        {"level": 3, "unlock": "粗会双手互搏，左手南山拳右手越女剑"},
+        {"level": 4, "unlock": "熟练后临敌以二敌一，武功斗然增强一倍"}
+      ],
+      "effects": [
+        {"type": "战斗力倍增", "value": "以二敌一", "description": "临敌之际双手分使不同招数，相当于两个高手同时出招，天下无人能敌"}
+      ],
+      "combat_style": "千古未有之奇功，左手右手各自独立发招，周伯通因此自信天下第一"
+    },
+    {
+      "id": "skill_jiu_yin_shen_zhua",
+      "techniques": [
+        {
+          "id": "jiu_yin_shen_zhua_practice",
+          "name": "九阴神抓",
+          "type": "attack",
+          "description": "周伯通教郭靖凝神运气，以十指在石壁上撕抓拉击，为正宗玄门练法"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {"type": "攻击", "value": "十指抓击", "description": "经文原意'五指发劲无坚不破摧敌首脑如穿腐土'乃攻敌要害之意，非插入头盖骨"}
+      ],
+      "combat_style": "玄门正宗功夫，与梅超风所练邪派九阴白骨爪有本质区别"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_jiu_yin_zhen_jing",
+      "description": "黄裳阅遍五千四百八十一卷万寿道藏苦思四十余年所创武学宝典，上下两卷：上卷载道家内功心法、拳经剑理；下卷载实战武功练法",
+      "effects": [
+        {"type": "武学宝典", "value": "至高武学", "description": "天下学武之人视为至宝，上下卷融会贯通后武功不可思议"},
+        {"type": "修炼指导", "value": "内功心法与实战武功", "description": "上卷为道家修炼内功大道及拳经剑理，非克敌制胜之功；下卷为实用法门"}
+      ],
+      "origin": "黄裳创著，经华山论剑后归王重阳保管",
+      "rarity": "legendary",
+      "related_skills": ["skill_jiu_yin_shen_zhua"]
+    },
+    {
+      "id": "item_ruan_wei_jia",
+      "description": "桃花岛镇岛之宝，黑黝黝满生倒刺的衣服",
+      "effects": [
+        {"type": "防御", "value": "护身", "description": "满生倒刺的护甲，穿在身上可防身，欺人不得"}
+      ],
+      "origin": "桃花岛之物，黄药师曾以此为赌注与周伯通比赛打石弹",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_bi_shou",
+      "description": "郭靖随身携带的匕首",
+      "effects": [
+        {"type": "工具", "value": "切割", "description": "用以割臂放血救周伯通蛇毒，也曾刻字竹筒传信'一起活一起死'"}
+      ],
+      "origin": "郭靖随身武器，与刺字人皮一同从梅超风处盗来",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_ren_pi",
+      "description": "陈玄风将九阴真经下卷经文刺于自身皮肤之上，死后人皮被梅超风保存，朱聪在归云庄连匕首一起从梅超风怀中盗得",
+      "effects": [
+        {"type": "武学秘籍", "value": "九阴真经下卷", "description": "上刺九阴真经下卷经文，周伯通确认为真经至宝，可与上卷对照研习"}
+      ],
+      "origin": "陈玄风刺经于身，梅超风保管，朱聪在归云庄盗得交郭靖",
+      "rarity": "legendary",
+      "related_skills": ["skill_jiu_yin_bai_gu_zhao", "skill_cui_xin_zhang", "skill_jiu_yin_shen_zhua"]
+    },
+    {
+      "id": "item_bai_diao",
+      "description": "两只白雕，拖雷从大漠带来",
+      "effects": [
+        {"type": "传信", "value": "空中传书", "description": "雄雕脚上缚竹筒，可在桃花岛与黄蓉居处之间传信"}
+      ],
+      "origin": "拖雷从大漠带来",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_zhu_tong",
+      "description": "缚于白雕脚上的竹筒，用于郭靖与黄蓉之间传信",
+      "effects": [
+        {"type": "传信工具", "value": "书信载体", "description": "郭靖拔出匕首在竹筒上刻了'一起活，一起死'六字寄给黄蓉"}
+      ],
+      "origin": "桃花岛上就地取材",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_la_wan",
+      "description": "黄蓉藏于馒头中的密信载体，蜡丸中藏有纸条",
+      "effects": [
+        {"type": "密信", "value": "紧急传讯", "description": "第一封：西毒为侄儿求婚之事紧急警告；第二封：称已与爹爹和好，求父亲放郭靖"}
+      ],
+      "origin": "黄蓉制作，通过老仆送来的食盒传递",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_qing_ci_da_wan",
+      "description": "周伯通日常饮茶用的青瓷大碗",
+      "effects": [
+        {"type": "器皿", "value": "盛血救命", "description": "郭靖危急中摸到此碗，割臂放血盛入碗中灌给周伯通解蛇毒"}
+      ],
+      "origin": "洞中周伯通日常用具",
+      "rarity": "common",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_17_01",
+      "name": "王重阳假死复活击破蛤蟆功",
+      "participants": ["char_wang_chongyang", "char_ou_yang_feng", "char_zhou_bo_tong"],
+      "location": "loc_tao_hua_dao",
+      "description": "周伯通向郭靖讲述：王重阳以假死诱欧阳锋现身，从棺中飞跃而出一招一阳指正中欧阳锋眉心，破去其多年苦练的蛤蟆功。欧阳锋逃赴西域。王重阳使一阳指极耗精神，运气养神时真气耗尽，此次真正仙去。"
+    },
+    {
+      "id": "evt_17_02",
+      "name": "王重阳遗命分藏真经",
+      "participants": ["char_wang_chongyang", "char_zhou_bo_tong"],
+      "location": "loc_tao_hua_dao",
+      "description": "王重阳遗言将九阴真经上卷与下卷分置两处，以免同时落入奸人手中。周伯通将上卷藏妥，带下卷欲送往南方雁荡山收藏。"
+    },
+    {
+      "id": "evt_17_03",
+      "name": "周伯通遇黄药师夫妇，打石弹赌经书",
+      "participants": ["char_zhou_bo_tong", "char_huang_yaoshi", "char_huang_furen"],
+      "location": "loc_tao_hua_dao",
+      "description": "周伯通途中遇黄药师新婚夫妇，黄药师夫妇以激将法诱其比赛打石弹。赌注：周伯通输则借经书给黄夫人看，黄药师输则以软猬甲相赠。黄药师暗运弹指神通碎周伯通弹子取胜，周伯通只得借出经书。"
+    },
+    {
+      "id": "evt_17_04",
+      "name": "黄夫人强记经文识破假经",
+      "participants": ["char_zhou_bo_tong", "char_huang_furen", "char_huang_yaoshi"],
+      "location": "loc_tao_hua_dao",
+      "description": "黄夫人看经书两遍即一字不漏记住，归还时指出经书是假的——已被欧阳锋掉包为占卜杂书。黄夫人当面背诵从小熟读的占卜之书与之对照，一字不错。周伯通大怒撕毁假经。"
+    },
+    {
+      "id": "evt_17_05",
+      "name": "黄夫人默写经文心力交瘁而亡",
+      "participants": ["char_huang_furen", "char_huang_yaoshi"],
+      "location": "loc_tao_hua_dao",
+      "description": "黄夫人与周伯通分手后默写出全部经文给丈夫。后因陈玄风梅超风偷走下卷，她怀孕八月再苦思默写，写下七八千字前后不能连贯，心智耗竭流产，生下女婴（黄蓉），自己油尽灯枯而亡。"
+    },
+    {
+      "id": "evt_17_06",
+      "name": "黑风双煞偷经叛逃",
+      "participants": ["char_mei_chaofeng", "char_chen_xuanfeng", "char_huang_yaoshi"],
+      "location": "loc_tao_hua_dao",
+      "description": "陈玄风与梅超风偷走黄药师处的九阴真经下卷，在江湖上练九阴白骨爪和摧心掌为非作歹。黄药师迁怒打断四名无辜弟子腿骨逐出师门。"
+    },
+    {
+      "id": "evt_17_07",
+      "name": "丘处机两次来访报告经书下落",
+      "participants": ["char_qiu_chuji", "char_zhou_bo_tong"],
+      "location": "loc_tao_hua_dao",
+      "description": "丘处机首次来访告知黑风双煞得了真经下卷横行江湖；第二次来访确认陈玄风梅超风确是偷了经书，且黄药师的经书是从周伯通手中偷去而非从欧阳锋处夺来。"
+    },
+    {
+      "id": "evt_17_08",
+      "name": "周伯通赴桃花岛问罪被囚十五年",
+      "participants": ["char_zhou_bo_tong", "char_huang_yaoshi"],
+      "location": "loc_tao_hua_dao",
+      "description": "周伯通带经书赴桃花岛责问黄药师，得知黄夫人已逝。因言语不当激怒黄药师被打伤囚于洞中。黄药师打断其双腿，逼其交出上卷经书。周伯通守在洞口，二人对耗一十五年。"
+    },
+    {
+      "id": "evt_17_09",
+      "name": "周伯通创空明拳与双手互搏",
+      "participants": ["char_zhou_bo_tong"],
+      "location": "loc_tao_hua_dao",
+      "description": "周伯通在洞中十五年，创出七十二手空明拳（要旨在空柔二字）和双手互搏之术（左手右手分使不同武功互相攻防），以解枯坐之闷。"
+    },
+    {
+      "id": "evt_17_10",
+      "name": "周伯通暗中传授郭靖九阴真经",
+      "participants": ["char_zhou_bo_tong", "char_guo_jing"],
+      "location": "loc_tao_hua_dao",
+      "description": "周伯通想到妙法：郭靖非全真弟子，教他经中武功让他演给自己看，既不违遗训又过了瘾。他不告知郭靖实情，只用口讲述不出手示范，将上卷要旨和下卷武功一一传给郭靖，让郭靖不知不觉间背熟了全部经文。"
+    },
+    {
+      "id": "evt_17_11",
+      "name": "周伯通教郭靖空明拳与双手互搏",
+      "participants": ["char_zhou_bo_tong", "char_guo_jing"],
+      "location": "loc_tao_hua_dao",
+      "description": "周伯通正式教郭靖空明拳七十二手（郭靖被摔七八百交），又教双手互搏之术（从左手画方右手画圆练起）。郭靖资质虽钝但毅力过人，终于粗会双手互搏。"
+    },
+    {
+      "id": "evt_17_12",
+      "name": "黄蓉馒头传信警告西毒求婚",
+      "participants": ["char_huang_rong", "char_guo_jing"],
+      "location": "loc_tao_hua_dao",
+      "description": "郭靖在食盒馒头中发现蜡丸密信，黄蓉告知西毒为侄儿欧阳克向黄药师求婚要娶她为妻，信未写完情势紧急。郭靖大急，周伯通却劝他不要娶妻以免耽误练功。"
+    },
+    {
+      "id": "evt_17_13",
+      "name": "白雕传信与竹筒刻字",
+      "participants": ["char_guo_jing", "char_huang_rong"],
+      "location": "loc_tao_hua_dao",
+      "description": "黄蓉托白雕传信，称西毒不日下聘，父亲管束严紧，事急则以死明志，且岛上道路古怪不可前来。郭靖在竹筒上刻'一起活，一起死'六字，托白雕带回表明心意。"
+    },
+    {
+      "id": "evt_17_14",
+      "name": "郭靖悟出双手互搏实战之妙",
+      "participants": ["char_guo_jing", "char_zhou_bo_tong"],
+      "location": "loc_tao_hua_dao",
+      "description": "郭靖在四人混战中悟出双手互搏临敌可相当于二人对一人，招数上大大便宜。周伯通恍然大悟，跃出洞来宣称自己武功已天下第一，不必再怕黄药师。"
+    },
+    {
+      "id": "evt_17_15",
+      "name": "周伯通被毒蛇咬伤",
+      "participants": ["char_zhou_bo_tong", "char_guo_jing"],
+      "location": "loc_tao_hua_dao",
+      "description": "周伯通夜间练拳时双手分打两套拳法分心，被突然出现的青蝮蛇咬中小腿。蛇毒猛烈，周伯通小腿肿粗倍余，全身酸软晕厥。岛上十五年从未见过毒蛇，疑为欧阳锋所驱。"
+    },
+    {
+      "id": "evt_17_16",
+      "name": "郭靖发现刺字人皮即经书下卷",
+      "participants": ["char_guo_jing", "char_zhou_bo_tong"],
+      "location": "loc_tao_hua_dao",
+      "description": "郭靖为照看周伯通时点燃人皮当火把，周伯通在火光中见到人皮上写的全是九阴真经功法口诀，认出这正是至宝——经书下卷经文。急忙扑灭火光。"
+    },
+    {
+      "id": "evt_17_17",
+      "name": "郭靖割臂放血救周伯通",
+      "participants": ["char_guo_jing", "char_zhou_bo_tong"],
+      "location": "loc_tao_hua_dao",
+      "description": "郭靖先为周伯通吮吸毒液，后灵机一动想到自己血中或有克制蛇毒之物（因曾喝大蝮蛇血），拔匕首割臂放血于青瓷大碗中，撬开周伯通牙齿灌入血水，自己放血过多酸软昏睡。周伯通终得救。"
+    },
+    {
+      "id": "evt_17_18",
+      "name": "周伯通确认人皮为真经下卷并传授武功",
+      "participants": ["char_zhou_bo_tong", "char_guo_jing"],
+      "location": "loc_tao_hua_dao",
+      "description": "周伯通醒后追问人皮来历（朱聪从梅超风处盗得），仔细研读确认是九阴真经下卷。内心挣扎后决定教郭靖经中武功，先教上卷根基法门再教下卷武功练法，让郭靖不知不觉将上下卷经文背得烂熟。"
+    },
+    {
+      "id": "evt_17_19",
+      "name": "群蛇来袭，欧阳锋逼近",
+      "participants": ["char_zhou_bo_tong", "char_guo_jing"],
+      "location": "loc_tao_hua_dao",
+      "description": "晴空月夜中二人拆招闲谈，忽闻远处草丛簌簌群蛇之声。周伯通吓得魂飞魄散返奔入洞，郭靖搬巨石拦住洞口。周伯通断言岛上十五年从未有蛇，定是有人驱蛇前来（暗示欧阳锋）。"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "你道是我师哥死后显灵？还是还魂复生？都不是，他是假死。",
+      "tone": "得意洋洋、讲故事口吻",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "黄老邪为人虽然古怪，但他十分骄傲自负，决不会如西毒那么不要脸，敢来强抢经书。",
+      "tone": "评判他人、自信",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_huang_yaoshi",
+      "listener": "char_zhou_bo_tong",
+      "text": "伯通，内子当真全然不会武功。她年纪轻，爱新鲜玩意儿。你就给她瞧瞧，那又有甚么干系？我黄药师只要向你的经书瞟了一眼，我就挖出这对眼珠子给你。",
+      "tone": "自信傲慢、言出如山",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_huang_furen",
+      "listener": "char_zhou_bo_tong",
+      "text": "周大哥，你爱胡闹顽皮，大家可别说拧了淘气，咱们一起玩玩罢。你那宝贝经书我不瞧也罢。",
+      "tone": "俏皮、欲擒故纵",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_huang_furen",
+      "listener": "char_zhou_bo_tong",
+      "text": "周大哥，要是你输了，就把经书借给我瞧瞧。但若是你赢了，你要甚么？",
+      "tone": "活泼、设局",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_huang_yaoshi",
+      "listener": "char_zhou_bo_tong",
+      "text": "伯通，你武功卓绝，自然用不着这副甲护身，但他日你娶了女顽童，生下小顽童，小孩儿穿这副软猬甲可是妙用无穷。",
+      "tone": "调侃、激将",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_huang_yaoshi",
+      "listener": "char_zhou_bo_tong",
+      "text": "老顽童，当世之间，有几个人的武功胜得过你我两人？咱俩联起手来，并世无人能敌。",
+      "tone": "拉拢、宽慰",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_huang_furen",
+      "listener": "char_zhou_bo_tong",
+      "text": "周大哥，你上了西毒的当了啊，这部不是《九阴真经》！",
+      "tone": "惊讶、揭露真相",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_huang_furen",
+      "listener": "char_zhou_bo_tong",
+      "text": "周大哥，你号称老顽童，人可不胡涂啊，你怕我刘备借荆州是不是？我就在这里坐着瞧瞧，看完了马上还你。",
+      "tone": "轻松、安抚",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "兄弟，你读书读几遍才背得出？容易的，大概三四十遍；倘若是又难又长的，那么七八十遍、一百遍也说不定。就算一百多遍，也未必准背得出。",
+      "tone": "试探、铺垫",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "那日黄夫人借了我经书去看，只看了两遍，可是她已一字不漏的记住啦。她和我一分手，就默写了出来给她丈夫。",
+      "tone": "感慨、惊骇",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "你是习武之人，把夫妻之情瞧得这么重，也不怕人笑话？你死了夫人，正好专心练功，若是换了我啊，那正是求之不得！老婆死得越早越好。恭喜，恭喜！",
+      "tone": "口无遮拦、不知轻重",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "我跟他耗下去啊，瞧黄老邪长寿呢还是我多活几年。刚才我跟你说过黄裳的故事，他寿命长过所有的敌人，那便赢了。",
+      "tone": "乐观豁达、顽童心态",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "我在桃花岛上耗了一十五年，时光可没白费。只是一人闷练，虽然自知大有进境，苦在没人拆招，只好左手和右手打架。",
+      "tone": "得意、自嘲",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "这只碗只因为中间是空的，才有盛饭的功用，倘若它是实心的一块瓷土，还能装甚么饭？",
+      "tone": "循循善诱、以物喻理",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "我这全真派最上乘的武功，要旨就在'空、柔'二字，那就是所谓'大成若缺，其用不弊。大盈若冲，其用不穷'。",
+      "tone": "传道授业、正经",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "贤弟，我在洞中耽了十五年，除了一套空明拳和双手互搏的玩意儿之外，还想到许多旁的功夫，咱们闲着也是闲着，待我慢慢传你如何？",
+      "tone": "故作庄重、暗藏计谋",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "梅超风所学的是邪派功夫，和我这玄门正宗的武功如何能比？好罢，咱们且不练这神抓功夫，我再教你一些内家要诀。",
+      "tone": "掩饰、转移话题",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "此刻天机不可泄漏，你读熟便了。",
+      "tone": "神秘、敷衍",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_zhou_bo_tong",
+      "text": "他们是在激你啊！",
+      "tone": "急切提醒",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": null,
+      "text": "我就是在桃花岛中迷路而死，也得去找她。",
+      "tone": "内心独白、坚定决绝",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_zhou_bo_tong",
+      "text": "大哥，你双手的拳路招数全然不同，岂不是就如有两个人在各自发招？临敌之际，要是使将这套功夫出来，那便是以两对一，这门功夫可有用得很啊。",
+      "tone": "恍然大悟、兴奋",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": null,
+      "text": "我现下武功已是天下第一，还怕黄药师怎地？现下只等他来，我打他个落花流水。",
+      "tone": "狂喜、自信爆棚",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "娶了老婆哪，有许多好功夫不能练。好兄弟，你听我说，还是不要老婆的好。",
+      "tone": "苦口婆心、自伤往事",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "兄弟，你舍命救活了我。来索命的无常鬼大失所望，知难而退。",
+      "tone": "感恩、玩笑",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "兄弟，做哥哥的今日是要归天了，临死之前结交了你这位情义深重的兄弟，做哥哥的很是欢喜。",
+      "tone": "凄然、真诚",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "那《九阴真经》的上卷经文，放在我身下土中的石匣之内，本该给了你，但你吮吸了蝮蛇毒液，性命也不长久，咱俩在黄泉路上携手同行，倒是不怕没伴儿玩耍，在阴世玩玩四个人……不，四只鬼打架，倒也有趣。",
+      "tone": "凄然转开朗、孩童心性",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "兄弟，你服过甚么灵丹妙药？为甚么这般厉害的蛇毒不能伤你？",
+      "tone": "震惊、急切",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "这是至宝，千万不可毁……",
+      "tone": "惊急、虚弱",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": null,
+      "text": "四张机，鸳鸯织就欲双飞……可怜未老头先白，可怜……",
+      "tone": "神智模糊、喃喃自语",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": null,
+      "text": "蓉儿，蓉儿！黄岛主，黄岛主！救命啊，救命！",
+      "tone": "焦急、大声呼救",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "小心了，快去快回。我说哪也不用去瞧了，毒蛇有甚么好看？怎……怎么会有这许多蛇？我在桃花岛上一十五年，以前可从来没见过一条蛇，定是甚么事情弄错了！黄老邪自夸神通广大，却连个小小桃花岛也搞得不干不净。",
+      "tone": "惊恐、语无伦次",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_zhou_bo_tong",
+      "text": "大哥，我去瞧瞧，你别出来。",
+      "tone": "关切、镇定",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_zhou_bo_tong",
+      "text": "大哥，今后你待怎样？",
+      "tone": "关心、询问",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "他们多半不知我在此地，就是知道，这岛上树木山石古里古怪，若不是黄老邪有心放人进内，旁人也休想能入得桃花岛来。",
+      "tone": "坦然、不在意",
+      "chapter": 17
+    },
+    {
+      "speaker": "char_zhou_bo_tong",
+      "listener": "char_guo_jing",
+      "text": "你若不是练过我全真派的内功，能一神守内、一神游外，这双手各成方圆的功夫哪能这般迅速练成？",
+      "tone": "惊喜、赞许",
+      "chapter": 17
+    }
+  ]
+}

@@ -1,0 +1,805 @@
+{
+  "chapter": 20,
+  "characters_detail": [
+    {
+      "id": "char_guo_jing",
+      "personality": {
+        "traits": ["憨厚正直", "宁死不屈", "义气深重", "质朴重情", "临危不惧"],
+        "speech_style": "朴实直言，少言寡语，语气诚恳，偶有慷慨激昂之辞",
+        "temperament": "刚正淳朴，面对威胁不屈服，为义兄之死悲愤交加"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_hong_qi_gong",
+          "type": "师徒",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "师徒情深，言听计从。洪七公识破下毒、传授窜改经文之策，郭靖全力配合；危急时刻互相掩护，合力抗敌"
+        },
+        {
+          "target": "char_zhou_bo_tong",
+          "type": "义兄弟",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "闻义兄跳海身亡，放声大哭、悲痛欲绝，誓要报仇。想起周伯通所授双手分击之术不禁感叹"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "仇敌",
+          "intensity": 8,
+          "bond_level": 1,
+          "dynamic": "欧阳锋逼写真经，郭靖宁死不从；以双手分击之术令其措手不及，但功力远逊，需师父援手"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "仇敌",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "在小艇上搏斗，郭靖以双手分击之术折断欧阳克臂骨，两次交手均伤在此术之下"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 9,
+          "dynamic": "闻黄蓉赶来又惊又喜，见她落艇心中大慰，不顾激战先解她穴道，思及捉弄欧阳锋之事感叹与蓉儿生离"
+        }
+      ],
+      "known_skills": ["skill_jiang_long_shi_ba_zhang", "skill_shuang_shou_fen_ji"],
+      "related_skills": []
+    },
+    {
+      "id": "char_hong_qi_gong",
+      "personality": {
+        "traits": ["豪爽机智", "贪嘴好吃", "嫉恶如仇", "足智多谋", "诙谐不羁"],
+        "speech_style": "豪迈粗犷，喜笑怒骂，言语间常夹粗口俚语，骂人恶毒异常却妙趣横生",
+        "temperament": "狂放不羁，危难中仍谈笑自若，馋嘴本性不改但头脑清醒"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "师徒",
+          "intensity": 9,
+          "bond_level": 9,
+          "dynamic": "爱护徒儿，教其应对之策。识破下毒保全师徒性命，授意郭靖写假经骗欧阳锋，危急中数次掩护郭靖"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "宿敌",
+          "intensity": 9,
+          "bond_level": 2,
+          "dynamic": "实力悉敌的对手，互相算计。洪七公智高一筹——识破下毒、命写假经、偷听烧船阴谋、智取小艇逃脱"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "赞赏黄蓉聪慧，称若女徒在此必有对策。黄蓉跃上大船被擒后，洪七公不顾危险前去营救"
+        },
+        {
+          "target": "char_zhou_bo_tong",
+          "type": "朋友",
+          "intensity": 6,
+          "bond_level": 7,
+          "dynamic": "闻周伯通跳海而心中凄然，以中证身份言明全真七子可为周伯通报仇"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "敌对",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "轻蔑称其为小畜生，飞脚踢翻欧阳克，提其后领掷还欧阳锋"
+        }
+      ],
+      "known_skills": ["skill_jiang_long_shi_ba_zhang", "skill_da_gou_bang_fa", "skill_man_tian_hua_yu_zhi_jin_zhen"],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_feng",
+      "personality": {
+        "traits": ["阴险狡诈", "武学痴迷", "心狠手辣", "锲而不舍", "自负高傲"],
+        "speech_style": "冷峻阴沉，语含威胁，时而假意客气称贤侄七兄，时而冷语讥嘲",
+        "temperament": "阴鸷偏执，为求真经不择手段，放火烧船不顾姬人蛇奴死活"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "利用/敌对",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "胁迫郭靖默写九阴真经，点黄蓉穴道以作要挟，却不知所得为窜改后的假经"
+        },
+        {
+          "target": "char_hong_qi_gong",
+          "type": "宿敌",
+          "intensity": 9,
+          "bond_level": 2,
+          "dynamic": "实力悉敌，暗中算计。先下毒无效，再放蛇攻、凿船、火烧，最终在烈焰中以双杖激斗"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "叔侄/主从",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "命欧阳克协助围困洪七公师徒，承诺传其真经，让其先下小艇并安排黄蓉同行"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "人质",
+          "intensity": 3,
+          "bond_level": 0,
+          "dynamic": "擒住黄蓉双腕以要挟洪七公，点其穴道后掷给欧阳克，用作换取小艇的筹码"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_ou_yang_ke",
+      "personality": {
+        "traits": ["轻浮好色", "爱洁成癖", "依仗叔父", "心胸狭窄"],
+        "speech_style": "油嘴滑舌，言语间故作文雅，暗含威胁与轻蔑",
+        "temperament": "轻佻自负，被尿溅到勃然大怒，好容易握住黄蓉手腕不肯放下"
+      },
+      "archetype": "assassin",
+      "relationships": [
+        {
+          "target": "char_ou_yang_feng",
+          "type": "叔侄",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "依仗叔父之势行事，协助放蛇围困、安排火烧船只，被承诺传授九阴真经"
+        },
+        {
+          "target": "char_guo_jing",
+          "type": "仇敌",
+          "intensity": 7,
+          "bond_level": 1,
+          "dynamic": "以铁扇胁迫郭靖后心，在小艇上以灵蛇拳偷袭郭靖面颊，二次施展时被双手分击折断臂骨"
+        },
+        {
+          "target": "char_huang_rong",
+          "type": "觊觎",
+          "intensity": 6,
+          "bond_level": 0,
+          "dynamic": "趁黄蓉被点穴抓住她手腕不肯放，威胁郭靖若动即劈碎她脑袋，火中抱黄蓉下小艇"
+        }
+      ],
+      "known_skills": ["skill_ling_she_quan"],
+      "related_skills": []
+    },
+    {
+      "id": "char_zhou_bo_tong",
+      "personality": {
+        "traits": ["性如顽童", "言出必践", "不惧生死"],
+        "speech_style": "未在本章正面出场，通过他人转述其言行",
+        "temperament": "刚烈守信，打赌输了不肯默写真经，依誓言跳海赴死"
+      },
+      "archetype": "warrior",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "义兄弟",
+          "intensity": 8,
+          "bond_level": 8,
+          "dynamic": "传授双手分击之术令郭靖受益终身，跳海身亡令郭靖悲痛欲绝"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "赌约对手",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "打赌输给欧阳锋，拒绝默写真经，依约跳海——守信至死不渝"
+        }
+      ],
+      "known_skills": ["skill_shuang_shou_fen_ji"],
+      "related_skills": []
+    },
+    {
+      "id": "char_huang_rong",
+      "personality": {
+        "traits": ["聪明伶俐", "水性甚好", "深情果敢", "机警果断"],
+        "speech_style": "伶俐清脆，语气急切时如命令，危急中直呼郭靖之名",
+        "temperament": "灵慧多情，不顾黑夜波涛之险驾船赶来，跃上火船寻郭靖"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_guo_jing",
+          "type": "恋人",
+          "intensity": 10,
+          "bond_level": 9,
+          "dynamic": "见白雕脚上'有难'二字又惊又喜，不顾危险驾轻舟赶来营救，跃上大船直呼'郭靖呢'"
+        },
+        {
+          "target": "char_hong_qi_gong",
+          "type": "师徒",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "洪七公赞赏其聪慧，称她若在此必有对策。黄蓉听到师父声音心中大喜"
+        },
+        {
+          "target": "char_ou_yang_feng",
+          "type": "敌对",
+          "intensity": 6,
+          "bond_level": 1,
+          "dynamic": "被欧阳锋擒住双腕、点穴后作为要挟筹码，落入欧阳克手中"
+        },
+        {
+          "target": "char_ou_yang_ke",
+          "type": "敌对",
+          "intensity": 5,
+          "bond_level": 1,
+          "dynamic": "被欧阳克挟持抱下小艇，欧阳克趁机握住其手腕不肯放"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": ["skill_man_tian_hua_yu_zhi_jin_zhen"]
+    },
+    {
+      "id": "char_huang_yao_shi",
+      "personality": {
+        "traits": ["博学多才", "孤傲不群"],
+        "speech_style": "未在本章正面出场",
+        "temperament": "未在本章正面出场"
+      },
+      "archetype": "scholar",
+      "relationships": [
+        {
+          "target": "char_huang_rong",
+          "type": "父女",
+          "intensity": 7,
+          "bond_level": 8,
+          "dynamic": "其女黄蓉从桃花岛驾船赶来救郭靖"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": []
+    },
+    {
+      "id": "char_wang_chong_yang",
+      "personality": {
+        "traits": ["武功盖世", "德高望重"],
+        "speech_style": "未在本章正面出场",
+        "temperament": "未在本章正面出场"
+      },
+      "archetype": "monk",
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": []
+    }
+  ],
+  "skills_detail": [
+    {
+      "id": "skill_jiang_long_shi_ba_zhang",
+      "techniques": [
+        {
+          "id": "jl_01",
+          "name": "飞龙在天",
+          "type": "attack",
+          "description": "洪七公从郭靖与欧阳锋头顶飞跃而过的腾空掌法，身在半空仍可攻击，飞脚踢翻欧阳克后回臂肘槌撞向欧阳锋后心"
+        },
+        {
+          "id": "jl_02",
+          "name": "双掌齐推",
+          "type": "attack",
+          "description": "洪七公猛劈两掌，风声虎虎，与欧阳锋正面对掌势均力敌，掌风劲力凌厉"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "郭靖习得此掌法，尚只初窥门径"},
+        {"level": 3, "unlock": "洪七公已臻化境，刚猛路子配以竹棒则刚中有柔威力更增"}
+      ],
+      "effects": ["掌风凌厉可泼水成柱", "刚猛路子正面对掌势均力敌"],
+      "combat_style": "外家刚猛路子，双掌正面对攻，掌风虎虎"
+    },
+    {
+      "id": "skill_da_gou_bang_fa",
+      "techniques": [
+        {
+          "id": "dg_01",
+          "name": "打狗棒法",
+          "type": "special",
+          "description": "丐帮镇帮之宝，变化精微奇妙。洪七公在烈焰中故意不施展此法，以留华山二次论剑时出奇制胜"
+        }
+      ],
+      "progression": [
+        {"level": 5, "unlock": "洪七公已完全掌握，但刻意隐藏不用，留作华山论剑杀手锏"}
+      ],
+      "effects": ["竹棒攻敌之余可乘隙击打杖上毒蛇要害", "变化精微奇妙为丐帮镇帮之宝"],
+      "combat_style": "以竹棒为器，精微变化，攻敌兼击蛇"
+    },
+    {
+      "id": "skill_ling_she_quan",
+      "techniques": [
+        {
+          "id": "ls_01",
+          "name": "灵蛇拳",
+          "type": "attack",
+          "description": "手臂忽弯出拳，轨迹诡变令人防不胜防。欧阳克在小艇上首次施展正中郭靖面颊，但二次使用时被郭靖以双手分击破解，臂骨反被折断"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "首次施展出其不意击中对手"},
+        {"level": 1, "unlock": "二次施展对手已有防备，被左右互搏破解"}
+      ],
+      "effects": ["手臂弯折攻击出其不意", "首次使用极具奇效但重复使用易被破解"],
+      "combat_style": "诡变路数，以手臂弯折出拳造成意外打击"
+    },
+    {
+      "id": "skill_shuang_shou_fen_ji",
+      "techniques": [
+        {
+          "id": "sf_01",
+          "name": "左右互搏",
+          "type": "special",
+          "description": "周伯通所授，双手分别施展不同招式。郭靖左挡右进、左虚右实，令欧阳锋措手不及被连抢数招；在小艇上左臂回收右臂外推绞断欧阳克臂骨"
+        }
+      ],
+      "progression": [
+        {"level": 1, "unlock": "郭靖初用此术，凭奇招令欧阳锋一怔失先手"},
+        {"level": 2, "unlock": "可同时施展一挡一攻，左架右推同时施为"}
+      ],
+      "effects": ["双手分心搏击令对手从未见过此拳路", "左挡右进令对手措手不及", "二打一效果但真实功力仍远逊顶尖高手"],
+      "combat_style": "双手分别施展不同招式，左虚右实，攻守兼备"
+    },
+    {
+      "id": "skill_man_tian_hua_yu_zhi_jin_zhen",
+      "techniques": [
+        {
+          "id": "mt_01",
+          "name": "满天花雨掷金针",
+          "type": "attack",
+          "description": "洪七公右手连扬掷出钢针，将涌进船舱的数十条蝮蛇尽数钉死在船板之上。郭靖心想黄蓉也会此技但远不及师父"
+        }
+      ],
+      "progression": [
+        {"level": 3, "unlock": "黄蓉已习得但远不及洪七公"},
+        {"level": 5, "unlock": "洪七公炉火纯青，连扬手间钉死数十条蝮蛇"}
+      ],
+      "effects": ["大面积暗器攻击", "精准钉死移动目标", "可连续投掷但钢针数量有限"],
+      "combat_style": "暗器手法，右手连扬大面积投掷"
+    }
+  ],
+  "items_detail": [
+    {
+      "id": "item_da_gou_bang",
+      "description": "丐帮历代帮主相传的竹棒，质地柔韧，比单剑长了一尺，为丐帮镇帮之宝",
+      "effects": [
+        {"type": "weapon_attack", "value": "刚中有柔", "description": "洪七公外家刚猛路子配上柔韧竹棒，威力更增"},
+        {"type": "anti_snake", "value": "攻蛇要害", "description": "竹棒使开可乘隙击打杖上毒蛇的要害"}
+      ],
+      "origin": "丐帮历代帮主传承",
+      "rarity": "legendary",
+      "related_skills": ["skill_da_gou_bang_fa"]
+    },
+    {
+      "id": "item_she_zhang",
+      "description": "欧阳锋的奇门兵器，杖头雕咧嘴而笑的狰狞人头，面目狰狞，口中两排利齿上喂剧毒。杖身缠绕两条毒蛇，吞吐伸缩令人难防。含有棒法、棍法、杖法的路子，招数繁复。按杖上机括可从人头中激射歹毒暗器",
+      "effects": [
+        {"type": "weapon_attack", "value": "招数繁复", "description": "兼具棒法、棍法、杖法路数"},
+        {"type": "poison", "value": "剧毒暗器", "description": "按机括可从人头口中激射歹毒暗器"},
+        {"type": "snake_attack", "value": "毒蛇辅攻", "description": "杖身缠绕两条毒蛇吞吐伸缩令敌难防"}
+      ],
+      "origin": "白驼山",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_tie_shan",
+      "description": "欧阳克袖中暗藏的铁扇，扇端可点人穴道",
+      "effects": [
+        {"type": "weapon_attack", "value": "点穴", "description": "抵住郭靖后心要穴进行胁迫，扇端触得至阳穴一阵酸麻"}
+      ],
+      "origin": "白驼山",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_gang_zhen",
+      "description": "洪七公的钢针暗器，掷出后将涌进船舱的数十条蝮蛇尽数钉死在船板上",
+      "effects": [
+        {"type": "hidden_weapon", "value": "钉蛇", "description": "精准钉死蝮蛇，痛得吱吱乱叫身子扭曲游动不得"},
+        {"type": "consumable", "value": "有限", "description": "数量有限，杀得性起后所剩寥寥无几"}
+      ],
+      "origin": "洪七公随身携带",
+      "rarity": "common",
+      "related_skills": ["skill_man_tian_hua_yu_zhi_jin_zhen"]
+    },
+    {
+      "id": "item_bi_shou",
+      "description": "郭靖随身匕首，用途多样",
+      "effects": [
+        {"type": "utility", "value": "割帆布", "description": "割两块五寸见方船帆写求救信号缚于白雕脚上"},
+        {"type": "utility", "value": "割绳索", "description": "割断小艇系索令小艇脱离大船逃离"}
+      ],
+      "origin": "郭靖随身携带",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_hu_lu",
+      "description": "洪七公背上随身携带的酒葫芦，桅杆上被困时喝光了其中的酒",
+      "effects": [
+        {"type": "consumable", "value": "储酒", "description": "桅杆上被困三日期间将酒喝干"}
+      ],
+      "origin": "洪七公随身携带",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_fei_yan_yin_suo",
+      "description": "欧阳克掷向攀桅杆郭靖的飞燕形银质暗器",
+      "effects": [
+        {"type": "hidden_weapon", "value": "飞掷伤人", "description": "被郭靖接住反掷，两枚银梭空中相撞当的一声飞出船舷落入海中"}
+      ],
+      "origin": "欧阳克随身携带",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_e_mei_gang_ci",
+      "description": "黄蓉跃上大船时手提的蛾眉钢刺兵器",
+      "effects": [
+        {"type": "weapon_attack", "value": "防身", "description": "用于寻找郭靖时防身"}
+      ],
+      "origin": "黄蓉随身携带",
+      "rarity": "uncommon",
+      "related_skills": []
+    },
+    {
+      "id": "item_jiu_yin_zhen_jing",
+      "description": "武学至宝。郭靖受洪七公授意，将经文大肆窜改——颠倒脱漏、胡改乱删，三句真话夹半句假话，逢练功秘诀则增增减减。写给欧阳锋的实为无用假经",
+      "effects": [
+        {"type": "debuff", "value": "假经害人", "description": "照假经练功虚耗时日、劳而无功，反而身子受害"},
+        {"type": "deception", "value": "瞒天过海", "description": "郭靖书法拙劣反显真实，欧阳锋见其不知写法请教欧阳克，信以为真"},
+        {"type": "special", "value": "经文手法", "description": "手心向天改脚底向天，脚踏实地改手撑实地，气凝丹田改气凝胸口"}
+      ],
+      "origin": "黄药师之妻曾默写下卷经文，郭靖背诵全文",
+      "rarity": "legendary",
+      "related_skills": []
+    },
+    {
+      "id": "item_bai_diao",
+      "description": "郭靖在大漠养伏的两头白雕猛禽，飞行迅捷、雕眼锐敏",
+      "effects": [
+        {"type": "communication", "value": "传信", "description": "脚缚求救信'有难'二字飞往桃花岛方向"},
+        {"type": "recon", "value": "侦察", "description": "在茫茫大海中发现郭靖坐船，引黄蓉驾船赶来"}
+      ],
+      "origin": "郭靖大漠养伏",
+      "rarity": "rare",
+      "related_skills": []
+    },
+    {
+      "id": "item_mu_di",
+      "description": "蛇奴用以驱使蝮蛇进退的乐器",
+      "effects": [
+        {"type": "control", "value": "驱蛇", "description": "笛声嘘嘘可指挥蛇群进退围攻，木笛声中蛇群缓缓后撤"}
+      ],
+      "origin": "白驼山蛇奴",
+      "rarity": "common",
+      "related_skills": []
+    },
+    {
+      "id": "item_fu_she",
+      "description": "白驼山蛇谷杂交培养的剧毒蝮蛇，毒性猛烈，用数百匹骆驼万里迢迢运来中原。惧怕人兽粪尿，被热尿淋到痛得乱翻乱滚张口互咬",
+      "effects": [
+        {"type": "poison", "value": "剧毒", "description": "毒性猛烈，被咬后可致命"},
+        {"type": "swarm", "value": "蛇阵围困", "description": "大量放出可形成密密麻麻的蛇阵围困敌人"},
+        {"type": "weakness", "value": "惧怕粪尿", "description": "被人兽粪尿淋到即痛得乱翻互咬，蛇奴约束不住"}
+      ],
+      "origin": "西域白驼山蛇谷杂交培养",
+      "rarity": "rare",
+      "related_skills": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_20_01",
+      "name": "洪七公识破下毒，命郭靖只吃白饭",
+      "participants": ["char_hong_qi_gong", "char_guo_jing"],
+      "location": "loc_da_hai",
+      "description": "少女送来酒菜，洪七公嗅后识破酒菜已被下毒，命郭靖只吃白饭无碍，将菜倒在船板下。拔开葫芦喝酒后各自扒了三大碗饭"
+    },
+    {
+      "id": "evt_20_02",
+      "name": "欧阳锋叔侄胁迫郭靖写经",
+      "participants": ["char_ou_yang_feng", "char_ou_yang_ke", "char_guo_jing"],
+      "location": "loc_da_hai",
+      "description": "欧阳锋以郭靖为饵诱入后舱，反手抓住其左腕脉门，欧阳克以铁扇抵住后心至阳穴。威胁称酒菜已下毒六个时辰发作，逼郭靖默写九阴真经。郭靖凛然拒绝，称义兄被逼死仇深似海"
+    },
+    {
+      "id": "evt_20_03",
+      "name": "洪七公破门救人",
+      "participants": ["char_hong_qi_gong", "char_ou_yang_feng", "char_ou_yang_ke", "char_guo_jing"],
+      "location": "loc_da_hai",
+      "description": "洪七公双手各提木桶猛泼海水破门，木板碎片纷飞。趁欧阳锋躲避水柱之际抓住欧阳克后领提了过去，嘲讽老毒物天不让他占上风"
+    },
+    {
+      "id": "evt_20_04",
+      "name": "甲板对峙与周伯通死讯",
+      "participants": ["char_hong_qi_gong", "char_ou_yang_feng", "char_guo_jing", "char_ou_yang_ke"],
+      "location": "loc_da_hai",
+      "description": "众人上甲板，郭靖告知周伯通被逼跳海。洪七公将欧阳克掷还欧阳锋，警告全真七子会为周伯通报仇。欧阳锋松开郭靖手腕讥其功夫差远"
+    },
+    {
+      "id": "evt_20_05",
+      "name": "欧阳锋放蛇围攻船舱",
+      "participants": ["char_ou_yang_feng", "char_ou_yang_ke", "char_hong_qi_gong", "char_guo_jing"],
+      "location": "loc_da_hai",
+      "description": "欧阳叔侄凿破船壁放数十条蝮蛇涌进船舱，洪七公以钢针尽数钉死。驱蛇木笛声中蛇群愈来愈多，欧阳锋趁乱攻入舱门"
+    },
+    {
+      "id": "evt_20_06",
+      "name": "郭靖以双手分击对战欧阳锋",
+      "participants": ["char_guo_jing", "char_ou_yang_feng"],
+      "location": "loc_da_hai",
+      "description": "郭靖左挡右进使出周伯通所授双手分击之术，欧阳锋从未见过此拳路一怔失先手，竟被连抢数招。欧阳锋毕竟是武学大师，大叫双掌齐推破解，但洪七公及时出手以飞龙在天接战"
+    },
+    {
+      "id": "evt_20_07",
+      "name": "师徒登桅杆逃蛇阵",
+      "participants": ["char_hong_qi_gong", "char_guo_jing", "char_ou_yang_feng"],
+      "location": "loc_da_hai",
+      "description": "洪七公掩护郭靖上桅杆，郭靖溜下抱住师父竹棒向上力甩，洪七公抓住帆桁挂在半空，二人居高临下。欧阳锋下令转舵向东，蛇群围住桅杆"
+    },
+    {
+      "id": "evt_20_08",
+      "name": "师徒撒尿退蛇阵",
+      "participants": ["char_hong_qi_gong", "char_guo_jing", "char_ou_yang_feng", "char_ou_yang_ke"],
+      "location": "loc_da_hai",
+      "description": "洪七公想到蝮蛇惧怕粪尿，拉开裤子向下撒尿并叫郭靖一起。欧阳锋急命撤蛇，欧阳克被溅数点勃然大怒。数十条蝮蛇被热尿淋到痛得乱翻互咬"
+    },
+    {
+      "id": "evt_20_09",
+      "name": "困桅三日与白雕传信",
+      "participants": ["char_hong_qi_gong", "char_guo_jing"],
+      "location": "loc_da_hai",
+      "description": "桅杆上被困三日又饿又渴，白雕飞来停在郭靖肩上。郭靖割帆布写'有难'二字及葫芦图形缚于雕脚，白雕振翼西飞送信"
+    },
+    {
+      "id": "evt_20_10",
+      "name": "洪七公授计写九阴假经",
+      "participants": ["char_hong_qi_gong", "char_guo_jing"],
+      "location": "loc_da_hai",
+      "description": "洪七公假意认输下桅杆饮酒吃饭，密授郭靖将经文大肆窜改——三句真夹半句假，逢练功秘诀增增减减，教欧阳锋照练百年只练成个屁。下卷前几页黄药师妻默写过欧阳克读过，只稍加错字"
+    },
+    {
+      "id": "evt_20_11",
+      "name": "郭靖大肆窜改九阴真经",
+      "participants": ["char_guo_jing", "char_ou_yang_ke", "char_ou_yang_feng"],
+      "location": "loc_da_hai",
+      "description": "郭靖在大舱中伏案默写，将经文颠倒脱漏胡改乱删——手心向天改脚底向天、气凝丹田改气凝胸口，咒语怪文抖乱得不成模样。书法拙劣不知写法请教欧阳克反增真实感，欧阳锋见文义难解却信以为真心花怒放"
+    },
+    {
+      "id": "evt_20_12",
+      "name": "洪七公偷听烧船阴谋",
+      "participants": ["char_hong_qi_gong", "char_ou_yang_feng", "char_ou_yang_ke"],
+      "location": "loc_da_hai",
+      "description": "洪七公深夜到舱底偷酒，偶闻欧阳叔侄密谋：各处舱中安排油柴硫磺，待郭靖睡熟后点火烧船，令臭叫化烤焦。欧阳锋称需有人殉葬才合洪七公身分"
+    },
+    {
+      "id": "evt_20_13",
+      "name": "师徒智取小艇逃离",
+      "participants": ["char_hong_qi_gong", "char_guo_jing", "char_ou_yang_feng"],
+      "location": "loc_da_hai",
+      "description": "洪七公装说梦话骗过欧阳锋，携郭靖从右舷船外攀爬溜下，摸至船后割断系索登上小艇。欧阳锋发现小艇不见时愤怒惊惧，洪七公纵声长笑"
+    },
+    {
+      "id": "evt_20_14",
+      "name": "黄蓉驾轻舟赶来",
+      "participants": ["char_huang_rong", "char_guo_jing", "char_hong_qi_gong"],
+      "location": "loc_da_hai",
+      "description": "黄蓉见白雕脚上'有难'二字又惊又喜，驾轻舟由双雕引路赶来。她等不及两船靠拢便手提蛾眉钢刺跃上大船，直呼'郭靖呢'。哑巴船夫见她离船立即转舵逃开"
+    },
+    {
+      "id": "evt_20_15",
+      "name": "欧阳锋擒黄蓉要挟换艇",
+      "participants": ["char_ou_yang_feng", "char_huang_rong", "char_hong_qi_gong"],
+      "location": "loc_da_hai",
+      "description": "欧阳锋抓住黄蓉双腕要挟洪七公，点其穴道后掷给欧阳克。洪七公怒而发招但被欧阳锋以黄蓉身体挡架，只得收招"
+    },
+    {
+      "id": "evt_20_16",
+      "name": "欧阳锋火烧大船",
+      "participants": ["char_ou_yang_feng", "char_ou_yang_ke"],
+      "location": "loc_da_hai",
+      "description": "欧阳锋在舱底引火，大船后梢火头冒起，船上男女乱窜帆飞樯舞。欧阳克抱黄蓉拉绳索溜入小艇，大船龙骨烧断折为两截沉入海中"
+    },
+    {
+      "id": "evt_20_17",
+      "name": "洪七公与欧阳锋烈焰中双杖激斗",
+      "participants": ["char_hong_qi_gong", "char_ou_yang_feng"],
+      "location": "loc_da_hai",
+      "description": "二人在烈焰中一面闪避跌落木杆绳索一面拆招，各使兵器攻拒更猛恶。洪七公湿衣占便宜处上风，欧阳锋须发俱焦衣角着火。洪七公故意饶其性命令其去练假经，欧阳锋入海再出挑战。二人以打狗棒与蛇杖对决，洪七公留打狗棒法不用以备华山论剑"
+    },
+    {
+      "id": "evt_20_18",
+      "name": "郭靖小艇上折断欧阳克臂骨",
+      "participants": ["char_guo_jing", "char_ou_yang_ke", "char_huang_rong"],
+      "location": "loc_da_hai",
+      "description": "欧阳克抓住黄蓉手腕不肯放并威胁，郭靖横桨挥击。欧阳克以灵蛇拳偷袭正中郭靖面颊，二次施展时郭靖以左右互搏左臂回收右臂外推绞断其臂骨，解开黄蓉穴道"
+    },
+    {
+      "id": "evt_20_19",
+      "name": "大船沉没，洪七公落水在先",
+      "participants": ["char_hong_qi_gong", "char_ou_yang_feng", "char_guo_jing"],
+      "location": "loc_da_hai",
+      "description": "大船龙骨烧断沉没，洪七公落水在先衣服大半被火烤干，欧阳锋身上尚湿反而占了上风。二人各退后跃以着火桅杆隔开，继续以双杖对战"
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_guo_jing",
+      "text": "别吃的好，老毒物鬼计多端，只吃白饭无碍。",
+      "tone": "低声警觉",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_guo_jing",
+      "text": "老顽童跟我打赌输了，我叫他做事，他却不肯。",
+      "tone": "冷笑得意",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_guo_jing",
+      "text": "当今之世，已只有你一人知道真经全文，快写下来罢。",
+      "tone": "冷峻胁迫",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_guo_jing",
+      "listener": "char_ou_yang_feng",
+      "text": "你害了我义兄性命，我和你仇深似海！你要杀便杀，想要我屈从，那叫做痴心妄想！",
+      "tone": "凛然愤怒",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_ou_yang_feng",
+      "text": "老毒物，你千方百计要占我上风，老天爷总是不许！",
+      "tone": "哈哈大笑嘲讽",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_ou_yang_feng",
+      "text": "老毒物，你逼死老顽童，自有全真教的人跟你算帐。你武功再强，也未必挡得住全真七子的围攻。",
+      "tone": "怒喝警告",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_guo_jing",
+      "text": "老毒物要《九阴真经》，你写一部九阴假经与他。",
+      "tone": "轻声密语",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_guo_jing",
+      "text": "你可要写得似是而非，三句真话，夹半句假话，逢到练功的秘诀，却给他增增减减，经上说吐纳八次，你改成六次或是十次，老毒物再机灵，也决不能瞧出来。",
+      "tone": "低声得意",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_ou_yang_ke",
+      "text": "老叫化武功自成一家，《九阴真经》就是放在面前，也不屑瞧它一眼。只有不成材的厮鸟，自己功夫不成，才巴巴的想偷甚么真金真银。",
+      "tone": "大声自负",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_ou_yang_ke",
+      "listener": "char_hong_qi_gong",
+      "text": "家叔常对小侄言道，他深信《九阴真经》浪得虚名，哗众欺人，否则王重阳当年得了《九阴真经》，为甚么又不见有甚么惊世骇俗的武功显示出来？",
+      "tone": "油滑吹嘘",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_ou_yang_ke",
+      "text": "臭叫化是一代武学大师，总得有些人殉葬，才合他身分。",
+      "tone": "冷冷阴狠",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_ou_yang_ke",
+      "listener": "char_ou_yang_feng",
+      "text": "叔叔，再过一个时辰，那姓郭的小子葬身海底，世上知晓《九阴真经》的，就只你老人家一个啦。",
+      "tone": "得意谄媚",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_ou_yang_ke",
+      "text": "不，有两个。难道我不传你么？",
+      "tone": "淡淡许诺",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_guo_jing",
+      "text": "靖儿！你跟着我行事，别问原因。现下悄悄出去，别让人瞧见。",
+      "tone": "低声急促",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": null,
+      "text": "臭叫化死到临头，还在梦中喝酒打架。",
+      "tone": "装说梦话",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_huang_rong",
+      "text": "蓉儿，我和靖儿都在这儿，游水过来！游过来！",
+      "tone": "大声呼唤",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_huang_rong",
+      "listener": "char_ou_yang_feng",
+      "text": "郭靖呢？你把他怎么了？",
+      "tone": "急切质问",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_hong_qi_gong",
+      "text": "臭叫化，黄姑娘在我这里，你瞧见了么？",
+      "tone": "狞笑要挟",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_ou_yang_ke",
+      "listener": "char_guo_jing",
+      "text": "你一动，我就一掌劈碎她脑袋。",
+      "tone": "阴狠威胁",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_ou_yang_feng",
+      "listener": "char_hong_qi_gong",
+      "text": "慢着，现下我身上也湿了，咱俩公公平平的决个胜败。",
+      "tone": "怪眼一翻不服",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_ou_yang_feng",
+      "text": "妙极，妙极！今日这一战打得当真痛快。",
+      "tone": "酣畅大赞",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_ou_yang_feng",
+      "text": "老毒物，今日我就饶了你，上艇罢。",
+      "tone": "哈哈一笑留情",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_guo_jing",
+      "text": "可惜你不爱做叫化，否则似你这般人品，我帮中倒还没人及得上，我这根打狗棒非传给你不可。",
+      "tone": "赞叹惋惜",
+      "chapter": 20
+    },
+    {
+      "speaker": "char_hong_qi_gong",
+      "listener": "char_guo_jing",
+      "text": "天下最脏的东西，是西毒欧阳锋。",
+      "tone": "大声骂笑",
+      "chapter": 20
+    }
+  ]
+}
