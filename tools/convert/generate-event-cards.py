@@ -1,11 +1,26 @@
 #!/usr/bin/env python3
-"""从深度提取结果生成事件卡片"""
+"""从深度提取结果生成事件卡片
+
+用法:
+    python generate-event-cards.py <小说目录>
+    
+示例:
+    python generate-event-cards.py 金庸/天龙八部
+"""
 
 import os
+import sys
 import json
 
-NOVELS_DIR = "金庸/天龙八部"
-CHAPTERS_DIR = "金庸/天龙八部/chapters"
+# 从命令行参数获取路径
+if len(sys.argv) < 2:
+    print("❌ 错误: 请提供小说目录路径")
+    print("用法: python generate-event-cards.py <小说目录>")
+    sys.exit(1)
+
+NOVELS_DIR = sys.argv[1]
+CHAPTERS_DIR = os.path.join(NOVELS_DIR, "chapters")
+NOVEL_NAME = os.path.basename(NOVELS_DIR)
 
 
 def load_json(path):
@@ -24,133 +39,117 @@ def save_markdown(output_dir, filename, content):
     return filepath
 
 
-def event_to_markdown(event, characters_map):
+def extract_events_from_chapters():
+    """从所有章节的深度提取结果中收集事件"""
+    all_events = []
+    
+    # 自动检测章节数量
+    import glob
+    chapter_files = glob.glob(os.path.join(CHAPTERS_DIR, "ch_*_deep.json"))
+    max_chapter = 0
+    for f in chapter_files:
+        basename = os.path.basename(f)
+        try:
+            num = int(basename.split('_')[1])
+            max_chapter = max(max_chapter, num)
+        except:
+            pass
+    
+    for i in range(1, max_chapter + 1):
+        deep_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_deep.json")
+        deep_data = load_json(deep_path)
+        if deep_data and 'events' in deep_data:
+            for event in deep_data['events']:
+                event['chapter'] = i
+                all_events.append(event)
+    
+    return all_events
+
+
+def event_to_markdown(event):
     """将事件数据转换为Markdown"""
-    event_id = event.get('id', '')
-    name = event.get('name', 'Unknown Event')
+    event_id = event.get('id', 'unknown')
+    name = event.get('name', '未知事件')
     chapter = event.get('chapter', 0)
-    event_type = event.get('type', 'plot')
-    importance = event.get('importance', 'major')
-    description = event.get('description', '')
-    location = event.get('location', '')
-    participants = event.get('participants', [])
-    dialogues = event.get('dialogues', [])
-    impacts = event.get('impacts', [])
-    related_events = event.get('related_events', [])
-    aftermath = event.get('aftermath', '')
 
     # YAML frontmatter
     frontmatter = f"""---
 id: {event_id}
-chapter: {chapter}
-type: {event_type}
+type: event
 tags:
-  - 天龙八部
+  - {NOVEL_NAME}
   - event
-importance: {importance}
-participants:"""
-
-    for participant in participants:
-        char_name = characters_map.get(participant, participant)
-        frontmatter += f'\n  - "[[{char_name}]]"'
-
-    if location:
-        frontmatter += f'\nlocation: "[[{location}]]"'
-
-    frontmatter += "\n---"
+chapter: {chapter}
+participants: {json.dumps(event.get('participants', []), ensure_ascii=False)}
+location: {event.get('location', '')}
+---"""
 
     # Body
     body = f"""
 ## 描述
-{description}
+{event.get('description', '暂无描述')}
 
-## 关键对话
+## 参与者
 """
 
-    for dialogue in dialogues:
-        speaker = dialogue.get('speaker', '')
-        listener = dialogue.get('listener', '')
-        text = dialogue.get('text', '')
-        tone = dialogue.get('tone', '')
-        body += f'> "{text}"\n'
-        body += f"> —— {speaker}，{tone}\n\n"
+    for participant in event.get('participants', []):
+        body += f"- [[{participant}]]\n"
 
-    body += "## 影响\n"
-    for impact in impacts:
-        body += f"- {impact}\n"
-
-    if related_events:
-        body += "\n## 相关事件\n"
-        for related in related_events:
-            body += f"- [[{related}]]\n"
-
-    if aftermath:
-        body += f"\n## 后续发展\n{aftermath}\n"
+    body += f"""
+## 地点
+[[{event.get('location', '')}]]
+"""
 
     return f"{frontmatter}\n\n# {name}\n{body}"
 
 
+def generate_timeline(events):
+    """生成事件时间线"""
+    timeline = f"# {NOVEL_NAME} 事件时间线\n\n"
+    
+    # 按章节分组
+    by_chapter = {}
+    for event in events:
+        ch = event.get('chapter', 0)
+        by_chapter.setdefault(ch, []).append(event)
+    
+    for ch in sorted(by_chapter.keys()):
+        timeline += f"## 第 {ch} 章\n\n"
+        for event in by_chapter[ch]:
+            timeline += f"- **{event.get('name', '')}**: {event.get('description', '')[:50]}...\n"
+        timeline += "\n"
+    
+    return timeline
+
+
 def main():
-    # 加载角色映射
-    characters = load_json(os.path.join(NOVELS_DIR, 'characters.json'))
-    characters_map = {}
-    if characters:
-        for char in characters:
-            char_id = char.get('id', '')
-            char_name = char.get('name', '')
-            if char_id and char_name:
-                characters_map[char_id] = char_name
+    print(f"📂 小说目录: {NOVELS_DIR}")
+    
+    # 收集所有事件
+    print("收集事件数据...")
+    events = extract_events_from_chapters()
+    print(f"  找到 {len(events)} 个事件")
 
-    # 加载所有深度提取结果
-    all_events = []
-    for i in range(1, 51):
-        deep_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_deep.json")
-        if os.path.exists(deep_path):
-            with open(deep_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                events = data.get('events', [])
-                for event in events:
-                    event['chapter'] = i
-                    all_events.append(event)
-
-    print(f"找到 {len(all_events)} 个事件")
-
-    # 生成事件卡片
+    # 转换并保存事件卡
+    print("生成事件卡片...")
     events_dir = os.path.join(NOVELS_DIR, 'events')
     os.makedirs(events_dir, exist_ok=True)
+    
+    for event in events:
+        name = event.get('name', 'unknown')
+        markdown = event_to_markdown(event)
+        save_markdown(events_dir, name, markdown)
+    print(f"  已生成 {len(events)} 个事件卡")
 
-    for event in all_events:
-        event_id = event.get('id', '')
-        event_name = event.get('name', 'unknown')
-        markdown = event_to_markdown(event, characters_map)
-        save_markdown(events_dir, event_name, markdown)
-
-    print(f"已生成 {len(all_events)} 个事件卡片")
-
-    # 生成事件时间线
-    timeline_path = os.path.join(NOVELS_DIR, '事件时间线.md')
+    # 生成时间线
+    print("生成时间线...")
+    timeline = generate_timeline(events)
+    timeline_path = os.path.join(NOVELS_DIR, 'event_timeline.md')
     with open(timeline_path, 'w', encoding='utf-8') as f:
-        f.write("# 天龙八部 事件时间线\n\n")
-        f.write("| 章节 | 事件 | 类型 | 参与者 | 地点 |\n")
-        f.write("|------|------|------|--------|------|\n")
+        f.write(timeline)
+    print(f"  时间线已保存到 {timeline_path}")
 
-        # 按章节排序
-        sorted_events = sorted(all_events, key=lambda x: x.get('chapter', 0))
-
-        for event in sorted_events:
-            chapter = event.get('chapter', 0)
-            name = event.get('name', '')
-            event_type = event.get('type', '')
-            participants = [characters_map.get(p, p) for p in event.get('participants', [])]
-            location = event.get('location', '')
-
-            participants_str = ', '.join(participants[:3])  # 最多显示3个
-            if len(participants) > 3:
-                participants_str += '...'
-
-            f.write(f"| {chapter} | [[{name}]] | {event_type} | {participants_str} | {location} |\n")
-
-    print(f"已生成事件时间线: {timeline_path}")
+    print("\n✅ 生成完成！")
 
 
 if __name__ == "__main__":

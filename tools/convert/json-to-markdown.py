@@ -1,11 +1,30 @@
 #!/usr/bin/env python3
-"""将JSON数据转换为Obsidian Markdown卡片"""
+"""将JSON数据转换为Obsidian Markdown卡片
+
+用法:
+    python json-to-markdown.py <小说目录>
+    
+示例:
+    python json-to-markdown.py 金庸/天龙八部
+    python json-to-markdown.py 金庸/射雕英雄传
+"""
 
 import os
+import sys
 import json
 
-NOVELS_DIR = "金庸/天龙八部"
+# 从命令行参数获取路径
+if len(sys.argv) < 2:
+    print("❌ 错误: 请提供小说目录路径")
+    print("用法: python json-to-markdown.py <小说目录>")
+    print("示例: python json-to-markdown.py 金庸/天龙八部")
+    sys.exit(1)
+
+NOVELS_DIR = sys.argv[1]
 TEMPLATES_DIR = "framework/templates"
+
+# 从小说目录名提取小说名（用于 tag）
+NOVEL_NAME = os.path.basename(NOVELS_DIR)
 
 # ID 到中文名的映射表
 ID_TO_NAME = {}
@@ -198,7 +217,7 @@ def char_to_markdown(char):
 id: {char_id}
 type: character
 tags:
-  - 天龙八部
+  - {NOVEL_NAME}
   - character
 role: {char.get('role', 'npc')}
 archetype: {char.get('archetype', 'warrior')}
@@ -280,7 +299,7 @@ def skill_to_markdown(skill):
 id: {skill_id}
 type: {skill.get('type', 'sword_art')}
 tags:
-  - 天龙八部
+  - {NOVEL_NAME}
   - skill
 rank: {skill.get('rank', '登堂入室')}
 faction: "[[{id_to_wikilink(skill.get('faction', ''))}]]"
@@ -336,7 +355,7 @@ def faction_to_markdown(faction):
 id: {faction_id}
 type: {faction.get('type', 'sect')}
 tags:
-  - 天龙八部
+  - {NOVEL_NAME}
   - faction
 location: "[[{id_to_wikilink(faction.get('location', ''))}]]"
 ---"""
@@ -375,7 +394,7 @@ def location_to_markdown(location):
 id: {loc_id}
 type: location
 tags:
-  - 天龙八部
+  - {NOVEL_NAME}
   - location
 region: {location.get('region', '')}
 ---"""
@@ -402,6 +421,9 @@ region: {location.get('region', '')}
 
 
 def main():
+    print(f"📂 小说目录: {NOVELS_DIR}")
+    print(f"📝 小说名称: {NOVEL_NAME}")
+    
     # 加载数据；技能卡以深度合并后的 skills.json 为内容源，game_skills.json 只补游戏数值。
     game_chars_path = os.path.join(NOVELS_DIR, 'game_characters.json')
     game_skills_path = os.path.join(NOVELS_DIR, 'game_skills.json')
@@ -453,7 +475,7 @@ def main():
         save_markdown(os.path.join(NOVELS_DIR, 'locations'), name, markdown)
     print(f"  已转换 {len(locations)} 个地点卡")
 
-    print("\n转换完成！")
+    print("\n✅ 转换完成！")
 
 
 if __name__ == "__main__":

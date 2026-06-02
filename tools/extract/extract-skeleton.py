@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""骨架提取脚本：逐章调用LLM提取人物/门派/地点/武功粗列表"""
+"""骨架提取脚本：逐章调用LLM提取人物/门派/地点/武功粗列表
+
+用法:
+    python extract-skeleton.py <小说目录> [章节号...]
+    
+示例:
+    python extract-skeleton.py 金庸/天龙八部           # 处理所有未完成章节
+    python extract-skeleton.py 金庸/天龙八部 1 2 3    # 只处理第1-3章
+"""
 
 import os
 import sys
@@ -7,12 +15,23 @@ import json
 import glob
 import re
 
-# 配置
-NOVEL_DIR = "金庸/天龙八部"
-NOVEL_FILE = "天龙八部.txt"
-CHAPTERS_OUTPUT = "金庸/天龙八部/chapters"
+# 从命令行参数获取路径
+if len(sys.argv) < 2:
+    print("❌ 错误: 请提供小说目录路径")
+    print("用法: python extract-skeleton.py <小说目录> [章节号...]")
+    sys.exit(1)
+
+NOVEL_DIR = sys.argv[1]
+CHAPTERS_OUTPUT = os.path.join(NOVEL_DIR, "chapters")
+PROGRESS_FILE = os.path.join(NOVEL_DIR, "progress.json")
 PROMPT_FILE = "tools/extract/skeleton-prompt.md"
-PROGRESS_FILE = "金庸/天龙八部/progress.json"
+
+# 自动检测小说文件（.txt 文件）
+novel_files = glob.glob(os.path.join(NOVEL_DIR, "*.txt"))
+if novel_files:
+    NOVEL_FILE = os.path.basename(novel_files[0])
+else:
+    NOVEL_FILE = None
 
 # 章节边界：每章以 "一\t" "二\t" 等数字开头
 CHAPTER_PATTERN = re.compile(r'^[一二三四五六七八九十百千]+[　\s\t]+', re.MULTILINE)
@@ -54,8 +73,8 @@ def load_progress():
         with open(PROGRESS_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
     return {
-        "skeleton": {"total": 50, "done": [], "failed": [], "pending": []},
-        "deep": {"total": 50, "done": [], "failed": [], "pending": []},
+        "skeleton": {"total": 0, "done": [], "failed": [], "pending": []},
+        "deep": {"total": 0, "done": [], "failed": [], "pending": []},
         "merge": False,
         "gamify": False,
         "rag": False
@@ -76,6 +95,15 @@ def get_missing_chapters(progress):
 
 
 def main():
+    print(f"📂 小说目录: {NOVEL_DIR}")
+    
+    # 检查小说文件
+    if not NOVEL_FILE:
+        print("❌ 错误: 未找到小说 .txt 文件")
+        sys.exit(1)
+    
+    print(f"📄 小说文件: {NOVEL_FILE}")
+    
     # 读取小说
     novel_path = os.path.join(NOVEL_DIR, NOVEL_FILE)
     with open(novel_path, 'r', encoding='utf-8', errors='replace') as f:
@@ -97,8 +125,8 @@ def main():
 
     # 获取需要处理的章节
     # 如果命令行指定了章节号，只处理那些
-    if len(sys.argv) > 1:
-        target_chapters = [int(x) for x in sys.argv[1:]]
+    if len(sys.argv) > 2:
+        target_chapters = [int(x) for x in sys.argv[2:]]
     else:
         target_chapters = get_missing_chapters(progress)
 
@@ -141,7 +169,7 @@ def main():
         print(f"[TODO] 章节 {ch_num} - 需要调用LLM获取结果并保存到 {output_file}")
 
     save_progress(progress)
-    print("完成！")
+    print("✅ 完成！")
 
 
 if __name__ == "__main__":

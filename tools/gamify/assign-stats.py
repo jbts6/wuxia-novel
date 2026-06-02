@@ -1,10 +1,24 @@
 #!/usr/bin/env python3
-"""游戏化赋值脚本：为角色/技能添加游戏数值"""
+"""游戏化赋值脚本：为角色/技能添加游戏数值
+
+用法:
+    python assign-stats.py <小说目录>
+    
+示例:
+    python assign-stats.py 金庸/天龙八部
+"""
 
 import os
+import sys
 import json
 
-NOVELS_DIR = "金庸/天龙八部"
+# 从命令行参数获取路径
+if len(sys.argv) < 2:
+    print("❌ 错误: 请提供小说目录路径")
+    print("用法: python assign-stats.py <小说目录>")
+    sys.exit(1)
+
+NOVELS_DIR = sys.argv[1]
 TEMPLATES_DIR = "framework/templates"
 BALANCE_DIR = "framework/balance"
 
@@ -106,6 +120,8 @@ def assign_skill_stats(skills, archetypes):
 
 
 def main():
+    print(f"📂 小说目录: {NOVELS_DIR}")
+    
     # 加载数据
     characters = load_json(os.path.join(NOVELS_DIR, 'characters.json'))
     skills = load_json(os.path.join(NOVELS_DIR, 'skills.json'))
@@ -140,7 +156,7 @@ def main():
     with open(progress_path, 'w', encoding='utf-8') as f:
         json.dump(progress, f, ensure_ascii=False, indent=2)
 
-    print("游戏化赋值完成！")
+    print("✅ 游戏化赋值完成！")
 
 
 if __name__ == "__main__":

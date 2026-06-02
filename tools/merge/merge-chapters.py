@@ -1,14 +1,31 @@
 #!/usr/bin/env python3
-"""合并脚本：将50章的骨架+深度提取结果合并为全局数据"""
+"""合并脚本：将章节的骨架+深度提取结果合并为全局数据
+
+用法:
+    python merge-chapters.py <小说目录>
+    
+示例:
+    python merge-chapters.py 金庸/天龙八部
+    python merge-chapters.py 金庸/射雕英雄传
+"""
 
 import os
+import sys
 import json
 import glob
 import copy
 
-CHAPTERS_DIR = "金庸/天龙八部/chapters"
-OUTPUT_DIR = "金庸/天龙八部"
-PROGRESS_FILE = "金庸/天龙八部/progress.json"
+# 从命令行参数获取路径
+if len(sys.argv) < 2:
+    print("❌ 错误: 请提供小说目录路径")
+    print("用法: python merge-chapters.py <小说目录>")
+    print("示例: python merge-chapters.py 金庸/天龙八部")
+    sys.exit(1)
+
+NOVEL_DIR = sys.argv[1]
+CHAPTERS_DIR = os.path.join(NOVEL_DIR, "chapters")
+OUTPUT_DIR = NOVEL_DIR
+PROGRESS_FILE = os.path.join(NOVEL_DIR, "progress.json")
 
 MANUAL_SKILL_ALIASES = {
     'skill_lingbo_weibu': 'skill_lingboweibu',
@@ -20,7 +37,25 @@ MANUAL_SKILL_ALIASES = {
 def load_all_chapters():
     """加载所有章节的骨架+深度数据"""
     chapters = []
-    for i in range(1, 51):
+    
+    # 自动检测章节数量
+    chapter_files = glob.glob(os.path.join(CHAPTERS_DIR, "ch_*_skeleton.json"))
+    max_chapter = 0
+    for f in chapter_files:
+        basename = os.path.basename(f)
+        try:
+            num = int(basename.split('_')[1])
+            max_chapter = max(max_chapter, num)
+        except:
+            pass
+    
+    if max_chapter == 0:
+        print(f"⚠️ 警告: 在 {CHAPTERS_DIR} 中未找到骨架文件")
+        return chapters
+    
+    print(f"检测到 {max_chapter} 个章节")
+    
+    for i in range(1, max_chapter + 1):
         sk_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_skeleton.json")
         dp_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_deep.json")
         items_detail_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_items_detail.json")
@@ -300,6 +335,7 @@ def save_merged(data):
 
 
 def main():
+    print(f"📂 小说目录: {NOVEL_DIR}")
     print("加载章节数据...")
     chapters = load_all_chapters()
 
@@ -322,7 +358,7 @@ def main():
     with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
         json.dump(progress, f, ensure_ascii=False, indent=2)
 
-    print("合并完成！")
+    print("✅ 合并完成！")
 
 
 if __name__ == "__main__":
