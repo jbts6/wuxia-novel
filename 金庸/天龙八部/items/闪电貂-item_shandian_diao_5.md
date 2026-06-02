@@ -1,7 +1,7 @@
 ---
 id: item_shandian_diao_5
 type: special
-owner: "[[钟灵]]"
+owner: "[[characters/钟灵]]"
 tags:
   - 天龙八部
   - item
@@ -11,7 +11,7 @@ tags:
 
 ## 基本信息
 - **类型**: 特殊物品
-- **持有者**: [[钟灵]]
+- **持有者**: [[characters/钟灵]]
 - **简介**: 钟灵豢养的小貂，行动如电，齿有剧毒，被莽牯朱蛤毒死
 
 ## 描述
@@ -25,6 +25,6 @@ tags:
 钟灵所养小貂，前章逃入草丛，本章在段誉附近再次现身。
 
 ## 相关人物
-- [[钟灵]]
-- [[段誉]]
-- [[char_sikong_xuan]]
+- [[characters/钟灵]]
+- [[characters/段誉]]
+- [[characters/司空玄]]

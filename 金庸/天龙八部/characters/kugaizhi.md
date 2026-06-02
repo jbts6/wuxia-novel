@@ -12,7 +12,7 @@ alias: []
 identity: 段思廉
 first_appearance: 
 known_skills:
-  - "[[一阳指]]"
+  - "[[skills/一阳指]]"
 related_skills:
 game_stats:
   hp: 780
