@@ -270,11 +270,13 @@ def merge_items_by_name(items):
                     for x in v:
                         if str(x) not in existing:
                             result[k].append(x)
-                elif isinstance(v, str) and v and v != result.get(k, ''):
+                elif isinstance(v, str) and v and v != str(result.get(k, '')):
                     # 字符串字段：拼接不同值
                     existing = result.get(k, '')
-                    if existing and v not in existing:
-                        result[k] = existing + '；' + v
+                    if isinstance(existing, list):
+                        pass  # skip: list vs string mismatch
+                    elif existing and v not in str(existing):
+                        result[k] = str(existing) + '；' + v
                     elif not existing:
                         result[k] = v
                 elif v is not None and v != '' and v != [] and v != result.get(k):
