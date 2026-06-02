@@ -4,10 +4,17 @@
 import os
 import json
 import glob
+import copy
 
 CHAPTERS_DIR = "金庸/天龙八部/chapters"
 OUTPUT_DIR = "金庸/天龙八部"
 PROGRESS_FILE = "金庸/天龙八部/progress.json"
+
+MANUAL_SKILL_ALIASES = {
+    'skill_lingbo_weibu': 'skill_lingboweibu',
+    'skill_beiming_shengong': 'skill_beimingshengong',
+    'skill_yibidaohuanshi': 'skill_yi_bi_zhi_dao_huan_shi_bi_shen',
+}
 
 
 def load_all_chapters():
@@ -16,9 +23,11 @@ def load_all_chapters():
     for i in range(1, 51):
         sk_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_skeleton.json")
         dp_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_deep.json")
+        items_detail_path = os.path.join(CHAPTERS_DIR, f"ch_{i:02d}_items_detail.json")
 
         sk_data = None
         dp_data = None
+        items_detail_data = None
 
         if os.path.exists(sk_path):
             with open(sk_path, 'r', encoding='utf-8') as f:
@@ -28,10 +37,15 @@ def load_all_chapters():
             with open(dp_path, 'r', encoding='utf-8') as f:
                 dp_data = json.load(f)
 
+        if os.path.exists(items_detail_path):
+            with open(items_detail_path, 'r', encoding='utf-8') as f:
+                items_detail_data = json.load(f)
+
         chapters.append({
             'num': i,
             'skeleton': sk_data,
-            'deep': dp_data
+            'deep': dp_data,
+            'items_detail': items_detail_data
         })
 
     return chapters
@@ -65,12 +79,124 @@ def merge_list(existing, new, key='id'):
     return list(by_id.values())
 
 
+def dedupe_list(values):
+    """按 id/完整内容去重，保留首次出现顺序。"""
+    deduped = []
+    seen = set()
+    for value in values or []:
+        if isinstance(value, dict) and value.get('id'):
+            marker = ('id', value['id'])
+        else:
+            marker = ('value', json.dumps(value, ensure_ascii=False, sort_keys=True))
+        if marker in seen:
+            continue
+        seen.add(marker)
+        deduped.append(value)
+    return deduped
+
+
+def merge_record(target, source):
+    for k, v in source.items():
+        if k == 'id':
+            continue
+        if isinstance(v, list):
+            target[k] = dedupe_list(list(target.get(k) or []) + v)
+        elif isinstance(v, dict):
+            merged = dict(target.get(k) or {})
+            for sub_key, sub_value in v.items():
+                if sub_value not in (None, '', [], {}):
+                    merged.setdefault(sub_key, sub_value)
+            target[k] = merged
+        elif target.get(k) in (None, '', [], {}):
+            target[k] = v
+
+
+def skill_quality_score(skill):
+    score = 0
+    name = skill.get('name', '')
+    if name and not name.startswith('skill_'):
+        score += 100
+    if skill.get('faction'):
+        score += 30
+    score += len(skill.get('techniques') or []) * 10
+    score += len(skill.get('progression') or []) * 4
+    score += len(skill.get('effects') or []) * 4
+    score += len(skill.get('rag_refs') or [])
+    if skill.get('combat_style'):
+        score += 5
+    return (score, skill.get('id', ''))
+
+
+def is_placeholder_skill(skill):
+    name = skill.get('name', '')
+    return name.startswith('skill_') and skill.get('one_line', '') in ('', name)
+
+
+def normalize_skills(skills):
+    """合并同名功法变体，移除占位技能，并返回旧 id 到 canonical id 的映射。"""
+    by_name = {}
+    aliases = dict(MANUAL_SKILL_ALIASES)
+
+    for skill in skills:
+        if is_placeholder_skill(skill):
+            continue
+        name = skill.get('name') or skill.get('id')
+        by_name.setdefault(name, []).append(skill)
+
+    normalized = []
+    for records in by_name.values():
+        canonical = max(records, key=skill_quality_score)
+        merged = copy.deepcopy(canonical)
+        for record in records:
+            record_id = record.get('id')
+            if record_id and record_id != canonical.get('id'):
+                aliases[record_id] = canonical.get('id')
+            merge_record(merged, record)
+        for key, value in list(merged.items()):
+            if isinstance(value, list):
+                merged[key] = dedupe_list(value)
+        normalized.append(merged)
+
+    valid_ids = {skill.get('id') for skill in normalized if skill.get('id')}
+    aliases = {old: new for old, new in aliases.items() if new in valid_ids}
+    return normalized, aliases
+
+
+def rewrite_skill_refs(value, aliases):
+    if isinstance(value, str):
+        return aliases.get(value, value)
+    if isinstance(value, list):
+        return dedupe_list([rewrite_skill_refs(item, aliases) for item in value])
+    if isinstance(value, dict):
+        return {k: rewrite_skill_refs(v, aliases) for k, v in value.items()}
+    return value
+
+
+def extract_techniques_from_skills(skills):
+    """从合并后的 skills 数据中提取并去重 techniques。"""
+    techniques_by_id = {}
+    for skill in skills:
+        skill_id = skill.get('id', '')
+        for technique in skill.get('techniques', []):
+            if not isinstance(technique, dict):
+                continue
+            technique_id = technique.get('id')
+            if not technique_id or technique_id in techniques_by_id:
+                continue
+            extracted = dict(technique)
+            if skill_id:
+                extracted.setdefault('source_skill', skill_id)
+            techniques_by_id[technique_id] = extracted
+    return list(techniques_by_id.values())
+
+
 def merge_all(chapters):
     """合并所有章节数据"""
     all_characters = []
     all_factions = []
     all_locations = []
     all_skills = []
+    all_items = []
     all_techniques = []
     all_events = []
     all_dialogues = []
@@ -82,6 +208,7 @@ def merge_all(chapters):
             all_factions = merge_list(all_factions, sk.get('factions', []))
             all_locations = merge_list(all_locations, sk.get('locations', []))
             all_skills = merge_list(all_skills, sk.get('skills', []))
+            all_items = merge_list(all_items, sk.get('items', []))
 
         if ch['deep']:
             dp = ch['deep']
@@ -120,11 +247,43 @@ def merge_all(chapters):
             all_events.extend(dp.get('events', []))
             all_dialogues.extend(dp.get('dialogues', []))
 
+        item_details = []
+        if ch['deep']:
+            item_details.extend(ch['deep'].get('items_detail', []))
+        if ch.get('items_detail'):
+            item_details.extend(ch['items_detail'].get('items_detail', []))
+
+        for detail in item_details:
+            for item in all_items:
+                if item['id'] == detail['id']:
+                    for k, v in detail.items():
+                        if k == 'id':
+                            continue
+                        if isinstance(v, list) and isinstance(item.get(k), list):
+                            existing = set(str(x) for x in item[k])
+                            for x in v:
+                                if str(x) not in existing:
+                                    item[k].append(x)
+                        elif v is not None and v != '':
+                            item[k] = v
+                    break
+
+    all_skills, skill_aliases = normalize_skills(all_skills)
+    all_characters = rewrite_skill_refs(all_characters, skill_aliases)
+    all_factions = rewrite_skill_refs(all_factions, skill_aliases)
+    all_items = rewrite_skill_refs(all_items, skill_aliases)
+    all_events = rewrite_skill_refs(all_events, skill_aliases)
+    all_dialogues = rewrite_skill_refs(all_dialogues, skill_aliases)
+
+    all_techniques = rewrite_skill_refs(all_techniques, skill_aliases)
+    all_techniques = merge_list(all_techniques, extract_techniques_from_skills(all_skills))
+
     return {
         'characters': all_characters,
         'factions': all_factions,
         'locations': all_locations,
         'skills': all_skills,
+        'items': all_items,
         'techniques': all_techniques,
         'events': all_events,
         'dialogues': all_dialogues

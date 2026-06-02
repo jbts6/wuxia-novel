@@ -1,0 +1,38 @@
+---
+id: char_menggu_xuanzong
+type: character
+tags:
+  - 天龙八部
+  - character
+role: npc
+archetype: warrior
+rank: 登堂入室
+faction: "[[]]"
+alias: []
+identity: 西夏公主
+first_appearance: 
+known_skills:
+related_skills:
+game_stats:
+  hp: 780
+  mp: 280
+  atk: 52
+  def: 42
+  spd: 36
+  wiz: 24
+---
+
+# menggu_xuanzong
+
+## 性格
+- **特征**: 
+- **说话风格**: 
+- **气质**: 
+
+## 关系
+
+## 外貌
+暂无描述
+
+## 生平概要
+西夏公主 menggu_xuanzong

@@ -44,6 +44,9 @@ def event_to_markdown(event, characters_map):
 id: {event_id}
 chapter: {chapter}
 type: {event_type}
+tags:
+  - 天龙八部
+  - event
 importance: {importance}
 participants:"""
 
@@ -84,7 +87,7 @@ participants:"""
     if aftermath:
         body += f"\n## 后续发展\n{aftermath}\n"
 
-    return f"# {name}\n\n{frontmatter}\n{body}"
+    return f"{frontmatter}\n\n# {name}\n{body}"
 
 
 def main():
