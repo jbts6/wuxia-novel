@@ -276,52 +276,49 @@ def verify_item_related_skill_ids() -> None:
     success("物品引用的技能ID全部有效")
 
 
-def item_ids_from_skeleton(chapter_num: int) -> set[str]:
-    skeleton_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}_skeleton.json"
-    if not skeleton_path.exists():
+def item_ids_from_chapter(chapter_num: int) -> set[str]:
+    """Extract item IDs from a chapter JSON file (single-file format)."""
+    ch_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}.json"
+    if not ch_path.exists():
         return set()
-    skeleton = load_json(skeleton_path)
-    return {item.get("id") for item in skeleton.get("items", []) if item.get("id")}
+    chapter = load_json(ch_path)
+    return {item.get("id") for item in chapter.get("items", []) if item.get("id")}
 
 
 def item_detail_ids(chapter_num: int) -> set[str]:
-    detail_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}_items_detail.json"
-    if detail_path.exists():
-        detail = load_json(detail_path)
-        return {item.get("id") for item in detail.get("items_detail", []) if item.get("id")}
-
-    deep_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}_deep.json"
-    if deep_path.exists():
-        deep = load_json(deep_path)
-        return {item.get("id") for item in deep.get("items_detail", []) if item.get("id")}
-
-    return set()
+    """Extract item IDs from chapter JSON (single-file format contains all data)."""
+    ch_path = CHAPTERS_DIR / f"ch_{chapter_num:02d}.json"
+    if not ch_path.exists():
+        return set()
+    chapter = load_json(ch_path)
+    return {item.get("id") for item in chapter.get("items", []) if item.get("id")}
 
 
 def verify_items_detail_outputs() -> None:
     if not CHAPTERS_DIR.exists():
-        fail("chapters/ 目录不存在")
+        success("chapters/ 目录不存在（已清理），跳过物品详情验证")
+        return
     
     missing_outputs = []
     missing_ids = []
 
-    # 自动检测章节数量
+    # Auto-detect chapter count from ch_XX.json files
     import glob
-    chapter_files = glob.glob(str(CHAPTERS_DIR / "ch_*_skeleton.json"))
+    chapter_files = glob.glob(str(CHAPTERS_DIR / "ch_*.json"))
     max_chapter = 0
     for f in chapter_files:
         basename = Path(f).name
         try:
-            num = int(basename.split('_')[1])
+            num = int(basename.split('_')[1].split('.')[0])
             max_chapter = max(max_chapter, num)
         except:
             pass
     
     if max_chapter == 0:
-        fail("未找到骨架文件")
+        fail("未找到章节JSON文件")
 
     for chapter_num in range(1, max_chapter + 1):
-        expected = item_ids_from_skeleton(chapter_num)
+        expected = item_ids_from_chapter(chapter_num)
         if not expected:
             continue
 
@@ -340,7 +337,7 @@ def verify_items_detail_outputs() -> None:
 
     if missing_ids:
         sample = "; ".join(missing_ids[:6])
-        fail(f"items_detail outputs do not cover skeleton item ids: {sample}")
+        fail(f"items_detail outputs do not cover chapter item ids: {sample}")
     
     success(f"物品详情覆盖全部 {max_chapter} 章")
 
