@@ -48,6 +48,7 @@ BATCH_INTERVAL = 3      # 批次间隔 3 秒
 | `extract.done` 长度 < extract.total | 继续提取（限流批次模式） |
 | `extract.done` = total 但 `merge` = false | 合并数据：`merge-chapters.py` |
 | `merge` = true 但 Markdown 卡片不完整 | 生成卡片：`json-to-markdown.py` 等 |
+| 卡片完成但 `实力等级概览.md` 不存在 | 生成概览：Step 3.5 |
 | 全部完成 | 验证：`verify-card-output-pipeline.py` |
 | 验证通过 | 清理中间产物：`chapters/`、`ch_original/`、`chunks/` |
 
@@ -213,6 +214,68 @@ python tools/merge/merge-chapters.py "<小说目录>"
 python tools/convert/json-to-markdown.py "<小说目录>"
 python tools/convert/json-to-items-markdown.py "<小说目录>"
 python tools/convert/generate-event-cards.py "<小说目录>"
+```
+
+### Step 3.5: 生成实力等级概览
+
+**触发条件**：Markdown 卡片生成完成
+
+读取合并后的 `characters.json`、`skills.json`、`items.json`，按实力等级和物品稀有度分类汇总，生成 `<小说目录>/实力等级概览.md`。
+
+```bash
+cd "<小说目录>" && node -e "
+const chars = JSON.parse(require('fs').readFileSync('characters.json','utf-8'));
+const skills = JSON.parse(require('fs').readFileSync('skills.json','utf-8'));
+const items = JSON.parse(require('fs').readFileSync('items.json','utf-8'));
+
+const charByRank = {};
+chars.forEach(c => { const r = c.rank||'未定'; if(!charByRank[r]) charByRank[r]=[]; charByRank[r].push(c.name); });
+
+const skillByRank = {};
+skills.forEach(s => { const r = s.rank||'未定'; if(!skillByRank[r]) skillByRank[r]=[]; skillByRank[r].push(s.name); });
+
+const itemByRarity = {};
+items.forEach(i => { const r = i.rarity||'未定'; if(!itemByRarity[r]) itemByRarity[r]=[]; itemByRarity[r].push(i.name); });
+
+const rankOrder = ['返璞归真','登峰造极','出神入化','炉火纯青','登堂入室','略有小成','初窥门径','平平无奇'];
+const rarityOrder = ['绝世神兵','稀世珍品','上乘佳品','寻常凡品'];
+
+console.log(JSON.stringify({charByRank, skillByRank, itemByRarity}));
+"
+```
+
+然后按以下格式写入 `实力等级概览.md`：
+
+```markdown
+# {小说名} · 实力等级概览
+
+## 一、角色实力等级
+
+### 返璞归真（已臻化境，天下无敌）
+- 角色A
+...
+
+### 登峰造极（五绝级别，当世最强）
+- 角色B
+...
+
+（8个等级依次列出，空等级标注"（无）"）
+
+## 二、功法品级
+
+### 返璞归真（武学至高境界，超越招式）
+- 武功A
+...
+
+（8个等级依次列出）
+
+## 三、物品等级
+
+### 绝世神兵（百年难遇的神物，可遇不可求，N 件）
+- 物品A
+...
+
+（4个等级依次列出，标题含件数）
 ```
 
 ### Step 4: 验证
