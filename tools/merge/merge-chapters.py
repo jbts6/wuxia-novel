@@ -437,7 +437,13 @@ def cleanup_invalid_refs(data):
     # 清理 items 的 related_skills
     for item in data.get('items', []):
         before = len(item.get('related_skills', []))
-        item['related_skills'] = [sid for sid in item.get('related_skills', []) if sid in valid_skill_ids]
+        normalized = []
+        for sid in item.get('related_skills', []):
+            if isinstance(sid, dict):
+                normalized.append(sid.get('id', ''))
+            else:
+                normalized.append(sid)
+        item['related_skills'] = [sid for sid in normalized if sid in valid_skill_ids]
         if len(item.get('related_skills', [])) != before:
             cleaned += 1
 
@@ -445,7 +451,14 @@ def cleanup_invalid_refs(data):
     for char in data.get('characters', []):
         for key in ('known_skills', 'related_skills'):
             before = len(char.get(key, []))
-            char[key] = [sid for sid in char.get(key, []) if sid in valid_skill_ids]
+            # Normalize: extract id from dicts if needed
+            normalized = []
+            for sid in char.get(key, []):
+                if isinstance(sid, dict):
+                    normalized.append(sid.get('id', ''))
+                else:
+                    normalized.append(sid)
+            char[key] = [sid for sid in normalized if sid in valid_skill_ids]
             if len(char.get(key, [])) != before:
                 cleaned += 1
 

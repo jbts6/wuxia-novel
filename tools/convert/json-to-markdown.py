@@ -89,6 +89,8 @@ def id_to_wikilink(entity_id):
 
 def save_markdown(output_dir, filename, content):
     """保存Markdown文件"""
+    # Sanitize filename: replace path separators
+    filename = filename.replace('/', '_').replace('\\', '_')
     os.makedirs(output_dir, exist_ok=True)
     filepath = os.path.join(output_dir, f"{filename}.md")
     with open(filepath, 'w', encoding='utf-8') as f:
