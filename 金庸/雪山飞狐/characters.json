@@ -1,0 +1,4123 @@
+[
+  {
+    "id": "char_cao_yun_qi",
+    "name": "曹云奇",
+    "alias": [
+      "腾龙剑",
+      "曹兄"
+    ],
+    "identity": "天龙门弟子",
+    "faction": "faction_tian_long_men",
+    "role": "龙套",
+    "archetype": "莽夫",
+    "rank": "登堂入室",
+    "one_line": "天龙门弟子，鲁莽好斗",
+    "personality": {
+      "traits": [
+        "鲁莽好斗",
+        "勇猛无谋",
+        "争强好胜"
+      ],
+      "speech_style": "粗声粗气",
+      "temperament": "暴躁冲动"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_qing_wen",
+        "type": "师兄妹/单恋",
+        "intensity": 9,
+        "bond_level": 7,
+        "dynamic": "痴恋师妹至深，屡因嫉妒陶子安而暴怒"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "情敌/仇敌",
+        "intensity": 9,
+        "bond_level": -8,
+        "dynamic": "视陶子安为杀师仇人与情敌，恨之入骨"
+      },
+      {
+        "target": "char_yin_ji",
+        "type": "师叔侄",
+        "intensity": 5,
+        "bond_level": 4,
+        "dynamic": "尊重南宗掌门殷师叔，暗中与之较劲"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师叔侄",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "听命于阮师叔，受其指挥调度"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "师妹爱慕",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "深爱师妹却因善妒屡屡失态"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "情敌",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "见陶子安亲近田青文便怒火中烧"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师叔",
+        "intensity": 4,
+        "bond_level": 5,
+        "dynamic": "敬重师叔但好胜心强不肯服输"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "师兄妹",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "暗生情愫，听她眼色行事"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师叔侄",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "尊敬门中前辈"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "忌惮",
+        "intensity": 6,
+        "bond_level": 1,
+        "dynamic": "对和尚又恨又怕"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "情敌",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "争夺田青文，互不相让"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "继任师父掌门之位"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "同门师姐弟，受其眼色约束"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "敌对",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "怒其投粮断食，挥拳殴打"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "尊称师父，无意中泄露师父手背齿痕"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "救命之恩",
+        "intensity": 7,
+        "bond_level": 2,
+        "dynamic": "坠崖被其所救，惊魂未定"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师叔侄",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "听从师叔指使行事"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "情敌",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "争风吃醋，互挥数拳"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "私情",
+        "intensity": 9,
+        "bond_level": 7,
+        "dynamic": "深爱田青文却丑事败露"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "情敌",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "恨之入骨，视为夺爱之敌"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师徒",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "极力维护师父名声"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "情敌",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "因田青文争风吃醋拳脚相加"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "纠缠",
+        "intensity": 8,
+        "bond_level": 2,
+        "dynamic": "对田青文占有欲极强"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师叔侄",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "听从师叔训导但仍不服气"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 4,
+        "dynamic": "田归农的弟子"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "同伙",
+        "intensity": 3,
+        "bond_level": 1,
+        "dynamic": "被宝树当挡箭牌掷入火中"
+      }
+    ],
+    "known_skills": [
+      "skill_teng_long_jian_fa",
+      "skill_tian_long_jian_fa"
+    ],
+    "related_skills": [
+      "skill_tian_long_jian_shu",
+      "skill_zhui_ming_du_long_zhui"
+    ]
+  },
+  {
+    "id": "char_yin_ji",
+    "name": "殷吉",
+    "alias": [
+      "威震天南",
+      "殷师兄",
+      "殷大财主"
+    ],
+    "identity": "天龙南宗弟子",
+    "faction": "faction_tian_long_men",
+    "role": "天龙南宗代表",
+    "archetype": "老练谋士",
+    "rank": "登堂入室",
+    "one_line": "天龙南宗代表，最有智计，识破圆石机关推动寻宝进程。",
+    "personality": {
+      "traits": [
+        "机智聪慧",
+        "谨慎多疑",
+        "利欲熏心"
+      ],
+      "speech_style": "沉着冷静，善于分析",
+      "temperament": "深沉内敛"
+    },
+    "relationships": [
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "南北宗同门",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "暗中与阮士中较劲，互有忌惮"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师叔侄",
+        "intensity": 4,
+        "bond_level": 4,
+        "dynamic": "欣赏曹云奇年少气盛，暗中较技"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "南北宗同气连枝为门派声誉出手"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "天龙门同辈高手"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "探询",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "向和尚探问铁盒来历"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "同门",
+        "intensity": 4,
+        "bond_level": 4,
+        "dynamic": "天龙门前辈辅佐掌门"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "同门共进退"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "同门师兄弟"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "同门争斗",
+        "intensity": 7,
+        "bond_level": 2,
+        "dynamic": "互相揭短暗斗，争夺掌门权"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "本该接掌宝刀却被拖延"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "宗派之争",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "南北宗争夺宝刀归属"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "同门",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "同属天龙门但分属不同宗"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "合作",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "寻宝路上相互配合"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_jian_shu",
+      "skill_tian_long_jian_fa"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_ruan_shi_zhong",
+    "name": "阮士中",
+    "alias": [
+      "七星手",
+      "阮师兄",
+      "阮师叔"
+    ],
+    "identity": "天龙北宗弟子",
+    "faction": "faction_tian_long_men",
+    "role": "田安豹之徒",
+    "archetype": "尊师重道",
+    "rank": "登堂入室",
+    "one_line": "天龙北宗弟子，田安豹之徒，在宝藏洞中发现师父遗骸痛哭。",
+    "personality": {
+      "traits": [
+        "尊师重道",
+        "争强好胜",
+        "老于世故"
+      ],
+      "speech_style": "直率，有时冲动",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_yin_ji",
+        "type": "南北宗同门",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "与殷吉表面客气，暗中较劲比试"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师叔侄",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "指挥师侄行动，恨其为情误事"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "师叔侄",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "不满田青文回护陶子安，但仍信任她"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师叔",
+        "intensity": 4,
+        "bond_level": 5,
+        "dynamic": "关照师侄为天龙北宗威名出头"
+      },
+      {
+        "target": "char_yin_ji",
+        "type": "同门南北宗",
+        "intensity": 4,
+        "bond_level": 4,
+        "dynamic": "南北宗同气连枝互相关照"
+      },
+      {
+        "target": "char_you_tong",
+        "type": "敌对",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "被右童逼入屋角，遍体鳞伤"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师叔侄",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "天龙门同门前辈"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师叔侄",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "天龙门前辈弟子"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "长辈",
+        "intensity": 4,
+        "bond_level": 5,
+        "dynamic": "门中长辈关怀后辈"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师门长辈",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "知田归农手背齿痕，从不问起"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师叔侄",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "命其暗算宝树，令出必行"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "争利",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "争夺铁盒宝刀，恨其独占"
+      },
+      {
+        "target": "char_yin_ji",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "同门共进退"
+      },
+      {
+        "target": "char_yin_ji",
+        "type": "同门争斗",
+        "intensity": 7,
+        "bond_level": 2,
+        "dynamic": "互相揭短，争夺掌门之位"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "排挤",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "意图夺其掌门之位"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师兄弟",
+        "intensity": 6,
+        "bond_level": 4,
+        "dynamic": "同为田安豹弟子系天龙北宗"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师叔侄",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "以长辈身份训导曹云奇"
+      },
+      {
+        "target": "char_yin_ji",
+        "type": "宗派之争",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "与南宗争宝刀归属"
+      },
+      {
+        "target": "char_tian_an_bao",
+        "type": "师徒",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "发现师父遗骸悲痛万分"
+      }
+    ],
+    "known_skills": [
+      "skill_qi_xing_shou",
+      "skill_tian_long_jian_fa",
+      "skill_da_qin_na_shou"
+    ],
+    "related_skills": [
+      "skill_tian_long_jian_shu",
+      "skill_zhui_ming_du_long_zhui"
+    ]
+  },
+  {
+    "id": "char_zhou_yun_yang",
+    "name": "周云阳",
+    "alias": [
+      "回龙剑",
+      "周师哥",
+      "周师兄"
+    ],
+    "identity": "天龙门弟子",
+    "faction": "faction_tian_long_men",
+    "role": "龙套",
+    "archetype": "武夫",
+    "rank": "登堂入室",
+    "one_line": "天龙门弟子，与熊元献扭打争夺",
+    "personality": {
+      "traits": [
+        "好勇斗狠",
+        "贪恋财宝",
+        "不甘认输"
+      ],
+      "speech_style": "粗豪",
+      "temperament": "好斗"
+    },
+    "relationships": [
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师兄弟",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "追随师兄行动，武功不及曹云奇"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师叔侄",
+        "intensity": 4,
+        "bond_level": 4,
+        "dynamic": "听从阮师叔指挥，轻功不及"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师兄弟",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "跟随师兄行事唯命是从"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师兄弟",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "同门师弟，不甚亲近"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "师妹",
+        "intensity": 5,
+        "bond_level": 4,
+        "dynamic": "听从师妹吩咐开盒"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师叔",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "被师叔横眼疑心"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "听从师叔号令"
+      },
+      {
+        "target": "char_yin_ji",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "同门师兄弟"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "同门/互持把柄",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "互相掌握对方秘密，互相牵制"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "偷师父宝刀，暗中背叛"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "听从",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "受宝树指派外出拾柴"
+      },
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "对手",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "扭打争夺互不相让"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_jian_shu",
+      "skill_tian_long_jian_fa"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_tian_qing_wen",
+    "name": "田青文",
+    "alias": [
+      "锦毛貂",
+      "田姑娘",
+      "田姐姐",
+      "姊姊",
+      "青妹"
+    ],
+    "identity": "田归农之女",
+    "faction": "faction_tian_long_men",
+    "role": "龙套",
+    "archetype": "武林女子",
+    "rank": "略有小成",
+    "one_line": "田归农之女，曾被胡斐以黄金小笔投射示警",
+    "personality": {
+      "traits": [
+        "机灵",
+        "贪玩",
+        "胆大"
+      ],
+      "speech_style": "活泼",
+      "temperament": "活泼"
+    },
+    "relationships": [
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师兄妹/暧昧",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "感念师兄痴情照顾，不忍拒绝却难以回应"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "未婚夫妻",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "父亲许配的未婚夫，心存爱意但受多方压力"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "父亲新丧，戴重孝，恳求老僧为父报仇"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师兄",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "关心师兄安危但常被其妒忌困扰"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "暧昧",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "对陶子安暗中有好感并维护"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师兄妹",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "暗中默契，互使眼色"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "暧昧",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "与陶子安有情意纠葛"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "父亲突然去世，来不及交代"
+      },
+      {
+        "target": "char_zhou_yun_yang",
+        "type": "师姐弟",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "柔声吩咐开盒，似知其秘密"
+      },
+      {
+        "target": "char_tian_xiang_gong",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 5,
+        "dynamic": "听父往事感触至深"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "同门",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "同为天龙门弟子，横眼制止其失言"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "父女",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "田归农之女（或亲属），关心父亲往事"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "姊妹相称",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "亲切称苗姊姊，协力收线"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "关切",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "见其坠崖惊吓晕倒"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "私情",
+        "intensity": 9,
+        "bond_level": 6,
+        "dynamic": "私通生子却无法在一起"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "未婚夫妻",
+        "intensity": 7,
+        "bond_level": 5,
+        "dynamic": "愧对未婚夫，无法面对"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "父女",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "惧怕父亲知悉，隐瞒丑事"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "恋人",
+        "intensity": 9,
+        "bond_level": 4,
+        "dynamic": "深爱陶子安却自觉无颜再嫁"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "纠缠",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "被曹云奇纠缠厌恶但无法摆脱"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "父女",
+        "intensity": 7,
+        "bond_level": 5,
+        "dynamic": "田归农之女"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "受赠",
+        "intensity": 3,
+        "bond_level": 1,
+        "dynamic": "胡斐弹笔给她并落其耳环"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "父女",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "田归农之女"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_jian_shu",
+      "skill_tian_long_jian_fa"
+    ],
+    "related_skills": [
+      "skill_zhui_ming_du_long_zhui"
+    ]
+  },
+  {
+    "id": "char_tao_zi_an",
+    "name": "陶子安",
+    "alias": [
+      "陶世兄"
+    ],
+    "identity": "陶百岁之子",
+    "faction": "faction_yin_ma_chuan",
+    "role": "饮马川少主",
+    "archetype": "痴情少年",
+    "rank": "略有小成",
+    "one_line": "陶百岁之子，深爱田青文，为她与曹云奇拼死搏斗。",
+    "personality": {
+      "traits": [
+        "痴情执着",
+        "勇敢冲动",
+        "嫉恶如仇"
+      ],
+      "speech_style": "直白热烈，情感外露",
+      "temperament": "热烈率真"
+    },
+    "relationships": [
+      {
+        "target": "char_tao_bai_sui",
+        "type": "父子",
+        "intensity": 7,
+        "bond_level": 8,
+        "dynamic": "父子同心，互相照应配合"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "未婚夫妻",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "与田青文有婚约，为她在雪地跪誓自清"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "情敌",
+        "intensity": 7,
+        "bond_level": -6,
+        "dynamic": "被曹云奇视为杀师仇人与情敌，屡遭追杀"
+      },
+      {
+        "target": "char_zheng_san_niang",
+        "type": "临时合作者/反目",
+        "intensity": 6,
+        "bond_level": -5,
+        "dynamic": "假装合作后反手偷袭郑三娘，心狠手辣"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "钟情",
+        "intensity": 7,
+        "bond_level": 5,
+        "dynamic": "称她青妹处处主动维护"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "情敌",
+        "intensity": 6,
+        "bond_level": 1,
+        "dynamic": "被曹云奇敌视却处之泰然一笑避开"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "父亲提鞭寸步不离保护儿子"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "父子",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "父子同行，听从父命"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "情敌",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "争夺田青文，互不相让"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 4,
+        "dynamic": "父子情深"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "情敌",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "争风吃醋互不相让"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "爱慕",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "田青文晕倒时出手扶持"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "未婚夫妻",
+        "intensity": 10,
+        "bond_level": 8,
+        "dynamic": "深爱却遭背叛，悲愤难抑"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "事事禀告父亲，受父庇护"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "情敌",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "不屑与其争辩，冷眼相对"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "恋人",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "深爱田青文非她不娶"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "情敌",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "与曹云奇因田青文拳脚相向"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 5,
+        "dynamic": "父亲反对他娶田青文"
+      }
+    ],
+    "known_skills": [
+      "skill_dao_fa"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_tao_bai_sui",
+    "name": "陶百岁",
+    "alias": [
+      "镇关东",
+      "陶伯伯",
+      "陶寨主"
+    ],
+    "identity": "饮马川山寨中人",
+    "faction": "faction_yin_ma_chuan_shan_zhai",
+    "role": "龙套",
+    "archetype": "武夫",
+    "rank": "略有小成",
+    "one_line": "饮马川山寨中人，争夺宝藏",
+    "personality": {
+      "traits": [
+        "争强好斗",
+        "贪财",
+        "胆小"
+      ],
+      "speech_style": "粗犷",
+      "temperament": "外强中干"
+    },
+    "relationships": [
+      {
+        "target": "char_tao_zi_an",
+        "type": "父子",
+        "intensity": 7,
+        "bond_level": 8,
+        "dynamic": "爱子心切，为子出头，父子并肩作战"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "亲家",
+        "intensity": 5,
+        "bond_level": 6,
+        "dynamic": "与田归农数十年交情，两家至亲"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "父子",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "提鞭护子寸步不离"
+      },
+      {
+        "target": "char_zheng_san_niang",
+        "type": "仇怨",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "恨不得一鞭打去"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "父子",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "父子同心，江湖行劫"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "同行",
+        "intensity": 3,
+        "bond_level": 2,
+        "dynamic": "同处山庄，各有盘算"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 4,
+        "dynamic": "父子情深"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "争执",
+        "intensity": 6,
+        "bond_level": 1,
+        "dynamic": "与天龙门各执一词互不相让"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "爱子心切，常出言维护"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "旧交/亲家",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "多年副手，结为亲家但各怀心思"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "对头",
+        "intensity": 6,
+        "bond_level": 1,
+        "dynamic": "怒斥其为狗熊，看不起他"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 5,
+        "dynamic": "反对儿子娶失贞的田青文"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "嫌弃",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "鄙视田青文称其为贱人"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "畏惧",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "被胡斐气势震慑不敢动"
+      }
+    ],
+    "known_skills": [
+      "skill_liu_he_bian_fa"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_xiong_yuan_xian",
+    "name": "熊元献",
+    "alias": [],
+    "identity": "平通镖局中人",
+    "faction": "faction_ping_tong_biao_ju",
+    "role": "龙套",
+    "archetype": "武夫",
+    "rank": "略有小成",
+    "one_line": "平通镖局中人，与周云阳扭打",
+    "personality": {
+      "traits": [
+        "争强好胜",
+        "贪财",
+        "勇猛"
+      ],
+      "speech_style": "粗犷",
+      "temperament": "急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_liu_yuan_he",
+        "type": "同门师兄弟",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "与刘元鹤同门，引其为助复仇"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": -8,
+        "dynamic": "饮马川劫镖之仇，伏击雪坑等候三日"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "师兄弟",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "自小同门彼此知心暗中配合"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "仇怨",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "欲借混乱之机杀陶氏父子报仇"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "师兄弟",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "师弟，跟随师兄行动"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "请求",
+        "intensity": 3,
+        "bond_level": 2,
+        "dynamic": "请苗姑娘继续讲故事"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "同门师兄弟",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "跟随师兄办案"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "宿怨",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "与饮马川向来有梁子"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "师兄弟",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "师兄行事狠辣令他不安"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "保护",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "劝阻师兄勿伤苗若兰以避祸"
+      },
+      {
+        "target": "char_zhou_yun_yang",
+        "type": "对手",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "扭打争夺互不相让"
+      }
+    ],
+    "known_skills": [
+      "skill_di_tang_dao"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_zheng_san_niang",
+    "name": "郑三娘",
+    "alias": [
+      "双刀郑三娘"
+    ],
+    "identity": "镖师之妻",
+    "faction": "faction_biao_ju",
+    "role": "随行女眷",
+    "archetype": "见多识广",
+    "rank": "初窥门径",
+    "one_line": "走镖多年见过不少珍宝，凭眼力识破刀鞘红宝石玄机。",
+    "personality": {
+      "traits": [
+        "见多识广",
+        "细心观察",
+        "坚韧耐苦"
+      ],
+      "speech_style": "平实朴素",
+      "temperament": "沉稳坚忍"
+    },
+    "relationships": [
+      {
+        "target": "char_tao_zi_an",
+        "type": "仇敌",
+        "intensity": 7,
+        "bond_level": -7,
+        "dynamic": "夫死于饮马川劫镖，欲杀陶子安报仇"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": -8,
+        "dynamic": "饮马川杀夫之仇，誓不罢休"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "求助",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "借宝树刀鞘观察红宝石"
+      }
+    ],
+    "known_skills": [
+      "skill_tie_men_shuan_dao_fa"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_liu_yuan_he",
+    "name": "刘元鹤",
+    "alias": [],
+    "identity": "平通镖局中人",
+    "faction": "faction_ping_tong_biao_ju",
+    "role": "龙套",
+    "archetype": "武夫",
+    "rank": "略有小成",
+    "one_line": "曾目睹田归农床底藏图秘事",
+    "personality": {
+      "traits": [
+        "胆小谨慎",
+        "贪生怕死",
+        "随波逐流"
+      ],
+      "speech_style": "低调",
+      "temperament": "怯懦"
+    },
+    "relationships": [
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "同门师兄弟",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "同门相助，武功在师弟之上"
+      },
+      {
+        "target": "char_yin_ji",
+        "type": "对手",
+        "intensity": 6,
+        "bond_level": -2,
+        "dynamic": "与殷吉斗了个旗鼓相当"
+      },
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "师兄弟",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "师兄弟默契配合各怀心思"
+      },
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "师兄弟",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "师兄弟，相互照应"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "敌对",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "鼓动群豪杀老和尚"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "争执",
+        "intensity": 5,
+        "bond_level": 1,
+        "dynamic": "抢先下崖被拦，怒目相向"
+      },
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "同门师兄弟",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "师兄弟同行办案"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "监视对象",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "表面奉承实则奉旨监视"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "对峙",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "被揭穿床底偷听之事"
+      },
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "师兄弟",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "师兄弟关系但行事风格截然不同"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "敌对",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "夺钗并欲杀之以绝后患"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "合作",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "各怀鬼胎的寻宝同盟"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "敌对",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "奉命设陷阱捉拿苗人凤"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "畏惧",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "被胡斐气势震慑不敢动"
+      }
+    ],
+    "known_skills": [
+      "skill_shuang_guai"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_jing_zhi",
+    "name": "静智",
+    "alias": [
+      "静智大师"
+    ],
+    "identity": "山东百会寺僧人",
+    "faction": "faction_bai_hui_si",
+    "role": "帮手",
+    "archetype": "莽和尚",
+    "rank": "初窥门径",
+    "one_line": "山东百会寺胖大和尚，性情莽撞，使戒刀，被陶子安铁盒暗箭射杀。",
+    "personality": {
+      "traits": [
+        "莽撞粗鲁",
+        "斗兴大发不肯罢手",
+        "口出秽言"
+      ],
+      "speech_style": "粗口连篇，与僧人身份极不相符",
+      "temperament": "鲁莽冲动，斗得兴起六亲不认"
+    },
+    "relationships": [
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "临时盟友",
+        "intensity": 3,
+        "bond_level": 2,
+        "dynamic": "受平通镖局邀来助拳，不听指挥"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "仇敌",
+        "intensity": 6,
+        "bond_level": -6,
+        "dynamic": "与陶子安交手，被铁盒暗箭射杀身亡"
+      }
+    ],
+    "known_skills": [
+      "skill_jie_dao"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_ma_zhai_zhu",
+    "name": "马寨主",
+    "alias": [],
+    "identity": "饮马川山寨寨主之一",
+    "faction": "faction_yin_ma_chuan",
+    "role": "寨主",
+    "archetype": "悲剧配角",
+    "rank": "略有小成",
+    "one_line": "饮马川寨主，使链子双锤，中郑三娘诱敌之计，踏空雪坑被砍死。",
+    "personality": {
+      "traits": [
+        "勇猛善战",
+        "有勇少谋",
+        "忠于山寨"
+      ],
+      "speech_style": "少言寡语，多以行动表达",
+      "temperament": "勇猛但不够机警"
+    },
+    "relationships": [
+      {
+        "target": "char_tao_bai_sui",
+        "type": "部属/兄弟",
+        "intensity": 6,
+        "bond_level": 7,
+        "dynamic": "追随陶百岁，饮马川三寨主之一"
+      }
+    ],
+    "known_skills": [
+      "skill_lian_zi_chui"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_tian_gui_nong",
+    "name": "田归农",
+    "alias": [
+      "田老掌门",
+      "田相公",
+      "田叔叔"
+    ],
+    "identity": "天龙门掌门",
+    "faction": "faction_tian_long_men",
+    "role": "反派",
+    "archetype": "伪君子",
+    "rank": "炉火纯青",
+    "one_line": "天龙门掌门，诱走苗人凤之妻的奸人",
+    "personality": {
+      "traits": [
+        "相貌英俊",
+        "心机深沉",
+        "善于伪装"
+      ],
+      "speech_style": "风雅客套，低声下气",
+      "temperament": "虚伪圆滑"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_qing_wen",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "已故之父，将女儿许配陶子安"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师徒",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "曹云奇之恩师，被害令其悲愤欲绝"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "亲家",
+        "intensity": 5,
+        "bond_level": 6,
+        "dynamic": "与陶百岁数十年交情，两家至亲"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "传掌门之位，未及交代秘密"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "突然去世令女儿悲痛"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "仇敌",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "砍断其右臂，被其咬伤手背"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "世交",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "苗人凤不大瞧得起其为人"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "父女",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "田青文之父"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "宿敌",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "夺其妻子、藏图不报，仇深似海"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "旧交/亲家",
+        "intensity": 5,
+        "bond_level": 4,
+        "dynamic": "多年副手，结亲家为堵其嘴"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "父女",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "爱女却纵容其罪行"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "父女",
+        "intensity": 7,
+        "bond_level": 5,
+        "dynamic": "田青文之父"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 4,
+        "dynamic": "曹云奇之师"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师兄弟",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "同为田安豹弟子"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "仇人",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "夺人妻子的奸夫"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "仇人",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "诱走其母致其幼年失怙"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_tian_long_jian_shu"
+    ]
+  },
+  {
+    "id": "char_lao_seng",
+    "name": "老僧",
+    "alias": [],
+    "identity": "神秘高僧，受人邀请至长白山",
+    "faction": null,
+    "role": "调解者",
+    "archetype": "隐世高人",
+    "rank": "出神入化",
+    "one_line": "花白胡子老僧，三角眼塌鼻歪嘴，武功奇高，以念珠为暗器弹开钢刀，轻松制服众人。",
+    "personality": {
+      "traits": [
+        "武功绝世",
+        "和气好客",
+        "口出粗言",
+        "不拘小节"
+      ],
+      "speech_style": "自称和尚却满口'他妈的''他奶奶的'，豪爽亲切又突兀",
+      "temperament": "外表丑陋猥葸，行事却光明磊落，轻描淡写间制伏群雄"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_gui_nong",
+        "type": "旧识/尊长",
+        "intensity": 4,
+        "bond_level": 4,
+        "dynamic": "口称'归农'，自居尊长，识得田归农"
+      },
+      {
+        "target": "char_zheng_san_niang",
+        "type": "救助者",
+        "intensity": 3,
+        "bond_level": 3,
+        "dynamic": "弹指念珠救郑三娘性命，为其求取解药"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "制伏者",
+        "intensity": 5,
+        "bond_level": -2,
+        "dynamic": "单手扣住刘元鹤脉门，强行带回"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "震慑者",
+        "intensity": 5,
+        "bond_level": -1,
+        "dynamic": "轻轻一勾夺下陶百岁钢鞭，不费吹灰之力"
+      }
+    ],
+    "known_skills": [
+      "skill_nian_zhu_an_qi",
+      "skill_qin_na_shou_fa"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_bao_shu",
+    "name": "宝树",
+    "alias": [
+      "宝树大师",
+      "老和尚",
+      "阎基"
+    ],
+    "identity": "恶僧",
+    "faction": "faction_bao_shu",
+    "role": "反派",
+    "archetype": "恶僧",
+    "rank": "炉火纯青",
+    "one_line": "阴险恶僧，贪图宝藏，无所不用其极",
+    "personality": {
+      "traits": [
+        "阴险狡诈",
+        "贪得无厌",
+        "卑鄙恶辣"
+      ],
+      "speech_style": "阴阳怪气，嘿嘿冷笑",
+      "temperament": "阴沉狠毒"
+    },
+    "relationships": [
+      {
+        "target": "char_zhuang_pu",
+        "type": "主客",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "对庄中仆人态度居高临下"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "同道忌惮",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "对金面佛心存忌惮又暗自较量"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "利用",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "表面客气，引她讲述往事"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "压制",
+        "intensity": 5,
+        "bond_level": 1,
+        "dynamic": "以武功和知识震慑群豪"
+      },
+      {
+        "target": "char_yin_ji",
+        "type": "问答",
+        "intensity": 3,
+        "bond_level": 2,
+        "dynamic": "回应殷吉的探询"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "敬畏",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "赞苗大侠大彻大悟"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "医患/酒友",
+        "intensity": 7,
+        "bond_level": 3,
+        "dynamic": "被胡一刀豪爽折服，心生敬佩"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "敬畏",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "既畏惧金面佛武功，又感激胡一刀救命"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "害死",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "为夺铁盒珍宝涂毒于刀上"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "仇人",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "被平阿四当众揭穿涂毒阴谋"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "客套",
+        "intensity": 3,
+        "bond_level": 2,
+        "dynamic": "对苗若兰有所忌惮，不敢轻举妄动"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "敌对",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "畏其寻仇，心怀鬼胎"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "争利",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "争夺铁盒宝刀互不相让"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "被其指认为谋害胡一刀凶手"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "合作",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "互不信任的利益合作关系"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "忌惮",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "畏惧金面佛不敢得罪苗若兰"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "控制",
+        "intensity": 5,
+        "bond_level": 1,
+        "dynamic": "点穴制住苗若兰以防后患"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "教训",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "以铁念珠击落曹云奇手中宝刀"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "被胡斐痛惩的恶僧"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "利用",
+        "intensity": 3,
+        "bond_level": 0,
+        "dynamic": "将其掷入火中作挡箭牌"
+      }
+    ],
+    "known_skills": [
+      "skill_ba_fang_cang_dao_shi",
+      "skill_qin_na_shou",
+      "skill_tie_ban_qiao",
+      "skill_dian_xue",
+      "skill_man_tian_hua_yu"
+    ],
+    "related_skills": [
+      "skill_hu_jia_dao_fa"
+    ]
+  },
+  {
+    "id": "char_zhuang_pu",
+    "name": "长颈汉子",
+    "alias": [
+      "庄中管事"
+    ],
+    "identity": "庄中管事仆人",
+    "faction": null,
+    "role": "庄主管家代主迎客",
+    "archetype": "忠仆管事",
+    "rank": "略有小成",
+    "one_line": "长颈阔额的庄中管事，衣衫单薄不惧寒气内功不弱，忠心耿耿代主迎客调度",
+    "personality": {
+      "traits": [
+        "忠心耿耿",
+        "恭敬有礼",
+        "内功不弱"
+      ],
+      "speech_style": "恭敬谦下但暗藏锋芒",
+      "temperament": "沉稳干练"
+    },
+    "relationships": [
+      {
+        "target": "char_bao_shu",
+        "type": "主客礼遇",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "对宝树恭敬但暗中催促其出手"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_zuo_tong",
+    "name": "左童",
+    "alias": [],
+    "identity": "雪山飞狐家僮",
+    "faction": null,
+    "role": "雪山飞狐派来下书的双生家僮之兄",
+    "archetype": "稚气少年",
+    "rank": "略有小成",
+    "one_line": "雪山飞狐家僮，双生兄弟之兄，武功招数配合默契，辫上佩夜明宝珠。",
+    "personality": {
+      "traits": [
+        "沉稳内敛",
+        "爱护幼弟",
+        "重情重义"
+      ],
+      "speech_style": "简短有礼",
+      "temperament": "沉静少言"
+    },
+    "relationships": [
+      {
+        "target": "char_you_tong",
+        "type": "孪生兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "双生兄弟心意相通默契无间"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "忠心侍奉主人不敢有违主命"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "感念",
+        "intensity": 3,
+        "bond_level": 2,
+        "dynamic": "感她赠果之情剑下留情不削其剑"
+      },
+      {
+        "target": "char_you_tong",
+        "type": "兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "双生兄弟，相亲相爱"
+      },
+      {
+        "target": "char_xue_shan_fei_hu",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "忠心侍奉家主"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "感激",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "受赠玉马又退还，敬而远之"
+      }
+    ],
+    "known_skills": [
+      "skill_da_mo_jian_fa",
+      "skill_shuang_jian_he_bi"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_you_tong",
+    "name": "右童",
+    "alias": [],
+    "identity": "雪山飞狐家僮",
+    "faction": null,
+    "role": "雪山飞狐派来下书的双生家僮之弟",
+    "archetype": "稚气少年",
+    "rank": "略有小成",
+    "one_line": "雪山飞狐家僮，双生兄弟之弟，性子较急，珠儿被毁后纠缠不休。",
+    "personality": {
+      "traits": [
+        "稚气未脱",
+        "争强好胜",
+        "率性而为"
+      ],
+      "speech_style": "直接爽快，带哭腔",
+      "temperament": "急躁率真"
+    },
+    "relationships": [
+      {
+        "target": "char_zuo_tong",
+        "type": "孪生兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "双生兄弟心意相通配合无间"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "忠心侍奉主人不敢有违主命"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "仇怨",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "怒其削断明珠执拗要其赔珠"
+      },
+      {
+        "target": "char_zuo_tong",
+        "type": "兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "双生兄弟，相亲相爱"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "仇怨",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "珠儿被其损坏，逼他赔偿"
+      },
+      {
+        "target": "char_xue_shan_fei_hu",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "忠心侍奉家主"
+      }
+    ],
+    "known_skills": [
+      "skill_da_mo_jian_fa",
+      "skill_shuang_jian_he_bi"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_miao_ren_feng",
+    "name": "苗人凤",
+    "alias": [
+      "金面佛",
+      "打遍天下无敌手",
+      "苗大侠",
+      "苗爷"
+    ],
+    "identity": "当世第一高手",
+    "faction": null,
+    "role": "重要配角",
+    "archetype": "宗师",
+    "rank": "登峰造极",
+    "one_line": "打遍天下无敌手金面佛，当世武功第一",
+    "personality": {
+      "traits": [
+        "刚猛威严",
+        "沉默寡言",
+        "重诺守义"
+      ],
+      "speech_style": "言简意赅，一字不多",
+      "temperament": "沉稳刚毅"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "爱女至深，不教武功以绝冤孽"
+      },
+      {
+        "target": "char_xue_shan_fei_hu",
+        "type": "世仇",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "胡苗两家百年仇怨"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "宿敌/知己",
+        "intensity": 9,
+        "bond_level": 5,
+        "dynamic": "惺惺相惜恨不为友，受托照顾遗孤"
+      },
+      {
+        "target": "char_hu_fu_ren",
+        "type": "敬重",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "敬其女中豪杰，受托抚养胡斐"
+      },
+      {
+        "target": "char_shang_jian_ming",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "商剑鸣杀其兄弟妹子四人"
+      },
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "同伴",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "鄙其品行但同行行事"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "义兄",
+        "intensity": 10,
+        "bond_level": 9,
+        "dynamic": "引为生平唯一知己，死后勤祭二十余年"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "深爱女儿，但坦言愿以女换胡氏遗孤"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "追查",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "不知阎基涂毒，至今未查明真相"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "宿敌",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "夺妻之恨，不杀他要他悔恨终生"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "深爱女儿，将珠钗归还苗家"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "深爱女儿嘱她暂住杜家"
+      },
+      {
+        "target": "char_du_xi_meng",
+        "type": "朋友",
+        "intensity": 6,
+        "bond_level": 4,
+        "dynamic": "称杜希孟为仁兄，受其邀请"
+      },
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "营救",
+        "intensity": 8,
+        "bond_level": 4,
+        "dynamic": "赴京搭救范帮主恐中计"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "仇人之父",
+        "intensity": 6,
+        "bond_level": -2,
+        "dynamic": "杀父之仇的因，救命之恩的果"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "独生爱女，视为命根"
+      },
+      {
+        "target": "char_du_xi_meng",
+        "type": "旧交",
+        "intensity": 4,
+        "bond_level": -3,
+        "dynamic": "二十年订交，今日遭其设局陷害"
+      },
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "施恩者",
+        "intensity": 7,
+        "bond_level": -4,
+        "dynamic": "入京救命，反遭其背刺暗算"
+      },
+      {
+        "target": "char_sai_zong_guan",
+        "type": "宿敌",
+        "intensity": 8,
+        "bond_level": -5,
+        "dynamic": "曾剑伤赛总管臂上，双方不共戴天"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "视独女为命根"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "世仇兼后辈",
+        "intensity": 7,
+        "bond_level": 3,
+        "dynamic": "百年世仇暗自钦佩"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "宿敌",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "惺惺相惜的生死对手"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "仇人",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "夺妻之恨不共戴天"
+      }
+    ],
+    "known_skills": [
+      "skill_miao_jia_jian",
+      "skill_miao_jia_jian_fa",
+      "skill_qian_jin_zhui",
+      "skill_bi_hu_you_qiang_gong"
+    ],
+    "related_skills": [
+      "skill_hu_jia_dao_fa"
+    ]
+  },
+  {
+    "id": "char_hu_fei",
+    "name": "胡斐",
+    "alias": [
+      "雪山飞狐"
+    ],
+    "identity": "胡一刀之子，辽东大侠后人",
+    "faction": null,
+    "role": "主角",
+    "archetype": "侠客",
+    "rank": "出神入化",
+    "one_line": "雪山飞狐，胡一刀之子，武功高强侠义心肠",
+    "personality": {
+      "traits": [
+        "重情重义",
+        "机智果决",
+        "侠烈豪迈"
+      ],
+      "speech_style": "直率坦荡，偶有豪言壮语",
+      "temperament": "热血刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_zuo_tong",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "遣双童先行下书举止从容"
+      },
+      {
+        "target": "char_you_tong",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "遣双童先行下书举止从容"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "父子",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "生父自刎，临终托孤"
+      },
+      {
+        "target": "char_hu_fu_ren",
+        "type": "母子",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "母亲喂奶后殉情"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "养父子",
+        "intensity": 7,
+        "bond_level": 4,
+        "dynamic": "苗人凤受托视如己出"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "父子",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "遗腹子，一出生即丧父"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "养父子",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "平阿四舍命救出并抚养长大"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "世叔",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "苗人凤毕生欲抚养的义侄"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "养父子",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "自幼由平阿四抚养，情若父子"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "初识好感",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "初见即心生好感，诗酒琴歌相酬"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "疑其为谋害父亲之嫌犯"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "寻仇",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "为父报仇，投拜帖威吓"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "震慑",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "令宝树失声惊叹心生忧虑"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "父子",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "胡一刀之子继承父亲遗志"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "赠物",
+        "intensity": 3,
+        "bond_level": 1,
+        "dynamic": "弹黄金笔给她传递信息"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "仇人之子",
+        "intensity": 8,
+        "bond_level": 2,
+        "dynamic": "杀父之仇，却救其于危难，恩怨交织"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "爱慕之人",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "一见倾心，欲罢不能，克制守礼"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "忠仆",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "自幼相伴，患难与共，情同叔侄"
+      },
+      {
+        "target": "char_du_xi_meng",
+        "type": "对手",
+        "intensity": 4,
+        "bond_level": 1,
+        "dynamic": "相约算旧帐，对方设伏暗算"
+      },
+      {
+        "target": "char_sai_zong_guan",
+        "type": "对手",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "三招击败满洲第一高手"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "恋人",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "互许终生的意中人"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "世仇兼恩人",
+        "intensity": 8,
+        "bond_level": 3,
+        "dynamic": "父仇情义纠葛，亦敌亦友"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "杀父害母大仇人"
+      },
+      {
+        "target": "char_du_xi_meng",
+        "type": "母方表亲",
+        "intensity": 5,
+        "bond_level": 1,
+        "dynamic": "表亲却图谋不轨"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "恩人",
+        "intensity": 7,
+        "bond_level": 9,
+        "dynamic": "忠仆舍命养育之恩"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "父子",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "遗书传武的亡父"
+      }
+    ],
+    "known_skills": [
+      "skill_yuan_yang_lian_huan",
+      "skill_qing_shen_gong_fu",
+      "skill_chun_can_zhang_fa",
+      "skill_qian_jin_zhui"
+    ],
+    "related_skills": [
+      "skill_long_zhua_qin_na_shou",
+      "skill_miao_jia_jian_fa"
+    ]
+  },
+  {
+    "id": "char_fan_bang_zhu",
+    "name": "范帮主",
+    "alias": [],
+    "identity": "兴汉丐帮帮主",
+    "faction": "faction_qing_han_gai_bang",
+    "role": "反派",
+    "archetype": "villain",
+    "rank": "炉火纯青",
+    "one_line": "丐帮帮主，曾被官府捉拿，被救后反帮官府暗算恩人苗人凤",
+    "personality": {
+      "traits": [
+        "深沉阴险",
+        "善于伪装",
+        "忘恩负义"
+      ],
+      "speech_style": "表面恭维殷勤，实则口蜜腹剑",
+      "temperament": "城府极深，伪装义气实为奸险"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "随从/同伴",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "追随金面佛但品行不入其眼"
+      },
+      {
+        "target": "char_tian_xiang_gong",
+        "type": "同盟",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "共同谋划对付胡一刀"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "敌对",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "深惧胡一刀武功，暗施手段"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "挚友",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "与苗人凤交情深厚"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "盟友",
+        "intensity": 5,
+        "bond_level": 4,
+        "dynamic": "与田归农同邀苗人凤寻仇"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "朋友",
+        "intensity": 7,
+        "bond_level": 4,
+        "dynamic": "苗人凤赴京营救范帮主"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "恩将仇报",
+        "intensity": 7,
+        "bond_level": -5,
+        "dynamic": "苗人凤入京救命，他反以龙爪擒拿手偷袭"
+      },
+      {
+        "target": "char_sai_zong_guan",
+        "type": "合谋",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "互相利用，助官府伏击苗人凤"
+      }
+    ],
+    "known_skills": [
+      "skill_long_zhua_qin_na_shou"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_xuan_ming_zi",
+    "name": "玄冥子",
+    "alias": [
+      "玄冥子大师"
+    ],
+    "identity": "青藏派大师",
+    "faction": "faction_qing_zang_pai",
+    "role": "反派",
+    "archetype": "martial_artist",
+    "rank": "炉火纯青",
+    "one_line": "青藏派大师，受邀伏击苗人凤，被胡斐抓住要穴当作兵器",
+    "personality": {
+      "traits": [
+        "老练沉稳",
+        "趋附权势",
+        "武功精深"
+      ],
+      "speech_style": "出家人身份，言语不多",
+      "temperament": "沉稳老练，但甘为官府鹰犬"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 3,
+        "bond_level": -2,
+        "dynamic": "被胡斐抓住要穴无法施展"
+      },
+      {
+        "target": "char_sai_zong_guan",
+        "type": "附庸",
+        "intensity": 3,
+        "bond_level": 1,
+        "dynamic": "受杜庄主之邀助拳，实为赛总管所用"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_ling_qing",
+    "name": "灵清",
+    "alias": [
+      "灵清道长"
+    ],
+    "identity": "昆仑山道士",
+    "faction": "faction_kun_lun_pai",
+    "role": "受邀助拳（提及）",
+    "archetype": "道门高手",
+    "rank": "炉火纯青",
+    "one_line": "昆仑山灵清道长，受庄主之邀日内上山助拳对付雪山飞狐",
+    "personality": {
+      "traits": [
+        "清修高深",
+        "仙风道骨",
+        "名望极高"
+      ],
+      "speech_style": "未出场",
+      "temperament": "飘逸"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_jiang_lao_quan_shi",
+    "name": "姜老拳师",
+    "alias": [],
+    "identity": "河南无极门名宿",
+    "faction": "faction_wu_ji_men",
+    "role": "反派",
+    "archetype": "martial_artist",
+    "rank": "炉火纯青",
+    "one_line": "无极门老拳师，银髯过腹，无极拳绵若江河，与胡斐激斗不休",
+    "personality": {
+      "traits": [
+        "内功深厚",
+        "老练稳重",
+        "下盘扎实"
+      ],
+      "speech_style": "老江湖口吻，沉稳不急",
+      "temperament": "老当益壮，拳法绵密沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 5,
+        "bond_level": -2,
+        "dynamic": "无极拳绵若江河，教胡斐缓不出手"
+      },
+      {
+        "target": "char_sai_zong_guan",
+        "type": "附庸",
+        "intensity": 3,
+        "bond_level": 1,
+        "dynamic": "受杜庄主之邀来助拳"
+      }
+    ],
+    "known_skills": [
+      "skill_wu_ji_quan_hun_dun_chu_kai",
+      "skill_wu_ji_quan_dou_bing_dong_zhi"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_sai_he_tu",
+    "name": "赛赫图",
+    "alias": [],
+    "identity": "御前侍卫总管",
+    "faction": null,
+    "role": "朝廷统领（提及）",
+    "archetype": "朝廷鹰犬",
+    "rank": "炉火纯青",
+    "one_line": "御前侍卫总管，亲率大内十八高手将范帮主擒获关入天牢",
+    "personality": {
+      "traits": [
+        "威严果断",
+        "手段狠辣",
+        "统领有方"
+      ],
+      "speech_style": "未出场",
+      "temperament": "威严"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_yu_guan_jia",
+    "name": "于管家",
+    "alias": [
+      "于大哥",
+      "于某"
+    ],
+    "identity": "杜家庄管家",
+    "faction": "fac_yu_bi_shan_zhuang",
+    "role": "杜家仆人",
+    "archetype": "忠仆",
+    "rank": "平平无奇",
+    "one_line": "杜希孟庄上的管家，告知众人庄主去向后不知去向。",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "谨慎"
+      ],
+      "speech_style": "恭敬有礼",
+      "temperament": "温和"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "宾客",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "恭敬接待苗大侠之女"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "同处",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "对和尚心存疑虑"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "救护",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "拚死也要救姓阮的"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "主客",
+        "intensity": 3,
+        "bond_level": 3,
+        "dynamic": "误认平阿四为苗若兰随从"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "敬护",
+        "intensity": 7,
+        "bond_level": 3,
+        "dynamic": "舍命相护苗姑娘，忠心护主"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "畏惧",
+        "intensity": 6,
+        "bond_level": 1,
+        "dynamic": "忌惮其武功，勉强应对"
+      },
+      {
+        "target": "char_du_xi_meng",
+        "type": "主仆",
+        "intensity": 6,
+        "bond_level": 4,
+        "dynamic": "杜希孟的管家"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_qin_er",
+    "name": "琴儿",
+    "alias": [
+      "快嘴琴儿"
+    ],
+    "identity": "苗若兰侍女",
+    "faction": null,
+    "role": "忠仆",
+    "archetype": "忠心护主",
+    "rank": "平平无奇",
+    "one_line": "苗若兰的忠心侍女，不顾自身安危咬伤刘元鹤护主。",
+    "personality": {
+      "traits": [
+        "忠心耿耿",
+        "勇敢无畏",
+        "泼辣刚烈"
+      ],
+      "speech_style": "大声喝骂，言辞激烈",
+      "temperament": "刚烈泼辣"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "主仆",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "贴身侍女，忠心服侍"
+      },
+      {
+        "target": "char_yu_guan_jia",
+        "type": "初识",
+        "intensity": 3,
+        "bond_level": 2,
+        "dynamic": "调侃于管家脖子长"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "主仆",
+        "intensity": 7,
+        "bond_level": 3,
+        "dynamic": "贴身侍奉，忠心护主"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "忠心护主，贴心照料"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "对头",
+        "intensity": 4,
+        "bond_level": 0,
+        "dynamic": "怒视斥责，替陶子安说话"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "主仆",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "拼死护主不惜与恶人搏斗"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "敌对",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "咬伤刘元鹤手腕护主"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_zhou_nai_ma",
+    "name": "周奶妈",
+    "alias": [],
+    "identity": "奶妈",
+    "faction": null,
+    "role": "苗若兰的奶妈，小姐吃她奶长大",
+    "archetype": "忠仆",
+    "rank": "平平无奇",
+    "one_line": "苗若兰的奶妈，慢条斯理，对小姐照顾无微不至。",
+    "personality": {
+      "traits": [
+        "忠心耿耿",
+        "慢条斯理",
+        "细心周到"
+      ],
+      "speech_style": "缓慢沉稳",
+      "temperament": "稳重谨慎"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "乳母",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "哺育小姐长大，情同母女"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_han_shen_zi",
+    "name": "韩婶子",
+    "alias": [],
+    "identity": "厨娘",
+    "faction": null,
+    "role": "苗若兰的厨娘，小姐爱吃她烧的菜",
+    "archetype": "忠仆",
+    "rank": "平平无奇",
+    "one_line": "苗若兰的厨娘，善于烹饪，沉默温厚。",
+    "personality": {
+      "traits": [
+        "忠心耿耿",
+        "沉默寡言",
+        "善于烹饪"
+      ],
+      "speech_style": "朴素简短",
+      "temperament": "沉默温厚"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "仆人",
+        "intensity": 6,
+        "bond_level": 7,
+        "dynamic": "厨娘，小姐爱吃她烧的菜"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_miao_ruo_lan",
+    "name": "苗若兰",
+    "alias": [
+      "苗姑娘",
+      "苗小姐"
+    ],
+    "identity": "苗人凤独女",
+    "faction": null,
+    "role": "女主角",
+    "archetype": "淑女",
+    "rank": "平平无奇",
+    "one_line": "苗人凤独女，温雅贤淑，与胡斐一见倾心",
+    "personality": {
+      "traits": [
+        "温雅贤淑",
+        "善解人意",
+        "纯真坚贞"
+      ],
+      "speech_style": "轻柔细语，矜持含蓄",
+      "temperament": "温柔内敛"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "深爱父亲，谨遵家训"
+      },
+      {
+        "target": "char_qin_er",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "贴身侍女，亲如姐妹"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "初识",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "相互客气，各怀心思"
+      },
+      {
+        "target": "char_zuo_tong",
+        "type": "调解",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "以玉马化解纷争"
+      },
+      {
+        "target": "char_xue_shan_fei_hu",
+        "type": "世仇之后",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "胡苗两家百年恩怨"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "深爱父亲，自小受其侠义熏陶"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "敬仰",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "敬称胡伯伯，视父亲挚友为英雄"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "同情",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "同情其身世，以礼相待护其安全"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "质疑",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "发觉宝树所述与父亲不同，起疑"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "初识好感",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "初见心生好感，善哉行诗酒相酬"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "救助",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "暗中搭救平阿四脱离险境"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "鄙视",
+        "intensity": 4,
+        "bond_level": 1,
+        "dynamic": "鄙其谋财害命，视为奸恶"
+      },
+      {
+        "target": "char_yu_guan_jia",
+        "type": "主仆信任",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "信任管家忠心，共同应对外敌"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "深爱父亲，因母亲之事悲痛"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "仇人之女",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "得知田归农间接害死母亲"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "深爱父亲，听闻其遇险万分焦急"
+      },
+      {
+        "target": "char_qin_er",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 5,
+        "dynamic": "忠心侍女挺身护主"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "被害",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "被刘元鹤夺钗并险遭杀害"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "被迫",
+        "intensity": 4,
+        "bond_level": 1,
+        "dynamic": "被田青文脱去衣衫裹于被中"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "爱慕之人",
+        "intensity": 8,
+        "bond_level": 4,
+        "dynamic": "床帐同衾，又羞又喜，情愫暗生"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "独生爱女，父亲视若掌上明珠"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "恋人",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "十年倾心终得相守"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "深爱父亲怜其孤独"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "仇人",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "诱走母亲的奸人"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_miao_jia_jian_fa"
+    ]
+  },
+  {
+    "id": "char_xue_shan_fei_hu",
+    "name": "雪山飞狐",
+    "alias": [
+      "飞狐"
+    ],
+    "identity": "胡家传人",
+    "faction": null,
+    "role": "与玉笔山庄主人仇深似海的神秘高手，派双童下书",
+    "archetype": "神秘强敌",
+    "rank": "出神入化",
+    "one_line": "胡家后人，与山庄主人仇深似海，派双童下书并炸毁长索困住众人。",
+    "personality": {
+      "traits": [
+        "神秘莫测",
+        "深谋远虑",
+        "手段狠辣"
+      ],
+      "speech_style": "未直接出声",
+      "temperament": "深沉莫测"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "世仇",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "胡苗两家百年仇怨"
+      },
+      {
+        "target": "char_zuo_tong",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "家主派遣双童下书"
+      },
+      {
+        "target": "char_you_tong",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "家主派遣双童下书"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_fei_tian_shen_xing"
+    ]
+  },
+  {
+    "id": "char_fei_tian_hu_li",
+    "name": "飞天狐狸",
+    "alias": [
+      "义兄",
+      "飞天狐狸",
+      "姓胡的卫士"
+    ],
+    "identity": "闯王卫士，胡家先祖",
+    "faction": null,
+    "role": "已故·被叙述",
+    "archetype": "忍辱负重的忠臣",
+    "rank": "登峰造极",
+    "one_line": "闯王近卫，以诈降计救闯王脱险，忍辱负重数年后因义弟误解被杀。",
+    "personality": {
+      "traits": [
+        "智勇双全",
+        "忍辱负重",
+        "忠义无双"
+      ],
+      "speech_style": "未直接出场",
+      "temperament": "深沉坚忍"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_wei_shi",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "义兄弟反目，滇池喋血"
+      },
+      {
+        "target": "char_li_zi_cheng",
+        "type": "主仆",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "闯王心腹卫士"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "祖先",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "胡家先祖，武功代代相传"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "世仇先辈",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "三位义弟误解杀之，种下四家世仇"
+      }
+    ],
+    "known_skills": [
+      "skill_fei_tian_shen_xing",
+      "skill_fei_tian_hu_li_shu"
+    ],
+    "related_skills": [
+      "skill_hu_jia_dao_fa"
+    ]
+  },
+  {
+    "id": "char_miao_wei_shi",
+    "name": "苗姓卫士",
+    "alias": [
+      "脚夫公公"
+    ],
+    "identity": "闯王卫士",
+    "faction": null,
+    "role": "闯王四大卫士之一，扮作脚夫，苗家祖先",
+    "archetype": "义士",
+    "rank": "炉火纯青",
+    "one_line": "闯王卫士，扮脚夫行刺吴三桂，后当众自刎，为苗家始祖。",
+    "personality": {
+      "traits": [
+        "忠义刚烈",
+        "武艺高强",
+        "性情急躁"
+      ],
+      "speech_style": "直率豪迈",
+      "temperament": "刚烈急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "义兄叛变，决意杀之"
+      },
+      {
+        "target": "char_li_zi_cheng",
+        "type": "主仆",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "忠心保主，矢志报仇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_miao_jia_jian"
+    ]
+  },
+  {
+    "id": "char_fan_wei_shi",
+    "name": "范姓卫士",
+    "alias": [
+      "叫化公公",
+      "化子公公"
+    ],
+    "identity": "闯王卫士",
+    "faction": null,
+    "role": "闯王四大卫士之一，扮作叫化子，丐帮始祖",
+    "archetype": "义士",
+    "rank": "炉火纯青",
+    "one_line": "闯王卫士，扮叫化行刺吴三桂，后当众自刎，为兴汉丐帮始祖。",
+    "personality": {
+      "traits": [
+        "忠义刚烈",
+        "武艺高强",
+        "刚正不阿"
+      ],
+      "speech_style": "直率豪迈",
+      "temperament": "刚烈正直"
+    },
+    "relationships": [
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "义兄叛变，决意杀之"
+      },
+      {
+        "target": "char_li_zi_cheng",
+        "type": "主仆",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "忠心保主，矢志报仇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_tian_wei_shi",
+    "name": "田姓卫士",
+    "alias": [
+      "郎中公公"
+    ],
+    "identity": "闯王卫士",
+    "faction": null,
+    "role": "闯王四大卫士之一，扮作郎中，天龙门始祖",
+    "archetype": "义士",
+    "rank": "炉火纯青",
+    "one_line": "闯王卫士，扮郎中行刺吴三桂，后当众自刎，为天龙门始祖。",
+    "personality": {
+      "traits": [
+        "忠义刚烈",
+        "武艺高强",
+        "沉着冷静"
+      ],
+      "speech_style": "沉稳有度",
+      "temperament": "沉稳刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "义兄叛变，领众行刺"
+      },
+      {
+        "target": "char_li_zi_cheng",
+        "type": "主仆",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "忠心保主，矢志报仇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_li_zi_cheng",
+    "name": "李自成",
+    "alias": [
+      "闯王",
+      "奉天倡义大元帅",
+      "大英雄",
+      "大王"
+    ],
+    "identity": "闯王/大顺皇帝",
+    "faction": null,
+    "role": "明末农民起义领袖，四大卫士的主公",
+    "archetype": "草莽帝王",
+    "rank": "平平无奇",
+    "one_line": "明末闯王，率众起义攻破北京，兵败九宫山后被心腹卫士所害。",
+    "personality": {
+      "traits": [
+        "雄才大略",
+        "后期失德",
+        "英雄末路"
+      ],
+      "speech_style": "帝王威严",
+      "temperament": "豪迈悲壮"
+    },
+    "relationships": [
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "主仆",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "心腹卫士，疑为其所害"
+      },
+      {
+        "target": "char_wu_san_gui",
+        "type": "敌对",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "汉奸引清兵致其败亡"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_wu_san_gui",
+    "name": "吴三桂",
+    "alias": [
+      "平西亲王",
+      "大汉奸"
+    ],
+    "identity": "平西亲王",
+    "faction": null,
+    "role": "引清兵入关的汉奸，封平西亲王",
+    "archetype": "卖国奸臣",
+    "rank": "平平无奇",
+    "one_line": "引清兵入关的汉奸，封平西亲王坐镇云南，三卫士多次行刺未果。",
+    "personality": {
+      "traits": [
+        "卖国求荣",
+        "防备周密",
+        "阴险狠毒"
+      ],
+      "speech_style": "审讯时威严",
+      "temperament": "阴险狡诈"
+    },
+    "relationships": [
+      {
+        "target": "char_li_zi_cheng",
+        "type": "敌对",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "引清兵灭大顺，是为大仇"
+      },
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "庇护",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "受飞天狐狸保护的主公"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_hu_yi_dao",
+    "name": "胡一刀",
+    "alias": [
+      "胡大爷",
+      "胡大哥",
+      "胡公一刀大侠",
+      "辽东大侠"
+    ],
+    "identity": "辽东大侠",
+    "faction": null,
+    "role": "前辈",
+    "archetype": "大侠",
+    "rank": "登峰造极",
+    "one_line": "辽东大侠，胡斐之父，与苗人凤齐名",
+    "personality": {
+      "traits": [
+        "豪迈磊落",
+        "至情至性",
+        "武功盖世"
+      ],
+      "speech_style": "豪爽直率",
+      "temperament": "豪放洒脱"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_fu_ren",
+        "type": "夫妻",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "深爱妻子，为子牵挂，临终不舍"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "宿敌/知己",
+        "intensity": 9,
+        "bond_level": 5,
+        "dynamic": "惺惺相惜，恨不为友，以命相交"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "父子",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "爱子深切，临终托孤，嘱其心狠"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "义兄",
+        "intensity": 10,
+        "bond_level": 9,
+        "dynamic": "惺惺相惜，比武中互相指点不藏私"
+      },
+      {
+        "target": "char_hu_fu_ren",
+        "type": "夫妻",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "恩爱至深，夫人殉夫而死"
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "恩人",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "赠银救其全家，平等相待"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "被算计",
+        "intensity": 2,
+        "bond_level": 2,
+        "dynamic": "信任阎基传话，不知其暗中涂毒"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "父子",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "胡斐之父，身死时胡斐尚在襒褒"
+      },
+      {
+        "target": "char_tian_an_bao",
+        "type": "知晓真相",
+        "intensity": 5,
+        "bond_level": 1,
+        "dynamic": "知其与苗某互杀的真相"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "宿敌兼挚友",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "惺惺相惜的生死对手"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "父子",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "遗书传武的亡父"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_jia_dao_fa",
+      "skill_miao_jia_jian_fa"
+    ],
+    "related_skills": [
+      "skill_miao_jia_jian_fa",
+      "skill_fei_tian_hu_li_shu"
+    ]
+  },
+  {
+    "id": "char_hu_fu_ren",
+    "name": "胡夫人",
+    "alias": [
+      "胡伯母",
+      "胡大嫂"
+    ],
+    "identity": "胡一刀之妻",
+    "faction": null,
+    "role": "已故·殉夫",
+    "archetype": "忠贞刚烈的侠妇",
+    "rank": "出神入化",
+    "one_line": "胡一刀之妻，武功高强，能识破苗人凤剑招破绽，夫死后横刀自刎殉节。",
+    "personality": {
+      "traits": [
+        "忠贞刚烈",
+        "眼力过人",
+        "深明大义"
+      ],
+      "speech_style": "言语温和有度，临终前从容不迫",
+      "temperament": "外柔内刚，视死如归"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao",
+        "type": "夫妻",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "深爱丈夫，为其谋划，殉情同死"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "敬重",
+        "intensity": 7,
+        "bond_level": 3,
+        "dynamic": "钦佩其侠义，放心托孤"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "母子",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "爱子至深，临终喂奶亲吻"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "夫妻",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "夫死则己不独生，横刀殉夫"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "信任",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "临终托孤于苗人凤"
+      }
+    ],
+    "known_skills": [
+      "skill_chou_dai_wu_gong",
+      "skill_kong_kong_miao_shou"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_tian_xiang_gong",
+    "name": "田相公",
+    "alias": [],
+    "identity": "田家公子（田青文之父）",
+    "faction": "faction_tian_long_men",
+    "role": "配角",
+    "archetype": "世家子弟",
+    "rank": "登堂入室",
+    "one_line": "天龙门田家传人，精明果断，与范帮主围堵胡一刀，暗用弹弓偷袭",
+    "personality": {
+      "traits": [
+        "精明干练",
+        "慷慨豪爽",
+        "不够磊落",
+        "护友心切"
+      ],
+      "speech_style": "言辞有礼，暗含机锋",
+      "temperament": "外和内急"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "随从/盟友",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "追随金面佛，暗中相助却被斥"
+      },
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "同盟",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "共同谋划，配合行动"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "敌对",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "惧其武功，出言挑衅"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_shang_jian_ming",
+    "name": "商剑鸣",
+    "alias": [
+      "八卦刀"
+    ],
+    "identity": "八卦门高手",
+    "faction": "faction_ba_gua_men",
+    "role": "被提及者",
+    "archetype": "仇敌",
+    "rank": "炉火纯青",
+    "one_line": "王维扬弟子，擅八卦刀法与金镖，杀苗家四人后被胡一刀一夜奔袭斩杀",
+    "personality": {
+      "traits": [
+        "凶狠残暴",
+        "武功高强",
+        "心狠手辣"
+      ],
+      "speech_style": "文中未直接出场",
+      "temperament": "暴戾"
+    },
+    "relationships": [
+      {
+        "target": "char_wang_wei_yang",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 4,
+        "dynamic": "威震河朔王维扬之徒"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "仇敌",
+        "intensity": 9,
+        "bond_level": 1,
+        "dynamic": "杀苗家兄弟妹子四人"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "被杀",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "被胡一刀夜袭斩杀"
+      }
+    ],
+    "known_skills": [
+      "skill_ba_gua_dao"
+    ],
+    "related_skills": [
+      "skill_ba_gua_zhang"
+    ]
+  },
+  {
+    "id": "char_wang_wei_yang",
+    "name": "王维扬",
+    "alias": [
+      "威震河朔"
+    ],
+    "identity": "八卦门宗师",
+    "faction": "faction_ba_gua_men",
+    "role": "被提及者",
+    "archetype": "宗师",
+    "rank": "炉火纯青",
+    "one_line": "威震河朔，八卦门宗师，商剑鸣之师",
+    "personality": {
+      "traits": [
+        "威震一方"
+      ],
+      "speech_style": "文中未直接出场",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_shang_jian_ming",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 4,
+        "dynamic": "商剑鸣为其弟子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_ba_gua_dao",
+      "skill_ba_gua_zhang"
+    ]
+  },
+  {
+    "id": "char_zhang_jia_xiong_di",
+    "name": "张家兄弟",
+    "alias": [],
+    "identity": "追踪胡一刀的手下",
+    "faction": null,
+    "role": "龙套",
+    "archetype": "喽啰",
+    "rank": "初窥门径",
+    "one_line": "从关外一路追踪胡一刀夫妇南来的汉子，被胡一刀重伤",
+    "personality": {
+      "traits": [
+        "忠于职守",
+        "行事粗暴"
+      ],
+      "speech_style": "文中简短对话",
+      "temperament": "粗犷"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao",
+        "type": "追踪/敌对",
+        "intensity": 6,
+        "bond_level": 1,
+        "dynamic": "追踪铁盒反被重伤"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "从属",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "为苗范田三家效力"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_jie_dai_han_zi",
+    "name": "接引汉子",
+    "alias": [],
+    "identity": "苗范田手下",
+    "faction": null,
+    "role": "龙套",
+    "archetype": "手下",
+    "rank": "初窥门径",
+    "one_line": "关西口音的粗豪汉子，深夜请宝树出诊救治伤者",
+    "personality": {
+      "traits": [
+        "粗豪果断",
+        "出手阔绰"
+      ],
+      "speech_style": "关西口音，简短急促",
+      "temperament": "急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_bao_shu",
+        "type": "请医",
+        "intensity": 4,
+        "bond_level": 1,
+        "dynamic": "强行拉宝树出诊治伤"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_ping_a_si",
+    "name": "平阿四",
+    "alias": [
+      "癞痢头阿四",
+      "小兄弟",
+      "平四叔",
+      "平四爷",
+      "四叔"
+    ],
+    "identity": "胡家忠仆",
+    "faction": null,
+    "role": "配角",
+    "archetype": "忠仆",
+    "rank": "初窥门径",
+    "one_line": "忠仆，舍命抚养胡斐长大成人",
+    "personality": {
+      "traits": [
+        "忠心耿耿",
+        "舍命护主",
+        "谨慎多疑"
+      ],
+      "speech_style": "朴实忠厚",
+      "temperament": "忠厚朴实"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao",
+        "type": "恩主",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "受胡大爷银两救命之恩，终生图报"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "仇人",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "揭穿其涂毒害主真相，欲置之死地"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "仇人",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "被田归农砍断右臂、踢入河中"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "感激",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "感念苗氏父女高义，以礼相待"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "抚育",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "舍命救出婴儿，抚养长大成人"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "养父子",
+        "intensity": 10,
+        "bond_level": 5,
+        "dynamic": "抚养成人，恩重如山，情若父子"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "仇敌",
+        "intensity": 9,
+        "bond_level": 1,
+        "dynamic": "指认其谋财害命，恨之入骨"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "感恩",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "受其暗中搭救，感激不尽"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "主仆",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "忠心跟随，患难与共"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "恩主之子",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "舍命抚养的忠仆"
+      },
+      {
+        "target": "char_du_xi_meng",
+        "type": "仇人",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "识破其不轨之心"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_du_xi_meng",
+    "name": "杜希孟",
+    "alias": [
+      "杜庄主"
+    ],
+    "identity": "玉笔峰庄主",
+    "faction": "faction_yu_bi_zhuang",
+    "role": "配角",
+    "archetype": "贪心庄主",
+    "rank": "炉火纯青",
+    "one_line": "玉笔峰庄主，胡斐母方表亲，贪图宝藏",
+    "personality": {
+      "traits": [
+        "假仁假义",
+        "贪图利益",
+        "温和谦逊"
+      ],
+      "speech_style": "温和客套",
+      "temperament": "外善内贪"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "朋友",
+        "intensity": 6,
+        "bond_level": 4,
+        "dynamic": "苗人凤称其为希孟仁兄"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "旧交反目",
+        "intensity": 5,
+        "bond_level": -4,
+        "dynamic": "二十年交情，今日设局陷害"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 4,
+        "bond_level": -2,
+        "dynamic": "与雪山飞狐有旧帐，约算未果"
+      },
+      {
+        "target": "char_sai_zong_guan",
+        "type": "合谋",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "助赛总管伏击苗人凤"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "母方表亲",
+        "intensity": 5,
+        "bond_level": 1,
+        "dynamic": "觊觎胡家武学秘本"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "世交",
+        "intensity": 4,
+        "bond_level": 4,
+        "dynamic": "二十余年交情终破裂"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_tian_an_bao",
+    "name": "田安豹",
+    "alias": [],
+    "identity": "天龙门前辈",
+    "faction": "faction_tian_long_men",
+    "role": "已故天龙门前辈",
+    "archetype": "寻宝者",
+    "rank": "登堂入室",
+    "one_line": "田归农之父，擅使黄金小笔暗器，入洞寻宝后与苗某互杀而亡。",
+    "personality": {
+      "traits": [
+        "贪图宝藏",
+        "暗器精巧"
+      ],
+      "speech_style": "已故，无直接对话",
+      "temperament": "未知"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_gui_nong",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 5,
+        "dynamic": "田归农之父"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师徒",
+        "intensity": 8,
+        "bond_level": 5,
+        "dynamic": "阮士中恩师"
+      },
+      {
+        "target": "char_miao_zu_fu",
+        "type": "同归于尽",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "在宝藏洞中互刺而亡"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_miao_zu_fu",
+    "name": "苗姓前辈",
+    "alias": [],
+    "identity": "苗人凤之父",
+    "faction": null,
+    "role": "已故前辈",
+    "archetype": "寻宝者",
+    "rank": "登堂入室",
+    "one_line": "苗人凤之父，与田安豹结伴入洞寻宝，因贪念互刺身亡。",
+    "personality": {
+      "traits": [
+        "贪图宝藏"
+      ],
+      "speech_style": "已故，无直接对话",
+      "temperament": "未知"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 5,
+        "dynamic": "苗人凤之父"
+      },
+      {
+        "target": "char_tian_an_bao",
+        "type": "同归于尽",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "在宝藏洞中互刺而亡"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_sai_zong_guan",
+    "name": "赛总管",
+    "alias": [
+      "赛大人",
+      "满洲第一高手"
+    ],
+    "identity": "御前侍卫总管，乾隆皇帝第一亲信卫士",
+    "faction": "faction_yu_qian_shi_wei",
+    "role": "反派首领",
+    "archetype": "villain",
+    "rank": "登峰造极",
+    "one_line": "满洲第一高手，内功外功俱臻化境，凶奸狡诈，率众伏击苗人凤却败于胡斐三招",
+    "personality": {
+      "traits": [
+        "凶奸狡诈",
+        "自负好胜",
+        "心狠手辣"
+      ],
+      "speech_style": "威严霸道，发号施令惯了，受辱后愤恨难当",
+      "temperament": "阴险多谋又极度自负，受辱后万念俱灰"
+    },
+    "relationships": [
+      {
+        "target": "char_liu_yuan_he",
+        "type": "上下级",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "刘元鹤的上峰"
+      },
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "敌对",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "亲自出手擒获范帮主"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "宿敌",
+        "intensity": 8,
+        "bond_level": -5,
+        "dynamic": "曾被苗人凤剑伤臂上，视为奇耻大辱"
+      },
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "利用",
+        "intensity": 5,
+        "bond_level": 1,
+        "dynamic": "互相利用，事成后翻脸撞飞范帮主"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 7,
+        "bond_level": -3,
+        "dynamic": "三招败北，雄心尽丧"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_zuo_you_shuang_tong",
+    "name": "左右双童",
+    "alias": [],
+    "identity": "杜家庄随从",
+    "faction": null,
+    "role": "侍童",
+    "archetype": "随从",
+    "rank": "略有小成",
+    "one_line": "曾在峰顶削断众人兵刃的双童。",
+    "personality": {
+      "traits": [
+        "身手不凡"
+      ],
+      "speech_style": "未直接出场",
+      "temperament": "未知"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_ling_qing_dao_ren",
+    "name": "灵清道人",
+    "alias": [],
+    "identity": "昆仑山名宿",
+    "faction": "faction_kun_lun_pai",
+    "role": "反派",
+    "archetype": "martial_artist",
+    "rank": "炉火纯青",
+    "one_line": "昆仑派名宿，外家功夫精深，被苗人凤一脚踢出后跌坐床沿",
+    "personality": {
+      "traits": [
+        "武功独到",
+        "身手矫健",
+        "趋附权势"
+      ],
+      "speech_style": "出家人身份，少言寡语",
+      "temperament": "武功有造诣但立场不正"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "对手",
+        "intensity": 4,
+        "bond_level": -2,
+        "dynamic": "被苗人凤一脚踢飞"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 3,
+        "bond_level": -1,
+        "dynamic": "胡斐飞腿踢向其胸口"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_zhang_xian_di",
+    "name": "张",
+    "alias": [
+      "张贤弟"
+    ],
+    "identity": "御前侍卫",
+    "faction": "faction_yu_qian_shi_wei",
+    "role": "配角",
+    "archetype": "supporting",
+    "rank": "登堂入室",
+    "one_line": "赛总管麾下侍卫，献殷勤称颂赛总管神机妙算",
+    "personality": {
+      "traits": [
+        "圆滑世故",
+        "善于逢迎",
+        "趋炎附势"
+      ],
+      "speech_style": "恭维奉承，一口一个赛总管英明",
+      "temperament": "善于察言观色，见风使舵"
+    },
+    "relationships": [
+      {
+        "target": "char_sai_zong_guan",
+        "type": "下属",
+        "intensity": 3,
+        "bond_level": 3,
+        "dynamic": "逢迎上司，尽心效力"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  }
+]

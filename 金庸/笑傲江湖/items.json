@@ -1,0 +1,1813 @@
+[
+  {
+    "id": "item_bi_shou",
+    "name": "匕首",
+    "type": "武器",
+    "owner": "char_ning_ze",
+    "one_line": "岳夫人用以自尽殉节的短匕",
+    "description": "宁中则以此匕首对准心脏刺入，自尽身亡",
+    "effects": [
+      "致命一击",
+      "近身暗藏利器"
+    ],
+    "origin": "林家",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jin_dao",
+    "name": "金刀",
+    "type": "兵器",
+    "owner": "char_wang_fu_ren",
+    "one_line": "王夫人的随身兵器，被敌人以砖粒打落脱手",
+    "description": "王夫人随身携带的金色大刀，是其金刀门出身的标志",
+    "effects": [],
+    "origin": "洛阳金刀门",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_jin_dao_dao_fa"
+    ]
+  },
+  {
+    "id": "item_lin_jia_chang_jian",
+    "name": "林震南长剑",
+    "type": "兵器",
+    "owner": "char_lin_ping_zhi",
+    "one_line": "林震南的佩剑，林平之从饭铺拾起包在破布中带出",
+    "description": "林震南的长剑，林平之拾起插于背后衣内，作为防身之用",
+    "effects": [],
+    "origin": "福威镖局",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_pi_xie_jian_fa"
+    ]
+  },
+  {
+    "id": "item_lv_pa_zi",
+    "name": "绿色帕子",
+    "type": "饰品",
+    "owner": "char_wan_er",
+    "one_line": "宛儿遗留的上等丝缎帕子，绣有红珊瑚枝，暴露其非贫家女身份",
+    "description": "上等丝缎材质，沉甸甸甚是软滑，边缘以绿丝线围三道边，一角绣着一枝小小红色珊瑚枝，绣工精致，散发淡淡幽香",
+    "effects": [
+      "身份线索"
+    ],
+    "origin": "宛儿所有",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bai_ma",
+    "name": "白马（小雪龙）",
+    "type": "坐骑",
+    "owner": "char_lin_ping_zhi",
+    "one_line": "林平之的大宛名驹，外婆在洛阳重金购得送作生日礼物，后离奇死亡",
+    "description": "全身雪白，马勒脚镫皆为烂银所制，是林平之外婆重价觅来的西域名驹",
+    "effects": [
+      "日行千里"
+    ],
+    "origin": "大宛，林平之外婆购于洛阳",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yan_dai",
+    "name": "猎鹰",
+    "type": "猎具",
+    "owner": "char_lin_ping_zhi",
+    "one_line": "林平之打猎时所携猎鹰，停于左肩，用于从林中赶出猎物",
+    "description": "训练有素的猎鹰，可从林中驱赶野兔等猎物",
+    "effects": [
+      "驱赶猎物"
+    ],
+    "origin": "林平之所有",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_chang_gong",
+    "name": "长弓",
+    "type": "兵器",
+    "owner": "char_lin_ping_zhi",
+    "one_line": "林平之背负的长弓，打猎时射兔射雉鸡所用",
+    "description": "配以雕翎箭矢，箭法精准",
+    "effects": [
+      "远程攻击"
+    ],
+    "origin": "林平之所有",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yu_ma",
+    "name": "羊脂玉马",
+    "type": "珍宝",
+    "owner": "char_lin_ping_zhi",
+    "one_line": "一对五寸高羊脂玉马，原藏于长沙分局棺材中，林平之从青城派手中夺回",
+    "description": "一对五寸来高的羊脂玉马，价值不菲，原为镖局保管之物",
+    "effects": [],
+    "origin": "福威镖局长沙分局所保管的镖物",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_wang_fu_ren_jin_dao",
+    "name": "王夫人金刀",
+    "type": "兵器",
+    "owner": "char_wang_fu_ren",
+    "one_line": "王夫人的金刀，弃于饭铺地下未及带走",
+    "description": "王夫人所用金刀，饭铺战后抛于地下",
+    "effects": [],
+    "origin": "福威镖局",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_qin_cang_jian",
+    "name": "莫大先生胡琴藏剑",
+    "type": "兵器",
+    "owner": "char_mo_da_xian_sheng",
+    "one_line": "胡琴中暗藏细长利剑，琴中藏剑剑发琴音",
+    "description": "一把残旧胡琴，剑刃通入把手，外表看不出内藏兵刃，细长利剑削铁如泥",
+    "effects": [],
+    "origin": "莫大先生随身之物",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_hui_feng_luo_yan_jian"
+    ]
+  },
+  {
+    "id": "item_tian_xiang_du_xu_jiao",
+    "name": "天香断续胶",
+    "type": "伤药",
+    "owner": "char_ya_po_po；char_yi_lin",
+    "one_line": "恒山派治伤灵药，哑婆婆取出准备为令狐冲施刑后疗伤；恒山派治伤圣药，外敷用于令狐冲剑伤",
+    "description": "恒山派外用伤药，瓶装膏药；恒山派珍藏的外敷伤药，用于治疗外伤",
+    "effects": [
+      "止血",
+      "续断",
+      "治伤灵验",
+      "止血生肌",
+      "治疗外伤",
+      "治伤止血",
+      "灵药奇效",
+      "疗伤止血",
+      "续骨生肌",
+      "愈合伤口",
+      "治疗金创",
+      "治愈外伤",
+      "促进创口愈合"
+    ],
+    "origin": "恒山派",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bi_xie_jian_pu",
+    "name": "辟邪剑谱",
+    "type": "武功秘籍；武学秘笈",
+    "owner": "char_lin_ping_zhi",
+    "one_line": "林平之家传剑谱，岳不群疑被令狐冲吞没，实则不明下落；写在袈裟上的辟邪剑法秘笈，藏于福州向阳巷林家老宅佛堂",
+    "description": "林家祖传剑谱，岳不群以为令狐冲将其吞没才剑术大进，实则方证冲虚皆证其剑法得自风清扬；林远图将从华山获悉的葵花宝典精要笔录于袈裟之上，即辟邪剑谱，与葵花宝典系出同源但只得一小部分。",
+    "effects": [
+      "练成可天下无敌",
+      "修习后剑术大进",
+      "剑法威力大增",
+      "招式脱胎换骨",
+      "记载七十二路辟邪剑法"
+    ],
+    "origin": "林家；林远图（渡元禅师）所录",
+    "rarity": "绝世神兵；稀世珍品",
+    "related_skills": [
+      "skill_pi_xie_jian_fa"
+    ]
+  },
+  {
+    "id": "item_ling_hu_chong_pei_jian",
+    "name": "令狐冲佩剑",
+    "type": "兵器",
+    "owner": "char_ling_hu_chong",
+    "one_line": "华山令狐冲佩剑，青色丝穗，剑刃刻'华山令狐冲'五字，刺穿罗人杰腹部",
+    "description": "华山派标准佩剑，剑柄飘青色丝穗，剑刃近柄处刻'华山令狐冲'五个小字",
+    "effects": [],
+    "origin": "华山派",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_hua_shan_jian_fa"
+    ]
+  },
+  {
+    "id": "item_lao_de_nuo_pei_jian",
+    "name": "劳德诺佩剑",
+    "type": "兵器",
+    "owner": "char_lao_de_nuo",
+    "one_line": "华山劳德诺佩剑，青色丝穗，剑刃刻'华山劳德诺'五字，被余沧海夺去查验",
+    "description": "华山派标准佩剑，剑柄飘青色丝穗，剑刃近柄处刻'华山劳德诺'五个小字",
+    "effects": [],
+    "origin": "华山派",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_hua_shan_jian_fa"
+    ]
+  },
+  {
+    "id": "item_wu_gui_zhi",
+    "name": "乌龟纸",
+    "type": "暗器/道具",
+    "owner": "char_lv_shan_nv_tong",
+    "one_line": "女童预先画好的乌龟图，趁乱贴在余沧海背上使其当众出丑",
+    "description": "一张纸上画着大乌龟，女童趁余沧海慌乱之际贴在其背后衣服上",
+    "effects": [
+      "羞辱对方"
+    ],
+    "origin": "绿衫女童",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bai_yun_xiong_dan_wan",
+    "name": "白云熊胆丸",
+    "type": "内服药",
+    "owner": "char_ya_po_po",
+    "one_line": "恒山派内服伤药，哑婆婆取出备用",
+    "description": "恒山派内服疗伤丹药",
+    "effects": [
+      "治疗内伤",
+      "服后昏晕半日",
+      "治愈内伤",
+      "调养身体",
+      "内服治伤",
+      "恢复元气",
+      "内服疗伤"
+    ],
+    "origin": "恒山派",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_wu_yue_ling_qi",
+    "name": "五岳令旗",
+    "type": "信物",
+    "owner": "char_xiang_wen_tian",
+    "one_line": "嵩山派左盟主令旗，镶满珍珠宝石，向问天冒充身份所用",
+    "description": "五色锦旗镶满珍珠宝石，令旗所到如左盟主亲到",
+    "effects": [
+      "号令五岳剑派",
+      "见令旗如见盟主"
+    ],
+    "origin": "来历不正，疑为抢夺所得",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jin_pen",
+    "name": "金盆",
+    "type": "仪式用品",
+    "owner": "char_liu_zheng_feng",
+    "one_line": "径长尺半的黄金盆子，金盆洗手仪式所用，被费彬踹烂",
+    "description": "金光灿烂、径长尺半的黄金盆子，盛满清水，为金盆洗手仪式核心器具，被费彬一脚踹成平片",
+    "effects": [
+      "象征退出武林"
+    ],
+    "origin": "刘正风准备",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_xiao_ao_jiang_hu_qu_pu",
+    "name": "笑傲江湖曲谱",
+    "type": "曲谱",
+    "owner": "char_ling_hu_chong",
+    "one_line": "曲洋与刘正风毕生心血所寄的琴谱箫谱，含广陵散改编段",
+    "description": "曲洋与刘正风共创的琴箫合奏曲谱，其中大段琴曲据嵇康广陵散改编，临终托付令狐冲觅传人",
+    "effects": [
+      "琴箫合奏",
+      "内力化音律"
+    ],
+    "origin": "曲洋与刘正风共创",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_qin_xiao_he_zou"
+    ]
+  },
+  {
+    "id": "item_hu_qin",
+    "name": "胡琴",
+    "type": "乐器",
+    "owner": "char_mo_da_xian_sheng",
+    "one_line": "莫大先生的深黄色胡琴，琴声凄清，是其身份标志",
+    "description": "琴身深黄，久经年月，莫大先生随身携带，静夜琴声凄清动人",
+    "effects": [
+      "藏剑于琴"
+    ],
+    "origin": "衡山",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_duan_jian_shuang",
+    "name": "双短剑",
+    "type": "武器",
+    "owner": "char_qu_fei_yan",
+    "one_line": "曲非烟的两柄短剑，用以抵挡费彬",
+    "description": "曲非烟腰间所佩双短剑，与费彬交手时被震脱",
+    "effects": [],
+    "origin": "曲非烟",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_huo_jian_pao",
+    "name": "华山信号火箭",
+    "type": "信号",
+    "owner": "char_yue_bu_qun",
+    "one_line": "华山掌门召集门人的信号火箭，升空后幻成银白长剑",
+    "description": "火箭冲天后爆成银白色长剑形状停留半空再化为满天流星",
+    "effects": [
+      "召集华山门人"
+    ],
+    "origin": "华山派",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bi_xie_jian_pu_chuan_wen",
+    "name": "辟邪剑谱（传说）",
+    "type": "秘笈",
+    "owner": null,
+    "one_line": "各方觊觎的林家祖传剑谱，实则并无实物，仅口授相传",
+    "description": "江湖各方势力觊觎的林家辟邪剑法剑谱，实为口授并无实体剑谱，福州向阳巷老宅地窖中另有祖传之物",
+    "effects": [],
+    "origin": "林家祖传",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_pi_xie_jian_fa"
+    ]
+  },
+  {
+    "id": "bi_shui_jian",
+    "name": "碧水剑",
+    "type": "宝剑",
+    "owner": "yue_ling_shan",
+    "one_line": "断金削铁的利器，龙泉宝剑，岳灵珊十八岁生日礼物",
+    "description": "三年前岳不群在浙江龙泉得来，小师妹一见爱不释手，连求数次方得，后被令狐冲弹飞坠入万丈深谷",
+    "effects": [
+      "削铁如泥",
+      "断金切玉"
+    ],
+    "origin": "浙江龙泉",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_hua_shan_jian_fa"
+    ]
+  },
+  {
+    "id": "li_fu",
+    "name": "利斧",
+    "type": "斧",
+    "owner": null,
+    "one_line": "后洞骸骨旁的兵器，锋利非凡，用以开凿山腹通道",
+    "description": "重约四十斤，劈石如腐，灿然生光，为被囚高手用以砍山破壁之兵器，石壁上五岳剑招破法亦可能出于此人",
+    "effects": [
+      "劈石如腐",
+      "锋利非凡"
+    ],
+    "origin": "后洞骸骨旁",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_guan_wai_ren_shen",
+    "name": "关外野山人参",
+    "type": "药材",
+    "owner": null,
+    "one_line": "岳不群夫妇从关外带回的野山人参，熬汤为令狐冲补身",
+    "description": "关外所产野山人参，岳不群夫妇万里迢迢带回，第一个便给受罚的令狐冲服用",
+    "effects": [
+      "大补元气",
+      "于身子大有补益"
+    ],
+    "origin": "关外",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_shi_bi_tu_xing",
+    "name": "后洞石壁图形",
+    "type": "武学秘籍",
+    "owner": null,
+    "one_line": "思过崖后洞石壁上所刻五岳剑派剑招及魔教长老破解之法",
+    "description": "石壁上刻有五岳剑派各派绝招及破解招数的图形，风清扬三字亦刻于其上，令狐冲多次入洞学招应对田伯光",
+    "effects": [
+      "可速学各派剑招精华",
+      "包含破解五岳剑法的种种怪招",
+      "学后虽精妙但难以融会贯通"
+    ],
+    "origin": "五岳剑派前辈高手与魔教长老",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_hua_shan_jian_fa",
+      "skill_ning_shi_yi_jian"
+    ]
+  },
+  {
+    "id": "item_tian_dao",
+    "name": "田伯光钢刀",
+    "type": "兵器",
+    "owner": "char_tian_bo_guang",
+    "one_line": "田伯光随身兵器，配合快刀刀法威猛无比",
+    "description": "田伯光所使钢刀，一刀重似一刀，势道沉猛，与令狐冲多次交手",
+    "effects": [],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_kuai_dao"
+    ]
+  },
+  {
+    "id": "item_zi_xia_mi_ji",
+    "name": "紫霞秘笈",
+    "type": "武功秘笈",
+    "owner": "char_yue_bu_qun",
+    "one_line": "华山派镇山内功秘笈，被劳德诺偷盗，意外掉出后归还岳不群",
+    "description": "华山派历代相传的内功心法秘笈，记载紫霞神功修习之法。此前在华山绝顶失踪，疑为劳德诺所盗",
+    "effects": [
+      "修习紫霞神功",
+      "化解旁门内力",
+      "修习可得紫霞神功"
+    ],
+    "origin": "华山派历代相传",
+    "rarity": "稀世珍品",
+    "related_skills": [
+      "skill_zi_xia_shen_gong"
+    ]
+  },
+  {
+    "id": "item_wu_yue_jian_pai_ling_qi",
+    "name": "五岳剑派令旗",
+    "type": "信物",
+    "owner": "char_lu_bai",
+    "one_line": "五岳剑派盟主令旗，陆柏持之上华山代左冷禅传令",
+    "description": "五岳剑派盟主号令五派的信物，令旗不假但令旗是哑巴不会说话",
+    "effects": [
+      "号令五岳剑派"
+    ],
+    "origin": "五岳剑派盟主左冷禅",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_xiao_ao_jiang_hu_zhi_qu",
+    "name": "笑傲江湖之曲",
+    "type": "琴箫曲谱",
+    "owner": "char_ling_hu_chong",
+    "one_line": "刘正风与曲洋合创的琴箫曲谱,被王家误认为辟邪剑谱",
+    "description": "包含琴谱与箫谱,以篆字书写,曲调精妙绝伦,世间罕有",
+    "effects": [],
+    "origin": "刘正风、曲洋临终前托付令狐冲",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yan_yu",
+    "name": "燕语",
+    "type": "瑶琴",
+    "owner": "char_ling_hu_chong",
+    "one_line": "婆婆赠予令狐冲的古琴,琴尾刻篆字'燕语'",
+    "description": "琴身陈旧显是古物,琴尾刻着两个篆字'燕语',以蓝色粗布包裹",
+    "effects": [],
+    "origin": "婆婆命绿竹翁送至码头赠予令狐冲",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_qing_xin_pu_shan_zhou",
+    "name": "清心普善咒",
+    "type": "琴谱",
+    "owner": "char_ling_hu_chong",
+    "one_line": "婆婆亲笔抄录赠予令狐冲的琴谱,有调理内息催眠安神之效",
+    "description": "封面写着'清心普善咒'五字,每页写满簪花小楷,详列指法弦法及抚琴关窍,墨色全新",
+    "effects": [
+      "调理体内真气",
+      "催眠安神"
+    ],
+    "origin": "婆婆亲笔抄录",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jin_dan",
+    "name": "金胆",
+    "type": "手玩器具",
+    "owner": "char_wang_yuan_ba",
+    "one_line": "王元霸手中把玩的鹅蛋大小金胆,彰显华贵豪阔",
+    "description": "两枚黄澄澄的金胆,比镔铁胆重一倍有余,大显华贵之气",
+    "effects": [],
+    "origin": "王元霸",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_xu_ming_ba_wan",
+    "name": "续命八丸",
+    "type": "丹药",
+    "owner": "char_ling_hu_chong",
+    "one_line": "祖千秋从老头子处偷来给令狐冲服食的补药，本为纯阴女子所制",
+    "description": "数十种大补燥药所制，含人参、首乌、芝草、茯苓等珍奇药物，制炼之法为纯阴女子服食所用",
+    "effects": [
+      "起死回生",
+      "治愈内伤外伤",
+      "大补真气",
+      "误服后加重体内真气冲突"
+    ],
+    "origin": "老头子炼制",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_zhen_xin_li_qi_wan",
+    "name": "镇心理气丸",
+    "type": "药物",
+    "owner": "char_ling_hu_chong",
+    "one_line": "平一指所赠朱红丸药，可延令狐冲百日之命",
+    "description": "朱红色丸药，多含名贵药材制炼不易，每十天服食一粒",
+    "effects": [
+      "延命百日",
+      "稳定体内真气"
+    ],
+    "origin": "平一指",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_gu_teng_bei",
+    "name": "古藤杯",
+    "type": "酒杯",
+    "owner": "char_zu_qian_qiu",
+    "one_line": "百年古藤雕成之杯，饮百草酒增芳香，被桃根仙嚼碎吞下",
+    "description": "百年古藤雕制而成，坚硬如铁，用以饮百草美酒可大增芳香之气",
+    "effects": [
+      "增百草酒芳香之气"
+    ],
+    "origin": "祖千秋怀中藏品",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yu_wang",
+    "name": "人发渔网",
+    "type": "暗器机关",
+    "owner": "char_lao_tou_zi",
+    "one_line": "人发野蚕丝纯金丝绞成，坚韧异常，越挣越紧",
+    "description": "以人发、野蚕丝、纯金丝绞成的渔网，坚韧异常，宝刀利剑不能断，陷身后越挣扎勒得越紧",
+    "effects": [
+      "缚住敌人",
+      "越挣越紧",
+      "宝刀利剑不能断"
+    ],
+    "origin": "老头子所制",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bai_fan",
+    "name": "白幡",
+    "type": "道具",
+    "owner": "char_ji_wu_shi",
+    "one_line": "计无施手持白幡扮钟馗诱走桃谷四仙",
+    "description": "计无施手持以引诱桃谷四仙追赶的道具",
+    "effects": [],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jiu_bei_zu_qian_qiu",
+    "name": "珍藏酒杯",
+    "type": "收藏品",
+    "owner": "char_zu_qian_qiu",
+    "one_line": "祖千秋数十年心血搜罗的二十余只珍贵酒杯",
+    "description": "含瓷、玉、竹、木、金、银、青铜等材质的二十余只珍贵酒杯，被桃枝仙一撞尽数粉碎",
+    "effects": [],
+    "origin": "祖千秋数十年搜罗",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_ren_shen",
+    "name": "人参",
+    "type": "药材",
+    "owner": "char_zu_qian_qiu",
+    "one_line": "祖千秋从药材铺'借'来送给老不死补身",
+    "description": "十斤八斤有粗有细的人参，祖千秋从药材铺偷来",
+    "effects": [
+      "补气养身"
+    ],
+    "origin": "药材铺",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bi_shou_ji_wu_shi",
+    "name": "精光匕首",
+    "type": "武器",
+    "owner": "char_ji_wu_shi",
+    "one_line": "计无施随身匕首，精光灿然",
+    "description": "计无施掌中匕首，精光灿然，用以割断绳索救老头子和祖千秋",
+    "effects": [],
+    "origin": "",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_xue_shu",
+    "name": "血书布片",
+    "type": "信物",
+    "owner": "char_hei_xiong",
+    "one_line": "和尚用指甲蘸血写的约战书，约岳不群五霸冈相会",
+    "description": "从衣衫撕下的碎布，用指甲蘸了岳不群削伤头皮所流之血歪歪斜斜写着'五霸冈上还你的臭女儿'",
+    "effects": [],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_wu_bao_hua_mi_jiu",
+    "name": "五宝花蜜酒",
+    "type": "酒",
+    "owner": "char_lan_feng_huang",
+    "one_line": "五仙教自酿酒，浸有青蛇蜈蚣蜘蛛蝎子蟾蜍五种毒虫",
+    "description": "花香浓烈盖住毒蛇腥味，酒中浸五条小毒虫，饮后可免呕吐",
+    "effects": [
+      "饮后不呕",
+      "酒瓶触之有毒令人呕吐"
+    ],
+    "origin": "五仙教自酿",
+    "rarity": "稀世珍品",
+    "related_skills": [
+      "skill_wu_du_shu"
+    ]
+  },
+  {
+    "id": "item_bai_se_yao_fen",
+    "name": "白色药粉",
+    "type": "药物",
+    "owner": "char_lan_feng_huang",
+    "one_line": "蓝凤凰瓷瓶中的白色粉末，洒在水蛭身上可逼其倒吐鲜血",
+    "description": "以瓷瓶盛装，用小指甲挑取洒于水蛭身上，令水蛭缩小吐血",
+    "effects": [
+      "逼令水蛭倒吐鲜血"
+    ],
+    "origin": "五仙教秘制",
+    "rarity": "稀世珍品",
+    "related_skills": [
+      "skill_wu_du_shu"
+    ]
+  },
+  {
+    "id": "item_hu_tou_jie_dao",
+    "name": "虎头弯刀",
+    "type": "兵器",
+    "owner": "char_chou_song_nian",
+    "one_line": "仇松年所使半月形弯刀一对",
+    "description": "半月形弯刀，仇松年左右双刀各砍，被游迅折扇拨开",
+    "effects": [],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_ba_jiao_lang_ya_chui",
+    "name": "八角狼牙锤",
+    "type": "兵器",
+    "owner": "char_yu_ling_dao_ren",
+    "one_line": "玉灵道人所使沉重兵器，狼牙尖锐锋利",
+    "description": "斤两不轻的八角锤，狼牙尖锐锋利闪闪生光",
+    "effects": [],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_chun_gang_zhe_shan",
+    "name": "纯钢折扇",
+    "type": "兵器",
+    "owner": "char_you_xun",
+    "one_line": "游迅所使纯钢折扇，轻轻一拨便荡开虎头弯刀",
+    "description": "尺来长折扇，纯钢所铸，可拨开兵刃，轻巧灵活",
+    "effects": [
+      "拨开敌方兵刃"
+    ],
+    "origin": "",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_huang_jin_guai_zhang",
+    "name": "黄金拐杖",
+    "type": "兵器",
+    "owner": "char_zhou_gu_tong",
+    "one_line": "桐柏双奇所用黄金拐杖，二人断手后以此击额欲自杀",
+    "description": "桐柏双奇各持一根的黄金铸造拐杖，既是兵器也是支撑",
+    "effects": [],
+    "origin": "",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_gang_bo",
+    "name": "纯钢钵钹",
+    "type": "兵器",
+    "owner": "char_xi_bao_seng",
+    "one_line": "西宝僧所使纯钢一钵一钹，钹边锋锐异常",
+    "description": "纯钢所铸，钢钹边缘锋锐异常，显为厉害武器",
+    "effects": [],
+    "origin": "",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_duan_dao",
+    "name": "短刀",
+    "type": "兵器",
+    "owner": "char_zhang_furen",
+    "one_line": "张夫人所使两尺来长短刀",
+    "description": "",
+    "effects": [],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_qing_she",
+    "name": "青蛇",
+    "type": "毒物",
+    "owner": "char_yan_san_xing",
+    "one_line": "严三星盘在颈肩的两条青蛇，三角蛇头长信伸缩",
+    "description": "两条青蛇盘在头颈肩头，蛇头作三角形，长信伸缩不已，可取下对敌",
+    "effects": [
+      "以毒蛇攻击"
+    ],
+    "origin": "",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_wu_du_shu"
+    ]
+  },
+  {
+    "id": "item_yao_qin",
+    "name": "瑶琴",
+    "type": "乐器",
+    "owner": "char_ling_hu_chong",
+    "one_line": "令狐冲所用瑶琴,与盈盈合奏'笑傲江湖'之曲",
+    "description": "令狐冲得盈盈指点精研琴理后所奏之琴",
+    "effects": [
+      "弹奏清心普善咒",
+      "安神定气",
+      "承载七弦无形剑内力",
+      "七弦齐断标志着黄钟公大败",
+      "琴声可传递信息"
+    ],
+    "origin": "黄钟公收藏",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_qing_xin_pu_shan_zhou",
+      "skill_qi_xian_wu_xing_jian"
+    ]
+  },
+  {
+    "id": "item_wu_xian_da_bu_yao_jiu",
+    "name": "五仙大补药酒",
+    "type": "药酒",
+    "owner": null,
+    "one_line": "五毒教祖传秘方所酿药酒，能增十余年功力，亦含剧毒",
+    "description": "以五种培养十多年的珍奇小毒虫与数十种奇花异草酿成，服之百病不生诸毒不侵，但亦含大毒",
+    "effects": [
+      "增十余年功力",
+      "百病不生",
+      "诸毒不侵",
+      "血中含剧毒"
+    ],
+    "origin": "五毒教蓝凤凰所赠",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_shao_lin_liao_shang_ling_yao",
+    "name": "少林疗伤灵药",
+    "type": "丹药",
+    "owner": "char_ling_hu_chong",
+    "one_line": "方生大师所赠龙眼大小药丸，有起死回生之功，共两颗分赠令狐冲与盈盈",
+    "description": "少林寺疗伤灵药，龙眼大小，方生大师取出两颗，令狐冲服一颗，另一颗给盈盈服下",
+    "effects": [
+      "疗伤",
+      "胸腹间舒适",
+      "有起死回生之功"
+    ],
+    "origin": "少林寺方生大师所赠",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_po_mu_bang",
+    "name": "旧木棒",
+    "type": "兵器",
+    "owner": "char_fang_sheng",
+    "one_line": "方生大师所用兵刃，三尺来长的旧木棒，以柔劲击断数十株灌木",
+    "description": "方生大师随身兵刃，看似寻常旧木棒，实则内力灌注威力惊人",
+    "effects": [
+      "内力灌注后击断灌木",
+      "发出柔和劲风"
+    ],
+    "origin": "方生大师随身",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_tie_lian",
+    "name": "铁链",
+    "type": "兵器/束缚",
+    "owner": "char_xiang_wen_tian",
+    "one_line": "向问天手上束缚化为武器的铁链，挥洒自如如极长手臂",
+    "description": "向问天从囚牢中逃出时尚未去掉的手上铁链，后用作兵器战斗",
+    "effects": [
+      "可卷缠敌兵刃",
+      "可卷人拖拽",
+      "挥洒自如攻守兼备"
+    ],
+    "origin": "魔教囚牢",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yue_bu_qun_xin",
+    "name": "岳不群逐徒书函",
+    "type": "书信",
+    "owner": "char_fang_zheng",
+    "one_line": "岳不群致少林掌门的逐徒信，盖华山掌门印，令令狐冲读之昏倒",
+    "description": "信中言令狐冲秉性顽劣结交妖孽，将其逐出华山门户，望正派诸友共诛之",
+    "effects": [
+      "令狐冲逐出华山派",
+      "正派弟子皆以令狐冲为敌"
+    ],
+    "origin": "岳不群亲笔",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_fei_zhui",
+    "name": "飞锥",
+    "type": "暗器",
+    "owner": null,
+    "one_line": "何姓高手所发重型暗器，每枚斤半以上，数十枚齐发满天花雨",
+    "description": "份量极重的锥形暗器，破空声劲急凄厉，可数十枚同时以满天花雨手法掷出",
+    "effects": [
+      "劲力凶猛",
+      "满天花雨齐发"
+    ],
+    "origin": "何姓追敌",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_tie_qi_ping",
+    "name": "铁棋枰",
+    "type": "兵器",
+    "owner": "char_hei_bai_zi",
+    "one_line": "黑白子的磁铁棋盘兵器，二尺见方厚达一寸，可吸铁制兵刃",
+    "description": "铁铸棋枰刻十九道棋路，磁铁所制，可吸住铁制棋子和兵刃",
+    "effects": [
+      "吸附铁器",
+      "沉重砸击"
+    ],
+    "origin": "黑白子自制，用于舟中马上对弈",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_xuan_tian_zhi"
+    ]
+  },
+  {
+    "id": "item_pan_guan_bi",
+    "name": "判官笔",
+    "type": "兵器",
+    "owner": "char_tu_bi_weng",
+    "one_line": "秃笔翁精钢判官笔，笔头缚羊毛如大笔，蘸特制药墨可留痕不褪",
+    "description": "精钢所铸长一尺六寸，笔头缚沾墨羊毛，着人肌肤墨痕永洗不脱",
+    "effects": [
+      "点穴",
+      "药墨留痕"
+    ],
+    "origin": "秃笔翁特制兵器",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_mo_shu_bi_fa"
+    ]
+  },
+  {
+    "id": "item_xi_shan_xing_lv_tu",
+    "name": "溪山行旅图",
+    "type": "书画",
+    "owner": "char_xiang_wen_tian",
+    "one_line": "北宋范宽真迹，高山冲天气势雄峻，向问天用作赌注",
+    "description": "北宋范中立真迹，墨韵凝厚气势雄峻，令人有高山仰止之感",
+    "effects": [],
+    "origin": "向问天所有，来历不明",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_lv_yi_tie",
+    "name": "率意帖",
+    "type": "书法",
+    "owner": "char_xiang_wen_tian",
+    "one_line": "唐代张旭草圣真迹，大开大阖如武林高手施展轻功",
+    "description": "张旭草书真迹，帖尾题跋图章众多，笔走龙蛇高雅风致",
+    "effects": [],
+    "origin": "向问天所有，来历不明",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_guang_ling_san_qin_pu",
+    "name": "《广陵散》古谱",
+    "type": "琴谱",
+    "owner": "char_ling_hu_chong",
+    "one_line": "绝响已久的古琴名谱, 由曲洋从古墓中所得, 令狐冲借予黄钟公抄录",
+    "description": "东汉蔡邕墓中所得的古琴曲谱, 曲子很长, 和平中正又清绝幽绝, 高量雅致深藏玄机",
+    "effects": [
+      "令黄钟公神不守舍, 心怀大畅"
+    ],
+    "origin": "曲洋从东汉古墓中发掘",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_qi_xian_wu_xing_jian"
+    ]
+  },
+  {
+    "id": "item_ou_xue_pu",
+    "name": "呕血谱",
+    "type": "棋谱",
+    "owner": "char_xiang_wen_tian",
+    "one_line": "刘仲甫与骊山仙姥对弈图谱，一百一十二着，向问天凭记忆摆出",
+    "description": "宋代国手刘仲甫在骊山被乡下老媪大败，呕血数升所留棋谱",
+    "effects": [],
+    "origin": "向问天二十五年前在成都所见，凭记忆记下",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_pei_jiang_jun_shi_bi_hua",
+    "name": "裴将军诗壁画",
+    "type": "壁画",
+    "owner": "char_tu_bi_weng",
+    "one_line": "秃笔翁以葡萄酒为墨在白墙上书写的二十三字书法杰作",
+    "description": "秃笔翁被令狐冲逼出满肚笔意，在棋室白墙上挥酒写就的巅峰之作",
+    "effects": [],
+    "origin": "秃笔翁在梅庄棋室即兴创作",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_mo_shu_bi_fa"
+    ]
+  },
+  {
+    "id": "item_fei_cui_bei",
+    "name": "翡翠杯",
+    "type": "酒器",
+    "owner": "char_dan_qing_sheng",
+    "one_line": "翠绿欲滴的翡翠酒杯，丹青生用以饮梨花酒",
+    "description": "翠绿欲滴的翡翠杯，合梨花酒之美",
+    "effects": [],
+    "origin": "丹青生藏品",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_pu_tao_mei_jiu",
+    "name": "吐鲁番四蒸四酿葡萄酒",
+    "type": "美酒",
+    "owner": "char_dan_qing_sheng",
+    "one_line": "一百二十年陈酒再加一蒸一酿，殷红如血醇美绝伦",
+    "description": "莫花尔彻赠十桶三蒸三酿百年酒，丹青生再加一蒸一酿，历万里不酸",
+    "effects": [
+      "醇美之极",
+      "冰镇更佳"
+    ],
+    "origin": "西域吐鲁番，莫花尔彻所赠",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_yu_xiao",
+    "name": "玉箫",
+    "type": "乐器",
+    "owner": "char_ren_ying_ying",
+    "one_line": "盈盈所用玉箫,与令狐冲合奏'笑傲江湖'之曲",
+    "description": "碧玉箫管,盈盈在婚礼上接过此箫与令狐冲合奏",
+    "effects": [],
+    "origin": "黄钟公收藏",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_xuan_tie_qi_ping",
+    "name": "玄铁棋枰",
+    "type": "兵器",
+    "owner": "char_hei_bai_zi",
+    "one_line": "黑白子的兵器, 玄铁所制棋盘, 一动手攻人势如疾风骤雨",
+    "description": "玄铁铸造的棋盘, 作为兵器使用, 较原先的大铁牌更占便宜",
+    "effects": [
+      "兵刃上大占便宜, 攻击势如疾风骤雨"
+    ],
+    "origin": "黑白子自行改换",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_xuan_tie_qi_pan_gong_fu"
+    ]
+  },
+  {
+    "id": "item_mu_jian",
+    "name": "木剑",
+    "type": "替代兵器",
+    "owner": null,
+    "one_line": "任我行与令狐冲在地牢比剑时所用的木剑",
+    "description": "丹青生递入地牢的两柄木剑, 用于囚室中比剑",
+    "effects": [],
+    "origin": "梅庄准备",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yao_wan",
+    "name": "药丸",
+    "type": "丹药",
+    "owner": "char_ling_hu_chong",
+    "one_line": "黄钟公恩师所赐两枚补身疗伤药丸, 以旧瓷瓶盛装",
+    "description": "昔年黄钟公先师所赐, 以极陈旧的木塞封于瓷瓶之中, 补身疗伤颇有良效",
+    "effects": [
+      "补身疗伤",
+      "颇有良效"
+    ],
+    "origin": "黄钟公恩师所赐",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_zhang_xu_shuai_yi_tie",
+    "name": "张旭《率意帖》",
+    "type": "书法真迹",
+    "owner": "char_xiang_wen_tian",
+    "one_line": "唐代草圣张旭的书法真迹, 作为赌约筹码令秃笔翁心痒难搔",
+    "description": "张旭草书真迹, 秃笔翁求之若渴, 作为向问天与梅庄赌约的筹码之一",
+    "effects": [
+      "令秃笔翁魂牵梦萦"
+    ],
+    "origin": "向问天带来",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_fan_kuan_shan_shui",
+    "name": "范宽山水画",
+    "type": "画作真迹",
+    "owner": "char_xiang_wen_tian",
+    "one_line": "北宋范宽的山水画真迹, 作为赌约筹码令丹青生念念不忘",
+    "description": "范宽山水画真迹, 丹青生极想得到, 作为赌约筹码之一",
+    "effects": [
+      "令丹青生念念不忘"
+    ],
+    "origin": "向问天带来",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_tie_ban_gong_jue",
+    "name": "铁板功诀",
+    "type": "武功秘籍",
+    "owner": null,
+    "one_line": "任我行刻于地牢铁床上的吸星大法口诀，令狐冲据此修习并刮去部分字迹。",
+    "description": "刻满铜钱大小潦草字迹的铁板，记载吸星大法的精义要旨及修习法门",
+    "effects": [
+      "修习吸星大法",
+      "化去异种真气"
+    ],
+    "origin": "任我行困于地牢时刻下",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_xi_xing_da_fa"
+    ]
+  },
+  {
+    "id": "item_tie_lian_shou_kao",
+    "name": "铁链铐镣",
+    "type": "刑具",
+    "owner": "faction_mei_zhuang",
+    "one_line": "束缚令狐冲手足的铁链，后被发现已有人暗中锯断。",
+    "description": "缚于囚犯手足的铁链铐镣，铁圈上有被人用钢丝锯锯断的痕迹",
+    "effects": [
+      "束缚手足"
+    ],
+    "origin": "梅庄地牢",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_hei_bai_zi_chang_jian",
+    "name": "黑白子长剑",
+    "type": "兵器",
+    "owner": "char_hei_bai_zi",
+    "one_line": "黑白子随身佩剑，令狐冲夺去后携之逃出地牢。",
+    "description": "黑白子的腰间佩剑，被令狐冲夺取后佩于腰间",
+    "effects": [],
+    "origin": "梅庄",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_wa_guan",
+    "name": "清水瓦罐",
+    "type": "日用器皿",
+    "owner": null,
+    "one_line": "每日随饭食送入地牢的盛水瓦罐。",
+    "description": "每日送饭老人从方孔递入的盛水瓦罐",
+    "effects": [],
+    "origin": "梅庄",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_san_shi_nao_shen_dan",
+    "name": "三尸脑神丹",
+    "type": "毒药",
+    "owner": "char_ying_ying；char_ren_ying_ying",
+    "one_line": "日月神教控制下属的奇毒，解药在盈盈手中，众人欲夺之以摆脱控制；日月神教最厉害毒丹，服后须每年端午服解药，否则尸虫入脑",
+    "description": "服后定期需解药，否则脑中尸虫发作，受者痛不欲生，解药由盈盈掌控；丹中裹有尸虫，不服解药则尸虫脱困钻入脑中嚼食脑髓，痛楚狂性大发",
+    "effects": [
+      "服后终身听命",
+      "每年端午须服解药",
+      "不服则尸虫入脑、行动如妖如鬼",
+      "每年须服解药",
+      "逾期毒发惨死",
+      "不服解药则三尸虫嚼食脑髓而死",
+      "控制服药者心智",
+      "定期发作致命",
+      "控制服药者",
+      "每年端午需解药",
+      "尸虫入脑致疯"
+    ],
+    "origin": "日月神教",
+    "rarity": "绝世神兵；稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_hei_mu_ling_pai",
+    "name": "黑木令牌",
+    "type": "信物/令牌",
+    "owner": "char_ren_wo_xing",
+    "one_line": "日月神教教主信物，长约半尺黑色木牌雕有花纹文字，持之有如教主亲临",
+    "description": "长约半尺的枯焦黑色木头，上面雕刻有花纹文字，看起来十分诡异。为教主权威象征",
+    "effects": [
+      "持令者有如教主亲临",
+      "可代教主下令"
+    ],
+    "origin": "日月神教历代教主传承",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_gang_si_ju_qiu",
+    "name": "钢丝锯球",
+    "type": "越狱工具",
+    "owner": "char_xiang_wen_tian",
+    "one_line": "精巧钢球内藏钢丝锯子，用于锯断精钢铐镣，助任我行越狱",
+    "description": "坚硬钢球上嵌有小钢珠，转动后可拉出带锯齿的极细钢丝，为一把精巧之极的钢丝锯子",
+    "effects": [
+      "可锯断精钢铐镣"
+    ],
+    "origin": "向问天秘密提供",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_guang_ling_san",
+    "name": "《广陵散》琴谱",
+    "type": "琴谱",
+    "owner": null,
+    "one_line": "黄钟公珍藏琴谱，临终前掷还令狐冲，称此物害得四兄弟身败名裂",
+    "description": "令狐冲用来引诱黄钟公的珍贵琴谱，黄钟公死后物归令狐冲",
+    "effects": [],
+    "origin": "梅庄黄钟公所藏",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_gao_shen",
+    "name": "告身",
+    "type": "委任文书",
+    "owner": "char_wu_tian_de",
+    "one_line": "兵部尚书委任吴天德升任福建泉州府参将的文书，被令狐冲夺去冒用",
+    "description": "盖有兵部尚书大堂正印朱红大印的大信封，内附兵部委任令",
+    "effects": [
+      "证明军官身份"
+    ],
+    "origin": "兵部尚书",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_qing_bu_nv_lv",
+    "name": "青布女履",
+    "type": "鞋履",
+    "owner": null,
+    "one_line": "南边大路上拾到的恒山女弟子鞋子，留下追踪线索。",
+    "description": "一只青布女履，恒山女弟子所穿，落在大路中央，疑为被掳时挣扎遗落或故意留下。",
+    "effects": [],
+    "origin": "恒山派女弟子",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_du_yao_an_qi",
+    "name": "淬毒暗器",
+    "type": "暗器",
+    "owner": null,
+    "one_line": "伏击恒山派的淬毒暗器，中者流出黑血，需解药救治。",
+    "description": "魔教教众所发暗器，淬有剧毒，恒山数名女弟子中之昏迷，伤口流黑血。",
+    "effects": [
+      "中毒昏迷",
+      "伤口流黑血"
+    ],
+    "origin": "伏击恒山派的敌人",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jie_yao",
+    "name": "解药",
+    "type": "药品",
+    "owner": "char_ding_jing_shi_tai",
+    "one_line": "伏击者交出的毒药解药，以交换被恒山派擒住的五名俘虏。",
+    "description": "一瓷瓶解药，用以救治中了淬毒暗器的恒山弟子。",
+    "effects": [
+      "解毒"
+    ],
+    "origin": "伏击恒山派的蒙面人",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yao_dao",
+    "name": "腰刀（吴天德佩刀）",
+    "type": "兵器",
+    "owner": "char_ling_hu_chong",
+    "one_line": "令狐冲伪装吴天德时所佩腰刀，始终未出鞘，以刀鞘代剑克敌。",
+    "description": "泉州参将吴天德的佩刀，令狐冲一直假装刀锈拔不出来，实际以刀鞘施展独孤九剑。",
+    "effects": [],
+    "origin": "泉州参将吴天德",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_du_gu_jiu_jian"
+    ]
+  },
+  {
+    "id": "item_chang_jian",
+    "name": "长剑",
+    "type": "兵器",
+    "owner": "char_ling_hu_chong",
+    "one_line": "令狐冲在建宁府兵器铺所购长剑，替换腰刀后裹在包袱中。",
+    "description": "令狐冲不再伪装将军后在建宁府兵器铺买的一柄长剑。",
+    "effects": [],
+    "origin": "建宁府兵器铺",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_du_gu_jiu_jian"
+    ]
+  },
+  {
+    "id": "item_m_hun_yao",
+    "name": "迷魂药",
+    "type": "药品",
+    "owner": null,
+    "one_line": "用于迷倒恒山派众弟子的药物，中者昏迷不醒。",
+    "description": "一婆娘所放迷药，可令人昏迷不醒，恒山派数十弟子及定静师太均中此药。",
+    "effects": [
+      "昏迷不醒"
+    ],
+    "origin": "廿八铺伏击者",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_pi_xie_jia_sha",
+    "name": "辟邪剑谱（袈裟）",
+    "type": "武功秘笈",
+    "owner": null,
+    "one_line": "写满小字的袈裟，记载林家辟邪剑法，几经易手后下落不明",
+    "description": "一件和尚袈裟，上书无数小字，记载林家祖传辟邪剑法。原藏于向阳巷老宅佛堂屋顶达摩画像所指之处",
+    "effects": [
+      "记载辟邪剑法全部精要"
+    ],
+    "origin": "林家祖传，藏于向阳巷老宅佛堂",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_pi_xie_jian_fa"
+    ]
+  },
+  {
+    "id": "item_long_quan_bao_jian",
+    "name": "龙泉宝剑",
+    "type": "兵器",
+    "owner": null,
+    "one_line": "水月庵所藏五柄宝剑，削铁如泥，曾借与定闲定逸御敌",
+    "description": "水月庵中所藏五柄龙泉宝剑，削铁如泥，可将敌人兵刃削断",
+    "effects": [
+      "削铁如泥",
+      "削断敌方兵刃"
+    ],
+    "origin": "水月庵",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bao_dao",
+    "name": "西域宝刀",
+    "type": "兵器",
+    "owner": "char_xi_yu_hao_shi",
+    "one_line": "西域豪士所借宝刀，削铁如泥",
+    "description": "冷气森森，大非寻常，削铁和尚手腕应声而断",
+    "effects": [
+      "削铁如泥"
+    ],
+    "origin": "西域豪士所有",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yi_jin_jing",
+    "name": "易筋经",
+    "type": "秘籍",
+    "owner": "faction_shao_lin_pai",
+    "one_line": "少林至高内功秘籍，可化解吸星大法后患",
+    "description": "武林中至高无上的内功，连少林第一辈高僧也有未蒙传授者",
+    "effects": [
+      "至高内功",
+      "可化解吸星大法危害"
+    ],
+    "origin": "少林寺",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_tie_he_shang",
+    "name": "铁和尚",
+    "type": "机关",
+    "owner": "faction_shao_lin_pai",
+    "one_line": "少林秘密地道中的铁铸机关人，以禅杖攻击",
+    "description": "一百零八名铁铸和尚，机括操纵，镔铁禅杖近百斤，招数精妙，属少林绝艺",
+    "effects": [
+      "机括自动攻击",
+      "禅杖力道不逊大力高手"
+    ],
+    "origin": "少林寺秘密地道",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_ruan_bian",
+    "name": "软鞭",
+    "type": "兵器",
+    "owner": "char_xiang_wen_tian",
+    "one_line": "向问天藏于担架中的暗兵，关键时刻抽出对敌",
+    "description": "向问天将担架下的绳索化为软鞭，可远距离缠卷敌手",
+    "effects": "缠卷敌手双足将其拖倒",
+    "origin": "向问天伪装于担架之中带上黑木崖",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_duan_tie_bang",
+    "name": "短铁棒",
+    "type": "兵器",
+    "owner": null,
+    "one_line": "桃谷六仙的短兵器，难以挡架铁和尚禅杖",
+    "description": "桃谷六仙所用短铁棒，太短难以挡架近百斤禅杖的撞击",
+    "effects": [],
+    "origin": "桃谷六仙所有",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_han_bing_zhen_qi_zhen",
+    "name": "钢针兵刃",
+    "type": "暗杀兵器",
+    "owner": "char_zuo_leng_chan",
+    "one_line": "左冷禅用以刺杀恒山二老的兵刃，针孔细小如针眼",
+    "description": "并非毒针而是一件兵刃，刺人要害致人死命，定闲定逸心口各有一粒针孔大的红点",
+    "effects": [
+      "刺入要害一击致命"
+    ],
+    "origin": "左冷禅",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_han_bing_zhen_qi"
+    ]
+  },
+  {
+    "id": "item_heng_shan_fa_ji",
+    "name": "恒山派四件法器",
+    "type": "门派信物",
+    "owner": "char_ling_hu_chong",
+    "one_line": "恒山派创派祖师晓风师太所传，掌门就任时移交",
+    "description": "经书一卷、木鱼一个、念珠一串、短剑一柄，为恒山派历代掌门信物",
+    "effects": [],
+    "origin": "恒山派创派祖师晓风师太",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_wu_yue_meng_qi",
+    "name": "五岳剑派盟旗",
+    "type": "信物；盟旗",
+    "owner": "char_yue_bu_qun；faction_song_shan_pai",
+    "one_line": "五岳剑派掌门信物，从岳不群身上搜出；五岳剑派盟主令旗，被盈盈巧夺换为五毒旗",
+    "description": "五岳剑派盟主锦旗，象征掌门权威；五面锦旗，代表五岳剑派盟主号令",
+    "effects": [],
+    "origin": "五岳派；五岳剑派",
+    "rarity": "寻常凡品；上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_wu_du_qi",
+    "name": "五毒旗",
+    "type": "教旗",
+    "owner": "char_lan_feng_huang",
+    "one_line": "五仙教旗号，绣有青蛇蜈蚣蜘蛛蝎子蟾蜍五毒",
+    "description": "五面旗上分别绣着青蛇、蜈蚣、蜘蛛、蝎子、蟾蜍五样毒物，色彩鲜明",
+    "effects": [],
+    "origin": "五仙教",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_kui_hua_bao_dian",
+    "name": "葵花宝典",
+    "type": "武学秘笈；武功秘籍",
+    "owner": null,
+    "one_line": "前朝宦官所著武学至高秘笈，原书已被红叶禅师火化；记载至高武学的薄册，注明'欲练神功引刀自宫'，已被任我行毁去",
+    "description": "三百余年来无人能据书练成，第一关最为凶险。原书藏于莆田少林寺，红叶禅师临终前投入炉中火化。华山岳蔡二人手录残本被魔教夺去。；任我行从东方不败身上搜出的薄薄旧册页，密密麻麻写满字，以双掌搓成碎片随风而散",
+    "effects": [
+      "修习后可成绝顶高手",
+      "第一步极凶险非死即伤"
+    ],
+    "origin": "前朝皇宫宦官所著；任我行传给东方不败以诱其自宫",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_kui_hua_bao_dian"
+    ]
+  },
+  {
+    "id": "item_hei_mu_ling",
+    "name": "黑木令",
+    "type": "令牌",
+    "owner": "char_ying_ying",
+    "one_line": "日月神教最高号令之物，任我行交给岳不群用以调动人手",
+    "description": "日月神教教主令牌，持此令可号令教众行事",
+    "effects": [
+      "可号令日月教教众",
+      "号令日月神教教众"
+    ],
+    "origin": "日月神教",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_du_shui_ji_nu",
+    "name": "毒水机弩",
+    "type": "暗器",
+    "owner": "char_jia_bu",
+    "one_line": "装有机括发射黑色毒水的水枪，中之即腐烂至骨",
+    "description": "外形似长箭，实为机括水枪，射出的黑色毒水遇物即烂，木栏杆上片刻腐蚀出小孔，极为歹毒。贾布率四十人携带伏于悬空寺两阁。",
+    "effects": [
+      "毒水沾身即腐烂至骨",
+      "遇物即烂"
+    ],
+    "origin": "日月神教",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yang_guan_bi",
+    "name": "羊官笔",
+    "type": "兵器",
+    "owner": "char_jia_bu",
+    "one_line": "贾布所使的一对份量极重的判官笔",
+    "description": "一对份量极重的判官笔，挥舞时发出如钢鞭铁锏般的声息，笔尖可点穴。",
+    "effects": [
+      "笔尖可点人身大穴"
+    ],
+    "origin": "贾布",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_qian_kun_quan",
+    "name": "乾坤圈",
+    "type": "兵器",
+    "owner": null,
+    "one_line": "贾布掷出的钢圈，边缘锋利可割断手臂",
+    "description": "直径近尺的钢圈，边缘锋利如刀，圈中有横条作为把手，属外门短打兵刃。贾布掷出要令三人自断右臂。",
+    "effects": [
+      "边缘锋利可割臂"
+    ],
+    "origin": "贾布",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_zhen_zhu",
+    "name": "珍珠",
+    "type": "财宝",
+    "owner": "char_shang_guan_yun",
+    "one_line": "上官云孝敬杨莲亭的十八颗大珍珠",
+    "description": "上官云探手入怀取出的十八颗大珍珠，用以贿赂杨莲亭以求参见教主。",
+    "effects": [],
+    "origin": "上官云出差所得",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_xiu_hua_zhen",
+    "name": "绣花针",
+    "type": "暗器",
+    "owner": "char_dong_fang_bu_bai",
+    "one_line": "东方不败随身武器，长不逾寸却威力惊人，可荡开长剑",
+    "description": "长不逾寸的普通绣花针，风吹得起落水不沉，东方不败以两指拈之对阵四大高手",
+    "effects": "极速刺穴伤人，可拨挡长剑，临死一刺刺瞎任我行右眼",
+    "origin": "普通绣花针，东方不败闺房中随手取用",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_kui_hua_bao_dian"
+    ]
+  },
+  {
+    "id": "item_dong_ling_tie_jian",
+    "name": "东灵道人铁剑",
+    "type": "掌门信物",
+    "owner": "faction_tai_shan_pai",
+    "one_line": "泰山派创派祖师东灵道人遗物，黑黝黝铁铸短剑，代代相传为掌门信物",
+    "description": "近三百年传承的泰山派掌门信物，貌不惊人但意义重大，见此铁剑如见东灵",
+    "effects": [
+      "掌门权力象征"
+    ],
+    "origin": "泰山派创派祖师东灵道人",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_duan_tie_gun",
+    "name": "短铁棍",
+    "type": "兵器",
+    "owner": "char_tao_gu_liu_xian",
+    "one_line": "桃谷六仙所持短铁棍，近战钝器",
+    "description": "桃谷六仙腰间佩戴的短铁棍，用于格挡招架",
+    "effects": [],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_qin_bing_duan_jian",
+    "name": "琴柄短剑",
+    "type": "兵器",
+    "owner": "char_mo_da_xian_sheng",
+    "one_line": "莫大先生藏于胡琴柄中的极细短剑，被岳灵珊圆石砸断",
+    "description": "从抚摩得晶光发亮的琴柄中缓缓抽出的短剑，剑身极细",
+    "effects": [],
+    "origin": "",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_heng_shan_wu_shen_jian",
+      "skill_bai_bian_qian_huan"
+    ]
+  },
+  {
+    "id": "item_bi_huo_jian",
+    "name": "碧火剑",
+    "type": "兵器",
+    "owner": "char_yue_ling_shan",
+    "one_line": "岳灵珊旧日宝爱之剑，曾被令狐冲弹入深谷",
+    "description": "昔日岳灵珊珍爱的长剑，令狐冲在思过崖上一指弹入深谷",
+    "effects": [],
+    "origin": "",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_tuo_jian",
+    "name": "驼剑",
+    "type": "兵器",
+    "owner": "char_mu_gao_feng",
+    "one_line": "木高峰所用弯弧形长剑，配合驼背身形，人驼剑亦驼",
+    "description": "弯成弧形的奇特长剑，与木高峰驼背身形相配，可勾削敌人",
+    "effects": [
+      "弧形剑路难以捉摸",
+      "可织成密不透风的剑网防御"
+    ],
+    "origin": "塞北",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_zhe_shan_an_zhen",
+    "name": "摺扇暗针",
+    "type": "暗器",
+    "owner": "char_lin_ping_zhi",
+    "one_line": "林平之所用泥金柄摺扇，扇柄暗藏寸半长尖针",
+    "description": "泥金柄摺扇，翡翠扇坠，扇柄内藏寸半长尖针，可出其不意刺中敌人穴道",
+    "effects": [
+      "暗藏尖针可偷袭点穴",
+      "出扇神速令人防不胜防"
+    ],
+    "origin": "林平之自备",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_pi_xie_jian_fa"
+    ]
+  },
+  {
+    "id": "item_bai_hua_xiao_hun_san",
+    "name": "百花消魂散",
+    "type": "迷药",
+    "owner": "char_du_chang_lao",
+    "one_line": "日月神教所用迷药，撒于陷阱中令岳不群中计昏迷",
+    "description": "烈性迷药，吸入后立时昏迷不省人事",
+    "effects": [
+      "致人昏迷"
+    ],
+    "origin": "日月神教",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_ti_dao",
+    "name": "剃刀",
+    "type": "工具",
+    "owner": "char_ya_po_po",
+    "one_line": "哑婆婆用以剃光令狐冲头发的剃刀",
+    "description": "普通剃刀，哑婆婆用来给令狐冲剃度",
+    "effects": [
+      "剃发"
+    ],
+    "origin": null,
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_duan_jian",
+    "name": "短剑",
+    "type": "兵器",
+    "owner": "char_ren_ying_ying",
+    "one_line": "盈盈从渔网中掷出射向劳德诺，被其伏身躲过",
+    "description": "盈盈贴身短剑，从渔网孔中掷出攻击敌人",
+    "effects": [],
+    "origin": null,
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_heng_shan_jian_fa"
+    ]
+  },
+  {
+    "id": "item_huang_bu_tiao",
+    "name": "黄布条",
+    "type": "布条",
+    "owner": "char_ya_po_po",
+    "one_line": "挂在被吊之人颈中，写有'阴谋已败小心狗命'或评语",
+    "description": "黄色布条，上以朱笔写字，用以羞辱被擒之人",
+    "effects": [],
+    "origin": null,
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_gang_gu_zhe_shan",
+    "name": "钢骨摺扇",
+    "type": "兵器",
+    "owner": "char_you_xun",
+    "one_line": "游迅的暗杀兵器，钢骨摺扇从张夫人喉头插入将其杀死",
+    "description": "钢骨制摺扇，表面文雅实为致命暗器，可直插咽喉",
+    "effects": [
+      "近身暗杀"
+    ],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_zhang_lao_yi_gu",
+    "name": "长老遗骨",
+    "type": "遗物",
+    "owner": null,
+    "one_line": "日月教十长老遗骸中的大腿骨，含鬼火磷光，被削尖后在黑暗中发光助令狐冲视物",
+    "description": "当年日月神教十长老攻打华山被困山洞饮恨而终，遗骨中含磷光，黑暗中可发出微弱光芒",
+    "effects": [
+      "黑暗中发出磷光微光"
+    ],
+    "origin": "华山思过崖山洞",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jin_si_yu_wang",
+    "name": "金丝渔网",
+    "type": "陷阱器具",
+    "owner": "char_yue_bu_qun",
+    "one_line": "岳不群暗布渔网罩住令狐冲夫妇，刀剑难破",
+    "description": "极大的金丝渔网，刀剑割之纹丝不动，可层层叠加困住目标",
+    "effects": [
+      "困住目标使其动弹不得",
+      "越挣扎缠得越紧"
+    ],
+    "origin": "从老头子处得来",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_san_shi_nao_shen_dan_jie_yao",
+    "name": "三尸脑神丹解药",
+    "type": "解药",
+    "owner": "char_ren_ying_ying",
+    "one_line": "盈盈身上仅余三颗，是制衡岳不群与任我行的关键筹码",
+    "description": "解三尸脑神丹之毒的解药，采集极难制炼不易，堪称无价之宝",
+    "effects": [
+      "解除三尸脑神丹之毒",
+      "每年需服一颗否则尸虫入脑"
+    ],
+    "origin": "盈盈亲手制炼",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jiu_long_bao_yi",
+    "name": "九龙宝椅",
+    "type": "机关陷阱",
+    "owner": null,
+    "one_line": "武当清虚设计的机关椅,绣九龙捧日及'千秋万载一统江湖',坐满一炷香引发炸药",
+    "description": "淡黄锦缎椅套,金线绣九条金龙捧日,缀明珠钻石翡翠宝石,椅下暗藏药引连通两万斤炸药",
+    "effects": [
+      "坐满一炷香后引发炸药",
+      "拆动亦引发机关"
+    ],
+    "origin": "武当派清虚设计机关、成高制造炸药",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_zhen_wu_jian",
+    "name": "真武剑",
+    "type": "兵器",
+    "owner": "faction_wudang",
+    "one_line": "张三丰佩剑,武当镇山之宝,八十余年前被盗后由日月教赠还",
+    "description": "剑鞘铜绿斑斓,铜丝嵌篆文'真武',剑极锋利,寒气扑面",
+    "effects": [
+      "极锋利的利器"
+    ],
+    "origin": "张三丰中年所用兵刃,八十余年前被日月教高手夜袭武当山盗走",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_tai_ji_jing",
+    "name": "太极拳经",
+    "type": "武学秘籍",
+    "owner": "faction_wudang",
+    "one_line": "张三丰手书太极拳经,武当镇山之宝,八十余年后由日月教归还",
+    "description": "手书册页,纸色转黄,封皮写'太极拳经'四字,确为三丰祖师真迹",
+    "effects": [],
+    "origin": "张三丰手书,八十余年前与真武剑同被日月教盗走",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_fan_wen_jin_gang_jing",
+    "name": "梵文金刚经",
+    "type": "佛经典籍",
+    "owner": "char_fang_zheng",
+    "one_line": "梵文原版金刚经,方证渴欲一见以印证鸠摩罗什译本,任教主赠还少林",
+    "description": "手抄古经,封皮梵文,乃金刚经梵文原经,方证生平渴欲一见的珍本",
+    "effects": [],
+    "origin": "日月教任教主赠还少林寺",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_chen_xiang_nian_zhu",
+    "name": "沉香念珠",
+    "type": "法器",
+    "owner": "char_fang_zheng",
+    "one_line": "十分陈旧的沉香念珠,日月教任教主赠予方证大师",
+    "description": "一串陈旧的沉香念珠,质地古朴",
+    "effects": [],
+    "origin": "日月教任教主赠还少林寺",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  }
+]
