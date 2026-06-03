@@ -38,6 +38,36 @@ function isChapterTitle(line) {
 }
 
 /**
+ * 按字数分块拆分（无章节标题时的后备方案）
+ */
+function splitByChunkSize(content, targetSize) {
+  const lines = content.split(/\r?\n/);
+  const chunks = [];
+  let currentChunk = [];
+  let currentSize = 0;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    currentChunk.push(line);
+    currentSize += line.length;
+
+    // 在空行处且达到目标大小时分块
+    if (currentSize >= targetSize && line.trim() === '' && currentChunk.length > 10) {
+      chunks.push(currentChunk.join('\n'));
+      currentChunk = [];
+      currentSize = 0;
+    }
+  }
+
+  // 保存最后一块
+  if (currentChunk.length > 0) {
+    chunks.push(currentChunk.join('\n'));
+  }
+
+  return chunks;
+}
+
+/**
  * 按章节拆分文本
  */
 function splitByChapter(content) {
@@ -101,18 +131,17 @@ function main() {
   console.log(`行数: ${content.split('\n').length}`);
 
   // 按章节拆分
-  const chapters = splitByChapter(content);
+  let chapters = splitByChapter(content);
   console.log(`章节数: ${chapters.length}`);
 
   if (chapters.length === 0) {
-    console.error('错误: 未检测到章节标题');
-    console.log('');
-    console.log('支持的章节格式:');
-    console.log('  - 中文数字：一、二、三...');
-    console.log('  - 第X章、第X回、第X节');
-    console.log('  - （第X回完）');
-    console.log('  - 纯数字：001、002 等');
-    process.exit(1);
+    console.log('未检测到章节标题，按段落分块（每块约 50000 字）...');
+    chapters = splitByChunkSize(content, 50000);
+    console.log(`分块数: ${chapters.length}`);
+    if (chapters.length === 0) {
+      console.error('错误: 无法拆分文本');
+      process.exit(1);
+    }
   }
 
   // 创建输出目录
