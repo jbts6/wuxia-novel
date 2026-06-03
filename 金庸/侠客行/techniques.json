@@ -1,0 +1,856 @@
+[
+  {
+    "id": "tech_tan_zhi_shen_tong_01",
+    "name": "弹指震剑",
+    "type": "指法",
+    "description": "以指弹击剑身，令对手虎口发麻，长剑险些脱手",
+    "source_skill": "skill_tan_zhi_shen_tong"
+  },
+  {
+    "id": "tech_xuan_su_shuang_jian_01",
+    "name": "双剑合璧",
+    "type": "剑法",
+    "description": "石清闵柔双剑各圈半圆，剑光霍霍将敌罩于其中",
+    "source_skill": "skill_xuan_su_shuang_jian"
+  },
+  {
+    "id": "tech_pi_gua_dao_01",
+    "name": "八方藏刀势",
+    "type": "刀法",
+    "description": "身形转动绕敌一圈，八方各砍三刀共二十四刀，刀刀不离身侧",
+    "source_skill": "skill_pi_gua_dao"
+  },
+  {
+    "id": "tech_pi_gua_dao_02",
+    "name": "白虹贯日",
+    "type": "刀法",
+    "description": "金刀挥出砍向敌首的猛烈劈招",
+    "source_skill": "skill_pi_gua_dao"
+  },
+  {
+    "id": "tech_pi_gua_dao_03",
+    "name": "南海礼佛",
+    "type": "刀法",
+    "description": "劈卦刀收刀势，举刀立正以示礼敬",
+    "source_skill": "skill_pi_gua_dao"
+  },
+  {
+    "id": "tech_dian_xue_bi_fa_01",
+    "name": "环抱六合",
+    "type": "点穴",
+    "description": "双臂合拢倒转铁笔，双笔笔柄向敌两边太阳穴砸去",
+    "source_skill": "skill_dian_xue_bi_fa"
+  },
+  {
+    "id": "tech_ying_zhua_shou_01",
+    "name": "搏狮手",
+    "type": "爪法",
+    "description": "右手成抓向敌胸口狠抓，属鹰爪门擒拿本领",
+    "source_skill": "skill_ying_zhua_shou"
+  },
+  {
+    "id": "tech_he_fei_jiu_tian_01",
+    "name": "鹤飞九天",
+    "type": "投掷剑招",
+    "description": "倒地后运劲将长剑掷出攻击敌人，剑势凌厉破轿帷而入",
+    "source_skill": "skill_he_fei_jiu_tian"
+  },
+  {
+    "id": "tech_nian_li",
+    "name": "黏力掌劲",
+    "type": "内力运用",
+    "description": "掌心发出强韧黏力吸住对手兵刃令其无法夺走，瞬间收放自如",
+    "source_skill": "skill_shi_qing_nei_gong"
+  },
+  {
+    "id": "tech_ge_jian_chuan_jin",
+    "name": "隔剑传劲",
+    "type": "内力运用",
+    "description": "以内力藉双剑传入对方体内，对手触剑如触电般全身剧震",
+    "source_skill": "skill_shi_qing_nei_gong"
+  },
+  {
+    "id": "tech_wu_sheng_sha_ren",
+    "name": "无声杀人",
+    "type": "奇术",
+    "description": "熄灯瞬间令两人直挺挺跪地气绝，周身无伤痕，旁人无法察觉",
+    "source_skill": "skill_ding_bu_san_sha_ren_shu"
+  },
+  {
+    "id": "task_ge_qiang_chuan_sheng",
+    "name": "隔墙传声",
+    "type": "内功",
+    "description": "隔着砖墙清晰传声如对面说话，内功深厚之极",
+    "source_skill": "skill_ding_bu_san_sha_ren_shu"
+  },
+  {
+    "id": "tech_hu_zhua_shou_01",
+    "name": "虎爪手",
+    "type": "擒拿",
+    "description": "左手倏地伸出抓向对手肩头,五指如钩,可撕下大片皮肉",
+    "source_skill": "skill_hu_zhua_shou"
+  },
+  {
+    "id": "tech_zu_shao_yin_shen_jing",
+    "name": "足少阴肾经",
+    "type": "经脉修炼",
+    "description": "自涌泉穴经然谷、照海、太溪等穴沿足而上至廉泉穴,为泥人内功首修经脉",
+    "source_skill": "skill_ni_ren_nei_gong"
+  },
+  {
+    "id": "tech_shou_shao_yin_xin_jing",
+    "name": "手少阴心经",
+    "type": "经脉修炼",
+    "description": "十二正经之一,泥人内功第二条修炼经脉",
+    "source_skill": "skill_ni_ren_nei_gong"
+  },
+  {
+    "id": "tech_yin_wei_yin_qiao",
+    "name": "阴维脉与阴跷脉",
+    "type": "奇经修炼",
+    "description": "六阴经脉练成后修习的奇经二脉,属阴属寒",
+    "source_skill": "skill_ni_ren_nei_gong"
+  },
+  {
+    "id": "tech_yang_qiao_mai",
+    "name": "阳跷脉",
+    "type": "奇经修炼",
+    "description": "谢烟客故意从次难的阳跷脉起始教授,不循少阳、阳明、太阳、阳维的正常次序",
+    "source_skill": "skill_ni_ren_nei_gong"
+  },
+  {
+    "id": "tech_san_shi_liu_dao",
+    "name": "三十六路连环刀",
+    "type": "刀法",
+    "description": "以剑术运刀,三十六招连绵圆转,轻灵沉猛,可贴肉削发而不伤人",
+    "source_skill": "skill_jian_shu_yun_dao"
+  },
+  {
+    "id": "tech_wuxing_liuhe_zhang_1",
+    "name": "利针掌力",
+    "type": "内力攻击",
+    "description": "掌力如千千万万根利针刺出，令敌人猝不及防",
+    "source_skill": "char_skill_wuxing_liuhe_zhang"
+  },
+  {
+    "id": "technique_tan_zhi_tui_jian",
+    "name": "屈指弹剑",
+    "type": "手法",
+    "description": "距剑刃数寸处屈指弹出，震落花万紫长剑",
+    "source_skill": "char_skill_wuxing_liuhe_zhang"
+  },
+  {
+    "id": "tech_she_xin_gui_yuan",
+    "name": "摄心归元",
+    "type": "心法",
+    "description": "摒绝一切俗虑杂念，十万中未必有一人能做到",
+    "source_skill": "skill_luo_han_fu_mo_shen_gong"
+  },
+  {
+    "id": "tech_shi_ba_luo_han_yun_gong",
+    "name": "十八罗汉运功法",
+    "type": "内功修习",
+    "description": "依十八尊木罗汉身上所绘内息途径引导内力运行各处穴道",
+    "source_skill": "skill_luo_han_fu_mo_shen_gong"
+  },
+  {
+    "id": "tech_xue_hua_liu_chu",
+    "name": "雪花六出刺",
+    "type": "剑法招式",
+    "description": "手腕颤动幻成雪花六出之形，一瞬连刺六剑，每剑皆成六角形剑痕",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "tech_fei_sha_zou_shi",
+    "name": "飞沙走石",
+    "type": "剑法招式",
+    "description": "内劲直贯剑尖，寒光点点直刺对手胸口",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_01",
+    "name": "苍松迎客",
+    "type": "剑法",
+    "description": "被金乌刀法'开门揖盗'克制",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_02",
+    "name": "梅雪争春",
+    "type": "剑法",
+    "description": "剑光点点大具威势，梅花五瓣雪花六出",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_03",
+    "name": "双驼西来",
+    "type": "剑法",
+    "description": "被'千钧压驼'克制",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_04",
+    "name": "风沙莽莽",
+    "type": "剑法",
+    "description": "被'大海沉沙'克制",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_05",
+    "name": "月色昏黄",
+    "type": "剑法",
+    "description": "使若有若无朦朦胧胧，得雪山剑法神髓",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_06",
+    "name": "暗香疏影",
+    "type": "剑法",
+    "description": "雪山剑法中最精微一招，伤人于不知不觉之间",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_07",
+    "name": "老枝横斜",
+    "type": "剑法",
+    "description": "从侧面刺去的招式",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_08",
+    "name": "胡马越岭",
+    "type": "剑法",
+    "description": "被'汉将当关'克制",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_09",
+    "name": "明月羌笛",
+    "type": "剑法",
+    "description": "被'赤日金鼓'克制",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_10",
+    "name": "朝天势",
+    "type": "剑法",
+    "description": "入门基本功夫，锻炼筋骨打熬气力，不属七十二招，却令石破天无法应对",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "skill_xue_shan_jian_fa_11",
+    "name": "雪花六出",
+    "type": "剑法",
+    "description": "连刺六点留记认，白万剑以此招惩戒石破天",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "tech_shuo_feng_hu_qi",
+    "name": "朔风忽起",
+    "type": "剑招",
+    "description": "石破天对石清试招时使用，似是而非破绽百出",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "tech_ling_shang_shuang_mei",
+    "name": "岭上双梅",
+    "type": "剑招",
+    "description": "一招两刺，第一剑刺出后紧跟第二剑，连环迅疾",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_mei_xue_zheng_chun",
+    "name": "梅雪争春",
+    "type": "攻击招式",
+    "description": "虚中有实实中有虚，剑尖如雪点剑锋如梅枝，四面八方围攻",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_lao_zhi_heng_xie",
+    "name": "老枝横斜",
+    "type": "攻击招式",
+    "description": "剑尖翻上斜刺左肩，梅树枝干枯残丑拙之形",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_feng_sha_mang_mang",
+    "name": "风沙莽莽",
+    "type": "攻击招式",
+    "description": "塞外大漠飞沙之势，内力不足则无法尽展其妙",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_yun_heng_xi_ling",
+    "name": "云横西岭",
+    "type": "攻击招式",
+    "description": "雪山剑法招式，石破天使出时右肘抬得太高诸多错失",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_ming_tuo_jun_zu",
+    "name": "明驼骏足",
+    "type": "攻击招式",
+    "description": "白万剑因心神分散使出时招式稍老露出破绽",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_shuang_tuo_xi_lai",
+    "name": "双驼西来",
+    "type": "攻击招式",
+    "description": "石破天站立白万剑身侧时使出的雪山剑法招式",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_cang_song_ying_ke",
+    "name": "苍松迎客",
+    "type": "防御招式",
+    "description": "横剑格挡之式，石破天手忙脚乱中使出",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_an_xiang_shu_ying",
+    "name": "暗香疏影",
+    "type": "攻击招式",
+    "description": "剑刃若有若无斜削过来，折断石清青钢剑的一招",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_雪泥鸿爪",
+    "name": "雪泥鸿爪",
+    "type": "剑招",
+    "description": "白万剑所使绝艺，出剑部位极巧，是雪山剑法中的精妙招式",
+    "source_skill": "skill_xue_shan_jian_fa"
+  },
+  {
+    "id": "technique_zuo_you_feng_yuan",
+    "name": "左右逢源",
+    "type": "防御招式",
+    "description": "长剑自左至右划弧，阻敌继续进击",
+    "source_skill": "skill_shang_qing_guan_jian_fa"
+  },
+  {
+    "id": "tech_hu_zhua_shou",
+    "name": "虎爪手",
+    "type": "擒拿手法",
+    "description": "以虎爪之势抓拿对手灵台穴等要穴，劲力透入可致人痉挛",
+    "source_skill": "skill_shi_ba_lu_qin_na_shou"
+  },
+  {
+    "id": "tech_yu_nv_nian_zhen",
+    "name": "玉女拈针",
+    "type": "擒拿手法",
+    "description": "仅用大拇指和食指两指，劲力从指尖直透穴道，拿住悬枢穴",
+    "source_skill": "skill_shi_ba_lu_qin_na_shou"
+  },
+  {
+    "id": "tech_feng_wei_shou",
+    "name": "凤尾手",
+    "type": "擒拿手法",
+    "description": "右手绕半圆抓住对手手腕一扭，顺势抬肘击碎下巴",
+    "source_skill": "skill_shi_ba_lu_qin_na_shou"
+  },
+  {
+    "id": "task_he_xiang_shou",
+    "name": "鹤翔手",
+    "type": "擒拿手法",
+    "description": "反腕格挡之法，五指拂中对手手腕穴道，内力自腕传遍全身",
+    "source_skill": "skill_shi_ba_lu_qin_na_shou"
+  },
+  {
+    "id": "tech_qin_na_gou",
+    "name": "勾",
+    "type": "擒拿手法",
+    "description": "一十八路擒拿手中的基本手法之一",
+    "source_skill": "skill_shi_ba_lu_qin_na_shou"
+  },
+  {
+    "id": "tech_qin_na_dai",
+    "name": "带",
+    "type": "擒拿手法",
+    "description": "一十八路擒拿手中的基本手法之一",
+    "source_skill": "skill_shi_ba_lu_qin_na_shou"
+  },
+  {
+    "id": "tech_qin_na_suo",
+    "name": "锁",
+    "type": "擒拿手法",
+    "description": "一十八路擒拿手中的基本手法之一",
+    "source_skill": "skill_shi_ba_lu_qin_na_shou"
+  },
+  {
+    "id": "tech_qin_na_na",
+    "name": "拿",
+    "type": "擒拿手法",
+    "description": "一十八路擒拿手中的基本手法之一",
+    "source_skill": "skill_shi_ba_lu_qin_na_shou"
+  },
+  {
+    "id": "tech_bai_he_shou",
+    "name": "白鹤手",
+    "type": "擒拿",
+    "description": "擒拿手中的一招，斜身反手切敌右腕",
+    "source_skill": "skill_shi_ba_lu_qin_na_shou"
+  },
+  {
+    "id": "tech_kuai_dao_zhuan_luan_ma",
+    "name": "快刀斩乱麻",
+    "type": "掌法",
+    "description": "并掌如刀自上而下急划而落，劲力锋锐如利刃",
+    "source_skill": "skill_ding_jia_quan_zhang"
+  },
+  {
+    "id": "tech_ni_shui_xing_zhou",
+    "name": "逆水行舟",
+    "type": "掌法",
+    "description": "双膝微曲身矮，左掌自下而上挥出",
+    "source_skill": "skill_ding_jia_quan_zhang"
+  },
+  {
+    "id": "tech_qi_feng_tu_qi",
+    "name": "奇峰突起",
+    "type": "掌法",
+    "description": "右掌猛然推出，掌风凌厉",
+    "source_skill": "skill_ding_jia_quan_zhang"
+  },
+  {
+    "id": "tech_zuo_you_feng_yuan",
+    "name": "左右逢源",
+    "type": "掌法",
+    "description": "双掌弧形斜拍，掌力方向虚实相间，攻左攻右随机应变",
+    "source_skill": "skill_ding_jia_quan_zhang"
+  },
+  {
+    "id": "tech_tian_wang_tuo_ta",
+    "name": "天王托塔",
+    "type": "掌法",
+    "description": "双掌上举，掌力向天，原为对付凌空下击之招",
+    "source_skill": "skill_ding_jia_quan_zhang"
+  },
+  {
+    "id": "tech_ke_ma_ben_quan",
+    "name": "渴马奔泉",
+    "type": "拳法",
+    "description": "连拳带人猛地扑将过去",
+    "source_skill": "skill_ding_jia_quan_zhang"
+  },
+  {
+    "id": "tech_heng_sao_qian_jun",
+    "name": "横扫千军",
+    "type": "掌法",
+    "description": "双臂猛扫，攻势狂暴",
+    "source_skill": "skill_ding_jia_quan_zhang"
+  },
+  {
+    "id": "tech_zhong_gu_qi_ming",
+    "name": "钟鼓齐鸣",
+    "type": "拳法",
+    "description": "双拳环击敌人左右太阳穴",
+    "source_skill": "skill_ding_jia_quan_zhang"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_01",
+    "name": "开门揖盗",
+    "type": "刀法",
+    "description": "克制雪山剑法'苍松迎客'，表面行礼实则攻敌",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_02",
+    "name": "梅雪逢夏",
+    "type": "刀法",
+    "description": "克制'梅雪争春'，上三下三左右连砍十二刀，以威猛消解繁复剑招",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_03",
+    "name": "千钧压驼",
+    "type": "刀法",
+    "description": "克制'双驼西来'，以刀背从空中沉重压下",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_04",
+    "name": "大海沉沙",
+    "type": "刀法",
+    "description": "克制'风沙莽莽'，下如有怒海洪涛之汹涌",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_05",
+    "name": "赤日炎炎",
+    "type": "刀法",
+    "description": "克制'月色昏黄'，以光胜暗",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_07",
+    "name": "鲍鱼之肆",
+    "type": "刀法",
+    "description": "克制'暗香疏影'，内力从四面八方涌出，以臭破香",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_08",
+    "name": "汉将当关",
+    "type": "刀法",
+    "description": "克制'胡马越岭'，守得严密异常",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_09",
+    "name": "赤日金鼓",
+    "type": "刀法",
+    "description": "克制'明月羌笛'，直攻敌招最软弱之处",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_10",
+    "name": "长者折枝",
+    "type": "刀法",
+    "description": "克制'老枝横斜'，刀落砍敌手掌",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa_73",
+    "name": "最后一招（未命名）",
+    "type": "刀法",
+    "description": "跃起半空和身直劈，威力极大，轻用恐误伤好人",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "tech_jin_wu_dao_fa_01",
+    "name": "长者折枝",
+    "type": "攻击招式",
+    "description": "金乌刀法一招，石破天以此招一刀砍下野猪头颅",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_mei_xue_feng_xia",
+    "name": "梅雪逢夏",
+    "type": "刀招",
+    "description": "金乌刀法招式之一",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_bao_yu_zhi_si",
+    "name": "鲍鱼之肆",
+    "type": "刀招",
+    "description": "金乌刀法招式之一",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_han_jiang_dang_guan",
+    "name": "汉将当关",
+    "type": "刀招",
+    "description": "金乌刀法招式之一",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_qian_jun_ya_tuo",
+    "name": "千钧压驼",
+    "type": "刀招",
+    "description": "金乌刀法招式之一",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_pang_qiao_ce_ji",
+    "name": "旁敲侧击",
+    "type": "刀招",
+    "description": "阿绣所教，让敌而不为敌所伤的退让之招",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "tech_chi_yan_bao_chang",
+    "name": "赤焰暴长",
+    "type": "刀招",
+    "description": "唰唰两刀砍出，去势奇急，直取对手颈口，一击毙命",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_开门揖盗",
+    "name": "开门揖盗",
+    "type": "刀招",
+    "description": "金乌刀法第一招，单刀下垂左手抱拳躬身，姿式恭谨",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_暗香疏影",
+    "name": "暗香疏影",
+    "type": "刀招",
+    "description": "金乌刀法招式，挥刀斜刺，石破天用以对付成自学",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_风沙莽莽",
+    "name": "风沙莽莽",
+    "type": "刀招",
+    "description": "金乌刀法招式，梁自进引石破天使出此招以自伤认输",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_踏雪寻梅",
+    "name": "踏雪寻梅",
+    "type": "刀招",
+    "description": "金乌刀法招式，正好克制雪山剑法的雪泥鸿爪",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "technique_旁敲侧击",
+    "name": "旁敲侧击",
+    "type": "刀招",
+    "description": "阿绣教石破天的招式，用以制造平手局面不伤对方颜面",
+    "source_skill": "skill_jin_wu_dao_fa"
+  },
+  {
+    "id": "skill_ding_shi_wu_gong_01",
+    "name": "黑云满天",
+    "type": "掌法",
+    "description": "凌厉掌击，从未教过石破天",
+    "source_skill": "skill_ding_shi_wu_gong"
+  },
+  {
+    "id": "skill_ding_shi_wu_gong_02",
+    "name": "逆水行舟",
+    "type": "掌法",
+    "description": "丁不四攻击白万剑的掌法招式",
+    "source_skill": "skill_ding_shi_wu_gong"
+  },
+  {
+    "id": "technique_shang_qing_kuai_jian",
+    "name": "上清快剑",
+    "type": "剑法",
+    "description": "瞬息间连续出剑的快攻之术，如星丸跳掷",
+    "source_skill": "skill_shang_qing_jian_fa"
+  },
+  {
+    "id": "technique_chao_bai_jin_ding",
+    "name": "朝拜金顶",
+    "type": "剑法",
+    "description": "礼敬对方的招数，剑尖向地，纯守势中暗含严密防御",
+    "source_skill": "skill_shang_qing_jian_fa"
+  },
+  {
+    "id": "technique_jiu_lian_huan",
+    "name": "九连环",
+    "type": "擒拿",
+    "description": "式中套式共九变的擒拿手精妙招数",
+    "source_skill": "skill_shi_ba_qin_na_shou"
+  },
+  {
+    "id": "tech_feng_wei_di_wu",
+    "name": "凤尾手第五变招",
+    "type": "擒拿变招",
+    "description": "石破天以此招反手抓住丁不四九节鞭鞭梢",
+    "source_skill": "skill_feng_wei_shou"
+  },
+  {
+    "id": "tech_si_yi_bin_fu",
+    "name": "四夷宾服",
+    "type": "鞭法招式",
+    "description": "风良以真力贯鞭，运鞭如枪刺向对方胸口",
+    "source_skill": "skill_jiu_jie_bian"
+  },
+  {
+    "id": "tech_tian_ma_xing_kong",
+    "name": "天马行空",
+    "type": "鞭法招式",
+    "description": "丁不四金鞭高挥跃身扑击，落手处甚为怪异",
+    "source_skill": "skill_jiu_jie_bian"
+  },
+  {
+    "id": "technique_揪后颈",
+    "name": "揪后颈",
+    "type": "擒拿",
+    "description": "出手极快方位奇诡，揪住对手后颈要穴顺势提起",
+    "source_skill": "skill_神倒鬼跌三连环"
+  },
+  {
+    "id": "technique_抓胸口",
+    "name": "抓胸口",
+    "type": "擒拿",
+    "description": "左手探出抓住胸口顺势一甩",
+    "source_skill": "skill_神倒鬼跌三连环"
+  },
+  {
+    "id": "technique_绊脚",
+    "name": "绊脚",
+    "type": "摔跤",
+    "description": "左脚绊去令对手失衡摔倒",
+    "source_skill": "skill_神倒鬼跌三连环"
+  },
+  {
+    "id": "tech_liao_yin",
+    "name": "撩阴挑腹",
+    "type": "剑招",
+    "description": "阴狠下三滥招式",
+    "source_skill": "skill_mei_nv_xia_jian_fa"
+  },
+  {
+    "id": "tech_wan_mu",
+    "name": "剜目戳臀",
+    "type": "剑招",
+    "description": "无所不至的毒辣攻击",
+    "source_skill": "skill_mei_nv_xia_jian_fa"
+  },
+  {
+    "id": "tech_bao_yao_yao",
+    "name": "抱腰咬喉",
+    "type": "擒拿",
+    "description": "弃剑抱住对手咬住咽喉的绝杀",
+    "source_skill": "skill_mei_nv_xia_jian_fa"
+  },
+  {
+    "id": "tech_ye_cha_suo_hou",
+    "name": "夜叉锁喉",
+    "type": "擒拿招式",
+    "description": "锁喉技法",
+    "source_skill": "skill_jia_qin_shou"
+  },
+  {
+    "id": "tech_zhao_ke_man_hu_ying",
+    "name": "赵客缦胡缨",
+    "type": "经脉运行图谱",
+    "description": "第一室图谱，青年书生执扇飞掌，经脉运行共八十一笔，石破天照练入门",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_wu_gou_shuang_xue_ming",
+    "name": "吴钩霜雪明",
+    "type": "剑法",
+    "description": "第二室剑法，以刀法运剑，直中有曲曲中有直，七对高手各持己见争辩",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_yin_an_zhao_bai_ma",
+    "name": "银鞍照白马",
+    "type": "轻功",
+    "description": "第三室轻功，骏马踏云气奔行图谱，石破天由此领悟轻功基础",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_sa_ta_ru_liu_xing",
+    "name": "飒沓如流星",
+    "type": "轻功",
+    "description": "第四室轻功身法",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_shi_bu_sha_yi_ren",
+    "name": "十步杀一人",
+    "type": "剑法",
+    "description": "第五室剑法，凌厉狠辣，一招致命",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_qian_li_bu_liu_xing",
+    "name": "千里不留行",
+    "type": "轻功",
+    "description": "第六室轻功，追求无迹可寻的极致速度",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_shi_liao_fu_yi_qu",
+    "name": "事了拂衣去",
+    "type": "轻功",
+    "description": "第七室轻功，功成身退的身法",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_shen_cang_shen_yu_ming",
+    "name": "深藏身与名",
+    "type": "轻功",
+    "description": "第八室轻功，隐匿身形的身法",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_xian_guo_xin_ling_yin",
+    "name": "闲过信陵饮",
+    "type": "拳法掌法",
+    "description": "第九室拳法掌法",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_tuo_jian_qian_qian_heng",
+    "name": "脱剑膝前横",
+    "type": "剑法",
+    "description": "第十室剑法",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_wu_yue_dao_wei_qing",
+    "name": "五岳倒为轻",
+    "type": "拳法掌法",
+    "description": "第十四室掌法，石破天练成太玄经后首先使出",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_san_bei_tu_ran_nuo",
+    "name": "三杯吐然诺",
+    "type": "吐纳内功",
+    "description": "第十三室内功，吐纳呼吸法门",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_yi_qi_su_ni_sheng",
+    "name": "意气素霓生",
+    "type": "吐纳内功",
+    "description": "第十六室吐纳内功",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_jiu_guo_xin_ling_yin",
+    "name": "救赵挥金锤",
+    "type": "剑法",
+    "description": "第十七室剑法",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_xuan_he_da_liang_cheng",
+    "name": "烜赫大梁城",
+    "type": "吐纳内功",
+    "description": "第二十室吐纳内功",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_zong_si_xia_gu_xiang",
+    "name": "纵死侠骨香",
+    "type": "拳法掌法",
+    "description": "第二十一室拳法掌法",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_bu_can_shi_shang_ying",
+    "name": "不惭世上英",
+    "type": "剑法掌法",
+    "description": "第二十二室剑法掌法",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_shui_neng_shu_ge_xia",
+    "name": "谁能书阁下",
+    "type": "剑法掌法",
+    "description": "第二十三室剑法掌法",
+    "source_skill": "skill_xia_ke_xing"
+  },
+  {
+    "id": "tech_yin_an_tuo_song",
+    "name": "托带借力",
+    "type": "借力",
+    "description": "在史婆婆背上一托一带，借力转力使其飞向海船",
+    "source_skill": "skill_yin_an_zhao_bai_ma"
+  },
+  {
+    "id": "tech_zhu_bang_ci",
+    "name": "竹棒刺击",
+    "type": "刺击",
+    "description": "以竹棒刺出手腕、眼睛等要害，后发先至",
+    "source_skill": "skill_yue_nv_jian"
+  },
+  {
+    "id": "tech_jian_wang",
+    "name": "剑网守势",
+    "type": "防守",
+    "description": "竹棒展开如剑网，纯取守势，无人能越",
+    "source_skill": "skill_yue_nv_jian"
+  }
+]
