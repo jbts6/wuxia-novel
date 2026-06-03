@@ -1,0 +1,848 @@
+[
+  {
+    "id": "item_jin_duan_yang_pi_pao_zi",
+    "name": "锦缎面羊皮袍子",
+    "type": "衣物",
+    "owner": "char_qi_chang_fa",
+    "one_line": "万震山赠予戚长发的锦缎羊皮袍子，戚长发视为贵重礼物",
+    "description": "锦缎面子的老羊皮袍子，万震山命卜垣带来作为薄礼",
+    "effects": [],
+    "origin": "万震山赠礼",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_han_yu_wan_zhuo",
+    "name": "汉玉腕镯",
+    "type": "饰品",
+    "owner": "char_qi_chang_fa",
+    "one_line": "万震山赠送的汉玉手镯，品质精良",
+    "description": "汉玉材质的腕镯，与袍子毡帽马褂同为万震山所赠寿礼",
+    "effects": [],
+    "origin": "万震山赠礼",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_zhu_bang",
+    "name": "竹棒",
+    "type": "兵器/拄杖",
+    "owner": "char_lao_gai",
+    "one_line": "老丐随身竹棒，既是拄杖又是兵器，可黏住铁剑",
+    "description": "老乞丐右手所拄竹棒，看似寻常却运用如神，能搭住空中落剑如胶水黏住",
+    "effects": [
+      "以棒作剑",
+      "黏住兵器"
+    ],
+    "origin": "老丐随身之物",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_tang_shi_jian_fa"
+    ]
+  },
+  {
+    "id": "item_mu_jian",
+    "name": "木剑",
+    "type": "训练器具",
+    "owner": null,
+    "one_line": "狄云与戚芳在晒谷场对练所用的木剑",
+    "description": "两柄木剑，用于日常比试喂招，挥舞交击发出托托之声",
+    "effects": [],
+    "origin": "自制训练用具",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_tang_shi_jian_fa"
+    ]
+  },
+  {
+    "id": "item_wu_can_yi",
+    "name": "乌蚕衣",
+    "type": "防具",
+    "owner": "char_di_yun",
+    "one_line": "狄云所穿护身宝衣，挡住戚长发背后暗算的匕首。",
+    "description": "乌蚕丝编织的护身宝衣，刀枪不入",
+    "effects": [
+      "刀枪不入",
+      "抵御内力掌击",
+      "抵挡掌击",
+      "保护胸腹要害",
+      "令攻击者断刃反伤",
+      "护身防刀剑",
+      "护体防身",
+      "护身防刺",
+      "挡住戚长发匕首暗算"
+    ],
+    "origin": "不明",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bi_shou",
+    "name": "匕首",
+    "type": "兵器；暗器",
+    "owner": "char_qi_fang；char_qi_chang_fa",
+    "one_line": "戚芳怀中所藏匕首，曾欲出其不意刺伤吴坎夺解药；戚长发刺入万震山胸口的匕首",
+    "description": "戚芳藏于怀中的短匕首，握柄欲刺吴坎夺药未果。；明晃晃的匕首，插入万震山胸口（万实为装死）",
+    "effects": [],
+    "origin": "不详",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_zang_wu",
+    "name": "赃物",
+    "type": "陷害道具",
+    "owner": null,
+    "one_line": "万门弟子预先藏在狄云床下和被褥中的金器银器、元宝首饰，用以栽赃",
+    "description": "压扁的金银酒壶酒杯、银锭元宝、珠花项链金镯金戒等万府酒筵器物",
+    "effects": [],
+    "origin": "万府",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jin_bo_xun_hua",
+    "name": "金波旬花",
+    "type": "剧毒之物",
+    "owner": "char_ling_tui_si",
+    "one_line": "天竺传来的奇毒花，涂于棺木上暗算丁典，天下无药可解",
+    "description": "花瓣金黄如金子闪闪发亮，形似荷花，波旬为梵语恶魔之意，又称恶魔花，闻花香即晕眩，触肌肤则消功蚀骨",
+    "effects": [
+      "消功蚀骨",
+      "麻痹四肢",
+      "令神照功无法施展",
+      "用水洗则肌肤腐烂"
+    ],
+    "origin": "天竺",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_shen_zhao_jing",
+    "name": "神照经",
+    "type": "武学秘籍",
+    "owner": null,
+    "one_line": "梅念笙传于丁典的至高武学典籍，丁典记于心中",
+    "description": "梅念笙所传武学宝典，记载神照功心法，丁典已全部记在心中",
+    "effects": [
+      "习得神照功",
+      "练成后天下无敌"
+    ],
+    "origin": "梅念笙",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_shen_zhao_gong"
+    ]
+  },
+  {
+    "id": "item_lian_cheng_jue",
+    "name": "连城诀",
+    "type": "宝藏秘钥",
+    "owner": null,
+    "one_line": "找寻梁元帝大宝藏的数字密码，丁典临终口述于狄云",
+    "description": "一组数字口诀，为开启梁元帝大宝藏的钥匙，开头为四、四十一、三十三、五十三等数字",
+    "effects": [
+      "开启梁元帝大宝藏"
+    ],
+    "origin": "梅念笙",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_qing_bu_nv_xie",
+    "name": "青布女鞋",
+    "type": "衣物",
+    "owner": "char_ling_shuang_hua",
+    "one_line": "小楼床脚边放置的女鞋，是凌霜华曾住此间的唯一痕迹",
+    "description": "一双青布女鞋，放在床脚边，显示此房间原为女子所住",
+    "effects": [],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_lian_cheng_jue_kou_jue",
+    "name": "连城诀口诀",
+    "type": "武功秘籍",
+    "owner": "char_di_yun",
+    "one_line": "丁典临终口述的连城诀数字口诀，狄云记住了前部分但未能完整传承",
+    "description": "由数字编码的武功口诀，丁典在血战中口述，第四字为四，第五字十八，第六字七，第七字未及说出，第十一个字仅提到便气绝",
+    "effects": [
+      "蕴含绝世武功",
+      "关联宝藏秘密"
+    ],
+    "origin": "丁典所有，临终托付狄云",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_lian_cheng_jue"
+    ]
+  },
+  {
+    "id": "item_jian_jue",
+    "name": "剑诀",
+    "type": "武功秘籍",
+    "owner": null,
+    "one_line": "连城诀的核心内容，丁典至死未能完整传述，从此失传",
+    "description": "丁典口中的剑诀，与连城诀口诀为同一秘密的不同部分",
+    "effects": [
+      "蕴含绝世剑法秘密"
+    ],
+    "origin": "丁典所有",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_lian_cheng_jue"
+    ]
+  },
+  {
+    "id": "item_qi_fang_jian",
+    "name": "戚芳钢剑",
+    "type": "武器/剑",
+    "owner": "char_qi_fang",
+    "one_line": "戚芳随身佩剑，遗落柴房后被狄云拾起与万圭对战",
+    "description": "戚芳防身所用钢剑，抽剑保护女儿后遗落在柴房中",
+    "effects": [],
+    "origin": "戚芳所有",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_qi_jia_jian_fa"
+    ]
+  },
+  {
+    "id": "item_zhou_qi_jian",
+    "name": "周圻长剑",
+    "type": "武器/剑",
+    "owner": "char_zhou_qi",
+    "one_line": "周圻佩剑，刺中狄云胸膛后因乌蚕衣阻挡而弯曲折断，断剑反刺周圻腹部致死",
+    "description": "周圻使剑刺狄云胸口，剑身遇乌蚕衣后渐弯成半圆，啪然折断，两截断剑一齐刺入周圻小腹",
+    "effects": [
+      "致命反噬"
+    ],
+    "origin": "周圻所有",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_wan_gui_jian",
+    "name": "万圭长剑",
+    "type": "武器/剑",
+    "owner": "char_wan_gui",
+    "one_line": "万圭所用长剑，光芒闪烁，连伤狄云数处后砍向丁典尸身",
+    "description": "万圭佩剑，用以刺伤狄云右腕大腿肩部，并砍向丁典尸体",
+    "effects": [],
+    "origin": "万圭所有",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bao_fu",
+    "name": "绸布包袱",
+    "type": "随身物品",
+    "owner": "char_di_yun",
+    "one_line": "有人暗中放在狄云小舟中的包袱，内有碎银子和五件首饰，供其上岸后谋生",
+    "description": "绸布包裹，内含五六锭碎银子、珠花、金镯、金项圈、宝石戒指及一个金锁片",
+    "effects": [
+      "提供盘缠",
+      "暗藏救命恩人的线索"
+    ],
+    "origin": "神秘恩人暗中放置",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jin_suo_pian",
+    "name": "金锁片",
+    "type": "饰品",
+    "owner": "char_kong_xin_cai",
+    "one_line": "空心菜颈中所挂金锁片，上镌'德容双茂'四字，令狄云想起往事",
+    "description": "小孩佩戴的金锁片，上面镌刻'德容双茂'四字。狄云曾在万家柴房昏晕后于长江舟中见过同款，由此推测戚芳曾救过自己。",
+    "effects": [],
+    "origin": "万府",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_xue_dao_seng_pao",
+    "name": "血刀僧袍",
+    "type": "衣物",
+    "owner": "狄云",
+    "one_line": "宝象所穿僧袍，衣角绣有殷红带血短刀标记，导致狄云被误认为血刀恶僧。",
+    "description": "黑色僧袍，衣襟上以大红丝线绣一把殷红带血短刀，刀头有三点鲜血滴下，形状可怖。",
+    "effects": [
+      "身份标识",
+      "导致被误认"
+    ],
+    "origin": "血刀门",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_gu_hui_bao",
+    "name": "丁典骨灰包",
+    "type": "骨灰",
+    "owner": "狄云",
+    "one_line": "狄云焚化丁典遗体后精心包裹的骨灰，贴肉缚于腰间，誓与凌小姐合葬。",
+    "description": "以油纸油布层层包裹的丁典骨灰，外用布条缚紧贴肉缚在腰间。",
+    "effects": [],
+    "origin": "丁典遗体焚化",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_huo_dao_huo_shi",
+    "name": "火刀火石",
+    "type": "取火工具",
+    "owner": "狄云",
+    "one_line": "丁典从荆州老合兴铁店取得的取火工具，用于焚化丁典遗体。",
+    "description": "火刀上铸有阳文招牌'荆州老合兴铁店'，丁典为闯江湖所备。",
+    "effects": [
+      "取火"
+    ],
+    "origin": "荆州老合兴铁店",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_gang_dao",
+    "name": "钢刀",
+    "type": "兵器",
+    "owner": "宝象",
+    "one_line": "宝象随身兵器，曾砍伤丁典尸身，后被狄云借用来宰鼠。",
+    "description": "宝象和尚的随身钢刀，用以砍人和威胁狄云。",
+    "effects": [
+      "砍伤",
+      "威胁"
+    ],
+    "origin": "宝象所有",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "ye_zhan_ba_fang_dao_fa"
+    ]
+  },
+  {
+    "id": "item_xiao_bao_fu",
+    "name": "小包袱(首饰银两)",
+    "type": "财物",
+    "owner": "狄云",
+    "one_line": "神秘人赠予狄云的裹伤银两和首饰，狄云视若珍宝藏于泥中。",
+    "description": "内有银两和首饰，狄云埋于大树下泥坑中以避宝象搜查。",
+    "effects": [
+      "经济来源"
+    ],
+    "origin": "神秘人所赠",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_huang_zhi_xiao_shu",
+    "name": "黄纸小书(血刀经)",
+    "type": "武功秘籍",
+    "owner": "狄云",
+    "one_line": "宝象油布包裹中的诡异秘籍，绘有裸体男子经脉图和弯刀招式。",
+    "description": "黄纸小书，封皮弯弯曲曲写着蝌蚪般怪字，绘有精瘦裸体男子各种怪异姿式，后半册持弯刀，经脉运行方位与正统内功相反。",
+    "effects": [
+      "修炼内力",
+      "极易上瘾"
+    ],
+    "origin": "血刀门宝象所有",
+    "rarity": "稀世珍品",
+    "related_skills": [
+      "xue_dao_jing_manual"
+    ]
+  },
+  {
+    "id": "item_sui_yin",
+    "name": "碎银",
+    "type": "财物",
+    "owner": "狄云",
+    "one_line": "宝象遗留的十来两碎银，狄云用以购买衣物和食物。",
+    "description": "十余两碎银，狄云从宝象遗物中获得，用于买衣帽和充饥。",
+    "effects": [
+      "经济来源"
+    ],
+    "origin": "宝象所有",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_tie_huo",
+    "name": "铁镬",
+    "type": "炊具",
+    "owner": null,
+    "one_line": "土地庙厨房中的破铁锅，狄云用来烧水欲烫宝象，后煮老鼠汤。",
+    "description": "上半截残破的铁锅，只能装小半镬水，狄云用以烧水和煮鼠汤。",
+    "effects": [
+      "煮食",
+      "武器(未遂)"
+    ],
+    "origin": "土地庙厨房",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jian_shuang_xia_ma_bian",
+    "name": "马鞭",
+    "type": "兵器",
+    "owner": "汪啸风",
+    "one_line": "汪啸风的随身马鞭，可卷钢镖暗器，鞭法变幻莫测。",
+    "description": "马鞭上可卷钢镖，抖动间鞭法灵活，是铃剑双侠的标志武器。",
+    "effects": [
+      "攻击",
+      "暗器发射"
+    ],
+    "origin": "汪啸风所有",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "ma_bian_shu"
+    ]
+  },
+  {
+    "id": "item_gang_biao",
+    "name": "钢镖",
+    "type": "暗器",
+    "owner": "汪啸风",
+    "one_line": "汪啸风马鞭上卷着的钢镖，甩出后可钉入十数丈外。",
+    "description": "卷于马鞭上的暗器，劲力惊人，可钉入远处柳树。",
+    "effects": [
+      "远程暗器攻击"
+    ],
+    "origin": "汪啸风所有",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "ma_bian_shu"
+    ]
+  },
+  {
+    "id": "item_xue_dao",
+    "name": "血刀",
+    "type": "兵器",
+    "owner": "char_di_yun",
+    "one_line": "狄云所持宝刀，削金断玉，本章斩断万震山手臂并用于掘墓。",
+    "description": "血红色宝刀，锋利无比，斩铁如泥，遇到木材如批豆腐",
+    "effects": [
+      "月圆夜祭刀保锋锐",
+      "刀锋从颊边掠过只割发丝不伤肌肤",
+      "可脱手飞射贯穿人身再接回",
+      "削铁如泥",
+      "斩岩不折",
+      "可割断双腿",
+      "锋利绝伦",
+      "削金断玉",
+      "斩断棺盖榫头",
+      "断万震山右臂"
+    ],
+    "origin": "血刀门",
+    "rarity": "稀世珍品",
+    "related_skills": [
+      "skill_xue_dao_gong",
+      "skill_xue_dao_dao_fa",
+      "skill_xue_dao_jing"
+    ]
+  },
+  {
+    "id": "item_xue_dao_mi_ji",
+    "name": "血刀秘笈",
+    "type": "武功秘籍",
+    "owner": "char_di_yun",
+    "one_line": "黄纸小册子,绘有血刀门练功姿式图形,原属宝象后落入狄云之手",
+    "description": "一本黄纸册子,绘有各种古怪练功姿式图形,包括单足站立和倒立等内功吐纳法门,是血刀门秘传练功之法",
+    "effects": [
+      "记载血刀门全套练功姿式"
+    ],
+    "origin": "宝象所有,宝象死后狄云在破庙中取得",
+    "rarity": "稀世珍品",
+    "related_skills": [
+      "skill_xue_dao_gong"
+    ]
+  },
+  {
+    "id": "item_jie_gu_shang_yao",
+    "name": "接骨伤药",
+    "type": "伤药",
+    "owner": "char_xue_dao_lao_zu",
+    "one_line": "血刀门秘制接骨药末,灵验无比,不到一月断腿可平复如常",
+    "description": "瓷瓶中盛放的药末,血刀门秘制,专治断骨之伤,血刀老祖以此药为狄云敷治断腿",
+    "effects": [
+      "敷于断骨处可接骨续筋",
+      "不到一个月断腿平复如常",
+      "敷药后三个时辰内不能移动否则会跛"
+    ],
+    "origin": "血刀门秘制",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_bai_ma",
+    "name": "白马",
+    "type": "坐骑",
+    "owner": "char_shui_sheng",
+    "one_line": "水笙自幼相伴的大宛骏马,被血刀老祖杀以充饥",
+    "description": "大宛良驹,千中挑万中选,脚程快力气长,水笙与之一同长大如最好的朋友,后在雪谷中被血刀老祖斩首烤食",
+    "effects": [
+      "脚力极强,长途奔驰不衰"
+    ],
+    "origin": "水笙自幼驯养",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_huang_ma",
+    "name": "黄马",
+    "type": "坐骑",
+    "owner": "char_wang_xiao_feng",
+    "one_line": "汪啸风的大宛骏马,连日奔驰后倒毙于巴颜喀喇山雪道旁",
+    "description": "大宛良驹,与白马齐名,铃剑双侠以此双骑自豪,说当世无第三匹马及得上,后在雪地中力竭倒毙",
+    "effects": [
+      "脚力极强,可日行数百里"
+    ],
+    "origin": "汪啸风所有",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_chun_gang_duan_qiang",
+    "name": "纯钢短枪",
+    "type": "短枪",
+    "owner": "char_hua_tie_gan",
+    "one_line": "花铁干的百炼精钢短枪，连枪杆也是精钢所铸",
+    "description": "百炼精钢所铸短枪，连枪杆也不惧宝刀削断，枪尖寒光闪动",
+    "effects": [
+      "枪杆不惧宝刀",
+      "可点穴"
+    ],
+    "origin": "江西鹰爪铁枪门",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_zhong_ping_qiang_fa"
+    ]
+  },
+  {
+    "id": "item_ding_dian_gu_hui",
+    "name": "丁典骨灰",
+    "type": "遗物",
+    "owner": "char_di_yun",
+    "one_line": "狄云义兄丁典的骨灰包，随身携带于怀中",
+    "description": "包裹着丁典骨灰的包裹，狄云贴身携带，触之内心感到温暖",
+    "effects": [],
+    "origin": "丁典遗赠",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yu_yi",
+    "name": "羽衣",
+    "type": "衣物",
+    "owner": null,
+    "one_line": "水笙用一个多月以鸟羽编织的御寒衣裳，被狄云踢还",
+    "description": "用鹰毛雁翎穿成，黑的是鹰毛白的是雁翎，衣长齐膝，用了几千几万根鸟羽",
+    "effects": [
+      "御寒保暖"
+    ],
+    "origin": "水笙手制",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_gui_tou_dao",
+    "name": "鬼头刀",
+    "type": "兵器",
+    "owner": "char_hua_tie_gan",
+    "one_line": "陆天抒遗物，刀身厚重，虽不及血刀锋利但亦为宝刀",
+    "description": "当日曾被血刀斩出三个缺口，花铁干从陆天抒尸体旁取来使用",
+    "effects": [
+      "刀身厚重",
+      "与血刀相交仅添新缺口"
+    ],
+    "origin": "陆天抒",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_xue_dao_jing_shu",
+    "name": "血刀经书册",
+    "type": "武学秘籍",
+    "owner": "char_di_yun",
+    "one_line": "血刀门内功外功总诀，每页图谱含裸体男子练功姿式与经脉路线",
+    "description": "得自宝象身上的小册，含内功图谱、拳脚功法和血刀刀法",
+    "effects": [
+      "记载血刀门全部武学"
+    ],
+    "origin": "血刀门",
+    "rarity": "稀世珍品",
+    "related_skills": [
+      "skill_xue_dao_jing"
+    ]
+  },
+  {
+    "id": "item_xue_dao_jing",
+    "name": "血刀经",
+    "type": "武学秘籍",
+    "owner": null,
+    "one_line": "记录血刀门全套武学的经书，狄云练成后焚毁撒于血刀老祖坟上",
+    "description": "记载刀法、拳脚和内功的武学秘籍",
+    "effects": [
+      "修习后可掌握血刀门全套武学"
+    ],
+    "origin": "血刀老祖",
+    "rarity": "稀世珍品",
+    "related_skills": [
+      "skill_xue_dao_jing"
+    ]
+  },
+  {
+    "id": "item_lian_cheng_jian_pu_shi",
+    "name": "连城剑谱实物",
+    "type": "武学秘籍",
+    "owner": "char_qi_chang_fa",
+    "one_line": "三弟子弑师所得的连城剑谱，疑被戚长发私藏，至今下落不明",
+    "description": "锁于铁盒中被三人共管，一夜之间不翼而飞，疑戚长发所盗",
+    "effects": [
+      "记载连城剑法招式，配合剑诀方可发挥威力"
+    ],
+    "origin": "梅念笙",
+    "rarity": "稀世珍品",
+    "related_skills": [
+      "skill_lian_cheng_jian_pu"
+    ]
+  },
+  {
+    "id": "item_long_tou_zhang",
+    "name": "龙头拐杖",
+    "type": "奇门兵器",
+    "owner": "char_yan_da_ping",
+    "one_line": "言达平随身携带的拐杖，内藏长剑，龙头为剑柄",
+    "description": "外形粗大的龙头木拐，内部中空藏有剑刃，龙头即剑柄，杖端即剑鞘",
+    "effects": [
+      "出其不意拔剑伤人"
+    ],
+    "origin": "言达平",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_long_tou_zhang_jian"
+    ]
+  },
+  {
+    "id": "item_hua_ban_du_xie",
+    "name": "花斑毒蝎",
+    "type": "毒物",
+    "owner": "char_yan_da_ping",
+    "one_line": "言达平自养的西域回疆异种毒蝎，蛰伤万圭致其中毒垂危",
+    "description": "自幼喂食各种解药培养，寻常解药无效，唯有独门解药可解，中者须受一月折磨方死",
+    "effects": [
+      "中者手背肿胀变黑",
+      "红线向心脏蔓延",
+      "一月内呻吟号叫而死"
+    ],
+    "origin": "西域回疆异种，言达平自养",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_du_xie_jie_yao",
+    "name": "毒蝎解药",
+    "type": "解药",
+    "owner": "char_di_yun",
+    "one_line": "言达平交给狄云的独门解药，可解花斑毒蝎之毒",
+    "description": "黑色药末，洒于伤口可使毒血渗出，红线消退",
+    "effects": [
+      "解除花斑毒蝎剧毒"
+    ],
+    "origin": "言达平配制",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_tang_shi_xuan_ji",
+    "name": "《唐诗选辑》",
+    "type": "书籍",
+    "owner": "char_qi_fang",
+    "one_line": "连城剑诀密码藏于其中，江陵城中被抢购至五两银子一本。",
+    "description": "看似寻常的唐诗选集，实则剑诀密码藏于诗中，需配合唐诗剑法的招式次序才能破解",
+    "effects": [
+      "湿水后显现密码字迹，揭示连城剑谱秘密",
+      "藏有连城诀密码"
+    ],
+    "origin": "高僧注入密码后流传",
+    "rarity": "上乘佳品",
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "item_bi_yu_jie_zhi",
+    "name": "碧玉戒指",
+    "type": "饰品",
+    "owner": "char_yan_da_ping",
+    "one_line": "言达平左手所戴碧玉戒指，显示其今非昔比的富态",
+    "description": "言达平以老乞丐身份示人时衣衫褴褛，如今衣饰富丽，手戴碧玉戒指",
+    "effects": [],
+    "origin": "言达平",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_han_yu",
+    "name": "汉玉",
+    "type": "饰品",
+    "owner": "char_yan_da_ping",
+    "one_line": "言达平腰带所挂大块汉玉",
+    "description": "言达平腰带上悬挂的好大一块汉玉，彰显财主身份",
+    "effects": [],
+    "origin": "言达平",
+    "rarity": "上乘佳品",
+    "related_skills": []
+  },
+  {
+    "id": "item_xie_du_jie_yao",
+    "name": "蝎毒解药",
+    "type": "药物",
+    "owner": null,
+    "one_line": "小瓷瓶中的解药，可治花蝎剧毒，戚芳从吴坎身上取回",
+    "description": "小瓷瓶盛装，原为解万圭手背蝎毒之药，被吴坎抢走以要挟戚芳，万震山杀吴坎后戚芳趁机取回。",
+    "effects": [
+      "解除湘西花斑毒蝎之毒",
+      "敷后伤口流黑血排毒",
+      "解花蝎剧毒，敷后伤口流出血水，痛痒渐消"
+    ],
+    "origin": "草头郎中（实为言达平相关之人）所配",
+    "rarity": "稀世珍品",
+    "related_skills": []
+  },
+  {
+    "id": "item_yao_xiang",
+    "name": "药箱",
+    "type": "器具",
+    "owner": "char_di_yun",
+    "one_line": "狄云从走方郎中处购得，用以乔装潜入万家",
+    "description": "走方郎中的全套行头之一，狄云花十两银子买下衣服、药箱和虎撑，用于假扮郎中。",
+    "effects": [],
+    "origin": "走方郎中",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_hu_cheng",
+    "name": "虎撑",
+    "type": "器具",
+    "owner": "char_di_yun",
+    "one_line": "走方郎中摇响的铁环器具，狄云用作乔装道具",
+    "description": "郎中沿街卖药时摇动发出呛啷啷声响的铁环，狄云购得后用于假扮走方郎中。",
+    "effects": [],
+    "origin": "走方郎中",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_chang_jian",
+    "name": "长剑",
+    "type": "武器",
+    "owner": null,
+    "one_line": "墙上所挂兵刃，戚芳取下分给万氏父子追敌",
+    "description": "万府楼房墙上悬挂的两柄长剑，戚芳假称屋上有敌时取下分给万震山和万圭。",
+    "effects": [],
+    "origin": "万府",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_tong_pen",
+    "name": "铜盆",
+    "type": "容器",
+    "owner": "char_qi_fang",
+    "one_line": "戚芳用以端血水倒去、露出剑谱之铜盆",
+    "description": "普通铜脸盆，戚芳用以端走浸泡剑谱的血水，揭露了剑谱藏处。",
+    "effects": [],
+    "origin": "万家日常用具",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_lian_cheng_jian_pu",
+    "name": "连城剑谱(唐诗)",
+    "type": "武功秘籍/藏宝密码",
+    "owner": null,
+    "one_line": "表面为唐诗集，实藏大宝藏方位密码，浸血后显字，后被万氏父子撕碎",
+    "description": "一部唐诗，两侧封皮数页浸透血水，中间书页仍干。用湿手指沾页可显数字，配合连城剑法招式次序可拼出'江陵城南'等宝藏方位。后因父子争夺被撕成碎片飞散。",
+    "effects": [
+      "湿纸显字，揭示宝藏方位"
+    ],
+    "origin": "梅念笙所传",
+    "rarity": "绝世神兵",
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "item_zhi_die",
+    "name": "花纸蝴蝶",
+    "type": "信物/线索",
+    "owner": "char_qi_fang",
+    "one_line": "戚芳当年所剪纸蝶，夹于唐诗中，为狄云现身的关键信物",
+    "description": "花纸剪成的蝴蝶，原夹在唐诗剑谱中。剑谱碎片飞散时纸蝶飘出，后被狄云捡到，狄云以此向戚芳证明身份。",
+    "effects": [
+      "身份识别信物"
+    ],
+    "origin": "戚芳手工所剪",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_duan_dao",
+    "name": "戚芳腹上短刀",
+    "type": "兵器",
+    "owner": null,
+    "one_line": "万圭刺入戚芳小腹的短刀，狄云收在身边，决心以此刀取万氏父子性命。",
+    "description": "深深插入戚芳小腹半尺的短刀，狄云未能拔出以免加速其死亡",
+    "effects": [
+      "致命伤"
+    ],
+    "origin": "万家",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_jin_fo_xiang",
+    "name": "黄金大佛",
+    "type": "宝藏",
+    "owner": null,
+    "one_line": "天宁寺大殿高逾三丈的黄金佛像，内藏梁元帝大宝藏的珍珠宝贝。",
+    "description": "通体黄金铸成的如来佛像，高逾三丈，重五六万斤，佛像肚中藏有海量珠宝。暗门在佛像腰间",
+    "effects": [
+      "内藏价值连城珠宝",
+      "珠宝上涂有毒药致人发疯"
+    ],
+    "origin": "梁元帝藏宝",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  },
+  {
+    "id": "item_tie_chan",
+    "name": "铁铲",
+    "type": "工具",
+    "owner": "char_di_yun",
+    "one_line": "狄云用于掘开凌霜华墓穴的工具，背面被刻上连城诀数字密码。",
+    "description": "狄云在江陵城中购买的铁铲，用于掘墓，背面用血刀刀尖刻上密码数目字",
+    "effects": [
+      "掘墓工具",
+      "密码载体"
+    ],
+    "origin": "江陵城中购买",
+    "rarity": "寻常凡品",
+    "related_skills": []
+  },
+  {
+    "id": "item_du_zhu_bao",
+    "name": "涂毒珠宝",
+    "type": "宝藏",
+    "owner": null,
+    "one_line": "梁元帝为防魏兵抢劫而在珠宝上涂的剧毒，沾口即令人发疯暴毙。",
+    "description": "佛像肚中的珍珠宝石金器白玉翡翠珊瑚等均涂有极厉害毒药",
+    "effects": [
+      "中毒发疯",
+      "乱咬乱撕",
+      "必死无疑"
+    ],
+    "origin": "梁元帝藏宝时所涂",
+    "rarity": "绝世神兵",
+    "related_skills": []
+  }
+]

@@ -1,0 +1,3523 @@
+[
+  {
+    "id": "di_yun",
+    "name": "狄云",
+    "alias": [
+      "癞痢头阿三",
+      "老贼",
+      "小贼秃",
+      "小师父",
+      "空心菜",
+      "小恶僧",
+      "小和尚",
+      "小淫僧",
+      "狄大侠",
+      "空心菜舅舅",
+      "草头郎中",
+      "空心菜师哥",
+      "云儿"
+    ],
+    "identity": "前铁匠弟子，被骗入狱的蒙冤青年；戚长发弟子",
+    "faction": "faction_wan_men",
+    "role": "主角",
+    "archetype": "蒙冤英雄；落难侠客",
+    "rank": "略有小成；炉火纯青",
+    "one_line": "朴实善良的乡下青年，携丁典遗体逃亡途中与宝象斗智斗勇，历经磨难不改忠义。；历经磨难的农家弟子，武功已臻炉火纯青之境，为师妹报仇后携空心菜远走雪谷。",
+    "personality": {
+      "traits": [
+        "重情重义",
+        "心地善良",
+        "不贪财宝"
+      ],
+      "speech_style": "朴实真诚，语气恳切",
+      "temperament": "隐忍坚韧，遭遇巨大悲痛仍不堕入贪欲"
+    },
+    "relationships": [
+      {
+        "target": "丁典",
+        "type": "义兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "至敬至爱，誓护遗体与凌小姐合葬"
+      },
+      {
+        "target": "宝象",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": -9,
+        "dynamic": "恐惧中奋起反抗，斗智不斗力"
+      },
+      {
+        "target": "水笙",
+        "type": "误会对象",
+        "intensity": 3,
+        "bond_level": -5,
+        "dynamic": "被误认为血刀恶僧遭纵马踩断腿"
+      },
+      {
+        "target": "汪啸风",
+        "type": "误会对象",
+        "intensity": 3,
+        "bond_level": -4,
+        "dynamic": "被误认为恶僧遭追打，心觉冤枉"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师徒",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "敬师如父，言听计从"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "师兄妹/暗恋",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "暗恋已久的青梅竹马师妹"
+      },
+      {
+        "target": "char_lao_gai",
+        "type": "授艺之恩",
+        "intensity": 7,
+        "bond_level": 5,
+        "dynamic": "神秘老丐传三招绝技"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "屡遭欺辱，怒目相向"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "兄弟/师徒",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "狱中三年从敌变友，丁典传其神照功"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "自幼受其教养，至终仍不信师父是恶人"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "恋人",
+        "intensity": 10,
+        "bond_level": 4,
+        "dynamic": "青梅竹马，师妹却嫁了万圭，痛彻心扉"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "仇敌",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "万圭设局陷害夺妻，恨之入骨"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "结义兄弟",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "狱中五年相伴，被丁典视为唯一可托付之人"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师徒",
+        "intensity": 6,
+        "bond_level": 4,
+        "dynamic": "师父竟是刺杀梅念笙的叛徒"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师伯",
+        "intensity": 3,
+        "bond_level": 2,
+        "dynamic": "围攻梅念笙的三人之一"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "义兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "狱中结拜，生死与共，誓合葬"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "旧爱/师妹",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "青梅竹马却被迫分离，此生最大心结"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "仇敌",
+        "intensity": 9,
+        "bond_level": -10,
+        "dynamic": "被其陷害入狱夺爱，恨之入骨又不忍杀"
+      },
+      {
+        "target": "char_zhou_qi",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": -8,
+        "dynamic": "旧日同门今日死敌，被其所害"
+      },
+      {
+        "target": "char_xue_dao_lao_zu",
+        "type": "被迫依附",
+        "intensity": 7,
+        "bond_level": 4,
+        "dynamic": "被认作徒孙,感激其救命又厌恶其残忍"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "误解/怜悯",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "被误认为淫僧同伙,实欲救她脱险"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "结义兄弟",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "狱中结义,生死之交,时常想念"
+      },
+      {
+        "target": "char_wang_xiao_feng",
+        "type": "敌对",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "被其当作淫僧追杀,无法分辩"
+      },
+      {
+        "target": "char_bao_xiang",
+        "type": "名义师父",
+        "intensity": 3,
+        "bond_level": 1,
+        "dynamic": "被迫冒充宝象弟子以求活命"
+      },
+      {
+        "target": "char_xue_dao_seng",
+        "type": "被挟持者/名义徒孙",
+        "intensity": 7,
+        "bond_level": -3,
+        "dynamic": "被挟持同行，有救命之恩却受其暴虐"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "被敌视",
+        "intensity": 6,
+        "bond_level": -5,
+        "dynamic": "她恨他为恶僧同伙，实为她的救命恩人"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "被求杀/钦佩",
+        "intensity": 8,
+        "bond_level": 4,
+        "dynamic": "应其恳求挥棍击杀，心中极为钦佩其气概"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "已故义兄",
+        "intensity": 9,
+        "bond_level": 10,
+        "dynamic": "狱中传他神照经心法，随身携带其骨灰"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "共患难",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "互有恩义却始终误解，他维护她清白名声"
+      },
+      {
+        "target": "char_hua_tie_gan",
+        "type": "敌对",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "花铁干多次欲杀他灭口，两人反复搏斗"
+      },
+      {
+        "target": "char_xue_dao_lao_zu",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": 4,
+        "dynamic": "名义师父，对他有恩德，心存感激"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "旧情",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "始终不能忘情的师妹，令他伤心落泪"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "义兄恩师",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "传授神照经，是他最敬重之人"
+      },
+      {
+        "target": "char_wang_xiao_feng",
+        "type": "误会",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "为水笙清白挺身而出，反被汪啸风攻击"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师徒",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "视师父如父，至今挂念"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "师兄妹/旧情",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "深情怀念却知她已嫁万圭"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "师伯/恩人",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "受过恩惠救其性命，对其心存警惕"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师伯/仇敌",
+        "intensity": 7,
+        "bond_level": 2,
+        "dynamic": "知晓其杀害师祖，暗中防备"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "夺妻害己入狱，恨之入骨"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "义兄/恩人",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "铭记丁典教诲，欲送骨灰合葬"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "旧爱",
+        "intensity": 10,
+        "bond_level": 8,
+        "dynamic": "深爱师妹却自惭形秽，甘愿救她丈夫"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "仇人",
+        "intensity": 9,
+        "bond_level": -9,
+        "dynamic": "恨其夺爱陷害，却因戚芳哀求而施救"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "义兄",
+        "intensity": 9,
+        "bond_level": 10,
+        "dynamic": "丁典已逝，狄云仍在废园梅树下缅怀"
+      },
+      {
+        "target": "char_wu_kan",
+        "type": "仇人",
+        "intensity": 7,
+        "bond_level": -8,
+        "dynamic": "万门弟子，当年削其五指，形同陌路"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "师兄妹/暗恋",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "深爱师妹，甘愿一生守护她"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师伯侄(仇敌)",
+        "intensity": 8,
+        "bond_level": -9,
+        "dynamic": "被其陷害，将其砌入墙中报仇"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师徒",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "深信师父尚在，为其追查真相"
+      },
+      {
+        "target": "char_kong_xin_cai",
+        "type": "照顾者",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "爱屋及乌，呵护师妹之女"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "师兄妹/旧情",
+        "intensity": 10,
+        "bond_level": 9,
+        "dynamic": "深爱师妹却无法挽回，悲痛欲绝"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 3,
+        "dynamic": "救命恩反遭师父背叛刺杀，彻底心寒"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "仇人",
+        "intensity": 8,
+        "bond_level": -10,
+        "dynamic": "断其一臂为师妹复仇"
+      },
+      {
+        "target": "char_kong_xin_cai",
+        "type": "养父",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "受师妹托孤，带她远赴雪谷抚养"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "义兄",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "遵其遗愿合葬丁典与凌霜华"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "知己",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "雪谷重逢，水笙苦等他归来"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_fa",
+      "skill_shen_zhao_gong",
+      "skill_qi_jia_jian_fa",
+      "skill_shen_zhao_jing",
+      "skill_xue_dao_dao_fa",
+      "skill_xue_dao_jing",
+      "skill_lian_cheng_jian_fa_san_zhao"
+    ],
+    "related_skills": [
+      "skill_shen_zhao_gong",
+      "skill_lian_cheng_jian_fa",
+      "skill_ci_jian_shi",
+      "skill_xue_dao_gong",
+      "skill_yue_jia_san_shou",
+      "skill_shen_zhao_jing"
+    ]
+  },
+  {
+    "id": "char_qi_chang_fa",
+    "name": "戚长发",
+    "alias": [
+      "铁锁横江"
+    ],
+    "identity": "梅念笙三弟子",
+    "faction": "faction_wan_men",
+    "role": "反派",
+    "archetype": "贪婪枭雄",
+    "rank": "登堂入室",
+    "one_line": "狄云之师，外号'铁锁横江'，为财宝杀师弑兄，暗算狄云未遂，终中毒发疯。",
+    "personality": {
+      "traits": [
+        "极度贪婪",
+        "心肠歹毒",
+        "六亲不认"
+      ],
+      "speech_style": "冷笑阴狠，得意时狂笑，贪婪时如野兽嚎叫",
+      "temperament": "为财宝可杀一切亲人，贪婪到丧失人性"
+    },
+    "relationships": [
+      {
+        "target": "char_di_yun",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "悉心调教的唯一弟子"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "独生女儿，疼爱至深"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师兄弟",
+        "intensity": 6,
+        "bond_level": 4,
+        "dynamic": "互相猜忌试探的同门师兄"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师徒",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "收狄云为徒或因他忠厚好骗"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师兄弟",
+        "intensity": 8,
+        "bond_level": 2,
+        "dynamic": "表面恭敬实则互相猜忌，因连城诀反目"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "父女",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "逃走后音讯全无，置女儿于不顾"
+      },
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "师徒（叛离）",
+        "intensity": 2,
+        "bond_level": 0,
+        "dynamic": "率先冷不防在师父背上刺了一剑"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "狄云之师，从未向徒弟透露真相"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师徒",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "表面忠厚实则欺骗徒弟"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师兄弟/仇敌",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "刺伤万震山后不知所踪"
+      },
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "弑师",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "合力杀害师父夺取剑谱"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "父女",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "失踪多年，女儿日夜挂念"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "同门师兄弟",
+        "intensity": 5,
+        "bond_level": -8,
+        "dynamic": "同门相残，争抢剑谱"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 9,
+        "dynamic": "女儿深爱父亲，为其复仇"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师兄弟(被害者)",
+        "intensity": 7,
+        "bond_level": -10,
+        "dynamic": "被师兄万震山谋杀"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师徒",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "狄云深信师父尚在，四处追查"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师徒",
+        "intensity": 6,
+        "bond_level": -5,
+        "dynamic": "为金佛竟暗算救命徒弟"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "同门师兄弟",
+        "intensity": 8,
+        "bond_level": -10,
+        "dynamic": "暗算万震山并一剑将其杀死"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "同门师兄弟",
+        "intensity": 8,
+        "bond_level": -10,
+        "dynamic": "背后刺杀言达平夺取先机"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "父女",
+        "intensity": 4,
+        "bond_level": 1,
+        "dynamic": "不顾亲生女儿死活"
+      },
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": -10,
+        "dynamic": "联合两位师兄弑师夺谱"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jue",
+      "skill_lian_cheng_jian_pu",
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "qi_fang",
+    "name": "戚芳",
+    "alias": [
+      "小师妹",
+      "阿芳",
+      "师妹"
+    ],
+    "identity": "狄云师妹；戚长发之女，万圭之妻",
+    "faction": "faction_wan_men",
+    "role": "提及角色；悲剧女主角",
+    "archetype": "青梅竹马；薄命红颜",
+    "rank": "平平无奇",
+    "one_line": "狄云的小师妹，二人曾在湖南乡间共唱山歌，是狄云美好回忆的象征。；狄云的师妹，因心软放出万圭反被刺杀，临死以蝴蝶化蝶之喻与狄云诀别。",
+    "personality": {
+      "traits": [
+        "心地善良",
+        "心软不忍",
+        "对丈夫有情"
+      ],
+      "speech_style": "温柔凄楚，临终呓语化蝶",
+      "temperament": "柔弱善良，不忍见丈夫受困"
+    },
+    "relationships": [
+      {
+        "target": "狄云",
+        "type": "师兄妹",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "昔日青梅竹马，今已分离多年"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "乖巧又倔强的女儿"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师兄妹",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "青梅竹马，关怀备至"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "恋人",
+        "intensity": 10,
+        "bond_level": 4,
+        "dynamic": "深爱师哥却误信其罪，终嫁万圭"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "夫妻",
+        "intensity": 6,
+        "bond_level": 7,
+        "dynamic": "受万圭花言巧语所骗，感激而嫁"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 7,
+        "dynamic": "父亲逃走后独自无依"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "夫妻",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "表面恩爱，隐瞒狄云之事"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "旧爱/师兄妹",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "青梅竹马被迫分离，暗中施救却不相认"
+      },
+      {
+        "target": "char_kong_xin_cai",
+        "type": "母女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "慈爱呵护，称其空心菜"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "旧情",
+        "intensity": 8,
+        "bond_level": 6,
+        "dynamic": "狄云念念不忘却遭其无情抛弃"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师兄妹/旧情",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "青梅竹马却已嫁他人"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "夫妻",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "嫁入万家"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "父亲失踪下落不明"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "旧爱",
+        "intensity": 10,
+        "bond_level": 9,
+        "dynamic": "始终深爱师哥，第三炷香为他祝祷"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "夫妻",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "多年恩爱，得知真相后心生怨恨"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "父女",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "挂念父亲下落，誓保其唐诗选辑不落人手"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "夫妻",
+        "intensity": 7,
+        "bond_level": 2,
+        "dynamic": "深爱丈夫却遭其猜忌冤枉"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "翁媳",
+        "intensity": 4,
+        "bond_level": -7,
+        "dynamic": "发现公公杀害父亲的真相"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师兄妹",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "青梅竹马，重逢时扑入怀中"
+      },
+      {
+        "target": "char_kong_xin_cai",
+        "type": "母女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "极度疼爱女儿，不惜为她求生"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 9,
+        "dynamic": "深爱父亲，为其复仇奔走"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师兄妹/旧情",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "深感对不起师哥，临终托孤"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "夫妻",
+        "intensity": 7,
+        "bond_level": 5,
+        "dynamic": "不忍丈夫被困，放出反被刺杀"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "父女",
+        "intensity": 6,
+        "bond_level": 4,
+        "dynamic": "父亲不顾其死活"
+      },
+      {
+        "target": "char_kong_xin_cai",
+        "type": "母女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "临终托付狄云照顾女儿"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_qi_jia_jian_fa"
+    ]
+  },
+  {
+    "id": "char_wan_zhen_shan",
+    "name": "万震山",
+    "alias": [
+      "五云手"
+    ],
+    "identity": "梅念笙大弟子",
+    "faction": "faction_wan_jia",
+    "role": "反派",
+    "archetype": "阴险枭雄",
+    "rank": "登堂入室",
+    "one_line": "戚长发大师兄，暗算戚长发夺宝未遂，断臂后被戚长发一剑穿胸而死。",
+    "personality": {
+      "traits": [
+        "老奸巨猾",
+        "心狠手辣",
+        "多疑善妒"
+      ],
+      "speech_style": "阴冷笑语，得意时语带嘲讽",
+      "temperament": "阴险毒辣，患离魂之症梦中砌墙"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师兄弟",
+        "intensity": 6,
+        "bond_level": 4,
+        "dynamic": "师弟，关系微妙暗藏机锋"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "独子，寄予厚望"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师兄弟",
+        "intensity": 8,
+        "bond_level": 2,
+        "dynamic": "互相猜忌争夺连城诀"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "父子合谋陷害狄云"
+      },
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "师徒（叛离）",
+        "intensity": 3,
+        "bond_level": 0,
+        "dynamic": "三师兄弟联手围攻恩师夺经"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师伯",
+        "intensity": 3,
+        "bond_level": 2,
+        "dynamic": "狄云的师伯"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "师兄弟/仇敌",
+        "intensity": 9,
+        "bond_level": 1,
+        "dynamic": "互相猜忌争夺剑谱，欲杀之"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师兄弟/仇敌",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "怀疑其私藏剑谱，跟踪追查"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "父子",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "爱子中毒心急如焚"
+      },
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "弑师",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "合力杀死师父抢夺剑谱"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "父子共谋连城剑谱秘密"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "同门师兄弟",
+        "intensity": 6,
+        "bond_level": -8,
+        "dynamic": "同门相残，争抢连城剑谱十余年"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "同门师兄弟",
+        "intensity": 6,
+        "bond_level": -7,
+        "dynamic": "三人联手弑师夺谱后互相猜忌"
+      },
+      {
+        "target": "char_tao_hong",
+        "type": "前妾侍",
+        "intensity": 3,
+        "bond_level": -6,
+        "dynamic": "知其泄密将其驱逐，半夜砌墙之秘"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "父子",
+        "intensity": 7,
+        "bond_level": 5,
+        "dynamic": "父子合谋，利害相连时亦互疑"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "公媳",
+        "intensity": 4,
+        "bond_level": -6,
+        "dynamic": "表面和善，暗中欲除之后快"
+      },
+      {
+        "target": "char_wu_kan",
+        "type": "师徒(加害者)",
+        "intensity": 6,
+        "bond_level": -9,
+        "dynamic": "亲手扼杀吴坎并嫁祸"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师兄弟(加害者)",
+        "intensity": 7,
+        "bond_level": -10,
+        "dynamic": "杀害师弟戚长发并砌入墙中"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师伯侄",
+        "intensity": 5,
+        "bond_level": -8,
+        "dynamic": "曾陷害狄云，被狄云砌入墙中"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "同门师兄弟",
+        "intensity": 8,
+        "bond_level": -10,
+        "dynamic": "互相残杀争夺连城宝藏"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "同门师兄弟",
+        "intensity": 7,
+        "bond_level": -9,
+        "dynamic": "同门反目，各怀鬼胎"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "父子",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "父子合谋夺宝"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa",
+      "skill_lian_cheng_jue",
+      "skill_lian_cheng_jian_pu"
+    ]
+  },
+  {
+    "id": "char_bu_yuan",
+    "name": "卜垣",
+    "alias": [
+      "卜师哥"
+    ],
+    "identity": "万震山弟子",
+    "faction": "faction_wan_jia",
+    "role": "配角",
+    "archetype": "逐利弟子",
+    "rank": "略有小成",
+    "one_line": "万震山弟子，与冯坦争吵后化装守候，终中毒身亡。",
+    "personality": {
+      "traits": [
+        "贪利",
+        "易怒"
+      ],
+      "speech_style": "暴躁直白",
+      "temperament": "与同门争执不休"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "师父指派的传信使者"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师叔侄",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "表面恭顺的晚辈"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "加害者",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "参与陷害，软禁狄戚二人"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "追随师父"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": 6,
+        "dynamic": "听命行事"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "师门散后自行追宝"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "char_lv_tong",
+    "name": "吕通",
+    "alias": [
+      "太行山吕大寨主"
+    ],
+    "identity": "大盗",
+    "faction": "faction_tai_hang_shan",
+    "role": "提及人物",
+    "archetype": "盗贼",
+    "rank": "略有小成",
+    "one_line": "大盗，曾被狄云打退，其同伙来万府寻仇",
+    "personality": {
+      "traits": [
+        "未直接出场"
+      ],
+      "speech_style": "无",
+      "temperament": "不详"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "十年前旧仇，誓要报复"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "对手",
+        "intensity": 6,
+        "bond_level": 1,
+        "dynamic": "寿宴上交手的年轻对手"
+      }
+    ],
+    "known_skills": [
+      "skill_liu_he_quan",
+      "skill_liu_he_dao",
+      "skill_chi_kao_lian_quan",
+      "skill_tie_bi_gong",
+      "skill_tie_bei_gong"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_lu_kun",
+    "name": "鲁坤",
+    "alias": [],
+    "identity": "万震山弟子",
+    "faction": "faction_wan_jia",
+    "role": "配角",
+    "archetype": "逐利弟子",
+    "rank": "略有小成",
+    "one_line": "万震山大弟子，化装守候城南等万震山现身寻宝，终中毒身亡。",
+    "personality": {
+      "traits": [
+        "趋利避害",
+        "善于伪装"
+      ],
+      "speech_style": "简短低语",
+      "temperament": "贪图分一杯羹"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "大弟子，维护师门颜面"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "对手",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "轻视乡下来的师弟"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "加害者",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "参与设局并殴打狄云"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "追随师父出生入死"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "仇敌",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "被其暗中断臂"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "对师父恭顺服从"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": 2,
+        "dynamic": "背叛师父意图跟踪分宝"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "char_zhou_qi",
+    "name": "周圻",
+    "alias": [
+      "周师哥"
+    ],
+    "identity": "万门弟子",
+    "faction": "faction_wan_men",
+    "role": "提及人物",
+    "archetype": "已故配角",
+    "rank": "初窥门径",
+    "one_line": "已故，当日假扮采花贼参与陷害狄云，后在废园被杀",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "维护师父的暴躁弟子"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "加害者",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "参与殴打狄云"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": -8,
+        "dynamic": "旧日同门，今为追杀逃犯的死敌"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_wan_gui",
+    "name": "万圭",
+    "alias": [
+      "三哥"
+    ],
+    "identity": "万震山之子",
+    "faction": "faction_wan_jia",
+    "role": "反派",
+    "archetype": "阴险小人",
+    "rank": "略有小成",
+    "one_line": "万震山之子，刺杀救他出困的妻子戚芳，乔装秀才诱骗群豪，终中毒发疯而死。",
+    "personality": {
+      "traits": [
+        "忘恩负义",
+        "阴险狡诈",
+        "贪财忘义"
+      ],
+      "speech_style": "阴沉寡言",
+      "temperament": "冷酷无情，对救命恩妻亦下毒手"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "独子，受父亲宠爱"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "嫉恨乡下人抢风头，多次围殴"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "仇敌",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "设连环计陷害狄云夺其师妹"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "夫妻",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "以银子和伪善骗取戚芳感激嫁他"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "父子合谋，装死配合布局"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "夫妻",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "占有欲强，嫉妒狄云与妻旧情"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "仇敌",
+        "intensity": 9,
+        "bond_level": -10,
+        "dynamic": "陷害其入狱夺妻，欲捉拿请赏"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "父子",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "依附父亲，令其忧心"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "仇敌",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "被其毒蝎所伤命悬一线"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "夫妻",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "夺狄云师妹为妻"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "共同追索连城剑谱，父子同心"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "夫妻",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "为爱陷害狄云，病中依赖妻子"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "仇人",
+        "intensity": 8,
+        "bond_level": -9,
+        "dynamic": "设计陷害狄云夺其师妹"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "父子",
+        "intensity": 8,
+        "bond_level": 5,
+        "dynamic": "唯父命是从，利害冲突时亦争吵"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "夫妻",
+        "intensity": 7,
+        "bond_level": -3,
+        "dynamic": "猜疑妻子不忠，欲下杀手"
+      },
+      {
+        "target": "char_wu_kan",
+        "type": "师兄弟(被害者)",
+        "intensity": 5,
+        "bond_level": -8,
+        "dynamic": "误信妻子与吴坎有染"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "夫妻",
+        "intensity": 3,
+        "bond_level": -8,
+        "dynamic": "反刺救命恩妻一刀"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "父子",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "为其父诱骗群豪掩护寻宝"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "char_sun_jun",
+    "name": "孙均",
+    "alias": [],
+    "identity": "万震山弟子",
+    "faction": "faction_wan_jia",
+    "role": "配角",
+    "archetype": "逐利弟子",
+    "rank": "略有小成",
+    "one_line": "万震山弟子，扮作乡民守候城南等万震山现身。",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "贪利"
+      ],
+      "speech_style": "简短低语",
+      "temperament": "耐心守候以图利"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "剑术最佳的弟子"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "对手",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "正式比剑的对手"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "加害者",
+        "intensity": 4,
+        "bond_level": 0,
+        "dynamic": "抓住狄云手臂配合行刑"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "追随师父"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "仇敌",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "交手受伤"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": 6,
+        "dynamic": "听命行事"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "意图跟踪师父分宝"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "char_wu_kan",
+    "name": "吴坎",
+    "alias": [],
+    "identity": "万门弟子",
+    "faction": "faction_wan_men",
+    "role": "门派弟子/受害者",
+    "archetype": "贪婪小人",
+    "rank": "略有小成",
+    "one_line": "万门弟子，以解药威胁戚芳赴约，被万震山扼杀后尸体被用于吓退万氏父子",
+    "personality": {
+      "traits": [
+        "贪婪无耻",
+        "胆大妄为",
+        "涎皮赖脸"
+      ],
+      "speech_style": "涎脸嬉笑，威胁要挟",
+      "temperament": "轻浮无赖"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "听命行事的弟子"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "加害者",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "削断狄云五指，参与设局"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "追随师父"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "觊觎",
+        "intensity": 8,
+        "bond_level": -7,
+        "dynamic": "垂涎师嫂美色，以解药要挟"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "同门师兄弟",
+        "intensity": 4,
+        "bond_level": -3,
+        "dynamic": "嫉妒三师兄独占艳福"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "仇人",
+        "intensity": 5,
+        "bond_level": -8,
+        "dynamic": "曾削其五指，参与陷害阴谋"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒(被害者)",
+        "intensity": 5,
+        "bond_level": -9,
+        "dynamic": "被师父万震山扼杀灭口"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "纠缠者",
+        "intensity": 6,
+        "bond_level": -5,
+        "dynamic": "以解药胁迫戚芳赴柴房之约"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "char_feng_tan",
+    "name": "冯坦",
+    "alias": [],
+    "identity": "万震山弟子",
+    "faction": "faction_wan_jia",
+    "role": "配角",
+    "archetype": "逐利弟子",
+    "rank": "略有小成",
+    "one_line": "万震山弟子，与卜垣争吵后来到城南，终中毒身亡。",
+    "personality": {
+      "traits": [
+        "易怒",
+        "贪利"
+      ],
+      "speech_style": "争吵时面红耳赤",
+      "temperament": "冲动易怒"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "听命行事的弟子"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "加害者",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "举剑欲砍狄云左手，参与搜赃"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "追随师父"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 4,
+        "dynamic": "听命于师父"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "师门散后自行追宝"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "char_shen_cheng",
+    "name": "沈城",
+    "alias": [],
+    "identity": "万震山弟子",
+    "faction": "faction_wan_jia",
+    "role": "配角",
+    "archetype": "逐利弟子",
+    "rank": "略有小成",
+    "one_line": "万震山弟子，来到城南守候，终中毒身亡。",
+    "personality": {
+      "traits": [
+        "贪利",
+        "从众"
+      ],
+      "speech_style": "低语议论",
+      "temperament": "随波逐流"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "善于讨师父欢心的小弟子"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "对手",
+        "intensity": 6,
+        "bond_level": 1,
+        "dynamic": "当众撒谎诬陷的对象"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "加害者",
+        "intensity": 4,
+        "bond_level": 0,
+        "dynamic": "送喜糕刺激狄云，幸灾乐祸"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 7,
+        "bond_level": 7,
+        "dynamic": "追随师父"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "同门",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "扶助中毒的师兄"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 4,
+        "dynamic": "听命于师父"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 2,
+        "dynamic": "意图跟踪师父分宝"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa",
+      "skill_lian_cheng_jian_shu"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "char_lao_gai",
+    "name": "老丐",
+    "alias": [],
+    "identity": "身份不明的神秘乞丐",
+    "faction": null,
+    "role": "神秘高人",
+    "archetype": "隐于市井的世外高人",
+    "rank": "出神入化",
+    "one_line": "蓬头垢面的老乞丐，身怀绝技，暗助狄云击败吕通，夜授三招剑法",
+    "personality": {
+      "traits": [
+        "深不可测",
+        "亦庄亦谐",
+        "外丑内慧",
+        "侠义心肠"
+      ],
+      "speech_style": "忽而嬉笑怒骂，忽而引经据典，言语间暗含深意",
+      "temperament": "玩世不恭，古道热肠"
+    },
+    "relationships": [
+      {
+        "target": "char_di_yun",
+        "type": "授艺恩人",
+        "intensity": 7,
+        "bond_level": 6,
+        "dynamic": "赏识其厚道品性而传艺"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "隐匿对象",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "惧怕被其发现真实身份"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_shi_jian_fa"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "ding_dian",
+    "name": "丁典",
+    "alias": [
+      "丁大哥",
+      "丁大侠"
+    ],
+    "identity": "狄云义兄，江湖豪杰",
+    "faction": null,
+    "role": "已故角色；已故重要人物",
+    "archetype": "义薄云天；痴情侠客",
+    "rank": "登峰造极；出神入化",
+    "one_line": "已故义兄，生前授狄云神照功，遗体含金波旬花剧毒，死后仍救狄云一命。；狄云义兄，已故。本章狄云将其骨灰与凌霜华合葬，完成其遗愿。",
+    "personality": {
+      "traits": [
+        "痴情专一",
+        "重义轻生",
+        "宁死不屈"
+      ],
+      "speech_style": "豪迈直爽",
+      "temperament": "刚毅不屈，为情至死方休"
+    },
+    "relationships": [
+      {
+        "target": "狄云",
+        "type": "义兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "狱中传功托付合葬遗愿"
+      },
+      {
+        "target": "宝象",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": -9,
+        "dynamic": "生前重伤宝象，遗体毒杀之"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "兄弟/师徒",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "从疑其为奸细到生死之交，传功授艺"
+      },
+      {
+        "target": "char_bao_xiang",
+        "type": "仇敌",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "血刀门恶僧，丁典叮嘱狄云日后提防"
+      },
+      {
+        "target": "char_ling_shuang_hua",
+        "type": "恋人",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "苦恋七年，为她甘愿坐牢，生死相随"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "结义兄弟",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "狱中患难之交，临终托付合葬心愿"
+      },
+      {
+        "target": "char_ling_tui_si",
+        "type": "仇敌",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "七年折磨之恨，为霜华之死而起"
+      },
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "恩人",
+        "intensity": 7,
+        "bond_level": 8,
+        "dynamic": "江上救其性命，获传神照经与连城诀"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "义兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "狱中结义，以命相托连城诀秘密"
+      },
+      {
+        "target": "char_ling_tui_si",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": -9,
+        "dynamic": "被其下毒追杀，女儿被其活埋"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "结义兄弟",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "狱中结义,共同练功,生死之交"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "义兄/传功",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "狱中传他神照经心法，情同手足"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "义兄弟",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "传授神照经，狄云欲为其与凌姑娘合葬"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "义兄",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "狄云最敬重之人"
+      },
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "故交",
+        "intensity": 6,
+        "bond_level": 6,
+        "dynamic": "安葬梅念笙知晓真相"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "义兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "已逝，狄云在老梅树下缅怀"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "义兄弟",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "义兄遗志由狄云代为完成"
+      },
+      {
+        "target": "char_ling_shuang_hua",
+        "type": "恋人",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "死后骨灰与凌霜华合葬"
+      }
+    ],
+    "known_skills": [
+      "skill_shen_zhao_gong",
+      "skill_lian_cheng_jue",
+      "skill_shen_zhao_jing"
+    ],
+    "related_skills": [
+      "skill_shen_zhao_gong",
+      "skill_lian_cheng_jue"
+    ]
+  },
+  {
+    "id": "char_tao_hong",
+    "name": "桃红",
+    "alias": [],
+    "identity": "万震山前侍妾；万震山小妾",
+    "faction": "faction_wan_men",
+    "role": "配角/知情者",
+    "archetype": "命运悲惨的知情人；帮凶/棋子",
+    "rank": "平平无奇",
+    "one_line": "万震山前侍妾，因知晓砌墙秘密被逐，沦为丐妇出现在破祠堂；万震山小妾，配合万圭设局，反咬狄云意图强奸并指证赃物",
+    "personality": {
+      "traits": [
+        "虚伪",
+        "配合演戏"
+      ],
+      "speech_style": "哭哭啼啼、装腔作势",
+      "temperament": "柔弱做作"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "前妾侍",
+        "intensity": 5,
+        "bond_level": -7,
+        "dynamic": "被驱逐出门，知其半夜砌墙之秘"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "主仆旧识",
+        "intensity": 4,
+        "bond_level": -2,
+        "dynamic": "惧怕少奶奶，被逼说出真相"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "前主仆/前侍妾",
+        "intensity": 6,
+        "bond_level": -5,
+        "dynamic": "知其秘密被逐，沦为丐妇"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "陷害者",
+        "intensity": 3,
+        "bond_level": 0,
+        "dynamic": "配合万圭栽赃狄云强奸偷盗"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "主从",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "听命于万圭设局"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "bao_xiang",
+    "name": "宝象",
+    "alias": [
+      "恶僧"
+    ],
+    "identity": "血刀门僧人，实为凶悍大盗；血刀门弟子",
+    "faction": "xue_dao_men；faction_xue_dao_men",
+    "role": "反派；提及人物",
+    "archetype": "凶僧恶霸；邪派僧人",
+    "rank": "登堂入室；略有小成",
+    "one_line": "血刀门凶僧，贪婪残暴，追杀狄云欲夺丁典踪迹，终因贪食毒鼠汤毙命。；狄云曾在破庙中见其血刀经",
+    "personality": {
+      "traits": [
+        "不详"
+      ],
+      "speech_style": "不详",
+      "temperament": "不详"
+    },
+    "relationships": [
+      {
+        "target": "狄云",
+        "type": "猎物",
+        "intensity": 7,
+        "bond_level": -8,
+        "dynamic": "追杀欲食其肉，反被智斗败亡"
+      },
+      {
+        "target": "丁典",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": -9,
+        "dynamic": "曾被丁典重伤，砍其尸身泄愤"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "仇敌",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "五僧围攻丁典，宝象逃脱"
+      },
+      {
+        "target": "char_xue_dao_lao_zu",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "师徒面敬心诈,各怀鬼胎"
+      }
+    ],
+    "known_skills": [
+      "skill_xue_dao_jing"
+    ],
+    "related_skills": [
+      "ye_zhan_ba_fang_dao_fa",
+      "fei_shi_gong_fu",
+      "skill_xue_dao_gong"
+    ]
+  },
+  {
+    "id": "char_shan_yong",
+    "name": "善勇",
+    "alias": [],
+    "identity": "血刀老祖弟子",
+    "faction": "faction_xue_dao_men",
+    "role": "提及人物",
+    "archetype": "恶僧",
+    "rank": "略有小成",
+    "one_line": "血刀老祖亲传弟子,曾向师父提及中原武林高手名录",
+    "personality": {
+      "traits": [
+        "尔虞我诈",
+        "损人利己"
+      ],
+      "speech_style": "恭敬但不真诚",
+      "temperament": "阴险自私"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_dian",
+        "type": "仇敌",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "中神拳重伤将死"
+      },
+      {
+        "target": "char_xue_dao_lao_zu",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "面子敬畏,心中尔虞我诈"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_xue_dao_gong"
+    ]
+  },
+  {
+    "id": "char_sheng_di",
+    "name": "胜谛",
+    "alias": [],
+    "identity": "血刀老祖弟子",
+    "faction": "faction_xue_dao_men",
+    "role": "提及人物",
+    "archetype": "恶僧",
+    "rank": "略有小成",
+    "one_line": "血刀老祖亲传弟子之一,与其他弟子一般各怀鬼胎",
+    "personality": {
+      "traits": [
+        "尔虞我诈",
+        "损人利己"
+      ],
+      "speech_style": "恭敬但不真诚",
+      "temperament": "阴险自私"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_dian",
+        "type": "仇敌",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "被丁典神拳击中，命不久矣"
+      },
+      {
+        "target": "char_xue_dao_lao_zu",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "面子敬畏,心中尔虞我诈"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_xue_dao_gong"
+    ]
+  },
+  {
+    "id": "char_xiao_dao_ren",
+    "name": "枭道人",
+    "alias": [],
+    "identity": "行刺知府的道人",
+    "faction": null,
+    "role": "配角",
+    "archetype": "刺客",
+    "rank": "登堂入室",
+    "one_line": "夜入牢中行刺知府的道人，与丁典比拚内力落败，被狄云泼冷水后遭丁典内力震碎全身骨骼而死",
+    "personality": {
+      "traits": [
+        "阴险",
+        "武功不俗"
+      ],
+      "speech_style": "临死前惊叹",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_dian",
+        "type": "仇敌",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "比拚内力败亡于神照功之下"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_yan_da_ping",
+    "name": "言达平",
+    "alias": [
+      "陆地神龙",
+      "老乞丐",
+      "老丐",
+      "言师叔"
+    ],
+    "identity": "梅念笙二弟子",
+    "faction": "faction_wan_men",
+    "role": "反派",
+    "archetype": "贪婪逐利者",
+    "rank": "登堂入室",
+    "one_line": "万震山二师弟，破解剑诀密码找到天宁寺，遭戚长发背后暗算毙命。",
+    "personality": {
+      "traits": [
+        "精明算计",
+        "贪图财宝",
+        "同门相残"
+      ],
+      "speech_style": "解谜时自言自语，醒悟后大笑凄惨",
+      "temperament": "到头来发现一切是空，笑声充满凄惨"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师兄弟",
+        "intensity": 3,
+        "bond_level": 3,
+        "dynamic": "同门师兄弟，被提及偷走连城诀"
+      },
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "师徒（叛离）",
+        "intensity": 3,
+        "bond_level": 0,
+        "dynamic": "参与围攻恩师夺经"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师伯",
+        "intensity": 2,
+        "bond_level": 2,
+        "dynamic": "狄云的二师伯"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师兄弟/仇敌",
+        "intensity": 9,
+        "bond_level": 1,
+        "dynamic": "同门相残争夺剑谱"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "恩公",
+        "intensity": 5,
+        "bond_level": 4,
+        "dynamic": "感恩救命但言不由衷"
+      },
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "弑师",
+        "intensity": 6,
+        "bond_level": 0,
+        "dynamic": "合力杀害师父夺取剑谱"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师兄弟",
+        "intensity": 7,
+        "bond_level": 2,
+        "dynamic": "疑其盗走剑谱多年跟踪"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "同门师兄弟",
+        "intensity": 5,
+        "bond_level": -7,
+        "dynamic": "联手弑师后互相猜忌"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师兄弟",
+        "intensity": 6,
+        "bond_level": -7,
+        "dynamic": "与万震山争夺剑谱，互为敌手"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "同门师兄弟",
+        "intensity": 7,
+        "bond_level": -10,
+        "dynamic": "被戚长发背后刺杀身亡"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "同门师兄弟",
+        "intensity": 7,
+        "bond_level": -9,
+        "dynamic": "同门反目互相争夺"
+      }
+    ],
+    "known_skills": [
+      "skill_lian_cheng_jian_shu",
+      "skill_long_tou_zhang_jian",
+      "skill_lian_cheng_jian_fa"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jue",
+      "skill_lian_cheng_jian_pu",
+      "skill_lian_cheng_jian_fa"
+    ]
+  },
+  {
+    "id": "char_ling_shuang_hua",
+    "name": "凌霜华",
+    "alias": [
+      "霜华",
+      "凌小姐",
+      "凌姑娘"
+    ],
+    "identity": "凌退思之女",
+    "faction": "faction_ling_fu",
+    "role": "已故重要人物",
+    "archetype": "坚贞烈女",
+    "rank": "平平无奇",
+    "one_line": "凌退思之女，被父亲活埋于棺中，临死以指甲刻字留连城诀密码，与丁典终得合葬。",
+    "personality": {
+      "traits": [
+        "坚贞不渝",
+        "信守承诺",
+        "至死不屈"
+      ],
+      "speech_style": "温婉含蓄",
+      "temperament": "柔中带刚，宁死不负丁典"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_dian",
+        "type": "恋人",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "为他毁容拒嫁，隔窗放花相伴七年"
+      },
+      {
+        "target": "char_ling_tui_si",
+        "type": "父女",
+        "intensity": 7,
+        "bond_level": 3,
+        "dynamic": "被父亲逼迫起毒誓，至死不得见丁典"
+      },
+      {
+        "target": "char_ju_you",
+        "type": "主仆",
+        "intensity": 7,
+        "bond_level": 8,
+        "dynamic": "贴身使婢为她送信入狱而被射杀"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "恋人",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "棺盖刻'丁郎来生再为夫妻'"
+      },
+      {
+        "target": "char_ling_tui_si",
+        "type": "父女",
+        "intensity": 2,
+        "bond_level": -10,
+        "dynamic": "被亲父活埋于棺中"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_ling_tui_si",
+    "name": "凌退思",
+    "alias": [
+      "凌知府",
+      "凌大人",
+      "凌府台"
+    ],
+    "identity": "荆州府知府/龙沙帮帮主",
+    "faction": "faction_long_sha_bang",
+    "role": "反派",
+    "archetype": "贪婪权贵",
+    "rank": "初窥门径",
+    "one_line": "荆州知府兼龙沙帮帮主，为夺连城诀逼死亲女，率兵抢宝最终中毒发疯。",
+    "personality": {
+      "traits": [
+        "贪婪无度",
+        "心狠手辣",
+        "利欲熏心"
+      ],
+      "speech_style": "官腔十足，傲慢自大",
+      "temperament": "为财宝不择手段，连亲女都不放过"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_dian",
+        "type": "仇敌",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "七年拷打逼问神照经与连城诀"
+      },
+      {
+        "target": "char_ling_shuang_hua",
+        "type": "父女",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "以女儿为饵套取经诀，逼其起毒誓"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "仇敌",
+        "intensity": 8,
+        "bond_level": -9,
+        "dynamic": "下毒追杀，为夺连城诀不惜一切"
+      },
+      {
+        "target": "char_ling_shuang_hua",
+        "type": "父女",
+        "intensity": 2,
+        "bond_level": -10,
+        "dynamic": "活埋亲女只为逼问宝藏"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "仇人",
+        "intensity": 8,
+        "bond_level": -10,
+        "dynamic": "害死丁典仍不得宝藏线索"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_lian_cheng_jue"
+    ]
+  },
+  {
+    "id": "char_mei_nian_sheng",
+    "name": "梅念笙",
+    "alias": [
+      "铁骨墨萼",
+      "梅老先生"
+    ],
+    "identity": "万震山、言达平、戚长发之师",
+    "faction": "faction_lian_cheng_pai",
+    "role": "已故人物",
+    "archetype": "悲剧宗师",
+    "rank": "出神入化",
+    "one_line": "三兄弟之师，会使唐诗剑法，因事机不密被三个徒弟背叛杀害。",
+    "personality": {
+      "traits": [
+        "武学高深",
+        "不幸收徒"
+      ],
+      "speech_style": "未在本章说话",
+      "temperament": "悲剧命运"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 2,
+        "bond_level": 0,
+        "dynamic": "大弟子，背叛围攻师父的主谋之一"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "师徒",
+        "intensity": 2,
+        "bond_level": 0,
+        "dynamic": "二弟子，参与围攻师父夺经"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师徒",
+        "intensity": 2,
+        "bond_level": 0,
+        "dynamic": "三弟子，抢先在背后刺了一剑"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "传人",
+        "intensity": 7,
+        "bond_level": 8,
+        "dynamic": "感其救命之恩，传以神照经与连城诀"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒（被害）",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "被弟子背叛杀害"
+      },
+      {
+        "target": "char_yan_da_ping",
+        "type": "师徒（被害）",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "被弟子背叛杀害"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师徒（被害）",
+        "intensity": 5,
+        "bond_level": 0,
+        "dynamic": "被弟子背叛杀害"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "原剑谱持有者",
+        "intensity": 3,
+        "bond_level": 0,
+        "dynamic": "被万震山称为老儿，心存怨恨"
+      },
+      {
+        "target": "char_wan_zhen_shan",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": -10,
+        "dynamic": "被大弟子背叛杀害"
+      },
+      {
+        "target": "char_qi_chang_fa",
+        "type": "师徒",
+        "intensity": 5,
+        "bond_level": -10,
+        "dynamic": "被三弟子背叛杀害"
+      }
+    ],
+    "known_skills": [
+      "skill_shen_zhao_gong",
+      "skill_ying_zhua_gong",
+      "skill_shen_zhao_jing",
+      "skill_lian_cheng_jian_fa"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jue",
+      "skill_lian_cheng_jian_pu"
+    ]
+  },
+  {
+    "id": "char_ju_you",
+    "name": "菊友",
+    "alias": [],
+    "identity": "凌霜华的贴身丫鬟",
+    "faction": "faction_ling_fu",
+    "role": "悲剧配角",
+    "archetype": "忠仆",
+    "rank": "平平无奇",
+    "one_line": "冒死为凌霜华送花入狱探丁典，出狱时被伏兵射杀",
+    "personality": {
+      "traits": [
+        "忠心耿耿",
+        "胆大心细",
+        "舍己为人"
+      ],
+      "speech_style": "无正面台词",
+      "temperament": "温顺忠厚"
+    },
+    "relationships": [
+      {
+        "target": "char_ling_shuang_hua",
+        "type": "主仆",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "为主人冒死入狱送信，最终被射杀"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "间接联系",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "狱中相见传递花信，却不能说话"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_geng_tian_ba",
+    "name": "耿天霸",
+    "alias": [
+      "双刀"
+    ],
+    "identity": "万门弟子",
+    "faction": "faction_wan_men",
+    "role": "提及人物",
+    "archetype": "已故配角",
+    "rank": "初窥门径",
+    "one_line": "已故，在废园中被杀",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [
+      {
+        "target": "char_ding_dian",
+        "type": "敌手",
+        "intensity": 7,
+        "bond_level": -5,
+        "dynamic": "以为稳操胜券却被反杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_ma_da_ming",
+    "name": "马大鸣",
+    "alias": [],
+    "identity": "万门弟子",
+    "faction": "faction_wan_men",
+    "role": "提及人物",
+    "archetype": "已故配角",
+    "rank": "初窥门径",
+    "one_line": "已故，在废园中被杀",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [
+      {
+        "target": "char_zhou_qi",
+        "type": "同伙",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "奉命协作追捕逃犯"
+      },
+      {
+        "target": "char_ding_dian",
+        "type": "敌手",
+        "intensity": 6,
+        "bond_level": -5,
+        "dynamic": "看破中毒之弱趁机围攻"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_kong_xin_cai",
+    "name": "空心菜",
+    "alias": [],
+    "identity": "狄云与戚芳之女",
+    "faction": "faction_wan_men",
+    "role": "重要配角",
+    "archetype": "天真幼女",
+    "rank": "平平无奇",
+    "one_line": "狄云与戚芳的幼女，母亲死后由狄云抚养，最终随狄云前往雪谷。",
+    "personality": {
+      "traits": [
+        "天真无邪",
+        "依恋亲人",
+        "懂事乖巧"
+      ],
+      "speech_style": "稚嫩童声，呼唤妈妈",
+      "temperament": "幼小纯真，令狄云心碎"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_fang",
+        "type": "母女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "亲密无间，受母亲百般呵护"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "崇拜父亲，称其打死坏人"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "母女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "极听母亲话，配合藏书"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "父女",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "心疼父亲伤痛，为父捶腿"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "母女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "极度依恋母亲"
+      },
+      {
+        "target": "char_wan_gui",
+        "type": "父女",
+        "intensity": 6,
+        "bond_level": 3,
+        "dynamic": "父亲曾欲杀她灭口"
+      },
+      {
+        "target": "char_qi_fang",
+        "type": "母女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "母亲被杀，不停哭叫妈妈"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "养父女",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "狄云受托将她抚养成人"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "wang_xiao_feng",
+    "name": "汪啸风",
+    "alias": [
+      "铃剑双侠",
+      "铃剑双侠（之一）",
+      "汪少侠",
+      "汪贤侄",
+      "表哥"
+    ],
+    "identity": "铃剑双侠之男主角，青年侠客；铃剑双侠之一",
+    "faction": null,
+    "role": "配角；龙套",
+    "archetype": "青年侠客；堕落侠客",
+    "rank": "登堂入室；略有小成",
+    "one_line": "铃剑双侠之男主，人品俊雅武功高强，嫉恶如仇但误会狄云为血刀恶僧。；铃剑双侠之一，混在抢宝人群中中毒发疯。",
+    "personality": {
+      "traits": [
+        "贪利",
+        "随波逐流"
+      ],
+      "speech_style": "未在本章说话",
+      "temperament": "受贪欲驱使"
+    },
+    "relationships": [
+      {
+        "target": "水笙",
+        "type": "表兄妹/搭档",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "默契搭档，处处维护表妹名声"
+      },
+      {
+        "target": "狄云",
+        "type": "误会对象",
+        "intensity": 4,
+        "bond_level": -4,
+        "dynamic": "误认其为血刀恶僧，纵马踹伤"
+      },
+      {
+        "target": "水福",
+        "type": "主仆",
+        "intensity": 6,
+        "bond_level": 7,
+        "dynamic": "关切老家人性命安危"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "表兄妹/恋人",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "青梅竹马,深爱表妹,奋不顾身"
+      },
+      {
+        "target": "char_xue_dao_lao_zu",
+        "type": "仇敌",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "表妹被掳,恨不能碎尸万段"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "敌对",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "误认为淫僧同伙,欲杀之"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "师徒/准翁婿",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "师承水岱剑法,已许配婚事"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "恋人",
+        "intensity": 9,
+        "bond_level": 7,
+        "dynamic": "深爱表妹，却因流言猜疑打了她"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "舅甥",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "自幼受舅父抚养，视如亲生父亲"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "敌对",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "认定狄云是淫僧，拔剑相向"
+      },
+      {
+        "target": "char_hua_tie_gan",
+        "type": "信任",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "听从花伯伯吩咐，不疑有他"
+      }
+    ],
+    "known_skills": [
+      "skill_kong_que_kai_ping"
+    ],
+    "related_skills": [
+      "ma_bian_shu"
+    ]
+  },
+  {
+    "id": "shui_sheng",
+    "name": "水笙",
+    "alias": [
+      "铃剑双侠",
+      "铃剑双侠（之一）",
+      "水姑娘",
+      "水侄女",
+      "水女侠",
+      "水大小姐"
+    ],
+    "identity": "铃剑双侠之女主角，水家小姐；铃剑双侠之一",
+    "faction": null,
+    "role": "配角；重要配角",
+    "archetype": "侠女；痴情侠女",
+    "rank": "略有小成",
+    "one_line": "铃剑双侠之女主，娇艳率真，嫉恶如仇，误认狄云为血刀恶僧而纵马踩伤他。；在雪谷口苦等狄云归来，誓言等一百年也要找到他。",
+    "personality": {
+      "traits": [
+        "痴情执着",
+        "坚韧不移",
+        "乐观开朗"
+      ],
+      "speech_style": "欢快热切，誓言坚定",
+      "temperament": "深情款款，苦等不悔"
+    },
+    "relationships": [
+      {
+        "target": "汪啸风",
+        "type": "表兄妹/搭档",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "互相关切，听从表哥安排"
+      },
+      {
+        "target": "狄云",
+        "type": "误会对象",
+        "intensity": 4,
+        "bond_level": -5,
+        "dynamic": "误认血刀恶僧，纵马踩断其腿"
+      },
+      {
+        "target": "char_wang_xiao_feng",
+        "type": "表兄妹/恋人",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "青梅竹马,已许配表哥,情好弥笃"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "父女情深,为保父颜欲自尽"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "误解/恐惧",
+        "intensity": 6,
+        "bond_level": 1,
+        "dynamic": "误认为恶僧同伙,恨之入骨"
+      },
+      {
+        "target": "char_xue_dao_lao_zu",
+        "type": "仇敌/恐惧",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "被其掳走凌辱,恐惧至极"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "深爱父亲，眼见其惨亡悲痛欲绝"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "憎恨/恩人",
+        "intensity": 7,
+        "bond_level": -3,
+        "dynamic": "初恨为恶僧同伙，后知其救过父亲"
+      },
+      {
+        "target": "char_xue_dao_seng",
+        "type": "仇敌",
+        "intensity": 10,
+        "bond_level": -10,
+        "dynamic": "杀父之仇，恨之入骨"
+      },
+      {
+        "target": "char_hua_tie_gan",
+        "type": "鄙视",
+        "intensity": 7,
+        "bond_level": -6,
+        "dynamic": "恨其投降屈膝，不屑其为人"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "共患难",
+        "intensity": 7,
+        "bond_level": 5,
+        "dynamic": "从疑忌到信任，称他为正人君子"
+      },
+      {
+        "target": "char_wang_xiao_feng",
+        "type": "恋人",
+        "intensity": 8,
+        "bond_level": 7,
+        "dynamic": "自幼倾慕的表哥，却因误会生嫌隙"
+      },
+      {
+        "target": "char_hua_tie_gan",
+        "type": "敌对",
+        "intensity": 7,
+        "bond_level": 1,
+        "dynamic": "花铁干欲侵犯她父亲遗体并图谋不轨"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "父亲惨死，伏尸痛哭，悲不自胜"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "知己/情感",
+        "intensity": 9,
+        "bond_level": 8,
+        "dynamic": "雪谷苦等狄云，终于重逢"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "ma_bian_shu",
+      "skill_kong_que_kai_ping"
+    ]
+  },
+  {
+    "id": "lao_yu_ren",
+    "name": "老渔人",
+    "alias": [],
+    "identity": "长江边柳荫下的老渔民",
+    "faction": null,
+    "role": "路人",
+    "archetype": "平民百姓",
+    "rank": "平平无奇",
+    "one_line": "善良胆小的老渔民，给饥饿的狄云鱼饭，不敢拒绝宝象。",
+    "personality": {
+      "traits": [
+        "善良胆小",
+        "本分老实",
+        "谨慎怕事"
+      ],
+      "speech_style": "唯唯诺诺，连声应是",
+      "temperament": "胆怯温顺"
+    },
+    "relationships": [
+      {
+        "target": "狄云",
+        "type": "施惠者",
+        "intensity": 1,
+        "bond_level": 1,
+        "dynamic": "不敢拒绝，卖鱼饭给狄云"
+      },
+      {
+        "target": "宝象",
+        "type": "被欺凌者",
+        "intensity": 2,
+        "bond_level": -3,
+        "dynamic": "畏惧宝象悍恶，谎称无鱼"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "shui_fu",
+    "name": "水福",
+    "alias": [],
+    "identity": "汪啸风家老家人",
+    "faction": null,
+    "role": "路人",
+    "archetype": "忠仆",
+    "rank": "平平无奇",
+    "one_line": "汪啸风忠心老仆，买金鲤救人时被铁网帮围攻，得狄云相救。",
+    "personality": {
+      "traits": [
+        "忠心耿耿",
+        "知恩图报",
+        "恭敬有礼"
+      ],
+      "speech_style": "恭敬称呼小师父，彬彬有礼",
+      "temperament": "谦恭忠诚"
+    },
+    "relationships": [
+      {
+        "target": "汪啸风",
+        "type": "主仆",
+        "intensity": 7,
+        "bond_level": 8,
+        "dynamic": "忠心侍奉，听命行事"
+      },
+      {
+        "target": "狄云",
+        "type": "救命恩人",
+        "intensity": 5,
+        "bond_level": 5,
+        "dynamic": "感激狄云掷鱼篓救命之恩"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "yu_fan_tou_zi",
+    "name": "鱼贩头子",
+    "alias": [],
+    "identity": "长江铁网帮塔市口鱼贩头子",
+    "faction": "tie_wang_bang",
+    "role": "反派配角",
+    "archetype": "帮派打手",
+    "rank": "略有小成",
+    "one_line": "铁网帮鱼贩头子，蜡黄脸皮留鼠须，下盘功夫了得，被汪啸风鞭缠纵马甩入江中。",
+    "personality": {
+      "traits": [
+        "蛮横霸道",
+        "口硬心虚",
+        "色厉内荏"
+      ],
+      "speech_style": "语气强硬但底气不足",
+      "temperament": "欺软怕硬"
+    },
+    "relationships": [
+      {
+        "target": "汪啸风",
+        "type": "敌对",
+        "intensity": 5,
+        "bond_level": -6,
+        "dynamic": "被汪啸风轻松制服甩入江中"
+      },
+      {
+        "target": "水福",
+        "type": "敌对",
+        "intensity": 4,
+        "bond_level": -3,
+        "dynamic": "围攻水福强夺金鲤"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "gong_ren",
+    "name": "公人",
+    "alias": [],
+    "identity": "追捕血刀僧的衙门公差",
+    "faction": "guan_fu",
+    "role": "路人",
+    "archetype": "官差",
+    "rank": "平平无奇",
+    "one_line": "四名衙门公差，追捕采花淫僧，误将狄云当作血刀恶僧。",
+    "personality": {
+      "traits": [
+        "鲁莽冒失",
+        "以貌取人",
+        "胆小怕事"
+      ],
+      "speech_style": "吆喝喊叫，夸大其词",
+      "temperament": "狐假虎威"
+    },
+    "relationships": [
+      {
+        "target": "狄云",
+        "type": "追捕者",
+        "intensity": 3,
+        "bond_level": -3,
+        "dynamic": "误认狄云为采花淫僧"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_xue_dao_seng",
+    "name": "血刀老祖",
+    "alias": [
+      "血刀僧",
+      "老恶僧",
+      "老和尚",
+      "血刀恶僧",
+      "老淫僧"
+    ],
+    "identity": "血刀门掌门",
+    "faction": "faction_xue_dao_men",
+    "role": "血刀门门主；已故长辈",
+    "archetype": "邪道；亦正亦邪的老前辈",
+    "rank": "炉火纯青；登峰造极",
+    "one_line": "血刀门老祖，诡计多端，连斗三大高手后内力耗竭，靠虚张声势吓退花铁干；冻死于雪谷中，狄云以白雪草草安葬",
+    "personality": {
+      "traits": [
+        "功力通神",
+        "作恶多端",
+        "对狄云有恩"
+      ],
+      "speech_style": "不详，本章已死",
+      "temperament": "不详"
+    },
+    "relationships": [
+      {
+        "target": "char_di_yun",
+        "type": "挟持为徒孙",
+        "intensity": 5,
+        "bond_level": -2,
+        "dynamic": "视为门下利用，怒时拳脚相加"
+      },
+      {
+        "target": "char_liu_cheng_feng",
+        "type": "比拚内力的对手",
+        "intensity": 9,
+        "bond_level": -10,
+        "dynamic": "悬崖上以内力相拚，势均力敌"
+      },
+      {
+        "target": "char_hua_tie_gan",
+        "type": "虚实对峙",
+        "intensity": 8,
+        "bond_level": -10,
+        "dynamic": "内力耗尽后以恐吓策略迫其投降"
+      },
+      {
+        "target": "char_lu_tian_shu",
+        "type": "雪底搏杀",
+        "intensity": 9,
+        "bond_level": -10,
+        "dynamic": "利用冰雪环境将其斩首"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "诱入陷阱",
+        "intensity": 9,
+        "bond_level": -10,
+        "dynamic": "以雪井暗算使其双腿齐膝而断"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师祖徒孙",
+        "intensity": 5,
+        "bond_level": 4,
+        "dynamic": "欣赏其良心好,欲传衣钵"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "觊觎美色",
+        "intensity": 8,
+        "bond_level": 0,
+        "dynamic": "掳为人质,屡次威吓凌辱"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "宿敌",
+        "intensity": 9,
+        "bond_level": 0,
+        "dynamic": "杀其门人掳其女,势不两立"
+      },
+      {
+        "target": "char_bao_xiang",
+        "type": "师徒",
+        "intensity": 4,
+        "bond_level": 3,
+        "dynamic": "亲传弟子,弟子各怀鬼胎"
+      },
+      {
+        "target": "char_wang_xiao_feng",
+        "type": "敌对",
+        "intensity": 7,
+        "bond_level": 0,
+        "dynamic": "屡次从其手中夺走水笙"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "师徒",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "名义师父，狄云感其恩德为之安葬"
+      }
+    ],
+    "known_skills": [
+      "skill_xue_dao_dao_fa",
+      "skill_xue_dao_gong"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_shui_dai",
+    "name": "水岱",
+    "alias": [
+      "水老爷子",
+      "南四奇（落花流水之'水'）",
+      "水贤弟",
+      "水大侠",
+      "冷月剑",
+      "水侄女的爹爹"
+    ],
+    "identity": "'落花流水'四侠之一",
+    "faction": "faction_nan_si_qi",
+    "role": "已故长辈",
+    "archetype": "一代大侠",
+    "rank": "炉火纯青",
+    "one_line": "力竭求狄云击毙自己，死于雪谷中",
+    "personality": {
+      "traits": [
+        "仁义待人",
+        "疼爱女儿",
+        "宁死不辱"
+      ],
+      "speech_style": "不详，本章已死",
+      "temperament": "不详"
+    },
+    "relationships": [
+      {
+        "target": "char_shui_sheng",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "爱女被掳,不顾一切追击营救"
+      },
+      {
+        "target": "char_xue_dao_lao_zu",
+        "type": "宿敌",
+        "intensity": 10,
+        "bond_level": 0,
+        "dynamic": "誓要将血刀师徒碎尸万段"
+      },
+      {
+        "target": "char_wang_xiao_feng",
+        "type": "师徒/准翁婿",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "传授剑法,已许配女儿"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "深爱女儿，为救女儿而遭断腿"
+      },
+      {
+        "target": "char_xue_dao_seng",
+        "type": "仇敌",
+        "intensity": 10,
+        "bond_level": -10,
+        "dynamic": "遭其雪井暗算双腿齐断，宁死不屈"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "求杀/劝诫",
+        "intensity": 7,
+        "bond_level": 3,
+        "dynamic": "恳求狄云将自己打死以免受辱"
+      },
+      {
+        "target": "char_hua_tie_gan",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "对其投降深感悲愤失望"
+      },
+      {
+        "target": "char_lu_tian_shu",
+        "type": "结义兄弟",
+        "intensity": 9,
+        "bond_level": 10,
+        "dynamic": "义兄为其救女而惨死"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "父女",
+        "intensity": 10,
+        "bond_level": 10,
+        "dynamic": "水笙至亲，其死令水笙悲不自胜"
+      }
+    ],
+    "known_skills": [
+      "skill_kong_que_kai_ping"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_liu_cheng_feng",
+    "name": "刘乘风",
+    "alias": [
+      "刘伯伯",
+      "清风柔云剑",
+      "刘道长"
+    ],
+    "identity": "'落花流水'四侠之一",
+    "faction": null,
+    "role": "已故人物",
+    "archetype": "一代侠士",
+    "rank": "炉火纯青",
+    "one_line": "死于悬崖绝顶，被花铁干误杀，遗体被花铁干所食",
+    "personality": {
+      "traits": [
+        "侠义豪迈"
+      ],
+      "speech_style": "不详",
+      "temperament": "不详"
+    },
+    "relationships": [
+      {
+        "target": "char_xue_dao_seng",
+        "type": "拚斗内力",
+        "intensity": 9,
+        "bond_level": -10,
+        "dynamic": "悬崖之上以内力相拚，势均力敌"
+      },
+      {
+        "target": "char_hua_tie_gan",
+        "type": "结义兄弟",
+        "intensity": 9,
+        "bond_level": 9,
+        "dynamic": "被其误刺胸口而亡，不知其来"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "四奇同门义兄弟"
+      },
+      {
+        "target": "char_lu_tian_shu",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "四奇同门义兄弟"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian_fa"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_hua_tie_gan",
+    "name": "花铁干",
+    "alias": [
+      "花伯伯",
+      "花二哥",
+      "中平无敌",
+      "花大侠",
+      "花兄"
+    ],
+    "identity": "落花流水之一",
+    "faction": "faction_ying_zhao_tie_qiang_men",
+    "role": "龙套",
+    "archetype": "堕落豪侠",
+    "rank": "登堂入室",
+    "one_line": "落花流水之一，混在抢宝人群中中毒发疯。",
+    "personality": {
+      "traits": [
+        "贪婪",
+        "虚伪"
+      ],
+      "speech_style": "未在本章说话",
+      "temperament": "表面豪侠实则贪利"
+    },
+    "relationships": [
+      {
+        "target": "char_liu_cheng_feng",
+        "type": "误杀义弟",
+        "intensity": 10,
+        "bond_level": -10,
+        "dynamic": "偷袭血刀僧时误刺义弟胸口，悲悔交加"
+      },
+      {
+        "target": "char_xue_dao_seng",
+        "type": "屈膝投降",
+        "intensity": 9,
+        "bond_level": -10,
+        "dynamic": "被吓破胆，抛枪跪地求饶反被点穴"
+      },
+      {
+        "target": "char_lu_tian_shu",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "目睹义兄断头，斗志全失"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 8,
+        "dynamic": "义弟惨亡，自己却苟且投降"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "世侄女",
+        "intensity": 6,
+        "bond_level": 5,
+        "dynamic": "教她冲穴报仇，实则利用她自保"
+      },
+      {
+        "target": "char_di_yun",
+        "type": "敌对",
+        "intensity": 8,
+        "bond_level": 1,
+        "dynamic": "多次欲杀狄云灭口，惧其内力深厚"
+      },
+      {
+        "target": "char_shui_sheng",
+        "type": "图谋不轨",
+        "intensity": 6,
+        "bond_level": 2,
+        "dynamic": "造谣污蔑水笙，企图控制她"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "结义兄弟(已故)",
+        "intensity": 3,
+        "bond_level": 6,
+        "dynamic": "食其义弟尸身，毫无兄弟情义"
+      },
+      {
+        "target": "char_wang_xiao_feng",
+        "type": "利用",
+        "intensity": 5,
+        "bond_level": 3,
+        "dynamic": "利用汪啸风的信任来对付狄云和水笙"
+      }
+    ],
+    "known_skills": [
+      "skill_zhong_ping_qiang_fa",
+      "skill_yue_jia_san_shou"
+    ],
+    "related_skills": []
+  },
+  {
+    "id": "char_lu_tian_shu",
+    "name": "陆天抒",
+    "alias": [
+      "陆大哥",
+      "仁义陆大刀",
+      "陆大侠",
+      "陆伯伯"
+    ],
+    "identity": "'落花流水'四侠之一",
+    "faction": null,
+    "role": "已故人物",
+    "archetype": "一代大侠",
+    "rank": "炉火纯青",
+    "one_line": "死于雪谷深处，遗体被花铁干所食",
+    "personality": {
+      "traits": [
+        "侠义豪迈"
+      ],
+      "speech_style": "不详",
+      "temperament": "不详"
+    },
+    "relationships": [
+      {
+        "target": "char_xue_dao_seng",
+        "type": "追杀/被杀",
+        "intensity": 10,
+        "bond_level": -10,
+        "dynamic": "雪底追杀恶僧，反被其利用冰雪斩首"
+      },
+      {
+        "target": "char_shui_dai",
+        "type": "结义兄弟",
+        "intensity": 9,
+        "bond_level": 10,
+        "dynamic": "义兄弟之首，为其救女而来"
+      },
+      {
+        "target": "char_hua_tie_gan",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "二人共谋进攻雪谷"
+      },
+      {
+        "target": "char_liu_cheng_feng",
+        "type": "结义兄弟",
+        "intensity": 8,
+        "bond_level": 9,
+        "dynamic": "四奇义兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_zhang_lao_ying_xiong",
+    "name": "张老英雄",
+    "alias": [
+      "张兄"
+    ],
+    "identity": "中原群豪中的德高望重老者",
+    "faction": null,
+    "role": "配角",
+    "archetype": "江湖长者",
+    "rank": "登堂入室",
+    "one_line": "群豪中威望最高者，劝大家顾全水大侠颜面",
+    "personality": {
+      "traits": [
+        "德高望重",
+        "处事圆滑",
+        "先入为主"
+      ],
+      "speech_style": "老成持重，善做和事佬",
+      "temperament": "老练世故"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": []
+  },
+  {
+    "id": "char_wu_liu_qi",
+    "name": "吴六奇",
+    "alias": [],
+    "identity": "天地会广东红旗香主",
+    "faction": "faction_tian_di_hui",
+    "role": "背景人物",
+    "archetype": "反清义士",
+    "rank": "登堂入室",
+    "one_line": "天地会广东红旗香主，高僧同门师侄，遭难后剑诀密码流落在外。",
+    "personality": {
+      "traits": [
+        "忠义",
+        "反清"
+      ],
+      "speech_style": "未在本章说话",
+      "temperament": "忠于反清事业"
+    },
+    "relationships": [
+      {
+        "target": "char_mei_nian_sheng",
+        "type": "同门",
+        "intensity": 4,
+        "bond_level": 5,
+        "dynamic": "同为高僧一派门人"
+      }
+    ],
+    "known_skills": [
+      "skill_lian_cheng_jian_fa"
+    ],
+    "related_skills": []
+  }
+]
