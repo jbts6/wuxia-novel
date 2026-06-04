@@ -29,11 +29,18 @@ python tools/setup-novel-dirs.py <小说目录>  # 初始化（如需要）
 
 ### Step 1: 全书一次性提取
 
+**详细原则**：提取必须详尽完整，不能草率。每个实体都要有丰富的描述和引用。
+
+- **dialogues.json**：至少 100+ 条（长篇小说目标 300+），覆盖每章关键对白
+- **events.json**：至少覆盖全部章节，每章至少 1 个事件，重大章节多个事件
+- **characters.json**：主角完整 personality（5+ traits），所有配角也要有基本描述
+- **event_timeline.md**：每章都要有情节概述，不能只列标题
+
 主 agent 直接执行：
 
 1. `ls <novel_dir>/ch_formatted/` 获取全部章节文件列表
 2. 依次 `read_file` 每个 `ch_formatted/ch_XX.md`，全部读入上下文
-3. 按下方 Schema 提取全部实体
+3. 按下方 Schema 提取全部实体（务必详尽）
 4. 一次性 `write_file` 写入以下 8 个根目录 JSON 文件 + `event_timeline.md`：
    - `characters.json`
    - `skills.json`
@@ -173,6 +180,9 @@ ID格式：全小写拼音，字间下划线分隔
 □ 每个事件 name 非空，source_refs 非空
 □ relationships 无重复 (target+type)
 □ events 的 id 格式为 evt_N_序号
+□ dialogues ≥ 100 条，覆盖每章关键对白
+□ events 覆盖全部章节，每章至少 1 个事件
+□ event_timeline.md 每章都有情节概述
 
 ---
 

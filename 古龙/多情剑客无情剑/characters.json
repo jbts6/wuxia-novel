@@ -1,0 +1,1493 @@
+[
+  {
+    "id": "char_li_xun_huan",
+    "name": "李寻欢",
+    "alias": [
+      "小李探花",
+      "小李飞刀"
+    ],
+    "identity": "探花出身的江湖奇人，飞刀绝技天下无双",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "scholar",
+    "rank": "登峰造极",
+    "one_line": "飞刀出手，例不虚发；多情重义，忍辱负重的悲剧英雄",
+    "personality": {
+      "traits": [
+        "多情重义",
+        "嗜酒如命",
+        "外冷内热",
+        "忍辱负重",
+        "悲天悯人"
+      ],
+      "speech_style": "简洁有力，常带自嘲与感慨",
+      "temperament": "忧郁而温柔，表面洒脱实则深情"
+    },
+    "relationships": [
+      {
+        "target": "char_a_fei",
+        "type": "挚友",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "亦师亦友，彼此信任"
+      },
+      {
+        "target": "char_lin_shi_yin",
+        "type": "旧爱",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "刻骨铭心却主动放手"
+      },
+      {
+        "target": "char_long_xiao_yun",
+        "type": "结义兄弟",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "以德报怨，甘愿牺牲"
+      },
+      {
+        "target": "char_sun_xiao_hong",
+        "type": "知己",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "红颜知己，惺惺相惜"
+      },
+      {
+        "target": "char_tie_chuan_jia",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "忠仆义主，生死与共"
+      },
+      {
+        "target": "char_shang_guan_jin_hong",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "正邪对立，终极对决"
+      },
+      {
+        "target": "char_lin_xian_er",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "识破其伪装，多次交锋"
+      },
+      {
+        "target": "char_jing_wu_ming",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "亦敌亦友的复杂关系"
+      }
+    ],
+    "known_skills": [
+      "skill_li_fei_dao"
+    ],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 5,
+        "line_end": 7,
+        "text": "李寻欢打了个呵欠，将两条长腿在柔软的貂皮上尽量伸直，车厢里虽然很温暖，很舒服，但这段旅途实在太长，太寂寞，他不但已觉得疲倦，而且觉得很厌恶，他平生最厌恶的就是寂寞，但他却偏偏时常与寂寞为伍。"
+      }
+    ]
+  },
+  {
+    "id": "char_a_fei",
+    "name": "阿飞",
+    "alias": [
+      "阿飞",
+      "快剑阿飞"
+    ],
+    "identity": "孤独的年轻剑客，身世坎坷",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "天下最快的剑，赤贫少年的热血与执着",
+    "personality": {
+      "traits": [
+        "倔强刚毅",
+        "纯真质朴",
+        "孤傲不群",
+        "重情重义",
+        "嫉恶如仇"
+      ],
+      "speech_style": "简短直接，少言寡语",
+      "temperament": "冷峻外表下藏着炽热的心"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "挚友",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "亦师亦友，彼此信任"
+      },
+      {
+        "target": "char_lin_xian_er",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "被美色迷惑后醒悟"
+      },
+      {
+        "target": "char_sun_xiao_hong",
+        "type": "朋友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "共同守护李寻欢"
+      }
+    ],
+    "known_skills": [
+      "skill_a_fei_jian"
+    ],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 91,
+        "line_end": 93,
+        "text": "少年这次沉默得更久，然后才缓缓道：“认得我的人，都叫我阿飞。”"
+      }
+    ]
+  },
+  {
+    "id": "char_lin_xian_er",
+    "name": "林仙儿",
+    "alias": [
+      "梅花盗"
+    ],
+    "identity": "江湖第一美人，实为梅花盗",
+    "faction": "faction_jin_qian_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "以美色为武器的蛇蝎美人，操纵男人的顶级阴谋家",
+    "personality": {
+      "traits": [
+        "妖艳狠毒",
+        "工于心计",
+        "冷酷无情",
+        "善于伪装",
+        "贪婪权力"
+      ],
+      "speech_style": "娇媚动人，语带挑逗",
+      "temperament": "外表温柔似水，内心蛇蝎心肠"
+    },
+    "relationships": [
+      {
+        "target": "char_a_fei",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "利用阿飞的感情"
+      },
+      {
+        "target": "char_shang_guan_jin_hong",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "互相利用的同盟"
+      },
+      {
+        "target": "char_li_xun_huan",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "多次设计陷害"
+      },
+      {
+        "target": "char_you_long_sheng",
+        "type": "暧昧对象",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "玩弄其感情"
+      },
+      {
+        "target": "char_yi_ku",
+        "type": "暧昧对象",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "利用其痴迷"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_lian_hua_bao_dian"
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 297,
+        "line_end": 299,
+        "text": "说到“林”字，李寻欢面色已变了，但龙啸云说的并不是“林诗音”，而是“林仙儿”。"
+      }
+    ]
+  },
+  {
+    "id": "char_shang_guan_jin_hong",
+    "name": "上官金虹",
+    "alias": [],
+    "identity": "金钱帮帮主，武林枭雄",
+    "faction": "faction_jin_qian_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "掌控金钱帮的绝世枭雄，龙凤环威震天下",
+    "personality": {
+      "traits": [
+        "野心勃勃",
+        "心狠手辣",
+        "深谋远虑",
+        "冷酷威严",
+        "刚愎自用"
+      ],
+      "speech_style": "简短威严，不容置疑",
+      "temperament": "霸道而阴沉，视万物为棋子"
+    },
+    "relationships": [
+      {
+        "target": "char_jing_wu_ming",
+        "type": "主从",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "绝对忠诚的左膀右臂"
+      },
+      {
+        "target": "char_li_xun_huan",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "正邪终极对决"
+      },
+      {
+        "target": "char_shang_guan_fei",
+        "type": "父子",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "严父与不成器的儿子"
+      },
+      {
+        "target": "char_lin_xian_er",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "互相利用"
+      }
+    ],
+    "known_skills": [
+      "skill_long_feng_huan"
+    ],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 123,
+        "line_end": 125,
+        "text": "老头子道：“你可听说过‘龙凤环’上官金虹这名字么？”"
+      }
+    ]
+  },
+  {
+    "id": "char_jing_wu_ming",
+    "name": "荆无命",
+    "alias": [],
+    "identity": "金钱帮杀手，上官金虹的影子",
+    "faction": "faction_jin_qian_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "冷血无情的杀手，上官金虹最忠诚的影子",
+    "personality": {
+      "traits": [
+        "冷血无情",
+        "沉默寡言",
+        "绝对忠诚",
+        "嗜杀成性",
+        "机械般精准"
+      ],
+      "speech_style": "极少说话，言出必行",
+      "temperament": "如影随形的死神，没有感情的杀人机器"
+    },
+    "relationships": [
+      {
+        "target": "char_shang_guan_jin_hong",
+        "type": "主从",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "绝对忠诚"
+      },
+      {
+        "target": "char_li_xun_huan",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "多次交手"
+      },
+      {
+        "target": "char_guo_song_yang",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "决斗击杀"
+      }
+    ],
+    "known_skills": [
+      "skill_wu_ming_jian"
+    ],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 34,
+        "line_start": 299,
+        "line_end": 301,
+        "text": "她闭上眼睛，扳着手指头道：“男的有上官金虹、吕凤先、荆无命，还有……还有个人二叔你一定猜不出是谁。”"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_xiao_hong",
+    "name": "孙小红",
+    "alias": [],
+    "identity": "说书老人的孙女",
+    "faction": null,
+    "role": "companion",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "聪慧善良的说书少女，李寻欢的红颜知己",
+    "personality": {
+      "traits": [
+        "聪慧机敏",
+        "善良纯真",
+        "勇敢坚定",
+        "善解人意",
+        "外柔内刚"
+      ],
+      "speech_style": "温柔 clear，条理分明",
+      "temperament": "温婉而坚韧，有侠女风范"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "知己",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "红颜知己，惺惺相惜"
+      },
+      {
+        "target": "char_sun_lao_xian_sheng",
+        "type": "祖孙",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "相依为命的祖孙"
+      },
+      {
+        "target": "char_a_fei",
+        "type": "朋友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "共同守护李寻欢"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 33,
+        "line_start": 29,
+        "line_end": 31,
+        "text": "辫子姑娘板着脸道：“我姓孙，叫孙小红，可不是上官金虹那个‘虹’，而是红黄蓝白那个‘红’。”"
+      }
+    ]
+  },
+  {
+    "id": "char_long_xiao_yun",
+    "name": "龙啸云",
+    "alias": [
+      "龙四爷"
+    ],
+    "identity": "兴云庄庄主，李寻欢的结义兄弟",
+    "faction": "faction_xing_yun_zhuang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "忘恩负义的伪君子，夺走义兄一切的卑鄙小人",
+    "personality": {
+      "traits": [
+        "忘恩负义",
+        "虚伪狡诈",
+        "贪生怕死",
+        "嫉妒心强",
+        "厚颜无耻"
+      ],
+      "speech_style": "表面豪爽，实则虚伪",
+      "temperament": "伪善面具下藏着自私的灵魂"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "结义兄弟",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "背叛义兄，夺其妻财"
+      },
+      {
+        "target": "char_lin_shi_yin",
+        "type": "夫妻",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "利用婚姻占有"
+      },
+      {
+        "target": "char_long_xiao_yun_jr",
+        "type": "父子",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "溺爱纵容"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 371,
+        "line_end": 373,
+        "text": "他记得那天他带龙啸云回去的时候，也在下着雪，她正坐在梅林边的亭子里，看梅花上的雪花。"
+      }
+    ]
+  },
+  {
+    "id": "char_lin_shi_yin",
+    "name": "林诗音",
+    "alias": [],
+    "identity": "李寻欢的旧爱，龙啸云之妻",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "温婉贤淑的悲剧女子，被迫与真爱分离",
+    "personality": {
+      "traits": [
+        "温婉贤淑",
+        "柔弱善良",
+        "隐忍牺牲",
+        "多愁善感",
+        "深明大义"
+      ],
+      "speech_style": "温柔低沉，常带忧伤",
+      "temperament": "如水般温柔，内心却承受无尽痛苦"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "旧爱",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "刻骨铭心却被迫分离"
+      },
+      {
+        "target": "char_long_xiao_yun",
+        "type": "夫妻",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "无奈嫁与"
+      },
+      {
+        "target": "char_long_xiao_yun_jr",
+        "type": "母子",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "慈母护子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 287,
+        "line_end": 289,
+        "text": "虬髯大汉满面热泪，嘶声道：“可是……可是少爷你本该是天下最有作为的人，你的好处谁也比不上，你为何定要如此自暴自弃，自伤自苦，为了林诗音那女人，这值得吗？”"
+      }
+    ]
+  },
+  {
+    "id": "char_long_xiao_yun_jr",
+    "name": "龙小云",
+    "alias": [],
+    "identity": "龙啸云与林诗音之子",
+    "faction": "faction_xing_yun_zhuang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "心机深沉的少年，被李寻欢废去武功后更加阴毒",
+    "personality": {
+      "traits": [
+        "心机深沉",
+        "阴险狠毒",
+        "少年老成",
+        "报复心强",
+        "善于伪装"
+      ],
+      "speech_style": "表面恭敬，暗藏杀机",
+      "temperament": "少年外表下藏着老谋深算的心"
+    },
+    "relationships": [
+      {
+        "target": "char_long_xiao_yun",
+        "type": "父子",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "父子联手"
+      },
+      {
+        "target": "char_lin_shi_yin",
+        "type": "母子",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "利用母亲"
+      },
+      {
+        "target": "char_li_xun_huan",
+        "type": "仇人",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "恨其废己武功"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 383,
+        "line_end": 385,
+        "text": "巴英叹了口气，道：“这孩子就是龙啸云龙四爷的大公子，龙小云！”"
+      }
+    ]
+  },
+  {
+    "id": "char_tie_chuan_jia",
+    "name": "铁传甲",
+    "alias": [
+      "虬髯大汉"
+    ],
+    "identity": "李寻欢的忠仆",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "十七年忠心不改，以死护主的铁血忠仆",
+    "personality": {
+      "traits": [
+        "忠心耿耿",
+        "刚毅勇猛",
+        "沉默寡言",
+        "重义轻生",
+        "朴实无华"
+      ],
+      "speech_style": "简短朴实",
+      "temperament": "铁骨铮铮的硬汉"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "以命相报的忠义"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 341,
+        "line_end": 343,
+        "text": "梅二先生道：“据说近五十年来，只有一个人肯下苦功练这种笨功夫，据说此人叫‘铁甲金刚’铁传甲，但二十年前就被人一掌自舍身崖上震下去了，也不知死了没有，也许并没有死，还能坐着喝酒。”"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_lao_xian_sheng",
+    "name": "孙老先生",
+    "alias": [
+      "孙驼子"
+    ],
+    "identity": "说书老人，孙小红的祖父",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登峰造极",
+    "one_line": "深藏不露的绝世高手，以说书为掩护的武林前辈",
+    "personality": {
+      "traits": [
+        "深藏不露",
+        "智慧超群",
+        "慈祥和蔼",
+        "洞察世事",
+        "风趣幽默"
+      ],
+      "speech_style": "娓娓道来，充满智慧",
+      "temperament": "看似平凡实则深不可测"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_xiao_hong",
+        "type": "祖孙",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "相依为命"
+      },
+      {
+        "target": "char_li_xun_huan",
+        "type": "忘年交",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "欣赏其品格"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 217,
+        "line_end": 219,
+        "text": "“各位客官们，你们可想知道江湖中最轰动的消息，武林中最近发生的大事么？那么就请到饭厅，由南边来的孙老先生准午时开讲，保证既新鲜，又紧张，各位还可以一边吃着饭喝着酒。”"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_xiao_sheng",
+    "name": "百晓生",
+    "alias": [],
+    "identity": "武林百晓生，著有《兵器谱》",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "武林百科全书，兵器谱的编撰者",
+    "personality": {
+      "traits": [
+        "博学多才",
+        "客观公正",
+        "洞察人心",
+        "淡泊名利",
+        "谨慎小心"
+      ],
+      "speech_style": "引经据典，条理清晰",
+      "temperament": "学者气质，超然物外"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 167,
+        "line_end": 169,
+        "text": "李寻欢道：“百晓生作‘兵器谱’，青魔手排名第九，可算珍品。”"
+      }
+    ]
+  },
+  {
+    "id": "char_lü_feng_xian",
+    "name": "吕凤先",
+    "alias": [],
+    "identity": "武林高手，曾排名兵器谱第七",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "银戟温侯，因痴迷林仙儿而自毁前程",
+    "personality": {
+      "traits": [
+        "骄傲自负",
+        "痴情",
+        "刚烈",
+        "心高气傲",
+        "自尊心强"
+      ],
+      "speech_style": "高傲冷峻",
+      "temperament": "骄傲的武者，为情所困"
+    },
+    "relationships": [
+      {
+        "target": "char_lin_xian_er",
+        "type": "痴迷",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "为其神魂颠倒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 34,
+        "line_start": 299,
+        "line_end": 301,
+        "text": "她闭上眼睛，扳着手指头道：“男的有上官金虹、吕凤先、荆无命，还有……还有个人二叔你一定猜不出是谁。”"
+      }
+    ]
+  },
+  {
+    "id": "char_guo_song_yang",
+    "name": "郭嵩阳",
+    "alias": [],
+    "identity": "嵩阳铁剑传人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "嵩阳铁剑，刚正不阿的剑客",
+    "personality": {
+      "traits": [
+        "刚正不阿",
+        "豪迈磊落",
+        "重义轻死",
+        "嫉恶如仇",
+        "坦荡光明"
+      ],
+      "speech_style": "豪爽直率",
+      "temperament": "光明磊落的侠客"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "朋友",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "英雄相惜"
+      },
+      {
+        "target": "char_jing_wu_ming",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "决斗中被杀"
+      }
+    ],
+    "known_skills": [
+      "skill_song_yang_tie_jian"
+    ],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 31,
+        "line_start": 326,
+        "line_end": 328,
+        "text": "黑衣人道：“正是郭嵩阳。”"
+      }
+    ]
+  },
+  {
+    "id": "char_yi_ku",
+    "name": "伊哭",
+    "alias": [],
+    "identity": "青魔手，武林高手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "青魔手伊哭，因痴迷林仙儿而丧命",
+    "personality": {
+      "traits": [
+        "阴沉",
+        "残忍",
+        "痴情",
+        "偏执",
+        "冷酷"
+      ],
+      "speech_style": "阴森低沉",
+      "temperament": "阴郁的杀手"
+    },
+    "relationships": [
+      {
+        "target": "char_lin_xian_er",
+        "type": "痴迷",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "为其痴狂"
+      }
+    ],
+    "known_skills": [
+      "skill_qing_mo_shou"
+    ],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 113,
+        "line_end": 115,
+        "text": "“但阁下却并非‘青魔’伊哭。”"
+      }
+    ]
+  },
+  {
+    "id": "char_lan_xie_zi",
+    "name": "蓝蝎子",
+    "alias": [],
+    "identity": "蝎子帮帮主，女杀手",
+    "faction": "faction_xie_zi_bang",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "心狠手辣的女杀手，外冷内热",
+    "personality": {
+      "traits": [
+        "心狠手辣",
+        "外冷内热",
+        "重情重义",
+        "敢爱敢恨",
+        "刚烈"
+      ],
+      "speech_style": "冷峻直接",
+      "temperament": "外表冷酷内心炽热"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_ku",
+        "type": "恋人",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "为其报仇"
+      }
+    ],
+    "known_skills": [
+      "skill_xie_zi_bian"
+    ],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 34,
+        "line_start": 279,
+        "line_end": 281,
+        "text": "孙小红道：“男的不说，先说女的，其中就有苗疆‘大欢喜女菩萨’和关外‘蓝蝎子’……”"
+      }
+    ]
+  },
+  {
+    "id": "char_shang_guan_fei",
+    "name": "上官飞",
+    "alias": [],
+    "identity": "上官金虹之子",
+    "faction": "faction_jin_qian_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "金钱帮少主，活在父亲阴影下的可悲之人",
+    "personality": {
+      "traits": [
+        "懦弱",
+        "嫉妒",
+        "野心",
+        "自卑",
+        "贪婪"
+      ],
+      "speech_style": "阴沉",
+      "temperament": "活在父亲阴影下，内心扭曲"
+    },
+    "relationships": [
+      {
+        "target": "char_shang_guan_jin_hong",
+        "type": "父子",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "严父与不成器的儿子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 127,
+        "line_end": 129,
+        "text": "老头子道：“那少年叫上官飞，正是上官金虹的独生子，诸葛刚、唐独、高行空、燕双飞，也都是上官金虹的属下。”"
+      }
+    ]
+  },
+  {
+    "id": "char_xin_hu",
+    "name": "心湖大师",
+    "alias": [],
+    "identity": "少林寺方丈",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "炉火纯青",
+    "one_line": "少林方丈，德高望重的佛门高僧",
+    "personality": {
+      "traits": [
+        "慈悲为怀",
+        "刚正不阿",
+        "深谋远虑",
+        "持重稳健",
+        "洞察世事"
+      ],
+      "speech_style": "庄严平和",
+      "temperament": "佛门高僧的慈悲与威严"
+    },
+    "relationships": [
+      {
+        "target": "char_xin_mei",
+        "type": "同门",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "师兄弟"
+      },
+      {
+        "target": "char_xin_shu",
+        "type": "同门",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "师兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_shao_lin_gong"
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 203,
+        "line_end": 205,
+        "text": "龙啸云道：“兄弟，你受的委屈，我全都知道，但我可以保证，他们绝不会害死你的，你只要见到心湖大师，就会没事了。”"
+      }
+    ]
+  },
+  {
+    "id": "char_xin_mei",
+    "name": "心眉大师",
+    "alias": [],
+    "identity": "少林寺高僧",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "炉火纯青",
+    "one_line": "少林神僧，慈悲为怀却难逃一死",
+    "personality": {
+      "traits": [
+        "慈悲",
+        "刚毅",
+        "固执",
+        "正直",
+        "仁厚"
+      ],
+      "speech_style": "平和庄重",
+      "temperament": "佛门高僧的慈悲"
+    },
+    "relationships": [
+      {
+        "target": "char_xin_hu",
+        "type": "同门",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "师兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_shao_lin_gong"
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 325,
+        "line_end": 327,
+        "text": "“心眉大师既然并不怪罪，你还不快走？”"
+      }
+    ]
+  },
+  {
+    "id": "char_xin_shu",
+    "name": "心树大师",
+    "alias": [],
+    "identity": "少林寺高僧",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "炉火纯青",
+    "one_line": "少林高僧，暗中被利用",
+    "personality": {
+      "traits": [
+        "慈悲",
+        "正直",
+        "固执",
+        "仁厚",
+        "谨慎"
+      ],
+      "speech_style": "平和庄重",
+      "temperament": "佛门高僧"
+    },
+    "relationships": [
+      {
+        "target": "char_xin_hu",
+        "type": "同门",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "师兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_shao_lin_gong"
+    ],
+    "source_refs": [
+      {
+        "chapter": 23,
+        "line_start": 143,
+        "line_end": 145,
+        "text": "看来带着很浓的书卷气，就像是位中年便已退隐林下的翰苑清流，谁也想不到他就是少林寺中最精练的心树大师。"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_qi",
+    "name": "田七",
+    "alias": [],
+    "identity": "朝廷鹰犬，武林败类",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "朝廷走狗，助纣为虐的小人",
+    "personality": {
+      "traits": [
+        "阴险狡诈",
+        "贪生怕死",
+        "趋炎附势",
+        "卑鄙无耻",
+        "贪婪"
+      ],
+      "speech_style": "谄媚讨好",
+      "temperament": "卑鄙小人"
+    },
+    "relationships": [
+      {
+        "target": "char_zhao_zheng_yi",
+        "type": "同伙",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "狼狈为奸"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 117,
+        "line_end": 119,
+        "text": "“老实告诉你，洛阳府的田七爷今天已赶来了，还有‘摩云手’公孙大侠，再加上赵大爷，龙四爷……”"
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_zheng_yi",
+    "name": "赵正义",
+    "alias": [],
+    "identity": "铁面判官，伪君子",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "铁面判官，实为道貌岸然的伪君子",
+    "personality": {
+      "traits": [
+        "道貌岸然",
+        "虚伪狡诈",
+        "心狠手辣",
+        "贪生怕死",
+        "趋炎附势"
+      ],
+      "speech_style": "义正词严，满口仁义",
+      "temperament": "伪善的面具下藏着肮脏的灵魂"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_qi",
+        "type": "同伙",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "狼狈为奸"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 227,
+        "line_end": 229,
+        "text": "另一人道：“赵大爷就是人称‘铁面无私’赵正义赵老爷子，也就是我们龙四爷的结拜大哥，李探花难道还不知道么？”"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_feng_bai",
+    "name": "金风白",
+    "alias": [],
+    "identity": "游侠",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "正直的游侠",
+    "personality": {
+      "traits": [
+        "正直",
+        "豪爽",
+        "重义",
+        "勇敢",
+        "坦荡"
+      ],
+      "speech_style": "豪爽直率",
+      "temperament": "侠义心肠"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 169,
+        "line_end": 171,
+        "text": "卖野药的郎中道：“我三哥‘宝马神枪’边浩你已见过了，我行四，叫金风白。”"
+      }
+    ]
+  },
+  {
+    "id": "char_xiang_song",
+    "name": "向松",
+    "alias": [],
+    "identity": "游侠",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "正直的游侠",
+    "personality": {
+      "traits": [
+        "正直",
+        "豪爽",
+        "重义",
+        "勇敢",
+        "坦荡"
+      ],
+      "speech_style": "豪爽直率",
+      "temperament": "侠义心肠"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 54,
+        "line_start": 65,
+        "line_end": 67,
+        "text": "门外人道：“第八舵主向松。”"
+      }
+    ]
+  },
+  {
+    "id": "char_you_long_sheng",
+    "name": "游龙生",
+    "alias": [],
+    "identity": "世家子弟，游侠",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "自命不凡的世家子弟，为情所困",
+    "personality": {
+      "traits": [
+        "骄傲自负",
+        "痴情",
+        "自命不凡",
+        "嫉妒",
+        "刚烈"
+      ],
+      "speech_style": "傲慢",
+      "temperament": "骄傲的世家子弟"
+    },
+    "relationships": [
+      {
+        "target": "char_lin_xian_er",
+        "type": "痴迷",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "痴迷于她"
+      }
+    ],
+    "known_skills": [
+      "skill_yu_cang_jian"
+    ],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 197,
+        "line_end": 199,
+        "text": "青衣人道：“老龙已死了，这是他儿子游龙生送给我的。”"
+      }
+    ]
+  },
+  {
+    "id": "char_mei_er_xian_sheng",
+    "name": "梅二先生",
+    "alias": [],
+    "identity": "怪医",
+    "faction": null,
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "炉火纯青",
+    "one_line": "医术通神的怪医，不拘小节",
+    "personality": {
+      "traits": [
+        "医术高明",
+        "不拘小节",
+        "嗜酒",
+        "古怪",
+        "善良"
+      ],
+      "speech_style": "随意洒脱",
+      "temperament": "不拘世俗的怪医"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 135,
+        "line_end": 137,
+        "text": "穷酸咧嘴一笑，道：“这意思各位难道还不懂么？只不过是酒瘾大发而已，梅二先生酒瘾发作时，就算天塌下来也得先喝了酒再说，哪有心情为别人治病。”"
+      }
+    ]
+  },
+  {
+    "id": "char_hong_hai_er",
+    "name": "红孩儿",
+    "alias": [],
+    "identity": "少年高手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "武功了得的少年",
+    "personality": {
+      "traits": [
+        "年少气盛",
+        "武功高强",
+        "骄傲",
+        "好胜",
+        "天真"
+      ],
+      "speech_style": "少年气盛",
+      "temperament": "少年高手的骄傲"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 72,
+        "line_end": 74,
+        "text": "第二人面如重枣，长髯过腹，披着件紫缎团花大氅，顾盼之间，睥睨自雄，显然是个惯于发号施令的人物。\n第三人却是个十来岁的小孩子，圆圆的脸，圆圆的眼睛，红斗篷上镶着白兔毛的边，看来就像是个粉装玉琢的红孩儿。\n除了他之外，其余两人眉目间都带着忧郁焦急之色。"
+      }
+    ]
+  },
+  {
+    "id": "char_tie_di_xian_sheng",
+    "name": "铁笛先生",
+    "alias": [],
+    "identity": "铁笛帮帮主",
+    "faction": "faction_tie_di_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "铁笛帮主，以铁笛为武器",
+    "personality": {
+      "traits": [
+        "阴沉",
+        "残忍",
+        "自负",
+        "贪婪",
+        "狡诈"
+      ],
+      "speech_style": "阴沉",
+      "temperament": "阴险的帮派头目"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_tie_di"
+    ],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 359,
+        "line_end": 361,
+        "text": "林仙儿道：“铁笛先生。”"
+      }
+    ]
+  },
+  {
+    "id": "char_da_huan_xi_nv_pu_sa",
+    "name": "大欢喜女菩萨",
+    "alias": [],
+    "identity": "女巨人，经营客栈",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "体型巨大的女高手，外表恐怖实则痴情",
+    "personality": {
+      "traits": [
+        "体型巨大",
+        "力大无穷",
+        "痴情",
+        "贪婪",
+        "残忍"
+      ],
+      "speech_style": "粗犷",
+      "temperament": "外表恐怖的女巨人"
+    },
+    "relationships": [
+      {
+        "target": "char_zhi_zun_bao",
+        "type": "恋人",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "痴迷于他"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 34,
+        "line_start": 279,
+        "line_end": 281,
+        "text": "孙小红道：“男的不说，先说女的，其中就有苗疆‘大欢喜女菩萨’和关外‘蓝蝎子’……”"
+      }
+    ]
+  },
+  {
+    "id": "char_zhi_zun_bao",
+    "name": "至尊宝",
+    "alias": [],
+    "identity": "骗子",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "江湖骗子，善于伪装",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "善于伪装",
+        "贪财",
+        "怕死",
+        "机灵"
+      ],
+      "speech_style": "油嘴滑舌",
+      "temperament": "机灵的骗子"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 44,
+        "line_start": 233,
+        "line_end": 235,
+        "text": "那胖女人道：“你可听说过‘大欢喜女菩萨’这名字？我就是女菩萨座下的‘至尊宝’，只要是男人我就统吃。”"
+      }
+    ]
+  },
+  {
+    "id": "char_ling_ling",
+    "name": "铃铃",
+    "alias": [],
+    "identity": "兴云庄丫鬟",
+    "faction": "faction_xing_yun_zhuang",
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "善良的丫鬟，对李寻欢心生爱慕",
+    "personality": {
+      "traits": [
+        "善良",
+        "天真",
+        "忠诚",
+        "活泼",
+        "多愁善感"
+      ],
+      "speech_style": "天真活泼",
+      "temperament": "天真烂漫的少女"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "暗恋",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "默默守候"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 43,
+        "line_start": 131,
+        "line_end": 133,
+        "text": "小姑娘道：“你不想听，是不是？我偏要告诉你，我没有爹，也没有娘，所以也不知道自己姓什么，五年前小姐把我买下来了，所以我就姓林，小姐喜欢叫我‘铃铃’，所以我就叫做林铃铃……”"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_tuo_zi",
+    "name": "孙驼子",
+    "alias": [],
+    "identity": "小酒馆老板",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "看似普通的老头，实为深藏不露的高手",
+    "personality": {
+      "traits": [
+        "深藏不露",
+        "慈祥",
+        "洞察世事",
+        "风趣",
+        "智慧"
+      ],
+      "speech_style": "平和智慧",
+      "temperament": "平凡中的不平凡"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 26,
+        "line_start": 29,
+        "line_end": 31,
+        "text": "弄堂里有个鸡毛小店，前面卖些粗劣的饮食，后面有三五间简陋的客房，店主人孙驼子是个残废的侏儒。"
+      }
+    ]
+  }
+]
