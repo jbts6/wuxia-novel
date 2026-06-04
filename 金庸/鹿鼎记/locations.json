@@ -1,0 +1,1907 @@
+[
+  {
+    "id": "loc_chong_de",
+    "name": "崇德",
+    "region": "浙江",
+    "one_line": "浙江杭州府崇德县，吕留良世居之地"
+  },
+  {
+    "id": "loc_yun_he",
+    "name": "运河",
+    "region": "华东",
+    "one_line": "顾炎武雇舟南下的运河水道，三人舟中夜谈之处"
+  },
+  {
+    "id": "loc_nan_xun",
+    "name": "南浔镇",
+    "region": "浙江湖州",
+    "one_line": "湖州府富庶大镇，庄家所在，明史案发源地"
+  },
+  {
+    "loc_id": "loc_yangzhou",
+    "name": "扬州",
+    "description": "韦小宝押犯出发之地，从扬州离城回京。；韦小宝心目中最想回去的地方，心花怒放。；江南繁华之地。韦小宝思念母亲所在。",
+    "type": "城镇；城市",
+    "significance": "韦小宝家乡/提议开妓院之地；韦小宝衣锦还乡之地，宣旨赦免钱粮",
+    "associated_factions": [
+      "清朝"
+    ],
+    "associated_characters": [
+      "char_wei_xiao_bao"
+    ],
+    "id": "loc_扬_州",
+    "region": "江苏；江南",
+    "connected_factions": [
+      "faction_qing_court"
+    ],
+    "connected_characters": [
+      "char_wei_xiao_bao"
+    ],
+    "one_line": "自古繁华胜地，运河枢纽，盐商汇聚，清康熙初年",
+    "connections": [
+      "loc_li_chun_yuan",
+      "loc_he_yuan",
+      "loc_chan_zhi_si"
+    ],
+    "dynamics": [
+      {
+        "target": "char_wei_xiao_bao",
+        "type": "故乡",
+        "detail": "韦小宝想回扬州开妓院，觉得最开心"
+      }
+    ]
+  },
+  {
+    "id": "loc_ming_yu_fang",
+    "name": "鸣玉坊",
+    "region": "扬州城内",
+    "one_line": "瘦西湖畔青楼名妓汇聚之所，丝竹欢笑一片升平"
+  },
+  {
+    "id": "loc_li_chun_yuan",
+    "name": "丽春院",
+    "region": "扬州鸣玉坊",
+    "one_line": "鸣玉坊四大院子之一，陈设考究，梨木桌椅红木床榻",
+    "description": "扬州妓院，韦小宝幼时做小厮之处，他怀念那段逍遥快活的日子。",
+    "significance": "韦小宝旧居，大闹丽春院擒获众人",
+    "type": "建筑",
+    "connections": [
+      "loc_yang_zhou",
+      "loc_he_yuan"
+    ],
+    "dynamics": [
+      {
+        "target": "char_wei_xiao_bao",
+        "type": "成长",
+        "detail": "韦小宝幼时在此做小厮"
+      }
+    ]
+  },
+  {
+    "id": "loc_de_sheng_shan",
+    "name": "得胜山",
+    "region": "扬州城西北三十里",
+    "one_line": "小山丘，南宋韩世忠大破金兵之处，茅十八约战之地",
+    "description": "扬州得胜山，韦小宝曾在此山下用计杀死清军军官黑龙鞭史松，是其初出茅庐第一功。",
+    "significance": "韦小宝成名之战的发生地"
+  },
+  {
+    "loc_id": "loc_beijing",
+    "name": "北京",
+    "region": "京师",
+    "description": "大清京师，韦小宝此行目的地。铜帽子胡同有韦小宝伯爵府，陈近南约定明晚在此聚会。；清朝都城，韦小宝凯旋回京之地；大清京师，康熙居处，罗刹降兵被押往北京朝见康熙高呼万岁",
+    "connected_factions": [
+      "faction_qing_court",
+      "faction_tidihui"
+    ],
+    "connected_characters": [
+      "char_wei_xiao_bao",
+      "char_kang_xi",
+      "char_chen_jin_nan"
+    ],
+    "id": "loc_北_京",
+    "one_line": "大清京师，韦小宝与茅十八此行的目的地",
+    "significance": "韦小宝奉命前往执行取经任务的目的地",
+    "type": "city；都城",
+    "associated_factions": [
+      "骁骑营",
+      "御前侍卫",
+      "神龙教",
+      "faction_qing_chao",
+      "faction_da_qing"
+    ],
+    "characters": [
+      "char_kang_xi",
+      "char_wen_you_fang"
+    ],
+    "associated_characters": [
+      "char_kang_xi",
+      "char_wei_xiao_bao",
+      "char_duo_long"
+    ],
+    "related_characters": [
+      "char_wei_xiao_bao",
+      "char_kang_xi",
+      "char_mao_shi_ba"
+    ],
+    "related_factions": [
+      "faction_da_qing"
+    ]
+  },
+  {
+    "id": "loc_jiu_dian",
+    "name": "西城小酒店",
+    "region": "北京西城",
+    "one_line": "北京西城一家小酒店，茅十八与满洲摔跤手发生冲突之地"
+  },
+  {
+    "id": "loc_shang_shan_jian",
+    "name": "大内尚膳监",
+    "region": "紫禁城",
+    "one_line": "皇宫大内的尚膳监，海老公居所，韦小宝被押送至此"
+  },
+  {
+    "id": "loc_gong_dian",
+    "name": "皇宫上书房",
+    "type": "palace",
+    "description": "康熙召见韦小宝密谈之处，讨论茅十八及天地会之事",
+    "associated_characters": [
+      "char_kang_xi",
+      "char_hai_da_fu",
+      "char_wei_xiao_bao",
+      "char_wen_you_dao",
+      "char_wen_you_fang"
+    ],
+    "mentions": "韦小宝由此推断自己身处皇宫而非大妓院",
+    "related_characters": [
+      "char_kang_xi",
+      "char_wei_xiao_bao",
+      "char_duo_long"
+    ]
+  },
+  {
+    "id": "loc_shang_shu_fang",
+    "name": "上书房",
+    "type": "宫殿",
+    "description": "康熙召见韦小宝之处，君臣密谈之所。",
+    "associated_characters": [
+      "char_kang_xi",
+      "char_wen_you_dao",
+      "char_wen_you_fang"
+    ],
+    "mentions": "海老公指使韦小宝偷取《四十二章经》之处，韦小宝曾偷坐龙椅",
+    "significance": "君臣议事之处",
+    "dynamics": [
+      {
+        "target": "char_kang_xi",
+        "type": "居所",
+        "detail": "康熙日常处理政务之所"
+      }
+    ]
+  },
+  {
+    "id": "loc_hai_lao_gong_zhu_suo",
+    "name": "海老公住所",
+    "type": "居所",
+    "description": "海大富在宫中的住处，陈设简单，有桌椅床铺，备有饭菜",
+    "associated_characters": [
+      "char_hai_da_fu",
+      "char_wei_xiao_bao"
+    ],
+    "mentions": "韦小宝服侍海老公饮食起居之处"
+  },
+  {
+    "id": "loc_bu_ku_fang",
+    "name": "布库房",
+    "description": "武士练武摔跤之处，康熙带韦小宝来此观看摔跤并让胖大武士教其几手",
+    "type": "宫廷"
+  },
+  {
+    "id": "loc_ao_bai_fu",
+    "name": "鳌拜府",
+    "description": "鳌拜府邸，上下人众尽被逮去，府门军士把守，内有卧房藏宝库",
+    "type": "府邸"
+  },
+  {
+    "id": "loc_cining_gong",
+    "name": "慈宁宫",
+    "type": "宫殿",
+    "description": "清朝太后寝宫，韦小宝曾出入此处",
+    "associated_characters": [
+      "char_taihou",
+      "char_tai_hou",
+      "char_rui_chu"
+    ],
+    "associated_factions": [],
+    "significance": "太后居所，韦小宝押送毛东珠至此，归氏三人在此出没",
+    "connections": [
+      "char_dong_jin_kui",
+      "loc_huang_gong"
+    ],
+    "appearances": true,
+    "factions_involved": [
+      "faction_qing_court"
+    ]
+  },
+  {
+    "id": "loc_bi_wu_xiao_shi",
+    "name": "比武小室",
+    "description": "宫中秘密小房，康熙与韦小宝日日比武之处，外人不得走近",
+    "type": "宫廷"
+  },
+  {
+    "id": "loc_hua_yuan",
+    "name": "花园",
+    "description": "皇宫内花园，韦小宝约蕊初三更在花园亭子中相会",
+    "type": "宫廷"
+  },
+  {
+    "id": "loc_fo_tang",
+    "name": "佛堂",
+    "description": "鳌拜府中的佛堂，满洲人崇信佛教，文武大臣府中均设有佛堂，索额图与韦小宝在此义结金兰",
+    "type": "府邸"
+  },
+  {
+    "id": "loc_皇宫",
+    "name": "皇宫",
+    "description": "紫禁城皇宫，本章主要场景，包括韦小宝住处、御花园等；清朝皇宫，藏有四部四十二章经，黑龙使曾派人潜入但未能取到经书",
+    "type": "宫殿",
+    "associated_factions": [
+      "faction_yu_qian_shi_wei"
+    ],
+    "associated_characters": [
+      "char_kang_xi",
+      "char_tai_hou",
+      "char_wei_xiao_bao",
+      "char_hai_lao_gong"
+    ],
+    "appearances": [
+      "第16回"
+    ],
+    "significance": "四十二章经所在之处，神龙教觊觎的目标"
+  },
+  {
+    "id": "loc_kang_qin_wang_fu",
+    "name": "康亲王府",
+    "description": "康亲王的府邸，戒备森严。大厅可设数十席宴席，后堂有花园、佛堂等建筑。本回中举办盛大宴会，文武官员齐聚。",
+    "type": "府邸",
+    "significance": "前回大战之地，本回中作为背景事件的关联地点"
+  },
+  {
+    "id": "loc_yu_chu_fang",
+    "name": "御厨房",
+    "description": "宫中厨房，尚膳监管辖，海老公生前为副总管太监，现由韦小宝接任",
+    "type": "宫殿",
+    "significance": "韦小宝接任尚膳监副总管后在此接受太监们的宴请"
+  },
+  {
+    "id": "loc_shi_wu",
+    "name": "石屋",
+    "description": "康亲王府后花园中一座孤零零的石屋，铁门厚重，内外守卫森严，鳌拜被囚于其中的铁窗小房内",
+    "type": "囚室",
+    "significance": "鳌拜被囚之地，韦小宝在此投毒并刺杀鳌拜，天地会众人在此夺取鳌拜首级"
+  },
+  {
+    "id": "loc_tian_di_hui_hui_tang",
+    "name": "天地会青木堂堂口",
+    "description": "天地会青木堂的秘密堂口，设有灵堂祭奠已故尹香主，大厅可容纳二百余人",
+    "type": "帮会据点",
+    "significance": "青木堂众人在此祭奠尹香主，讨论香主人选，韦小宝被带至此处"
+  },
+  {
+    "id": "loc_tian_qiao",
+    "name": "天桥",
+    "description": "北京热闹之处，韦小宝扮富家公子携双儿来此与天地会兄弟接头",
+    "significance": "韦小宝事毕后信步闲逛之处",
+    "type": "other",
+    "connections": [
+      "char_wei_xiao_bao"
+    ],
+    "associated_factions": [
+      "天地会"
+    ],
+    "related_characters": [
+      "char_wei_xiao_bao",
+      "char_shuang_er",
+      "char_xu_tian_chuan"
+    ]
+  },
+  {
+    "id": "loc_tian_shui_jing_hu_tong",
+    "name": "甜水井胡同",
+    "description": "天地会旧落脚处，已搬走换为茶叶商",
+    "significance": "陈近南传授韦小宝武功的约定地点",
+    "type": "街道",
+    "faction_id": "faction_tian_di_hui",
+    "associated_factions": [
+      "天地会"
+    ]
+  },
+  {
+    "loc_id": "loc_changsha",
+    "name": "长沙",
+    "region": "湖南",
+    "description": "湖南省城，钱老本称家眷在长沙，向守备打听战况。；南下途中经过之城，陆高轩飞马赶来传达教主口谕",
+    "connected_factions": [],
+    "connected_characters": [
+      "char_qian_lao_ben"
+    ],
+    "id": "loc_长_沙",
+    "significance": "天地会下次集议的预定地点",
+    "type": "城市"
+  },
+  {
+    "id": "loc_yang_liu_hu_tong",
+    "name": "杨柳胡同",
+    "description": "沐王府众人在京城的落脚之处，天地会曾两次前往此地评理。",
+    "type": "宅院",
+    "faction_id": "faction_mu_wang_fu"
+  },
+  {
+    "id": "loc_hui_chun_tang",
+    "name": "回春堂",
+    "description": "徐天川经营膏药生意的店铺",
+    "type": "店铺",
+    "faction_id": "faction_tian_di_hui",
+    "significance": "吴三桂手下闯入此店掳走徐天川",
+    "connections": [
+      "char_xu_tian_chuan"
+    ]
+  },
+  {
+    "id": "loc_cha_guan",
+    "name": "茶馆",
+    "description": "京城茶馆，说书先生在此说《英烈传》。韦小宝常来此处消磨时光，高彦超在此以膏药暗号与韦小宝接头。",
+    "type": "公共场所",
+    "faction_id": null
+  },
+  {
+    "id": "loc_tian_tan",
+    "name": "天坛",
+    "description": "京城天坛，徐天川与白氏兄弟约定比武之地。双方在此交手四十余招，徐天川失手打死白寒松。",
+    "type": "地标",
+    "faction_id": null
+  },
+  {
+    "id": "loc_yu_shan_fang",
+    "name": "御膳房",
+    "description": "皇宫中掌管膳食之处，韦小宝假扮太监小桂子在此当差",
+    "type": "宫殿建筑",
+    "significance": "韦小宝在宫中的据点，钱老本以送猪为名入宫接应",
+    "connections": [
+      "char_wei_xiao_bao",
+      "char_qian_lao_ben"
+    ]
+  },
+  {
+    "id": "loc_wei_xiao_bao_fang",
+    "name": "韦小宝卧室",
+    "description": "尚膳监管事太监的住处，与御厨相近。韦小宝将小郡主藏于此处，房中有大床一张，以及海老公遗留的笔墨砚台和药箱。"
+  },
+  {
+    "id": "loc_kang_qin_fo_tang",
+    "name": "康亲王府佛堂",
+    "description": "康亲王府中供奉如来佛像的小佛堂，佛像左耳中藏有金钥匙，地下方砖下有密室锁孔，内藏四十二章经。设有机弩暗器防盗。"
+  },
+  {
+    "id": "loc_mu_wang_fu",
+    "name": "沐王府",
+    "description": "沐王府所在，小郡主沐剑屏的家",
+    "type": "府邸",
+    "associated_factions": [
+      "faction_mu_wang_fu"
+    ],
+    "associated_characters": [
+      "char_mu_jian_ping"
+    ]
+  },
+  {
+    "id": "loc_yu_hua_yuan",
+    "name": "御花园",
+    "description": "紫禁城御花园，朝议后康熙带韦小宝至此私下交谈，讨论吴三桂造反的可能性与应对之策。"
+  },
+  {
+    "id": "loc_wu_palace",
+    "name": "吴应熊府邸",
+    "description": "吴应熊在京中的住所，韦小宝上门教拳收银"
+  },
+  {
+    "id": "loc_shen_wu_men",
+    "name": "神武门",
+    "type": "城门",
+    "description": "紫禁城后门，韦小宝带方怡沐剑屏由此出宫",
+    "significance": "韦小宝出入皇宫的通道，亦是送吴立身三人出宫之处",
+    "connections": [
+      "char_wei_xiao_bao"
+    ]
+  },
+  {
+    "id": "loc_gao_sheng_cha_guan",
+    "name": "高升茶馆",
+    "type": "茶馆",
+    "description": "京城茶馆，韦小宝听书饮茶之处",
+    "significance": "高彦超在此接应韦小宝前往天地会据点",
+    "connections": [
+      "char_wei_xiao_bao",
+      "char_gao_yan_chao"
+    ]
+  },
+  {
+    "id": "loc_nan_dou_ya_hu_tong",
+    "name": "南豆芽胡同",
+    "type": "胡同",
+    "description": "朝阳门内的胡同，沐王府在京的临时据点",
+    "significance": "沐剑声设宴款待天地会众人之处",
+    "connections": [
+      "char_mu_jian_sheng",
+      "char_liu_da_hong"
+    ]
+  },
+  {
+    "id": "loc_shi_wei_fang",
+    "name": "侍卫房",
+    "type": "宫殿建筑",
+    "description": "宫中侍卫值班之处",
+    "significance": "韦小宝用蒙汗药迷倒侍卫和太监，救出吴立身三人",
+    "connections": [
+      "char_wei_xiao_bao",
+      "char_zhang_kang_nian",
+      "char_dong_jin_kui"
+    ]
+  },
+  {
+    "id": "loc_qian_qing_men",
+    "name": "乾清门",
+    "type": "宫门",
+    "description": "紫禁城内门，内班宿卫驻守",
+    "significance": "韦小宝打听康熙所在之处",
+    "connections": [
+      "char_wei_xiao_bao"
+    ]
+  },
+  {
+    "id": "loc_yang_xin_dian",
+    "name": "养心殿",
+    "type": "宫殿",
+    "description": "皇帝处理政务之所",
+    "significance": "康熙连夜召见大臣商讨平叛，韦小宝在此面圣",
+    "connections": []
+  },
+  {
+    "id": "loc_gan_qing_gong",
+    "name": "乾清宫",
+    "description": "康熙寝宫，君臣密谈之地，韦小宝在此坦白身份；康熙寝殿所在。韦小宝善后慈宁宫之事后来此面见康熙。",
+    "type": "皇宫正殿",
+    "significance": "康熙寝宫，韦小宝最后赶去之处",
+    "connections": [
+      "char_kang_xi"
+    ]
+  },
+  {
+    "id": "loc_bei_jing_tian_qiao",
+    "name": "北京天桥",
+    "description": "北京城中卖杂货、变把戏、江湖闲杂人等聚居之所。差役在此锁拿卖冰糖葫芦的小贩。",
+    "type": "市井",
+    "significance": "韦小宝与徐天川碰面的地点"
+  },
+  {
+    "id": "loc_tian_di_hui_ju_dian",
+    "name": "天地会北京下处",
+    "description": "天地会在北京的秘密聚会点。陈近南居中而坐与众人议事，后在此与沐王府会面、击掌立誓。",
+    "type": "秘密据点",
+    "significance": "天地会与沐王府会面、唐桂之争的辩论场所"
+  },
+  {
+    "id": "loc_yang_hua_men",
+    "name": "养华门",
+    "description": "宫中城门，陶宫娥携韦小宝从此经过。",
+    "type": "宫门",
+    "significance": "陶宫娥带韦小宝逃离慈宁宫途经之处"
+  },
+  {
+    "id": "loc_yu_hua_ge",
+    "name": "雨花阁",
+    "description": "紫禁城内建筑之一",
+    "type": "宫殿",
+    "significance": "韦小宝编造皇帝换地方睡觉的宫名之一"
+  },
+  {
+    "id": "loc_bao_hua_dian",
+    "name": "保华殿",
+    "description": "宫中殿宇，陶宫娥携韦小宝途经。",
+    "type": "宫殿",
+    "significance": "逃跑路线途经点"
+  },
+  {
+    "id": "loc_fu_jian_gong",
+    "name": "福建宫",
+    "description": "宫中建筑，旁有火场，焚烧宫中垃圾废物之所，晚间极为僻静。",
+    "type": "宫殿",
+    "significance": "陶宫娥放下韦小宝并密谈之处"
+  },
+  {
+    "id": "loc_ying_hua_dian",
+    "name": "英华殿",
+    "description": "宫中殿宇，陶宫娥将韦小宝送至此处附近后分别。",
+    "type": "宫殿",
+    "significance": "陶宫娥与韦小宝分别之处"
+  },
+  {
+    "id": "loc_tai_wan",
+    "name": "台湾",
+    "description": "郑氏政权所在，施琅率水师攻台，澎湖一战郑军大败，克塽不战而降。韦小宝奉命暂为坐镇，除董塑陈收揽民心。",
+    "type": "地区",
+    "significance": "朱三太子所在，天地会效忠之主",
+    "factions_involved": [
+      "faction_yan_ping_jun_wang_fu"
+    ],
+    "appearances": true,
+    "associated_factions": [
+      "faction_yan_ping_wang_fu"
+    ],
+    "characters": [
+      "char_zheng_jing",
+      "char_zheng_ke_shuang",
+      "char_feng_xi_fan",
+      "char_shi_lang"
+    ],
+    "related_characters": [
+      "char_zheng_ke_shuang",
+      "char_shi_lang",
+      "char_wei_xiao_bao"
+    ],
+    "events": [
+      "施琅平台",
+      "郑克塽归降",
+      "韦小宝署理台湾",
+      "除董塑陈"
+    ]
+  },
+  {
+    "id": "loc_wu_tai_shan",
+    "name": "五台山",
+    "description": "韦小宝曾在此挡在康熙身前救驾，是七大功绩之一。",
+    "type": "名山",
+    "appearances": false,
+    "connections": [
+      "loc_gui_wu"
+    ],
+    "faction_id": "faction_shao_lin_si",
+    "significance": "发现石碣的地点，碑文被利用为教主合法性依据",
+    "related_factions": [
+      "faction_qing_liang_si"
+    ],
+    "dynamics": [
+      {
+        "target": "char_wei_xiao_bao",
+        "type": "事件发生地",
+        "detail": "韦小宝在此救驾"
+      }
+    ]
+  },
+  {
+    "id": "loc_qing_liang_si",
+    "name": "清凉寺",
+    "description": "五台山上寺院。韦小宝曾在此背负老皇爷逃出喇嘛追杀。",
+    "type": "寺院",
+    "related_factions": [
+      "faction_qing_liang_si",
+      "faction_shao_lin"
+    ]
+  },
+  {
+    "id": "loc_tai_ji_dian",
+    "name": "太极殿",
+    "description": "紫禁城内殿宇，从乾清宫到慈宁宫必经之路"
+  },
+  {
+    "id": "loc_yin_xing_hu_tong",
+    "name": "银杏胡同",
+    "description": "天地会群豪落脚之处，巷口有两株大银杏树。康熙连胡同名字都知道了。",
+    "dynamics": [
+      {
+        "target": "faction_tian_di_hui",
+        "type": "据点",
+        "detail": "天地会成员在此落脚"
+      }
+    ]
+  },
+  {
+    "id": "loc_ci_ning_gong_hua_yuan",
+    "name": "慈宁宫花园",
+    "description": "太后寝殿外花园，内有荷塘，太后命人将尸体沉入塘中"
+  },
+  {
+    "id": "loc_guo_dao",
+    "name": "官道",
+    "type": "road",
+    "description": "通往山西的大路，韦小宝乘骡车经过之处",
+    "appearances": [
+      "第16回"
+    ],
+    "connections": [
+      "loc_po_miao",
+      "loc_gui_wu"
+    ]
+  },
+  {
+    "id": "loc_po_miao",
+    "name": "河畔破庙",
+    "type": "ruins",
+    "description": "河边一座东歪西倒的破庙，七人避雨之处，后因暴雨坍塌",
+    "appearances": [
+      "第16回"
+    ],
+    "connections": [
+      "loc_guo_dao"
+    ]
+  },
+  {
+    "id": "loc_gui_wu",
+    "name": "鬼屋",
+    "type": "mansion",
+    "description": "山坳中一座大户人家宅院，被传为鬼屋，实则有人居住，内有三十多座灵堂",
+    "appearances": [
+      "第16回"
+    ],
+    "connections": [
+      "loc_po_miao"
+    ]
+  },
+  {
+    "id": "loc_shi_jia_zhuang",
+    "name": "石家庄",
+    "type": "city",
+    "description": "方怡、沐剑屏原本前往的养伤之地",
+    "appearances": [
+      "第16回"
+    ],
+    "connections": []
+  },
+  {
+    "id": "loc_ling_jing_si",
+    "name": "灵境寺",
+    "type": "佛寺",
+    "description": "五台山上佛寺，康熙与太后一行到五台山进香时驻跸之处。"
+  },
+  {
+    "id": "loc_pu_ji_si",
+    "name": "普济寺"
+  },
+  {
+    "id": "loc_pu_sa_ding",
+    "name": "菩萨顶真容院"
+  },
+  {
+    "id": "loc_ru_gui_ke_zhan",
+    "name": "如归客栈",
+    "type": "客栈",
+    "faction_id": null,
+    "description": "西直门附近客栈，韦小宝曾住天字第三号上房，经书藏于此处墙洞"
+  },
+  {
+    "id": "loc_xi_dan_kui_xing_guan",
+    "name": "西单老魁星馆",
+    "type": "饭馆",
+    "faction_id": null,
+    "description": "韦小宝欲带双儿去吃早点的地方，以炸羊尾和羊肉饺子闻名"
+  },
+  {
+    "id": "loc_shen_xian_dao",
+    "name": "神仙岛",
+    "type": "海岛",
+    "faction_id": "faction_shen_long_jiao",
+    "description": "实为神龙岛的伪装名，岛上遍布毒蛇，有居民以雄黄驱蛇"
+  },
+  {
+    "id": "loc_shen_long_dao",
+    "name": "神龙岛",
+    "type": "岛屿",
+    "faction_id": "faction_shen_long_jiao",
+    "description": "神龙教根据地，已被韦小宝攻破。施琅等人亦流落其附近海岛。",
+    "aliases": [
+      "灵蛇岛"
+    ],
+    "faction": "faction_shen_long_jiao",
+    "significance": "神龙教根据地，本回遭重大打击",
+    "associated_factions": [
+      "神龙教",
+      "faction_shen_long_jiao"
+    ],
+    "related_factions": [
+      "faction_shen_long_jiao"
+    ]
+  },
+  {
+    "loc_id": "loc_shaolin_si",
+    "name": "少林寺",
+    "description": "天下武学正宗，韦小宝曾在寺中学习武功。九难问及韦小宝在少林寺、清凉寺是否学到武功。；天下武学正宗，晦聪为方丈。韦小宝曾在此出家，现派三十六僧随往清凉寺护法。",
+    "type": "寺庙；佛寺",
+    "significance": "韦小宝学武之地",
+    "associated_factions": [
+      "少林寺"
+    ],
+    "associated_characters": [
+      "char_wei_xiao_bao",
+      "char_cheng_guan"
+    ],
+    "id": "loc_少_林_寺",
+    "faction_id": "faction_shao_lin_si",
+    "faction": "faction_shao_lin",
+    "related_factions": [
+      "faction_shao_lin"
+    ]
+  },
+  {
+    "name": "昆明",
+    "loc_id": "loc_kun_ming",
+    "province": "云南",
+    "description": "云南省会，吴三桂老巢所在；吴三桂势力中心。赵良栋攻下昆明，擒杀吴三桂诸将，吴世璠自杀。；平西王府所在地，本回主要场景",
+    "id": "loc_昆_明",
+    "type": "城池；城市",
+    "faction_id": "faction_mu_wang_fu",
+    "associated_faction": "faction_ping_xi_wang_fu",
+    "associated_factions": [
+      "faction_ping_xi_wang",
+      "faction_pingxi_wangfu"
+    ],
+    "associated_characters": [
+      "char_wu_sangui",
+      "char_wei_xiao_bao"
+    ]
+  },
+  {
+    "id": "loc_xian_fu_ju",
+    "name": "仙福居",
+    "description": "神龙岛上竹屋建筑，教主与夫人居所，十余名五色衣衫少年守卫，韦小宝获准在此过宿",
+    "faction": "faction_shen_long_jiao",
+    "significance": "教主居所，韦小宝受宠之证"
+  },
+  {
+    "id": "loc_qian_long_tang",
+    "name": "潜龙堂",
+    "description": "神龙教后厅密室，仅五龙使等高层可入座议事，陆高轩等闲职教众无座",
+    "faction": "faction_shen_long_jiao",
+    "significance": "教内高层密议之处"
+  },
+  {
+    "id": "loc_qin_huang_dao",
+    "name": "秦皇岛",
+    "type": "港口",
+    "description": "海船到达之处，韦小宝由此弃船登岸赴京",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_xuan_wu_man",
+    "name": "宣武门",
+    "type": "城门",
+    "description": "北京城门之一",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_tou_fa_hu_tong",
+    "name": "头发胡同",
+    "type": "街道",
+    "description": "韦小宝命陆高轩租下的安身之所，甚是清静",
+    "associated_factions": [
+      "神龙教"
+    ]
+  },
+  {
+    "id": "loc_xi_zhi_man",
+    "name": "西直门",
+    "type": "城门",
+    "description": "北京城门",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_xian_tong_si",
+    "name": "显通寺",
+    "type": "寺庙",
+    "description": "五台山寺庙之一，韦小宝曾去打醮",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_fo_guang_si",
+    "name": "佛光寺",
+    "type": "寺庙",
+    "description": "五台山寺庙之一，韦小宝曾去放焰口",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_yong_ding_men",
+    "name": "永定门",
+    "description": "北京外城城门，韦小宝出京所经之处",
+    "type": "城门",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_song_shan_shao_lin_si",
+    "name": "嵩山少林寺",
+    "description": "位于嵩山，天下武学总汇，千年古刹。韦小宝奉旨在此出家，法名晦明。",
+    "type": "寺庙",
+    "associated_factions": [
+      "少林寺"
+    ]
+  },
+  {
+    "id": "loc_wang_wu_shan",
+    "name": "王屋山",
+    "description": "山西、河南两省交界处的名山，四面如削，形若王者车盖，故得名。王屋派聚居之地。山顶称天坛，东有日精峰，西有月华峰。道书中称'清虚小有洞天'，天下三十六洞天中名列第一。",
+    "type": "山",
+    "associated_factions": [
+      "王屋派"
+    ],
+    "significance": "王屋派根据地，韦小宝在此祭奠司徒伯雷并收编王屋派"
+  },
+  {
+    "id": "loc_tan_tou_pu",
+    "name": "潭头铺",
+    "description": "少室山下大镇，韦小宝下山后到访之处，镇中有妓院赌场",
+    "type": "市镇",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_jin_ge_si",
+    "name": "金阁寺",
+    "type": "佛寺",
+    "description": "五台山上佛寺，韦小宝安置行痴等人换衣休息之处。康熙父子于此相见。韦小宝付一千两银票暂借宝刹。",
+    "related_factions": []
+  },
+  {
+    "id": "loc_jia_ding",
+    "name": "嘉定",
+    "type": "城市",
+    "description": "清兵入关时遭三屠之地，康熙欲一并抚恤减免钱粮。",
+    "related_factions": []
+  },
+  {
+    "id": "loc_ta_er_si",
+    "name": "塔儿寺",
+    "type": "喇嘛庙",
+    "description": "青海喇嘛教寺庙，活佛下令喇嘛到清凉寺劫持行痴。康熙推测活佛可能受邪派喇嘛蛊惑。",
+    "related_factions": []
+  },
+  {
+    "id": "loc_chang_an_ci_yun_si",
+    "name": "长安慈云寺",
+    "type": "佛寺",
+    "description": "长安首善之地的大佛寺，比清凉寺大得多。康熙调法胜前往任住持。",
+    "related_factions": []
+  },
+  {
+    "id": "loc_liao_dong",
+    "name": "辽东",
+    "type": "地区",
+    "description": "满清根本之地，列祖列宗陵寝所在。尚可喜请求归老辽东，群臣忧虑三藩数十万人移驻辽东恐生变乱。",
+    "related_factions": []
+  },
+  {
+    "id": "loc_cang_zhou",
+    "name": "沧州",
+    "description": "冀南城市，三人南行途中将到之处",
+    "type": "城镇"
+  },
+  {
+    "id": "loc_ke_dian",
+    "name": "小客店",
+    "description": "沧州附近小镇上的客店，白衣尼在此遭六名喇嘛围攻",
+    "type": "建筑"
+  },
+  {
+    "id": "loc_feng_er_zhuang",
+    "name": "丰尔庄",
+    "description": "冀西大镇，众人在此饭店打尖遭遇七名喇嘛",
+    "type": "城镇"
+  },
+  {
+    "id": "loc_yan_ping_jun_wang_fu",
+    "name": "延平郡王府",
+    "description": "台湾郑氏政权府邸，郑克塽出身之所",
+    "type": "府邸"
+  },
+  {
+    "id": "loc_feng_yi",
+    "name": "丰尔庄饭店",
+    "description": "丰尔庄镇上饭店，众人在此打尖时遭喇嘛袭击，韦小宝以蒙汗药制敌",
+    "type": "建筑"
+  },
+  {
+    "loc_id": "loc_hejian",
+    "name": "河间府",
+    "description": "天下英雄大会之地，歃血为盟决意诛杀吴三桂，冯难敌为主人。；天地会与各路英雄大会之地，推选各省盟主",
+    "type": "城镇；城市",
+    "significance": "杀龟大会预定举办地",
+    "associated_factions": [
+      "天地会",
+      "沐王府",
+      "华山派",
+      "延平王府"
+    ],
+    "associated_characters": [
+      "char_wei_xiao_bao",
+      "char_jiu_nan",
+      "char_a_ke",
+      "char_zheng_ke_shuang"
+    ],
+    "id": "loc_河_间_府",
+    "region": "直隶",
+    "connected_factions": [
+      "faction_tidihui",
+      "faction_huashan_pai"
+    ],
+    "connected_characters": [
+      "char_gui_nan_di"
+    ],
+    "factions_involved": [
+      "faction_tian_di_hui",
+      "faction_mu_wang_fu",
+      "faction_yan_ping_jun_wang_fu"
+    ],
+    "appearances": true
+  },
+  {
+    "loc_id": "loc_hua_shu_ping",
+    "name": "槐树坪",
+    "description": "河间府城西十八里处，群山环绕，中间好大一片平地，原为乡人赶集赛会做社戏之所。杀龟大会于半夜在此秘密举行，数百豪杰聚此共商诛杀吴三桂之策。",
+    "type": "旷野",
+    "significance": "杀龟大会实际举行地",
+    "associated_factions": [
+      "天地会",
+      "华山派",
+      "沐王府"
+    ],
+    "associated_characters": [
+      "char_feng_nan_di",
+      "char_wei_xiao_bao",
+      "char_jiu_nan"
+    ],
+    "id": "loc_槐_树_坪"
+  },
+  {
+    "loc_id": "loc_tibet",
+    "name": "西藏",
+    "description": "桑结等喇嘛的来源地。喇嘛教大乘教法弘扬佛义之地。",
+    "type": "地域",
+    "significance": "喇嘛教发源地",
+    "associated_factions": [],
+    "associated_characters": [
+      "char_sang_jie"
+    ],
+    "id": "loc_西_藏"
+  },
+  {
+    "loc_id": "loc_yunnan",
+    "name": "云南",
+    "description": "吴三桂起兵之地，云南提督张国柱归降，巡抚朱国治遭杀。；吴三桂藩地所在，折尔肯与达尔礼被派往此处宣读撤藩上谕。张勇、王进宝、孙思克三将即从此来。",
+    "type": "地域；省份",
+    "significance": "吴三桂封地",
+    "associated_factions": [
+      "沐王府"
+    ],
+    "associated_characters": [
+      "char_wu_san_gui"
+    ],
+    "id": "loc_云_南",
+    "region": "西南",
+    "connected_factions": [
+      "faction_wu_sangui_faction"
+    ],
+    "connected_characters": [
+      "char_wu_san_gui",
+      "char_zhang_guo_zhu",
+      "char_zhu_guo_zhi"
+    ],
+    "factions_involved": [
+      "faction_mu_wang_fu",
+      "faction_ping_xi_wang_fu"
+    ],
+    "appearances": true,
+    "associated_faction": "faction_ping_xi_wang_fu"
+  },
+  {
+    "loc_id": "loc_ping_xi_wang_fu",
+    "name": "平西王府",
+    "description": "吴三桂府邸，胡逸之曾在此做园丁；吴三桂的王府，戒备森严，设有假山地牢；吴三桂在昆明的王府，韦小宝等人被困于此",
+    "type": "府邸；王府",
+    "significance": "吴三桂巢穴",
+    "associated_factions": [
+      "faction_ping_xi_wang",
+      "faction_pingxi_wangfu"
+    ],
+    "associated_characters": [
+      "char_wu_san_gui",
+      "char_wu_sangui",
+      "char_wu_yingxiong"
+    ],
+    "id": "loc_平_西_王_府",
+    "province": "云南",
+    "associated_faction": "faction_ping_xi_wang_fu"
+  },
+  {
+    "loc_id": "loc_yan_ping_wang_fu",
+    "name": "延平王府",
+    "description": "台湾郑氏王府，郑克塽之父郑经所在。",
+    "type": "府邸",
+    "significance": "台湾郑氏政权中心",
+    "associated_factions": [
+      "延平王府"
+    ],
+    "associated_characters": [
+      "char_zheng_ke_shuang"
+    ],
+    "id": "loc_延_平_王_府"
+  },
+  {
+    "id": "loc_tian_jin",
+    "name": "天津",
+    "description": "陈近南此前所在之地，闻讯连夜赶来北京",
+    "type": "城市"
+  },
+  {
+    "id": "loc_gong_zhu_wo_fang",
+    "name": "建宁公主卧室",
+    "description": "建宁公主在行馆中的寝宫，韦小宝遭囚禁鞭打之处",
+    "type": "建筑"
+  },
+  {
+    "id": "loc_tu_wu",
+    "name": "停放棺木的土屋",
+    "description": "天地会秘密据点中停放棺木的小屋，冯锡范袭击陈近南之处",
+    "type": "建筑"
+  },
+  {
+    "id": "loc_gui_zhou_luo_dian",
+    "name": "贵州罗甸",
+    "description": "吴三桂辖地，驻有重兵",
+    "associated_faction": "faction_san_fan"
+  },
+  {
+    "id": "loc_anfu_yuan",
+    "name": "安阜园",
+    "type": "园林；园林府邸",
+    "description": "建宁公主在昆明的居所；建宁公主在昆明的住所，韦小宝在此护卫公主",
+    "associated_characters": [
+      "char_jianning_gongzhu"
+    ],
+    "associated_factions": [
+      "faction_qing_ting"
+    ],
+    "associated_faction": "faction_ping_xi_wang_fu"
+  },
+  {
+    "id": "loc_wu_hua_shan",
+    "name": "五华山",
+    "description": "平西王府所在之处，原为明永历帝故宫所在地",
+    "associated_faction": "faction_ping_xi_wang_fu"
+  },
+  {
+    "id": "loc_hei_kan_zi",
+    "name": "黑坎子",
+    "type": "监狱",
+    "description": "平西王府属下的监狱，由卢一峰掌管",
+    "associated_factions": [
+      "faction_ping_xi_wang"
+    ]
+  },
+  {
+    "id": "loc_luo_dian",
+    "name": "罗甸",
+    "type": "军事要地",
+    "description": "贵州省中部，吴三桂驻有重兵",
+    "associated_factions": [
+      "faction_ping_xi_wang"
+    ]
+  },
+  {
+    "id": "loc_fa_hui_si",
+    "name": "法慧寺",
+    "type": "寺庙",
+    "description": "平西王府三里外的寺庙，韦小宝率骁骑营在此扎营",
+    "associated_factions": [
+      "faction_qing_ting"
+    ]
+  },
+  {
+    "name": "三圣庵",
+    "loc_id": "loc_san_sheng_an",
+    "province": "云南",
+    "description": "陈圆圆修行之处，胡逸之在此种菜扫地二十三年；昆明城外小庵堂，陈圆圆带发修行之处，殿中供白衣观音",
+    "id": "loc_三_圣_庵",
+    "type": "庵堂",
+    "associated_characters": [
+      "char_chen_yuan_yuan",
+      "char_wei_xiao_bao"
+    ]
+  },
+  {
+    "name": "曲靖",
+    "loc_id": "loc_qu_jing",
+    "province": "云南",
+    "description": "韦小宝一行途经之地，邝天雄在此迎面来报",
+    "id": "loc_曲_靖"
+  },
+  {
+    "name": "贵州",
+    "loc_id": "loc_guizhou",
+    "province": "贵州",
+    "description": "巡抚曹申吉、提督李本深归降吴三桂。马宝从此出发进攻湖南。",
+    "id": "loc_贵_州",
+    "region": "西南",
+    "connected_factions": [
+      "faction_wu_sangui_faction"
+    ],
+    "connected_characters": [
+      "char_ma_bao"
+    ]
+  },
+  {
+    "name": "潞城",
+    "loc_id": "loc_lu_cheng",
+    "province": "广西",
+    "description": "广西境内，三堂香主会合之地，马超兴设宴接风",
+    "id": "loc_潞_城"
+  },
+  {
+    "name": "柳州",
+    "loc_id": "loc_liu_zhou",
+    "province": "广西",
+    "description": "桂中重镇，韦小宝一行驻扎之地。赌场事件和柳江夜袭均发生于此；韦小宝当年随陈近南曾到此地，与林兴珠相识之处。",
+    "id": "loc_柳_州",
+    "type": "城市",
+    "associated_factions": [
+      "faction_tian_di_hui"
+    ],
+    "related_characters": [
+      "char_lin_xing_zhu",
+      "char_chen_jin_nan"
+    ],
+    "events": [
+      "韦小宝随陈近南到柳州，与林兴珠相识"
+    ]
+  },
+  {
+    "name": "宣威",
+    "loc_id": "loc_xuan_wei",
+    "province": "云南",
+    "description": "吴三桂伏兵布防之地",
+    "id": "loc_宣_威"
+  },
+  {
+    "name": "虹桥镇",
+    "loc_id": "loc_hong_qiao_zhen",
+    "province": "云南",
+    "description": "吴三桂伏兵布防之地",
+    "id": "loc_虹_桥_镇"
+  },
+  {
+    "name": "新天堡",
+    "loc_id": "loc_xin_tian_bao",
+    "province": "云南",
+    "description": "吴三桂伏兵布防之地",
+    "id": "loc_新_天_堡"
+  },
+  {
+    "name": "松韶关",
+    "loc_id": "loc_song_shao_guan",
+    "province": "云南",
+    "description": "曲靖与沾益之间的关隘，被吴三桂封关",
+    "id": "loc_松_韶_关"
+  },
+  {
+    "name": "沾益",
+    "loc_id": "loc_zhan_yi",
+    "province": "云南",
+    "description": "韦小宝一行途经之地",
+    "id": "loc_沾_益"
+  },
+  {
+    "name": "广西",
+    "loc_id": "loc_guang_xi",
+    "province": "广西",
+    "description": "天地会家后堂势力范围，吴三桂兵马不敢越境；天地会总舵所在地",
+    "id": "loc_广_西",
+    "associated_factions": [
+      "天地会"
+    ]
+  },
+  {
+    "name": "柳江",
+    "loc_id": "loc_liu_jiang",
+    "province": "广西",
+    "description": "柳州境内江流，李自成藏身木排之上，胡逸之与冯锡范水战胜负之地；流经柳州的江河。韦小宝等人在江上遭遇大风雨，陈近南寻来会合。",
+    "id": "loc_柳_江",
+    "type": "河流",
+    "associated_factions": [
+      "faction_tian_di_hui"
+    ]
+  },
+  {
+    "id": "loc_tong_chi_dao",
+    "name": "通吃岛",
+    "description": "韦小宝此前被放逐钓鱼之岛。康熙多次升其官爵，韦小宝在岛上生了两个儿子一个女儿。",
+    "type": "海岛",
+    "associated_factions": [
+      "faction_qing_chao",
+      "骁骑营",
+      "faction_da_qing"
+    ],
+    "significance": "韦小宝的军事指挥基地",
+    "characters": [
+      "char_wei_xiao_bao",
+      "char_shuang_er",
+      "char_su_quan",
+      "char_fang_yi",
+      "char_a_ke",
+      "char_zeng_rou",
+      "char_mu_jian_ping",
+      "char_jian_ning_gong_zhu"
+    ],
+    "related_characters": [
+      "char_wei_xiao_bao",
+      "char_shi_lang",
+      "char_suo_e_tu"
+    ],
+    "events": [
+      "施琅在此宣旨封韦小宝为二等通吃侯",
+      "索额图奉旨召韦小宝回京",
+      "韦小宝署理台湾后从此岛出发"
+    ],
+    "associated_characters": [
+      "char_wei_xiao_bao"
+    ]
+  },
+  {
+    "id": "loc_long_tan_pao_chang",
+    "name": "龙潭炮厂",
+    "description": "左安门内火炮制造厂，南怀仁和汤若望监造神武大炮，康熙亲临试炮。",
+    "type": "军事设施",
+    "associated_factions": [
+      "faction_qing_chao"
+    ]
+  },
+  {
+    "id": "loc_da_gu",
+    "name": "大沽",
+    "description": "天津港口，韦小宝率水师从此出海北上。",
+    "type": "港口",
+    "associated_factions": [
+      "faction_qing_chao"
+    ]
+  },
+  {
+    "id": "loc_chang_bai_shan",
+    "name": "长白山",
+    "description": "辽东名山，韦小宝编造以长白山祭天的谎话欺骗洪教主",
+    "type": "山脉",
+    "associated_factions": [
+      "faction_qing_chao"
+    ],
+    "significance": "韦小宝谎话中的目的地"
+  },
+  {
+    "id": "loc_lu_ding_shan",
+    "name": "鹿鼎山",
+    "description": "雅克萨城所在之山，康熙称此地为龙脉所在，韦小宝担心掘地道会断龙脉。山顶可俯瞰全城及周边森林。",
+    "type": "山脉",
+    "associated_factions": [
+      "faction_luo_sha_guo"
+    ],
+    "significance": "四十二章经碎羊皮所指宝藏所在，与康熙龙脉相关",
+    "associated_characters": [
+      "char_wei_xiao_bao",
+      "char_tu_er_bu_qing"
+    ]
+  },
+  {
+    "id": "loc_zi_jue_fu",
+    "name": "子爵府",
+    "description": "韦小宝在北京的府邸。双儿在此拼凑碎羊皮地图。",
+    "type": "府邸",
+    "associated_factions": [
+      "faction_qing_chao"
+    ]
+  },
+  {
+    "id": "loc_hu_ma_er_wo_ji_shan",
+    "name": "呼玛尔窝集山",
+    "description": "辽东北部山脉，韦小宝编谎时故意说成'呼他妈的山'",
+    "type": "山脉",
+    "significance": "辽东地标，被韦小宝当作谎话素材",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_a_mu_er_he",
+    "name": "阿穆尔河",
+    "description": "辽东大河，与黑龙江合流处即为鹿鼎山所在",
+    "type": "河流",
+    "significance": "鹿鼎山地标河流",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_hei_long_jiang",
+    "name": "黑龙江",
+    "description": "罗刹人长期入侵之地，满清多次派兵御敌。康熙决意对此用兵。",
+    "type": "地区",
+    "significance": "鹿鼎山地标河流",
+    "associated_factions": [],
+    "events": [
+      "罗刹人自顺治年间起侵占",
+      "满清多次派兵击退罗刹军"
+    ]
+  },
+  {
+    "id": "loc_mu_dan_jiang",
+    "name": "牡丹江",
+    "description": "北方大市集，通古斯人与汉人贸易之处，韦小宝在此打听地理",
+    "type": "城镇",
+    "significance": "韦小宝补给与打听情报之处",
+    "associated_factions": []
+  },
+  {
+    "id": "loc_ya_ke_sa",
+    "name": "雅克萨",
+    "description": "韦小宝率军攻克罗刹国据点，是七大功绩之一。",
+    "type": "关隘",
+    "events": [
+      "顺治六年罗刹人筑城",
+      "康熙年间罗刹军以此为根据地大举东来"
+    ],
+    "associated_factions": [
+      "faction_luo_sha_guo"
+    ],
+    "associated_characters": [
+      "char_tu_er_bu_qing",
+      "char_wei_xiao_bao",
+      "char_shuang_er",
+      "char_hua_bo_si_ji",
+      "char_qi_luo_nuo_fu",
+      "char_lang_tan",
+      "char_lin_xing_zhu"
+    ],
+    "related_factions": [
+      "faction_da_qing",
+      "faction_e_luo_si"
+    ],
+    "dynamics": [
+      {
+        "target": "char_wei_xiao_bao",
+        "type": "战役地",
+        "detail": "韦小宝攻克雅克萨"
+      }
+    ]
+  },
+  {
+    "id": "loc_mo_si_ke",
+    "name": "莫斯科",
+    "description": "鄂罗斯国都城，苏菲亚公主摄政之地，华伯斯基与齐洛诺夫奉命自此东来探听消息；罗刹国首都，苏菲亚公主居于此处执掌军政大权。韦小宝曾随双儿到过此地。",
+    "type": "都城",
+    "associated_characters": [
+      "char_su_fei_ya",
+      "char_hua_bo_si_ji",
+      "char_qi_luo_nuo_fu"
+    ],
+    "related_factions": [
+      "faction_e_luo_si"
+    ],
+    "associated_factions": [
+      "faction_luo_sha_guo"
+    ]
+  },
+  {
+    "id": "loc_ke_li_mu_lin_gong",
+    "name": "克里姆林宫",
+    "description": "莫斯科克里姆林宫，韦小宝裸体石像曾藏于此，后被彼得大帝政变驱逐苏菲亚时击碎",
+    "type": "宫殿",
+    "associated_characters": [
+      "char_su_fei_ya"
+    ],
+    "related_factions": [
+      "faction_e_luo_si"
+    ]
+  },
+  {
+    "id": "loc_lie_gong",
+    "name": "猎宫",
+    "description": "罗刹国皇家猎宫，苏菲亚公主被皇太后娜达丽亚囚禁于此，火枪营叛乱当夜苏菲亚在此等候消息，后在此接见韦小宝献策。"
+  },
+  {
+    "id": "loc_xi_bo_li_ya",
+    "name": "西伯利亚大草原",
+    "description": "辽阔草原，韦小宝事成后在两队哥萨克骑兵护送下骑马东归，和风拂面，蹄声盈耳。"
+  },
+  {
+    "id": "loc_tai_he_dian",
+    "name": "太和殿",
+    "description": "紫禁城正殿，康熙在此召集王公大臣商议撤藩大事。群臣传阅三藩奏章，争论是否撤藩，韦小宝当众抖出吴三桂行贿珠宝。"
+  },
+  {
+    "id": "loc_nan_yuan",
+    "name": "南苑",
+    "description": "京城南苑，康熙命汤若望与南怀仁在此操炮演习给罗刹使臣观看，炮火犀利射击准确，令使臣暗暗钦服。"
+  },
+  {
+    "id": "loc_bo_jue_fu",
+    "name": "伯爵府",
+    "description": "韦小宝的府邸，宴请吴应熊及四名武将。韦小宝在此暗中安排马夫头儿给额驸府的马匹喂巴豆。",
+    "significance": "韦小宝施展阴谋的场所，暗中准备赛马作弊",
+    "type": "府邸"
+  },
+  {
+    "id": "loc_e_fu",
+    "name": "额驸府",
+    "description": "吴应熊在京中的府邸，众人在此议论马匹、商议赛马之事。赵良栋与王进宝在此因马匹优劣激烈争辩。；吴应熊与建宁公主的赐第。吴应熊在此宴请韦小宝及云南来将，密请韦小宝向康熙进言阻止撤藩。",
+    "significance": "本回主要场景之一，赛马之议在此提出",
+    "type": "府邸"
+  },
+  {
+    "id": "loc_tian_jin_wei",
+    "name": "天津卫",
+    "description": "赵良栋任副将之地，韦小宝从此处发现不肯拍马屁的大胡子赵良栋，后命明珠将其调入北京。"
+  },
+  {
+    "id": "loc_wang_mu_dong",
+    "name": "王母洞",
+    "description": "王屋山天坛以北的山洞，相传为黄帝会王母之处。王屋派人众聚居于此及附近各洞中，冬暖夏凉。司徒伯雷的灵位设在此处。",
+    "significance": "王屋派聚居之所，祭奠司徒伯雷及大开香堂之处",
+    "type": "洞"
+  },
+  {
+    "id": "loc_bao_ding_fu",
+    "name": "保定府",
+    "description": "天地会青木堂分舵所在之处，王屋派老弱妇孺移居此地安居，由青木堂分舵照应。",
+    "significance": "安置王屋派家属之处",
+    "type": "城"
+  },
+  {
+    "id": "loc_he_yuan",
+    "name": "何园",
+    "type": "建筑",
+    "description": "扬州名园第一，盐商何姓所建。栋宇连云，泉石幽曲，亭舍雅致。韦小宝钦差行辕设于此处，大床被抬入花厅。",
+    "connections": [
+      "loc_yang_zhou",
+      "loc_li_chun_yuan"
+    ],
+    "significance": "钦差行辕所在地"
+  },
+  {
+    "id": "loc_chan_zhi_si",
+    "name": "禅智寺",
+    "type": "建筑",
+    "description": "扬州禅智寺，韦小宝曾在此赏芍药",
+    "connections": [
+      "loc_yang_zhou",
+      "loc_shao_yao_pu"
+    ],
+    "significance": "韦小宝童年受辱之地，芍药圃之争"
+  },
+  {
+    "id": "loc_shao_yao_pu",
+    "name": "芍药圃",
+    "type": "景观",
+    "description": "禅智寺前的芍药名圃，名种千百，花大如碗，璀璨华美如织锦。其中金带围为十分罕见的名种，深红花瓣腰有金线，古书载戴此花者日后会做宰相。韦小宝以壮马为由要尽数掘去。",
+    "connections": [
+      "loc_chan_zhi_si"
+    ],
+    "significance": "四相簪花宴典故之地，韦小宝复仇目标"
+  },
+  {
+    "id": "loc_jiang_ning",
+    "name": "江宁",
+    "type": "城市",
+    "description": "两江总督驻地。麻勒吉为两江总督，迎送韦小宝后返回江宁治所。",
+    "connections": [
+      "loc_yang_zhou"
+    ],
+    "significance": "两江总督治所"
+  },
+  {
+    "id": "loc_mu_lan_yuan",
+    "name": "木兰院",
+    "type": "建筑",
+    "description": "唐朝时扬州寺院，王播年轻时寄居于此。和尚饭后撞钟捉弄王播，后王播做宰相镇守扬州旧地重游，题诗感慨。即后来的石塔寺。",
+    "connections": [
+      "loc_yang_zhou"
+    ],
+    "significance": "王播碧纱笼典故发生地"
+  },
+  {
+    "id": "loc_shi_ta_si",
+    "name": "石塔寺",
+    "type": "建筑",
+    "description": "扬州古寺，唐朝时称木兰院。慕天颜讲述王播碧纱笼故事即出于此寺。",
+    "connections": [
+      "loc_mu_lan_yuan"
+    ],
+    "significance": "历史典故发生地"
+  },
+  {
+    "id": "loc_jing_cheng",
+    "name": "京城",
+    "description": "北京，康熙召韦小宝急速回京",
+    "associated_factions": [
+      "清朝"
+    ]
+  },
+  {
+    "id": "loc_jing_zhou",
+    "name": "荆州",
+    "description": "鄂西之地，查慎行诗中所提洪武铜炮所在地",
+    "associated_factions": []
+  },
+  {
+    "loc_id": "loc_xianghe",
+    "name": "香河",
+    "region": "直隶",
+    "description": "离京已近之处，韦小宝吩咐张勇率大队就地等候看守毛东珠，自己带天地会群雄押吴之荣折向庄家大屋。",
+    "connected_factions": [
+      "faction_qing_court",
+      "faction_tidihui"
+    ],
+    "connected_characters": [
+      "char_wei_xiao_bao",
+      "char_zhang_yong"
+    ],
+    "id": "loc_香_河"
+  },
+  {
+    "loc_id": "loc_zhuang_jia",
+    "name": "庄家大屋",
+    "region": "直隶",
+    "description": "庄三少奶居所，韦小宝将吴之荣送此交庄三少奶处置。陈近南率天地会群雄追至此处擒获归辛树一家。",
+    "connected_factions": [
+      "faction_tidihui"
+    ],
+    "connected_characters": [
+      "char_san_shao_nai",
+      "char_wei_xiao_bao",
+      "char_chen_jin_nan"
+    ],
+    "id": "loc_庄_家_大_屋"
+  },
+  {
+    "loc_id": "loc_hunan",
+    "name": "湖南",
+    "region": "华中",
+    "description": "吴三桂兵锋所及之地，马宝从贵州进攻湖南，沅州失陷。湖南巡抚请朝廷加派援兵。",
+    "connected_factions": [
+      "faction_wu_sangui_faction",
+      "faction_qing_court"
+    ],
+    "connected_characters": [
+      "char_ma_bao"
+    ],
+    "id": "loc_湖_南"
+  },
+  {
+    "loc_id": "loc_yuanzhou",
+    "name": "沅州",
+    "region": "湖南",
+    "description": "湖南重镇，被吴三桂部将马宝攻陷，总兵崔世禄被俘。",
+    "connected_factions": [
+      "faction_wu_sangui_faction"
+    ],
+    "connected_characters": [
+      "char_ma_bao",
+      "char_cui_shi_lu"
+    ],
+    "id": "loc_沅_州"
+  },
+  {
+    "loc_id": "loc_sichuan",
+    "name": "四川",
+    "region": "西南",
+    "description": "王屏藩奉吴三桂之命进攻四川，兵势甚盛。",
+    "connected_factions": [
+      "faction_wu_sangui_faction"
+    ],
+    "connected_characters": [],
+    "id": "loc_四_川"
+  },
+  {
+    "loc_id": "loc_tongzhou",
+    "name": "通州",
+    "region": "直隶",
+    "description": "韦小宝一行途经通州，有酒楼茶馆。",
+    "connected_factions": [],
+    "connected_characters": [
+      "char_wei_xiao_bao"
+    ],
+    "id": "loc_通_州"
+  },
+  {
+    "loc_id": "loc_shandong",
+    "name": "山东",
+    "region": "华东",
+    "description": "韦小宝途经山东，地方官抄得邸报呈上，有康熙斥责吴三桂诏书。",
+    "connected_factions": [
+      "faction_qing_court"
+    ],
+    "connected_characters": [
+      "char_wei_xiao_bao"
+    ],
+    "id": "loc_山_东"
+  },
+  {
+    "id": "loc_yong_he_gong",
+    "name": "铜帽子胡同",
+    "description": "韦小宝在北京的伯爵府所在",
+    "type": "府邸",
+    "significance": "韦小宝在京的根据地，众人聚会商议大事之处"
+  },
+  {
+    "id": "loc_zi_jin_cheng",
+    "name": "紫禁城",
+    "description": "皇宫内院，清朝皇帝居所",
+    "type": "皇宫",
+    "significance": "归氏夫妇行刺的目标，韦小宝暗中保护康熙之处"
+  },
+  {
+    "id": "loc_wu_hua_gong",
+    "name": "五华宫",
+    "description": "吴三桂在昆明的宫殿。其书房中有三宝之一的大理石屏风。",
+    "type": "宫殿",
+    "significance": "归钟提及韦小宝府第与五华宫相差不远",
+    "characters": [
+      "char_wu_san_gui"
+    ]
+  },
+  {
+    "id": "loc_ci_ning_hua_yuan",
+    "name": "慈宁花园",
+    "description": "慈宁宫旁的御花园",
+    "type": "花园",
+    "significance": "归氏三人埋伏假山后挟持韦小宝之处"
+  },
+  {
+    "id": "loc_shou_kang_gong",
+    "name": "寿康宫",
+    "description": "紫禁城内宫殿",
+    "type": "宫殿",
+    "significance": "归氏三人刺杀后逃遁方向"
+  },
+  {
+    "id": "loc_chang_chun_gong",
+    "name": "长春宫",
+    "description": "紫禁城内宫殿之一",
+    "type": "宫殿",
+    "significance": "韦小宝编造皇帝换地方睡觉的宫名之一"
+  },
+  {
+    "id": "loc_jing_yang_gong",
+    "name": "景阳宫",
+    "description": "紫禁城内宫殿之一",
+    "type": "宫殿",
+    "significance": "韦小宝编造皇帝换地方睡觉的宫名之一"
+  },
+  {
+    "id": "loc_xian_fu_gong",
+    "name": "咸福宫",
+    "description": "紫禁城内宫殿之一",
+    "type": "宫殿",
+    "significance": "韦小宝编造皇帝换地方睡觉的宫名之一"
+  },
+  {
+    "id": "loc_yan_xi_gong",
+    "name": "延禧宫",
+    "description": "紫禁城内宫殿之一",
+    "type": "宫殿",
+    "significance": "韦小宝编造皇帝换地方睡觉的宫名之一"
+  },
+  {
+    "id": "loc_li_jing_xuan",
+    "name": "丽景轩",
+    "description": "紫禁城内建筑之一",
+    "type": "宫殿",
+    "significance": "韦小宝编造皇帝换地方睡觉的宫名之一"
+  },
+  {
+    "id": "loc_yu_qing_gong",
+    "name": "毓庆宫",
+    "description": "紫禁城内建筑之一",
+    "type": "宫殿",
+    "significance": "韦小宝编造皇帝换地方睡觉的宫名之一"
+  },
+  {
+    "id": "loc_heng_zhou",
+    "name": "衡州",
+    "description": "吴三桂称帝之地。定都衡州后不久惊惧而死。",
+    "characters": []
+  },
+  {
+    "id": "loc_peng_hu",
+    "name": "澎湖",
+    "description": "台湾外岛，施琅在此大败郑军水师，为攻台之关键战役。",
+    "type": "军事要地",
+    "related_characters": [
+      "char_shi_lang"
+    ],
+    "events": [
+      "澎湖之战，郑军水师大败"
+    ]
+  },
+  {
+    "id": "loc_ni_bu_chu",
+    "name": "尼布楚",
+    "description": "中俄谈判签约之地，尼布楚条约在此签署，界碑由此向格尔必齐河和额尔古纳河各方树立",
+    "type": "城池",
+    "related_characters": [],
+    "events": [
+      "罗刹兵西退后在此筑城"
+    ],
+    "associated_factions": [
+      "faction_luo_sha_guo"
+    ],
+    "associated_characters": [
+      "char_wei_xiao_bao",
+      "char_suo_e_tu",
+      "char_fei_yao_duo_luo",
+      "char_tong_guo_gang"
+    ],
+    "related_factions": [
+      "faction_da_qing",
+      "faction_e_luo_si"
+    ]
+  },
+  {
+    "name": "瑷珲",
+    "id": "loc_ai_hui",
+    "type": "城池",
+    "description": "黑龙江沿岸重镇，韦小宝与索额图朋春等驻此候旨，接受康熙诏书；清朝北疆重镇，伊桑阿奉旨构筑此城，广积粮草弹药。大军南退时暂驻此城休卒养士。",
+    "associated_characters": [
+      "char_wei_xiao_bao",
+      "char_peng_chun",
+      "char_suo_e_tu",
+      "char_yi_sang_a"
+    ],
+    "related_factions": [
+      "faction_da_qing"
+    ],
+    "associated_factions": [
+      "faction_da_qing"
+    ]
+  },
+  {
+    "id": "loc_ning_gu_ta",
+    "name": "宁古塔",
+    "type": "城池",
+    "description": "清朝北疆军事重镇，设有驿站保障军需粮饷供应畅通。",
+    "associated_factions": [
+      "faction_da_qing"
+    ],
+    "associated_characters": [
+      "char_ba_hai"
+    ]
+  },
+  {
+    "id": "loc_wei_fu",
+    "name": "鹿鼎公府",
+    "type": "residence；府邸",
+    "description": "韦小宝府邸，设酒席款待茅十八并策划法场换人；韦小宝的府邸，本回中韦小宝在府中发闷、家宴、吩咐亲兵。",
+    "related_characters": [
+      "char_wei_xiao_bao",
+      "char_mao_shi_ba",
+      "char_su_quan",
+      "char_shuang_er"
+    ],
+    "associated_factions": [
+      "faction_da_qing"
+    ],
+    "associated_characters": [
+      "char_wei_xiao_bao",
+      "char_jie_shu",
+      "char_li_wei"
+    ],
+    "dynamics": [
+      {
+        "target": "char_wei_xiao_bao",
+        "type": "居所",
+        "detail": "韦小宝日常居住之地"
+      }
+    ]
+  },
+  {
+    "name": "呼玛尔",
+    "id": "loc_hu_ma_er",
+    "type": "城池",
+    "description": "黑龙江沿岸军事驻地，萨布素另率一军驻守候旨",
+    "associated_characters": [
+      "char_sa_bu_su"
+    ],
+    "related_factions": [
+      "faction_da_qing"
+    ]
+  },
+  {
+    "name": "格尔必齐河",
+    "id": "loc_ge_er_bi_qi_he",
+    "type": "河流",
+    "description": "尼布楚条约规定的中俄界河，东岸属中国，循此河上流至大兴安岭为界",
+    "associated_characters": [],
+    "related_factions": [
+      "faction_da_qing",
+      "faction_e_luo_si"
+    ]
+  },
+  {
+    "name": "额尔古纳河",
+    "id": "loc_e_er_gu_na_he",
+    "type": "河流",
+    "description": "尼布楚条约规定的中俄界河，南岸属中国北岸属俄罗斯，南岸房舍迁徙北岸",
+    "associated_characters": [],
+    "related_factions": [
+      "faction_da_qing",
+      "faction_e_luo_si"
+    ]
+  },
+  {
+    "name": "外兴安岭",
+    "id": "loc_wai_xing_an_ling",
+    "type": "山脉",
+    "description": "尼布楚条约规定的中俄北方分界山脉，山南流入黑龙江溪河尽属中国，山北尽属俄罗斯",
+    "associated_characters": [],
+    "related_factions": [
+      "faction_da_qing",
+      "faction_e_luo_si"
+    ]
+  },
+  {
+    "id": "loc_fa_chang",
+    "name": "法场",
+    "type": "other",
+    "description": "监斩茅十八之处，韦小宝事先在席棚中搭复壁藏人完成替死计策",
+    "related_characters": [
+      "char_wei_xiao_bao",
+      "char_mao_shi_ba",
+      "char_feng_xi_fan",
+      "char_duo_long"
+    ]
+  },
+  {
+    "id": "loc_zheng_fu",
+    "name": "海澄公府",
+    "type": "residence",
+    "description": "郑克塽在京府邸，韦小宝率侍卫上门讨债二百六十余万两",
+    "related_characters": [
+      "char_zheng_ke_shang",
+      "char_feng_xi_fan",
+      "char_wei_xiao_bao"
+    ]
+  },
+  {
+    "id": "loc_feng_xi_fan_fu",
+    "name": "忠诚伯府",
+    "description": "冯锡范的府邸，韦小宝会同知府前往踏勘盘问，七十九口家人被集中在西厅。",
+    "dynamics": [
+      {
+        "target": "char_feng_xi_fan",
+        "type": "居所",
+        "detail": "冯锡范的府邸"
+      }
+    ]
+  },
+  {
+    "id": "loc_dong_ting",
+    "name": "东厅",
+    "description": "忠诚伯府东厅，设为公堂审问之所。",
+    "dynamics": [
+      {
+        "target": "loc_feng_xi_fan_fu",
+        "type": "位于",
+        "detail": "忠诚伯府内的东厅"
+      }
+    ]
+  },
+  {
+    "id": "loc_xi_ting",
+    "name": "西厅",
+    "description": "忠诚伯府西厅，冯家七十九口人在此等候问话。",
+    "dynamics": [
+      {
+        "target": "loc_feng_xi_fan_fu",
+        "type": "位于",
+        "detail": "忠诚伯府内的西厅"
+      }
+    ]
+  }
+]
