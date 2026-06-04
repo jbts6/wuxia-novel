@@ -1,79 +1,190 @@
 [
   {
-    "id": "skill_qin_na_shou",
-    "name": "擒拿手",
-    "type": "擒拿",
-    "faction": "",
-    "rank": "登堂入室",
-    "one_line": "陈近南施展的擒拿功夫，近身搏击劈击勾打，一招制敌",
+    "id": "skill_ning_xue_shen_zhua",
+    "name": "凝血神抓",
+    "type": "指法",
+    "faction": "天地会",
+    "rank": "返璞归真",
+    "one_line": "陈近南独门绝技，中者三天后全身血液凝结",
     "techniques": [
       {
-        "id": "tech_qin_na_pi_ji",
-        "name": "擒拿劈击",
-        "type": "擒拿",
-        "description": "以掌缘劈击颈骨，勾打擒拿，在狭窄空间中近身克敌"
+        "id": "tech_ning_xue",
+        "name": "凝血神抓",
+        "type": "attack",
+        "description": "以深厚内力施爪，令对手血液凝滞"
+      },
+      {
+        "id": "tech_ning_xue_01",
+        "name": "凝血暗劲",
+        "type": "debuff",
+        "description": "抓住对方时暗运劲力，数小时后发作，血液慢慢凝结"
       }
     ],
     "progression": [
       {
-        "level": 3,
-        "unlock": "已臻高深境界，随手施展即可毙敌"
+        "level": 5,
+        "unlock": "大成境界，内力深不可测"
+      },
+      {
+        "level": 5,
+        "unlock": "大成境界"
+      },
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 5,
+        "unlock": "返璞归真，无药可治"
       }
     ],
     "effects": [
-      "近身格斗压制",
-      "可断人颈骨肋骨"
+      "以爪功伤敌",
+      "令敌人血液凝滞",
+      "全身血液凝结",
+      "无药可治",
+      "需特殊方法化解",
+      "需埋入泥地化解七日"
     ],
-    "combat_style": "近身搏击，以快制敌，掌法凌厉",
-    "style": "近身擒拿",
-    "origin": "洪夫人所授",
-    "description": "近身格斗技巧，沐王府众人乔装乡农时使用。身法虽非上乘，但招式有效。",
-    "users": [
-      "char_wei_xiao_bao",
-      "char_tai_hou",
-      "char_jian_ning_gong_zhu",
-      "char_wu_li_shen",
-      "char_ao_biao"
-    ],
-    "rarity": "上乘佳品",
-    "appearances": true
+    "combat_style": "暗手制敌"
   },
   {
     "id": "skill_wu_hu_duan_men_dao",
     "name": "五虎断门刀",
     "type": "刀法",
-    "faction": "fac_wu_hu_duan_men_dao",
-    "rank": "略有小成",
-    "one_line": "江北泰州门派的刀法绝技",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "江湖常见刀法，以猛虎为意",
     "techniques": [
       {
-        "id": "tech_xi_feng_dao_juan",
-        "name": "西风倒卷",
-        "type": "攻招",
-        "description": "单刀自下拖上的防御反击招式"
+        "id": "tech_wu_hu_1",
+        "name": "五虎断门刀法",
+        "type": "attack",
+        "description": "以刚猛刀法劈砍敌人，见招拆招"
+      },
+      {
+        "id": "tech_wu_hu_01",
+        "name": "猛虎下山",
+        "type": "attack",
+        "description": "自上而下劈砍，势大力沉"
+      },
+      {
+        "id": "tech_wu_hu_02",
+        "name": "恶虎拦路",
+        "type": "defense",
+        "description": "斜刀一封，挡开对方攻势"
       }
     ],
     "progression": [
       {
-        "level": 1,
-        "unlock": "已习得"
+        "level": 3,
+        "unlock": "登堂入室，可与中等好手交锋"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 2,
+        "unlock": "招式刚猛有力"
+      },
+      {
+        "level": 2,
+        "unlock": "基本招式"
       }
     ],
     "effects": [
-      "攻防兼备",
-      "刀势凌厉"
+      "近身格斗",
+      "刀势刚猛",
+      "刚猛凌厉",
+      "适合正面搏杀"
     ],
-    "combat_style": "刚猛刀法",
-    "rarity": "上乘佳品",
-    "description": "江湖知名刀法，招式刚猛凌厉，以猛虎下山、恶虎拦路等招著称。蓝衫女郎与绿衫女郎均擅此技。",
-    "notable_moves": [
-      "猛虎下山",
-      "恶虎拦路"
+    "combat_style": "大开大合"
+  },
+  {
+    "id": "skill_qin_na_shou",
+    "name": "擒拿手",
+    "type": "指法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "近身搏击技法，以抓拿关节制服对手",
+    "techniques": [
+      {
+        "id": "tech_qin_na_1",
+        "name": "擒拿手法",
+        "type": "attack",
+        "description": "以巧劲制服对手关节，劈击勾打"
+      },
+      {
+        "id": "tech_shuang_long_qiang_zhu",
+        "name": "双龙抢珠",
+        "type": "attack",
+        "description": "食中二指疾戳敌人双目"
+      },
+      {
+        "id": "tech_tui_chuang_wang_yue",
+        "name": "推窗望月",
+        "type": "attack",
+        "description": "转腕侧身推敌人后背"
+      },
+      {
+        "id": "tech_zhong_gu_qi_ming",
+        "name": "钟鼓齐鸣",
+        "type": "attack",
+        "description": "双拳分击敌人双太阳穴"
+      },
+      {
+        "id": "tech_xie_pi_ni_lin",
+        "name": "斜批逆鳞",
+        "type": "attack",
+        "description": "擒拿手法中一招，扳住对方头颈"
+      },
+      {
+        "id": "tech_ge_dang",
+        "name": "格挡",
+        "type": "defense",
+        "description": "以双掌格开对方攻击"
+      },
+      {
+        "id": "tech_fan_na",
+        "name": "反拿",
+        "type": "attack",
+        "description": "反手拿住对方手臂关节"
+      }
     ],
-    "users": [
-      "char_lan_shan_nv_lang",
-      "char_lv_shan_nv_lang"
-    ]
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "略有小成，可在近战中制服普通对手"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 5,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      "制服敌人关节",
+      "近身搏击",
+      "近身搏击制敌",
+      "点穴擒拿",
+      "制服对手关节",
+      "近身控制",
+      "近身格斗中擒住对方",
+      "近身擒住对手"
+    ],
+    "combat_style": "近身搏击，以巧劲制敌"
   },
   {
     "id": "skill_mo_yun_zhang",
@@ -81,1422 +192,3469 @@
     "type": "掌法",
     "faction": "",
     "rank": "炉火纯青",
-    "one_line": "吴大鹏成名掌法，掌力雄浑可震落满树黄叶",
+    "one_line": "吴大鹏的看家掌法，掌力浑厚可将大树打得黄叶纷飞",
     "techniques": [
       {
         "id": "tech_tie_shu_kai_hua",
         "name": "铁树开花",
-        "type": "攻招",
-        "description": "掌力吐处可将人数丈之外击飞吐血"
+        "type": "attack",
+        "description": "掌力吐出，将敌人震飞数丈"
+      },
+      {
+        "id": "tech_mo_yun_2",
+        "name": "摩云掌力",
+        "type": "attack",
+        "description": "浑厚掌力，一掌可令大树黄叶如雨撒落"
       }
     ],
     "progression": [
       {
-        "level": 1,
-        "unlock": "已习得"
+        "level": 4,
+        "unlock": "炉火纯青，一掌可击碎敌人筋骨"
       }
     ],
     "effects": [
-      "掌力雄浑",
-      "隔空伤人"
+      "掌力浑厚震退敌人",
+      "一掌可击毙伤者"
     ],
-    "combat_style": "轻灵飘逸，掌力雄浑"
+    "combat_style": "以深厚掌力正面碾压"
   },
   {
     "id": "skill_hei_long_bian",
     "name": "黑龙鞭",
-    "type": "鞭法",
+    "type": "其他",
     "faction": "",
-    "rank": "炉火纯青",
-    "one_line": "史松成名鞭法，鞭招灵活多变虚实相间，可缠绕对手",
+    "rank": "登堂入室",
+    "one_line": "史松所用的软鞭功夫，鞭法多变难以招架",
     "techniques": [
       {
         "id": "tech_bai_she_tu_xin",
         "name": "白蛇吐信",
-        "type": "虚招",
-        "description": "鞭梢点向敌人，可虚可实试探对手"
+        "type": "attack",
+        "description": "鞭梢如蛇吐信般点刺敌人"
       },
       {
         "id": "tech_yu_dai_wei_yao",
         "name": "玉带围腰",
-        "type": "攻招",
-        "description": "软鞭自远距离围卷敌人腰间"
+        "type": "attack",
+        "description": "软鞭远远围卷敌人腰间"
+      },
+      {
+        "id": "tech_sheng_dong_ji_xi",
+        "name": "声东击西",
+        "type": "feint",
+        "description": "虚晃一招后变招攻击"
       }
     ],
     "progression": [
       {
-        "level": 1,
-        "unlock": "已习得"
+        "level": 3,
+        "unlock": "登堂入室，鞭法变化多端"
       }
     ],
     "effects": [
-      "鞭法灵活",
-      "可缠绕对手",
-      "虚实兼备"
+      "远距离缠绕敌人",
+      "软鞭难以格挡"
     ],
-    "combat_style": "灵活多变，虚实相间"
+    "combat_style": "远距离软兵器攻击，虚实变化"
   },
   {
-    "id": "skill_shuang_bi_kai_shan",
-    "name": "双笔开山",
-    "type": "笔法",
-    "faction": "",
+    "id": "skill_pan_guan_bi",
+    "name": "判官笔",
+    "type": "其他",
+    "faction": "faction_shen_long_jiao",
     "rank": "登堂入室",
-    "one_line": "王潭外号兼武功路数，使一对判官笔，点穴制敌攻守兼备",
-    "techniques": [],
+    "one_line": "章老三使用的兵器技法",
+    "techniques": [
+      {
+        "id": "tech_pan_guan_1",
+        "name": "判官双笔",
+        "type": "attack",
+        "description": "以一对判官笔点刺敌人穴道"
+      },
+      {
+        "id": "tech_bi_hu_ca",
+        "name": "双笔互擦",
+        "type": "buff",
+        "description": "双笔相互磨擦发出滋滋之声，威吓敌人"
+      },
+      {
+        "id": "tech_dian_xue",
+        "name": "点穴",
+        "type": "debuff",
+        "description": "以笔尖点人穴道，使人动弹不得"
+      },
+      {
+        "id": "tech_dian_xue_bi",
+        "name": "笔尖点穴",
+        "type": "debuff",
+        "description": "以笔尖刺人穴道"
+      }
+    ],
     "progression": [
       {
-        "level": 1,
-        "unlock": "已习得"
+        "level": 3,
+        "unlock": "登堂入室，双笔配合娴熟"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
       }
     ],
     "effects": [
       "点穴制敌",
-      "攻守兼备"
+      "双笔攻守兼备",
+      "击打头额",
+      "双笔同击两人",
+      "击打头部"
     ],
-    "combat_style": "以巧取胜，点穴为主"
+    "combat_style": "双笔并用点穴为主"
   },
   {
-    "id": "skill_qin_na_shou_fa",
-    "name": "擒拿手法",
-    "type": "武技",
+    "id": "skill_shi_hui_fen",
+    "name": "石灰撒眼",
+    "type": "暗器",
     "faction": "",
-    "rank": "上乘武学",
-    "one_line": "茅十八精通的擒拿手法，肘撞掌劈，近身搏击",
-    "techniques": [],
-    "progression": [],
-    "effects": [],
-    "combat_style": "近身擒拿，以巧制力",
-    "description": "以抓、扣、拿、锁等手法控制敌人的武功。本回关安基、徐天川、柳大洪、吴立身四人联手以擒拿手法拦截李西华，但被其脱身。后陶宫娥与柳燕在慈宁宫中亦以擒拿法近身搏斗，招招攻敌要害。",
-    "practitioners": [
-      "char_guan_an_ji",
-      "char_xu_tian_chuan",
-      "char_liu_da_hong",
-      "char_wu_li_shen",
-      "char_tao_gong_e",
-      "char_liu_yan",
-      "char_wei_xiao_bao"
-    ]
+    "rank": "平平无奇",
+    "one_line": "韦小宝在扬州学来的市井下三滥手段",
+    "techniques": [
+      {
+        "id": "tech撒石灰",
+        "name": "撒石灰",
+        "type": "debuff",
+        "description": "将生石灰粉撒入敌人口眼鼻中，灼烧致盲"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径，出其不意即可奏效"
+      },
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      }
+    ],
+    "effects": [
+      "致盲敌人",
+      "令敌人剧痛失能"
+    ],
+    "combat_style": "偷袭暗算"
   },
   {
-    "id": "skill_hui_feng_fu_liu",
-    "name": "回风拂柳",
-    "type": "掌法",
+    "id": "skill_qian_tou_bao",
+    "name": "桌底剁脚",
+    "type": "刀法",
+    "faction": "",
+    "rank": "平平无奇",
+    "one_line": "韦小宝躲在桌底用刀剁敌人脚板的市井流氓手段",
+    "techniques": [
+      {
+        "id": "tech_duo_jiao",
+        "name": "桌底剁脚",
+        "type": "attack",
+        "description": "躲在桌下趁乱斩断敌人脚掌"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径，出其不意偷袭"
+      }
+    ],
+    "effects": [
+      "致残敌人下肢",
+      "乱中取胜"
+    ],
+    "combat_style": "无赖偷袭"
+  },
+  {
+    "id": "skill_jie_li_fan_da",
+    "name": "借力反打",
+    "type": "内功",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "海老公的上乘内功，能将对手小力化为大力反击",
+    "techniques": [
+      {
+        "id": "tech_hua_jin",
+        "name": "化劲反弹",
+        "type": "defense",
+        "description": "将对方推力化解并反弹为数倍力量，令对手自受其害"
+      },
+      {
+        "id": "tech_tan_zhi_ji",
+        "name": "弹指击穴",
+        "type": "attack",
+        "description": "以指弹木片击中敌人穴道，远距离制敌"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化，四两拨千斤化小力为大力"
+      }
+    ],
+    "effects": [
+      "反弹敌人攻击",
+      "弹指封穴",
+      "远距离制敌"
+    ],
+    "combat_style": "以巧破力，后发制人的内功高手"
+  },
+  {
+    "id": "skill_mu_yu_qiang_gong",
+    "name": "沐浴强功",
+    "type": "内功",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "海老公药力发作时以冷水浸泡化解内热，旁人难以理解的内功修炼法",
+    "techniques": [
+      {
+        "id": "tech_jin_shui",
+        "name": "浸水化毒",
+        "type": "buff",
+        "description": "药力过猛时浸入水缸以冷水化解体内灼热"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "功力深厚，药力副作用亦需外力化解"
+      }
+    ],
+    "effects": [
+      "化解内热",
+      "维持功力"
+    ],
+    "combat_style": "以内功药力维持修为"
+  },
+  {
+    "id": "skill_tou_tou_mo_mo",
+    "name": "偷偷摸摸",
+    "type": "其他",
     "faction": "",
     "rank": "略有小成",
-    "one_line": "茅十八使用的掌法招式，双掌斜劈而出",
-    "techniques": [],
-    "progression": [],
-    "effects": [],
-    "combat_style": "斜劈掌法"
-  },
-  {
-    "id": "skill_nei_gong_hua_jin",
-    "name": "内劲化力",
-    "type": "内功",
-    "faction": "fac_dong_chang",
-    "rank": "出神入化",
-    "one_line": "海老公的高深内功，能将小力化为大力，封穴弹指皆精",
-    "techniques": [],
-    "progression": [],
-    "effects": [],
-    "combat_style": "以柔克刚，借力化力"
-  },
-  {
-    "id": "skill_ning_xue_shen_zhua",
-    "name": "凝血神抓",
-    "type": "爪法",
-    "faction": "fac_tian_di_hui",
-    "rank": "登峰造极",
-    "one_line": "天地会总舵主陈近南的绝技，内功之高人所难测，本回仅被提及",
-    "techniques": [],
-    "progression": [],
-    "effects": [],
-    "combat_style": "至刚至猛的爪功",
-    "skill_id": "skill_ning_xue_shen_zhua",
-    "owner": "char_chen_jin_nan",
-    "description": "陈近南绝学，曾击中李西华。本回由冯锡范提及，李西华身上仍有凝血神抓旧伤。"
-  },
-  {
-    "id": "skill_shuai_jiao_shu",
-    "name": "摔跤术",
-    "type": "外功",
-    "description": "满洲摔跤之技，以擒抱摔跌、肘击勾扫为主，实战性强",
-    "origin": "满洲",
-    "practitioners": [
-      "char_kang_xi"
+    "one_line": "韦小宝在妓院长大练就的偷食偷钱本事，蹑手蹑脚不为人知",
+    "techniques": [
+      {
+        "id": "tech_nie_shou_nie_jiao",
+        "name": "蹑手蹑脚",
+        "type": "special",
+        "description": "行走无声，偷取物品不被发觉"
+      }
     ],
-    "mentions": "小玄子击打布袋和皮人练习，与韦小宝扭打时多次使用"
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "略有小成，偷食经验丰富"
+      }
+    ],
+    "effects": [
+      "无声行动",
+      "偷取物品"
+    ],
+    "combat_style": "无声潜行"
   },
   {
-    "id": "skill_da_qin_na_shou",
-    "name": "大擒拿手",
-    "type": "拳掌",
-    "description": "少林派擒拿功夫，海大富所教，本是用来和康熙对练打架。韦小宝只记得部分招式，在陈近南面前演示了一遍。",
-    "origin": "海老公传授",
-    "users": [
-      "char_wei_xiao_bao",
-      "char_hai_lao_gong"
+    "id": "skill_shui_yin_tou_zi",
+    "name": "水银骰子",
+    "type": "其他",
+    "faction": "",
+    "rank": "略有小成",
+    "one_line": "灌水银的骗局骰子，韦小宝能以小指暗中拨动控制点数",
+    "techniques": [
+      {
+        "id": "tech_bo_dian",
+        "name": "暗拨点数",
+        "type": "special",
+        "description": "在掷出后以小指轻轻拨动水银骰子改变点数"
+      },
+      {
+        "id": "tech_diao_bao",
+        "name": "偷龙转凤",
+        "type": "special",
+        "description": "趁人不注意将真骰子换入碗中"
+      }
     ],
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "略有小成，十把中能控制一两把"
+      }
+    ],
+    "effects": [
+      "控制骰子点数",
+      "赌局作弊"
+    ],
+    "combat_style": "赌术欺诈"
+  },
+  {
+    "id": "skill_shuai_jiao_ch4",
+    "name": "摔跤",
+    "type": "其他",
+    "faction": "",
     "rank": "初窥门径",
-    "practitioners": [
-      "char_wei_xiao_bao"
-    ]
+    "one_line": "满洲角抵之戏，扭打跌扑的近身格斗术",
+    "techniques": [
+      {
+        "id": "tech_shuai_jiao_1",
+        "name": "扭摔",
+        "type": "attack",
+        "description": "抱住对手腰部或双腿将其摔倒在地"
+      },
+      {
+        "id": "tech_shuai_jiao_2",
+        "name": "勾扫",
+        "type": "attack",
+        "description": "以脚勾扫对手下盘使其失去平衡"
+      },
+      {
+        "id": "tech_shuai_jiao_3",
+        "name": "锁颈",
+        "type": "attack",
+        "description": "从背后扣住对手后颈将其上身压低"
+      },
+      {
+        "id": "tech_sj_1",
+        "name": "顺水推舟",
+        "type": "attack",
+        "description": "借对手之力将其推出"
+      },
+      {
+        "id": "tech_sj_2",
+        "name": "横脚钩扫",
+        "type": "attack",
+        "description": "以脚横扫对手下盘"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径：能与人扭打但技术粗糙"
+      },
+      {
+        "level": 1,
+        "unlock": "初窥门径：基本的摔跤技巧"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成：能配合擒拿手法使用"
+      }
+    ],
+    "effects": [
+      "近身缠斗",
+      "以巧取胜",
+      "以巧制力"
+    ],
+    "combat_style": "近身扭打，以灵活性和经验弥补力量不足"
+  },
+  {
+    "id": "skill_da_qin_na_shou_ch4",
+    "name": "大擒拿手",
+    "type": "拳法",
+    "faction": "崆峒派",
+    "rank": "初窥门径",
+    "one_line": "海老公传授的擒拿功夫，分筋错骨之法",
+    "techniques": [
+      {
+        "id": "tech_qin_na_1",
+        "name": "分筋错骨",
+        "type": "attack",
+        "description": "以巧劲脱人关节、断人筋骨"
+      },
+      {
+        "id": "tech_qns_1",
+        "name": "分筋错骨",
+        "type": "attack",
+        "description": "脱人关节断人筋骨，不宜用在皇帝身上"
+      },
+      {
+        "id": "tech_qns6_1",
+        "name": "瓮中抓鳖",
+        "type": "attack",
+        "description": "手到擒来，如捉甲鱼般将人一把抓住"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径：韦小宝只学了一成半成"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成：能用于实战但威力有限"
+      },
+      {
+        "level": 1,
+        "unlock": "初窥门径：韦小宝学了部分招式"
+      },
+      {
+        "level": 3,
+        "unlock": "炉火纯青：海老公数十年功力，一抓之力无可抗拒"
+      },
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      }
+    ],
+    "effects": [
+      "脱人关节",
+      "折人筋骨",
+      "制敌关节",
+      "抓人后领提回",
+      "擒拿制敌",
+      "用于康熙与韦小宝对练玩耍"
+    ],
+    "combat_style": "以巧劲制敌，近身擒拿"
   },
   {
     "id": "skill_da_ci_da_bei_qian_ye_shou",
     "name": "大慈大悲千叶手",
-    "type": "拳掌",
-    "description": "少林派武功，海大富传授给韦小宝。韦小宝只学了小半套，部分招式已遗忘。陈近南观其演练后评价其中'白马翻蹄'一招海大富故意教错，但韦小宝在'鲤鱼托鳃'时能自行变化，不拘泥于死招。",
-    "origin": "少林派",
-    "users": [
-      "char_wei_xiao_bao",
-      "char_hai_lao_gong"
-    ],
+    "type": "掌法",
+    "faction": "少林派",
     "rank": "初窥门径",
-    "moves": [
-      "南海礼佛",
-      "金玉瓦砾",
-      "人命呼吸",
-      "镜里观影",
-      "水中捉月",
-      "浮云去来",
-      "水泡出没",
-      "梦里真幻",
-      "觉后空空"
+    "one_line": "少林派掌法，海老公传授给韦小宝的假功夫",
+    "techniques": [
+      {
+        "id": "tech_qys_1",
+        "name": "南海礼佛",
+        "type": "attack",
+        "description": "第一手，拍中对手背部穴道令其跪倒"
+      },
+      {
+        "id": "tech_qys_2",
+        "name": "金玉瓦砾",
+        "type": "attack",
+        "description": "第二手，虚实相间令人防不胜防"
+      },
+      {
+        "id": "tech_qys_3",
+        "name": "人命呼吸",
+        "type": "attack",
+        "description": "第三手，出手迅捷直取要害"
+      },
+      {
+        "id": "tech_qys_4",
+        "name": "镜里观影",
+        "type": "feint",
+        "description": "虚式多实式少，如镜中倒影般若隐若现"
+      },
+      {
+        "id": "tech_qys_5",
+        "name": "水中捉月",
+        "type": "feint",
+        "description": "变幻莫测的虚招"
+      },
+      {
+        "id": "tech_qys_6",
+        "name": "浮云去来",
+        "type": "feint",
+        "description": "飘忽不定令人难以捉摸"
+      },
+      {
+        "id": "tech_qys_7",
+        "name": "水泡出没",
+        "type": "feint",
+        "description": "忽隐忽现的变化"
+      },
+      {
+        "id": "tech_qys_8",
+        "name": "梦里真幻",
+        "type": "feint",
+        "description": "真假难辨的迷惑招式"
+      },
+      {
+        "id": "tech_qys_9",
+        "name": "觉后空空",
+        "type": "feint",
+        "description": "出手如幻影般虚无"
+      },
+      {
+        "id": "tech_bai_ma_fan_ti",
+        "name": "白马翻蹄",
+        "type": "attack",
+        "description": "大慈大悲千叶手中一招，海老公故意教错"
+      },
+      {
+        "id": "tech_li_yu_tuo_sai",
+        "name": "鲤鱼托鳃",
+        "type": "attack",
+        "description": "韦小宝自行变化的一招"
+      },
+      {
+        "id": "tech_qys6_1",
+        "name": "南海礼佛",
+        "type": "attack",
+        "description": "第一手，拍中对手背部穴道"
+      }
     ],
-    "practitioners": [
-      "char_wei_xiao_bao"
-    ]
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径：韦小宝硬记招式但不得要领"
+      },
+      {
+        "level": 1,
+        "unlock": "初学皮毛，招式残缺不全"
+      },
+      {
+        "level": 1,
+        "unlock": "初窥门径：韦小宝只学了些皮毛"
+      }
+    ],
+    "effects": [
+      "制敌不伤人",
+      "佛门仁善",
+      "实战中半点不管用",
+      "制人不伤"
+    ],
+    "combat_style": "花架子，无实战价值"
   },
   {
     "id": "skill_ba_gua_you_long_zhang",
     "name": "八卦游龙掌",
     "type": "掌法",
-    "description": "武当派掌法，共八八六十四式，反覆变化，与大慈大悲千叶手各擅胜场",
-    "origin": "武当派",
-    "users": [
-      "char_kang_xi"
+    "faction": "武当派",
+    "rank": "登堂入室",
+    "one_line": "武当派正宗掌法，康熙修习以对抗韦小宝的千叶手",
+    "techniques": [
+      {
+        "id": "tech_bgl_1",
+        "name": "八卦游龙八八六十四式",
+        "type": "attack",
+        "description": "六十四式掌法反复变化，可敌千叶手"
+      }
     ],
-    "rank": "初窥门径"
-  },
-  {
-    "id": "skill_shuai_jiao",
-    "name": "摔跤",
-    "type": "近身搏击",
-    "description": "韦小宝与康熙比武较量近一年所练，扭扑摔跤功夫经过长期习练",
-    "origin": "满洲传统",
-    "users": [
-      "char_kang_xi",
-      "char_wei_xiao_bao"
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "登堂入室：康熙初学能拆解部分招式"
+      }
     ],
-    "rank": "平平无奇",
-    "practitioners": [
-      "char_wei_xiao_bao",
-      "char_kang_xi"
-    ]
+    "effects": [
+      "破解千叶手",
+      "攻守兼备"
+    ],
+    "combat_style": "以八卦方位游走变化，灵活多端"
   },
   {
-    "id": "skill_weng_zhong_zhua_bie",
-    "name": "瓮中抓鳖",
-    "description": "海老公施展的擒拿招式，手到擒来",
-    "type": "擒拿",
-    "users": [
-      "char_hai_lao_gong"
-    ]
+    "id": "skill_yin_yang_mo",
+    "name": "阴阳磨",
+    "type": "掌法",
+    "faction": "崆峒派",
+    "rank": "出神入化",
+    "one_line": "海老公苦练多年专门克制化骨绵掌的神功",
+    "techniques": [
+      {
+        "id": "tech_yym_1",
+        "name": "阴阳双掌",
+        "type": "attack",
+        "description": "左掌阴力右掌阳力交替使用，掌上有极大黏力令对手无法脱身"
+      },
+      {
+        "id": "tech_yym_2",
+        "name": "阴阳倒转",
+        "type": "special",
+        "description": "阴阳之力渐渐倒转，左掌变阳力右掌变阴力，令对手内力失调"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化：虽大伤身体但已练成，专克化骨绵掌"
+      }
+    ],
+    "effects": [
+      "极大黏力",
+      "克制化骨绵掌",
+      "比拚内力占优"
+    ],
+    "combat_style": "以逸待劳，与对手比拚内力，以黏力困住对方"
   },
   {
-    "id": "skill_e_mei_ci_shu",
-    "name": "蛾眉刺术",
-    "description": "太后使用白金点钢蛾眉刺的刺击技法，配合内力施展",
-    "type": "刺法",
-    "users": [
-      "char_tai_hou"
-    ]
+    "id": "skill_hua_gu_mian_zhang",
+    "name": "化骨绵掌",
+    "type": "掌法",
+    "faction": "faction_shen_long_jiao",
+    "rank": "炉火纯青",
+    "one_line": "阴毒掌法，中者全身骨骸酥化",
+    "techniques": [
+      {
+        "id": "tech_san_zhang_hua_gu",
+        "name": "三掌化骨",
+        "type": "debuff",
+        "description": "连拍三掌，使人口吐鲜血，气血翻涌"
+      },
+      {
+        "id": "tech_pai_bei_san_zhang",
+        "name": "拍背三掌",
+        "type": "debuff",
+        "description": "在韦小宝背上连拍三掌，使其呕血受伤"
+      },
+      {
+        "id": "tech_hgmz_1",
+        "name": "化骨绵掌七连击",
+        "type": "attack",
+        "description": "连续七掌拍出，掌力阴沉"
+      },
+      {
+        "id": "tech_hua_gu",
+        "name": "化骨绵掌",
+        "type": "attack",
+        "description": "阴毒掌力，可令人骨化形消"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "出神入化"
+      },
+      {
+        "level": 3,
+        "unlock": "掌力阴沉，中者骨酥"
+      },
+      {
+        "level": 5,
+        "unlock": "连拍数掌可致命"
+      },
+      {
+        "level": 3,
+        "unlock": "炉火纯青：太后所练未到绝顶但足以杀人"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "气血翻涌",
+      "口吐鲜血",
+      "全身酸麻",
+      "骨骼欲断",
+      "令人生病致死，无药可医",
+      "令人生病致死",
+      "杀人于无形",
+      "全身骨骸酥化",
+      "欲抬一根小指头也不可得",
+      "延迟发作",
+      "全身骨骼碎裂",
+      "外表无伤",
+      "致人死亡",
+      "阴毒内力侵蚀骨骼",
+      "中掌者若再使内力则骨骼寸断"
+    ],
+    "combat_style": "阴柔绵密，暗藏杀机"
+  },
+  {
+    "id": "skill_e_mei_ci_ch6",
+    "name": "蛾眉刺",
+    "type": "暗器",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "太后所用的白金点钢蛾眉刺",
+    "techniques": [
+      {
+        "id": "tech_emc_1",
+        "name": "刺腹",
+        "type": "attack",
+        "description": "趁敌不备刺入对方小腹"
+      }
+    ],
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "登堂入室：太后内力不济时仍能以蛾眉刺杀敌"
+      }
+    ],
+    "effects": [
+      "穿破手掌",
+      "刺入小腹",
+      "锋锐无比"
+    ],
+    "combat_style": "趁比拚内力无法分身时以利器偷袭"
+  },
+  {
+    "id": "skill_zhua_gong",
+    "name": "擒拿功夫",
+    "type": "拳法",
+    "faction": "天地会",
+    "rank": "登峰造极",
+    "one_line": "陈近南展示的擒拿手法，一抓一搓便碎木如粉",
+    "techniques": [
+      {
+        "id": "tech_zhua_sui_mu_jiao",
+        "name": "抓碎桌角",
+        "type": "attack",
+        "description": "陈近南左手一探抓下桌角，双手搓碎木屑"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "抓木如碎粉的高深境界"
+      }
+    ],
+    "effects": [
+      "一抓一搓碎木如粉，震慑韦小宝"
+    ],
+    "combat_style": "刚猛凌厉的擒拿功夫"
   },
   {
     "id": "skill_tian_di_hui_nei_gong",
-    "name": "天地会内功心法",
+    "name": "天地会内功",
     "type": "内功",
-    "description": "天地会修习内功的基本法门，以正心诚意为先。入门极为不易，非有极大毅力难以打通第一关。陈近南传授给韦小宝，但韦小宝因缺乏毅力未能坚持。",
-    "faction_id": "faction_tian_di_hui",
-    "difficulty": "入门极难"
+    "faction": "天地会",
+    "rank": "初窥门径",
+    "one_line": "天地会本门内功，以正心诚意为先，入门极难",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "正心诚意，入门极难"
+      },
+      {
+        "level": 2,
+        "unlock": "打通第一关需极大毅力"
+      }
+    ],
+    "effects": [
+      "以正心诚意为基础，韦小宝练时昏昏欲睡难以入门",
+      "韦小宝练时昏昏欲睡，始终无法入门"
+    ],
+    "combat_style": "内功修习"
+  },
+  {
+    "id": "skill_bi_du_gong",
+    "name": "逼毒功",
+    "type": "内功",
+    "faction": "天地会",
+    "rank": "返璞归真",
+    "one_line": "陈近南以深厚内力将韦小宝体内海大富之毒逼出",
+    "techniques": [
+      {
+        "id": "tech_an_xue_bi_du",
+        "name": "按穴逼毒",
+        "type": "buff",
+        "description": "左手按膻中穴，右手按大椎穴，以内力驱动毒素从体内排出"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "内力深厚到可以逼出他人所中之毒"
+      }
+    ],
+    "effects": [
+      "将海大富所下之毒逼出十之八九",
+      "配合十二粒解毒灵丹可完全驱毒"
+    ],
+    "combat_style": "以内力疗伤逼毒"
+  },
+  {
+    "id": "skill_ba_bi_yuan_hou_qin_na",
+    "name": "八臂猿猴擒拿",
+    "type": "指法",
+    "faction": "天地会",
+    "rank": "炉火纯青",
+    "one_line": "徐天川的招牌擒拿小巧功夫，武林一绝",
+    "techniques": [
+      {
+        "id": "tech_tui_bo_shou_bi",
+        "name": "推拨手臂",
+        "type": "feint",
+        "description": "推动他人的手臂使其击打目标，如让家丁手掌打在卢一峰脸上"
+      },
+      {
+        "id": "tech_nei_li_hong_gao_yao",
+        "name": "内力烘膏药",
+        "type": "special",
+        "description": "双掌夹住膏药，以内力瞬间烘软"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "擒拿小巧功夫武林一绝"
+      }
+    ],
+    "effects": [
+      "以巧劲借力打力，让敌人自相攻击"
+    ],
+    "combat_style": "小巧灵动，借力打力"
+  },
+  {
+    "id": "skill_dian_xue",
+    "name": "点穴术",
+    "type": "指法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "双儿的点穴绝技，令三名哥萨克队长全身不能动弹，被罗刹人误认为成吉思汗魔法",
+    "techniques": [
+      {
+        "id": "tech_shen_tang_xue",
+        "name": "点神堂穴",
+        "type": "debuff",
+        "description": "点背心神堂穴使人不能动弹"
+      },
+      {
+        "id": "tech_yang_gang_xue",
+        "name": "点阳纲穴",
+        "type": "debuff",
+        "description": "点阳纲穴辅助封穴"
+      },
+      {
+        "id": "tech_tian_zhu_xue",
+        "name": "点天柱穴",
+        "type": "debuff",
+        "description": "点后颈天柱穴使人说不出话"
+      },
+      {
+        "id": "tech_huan_tiao_xue",
+        "name": "点环跳穴",
+        "type": "debuff",
+        "description": "点腿上环跳穴使人无法逃跑"
+      },
+      {
+        "id": "tech_zhi_she_xue",
+        "name": "志舍穴",
+        "type": "debuff",
+        "description": "点击腰间志舍穴使人不能动弹"
+      },
+      {
+        "id": "tech_dian_xue_ma_bu",
+        "name": "点穴麻步",
+        "type": "debuff",
+        "description": "点中后心和腰间穴位，使人全身不能动弹"
+      },
+      {
+        "id": "tech_dian_yao_xue",
+        "name": "点腰穴",
+        "type": "attack",
+        "description": "以指力点击敌人腰间穴道使其瘫痪"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 4,
+        "unlock": "可精确点穴制服高手"
+      },
+      {
+        "level": 5,
+        "unlock": "精确点穴，对外国人体同样有效"
+      },
+      {
+        "level": 5,
+        "unlock": "炉火纯青，随手点穴令高手不能动弹"
+      },
+      {
+        "level": 3,
+        "unlock": "炉火纯青"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "使人不能动弹",
+      "使人说不出话",
+      "使人无法行走",
+      "使人动弹不得",
+      "对外国人体穴道同样有效",
+      "对外国人穴道同样有效",
+      "逐个制服十二名正副小队长",
+      "令对手全身麻痹不能动弹",
+      "点中穴道使人动弹不得",
+      "戳中马眼令马匹失控"
+    ],
+    "combat_style": "以点穴制服敌人，不伤人命"
+  },
+  {
+    "id": "skill_bi_shou_zhan",
+    "name": "匕首短刃战",
+    "type": "刀法",
+    "faction": "",
+    "rank": "初窥门径",
+    "one_line": "使用匕首的近身战法",
+    "techniques": [
+      {
+        "id": "tech_cang_bi_shou",
+        "name": "藏匕首",
+        "type": "feint",
+        "description": "将匕首藏于长袍中，出其不意刺杀"
+      },
+      {
+        "id": "tech_pen_shui",
+        "name": "喷水迷目",
+        "type": "feint",
+        "description": "喷水入敌眼趁机近身突袭"
+      },
+      {
+        "id": "tech_cang_jian_yi_zhong",
+        "name": "藏剑于袍",
+        "type": "feint",
+        "description": "将匕首藏于长袍中刀口向外"
+      },
+      {
+        "id": "tech_pen_shui_jin_shen",
+        "name": "喷水近身",
+        "type": "feint",
+        "description": "喷水入敌双目趁机扑入怀中刺杀"
+      },
+      {
+        "id": "tech_dao_bing_ji",
+        "name": "刀柄击头",
+        "type": "attack",
+        "description": "以匕首刀柄重击敌人天灵盖"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      }
+    ],
+    "effects": [
+      "出其不意的致命近身攻击",
+      "出其不意的致命一击",
+      "近身突袭"
+    ],
+    "combat_style": "以诡计辅助的近身战"
+  },
+  {
+    "id": "skill_qing_gong_gao",
+    "name": "高超轻功",
+    "type": "轻功",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "齐元凯所展示的高超轻功，可飞跃屋顶",
+    "techniques": [
+      {
+        "id": "tech_shang_wu",
+        "name": "飞身上屋",
+        "type": "special",
+        "description": "纵身跃上屋顶无声无息"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "飞檐走壁",
+      "无声行动"
+    ],
+    "combat_style": "轻灵飘逸的身法"
   },
   {
     "id": "skill_mu_jia_quan",
     "name": "沐家拳",
     "type": "拳法",
-    "description": "云南沐家家传拳法，招式朴实刚健。杨溢之曾教韦小宝其中'横扫千军'与'高山流水'两招，韦小宝借此在康熙面前辨明平西王府冤屈。",
-    "faction_id": "faction_mu_wang_fu",
-    "difficulty": "高深",
-    "origin": "沐英所创",
-    "practitioners": [
-      "char_yang_yi_zhi",
-      "char_mu_ying"
-    ],
-    "rarity": "寻常凡品",
-    "user": "char_wu_li_shen",
+    "faction": "faction_mu_wang_fu",
     "rank": "登堂入室",
-    "sub_divisions": [
-      "碧鸡展翅",
-      "金马嘶风"
+    "one_line": "云南沐王府家传拳法",
+    "techniques": [
+      {
+        "id": "tech_heng_sao_qian_jun",
+        "name": "横扫千军",
+        "type": "attack",
+        "description": "大开大合的横扫攻击招式"
+      },
+      {
+        "id": "tech_gao_shan_liu_shui",
+        "name": "高山流水",
+        "type": "attack",
+        "description": "刚柔并济的连环攻击招式"
+      },
+      {
+        "id": "tech_bi_ji_zhan_chi",
+        "name": "碧鸡展翅",
+        "type": "attack",
+        "description": "反手一掌击出的拳招"
+      },
+      {
+        "id": "tech_jin_ma_si_feng",
+        "name": "金马嘶风",
+        "type": "defense",
+        "description": "闪避弹身的身法招式"
+      },
+      {
+        "id": "tech_gui_zhua_shou",
+        "name": "龟抓手",
+        "type": "attack",
+        "description": "沐家拳中抓人手腕的擒拿招式"
+      },
+      {
+        "id": "tech_mu_01",
+        "name": "横扫千军",
+        "type": "attack",
+        "description": "大开大合的横扫招式"
+      },
+      {
+        "id": "tech_mu_02",
+        "name": "高山流水",
+        "type": "attack",
+        "description": "自上而下的连环攻击"
+      }
     ],
-    "appearances": [
-      "第16回"
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "炉火纯青"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 2,
+        "unlock": "基本招式"
+      }
     ],
-    "notable_moves": [
-      "横扫千军",
-      "高山流水"
+    "effects": [
+      "气度凝重",
+      "招式精妙",
+      "刚猛有力",
+      "在云南广为流传易辨认",
+      "擒拿敌人手腕",
+      "近身搏击",
+      "招式刚猛"
     ],
-    "users": [
-      "char_wei_xiao_bao",
-      "char_yang_yi_zhi"
-    ]
+    "combat_style": "刚猛有力"
   },
   {
-    "id": "skill_long_teng_hu_yue",
-    "name": "龙腾虎跃",
-    "type": "招式",
-    "description": "沐家拳著名招式之一，从半空中扑击下来。白寒枫以此招引敌，为白寒松的横扫千军创造夹击机会。",
-    "parent_skill": "skill_mu_jia_quan"
-  },
-  {
-    "id": "skill_heng_sao_qian_jun",
-    "name": "横扫千军",
-    "type": "拳招",
-    "description": "沐家拳中一招，气度凝重招式精妙",
-    "parent_skill": "skill_mu_jia_quan",
-    "origin": "沐家拳",
-    "practitioners": [
-      "char_yang_yi_zhi"
+    "id": "skill_dian_xue_xiao_cheng",
+    "name": "初级点穴",
+    "type": "指法",
+    "faction": "faction_mu_fu",
+    "rank": "略有小成",
+    "one_line": "沐剑屏所学的点穴功夫，认穴准确但劲力不足",
+    "techniques": [
+      {
+        "id": "tech_ling_xu_bu_lang",
+        "name": "点灵墟步廊",
+        "type": "debuff",
+        "description": "点灵墟与步廊穴封住行动"
+      },
+      {
+        "id": "tech_tian_chi",
+        "name": "点天池穴",
+        "type": "debuff",
+        "description": "点天池穴使人难以动弹"
+      }
     ],
-    "rarity": "上乘佳品"
-  },
-  {
-    "id": "skill_gao_shan_liu_shui",
-    "name": "高山流水",
-    "type": "拳招",
-    "description": "沐家拳中一招，精妙绝伦",
-    "parent_skill": "skill_mu_jia_quan",
-    "origin": "沐家拳",
-    "practitioners": [
-      "char_yang_yi_zhi"
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      }
     ],
-    "rarity": "上乘佳品"
-  },
-  {
-    "id": "skill_qin_na_shu",
-    "name": "擒拿术",
-    "type": "擒拿",
-    "description": "徐天川的拿手功夫，擒拿小巧技巧算得武林一绝，绰号'八臂猿猴'即由此而来。在酒楼以巧劲推动家丁手掌打狗官，身法灵活如猿猴。",
-    "user_id": "char_xu_tian_chuan",
-    "difficulty": "上乘"
-  },
-  {
-    "skill_id": "skill_dian_xue",
-    "name": "点穴术",
-    "type": "点穴",
-    "owner": null,
-    "description": "韦小宝一行点了吴之荣的哑穴和上身穴道以防逃走，江湖常见制敌手法。",
-    "rank": "登堂入室",
-    "related_factions": [],
-    "id": "skill_点_穴_术",
-    "practitioners": [
-      "char_mu_jian_ping",
-      "char_tai_hou"
+    "effects": [
+      "封住行动",
+      "使人不能动弹"
     ],
-    "rarity": "上乘佳品",
-    "user_id": "char_shuang_er",
-    "rank_reason": "双儿以指法点穴精准快捷，连点数人穴道",
-    "users": [
-      "char_hong_fu_ren",
-      "char_shuang_er"
-    ],
-    "power_level": "炉火纯青"
-  },
-  {
-    "id": "skill_jie_xue",
-    "name": "解穴术",
-    "description": "与点穴为一事之两面，会点穴方会解穴。韦小宝不知解穴法门，胡乱在小郡主腋下渊腋穴又抓又扭又弹，歪打正着解开了穴道。"
-  },
-  {
-    "id": "skill_tie_ban_qiao",
-    "name": "铁板桥",
-    "description": "高深身法功夫，双足如钉在地上，身子齐膝折屈横空而架。杨溢之以此招避开神照上人的踢击，纹丝不动，令满堂喝彩。"
-  },
-  {
-    "id": "skill_zhong_gu_qi_ming",
-    "name": "钟鼓齐鸣",
-    "description": "双拳同时击打对手两侧太阳穴，建宁公主以此招攻击康熙",
-    "type": "拳法",
-    "style": "双拳击太阳穴",
-    "origin": "未知",
-    "users": [
-      "char_jian_ning_gong_zhu"
-    ],
-    "rank": "初窥门径",
-    "rarity": "寻常凡品"
-  },
-  {
-    "id": "skill_hei_tou_xin",
-    "name": "黑虎偷心",
-    "description": "直拳击打对手胸口的粗浅拳招，神照上人以此招七成劲力击打平西王府随从胸口，对方仅退一步浑如不觉，显出双方内力差距悬殊。"
-  },
-  {
-    "id": "skill_wu_long_sao_di",
-    "name": "乌龙扫地",
-    "description": "腿法招式，以腿横扫对手胫骨。神照上人使出鸳鸯连环左腿乌龙扫地，却被杨溢之以铁板桥功法凌空避开。"
-  },
-  {
-    "id": "skill_hu_wei_jian",
-    "name": "虎尾剪",
-    "type": "掌法",
-    "practitioners": [
-      "char_mu_jian_ping"
-    ],
-    "rank": "初窥门径",
-    "description": "左掌斜削之招式，小郡主与韦小宝扭打时使出，击中其肩头"
-  },
-  {
-    "id": "skill_yuan_yang_lian_huan_tui",
-    "name": "鸳鸯连环腿",
-    "type": "腿法",
-    "practitioners": [
-      "char_mu_jian_ping"
-    ],
-    "rank": "初窥门径",
-    "description": "连环踢击之腿法，小郡主飞出直踢韦小宝面门"
+    "combat_style": "精准但力道不足的点穴"
   },
   {
     "id": "skill_hou_gu_wu_you",
     "name": "后顾无忧",
     "type": "掌法",
-    "practitioners": [
-      "char_tai_hou"
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "太后所使掌法，双掌同时击退身后两人",
+    "techniques": [
+      {
+        "id": "tech_shuang_zhang_qi_chu",
+        "name": "双掌齐出",
+        "type": "attack",
+        "description": "左右双掌同时攻击身后两人"
+      }
     ],
-    "rank": "炉火纯青",
-    "description": "太后背后双掌同时击出之招，左掌右掌同时击中两人胸口，将人直摔出去"
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "同时击退多名敌人",
+      "同时击退多人"
+    ],
+    "combat_style": "以一敌多的掌法"
   },
   {
     "id": "skill_tie_zhang",
     "name": "铁掌",
     "type": "掌法",
-    "practitioners": [
-      "char_rui_dong"
+    "faction": "faction_qing_chao",
+    "rank": "登峰造极",
+    "one_line": "瑞栋的成名绝技，外号铁掌无敌",
+    "techniques": [
+      {
+        "id": "tech_tie_zhang_ji",
+        "name": "铁掌击",
+        "type": "attack",
+        "description": "以雄厚内力出掌，劲风扑面"
+      }
     ],
-    "rank": "登堂入室",
-    "description": "瑞栋外号铁掌无敌，掌力强劲，右掌拍出一股劲风扑向对手背心"
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "登峰造极"
+      }
+    ],
+    "effects": [
+      "掌力雄厚",
+      "令人难以抵挡"
+    ],
+    "combat_style": "刚猛凌厉的掌法"
   },
   {
-    "id": "skill_zhang_fa",
-    "name": "掌法",
-    "type": "掌法",
-    "practitioners": [
-      "char_tai_hou"
-    ],
-    "rank": "炉火纯青",
-    "description": "太后掌法凌厉，挥掌击人，运力极强，虽内伤未愈仍有可观威力"
-  },
-  {
-    "id": "skill_hui_feng_jian",
-    "name": "回风剑",
+    "id": "skill_mu_jia_jian",
+    "name": "沐家剑",
     "type": "剑法",
-    "origin": "沐家剑",
-    "description": "沐家剑法之一，沐王府武功自成一家",
-    "practitioners": [
-      "char_yang_yi_zhi"
+    "faction": "faction_mu_fu",
+    "rank": "登堂入室",
+    "one_line": "沐王府传承的剑法，自成一家，方怡入宫行刺所携",
+    "techniques": [
+      {
+        "id": "tech_hui_feng_jian",
+        "name": "回风剑",
+        "type": "attack",
+        "description": "沐家剑法中的经典剑招"
+      }
     ],
-    "rarity": "上乘佳品"
-  },
-  {
-    "id": "skill_yi_hua_jie_mu",
-    "name": "移花接木",
-    "type": "武功",
-    "owner": "char_wei_xiao_bao",
-    "description": "韦小宝以左手袖子遮住酒杯，暗中将药酒倒入袖中而不被察觉的手法",
-    "rank": "初窥门径",
-    "effect": "暗中倒掉杯中毒酒，令旁人以为自己也饮了毒酒",
-    "connections": [
-      "char_wei_xiao_bao"
-    ]
-  },
-  {
-    "id": "skill_tou_shen_suo_gu",
-    "name": "缩骨功",
-    "type": "身法",
-    "description": "李西华被四人擒拿后，身子急缩如肉团，瞬间脱出四人掌握，又撕裂衣袍脱身，身法迅捷无伦。",
-    "practitioners": [
-      "char_li_xi_hua"
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
     ],
-    "rank": "上乘武学"
+    "effects": [
+      "剑法自成一家",
+      "容易辨认来源"
+    ],
+    "combat_style": "刚柔并济的剑法"
   },
   {
-    "id": "skill_an_qi",
-    "name": "暗器",
+    "id": "skill_gang_zhui",
+    "name": "钢锥双刺",
     "type": "暗器",
-    "description": "陶宫娥左手掷出暗器，击中门口报信太监，将其击倒。",
-    "practitioners": [
-      "char_tao_gong_e"
+    "faction": "faction_qing_chao",
+    "rank": "登堂入室",
+    "one_line": "宫中侍卫所使的钢锥双刺武器",
+    "techniques": [
+      {
+        "id": "tech_shuang_zhui_ji",
+        "name": "双锥齐刺",
+        "type": "attack",
+        "description": "手持一对钢锥向敌面门疾刺"
+      }
     ],
-    "rank": "中乘武学"
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
+    ],
+    "effects": [
+      "灵活多变的双持攻击"
+    ],
+    "combat_style": "双手各持钢锥的近战"
   },
   {
-    "id": "skill_hua_gu_mian_zhang",
-    "name": "化骨绵掌",
-    "description": "阴毒掌力，中者全身骨骼寸断。假太后曾向九难连拍七掌，阴毒掌力反噬自身。九难教韦小宝化解之法。",
-    "rarity": "稀世武学",
+    "id": "skill_heng_sao_qian_jun",
+    "name": "横扫千军",
     "type": "掌法",
-    "user": "char_tai_hou",
-    "rank": "炉火纯青",
-    "appearances": true,
-    "users": [
-      "char_jia_tai_hou"
-    ]
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "白寒枫的掌法，威力不小",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "掌力刚猛"
+    ],
+    "combat_style": "刚猛的掌法攻击"
   },
   {
-    "id": "skill_shen_long_jiao_wu_gong",
-    "name": "神龙教武功",
-    "description": "神龙教所传武功千变万化，更配有咒语临敌念诵，能令对手心惊胆战斗志全失",
-    "rarity": "绝世秘术"
+    "id": "skill_gao_shan_liu_shui",
+    "name": "高山流水",
+    "type": "掌法",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "白寒枫的掌法，与横扫千军齐名",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "掌力深厚"
+    ],
+    "combat_style": "流畅的连续掌法"
+  },
+  {
+    "id": "skill_bǐ_shǒu",
+    "name": "匕首术",
+    "type": "其他",
+    "faction": "",
+    "rank": "初窥门径",
+    "one_line": "韦小宝随身匕首，削铁如泥",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "削铁如泥",
+      "割牛筋如割粉丝"
+    ],
+    "combat_style": "近身突刺，以快取胜"
+  },
+  {
+    "id": "skill_hua_shi_yao",
+    "name": "化尸药粉",
+    "type": "其他",
+    "faction": "",
+    "rank": "初窥门径",
+    "one_line": "可将尸体化为黄水的神秘药粉",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "消融尸体",
+      "毁尸灭迹"
+    ],
+    "combat_style": "非战斗用途，用于善后"
+  },
+  {
+    "id": "skill_yun_zhong_xian_zhao",
+    "name": "云中现爪",
+    "type": "指法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "柳大洪的擒拿手法，可化为杀手",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "擒拿手臂可断折"
+    ],
+    "combat_style": "擒拿手法，点到即止可成杀手"
+  },
+  {
+    "id": "skill_bo_tu_shou",
+    "name": "搏兔手",
+    "type": "拳法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "吴立身的擒拿手法",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "抓住后腰，令敌难脱"
+    ],
+    "combat_style": "擒拿控制"
+  },
+  {
+    "id": "skill_bai_yuan_qu_tao",
+    "name": "白猿取桃",
+    "type": "指法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "柳大洪的擒拿手法，抓胁下肉如蟠桃",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "抓取胁下要害，牢牢拿住"
+    ],
+    "combat_style": "精准擒拿要害"
+  },
+  {
+    "id": "skill_cheng_huang_ban_xiao_gui",
+    "name": "城隍扳小鬼",
+    "type": "拳法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "关安基的擒拿手法",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "招数巧妙，攻防兼备"
+    ],
+    "combat_style": "巧妙的擒拿手法"
+  },
+  {
+    "id": "skill_zhai_na_shou",
+    "name": "擒拿手法",
+    "type": "拳法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "太后与假宫女在慈宁宫中施展的凶险擒拿手法",
+    "techniques": [
+      {
+        "id": "tech_zhai_na_01",
+        "name": "挖眼",
+        "type": "attack",
+        "description": "攻击对手眼睛"
+      },
+      {
+        "id": "tech_zhai_na_02",
+        "name": "捣胸",
+        "type": "attack",
+        "description": "攻击对手胸口"
+      },
+      {
+        "id": "tech_zhai_na_03",
+        "name": "扣颈",
+        "type": "attack",
+        "description": "扣住对手颈部"
+      },
+      {
+        "id": "tech_zhai_na_04",
+        "name": "锁喉",
+        "type": "attack",
+        "description": "锁住对手咽喉"
+      },
+      {
+        "id": "tech_zhai_na_05",
+        "name": "打穴",
+        "type": "attack",
+        "description": "点击对手穴道"
+      },
+      {
+        "id": "tech_zhai_na_06",
+        "name": "截脉",
+        "type": "attack",
+        "description": "截断对手经脉"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "招招凶险攻敌要害"
+    ],
+    "combat_style": "近身缠斗，擒拿攻防"
   },
   {
     "id": "skill_xing_yun_liu_shui",
     "name": "行云流水",
-    "type": "擒拿",
-    "description": "顺势制服对手的擒拿手法，刘一舟以此招制住韦小宝",
-    "user": "char_liu_yi_zhou",
-    "rank": "初窥门径",
-    "appearances": [
-      "第16回"
-    ]
-  },
-  {
-    "id": "skill_bi_ji_zhan_chi",
-    "name": "碧鸡展翅",
     "type": "拳法",
-    "description": "沐家拳招式之一，吴立身以此招攻向刘一舟",
-    "user": "char_wu_li_shen",
+    "faction": "faction_mu_wang_fu",
     "rank": "登堂入室",
-    "appearances": [
-      "第16回"
-    ]
+    "one_line": "顺势抓拿的流畅招式",
+    "techniques": [
+      {
+        "id": "tech_xing_yun_liu_shui",
+        "name": "行云流水",
+        "type": "attack",
+        "description": "顺势沿手臂向下抓拿对方手腕的流畅招式"
+      }
+    ],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
+    ],
+    "effects": [
+      "顺势擒拿"
+    ],
+    "combat_style": "借力打力的顺势擒拿"
   },
   {
-    "id": "skill_jin_ma_si_feng",
-    "name": "金马嘶风",
-    "type": "拳法",
-    "description": "沐家拳招式之一，刘一舟以此招闪避吴立身的攻击",
-    "user": "char_liu_yi_zhou",
-    "rank": "初窥门径",
-    "appearances": [
-      "第16回"
-    ]
-  },
-  {
-    "id": "skill_pan_guan_bi_fa",
-    "name": "判官笔法",
-    "type": "点穴",
-    "description": "章老三使一对判官笔，以双笔互擦发出滋滋之声，点穴攻击",
-    "user": "char_zhang_lao_san",
-    "rank": "炉火纯青",
-    "appearances": [
-      "第16回"
-    ]
-  },
-  {
-    "id": "skill_shen_long_zhen_fa",
-    "name": "神龙教阵法",
-    "type": "阵法",
-    "description": "十余人配合的方阵，配合默契，攻守兼备，配合念咒提升士气",
-    "user": "char_zhang_lao_san",
-    "rank": "炉火纯青",
-    "appearances": [
-      "第16回"
-    ]
-  },
-  {
-    "name": "五丁开山",
-    "skill_id": "skill_wu_ding_kai_shan",
-    "owner": "char_shou_tou_tuo",
-    "type": "拳掌",
-    "rank": "炉火纯青",
-    "description": "瘦头陀绝招，左掌先发右拳随出，力道刚猛。在赌场大战中以此招击向吴六奇。",
-    "id": "skill_五_丁_开_山"
-  },
-  {
-    "id": "skill_tie_tou_gong",
-    "name": "铁头功"
-  },
-  {
-    "id": "skill_pang_tou_tuo_wu_gong",
-    "name": "胖头陀武功",
-    "user_id": "char_pang_tou_tuo",
+    "id": "skill_zhuang_jia_gong_fu",
+    "name": "庄家武功",
+    "type": "指法",
+    "faction": null,
     "rank": "出神入化",
-    "rank_reason": "曾力敌少林十八罗汉，抱人疾行逾奔马",
-    "description": "胖头陀身手极高，力大无穷，可单手抱人疾奔",
-    "type": "外功",
-    "faction_id": "faction_shen_long_jiao"
-  },
-  {
-    "id": "skill_lu_xian_sheng_wu_gong",
-    "name": "陆先生武功",
-    "user_id": "char_lu_xian_sheng",
-    "rank": "登峰造极",
-    "rank_reason": "与胖头陀并肩而行不落后半步，身负上乘武功",
-    "description": "看似文弱书生实则身负上乘轻功，行走疾速毫不费力",
-    "type": "轻功",
-    "faction_id": "faction_shen_long_jiao"
-  },
-  {
-    "id": "skill_xiong_huang_she_yao",
-    "name": "雄黄蛇药",
-    "user_id": "char_pan_chou_han",
-    "rank": "初窥门径",
-    "rank_reason": "非武功，乃驱蛇药物",
-    "description": "神龙岛居民随身携带的驱蛇药物，使毒蛇不敢近身",
-    "type": "药物",
-    "faction_id": "faction_shen_long_jiao"
-  },
-  {
-    "id": "skill_sheng_tian_wan",
-    "name": "升天丸",
-    "user_id": "char_lu_xian_sheng",
-    "rank": "初窥门径",
-    "rank_reason": "非武功，乃自杀毒药",
-    "description": "红色药丸，入口气绝，为神龙教属下自尽所用",
-    "type": "药物",
-    "faction_id": "faction_shen_long_jiao"
-  },
-  {
-    "id": "skill_mei_ren_san_zhao",
-    "name": "美人三招",
-    "description": "洪夫人苏荃所授防身保命三招，以古代美人命名，招式精巧迅捷，中者必死，需配合匕首使用",
-    "type": "武功招式",
-    "moves": [
-      "贵妃回眸",
-      "小怜横陈",
-      "飞燕回翔"
+    "one_line": "双儿所使的高深武功，以点穴为主",
+    "techniques": [
+      {
+        "id": "tech_dian_xue",
+        "name": "点穴制敌",
+        "type": "debuff",
+        "description": "以手指点中敌人穴道使其动弹不得"
+      },
+      {
+        "id": "tech_shen_fa",
+        "name": "轻盈身法",
+        "type": "buff",
+        "description": "窜高伏低，身法轻盈迅捷"
+      }
     ],
-    "origin": "洪夫人师父所授，经千锤百炼改正",
-    "users": [
-      "char_su_quan",
-      "char_wei_xiao_bao"
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "出神入化"
+      }
     ],
-    "rank": "登峰造极",
-    "description_detail": "第一招'贵妃回眸'：被敌人从背后抓住后领提起时，反踢小腹、搂颈转身后以匕首刺敌后心。第二招'小怜横陈'：卧地被制时，低头钻过敌人胯下翻身反击。第三招'飞燕回翔'：被反剪双手时，足踢匕首脱缚射向敌人咽喉，险中求胜"
+    "effects": [
+      "点穴制人",
+      "躲避攻击",
+      "点倒巴颜",
+      "点倒皇甫阁",
+      "点倒心溪"
+    ],
+    "combat_style": "灵巧身法配合精准点穴"
   },
   {
-    "id": "skill_ying_xiong_san_zhao",
-    "name": "英雄三招",
-    "description": "洪安通临时创制的降服敌人三招，以古代英雄命名，旨在制服而非杀伤，死活由心",
-    "type": "武功招式",
-    "moves": [
-      "子胥举鼎",
-      "鲁达拔柳",
-      "狄青降龙"
-    ],
-    "origin": "洪安通观摩美人三招后临时创制",
-    "users": [
-      "char_hong_an_tong",
-      "char_wei_xiao_bao"
-    ],
-    "rank": "返璞归真",
-    "description_detail": "第一招'子胥举鼎'：搔敌腋底极泉穴使其松手，反手擒拿甩敌过顶。第二招'鲁达拔柳'：缩腿佯装叩头，趁势取匕首斩断敌兵器，再拖拽制服。第三招'狄青降龙'：双手反剪时虚抓敌乳中乳根穴迫其后缩，翻身骑跨敌颈，拇指压太阳穴制敌"
-  },
-  {
-    "id": "skill_fei_yan_hui_xiang",
-    "name": "飞燕回翔",
-    "type": "擒拿招式",
-    "style": "单招",
-    "origin": "洪夫人所授",
-    "description": "擒拿手中一招，韦小宝以此招制住太后",
-    "users": [
-      "char_wei_xiao_bao"
-    ],
+    "id": "skill_yu_wang_zhuo_ren",
+    "name": "渔网捉人",
+    "type": "其他",
+    "faction": null,
     "rank": "登堂入室",
-    "rarity": "上乘佳品"
-  },
-  {
-    "id": "skill_xiao_lian_heng_chen",
-    "name": "小怜横陈",
-    "type": "擒拿招式",
-    "style": "脱身术",
-    "origin": "洪夫人所授",
-    "description": "擒拿手第二招，从对手胯下钻至身后脱身，韦小宝未练熟",
-    "users": [
-      "char_wei_xiao_bao"
+    "one_line": "庄夫人用渔网配合熄灯擒拿神龙教众的战术",
+    "techniques": [
+      {
+        "id": "tech_yu_wang",
+        "name": "渔网罩人",
+        "type": "special",
+        "description": "熄灭灯火后以渔网罩住敌人，出其不意"
+      }
     ],
-    "rank": "略有小成",
-    "rarity": "上乘佳品"
-  },
-  {
-    "skill_id": "skill_shuang_long_qiang_zhu",
-    "name": "双龙抢珠",
-    "type": "拳法",
-    "origin": "未知",
-    "description": "本为打向敌人太阳穴的招式，因多隆身材高大而韦小宝矮小，两拳都打在胁下。韦小宝与多隆演戏时使用此招。",
-    "practitioners": [
-      "char_wei_xiao_bao"
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
     ],
-    "rank": "平平无奇",
-    "description_origin": "拳法招式",
-    "id": "skill_双_龙_抢_珠",
-    "style": "戳眼",
-    "users": [
-      "char_wei_xiao_bao"
+    "effects": [
+      "群体擒获"
     ],
-    "rarity": "寻常凡品"
-  },
-  {
-    "id": "skill_tui_chuang_wang_yue",
-    "name": "推窗望月",
-    "type": "掌法",
-    "style": "推掌",
-    "origin": "太后所授",
-    "description": "转腕侧身推掌于对手背部，康熙以此招推开建宁公主",
-    "users": [
-      "char_kang_xi"
-    ],
-    "rank": "登堂入室",
-    "rarity": "寻常凡品"
-  },
-  {
-    "id": "skill_gui_fei_hui_mou",
-    "name": "贵妃回眸",
-    "description": "神龙教所传六招救命招数之一，身法巧妙，可反守为攻。韦小宝跪地之际蓦然使出，转至敌人身后制住要害。",
-    "type": "身法",
-    "origin": "神龙教",
-    "rank": "登堂入室",
-    "rarity": "上乘佳品",
-    "users": [
-      "char_wei_xiao_bao"
-    ]
-  },
-  {
-    "id": "skill_di_qing_xiang_long",
-    "name": "狄青降龙",
-    "description": "神龙教洪教主所授武功招式，韦小宝仅学会半招。危急中双手反撩，意外抓住敌人。",
-    "type": "拳掌",
-    "origin": "神龙教",
-    "rank": "炉火纯青",
-    "rarity": "上乘佳品",
-    "users": [
-      "char_wei_xiao_bao"
-    ]
-  },
-  {
-    "id": "skill_ru_yan_gui_chao",
-    "name": "乳燕归巢",
-    "description": "分筋错骨手中的杀着，双手自外向内拗入兜住敌人双臂，可拗断臂弯关节。名目温雅，实则狠辣。",
-    "type": "擒拿",
-    "origin": "杂学",
-    "rank": "登堂入室",
-    "rarity": "寻常凡品",
-    "users": [
-      "char_lv_shan_nv_lang"
-    ]
-  },
-  {
-    "id": "skill_fen_jin_cuo_gu_shou",
-    "name": "分筋错骨手",
-    "description": "蓝衫女郎与绿衫女郎所用手法，杂驳不纯，包含武当、昆仑、华山、铁剑四派手法。可卸脱关节、折断骨骼。",
-    "type": "擒拿",
-    "origin": "偷学各派",
-    "rank": "登堂入室",
-    "rarity": "寻常凡品",
-    "users": [
-      "char_lan_shan_nv_lang",
-      "char_lv_shan_nv_lang"
-    ]
+    "combat_style": "暗中偷袭配合网罩"
   },
   {
     "id": "skill_ban_re_zhang",
     "name": "般若掌",
-    "description": "少林绝技之一，澄观精通此掌法。练至高深处可产生护体神功，触之即被震飞。",
     "type": "掌法",
-    "origin": "少林寺",
-    "rank": "出神入化",
-    "rarity": "稀世珍品",
-    "users": [
-      "char_cheng_guan"
-    ]
+    "faction": "shao_lin",
+    "rank": "初窥门径",
+    "one_line": "少林上乘掌法，韦小宝仅学皮毛招式",
+    "techniques": [
+      {
+        "id": "tech_ban_re_zhang",
+        "name": "般若掌",
+        "type": "attack",
+        "description": "招数甚慢但劲道凌厉的掌法，一掌一掌拍出风声隐隐"
+      },
+      {
+        "id": "tech_brz_1",
+        "name": "无色无相",
+        "type": "attack",
+        "description": "般若掌高招，手掌转圈拍出"
+      },
+      {
+        "id": "tech_brz_2",
+        "name": "灵鹫听经",
+        "type": "attack",
+        "description": "五指成爪晃动"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      },
+      {
+        "level": 1,
+        "unlock": "略知皮毛"
+      },
+      {
+        "level": 1,
+        "unlock": "仅学招式无内力"
+      }
+    ],
+    "effects": [
+      "逼退高手",
+      "击伤巴颜右肩"
+    ],
+    "combat_style": "刚猛正大"
   },
   {
-    "id": "skill_yi_zhi_chan",
-    "name": "一指禅",
-    "description": "少林七十二绝技之一，澄观以四十二年练成，名列少林千余年来第三。指力惊人，为少林至高指法。",
-    "type": "指法",
-    "origin": "少林寺",
+    "id": "skill_jin_chu_zhang",
+    "name": "金刚杵法",
+    "type": "其他",
+    "faction": "faction_qing_liang_si",
     "rank": "出神入化",
-    "rarity": "绝世神兵",
-    "users": [
-      "char_cheng_guan"
-    ]
+    "one_line": "行颠使用的黄金杵武功，力大无穷，一杵一人头骨粉碎",
+    "techniques": [
+      {
+        "id": "tech_jin_chu_ji",
+        "name": "金刚杵击",
+        "type": "attack",
+        "description": "抡动黄金杵当头击下，势如千钧"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "一击毙命",
+      "刀枪不入"
+    ],
+    "combat_style": "以力破巧，势不可挡"
+  },
+  {
+    "id": "skill_ji_zhua_gong",
+    "name": "鸡爪功",
+    "type": "指法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "巴颜使用的凶狠抓法，五指如鸡爪般抓向敌人",
+    "techniques": [
+      {
+        "id": "tech_ji_zhua",
+        "name": "鸡爪抓",
+        "type": "attack",
+        "description": "五指如鸡爪般向敌人抓去，抓下澄光一把白须"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "抓人衣袖",
+      "抓下胡须",
+      "抓上澄光左腿"
+    ],
+    "combat_style": "双手上下齐抓，凶猛凌厉"
+  },
+  {
+    "id": "skill_ruan_bian",
+    "name": "软鞭",
+    "type": "其他",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "皇甫阁使用的软鞭，鞭梢可横卷直刺，运劲如长枪",
+    "techniques": [
+      {
+        "id": "tech_bian_juan",
+        "name": "鞭梢横卷",
+        "type": "attack",
+        "description": "鞭梢横卷抽击"
+      },
+      {
+        "id": "tech_bian_ci",
+        "name": "鞭如长枪",
+        "type": "attack",
+        "description": "劲透鞭身，软鞭笔直如长枪刺出"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "抽击颈项",
+      "刺向胸口",
+      "回点背心"
+    ],
+    "combat_style": "远距离鞭击，可柔可刚"
+  },
+  {
+    "id": "skill_zhi_shang",
+    "name": "指力",
+    "type": "指法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "皇甫阁的深厚指力，食指点出一股劲风，内力深厚",
+    "techniques": [
+      {
+        "id": "tech_zhi_feng",
+        "name": "指风",
+        "type": "attack",
+        "description": "食指点出一股劲风向敌人面门刺来"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "指力伤人",
+      "点中澄光面门和胸口"
+    ],
+    "combat_style": "远距离指力攻击"
+  },
+  {
+    "id": "skill_pang_tou_tuo_gong_fu",
+    "name": "胖头陀武功",
+    "type": "拳法",
+    "faction": "faction_shen_long_jiao",
+    "rank": "出神入化",
+    "one_line": "胖头陀的高深武功，身形奇高行动轻巧，以擒拿和掌力为主",
+    "techniques": [
+      {
+        "id": "tech_wu_ding_kai_shan",
+        "name": "五丁开山",
+        "type": "attack",
+        "description": "双掌推出的威猛掌法"
+      },
+      {
+        "id": "tech_long_hu_ying",
+        "name": "龙虎鹰三形",
+        "type": "attack",
+        "description": "包含龙爪、虎爪、鹰爪三种变化"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "以一敌多",
+      "脚踏韦小宝头顶",
+      "踢飞石鼓"
+    ],
+    "combat_style": "以力为主兼有轻灵身法"
+  },
+  {
+    "id": "skill_ling_she_chu_dong",
+    "name": "灵蛇出洞",
+    "type": "拳法",
+    "faction": null,
+    "rank": "略有小成",
+    "one_line": "韦小宝从太后处无意学来的擒拿手法，被胖头陀认出是神龙岛功夫",
+    "techniques": [
+      {
+        "id": "tech_ling_she",
+        "name": "灵蛇出洞",
+        "type": "attack",
+        "description": "一招戳出的擒拿手法"
+      }
+    ],
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      }
+    ],
+    "effects": [
+      "出其不意"
+    ],
+    "combat_style": "偷学的擒拿招式"
+  },
+  {
+    "id": "skill_shao_lin_gong_fu",
+    "name": "少林功夫",
+    "type": "拳法",
+    "faction": "faction_shao_lin",
+    "rank": "返璞归真",
+    "one_line": "少林十八罗汉的合围阵法，十八人协同作战威力无穷",
+    "techniques": [
+      {
+        "id": "tech_ba_jin_gang",
+        "name": "八人合围阵",
+        "type": "special",
+        "description": "八名少林僧绕圈急攻，十六条手臂分从八个方位打到"
+      },
+      {
+        "id": "tech_long_hu_ying_zhua",
+        "name": "龙爪虎爪鹰爪",
+        "type": "attack",
+        "description": "三种爪法配合"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "返璞归真"
+      }
+    ],
+    "effects": [
+      "以多围少",
+      "逼退胖头陀",
+      "夺回经书"
+    ],
+    "combat_style": "阵法合围，此上彼落"
+  },
+  {
+    "id": "skill_mei_ren_san_zhao",
+    "name": "美人三招",
+    "type": "其他",
+    "faction": "faction_shen_long_jiao",
+    "rank": "出神入化",
+    "one_line": "洪夫人亲授的三招女子防身绝技",
+    "techniques": [
+      {
+        "id": "tech_gui_fei_hui_mou",
+        "name": "贵妃回眸",
+        "type": "attack",
+        "description": "被擒后反身以匕首刺敌后心"
+      },
+      {
+        "id": "tech_xiao_lian_heng_chen",
+        "name": "小怜横陈",
+        "type": "feint",
+        "description": "卧地后从敌人胯下钻过反击"
+      },
+      {
+        "id": "tech_wu_yan_xi_qiao",
+        "name": "乌龙绞柱",
+        "type": "special",
+        "description": "勾脚倒踢匕首射向敌人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 3,
+        "unlock": "炉火纯青"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "被擒后绝地反击",
+      "配合匕首使用威力倍增",
+      "配合匕首威力倍增"
+    ],
+    "combat_style": "以柔克刚的女子防身术"
+  },
+  {
+    "id": "skill_ying_xiong_san_zhao",
+    "name": "英雄三招",
+    "type": "其他",
+    "faction": "faction_shen_long_jiao",
+    "rank": "出神入化",
+    "one_line": "洪教主亲授的三招制敌绝技",
+    "techniques": [
+      {
+        "id": "tech_li_shu_tuo_ying",
+        "name": "力叔托鹰",
+        "type": "attack",
+        "description": "骑在敌人头颈上的制敌招式"
+      },
+      {
+        "id": "tech_di_qing_xiang_long",
+        "name": "狄青降龙",
+        "type": "attack",
+        "description": "反手制敌的擒拿招式"
+      },
+      {
+        "id": "tech_gua_bi_deng_deng",
+        "name": "挂壁登灯",
+        "type": "defense",
+        "description": "攀附高处的身法"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 3,
+        "unlock": "炉火纯青"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "制敌于顷刻之间",
+      "配合匕首可取敌性命",
+      "可反身骑在敌人颈上"
+    ],
+    "combat_style": "刚猛凌厉的男性制敌术"
+  },
+  {
+    "id": "skill_bai_hua_fu_she_gao",
+    "name": "百花蝮蛇膏",
+    "type": "毒药",
+    "faction": "faction_shen_long_jiao",
+    "rank": "登峰造极",
+    "one_line": "涂于兵刃上的奇毒，遇雄黄酒令人筋骨酥软",
+    "techniques": [
+      {
+        "id": "tech_du_jian",
+        "name": "毒刃涂膏",
+        "type": "debuff",
+        "description": "将百花蝮蛇膏涂于短剑之上，伤人后释放香气"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      }
+    ],
+    "effects": [
+      "遇血生浓香",
+      "与雄黄酒相冲令人筋骨酥软",
+      "十二时辰不解"
+    ],
+    "combat_style": "以毒制人的阴险手段"
+  },
+  {
+    "id": "skill_di_qing_xiang_long",
+    "name": "狄青降龙",
+    "type": "拳法",
+    "faction": "神龙教",
+    "rank": "登堂入室",
+    "one_line": "神龙教救命六招之一，双手反撩逼敌后退的招式",
+    "techniques": [
+      {
+        "id": "tech_di_qing_xiang_long",
+        "name": "狄青降龙",
+        "type": "attack",
+        "description": "反身骑在敌人颈上，以手指按住眼睛和太阳穴制敌"
+      },
+      {
+        "id": "tech_fan_shen_yue_qi",
+        "name": "翻身跃起骑颈",
+        "type": "attack",
+        "description": "纵身跃起骑在敌人颈上，以手指压住双眼"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 3,
+        "unlock": "炉火纯青"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      },
+      {
+        "level": 2,
+        "unlock": "只学会半招"
+      },
+      {
+        "level": 2,
+        "unlock": "毛手毛脚但偶尔得手"
+      }
+    ],
+    "effects": [
+      "反骑敌人颈上制住要害",
+      "出其不意制服高手",
+      "可逼退身后敌人",
+      "制服不懂武功的对手",
+      "骑在敌人颈上控制行动"
+    ],
+    "combat_style": "险中求胜的救命招数"
+  },
+  {
+    "id": "skill_gui_fei_hui_mou",
+    "name": "贵妃回眸",
+    "type": "其他",
+    "faction": "神龙教",
+    "rank": "登堂入室",
+    "one_line": "神龙教救命六招之一，跪下时突然转身制敌的巧招",
+    "techniques": [
+      {
+        "id": "tech_gui_fei_hui_mou",
+        "name": "贵妃回眸",
+        "type": "feint",
+        "description": "假装跪地求饶，蓦然转身绕至敌人背后，以匕首抵住其后心"
+      }
+    ],
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "能勉强使出，手法生疏但具威力"
+      }
+    ],
+    "effects": [
+      "出其不意反败为胜",
+      "适合弱势方反击"
+    ],
+    "combat_style": "以巧取胜，出其不意"
   },
   {
     "id": "skill_nian_hua_qin_na_shou",
     "name": "拈花擒拿手",
-    "description": "少林绝技之一，众僧围攻白衣僧时施展，配合其他绝技仍未能擒住此人。",
-    "type": "擒拿",
-    "origin": "少林寺",
-    "rank": "炉火纯青",
-    "rarity": "稀世珍品",
-    "users": [
-      "char_cheng_guan"
-    ],
-    "school": "少林派",
-    "practitioners": [
-      "char_cheng_xin",
-      "char_cheng_guang"
-    ]
-  },
-  {
-    "id": "skill_yi_jin_jing",
-    "name": "易筋经",
-    "description": "少林镇寺内功心法，练成后内力深厚无比。澄观曾考虑以此为基础破解敌招。",
-    "type": "内功",
-    "origin": "少林寺",
-    "rank": "出神入化",
-    "rarity": "绝世神兵",
-    "users": []
-  },
-  {
-    "id": "skill_shao_lin_chang_quan",
-    "name": "少林长拳",
-    "description": "少林入门拳法，十八路。所有少林弟子始学武时的根基功夫，招式变化数十种。",
-    "type": "拳法",
-    "origin": "少林寺",
+    "type": "指法",
+    "faction": "shao_lin",
     "rank": "初窥门径",
-    "rarity": "寻常凡品",
-    "users": []
+    "one_line": "少林上乘擒拿功夫",
+    "techniques": [
+      {
+        "id": "tech_nian_hua_01",
+        "name": "拈花微笑",
+        "type": "defense",
+        "description": "以优雅手法化解对方攻势"
+      },
+      {
+        "id": "tech_nian_hua_02",
+        "name": "迦叶微笑",
+        "type": "attack",
+        "description": "轻柔擒拿，点到即止"
+      },
+      {
+        "id": "tech_nhqns_1",
+        "name": "交叉擒拿",
+        "type": "attack",
+        "description": "一手扭胸一手拿胁"
+      }
+    ],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "登堂入室需十余年功力"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化需数十年内功修为"
+      },
+      {
+        "level": 3,
+        "unlock": "可拆解各派手法"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化境界"
+      },
+      {
+        "level": 1,
+        "unlock": "仅学招式"
+      }
+    ],
+    "effects": [
+      "纯以浑厚内力为基",
+      "出手平淡冲雅",
+      "点穴制敌",
+      "拆解各门派手法"
+    ],
+    "combat_style": "精巧灵活"
   },
   {
-    "id": "skill_qian_ye_shou",
-    "name": "千叶手",
-    "description": "少林派手法，出手极快，可令人毫无察觉便已中招。澄心提及此手法与二女掌法相似。",
+    "id": "skill_po_na_gong",
+    "name": "破衲功",
     "type": "掌法",
-    "origin": "少林寺",
-    "rank": "炉火纯青",
-    "rarity": "上乘佳品",
-    "users": []
-  },
-  {
-    "id": "skill_hui_feng_zhang",
-    "name": "回风掌",
-    "description": "武当派手法，出手无声无息。澄心提及此手法可造成类似二女的攻击效果。",
-    "type": "掌法",
-    "origin": "武当派",
-    "rank": "炉火纯青",
-    "rarity": "上乘佳品",
-    "users": []
-  },
-  {
-    "id": "skill_luo_yan_quan",
-    "name": "落雁拳",
-    "description": "昆仑派拳法，澄心提及可造成无声击掌的效果。",
-    "type": "拳法",
-    "origin": "昆仑派",
-    "rank": "炉火纯青",
-    "rarity": "上乘佳品",
-    "users": []
-  },
-  {
-    "id": "skill_fei_feng_shou",
-    "name": "飞凤手",
-    "description": "崆峒派手法，澄心提及可造成无声击掌的效果。",
-    "type": "手法",
-    "origin": "崆峒派",
-    "rank": "炉火纯青",
-    "rarity": "上乘佳品",
-    "users": []
-  },
-  {
-    "id": "skill_jin_gang_shen_zhang",
-    "name": "金刚神掌",
-    "description": "少林掌法，韦小宝提及此武功名称。",
-    "type": "掌法",
-    "origin": "少林寺",
-    "rank": "略有小成",
-    "rarity": "上乘佳品",
-    "users": []
-  },
-  {
-    "id": "skill_bo_luo_mi_shou",
-    "name": "波罗密手",
-    "description": "少林手法，韦小宝提及此武功名称。",
-    "type": "手法",
-    "origin": "少林寺",
-    "rank": "略有小成",
-    "rarity": "上乘佳品",
-    "users": []
+    "faction": "少林派",
+    "rank": "出神入化",
+    "one_line": "少林绝学，以袍袖之力化解攻击",
+    "techniques": [
+      {
+        "id": "tech_po_na_01",
+        "name": "袍袖一拂",
+        "type": "defense",
+        "description": "以衣袖轻拂之力化解对方攻势，力道精准可将人弹回原座"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "力道精准至毫厘不差"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化，力道精准"
+      }
+    ],
+    "effects": [
+      "化解攻击",
+      "将人弹回原位",
+      "力道精准",
+      "将人弹回原座"
+    ],
+    "combat_style": "以柔化刚"
   },
   {
     "id": "skill_tai_ji_dao",
     "name": "太极刀",
     "type": "刀法",
-    "rarity": "上乘佳品",
-    "description": "太极门刀法，以柔克刚，四两拨千斤。绿衫女郎以此刀法攻向澄观，澄观评其'不易用简便法子来化解'。",
-    "notable_moves": [],
-    "users": [
-      "char_lv_shan_nv_lang"
-    ]
-  },
-  {
-    "id": "skill_xiao_zhi_tian_nan",
-    "name": "笑指天南",
-    "type": "指法",
-    "rarity": "上乘佳品",
-    "description": "少林指法，以指力点穴制敌。澄观以此指法点倒绿衫女郎，自称指力使得并不厉害。",
-    "notable_moves": [],
-    "users": [
-      "char_cheng_guan"
-    ]
-  },
-  {
-    "id": "skill_qian_yan_jing_xiu",
-    "name": "千岩竞秀",
-    "type": "剑法",
-    "school": "昆仑派",
-    "rank": "炉火纯青",
-    "description": "冯锡范剑招，剑花点点护住身周",
-    "practitioners": [],
-    "user": "char_feng_xi_fan"
-  },
-  {
-    "id": "skill_yan_men_tuo_bo",
-    "name": "沿门托钵",
-    "type": "掌法",
-    "school": "少林派",
+    "faction": "",
     "rank": "登堂入室",
-    "description": "少林武功，韦小宝练过此招。澄观说要举重若轻方显名门正派风范。韦小宝想象以此招化解攻击。",
-    "practitioners": [
-      "char_wei_xiao_bao",
-      "char_cheng_guan"
-    ]
+    "one_line": "以太极原理化入刀法",
+    "techniques": [
+      {
+        "id": "tech_tai_ji_dao_01",
+        "name": "太极连环",
+        "type": "attack",
+        "description": "绵密不断的连续攻势"
+      },
+      {
+        "id": "tech_tai_ji_01",
+        "name": "太极连环",
+        "type": "attack",
+        "description": "绵密不断的连续攻势"
+      }
+    ],
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "连绵不绝的攻防"
+      },
+      {
+        "level": 2,
+        "unlock": "基本招式"
+      }
+    ],
+    "effects": [
+      "攻守兼备",
+      "以柔克刚"
+    ],
+    "combat_style": "圆转如意"
   },
   {
-    "id": "skill_zhi_zhu_zai_wo",
-    "name": "智珠在握",
+    "id": "skill_fen_jin_cuo_gu_shou",
+    "name": "分筋错骨手",
     "type": "擒拿",
-    "school": "少林派",
-    "rank": "登堂入室",
-    "description": "少林擒拿招式，左手抓左手右手抓右手，牢牢擒住不放。韦小宝以此想象抓住绿衣女郎。",
-    "practitioners": [
-      "char_wei_xiao_bao"
-    ]
+    "faction": "",
+    "rank": "略有小成",
+    "one_line": "以巧劲分人筋骨的擒拿功夫",
+    "techniques": [
+      {
+        "id": "tech_fen_jin_01",
+        "name": "乳燕归巢",
+        "type": "attack",
+        "description": "双手自外向内拗入，兜住敌人双臂折断关节"
+      },
+      {
+        "id": "tech_fen_jin_02",
+        "name": "云烟过眼",
+        "type": "attack",
+        "description": "五指抓向敌人眼部"
+      }
+    ],
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "可快速折断敌人关节"
+      }
+    ],
+    "effects": [
+      "折断关节",
+      "制服敌人",
+      "分筋错骨"
+    ],
+    "combat_style": "近身擒拿"
   },
   {
-    "id": "skill_hu_zhao_shou",
-    "name": "虎爪手",
-    "type": "擒拿",
-    "school": "少林派",
-    "rank": "炉火纯青",
-    "description": "少林绝技之一，众澄字辈僧人在大雄宝殿围攻白衣僧时施展，但未能擒住对方。",
-    "practitioners": [
-      "char_cheng_xin",
-      "char_cheng_guang",
-      "char_cheng_tong"
-    ]
-  },
-  {
-    "id": "skill_long_zhao_shou",
-    "name": "龙爪手",
-    "type": "擒拿",
-    "school": "少林派",
-    "rank": "炉火纯青",
-    "description": "少林绝技之一，与虎爪手齐施，围攻白衣僧时使用，未能奏效。",
-    "practitioners": [
-      "char_cheng_xin",
-      "char_cheng_guang"
-    ]
-  },
-  {
-    "id": "skill_qin_long_gong",
-    "name": "擒龙功",
+    "id": "skill_jin_gang_hu_shi_shen_gong",
+    "name": "金刚护体神功",
     "type": "内功",
-    "school": "少林派",
+    "faction": "少林派",
+    "rank": "登峰造极",
+    "one_line": "少林内功最高境界，周身形成护体罡气，刀枪不入",
+    "techniques": [
+      {
+        "id": "tech_jin_gang_01",
+        "name": "金刚护体",
+        "type": "buff",
+        "description": "运功护体，令外来的刀刃暗器无法伤身"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "刀枪不入但暗器仍可击中"
+      },
+      {
+        "level": 5,
+        "unlock": "无形罡气将暗器震开"
+      }
+    ],
+    "effects": [
+      "刀枪不入",
+      "反弹攻击"
+    ],
+    "combat_style": "以守为攻，金刚不坏"
+  },
+  {
+    "id": "skill_jing_li_san_bao",
+    "name": "敬礼三宝",
+    "type": "掌法",
+    "faction": "少林派",
+    "rank": "炉火纯青",
+    "one_line": "少林绝技，双掌合击接住暗器",
+    "techniques": [
+      {
+        "id": "tech_jing_li_01",
+        "name": "敬礼三宝",
+        "type": "defense",
+        "description": "双掌一合将飞来的金镖夹在掌中"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "可精准接住飞镖暗器"
+      }
+    ],
+    "effects": [
+      "接住暗器",
+      "化解攻势"
+    ],
+    "combat_style": "从容不迫的防御"
+  },
+  {
+    "id": "skill_bai_yi_jian_fa",
+    "name": "白衣僧剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "返璞归真",
+    "one_line": "白衣僧所使的神秘剑法，从殿顶破洞飞入一剑直刺康熙",
+    "techniques": [
+      {
+        "id": "tech_bai_yi_01",
+        "name": "凌空一剑",
+        "type": "attack",
+        "description": "从高处飞身而下，一剑直刺敌人胸口，势不可挡"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "返璞归真，轻功之高匪夷所思"
+      }
+    ],
+    "effects": [
+      "刺穿大殿屋顶",
+      "一剑逼退众少林高手"
+    ],
+    "combat_style": "来去如风，一击必杀"
+  },
+  {
+    "id": "skill_tie_jian_men_wu_gong",
+    "name": "铁剑门武功",
+    "type": "其他",
+    "faction": "faction_tie_jian_men",
     "rank": "出神入化",
-    "description": "少林高深内功，众澄字辈僧人施展此功围攻白衣僧，仍被其袍袖一拂化解。",
-    "practitioners": [
-      "char_cheng_xin",
-      "char_cheng_guang"
-    ]
+    "one_line": "铁剑门独门武功，九难青出于蓝",
+    "techniques": [
+      {
+        "id": "tech_tjmw_1",
+        "name": "铁剑门心法",
+        "type": "buff",
+        "description": "内功心法，增强内力修为"
+      }
+    ],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "内力初成"
+      },
+      {
+        "level": 5,
+        "unlock": "百尺竿头更进一步"
+      },
+      {
+        "level": 5,
+        "unlock": "百尺竿头更进一步，远超木桑道人"
+      }
+    ],
+    "effects": [
+      "内力深厚",
+      "以袖力掌风逼退敌人"
+    ],
+    "combat_style": "刚柔并济，招式精妙"
+  },
+  {
+    "id": "skill_e_mei_ci",
+    "name": "白金点钢蛾眉刺",
+    "type": "暗器",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "短刃兵器，毛东珠随身武器",
+    "techniques": [
+      {
+        "id": "tech_emc_1",
+        "name": "蛾眉刺连戳",
+        "type": "attack",
+        "description": "连续刺击，招式凌厉"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "迅捷凶狠"
+      }
+    ],
+    "effects": [
+      "近身搏击威力极大"
+    ],
+    "combat_style": "近身突袭，以快打慢"
+  },
+  {
+    "id": "skill_la_ma_jie_dao",
+    "name": "戒刀刀法",
+    "type": "刀法",
+    "faction": "faction_la_ma_jiao",
+    "rank": "炉火纯青",
+    "one_line": "喇嘛专用戒刀刀法，刚猛凌厉",
+    "techniques": [
+      {
+        "id": "tech_ljjd_1",
+        "name": "怀中抱月",
+        "type": "attack",
+        "description": "回刀自外向内横砍"
+      },
+      {
+        "id": "tech_ljjd_2",
+        "name": "戒刀连斩",
+        "type": "attack",
+        "description": "数人同时掷出戒刀封锁退路"
+      }
+    ],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "刚猛凌厉"
+      },
+      {
+        "level": 5,
+        "unlock": "多人配合，刀阵封锁"
+      }
+    ],
+    "effects": [
+      "配合默契可封锁敌人退路"
+    ],
+    "combat_style": "刚猛凌厉，多人配合"
   },
   {
     "id": "skill_da_shou_yin",
     "name": "大手印神功",
-    "description": "西藏密宗宁玛派绝学，桑结以此为看家本领，已练到登峰造极的境界",
-    "category": "内功",
-    "origin": "faction_qing_hai_la_ma",
-    "associated_character": "char_sang_jie"
+    "type": "掌法",
+    "faction": "faction_la_ma_jiao",
+    "rank": "登峰造极",
+    "one_line": "桑结独门绝技，内力深厚",
+    "techniques": [
+      {
+        "id": "tech_dsy_1",
+        "name": "大手印掌力",
+        "type": "attack",
+        "description": "掌力浑厚，震退敌人"
+      },
+      {
+        "id": "tech_dsy_2",
+        "name": "弹指功",
+        "type": "attack",
+        "description": "中指弹出震飞兵刃"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "内力深湛，弹指飞刃"
+      },
+      {
+        "level": 5,
+        "unlock": "登峰造极"
+      }
+    ],
+    "effects": [
+      "震飞兵刃",
+      "一掌震退数人"
+    ],
+    "combat_style": "内力雄厚，以力破巧"
+  },
+  {
+    "id": "skill_bi_shou_cuo_shang",
+    "name": "匕首暗刺",
+    "type": "暗器",
+    "faction": "",
+    "rank": "略有小成",
+    "one_line": "韦小宝以匕首隔板壁暗杀敌人的技巧",
+    "techniques": [
+      {
+        "id": "tech_bscs_1",
+        "name": "隔壁刺心",
+        "type": "attack",
+        "description": "隔着板壁将匕首刺入敌人心脏"
+      },
+      {
+        "id": "tech_bscs_2",
+        "name": "袖藏匕首",
+        "type": "feint",
+        "description": "将匕首藏于袖中，伪装拳头出其不意刺杀"
+      }
+    ],
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "隔板刺杀"
+      },
+      {
+        "level": 3,
+        "unlock": "袖藏匕首暗杀"
+      }
+    ],
+    "effects": [
+      "无声无息击杀敌人",
+      "令敌人防不胜防"
+    ],
+    "combat_style": "偷袭暗杀，以巧取胜"
   },
   {
     "id": "skill_ge_shan_da_niu_shen_quan",
     "name": "隔山打牛神拳",
-    "description": "韦小宝虚构吓敌之用，声称一拳可远距离击杀对手，实为袖中暗藏匕首近身刺杀",
-    "category": "拳法",
-    "origin": null,
-    "associated_character": "char_wei_xiao_bao"
-  },
-  {
-    "id": "skill_hu_tou_jin_ding_shen_gong",
-    "name": "护头金顶神功",
-    "description": "韦小宝虚构之功，自称头顶可反弹刀砍，诱敌砍其头部以宝衣护身反杀，实为虚张声势",
-    "category": "硬功",
-    "origin": null,
-    "associated_character": "char_wei_xiao_bao"
-  },
-  {
-    "id": "skill_yi_jian_wu_xue",
-    "name": "一剑无血",
-    "description": "冯锡范绝技，以利剑剑尖点人死穴，皮肤不伤决不见血，气功由利返钝的极高境界",
-    "category": "剑法",
-    "origin": "faction_kun_lun_pai",
-    "associated_character": "char_feng_xi_fan"
-  },
-  {
-    "id": "skill_ban_ruo_tang_wu_gong",
-    "name": "般若堂武功",
-    "description": "少林寺般若堂所传武学，澄观和尚以此为韦小宝拆解阿珂刀法招数",
-    "category": "综合武学",
-    "origin": "faction_shao_lin_si",
-    "associated_character": "char_cheng_guan"
-  },
-  {
-    "id": "skill_liu_ye_dao_fa",
-    "name": "柳叶刀法",
-    "description": "白衣尼传授阿珂的刀术招式，刀法灵动但内力不足",
-    "category": "刀法",
-    "origin": null,
-    "associated_character": "char_a_ke"
-  },
-  {
-    "id": "skill_zhang_feng",
-    "name": "掌风袖力",
-    "description": "白衣尼以掌力和衣袖劲风迎敌的高深武功，独力以一敌六仍占上风",
-    "category": "内功外放",
-    "origin": null,
-    "associated_character": "char_bai_yi_ni"
-  },
-  {
-    "skill_id": "skill_tie_jian_men_wu_gong",
-    "name": "铁剑门武功",
-    "type": "综合武功",
-    "origin": "铁剑门",
-    "description": "铁剑门一脉相传的武功，属道流。九难为铁剑门掌门，武功精湛。",
-    "practitioners": [
-      "char_jiu_nan"
+    "type": "拳法",
+    "faction": "",
+    "rank": "虚张声势",
+    "one_line": "韦小宝虚构的武功名号，实为匕首暗杀",
+    "techniques": [
+      {
+        "id": "tech_gsdn_1",
+        "name": "隔山打牛",
+        "type": "attack",
+        "description": "虚构的拳法名号，实际是袖中匕首刺杀"
+      }
     ],
-    "rank": "出神入化",
-    "description_origin": "铁剑门道流武学",
-    "id": "skill_铁_剑_门_武_功"
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "虚张声势"
+      }
+    ],
+    "effects": [
+      "吓退敌人"
+    ],
+    "combat_style": "诡计虚张声势"
   },
   {
-    "skill_id": "skill_hua_shan_pai_wu_gong",
-    "name": "华山派武功",
-    "type": "综合武功",
-    "origin": "华山派",
-    "description": "华山派历代相传的武功体系，包含剑法掌法等。冯难敌一脉及袁承志均习此武功。",
-    "practitioners": [
-      "char_feng_nan_di",
-      "char_yuan_cheng_zhi",
-      "char_mu_ren_qing",
-      "char_huang_zhen"
+    "id": "skill_meng_han_yao",
+    "name": "蒙汗药",
+    "type": "其他",
+    "faction": "",
+    "rank": "初窥门径",
+    "one_line": "江湖迷药，公主用酸梅汤掺入迷倒韦小宝",
+    "techniques": [
+      {
+        "id": "tech_mhy_1",
+        "name": "下药迷晕",
+        "type": "debuff",
+        "description": "将蒙汗药撒入酒中迷倒敌人"
+      }
     ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "酒中下药"
+      },
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      }
+    ],
+    "effects": [
+      "使人昏迷失去战斗力",
+      "使人昏迷失觉",
+      "药效过后自然醒来"
+    ],
+    "combat_style": "暗中下药，迷倒对手"
+  },
+  {
+    "id": "skill_hua_shi_fen",
+    "name": "化尸粉",
+    "type": "毒药",
+    "faction": "",
     "rank": "登峰造极",
-    "description_origin": "华山派武学",
-    "id": "skill_华_山_派_武_功"
+    "one_line": "天下第一毒药，遇血化水腐蚀一切",
+    "techniques": [
+      {
+        "id": "tech_hsf_1",
+        "name": "化尸蚀骨",
+        "type": "debuff",
+        "description": "化尸粉遇血化为黄水，腐蚀血肉"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "遇血即化，天下第一毒"
+      }
+    ],
+    "effects": [
+      "遇血化为黄水",
+      "腐蚀血肉骨头"
+    ],
+    "combat_style": "以毒制敌"
   },
   {
-    "skill_id": "skill_wai_jia_ying_gong",
+    "id": "skill_hua_shan_jian_fa",
+    "name": "华山剑法",
+    "type": "剑法",
+    "faction": "faction_hua_shan_pai",
+    "rank": "出神入化",
+    "one_line": "华山派剑法，冯难敌所擅",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [],
+    "combat_style": "刚猛凌厉"
+  },
+  {
+    "id": "skill_wai_jia_ying_gong",
     "name": "外家硬功",
-    "type": "硬功",
-    "origin": null,
-    "description": "多隆所练的外家硬功，膂力惊人，双膀有千斤之力。能徒手断辫、踢断枣树、打下城砖。",
-    "practitioners": [
-      "char_duo_long"
+    "type": "拳法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "多隆所练外家硬功，双膀千斤之力",
+    "techniques": [
+      {
+        "id": "tech_wjyg_1",
+        "name": "铁拳断辫",
+        "type": "special",
+        "description": "双臂用力将辫子从中断绝"
+      }
     ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "双膀千斤之力"
+      }
+    ],
+    "effects": [
+      "力大无穷",
+      "踢断枣树",
+      "打下城砖"
+    ],
+    "combat_style": "刚猛霸道，以力取胜"
+  },
+  {
+    "id": "skill_ying_zhua_gong",
+    "name": "鹰爪功",
+    "type": "指法",
+    "faction": "faction_tian_di_hui",
     "rank": "炉火纯青",
-    "description_origin": "外家功夫",
-    "id": "skill_外_家_硬_功"
-  },
-  {
-    "skill_id": "skill_qin_na_shou_fa",
-    "name": "海大富擒拿手法",
-    "type": "擒拿术",
-    "origin": null,
-    "description": "海大富所传的擒拿手法，韦小宝从其处学来，身法灵活，一招一式巧妙美观。",
-    "practitioners": [
-      "char_wei_xiao_bao"
+    "one_line": "风际中所使，十指如鹰爪",
+    "techniques": [
+      {
+        "id": "tech_yzg_1",
+        "name": "撕衣神功",
+        "type": "attack",
+        "description": "十指将衣物一片片撕下而不伤肌肤"
+      }
     ],
-    "rank": "初窥门径",
-    "description_origin": "海大富所传",
-    "id": "skill_海_大_富_擒_拿_手_法"
-  },
-  {
-    "skill_id": "skill_shao_lin_wu_gong",
-    "name": "少林武功",
-    "type": "综合武功",
-    "origin": "少林寺",
-    "description": "澄观所传少林武功，韦小宝学了一些招式皮毛，未练内功。",
-    "practitioners": [
-      "char_wei_xiao_bao",
-      "char_cheng_guan"
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "精准撕衣不伤人"
+      }
     ],
-    "rank": "初窥门径",
-    "description_origin": "少林寺武学",
-    "id": "skill_少_林_武_功"
-  },
-  {
-    "skill_id": "skill_mi_zong_wu_gong",
-    "name": "密宗武功",
-    "type": "综合武功",
-    "origin": "西藏密宗",
-    "description": "桑结等喇嘛所习的密宗武功，桑结武功了得。",
-    "practitioners": [
-      "char_sang_jie"
+    "effects": [
+      "撕裂衣物",
+      "掷人于数丈之外"
     ],
-    "rank": "炉火纯青",
-    "description_origin": "西藏密宗",
-    "id": "skill_密_宗_武_功"
-  },
-  {
-    "id": "skill_xie_pi_ni_lin",
-    "name": "斜批逆鳞",
-    "type": "擒拿手",
-    "description": "擒拿手法中的一招，抓住对方手腕后扳住头颈，手法干净利落。吴立身弟子以此招制服郑克塽。",
-    "users": [
-      "char_wu_li_shen"
-    ],
-    "appearances": true
-  },
-  {
-    "id": "skill_gu_yun_chu_xiu",
-    "name": "孤云出岫",
-    "type": "剑法",
-    "description": "韦小宝向康熙描述的剑招，称康熙可借此避开白衣尼一剑。实为韦小宝杜撰吹嘘之词。",
-    "users": [
-      "char_kang_xi"
-    ],
-    "appearances": false
-  },
-  {
-    "id": "skill_xian_he_shu_ling",
-    "name": "仙鹤梳翎",
-    "type": "剑法",
-    "description": "韦小宝向康熙描述的反手剑招，称可击中对手肩头。实为韦小宝杜撰吹嘘之词。",
-    "users": [
-      "char_kang_xi"
-    ],
-    "appearances": false
-  },
-  {
-    "id": "skill_ge_ban_ci_ren",
-    "name": "隔板刺人",
-    "description": "韦小宝独门绝招，从棺材板后以匕首刺杀敌人，远胜隔山打牛",
-    "type": "暗杀术",
-    "rank": "登堂入室",
-    "user": "char_wei_xiao_bao"
+    "combat_style": "灵活精准"
   },
   {
     "id": "skill_fei_hui_mi_mu",
     "name": "飞灰迷目",
-    "description": "韦小宝拿手绝招，抓石灰粉撒向敌人眼睛致盲",
     "type": "暗器",
-    "rank": "略有小成",
-    "user": "char_wei_xiao_bao"
-  },
-  {
-    "id": "skill_ke_ma_ben_quan",
-    "name": "渴马奔泉",
-    "description": "冯锡范剑招，挺剑疾刺势道极劲",
-    "type": "剑法",
-    "rank": "炉火纯青",
-    "user": "char_feng_xi_fan"
-  },
-  {
-    "id": "skill_nei_gong",
-    "name": "内功",
-    "type": "内功",
-    "practitioners": [
-      "char_jiu_nan"
+    "faction": "",
+    "rank": "初窥门径",
+    "one_line": "韦小宝独门绝招，以石灰撒入敌人眼中",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      }
     ],
-    "rank": "出神化",
-    "description": "九难所修习的高深内功，韦小宝自称会内功救人"
+    "effects": [
+      "致盲敌人",
+      "制造逃跑机会"
+    ],
+    "combat_style": "偷袭暗算，以卑劣手段求生存"
   },
   {
-    "name": "天王托塔",
-    "skill_id": "skill_tian_wang_tuo_ta",
-    "owner": "char_wu_liu_qi",
-    "type": "拳掌",
+    "id": "skill_hong_sha_zhang",
+    "name": "红砂掌",
+    "type": "掌法",
+    "faction": "昆仑派",
+    "rank": "出神入化",
+    "one_line": "昆仑派独门武功，以血红手印伤人，为冯锡范杀关安基所用",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "胸印血红掌印",
+      "一击致命"
+    ],
+    "combat_style": "阴狠掌力，专攻要害"
+  },
+  {
+    "id": "skill_jian_fa",
+    "name": "剑法",
+    "type": "剑法",
+    "faction": "",
     "rank": "炉火纯青",
-    "description": "吴六奇应对五丁开山的招式，蹲身迎击而上，内力雄浑。",
-    "id": "skill_天_王_托_塔"
+    "one_line": "方怡等神龙教弟子所习剑法",
+    "techniques": [
+      {
+        "id": "tech_qian_yan_jing_xiu",
+        "name": "千岩竞秀",
+        "type": "defense",
+        "description": "剑花点点护住身周的防御招式"
+      },
+      {
+        "id": "tech_ke_ma_ben_quan",
+        "name": "渴马奔泉",
+        "type": "attack",
+        "description": "挺剑直刺的凌厉攻势"
+      }
+    ],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      },
+      {
+        "level": 3,
+        "unlock": "可与清兵搏斗"
+      }
+    ],
+    "effects": [
+      "近身搏击利器",
+      "攻防兼备",
+      "近身格斗"
+    ],
+    "combat_style": "常规剑法"
   },
   {
+    "id": "skill_dao_fa",
+    "name": "刀法",
+    "type": "刀法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "吴三桂行伍出身所用刀法",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      "阵上搏杀"
+    ],
+    "combat_style": "刚猛凌厉"
+  },
+  {
+    "id": "skill_jin_biao",
+    "name": "金镖",
+    "type": "暗器",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "葛尔丹部属曾用以射韦小宝的暗器",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      "远程射杀"
+    ],
+    "combat_style": "远程暗器"
+  },
+  {
+    "id": "skill_liu_ye_dao",
+    "name": "柳叶刀法",
+    "type": "刀法",
+    "faction": "",
+    "rank": "略有小成",
+    "one_line": "阿珂所使柳叶刀招数精奇",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      }
+    ],
+    "effects": [
+      "近身攻防"
+    ],
+    "combat_style": "轻灵飘逸"
+  },
+  {
+    "id": "skill_luan_yi_ni_shan",
+    "name": "乱披风",
+    "type": "掌法",
+    "faction": "",
+    "rank": "初窥门径",
+    "one_line": "韦小宝所学的粗浅武功",
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "近身搏击"
+  },
+  {
+    "id": "skill_tie_chan_zhang",
+    "name": "铁禅杖法",
+    "type": "其他",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "李自成所使的铁禅杖武功，势道刚猛",
+    "techniques": [
+      {
+        "id": "tech_tie_chan_heng_sao",
+        "name": "横扫",
+        "type": "attack",
+        "description": "以铁禅杖横扫，力道刚猛"
+      },
+      {
+        "id": "tech_tie_chan_chui_luo",
+        "name": "舂落",
+        "type": "attack",
+        "description": "以铁禅杖自上而下舂击"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "刚猛无敌",
+      "以力取胜"
+    ],
+    "combat_style": "刚猛霸道，以膂力取胜"
+  },
+  {
+    "id": "skill_wu_jia_mao_fa",
+    "name": "吴家矛法",
+    "type": "枪法",
+    "faction": "faction_ping_xi_wang",
+    "rank": "出神入化",
+    "one_line": "吴三桂所使的长矛武艺",
+    "techniques": [
+      {
+        "id": "tech_mao_ji_sao",
+        "name": "矛刺横扫",
+        "type": "attack",
+        "description": "挺矛刺击，招式凌厉"
+      },
+      {
+        "id": "tech_mao_di_hou",
+        "name": "矛抵咽喉",
+        "type": "attack",
+        "description": "以矛尖抵住敌人咽喉"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "攻击迅捷"
+    ],
+    "combat_style": "矛法凌厉，以攻代守"
+  },
+  {
+    "id": "skill_bai_sheng_dao_fa",
+    "name": "百胜刀法",
+    "type": "刀法",
+    "faction": "",
+    "rank": "返璞归真",
+    "one_line": "百胜刀王胡逸之的独门刀法，招招险刀刀狠，只攻不守",
+    "techniques": [
+      {
+        "id": "tech_dao_zhi_pi",
+        "name": "迎面直劈",
+        "type": "attack",
+        "description": "举刀直劈，势道凌厉"
+      },
+      {
+        "id": "tech_dao_lian_heng",
+        "name": "连环横削",
+        "type": "attack",
+        "description": "横刀连削，攻敌腰胁"
+      },
+      {
+        "id": "tech_dao_zhuo_liang_duan",
+        "name": "一刀两断",
+        "type": "attack",
+        "description": "劈断大木，截断敌人退路"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "刀法入门"
+      },
+      {
+        "level": 3,
+        "unlock": "只攻不守"
+      },
+      {
+        "level": 5,
+        "unlock": "百胜无匹"
+      }
+    ],
+    "effects": [
+      "只攻不守",
+      "以险制胜",
+      "凌厉无前"
+    ],
+    "combat_style": "以攻代守，每一刀都似拼个同归于尽"
+  },
+  {
+    "id": "skill_yi_jian_wu_xue",
+    "name": "一剑无血",
+    "type": "剑法",
+    "faction": "",
+    "rank": "返璞归真",
+    "one_line": "冯锡范的剑法绝技，剑过无血，实则阴毒无比",
+    "techniques": [
+      {
+        "id": "tech_jian_hua_san_shi",
+        "name": "散成剑花",
+        "type": "attack",
+        "description": "一抖长剑散成数十朵剑花"
+      },
+      {
+        "id": "tech_jian_dian_yao_xue",
+        "name": "剑点穴道",
+        "type": "debuff",
+        "description": "以剑尖内力封人穴道"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "剑过无血",
+      "封人穴道"
+    ],
+    "combat_style": "阴狠凌厉，暗算偷袭"
+  },
+  {
+    "id": "skill_wo_yun_fan",
     "name": "卧云翻",
-    "skill_id": "skill_wo_yun_fan",
-    "owner": "char_li_xi_hua",
-    "type": "身法",
-    "rank": "登堂入室",
-    "description": "相传宋代浪子燕青所传绝招，手足缩拢翻滚至敌人脚边，小巧迅捷防不胜防。李西华以此招一度制住李自成。",
-    "id": "skill_卧_云_翻"
+    "type": "拳法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "相传为浪子燕青所传绝招，小巧之技迅捷无比",
+    "techniques": [
+      {
+        "id": "tech_wo_yun_gun_fan",
+        "name": "滚身近敌",
+        "type": "attack",
+        "description": "手足缩拢一个打滚直滚到敌人脚边，剑尖上斜指住敌腹"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "迅捷无比",
+      "防不胜防"
+    ],
+    "combat_style": "小巧腾挪，近身突袭"
+  },
+  {
+    "id": "skill_wu_ding_kai_shan",
+    "name": "五丁开山",
+    "type": "拳法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "瘦头陀的掌法绝技，左右连击威力惊人",
+    "techniques": [
+      {
+        "id": "tech_wu_ding_lian_ji",
+        "name": "左右连击",
+        "type": "attack",
+        "description": "左掌先发右拳随出，双掌向敌人头顶击落"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "威力巨大"
+    ],
+    "combat_style": "以力压人，凌空下扑"
+  },
+  {
+    "id": "skill_tie_gong_zhang_fa",
+    "name": "铁弓掌法",
+    "type": "掌法",
+    "faction": "",
+    "rank": "返璞归真",
+    "one_line": "吴六奇的掌法功夫，劲力凌厉无比",
+    "techniques": [
+      {
+        "id": "tech_tie_gong_pai",
+        "name": "铁弓拍",
+        "type": "attack",
+        "description": "掌力凌厉，拍击对手"
+      },
+      {
+        "id": "tech_tian_wang_tuo_ta",
+        "name": "天王托塔",
+        "type": "defense",
+        "description": "蹲身迎击，以力抗力"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "劲力凌厉",
+      "以力制人"
+    ],
+    "combat_style": "刚猛霸道，以力取胜"
   },
   {
     "id": "skill_di_tang_dao_fa",
     "name": "地堂刀法",
     "type": "刀法",
-    "description": "在地下滚动前进的刀法，配合藤牌使用。左手以藤牌挡住敌人火枪铅子，右手大刀将罗刹兵的腿一条条斩下。由林兴珠亲手教练。",
-    "rating": "炉火纯青",
-    "practitioners": [
-      "char_lin_xing_zhu"
+    "faction": "faction_di_tang_men",
+    "rank": "炉火纯青",
+    "one_line": "前章提及的武夷山地堂门刀法",
+    "techniques": [
+      {
+        "id": "tech_gun_di_qian_jin",
+        "name": "滚地前进",
+        "type": "attack",
+        "description": "滚倒在地贴近敌人，挥刀砍其腿脚"
+      },
+      {
+        "id": "tech_jian_shu_zhi_dun",
+        "name": "坚树枝盾",
+        "type": "defense",
+        "description": "以树枝扎成盾牌抵挡铅弹"
+      }
     ],
-    "related_faction": null,
-    "users": [
-      "char_lin_xing_zhu"
-    ]
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "基本五招，可用于滚地斫足"
+      },
+      {
+        "level": 3,
+        "unlock": "配合盾牌可抵挡火枪"
+      },
+      {
+        "level": 5,
+        "unlock": "地堂门精深武学，滚地身法自如"
+      },
+      {
+        "level": 3,
+        "unlock": "滚地近战"
+      }
+    ],
+    "effects": [
+      "滚地避开火枪射击",
+      "近战砍敌腿脚",
+      "可快速传授士兵",
+      "近身搏击",
+      "避开远程攻击"
+    ],
+    "combat_style": "低位近身搏击"
+  },
+  {
+    "id": "skill_shen_xing_bai_bian",
+    "name": "神行百变",
+    "type": "轻功",
+    "faction": "铁剑门",
+    "rank": "出神入化",
+    "one_line": "铁剑门轻功绝学，韦小宝在悬崖追逐中赖以逃命",
+    "techniques": [
+      {
+        "id": "tech_shen_xing_bu_fa",
+        "name": "神行步法",
+        "type": "buff",
+        "description": "高深身法步法，使人追之不及"
+      },
+      {
+        "id": "tech_di_qing_jiang_long",
+        "name": "狄青降龙",
+        "type": "attack",
+        "description": "翻身跃起坐敌人颈中，救命三招之一"
+      },
+      {
+        "id": "tech_shan_ben",
+        "name": "闪避身法",
+        "type": "defense",
+        "description": "使开神行百变身法溜到苏菲亚身后躲避攻击"
+      },
+      {
+        "id": "tech_bai_bian",
+        "name": "百变",
+        "type": "special",
+        "description": "身法千变万化，东窜西奔，令对手难以捉摸"
+      },
+      {
+        "id": "tech_gui_qi_niu",
+        "name": "贵妃骑牛",
+        "type": "special",
+        "description": "从敌人胯下钻过并骑上其头颈，为救命三招之一"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "基础身法步法，不需内功根基"
+      },
+      {
+        "level": 3,
+        "unlock": "中等身法，可避高手追击"
+      },
+      {
+        "level": 5,
+        "unlock": "神行百变圆满，世间无双"
+      },
+      {
+        "level": 2,
+        "unlock": "基础闪避，关键时刻救命"
+      },
+      {
+        "level": 1,
+        "unlock": "初窥门径，基本步法"
+      },
+      {
+        "level": 3,
+        "unlock": "炉火纯青，能闪避高手追击"
+      },
+      {
+        "level": 5,
+        "unlock": "登峰造极，百变莫测"
+      },
+      {
+        "level": 2,
+        "unlock": "韦小宝学会两三成，专用于逃命"
+      },
+      {
+        "level": 4,
+        "unlock": "能闪避重伤洪教主的追击"
+      },
+      {
+        "level": 2,
+        "unlock": "韦小宝学会两三成，用于逃命"
+      }
+    ],
+    "effects": [
+      "逃跑保命天下无双",
+      "身法奇妙灵活",
+      "韦小宝学其皮毛已足以脱险",
+      "闪避高手攻击",
+      "灵活移位",
+      "闪避追踪",
+      "身法灵活",
+      "令对手无法捉摸逃跑方向",
+      "以巧补拙，内力不足亦可脱身",
+      "在沙滩上以百变步法逃脱洪教主追杀",
+      "最终用于骑上洪教主头颈反击",
+      "在狭窄山路上无法施展，被追至悬崖"
+    ],
+    "combat_style": "东窜西奔变幻莫测"
   },
   {
     "id": "skill_yan_qing_shi_ba_fan",
     "name": "燕青十八翻",
     "type": "轻功",
-    "description": "地堂门身法，灵活翻滚闪避。林兴珠以此身法滚到敌人近前，与松鼠草上飞同为地堂门基础功夫。",
-    "rating": "炉火纯青",
-    "practitioners": [
-      "char_lin_xing_zhu"
+    "faction": "faction_di_tang_men",
+    "rank": "炉火纯青",
+    "one_line": "地堂门身法，配合地堂刀法使用",
+    "techniques": [
+      {
+        "id": "tech_fan_shen_gun_di",
+        "name": "翻身滚地",
+        "type": "feint",
+        "description": "翻滚闪避的身法"
+      }
     ],
-    "related_faction": null
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "与地堂刀法配合使用"
+      }
+    ],
+    "effects": [
+      "辅助滚地攻击"
+    ],
+    "combat_style": "翻滚闪避"
   },
   {
-    "id": "skill_song_shu_cao_shang_fei",
-    "name": "松鼠草上飞",
-    "type": "轻功",
-    "description": "地堂门轻功身法，身法敏捷如松鼠掠过草尖。林兴珠以此躲避红毛兵枪弹。",
-    "rating": "炉火纯青",
-    "practitioners": [
-      "char_lin_xing_zhu"
+    "id": "skill_da_pao",
+    "name": "神武大炮",
+    "type": "其他",
+    "faction": "faction_qing_chao",
+    "rank": "出神入化",
+    "one_line": "汤若望与南怀仁监造的大炮，射程一里半，威猛无比",
+    "techniques": [
+      {
+        "id": "tech_hong_pao",
+        "name": "轰击",
+        "type": "attack",
+        "description": "装填火药铁弹，远距离轰击目标"
+      }
     ],
-    "related_faction": null
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "十发七中，威力惊人"
+      }
+    ],
+    "effects": [
+      "远距离摧毁目标",
+      "震慑敌军士气",
+      "十发七中命中率"
+    ],
+    "combat_style": "远程火力覆盖"
   },
   {
-    "id": "skill_nei_li_zhi_wu",
-    "name": "内力掷物",
-    "type": "武功招式",
-    "users": [
-      "char_hong_jiao_zhu"
+    "id": "skill_shui_shang_gong_fu",
+    "name": "水上功夫",
+    "type": "其他",
+    "faction": "faction_tian_di_hui",
+    "rank": "登峰造极",
+    "one_line": "马超兴外号西江神蛟，水上功夫极为了得",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "水中如蛟龙，来去自如"
+      }
     ],
-    "description": "以内力将物体掷出伤人，洪教主抓下船舷木块掷向逃艇",
-    "origin": null,
-    "power_level": "炉火纯青"
+    "effects": [
+      "水中行动自如",
+      "大风浪中掌舵行船"
+    ],
+    "combat_style": "水战"
+  },
+  {
+    "id": "skill_nei_gong",
+    "name": "内功",
+    "type": "内功",
+    "faction": "",
+    "rank": "返璞归真",
+    "one_line": "洪教主深厚内力，一掌劈碎木椅",
+    "techniques": [
+      {
+        "id": "tech_yin_gong_chuan_sheng",
+        "name": "音功传声",
+        "type": "special",
+        "description": "以内力将声音传送极远"
+      },
+      {
+        "id": "tech_breath_holding",
+        "name": "闭气功夫",
+        "type": "special",
+        "description": "内力深厚可在水中长时间闭气，假装浮尸"
+      },
+      {
+        "id": "tech_zhang_li",
+        "name": "掌力碎物",
+        "type": "attack",
+        "description": "以内力击碎木椅"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "内力深厚，可远距离传声"
+      },
+      {
+        "level": 5,
+        "unlock": "内力深湛，可闭气假死"
+      },
+      {
+        "level": 5,
+        "unlock": "内力深不可测"
+      }
+    ],
+    "effects": [
+      "远距离传声",
+      "增强攻击威力",
+      "假死伪装",
+      "增强体能",
+      "掌力碎物",
+      "增强武学威力"
+    ],
+    "combat_style": "以内力驱动攻击"
   },
   {
     "id": "skill_qing_gong",
     "name": "轻功",
-    "type": "武功招式",
-    "users": [
-      "char_shuang_er",
-      "char_wei_xiao_bao"
+    "type": "轻功",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "双儿轻功了得，可在船上无声行动救人",
+    "techniques": [
+      {
+        "id": "tech_qiao_shang_chuan",
+        "name": "悄然上船",
+        "type": "special",
+        "description": "无声无息潜入敌船"
+      }
     ],
-    "description": "双儿飞身跃上鹿背，轻巧翻身上树；韦小宝弹身跃起骑上鹿背",
-    "origin": null,
-    "power_level": "各有不同"
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "潜行救人"
+      }
+    ],
+    "effects": [
+      "潜行无声",
+      "救人于无形"
+    ],
+    "combat_style": "潜行暗杀"
   },
   {
-    "id": "skill_dian_xue_shuang_er",
-    "name": "点穴功夫",
-    "type": "点穴",
-    "practitioner": "char_shuang_er",
-    "rank": "初窥门径",
-    "description": "双儿以点穴功夫点了洪夫人背后天宗穴和神堂穴，使其右臂酸麻垂下，半身难以反抗，成功制服武功远胜于己的洪夫人。",
-    "origin": "不详",
-    "power": "制服对手使其穴道酸麻失去行动能力"
+    "id": "skill_huo_qiang",
+    "name": "火枪射击",
+    "type": "其他",
+    "faction": "faction_luo_cha_guo",
+    "rank": "出神入化",
+    "one_line": "罗刹国火枪营装备的火枪，威猛犀利",
+    "techniques": [
+      {
+        "id": "tech_qiang_ji",
+        "name": "齐射",
+        "type": "attack",
+        "description": "火枪手列阵齐射"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "训练有素的齐射"
+      }
+    ],
+    "effects": [
+      "远距离杀伤",
+      "火力压制"
+    ],
+    "combat_style": "列阵齐射"
   },
   {
-    "id": "skill_jia_jia_jia_ji",
-    "name": "权谋应变",
-    "type": "智谋",
-    "practitioner": "char_wei_xiao_bao",
-    "rank": "登堂入室",
-    "description": "韦小宝南下宣旨时运用权谋恐吓江苏官员以敛财，又编造芍药壮马之说借皇上名义毁去禅智寺芍药圃，最终以桑结和葛尔丹换回洪夫人。",
-    "origin": "索额图教导",
-    "power": "以巧言令色和皇帝权威达成目的"
+    "id": "skill_liang_zhi_chan",
+    "name": "两指禅",
+    "type": "指法",
+    "faction": "faction_qing_hai",
+    "rank": "出神入化",
+    "one_line": "桑结绝技，左右齐发点穴功夫，天下无双",
+    "techniques": [
+      {
+        "id": "tech_liang_zhi_dian_xue",
+        "name": "双指点穴",
+        "type": "attack",
+        "description": "双手齐出点中敌人穴道，桑结十指中毒截短后力道更强三分"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "十指截短后力道反增三分"
+      }
+    ],
+    "effects": [
+      "点穴制敌",
+      "左右齐发"
+    ],
+    "combat_style": "近身点穴，快准狠"
   },
   {
-    "skill_id": "skill_shen_quan_wu_di",
+    "id": "skill_shen_quan_wu_di",
     "name": "神拳无敌",
     "type": "拳法",
-    "owner": "char_gui_xin_shu",
-    "description": "归辛树成名绝技，拳法刚猛无匹，威震中原数十年。",
-    "rank": "出神入化",
-    "related_factions": [
-      "faction_huashan_pai"
+    "faction": "华山派",
+    "rank": "返璞归真",
+    "one_line": "归辛树成名绝技，一掌碎石狮，内力深不可测",
+    "techniques": [
+      {
+        "id": "tech_xue_heng_qin_ling",
+        "name": "雪横秦岭",
+        "type": "attack",
+        "description": "威猛掌法，中原再无第二人使得出"
+      },
+      {
+        "id": "tech_sui_shi_shi",
+        "name": "碎石狮掌",
+        "type": "attack",
+        "description": "一掌将石狮子头拍崩碎裂，以示警告"
+      },
+      {
+        "id": "tech_an_shang",
+        "name": "暗掌伤人",
+        "type": "debuff",
+        "description": "在张勇背上轻轻一推，使其受内伤出门后发作"
+      }
     ],
-    "id": "skill_神_拳_无_敌"
+    "progression": [],
+    "effects": [
+      "一掌碎石",
+      "内力深厚可隔空吹气",
+      "暗中伤人不留痕迹",
+      "聚气成线吹动骰子"
+    ],
+    "combat_style": "刚猛霸道，举重若轻"
   },
   {
-    "skill_id": "skill_sui_zhi_cheng_die",
-    "name": "碎纸成蝶",
+    "id": "skill_gui_zhong_nei_gong",
+    "name": "归钟内功",
     "type": "内功",
-    "owner": "char_gui_zhong",
-    "description": "归钟以内力将公文捏成碎片，摊掌一扬纸片如蝴蝶般随风飞舞，展露深厚内劲。",
+    "faction": "华山派",
     "rank": "出神入化",
-    "related_factions": [
-      "faction_huashan_pai"
+    "one_line": "归钟虽体弱多病，内功却深厚惊人",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "将公文捏成碎片",
+      "推人如转陀螺",
+      "一指解穴"
     ],
-    "id": "skill_碎_纸_成_蝶"
+    "combat_style": "浑厚内力，举重若轻"
   },
   {
-    "skill_id": "skill_ge_kong_fu_xue",
-    "name": "隔空拂穴",
-    "type": "点穴",
-    "owner": "char_gui_xin_shu",
-    "description": "归辛树左手一拂即解开妻子和儿子穴道，手法极快，远胜陈近南。",
+    "id": "skill_gui_er_niang_dao_fa",
+    "name": "归二娘刀法",
+    "type": "刀法",
+    "faction": "华山派",
     "rank": "出神入化",
-    "related_factions": [
-      "faction_huashan_pai"
+    "one_line": "归二娘以单刀自刎被陈近南夺下的精妙刀法",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "出手如电",
+      "拳掌功夫精绝"
     ],
-    "id": "skill_隔_空_拂_穴"
+    "combat_style": "迅捷凌厉"
   },
   {
-    "skill_id": "skill_fu_xue_shou",
-    "name": "拂穴手",
-    "type": "点穴",
-    "owner": "char_chen_jin_nan",
-    "description": "陈近南推拿穴道解开归辛树一家人束缚的手法。",
-    "rank": "出神入化",
-    "related_factions": [
-      "faction_tidihui"
-    ],
-    "id": "skill_拂_穴_手"
-  },
-  {
-    "skill_id": "skill_tui_zhang_ji_fu",
-    "name": "推掌击腹",
-    "type": "掌法",
-    "owner": "char_gui_zhong",
-    "description": "归钟坐着在守备小腹微微一推，守备手臂垂落、身子软倒，仅出气无进气，轻描淡写间取人性命。",
-    "rank": "出神入化",
-    "related_factions": [
-      "faction_huashan_pai"
-    ],
-    "id": "skill_推_掌_击_腹"
-  },
-  {
-    "skill_id": "skill_kuai_zhang_ru_dian",
-    "name": "快掌如电",
-    "type": "掌法",
-    "owner": "char_gui_er_niang",
-    "description": "归二娘出手如电，拳掌功夫精绝，与陈近南对掌令其吐血。",
-    "rank": "出神入化",
-    "related_factions": [
-      "faction_huashan_pai"
-    ],
-    "id": "skill_快_掌_如_电"
-  },
-  {
-    "skill_id": "skill_pi_kong_zhang",
-    "name": "劈空掌",
-    "type": "掌法",
-    "owner": "char_gui_er_niang",
-    "description": "归二娘掌力雄浑，夺刀时连拍两掌，陈近南硬受一掌后吐血。",
-    "rank": "出神入化",
-    "related_factions": [
-      "faction_huashan_pai"
-    ],
-    "id": "skill_劈_空_掌"
-  },
-  {
-    "skill_id": "skill_hua_shan_qing_gong",
-    "name": "华山轻功",
-    "type": "轻功",
-    "owner": null,
-    "description": "华山派轻功身法，双儿在乱石冈中奔跑的身法被归辛树认出。",
-    "rank": "登堂入室",
-    "related_factions": [
-      "faction_huashan_pai"
-    ],
-    "id": "skill_华_山_轻_功"
-  },
-  {
-    "id": "skill_gui_xin_shu_palm",
-    "name": "归辛树掌力",
-    "type": "掌法",
-    "user": "char_gui_xin_shu",
-    "description": "一掌击碎石狮头部，暗中推人致内伤而不自知，掌力精纯可碎石裂金",
-    "rank": "登峰造极",
-    "origin": null,
-    "effectiveness": "一掌碎石狮，暗伤张勇使其胸痛如刀割昏迷不醒"
-  },
-  {
-    "id": "skill_gui_xin_shu_sword",
-    "name": "归辛树剑法",
+    "id": "skill_gui_jian_fa",
+    "name": "归氏剑法",
     "type": "剑法",
-    "user": "char_gui_xin_shu",
-    "description": "剑术精准至极，数剑割裂皮袍十七八块而不及皮肉，刺杀时手起剑落干净利落",
-    "rank": "登峰造极",
-    "origin": null,
-    "effectiveness": "割裂白虎皮袍而不伤丝棉袄，连续刺杀轿中人招招致命"
+    "faction": "华山派",
+    "rank": "返璞归真",
+    "one_line": "归辛树剑法精准，劈碎皮袍却不伤内衣",
+    "techniques": [
+      {
+        "id": "tech_pi_pao",
+        "name": "裂袍剑法",
+        "type": "special",
+        "description": "数剑将白虎皮袍裂成十七八块，却不割破内穿丝棉袄裤"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "精准控制剑势",
+      "裂袍不伤人"
+    ],
+    "combat_style": "精准凌厉，收发自如"
   },
   {
-    "id": "skill_feng_xi_fan_sword",
-    "name": "冯锡范剑法",
-    "type": "剑法",
-    "user": "char_feng_xi_fan",
-    "description": "一剑无血，剑法高绝杀人不见血",
-    "rank": "出神入化",
-    "origin": null,
-    "effectiveness": "本回仅被提及，未展现"
-  },
-  {
-    "id": "skill_han_sha_she_ying",
+    "id": "skill_han_she_ying",
     "name": "含沙射影",
-    "description": "韦小宝所用的暗器机关，藏于腰间，按动机括可射出一丛钢针，无影无踪，令人防不胜防。本回中韦小宝以此威胁风际中，但因双儿靠近而未敢发射。",
-    "users": [
-      "char_wei_xiao_bao"
+    "type": "暗器",
+    "faction": "五毒教",
+    "rank": "上乘佳品",
+    "one_line": "藏于腰间的钢针发射机关，在悬崖上重创冯锡范和郑克塽",
+    "techniques": [
+      {
+        "id": "tech_steel_needle",
+        "name": "钢针齐射",
+        "type": "attack",
+        "description": "按动机括，一篷绝细钢针急射而出"
+      }
     ],
-    "rank": "登堂入室"
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "能发射钢针"
+      },
+      {
+        "level": 3,
+        "unlock": "准度提高，可命中移动目标"
+      },
+      {
+        "level": 3,
+        "unlock": "在悬崖绝境中精准命中冯锡范和郑克塽"
+      }
+    ],
+    "effects": [
+      "近距离可射伤高手",
+      "钢针喂有麻药或剧毒",
+      "钢针入体麻痒难当",
+      "何惕守改为麻药非致命剧毒"
+    ],
+    "combat_style": "近身绝境中的保命暗器"
   },
   {
-    "id": "skill_hai_shi_shen_lou",
-    "name": "海市蜃楼",
+    "id": "skill_gui_jia_fang_shen",
+    "name": "归家防身术",
     "type": "拳法",
-    "description": "连发虚招的拳法，每一招既不打实又不用老，速度比平常拳法快数倍，意谓尽皆虚幻。双儿以此招迷惑罗刹勇士，使其连挡数下均挡空，再趁势点穴制敌。",
-    "users": [
-      "char_shuang_er"
-    ]
-  },
-  {
-    "id": "skill_zuo_you_feng_yuan",
-    "name": "左右逢源",
-    "type": "腿法",
-    "description": "闪身跃至敌人背后，左右各踢一脚的腿法。双儿以此招踢中罗刹勇士左右腰眼。",
-    "users": [
-      "char_shuang_er"
-    ]
-  },
-  {
-    "name": "点穴之术",
-    "id": "skill_dian_xue_zhi_shu",
-    "type": "武功",
-    "rank": "炉火纯青",
-    "description": "点击人体穴道使人全身麻木不能动弹的武功，双儿以此制服三名哥萨克队长，被罗刹人误认为成吉思汗传下的魔法，令费要多罗深为惊惧",
-    "practitioners": [
-      "char_shuang_er"
-    ],
-    "related_factions": [],
-    "related_characters": [
-      "char_wei_xiao_bao",
-      "char_fei_yao_duo_luo"
-    ]
-  },
-  {
-    "id": "skill_shen_xing_bai_bian",
-    "name": "神行百变",
-    "category": "轻功",
-    "description": "高明轻功身法，韦小宝欲以此逃出天地会众人包围",
+    "faction": "华山派",
     "rank": "登峰造极",
-    "practitioners": [
-      "char_wei_xiao_bao"
-    ]
+    "one_line": "归辛树一家所练的华山派武学",
+    "techniques": [
+      {
+        "id": "tech_gui_quan",
+        "name": "神拳",
+        "type": "attack",
+        "description": "归辛树成名绝技，拳力惊人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "登峰造极，拳力可碎金裂石"
+      }
+    ],
+    "effects": [
+      "以拳劲震退多名侍卫"
+    ],
+    "combat_style": "刚猛凌厉"
+  },
+  {
+    "id": "skill_tian_di_hui_qie_kou",
+    "name": "天地会切口暗语",
+    "type": "其他",
+    "faction": "天地会",
+    "rank": "寻常凡品",
+    "one_line": "天地会会众相认的暗语诗，用于辨识身份",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "会众间确认身份的唯一方式"
+    ],
+    "combat_style": "非战斗技能"
+  },
+  {
+    "id": "skill_hong_jiao_zhu_zhao_shu",
+    "name": "洪教主绝学",
+    "type": "掌法",
+    "faction": "神龙教",
+    "rank": "返璞归真",
+    "one_line": "洪教主独门掌法武功，肉掌在多把兵刃围攻中游刃有余",
+    "techniques": [
+      {
+        "id": "tech_palm_strike",
+        "name": "单掌击毙",
+        "type": "attack",
+        "description": "一掌击落陆高轩天灵盖，毙命当场"
+      },
+      {
+        "id": "tech_throw_stone",
+        "name": "飞石杀人",
+        "type": "attack",
+        "description": "俯身拾石掷出，正中殷锦后脑毙命"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "返璞归真，以肉掌敌多把兵刃而不落下风"
+      }
+    ],
+    "effects": [
+      "一掌可震碎天灵盖",
+      "飞石取人性命"
+    ],
+    "combat_style": "以掌法为核心，大开大合中暗藏精妙"
+  },
+  {
+    "id": "skill_fire_gun",
+    "name": "罗刹火枪",
+    "type": "暗器",
+    "faction": "",
+    "rank": "绝世神兵",
+    "one_line": "吴六奇赠予双儿的罗刹国精制火枪，一枪击杀风际中",
+    "techniques": [
+      {
+        "id": "tech_fire_shot",
+        "name": "火枪轰击",
+        "type": "attack",
+        "description": "短铳火枪近距离轰击，一枪命中风际中要害"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "一枪击杀武功高手",
+      "血肉之躯无法抵挡火器"
+    ],
+    "combat_style": "致命一击的火器"
+  },
+  {
+    "id": "skill_chen_jin_nan_jian_fa",
+    "name": "陈近南剑法",
+    "type": "剑法",
+    "faction": "天地会",
+    "rank": "登峰造极",
+    "one_line": "陈近南的高超剑法，一代宗师的武学",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "武功深湛，内息未散时仍能低声说话"
+    ],
+    "combat_style": "儒将剑法"
+  },
+  {
+    "id": "skill_feng_xi_fan_zhang_fa",
+    "name": "冯锡范掌法",
+    "type": "掌法",
+    "faction": "台湾郑家",
+    "rank": "登峰造极",
+    "one_line": "冯锡范的掌法功夫，比之洪教主稍逊一筹",
+    "techniques": [
+      {
+        "id": "tech_palm_kill",
+        "name": "致命掌击",
+        "type": "attack",
+        "description": "一掌将天地会兄弟打得口喷鲜血而死"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "一掌毙命",
+      "力敌风际中和双儿等四人仍占上风"
+    ],
+    "combat_style": "刚猛凌厉的掌法"
+  },
+  {
+    "id": "skill_shui_pao",
+    "name": "小白龙水炮",
+    "type": "其他",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "韦小宝发明的以热水射城的攻城武器",
+    "techniques": [
+      {
+        "id": "tech_re_shui_pen_she",
+        "name": "热水喷射",
+        "type": "attack",
+        "description": "以松杉树干制成的巨型水枪射出热水入城，水汽遇冷凝结使敌军冻伤"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "构思水枪之法"
+      },
+      {
+        "level": 3,
+        "unlock": "制造三千尊水炮，齐射入城"
+      }
+    ],
+    "effects": [
+      "水漫雅克萨",
+      "冰冻鹿鼎山",
+      "敌军衣履结冰失去战斗力"
+    ],
+    "combat_style": "以水为兵，不战而屈人之兵，攻城而无一人阵亡"
   }
 ]

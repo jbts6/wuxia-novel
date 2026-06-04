@@ -61,13 +61,15 @@ BATCH_INTERVAL = 3      # 批次间隔 3 秒
 #### 流程
 
 1. **加载进度**，确定需要提取的章节列表（跳过已完成）
-2. **分批处理**：每批 3 个章节，批次间隔 3 秒
-3. **每个章节**的 sub-agent 执行：
+2. **预加载上下文**：读取已有的 `factions.json`，获取所有已知 faction ID 列表，传给 sub-agent
+3. **分批处理**：每批 3 个章节，批次间隔 3 秒
+4. **每个章节**的 sub-agent 执行：
    - 读取章节原文：`ch_formatted/ch_XX.md`
    - 一次性提取所有数据（骨架 + 详细）
+   - **生成时自检**（见下方「生成时自检清单」）
    - 直接写文件到 `chapters/ch_XX.json`
    - 输出状态摘要
-4. **主 agent 验证**：检查文件存在，更新 `progress.json`
+5. **主 agent 验证**：检查文件存在，更新 `progress.json`
 
 #### JSON 输出格式
 
@@ -152,35 +154,82 @@ BATCH_INTERVAL = 3      # 批次间隔 3 秒
 读取: {novel_dir}/ch_formatted/ch_{N:02d}.md
 保存: {novel_dir}/chapters/ch_{N:02d}.json
 
+已知势力ID列表（必须使用这些ID，不要自创）:
+{faction_ids}
+
 步骤: 1)read_file原文 2)提取 3)write_file保存 4)输出一行摘要
 
-规则:
-- 只提取实际出现的实体。ID格式严格一致：char_guo_jing（每个字下划线分隔、全小写），禁止 char_guojing 或 char_guo_jin。faction_/loc_/skill_/item_ 同理。门派分支放sub_divisions
-- 武功需有名称。字符串中不要用双引号，引用语用单引号。relationships.dynamic≤30字
-- 所有字段必须有值（faction可null）。无实体用[]。字符串不留空
-- rank评级必须填写（见下方等级体系）。rarity必须用wuxia风格
+═══════════════════════════════════════
+  ID 格式规则（严格执行，违反即为错误）
+═══════════════════════════════════════
 
-等级体系（8级，从高到低）:
-  返璞归真: 已臻化境，超越招式，当世无敌
-  登峰造极: 五绝级别，当世最强
-  出神入化: 仅次于绝顶，能与五绝对招
-  炉火纯青: 江湖顶尖，门派掌门级
-  登堂入室: 已入武学正途，门派核心弟子
-  略有小成: 初窥门径，有一定战力
-  初窥门径: 学过一些粗浅武功
-  平平无奇: 不会武功或仅有蛮力
+ID格式：全小写拼音，字间下划线分隔
+  ✅ char_guo_jing  ✅ loc_yangzhou  ✅ faction_tiandihui
+  ❌ char_郭靖      ❌ loc_yang_zhou ❌ faction_tian_di_hui
+  ❌ char_guoJing   ❌ loc_YangZhou  ❌ tiandihui（缺少前缀）
 
-物品稀有度（4级）:
-  绝世神兵: 百年难遇的神物
-  稀世珍品: 世间少有，武林中人争相抢夺
-  上乘佳品: 品质精良，名家所制
-  寻常凡品: 江湖中随处可见
+前缀统一：char_  faction_  loc_  skill_  item_  tech_
+每个字用下划线分隔：chen_jin_nan（不是 chenjinnan 也不是 chen_jin_nan 混搭）
 
-JSON schema:
-{"chapter":N,"characters":[{"id":"","name":"","alias":[],"identity":"","faction":null,"role":"","archetype":"","rank":"返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇","one_line":"","personality":{"traits":["≥3"],"speech_style":"","temperament":""},"relationships":[{"target":"","type":"","intensity":0,"bond_level":0,"dynamic":"≤30字"}],"known_skills":[],"related_skills":[]}],"factions":[{"id":"","name":"","type":"","location":null,"sub_divisions":[],"one_line":""}],"locations":[{"id":"","name":"","region":"","one_line":""}],"skills":[{"id":"","name":"","type":"","faction":"","rank":"返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇","one_line":"","techniques":[{"id":"","name":"","type":"","description":""}],"progression":[{"level":0,"unlock":""}],"effects":[],"combat_style":""}],"items":[{"id":"","name":"","type":"","owner":null,"one_line":"","description":"","effects":[],"origin":"","rarity":"绝世神兵/稀世珍品/上乘佳品/寻常凡品","related_skills":[]}],"events":[{"id":"evt_N_序号","name":"","participants":[],"location":"","description":""}],"dialogues":[{"speaker":"","listener":null,"text":"","tone":"","chapter":N}]}
+═══════════════════════════════════════
+  字段必填规则
+═══════════════════════════════════════
+
+personality（每个角色必须填写）:
+  - traits: 至少3个性格特征（从原文行为/对话推断）
+  - speech_style: 说话风格描述
+  - temperament: 气质描述
+  禁止：traits=[]、temperament=""
+
+events（每个事件必须填写）:
+  - name: 事件名（不能为空，如原文无明确名称则根据description生成）
+  - id: evt_{章节号}_{序号}（如 evt_3_1 表示第3章第1个事件）
+
+faction引用:
+  - 只能使用上方「已知势力ID列表」中存在的ID
+  - 如果角色不属于任何势力，faction设为null
+  - 禁止自创faction ID
+
+relationships去重:
+  - 同一(target, type)组合只保留一条，取intensity最高的
+  - 禁止出现重复关系
+
+所有字符串字段:
+  - 不要用双引号包裹，引用语用单引号
+  - 空数组用[]，空字符串不用（faction可null）
+  - dynamic字段≤30字
+
+═══════════════════════════════════════
+  等级体系（rank 必填）
+═══════════════════════════════════════
+
+返璞归真: 已臻化境，超越招式，当世无敌
+登峰造极: 五绝级别，当世最强
+出神入化: 仅次于绝顶，能与五绝对招
+炉火纯青: 江湖顶尖，门派掌门级
+登堂入室: 已入武学正途，门派核心弟子
+略有小成: 初窥门径，有一定战力
+初窥门径: 学过一些粗浅武功
+平平无奇: 不会武功或仅有蛮力
+
+物品稀有度（rarity 必填）:
+  绝世神兵 / 稀世珍品 / 上乘佳品 / 寻常凡品
+
+═══════════════════════════════════════
+  生成时自检清单（写文件前逐项检查）
+═══════════════════════════════════════
+
+□ 所有ID都是小写拼音+下划线，无中文、无驼峰、无缩写
+□ 每个角色的personality.traits至少3项，speech_style和temperament非空
+□ 每个事件的name非空
+□ 所有faction引用都在「已知势力ID列表」中（或null）
+□ relationships无重复(target+type组合)
+□ events的id格式为evt_N_序号
 
 完成后: ✅ 第 {N} 章提取完成
 ```
+
+**关键**：faction_ids 占位符由主 agent 在调用前替换为实际的 faction ID 列表（从 factions.json 读取），格式为逗号分隔的字符串。这确保各章提取使用统一的 faction ID。
 
 ---
 
@@ -343,6 +392,63 @@ rm -rf "<小说目录>/ch_original" "<小说目录>/chapters" "<小说目录>/ch
 | 提取总时间 | ~5.5 分钟（含间隔） |
 | 峰值 RPM | 60 RPM（安全） |
 | 主 Agent 上下文占用 | ~2 KB（仅状态摘要） |
+
+---
+
+---
+
+## 质量保障：生成时自检 + 合并后扫描
+
+**核心原则**：质量在生成阶段保证，不依赖事后修补。
+
+### 第一道防线：Sub-Agent Prompt 内置自检
+
+上方 Sub-Agent Prompt 已包含完整的 ID 格式规则、字段必填规则和「生成时自检清单」。每个 sub-agent 在写文件前必须逐项检查。
+
+### 第二道防线：合并后扫描（兜底）
+
+即使 sub-agent 遵守规则，合并时仍可能产生 faction ID 不一致（不同章对同一势力用了不同拼写）。合并后运行扫描：
+
+```bash
+# 扫描 characters.json 中无效的 faction 引用
+python -c "
+import json
+chars = json.load(open('<小说目录>/characters.json','r',encoding='utf-8'))
+factions = {f['id'] for f in json.load(open('<小说目录>/factions.json','r',encoding='utf-8'))}
+bad = [(c['name'], c.get('faction','')) for c in chars if c.get('faction') and c['faction'] not in factions]
+print(f'无效faction引用: {len(bad)}')
+for name, fid in bad[:5]: print(f'  {name} → {fid}')
+"
+
+# 扫描重复关系
+python -c "
+import json
+chars = json.load(open('<小说目录>/characters.json','r',encoding='utf-8'))
+dupes = 0
+for c in chars:
+    seen = set()
+    for r in c.get('relationships',[]):
+        key = (r.get('target',''), r.get('type',''))
+        if key in seen: dupes += 1
+        seen.add(key)
+print(f'重复关系: {dupes}')
+"
+```
+
+如果扫描发现问题，运行修复脚本：
+
+```bash
+# 修复 faction 引用 + 关系去重
+python tools/fix/fix-char-faction-rels.py "<小说目录>"
+
+# 修复事件章节号
+python tools/fix/fix-event-chapters.py "<小说目录>"
+
+# 重新生成 Markdown 卡片
+python tools/convert/json-to-markdown.py "<小说目录>"
+python tools/convert/json-to-items-markdown.py "<小说目录>"
+python tools/convert/generate-event-cards.py "<小说目录>"
+```
 
 ---
 

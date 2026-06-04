@@ -1,1209 +1,273 @@
 [
   {
-    "id": "tiandihui",
+    "id": "faction_tiandihui",
     "name": "天地会",
-    "leader": "char_chen_jin_nan；总舵主；陈近南",
-    "description": "反清复明的民间秘密组织，以驱逐鞑虏、恢复中华为宗旨；反清复明的秘密组织，逼韦小宝行刺康熙、担任总舵主。内部又混入奸细。；以反清复明为宗旨的秘密组织，成员遍及各省，胸刺'天父地母，反清复明'八字。；反清复明的民间秘密组织，韦小宝任青木堂香主；反清复明秘密组织，总舵主陈近南已被害，台湾归清后大明更无寸土。",
-    "alignment": "正派；反清复明",
+    "type": "秘密组织；秘密结社",
+    "location": "loc_yin_xing_hu_tong",
     "sub_divisions": [
       "青木堂",
       "宏化堂",
-      "莲花堂",
       "赤火堂",
-      {
-        "id": "sub_lian_hua_tang",
-        "name": "莲花堂",
-        "leader_id": "char_cai_de_zhong",
-        "territory": "福建",
-        "rank": "前五房之长"
-      },
-      {
-        "id": "sub_hong_shun_tang",
-        "name": "洪顺堂",
-        "leader_id": "char_fang_da_hong",
-        "territory": "广东",
-        "rank": "前五房二房"
-      },
-      {
-        "id": "sub_jia_hou_tang",
-        "name": "家后堂",
-        "leader_id": null,
-        "territory": "广西",
-        "rank": "前五房三房"
-      },
-      {
-        "id": "sub_can_tai_tang",
-        "name": "参太堂",
-        "leader_id": "char_hu_de_di",
-        "territory": "湖南湖北",
-        "rank": "前五房四房"
-      },
-      {
-        "id": "sub_hong_hua_tang",
-        "name": "宏化堂",
-        "leader_id": "char_li_shi_kai",
-        "territory": "浙江",
-        "rank": "前五房五房"
-      },
-      {
-        "id": "sub_qing_mu_tang",
-        "name": "青木堂",
-        "leader_id": "char_wei_xiao_bao",
-        "territory": "江苏",
-        "rank": "后五房之长"
-      },
-      {
-        "id": "sub_chi_huo_tang",
-        "name": "赤火堂",
-        "leader_id": null,
-        "territory": "贵州",
-        "rank": "后五房二房"
-      },
-      {
-        "id": "sub_xi_jin_tang",
-        "name": "西金堂",
-        "leader_id": null,
-        "territory": "四川",
-        "rank": "后五房三房"
-      },
-      {
-        "id": "sub_xuan_shui_tang",
-        "name": "玄水堂",
-        "leader_id": "char_lin_yong_chao",
-        "territory": "云南",
-        "rank": "后五房四房"
-      },
-      {
-        "id": "sub_huang_tu_tang",
-        "name": "黄土堂",
-        "leader_id": "char_yao_bi_da",
-        "territory": "河南",
-        "rank": "后五房五房"
-      },
-      {
-        "name": "青木堂",
-        "description": "天地会十堂之一，韦小宝任香主。本回中徐天川受伤失踪，堂中兄弟齐聚商议对策。"
-      },
-      {
-        "name": "青木堂",
-        "leader": "char_wei_xiao_bao",
-        "description": "天地会在北京的分支，韦小宝任香主"
-      },
-      {
-        "name": "青木堂",
-        "leader": "韦小宝"
-      },
-      "家后堂",
+      "西金堂",
+      "玄水堂",
+      "黄土堂",
+      "莲花堂",
       "洪顺堂",
-      {
-        "name": "青木堂",
-        "description": "天地会分支堂口，韦小宝为香主"
-      },
-      {
-        "name": "红旗",
-        "description": "天地会分支堂口，吴六奇为香主"
-      },
-      {
-        "name": "青木堂",
-        "leader": "char_wei_xiao_bao",
-        "members": [
-          "char_wei_xiao_bao",
-          "char_li_li_shi",
-          "char_qian_lao_ben",
-          "char_xu_tian_chuan",
-          "char_xuan_zhen",
-          "char_feng_ji_zhong",
-          "char_gao_yan_chao",
-          "char_gu_zhi_zhong",
-          "char_ma_chao_xing",
-          "char_shuang_er"
-        ]
-      },
-      {
-        "name": "洪顺堂",
-        "leader": "char_wu_liu_qi",
-        "members": [
-          "char_wu_liu_qi"
-        ]
-      }
+      "家后堂",
+      "参太堂",
+      "红旗堂",
+      "各省分舵"
     ],
-    "strength": "势力遍布各地，会众甚众",
-    "relationships": [
-      {
-        "target": "mu_wang_fu",
-        "type": "同盟",
-        "dynamic": "共同反清，商议行刺大事"
-      },
-      {
-        "target": "zheng_family",
-        "type": "附属",
-        "dynamic": "陈近南与台湾郑家关系密切"
-      },
-      {
-        "target": "qing_court",
-        "type": "敌对",
-        "dynamic": "以推翻满清为终极目标"
-      },
-      {
-        "target_id": "char_chen_jin_nan",
-        "type": "领袖",
-        "dynamic": "陈近南为天地会总舵主"
-      },
-      {
-        "target": "faction_mu_wang_fu",
-        "dynamic": "有合作亦有纷争，因白寒松之死产生矛盾"
-      },
-      {
-        "target": "faction_wu_sangui_faction",
-        "relation": "敌对",
-        "dynamic": "反清复明与吴三桂势力既对立又利用"
-      },
-      {
-        "target": "faction_qing_court",
-        "relation": "敌对",
-        "dynamic": "天地会以推翻清廷为宗旨"
-      }
+    "one_line": "反清复明的秘密帮会，群豪在银杏胡同聚会议事；总舵主陈近南殉难后，群龙无首，康熙欲令韦小宝继任总舵主以一网打尽"
+  },
+  {
+    "id": "faction_qing_court",
+    "name": "清廷朝廷",
+    "type": "政权",
+    "location": "loc_forbidden_city",
+    "sub_divisions": [
+      "前锋营",
+      "尚膳监",
+      "骁骑营",
+      "御前侍卫",
+      "护军营",
+      "火器营",
+      "水师"
     ],
-    "type": "秘密组织；反清组织；secret_society",
-    "location": "loc_liu_zhou",
-    "one_line": "反清复明的秘密帮会，总舵主陈近南，江湖上人人敬重",
-    "members_in_chapter": [
-      "char_guan_an_ji",
-      "char_li_li_shi",
-      "char_qi_biao_qing",
-      "char_jia_lao_liu",
-      "char_cui_xia_zi",
-      "char_xuan_zhen"
-    ],
-    "reputation": "反清义士",
-    "alias": "洪门",
-    "members": [
-      "char_wei_xiao_bao",
-      "char_xu_tian_chuan",
-      "char_guan_an_ji",
-      "char_li_li_shi",
-      "char_fan_gang",
-      "char_xuan_zhen_dao_ren",
-      "char_qi_biao_qing",
-      "char_qian_lao_ben",
-      "char_gao_yan_chao",
-      "char_chen_jin_nan",
-      "char_feng_ji_zhong",
-      "char_yang_yi_zhi",
-      "char_ma_chao_xing",
-      "char_wu_liu_qi",
-      "char_xuan_zhen",
-      "char_feng_xi_zhong",
-      "char_qian_laoben",
-      "char_xu_tianchuan",
-      "char_qi_biaoqing",
-      "char_gao_yanchao",
-      "char_xuanzhen_daoren",
-      "char_lin_xing_zhu"
-    ],
-    "territory": "南方各省",
-    "goal": "反清复明，效忠朱三太子（隆武帝后裔）",
-    "strength_level": "出神入化",
-    "philosophy": "驱除鞑子、恢复大明",
-    "appearances": true,
-    "rank": "登峰造极",
-    "rank_reason": "势力庞大，切口诗广为流传",
-    "notable_members": [
-      "char_wei_xiao_bao",
-      "char_xu_tian_chuan",
-      "char_xuan_zhen",
-      "char_qian_lao_ben",
-      "char_qi_biao_qing"
-    ],
-    "relationship_to_emperor": "反清复明",
-    "associated_characters": [
-      "char_chen_yong_hua",
-      "char_wei_xiao_bao"
-    ],
-    "dynamics": [
-      {
-        "target": "faction_qing_ting",
-        "type": "敌对",
-        "detail": "天地会以反清复明为宗旨，与清朝朝廷势不两立"
-      }
-    ],
-    "faction_id": "faction_tidihui",
-    "history": "以反清复明为宗旨的秘密会社。"
+    "one_line": "满清皇朝，平定三藩后国力鼎盛，康熙以通吃伯之名控制韦小宝"
   },
   {
     "id": "faction_qing_bang",
     "name": "青帮",
-    "type": "私盐贩卖帮会",
-    "location": null,
+    "type": "江湖帮会",
+    "location": "loc_yangzhou",
     "sub_divisions": [],
-    "one_line": "扬州一带贩卖私盐的帮会，行事凶悍但平时公平交易"
-  },
-  {
-    "id": "mu_wang_fu",
-    "name": "沐王府",
-    "leader": "char_mu_jian_sheng；沐剑声",
-    "description": "前明沐氏后人，誓要复兴大明，与吴三桂有灭门之仇；云南沐氏后人，南明忠良之后。沐剑屏为小郡主，方怡为其门下弟子。；云南沐氏后裔所建势力，与天地会暗中较劲。沐剑声为沐王府小公爷。本回中沐剑声等在河间府遭清兵围攻，被韦小宝暗中搭救。；前明沐氏后人，世代镇守云南，吴三桂夺其江山后奋起反抗；明朝沐英后裔，世镇云南的藩王家族，后人致力于反清复明",
-    "alignment": "正派；反清复明",
-    "sub_divisions": [
-      "刘家",
-      "白家",
-      "方家",
-      "苏家",
-      {
-        "name": "四大家将后人",
-        "description": "白、苏等四姓后人，是沐王府的核心战力。"
-      }
-    ],
-    "strength": "北京有潜伏人手，江湖上有声望",
-    "relationships": [
-      {
-        "target": "tiandihui",
-        "type": "同盟",
-        "dynamic": "合作反清，但复明理念上有微妙分歧"
-      },
-      {
-        "target": "wu_sangui_army",
-        "type": "仇敌",
-        "dynamic": "吴三桂杀害永历皇帝，仇深似海"
-      },
-      {
-        "target": "faction_tian_di_hui",
-        "dynamic": "同为反清势力，因白寒松之死交涉"
-      }
-    ],
-    "type": "地方势力；反清势力",
-    "location": "loc_kun_ming",
-    "one_line": "云南沐英后人，四大家将忠良传人，江湖上人人敬重",
-    "members": [
-      "char_mu_jian_ping",
-      "char_fang_yi",
-      "char_liu_da_hong",
-      "char_wu_li_shen",
-      "char_ao_biao",
-      "char_liu_yi_zhou",
-      "char_bai_han_song",
-      "char_mu_tian_bo",
-      "char_liu_shi_ge",
-      "char_xu_tian_chuan",
-      "char_mu_jian_sheng",
-      "char_mu_jiansheng",
-      "char_mu_jianping",
-      "char_liu_dahong",
-      "char_liu_yizhou"
-    ],
-    "reputation": "反清忠良",
-    "alias": "云南沐家",
-    "territory": "云南",
-    "goal": "反清复明，保朱五太子（永历帝后裔）登基",
-    "strength_level": "炉火纯青",
-    "philosophy": "反清复明",
-    "appearances": true,
-    "rank": "炉火纯青",
-    "rank_reason": "云南王府势力，有武功传承",
-    "base": "云南",
-    "faction_id": "faction_mu_wang_fu",
-    "history": "云南沐氏世代镇守云南，明亡后以反清为己任。",
-    "notable_members": [
-      "char_mu_jian_sheng",
-      "char_mu_jian_ping",
-      "char_liu_da_hong",
-      "char_liu_yi_zhou",
-      "char_wu_li_shen"
-    ]
-  },
-  {
-    "id": "fac_wu_hu_duan_men_dao",
-    "name": "五虎断门刀",
-    "type": "门派",
-    "location": "loc_bei_jing",
-    "sub_divisions": [],
-    "one_line": "江北泰州的刀法门派，茅十八所属"
-  },
-  {
-    "id": "fac_dong_chang",
-    "name": "大内太监",
-    "type": "宫廷",
-    "location": "loc_shang_shan_jian",
-    "sub_divisions": [],
-    "one_line": "皇宫大内太监群体，海老公、小桂子、老吴等人所属"
-  },
-  {
-    "id": "faction_shao_lin_pai",
-    "name": "少林派",
-    "description": "天下武学正宗，大慈大悲千叶手为少林佛门武功",
-    "type": "martial_arts",
-    "sub_divisions": [],
-    "reputation": "正道领袖",
-    "members": [
-      "char_hai_lao_gong"
-    ]
-  },
-  {
-    "id": "faction_wu_dang_pai",
-    "name": "武当派",
-    "description": "与少林齐名的正道大派，八卦游龙掌为武当掌法",
-    "type": "martial_arts",
-    "sub_divisions": [],
-    "reputation": "正道大派",
-    "members": []
+    "one_line": "贩私盐的帮会，与天地会起冲突"
   },
   {
     "id": "faction_xiang_huang_qi",
     "name": "镶黄旗",
-    "description": "上三旗之一，鳌拜为旗主，与正白旗争夺良田美地",
-    "type": "political",
+    "type": "八旗",
+    "location": null,
     "sub_divisions": [],
-    "reputation": "上三旗",
-    "members": [
-      "char_ao_bai"
-    ]
+    "one_line": "上三旗之一，鳌拜为旗主，与正白旗争夺良田美地"
   },
   {
     "id": "faction_zheng_bai_qi",
     "name": "正白旗",
-    "description": "上三旗之一，苏克萨哈为旗主，与镶黄旗势成水火",
-    "type": "political",
+    "type": "八旗",
+    "location": null,
     "sub_divisions": [],
-    "reputation": "上三旗",
-    "members": []
-  },
-  {
-    "id": "faction_shang_shan_jian",
-    "name": "尚膳监",
-    "description": "皇宫内负责膳食的机构，海老公隶属于此",
-    "type": "朝廷机构",
-    "sub_divisions": [],
-    "members": [
-      "char_hai_lao_gong"
-    ]
+    "one_line": "八旗之一，苏克萨哈为旗主，被鳌拜打压"
   },
   {
     "id": "faction_qing_chao",
-    "name": "清朝",
-    "description": "满清朝廷，本章涉及吴三桂起兵造反、吴之荣告密等朝廷大事",
+    "name": "清朝朝廷",
+    "type": "政权",
+    "location": "loc_beijing",
     "sub_divisions": [
-      "尚膳监",
-      "内务府",
-      "八旗"
-    ],
-    "leader": "康熙",
-    "alignment": "朝廷",
-    "members_in_chapter": [
-      "char_kang_xi",
-      "char_kang_qin_wang",
-      "char_ao_bai",
-      "char_wei_xiao_bao"
-    ],
-    "members": [
-      "char_kang_xi",
-      "char_jian_ning_gong_zhu",
-      "char_shi_lang",
-      "char_suo_e_tu",
-      "char_huang_fu"
-    ],
-    "location": "loc_bei_jing"
-  },
-  {
-    "id": "faction_wu_sheng_biao_ju",
-    "name": "武胜镖局",
-    "description": "京城镖局，总镖头王武通。与天地会有些交情，在本回中受邀赴沐王府作见证人。",
-    "sub_divisions": [],
-    "alignment": "中立",
-    "leader": "char_wang_wu_tong"
-  },
-  {
-    "id": "faction_tan_tui_men",
-    "name": "潭腿门",
-    "description": "京城武林门派之一，本回中受邀与天地会同赴沐王府作见证，但未见具体人物出场。",
-    "sub_divisions": [],
-    "alignment": "中立",
-    "leader": null
-  },
-  {
-    "name": "平西王府",
-    "faction_id": "faction_wu_san_gui",
-    "leader": "char_wu_san_gui；吴三桂",
-    "alignment": "反清；名义效忠清廷实则割据；叛清",
-    "description": "吴三桂势力，盘踞云南。表面反清实为自立，派重兵截杀韦小宝，后因天地会改道而未能得逞。；吴三桂藩王府邸，在昆明五华山，原为明永历帝故宫，兵强马壮；吴三桂的藩王势力，镇守云南，暗中勾结蒙古和罗刹国图谋造反；吴三桂势力，盘踞云南，暗中勾结罗刹国与蒙古，蓄谋造反。与尚可喜、耿精忠串联上奏试探朝廷，部下兵甲精良身经百战。；吴三桂割据云南的藩王势力，暗中筹划反清",
-    "sub_divisions": [
-      "十大总兵",
-      "家将卫士",
-      "王屋山伏兵"
-    ],
-    "id": "faction_平_西_王_府",
-    "reputation": "雄踞西南，势力庞大",
-    "type": "aristocratic_family；藩王府；藩王势力",
-    "members": [
-      "char_wu_ying_xiong",
-      "char_yang_yi_zhi",
-      "char_wu_sang_gui",
-      "char_wu_san_gui",
-      "char_wu_sangui",
-      "char_wu_yingxiong",
-      "char_xia_guoxiang"
-    ],
-    "philosophy": "割据一方",
-    "appearances": true,
-    "base": "云南",
-    "notable_members": [
-      "char_wu_ying_xiong",
-      "char_xia_guo_xiang",
-      "char_ma_bao",
-      "char_lu_yi_feng"
-    ],
-    "location": "loc_kun_ming"
-  },
-  {
-    "id": "faction_kang_qin_wang_fu",
-    "name": "康亲王府",
-    "sub_divisions": [],
-    "description": "清朝宗室康亲王府邸，广招武林高手。曾遭鳌拜余党袭击后加强守备。府中佛堂地下藏有四十二章经。本回大宴宾客，炫耀武师阵容。"
-  },
-  {
-    "id": "faction_tie_fo_si",
-    "name": "沧州铁佛寺",
-    "sub_divisions": [],
-    "description": "位于沧州的佛寺武学门派，神照上人出自此门，以内功深厚著称。"
-  },
-  {
-    "id": "faction_jin_ding_men",
-    "name": "金顶门",
-    "sub_divisions": [
-      "锦州金顶门"
-    ],
-    "description": "平西王麾下武官门派，以头上功夫闻名。功夫练到高深时满脸油光、头顶无发，故多为秃顶。吴应熊随从中有七人习此功夫。"
-  },
-  {
-    "id": "faction_yuqian_shiwei",
-    "name": "御前侍卫",
-    "alignment": "清朝朝廷",
-    "leader": "char_kang_xi",
-    "sub_divisions": [
-      "骁骑营"
-    ],
-    "members": [
-      "char_zhao_qixian",
-      "char_zhang_kangnian",
-      "char_rui_dong",
-      "char_duo_long",
-      "char_wei_xiao_bao",
-      "char_zhang_kang_nian",
-      "char_zhao_qi_xian"
-    ],
-    "description": "清朝宫廷侍卫，随韦小宝前往云南；清朝皇帝亲军侍卫，韦小宝任骁骑营都统",
-    "reputation": "朝廷",
-    "location": "loc皇宫",
-    "type": "宫廷侍卫"
-  },
-  {
-    "id": "qing_court",
-    "name": "清廷",
-    "leader": "char_kang_xi；康熙",
-    "description": "满清朝廷，康熙为当朝皇帝，正调兵遣将平定吴三桂之乱；清朝朝廷，康熙当政，三藩已平、台湾已取。；清朝朝廷，康熙帝统治。本回中派王进宝出海寻访韦小宝，密旨召回。；大清朝廷，康熙帝执政。下诏讨伐吴三桂，许诺擒贼者封王。各省官员有降有死。",
-    "alignment": "统治者",
-    "sub_divisions": [
-      "内班宿卫",
-      "护军营",
-      "前锋营",
-      "骁骑营",
       "御前侍卫",
-      "尚膳监",
-      "骁骑营正黄旗满洲",
+      "太监系统",
+      "骁骑营",
+      "前锋营",
+      "护军营",
       "水师",
-      "顺天府",
-      {
-        "name": "骁骑营",
-        "description": "清廷禁军，韦小宝曾任都统"
-      }
+      "兵部",
+      "内阁",
+      "内班宿卫",
+      "宫门侍卫"
     ],
-    "strength": "国家机器，兵力雄厚，但面临吴三桂反叛压力",
-    "relationships": [
-      {
-        "target": "tiandihui",
-        "type": "敌对",
-        "dynamic": "天地会以推翻清朝为目标"
-      },
-      {
-        "target": "wu_sangui_army",
-        "type": "敌对",
-        "dynamic": "吴三桂起兵反清，双方开战"
-      },
-      {
-        "target": "faction_wu_sangui_faction",
-        "relation": "讨伐",
-        "dynamic": "下诏斥责并悬赏擒拿吴三桂"
-      },
-      {
-        "target": "faction_tidihui",
-        "relation": "敌对",
-        "dynamic": "天地会以推翻清廷为目标"
-      }
-    ],
-    "reputation": "执政朝廷",
-    "type": "朝廷",
-    "notable_members": [
-      "char_wei_xiao_bao",
-      "char_zhang_kang_nian",
-      "char_zhao_qi_xian"
-    ],
-    "location": "loc_bei_jing",
-    "territory": "全国",
-    "base": "北京紫禁城",
-    "members": [
-      "char_kang_xi",
-      "char_duo_long",
-      "char_zhen_tai_hou",
-      "char_jian_ning_gong_zhu",
-      "char_wei_xiao_bao",
-      "char_wang_jin_bao",
-      "char_zhao_liang_dong",
-      "char_sun_si_ke",
-      "char_wen_you_fang",
-      "char_zhang_yong",
-      "char_yun_reng"
-    ],
-    "appearances": true,
-    "faction_id": "faction_qing_court"
+    "one_line": "满清统治政权，康熙在位讨伐吴三桂"
   },
   {
-    "name": "神龙教",
-    "faction_id": "faction_shen_long_jiao",
-    "leader": "洪教主",
-    "alignment": "亦正亦邪；邪派",
-    "description": "神秘教派，以豹胎易筋丸控制教众。胖头陀、瘦头陀、陆高轩均为教中高手，因服药致身形变异。；苏荃出身门派，曾掳韦小宝至通吃岛",
+    "id": "faction_mu_fu",
+    "name": "沐王府",
+    "type": "前明藩王府；藩镇遗族；前朝遗族",
+    "location": "loc_yun_nan；loc_yunnan",
     "sub_divisions": [
-      "五色少年少女教众",
+      "刘白方苏四大家将"
+    ],
+    "one_line": "前明黔国公沐英后裔，入宫行刺嫁祸吴三桂；明朝沐英后裔，矢志反清复明；明朝沐英后裔，与天地会联手"
+  },
+  {
+    "id": "faction_wu_sang_gui",
+    "name": "吴三桂势力",
+    "type": "割据势力",
+    "location": null,
+    "sub_divisions": [],
+    "one_line": "平西王吴三桂的云南割据势力"
+  },
+  {
+    "id": "faction_wu_gui",
+    "name": "平西王府",
+    "type": "藩王势力；藩镇势力",
+    "location": "loc_yun_nan；loc_ping_xi_wang_fu；loc_yunnan",
+    "sub_divisions": [
+      "家将卫士",
+      "十总兵"
+    ],
+    "one_line": "吴三桂的藩王势力，天地会与沐王府共同的敌人；吴三桂割据云南，已举兵造反；吴三桂镇守云南的藩王府，暗中勾结蒙古罗刹图谋造反；吴三桂势力，暗中准备造反"
+  },
+  {
+    "id": "faction_kang_qin_wang",
+    "name": "康亲王府",
+    "type": "宗室王府",
+    "location": "loc_beijing",
+    "sub_divisions": [],
+    "one_line": "清朝宗室康亲王的府邸，常设宴款待文武百官"
+  },
+  {
+    "id": "faction_shen_long_jiao",
+    "name": "神龙教",
+    "type": "邪教",
+    "location": "loc_shen_long_island",
+    "sub_divisions": [
       "青龙门",
       "黄龙门",
       "赤龙门",
       "白龙门",
-      "黑龙门",
-      "赤龙使",
-      {
-        "name": "赤龙门",
-        "leader": "无根道人"
-      },
-      {
-        "name": "青龙门",
-        "leader": "许雪亭"
-      },
-      {
-        "name": "黄龙门",
-        "leader": "殷锦"
-      },
-      {
-        "name": "黑龙门",
-        "leader": "张淡月"
-      },
-      {
-        "name": "白龙门",
-        "leader": "韦小宝"
-      }
+      "黑龙门"
     ],
-    "id": "faction_神_龙_教",
-    "type": "江湖教派",
-    "members": [
-      "char_zhang_lao_san",
-      "char_liu_yan",
-      "char_deng_bing_chun",
-      "char_pang_tou_tuo",
-      "char_lu_xian_sheng",
-      "char_hong_furen",
-      "char_pan_chou_han",
-      "char_hong_an_tong",
-      "char_su_quan",
-      "char_wei_xiao_bao",
-      "char_zhang_dan_yue",
-      "char_wu_gen_dao_ren",
-      "char_zhong_zhi_ling",
-      "char_xu_xue_ting",
-      "char_yin_jin",
-      "char_lu_gao_xuan",
-      "char_shou_tou_tuo",
-      "char_fang_yi",
-      "char_mu_jian_ping",
-      "char_hong_jiao_zhu",
-      "char_hong_fu_ren",
-      "char_tai_hou",
-      "char_tao_gu_gu",
-      "char_jia_tai_hou",
-      "char_shou_tuo_tuo",
-      "char_pang_tuo_tuo",
-      "char_mao_dong_zhu",
-      "char_he_sheng"
-    ],
-    "reputation": "亦正亦邪",
-    "philosophy": "教主永享仙福寿与天齐",
-    "appearances": true,
-    "rank": "登峰造极",
-    "rank_reason": "教主武功绝顶，教众数百人，势力庞大",
-    "location": "loc_shen_long_dao",
-    "base": "神龙岛",
-    "notable_members": [
-      "char_hong_jiao_zhu"
-    ],
-    "headquarters": "神龙岛",
-    "members_count": "数百至数千人",
-    "territory": "海岛"
-  },
-  {
-    "id": "faction_shao_lin",
-    "name": "少林寺",
-    "sub_divisions": [
-      "达摩院",
-      "般若堂",
-      "戒律院",
-      "菩提院",
-      {
-        "name": "达摩院",
-        "description": "专研本派武功",
-        "leader": "char_cheng_xin"
-      },
-      {
-        "name": "般若堂",
-        "description": "专门精研天下各家各派武功",
-        "leader": "char_cheng_guan"
-      },
-      {
-        "name": "戒律院",
-        "description": "负责寺中戒律",
-        "leader": "char_cheng_shi"
-      }
-    ],
-    "type": "佛门正宗；佛门武宗",
-    "description": "天下武林正派之首，少林僧人武功高强。晦聪为方丈，韦小宝以晦明禅师身份前往清凉寺住持，率三十六名少林僧同行。；天下武学正宗，韦小宝曾在此出家，般若堂高僧澄观精通武学",
-    "leader": "char_hui_cong",
-    "rank": "登峰造极",
-    "rank_reason": "武林泰派，十八罗汉武功高强",
-    "location": "loc_shao_lin_si",
-    "members": [
-      "char_cheng_xin",
-      "char_yu_lin",
-      "char_xing_chi",
-      "char_hui_cong",
-      "char_cheng_guan",
-      "char_cheng_shi",
-      "char_cheng_tong",
-      "char_jing_ji",
-      "char_jing_qing"
-    ],
-    "reputation": "天下武学正宗，千年声名不替",
-    "philosophy": "清苦修持",
-    "headquarters": "loc_song_shan_shao_lin_si",
-    "alignment": "中立"
+    "one_line": "洪教主殒命后彻底瓦解"
   },
   {
     "id": "faction_qing_liang_si",
     "name": "清凉寺",
+    "type": "佛门",
+    "location": "loc_wutaishan",
     "sub_divisions": [],
-    "type": "佛门寺院",
-    "description": "五台山佛寺，顺治出家修行之地。原由澄光住持，后法胜接任，现由韦小宝以晦明禅师身份任住持。后山有小庙为顺治参禅之所。",
-    "leader": "char_wei_xiao_bao"
+    "one_line": "五台山清凉寺，北魏孝文帝时所建，由韦小宝出任住持"
+  },
+  {
+    "id": "faction_shao_lin",
+    "name": "少林寺",
+    "type": "武林门派；佛门/武林门派",
+    "location": "loc_shaolin_si",
+    "sub_divisions": [
+      "达摩院",
+      "般若堂",
+      "戒律院",
+      "罗汉堂"
+    ],
+    "one_line": "武林领袖，方丈晦聪禅师；韦小宝出家的母寺，派三十六僧随行"
   },
   {
     "id": "faction_fo_guang_si",
     "name": "佛光寺",
-    "sub_divisions": []
+    "type": "寺庙",
+    "location": "loc_fo_guang_si",
+    "sub_divisions": [],
+    "one_line": "五台山上最古老的大庙，方丈心溪是五台山诸青庙首脑"
   },
   {
-    "id": "faction_qiying",
-    "name": "骁骑营",
-    "alignment": "清朝朝廷",
-    "leader": "char_cha_er_zhu；韦小宝",
+    "id": "faction_shen_luo_tuo",
+    "name": "青海活佛法座",
+    "type": "宗教",
+    "location": null,
     "sub_divisions": [
-      "正黄旗"
+      "菩萨顶真容院"
     ],
-    "members": [
-      "char_cha_er_zhu",
-      "char_wei_xiao_bao",
-      "char_zhang_kang_nian",
-      "char_zhao_qi_xian",
-      "char_ge_tong",
-      "char_fu_chun"
-    ],
-    "description": "清朝八旗军队之一，随行护卫钦差；卫护皇帝的亲兵，由满洲亲贵子弟组成，服用饮食高出寻常士兵十倍。；清朝禁军八旗之一，正黄旗都统察尔珠。康熙命一千名骁骑营军官假扮喇嘛驻守五台山大喇嘛寺。；清朝精锐禁军，韦小宝任都统，率水师攻打神龙岛",
-    "type": "朝廷亲军；清廷军营",
-    "reputation": "皇帝亲军，地位尊崇；朝廷劲旅",
-    "headquarters": "loc_bei_jing",
-    "members_count": "数千人",
-    "affiliation": "清朝"
+    "one_line": "青海密宗活佛法座，派巴颜来五台山搜查"
   },
   {
-    "id": "faction_wang_wu_pai",
+    "id": "faction_wang_wu",
     "name": "王屋派",
-    "alias": [],
-    "type": "反清义军",
-    "description": "据守王屋山的武林门派，首领司徒伯雷为忠于明朝的义士。遭吴三桂部下巴朗星暗杀后，全体加入天地会青木堂。会众聚居于王母洞及附近各洞中。",
-    "leader": "char_si_tu_he（继任掌门）",
-    "headquarters": "loc_wang_wu_shan",
-    "members": [
-      "char_si_tu_bo_lei",
-      "char_si_tu_he",
-      "char_zeng_rou",
-      "char_fu_wu",
-      "char_yuan_yi_fang",
-      "char_ceng_rou"
-    ],
+    "type": "武林门派；江湖门派",
+    "location": "loc_wangwushan",
     "sub_divisions": [],
-    "reputation": "河南济源一带反清势力",
-    "relationship_to_emperor": "反清复明，忠于明朝"
+    "one_line": "以司徒鹤为首的武林小派；已加入天地会的江湖门派"
   },
   {
-    "id": "faction_qing_hai_la_ma",
-    "name": "青海喇嘛",
-    "description": "青海活佛座下喇嘛僧人，以桑结为首共十三人，奉命追索四十二章经",
+    "id": "faction_tie_jian_men",
+    "name": "铁剑门",
+    "type": "武林门派",
+    "location": null,
     "sub_divisions": [],
-    "members": [
-      "char_sang_jie",
-      "char_hu_ba_yin"
+    "one_line": "以轻功'神行百变'闻名的门派，何惕守属此门"
+  },
+  {
+    "id": "faction_la_ma_jiao",
+    "name": "喇嘛教",
+    "type": "宗教",
+    "location": null,
+    "sub_divisions": [
+      "宁玛派"
     ],
-    "alignment": "敌对势力"
+    "one_line": "密宗喇嘛教，桑结等人所属"
   },
   {
     "id": "faction_yan_ping_wang_fu",
-    "name": "延平郡王府",
-    "description": "台湾郑氏政权，郑成功之后由郑经继任。文有陈永华，武有刘国轩、冯锡范，但内部存在世子之争。；台湾郑氏政权，延平郡王郑经麾下，郑克塽为其次子，力抗满清孤悬海外；台湾郑氏政权，延平郡王郑经统领。本回中郑克塽为其第二子，冯锡范为其武师。与吴三桂暗中勾结，郑克塽在杀龟大会中任福建省盟主。",
-    "leader": "char_zheng_jing；郑经",
-    "sub_divisions": [],
-    "philosoph": "奉明抗清",
-    "members": [
-      "char_jun_ke_shang",
-      "char_feng_xi_fan",
-      "char_zheng_jing",
-      "char_zheng_ke_shang",
-      "char_chen_jin_nan",
-      "char_liu_guo_xuan",
-      "char_zheng_ke_shuang",
-      "char_chen_yong_hua"
-    ],
-    "location": "loc_tai_wan",
-    "alignment": "友方势力；反清",
-    "base": "台湾",
-    "appearances": true
-  },
-  {
-    "id": "faction_wu_yi_pai",
-    "name": "武夷派",
-    "description": "施琅出身门派，郑克塽启蒙业师所在",
-    "sub_divisions": [],
-    "members": [
-      "char_shi_lang"
-    ],
-    "alignment": "中立"
-  },
-  {
-    "id": "faction_kun_lun_pai",
-    "name": "昆仑派",
-    "description": "冯锡范所属门派，其为昆仑派第一高手",
-    "sub_divisions": [],
-    "members": [
-      "char_feng_xi_fan"
-    ],
-    "alignment": "中立"
-  },
-  {
-    "faction_id": "faction_tie_jian_men",
-    "name": "铁剑门",
-    "leader": "九难",
-    "description": "九难所执掌的门派，武功属道流。师祖为道人木桑。九难虽是尼姑，铁剑门根源却在道家。",
-    "alignment": "正派",
-    "sub_divisions": [],
-    "members": [
-      "char_jiu_nan",
-      "char_wei_xiao_bao",
-      "char_a_ke"
-    ],
-    "history": "师祖木桑道人创立，传至九难为掌门。",
-    "id": "faction_铁_剑_门"
-  },
-  {
-    "faction_id": "faction_huashan_pai",
-    "name": "华山派",
-    "leader": "char_gui_nan_di",
-    "description": "武林大派，掌门冯难敌曾主持河间府杀龟大会。归辛树一支已脱离门户，但仍属华山派血脉。",
-    "alignment": "正派",
-    "sub_divisions": [
-      {
-        "name": "归辛树一支",
-        "leader": "char_gui_xin_shu",
-        "members": [
-          "char_gui_xin_shu",
-          "char_gui_er_niang",
-          "char_gui_zhong"
-        ]
-      }
-    ],
-    "members": [
-      "char_feng_nan_di",
-      "char_feng_bu_po",
-      "char_feng_bu_cui",
-      "char_mu_ren_qing",
-      "char_huang_zhen",
-      "char_yuan_cheng_zhi"
-    ],
-    "history": "穆人清为华山派前辈，黄真为其徒，冯难敌为黄真之徒，袁承志为穆人清之徒。",
-    "id": "faction_华_山_派",
-    "type": "武林门派",
-    "relationships": [
-      {
-        "target": "faction_tidihui",
-        "relation": "合作",
-        "dynamic": "华山派参与反清大业，何惕守暗助天地会"
-      }
-    ]
-  },
-  {
-    "faction_id": "faction_yan_ping_wang_fu",
     "name": "延平王府",
-    "leader": "郑经",
-    "description": "台湾郑氏政权，以延平郡王郑经为首。郑克塽为郑经之子，受命前来主持杀龟大会。",
-    "alignment": "正派",
+    "type": "政治势力",
+    "location": null,
     "sub_divisions": [],
-    "members": [
-      "char_zheng_ke_shuang"
-    ],
-    "history": "郑成功驱逐荷兰人收复台湾，其子郑经继位镇守。",
-    "id": "faction_延_平_王_府"
+    "one_line": "台湾郑氏，抗清旗帜"
   },
   {
-    "id": "faction_san_fan",
-    "name": "三藩",
-    "leader": "吴三桂",
-    "sub_divisions": [
-      "平西王府",
-      "平南王府",
-      "靖南王府"
-    ],
-    "description": "已平定的三藩势力，以吴三桂为首。",
-    "members": [
-      "char_wu_san_gui",
-      "char_wu_ying_xiong",
-      "char_shang_ke_xi",
-      "char_geng_jing_zhong"
-    ],
-    "dynamics": [
-      {
-        "target": "faction_qing_ting",
-        "type": "敌对",
-        "detail": "已败亡"
-      }
-    ]
-  },
-  {
-    "name": "郑氏台湾",
-    "faction_id": "faction_zheng_shi_tai_wan",
-    "leader": null,
-    "alignment": "反清复明",
-    "description": "台湾郑氏政权，打大明旗号。郑克塽随冯锡范在柳州出现，与李自成结伴同行。",
+    "id": "faction_hua_shan",
+    "name": "华山派",
+    "type": "武林门派",
+    "location": null,
     "sub_divisions": [],
-    "id": "faction_郑_氏_台_湾"
+    "one_line": "归辛树一门殉难后，华山派元气大伤；冯难敌所属门派，掌门八面威风"
   },
   {
-    "id": "faction_ye_su_hui",
-    "name": "耶稣会",
-    "description": "西方天主教修会，在华传教士南怀仁、汤若望均属此会。精通天文历法和火炮制造。",
-    "leader": null,
+    "id": "faction_wu_dang_pai",
+    "name": "武当派",
+    "type": "武林门派",
+    "location": null,
     "sub_divisions": [],
-    "members": [
-      "char_nan_huai_ren",
-      "char_tang_ruo_wang"
-    ],
-    "location": "loc_bei_jing"
+    "one_line": "名门正派，掌门云雁道人"
   },
   {
-    "id": "faction_luo_sha_guo",
-    "name": "罗刹国",
-    "leader": "char_su_fei_ya",
-    "description": "俄罗斯帝国，火器犀利，骑兵骁勇。远东扩张侵入黑龙江流域，以雅克萨和尼布楚为据点，烧杀掳掠中国边民。",
-    "sub_divisions": [
-      "火枪营",
-      "哥萨克骑兵",
-      "莫斯科朝廷",
-      "雅克萨驻军"
-    ],
-    "type": "外邦",
-    "territories": [
-      "莫斯科",
-      "雅克萨",
-      "尼布楚"
-    ],
-    "associated_characters": [
-      "char_su_fei_ya",
-      "char_tu_er_bu_qing"
-    ]
-  },
-  {
-    "id": "faction_shang_ke_xi",
-    "name": "平南王府",
-    "leader": "char_shang_ke_xi",
-    "description": "尚可喜势力，镇守广东。尚可喜率先上奏请求撤藩归老辽东，获康熙批准全藩撤回。",
-    "sub_divisions": null
-  },
-  {
-    "id": "faction_geng_jing_zhong",
-    "name": "靖南王府",
-    "leader": "char_geng_jing_zhong",
-    "description": "耿精忠势力，镇守福建。见尚可喜乞归获准后随吴三桂上奏请撤藩，奏章措辞与吴三桂如出一辙。",
-    "sub_divisions": null
-  },
-  {
-    "faction_id": "faction_wu_sangui_faction",
-    "name": "吴三桂势力",
-    "type": "叛军",
-    "leader": "char_wu_san_gui",
-    "description": "吴三桂起兵反清的军事势力，起兵云南，兵势甚盛，大将马宝攻陷沅州，龚应麟、夏国相分头东进，王屏藩攻四川。；平西王吴三桂的势力集团，部署起兵造反。派巴朗星联络旧部司徒伯雷，遭拒后将其杀害。尚可喜、耿精忠二藩已撤藩，吴三桂孤掌难鸣。",
+    "id": "faction_yu_qian_shi_wei",
+    "name": "御前侍卫",
+    "type": "朝廷武装",
+    "location": "loc_kunming",
     "sub_divisions": [],
-    "relationships": [
-      {
-        "target": "faction_qing_court",
-        "relation": "叛乱",
-        "dynamic": "起兵反清，攻城掠地"
-      },
-      {
-        "target": "faction_tidihui",
-        "relation": "利用",
-        "dynamic": "借刀杀人利用归辛树杀害天地会义士"
-      }
-    ],
-    "id": "faction_吴_三_桂_势_力",
-    "members": [
-      "char_wu_san_gui",
-      "char_wu_ying_xiong",
-      "char_ba_lang_xing"
-    ],
-    "relationship_to_emperor": "即将造反"
+    "one_line": "清朝皇帝直属精锐侍卫"
   },
   {
-    "id": "ge_er_dan_army",
-    "name": "准噶尔",
-    "leader": "char_ge_er_dan",
-    "description": "蒙古准噶尔部，葛尔丹王子意欲称汗，暗中与吴三桂勾结；蒙古准噶尔部，葛尔丹王子为其首领之一。葛尔丹与桑结被洪教主擒获后由韦小宝交换释放。",
-    "alignment": "反派",
+    "id": "faction_tai_wan",
+    "name": "台湾郑家",
+    "type": "割据势力",
+    "location": "loc_taiwan",
     "sub_divisions": [],
-    "strength": "蒙古兵力颇强",
-    "relationships": [
-      {
-        "target": "wu_sangui_army",
-        "type": "暗盟",
-        "dynamic": "暗中与吴三桂勾结"
-      },
-      {
-        "target": "qing_court",
-        "type": "假降",
-        "dynamic": "表面归顺，实则伺机而动"
-      }
-    ],
-    "type": "部族",
-    "territory": "蒙古西部",
-    "reputation": "蒙古强部"
-  },
-  {
-    "id": "faction_xi_zang",
-    "name": "西藏",
-    "leader": "桑结",
-    "sub_divisions": [],
-    "description": "西藏势力，桑结为大喇嘛，与韦小宝结义"
+    "one_line": "台湾延平郡王郑家势力；郑成功后人据守台湾，延平郡王郑经主政；台湾延平郡王府，郑克塽害死陈近南后势力大损"
   },
   {
     "id": "faction_meng_gu",
-    "name": "蒙古",
-    "leader": "葛尔丹",
+    "name": "蒙古准噶尔部",
+    "type": "部族",
+    "location": null,
     "sub_divisions": [],
-    "description": "蒙古势力，葛尔丹为蒙古王子，与韦小宝结义"
+    "one_line": "蒙古准噶尔部，王子葛尔丹被韦小宝以封汗为饵结拜"
   },
   {
-    "id": "wu_sangui_army",
-    "name": "吴三桂军",
-    "leader": "char_wu_san_gui",
-    "description": "吴三桂起兵反清的军事势力，以兴明讨虏为旗号，实则觊觎天下",
-    "alignment": "反派",
-    "sub_divisions": [],
-    "strength": "兵势甚锐，攻入湖南四川，势如破竹",
-    "relationships": [
-      {
-        "target": "qing_court",
-        "type": "敌对",
-        "dynamic": "起兵反清，自立为王"
-      },
-      {
-        "target": "mu_wang_fu",
-        "type": "仇敌",
-        "dynamic": "杀害永历皇帝，沐王府深恨之"
-      }
-    ]
-  },
-  {
-    "id": "zheng_family",
-    "name": "台湾郑家",
-    "leader": null,
-    "description": "占据台湾的郑氏势力，陈近南为其效力，有渡海西征之力",
-    "alignment": "正派",
-    "sub_divisions": [],
-    "strength": "海军精锐，可渡海进兵闽浙",
-    "relationships": [
-      {
-        "target": "tiandihui",
-        "type": "附属",
-        "dynamic": "陈近南为其效力，但内部有冯锡范等小人"
-      },
-      {
-        "target": "qing_court",
-        "type": "敌对",
-        "dynamic": "反清势力，计划渡海西征"
-      }
-    ]
-  },
-  {
-    "id": "sang_jie_army",
-    "name": "桑结势力",
-    "leader": "char_sang_jie",
-    "description": "西藏大喇嘛桑结的势力，暗中与吴三桂勾结",
-    "alignment": "反派",
-    "sub_divisions": [],
-    "strength": "西藏兵力颇强",
-    "relationships": [
-      {
-        "target": "wu_sangui_army",
-        "type": "暗盟",
-        "dynamic": "暗中与吴三桂勾结"
-      },
-      {
-        "target": "qing_court",
-        "type": "假降",
-        "dynamic": "表面归顺清朝，实则两面三刀"
-      }
-    ]
-  },
-  {
-    "id": "char_qing_chao",
-    "name": "大清朝",
-    "type": "government",
-    "rank": null,
-    "description": "大清朝廷，康熙在位，国力鼎盛。平三藩、收台湾后，转而对付罗刹国入侵。",
-    "leader": "char_kang_xi",
+    "id": "faction_luo_cha_guo",
+    "name": "罗刹国",
+    "type": "外国势力",
+    "location": "loc_mosike",
     "sub_divisions": [
-      "大清水师"
-    ],
-    "members": [
-      "char_kang_xi",
-      "char_wei_xiao_bao",
-      "char_suo_e_tu",
-      "char_shi_lang",
-      "char_peng_can_jiang"
-    ]
-  },
-  {
-    "id": "char_tai_wan_zheng_shi",
-    "name": "台湾郑氏",
-    "type": "regime",
-    "rank": null,
-    "description": "郑成功开创的台湾政权，郑经死后克塽篡位，施琅攻台后不战而降，台湾归于清朝版图。",
-    "leader": "char_zheng_ke_shuang",
-    "sub_divisions": [],
-    "members": [
-      "char_zheng_jing",
-      "char_zheng_ke_shuang",
-      "char_zheng_ke",
-      "char_feng_xi_fan",
-      "char_dong_guo_tai",
-      "char_liu_guo_xuan",
-      "char_he_you"
-    ]
-  },
-  {
-    "id": "char_di_tang_men",
-    "name": "地堂门",
-    "type": "martial_school",
-    "rank": null,
-    "description": "江湖门派，林兴珠为地堂门好手。",
-    "leader": null,
-    "sub_divisions": [],
-    "members": [
-      "char_lin_xing_zhu"
-    ]
-  },
-  {
-    "id": "faction_da_qing",
-    "name": "大清",
-    "type": "王朝",
-    "description": "大清帝国，康熙朝国力鼎盛，对外军事外交皆占上风，雅克萨之战后迫使罗刹签订尼布楚条约",
-    "leader": "char_kang_xi",
-    "sub_divisions": [
-      "藤牌兵",
-      "前锋营"
-    ],
-    "territories": [
-      "北京",
-      "辽东",
-      "台湾",
-      "宁古塔",
-      "瑷珲",
-      "呼玛尔",
-      "鹿鼎山"
-    ],
-    "associated_characters": [
-      "char_kang_xi",
-      "char_wei_xiao_bao",
-      "char_suo_e_tu",
-      "char_peng_chun",
-      "char_sa_bu_su",
-      "char_ba_hai",
-      "char_lang_tan",
-      "char_lin_xing_zhu",
-      "char_he_you",
-      "char_hong_chao",
-      "char_shi_lang",
-      "char_yi_sang_a"
-    ],
-    "rank": "登峰造极",
-    "related_characters": [
-      "char_wei_xiao_bao",
-      "char_suo_e_tu",
-      "char_peng_chun",
-      "char_sa_bu_su",
-      "char_lang_tan",
-      "char_lin_xing_zhu",
-      "char_tong_guo_gang",
-      "char_kang_xi"
-    ],
-    "related_locations": [
-      "loc_ya_ke_sa",
-      "loc_ai_hui",
-      "loc_hu_ma_er",
-      "loc_ni_bu_chu",
-      "loc_beijing"
-    ]
-  },
-  {
-    "name": "鄂罗斯国",
-    "id": "faction_e_luo_si",
-    "type": "王朝",
-    "description": "罗刹国即鄂罗斯，两位沙皇年幼苏菲亚公主摄政掌权，东侵受阻于雅克萨和尼布楚",
-    "rank": "炉火纯青",
-    "sub_divisions": [
+      "火枪营",
       "哥萨克骑兵"
     ],
-    "related_characters": [
-      "char_su_fei_ya",
-      "char_fei_yao_duo_luo",
-      "char_hua_bo_si_ji",
-      "char_qi_luo_nuo_fu",
-      "char_luo_sha_jiao_shi"
-    ],
-    "related_locations": [
-      "loc_mo_si_ke",
-      "loc_ke_li_mu_lin_gong"
-    ]
+    "one_line": "俄罗斯帝国，领土辽阔，在东方筑城企图窥探中国，宫廷发生政变"
   },
   {
-    "id": "faction_zheng_shi",
-    "name": "郑氏",
-    "leader": "char_zheng_ke_shang",
+    "id": "faction_qing_hai",
+    "name": "青海黄教",
+    "type": "宗教",
+    "location": null,
     "sub_divisions": [],
-    "description": "台湾郑氏降清后封爵居京，海澄公府与韦府相邻，冯锡范为其麾下",
-    "members": [
-      "char_zheng_ke_shang",
-      "char_feng_xi_fan"
-    ]
+    "one_line": "青海黄教喇嘛势力，大喇嘛桑结被韦小宝以封大活佛为饵结拜"
+  },
+  {
+    "id": "faction_e_luo_si",
+    "name": "罗刹国（俄罗斯）",
+    "type": "外国政权",
+    "location": "loc_mosike",
+    "sub_divisions": [],
+    "one_line": "俄罗斯帝国，与清朝签署尼布楚条约，被迫撤出雅克萨"
   }
 ]
