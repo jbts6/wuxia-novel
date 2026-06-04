@@ -35,23 +35,17 @@ node .agents/skills/batch-format-novel/scripts/batch-format.js "金庸/天龙八
 
 ### 2. 章节拆分（如果需要）
 
-**默认方式**：直接运行 `batch-format.js`，它会自动调用 `split-by-chapter.js` 完成拆分。
+**重要**：每本书的章节标题格式不同，需要 LLM 灵活处理。
 
-```bash
-node .agents/skills/batch-format-novel/scripts/batch-format.js "<小说目录路径>"
-```
-
-**如果报错"未检测到章节标题"**，说明该书的章节格式尚未收录：
+**LLM 拆分流程**：
 1. 读取 txt 文件开头（前 200 行），识别章节标题格式
-2. **修改** `split-by-chapter.js` 的 `CHAPTER_PATTERNS` 数组，添加新的正则
-3. 重新运行脚本
+2. 根据识别的格式，生成拆分代码
+3. 执行拆分，输出到 `ch_original/ch_01.md`, `ch_02.md`, ...
 
-> ⚠️ **修改已有脚本，不要另写新脚本**。所有拆分逻辑统一在 `split-by-chapter.js` 中维护。
-
-**常见格式示例**（均已内置支持）：
+**常见格式示例**：
 - 天龙八部：`一　　青衫磊落险峰行`（中文数字 + 标题）
 - 射雕英雄传：`第一回 风雪惊变`
-- 笑傲江湖：`灭门`（纯标题，需人工确认——此类无规律标题无法自动拆分）
+- 笑傲江湖：`灭门`（纯标题，需人工确认）
 
 **如果无法自动识别**：询问用户章节标题格式。
 
@@ -69,17 +63,19 @@ node .agents/skills/batch-format-novel/scripts/batch-format.js "<小说目录路
 - 控制行宽（30-50 字符）
 - 保持弯引号格式
 
-## ⚠️ 重要：修改已有脚本，不要另写新脚本
+## LLM 拆分示例
 
-`batch-format.js` 已内置完整的拆分 + 排版流程。**不要**另外编写新的拆分脚本。
+当用户给出路径时，LLM 应该：
 
-**正确做法**：
-```bash
-# 1. 直接运行
-node .agents/skills/batch-format-novel/scripts/batch-format.js "<小说目录路径>"
+1. **读取文件开头**，识别章节格式
+2. **生成拆分代码**，例如：
 
-# 2. 如果报错，修改 split-by-chapter.js 的 CHAPTER_PATTERNS，然后重跑
+```javascript
+// 天龙八部格式：一　　标题
+const chapters = content.split(/(?=^[一二三四五六七八九十]+　　)/m);
 ```
+
+3. **执行拆分**，写入 `ch_original/`
 
 ## 输出示例
 
@@ -108,17 +104,16 @@ node .agents/skills/batch-format-novel/scripts/batch-format.js "<小说目录路
 
 | 脚本 | 作用 |
 |------|------|
-| `batch-format.js` | 主入口：自动拆分 + 增量排版（一键完成） |
-| `split-by-chapter.js` | 按章节标题拆分（内置多种格式，不要重写） |
+| `split-by-chapter.js` | 按章节标题拆分（需 LLM 配置正则） |
 | `auto-format.js` | 单章排版（说话标记、行宽、引号） |
 
 ## 常见问题
 
 **Q: 如何重新排版某章？**
-A: 删除 `ch_formatted` 中对应的 md 文件，重新运行 `batch-format.js`。
+A: 删除 `ch_formatted` 中对应的 md 文件，重新运行脚本。
 
 **Q: 章节标题格式不识别？**
-A: 先运行 `batch-format.js`，如果报错则读取 txt 开头识别格式，**修改** `split-by-chapter.js` 的 `CHAPTER_PATTERNS` 添加新正则，然后重跑。不要另写新脚本。
+A: 让 LLM 读取 txt 开头，识别格式后生成拆分代码。
 
 **Q: 拆分不准确？**
-A: **修改** `split-by-chapter.js` 中的 `CHAPTER_PATTERNS` 正则，然后重新运行。
+A: LLM 可以手动调整拆分点，或修改 `split-by-chapter.js` 中的正则。

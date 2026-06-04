@@ -9,7 +9,7 @@ import shutil
 AUTHOR_DIRS = ["金庸", "古龙", "温瑞安", "黄易", "梁羽"]
 
 # 每本小说需要的子目录
-SUB_DIRS = ["chapters", "characters", "skills", "factions", "locations", "chunks"]
+SUB_DIRS = ["characters", "skills", "factions", "locations", "chunks"]
 
 # 初始进度文件模板
 INITIAL_PROGRESS = {

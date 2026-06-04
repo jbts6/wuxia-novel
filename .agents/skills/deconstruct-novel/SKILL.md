@@ -3,231 +3,150 @@ name: deconstruct-novel
 description: 解构武侠小说，从排版后的原文中提取人物、武功、物品、地点、势力、事件等结构化数据。Use when user wants to extract structured data from a novel, deconstruct a wuxia novel, or build a knowledge base from novel text.
 ---
 
-# 解构小说（单步提取 + 限流版）
-
-## ⚠️ 核心原则：修改已有脚本，不要另写新脚本
-
-本技能的**每一步**都有对应的已有脚本。需要适配时，**修改已有脚本**，不要另外编写新脚本替代。
-
-| 步骤 | 已有脚本 | 用途 |
-|------|---------|------|
-| 排版 | `node .agents/skills/batch-format-novel/scripts/batch-format.js "<目录>"` | 拆分 + 排版（一键完成） |
-| 初始化 | `python tools/setup-novel-dirs.py "<目录>"` | 创建目录和 progress.json |
-| 校验 | `python tools/validate/fix-json.py "<目录>"` | JSON 格式修复 |
-| 合并 | `python tools/merge/merge-chapters.py "<目录>"` | 合并章节数据 |
-| 卡片 | `python tools/convert/json-to-markdown.py "<目录>"` | 人物/武功卡片 |
-| 卡片 | `python tools/convert/json-to-items-markdown.py "<目录>"` | 物品卡片 |
-| 卡片 | `python tools/convert/generate-event-cards.py "<目录>"` | 事件卡片 |
-| 概览 | `tools/convert/generate-overview.js`（见 Step 3.5） | 实力等级概览 |
-| 验证 | `python tools/verify/verify-card-output-pipeline.py "<目录>"` | 最终验证 |
-
-**如果某个脚本报错**：修复脚本本身，不要另写新脚本替代。
+# 解构小说（全书一次性提取）
 
 核心设计：
-- **单步提取**：每章一次 sub-agent 调用，同时输出骨架数据和详细数据
-- **限流保护**：每批 3 个 sub-agent，防止 RPM=100 限流
-- **上下文优化**：sub-agent 直接写文件，只返回状态摘要
-- **断点续传**：通过 `progress.json` 跟踪进度
-- **清理中间产物**：验证通过后删除 `chapters/`、`ch_original/`、`chunks/` 等可再生目录
+- **全书读入**：sub-agent 一次性读完全部 `ch_formatted/ch_*.md`，在同一上下文中提取所有实体
+- **无中间产物**：不生成 `chapters/` 逐章 JSON，不需要合并脚本，无重复实体问题
+- **断点续传**：通过 `progress.json` 跟踪提取状态
 
 ## 快速开始
 
 ```bash
-# 1. 检查进度
-cat <小说目录>/progress.json
-
-# 2. 根据进度执行对应步骤（见下方流程）
+cat <小说目录>/progress.json          # 检查进度
+python tools/setup-novel-dirs.py <小说目录>  # 初始化（如需要）
 ```
 
 ---
 
-## 并行限流策略
+## 工作流
+
+### Step 0: 预检
+
+1. 确认 `ch_formatted/ch_*.md` 存在且完整（不完整则先用 `batch-format-novel` 排版）
+2. 运行 `python tools/setup-novel-dirs.py <小说目录>` 初始化目录结构
+3. 读取 `progress.json`，若 `extract.done = true` 则跳到 Step 2
+
+### Step 1: 全书一次性提取
+
+**派一个 sub-agent**，执行以下操作：
+
+1. 读取所有章节原文：依次 `read_file` 每个 `ch_formatted/ch_XX.md`，拼接为全文档，每行标注行号
+2. 按下方 Prompt 模板执行提取
+3. 一次性写入 8 个根目录 JSON 文件 + `event_timeline.md`
 
 ```
-MAX_CONCURRENT = 3      # 每批最多 3 个 sub-agent
-BATCH_INTERVAL = 3      # 批次间隔 3 秒
+sub-agent prompt:
+武侠小说全书提取。读取全部章节原文，一次性提取所有实体。
+
+小说目录: {novel_dir}
+章节列表: {chapter_files}
+
+步骤:
+1) 依次 read_file 读取所有 ch_formatted/ch_XX.md，记录每章起始行号
+2) 按下方 Schema 提取全部实体
+3) 一次性 write_file 写入以下文件:
+   - characters.json
+   - skills.json
+   - techniques.json
+   - factions.json
+   - locations.json
+   - items.json
+   - events.json
+   - dialogues.json
+   - event_timeline.md
+4) 输出一行摘要
+
+═══════════════════════════════════════
+  ID 格式规则（严格执行）
+═══════════════════════════════════════
+
+ID格式：全小写拼音，字间下划线分隔
+  ✅ char_guo_jing  ✅ loc_yangzhou  ✅ faction_tiandihui
+  ❌ char_郭靖      ❌ loc_yang_zhou ❌ faction_tian_di_hui
+
+前缀统一：char_  faction_  loc_  skill_  item_  tech_
+每个字用下划线分隔
+
+═══════════════════════════════════════
+  source_refs（行号引用，必须）
+═══════════════════════════════════════
+
+每个实体必须携带 source_refs 字段:
+"source_refs": [{"chapter": 1, "line_start": 42, "line_end": 45, "text": "原文片段"}]
+
+角色/武功/物品：至少 1 条引用
+事件：必须有引用
+对话：chapter 字段即为引用
+
+═══════════════════════════════════════
+  字段必填规则
+═══════════════════════════════════════
+
+personality（每个角色）:
+  traits: 至少3个性格特征
+  speech_style: 说话风格描述
+  temperament: 气质描述
+
+events（每个事件）:
+  name: 非空
+  id: evt_{章节号}_{序号}
+  source_refs: 必填
+
+relationships去重:
+  同一(target, type)只保留一条，取intensity最高的
+
+═══════════════════════════════════════
+  等级体系（rank 必填）
+═══════════════════════════════════════
+
+返璞归真 > 登峰造极 > 出神入化 > 炉火纯青 > 登堂入室 > 略有小成 > 初窥门径 > 平平无奇
+
+物品稀有度: 绝世神兵 / 稀世珍品 / 上乘佳品 / 寻常凡品
+
+═══════════════════════════════════════
+  生成时自检清单（写文件前逐项检查）
+═══════════════════════════════════════
+
+□ 所有ID都是小写拼音+下划线
+□ 每个角色personality.traits≥3项，speech_style和temperament非空
+□ 每个事件name非空，source_refs非空
+□ relationships无重复(target+type)
+□ events的id格式为evt_N_序号
 ```
 
-- Mimo RPM 限制 = 100 请求/分钟
-- 3 并发 × 12 批/分钟 = 36 RPM（安全余量充足）
-
----
-
-## 核心流程
-
-### Step 0: 检查进度
-
-读取 `<小说目录>/progress.json`，判断当前状态：
-
-| 条件 | 下一步 |
-| --- | --- |
-| `ch_formatted/` 不存在或不完整 | 运行排版脚本：`node .agents/skills/batch-format-novel/scripts/batch-format.js "<目录>"` |
-| `progress.json` 不存在 | 运行初始化脚本：`python tools/setup-novel-dirs.py "<目录>"` |
-| `extract.done` 长度 < extract.total | 继续提取（限流批次模式） |
-| `extract.done` = total 但 `merge` = false | 合并数据：`python tools/merge/merge-chapters.py "<目录>"` |
-| `merge` = true 但 Markdown 卡片不完整 | 生成卡片：运行对应 python 脚本（见 Step 3） |
-| 卡片完成但 `实力等级概览.md` 不存在 | 生成概览：Step 3.5 |
-| 全部完成 | 验证：`python tools/verify/verify-card-output-pipeline.py "<目录>"` |
-| 验证通过 | 清理中间产物：`chapters/`、`ch_original/`、`chunks/` |
-
----
-
-### Step 1: 章节提取（限流批次，单步完成）
-
-**触发条件**：`extract.done` 长度 < `extract.total`
-
-#### 流程
-
-1. **加载进度**，确定需要提取的章节列表（跳过已完成）
-2. **分批处理**：每批 3 个章节，批次间隔 3 秒
-3. **每个章节**的 sub-agent 执行：
-   - 读取章节原文：`ch_formatted/ch_XX.md`
-   - 一次性提取所有数据（骨架 + 详细）
-   - 直接写文件到 `chapters/ch_XX.json`
-   - 输出状态摘要
-4. **主 agent 验证**：检查文件存在，更新 `progress.json`
-
-#### JSON 输出格式
-
-每个章节输出一个完整的 JSON 文件，包含两层数据：
+#### 输出 JSON Schema
 
 ```json
 {
-  "chapter": 1,
-  "characters": [
-    {
-      "id": "char_xxx",
-      "name": "中文名",
-      "alias": ["别名"],
-      "identity": "身份描述",
-      "faction": "faction_id或null",
-      "role": "protagonist/companion/npc/villain",
-      "archetype": "scholar/warrior/monk/assassin/healer",
-      "rank": "返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇",
-      "one_line": "一句话描述",
-      "personality": {
-        "traits": ["至少3个"],
-        "speech_style": "详细描述",
-        "temperament": "气质描述"
-      },
-      "relationships": [
-        {"target": "char_id", "type": "关系类型", "intensity": 0-100, "bond_level": 1-5, "dynamic": "≤30字"}
-      ],
-      "known_skills": ["skill_id"],
-      "related_skills": ["skill_id"]
-    }
-  ],
-  "factions": [
-    {"id": "faction_xxx", "name": "名字", "type": "武林门派/帮派/家族/朝廷", "location": "loc_id或null", "sub_divisions": [], "one_line": "一句话描述"}
-  ],
-  "locations": [
-    {"id": "loc_xxx", "name": "名字", "region": "地理区域", "one_line": "一句话描述"}
-  ],
-  "skills": [
-    {
-      "id": "skill_xxx",
-      "name": "武功名",
-      "type": "剑法/掌法/内功/轻功/暗器/指法/拳法/刀法/其他",
-      "faction": "",
-      "rank": "返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇",
-      "one_line": "一句话描述",
-      "techniques": [
-        {"id": "tech_xxx", "name": "招式名", "type": "attack/defense/buff/debuff/feint/special", "description": "描述"}
-      ],
-      "progression": [{"level": 1-5, "unlock": "境界描述"}],
-      "effects": ["实战效果"],
-      "combat_style": "战斗风格"
-    }
-  ],
-  "items": [
-    {
-      "id": "item_xxx",
-      "name": "物品名",
-      "type": "weapon/armor/pill/poison/hidden_weapon/special/book/other",
-      "owner": "char_id或null",
-      "one_line": "一句话描述",
-      "description": "详细描述（≥20字）",
-      "effects": [{"type": "", "value": "", "description": ""}],
-      "origin": "来源",
-      "rarity": "绝世神兵/稀世珍品/上乘佳品/寻常凡品",
-      "related_skills": ["skill_id"]
-    }
-  ],
-  "events": [
-    {"id": "evt_N_序号", "name": "事件名", "participants": ["中文名"], "location": "中文地名", "description": "≥20字"}
-  ],
-  "dialogues": [
-    {"speaker": "中文名", "listener": "中文名或null", "text": "对话原文", "tone": "语气", "chapter": N}
-  ]
+  "characters": [{
+    "id": "char_xxx", "name": "中文名", "alias": ["别名"],
+    "identity": "身份", "faction": "faction_id或null",
+    "role": "protagonist/companion/npc/villain",
+    "archetype": "scholar/warrior/monk/assassin/healer",
+    "rank": "等级", "one_line": "一句话描述",
+    "personality": {"traits": ["特征"], "speech_style": "风格", "temperament": "气质"},
+    "relationships": [{"target": "char_id", "type": "类型", "intensity": 0-100, "bond_level": 1-5, "dynamic": "≤30字"}],
+    "known_skills": ["skill_id"], "related_skills": ["skill_id"],
+    "source_refs": [{"chapter": 1, "line_start": 10, "line_end": 15, "text": "原文片段"}]
+  }],
+  "skills": [{
+    "id": "skill_xxx", "name": "武功名", "type": "剑法/掌法/内功/轻功/暗器",
+    "faction": "", "rank": "等级", "one_line": "一句话描述",
+    "techniques": [{"id": "tech_xxx", "name": "招式名", "type": "attack/defense/buff/debuff/feint/special", "description": "描述"}],
+    "progression": [], "effects": [], "combat_style": "风格",
+    "source_refs": []
+  }],
+  "techniques": [{"id": "tech_xxx", "name": "招式名", "type": "类型", "description": "描述", "source_skill": "skill_id", "source_refs": []}],
+  "factions": [{"id": "faction_xxx", "name": "名字", "type": "武林门派/帮派/家族", "location": "loc_id", "sub_divisions": [], "one_line": "描述", "source_refs": []}],
+  "locations": [{"id": "loc_xxx", "name": "名字", "region": "地理区域", "one_line": "描述", "source_refs": []}],
+  "items": [{"id": "item_xxx", "name": "物品名", "type": "weapon/armor/pill/poison/hidden_weapon/special", "owner": "char_id", "one_line": "描述", "description": "详细描述", "effects": [], "origin": "来源", "rarity": "稀有度", "related_skills": [], "source_refs": []}],
+  "events": [{"id": "evt_N_序号", "name": "事件名", "participants": ["char_id"], "location": "loc_id", "description": "描述", "chapter": N, "source_refs": []}],
+  "dialogues": [{"speaker": "char_id", "listener": "char_id或null", "text": "原文", "tone": "语气", "chapter": N}]
 }
 ```
 
-#### Sub-Agent Prompt 模板
-
-```
-武侠小说提取。读取原文，一次性提取所有实体和详细信息。
-
-读取: {novel_dir}/ch_formatted/ch_{N:02d}.md
-保存: {novel_dir}/chapters/ch_{N:02d}.json
-
-步骤: 1)read_file原文 2)提取 3)write_file保存 4)输出一行摘要
-
-规则:
-- 只提取实际出现的实体。ID格式严格一致：char_guo_jing（每个字下划线分隔、全小写），禁止 char_guojing 或 char_guo_jin。faction_/loc_/skill_/item_ 同理。门派分支放sub_divisions
-- **⚠️ participants/speaker/listener/location 必须填中文名（如"李寻欢"、"少林寺"），绝对禁止填 char_id / loc_id 等英文ID。** 只有 entities 的 id、faction、location(外键)、owner、target、known_skills、related_skills 等结构化关联字段才用 ID
-- 武功需有名称。字符串中不要用双引号，引用语用单引号。relationships.dynamic≤30字
-- 所有字段必须有值（faction可null）。无实体用[]。字符串不留空
-- rank评级必须填写（见下方等级体系）。rarity必须用wuxia风格
-
-等级体系（8级，从高到低）:
-  返璞归真: 已臻化境，超越招式，当世无敌
-  登峰造极: 五绝级别，当世最强
-  出神入化: 仅次于绝顶，能与五绝对招
-  炉火纯青: 江湖顶尖，门派掌门级
-  登堂入室: 已入武学正途，门派核心弟子
-  略有小成: 初窥门径，有一定战力
-  初窥门径: 学过一些粗浅武功
-  平平无奇: 不会武功或仅有蛮力
-
-物品稀有度（4级）:
-  绝世神兵: 百年难遇的神物
-  稀世珍品: 世间少有，武林中人争相抢夺
-  上乘佳品: 品质精良，名家所制
-  寻常凡品: 江湖中随处可见
-
-JSON schema:
-{"chapter":N,"characters":[{"id":"","name":"","alias":[],"identity":"","faction":null,"role":"","archetype":"","rank":"返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇","one_line":"","personality":{"traits":["≥3"],"speech_style":"","temperament":""},"relationships":[{"target":"","type":"","intensity":0,"bond_level":0,"dynamic":"≤30字"}],"known_skills":[],"related_skills":[]}],"factions":[{"id":"","name":"","type":"","location":null,"sub_divisions":[],"one_line":""}],"locations":[{"id":"","name":"","region":"","one_line":""}],"skills":[{"id":"","name":"","type":"","faction":"","rank":"返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇","one_line":"","techniques":[{"id":"","name":"","type":"","description":""}],"progression":[{"level":0,"unlock":""}],"effects":[],"combat_style":""}],"items":[{"id":"","name":"","type":"","owner":null,"one_line":"","description":"","effects":[],"origin":"","rarity":"绝世神兵/稀世珍品/上乘佳品/寻常凡品","related_skills":[]}],"events":[{"id":"evt_N_序号","name":"","participants":["中文名"],"location":"中文地名","description":""}],"dialogues":[{"speaker":"中文名","listener":null,"text":"","tone":"","chapter":N}]}
-
-完成后: ✅ 第 {N} 章提取完成
-```
-
----
-
-### Step 1.5: JSON 格式校验（自动修复）
-
-**触发条件**：`extract.done` = total，合并之前
-
-```bash
-python tools/validate/fix-json.py "<小说目录>"
-```
-
-自动修复常见问题：字符串内未转义的双引号、尾部多余逗号、括号不匹配。修复后输出统计。
-
----
-
-### Step 2: 合并全局数据
-
-**触发条件**：`extract.done` = total 但 `merge` = false
-
-```bash
-python tools/merge/merge-chapters.py "<小说目录>"
-```
-
-**输出**：`characters.json`, `skills.json`, `factions.json`, `locations.json`, `items.json`, `techniques.json`, `events.json`, `dialogues.json`
-
-### Step 3: 生成 Markdown 卡片
-
-**触发条件**：`merge` = true 但卡片不完整
+### Step 2: 生成 Markdown 卡片
 
 ```bash
 python tools/convert/json-to-markdown.py "<小说目录>"
@@ -235,27 +154,15 @@ python tools/convert/json-to-items-markdown.py "<小说目录>"
 python tools/convert/generate-event-cards.py "<小说目录>"
 ```
 
-### Step 3.5: 生成实力等级概览
+### Step 3: 生成实力等级概览
 
-**触发条件**：Markdown 卡片生成完成
-
-使用已有脚本 `tools/convert/generate-overview.js` 生成概览：
-
-```bash
-node tools/convert/generate-overview.js "<小说目录>"
-```
-
-如果该脚本不存在或不适用于当前小说，才使用以下 inline 代码（**不要自己写新脚本文件**）：
+读取 `characters.json`、`skills.json`、`items.json`，按等级分类汇总，写入 `<小说目录>/实力等级概览.md`。
 
 ```bash
 cd "<小说目录>" && node -e "
-const fs = require('fs');
-const chars = JSON.parse(fs.readFileSync('characters.json','utf-8'));
-const skills = JSON.parse(fs.readFileSync('skills.json','utf-8'));
-const items = JSON.parse(fs.readFileSync('items.json','utf-8'));
-
-const rankOrder = ['返璞归真','登峰造极','出神入化','炉火纯青','登堂入室','略有小成','初窥门径','平平无奇'];
-const rarityOrder = ['绝世神兵','稀世珍品','上乘佳品','寻常凡品'];
+const chars = JSON.parse(require('fs').readFileSync('characters.json','utf-8'));
+const skills = JSON.parse(require('fs').readFileSync('skills.json','utf-8'));
+const items = JSON.parse(require('fs').readFileSync('items.json','utf-8'));
 
 const charByRank = {};
 chars.forEach(c => { const r = c.rank||'未定'; if(!charByRank[r]) charByRank[r]=[]; charByRank[r].push(c.name); });
@@ -304,39 +211,15 @@ console.log(JSON.stringify({charByRank, skillByRank, itemByRarity}));
 （4个等级依次列出，标题含件数）
 ```
 
-### Step 4: 验证
+等级顺序：返璞归真 → 登峰造极 → 出神入化 → 炉火纯青 → 登堂入室 → 略有小成 → 初窥门径 → 平平无奇
+物品顺序：绝世神兵 → 稀世珍品 → 上乘佳品 → 寻常凡品
 
-**触发条件**：所有步骤完成
+### Step 4: 验证 + 清理
 
 ```bash
 python tools/verify/verify-card-output-pipeline.py "<小说目录>"
+rm -rf "<小说目录>/ch_original" "<小说目录>/chunks"
 ```
-
-### Step 5: 清理中间产物
-
-**触发条件**：验证通过后
-
-可删除的目录（均可从原始 txt 重新生成）：
-
-| 目录 | 说明 | 大小（约） |
-|------|------|------------|
-| `ch_original/` | txt 拆分后的原始章节 | ~3 MB |
-| `chapters/` | 章节 JSON（中间产物） | ~1.5 MB |
-| `chunks/` | RAG 分块（通常为空） | ~0 |
-
-**保留**：`ch_formatted/`（排版后章节，断点续传需要）、所有根目录 JSON 和 Markdown 卡片。
-
-```bash
-rm -rf "<小说目录>/ch_original" "<小说目录>/chapters" "<小说目录>/chunks"
-```
-
----
-
-## 断点续传
-
-每个步骤通过 `progress.json` 跟踪进度，中断后重新运行即可继续。
-
-**强制重跑某章**：删除对应章节的 JSON 文件后重跑。
 
 ---
 
@@ -344,38 +227,10 @@ rm -rf "<小说目录>/ch_original" "<小说目录>/chapters" "<小说目录>/ch
 
 ```json
 {
-  "extract": {
-    "total": 40,
-    "done": [1, 2, 3],
-    "failed": [],
-    "pending": [4, 5, ..., 40]
-  },
-  "merge": false,
-  "cleanup": false,
-  "gamify": false,
-  "rag": false
+  "extract": {"done": true, "chapter_count": 10},
+  "merge": true,
+  "cleanup": false
 }
 ```
 
----
-
-## 性能预估
-
-假设小说 50 章，每章处理时间约 30 秒：
-
-| 指标 | 数值 |
-|------|------|
-| 提取批次 | 10 批 |
-| 提取总时间 | ~5.5 分钟（含间隔） |
-| 峰值 RPM | 60 RPM（安全） |
-| 主 Agent 上下文占用 | ~2 KB（仅状态摘要） |
-
----
-
-## 添加新小说
-
-```bash
-python tools/setup-novel-dirs.py "<作者>/<小说名>"
-```
-
-然后按流程执行。
+提取完成后设 `extract.done = true`，卡片生成后设 `merge = true`。

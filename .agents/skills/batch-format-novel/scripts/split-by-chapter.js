@@ -23,7 +23,7 @@ const CHAPTER_PATTERNS = [
   // 中文数字章节标题（如：一　灭门、二　聆秘、十四　论杯）
   /^[\s　]*[一二三四五六七八九十百千]+[　\s\t]+[^\s　]/m,
   // 第X章、第X回、第X节（支持中文数字和阿拉伯数字）
-  /^[\s　]*[（(]?第[一二三四五六七八九十百千万\d]+[章回节卷][）)]?\s*$/m,
+  /^[\s　]*[（(]?第[一二三四五六七八九十百千万\d]+[章回节卷][）)]?/m,
   // （第X回完）
   /^[\s　]*（第[一二三四五六七八九十百千万\d]+[回章]完）/m,
   // 纯数字章节标题（如：001、002）
@@ -35,36 +35,6 @@ const CHAPTER_PATTERNS = [
  */
 function isChapterTitle(line) {
   return CHAPTER_PATTERNS.some(pattern => pattern.test(line));
-}
-
-/**
- * 按字数分块拆分（无章节标题时的后备方案）
- */
-function splitByChunkSize(content, targetSize) {
-  const lines = content.split(/\r?\n/);
-  const chunks = [];
-  let currentChunk = [];
-  let currentSize = 0;
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    currentChunk.push(line);
-    currentSize += line.length;
-
-    // 在空行处且达到目标大小时分块
-    if (currentSize >= targetSize && line.trim() === '' && currentChunk.length > 10) {
-      chunks.push(currentChunk.join('\n'));
-      currentChunk = [];
-      currentSize = 0;
-    }
-  }
-
-  // 保存最后一块
-  if (currentChunk.length > 0) {
-    chunks.push(currentChunk.join('\n'));
-  }
-
-  return chunks;
 }
 
 /**
@@ -131,17 +101,18 @@ function main() {
   console.log(`行数: ${content.split('\n').length}`);
 
   // 按章节拆分
-  let chapters = splitByChapter(content);
+  const chapters = splitByChapter(content);
   console.log(`章节数: ${chapters.length}`);
 
   if (chapters.length === 0) {
-    console.log('未检测到章节标题，按段落分块（每块约 50000 字）...');
-    chapters = splitByChunkSize(content, 50000);
-    console.log(`分块数: ${chapters.length}`);
-    if (chapters.length === 0) {
-      console.error('错误: 无法拆分文本');
-      process.exit(1);
-    }
+    console.error('错误: 未检测到章节标题');
+    console.log('');
+    console.log('支持的章节格式:');
+    console.log('  - 中文数字：一、二、三...');
+    console.log('  - 第X章、第X回、第X节');
+    console.log('  - （第X回完）');
+    console.log('  - 纯数字：001、002 等');
+    process.exit(1);
   }
 
   // 创建输出目录
