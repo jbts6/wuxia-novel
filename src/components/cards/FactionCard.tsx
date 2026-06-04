@@ -1,0 +1,102 @@
+import React from 'react';
+import { Card, Tag, Descriptions, Typography, Space } from 'antd';
+import { TeamOutlined, EnvironmentOutlined, UserOutlined } from '@ant-design/icons';
+import { useNovelStore } from '../../stores/useNovelStore';
+
+const { Text, Paragraph } = Typography;
+
+interface FactionCardProps {
+  id: string;
+}
+
+const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
+  const { factions, characters, locations, events, showDetail } = useNovelStore();
+
+  const faction = factions.find((f) => f.id === id);
+  if (!faction) return null;
+
+  const location = locations.find((l) => l.id === faction.location);
+  const members = characters.filter((c) => c.faction === id);
+  const factionEvents = events.filter((e) =>
+    e.participants.some((p) => members.some((m) => m.id === p))
+  );
+
+  return (
+    <div>
+      <Card size="small" style={{ marginBottom: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: 12 }}>
+          <TeamOutlined style={{ fontSize: 24, marginRight: 12, color: '#13c2c2' }} />
+          <div>
+            <h3 style={{ margin: 0 }}>{faction.name}</h3>
+            <Text type="secondary">{faction.type}</Text>
+          </div>
+        </div>
+        <Descriptions column={1} size="small">
+          {location && (
+            <Descriptions.Item label="总部">
+              <Tag color="purple" style={{ cursor: 'pointer' }} onClick={() => showDetail('location', location.id)}>
+                {location.name}
+              </Tag>
+            </Descriptions.Item>
+          )}
+        </Descriptions>
+        <Paragraph style={{ marginTop: 12, marginBottom: 0 }}>{faction.one_line}</Paragraph>
+      </Card>
+
+      {faction.sub_divisions.length > 0 && (
+        <Card size="small" title="下属机构" style={{ marginBottom: 16 }}>
+          <Space wrap>
+            {faction.sub_divisions.map((div, index) => (
+              <Tag key={index} color="cyan">{div}</Tag>
+            ))}
+          </Space>
+        </Card>
+      )}
+
+      {members.length > 0 && (
+        <Card size="small" title={<span><UserOutlined /> 成员 ({members.length})</span>} style={{ marginBottom: 16 }}>
+          {members.map((char) => (
+            <div key={char.id} style={{ cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid #f0f0f0' }} onClick={() => showDetail('character', char.id)}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontWeight: 500 }}>{char.name}</span>
+                <Tag color={char.role === 'protagonist' ? 'blue' : char.role === 'villain' ? 'red' : 'default'}>
+                  {char.role === 'protagonist' ? '主角' : char.role === 'villain' ? '反派' : 'NPC'}
+                </Tag>
+              </div>
+              <div style={{ color: '#999', fontSize: 12 }}>{char.identity}</div>
+            </div>
+          ))}
+        </Card>
+      )}
+
+      {factionEvents.length > 0 && (
+        <Card size="small" title={<span><EnvironmentOutlined /> 相关事件</span>} style={{ marginBottom: 16 }}>
+          {factionEvents.slice(0, 10).map((event) => (
+            <div key={event.id} style={{ cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid #f0f0f0' }} onClick={() => showDetail('event', event.id)}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontWeight: 500 }}>{event.name}</span>
+                <Tag>第{event.chapter}章</Tag>
+              </div>
+              <div style={{ color: '#999', fontSize: 12 }}>{event.description.slice(0, 50)}...</div>
+            </div>
+          ))}
+        </Card>
+      )}
+
+      {faction.source_refs?.length > 0 && (
+        <Card size="small" title="原文引用">
+          {faction.source_refs.slice(0, 3).map((ref, index) => (
+            <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid #f0f0f0' }}>
+              <div style={{ fontWeight: 500 }}>第{ref.chapter}章 (行 {ref.line_start}-{ref.line_end})</div>
+              <Paragraph ellipsis={{ rows: 3, expandable: true }} style={{ marginBottom: 0, fontStyle: 'italic' }}>
+                {ref.text}
+              </Paragraph>
+            </div>
+          ))}
+        </Card>
+      )}
+    </div>
+  );
+};
+
+export default FactionCard;
