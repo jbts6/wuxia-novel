@@ -154,10 +154,10 @@ BATCH_INTERVAL = 3      # 批次间隔 3 秒
     }
   ],
   "events": [
-    {"id": "evt_N_序号", "name": "事件名", "participants": ["char_id"], "location": "loc_id", "description": "≥20字"}
+    {"id": "evt_N_序号", "name": "事件名", "participants": ["中文名"], "location": "中文地名", "description": "≥20字"}
   ],
   "dialogues": [
-    {"speaker": "char_id", "listener": "char_id或null", "text": "对话原文", "tone": "语气", "chapter": N}
+    {"speaker": "中文名", "listener": "中文名或null", "text": "对话原文", "tone": "语气", "chapter": N}
   ]
 }
 ```
@@ -174,6 +174,7 @@ BATCH_INTERVAL = 3      # 批次间隔 3 秒
 
 规则:
 - 只提取实际出现的实体。ID格式严格一致：char_guo_jing（每个字下划线分隔、全小写），禁止 char_guojing 或 char_guo_jin。faction_/loc_/skill_/item_ 同理。门派分支放sub_divisions
+- **⚠️ participants/speaker/listener/location 必须填中文名（如"李寻欢"、"少林寺"），绝对禁止填 char_id / loc_id 等英文ID。** 只有 entities 的 id、faction、location(外键)、owner、target、known_skills、related_skills 等结构化关联字段才用 ID
 - 武功需有名称。字符串中不要用双引号，引用语用单引号。relationships.dynamic≤30字
 - 所有字段必须有值（faction可null）。无实体用[]。字符串不留空
 - rank评级必须填写（见下方等级体系）。rarity必须用wuxia风格
@@ -195,7 +196,7 @@ BATCH_INTERVAL = 3      # 批次间隔 3 秒
   寻常凡品: 江湖中随处可见
 
 JSON schema:
-{"chapter":N,"characters":[{"id":"","name":"","alias":[],"identity":"","faction":null,"role":"","archetype":"","rank":"返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇","one_line":"","personality":{"traits":["≥3"],"speech_style":"","temperament":""},"relationships":[{"target":"","type":"","intensity":0,"bond_level":0,"dynamic":"≤30字"}],"known_skills":[],"related_skills":[]}],"factions":[{"id":"","name":"","type":"","location":null,"sub_divisions":[],"one_line":""}],"locations":[{"id":"","name":"","region":"","one_line":""}],"skills":[{"id":"","name":"","type":"","faction":"","rank":"返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇","one_line":"","techniques":[{"id":"","name":"","type":"","description":""}],"progression":[{"level":0,"unlock":""}],"effects":[],"combat_style":""}],"items":[{"id":"","name":"","type":"","owner":null,"one_line":"","description":"","effects":[],"origin":"","rarity":"绝世神兵/稀世珍品/上乘佳品/寻常凡品","related_skills":[]}],"events":[{"id":"evt_N_序号","name":"","participants":[],"location":"","description":""}],"dialogues":[{"speaker":"","listener":null,"text":"","tone":"","chapter":N}]}
+{"chapter":N,"characters":[{"id":"","name":"","alias":[],"identity":"","faction":null,"role":"","archetype":"","rank":"返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇","one_line":"","personality":{"traits":["≥3"],"speech_style":"","temperament":""},"relationships":[{"target":"","type":"","intensity":0,"bond_level":0,"dynamic":"≤30字"}],"known_skills":[],"related_skills":[]}],"factions":[{"id":"","name":"","type":"","location":null,"sub_divisions":[],"one_line":""}],"locations":[{"id":"","name":"","region":"","one_line":""}],"skills":[{"id":"","name":"","type":"","faction":"","rank":"返璞归真/登峰造极/出神入化/炉火纯青/登堂入室/略有小成/初窥门径/平平无奇","one_line":"","techniques":[{"id":"","name":"","type":"","description":""}],"progression":[{"level":0,"unlock":""}],"effects":[],"combat_style":""}],"items":[{"id":"","name":"","type":"","owner":null,"one_line":"","description":"","effects":[],"origin":"","rarity":"绝世神兵/稀世珍品/上乘佳品/寻常凡品","related_skills":[]}],"events":[{"id":"evt_N_序号","name":"","participants":["中文名"],"location":"中文地名","description":""}],"dialogues":[{"speaker":"中文名","listener":null,"text":"","tone":"","chapter":N}]}
 
 完成后: ✅ 第 {N} 章提取完成
 ```

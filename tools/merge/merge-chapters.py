@@ -161,12 +161,37 @@ def dedupe_list(values):
     return deduped
 
 
+def normalize_id(entity_id):
+    """归一化 ID：去掉下划线，用于模糊匹配去重。"""
+    if not entity_id or not isinstance(entity_id, str):
+        return entity_id or ''
+    return entity_id.replace('_', '')
+
+
+def dedupe_relationships(rels):
+    """按 (target, type) 去重 relationships，保留 intensity 最高的条目。
+    target 使用归一化 ID 匹配（处理 char_li_xun_huan vs char_li_xunhuan 等不一致）。
+    """
+    best = {}
+    for rel in rels or []:
+        if not isinstance(rel, dict):
+            continue
+        norm_target = normalize_id(rel.get('target', ''))
+        key = (norm_target, rel.get('type', ''))
+        if key not in best or rel.get('intensity', 0) > best[key].get('intensity', 0):
+            best[key] = rel
+    return list(best.values())
+
+
 def merge_record(target, source):
     for k, v in source.items():
         if k == 'id':
             continue
         if isinstance(v, list):
-            target[k] = dedupe_list(list(target.get(k) or []) + v)
+            if k == 'relationships':
+                target[k] = dedupe_relationships(list(target.get(k) or []) + v)
+            else:
+                target[k] = dedupe_list(list(target.get(k) or []) + v)
         elif isinstance(v, dict):
             merged = dict(target.get(k) or {})
             for sub_key, sub_value in v.items():
@@ -390,6 +415,11 @@ def merge_all(chapters):
 
     # 按名称合并重复角色：同名角色取最佳 ID，综合所有章的信息
     all_characters = merge_items_by_name(all_characters)
+
+    # 最终去重：同一角色内的 relationships 按 (target, type) 去重
+    for char in all_characters:
+        if char.get('relationships'):
+            char['relationships'] = dedupe_relationships(char['relationships'])
 
         # 按名称合并重复门派和地点
     all_factions = merge_items_by_name(all_factions)

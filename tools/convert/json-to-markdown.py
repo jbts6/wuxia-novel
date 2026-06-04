@@ -36,6 +36,15 @@ MANUAL_SKILL_ALIASES = {
     'skill_yibidaohuanshi': 'skill_yi_bi_zhi_dao_huan_shi_bi_shen',
 }
 
+# 手动 ID 别名（sub-agent 生成的 ID 变体 → characters.json 中的标准 ID）
+MANUAL_ID_ALIASES = {
+    'char_long_xiao_yun_father': 'char_long_xiao_yun',
+    'char_long_xiao_yun_son': 'char_long_xiao_yun',
+    'char_long_xiao_yun_child': 'char_long_xiao_yun',
+    'char_long_xiao_yun_2': 'char_long_xiao_yun',
+    'char_weng_tian_jie': '翁天杰',
+}
+
 
 def load_json(path):
     with open(path, 'r', encoding='utf-8') as f:
@@ -58,6 +67,14 @@ def build_id_mapping(characters, skills, factions, locations, skill_aliases=None
         name = skill.get('name', '')
         if skill_id and name:
             ID_TO_NAME[skill_id] = name
+
+    # 手动 ID 别名
+    for alias, canonical_id in MANUAL_ID_ALIASES.items():
+        if canonical_id in ID_TO_NAME:
+            ID_TO_NAME[alias] = ID_TO_NAME[canonical_id]
+        elif not canonical_id.startswith(('char_', 'skill_', 'faction_', 'loc_', 'item_')):
+            # 目标已经是中文名，直接映射
+            ID_TO_NAME[alias] = canonical_id
 
     for alias, target_id in (skill_aliases or {}).items():
         if target_id in ID_TO_NAME:
@@ -83,8 +100,15 @@ def id_to_wikilink(entity_id):
     # 如果已经是中文名，直接返回
     if not entity_id.startswith(('char_', 'skill_', 'faction_', 'loc_', 'item_')):
         return entity_id
-    # 从映射中获取中文名
-    return ID_TO_NAME.get(entity_id, entity_id)
+    # 精确匹配
+    if entity_id in ID_TO_NAME:
+        return ID_TO_NAME[entity_id]
+    # 模糊匹配：去掉下划线后比较（处理 char_li_xun_huan vs char_li_xunhuan 等不一致）
+    normalized = entity_id.replace('_', '')
+    for known_id, name in ID_TO_NAME.items():
+        if known_id.replace('_', '') == normalized:
+            return name
+    return entity_id
 
 
 def save_markdown(output_dir, filename, content):

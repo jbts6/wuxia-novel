@@ -1,14 +1,37 @@
 const fs = require('fs');
+const path = require('path');
 
-const chars = JSON.parse(fs.readFileSync('金庸/碧血剑/characters.json','utf-8'));
-const skills = JSON.parse(fs.readFileSync('金庸/碧血剑/skills.json','utf-8'));
-const items = JSON.parse(fs.readFileSync('金庸/碧血剑/items.json','utf-8'));
+const novelDir = process.argv[2];
+if (!novelDir) {
+  console.error('Usage: node generate-overview.js <novel-directory>');
+  process.exit(1);
+}
 
-// Normalize rank - take first part if combined with semicolon
+const chars = JSON.parse(fs.readFileSync(path.join(novelDir, 'characters.json'), 'utf-8'));
+const skills = JSON.parse(fs.readFileSync(path.join(novelDir, 'skills.json'), 'utf-8'));
+const items = JSON.parse(fs.readFileSync(path.join(novelDir, 'items.json'), 'utf-8'));
+
+// Normalize rank - take first part if combined with semicolon, map aliases to standard
 function normRank(r) {
   if (!r) return '未定';
-  if (r.includes('；')) return r.split('；')[0];
-  return r;
+  if (r.includes('；')) r = r.split('；')[0];
+  if (r.includes('（')) r = r.split('（')[0];
+
+  // Standard 8-level system — pass through
+  const standard = ['返璞归真','登峰造极','出神入化','炉火纯青','登堂入室','略有小成','初窥门径','平平无奇'];
+  if (standard.includes(r)) return r;
+
+  // Alias mapping for non-standard ranks
+  const aliasMap = {
+    '绝世': '登峰造极', '绝世高手': '登峰造极',
+    '绝顶': '出神入化', '绝顶高手': '出神入化', '顶级高手': '出神入化', '顶尖高手': '出神入化', '顶尖': '出神入化', '深不可测': '出神入化',
+    '一流': '炉火纯青', '一流高手': '炉火纯青', '一流剑客': '炉火纯青', '顶尖剑客': '炉火纯青',
+    '二流': '登堂入室', '二流高手': '登堂入室', '二流剑客': '登堂入室',
+    '三流': '略有小成',
+    '普通': '初窥门径',
+    '不详': '平平无奇',
+  };
+  return aliasMap[r] || '未定';
 }
 
 const charByRank = {};
@@ -29,6 +52,21 @@ const itemByRarity = {};
 items.forEach(i => {
   let r = i.rarity || '未定';
   if (r.includes('；')) r = r.split('；')[0];
+
+  // Alias mapping for non-standard rarity
+  const rarityAlias = {
+    '神兵': '绝世神兵', '神兵利器': '绝世神兵', '神兵；传奇之器': '绝世神兵',
+    '稀世珍品': '稀世珍品', '稀世之宝': '稀世珍品', '珍品': '稀世珍品',
+    '绝世秘笈': '稀世珍品', '稀世奇书': '稀世珍品', '佛门重典': '稀世珍品',
+    '上乘佳品': '上乘佳品', '名器': '上乘佳品', '名剑': '上乘佳品',
+    '精良兵器': '上乘佳品', '利器': '上乘佳品', '精巧暗器': '上乘佳品',
+    '凡品': '寻常凡品', '普通兵器': '寻常凡品',
+    '奇物': '寻常凡品', '奇门兵器': '寻常凡品', '信物': '寻常凡品',
+    '帮派令符': '寻常凡品', '关键证物': '寻常凡品',
+    '玄品': '上乘佳品', '地品上等': '上乘佳品',
+    '奇毒之物': '寻常凡品', '诡药': '寻常凡品', '诡谲之物': '寻常凡品',
+  };
+  r = rarityAlias[r] || r;
   if (!itemByRarity[r]) itemByRarity[r] = [];
   itemByRarity[r].push(i.name);
 });
@@ -55,7 +93,8 @@ const rarityDesc = {
   '寻常凡品': '江湖中随处可见'
 };
 
-let md = '# 碧血剑 · 实力等级概览\n\n';
+const novelTitle = path.basename(novelDir);
+let md = '# ' + novelTitle + ' · 实力等级概览\n\n';
 
 md += '## 一、角色实力等级\n\n';
 for (const rank of rankOrder) {
@@ -93,7 +132,7 @@ for (const rarity of rarityOrder) {
   md += '\n';
 }
 
-fs.writeFileSync('金庸/碧血剑/实力等级概览.md', md, 'utf-8');
+fs.writeFileSync(path.join(novelDir, '实力等级概览.md'), md, 'utf-8');
 console.log('实力等级概览.md generated');
 console.log('Characters by rank:');
 rankOrder.forEach(r => { console.log('  ' + r + ': ' + (charByRank[r] || []).length); });
