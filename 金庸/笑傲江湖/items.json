@@ -140,9 +140,9 @@
     "id": "item_tian_xiang_du_xu_jiao",
     "name": "天香断续胶",
     "type": "伤药",
-    "owner": "char_ya_po_po；char_yi_lin",
-    "one_line": "恒山派治伤灵药，哑婆婆取出准备为令狐冲施刑后疗伤；恒山派治伤圣药，外敷用于令狐冲剑伤",
-    "description": "恒山派外用伤药，瓶装膏药；恒山派珍藏的外敷伤药，用于治疗外伤",
+    "owner": "char_ya_po_po, char_yi_lin",
+    "one_line": "恒山派治伤灵药，哑婆婆取出准备为令狐冲施刑后疗伤",
+    "description": "恒山派珍藏的外敷伤药，用于治疗外伤",
     "effects": [
       "止血",
       "续断",
@@ -165,10 +165,10 @@
   {
     "id": "item_bi_xie_jian_pu",
     "name": "辟邪剑谱",
-    "type": "武功秘籍；武学秘笈",
+    "type": "武功秘籍",
     "owner": "char_lin_ping_zhi",
-    "one_line": "林平之家传剑谱，岳不群疑被令狐冲吞没，实则不明下落；写在袈裟上的辟邪剑法秘笈，藏于福州向阳巷林家老宅佛堂",
-    "description": "林家祖传剑谱，岳不群以为令狐冲将其吞没才剑术大进，实则方证冲虚皆证其剑法得自风清扬；林远图将从华山获悉的葵花宝典精要笔录于袈裟之上，即辟邪剑谱，与葵花宝典系出同源但只得一小部分。",
+    "one_line": "写在袈裟上的辟邪剑法秘笈，藏于福州向阳巷林家老宅佛堂",
+    "description": "林远图将从华山获悉的葵花宝典精要笔录于袈裟之上，即辟邪剑谱，与葵花宝典系出同源但只得一小部分。",
     "effects": [
       "练成可天下无敌",
       "修习后剑术大进",
@@ -176,8 +176,8 @@
       "招式脱胎换骨",
       "记载七十二路辟邪剑法"
     ],
-    "origin": "林家；林远图（渡元禅师）所录",
-    "rarity": "绝世神兵；稀世珍品",
+    "origin": "林家",
+    "rarity": "绝世神兵",
     "related_skills": [
       "skill_pi_xie_jian_fa"
     ]
@@ -1138,9 +1138,9 @@
     "id": "item_san_shi_nao_shen_dan",
     "name": "三尸脑神丹",
     "type": "毒药",
-    "owner": "char_ying_ying；char_ren_ying_ying",
-    "one_line": "日月神教控制下属的奇毒，解药在盈盈手中，众人欲夺之以摆脱控制；日月神教最厉害毒丹，服后须每年端午服解药，否则尸虫入脑",
-    "description": "服后定期需解药，否则脑中尸虫发作，受者痛不欲生，解药由盈盈掌控；丹中裹有尸虫，不服解药则尸虫脱困钻入脑中嚼食脑髓，痛楚狂性大发",
+    "owner": "char_ying_ying, char_ren_ying_ying",
+    "one_line": "日月神教控制下属的奇毒，解药在盈盈手中，众人欲夺之以摆脱控制",
+    "description": "服后定期需解药，否则脑中尸虫发作，受者痛不欲生，解药由盈盈掌控",
     "effects": [
       "服后终身听命",
       "每年端午须服解药",
@@ -1155,7 +1155,7 @@
       "尸虫入脑致疯"
     ],
     "origin": "日月神教",
-    "rarity": "绝世神兵；稀世珍品",
+    "rarity": "绝世神兵",
     "related_skills": []
   },
   {
@@ -1426,13 +1426,13 @@
   {
     "id": "item_wu_yue_meng_qi",
     "name": "五岳剑派盟旗",
-    "type": "信物；盟旗",
-    "owner": "char_yue_bu_qun；faction_song_shan_pai",
-    "one_line": "五岳剑派掌门信物，从岳不群身上搜出；五岳剑派盟主令旗，被盈盈巧夺换为五毒旗",
-    "description": "五岳剑派盟主锦旗，象征掌门权威；五面锦旗，代表五岳剑派盟主号令",
+    "type": "信物",
+    "owner": "char_yue_bu_qun, faction_song_shan_pai",
+    "one_line": "五岳剑派盟主令旗，被盈盈巧夺换为五毒旗",
+    "description": "五岳剑派盟主锦旗，象征掌门权威",
     "effects": [],
-    "origin": "五岳派；五岳剑派",
-    "rarity": "寻常凡品；上乘佳品",
+    "origin": "五岳派",
+    "rarity": "上乘佳品",
     "related_skills": []
   },
   {
@@ -1450,15 +1450,15 @@
   {
     "id": "item_kui_hua_bao_dian",
     "name": "葵花宝典",
-    "type": "武学秘笈；武功秘籍",
+    "type": "武学秘笈",
     "owner": null,
-    "one_line": "前朝宦官所著武学至高秘笈，原书已被红叶禅师火化；记载至高武学的薄册，注明'欲练神功引刀自宫'，已被任我行毁去",
-    "description": "三百余年来无人能据书练成，第一关最为凶险。原书藏于莆田少林寺，红叶禅师临终前投入炉中火化。华山岳蔡二人手录残本被魔教夺去。；任我行从东方不败身上搜出的薄薄旧册页，密密麻麻写满字，以双掌搓成碎片随风而散",
+    "one_line": "记载至高武学的薄册，注明'欲练神功引刀自宫'，已被任我行毁去",
+    "description": "三百余年来无人能据书练成，第一关最为凶险。原书藏于莆田少林寺，红叶禅师临终前投入炉中火化。华山岳蔡二人手录残本被魔教夺去。",
     "effects": [
       "修习后可成绝顶高手",
       "第一步极凶险非死即伤"
     ],
-    "origin": "前朝皇宫宦官所著；任我行传给东方不败以诱其自宫",
+    "origin": "前朝皇宫宦官所著",
     "rarity": "绝世神兵",
     "related_skills": [
       "skill_kui_hua_bao_dian"
@@ -1468,7 +1468,7 @@
     "id": "item_hei_mu_ling",
     "name": "黑木令",
     "type": "令牌",
-    "owner": "char_ying_ying",
+    "owner": "char_ren_ying_ying",
     "one_line": "日月神教最高号令之物，任我行交给岳不群用以调动人手",
     "description": "日月神教教主令牌，持此令可号令教众行事",
     "effects": [

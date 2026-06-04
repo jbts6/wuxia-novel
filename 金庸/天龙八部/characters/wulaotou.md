@@ -4,10 +4,10 @@ type: character
 tags:
   - 天龙八部
   - character
-role: npc
-archetype: warrior
+role: 配角
+archetype: 武者
 rank: 登堂入室
-faction: "[[]]"
+faction: ""
 alias: []
 identity: 三十六洞主之一
 first_appearance: 

@@ -35,16 +35,16 @@
   {
     "id": "item_tie_luo_han",
     "name": "铁罗汉",
-    "type": "机关器具；item",
+    "type": "机关器具",
     "owner": "char_zhang_jun_bao",
     "one_line": "少林前辈高僧所制的一对铁铸罗汉，开动机括可使出少林拳法且每次分毫之差",
-    "description": "本寺旧传之物，无色赠予郭襄，郭襄转赠张君宝，张君宝依其示范自学少林拳；一对铁铸小小罗汉，百年前郭襄郭女侠赠送张三丰，内藏少林绝艺。张三丰交给俞岱岩，嘱其日后送还少林传人，盼从铁罗汉身上留传少林绝艺。",
+    "description": "一对铁铸小小罗汉，百年前郭襄郭女侠赠送张三丰，内藏少林绝艺。张三丰交给俞岱岩，嘱其日后送还少林传人，盼从铁罗汉身上留传少林绝艺。",
     "effects": [
       "示范少林拳法",
       "招数精准无偏差"
     ],
     "origin": "少林寺前辈高僧所制",
-    "rarity": "上乘佳品；稀世珍品",
+    "rarity": "稀世珍品",
     "related_skills": [
       "skill_shao_lin_ji_ben_quan_fa"
     ]
@@ -152,9 +152,9 @@
   {
     "id": "item_jian",
     "name": "长剑",
-    "type": "weapon；兵器",
-    "rarity": "寻常凡品；稀世珍品",
-    "description": "圆真用以刺杀何太冲夫妇及另两名昆仑派健者的兵刃。；从瑶琴底下抽出的长剑，用于施展迅雷剑法；陈友谅的兵器，曾用以指在周芷若后心要挟张无忌。",
+    "type": "兵器",
+    "rarity": "稀世珍品",
+    "description": "圆真用以刺杀何太冲夫妇及另两名昆仑派健者的兵刃。",
     "owner": "char_he_zu_dao",
     "one_line": "何足道藏于瑶琴底下的长剑，剑身柔韧弯曲如弧",
     "effects": [
@@ -181,9 +181,9 @@
   {
     "id": "item_tudao",
     "name": "屠龙刀",
-    "type": "weapon；武器",
+    "type": "武器",
     "rarity": "绝世神兵",
-    "description": "武林至尊宝刀，号令天下。少林派欲得之以领袖武林。谢逊被囚后少林以此为要挟迫其吐露所在。；重新铸成的宝刀。张无忌以此刀劈椅立誓遵从圣火令大令。曾由谢逊持有，内藏兵书。；武林至尊宝刀。谢逊曾持有，后在海外岛上中毒失刀。圆真反复逼问谢逊交出藏刀所在，许诺说出即放人。少林寺觊觎此刀以免落入别派折了本派威望。；武林至尊宝刀，与倚天剑并称。原为谢逊所有，在荒岛上为赵敏盗走。",
+    "description": "武林至尊宝刀。谢逊曾持有，后在海外岛上中毒失刀。圆真反复逼问谢逊交出藏刀所在，许诺说出即放人。少林寺觊觎此刀以免落入别派折了本派威望。",
     "holder": "char_zhang_wuji",
     "events": [
       "谢逊用以震慑波斯人",
@@ -194,7 +194,7 @@
     "holders": [
       "少林寺（图谋中）"
     ],
-    "owner": "char_xie_xun；谢逊",
+    "owner": "char_xie_xun, 谢逊",
     "one_line": "武林至尊宝刀屠龙，黑黝毫不起眼却削铁锤如切豆腐，烈火锻烧不损分毫",
     "effects": [
       "号令天下",
@@ -231,8 +231,8 @@
     "id": "item_jin_yuanbao",
     "name": "金元宝",
     "rarity": "寻常凡品",
-    "description": "张松溪所持物证，金锭上有明晰指痕，证明系金刚指力所为。；约二十两的金元宝，上面被捏出五个深入数分的指印，暴露了少林金刚指力的痕迹",
-    "owner": "char_zhang_songxi；char_du_da_jin",
+    "description": "约二十两的金元宝，上面被捏出五个深入数分的指印，暴露了少林金刚指力的痕迹",
+    "owner": "char_zhang_songxi, char_du_da_jin",
     "type": "财物",
     "one_line": "脸生黑痣之人留给都大锦的金元宝，上有五个指印，为少林金刚指力所留",
     "origin": "假武当六侠所赠",
@@ -243,10 +243,10 @@
   {
     "id": "item_yin_gou",
     "name": "烂银虎头钩",
-    "type": "weapon；兵器",
+    "type": "兵器",
     "rarity": "上乘佳品",
     "owner_id": "char_zhang_cui_shan",
-    "description": "张翠山的成名兵刃之一，银钩铁划之名由来。；张翠山左手所使兵刃，银光闪烁，为'银钩铁划'外号之由来。",
+    "description": "张翠山左手所使兵刃，银光闪烁，为'银钩铁划'外号之由来。",
     "origin": null,
     "rank": "上乘佳品",
     "related_skills": []
@@ -264,9 +264,9 @@
     "id": "item_yitianjian",
     "name": "倚天剑",
     "rarity": "绝世神兵",
-    "owner": "灭绝师太；灭绝师太（原属）/ 赵敏（曾持有）；赵敏（携带）",
-    "description": "绝世宝剑，削铁如泥。此前被人盗去。；内藏武功秘籍。周芷若曾受灭绝师太遗命盗取。；中原武林两大利器之一，锋锐无伦，一碰便将黄金盒剖成两半。赵敏声称是家传之宝，实为峨嵋派所有。；武林至宝，锋利无匹。赵敏借之逼退流云使，削去其左颊虬髯皮肉。张无忌用以削断铐镣救周芷若，又以太极剑法\"圆转如意\"逼退波斯三使夺回屠龙刀。；武林至尊宝剑，与屠龙刀并称。在荒岛上为赵敏盗走。",
-    "type": "weapon；武器",
+    "owner": "灭绝师太, 灭绝师太（原属）/ 赵敏（曾持有）, 赵敏（携带）",
+    "description": "武林至宝，锋利无匹。赵敏借之逼退流云使，削去其左颊虬髯皮肉。张无忌用以削断铐镣救周芷若，又以太极剑法\"圆转如意\"逼退波斯三使夺回屠龙刀。",
+    "type": "武器",
     "holder": "char_zhou_zhiruo",
     "events": [
       "周芷若持剑护谢逊",
@@ -303,7 +303,7 @@
   {
     "id": "item_lang_ya_bang",
     "name": "狼牙棒",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_xie_xun",
     "one_line": "谢逊所持一丈三四尺长狼牙棒，沉重凶猛，挑飞大铁鼎震死常金鹏",
     "description": "谢逊兵刃，生有钩刺，用以打鱼亦甚方便。",
@@ -350,7 +350,7 @@
   {
     "id": "item_yin_zhen",
     "name": "银针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_yin_su_su",
     "one_line": "殷素素随身暗器，从水中发射从慧风口中射入，还了那瘦子三枚方脱身",
     "description": "殷素素的暗器，细小无声，黑暗中不易抵挡。",
@@ -430,7 +430,7 @@
   {
     "id": "item_pan_guan_bi",
     "name": "判官笔",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "上乘佳品",
     "owner_id": "char_zhang_cui_shan",
     "description": "郝密（河间双煞）所使兵刃，一对。攻击渡劫时笔上劲风凌厉。",
@@ -440,8 +440,8 @@
   {
     "id": "item_qishangquanpu",
     "name": "七伤拳谱",
-    "type": "武功秘籍；book",
-    "rarity": "稀世珍品；上乘佳品",
+    "type": "武功秘籍",
+    "rarity": "稀世珍品",
     "description": "崆峒派不传之秘，记载七伤拳拳理及总诀。被谢逊劫夺后传给张无忌。",
     "alias": [
       "《七伤拳谱》古抄本"
@@ -882,13 +882,13 @@
     "id": "item_shenghuoling",
     "name": "圣火令",
     "rarity": "绝世神兵",
-    "description": "明教至宝，坚硬无比，倚天剑亦不能削断。张无忌以之护体反弹敌人攻击，赵敏以之飞掷击杀恶僧。；明教至宝，共十二根。波斯总教送还余下六根，与张无忌先前夺回的六根合为十二根，完璧归赵。上刻三大令五小令。；明教镇教之宝，共六枚。张无忌取出分予杨逍范遥各两枚，用以对战金刚伏魔圈。杨逍以圣火令连变二十二般兵刃的招式，曾脱手掷出偷袭渡劫。；明教至宝，共六枚，上刻波斯武功秘诀。赵敏未取走，仍在张无忌怀中。小昭所译圣火令秘诀与乾坤大挪移参合后威力大增。",
+    "description": "明教镇教之宝，共六枚。张无忌取出分予杨逍范遥各两枚，用以对战金刚伏魔圈。杨逍以圣火令连变二十二般兵刃的招式，曾脱手掷出偷袭渡劫。",
     "holders": [
       "char_zhang_wuji",
       "张无忌",
       "赵敏"
     ],
-    "type": "relic；artifact；weapon；信物",
+    "type": "信物",
     "holder": "char_zhang_wuji",
     "events": [
       "从风云三使手中夺回",
@@ -909,7 +909,7 @@
   {
     "id": "item_snow_sled",
     "name": "雪橇",
-    "type": "tool",
+    "type": "工具",
     "rarity": "寻常凡品",
     "description": "蛛儿用柴堆硬柴和软柴绳扎成，供张无忌躺卧拖行。后填入石块冲入深谷伪造假象。",
     "related_characters": [
@@ -920,7 +920,7 @@
   {
     "id": "item_white_pigeons",
     "name": "白鸽信筒",
-    "type": "communication",
+    "type": "通讯",
     "rarity": "寻常凡品",
     "description": "明教白袍客坐骑笼中所携三只白鸽，腿上小筒藏纸卷，内容为向天鹰教告急。两只被铁莲子打落，一只逃走。",
     "related_characters": [
@@ -1080,7 +1080,7 @@
   {
     "id": "item_yitian_sword_fake",
     "name": "木制假倚天剑",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "上乘佳品",
     "description": "用海底奇鲮香木所制的假倚天剑，色作淡黄，本身无毒，但与醉仙灵芙花香混合即成剧毒。赵敏以此设下毒计。",
     "owner": "赵敏",
@@ -1089,7 +1089,7 @@
   {
     "id": "item_zuihua_lingfu",
     "name": "醉仙灵芙",
-    "type": "poison_plant",
+    "type": "毒草",
     "rarity": "稀世珍品",
     "description": "水仙模样的花卉，根部深紫色长须上生满碧绿如翡翠的珍珠般小球茎。花作白色，香气幽雅，本身无毒性。与奇鲮香木香混合成剧毒，可使人沉醉头晕，大损心肺。球茎和水而饮可解。",
     "owner": "绿柳山庄池中",
@@ -1098,7 +1098,7 @@
   {
     "id": "item_qiling_xiangmu",
     "name": "奇鲮香木",
-    "type": "poison_material",
+    "type": "毒物",
     "rarity": "稀世珍品",
     "description": "海底所产香木，本身无毒，但与醉仙灵芙花香混合即成剧毒。",
     "owner": "赵敏（用以制假剑）",
@@ -1107,25 +1107,25 @@
   {
     "id": "item_zhuhua",
     "name": "珠花",
-    "type": "jewelry；item",
+    "type": "珠宝",
     "rarity": "上乘佳品",
-    "description": "赵敏鬓边珠花，金丝穿珠，金针为簪。张无忌曾摘取后归还，赵敏派人装在黄金盒子中送回。张无忌转赠小昭。；赵敏曾赠张无忌的珠花，小昭鬓边插戴，引起赵敏大恼嫉恨。",
+    "description": "赵敏鬓边珠花，金丝穿珠，金针为簪。张无忌曾摘取后归还，赵敏派人装在黄金盒子中送回。张无忌转赠小昭。",
     "owner": "赵敏 → 张无忌 → 小昭",
     "related_skills": []
   },
   {
     "id": "item_gold_box",
     "name": "黄金盒子",
-    "type": "container；item",
+    "type": "容器",
     "rarity": "上乘佳品",
-    "description": "镂刻精致的黄金盒子，钱二败奉赵敏之命送来，内装珠花。；赵敏赠予张无忌的精致金盒，原藏黑玉断续膏。张无忌掷出挡住倚天剑，被剖成两半，后被张无忌收起欲请匠人镶好。",
+    "description": "赵敏赠予张无忌的精致金盒，原藏黑玉断续膏。张无忌掷出挡住倚天剑，被剖成两半，后被张无忌收起欲请匠人镶好。",
     "owner": "赵敏 → 张无忌 → 射昭",
     "related_skills": []
   },
   {
     "id": "item_golden_dragon_staff",
     "name": "金色龙头短杖",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "上乘佳品",
     "description": "赵一伤手持传令之物。",
     "owner": "赵一伤",
@@ -1134,7 +1134,7 @@
   {
     "id": "item_feng_yuansheng_dao",
     "name": "冯远声单刀",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "寻常凡品",
     "description": "刀柄上刻有\"冯远声\"三字，遗落在沙漠中，为崆峒派人物所有。",
     "owner": "冯远声",
@@ -1144,17 +1144,17 @@
     "id": "item_heiyu_duanxugao",
     "name": "黑玉断续膏",
     "rarity": "稀世珍品",
-    "description": "赵敏手下本门灵药，可接续断骨。张无忌从阿三及秃顶阿二伤处刮取，又从黑玉瓶中挑取比对验证，确认无误后用于治愈俞岱岩二十年旧伤和殷梨亭断折四肢。医治时须将已愈合骨骼重新折断再加接续。；金刚门秘传续骨妙药，可治大力金刚指折断的肢骨，配方不传。赵敏以此为筹码要挟张无忌答应三件事，阿三被张无忌击败后，张无忌要求留下此药。；西域金刚门疗伤接骨无上圣药，张无忌向赵敏乞得用于接续俞岱岩与殷梨亭断骨，尚有剩余。本章以金盒盛装，小指挑取黑色药膏涂于宋青书头骨碎处，以九阳真气透入药力。",
+    "description": "赵敏手下本门灵药，可接续断骨。张无忌从阿三及秃顶阿二伤处刮取，又从黑玉瓶中挑取比对验证，确认无误后用于治愈俞岱岩二十年旧伤和殷梨亭断折四肢。医治时须将已愈合骨骼重新折断再加接续。",
     "holders": [
       "char_zhang_wuji"
     ],
-    "type": "medicine",
+    "type": "药品",
     "related_skills": []
   },
   {
     "id": "char_item_kongxing_shouti",
     "name": "空性首级",
-    "type": "item",
+    "type": "物品",
     "rarity": "寻常凡品",
     "description": "少林空性大师首级，环眼圆睁、脸露愤怒之色。刚相以此骗取张三丰信任后放在桌上。",
     "related_skills": []
@@ -1182,16 +1182,16 @@
   {
     "id": "weapon_lu_zhang",
     "name": "鹿角杖",
-    "type": "武器；weapon",
-    "rarity": "上乘佳品；稀世珍品",
-    "description": "鹿杖客所使兵刃。；鹿杖客兵刃，短杖杖头分叉作鹿角之形，通体黝黑，不知是何物铸成。其中一根鹿角可旋下，内藏药粉。",
+    "type": "武器",
+    "rarity": "稀世珍品",
+    "description": "鹿杖客兵刃，短杖杖头分叉作鹿角之形，通体黝黑，不知是何物铸成。其中一根鹿角可旋下，内藏药粉。",
     "current_owner": "char_lu_zhangke",
     "related_skills": []
   },
   {
     "id": "item_hezui_brush",
     "name": "鹤嘴双笔",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "稀世珍品",
     "description": "鹤笔翁兵刃，双笔笔端锐如鹤嘴，晶光闪亮。其中一枝藏有十香软筋散。",
     "related_skills": []
@@ -1199,7 +1199,7 @@
   {
     "id": "item_jiedao",
     "name": "纯钢戒刀",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "寻常凡品",
     "description": "番僧摩诃巴思所使兵刃，青光闪闪。",
     "related_skills": []
@@ -1207,7 +1207,7 @@
   {
     "id": "item_tiezhang",
     "name": "铁杖",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "寻常凡品",
     "description": "番僧黑林钵夫所使长大沉重铁杖，使开来风声满殿，鼓起疾风可吹灭红烛。",
     "related_skills": []
@@ -1215,11 +1215,11 @@
   {
     "id": "item_shixiang_ruanjin",
     "name": "十香软筋散",
-    "description": "迷毒之药，赵敏中此毒后被人取走倚天剑并抛入大海。；西域番僧所献毒药，无色无臭味同清水，混入菜肴绝难分辨。药性发作全身筋骨酸软，内力半点发挥不出。如未获解毒再服，立时血逆气绝无药可救。由玄冥二老分掌毒药与解药，经常轮流。；赵敏独门毒药，令人四肢乏力、使不出内劲，侵肌蚀骨，日子久了五脏六腑受损。非赵敏独门解药不能消解，张无忌以九阳神功强行驱毒，七日方驱除三成。；赵敏此前用以迷倒武林高手的蒙药；赵敏所有迷药，周芷若在无名小岛上从赵敏身边取得，下在汤中将众人迷倒，后自己也吃了一点装作中毒。；白色瓷瓶装，朱漆书写品名。周芷若曾用此毒在小岛上毒害众人",
+    "description": "西域番僧所献毒药，无色无臭味同清水，混入菜肴绝难分辨。药性发作全身筋骨酸软，内力半点发挥不出。如未获解毒再服，立时血逆气绝无药可救。由玄冥二老分掌毒药与解药，经常轮流。",
     "rarity": "稀世珍品",
     "rank": "出神入化",
     "holders": [],
-    "type": "drug；毒药；medicine",
+    "type": "毒药",
     "used_in": "event_poison",
     "holder": "char_zhao_min",
     "events": [
@@ -1231,7 +1231,7 @@
   {
     "id": "item_shixiang_antidote",
     "name": "十香软筋散解药",
-    "type": "drug",
+    "type": "药物",
     "rarity": "稀世珍品",
     "description": "藏于鹿角杖鹿角之中，为粉末状。少量即可解多人之毒。",
     "related_skills": []
@@ -1239,7 +1239,7 @@
   {
     "id": "item_mayao",
     "name": "麻药",
-    "type": "drug",
+    "type": "药物",
     "rarity": "寻常凡品",
     "description": "张无忌所配制，另加三味香料掩饰药性，和在酒中醇美馥郁。药力颇强但不及十香软筋散，不到半个时辰药力便消。",
     "related_skills": []
@@ -1247,7 +1247,7 @@
   {
     "id": "item_tie_zhihuan",
     "name": "掌门铁指环",
-    "description": "峨嵋派掌门信物，灭绝师太从左手食指除下，传给周芷若，象征掌门之位传承。；峨嵋派掌门信物，灭绝师太亲手套在周芷若手上",
+    "description": "峨嵋派掌门信物，灭绝师太从左手食指除下，传给周芷若，象征掌门之位传承。",
     "type": "信物",
     "owner": "周芷若",
     "rarity": "稀世珍品",
@@ -1264,7 +1264,7 @@
   {
     "id": "item_bishou_han",
     "name": "晶光匕首",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "上乘佳品",
     "description": "韩千叶先父遗物，晶光灿烂",
     "holder": "char_han_qianye",
@@ -1276,7 +1276,7 @@
   {
     "id": "item_qicai_jiezhi",
     "name": "七彩宝石戒指",
-    "type": "relic",
+    "type": "法器",
     "rarity": "稀世珍品",
     "description": "波斯明教圣处女之信物",
     "holder": "char_xiao_zhao",
@@ -1288,7 +1288,7 @@
   {
     "id": "item_bosi_lingyao",
     "name": "波斯治伤灵药（膏药）",
-    "type": "medicine",
+    "type": "药品",
     "rarity": "上乘佳品",
     "description": "功德王取出的波斯灵药",
     "holder": "char_zhang_wuji",
@@ -1300,7 +1300,7 @@
   {
     "id": "item_renpimian",
     "name": "人皮面具",
-    "type": "disguise",
+    "type": "伪装",
     "rarity": "寻常凡品",
     "description": "黛绮丝用来伪装成金花婆婆的面具",
     "holder": "char_daiqi_si",
@@ -1330,9 +1330,9 @@
   {
     "id": "item_iron_staff",
     "name": "铁棒",
-    "type": "weapon；武器",
-    "rarity": "寻常凡品；上乘佳品",
-    "description": "掌棒龙头的兵器，用于战斗。；掌棒龙头所使兵刃，被张无忌以乾坤大挪移暗中推动，荡开宋青书长剑。",
+    "type": "武器",
+    "rarity": "上乘佳品",
+    "description": "掌棒龙头所使兵刃，被张无忌以乾坤大挪移暗中推动，荡开宋青书长剑。",
     "current_owner": "char_zhang_bang_longtou",
     "related_skills": []
   },
@@ -1357,7 +1357,7 @@
   {
     "id": "item_xuantie_zhihuan",
     "name": "玄铁指环",
-    "type": "relic",
+    "type": "法器",
     "rarity": "稀世珍品",
     "description": "峨嵋派掌门信物，郭襄女侠遗物，指环内刻\"留贻襄女\"四字。周芷若之物落入陈友谅手中",
     "holder": "char_chen_youliang",
@@ -1370,7 +1370,7 @@
   {
     "id": "item_zijin_bagua_dao",
     "name": "紫金八卦刀",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "上乘佳品",
     "description": "掌钵龙头所用兵刃，在宋青书头顶晃来晃去作势砍落",
     "holder": "char_zhangbo_longtou",
@@ -1382,7 +1382,7 @@
   {
     "id": "item_jinchuang_yao",
     "name": "金创药",
-    "type": "medicine",
+    "type": "药品",
     "rarity": "寻常凡品",
     "description": "殷梨亭取出为宋远桥敷颈中伤处",
     "holder": "char_yin_liting",
@@ -1394,7 +1394,7 @@
   {
     "id": "item_sese_junma",
     "name": "栗色骏马（两匹）",
-    "type": "mount",
+    "type": "坐骑",
     "rarity": "上乘佳品",
     "description": "毛色光润、腿高躯壮的名贵良驹，赵敏备于马背上",
     "holder": "char_zhao_min",
@@ -1407,7 +1407,7 @@
   {
     "id": "item_dog_beating_staff",
     "name": "打狗棒",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "绝世神兵",
     "description": "丐帮帮主信物，通体碧绿、精光溜滑的青竹棒。由史火龙夫人携女儿史红石带至黄衫女子处，后由史红石持棒揭露假帮主身份。",
     "related_skills": []
@@ -1415,7 +1415,7 @@
   {
     "id": "item_hook_crutch",
     "name": "钢钩与铁拐",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "寻常凡品",
     "description": "执法长老的兵器，右手钢钩左手铁拐，同时攻敌。",
     "related_skills": []
@@ -1423,7 +1423,7 @@
   {
     "id": "item_long_saber",
     "name": "长刀",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "寻常凡品",
     "description": "传功长老的兵器，招数凌厉刚猛，武林中罕见高招。",
     "related_skills": []
@@ -1431,7 +1431,7 @@
   {
     "id": "item_curved_blades",
     "name": "弯刀",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "寻常凡品",
     "description": "丐帮打狗阵二十一人各执弯刀，被张无忌夺下后齐插于大厅正梁之上。",
     "related_skills": []
@@ -1439,7 +1439,7 @@
   {
     "id": "item_metal_qin",
     "name": "金属瑶琴",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "上乘佳品",
     "description": "黄衫女子四名白衣侍女所持，比寻常七弦琴短一半窄一半，七弦齐备，金属所制，可作攻防兵刃。",
     "related_skills": []
@@ -1447,7 +1447,7 @@
   {
     "id": "item_metal_xiao",
     "name": "金属洞箫",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "上乘佳品",
     "description": "黄衫女子四名黑衣侍女所执，黑色，比常见洞箫长一半，金属所制，可作攻防兵刃。",
     "related_skills": []
@@ -1488,7 +1488,7 @@
   {
     "id": "item_hei_suo",
     "name": "黑索",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "稀世珍品",
     "description": "少林三僧各持一条，通体黝黑无光，长数丈。来时不见其来去时不见其去，似缓实急无半点风声，如鬼似魅。可化为笔直如长矛般疾刺，亦可卷缠如灵蛇。三人以黑索组成金刚伏魔圈，为看守谢逊的核心武力。",
     "related_skills": []
@@ -1496,7 +1496,7 @@
   {
     "id": "item_duan_dao",
     "name": "短刀",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "上乘佳品",
     "description": "杜氏夫妇所使兵刃。神秘高手以其中一柄刺向张无忌咽喉，刀尖将其胸口衣服划破一条大缝，后刺中张无忌右肩。屋中梁上柱上桌上地下插满短刀，显经剧斗。",
     "related_skills": []
@@ -1504,7 +1504,7 @@
   {
     "id": "item_daxue_jue",
     "name": "打穴橛",
-    "type": "weapon",
+    "type": "武器",
     "rarity": "上乘佳品",
     "description": "卜泰（河间双煞）所使短兵刃。配合一指禅点穴功夫，越近身威力越大。",
     "related_skills": []
@@ -1577,7 +1577,7 @@
   {
     "id": "item_qian_kun_da_nuo_yi",
     "name": "乾坤大挪移心法",
-    "type": "skill_book",
+    "type": "武功秘籍",
     "rarity": "绝世神兵",
     "description": "羊皮所载心法，本属波斯总教。张无忌已习得，将羊皮回赠总教。",
     "related_skills": []
@@ -1585,7 +1585,7 @@
   {
     "id": "item_sheng_huo_ling_shen_gong",
     "name": "圣火令神功",
-    "type": "martial_art",
+    "type": "武功",
     "rarity": "稀世珍品",
     "description": "古波斯武功。张无忌将所悟择要传授三位宝树王。",
     "related_skills": []
@@ -1593,7 +1593,7 @@
   {
     "id": "item_jin_he",
     "name": "金盒",
-    "type": "item",
+    "type": "物品",
     "rarity": "上乘佳品",
     "description": "当年被张无忌利剑剖损后补起的金盒，内放小昭鬓边珠花，托大圣王送交小昭。",
     "related_skills": []
@@ -1601,7 +1601,7 @@
   {
     "id": "item_shou_gong_sha",
     "name": "守宫砂",
-    "type": "item",
+    "type": "物品",
     "rarity": "寻常凡品",
     "description": "处女臂上所点朱砂，终身不褪（除非嫁人或失身）。周芷若臂上守宫砂殷红如昔，证明其为处女。",
     "related_skills": []

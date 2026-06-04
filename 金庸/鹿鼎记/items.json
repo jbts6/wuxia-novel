@@ -2,7 +2,7 @@
   {
     "id": "item_ru_ci_jiang_shan",
     "name": "如此江山图",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_lv_liu_liang",
     "one_line": "查士标所绘大画，题'如此江山'四字，吕留良于画上题诗",
     "description": "高约五尺、宽约丈许的大画，绘大江浩浩东流、两岸峰峦无数，笔势纵横，气象雄伟，云气弥漫中暗寓山河沦陷之悲",
@@ -14,7 +14,7 @@
   {
     "id": "item_dan_dao",
     "name": "单刀",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_mao_shi_ba",
     "one_line": "茅十八所用的单刀，江湖标配武器",
     "description": "茅十八行走江湖的随身兵刃，与盐枭和官军格斗时的主力武器",
@@ -31,7 +31,7 @@
   {
     "id": "item_shi_hui_dai",
     "name": "石灰袋",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝从杂货铺买来的一袋碎石灰",
     "description": "韦小宝为帮茅十八打架而买的一袋碎石灰，关键时刻撒入史松眼中救下茅十八",
@@ -48,7 +48,7 @@
   {
     "id": "item_yuan_bao",
     "name": "银元宝",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "海老公给的五十两赌本，两只二十五两的大元宝",
     "description": "海老公命小桂子去赌钱时给的赌本，韦小宝用来在宫中赌局里赢钱",
@@ -60,10 +60,10 @@
   {
     "id": "item_bi_shou",
     "name": "匕首",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_wei_xiao_bao",
-    "one_line": "韦小宝随身匕首；韦小宝用来杀死真小桂子的薄刃匕首；削铁如泥的宝匕首",
-    "description": "韦小宝随身携带的锋利匕首；一把薄薄的匕首，韦小宝用它刺死了真正的小桂子，此后一直藏在靴筒中随身携带；与冯锡范对击时将其中长剑削断为两截",
+    "one_line": "韦小宝用来杀死真小桂子的薄刃匕首",
+    "description": "一把薄薄的匕首，韦小宝用它刺死了真正的小桂子，此后一直藏在靴筒中随身携带",
     "effects": [
       "近身刺杀",
       "割断绳索",
@@ -92,8 +92,8 @@
       "可削断一般兵刃",
       "削断冯锡范长剑"
     ],
-    "origin": "来历不明；来源不明，韦小宝入宫时携带；康熙所赐",
-    "rarity": "上乘佳品；寻常凡品；稀世珍品",
+    "origin": "来历不明",
+    "rarity": "稀世珍品",
     "related_skills": [
       "skill_bi_shou_zhan",
       "skill_bǐ_shǒu",
@@ -105,7 +105,7 @@
   {
     "id": "item_shui_yin_tou_zi",
     "name": "灌水银骰子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hai_da_fu",
     "one_line": "海老公命小桂子练习的骗局骰子，灌注水银可依心意控制",
     "description": "六粒灌了水银的骰子，一边轻一边重，能依己意指挥，极为珍贵的赌具",
@@ -121,7 +121,7 @@
   {
     "id": "item_hua_shi_fen",
     "name": "化尸粉",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_wei_xiao_bao",
     "one_line": "可将尸体化为脓水的剧毒药物",
     "description": "韦小宝用来销毁冯锡范尸体的药物，撒于尸体伤口之上，尸体渐渐化为黄水，最后连骨也化去",
@@ -147,7 +147,7 @@
   {
     "id": "item_yao_bao",
     "name": "药包",
-    "type": "pill",
+    "type": "药丸",
     "owner": "char_hai_da_fu",
     "one_line": "海老公随身携带的药粉，溶于酒中服下可缓解病症但积毒损目",
     "description": "海老公每日需服的药粉，少量可止咳缓解，但日积月累毒性侵蚀双眼导致失明",
@@ -162,7 +162,7 @@
   {
     "id": "item_qian_ceng_gao",
     "name": "千层糕",
-    "type": "other",
+    "type": "其他",
     "owner": null,
     "one_line": "皇宫中精致点心，一层面粉夹一层蜜糖猪油，桂花香气",
     "description": "韦小宝迷路时在一间屋中偷吃的精致糕点，比扬州妓院中的细点更为精致",
@@ -174,10 +174,10 @@
   {
     "id": "item_tou_zi",
     "name": "骰子",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
-    "one_line": "韦小宝决定去留的工具，掷满堂红即不干；韦小宝赌钱用的六颗骰子",
-    "description": "四粒骰子，韦小宝以此决定是否弃官，掷得全红方罢休；六颗骰子，韦小宝用以在碗中掷个不停，既是消遣也是为了在海老公面前掩饰行踪",
+    "one_line": "韦小宝决定去留的工具，掷满堂红即不干",
+    "description": "六颗骰子，韦小宝用以在碗中掷个不停，既是消遣也是为了在海老公面前掩饰行踪",
     "effects": [
       "赌决胜负",
       "操纵赌局",
@@ -185,17 +185,17 @@
       "赌钱消遣",
       "掩饰声响"
     ],
-    "origin": "韦小宝私藏；宫中赌钱所得",
+    "origin": "韦小宝私藏",
     "rarity": "寻常凡品",
     "related_skills": []
   },
   {
     "id": "item_si_shi_er_zhang_jing",
     "name": "四十二章经",
-    "type": "book",
-    "owner": "char_kang_xi；char_tai_hou",
-    "one_line": "藏有满清龙脉宝藏秘密的经书，共八部，碎羊皮拼成藏宝图；海老公命韦小宝去上书房偷取的佛经；太后从鳌拜家取回的两部四十二章经",
-    "description": "满清龙脉秘密所在，经书封皮中藏有碎羊皮拼成的藏宝图，指引鹿鼎山宝藏位置；一部佛经，共有好几本，模样挺旧，用绸套子套着。海老公要求韦小宝从上书房全部偷来；两部四十二章经已落入太后手中，海老公一直想让韦小宝偷来给他，但始终未能如愿",
+    "type": "书籍",
+    "owner": "char_kang_xi, char_tai_hou",
+    "one_line": "藏有满清龙脉宝藏秘密的经书，共八部，碎羊皮拼成藏宝图",
+    "description": "一部佛经，共有好几本，模样挺旧，用绸套子套着。海老公要求韦小宝从上书房全部偷来",
     "effects": [
       "藏有满清龙脉和宝山金银财宝的秘密",
       "各方争夺之物",
@@ -212,8 +212,8 @@
       "海老公追查的关键物品",
       "各方势力争夺的关键物品"
     ],
-    "origin": "满清宫廷秘藏；上书房藏书；鳌拜家（经太后索取）",
-    "rarity": "绝世神兵；稀世珍品",
+    "origin": "满清宫廷秘藏",
+    "rarity": "绝世神兵",
     "related_skills": [
       "skill_hua_shi_fen"
     ]
@@ -221,7 +221,7 @@
   {
     "id": "item_huang_jin_bi_shou",
     "name": "黄金柄匕首",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_wei_xiao_bao",
     "one_line": "康熙赐给韦小宝的黄金柄匕首",
     "description": "康熙从书桌抽屉中取出两把黄金为柄的匕首，一把交给韦小宝，一把自用，准备擒拿鳌拜时使用",
@@ -235,10 +235,10 @@
   {
     "id": "item_bao_bi_shou",
     "name": "宝匕首",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_wei_xiao_bao",
-    "one_line": "从鳌拜藏宝库中得到的世所罕见宝剑；韦小宝刺伤海老公的宝匕首",
-    "description": "连柄不过一尺二寸，套在鲨鱼皮套中，份量却和寻常长刀长剑无异。剑身如墨无光泽，但锋利无比，插入地板直没至柄，斩断马刀如砍木材，无声无息；从鳌拜藏宝库所得的宝匕首，剑身如墨，锋利无比。韦小宝趁海老公不备猛刺其背心，虽未中要害却切断了海老公左手四根手指",
+    "one_line": "从鳌拜藏宝库中得到的世所罕见宝剑",
+    "description": "连柄不过一尺二寸，套在鲨鱼皮套中，份量却和寻常长刀长剑无异。剑身如墨无光泽，但锋利无比，插入地板直没至柄，斩断马刀如砍木材，无声无息",
     "effects": [
       "削铁如泥",
       "插入地板如入烂泥",
@@ -253,7 +253,7 @@
   {
     "id": "item_bei_xin",
     "name": "黑丝棉背心",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_wei_xiao_bao",
     "one_line": "刀枪不入的宝贝背心",
     "description": "贴身穿戴的黑色丝棉背心，可抵御刀剑攻击",
@@ -271,7 +271,7 @@
   {
     "id": "item_ming_zhu",
     "name": "明珠",
-    "type": "other",
+    "type": "其他",
     "owner": "char_shuang_er",
     "one_line": "韦小宝送给双儿的见面礼，一串价值三四千两银子的明珠",
     "description": "一串宝光流动的明珠，韦小宝从包袱中取出送给双儿，挂在她颈中更增丽色",
@@ -285,7 +285,7 @@
   {
     "id": "item_yu_ma",
     "name": "翡翠玉马",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "翡翠雕成的玉马，索额图挑给韦小宝",
     "description": "翡翠雕成的玉马，索额图称其值钱得很",
@@ -297,7 +297,7 @@
   {
     "id": "item_si_shi_er_zhang_jing_bai",
     "name": "四十二章经（白绸套）",
-    "type": "book",
+    "type": "书籍",
     "owner": null,
     "one_line": "正白旗旗主所藏的四十二章经，白绸套子",
     "description": "白绸套子包裹，从鳌拜藏宝库中取出，封皮写有'四十二章经'五字",
@@ -311,7 +311,7 @@
   {
     "id": "item_si_shi_er_zhang_jing_huang",
     "name": "四十二章经（黄绸套）",
-    "type": "book",
+    "type": "书籍",
     "owner": null,
     "one_line": "镶黄旗旗主所藏的四十二章经，黄绸红边套子",
     "description": "黄绸镶红边套子包裹，同样从鳌拜藏宝库中取出",
@@ -325,7 +325,7 @@
   {
     "id": "item_xiang_lu",
     "name": "青铜香炉",
-    "type": "other",
+    "type": "其他",
     "owner": null,
     "one_line": "上书房中的西周古物青铜香炉",
     "description": "西周古物，重约三十来斤，韦小宝用它砸中鳌拜后脑将其击晕",
@@ -340,7 +340,7 @@
   {
     "id": "item_e_mei_ci",
     "name": "白金点钢蛾眉刺",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_tai_hou",
     "one_line": "太后暗藏的白金点钢蛾眉刺",
     "description": "太后暗中使用的利器，趁海老公分神之际穿破其手掌插入小腹，最终杀死海老公",
@@ -358,7 +358,7 @@
   {
     "id": "item_jin_chuang_yao",
     "name": "金创药",
-    "type": "pill",
+    "type": "药丸",
     "owner": "char_hai_da_fu",
     "one_line": "海老公用来敷伤口的金创药",
     "description": "海老公被宝匕首切断四根手指后，从药箱中取出金创药敷上伤口并包扎",
@@ -372,7 +372,7 @@
   {
     "id": "item_mi_jian_guo_zi",
     "name": "蜜饯果子糖果糕饼",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "太后赏赐、蕊初包好的蜜饯糖果",
     "description": "太后赏给韦小宝的十几种蜜饯果子糖果糕饼，装在纸盒中，韦小宝带去赴蕊初之约时被海老公追逐压得稀烂",
@@ -384,7 +384,7 @@
   {
     "id": "item_duan_jing_hou_yu_lu",
     "name": "端敬后语录",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_hai_da_fu",
     "one_line": "顺治命胡兆龙、王熙编纂的董鄂妃语录",
     "description": "端敬皇后即董鄂妃，顺治命学士胡兆龙、王熙编纂其语录颁行天下。太后密旨禁毁此书，海老公身边尚存一册",
@@ -398,10 +398,10 @@
   {
     "id": "item_bao_yi",
     "name": "护身宝衣",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_wei_xiao_bao",
-    "one_line": "刀枪不入的护身内甲；韦小宝所穿护身宝衣，刀剑不入；可抵挡刀剑的护身软甲",
-    "description": "西洋红毛国进贡的宝衣，穿在身上刀枪不入；阿珂刺韦小宝胸口一剑，因护身宝衣而弹开；贴身穿着的软甲，可防刀剑刺砍",
+    "one_line": "韦小宝所穿护身宝衣，刀剑不入",
+    "description": "西洋红毛国进贡的宝衣，穿在身上刀枪不入",
     "effects": [
       "抵御掌力和脚踢，刀枪不入",
       "刀枪不入",
@@ -416,14 +416,14 @@
       "防御极佳",
       "关键时刻多次救命"
     ],
-    "origin": "康熙所赐；来源不详",
-    "rarity": "稀世珍品；绝世珍品",
+    "origin": "康熙所赐",
+    "rarity": "稀世珍品",
     "related_skills": []
   },
   {
     "id": "item_yu_hua_cong",
     "name": "玉花骢",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "康亲王所赠大宛良驹，全身雪白有胭脂斑点",
     "description": "大宛名驹，腿长膘肥，全身雪白毛上尽是胭脂斑点，毛色油光亮滑，漂亮之极",
@@ -435,7 +435,7 @@
   {
     "id": "item_mu_pai",
     "name": "青木堂令牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "天地会青木堂香主令牌，象征香主身份",
     "description": "天地会青木堂香主的令牌，由陈近南正式授予韦小宝",
@@ -449,7 +449,7 @@
   {
     "id": "item_jie_du_ling_dan",
     "name": "解毒灵丹",
-    "type": "pill",
+    "type": "药丸",
     "owner": "char_wei_xiao_bao",
     "one_line": "陈近南所赠十二粒解毒灵丹，可驱除余毒",
     "description": "陈近南从怀中取出的小瓷瓶中的十二粒药丸，分十二天服下可驱除海大富所下之毒",
@@ -465,7 +465,7 @@
   {
     "id": "item_wu_gong_ce_zi",
     "name": "天地会武功册子",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "陈近南传授的内功心法册子，每页绘有人像",
     "description": "薄薄的册子，每一页都绘有人像，记载天地会修习内功的基本法门和口诀",
@@ -481,7 +481,7 @@
   {
     "id": "item_yin_piao",
     "name": "银票",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝随身大叠银票，分送苏菲亚、高里津和传译以保命",
     "description": "数额甚巨的银票，分三叠送出，共十万余两",
@@ -507,7 +507,7 @@
   {
     "id": "item_fu_ling_hua_diao_zhu",
     "name": "茯苓花雕猪",
-    "type": "other",
+    "type": "其他",
     "owner": "char_qian_lao_ban",
     "one_line": "钱老板以补药喂养的名贵肉猪，供奉韦小宝品尝",
     "description": "选良种肉猪，断奶后喂茯苓、党参、杞子等补药，饲料只鸡蛋，渴了给喝花雕酒",
@@ -519,7 +519,7 @@
   {
     "id": "item_gao_yao_qi",
     "name": "红青膏药旗",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xu_tian_chuan",
     "one_line": "徐天川卖膏药用的旗子，一半红一半青，为天地会联络标记",
     "description": "别人膏药旗是黑色的，徐天川的却是一半红一半青，作为天地会联络暗号",
@@ -533,7 +533,7 @@
   {
     "id": "item_si_shi_er_zhang_jing_hong",
     "name": "四十二章经（红绸本）",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝所藏的两部四十二章经之一，红绸封皮",
     "description": "从康亲王府盗来，红绸子包面",
@@ -547,7 +547,7 @@
   {
     "id": "item_si_shi_er_zhang_jing_hong_bai",
     "name": "四十二章经（红绸镶白边本）",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "从瑞栋尸体上取出的四十二章经，红绸镶白边封皮",
     "description": "封皮红绸子镶以白边，与另一部除封皮外全然一样",
@@ -561,7 +561,7 @@
   {
     "id": "item_jin_yao_shi",
     "name": "金钥匙",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "佛像左耳中取出的黄金小钥匙，用于开启地下暗格",
     "description": "小指头长短的黄金钥匙，从佛像左耳中取出，插入方砖下的锁孔可开启暗格",
@@ -575,7 +575,7 @@
   {
     "id": "item_zhen_zhu_liang_chuan",
     "name": "两串明珠",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "吴应熊所赠的两串明珠，被塞入瑞栋怀中栽赃",
     "description": "每串一百粒浑圆明珠，被韦小宝塞入瑞栋怀中作为与刺客勾结的证据",
@@ -590,7 +590,7 @@
   {
     "id": "item_fei_cui_ji",
     "name": "翡翠鸡一对",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wu_ying_xiong",
     "one_line": "吴应熊赠送的翡翠雕刻鸡，一公一母，雕工精细",
     "description": "一对翡翠鸡，一公一母，雕工极是精细，翠色通透",
@@ -604,7 +604,7 @@
   {
     "id": "item_jin_piao",
     "name": "金票",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wu_ying_xiong",
     "one_line": "四十张黄金十两金票，共四百两黄金",
     "description": "北京城中金铺所发的金票，每张十两，共四十张",
@@ -618,7 +618,7 @@
   {
     "id": "item_yin_piao_liu_qian",
     "name": "六千两银票",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝用来栽赃太后太监的四张银票",
     "description": "韦小宝将四张银票分给四名太监后又让侍卫搜出，以此栽赃太后",
@@ -632,7 +632,7 @@
   {
     "id": "item_shui_gang",
     "name": "大水缸",
-    "type": "other",
+    "type": "其他",
     "owner": null,
     "one_line": "海老公治伤用的大水缸，韦小宝摔入其中躲过一劫",
     "description": "原本是海老公治伤之用，韦小宝摔入其中缩身藏入匕首，诱瑞栋伸手入缸",
@@ -646,7 +646,7 @@
   {
     "id": "item_mi_tang",
     "name": "蜜糖",
-    "type": "pill",
+    "type": "药丸",
     "owner": null,
     "one_line": "韦小宝用来给方怡止血的蜜糖，意外有效",
     "description": "韦小宝随手用蜜糖给方怡敷伤口，蜜糖黏性强，止血效果颇佳",
@@ -661,7 +661,7 @@
   {
     "id": "item_yin_piao_wu_wan",
     "name": "五万两银票",
-    "type": "other",
+    "type": "其他",
     "owner": "char_duo_long",
     "one_line": "韦小宝从吴应熊处敲来的十万两中分出的五万两，以皇上名义赏给侍卫",
     "description": "五百两一张共一百张，韦小宝先私吞五万两，余下五万两以康熙名义分给侍卫",
@@ -676,7 +676,7 @@
   {
     "id": "item_feng_dai_yin_piao",
     "name": "大封袋银票",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wu_ying_xiong",
     "one_line": "吴应熊送给韦小宝的大封袋，内装十万两银票",
     "description": "吴应熊从衣袖中取出的大封袋，双手呈上，内装十万两银票",
@@ -690,7 +690,7 @@
   {
     "id": "item_zi_jian",
     "name": "刺客证物包",
-    "type": "other",
+    "type": "其他",
     "owner": "char_kang_xi",
     "one_line": "刺客携带的刻字刀剑和内衣等物证",
     "description": "刺客携带的刻有大明山海关总兵府字样的兵器和内衣等证物",
@@ -704,7 +704,7 @@
   {
     "id": "item_yan_wo_ren_shen_zhu",
     "name": "燕窝人参猪",
-    "type": "other",
+    "type": "其他",
     "owner": "char_qian_lao_ban",
     "one_line": "钱老板第二次送入宫的活猪，用于暗传纸条",
     "description": "全身白毛的活猪，钱老板以送猪为名暗中递纸条给韦小宝",
@@ -718,7 +718,7 @@
   {
     "id": "item_zi_tiao",
     "name": "高升茶馆纸条",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "钱老板暗中递来的纸条，写着天地会联络暗号",
     "description": "上书'高升茶馆说英烈传'，是天地会联络韦小宝的暗号",
@@ -732,7 +732,7 @@
   {
     "id": "item_meng_han_yao",
     "name": "特制迷药",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_wei_xiao_bao",
     "one_line": "何惕守所配的特制迷药，非寻常蒙汗药可比",
     "description": "极其厉害的迷药，连归辛树内功深厚也被迷倒，由双儿投入水缸中",
@@ -752,7 +752,7 @@
   {
     "id": "item_qing_tie",
     "name": "大红泥金帖子",
-    "type": "other",
+    "type": "其他",
     "owner": "char_mu_jian_sheng",
     "one_line": "沐剑声邀请天地会赴宴的请帖",
     "description": "大红泥金帖子，浓浓黑墨写着邀宴之词，由沐剑声发出",
@@ -764,7 +764,7 @@
   {
     "id": "item_duan_jian",
     "name": "短剑",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_tai_hou",
     "one_line": "太后床下机关中的短剑",
     "description": "太后从床板暗格中取出的短剑，放入怀中随身携带",
@@ -779,7 +779,7 @@
   {
     "id": "item_jia_fa",
     "name": "假发",
-    "type": "other",
+    "type": "其他",
     "owner": "char_jia_gong_nv",
     "one_line": "假宫女男扮女装用的假发",
     "description": "假宫女的满头假发被陶宫娥扯下，露出光头，暴露男扮女装的身份",
@@ -793,7 +793,7 @@
   {
     "id": "item_biao_yin_sai",
     "name": "桑皮纸",
-    "type": "other",
+    "type": "其他",
     "owner": null,
     "one_line": "瑞栋用来闷死和察博的桑皮纸",
     "description": "贴在嘴鼻上可令人窒息而死",
@@ -807,7 +807,7 @@
   {
     "id": "item_chi_ling",
     "name": "御前侍卫副总管敕令",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "康熙亲封韦小宝为御前侍卫副总管的圣旨",
     "description": "康熙亲笔所写敕令，封韦小宝为御前侍卫副总管，钦赐穿黄马褂，各省文武官员受命调遣",
@@ -822,7 +822,7 @@
   {
     "id": "item_huang_ma_gua",
     "name": "黄马褂",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_wei_xiao_bao",
     "one_line": "康熙钦赐的黄马褂",
     "description": "御前侍卫副总管钦赐穿黄马褂，极高的荣耀",
@@ -837,7 +837,7 @@
   {
     "id": "item_gu_hui_tan",
     "name": "骨灰坛",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝用来隐藏经书和武功秘诀的骨灰坛",
     "description": "高彦超买来的好坛子，放入柴灰，外表做骨灰坛掩人耳目，实际藏有五部经书和武功秘诀",
@@ -851,7 +851,7 @@
   {
     "id": "item_guan_mu",
     "name": "柳州木棺材",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "高彦超购买的上好柳州木棺材",
     "description": "用来藏放骨灰坛和油布包裹的棺材，制造假灵柩掩人耳目",
@@ -865,7 +865,7 @@
   {
     "id": "item_yin_chai",
     "name": "银钗",
-    "type": "other",
+    "type": "其他",
     "owner": "char_fang_yi",
     "one_line": "刘一舟送给方怡的定情信物，头上有梅花纹",
     "description": "银钗头上刻有梅花，是刘一舟送给方怡的定情之物，方怡在宫中混战时失落",
@@ -879,7 +879,7 @@
   {
     "id": "item_wu_gong_mi_jue",
     "name": "武功秘诀",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "陈近南交给韦小宝的武功秘诀",
     "description": "陈近南交给韦小宝的武功秘籍，韦小宝一直未练",
@@ -893,7 +893,7 @@
   {
     "id": "item_zong_zi",
     "name": "湖州粽子",
-    "type": "other",
+    "type": "其他",
     "owner": "char_shuang_er",
     "one_line": "庄夫人亲手调味配料的湖州粽子，美味无双",
     "description": "湖州特产粽子，米软馅美，四只粽子二咸二甜，由庄夫人调味、双儿帮裹",
@@ -908,7 +908,7 @@
   {
     "id": "item_gui_hua_tang",
     "name": "桂花糖",
-    "type": "pill",
+    "type": "药丸",
     "owner": "char_wei_xiao_bao",
     "one_line": "庄夫人请韦小宝品尝的桂花糖和松子糖",
     "description": "装在青花高脚瓷碟中的桂花糖和松子糖",
@@ -922,7 +922,7 @@
   {
     "id": "item_zhu_bao",
     "name": "珠翠金玉",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝随身携带的珠宝财物",
     "description": "各种宝物，衣饰华贵帽镶美玉襟钉明珠",
@@ -938,18 +938,18 @@
   {
     "id": "item_jin_chu",
     "name": "黄金杵",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_xing_dian",
-    "one_line": "行颠使用的黄金大杵，重达百余斤，威力惊人；行颠的黄金杵，沉重非凡",
-    "description": "黄金铸造的大杵，重达百余斤，行颠抡动时黄光闪闪，每一击便有一名喇嘛头骨粉碎；行颠随身的黄金杵，沉重到韦小宝提之不动，由澄通帮忙取走",
+    "one_line": "行颠使用的黄金大杵，重达百余斤，威力惊人",
+    "description": "黄金铸造的大杵，重达百余斤，行颠抡动时黄光闪闪，每一击便有一名喇嘛头骨粉碎",
     "effects": [
       "一击毙命",
       "连刀打落",
       "势如千钧",
       "重型兵器"
     ],
-    "origin": "清凉寺；行颠随身兵刃",
-    "rarity": "稀世珍品；上乘佳品",
+    "origin": "清凉寺",
+    "rarity": "稀世珍品",
     "related_skills": [
       "skill_jin_chu_zhang"
     ]
@@ -957,7 +957,7 @@
   {
     "id": "item_jian_dao",
     "name": "尖刀",
-    "type": "weapon",
+    "type": "武器",
     "owner": null,
     "one_line": "喇嘛使用的武器，以尖刀抵住澄光前胸后心",
     "description": "喇嘛随身携带的兵器，用以威胁澄光方丈",
@@ -971,7 +971,7 @@
   {
     "id": "item_tie_chui",
     "name": "短柄铁锤",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_ba_yan",
     "one_line": "巴颜使用的双锤，被行颠金杵震得脱手",
     "description": "一对短柄铁锤，巴颜用来硬挡行颠的黄金杵",
@@ -985,7 +985,7 @@
   {
     "id": "item_tie_tou_gong",
     "name": "铁头功",
-    "type": "other",
+    "type": "其他",
     "owner": "char_ba_yan",
     "one_line": "韦小宝编造的大喇嘛铁头功，用来吓唬巴颜",
     "description": "韦小宝信口胡编青海大喇嘛练有铁头功刀枪不入，实际上巴颜并未练过",
@@ -999,7 +999,7 @@
   {
     "id": "item_bao_tai_yi_jin_wan",
     "name": "豹胎易筋丸",
-    "type": "pill",
+    "type": "药丸",
     "owner": "char_shen_hong",
     "one_line": "神龙教控制教众的慢性毒药",
     "description": "服后需定期服用解药，否则毒性发作。洪教主以之控制五龙使等属下",
@@ -1018,7 +1018,7 @@
   {
     "id": "item_wu_long_ling",
     "name": "五龙令",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "神龙教最高令牌，在太后宫中掉落被太后发现",
     "description": "五色斑斓的小龙令，韦小宝骑在太后身上时掉落，被太后认出",
@@ -1035,7 +1035,7 @@
   {
     "id": "item_bai_hua_fu_she_gao_duan_jian",
     "name": "涂毒短剑",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_xu_xue_ting",
     "one_line": "青龙使许雪亭的两柄尺半短剑，涂有百花蝮蛇膏",
     "description": "许雪亭暗藏的两柄短剑，涂有百花蝮蛇膏，用于发动叛乱",
@@ -1052,7 +1052,7 @@
   {
     "id": "item_xiong_huang_jiu",
     "name": "雄黄酒",
-    "type": "pill",
+    "type": "药丸",
     "owner": null,
     "one_line": "神龙教教众日常服用的避蛇药酒",
     "description": "教众每日服用以避毒蛇，但与百花蝮蛇膏相冲会致人酥软",
@@ -1069,7 +1069,7 @@
   {
     "id": "item_xue_shen_yu_chan_wan",
     "name": "雪参玉蟾丸",
-    "type": "pill",
+    "type": "药丸",
     "owner": "char_wei_xiao_bao",
     "one_line": "高丽国王进贡的疗伤圣药",
     "description": "太后给韦小宝的三十颗丸药，可疗伤解毒，灵验非凡",
@@ -1087,7 +1087,7 @@
   {
     "id": "item_jin_jian_dao",
     "name": "金剪刀",
-    "type": "other",
+    "type": "其他",
     "owner": "char_kang_xi",
     "one_line": "康熙用来剪断太监辫子赐给韦小宝的金剪",
     "description": "康熙从书桌上拿起金剪刀，剪下一名太监的辫子给韦小宝当假辫子",
@@ -1101,7 +1101,7 @@
   {
     "id": "item_jin_pai_ling_fu",
     "name": "金牌令符",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "康熙赐予的调动骁骑营兵马的令牌",
     "description": "康熙将调动骁骑营兵马的金牌令符交给韦小宝",
@@ -1115,7 +1115,7 @@
   {
     "id": "item_liu_ye_dao",
     "name": "柳叶刀",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_a_ke",
     "one_line": "阿珂的随身佩刀",
     "description": "阿珂所用柳叶形钢刀，被韦小宝匕首削为两截",
@@ -1132,7 +1132,7 @@
   {
     "id": "item_mu_yu_chui",
     "name": "木鱼槌",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝用来给绿衫女郎解穴的木鱼槌",
     "description": "韦小宝用木鱼槌戳绿衫女郎膝弯穴道以解穴，自称自创'木鱼槌解穴神功'",
@@ -1146,7 +1146,7 @@
   {
     "id": "item_la_ba_pao",
     "name": "喇嘛袍",
-    "type": "armor",
+    "type": "防具",
     "owner": null,
     "one_line": "从擒获的喇嘛身上剥下的袍服，少林僧假扮喇嘛之用",
     "description": "四十七名被擒喇嘛的袍服，韦小宝命众僧换上以假扮喇嘛掩护突围",
@@ -1161,7 +1161,7 @@
   {
     "id": "item_sui_yang_pi",
     "name": "碎羊皮地图",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "从八部四十二章经封皮中取出的碎羊皮，拼成后为鹿鼎山藏宝图",
     "description": "数千片碎皮片，经双儿十八日不辍拼凑成完整地图，标注鹿鼎山八旗方位，韦小宝牢记后焚毁",
@@ -1177,7 +1177,7 @@
   {
     "id": "item_hu_ba_yin_shou_zhang",
     "name": "呼巴音断掌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "呼巴音被割下的右手掌",
     "description": "韦小宝割下呼巴音的断掌，用来涂上化尸粉后放在经书上",
@@ -1193,7 +1193,7 @@
   {
     "id": "item_jia_bian",
     "name": "假辫子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zheng_ke_shang",
     "one_line": "郑克塽佩戴的假辫子",
     "description": "郑克塽为装清朝人而戴的假辫子，差点被多隆拉掉暴露身份",
@@ -1207,7 +1207,7 @@
   {
     "id": "item_hua_shen_long_jing",
     "name": "极品旗枪龙井茶叶",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝孝敬师父的名贵茶叶",
     "description": "韦小宝取出极品旗枪龙井泡茶孝敬九难",
@@ -1219,7 +1219,7 @@
   {
     "id": "item_gui_tou_dao",
     "name": "鬼头刀",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_duo_long",
     "one_line": "多隆所持鬼头刀",
     "description": "多隆手持鬼头刀督战",
@@ -1233,7 +1233,7 @@
   {
     "id": "item_si_shi_zhang_jing_xiang_lan",
     "name": "四十二章经(镶蓝旗)",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "镶蓝旗四十二章经，内藏地图碎片",
     "description": "蓝绸书面，从假太后柜中取得，内含碎羊皮地图",
@@ -1248,7 +1248,7 @@
   {
     "id": "item_si_shi_zhang_jing_zheng_bai",
     "name": "四十二章经(镶白旗)",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_kang_qin_wang",
     "one_line": "韦小宝取出镶白旗经书给康亲王冒充正红旗",
     "description": "白封皮镶红边，原为端敬皇后所有，被假太后侵占后落入韦小宝之手",
@@ -1262,7 +1262,7 @@
   {
     "id": "item_seng_pao",
     "name": "僧袍",
-    "type": "other",
+    "type": "其他",
     "owner": null,
     "one_line": "假太后相好留在宫中的僧袍",
     "description": "康熙搜查慈宁宫时发现的僧袍，证实假太后的奸夫是个和尚",
@@ -1276,7 +1276,7 @@
   {
     "id": "item_zi_jue_fu",
     "name": "子爵府",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "康亲王赠予韦小宝的东城宅第，作为子爵府邸",
     "description": "雕梁画栋，花木山石，陈设奢华，车夫厨子仆役婢女齐全",
@@ -1290,7 +1290,7 @@
   {
     "id": "item_si_shi_zhang_jing_zheng_lan",
     "name": "四十二章经(正蓝旗)",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝从吴三桂书房调包盗取的正蓝旗经书，至此八部经书全部到手",
     "description": "韦小宝趁吴三桂转身取枪之际，以镶蓝旗经书调包桌上正蓝旗经书，内藏地图碎片",
@@ -1305,7 +1305,7 @@
   {
     "id": "item_duan_chong_huo_qiang",
     "name": "短铳火枪",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_wei_xiao_bao",
     "one_line": "吴三桂赠予韦小宝的短铳火枪，被用作提犯人的信物",
     "description": "短小精悍的火枪，韦小宝用来作为向夏国相提走沐剑屏的凭证",
@@ -1322,7 +1322,7 @@
   {
     "id": "item_bai_lao_hu_pi",
     "name": "白虎皮",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_san_gui",
     "one_line": "吴三桂书房中的白虎皮，铺在太师椅上",
     "description": "白章黑纹的珍稀虎皮，名为驺虞，是吴三桂在山海关宁远打猎所得",
@@ -1336,22 +1336,22 @@
   {
     "id": "item_marble_screen",
     "name": "大理石屏风",
-    "type": "special",
-    "owner": "char_wei_xiao_bao；char_wu_san_gui",
-    "one_line": "吴三桂五华宫三宝之一，作为平定三藩赏赐；吴三桂书房中的两座大理石屏风，山水木石如画",
-    "description": "当年在吴三桂书房中所见的大理石屏风，为吴三桂三宝之一；两座五六尺高的屏风，一幅有黄莺在上猛虎在下，一幅有山水万里江山",
+    "type": "特殊",
+    "owner": "char_wei_xiao_bao, char_wu_san_gui",
+    "one_line": "吴三桂书房中的两座大理石屏风，山水木石如画",
+    "description": "两座五六尺高的屏风，一幅有黄莺在上猛虎在下，一幅有山水万里江山",
     "effects": [
       "赏赐给韦小宝",
       "韦小宝借屏风暗示帝位"
     ],
-    "origin": "吴三桂旧物，康熙赏赐；吴三桂收藏",
+    "origin": "吴三桂旧物，康熙赏赐",
     "rarity": "稀世珍品",
     "related_skills": []
   },
   {
     "id": "item_sheng_yu",
     "name": "圣谕",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "康熙圣谕，嘉奖平西王将士各升职一级",
     "description": "康熙写给吴三桂的圣谕，由韦小宝宣读给数万将士听",
@@ -1366,7 +1366,7 @@
   {
     "id": "item_huo_qiang",
     "name": "罗刹国火枪",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_wu_san_gui",
     "one_line": "吴三桂书房墙上挂的罗刹国长火枪",
     "description": "战阵上使用的火枪，能及远但携带不便，当年大清与罗刹兵在关外开仗时缴获",
@@ -1381,7 +1381,7 @@
   {
     "id": "item_huo_you_xiao_huang",
     "name": "火油硝磺",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "吴三桂手下准备用来放火烧安阜园搜查的引火物",
     "description": "吴三桂部属带了大量火油硝磺躲在安阜园西边树林中，企图纵火趁乱搜查",
@@ -1396,7 +1396,7 @@
   {
     "id": "item_luo_sha_huo_qiang",
     "name": "罗刹火枪",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_wei_xiao_bao",
     "one_line": "吴三桂送给韦小宝的两把罗刹国火枪",
     "description": "罗刹人制造的火枪，威力巨大，一枪轰断大树枝。两把一雄一雌，装在木盒中。",
@@ -1411,7 +1411,7 @@
   {
     "id": "item_duan_dao",
     "name": "短刀",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_wu_ying_xiong",
     "one_line": "吴应熊在公主房中所持的短刀",
     "description": "吴应熊进入公主卧室后手中握着的短刀，沾满鲜血",
@@ -1423,7 +1423,7 @@
   {
     "id": "item_pi_pa",
     "name": "琵琶",
-    "type": "other",
+    "type": "其他",
     "owner": "char_chen_yuan_yuan",
     "one_line": "陈圆圆弹奏圆圆曲的琵琶",
     "description": "挂在三圣庵小房墙壁上的琵琶，陈圆圆摘下弹唱圆圆曲",
@@ -1437,7 +1437,7 @@
   {
     "id": "item_yuan_yuan_qu",
     "name": "圆圆曲",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_chen_yuan_yuan",
     "one_line": "吴梅村为陈圆圆所作长诗，悬挂于三圣庵壁上",
     "description": "大诗人吴梅村为陈圆圆所作长诗，记述其身世遭遇，字迹密密麻麻悬挂墙上",
@@ -1451,7 +1451,7 @@
   {
     "id": "item_jin_biao_ling_jian",
     "name": "金鈚令箭",
-    "type": "other",
+    "type": "其他",
     "owner": "char_xia_guo_xiang",
     "one_line": "平西王府通行令箭",
     "description": "夏国相出示的金鈚令箭，用于通行王府地牢",
@@ -1465,7 +1465,7 @@
   {
     "id": "item_gu_pai",
     "name": "骨牌",
-    "type": "other",
+    "type": "其他",
     "owner": null,
     "one_line": "赌场中的三十二张牌九骨牌",
     "description": "赌场赌具，乡农以掌力在骨牌上留下印记作弊",
@@ -1477,7 +1477,7 @@
   {
     "id": "item_yin_piao_jin_ding",
     "name": "银票金锭",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝随身携带的大叠银票和金锭",
     "description": "韦小宝用于赌场推庄的银票和金锭，价值数千两",
@@ -1491,7 +1491,7 @@
   {
     "id": "item_yang_qiang",
     "name": "罗刹国洋枪",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_wu_liu_qi",
     "one_line": "吴三桂所赠的西洋火枪，韦小宝转赠吴六奇，威力惊人",
     "description": "罗刹国制造的火枪，一枪轰来英雄好汉也抵挡不住，吴六奇试射后石屑纷飞",
@@ -1508,7 +1508,7 @@
   {
     "id": "item_bai_yu_wan",
     "name": "白玉碗",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "施琅献给韦小宝的礼物，碗中刻有加官晋爵四字",
     "description": "纯净温润的白玉碗，刻有韦小宝名讳及加官晋爵四字，眷晚生施琅敬赠",
@@ -1522,7 +1522,7 @@
   {
     "id": "item_liu_zhou_da_feng",
     "name": "柳州大风雨",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "柳州江上一场猛烈暴风雨，将小船吹出三十余里",
     "description": "狂风暴雨，浪头高丈余，风帆落下，灯笼卷飞，天地会兄弟在风浪中险象环生",
@@ -1537,7 +1537,7 @@
   {
     "id": "item_tao_hua_shan",
     "name": "桃花扇",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_kong_shang_ren",
     "one_line": "孔尚任所作新曲，写南朝史阁部抗清沉江故事",
     "description": "孔尚任心存故国所谱之曲，说的是史阁部精忠抗敌沉江殉难，因文字狱不敢公开",
@@ -1552,7 +1552,7 @@
   {
     "id": "item_mu_jiang",
     "name": "木桨",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_shuang_er",
     "one_line": "小艇上的木桨，双儿用来击打瘦头陀，击断一柄",
     "description": "小艇上的普通木桨，双儿用力击打瘦头陀头部，啪的一声断为两截",
@@ -1567,7 +1567,7 @@
   {
     "id": "item_niu_pi_suo",
     "name": "牛皮索",
-    "type": "other",
+    "type": "其他",
     "owner": "char_shou_tou_tuo",
     "one_line": "绑缚瘦头陀手脚的牛皮索，浸水后更坚韧",
     "description": "浸湿后更加坚韧的牛皮索，瘦头陀内力深厚也挣不断",
@@ -1582,7 +1582,7 @@
   {
     "id": "item_shou_pi_yi",
     "name": "鹿皮衣裤",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_wei_xiao_bao",
     "one_line": "双儿用鹿皮为韦小宝做的衣裤鞋子",
     "description": "两人在密林中十多日，原衣被荆棘勾烂，双儿剥鹿皮做衣裤鞋",
@@ -1597,7 +1597,7 @@
   {
     "id": "item_diao_pi_ao",
     "name": "貂皮袄",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_wei_xiao_bao",
     "one_line": "在牡丹江皮铺买的上好貂皮袄，穿在鹿皮衣内御寒",
     "description": "两件上好貂皮袄，貂皮袄外罩粗陋鹿皮衣并涂黑脸以防认出",
@@ -1612,7 +1612,7 @@
   {
     "id": "item_jiu_biao_zi",
     "name": "碎羊皮",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝贴身藏匿的碎羊皮地图，拼凑完成后已牢记在心",
     "description": "前章双儿已拼成完整地图，韦小宝牢记山川方位后焚毁",
@@ -1626,7 +1626,7 @@
   {
     "id": "item_bei_shi",
     "name": "短铳",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_gao_li_jin",
     "one_line": "高里津总督的西洋短铳，对准洪教主喝令不得乱动",
     "description": "罗刹国总督随身佩带的短火铳，高里津拔出指向洪教主",
@@ -1642,7 +1642,7 @@
   {
     "id": "item_kang_xi_mi_yu",
     "name": "康熙密谕",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "康熙亲笔密谕，证明韦小宝钦差大臣身份",
     "description": "钦差大臣兼骁骑营都统韦小宝赴辽东公干的御笔密谕，盖有御宝",
@@ -1656,7 +1656,7 @@
   {
     "id": "item_jin_bi",
     "name": "金币",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "苏菲亚赏给韦小宝的十几枚金币",
     "description": "苏菲亚从抽屉取出赏给韦小宝的罗刹国金币",
@@ -1670,7 +1670,7 @@
   {
     "id": "item_luo_sha_li_wu",
     "name": "罗刹国贡品",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "苏菲亚回赠韦小宝的貂皮宝石等罗刹国特产及国书",
     "description": "致送中国皇帝的国书，貂皮宝石等罗刹国贵重特产，及护送的哥萨克骑兵",
@@ -1684,7 +1684,7 @@
   {
     "id": "item_bei_jiu_jiao",
     "name": "克里姆林宫酒窖",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "克里姆林宫的酒窖，藏有数十年陈年伏特加，也关押了小沙皇彼得",
     "description": "猎宫和克里姆林宫地窖中藏有数十年陈酒，火枪手开窖痛饮，彼得被关其中",
@@ -1699,7 +1699,7 @@
   {
     "id": "item_xuan_hu_pi_mao",
     "name": "玄狐水貂皮毛",
-    "type": "other",
+    "type": "其他",
     "owner": null,
     "one_line": "罗刹国进献的珍贵毛皮",
     "description": "罗刹国所产玄狐水貂之属，毛皮比辽东的更为华美丰厚",
@@ -1711,7 +1711,7 @@
   {
     "id": "item_ba_dou",
     "name": "巴豆",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝用来毒吴应熊滇马的泻药",
     "description": "混在豆料中喂吴应熊的滇马食用，令马匹拉稀屎无力奔跑",
@@ -1726,7 +1726,7 @@
   {
     "id": "item_jin_dai_wei",
     "name": "金带围芍药",
-    "type": "other",
+    "type": "其他",
     "owner": null,
     "one_line": "禅智寺前罕见名种芍药，花瓣深红腰有金线，传说戴者日后做宰相",
     "description": "芍药名种金带围，花瓣深红，拦腰有金色横线，百花所无，相传戴之日后可做宰相",
@@ -1738,7 +1738,7 @@
   {
     "id": "item_mi_chun_jiu",
     "name": "迷春酒",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "妓院中用来迷倒不肯接客雏妓的药酒",
     "description": "妓院中调制的蒙汗药酒，饮后人事不知，被韦小宝用来迷倒郑克塽和阿珂",
@@ -1753,7 +1753,7 @@
   {
     "id": "item_wu_liu_qi_mi_xin",
     "name": "吴六奇密信",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "吴六奇写给查伊璜的反清密信，被吴之荣截获",
     "description": "信中以典故隐语暗示起兵反清，署名'雪中铁丐'，提及'欲图中山、开平之伟举，非青田先生运筹不为功'",
@@ -1767,7 +1767,7 @@
   {
     "id": "item_jia_wu_gui_jia_shu",
     "name": "伪造吴三桂家书",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "查伊璜伪造的吴三桂书信",
     "description": "韦小宝以此信蒙骗归氏，后被归二娘撕开查看",
@@ -1783,7 +1783,7 @@
   {
     "id": "item_shi_ji",
     "name": "反清诗集文集",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wu_zhi_rong",
     "one_line": "包括查慎行诗集、查伊璜《国寿录》、顾炎武诗集等含反清内容的书籍",
     "description": "吴之荣搜集的反清文字证据，包括查慎行《洪武铜炮歌》、查伊璜《国寿录》、顾炎武诗集《羌胡》《井中心史歌》等",
@@ -1797,7 +1797,7 @@
   {
     "id": "item_bai_lao_hu_pi_pao",
     "name": "白老虎皮袍",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_gui_zhong",
     "one_line": "吴三桂赠归钟的白老虎皮袍，被归辛树劈碎后投入火炉焚毁",
     "description": "归钟得意展示白虎皮袍，归辛树以剑将其裂成碎块，归二娘投入火炉焚毁以示与吴三桂决裂",
@@ -1812,7 +1812,7 @@
   {
     "id": "item_can_tang",
     "name": "参汤",
-    "type": "pill",
+    "type": "药丸",
     "owner": "char_gui_zhong",
     "one_line": "归家自带的参汤，用于调养归钟身体",
     "description": "归家随身携带，由仆妇熬制，隔水炖热给归钟服用",
@@ -1826,7 +1826,7 @@
   {
     "id": "item_wu_zhi_rong_she tou",
     "name": "吴之荣舌头",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wu_zhi_rong",
     "one_line": "吴之荣的大半截舌头，被韦小宝割去以防其向敌人泄密",
     "description": "韦小宝趁吴之荣假装摔倒之际，用匕首割去其舌头大半截",
@@ -1840,7 +1840,7 @@
   {
     "id": "item_wu_gui_xi_wen",
     "name": "吴三桂讨清檄文",
-    "type": "book",
+    "type": "书籍",
     "owner": null,
     "one_line": "吴三桂起兵讨清的檄文，以复兴明室为名",
     "description": "檄文以'兴明讨虏大将军吴'名义发布，历数清朝罪行，声称奉朱三太子登基，改国号为周",
@@ -1854,7 +1854,7 @@
   {
     "id": "item_jin_si_bei_xin",
     "name": "金丝背心",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_wei_xiao_bao",
     "one_line": "刀枪不入的金丝软猬甲，原为鳌拜所有，韦小宝欲献给康熙被赐还",
     "description": "前明宫中所获，摄政王赐给鳌拜，抄家时被韦小宝私藏，康熙命其继续穿着",
@@ -1868,7 +1868,7 @@
   {
     "id": "item_mi_zou",
     "name": "韦小宝密奏",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝画图密奏康熙，提醒有刺客行刺",
     "description": "韦小宝在金花玉版笺上以画代字，画出刺客行刺之意，因不会写字以图画代替",
@@ -1882,7 +1882,7 @@
   {
     "id": "item_sang_jie_zou_zhang",
     "name": "桑结奏章",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "桑结向清朝称臣效忠的奏章",
     "description": "桑结答应为清朝出力讨伐吴三桂，言辞恭顺恳切",
@@ -1896,7 +1896,7 @@
   {
     "id": "item_ge_er_dan_zou_zhang",
     "name": "葛尔丹奏章",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "葛尔丹向清朝称臣效忠的奏章",
     "description": "葛尔丹答应为清朝出力，想做准噶尔汗",
@@ -1910,7 +1910,7 @@
   {
     "id": "item_han_she_ying",
     "name": "含沙射影暗器",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_wei_xiao_bao",
     "one_line": "腰间暗藏的钢针发射机关",
     "description": "五毒教所传暗器，钢针上原喂剧毒，何惕守改为麻药",
@@ -1928,7 +1928,7 @@
   {
     "id": "item_bai_xian_wan",
     "name": "百涎丸",
-    "type": "pill",
+    "type": "药丸",
     "owner": "char_shen_hong",
     "one_line": "洪教主以百种毒蛇毒虫唾涎调制的毒药",
     "description": "以百种毒蛇毒虫唾涎调制，号称三年后毒性才发作。陆高轩识破后拒服",
@@ -1943,7 +1943,7 @@
   {
     "id": "item_jin_yuan_bao",
     "name": "金元宝与银锭",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "赵良栋暗中赠予韦小宝的逃亡经费",
     "description": "赵良栋假装搜查时掏出两只金元宝三锭银子，轻轻放在韦小宝脚边",
@@ -1958,7 +1958,7 @@
   {
     "id": "item_fire_gun",
     "name": "罗刹短铳火枪",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_shuang_er",
     "one_line": "吴六奇赠予双儿的罗刹国精制火器",
     "description": "罗刹国精制短铳火枪，吴六奇与双儿义结兄妹时所赠",
@@ -1974,7 +1974,7 @@
   {
     "id": "item_blood_receipt",
     "name": "三百八十万两血书欠据",
-    "type": "other",
+    "type": "其他",
     "owner": "char_wei_xiao_bao",
     "one_line": "郑克塽以断指血写的巨额欠据",
     "description": "郑克塽被割断食指后用血写下'欠银三百八十万两正。郑克塽押'的欠据",
@@ -1988,7 +1988,7 @@
   {
     "id": "item_kangxi_six_paintings",
     "name": "康熙六幅功绩图",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_kang_xi",
     "one_line": "康熙亲笔所绘韦小宝六件大功的图画密旨",
     "description": "六幅画记韦小宝六件大功：摔角比武、擒鳌拜、救老皇爷、挡白衣尼一剑、救真太后、散吴三桂三路盟军",
@@ -2003,7 +2003,7 @@
   {
     "id": "item_kangxi_edict",
     "name": "康熙密旨",
-    "type": "other",
+    "type": "其他",
     "owner": "char_kang_xi",
     "one_line": "康熙写给韦小宝的密旨，充满粗话和旧情",
     "description": "密旨中用'他妈的'和'老子'等粗话，以旧情打动韦小宝回京",
@@ -2018,7 +2018,7 @@
   {
     "id": "item_dice",
     "name": "灌水银假骰子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "曾柔珍藏多年的韦小宝灌水银骰子",
     "description": "曾柔从韦小宝处要走后一直贴身收藏的四颗假骰子",
@@ -2033,7 +2033,7 @@
   {
     "id": "item_qian_li_jing",
     "name": "千里镜",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "望远镜，韦小宝用以观察来船",
     "description": "可远距离观察来船细节的光学器具",
@@ -2047,7 +2047,7 @@
   {
     "id": "item_jin_fan_wan",
     "name": "黄金饭碗",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "康熙御赐黄金饭碗，碗中刻'公忠体国'四字",
     "description": "施琅当年所赠黄金饭碗，经炮轰伯爵府后残损，康熙命匠人修补重赐，意在警示韦小宝捧好金饭碗",
@@ -2061,7 +2061,7 @@
   {
     "id": "item_luo_sha_duan_chong",
     "name": "罗刹短铳",
-    "type": "weapon",
+    "type": "武器",
     "owner": "char_shuang_er",
     "one_line": "双儿在天地会堂口鸣枪震慑群豪的火器",
     "description": "罗刹国制造的短枪，双儿取出点燃药引向屋顶放枪，令玄贞道人惊退",
@@ -2077,7 +2077,7 @@
   {
     "id": "item_teng_pai",
     "name": "藤牌",
-    "type": "armor",
+    "type": "防具",
     "owner": null,
     "one_line": "郑成功旧部所用藤牌，可挡鸟枪子弹",
     "description": "台湾藤牌兵所用防具，着地滚将过去斩敌马脚",
@@ -2092,7 +2092,7 @@
   {
     "id": "item_huang_jin_yin_xin",
     "name": "抚远大将军韦之印",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝的黄金印信，用以在外交信函上盖朱印",
     "description": "黄金制成的大将军印信，用以签署外交文件",
@@ -2106,7 +2106,7 @@
   {
     "id": "item_luo_sha_lie_jiu",
     "name": "罗刹烈酒",
-    "type": "other",
+    "type": "其他",
     "owner": null,
     "one_line": "罗刹国烈酒，图尔布青在城中饮用",
     "description": "罗刹国产烈性酒",
@@ -2120,7 +2120,7 @@
   {
     "id": "item_lu_tuo_shi_xiang",
     "name": "韦小宝裸体石像",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_su_fei_ya",
     "one_line": "韦小宝命石匠雕刻的裸体石像，送苏菲亚公主",
     "description": "韦小宝召来雕凿界碑的石匠所凿裸体石像，笑容可掬栩栩如生，胸口刻有罗刹文'我永远爱你'，后藏于克里姆林宫",
@@ -2134,7 +2134,7 @@
   {
     "id": "item_ni_bu_chu_tiao_yue",
     "name": "尼布楚条约",
-    "type": "book",
+    "type": "书籍",
     "owner": null,
     "one_line": "中俄第一份条约，中国大占便宜，割归土地二百万方公里",
     "description": "中国和外国所订第一份条约，共四份，规定以外兴安岭为界，使中国东北边境获致一百五十余年安宁",
@@ -2149,10 +2149,10 @@
   {
     "id": "item_ju_fang_shou_pa",
     "name": "春宫手帕",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_xiao_bao",
     "one_line": "韦小宝用来引开多隆目光的手帕，曾用于法场调包",
-    "description": "绘有春宫图的手帕，在法场监斩时引开多隆注意力以完成调包；绘有春宫图的手帕，韦小宝在监斩时以手帕引开多隆注意力，掩护手下掉包",
+    "description": "绘有春宫图的手帕，韦小宝在监斩时以手帕引开多隆注意力，掩护手下掉包",
     "effects": [
       "吸引注意力"
     ],
@@ -2163,7 +2163,7 @@
   {
     "id": "item_gao_ming",
     "name": "诰命",
-    "type": "book",
+    "type": "书籍",
     "owner": "char_wei_xiao_bao",
     "one_line": "康熙颁给韦小宝的升爵诰命，其中多加'陈近南'三字",
     "description": "康熙亲笔在诰命中加入'擒斩天地会逆首陈近南'数字，逼韦小宝与天地会断绝关系",
