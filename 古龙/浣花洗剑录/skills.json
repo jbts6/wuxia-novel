@@ -1,0 +1,482 @@
+[
+  {
+    "id": "skill_xin_jian",
+    "name": "心剑",
+    "type": "剑法",
+    "faction": "",
+    "rank": "返璞归真",
+    "one_line": "以意为先以自然变化悟剑道的无上剑法",
+    "description": "紫衣侯师兄所创的最高剑道，不依赖固定招式，而是以心意驭剑。方宝玉通过观流水悟出生生不息之理，将此剑法发扬光大。心剑是一柄灰黯无光的木剑，象征剑意重于剑形。",
+    "techniques": [
+      {"id": "tech_fei_e_pu_huo", "name": "飞蛾扑火", "type": "attack", "description": "以己之弱攻彼之强，冲向刀光最盛处出其不意破敌，是破解白衣人一刀的方法"},
+      {"id": "tech_san_zhao_he_yi", "name": "三招合一", "type": "ultimate", "description": "融合白衣人一刀（最强）+黑纱女一招（最弱/死角）+自身领悟=天下无敌的终极一剑"},
+      {"id": "tech_sui_xin_suo_yu", "name": "随心所欲", "type": "special", "description": "以意驭剑信手挥来皆是妙着，无固定招式"}
+    ],
+    "progression": ["从自然万物中领悟剑意", "观流水悟出生生不息之理", "以意驭剑随心所欲", "三招合一臻至化境"],
+    "effects": ["以意驭剑", "随心所欲", "无固定招式", "信手挥来皆是妙着"],
+    "combat_style": "以意驭剑，信手挥来皆是妙到毫巅",
+    "source_refs": [
+      {"chapter": 8, "line_start": 322, "line_end": 324, "text": "以意驭剑随心所欲虽无固定招式但信手挥来无一不是妙到毫巅"},
+      {"chapter": 15, "line_start": 137, "line_end": 241, "text": "周方教宝儿观流水悟武道生生不息"},
+      {"chapter": 60, "line_start": 432, "line_end": 453, "text": "三招合一终极一剑"}
+    ]
+  },
+  {
+    "id": "skill_bai_yi_jian_fa",
+    "name": "白衣人剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "东海白衣人的无双剑法，融合东瀛武学精粹",
+    "description": "白衣人以六尺长剑施展的自创剑道。融合东瀛三大流派精粹为一招，杀气极重必见血光。一剑自眉心划下，一道血口自眉心划过鼻尖、仁中、嘴唇、咽喉直下胸膛。十年磨剑于棋岛，以黑白石头为棋参悟剑道。",
+    "techniques": [
+      {"id": "tech_mei_xin_yi_jian", "name": "眉心一剑", "type": "attack", "description": "自眉心划下的一剑，白衣人标志性杀招，一剑致命"},
+      {"id": "tech_yi_nu_sha_long", "name": "一怒杀龙手", "type": "attack", "description": "融合三招精华之一：少林三绝手"},
+      {"id": "tech_pan_gu_yi_fu", "name": "盘古一斧开天地", "type": "attack", "description": "融合三招精华之二：柳大侠绝招"},
+      {"id": "tech_ying_feng_yi_zhan", "name": "迎风一斩", "type": "attack", "description": "融合三招精华之三：东瀛刀法"},
+      {"id": "tech_bai_yi_yi_dao", "name": "白衣人一刀", "type": "ultimate", "description": "东瀛三大流派精粹融为一招，杀气极重必见血光，破绽在胁下"}
+    ],
+    "progression": ["东瀛奇人携子学武", "十年磨剑于棋岛", "融合东瀛武学精义", "横扫东瀛无敌手"],
+    "effects": ["一招致命", "无人能挡", "杀气极重"],
+    "combat_style": "辛辣狠毒，一剑致命，每剑刺出似一样却绝不相同",
+    "source_refs": [
+      {"chapter": 1, "line_start": 76, "line_end": 79, "text": "白衣人背后六尺长剑已然出鞘"},
+      {"chapter": 1, "line_start": 114, "line_end": 144, "text": "一剑似已化为五剑五个人竟似同时受伤"},
+      {"chapter": 41, "line_start": 2, "line_end": 10, "text": "融合三招精华：一怒杀龙手盘古一斧迎风一斩"},
+      {"chapter": 42, "line_start": 112, "line_end": 112, "text": "破绽在胁下"}
+    ]
+  },
+  {
+    "id": "skill_zi_yi_jian_fa",
+    "name": "紫衣侯剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "紫衣侯融合天下各派剑法精萃的无上剑法",
+    "description": "紫衣侯能同时施展九十七种不同剑法，融天下各派剑法精萃于一炉。最终以失传数百年的伏魔剑法胜白衣人半招。堂堂正正无懈可击。",
+    "techniques": [
+      {"id": "tech_fu_mo_jian", "name": "伏魔剑法", "type": "attack", "description": "上古大禹治水时所创，武林失传数百年，最终胜白衣人半招"},
+      {"id": "tech_jiu_shi_qi_jian", "name": "九十七种剑法", "type": "special", "description": "紫衣侯能同时施展九十七种不同剑法"},
+      {"id": "tech_qi_ying_jian", "name": "七莺剑法", "type": "attack", "description": "融合多派精萃的剑法之一"},
+      {"id": "tech_long_feng_da_jiu_shi", "name": "龙风大九式", "type": "attack", "description": "融合多派精萃的剑法之一"}
+    ],
+    "progression": ["融天下各派剑法精萃于一炉"],
+    "effects": ["剑法无懈可击", "攻守兼备"],
+    "combat_style": "堂堂正正，无懈可击，连换九十七种剑法",
+    "source_refs": [
+      {"chapter": 7, "line_start": 104, "line_end": 108, "text": "紫衣侯连换了九十七种剑法最后以伏魔剑法侥幸胜了半招"},
+      {"chapter": 7, "line_start": 478, "line_end": 488, "text": "一招中能包含四招之精髓"}
+    ]
+  },
+  {
+    "id": "skill_ku_mu_gong",
+    "name": "枯木神功",
+    "type": "内功",
+    "faction": "faction_qing_mu_gong",
+    "rank": "出神入化",
+    "one_line": "七大魔功之一，练此功者七情六欲麻木，身如枯木刀枪不入",
+    "description": "武功中久已绝传之七大魔功之一。练此魔功之人七情六欲已完全麻木，身已练得如同木头一般，普通刀剑都难伤得了他。反震之力极强，阴劲反震成伤。",
+    "techniques": [
+      {"id": "tech_shen_mu_hu_xin_dun", "name": "神木护心盾", "type": "defense", "description": "胸前护身，刀枪不入"},
+      {"id": "tech_tie_bian_shou_bi", "name": "铁鞭手臂", "type": "attack", "description": "双臂如铁鞭"}
+    ],
+    "progression": [],
+    "effects": ["刀枪不入", "阴劲反震", "身如枯木", "七情六欲麻木"],
+    "combat_style": "以守代攻，以不变应万变",
+    "source_refs": [
+      {"chapter": 2, "line_start": 274, "line_end": 286, "text": "枯木神功乃是武功中久已绝传之七大魔功之一"},
+      {"chapter": 13, "line_start": 210, "line_end": 272, "text": "双臂如铁鞭神木护心盾"}
+    ]
+  },
+  {
+    "id": "skill_fu_yu",
+    "name": "腹语术",
+    "type": "特殊",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "王半侠的腹语功夫，可同时发出两种声音",
+    "description": "王半侠独门绝技，将自己当做两个人。冷漠口声与热情笑声并存，化身双侠。实为欺世盗名之术。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["一人扮两人", "声东击西", "迷惑对手"],
+    "combat_style": "迷惑对手，冷漠语声配热情内容",
+    "source_refs": [
+      {"chapter": 5, "line_start": 654, "line_end": 668, "text": "腹语功夫硬要将自己当做两个人"},
+      {"chapter": 15, "line_start": 309, "line_end": 345, "text": "腹语术伪装两种性格"}
+    ]
+  },
+  {
+    "id": "skill_suo_lian_dao",
+    "name": "锁镰刀",
+    "type": "刀法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "东瀛武学，天刀梅谦的成名绝技，变化最多最复杂的兵刃",
+    "description": "东瀛传入的奇门兵刃，由一尺四寸砂金铁棒、两丈手链、五芒铁球和月牙弯刀组成。可刚可柔变化最多，是十三种外门兵刃中变化最复杂的。",
+    "techniques": [
+      {"id": "tech_suo_lian_san_dao", "name": "锁镰三刀", "type": "attack", "description": "梅谦连续三刀的凌厉攻势"}
+    ],
+    "progression": [],
+    "effects": ["刀法凌厉", "攻守兼备", "变化最多"],
+    "combat_style": "东瀛刀法，凌厉狠辣，可刚可柔",
+    "source_refs": [
+      {"chapter": 32, "line_start": 347, "line_end": 382, "text": "三刀杀方长冬"},
+      {"chapter": 50, "line_start": 506, "line_end": 577, "text": "与公孙红在船上对峙"}
+    ]
+  },
+  {
+    "id": "skill_po_yun_zhen_tian_bi",
+    "name": "破云震天笔",
+    "type": "暗器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "十三种外门兵刃中名列第二",
+    "description": "冷冰鱼的武器，银色笔状暗器，分七节可发射彩色光芒。轻、灵、巧、快、稳，可同时攻击多个穴道。",
+    "techniques": [
+      {"id": "tech_qi_jie_guang_yu", "name": "七节光雨", "type": "attack", "description": "七节暗器连续发射如光雨般密集"}
+    ],
+    "progression": [],
+    "effects": ["暗器密集", "防不胜防", "同时攻击多穴"],
+    "combat_style": "暗器连发，密集如雨，轻灵巧快稳",
+    "source_refs": [
+      {"chapter": 28, "line_start": 230, "line_end": 232, "text": "轻灵巧快稳"}
+    ]
+  },
+  {
+    "id": "skill_qi_sang_ji",
+    "name": "七丧戟",
+    "type": "兵器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "十三种外门兵刃之一，可兼具四种招式三种妙用",
+    "description": "铁温侯的兵器，似钩非钩似夺非夺。戟身双带锋刃如剑，戟头尖端形如银光万字夺。兼具万字夺、双铁戟、鸳鸯剑、护手钩四种招式。可暴长一尺三寸，射七点银星，带银练如链子长枪。",
+    "techniques": [
+      {"id": "tech_si_zhao_san_miao", "name": "四种招式三种妙用", "type": "attack", "description": "兼具万字夺、双铁戟、鸳鸯剑、护手钩四种招式"},
+      {"id": "tech_she_yin_xing", "name": "射银星", "type": "attack", "description": "射七点银星"},
+      {"id": "tech_yin_lian_ru_qiang", "name": "银练如枪", "type": "attack", "description": "带银练如链子长枪"}
+    ],
+    "progression": [],
+    "effects": ["四种招式变化", "攻守兼备", "可暴长", "射银星"],
+    "combat_style": "变化多端",
+    "source_refs": [
+      {"chapter": 6, "line_start": 368, "line_end": 381, "text": "七丧戟四种招式三种妙用"},
+      {"chapter": 13, "line_start": 338, "line_end": 344, "text": "双戟可暴长一尺三寸射七点银星带银练"}
+    ]
+  },
+  {
+    "id": "skill_tian_long_gun",
+    "name": "天龙棍",
+    "type": "棍法",
+    "faction": "",
+    "rank": "返璞归真",
+    "one_line": "拙中之巧返璞归真的棍法，十三种外门兵刃第一名",
+    "description": "公孙红的武器，看似一根普通木棒实为天龙棍。变化最少最简单的兵刃，以拙胜巧大巧若拙。融合剑、刀、鞭、钩四种技法于一身。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["拙中之巧", "大巧若拙", "以不变应万变"],
+    "combat_style": "看似笨拙实则精妙，以拙胜巧",
+    "source_refs": [
+      {"chapter": 33, "line_start": 16, "line_end": 40, "text": "公孙红天龙棍拙中之巧"},
+      {"chapter": 33, "line_start": 68, "line_end": 72, "text": "融合剑刀鞭钩四种技法"}
+    ]
+  },
+  {
+    "id": "skill_feng_yu_shuang_pai",
+    "name": "风雨双牌",
+    "type": "兵器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "十三种外门兵刃中名列第四",
+    "description": "英铁翎的兵器，威猛霸道。配合飞鹰一百三十式使用。",
+    "techniques": [
+      {"id": "tech_fei_ying_yi_bai_san_shi", "name": "飞鹰一百三十式", "type": "attack", "description": "英铁翎的成名绝技"}
+    ],
+    "progression": [],
+    "effects": ["攻守兼备"],
+    "combat_style": "刚猛凌厉",
+    "source_refs": [
+      {"chapter": 22, "line_start": 397, "line_end": 406, "text": "风雨双牌十三种外门兵刃名列第四"}
+    ]
+  },
+  {
+    "id": "skill_bai_bao_zhang",
+    "name": "百宝杖",
+    "type": "兵器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "万老夫人的奇门兵刃，杖中藏有各种暗器",
+    "description": "万老夫人的丈三长杖，杖头可弹出三尺利刃。满身衣袋中的零食俱可当做暗器，包括冰糖梅子、酥糖等。杖法包括乱点梨花、玉带束金袍、横扫千匹马等招式。",
+    "techniques": [
+      {"id": "tech_zhang_tou_qing_feng", "name": "杖头青锋", "type": "attack", "description": "杖头弹出三尺青锋"},
+      {"id": "tech_luan_dian_li_hua", "name": "乱点梨花", "type": "attack", "description": "梨花大枪法"},
+      {"id": "tech_yu_dai_shu_jin_pao", "name": "玉带束金袍", "type": "attack", "description": "齐眉五行棍"},
+      {"id": "tech_heng_sao_qian_pi_ma", "name": "横扫千匹马", "type": "attack", "description": "白蜡大竿子"},
+      {"id": "tech_an_qi_man_tian", "name": "暗器漫天", "type": "attack", "description": "各种零食暗器齐发"}
+    ],
+    "progression": [],
+    "effects": ["暗器诡异", "出其不意", "远距离攻击"],
+    "combat_style": "以暗器取胜，杖法多变",
+    "source_refs": [
+      {"chapter": 1, "line_start": 670, "line_end": 682, "text": "万老夫人满身衣袋中的零食俱可当做暗器"},
+      {"chapter": 13, "line_start": 342, "line_end": 344, "text": "梨花大枪法齐眉五行棍白蜡大竿子"}
+    ]
+  },
+  {
+    "id": "skill_hua_he_zhang",
+    "name": "化鹤掌",
+    "type": "掌法",
+    "faction": "faction_fei_he_men",
+    "rank": "登堂入室",
+    "one_line": "飞鹤门绝学，青鹤柳松三绝之一",
+    "description": "飞鹤门柳松的成名绝技，化鹤掌、鹤爪十七抓、鹤羽针号称三绝。鹤爪兵刃形如鹤爪乌光闪闪，内藏鹤羽针兼打穴道。",
+    "techniques": [
+      {"id": "tech_he_zhao_shi_qi_zhua", "name": "鹤爪十七抓", "type": "attack", "description": "青鹤柳松的成名绝技"},
+      {"id": "tech_yun_he_bo_long", "name": "云鹤搏龙", "type": "attack", "description": "鹤爪十七抓中最凌厉的一招"},
+      {"id": "tech_he_yu_zhen", "name": "鹤羽针", "type": "attack", "description": "内藏暗器兼打穴道"}
+    ],
+    "progression": [],
+    "effects": ["招式凌厉", "暗器诡异"],
+    "combat_style": "模仿仙鹤姿态",
+    "source_refs": [
+      {"chapter": 1, "line_start": 30, "line_end": 30, "text": "化鹤掌鹤爪十七抓鹤羽针号称三绝"}
+    ]
+  },
+  {
+    "id": "skill_qing_ping_jian_fa",
+    "name": "清平剑法",
+    "type": "剑法",
+    "faction": "faction_qing_ping",
+    "rank": "炉火纯青",
+    "one_line": "清平剑派本门剑法，以清丽流动见长",
+    "description": "白三空本门剑法，剑法本以清丽流动见长，端的清丽绝俗流采照人。白三空曾用鸳鸯剑起手式举案齐眉护住眉心对抗白衣人。",
+    "techniques": [
+      {"id": "tech_ju_an_qi_mei", "name": "举案齐眉", "type": "defense", "description": "鸳鸯剑起手式，专门护住眉心"}
+    ],
+    "progression": [],
+    "effects": ["清丽绝俗", "护守眉心"],
+    "combat_style": "以清丽流动见长",
+    "source_refs": [
+      {"chapter": 1, "line_start": 300, "line_end": 320, "text": "剑法本以清丽流动见长端的清丽绝俗"}
+    ]
+  },
+  {
+    "id": "skill_yu_jia_mi_shu",
+    "name": "瑜伽秘术",
+    "type": "内功",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "天竺密宗绝技，入水七日不死活埋半月不毙",
+    "description": "天竺密宗绝技，忍字功夫至极致。入水七日不死，活埋半月不毙，生吃砒霜不毒，赤足走火不伤。伽星法王凭此练就金刚不坏之身。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["金刚不坏之身", "极端忍耐力"],
+    "combat_style": "以忍为攻",
+    "source_refs": [
+      {"chapter": 5, "line_start": 112, "line_end": 112, "text": "入水七日不死活埋半月不毙"}
+    ]
+  },
+  {
+    "id": "skill_jin_gong_mi_ji",
+    "name": "金宫秘技",
+    "type": "武功",
+    "faction": "faction_huang_jin_gong",
+    "rank": "出神入化",
+    "one_line": "西方黄金宫独门武功，黄金魔女的拥抱杀人术",
+    "description": "西方黄金宫独门武功，黄金魔女以拥抱姿势拗断敌人四大关节。金线可当鞭使用，细如柔丝却比蟒鞭还要厉害。",
+    "techniques": [
+      {"id": "tech_yong_bao_sha_ren", "name": "拥抱杀人", "type": "attack", "description": "黄金魔女以拥抱姿势拗断敌人四大关节"},
+      {"id": "tech_jin_xian_bian", "name": "金线鞭", "type": "attack", "description": "金线抖得笔直如鞭"}
+    ],
+    "progression": [],
+    "effects": ["诡异近身搏击", "金线远程攻击"],
+    "combat_style": "诡异近身搏击",
+    "source_refs": [
+      {"chapter": 9, "line_start": 324, "line_end": 324, "text": "黄金魔女以拥抱姿势拗断敌人四大关节"},
+      {"chapter": 9, "line_start": 550, "line_end": 578, "text": "金线细如柔丝可抖得笔直如鞭"}
+    ]
+  },
+  {
+    "id": "skill_shui_gong_mi_ji",
+    "name": "圣水神宫武功",
+    "type": "武功",
+    "faction": "faction_sheng_shui_gong",
+    "rank": "出神入化",
+    "one_line": "圣水神宫独门武功，无水黄蜂针为同归于尽之招",
+    "description": "水天姬家族独门武功，无水黄蜂针为同归于尽之招。世上再无人知道它的破法，只因尝过它滋味的人都已回老家。",
+    "techniques": [
+      {"id": "tech_wu_shui_huang_feng_zhen", "name": "无水黄蜂针", "type": "ultimate", "description": "同归于尽的最终手段"}
+    ],
+    "progression": [],
+    "effects": ["同归于尽"],
+    "combat_style": "同归于尽",
+    "source_refs": [
+      {"chapter": 10, "line_start": 74, "line_end": 76, "text": "世上再无人知道它的破法只因尝过它滋味的人都已回老家"}
+    ]
+  },
+  {
+    "id": "skill_nie_xue",
+    "name": "捏穴",
+    "type": "点穴",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "失传的点穴绝技，优于点穴拍穴打穴拂穴",
+    "description": "方宝玉使用的失传点穴绝技，优于普通的点穴、拍穴、打穴、拂穴。需要精确计算血液流动和呼吸，可延迟昏迷恰好三小时。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["精确控制昏迷时间", "优于普通点穴"],
+    "combat_style": "精确控制",
+    "source_refs": [
+      {"chapter": 26, "line_start": 56, "line_end": 64, "text": "捏穴失传绝技优于点穴拍穴打穴拂穴"}
+    ]
+  },
+  {
+    "id": "skill_gui_mei_shen_fa",
+    "name": "鬼魅身法",
+    "type": "轻功",
+    "faction": "faction_xu_tu_gong",
+    "rank": "出神入化",
+    "one_line": "戌土宫怪异身法，来去倏忽如鬼魅",
+    "description": "土龙子的怪异身法，来去倏忽形如鬼魅。胸膛一吸可平空退出一丈，可踢断练子枪。招式怪异到极处。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["来去倏忽", "形如鬼魅"],
+    "combat_style": "诡异莫测",
+    "source_refs": [
+      {"chapter": 13, "line_start": 232, "line_end": 248, "text": "来去倏忽形如鬼魅胸膛一吸可平空退出一丈"}
+    ]
+  },
+  {
+    "id": "skill_qin_yin_sha_fa",
+    "name": "琴音杀伐",
+    "type": "特殊",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "王半侠借琴音激发狂气的邪术",
+    "description": "王半侠临江操琴，琴音中杀伐之声越来越重，可激发人狂气。被周方以木棍击桅恰击在琴音节奏变化的空隙之间破之。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["激发狂气", "扰乱心神"],
+    "combat_style": "以音攻心",
+    "source_refs": [
+      {"chapter": 15, "line_start": 175, "line_end": 227, "text": "琴音中杀伐之声越来越重"}
+    ]
+  },
+  {
+    "id": "skill_fen_jin_cuo_gu_shou",
+    "name": "分筋错骨手",
+    "type": "擒拿",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "内家正宗上乘功夫，只有少数高手会使",
+    "description": "内家正宗的上乘功夫，武当、少林、峨嵋等少数高手会使。可分人筋骨造成极大痛苦。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["分人筋骨", "造成极大痛苦"],
+    "combat_style": "近身擒拿",
+    "source_refs": [
+      {"chapter": 40, "line_start": 172, "line_end": 172, "text": "内家正宗的上乘功夫只有武当少林峨嵋少数高手会使"}
+    ]
+  },
+  {
+    "id": "skill_zi_mu_zhui_hun_tuo_shou_jian",
+    "name": "子母追魂脱手剑",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "王大娘绝技，脱胎于子母金梭，第二剑后发先至",
+    "description": "王大娘的绝技，脱胎于子母金梭。八剑齐发，第二剑后发先至，极为厉害。",
+    "techniques": [
+      {"id": "tech_ba_jian_qi_fa", "name": "八剑齐发", "type": "attack", "description": "八剑同时发出第二剑后发先至"}
+    ],
+    "progression": [],
+    "effects": ["后发先至", "多剑齐发"],
+    "combat_style": "暗器般的剑法",
+    "source_refs": [
+      {"chapter": 60, "line_start": 146, "line_end": 156, "text": "八剑齐发"}
+    ]
+  },
+  {
+    "id": "skill_jiu_lian_huan",
+    "name": "九连环",
+    "type": "兵器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "十三种外门兵刃之一",
+    "description": "钱奎的武器，十三种外门兵刃之一。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["攻守兼备"],
+    "combat_style": "灵活多变",
+    "source_refs": [
+      {"chapter": 32, "line_start": 2, "line_end": 4, "text": "九连环十三种外门兵刃之一"}
+    ]
+  },
+  {
+    "id": "skill_lei_zhu_shen_huo_bian",
+    "name": "雷珠神火鞭",
+    "type": "兵器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "十三种外门兵刃之一，竹节鞭中藏火雷珠",
+    "description": "王烈火的武器，十三节竹鞭，每节中藏有爆炸火雷珠。火云十三鞭招式。",
+    "techniques": [
+      {"id": "tech_huo_yun_shi_san_bian", "name": "火云十三鞭", "type": "attack", "description": "王烈火的鞭法"}
+    ],
+    "progression": [],
+    "effects": ["爆炸攻击", "火攻"],
+    "combat_style": "以火制敌",
+    "source_refs": [
+      {"chapter": 32, "line_start": 60, "line_end": 64, "text": "十三节竹鞭每节中藏有爆炸火雷珠"}
+    ]
+  },
+  {
+    "id": "skill_luo_ying_jian_fa",
+    "name": "落英剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "马叔泉的家传剑法，天花乱洒染维摩",
+    "description": "马叔泉的家传剑法，流利迅捷变幻无方。",
+    "techniques": [
+      {"id": "tech_luo_ying_qi_shi_er_jian", "name": "落英七十二剑", "type": "attack", "description": "流利迅捷变幻无方"}
+    ],
+    "progression": [],
+    "effects": ["流利迅捷", "变幻无方"],
+    "combat_style": "华丽而实用",
+    "source_refs": [
+      {"chapter": 32, "line_start": 284, "line_end": 284, "text": "天花乱洒染维摩"}
+    ]
+  },
+  {
+    "id": "skill_niu_zhuan_qian_kun_shou_jian",
+    "name": "扭转乾坤杀手剑",
+    "type": "剑法",
+    "faction": "faction_hai_nan",
+    "rank": "出神入化",
+    "one_line": "海南剑派最凌厉的反手剑法",
+    "description": "海南剑派最凌厉的反手剑法，肩头微动剑光即出。蒋笑民以此招攻击宝玉。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["反手出剑", "出其不意"],
+    "combat_style": "反手突袭",
+    "source_refs": [
+      {"chapter": 39, "line_start": 34, "line_end": 34, "text": "海南剑派最凌厉的反手剑法"}
+    ]
+  },
+  {
+    "id": "skill_huo_yao_zhen",
+    "name": "火药阵",
+    "type": "阵法",
+    "faction": "faction_huo_mo_gong",
+    "rank": "出神入化",
+    "one_line": "火魔神的火药陷阱，覆盖整个泰山",
+    "description": "火魔神从五大火药世家购买火药，在泰山各处埋设。雇用东瀛杀手负责引爆。后改为控制人质的手段。",
+    "techniques": [],
+    "progression": [],
+    "effects": ["大范围杀伤", "威胁控制"],
+    "combat_style": "以火药控制局面",
+    "source_refs": [
+      {"chapter": 35, "line_start": 22, "line_end": 78, "text": "从五大世家购买火药覆盖整个泰山"}
+    ]
+  }
+]

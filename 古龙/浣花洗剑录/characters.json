@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "char_fang_bao_bao",
+    "name": "方宝玉",
+    "alias": ["方宝儿", "小宝儿", "大哥", "小丈夫"],
+    "identity": "白三空外孙，紫衣侯传人，后成天下第一",
+    "faction": "null",
+    "role": "protagonist",
+    "archetype": "scholar",
+    "rank": "返璞归真",
+    "one_line": "本书主角，从不愿学武到成为天下第一的传奇少年",
+    "physical_description": "身高不及五尺（童年），天庭开阔眉目如画，眼神亮如天星，嘴角常带笑容的弱冠少年（成年）。肌肤如宝玉象牙般晶莹悦目。面目虽不十分英俊，但无论谁一见了他却难免要生出喜爱亲近之意，带着说不出的高贵清华之态。",
+    "personality": {
+      "traits": ["聪慧过人", "仁智勇兼备", "坚毅不屈", "慈悲为怀", "赤子之心", "忍辱负重", "舍己为人"],
+      "speech_style": "出口成章引经据典，幼时老气横秋，成年后温和有礼，分析时条理清晰",
+      "temperament": "温文尔雅，临危不惧，胸怀天下，外柔内刚"
+    },
+    "relationships": [
+      {"target": "char_niu_tie_wa", "type": "结拜兄弟", "intensity": 95, "bond_level": 5, "dynamic": "铁娃为弟宝儿为兄，患难与共生死之交"},
+      {"target": "char_xiao_gong_zhu", "type": "青梅竹马恋人", "intensity": 95, "bond_level": 5, "dynamic": "从小相识爱恨纠缠互相牵挂，是其一生挚爱"},
+      {"target": "char_zhou_fang", "type": "师徒", "intensity": 90, "bond_level": 5, "dynamic": "周方暗传剑道哲理，教其观流水悟武道"},
+      {"target": "char_bai_san_kong", "type": "祖孙", "intensity": 85, "bond_level": 5, "dynamic": "外公白三空将其抚养长大恩情深重"},
+      {"target": "char_hu_bu_chou", "type": "师叔侄", "intensity": 80, "bond_level": 4, "dynamic": "胡不愁受白三空之托舍命保护宝儿"},
+      {"target": "char_shui_tian_ji", "type": "复杂情感", "intensity": 70, "bond_level": 3, "dynamic": "水天姬戏称其为小丈夫亦师亦友"},
+      {"target": "char_wan_lao_fu_ren", "type": "对手", "intensity": 55, "bond_level": 2, "dynamic": "万老夫人多次与其作对但亦有相助之时"},
+      {"target": "char_bai_yi_ren", "type": "宿敌", "intensity": 85, "bond_level": 4, "dynamic": "立志七年后做白衣人的对手，最终战胜"},
+      {"target": "char_fang_ling_yu", "type": "兄妹", "intensity": 80, "bond_level": 4, "dynamic": "黑纱女方灵玉是其亲妹"},
+      {"target": "char_liu_da_di_zi", "type": "叔侄", "intensity": 85, "bond_level": 4, "dynamic": "七大弟子为白三空门下，视宝儿如子侄"}
+    ],
+    "known_skills": ["skill_xin_jian"],
+    "source_refs": [
+      {"chapter": 1, "line_start": 334, "line_end": 346, "text": "十一二岁的锦衣童子方宝儿在后园梧桐树下看书"},
+      {"chapter": 8, "line_start": 216, "line_end": 234, "text": "方宝儿大声道：就由我来做他对手好了"},
+      {"chapter": 8, "line_start": 278, "line_end": 280, "text": "紫衣侯赞其智仁勇三者兼备"},
+      {"chapter": 19, "line_start": 112, "line_end": 122, "text": "成年后天庭开阔眉目明朗眼神亮如天星"},
+      {"chapter": 20, "line_start": 56, "line_end": 63, "text": "方宝玉心剑——木剑"},
+      {"chapter": 41, "line_start": 438, "line_end": 462, "text": "以飞蛾扑火之法破解白衣人一刀"},
+      {"chapter": 60, "line_start": 432, "line_end": 453, "text": "白衣人临终：好妙的一剑当真妙绝天下"}
+    ]
+  },
+  {
+    "id": "char_bai_yi_ren",
+    "name": "白衣人",
+    "alias": ["东海白衣人", "无双剑客", "东瀛剑客", "白衣剑客"],
+    "identity": "来自东瀛的神秘剑客，为研究武道而挑战天下高手",
+    "faction": "null",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "为武道而生的孤独剑客，一剑东来挑战天下高手",
+    "physical_description": "乱发披肩半掩面目，双手紧握六尺奇形乌鞘长剑。身子看来并不强壮但由头至踵俱都配合得恰到好处，绝无一分多余肌肉。手足皮肤晒成古铜颜色，骤眼望去恰似一尊铜铁雕成的人像。面容绝无丝毫表情比铜像还要生冷坚硬。",
+    "personality": {
+      "traits": ["武痴至极", "冷酷无情", "孤傲寂寞", "守信重诺", "极度自律", "狂热求胜", "悲壮宿命"],
+      "speech_style": "极为简短精练，语声清楚准确但听来有种说不出的生硬怪异味道，通常只说请、好、动手等极简之词",
+      "temperament": "石像般冷漠，悲壮落寞，英雄孤独"
+    },
+    "relationships": [
+      {"target": "char_zi_yi_hou", "type": "宿命对手", "intensity": 95, "bond_level": 5, "dynamic": "七年之约的宿命对手，海上一战以半招败北"},
+      {"target": "char_fang_bao_bao", "type": "未来对手", "intensity": 85, "bond_level": 4, "dynamic": "七年后再来时的对手，最终败于宝玉"},
+      {"target": "char_bai_san_kong", "type": "对手", "intensity": 65, "bond_level": 2, "dynamic": "称白三空为东来所遇第一个真正武人"},
+      {"target": "char_hu_bu_chou", "type": "认可者", "intensity": 50, "bond_level": 2, "dynamic": "略加认可称你也不错"}
+    ],
+    "known_skills": ["skill_bai_yi_jian_fa"],
+    "source_refs": [
+      {"chapter": 1, "line_start": 14, "line_end": 20, "text": "乱发披肩半掩面目双手紧握六尺奇形乌鞘长剑"},
+      {"chapter": 1, "line_start": 76, "line_end": 79, "text": "向天下武林名人挑战便是我此番东来之意"},
+      {"chapter": 6, "line_start": 100, "line_end": 101, "text": "似在感慨十丈红尘之中竟无一人能是他的敌手"},
+      {"chapter": 7, "line_start": 178, "line_end": 180, "text": "身世透露：先父世之奇才兼通百技"},
+      {"chapter": 8, "line_start": 38, "line_end": 39, "text": "今日一败毕生难忘七年之后吾当再来"},
+      {"chapter": 60, "line_start": 453, "line_end": 453, "text": "你永远不会知道你我这样的人活在世上是多么寂寞"}
+    ]
+  },
+  {
+    "id": "char_zi_yi_hou",
+    "name": "紫衣侯",
+    "alias": ["侯爷", "天下第一剑客"],
+    "identity": "五色帆船之主，当世第一剑客，遨游海上",
+    "faction": "faction_wu_se_fan_chuan",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "天下第一剑客，击败白衣人后伤重而亡",
+    "physical_description": "身穿紫缎锦袍头戴王者之冠，面容有如玉石塑成一般带着种逼人的力量，有如古神话中的海神。",
+    "personality": {
+      "traits": ["气度恢宏", "大义凛然", "从容镇定", "豪迈洒脱", "重情重义", "民族气节", "剑法通神"],
+      "speech_style": "语声懒洋洋但威严，有如高山流水和缓自然",
+      "temperament": "尊贵威严，视生死如等闲，从容赴死"
+    },
+    "relationships": [
+      {"target": "char_bai_yi_ren", "type": "宿命对手", "intensity": 95, "bond_level": 5, "dynamic": "海上一战以半招胜出但伤重不治"},
+      {"target": "char_xiao_gong_zhu", "type": "父女", "intensity": 90, "bond_level": 5, "dynamic": "深爱女儿但严加管教"},
+      {"target": "char_zhou_fang", "type": "师兄弟", "intensity": 85, "bond_level": 5, "dynamic": "周方为师兄紫衣侯曾败于其手"},
+      {"target": "char_hu_bu_chou", "type": "传钥", "intensity": 75, "bond_level": 4, "dynamic": "将藏书秘钥传给胡不愁"},
+      {"target": "char_ling_er", "type": "主仆", "intensity": 70, "bond_level": 4, "dynamic": "铃儿忠心耿耿侍奉多年"},
+      {"target": "char_fang_bao_bao", "type": "赞赏者", "intensity": 75, "bond_level": 4, "dynamic": "赞宝儿智仁勇三者兼备"}
+    ],
+    "known_skills": ["skill_zi_yi_jian_fa"],
+    "source_refs": [
+      {"chapter": 4, "line_start": 186, "line_end": 192, "text": "身穿紫缎锦袍面容有如玉石塑成"},
+      {"chapter": 5, "line_start": 322, "line_end": 348, "text": "赞枯枝剑法好高明好快速好精深"},
+      {"chapter": 7, "line_start": 104, "line_end": 108, "text": "连换九十七种剑法以伏魔剑法胜半招"},
+      {"chapter": 8, "line_start": 278, "line_end": 280, "text": "赞宝儿智仁勇三者兼备"},
+      {"chapter": 8, "line_start": 433, "line_end": 448, "text": "狂笑而逝人生百年终须一死"}
+    ]
+  },
+  {
+    "id": "char_hu_bu_chou",
+    "name": "胡不愁",
+    "alias": ["大头叔叔", "大脑袋"],
+    "identity": "白三空八弟子之末，头大身矮，机智百出",
+    "faction": "faction_qing_ping",
+    "role": "companion",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "白三空最末弟子，头大身短却机智过人，受托照顾方宝儿",
+    "physical_description": "头大身短额角开阔，面上纵然未笑也带着几分笑意，一张嘴平日吃饭的时候多说话的时候少。双手过膝额角高阔眉目开朗。",
+    "personality": {
+      "traits": ["机智过人", "沉着冷静", "胸襟开阔", "忠心耿耿", "幽默风趣", "大智若愚", "过目不忘"],
+      "speech_style": "口才便捷言语扼要，善于激将法，常带笑容",
+      "temperament": "从容不迫笑对危难，洒脱机智"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "师叔侄", "intensity": 90, "bond_level": 5, "dynamic": "受白三空之托舍命保护宝儿如父如兄"},
+      {"target": "char_bai_san_kong", "type": "师徒", "intensity": 85, "bond_level": 5, "dynamic": "忠心追随师父执行遗命"},
+      {"target": "char_shui_tian_ji", "type": "暧昧情感", "intensity": 70, "bond_level": 3, "dynamic": "相互欣赏暗生情愫"},
+      {"target": "char_bai_yi_ren", "type": "同行者", "intensity": 55, "bond_level": 2, "dynamic": "曾为白衣人操舟心生敬意"},
+      {"target": "char_jia_xing_fa_wang", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "设计骗伽星法王"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 1, "line_start": 266, "line_end": 271, "text": "头大身短额角开阔面上纵然未笑也带着几分笑意"},
+      {"chapter": 2, "line_start": 30, "line_end": 64, "text": "用枯枝吓走万老夫人"},
+      {"chapter": 5, "line_start": 246, "line_end": 314, "text": "以激将法说动紫衣侯出手"},
+      {"chapter": 8, "line_start": 186, "line_end": 212, "text": "获紫衣侯赠钥匙"},
+      {"chapter": 10, "line_start": 486, "line_end": 494, "text": "自锁密室苦读秘笈"},
+      {"chapter": 53, "line_start": 210, "line_end": 314, "text": "七年暗室后走出一掌震飞伽星大师"}
+    ]
+  },
+  {
+    "id": "char_xiao_gong_zhu",
+    "name": "小公主",
+    "alias": ["小公主", "紫衣侯之女"],
+    "identity": "紫衣侯独生女，自幼在帆船上长大，后与五行魔宫有关",
+    "faction": "faction_wu_se_fan_chuan",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "紫衣侯之女，娇纵任性却心地善良，与方宝玉青梅竹马",
+    "physical_description": "十二三岁的女孩子穿着件雪白衣服，天庭开阔眉目如画，皮肤比玉瓶还白上几分。成年后粉面桃腮柳眉樱唇美绝天人。",
+    "personality": {
+      "traits": ["娇纵任性", "聪明绝顶", "心地善良", "倔强好胜", "外冷内热", "口是心非", "嫉妒心强"],
+      "speech_style": "时而刁蛮泼辣时而温柔可人，讥讽尖锐常以反语表达真实情感",
+      "temperament": "骄傲倔强内心柔软，情感复杂"
+    },
+    "relationships": [
+      {"target": "char_zi_yi_hou", "type": "父女", "intensity": 90, "bond_level": 5, "dynamic": "深爱父亲父亲战死后痛不欲生"},
+      {"target": "char_fang_bao_bao", "type": "青梅竹马恋人", "intensity": 95, "bond_level": 5, "dynamic": "从小相识互相牵挂爱恨纠缠"},
+      {"target": "char_ling_er", "type": "主仆/姐妹", "intensity": 75, "bond_level": 4, "dynamic": "铃儿照顾其长大"},
+      {"target": "char_shui_tian_ji", "type": "情敌", "intensity": 60, "bond_level": 2, "dynamic": "对水天姬接近宝玉心存嫉妒"},
+      {"target": "char_niu_tie_wa", "type": "伙伴", "intensity": 65, "bond_level": 3, "dynamic": "与铁娃互相调侃"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 3, "line_start": 412, "line_end": 416, "text": "十二三岁的女孩子穿着件雪白衣服"},
+      {"chapter": 3, "line_start": 498, "line_end": 527, "text": "大哭大闹要方宝儿答应十件事"},
+      {"chapter": 8, "line_start": 358, "line_end": 394, "text": "因紫衣侯称赞宝儿而生气"},
+      {"chapter": 26, "line_start": 256, "line_end": 263, "text": "六年后与宝玉重逢"},
+      {"chapter": 47, "line_start": 292, "line_end": 318, "text": "火窟中真情流露：你若能逃会不会抛下我"}
+    ]
+  },
+  {
+    "id": "char_shui_tian_ji",
+    "name": "水天姬",
+    "alias": ["大妻子", "居鲁大士", "天姬夫人"],
+    "identity": "圣水神宫传人，易容术天下无双",
+    "faction": "faction_sheng_shui_gong",
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "易容术天下无双的绝色美女，与胡不愁相爱",
+    "physical_description": "秋波如水娇靥如花的绝色美女，面上所带的笑容可令任何人神魂颠倒。秀发如柔云流水明眸如秋水明星。",
+    "personality": {
+      "traits": ["机智百出", "妩媚动人", "亦正亦邪", "大胆泼辣", "外刚内柔", "嘴硬心软", "深情执着"],
+      "speech_style": "娇媚动听每句话都带媚意，时而柔情似水时而冷嘲热讽",
+      "temperament": "妖媚机灵变幻莫测"
+    },
+    "relationships": [
+      {"target": "char_hu_bu_chou", "type": "恋人", "intensity": 85, "bond_level": 4, "dynamic": "相互欣赏暗生情愫后成恋人"},
+      {"target": "char_fang_bao_bao", "type": "暧昧情感", "intensity": 70, "bond_level": 3, "dynamic": "戏称其为小丈夫亦师亦友"},
+      {"target": "char_mu_lang_jun", "type": "宿敌", "intensity": 80, "bond_level": 1, "dynamic": "木郎君恨其入骨水天姬常戏弄之"},
+      {"target": "char_xiao_gong_zhu", "type": "情敌", "intensity": 55, "bond_level": 2, "dynamic": "为争夺宝玉注意力而暗中较劲"},
+      {"target": "char_shui_xian_niang", "type": "母女", "intensity": 70, "bond_level": 3, "dynamic": "白水宫主之女"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 2, "line_start": 606, "line_end": 670, "text": "易容之术天下无双"},
+      {"chapter": 3, "line_start": 128, "line_end": 130, "text": "秋波如水娇靥如花的绝色美女"},
+      {"chapter": 5, "line_start": 70, "line_end": 84, "text": "易容为居鲁大士"},
+      {"chapter": 10, "line_start": 18, "line_end": 78, "text": "用言语逼退金河王"},
+      {"chapter": 51, "line_start": 334, "line_end": 346, "text": "荒岛七年与胡不愁相守"}
+    ]
+  },
+  {
+    "id": "char_bai_san_kong",
+    "name": "白三空",
+    "alias": ["清平剑客", "白老前辈"],
+    "identity": "山东省武林盟主，方宝儿之外公",
+    "faction": "faction_qing_ping",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "清平剑客，山东省武林盟主，被白衣人一剑击杀但幸存",
+    "physical_description": "身材颀长身穿黑丝长衫颌下五柳长须像貌十分清奇的老人。",
+    "personality": {
+      "traits": ["正气凛然", "深谋远虑", "武人风骨", "涵养深厚", "疼爱外孙", "宁死不屈"],
+      "speech_style": "字迹端正秀丽，言语沉稳有力中气充沛",
+      "temperament": "威严庄重气度不凡"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "祖孙", "intensity": 90, "bond_level": 5, "dynamic": "将外孙视为至宝托付胡不愁照顾"},
+      {"target": "char_hu_bu_chou", "type": "师徒", "intensity": 85, "bond_level": 5, "dynamic": "最信任的弟子托付重任"},
+      {"target": "char_bai_yi_ren", "type": "对手", "intensity": 70, "bond_level": 3, "dynamic": "与白衣人交手后幸存"},
+      {"target": "char_liu_da_di_zi", "type": "师徒", "intensity": 80, "bond_level": 4, "dynamic": "八大弟子的师父"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 1, "line_start": 160, "line_end": 174, "text": "身材颀长身穿黑丝长衫颌下五柳长须"},
+      {"chapter": 1, "line_start": 286, "line_end": 296, "text": "阁下为研究武学大道不惜杀人在下为武学大道不惜战死"},
+      {"chapter": 1, "line_start": 322, "line_end": 327, "text": "被白衣人一剑击杀"}
+    ]
+  },
+  {
+    "id": "char_wan_lao_fu_ren",
+    "name": "万老夫人",
+    "alias": ["万老婆子", "百宝杖", "万黄英"],
+    "identity": "万子良之母，身怀百宝杖，口蜜腹剑",
+    "faction": "null",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "笑容慈祥却心肠狠毒的老妇人，满身口袋暗藏杀机",
+    "physical_description": "身材矮短臃肿的肥胖老妇人，满头银丝般的白发几乎已秃落一半，身上穿着件宽大舒服的麻布衣衫，衣衫上满是口袋少说也有十五六个之多。面如满月满带着亲切的笑容。",
+    "personality": {
+      "traits": ["口蜜腹剑", "阴险毒辣", "贪吃", "老奸巨猾", "外慈内狠", "欺软怕死", "善于骂人"],
+      "speech_style": "慈祥唠叨，活脱脱是位标准的北方老太太，口头禅乖孩子",
+      "temperament": "面慈心毒杀人不眨眼"
+    },
+    "relationships": [
+      {"target": "char_wan_zi_liang", "type": "母子", "intensity": 70, "bond_level": 3, "dynamic": "万子良对其既敬又畏"},
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "多次与宝玉作对但亦有相助"},
+      {"target": "char_mu_lang_jun", "type": "对手", "intensity": 55, "bond_level": 2, "dynamic": "与木郎君多次交手"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 1, "line_start": 528, "line_end": 534, "text": "身材矮短臃肿的肥胖老妇人满头银丝白发"},
+      {"chapter": 1, "line_start": 650, "line_end": 696, "text": "以冰糖乌梅暗器杀死三人"},
+      {"chapter": 2, "line_start": 4, "line_end": 58, "text": "见枯枝后惊退"},
+      {"chapter": 43, "line_start": 110, "line_end": 176, "text": "被王大娘击败"}
+    ]
+  },
+  {
+    "id": "char_mu_lang_jun",
+    "name": "木郎君",
+    "alias": ["木头人", "神君"],
+    "identity": "东方青木宫主人之子，练枯木功",
+    "faction": "faction_qing_mu_gong",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "全身麻木如木头的怪人，练有枯木功刀枪不入",
+    "physical_description": "褐衣人面容如木偶般不动，枯木般的面容枯木般的手臂，满面木然。",
+    "personality": {
+      "traits": ["阴森冷酷", "狂妄自大", "外强中干", "执念深重", "易怒"],
+      "speech_style": "生硬冷涩每个字说出来都似用了极大气力",
+      "temperament": "如木头般僵硬面无表情"
+    },
+    "relationships": [
+      {"target": "char_shui_tian_ji", "type": "宿敌", "intensity": 85, "bond_level": 1, "dynamic": "恨水天姬入骨欲杀之而后快"},
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "曾想收宝玉为徒"},
+      {"target": "char_jin_he_wang", "type": "同门", "intensity": 60, "bond_level": 2, "dynamic": "同属五行魔宫"}
+    ],
+    "known_skills": ["skill_ku_mu_gong"],
+    "source_refs": [
+      {"chapter": 2, "line_start": 304, "line_end": 307, "text": "木郎君的事不容别人多事出手"},
+      {"chapter": 2, "line_start": 420, "line_end": 428, "text": "身形突显木立不动抓住万老夫人杖头青锋"},
+      {"chapter": 13, "line_start": 210, "line_end": 272, "text": "双臂如铁鞭神木护心盾"}
+    ]
+  },
+  {
+    "id": "char_niu_tie_wa",
+    "name": "牛铁娃",
+    "alias": ["铁娃", "二弟"],
+    "identity": "铁塔般大汉，天生神力，方宝儿结拜兄弟",
+    "faction": "null",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "天生神力的憨厚大汉，与方宝儿结拜为兄弟",
+    "physical_description": "黑凛凛大汉身高一丈多腰大十围背阔三停，浓眉大眼狮鼻虎口虽带着七分傻相却倒也甚是讨人欢喜。",
+    "personality": {
+      "traits": ["天生神力", "憨厚淳朴", "忠心耿耿", "勇猛无畏", "重情重义", "天真烂漫"],
+      "speech_style": "直来直去朴实无华，口头禅兀娘贼，自称老子",
+      "temperament": "淳朴善良勇猛刚直"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "结拜兄弟", "intensity": 95, "bond_level": 5, "dynamic": "铁娃为弟对大哥忠心不二"},
+      {"target": "char_niu_tie_lan", "type": "兄妹", "intensity": 80, "bond_level": 4, "dynamic": "铁兰为其妹妹"},
+      {"target": "char_niu_tie_xiong", "type": "兄弟", "intensity": 75, "bond_level": 4, "dynamic": "牛铁雄为其二哥"},
+      {"target": "char_jiang_feng", "type": "暗恋", "intensity": 60, "bond_level": 2, "dynamic": "暗恋姜风"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 11, "line_start": 12, "line_end": 72, "text": "铁塔般大汉天生神力憨厚淳朴"},
+      {"chapter": 11, "line_start": 174, "line_end": 174, "text": "跪地叩头认大哥"},
+      {"chapter": 32, "line_start": 148, "line_end": 216, "text": "空手夺鞭击败王烈火"}
+    ]
+  },
+  {
+    "id": "char_jia_xing_fa_wang",
+    "name": "伽星法王",
+    "alias": ["法王", "天竺异僧", "伽星大师"],
+    "identity": "天竺第一高手，练有瑜伽秘术",
+    "faction": "null",
+    "role": "villain",
+    "archetype": "monk",
+    "rank": "出神入化",
+    "one_line": "天竺第一高手，练有金刚不坏之身，为求武道而来",
+    "physical_description": "光头赤足身披麻衣肤色漆黑如铁的苦行僧人，枯涩的面容。由头至脚不着寸缕围树叶短裙面目被长发掩住目光如饿狼。",
+    "personality": {
+      "traits": ["坚忍不拔", "阴沉狡猾", "执着", "残忍", "冷酷", "贪婪"],
+      "speech_style": "生硬汉语，合什道阿弥陀佛",
+      "temperament": "枯瘦如铁面无表情"
+    },
+    "relationships": [
+      {"target": "char_zi_yi_hou", "type": "对手", "intensity": 70, "bond_level": 2, "dynamic": "曾想与紫衣侯交手"},
+      {"target": "char_jin_he_wang", "type": "对手", "intensity": 65, "bond_level": 2, "dynamic": "与金河王争夺五色帆船"},
+      {"target": "char_hu_bu_chou", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "被困密室外"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 5, "line_start": 108, "line_end": 114, "text": "光头赤足身披麻衣肤色漆黑如铁"},
+      {"chapter": 5, "line_start": 112, "line_end": 112, "text": "入水七日不死活埋半月不毙"},
+      {"chapter": 10, "line_start": 130, "line_end": 138, "text": "枯涩面容露出一丝微笑"}
+    ]
+  },
+  {
+    "id": "char_jin_he_wang",
+    "name": "金河王",
+    "alias": ["金大叔", "金猴子"],
+    "identity": "西方黄金宫之主，身不满三尺，金髯及地",
+    "faction": "faction_huang_jin_gong",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "身形矮小金髯及地的怪人，西方黄金宫之主",
+    "physical_description": "身长不满三尺五寸满身金光闪闪，颔下一部胡须竟比他身子还长逶迤在地上也是黄金般颜色，戴着顶金冠形式奇特份量却是沉重已极。",
+    "personality": {
+      "traits": ["暴躁易怒", "嗜杀", "自大", "怕水天姬之母", "执着"],
+      "speech_style": "语声已如金属相击震人耳鼓，哈哈大笑频繁",
+      "temperament": "脾气古怪喜怒无常"
+    },
+    "relationships": [
+      {"target": "char_shui_tian_ji", "type": "同门", "intensity": 60, "bond_level": 3, "dynamic": "同属五行魔宫对水天姬又惧又让"},
+      {"target": "char_jia_xing_fa_wang", "type": "对手", "intensity": 65, "bond_level": 2, "dynamic": "与伽星法王争夺五色帆船"},
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "逼问紫衣侯师兄下落"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 9, "line_start": 352, "line_end": 357, "text": "身长不满三尺五寸满身金光闪闪"},
+      {"chapter": 9, "line_start": 434, "line_end": 434, "text": "天下的男人俱都该死"},
+      {"chapter": 10, "line_start": 2, "line_end": 82, "text": "被水天姬逼退"}
+    ]
+  },
+  {
+    "id": "char_ling_er",
+    "name": "铃儿",
+    "alias": ["小铃铛"],
+    "identity": "紫衣侯侍女之首，红衣金铃",
+    "faction": "faction_wu_se_fan_chuan",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "紫衣侯贴身侍女，红衣金铃，忠心耿耿",
+    "physical_description": "红衣少女，耳坠上挂着双金铃一笑起来铃儿叮当作响。",
+    "personality": {
+      "traits": ["忠心耿耿", "机灵聪慧", "活泼开朗", "武功不弱", "口齿伶俐"],
+      "speech_style": "声音清脆如银铃笑语如莺",
+      "temperament": "活泼可爱忠诚可靠"
+    },
+    "relationships": [
+      {"target": "char_zi_yi_hou", "type": "主仆", "intensity": 85, "bond_level": 5, "dynamic": "忠心侍奉多年侯爷死后继承五色帆船"},
+      {"target": "char_zhu_er", "type": "姐妹", "intensity": 80, "bond_level": 5, "dynamic": "情同姐妹共同守护小公主"},
+      {"target": "char_xiao_gong_zhu", "type": "主仆/姐妹", "intensity": 75, "bond_level": 4, "dynamic": "照顾小公主长大"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 3, "line_start": 322, "line_end": 322, "text": "耳坠上挂着双金铃一笑起来铃儿叮当作响"},
+      {"chapter": 4, "line_start": 204, "line_end": 212, "text": "帖上有名的人才能上船"},
+      {"chapter": 8, "line_start": 468, "line_end": 468, "text": "侯爷已去了"}
+    ]
+  },
+  {
+    "id": "char_zhu_er",
+    "name": "珠儿",
+    "alias": ["欧阳珠"],
+    "identity": "紫衣侯侍女，满头黑发悬四粒明珠，后嫁入欧阳家",
+    "faction": "faction_wu_se_fan_chuan",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "紫衣侯贴身侍女，满头黑发悬明珠",
+    "physical_description": "满头黑发间悬了四粒光芒四射的明珠。",
+    "personality": {
+      "traits": ["沉稳冷静", "武功高强", "忠诚", "内敛", "有谋略"],
+      "speech_style": "言语简洁沉稳有力",
+      "temperament": "冷静沉着临危不乱"
+    },
+    "relationships": [
+      {"target": "char_zi_yi_hou", "type": "主仆", "intensity": 85, "bond_level": 5, "dynamic": "忠心侍奉多年"},
+      {"target": "char_ling_er", "type": "姐妹", "intensity": 80, "bond_level": 5, "dynamic": "情同姐妹"},
+      {"target": "char_ou_yang_tian_jiao", "type": "夫妻", "intensity": 70, "bond_level": 3, "dynamic": "后嫁入欧阳家"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 4, "line_start": 383, "line_end": 384, "text": "满头黑发间悬了四粒光芒四射的明珠"},
+      {"chapter": 4, "line_start": 383, "line_end": 391, "text": "教铁金刀破解剑招"},
+      {"chapter": 20, "line_start": 462, "line_end": 488, "text": "以欧阳珠身份现身"}
+    ]
+  },
+  {
+    "id": "char_wang_ban_xia",
+    "name": "王半侠",
+    "alias": ["化身双侠", "王半狂", "黄衫人"],
+    "identity": "武林奇人，亦狂亦侠，实为大奸大恶之徒",
+    "faction": "faction_gai_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "外冷内热的武林怪人，实为欺世盗名之徒",
+    "physical_description": "身材高瘦面色发青，身穿一件虽然满是补钉但却洗得干干净净的破蓝布衣，一双手掌更是其白如玉右手中指上戴着个奇形碧玉斑指。黄衫人散发披肩赤着双足。",
+    "personality": {
+      "traits": ["外冷内热", "亦侠亦狂", "轻功绝世", "正义感强", "口是心非", "腹语术", "双面性格"],
+      "speech_style": "冷漠语声配热情内容，能用这种语声说出这种话来的人实在少见得很",
+      "temperament": "时而冷若冰霜时而热情豪放"
+    },
+    "relationships": [
+      {"target": "char_wang_da_niang", "type": "夫妻", "intensity": 70, "bond_level": 3, "dynamic": "与王大娘串通作恶"},
+      {"target": "char_hu_bu_chou", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "曾帮助胡不愁传递战书"},
+      {"target": "char_bai_yi_ren", "type": "传信者", "intensity": 55, "bond_level": 2, "dynamic": "代紫衣侯传战书"}
+    ],
+    "known_skills": ["skill_fu_yu"],
+    "source_refs": [
+      {"chapter": 5, "line_start": 604, "line_end": 614, "text": "身材高瘦面色发青右手戴着碧玉斑指"},
+      {"chapter": 6, "line_start": 400, "line_end": 402, "text": "两个时辰赶两百里路"},
+      {"chapter": 15, "line_start": 309, "line_end": 345, "text": "腹语术伪装两种性格"}
+    ]
+  },
+  {
+    "id": "char_wang_da_niang",
+    "name": "王大娘",
+    "alias": ["狐女吴苏", "王大娘"],
+    "identity": "王半侠之妻，双足残废以双杖为腿，丐帮新任帮主",
+    "faction": "faction_gai_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "双足残废却武功高强的恶妇，以美色换取各派武功",
+    "physical_description": "浓艳绝丽风情万千的美妇人，眼角额边虽有了苍老痕迹但一双明媚的眼波还显得那么年轻。双腿齐膝断去以双短杖为足。",
+    "personality": {
+      "traits": ["阴险狡诈", "心机深沉", "武功高强", "贪得无厌", "诡计多端", "善于伪装"],
+      "speech_style": "时而柔媚诱惑时而冷酷无情",
+      "temperament": "外表柔弱内心狠毒"
+    },
+    "relationships": [
+      {"target": "char_wang_ban_xia", "type": "夫妻", "intensity": 70, "bond_level": 3, "dynamic": "与王半侠串通作恶"},
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 65, "bond_level": 2, "dynamic": "多次设计陷害宝玉"},
+      {"target": "char_li_ming_sheng", "type": "同谋", "intensity": 55, "bond_level": 2, "dynamic": "将李名生收入麾下"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 15, "line_start": 501, "line_end": 561, "text": "王大娘以双杖为腿身法诡变飘忽"},
+      {"chapter": 44, "line_start": 388, "line_end": 398, "text": "以美色换取各派武功绝招"},
+      {"chapter": 46, "line_start": 499, "line_end": 507, "text": "杀害单毅成"},
+      {"chapter": 60, "line_start": 146, "line_end": 156, "text": "挑战白衣人被一剑穿眉"}
+    ]
+  },
+  {
+    "id": "char_tie_wen_hou",
+    "name": "铁温侯",
+    "alias": ["七丧戟"],
+    "identity": "中原四大高手之一，使七丧戟",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "中原四大高手之一，使七丧戟，勇猛刚烈",
+    "physical_description": "锦衣大汉浓眉大眼面如锅底，浓眉大眼的汉子看来最是年轻也不过二十六七左右。",
+    "personality": {
+      "traits": ["勇猛刚烈", "重义轻死", "威猛剽悍", "豪迈", "宁死不屈"],
+      "speech_style": "声若洪钟中气充沛",
+      "temperament": "威猛刚烈视死如归"
+    },
+    "relationships": [
+      {"target": "char_song_guang", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"},
+      {"target": "char_li_ying_hong", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"},
+      {"target": "char_zhan_chang_sheng", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"}
+    ],
+    "known_skills": ["skill_qi_sang_ji"],
+    "source_refs": [
+      {"chapter": 6, "line_start": 362, "line_end": 396, "text": "七丧戟四种招式三种妙用"},
+      {"chapter": 13, "line_start": 136, "line_end": 192, "text": "与万老夫人交手"},
+      {"chapter": 14, "line_start": 590, "line_end": 624, "text": "双臂被土龙子折断仍咬住其腿不放"}
+    ]
+  },
+  {
+    "id": "char_wan_zi_liang",
+    "name": "万子良",
+    "alias": ["云梦大侠", "万大侠"],
+    "identity": "云梦大侠，万老夫人之子",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "云梦大侠，正直豪迈",
+    "physical_description": "身材魁伟满面虬髯。",
+    "personality": {
+      "traits": ["正直豪迈", "武功高强", "重义轻死", "光明磊落", "豪迈爽朗"],
+      "speech_style": "豪迈爽朗",
+      "temperament": "正气凛然光明磊落"
+    },
+    "relationships": [
+      {"target": "char_wan_lao_fu_ren", "type": "母子", "intensity": 70, "bond_level": 3, "dynamic": "对其母又敬又畏"},
+      {"target": "char_jin_zu_lin", "type": "好友", "intensity": 75, "bond_level": 4, "dynamic": "与金祖林交好"},
+      {"target": "char_fang_bao_bao", "type": "晚辈", "intensity": 70, "bond_level": 3, "dynamic": "对宝玉极为敬重"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 17, "line_start": 170, "line_end": 184, "text": "万大侠云梦大侠"},
+      {"chapter": 19, "line_start": 542, "line_end": 543, "text": "我辈武人精神正是要有不惜一败的勇气"}
+    ]
+  },
+  {
+    "id": "char_jin_zu_lin",
+    "name": "金祖林",
+    "alias": ["四日温侯", "长醉小将军"],
+    "identity": "万贯家财的豪杰，方天画戟",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "万贯家财的豪杰，四日温侯长醉小将军",
+    "physical_description": "豪迈爽朗的中年豪杰。",
+    "personality": {
+      "traits": ["豪迈", "重义", "慷慨", "风流", "嗜酒"],
+      "speech_style": "豪爽大方",
+      "temperament": "豪放不羁重情重义"
+    },
+    "relationships": [
+      {"target": "char_hua_qing_qing", "type": "夫妻", "intensity": 80, "bond_level": 4, "dynamic": "与花清清夫妻恩爱"},
+      {"target": "char_wan_zi_liang", "type": "好友", "intensity": 75, "bond_level": 4, "dynamic": "与万子良交好"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 17, "line_start": 10, "line_end": 34, "text": "金祖林四日温侯长醉小将军"},
+      {"chapter": 19, "line_start": 308, "line_end": 392, "text": "带众人至白三空隐居处"}
+    ]
+  },
+  {
+    "id": "char_gong_sun_bu_zhi",
+    "name": "公孙不智",
+    "alias": [],
+    "identity": "白三空三弟子，最工心计，武当门下",
+    "faction": "faction_qing_ping",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登堂入室",
+    "one_line": "白三空三弟子，身形瘦小最工心计，假死揭露真相",
+    "physical_description": "身形枯瘦的青衣道人目光如闪电。",
+    "personality": {
+      "traits": ["机智过人", "深谋远虑", "假死脱身", "洞察真相", "谨慎"],
+      "speech_style": "沉吟分析条理清晰",
+      "temperament": "冷静理智善于谋划"
+    },
+    "relationships": [
+      {"target": "char_bai_san_kong", "type": "师徒", "intensity": 80, "bond_level": 4, "dynamic": "忠心追随师父"},
+      {"target": "char_mo_bu_qu", "type": "同门", "intensity": 75, "bond_level": 4, "dynamic": "七大弟子中排行第二"},
+      {"target": "char_shi_bu_wei", "type": "同门/对手", "intensity": 70, "bond_level": 3, "dynamic": "揭露石不为阴谋"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 18, "line_start": 407, "line_end": 407, "text": "身形枯瘦的青衣道人目光如闪电"},
+      {"chapter": 30, "line_start": 330, "line_end": 360, "text": "怀疑魏不贪是凶手"},
+      {"chapter": 36, "line_start": 155, "line_end": 235, "text": "假死揭露石不为阴谋"}
+    ]
+  },
+  {
+    "id": "char_shi_bu_wei",
+    "name": "石不为",
+    "alias": [],
+    "identity": "白三空四弟子，实为内奸",
+    "faction": "faction_qing_ping",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "白三空四弟子，实为幕后黑手的内奸",
+    "physical_description": "面容冷漠如石像素不轻言。",
+    "personality": {
+      "traits": ["阴险狡诈", "心机深沉", "伪善", "贪婪", "心狠手辣", "惜语如金"],
+      "speech_style": "平日不显山露水，该！去！两字比两百字还有力",
+      "temperament": "阴险狡诈善于伪装"
+    },
+    "relationships": [
+      {"target": "char_bai_san_kong", "type": "师徒", "intensity": 60, "bond_level": 2, "dynamic": "背叛师父"},
+      {"target": "char_huo_mo_shen", "type": "同谋", "intensity": 70, "bond_level": 3, "dynamic": "与火魔神勾结"},
+      {"target": "char_gong_sun_bu_zhi", "type": "对手", "intensity": 65, "bond_level": 2, "dynamic": "被公孙不智揭露"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 18, "line_start": 408, "line_end": 409, "text": "面容冷漠如石像素不轻言"},
+      {"chapter": 34, "line_start": 362, "line_end": 364, "text": "好恶贼你毒手杀了对你恩重如山的叔伯们"},
+      {"chapter": 36, "line_start": 253, "line_end": 302, "text": " confesses and commits suicide"}
+    ]
+  },
+  {
+    "id": "char_huo_mo_shen",
+    "name": "火魔神",
+    "alias": [],
+    "identity": "五行魔宫火宫主，满面伤疤",
+    "faction": "faction_huo_mo_gong",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "五行魔宫火宫主，满面伤疤的阴谋家",
+    "physical_description": "深紫色眼睛犹如火焰，面容完全被烧伤疤痕覆盖丑恶妖异令人作呕，但双手出奇的光滑细嫩十指纤纤。",
+    "personality": {
+      "traits": ["阴险", "残忍", "善于操控", "耐心", "城府极深", "对宝玉感兴趣"],
+      "speech_style": "甜蜜如蜜的声音，即使威胁时也彬彬有礼",
+      "temperament": "阴沉狠辣城府极深"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 75, "bond_level": 2, "dynamic": "设计陷害宝玉又想利用他"},
+      {"target": "char_shi_bu_wei", "type": "同谋", "intensity": 70, "bond_level": 3, "dynamic": "与石不为勾结"},
+      {"target": "char_xiao_gong_zhu", "type": "利用者", "intensity": 60, "bond_level": 2, "dynamic": "利用小公主对付宝玉"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 26, "line_start": 52, "line_end": 64, "text": "深紫色眼睛面容完全被烧伤疤痕覆盖"},
+      {"chapter": 27, "line_start": 74, "line_end": 198, "text": "与宝玉 verbal confrontation"},
+      {"chapter": 35, "line_start": 22, "line_end": 121, "text": "揭示火药阴谋"}
+    ]
+  },
+  {
+    "id": "char_tian_dao_mei_qian",
+    "name": "天刀梅谦",
+    "alias": ["梅谦"],
+    "identity": "东瀛锁镰刀高手",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "东瀛锁镰刀高手，三刀杀方长冬",
+    "physical_description": "戴笠帽目光如明珠如白刃。",
+    "personality": {
+      "traits": ["冷酷", "刀法凌厉", "重武道", "有神秘使命", "刚毅"],
+      "speech_style": "简洁有力",
+      "temperament": "冷傲孤僻"
+    },
+    "relationships": [
+      {"target": "char_gong_sun_hong", "type": "对手", "intensity": 70, "bond_level": 3, "dynamic": "与公孙红交手"},
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 65, "bond_level": 2, "dynamic": "挑战宝玉"},
+      {"target": "char_bai_yi_ren", "type": "知情者", "intensity": 60, "bond_level": 2, "dynamic": "与白衣人有关"}
+    ],
+    "known_skills": ["skill_suo_lian_dao"],
+    "source_refs": [
+      {"chapter": 32, "line_start": 347, "line_end": 382, "text": "三刀杀方长冬"},
+      {"chapter": 50, "line_start": 506, "line_end": 577, "text": "与公孙红在船上对峙"}
+    ]
+  },
+  {
+    "id": "char_gong_sun_hong",
+    "name": "公孙红",
+    "alias": ["乱世人龙"],
+    "identity": "天龙棍高手，揭露白衣人身世",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "天龙棍高手，拙中之巧返璞归真",
+    "physical_description": "火焰般的红发和胡须，半敞的长袍沾满泥污，身高八尺魁伟出众。带笠帽。",
+    "personality": {
+      "traits": ["豪迈", "武功高强", "洞察力强", "重义", "见多识广", "哲学思辨"],
+      "speech_style": "豪迈爽朗富有哲理",
+      "temperament": "豪放不羁见多识广"
+    },
+    "relationships": [
+      {"target": "char_bai_yi_ren", "type": "知情者", "intensity": 65, "bond_level": 2, "dynamic": "了解白衣人身世"},
+      {"target": "char_tian_dao_mei_qian", "type": "对手", "intensity": 70, "bond_level": 3, "dynamic": "与梅谦交手"},
+      {"target": "char_wang_da_niang", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "败于王大娘被逼出海"}
+    ],
+    "known_skills": ["skill_tian_long_gun"],
+    "source_refs": [
+      {"chapter": 33, "line_start": 464, "line_end": 508, "text": "天龙棍拙中之巧"},
+      {"chapter": 33, "line_start": 182, "line_end": 332, "text": "讲述白衣人身世"},
+      {"chapter": 50, "line_start": 428, "line_end": 428, "text": "败于王大娘被迫远离中土"}
+    ]
+  },
+  {
+    "id": "char_jiang_feng",
+    "name": "姜风",
+    "alias": [],
+    "identity": "天风帮帮主",
+    "faction": "faction_tian_feng_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "天风帮女帮主，性如烈火",
+    "physical_description": "身材窈窕貌美如花的女子，长发披散眉如柳叶目如秋水，娇靥莹白如玉小嘴红胜樱桃。",
+    "personality": {
+      "traits": ["性如烈火", "武功高强", "豪迈", "女中豪杰", "刚烈"],
+      "speech_style": "高亢洪亮粗野直接",
+      "temperament": "刚烈豪迈"
+    },
+    "relationships": [
+      {"target": "char_niu_tie_lan", "type": "同门", "intensity": 65, "bond_level": 3, "dynamic": "收留牛铁兰"},
+      {"target": "char_niu_tie_wa", "type": "被暗恋", "intensity": 55, "bond_level": 2, "dynamic": "铁娃暗恋姜风"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 12, "line_start": 611, "line_end": 613, "text": "天风帮女帮主性如烈火"},
+      {"chapter": 12, "line_start": 537, "line_end": 539, "text": "痛斥萧配秋"}
+    ]
+  },
+  {
+    "id": "char_niu_tie_lan",
+    "name": "牛铁兰",
+    "alias": [],
+    "identity": "牛铁娃之妹，天风帮弟子",
+    "faction": "faction_tian_feng_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "牛铁娃之妹，明眸皓齿的青衣少女",
+    "physical_description": "明眸皓齿巧笑宜人的青衣少女，衣袖高高挽起露出双欺霜赛雪的手臂，玉腕上戴着两只翠镯。",
+    "personality": {
+      "traits": ["聪明伶俐", "身怀秘密", "勇敢独立", "善于伪装", "对二嫂不满"],
+      "speech_style": "巧口兰心说话极快",
+      "temperament": "温柔坚毅"
+    },
+    "relationships": [
+      {"target": "char_niu_tie_wa", "type": "兄妹", "intensity": 80, "bond_level": 4, "dynamic": "铁娃为其兄长"},
+      {"target": "char_jiang_feng", "type": "同门", "intensity": 65, "bond_level": 3, "dynamic": "在天风帮中"},
+      {"target": "char_niu_tie_xiong", "type": "兄妹", "intensity": 75, "bond_level": 4, "dynamic": "牛铁雄为其二哥"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 11, "line_start": 573, "line_end": 576, "text": "明眸皓齿巧笑宜人的青衣少女"},
+      {"chapter": 11, "line_start": 595, "line_end": 637, "text": "离家出走三年投入天风帮"}
+    ]
+  },
+  {
+    "id": "char_li_ying_hong",
+    "name": "李英虹",
+    "alias": ["踏雪无痕"],
+    "identity": "中原四大高手之一，轻功绝顶",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "中原四大高手之一，踏雪无痕轻功绝顶",
+    "physical_description": "中原四大高手之一。",
+    "personality": {
+      "traits": ["轻功绝顶", "忠诚", "坚毅", "心灰意冷", "重义"],
+      "speech_style": "简洁",
+      "temperament": "沉稳内敛"
+    },
+    "relationships": [
+      {"target": "char_tie_wen_hou", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"},
+      {"target": "char_song_guang", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"},
+      {"target": "char_zhan_chang_sheng", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 13, "line_start": 108, "line_end": 108, "text": "踏雪无痕中原四大高手之一"},
+      {"chapter": 14, "line_start": 558, "line_end": 558, "text": "青山不改后会有期"}
+    ]
+  },
+  {
+    "id": "char_song_guang",
+    "name": "宋光",
+    "alias": ["开碑手"],
+    "identity": "中原四大高手之一",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "中原四大高手之一，开碑手",
+    "physical_description": "中原四大高手之一。",
+    "personality": {
+      "traits": ["刚猛", "威武", "豪迈"],
+      "speech_style": "简洁有力",
+      "temperament": "刚猛豪迈"
+    },
+    "relationships": [
+      {"target": "char_tie_wen_hou", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"},
+      {"target": "char_li_ying_hong", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"},
+      {"target": "char_zhan_chang_sheng", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 13, "line_start": 108, "line_end": 108, "text": "开碑手中原四大高手之一"}
+    ]
+  },
+  {
+    "id": "char_zhan_chang_sheng",
+    "name": "战常胜",
+    "alias": ["万人敌"],
+    "identity": "中原四大高手之一",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "中原四大高手之一，万人敌",
+    "physical_description": "中原四大高手之一。",
+    "personality": {
+      "traits": ["勇猛", "威武", "忠义", "精神崩溃"],
+      "speech_style": "声如洪钟",
+      "temperament": "威猛刚烈"
+    },
+    "relationships": [
+      {"target": "char_tie_wen_hou", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"},
+      {"target": "char_li_ying_hong", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"},
+      {"target": "char_song_guang", "type": "同僚", "intensity": 70, "bond_level": 4, "dynamic": "中原四大高手并列"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 13, "line_start": 108, "line_end": 108, "text": "万人敌中原四大高手之一"},
+      {"chapter": 14, "line_start": 54, "line_end": 100, "text": "精神崩溃倒下"}
+    ]
+  },
+  {
+    "id": "char_tu_long_zi",
+    "name": "土龙子",
+    "alias": [],
+    "identity": "极天戌土宫少主，天生聋哑",
+    "faction": "faction_xu_tu_gong",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "极天戌土宫少主，天生聋哑身法如鬼魅",
+    "physical_description": "满面笑容如庙中泥塑笑弥陀，笑容似泥堆上去的。",
+    "personality": {
+      "traits": ["天生聋哑", "武功诡异", "身法如鬼魅", "残暴", "好色"],
+      "speech_style": "无法说话",
+      "temperament": "沉默暴虐"
+    },
+    "relationships": [
+      {"target": "char_mu_lang_jun", "type": "同门", "intensity": 65, "bond_level": 3, "dynamic": "同属五行魔宫"},
+      {"target": "char_huo_mo_shen", "type": "同门", "intensity": 65, "bond_level": 3, "dynamic": "同属五行魔宫"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 13, "line_start": 208, "line_end": 209, "text": "满面笑容如庙中泥塑笑弥陀"},
+      {"chapter": 13, "line_start": 240, "line_end": 252, "text": "侮辱姜风"},
+      {"chapter": 13, "line_start": 610, "line_end": 614, "text": "折断铁温侯双臂"}
+    ]
+  },
+  {
+    "id": "char_ou_yang_tian_jiao",
+    "name": "欧阳天矫",
+    "alias": ["天矫武场主人"],
+    "identity": "天矫武场主人，武功扎实",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "天矫武场主人，武功扎实如山",
+    "physical_description": "山一般的身材， solid and dependable。",
+    "personality": {
+      "traits": ["武功扎实", "正直", "沉稳", "methodical", "commanding"],
+      "speech_style": "沉稳",
+      "temperament": "沉稳刚毅"
+    },
+    "relationships": [
+      {"target": "char_ou_yang_zhu", "type": "夫妻", "intensity": 70, "bond_level": 3, "dynamic": "欧阳珠改嫁于他"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 32, "line_start": 500, "line_end": 504, "text": "一招是一招的功力"},
+      {"chapter": 34, "line_start": 100, "line_end": 104, "text": "被小公主暗算"}
+    ]
+  },
+  {
+    "id": "char_li_yun",
+    "name": "吕云",
+    "alias": ["宝马神枪"],
+    "identity": "三湘第一条好汉",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "三湘第一条好汉，连环四十八枪",
+    "physical_description": "宝马神枪三湘第一条好汉。",
+    "personality": {
+      "traits": ["枪法高超", "豪迈", "重义", "脸嫩拘谨", "重信守诺"],
+      "speech_style": "豪爽",
+      "temperament": "豪迈正直"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "被宝玉一剑击败"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 20, "line_start": 28, "line_end": 48, "text": "宝马神枪三湘第一条好汉"},
+      {"chapter": 45, "line_start": 391, "line_end": 411, "text": "被火魔神囚禁"}
+    ]
+  },
+  {
+    "id": "char_yu_chuan_jia",
+    "name": "鱼传甲",
+    "alias": ["江上飞花"],
+    "identity": "一手三绝技高手",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "一手三绝技，刀拐加飞鱼刺",
+    "physical_description": "一手三绝技高手。",
+    "personality": {
+      "traits": ["武功多变", "老练"],
+      "speech_style": "老练沉稳",
+      "temperament": "老练持重"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "与宝玉交手"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 20, "line_start": 132, "line_end": 136, "text": "一手三绝技刀中夹拐地趟三百六十招"}
+    ]
+  },
+  {
+    "id": "char_ying_tie_ling",
+    "name": "英铁翎",
+    "alias": ["风雨神鹰"],
+    "identity": "金陵大豪，风雨双牌",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "金陵大豪，风雨双牌十三种外门兵刃第四",
+    "physical_description": "金陵大豪。",
+    "personality": {
+      "traits": ["武功高强", "骄傲", "豪迈"],
+      "speech_style": "威严",
+      "temperament": "骄傲豪迈"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 65, "bond_level": 2, "dynamic": "被宝玉反败为胜击败"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 22, "line_start": 302, "line_end": 308, "text": "风雨神鹰金陵大豪"}
+    ]
+  },
+  {
+    "id": "char_leng_bing_yu",
+    "name": "冷冰鱼",
+    "alias": ["天上飞花"],
+    "identity": "连天山庄少庄主，破云震天笔",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "连天山庄少庄主，破云震天笔十三种外门兵刃第二",
+    "physical_description": "鸢肩蜂腰黑衣严厉面孔。",
+    "personality": {
+      "traits": ["武功高强", "骄傲", "年轻气盛", "冷酷", "守信"],
+      "speech_style": "冷傲",
+      "temperament": "冷傲自负"
+    },
+    "relationships": [
+      {"target": "char_gong_sun_hong", "type": "对手", "intensity": 65, "bond_level": 2, "dynamic": "被公孙红击败"},
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "与宝玉对峙"}
+    ],
+    "known_skills": ["skill_po_yun_zhen_tian_bi"],
+    "source_refs": [
+      {"chapter": 28, "line_start": 276, "line_end": 382, "text": "连天山庄少庄主破云震天笔"},
+      {"chapter": 33, "line_start": 100, "line_end": 174, "text": "被公孙红击败后身亡"}
+    ]
+  },
+  {
+    "id": "char_jiang_xiao_min",
+    "name": "蒋笑民",
+    "alias": ["无情公子"],
+    "identity": "海南剑派高手",
+    "faction": "faction_hai_nan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "无情公子，以命相搏为白衣人试招",
+    "physical_description": "华服白面无须傲慢面容。",
+    "personality": {
+      "traits": ["冷酷", "无情", "剑法高超", "殉剑", "复杂情感"],
+      "speech_style": "冷酷简洁",
+      "temperament": "冷酷无情"
+    },
+    "relationships": [
+      {"target": "char_bai_yi_ren", "type": "崇拜者", "intensity": 70, "bond_level": 2, "dynamic": "为白衣人试招殉剑"},
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "与宝玉交手"},
+      {"target": "char_fang_ling_yu", "type": "恋人", "intensity": 75, "bond_level": 3, "dynamic": "黑纱女方灵玉是其情人"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 32, "line_start": 378, "line_end": 378, "text": "华服白面无须傲慢面容"},
+      {"chapter": 39, "line_start": 18, "line_end": 150, "text": "以命相搏后自杀殉剑"}
+    ]
+  },
+  {
+    "id": "char_tie_jin_dao",
+    "name": "铁金刀",
+    "alias": ["潢州卧虎刀"],
+    "identity": "潢州卧虎刀高手，白衣人使者",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "潢州卧虎刀，持白衣人一招挑战宝玉后自尽",
+    "physical_description": "紫黑的面容像貌堂堂须发虽已俱都花白精神仍是不输少年。紧身黑衣头戴黑布罩只留一双眼睛。",
+    "personality": {
+      "traits": ["豪迈", "重义", "刚烈", "傲然", "悲壮"],
+      "speech_style": "豪爽直率",
+      "temperament": "豪迈刚烈"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "持白衣人一招挑战宝玉"},
+      {"target": "char_bai_yi_ren", "type": "传招者", "intensity": 55, "bond_level": 2, "dynamic": "受白衣人传招"},
+      {"target": "char_li_ming_sheng", "type": "同门", "intensity": 50, "bond_level": 2, "dynamic": "与李名生是同门师兄弟"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 4, "line_start": 268, "line_end": 268, "text": "紫黑的面容像貌堂堂"},
+      {"chapter": 41, "line_start": 286, "line_end": 300, "text": "代白衣人传刀"},
+      {"chapter": 42, "line_start": 222, "line_end": 228, "text": "自击胸膛而亡"}
+    ]
+  },
+  {
+    "id": "char_li_ming_sheng",
+    "name": "李名生",
+    "alias": ["白马将军"],
+    "identity": "武林骗徒，铁金刀师兄",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登堂入室",
+    "one_line": "白马将军，武林骗徒，铁金刀师兄",
+    "physical_description": "身形高大衣饰考究神情狼狈。樵夫打扮时。",
+    "personality": {
+      "traits": ["狡猾", "善于伪装", "贪生怕死", "老奸巨猾", "口蜜腹剑"],
+      "speech_style": "花言巧语油嘴滑舌",
+      "temperament": "狡猾善变"
+    },
+    "relationships": [
+      {"target": "char_wang_da_niang", "type": "同谋", "intensity": 60, "bond_level": 2, "dynamic": "与王大娘在一起"},
+      {"target": "char_tie_jin_dao", "type": "同门", "intensity": 55, "bond_level": 2, "dynamic": "与铁金刀是同门师兄弟"},
+      {"target": "char_zhou_fang", "type": "互相算计", "intensity": 50, "bond_level": 2, "dynamic": "与周方互相暗算"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 12, "line_start": 274, "line_end": 310, "text": "与周方互相暗算"},
+      {"chapter": 43, "line_start": 440, "line_end": 444, "text": "是铁金刀的师兄"}
+    ]
+  },
+  {
+    "id": "char_shui_xian_niang",
+    "name": "水仙娘",
+    "alias": ["白水宫女宫主", "白水宫主"],
+    "identity": "白水宫女宫主，逼走金木火土四宫主人",
+    "faction": "faction_bai_shui_gong",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "白水宫女宫主，武功通神智慧如仙",
+    "physical_description": "神秘莫测只闻其声不见其人。",
+    "personality": {
+      "traits": ["武功高强", "神秘", "冷酷", "威严", "智慧如仙"],
+      "speech_style": "神秘语声轻柔美妙却充满威慑力",
+      "temperament": "神秘威严"
+    },
+    "relationships": [
+      {"target": "char_mu_lang_jun", "type": "对手", "intensity": 70, "bond_level": 2, "dynamic": "逼走木郎君"},
+      {"target": "char_jin_he_wang", "type": "对手", "intensity": 70, "bond_level": 2, "dynamic": "逼走金河王"},
+      {"target": "char_shui_tian_ji", "type": "母女", "intensity": 75, "bond_level": 3, "dynamic": "水天姬之母"},
+      {"target": "char_fang_bao_bao", "type": "关系者", "intensity": 65, "bond_level": 2, "dynamic": "方父之妻"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 29, "line_start": 348, "line_end": 390, "text": "逼走金木火土四宫主人"},
+      {"chapter": 49, "line_start": 46, "line_end": 146, "text": "白水宫主神秘语声"},
+      {"chapter": 60, "line_start": 126, "line_end": 126, "text": "愿天下有情人终成眷属"}
+    ]
+  },
+  {
+    "id": "char_qing_hua_shou_peng_qing",
+    "name": "彭清",
+    "alias": ["摘星手"],
+    "identity": "洛阳摘星手，心计深沉",
+    "faction": "null",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "摘星手，心计深沉的伪君子",
+    "physical_description": "面容瘦削目光深沉。",
+    "personality": {
+      "traits": ["心计深沉", "伪善", "阴险", "武功高强"],
+      "speech_style": "温文尔雅实则阴险",
+      "temperament": "面善心恶"
+    },
+    "relationships": [
+      {"target": "char_bai_yi_ren", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "安排车轮战白衣人"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 6, "line_start": 150, "line_end": 158, "text": "摘星手彭清面容瘦削目光深沉"},
+      {"chapter": 9, "line_start": 96, "line_end": 170, "text": "率黑衣人夜袭五色帆船"}
+    ]
+  },
+  {
+    "id": "char_shou_tian_qi",
+    "name": "寿天齐",
+    "alias": ["紫髯龙"],
+    "identity": "海上大豪，群盗瓢把子",
+    "faction": "faction_hai_shang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "紫髯龙，海上大豪群盗瓢把子",
+    "physical_description": "身高九尺背阔三停颔下一把紫色长髯，全身俱是威猛剽悍之态。",
+    "personality": {
+      "traits": ["豪迈", "重义", "威严", "海上道义", "言而有信"],
+      "speech_style": "洪亮有力",
+      "temperament": "威严豪迈"
+    },
+    "relationships": [
+      {"target": "char_bai_yi_ren", "type": "知情者", "intensity": 60, "bond_level": 2, "dynamic": "其部下曾凿沉白衣人船只"},
+      {"target": "char_zi_yi_hou", "type": "敬仰者", "intensity": 70, "bond_level": 3, "dynamic": "对紫衣侯极为敬重"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 2, "line_start": 560, "line_end": 560, "text": "身高九尺背阔三停颔下紫色长髯"},
+      {"chapter": 7, "line_start": 366, "line_end": 396, "text": "不仁者死不义者亡海上道义坚如精钢"},
+      {"chapter": 37, "line_start": 288, "line_end": 432, "text": "从海上送来白衣人信"}
+    ]
+  },
+  {
+    "id": "char_hua_qing_qing",
+    "name": "花清清",
+    "alias": ["紫兰花"],
+    "identity": "金祖林之妻",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "登堂入室",
+    "one_line": "金祖林之妻，紫兰花",
+    "physical_description": "美丽温柔的女子。",
+    "personality": {
+      "traits": ["美丽", "温柔", "贤惠"],
+      "speech_style": "温柔",
+      "temperament": "温柔贤淑"
+    },
+    "relationships": [
+      {"target": "char_jin_zu_lin", "type": "夫妻", "intensity": 80, "bond_level": 4, "dynamic": "夫妻恩爱"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 17, "line_start": 382, "line_end": 383, "text": "花清清紫兰花金祖林之妻"}
+    ]
+  },
+  {
+    "id": "char_ding_lao_fu_ren",
+    "name": "丁老夫人",
+    "alias": ["柳依人"],
+    "identity": "丁家湾主人，昔日武功高手",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "炉火纯青",
+    "one_line": "丁家湾主人，昔日武功高手柳依人",
+    "physical_description": "白发苍苍手持翡翠旱烟管。",
+    "personality": {
+      "traits": ["武功高强", "深谋远虑", "正直", "重情义", "慈祥"],
+      "speech_style": "沉稳有力",
+      "temperament": "威严庄重"
+    },
+    "relationships": [
+      {"target": "char_ding_piao", "type": "夫妻", "intensity": 80, "bond_level": 4, "dynamic": "与丁飘的爱情故事"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 16, "line_start": 474, "line_end": 541, "text": "丁老夫人柳依人丁家湾主人"},
+      {"chapter": 31, "line_start": 86, "line_end": 93, "text": "宣布新比赛规则"}
+    ]
+  },
+  {
+    "id": "char_fen_biao",
+    "name": "粉彪",
+    "alias": [],
+    "identity": "白马山盗匪",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "白马山盗匪，被万老夫人所杀",
+    "physical_description": "面孔煞白瘦条身子穿着件粉红锦缎的长衫满脸俱是被酒色掏空的模样。",
+    "personality": {
+      "traits": ["贪婪", "凶残"],
+      "speech_style": "阴森",
+      "temperament": "贪婪凶残"
+    },
+    "relationships": [
+      {"target": "char_tie_hu", "type": "同伙", "intensity": 60, "bond_level": 3, "dynamic": "粉彪铁虎同伙"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 1, "line_start": 476, "line_end": 478, "text": "面孔煞白瘦条身子穿着粉红锦缎长衫"}
+    ]
+  },
+  {
+    "id": "char_tie_hu",
+    "name": "铁虎",
+    "alias": [],
+    "identity": "白马山盗匪",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "白马山盗匪，被万老夫人所杀",
+    "physical_description": "身高八尺开外的锦衣虬须大汉。",
+    "personality": {
+      "traits": ["勇猛", "凶残"],
+      "speech_style": "粗豪",
+      "temperament": "勇猛凶残"
+    },
+    "relationships": [
+      {"target": "char_fen_biao", "type": "同伙", "intensity": 60, "bond_level": 3, "dynamic": "粉彪铁虎同伙"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 1, "line_start": 478, "line_end": 478, "text": "身高八尺开外的锦衣虬须大汉"}
+    ]
+  },
+  {
+    "id": "char_yi_zhen_feng",
+    "name": "一阵风",
+    "alias": ["风老弟"],
+    "identity": "独行盗",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "江北一阵风，来无影去无踪的独行盗",
+    "physical_description": "满身黑衣劲装的削瘦少年。",
+    "personality": {
+      "traits": ["狡猾", "轻功好"],
+      "speech_style": "阴森",
+      "temperament": "狡猾"
+    },
+    "relationships": [
+      {"target": "char_fen_biao", "type": "同伙", "intensity": 55, "bond_level": 2, "dynamic": "一同被万老夫人杀死"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 1, "line_start": 488, "line_end": 490, "text": "满身黑衣劲装的削瘦少年"}
+    ]
+  },
+  {
+    "id": "char_cen_zou",
+    "name": "岑陬",
+    "alias": ["马面使者"],
+    "identity": "大宛国马面使者",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "大宛国马面使者，卑躬屈膝认贼作父",
+    "physical_description": "穿着一件五花锦袍身材枯瘦颀长背却是驼的上半个身子佝在前面一张脸几乎长达一尺五寸，那模样委实和一匹马毫无两样。",
+    "personality": {
+      "traits": ["卑躬屈膝", "认贼作父", "狡猾"],
+      "speech_style": "谄媚",
+      "temperament": "卑鄙无耻"
+    },
+    "relationships": [
+      {"target": "char_zi_yi_hou", "type": "被斥者", "intensity": 55, "bond_level": 1, "dynamic": "被紫衣侯怒斥为无耻败类"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 4, "line_start": 429, "line_end": 431, "text": "穿着五花锦袍身材枯瘦颀长背是驼的"},
+      {"chapter": 4, "line_start": 497, "line_end": 499, "text": "被紫衣侯斥为无耻败类"}
+    ]
+  },
+  {
+    "id": "char_gan_sun",
+    "name": "甘孙",
+    "alias": ["千金裘"],
+    "identity": "大宛国第三国师",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登堂入室",
+    "one_line": "大宛国第三国师，又矮又胖",
+    "physical_description": "又矮又胖头戴金冠身穿金袍面容也生得奇形怪状的人，愁眉苦脸。",
+    "personality": {
+      "traits": ["半文半白", "狡猾"],
+      "speech_style": "半文半白古多争先之辈抢后之人吾未闻之也",
+      "temperament": "狡猾"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 4, "line_start": 445, "line_end": 449, "text": "又矮又胖头戴金冠身穿金袍"}
+    ]
+  },
+  {
+    "id": "char_xiao_pei_qiu",
+    "name": "萧配秋",
+    "alias": [],
+    "identity": "秋水帮帮主",
+    "faction": "faction_qiu_shui_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "秋水帮帮主，轻佻风流",
+    "physical_description": "蓝衫长发披肩束灿烂金环飘逸出尘。",
+    "personality": {
+      "traits": ["轻佻风流", "野心勃勃", "狡猾善变", "有万老夫人撑腰"],
+      "speech_style": "清脆婉曼自称小生用语轻佻",
+      "temperament": "轻佻狡猾"
+    },
+    "relationships": [
+      {"target": "char_jiang_feng", "type": "对手", "intensity": 60, "bond_level": 2, "dynamic": "觊觎姜风"},
+      {"target": "char_wan_lao_fu_ren", "type": "靠山", "intensity": 55, "bond_level": 2, "dynamic": "有万老夫人撑腰"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 12, "line_start": 451, "line_end": 545, "text": "率船队攻打天风水塘"},
+      {"chapter": 14, "line_start": 498, "line_end": 520, "text": "被木郎君或土龙子追杀"}
+    ]
+  },
+  {
+    "id": "char_fang_ling_yu",
+    "name": "方灵玉",
+    "alias": ["黑纱女"],
+    "identity": "方宝玉的妹妹，蒋笑民的情人，星星小楼主人",
+    "faction": "null",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "方宝玉之妹，黑纱蒙面的神秘女子",
+    "physical_description": "黑纱蒙面黑色纱衣长发飘拂肌肤白如美玉。神秘凄艳慑人心魄。",
+    "personality": {
+      "traits": ["冷漠如幽灵", "内心深情", "对白水娘怀有怨毒", "智慧如沉思哲人"],
+      "speech_style": "缓慢低沉",
+      "temperament": "神秘凄艳"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "兄妹", "intensity": 80, "bond_level": 4, "dynamic": "方宝玉是其亲兄"},
+      {"target": "char_jiang_xiao_min", "type": "恋人", "intensity": 75, "bond_level": 3, "dynamic": "蒋笑民是其情人"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 58, "line_start": 100, "line_end": 101, "text": "黑纱蒙面黑色纱衣长发飘拂"},
+      {"chapter": 58, "line_start": 462, "line_end": 490, "text": "自创一招置之死地而后生"}
+    ]
+  },
+  {
+    "id": "char_zhou_fang",
+    "name": "周方",
+    "alias": ["锦衣侯", "白发老人"],
+    "identity": "武林骗子，实为紫衣侯师兄",
+    "faction": "null",
+    "role": "mentor",
+    "archetype": "scholar",
+    "rank": "返璞归真",
+    "one_line": "紫衣侯师兄，游戏风尘的绝世高手",
+    "physical_description": "白发苍苍满头鬓发皆白，衣衫考究但此刻狼狈不堪。扯下白髯后露出半边如鬼面容被金河圣水所伤。",
+    "personality": {
+      "traits": ["深不可测", "游戏风尘", "武功深藏", "对宝儿暗中关照", "善于用计"],
+      "speech_style": "故作神秘常有深意",
+      "temperament": "大隐隐于市"
+    },
+    "relationships": [
+      {"target": "char_fang_bao_bao", "type": "师徒", "intensity": 90, "bond_level": 5, "dynamic": "暗传剑道哲理"},
+      {"target": "char_zi_yi_hou", "type": "师兄弟", "intensity": 85, "bond_level": 5, "dynamic": "紫衣侯师兄"},
+      {"target": "char_li_ming_sheng", "type": "互相算计", "intensity": 50, "bond_level": 2, "dynamic": "与李名生互相暗算"}
+    ],
+    "known_skills": [],
+    "source_refs": [
+      {"chapter": 12, "line_start": 274, "line_end": 310, "text": "与李名生互相暗算"},
+      {"chapter": 15, "line_start": 137, "line_end": 241, "text": "教宝儿观流水悟武道"},
+      {"chapter": 17, "line_start": 502, "line_end": 502, "text": "吴苏儿王痴儿柳依人且看看我是谁"}
+    ]
+  }
+]
