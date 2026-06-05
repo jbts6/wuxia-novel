@@ -82,7 +82,7 @@ node .agents/skills/deconstruct-novel/scripts/prepare.js <小说目录路径>
 
 ### 第1步：分批并行提取
 
-**批间并行**：同时启动多个批次的 Sub Agent。
+**批间并行**：同时启动最多3个批次的 Sub Agent。
 
 **批内串行**：每个批次内，章节按顺序处理，前一章完成后才处理下一章。
 
@@ -122,12 +122,21 @@ node .agents/skills/deconstruct-novel/scripts/prepare.js <小说目录路径>
 **主 Agent 并行启动示例**：
 
 ```javascript
-// 伪代码：并行启动多个批次
+// ⚠️ 每次最多并行 3 个批次（RPM 限制）
 const batchConfig = JSON.parse(fs.readFileSync('batch_config.json', 'utf8'));
-const promises = batchConfig.batches.map(batch => {
-  return launchBatchSubAgent(batch);
-});
-await Promise.all(promises);
+const MAX_PARALLEL = 3;
+
+for (let i = 0; i < batchConfig.batches.length; i += MAX_PARALLEL) {
+  const chunk = batchConfig.batches.slice(i, i + MAX_PARALLEL);
+  console.log(`启动批次 ${chunk.map(b => b.batch).join(', ')}...`);
+  
+  // 并行启动本组的 Sub Agent
+  const promises = chunk.map(batch => launchBatchSubAgent(batch));
+  await Promise.all(promises);
+  
+  console.log(`批次 ${chunk.map(b => b.batch).join(', ')} 完成`);
+  // 等待所有 Sub Agent 的结果确认写入后，再启动下一组
+}
 // 所有批次完成后，继续下一步
 ```
 
