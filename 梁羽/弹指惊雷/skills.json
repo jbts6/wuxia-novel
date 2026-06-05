@@ -1,0 +1,976 @@
+[
+  {
+    "id": "skill_jin_gang_liu_yang_shou",
+    "name": "金刚六阳手",
+    "type": "掌法",
+    "faction": "faction_yang_jia",
+    "rank": "出神入化",
+    "one_line": "杨家家传绝学，脱胎于少林大力金刚手，每一掌暗藏六种变化",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_xuan_qian_zhuan_kun",
+        "name": "旋乾转坤",
+        "type": "special",
+        "description": "六阳手绝招，双掌发出不同方向的力道，一刚一柔相辅相成"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 4,
+        "unlock": "炉火纯青"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "招里藏招式中套式，令对方防不胜防"
+      }
+    ],
+    "combat_style": "以柔克刚，招式繁复",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 290,
+        "line_end": 298,
+        "text": "杨家的金刚六阳手则是招里藏招，式中套式，每一掌劈出，内中都暗藏着六种不同的变化"
+      }
+    ]
+  },
+  {
+    "id": "skill_jing_shen_bi_fa",
+    "name": "惊神笔法",
+    "type": "指法",
+    "faction": "faction_lian_jia",
+    "rank": "出神入化",
+    "one_line": "河北连家绝技，可双笔点四脉或四笔点八脉",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_shuang_bi_dian_si_mai",
+        "name": "双笔点四脉",
+        "type": "attack",
+        "description": "单人施展，以拐杖或判官笔点对方双脉四穴"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "双笔点四脉"
+      },
+      {
+        "level": 2,
+        "unlock": "四笔点八脉"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "点穴时",
+        "description": "点中穴道可令对方半身麻木"
+      }
+    ],
+    "combat_style": "以巧取胜，点穴精准",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 266,
+        "line_end": 272,
+        "text": "这老向导的点穴手法是来自于连家的四笔点八脉功夫"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_shou_yin",
+    "name": "大手印",
+    "type": "掌法",
+    "faction": "faction_mi_zong",
+    "rank": "出神入化",
+    "one_line": "密宗绝技，俗称掌心雷，威力可与少林大力金刚手分庭抗礼",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_zhang_xin_lei",
+        "name": "掌心雷",
+        "type": "attack",
+        "description": "掌力刚猛，出掌时隐隐挟有风雷之声"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "炉火纯青"
+      },
+      {
+        "level": 3,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "掌力有如排山倒海，一个浪头高过一个浪头"
+      }
+    ],
+    "combat_style": "刚猛霸道",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1026,
+        "line_end": 1028,
+        "text": "这是西藏密宗的大手印功夫，俗称掌心雷，掌力的刚猛，足可与少林派的大力金刚手分庭抗礼"
+      }
+    ]
+  },
+  {
+    "id": "skill_yu_jia_qi_gong",
+    "name": "瑜伽气功",
+    "type": "内功",
+    "faction": "",
+    "rank": "返璞归真",
+    "one_line": "天竺瑜伽术，可打通经脉、舒筋活血",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_tuo_yu_quan",
+        "name": "托玉泉",
+        "type": "buff",
+        "description": "头下脚上练功一式，可打通经脉"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "托玉泉基本式"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "练功时",
+        "description": "打通经脉，恢复功力"
+      }
+    ],
+    "combat_style": "以气御劲",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1364,
+        "line_end": 1374,
+        "text": "我教你瑜伽气功中的托玉泉一式...瑜伽术中的头下脚上练功一式"
+      }
+    ]
+  },
+  {
+    "id": "skill_bing_chuan_jian_fa",
+    "name": "冰川剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "华玉公主从冰川变化中参悟的剑法，十八式基本剑法可演变无穷变化",
+    "rag_refs": [
+      2,
+      5
+    ],
+    "techniques": [
+      {
+        "id": "tech_bing_chuan_18_shi",
+        "name": "冰川十八式",
+        "type": "attack",
+        "description": "十八个基本式子，极静之中孕育极动，可演变无穷变化"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "学会十八式基本剑法"
+      },
+      {
+        "level": 2,
+        "unlock": "参悟剑理，随心变化"
+      },
+      {
+        "level": 3,
+        "unlock": "极静极动，无穷变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "寒潮中练剑",
+        "description": "寒潮辅助练剑，相生相克"
+      }
+    ],
+    "combat_style": "极静之中孕育极动，轻灵翔动",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 144,
+        "line_end": 160,
+        "text": "壁上刻的就是她所创的冰川剑法了...总共只有十八个式子"
+      },
+      {
+        "chapter": 5,
+        "line_start": 882,
+        "line_end": 884,
+        "text": "原来她已是把冰川剑法使出来了。冷冰儿学成了冰川剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_long_xiang_gong",
+    "name": "龙象功",
+    "type": "内功",
+    "faction": "faction_mi_zong",
+    "rank": "出神入化",
+    "one_line": "那烂陀寺本门武功，分多层修炼",
+    "rag_refs": [
+      2,
+      5
+    ],
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "第一重"
+      },
+      {
+        "level": 2,
+        "unlock": "第二重"
+      },
+      {
+        "level": 3,
+        "unlock": "第八层以上极难"
+      }
+    ],
+    "effects": [],
+    "combat_style": "刚猛",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 134,
+        "line_end": 134,
+        "text": "当时我的龙象功未曾练成，而龙象功练到了第八层再进一层是最难练的"
+      },
+      {
+        "chapter": 5,
+        "line_start": 876,
+        "line_end": 876,
+        "text": "大吉法师亦已知道冷冰儿的功力虽然不弱"
+      }
+    ]
+  },
+  {
+    "id": "skill_gui_hua_sheng_nei_gong",
+    "name": "桂华生内功心法",
+    "type": "内功",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "桂华生留下的上乘内功心法，以武当内功为基础",
+    "rag_refs": [
+      2
+    ],
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初练得益"
+      },
+      {
+        "level": 2,
+        "unlock": "真气运行奇经八脉"
+      },
+      {
+        "level": 3,
+        "unlock": "与那烂陀寺内功合而为一"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "修炼后",
+        "description": "遍体清凉，不畏寒潮"
+      }
+    ],
+    "combat_style": "以气御劲，融合少林武当",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 386,
+        "line_end": 404,
+        "text": "桂华生留下的内功心法是刻在石壁上的...他的内功心法是以武当一派的内功作为基础的"
+      }
+    ]
+  },
+  {
+    "id": "skill_bing_po_shen_dan",
+    "name": "冰魄神弹",
+    "type": "暗器",
+    "faction": "天山派",
+    "rank": "绝世神兵",
+    "one_line": "取万载玄冰的冰魄精英练成的暗器",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "击中敌人",
+        "description": "奇寒透骨，令人冻僵"
+      }
+    ],
+    "combat_style": "远程暗器攻击",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 591,
+        "line_end": 591,
+        "text": "冷冰儿已是掏出一颗冰魄神弹，张开眼睛，双指一弹，打那人的神堂穴。"
+      }
+    ]
+  },
+  {
+    "id": "skill_lei_shen_zhang",
+    "name": "雷神掌",
+    "type": "掌法",
+    "faction": "欧阳家",
+    "rank": "出神入化",
+    "one_line": "欧阳家祖传的掌法，段剑青加以变化后更有毒",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中敌人",
+        "description": "热风呼呼，像烘炉里喷出的热浪"
+      }
+    ],
+    "combat_style": "近身掌法攻击",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 1233,
+        "line_end": 1233,
+        "text": "这好像是武林失传的欧阳家的雷神掌功夫。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shao_yang_shen_gong",
+    "name": "少阳神功",
+    "type": "内功",
+    "faction": "天山派",
+    "rank": "出神入化",
+    "one_line": "天山派内功，足以抵御最厉害的阴寒之气",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "修炼",
+        "description": "足以抵御最厉害的阴寒之气"
+      }
+    ],
+    "combat_style": "内功心法",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 809,
+        "line_end": 809,
+        "text": "冷冰儿已练成了少阳神功，足以抵御最厉害的阴寒之气。"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_zhou_tian_tu_na_fa",
+    "name": "大周天吐纳法",
+    "type": "内功",
+    "faction": "天山派",
+    "rank": "登堂入室",
+    "one_line": "天山派内功入门的吐纳功夫",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "修炼",
+        "description": "内功基础"
+      }
+    ],
+    "combat_style": "内功心法",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 332,
+        "line_end": 332,
+        "text": "桑达儿在天山住过一个多月，学过天山派内功入门的吐纳功夫。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_shan_jian_fa",
+    "name": "天山剑法",
+    "type": "剑法",
+    "faction": "faction_tian_shan_pai",
+    "rank": "出神入化",
+    "one_line": "天山派镇派剑法，天下第一",
+    "rag_refs": [
+      4,
+      11
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "轻灵翔动，招式精妙",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 800,
+        "line_end": 803,
+        "text": "那次在魔鬼城边，冷冰儿以天山剑法接连击败过连甘沛与释湖之时"
+      },
+      {
+        "chapter": 10,
+        "line_start": 576,
+        "line_end": 730,
+        "text": "追风剑式快逾飘风"
+      },
+      {
+        "chapter": 11,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "丁兆鸣是天山派第二代弟子剑法最高的人，大须弥剑式使出"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_hong_guan_ri",
+    "name": "白虹贯日",
+    "type": "剑法",
+    "faction": "faction_qi_jia",
+    "rank": "出神入化",
+    "one_line": "齐世杰家传刀法中的败中取胜绝招",
+    "rag_refs": [
+      4
+    ],
+    "techniques": [
+      {
+        "id": "tech_bai_hong_guan_ri",
+        "name": "白虹贯日",
+        "type": "attack",
+        "description": "纯属阳刚的家传刀法绝招，败中取胜"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "败中取胜时",
+        "description": "将龙象功和六阳掌威力尽数发挥"
+      }
+    ],
+    "combat_style": "阳刚猛烈",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 626,
+        "line_end": 628,
+        "text": "纯属阳刚的一招家传刀法，名为白虹贯日"
+      }
+    ]
+  },
+  {
+    "id": "skill_lei_shen_zhi",
+    "name": "雷神指",
+    "type": "指法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "欧阳家传绝学，出指带热风，经过段剑青交换武学更胜前人",
+    "rag_refs": [
+      5
+    ],
+    "techniques": [
+      {
+        "id": "tech_lei_shen_zhi_dian_xue",
+        "name": "雷神指点穴",
+        "type": "attack",
+        "description": "以雷神指点对方穴道，出指带热风，可伤及对方"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "点穴时",
+        "description": "出指带热风，点中穴道可伤及对方"
+      }
+    ],
+    "combat_style": "近身点穴，以热风伤敌",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 236,
+        "line_end": 240,
+        "text": "雷神指是他家传的绝学，经过和段剑青交换武功，在这门武学上又有所增益"
+      }
+    ]
+  },
+  {
+    "id": "skill_long_xing_shi_ba_jian",
+    "name": "龙形十八剑",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "以刚猛见长的剑法，杨炎爷爷龙则灵所授",
+    "rag_refs": [
+      10,
+      11
+    ],
+    "techniques": [
+      {
+        "id": "tech_long_xing",
+        "name": "龙形十八剑",
+        "type": "attack",
+        "description": "刚猛凌厉的剑法，招式浑厚"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学"
+      },
+      {
+        "level": 3,
+        "unlock": "刚猛有余精微不足"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "全力施展",
+        "description": "剑势浑雄，刚猛过天山剑法"
+      }
+    ],
+    "combat_style": "以刚猛见长，招式精微不及天山剑法",
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 614,
+        "line_end": 620,
+        "text": "龙形十八剑以刚猛见长"
+      },
+      {
+        "chapter": 11,
+        "line_start": 132,
+        "line_end": 132,
+        "text": "他使出了爷爷悉心传授给他的龙形十八剑"
+      }
+    ]
+  },
+  {
+    "id": "tou_gu_ding",
+    "name": "透骨钉",
+    "source_refs": [
+      "ch_14:40"
+    ]
+  },
+  {
+    "id": "long_xiang_gong",
+    "name": "龙象功",
+    "source_refs": [
+      "ch_14:1198"
+    ]
+  },
+  {
+    "id": "bing_chuan_jian_fa",
+    "name": "冰川剑法",
+    "source_refs": [
+      "ch_14:1258"
+    ]
+  },
+  {
+    "id": "yang_jia_liu_yang_shou",
+    "name": "杨家六阳手",
+    "source_refs": [
+      "ch_14:582"
+    ]
+  },
+  {
+    "id": "skill_tie_sha_zhang",
+    "name": "铁砂掌",
+    "type": "掌法",
+    "faction": "",
+    "rank": "略有小成",
+    "one_line": "云中双煞的铁砂掌功夫",
+    "rag_refs": [
+      15
+    ],
+    "techniques": [
+      {
+        "id": "tech_tie_sha_zhang_1",
+        "name": "铁砂掌",
+        "type": "attack",
+        "description": "以铁砂练就的掌法，击中要害可致命"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "略有小成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中要害",
+        "description": "击中要害立即致命"
+      }
+    ],
+    "combat_style": "刚猛霸道",
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 252,
+        "line_end": 254,
+        "text": "原来田耕练的乃是铁砂掌功夫，要是打着身体要害，立即就会打死人的。"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_ying_ying_zhao",
+    "name": "大力鹰爪功",
+    "type": "指法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "彭大遒的成名武功",
+    "rag_refs": [
+      15
+    ],
+    "techniques": [
+      {
+        "id": "tech_da_ying_ying_zhao_1",
+        "name": "大力鹰爪",
+        "type": "attack",
+        "description": "以雄浑内力为基础的爪功"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "抓住对手",
+        "description": "可抓碎对手骨骼"
+      }
+    ],
+    "combat_style": "内外双修，轻功内功都有颇深造诣",
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 446,
+        "line_end": 447,
+        "text": "此人却是内外双修，轻功内功显然都有颇深的造诣。"
+      }
+    ]
+  },
+  {
+    "id": "daxu弥式_dianxue",
+    "name": "天山派大须弥式点穴手法",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "lines": "28"
+      }
+    ]
+  },
+  {
+    "id": "saoye_zhangfa",
+    "name": "扫叶掌法",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "lines": "358-410"
+      }
+    ]
+  },
+  {
+    "id": "taiqing_qigong",
+    "name": "太清气功",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "lines": "1364"
+      }
+    ]
+  },
+  {
+    "id": "leishen_zhang",
+    "name": "雷神掌",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "lines": "1382-1396"
+      }
+    ]
+  },
+  {
+    "id": "du_zhang",
+    "name": "毒掌",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "lines": "1386,1396"
+      }
+    ]
+  },
+  {
+    "id": "meihuazhen",
+    "name": "喂毒梅花针",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "lines": "1340"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_tou_gou",
+    "name": "虎头钩",
+    "type": "武器",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "窦健刚使用的虎头钩武器",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "钩法",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 0,
+        "line_end": 0,
+        "text": "窦健刚使用虎头钩"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_gong",
+    "name": "轻功",
+    "type": "轻功",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "彭大遒的轻功",
+    "rag_refs": [
+      10
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "轻灵",
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 0,
+        "line_end": 0,
+        "text": "彭大遒施展轻功"
+      }
+    ]
+  },
+  {
+    "id": "skill_kong_tong_jian_fa",
+    "name": "崆峒剑法",
+    "type": "剑法",
+    "faction": "崆峒派",
+    "rank": "登堂入室",
+    "one_line": "崆峒派剑法",
+    "rag_refs": [
+      15
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "凌厉",
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 0,
+        "line_end": 0,
+        "text": "崆峒派剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_sao_ye_zhang_fa",
+    "name": "扫叶掌法",
+    "type": "掌法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "萧逸客所创掌法",
+    "rag_refs": [
+      18,
+      19
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "刚猛",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 0,
+        "line_end": 0,
+        "text": "萧逸客扫叶掌法"
+      }
+    ]
+  },
+  {
+    "id": "skill_tai_yin_zhang_li",
+    "name": "太阴掌力",
+    "type": "掌法",
+    "faction": "白驼山",
+    "rank": "出神入化",
+    "one_line": "宇文雷的太阴掌力",
+    "rag_refs": [
+      18
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "阴寒",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 0,
+        "line_end": 0,
+        "text": "宇文雷太阴掌力打伤萧逸客之子"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_gang_zhang_li",
+    "name": "金刚掌力",
+    "type": "掌法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "孟华使用的金刚掌力",
+    "rag_refs": [
+      18
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "刚猛",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 0,
+        "line_end": 0,
+        "text": "孟华金刚掌力"
+      }
+    ]
+  },
+  {
+    "id": "skill_nie_yun_jian_fa",
+    "name": "蹑云剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "穆扬波的蹑云剑法",
+    "rag_refs": [
+      18
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "轻灵",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 0,
+        "line_end": 0,
+        "text": "穆扬波蹑云剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_long_xing_jian_fa",
+    "name": "龙形剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "杨炎使用的龙形剑法",
+    "rag_refs": [
+      18,
+      19
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "灵动",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 0,
+        "line_end": 0,
+        "text": "杨炎龙形剑法"
+      }
+    ]
+  }
+]

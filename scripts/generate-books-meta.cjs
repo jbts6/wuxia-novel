@@ -48,7 +48,7 @@ results.sort((a, b) => {
   return a.name.localeCompare(b.name);
 });
 
-const outputPath = path.join(__dirname, '..', 'public', 'data', 'books.json');
+const outputPath = path.join(__dirname, '..', 'dashboard', 'public', 'data', 'books.json');
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, JSON.stringify(results, null, 2), 'utf-8');
 
