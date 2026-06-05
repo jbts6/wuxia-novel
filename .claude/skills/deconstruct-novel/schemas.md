@@ -18,8 +18,10 @@
 ```
 
 **写入每个 JSON 文件后，务必验证格式正确：**
-```bash
-node -e "JSON.parse(require('fs').readFileSync('characters.json','utf8'))"
+```javascript
+// 在 ctx_execute 中验证
+const data = JSON.parse(fs.readFileSync('characters.json', 'utf8'));
+console.log(`characters.json: ${data.length} 个实体，格式正确`);
 ```
 
 ---
