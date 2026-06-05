@@ -1,0 +1,625 @@
+[
+  {
+    "id": "skill_tang_shi_jian_fa",
+    "name": "躺尸剑法（唐诗剑法）",
+    "type": "剑法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "以唐诗为名的剑法，被戚长发改名为躺尸剑法",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径，招式名称被篡改"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室，掌握正确剑意"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "每一招出去都要敌人躺下成为一具死尸"
+      }
+    ],
+    "combat_style": "以唐诗意境化为剑招，飘逸自豪",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 44,
+        "line_end": 44,
+        "text": "咱们这一套剑法，是武林中大大的有名的躺尸剑法"
+      },
+      {
+        "chapter": 1,
+        "line_start": 736,
+        "line_end": 742,
+        "text": "你门中这套唐诗剑法，每一招都是从一句唐诗中化出来的"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_he_quan",
+    "name": "六合拳",
+    "type": "掌法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "吕通的成名拳法",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_wu_long_tan_hai",
+        "name": "乌龙探海",
+        "type": "attack",
+        "description": "六合拳中的一招"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "拳法攻击"
+      }
+    ],
+    "combat_style": "刚猛凌厉",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 282,
+        "line_end": 282,
+        "text": "正是六合拳中的一招乌龙探海"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_he_dao",
+    "name": "六合刀",
+    "type": "剑法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "吕通的成名刀法",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "刀法攻击"
+      }
+    ],
+    "combat_style": "刚猛",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 244,
+        "line_end": 244,
+        "text": "一手六合刀六合拳，黄河南北可是大大的有名"
+      }
+    ]
+  },
+  {
+    "id": "skill_tie_bi_gong",
+    "name": "铁臂功",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "吕通的横扫直击功夫",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "横扫直击时",
+        "description": "手臂横扫威力巨大"
+      }
+    ],
+    "combat_style": "横扫直击",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 254,
+        "line_end": 258,
+        "text": "吕通突然一个箭步...连击数下..."
+      }
+    ]
+  },
+  {
+    "id": "skill_chi_kou_lian_quan",
+    "name": "赤尻连拳",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "六合拳中杂以猴拳的变招",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "讲究搂打腾封踢潭扫挂，式中套式变幻多端"
+      }
+    ],
+    "combat_style": "灵活多变",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 324,
+        "line_end": 326,
+        "text": "自六合拳变为赤尻连拳..."
+      }
+    ]
+  },
+  {
+    "id": "skill_shen_zhao_gong",
+    "name": "神照功",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "上乘内功秘经，威力奇大，穿琵琶骨挑断脚筋亦可练成",
+    "rag_refs": [
+      3,
+      4
+    ],
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径，妙悟自然方可奏功"
+      },
+      {
+        "level": 5,
+        "unlock": "大功圆满，穿琵琶骨挑断脚筋仍能练成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "修炼大成后",
+        "description": "威力奇大，可穿琵琶骨后练成"
+      }
+    ],
+    "combat_style": "妙悟自然，非一味苦练",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 172,
+        "line_end": 172,
+        "text": "这部神照经，我送了给你，好好的练罢"
+      },
+      {
+        "chapter": 4,
+        "line_start": 68,
+        "line_end": 68,
+        "text": "丁典这三掌只须有神照功相济，任何一掌都能送了当今一流高手的性命。"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_li_ying_zhua_gong",
+    "name": "大力鹰爪功",
+    "type": "指法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "梅念笙使用的指法，可钩住船底",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "特殊",
+        "condition": "钩抓时",
+        "description": "大力鹰爪手法可钩住船底"
+      }
+    ],
+    "combat_style": "刚猛",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 190,
+        "line_end": 190,
+        "text": "用大力鹰爪手法钩住船底"
+      }
+    ]
+  },
+  {
+    "id": "skill_lian_cheng_jian_fa",
+    "name": "连城剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "梅念笙的剑谱，内藏连城诀宝藏秘密",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "特殊",
+        "condition": "配合连城诀",
+        "description": "找寻梁元帝大宝藏的秘诀"
+      }
+    ],
+    "combat_style": "剑法神奇",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 218,
+        "line_end": 218,
+        "text": "连城剑法虽然神奇，又怎及得上神照功了？"
+      }
+    ]
+  },
+  {
+    "id": "skill_bian_shi_zhang",
+    "name": "变势掌",
+    "type": "掌法",
+    "faction": "",
+    "rank": "略有小成",
+    "one_line": "耿天霸使用的掌法，左右连环攻击",
+    "rag_refs": [
+      4
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "左右掌连环攻击，招式变化多端"
+      }
+    ],
+    "combat_style": "外家刚猛，左右连环",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 50,
+        "line_end": 50,
+        "text": "丁典识得这是'变势掌'，急忙翻手化解。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ci_jian_shi",
+    "name": "刺肩式",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "老乞丐所授的怪异剑招，长剑斜转指向敌人肩头",
+    "rag_refs": [
+      4
+    ],
+    "techniques": [
+      {
+        "id": "tech_ci_jian_shi",
+        "name": "刺肩式",
+        "type": "attack",
+        "description": "长剑斜转，指向敌人肩头，招式怪异之极"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "怪异剑招，令对手无法招架"
+      }
+    ],
+    "combat_style": "怪异凌厉，出其不意",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 504,
+        "line_end": 504,
+        "text": "自然而然的使出了昔年老乞丐所授的那招'刺肩式'，长剑斜转，已指向万圭肩头。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ye_zhan_ba_fang_shi",
+    "name": "夜战八方式",
+    "type": "剑法",
+    "faction": "faction_xue_dao_men",
+    "rank": "登堂入室",
+    "one_line": "宝象在黑暗中使出的刀法，四面八方都砍遍",
+    "rag_refs": [
+      5
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "黑暗中对敌时",
+        "description": "四面八方连砍，防止敌人偷袭"
+      }
+    ],
+    "combat_style": "黑暗中防守反击，覆盖面广",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 154,
+        "line_end": 154,
+        "text": "宝象黑暗中连砍十五六刀，使出‘夜战八方式’"
+      }
+    ]
+  },
+  {
+    "id": "skill_ma_bian_gong",
+    "name": "马鞭功",
+    "type": "暗器",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "汪啸风的马鞭功夫，卷镖缠足，变幻莫测",
+    "rag_refs": [
+      5
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "对敌时",
+        "description": "马鞭卷住敌人肢体或暗器，借力打力"
+      }
+    ],
+    "combat_style": "轻灵变幻，以柔克刚",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 776,
+        "line_end": 786,
+        "text": "马鞭抖动，鞭上卷着的钢镖疾飞而出...马鞭忽然斜出向下，着地而卷，招数变幻，直攻对方下盘"
+      }
+    ]
+  },
+  {
+    "id": "skill_xue_dao",
+    "name": "血刀",
+    "type": "剑法",
+    "faction": "faction_xue_dao_men",
+    "rank": "返璞归真",
+    "one_line": "血刀门的刀法，以血刀为器，刀招诡异凌厉，专走偏锋",
+    "rag_refs": [
+      6
+    ],
+    "techniques": [
+      {
+        "id": "tech_pi_zhi_xiao_fu",
+        "name": "批纸削腐",
+        "type": "attack",
+        "description": "先用一百张薄纸叠成一叠，一刀横削过去，将第一张批下不带动第二张，再削豆腐成二十片"
+      },
+      {
+        "id": "tech_ou_xin_liu_xue",
+        "name": "呕心沥血",
+        "type": "attack",
+        "description": "血刀脱手飞出，一溜红光射穿敌人身体，再纵马前冲接回血刀"
+      },
+      {
+        "id": "tech_heng_qi_shu_ba",
+        "name": "横七竖八",
+        "type": "attack",
+        "description": "在敌人脸上横划七刀竖砍八刀的招式"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "从心所欲，刀法精妙到不差厘毫"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "刀招诡异凌厉，可劈砍轿杠为数十截，刀锋弯转如软带"
+      }
+    ],
+    "combat_style": "刀招快如闪电，以嘴衔刀双手攻击，走偏锋诡道",
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 224,
+        "line_end": 232,
+        "text": "一柄软软的缅刀。刀身不住颤动，宛然是一条活蛇一般。刃锋全作暗红色，血光隐隐"
+      }
+    ]
+  },
+  {
+    "id": "skill_kong_que_ping",
+    "name": "孔雀开屏",
+    "type": "剑法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "九式连环的守势剑法，专取守势，翻来覆去共有九式",
+    "rag_refs": [
+      6
+    ],
+    "techniques": [
+      {
+        "id": "tech_dong_zhan_jin_yu",
+        "name": "东展锦羽",
+        "type": "defense",
+        "description": "孔雀开屏第一式"
+      },
+      {
+        "id": "tech_xi_ti_cui_ling",
+        "name": "西剔翠翎",
+        "type": "defense",
+        "description": "孔雀开屏第二式"
+      },
+      {
+        "id": "tech_nan_ying_yan_yang",
+        "name": "南迎艳阳",
+        "type": "defense",
+        "description": "孔雀开屏第三式"
+      },
+      {
+        "id": "tech_bei_hui_chen_feng",
+        "name": "北回晨风",
+        "type": "defense",
+        "description": "孔雀开屏第四式"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "防御",
+        "condition": "面对快攻时",
+        "description": "专取守势的连环剑法，可挡三十六刀快攻"
+      }
+    ],
+    "combat_style": "纯守势，翻来覆去九式，练熟后可本能挡快攻",
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 338,
+        "line_end": 342,
+        "text": "九式连环的‘孔雀开屏’，将长剑舞成一片光屏，挡在身前"
+      }
+    ]
+  },
+  {
+    "id": "skill_deng_ping_du_shui",
+    "name": "登萍渡水",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "水岱的轻功，身子如在水上飘行一般",
+    "rag_refs": [
+      6
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "施展时",
+        "description": "身子便如在水上飘行一般，速度极快"
+      }
+    ],
+    "combat_style": "飘逸灵动",
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 544,
+        "line_end": 544,
+        "text": "施展‘登萍渡水’轻功，身子便如在水上飘行一般"
+      }
+    ]
+  },
+  {
+    "id": "skill_tai_ji_jian",
+    "name": "太极剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "刘乘风的太极剑法，以柔克刚，守势严密",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "防御",
+        "condition": "对敌时",
+        "description": "以柔克刚，将对方攻势消解"
+      }
+    ],
+    "combat_style": "以柔克刚，先立于不败之地",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 164,
+        "line_end": 164,
+        "text": "刘乘风是太极名家，生平钻研以柔克刚之道"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhong_ping_qiang",
+    "name": "中平枪",
+    "type": "枪法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "花铁干的中平枪法，以中平枪享誉武林",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_si_yi_bin_fu",
+        "name": "四夷宾服",
+        "type": "attack",
+        "description": "中平枪中的一招，劲力威猛已极"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "劲力威猛的枪法攻击"
+      }
+    ],
+    "combat_style": "中平正直，劲力威猛",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 180,
+        "line_end": 180,
+        "text": "花铁干这一枪决意致血刀僧于死地，一招中平枪'四夷宾服'"
+      }
+    ]
+  },
+  {
+    "id": "skill_gui_tou_dao_fa",
+    "name": "鬼头刀法",
+    "type": "刀法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "陆天抒的鬼头刀法，刚猛凌厉",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "对敌时",
+        "description": "刚猛刀法，劈砍威力巨大"
+      }
+    ],
+    "combat_style": "刚猛凌厉",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 216,
+        "line_end": 216,
+        "text": "陆天抒身材魁梧，下盘坚稳"
+      }
+    ]
+  }
+]

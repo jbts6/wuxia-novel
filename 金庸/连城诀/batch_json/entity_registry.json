@@ -1,0 +1,1471 @@
+{
+  "characters": [
+    {
+      "id": "char_qi_chang_fa",
+      "name": "戚长发",
+      "alias": [],
+      "identity": "武功师傅",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "狄云和戚芳的师傅，自称只会三流武功",
+      "personality": {
+        "traits": [
+          "深藏不露",
+          "狡黠",
+          "隐忍",
+          "城府极深",
+          "朴实外表"
+        ],
+        "speech_style": "朴实低调",
+        "temperament": "深沉内敛"
+      },
+      "relationships": [
+        {
+          "target": "char_di_yun",
+          "type": "师徒",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "师徒关系，暗中传授武功"
+        },
+        {
+          "target": "char_qi_fang",
+          "type": "亲属",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "父女关系"
+        }
+      ],
+      "known_skills": [
+        "skill_lian_cheng_jian_fa"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1,
+          "line_end": 50,
+          "text": "戚长发教狄云和戚芳练武"
+        },
+        {
+          "chapter": 2,
+          "line_start": 16,
+          "line_end": 50,
+          "text": "戚长发与万震山书房对质"
+        }
+      ]
+    },
+    {
+      "id": "char_di_yun",
+      "name": "狄云",
+      "alias": [],
+      "identity": "农家少年",
+      "faction": null,
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "初窥门径",
+      "one_line": "戚长发的徒弟，淳朴善良的农家少年",
+      "personality": {
+        "traits": [
+          "淳朴",
+          "善良",
+          "忠诚",
+          "执着",
+          "憨厚"
+        ],
+        "speech_style": "朴实直率",
+        "temperament": "憨厚淳朴"
+      },
+      "relationships": [
+        {
+          "target": "char_qi_chang_fa",
+          "type": "师徒",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "师徒关系"
+        },
+        {
+          "target": "char_qi_fang",
+          "type": "恋人",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "青梅竹马，暗恋师妹"
+        }
+      ],
+      "known_skills": [
+        "skill_lian_cheng_jian_fa"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1,
+          "line_end": 50,
+          "text": "狄云跟戚长发学武"
+        },
+        {
+          "chapter": 2,
+          "line_start": 8,
+          "line_end": 30,
+          "text": "狄云打败万门八弟子"
+        }
+      ]
+    },
+    {
+      "id": "char_qi_fang",
+      "name": "戚芳",
+      "alias": [],
+      "identity": "农家少女",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "初窥门径",
+      "one_line": "戚长发的女儿，狄云的师妹",
+      "personality": {
+        "traits": [
+          "温柔",
+          "善良",
+          "聪慧",
+          "孝顺",
+          "质朴"
+        ],
+        "speech_style": "温柔和善",
+        "temperament": "温婉质朴"
+      },
+      "relationships": [
+        {
+          "target": "char_di_yun",
+          "type": "恋人",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "青梅竹马"
+        },
+        {
+          "target": "char_qi_chang_fa",
+          "type": "亲属",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "父女关系"
+        }
+      ],
+      "known_skills": [
+        "skill_lian_cheng_jian_fa"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1,
+          "line_end": 50,
+          "text": "戚芳跟父亲学武"
+        },
+        {
+          "chapter": 2,
+          "line_start": 38,
+          "line_end": 40,
+          "text": "戚芳为狄云求情"
+        }
+      ]
+    },
+    {
+      "id": "char_bu_yuan",
+      "name": "卜垣",
+      "alias": [],
+      "identity": "万震山弟子",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "万震山弟子，奉命邀请戚长发",
+      "personality": {
+        "traits": [
+          "机灵",
+          "圆滑",
+          "殷勤",
+          "知礼",
+          "谨慎"
+        ],
+        "speech_style": "客气有礼",
+        "temperament": "精明干练"
+      },
+      "relationships": [
+        {
+          "target": "char_wan_zhen_shan",
+          "type": "师徒",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "师徒关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 50,
+          "line_end": 80,
+          "text": "卜垣来请戚长发"
+        },
+        {
+          "chapter": 2,
+          "line_start": 184,
+          "line_end": 192,
+          "text": "卜垣持剑阻拦狄云和戚芳"
+        }
+      ]
+    },
+    {
+      "id": "char_wan_zhen_shan",
+      "name": "万震山",
+      "alias": [],
+      "identity": "武林名家",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "江陵武林名家，万门掌门",
+      "personality": {
+        "traits": [
+          "老谋深算",
+          "心机深沉",
+          "虚伪",
+          "贪婪",
+          "阴险"
+        ],
+        "speech_style": "客套中藏锋芒",
+        "temperament": "深沉阴鸷"
+      },
+      "relationships": [
+        {
+          "target": "char_qi_chang_fa",
+          "type": "同门",
+          "intensity": 30,
+          "bond_level": 2,
+          "dynamic": "师兄弟关系，各怀心思"
+        }
+      ],
+      "known_skills": [
+        "skill_lian_cheng_jian_fa"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 50,
+          "line_end": 80,
+          "text": "万震山请戚长发赴宴"
+        },
+        {
+          "chapter": 2,
+          "line_start": 10,
+          "line_end": 22,
+          "text": "万震山与戚长发对质连城剑法"
+        }
+      ]
+    },
+    {
+      "id": "char_lv_tong",
+      "name": "吕通",
+      "alias": [],
+      "identity": "江湖盗贼",
+      "faction": null,
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "黄河南北有名的盗贼",
+      "personality": {
+        "traits": [
+          "凶悍",
+          "狡猾",
+          "贪婪",
+          "残忍",
+          "大胆"
+        ],
+        "speech_style": "粗豪霸道",
+        "temperament": "凶悍暴烈"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_liu_he_quan",
+        "skill_liu_he_dao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 100,
+          "line_end": 120,
+          "text": "吕通在万家出现"
+        }
+      ]
+    },
+    {
+      "id": "char_lao_gai",
+      "name": "老丐",
+      "alias": [],
+      "identity": "乞丐",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "神秘老乞丐，暗中帮助狄云",
+      "personality": {
+        "traits": [
+          "神秘",
+          "正义",
+          "机智",
+          "豪爽",
+          "深藏不露"
+        ],
+        "speech_style": "随性洒脱",
+        "temperament": "洒脱不羁"
+      },
+      "relationships": [
+        {
+          "target": "char_di_yun",
+          "type": "恩人",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "暗中相助"
+        }
+      ],
+      "known_skills": [
+        "skill_chi_kou_lian_quan"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 100,
+          "line_end": 150,
+          "text": "老丐暗中帮助狄云"
+        }
+      ]
+    },
+    {
+      "id": "char_lu_kun",
+      "name": "鲁坤",
+      "alias": [],
+      "identity": "万震山弟子",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "万震山大弟子",
+      "personality": {
+        "traits": [
+          "忠心",
+          "勇猛",
+          "耿直",
+          "鲁莽",
+          "重义"
+        ],
+        "speech_style": "直来直去",
+        "temperament": "刚直勇猛"
+      },
+      "relationships": [
+        {
+          "target": "char_wan_zhen_shan",
+          "type": "师徒",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "师徒关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 80,
+          "line_end": 100,
+          "text": "鲁坤出场"
+        },
+        {
+          "chapter": 2,
+          "line_start": 108,
+          "line_end": 108,
+          "text": "鲁坤带人追赶戚长发"
+        }
+      ]
+    },
+    {
+      "id": "char_zhou_qi",
+      "name": "周圻",
+      "alias": [],
+      "identity": "万震山弟子",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "万震山弟子",
+      "personality": {
+        "traits": [
+          "机敏",
+          "圆滑",
+          "忠心",
+          "精明",
+          "谨慎"
+        ],
+        "speech_style": "精明干练",
+        "temperament": "精明内敛"
+      },
+      "relationships": [
+        {
+          "target": "char_wan_zhen_shan",
+          "type": "师徒",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "师徒关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 80,
+          "line_end": 100,
+          "text": "周圻出场"
+        },
+        {
+          "chapter": 2,
+          "line_start": 332,
+          "line_end": 340,
+          "text": "周圻主张搜查狄云房间"
+        }
+      ]
+    },
+    {
+      "id": "char_wan_gui",
+      "name": "万圭",
+      "alias": [],
+      "identity": "万震山之子",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "万震山的儿子",
+      "personality": {
+        "traits": [
+          "阴险",
+          "虚伪",
+          "狡诈",
+          "贪婪",
+          "好色"
+        ],
+        "speech_style": "表面客气内心阴毒",
+        "temperament": "阴险狡诈"
+      },
+      "relationships": [
+        {
+          "target": "char_wan_zhen_shan",
+          "type": "亲属",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "父子关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 80,
+          "line_end": 100,
+          "text": "万圭出场"
+        },
+        {
+          "chapter": 2,
+          "line_start": 338,
+          "line_end": 348,
+          "text": "万圭假意为狄云辩护"
+        }
+      ]
+    },
+    {
+      "id": "char_sun_jun",
+      "name": "孙均",
+      "alias": [],
+      "identity": "万震山弟子",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "万震山弟子",
+      "personality": {
+        "traits": [
+          "忠心",
+          "沉默",
+          "服从",
+          "谨慎",
+          "内敛"
+        ],
+        "speech_style": "沉默寡言",
+        "temperament": "沉稳内敛"
+      },
+      "relationships": [
+        {
+          "target": "char_wan_zhen_shan",
+          "type": "师徒",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "师徒关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 80,
+          "line_end": 100,
+          "text": "孙均出场"
+        }
+      ]
+    },
+    {
+      "id": "char_wu_kan",
+      "name": "吴坎",
+      "alias": [],
+      "identity": "万震山弟子",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "万震山弟子",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "阴险",
+          "谄媚",
+          "贪婪",
+          "无耻"
+        ],
+        "speech_style": "谄媚逢迎",
+        "temperament": "阴险谄媚"
+      },
+      "relationships": [
+        {
+          "target": "char_wan_zhen_shan",
+          "type": "师徒",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "师徒关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 80,
+          "line_end": 100,
+          "text": "吴坎出场"
+        },
+        {
+          "chapter": 2,
+          "line_start": 344,
+          "line_end": 344,
+          "text": "吴坎指控狄云"
+        }
+      ]
+    },
+    {
+      "id": "char_feng_tan",
+      "name": "冯坦",
+      "alias": [],
+      "identity": "万震山弟子",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "万震山弟子",
+      "personality": {
+        "traits": [
+          "忠心",
+          "勇猛",
+          "耿直",
+          "鲁莽",
+          "重义"
+        ],
+        "speech_style": "直来直去",
+        "temperament": "刚直勇猛"
+      },
+      "relationships": [
+        {
+          "target": "char_wan_zhen_shan",
+          "type": "师徒",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "师徒关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 80,
+          "line_end": 100,
+          "text": "冯坦出场"
+        },
+        {
+          "chapter": 2,
+          "line_start": 380,
+          "line_end": 380,
+          "text": "冯坦要割狄云左手"
+        }
+      ]
+    },
+    {
+      "id": "char_shen_cheng",
+      "name": "沈城",
+      "alias": [],
+      "identity": "万震山弟子",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "万震山弟子",
+      "personality": {
+        "traits": [
+          "机灵",
+          "圆滑",
+          "忠心",
+          "精明",
+          "谨慎"
+        ],
+        "speech_style": "精明干练",
+        "temperament": "精明内敛"
+      },
+      "relationships": [
+        {
+          "target": "char_wan_zhen_shan",
+          "type": "师徒",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "师徒关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 80,
+          "line_end": 100,
+          "text": "沈城出场"
+        },
+        {
+          "chapter": 2,
+          "line_start": 60,
+          "line_end": 64,
+          "text": "沈城去偷听书房"
+        }
+      ]
+    },
+    {
+      "id": "char_ding_dian",
+      "name": "丁典",
+      "alias": [
+        "虬髯犯人"
+      ],
+      "identity": "囚犯/武林高手",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "狱中虬髯犯人，练成神照经的绝顶高手",
+      "personality": {
+        "traits": [
+          "豪爽",
+          "深情",
+          "机智",
+          "重义",
+          "刚烈",
+          "执着"
+        ],
+        "speech_style": "豪迈直率",
+        "temperament": "外刚内柔"
+      },
+      "relationships": [
+        {
+          "target": "char_di_yun",
+          "type": "挚友",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "从猜疑到生死之交"
+        }
+      ],
+      "known_skills": [
+        "skill_shen_zhao_jing"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 468,
+          "line_end": 480,
+          "text": "满脸虬髯的犯人"
+        }
+      ]
+    },
+    {
+      "id": "char_tao_hong",
+      "name": "桃红",
+      "alias": [],
+      "identity": "万震山小妾",
+      "faction": "faction_wan_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "万震山的小妾，陷害狄云的关键人物",
+      "personality": {
+        "traits": [
+          "妖娆",
+          "狡猾",
+          "狠毒",
+          "贪婪",
+          "虚伪"
+        ],
+        "speech_style": "娇媚诱人",
+        "temperament": "妖媚阴毒"
+      },
+      "relationships": [
+        {
+          "target": "char_wan_zhen_shan",
+          "type": "亲属",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "侍妾关系"
+        },
+        {
+          "target": "char_di_yun",
+          "type": "宿敌",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "陷害狄云"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 256,
+          "line_end": 278,
+          "text": "桃红假装被非礼诬陷狄云"
+        }
+      ]
+    },
+    {
+      "id": "char_bao_xiang",
+      "name": "宝象",
+      "alias": [],
+      "identity": "血刀门僧人",
+      "faction": "faction_xue_dao_mon",
+      "role": "villain",
+      "archetype": "monk",
+      "rank": "出神入化",
+      "one_line": "血刀门五僧之一，逃脱的高个子和尚",
+      "personality": {
+        "traits": [
+          "凶狠",
+          "残忍",
+          "狡猾",
+          "阴险",
+          "贪婪"
+        ],
+        "speech_style": "凶恶",
+        "temperament": "凶残贪婪"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 1266,
+          "line_end": 1266,
+          "text": "那逃走了的高个子和尚，叫做宝象"
+        }
+      ]
+    },
+    {
+      "id": "char_shan_yong",
+      "name": "善勇",
+      "alias": [],
+      "identity": "血刀门僧人",
+      "faction": "faction_xue_dao_mon",
+      "role": "villain",
+      "archetype": "monk",
+      "rank": "出神入化",
+      "one_line": "血刀门五僧之一，胖和尚",
+      "personality": {
+        "traits": [
+          "凶悍",
+          "贪婪",
+          "残暴",
+          "鲁莽",
+          "好斗"
+        ],
+        "speech_style": "凶恶",
+        "temperament": "凶悍暴烈"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 1266,
+          "line_end": 1266,
+          "text": "那胖胖的叫做善勇"
+        }
+      ]
+    },
+    {
+      "id": "char_sheng_di",
+      "name": "胜谛",
+      "alias": [],
+      "identity": "血刀门僧人",
+      "faction": "faction_xue_dao_mon",
+      "role": "villain",
+      "archetype": "monk",
+      "rank": "出神入化",
+      "one_line": "血刀门五僧之一，最厉害的僧人",
+      "personality": {
+        "traits": [
+          "凶狠",
+          "强大",
+          "阴险",
+          "贪婪",
+          "好斗"
+        ],
+        "speech_style": "凶恶",
+        "temperament": "凶狠强大"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 1266,
+          "line_end": 1266,
+          "text": "我第一拳打倒的那个最厉害，叫做胜谛"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_dao_ren",
+      "name": "枭道人",
+      "alias": [],
+      "identity": "道人",
+      "faction": null,
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "深夜潜入牢房与丁典比拼内力的道人",
+      "personality": {
+        "traits": [
+          "阴险",
+          "强大",
+          "贪婪",
+          "狡猾",
+          "好斗"
+        ],
+        "speech_style": "阴沉",
+        "temperament": "阴沉强大"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 937,
+          "line_end": 963,
+          "text": "道人与丁典比拼内力"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_lian_cheng_jian_fa",
+      "name": "躺尸剑法(唐诗剑法)",
+      "type": "剑法",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "戚长发传授的剑法，招式名称被篡改",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [
+        {
+          "id": "tech_wu_long_tan_hai",
+          "name": "乌龙探海",
+          "type": "attack",
+          "description": "两柄木剑挥舞交斗发出托托之声"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "初窥门径"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "使用木剑",
+          "description": "木剑交斗发出托托之声"
+        }
+      ],
+      "combat_style": "以木剑练习，招式名称被篡改",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1,
+          "line_end": 50,
+          "text": "戚长发教狄云和戚芳练武"
+        }
+      ]
+    },
+    {
+      "id": "skill_liu_he_quan",
+      "name": "六合拳",
+      "type": "掌法",
+      "faction": null,
+      "rank": "登堂入室",
+      "one_line": "吕通的成名拳法",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [
+        {
+          "id": "tech_wu_long_tan_hai_2",
+          "name": "乌龙探海",
+          "type": "attack",
+          "description": "六合拳中的一招"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "初窥门径"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "近身格斗",
+          "description": "六合拳招式"
+        }
+      ],
+      "combat_style": "近身格斗",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 100,
+          "line_end": 120,
+          "text": "吕通用六合拳"
+        }
+      ]
+    },
+    {
+      "id": "skill_liu_he_dao",
+      "name": "六合刀",
+      "type": "剑法",
+      "faction": null,
+      "rank": "登堂入室",
+      "one_line": "吕通的成名刀法",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [
+        {
+          "id": "tech_da_hu_shi",
+          "name": "打虎式",
+          "type": "attack",
+          "description": "吕通使招打虎式"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "初窥门径"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "使用刀",
+          "description": "六合刀招式"
+        }
+      ],
+      "combat_style": "刀法",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 100,
+          "line_end": 120,
+          "text": "吕通用六合刀"
+        }
+      ]
+    },
+    {
+      "id": "skill_tie_bi_gong",
+      "name": "铁臂功",
+      "type": "掌法",
+      "faction": null,
+      "rank": "登堂入室",
+      "one_line": "一种臂功",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "初窥门径"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "手臂格挡",
+          "description": "增强手臂硬度"
+        }
+      ],
+      "combat_style": "以臂格挡",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 100,
+          "line_end": 120,
+          "text": "铁臂功"
+        }
+      ]
+    },
+    {
+      "id": "skill_chi_kou_lian_quan",
+      "name": "赤尻连拳",
+      "type": "掌法",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "老丐使用的拳法",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "初窥门径"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "近身格斗",
+          "description": "连续出拳"
+        }
+      ],
+      "combat_style": "连续出拳",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 100,
+          "line_end": 150,
+          "text": "老丐使赤尻连拳"
+        }
+      ]
+    },
+    {
+      "id": "skill_shen_zhao_jing",
+      "name": "神照经",
+      "type": "内功",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "天下内功中威力最强、最奥妙的法门",
+      "rag_refs": [
+        2
+      ],
+      "techniques": [
+        {
+          "id": "tech_wu_ying_shen_quan",
+          "name": "无影神拳",
+          "type": "attack",
+          "description": "无声无影，去势快极的拳法"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "初窥门径"
+        },
+        {
+          "level": 5,
+          "unlock": "出神入化"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "近身搏击",
+          "description": "一抓之下必定抓到一人，而给他抓到的必定死于顷刻"
+        }
+      ],
+      "combat_style": "以绝顶内力为基础的近身搏击",
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 821,
+          "line_end": 829,
+          "text": "丁典传授神照经"
+        }
+      ]
+    }
+  ],
+  "techniques": [
+    {
+      "id": "tech_wu_long_tan_hai",
+      "name": "乌龙探海",
+      "type": "attack",
+      "description": "六合拳中的一招",
+      "source_skill": "skill_liu_he_quan",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 100,
+          "line_end": 120,
+          "text": "乌龙探海"
+        }
+      ]
+    },
+    {
+      "id": "tech_da_hu_shi",
+      "name": "打虎式",
+      "type": "attack",
+      "description": "吕通使招打虎式",
+      "source_skill": "skill_liu_he_dao",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 100,
+          "line_end": 120,
+          "text": "打虎式"
+        }
+      ]
+    },
+    {
+      "id": "tech_tuo_tuo_zhi_sheng",
+      "name": "托托之声",
+      "type": "special",
+      "description": "两柄木剑挥舞交斗发出托托之声",
+      "source_skill": "skill_lian_cheng_jian_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1,
+          "line_end": 50,
+          "text": "托托之声"
+        }
+      ]
+    },
+    {
+      "id": "tech_wu_ying_shen_quan",
+      "name": "无影神拳",
+      "type": "attack",
+      "description": "无声无影，去势快极的拳法",
+      "source_skill": "skill_shen_zhao_jing",
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 1240,
+          "line_end": 1240,
+          "text": "神照功，无影神拳"
+        }
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_wan_jia",
+      "name": "万家",
+      "type": "家族",
+      "location": "loc_jiang_ling",
+      "sub_divisions": [],
+      "one_line": "万震山的家族势力",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 50,
+          "line_end": 80,
+          "text": "万家大宅"
+        },
+        {
+          "chapter": 2,
+          "line_start": 58,
+          "line_end": 64,
+          "text": "万门弟子在万家"
+        }
+      ],
+      "rag_refs": [
+        2
+      ]
+    },
+    {
+      "id": "faction_xue_dao_mon",
+      "name": "血刀门",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "青海黑教的邪恶门派",
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 1266,
+          "line_end": 1266,
+          "text": "青海黑教血刀门的高手恶僧"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_ma_xi_pu",
+      "name": "麻溪铺",
+      "region": "湘西",
+      "one_line": "戚长发师徒居住的偏远山村",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1,
+          "line_end": 50,
+          "text": "麻溪铺"
+        }
+      ]
+    },
+    {
+      "id": "loc_jiang_ling",
+      "name": "江陵",
+      "region": "湖北",
+      "one_line": "武林名家万震山所在地",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 50,
+          "line_end": 80,
+          "text": "江陵"
+        }
+      ]
+    },
+    {
+      "id": "loc_wan_jia_da_zhai",
+      "name": "万家大宅",
+      "region": "江陵",
+      "one_line": "万震山的豪宅",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 80,
+          "line_end": 100,
+          "text": "万家大宅"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_mu_jian",
+      "name": "木剑",
+      "type": "weapon",
+      "owner": "char_di_yun",
+      "one_line": "狄云和戚芳比试用的木剑",
+      "description": "狄云和戚芳比试用的木剑",
+      "effects": [],
+      "origin": "自制",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_di_yun",
+        "char_qi_fang"
+      ],
+      "related_skills": [
+        "skill_lian_cheng_jian_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1,
+          "line_end": 50,
+          "text": "木剑"
+        }
+      ]
+    },
+    {
+      "id": "item_han_yu_wan_zhuo",
+      "name": "汉玉腕镯",
+      "type": "special",
+      "owner": "char_lao_gai",
+      "one_line": "老乞丐随身之物",
+      "description": "老乞丐随身之物，后成为狄云信物",
+      "effects": [],
+      "origin": "老乞丐",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_lao_gai",
+        "char_di_yun"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 100,
+          "line_end": 150,
+          "text": "汉玉腕镯"
+        }
+      ]
+    },
+    {
+      "id": "item_wan_zhen_shan_li_wu",
+      "name": "万震山送的礼物",
+      "type": "special",
+      "owner": "char_wan_zhen_shan",
+      "one_line": "万震山送的礼物",
+      "description": "万震山送的礼物",
+      "effects": [],
+      "origin": "万震山",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_wan_zhen_shan"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 80,
+          "line_end": 100,
+          "text": "万震山送的礼物"
+        }
+      ]
+    },
+    {
+      "id": "item_wu_can_yi",
+      "name": "乌蚕衣",
+      "type": "armor",
+      "owner": "char_di_yun",
+      "one_line": "用大雪山乌蚕蚕丝织成的刀枪不入宝衣",
+      "description": "用大雪山上的乌蚕蚕丝织成的宝衣，刀枪不入，前后两片扣在一起",
+      "effects": [
+        {
+          "type": "防御",
+          "condition": "穿在身上",
+          "description": "刀枪不入，可抵御掌力攻击"
+        }
+      ],
+      "origin": "雪山派",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_di_yun",
+        "char_ding_dian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 1190,
+          "line_end": 1190,
+          "text": "乌蚕衣"
+        }
+      ]
+    }
+  ]
+}

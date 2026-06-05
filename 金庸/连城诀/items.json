@@ -1,0 +1,896 @@
+[
+  {
+    "id": "item_mu_jian",
+    "name": "木剑",
+    "type": "weapon",
+    "owner": "char_di_yun",
+    "one_line": "比试用的木剑",
+    "description": "狄云和戚芳比试用的木剑，两柄木剑挥舞交斗发出托托之声",
+    "effects": [
+      {
+        "type": "攻击",
+        "value": "",
+        "description": "练习用"
+      }
+    ],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_skills": [
+      "skill_tang_shi_jian_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "两柄木剑挥舞交斗，相互撞击，发出托托之声"
+      }
+    ]
+  },
+  {
+    "id": "item_po_wan",
+    "name": "破碗",
+    "type": "special",
+    "owner": "char_lao_gai",
+    "one_line": "老乞丐的破碗，暗中击中吕通穴道",
+    "description": "老乞丐手中的破碗，正好掷在吕通后背志堂穴上",
+    "effects": [
+      {
+        "type": "特殊",
+        "value": "",
+        "description": "点穴暗器"
+      }
+    ],
+    "origin": "老乞丐随身之物",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_lao_gai"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 352,
+        "line_end": 352,
+        "text": "那破碗正好掷在吕通后背志堂穴上"
+      }
+    ]
+  },
+  {
+    "id": "item_zhu_bang",
+    "name": "竹棒",
+    "type": "weapon",
+    "owner": "char_lao_gai",
+    "one_line": "老乞丐的竹棒，暗中击中吕通穴道",
+    "description": "老乞丐右手拄着的竹棒，一端在吕通膝弯曲泉穴中一碰",
+    "effects": [
+      {
+        "type": "特殊",
+        "value": "",
+        "description": "点穴暗器"
+      }
+    ],
+    "origin": "老乞丐随身之物",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_lao_gai"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 352,
+        "line_end": 352,
+        "text": "竹棒一端却在吕通膝弯的曲泉穴中一碰"
+      }
+    ]
+  },
+  {
+    "id": "item_jin_duan_pao",
+    "name": "锦缎面羊皮袍子",
+    "type": "armor",
+    "owner": "char_qi_chang_fa",
+    "one_line": "万震山送的礼物",
+    "description": "卜垣送来的包袱中的一件锦缎面羊皮袍子",
+    "effects": [
+      {
+        "type": "防御",
+        "value": "",
+        "description": "衣物"
+      }
+    ],
+    "origin": "万震山赠送",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_qi_chang_fa",
+      "char_wan_zhen_shan"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 120,
+        "line_end": 120,
+        "text": "见是一件锦缎面羊皮袍子，一只汉玉腕镯，一顶毡帽，一件黑呢马褂"
+      }
+    ]
+  },
+  {
+    "id": "item_han_yu_zhuo",
+    "name": "汉玉腕镯",
+    "type": "special",
+    "owner": "char_qi_fang",
+    "one_line": "万震山送的礼物",
+    "description": "卜垣送来的包袱中的一只汉玉腕镯",
+    "effects": [
+      {
+        "type": "特殊",
+        "value": "",
+        "description": "饰品"
+      }
+    ],
+    "origin": "万震山赠送",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_qi_fang",
+      "char_wan_zhen_shan"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 120,
+        "line_end": 120,
+        "text": "一只汉玉腕镯"
+      }
+    ]
+  },
+  {
+    "id": "item_wu_can_yi",
+    "name": "乌蚕衣",
+    "type": "armor",
+    "owner": "char_di_yun",
+    "one_line": "狄云内穿的护身宝甲",
+    "description": "狄云内穿的宝甲，可抵御掌力攻击",
+    "effects": [
+      {
+        "type": "防御",
+        "value": "",
+        "description": "护身宝甲，抵御掌力"
+      }
+    ],
+    "origin": "未知",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_di_yun"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 130,
+        "line_end": 130,
+        "text": "他不知狄云内穿‘乌蚕衣’宝甲护身"
+      }
+    ]
+  },
+  {
+    "id": "item_jin_bo_xun_hua",
+    "name": "金波旬花",
+    "type": "poison",
+    "owner": "char_ling_tui_si",
+    "one_line": "天竺恶魔花，剧毒无比，无药可解",
+    "description": "来自天竺的奇毒，花瓣金黄如金，香气可令人晕眩，碰到肌肤则消功蚀骨",
+    "effects": [
+      {
+        "type": "毒药",
+        "value": "",
+        "description": "闻香晕眩，触肤消功蚀骨"
+      },
+      {
+        "type": "毒药",
+        "value": "",
+        "description": "涂于物体表面，触之即中毒"
+      }
+    ],
+    "origin": "天竺",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_ling_tui_si",
+      "char_ding_dian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 338,
+        "line_end": 338,
+        "text": "这金色的花朵，便是奇毒无比的金波旬花"
+      }
+    ]
+  },
+  {
+    "id": "item_lian_cheng_jue",
+    "name": "连城诀",
+    "type": "special",
+    "owner": "char_ding_dian",
+    "one_line": "寻找梁元帝大宝藏的秘诀",
+    "description": "梅念笙传给丁典的秘诀，实为找寻梁元帝大宝藏的关键，由一串数字组成",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "包含宝藏位置的数字密码"
+      }
+    ],
+    "origin": "梅念笙",
+    "rarity": "绝世神兵",
+    "related_characters": [
+      "char_mei_nian_sheng",
+      "char_ding_dian"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 224,
+        "line_end": 224,
+        "text": "连城诀是这样的，你牢牢记在心里，有好大的用处"
+      }
+    ]
+  },
+  {
+    "id": "item_qiang_wei",
+    "name": "蔷薇",
+    "type": "special",
+    "owner": "char_ding_dian",
+    "one_line": "丁典放在凌小姐窗槛上的花",
+    "description": "丁典找到凌退思后，放在凌小姐后楼窗槛上的蔷薇花",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "信物"
+      }
+    ],
+    "origin": "丁典",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_ding_dian",
+      "char_ling_shuang_hua"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 304,
+        "line_end": 304,
+        "text": "我悄悄捧了一盆蔷薇，放在凌小姐后楼的窗槛上"
+      }
+    ]
+  },
+  {
+    "id": "item_xiao_zi_hua",
+    "name": "小紫花",
+    "type": "special",
+    "owner": "char_ding_dian",
+    "one_line": "废园角落的紫花，丁典让狄云采来",
+    "description": "废园角落瓦砾中长出的小小紫花，迎风摇曳，颇有孤寂凄凉之意",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "象征物"
+      }
+    ],
+    "origin": "废园野生",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_ding_dian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 376,
+        "line_end": 376,
+        "text": "月光下见到废园角落的瓦砾之中，长着一朵小小的紫花"
+      }
+    ]
+  },
+  {
+    "id": "item_xiao_chu_ju",
+    "name": "小雏菊",
+    "type": "special",
+    "owner": "char_ju_you",
+    "one_line": "菊友采来隔着铁栏递给丁典的雏菊",
+    "description": "菊友在狱中铁栏外庭院中采的小雏菊，作为凌霜华的信物",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "信物"
+      }
+    ],
+    "origin": "狱中铁栏外庭院",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_ju_you",
+      "char_ding_dian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 388,
+        "line_end": 388,
+        "text": "菊友见到铁栏外的庭院中长得有一朵小雏菊，便去采了来"
+      }
+    ]
+  },
+  {
+    "id": "item_lian_cheng_jian_pu",
+    "name": "连城剑谱",
+    "type": "special",
+    "owner": "char_wan_zhen_shan",
+    "one_line": "梅念笙的剑谱，被万震山师兄弟夺去",
+    "description": "梅念笙的剑谱，万震山师兄弟弑师夺得，但无剑诀则无用",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "剑法图谱"
+      }
+    ],
+    "origin": "梅念笙",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_wan_zhen_shan",
+      "char_mei_nian_sheng"
+    ],
+    "related_skills": [
+      "skill_lian_cheng_jian_fa"
+    ],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 218,
+        "line_end": 218,
+        "text": "他们想夺我一部剑谱，不惜行刺师父"
+      }
+    ]
+  },
+  {
+    "id": "item_jin_suo_pian",
+    "name": "金锁片",
+    "type": "special",
+    "owner": null,
+    "one_line": "小孩颈中所挂金锁片，上刻'德容双茂'四字",
+    "description": "救命恩人留在小舟上的金锁片，从小孩颈中匆忙扯下，金链断处还钩着一小块衣衫碎片",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "救命恩人留下的线索，暗示其身份"
+      }
+    ],
+    "origin": "救命恩人留下",
+    "rarity": "寻常凡品",
+    "related_characters": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 622,
+        "line_end": 628,
+        "text": "另外是小孩子颈中所挂的一个金锁片...金锁片上刻着'德容双茂'四个字。"
+      }
+    ]
+  },
+  {
+    "id": "item_gang_dao",
+    "name": "钢刀",
+    "type": "weapon",
+    "owner": "char_bao_xiang",
+    "one_line": "宝象随身携带的钢刀",
+    "description": "宝象所携钢刀，在黑暗中乱砍十五六刀，后砍中丁典尸身",
+    "effects": [
+      {
+        "type": "攻击",
+        "value": "",
+        "description": "近身砍杀"
+      }
+    ],
+    "origin": "",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_bao_xiang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 148,
+        "line_end": 148,
+        "text": "抢起身旁钢刀，前后左右连砍"
+      }
+    ]
+  },
+  {
+    "id": "item_xie_wei_biao",
+    "name": "蝎尾镖",
+    "type": "hidden_weapon",
+    "owner": "char_yu_fan_tou",
+    "one_line": "见血封喉的毒镖，铁网帮头儿所有",
+    "description": "瓦楞钢镖，带蓝绸尾，淬有剧毒，见血封喉",
+    "effects": [
+      {
+        "type": "毒药",
+        "value": "",
+        "description": "见血封喉，蚀心腐骨"
+      }
+    ],
+    "origin": "长江铁网帮",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_yu_fan_tou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 760,
+        "line_end": 760,
+        "text": "是见血封喉的‘蝎尾镖’"
+      }
+    ]
+  },
+  {
+    "id": "item_jin_se_li_yu",
+    "name": "金色鲤鱼",
+    "type": "special",
+    "owner": "char_shui_fu",
+    "one_line": "红嘴金鳞的肥大鲤鱼，水福欲买来配药治蓝砂掌",
+    "description": "一对红嘴金鳞的大鲤鱼，难得又肥大，鱼贩头儿留来合药",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "治蓝砂掌之药引"
+      }
+    ],
+    "origin": "长江",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_shui_fu",
+      "char_yu_fan_tou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 688,
+        "line_end": 688,
+        "text": "这老家伙硬要买这对金色鲤鱼"
+      }
+    ]
+  },
+  {
+    "id": "item_huang_zhi_ce",
+    "name": "黄纸册子",
+    "type": "special",
+    "owner": "char_di_yun",
+    "one_line": "宝象遗物中的邪异武功图谱，绘有裸体男子经脉运行图",
+    "description": "油布包裹的黄纸小书，封皮弯曲文字似蝌蚪，内绘裸体男子各种怪异姿式，经脉运行方位与神照功相反，练之令人全身舒畅手舞足蹈",
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "照图运行内息时",
+        "description": "内息自然运行，全身舒畅轻快，但属邪魔外道"
+      }
+    ],
+    "origin": "宝象遗物",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_bao_xiang",
+      "char_di_yun"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 584,
+        "line_end": 600,
+        "text": "见是一本黄纸小书...绘着一个精瘦干枯的裸体男子...隐隐见到那男子身上有几条极淡的灰色细线，绘着经脉"
+      }
+    ]
+  },
+  {
+    "id": "item_xue_dao",
+    "name": "血刀",
+    "type": "weapon",
+    "owner": "char_xue_dao_lao_zu",
+    "one_line": "血刀门的宝刀，刃锋暗红色，血光隐隐，每逢月圆须割人头相祭",
+    "description": "一柄软软的缅刀，刀身不住颤动宛然活蛇，刃锋全作暗红色，血光隐隐甚为可怖。每逢月圆之夜须割人头相祭，否则锋锐便减。刀法精妙时可劈开轿杠为数十截，刀锋可弯转如软带",
+    "effects": [
+      {
+        "type": "攻击",
+        "value": "",
+        "description": "刀招诡异凌厉，可脱手飞出射穿人体"
+      }
+    ],
+    "origin": "血刀门",
+    "rarity": "绝世神兵",
+    "related_characters": [
+      "char_xue_dao_lao_zu"
+    ],
+    "related_skills": [
+      "skill_xue_dao"
+    ],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 224,
+        "line_end": 226,
+        "text": "一柄软软的缅刀。刀身不住颤动，宛然是一条活蛇一般。刃锋全作暗红色，血光隐隐，甚为可怖"
+      }
+    ]
+  },
+  {
+    "id": "item_xue_dao_yi",
+    "name": "血刀僧衣",
+    "type": "armor",
+    "owner": "char_di_yun",
+    "one_line": "血刀门的僧袍，狄云从宝象处所得",
+    "description": "血刀门僧袍，质地颜色与普通僧袍无异，但为血刀门弟子的标志",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "使血刀老祖误认狄云为血刀门弟子"
+      }
+    ],
+    "origin": "宝象",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_di_yun",
+      "char_bao_xiang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 32,
+        "line_end": 32,
+        "text": "身上僧袍的质地颜色和狄云所穿一模一样"
+      }
+    ]
+  },
+  {
+    "id": "item_xue_dao_mi_ji",
+    "name": "血刀秘笈",
+    "type": "special",
+    "owner": "char_xue_dao_lao_zu",
+    "one_line": "血刀门的武功秘笈，记载血刀刀法",
+    "description": "血刀门的武功秘笈，宝象曾拥有，血刀老祖询问狄云是否有此书",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "血刀门武功传承的关键"
+      }
+    ],
+    "origin": "血刀门",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_xue_dao_lao_zu",
+      "char_bao_xiang"
+    ],
+    "related_skills": [
+      "skill_xue_dao"
+    ],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 170,
+        "line_end": 170,
+        "text": "他那部《血刀秘笈》有没传给你？"
+      }
+    ]
+  },
+  {
+    "id": "item_huang_ma",
+    "name": "黄马",
+    "type": "special",
+    "owner": "char_wang_xiao_feng",
+    "one_line": "铃剑双侠的黄马，大宛骏马，脚程之快当世罕有",
+    "description": "铃剑双侠的坐骑黄马，千中挑万中选的大宛骏马，脚程之快力气之长当世罕有。水岱当年花了五百两银子购来",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "血刀老祖夺黄马西逃，最终黄马倒毙在雪山道旁"
+      }
+    ],
+    "origin": "水岱",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_wang_xiao_feng",
+      "char_shui_dai"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 432,
+        "line_end": 432,
+        "text": "黄马和白马乃千中挑、万中选的大宛骏马"
+      }
+    ]
+  },
+  {
+    "id": "item_bai_ma",
+    "name": "白马",
+    "type": "special",
+    "owner": "char_shui_xuan",
+    "one_line": "水笙的白马，与她一起长大，如最好朋友",
+    "description": "水笙的坐骑白马，与水笙一起长大，一向就如最好的朋友一般。后被血刀老祖宰杀充饥",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "水笙的精神寄托，被杀后水笙悲痛欲绝"
+      }
+    ],
+    "origin": "水笙",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_shui_xuan"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 1024,
+        "line_end": 1024,
+        "text": "这白马和她一起长大，一向就如是最好的朋友一般"
+      }
+    ]
+  },
+  {
+    "id": "item_gang_qiang",
+    "name": "钢枪",
+    "type": "weapon",
+    "owner": "char_hua_tie_gan",
+    "one_line": "花铁干的钢枪，藏于衣袖之中",
+    "description": "花铁干藏于衣袖中的钢枪，斜身挺枪疾刺狄云胸口，被乌蚕衣所阻",
+    "effects": [
+      {
+        "type": "攻击",
+        "value": "",
+        "description": "近身突刺，威力极大"
+      }
+    ],
+    "origin": "",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_hua_tie_gan"
+    ],
+    "related_skills": [
+      "skill_zhong_ping_qiang"
+    ],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 248,
+        "line_end": 248,
+        "text": "花铁干衣袖中翻出一枝钢枪，斜身挺枪，疾向狄云胸口刺去"
+      }
+    ]
+  },
+  {
+    "id": "item_gui_tou_dao",
+    "name": "鬼头刀",
+    "type": "weapon",
+    "owner": "char_hua_tie_gan",
+    "one_line": "陆天抒的鬼头刀，花铁干从其尸体处取来",
+    "description": "陆天抒所用的鬼头刀，厚背方头，花铁干从陆天抒尸体处取得后用来攻击狄云。刀身厚重，虽不及血刀锋利，但血刀也削它不断",
+    "effects": [
+      {
+        "type": "攻击",
+        "value": "",
+        "description": "厚背方头的宝刀，劈砍威力巨大"
+      }
+    ],
+    "origin": "陆天抒",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_hua_tie_gan",
+      "char_lu_tian_shu"
+    ],
+    "related_skills": [
+      "skill_gui_tou_dao_fa"
+    ],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 518,
+        "line_end": 518,
+        "text": "只见花铁干右手拿着一柄鬼头刀，左手握着一柄长剑"
+      }
+    ]
+  },
+  {
+    "id": "item_liu_cheng_feng_chang_jian",
+    "name": "刘乘风长剑",
+    "type": "weapon",
+    "owner": "char_hua_tie_gan",
+    "one_line": "刘乘风的长剑，花铁干从其尸体处取来",
+    "description": "刘乘风的长剑，花铁干从其尸体处取得后使用",
+    "effects": [
+      {
+        "type": "攻击",
+        "value": "",
+        "description": "长剑攻击"
+      }
+    ],
+    "origin": "刘乘风",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_hua_tie_gan",
+      "char_liu_cheng_feng"
+    ],
+    "related_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 518,
+        "line_end": 518,
+        "text": "只见花铁干右手拿着一柄鬼头刀，左手握着一柄长剑"
+      }
+    ]
+  },
+  {
+    "id": "item_yu_yi",
+    "name": "羽衣",
+    "type": "armor",
+    "owner": "char_di_yun",
+    "one_line": "水笙用鸟羽为狄云缝制的御寒衣裳",
+    "description": "水笙费了一个多月时光，用鹰毛和雁翎一片片穿成的羽衣，衣长齐膝，用金钗刺孔、淡黄丝线缀成。水笙用此衣为狄云御寒，却被狄云误踢还给她",
+    "effects": [
+      {
+        "type": "防御",
+        "value": "",
+        "description": "以鸟羽缀成的御寒衣裳"
+      }
+    ],
+    "origin": "水笙缝制",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_di_yun",
+      "char_shui_xuan"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 466,
+        "line_end": 473,
+        "text": "一件黑黝黝的东西盖在自己身上...这衣裳是用鸟毛一片片的穿成，黑的是鹰毛，白的是雁翎，衣长齐膝"
+      }
+    ]
+  },
+  {
+    "id": "item_xue_dao_jing",
+    "name": "血刀经",
+    "type": "special",
+    "owner": "char_di_yun",
+    "one_line": "血刀门内功外功总诀，记载血刀刀法",
+    "description": "得自宝象身上的血刀经，内功外功总诀，每页图谱都须练上一年半载方始有成。狄云凭神照功基础一练即成",
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "修炼时",
+        "description": "血刀门武功总诀，含内功和刀法"
+      }
+    ],
+    "origin": "宝象",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_di_yun",
+      "char_bao_xiang"
+    ],
+    "related_skills": [
+      "skill_xue_dao"
+    ],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 660,
+        "line_end": 662,
+        "text": "怀中跌了一本小册出来，便是得自宝象身上的那本《血刀经》"
+      }
+    ]
+  }
+]
