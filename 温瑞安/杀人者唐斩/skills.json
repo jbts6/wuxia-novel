@@ -1,0 +1,138 @@
+[
+  {
+    "id": "skill_shuang_dao_wu_die",
+    "name": "双刀舞蝶",
+    "type": "刀法",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "严蚕所使用的双刀技法，以快速精准著称",
+    "rag_refs": [
+      2
+    ],
+    "techniques": [
+      {
+        "id": "tech_shuang_dao_qie_hu_die",
+        "name": "双刀切蝽蝻须",
+        "type": "attack",
+        "description": "双刀快速转动，切下蝽蝶触须而不伤蝽蝶分毫"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近距离格斗",
+        "description": "双刀快速切割，精度极高"
+      }
+    ],
+    "combat_style": "身法轻盈快捷，双刀如雪花舞动",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 9,
+        "line_end": 9,
+        "text": "这使双刀的名叫严蚕，是“双刀舞蝶”派的名宗师"
+      }
+    ]
+  },
+  {
+    "id": "skill_tie_shu",
+    "name": "铁书",
+    "type": "暗器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "以书为神兵的武功",
+    "rag_refs": [
+      8
+    ],
+    "techniques": [
+      {
+        "id": "tech_guo_qian_ren_feng",
+        "name": "过千仞锋行万里路",
+        "type": "attack",
+        "description": "铁书八式之一，以书页为暗器攻击敌人"
+      },
+      {
+        "id": "tech_tie_shu_ba_shi",
+        "name": "铁书八式",
+        "type": "attack",
+        "description": "朱国帧独创的八式书页武功"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "攻击",
+        "condition": "书页在手",
+        "description": "以书页为暗器，可截断暗器、击退敌人"
+      }
+    ],
+    "combat_style": "以书为兵，儒雅从容",
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 201,
+        "line_end": 201,
+        "text": "以书为神兵，天下莫为破之"
+      }
+    ]
+  },
+  {
+    "id": "skill_shen_er_shen_she_shen_jian_shou",
+    "name": "神耳神舌神箭手",
+    "type": "暗器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "耳灵舌巧箭术超群的综合武功",
+    "rag_refs": [
+      8
+    ],
+    "techniques": [
+      {
+        "id": "tech_yi_jian_shuang_diao",
+        "name": "一箭双雕",
+        "type": "attack",
+        "description": "箭穿过敌人体身后回弧射中第二人"
+      },
+      {
+        "id": "tech_yi_bo_san_zhe",
+        "name": "一波三折",
+        "type": "attack",
+        "description": "箭射出后多次折返，连续射杀多名敌人"
+      },
+      {
+        "id": "tech_yi_shi_er_niao",
+        "name": "一石二鸟",
+        "type": "attack",
+        "description": "一箭同时射杀两名敌人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "攻击",
+        "condition": "弓箭在手",
+        "description": "箭无虚发，可穿越人体回弧攻击"
+      }
+    ],
+    "combat_style": "远程精准，耳聪舌敏",
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 327,
+        "line_end": 331,
+        "text": "阁下就是以前江湖上人称神耳神舌神箭手朱大将军"
+      }
+    ]
+  }
+]

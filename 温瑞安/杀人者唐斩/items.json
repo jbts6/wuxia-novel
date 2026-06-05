@@ -1,0 +1,324 @@
+[
+  {
+    "id": "item椒粉",
+    "name": "椒粉",
+    "type": "hidden_weapon",
+    "owner": "char_wang_kou",
+    "one_line": "王寇用来偷袭萧佛狸的辣椒粉",
+    "description": "一种刺激性粉末，撒入眼中可致暂时失明和流泪，王寇用作偷袭武器",
+    "effects": [
+      {
+        "type": "控制",
+        "value": "",
+        "description": "致盲和流泪，使目标暂时失去视力"
+      }
+    ],
+    "origin": "未知",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_wang_kou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 131,
+        "line_end": 133,
+        "text": "王寇手上一扬，一篷灰色粉雾，对准萧佛狸脸上撒去！——椒粉！"
+      }
+    ]
+  },
+  {
+    "id": "item_tie_lian_ju_fu",
+    "name": "铁链巨斧",
+    "type": "weapon",
+    "owner": "char_bei_xuan_yi",
+    "one_line": "贝玄衣的武器",
+    "description": "铁链连接的巨斧，舞动起来密不透风，连蚊蝇也休想飞得进去，是贝玄衣作为一流杀手的标志性兵器",
+    "effects": [
+      {
+        "type": "攻击",
+        "value": "",
+        "description": "攻防一体，密不透风"
+      }
+    ],
+    "origin": "贝玄衣",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_bei_xuan_yi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 1,
+        "line_end": 3,
+        "text": "他的铁链巨斧，舞转起来，连一只蚊蝇也休想飞得进去。"
+      }
+    ]
+  },
+  {
+    "id": "item_gao_shan_yi_ba_qing",
+    "name": "高山一把青",
+    "type": "poison",
+    "owner": "char_tang_zhan",
+    "one_line": "烛火燃烧时释放的烈毒",
+    "description": "一种无色无味的烈毒，通过烛火燃烧时释放，使人中毒，需闭住呼吸方可防范",
+    "effects": [
+      {
+        "type": "毒药",
+        "value": "",
+        "description": "烛火燃烧时释放，使人中毒"
+      }
+    ],
+    "origin": "唐斩",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_tang_zhan"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 221,
+        "line_end": 221,
+        "text": "你以为我不知你在烛火点燃时洒下高山一把青的烈毒么"
+      }
+    ]
+  },
+  {
+    "id": "item_hei_ya_duan_shui",
+    "name": "黑崖断水",
+    "type": "poison",
+    "owner": "char_tang_zhan",
+    "one_line": "浸在书页上的剧毒",
+    "description": "浸在书页上的剧毒，口舌沾上即死，需用特殊手法翻书方可避免",
+    "effects": [
+      {
+        "type": "毒药",
+        "value": "",
+        "description": "口舌沾上即死"
+      }
+    ],
+    "origin": "唐斩",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_tang_zhan"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 233,
+        "line_end": 233,
+        "text": "书页早已浸有黑崖断水"
+      }
+    ]
+  },
+  {
+    "id": "item_jing_tian_hong_ni_shu",
+    "name": "径天虹鲵书",
+    "type": "special",
+    "owner": "char_tang_zhan",
+    "one_line": "以菩萨石研制墨粉写成的毒书",
+    "description": "以峨嵋山产之菩萨石研制成墨粉，以秘传之法写成，配合高山一把青烛光和黑崖断水书页，可使人双目中毒、全身麻痹",
+    "effects": [
+      {
+        "type": "特殊",
+        "value": "",
+        "description": "使人双目定在书中，全身麻痹"
+      }
+    ],
+    "origin": "孔颖达传下",
+    "rarity": "绝世神兵",
+    "related_characters": [
+      "char_tang_zhan",
+      "char_zhu_guo_zhen"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 269,
+        "line_end": 269,
+        "text": "径天虹鲵书以秘传之法写成"
+      }
+    ]
+  },
+  {
+    "id": "item_pu_sa_shi",
+    "name": "菩萨石",
+    "type": "special",
+    "owner": "",
+    "one_line": "峨嵋山产的特殊矿石",
+    "description": "峨嵋山产的特殊矿石，可研制成墨粉，用于制作径天虹鲵书",
+    "effects": [
+      {
+        "type": "特殊",
+        "value": "",
+        "description": "可研制成墨粉"
+      }
+    ],
+    "origin": "峨嵋山",
+    "rarity": "稀世珍品",
+    "related_characters": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 269,
+        "line_end": 269,
+        "text": "以峨嵋山产之菩萨石研制成墨粉"
+      }
+    ]
+  },
+  {
+    "id": "item_jing_hua",
+    "name": "荆花",
+    "type": "poison",
+    "owner": "char_wang_kou",
+    "one_line": "与鱼羹混合成剧毒的花",
+    "description": "荆花渗入鱼羹后形成剧毒，可使人口身血脉栓塞，且毒在喉中形成、胃中发作，令人防不胜防",
+    "effects": [
+      {
+        "type": "毒药",
+        "value": "",
+        "description": "使人血脉栓塞"
+      }
+    ],
+    "origin": "王寇",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_wang_kou",
+      "char_zhu_yan_xi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 431,
+        "line_end": 431,
+        "text": "荆花渗鱼羹，是剧毒"
+      }
+    ]
+  },
+  {
+    "id": "item_ci_die",
+    "name": "瓷碟",
+    "type": "weapon",
+    "owner": null,
+    "one_line": "许府桌上的瓷碟，被用作比试工具",
+    "description": "许府宴席上的一只普通瓷碟，被唐斩用来作为三场比试的核心道具——抢碟比轻功、碎碟比暗器、硬受碟片比内力。",
+    "effects": [
+      {
+        "type": "剧情",
+        "value": "",
+        "description": "串联三场比试的关键道具"
+      }
+    ],
+    "origin": "许府宴席",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_tang_zhan",
+      "char_wang_kou",
+      "char_huang_mei_ming"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 77,
+        "line_end": 80,
+        "text": "唐斩忽抓起桌上一瓷碟"
+      }
+    ]
+  },
+  {
+    "id": "item_ruan_dao",
+    "name": "软刀",
+    "type": "weapon",
+    "owner": "char_xu_xian_chun",
+    "one_line": "许显纯的软刀，迎风抖直",
+    "description": "许显纯所用的缅刀，平时柔软可缠腰间，迎风一抖即变得笔直锋利，刀身在灯笼光下闪耀邪恶光芒，既可刺击又可劈砍。",
+    "effects": [
+      {
+        "type": "攻击",
+        "value": "",
+        "description": "软硬兼施，可刺可砍，出其不意"
+      }
+    ],
+    "origin": "东厂",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_xu_xian_chun"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 119,
+        "line_end": 121,
+        "text": "许显纯的腰刀自桌底刺出"
+      }
+    ]
+  },
+  {
+    "id": "item_duan_bi",
+    "name": "短匕",
+    "type": "weapon",
+    "owner": "char_wang_kou",
+    "one_line": "王寇的短匕，兼短兵与投掷之长",
+    "description": "王寇惯用的短匕首，便于暗杀刺戳投掷，但王寇的短刃兼两者之长，短小精打时快利猛迅，劈斩刺捺时凌厉锋锐。",
+    "effects": [
+      {
+        "type": "攻击",
+        "value": "",
+        "description": "近身格斗与投掷两用，速度快绝"
+      }
+    ],
+    "origin": null,
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_wang_kou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 179,
+        "line_end": 179,
+        "text": "匕首原来是极短之利器"
+      }
+    ]
+  }
+]

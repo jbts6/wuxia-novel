@@ -1,0 +1,1441 @@
+[
+  {
+    "id": "char_wang_kou",
+    "name": "王寇",
+    "alias": [],
+    "identity": "刺客",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "魏忠贤派来监视萧佛狸的密探",
+    "personality": {
+      "traits": [
+        "隐忍",
+        "机敏",
+        "好胜",
+        "冲动",
+        "忠诚",
+        "冷静",
+        "有野心",
+        "重情义",
+        "果断"
+      ],
+      "speech_style": "简洁有力",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "action": "add",
+        "target": "char_tang_zhan",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "被启示并赏识"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1,
+        "line_end": 30,
+        "text": "屋顶上的年轻人伏在屋檐暗处"
+      },
+      {
+        "chapter": 2,
+        "line_start": 9,
+        "line_end": 67,
+        "text": "他却知道，如果没有一声暗号，任谁也不会先动手的"
+      },
+      {
+        "chapter": 3,
+        "line_start": 115,
+        "line_end": 155,
+        "text": "前辈是唐斩？……王寇。成者为王的王，败者为寇的寇。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 55,
+        "line_end": 55,
+        "text": "王寇是第六个座上刺客，自从许显纯一役后，他就变得非常有名。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 89,
+        "line_end": 89,
+        "text": "你看错的是：我才是魏公公手边的人！"
+      }
+    ]
+  },
+  {
+    "id": "char_xu_xian_chun",
+    "name": "许显纯",
+    "alias": [],
+    "identity": "锡衣卫镇抚司",
+    "faction": "faction_jin_yi_wei",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "魏忠贤手下五虎之一，主理鞠刑",
+    "personality": {
+      "traits": [
+        "阴险",
+        "狡诈",
+        "残忍",
+        "伪善",
+        "多疑",
+        "阴险狡诈",
+        "心狠手辣",
+        "城府极深",
+        "笑里藏刀",
+        "老谋深算",
+        "威严外露"
+      ],
+      "speech_style": "威严中带笑，笑中藏刀",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_zhi_ren",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "倝重与利用"
+      },
+      {
+        "target": "char_wang_kou",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "王寇投靠许显纯"
+      },
+      {
+        "target": "char_tang_zhan",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "唐斩是许显纯的客卿"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 31,
+        "line_end": 33,
+        "text": "许显纯深恬东林党人"
+      },
+      {
+        "chapter": 3,
+        "line_start": 39,
+        "line_end": 79,
+        "text": "许显纯惨叫一声：‘你——！’武知仁刀势一抹，许显纯便拦腰分为两截！"
+      },
+      {
+        "chapter": 9,
+        "line_start": 31,
+        "line_end": 31,
+        "text": "原来这大官便是魏忠贤手下五虎十狗十孩儿四十孙中五虎之一许显纯"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_zhi_ren",
+    "name": "唐斩",
+    "alias": [
+      "赶尽杀绝",
+      "武知仁",
+      "无此人",
+      "一刀两段"
+    ],
+    "identity": "江湖一流杀手",
+    "faction": "faction_jin_yi_wei",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "江湖名震八方的杀手，伪装武知仁接近许显纯实施刺杀",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "果断",
+        "无情",
+        "深谋远虑",
+        "亦正亦邪"
+      ],
+      "speech_style": "淡淡道，冷峻中带洞察",
+      "temperament": "深沉"
+    },
+    "relationships": [
+      {
+        "target": "char_xu_xian_chun",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "倝重与利用"
+      },
+      {
+        "target": "char_wang_wen_yan",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "背反同门"
+      },
+      {
+        "target": "char_wang_kou",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "赏识并启示"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 31,
+        "line_end": 32,
+        "text": "他知道他要对决的锡衣卫档头，叫武知仁，外号“赶尽杀绝”"
+      },
+      {
+        "chapter": 3,
+        "line_start": 95,
+        "line_end": 155,
+        "text": "‘一刀两段’唐斩！"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_wen_yan",
+    "name": "汪文言",
+    "alias": [],
+    "identity": "内阁中书",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "忠义之士，被武知仁设计陷害，宁死不屈",
+    "personality": {
+      "traits": [
+        "刚毅",
+        "忠诚",
+        "不屈",
+        "正直",
+        "悲壮"
+      ],
+      "speech_style": "悲愤激昂",
+      "temperament": "忠烈"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_zhi_ren",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "被同门背反"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 37,
+        "line_end": 57,
+        "text": "汪文言原县人，任侠有智"
+      }
+    ]
+  },
+  {
+    "id": "char_yan_qiu",
+    "name": "严蚕",
+    "alias": [],
+    "identity": "刺客",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "“双刀舞蝶”派名宗师，参与灯笼行动",
+    "personality": {
+      "traits": [
+        "勇敢",
+        "快速",
+        "果断",
+        "技艺精淇",
+        "轻身舞蝶"
+      ],
+      "speech_style": "刚果果断",
+      "temperament": "猛刺"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_shuang_dao_wu_die"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 89,
+        "line_end": 89,
+        "text": "藏在张阿四竹笼店前两只大筜箱中的严蚕"
+      }
+    ]
+  },
+  {
+    "id": "char_feng_ban_feng",
+    "name": "风半疯",
+    "alias": [],
+    "identity": "刺客",
+    "faction": null,
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "参与灯笼行动的刺客，藏身阴沟之中",
+    "personality": {
+      "traits": [
+        "隐忍",
+        "陌生",
+        "南流",
+        "未知",
+        "奇特"
+      ],
+      "speech_style": "未知",
+      "temperament": "疑神秘"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 89,
+        "line_end": 89,
+        "text": "跨在阴沟里仿佛与臭水已化成一体的风半疯"
+      }
+    ]
+  },
+  {
+    "id": "char_gui_tie_guai",
+    "name": "桂铁拐",
+    "alias": [],
+    "identity": "刺客",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "参与灯笼行动的刺客，藏身染布铺中",
+    "personality": {
+      "traits": [
+        "坚强",
+        "沉稳",
+        "果断",
+        "忠实",
+        "勇敢"
+      ],
+      "speech_style": "未知",
+      "temperament": "刚毅"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 89,
+        "line_end": 89,
+        "text": "染布铺晾布棚里的桂铁拐"
+      }
+    ]
+  },
+  {
+    "id": "char_cao_wu_kui",
+    "name": "曹无愧",
+    "alias": [],
+    "identity": "锡衣卫档头",
+    "faction": "faction_jin_yi_wei",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "许显纯座下三大刀手之一，马步沉稳",
+    "personality": {
+      "traits": [
+        "豪迈",
+        "迈进",
+        "沉稳",
+        "威严",
+        "果断"
+      ],
+      "speech_style": "沉稳有力",
+      "temperament": "刚正"
+    },
+    "relationships": [
+      {
+        "target": "char_xu_xian_chun",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "忠心讽卫"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 28,
+        "line_end": 34,
+        "text": "有一个人看来很神气，但是他的一只手，却始终不离刀柄"
+      },
+      {
+        "chapter": 3,
+        "line_start": 95,
+        "line_end": 97,
+        "text": "目睹情形的曹元愧，却毛骨惔然地呼叫：‘是‘一刀两段’！’"
+      }
+    ]
+  },
+  {
+    "id": "char_ping_yue_shan",
+    "name": "平越珊",
+    "alias": [],
+    "identity": "锡衣卫档头",
+    "faction": "faction_jin_yi_wei",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "许显纯座下三大刀手之一，金刀沉重",
+    "personality": {
+      "traits": [
+        "大眼睛",
+        "酒鬼",
+        "假醉实醒",
+        "刚毅",
+        "果断"
+      ],
+      "speech_style": "沉稳有力",
+      "temperament": "刚正"
+    },
+    "relationships": [
+      {
+        "target": "char_xu_xian_chun",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "忠心讽卫"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 35,
+        "line_end": 38,
+        "text": "另外一个人，却看来消沉，人也散散漫漫的，满脸逜红"
+      },
+      {
+        "chapter": 3,
+        "line_start": 91,
+        "line_end": 101,
+        "text": "平越珊的身体，自胸臂剧然裂开，血水喷迫"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_yi_wei_bing",
+    "name": "锡衣卫兵",
+    "alias": [],
+    "identity": "锡衣卫士兵",
+    "faction": "faction_jin_yi_wei",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "许显纯所率领的锡衣卫士兵",
+    "personality": {
+      "traits": [
+        "威风",
+        "凵彭",
+        "盲从",
+        "凵独",
+        "暴行"
+      ],
+      "speech_style": "呼叫呼叫",
+      "temperament": "凶猛"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 27,
+        "line_end": 27,
+        "text": "锡衣卫都呼叫：‘要留活口！’"
+      }
+    ]
+  },
+  {
+    "id": "char_liu_qiao",
+    "name": "萧佛狸",
+    "alias": [
+      "刘桥",
+      "无敌杀手"
+    ],
+    "identity": "武林三大杀手之首",
+    "faction": null,
+    "role": "villain",
+    "archetype": "scholar",
+    "rank": "登峰造极",
+    "one_line": "萧佛狸的伪装身份，已被揭穿",
+    "personality": {
+      "traits": [
+        "老谋深算",
+        "善于笼络",
+        "心思缜密",
+        "圆滑世故",
+        "心机深沉"
+      ],
+      "speech_style": "官方辞令，暗含威胁",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 57,
+        "line_end": 57,
+        "text": "刘桥眯着眼睛，抚髯打量着他，然后对他说："
+      },
+      {
+        "chapter": 5,
+        "line_start": 101,
+        "line_end": 101,
+        "text": "不能怪你。因为你不知道我就是萧佛狸。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 83,
+        "line_end": 83,
+        "text": "至少，我这个‘刘桥’的角色还要扮演下去，不被人揭穿，才能一一剪除叶向高等人之羽翼。"
+      }
+    ]
+  },
+  {
+    "id": "char_gu_qu_zhou",
+    "name": "顾曲周",
+    "alias": [
+      "杀手之王"
+    ],
+    "identity": "杀手领袖",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "杀手之王，被萧佛狸暗算身亡",
+    "personality": {
+      "traits": [
+        "威严",
+        "正直",
+        "豪迈",
+        "经验丰富",
+        "重义轻利"
+      ],
+      "speech_style": "直接有力",
+      "temperament": "豪爽"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 7,
+        "line_end": 9,
+        "text": "与宴的杀手有六名。“杀手之王”顾曲周也在常每种行业，都有那行业的领袖"
+      },
+      {
+        "chapter": 5,
+        "line_start": 97,
+        "line_end": 97,
+        "text": "我早该想到，他们……要杀的不是你……是我。"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_xiao",
+    "name": "萧笑",
+    "alias": [],
+    "identity": "萧佛狸之子兼徒弟",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "萧佛狸之子，贪生怕死",
+    "personality": {
+      "traits": [
+        "狡黠",
+        "自信",
+        "护短",
+        "机灵",
+        "年轻气盛",
+        "怯懦",
+        "投机",
+        "狠毒",
+        "贪婪",
+        "卑劣"
+      ],
+      "speech_style": "谄媚求饶",
+      "temperament": "卑劣"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_fo_li",
+        "type": "亲属",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "父子关系"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 47,
+        "line_end": 49,
+        "text": "萧笑就是这两个座上刺客之一。常眯着眼，摸着用剑把胡子刮得精光的下巴。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 3,
+        "line_end": 3,
+        "text": "萧笑笑笑，摸摸下巴，道：“纽玉枢，你也无名得太久了。”"
+      },
+      {
+        "chapter": 6,
+        "line_start": 51,
+        "line_end": 51,
+        "text": "连叶向高这等人也豢养了一群杀手，魏公公怎会反而没有？"
+      },
+      {
+        "chapter": 7,
+        "line_start": 23,
+        "line_end": 31,
+        "text": "贝玄衣死的时候，萧笑忽然抛下了剑，跪地叩头：饶命！"
+      }
+    ]
+  },
+  {
+    "id": "char_liao_sui",
+    "name": "廖碎",
+    "alias": [],
+    "identity": "蒙面杀手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "蒙面杀手，在混战中被杀",
+    "personality": {
+      "traits": [
+        "神秘",
+        "直接",
+        "急躁",
+        "忠诚",
+        "果断"
+      ],
+      "speech_style": "简短直接",
+      "temperament": "冷峻"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 51,
+        "line_end": 53,
+        "text": "还有一个刺客是蒙面的，终年都以紫巾包住了脸部，只留下眼以上的部分，额中有一块青记。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 47,
+        "line_end": 47,
+        "text": "水小情吃住了纽玉枢的所有动作和反应，廖碎手中寒芒一闪，纽玉枢的头飞在半空，但是纽玉枢倒下时，廖碎也倒了下去，嘴角流出了鲜血，呼息也断了。"
+      }
+    ]
+  },
+  {
+    "id": "char_niu_yu_shu",
+    "name": "纽玉枢",
+    "alias": [
+      "无名杀手"
+    ],
+    "identity": "杀手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "无名杀手，挟持刘桥时被杀",
+    "personality": {
+      "traits": [
+        "多疑",
+        "敏锐",
+        "孤傲",
+        "直言不讳",
+        "果断"
+      ],
+      "speech_style": "质问式",
+      "temperament": "多疑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 21,
+        "line_end": 25,
+        "text": "顾曲周在场，显然刘桥这次请客有着非同小可的事。那五个杀手，都是顾曲周百中选一的好手，譬如纽玉枢，外号“无名杀手”"
+      },
+      {
+        "chapter": 5,
+        "line_start": 5,
+        "line_end": 5,
+        "text": "是啊，所以我要做点出名的事。"
+      }
+    ]
+  },
+  {
+    "id": "char_bei_xuan_yi",
+    "name": "贝玄衣",
+    "alias": [],
+    "identity": "杀手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "使用铁链巨斧的一流杀手",
+    "personality": {
+      "traits": [
+        "坚韧",
+        "多疑",
+        "严厉",
+        "执着",
+        "好胜",
+        "凶悍",
+        "警觉",
+        "果断",
+        "自负",
+        "残忍"
+      ],
+      "speech_style": "少言寡语",
+      "temperament": "冷酷"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_fo_li",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "同为杀手但分属不同阵营"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 33,
+        "line_end": 35,
+        "text": "另外一个叫贝玄衣的杀手，最著名的不是杀人成功，而是他杀人失败，他杀的是“武林三大杀手”中的萧佛狸，杀了九次，失败了九次，居然能九次逃生。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 15,
+        "line_end": 15,
+        "text": "贝玄衣跳起来叱道：“放下刘大人，我们放你一条生路！”"
+      },
+      {
+        "chapter": 6,
+        "line_start": 47,
+        "line_end": 47,
+        "text": "黄厚素、叶向高这些老匹夫，常使杀手暗杀魏公公的部下。这些杀手都听顾曲周这老贼的指令，老贼不除，魏公如何安寝？"
+      },
+      {
+        "chapter": 7,
+        "line_start": 1,
+        "line_end": 3,
+        "text": "贝玄衣虽然并不是真的九次谋杀萧佛狸不遂，还能逃出生天的杀手，但他的武功，绝对可以当得上一流杀手之列，他的铁链巨斧，舞转起来，连一只蚊蝇也休想飞得进去。"
+      }
+    ]
+  },
+  {
+    "id": "char_shui_xiao_qing",
+    "name": "水小情",
+    "alias": [],
+    "identity": "女杀手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "与王寇同师门的女杀手，暗算许显纯救王寇",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "嫉恶如仇",
+        "重情",
+        "果断",
+        "直率",
+        "痴情",
+        "勇敢",
+        "隐忍",
+        "柔弱"
+      ],
+      "speech_style": "柔弱中带坚韧",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_wang_kou",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "曾是恋人，为救王寇而重伤"
+      },
+      {
+        "target": "char_tang_zhan",
+        "type": "恋人",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "与唐斩有过一段情"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      6,
+      13,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 125,
+        "line_end": 127,
+        "text": "座上唯一的一名女子，身着天竺绸质尉蓝衣，也忍不住自贝齿迸出了两个字：“可杀！”"
+      },
+      {
+        "chapter": 5,
+        "line_start": 19,
+        "line_end": 19,
+        "text": "水小倩戟指道：“你——你是魏忠贤派来的人？！”"
+      },
+      {
+        "chapter": 6,
+        "line_start": 93,
+        "line_end": 93,
+        "text": "你……你也是魏忠贤的番子！？"
+      },
+      {
+        "chapter": 13,
+        "line_start": 29,
+        "line_end": 29,
+        "text": "水小情与王寇同一师门，也是使短刃的"
+      },
+      {
+        "chapter": 14,
+        "line_start": 23,
+        "line_end": 23,
+        "text": "水小情抽搐一下，便咽了气"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_fo_li",
+    "name": "萧佛狸",
+    "alias": [
+      "无敌杀手"
+    ],
+    "identity": "武林三大杀手之一",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "伪装成刘桥的无敌杀手，被唐斩所杀",
+    "personality": {
+      "traits": [
+        "神秘",
+        "冷酷",
+        "高效",
+        "难以捉摸",
+        "强大"
+      ],
+      "speech_style": "未知",
+      "temperament": "神秘"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 37,
+        "line_end": 37,
+        "text": "能在“无敌杀手”萧佛狸手下逃过九次命的人，是不得了的事。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 177,
+        "line_end": 177,
+        "text": "萧佛狸自左肩至右肋，衣裂而开，他摇晃了一下，嘶声道：“唐——斩——！”"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_zhan",
+    "name": "唐斩",
+    "alias": [
+      "鬼杀手",
+      "杀手王"
+    ],
+    "identity": "武林三大杀手之一",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "当世第一杀手，额心有红痣，刀法出神入化",
+    "personality": {
+      "traits": [
+        "高效",
+        "残忍",
+        "神秘",
+        "冷酷",
+        "狂傲",
+        "狡黠",
+        "机变",
+        "自负"
+      ],
+      "speech_style": "嬉笑怒骂间藏杀机",
+      "temperament": "桀骜不驯"
+    },
+    "relationships": [
+      {
+        "target": "char_wang_kou",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "亦师亦敌，互相较量"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 75,
+        "line_end": 75,
+        "text": "可惜‘鬼杀手’唐斩今晚没有来。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 3,
+        "line_end": 3,
+        "text": "唐斩冷冷地道"
+      }
+    ]
+  },
+  {
+    "id": "char_zuo_guang_dou",
+    "name": "左光斗",
+    "alias": [],
+    "identity": "朝廷清官",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "六君子之一，惨死狱中",
+    "personality": {
+      "traits": [
+        "正直",
+        "忠诚",
+        "有远见",
+        "坚韧",
+        "清廉"
+      ],
+      "speech_style": "正式",
+      "temperament": "刚正"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 113,
+        "line_end": 113,
+        "text": "刘大人你指的是左光斗、杨涟、魏大中、袁化中、周瑞朝、顾大章六位大人惨死狱中的事？"
+      }
+    ]
+  },
+  {
+    "id": "char_yang_lian",
+    "name": "杨涟",
+    "alias": [],
+    "identity": "朝廷清官",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "六君子之一，死状最惨",
+    "personality": {
+      "traits": [
+        "正直",
+        "忠诚",
+        "刚烈",
+        "清廉",
+        "悲壮"
+      ],
+      "speech_style": "未知",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 121,
+        "line_end": 121,
+        "text": "杨涟杨大人死得尤惨，土囊压身，铁铃贯耳，仅以血衣置棺中，躯肉不全，填尸牢陛，血骼交横，……"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_zhan_real",
+    "name": "唐斩",
+    "alias": [
+      "廖碎",
+      "鬼杀手"
+    ],
+    "identity": "武林三大杀手之一，魏忠贤密使",
+    "faction": "faction_wei_dang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "伪装成廖碎的鬼杀手，最终杀死萧佛狸",
+    "personality": {
+      "traits": [
+        "隐忍",
+        "高效",
+        "冷酷",
+        "精准",
+        "神秘"
+      ],
+      "speech_style": "简短冷酷",
+      "temperament": "冷峻"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 179,
+        "line_end": 179,
+        "text": "只见“已死的”廖碎淡淡道：“你杀顾曲周，我杀你。”"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_guo_zhen",
+    "name": "朱国帧",
+    "alias": [
+      "铁书大侠"
+    ],
+    "identity": "阁臣",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "以书为神兵的阁臣高手",
+    "personality": {
+      "traits": [
+        "嗜书如命",
+        "淡泊名利",
+        "学识渊博",
+        "刚正不阿",
+        "迂腐固执",
+        "临危不惧",
+        "幽默风趣"
+      ],
+      "speech_style": "引经据典，出口成章",
+      "temperament": "儒雅"
+    },
+    "relationships": [
+      {
+        "target": "char_tang_zhan",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "唐斩以毒计胜之"
+      }
+    ],
+    "known_skills": [
+      "skill_tie_shu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 5,
+        "line_end": 9,
+        "text": "朱国帧一面读着道德经，一面苦思吟哦"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_yan_xi",
+    "name": "朱延禧",
+    "alias": [
+      "神耳神舌神箭手"
+    ],
+    "identity": "阁臣",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "以耳灵舌巧箭术闻名的阁臣高手",
+    "personality": {
+      "traits": [
+        "嗜食如命",
+        "机警过人",
+        "箭术超群",
+        "豪爽直率",
+        "自负骄傲",
+        "识毒精准"
+      ],
+      "speech_style": "直来直去，豪迈不羁",
+      "temperament": "豪放"
+    },
+    "relationships": [
+      {
+        "target": "char_wang_kou",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "被王寇毒杀"
+      }
+    ],
+    "known_skills": [
+      "skill_shen_er_shen_she_shen_jian_shou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 280,
+        "line_end": 283,
+        "text": "朱延禧与朱国帧同是阁臣"
+      }
+    ]
+  },
+  {
+    "id": "char_lang_ting",
+    "name": "郎挺",
+    "alias": [
+      "南杀"
+    ],
+    "identity": "杀手",
+    "faction": "faction_wei_zhong_xian",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "南杀，遇者骨折",
+    "personality": {
+      "traits": [
+        "凶悍",
+        "易怒",
+        "直接",
+        "刚猛",
+        "暴躁"
+      ],
+      "speech_style": "虎吼一般",
+      "temperament": "暴烈"
+    },
+    "relationships": [
+      {
+        "target": "char_wang_kou",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "被王寇激怒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 95,
+        "line_end": 95,
+        "text": "南杀郎挺，遇者骨折"
+      }
+    ]
+  },
+  {
+    "id": "char_huang_mei_ming",
+    "name": "黄昧明",
+    "alias": [
+      "北杀"
+    ],
+    "identity": "杀手",
+    "faction": "faction_wei_zhong_xian",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "东厂教头，与王寇比试落败后偷袭被杀",
+    "personality": {
+      "traits": [
+        "阴险",
+        "谦逊",
+        "狡诈",
+        "残忍",
+        "深藏不露",
+        "好胜",
+        "隐忍",
+        "果断"
+      ],
+      "speech_style": "恭敬中藏锋芒",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_wang_kou",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "比试对手"
+      },
+      {
+        "target": "char_wang_kou",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "比试中暗藏杀机，偷袭被反杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 127,
+        "line_end": 127,
+        "text": "北杀黄昧明"
+      },
+      {
+        "chapter": 10,
+        "line_start": 3,
+        "line_end": 5,
+        "text": "王寇黄昧明听唐斩一句就替他们决定了"
+      }
+    ]
+  },
+  {
+    "id": "char_chen_yi",
+    "name": "陈移",
+    "alias": [],
+    "identity": "许显纯亲信",
+    "faction": "东厂",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "许显纯手下东厂高手，暗处护卫",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "隐秘",
+        "服从",
+        "警觉",
+        "冷酷"
+      ],
+      "speech_style": "简短应答",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_xu_xian_chun",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "忠实执行命令"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 103,
+        "line_end": 105,
+        "text": "陈移，去看看有什么事"
+      }
+    ]
+  },
+  {
+    "id": "char_fan_zi",
+    "name": "番子",
+    "alias": [],
+    "identity": "东厂番子",
+    "faction": "东厂",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "许显纯手下的东厂番子，暗中配合演戏",
+    "personality": {
+      "traits": [
+        "服从",
+        "机警",
+        "配合",
+        "沉默",
+        "冷血"
+      ],
+      "speech_style": "附和主人",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_xu_xian_chun",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "听命行事"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 115,
+        "line_end": 115,
+        "text": "那番子步出稽首道"
+      }
+    ]
+  }
+]

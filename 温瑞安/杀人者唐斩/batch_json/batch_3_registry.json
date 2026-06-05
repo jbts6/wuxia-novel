@@ -1,0 +1,761 @@
+{
+  "characters": [
+    {
+      "id": "char_bei_xuan_yi",
+      "name": "贝玄衣",
+      "alias": [],
+      "identity": "杀手",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "使用铁链巨斧的一流杀手",
+      "personality": {
+        "traits": [
+          "凶悍",
+          "警觉",
+          "果断",
+          "自负",
+          "残忍"
+        ],
+        "speech_style": "少言寡语",
+        "temperament": "冷酷"
+      },
+      "relationships": [
+        {
+          "target": "char_xiao_fo_li",
+          "type": "对手",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "同为杀手但分属不同阵营"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 1,
+          "line_end": 3,
+          "text": "贝玄衣虽然并不是真的九次谋杀萧佛狸不遂，还能逃出生天的杀手，但他的武功，绝对可以当得上一流杀手之列，他的铁链巨斧，舞转起来，连一只蚊蝇也休想飞得进去。"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_xiao",
+      "name": "萧笑",
+      "alias": [],
+      "identity": "萧佛狸之子",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "萧佛狸之子，贪生怕死",
+      "personality": {
+        "traits": [
+          "怯懦",
+          "投机",
+          "狠毒",
+          "贪婪",
+          "卑劣"
+        ],
+        "speech_style": "谄媚求饶",
+        "temperament": "卑劣"
+      },
+      "relationships": [
+        {
+          "target": "char_xiao_fo_li",
+          "type": "亲属",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "父子关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 23,
+          "line_end": 31,
+          "text": "贝玄衣死的时候，萧笑忽然抛下了剑，跪地叩头：饶命！"
+        }
+      ]
+    },
+    {
+      "id": "char_zhu_guo_zhen",
+      "name": "朱国帧",
+      "alias": [
+        "铁书大侠"
+      ],
+      "identity": "阁臣",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "出神入化",
+      "one_line": "以书为神兵的阁臣高手",
+      "personality": {
+        "traits": [
+          "嗜书如命",
+          "淡泊名利",
+          "学识渊博",
+          "刚正不阿",
+          "迂腐固执",
+          "临危不惧",
+          "幽默风趣"
+        ],
+        "speech_style": "引经据典，出口成章",
+        "temperament": "儒雅"
+      },
+      "relationships": [
+        {
+          "target": "char_tang_zhan",
+          "type": "对手",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "唐斩以毒计胜之"
+        }
+      ],
+      "known_skills": [
+        "skill_tie_shu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 5,
+          "line_end": 9,
+          "text": "朱国帧一面读着道德经，一面苦思吟哦"
+        }
+      ]
+    },
+    {
+      "id": "char_zhu_yan_xi",
+      "name": "朱延禧",
+      "alias": [
+        "神耳神舌神箭手"
+      ],
+      "identity": "阁臣",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "以耳灵舌巧箭术闻名的阁臣高手",
+      "personality": {
+        "traits": [
+          "嗜食如命",
+          "机警过人",
+          "箭术超群",
+          "豪爽直率",
+          "自负骄傲",
+          "识毒精准"
+        ],
+        "speech_style": "直来直去，豪迈不羁",
+        "temperament": "豪放"
+      },
+      "relationships": [
+        {
+          "target": "char_wang_kou",
+          "type": "宿敌",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "被王寇毒杀"
+        }
+      ],
+      "known_skills": [
+        "skill_shen_er_shen_she_shen_jian_shou"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 280,
+          "line_end": 283,
+          "text": "朱延禧与朱国帧同是阁臣"
+        }
+      ]
+    },
+    {
+      "id": "char_xu_xian_chun",
+      "name": "许显纯",
+      "alias": [],
+      "identity": "魏忠贤手下五虎之一",
+      "faction": "faction_wei_zhong_xian",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "魏忠贤手下五虎之一，主理鞠刑",
+      "personality": {
+        "traits": [
+          "阴险狡诈",
+          "心狠手辣",
+          "城府极深",
+          "笑里藏刀",
+          "老谋深算",
+          "威严外露"
+        ],
+        "speech_style": "威严中带笑，笑中藏刀",
+        "temperament": "阴鸷"
+      },
+      "relationships": [
+        {
+          "target": "char_wang_kou",
+          "type": "主仆",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "王寇投靠许显纯"
+        },
+        {
+          "target": "char_tang_zhan",
+          "type": "合作者",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "唐斩是许显纯的客卿"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 31,
+          "line_end": 31,
+          "text": "原来这大官便是魏忠贤手下五虎十狗十孩儿四十孙中五虎之一许显纯"
+        }
+      ]
+    },
+    {
+      "id": "char_lang_ting",
+      "name": "郎挺",
+      "alias": [
+        "南杀"
+      ],
+      "identity": "杀手",
+      "faction": "faction_wei_zhong_xian",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "南杀，遇者骨折",
+      "personality": {
+        "traits": [
+          "凶悍",
+          "易怒",
+          "直接",
+          "刚猛",
+          "暴躁"
+        ],
+        "speech_style": "虎吼一般",
+        "temperament": "暴烈"
+      },
+      "relationships": [
+        {
+          "target": "char_wang_kou",
+          "type": "对手",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "被王寇激怒"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 95,
+          "line_end": 95,
+          "text": "南杀郎挺，遇者骨折"
+        }
+      ]
+    },
+    {
+      "id": "char_huang_mei_ming",
+      "name": "黄昧明",
+      "alias": [
+        "北杀"
+      ],
+      "identity": "杀手",
+      "faction": "faction_wei_zhong_xian",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "北杀，每年只作一案，每案皆杀尽满门",
+      "personality": {
+        "traits": [
+          "阴险",
+          "谦逊",
+          "狡诈",
+          "残忍",
+          "深藏不露"
+        ],
+        "speech_style": "毕恭毕敬",
+        "temperament": "阴沉"
+      },
+      "relationships": [
+        {
+          "target": "char_wang_kou",
+          "type": "对手",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "比试对手"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 127,
+          "line_end": 127,
+          "text": "北杀黄昧明"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_tie_shu",
+      "name": "铁书",
+      "type": "暗器",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "以书为神兵的武功",
+      "rag_refs": [
+        8
+      ],
+      "techniques": [
+        {
+          "id": "tech_guo_qian_ren_feng",
+          "name": "过千仞锋行万里路",
+          "type": "attack",
+          "description": "铁书八式之一，以书页为暗器攻击敌人"
+        },
+        {
+          "id": "tech_tie_shu_ba_shi",
+          "name": "铁书八式",
+          "type": "attack",
+          "description": "朱国帧独创的八式书页武功"
+        }
+      ],
+      "progression": [
+        {
+          "level": 5,
+          "unlock": "出神入化"
+        }
+      ],
+      "effects": [
+        {
+          "type": "攻击",
+          "condition": "书页在手",
+          "description": "以书页为暗器，可截断暗器、击退敌人"
+        }
+      ],
+      "combat_style": "以书为兵，儒雅从容",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 201,
+          "line_end": 201,
+          "text": "以书为神兵，天下莫为破之"
+        }
+      ]
+    },
+    {
+      "id": "skill_shen_er_shen_she_shen_jian_shou",
+      "name": "神耳神舌神箭手",
+      "type": "暗器",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "耳灵舌巧箭术超群的综合武功",
+      "rag_refs": [
+        8
+      ],
+      "techniques": [
+        {
+          "id": "tech_yi_jian_shuang_diao",
+          "name": "一箭双雕",
+          "type": "attack",
+          "description": "箭穿过敌人体身后回弧射中第二人"
+        },
+        {
+          "id": "tech_yi_bo_san_zhe",
+          "name": "一波三折",
+          "type": "attack",
+          "description": "箭射出后多次折返，连续射杀多名敌人"
+        },
+        {
+          "id": "tech_yi_shi_er_niao",
+          "name": "一石二鸟",
+          "type": "attack",
+          "description": "一箭同时射杀两名敌人"
+        }
+      ],
+      "progression": [
+        {
+          "level": 5,
+          "unlock": "出神入化"
+        }
+      ],
+      "effects": [
+        {
+          "type": "攻击",
+          "condition": "弓箭在手",
+          "description": "箭无虚发，可穿越人体回弧攻击"
+        }
+      ],
+      "combat_style": "远程精准，耳聪舌敏",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 327,
+          "line_end": 331,
+          "text": "阁下就是以前江湖上人称神耳神舌神箭手朱大将军"
+        }
+      ]
+    }
+  ],
+  "techniques": [
+    {
+      "id": "tech_guo_qian_ren_feng",
+      "name": "过千仞锋行万里路",
+      "type": "attack",
+      "description": "铁书八式之一，以书页为暗器攻击敌人",
+      "source_skill": "skill_tie_shu",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 201,
+          "line_end": 201,
+          "text": "过千仞锋行万里路八式"
+        }
+      ]
+    },
+    {
+      "id": "tech_tie_shu_ba_shi",
+      "name": "铁书八式",
+      "type": "attack",
+      "description": "朱国帧独创的八式书页武功",
+      "source_skill": "skill_tie_shu",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 201,
+          "line_end": 201,
+          "text": "过千仞锋行万里路八式"
+        }
+      ]
+    },
+    {
+      "id": "tech_yi_jian_shuang_diao",
+      "name": "一箭双雕",
+      "type": "attack",
+      "description": "箭穿过敌人体身后回弧射中第二人",
+      "source_skill": "skill_shen_er_shen_she_shen_jian_shou",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 351,
+          "line_end": 353,
+          "text": "我的箭穿过他身体，回弧射中第二人"
+        }
+      ]
+    },
+    {
+      "id": "tech_yi_bo_san_zhe",
+      "name": "一波三折",
+      "type": "attack",
+      "description": "箭射出后多次折返，连续射杀多名敌人",
+      "source_skill": "skill_shen_er_shen_she_shen_jian_shou",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 359,
+          "line_end": 365,
+          "text": "再看我一波三折射法"
+        }
+      ]
+    },
+    {
+      "id": "tech_yi_shi_er_niao",
+      "name": "一石二鸟",
+      "type": "attack",
+      "description": "一箭同时射杀两名敌人",
+      "source_skill": "skill_shen_er_shen_she_shen_jian_shou",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 371,
+          "line_end": 371,
+          "text": "试试我的一石二鸟吧"
+        }
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_wei_zhong_xian",
+      "name": "魏忠贤",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [
+        "五虎",
+        "十狗",
+        "十孩儿",
+        "四十孙"
+      ],
+      "one_line": "魏忠贤的阉党势力",
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 31,
+          "line_end": 31,
+          "text": "魏忠贤手下五虎十狗十孩儿四十孙"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_deng_long",
+      "name": "灯笼",
+      "region": "江湖",
+      "one_line": "灯笼之役发生地",
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 61,
+          "line_end": 61,
+          "text": "你可知我在灯笼之役"
+        }
+      ]
+    },
+    {
+      "id": "loc_shi_zi_po",
+      "name": "十字坡",
+      "region": "江湖",
+      "one_line": "王寇斩杀万里狂和千里痴之地",
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 77,
+          "line_end": 77,
+          "text": "我曾在十字坡斩杀万里狂和千里痴"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_tie_lian_ju_fu",
+      "name": "铁链巨斧",
+      "type": "weapon",
+      "owner": "char_bei_xuan_yi",
+      "one_line": "贝玄衣的武器",
+      "description": "铁链连接的巨斧，舞动起来密不透风，连蚊蝇也休想飞得进去，是贝玄衣作为一流杀手的标志性兵器",
+      "effects": [
+        {
+          "type": "攻击",
+          "value": "",
+          "description": "攻防一体，密不透风"
+        }
+      ],
+      "origin": "贝玄衣",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_bei_xuan_yi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 1,
+          "line_end": 3,
+          "text": "他的铁链巨斧，舞转起来，连一只蚊蝇也休想飞得进去。"
+        }
+      ]
+    },
+    {
+      "id": "item_gao_shan_yi_ba_qing",
+      "name": "高山一把青",
+      "type": "poison",
+      "owner": "char_tang_zhan",
+      "one_line": "烛火燃烧时释放的烈毒",
+      "description": "一种无色无味的烈毒，通过烛火燃烧时释放，使人中毒，需闭住呼吸方可防范",
+      "effects": [
+        {
+          "type": "毒药",
+          "value": "",
+          "description": "烛火燃烧时释放，使人中毒"
+        }
+      ],
+      "origin": "唐斩",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_tang_zhan"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 221,
+          "line_end": 221,
+          "text": "你以为我不知你在烛火点燃时洒下高山一把青的烈毒么"
+        }
+      ]
+    },
+    {
+      "id": "item_hei_ya_duan_shui",
+      "name": "黑崖断水",
+      "type": "poison",
+      "owner": "char_tang_zhan",
+      "one_line": "浸在书页上的剧毒",
+      "description": "浸在书页上的剧毒，口舌沾上即死，需用特殊手法翻书方可避免",
+      "effects": [
+        {
+          "type": "毒药",
+          "value": "",
+          "description": "口舌沾上即死"
+        }
+      ],
+      "origin": "唐斩",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_tang_zhan"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 233,
+          "line_end": 233,
+          "text": "书页早已浸有黑崖断水"
+        }
+      ]
+    },
+    {
+      "id": "item_jing_tian_hong_ni_shu",
+      "name": "径天虹鲵书",
+      "type": "special",
+      "owner": "char_tang_zhan",
+      "one_line": "以菩萨石研制墨粉写成的毒书",
+      "description": "以峨嵋山产之菩萨石研制成墨粉，以秘传之法写成，配合高山一把青烛光和黑崖断水书页，可使人双目中毒、全身麻痹",
+      "effects": [
+        {
+          "type": "特殊",
+          "value": "",
+          "description": "使人双目定在书中，全身麻痹"
+        }
+      ],
+      "origin": "孔颖达传下",
+      "rarity": "绝世神兵",
+      "related_characters": [
+        "char_tang_zhan",
+        "char_zhu_guo_zhen"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 269,
+          "line_end": 269,
+          "text": "径天虹鲵书以秘传之法写成"
+        }
+      ]
+    },
+    {
+      "id": "item_pu_sa_shi",
+      "name": "菩萨石",
+      "type": "special",
+      "owner": "",
+      "one_line": "峨嵋山产的特殊矿石",
+      "description": "峨嵋山产的特殊矿石，可研制成墨粉，用于制作径天虹鲵书",
+      "effects": [
+        {
+          "type": "特殊",
+          "value": "",
+          "description": "可研制成墨粉"
+        }
+      ],
+      "origin": "峨嵋山",
+      "rarity": "稀世珍品",
+      "related_characters": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 269,
+          "line_end": 269,
+          "text": "以峨嵋山产之菩萨石研制成墨粉"
+        }
+      ]
+    },
+    {
+      "id": "item_jing_hua",
+      "name": "荆花",
+      "type": "poison",
+      "owner": "char_wang_kou",
+      "one_line": "与鱼羹混合成剧毒的花",
+      "description": "荆花渗入鱼羹后形成剧毒，可使人口身血脉栓塞，且毒在喉中形成、胃中发作，令人防不胜防",
+      "effects": [
+        {
+          "type": "毒药",
+          "value": "",
+          "description": "使人血脉栓塞"
+        }
+      ],
+      "origin": "王寇",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_wang_kou",
+        "char_zhu_yan_xi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 431,
+          "line_end": 431,
+          "text": "荆花渗鱼羹，是剧毒"
+        }
+      ]
+    }
+  ]
+}
