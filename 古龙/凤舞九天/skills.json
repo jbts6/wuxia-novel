@@ -1,0 +1,470 @@
+[
+  {
+    "id": "skill_hua_gu_mian_zhang",
+    "name": "化骨绵掌",
+    "type": "掌法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "阴毒掌力，被打者两时辰后骨骼变软如绵而死",
+    "rag_refs": [
+      5,
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_hua_gu_mian_zhang_ji",
+        "name": "化骨绵掌击",
+        "type": "attack",
+        "description": "一掌打在人身上，被打的人浑如不觉，两个时辰后掌力发作，全身骨骼变得其软如绵"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初练掌力"
+      },
+      {
+        "level": 3,
+        "unlock": "掌力阴毒"
+      },
+      {
+        "level": 5,
+        "unlock": "中者无救"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "掌力击中",
+        "description": "两时辰后骨骼变软如绵，万万救不活"
+      }
+    ],
+    "combat_style": "阴毒绵密，伤人于无形",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 232,
+        "line_end": 238,
+        "text": "他实在看不出这个打扮得像花花大少一样的年轻人，手上竟有武林中绝传已久的“化骨绵掌”功夫。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 368,
+        "line_end": 368,
+        "text": "化骨绵掌就难得多了，我也练了一年多才小有所成"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhi_dao",
+    "name": "指刀",
+    "type": "指法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "指甲弹出如刀锋，可碎骰子",
+    "rag_refs": [
+      5,
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_zhi_dao_tan",
+        "name": "指甲弹击",
+        "type": "attack",
+        "description": "手指一弹，卷成一圈的指甲突然伸得笔直，晶莹洁白，闪闪发光，就像是刀锋一样"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "指甲初练"
+      },
+      {
+        "level": 3,
+        "unlock": "指甲如刀"
+      },
+      {
+        "level": 5,
+        "unlock": "锐风伤人"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "指甲弹出",
+        "description": "一缕锐风从耳边划过，指甲如刀锋"
+      }
+    ],
+    "combat_style": "以指代刀，暗器伤人",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 248,
+        "line_end": 254,
+        "text": "难道这就是昔年和张边殷氏的“一阳指”、华山“弹指神通”并称的“指刀”？"
+      },
+      {
+        "chapter": 7,
+        "line_start": 368,
+        "line_end": 368,
+        "text": "指刀和混元气功力也不容易"
+      }
+    ]
+  },
+  {
+    "id": "skill_ru_yi_lan_hua_shou",
+    "name": "如意兰花手",
+    "type": "指法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "分筋错脉的可怕功夫，伤人于无形",
+    "rag_refs": [
+      5,
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_ru_yi_lan_hua_shou_fu",
+        "name": "兰花拂穴",
+        "type": "attack",
+        "description": "纤长柔美的手指兰花般轻轻一拂，分筋错脉，伤人于无形"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学兰花手"
+      },
+      {
+        "level": 3,
+        "unlock": "分筋错脉"
+      },
+      {
+        "level": 5,
+        "unlock": "伤人无形"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "手指拂中",
+        "description": "被拂中者手臂永久废掉，一个对时后伤势发作疼痛不堪"
+      }
+    ],
+    "combat_style": "轻柔美妙，阴毒无比",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 628,
+        "line_end": 630,
+        "text": "这如意兰花手名字虽美，却是武林中最可怕的几种功夫之一"
+      },
+      {
+        "chapter": 7,
+        "line_start": 336,
+        "line_end": 336,
+        "text": "但她的'如意兰花手'却绝不会是天生的"
+      },
+      {
+        "chapter": 7,
+        "line_start": 346,
+        "line_end": 346,
+        "text": "这种功夫并不难，有些人虽然永远也练不成，可是只要懂得诀窍，再加上一点聪明和耐性，最多五年就可以练成了"
+      },
+      {
+        "chapter": 7,
+        "line_start": 364,
+        "line_end": 364,
+        "text": "我只练了三个月"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_can_shi_san_shi",
+    "name": "天残十三式",
+    "type": "剑法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "海南派镇山剑法，已绝传三十年",
+    "rag_refs": [
+      5
+    ],
+    "techniques": [
+      {
+        "id": "tech_tian_can_xiao_zhi_tian_nan",
+        "name": "笑指天南",
+        "type": "attack",
+        "description": "以铁杖当长剑，一招“笑指天南”，海南派嫡传剑法"
+      },
+      {
+        "id": "tech_tian_can_lian_huan_san_zhao",
+        "name": "连环三招",
+        "type": "attack",
+        "description": "天残十三式中简单的三招，招沉力猛"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学剑式"
+      },
+      {
+        "level": 3,
+        "unlock": "三式小成"
+      },
+      {
+        "level": 5,
+        "unlock": "十三式大成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "铁杖刺出",
+        "description": "海南剑术专走偏锋，半个人施展恰合精髓"
+      }
+    ],
+    "combat_style": "偏锋走险，以残施展",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 668,
+        "line_end": 682,
+        "text": "天残十三式本是海南派镇山剑法，可惜三十年前就已绝传"
+      }
+    ]
+  },
+  {
+    "id": "skill_zui_zhong_qi_sha_shou",
+    "name": "醉中七杀手",
+    "type": "掌法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "绝传八十年的醉中绝技",
+    "rag_refs": [
+      5
+    ],
+    "techniques": [
+      {
+        "id": "tech_zui_zhong_qi_sha_shou_yi",
+        "name": "醉卧流云",
+        "type": "attack",
+        "description": "醉卧流云七杀手，惟有饮者得真传"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "醉态初成"
+      },
+      {
+        "level": 3,
+        "unlock": "三杀已成"
+      },
+      {
+        "level": 5,
+        "unlock": "七杀圆满"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "醉中出手",
+        "description": "一杀就已要了命"
+      }
+    ],
+    "combat_style": "以醉为形，杀人于醉梦中",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 708,
+        "line_end": 712,
+        "text": "醉卧流云七杀手，惟有饮者得真传"
+      }
+    ]
+  },
+  {
+    "id": "skill_rou_dao",
+    "name": "柔道",
+    "type": "掌法",
+    "faction": "",
+    "rank": "略有小成",
+    "one_line": "扶桑岛上的摔跤功夫",
+    "rag_refs": [
+      5
+    ],
+    "techniques": [
+      {
+        "id": "tech_rou_dao_bao_shuai",
+        "name": "抱摔",
+        "type": "attack",
+        "description": "抱住对方腰部，自己先在地上一滚，压到对方身上"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学柔道"
+      },
+      {
+        "level": 3,
+        "unlock": "抱摔制敌"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "抱住对方",
+        "description": "将对方压在地上不能动弹"
+      }
+    ],
+    "combat_style": "近身缠斗，以摔为主",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 826,
+        "line_end": 826,
+        "text": "这不是蒙古摔跤，这是扶桑岛上的柔道"
+      }
+    ]
+  },
+  {
+    "id": "skill_mi_zong_da_shou_yin",
+    "name": "密宗大手印",
+    "type": "掌法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "贺尚书使用的佛门掌法，出手奇重",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_mi_zong_da_shou_yin_pai",
+        "name": "大手印拍击",
+        "type": "attack",
+        "description": "轻飘飘掠近后一掌拍出，出手奇重，用的是密宗大手印功夫"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学掌法"
+      },
+      {
+        "level": 3,
+        "unlock": "掌力沉重"
+      },
+      {
+        "level": 5,
+        "unlock": "掌法精纯"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "掌力击中",
+        "description": "出手奇重，足以伤人"
+      }
+    ],
+    "combat_style": "佛门正宗，出手沉重",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 78,
+        "line_end": 78,
+        "text": "他用的竟是密宗大手印的功夫"
+      }
+    ]
+  },
+  {
+    "id": "skill_hun_yuan_qi_gong",
+    "name": "混元气功",
+    "type": "内功",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "小老头修炼的内功绝技",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_hun_yuan_qi_gong_yun",
+        "name": "混元真气",
+        "type": "buff",
+        "description": "修炼混元气功，增强内力修为"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初练内功"
+      },
+      {
+        "level": 3,
+        "unlock": "内力初成"
+      },
+      {
+        "level": 5,
+        "unlock": "混元大成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "修炼内功",
+        "description": "增强内力修为"
+      }
+    ],
+    "combat_style": "内功深厚，以气驭技",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 368,
+        "line_end": 368,
+        "text": "混元气功力也不容易"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_fa",
+    "name": "西门吹雪剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "西门吹雪的绝世剑法，以杀气著称",
+    "rag_refs": [
+      18
+    ],
+    "techniques": [
+      {
+        "id": "tech_xi_men_jian",
+        "name": "西门吹雪剑式",
+        "type": "attack",
+        "description": "西门吹雪独创的剑法，剑出如雪，杀人于无形"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "登峰造极，剑法通神"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "出剑",
+        "description": "一剑致命，杀气凛然"
+      }
+    ],
+    "combat_style": "以杀气压制对手，一击必杀",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 856,
+        "line_end": 860,
+        "text": "西门吹雪道：马车上的人。...很浓的杀气。"
+      }
+    ]
+  }
+]
