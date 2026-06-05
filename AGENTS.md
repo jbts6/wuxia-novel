@@ -1,3 +1,5 @@
+@Karpathy.md
+
 # context-mode + RTK — MANDATORY routing rules
 
 context-mode MCP tools and RTK available. Rules protect context window from flooding. One unrouted command dumps 56 KB into context.
