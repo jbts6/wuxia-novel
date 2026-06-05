@@ -1,0 +1,1566 @@
+{
+  "batch": 1,
+  "chapters": [
+    "ch_00",
+    "ch_01",
+    "ch_02"
+  ],
+  "processed": [
+    "ch_00",
+    "ch_01",
+    "ch_02"
+  ],
+  "entity_registry": {
+    "characters": [
+      {
+        "id": "char_xiao_qiu_shui",
+        "name": "萧秋水",
+        "alias": [],
+        "identity": "浣花剑派三公子",
+        "faction": "faction_huanhua_jianpai",
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "浣花剑派三公子，为观杜甫诗而奔赴隆中的洒脱少年",
+        "personality": {
+          "traits": [
+            "洒脱不羁",
+            "爱抱打不平",
+            "聪敏过人",
+            "广游交友",
+            "怒易喜"
+          ],
+          "speech_style": "豪爽直率",
+          "temperament": "潇洒不羁"
+        },
+        "relationships": [
+          {
+            "target": "char_zuo_qiu_chao_ran",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "锦江四兄弟中的忠实伙伴"
+          },
+          {
+            "target": "char_tang_rou",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "锦江四兄弟中的忠实伙伴"
+          },
+          {
+            "target": "char_deng_yu_han",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "锦江四兄弟中的忠实伙伴"
+          }
+        ],
+        "known_skills": [
+          "skill_huanhua_jianfa"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          0,
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 17,
+            "line_end": 17,
+            "text": "萧秋水，却因为这两句诗，写于锦江，刻在隆中，所以特别带了三位好朋友，从四川赶到了湖北"
+          },
+          {
+            "chapter": 1,
+            "line_start": 38,
+            "line_end": 38,
+            "text": "萧秋水自小就聪敏过人，读书过目不忘，能诗善画，他的武功得自萧易人而非萧西楼，但十七岁时居然已自成一家"
+          }
+        ]
+      },
+      {
+        "id": "char_xiao_xi_lou",
+        "name": "萧西楼",
+        "alias": [],
+        "identity": "浣花剑派掌门人",
+        "faction": "faction_huanhua_jianpai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "浣花剑派掌门人，晚年勤修剑法大有进境",
+        "personality": {
+          "traits": [
+            "慎细老练",
+            "言出必行",
+            "严厉",
+            "爱护门派",
+            "望子成才"
+          ],
+          "speech_style": "威严",
+          "temperament": "沉稳老练"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "亲属",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "父子关系，对其性格不满但暗地喜爱"
+          }
+        ],
+        "known_skills": [
+          "skill_huanhua_jianfa"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          0
+        ],
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 19,
+            "line_end": 19,
+            "text": "浣花剑派掌门人萧西楼有三个儿子，一个女儿"
+          }
+        ]
+      },
+      {
+        "id": "char_xiao_yi_ren",
+        "name": "萧易人",
+        "alias": [],
+        "identity": "浣花剑派大公子",
+        "faction": "faction_huanhua_jianpai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "萧家长子，名震江湖，智略权谋过人",
+        "personality": {
+          "traits": [
+            "智略过人",
+            "权谋深沉",
+            "名震江湖",
+            "稳重",
+            "有威望"
+          ],
+          "speech_style": "沉稳",
+          "temperament": "深沉"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          0
+        ],
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 19,
+            "line_end": 19,
+            "text": "大儿子萧易人，名震江湖，年轻人里恐怕没有比萧易人更有智略权谋"
+          }
+        ]
+      },
+      {
+        "id": "char_xiao_kai_yan",
+        "name": "萧开雁",
+        "alias": [],
+        "identity": "浣花剑派二公子",
+        "faction": "faction_huanhua_jianpai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "萧家次子，沉着练达，被誉为浣花剑派的守护神",
+        "personality": {
+          "traits": [
+            "沉着练达",
+            "忠心踏实",
+            "任劳任怨",
+            "忠厚朴实",
+            "可靠"
+          ],
+          "speech_style": "稳重",
+          "temperament": "沉稳"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          0
+        ],
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 19,
+            "line_end": 19,
+            "text": "二儿子萧开雁，沉着练达，被誉为是浣花剑派的守护神"
+          }
+        ]
+      },
+      {
+        "id": "char_zuo_qiu_chao_ran",
+        "name": "左丘超然",
+        "alias": [
+          "长个子朋友"
+        ],
+        "identity": "锦江四兄弟之一，擒拿手高手",
+        "faction": null,
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "精通各种擒拿手的长个子青年，锦江四兄弟之一",
+        "personality": {
+          "traits": [
+            "懒散",
+            "无所不知",
+            "精通擒拿",
+            "沉着",
+            "幽默"
+          ],
+          "speech_style": "懒洋洋但一针见血",
+          "temperament": "外表懒散内心精悍"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "锦江四兄弟中的忠实伙伴"
+          }
+        ],
+        "known_skills": [
+          "skill_qin_na_shou"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1,
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 330,
+            "line_end": 330,
+            "text": "姓左丘，名超然，为人却一点也不超然，只是有点懒"
+          },
+          {
+            "chapter": 2,
+            "line_start": 240,
+            "line_end": 240,
+            "text": "‘僵尸擒拿手’的二郎折棍法"
+          }
+        ]
+      },
+      {
+        "id": "char_tang_rou",
+        "name": "唐柔",
+        "alias": [
+          "白面书生朋友"
+        ],
+        "identity": "蜀中唐门外系嫡亲，锦江四兄弟之一",
+        "faction": "faction_tang_men",
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "蜀中唐门弟子，以银针暗器闻名，锦江四兄弟之一",
+        "personality": {
+          "traits": [
+            "文静",
+            "出手狠辣",
+            "暗器精湛",
+            "外表柔弱",
+            "心地善良"
+          ],
+          "speech_style": "阴声细气",
+          "temperament": "文质彬彬"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "锦江四兄弟中的忠实伙伴"
+          }
+        ],
+        "known_skills": [
+          "skill_tang_men_an_qi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1,
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 302,
+            "line_end": 302,
+            "text": "姓唐名柔，是蜀中唐门的外系嫡亲"
+          },
+          {
+            "chapter": 2,
+            "line_start": 228,
+            "line_end": 228,
+            "text": "我是四川蜀中，唐家的人"
+          }
+        ]
+      },
+      {
+        "id": "char_deng_yu_han",
+        "name": "邓玉函",
+        "alias": [],
+        "identity": "海南剑派高足，锦江四兄弟之一",
+        "faction": "faction_hai_nan_jian_pai",
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "海南剑派弟子，不出手则已一出手必杀，锦江四兄弟之一",
+        "personality": {
+          "traits": [
+            "冷峻",
+            "出手必杀",
+            "板脸严肃",
+            "冷酷",
+            "正直"
+          ],
+          "speech_style": "冷淡简短",
+          "temperament": "冷若冰霜"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "锦江四兄弟中的忠实伙伴"
+          }
+        ],
+        "known_skills": [
+          "skill_hai_nan_jian_fa"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1,
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 334,
+            "line_end": 334,
+            "text": "海南剑派的高足，姓邓，名玉函"
+          },
+          {
+            "chapter": 2,
+            "line_start": 234,
+            "line_end": 234,
+            "text": "南海邓玉平的弟弟，邓玉函，便是我"
+          }
+        ]
+      },
+      {
+        "id": "char_xue_jin_ying",
+        "name": "薛金英",
+        "alias": [
+          "紫金斧"
+        ],
+        "identity": "长江三恶之二，朱大天王手下",
+        "faction": "faction_zhu_da_tian_wang",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "长江水道双斧高手，朱大天王手下三恶之二",
+        "personality": {
+          "traits": [
+            "凶悍",
+            "冷酷",
+            "不眨眼",
+            "狡猾",
+            "忠诚"
+          ],
+          "speech_style": "冷硬",
+          "temperament": "凶狠"
+        },
+        "relationships": [
+          {
+            "target": "char_zhan_qi_li",
+            "type": "合作者",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "三恶同伙"
+          },
+          {
+            "target": "char_fu_yong_xiang",
+            "type": "主仆",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "奉命行事"
+          }
+        ],
+        "known_skills": [
+          "skill_shuang_fu"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 172,
+            "line_end": 172,
+            "text": "使双斧的叫‘紫金斧’薛金英"
+          }
+        ]
+      },
+      {
+        "id": "char_zhan_qi_li",
+        "name": "战其力",
+        "alias": [
+          "枪到人亡"
+        ],
+        "identity": "长江三恶之三，朱大天王手下",
+        "faction": "faction_zhu_da_tian_wang",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "长江水道长枪高手，朱大天王手下三恶之三",
+        "personality": {
+          "traits": [
+            "暴躁",
+            "勇猛",
+            "易怒",
+            "忠诚",
+            "鲁莽"
+          ],
+          "speech_style": "怒吼",
+          "temperament": "火爆"
+        },
+        "relationships": [
+          {
+            "target": "char_xue_jin_ying",
+            "type": "合作者",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "三恶同伙"
+          },
+          {
+            "target": "char_fu_yong_xiang",
+            "type": "主仆",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "奉命行事"
+          }
+        ],
+        "known_skills": [
+          "skill_qiang_fa"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 172,
+            "line_end": 172,
+            "text": "使长枪的叫‘枪到人亡’战其力"
+          }
+        ]
+      },
+      {
+        "id": "char_fu_yong_xiang",
+        "name": "符永祥",
+        "alias": [
+          "双刀客"
+        ],
+        "identity": "长江三恶之首",
+        "faction": "faction_zhu_da_tian_wang",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "长江水道双刀高手，三恶之首，武功最高",
+        "personality": {
+          "traits": [
+            "狡诈",
+            "凶残",
+            "武功高强",
+            "阴险",
+            "果断"
+          ],
+          "speech_style": "阴狠",
+          "temperament": "阴鸷"
+        },
+        "relationships": [
+          {
+            "target": "char_xue_jin_ying",
+            "type": "合作者",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "三恶首领"
+          },
+          {
+            "target": "char_zhan_qi_li",
+            "type": "合作者",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "三恶首领"
+          }
+        ],
+        "known_skills": [
+          "skill_shuang_dao"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 462,
+            "line_end": 462,
+            "text": "岸上一人，手持双刀，纵声长笑"
+          }
+        ]
+      },
+      {
+        "id": "char_na_jin_liang",
+        "name": "那锦亮",
+        "alias": [],
+        "identity": "杭州商人",
+        "faction": null,
+        "role": "npc",
+        "archetype": "scholar",
+        "rank": "平平无奇",
+        "one_line": "杭州商人，途经秭归被劫，萧秋水等人搭救",
+        "personality": {
+          "traits": [
+            "守财",
+            "感恩",
+            "恭敬",
+            "胆小",
+            "殷勤"
+          ],
+          "speech_style": "恭敬客气",
+          "temperament": "谨小慎微"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 418,
+            "line_end": 418,
+            "text": "我是姓那，叫做那锦亮，是杭州人"
+          }
+        ]
+      },
+      {
+        "id": "char_tie_yi_lao_weng",
+        "name": "铁衣老翁",
+        "alias": [
+          "老叟"
+        ],
+        "identity": "神秘铁衣老者，武功高强",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "在九龙奔江险滩垂钓的铁衣老翁，以铁竿顶住画舫力挽狂澜",
+        "personality": {
+          "traits": [
+            "武功高强",
+            "嫉恶如仇",
+            "果断狠辣",
+            "经验老到",
+            "正义感强"
+          ],
+          "speech_style": "威严",
+          "temperament": "威猛"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 528,
+            "line_end": 528,
+            "text": "一名铁衣老翁，竟在该处垂钓！"
+          }
+        ]
+      },
+      {
+        "id": "char_sun_hui_shan",
+        "name": "孙慧珊",
+        "alias": [],
+        "identity": "萧秋水之母，十字慧剑掌门人孙天庭之女",
+        "faction": "faction_huanhua_jianpai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "萧秋水的母亲，早年江湖有名，是最疼萧秋水的好母亲",
+        "personality": {
+          "traits": [
+            "慈爱",
+            "疼子",
+            "早年有名",
+            "温柔",
+            "溺爱"
+          ],
+          "speech_style": "温和",
+          "temperament": "慈祥"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_xi_lou",
+            "type": "亲属",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "夫妻关系"
+          },
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "亲属",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "母子关系，最疼爱萧秋水"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 100,
+            "line_end": 100,
+            "text": "孙慧珊早年在江湖上也大大有名，是‘十字慧剑’掌门人孙天庭的独生女儿"
+          }
+        ]
+      },
+      {
+        "id": "char_a_wang",
+        "name": "阿旺",
+        "alias": [],
+        "identity": "秭归绿舟船夫",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "初窥门径",
+        "one_line": "秭归绿舟好手，因金钱银庄操控龙舟赛而被迫让出冠军",
+        "personality": {
+          "traits": [
+            "逆来顺受",
+            "善良",
+            "胆小",
+            "正直",
+            "无奈"
+          ],
+          "speech_style": "小心谨慎",
+          "temperament": "老实"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 128,
+            "line_end": 128,
+            "text": "阿旺，什么事？他们是谁？"
+          }
+        ]
+      },
+      {
+        "id": "char_hei_lao_han",
+        "name": "黑老汉",
+        "alias": [],
+        "identity": "秭归渔民",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "平平无奇",
+        "one_line": "秭归渔民，脾气火爆但为人正直",
+        "personality": {
+          "traits": [
+            "火爆",
+            "正直",
+            "勇敢",
+            "硬朗",
+            "讲义气"
+          ],
+          "speech_style": "直率",
+          "temperament": "刚烈"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 128,
+            "line_end": 128,
+            "text": "阿旺，什么事？他们是谁？"
+          }
+        ]
+      },
+      {
+        "id": "char_he_kun",
+        "name": "何昆",
+        "alias": [
+          "何捕头",
+          "何大人"
+        ],
+        "identity": "秭归二级捕快",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "初窥门径",
+        "one_line": "秭归二级捕快，为人正直但受权力帮压制不敢作为",
+        "personality": {
+          "traits": [
+            "正直",
+            "胆小",
+            "无奈",
+            "有良心",
+            "怕事"
+          ],
+          "speech_style": "官腔",
+          "temperament": "谨小慎微"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 208,
+            "line_end": 208,
+            "text": "身穿差眼，头戴羽翎，只是二级捕快的装扮"
+          }
+        ]
+      },
+      {
+        "id": "char_cheng_qian_jin",
+        "name": "秤千金",
+        "alias": [
+          "程掌柜"
+        ],
+        "identity": "金钱银庄掌柜，傅天义手下四要将之一",
+        "faction": "faction_jin_qian_yin_zhuang",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "金钱银庄掌柜，善于管财，傅天义手下四要将之一",
+        "personality": {
+          "traits": [
+            "精明",
+            "狡猾",
+            "凶狠",
+            "识时务",
+            "冷酷"
+          ],
+          "speech_style": "大笑掩盖杀意",
+          "temperament": "阴险"
+        },
+        "relationships": [
+          {
+            "target": "char_guan_ba_fang",
+            "type": "合作者",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "同为傅天义手下"
+          },
+          {
+            "target": "char_fu_tian_yi",
+            "type": "主仆",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "效力于傅天义"
+          }
+        ],
+        "known_skills": [
+          "skill_tie_cheng"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 524,
+            "line_end": 524,
+            "text": "区区人称‘秤千金’便是"
+          }
+        ]
+      },
+      {
+        "id": "char_guan_ba_fang",
+        "name": "管八方",
+        "alias": [
+          "管大总管"
+        ],
+        "identity": "金钱银庄总管，傅天义手下四要将之一",
+        "faction": "faction_jin_qian_yin_zhuang",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "金钱银庄总管，力大无穷的巨人，傅天义手下四要将之一",
+        "personality": {
+          "traits": [
+            "力大无穷",
+            "凶猛",
+            "忠诚",
+            "威猛",
+            "直接"
+          ],
+          "speech_style": "朗声大笑",
+          "temperament": "威猛"
+        },
+        "relationships": [
+          {
+            "target": "char_cheng_qian_jin",
+            "type": "合作者",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "同为傅天义手下"
+          },
+          {
+            "target": "char_fu_tian_yi",
+            "type": "主仆",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "效力于傅天义"
+          }
+        ],
+        "known_skills": [
+          "skill_jin_gang_chu"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 666,
+            "line_end": 666,
+            "text": "正是我管八方"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_huanhua_jianfa",
+        "name": "浣花剑法",
+        "type": "剑法",
+        "faction": "faction_huanhua_jianpai",
+        "rank": "炉火纯青",
+        "one_line": "浣花剑派立派剑法，以萧栖梧个人剑术修为名震天下",
+        "rag_refs": [
+          0
+        ],
+        "techniques": [
+          {
+            "id": "tech_huanhua_jian_qi",
+            "name": "剑气长江",
+            "type": "attack",
+            "description": "浣花剑派剑气如长江奔涌般倾泻而出"
+          },
+          {
+            "id": "tech_huanhua_liu_shui",
+            "name": "流水剑法",
+            "type": "attack",
+            "description": "剑招如流水般连绵不绝，变化多端"
+          }
+        ],
+        "progression": [],
+        "effects": [],
+        "combat_style": "以剑术修为见长",
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 4,
+            "line_end": 4,
+            "text": "萧栖梧是当代剑术大师，以他个人剑术上的修为，确不在上述任何一派掌门下"
+          }
+        ]
+      },
+      {
+        "id": "skill_tang_men_an_qi",
+        "name": "唐门暗器",
+        "type": "暗器",
+        "faction": "faction_tang_men",
+        "rank": "登堂入室",
+        "one_line": "蜀中唐门独门暗器术，以银针、铁蒺藜等为武器",
+        "rag_refs": [
+          1
+        ],
+        "techniques": [
+          {
+            "id": "tech_yin_zhen",
+            "name": "银针",
+            "type": "attack",
+            "description": "细如牛毛的银针，可同时射出数十根，速度极快难以闪避"
+          },
+          {
+            "id": "tech_tie_ji_li",
+            "name": "铁蒺藜",
+            "type": "attack",
+            "description": "唐门特制铁蒺藜，上刻唐字，沾之即死"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "命中",
+            "description": "银针可射中多处穴位，铁蒺藜可致命"
+          }
+        ],
+        "combat_style": "以暗器为主，远距离攻击，不淬毒",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 302,
+            "line_end": 302,
+            "text": "蜀中唐门的外系嫡亲"
+          }
+        ]
+      },
+      {
+        "id": "skill_qin_na_shou",
+        "name": "擒拿手",
+        "type": "指法",
+        "faction": "",
+        "rank": "登堂入室",
+        "one_line": "左丘超然精通的各种擒拿手，包括大小擒拿、鹰爪擒拿等",
+        "rag_refs": [
+          1
+        ],
+        "techniques": [
+          {
+            "id": "tech_chan_si_qin_na",
+            "name": "缠丝擒拿手",
+            "type": "control",
+            "description": "小天山缠丝擒拿手，以缠绕控制对手关节为主"
+          },
+          {
+            "id": "tech_da_ying_zhua",
+            "name": "大鹰爪擒拿",
+            "type": "attack",
+            "description": "以鹰爪力抓取对手要害"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "控制",
+            "condition": "近身",
+            "description": "可拿住对手关节使其无法动弹"
+          }
+        ],
+        "combat_style": "近身格斗，以控制为主",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 330,
+            "line_end": 330,
+            "text": "精通擒拿手，三十六手擒拿，大鹰爪擒拿，小擒拿，奇门擒拿"
+          }
+        ]
+      },
+      {
+        "id": "skill_hai_nan_jian_fa",
+        "name": "海南剑法",
+        "type": "剑法",
+        "faction": "faction_hai_nan_jian_pai",
+        "rank": "登堂入室",
+        "one_line": "海南剑派剑法，不出手则已一出手必杀",
+        "rag_refs": [
+          1
+        ],
+        "techniques": [
+          {
+            "id": "tech_hai_nan_sha_shou",
+            "name": "海南杀手剑",
+            "type": "attack",
+            "description": "海南剑派独门杀手剑法，一击必杀"
+          },
+          {
+            "id": "tech_hai_nan_han_jian",
+            "name": "寒剑术",
+            "type": "attack",
+            "description": "剑出如寒风凛冽，令敌人胆寒"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "出手",
+            "description": "剑出必见血，杀伤力极强"
+          }
+        ],
+        "combat_style": "快剑，一击致命",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 334,
+            "line_end": 334,
+            "text": "不到必要，绝不与海南剑派的人交手，因为他们不出手则已，一出手就是杀手"
+          }
+        ]
+      },
+      {
+        "id": "skill_shuang_fu",
+        "name": "双斧",
+        "type": "剑法",
+        "faction": "faction_zhu_da_tian_wang",
+        "rank": "略有小成",
+        "one_line": "薛金英所使双斧，攻守兼备",
+        "rag_refs": [
+          1
+        ],
+        "techniques": [
+          {
+            "id": "tech_jin_fu_pi",
+            "name": "金斧劈",
+            "type": "attack",
+            "description": "双手金斧同时劈出，力道沉猛"
+          },
+          {
+            "id": "tech_fu_guang_feng",
+            "name": "斧光锋",
+            "type": "defense",
+            "description": "双斧舞动形成防御光幕"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "命中",
+            "description": "双斧劈砍威力巨大"
+          }
+        ],
+        "combat_style": "以双斧猛攻为主",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 172,
+            "line_end": 172,
+            "text": "使双斧的叫‘紫金斧’薛金英"
+          }
+        ]
+      },
+      {
+        "id": "skill_qiang_fa",
+        "name": "枪法",
+        "type": "剑法",
+        "faction": "faction_zhu_da_tian_wang",
+        "rank": "略有小成",
+        "one_line": "战其力所使长枪，枪到人亡",
+        "rag_refs": [
+          1
+        ],
+        "techniques": [
+          {
+            "id": "tech_qiang_ci",
+            "name": "枪刺",
+            "type": "attack",
+            "description": "长枪直刺，速度极快，枪到人亡"
+          },
+          {
+            "id": "tech_qiang_heng_sao",
+            "name": "枪横扫",
+            "type": "attack",
+            "description": "长枪横扫，覆盖范围广"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "命中",
+            "description": "枪刺穿喉一击致命"
+          }
+        ],
+        "combat_style": "以长枪猛刺为主",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 172,
+            "line_end": 172,
+            "text": "使长枪的叫‘枪到人亡’战其力"
+          }
+        ]
+      },
+      {
+        "id": "skill_shuang_dao",
+        "name": "双刀",
+        "type": "剑法",
+        "faction": "faction_zhu_da_tian_wang",
+        "rank": "登堂入室",
+        "one_line": "符永祥所使双刀，一虚一实变幻莫测",
+        "rag_refs": [
+          1
+        ],
+        "techniques": [
+          {
+            "id": "tech_fei_pu_qian_chong",
+            "name": "飞瀑千重",
+            "type": "attack",
+            "description": "左手刀如飞瀑千重直奔敌人"
+          },
+          {
+            "id": "tech_you_dao_sha_zhao",
+            "name": "右手刀杀着",
+            "type": "attack",
+            "description": "右手刀才是真正的杀招，直刺敌人"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "命中",
+            "description": "双刀虚实结合，防不胜防"
+          }
+        ],
+        "combat_style": "双刀虚实结合，声东击西",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 464,
+            "line_end": 474,
+            "text": "符永祥左手刀如飞瀑千重，直奔萧秋水...右手刀才是杀着"
+          }
+        ]
+      },
+      {
+        "id": "skill_tie_cheng",
+        "name": "铁秤功",
+        "type": "指法",
+        "faction": "faction_jin_qian_yin_zhuang",
+        "rank": "登堂入室",
+        "one_line": "秤千金所使铁秤，既是秤具也是武器",
+        "rag_refs": [
+          2
+        ],
+        "techniques": [
+          {
+            "id": "tech_tie_cheng_bo",
+            "name": "铁秤拨",
+            "type": "attack",
+            "description": "以铁秤拨打敌人兵器"
+          },
+          {
+            "id": "tech_tie_cheng_jia",
+            "name": "铁秤夹",
+            "type": "control",
+            "description": "以铁秤夹住敌人身体使其无法动弹"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "命中",
+            "description": "铁秤沉重可造成钝击伤害"
+          }
+        ],
+        "combat_style": "以铁秤为武器，攻守兼备",
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 454,
+            "line_end": 454,
+            "text": "放下金秤，拿起了铁秤"
+          }
+        ]
+      },
+      {
+        "id": "skill_jin_gang_chu",
+        "name": "金刚杵",
+        "type": "剑法",
+        "faction": "faction_jin_qian_yin_zhuang",
+        "rank": "登堂入室",
+        "one_line": "管八方所使金刚杵，力大无穷顿地轰然",
+        "rag_refs": [
+          2
+        ],
+        "techniques": [
+          {
+            "id": "tech_chu_ji",
+            "name": "杵击",
+            "type": "attack",
+            "description": "以金刚杵猛击敌人，力道惊人"
+          },
+          {
+            "id": "tech_chu_dun",
+            "name": "杵顿地",
+            "type": "special",
+            "description": "以金刚杵猛顿地面，震起碎石攻击敌人"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "命中",
+            "description": "金刚杵击中可造成巨大冲击伤害"
+          }
+        ],
+        "combat_style": "以力取胜，势不可挡",
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 666,
+            "line_end": 666,
+            "text": "手里拿着根金刚杵顿地轰然巨响"
+          }
+        ]
+      }
+    ],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_huanhua_jianpai",
+        "name": "浣花剑派",
+        "type": "武林门派",
+        "location": "loc_chengdu",
+        "sub_divisions": [
+          "内浣花剑派",
+          "外浣花剑派"
+        ],
+        "one_line": "萧栖梧开创的剑派，以浣花溪为名，后由萧西楼统合内外两支",
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 1,
+            "line_end": 1,
+            "text": "浣花溪"
+          }
+        ]
+      },
+      {
+        "id": "faction_quan_li_bang",
+        "name": "权力帮",
+        "type": "帮派",
+        "location": null,
+        "sub_divisions": [
+          "九天十地十九人魔"
+        ],
+        "one_line": "天下第一大帮，帮主李沉舟，以金钱地位人手控制天下",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 6,
+            "line_end": 6,
+            "text": "权力帮是天下第一大帮"
+          }
+        ]
+      },
+      {
+        "id": "faction_tang_men",
+        "name": "蜀中唐门",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "江湖暗器之一大家，也是使毒的翘楚，三百年无人敢惹",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 306,
+            "line_end": 306,
+            "text": "蜀中唐门，江湖上暗器之一大家，而且也是使毒的翘楚"
+          }
+        ]
+      },
+      {
+        "id": "faction_hai_nan_jian_pai",
+        "name": "海南剑派",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "海南剑派，不出手则已一出手必杀的凶名剑派",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 334,
+            "line_end": 334,
+            "text": "海南剑派的高足"
+          }
+        ]
+      },
+      {
+        "id": "faction_zhu_da_tian_wang",
+        "name": "朱大天王",
+        "type": "帮派",
+        "location": null,
+        "sub_divisions": [
+          "三英四棍",
+          "五剑六掌",
+          "双神君"
+        ],
+        "one_line": "长江水道天王朱顺水的势力，控制长江黑水道",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 148,
+            "line_end": 148,
+            "text": "长江水道天王朱大天王的人"
+          }
+        ]
+      },
+      {
+        "id": "faction_tie_yi_jian_pai",
+        "name": "铁衣剑派",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "铁衣剑派，与权力帮有关系，使萧栖梧怕之三分",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 4,
+            "line_end": 4,
+            "text": "只有铁衣剑派、沧浪剑派才能使萧栖梧怕之三分"
+          }
+        ]
+      },
+      {
+        "id": "faction_cang_lang_jian_pai",
+        "name": "沧浪剑派",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "沧浪剑派，与权力帮有关系，使萧栖梧怕之三分",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 4,
+            "line_end": 4,
+            "text": "只有铁衣剑派、沧浪剑派才能使萧栖梧怕之三分"
+          }
+        ]
+      },
+      {
+        "id": "faction_jin_qian_yin_zhuang",
+        "name": "金钱银庄",
+        "type": "帮派",
+        "location": "loc_zi_gui",
+        "sub_divisions": [],
+        "one_line": "权力帮湖北分舵，由傅天义掌控，经营赌场妓院等灰色产业",
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 270,
+            "line_end": 270,
+            "text": "秭归这一带，数百里内，最有势力的要算是‘金钱银庄’"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_chengdu",
+        "name": "成都",
+        "region": "四川",
+        "one_line": "浣花剑派所在地，浣花溪畔",
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 3,
+            "line_end": 3,
+            "text": "在成都西郊，自百花潭溯流而上，至杜甫草堂"
+          }
+        ]
+      },
+      {
+        "id": "loc_huanhua_xi",
+        "name": "浣花溪",
+        "region": "四川成都",
+        "one_line": "锦江一段，以秀丽景色闻名，浣花剑派因此得名",
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 3,
+            "line_end": 3,
+            "text": "环绕成都的锦江，这一段叫做浣花溪"
+          }
+        ]
+      },
+      {
+        "id": "loc_zi_gui",
+        "name": "秭归",
+        "region": "湖北",
+        "one_line": "峡中古城，屈原出生地，五月初五赛龙舟",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 52,
+            "line_end": 52,
+            "text": "秭归背依高山，面临长江，景色壮丽，这是屈原故里"
+          }
+        ]
+      },
+      {
+        "id": "loc_long_zhong",
+        "name": "隆中",
+        "region": "湖北",
+        "one_line": "诸葛亮隐居之地，萧秋水此行目的地",
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 15,
+            "line_end": 15,
+            "text": "隆中坊以杜甫诗的二句"
+          }
+        ]
+      },
+      {
+        "id": "loc_jiu_long_ben_jiang",
+        "name": "九龙奔江",
+        "region": "湖北秭归",
+        "one_line": "秭归险滩，江中有巨石横卧造成险滩",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 506,
+            "line_end": 506,
+            "text": "是为秭归八景之一，名‘九龙奔江’"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_jin_fu",
+        "name": "金斧",
+        "type": "weapon",
+        "owner": "char_xue_jin_ying",
+        "one_line": "薛金英所使的一双金斧",
+        "description": "薛金英所使的双斧，金色外观，锋利沉猛，是长江水道恶人的标志性武器",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "双斧劈砍威力巨大"
+          }
+        ],
+        "origin": null,
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_xue_jin_ying"
+        ],
+        "related_skills": [
+          "skill_shuang_fu"
+        ],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 140,
+            "line_end": 140,
+            "text": "为首的人使的一双金斧"
+          }
+        ]
+      },
+      {
+        "id": "item_yin_zhen",
+        "name": "银针",
+        "type": "hidden_weapon",
+        "owner": "char_tang_rou",
+        "one_line": "唐柔所使的细如牛毛的银针",
+        "description": "蜀中唐门特制银针，细如牛毛，可同时射出数十根，速度极快难以闪避，不淬毒",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "银针可射中多处穴位，令人丧失行动能力"
+          }
+        ],
+        "origin": "蜀中唐门",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_tang_rou"
+        ],
+        "related_skills": [
+          "skill_tang_men_an_qi"
+        ],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 292,
+            "line_end": 292,
+            "text": "插了十数根细如牛毛的银针"
+          }
+        ]
+      },
+      {
+        "id": "item_jin_gang_chu",
+        "name": "金刚杵",
+        "type": "weapon",
+        "owner": "char_guan_ba_fang",
+        "one_line": "管八方所使的沉重金刚杵",
+        "description": "管八方所使的金刚杵，沉重无比，顿地轰然巨响，力大无穷者方能使用",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "金刚杵猛击可造成巨大冲击伤害"
+          }
+        ],
+        "origin": null,
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_guan_ba_fang"
+        ],
+        "related_skills": [
+          "skill_jin_gang_chu"
+        ],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 666,
+            "line_end": 666,
+            "text": "手里拿着根金刚杵顿地轰然巨响"
+          }
+        ]
+      }
+    ]
+  }
+}

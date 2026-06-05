@@ -1,0 +1,177 @@
+{
+  "chapter": 14,
+  "chapter_summary": "白衣少年揭晓身份——他并非西门吹雪，而是偷王之王司空摘星伪装的。牛小姐（牛肉汤）也揭露了自己的真实身份，她是陆小凤最近最喜欢的女人。司空摘星解释自己能扮成西门吹雪是因为掌握了控制喉咙肌肉的本事。大鼓交出银票后飞身离去，绣花鞋也悄然离开。司空摘星和牛肉汤独处后，品鉴了一碗极品牛肉汤。牛肉汤追问司空摘星为何会来此，司空摘星透露是看见了老实和尚，知道西门吹雪不会赴约，所以自己前来，因为他是陆三蛋（陆小凤）的朋友，要来救他。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_si_kong_zhai_xing",
+        "name": "司空摘星",
+        "alias": [
+          "偷王之王",
+          "大偷",
+          "超级大偷"
+        ],
+        "identity": "偷王之王",
+        "faction": null,
+        "role": "companion",
+        "archetype": "assassin",
+        "rank": "出神入化",
+        "one_line": "天下第一神偷，易容术出神入化，扮什么像什么，是陆小凤的好友",
+        "personality": {
+          "traits": [
+            "幽默",
+            "机智",
+            "自恋",
+            "讲义气",
+            "嘴甜"
+          ],
+          "speech_style": "调侃戏谑，时而认真",
+          "temperament": "洒脱"
+        },
+        "relationships": [
+          {
+            "target": "char_lu_xiao_feng",
+            "type": "挚友",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "损友，互相调侃但关键时刻出手相救"
+          },
+          {
+            "target": "char_niu_rou_tang",
+            "type": "合作者",
+            "intensity": 50,
+            "bond_level": 3,
+            "dynamic": "初次见面，互相试探"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 118,
+            "line_end": 127,
+            "text": "司空摘星大笑...偷王之王在江湖中名声之响亮"
+          }
+        ]
+      },
+      {
+        "id": "char_niu_rou_tang",
+        "name": "牛肉汤",
+        "alias": [
+          "牛小姐",
+          "牛大小姐",
+          "牛皮糖"
+        ],
+        "identity": "陆小凤的情人",
+        "faction": null,
+        "role": "companion",
+        "archetype": "scholar",
+        "rank": "略有小成",
+        "one_line": "陆小凤最近最喜欢的女人，聪明伶俐，厨艺精湛，善于用牛肉汤收买人心",
+        "personality": {
+          "traits": [
+            "聪明",
+            "漂亮",
+            "可爱",
+            "毒舌",
+            "善于观察"
+          ],
+          "speech_style": "伶俐犀利，时而天真时而狡黠",
+          "temperament": "活泼"
+        },
+        "relationships": [
+          {
+            "target": "char_lu_xiao_feng",
+            "type": "恋人",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "陆小凤最近最喜欢的女人"
+          },
+          {
+            "target": "char_si_kong_zhai_xing",
+            "type": "合作者",
+            "intensity": 50,
+            "bond_level": 3,
+            "dynamic": "初次见面，互相试探"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 62,
+            "line_end": 64,
+            "text": "牛肉汤也傻呆了——不管她是不是牛肉汤...何况她真的就是牛肉汤。"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [],
+    "locations": [],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_bai_yi_shao_nian",
+      "updates": {
+        "alias": [
+          "司空摘星"
+        ],
+        "one_line": "自称年少多金的白衣少年，实为司空摘星伪装",
+        "rag_refs": [
+          14
+        ]
+      }
+    },
+    {
+      "id": "char_lu_xiao_feng",
+      "updates": {
+        "alias": [
+          "陆兄",
+          "陆大侠",
+          "陆小鸟",
+          "陆三蛋",
+          "陆小鸡"
+        ],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 286,
+            "line_end": 291,
+            "text": "陆三蛋就是陆小凤...因为他不但是个混蛋，而且是个穷光蛋，有时候他甚至还是个笨蛋。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "char_lao_shi_he_shang",
+      "updates": {
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 200,
+            "line_end": 200,
+            "text": "我要老实和尚替我写的那封约战西门吹雪的信"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+[
+  {
+    "id": "skill_hui_feng_wu_liu_jian",
+    "name": "七七四十九手回风舞柳剑",
+    "type": "剑法",
+    "faction": "faction_ba_shan",
+    "rank": "炉火纯青",
+    "one_line": "巴山派绝学，需轻功配合，江湖排名前五",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [],
+    "combat_style": "以轻功配合剑法，灵动飘逸",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 31,
+        "line_end": 36,
+        "text": "柳乘风是“巴山”的第一嫡传掌门弟子……他的剑法和轻功都同样受到武林中人的佩服和尊敬。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ling_xi_yi_zhi",
+    "name": "灵犀一指",
+    "type": "指法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "陆小凤威震江湖的绝技，以两根手指夹住任何兵器",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 7,
+        "unlock": "登峰造极"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "对方兵器近身时",
+        "description": "以食中二指夹住刀锋或剑尖，瞬间制服对手"
+      }
+    ],
+    "combat_style": "后发先至，以静制动，瞬间夹住对手兵器",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 468,
+        "line_end": 474,
+        "text": "陆小凤忽然伸出食、中二指，一下子就捏住了刀锋……天下再也没有第二个人能在这间不容发的一瞬间捏住刀锋。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_ying_jiao",
+    "name": "无影脚",
+    "type": "腿法",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "踢时肩不动眼不瞬，踢前毫无征兆的高深腿法",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "出脚踢击",
+        "description": "攻击时无任何征兆，难以防范"
+      }
+    ],
+    "combat_style": "突然袭击，无声无息",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 152,
+        "line_end": 153,
+        "text": "她用脚去踢，踢的时候肩不动眼不瞬，踢前毫无征兆，用的居然是极难练成的\"无影脚\"。"
+      }
+    ]
+  },
+  {
+    "id": "skill_an_qi",
+    "name": "银针暗器",
+    "type": "暗器",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "用银针打入穴道的高深暗器手法",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "银针入穴",
+        "description": "用银针封住对手穴道，使其无法动弹"
+      }
+    ],
+    "combat_style": "精准暗器，封穴制敌",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 192,
+        "line_end": 194,
+        "text": "她身上多了九根银针，每一根银针都插在她身上一个很重要的穴道里"
+      }
+    ]
+  },
+  {
+    "id": "skill_tong_zhi_tao",
+    "name": "铜指套",
+    "type": "暗器",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "薄铜打成的指套，锋利如剑，套于十指用以攻击",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近身抓击",
+        "description": "十指尖尖，每个指甲上都套着薄铜指套，锋利如剑，可抓击对手要害穴道"
+      }
+    ],
+    "combat_style": "近身抓击，攻击笑腰穴等要害",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 121,
+        "line_end": 121,
+        "text": "老板娘十指纤纤，十指尖尖，每个指甲上都套着一种用薄铜打成的指套，锋利如剑。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_rong_shu",
+    "name": "易容术",
+    "type": "特殊",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "改扮容貌的技艺，司空摘星的易容术天下第一",
+    "description": "天下没有任何一种易容术能让一个人彻底改扮成另外一个人，而且能瞒过这个人最接近的朋友和亲人",
+    "techniques": [],
+    "related_characters": [
+      "char_si_kong_zhai_xing"
+    ],
+    "rag_refs": [
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "line_start": 1,
+        "line_end": 15,
+        "text": "司空摘星的易容术天下第一"
+      }
+    ]
+  },
+  {
+    "id": "skill_gui_xi_gong",
+    "name": "龟息功",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "闭气假死的奇功，老实和尚的独门绝技",
+    "description": "运起龟息功后可以闭气假死，呼吸心跳全无，如同真正死亡，常人难以分辨",
+    "techniques": [],
+    "related_characters": [
+      "char_lao_shi_he_shang"
+    ],
+    "rag_refs": [
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 416,
+        "line_end": 420,
+        "text": "因为老实和尚会龟息功"
+      }
+    ]
+  }
+]

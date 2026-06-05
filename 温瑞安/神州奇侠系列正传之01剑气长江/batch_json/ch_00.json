@@ -1,0 +1,244 @@
+{
+  "chapter": 0,
+  "chapter_summary": "楔子以成都浣花溪为背景，引出浣花剑派的历史渊源。萧栖梧为开山祖师，其子萧西楼十九岁即击败名剑客卓青天，后因婚事离家出走至桂林组建外浣花剑派。萧栖梧去世后内浣花剑派遭瓦解，萧西楼回川重振门派，使内外浣花剑派合而为一。萧西楼有三子一女：长子萧易人智略权谋、次子萧开雁沉着练达、三子萧秋水生性洒脱不羁、女儿萧雪鱼聪慧美丽。萧秋水为观杜甫诗而从四川赶赴湖北隆中，预示着一段风云际会的故事即将展开。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_xiao_qiu_shui",
+        "name": "萧秋水",
+        "alias": [],
+        "identity": "浣花剑派三公子",
+        "faction": "faction_huanhua_jianpai",
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "浣花剑派三公子，为观杜甫诗而奔赴隆中的洒脱少年",
+        "personality": {
+          "traits": [
+            "洒脱不羁",
+            "爱抱打不平",
+            "聪敏过人",
+            "广游交友",
+            "怒易喜"
+          ],
+          "speech_style": "豪爽直率",
+          "temperament": "潇洒不羁"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_huanhua_jianfa"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          0
+        ],
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 17,
+            "line_end": 17,
+            "text": "萧秋水，却因为这两句诗，写于锦江，刻在隆中，所以特别带了三位好朋友，从四川赶到了湖北"
+          }
+        ]
+      },
+      {
+        "id": "char_xiao_xi_lou",
+        "name": "萧西楼",
+        "alias": [],
+        "identity": "浣花剑派掌门人",
+        "faction": "faction_huanhua_jianpai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "浣花剑派掌门人，晚年勤修剑法大有进境",
+        "personality": {
+          "traits": [
+            "慎细老练",
+            "言出必行",
+            "严厉",
+            "爱护门派",
+            "望子成才"
+          ],
+          "speech_style": "威严",
+          "temperament": "沉稳老练"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "亲属",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "父子关系，对其性格不满但暗地喜爱"
+          }
+        ],
+        "known_skills": [
+          "skill_huanhua_jianfa"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          0
+        ],
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 19,
+            "line_end": 19,
+            "text": "浣花剑派掌门人萧西楼有三个儿子，一个女儿"
+          }
+        ]
+      },
+      {
+        "id": "char_xiao_yi_ren",
+        "name": "萧易人",
+        "alias": [],
+        "identity": "浣花剑派大公子",
+        "faction": "faction_huanhua_jianpai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "萧家长子，名震江湖，智略权谋过人",
+        "personality": {
+          "traits": [
+            "智略过人",
+            "权谋深沉",
+            "名震江湖",
+            "稳重",
+            "有威望"
+          ],
+          "speech_style": "沉稳",
+          "temperament": "深沉"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          0
+        ],
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 19,
+            "line_end": 19,
+            "text": "大儿子萧易人，名震江湖，年轻人里恐怕没有比萧易人更有智略权谋"
+          }
+        ]
+      },
+      {
+        "id": "char_xiao_kai_yan",
+        "name": "萧开雁",
+        "alias": [],
+        "identity": "浣花剑派二公子",
+        "faction": "faction_huanhua_jianpai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "萧家次子，沉着练达，被誉为浣花剑派的守护神",
+        "personality": {
+          "traits": [
+            "沉着练达",
+            "忠心踏实",
+            "任劳任怨",
+            "忠厚朴实",
+            "可靠"
+          ],
+          "speech_style": "稳重",
+          "temperament": "沉稳"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          0
+        ],
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 19,
+            "line_end": 19,
+            "text": "二儿子萧开雁，沉着练达，被誉为是浣花剑派的守护神"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_huanhua_jianfa",
+        "name": "浣花剑法",
+        "type": "剑法",
+        "faction": "faction_huanhua_jianpai",
+        "rank": "炉火纯青",
+        "one_line": "浣花剑派立派剑法，以萧栖梧个人剑术修为名震天下",
+        "rag_refs": [
+          0
+        ],
+        "techniques": [],
+        "progression": [],
+        "effects": [],
+        "combat_style": "以剑术修为见长",
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 4,
+            "line_end": 4,
+            "text": "萧栖梧是当代剑术大师，以他个人剑术上的修为，确不在上述任何一派掌门下"
+          }
+        ]
+      }
+    ],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_huanhua_jianpai",
+        "name": "浣花剑派",
+        "type": "武林门派",
+        "location": "loc_chengdu",
+        "sub_divisions": [
+          "内浣花剑派",
+          "外浣花剑派"
+        ],
+        "one_line": "萧栖梧开创的剑派，以浣花溪为名，后由萧西楼统合内外两支",
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 1,
+            "line_end": 1,
+            "text": "浣花溪"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_chengdu",
+        "name": "成都",
+        "region": "四川",
+        "one_line": "浣花剑派所在地，浣花溪畔",
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 3,
+            "line_end": 3,
+            "text": "在成都西郊，自百花潭溯流而上，至杜甫草堂"
+          }
+        ]
+      },
+      {
+        "id": "loc_huanhua_xi",
+        "name": "浣花溪",
+        "region": "四川成都",
+        "one_line": "锦江一段，以秀丽景色闻名，浣花剑派因此得名",
+        "source_refs": [
+          {
+            "chapter": 0,
+            "line_start": 3,
+            "line_end": 3,
+            "text": "环绕成都的锦江，这一段叫做浣花溪"
+          }
+        ]
+      }
+    ],
+    "items": []
+  },
+  "entity_updates": []
+}

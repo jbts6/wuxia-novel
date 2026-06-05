@@ -1,0 +1,1185 @@
+{
+  "batch": 5,
+  "chapters": [
+    13,
+    14,
+    15
+  ],
+  "entity_registry": {
+    "characters": [
+      {
+        "id": "char_jiang_xiu_yin",
+        "name": "江秀音",
+        "alias": [
+          "笛剑"
+        ],
+        "identity": "三才剑客之一",
+        "faction": "faction_san_jue_jian_pai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "三才剑客中的笛剑，以笛声和剑法著称",
+        "personality": {
+          "traits": [
+            "温婉",
+            "多情",
+            "矛盾",
+            "感性",
+            "犹豫"
+          ],
+          "speech_style": "温柔细腻",
+          "temperament": "多愁善感"
+        },
+        "relationships": [
+          {
+            "target": "char_wen_yan_yang",
+            "type": "师兄弟",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "同门情谊"
+          },
+          {
+            "target": "char_deng_diao_liang",
+            "type": "师兄弟",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "同门情谊"
+          }
+        ],
+        "known_skills": [
+          "skill_san_cai_jian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 78,
+            "line_end": 78,
+            "text": "那女子忽然道：\"见君眉字，听君言语，公子可是受人追杀，迫来此地？\""
+          }
+        ]
+      },
+      {
+        "id": "char_wen_yan_yang",
+        "name": "温艳阳",
+        "alias": [
+          "琴剑"
+        ],
+        "identity": "三才剑客之一",
+        "faction": "faction_san_jue_jian_pai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "三才剑客中的琴剑，以扬琴和剑法著称",
+        "personality": {
+          "traits": [
+            "骄傲",
+            "悟性高",
+            "感性",
+            "矛盾",
+            "重情"
+          ],
+          "speech_style": "文雅有礼",
+          "temperament": "骄傲感性"
+        },
+        "relationships": [
+          {
+            "target": "char_jiang_xiu_yin",
+            "type": "师兄弟",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "同门情谊"
+          },
+          {
+            "target": "char_deng_diao_liang",
+            "type": "师兄弟",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "同门情谊"
+          }
+        ],
+        "known_skills": [
+          "skill_san_cai_jian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 66,
+            "line_end": 66,
+            "text": "正在弹奏的是一白袍男子，这男子稍为清俊，相貌亦觉稚嫩，膝上的扬琴又宽又长"
+          }
+        ]
+      },
+      {
+        "id": "char_deng_diao_liang",
+        "name": "登雕梁",
+        "alias": [
+          "胡剑"
+        ],
+        "identity": "三才剑客之一",
+        "faction": "faction_san_jue_jian_pai",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "三才剑客中的胡剑，以二胡和剑法著称，最为无情",
+        "personality": {
+          "traits": [
+            "无情",
+            "冷静",
+            "果断",
+            "重恩",
+            "务实"
+          ],
+          "speech_style": "简洁有力",
+          "temperament": "冷静无情"
+        },
+        "relationships": [
+          {
+            "target": "char_jiang_xiu_yin",
+            "type": "师兄弟",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "同门情谊"
+          },
+          {
+            "target": "char_wen_yan_yang",
+            "type": "师兄弟",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "同门情谊"
+          }
+        ],
+        "known_skills": [
+          "skill_san_cai_jian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 64,
+            "line_end": 64,
+            "text": "灰袍男子拉二胡，胡琴古旧，棱棱高瘦，肩膀低垂，看上去只不过二十来岁，但他的神情，如五六十岁的老人，已了无生机。"
+          }
+        ]
+      },
+      {
+        "id": "char_deng_yu_han",
+        "name": "邓玉函",
+        "alias": [],
+        "identity": "海南剑派弟子",
+        "faction": "faction_hai_nan_jian_pai",
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "海南剑派年轻弟子，邓玉平之弟，剑法快而无情",
+        "personality": {
+          "traits": [
+            "骄傲",
+            "无邪",
+            "微愁",
+            "快剑",
+            "重义"
+          ],
+          "speech_style": "简洁冷峻",
+          "temperament": "骄傲无邪"
+        },
+        "relationships": [
+          {
+            "target": "char_deng_yu_ping",
+            "type": "兄弟",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "兄弟情深"
+          },
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "挚友",
+            "intensity": 85,
+            "bond_level": 4,
+            "dynamic": "敬重义兄"
+          }
+        ],
+        "known_skills": [
+          "skill_hai_nan_jian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 307,
+            "line_end": 307,
+            "text": "那年轻人眼角似有了笑意，已不如开始时那么无情，缓缓摇了摇头，道：\"不是邓玉平，是邓玉函。\""
+          }
+        ]
+      },
+      {
+        "id": "char_zuo_qiu_chao_ran",
+        "name": "左丘超然",
+        "alias": [
+          "散骨大仙"
+        ],
+        "identity": "天下擒拿第一手项释儒与鹰爪王雷锋唯一嫡传徒门",
+        "faction": null,
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "懒人一个，却是天下擒拿第一手的嫡传弟子",
+        "personality": {
+          "traits": [
+            "懒散",
+            "幽默",
+            "机智",
+            "擒拿高手",
+            "重义"
+          ],
+          "speech_style": "懒洋洋",
+          "temperament": "懒散幽默"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "挚友",
+            "intensity": 85,
+            "bond_level": 4,
+            "dynamic": "莫逆之交"
+          },
+          {
+            "target": "char_deng_yu_han",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "兄弟情谊"
+          }
+        ],
+        "known_skills": [
+          "skill_qin_na_shu"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 365,
+            "line_end": 365,
+            "text": "\"我……的……名……字……很……长……我……叫……左、丘、超、然……\"复姓左丘，名为超然。"
+          }
+        ]
+      },
+      {
+        "id": "char_tang_fang",
+        "name": "唐方",
+        "alias": [],
+        "identity": "唐家暗器高手",
+        "faction": "faction_tang_jia",
+        "role": "companion",
+        "archetype": "assassin",
+        "rank": "炉火纯青",
+        "one_line": "唐家暗器高手，出手快准狠",
+        "personality": {
+          "traits": [
+            "果断",
+            "干脆",
+            "深情",
+            "暗器高手",
+            "重义"
+          ],
+          "speech_style": "干脆利落",
+          "temperament": "果断深情"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "恋人",
+            "intensity": 85,
+            "bond_level": 4,
+            "dynamic": "情意暗生"
+          },
+          {
+            "target": "char_deng_yu_han",
+            "type": "同伴",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "同伴"
+          }
+        ],
+        "known_skills": [
+          "skill_tang_jia_an_qi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 407,
+            "line_end": 407,
+            "text": "这女子点点头，道：\"唐方。\""
+          }
+        ]
+      },
+      {
+        "id": "char_tie_xing_yue",
+        "name": "铁星月",
+        "alias": [
+          "屁王"
+        ],
+        "identity": "萧秋水结义兄弟",
+        "faction": null,
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "萧秋水结义兄弟，放屁天下第一，莽直冲动",
+        "personality": {
+          "traits": [
+            "莽直",
+            "冲动",
+            "幽默",
+            "忠诚",
+            "放屁高手"
+          ],
+          "speech_style": "粗声大嗓",
+          "temperament": "莽直幽默"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "挚友",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "结义兄弟"
+          },
+          {
+            "target": "char_qiu_nan_gu",
+            "type": "挚友",
+            "intensity": 85,
+            "bond_level": 4,
+            "dynamic": "斗嘴冤家"
+          }
+        ],
+        "known_skills": [
+          "skill_tie_quan"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 431,
+            "line_end": 431,
+            "text": "铁星月！萧秋水的好兄弟！"
+          }
+        ]
+      },
+      {
+        "id": "char_qiu_nan_gu",
+        "name": "邱南顾",
+        "alias": [
+          "铁咀鸡"
+        ],
+        "identity": "萧秋水结义兄弟",
+        "faction": null,
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "萧秋水结义兄弟，口才天下第一，斗嘴无敌",
+        "personality": {
+          "traits": [
+            "口才好",
+            "机智",
+            "忠诚",
+            "怕鬼",
+            "斗嘴高手"
+          ],
+          "speech_style": "尖声尖气",
+          "temperament": "机智幽默"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_qiu_shui",
+            "type": "挚友",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "结义兄弟"
+          },
+          {
+            "target": "char_tie_xing_yue",
+            "type": "挚友",
+            "intensity": 85,
+            "bond_level": 4,
+            "dynamic": "斗嘴冤家"
+          }
+        ],
+        "known_skills": [
+          "skill_qiu_kou"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 433,
+            "line_end": 433,
+            "text": "邱南顾！萧秋水的好兄弟！"
+          }
+        ]
+      },
+      {
+        "id": "char_nan_gong_song_huang",
+        "name": "南宫松篁",
+        "alias": [],
+        "identity": "百毒神魔华孤坟的嫡传弟子",
+        "faction": "faction_quan_li_bang",
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "略有小成",
+        "one_line": "百毒神魔华孤坟的嫡传弟子，擅长用毒",
+        "personality": {
+          "traits": [
+            "阴险",
+            "狡诈",
+            "用毒",
+            "怕死",
+            "卑鄙"
+          ],
+          "speech_style": "阴险狡诈",
+          "temperament": "阴险狡诈"
+        },
+        "relationships": [
+          {
+            "target": "char_hua_gu_fen",
+            "type": "师徒",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "师徒关系"
+          }
+        ],
+        "known_skills": [
+          "skill_bai_du"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 172,
+            "line_end": 172,
+            "text": "南宫松篁！百毒神魔华孤坟的嫡传弟于！"
+          }
+        ]
+      },
+      {
+        "id": "char_liu_you_kong",
+        "name": "柳有孔",
+        "alias": [
+          "柳双洞",
+          "不见天日"
+        ],
+        "identity": "一洞神魔左常生座下大将",
+        "faction": "faction_quan_li_bang",
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "登堂入室",
+        "one_line": "一洞神魔左常生座下大将，以双针刺瞎人眼",
+        "personality": {
+          "traits": [
+            "凶残",
+            "好色",
+            "阴险",
+            "双针高手",
+            "辣手"
+          ],
+          "speech_style": "狂妄自大",
+          "temperament": "凶残好色"
+        },
+        "relationships": [
+          {
+            "target": "char_zuo_chang_sheng",
+            "type": "主仆",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "座下大将"
+          },
+          {
+            "target": "char_zhong_wu_li",
+            "type": "同伴",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "搭档"
+          }
+        ],
+        "known_skills": [
+          "skill_shuang_zhen"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 228,
+            "line_end": 228,
+            "text": "唐方思想起一人，失声道：不见天日柳有孔：柳双洞？"
+          }
+        ]
+      },
+      {
+        "id": "char_zhong_wu_li",
+        "name": "钟无离",
+        "alias": [
+          "钟壹窟",
+          "咽喉穿洞"
+        ],
+        "identity": "一洞神魔左常生座下大将",
+        "faction": "faction_quan_li_bang",
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "登堂入室",
+        "one_line": "一洞神魔左常生座下大将，以铁杵刺穿人咽喉",
+        "personality": {
+          "traits": [
+            "阴险",
+            "狡诈",
+            "铁杵高手",
+            "辣手",
+            "冷酷"
+          ],
+          "speech_style": "阴险狡诈",
+          "temperament": "阴险冷酷"
+        },
+        "relationships": [
+          {
+            "target": "char_zuo_chang_sheng",
+            "type": "主仆",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "座下大将"
+          },
+          {
+            "target": "char_liu_you_kong",
+            "type": "同伴",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "搭档"
+          }
+        ],
+        "known_skills": [
+          "skill_tie_chu"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 254,
+            "line_end": 254,
+            "text": "拿这种武器的人，武林中只有一个人，就是咽喉穿洞钟无离：钟壹窟！"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_san_cai_jian",
+        "name": "三才剑法",
+        "type": "剑法",
+        "faction": "faction_san_jue_jian_pai",
+        "rank": "登堂入室",
+        "one_line": "三才剑客合击剑法，三人配合默契",
+        "rag_refs": [
+          13
+        ],
+        "techniques": [
+          {
+            "id": "tech_he_ji_san_cai",
+            "name": "三才合击",
+            "type": "attack",
+            "description": "三人同时攻击，配合默契，无懈可击"
+          },
+          {
+            "id": "tech_lei_qi_yu_qin",
+            "name": "乐器藏剑",
+            "type": "special",
+            "description": "将剑藏于乐器中，出其不意"
+          }
+        ],
+        "progression": [
+          {
+            "level": 1,
+            "unlock": "三人合击"
+          }
+        ],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "三人合击",
+            "description": "三人同时攻击，威力倍增"
+          }
+        ],
+        "combat_style": "三人配合，以乐器为掩护，合击为主",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 170,
+            "line_end": 174,
+            "text": "因为……因为……因为我们就是三绝神剑的三名同门，笛剑江秀音，琴剑温艳阳，胡剑登雕梁。"
+          }
+        ]
+      },
+      {
+        "id": "skill_qin_na_shu",
+        "name": "擒拿术",
+        "type": "指法",
+        "faction": null,
+        "rank": "炉火纯青",
+        "one_line": "天下擒拿第一手嫡传，以巧制胜",
+        "rag_refs": [
+          13
+        ],
+        "techniques": [
+          {
+            "id": "tech_tai_ji_qin_na_shou",
+            "name": "太极擒拿手",
+            "type": "control",
+            "description": "以柔克刚，控制对手关节"
+          },
+          {
+            "id": "tech_ba_gua_qin_na_zhang",
+            "name": "八卦擒拿掌",
+            "type": "control",
+            "description": "以八卦步法配合擒拿，控制对手要穴"
+          }
+        ],
+        "progression": [
+          {
+            "level": 1,
+            "unlock": "太极擒拿手"
+          }
+        ],
+        "effects": [
+          {
+            "type": "控制",
+            "condition": "近身",
+            "description": "控制对手关节或要穴，使其无法动弹"
+          }
+        ],
+        "combat_style": "以巧制胜，控制为主，避免硬碰硬",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 361,
+            "line_end": 361,
+            "text": "但刹那间已从\"太极擒拿手\"改换成\"八卦擒拿掌\"，换了七八种擒拿方式"
+          }
+        ]
+      },
+      {
+        "id": "skill_bai_du",
+        "name": "百毒术",
+        "type": "暗器",
+        "faction": "faction_quan_li_bang",
+        "rank": "略有小成",
+        "one_line": "百毒神魔华孤坟的嫡传用毒术",
+        "rag_refs": [
+          14
+        ],
+        "techniques": [
+          {
+            "id": "tech_xia_du",
+            "name": "下毒",
+            "type": "debuff",
+            "description": "在食物中下毒，使敌人中毒"
+          },
+          {
+            "id": "tech_yin_xing_du",
+            "name": "隐形毒",
+            "type": "special",
+            "description": "无色无味的毒药，难以察觉"
+          }
+        ],
+        "progression": [
+          {
+            "level": 1,
+            "unlock": "软麻散"
+          }
+        ],
+        "effects": [
+          {
+            "type": "减益",
+            "condition": "中毒",
+            "description": "使敌人手脚无力，无法动弹"
+          }
+        ],
+        "combat_style": "以毒为主，暗算为主",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 280,
+            "line_end": 282,
+            "text": "这一拍，已在菜肴中布下了毒"
+          }
+        ]
+      },
+      {
+        "id": "skill_shuang_zhen",
+        "name": "双针术",
+        "type": "暗器",
+        "faction": "faction_quan_li_bang",
+        "rank": "登堂入室",
+        "one_line": "柳有孔的双针，刺瞎人眼",
+        "rag_refs": [
+          14
+        ],
+        "techniques": [
+          {
+            "id": "tech_ci_xia_shuang_yan",
+            "name": "刺瞎双眼",
+            "type": "debuff",
+            "description": "用双针刺瞎敌人双眼"
+          },
+          {
+            "id": "tech_dian_xue",
+            "name": "点穴",
+            "type": "control",
+            "description": "用针点穴，制服敌人"
+          }
+        ],
+        "progression": [
+          {
+            "level": 1,
+            "unlock": "刺瞎双眼"
+          }
+        ],
+        "effects": [
+          {
+            "type": "减益",
+            "condition": "命中",
+            "description": "刺瞎敌人双眼或制服敌人"
+          }
+        ],
+        "combat_style": "以暗器刺瞎敌人眼睛",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 232,
+            "line_end": 232,
+            "text": "我这双绣花针，不绣鸳鸯不绣花，只刺瞎子两个洞"
+          }
+        ]
+      },
+      {
+        "id": "skill_tie_chu",
+        "name": "铁杵术",
+        "type": "武器",
+        "faction": "faction_quan_li_bang",
+        "rank": "登堂入室",
+        "one_line": "钟无离的铁杵，可刺穿咽喉",
+        "rag_refs": [
+          14
+        ],
+        "techniques": [
+          {
+            "id": "tech_ci_chuan_yan_hou",
+            "name": "刺穿咽喉",
+            "type": "attack",
+            "description": "用铁杵刺穿敌人咽喉"
+          },
+          {
+            "id": "tech_heng_sao",
+            "name": "横扫",
+            "type": "attack",
+            "description": "横扫敌人，使其无法近身"
+          }
+        ],
+        "progression": [
+          {
+            "level": 1,
+            "unlock": "刺穿咽喉"
+          }
+        ],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "命中",
+            "description": "刺穿敌人咽喉"
+          }
+        ],
+        "combat_style": "以铁杵刺穿敌人咽喉",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 254,
+            "line_end": 254,
+            "text": "拿这种武器的人，武林中只有一个人，就是咽喉穿洞钟无离"
+          }
+        ]
+      }
+    ],
+    "techniques": [
+      {
+        "id": "tech_he_ji_san_cai",
+        "name": "三才合击",
+        "type": "attack",
+        "description": "三人同时攻击，配合默契，无懈可击",
+        "source_skill": "skill_san_cai_jian",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 170,
+            "line_end": 174,
+            "text": "因为……因为……因为我们就是三绝神剑的三名同门"
+          }
+        ]
+      },
+      {
+        "id": "tech_lei_qi_yu_qin",
+        "name": "乐器藏剑",
+        "type": "special",
+        "description": "将剑藏于乐器中，出其不意",
+        "source_skill": "skill_san_cai_jian",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 98,
+            "line_end": 100,
+            "text": "突然之间，自琴、自笛、自胡，抽出了三柄清亮的快剑"
+          }
+        ]
+      },
+      {
+        "id": "tech_tai_ji_qin_na_shou",
+        "name": "太极擒拿手",
+        "type": "control",
+        "description": "以柔克刚，控制对手关节",
+        "source_skill": "skill_qin_na_shu",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 361,
+            "line_end": 361,
+            "text": "但刹那间已从\"太极擒拿手\"改换成\"八卦擒拿掌\""
+          }
+        ]
+      },
+      {
+        "id": "tech_ba_gua_qin_na_zhang",
+        "name": "八卦擒拿掌",
+        "type": "control",
+        "description": "以八卦步法配合擒拿，控制对手要穴",
+        "source_skill": "skill_qin_na_shu",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 361,
+            "line_end": 361,
+            "text": "但刹那间已从\"太极擒拿手\"改换成\"八卦擒拿掌\""
+          }
+        ]
+      },
+      {
+        "id": "tech_xia_du",
+        "name": "下毒",
+        "type": "debuff",
+        "description": "在食物中下毒，使敌人中毒",
+        "source_skill": "skill_bai_du",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 280,
+            "line_end": 282,
+            "text": "这一拍，已在菜肴中布下了毒"
+          }
+        ]
+      },
+      {
+        "id": "tech_yin_xing_du",
+        "name": "隐形毒",
+        "type": "special",
+        "description": "无色无味的毒药，难以察觉",
+        "source_skill": "skill_bai_du",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 280,
+            "line_end": 282,
+            "text": "这一拍，已在菜肴中布下了毒"
+          }
+        ]
+      },
+      {
+        "id": "tech_ci_xia_shuang_yan",
+        "name": "刺瞎双眼",
+        "type": "debuff",
+        "description": "用双针刺瞎敌人双眼",
+        "source_skill": "skill_shuang_zhen",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 232,
+            "line_end": 232,
+            "text": "我这双绣花针，不绣鸳鸯不绣花，只刺瞎子两个洞"
+          }
+        ]
+      },
+      {
+        "id": "tech_dian_xue",
+        "name": "点穴",
+        "type": "control",
+        "description": "用针点穴，制服敌人",
+        "source_skill": "skill_shuang_zhen",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 244,
+            "line_end": 244,
+            "text": "柳双洞的双根针闪电般在她环跳、四白二穴刺了一下"
+          }
+        ]
+      },
+      {
+        "id": "tech_ci_chuan_yan_hou",
+        "name": "刺穿咽喉",
+        "type": "attack",
+        "description": "用铁杵刺穿敌人咽喉",
+        "source_skill": "skill_tie_chu",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 254,
+            "line_end": 254,
+            "text": "拿这种武器的人，武林中只有一个人，就是咽喉穿洞钟无离"
+          }
+        ]
+      },
+      {
+        "id": "tech_heng_sao",
+        "name": "横扫",
+        "type": "attack",
+        "description": "横扫敌人，使其无法近身",
+        "source_skill": "skill_tie_chu",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 254,
+            "line_end": 254,
+            "text": "拿这种武器的人，武林中只有一个人，就是咽喉穿洞钟无离"
+          }
+        ]
+      }
+    ],
+    "factions": [
+      {
+        "id": "faction_san_jue_jian_pai",
+        "name": "三绝剑派",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "以琴、笛、胡三绝著称的剑派",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 170,
+            "line_end": 170,
+            "text": "因为我们就是三绝神剑的三名同门"
+          }
+        ]
+      },
+      {
+        "id": "faction_hai_nan_jian_pai",
+        "name": "海南剑派",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "邓玉平执掌的剑派，年轻俊秀",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 311,
+            "line_end": 311,
+            "text": "人说海南剑派掌门年轻俊秀，风流倜傥"
+          }
+        ]
+      },
+      {
+        "id": "faction_tang_jia",
+        "name": "唐家",
+        "type": "家族",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "以暗器著称的家族",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 403,
+            "line_end": 403,
+            "text": "\"唐家？\""
+          }
+        ]
+      },
+      {
+        "id": "faction_quan_li_bang",
+        "name": "权力帮",
+        "type": "帮派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "武林第一大帮，实力强大",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 18,
+            "line_end": 18,
+            "text": "他们意欲取道黄果飞瀑，渡乌江，不久即可进入广西剩入广西，就可以到桂林。"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_gui_hu",
+        "name": "桂湖",
+        "region": "新都",
+        "one_line": "新都桂湖，浓绿艳红，柳暗花明",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 16,
+            "line_end": 16,
+            "text": "新都的桂湖，浓绿艳红，柳暗花明，犹有小西湖之称。"
+          }
+        ]
+      },
+      {
+        "id": "loc_hang_qiu_qiao",
+        "name": "杭秋桥",
+        "region": "桂湖",
+        "one_line": "桂湖上的金红桥道，直搭到湖心",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 24,
+            "line_end": 24,
+            "text": "萧秋水自幼长在成都，当然知道那就是\"杭秋桥\"。"
+          }
+        ]
+      },
+      {
+        "id": "loc_ling_xiang_ge",
+        "name": "聆香阁",
+        "region": "桂湖",
+        "one_line": "杭秋桥尽处的建筑，亭上有人",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 34,
+            "line_end": 34,
+            "text": "\"杭秋桥\"尽处是桂香柳影的\"聆香阁\"。"
+          }
+        ]
+      },
+      {
+        "id": "loc_jia_xiu_lou",
+        "name": "甲秀楼",
+        "region": "贵州",
+        "one_line": "贵州名楼，横跨南明河",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 36,
+            "line_end": 36,
+            "text": "南明河上，就是名闻天下的甲秀楼。"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_bian_zhu_shen_jian",
+        "name": "扁诸神剑",
+        "type": "weapon",
+        "owner": "char_xiao_qiu_shui",
+        "one_line": "萧秋水的佩剑，锋利无比",
+        "description": "扁诸神剑，剑身宽厚，锋利无比，是萧秋水的佩剑。",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "锋利无比，可斩断敌方兵器"
+          }
+        ],
+        "origin": "浣花剑派",
+        "rarity": "绝世神兵",
+        "related_characters": [
+          "char_xiao_qiu_shui"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 192,
+            "line_end": 192,
+            "text": "萧秋水缓缓把剑拔出，灰袍男子目光收缩，道：\"扁诸神剑？\""
+          }
+        ]
+      },
+      {
+        "id": "item_han_xue_bao_ma",
+        "name": "汗血宝马",
+        "type": "special",
+        "owner": null,
+        "one_line": "铁骑神魔阎鬼鬼的良驹宝马",
+        "description": "汗血宝马，高近丈，髯至膝，尾委地，蹄如丹，日行千里，日中而汗血，正如《中荒经》所描写的汗血宝马一样。",
+        "effects": [
+          {
+            "type": "特殊",
+            "value": "",
+            "description": "日行千里，速度极快"
+          }
+        ],
+        "origin": "铁骑神魔阎鬼鬼",
+        "rarity": "稀世珍品",
+        "related_characters": [
+          "char_yan_gui_gui"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          15
+        ],
+        "source_refs": [
+          {
+            "chapter": 15,
+            "line_start": 463,
+            "line_end": 463,
+            "text": "这六匹马，高近丈，髯至膝，尾委地，蹄如丹，日行千里，日中而汗血"
+          }
+        ]
+      }
+    ]
+  }
+}

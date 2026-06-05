@@ -1,0 +1,556 @@
+{
+  "characters": [
+    {
+      "id": "char_gong_su_su",
+      "name": "宫素素",
+      "alias": [
+        "宫主"
+      ],
+      "identity": "被谪王妃",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "年华已逝但气质高贵温柔的被谪王妃，身怀绝技",
+      "personality": {
+        "traits": [
+          "高贵",
+          "温柔",
+          "善解人意",
+          "武功高强",
+          "深不可测"
+        ],
+        "speech_style": "优雅温柔",
+        "temperament": "从容淡定"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        7,
+        8,
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 184,
+          "line_end": 198,
+          "text": "花木深处的小屋里．忽有人说：\"宫萍，你不要再跟陆公子胡闹了，还是快请他进来吧！\"说话的声音不但高贵优雅，而且温柔甜蜜"
+        },
+        {
+          "chapter": 8,
+          "line_start": 388,
+          "line_end": 390,
+          "text": "她不能告诉你玉绊是谁送给她的，因为把这块玉绊送给她的人是我。"
+        },
+        {
+          "chapter": 9,
+          "line_start": 88,
+          "line_end": 90,
+          "text": "宫素素。想到宫素素，就想到了宫萍"
+        }
+      ]
+    },
+    {
+      "id": "char_gong_ping",
+      "name": "宫萍",
+      "alias": [],
+      "identity": "宫素素的侍女",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "脾气暴躁但身手不凡的侍女，善用短刀和无影脚",
+      "personality": {
+        "traits": [
+          "暴躁",
+          "泼辣",
+          "凶悍",
+          "倔强",
+          "身手敏捷"
+        ],
+        "speech_style": "京片子，尖锐犀利",
+        "temperament": "火爆"
+      },
+      "relationships": [
+        {
+          "target": "char_gong_su_su",
+          "type": "主仆",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "忠心侍奉"
+        }
+      ],
+      "known_skills": [
+        "skill_wu_ying_jiao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7,
+        8,
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 76,
+          "line_end": 84,
+          "text": "这个女人却还是在拼命的盯着他看，从头看到脚，从脚看到头，一双又黑又亮的眼睛就像是刚从冰窑里掏出来的两粒煤球。"
+        },
+        {
+          "chapter": 8,
+          "line_start": 66,
+          "line_end": 68,
+          "text": "她已经二十九岁了。她已经是个非常成熟的女人"
+        },
+        {
+          "chapter": 9,
+          "line_start": 188,
+          "line_end": 190,
+          "text": "宫萍就在这排金鱼缸从左数起的第三个缸里"
+        }
+      ]
+    },
+    {
+      "id": "char_lao_po_po",
+      "name": "许老太",
+      "alias": [
+        "许煞",
+        "三手仙妪",
+        "许仙姑",
+        "老婆婆"
+      ],
+      "identity": "宫素素的仆人/江湖暗器高手",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "看似老态龙钟的守门老妪，实为江湖闻名的暗器高手三手仙妪许煞",
+      "personality": {
+        "traits": [
+          "深藏不露",
+          "武功高强",
+          "老奸巨猾"
+        ],
+        "speech_style": "低调隐忍",
+        "temperament": "阴沉"
+      },
+      "relationships": [
+        {
+          "target": "char_gong_su_su",
+          "type": "主仆",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "忠心看门"
+        }
+      ],
+      "known_skills": [
+        "skill_an_qi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7,
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 30,
+          "line_end": 31,
+          "text": "应门的不是童子，是老妪，满头白发苍苍，整个人都已干掉了，嘴里的牙齿剩下来的最多只有三五颗。"
+        },
+        {
+          "chapter": 9,
+          "line_start": 216,
+          "line_end": 218,
+          "text": "三手仙妪许煞，在她还是仙姑的时候就已经名动大江南北"
+        }
+      ]
+    },
+    {
+      "id": "char_sha_da_lao_ban",
+      "name": "沙大老板",
+      "alias": [
+        "沙大户"
+      ],
+      "identity": "小镇富豪",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "小镇上的有钱老板，收容了许多超级恶棍，性格暴躁",
+      "personality": {
+        "traits": [
+          "暴躁",
+          "粗鲁",
+          "有钱",
+          "好色",
+          "霸道"
+        ],
+        "speech_style": "粗俗直接",
+        "temperament": "火爆"
+      },
+      "relationships": [
+        {
+          "target": "char_sha_nv_ren",
+          "type": "恋人",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "情人关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 608,
+          "line_end": 610,
+          "text": "沙大老板收容的那些超级恶棍，果然没有一个是有用的"
+        }
+      ]
+    },
+    {
+      "id": "char_sha_nv_ren",
+      "name": "沙大老板的女人",
+      "alias": [],
+      "identity": "沙大老板的情人",
+      "faction": null,
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "从沙大老板被窝里跳出的泼辣女人，声称玉绊是她送给沙大老板的",
+      "personality": {
+        "traits": [
+          "泼辣",
+          "大胆",
+          "无耻",
+          "妖媚"
+        ],
+        "speech_style": "泼辣直接",
+        "temperament": "放荡"
+      },
+      "relationships": [
+        {
+          "target": "char_sha_da_lao_ban",
+          "type": "恋人",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "情人关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 692,
+          "line_end": 694,
+          "text": "一个女人，赤条条的从沙大老板的被窝里跳了出来，手插着腰，站在陆小凤面前。"
+        }
+      ]
+    },
+    {
+      "id": "char_wang_da_yan",
+      "name": "王大眼",
+      "alias": [],
+      "identity": "杂货店老板",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "绿帽如山的杂货店老板，窝囊邋遢，经常喝得烂醉",
+      "personality": {
+        "traits": [
+          "窝囊",
+          "邋遢",
+          "好酒",
+          "软弱"
+        ],
+        "speech_style": "粗俗直接",
+        "temperament": "颓废"
+      },
+      "relationships": [
+        {
+          "target": "char_sha_nv_ren",
+          "type": "亲属",
+          "intensity": 30,
+          "bond_level": 2,
+          "dynamic": "被戴绿帽的丈夫"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 2,
+          "line_end": 4,
+          "text": "这位绿帽如山的杂货店老板已经喝得烂醉如泥，吐得一身都是"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_jiao_hua",
+      "name": "小叫化",
+      "alias": [],
+      "identity": "乞丐",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "知道秘密的乞丐，曾冒险救宫萍，后被宫素素和许老太押走",
+      "personality": {
+        "traits": [
+          "勇敢",
+          "善良",
+          "知晓秘密"
+        ],
+        "speech_style": "朴素直接",
+        "temperament": "朴实"
+      },
+      "relationships": [
+        {
+          "target": "char_gong_ping",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "冒险相救"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 40,
+          "line_end": 41,
+          "text": "不管他说的话是真是假，都要先找到那个小叫化才能证实"
+        }
+      ]
+    },
+    {
+      "id": "char_lu_xiao_feng",
+      "name": "陆小凤",
+      "alias": [
+        "陆小鸟"
+      ],
+      "identity": "江湖侠客",
+      "faction": null,
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "四条眉毛的传奇人物，轻功和两根手指名震天下",
+      "personality": {
+        "traits": [
+          "机智",
+          "风流",
+          "重情重义",
+          "幽默",
+          "洒脱"
+        ],
+        "speech_style": "幽默风趣",
+        "temperament": "潇洒不羁"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        7,
+        8,
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 1,
+          "line_end": 2,
+          "text": "陆小凤不醉也仿佛醉了"
+        },
+        {
+          "chapter": 8,
+          "line_start": 1,
+          "line_end": 2,
+          "text": "陆小凤当然不会留下她的这双腿"
+        },
+        {
+          "chapter": 9,
+          "line_start": 1,
+          "line_end": 2,
+          "text": "陆小凤找到王大眼的时候"
+        }
+      ]
+    },
+    {
+      "id": "char_jin_qi_liang",
+      "name": "金七两",
+      "alias": [],
+      "identity": "陆小凤的朋友",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "带陆小凤拜访宫素素的朋友",
+      "personality": {
+        "traits": [
+          "机灵",
+          "识趣",
+          "守信"
+        ],
+        "speech_style": "直接爽快",
+        "temperament": "精明"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "朋友关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 12,
+          "line_end": 13,
+          "text": "金七两一直在留意看他脸上的表情，忽然叹了口气"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_wu_ying_jiao",
+      "name": "无影脚",
+      "type": "腿法",
+      "faction": "",
+      "rank": "登堂入室",
+      "one_line": "踢时肩不动眼不瞬，踢前毫无征兆的高深腿法",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "出脚踢击",
+          "description": "攻击时无任何征兆，难以防范"
+        }
+      ],
+      "combat_style": "突然袭击，无声无息",
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 152,
+          "line_end": 153,
+          "text": "她用脚去踢，踢的时候肩不动眼不瞬，踢前毫无征兆，用的居然是极难练成的\"无影脚\"。"
+        }
+      ]
+    },
+    {
+      "id": "skill_an_qi",
+      "name": "银针暗器",
+      "type": "暗器",
+      "faction": "",
+      "rank": "炉火纯青",
+      "one_line": "用银针打入穴道的高深暗器手法",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "控制",
+          "condition": "银针入穴",
+          "description": "用银针封住对手穴道，使其无法动弹"
+        }
+      ],
+      "combat_style": "精准暗器，封穴制敌",
+      "rag_refs": [
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 192,
+          "line_end": 194,
+          "text": "她身上多了九根银针，每一根银针都插在她身上一个很重要的穴道里"
+        }
+      ]
+    }
+  ],
+  "techniques": [],
+  "factions": [],
+  "locations": [
+    {
+      "id": "loc_gong_su_su_ju",
+      "name": "宫素素居所",
+      "region": "小镇",
+      "one_line": "梅花竹篱环绕的清幽木屋，被谪王妃的居所",
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 2,
+          "line_end": 3,
+          "text": "竹篱柴扉，半院梅花，从梅花竹篱间看过去，可以隐约看到三、两楹木屋。"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_yu_ban",
+      "name": "玉绊",
+      "type": "special",
+      "owner": "char_gong_ping",
+      "one_line": "宫萍腰带中跌落的玉佩，似乎隐藏着重要秘密",
+      "description": "陆小凤看见这块玉绊后脸色大变，仿佛被人刺中要害，暗示此物与某件重要事情有关",
+      "effects": [
+        {
+          "type": "剧情",
+          "value": "",
+          "description": "陆小凤见后脸色大变，暗示此物关联重大秘密"
+        }
+      ],
+      "origin": null,
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_gong_ping",
+        "char_lu_xiao_feng"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 365,
+          "line_end": 367,
+          "text": "看见了这块玉绊，他的脸色立刻就变得像是真的被人刺中了一刀，而且正刺在要害上。"
+        }
+      ]
+    }
+  ]
+}

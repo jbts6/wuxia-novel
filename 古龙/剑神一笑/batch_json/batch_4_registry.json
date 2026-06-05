@@ -1,0 +1,1178 @@
+{
+  "characters": [
+    {
+      "id": "char_lu_xiao_feng",
+      "name": "陆小凤",
+      "alias": [
+        "陆兄",
+        "陆大侠",
+        "陆小鸟"
+      ],
+      "identity": "江湖奇人",
+      "faction": null,
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "四条眉毛的传奇人物，轻功和两根手指名震天下",
+      "personality": {
+        "traits": [
+          "聪明",
+          "机智",
+          "幽默",
+          "重情重义",
+          "洒脱"
+        ],
+        "speech_style": "幽默风趣，时而正经时而无赖",
+        "temperament": "潇洒不羁"
+      },
+      "relationships": [
+        {
+          "target": "char_liu_cheng_feng",
+          "type": "挚友",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "至交好友，陆小凤为其追查死因"
+        },
+        {
+          "target": "char_lao_shi_he_shang",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "老友"
+        },
+        {
+          "target": "char_niu_rou_tang",
+          "type": "恋人",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "红颜知己，陆小凤偷偷离去令她焦急万分"
+        },
+        {
+          "target": "char_xi_men_chui_xue",
+          "type": "挚友",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "二十年相识，西门吹雪此刻在山巅想起他"
+        }
+      ],
+      "known_skills": [
+        "skill_ling_xi_yi_zhi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 116,
+          "line_end": 122,
+          "text": "陆小凤的确又不见了……这一次他临走之前，还跟我见过一次面"
+        },
+        {
+          "chapter": 12,
+          "line_start": 34,
+          "line_end": 38,
+          "text": "西门吹雪忽然想起了陆小凤，此时此刻，他本来不该想起陆小凤的。"
+        }
+      ]
+    },
+    {
+      "id": "char_gong_ping",
+      "name": "宫萍",
+      "alias": [],
+      "identity": "宫素素的侍女",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "脾气暴躁但身手极高的侍女，善用短刀和无影脚，与老板娘联手攻击时极为可怕",
+      "personality": {
+        "traits": [
+          "暴躁",
+          "泼辣",
+          "凶悍",
+          "倔强",
+          "身手敏捷"
+        ],
+        "speech_style": "京片子，尖锐犀利",
+        "temperament": "火爆"
+      },
+      "relationships": [
+        {
+          "target": "char_gong_su_su",
+          "type": "主仆",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "忠心侍奉"
+        },
+        {
+          "target": "char_lao_ban_niang",
+          "type": "合作者",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "联手追查柳乘风死因，配合默契"
+        }
+      ],
+      "known_skills": [
+        "skill_wu_ying_jiao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_gong_su_su",
+      "name": "宫素素",
+      "alias": [
+        "宫主"
+      ],
+      "identity": "被谪王妃",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "年华已逝但气质高贵温柔的被谪王妃，身怀绝技",
+      "personality": {
+        "traits": [
+          "高贵",
+          "温柔",
+          "善解人意",
+          "武功高强",
+          "深不可测"
+        ],
+        "speech_style": "优雅温柔",
+        "temperament": "从容淡定"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_lao_po_po",
+      "name": "许老太",
+      "alias": [
+        "许煞",
+        "三手仙妪",
+        "许仙姑",
+        "老婆婆"
+      ],
+      "identity": "宫素素的仆人/江湖暗器高手",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "看似老态龙钟的守门老妪，实为江湖闻名的暗器高手三手仙妪许煞",
+      "personality": {
+        "traits": [
+          "深藏不露",
+          "武功高强",
+          "老奸巨猾"
+        ],
+        "speech_style": "低调隐忍",
+        "temperament": "阴沉"
+      },
+      "relationships": [
+        {
+          "target": "char_gong_su_su",
+          "type": "主仆",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "忠心看门"
+        }
+      ],
+      "known_skills": [
+        "skill_an_qi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7,
+        9,
+        10
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_sha_da_hu",
+      "name": "沙大户",
+      "alias": [
+        "沙大老板"
+      ],
+      "identity": "黄石镇大户",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "小镇上的有钱老板，收容了许多超级恶棍，性格暴躁",
+      "personality": {
+        "traits": [
+          "暴躁",
+          "粗鲁",
+          "有钱",
+          "好色",
+          "霸道"
+        ],
+        "speech_style": "粗俗直接",
+        "temperament": "火爆"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "对手",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "互相试探，暗中较劲"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_sha_nv_ren",
+      "name": "沙大老板的女人",
+      "alias": [],
+      "identity": "沙大老板的情人",
+      "faction": null,
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "从沙大老板被窝里跳出的泼辣女人",
+      "personality": {
+        "traits": [
+          "泼辣",
+          "大胆",
+          "无耻",
+          "妖媚"
+        ],
+        "speech_style": "泼辣直接",
+        "temperament": "放荡"
+      },
+      "relationships": [
+        {
+          "target": "char_sha_da_hu",
+          "type": "恋人",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "情人关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_wang_da_yan",
+      "name": "王大眼",
+      "alias": [
+        "王老板"
+      ],
+      "identity": "杂货店老板",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "绿帽如山的杂货店老板，窝囊邋遢",
+      "personality": {
+        "traits": [
+          "窝囊",
+          "邋遢",
+          "好酒",
+          "软弱"
+        ],
+        "speech_style": "粗俗直接",
+        "temperament": "颓废"
+      },
+      "relationships": [
+        {
+          "target": "char_sha_nv_ren",
+          "type": "亲属",
+          "intensity": 30,
+          "bond_level": 2,
+          "dynamic": "被戴绿帽的丈夫"
+        },
+        {
+          "target": "char_lao_ban_niang",
+          "type": "亲属",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "夫妻"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2,
+        3,
+        6,
+        9
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_lao_ban_niang",
+      "name": "老板娘",
+      "alias": [
+        "杂货店老板娘"
+      ],
+      "identity": "杂货店老板娘",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "王大眼的妻子，暗中追查柳乘风死因的神秘女子，铜指套功夫极为可怕，出手狠辣",
+      "personality": {
+        "traits": [
+          "风情万种",
+          "善于察言观色",
+          "大胆",
+          "心狠手辣",
+          "深藏不露"
+        ],
+        "speech_style": "妩媚中带杀机",
+        "temperament": "外柔内刚"
+      },
+      "relationships": [
+        {
+          "target": "char_wang_da_yan",
+          "type": "亲属",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "夫妻，常称丈夫为老王八蛋"
+        },
+        {
+          "target": "char_gong_ping",
+          "type": "合作者",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "联手追查柳乘风死因，配合默契"
+        },
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "表面合作追凶，实则暗中设伏"
+        },
+        {
+          "target": "char_xiao_jiao_hua",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "联手追查柳乘风死因"
+        },
+        {
+          "target": "char_liu_cheng_feng",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "柳乘风也是她的朋友，为其追查死因"
+        }
+      ],
+      "known_skills": [
+        "skill_tong_zhi_tao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        3,
+        10
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_xiao_jiao_hua",
+      "name": "小叫化",
+      "alias": [],
+      "identity": "丐帮弟子",
+      "faction": "faction_gai_bang",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "丐帮弟子，与老板娘联手追查柳乘风死因，机灵狡黠，善用美男计",
+      "personality": {
+        "traits": [
+          "油嘴滑舌",
+          "机灵",
+          "厚脸皮",
+          "生存力强",
+          "善用计谋"
+        ],
+        "speech_style": "嬉皮笑脸，自称专家",
+        "temperament": "市井油滑"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "合作者",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "丐帮弟子，与陆小凤关系密切"
+        },
+        {
+          "target": "char_gong_ping",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "冒险相救"
+        },
+        {
+          "target": "char_lao_ban_niang",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "联手追查柳乘风死因"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2,
+        3,
+        4,
+        9,
+        10
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_zhao_xia_zi",
+      "name": "赵瞎子",
+      "alias": [],
+      "identity": "棺材铺老板",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "黄石镇棺材铺老板，脸色苍白如死人",
+      "personality": {
+        "traits": [
+          "贪财",
+          "胆小",
+          "有耐性",
+          "本性善良"
+        ],
+        "speech_style": "起初冷淡，给钱后变热情",
+        "temperament": "阴沉"
+      },
+      "relationships": [
+        {
+          "target": "char_liu_cheng_feng",
+          "type": "合作者",
+          "intensity": 30,
+          "bond_level": 2,
+          "dynamic": "柳乘风把他当朋友，他为柳收殓"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        3,
+        10
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_jin_qi_liang",
+      "name": "金七两",
+      "alias": [
+        "金老七",
+        "金满堂"
+      ],
+      "identity": "江湖大盗，轻功高手",
+      "faction": null,
+      "role": "companion",
+      "archetype": "assassin",
+      "rank": "登堂入室",
+      "one_line": "带陆小凤拜访宫素素的朋友，夜走千家日盗百户",
+      "personality": {
+        "traits": [
+          "聪明",
+          "机警",
+          "善于伪装",
+          "重义气"
+        ],
+        "speech_style": "机智灵活，善于周旋",
+        "temperament": "狡黠"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "初步接触，互相试探"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_lao_shi_he_shang",
+      "name": "老实和尚",
+      "alias": [],
+      "identity": "佛门第一游侠",
+      "faction": null,
+      "role": "companion",
+      "archetype": "monk",
+      "rank": "炉火纯青",
+      "one_line": "名满天下的佛门第一游侠，一生不说谎，因爱上乐户女子小豆子而自锁巴山，以铁链囚禁自己",
+      "personality": {
+        "traits": [
+          "老实",
+          "深情",
+          "自苦",
+          "有涵养",
+          "幽默"
+        ],
+        "speech_style": "直率老实，偶有机锋",
+        "temperament": "平和内敛"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "老友"
+        },
+        {
+          "target": "char_xiao_dou_zi",
+          "type": "恋人",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "由怜生爱，为她自锁巴山，至死不渝"
+        },
+        {
+          "target": "char_niu_rou_tang",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "被牛肉汤找到，告知救陆小凤之法"
+        },
+        {
+          "target": "char_xi_men_chui_xue",
+          "type": "合作者",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "知道西门吹雪是唯一能救陆小凤的人"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4,
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 24,
+          "line_end": 28,
+          "text": "在这个寂寞无人的荒山道观里独居已两年的，居然是个和尚。"
+        },
+        {
+          "chapter": 11,
+          "line_start": 216,
+          "line_end": 218,
+          "text": "这双腿的足踝上，还锁着一条极粗大的铁链。锁是七巧堂的精品"
+        }
+      ]
+    },
+    {
+      "id": "char_liu_cheng_feng",
+      "name": "柳乘风",
+      "alias": [
+        "柳如钢",
+        "一剑乘风"
+      ],
+      "identity": "巴山第一嫡传掌门弟子",
+      "faction": "faction_ba_shan",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "巴山掌门弟子，回风舞柳剑名震江湖，性格烈如钢",
+      "personality": {
+        "traits": [
+          "思虑周密",
+          "性格刚烈",
+          "讲义气",
+          "守密",
+          "温和"
+        ],
+        "speech_style": "含蓄隐忍，不肯轻易透露心事",
+        "temperament": "刚烈而内敛"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "挚友",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "视陆小凤为可共秘密共患难的朋友"
+        }
+      ],
+      "known_skills": [
+        "skill_hui_feng_wu_liu_jian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        4,
+        5,
+        10
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "char_niu_rou_tang",
+      "name": "牛肉汤",
+      "alias": [
+        "牛小姐",
+        "牛大小姐"
+      ],
+      "identity": "陆小凤的红颜知己",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "初窥门径",
+      "one_line": "近年来江湖中以调皮捣蛋出名的牛小姐，体态修长优雅，出身高贵之家，是陆小凤的红颜知己",
+      "personality": {
+        "traits": [
+          "活泼",
+          "大胆",
+          "能言善辩",
+          "聪明伶俐",
+          "重情重义"
+        ],
+        "speech_style": "调皮捣蛋，能把死人说活",
+        "temperament": "活泼可爱"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "恋人",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "红颜知己，为陆小凤安危四处奔走求救"
+        },
+        {
+          "target": "char_lao_shi_he_shang",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "求老实和尚去救陆小凤"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 70,
+          "line_end": 72,
+          "text": "和尚，别人都说你老实，世上如果只有十万个人，最少有九万九千九百九十九个人都说你老实。可是呀，依我看，你这个和尚，可真是一点都不老实。"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_dou_zi",
+      "name": "小豆子",
+      "alias": [
+        "小豆"
+      ],
+      "identity": "乐户女子",
+      "faction": null,
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "在乐户长大的可怜女子，清秀瘦弱楚楚动人，是老实和尚的心上人",
+      "personality": {
+        "traits": [
+          "楚楚动人",
+          "温婉柔弱",
+          "身世可怜"
+        ],
+        "speech_style": "无声（以泪代言）",
+        "temperament": "温婉楚楚"
+      },
+      "relationships": [
+        {
+          "target": "char_lao_shi_he_shang",
+          "type": "恋人",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "由怜生爱，至死不渝"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 190,
+          "line_end": 200,
+          "text": "她忽然把另外一个穿黑披风的女孩拉到老实和尚面前，替她脱下毡帽，脱出了一张清秀瘦弱、楚楚动人的脸，脸颊上已有了泪痕。"
+        }
+      ]
+    },
+    {
+      "id": "char_xi_men_chui_xue",
+      "name": "西门吹雪",
+      "alias": [],
+      "identity": "绝顶剑客",
+      "faction": null,
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "返璞归真",
+      "one_line": "白衣如雪心冷如雪的绝顶剑客，除剑之外一无所有，剑下从无活口也从未失败，与陆小凤相识二十年",
+      "personality": {
+        "traits": [
+          "孤高冷傲",
+          "剑道至上",
+          "无情",
+          "冷静",
+          "智慧"
+        ],
+        "speech_style": "极其简洁，字字如剑",
+        "temperament": "冰冷孤高"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "挚友",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "二十年相识，此刻正在山巅想起陆小凤"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        11,
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 254,
+          "line_end": 258,
+          "text": "西门吹雪，白衣如雪，他的心也冷如雪。他这一生好像从未爱过一个人……除'剑'之外，他在这个世界已一无所有。"
+        },
+        {
+          "chapter": 12,
+          "line_start": 1,
+          "line_end": 2,
+          "text": "这时候西门吹雪正坐在山巅一处平石般的青色岩石上，眺望着远方。"
+        },
+        {
+          "chapter": 12,
+          "line_start": 34,
+          "line_end": 38,
+          "text": "西门吹雪忽然想起了陆小凤……西门吹雪和陆小凤认识几乎已经有二十年了。"
+        },
+        {
+          "chapter": 12,
+          "line_start": 140,
+          "line_end": 140,
+          "text": "小瘦子，我知道不是你，所以你今天还不会死。可是你今天实在不该来的。"
+        }
+      ]
+    },
+    {
+      "id": "char_da_gu",
+      "name": "大鼓",
+      "alias": [
+        "小瘦子",
+        "肥小胖"
+      ],
+      "identity": "超级杀手",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "近两三年崛起的超级杀手，肚大如鼓呼吸如鼓，幼时极瘦后拼命增重穿铁靴练轻功，外表臃肿平凡实则心狠手辣",
+      "personality": {
+        "traits": [
+          "深藏不露",
+          "外表平凡",
+          "内心凶残",
+          "贪吃",
+          "自律"
+        ],
+        "speech_style": "不详",
+        "temperament": "沉稳隐忍"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 156,
+          "line_end": 162,
+          "text": "这个小瘦子，当然就是近两三年才崛起于江湖的超级杀手'大鼓'。他的肚大如鼓，他的呼吸声如鼓，甚至连他的人都好像一个鼓一样。"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_hui_feng_wu_liu_jian",
+      "name": "七七四十九手回风舞柳剑",
+      "type": "剑法",
+      "faction": "faction_ba_shan",
+      "rank": "炉火纯青",
+      "one_line": "巴山派绝学，需轻功配合，江湖排名前五",
+      "techniques": [],
+      "progression": [
+        {
+          "level": 4,
+          "unlock": "炉火纯青"
+        }
+      ],
+      "effects": [],
+      "combat_style": "以轻功配合剑法，灵动飘逸",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "skill_ling_xi_yi_zhi",
+      "name": "灵犀一指",
+      "type": "指法",
+      "faction": "",
+      "rank": "登峰造极",
+      "one_line": "陆小凤威震江湖的绝技，以两根手指夹住任何兵器",
+      "techniques": [],
+      "progression": [
+        {
+          "level": 7,
+          "unlock": "登峰造极"
+        }
+      ],
+      "effects": [
+        {
+          "type": "控制",
+          "condition": "对方兵器近身时",
+          "description": "以食中二指夹住刀锋或剑尖，瞬间制服对手"
+        }
+      ],
+      "combat_style": "后发先至，以静制动，瞬间夹住对手兵器",
+      "rag_refs": [
+        3
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "skill_wu_ying_jiao",
+      "name": "无影脚",
+      "type": "腿法",
+      "faction": "",
+      "rank": "登堂入室",
+      "one_line": "踢时肩不动眼不瞬，踢前毫无征兆的高深腿法",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "出脚踢击",
+          "description": "攻击时无任何征兆，难以防范"
+        }
+      ],
+      "combat_style": "突然袭击，无声无息",
+      "rag_refs": [
+        7
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "skill_an_qi",
+      "name": "银针暗器",
+      "type": "暗器",
+      "faction": "",
+      "rank": "炉火纯青",
+      "one_line": "用银针打入穴道的高深暗器手法",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "控制",
+          "condition": "银针入穴",
+          "description": "用银针封住对手穴道，使其无法动弹"
+        }
+      ],
+      "combat_style": "精准暗器，封穴制敌",
+      "rag_refs": [
+        9
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "skill_tong_zhi_tao",
+      "name": "铜指套",
+      "type": "暗器",
+      "faction": "",
+      "rank": "炉火纯青",
+      "one_line": "薄铜打成的指套，锋利如剑，套于十指用以攻击",
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "近身抓击",
+          "description": "十指尖尖，每个指甲上都套着薄铜指套，锋利如剑，可抓击对手要害穴道"
+        }
+      ],
+      "combat_style": "近身抓击，攻击笑腰穴等要害",
+      "rag_refs": [
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 121,
+          "line_end": 121,
+          "text": "老板娘十指纤纤，十指尖尖，每个指甲上都套着一种用薄铜打成的指套，锋利如剑。"
+        }
+      ]
+    }
+  ],
+  "techniques": [],
+  "factions": [
+    {
+      "id": "faction_ba_shan",
+      "name": "巴山",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "柳乘风所属门派，以回风舞柳剑闻名",
+      "source_refs": []
+    },
+    {
+      "id": "faction_gai_bang",
+      "name": "丐帮",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "江湖第一大帮，弟子遍布天下",
+      "source_refs": []
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_huang_shi",
+      "name": "黄石镇",
+      "region": "西北边陲",
+      "one_line": "远在西北边陲的荒凉小镇，传说附近埋有巨大宝藏",
+      "rag_refs": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "loc_gong_su_su_ju",
+      "name": "宫素素居所",
+      "region": "小镇",
+      "one_line": "梅花竹篱环绕的清幽木屋，被谪王妃的居所",
+      "rag_refs": [
+        7
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "loc_ba_shan_dao_guan",
+      "name": "巴山道观",
+      "region": "巴山",
+      "one_line": "昔年巴山剑客顾道人的道观，如今荒冷没落，老实和尚在此独居两年",
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 10,
+          "line_end": 15,
+          "text": "在苍茫的烟云夜雨间，在石径的尽头处，有一座道观，香火久绝，人迹亦绝"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_yu_ban",
+      "name": "玉绊",
+      "type": "special",
+      "owner": "char_gong_ping",
+      "one_line": "宫萍腰带中跌落的玉佩，似乎隐藏着重要秘密",
+      "description": "陆小凤看见这块玉绊后脸色大变，仿佛被人刺中要害，暗示此物与某件重要事情有关",
+      "effects": [
+        {
+          "type": "剧情",
+          "value": "",
+          "description": "陆小凤见后脸色大变，暗示此物关联重大秘密"
+        }
+      ],
+      "origin": null,
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_gong_ping",
+        "char_lu_xiao_feng"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "item_bo_shi_bi_shou",
+      "name": "波斯匕首",
+      "type": "weapon",
+      "owner": null,
+      "one_line": "波斯宫廷古物，价值连城，刺杀柳乘风的凶器",
+      "description": "波斯宫廷匕首，柄用整支象牙雕成裸女，曲线玲珑栩栩如生。轻按胸中机簧，匕首弹出，锋刃闪动暗赤色光芒。",
+      "effects": [
+        {
+          "type": "攻击",
+          "value": "致命",
+          "description": "锋利无比，一击必杀"
+        },
+        {
+          "type": "特殊",
+          "value": "",
+          "description": "价值连城的古物"
+        }
+      ],
+      "origin": "波斯宫廷",
+      "rarity": "绝世神兵",
+      "related_characters": [
+        "char_lu_xiao_feng",
+        "char_sha_da_hu",
+        "char_liu_cheng_feng",
+        "char_lao_chuan_zhang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": []
+    },
+    {
+      "id": "item_tie_lian",
+      "name": "七巧堂铁链",
+      "type": "special",
+      "owner": "char_lao_shi_he_shang",
+      "one_line": "七巧堂精品铁链，锁住老实和尚双足以自囚",
+      "description": "锁在老实和尚足踝上的极粗大铁链，是七巧堂的精品，钥匙已被抛入绝壑，世上再也无人能打开。老实和尚以此锁住自己，免得去见小豆子。",
+      "effects": [
+        {
+          "type": "控制",
+          "value": "",
+          "description": "锁住双足，无法行走，以此自囚免得误人误己"
+        }
+      ],
+      "origin": "七巧堂",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_lao_shi_he_shang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 216,
+          "line_end": 218,
+          "text": "这双腿的足踝上，还锁着一条极粗大的铁链。锁是七巧堂的精品，钥匙已被我抛入绝壑，世上再也没有人能打得开。"
+        }
+      ]
+    },
+    {
+      "id": "item_tie_xue",
+      "name": "铁靴",
+      "type": "armor",
+      "owner": "char_da_gu",
+      "one_line": "纯铁打造的超重靴子，每只重约十斤，大鼓自幼穿此练轻功",
+      "description": "用纯铁打成的铁靴子，每只最少有一个最胖的人一条大腿那么重，约在九斤半到十三四斤之间，两条腿共约二十斤。大鼓从小穿铁鞋走路练轻功，穿着如此重靴爬山越岭却脚步声轻如小丫头。",
+      "effects": [
+        {
+          "type": "特殊",
+          "value": "",
+          "description": "负重训练轻功，穿重靴而行走无声，轻功极高"
+        }
+      ],
+      "origin": null,
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_da_gu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 116,
+          "line_end": 126,
+          "text": "这个人穿的居然是一双铁靴子，用纯铁打成的铁靴子。穿着一双二十斤重的铁鞋子，大多数人走路的声音都会像打雷一样"
+        }
+      ]
+    }
+  ]
+}

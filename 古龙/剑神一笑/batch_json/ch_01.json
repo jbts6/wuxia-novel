@@ -1,0 +1,258 @@
+{
+  "chapter": 1,
+  "chapter_summary": "陆小凤在落日下走上一片黄土，发现土中有朋友的血。回忆七个月前与柳乘风（又名柳如钢，外号“一剑乘风”）最后一次喝酒的情景。柳乘风是巴山第一嫡传掌门弟子，擅使“七七四十九手回风舞柳剑”，武功高强且人格高尚。他告诉陆小凤要去西北边陲一个叫黄石的小镇，去办一件极危险极机密的事，但不肯透露详情。从此一别，柳乘风便杳无音信。陆小凤作为他最好的朋友，决定追到黄石镇去查明真相。",
+  "dialogues": [
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_cheng_feng",
+      "text": "“今宵酒醉，从此一别，我们很可能要有三五个月不会见面了。”",
+      "tone": "感慨",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_cheng_feng",
+      "text": "“也很有可能从此不复再见。”",
+      "tone": "沉重",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_cheng_feng",
+      "text": "“为什么？”",
+      "tone": "急切",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_liu_cheng_feng",
+      "speaker_name": "柳乘风",
+      "listener": "char_lu_xiao_feng",
+      "text": "“因为我明天一早，就要到一个花不香鸟不语鸡不飞狗不跳兔子不拉屎的地方去。”",
+      "tone": "轻松",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_cheng_feng",
+      "text": "“去干什么？”",
+      "tone": "好奇",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_liu_cheng_feng",
+      "speaker_name": "柳乘风",
+      "listener": "char_lu_xiao_feng",
+      "text": "“你知道我是干什么的，你当然也应该知道我要去干什么。”",
+      "tone": "含蓄",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_cheng_feng",
+      "text": "“你要去做的，一定是一件极危险的事，所以才会说这种话。”",
+      "tone": "担忧",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_cheng_feng",
+      "text": "“你能不能告诉我，你要去做的这一件是什么事？”",
+      "tone": "恳切",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_cheng_feng",
+      "text": "“你要去的那个连兔子都不拉屎的地方，究竟是什么地方？”",
+      "tone": "追问",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_liu_cheng_feng",
+      "speaker_name": "柳乘风",
+      "listener": "char_lu_xiao_feng",
+      "text": "“那个地方我说出来你也不会知道，不过我还是可以告诉你。”",
+      "tone": "犹豫",
+      "chapter": 1
+    },
+    {
+      "speaker": "char_liu_cheng_feng",
+      "speaker_name": "柳乘风",
+      "listener": "char_lu_xiao_feng",
+      "text": "“那是个远在西北边陲的小镇，镇名叫作黄石，黄金的黄，石头的石。”",
+      "tone": "郑重",
+      "chapter": 1
+    }
+  ],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_lu_xiao_feng",
+        "name": "陆小凤",
+        "alias": [],
+        "identity": "游侠",
+        "faction": null,
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "天下闻名的四条眉毛，以两根手指夹剑的绝技闻名江湖",
+        "personality": {
+          "traits": [
+            "义气",
+            "好奇",
+            "机智",
+            "风流",
+            "爱管闲事"
+          ],
+          "speech_style": "机智幽默，善于周旋",
+          "temperament": "洒脱不羁"
+        },
+        "relationships": [
+          {
+            "target": "char_liu_cheng_feng",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "至交好友，陆小凤为其追查死因"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 4,
+            "line_end": 14,
+            "text": "陆小凤在落日下走上了这一片黄土……他知道土中有他朋友的血。"
+          }
+        ]
+      },
+      {
+        "id": "char_liu_cheng_feng",
+        "name": "柳乘风",
+        "alias": [
+          "柳如钢",
+          "一剑乘风"
+        ],
+        "identity": "巴山第一嫡传掌门弟子",
+        "faction": "faction_ba_shan",
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "巴山掌门弟子，回风舞柳剑名震江湖，性格烈如钢",
+        "personality": {
+          "traits": [
+            "思虑周密",
+            "性格刚烈",
+            "讲义气",
+            "守密",
+            "温和"
+          ],
+          "speech_style": "含蓄隐忍，不肯轻易透露心事",
+          "temperament": "刚烈而内敛"
+        },
+        "relationships": [
+          {
+            "target": "char_lu_xiao_feng",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "视陆小凤为可共秘密共患难的朋友"
+          }
+        ],
+        "known_skills": [
+          "skill_hui_feng_wu_liu_jian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 16,
+            "line_end": 50,
+            "text": "陆小凤和“一剑乘风”柳如钢最后一次喝酒的时候……陆小凤当然知道，他是个什么样的人。"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_hui_feng_wu_liu_jian",
+        "name": "七七四十九手回风舞柳剑",
+        "type": "剑法",
+        "faction": "faction_ba_shan",
+        "rank": "炉火纯青",
+        "one_line": "巴山派绝学，需轻功配合，江湖排名前五",
+        "techniques": [],
+        "progression": [
+          {
+            "level": 4,
+            "unlock": "炉火纯青"
+          }
+        ],
+        "effects": [],
+        "combat_style": "以轻功配合剑法，灵动飘逸",
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 31,
+            "line_end": 36,
+            "text": "柳乘风是“巴山”的第一嫡传掌门弟子……他的剑法和轻功都同样受到武林中人的佩服和尊敬。"
+          }
+        ]
+      }
+    ],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_ba_shan",
+        "name": "巴山",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "柳乘风所属门派，以回风舞柳剑闻名",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 31,
+            "line_end": 32,
+            "text": "柳乘风是“巴山”的第一嫡传掌门弟子"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_huang_shi",
+        "name": "黄石镇",
+        "region": "西北边陲",
+        "one_line": "远在西北边陲的荒凉小镇，传说附近埋有巨大宝藏",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 70,
+            "line_end": 71,
+            "text": "那是个远在西北边陲的小镇，镇名叫作黄石，黄金的黄，石头的石。"
+          }
+        ]
+      }
+    ],
+    "items": []
+  },
+  "entity_updates": []
+}

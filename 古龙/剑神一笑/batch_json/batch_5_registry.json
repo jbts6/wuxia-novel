@@ -1,0 +1,288 @@
+{
+  "characters": [
+    {
+      "id": "char_xiu_hua_xie",
+      "name": "绣花鞋",
+      "alias": [],
+      "identity": "超级杀手",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "高瘦妩媚的女杀手，杀人赌钱唱曲陪睡样样来钱，练有绝传外门功夫",
+      "personality": {
+        "traits": [
+          "妩媚",
+          "大胆",
+          "贪婪",
+          "自信",
+          "泼辣"
+        ],
+        "speech_style": "直言不讳，面不改色",
+        "temperament": "张扬"
+      },
+      "relationships": [
+        {
+          "target": "char_da_gu",
+          "type": "同行",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "同行相知，互相调侃"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        13
+      ],
+      "source_refs": [
+        {
+          "chapter": 13,
+          "line_start": 1,
+          "line_end": 20,
+          "text": "上山来的这个女人，高高瘦瘦的身材...她的名字就叫做绣花鞋"
+        }
+      ]
+    },
+    {
+      "id": "char_da_gu",
+      "name": "大鼓",
+      "alias": [],
+      "identity": "超级杀手",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "肥胖的超级杀手，走路脚步沉重如大鼓",
+      "personality": {
+        "traits": [
+          "肥胖",
+          "精明",
+          "识时务",
+          "自嘲"
+        ],
+        "speech_style": "自嘲调侃",
+        "temperament": "随和"
+      },
+      "relationships": [
+        {
+          "target": "char_xiu_hua_xie",
+          "type": "同行",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "同行相知，互相调侃"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        13
+      ],
+      "source_refs": [
+        {
+          "chapter": 13,
+          "line_start": 34,
+          "line_end": 36,
+          "text": "西门吹雪极目苍茫，仍未回头，大鼓脸色发青"
+        }
+      ]
+    },
+    {
+      "id": "char_xi_men_chui_xue",
+      "name": "西门吹雪",
+      "alias": [
+        "剑神"
+      ],
+      "identity": "剑神",
+      "faction": null,
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "返璞归真",
+      "one_line": "白衣如雪的剑神，孤高冷傲，剑术已臻化境",
+      "personality": {
+        "traits": [
+          "孤高",
+          "冷傲",
+          "无情",
+          "骄傲",
+          "超凡脱俗"
+        ],
+        "speech_style": "冰冷简洁",
+        "temperament": "冷酷"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "挚友",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "昔日挚友，已多年未见"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        13,
+        15
+      ],
+      "source_refs": [
+        {
+          "chapter": 13,
+          "line_start": 224,
+          "line_end": 224,
+          "text": "静默已久的西门吹雪忽然说：杀你容易，杀我难！"
+        }
+      ]
+    },
+    {
+      "id": "char_bai_yi_shao_nian",
+      "name": "白衣少年",
+      "alias": [],
+      "identity": "富家少年（实为司空摘星伪装）",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "自称年少多金的白衣少年，雇大鼓和绣花鞋来展示身份，实为司空摘星伪装",
+      "personality": {
+        "traits": [
+          "自信",
+          "阔绰",
+          "神秘",
+          "能言善辩"
+        ],
+        "speech_style": "淡淡微笑，自信从容",
+        "temperament": "从容"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        13
+      ],
+      "source_refs": [
+        {
+          "chapter": 13,
+          "line_start": 190,
+          "line_end": 191,
+          "text": "跟在她们身后走上来的白衣人，是个白面少年，衣白如雪，面白如衣。"
+        }
+      ]
+    },
+    {
+      "id": "char_si_kong_zhai_xing",
+      "name": "司空摘星",
+      "alias": [
+        "偷王之王",
+        "大偷",
+        "超级大偷"
+      ],
+      "identity": "偷王之王",
+      "faction": null,
+      "role": "companion",
+      "archetype": "assassin",
+      "rank": "出神入化",
+      "one_line": "天下第一神偷，易容术出神入化，扮什么像什么，是陆小凤的好友",
+      "personality": {
+        "traits": [
+          "幽默",
+          "机智",
+          "自恋",
+          "讲义气",
+          "嘴甜"
+        ],
+        "speech_style": "调侃戏谑，时而认真",
+        "temperament": "洒脱"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "挚友",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "损友，互相调侃但关键时刻出手相救"
+        },
+        {
+          "target": "char_niu_rou_tang",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "初次见面，互相试探"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        14
+      ],
+      "source_refs": [
+        {
+          "chapter": 14,
+          "line_start": 118,
+          "line_end": 127,
+          "text": "司空摘星大笑...偷王之王在江湖中名声之响亮"
+        }
+      ]
+    },
+    {
+      "id": "char_niu_rou_tang",
+      "name": "牛肉汤",
+      "alias": [
+        "牛小姐",
+        "牛大小姐",
+        "牛皮糖"
+      ],
+      "identity": "陆小凤的情人",
+      "faction": null,
+      "role": "companion",
+      "archetype": "scholar",
+      "rank": "略有小成",
+      "one_line": "陆小凤最近最喜欢的女人，聪明伶俐，厨艺精湛，善于用牛肉汤收买人心",
+      "personality": {
+        "traits": [
+          "聪明",
+          "漂亮",
+          "可爱",
+          "毒舌",
+          "善于观察"
+        ],
+        "speech_style": "伶俐犀利，时而天真时而狡黠",
+        "temperament": "活泼"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "恋人",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "陆小凤最近最喜欢的女人"
+        },
+        {
+          "target": "char_si_kong_zhai_xing",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "初次见面，互相试探"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        14
+      ],
+      "source_refs": [
+        {
+          "chapter": 14,
+          "line_start": 62,
+          "line_end": 64,
+          "text": "牛肉汤也傻呆了——不管她是不是牛肉汤...何况她真的就是牛肉汤。"
+        }
+      ]
+    }
+  ],
+  "skills": [],
+  "techniques": [],
+  "factions": [],
+  "locations": [],
+  "items": []
+}

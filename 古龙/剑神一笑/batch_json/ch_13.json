@@ -1,0 +1,201 @@
+{
+  "chapter": 13,
+  "chapter_summary": "绣花鞋上山来与大鼓会合，两人都是被白衣少年雇来的超级杀手。绣花鞋炫耀自己杀人、赌钱、唱曲、陪睡样样赚钱的本事，大鼓对她既佩服又无奈。天色渐暗时，绣花鞋注意到独坐岩石上的西门吹雪，感到莫名的寒冷。大鼓告诉她那就是西门吹雪，绣花鞋吓得呆住。此时白衣少年带着两位宫装美女出现，他自称为人阔绰，花重金请大鼓和绣花鞋并非要杀西门吹雪，而是要展示自己的身份。西门吹雪冷冷地表示若有人敢出手必死于剑下。白衣少年提出要用西门吹雪的剑去杀一个想谋害陆小凤的人，但西门吹雪冷漠地拒绝，认为陆小凤应该自己解决自己的事。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_xiu_hua_xie",
+        "name": "绣花鞋",
+        "alias": [],
+        "identity": "超级杀手",
+        "faction": null,
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "炉火纯青",
+        "one_line": "高瘦妩媚的女杀手，杀人赌钱唱曲陪睡样样来钱，练有绝传外门功夫",
+        "personality": {
+          "traits": [
+            "妩媚",
+            "大胆",
+            "贪婪",
+            "自信",
+            "泼辣"
+          ],
+          "speech_style": "直言不讳，面不改色",
+          "temperament": "张扬"
+        },
+        "relationships": [
+          {
+            "target": "char_da_gu",
+            "type": "同行",
+            "intensity": 40,
+            "bond_level": 2,
+            "dynamic": "同行相知，互相调侃"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 1,
+            "line_end": 20,
+            "text": "上山来的这个女人，高高瘦瘦的身材...她的名字就叫做绣花鞋"
+          }
+        ]
+      },
+      {
+        "id": "char_da_gu",
+        "name": "大鼓",
+        "alias": [],
+        "identity": "超级杀手",
+        "faction": null,
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "炉火纯青",
+        "one_line": "肥胖的超级杀手，走路脚步沉重如大鼓",
+        "personality": {
+          "traits": [
+            "肥胖",
+            "精明",
+            "识时务",
+            "自嘲"
+          ],
+          "speech_style": "自嘲调侃",
+          "temperament": "随和"
+        },
+        "relationships": [
+          {
+            "target": "char_xiu_hua_xie",
+            "type": "同行",
+            "intensity": 40,
+            "bond_level": 2,
+            "dynamic": "同行相知，互相调侃"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 34,
+            "line_end": 36,
+            "text": "西门吹雪极目苍茫，仍未回头，大鼓脸色发青"
+          }
+        ]
+      },
+      {
+        "id": "char_xi_men_chui_xue",
+        "name": "西门吹雪",
+        "alias": [
+          "剑神"
+        ],
+        "identity": "剑神",
+        "faction": null,
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": "返璞归真",
+        "one_line": "白衣如雪的剑神，孤高冷傲，剑术已臻化境",
+        "personality": {
+          "traits": [
+            "孤高",
+            "冷傲",
+            "无情",
+            "骄傲",
+            "超凡脱俗"
+          ],
+          "speech_style": "冰冷简洁",
+          "temperament": "冷酷"
+        },
+        "relationships": [
+          {
+            "target": "char_lu_xiao_feng",
+            "type": "挚友",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "昔日挚友，已多年未见"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13,
+          15
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 224,
+            "line_end": 224,
+            "text": "静默已久的西门吹雪忽然说：杀你容易，杀我难！"
+          }
+        ]
+      },
+      {
+        "id": "char_bai_yi_shao_nian",
+        "name": "白衣少年",
+        "alias": [],
+        "identity": "富家少年（实为司空摘星伪装）",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "自称年少多金的白衣少年，雇大鼓和绣花鞋来展示身份，实为司空摘星伪装",
+        "personality": {
+          "traits": [
+            "自信",
+            "阔绰",
+            "神秘",
+            "能言善辩"
+          ],
+          "speech_style": "淡淡微笑，自信从容",
+          "temperament": "从容"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 190,
+            "line_end": 191,
+            "text": "跟在她们身后走上来的白衣人，是个白面少年，衣白如雪，面白如衣。"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [],
+    "locations": [],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_lu_xiao_feng",
+      "updates": {
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 282,
+            "line_end": 282,
+            "text": "陆小凤，多少年未见陆小凤了"
+          }
+        ]
+      }
+    }
+  ]
+}

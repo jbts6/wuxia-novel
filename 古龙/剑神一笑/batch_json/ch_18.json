@@ -1,0 +1,156 @@
+{
+  "chapter": 18,
+  "chapter_summary": "本章讲述了西门吹雪和牛肉汤赴宫素素的宴会，宫萍试图刺杀西门吹雪但被击败。西门吹雪指出黄石镇上的每一个人都是杀死陆小凤的凶手，包括沙大户、老板娘、王大眼、赵瞎子、黄小虫和宫素素。宫素素承认并在酒中下毒，西门吹雪和牛肉汤中毒倒下。最后场景转到小老头和小老太婆，他们决定前往黄石镇。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_gong_su_su",
+        "name": "宫素素",
+        "alias": [],
+        "identity": "宴会主人",
+        "faction": null,
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "登堂入室",
+        "one_line": "冷艳高贵的宴会主人，实际上是杀害陆小凤的凶手之一",
+        "personality": {
+          "traits": ["冷艳", "高贵", "阴险", "善于伪装"],
+          "speech_style": "优雅但暗藏杀机",
+          "temperament": "冷静"
+        },
+        "relationships": [
+          {"target": "char_gong_ping", "type": "主仆", "intensity": 60, "bond_level": 4, "dynamic": "主仆关系"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 16, "line_end": 20, "text": "宫素素听了牛肉汤的话，居然没有生气，连脸色也没变一下，依旧维持她那冷艳高贵的表情"}
+        ]
+      },
+      {
+        "id": "char_gong_ping",
+        "name": "宫萍",
+        "alias": [],
+        "identity": "宫素素的侍女",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "宫素素的侍女，剑术高超，试图刺杀西门吹雪",
+        "personality": {
+          "traits": ["勇敢", "自信", "忠诚"],
+          "speech_style": "直接",
+          "temperament": "刚烈"
+        },
+        "relationships": [
+          {"target": "char_gong_su_su", "type": "主仆", "intensity": 60, "bond_level": 4, "dynamic": "主仆关系"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 76, "line_end": 80, "text": "我听说西门公子的剑术已经练到无剑的境界，我想领教一下"}
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [],
+    "locations": [],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_niu_rou_tang",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 16, "line_end": 40, "text": "牛肉汤追问陆小凤死因"}
+        ]
+      }
+    },
+    {
+      "id": "char_xi_men_chui_xue",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 134, "line_end": 155, "text": "西门吹雪指出所有凶手"}
+        ]
+      }
+    },
+    {
+      "id": "char_sha_da_hu",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 100, "line_end": 105, "text": "沙大户赞叹西门吹雪剑法"}
+        ]
+      }
+    },
+    {
+      "id": "char_lao_ban_niang",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 108, "line_end": 115, "text": "老板娘与王大眼争论谁是凶手"}
+        ]
+      }
+    },
+    {
+      "id": "char_wang_da_yan",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 104, "line_end": 125, "text": "王大眼声称知道凶手"}
+        ]
+      }
+    },
+    {
+      "id": "char_huang_xiao_chong",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 118, "line_end": 125, "text": "黄小虫质疑王大眼"}
+        ]
+      }
+    },
+    {
+      "id": "char_zhao_xia_zi",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 130, "line_end": 135, "text": "赵瞎子调侃凶手越多棺材生意越好"}
+        ]
+      }
+    },
+    {
+      "id": "char_xiao_lao_tou",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 208, "line_end": 239, "text": "小老头与小老太婆讨论前往黄石镇"}
+        ]
+      }
+    },
+    {
+      "id": "char_xiao_lao_tai_po",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 212, "line_end": 235, "text": "小老太婆担忧西门吹雪安危"}
+        ]
+      }
+    },
+    {
+      "id": "char_lu_xiao_feng",
+      "updates": {
+        "rag_refs": [18],
+        "source_refs": [
+          {"chapter": 18, "line_start": 166, "line_end": 170, "text": "陆小凤被黄石镇上所有人杀害"}
+        ]
+      }
+    }
+  ]
+}
