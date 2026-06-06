@@ -1,0 +1,55 @@
+{
+  "characters": [],
+  "skills": [
+    {
+      "id": "skill_yi_hua_jie_yu",
+      "name": "移花接玉",
+      "type": "掌法",
+      "faction": "faction_yi_hua_gong",
+      "rank": "登峰造极",
+      "one_line": "移花宫绝学，天下第一的掌法",
+      "rag_refs": [
+        99
+      ],
+      "techniques": [
+        {
+          "id": "tech_yi_hua_jie_yu_1",
+          "name": "移花接玉",
+          "type": "attack",
+          "description": "以柔克刚，借力打力的绝世掌法"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "对敌使用",
+          "description": "能够化解敌人攻击并反击"
+        }
+      ],
+      "combat_style": "以柔克刚，借力打力",
+      "source_refs": []
+    }
+  ],
+  "techniques": [
+    {
+      "id": "tech_yi_hua_jie_yu_1",
+      "name": "移花接玉",
+      "type": "attack",
+      "description": "以柔克刚，借力打力的绝世掌法",
+      "source_skill": "skill_yi_hua_jie_yu",
+      "source_refs": []
+    }
+  ],
+  "factions": [],
+  "locations": [
+    {
+      "id": "loc_shan_dong",
+      "name": "山洞",
+      "region": "长江口山腹",
+      "one_line": "小鱼儿藏身的山洞，直通长江",
+      "source_refs": []
+    }
+  ],
+  "items": []
+}

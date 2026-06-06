@@ -1,0 +1,386 @@
+{
+  "chapter": 5,
+  "chapter_summary": "第五回「恶人之谷」燕南天怀抱婴儿、拖着江枫夫妇的棺木，历经千辛万苦抵达昆仑山玉龙峰下。途中遭人暗算，以绝世身法一一化解。在恶人谷入口处遇到昆仑四鹫和川中三义，误以为他们是敌人而大打出手，后经解释方知他们是在追捕投奔恶人谷的恶贼司马烟。众人告知燕南天谷中盘踞着血手杜杀、哈哈儿、屠娇娇、李大嘴、阴九幽等众多凶名赫赫的恶人。燕南天毫不畏惧，义无反顾进入恶人谷。谷中灯火辉煌，竟如繁华镇市。燕南天被引至一家精致酒楼，圆脸胖子哈哈儿假意殷勤款待，实则以天吃星的迷药下了毒。燕南天察觉时已身中迷药，四肢无力，倒在恶人谷中。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_ha_ha_er",
+        "name": "哈哈儿",
+        "alias": [
+          "笑里藏刀",
+          "笑弥陀",
+          "圆脸胖子"
+        ],
+        "identity": "恶人谷恶人，笑里藏刀",
+        "faction": "faction_e_ren_gu",
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "出神入化",
+        "one_line": "恶人谷恶人，笑脸圆圆实则阴险毒辣，曾灭恩师满门",
+        "personality": {
+          "traits": [
+            "阴险",
+            "伪善",
+            "狡诈",
+            "残忍",
+            "精明"
+          ],
+          "speech_style": "笑嘻嘻，句句带笑",
+          "temperament": "笑里藏刀"
+        },
+        "relationships": [
+          {
+            "target": "char_yan_nan_tian",
+            "type": "对手",
+            "intensity": 70,
+            "bond_level": 1,
+            "dynamic": "以迷药制服燕南天"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 262,
+            "line_end": 263,
+            "text": "这人矮矮胖胖，笑脸圆圆"
+          }
+        ]
+      },
+      {
+        "id": "char_lv_yi_shao_nv",
+        "name": "绿衣少女",
+        "alias": [],
+        "identity": "恶人谷酒楼侍女",
+        "faction": "faction_e_ren_gu",
+        "role": "npc",
+        "archetype": "assassin",
+        "rank": "平平无奇",
+        "one_line": "恶人谷酒楼的绿衣侍女，明眸皓齿",
+        "personality": {
+          "traits": [
+            "娇媚",
+            "灵巧",
+            "善于伪装",
+            "心机",
+            "顺从"
+          ],
+          "speech_style": "娇声细语",
+          "temperament": "外柔内狠"
+        },
+        "relationships": [
+          {
+            "target": "char_ha_ha_er",
+            "type": "合作者",
+            "intensity": 40,
+            "bond_level": 2,
+            "dynamic": "同属恶人谷"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 280,
+            "line_end": 280,
+            "text": "一个明眸皓齿巧笑嫣然的绿衣少女"
+          }
+        ]
+      },
+      {
+        "id": "char_kun_lun_dao_ren",
+        "name": "昆仑道人",
+        "alias": [
+          "四鹫"
+        ],
+        "identity": "昆仑七剑之四鹫",
+        "faction": "faction_kun_lun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "昆仑七剑中的四鹫，三人联手可挡燕南天一剑",
+        "personality": {
+          "traits": [
+            "正直",
+            "谦逊",
+            "守义",
+            "勇武",
+            "谨慎"
+          ],
+          "speech_style": "道号称呼，客气有礼",
+          "temperament": "正派侠义"
+        },
+        "relationships": [
+          {
+            "target": "char_yan_nan_tian",
+            "type": "对手",
+            "intensity": 30,
+            "bond_level": 2,
+            "dynamic": "误斗后转为敬佩"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 74,
+            "line_end": 74,
+            "text": "四鹫，足下怎知"
+          }
+        ]
+      },
+      {
+        "id": "char_zang_yi_zi",
+        "name": "藏翼子",
+        "alias": [],
+        "identity": "昆仑四子之首",
+        "faction": "faction_kun_lun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "昆仑四子之首，正派侠义",
+        "personality": {
+          "traits": [
+            "正直",
+            "谦逊",
+            "识大体",
+            "敬佩英雄",
+            "感慨"
+          ],
+          "speech_style": "道号称呼，恭敬有礼",
+          "temperament": "正派温厚"
+        },
+        "relationships": [
+          {
+            "target": "char_yan_nan_tian",
+            "type": "合作者",
+            "intensity": 40,
+            "bond_level": 2,
+            "dynamic": "敬佩燕南天豪气"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 110,
+            "line_end": 110,
+            "text": "昆仑四子之首，藏翼子忍不住问道"
+          }
+        ]
+      },
+      {
+        "id": "char_yang_ping",
+        "name": "杨平",
+        "alias": [
+          "大义士"
+        ],
+        "identity": "川中八义之首",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "川中八义之首，国字脸，英气逼人",
+        "personality": {
+          "traits": [
+            "正直",
+            "义气",
+            "勇敢",
+            "谦逊",
+            "识人"
+          ],
+          "speech_style": "恭敬有礼",
+          "temperament": "侠义正直"
+        },
+        "relationships": [
+          {
+            "target": "char_yan_nan_tian",
+            "type": "合作者",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "敬佩燕南天"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 102,
+            "line_end": 102,
+            "text": "川中八义之首杨平"
+          }
+        ]
+      },
+      {
+        "id": "char_hai_chang_bo",
+        "name": "海长波",
+        "alias": [
+          "三义士"
+        ],
+        "identity": "川中八义之三",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "川中八义之三，负责讲述恶人谷情报",
+        "personality": {
+          "traits": [
+            "正直",
+            "见多识广",
+            "谨慎",
+            "义气",
+            "坦率"
+          ],
+          "speech_style": "条理清晰，详述见闻",
+          "temperament": "沉稳"
+        },
+        "relationships": [
+          {
+            "target": "char_yan_nan_tian",
+            "type": "合作者",
+            "intensity": 40,
+            "bond_level": 2,
+            "dynamic": "为燕南天提供恶人谷情报"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 104,
+            "line_end": 104,
+            "text": "三义士海长波"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_e_ren_gu",
+        "name": "恶人谷",
+        "type": "帮派",
+        "location": "loc_e_ren_gu",
+        "sub_divisions": [],
+        "one_line": "天下恶人聚集之地，位于昆仑山中，无人敢轻易闯入",
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 196,
+            "line_end": 196,
+            "text": "恶人谷便正是群山围绕的谷底"
+          }
+        ]
+      },
+      {
+        "id": "faction_kun_lun",
+        "name": "昆仑派",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [
+          "昆仑七剑",
+          "四鹫",
+          "三鹰"
+        ],
+        "one_line": "名侠辈出的昆仑山区武林门派",
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 6,
+            "line_end": 6,
+            "text": "充满了神秘传说的昆仑山区"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_e_ren_gu",
+        "name": "恶人谷",
+        "region": "昆仑山",
+        "one_line": "天下恶人聚集的山谷，外表平静实则危机四伏",
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 196,
+            "line_end": 196,
+            "text": "恶人谷便正是群山围绕的谷底"
+          }
+        ]
+      },
+      {
+        "id": "loc_yu_long_feng",
+        "name": "玉龙峰",
+        "region": "昆仑山",
+        "one_line": "昆仑山区的险峻山峰",
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 8,
+            "line_end": 8,
+            "text": "玉龙峰下"
+          }
+        ]
+      }
+    ],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_yan_nan_tian",
+      "updates": {
+        "rag_refs": [
+          3,
+          4,
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 3,
+            "line_start": 12,
+            "line_end": 16,
+            "text": "他靠着墙"
+          },
+          {
+            "chapter": 4,
+            "line_start": 2,
+            "line_end": 4,
+            "text": "燕南天的身形"
+          },
+          {
+            "chapter": 5,
+            "line_start": 16,
+            "line_end": 18,
+            "text": "孩子，这一路上你可真是吃了不少人的奶"
+          }
+        ]
+      }
+    }
+  ]
+}

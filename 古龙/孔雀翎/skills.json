@@ -1,0 +1,596 @@
+[
+  {
+    "id": "skill_yin_qiang",
+    "name": "双银枪",
+    "type": "枪法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "高立的双银枪",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_yin_qiang_ci_ji",
+        "name": "双枪刺击",
+        "type": "attack",
+        "description": "双枪同时刺出，如毒龙双角，攻势凌厉"
+      },
+      {
+        "id": "tech_yin_qiang_fei chu",
+        "name": "银枪飞出",
+        "type": "attack",
+        "description": "将银枪掷出，远程攻击敌人"
+      },
+      {
+        "id": "tech_yin_qiang_lian_huan",
+        "name": "双枪连环",
+        "type": "attack",
+        "description": "双枪交替进攻，连绵不绝"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近战",
+        "description": "银枪锋利"
+      }
+    ],
+    "combat_style": "近身双枪配合",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 8,
+        "line_end": 10,
+        "text": "银枪"
+      }
+    ]
+  },
+  {
+    "id": "skill_du_men_wan_dao",
+    "name": "独门弯刀",
+    "type": "暗器",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "丁干的弯刀",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_wan_dao_an_she",
+        "name": "弯刀暗射",
+        "type": "attack",
+        "description": "以弯刀暗中射击敌人，手法灵巧"
+      },
+      {
+        "id": "tech_wan_dao_guo_xuan",
+        "name": "弯刀过旋",
+        "type": "attack",
+        "description": "弯刀旋转飞出，角度刁钻"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "暗算",
+        "description": "背后偷袭"
+      }
+    ],
+    "combat_style": "暗器近身结合",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 22,
+        "line_end": 26,
+        "text": "弯刀"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhan_ma_dao",
+    "name": "斩马刀法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "汤野的斩马刀",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_zhan_ma_duan_ti",
+        "name": "斩断马蹄",
+        "type": "attack",
+        "description": "以斩马刀斩断敌人坐骑马蹄"
+      },
+      {
+        "id": "tech_zhan_ma_pī_tou",
+        "name": "劈头一刀",
+        "type": "attack",
+        "description": "自上而下劈砍，力沉势猛"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "劇砍",
+        "description": "长刀势大力沉"
+      }
+    ],
+    "combat_style": "大开大合劇砍",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "斩马刀"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_bu_shen_quan",
+    "name": "百步神拳",
+    "type": "掌法",
+    "faction": "少林",
+    "rank": "出神入化",
+    "one_line": "少林绝技",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_bai_bu_ju_li",
+        "name": "百步距离",
+        "type": "attack",
+        "description": "在百步之外以拳力伤人"
+      },
+      {
+        "id": "tech_bai_bu_chuan_xin",
+        "name": "百步穿心",
+        "type": "attack",
+        "description": "拳力凝聚，直击敌人心口"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "远程",
+        "description": "拳劲远距离逾制"
+      }
+    ],
+    "combat_style": "远程拳劲压制",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 186,
+        "line_end": 190,
+        "text": "百步神拳"
+      }
+    ]
+  },
+  {
+    "id": "skill_dian_xue_da_xue",
+    "name": "点穴打穴",
+    "type": "指法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "西门胜的点穴功夫",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_hei_tie_pan_guan",
+        "name": "黑铁判官笔",
+        "type": "attack",
+        "description": "以判官笔点穴，精准无比"
+      },
+      {
+        "id": "tech_dian_xue_feng_mai",
+        "name": "点穴封脉",
+        "type": "control",
+        "description": "点中穴道，封锁敌人经脉"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "命中",
+        "description": "点中穴位使敌人丧失行动"
+      }
+    ],
+    "combat_style": "精准点穴",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 190,
+        "line_end": 192,
+        "text": "点穴打穴"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_qiao_jian",
+    "name": "轻巧剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "小武的快剑",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_jian_guang_yi_shan",
+        "name": "剑光一闪",
+        "type": "attack",
+        "description": "剑光如电，一闪即逝"
+      },
+      {
+        "id": "tech_qing_qiao_duo_shan",
+        "name": "轻巧躲闪",
+        "type": "defense",
+        "description": "以轻巧身法躲避攻击"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近战",
+        "description": "剑速极快"
+      }
+    ],
+    "combat_style": "快剑攻击",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 62,
+        "line_end": 64,
+        "text": "小武的剑"
+      }
+    ]
+  },
+  {
+    "id": "skill_liao_dong_jian_fa",
+    "name": "辽东剑法",
+    "type": "剑法",
+    "faction": "faction_chang_qing_biao_ju",
+    "rank": "登峰造极",
+    "one_line": "百里长青的剑法",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_san_jian_lian_ci",
+        "name": "三剑连刺",
+        "type": "attack",
+        "description": "连续三剑刺出，快如闪电"
+      },
+      {
+        "id": "tech_liao_dong_heng_sao",
+        "name": "辽东横扫",
+        "type": "attack",
+        "description": "横剑扫击，气势磅礴"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近战",
+        "description": "剑法威力惊人"
+      }
+    ],
+    "combat_style": "凌厉进攻",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 378,
+        "line_end": 378,
+        "text": "辽东剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_bian_fa",
+    "name": "鞭法",
+    "type": "暗器",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "马鞭的鞭法",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [
+      {
+        "id": "tech_chang_bian_juan_tui",
+        "name": "长鞭卷腿",
+        "type": "attack",
+        "description": "以长鞭卷住敌人腿部"
+      },
+      {
+        "id": "tech_bian_fa_chou_da",
+        "name": "鞭法抽打",
+        "type": "attack",
+        "description": "长鞭抽打，势大力沉"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "卷住",
+        "description": "长鞭缠绕敌人"
+      }
+    ],
+    "combat_style": "远程缠绕控制",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 70,
+        "line_end": 78,
+        "text": "鞭法"
+      }
+    ]
+  },
+  {
+    "id": "skill_feng_lei_fu",
+    "name": "风雷神斧",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "金开甲的风雷神斧，前天下第一斧法",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [
+      {
+        "id": "tech_feng_lei_pi_chai",
+        "name": "风雷劈柴",
+        "type": "attack",
+        "description": "以风雷之势劈砍，如劈柴般轻松"
+      },
+      {
+        "id": "tech_feng_lei_heng_zhuan",
+        "name": "风雷横斩",
+        "type": "attack",
+        "description": "横斧斩出，风雷之声"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "斧击",
+        "description": "大开大合的斧法，威力惊人"
+      }
+    ],
+    "combat_style": "巨斧大开大合",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 18,
+        "line_end": 18,
+        "text": "巨斧轻轻落下，木头就分成两半"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhong_lou_fei_xue",
+    "name": "重楼飞血",
+    "type": "内功",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "金开甲的绝技，未被人破过",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [
+      {
+        "id": "tech_zhong_lou_nei_gong",
+        "name": "重楼内劲",
+        "type": "buff",
+        "description": "以内力震荡敌人血脉"
+      },
+      {
+        "id": "tech_fei_xue_sixue",
+        "name": "飞血四溅",
+        "type": "debuff",
+        "description": "震伤敌人内腑，使其吐血"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": null,
+        "description": "内功绝技，未被破过"
+      }
+    ],
+    "combat_style": null,
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 598,
+        "line_end": 600,
+        "text": "重楼飞血，未被人破过"
+      }
+    ]
+  },
+  {
+    "id": "skill_kong_que_ling",
+    "name": "孔雀羽",
+    "type": "暗器",
+    "faction": "faction_kong_que_shan_zhuang",
+    "rank": "登峰造极",
+    "one_line": "孔雀山庄的绝世暗器，当世第一",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [
+      {
+        "id": "tech_kong_que_shan_dong",
+        "name": "孔雀扇动",
+        "type": "attack",
+        "description": "孔雀翎展开如扇，暗器激射"
+      },
+      {
+        "id": "tech_kong_que_kai_ping",
+        "name": "孔雀开屏",
+        "type": "special",
+        "description": "孔雀翎全面展开，万箭齐发"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "特殊",
+        "condition": null,
+        "description": "当世第一暗器，可避开风雷神斧"
+      }
+    ],
+    "combat_style": null,
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 684,
+        "line_end": 684,
+        "text": "他用孔雀羽，你避不开他的孔雀羽，就是他胜了"
+      }
+    ]
+  },
+  {
+    "id": "skill_you_ming_cai_zi_zhang",
+    "name": "幽冥才子掌",
+    "type": "掌法",
+    "faction": "faction_qi_yue_shi_wu",
+    "rank": "出神入化",
+    "one_line": "西门玉的掌法，杀人极其残忍",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [
+      {
+        "id": "tech_you_ming_tui_men",
+        "name": "幽冥推门",
+        "type": "attack",
+        "description": "掌力如推门般平稳却势不可挡"
+      },
+      {
+        "id": "tech_cai_zi_feng_xue",
+        "name": "才子封穴",
+        "type": "control",
+        "description": "以掌力封住敌人穴道"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": null,
+        "description": "杀人极其残忍，据说有一次杀人杀了两天"
+      }
+    ],
+    "combat_style": null,
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 1216,
+        "line_end": 1219,
+        "text": "杀人很慢，非常慢"
+      }
+    ]
+  },
+  {
+    "id": "skill_gui_tou_dao",
+    "name": "鬼头刀法",
+    "type": "剑法",
+    "faction": "faction_qi_yue_shi_wu",
+    "rank": "出神入化",
+    "one_line": "毛战的三十七斤重鬼头刀",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [
+      {
+        "id": "tech_gui_tou_pi_kan",
+        "name": "鬼头劈砍",
+        "type": "attack",
+        "description": "鬼头刀劈下，势大力沉"
+      },
+      {
+        "id": "tech_gui_tou_heng_sao",
+        "name": "鬼头横扫",
+        "type": "attack",
+        "description": "横刀扫击，覆盖面广"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": null,
+        "description": "鬼头刀在他手里轻得像柳叶"
+      }
+    ],
+    "combat_style": null,
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 1155,
+        "line_end": 1159,
+        "text": "三十七斤重的鬼头刀，在他手里轻得就像是柳叶一样"
+      }
+    ]
+  },
+  {
+    "id": "skill_yin_hun_jian",
+    "name": "阴魂剑",
+    "type": "剑法",
+    "faction": "faction_qi_yue_shi_wu",
+    "rank": "出神入化",
+    "one_line": "麻锋的丧门剑，剑光如其脸一样惨青",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [
+      {
+        "id": "tech_yin_hun_chui_zhong",
+        "name": "阴魂缠身",
+        "type": "attack",
+        "description": "剑招如阴魂缠绕，难以摆脱"
+      },
+      {
+        "id": "tech_yin_hun_bie_xi",
+        "name": "阴魂不散",
+        "type": "debuff",
+        "description": "剑气如影随形，持续消耗敌人"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": null,
+        "description": "剑法阴沉残忍"
+      }
+    ],
+    "combat_style": null,
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 1182,
+        "line_end": 1188,
+        "text": "丧门剑，剑光如他的脸一样，闪着惨青色的光"
+      }
+    ]
+  }
+]

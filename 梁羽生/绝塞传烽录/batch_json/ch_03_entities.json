@@ -1,0 +1,152 @@
+{
+  "characters": [
+    {
+      "id": "char_qi_shi_jie",
+      "name": "齐世杰",
+      "alias": [],
+      "identity": "杨大姑之子",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "杨大姑之子，武林后起之秀",
+      "personality": {
+        "traits": [
+          "稳重可靠",
+          "武功高强",
+          "重情重义",
+          "机智聪明",
+          "深藏不露"
+        ],
+        "speech_style": "沉稳冷静，善于分析",
+        "temperament": "冷静沉着"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 748,
+          "line_end": 748,
+          "text": "这个人不是别人，正是他盼望的齐世杰！"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_yin_si_ruan_bian",
+      "name": "银丝软鞭",
+      "type": "暗器",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "龙灵珠的兵器银丝软鞭",
+      "rag_refs": [
+        3
+      ],
+      "techniques": [
+        {
+          "id": "tech_suo_hou_bian",
+          "name": "锁喉鞭",
+          "type": "attack",
+          "description": "软鞭锁喉的绝招"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "初学"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "命中",
+          "description": "软鞭缠绕攻击"
+        }
+      ],
+      "combat_style": "天矫如龙，招数精奇",
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 110,
+          "line_end": 110,
+          "text": "龙灵珠反手一挥，两条软鞭缠个正着。"
+        }
+      ]
+    }
+  ],
+  "techniques": [],
+  "factions": [],
+  "locations": [],
+  "items": [
+    {
+      "id": "item_bi_ling_dan",
+      "name": "碧灵丹",
+      "type": "pill",
+      "owner": "char_long_ling_zhu",
+      "one_line": "用天山雪莲作主药的碧灵丹",
+      "description": "用天山雪莲作主药的碧灵丹，功能驱除百毒。杨炎离开天山时师父给了他三颗，如今只剩下这一颗。",
+      "effects": [
+        {
+          "type": "解毒",
+          "value": "",
+          "description": "功能驱除百毒"
+        }
+      ],
+      "origin": "天山",
+      "rarity": "绝世神兵",
+      "related_characters": [
+        "char_yang_yan",
+        "char_long_ling_zhu",
+        "char_yang_da_gu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 410,
+          "line_end": 410,
+          "text": "这是用天山雪莲作主药的碧灵丹，功能驱除百毒。你的侄儿当年离开天山的时候，他师父给了他三颗碧灵丹，如今只剩下这一颗了。"
+        }
+      ]
+    },
+    {
+      "id": "item_tou_gu_ding",
+      "name": "透骨钉",
+      "type": "hidden_weapon",
+      "owner": null,
+      "one_line": "喂毒暗器透骨钉",
+      "description": "喂了剧毒的透骨钉，中者毒性蔓延，功力大减。",
+      "effects": [
+        {
+          "type": "毒药",
+          "value": "",
+          "description": "令人中毒，功力大减"
+        }
+      ],
+      "origin": "大内侍卫",
+      "rarity": "上乘佳品",
+      "related_characters": [],
+      "related_skills": [],
+      "rag_refs": [
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 138,
+          "line_end": 138,
+          "text": "忽听得“叮”的一声，埋伏在外面的那第三个人，虽然没有进来帮手，却把一枚透骨钉从窗外打进来了。"
+        }
+      ]
+    }
+  ]
+}

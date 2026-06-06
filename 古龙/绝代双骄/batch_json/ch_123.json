@@ -1,0 +1,238 @@
+{
+  "chapter": 123,
+  "chapter_summary": "李大嘴重伤垂危，小鱼儿与苏樱试图救治。李大嘴坦言吃人肉不过是为吓唬人，一生罪孽令他心灰意冷，只想求死。苏樱以红烧蹄膀圆他最后心愿。铁萍姑由胡药师引来，竟是李大嘴失散多年的亲生女儿。李大嘴道出真相：当年妻子不贞被他杀死，他为保铁老英雄颜面甘愿背负骂名，将女儿托付他人后遁入恶人谷。父女团聚，误会澄清。铁萍姑与胡药师互生情愫，众人欢喜庆祝。李大嘴在最心安理得的时刻含笑而逝。",
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_su_ying",
+        "name": "苏樱",
+        "alias": [],
+        "identity": "医术精湛的女子",
+        "faction": null,
+        "role": "companion",
+        "archetype": "healer",
+        "rank": "略有小成",
+        "one_line": "机智聪慧、深爱小鱼儿的女子，医术高明",
+        "personality": {
+          "traits": [
+            "聪慧",
+            "痴情",
+            "勇敢",
+            "直率",
+            "外柔内刚"
+          ],
+          "speech_style": "温柔中带着机锋",
+          "temperament": "柔中带刚"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_yu_er",
+            "type": "恋人",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "全心全意爱着小鱼儿，愿为他牺牲一切"
+          }
+        ],
+        "known_skills": [
+          "skill_yi_shu"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          123
+        ],
+        "source_refs": [
+          {
+            "chapter": 123,
+            "line_start": 8,
+            "line_end": 16,
+            "text": "原来苏樱也跟在后面来了，只不过一直没有说话。"
+          }
+        ]
+      },
+      {
+        "id": "char_hu_yao_shi",
+        "name": "胡药师",
+        "alias": [
+          "捣药师"
+        ],
+        "identity": "十二星相之一",
+        "faction": "faction_shi_er_xing_xiang",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "十二星相中的捣药师，性格怯懦但心地不坏",
+        "personality": {
+          "traits": [
+            "怯懦",
+            "谄媚",
+            "痴情",
+            "胆小",
+            "憨厚"
+          ],
+          "speech_style": "结结巴巴、赔着笑脸",
+          "temperament": "畏缩中带真诚"
+        },
+        "relationships": [
+          {
+            "target": "char_tie_ping_gu",
+            "type": "恋人",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "患难中相识，渐渐倾心"
+          },
+          {
+            "target": "char_xiao_yu_er",
+            "type": "合作者",
+            "intensity": 40,
+            "bond_level": 2,
+            "dynamic": "受小鱼儿恩惠，心存感激"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          123
+        ],
+        "source_refs": [
+          {
+            "chapter": 123,
+            "line_start": 204,
+            "line_end": 207,
+            "text": "原来这人竟是胡药师"
+          }
+        ]
+      },
+      {
+        "id": "char_tie_ping_gu",
+        "name": "铁萍姑",
+        "alias": [],
+        "identity": "李大嘴之女，移花宫弟子",
+        "faction": "faction_yi_hua_gong",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "李大嘴失散多年的女儿，身世坎坷的移花宫弟子",
+        "personality": {
+          "traits": [
+            "刚烈",
+            "痴情",
+            "苦命",
+            "坚忍",
+            "外冷内热"
+          ],
+          "speech_style": "冷淡中带着悲伤",
+          "temperament": "刚毅悲苦"
+        },
+        "relationships": [
+          {
+            "target": "char_li_da_zui",
+            "type": "亲属",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "父女重逢，恨意消解"
+          },
+          {
+            "target": "char_hu_yao_shi",
+            "type": "恋人",
+            "intensity": 55,
+            "bond_level": 3,
+            "dynamic": "患难中渐生情愫"
+          },
+          {
+            "target": "char_jiang_yu_lang",
+            "type": "对手",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "曾被江玉郎负心"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          123
+        ],
+        "source_refs": [
+          {
+            "chapter": 123,
+            "line_start": 264,
+            "line_end": 274,
+            "text": "铁萍姑却已哭倒在他身旁，手里还握着把尖刀"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_shi_er_xing_xiang",
+        "name": "十二星相",
+        "type": "帮派",
+        "location": null,
+        "sub_divisions": [
+          "捣药师"
+        ],
+        "one_line": "江湖中的一个组织，胡药师为其中之一",
+        "source_refs": [
+          {
+            "chapter": 123,
+            "line_start": 348,
+            "line_end": 349,
+            "text": "莫非是十二星相中的'捣药师'么？"
+          }
+        ]
+      }
+    ],
+    "locations": [],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_xiao_yu_er",
+      "updates": {
+        "rag_refs": [
+          11,
+          114,
+          115,
+          116,
+          123
+        ]
+      }
+    },
+    {
+      "id": "char_li_da_zui",
+      "updates": {
+        "rag_refs": [
+          115,
+          116,
+          123
+        ],
+        "source_refs": [
+          {
+            "chapter": 115,
+            "line_start": 22,
+            "line_end": 24,
+            "text": "李大嘴、哈哈儿和杜杀正在开山"
+          },
+          {
+            "chapter": 123,
+            "line_start": 280,
+            "line_end": 306,
+            "text": "李大嘴却已看出他的心意，叹道：'普天之下，都以为李大嘴已将自己的老婆和女儿一起吃了……'"
+          }
+        ]
+      }
+    },
+    {
+      "id": "char_yan_nan_tian",
+      "updates": {
+        "rag_refs": [
+          114,
+          115,
+          116,
+          123
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "chapter": 2,
+  "chapter_summary": "第二回「刀下遗孤」紧接上章，江枫夫妇重伤垂死。花月奴拼死咬伤黑面君，被击倒后再也爬不起来。黑面君等人要斩草除根杀害婴儿，关键时刻有人以暗器击断钢刀，阻止了行凶。怜星宫主（移花宫二宫主）现身，以绝世武功轻松击杀十二星相众人。江枫求死以与花月奴同葬，花月奴则恳求他为孩子活下去。邀月宫主（大宫主）随后赶到，逼迫花月奴自尽。江枫万念俱灰，以断刀自戕。邀月本欲杀死双胞胎，怜星劝阻并提出毒计：将兄弟二人分开抚养，让燕南天教导其中一人复仇，另一人在移花宫长大，使他们不知彼此身份而自相残杀。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_lian_xing_gong_zhu",
+        "name": "怜星宫主",
+        "alias": ["二宫主"],
+        "identity": "移花宫二宫主",
+        "faction": "faction_yi_hua_gong",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登峰造极",
+        "one_line": "移花宫二宫主，天生残废，武功绝世，对江枫怀有深藏的爱意",
+        "personality": {
+          "traits": ["复杂", "矛盾", "天真", "怨毒", "深情", "残忍"],
+          "speech_style": "天真稚气中带着威慑，时而温柔时而冷酷",
+          "temperament": "外表天真烂漫，内心深不可测"
+        },
+        "relationships": [
+          { "target": "char_yao_yue_gong_zhu", "type": "亲属", "intensity": 80, "bond_level": 3, "dynamic": "姐妹关系复杂，既敬畏又渴望关爱" },
+          { "target": "char_jiang_feng", "type": "恋人", "intensity": 90, "bond_level": 3, "dynamic": "单恋江枫，深藏爱意不敢表白" }
+        ],
+        "known_skills": ["skill_yi_hua_jie_yu"],
+        "related_skills": [],
+        "rag_refs": [2],
+        "source_refs": [{ "chapter": 2, "line_start": 110, "line_end": 124, "text": "这绝代的丽人，竟是个天生的残废" }]
+      },
+      {
+        "id": "char_yao_yue_gong_zhu",
+        "name": "邀月宫主",
+        "alias": ["大宫主"],
+        "identity": "移花宫大宫主",
+        "faction": "faction_yi_hua_gong",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "返璞归真",
+        "one_line": "移花宫大宫主，武功天下无敌，因爱生恨，冷酷无情",
+        "personality": {
+          "traits": ["冷酷", "偏执", "高傲", "怨恨", "孤独", "残忍"],
+          "speech_style": "冷漠无情，一字字如刀锋",
+          "temperament": "高高在上，不可仰视"
+        },
+        "relationships": [
+          { "target": "char_lian_xing_gong_zhu", "type": "亲属", "intensity": 80, "bond_level": 3, "dynamic": "姐妹关系复杂，既控制又偶尔流露真情" },
+          { "target": "char_jiang_feng", "type": "宿敌", "intensity": 95, "bond_level": 1, "dynamic": "深爱江枫却被抛弃，因爱生恨" }
+        ],
+        "known_skills": ["skill_yi_hua_jie_yu"],
+        "related_skills": [],
+        "rag_refs": [2],
+        "source_refs": [{ "chapter": 2, "line_start": 398, "line_end": 403, "text": "她白衣胜雪，长发如云；她风姿绰约，宛如仙子" }]
+      },
+      {
+        "id": "char_ji_xiong_ren",
+        "name": "鸡胸人",
+        "alias": [],
+        "identity": "十二星相之一，属鸡中的鸡胸",
+        "faction": "faction_shi_er_xing_xiang",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "十二星相中的黄衣鸡胸，满脸横肉，双刀好手",
+        "personality": {
+          "traits": ["冷酷", "寡言", "凶狠", "果决", "残忍"],
+          "speech_style": "冷冷冰冰，惜字如金",
+          "temperament": "冷面杀手"
+        },
+        "relationships": [
+          { "target": "char_hei_mian_jun", "type": "合作者", "intensity": 50, "bond_level": 2, "dynamic": "同属十二星相" }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [2],
+        "source_refs": [{ "chapter": 2, "line_start": 56, "line_end": 56, "text": "黄衣鸡胸突然蹿过来" }]
+      },
+      {
+        "id": "char_hua_yi_ren",
+        "name": "花衣人",
+        "alias": ["鸡尾"],
+        "identity": "十二星相之一，属鸡中的鸡尾",
+        "faction": "faction_shi_er_xing_xiang",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "十二星相中的花衣鸡尾之一，三人配合默契",
+        "personality": {
+          "traits": ["凶悍", "服从", "胆怯", "残忍", "盲从"],
+          "speech_style": "惊恐时嘶声喊叫",
+          "temperament": "凶恶但面对强者胆怯"
+        },
+        "relationships": [
+          { "target": "char_ji_guan_ren", "type": "合作者", "intensity": 50, "bond_level": 2, "dynamic": "同属十二星相" }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [2],
+        "source_refs": [{ "chapter": 2, "line_start": 174, "line_end": 174, "text": "死了，老二已死了……" }]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [],
+    "locations": [],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_jiang_feng",
+      "updates": {
+        "rag_refs": [1, 2],
+        "source_refs": [
+          { "chapter": 1, "line_start": 6, "line_end": 8, "text": "这出生豪富世家的天下第一美男子" },
+          { "chapter": 2, "line_start": 328, "line_end": 332, "text": "她却是人，活生生的人" }
+        ]
+      },
+      "relationship_updates": [
+        { "action": "update", "target": "char_yao_yue_gong_zhu", "type": "宿敌", "intensity": 90, "bond_level": 1, "dynamic": "江枫怒斥邀月" }
+      ]
+    },
+    {
+      "id": "char_hua_yue_nu",
+      "updates": {
+        "rag_refs": [1, 2],
+        "source_refs": [
+          { "chapter": 1, "line_start": 210, "line_end": 213, "text": "车厢里坐着的乃是个云鬓蓬乱" },
+          { "chapter": 2, "line_start": 366, "line_end": 368, "text": "这是我们的罪孽" }
+        ]
+      }
+    },
+    {
+      "id": "char_hei_mian_jun",
+      "updates": {
+        "rag_refs": [1, 2],
+        "source_refs": [
+          { "chapter": 1, "line_start": 98, "line_end": 101, "text": "他胖得实在已快走不动了" },
+          { "chapter": 2, "line_start": 10, "line_end": 12, "text": "美人儿，你方才的厉害哪里去了" }
+        ]
+      }
+    },
+    {
+      "id": "char_ji_guan_ren",
+      "updates": {
+        "rag_refs": [1, 2],
+        "source_refs": [
+          { "chapter": 1, "line_start": 92, "line_end": 92, "text": "身长不足五尺" },
+          { "chapter": 2, "line_start": 208, "line_end": 210, "text": "小人一辈子也没见过" }
+        ]
+      }
+    }
+  ]
+}

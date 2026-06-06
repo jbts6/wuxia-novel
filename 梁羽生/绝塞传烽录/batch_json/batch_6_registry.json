@@ -1,0 +1,2271 @@
+{
+  "batch_id": 6,
+  "chapters": [
+    16,
+    17
+  ],
+  "status": "completed",
+  "completed_chapters": [
+    16,
+    17
+  ],
+  "chapter_files": {
+    "16": "ch_16.json",
+    "17": "ch_17.json"
+  },
+  "last_updated": "2026-06-06T03:16:04.997Z",
+  "characters": [
+    {
+      "id": "char_yang_mu",
+      "name": "杨牧",
+      "alias": [
+        "杨大侠"
+      ],
+      "identity": "清宫卫士/杨炎之父",
+      "faction": "清廷",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "杨炎之父，清宫卫士，最后牺牲自己救出儿子",
+      "personality": {
+        "traits": [
+          "机智",
+          "果断",
+          "慈父",
+          "刚毅",
+          "牺牲精神"
+        ],
+        "speech_style": "老练沉稳",
+        "temperament": "悲壮"
+      },
+      "relationships": [
+        {
+          "target": "char_yan_yan",
+          "type": "亲属",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "父子相认后牺牲"
+        },
+        {
+          "target": "char_meng_yuan_chao",
+          "type": "宿敌",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "旧友重逢"
+        }
+      ],
+      "known_skills": [
+        "skill_liu_yang_shou"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 4,
+          "line_end": 10,
+          "text": "杨牧揭开帐逢一角"
+        }
+      ]
+    },
+    {
+      "id": "char_yan_yan",
+      "name": "杨炎",
+      "alias": [],
+      "identity": "天山派弟子/杨牧之子",
+      "faction": "天山派",
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "天山派弟子，身世坎坷，武功高强",
+      "personality": {
+        "traits": [
+          "果敢",
+          "重情",
+          "机智",
+          "冲动",
+          "孝顺"
+        ],
+        "speech_style": "年轻直率",
+        "temperament": "热血"
+      },
+      "relationships": [
+        {
+          "target": "char_yang_mu",
+          "type": "亲属",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "父子相认"
+        },
+        {
+          "target": "char_long_ling_zhu",
+          "type": "恋人",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "感情发展"
+        },
+        {
+          "target": "char_leng_bing_er",
+          "type": "恋人",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "暗恋"
+        },
+        {
+          "target": "char_meng_yuan_chao",
+          "type": "师徒",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "认父"
+        }
+      ],
+      "known_skills": [
+        "skill_zhui_feng_jian",
+        "skill_hu_jia_shi_ba_pai"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 10,
+          "line_end": 14,
+          "text": "杨炎听得敌人二字"
+        }
+      ]
+    },
+    {
+      "id": "char_long_ling_zhu",
+      "name": "龙灵珠",
+      "alias": [],
+      "identity": "展南冥孙女",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "展南冥孙女，为父报仇的少女",
+      "personality": {
+        "traits": [
+          "倔强",
+          "深情",
+          "勇敢",
+          "直率",
+          "善良"
+        ],
+        "speech_style": "娇俏直率",
+        "temperament": "活泼"
+      },
+      "relationships": [
+        {
+          "target": "char_yan_yan",
+          "type": "恋人",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "感情发展"
+        }
+      ],
+      "known_skills": [
+        "skill_yin_si_bian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 30,
+          "line_end": 35,
+          "text": "龙灵珠缚住杨牧"
+        }
+      ]
+    },
+    {
+      "id": "char_wei_chang_qing",
+      "name": "卫长青",
+      "alias": [],
+      "identity": "大内卫士/监军",
+      "faction": "清廷",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "大内卫士，被杨炎制服后协助突围",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "贪生怕死",
+          "识时务",
+          "阴险",
+          "软弱"
+        ],
+        "speech_style": "官场做派",
+        "temperament": "卑劣"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 54,
+          "line_end": 60,
+          "text": "卫长青道：\"我正要亲自把这奸细送去给丁大帅审问。\""
+        }
+      ]
+    },
+    {
+      "id": "char_he_zhu",
+      "name": "贺铸",
+      "alias": [],
+      "identity": "大内卫士",
+      "faction": "清廷",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "大内侍卫剑术高手",
+      "personality": {
+        "traits": [
+          "谨慎",
+          "武艺高强",
+          "忠诚"
+        ],
+        "speech_style": "正式",
+        "temperament": "刚硬"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 44,
+          "line_end": 50,
+          "text": "这两个人不是别人，正是在天山铩羽而归的那两个大内卫士"
+        }
+      ]
+    },
+    {
+      "id": "char_tao_lian",
+      "name": "陶炼",
+      "alias": [],
+      "identity": "大内卫士",
+      "faction": "清廷",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "大内侍卫剑术高手",
+      "personality": {
+        "traits": [
+          "谨慎",
+          "武艺高强",
+          "忠诚"
+        ],
+        "speech_style": "正式",
+        "temperament": "刚硬"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 44,
+          "line_end": 58,
+          "text": "陶炼说道"
+        }
+      ]
+    },
+    {
+      "id": "char_ding_zhao_yong",
+      "name": "丁兆庸",
+      "alias": [
+        "丁大帅"
+      ],
+      "identity": "清军主帅",
+      "faction": "清廷",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "清军主帅，被义军活捉",
+      "personality": {
+        "traits": [
+          "老练",
+          "多疑",
+          "威严",
+          "顽固",
+          "刚愎"
+        ],
+        "speech_style": "威严命令式",
+        "temperament": "威严"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 170,
+          "line_end": 180,
+          "text": "丁兆庸调兵遣将已毕"
+        }
+      ]
+    },
+    {
+      "id": "char_cheng_tian_de",
+      "name": "成天德",
+      "alias": [],
+      "identity": "亲兵队长",
+      "faction": "清廷",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "丁兆庸亲兵队长",
+      "personality": {
+        "traits": [
+          "忠心",
+          "鲁莽",
+          "勇猛"
+        ],
+        "speech_style": "军人式",
+        "temperament": "刚猛"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 174,
+          "line_end": 184,
+          "text": "亲兵队长成天德道"
+        }
+      ]
+    },
+    {
+      "id": "char_wu_yi",
+      "name": "武毅",
+      "alias": [],
+      "identity": "丐帮高手/清军将领",
+      "faction": "丐帮",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "丐帮高手，效力于清军",
+      "personality": {
+        "traits": [
+          "精明",
+          "武艺高强",
+          "多疑"
+        ],
+        "speech_style": "沉稳",
+        "temperament": "老练"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 196,
+          "line_end": 210,
+          "text": "武毅随侍在侧"
+        }
+      ]
+    },
+    {
+      "id": "char_yu_wan_shan",
+      "name": "于万山",
+      "alias": [],
+      "identity": "亲兵副队长",
+      "faction": "清廷",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "丁兆庸亲兵副队长",
+      "personality": {
+        "traits": [
+          "忠心",
+          "谨慎"
+        ],
+        "speech_style": "军人式",
+        "temperament": "稳重"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 362,
+          "line_end": 388,
+          "text": "亲兵副队长于万山松了口气"
+        }
+      ]
+    },
+    {
+      "id": "char_wei_tuo_ping",
+      "name": "卫托平",
+      "alias": [],
+      "identity": "大内第一高手",
+      "faction": "清廷",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "十多年前号称大内第一高手",
+      "personality": {
+        "traits": [
+          "自负",
+          "武艺高强",
+          "老练"
+        ],
+        "speech_style": "老练",
+        "temperament": "沉稳"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_da_ying_zhua_gong"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 330,
+          "line_end": 340,
+          "text": "他是十多年前号称大内第一高手的卫托平"
+        }
+      ]
+    },
+    {
+      "id": "char_meng_yuan_chao",
+      "name": "孟元超",
+      "alias": [
+        "孟大侠"
+      ],
+      "identity": "柴达木义军首领",
+      "faction": "柴达木义军",
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "柴达木义军首领，杨炎的生父",
+      "personality": {
+        "traits": [
+          "豪迈",
+          "机智",
+          "果断",
+          "仁义",
+          "英勇"
+        ],
+        "speech_style": "豪迈大气",
+        "temperament": "豪爽"
+      },
+      "relationships": [
+        {
+          "target": "char_yan_yan",
+          "type": "师徒",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "父子相认"
+        },
+        {
+          "target": "char_yang_mu",
+          "type": "宿敌",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "旧友重逢"
+        }
+      ],
+      "known_skills": [
+        "skill_kuai_dao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 410,
+          "line_end": 415,
+          "text": "盂元超也在同时叫道"
+        }
+      ]
+    },
+    {
+      "id": "char_ding_xian_wu",
+      "name": "丁显武",
+      "alias": [],
+      "identity": "丁兆庸之子",
+      "faction": "清廷",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "丁兆庸的儿子，少年军官",
+      "personality": {
+        "traits": [
+          "勇猛",
+          "鲁莽",
+          "孝顺"
+        ],
+        "speech_style": "年轻冲动",
+        "temperament": "冲动"
+      },
+      "relationships": [
+        {
+          "target": "char_ding_zhao_yong",
+          "type": "亲属",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "父子"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 572,
+          "line_end": 580,
+          "text": "这个少年军官是丁兆庸的儿子丁显武"
+        }
+      ]
+    },
+    {
+      "id": "char_luo_hai",
+      "name": "罗海",
+      "alias": [
+        "格老"
+      ],
+      "identity": "回疆部落总格老",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "回疆十八部落总格老",
+      "personality": {
+        "traits": [
+          "豪爽",
+          "感恩",
+          "英明"
+        ],
+        "speech_style": "豪迈",
+        "temperament": "稳重"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 618,
+          "line_end": 636,
+          "text": "回疆各个部落的总\"格老\""
+        }
+      ]
+    },
+    {
+      "id": "char_sha_liao",
+      "name": "沙辽",
+      "alias": [],
+      "identity": "罗海亲兵队长沙辽",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "罗海亲兵队长",
+      "personality": {
+        "traits": [
+          "豪爽",
+          "直率"
+        ],
+        "speech_style": "豪爽",
+        "temperament": "豪迈"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 646,
+          "line_end": 660,
+          "text": "沙辽方始有空与龙灵珠说话"
+        }
+      ]
+    },
+    {
+      "id": "char_sang_da_er",
+      "name": "桑达儿",
+      "alias": [],
+      "identity": "回疆勇士",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "回疆勇士，曾被杨炎所救",
+      "personality": {
+        "traits": [
+          "豪爽",
+          "感恩"
+        ],
+        "speech_style": "豪爽",
+        "temperament": "豪迈"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 738,
+          "line_end": 744,
+          "text": "桑达儿道"
+        }
+      ]
+    },
+    {
+      "id": "char_luo_man_na",
+      "name": "罗曼娜",
+      "alias": [],
+      "identity": "桑达儿之妻",
+      "faction": null,
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "桑达儿之妻，带来齐世杰消息",
+      "personality": {
+        "traits": [
+          "细心",
+          "善良",
+          "聪明"
+        ],
+        "speech_style": "温和",
+        "temperament": "温柔"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 744,
+          "line_end": 774,
+          "text": "罗曼娜道"
+        }
+      ]
+    },
+    {
+      "id": "char_yu_wen_bo",
+      "name": "宇文博",
+      "alias": [
+        "白驼山主"
+      ],
+      "identity": "白驼山主",
+      "faction": "白驼山",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "白驼山主，练成寒冰掌与火焰刀",
+      "personality": {
+        "traits": [
+          "阴险",
+          "贪婪",
+          "自负",
+          "残忍",
+          "多疑"
+        ],
+        "speech_style": "阴沉",
+        "temperament": "阴鸷"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_han_bing_zhang",
+        "skill_huo_ren_dao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 826,
+          "line_end": 835,
+          "text": "白驼山上，白驼山主宇文博正在绕室彷徨"
+        }
+      ]
+    },
+    {
+      "id": "char_zhan_nan_ming",
+      "name": "展南冥",
+      "alias": [],
+      "identity": "东海大盗",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "四十年前纵横东海的大盗",
+      "personality": {
+        "traits": [
+          "豪迈",
+          "精明"
+        ],
+        "speech_style": "",
+        "temperament": "豪迈"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 860,
+          "line_end": 865,
+          "text": "龙灵珠祖父展南冥是四十年前纵横东海的大盗"
+        }
+      ]
+    },
+    {
+      "id": "char_zhan_ling_kun",
+      "name": "展灵锟",
+      "alias": [
+        "玉龙太子"
+      ],
+      "identity": "展南冥之子",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "展南冥之子，被宇文博暗杀",
+      "personality": {
+        "traits": [
+          "正直",
+          "武功高强"
+        ],
+        "speech_style": "",
+        "temperament": "正直"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 868,
+          "line_end": 872,
+          "text": "展灵锟匿居在某一山村"
+        }
+      ]
+    },
+    {
+      "id": "char_meng_hua",
+      "name": "孟华",
+      "alias": [
+        "孟大侠"
+      ],
+      "identity": "天山派弟子/杨炎之兄",
+      "faction": "天山派",
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "天山派高手，武功超群",
+      "personality": {
+        "traits": [
+          "正直",
+          "机智",
+          "豪迈",
+          "沉稳",
+          "勇敢"
+        ],
+        "speech_style": "豪迈大气",
+        "temperament": "豪爽"
+      },
+      "relationships": [
+        {
+          "target": "char_yan_yan",
+          "type": "亲属",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "兄弟情深"
+        },
+        {
+          "target": "char_leng_bing_er",
+          "type": "挚友",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "同门情谊"
+        }
+      ],
+      "known_skills": [
+        "skill_tian_shan_jian",
+        "skill_zhui_feng_jian",
+        "skill_hu_jia_shi_ba_pai",
+        "skill_da_xu_mi_jian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 2,
+          "line_end": 6,
+          "text": "孟华笑道"
+        }
+      ]
+    },
+    {
+      "id": "char_kuai_huo_zhang",
+      "name": "快活张",
+      "alias": [
+        "假孟华"
+      ],
+      "identity": "天下第一神偷",
+      "faction": null,
+      "role": "companion",
+      "archetype": "assassin",
+      "rank": "出神入化",
+      "one_line": "天下第一神偷，轻功第一",
+      "personality": {
+        "traits": [
+          "机智",
+          "诙谐",
+          "勇敢",
+          "灵活",
+          "重义"
+        ],
+        "speech_style": "诙谐幽默",
+        "temperament": "洒脱"
+      },
+      "relationships": [
+        {
+          "target": "char_meng_hua",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "并肩作战"
+        }
+      ],
+      "known_skills": [
+        "skill_qing_gong",
+        "skill_shen_tou"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 132,
+          "line_end": 142,
+          "text": "决活张哈哈笑道"
+        }
+      ]
+    },
+    {
+      "id": "char_qi_shi_jie",
+      "name": "齐世杰",
+      "alias": [],
+      "identity": "杨炎表哥",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "杨炎表哥，会冰川剑法",
+      "personality": {
+        "traits": [
+          "勇敢",
+          "正直",
+          "深情",
+          "坚毅",
+          "重义"
+        ],
+        "speech_style": "沉稳",
+        "temperament": "坚毅"
+      },
+      "relationships": [
+        {
+          "target": "char_yan_yan",
+          "type": "亲属",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "表兄弟"
+        },
+        {
+          "target": "char_leng_bing_er",
+          "type": "恋人",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "深情"
+        }
+      ],
+      "known_skills": [
+        "skill_bing_chuan_jian",
+        "skill_long_xiang_gong"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 496,
+          "line_end": 500,
+          "text": "原来这少年不是别人，正是杨炎表兄齐世杰"
+        }
+      ]
+    },
+    {
+      "id": "char_leng_bing_er",
+      "name": "冷冰儿",
+      "alias": [],
+      "identity": "天山派弟子",
+      "faction": "天山派",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "天山派弟子，被白驼山主囚禁",
+      "personality": {
+        "traits": [
+          "坚强",
+          "独立",
+          "深情",
+          "隐忍",
+          "智慧"
+        ],
+        "speech_style": "温柔坚毅",
+        "temperament": "清冷"
+      },
+      "relationships": [
+        {
+          "target": "char_yan_yan",
+          "type": "恋人",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "姐弟情深"
+        },
+        {
+          "target": "char_qi_shi_jie",
+          "type": "恋人",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "互相关心"
+        }
+      ],
+      "known_skills": [
+        "skill_bing_chuan_jian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 740,
+          "line_end": 744,
+          "text": "冷冰儿的声音从石台后面那座囚房里传出来"
+        }
+      ]
+    },
+    {
+      "id": "char_mu_xin_xin",
+      "name": "穆欣欣",
+      "alias": [],
+      "identity": "白驼山主宠妾",
+      "faction": "白驼山",
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "白驼山主宠妾，后叛逃",
+      "personality": {
+        "traits": [
+          "可怜",
+          "软弱",
+          "求生"
+        ],
+        "speech_style": "哀求",
+        "temperament": "可怜"
+      },
+      "relationships": [
+        {
+          "target": "char_yu_wen_bo",
+          "type": "宿敌",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "被废武功毁容"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 528,
+          "line_end": 550,
+          "text": "穆欣欣退后两步"
+        }
+      ]
+    },
+    {
+      "id": "char_sima_tie",
+      "name": "司马铁",
+      "alias": [],
+      "identity": "白驼山副山主",
+      "faction": "白驼山",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "白驼山副山主，白驼山主师弟",
+      "personality": {
+        "traits": [
+          "刚猛",
+          "忠心"
+        ],
+        "speech_style": "威严",
+        "temperament": "刚猛"
+      },
+      "relationships": [
+        {
+          "target": "char_yu_wen_bo",
+          "type": "师徒",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "师兄弟"
+        }
+      ],
+      "known_skills": [
+        "skill_huo_ren_dao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 246,
+          "line_end": 250,
+          "text": "此人乃是白驼山上的第二把手"
+        }
+      ]
+    },
+    {
+      "id": "char_yu_wen_lei",
+      "name": "宇文雷",
+      "alias": [
+        "少山主"
+      ],
+      "identity": "白驼山主侄儿",
+      "faction": "白驼山",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "白驼山主侄儿，看守冷冰儿",
+      "personality": {
+        "traits": [
+          "忠心",
+          "武艺高强"
+        ],
+        "speech_style": "",
+        "temperament": "刚硬"
+      },
+      "relationships": [
+        {
+          "target": "char_yu_wen_bo",
+          "type": "亲属",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "叔侄"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 100,
+          "line_end": 105,
+          "text": "这人口中的\"少山主\"即是白驼山主的侄儿宇文雷"
+        }
+      ]
+    },
+    {
+      "id": "char_si_kong_zhao",
+      "name": "司空照",
+      "alias": [],
+      "identity": "白驼山弟子",
+      "faction": "白驼山",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "白驼山弟子",
+      "personality": {
+        "traits": [
+          "胆小",
+          "惊弓之鸟"
+        ],
+        "speech_style": "",
+        "temperament": "胆怯"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 152,
+          "line_end": 160,
+          "text": "这两个人正是曾经跟随师父前往天山闹事的司空照与慕容垂"
+        }
+      ]
+    },
+    {
+      "id": "char_mu_rong_chui",
+      "name": "慕容垂",
+      "alias": [],
+      "identity": "白驼山弟子",
+      "faction": "白驼山",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "白驼山弟子",
+      "personality": {
+        "traits": [
+          "胆小",
+          "惊弓之鸟"
+        ],
+        "speech_style": "",
+        "temperament": "胆怯"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 152,
+          "line_end": 160,
+          "text": "这两个人正是曾经跟随师父前往天山闹事的司空照与慕容垂"
+        }
+      ]
+    },
+    {
+      "id": "char_long_ze_ling",
+      "name": "龙则灵",
+      "alias": [
+        "爷爷"
+      ],
+      "identity": "龙灵珠祖父",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "龙灵珠祖父，隐居大吉岭",
+      "personality": {
+        "traits": [
+          "慈祥",
+          "悔恨",
+          "年迈"
+        ],
+        "speech_style": "苍老慈祥",
+        "temperament": "慈祥"
+      },
+      "relationships": [
+        {
+          "target": "char_long_ling_zhu",
+          "type": "亲属",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "祖孙团聚"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 868,
+          "line_end": 900,
+          "text": "他的爷爷躺在床上"
+        }
+      ]
+    },
+    {
+      "id": "char_duan_jian_qing",
+      "name": "段剑青",
+      "alias": [],
+      "identity": "天竺佛门弟子",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "天竺佛门弟子，会龙象功",
+      "personality": {
+        "traits": [
+          "阴险",
+          "狡猾"
+        ],
+        "speech_style": "",
+        "temperament": "阴险"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_long_xiang_gong"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 440,
+          "line_end": 444,
+          "text": "中土得到龙象功真传的据我所知只有段剑青一人"
+        }
+      ]
+    },
+    {
+      "id": "char_li_guang_xia",
+      "name": "李光夏",
+      "alias": [],
+      "identity": "小金川义军首领",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "小金川义军首领",
+      "personality": {
+        "traits": [
+          "英勇",
+          "领导力"
+        ],
+        "speech_style": "",
+        "temperament": "英勇"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 830,
+          "line_end": 834,
+          "text": "如今这支义军由李光夏率领"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_hu_jia_shi_ba_pai",
+      "name": "胡笳十八拍",
+      "type": "剑法",
+      "faction": "天山派",
+      "rank": "出神入化",
+      "one_line": "天山派绝学，一招刺中十八处要害",
+      "techniques": [
+        {
+          "id": "tech_hu_jia_shi_ba_pai",
+          "name": "胡笳十八拍",
+          "type": "attack",
+          "description": "一招之内刺中对方十八处要害穴道"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "一招之内连刺十八处要害"
+        }
+      ],
+      "combat_style": "以快制敌，一击必杀",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 108,
+          "line_end": 114,
+          "text": "原来杨炎用正是丹丘生那日用来刺伤这两个人的这一招\"胡笳十八拍\""
+        }
+      ]
+    },
+    {
+      "id": "skill_zhui_feng_jian",
+      "name": "追风剑式",
+      "type": "剑法",
+      "faction": "天山派",
+      "rank": "出神入化",
+      "one_line": "天山派剑法，快如闪电",
+      "techniques": [
+        {
+          "id": "tech_zhui_feng_lian_huan",
+          "name": "追风连环三招",
+          "type": "attack",
+          "description": "连环三招，快如闪电"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "连续快攻"
+        }
+      ],
+      "combat_style": "快剑连环",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 288,
+          "line_end": 292,
+          "text": "追风剑式，连环三招"
+        }
+      ]
+    },
+    {
+      "id": "skill_liu_yang_shou",
+      "name": "六阳手",
+      "type": "掌法",
+      "faction": null,
+      "rank": "炉火纯青",
+      "one_line": "杨家绝学，武林一绝",
+      "techniques": [
+        {
+          "id": "tech_liu_yang_shou",
+          "name": "六阳手",
+          "type": "attack",
+          "description": "杨家掌法绝学"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "掌力刚猛"
+        }
+      ],
+      "combat_style": "刚猛掌法",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 396,
+          "line_end": 400,
+          "text": "杨家的六阳手乃是武林一绝"
+        }
+      ]
+    },
+    {
+      "id": "skill_da_ying_zhua_gong",
+      "name": "大鹰爪功",
+      "type": "指法",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "卫托平绝学，开碑裂石",
+      "techniques": [
+        {
+          "id": "tech_da_ying_zhua",
+          "name": "大鹰爪功",
+          "type": "attack",
+          "description": "掌力有开碑裂石之能"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "掌力可开碑裂石"
+        }
+      ],
+      "combat_style": "刚猛抓法",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 424,
+          "line_end": 428,
+          "text": "卫托平练的是大鹰爪功"
+        }
+      ]
+    },
+    {
+      "id": "skill_kuai_dao",
+      "name": "快刀",
+      "type": "剑法",
+      "faction": null,
+      "rank": "登峰造极",
+      "one_line": "孟元超绝学，天下无双",
+      "techniques": [
+        {
+          "id": "tech_kuai_dao",
+          "name": "快刀",
+          "type": "attack",
+          "description": "快刀如电，天下无双"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "刀速极快"
+        }
+      ],
+      "combat_style": "以快制敌",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 430,
+          "line_end": 446,
+          "text": "孟元超的宝刀亦已再度出鞘"
+        }
+      ]
+    },
+    {
+      "id": "skill_han_bing_zhang",
+      "name": "寒冰掌",
+      "type": "掌法",
+      "faction": "白驼山",
+      "rank": "登峰造极",
+      "one_line": "白驼山主绝学，寒气逼人",
+      "techniques": [
+        {
+          "id": "tech_han_bing_zhang",
+          "name": "寒冰掌",
+          "type": "attack",
+          "description": "掌力带寒气，可使对手血液凝固"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "寒气侵体"
+        }
+      ],
+      "combat_style": "寒气掌法",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 832,
+          "line_end": 835,
+          "text": "他练成了寒冰掌与火焰刀"
+        }
+      ]
+    },
+    {
+      "id": "skill_huo_ren_dao",
+      "name": "火焰刀",
+      "type": "剑法",
+      "faction": "白驼山",
+      "rank": "登峰造极",
+      "one_line": "白驼山主绝学，热浪逼人",
+      "techniques": [
+        {
+          "id": "tech_huo_ren_dao",
+          "name": "火焰刀",
+          "type": "attack",
+          "description": "掌力带热浪"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "热浪逼人"
+        }
+      ],
+      "combat_style": "热力掌法",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 832,
+          "line_end": 835,
+          "text": "他练成了寒冰掌与火焰刀"
+        }
+      ]
+    },
+    {
+      "id": "skill_yin_si_bian",
+      "name": "银丝鞭",
+      "type": "暗器",
+      "faction": null,
+      "rank": "略有小成",
+      "one_line": "龙灵珠兵器",
+      "techniques": [
+        {
+          "id": "tech_yin_si_bian",
+          "name": "银丝鞭",
+          "type": "attack",
+          "description": "软鞭卷住敌人咽喉"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "卷住敌人"
+        }
+      ],
+      "combat_style": "软鞭缠绕",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 300,
+          "line_end": 306,
+          "text": "龙灵珠左手的银丝鞭一挥"
+        }
+      ]
+    },
+    {
+      "id": "skill_da_xu_mi_jian",
+      "name": "大须弥剑式",
+      "type": "剑法",
+      "faction": "天山派",
+      "rank": "登峰造极",
+      "one_line": "天山派镇山之宝，重拙大三字剑诀",
+      "techniques": [
+        {
+          "id": "tech_da_xu_mi_jian",
+          "name": "大须弥剑式",
+          "type": "attack",
+          "description": "举重若轻，以拙胜巧，剑术最高境界"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "无形剑气压人"
+        }
+      ],
+      "combat_style": "重拙大",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 216,
+          "line_end": 222,
+          "text": "来施展天山派镇山之宝的大须弥剑式"
+        }
+      ]
+    },
+    {
+      "id": "skill_long_xiang_gong",
+      "name": "龙象功",
+      "type": "内功",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "天竺佛门神功",
+      "techniques": [
+        {
+          "id": "tech_long_xiang_gong",
+          "name": "龙象功",
+          "type": "attack",
+          "description": "隔物传功的上乘武学"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "隔物传功"
+        }
+      ],
+      "combat_style": "内功传力",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 440,
+          "line_end": 444,
+          "text": "这似乎是天竺佛门的龙象功"
+        }
+      ]
+    },
+    {
+      "id": "skill_bing_chuan_jian",
+      "name": "冰川剑法",
+      "type": "剑法",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "克制寒冰掌的剑法",
+      "techniques": [
+        {
+          "id": "tech_bing_chuan_jian",
+          "name": "冰川剑法",
+          "type": "attack",
+          "description": "冰河解冻般的剑招"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "施展",
+          "description": "寒意森然"
+        }
+      ],
+      "combat_style": "冰河解冻",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 456,
+          "line_end": 460,
+          "text": "他用的竟然是冰川剑法"
+        }
+      ]
+    },
+    {
+      "id": "skill_tian_mo_jie_ti_da_fa",
+      "name": "天魔解体大法",
+      "type": "内功",
+      "faction": null,
+      "rank": "登峰造极",
+      "one_line": "邪派内功，可使功力骤增一倍",
+      "techniques": [
+        {
+          "id": "tech_tian_mo_jie_ti",
+          "name": "天魔解体大法",
+          "type": "special",
+          "description": "咬破舌尖施展，功力骤增一倍，但最伤元气"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "增益",
+          "condition": "咬破舌尖",
+          "description": "功力骤增一倍"
+        }
+      ],
+      "combat_style": "拼命邪功",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 702,
+          "line_end": 710,
+          "text": "是在施展威力最强的邪派内功，天魔解体大法"
+        }
+      ]
+    },
+    {
+      "id": "skill_shi_zi_hou",
+      "name": "狮子吼",
+      "type": "内功",
+      "faction": null,
+      "rank": "登峰造极",
+      "one_line": "佛门狮子吼功",
+      "techniques": [
+        {
+          "id": "tech_shi_zi_hou",
+          "name": "狮子吼",
+          "type": "debuff",
+          "description": "震撼心灵，克制邪派内功"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "控制",
+          "condition": "施展",
+          "description": "震撼心灵"
+        }
+      ],
+      "combat_style": "佛门音攻",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 718,
+          "line_end": 722,
+          "text": "孟华用的是狮子吼功"
+        }
+      ]
+    },
+    {
+      "id": "skill_qing_gong",
+      "name": "轻功",
+      "type": "轻功",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "快活张轻功天下第一",
+      "techniques": [
+        {
+          "id": "tech_qing_gong",
+          "name": "轻功",
+          "type": "special",
+          "description": "天下第一轻功"
+        }
+      ],
+      "progression": [],
+      "effects": [
+        {
+          "type": "特殊",
+          "condition": "施展",
+          "description": "身法极快"
+        }
+      ],
+      "combat_style": "以快制敌",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 236,
+          "line_end": 240,
+          "text": "快活张使出绝顶轻功和他们戏耍"
+        }
+      ]
+    }
+  ],
+  "techniques": [
+    {
+      "id": "tech_hu_jia_shi_ba_pai",
+      "name": "胡笳十八拍",
+      "type": "attack",
+      "description": "一招之内刺中对方十八处要害穴道",
+      "source_skill": "skill_hu_jia_shi_ba_pai",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 108,
+          "line_end": 114,
+          "text": "原来杨炎用正是丹丘生那日用来刺伤这两个人的这一招\"胡笳十八拍\""
+        }
+      ]
+    },
+    {
+      "id": "tech_zhui_feng_lian_huan",
+      "name": "追风连环三招",
+      "type": "attack",
+      "description": "连环三招，快如闪电",
+      "source_skill": "skill_zhui_feng_jian",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 288,
+          "line_end": 292,
+          "text": "追风剑式，连环三招"
+        }
+      ]
+    },
+    {
+      "id": "tech_liu_yang_shou",
+      "name": "六阳手",
+      "type": "attack",
+      "description": "杨家掌法绝学，武林一绝",
+      "source_skill": "skill_liu_yang_shou",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 396,
+          "line_end": 400,
+          "text": "杨家的六阳手乃是武林一绝"
+        }
+      ]
+    },
+    {
+      "id": "tech_da_ying_zhua",
+      "name": "大鹰爪功",
+      "type": "attack",
+      "description": "掌力有开碑裂石之能",
+      "source_skill": "skill_da_ying_zhua_gong",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 424,
+          "line_end": 428,
+          "text": "卫托平练的是大鹰爪功"
+        }
+      ]
+    },
+    {
+      "id": "tech_kuai_dao",
+      "name": "快刀",
+      "type": "attack",
+      "description": "快刀如电，天下无双",
+      "source_skill": "skill_kuai_dao",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 430,
+          "line_end": 446,
+          "text": "孟元超的宝刀亦已再度出鞘"
+        }
+      ]
+    },
+    {
+      "id": "tech_han_bing_zhang",
+      "name": "寒冰掌",
+      "type": "attack",
+      "description": "掌力带寒气，可使对手血液凝固",
+      "source_skill": "skill_han_bing_zhang",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 832,
+          "line_end": 835,
+          "text": "他练成了寒冰掌与火焰刀"
+        }
+      ]
+    },
+    {
+      "id": "tech_huo_ren_dao",
+      "name": "火焰刀",
+      "type": "attack",
+      "description": "掌力带热浪",
+      "source_skill": "skill_huo_ren_dao",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 832,
+          "line_end": 835,
+          "text": "他练成了寒冰掌与火焰刀"
+        }
+      ]
+    },
+    {
+      "id": "tech_yin_si_bian",
+      "name": "银丝鞭",
+      "type": "attack",
+      "description": "软鞭卷住敌人咽喉",
+      "source_skill": "skill_yin_si_bian",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 300,
+          "line_end": 306,
+          "text": "龙灵珠左手的银丝鞭一挥"
+        }
+      ]
+    },
+    {
+      "id": "tech_da_xu_mi_jian",
+      "name": "大须弥剑式",
+      "type": "attack",
+      "description": "举重若轻，以拙胜巧，剑术最高境界",
+      "source_skill": "skill_da_xu_mi_jian",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 216,
+          "line_end": 222,
+          "text": "来施展天山派镇山之宝的大须弥剑式"
+        }
+      ]
+    },
+    {
+      "id": "tech_long_xiang_gong",
+      "name": "龙象功",
+      "type": "attack",
+      "description": "隔物传功的上乘武学",
+      "source_skill": "skill_long_xiang_gong",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 440,
+          "line_end": 444,
+          "text": "这似乎是天竺佛门的龙象功"
+        }
+      ]
+    },
+    {
+      "id": "tech_bing_chuan_jian",
+      "name": "冰川剑法",
+      "type": "attack",
+      "description": "冰河解冻般的剑招",
+      "source_skill": "skill_bing_chuan_jian",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 456,
+          "line_end": 460,
+          "text": "他用的竟然是冰川剑法"
+        }
+      ]
+    },
+    {
+      "id": "tech_tian_mo_jie_ti",
+      "name": "天魔解体大法",
+      "type": "special",
+      "description": "咬破舌尖施展，功力骤增一倍，但最伤元气",
+      "source_skill": "skill_tian_mo_jie_ti_da_fa",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 702,
+          "line_end": 710,
+          "text": "是在施展威力最强的邪派内功，天魔解体大法"
+        }
+      ]
+    },
+    {
+      "id": "tech_shi_zi_hou",
+      "name": "狮子吼",
+      "type": "debuff",
+      "description": "震撼心灵，克制邪派内功",
+      "source_skill": "skill_shi_zi_hou",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 718,
+          "line_end": 722,
+          "text": "孟华用的是狮子吼功"
+        }
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_qing_ting",
+      "name": "清廷",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "清朝朝廷势力",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 4,
+          "line_end": 10,
+          "text": "杨牧揭开帐逢一角"
+        }
+      ]
+    },
+    {
+      "id": "faction_tian_shan",
+      "name": "天山派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "武林大派",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 108,
+          "line_end": 114,
+          "text": "原来杨炎用正是丹丘生那日用来刺伤这两个人的这一招"
+        }
+      ]
+    },
+    {
+      "id": "faction_chai_da_mu",
+      "name": "柴达木义军",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "柴达木义军",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 14,
+          "line_end": 18,
+          "text": "一定是柴达木的义军来了"
+        }
+      ]
+    },
+    {
+      "id": "faction_bai_tuo_shan",
+      "name": "白驼山",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "白驼山势力",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 826,
+          "line_end": 835,
+          "text": "白驼山上，白驼山主宇文博正在绕室彷徨"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_lu_te_an_qi",
+      "name": "鲁特安旗",
+      "region": "回疆",
+      "one_line": "回疆城池，义军驻地",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 644,
+          "line_end": 650,
+          "text": "便即和孟元超这一行人回鲁特安旗的城中"
+        }
+      ]
+    },
+    {
+      "id": "loc_bai_tuo_shan",
+      "name": "白驼山",
+      "region": "藏边",
+      "one_line": "白驼山主所在地",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 826,
+          "line_end": 830,
+          "text": "白驼山上，白驼山主宇文博正在绕室彷徨"
+        }
+      ]
+    },
+    {
+      "id": "loc_da_ji_ling",
+      "name": "大吉岭",
+      "region": "藏边",
+      "one_line": "龙则灵居住地",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 710,
+          "line_end": 715,
+          "text": "他住在大吉岭的灵鹫峰上"
+        }
+      ]
+    },
+    {
+      "id": "loc_hei_hu_gang",
+      "name": "黑虎岗",
+      "region": "回疆",
+      "one_line": "清兵营地",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 186,
+          "line_end": 190,
+          "text": "黑虎岗是那座山头的清兵营地"
+        }
+      ]
+    },
+    {
+      "id": "loc_gui_mo_cheng",
+      "name": "魔鬼城",
+      "region": "藏边",
+      "one_line": "有冰窟的古城遗址",
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 610,
+          "line_end": 615,
+          "text": "我是在魔鬼城中一座古庙见过的"
+        }
+      ]
+    },
+    {
+      "id": "loc_ling_jiu_feng",
+      "name": "灵鹫峰",
+      "region": "大吉岭",
+      "one_line": "龙则灵居住地",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 852,
+          "line_end": 860,
+          "text": "杨炎终于又回到灵鹫峰了"
+        }
+      ]
+    },
+    {
+      "id": "loc_bing_ku",
+      "name": "冰窟",
+      "region": "白驼山",
+      "one_line": "白驼山地底冰窟",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 406,
+          "line_end": 410,
+          "text": "白驼山主宇文博早已进入地道"
+        }
+      ]
+    },
+    {
+      "id": "loc_xiao_jin_chuan",
+      "name": "小金川",
+      "region": "四川",
+      "one_line": "义军驻地",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 830,
+          "line_end": 834,
+          "text": "当年他们撤离小金川的时候"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_bing_po_han_guang_jian",
+      "name": "冰魄寒光剑",
+      "type": "weapon",
+      "owner": "char_yan_yan",
+      "one_line": "天山派神兵，冰川剑法配套兵器",
+      "description": "天山派神兵，与冰川剑法配合使用威力倍增，可克制寒冰掌",
+      "effects": [
+        {
+          "type": "攻击",
+          "value": "",
+          "description": "配合冰川剑法威力倍增"
+        }
+      ],
+      "origin": "天山派",
+      "rarity": "绝世神兵",
+      "related_characters": [
+        "char_yan_yan",
+        "char_leng_bing_er"
+      ],
+      "related_skills": [
+        "skill_bing_chuan_jian"
+      ],
+      "rag_refs": [
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 16,
+          "line_start": 846,
+          "line_end": 850,
+          "text": "他已知道冰魄寒光剑目前是在杨炎手中"
+        }
+      ]
+    },
+    {
+      "id": "item_shen_xian_wan",
+      "name": "神仙丸",
+      "type": "pill",
+      "owner": "char_yu_wen_bo",
+      "one_line": "白驼山独门毒药，使人上瘾",
+      "description": "白驼山独门炼制的毒药丸，无病之人吃了也会上瘾，上瘾后变成废人",
+      "effects": [
+        {
+          "type": "毒药",
+          "value": "",
+          "description": "使人上瘾成废人"
+        }
+      ],
+      "origin": "白驼山",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_yu_wen_bo"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 50,
+          "line_end": 56,
+          "text": "神仙丸毒害甚大"
+        }
+      ]
+    },
+    {
+      "id": "item_wu_du_san",
+      "name": "五毒散",
+      "type": "poison",
+      "owner": "char_yu_wen_bo",
+      "one_line": "白驼山主防身毒药",
+      "description": "藏在指甲缝中的毒药，弹出化为烟雾",
+      "effects": [
+        {
+          "type": "毒药",
+          "value": "",
+          "description": "化为烟雾使人中毒"
+        }
+      ],
+      "origin": "白驼山",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_yu_wen_bo"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 306,
+          "line_end": 310,
+          "text": "指甲缝中弹出一道黑烟，这是他留为防身之用的五毒散"
+        }
+      ]
+    }
+  ]
+}
