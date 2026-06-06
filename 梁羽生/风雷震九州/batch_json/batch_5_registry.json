@@ -1,0 +1,575 @@
+{
+  "characters": [
+    {
+      "id": "char_cheng_bai_yue",
+      "name": "程百岳",
+      "alias": [],
+      "identity": "武林人士",
+      "faction": "faction_tian_li_jiao",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "武邑武林人士，受李文成之托照看李光夏，房屋被烧后投奔藏龙堡",
+      "personality": {
+        "traits": ["侠义", "执着", "重义", "刚直"],
+        "speech_style": "直率",
+        "temperament": "刚毅"
+      },
+      "relationships": [
+        {"target": "char_li_guang_xia", "type": "挚友", "intensity": 60, "bond_level": 3, "dynamic": "受托照看世侄"}
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [13],
+      "source_refs": [{"chapter": 13, "line_start": 2, "line_end": 8, "text": "程百岳大怒道：谁稀罕到你们家里？我是要这孩子留下！"}]
+    },
+    {
+      "id": "char_an_da_shu",
+      "name": "安大叔",
+      "alias": [],
+      "identity": "神秘势力管家手下高手",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "神秘家族的高手，缅刀刀法精妙，连江海天也不卖帐",
+      "personality": {
+        "traits": ["自信", "傲慢", "老练"],
+        "speech_style": "老练自信",
+        "temperament": "从容不迫"
+      },
+      "relationships": [],
+      "known_skills": ["skill_mian_dao"],
+      "related_skills": [],
+      "rag_refs": [13],
+      "source_refs": [{"chapter": 13, "line_start": 18, "line_end": 30, "text": "缅刀劈下...我连江海天都不卖帐"}]
+    },
+    {
+      "id": "char_xiao_gu_niang",
+      "name": "小姑娘",
+      "alias": [],
+      "identity": "神秘家族小姐",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "初窥门径",
+      "one_line": "神秘家族的小姐，要李光夏作伴，手下众多高手",
+      "personality": {
+        "traits": ["天真", "任性", "娇纵"],
+        "speech_style": "稚嫩活泼",
+        "temperament": "娇憨"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [13],
+      "source_refs": [{"chapter": 13, "line_start": 22, "line_end": 24, "text": "那小姑娘拍手笑道：安大叔，好刀法！"}]
+    },
+    {
+      "id": "char_qing_yi_han_zi",
+      "name": "青衣汉子",
+      "alias": [],
+      "identity": "神秘家族仆人",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "神秘家族的仆人，奉命带走李光夏",
+      "personality": {
+        "traits": ["忠诚", "沉稳"],
+        "speech_style": "恭敬",
+        "temperament": "沉着"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [13],
+      "source_refs": [{"chapter": 13, "line_start": 6, "line_end": 6, "text": "那青衣汉子道：走吧，你爹爹等着你呢。"}]
+    },
+    {
+      "id": "char_jun_guan_lu",
+      "name": "军官陆",
+      "alias": [],
+      "identity": "大内军官",
+      "faction": "faction_qing_ting",
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "出神入化",
+      "one_line": "大内派遣的军官，心思缜密，奉命赴米脂缉拿林清",
+      "personality": {
+        "traits": ["精明", "谨慎", "阴险"],
+        "speech_style": "沉稳谨慎",
+        "temperament": "深沉"
+      },
+      "relationships": [{"target": "char_jun_guan_li", "type": "合作者", "intensity": 50, "bond_level": 2, "dynamic": "同僚合作"}],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [13],
+      "source_refs": [{"chapter": 13, "line_start": 234, "line_end": 292, "text": "那姓陆的军官小声说道...姓陆的较为沉着"}]
+    },
+    {
+      "id": "char_jun_guan_li",
+      "name": "军官李",
+      "alias": [],
+      "identity": "大内军官",
+      "faction": "faction_qing_ting",
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "出神入化",
+      "one_line": "大内派遣的军官，性情鲁莽，与陆姓军官同赴米脂",
+      "personality": {
+        "traits": ["鲁莽", "贪婪", "自大"],
+        "speech_style": "粗豪直率",
+        "temperament": "急躁"
+      },
+      "relationships": [{"target": "char_jun_guan_lu", "type": "合作者", "intensity": 50, "bond_level": 2, "dynamic": "同僚合作"}],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [13],
+      "source_refs": [{"chapter": 13, "line_start": 242, "line_end": 302, "text": "那姓李的军官道...姓李的道：我笑你也未免太过怕事了"}]
+    },
+    {
+      "id": "char_dian_zhu",
+      "name": "店主人",
+      "alias": [],
+      "identity": "客栈老板",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "小镇客栈老板，见到军官百般奉承",
+      "personality": {
+        "traits": ["精明", "胆小", "圆滑"],
+        "speech_style": "恭敬殷勤",
+        "temperament": "卑微"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [13],
+      "source_refs": [{"chapter": 13, "line_start": 218, "line_end": 220, "text": "我们的马厩地方不人...小的可担待不起"}]
+    },
+    {
+      "id": "char_chu_meng",
+      "name": "褚蒙",
+      "alias": [],
+      "identity": "御林军副统领",
+      "faction": "faction_qing_ting",
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "出神入化",
+      "one_line": "御林军副统领，假扮张士龙诱骗江海天喝下毒茶",
+      "personality": {
+        "traits": ["阴险", "狡诈", "鲁莽", "贪婪"],
+        "speech_style": "狂妄自大",
+        "temperament": "阴狠"
+      },
+      "relationships": [
+        {"target": "char_jiang_hai_tian", "type": "宿敌", "intensity": 80, "bond_level": 4, "dynamic": "设计毒害江海天"}
+      ],
+      "known_skills": ["skill_pi_li_zhang"],
+      "related_skills": [],
+      "rag_refs": [14, 15],
+      "source_refs": [{"chapter": 14, "line_start": 210, "line_end": 214, "text": "在下行不更名，坐不改姓。御林军副统领诸蒙是也"}]
+    },
+    {
+      "id": "char_yang_tun_hu",
+      "name": "羊吞虎",
+      "alias": [],
+      "identity": "祁连三兽之一",
+      "faction": null,
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "祁连三兽老大，绵掌有开碑裂石之能，参与围攻江海天",
+      "personality": {
+        "traits": ["阴险", "老练", "凶残", "谨慎"],
+        "speech_style": "阴沉狡诈",
+        "temperament": "阴鸷"
+      },
+      "relationships": [
+        {"target": "char_lu_ke_xi", "type": "亲属", "intensity": 70, "bond_level": 4, "dynamic": "兄弟关系"},
+        {"target": "char_jiang_hai_tian", "type": "宿敌", "intensity": 80, "bond_level": 4, "dynamic": "参与围攻"},
+        {"target": "char_yang_fan", "type": "宿敌", "intensity": 70, "bond_level": 3, "dynamic": "被杨梵惩罚割耳挖眼"}
+      ],
+      "known_skills": ["skill_mian_zhang"],
+      "related_skills": [],
+      "rag_refs": [14, 15],
+      "source_refs": [{"chapter": 14, "line_start": 232, "line_end": 264, "text": "祁连山羊吞虎幸会江大侠"}]
+    },
+    {
+      "id": "char_lu_ke_xi",
+      "name": "鹿克犀",
+      "alias": ["独角鹿"],
+      "identity": "祁连三兽之一",
+      "faction": null,
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "祁连三兽老三，额角凸出肉瘤，使鹿角叉，曾骗走李光夏",
+      "personality": {
+        "traits": ["狡猾", "阴险", "老奸巨猾"],
+        "speech_style": "阴沉",
+        "temperament": "奸诈"
+      },
+      "relationships": [
+        {"target": "char_yang_tun_hu", "type": "亲属", "intensity": 70, "bond_level": 4, "dynamic": "兄弟关系"}
+      ],
+      "known_skills": ["skill_lu_jiao_cha"],
+      "related_skills": [],
+      "rag_refs": [14],
+      "source_refs": [{"chapter": 14, "line_start": 258, "line_end": 276, "text": "江大侠，你不是为了林清而来么...林清已被我们活捉"}]
+    },
+    {
+      "id": "char_lin_dao_xuan",
+      "name": "林道轩",
+      "alias": [],
+      "identity": "林清之子",
+      "faction": "faction_tian_li_jiao",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "初窥门径",
+      "one_line": "林清之子，年仅十二岁，被关在藏龙堡地牢中，胆大不屈",
+      "personality": {
+        "traits": ["勇敢", "刚烈", "聪明", "孝顺"],
+        "speech_style": "稚嫩但坚定",
+        "temperament": "英气勃勃"
+      },
+      "relationships": [
+        {"target": "char_lin_qing", "type": "亲属", "intensity": 95, "bond_level": 5, "dynamic": "父子至深"},
+        {"target": "char_li_guang_xia", "type": "挚友", "intensity": 80, "bond_level": 4, "dynamic": "结拜兄弟"},
+        {"target": "char_jiang_hai_tian", "type": "师徒", "intensity": 60, "bond_level": 3, "dynamic": "拜江海天为师"}
+      ],
+      "known_skills": ["skill_yu_chi_bian_fa"],
+      "related_skills": [],
+      "rag_refs": [14, 15],
+      "source_refs": [{"chapter": 14, "line_start": 504, "line_end": 532, "text": "是我！张伯，我爹爹呢？...你杀了我，我爹爹会给我报仇！我不怕你！"}]
+    },
+    {
+      "id": "char_zhang_bo",
+      "name": "张伯",
+      "alias": [],
+      "identity": "张家老仆人",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "藏龙堡张家老仆人，装聋作哑留在堡中，帮助江海天找到林道轩",
+      "personality": {
+        "traits": ["忠诚", "机智", "勇敢"],
+        "speech_style": "朴实",
+        "temperament": "忠厚"
+      },
+      "relationships": [
+        {"target": "char_zhang_shi_long", "type": "主仆", "intensity": 70, "bond_level": 4, "dynamic": "忠心耿耿"}
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [14, 15],
+      "source_refs": [{"chapter": 14, "line_start": 466, "line_end": 488, "text": "我听得他们叫你江大侠...我是张家的老仆人"}]
+    },
+    {
+      "id": "char_wei_shi",
+      "name": "卫士",
+      "alias": [],
+      "identity": "御前二等带刀侍卫",
+      "faction": "faction_qing_ting",
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "登堂入室",
+      "one_line": "看守林道轩的御前侍卫，自恃武艺高强",
+      "personality": {
+        "traits": ["自大", "凶狠"],
+        "speech_style": "嚣张",
+        "temperament": "凶悍"
+      },
+      "relationships": [],
+      "known_skills": ["skill_wu_hu_duan_men_dao"],
+      "related_skills": [],
+      "rag_refs": [14, 15],
+      "source_refs": [{"chapter": 14, "line_start": 518, "line_end": 527, "text": "原来是江大侠来了...小贼囚，把脚镣抛下"}]
+    },
+    {
+      "id": "char_xiang_min_1",
+      "name": "乡人",
+      "alias": [],
+      "identity": "米脂乡民",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "米脂乡下给张大爷跑腿的乡人，为江海天带路",
+      "personality": {
+        "traits": ["朴实", "忠诚"],
+        "speech_style": "朴实",
+        "temperament": "憨厚"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [14],
+      "source_refs": [{"chapter": 14, "line_start": 82, "line_end": 116, "text": "你是什么人？找张大爷？...我们是给张大爷跑腿的"}]
+    },
+    {
+      "id": "char_bao_ding",
+      "name": "堡丁",
+      "alias": [],
+      "identity": "藏龙堡堡丁",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "藏龙堡开门堡丁，盘问来客身份",
+      "personality": {
+        "traits": ["谨慎", "尽责"],
+        "speech_style": "恭敬",
+        "temperament": "谨慎"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [14],
+      "source_refs": [{"chapter": 14, "line_start": 124, "line_end": 127, "text": "你是我们堡主的朋友吗？...你尊姓大名，可否赐告？"}]
+    },
+    {
+      "id": "char_yang_fan",
+      "name": "杨梵",
+      "alias": [],
+      "identity": "杨家少爷",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "十五六岁少年，父亲是大魔头，手段狠辣，武功奇特",
+      "personality": {
+        "traits": ["狂妄", "狠辣", "聪明", "骄傲", "有义气"],
+        "speech_style": "狂妄自大",
+        "temperament": "桀骜不驯"
+      },
+      "relationships": [
+        {"target": "char_wan_jie", "type": "亲属", "intensity": 60, "bond_level": 3, "dynamic": "表姐弟，互相调侃"},
+        {"target": "char_yang_tun_hu", "type": "宿敌", "intensity": 70, "bond_level": 3, "dynamic": "羊吞虎曾欺负其表妹"}
+      ],
+      "known_skills": ["skill_yang_jia_gong_fa"],
+      "related_skills": [],
+      "rag_refs": [15],
+      "source_refs": [{"chapter": 15, "line_start": 403, "line_end": 750, "text": "只见进米的是一男一女...杨梵笑道：你以为我只会讨好小华么"}]
+    },
+    {
+      "id": "char_wan_jie",
+      "name": "纨姐",
+      "alias": [],
+      "identity": "杨梵表姐/竺家姑娘",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "杨梵的表姐，竺家姑娘，剑法精妙，心地善良",
+      "personality": {
+        "traits": ["善良", "温柔", "勇敢", "聪明"],
+        "speech_style": "温柔活泼",
+        "temperament": "英姿飒爽"
+      },
+      "relationships": [
+        {"target": "char_yang_fan", "type": "亲属", "intensity": 60, "bond_level": 3, "dynamic": "表姐弟，互相调侃"}
+      ],
+      "known_skills": ["skill_wan_jie_jian_fa"],
+      "related_skills": [],
+      "rag_refs": [15],
+      "source_refs": [{"chapter": 15, "line_start": 403, "line_end": 737, "text": "那小姑娘噘着小嘴儿道：这么多大人，欺负一个孩子，好不要脸！"}]
+    },
+    {
+      "id": "char_ge_cao_xiang_ren",
+      "name": "割草乡人",
+      "alias": [],
+      "identity": "官军探子",
+      "faction": "faction_qing_ting",
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "平平无奇",
+      "one_line": "冒充割草乡人的官军探子，被江海天点晕睡穴",
+      "personality": {
+        "traits": ["狡猾", "胆小"],
+        "speech_style": "卑微",
+        "temperament": "怯懦"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [15],
+      "source_refs": [{"chapter": 15, "line_start": 122, "line_end": 134, "text": "我是割草的乡人...可怜我上有八十岁老母"}]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_mian_dao",
+      "name": "缅刀刀法",
+      "type": "剑法",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "安大叔所使缅刀，刀法精妙，一刀斩断铁镣",
+      "rag_refs": [13],
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "刀法精准凌厉",
+      "source_refs": [{"chapter": 13, "line_start": 20, "line_end": 20, "text": "缅刀劈下，喀嚓一声，那条铁镣，只剩下短短的几寸还在程百岳手中"}]
+    },
+    {
+      "id": "skill_mian_zhang",
+      "name": "绵掌",
+      "type": "掌法",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "羊吞虎所使绵掌，有开碑裂石之能",
+      "rag_refs": [14],
+      "techniques": [],
+      "progression": [],
+      "effects": [{"type": "伤害", "condition": "击中敌人", "description": "掌力雄浑，有开碑裂石之能"}],
+      "combat_style": "掌力阴柔绵长",
+      "source_refs": [{"chapter": 14, "line_start": 240, "line_end": 240, "text": "绵掌掌力，却是功力颇深"}]
+    },
+    {
+      "id": "skill_pi_li_zhang",
+      "name": "霹雳掌",
+      "type": "掌法",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "张士龙所使掌法，雄浑刚猛，褚蒙亦曾学过",
+      "rag_refs": [14],
+      "techniques": [],
+      "progression": [],
+      "effects": [{"type": "伤害", "condition": "击中敌人", "description": "掌力雄浑刚猛，力道惊人"}],
+      "combat_style": "刚猛一路",
+      "source_refs": [{"chapter": 14, "line_start": 152, "line_end": 156, "text": "张堡主的霹雳掌果然是名不虚传"}]
+    },
+    {
+      "id": "skill_lu_jiao_cha",
+      "name": "鹿角叉",
+      "type": "暗器",
+      "faction": "",
+      "rank": "登堂入室",
+      "one_line": "鹿克犀所使怪兵器，中空藏毒箭",
+      "rag_refs": [14],
+      "techniques": [],
+      "progression": [],
+      "effects": [{"type": "特殊", "condition": "按下机关", "description": "叉中空，内藏毒箭，可暗射敌人"}],
+      "combat_style": "叉法配合暗器",
+      "source_refs": [{"chapter": 14, "line_start": 256, "line_end": 276, "text": "他这柄鹿角叉中空，内里藏着毒箭"}]
+    },
+    {
+      "id": "skill_yu_chi_bian_fa",
+      "name": "尉迟鞭法",
+      "type": "暗器",
+      "faction": "",
+      "rank": "略有小成",
+      "one_line": "林道轩所使鞭法，以铁链当鞭使用",
+      "rag_refs": [14, 15],
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "以铁链为鞭，招数纯熟但缺乏临敌经验",
+      "source_refs": [{"chapter": 15, "line_start": 11, "line_end": 12, "text": "孩子使的是尉迟鞭法"}]
+    },
+    {
+      "id": "skill_yang_jia_gong_fa",
+      "name": "杨家武功",
+      "type": "掌法",
+      "faction": "",
+      "rank": "登堂入室",
+      "one_line": "杨梵所使奇特武功，虎口被扣仍能使出千斤坠",
+      "rag_refs": [15],
+      "techniques": [],
+      "progression": [],
+      "effects": [{"type": "特殊", "condition": "被擒拿时", "description": "虎口被扣仍能使出千斤坠重身法，怪异无比"}],
+      "combat_style": "身法诡异，力道奇重",
+      "source_refs": [{"chapter": 15, "line_start": 500, "line_end": 515, "text": "杨亢的匕首拿捏不牢...竟有泰山压顶的感觉"}]
+    },
+    {
+      "id": "skill_wan_jie_jian_fa",
+      "name": "纨姐剑法",
+      "type": "剑法",
+      "faction": "",
+      "rank": "登堂入室",
+      "one_line": "纨姐家传独门剑法，不依常轨",
+      "rag_refs": [15],
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "家传独门剑法，剑招凌厉",
+      "source_refs": [{"chapter": 15, "line_start": 563, "line_end": 647, "text": "她的剑法是他家传的独门剑法...褚蒙看不出她的剑法家数"}]
+    }
+  ],
+  "techniques": [],
+  "factions": [],
+  "locations": [
+    {
+      "id": "loc_cang_long_bao",
+      "name": "藏龙堡",
+      "region": "陕西米脂",
+      "one_line": "张士龙在米脂西北的居所，倚山修建，形势险要",
+      "source_refs": [{"chapter": 13, "line_start": 80, "line_end": 80, "text": "米脂藏龙堡的张士龙张堡主"}]
+    },
+    {
+      "id": "loc_qu_wo",
+      "name": "曲沃县城",
+      "region": "山西",
+      "one_line": "江海天让叶凌风留守的县城",
+      "source_refs": [{"chapter": 14, "line_start": 16, "line_end": 16, "text": "前面不远，就是曲沃县城"}]
+    },
+    {
+      "id": "loc_hou_shan_yan_dong",
+      "name": "后山岩洞",
+      "region": "陕西米脂",
+      "one_line": "藏龙堡后山瀑布后的隐秘岩洞，张伯发现",
+      "source_refs": [{"chapter": 15, "line_start": 116, "line_end": 150, "text": "离此七八里的后山，有一个岩洞...外人决计难以发现"}]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_xiao_huan_dan",
+      "name": "小还丹",
+      "type": "pill",
+      "owner": "char_jiang_hai_tian",
+      "one_line": "江海天随身携带的恢复元气之药",
+      "description": "江海天随身携带的疗伤丹药，可恢复元气，但非对症解药",
+      "effects": [{"type": "增益", "value": "", "description": "恢复元气，辅助疗伤"}],
+      "origin": "",
+      "rarity": "上乘佳品",
+      "related_characters": ["char_jiang_hai_tian"],
+      "related_skills": [],
+      "rag_refs": [14],
+      "source_refs": [{"chapter": 14, "line_start": 440, "line_end": 440, "text": "江海天服下了一颗小还丹"}]
+    },
+    {
+      "id": "item_hua_ling",
+      "name": "花翎",
+      "type": "special",
+      "owner": "char_wan_jie",
+      "one_line": "褚蒙顶戴上的双眼花翎，被杨梵夺走送给纨姐",
+      "description": "褚蒙身为二品武官，皇上赏赐的双眼花翎顶戴，杨梵将其剥下送给纨姐当玩物",
+      "effects": [],
+      "origin": "清廷御赐",
+      "rarity": "稀世珍品",
+      "related_characters": ["char_chu_meng", "char_yang_fan", "char_wan_jie"],
+      "related_skills": [],
+      "rag_refs": [15],
+      "source_refs": [{"chapter": 15, "line_start": 476, "line_end": 721, "text": "我剥下他的顶戴，送给你玩...这支花翎，送给你玩吧"}]
+    },
+    {
+      "id": "item_jin_chuang_yao_2",
+      "name": "金创药",
+      "type": "pill",
+      "owner": "char_jiang_hai_tian",
+      "one_line": "江海天随身携带的金创药",
+      "description": "江海天为林道轩敷上的疗伤药物",
+      "effects": [{"type": "增益", "value": "", "description": "敷上后三日内伤口复合"}],
+      "origin": "",
+      "rarity": "上乘佳品",
+      "related_characters": ["char_jiang_hai_tian", "char_lin_dao_xuan"],
+      "related_skills": [],
+      "rag_refs": [15],
+      "source_refs": [{"chapter": 15, "line_start": 54, "line_end": 54, "text": "我给你敷上金创药"}]
+    }
+  ]
+}

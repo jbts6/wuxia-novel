@@ -1,0 +1,775 @@
+{
+  "batch": 4,
+  "chapters": [
+    10,
+    11,
+    12
+  ],
+  "summary": "批次4覆盖第10-12回，讲述李光夏被祁连三兽（鹿克犀、羊吞虎、马胜龙）挟持途中，三人各怀鬼胎互相算计。李光夏在破庙中救了神秘高手之女华姑娘，后假装悔悟骗鹿克犀前往武邑程百岳家。程百岳虽武功高于鹿克犀，但被以李光夏为人质胁迫就擒。华姑娘的随从赶来大战清廷卫士，救出程百岳，但李光夏被点穴后由华姑娘的人带走。",
+  "entity_registry": {
+    "characters": [
+      {
+        "id": "char_yang_tun_hu",
+        "name": "羊吞虎",
+        "alias": [],
+        "identity": "祁连三兽之二",
+        "faction": "faction_qi_lian_san_shou",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "祁连三兽排行第二，内功深厚，以笑声摇树，贪财好功",
+        "personality": {
+          "traits": [
+            "贪财",
+            "多疑",
+            "要强",
+            "虚伪",
+            "精明"
+          ],
+          "speech_style": "装腔作势，对晚辈故作亲近",
+          "temperament": "阴鸷"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_xiao_sheng_yao_shu"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          10,
+          11,
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 2,
+            "line_end": 5,
+            "text": "羊吞虎面对着一棵大树纵声长笑，笑声中只见树叶纷纷飘落"
+          }
+        ]
+      },
+      {
+        "id": "char_ma_sheng_long",
+        "name": "马胜龙",
+        "alias": [],
+        "identity": "祁连三兽之三",
+        "faction": "faction_qi_lian_san_shou",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "祁连三兽排行第三，外家功夫登峰造极，鲁莽冲动",
+        "personality": {
+          "traits": [
+            "鲁莽",
+            "冲动",
+            "自卑",
+            "凶狠",
+            "愚钝"
+          ],
+          "speech_style": "粗鲁直白",
+          "temperament": "暴躁"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_kai_bei_zhang"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          10,
+          11,
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 8,
+            "line_end": 12,
+            "text": "马胜龙道：这棵树光秃秃的怪难看，我把它所倒了吧"
+          }
+        ]
+      },
+      {
+        "id": "char_lu_ke_xi",
+        "name": "鹿克犀",
+        "alias": [
+          "独角鹿"
+        ],
+        "identity": "祁连三兽之首",
+        "faction": "faction_qi_lian_san_shou",
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "炉火纯青",
+        "one_line": "祁连三兽之首，老奸巨猾，暗通朝廷，阴险深沉",
+        "personality": {
+          "traits": [
+            "阴沉",
+            "狡诈",
+            "深沉",
+            "贪婪",
+            "虚伪"
+          ],
+          "speech_style": "老谋深算，善于掩饰",
+          "temperament": "阴险"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          10,
+          11,
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 46,
+            "line_end": 48,
+            "text": "鹿克犀与李光夏合乘一骑，故意落后少许"
+          }
+        ]
+      },
+      {
+        "id": "char_qi_lian_san_shou",
+        "name": "祁连三兽",
+        "alias": [],
+        "identity": "武林三人组合",
+        "faction": "faction_qi_lian_san_shou",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "祁连山三位恶人兄弟组合，暗中为朝廷充当耳目",
+        "personality": {
+          "traits": [
+            "结党",
+            "贪婪"
+          ],
+          "speech_style": "",
+          "temperament": ""
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          10
+        ],
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 72,
+            "line_end": 72,
+            "text": "祁连三兽接受朴鼎查的礼聘，充当朝廷在江湖的耳目"
+          }
+        ]
+      },
+      {
+        "id": "char_qing_yi_han_zi",
+        "name": "青衣汉子",
+        "alias": [
+          "安大叔",
+          "安某"
+        ],
+        "identity": "神秘高手家中的仆人",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "身手不凡的青衣仆人，忠于神秘主人，携小姑娘华姑娘",
+        "personality": {
+          "traits": [
+            "忠诚",
+            "沉稳",
+            "武功高强",
+            "守规矩"
+          ],
+          "speech_style": "客气但有原则",
+          "temperament": "沉稳"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_tou_gu_ding"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          10,
+          11,
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 330,
+            "line_end": 334,
+            "text": "一个是年约五十左右，身材瘦长，青衣小帽，面色焦黄，像个老家人模样的汉子"
+          }
+        ]
+      },
+      {
+        "id": "char_hua_gu_niang",
+        "name": "华姑娘",
+        "alias": [
+          "小华",
+          "小姑娘"
+        ],
+        "identity": "神秘高手之女",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "初窥门径",
+        "one_line": "神秘高手之女，活泼可爱，被李光夏所救",
+        "personality": {
+          "traits": [
+            "活泼",
+            "天真",
+            "勇敢",
+            "淘气"
+          ],
+          "speech_style": "童言无忌",
+          "temperament": "活泼"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          10,
+          11,
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 332,
+            "line_end": 333,
+            "text": "另一个果然是个稚气未消的女孩，看来也是十岁左右"
+          }
+        ]
+      },
+      {
+        "id": "char_liu_shu_shu",
+        "name": "刘大叔",
+        "alias": [],
+        "identity": "华姑娘家的管家",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "华姑娘家的管家，武功高强，以软鞭见长",
+        "personality": {
+          "traits": [
+            "忠诚",
+            "武功高强",
+            "护主"
+          ],
+          "speech_style": "威严",
+          "temperament": "沉稳"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          11,
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 462,
+            "line_end": 466,
+            "text": "声到人到，使的也是一条软鞭"
+          }
+        ]
+      },
+      {
+        "id": "char_cheng_bai_yue",
+        "name": "程百岳",
+        "alias": [
+          "程三爷"
+        ],
+        "identity": "天理教武邑分舵舵主",
+        "faction": "faction_tian_li_jiao",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "天理教武邑分舵舵主，开武馆为生，精通金刚指，武功高于鹿克犀",
+        "personality": {
+          "traits": [
+            "正义",
+            "刚烈",
+            "忠义",
+            "谨慎",
+            "傲骨"
+          ],
+          "speech_style": "刚正不屈",
+          "temperament": "刚直"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_jin_gang_zhi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          11,
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 142,
+            "line_end": 147,
+            "text": "一个年约五十左右浓眉大眼的汉子，手里玩着两枚铁胆，走了进来"
+          }
+        ]
+      },
+      {
+        "id": "char_he_lan_ming",
+        "name": "贺兰明",
+        "alias": [],
+        "identity": "御林军副统领",
+        "faction": "faction_qing_ting",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "清廷御林军副统领，率兵缉捕天理教教徒，使软鞭",
+        "personality": {
+          "traits": [
+            "傲慢",
+            "凶狠",
+            "武艺高强",
+            "贪功"
+          ],
+          "speech_style": "盛气凌人",
+          "temperament": "骄横"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_ruan_bian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 328,
+            "line_end": 330,
+            "text": "这帮武上由御林军副统领贺兰明率领"
+          }
+        ]
+      },
+      {
+        "id": "char_men_gong",
+        "name": "门公",
+        "alias": [
+          "老王"
+        ],
+        "identity": "程家门公",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "程百岳家的老门公，忠心耿耿",
+        "personality": {
+          "traits": [
+            "忠心",
+            "老练",
+            "机警"
+          ],
+          "speech_style": "老成持重",
+          "temperament": "沉稳"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 108,
+            "line_end": 109,
+            "text": "出来了一个门公模样的老人"
+          }
+        ]
+      },
+      {
+        "id": "char_cheng_bai_yue_guan_jia",
+        "name": "程百岳管家",
+        "alias": [],
+        "identity": "程百岳的管家",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "冒充程百岳接待来客的管家",
+        "personality": {
+          "traits": [
+            "忠诚",
+            "配合"
+          ],
+          "speech_style": "谨慎",
+          "temperament": "沉稳"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 142,
+            "line_end": 142,
+            "text": "一个年约五十左右浓眉大眼的汉子，手里玩着两枚铁胆"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_kai_bei_zhang",
+        "name": "开碑掌力",
+        "type": "掌法",
+        "faction": "",
+        "rank": "登峰造极",
+        "one_line": "马胜龙的外家掌力，能以掌力斫断大树",
+        "rag_refs": [
+          10
+        ],
+        "techniques": [],
+        "progression": [],
+        "effects": [],
+        "combat_style": "以刚猛外家掌力斫击硬物",
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 8,
+            "line_end": 12,
+            "text": "横掌向那大树斫去，在四边斫了四掌，大喝一声倒！那棵大树果然应声倒下"
+          }
+        ]
+      },
+      {
+        "id": "skill_xiao_sheng_yao_shu",
+        "name": "笑声摇树",
+        "type": "内功",
+        "faction": "",
+        "rank": "出神入化",
+        "one_line": "羊吞虎以笑声震落树叶的深厚内功",
+        "rag_refs": [
+          10,
+          11
+        ],
+        "techniques": [],
+        "progression": [],
+        "effects": [
+          {
+            "type": "特殊",
+            "condition": "大笑",
+            "description": "以笑声的内力震荡空气，震落远处树叶"
+          }
+        ],
+        "combat_style": "以深厚内力通过笑声施展攻击",
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 2,
+            "line_end": 6,
+            "text": "羊吞虎面对着一棵大树纵声长笑，笑声中只见树叶纷纷飘落"
+          }
+        ]
+      },
+      {
+        "id": "skill_jin_gang_zhi",
+        "name": "金刚指",
+        "type": "指法",
+        "faction": "",
+        "rank": "出神入化",
+        "one_line": "程百岳精通的指功，可使铁鞭般的脚镣",
+        "rag_refs": [
+          12
+        ],
+        "techniques": [],
+        "progression": [],
+        "effects": [
+          {
+            "type": "攻击",
+            "condition": "指力",
+            "description": "以指力驱动沉重镣铐如铁鞭般挥舞"
+          }
+        ],
+        "combat_style": "以指力驱动铁链镣铐作为武器",
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 424,
+            "line_end": 424,
+            "text": "但他是练过金刚指的功夫的，只用指力，使动那条脚镣"
+          }
+        ]
+      },
+      {
+        "id": "skill_ruan_bian",
+        "name": "软鞭",
+        "type": "暗器",
+        "faction": "",
+        "rank": "出神入化",
+        "one_line": "贺兰明苦练二三十年的软鞭功夫",
+        "rag_refs": [
+          12
+        ],
+        "techniques": [],
+        "progression": [],
+        "effects": [
+          {
+            "type": "攻击",
+            "condition": "鞭法",
+            "description": "以软鞭卷击对手，可缠绕兵器"
+          }
+        ],
+        "combat_style": "以软鞭缠、卷、甩攻击，鞭法精熟",
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 449,
+            "line_end": 450,
+            "text": "贺兰明在这条软鞭上有二三十年的苦练之功"
+          }
+        ]
+      },
+      {
+        "id": "skill_tou_gu_ding",
+        "name": "透骨钉",
+        "type": "暗器",
+        "faction": "",
+        "rank": "出神入化",
+        "one_line": "青衣汉子的暗器，无声无息射中穴道",
+        "rag_refs": [
+          12
+        ],
+        "techniques": [],
+        "progression": [],
+        "effects": [
+          {
+            "type": "控制",
+            "condition": "射中笑腰穴",
+            "description": "射中穴道后使人狂笑至死"
+          }
+        ],
+        "combat_style": "远距离无声发射，精准打穴",
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 422,
+            "line_end": 422,
+            "text": "倏的就发出了两枝透骨钉，无声无息地射了过来"
+          }
+        ]
+      }
+    ],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_qi_lian_san_shou",
+        "name": "祁连三兽",
+        "type": "帮派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "接受清廷礼聘，充当朝廷在江湖耳目的三人组合",
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 72,
+            "line_end": 74,
+            "text": "祁连三兽接受朴鼎查的礼聘，充当朝廷在江湖的耳目"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_yao_zhu_miao",
+        "name": "药主庙",
+        "region": "荒山",
+        "one_line": "荒山中久已断了香火的破庙，祁连三兽投宿处",
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 100,
+            "line_end": 100,
+            "text": "这是一座久已断了香火的药主庙，正好供咱们住宿"
+          }
+        ]
+      },
+      {
+        "id": "loc_wu_yi",
+        "name": "武邑",
+        "region": "山东与直隶交界",
+        "one_line": "山东与直隶交界处的县城，天理教秘密分舵所在地",
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 462,
+            "line_end": 464,
+            "text": "武邑在山东与直隶交界之处，天理教发源于直隶，总舵在保定，武邑也有一个秘密的分舵"
+          }
+        ]
+      },
+      {
+        "id": "loc_wu_yi_xi_xiang",
+        "name": "武邑西乡",
+        "region": "武邑",
+        "one_line": "程百岳武馆所在地",
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 451,
+            "line_end": 451,
+            "text": "那人是武邑西乡开武馆的"
+          }
+        ]
+      },
+      {
+        "id": "loc_cheng_jia",
+        "name": "程家",
+        "region": "武邑西乡",
+        "one_line": "程百岳的家宅，天理教武邑分舵所在地，有秘密地道",
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 102,
+            "line_end": 102,
+            "text": "程百岳在武邑颇有声名，鹿克犀到了西乡，向乡人一打听，便有人给他指路，很容易的就找到了程家"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_lu_jiao_cha",
+        "name": "鹿角叉",
+        "type": "weapon",
+        "owner": "char_lu_ke_xi",
+        "one_line": "鹿克犀所使的兵器",
+        "description": "鹿克犀随身携带的鹿角叉武器",
+        "effects": [],
+        "origin": "",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_lu_ke_xi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          10
+        ],
+        "source_refs": [
+          {
+            "chapter": 10,
+            "line_start": 288,
+            "line_end": 288,
+            "text": "倏地拔出鹿角叉"
+          }
+        ]
+      },
+      {
+        "id": "item_tie_dan",
+        "name": "铁胆",
+        "type": "weapon",
+        "owner": "char_cheng_bai_yue",
+        "one_line": "程百岳手中把玩的两枚铁胆，亦可作暗器",
+        "description": "程百岳随手把玩的两枚铁胆，危急时可掷出作为暗器攻击敌人",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "掷出铁胆攻击敌人，但被鹿克犀拍落"
+          }
+        ],
+        "origin": "",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_cheng_bai_yue"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 142,
+            "line_end": 142,
+            "text": "手里玩着两枚铁胆"
+          }
+        ]
+      },
+      {
+        "id": "item_jing_gang_shou_kao",
+        "name": "精钢手铐",
+        "type": "weapon",
+        "owner": "char_lu_ke_xi",
+        "one_line": "鹿克犀随身携带的精钢手铐",
+        "description": "鹿克犀用来铐住犯人押解京师的精钢手铐",
+        "effects": [
+          {
+            "type": "控制",
+            "value": "",
+            "description": "铐住犯人双手，使其无法反抗"
+          }
+        ],
+        "origin": "",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_lu_ke_xi",
+          "char_cheng_bai_yue"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 296,
+            "line_end": 296,
+            "text": "鹿克犀掏出一副精钢手铐"
+          }
+        ]
+      },
+      {
+        "id": "item_xin_xiang",
+        "name": "信香",
+        "type": "special",
+        "owner": "char_yang_tun_hu",
+        "one_line": "祁连山特制香木，燃起香烟凝聚空中久不散，用于联络报讯",
+        "description": "祁连山特有的香木所制信香，燃起的香烟可以凝聚空中，历久不散，用于同伴间联络报讯",
+        "effects": [
+          {
+            "type": "特殊",
+            "value": "",
+            "description": "燃起后烟柱凝聚不散，可作为远距离联络信号"
+          }
+        ],
+        "origin": "祁连山",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_yang_tun_hu",
+          "char_lu_ke_xi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          12
+        ],
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 96,
+            "line_end": 96,
+            "text": "这信香是祁连山特有的香木所制，燃起的香烟，可以凝聚空中，历久不散"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "batch": 6,
+  "chapters": [16, 17, 18],
+  "entity_registry": {
+    "characters": [
+      {
+        "id": "char_yang_fan",
+        "name": "杨梵",
+        "alias": [],
+        "identity": "武林世家子弟",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "傲慢自负的少年，上官纨的表弟，自恃家学渊源",
+        "personality": {
+          "traits": ["傲慢", "聪明", "骄傲", "好奇心强", "心高气傲"],
+          "speech_style": "尖酸刻薄，语气狂妄",
+          "temperament": "年少气盛，目中无人"
+        },
+        "relationships": [
+          {"target": "char_shang_guan_wan", "type": "亲属", "intensity": 60, "bond_level": 3, "dynamic": "表姐弟，感情较好"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [16],
+        "source_refs": [{"chapter": 16, "line_start": 4, "line_end": 6, "text": "杨梵怎知道他自己的性命也是江海天救的，他喜欢受人恭维，心安理得的受了江海天的礼，也不还礼"}]
+      },
+      {
+        "id": "char_shang_guan_wan",
+        "name": "上官纨",
+        "alias": [],
+        "identity": "武林世家少女",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "杨梵的表姐，心思灵敏，性格开朗活泼",
+        "personality": {
+          "traits": ["心思灵敏", "活泼开朗", "善良", "幽默", "善于察言观色"],
+          "speech_style": "活泼俏皮，爱开玩笑",
+          "temperament": "爽朗大方"
+        },
+        "relationships": [
+          {"target": "char_yang_fan", "type": "亲属", "intensity": 60, "bond_level": 3, "dynamic": "表姐弟，感情较好"},
+          {"target": "char_shang_guan_tai", "type": "亲属", "intensity": 80, "bond_level": 4, "dynamic": "父女关系"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [16, 18],
+        "source_refs": [{"chapter": 16, "line_start": 130, "line_end": 132, "text": "我复姓上官，单名一个纨字。丝旁一个弹丸的丸。"}]
+      },
+      {
+        "id": "char_lin_dao_xuan",
+        "name": "林道轩",
+        "alias": [],
+        "identity": "天理教教主之子",
+        "faction": null,
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "初窥门径",
+        "one_line": "江海天新收的弟子，天理教教主林清之子",
+        "personality": {
+          "traits": ["天真", "活泼", "勇敢", "有情义", "嘴甜"],
+          "speech_style": "活泼调皮，言语直率",
+          "temperament": "天真烂漫"
+        },
+        "relationships": [
+          {"target": "char_jiang_hai_tian", "type": "师徒", "intensity": 80, "bond_level": 4, "dynamic": "新拜师徒"},
+          {"target": "char_li_guang_xia", "type": "挚友", "intensity": 70, "bond_level": 4, "dynamic": "从小一起长大的结拜兄弟"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [16, 18],
+        "source_refs": [{"chapter": 16, "line_start": 26, "line_end": 28, "text": "江海天伸指遥点，一缕锐凤，破空射出，在距离三丈之外，解开了林道轩的穴道"}]
+      },
+      {
+        "id": "char_shang_guan_tai",
+        "name": "上官泰",
+        "alias": [],
+        "identity": "天笔峰山主",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "上官纨之父，天笔峰主人，练西藏密宗大手印功",
+        "personality": {
+          "traits": ["骄傲", "冷傲", "霸道", "武功高强", "不近人情"],
+          "speech_style": "冷傲，简洁",
+          "temperament": "霸道孤傲"
+        },
+        "relationships": [
+          {"target": "char_shang_guan_wan", "type": "亲属", "intensity": 80, "bond_level": 4, "dynamic": "父女关系"},
+          {"target": "char_jiang_hai_tian", "type": "对手", "intensity": 60, "bond_level": 3, "dynamic": "握手较量后心知不如"}
+        ],
+        "known_skills": ["skill_da_shou_yin", "skill_fo_men_shi_zi_hou"],
+        "related_skills": [],
+        "rag_refs": [16, 18],
+        "source_refs": [{"chapter": 18, "line_start": 170, "line_end": 170, "text": "天笔峰那家人家的主人却确是复姓上官，单名一个泰字"}]
+      },
+      {
+        "id": "char_shang_guan_guan_jia",
+        "name": "上官家管家",
+        "alias": [],
+        "identity": "上官泰的管家",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "上官泰的管家，仗势欺人",
+        "personality": {
+          "traits": ["势利", "胆怯", "仗势欺人"],
+          "speech_style": "冷漠傲慢",
+          "temperament": "势利小人"
+        },
+        "relationships": [
+          {"target": "char_shang_guan_tai", "type": "主仆", "intensity": 50, "bond_level": 2, "dynamic": "仆从"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [18],
+        "source_refs": [{"chapter": 18, "line_start": 288, "line_end": 291, "text": "那个管家冷冷说道：'这么说你们不是丐帮的了？'"}]
+      },
+      {
+        "id": "char_feng_cong_long",
+        "name": "风从龙",
+        "alias": [],
+        "identity": "陕甘总督护院统领/朝廷耳目",
+        "faction": "faction_qing_ting",
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "出神入化",
+        "one_line": "老辣阴险的朝廷鹰犬，褚元的好友，贺兰明的师兄",
+        "personality": {
+          "traits": ["阴险", "老辣", "心狠手辣", "精明", "城府极深"],
+          "speech_style": "阴阳怪气，冷笑不断",
+          "temperament": "冷酷阴险"
+        },
+        "relationships": [
+          {"target": "char_chu_yuan", "type": "挚友", "intensity": 60, "bond_level": 3, "dynamic": "褚元的好友"},
+          {"target": "char_ye_ling_feng", "type": "主仆", "intensity": 70, "bond_level": 3, "dynamic": "挟持叶凌风为朝廷卧底"},
+          {"target": "char_he_lan_ming", "type": "师徒", "intensity": 50, "bond_level": 2, "dynamic": "贺兰明的师兄"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [17],
+        "source_refs": [{"chapter": 17, "line_start": 217, "line_end": 218, "text": "我不但是褚元的老朋友，又是御林军副统领贺兰明的师兄。我名叫风从龙。"}]
+      },
+      {
+        "id": "char_he_lan_ming",
+        "name": "贺兰明",
+        "alias": [],
+        "identity": "御林军副统领",
+        "faction": "faction_qing_ting",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "御林军副统领，风从龙的师弟，武功极高",
+        "personality": {
+          "traits": ["凶狠", "狡诈", "善用暗器"],
+          "speech_style": "粗犷",
+          "temperament": "凶悍"
+        },
+        "relationships": [
+          {"target": "char_feng_cong_long", "type": "师徒", "intensity": 50, "bond_level": 2, "dynamic": "风从龙的师弟"},
+          {"target": "char_wei_chi_jiong", "type": "宿敌", "intensity": 80, "bond_level": 4, "dynamic": "追捕尉迟炯"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [16, 17],
+        "source_refs": [{"chapter": 16, "line_start": 402, "line_end": 404, "text": "一个是御林军的副统领贺兰明，一个是带刀侍卫李大进。"}]
+      },
+      {
+        "id": "char_li_da_jin",
+        "name": "李大进",
+        "alias": [],
+        "identity": "带刀侍卫",
+        "faction": "faction_qing_ting",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "内廷侍卫高手，与贺兰明、鹿克犀联手追捕尉迟炯",
+        "personality": {
+          "traits": ["勇猛", "争功", "报复心强"],
+          "speech_style": "粗豪",
+          "temperament": "好勇斗狠"
+        },
+        "relationships": [
+          {"target": "char_he_lan_ming", "type": "合作者", "intensity": 50, "bond_level": 2, "dynamic": "同僚关系"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [16],
+        "source_refs": [{"chapter": 16, "line_start": 402, "line_end": 403, "text": "李大进也是内廷侍卫中有数的高手。"}]
+      },
+      {
+        "id": "char_zhong_chang_tong",
+        "name": "仲长统",
+        "alias": [],
+        "identity": "丐帮帮主",
+        "faction": "faction_gai_bang",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "丐帮帮主，华天风的好友，江海天的世叔，混元一气功名震江湖",
+        "personality": {
+          "traits": ["豪爽", "直率", "重义气", "性情直爽", "护短"],
+          "speech_style": "豪迈直爽",
+          "temperament": "豪迈大气"
+        },
+        "relationships": [
+          {"target": "char_jiang_hai_tian", "type": "挚友", "intensity": 70, "bond_level": 4, "dynamic": "世交关系，二十年重逢"}
+        ],
+        "known_skills": ["skill_hun_yuan_yi_qi_gong"],
+        "related_skills": [],
+        "rag_refs": [18],
+        "source_refs": [{"chapter": 18, "line_start": 60, "line_end": 60, "text": "却原来是丐帮的帮主仲长统。"}]
+      },
+      {
+        "id": "char_yuan_yi_chong",
+        "name": "元一冲",
+        "alias": [],
+        "identity": "丐帮大弟子",
+        "faction": "faction_gai_bang",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "仲长统大弟子，丐帮第三把好手，在天笔峰被上官纨擒获",
+        "personality": {
+          "traits": ["武功扎实", "忠厚老实", "知耻近乎勇"],
+          "speech_style": "恭敬谨慎",
+          "temperament": "沉稳"
+        },
+        "relationships": [
+          {"target": "char_zhong_chang_tong", "type": "师徒", "intensity": 80, "bond_level": 4, "dynamic": "师徒关系"}
+        ],
+        "known_skills": ["skill_hun_yuan_yi_qi_gong"],
+        "related_skills": [],
+        "rag_refs": [18],
+        "source_refs": [{"chapter": 18, "line_start": 86, "line_end": 88, "text": "另一个中年化子，这时刚刚赶到。江海天认得他是仲长统的大弟子元一冲。"}]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_hun_yuan_yi_qi_gong",
+        "name": "混元一气功",
+        "type": "内功",
+        "description": "丐帮绝学，仲长统名震江湖的内功心法，炉火纯青",
+        "owner": "char_zhong_chang_tong",
+        "source_refs": [{"chapter": 18, "line_start": 114, "line_end": 114, "text": "二十年前，他的混元一气功已经名震江湖，如今炉火纯青"}]
+      },
+      {
+        "id": "skill_fen_jin_cuo_gu_shou",
+        "name": "分筋错骨手法",
+        "type": "指法",
+        "description": "上官泰家族的怪异手法，可扭伤对手筋脉",
+        "owner": "char_shang_guan_tai",
+        "source_refs": [{"chapter": 18, "line_start": 138, "line_end": 138, "text": "不料他一出手就是极为怪异的分筋错骨手法"}]
+      },
+      {
+        "id": "skill_da_shou_yin",
+        "name": "大手印功",
+        "type": "掌法",
+        "description": "西藏密宗武功，专伤奇经八脉，掌力有如狂涛骇浪",
+        "owner": "char_shang_guan_tai",
+        "source_refs": [{"chapter": 18, "line_start": 412, "line_end": 412, "text": "上官泰练的是西藏密宗的大手印功大，专伤奇经八脉"}]
+      },
+      {
+        "id": "skill_fo_men_shi_zi_hou",
+        "name": "佛门狮子吼功",
+        "type": "内功",
+        "description": "天竺传来的佛门内功，以声音震慑对手",
+        "owner": "char_shang_guan_tai",
+        "source_refs": [{"chapter": 18, "line_start": 270, "line_end": 270, "text": "这是天竺传来的佛门狮子吼功。"}]
+      }
+    ],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_gai_bang",
+        "name": "丐帮",
+        "type": "帮派",
+        "description": "天下第一大帮，与氓山派渊源极深",
+        "source_refs": [{"chapter": 18, "line_start": 60, "line_end": 60, "text": "南北两丐帮合并之后，仲长统继翼仲牟而为丐帮帮主"}]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_qu_wo",
+        "name": "曲沃",
+        "region": "山西",
+        "one_line": "山西小县城，叶凌风等候师父之地",
+        "source_refs": [{"chapter": 16, "line_start": 208, "line_end": 210, "text": "你大师兄叫叶凌风，我叫他在一个名叫曲沃的小县城等我。"}]
+      },
+      {
+        "id": "loc_tian_bi_feng",
+        "name": "天笔峰",
+        "region": "吕梁山",
+        "one_line": "吕梁山上的险峻山峰，盛产药草，上官泰隐居于此",
+        "source_refs": [{"chapter": 18, "line_start": 116, "line_end": 116, "text": "吕粱山上的天笔峰盛产一种药草，是配制金创药最有效的药草。"}]
+      },
+      {
+        "id": "loc_lv_liang_shan",
+        "name": "吕梁山",
+        "region": "山西",
+        "one_line": "山西名山，天笔峰所在地",
+        "source_refs": [{"chapter": 18, "line_start": 36, "line_end": 36, "text": "这一日他们经过吕梁山下"}]
+      },
+      {
+        "id": "loc_mi_zhi",
+        "name": "米脂",
+        "region": "陕西",
+        "one_line": "陕西米脂县，藏龙堡所在地",
+        "source_refs": [{"chapter": 18, "line_start": 4, "line_end": 4, "text": "从米脂走到曲沃"}]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_sheng_teng",
+        "name": "山藤",
+        "type": "special",
+        "owner": null,
+        "one_line": "上官纨用来捆绑丐帮弟子的山藤",
+        "description": "上官纨折取山藤将五名丐帮弟子捆缚成一串牵回家",
+        "effects": [{"type": "控制", "value": "", "description": "捆绑束缚"}],
+        "origin": "天笔峰山中",
+        "rarity": "寻常凡品",
+        "related_characters": ["char_shang_guan_wan"],
+        "related_skills": [],
+        "rag_refs": [18],
+        "source_refs": [{"chapter": 18, "line_start": 176, "line_end": 176, "text": "那女的折了山藤，就将我们五人缚成一串牵回家去"}]
+      }
+    ]
+  }
+}

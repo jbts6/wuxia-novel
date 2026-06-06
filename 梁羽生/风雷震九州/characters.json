@@ -1,0 +1,4369 @@
+[
+  {
+    "id": "char_xiao_zhi_yuan",
+    "name": "萧志远",
+    "alias": [],
+    "identity": "青城派俗家弟子",
+    "faction": "faction_qing_cheng",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "青城派名宿萧青峰之孙，胸怀壮志的青年侠客",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "正义",
+        "勇敢",
+        "老成",
+        "重义"
+      ],
+      "speech_style": "爽朗直接",
+      "temperament": "刚毅果敢"
+    },
+    "relationships": [
+      {
+        "target": "char_ye_ling_feng",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结义兄弟，志趣相投"
+      }
+    ],
+    "known_skills": [
+      "skill_qing_cheng_jian_fa",
+      "skill_tian_luo_bu_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 8,
+        "line_end": 18,
+        "text": "虬须如戟的粗豪汉子...武当派的俗家弟子...名叫萧志远"
+      },
+      {
+        "chapter": 1,
+        "line_start": 54,
+        "line_end": 57,
+        "text": "萧志远的祖父乃是青城派名宿萧青峰"
+      }
+    ]
+  },
+  {
+    "id": "char_ye_ling_feng",
+    "name": "叶凌风",
+    "alias": [
+      "叶廷宗"
+    ],
+    "identity": "文士/游侠",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "scholar",
+    "rank": "略有小成",
+    "one_line": "清秀少年文士，真名叶廷宗，身世隐秘",
+    "personality": {
+      "traits": [
+        "聪明",
+        "机警",
+        "勇敢",
+        "犹豫",
+        "有野心"
+      ],
+      "speech_style": "文雅有礼",
+      "temperament": "外柔内刚"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_zhi_yuan",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "结义兄弟，但隐藏身世秘密"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 12,
+        "line_end": 18,
+        "text": "是一个清秀的少年，文士打扮...名叫叶凌风"
+      },
+      {
+        "chapter": 1,
+        "line_start": 438,
+        "line_end": 440,
+        "text": "彭洪叫道：叶廷宗，你这小子"
+      },
+      {
+        "chapter": 23,
+        "line_start": 9,
+        "line_end": 10,
+        "text": "低声说道：日月无光。这是风从龙给他的联络暗号"
+      }
+    ]
+  },
+  {
+    "id": "char_li_wen_cheng",
+    "name": "李文成",
+    "alias": [
+      "李舵主"
+    ],
+    "identity": "天理教头目",
+    "faction": "faction_tian_li_jiao",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "天理教秘密使者，义气干云，冒死掩护副教主脱险",
+    "personality": {
+      "traits": [
+        "义气",
+        "刚烈",
+        "智勇",
+        "慷慨",
+        "无私"
+      ],
+      "speech_style": "豪迈直率",
+      "temperament": "悲壮慷慨"
+    },
+    "relationships": [
+      {
+        "target": "char_li_guang_xia",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父子深情"
+      },
+      {
+        "target": "char_lin_qing",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "结拜兄弟，舍命掩护"
+      }
+    ],
+    "known_skills": [
+      "skill_kuai_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 160,
+        "line_end": 162,
+        "text": "那汉子蓦地把斗篷卸下...我是李文成"
+      },
+      {
+        "chapter": 1,
+        "line_start": 155,
+        "line_end": 158,
+        "text": "李文成道：我们天理教的总舵设在保定"
+      }
+    ]
+  },
+  {
+    "id": "char_li_guang_xia",
+    "name": "李光夏",
+    "alias": [
+      "夏儿"
+    ],
+    "identity": "李文成之子",
+    "faction": "faction_tian_li_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "江海天弟子，初生之犊不畏虎，性格刚勇",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "勇敢",
+        "孝顺",
+        "机灵",
+        "倔强",
+        "刚直",
+        "冲动"
+      ],
+      "speech_style": "直率冲动",
+      "temperament": "血气方刚"
+    },
+    "relationships": [
+      {
+        "target": "char_li_wen_cheng",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "父子至深"
+      },
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "师徒情深"
+      },
+      {
+        "target": "char_lin_dao_xuan",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "同门师兄弟"
+      }
+    ],
+    "known_skills": [
+      "skill_wu_hu_duan_men_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 98,
+        "line_end": 112,
+        "text": "那孩子道：爹爹，你答应我给你帮手...爹爹，我决不逃"
+      },
+      {
+        "chapter": 55,
+        "line_start": 72,
+        "line_end": 322,
+        "text": "李光夏等人是初生之犊不畏虎...李光夏道：师父..."
+      }
+    ]
+  },
+  {
+    "id": "char_peng_hong",
+    "name": "彭洪",
+    "alias": [],
+    "identity": "北五省著名剧盗",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "北五省剧盗，投靠清廷做鹰犬",
+    "personality": {
+      "traits": [
+        "凶残",
+        "贪婪",
+        "势利",
+        "阴险",
+        "凶狠",
+        "狡猾",
+        "怯懦"
+      ],
+      "speech_style": "粗犷",
+      "temperament": "凶狠"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_pan_guan_bi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 124,
+        "line_end": 124,
+        "text": "江湖上著名的剧盗彭洪"
+      },
+      {
+        "chapter": 1,
+        "line_start": 154,
+        "line_end": 154,
+        "text": "彭洪踏上两步，蓦地喝道：你是何人？"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_mu_da_shi",
+    "name": "黑木大师",
+    "alias": [],
+    "identity": "千佛寺高僧",
+    "faction": null,
+    "role": "villain",
+    "archetype": "monk",
+    "rank": "出神入化",
+    "one_line": "千佛寺高僧，外家功夫登峰造极，投靠清廷",
+    "personality": {
+      "traits": [
+        "凶狠",
+        "自负",
+        "暴躁",
+        "刚猛",
+        "易怒",
+        "外家高手",
+        "记仇"
+      ],
+      "speech_style": "粗犷",
+      "temperament": "凶悍"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_feng_mo_zhang_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 130,
+        "line_end": 178,
+        "text": "千佛寺的高僧黑木大师...疯魔杖法"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_tao_dao_ren",
+    "name": "白涛道人",
+    "alias": [
+      "白涛"
+    ],
+    "identity": "万妙观主持",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "万妙观主持，剑法奇诡，受清廷收买但心存羞耻",
+    "personality": {
+      "traits": [
+        "矛盾",
+        "有些良知",
+        "虚荣",
+        "剑法诡谲",
+        "虚伪",
+        "贪生怕死",
+        "墙头草",
+        "心虚"
+      ],
+      "speech_style": "文雅",
+      "temperament": "外正内怯"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_wan_miao_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      23,
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 178,
+        "line_end": 196,
+        "text": "万妙观的主持白涛道长...剑法奇诡莫测"
+      },
+      {
+        "chapter": 23,
+        "line_start": 371,
+        "line_end": 373,
+        "text": "白涛道人则是他最得力的助手"
+      },
+      {
+        "chapter": 24,
+        "line_start": 54,
+        "line_end": 56,
+        "text": "白涛道人在李大典耳边悄声说道"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_yi_wu_shi",
+    "name": "黑衣武士",
+    "alias": [],
+    "identity": "清廷大内高手",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "清廷大内高手，使虬龙鞭，武功极高",
+    "personality": {
+      "traits": [
+        "阴狠",
+        "老练",
+        "残忍",
+        "阴险",
+        "狠辣",
+        "武功高强",
+        "心机深",
+        "冷酷"
+      ],
+      "speech_style": "阴沉",
+      "temperament": "冷酷"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_qiu_long_bian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 234,
+        "line_end": 248,
+        "text": "黑衣武士...虬龙鞭...清廷的大内高手"
+      }
+    ]
+  },
+  {
+    "id": "char_lin_qing",
+    "name": "林清",
+    "alias": [
+      "林副教主",
+      "林舵主"
+    ],
+    "identity": "天理教副教主",
+    "faction": "faction_tian_li_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "天理教副教主，总舵被破后逃出，肩负重担",
+    "personality": {
+      "traits": [
+        "坚毅",
+        "有担当",
+        "义薄云天",
+        "智勇双全",
+        "反清志士",
+        "慷慨赴死",
+        "大义凛然"
+      ],
+      "speech_style": "沉稳",
+      "temperament": "沉着"
+    },
+    "relationships": [
+      {
+        "target": "char_li_wen_cheng",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "结拜兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 155,
+        "line_end": 158,
+        "text": "副教主林清逃了出来"
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_hai_tian",
+    "name": "江海天",
+    "alias": [
+      "江大侠"
+    ],
+    "identity": "金世遗衣钵传人，氓山掌门之夫",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "天下第一武学高手，叶凌风的师父（真侄儿叶慕华）",
+    "personality": {
+      "traits": [
+        "侠义",
+        "提携后进",
+        "谦逊",
+        "仁厚",
+        "睿智",
+        "威严"
+      ],
+      "speech_style": "温和从容",
+      "temperament": "深沉博大"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_zhong_lian",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_gu_zhong_lian",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_ye_mu_hua",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "收为门下，清理门户"
+      },
+      {
+        "target": "char_li_guang_xia",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "师徒"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "师徒",
+        "intensity": 0,
+        "bond_level": 1,
+        "dynamic": "被骗收徒，已清理门户"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 54,
+        "line_end": 62,
+        "text": "金世遗大侠的衣钵传人...江海天"
+      },
+      {
+        "chapter": 55,
+        "line_start": 114,
+        "line_end": 131,
+        "text": "这个一直没有作声的中年汉子竟是天下第一的武学高手江海天。...你们走了七天之后..."
+      }
+    ]
+  },
+  {
+    "id": "char_han_xu_dao_ren",
+    "name": "涵虚道人",
+    "alias": [
+      "涵虚道长"
+    ],
+    "identity": "泰山玉皇观主持",
+    "faction": null,
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "出神入化",
+    "one_line": "泰山玉皇观主持，武学深湛，暗中赞助反清义士",
+    "personality": {
+      "traits": [
+        "古道热肠",
+        "谨慎",
+        "老成",
+        "胸襟宽广",
+        "深藏不露"
+      ],
+      "speech_style": "文雅沉稳",
+      "temperament": "深沉内敛"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_zhi_yuan",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "世交长辈与晚辈"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 276,
+        "line_end": 280,
+        "text": "涵虚道人早已在那里等候...玉皇观的主持涵虚道长"
+      }
+    ]
+  },
+  {
+    "id": "char_tie_qiao",
+    "name": "冷铁樵",
+    "alias": [],
+    "identity": "小金川大芒岭寨主冷天禄之侄",
+    "faction": "faction_xiao_jin_chuan",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "小金川冷天禄之侄，豪爽绿林好汉",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "耿直",
+        "易怒",
+        "重义气",
+        "刚直",
+        "鲁莽",
+        "重义轻生",
+        "热血"
+      ],
+      "speech_style": "粗犷直接",
+      "temperament": "豪迈刚直"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 60,
+        "line_end": 64,
+        "text": "冷寨主的侄子，大名铁樵"
+      }
+    ]
+  },
+  {
+    "id": "char_chu_yuan",
+    "name": "褚元",
+    "alias": [
+      "七步追魂手"
+    ],
+    "identity": "黑道叛徒，清廷暗探",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "昔年独脚大盗，后被收服做清廷带刀侍卫，擅七步朱砂掌",
+    "personality": {
+      "traits": [
+        "阴险",
+        "狡诈",
+        "毒辣",
+        "善于伪装",
+        "心狠手辣",
+        "贪功"
+      ],
+      "speech_style": "阴沉",
+      "temperament": "阴鸷"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_qi_bu_zhu_sha_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 424,
+        "line_end": 426,
+        "text": "三官，你干什么？你，你下得好，好……"
+      }
+    ]
+  },
+  {
+    "id": "char_gu_zhong_lian",
+    "name": "谷中莲",
+    "alias": [],
+    "identity": "氓山派掌门/江海天之妻",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "江海天之妻，叶冲霄之妹，弹指神通绝顶武功",
+    "personality": {
+      "traits": [
+        "精细",
+        "心地纯良",
+        "直爽",
+        "庄重",
+        "智慧",
+        "慈爱",
+        "偏心",
+        "果断",
+        "刚强"
+      ],
+      "speech_style": "温和中带威严",
+      "temperament": "刚柔并济"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "夫妻",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "恩爱夫妻"
+      },
+      {
+        "target": "char_ye_chong_xiao",
+        "type": "兄妹",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "牵挂大哥"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "姑侄/师母",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "严谨考核后接纳"
+      },
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_ye_mu_hua",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "姑侄相认"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "师徒",
+        "intensity": 0,
+        "bond_level": 1,
+        "dynamic": "被骗认作侄儿"
+      }
+    ],
+    "known_skills": [
+      "skill_tan_zhi_shen_tong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      56
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 408,
+        "line_end": 426,
+        "text": "谷中莲恰好在家...她却比江海天精细得多"
+      },
+      {
+        "chapter": 4,
+        "line_start": 460,
+        "line_end": 462,
+        "text": "侄儿，你以前练过些什么功夫，露几手给我看看"
+      },
+      {
+        "chapter": 56,
+        "line_start": 240,
+        "line_end": 298,
+        "text": "原来这个中年妇人不是别个，正是江海天的妻子谷中莲..."
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_xiao_fu",
+    "name": "江晓芙",
+    "alias": [],
+    "identity": "江海天之女",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "江海天之女，与宇文雄互有情意",
+    "personality": {
+      "traits": [
+        "活泼",
+        "好胜",
+        "天真",
+        "娇纵",
+        "勇敢",
+        "直率"
+      ],
+      "speech_style": "活泼天真",
+      "temperament": "开朗"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "父女",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "受宠爱但被严厉管教"
+      },
+      {
+        "target": "char_jiang_nan",
+        "type": "祖孙",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "祖父极度宠爱"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "师兄妹",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "叶凌风对她一见钟情"
+      },
+      {
+        "target": "char_yu_wen_xiong",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "互有情意，父亲撮合"
+      },
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_gu_zhong_lian",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "母女"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_shan_jian_fa",
+      "skill_you_shen_ba_gua_zhang",
+      "skill_tian_luo_bu_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      56
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 42,
+        "line_end": 66,
+        "text": "这少女练的游身八卦掌...劈空掌击落茶花...运用之妙"
+      },
+      {
+        "chapter": 4,
+        "line_start": 140,
+        "line_end": 147,
+        "text": "原来这少女名叫江晓芙，正是江海天的独生爱女"
+      },
+      {
+        "chapter": 56,
+        "line_start": 106,
+        "line_end": 427,
+        "text": "江晓芙催快马已及时赶到...江晓芙叫道：妈..."
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_nan",
+    "name": "江南",
+    "alias": [
+      "江老爷子"
+    ],
+    "identity": "江海天之父",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "江海天之父，年近六旬，爱说话爱夸张，热心老侠客",
+    "personality": {
+      "traits": [
+        "多嘴",
+        "热心",
+        "夸张",
+        "幽默",
+        "老而弥坚"
+      ],
+      "speech_style": "唠叨夸张",
+      "temperament": "豪爽乐观"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "父子",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "儿子恭敬父亲执拗"
+      },
+      {
+        "target": "char_jiang_xiao_fu",
+        "type": "祖孙",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "极度宠爱孙女"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 200,
+        "line_end": 206,
+        "text": "出来见客的正是江海天之父江南...年近六旬...爱说话...爱夸张"
+      }
+    ]
+  },
+  {
+    "id": "char_ye_chong_xiao",
+    "name": "叶冲霄",
+    "alias": [
+      "大哥"
+    ],
+    "identity": "谷中莲之兄/马萨儿国前王子",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "谷中莲的大哥，曾误入歧途后改邪归正，携妻隐居海外",
+    "personality": {
+      "traits": [
+        "骄傲",
+        "内疚",
+        "偏激",
+        "自责",
+        "奸诈",
+        "虚伪",
+        "野心勃勃",
+        "心机深沉"
+      ],
+      "speech_style": "普通",
+      "temperament": "深沉内敛"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_zhong_lian",
+        "type": "兄妹",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "妹妹牵挂大哥"
+      },
+      {
+        "target": "char_ou_yang_wan",
+        "type": "夫妻",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "夫妻偕隐海外"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "父子",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "送子投奔姑姑"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 388,
+        "line_end": 396,
+        "text": "谷中莲有两个大哥...叶冲霄因为少年时候受仇人所骗...后来知道了生身之谜...改邪归正"
+      }
+    ]
+  },
+  {
+    "id": "char_ou_yang_wan",
+    "name": "欧阳婉",
+    "alias": [
+      "大嫂"
+    ],
+    "identity": "叶冲霄之妻",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "叶冲霄之妻，练邪派武功擅使毒，与江海天少年时有旧谊",
+    "personality": {
+      "traits": [
+        "温柔",
+        "贤淑",
+        "深明大义",
+        "坚韧",
+        "慈爱"
+      ],
+      "speech_style": "普通",
+      "temperament": "普通"
+    },
+    "relationships": [
+      {
+        "target": "char_ye_chong_xiao",
+        "type": "夫妻",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "夫妻偕隐海外"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 398,
+        "line_end": 416,
+        "text": "那封信上有叶冲霄夫妇的署名，信则是时冲霄妻子欧阳婉写的...江海天少年时候与欧阳婉有过一段颇不平凡的交谊"
+      }
+    ]
+  },
+  {
+    "id": "char_leng_tian_lu",
+    "name": "冷天禄",
+    "alias": [
+      "冷寨主"
+    ],
+    "identity": "小金川寨主",
+    "faction": "faction_xiao_jin_chuan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "小金川冷家寨主，冷铁樵的叔父，举义反清",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "刚烈",
+        "重义气",
+        "勇猛",
+        "直率"
+      ],
+      "speech_style": "普通",
+      "temperament": "普通"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 364,
+        "line_end": 368,
+        "text": "小金川冷寨主的侄儿冷铁樵"
+      }
+    ]
+  },
+  {
+    "id": "char_qi_sheng_yin",
+    "name": "祈圣因",
+    "alias": [
+      "千手观音"
+    ],
+    "identity": "江湖女子/李文成表妹",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "千手观音，善使暗器透骨钉，尉迟炯之妻",
+    "personality": {
+      "traits": [
+        "狠辣",
+        "复杂",
+        "痴情",
+        "执着",
+        "矛盾",
+        "机智",
+        "果断",
+        "冷静"
+      ],
+      "speech_style": "干练利落",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_li_wen_cheng",
+        "type": "旧情人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "年轻时想嫁李文成未果，因爱生恨"
+      },
+      {
+        "target": "char_li_guang_xia",
+        "type": "表侄",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "对李光夏又爱又恨的复杂情感"
+      },
+      {
+        "target": "char_nv_zi",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "手下丫鬟"
+      },
+      {
+        "target": "char_wei_chi_jiong",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_gu_zhong_lian",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "及时提醒谷中莲"
+      }
+    ],
+    "known_skills": [
+      "skill_bian_jian_shuang_jue",
+      "skill_an_qi_mei_hua_zhen"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      22,
+      23,
+      24,
+      56
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 411,
+        "line_end": 412,
+        "text": "千手观音祈圣因...手下的一个丫鬟先把他带走"
+      },
+      {
+        "chapter": 5,
+        "line_start": 423,
+        "line_end": 496,
+        "text": "祈圣因叫道...柔声说道...好孩子，我是你的长辈亲戚"
+      },
+      {
+        "chapter": 22,
+        "line_start": 182,
+        "line_end": 184,
+        "text": "千手观音祈圣因"
+      },
+      {
+        "chapter": 22,
+        "line_start": 320,
+        "line_end": 324,
+        "text": "三个月前，我与他分手，各干一桩事情"
+      },
+      {
+        "chapter": 23,
+        "line_start": 411,
+        "line_end": 412,
+        "text": "鞭剑双绝的功夫也是她家传绝学"
+      },
+      {
+        "chapter": 24,
+        "line_start": 224,
+        "line_end": 230,
+        "text": "第二件事，要你立刻去办的。你去告诉江大侠的夫人，他那个二徒弟宇文雄是奸细"
+      },
+      {
+        "chapter": 56,
+        "line_start": 218,
+        "line_end": 261,
+        "text": "千手观音祈圣因居高临下...祈圣因连忙叫道..."
+      }
+    ]
+  },
+  {
+    "id": "char_nv_zi",
+    "name": "丫鬟",
+    "alias": [],
+    "identity": "祈圣因的丫鬟",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "祈圣因的丫鬟，伶牙俐齿，骗走江南白龙驹",
+    "personality": {
+      "traits": [
+        "机灵",
+        "狡狯",
+        "嘴巧",
+        "胆大",
+        "忠心",
+        "胆小",
+        "细心",
+        "顺从"
+      ],
+      "speech_style": "伶牙俐齿",
+      "temperament": "机变"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_sheng_yin",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "忠于主人"
+      },
+      {
+        "target": "char_jiang_nan",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 1,
+        "dynamic": "戏弄江南"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 213,
+        "line_end": 357,
+        "text": "那女子嚷道...江老爷子，你是天下闻名的老英雄...把白龙驹骗走"
+      }
+    ]
+  },
+  {
+    "id": "char_lu_lao_da",
+    "name": "鹿老大",
+    "alias": [
+      "独角鹿"
+    ],
+    "identity": "江湖怪客",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "独角鹿，江湖怪客，使用鹿角叉，自称与李文成有八拜之交",
+    "personality": {
+      "traits": [
+        "阴险",
+        "狠辣",
+        "老练",
+        "狡诈",
+        "贪婪",
+        "凶狠",
+        "多疑",
+        "自私"
+      ],
+      "speech_style": "阴恻恻",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_sheng_yin",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "争夺李光夏的对手"
+      },
+      {
+        "target": "char_li_guang_xia",
+        "type": "义叔侄",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "自称八拜之交，实为图谋不轨"
+      }
+    ],
+    "known_skills": [
+      "skill_lu_jiao_cha"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 32,
+        "line_end": 57,
+        "text": "千手观音，你欺负一个孩子...那被她称作鹿老大...鹿角叉...自称与李文成有八拜之交"
+      }
+    ]
+  },
+  {
+    "id": "char_luo_qi_wan",
+    "name": "罗绮纨",
+    "alias": [],
+    "identity": "李文成之妻",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "李文成之妻，李光夏之母，脸有祈圣因斫的刀疤",
+    "personality": {
+      "traits": [
+        "泼辣",
+        "能干",
+        "重情义",
+        "直爽",
+        "刚强"
+      ],
+      "speech_style": "普通",
+      "temperament": "普通"
+    },
+    "relationships": [
+      {
+        "target": "char_li_wen_cheng",
+        "type": "夫妻",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "李文成之妻"
+      },
+      {
+        "target": "char_li_guang_xia",
+        "type": "母子",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "李光夏之母"
+      },
+      {
+        "target": "char_qi_sheng_yin",
+        "type": "情敌",
+        "intensity": 60,
+        "bond_level": 1,
+        "dynamic": "被祈圣因在脸上斫了一刀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 46,
+        "line_end": 50,
+        "text": "李光夏的母亲的确是名叫罗绮纨，脸上也确是有个刀疤...祈圣因所斫"
+      }
+    ]
+  },
+  {
+    "id": "char_qi_sheng_yin_zhang_fu",
+    "name": "祈圣因丈夫",
+    "alias": [
+      "贼汉子"
+    ],
+    "identity": "独行大盗",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "超凡入圣",
+    "one_line": "祈圣因之夫，独行大盗，天罡掌法厉害，心狠手辣",
+    "personality": {
+      "traits": [
+        "心狠手辣",
+        "嫉妒心重",
+        "贪婪",
+        "武艺高强",
+        "神秘",
+        "武功高强",
+        "冷酷",
+        "心机深"
+      ],
+      "speech_style": "豪横",
+      "temperament": "凶悍"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_sheng_yin",
+        "type": "夫妻",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "夫妻不和，嫉妒心重"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_gang_zhang_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 300,
+        "line_end": 320,
+        "text": "一个重浊的声音喊道...祈圣因的丈夫...以心狠手辣在黑道驰名...天罡掌法"
+      }
+    ]
+  },
+  {
+    "id": "char_cheng_bai_yue",
+    "name": "程百岳",
+    "alias": [],
+    "identity": "武林人士",
+    "faction": "faction_tian_li_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "武邑武林人士，受李文成之托照看李光夏，房屋被烧后投奔藏龙堡",
+    "personality": {
+      "traits": [
+        "侠义",
+        "执着",
+        "重义",
+        "刚直",
+        "正直",
+        "仗义",
+        "武艺高强",
+        "豪爽"
+      ],
+      "speech_style": "直率",
+      "temperament": "刚毅"
+    },
+    "relationships": [
+      {
+        "target": "char_li_guang_xia",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "受托照看世侄"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 2,
+        "line_end": 8,
+        "text": "程百岳大怒道：谁稀罕到你们家里？我是要这孩子留下！"
+      }
+    ]
+  },
+  {
+    "id": "char_an_da_shu",
+    "name": "安大叔",
+    "alias": [],
+    "identity": "神秘势力管家手下高手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "神秘家族的高手，缅刀刀法精妙，连江海天也不卖帐",
+    "personality": {
+      "traits": [
+        "自信",
+        "傲慢",
+        "老练",
+        "忠诚",
+        "沉稳",
+        "武功高强",
+        "低调"
+      ],
+      "speech_style": "老练自信",
+      "temperament": "从容不迫"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_mian_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 18,
+        "line_end": 30,
+        "text": "缅刀劈下...我连江海天都不卖帐"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_gu_niang",
+    "name": "小姑娘",
+    "alias": [],
+    "identity": "神秘家族小姐",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "神秘家族的小姐，要李光夏作伴，手下众多高手",
+    "personality": {
+      "traits": [
+        "天真",
+        "任性",
+        "娇纵",
+        "活泼",
+        "可爱",
+        "好奇",
+        "勇敢"
+      ],
+      "speech_style": "稚嫩活泼",
+      "temperament": "娇憨"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 22,
+        "line_end": 24,
+        "text": "那小姑娘拍手笑道：安大叔，好刀法！"
+      }
+    ]
+  },
+  {
+    "id": "char_qing_yi_han_zi",
+    "name": "青衣汉子",
+    "alias": [],
+    "identity": "神秘家族仆人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "神秘家族的仆人，奉命带走李光夏",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "沉稳",
+        "神秘",
+        "武功高强",
+        "冷酷",
+        "忠心",
+        "果断"
+      ],
+      "speech_style": "恭敬",
+      "temperament": "沉着"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "那青衣汉子道：走吧，你爹爹等着你呢。"
+      }
+    ]
+  },
+  {
+    "id": "char_jun_guan_lu",
+    "name": "军官陆",
+    "alias": [],
+    "identity": "大内军官",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "大内派遣的军官，心思缜密，奉命赴米脂缉拿林清",
+    "personality": {
+      "traits": [
+        "精明",
+        "谨慎",
+        "阴险",
+        "官腔",
+        "世故",
+        "圆滑"
+      ],
+      "speech_style": "沉稳谨慎",
+      "temperament": "深沉"
+    },
+    "relationships": [
+      {
+        "target": "char_jun_guan_li",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "同僚合作"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 234,
+        "line_end": 292,
+        "text": "那姓陆的军官小声说道...姓陆的较为沉着"
+      }
+    ]
+  },
+  {
+    "id": "char_jun_guan_li",
+    "name": "军官李",
+    "alias": [],
+    "identity": "大内军官",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "大内派遣的军官，性情鲁莽，与陆姓军官同赴米脂",
+    "personality": {
+      "traits": [
+        "鲁莽",
+        "贪婪",
+        "自大",
+        "粗鲁",
+        "直率",
+        "勇猛",
+        "莽撞",
+        "忠诚"
+      ],
+      "speech_style": "粗豪直率",
+      "temperament": "急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_jun_guan_lu",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "同僚合作"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 242,
+        "line_end": 302,
+        "text": "那姓李的军官道...姓李的道：我笑你也未免太过怕事了"
+      }
+    ]
+  },
+  {
+    "id": "char_dian_zhu",
+    "name": "店主人",
+    "alias": [],
+    "identity": "客栈老板",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "小镇客栈老板，见到军官百般奉承",
+    "personality": {
+      "traits": [
+        "精明",
+        "胆小",
+        "圆滑",
+        "势利",
+        "市侩"
+      ],
+      "speech_style": "恭敬殷勤",
+      "temperament": "卑微"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 218,
+        "line_end": 220,
+        "text": "我们的马厩地方不人...小的可担待不起"
+      }
+    ]
+  },
+  {
+    "id": "char_chu_meng",
+    "name": "褚蒙",
+    "alias": [],
+    "identity": "御林军副统领",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "御林军副统领，假扮张士龙诱骗江海天喝下毒茶",
+    "personality": {
+      "traits": [
+        "阴险",
+        "狡诈",
+        "鲁莽",
+        "贪婪",
+        "善于伪装",
+        "心狠手辣",
+        "贪功"
+      ],
+      "speech_style": "狂妄自大",
+      "temperament": "阴狠"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "设计毒害江海天"
+      }
+    ],
+    "known_skills": [
+      "skill_pi_li_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 210,
+        "line_end": 214,
+        "text": "在下行不更名，坐不改姓。御林军副统领诸蒙是也"
+      }
+    ]
+  },
+  {
+    "id": "char_yang_tun_hu",
+    "name": "羊吞虎",
+    "alias": [],
+    "identity": "祁连三兽之一",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "祁连三兽老大，绵掌有开碑裂石之能，参与围攻江海天",
+    "personality": {
+      "traits": [
+        "阴险",
+        "老练",
+        "凶残",
+        "谨慎",
+        "凶狠",
+        "贪婪",
+        "狡猾",
+        "势利"
+      ],
+      "speech_style": "阴沉狡诈",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_ke_xi",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "兄弟关系"
+      },
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "参与围攻"
+      },
+      {
+        "target": "char_yang_fan",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "被杨梵惩罚割耳挖眼"
+      }
+    ],
+    "known_skills": [
+      "skill_mian_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 232,
+        "line_end": 264,
+        "text": "祁连山羊吞虎幸会江大侠"
+      }
+    ]
+  },
+  {
+    "id": "char_lu_ke_xi",
+    "name": "鹿克犀",
+    "alias": [
+      "独角鹿"
+    ],
+    "identity": "祁连三兽之一",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "祁连三兽老三，额角凸出肉瘤，使鹿角叉，曾骗走李光夏",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "阴险",
+        "老奸巨猾",
+        "狡诈",
+        "多疑",
+        "狠辣",
+        "贪婪"
+      ],
+      "speech_style": "阴沉",
+      "temperament": "奸诈"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_tun_hu",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "兄弟关系"
+      }
+    ],
+    "known_skills": [
+      "skill_lu_jiao_cha"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 258,
+        "line_end": 276,
+        "text": "江大侠，你不是为了林清而来么...林清已被我们活捉"
+      }
+    ]
+  },
+  {
+    "id": "char_lin_dao_xuan",
+    "name": "林道轩",
+    "alias": [
+      "轩儿",
+      "林家弟弟"
+    ],
+    "identity": "林清之子",
+    "faction": "faction_tian_li_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "江海天弟子，与上官纨默契配合，性格爽快",
+    "personality": {
+      "traits": [
+        "勇敢",
+        "刚烈",
+        "聪明",
+        "孝顺",
+        "天真",
+        "活泼",
+        "忠诚",
+        "纯真",
+        "机灵",
+        "尊敬师长",
+        "爽快"
+      ],
+      "speech_style": "爽朗直接",
+      "temperament": "活泼"
+    },
+    "relationships": [
+      {
+        "target": "char_lin_qing",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "父子至深"
+      },
+      {
+        "target": "char_li_guang_xia",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "拜江海天为师"
+      },
+      {
+        "target": "char_shang_guan_wan",
+        "type": "挚友",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "同龄好友"
+      },
+      {
+        "target": "char_jiang_xiao_fu",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "同门师姐弟"
+      }
+    ],
+    "known_skills": [
+      "skill_yu_chi_bian_fa",
+      "skill_nie_yun_bu",
+      "skill_tian_luo_bu_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14,
+      15,
+      19,
+      28,
+      29,
+      30,
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 504,
+        "line_end": 532,
+        "text": "是我！张伯，我爹爹呢？...你杀了我，我爹爹会给我报仇！我不怕你！"
+      },
+      {
+        "chapter": 19,
+        "line_start": 288,
+        "line_end": 290,
+        "text": "上官纨站在林道轩身边"
+      },
+      {
+        "chapter": 28,
+        "line_start": 196,
+        "line_end": 232,
+        "text": "林道轩...林清的儿子就在你的眼前"
+      },
+      {
+        "chapter": 55,
+        "line_start": 72,
+        "line_end": 217,
+        "text": "林道轩放出剑来...林道轩爽爽快快他说道..."
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_bo",
+    "name": "张伯",
+    "alias": [],
+    "identity": "张家老仆人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "藏龙堡张家老仆人，装聋作哑留在堡中，帮助江海天找到林道轩",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "机智",
+        "勇敢",
+        "老练",
+        "沉稳",
+        "细心",
+        "可靠"
+      ],
+      "speech_style": "朴实",
+      "temperament": "忠厚"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 466,
+        "line_end": 488,
+        "text": "我听得他们叫你江大侠...我是张家的老仆人"
+      }
+    ]
+  },
+  {
+    "id": "char_wei_shi",
+    "name": "卫士",
+    "alias": [],
+    "identity": "御前二等带刀侍卫",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "看守林道轩的御前侍卫，自恃武艺高强",
+    "personality": {
+      "traits": [
+        "自大",
+        "凶狠",
+        "尽职",
+        "警惕",
+        "忠诚",
+        "勇猛",
+        "谨慎"
+      ],
+      "speech_style": "嚣张",
+      "temperament": "凶悍"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_wu_hu_duan_men_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 518,
+        "line_end": 527,
+        "text": "原来是江大侠来了...小贼囚，把脚镣抛下"
+      }
+    ]
+  },
+  {
+    "id": "char_xiang_min_1",
+    "name": "乡人",
+    "alias": [],
+    "identity": "米脂乡民",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "米脂乡下给张大爷跑腿的乡人，为江海天带路",
+    "personality": {
+      "traits": [
+        "朴实",
+        "忠诚",
+        "善良",
+        "胆小",
+        "勤劳",
+        "憨厚"
+      ],
+      "speech_style": "朴实",
+      "temperament": "憨厚"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 82,
+        "line_end": 116,
+        "text": "你是什么人？找张大爷？...我们是给张大爷跑腿的"
+      }
+    ]
+  },
+  {
+    "id": "char_bao_ding",
+    "name": "堡丁",
+    "alias": [],
+    "identity": "藏龙堡堡丁",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "藏龙堡开门堡丁，盘问来客身份",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "尽责",
+        "尽职",
+        "警惕",
+        "忠诚",
+        "勇猛"
+      ],
+      "speech_style": "恭敬",
+      "temperament": "谨慎"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 124,
+        "line_end": 127,
+        "text": "你是我们堡主的朋友吗？...你尊姓大名，可否赐告？"
+      }
+    ]
+  },
+  {
+    "id": "char_yang_fan",
+    "name": "杨梵",
+    "alias": [
+      "梵弟",
+      "梵儿"
+    ],
+    "identity": "杨家少爷",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "杨钲之子，行为乖谬，与上官纨青梅竹马",
+    "personality": {
+      "traits": [
+        "狂妄",
+        "狠辣",
+        "聪明",
+        "骄傲",
+        "有义气",
+        "轻挑",
+        "高傲",
+        "任性",
+        "轻佻",
+        "狡猾",
+        "胆大",
+        "无是非观",
+        "恃强逞能",
+        "冲动",
+        "依附",
+        "装模作样"
+      ],
+      "speech_style": "年轻气盛",
+      "temperament": "色厉内荏"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_jie",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "表姐弟，互相调侃"
+      },
+      {
+        "target": "char_yang_tun_hu",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "羊吞虎曾欺负其表妹"
+      },
+      {
+        "target": "char_yang_zheng",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_shang_guan_wan",
+        "type": "恋人",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "上官纨对他有意但态度轻挑"
+      }
+    ],
+    "known_skills": [
+      "skill_yang_jia_gong_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      15,
+      19,
+      28,
+      29,
+      30,
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 403,
+        "line_end": 750,
+        "text": "只见进米的是一男一女...杨梵笑道：你以为我只会讨好小华么"
+      },
+      {
+        "chapter": 19,
+        "line_start": 30,
+        "line_end": 30,
+        "text": "杨梵的态度却是有点轻挑"
+      },
+      {
+        "chapter": 28,
+        "line_start": 426,
+        "line_end": 454,
+        "text": "杨梵...以迅雷不及掩耳的手法向林道轩当头罩下"
+      },
+      {
+        "chapter": 55,
+        "line_start": 6,
+        "line_end": 168,
+        "text": "杨梵道：对啦...杨梵心里想走..."
+      }
+    ]
+  },
+  {
+    "id": "char_wan_jie",
+    "name": "纨姐",
+    "alias": [],
+    "identity": "杨梵表姐/竺家姑娘",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "杨梵的表姐，竺家姑娘，剑法精妙，心地善良",
+    "personality": {
+      "traits": [
+        "善良",
+        "温柔",
+        "勇敢",
+        "聪明",
+        "重情义"
+      ],
+      "speech_style": "温柔活泼",
+      "temperament": "英姿飒爽"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_fan",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "表姐弟，互相调侃"
+      }
+    ],
+    "known_skills": [
+      "skill_wan_jie_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 403,
+        "line_end": 737,
+        "text": "那小姑娘噘着小嘴儿道：这么多大人，欺负一个孩子，好不要脸！"
+      }
+    ]
+  },
+  {
+    "id": "char_ge_cao_xiang_ren",
+    "name": "割草乡人",
+    "alias": [],
+    "identity": "官军探子",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "平平无奇",
+    "one_line": "冒充割草乡人的官军探子，被江海天点晕睡穴",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "胆小",
+        "朴实",
+        "善良",
+        "勤劳",
+        "憨厚"
+      ],
+      "speech_style": "卑微",
+      "temperament": "怯懦"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 122,
+        "line_end": 134,
+        "text": "我是割草的乡人...可怜我上有八十岁老母"
+      }
+    ]
+  },
+  {
+    "id": "char_zhong_chang_tong",
+    "name": "仲长统",
+    "alias": [
+      "仲帮主",
+      "老叫化"
+    ],
+    "identity": "丐帮帮主",
+    "faction": "faction_gai_bang",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "丐帮帮主，使混元一气功，豪爽刚正",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "刚烈",
+        "重义",
+        "老练",
+        "暴躁",
+        "豪迈",
+        "正直",
+        "消息灵通",
+        "刚毅",
+        "好胜"
+      ],
+      "speech_style": "豪迈直率",
+      "temperament": "豪放不羁"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "互相敬重的忘年之交"
+      },
+      {
+        "target": "char_shang_guan_tai",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "不打不成相识，惺惺相惜"
+      },
+      {
+        "target": "char_ou_yang_bo_he",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "激战近千招获胜"
+      }
+    ],
+    "known_skills": [
+      "skill_hun_yuan_yi_qi_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      19,
+      29,
+      30,
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 20,
+        "line_end": 22,
+        "text": "仲长统冷笑道：上官山主，这张文书，我看还是该你划押"
+      },
+      {
+        "chapter": 30,
+        "line_start": 34,
+        "line_end": 39,
+        "text": "丐帮的帮主仲长统"
+      },
+      {
+        "chapter": 55,
+        "line_start": 110,
+        "line_end": 196,
+        "text": "丐帮帮主仲长统...老叫化不甘寂寞..."
+      }
+    ]
+  },
+  {
+    "id": "char_shang_guan_tai",
+    "name": "上官泰",
+    "alias": [
+      "上官山主"
+    ],
+    "identity": "天笔峰山主",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "天笔峰山主，上官纨之父，杨钲襟弟，大手印功夫了得",
+    "personality": {
+      "traits": [
+        "据傲",
+        "豪爽",
+        "守信",
+        "暴躁",
+        "光明磊落",
+        "义气",
+        "正直",
+        "重情",
+        "刚正",
+        "嗜武"
+      ],
+      "speech_style": "豪迈直爽",
+      "temperament": "刚正不阿"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_zheng",
+        "type": "亲属",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "连襟关系，杨钲心怀叵测"
+      },
+      {
+        "target": "char_zhong_chang_tong",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "不打不成相识"
+      },
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "被江海天救命，心存感激"
+      },
+      {
+        "target": "char_yang_zheng",
+        "type": "宿敌",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "襟兄弟反目"
+      },
+      {
+        "target": "char_zhu_shang_fu",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "互相帮助"
+      },
+      {
+        "target": "char_shang_guan_wan",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "父女"
+      }
+    ],
+    "known_skills": [
+      "skill_da_shou_yin",
+      "skill_duan_mai_bi_qi_gong",
+      "skill_wu_xing_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      19,
+      29,
+      30,
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 24,
+        "line_end": 24,
+        "text": "上官泰一言不发，接过文书，嗤嗤两声，就撕成四片"
+      },
+      {
+        "chapter": 29,
+        "line_start": 441,
+        "line_end": 442,
+        "text": "他有一个连襟往在天笔峰，名唤上官泰"
+      },
+      {
+        "chapter": 55,
+        "line_start": 110,
+        "line_end": 298,
+        "text": "天笔峰的山主上官泰...上官泰喝彩道...上官泰叹了口气..."
+      }
+    ]
+  },
+  {
+    "id": "char_yang_zheng",
+    "name": "杨钲",
+    "alias": [
+      "杨老前辈",
+      "二姨父"
+    ],
+    "identity": "上官泰的连襟，竺太哥的襟弟",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "邪派大魔头，使青竹杖点穴杖法，杨梵之父",
+    "personality": {
+      "traits": [
+        "阴险",
+        "狡诈",
+        "口蜜腹剑",
+        "工于心计",
+        "狠毒",
+        "狡猾",
+        "武功高强",
+        "残忍",
+        "城府深",
+        "狠辣",
+        "自视甚高",
+        "惜命"
+      ],
+      "speech_style": "老练圆滑",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_shang_guan_tai",
+        "type": "亲属",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "连襟但暗中算计，偷袭上官泰"
+      },
+      {
+        "target": "char_zhu_tai_ge",
+        "type": "亲属",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "襟兄弟，杨钲想谋害他"
+      },
+      {
+        "target": "char_yang_fan",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_shang_guan_tai",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "襟兄弟反目"
+      },
+      {
+        "target": "char_zhu_shang_fu",
+        "type": "亲属",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "襟兄弟，利用关系"
+      },
+      {
+        "target": "char_ou_yang_bo_he",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "同为邪派，互相利用"
+      }
+    ],
+    "known_skills": [
+      "skill_qing_zhu_zhang",
+      "skill_qing_zhu_zhang_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      19,
+      28,
+      29,
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 200,
+        "line_end": 206,
+        "text": "三缕长须、五旬开外的老者，跛了一足，挟着一根竹杖"
+      },
+      {
+        "chapter": 28,
+        "line_start": 66,
+        "line_end": 76,
+        "text": "这瘦长汉子不是别人，正是杨钲"
+      },
+      {
+        "chapter": 55,
+        "line_start": 2,
+        "line_end": 14,
+        "text": "杨钲父子逃入了森林之后...杨钲笑道...杨梵道：是向西方。"
+      }
+    ]
+  },
+  {
+    "id": "char_shang_guan_wan",
+    "name": "上官纨",
+    "alias": [
+      "纨儿",
+      "阿纨"
+    ],
+    "identity": "上官泰之女",
+    "faction": null,
+    "role": "companion",
+    "archetype": "scholar",
+    "rank": "略有小成",
+    "one_line": "上官泰之女，与杨梵青梅竹马，使家传剑法",
+    "personality": {
+      "traits": [
+        "天真",
+        "率直",
+        "活泼",
+        "聪明",
+        "痴情",
+        "机灵",
+        "善良",
+        "有主见"
+      ],
+      "speech_style": "活泼灵巧",
+      "temperament": "爽朗"
+    },
+    "relationships": [
+      {
+        "target": "char_shang_guan_tai",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父女至深"
+      },
+      {
+        "target": "char_yang_fan",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "钟情杨梵"
+      },
+      {
+        "target": "char_lin_dao_xuan",
+        "type": "挚友",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "同龄好友"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      19,
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 288,
+        "line_end": 290,
+        "text": "上官纨站在林道轩身边，伸了伸舌头，对林道轩悄声说道"
+      },
+      {
+        "chapter": 55,
+        "line_start": 156,
+        "line_end": 270,
+        "text": "上官纨虽然痛恨杨梵...上官纨道：爹爹，你的意思怎样？..."
+      }
+    ]
+  },
+  {
+    "id": "char_yuan_yi_chong",
+    "name": "元一冲",
+    "alias": [],
+    "identity": "仲长统大弟子",
+    "faction": "faction_gai_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "丐帮帮主仲长统的大弟子",
+    "personality": {
+      "traits": [
+        "忠心",
+        "稳重",
+        "机灵",
+        "消息灵通",
+        "正义"
+      ],
+      "speech_style": "沉稳",
+      "temperament": "稳重"
+    },
+    "relationships": [
+      {
+        "target": "char_zhong_chang_tong",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒情深"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      19,
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 92,
+        "line_end": 92,
+        "text": "仲长统的大弟子元一冲也不禁忧心忡忡"
+      },
+      {
+        "chapter": 29,
+        "line_start": 405,
+        "line_end": 409,
+        "text": "说话这人乃是丐帮帮主仲长统的大弟子元一冲"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_tai_ge",
+    "name": "竺太哥",
+    "alias": [
+      "竺大哥",
+      "竺前辈"
+    ],
+    "identity": "上官泰与杨钲的大连襟，隐居高人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "上官泰和杨钲的大连襟，武功天下第一，性情古怪，有意举事反清",
+    "personality": {
+      "traits": [
+        "古怪",
+        "自负",
+        "好胜",
+        "刚愎",
+        "豪爽",
+        "勇敢",
+        "重义气",
+        "直率"
+      ],
+      "speech_style": "命令式",
+      "temperament": "傲慢独断"
+    },
+    "relationships": [
+      {
+        "target": "char_shang_guan_tai",
+        "type": "亲属",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "连襟，以上对下"
+      },
+      {
+        "target": "char_yang_zheng",
+        "type": "亲属",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "连襟，杨钲暗中谋害"
+      }
+    ],
+    "known_skills": [
+      "skill_liu_yang_shou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 44,
+        "line_end": 46,
+        "text": "这次我到了竺家，竺大哥也和我提起了儿女的婚事"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_qing_hua",
+    "name": "竺清华",
+    "alias": [
+      "清华表妹",
+      "清华侄女"
+    ],
+    "identity": "竺太哥之女",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "竺太哥之女，年仅十二，骄纵任性，钟情杨梵表哥",
+    "personality": {
+      "traits": [
+        "骄纵",
+        "天真",
+        "痴情",
+        "聪明",
+        "勇敢",
+        "善良",
+        "重情义",
+        "坚强"
+      ],
+      "speech_style": "普通",
+      "temperament": "娇纵少女"
+    },
+    "relationships": [
+      {
+        "target": "char_zhu_tai_ge",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_yang_fan",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "钟情表哥"
+      },
+      {
+        "target": "char_li_guang_xia",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "李光夏名义上是她的书童"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 54,
+        "line_end": 58,
+        "text": "她偷偷离家，来和我那小子玩了几天。她家里可闹得天翻地覆"
+      }
+    ]
+  },
+  {
+    "id": "char_zi_wen_xiong",
+    "name": "字文雄",
+    "alias": [
+      "二师哥",
+      "阿雄"
+    ],
+    "identity": "江海天二徒弟",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "江海天二徒弟，胸襟坦荡，与江晓芙同门习艺",
+    "personality": {
+      "traits": [
+        "坦荡",
+        "老实",
+        "谦逊",
+        "勤奋",
+        "耿直",
+        "倔强",
+        "忠诚",
+        "勇敢"
+      ],
+      "speech_style": "朴实诚恳",
+      "temperament": "敦厚"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒"
+      },
+      {
+        "target": "char_jiang_xiao_fu",
+        "type": "师兄妹",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "师兄妹，江晓芙对他有好感"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "师兄弟",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同门但相处不久"
+      }
+    ],
+    "known_skills": [
+      "skill_da_xu_mi_jian_shi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 271,
+        "line_end": 274,
+        "text": "字文雄叹道：师妹，你真行，我练了半天，这一招老是不能中规中矩"
+      }
+    ]
+  },
+  {
+    "id": "char_he_lan_ming",
+    "name": "贺兰明",
+    "alias": [],
+    "identity": "御林军副统领",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "御林军副统领，武功高强，习得尉迟鞭法真传",
+    "personality": {
+      "traits": [
+        "狠辣",
+        "老练",
+        "武功高强",
+        "阴险",
+        "狡诈",
+        "心狠手辣",
+        "傲慢"
+      ],
+      "speech_style": "威严",
+      "temperament": "冷厉"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_he_lan_bian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      21,
+      22
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 404,
+        "line_end": 405,
+        "text": "还不仅是普通的鹰爪孙，为首的是御林军的副统领贺兰明"
+      },
+      {
+        "chapter": 22,
+        "line_start": 336,
+        "line_end": 338,
+        "text": "御林军副统领贺兰明在内，此人已得尉迟鞭法真传"
+      }
+    ]
+  },
+  {
+    "id": "char_guo_si_hu",
+    "name": "郭泗湖",
+    "alias": [],
+    "identity": "义军首领",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "义军首领，丐帮赶制金创药支援其军队",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "勇敢",
+        "重义气",
+        "直率",
+        "刚强"
+      ],
+      "speech_style": "普通",
+      "temperament": "普通"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 195,
+        "line_end": 195,
+        "text": "还要赶制金创药送给郭泗湖这支义军"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_wen_xiong",
+    "name": "宇文雄",
+    "alias": [],
+    "identity": "江海天二徒弟",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "江海天弟子，被叶凌风陷害后沉冤得雪，与江晓芙定情",
+    "personality": {
+      "traits": [
+        "耿直",
+        "倔强",
+        "忠诚",
+        "老实",
+        "刚烈",
+        "忠厚",
+        "隐忍",
+        "勇敢",
+        "重情"
+      ],
+      "speech_style": "温和稳重",
+      "temperament": "温厚"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_hai_tian",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒关系，江海天对其信任"
+      },
+      {
+        "target": "char_gu_zhong_lian",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "师母对其有所保留"
+      },
+      {
+        "target": "char_jiang_xiao_fu",
+        "type": "恋人",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "患难之交，互有情意"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "师兄弟，表面和睦但有微妙竞争"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "被冒名者陷害"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      22,
+      56
+    ],
+    "source_refs": [
+      {
+        "chapter": 22,
+        "line_start": 170,
+        "line_end": 172,
+        "text": "宇文雄大声喝道：好一个贼婆娘"
+      },
+      {
+        "chapter": 22,
+        "line_start": 202,
+        "line_end": 202,
+        "text": "宇文雄的父亲生前是个名镖师"
+      },
+      {
+        "chapter": 56,
+        "line_start": 86,
+        "line_end": 410,
+        "text": "宇文雄喝道...宇文雄道：当初谁也不知道..."
+      }
+    ]
+  },
+  {
+    "id": "char_feng_cong_long",
+    "name": "风从龙",
+    "alias": [],
+    "identity": "清廷鹰爪",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "清廷密探，胁迫叶凌风卧底于江家",
+    "personality": {
+      "traits": [
+        "阴险",
+        "狠辣",
+        "威逼",
+        "狡诈",
+        "城府"
+      ],
+      "speech_style": "阴沉威压",
+      "temperament": "冷酷无情"
+    },
+    "relationships": [
+      {
+        "target": "char_ye_ling_feng",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "以把柄胁迫叶凌风为其卧底"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      22
+    ],
+    "source_refs": [
+      {
+        "chapter": 22,
+        "line_start": 56,
+        "line_end": 64,
+        "text": "风从龙要他在江家卧底，迫得他不能不答应"
+      }
+    ]
+  },
+  {
+    "id": "char_li_da_dian",
+    "name": "李大典",
+    "alias": [],
+    "identity": "御林军副统领",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "御林军副统领，贪财阴险，风雷镖局红股持有者",
+    "personality": {
+      "traits": [
+        "阴险",
+        "贪财",
+        "狠辣",
+        "城府深",
+        "伪善"
+      ],
+      "speech_style": "阴阳怪气",
+      "temperament": "阴沉狡诈"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_sheng_yin",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "因风雷镖局之事结怨，围攻祈圣因"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      23,
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 23,
+        "line_start": 369,
+        "line_end": 372,
+        "text": "发话骂她的那个人正是御林军副统领李大典"
+      },
+      {
+        "chapter": 24,
+        "line_start": 48,
+        "line_end": 50,
+        "text": "阁下是哪条线上的朋友？这贼婆娘乃是钦犯"
+      }
+    ]
+  },
+  {
+    "id": "char_wei_huan",
+    "name": "卫涣",
+    "alias": [],
+    "identity": "御林军统带",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "御林军统带，使水磨钢鞭，武功仅次于贺兰明",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "凶狠",
+        "善于奉承",
+        "阴险",
+        "狡诈",
+        "武功高强",
+        "心狠手辣",
+        "傲慢"
+      ],
+      "speech_style": "溜滑",
+      "temperament": "阴险"
+    },
+    "relationships": [
+      {
+        "target": "char_li_wen_cheng",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "杀害李文成的凶手之一"
+      },
+      {
+        "target": "char_qi_sheng_yin",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "围攻祈圣因"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      23,
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 23,
+        "line_start": 370,
+        "line_end": 371,
+        "text": "御林军统带卫涣，在御林军中也是有数的高手"
+      },
+      {
+        "chapter": 24,
+        "line_start": 196,
+        "line_end": 204,
+        "text": "岳霆一声大吼，一手抓着鞭梢，呼的便是一刀劈去"
+      }
+    ]
+  },
+  {
+    "id": "char_yue_ting",
+    "name": "岳霆",
+    "alias": [
+      "岳老大",
+      "霹雳火"
+    ],
+    "identity": "关外马贼首领",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "尉迟炯结拜兄弟，外号霹雳火，使厚背斫山刀，性情刚暴",
+    "personality": {
+      "traits": [
+        "刚暴",
+        "豪迈",
+        "勇猛",
+        "急躁",
+        "重义"
+      ],
+      "speech_style": "粗豪直率",
+      "temperament": "火爆刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_sheng_yin_zhang_fu",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟，生死之交"
+      },
+      {
+        "target": "char_qi_sheng_yin",
+        "type": "挚友",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "弟妹，受其临终托付"
+      },
+      {
+        "target": "char_ge_san_niang",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻，共同行动"
+      },
+      {
+        "target": "char_yu_wen_xiong",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "受祈圣因遗言指认宇文雄为奸细，上门问罪"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 24,
+        "line_start": 100,
+        "line_end": 102,
+        "text": "岳老大名叫岳霆，是尉迟炯在关外做马贼时的结拜兄弟，性情刚暴，外号人称霹雳火"
+      }
+    ]
+  },
+  {
+    "id": "char_ge_san_niang",
+    "name": "葛三娘",
+    "alias": [],
+    "identity": "关外马贼首领",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "岳霆之妻，马贼首领，武功不在丈夫之下，性情温柔",
+    "personality": {
+      "traits": [
+        "温柔",
+        "武功高强",
+        "慈悲",
+        "明理",
+        "稳重"
+      ],
+      "speech_style": "温和有礼",
+      "temperament": "柔中带刚"
+    },
+    "relationships": [
+      {
+        "target": "char_yue_ting",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻，患难与共"
+      },
+      {
+        "target": "char_qi_sheng_yin",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "弟妹，照料其伤势"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 24,
+        "line_start": 104,
+        "line_end": 105,
+        "text": "妻子葛三娘也是一帮马贼的首领，武功不在丈夫之下，性情却甚温柔"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_da_shu",
+    "name": "王大叔",
+    "alias": [
+      "王老汉"
+    ],
+    "identity": "江家邻居/江南棋友",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "江南的棋友，慷慨好义的江湖人物，拥有青骢马",
+    "personality": {
+      "traits": [
+        "慷慨好义",
+        "热心",
+        "直爽",
+        "讲义气",
+        "精明",
+        "圆滑",
+        "世故",
+        "势利"
+      ],
+      "speech_style": "直率朴实",
+      "temperament": "豪爽"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_nan",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "棋友，江海天之父的朋友"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      22,
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 22,
+        "line_start": 418,
+        "line_end": 419,
+        "text": "王大叔家里有一匹好马"
+      },
+      {
+        "chapter": 24,
+        "line_start": 254,
+        "line_end": 265,
+        "text": "这个老头正是江南的那个棋友"
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_da_shu",
+    "name": "张大叔",
+    "alias": [],
+    "identity": "东平镇农民",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "东平镇农民兼小买卖人，牛车主人",
+    "personality": {
+      "traits": [
+        "胆小",
+        "朴实",
+        "贪财",
+        "善良",
+        "勤劳",
+        "憨厚"
+      ],
+      "speech_style": "乡土气息",
+      "temperament": "胆小老实"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 24,
+        "line_start": 296,
+        "line_end": 297,
+        "text": "这张大叔是牛车的主人"
+      }
+    ]
+  },
+  {
+    "id": "char_meng_yong_ping",
+    "name": "蒙永平",
+    "alias": [],
+    "identity": "清廷暗探/青城派弟子",
+    "faction": "faction_qing_ting",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "风从龙派到青城派卧底十余年的奸细，与叶凌风同为朝廷内应",
+    "personality": {
+      "traits": [
+        "阴险",
+        "狡猾",
+        "精明",
+        "冷酷",
+        "城府深"
+      ],
+      "speech_style": "阴恻恻，话中有话",
+      "temperament": "阴冷"
+    },
+    "relationships": [
+      {
+        "target": "char_ye_ling_feng",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "同为朝廷内应，互相利用"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      28
+    ],
+    "source_refs": [
+      {
+        "chapter": 28,
+        "line_start": 74,
+        "line_end": 80,
+        "text": "小姓蒙，贱名水平二字...风从龙是我顶头上司"
+      }
+    ]
+  },
+  {
+    "id": "char_zhong_zhan",
+    "name": "钟展",
+    "alias": [],
+    "identity": "天山派大弟子",
+    "faction": "faction_tian_shan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "天山派大弟子，唐晓澜衣钵传人",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "大度",
+        "慈祥",
+        "正直",
+        "武学渊博"
+      ],
+      "speech_style": "温和爽朗",
+      "temperament": "儒雅大度"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_zhong_lian",
+        "type": "世交",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "两家几代交情"
+      },
+      {
+        "target": "char_li_qin_mei",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_shan_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      28
+    ],
+    "source_refs": [
+      {
+        "chapter": 28,
+        "line_start": 4,
+        "line_end": 13,
+        "text": "是天山派的钟展夫妇"
+      }
+    ]
+  },
+  {
+    "id": "char_li_qin_mei",
+    "name": "李沁梅",
+    "alias": [],
+    "identity": "钟展之妻",
+    "faction": "faction_tian_shan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "钟展之妻，天山派高手，性情开朗活泼",
+    "personality": {
+      "traits": [
+        "活泼",
+        "开朗",
+        "健谈",
+        "和善",
+        "热心"
+      ],
+      "speech_style": "亲切随和",
+      "temperament": "开朗大方"
+    },
+    "relationships": [
+      {
+        "target": "char_zhong_zhan",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_shan_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      28
+    ],
+    "source_refs": [
+      {
+        "chapter": 28,
+        "line_start": 276,
+        "line_end": 280,
+        "text": "李沁梅笑道...小孩子总是喜欢热闹的"
+      }
+    ]
+  },
+  {
+    "id": "char_zhong_ling",
+    "name": "钟灵",
+    "alias": [],
+    "identity": "钟展之子",
+    "faction": "faction_tian_shan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "钟展之子，天山派后辈",
+    "personality": {
+      "traits": [
+        "勇猛",
+        "正义",
+        "机灵",
+        "果敢",
+        "天真",
+        "活泼",
+        "可爱",
+        "好奇"
+      ],
+      "speech_style": "爽朗",
+      "temperament": "英气勃发"
+    },
+    "relationships": [
+      {
+        "target": "char_zhong_zhan",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_zhong_xiu",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "兄妹"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_shan_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      28,
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 28,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "天山派的钟展夫妇和他们的一对子女钟灵、钟秀"
+      }
+    ]
+  },
+  {
+    "id": "char_zhong_xiu",
+    "name": "钟秀",
+    "alias": [],
+    "identity": "钟展之女",
+    "faction": "faction_tian_shan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "天山派弟子，追风剑式纯熟，认清叶凌风真面目",
+    "personality": {
+      "traits": [
+        "温柔",
+        "细心",
+        "稳重",
+        "刚烈",
+        "机灵",
+        "果断"
+      ],
+      "speech_style": "干脆利落",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_zhong_zhan",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "曾被欺骗感情，认清真面目"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_shan_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      28,
+      56
+    ],
+    "source_refs": [
+      {
+        "chapter": 28,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "天山派的钟展夫妇和他们的一对子女钟灵、钟秀"
+      },
+      {
+        "chapter": 56,
+        "line_start": 116,
+        "line_end": 367,
+        "text": "钟秀斜刺杀出...钟秀暗暗叹了口气..."
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_shang_fu",
+    "name": "竺尚父",
+    "alias": [],
+    "identity": "玉屏山武林高手",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "西昌义军首领，率军围攻归古愚官军",
+    "personality": {
+      "traits": [
+        "狂妄",
+        "自信",
+        "武学渊博",
+        "固执",
+        "有野心",
+        "勇猛",
+        "果断"
+      ],
+      "speech_style": "豪迈",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_zheng",
+        "type": "亲属",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "襟兄弟，被杨钲蒙蔽"
+      },
+      {
+        "target": "char_shang_guan_tai",
+        "type": "宿敌",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "襟兄弟，因误会产生嫌隙"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      29,
+      30,
+      56
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 453,
+        "line_end": 456,
+        "text": "竺尚父...阁下可是玉屏山的竺尚父么？"
+      },
+      {
+        "chapter": 56,
+        "line_start": 210,
+        "line_end": 210,
+        "text": "从西昌追来的竺尚父这支义军。"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_ying_jie",
+    "name": "白英杰",
+    "alias": [],
+    "identity": "氓山派长老",
+    "faction": "faction_meng_shan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "氓山派长老，老成持重",
+    "personality": {
+      "traits": [
+        "老成",
+        "持重",
+        "正义",
+        "稳重",
+        "正直",
+        "仗义",
+        "武艺高强",
+        "豪爽"
+      ],
+      "speech_style": "沉稳老练",
+      "temperament": "稳重"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_zhong_lian",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "掌门与长老"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      28,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 351,
+        "line_end": 363,
+        "text": "白英杰道：依我看来，昨晚之事，颇有蹊跷"
+      }
+    ]
+  },
+  {
+    "id": "char_lu_ying_hao",
+    "name": "路英豪",
+    "alias": [],
+    "identity": "氓山派长老",
+    "faction": "faction_meng_shan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "氓山派长老，姜桂之性老而弥辣",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "暴躁",
+        "正义",
+        "直率",
+        "正直",
+        "仗义",
+        "武艺高强",
+        "豪爽"
+      ],
+      "speech_style": "大声直爽",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_ying_jie",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "老搭档"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 364,
+        "line_end": 368,
+        "text": "路英豪和白英杰是老搭档"
+      }
+    ]
+  },
+  {
+    "id": "char_da_xiong_chan_shi",
+    "name": "大雄禅师",
+    "alias": [],
+    "identity": "少林派罗汉堂长老",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "出神入化",
+    "one_line": "少林派罗汉堂长老，佛珠降魔绝技",
+    "personality": {
+      "traits": [
+        "勇猛",
+        "正义",
+        "慈悲",
+        "刚烈",
+        "稳重",
+        "武艺高强",
+        "智慧",
+        "沉稳"
+      ],
+      "speech_style": "威严",
+      "temperament": "威严"
+    },
+    "relationships": [
+      {
+        "target": "char_gan_ren_long",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "并肩作战"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 84,
+        "line_end": 85,
+        "text": "少林派的罗汉堂长老大雄禅师"
+      }
+    ]
+  },
+  {
+    "id": "char_gan_ren_long",
+    "name": "甘人龙",
+    "alias": [],
+    "identity": "氓山派名宿",
+    "faction": "faction_meng_shan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "江南七侠甘凤池后代，百步神拳威震江湖",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "正义",
+        "豪爽",
+        "老当益壮",
+        "刚直",
+        "鲁莽",
+        "重义轻生",
+        "热血"
+      ],
+      "speech_style": "刚烈",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 138,
+        "line_end": 139,
+        "text": "甘人龙是江南七侠中甘凤池的后代"
+      }
+    ]
+  },
+  {
+    "id": "char_song_shi_dao_ren",
+    "name": "松石道人",
+    "alias": [],
+    "identity": "武当派长老",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "武当掌门雷震子师弟，九宫八卦阵剑法独步武林",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "好胜",
+        "刚烈",
+        "技艺精湛",
+        "正直",
+        "仗义",
+        "武艺高强",
+        "豪爽"
+      ],
+      "speech_style": "怒气冲冲",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_jiu_gong_ba_gua_zhen_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 443,
+        "line_end": 445,
+        "text": "武当派的松石道人性情最急"
+      }
+    ]
+  },
+  {
+    "id": "char_liu_guan_jia",
+    "name": "老刘",
+    "alias": [],
+    "identity": "竺家管家",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "竺尚父的管家，旱烟杆为兵器",
+    "personality": {
+      "traits": [
+        "忠心",
+        "武功高强",
+        "自傲",
+        "从容",
+        "忠诚",
+        "老练",
+        "沉稳",
+        "细心"
+      ],
+      "speech_style": "不卑不亢",
+      "temperament": "从容"
+    },
+    "relationships": [
+      {
+        "target": "char_zhu_shang_fu",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "忠仆"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "line_start": 350,
+        "line_end": 354,
+        "text": "一个青衣汉子应声而出，手中提着一支又长又粗的旱烟杆"
+      }
+    ]
+  },
+  {
+    "id": "char_ou_yang_bo_he",
+    "name": "欧阳伯和",
+    "alias": [],
+    "identity": "雷神山庄山主",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "雷神掌传人，欧阳大娘之夫，耿秀凤师公",
+    "personality": {
+      "traits": [
+        "好勇",
+        "护短",
+        "阴狠",
+        "阴险",
+        "狡诈",
+        "武功高强",
+        "心狠手辣",
+        "傲慢"
+      ],
+      "speech_style": "豪爽直率",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_zhong_chang_tong",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "激战近千招，武功被废"
+      },
+      {
+        "target": "char_geng_xiu_feng",
+        "type": "师徒",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "师公与徒孙，被迫为师门还债"
+      }
+    ],
+    "known_skills": [
+      "skill_lei_shen_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 55,
+        "line_start": 27,
+        "line_end": 501,
+        "text": "欧阳伯和...原来是欧阳伯和..."
+      }
+    ]
+  },
+  {
+    "id": "char_ye_mu_hua",
+    "name": "叶慕华",
+    "alias": [],
+    "identity": "叶冲霄之子，义军统领",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "叶冲霄之子，江海天真侄儿，大乘般若掌，义军统领",
+    "personality": {
+      "traits": [
+        "正直",
+        "深情",
+        "坚定",
+        "宽容",
+        "聪明",
+        "勇敢",
+        "正义",
+        "重情义"
+      ],
+      "speech_style": "文武兼备",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_geng_xiu_feng",
+        "type": "恋人",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "并辔同行，互诉衷肠"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "同姓仇人，被冒充身份"
+      }
+    ],
+    "known_skills": [
+      "skill_da_cheng_bo_re_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 55,
+        "line_start": 354,
+        "line_end": 440,
+        "text": "原来叶慕华在用奇兵突击...叶慕华笑道..."
+      }
+    ]
+  },
+  {
+    "id": "char_geng_xiu_feng",
+    "name": "耿秀凤",
+    "alias": [],
+    "identity": "义军女首领",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "义军女首领，欧阳伯和之徒孙，叶慕华恋人",
+    "personality": {
+      "traits": [
+        "坚毅",
+        "深情",
+        "感恩",
+        "有主见",
+        "刚烈",
+        "直率",
+        "勇敢",
+        "重情义"
+      ],
+      "speech_style": "温婉中带刚毅",
+      "temperament": "外柔内刚"
+    },
+    "relationships": [
+      {
+        "target": "char_ye_mu_hua",
+        "type": "恋人",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "互诉衷肠，感情升温"
+      },
+      {
+        "target": "char_ou_yang_bo_he",
+        "type": "师徒",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "师公与徒孙，恩断义绝"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 55,
+        "line_start": 378,
+        "line_end": 517,
+        "text": "耿秀凤听了，叹了口气...耿秀凤道：华哥，你听..."
+      }
+    ]
+  },
+  {
+    "id": "char_ye_tu_hu",
+    "name": "叶屠户",
+    "alias": [],
+    "identity": "清廷总督",
+    "faction": null,
+    "role": "villain",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "清廷总督，叶凌风之父，兵败小金川",
+    "personality": {
+      "traits": [
+        "残忍",
+        "狡诈",
+        "贪生怕死",
+        "阴险",
+        "野心勃勃",
+        "心机深沉"
+      ],
+      "speech_style": "官腔十足",
+      "temperament": "阴险"
+    },
+    "relationships": [
+      {
+        "target": "char_ye_ling_feng",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "父子同恶相济"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 55,
+        "line_start": 38,
+        "line_end": 56,
+        "text": "杨钲将叶屠户兵败小金川..."
+      }
+    ]
+  },
+  {
+    "id": "char_gui_gu_yu",
+    "name": "归古愚",
+    "alias": [],
+    "identity": "归德堡堡主",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "归德堡堡主，号称威震关中，编团练为官军",
+    "personality": {
+      "traits": [
+        "专横",
+        "自大",
+        "残忍",
+        "阴险",
+        "狡诈",
+        "贪婪",
+        "势利",
+        "怯懦"
+      ],
+      "speech_style": "霸道",
+      "temperament": "专横跋扈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      55
+    ],
+    "source_refs": [
+      {
+        "chapter": 55,
+        "line_start": 44,
+        "line_end": 60,
+        "text": "归古愚一心效力朝廷...归古愚将他的团练编成一军..."
+      }
+    ]
+  },
+  {
+    "id": "char_wei_chi_jiong",
+    "name": "尉迟炯",
+    "alias": [],
+    "identity": "武林高手",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "使翎雁刀，与祈圣因为夫妻，曾受叶凌风谋害",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "正直",
+        "勇敢",
+        "重义气",
+        "直率",
+        "刚强"
+      ],
+      "speech_style": "豪迈",
+      "temperament": "豪放"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_sheng_yin",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_ye_ling_feng",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "受叶凌风谋害"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      56
+    ],
+    "source_refs": [
+      {
+        "chapter": 56,
+        "line_start": 218,
+        "line_end": 228,
+        "text": "这两人是尉迟炯和祈圣因...尉迟炯哈哈笑道..."
+      }
+    ]
+  }
+]
