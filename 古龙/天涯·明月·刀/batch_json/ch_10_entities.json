@@ -1,0 +1,136 @@
+{
+  "characters": [
+    {
+      "id": "char_zhao_ping",
+      "name": "赵平",
+      "alias": [
+        "食指"
+      ],
+      "identity": "车夫",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "赵无极的儿子，公孙屠的同伙",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "伪装",
+          "恐惧",
+          "忠诚",
+          "手下"
+        ],
+        "speech_style": "赔笑",
+        "temperament": "恐惧"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_xian_tian_wu_ji"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 158,
+          "line_end": 158,
+          "text": "\"在下赵平，赵无极正是家父。\""
+        }
+      ]
+    },
+    {
+      "id": "char_gu_qi",
+      "name": "顾棋",
+      "alias": [],
+      "identity": "公子羽手下的棋手",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "出神入化",
+      "one_line": "公子羽手下的五大高手之一",
+      "personality": {
+        "traits": [
+          "智慧",
+          "冷静",
+          "神秘",
+          "高手",
+          "忠诚"
+        ],
+        "speech_style": "微笑",
+        "temperament": "深不可测"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 612,
+          "line_end": 612,
+          "text": "一个人缓缓走出来，青衣白袜，正是顾棋。"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_xian_tian_wu_ji",
+      "name": "先天无极派",
+      "type": "内功",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "赵家的独门气功",
+      "rag_refs": [
+        10
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [],
+      "combat_style": "练过此功的人肤色光滑，肌理细密，就像用熟油浸出来的",
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 152,
+          "line_end": 152,
+          "text": "你的肤色光滑，肌理细密，就像用熟油浸出来的，只有练过先天无极独门气功的人，才会这样。"
+        }
+      ]
+    }
+  ],
+  "techniques": [],
+  "factions": [],
+  "locations": [],
+  "items": [
+    {
+      "id": "item_kong_que_ling",
+      "name": "孔雀翎",
+      "type": "weapon",
+      "owner": "char_ming_yue_xin",
+      "one_line": "明月心的武器",
+      "description": "孔雀翎虽然不是真的，但却也是件杀人的利器，也有杀气。",
+      "effects": [],
+      "origin": "孔雀山庄",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_ming_yue_xin"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 384,
+          "line_end": 384,
+          "text": "\"你手里拿着的真是孔雀翎？\""
+        }
+      ]
+    }
+  ]
+}

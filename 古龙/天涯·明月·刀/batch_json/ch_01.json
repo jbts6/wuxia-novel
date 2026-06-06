@@ -1,0 +1,143 @@
+{
+  "chapter": 1,
+  "chapter_summary": "本章是全书开篇。傅红雪独自来到边陲荒原中的死镇凤凰集，走进一年前去过的陈家老店等待。夜色中八名黑衣大汉将酒店打扫一新，四名彩衣少女摆上鲜花酒肴，歌伎弹奏。更夫敲响初更时，歌声唱道\"天涯路，未归人\"。燕南飞醉醺醺地走进来。本章营造了傅红雪孤寂冷绝的形象和神秘紧张的氛围。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_fu_hong_xue",
+        "name": "傅红雪",
+        "alias": [],
+        "identity": "刀客",
+        "faction": null,
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "苍白的手，漆黑的刀，孤寂冷绝的刀客",
+        "personality": {
+          "traits": [
+            "孤寂",
+            "冷绝",
+            "坚韧",
+            "沉默",
+            "执着"
+          ],
+          "speech_style": "言简意赅",
+          "temperament": "冷峻"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 4,
+            "line_end": 14,
+            "text": "傅红雪在夕阳下。夕阳下只有他一个人。他的手里紧紧地握着一把刀；苍白的手，漆黑的刀！"
+          }
+        ]
+      },
+      {
+        "id": "char_yan_nan_fei",
+        "name": "燕南飞",
+        "alias": [],
+        "identity": "剑客",
+        "faction": null,
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "登峰造极",
+        "one_line": "醉态翩翩、腰佩鲜红宝剑的少年剑客",
+        "personality": {
+          "traits": [
+            "豪放",
+            "洒脱",
+            "浪漫",
+            "骄傲",
+            "悲壮"
+          ],
+          "speech_style": "豪迈不羁",
+          "temperament": "狂放"
+        },
+        "relationships": [
+          {
+            "target": "char_fu_hong_xue",
+            "type": "对手",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "一年前败于傅红雪刀下，如约赴死"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 174,
+            "line_end": 174,
+            "text": "歌声未歇，燕南飞已走进来。他走进来的时候，就似已醉了。"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [],
+    "locations": [
+      {
+        "id": "loc_feng_huang_ji",
+        "name": "凤凰集",
+        "region": "边陲荒原",
+        "one_line": "边陲荒原中惟一比较繁荣的市镇，已变成一座死镇",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 38,
+            "line_end": 42,
+            "text": "他知道那里就是这边陲荒原中惟一比较繁荣的市镇\"凤凰集\"。但他却不知道，凤凰集本身也已死亡！"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_hei_dao",
+        "name": "漆黑的刀",
+        "type": "weapon",
+        "owner": "char_fu_hong_xue",
+        "one_line": "傅红雪随身携带的漆黑之刀，象征死亡",
+        "description": "刀柄漆黑，刀鞘漆黑，象征着死亡，却是傅红雪的生命。这柄刀与黑暗融为一体，挥出时无法避免。",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "刀光一闪，势不可挡"
+          }
+        ],
+        "origin": "未知",
+        "rarity": "绝世神兵",
+        "related_characters": [
+          "char_fu_hong_xue"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 32,
+            "line_end": 34,
+            "text": "漆黑的刀，刀柄漆黑，刀鞘漆黑。这柄刀象征着的虽然是死亡，却是他的生命！"
+          }
+        ]
+      }
+    ]
+  },
+  "entity_updates": []
+}

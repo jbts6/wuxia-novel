@@ -1,0 +1,652 @@
+[
+  {
+    "id": "skill_fei_dao_xiao_si_wu",
+    "name": "萧四无飞刀",
+    "type": "暗器",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "萧四无的飞刀绝技，尚不及叶开",
+    "rag_refs": [
+      15
+    ],
+    "techniques": [
+      {
+        "id": "tech_fei_dao_xiao_si_wu",
+        "name": "飞刀",
+        "type": "attack",
+        "description": "萧四无的飞刀绝技，出手前会发声示警，缺少无坚不摧的正气"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "暗器飞刀，快如闪电",
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 298,
+        "line_end": 312,
+        "text": "我的飞刀究竟有哪一点比不上叶开"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_wang_zhan_gui_dao",
+    "name": "天王斩鬼刀",
+    "type": "刀法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "苗天王的七尺九寸长刀，威力可摧毁殿堂、腰斩奔马",
+    "rag_refs": [
+      16
+    ],
+    "techniques": [
+      {
+        "id": "tech_zhan_gui",
+        "name": "斩鬼",
+        "type": "attack",
+        "description": "天王斩鬼刀的斩击，一刀腰斩奔马，刀光过处血肉横飞"
+      },
+      {
+        "id": "tech_zhui_dian",
+        "name": "追电",
+        "type": "attack",
+        "description": "踩高跷配合长刀从高空劈下的绝技，如雷霆霹雳"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "从高处劈下，一刀长过一刀，不给对手喘息机会",
+    "source_refs": [
+      {
+        "chapter": 16,
+        "line_start": 22,
+        "line_end": 30,
+        "text": "惊虹厉电般的刀光...如此可怕的威力"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_jue_di_mie_da_sou_hun_shou",
+    "name": "天绝地灭大搜魂手",
+    "type": "指法",
+    "faction": "faction_xing_xiu_hai",
+    "rank": "出神入化",
+    "one_line": "天地交征阴阳大悲赋中唯一流传的两种功夫之一，能搜魂夺魄",
+    "rag_refs": [
+      18
+    ],
+    "techniques": [
+      {
+        "id": "tech_sou_hun",
+        "name": "搜魂",
+        "type": "attack",
+        "description": "以柔和优美的手势接触敌人，瞬间抽干对方血肉"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "九成火候"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "接触敌人",
+        "description": "能像摘花般抓住敌人，抽干血肉使其枯萎"
+      }
+    ],
+    "combat_style": "手势柔和优美如摘花，实则致命",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 362,
+        "line_end": 366,
+        "text": "这就是天地交征阴阳大悲赋中，惟一流传到人世的两种功夫之一。这就是天绝地灭大搜魂手。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_nv_hua",
+    "name": "天女花",
+    "type": "暗器",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "倪慧独门暗器，花瓣可飞射伤人，花中藏致命毒针",
+    "rag_refs": [
+      18
+    ],
+    "techniques": [
+      {
+        "id": "tech_tian_nv_hua_she",
+        "name": "天女散花",
+        "type": "attack",
+        "description": "十三朵天女花同时击出，花瓣飞射伤人，花瓣中藏致命毒针"
+      }
+    ],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "可同时击出十三朵"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中敌人",
+        "description": "花瓣飞射伤人，花瓣中藏致命毒针，一朵即可致命"
+      }
+    ],
+    "combat_style": "暗器配合轻功，远距离攻击后全身而退",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 536,
+        "line_end": 542,
+        "text": "暗器出手，不但花瓣可以飞射伤人，花瓣中还藏着致命的毒针。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qin_shu",
+    "name": "琴术",
+    "type": "special",
+    "faction": null,
+    "rank": "返璞归真",
+    "one_line": "白衣琴僮的绝世琴艺，能影响人心",
+    "rag_refs": [
+      20
+    ],
+    "techniques": [
+      {
+        "id": "tech_qin_sheng",
+        "name": "琴声",
+        "type": "debuff",
+        "description": "以空灵琴声引导人心，可令人放松或诱导自杀"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "琴声一响足令终身不敢言琴"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "弹奏琴声",
+        "description": "琴声可令人放松、解脱，也可诱导人放弃生命"
+      }
+    ],
+    "combat_style": "以琴声为武器，不战而屈人之兵",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 370,
+        "line_end": 378,
+        "text": "白衣人淡淡道：莫非是琴中之圣钟大师？"
+      }
+    ]
+  },
+  {
+    "id": "skill_kuai_dao",
+    "name": "快刀",
+    "type": "刀法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "傅红雪的拔刀快刀术，一刀拔出快如闪电，超越速度极限",
+    "rag_refs": [
+      1,
+      2,
+      6,
+      7,
+      24
+    ],
+    "techniques": [
+      {
+        "id": "tech_ba_dao",
+        "name": "拔刀",
+        "type": "attack",
+        "description": "傅红雪拔刀之快超越速度极限，刀光一闪即已出手，无人能看清"
+      },
+      {
+        "id": "tech_kuai_dao_zhan",
+        "name": "快刀斩",
+        "type": "attack",
+        "description": "一刀挥出如快刀斩钉，利刃断铁，势不可挡"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学刀法"
+      },
+      {
+        "level": 3,
+        "unlock": "拔刀有形"
+      },
+      {
+        "level": 5,
+        "unlock": "超越速度极限，刀已空灵"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "拔刀瞬间",
+        "description": "一刀出手快如闪电，敌手无法招架"
+      }
+    ],
+    "combat_style": "以拔刀为核心，一刀定胜负，追求极致速度",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 316,
+        "line_end": 316,
+        "text": "快刀斩钉"
+      },
+      {
+        "chapter": 24,
+        "line_start": 431,
+        "line_end": 431,
+        "text": "他认为我的刀法中，最可怕的一点就是拔刀"
+      }
+    ]
+  },
+  {
+    "id": "skill_qiang_wei_jian",
+    "name": "蔷薇剑",
+    "type": "剑法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "燕南飞的剑法，如蔷薇般美丽却暗藏杀机",
+    "rag_refs": [
+      3,
+      5,
+      24
+    ],
+    "techniques": [
+      {
+        "id": "tech_qiang_wei_ci",
+        "name": "蔷薇刺",
+        "type": "attack",
+        "description": "剑光如蔷薇绽放，美丽中暗藏致命杀机"
+      },
+      {
+        "id": "tech_qiang_wei_luo",
+        "name": "蔷薇落",
+        "type": "attack",
+        "description": "剑势如落英缤纷，令人防不胜防"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥剑法"
+      },
+      {
+        "level": 3,
+        "unlock": "剑如蔷薇"
+      },
+      {
+        "level": 5,
+        "unlock": "人剑合一"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "全力一击",
+        "description": "剑光如蔷薇绽放，美丽而致命"
+      }
+    ],
+    "combat_style": "剑法优雅华丽，出手如花开花落",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 534,
+        "line_end": 534,
+        "text": "别人怕你的蔷薇剑"
+      }
+    ]
+  },
+  {
+    "id": "skill_kong_que_ling",
+    "name": "孔雀翎",
+    "type": "暗器",
+    "faction": "faction_kong_que_shan_zhuang",
+    "rank": "绝世神兵",
+    "one_line": "孔雀山庄的终极暗器，天下第一暗器，辉煌而美丽",
+    "rag_refs": [
+      5,
+      8,
+      24
+    ],
+    "techniques": [
+      {
+        "id": "tech_kong_que_san_hua",
+        "name": "孔雀散花",
+        "type": "attack",
+        "description": "孔雀翎发射时如孔雀开屏，万道金光齐发，无处可避"
+      },
+      {
+        "id": "tech_kong_que_yu",
+        "name": "孔雀羽",
+        "type": "attack",
+        "description": "以孔雀羽毛为形的暗器，美丽而致命"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学暗器"
+      },
+      {
+        "level": 3,
+        "unlock": "孔雀翎初成"
+      },
+      {
+        "level": 5,
+        "unlock": "天下第一暗器"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "发射瞬间",
+        "description": "万道金光齐发，无处可避，必中"
+      }
+    ],
+    "combat_style": "以美丽为表象的致命暗器，一击必杀",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 126,
+        "line_end": 126,
+        "text": "因为他有孔雀翎"
+      },
+      {
+        "chapter": 8,
+        "line_start": 360,
+        "line_end": 364,
+        "text": "孔雀翎久已不在孔雀山庄里"
+      }
+    ]
+  },
+  {
+    "id": "skill_xin_jian",
+    "name": "心剑",
+    "type": "剑法",
+    "faction": "faction_kong_que_shan_zhuang",
+    "rank": "登峰造极",
+    "one_line": "秋水清的剑法，心意所及无所不至，剑法境界最高的一种",
+    "rag_refs": [
+      8
+    ],
+    "techniques": [
+      {
+        "id": "tech_xin_yi_suo_ji",
+        "name": "心意所及",
+        "type": "attack",
+        "description": "心意所及，无所不至，剑随心动"
+      },
+      {
+        "id": "tech_xin_jian_wu_di",
+        "name": "心剑无敌",
+        "type": "special",
+        "description": "心意与剑合一，达到剑法最高境界"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学心剑"
+      },
+      {
+        "level": 3,
+        "unlock": "心意相通"
+      },
+      {
+        "level": 5,
+        "unlock": "心意所及，无所不至"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "心意所及时",
+        "description": "剑随心动，无处不到"
+      }
+    ],
+    "combat_style": "以心意驱动剑法，追求人剑合一的最高境界",
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 546,
+        "line_end": 546,
+        "text": "我练的是心剑，意剑，心意所及，无所不至"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_bei_fu",
+    "name": "天地交征阴阳大悲赋",
+    "type": "内功",
+    "faction": "",
+    "rank": "绝世神兵",
+    "one_line": "传说中的武功秘籍，天地交征阴阳大悲赋，威力无穷",
+    "rag_refs": [
+      8,
+      24
+    ],
+    "techniques": [
+      {
+        "id": "tech_yin_yang_jiao_zheng",
+        "name": "阴阳交征",
+        "type": "attack",
+        "description": "阴阳二气交征，产生毁灭性力量"
+      },
+      {
+        "id": "tech_da_bei_zhang",
+        "name": "大悲掌",
+        "type": "attack",
+        "description": "以大悲赋心法催动的掌法，威力惊人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学大悲赋"
+      },
+      {
+        "level": 3,
+        "unlock": "阴阳初调"
+      },
+      {
+        "level": 5,
+        "unlock": "天地交征，阴阳合一"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "全力施展",
+        "description": "阴阳二气交征，产生毁灭性力量"
+      }
+    ],
+    "combat_style": "以阴阳二气为核心的内功心法",
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 562,
+        "line_end": 562,
+        "text": "还有一样是天地交征阴阳大悲赋"
+      }
+    ]
+  },
+  {
+    "id": "skill_pi_li_bian",
+    "name": "霹雳鞭",
+    "type": "鞭法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "海东开的鞭法，配合霹雳堂火器，威震江湖",
+    "rag_refs": [
+      8
+    ],
+    "techniques": [
+      {
+        "id": "tech_pi_li_yi_ji",
+        "name": "霹雳一击",
+        "type": "attack",
+        "description": "鞭如霹雳，势大力沉，配合火器威力倍增"
+      },
+      {
+        "id": "tech_huo_qi_lian_fa",
+        "name": "火器连发",
+        "type": "special",
+        "description": "鞭法配合霹雳堂火器连发，攻敌不备"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学鞭法"
+      },
+      {
+        "level": 3,
+        "unlock": "鞭如霹雳"
+      },
+      {
+        "level": 5,
+        "unlock": "鞭火合一"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "全力一击",
+        "description": "鞭势如霹雳，配合火器威力惊人"
+      }
+    ],
+    "combat_style": "鞭法刚猛，配合火器远程攻击",
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 478,
+        "line_end": 478,
+        "text": "他的外号好像是叫做霹雳鞭"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_jue_da_zi_yang_shou",
+    "name": "天绝地灭大紫阳手",
+    "type": "掌法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "多情子的掌法，天绝地灭系列武功之一",
+    "rag_refs": [
+      12
+    ],
+    "techniques": [
+      {
+        "id": "tech_zi_yang_zhang",
+        "name": "紫阳掌",
+        "type": "attack",
+        "description": "以紫阳真气催动的掌法，刚猛无比"
+      },
+      {
+        "id": "tech_tian_jue_zhang",
+        "name": "天绝掌",
+        "type": "attack",
+        "description": "天绝地灭系列掌法，威力惊人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学紫阳手"
+      },
+      {
+        "level": 3,
+        "unlock": "紫阳真气"
+      },
+      {
+        "level": 5,
+        "unlock": "天绝地灭"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "全力一击",
+        "description": "紫阳真气催动，威力惊人"
+      }
+    ],
+    "combat_style": "以紫阳真气为核心的掌法",
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 338,
+        "line_end": 338,
+        "text": "这是天绝地灭大紫阳手"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_rong_shu",
+    "name": "易容术",
+    "type": "特殊",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "傅红雪精通的易容术，可改变容貌伪装身份",
+    "rag_refs": [
+      13
+    ],
+    "techniques": [
+      {
+        "id": "tech_rong_mao_gai_bian",
+        "name": "容貌改变",
+        "type": "special",
+        "description": "通过药物和技术改变容貌"
+      },
+      {
+        "id": "tech_shen_fen_wei_zhuang",
+        "name": "身份伪装",
+        "type": "special",
+        "description": "伪装成不同身份的人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初学易容"
+      },
+      {
+        "level": 3,
+        "unlock": "熟练易容"
+      },
+      {
+        "level": 5,
+        "unlock": "天衣无缝"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "condition": "施展时",
+        "description": "改变容貌，伪装身份"
+      }
+    ],
+    "combat_style": "非战斗技能，用于伪装和潜入",
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 401,
+        "line_end": 401,
+        "text": "傅红雪对自己的易容术很满意"
+      }
+    ]
+  }
+]
