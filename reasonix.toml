@@ -56,7 +56,7 @@ planner_model = "mimo-pro"   # optional: enable two-model collaboration
 [[providers]]
 name        = "mimo-pro"
 kind        = "openai"
-base_url    = "https://token-plan-cn.xiaomimimo.com/v1"
+base_url    = "https://token-plan-sgp.xiaomimimo.com/v1"
 model       = "mimo-v2.5-pro"
 api_key_env = "MIMO_API_KEY"
 context_window = 1000000   # tokens; compaction triggers near this limit
@@ -65,7 +65,7 @@ price       = { cache_hit = 0.025, input = 3, output = 6, currency = "¥" }   # 
 [[providers]]
 name        = "mimo-flash"
 kind        = "openai"
-base_url    = "https://token-plan-cn.xiaomimimo.com/v1"
+base_url    = "https://token-plan-sgp.xiaomimimo.com/v1"
 model       = "mimo-v2.5"
 api_key_env = "MIMO_API_KEY"
 context_window = 1000000   # tokens; compaction triggers near this limit
