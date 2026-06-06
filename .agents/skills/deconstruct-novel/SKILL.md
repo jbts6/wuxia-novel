@@ -120,29 +120,8 @@ node .agents/skills/deconstruct-novel/scripts/prepare.js <小说目录路径>
 - tone 字段：从 constants.md 的 dialogue_tone 枚举（42个合法值）中选择，只取情绪/语气，不取动作或叙事描写；无法判断用"陈述"
 ```
 
-**主 Agent 并行启动示例**：
+**主 Agent 并行启动示例**：维持恒定 3 个并行（RPM 限制），完成一个立即启动下一个
 
-```javascript
-// ⚠️ 维持恒定 3 个并行（RPM 限制），完成一个立即启动下一个
-const batchConfig = JSON.parse(fs.readFileSync('batch_config.json', 'utf8'));
-const MAX_PARALLEL = 3;
-const running = new Set();
-
-for (const batch of batchConfig.batches) {
-  // 等待有空闲槽位
-  while (running.size >= MAX_PARALLEL) {
-    await Promise.race(running);
-  }
-  // 启动新批次，完成后自动释放槽位
-  const p = launchBatchSubAgent(batch).finally(() => running.delete(p));
-  running.add(p);
-  console.log(`启动批次 ${batch.batch}（当前并行：${running.size}/${MAX_PARALLEL}）`);
-}
-
-// 等待所有剩余批次完成
-await Promise.all(running);
-console.log('所有批次完成，继续下一步');
-```
 
 ### 第2步：合并注册表（主 Agent 执行）
 
