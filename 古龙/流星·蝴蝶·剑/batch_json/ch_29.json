@@ -1,0 +1,389 @@
+{
+  "chapter": 29,
+  "chapter_summary": "凤凤醒来后假装关心老伯的安危，实则试探孟星魂的行踪。她借口要赶去飞鹏堡联络虎组兄弟，实则准备向律香川出卖老伯的秘密。老伯沉浸在对凤凤的情感依赖中，感叹年老力衰。与此同时，孟星魂在井口遭遇律香川安排的守卫，果断击杀后赶往飞鹏堡方向。途中偶遇从滇边归来的挚友石群，两人重逢后因立场不同产生激烈争执——石群受高老大之命带孟星魂回去，最终以友情化解僵局。孟星魂随石群去见病重的高老大，高老大追问老伯下落，孟星魂坚决不答。此时律香川突然现身，以高老大性命相胁逼问老伯消息，又亮出被绑架的小蝶作为终极筹码。石群暗中出手救走小蝶，孟星魂与石群合力突围，却发现凤凤正往律香川方向逃去，孟星魂立刻追去。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_shi_qun",
+        "name": "石群",
+        "alias": [],
+        "identity": "快活林杀手",
+        "faction": "faction_kuai_huo_lin",
+        "role": "companion",
+        "archetype": "assassin",
+        "rank": "炉火纯青",
+        "one_line": "高老大手下四人之一，情感脆弱但性格坚刚，擅长铁箫暗器，从滇边历练归来武功大进",
+        "personality": {
+          "traits": [
+            "忧郁",
+            "敏感",
+            "坚韧",
+            "重义",
+            "脆弱",
+            "外表冷酷内心柔软"
+          ],
+          "speech_style": "言简意赅，偶尔诗意",
+          "temperament": "萧索忧郁"
+        },
+        "relationships": [
+          {
+            "target": "char_meng_xing_hun",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "同门手足，多年患难之情，石群宁愿以死相逼也要带孟星魂回去"
+          },
+          {
+            "target": "char_gao_lao_da",
+            "type": "主仆",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "对高老大忠心耿耿，执行其命令"
+          },
+          {
+            "target": "char_ye_xiang",
+            "type": "挚友",
+            "intensity": 50,
+            "bond_level": 3,
+            "dynamic": "同门兄弟，对叶翔的遭遇有同感"
+          }
+        ],
+        "known_skills": [
+          "skill_tie_xiao_an_qi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          29
+        ],
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 243,
+            "line_end": 560,
+            "text": "石群从滇边归来，与孟星魂在菊花丛外重逢，展现铁箫暗器功夫"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_tie_xiao_an_qi",
+        "name": "铁箫暗器",
+        "type": "暗器",
+        "faction": "",
+        "rank": "炉火纯青",
+        "one_line": "石群以铁箫为武器，箫管内藏暗器，从滇边奇才处学得多种暗器技法",
+        "rag_refs": [
+          29
+        ],
+        "techniques": [
+          {
+            "id": "tech_xiao_nei_an_qi",
+            "name": "箫管藏器",
+            "type": "attack",
+            "description": "铁箫管内暗藏暗器，可出其不意发射"
+          },
+          {
+            "id": "tech_tie_xiao_jin_gu",
+            "name": "铁箫近骨",
+            "type": "defense",
+            "description": "以铁箫格挡近身攻击，箫管可架住兵刃"
+          }
+        ],
+        "progression": [
+          {
+            "level": 3,
+            "unlock": "滇边历练后暗器技法大进，种类繁多超出常人想像"
+          }
+        ],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "近身或中距",
+            "description": "铁箫兼作兵器和暗器发射装置，攻防一体"
+          }
+        ],
+        "combat_style": "以箫为兵，箫管暗藏玄机，出手出人意料",
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 466,
+            "line_end": 482,
+            "text": "石群的箫管里已装了暗器，铁箫落地发出金属声响"
+          }
+        ]
+      }
+    ],
+    "techniques": [
+      {
+        "id": "tech_xiao_nei_an_qi",
+        "name": "箫管藏器",
+        "type": "attack",
+        "description": "铁箫管内暗藏暗器，可出其不意发射，从滇边逃亡者处习得",
+        "source_skill": "skill_tie_xiao_an_qi",
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 466,
+            "line_end": 478,
+            "text": "石群箫管里已装了暗器，滇边奇才异能之士远比想像中多"
+          }
+        ]
+      },
+      {
+        "id": "tech_tie_xiao_jin_gu",
+        "name": "铁箫近骨",
+        "type": "defense",
+        "description": "以铁箫管格挡兵刃近身攻击，箫管坚如精铁",
+        "source_skill": "skill_tie_xiao_an_qi",
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 492,
+            "line_end": 494,
+            "text": "\"当\"的一声，箫落地。是铁箫。"
+          }
+        ]
+      }
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "id": "loc_lao_bo_hua_yuan",
+        "name": "老伯花园",
+        "region": "老伯宅邸内",
+        "one_line": "老伯每日黄昏赏花的私人花园，菊花丛下有暗道通往密室",
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 538,
+            "line_end": 551,
+            "text": "花园里根本没有人，菊花在晨光下憔悴"
+          }
+        ]
+      },
+      {
+        "id": "loc_gao_lao_da_fang_wu",
+        "name": "高老大藏身处",
+        "region": "老伯花园附近",
+        "one_line": "紫红窗帘低垂的暗室，高老大藏身等候孟星魂之处",
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 570,
+            "line_end": 580,
+            "text": "屋子里暗得很，紫红色的窗帘低垂着"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_tie_xiao",
+        "name": "铁箫",
+        "type": "weapon",
+        "owner": "char_shi_qun",
+        "one_line": "石群的兵器，外表是箫，实为铁制，箫管内藏暗器",
+        "description": "外表漆黑如墨的铁制箫管，既是石群心爱的乐器也是致命的兵器。箫管内暗藏多种暗器，是石群从滇边奇才处学来的新技艺。平时可吹奏乐曲，战斗时化为兵器和暗器发射装置。",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "可格挡兵刃，箫管内藏暗器可出其不意发射"
+          },
+          {
+            "type": "特殊",
+            "value": "",
+            "description": "兼具乐器与兵器功能，外表迷惑性极强"
+          }
+        ],
+        "origin": "石群",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_shi_qun"
+        ],
+        "related_skills": [
+          "skill_tie_xiao_an_qi"
+        ],
+        "rag_refs": [
+          29
+        ],
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 246,
+            "line_end": 247,
+            "text": "箫却是漆黑的，黑得发光"
+          },
+          {
+            "chapter": 29,
+            "line_start": 492,
+            "line_end": 494,
+            "text": "\"当\"的一声，箫落地。是铁箫。"
+          }
+        ]
+      }
+    ]
+  },
+  "entity_updates": [
+    {
+      "id": "char_meng_xing_hun",
+      "updates": {
+        "rag_refs": [
+          29
+        ],
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 146,
+            "line_end": 1012,
+            "text": "孟星魂在井口伏击守卫，赶往飞鹏堡途中重逢石群，被胁迫去见高老大，面对律香川威逼不屈，最终突围"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "add",
+          "target": "char_shi_qun",
+          "type": "挚友",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "重逢的同门兄弟，友情深厚最终化解冲突"
+        },
+        {
+          "action": "update",
+          "target": "char_gao_lao_da",
+          "type": "主仆",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "发现高老大与律香川勾结，内心痛苦但仍念旧情"
+        },
+        {
+          "action": "update",
+          "target": "char_lv_xiang_chuan",
+          "type": "宿敌",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "彻底决裂，律香川以小蝶要挟，孟星魂誓死不屈"
+        }
+      ]
+    },
+    {
+      "id": "char_gao_lao_da",
+      "updates": {
+        "rag_refs": [
+          29
+        ],
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 580,
+            "line_end": 834,
+            "text": "高老大病重憔悴，与孟星魂对话中暴露与律香川的勾结"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "add",
+          "target": "char_lv_xiang_chuan",
+          "type": "合作者",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "与律香川勾结设下圈套，利用孟星魂对旧情的信任"
+        },
+        {
+          "action": "add",
+          "target": "char_shi_qun",
+          "type": "主仆",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "派石群去带孟星魂回来"
+        }
+      ]
+    },
+    {
+      "id": "char_lv_xiang_chuan",
+      "updates": {
+        "rag_refs": [
+          29
+        ],
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 659,
+            "line_end": 878,
+            "text": "律香川以高老大和小蝶为要挟逼问老伯下落，展现暗器和点穴手段"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "add",
+          "target": "char_meng_xing_hun",
+          "type": "宿敌",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "以小蝶和高老大为筹码威逼孟星魂"
+        },
+        {
+          "action": "add",
+          "target": "char_gao_lao_da",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "与高老大合谋设局"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_die",
+      "updates": {
+        "rag_refs": [
+          29
+        ],
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 772,
+            "line_end": 795,
+            "text": "小蝶被律香川绑架，两柄钢刀架在脖子上，被点穴不能动弹"
+          }
+        ]
+      }
+    },
+    {
+      "id": "char_feng_feng",
+      "updates": {
+        "rag_refs": [
+          29
+        ],
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 1,
+            "line_end": 121,
+            "text": "凤凤假装关心试探老伯，借口去飞鹏堡联络虎组，实则准备出卖老伯"
+          }
+        ]
+      }
+    },
+    {
+      "id": "char_lao_bo",
+      "updates": {
+        "rag_refs": [
+          29
+        ],
+        "source_refs": [
+          {
+            "chapter": 29,
+            "line_start": 2,
+            "line_end": 121,
+            "text": "老伯对凤凤流露依赖和不舍，感叹年老力衰"
+          }
+        ]
+      }
+    }
+  ]
+}

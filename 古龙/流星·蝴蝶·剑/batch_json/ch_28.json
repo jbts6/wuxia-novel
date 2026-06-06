@@ -1,0 +1,166 @@
+{
+  "chapter": 28,
+  "chapter_summary": "孟星魂在凤凤带领下来到老伯的密室，翁婿二人终于相见。老伯沉浸在对往事的反思中，意识到自己一生犯了不少错误，错怪了女儿孙蝶。孟星魂向老伯详述追踪经过：他发现马车和赶车人在黄石镇后凭空消失，马方中一家的死因也有蹊跷，种种迹象表明是律香川故意引导他找到老伯。孟星魂点破律香川的阴谋——他不必亲自出马，因为有人会替他找到老伯。老伯感叹处境之孤独无助，坦言自己对凤凤的信任源于别无选择。孟星魂暗中点了凤凤的睡穴，与老伯密谈后离开。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_feng_feng",
+        "name": "凤凤",
+        "alias": [],
+        "identity": "老伯身边的女子",
+        "faction": null,
+        "role": "npc",
+        "archetype": "assassin",
+        "rank": "登堂入室",
+        "one_line": "受高老大指使接近老伯的女子，表面温柔实则心怀怨毒",
+        "personality": {
+          "traits": [
+            "狡猾",
+            "善于伪装",
+            "心怀怨毒",
+            "贪婪",
+            "善于周旋"
+          ],
+          "speech_style": "柔媚诱人，善于用言语试探",
+          "temperament": "外表温柔内心阴毒"
+        },
+        "relationships": [
+          {
+            "target": "char_lao_bo",
+            "type": "合作者",
+            "intensity": 40,
+            "bond_level": 2,
+            "dynamic": "表面依附实则想利用老伯获取自由"
+          },
+          {
+            "target": "char_meng_xing_hun",
+            "type": "对手",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "互相试探、不信任"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          28
+        ],
+        "source_refs": [
+          {
+            "chapter": 28,
+            "line_start": 26,
+            "line_end": 68,
+            "text": "凤凤与孟星魂的对话，表面配合实则心怀怨毒"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [],
+    "locations": [
+      {
+        "id": "loc_lao_bo_mi_shi",
+        "name": "老伯密室",
+        "region": "水井之下",
+        "one_line": "老伯藏身的地下密室，有水池和水道可通往外部",
+        "source_refs": [
+          {
+            "chapter": 28,
+            "line_start": 76,
+            "line_end": 82,
+            "text": "密室的确就像是个笼子。老伯盘膝坐在那里"
+          }
+        ]
+      }
+    ],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_lao_bo",
+      "updates": {
+        "rag_refs": [
+          28
+        ],
+        "source_refs": [
+          {
+            "chapter": 28,
+            "line_start": 78,
+            "line_end": 534,
+            "text": "老伯在密室中反思一生，与孟星魂深谈"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "update",
+          "target": "char_xiao_die",
+          "type": "亲属",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "老伯终于承认错怪了女儿，内心歉疚"
+        },
+        {
+          "action": "add",
+          "target": "char_meng_xing_hun",
+          "type": "亲属",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "翁婿之间产生深层的情感联系，互相信任"
+        },
+        {
+          "action": "add",
+          "target": "char_feng_feng",
+          "type": "合作者",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "老伯在孤独中依赖凤凤，明知不可靠仍抓住这根浮木"
+        }
+      ]
+    },
+    {
+      "id": "char_meng_xing_hun",
+      "updates": {
+        "rag_refs": [
+          28
+        ],
+        "source_refs": [
+          {
+            "chapter": 28,
+            "line_start": 24,
+            "line_end": 527,
+            "text": "孟星魂来到密室与老伯深谈，展现超凡的推理能力和忠诚"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "update",
+          "target": "char_lao_bo",
+          "type": "挚友",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "翁婿之间建立起深层的信任和了解"
+        }
+      ]
+    },
+    {
+      "id": "char_lv_xiang_chuan",
+      "updates": {
+        "rag_refs": [
+          28
+        ],
+        "source_refs": [
+          {
+            "chapter": 28,
+            "line_start": 410,
+            "line_end": 442,
+            "text": "孟星魂分析律香川的阴谋：故意引导他追踪老伯"
+          }
+        ]
+      }
+    }
+  ]
+}

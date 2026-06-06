@@ -1,0 +1,2444 @@
+[
+  {
+    "id": "char_lao_bo",
+    "name": "老伯",
+    "alias": [
+      "孙玉伯"
+    ],
+    "identity": "江湖大佬",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "江南第一大势力的首领，深谋远虑、威严不可测，末路英雄仍存复仇之心",
+    "personality": {
+      "traits": [
+        "深谋远虑",
+        "威严",
+        "果断",
+        "讲义气",
+        "手段狠辣",
+        "先礼后兵",
+        "重感情",
+        "赌徒心态"
+      ],
+      "speech_style": "简洁有力，常以名言表达处世哲学",
+      "temperament": "威严深沉"
+    },
+    "relationships": [
+      {
+        "target": "char_ye_xiang",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "叶翔与其女儿孙蝶生下孩子，老伯暴怒"
+      },
+      {
+        "target": "char_bao_bao",
+        "type": "亲属",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "得知宝宝是自己的孙子"
+      },
+      {
+        "target": "char_xiao_die",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "老伯终于承认错怪了女儿，内心歉疚"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "翁婿之间产生深层的情感联系，互相信任"
+      },
+      {
+        "target": "char_feng_feng",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "老伯在孤独中依赖凤凤，明知不可靠仍抓住这根浮木"
+      },
+      {
+        "target": "char_xia_zi",
+        "type": "主仆",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "孙巨为老伯守密十三年，最终投湖殉义"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      13,
+      14,
+      15,
+      28,
+      29,
+      31,
+      32,
+      33,
+      22,
+      25,
+      26,
+      27
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 10,
+        "line_end": 22,
+        "text": "老伯的名言"
+      },
+      {
+        "chapter": 28,
+        "line_start": 78,
+        "line_end": 534,
+        "text": "老伯在密室中反思一生，与孟星魂深谈"
+      },
+      {
+        "chapter": 29,
+        "line_start": 2,
+        "line_end": 121,
+        "text": "老伯对凤凤流露依赖和不舍"
+      },
+      {
+        "chapter": 31,
+        "line_start": 190,
+        "line_end": 206,
+        "text": "若不能够复仇、重振旗鼓的话，就不如死在这里！"
+      },
+      {
+        "chapter": 33,
+        "line_start": 692,
+        "line_end": 692,
+        "text": "我！"
+      },
+      {
+        "chapter": 25,
+        "line_start": 4,
+        "line_end": 894,
+        "text": "老伯与凤凤深谈，讲述孙巨和虎组的故事"
+      },
+      {
+        "chapter": 26,
+        "line_start": 1,
+        "line_end": 176,
+        "text": "老伯与凤凤继续讨论逃亡计划"
+      }
+    ]
+  },
+  {
+    "id": "char_lv_xiang_chuan",
+    "name": "律香川",
+    "alias": [],
+    "identity": "老伯的心腹谋士",
+    "faction": null,
+    "role": "villain",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "老伯的心腹谋士实为叛徒，与屠大鹏暗中勾结，自比为神，阴谋篡权",
+    "personality": {
+      "traits": [
+        "深沉",
+        "精明",
+        "阴险",
+        "伪善",
+        "狂妄",
+        "心狠手辣"
+      ],
+      "speech_style": "言辞谨慎，善于察言观色",
+      "temperament": "冷静内敛"
+    },
+    "relationships": [
+      {
+        "target": "char_lao_bo",
+        "type": "宿敌",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "彻底背叛，篡夺老伯一切势力"
+      },
+      {
+        "target": "char_nangong_yuan",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "利用与被利用"
+      },
+      {
+        "target": "char_wan_peng_wang",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "试探与博弈"
+      },
+      {
+        "target": "char_tu_da_peng",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "与十二飞鹏帮屠堡主秘密勾结，计划已久"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "宿敌",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "以小蝶和高老大为筹码威逼孟星魂"
+      },
+      {
+        "target": "char_gao_lao_da",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "与高老大合谋设局"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      13,
+      14,
+      15,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      25
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 6,
+        "line_end": 338,
+        "text": "律香川奉命前往飞鹏古堡"
+      },
+      {
+        "chapter": 28,
+        "line_start": 410,
+        "line_end": 442,
+        "text": "孟星魂分析律香川的阴谋：故意引导他追踪老伯"
+      },
+      {
+        "chapter": 29,
+        "line_start": 659,
+        "line_end": 878,
+        "text": "律香川以高老大和小蝶为要挟逼问老伯下落"
+      },
+      {
+        "chapter": 30,
+        "line_start": 117,
+        "line_end": 490,
+        "text": "律香川揭露全局阴谋，与屠大鹏勾结"
+      },
+      {
+        "chapter": 31,
+        "line_start": 38,
+        "line_end": 96,
+        "text": "律香川俯视着井水..."
+      },
+      {
+        "chapter": 32,
+        "line_start": 16,
+        "line_end": 110,
+        "text": "他忽然觉得全身冰冷..."
+      },
+      {
+        "chapter": 33,
+        "line_start": 2,
+        "line_end": 692,
+        "text": "律香川淡淡道..."
+      },
+      {
+        "chapter": 25,
+        "line_start": 52,
+        "line_end": 744,
+        "text": "律香川被多次提及，老伯怀疑他已察觉虎组计划"
+      }
+    ]
+  },
+  {
+    "id": "char_nangong_yuan",
+    "name": "南宫远",
+    "alias": [
+      "南宫公子"
+    ],
+    "identity": "南宫世家最后一代传人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登堂入室",
+    "one_line": "江湖四大名公子之一，风流倜傥但家道中落，靠老伯资助度日",
+    "personality": {
+      "traits": [
+        "风流",
+        "消沉",
+        "自嘲",
+        "文雅",
+        "精通杂学",
+        "感叹人生"
+      ],
+      "speech_style": "文绉绉，常以诗词抒发感慨",
+      "temperament": "消沉颓废"
+    },
+    "relationships": [
+      {
+        "target": "char_lao_bo",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "受恩于老伯"
+      },
+      {
+        "target": "char_wan_peng_wang",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "万鹏王的朋友"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 70,
+        "line_end": 168,
+        "text": "南宫远引荐律香川见万鹏王"
+      }
+    ]
+  },
+  {
+    "id": "char_wan_peng_wang",
+    "name": "万鹏王",
+    "alias": [],
+    "identity": "十二飞鹏帮帮主",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "江南最大帮派首领，天神般的巨人，武功高强、手段凌厉、极有主见",
+    "personality": {
+      "traits": [
+        "霸气",
+        "自信",
+        "威严",
+        "有主见",
+        "识人",
+        "爱马"
+      ],
+      "speech_style": "简洁有力，不容置疑",
+      "temperament": "威严霸气"
+    },
+    "relationships": [
+      {
+        "target": "char_lao_bo",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "相互试探、暗中较量"
+      }
+    ],
+    "known_skills": [
+      "skill_fei_peng_49_shi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 34,
+        "line_end": 64,
+        "text": "万鹏王的生平与武功"
+      },
+      {
+        "chapter": 5,
+        "line_start": 132,
+        "line_end": 176,
+        "text": "万鹏王发现爱马被杀，震怒之下屈服"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_lao_dao",
+    "name": "武老刀",
+    "alias": [],
+    "identity": "镖局老板/孙玉伯老友",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "孙玉伯的老朋友，经营镖局，儿子成亲当晚被王二呆杀害",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "念旧",
+        "知足",
+        "感叹衰老",
+        "重义"
+      ],
+      "speech_style": "朴实直率",
+      "temperament": "温和慈祥"
+    },
+    "relationships": [
+      {
+        "target": "char_lao_bo",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "从小一起长大，深受老伯恩情"
+      },
+      {
+        "target": "char_lv_xiang_chuan",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "对律香川十分尊敬"
+      },
+      {
+        "target": "char_sun_yu_bo",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "老朋友，对老伯充满感激"
+      },
+      {
+        "target": "char_xiao_wu",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父子关系"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      26,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 6,
+        "line_end": 8,
+        "text": "武老刀陪着律香川走到这里来"
+      },
+      {
+        "chapter": 26,
+        "line_start": 162,
+        "line_end": 162,
+        "text": "老伯提到武老刀的镖局是联络点"
+      },
+      {
+        "chapter": 7,
+        "line_start": 300,
+        "line_end": 367,
+        "text": "武老刀已有些醉了...死鱼般落了下来。"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_bai_le",
+    "name": "余百乐",
+    "alias": [],
+    "identity": "八仙楼老板，老伯的暗桩",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登堂入室",
+    "one_line": "八仙楼老板，暗中效忠老伯的属下",
+    "personality": {
+      "traits": [
+        "精明",
+        "忠诚",
+        "低调",
+        "圆滑",
+        "善于经营"
+      ],
+      "speech_style": "恭敬有礼",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_lao_bo",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "暗中效忠老伯"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 28,
+        "line_end": 34,
+        "text": "八仙楼的老板余百乐也在这人群之中"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_he",
+    "name": "小何",
+    "alias": [],
+    "identity": "刺客/高老大手下",
+    "faction": "faction_kuai_huo_lin",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "高老大手下的刺客，受命刺杀老伯失败被捕，被老伯故意放走",
+    "personality": {
+      "traits": [
+        "自作聪明",
+        "幼稚",
+        "得意忘形",
+        "不够沉稳"
+      ],
+      "speech_style": "我姓何",
+      "temperament": "浮躁"
+    },
+    "relationships": [
+      {
+        "target": "char_meng_xing_hun",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "嫉妒孟星魂，想取代其地位"
+      },
+      {
+        "target": "char_gao_lao_da",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "依附高老大，视其为唯一归属"
+      },
+      {
+        "target": "char_ye_xiang",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "与叶翔等三人竞争高老大的宠爱"
+      },
+      {
+        "target": "char_gao_lao_da",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "受高老大指派"
+      }
+    ],
+    "known_skills": [
+      "skill_ci_ke_ji_neng"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 394,
+        "line_end": 465,
+        "text": "小何的人物介绍"
+      },
+      {
+        "chapter": 6,
+        "line_start": 80,
+        "line_end": 135,
+        "text": "高老大得知小何去找孙玉伯"
+      },
+      {
+        "chapter": 7,
+        "line_start": 547,
+        "line_end": 558,
+        "text": "这人道：我姓何。无论律香川问什么，这人的回答都只有三个字：我姓何！"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_die",
+    "name": "小蝶",
+    "alias": [],
+    "identity": "神秘少女",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "美丽而神秘的少女，对自己的美貌毫不在意，独来独往如幽灵般不可捉摸",
+    "personality": {
+      "traits": [
+        "神秘",
+        "独立",
+        "冷淡",
+        "超然",
+        "美艳"
+      ],
+      "speech_style": "轻柔简洁",
+      "temperament": "冷艳超然"
+    },
+    "relationships": [
+      {
+        "target": "char_hei_pi_feng_shao_nian",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "对追求者若即若离"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "深爱孟星魂，决定带孩子跟他走"
+      },
+      {
+        "target": "char_lao_bo",
+        "type": "亲属",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "父女决裂，被父亲抛弃"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      6,
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 256,
+        "line_end": 277,
+        "text": "小蝶的人物描写"
+      },
+      {
+        "chapter": 6,
+        "line_start": 1,
+        "line_end": 65,
+        "text": "小蝶在水边与孟星魂的对话"
+      },
+      {
+        "chapter": 29,
+        "line_start": 772,
+        "line_end": 795,
+        "text": "小蝶被律香川绑架，两柄钢刀架在脖子上"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_pi_feng_shao_nian",
+    "name": "黑披风少年",
+    "alias": [],
+    "identity": "富家子弟",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "小蝶的追求者，英俊佩剑的富家少年，对小蝶痴心一片",
+    "personality": {
+      "traits": [
+        "热情",
+        "痴情",
+        "冲动",
+        "年轻",
+        "坦率"
+      ],
+      "speech_style": "直率热情",
+      "temperament": "热血少年"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_die",
+        "type": "恋人",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "单方面痴恋小蝶"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 278,
+        "line_end": 298,
+        "text": "黑披风少年与小蝶的互动"
+      }
+    ]
+  },
+  {
+    "id": "char_gao_lao_da",
+    "name": "高老大",
+    "alias": [],
+    "identity": "快活林的主人，杀手组织首领",
+    "faction": "faction_kuai_huo_lin",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "快活林主人，收养孤儿培养成杀手，冷酷无情但手段高明，消息灵通",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "精明",
+        "果断",
+        "无情",
+        "护短",
+        "现实"
+      ],
+      "speech_style": "直截了当，不容置疑",
+      "temperament": "冷酷务实"
+    },
+    "relationships": [
+      {
+        "target": "char_meng_xing_hun",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "最信任的手下，有复杂情感"
+      },
+      {
+        "target": "char_xiao_he",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "对小何也有感情但更看重任务"
+      },
+      {
+        "target": "char_ye_xiang",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "对叶翔不再信任"
+      },
+      {
+        "target": "char_lv_xiang_chuan",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "与律香川勾结设下圈套"
+      },
+      {
+        "target": "char_shi_qun",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "派石群去带孟星魂回来"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      13,
+      29,
+      30,
+      31,
+      32,
+      26
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 88,
+        "line_end": 246,
+        "text": "高老大与孟星魂的对话"
+      },
+      {
+        "chapter": 29,
+        "line_start": 580,
+        "line_end": 834,
+        "text": "高老大病重憔悴，与律香川勾结设局"
+      },
+      {
+        "chapter": 30,
+        "line_start": 282,
+        "line_end": 341,
+        "text": "律香川揭露高老大利用孟星魂去杀人"
+      },
+      {
+        "chapter": 31,
+        "line_start": 144,
+        "line_end": 230,
+        "text": "高老大一直走到他身旁..."
+      },
+      {
+        "chapter": 32,
+        "line_start": 56,
+        "line_end": 118,
+        "text": "高老大已在墙下等着..."
+      },
+      {
+        "chapter": 26,
+        "line_start": 22,
+        "line_end": 22,
+        "text": "高老大教凤凤鸳鸯腿武功"
+      }
+    ]
+  },
+  {
+    "id": "char_meng_xing_hun",
+    "name": "孟星魂",
+    "alias": [
+      "秦中亭"
+    ],
+    "identity": "刺客",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "高老大麾下顶尖杀手，奉命假扮秦中亭刺杀老伯，却爱上小蝶内心挣扎",
+    "personality": {
+      "traits": [
+        "孤独",
+        "深情",
+        "忠诚",
+        "矛盾",
+        "坚毅",
+        "自省"
+      ],
+      "speech_style": "言简意赅，内心独白丰富",
+      "temperament": "忧郁深沉"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_die",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "深爱小蝶，愿为她放弃一切"
+      },
+      {
+        "target": "char_gao_lao_da",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "发现高老大与律香川勾结，内心痛苦但仍念旧情"
+      },
+      {
+        "target": "char_ye_xiang",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "同门兄弟，叶翔为他牺牲"
+      },
+      {
+        "target": "char_lao_bo",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "翁婿之间建立起深层的信任和了解"
+      },
+      {
+        "target": "char_lv_xiang_chuan",
+        "type": "宿敌",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "彻底决裂，律香川以小蝶要挟，被迫达成交易"
+      },
+      {
+        "target": "char_shi_qun",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "重逢的同门兄弟，友情深厚最终化解冲突"
+      },
+      {
+        "target": "char_feng_feng",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "互相揭短但达成默契的同门关系"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13,
+      14,
+      15,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      27
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 1,
+        "line_end": 300,
+        "text": "孟星魂带小蝶回住处见孩子，接受高老大任务假扮秦中亭刺杀老伯"
+      },
+      {
+        "chapter": 14,
+        "line_start": null,
+        "line_end": null,
+        "text": "孟星魂与陆漫天密会，接受刺杀任务，与老伯共进午餐"
+      },
+      {
+        "chapter": 15,
+        "line_start": null,
+        "line_end": null,
+        "text": "孟星魂得知老伯是小蝶的父亲，内心崩溃"
+      },
+      {
+        "chapter": 28,
+        "line_start": 24,
+        "line_end": 527,
+        "text": "孟星魂来到密室与老伯深谈"
+      },
+      {
+        "chapter": 29,
+        "line_start": 146,
+        "line_end": 1012,
+        "text": "孟星魂在井口伏击守卫，重逢石群，面对律香川威逼不屈"
+      },
+      {
+        "chapter": 30,
+        "line_start": 1,
+        "line_end": 494,
+        "text": "孟星魂追凤凤中箭受伤，与律香川谈判"
+      },
+      {
+        "chapter": 31,
+        "line_start": 44,
+        "line_end": 104,
+        "text": "孟星魂听着，只能听着。"
+      },
+      {
+        "chapter": 32,
+        "line_start": 130,
+        "line_end": 354,
+        "text": "孟星魂更不知道..."
+      },
+      {
+        "chapter": 33,
+        "line_start": 4,
+        "line_end": 536,
+        "text": "孟星魂微笑道..."
+      },
+      {
+        "chapter": 27,
+        "line_start": 1,
+        "line_end": 384,
+        "text": "孟星魂在老伯花园附近守候，制服凤凤，审问其身份"
+      }
+    ]
+  },
+  {
+    "id": "char_bao_bao",
+    "name": "宝宝",
+    "alias": [],
+    "identity": "小蝶之子",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "小蝶和孟星魂的孩子，三四岁，天真可爱",
+    "personality": {
+      "traits": [
+        "天真",
+        "活泼",
+        "依恋母亲",
+        "纯真",
+        "可爱"
+      ],
+      "speech_style": "稚嫩童声，说话简短",
+      "temperament": "天真无邪"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_die",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "深爱母亲"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "初见便亲近"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 55,
+        "line_end": 108,
+        "text": "宝宝见到母亲和孟星魂的场景"
+      },
+      {
+        "chapter": 15,
+        "line_start": null,
+        "line_end": null,
+        "text": "叶翔揭露宝宝身世"
+      }
+    ]
+  },
+  {
+    "id": "char_ye_xiang",
+    "name": "叶翔",
+    "alias": [],
+    "identity": "刺客",
+    "faction": null,
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "曾是顶尖刺客，现因信心崩溃而颓废消沉",
+    "personality": {
+      "traits": [
+        "消沉",
+        "敏锐",
+        "重情",
+        "洞察",
+        "苦涩",
+        "忠诚"
+      ],
+      "speech_style": "简练深沉，常带苦涩自嘲",
+      "temperament": "颓废而洞察"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_die",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "为小蝶不惜与老伯对抗"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "同门兄弟，为他甘愿牺牲"
+      },
+      {
+        "target": "char_gao_lao_da",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "被高老大利用和控制，深恨之"
+      },
+      {
+        "target": "char_lao_bo",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "刺杀老伯失败，揭露与孙蝶的关系"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "挚友",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "如同兄弟般深厚，将希望寄托于孟星魂"
+      }
+    ],
+    "known_skills": [
+      "skill_ye_xiang_an_qi",
+      "skill_ci_ke_ji_neng"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      13,
+      15,
+      7,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": null,
+        "line_end": null,
+        "text": "叶翔与高老大的对峙场景"
+      },
+      {
+        "chapter": 15,
+        "line_start": null,
+        "line_end": null,
+        "text": "叶翔伪装卖药郎中，揭露身份，与老伯对峙，发动致命一击"
+      },
+      {
+        "chapter": 7,
+        "line_start": 2,
+        "line_end": 206,
+        "text": "叶翔躺在树下的草地上...满心感激。"
+      }
+    ]
+  },
+  {
+    "id": "char_lu_man_tian",
+    "name": "陆漫天",
+    "alias": [],
+    "identity": "老伯的盟友/叛徒",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "表面是老伯的至交好友，实为内奸，暗中联络高老大策划刺杀",
+    "personality": {
+      "traits": [
+        "阴险",
+        "城府深",
+        "伪善",
+        "冷酷",
+        "贪婪",
+        "狡诈"
+      ],
+      "speech_style": "客气中暗藏机锋",
+      "temperament": "阴沉狡诈"
+    },
+    "relationships": [
+      {
+        "target": "char_lao_bo",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "表面挚友实为叛徒"
+      },
+      {
+        "target": "char_gao_lao_da",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "与高老大合谋刺杀老伯"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "利用孟星魂刺杀老伯，实际另有图谋"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13,
+      14,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": null,
+        "line_end": null,
+        "text": "陆漫天在寿宴上试探孟星魂身份"
+      },
+      {
+        "chapter": 14,
+        "line_start": null,
+        "line_end": null,
+        "text": "陆漫天密会孟星魂，安排刺杀计划"
+      },
+      {
+        "chapter": 15,
+        "line_start": null,
+        "line_end": null,
+        "text": "陆漫天与冯浩密谋确认刺杀计划"
+      }
+    ]
+  },
+  {
+    "id": "char_feng_hao",
+    "name": "冯浩",
+    "alias": [],
+    "identity": "陆漫天从关外带回的手下",
+    "faction": "faction_sun_clan",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "老伯手下最忠实的干将之一，奉命去找韩棠却发现其已死",
+    "personality": {
+      "traits": [
+        "忠实",
+        "谨慎",
+        "坦诚"
+      ],
+      "speech_style": "恭敬",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_man_tian",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "与陆漫天合谋刺杀老伯"
+      },
+      {
+        "target": "char_sun_yu_bo",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "忠实执行命令"
+      },
+      {
+        "target": "char_lu_man_tian",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "由陆漫天从关外带回"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": null,
+        "line_end": null,
+        "text": "冯浩与陆漫天密谋，确认刺杀计划"
+      },
+      {
+        "chapter": 9,
+        "line_start": 1422,
+        "line_end": 1742,
+        "text": "冯浩接过鸽子...这看来就像是奇迹。"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_jian",
+    "name": "孙剑",
+    "alias": [],
+    "identity": "老伯之子",
+    "faction": "faction_sun_clan",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "老伯之子，刚猛威烈，拳法天下少有匹敌，大祭之日遭暗算身亡",
+    "personality": {
+      "traits": [
+        "刚猛",
+        "孝顺",
+        "暴躁",
+        "忠诚",
+        "冲动",
+        "勇猛"
+      ],
+      "speech_style": "简短直接",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_lao_bo",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "父子关系"
+      },
+      {
+        "target": "char_sun_yu_bo",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "父子，对父亲绝对忠诚"
+      },
+      {
+        "target": "char_lv_xiang_chuan",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "暗中较劲但互不干涉"
+      }
+    ],
+    "known_skills": [
+      "skill_quan_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      15,
+      8,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": null,
+        "line_end": null,
+        "text": "律香川提及孙剑被杀之事"
+      },
+      {
+        "chapter": 8,
+        "line_start": 1,
+        "line_end": 486,
+        "text": "一觉醒来，孙剑还是很疲倦...孙剑竟真的死了！"
+      }
+    ]
+  },
+  {
+    "id": "char_feng_feng",
+    "name": "凤凤",
+    "alias": [
+      "毕凤凤"
+    ],
+    "identity": "被高老大训练的年轻女子，身怀鸳鸯腿武功",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "受高老大指使接近老伯的女子，表面温柔实则心怀怨毒",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "善于伪装",
+        "心怀怨毒",
+        "贪婪",
+        "善于周旋",
+        "深情",
+        "果敢"
+      ],
+      "speech_style": "柔媚诱人，善于用言语试探",
+      "temperament": "外表温柔内心阴毒"
+    },
+    "relationships": [
+      {
+        "target": "char_lao_bo",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "表面依附实则想利用老伯获取自由"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "互相试探、不信任"
+      },
+      {
+        "target": "char_gao_lao_da",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "十岁被高老大买下，被迫做各种事"
+      }
+    ],
+    "known_skills": [
+      "skill_yuan_yang_tui"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      28,
+      29,
+      30,
+      25,
+      26,
+      27
+    ],
+    "source_refs": [
+      {
+        "chapter": 28,
+        "line_start": 26,
+        "line_end": 68,
+        "text": "凤凤与孟星魂的对话，表面配合实则心怀怨毒"
+      },
+      {
+        "chapter": 29,
+        "line_start": 1,
+        "line_end": 121,
+        "text": "凤凤假装关心试探老伯，借口去飞鹏堡联络虎组"
+      },
+      {
+        "chapter": 30,
+        "line_start": 86,
+        "line_end": 309,
+        "text": "凤凤向律香川出卖老伯，哭诉身世"
+      },
+      {
+        "chapter": 25,
+        "line_start": 4,
+        "line_end": 894,
+        "text": "凤凤坦白身世、向老伯表白、亮出鸳鸯腿武功"
+      },
+      {
+        "chapter": 26,
+        "line_start": 1,
+        "line_end": 242,
+        "text": "凤凤展示鸳鸯腿武功，说服老伯让她去飞鹏堡"
+      },
+      {
+        "chapter": 27,
+        "line_start": 1,
+        "line_end": 384,
+        "text": "凤凤出井后遇孟星魂，被制服后认出对方身份"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_qun",
+    "name": "石群",
+    "alias": [],
+    "identity": "快活林杀手",
+    "faction": "faction_kuai_huo_lin",
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "高老大手下四人之一，情感脆弱但性格坚刚，擅长铁箫暗器，从滇边历练归来武功大进",
+    "personality": {
+      "traits": [
+        "忧郁",
+        "敏感",
+        "坚韧",
+        "重义",
+        "脆弱",
+        "外表冷酷内心柔软"
+      ],
+      "speech_style": "言简意赅，偶尔诗意",
+      "temperament": "萧索忧郁"
+    },
+    "relationships": [
+      {
+        "target": "char_meng_xing_hun",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "同门手足，多年患难之情，石群宁愿以死相逼也要带孟星魂回去"
+      },
+      {
+        "target": "char_gao_lao_da",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "对高老大忠心耿耿，执行其命令"
+      },
+      {
+        "target": "char_ye_xiang",
+        "type": "挚友",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "同门兄弟，对叶翔的遭遇有同感"
+      }
+    ],
+    "known_skills": [
+      "skill_tie_xiao_an_qi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 243,
+        "line_end": 560,
+        "text": "石群从滇边归来，与孟星魂在菊花丛外重逢"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_hong",
+    "name": "于宏",
+    "alias": [],
+    "identity": "律香川手下小头目",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "律香川三队人马中的小头目，负责外围守卫",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "畏惧",
+        "服从",
+        "胆小",
+        "谨慎"
+      ],
+      "speech_style": "恭敬惶恐",
+      "temperament": "卑微"
+    },
+    "relationships": [
+      {
+        "target": "char_lv_xiang_chuan",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "畏惧服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      31,
+      32,
+      33
+    ],
+    "source_refs": [
+      {
+        "chapter": 31,
+        "line_start": 452,
+        "line_end": 462,
+        "text": "这人叫于宏，是他带来的三队人中的一个小头目。"
+      },
+      {
+        "chapter": 32,
+        "line_start": 20,
+        "line_end": 20,
+        "text": "还在外面等着。"
+      },
+      {
+        "chapter": 33,
+        "line_start": 580,
+        "line_end": 596,
+        "text": "兄弟们全都还在卡上防守着..."
+      }
+    ]
+  },
+  {
+    "id": "char_yi_qian_long",
+    "name": "易潜龙",
+    "alias": [],
+    "identity": "老伯昔日好友",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "水性精妙、武功博杂的江湖老油条，老伯最好的朋友之一",
+    "personality": {
+      "traits": [
+        "圆滑",
+        "贪财",
+        "精明",
+        "怕死",
+        "直言不讳",
+        "世故"
+      ],
+      "speech_style": "嬉皮笑脸，油嘴滑舌",
+      "temperament": "玩世不恭"
+    },
+    "relationships": [
+      {
+        "target": "char_lao_bo",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "昔日好友，老伯困难时悄然引退"
+      },
+      {
+        "target": "char_lv_xiang_chuan",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "为钱与律香川合作"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "在密室中对峙"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      33
+    ],
+    "source_refs": [
+      {
+        "chapter": 33,
+        "line_start": 340,
+        "line_end": 410,
+        "text": "一个很胖的陌生人。他浮在水上时，身子里好像已吹满了气。"
+      }
+    ]
+  },
+  {
+    "id": "char_fang_lao_er",
+    "name": "方老二",
+    "alias": [],
+    "identity": "老伯安排的接替孙巨的车夫",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "短小精悍的车夫，老伯安排接替孙巨护送任务，实则心存叛意，被孙巨识破处决",
+    "personality": {
+      "traits": [
+        "贪生怕死",
+        "见利忘义",
+        "精明世故",
+        "胆小",
+        "善变"
+      ],
+      "speech_style": "花言巧语，善于引诱",
+      "temperament": "圆滑投机"
+    },
+    "relationships": [
+      {
+        "target": "char_xia_zi",
+        "type": "合作者",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "被孙巨处决"
+      },
+      {
+        "target": "char_lao_bo",
+        "type": "合作者",
+        "intensity": 10,
+        "bond_level": 1,
+        "dynamic": "老伯安排的接应人，但心存叛意"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      25
+    ],
+    "source_refs": [
+      {
+        "chapter": 25,
+        "line_start": 176,
+        "line_end": 362,
+        "text": "方老二的人物介绍及与孙巨的互动"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_wu",
+    "name": "小武",
+    "alias": [],
+    "identity": "武老刀之子",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "武老刀的儿子，新婚之夜被夜猫子用药迷倒，妻子被掳走",
+    "personality": {
+      "traits": [
+        "深情",
+        "年轻",
+        "脆弱",
+        "痴情"
+      ],
+      "speech_style": "温柔",
+      "temperament": "热情"
+    },
+    "relationships": [
+      {
+        "target": "char_dai_dai",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "新婚夫妻，深爱彼此"
+      },
+      {
+        "target": "char_wu_lao_dao",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "父子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7,
+      8,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 368,
+        "line_end": 394,
+        "text": "小武和黛黛互相拥抱...你的新娘子现在是我的了！"
+      }
+    ]
+  },
+  {
+    "id": "char_dai_dai",
+    "name": "黛黛",
+    "alias": [],
+    "identity": "小武之妻",
+    "faction": null,
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "小武的新婚妻子，新婚之夜被夜猫子用药迷倒后掳走",
+    "personality": {
+      "traits": [
+        "温柔",
+        "忠贞",
+        "甜蜜",
+        "脆弱"
+      ],
+      "speech_style": "温柔甜蜜",
+      "temperament": "柔弱"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_wu",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "新婚夫妻，深爱彼此"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 378,
+        "line_end": 379,
+        "text": "黛黛的声音更温柔，更甜蜜道：我一直都是你的！"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_er_dai",
+    "name": "王二呆",
+    "alias": [],
+    "identity": "屠城贴身随从",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "屠城的心腹随从，外表痴傻实则极为厉害的角色",
+    "personality": {
+      "traits": [
+        "阴险",
+        "伪装",
+        "残忍",
+        "狡猾",
+        "高效"
+      ],
+      "speech_style": "装傻充愣",
+      "temperament": "冷酷"
+    },
+    "relationships": [
+      {
+        "target": "char_tu_cheng",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "忠实随从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 338,
+        "line_end": 367,
+        "text": "这人却摇了摇头...我说要杀你就杀你，我从来不骗人的。"
+      }
+    ]
+  },
+  {
+    "id": "char_ye_mao_zi",
+    "name": "夜猫子",
+    "alias": [],
+    "identity": "小贼/熏香蒙汗药高手",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "下五门小贼，擅长使用熏香蒙汗药，被屠城征用执行特殊任务",
+    "personality": {
+      "traits": [
+        "猥琐",
+        "机灵",
+        "卑鄙",
+        "善用毒药"
+      ],
+      "speech_style": "简洁",
+      "temperament": "阴险"
+    },
+    "relationships": [
+      {
+        "target": "char_tu_cheng",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "被屠城征用"
+      }
+    ],
+    "known_skills": [
+      "skill_xun_xiang_meng_han"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 284,
+        "line_end": 284,
+        "text": "还有个叫夜猫子，这人是个下五门的小贼，武功虽不值得重视，却是个用熏香蒙汗药的好手"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_chuan_er",
+    "name": "金钏儿",
+    "alias": [],
+    "identity": "快活林女子",
+    "faction": null,
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "快活林的女子，高老大安排她留住屠城一晚",
+    "personality": {
+      "traits": [
+        "妩媚",
+        "善于周旋"
+      ],
+      "speech_style": "温柔",
+      "temperament": "柔媚"
+    },
+    "relationships": [
+      {
+        "target": "char_tu_cheng",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "被安排留住屠城"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "现在金钏儿正在陪他，我想，金钏儿能留他一晚上。"
+      }
+    ]
+  },
+  {
+    "id": "char_tie_cheng_gang",
+    "name": "铁成刚",
+    "alias": [],
+    "identity": "七勇士之一",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "七勇士中仅存者，为兄弟洗冤后当众自刎殉义",
+    "personality": {
+      "traits": [
+        "义气",
+        "刚烈",
+        "沉着",
+        "壮烈",
+        "忠诚"
+      ],
+      "speech_style": "沉着坚定",
+      "temperament": "悲壮"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_yu_bo",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "为老伯效命的勇士"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 326,
+        "line_end": 355,
+        "text": "铁成刚麻衣赤足，穿着重孝...倒在他兄弟的棺木上。"
+      }
+    ]
+  },
+  {
+    "id": "char_nv_zi_1",
+    "name": "无名女子",
+    "alias": [],
+    "identity": "孙剑的情人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "孙剑在外地留宿时的女子，试图挽留孙剑",
+    "personality": {
+      "traits": [
+        "缠人",
+        "大胆"
+      ],
+      "speech_style": "直白",
+      "temperament": "热烈"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_jian",
+        "type": "恋人",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "孙剑不愿被缠住的女子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 14,
+        "line_end": 18,
+        "text": "床上的女人翻了个身...你舍得走？就算你舍得走，我也不放你走。"
+      }
+    ]
+  },
+  {
+    "id": "char_quan_zu_yuan",
+    "name": "犬组成员",
+    "alias": [],
+    "identity": "老伯犬组成员",
+    "faction": "faction_sun_clan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "老伯犬组成员，负责追踪，孙剑在路上认出他",
+    "personality": {
+      "traits": [
+        "服从",
+        "谨慎"
+      ],
+      "speech_style": "恭敬",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_jian",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "服从孙剑询问"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 58,
+        "line_end": 74,
+        "text": "他立刻辨出这人是属于犬组的...这人只好向斜对面的树下瞧了一眼。"
+      }
+    ]
+  },
+  {
+    "id": "char_han_tang",
+    "name": "韩棠",
+    "alias": [],
+    "identity": "老伯最忠诚的手下/养鱼人",
+    "faction": "faction_sun_clan",
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "老伯最忠诚的手下，养鱼人，嗜杀如命，被屠大鹏等四人联手杀害",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "嗜杀",
+        "寂寞",
+        "冷酷",
+        "偏执",
+        "洞察"
+      ],
+      "speech_style": "言简意赅，字字深意",
+      "temperament": "冷酷而寂寞"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_yu_bo",
+        "type": "主仆",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "对老伯绝对忠诚，视为心中之神"
+      },
+      {
+        "target": "char_ye_xiang",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "曾击败叶翔但放其生路"
+      },
+      {
+        "target": "char_meng_xing_hun",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "生死对峙中互相欣赏"
+      }
+    ],
+    "known_skills": [
+      "skill_diao_yu_sha_ren"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 1,
+        "line_end": 848,
+        "text": "韩棠并不像个养鱼的人...这就是杀人者的结果！"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_peng",
+    "name": "屠大鹏",
+    "alias": [
+      "屠城"
+    ],
+    "identity": "十二飞鹏帮屠鹏坛坛主",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "十二飞鹏帮屠鹏坛坛主，率四人联手杀害韩棠，故意放走孟星魂以嫁祸律香川",
+    "personality": {
+      "traits": [
+        "精明",
+        "残忍",
+        "有城府",
+        "善用计谋",
+        "虚伪"
+      ],
+      "speech_style": "温和却暗藏杀机",
+      "temperament": "阴险狡诈"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_peng_wang",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "忠实执行万鹏王命令"
+      }
+    ],
+    "known_skills": [
+      "skill_dao_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 477,
+        "line_end": 838,
+        "text": "只听这人沉声道...出卖你的人是律香川"
+      }
+    ]
+  },
+  {
+    "id": "char_luo_jin_peng",
+    "name": "罗江罗金鹏",
+    "alias": [],
+    "identity": "十二飞鹏帮金鹏坛坛主",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "十二飞鹏帮金鹏坛坛主，参与围杀韩棠",
+    "personality": {
+      "traits": [
+        "凶狠",
+        "服从"
+      ],
+      "speech_style": "简洁",
+      "temperament": "凶悍"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_peng",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "协同作战"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 539,
+        "line_end": 539,
+        "text": "罗江罗金鹏。"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_yin_peng",
+    "name": "萧安萧银鹏",
+    "alias": [],
+    "identity": "十二飞鹏帮银鹏坛坛主",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "十二飞鹏帮银鹏坛坛主，参与围杀韩棠",
+    "personality": {
+      "traits": [
+        "胆小",
+        "服从"
+      ],
+      "speech_style": "简洁",
+      "temperament": "恐惧"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_peng",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "协同作战"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 541,
+        "line_end": 541,
+        "text": "萧安萧银鹏。"
+      }
+    ]
+  },
+  {
+    "id": "char_yuan_nu_peng",
+    "name": "原按原怒鹏",
+    "alias": [],
+    "identity": "十二飞鹏帮怒鹏坛坛主",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "十二飞鹏帮怒鹏坛坛主，参与围杀韩棠",
+    "personality": {
+      "traits": [
+        "凶悍",
+        "不怕死"
+      ],
+      "speech_style": "简洁",
+      "temperament": "凶猛"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_peng",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "协同作战"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 543,
+        "line_end": 543,
+        "text": "原按原怒鹏。"
+      }
+    ]
+  },
+  {
+    "id": "char_lin_xiu",
+    "name": "林秀",
+    "alias": [],
+    "identity": "律香川之妻",
+    "faction": "faction_sun_clan",
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "律香川的妻子，温柔贤惠，从冯浩处得知韩棠死讯后顿悟老伯的试探之计",
+    "personality": {
+      "traits": [
+        "温柔",
+        "贤惠",
+        "敏锐",
+        "深情",
+        "坚强"
+      ],
+      "speech_style": "温柔体贴",
+      "temperament": "柔中带刚"
+    },
+    "relationships": [
+      {
+        "target": "char_lv_xiang_chuan",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "恩爱夫妻，互相深爱"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 1530,
+        "line_end": 1676,
+        "text": "律香川推开门，就看到林秀...她突然转身奔出"
+      }
+    ]
+  },
+  {
+    "id": "char_laobo_shou_xia_1",
+    "name": "浴血者甲",
+    "alias": [],
+    "identity": "伪装者",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "十二飞鹏帮伪装成老伯手下的刺客，企图骗韩棠上当",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "善于伪装"
+      ],
+      "speech_style": "乞求",
+      "temperament": "阴险"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_peng",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "执行陷阱任务"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 390,
+        "line_end": 391,
+        "text": "求求你，把我们藏起来，后面有人在追"
+      }
+    ]
+  },
+  {
+    "id": "char_laobo_shou_xia_2",
+    "name": "浴血者乙",
+    "alias": [],
+    "identity": "伪装者",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "十二飞鹏帮伪装成老伯手下的刺客，企图骗韩棠上当",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "善于伪装"
+      ],
+      "speech_style": "恳切",
+      "temperament": "阴险"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_peng",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "执行陷阱任务"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 392,
+        "line_end": 402,
+        "text": "我们都是老伯的人...你们总该知道老伯是多么喜欢朋友的人！"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_er_fei_peng_1",
+    "name": "飞鹏帮众甲",
+    "alias": [],
+    "identity": "十二飞鹏帮众",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "十二飞鹏帮追杀伪装者的帮众之一",
+    "personality": {
+      "traits": [
+        "凶狠"
+      ],
+      "speech_style": "喝斥",
+      "temperament": "凶悍"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 414,
+        "line_end": 414,
+        "text": "我早已告诉过你们，就算逃到天边也逃不了的，快拿命来吧！"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_er_fei_peng_2",
+    "name": "飞鹏帮众乙",
+    "alias": [],
+    "identity": "十二飞鹏帮众",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "十二飞鹏帮追杀伪装者的帮众之一，说话温和",
+    "personality": {
+      "traits": [
+        "温和",
+        "圆滑"
+      ],
+      "speech_style": "温和",
+      "temperament": "圆滑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 415,
+        "line_end": 458,
+        "text": "我们既已来到这里...我们也该告辞了。"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_er_fei_peng_3",
+    "name": "飞鹏帮众丙",
+    "alias": [],
+    "identity": "十二飞鹏帮众",
+    "faction": "faction_shi_er_fei_peng_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "十二飞鹏帮追杀伪装者的帮众之一",
+    "personality": {
+      "traits": [
+        "直接"
+      ],
+      "speech_style": "询问",
+      "temperament": "直接"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 416,
+        "line_end": 416,
+        "text": "那位是这里的主人？"
+      }
+    ]
+  }
+]

@@ -1,0 +1,141 @@
+{
+  "chapter": 30,
+  "chapter_summary": "孟星魂追击凤凤途中遭匣弩伏击，左腿中箭仍拼尽全力击中凤凤气血海穴，随即昏迷。醒来后发现凤凤已向律香川出卖老伯的一切。凤凤得意地揭露自己从十三岁就被卖给高老大做这行，根本不打算把终身托付给老伯。孟星魂忍痛向律香川提出交易：以老伯的性命换取凤凤交给他处置。律香川答应，将凤凤交给孟星魂。然而孟星魂在与凤凤的对峙中，听闻她也是被高老大从小卖入火坑的苦命人，无法下手杀她。凤凤嘶声哭诉自己的身世，孟星魂内心痛苦却放下了杀意。律香川揭露全局：他与屠大鹏早已勾结，利用老伯与万鹏王的冲突削弱双方势力，凤凤不过是高老大利用的棋子，孟星魂也只是一颗被利用的小角色。律香川狂妄自比为神，声称决定一切人的生死命运。孟星魂虽身陷绝境，仍坚守信诺准备随律香川去见老伯。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [],
+    "skills": [],
+    "techniques": [],
+    "factions": [],
+    "locations": [],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_meng_xing_hun",
+      "updates": {
+        "rag_refs": [
+          30
+        ],
+        "source_refs": [
+          {
+            "chapter": 30,
+            "line_start": 1,
+            "line_end": 494,
+            "text": "孟星魂追凤凤中箭受伤，与律香川谈判，放走凤凤，被迫答应去杀老伯"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "update",
+          "target": "char_lv_xiang_chuan",
+          "type": "宿敌",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "被迫与律香川达成交易，内心痛苦但坚守信诺"
+        },
+        {
+          "action": "update",
+          "target": "char_feng_feng",
+          "type": "对手",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "同情凤凤的遭遇，最终无法下手杀她"
+        }
+      ]
+    },
+    {
+      "id": "char_feng_feng",
+      "updates": {
+        "rag_refs": [
+          30
+        ],
+        "source_refs": [
+          {
+            "chapter": 30,
+            "line_start": 86,
+            "line_end": 309,
+            "text": "凤凤向律香川出卖老伯，后被交给孟星魂，哭诉身世揭露被高老大卖入火坑的悲惨经历"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "update",
+          "target": "char_lao_bo",
+          "type": "合作者",
+          "intensity": 20,
+          "bond_level": 1,
+          "dynamic": "彻底出卖老伯，毫无愧疚"
+        },
+        {
+          "action": "add",
+          "target": "char_gao_lao_da",
+          "type": "主仆",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "十岁被高老大买下，被迫做各种事"
+        },
+        {
+          "action": "update",
+          "target": "char_lv_xiang_chuan",
+          "type": "合作者",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "曾为律香川做事，被利用后弃如敝屣"
+        }
+      ]
+    },
+    {
+      "id": "char_lv_xiang_chuan",
+      "updates": {
+        "rag_refs": [
+          30
+        ],
+        "source_refs": [
+          {
+            "chapter": 30,
+            "line_start": 117,
+            "line_end": 490,
+            "text": "律香川揭露全局阴谋：与屠大鹏勾结，利用老伯与万鹏王冲突，自比为神决定一切人的命运"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "add",
+          "target": "char_wan_peng_wang",
+          "type": "宿敌",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "与屠大鹏暗中勾结，图谋吞并万鹏王的势力"
+        },
+        {
+          "action": "add",
+          "target": "char_tu_da_peng",
+          "type": "合作者",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "与十二飞鹏帮屠堡主秘密勾结，计划已久"
+        }
+      ]
+    },
+    {
+      "id": "char_gao_lao_da",
+      "updates": {
+        "rag_refs": [
+          30
+        ],
+        "source_refs": [
+          {
+            "chapter": 30,
+            "line_start": 282,
+            "line_end": 341,
+            "text": "律香川揭露高老大在局中的角色——她可以利用孟星魂去杀人，孟星魂却不敢反抗她"
+          }
+        ]
+      }
+    }
+  ]
+}

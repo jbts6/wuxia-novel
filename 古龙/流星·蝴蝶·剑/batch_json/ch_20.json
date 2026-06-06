@@ -1,0 +1,117 @@
+{
+  "chapter": 20,
+  "chapter_summary": "本章揭露律香川的真面目及其庞大阴谋。律香川先是处理冯浩——这个知晓太多秘密的内应，以强暴林秀为由将其灭口。随后律香川前往秘密酒铺与老友夏青相聚，展现其伪装下的真实性格。关键时刻，蒙面人登场，正是十二飞鹏帮的屠大鹏。两人揭示了惊天阴谋：律香川与屠大鹏秘密勾结，利用万鹏王打击老伯，同时屠大鹏也利用律香川在万鹏王面前立功。他们已经消灭了老伯派出的六十一名精锐，并计划在初八动手。本章展现了律香川多年布局的周密，以及江湖中利益交换的残酷本质。",
+  "dialogues": [],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_feng_hao",
+        "name": "冯浩",
+        "alias": [],
+        "identity": "律香川的内应",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "被律香川收买的内应，最终被灭口",
+        "personality": {
+          "traits": ["贪婪", "懦弱", "顺从", "见风使舵", "愚蠢"],
+          "speech_style": "讨好顺从",
+          "temperament": "胆小怕事"
+        },
+        "relationships": [
+          {"target": "char_lv_xiang_chuan", "type": "主仆", "intensity": 40, "bond_level": 2, "dynamic": "被利用后灭口"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [20],
+        "source_refs": [{"chapter": 20, "line_start": 48, "line_end": 52, "text": "小径上传来脚步声...冯浩"}]
+      },
+      {
+        "id": "char_xia_qing",
+        "name": "夏青",
+        "alias": [],
+        "identity": "律香川的贫贱之交",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "律香川最信任的人，从小一起长大的朋友",
+        "personality": {
+          "traits": ["忠诚", "谨慎", "知足", "沉默", "可靠"],
+          "speech_style": "言简意赅",
+          "temperament": "沉稳内敛"
+        },
+        "relationships": [
+          {"target": "char_lv_xiang_chuan", "type": "挚友", "intensity": 80, "bond_level": 4, "dynamic": "绝对忠诚的挚友"}
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [20],
+        "source_refs": [{"chapter": 20, "line_start": 212, "line_end": 236, "text": "他叫夏青，也许就是律香川在这一生中最信任的人。"}]
+      },
+      {
+        "id": "char_meng_mian_ren",
+        "name": "蒙面人",
+        "alias": ["屠大鹏"],
+        "identity": "十二飞鹏帮副帮主",
+        "faction": "faction_shi_er_peng_bang",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "与律香川秘密勾结的屠大鹏",
+        "personality": {
+          "traits": ["狡诈", "残忍", "有野心", "善于伪装", "冷血"],
+          "speech_style": "威严有力",
+          "temperament": "阴险狡诈"
+        },
+        "relationships": [
+          {"target": "char_lv_xiang_chuan", "type": "合作者", "intensity": 70, "bond_level": 3, "dynamic": "相互利用的同盟"}
+        ],
+        "known_skills": ["skill_jian_fa"],
+        "related_skills": [],
+        "rag_refs": [20],
+        "source_refs": [{"chapter": 20, "line_start": 314, "line_end": 315, "text": "第一个进来的，还是以前来过的那个人，脸上还是蒙着块黑巾"}]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_shi_er_peng_bang",
+        "name": "十二飞鹏帮",
+        "type": "帮派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "万鹏王领导的帮派，与老伯势力对抗",
+        "source_refs": [{"chapter": 20, "line_start": 89, "line_end": 89, "text": "十二飞鹏帮"}]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_xia_qing_jiu_pu",
+        "name": "夏青的小酒铺",
+        "region": "老伯花园十余里外",
+        "one_line": "律香川与蒙面人秘密会面的地点",
+        "source_refs": [{"chapter": 20, "line_start": 190, "line_end": 192, "text": "老伯的花园十余里外，有个小小的酒铺。"}]
+      }
+    ],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_lv_xiang_chuan",
+      "updates": {
+        "rag_refs": [20],
+        "source_refs": [{"chapter": 20, "line_start": 20, "line_end": 468, "text": "律香川处理冯浩...与屠大鹏密谋"}]
+      }
+    },
+    {
+      "id": "char_wan_peng_wang",
+      "updates": {
+        "rag_refs": [20],
+        "source_refs": [{"chapter": 20, "line_start": 439, "line_end": 451, "text": "万鹏王被利用...成为棋子"}]
+      }
+    }
+  ]
+}
