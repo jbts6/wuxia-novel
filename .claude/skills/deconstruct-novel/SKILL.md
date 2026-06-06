@@ -108,19 +108,52 @@ node .agents/skills/deconstruct-novel/scripts/prepare.js <小说目录路径>
 2. 对于本批次的每一章：
    a. 用 Read 工具读取 ch_formatted/ch_{N}.md（只传 filePath）
    b. 用 Read 工具读取当前批次注册表
-   c. 用 ctx_execute 运行 JavaScript 提取对话
-   d. AI 匹配 speaker，撰写 chapter_summary，识别实体
-   e. 用 ctx_execute 将提取结果写入 batch_json/ch_{N}_raw.json
-   f. 用 ctx_execute 组装 ch_{N}.json 并更新批次注册表
+   c. 用 ctx_execute 运行 JavaScript 提取对话（stdout 输出 JSON）
+   d. AI 匹配 speaker，撰写 chapter_summary，识别实体，格式化为 JS 对象字面量
+   e. 用 ctx_execute 直接组装 ch_{N}.json 并更新批次注册表（AI 的分析结果作为字面量内联在脚本中）
 
 **关键规则**：
 - 禁止使用 Write 工具写入 JSON，必须用 ctx_execute
+- ❌ 禁止创建任何中间文件，包括但不限于：`_raw.json`、`_processed.json`、`_analysis.json`、`_temp.json`、`_dialogues.json`、`_text.json`、`_group_*`、`_paras.json`
+- ❌ 禁止往系统临时目录（`%TEMP%`、`/tmp`）写入任何文件
+- 每章只产出一个文件：`batch_json/ch_{N}.json`，不得有其他输出
 - 禁止对 speaker 识别过度思考，5秒内无法判断就标 null
 - 每句有说话人的对话都必须提取
 - tone 字段：从 constants.md 的 dialogue_tone 枚举（42个合法值）中选择，只取情绪/语气，不取动作或叙事描写；无法判断用"陈述"
 ```
 
-**主 Agent 并行启动示例**：维持恒定 3 个并行（RPM 限制），完成一个立即启动下一个
+**⚠️ 主 Agent 并行调度算法（硬约束，必须严格遵循）**
+
+❌ **禁止**分批启动后等待全部完成再启动下一批
+❌ **禁止**一次性启动所有批次然后等待
+❌ **禁止**启动3个后等全部3个完成再启动下3个
+
+✅ **必须**执行以下滑动窗口算法：
+
+```
+队列 = [批次10, 批次11, ..., 批次N]
+运行中 = []
+
+// 第一步：填充初始窗口（启动前3个）
+while 运行中.length < 3 且 队列非空:
+    启动 队列.shift() → 加入 运行中
+
+// 第二步：滑动窗口（每收到一个完成通知，立即启动下一个）
+while 运行中 非空:
+    等待 运行中 任意一个完成
+    从 运行中 移除已完成的
+    if 队列非空:
+        启动 队列.shift() → 加入 运行中
+```
+
+**实际操作示例**（假设批次10-22共13批）：
+1. 同时启动批次 10、11、12（3个并行）
+2. 批次10完成 → 立即启动批次13（恢复3个并行）
+3. 批次12完成 → 立即启动批次14（恢复3个并行）
+4. 批次11完成 → 立即启动批次15（恢复3个并行）
+5. ...如此循环，直到所有批次完成
+
+**每收到一个 Task 完成通知后，立即检查队列并启动下一个，不要等到多个完成再启动。**
 
 
 ### 第2步：合并注册表（主 Agent 执行）

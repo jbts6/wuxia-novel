@@ -1,0 +1,685 @@
+{
+  "batch": 5,
+  "chapters": [
+    "ch_13",
+    "ch_14",
+    "ch_15"
+  ],
+  "processed": [
+    "ch_13",
+    "ch_14",
+    "ch_15"
+  ],
+  "entity_registry": {
+    "characters": [
+      {
+        "id": "char_han_wei_wu",
+        "name": "韩威武",
+        "alias": [
+          "韩总镖头"
+        ],
+        "identity": "震远镖局总镖头",
+        "faction": null,
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "震远镖局总镖头，精明老练，暗中与义军合作",
+        "personality": {
+          "traits": [
+            "精明",
+            "老练",
+            "隐忍",
+            "机智",
+            "重义"
+          ],
+          "speech_style": "言辞谨慎，话中有话",
+          "temperament": "沉稳"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 14,
+            "line_end": 14,
+            "text": "韩威武道：\"多谢马大人为我们主持公道，韩某不过侥幸得胜而已，焉敢言功？\""
+          }
+        ]
+      },
+      {
+        "id": "char_ma_kun",
+        "name": "马昆",
+        "alias": [
+          "马大人"
+        ],
+        "identity": "御林军副统领",
+        "faction": null,
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "御林军副统领，老奸巨滑，奉命监视韩威武",
+        "personality": {
+          "traits": [
+            "老奸巨滑",
+            "多疑",
+            "武功高强",
+            "官僚",
+            "虚伪"
+          ],
+          "speech_style": "官腔十足，话中带刺",
+          "temperament": "阴沉"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 18,
+            "line_end": 18,
+            "text": "\"我早就知道韩总镖头武功绝世，足可对付贼众有余，我若出手相助，反而有损总镖头的威名了。\""
+          }
+        ]
+      },
+      {
+        "id": "char_zhou_can",
+        "name": "周灿",
+        "alias": [
+          "周大哥"
+        ],
+        "identity": "御林军军官",
+        "faction": null,
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "御林军军官，马昆下属，脾气暴躁",
+        "personality": {
+          "traits": [
+            "暴躁",
+            "直率",
+            "武功不弱",
+            "忠心",
+            "鲁莽"
+          ],
+          "speech_style": "直来直去，容易发怒",
+          "temperament": "急躁"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 254,
+            "line_end": 254,
+            "text": "周灿说道：\"割鸡焉用牛刀，马大哥，待我拿这小贼！\""
+          }
+        ]
+      },
+      {
+        "id": "char_mei_shao_nian",
+        "name": "美少年",
+        "alias": [],
+        "identity": "神秘少年，可能是女性",
+        "faction": null,
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "神秘美少年，武功高强，与义军有关",
+        "personality": {
+          "traits": [
+            "俊美",
+            "机智",
+            "武功高强",
+            "易害羞",
+            "豪爽"
+          ],
+          "speech_style": "时而调侃，时而羞涩",
+          "temperament": "神秘"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 202,
+            "line_end": 202,
+            "text": "少年哈哈笑道：\"说得不错，我是小贼。他们大盗劫镖，我这个小贼不敢劫镖，只能偷你们官老爷的马匹啦。\""
+          }
+        ]
+      },
+      {
+        "id": "char_shi_jian_zhang",
+        "name": "石建章",
+        "alias": [],
+        "identity": "震远镖局副总镖头",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "震远镖局副总镖头，韩威武下属",
+        "personality": {
+          "traits": [
+            "忠诚",
+            "稳重",
+            "细心"
+          ],
+          "speech_style": "恭敬",
+          "temperament": "稳重"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 106,
+            "line_end": 106,
+            "text": "石建章道：\"箱子里的药箱里有人参，嚼一点人参也可解酒，我去给你拿。\""
+          }
+        ]
+      },
+      {
+        "id": "char_sha_ma_fa_shi",
+        "name": "沙玛法师",
+        "alias": [],
+        "identity": "喇嘛寺僧人",
+        "faction": null,
+        "role": "npc",
+        "archetype": "monk",
+        "rank": "登堂入室",
+        "one_line": "喇嘛寺僧人，白教法王属下",
+        "personality": {
+          "traits": [
+            "慈悲",
+            "好客",
+            "细心"
+          ],
+          "speech_style": "温和",
+          "temperament": "平和"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 104,
+            "line_end": 104,
+            "text": "沙玛法师道：\"韩总镖头，你太累了，地上睡得不舒服，我把房间让给你睡。\""
+          }
+        ]
+      },
+      {
+        "id": "char_jin_bi_yi",
+        "name": "金碧漪",
+        "alias": [
+          "美少年",
+          "金兄",
+          "金老弟"
+        ],
+        "identity": "金逐流之子（实为女扮男装）",
+        "faction": null,
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "神秘美少年，实为金逐流之女，女扮男装",
+        "personality": {
+          "traits": [
+            "俊美",
+            "机智",
+            "武功高强",
+            "易害羞",
+            "豪爽",
+            "神秘"
+          ],
+          "speech_style": "时而调侃，时而羞涩",
+          "temperament": "神秘"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 2,
+            "line_end": 2,
+            "text": "美少年道：\"我的姓很俗，是金银的金。\""
+          }
+        ]
+      },
+      {
+        "id": "char_deng_zhong_ai",
+        "name": "邓中艾",
+        "alias": [
+          "老邓",
+          "五官之首"
+        ],
+        "identity": "御林军军官，五官之首",
+        "faction": null,
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "御林军五官之首，暗中为清廷效力",
+        "personality": {
+          "traits": [
+            "阴险",
+            "狡诈",
+            "武功高强",
+            "官僚",
+            "多疑"
+          ],
+          "speech_style": "官腔十足",
+          "temperament": "阴沉"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 431,
+            "line_end": 431,
+            "text": "\"其实这个地方劫镖更好，尚铁宏选择玉树山白教喇嘛寺的门前劫镖，当真是失算了！\""
+          }
+        ]
+      },
+      {
+        "id": "char_liu_da_ge",
+        "name": "刘大哥",
+        "alias": [],
+        "identity": "大内侍卫萨福鼎下属",
+        "faction": null,
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "大内侍卫，奉萨福鼎之命与海兰亨争功",
+        "personality": {
+          "traits": [
+            "老练",
+            "多疑",
+            "武功高强",
+            "官僚",
+            "狡猾"
+          ],
+          "speech_style": "官腔十足",
+          "temperament": "阴沉"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 438,
+            "line_end": 438,
+            "text": "\"对啦，老邓，我正想问你。尚铁宏这次劫镖，我们满以为他会马到成功，却是怎样失手的？\""
+          }
+        ]
+      },
+      {
+        "id": "char_xing_ye_de",
+        "name": "姓叶的",
+        "alias": [
+          "叶兄"
+        ],
+        "identity": "大内侍卫萨福鼎下属",
+        "faction": null,
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "大内侍卫，与刘大哥同行",
+        "personality": {
+          "traits": [
+            "老练",
+            "武功高强",
+            "官僚"
+          ],
+          "speech_style": "官腔十足",
+          "temperament": "阴沉"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 471,
+            "line_end": 471,
+            "text": "那姓叶的想了一想，说道：\"我却是有点相信！\""
+          }
+        ]
+      },
+      {
+        "id": "char_liu_ting_zhi",
+        "name": "刘挺之",
+        "alias": [
+          "刘大哥"
+        ],
+        "identity": "大内侍卫，五虎断门刀高手",
+        "faction": null,
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "大内八高手之一，五虎断门刀掌门人师弟",
+        "personality": {
+          "traits": [
+            "老练",
+            "多疑",
+            "武功高强",
+            "官僚",
+            "狡猾"
+          ],
+          "speech_style": "官腔十足",
+          "temperament": "阴沉"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          15
+        ],
+        "source_refs": [
+          {
+            "chapter": 15,
+            "line_start": 2,
+            "line_end": 2,
+            "text": "那\"刘大哥\"道：\"你知道我为什么要和你来这荒山吗？\""
+          }
+        ]
+      },
+      {
+        "id": "char_ye_gu_hun",
+        "name": "叶谷浑",
+        "alias": [
+          "姓叶的",
+          "叶兄"
+        ],
+        "identity": "大内侍卫，大摔碑手高手",
+        "faction": null,
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "大内八高手之一，原关东马贼，大摔碑手横行江湖",
+        "personality": {
+          "traits": [
+            "老练",
+            "武功高强",
+            "官僚",
+            "豪迈"
+          ],
+          "speech_style": "官腔十足",
+          "temperament": "阴沉"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          15
+        ],
+        "source_refs": [
+          {
+            "chapter": 15,
+            "line_start": 64,
+            "line_end": 64,
+            "text": "那姓叶的吃了一惊，说道：\"如此说来，他们二人岂非已遭毒手？\""
+          }
+        ]
+      },
+      {
+        "id": "char_jin_zhu_liu_zhi_zi",
+        "name": "金逐流之子",
+        "alias": [
+          "金少侠"
+        ],
+        "identity": "金逐流之子",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登峰造极",
+        "one_line": "金逐流之子，误以为杨华轻薄金碧漪，与之比剑",
+        "personality": {
+          "traits": [
+            "英武",
+            "正直",
+            "武功高强",
+            "易怒",
+            "重情"
+          ],
+          "speech_style": "直率",
+          "temperament": "英武"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          15
+        ],
+        "source_refs": [
+          {
+            "chapter": 15,
+            "line_start": 280,
+            "line_end": 280,
+            "text": "这个人满面怒容地瞪视杨华。"
+          }
+        ]
+      },
+      {
+        "id": "char_dian_zhu_ren",
+        "name": "店主人",
+        "alias": [],
+        "identity": "平安集客栈老板",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "平平无奇",
+        "one_line": "平安集客栈老板，精明谨慎",
+        "personality": {
+          "traits": [
+            "精明",
+            "谨慎",
+            "多疑"
+          ],
+          "speech_style": "客气",
+          "temperament": "精明"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          15
+        ],
+        "source_refs": [
+          {
+            "chapter": 15,
+            "line_start": 578,
+            "line_end": 578,
+            "text": "店主人直上直下打量了杨华一番，说道：\"客官，你贵姓？\""
+          }
+        ]
+      },
+      {
+        "id": "char_xiao_si",
+        "name": "小厮",
+        "alias": [],
+        "identity": "平安集客栈伙计",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "平平无奇",
+        "one_line": "平安集客栈伙计，对外人有敌意",
+        "personality": {
+          "traits": [
+            "敌意",
+            "谨慎",
+            "多疑"
+          ],
+          "speech_style": "冷淡",
+          "temperament": "冷淡"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          15
+        ],
+        "source_refs": [
+          {
+            "chapter": 15,
+            "line_start": 552,
+            "line_end": 552,
+            "text": "那小厮道：\"客官是来投店的么？\""
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [],
+    "locations": [
+      {
+        "id": "loc_la_ma_si",
+        "name": "喇嘛寺",
+        "region": "前往柴达木途中",
+        "one_line": "众人暂时栖身的寺庙",
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 12,
+            "line_end": 12,
+            "text": "一场风波平息下来，众人重回喇嘛寺中喝酒庆祝。"
+          }
+        ]
+      },
+      {
+        "id": "loc_yu_shu_shan",
+        "name": "玉树山",
+        "region": "青海",
+        "one_line": "杨华与金碧漪同行经过的山脉",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 208,
+            "line_end": 208,
+            "text": "当下两人并辔同行，出了玉树山，快马疾驰，傍晚时分，方始发现一个人烟比较稠密的小镇。"
+          }
+        ]
+      },
+      {
+        "id": "loc_song_lin",
+        "name": "松林",
+        "region": "荒野",
+        "one_line": "杨华与金碧漪过夜的松林",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 349,
+            "line_end": 349,
+            "text": "两人牵了坐骑，走入松林，但见古木参天，怪石奇岩，触目皆是。"
+          }
+        ]
+      },
+      {
+        "id": "loc_ping_an_ji",
+        "name": "平安集",
+        "region": "柴达木山区边缘",
+        "one_line": "柴达木山区边缘的小市集，山区的咽喉",
+        "source_refs": [
+          {
+            "chapter": 15,
+            "line_start": 524,
+            "line_end": 524,
+            "text": "山区的边缘，有个小小的市集，名叫平安集。"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_putao_mei_jiu",
+        "name": "葡萄美酒",
+        "type": "special",
+        "owner": "char_yang_hua",
+        "one_line": "杨华带来与美少年共饮的美酒",
+        "description": "装在皮袋中的葡萄美酒，杨华特意带来与美少年共饮",
+        "effects": [],
+        "origin": "杨华携带",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_yang_hua",
+          "char_mei_shao_nian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          13
+        ],
+        "source_refs": [
+          {
+            "chapter": 13,
+            "line_start": 432,
+            "line_end": 432,
+            "text": "这袋葡萄美酒，我特地带来给你喝的！"
+          }
+        ]
+      },
+      {
+        "id": "item_qing_sha_zhang_mu",
+        "name": "轻纱帐幕",
+        "type": "special",
+        "owner": "char_jin_bi_yi",
+        "one_line": "金碧漪随身携带的天山野蚕丝帐幕",
+        "description": "天山野蚕丝织成的轻纱帐幕，折起来不过盈握，张开来可以遮过一间房间，风雪不侵，冬温夏凉",
+        "effects": [],
+        "origin": "天山",
+        "rarity": "稀世珍品",
+        "related_characters": [
+          "char_jin_bi_yi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          14
+        ],
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 379,
+            "line_end": 379,
+            "text": "这是天山的野蚕丝织的，折起来不过盈握，张开来可以遮过一间房间，风雪不侵。而且冬温夏凉，好处真是说之不尽。"
+          }
+        ]
+      }
+    ]
+  }
+}

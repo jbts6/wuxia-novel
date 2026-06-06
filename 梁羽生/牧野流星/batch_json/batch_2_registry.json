@@ -1,0 +1,913 @@
+{
+  "batch": 2,
+  "chapters": [
+    "ch_04",
+    "ch_05",
+    "ch_06"
+  ],
+  "processed": [
+    "ch_04",
+    "ch_05",
+    "ch_06"
+  ],
+  "entity_registry": {
+    "characters": [
+      {
+        "id": "char_yang_hua",
+        "name": "杨华",
+        "alias": [],
+        "identity": "崆峒派弟子",
+        "faction": "faction_kong_tong",
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "在石林修炼的崆峒派年轻弟子",
+        "personality": {
+          "traits": [
+            "聪颖",
+            "孝顺",
+            "好奇",
+            "谨慎",
+            "执着"
+          ],
+          "speech_style": "内心独白为主",
+          "temperament": "沉稳"
+        },
+        "relationships": [
+          {
+            "target": "char_duan_qiu_shi",
+            "type": "师徒",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "师徒情深"
+          },
+          {
+            "target": "char_dan_qiu_sheng",
+            "type": "师徒",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "师徒关系"
+          },
+          {
+            "target": "char_meng_yuan_chao",
+            "type": "亲属",
+            "intensity": 0,
+            "bond_level": 0,
+            "dynamic": "未知父子关系"
+          }
+        ],
+        "known_skills": [
+          "skill_meng_jia_dao",
+          "skill_kong_tong_jian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          4,
+          5,
+          6
+        ],
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 1,
+            "line_end": 313,
+            "text": "杨华在石林修炼，发现张丹枫密室，偶遇段青和冰妹"
+          },
+          {
+            "chapter": 5,
+            "line_start": 660,
+            "line_end": 962,
+            "text": "杨华与洞冥子对战"
+          },
+          {
+            "chapter": 6,
+            "line_start": 1,
+            "line_end": 135,
+            "text": "杨华与洞冥子激战并获胜"
+          }
+        ]
+      },
+      {
+        "id": "char_duan_qing",
+        "name": "段青",
+        "alias": [],
+        "identity": "段仇世侄儿",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": null,
+        "one_line": "段仇世的侄儿，来石林寻找叔叔",
+        "personality": {
+          "traits": [
+            "细心",
+            "幽默",
+            "认真",
+            "深情"
+          ],
+          "speech_style": "温和有礼",
+          "temperament": "稳重"
+        },
+        "relationships": [
+          {
+            "target": "char_duan_qiu_shi",
+            "type": "亲属",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "叔侄关系"
+          },
+          {
+            "target": "char_bing_mei",
+            "type": "恋人",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "互相爱慕"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          4
+        ],
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 209,
+            "line_end": 311,
+            "text": "段青与冰妹对话，寻找叔叔段仇世"
+          }
+        ]
+      },
+      {
+        "id": "char_bing_mei",
+        "name": "冰妹",
+        "alias": [],
+        "identity": "孟元超弟子",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": null,
+        "one_line": "与段青一同来石林的少女",
+        "personality": {
+          "traits": [
+            "细心",
+            "聪慧",
+            "活泼",
+            "深情"
+          ],
+          "speech_style": "活泼可爱",
+          "temperament": "灵动"
+        },
+        "relationships": [
+          {
+            "target": "char_duan_qing",
+            "type": "恋人",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "互相爱慕"
+          },
+          {
+            "target": "char_meng_yuan_chao",
+            "type": "师徒",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "师徒关系"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          4
+        ],
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 205,
+            "line_end": 309,
+            "text": "冰妹与段青对话"
+          }
+        ]
+      },
+      {
+        "id": "char_duan_jian_qing",
+        "name": "段剑青",
+        "alias": [
+          "段青"
+        ],
+        "identity": "大理段家后人",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "初窥门径",
+        "one_line": "段仇世的侄儿，自称小王爷",
+        "personality": {
+          "traits": [
+            "多疑",
+            "自私",
+            "好面子",
+            "对武功秘笈执着"
+          ],
+          "speech_style": "温和但内心算计",
+          "temperament": "表面稳重内心急躁"
+        },
+        "relationships": [
+          {
+            "target": "char_duan_qiu_shi",
+            "type": "亲属",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "叔侄关系，段剑青怀疑叔叔"
+          },
+          {
+            "target": "char_leng_bing_er",
+            "type": "恋人",
+            "intensity": 65,
+            "bond_level": 3,
+            "dynamic": "互相爱慕"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5,
+          6
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 70,
+            "line_end": 600,
+            "text": "段剑青与冷冰儿来石林寻秘笈"
+          },
+          {
+            "chapter": 6,
+            "line_start": 176,
+            "line_end": 650,
+            "text": "段剑青与冷冰儿离开石林"
+          }
+        ]
+      },
+      {
+        "id": "char_leng_bing_er",
+        "name": "冷冰儿",
+        "alias": [
+          "冰妹"
+        ],
+        "identity": "青城派弟子",
+        "faction": "faction_qing_cheng",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "初窥门径",
+        "one_line": "青城派第三代女弟子，冷铁樵族侄",
+        "personality": {
+          "traits": [
+            "善良",
+            "细心",
+            "聪慧",
+            "活泼",
+            "深情"
+          ],
+          "speech_style": "活泼可爱",
+          "temperament": "灵动"
+        },
+        "relationships": [
+          {
+            "target": "char_duan_jian_qing",
+            "type": "恋人",
+            "intensity": 65,
+            "bond_level": 3,
+            "dynamic": "互相爱慕"
+          },
+          {
+            "target": "char_leng_tie_qiao",
+            "type": "亲属",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "族伯关系"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5,
+          6
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 118,
+            "line_end": 487,
+            "text": "冷冰儿与段剑青对话"
+          },
+          {
+            "chapter": 6,
+            "line_start": 176,
+            "line_end": 650,
+            "text": "冷冰儿与段剑青同行"
+          }
+        ]
+      },
+      {
+        "id": "char_pan_shi_sheng",
+        "name": "盘石生",
+        "alias": [],
+        "identity": "阳继孟弟子",
+        "faction": null,
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "阳继孟的大弟子，会修罗阴煞功",
+        "personality": {
+          "traits": [
+            "鲁莽",
+            "凶狠",
+            "轻敌"
+          ],
+          "speech_style": "粗鲁",
+          "temperament": "暴躁"
+        },
+        "relationships": [
+          {
+            "target": "char_yang_ji_meng",
+            "type": "师徒",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "师徒关系"
+          }
+        ],
+        "known_skills": [
+          "skill_xiu_luo_yin_sha_gong"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 430,
+            "line_end": 760,
+            "text": "盘石生与杨华交手"
+          }
+        ]
+      },
+      {
+        "id": "char_dong_ming_zi",
+        "name": "洞冥子",
+        "alias": [],
+        "identity": "崆峒派长老",
+        "faction": "faction_kong_tong",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "崆峒派长老，连环夺命剑法第一",
+        "personality": {
+          "traits": [
+            "自视甚高",
+            "阴险",
+            "老练"
+          ],
+          "speech_style": "傲慢",
+          "temperament": "阴沉"
+        },
+        "relationships": [
+          {
+            "target": "char_dong_xuan_zi",
+            "type": "师兄弟",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "崆峒派长老"
+          }
+        ],
+        "known_skills": [
+          "skill_lian_huan_duo_ming_jian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 460,
+            "line_end": 962,
+            "text": "洞冥子与杨华对战"
+          }
+        ]
+      },
+      {
+        "id": "char_meng_yuan_chao",
+        "name": "孟元超",
+        "alias": [
+          "孟大侠"
+        ],
+        "identity": "小金川义军首领",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登峰造极",
+        "one_line": "小金川义军第三号人物",
+        "personality": {
+          "traits": [
+            "英雄",
+            "重情义",
+            "侠义"
+          ],
+          "speech_style": "豪迈",
+          "temperament": "英雄气概"
+        },
+        "relationships": [
+          {
+            "target": "char_lin_wu_shuang",
+            "type": "恋人",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "夫妻关系"
+          },
+          {
+            "target": "char_yun_zi_luo",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "好友关系"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 4,
+            "line_end": 170,
+            "text": "对话中提及孟元超"
+          }
+        ]
+      },
+      {
+        "id": "char_lin_wu_shuang",
+        "name": "林无双",
+        "alias": [
+          "孟夫人"
+        ],
+        "identity": "扶桑派掌门",
+        "faction": "faction_fu_sang",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "孟元超妻子，扶桑派前掌门",
+        "personality": {
+          "traits": [
+            "豪爽",
+            "深情",
+            "剑法高超"
+          ],
+          "speech_style": "豪迈",
+          "temperament": "女中豪杰"
+        },
+        "relationships": [
+          {
+            "target": "char_meng_yuan_chao",
+            "type": "恋人",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "夫妻关系"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 130,
+            "line_end": 140,
+            "text": "冷冰儿介绍林无双"
+          }
+        ]
+      },
+      {
+        "id": "char_liu_kang",
+        "name": "刘抗",
+        "alias": [
+          "刘大侠"
+        ],
+        "identity": "小金川义军将领",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": null,
+        "one_line": "小金川义军将领",
+        "personality": {
+          "traits": [
+            "豪杰"
+          ],
+          "speech_style": "",
+          "temperament": ""
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 36,
+            "line_end": 38,
+            "text": "提及刘抗"
+          }
+        ]
+      },
+      {
+        "id": "char_wu_zhuang",
+        "name": "武庄",
+        "alias": [
+          "刘夫人"
+        ],
+        "identity": "刘抗之妻",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": null,
+        "one_line": "刘抗之妻，曾住段家",
+        "personality": {
+          "traits": [
+            "天真活泼",
+            "能干"
+          ],
+          "speech_style": "",
+          "temperament": ""
+        },
+        "relationships": [
+          {
+            "target": "char_liu_kang",
+            "type": "恋人",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "夫妻关系"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 38,
+            "line_end": 74,
+            "text": "提及武庄和段剑青的暗恋"
+          }
+        ]
+      },
+      {
+        "id": "char_yun_zi_luo",
+        "name": "云紫萝",
+        "alias": [
+          "云女侠"
+        ],
+        "identity": "已故女侠",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": null,
+        "one_line": "杨华之母，孟元超好友",
+        "personality": {
+          "traits": [
+            "侠义",
+            "深情"
+          ],
+          "speech_style": "",
+          "temperament": ""
+        },
+        "relationships": [
+          {
+            "target": "char_meng_yuan_chao",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "好友关系"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          5
+        ],
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 144,
+            "line_end": 168,
+            "text": "提及云紫萝已故"
+          }
+        ]
+      },
+      {
+        "id": "char_jin_guang_dou",
+        "name": "金光斗",
+        "alias": [],
+        "identity": "大理定边将军府文案",
+        "faction": null,
+        "role": "villain",
+        "archetype": "scholar",
+        "rank": null,
+        "one_line": "大理将军府文案，曾参与暗杀韩将军",
+        "personality": {
+          "traits": [
+            "狡猾",
+            "阴险",
+            "圆滑"
+          ],
+          "speech_style": "官腔官调",
+          "temperament": "阴险"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          6
+        ],
+        "source_refs": [
+          {
+            "chapter": 6,
+            "line_start": 296,
+            "line_end": 640,
+            "text": "金光斗与段剑青对话"
+          }
+        ]
+      },
+      {
+        "id": "char_li_da_yong",
+        "name": "李大勇",
+        "alias": [
+          "李都头"
+        ],
+        "identity": "御林军军官",
+        "faction": null,
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": null,
+        "one_line": "御林军军官，现为大理都头",
+        "personality": {
+          "traits": [
+            "鲁莽",
+            "有勇有谋",
+            "自负"
+          ],
+          "speech_style": "粗鲁",
+          "temperament": "暴躁"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          6
+        ],
+        "source_refs": [
+          {
+            "chapter": 6,
+            "line_start": 310,
+            "line_end": 691,
+            "text": "李大勇与段剑青对话"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_meng_jia_dao",
+        "name": "孟家刀法",
+        "type": "剑法",
+        "faction": null,
+        "rank": "炉火纯青",
+        "one_line": "杨华从秘籍中学习的刀法",
+        "rag_refs": [
+          4
+        ],
+        "techniques": [],
+        "progression": [],
+        "effects": [],
+        "combat_style": "以快为主",
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 1,
+            "line_end": 60,
+            "text": "杨华研习孟家刀法"
+          }
+        ]
+      },
+      {
+        "id": "skill_wu_ming_jian",
+        "name": "无名剑法",
+        "type": "剑法",
+        "faction": null,
+        "rank": "登峰造极",
+        "one_line": "张丹枫晚年所创的十八式剑法",
+        "rag_refs": [
+          4
+        ],
+        "techniques": [],
+        "progression": [],
+        "effects": [],
+        "combat_style": "靠学者悟力自创新招",
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 156,
+            "line_end": 175,
+            "text": "张丹枫无名剑法"
+          }
+        ]
+      },
+      {
+        "id": "skill_xiu_luo_yin_sha_gong",
+        "name": "修罗阴煞功",
+        "type": "内功",
+        "faction": null,
+        "rank": "出神入化",
+        "one_line": "阳继孟的阴寒内功",
+        "rag_refs": [
+          5
+        ],
+        "techniques": [],
+        "progression": [
+          {
+            "level": 9,
+            "unlock": "第九重"
+          }
+        ],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "击中对手",
+            "description": "寒毒侵入对手体内"
+          }
+        ],
+        "combat_style": "以寒毒伤人",
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 436,
+            "line_end": 740,
+            "text": "盘石生使用修罗阴煞功"
+          }
+        ]
+      },
+      {
+        "id": "skill_lian_huan_duo_ming_jian",
+        "name": "连环夺命剑法",
+        "type": "剑法",
+        "faction": "faction_kong_tong",
+        "rank": "出神入化",
+        "one_line": "崆峒派剑法，可兼顾八门",
+        "rag_refs": [
+          5
+        ],
+        "techniques": [],
+        "progression": [],
+        "effects": [],
+        "combat_style": "一人施展可兼顾八门，需用双剑",
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 464,
+            "line_end": 960,
+            "text": "洞冥子施展连环夺命剑法"
+          }
+        ]
+      }
+    ],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_kong_tong",
+        "name": "崆峒派",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "杨华所属门派",
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 50,
+            "line_end": 52,
+            "text": "丹丘生传崆峒派武学"
+          }
+        ]
+      },
+      {
+        "id": "faction_qing_cheng",
+        "name": "青城派",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "冷冰儿所属门派",
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 118,
+            "line_end": 118,
+            "text": "冷冰儿是青城派弟子"
+          }
+        ]
+      },
+      {
+        "id": "faction_fu_sang",
+        "name": "扶桑派",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "林无双曾任掌门的门派",
+        "source_refs": [
+          {
+            "chapter": 5,
+            "line_start": 130,
+            "line_end": 130,
+            "text": "林无双本是扶桑派掌门"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_shi_lin",
+        "name": "石林",
+        "region": "云南",
+        "one_line": "杨华修炼多年的地点，张丹枫晚年居所",
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 1,
+            "line_end": 313,
+            "text": "石林剑池剑峰"
+          }
+        ]
+      },
+      {
+        "id": "loc_jian_chi",
+        "name": "剑池",
+        "region": "石林",
+        "one_line": "石林中的水池",
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 68,
+            "line_end": 78,
+            "text": "杨华在剑池洗澡"
+          }
+        ]
+      },
+      {
+        "id": "loc_jian_feng",
+        "name": "剑峰",
+        "region": "石林",
+        "one_line": "石林中的山峰，有张丹枫题字",
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 68,
+            "line_end": 86,
+            "text": "剑峰上有张丹枫密室"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_xuan_gong_yao_jue",
+        "name": "玄功要诀",
+        "type": "special",
+        "owner": "char_yang_hua",
+        "one_line": "张丹枫留下的内功心法秘籍",
+        "description": "张丹枫毕生武学精华之所聚的上乘心法，讲述武学基本原理",
+        "effects": [],
+        "origin": "张丹枫",
+        "rarity": "绝世神兵",
+        "related_characters": [
+          "char_zhang_dan_feng",
+          "char_yang_hua"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          4
+        ],
+        "source_refs": [
+          {
+            "chapter": 4,
+            "line_start": 130,
+            "line_end": 152,
+            "text": "玄功要诀"
+          }
+        ]
+      }
+    ]
+  }
+}
