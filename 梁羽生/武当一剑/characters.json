@@ -1,0 +1,4711 @@
+[
+  {
+    "id": "char_wu_xiang_zhen_ren",
+    "name": "无相真人",
+    "alias": [],
+    "identity": "武当派掌门",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登峰造极",
+    "one_line": "武当派前任掌门，金光真人首徒，太极剑法高手，已于本章含笑而逝",
+    "personality": {
+      "traits": [
+        "德高望重",
+        "深谋远虑",
+        "谦逊",
+        "忧虑后继",
+        "慈祥"
+      ],
+      "speech_style": "从容不迫，娓娓道来",
+      "temperament": "温厚稳重"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "无相真人似乎知道他的心思，缓缓地说"
+      },
+      {
+        "chapter": 5,
+        "line_start": 44,
+        "line_end": 44,
+        "text": "说完最后一句，闭上双目，垂下头来"
+      },
+      {
+        "chapter": 3,
+        "line_start": 106,
+        "line_end": 204,
+        "text": "无相真人为不戒施救并见证其临终"
+      },
+      {
+        "chapter": 3,
+        "line_start": 248,
+        "line_end": 264,
+        "text": "无相真人与牟一羽检验骸骨"
+      },
+      {
+        "chapter": 3,
+        "line_start": 1157,
+        "line_end": 1255,
+        "text": "无相真人当众宣布收牟沧浪为徒并立为新掌门"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_guang_zhen_ren",
+    "name": "金光真人",
+    "alias": [],
+    "identity": "武当派前任掌门",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登峰造极",
+    "one_line": "无相真人的师父，已故武当派掌门",
+    "personality": {
+      "traits": [
+        "性情廉和",
+        "涵养深厚",
+        "处事得体"
+      ],
+      "speech_style": "温和从容",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_xiang_zhen_ren",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒传承"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 24,
+        "line_end": 24,
+        "text": "当时武当派的掌门金光真人亦即现任掌门无相真人的师父"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_zhen_zi",
+    "name": "玄贞子",
+    "alias": [],
+    "identity": "昆仑派剑术高手",
+    "faction": "faction_kun_lun",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "昆仑派第一剑术高手，飞鹰剑法创始人，三十六年前败于无相真人",
+    "personality": {
+      "traits": [
+        "傲慢",
+        "好胜",
+        "重面子",
+        "爱子心切"
+      ],
+      "speech_style": "咄咄逼人",
+      "temperament": "刚愎"
+    },
+    "relationships": [
+      {
+        "target": "char_xiang_tian_ming",
+        "type": "师徒",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "师徒传承飞鹰剑法"
+      }
+    ],
+    "known_skills": [
+      "skill_fei_ying_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 18,
+        "line_end": 18,
+        "text": "那一年昆仑派的玄贞子来到武当山，要求和掌门人比试剑法"
+      }
+    ]
+  },
+  {
+    "id": "char_xiang_tian_ming",
+    "name": "向天明",
+    "alias": [
+      "剑圣"
+    ],
+    "identity": "玄贞子之徒，号称剑圣",
+    "faction": "faction_kun_lun",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "玄贞子的徒弟，号称剑圣，立志要在剑法上压倒武当派",
+    "personality": {
+      "traits": [
+        "隐忍",
+        "执着",
+        "骄傲",
+        "冷酷",
+        "深藏不露"
+      ],
+      "speech_style": "冷峻简洁",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_xuan_zhen_zi",
+        "type": "师徒",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "继承师志复仇"
+      },
+      {
+        "target": "char_dong_fang_liang",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒传承"
+      },
+      {
+        "target": "char_wu_xiang_zhen_ren",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "三十六年恩怨"
+      }
+    ],
+    "known_skills": [
+      "skill_fei_ying_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 176,
+        "line_end": 176,
+        "text": "他那徒弟做得更绝，刷地拔剑出鞘"
+      }
+    ]
+  },
+  {
+    "id": "char_bu_bo",
+    "name": "不波",
+    "alias": [],
+    "identity": "武当派弟子",
+    "faction": "faction_wu_dang",
+    "role": "companion",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "武当派不字辈弟子之长，潜心钻研拳经剑谱 || 本章首次正式登场，听得平台喧闹刚从紫霄宫走出。追陌生客人时被一弹之力震得长剑脱手坠地，自认非对方敌手，主张'残忍手段不是出家人所为'。",
+    "personality": {
+      "traits": [
+        "好学",
+        "自负",
+        "直率",
+        "深藏不露"
+      ],
+      "speech_style": "恭敬有礼",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 142,
+        "line_end": 142,
+        "text": "站在台前的不波代表同门说出心里的话"
+      },
+      {
+        "chapter": 3,
+        "line_start": 1410,
+        "line_end": 1577,
+        "text": "不波在通微堂与无色辩论剑法并当众质疑新掌门"
+      },
+      {
+        "chapter": 15,
+        "line_start": 1180,
+        "line_end": 1264,
+        "text": "说话的这个道士乃是已故的首席长老无极道人的首徒，道号不波。前任掌门无相真人去世之后，有两个'不'字辈的弟子升任长老，一个是不岐，另一个就是他……不波虽然没给震退，但也晃了几晃，跟着又是'当'的一声，长剑脱手坠地。"
+      }
+    ]
+  },
+  {
+    "id": "char_bu_bai",
+    "name": "不败",
+    "alias": [],
+    "identity": "武当派弟子，无量长老徒弟",
+    "faction": "faction_wu_dang",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "无量长老的大弟子，较多在江湖行走",
+    "personality": {
+      "traits": [
+        "鲁莽",
+        "直率",
+        "义气",
+        "自负",
+        "谨慎",
+        "忠诚",
+        "敏感"
+      ],
+      "speech_style": "急躁",
+      "temperament": "急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_liang",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 300,
+        "line_end": 300,
+        "text": "在第二代弟子中，不败是较多在江湖行走的"
+      },
+      {
+        "chapter": 1,
+        "line_start": 38,
+        "line_end": 42,
+        "text": "年纪较大那个道士给师弟讲祖师的故事"
+      },
+      {
+        "chapter": 3,
+        "line_start": 963,
+        "line_end": 1089,
+        "text": "不败在大会前与不岐交谈，告知被牟沧浪致伤"
+      }
+    ]
+  },
+  {
+    "id": "char_bu_qi",
+    "name": "不岐",
+    "alias": [
+      "戈振军"
+    ],
+    "identity": "武当派弟子，无相真人唯一徒弟，新任长老",
+    "faction": "faction_wu_dang",
+    "role": "companion",
+    "archetype": "scholar",
+    "rank": "炉火纯青",
+    "one_line": "无相真人唯一徒弟，新任长老，本章被蒙面人鄙视'五十步笑百步' || 本章揭露不岐用七煞掌杀耿京士的完整过往，并亲口向耿玉京承认。其自言'日里夜里都为了当年误杀他们一事而后悔万分'，但面对耿玉京的质问时仍犹豫、无法决断。最终在墓园中亲口承认是杀耿京士（耿玉京生父）的凶手，于耿玉京面前举断剑自刎心窝。",
+    "personality": {
+      "traits": [
+        "城府深",
+        "隐忍",
+        "自卑",
+        "矛盾",
+        "聪明"
+      ],
+      "speech_style": "冷淡含蓄",
+      "temperament": "阴郁"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_xiang_zhen_ren",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "表面师徒情深实则心存怨怼"
+      },
+      {
+        "target": "char_lan_yu_jing",
+        "type": "师徒",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "义父兼师父，暗中传授错误剑法"
+      },
+      {
+        "target": "char_wu_ming",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "争夺掌门之位的对手"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 750,
+        "line_end": 750,
+        "text": "不岐忽地越众而出，朗声说道"
+      },
+      {
+        "chapter": 5,
+        "line_start": 74,
+        "line_end": 74,
+        "text": "无名是以掌门人的身份，宣布把不波和不歧升任长老"
+      },
+      {
+        "chapter": 3,
+        "line_start": 42,
+        "line_end": 104,
+        "text": "不岐独自窗前焦虑，回忆不戒之死与盘龙山旧事"
+      },
+      {
+        "chapter": 3,
+        "line_start": 248,
+        "line_end": 264,
+        "text": "不岐在窗外偷听师父与牟一羽检验骸骨"
+      },
+      {
+        "chapter": 3,
+        "line_start": 530,
+        "line_end": 722,
+        "text": "不岐与牟一羽长谈，确认何亮头盖骨去向"
+      },
+      {
+        "chapter": 3,
+        "line_start": 951,
+        "line_end": 1146,
+        "text": "不岐在立新掌门大会上与不败、牟一羽交谈"
+      },
+      {
+        "chapter": 15,
+        "line_start": 2181,
+        "line_end": 2215,
+        "text": "耿玉京道：'我的亲生父母呢？'不岐叹道：'不错，你的生父是我杀的，你的生母虽然不是我亲手所杀，也是因我而死。这些年来，我日里夜里，都为了当年误杀他们一事而后悔万分！'……他举起手中的断剑，缓缓的向自己心窝插了。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 618,
+        "line_end": 618,
+        "text": "弟子死有余辜，请掌门人莫再为我耗费真气。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 722,
+        "line_end": 722,
+        "text": "掌门教训的是，弟子即使变成残废，也要活着。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 166,
+        "line_end": 166,
+        "text": "相信我，你一定要相信我，不是我，不是我，不是我！"
+      },
+      {
+        "chapter": 17,
+        "line_start": 250,
+        "line_end": 250,
+        "text": "京儿，我把最见不得人的心事都对你说了吧。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 354,
+        "line_end": 354,
+        "text": "他那飞身越墙的身法，和十八年前我所见到的那个凶手的身法，正是相同！"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_se",
+    "name": "无色",
+    "alias": [],
+    "identity": "武当派长老，第一剑术高手",
+    "faction": "faction_wu_dang",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "武当派长老，公认的本门第一剑术高手",
+    "personality": {
+      "traits": [
+        "谦逊",
+        "正直",
+        "温和",
+        "幽默",
+        "爽快",
+        "不拘小节",
+        "豪迈",
+        "认真"
+      ],
+      "speech_style": "随和幽默",
+      "temperament": "温和"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 320,
+        "line_end": 320,
+        "text": "无色说道"
+      },
+      {
+        "chapter": 1,
+        "line_start": 739,
+        "line_end": 741,
+        "text": "无色道是三个长老中年纪最轻的一个"
+      },
+      {
+        "chapter": 3,
+        "line_start": 116,
+        "line_end": 128,
+        "text": "无色在场旁观救治不戒"
+      },
+      {
+        "chapter": 3,
+        "line_start": 1410,
+        "line_end": 1567,
+        "text": "无色与不波辩论剑法，赞牟沧浪为武当剑法第一"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_liang",
+    "name": "无量",
+    "alias": [],
+    "identity": "武当派首席长老",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "武当派首席长老，内功深湛，对新掌门人选不满",
+    "personality": {
+      "traits": [
+        "多疑",
+        "嫉妒",
+        "自私",
+        "内功深厚",
+        "深沉",
+        "城府极深",
+        "善于操控",
+        "精明"
+      ],
+      "speech_style": "尖锐刻薄",
+      "temperament": "狭隘"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_ming",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 1,
+        "dynamic": "嫉妒新掌门"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 458,
+        "line_end": 458,
+        "text": "无量面色变得十分难乍"
+      },
+      {
+        "chapter": 1,
+        "line_start": 441,
+        "line_end": 442,
+        "text": "来的乃是本门老无量道人。自从无极道人去世之后，他已升为首座长老"
+      },
+      {
+        "chapter": 3,
+        "line_start": 42,
+        "line_end": 104,
+        "text": "无量告知不岐不戒伤讯"
+      },
+      {
+        "chapter": 3,
+        "line_start": 350,
+        "line_end": 500,
+        "text": "无量与不岐深谈，揭穿其私传蓝玉京剑法"
+      },
+      {
+        "chapter": 3,
+        "line_start": 736,
+        "line_end": 790,
+        "text": "无量暗示不岐将接任掌门"
+      },
+      {
+        "chapter": 3,
+        "line_start": 1257,
+        "line_end": 1336,
+        "text": "无量在立新掌门大会上的表现"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_ming",
+    "name": "无名",
+    "alias": [
+      "牟沧浪",
+      "中州大侠"
+    ],
+    "identity": "武当派新任掌门",
+    "faction": "faction_wu_dang",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "本章通过七星剑客'令尊不是正人君子，但也不至于做帮凶'为无名洗脱疑嫌",
+    "personality": {
+      "traits": [
+        "谦逊",
+        "深沉",
+        "机智",
+        "仁厚",
+        "武功高强",
+        "神秘"
+      ],
+      "speech_style": "不卑不亢",
+      "temperament": "沉稳大度"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_xiang_zhen_ren",
+        "type": "师兄弟",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "受托接任掌门"
+      },
+      {
+        "target": "char_xiang_tian_ming",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "揭穿面具胜出"
+      },
+      {
+        "target": "char_xi_men_fu_ren",
+        "type": "旧情人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "早年相好，刚刚相认，情感负担极重"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 456,
+        "line_end": 456,
+        "text": "无名站起来道：不敢当"
+      },
+      {
+        "chapter": 16,
+        "line_start": 410,
+        "line_end": 410,
+        "text": "在你的妈妈跟前，我不是什么掌门，也不是什么真人，只能是牟沧浪！"
+      },
+      {
+        "chapter": 16,
+        "line_start": 422,
+        "line_end": 422,
+        "text": "我要你过来叩见亲娘！"
+      },
+      {
+        "chapter": 17,
+        "line_start": 18,
+        "line_end": 18,
+        "text": "原来是褚兄，没想到一别十年，却在这里相见。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 124,
+        "line_end": 124,
+        "text": "那个连横，正是罗江峰的副手，你想他们能在辽东建帮，要是背后没有靠山，做得到吗？"
+      }
+    ]
+  },
+  {
+    "id": "char_dong_fang_liang",
+    "name": "东方亮",
+    "alias": [],
+    "identity": "向天明之徒，自称玄贞子门下",
+    "faction": "faction_kun_lun",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "向天明的徒弟，少年高手，太极剑法兼各家之长",
+    "personality": {
+      "traits": [
+        "聪明",
+        "骄傲",
+        "深藏不露",
+        "少年老成",
+        "急躁"
+      ],
+      "speech_style": "傲慢但有礼",
+      "temperament": "冷傲"
+    },
+    "relationships": [
+      {
+        "target": "char_xiang_tian_ming",
+        "type": "师徒",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "替师赴约"
+      },
+      {
+        "target": "char_wu_ming",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "被揭穿败北"
+      },
+      {
+        "target": "char_lan_yu_jing",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "切磋剑法的同伴，亦敌亦友"
+      },
+      {
+        "target": "char_xi_men_yan",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "表兄妹"
+      }
+    ],
+    "known_skills": [
+      "skill_fei_ying_jian",
+      "skill_fei_ying_hui_xuan_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      6,
+      11,
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 1139,
+        "line_end": 1139,
+        "text": "我是向天明的徒弟东方亮"
+      },
+      {
+        "chapter": 6,
+        "line_start": 383,
+        "line_end": 383,
+        "text": "我的姓是两个字的，姓东方，单名一个亮字"
+      },
+      {
+        "chapter": 12,
+        "line_start": 544,
+        "line_end": 544,
+        "text": "她想起东方亮，不由得心头一阵发热"
+      }
+    ]
+  },
+  {
+    "id": "char_lan_shui_ling",
+    "name": "蓝水灵",
+    "alias": [],
+    "identity": "蓝玉京之姐",
+    "faction": "faction_wu_dang",
+    "role": "companion",
+    "archetype": "scholar",
+    "rank": "略有小成",
+    "one_line": "蓝玉京的姐姐，不悔道姑的记名弟子 || 本章父母双亡，与西门燕同被迷香放倒。亲耳听到'不岐'杀其父'只有死人才不会说话'、又听到'不岐'和'常五娘'事后对话。养伤中分析出说话者是'假冒的不岐'——'移祸东吴'的计谋。最后向蓝玉京说出凶手是'你的义父'。",
+    "personality": {
+      "traits": [
+        "天真",
+        "善良",
+        "关心弟弟",
+        "直率",
+        "活泼",
+        "单纯"
+      ],
+      "speech_style": "天真烂漫",
+      "temperament": "活泼"
+    },
+    "relationships": [
+      {
+        "target": "char_lan_yu_jing",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "姐弟情深"
+      },
+      {
+        "target": "char_bu_hui",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "记名师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      1,
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 883,
+        "line_end": 883,
+        "text": "这个人只不过是个十六岁的少女，她是蓝玉京的姐姐蓝水灵"
+      },
+      {
+        "chapter": 1,
+        "line_start": 525,
+        "line_end": 526,
+        "text": "一个女子的声音道：让我来哄他吧"
+      },
+      {
+        "chapter": 2,
+        "line_start": 613,
+        "line_end": 620,
+        "text": "蓝水灵在玉镜湖旁"
+      },
+      {
+        "chapter": 3,
+        "line_start": 891,
+        "line_end": 908,
+        "text": "蓝水灵邀弟回家为蓝靠山祝寿"
+      },
+      {
+        "chapter": 15,
+        "line_start": 1483,
+        "line_end": 1817,
+        "text": "不岐跟着说道：'大嫂，对不住，我只能够这样，因为只有死人才不会说话！'……蓝水灵道：'是，是，是你的义父！'"
+      }
+    ]
+  },
+  {
+    "id": "char_bu_hui",
+    "name": "不悔道姑",
+    "alias": [],
+    "identity": "武当派玉真观女弟子",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "武当派师太，记名弟子蓝水灵，痛恨常五娘",
+    "personality": {
+      "traits": [
+        "细心",
+        "正义",
+        "警惕",
+        "关爱晚辈",
+        "刚烈",
+        "急躁",
+        "护短",
+        "急公好义"
+      ],
+      "speech_style": "激昂",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_lan_shui_ling",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "记名师徒"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 886,
+        "line_end": 886,
+        "text": "蓝水灵是和她的记名师傅不悔道姑站在一起的"
+      },
+      {
+        "chapter": 15,
+        "line_start": 1150,
+        "line_end": 1280,
+        "text": "不悔师太道：'真的？'……不悔道：'不是那个妖妇，这人的使毒手法虽然在那妖妇之上，手段却是不如那妖妇的毒辣。'"
+      },
+      {
+        "chapter": 18,
+        "line_start": 1241,
+        "line_end": 1241,
+        "text": "不悔性情甚急"
+      }
+    ]
+  },
+  {
+    "id": "char_zhong_liu_tang",
+    "name": "钟柳堂",
+    "alias": [],
+    "identity": "无极派掌门",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "山东最著名的武师，无极派掌门，被向天明三招击败",
+    "personality": {
+      "traits": [
+        "自大",
+        "好胜"
+      ],
+      "speech_style": "傲慢",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_wu_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 316,
+        "line_end": 316,
+        "text": "无极派掌门人钟柳堂"
+      }
+    ]
+  },
+  {
+    "id": "char_mou_yi_yu",
+    "name": "牟一羽",
+    "alias": [],
+    "identity": "无名真人之子",
+    "faction": "faction_wu_dang",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "本章获七星剑客解药，得知父亲非疑凶；质问西门夫人'害死其母'后抛解药离去，与西门夫人决裂 || 本章显露其更深的秘密——他暗中保护常五娘，安排父亲牟沧浪对蓝靠山夫妇下手后嫁祸不岐。蓝水灵看到他时惊呼'他知道是谁了'，随即倒地。本章末尾他准时出现在松林三更约会，心情是'有始料不及的恐惧，也有意想不到的惊喜……心上的一块石头总算落下地了。他的父亲虽有过错，却没有他所想的那样坏。'",
+    "personality": {
+      "traits": [
+        "机智",
+        "深沉",
+        "似笑非笑",
+        "洞察力强",
+        "聪明",
+        "机警",
+        "武艺高强",
+        "矛盾",
+        "含蓄",
+        "爱恨交织"
+      ],
+      "speech_style": "含蓄机锋",
+      "temperament": "复杂多面"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_ming",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "父子关系"
+      },
+      {
+        "target": "char_xi_men_fu_ren",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "生母，关系刚刚揭破"
+      },
+      {
+        "target": "char_xi_men_yan",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "同父异母兄妹"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 127,
+        "line_end": 127,
+        "text": "忽见牟一羽从前面走来"
+      },
+      {
+        "chapter": 2,
+        "line_start": 549,
+        "line_end": 555,
+        "text": "这个少年名叫牟一羽，牟家是武当派中历史最长的武学世家"
+      },
+      {
+        "chapter": 3,
+        "line_start": 116,
+        "line_end": 264,
+        "text": "牟一羽送不戒回山并报告"
+      },
+      {
+        "chapter": 3,
+        "line_start": 530,
+        "line_end": 722,
+        "text": "牟一羽与不岐长谈迁葬与何亮头盖骨"
+      },
+      {
+        "chapter": 3,
+        "line_start": 1091,
+        "line_end": 1146,
+        "text": "牟一羽在大会上告知家世"
+      },
+      {
+        "chapter": 15,
+        "line_start": 1150,
+        "line_end": 1304,
+        "text": "不悔师太一到平台，就向牟一羽这样发问……牟一羽道：'这个……'……牟一羽道：'师姐，如果你们怀疑的真是事实，这个人的出现或者反而可以替咱们武当派消除一个隐患。'"
+      },
+      {
+        "chapter": 15,
+        "line_start": 2457,
+        "line_end": 2463,
+        "text": "来的正是牟一羽，他的时间倒是拿捏得很准，不早也不迟。时间拿捏得很准，但他的心情可是乱得可以……他的父亲虽有过错，却没有他所想的那样坏。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 78,
+        "line_end": 78,
+        "text": "是唐仲山！"
+      },
+      {
+        "chapter": 16,
+        "line_start": 386,
+        "line_end": 386,
+        "text": "你是我的什么人？"
+      },
+      {
+        "chapter": 16,
+        "line_start": 474,
+        "line_end": 474,
+        "text": "爹，娘——你们让我静静想一想。我先去找燕妹回来！"
+      },
+      {
+        "chapter": 17,
+        "line_start": 54,
+        "line_end": 54,
+        "text": "不错，是有这件事。但我却不知此人是谁。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 64,
+        "line_end": 64,
+        "text": "中了青蜂针的毒，脸上呈现青色，连横死时，脸色却是黑的。"
+      }
+    ]
+  },
+  {
+    "id": "char_long_ya_dao_ren",
+    "name": "聋哑道人",
+    "alias": [],
+    "identity": "服侍无相真人的老道人",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "大半生服侍无相真人的聋哑道人，武功深藏不露",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "沉默",
+        "正义",
+        "深藏不露"
+      ],
+      "speech_style": "手势书写",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_xiang_zhen_ren",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "忠心服侍一生"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 199,
+        "line_end": 199,
+        "text": "他就是大半生服侍无相真人的那个聋哑道人"
+      },
+      {
+        "chapter": 3,
+        "line_start": 304,
+        "line_end": 322,
+        "text": "聋哑道人服侍无相并守门"
+      },
+      {
+        "chapter": 3,
+        "line_start": 798,
+        "line_end": 829,
+        "text": "聋哑道人拒不见不岐但让蓝玉京入内"
+      },
+      {
+        "chapter": 3,
+        "line_start": 853,
+        "line_end": 858,
+        "text": "聋哑道人以木剑与蓝玉京比试"
+      },
+      {
+        "chapter": 16,
+        "line_start": 1126,
+        "line_end": 1126,
+        "text": "俗家名字叫做王晦闻。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 1218,
+        "line_end": 1218,
+        "text": "现在我要求你把武当派掌门让给他。"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_wu_niang",
+    "name": "常五娘",
+    "alias": [
+      "青蜂"
+    ],
+    "identity": "四川唐门唐二公子的情妇，暗器名家",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "本章与西门燕斗剑，讥骂牟沧浪负心；与英松龄、欧阳勇、嘉错法师合力围攻西门夫人；最后被西门燕断了欧阳勇一条手臂 || 本章被唐仲山（唐二先生）用长绳卷走。唐仲山揭穿其内心最爱仍是牟沧浪（'我的心里只有一个你'模仿她口气）。她以眼泪撒娇求饶，唐仲山终于不忍下手。揭露她曾向不岐问'都了结了么'，并有不岐对其'都是为了你的原故'的自白。",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "狠辣",
+        "风骚",
+        "精明",
+        "大胆",
+        "妖媚",
+        "阴狠",
+        "狡诈",
+        "心机深沉",
+        "手段毒辣",
+        "工于心计",
+        "毒舌"
+      ],
+      "speech_style": "妖媚阴险",
+      "temperament": "阴狠"
+    },
+    "relationships": [
+      {
+        "target": "char_tang_er_gong_zi",
+        "type": "恋人",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "情妇关系"
+      },
+      {
+        "target": "char_bu_qi",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "有旧情，互相利用挟制"
+      }
+    ],
+    "known_skills": [
+      "skill_qing_feng_zhen"
+    ],
+    "related_skills": [
+      "skill_qing_feng_zhen"
+    ],
+    "rag_refs": [
+      5,
+      6,
+      1,
+      3,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 271,
+        "line_end": 271,
+        "text": "这个中年道姑，竟是和他有过一夕之缘的青蜂常五娘"
+      },
+      {
+        "chapter": 6,
+        "line_start": 533,
+        "line_end": 533,
+        "text": "这个女人不是别人，正是从武当山上铩羽而归的青蜂常五娘"
+      },
+      {
+        "chapter": 1,
+        "line_start": 533,
+        "line_end": 533,
+        "text": "她最厉害的一种暗器名为青蜂针"
+      },
+      {
+        "chapter": 3,
+        "line_start": 116,
+        "line_end": 128,
+        "text": "牟一羽报告不戒中青蜂针"
+      },
+      {
+        "chapter": 3,
+        "line_start": 460,
+        "line_end": 478,
+        "text": "不岐回忆常五娘用青蜂针害何亮"
+      },
+      {
+        "chapter": 10,
+        "line_start": 1265,
+        "line_end": 1265,
+        "text": "东方亮道：我当是谁，原来是青蜂常五娘"
+      },
+      {
+        "chapter": 15,
+        "line_start": 1499,
+        "line_end": 1507,
+        "text": "她听得有个熟悉的女人声音从屋外传来：'都了结了？'……不岐好像是和她一面走一面说话：'不错，我是怕京儿知道真相。但倘若不是我已经下了决心，要和你永远在一起……'"
+      },
+      {
+        "chapter": 16,
+        "line_start": 114,
+        "line_end": 114,
+        "text": "老爷子，这不是给咱们添上麻烦吗？"
+      },
+      {
+        "chapter": 16,
+        "line_start": 132,
+        "line_end": 132,
+        "text": "迷幻药是什么？"
+      }
+    ]
+  },
+  {
+    "id": "char_lan_kao_shan",
+    "name": "蓝靠山",
+    "alias": [],
+    "identity": "蓝玉京的养父，武当山菜农",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "老实的菜农，受不岐之托抚养蓝玉京 || 本章被'不岐'杀害（实为牟沧浪冒不岐之声所杀）。生前被'不岐'逼问是否已将京儿（蓝玉京）来历告诉他人，从'我知道他的父亲是谁'这句话听出不岐承认自己是杀耿京士的凶手。他求不岐相信自己不会泄密。",
+    "personality": {
+      "traits": [
+        "老实",
+        "善良",
+        "忠厚",
+        "胆小",
+        "朴实",
+        "热情"
+      ],
+      "speech_style": "朴实",
+      "temperament": "憨厚"
+    },
+    "relationships": [
+      {
+        "target": "char_lan_yu_jing",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "养父子情同亲子"
+      },
+      {
+        "target": "char_lan_shui_ling",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "亲生父女"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 257,
+        "line_end": 257,
+        "text": "蓝靠山是无量长老命徒弟不败假借不歧的名义将他请来武当山的"
+      },
+      {
+        "chapter": 1,
+        "line_start": 541,
+        "line_end": 546,
+        "text": "那对夫妇，不说正是受他之托，抚养这个婴孩的那家姓蓝的猎人夫妇了"
+      },
+      {
+        "chapter": 3,
+        "line_start": 366,
+        "line_end": 372,
+        "text": "无量提及蓝靠山夫妇守口如瓶"
+      },
+      {
+        "chapter": 3,
+        "line_start": 893,
+        "line_end": 908,
+        "text": "蓝水灵提及今日是蓝靠山生日"
+      },
+      {
+        "chapter": 15,
+        "line_start": 1409,
+        "line_end": 1467,
+        "text": "道长深夜到来，不知，不知……'蓝靠山的声音充满诧异……不岐声音越发冷峻：'你知道他的父亲是谁，当然你也应该知道他的父亲是我杀的了！'"
+      }
+    ]
+  },
+  {
+    "id": "char_lan_yu_jing",
+    "name": "蓝玉京",
+    "alias": [],
+    "identity": "武当派弟子，不岐义子，实为耿京士之子",
+    "faction": "faction_wu_dang",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "本章末尾与西门燕结为'老大姐/弟弟'，将西门燕从常五娘迷香中救出；与英松龄再斗取胜；后与西门夫人并肩作战刺破嘉错法师袈裟 || 本章身世完全揭示：原名耿玉京（耿京士+何玉燕之子），蓝靠山夫妇养大。从郭璞处得到证实自己的身世，并得知'杀害亲生父母的最大嫌疑人是义父戈振军（即不岐）'。夜归武当山发现养父母被'不岐'杀害，喂姐姐和西门燕服下小还丹后追不岐至墓园对决。用'白鹤亮翅'（义父所教但故意有破绽）试探不岐，又用'梅花间竹'十八招连攻不岐与常五娘、用'大漠孤烟'指住不岐咽喉、用'云麾三舞'削断不岐软剑。最终看着不岐举断剑自刎。",
+    "personality": {
+      "traits": [
+        "聪明",
+        "好奇",
+        "纯真",
+        "悟性极高",
+        "重感情",
+        "敏感",
+        "多疑",
+        "老成",
+        "内敛"
+      ],
+      "speech_style": "少年直率",
+      "temperament": "灵动"
+    },
+    "relationships": [
+      {
+        "target": "char_bu_qi",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "义父兼师父"
+      },
+      {
+        "target": "char_lan_kao_shan",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "养父子"
+      },
+      {
+        "target": "char_lan_shui_ling",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "姐弟"
+      },
+      {
+        "target": "char_wu_xiang_zhen_ren",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "师祖疼爱的徒孙"
+      },
+      {
+        "target": "char_long_ya_dao_ren",
+        "type": "宿敌",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "耿玉京揭开王晦闻蒙面巾后发现他就是杀害慧可与不歧的凶手"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      1,
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 1015,
+        "line_end": 1015,
+        "text": "蓝玉京已经下了武当山"
+      },
+      {
+        "chapter": 1,
+        "line_start": 888,
+        "line_end": 889,
+        "text": "这孩子叫蓝玉京，不叫耿玉京。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 636,
+        "line_end": 670,
+        "text": "蓝玉京与姐姐蓝水灵在展旗峰下"
+      },
+      {
+        "chapter": 3,
+        "line_start": 326,
+        "line_end": 348,
+        "text": "蓝玉京向不岐问安"
+      },
+      {
+        "chapter": 3,
+        "line_start": 825,
+        "line_end": 906,
+        "text": "蓝玉京单独入见师祖，与聋哑道人比剑"
+      },
+      {
+        "chapter": 15,
+        "line_start": 1655,
+        "line_end": 1823,
+        "text": "郭璞一字一句地说道：'你还不明白吗？这个孩子就是你！你的生身之父是耿京士，你的生身之母是何玉燕！'……蓝玉京欲哭无泪，双眼好像要喷出火来。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 568,
+        "line_end": 568,
+        "text": "不错，我的亲生父母已经死了，养父养母已经死了，不管怎样，我也不能让义父死了！"
+      },
+      {
+        "chapter": 16,
+        "line_start": 580,
+        "line_end": 580,
+        "text": "掌门人，原来是你！"
+      },
+      {
+        "chapter": 17,
+        "line_start": 424,
+        "line_end": 424,
+        "text": "你在关外害死慧可大师，如今又害死我的义父，舍了这条性命，我也要与你拼了！"
+      },
+      {
+        "chapter": 17,
+        "line_start": 522,
+        "line_end": 522,
+        "text": "耿五京失声道：是你！"
+      }
+    ]
+  },
+  {
+    "id": "char_he_qi_wu",
+    "name": "何其武",
+    "alias": [
+      "两湖大侠"
+    ],
+    "identity": "武当派俗家弟子，十六年前第一个被害者",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "两湖大侠，何玉燕之父，不岐之师，十六年前第一个被暗杀",
+    "personality": {
+      "traits": [
+        "侠义",
+        "正直",
+        "光明磊落"
+      ],
+      "speech_style": null,
+      "temperament": "侠义"
+    },
+    "relationships": [
+      {
+        "target": "char_bu_qi",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒关系"
+      },
+      {
+        "target": "char_he_yu_yan",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_geng_jing_shi",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒关系"
+      }
+    ],
+    "known_skills": [
+      "skill_lian_huan_duo_ming_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 1327,
+        "line_end": 1327,
+        "text": "何其武就是本门在十六年前，第一个被人暗中害死的人"
+      },
+      {
+        "chapter": 1,
+        "line_start": 409,
+        "line_end": 410,
+        "text": "无极长老和两湖大侠何其武的死亡消息"
+      }
+    ]
+  },
+  {
+    "id": "char_geng_jing_shi",
+    "name": "耿京士",
+    "alias": [],
+    "identity": "何其武二弟子，十六年前遇害",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "何其武的二弟子，不岐的师弟，十六年前与何玉燕一同遇害",
+    "personality": {
+      "traits": [
+        "武功高强"
+      ],
+      "speech_style": null,
+      "temperament": null
+    },
+    "relationships": [
+      {
+        "target": "char_he_qi_wu",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒关系"
+      },
+      {
+        "target": "char_he_yu_yan",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "恋人私奔"
+      },
+      {
+        "target": "char_bu_qi",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "被不岐误杀"
+      },
+      {
+        "target": "char_lan_yu_jing",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "生父子关系"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 1354,
+        "line_end": 1354,
+        "text": "这位被害的二弟子名叫耿京士"
+      },
+      {
+        "chapter": 1,
+        "line_start": 12,
+        "line_end": 13,
+        "text": "两湖大侠何其武的弟子在这里自相残杀"
+      }
+    ]
+  },
+  {
+    "id": "char_he_yu_yan",
+    "name": "何玉燕",
+    "alias": [],
+    "identity": "何其武之女，耿京士恋人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "何其武之女，与耿京士私奔，十六年前身亡",
+    "personality": {
+      "traits": [
+        "痴情",
+        "决绝"
+      ],
+      "speech_style": null,
+      "temperament": "温婉"
+    },
+    "relationships": [
+      {
+        "target": "char_he_qi_wu",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_geng_jing_shi",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "恋人"
+      },
+      {
+        "target": "char_lan_yu_jing",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "生母"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 1342,
+        "line_end": 1342,
+        "text": "何其武的女儿和徒弟也都死于非命"
+      },
+      {
+        "chapter": 1,
+        "line_start": 485,
+        "line_end": 486,
+        "text": "何玉燕去年和耿京士私奔一事"
+      }
+    ]
+  },
+  {
+    "id": "char_meng_mian_ren",
+    "name": "蒙面人",
+    "alias": [],
+    "identity": "身份不明的蒙面高手",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "蒙面人实为东方亮，使用太极剑法和连环夺命剑法",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "狂妄",
+        "武功高强"
+      ],
+      "speech_style": "狂傲自负",
+      "temperament": "阴险"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_tai_ji_jian",
+      "skill_lian_huan_duo_ming_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 225,
+        "line_end": 226,
+        "text": "不戒道长，我知道你是武当掌门的衣钵传人"
+      },
+      {
+        "chapter": 11,
+        "line_start": 635,
+        "line_end": 635,
+        "text": "这个蒙面人不是别人，正是东方亮"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_xi",
+    "name": "悟性",
+    "alias": [],
+    "identity": "武当派第三代弟子，不败的徒儿",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": null,
+    "one_line": "无量大弟子不败的徒弟，性格夸张爱搬弄",
+    "personality": {
+      "traits": [
+        "夸张",
+        "爱搬弄",
+        "嘴碎"
+      ],
+      "speech_style": "夸张",
+      "temperament": "活泼"
+    },
+    "relationships": [
+      {
+        "target": "char_bu_bai",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1227,
+        "line_end": 1230,
+        "text": "这人是和他们姐弟同一辈份的第三代弟子，道号悟性"
+      }
+    ]
+  },
+  {
+    "id": "char_meng_mian_ren_old",
+    "name": "郭东来",
+    "alias": [
+      "蒙面老人"
+    ],
+    "identity": "沧州剑客，十余年前失踪",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "沧州剑客郭东来，使用七星剑法，十余年前失踪后重现",
+    "personality": {
+      "traits": [
+        "威猛",
+        "刚烈",
+        "复仇心切"
+      ],
+      "speech_style": "刚猛",
+      "temperament": "威猛"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_qi_xing_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1548,
+        "line_end": 1555,
+        "text": "是一个身材高大，神情威猛的老人"
+      },
+      {
+        "chapter": 3,
+        "line_start": 160,
+        "line_end": 164,
+        "text": "不戒认出伤他者是郭东来七星剑法"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_xiang",
+    "name": "无相真人",
+    "alias": [
+      "无相"
+    ],
+    "identity": "武当派掌门",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "登峰造极",
+    "one_line": "武当派掌门，慈祥而深谋远虑的老道长",
+    "personality": {
+      "traits": [
+        "慈祥",
+        "睿智",
+        "深沉",
+        "公正",
+        "宽容"
+      ],
+      "speech_style": "温和稳重，循循善诱",
+      "temperament": "仙风道骨，从容不迫"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_tai_ji_zhang",
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 106,
+        "line_end": 107,
+        "text": "来的是个老道士，这老道士正是武当派的掌门无相真人。"
+      }
+    ]
+  },
+  {
+    "id": "char_bu_fu",
+    "name": "不浮",
+    "alias": [],
+    "identity": "武当派弟子，长老无色道人第三弟子",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "炉火纯青",
+    "one_line": "武当派戒律司执事，奉掌门之命托白玉盘上平台",
+    "personality": {
+      "traits": [
+        "好奇",
+        "好问",
+        "天真",
+        "严肃",
+        "恭谨",
+        "守礼",
+        "自律",
+        "可靠"
+      ],
+      "speech_style": "简洁恭敬",
+      "temperament": "持重端方"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_se",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 44,
+        "line_end": 50,
+        "text": "那较小的道士道"
+      },
+      {
+        "chapter": 3,
+        "line_start": 1159,
+        "line_end": 1169,
+        "text": "不浮托白玉盘上平台"
+      }
+    ]
+  },
+  {
+    "id": "char_ge_zhen_jun",
+    "name": "戈振军",
+    "alias": [
+      "不岐"
+    ],
+    "identity": "何其武大弟子，后为武当派掌门无相真人关门弟子",
+    "faction": "faction_wu_dang",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "两湖大侠何其武的大弟子，道号不岐，背负误杀师弟的秘密",
+    "personality": {
+      "traits": [
+        "深沉",
+        "隐忍",
+        "年少老成",
+        "多疑",
+        "愧疚"
+      ],
+      "speech_style": "恭敬谨慎，心思缜密",
+      "temperament": "沉默寡言，内心复杂"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_xiang",
+        "type": "师徒",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "感恩但心存秘密"
+      },
+      {
+        "target": "char_wu_liang",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "受其挟制，心存畏惧"
+      },
+      {
+        "target": "char_wu_se",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "无色悉心教导太极剑法"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian",
+      "skill_lian_huan_duo_ming_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 96,
+        "line_end": 98,
+        "text": "五十招过后，戈振军渐感不支"
+      },
+      {
+        "chapter": 1,
+        "line_start": 421,
+        "line_end": 421,
+        "text": "戈振军现在已是道号“不岐”的道士了"
+      },
+      {
+        "chapter": 2,
+        "line_start": 1387,
+        "line_end": 1400,
+        "text": "不岐独坐窗前回忆往事"
+      }
+    ]
+  },
+  {
+    "id": "char_bu_jie",
+    "name": "不戒",
+    "alias": [],
+    "identity": "武当派掌门无相真人大弟子",
+    "faction": "faction_wu_dang",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "武当派大弟子，正派内功近四十年火候，因迁葬无极长老遗骨遭蒙面人袭击，身中青蜂针与太极神功重伤而亡",
+    "personality": {
+      "traits": [
+        "精明",
+        "忠诚",
+        "能干",
+        "谨慎",
+        "正直",
+        "忠厚",
+        "勇毅",
+        "大度",
+        "守信"
+      ],
+      "speech_style": "沉声直言，不喜绕弯",
+      "temperament": "沉稳内敛，慷慨仁厚"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_xiang",
+        "type": "师徒",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "掌门首徒"
+      },
+      {
+        "target": "char_ge_zhen_jun",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "同门师兄弟"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian",
+      "skill_tai_ji_zhang",
+      "skill_tai_ji_shen_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 316,
+        "line_end": 321,
+        "text": "只见那闯进密室来的中年道士叫了一声“师父”"
+      },
+      {
+        "chapter": 2,
+        "line_start": 1,
+        "line_end": 30,
+        "text": "不戒独自叹息，在荒山发掘无极道人遗骨"
+      },
+      {
+        "chapter": 3,
+        "line_start": 116,
+        "line_end": 204,
+        "text": "不戒身负重伤被抬回武当山，无相真人以太极神功施救，临终嘱咐不岐好自为之"
+      }
+    ]
+  },
+  {
+    "id": "char_huo_bu_tuo",
+    "name": "霍卜托",
+    "alias": [],
+    "identity": "努尔哈赤卫士，后为锦衣卫军官",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "谜一样的人物，身份多重，可能已死",
+    "personality": {
+      "traits": [
+        "神秘",
+        "多面"
+      ],
+      "speech_style": "",
+      "temperament": "神秘"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 242,
+        "line_end": 248,
+        "text": "隐藏在本派的大奸细，霍卜托这个人太重要了"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_ji",
+    "name": "无极道人",
+    "alias": [
+      "无极"
+    ],
+    "identity": "武当派前首席长老",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "登峰造极",
+    "one_line": "武当派前首席长老，被暗算身亡",
+    "personality": {
+      "traits": [
+        "慈爱",
+        "武艺高强"
+      ],
+      "speech_style": "",
+      "temperament": "仙风道骨"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_tai_ji_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 14,
+        "line_end": 15,
+        "text": "无极道人名满天下"
+      }
+    ]
+  },
+  {
+    "id": "char_ding_yun_he",
+    "name": "丁云鹤",
+    "alias": [
+      "丁师叔"
+    ],
+    "identity": "武当派名宿",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "武当派名宿，遭暗算身亡",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 22,
+        "line_end": 22,
+        "text": "武当派的名宿丁云鹤"
+      }
+    ]
+  },
+  {
+    "id": "char_si_yi",
+    "name": "司仪",
+    "alias": [],
+    "identity": "武当派大会司仪",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "登堂入室",
+    "one_line": "武当派聚会的司仪，负责向掌门报告弟子到齐情况",
+    "personality": {
+      "traits": [
+        "尽职",
+        "恭敬",
+        "严谨",
+        "守时",
+        "条理"
+      ],
+      "speech_style": "简明扼要",
+      "temperament": "一丝不苟"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_xiang_zhen_ren",
+        "type": "门人",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "执掌大会仪式"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 1157,
+        "line_end": 1169,
+        "text": "司仪向掌门禀报弟子到齐情况"
+      }
+    ]
+  },
+  {
+    "id": "char_hui_ke",
+    "name": "慧可",
+    "alias": [
+      "意可"
+    ],
+    "identity": "少林寺烧火和尚，香积厨最低职位，慧可实为小五义之一",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "出神入化",
+    "one_line": "少林寺烧火和尚，少林绝顶高手，临终前托付蓝玉京七星剑客之子线索，本章末被蒙面人暗算身亡",
+    "personality": {
+      "traits": [
+        "慈悲",
+        "睿智",
+        "沉着",
+        "豁达",
+        "深藏不露",
+        "善于引导",
+        "佛理深邃",
+        "不执着",
+        "决断"
+      ],
+      "speech_style": "佛偈机锋",
+      "temperament": "古井不波"
+    },
+    "relationships": [
+      {
+        "target": "char_long_ya_dao_ren",
+        "type": "挚友",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "小五义旧友，分别数十年"
+      },
+      {
+        "target": "char_xi_men_mu",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "曾为小五义同伴"
+      },
+      {
+        "target": "char_dong_fang_xiao",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "小五义故交"
+      },
+      {
+        "target": "char_lan_yu_jing",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "同囚切磋，启发剑理"
+      }
+    ],
+    "known_skills": [
+      "skill_luo_han_zhang",
+      "skill_shao_lin_nei_gong",
+      "skill_yi_jin_jing"
+    ],
+    "related_skills": [
+      "skill_tai_ji_jian",
+      "skill_da_mo_jian_fa"
+    ],
+    "rag_refs": [
+      10,
+      13,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 8,
+        "line_end": 8,
+        "text": "慧可道：何止这样，我和本无大师比试内功都没这样吃力呢"
+      },
+      {
+        "chapter": 13,
+        "line_start": 198,
+        "line_end": 198,
+        "text": "他是少林寺的一个烧火和尚，法名慧可"
+      }
+    ]
+  },
+  {
+    "id": "char_han_xiang",
+    "name": "韩翔",
+    "alias": [],
+    "identity": "断魂谷谷主，二十年前的强盗，二十年前为躲避仇家隐居幽谷，与西门牧有杀妻灭子之仇",
+    "faction": "faction_duan_hun_gu",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "坐地分赃的强盗头子，妻儿被西门牧所杀，现盘踞断魂谷，欲争霸绿林",
+    "personality": {
+      "traits": [
+        "野心勃勃",
+        "阴鸷",
+        "自大",
+        "残忍",
+        "狡黠"
+      ],
+      "speech_style": "傲岸自大",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_xi_men_mu",
+        "type": "宿敌",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "杀妻灭子之仇"
+      },
+      {
+        "target": "char_dong_fang_liang",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "互相利用对付陆志诚"
+      }
+    ],
+    "known_skills": [
+      "skill_da_qin_na",
+      "skill_da_li_ying_zhua"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 44,
+        "line_end": 44,
+        "text": "慧可道：是一个坐地分赃的强盗头子"
+      }
+    ]
+  },
+  {
+    "id": "char_le_yuan",
+    "name": "了缘",
+    "alias": [],
+    "identity": "慧可的挂名弟子，少林寺挑水和尚",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "登堂入室",
+    "one_line": "慧可的挂名弟子，少林寺挑水和尚，受托为东方亮带信给西门燕",
+    "personality": {
+      "traits": [
+        "忠厚",
+        "老实",
+        "重信义"
+      ],
+      "speech_style": "木讷寡言",
+      "temperament": "憨厚"
+    },
+    "relationships": [
+      {
+        "target": "char_hui_ke",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "挂名弟子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 800,
+        "line_end": 800,
+        "text": "慧可道：不错，他名叫了缘，是我的挂名弟子"
+      }
+    ]
+  },
+  {
+    "id": "char_lu_zhi_cheng",
+    "name": "陆志诚",
+    "alias": [
+      "阴间秀才"
+    ],
+    "identity": "百花谷旧部，西门牧旧部属，西门燕的下属头目",
+    "faction": "faction_bai_hua_gu",
+    "role": "villain",
+    "archetype": "scholar",
+    "rank": "炉火纯青",
+    "one_line": "绰号'阴间秀才'，曾纠集绿林盟旧部抵抗断魂谷主韩翔，后投靠金鼎和，下毒背叛西门夫人",
+    "personality": {
+      "traits": [
+        "老谋深算",
+        "心机深沉",
+        "恭敬顺从",
+        "狡黠",
+        "野心勃勃",
+        "阴险",
+        "野心",
+        "背信",
+        "果断",
+        "自利"
+      ],
+      "speech_style": "阴冷",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_xi_men_mu",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "西门牧旧部"
+      },
+      {
+        "target": "char_xi_men_yan",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "视西门燕为主人"
+      },
+      {
+        "target": "char_han_xiang",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "与韩翔争夺绿林盟主"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      11,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 1593,
+        "line_end": 1593,
+        "text": "正是那个曾经两度到过百花谷的绰号阴间秀才的陆志诚"
+      },
+      {
+        "chapter": 14,
+        "line_start": 1060,
+        "line_end": 1060,
+        "text": "她们说的这个\"陆舵主\"，就是那绰号\"阴间透才\"的陆志诚"
+      }
+    ]
+  },
+  {
+    "id": "char_ma_yi_tong",
+    "name": "马一同",
+    "alias": [
+      "老三"
+    ],
+    "identity": "断魂谷副谷主之一，排行第三",
+    "faction": "faction_duan_hun_gu",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "断魂谷副谷主之一，忠义不屈，被班大超打成重伤",
+    "personality": {
+      "traits": [
+        "忠义",
+        "稳重",
+        "沉稳"
+      ],
+      "speech_style": "恳切",
+      "temperament": "忠厚"
+    },
+    "relationships": [
+      {
+        "target": "char_han_xiang",
+        "type": "主仆",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "忠心耿耿"
+      },
+      {
+        "target": "char_ban_da_chao",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "反对其叛乱"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 1107,
+        "line_end": 1107,
+        "text": "这人是我的另一位副谷主，名叫马一同"
+      }
+    ]
+  },
+  {
+    "id": "char_ban_da_chao",
+    "name": "班大超",
+    "alias": [
+      "副谷主"
+    ],
+    "identity": "断魂谷副谷主之一，与陆志诚勾结欲取代韩翔",
+    "faction": "faction_duan_hun_gu",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "断魂谷副谷主之一，趁韩翔被困石牢之机叛乱，被蓝玉京削断毒袖箭后自尽",
+    "personality": {
+      "traits": [
+        "野心勃勃",
+        "阴险",
+        "残忍",
+        "隐忍",
+        "背信弃义"
+      ],
+      "speech_style": "振振有词",
+      "temperament": "阴险"
+    },
+    "relationships": [
+      {
+        "target": "char_han_xiang",
+        "type": "对手",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "图谋篡位"
+      },
+      {
+        "target": "char_lu_zhi_cheng",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "暗中勾结"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_tou_gou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 1101,
+        "line_end": 1101,
+        "text": "是我的副谷主班大超"
+      }
+    ]
+  },
+  {
+    "id": "char_han_cheng",
+    "name": "韩成",
+    "identity": "韩翔的侄儿，受命截杀送信人，与西门夫人、慧可了缘有杀身之仇",
+    "faction": "faction_duan_hun_gu",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "韩翔的侄儿，奉命截杀送信人，重伤了缘后致其死亡，本人亦变残废",
+    "personality": {
+      "traits": [
+        "奉命行事",
+        "凶残"
+      ],
+      "speech_style": "寡言",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_han_xiang",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "叔侄"
+      }
+    ],
+    "known_skills": [
+      "skill_da_qin_na"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 935,
+        "line_end": 935,
+        "text": "那个人是我的侄儿韩成"
+      }
+    ]
+  },
+  {
+    "id": "char_feng_qi_wu",
+    "name": "凤栖梧",
+    "alias": [
+      "凤大姐",
+      "凤香主"
+    ],
+    "identity": "陆志诚手下香主，原籍湖北，曾被司马操求婚，划伤司马操脸十七道",
+    "faction": "faction_bai_hua_gu",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "绿林盟香主，西门夫人旧部，脸上有被龙门帮司马操打伤的几道伤疤",
+    "personality": {
+      "traits": [
+        "机变",
+        "阴狠",
+        "工于心计",
+        "嘴甜心苦",
+        "能屈能伸",
+        "聪明",
+        "柔顺",
+        "隐忍"
+      ],
+      "speech_style": "柔声",
+      "temperament": "外柔内刚"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_zhi_cheng",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "陆志诚下属"
+      },
+      {
+        "target": "char_xi_men_yan",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "听命于西门燕"
+      },
+      {
+        "target": "char_si_ma_cao",
+        "type": "宿敌",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "当年拒婚并毁其容"
+      }
+    ],
+    "known_skills": [
+      "skill_yuanyang_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      12,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 146,
+        "line_end": 146,
+        "text": "我是陆舵主手下的一名香主"
+      },
+      {
+        "chapter": 14,
+        "line_start": 1048,
+        "line_end": 1048,
+        "text": "凤栖梧那日被龙门帮的司马操打得遍体鳞伤，虽然只是皮肉之伤，早已好了，但脸上的几道伤疤还没有消除"
+      }
+    ]
+  },
+  {
+    "id": "char_ping_da_shen",
+    "name": "平大婶",
+    "alias": [
+      "平大嫂",
+      "平大叔"
+    ],
+    "identity": "女扮男装的凤栖梧手下车夫，相貌和声音都似男子",
+    "faction": "faction_bai_hua_gu",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "绿林盟旧部，西门夫人旧属，曾驾车送蓝水灵回百花谷，天生神力",
+    "personality": {
+      "traits": [
+        "直率",
+        "凶悍",
+        "忠诚",
+        "勇敢",
+        "率直",
+        "正义"
+      ],
+      "speech_style": "直率",
+      "temperament": "豪爽"
+    },
+    "relationships": [
+      {
+        "target": "char_feng_qi_wu",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "凤栖梧下属"
+      }
+    ],
+    "known_skills": [
+      "skill_teng_she_bian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      12,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 62,
+        "line_end": 62,
+        "text": "平大婶跳下马车"
+      },
+      {
+        "chapter": 14,
+        "line_start": 1478,
+        "line_end": 1478,
+        "text": "平大婶道：\"夫人，你若是不放心外人伺候的话，我给你驾车。别的我不敢自夸，驾车我可是个好把式。\""
+      }
+    ]
+  },
+  {
+    "id": "char_long_ba_tian",
+    "name": "龙霸天",
+    "alias": [
+      "龙帮主"
+    ],
+    "identity": "龙门帮帮主，龙门四霸之首",
+    "faction": "faction_long_men_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "龙门帮帮主，掌法高超，以借力打力胜凤栖梧，被蓝水灵削去两指",
+    "personality": {
+      "traits": [
+        "老谋深算",
+        "霸道",
+        "要面子"
+      ],
+      "speech_style": "傲慢",
+      "temperament": "狂傲"
+    },
+    "relationships": [
+      {
+        "target": "char_si_ma_cao",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_feng_qi_wu",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "替司马操出头"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 244,
+        "line_end": 244,
+        "text": "我便是龙霸天"
+      }
+    ]
+  },
+  {
+    "id": "char_si_ma_cao",
+    "name": "司马操",
+    "alias": [],
+    "identity": "龙门帮新加入的结拜兄弟，凤栖梧旧日追求者，被凤划伤脸十七道毁容",
+    "faction": "faction_long_men_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "龙门帮结拜兄弟，因凤栖梧当年拒婚划伤其脸十七道，怀恨复仇",
+    "personality": {
+      "traits": [
+        "狠毒",
+        "记仇",
+        "暴躁",
+        "好色"
+      ],
+      "speech_style": "粗鄙",
+      "temperament": "暴戾"
+    },
+    "relationships": [
+      {
+        "target": "char_feng_qi_wu",
+        "type": "宿敌",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "当年求婚被拒，被毁容"
+      },
+      {
+        "target": "char_long_ba_tian",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      }
+    ],
+    "known_skills": [
+      "skill_qinggang_jian",
+      "skill_teng_she_bian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 194,
+        "line_end": 194,
+        "text": "司马操，原还来你还未死"
+      }
+    ]
+  },
+  {
+    "id": "char_yin_tian_de",
+    "name": "殷天德",
+    "alias": [
+      "龙门帮老二"
+    ],
+    "identity": "龙门四霸中的老二，帮中武艺仅次于龙霸天",
+    "faction": "faction_long_men_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "龙门四霸中的老二，使用虎头钩，被蓝水灵削去双眉",
+    "personality": {
+      "traits": [
+        "刚愎",
+        "好面子",
+        "暴躁"
+      ],
+      "speech_style": "粗鲁",
+      "temperament": "暴烈"
+    },
+    "relationships": [
+      {
+        "target": "char_long_ba_tian",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_tou_gou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 360,
+        "line_end": 360,
+        "text": "他是龙门四霸中的老二"
+      }
+    ]
+  },
+  {
+    "id": "char_xi_men_yan",
+    "name": "西门燕",
+    "alias": [
+      "西门小姐",
+      "燕姐"
+    ],
+    "identity": "西门牧与殷明珠之女，东方亮表妹，自幼丧父，向往武当剑法",
+    "faction": "faction_bai_hua_gu",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "西门夫人之女，与牟一羽同父异母，纯真任性",
+    "personality": {
+      "traits": [
+        "任性",
+        "喜怒无常",
+        "自矜",
+        "好恶随心",
+        "聪慧",
+        "刁蛮",
+        "聪明",
+        "天真",
+        "好奇",
+        "胆大",
+        "活泼",
+        "重情",
+        "纯真",
+        "痴情",
+        "脆弱",
+        "直率"
+      ],
+      "speech_style": "天真烂漫",
+      "temperament": "外刚内柔"
+    },
+    "relationships": [
+      {
+        "target": "char_dong_fang_liang",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "表兄妹"
+      },
+      {
+        "target": "char_yin_ming_zhu",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "母女"
+      },
+      {
+        "target": "char_xi_men_mu",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "父女"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian",
+      "skill_jing_tao_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      12,
+      13,
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 706,
+        "line_end": 706,
+        "text": "蓝水灵，你为什么不回百花谷？"
+      },
+      {
+        "chapter": 13,
+        "line_start": 2,
+        "line_end": 22,
+        "text": "牟一羽道：\"咦，你又在想些什么？\"西门燕道：\"我是在想有没有前生这一回事？\""
+      },
+      {
+        "chapter": 15,
+        "line_start": 1334,
+        "line_end": 1405,
+        "text": "西门燕把辽东碰上耿玉京的事情说给蓝水灵听……西门燕心里不大高兴，不知怎的，她也不由自己地打起了哈欠来。她是曾经有过中迷香的经验，顿时醒悟，但是已经在不知不觉吸入迷香了。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 144,
+        "line_end": 144,
+        "text": "牟大哥，我越看你越觉得你像妈妈"
+      },
+      {
+        "chapter": 16,
+        "line_start": 464,
+        "line_end": 464,
+        "text": "我不要听！"
+      }
+    ]
+  },
+  {
+    "id": "char_xi_men_fu_ren",
+    "name": "西门夫人",
+    "alias": [],
+    "identity": "西门燕之母，牟沧浪旧日情人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登峰造极",
+    "one_line": "西门燕之母，牟一羽生母，昔年与牟沧浪相好，多年隐居塞外",
+    "personality": {
+      "traits": [
+        "气质高贵",
+        "才貌双全",
+        "深情",
+        "矛盾",
+        "豁达",
+        "内敛",
+        "自尊",
+        "老练",
+        "悔恨"
+      ],
+      "speech_style": "沉稳委婉",
+      "temperament": "刚柔相济"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_ming",
+        "type": "情人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "旧日情人，因伦理不得相守"
+      },
+      {
+        "target": "char_xi_men_yan",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "母女情深"
+      },
+      {
+        "target": "char_mou_yi_yu",
+        "type": "认领",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "认作干儿子，深情照顾"
+      }
+    ],
+    "known_skills": [
+      "skill_tai_ji_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      13,
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 1980,
+        "line_end": 1995,
+        "text": "那美妇人喝道：\"你是聋子吗？你是哑子吗？我问你，你是武当派的哪位长老，干嘛不敢回答？\""
+      },
+      {
+        "chapter": 13,
+        "line_start": 2058,
+        "line_end": 2058,
+        "text": "她使的那把\"三转法轮\"，正是他父亲将太极剑法加以变化，自创的新招，甚至比他的父亲使得更好！"
+      },
+      {
+        "chapter": 16,
+        "line_start": 410,
+        "line_end": 410,
+        "text": "在你的妈妈跟前，我不是什么掌门，也不是什么真人，只能是牟沧浪！"
+      },
+      {
+        "chapter": 16,
+        "line_start": 436,
+        "line_end": 436,
+        "text": "羽儿，我们没有骗你，我，我不是你的干娘，我是你的亲娘！"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_ding_he",
+    "name": "金鼎和",
+    "alias": [],
+    "identity": "乌鲨镇鱼霸，暗中为朝廷眼线",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "乌鲨镇渔霸，鱼行老板，兼有官府身份，曾受京中'大人'密令保护蓝玉京",
+    "personality": {
+      "traits": [
+        "老谋深算",
+        "谨慎",
+        "精悍",
+        "阴险",
+        "有野心"
+      ],
+      "speech_style": "沉稳内敛",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_ying_song_ling",
+        "type": "主客",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "金鼎和为雇主，英松龄为客卿"
+      },
+      {
+        "target": "char_ou_yang_yong",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "金鼎和为雇主，欧阳勇为打手头目"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 982,
+        "line_end": 984,
+        "text": "原来那个中年人正是乌鲨镇的大渔霸金鼎和"
+      }
+    ]
+  },
+  {
+    "id": "char_ying_song_ling",
+    "name": "英松龄",
+    "alias": [
+      "英老"
+    ],
+    "identity": "努尔哈赤昔年亲信卫士，长白派高手",
+    "faction": "faction_chang_bai",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "努尔哈赤昔年卫士，金鼎和的客卿，长白派高手，认识蒙面人身份",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "谨慎",
+        "武艺高强",
+        "老辣"
+      ],
+      "speech_style": "简练老到",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ding_he",
+        "type": "主客",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "客卿身份"
+      },
+      {
+        "target": "char_dong_fang_liang",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "交手未胜"
+      }
+    ],
+    "known_skills": [
+      "skill_chang_bai_zhai_san_sha_gong",
+      "skill_chang_bai_feng_lei_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 1378,
+        "line_end": 1378,
+        "text": "原来这个\"英老\"乃是努尔哈赤昔年的亲信卫士之一，名叫英松龄，是长白山派一个非常出名的高手"
+      }
+    ]
+  },
+  {
+    "id": "char_ou_yang_yong",
+    "name": "欧阳勇",
+    "alias": [],
+    "identity": "金鼎和的得力打手头目",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "金鼎和最得力手下，短小精悍，使用透骨钉作暗器，机灵精明",
+    "personality": {
+      "traits": [
+        "精明",
+        "机灵",
+        "好表现",
+        "善变"
+      ],
+      "speech_style": "急躁多话",
+      "temperament": "浮躁"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ding_he",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "雇员与雇主"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 1384,
+        "line_end": 1384,
+        "text": "那短小精悍的汉子复姓欧阳，单名一个勇字，则是金鼎和最得力的手下"
+      }
+    ]
+  },
+  {
+    "id": "char_liao_zhang_gui",
+    "name": "廖掌柜",
+    "alias": [],
+    "identity": "金鼎和鱼行的记帐掌柜",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "金鼎和鱼行的记帐掌柜，保管有'霍卜托'笔迹的旧帐簿",
+    "personality": {
+      "traits": [
+        "胆小",
+        "老实",
+        "善忘"
+      ],
+      "speech_style": "哆嗦",
+      "temperament": "懦弱"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 1208,
+        "line_end": 1208,
+        "text": "慧可一拳打翻那个莽汉，手中的绳索飞出，卷着那个当真是正想躲进床底的廖掌柜"
+      }
+    ]
+  },
+  {
+    "id": "char_guo_pu",
+    "name": "郭璞",
+    "alias": [
+      "霍卜托"
+    ],
+    "identity": "满洲人霍卜托，改汉名郭璞，京中任职",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "满洲名霍卜托，汉名郭璞，在金陵任京官，与七星剑客有密切关系（可能为其子）",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "六亲不认",
+        "神秘",
+        "权势"
+      ],
+      "speech_style": "官场腔",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_qi_xing_jian_ke",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "可能是七星剑客之子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 1260,
+        "line_end": 1264,
+        "text": "廖掌柜忙道：\"我说，我说。他现在叫郭璞，在京城。\"\"是哪一国的京城？说清楚点，是盛京还是金陵？\"\"是金陵。\""
+      }
+    ]
+  },
+  {
+    "id": "char_ji_cuo",
+    "name": "嘉错法师",
+    "alias": [
+      "红衣番僧",
+      "神武法师"
+    ],
+    "identity": "西藏密宗高手，努尔哈赤封'神武法师'",
+    "faction": "faction_xi_zang_mi_zong",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "西藏密宗高手，大手印功夫号称天下第二，努尔哈赤亲封'神武法师'",
+    "personality": {
+      "traits": [
+        "自负",
+        "好色",
+        "凶狠",
+        "狂妄",
+        "武艺高强"
+      ],
+      "speech_style": "狂放粗鄙",
+      "temperament": "狂傲"
+    },
+    "relationships": [
+      {
+        "target": "char_nu_er_ha_chi",
+        "type": "主客",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "被努尔哈赤从西藏请来盛京"
+      },
+      {
+        "target": "char_jin_ding_he",
+        "type": "合作",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "奉可汗密令前来传令"
+      }
+    ],
+    "known_skills": [
+      "skill_da_shou_yin"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 556,
+        "line_end": 558,
+        "text": "原来这个红衣番僧乃是西藏密宗的高手，法号嘉错，大手印功夫据说已是天下第二"
+      }
+    ]
+  },
+  {
+    "id": "char_qi_zhen_jun",
+    "name": "齐真君",
+    "alias": [],
+    "identity": "努尔哈赤金帐武士，论剑术为诸武士之首",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "努尔哈赤的金帐武士之一，论内功比不上嘉错法师，但论剑术则是数他第一",
+    "personality": {
+      "traits": [
+        "高傲",
+        "精干",
+        "剑术高明"
+      ],
+      "speech_style": "冷傲",
+      "temperament": "刚硬"
+    },
+    "relationships": [
+      {
+        "target": "char_nu_er_ha_chi",
+        "type": "主客",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "金帐武士"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_jia_shi_ba_pai"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 1300,
+        "line_end": 1300,
+        "text": "这个军官名叫齐真君，乃是努尔哈赤的金帐武土之一，论内功他或者比不上嘉错法师，但论剑术则是数他第一的"
+      }
+    ]
+  },
+  {
+    "id": "char_han_chao",
+    "name": "韩超",
+    "alias": [
+      "快马韩"
+    ],
+    "identity": "原马贼，今努尔哈赤龙骑军军官",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "原马贼，从关外流窜关内后被西门牧收容；今已在努尔哈赤龙骑军中任职军官，颇得信任",
+    "personality": {
+      "traits": [
+        "圆滑",
+        "精明",
+        "善变",
+        "贪利"
+      ],
+      "speech_style": "油滑",
+      "temperament": "投机"
+    },
+    "relationships": [
+      {
+        "target": "char_xi_men_mu",
+        "type": "旧主",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "曾被西门牧收容"
+      },
+      {
+        "target": "char_lu_zhi_cheng",
+        "type": "结义",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "把兄弟"
+      },
+      {
+        "target": "char_nu_er_ha_chi",
+        "type": "主客",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "现为龙骑军军官"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 1100,
+        "line_end": 1100,
+        "text": "听说是在金可汗努尔哈赤的龙骑军中，当上了一名不大不小的军官。职位不算高，却颇得可汗的信任"
+      }
+    ]
+  },
+  {
+    "id": "char_lai_bao_er",
+    "name": "来保儿",
+    "alias": [],
+    "identity": "西门燕父亲（西门牧）的旧长随",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "西门燕父亲西门牧从前的长随，二十年旧仆，对西门夫人仍存畏威怀德之心",
+    "personality": {
+      "traits": [
+        "畏威怀德",
+        "胆小",
+        "忠诚"
+      ],
+      "speech_style": "恭顺",
+      "temperament": "怯懦"
+    },
+    "relationships": [
+      {
+        "target": "char_xi_men_mu",
+        "type": "旧主",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "从前长随"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 1980,
+        "line_end": 1980,
+        "text": "这个来保儿是她丈夫从前的长随（勤务兵），虽然已经过去二十年，对她还是有点畏威怀德的"
+      }
+    ]
+  },
+  {
+    "id": "char_quan_ru_jing",
+    "name": "泉如镜",
+    "aliases": [],
+    "first_appearance_chapter": 15,
+    "personality": {
+      "traits": [
+        "老练",
+        "沉稳",
+        "谨慎",
+        "专业",
+        "疑虑深重",
+        "善于观察",
+        "精通",
+        "认真",
+        "高傲"
+      ],
+      "speech_style": "专业简洁",
+      "temperament": "严谨"
+    },
+    "background": "药理与毒药行家，受牟一羽暗中嘱托，在验尸现场以'磁石吸不出'等理由帮助撇清青蜂针嫌疑。后目睹尸体变黑、神秘人撒酥骨散，吓得惊恐之极。",
+    "skills": [],
+    "affiliations": [],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 1156,
+        "line_end": 1216,
+        "text": "泉如镜道：'是真的。我用磁石去吸，什么也吸不出来。'……'要是中了青蜂针的话，脸上应该现出一层青色。'……'实是比任何人都甚。'"
+      },
+      {
+        "chapter": 18,
+        "line_start": 1223,
+        "line_end": 1223,
+        "text": "泉如镜是精通药物之学的大名家"
+      }
+    ],
+    "rank": "出神入化",
+    "role": "npc",
+    "one_line": "天下第三使毒高手，鉴别青蜂针毒",
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ]
+  },
+  {
+    "id": "char_tang_er_xian_sheng",
+    "name": "唐二先生",
+    "aliases": [
+      "唐仲山"
+    ],
+    "first_appearance_chapter": 15,
+    "personality": {
+      "traits": [
+        "高傲",
+        "护短",
+        "毒辣",
+        "要面子",
+        "对常五娘余情未了",
+        "深藏不露"
+      ],
+      "speech_style": "冷嘲热讽，模仿他人维妙维肖",
+      "temperament": "阴鸷暴烈"
+    },
+    "background": "唐门暗器高手，常五娘的情夫。追踪常五娘至武当山，冒常五娘之声与不岐对话嫁祸不岐，又在墓园中用长绳卷走常五娘、用石子打落不岐断剑打灭油灯。最终在松林以常五娘作挡箭牌等牟一羽。",
+    "skills": [
+      "skill_an_qi_mi_gong"
+    ],
+    "affiliations": [
+      "faction_tang_men"
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 2313,
+        "line_end": 2363,
+        "text": "唐仲山道：'好啊，\"我的心里只有一个你！\"可惜我却不是你心里盼望他来的牟沧浪，这恐怕要令你大为失望了吧？'……他的嘴角噙着冷笑，两道眉毛倒竖起来，目光好像冰霜一样。"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_er_gong_zi",
+    "name": "唐仲山",
+    "alias": [
+      "唐二先生"
+    ],
+    "identity": "川西唐门二先生，天下第一使毒高手，常五娘幕后之人",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "川西唐门最杰出人物，暗器与内功兼修，与常五娘关系暧昧",
+    "personality": {
+      "traits": [
+        "阴险",
+        "毒辣",
+        "贪婪",
+        "自大",
+        "老辣"
+      ],
+      "speech_style": "阴冷得意",
+      "temperament": "阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_wu_niang",
+        "type": "控制者",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "玩物与控制者"
+      },
+      {
+        "target": "char_wu_ming",
+        "type": "宿敌",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "暗中算计武当派"
+      },
+      {
+        "target": "char_long_ya_dao_ren",
+        "type": "克星",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "被王晦闻拿捏"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_men_an_qi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "line_start": 100,
+        "line_end": 100,
+        "text": "父债子还，天公地道。子女都是一样！"
+      },
+      {
+        "chapter": 16,
+        "line_start": 838,
+        "line_end": 838,
+        "text": "我知道你是谁，你，你是……"
+      }
+    ]
+  },
+  {
+    "id": "char_chu_qian_shi",
+    "name": "褚千石",
+    "alias": [],
+    "identity": "御林军副统领，朝廷正钦使，特来册封无名真人为武当派掌门",
+    "faction": "faction_dynasty_qing",
+    "role": "npc",
+    "archetype": "noble",
+    "rank": "出神入化",
+    "one_line": "朝廷御林军副统领，与牟沧浪有旧，特地讨来差使贺其当上掌门",
+    "personality": {
+      "traits": [
+        "官场气",
+        "老于世故",
+        "爽朗",
+        "热络"
+      ],
+      "speech_style": "官场套话中带江湖豪气",
+      "temperament": "豪迈"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_ming",
+        "type": "故交",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "十年前旧友"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 16,
+        "line_end": 16,
+        "text": "牟兄，认得我吗？我是特地向皇上讨这个差使，来恭驾你当上掌门的啊！"
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_tai_kang",
+    "name": "赵太康",
+    "alias": [
+      "赵副使"
+    ],
+    "identity": "御林军副使，朝廷副钦使",
+    "faction": "faction_dynasty_qing",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "御林军副使，内家高手，曾赴牟沧浪五十寿宴，疑有隐藏目的",
+    "personality": {
+      "traits": [
+        "内敛",
+        "观察敏锐",
+        "深沉",
+        "可疑",
+        "精明"
+      ],
+      "speech_style": "委婉却步步紧逼",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_chu_qian_shi",
+        "type": "同僚",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "上下级副使关系"
+      },
+      {
+        "target": "char_mou_yi_yu",
+        "type": "可疑",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "曾在金陵见过面"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 24,
+        "line_end": 24,
+        "text": "掌门真人，我和你虽是初会，但和你的公子却是刚在不久之前在金陵见过面的。"
+      }
+    ]
+  },
+  {
+    "id": "char_hui_yi_ren",
+    "name": "灰衣人",
+    "alias": [],
+    "identity": "无相真人的葬礼上突然出现托住棺材的五旬灰衣人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "无相真人葬礼进行时出现托棺的五旬灰衣人，身份神秘",
+    "personality": {
+      "traits": [
+        "神秘",
+        "胆大",
+        "决断"
+      ],
+      "speech_style": "粗豪",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 542,
+        "line_end": 542,
+        "text": "且慢！"
+      },
+      {
+        "chapter": 17,
+        "line_start": 544,
+        "line_end": 544,
+        "text": "声到人到，是个年约五旬的灰衣人，双臂一振，托住棺材。"
+      }
+    ]
+  },
+  {
+    "id": "char_guo_dong_lai",
+    "name": "郭东来",
+    "alias": [
+      "七星剑客"
+    ],
+    "identity": "小五义之首，隐姓埋名三十多年，郭璞之父，奉无相真人之托调查门派内奸",
+    "faction": "faction_xiao_wu_yi",
+    "role": "ally",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "七星剑客，小五义之首，为揭穿王晦闻奸细身份从关外赶来",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "机智",
+        "重情",
+        "决断"
+      ],
+      "speech_style": "沉稳老练",
+      "temperament": "豪迈"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_qi_xing_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 1539,
+        "line_end": 1539,
+        "text": "原来这个人不是别人，正是当年名列小五义之首，大名鼎鼎的七星剑客郭东来。"
+      }
+    ]
+  },
+  {
+    "id": "char_ximen_mu",
+    "name": "西门牧",
+    "alias": [
+      "绿林盟主"
+    ],
+    "identity": "西门夫人前夫，诈死二十年，当年绿林盟主，断魂谷混战后失踪",
+    "faction": "faction_xiao_wu_yi",
+    "role": "antagonist",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "西门夫人前夫，二十年前诈死以报夺妻之辱，潜心练太极掌",
+    "personality": {
+      "traits": [
+        "狡诈",
+        "重情",
+        "决断",
+        "危险"
+      ],
+      "speech_style": "冷峻直接",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 2260,
+        "line_end": 2260,
+        "text": "原来这个突如其来的诡秘人物，不是别人，正是二十年前已经死去的西门牧，亦即是殷明珠（西门夫人）的前夫！"
+      }
+    ]
+  },
+  {
+    "id": "char_mu_ying_ying",
+    "name": "穆盈盈",
+    "alias": [
+      "穆七姑",
+      "穆七站"
+    ],
+    "identity": "陇西穆家第七女，二十年前江湖上暗器名家超过常五娘",
+    "faction": "faction_long_xi_mu_jia",
+    "role": "antagonist",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "陇西穆家七姑，暗器名家，西门牧后妻，追杀牟沧浪二十年",
+    "personality": {
+      "traits": [
+        "阴毒",
+        "嫉妒",
+        "狠辣",
+        "野性"
+      ],
+      "speech_style": "放荡尖刻",
+      "temperament": "狠毒"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_mu_jia_an_qi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 2500,
+        "line_end": 2500,
+        "text": "穆盈盈道：你一猜就着，不错，我就是穆盈盈，嘿嘿，西门夫人，咱们都是久仰的了！"
+      }
+    ]
+  },
+  {
+    "id": "char_bu_po",
+    "name": "不破",
+    "alias": [
+      "不破道人"
+    ],
+    "identity": "无量长老的三弟子，帮忙抬不歧尸体",
+    "faction": "faction_wu_dang_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出类拔萃",
+    "one_line": "无量长老三弟子",
+    "personality": {
+      "traits": [
+        "顺从",
+        "口风轻浮"
+      ],
+      "speech_style": "简洁",
+      "temperament": "平平"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 1238,
+        "line_end": 1238,
+        "text": "无量长老的弟子不破说道："
+      }
+    ]
+  },
+  {
+    "id": "char_bu_ruo",
+    "name": "不弱",
+    "alias": [
+      "不弱道人"
+    ],
+    "identity": "无量长老的四弟子，帮忙抬不歧尸体",
+    "faction": "faction_wu_dang_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出类拔萃",
+    "one_line": "无量长老四弟子",
+    "personality": {
+      "traits": [
+        "顺从"
+      ],
+      "speech_style": "沉默",
+      "temperament": "平平"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 1213,
+        "line_end": 1213,
+        "text": "这两个道土是无量长老的三弟子不破和四个弟子不弱。"
+      }
+    ]
+  },
+  {
+    "id": "char_bu_wang",
+    "name": "不妄",
+    "alias": [
+      "不妄道人"
+    ],
+    "identity": "紫霄宫管事，无相真人生前信任的人，王晦闻的顶头上司，被王晦闻安排看守常五娘",
+    "faction": "faction_wu_dang_pai",
+    "role": "npc",
+    "archetype": "support",
+    "rank": "平平",
+    "one_line": "紫霄宫管事，王晦闻顶头上司，武功平平但有事务才能",
+    "personality": {
+      "traits": [
+        "老实",
+        "胆小",
+        "怕事"
+      ],
+      "speech_style": "惶恐颤声",
+      "temperament": "怯懦"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 1471,
+        "line_end": 1471,
+        "text": "不波道：咦，不妄师兄，你不在紫霄宫，怎的躲到这个箱子来了？"
+      }
+    ]
+  },
+  {
+    "id": "char_ben_wu_dashi",
+    "name": "本无大师",
+    "alias": [
+      "本无"
+    ],
+    "identity": "少林寺达摩院首座，与无相真人为友",
+    "faction": "faction_shao_lin_si",
+    "role": "npc",
+    "archetype": "warrior_monk",
+    "rank": "登峰造极",
+    "one_line": "少林寺达摩院首座，调解纷争，袈裟隔开耿玉京与向天明的凌空一击",
+    "personality": {
+      "traits": [
+        "慈悲",
+        "睿智",
+        "公正",
+        "幽默",
+        "武学精通"
+      ],
+      "speech_style": "禅意禅机",
+      "temperament": "慈和"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_shao_lin_jian_yi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 44,
+        "line_end": 44,
+        "text": "客人中的本无大师说道："
+      }
+    ]
+  },
+  {
+    "id": "char_qin_lingyun",
+    "name": "秦岭云",
+    "alias": [],
+    "identity": "老武师，黑道出身，有名剑客",
+    "faction": "faction_hei_dao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "老武师，黑道出身，性情率直敢言",
+    "personality": {
+      "traits": [
+        "口没遮拦",
+        "好奇",
+        "直率"
+      ],
+      "speech_style": "直率",
+      "temperament": "豪爽"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 228,
+        "line_end": 228,
+        "text": "过铁铮的好友秦岭云冷笑道："
+      }
+    ]
+  },
+  {
+    "id": "char_lv_jianjiang",
+    "name": "吕剑江",
+    "alias": [
+      "龙门五霸之一"
+    ],
+    "identity": "龙门五霸中的大哥，关外势力首领",
+    "faction": "faction_long_men_wu_ba",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "龙门五霸之一，老当家手下亲信",
+    "personality": {
+      "traits": [
+        "老练",
+        "隐忍",
+        "怕事"
+      ],
+      "speech_style": "老江湖口吻",
+      "temperament": "稳重"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 2018,
+        "line_end": 2018,
+        "text": "帮主，你不想抓着机会，请老当家"
+      }
+    ]
+  },
+  {
+    "id": "char_unknown_youth",
+    "name": "不明少年",
+    "alias": [],
+    "identity": "身份不明的少年剑客",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "未知",
+    "one_line": "身份不明的少年",
+    "personality": {
+      "traits": [
+        "神秘",
+        "年轻",
+        "剑术不凡",
+        "谨慎",
+        "警觉"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_unknown_elderly",
+    "name": "不明老者",
+    "alias": [],
+    "identity": "身份不明的长者",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "未知",
+    "one_line": "身份不明的年长者",
+    "personality": {
+      "traits": [
+        "神秘",
+        "年迈",
+        "沉稳",
+        "世故",
+        "深藏不露"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_guo_tie_zheng",
+    "name": "郭铁铮",
+    "alias": [],
+    "identity": "朝廷武官/七星剑客之一",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "一流高手",
+    "one_line": "七星剑客之一，曾败于向天明",
+    "personality": {
+      "traits": [
+        "刚直",
+        "勇猛",
+        "重义",
+        "急性子",
+        "不服输"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_lui_jian",
+    "name": "吕剑",
+    "alias": [],
+    "identity": "慧可的武当故交",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "未知",
+    "one_line": "与慧可交手的武当门人",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "好胜",
+        "寡言",
+        "好武",
+        "机警"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_tongchan_shangren",
+    "name": "铜禅上人",
+    "alias": [],
+    "identity": "少林罗汉堂首座",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "一流高手",
+    "one_line": "少林罗汉堂首座，本无大师师弟",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "武艺高强",
+        "忠诚",
+        "寡言",
+        "严谨"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_wu_dang_qi_tu",
+    "name": "武当七徒",
+    "alias": [],
+    "identity": "武当派七名弟子之群体",
+    "faction": "faction_wu_dang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "二流",
+    "one_line": "武当派七名弟子组成的群体",
+    "personality": {
+      "traits": [
+        "集体行动",
+        "忠诚",
+        "听从号令",
+        "团结",
+        "年轻"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_hong_xiao",
+    "name": "红箫",
+    "alias": [],
+    "identity": "西门家侍女",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "三流",
+    "one_line": "西门夫人的贴身侍女",
+    "personality": {
+      "traits": [
+        "机警",
+        "忠诚",
+        "细心",
+        "勇敢",
+        "护主"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_bao_yi_xu",
+    "name": "包一虚",
+    "alias": [],
+    "identity": "绿林盗匪",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "三流",
+    "one_line": "截拦西门夫人的盗匪",
+    "personality": {
+      "traits": [
+        "粗鲁",
+        "贪婪",
+        "鲁莽",
+        "凶狠",
+        "无礼"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_du_cheng_lin",
+    "name": "杜承林",
+    "alias": [],
+    "identity": "绿林盗匪头目",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "三流",
+    "one_line": "截拦西门夫人的盗匪头目",
+    "personality": {
+      "traits": [
+        "凶悍",
+        "鲁莽",
+        "霸道",
+        "自大",
+        "愚蠢"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_yuanzhen",
+    "name": "圆真",
+    "alias": [],
+    "identity": "少林弟子",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "三流",
+    "one_line": "少林僧人，慧可师侄",
+    "personality": {
+      "traits": [
+        "恭敬",
+        "勤快",
+        "机警",
+        "年轻",
+        "谨慎"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_yuanxing",
+    "name": "圆性",
+    "alias": [],
+    "identity": "少林弟子",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "三流",
+    "one_line": "少林僧人，圆业师弟",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "机警",
+        "恭敬",
+        "年轻",
+        "机敏"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_yuantong",
+    "name": "圆通",
+    "alias": [],
+    "identity": "少林弟子",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "三流",
+    "one_line": "少林僧人",
+    "personality": {
+      "traits": [
+        "恭敬",
+        "机警",
+        "年轻",
+        "机敏",
+        "谨慎"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_liaofan",
+    "name": "了凡",
+    "alias": [],
+    "identity": "少林弟子",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "三流",
+    "one_line": "少林僧人，受方丈召见",
+    "personality": {
+      "traits": [
+        "恭敬",
+        "沉稳",
+        "寡言",
+        "守规矩",
+        "谨慎"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_yuanye",
+    "name": "圆业",
+    "alias": [],
+    "identity": "少林弟子",
+    "faction": "faction_shao_lin",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "三流",
+    "one_line": "少林僧人，圆性师兄",
+    "personality": {
+      "traits": [
+        "机警",
+        "谨慎",
+        "恭敬",
+        "年轻",
+        "敏慧"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_zheng_tian_xiang",
+    "name": "郑添祥",
+    "alias": [],
+    "identity": "江湖义士",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "二流",
+    "one_line": "与西门燕相识的江湖义士",
+    "personality": {
+      "traits": [
+        "正直",
+        "义气",
+        "豪迈",
+        "率真",
+        "豪爽"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_lan_mu",
+    "name": "蓝母",
+    "alias": [],
+    "identity": "蓝靠山之妻",
+    "faction": null,
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "常人",
+    "one_line": "蓝靠山的妻子",
+    "personality": {
+      "traits": [
+        "慈爱",
+        "忧心",
+        "坚韧",
+        "护犊",
+        "朴实"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_geng_yu_jing",
+    "name": "耿玉京",
+    "alias": [],
+    "identity": "不岐唯一弟子",
+    "faction": "faction_wu_dang",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "一流高手",
+    "one_line": "不岐的弟子，戈振军遗孤，习得武当剑法",
+    "personality": {
+      "traits": [
+        "正直",
+        "重情",
+        "机警",
+        "聪慧",
+        "孝顺"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_wang_hui_wen",
+    "name": "王晦闻",
+    "alias": [],
+    "identity": "七星剑客之一",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "一流高手",
+    "one_line": "七星剑客之一，追逐名利",
+    "personality": {
+      "traits": [
+        "贪婪",
+        "嫉妒",
+        "追逐名利",
+        "自私",
+        "堕落"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_zhong_ren",
+    "name": "众人",
+    "alias": [],
+    "identity": "在场群体听众",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "常人",
+    "one_line": "代表在场所有听众的群体代称",
+    "personality": {
+      "traits": [
+        "群体",
+        "共同反应",
+        "旁听",
+        "集体",
+        "众人"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_unknown_stranger",
+    "name": "陌生人",
+    "alias": [],
+    "identity": "未露面的陌生人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "未知",
+    "one_line": "未表明身份的陌生人",
+    "personality": {
+      "traits": [
+        "神秘",
+        "未知",
+        "隐藏身份",
+        "警觉",
+        "谨慎"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_unknown_outside_voice",
+    "name": "窗外人",
+    "alias": [],
+    "identity": "窗外未露面的声音",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "未知",
+    "one_line": "在窗外未露面的对话者",
+    "personality": {
+      "traits": [
+        "神秘",
+        "隐藏",
+        "暗中行事",
+        "警觉",
+        "谨慎"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  },
+  {
+    "id": "char_narrator",
+    "name": "叙述者",
+    "alias": [],
+    "identity": "旁白/叙述视角",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "常人",
+    "one_line": "承接叙述视角的对话占位",
+    "personality": {
+      "traits": [
+        "客观",
+        "中性",
+        "旁观",
+        "记录",
+        "叙述"
+      ],
+      "speech_style": "待补全",
+      "temperament": "待补全"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": []
+  }
+]

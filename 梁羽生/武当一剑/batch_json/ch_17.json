@@ -1,0 +1,2294 @@
+{
+  "batch": 6,
+  "chapter": 17,
+  "chapter_title": "与今群雄惊诡变　武当一剑灵锋芒",
+  "chapter_summary": "朝廷钦使褚千石与副使赵太康奉旨册封牟沧浪为武当派新掌门。牟一羽送客时，赵太康质问连横之死，指出唐二先生以药粉改变中毒肤色掩盖青蜂针。牟沧浪分析：连横是黑鲨帮帮主罗江峰的副手，与满洲人有勾连，唐仲山有把柄在他手上需灭口。墓园中，不歧趁耿玉京送药时向他坦白十八年前何其武被害当夜他曾回家，亲眼见到凶手——面貌与他一模一样，背影却与耿京士有几分相似。凶手骂出畜生二字，师父何其武并非骂不歧或耿京士。凶手用的是带有特殊身法的轻功，与东方亮的轻功身法相同。不歧话未说完被暗算身亡，临终中指指向窗口。耿玉京追出墓园，与蒙面人激战，以庖丁解牛心法悟剑，最终刺开面巾发现蒙面人竟是聋哑道人王晦闻。耿玉京犹豫未下杀手，反被王晦闻一掌击晕。无相真人葬礼进行时，一名五旬灰衣人突然出现，托住棺材，宣称有异。",
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_chu_qian_shi",
+        "name": "褚千石",
+        "alias": [],
+        "identity": "御林军副统领，朝廷正钦使，特来册封无名真人为武当派掌门",
+        "faction": "faction_dynasty_qing",
+        "role": "npc",
+        "archetype": "noble",
+        "rank": "出神入化",
+        "one_line": "朝廷御林军副统领，与牟沧浪有旧，特地讨来差使贺其当上掌门",
+        "personality": {
+          "traits": [
+            "官场气",
+            "老于世故",
+            "爽朗",
+            "热络"
+          ],
+          "speech_style": "官场套话中带江湖豪气",
+          "temperament": "豪迈"
+        },
+        "relationships": [
+          {
+            "target": "char_wu_ming",
+            "type": "故交",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "十年前旧友"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          17
+        ],
+        "source_refs": [
+          {
+            "chapter": 17,
+            "line_start": 16,
+            "line_end": 16,
+            "text": "牟兄，认得我吗？我是特地向皇上讨这个差使，来恭驾你当上掌门的啊！"
+          }
+        ]
+      },
+      {
+        "id": "char_zhao_tai_kang",
+        "name": "赵太康",
+        "alias": [
+          "赵副使"
+        ],
+        "identity": "御林军副使，朝廷副钦使",
+        "faction": "faction_dynasty_qing",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "御林军副使，内家高手，曾赴牟沧浪五十寿宴，疑有隐藏目的",
+        "personality": {
+          "traits": [
+            "内敛",
+            "观察敏锐",
+            "深沉",
+            "可疑",
+            "精明"
+          ],
+          "speech_style": "委婉却步步紧逼",
+          "temperament": "沉稳"
+        },
+        "relationships": [
+          {
+            "target": "char_chu_qian_shi",
+            "type": "同僚",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "上下级副使关系"
+          },
+          {
+            "target": "char_mou_yi_yu",
+            "type": "可疑",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "曾在金陵见过面"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          17
+        ],
+        "source_refs": [
+          {
+            "chapter": 17,
+            "line_start": 24,
+            "line_end": 24,
+            "text": "掌门真人，我和你虽是初会，但和你的公子却是刚在不久之前在金陵见过面的。"
+          }
+        ]
+      },
+      {
+        "id": "char_hui_yi_ren",
+        "name": "灰衣人",
+        "alias": [],
+        "identity": "无相真人的葬礼上突然出现托住棺材的五旬灰衣人",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "无相真人葬礼进行时出现托棺的五旬灰衣人，身份神秘",
+        "personality": {
+          "traits": [
+            "神秘",
+            "胆大",
+            "决断"
+          ],
+          "speech_style": "粗豪",
+          "temperament": "刚烈"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          17
+        ],
+        "source_refs": [
+          {
+            "chapter": 17,
+            "line_start": 542,
+            "line_end": 542,
+            "text": "且慢！"
+          },
+          {
+            "chapter": 17,
+            "line_start": 544,
+            "line_end": 544,
+            "text": "声到人到，是个年约五旬的灰衣人，双臂一振，托住棺材。"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [
+      {
+        "id": "tech_yun_yong_feng_fan",
+        "name": "云涌风翻",
+        "type": "defense",
+        "description": "太极剑法守招，剑势如环，可扫荡碎石子",
+        "source_skill": "skill_tai_ji_jian",
+        "source_refs": [
+          {
+            "chapter": 17,
+            "line_start": 404,
+            "line_end": 404,
+            "text": "一招云涌风翻，剑势如环，把那些碎石子扫荡开去。"
+          }
+        ]
+      },
+      {
+        "id": "tech_bao_ding_jie_niu",
+        "name": "庖丁解牛剑意",
+        "type": "control",
+        "description": "慧可在断魂谷石室中所传剑理，以神遇而不以目视，达到剑随意转境界",
+        "source_skill": "skill_tai_ji_jian",
+        "source_refs": [
+          {
+            "chapter": 17,
+            "line_start": 452,
+            "line_end": 452,
+            "text": "慧可大师在断魂谷石室中给他讲解的庖丁解牛的妙理也似一道灵光从他心头闪过"
+          }
+        ]
+      },
+      {
+        "id": "tech_qi_xing_ban_yue",
+        "name": "七星伴月",
+        "type": "attack",
+        "description": "耿玉京从白虹贯日变招的反击，剑尖抖动飞起七朵剑花，同时攻蒙面人七处要害",
+        "source_skill": "skill_tai_ji_jian",
+        "source_refs": [
+          {
+            "chapter": 17,
+            "line_start": 464,
+            "line_end": 464,
+            "text": "剑尖一抖，陡然飞起了七朵剑花，从白虹贯日倏地就变为七星伴月"
+          }
+        ]
+      }
+    ],
+    "factions": [
+      {
+        "id": "faction_dynasty_qing",
+        "name": "朝廷",
+        "type": "官府",
+        "location": null,
+        "sub_divisions": [
+          "御林军"
+        ],
+        "one_line": "朝廷册封武当派新掌门的钦差系统",
+        "source_refs": [
+          {
+            "chapter": 17,
+            "line_start": 12,
+            "line_end": 12,
+            "text": "朝廷派来册封掌门真人的钦使已经来到了武当山。"
+          }
+        ]
+      }
+    ],
+    "locations": [],
+    "items": [
+      {
+        "id": "item_jiu_tian_qiong_yu_wan",
+        "name": "九天琼玉丸",
+        "type": "pill",
+        "owner": "char_wu_ming",
+        "one_line": "武当派疗伤圣药，无名真人托牟一羽带给不歧",
+        "description": "武当派秘制疗伤药丸，无名真人让牟一羽带两颗慰问受伤的不歧",
+        "effects": [
+          {
+            "type": "治疗",
+            "value": "重伤",
+            "description": "治疗重伤的珍贵药丸"
+          }
+        ],
+        "origin": "武当派",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_wu_ming",
+          "char_bu_qi",
+          "char_mou_yi_yu"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          17
+        ],
+        "source_refs": [
+          {
+            "chapter": 17,
+            "line_start": 136,
+            "line_end": 136,
+            "text": "他昨晚受的伤很重．你顺便带两颗九天琼玉丸给他。"
+          }
+        ]
+      }
+    ]
+  },
+  "entity_updates": [
+    {
+      "target": "char_bu_qi",
+      "changes": {
+        "status": "死亡",
+        "death_info": {
+          "chapter": 17,
+          "line_start": 378,
+          "line_end": 380,
+          "text": "耿玉京道：义父，你怎么啦？忽见他的喉头一缕鲜血射了出来。不歧已经死了，他突遭暗算，一命呜呼，片言只语都没留下。",
+          "killer": "unknown (暗算, 暗器或暗掌)",
+          "context": "不歧向耿玉京坦露何其武被害真相，话未说完被暗算身亡，临终中指指向窗口"
+        },
+        "source_refs_added": [
+          {
+            "chapter": 17,
+            "line_start": 166,
+            "line_end": 166,
+            "text": "相信我，你一定要相信我，不是我，不是我，不是我！"
+          },
+          {
+            "chapter": 17,
+            "line_start": 250,
+            "line_end": 250,
+            "text": "京儿，我把最见不得人的心事都对你说了吧。"
+          },
+          {
+            "chapter": 17,
+            "line_start": 354,
+            "line_end": 354,
+            "text": "他那飞身越墙的身法，和十八年前我所见到的那个凶手的身法，正是相同！"
+          }
+        ]
+      }
+    },
+    {
+      "target": "char_lan_yu_jing",
+      "changes": {
+        "known_skills_added": [
+          "skill_tai_ji_jian"
+        ],
+        "relationships_added": [
+          {
+            "target": "char_long_ya_dao_ren",
+            "type": "宿敌",
+            "intensity": 95,
+            "bond_level": 5,
+            "dynamic": "耿玉京揭开王晦闻蒙面巾后发现他就是杀害慧可与不歧的凶手"
+          }
+        ],
+        "source_refs_added": [
+          {
+            "chapter": 17,
+            "line_start": 424,
+            "line_end": 424,
+            "text": "你在关外害死慧可大师，如今又害死我的义父，舍了这条性命，我也要与你拼了！"
+          },
+          {
+            "chapter": 17,
+            "line_start": 522,
+            "line_end": 522,
+            "text": "耿五京失声道：是你！"
+          }
+        ]
+      }
+    },
+    {
+      "target": "char_mou_yi_yu",
+      "changes": {
+        "source_refs_added": [
+          {
+            "chapter": 17,
+            "line_start": 54,
+            "line_end": 54,
+            "text": "不错，是有这件事。但我却不知此人是谁。"
+          },
+          {
+            "chapter": 17,
+            "line_start": 64,
+            "line_end": 64,
+            "text": "中了青蜂针的毒，脸上呈现青色，连横死时，脸色却是黑的。"
+          }
+        ]
+      }
+    },
+    {
+      "target": "char_wu_ming",
+      "changes": {
+        "source_refs_added": [
+          {
+            "chapter": 17,
+            "line_start": 18,
+            "line_end": 18,
+            "text": "原来是褚兄，没想到一别十年，却在这里相见。"
+          },
+          {
+            "chapter": 17,
+            "line_start": 124,
+            "line_end": 124,
+            "text": "那个连横，正是罗江峰的副手，你想他们能在辽东建帮，要是背后没有靠山，做得到吗？"
+          }
+        ]
+      }
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_chu_qian_shi",
+      "speaker_name": "褚千石(正钦使)",
+      "listener": null,
+      "text": "牟兄，认得我吗？我是特地向皇上讨这个差使，来恭驾你当上掌门的啊！",
+      "tone": "热络",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 16,
+          "line_end": 16,
+          "text": "牟兄，认得我吗？我是特地向皇上讨这个差使，来恭驾你当上掌门的啊！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_wu_ming",
+      "speaker_name": "无名真人(牟沧浪)",
+      "listener": null,
+      "text": "原来是褚兄，没想到一别十年，却在这里相见。听说褚兄早已在京中得意，当上了御林军的副统领了，我也应该向褚兄补贺啊？",
+      "tone": "欣喜",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 18,
+          "line_end": 18,
+          "text": "原来是褚兄，没想到一别十年，却在这里相见。听说褚兄早已在京中得意，当上了御林军的副统领了，我也应该向褚兄补贺啊？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_chu_qian_shi",
+      "speaker_name": "褚千石(正钦使)",
+      "listener": null,
+      "text": "牟兄，你还是像从前一样洒脱。不过，你现在身为掌门，我也应该改个称呼了，赵副使，你上来见过掌门真人吧。",
+      "tone": "介绍",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 22,
+          "line_end": 22,
+          "text": "牟兄，你还是像从前一样洒脱。不过，你现在身为掌门，我也应该改个称呼了，赵副使，你上来见过掌门真人吧。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "掌门真人，我和你虽是初会，但和你的公子却是刚在不久之前在金陵见过面的。",
+      "tone": "谦恭",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 24,
+          "line_end": 24,
+          "text": "掌门真人，我和你虽是初会，但和你的公子却是刚在不久之前在金陵见过面的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_wu_ming",
+      "speaker_name": "无名真人(牟沧浪)",
+      "listener": null,
+      "text": "小儿在金陵多蒙赵大人照顾。不过，大人你的记性似乎不大好！",
+      "tone": "试探",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 28,
+          "line_end": 28,
+          "text": "小儿在金陵多蒙赵大人照顾。不过，大人你的记性似乎不大好！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "掌门真人指的是哪一桩？",
+      "tone": "反问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 30,
+          "line_end": 30,
+          "text": "掌门真人指的是哪一桩？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_wu_ming",
+      "speaker_name": "无名真人(牟沧浪)",
+      "listener": null,
+      "text": "五年前贫道五十贱辰，你似乎曾经来过舍下。",
+      "tone": "揭穿",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 32,
+          "line_end": 32,
+          "text": "五年前贫道五十贱辰，你似乎曾经来过舍下。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "没想到掌门真人居然会知道这件事情，真是令我受宠若惊了。不过，那次我是随众祝寿，自始至终都未有机会与真人交谈，还未算得是正式相识吧？",
+      "tone": "圆场",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 36,
+          "line_end": 36,
+          "text": "没想到掌门真人居然会知道这件事情，真是令我受宠若惊了。不过，那次我是随众祝寿，自始至终都未有机会与真人交谈，还未算得是正式相识吧？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "不错，是有这件事。但我却不知此人是谁。",
+      "tone": "坦白",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 54,
+          "line_end": 54,
+          "text": "不错，是有这件事。但我却不知此人是谁。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "我倒知道。这人名叫连横，是四笔点八脉连家子侄。听说他当场受了暗算而亡，不知公子已查明是哪种暗器了吗？",
+      "tone": "问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 56,
+          "line_end": 56,
+          "text": "我倒知道。这人名叫连横，是四笔点八脉连家子侄。听说他当场受了暗算而亡，不知公子已查明是哪种暗器了吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "有人怀疑是常五娘的青蜂针，其实不是。",
+      "tone": "纠正",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 60,
+          "line_end": 60,
+          "text": "有人怀疑是常五娘的青蜂针，其实不是。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "何以知道不是？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 62,
+          "line_end": 62,
+          "text": "何以知道不是？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "中了青蜂针的毒，脸上呈现青色，连横死时，脸色却是黑的。",
+      "tone": "解释",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 64,
+          "line_end": 64,
+          "text": "中了青蜂针的毒，脸上呈现青色，连横死时，脸色却是黑的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "有没有在他的身上取出暗器？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 66,
+          "line_end": 66,
+          "text": "有没有在他的身上取出暗器？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "没有，一枚小小的毒针。也不知射入他的身体哪个部份，要是用到解剖尸体的手段，似乎又嫌太过残忍了。不过在场的有一位对毒药极有研究的泉老先生，认为连横中的不是青蜂针，就是根据他的判断。",
+      "tone": "详细",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 68,
+          "line_end": 68,
+          "text": "没有，一枚小小的毒针。也不知射入他的身体哪个部份，要是用到解剖尸体的手段，似乎又嫌太过残忍了。不过在场的有一位对毒药极有研究的泉老先生，认为连横中的不是青蜂针，就是根据他的判断。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "你说的这位老先生，敢情就是有天下第三使毒高手之称的泉如镜？",
+      "tone": "确认",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 70,
+          "line_end": 70,
+          "text": "你说的这位老先生，敢情就是有天下第三使毒高手之称的泉如镜？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "不错。赵大人是否觉得他的所见有不到之处。",
+      "tone": "反问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 74,
+          "line_end": 74,
+          "text": "不错。赵大人是否觉得他的所见有不到之处。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "连横的尸体呢，可否让我看看？",
+      "tone": "请求",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 78,
+          "line_end": 78,
+          "text": "连横的尸体呢，可否让我看看？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "已经埋葬了。不过，赵大人要看，也不困难，埋葬之处，就在前面山岗，只是薄葬。",
+      "tone": "应允",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 80,
+          "line_end": 80,
+          "text": "已经埋葬了。不过，赵大人要看，也不困难，埋葬之处，就在前面山岗，只是薄葬。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "我的所料果然不差，你看！",
+      "tone": "得意",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 86,
+          "line_end": 86,
+          "text": "我的所料果然不差，你看！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "如此看来，似乎真的是青蜂针了。赵大人，你、你是怎样料到的？",
+      "tone": "惊讶",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 92,
+          "line_end": 92,
+          "text": "如此看来，似乎真的是青蜂针了。赵大人，你、你是怎样料到的？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "如此看来，不但常五娘曾经来过，唐先生也曾经来过！",
+      "tone": "推断",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 94,
+          "line_end": 94,
+          "text": "如此看来，不但常五娘曾经来过，唐先生也曾经来过！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "赵大人何所见而云然？",
+      "tone": "反问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 98,
+          "line_end": 98,
+          "text": "赵大人何所见而云然？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "只有唐二先生有那种可以在瞬息之间改变中毒肤色的药粉，而且在下药之际，要令那么多人毫无知觉，恐怕也只有他才有这个手段！",
+      "tone": "分析",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 100,
+          "line_end": 100,
+          "text": "只有唐二先生有那种可以在瞬息之间改变中毒肤色的药粉，而且在下药之际，要令那么多人毫无知觉，恐怕也只有他才有这个手段！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "谁也知道常五娘是唐二先生的外室，他替这妖妇掩饰，那也不足为奇。",
+      "tone": "顺说",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 104,
+          "line_end": 104,
+          "text": "谁也知道常五娘是唐二先生的外室，他替这妖妇掩饰，那也不足为奇。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "恐怕不只是掩饰这样简单。",
+      "tone": "深沉",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 106,
+          "line_end": 106,
+          "text": "恐怕不只是掩饰这样简单。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "那么依赵大人之见……",
+      "tone": "探询",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 108,
+          "line_end": 108,
+          "text": "那么依赵大人之见……"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "杀人灭口！",
+      "tone": "断言",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 110,
+          "line_end": 110,
+          "text": "杀人灭口！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "杀人灭口？",
+      "tone": "震惊",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 112,
+          "line_end": 112,
+          "text": "杀人灭口？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_zhao_tai_kang",
+      "speaker_name": "赵太康(赵副使)",
+      "listener": null,
+      "text": "看来唐二先生和常五娘都是不愿那个连横落在你们的手中的，他们用的手段虽然不同，但同样都是恐怕连横泄漏和他们有关的秘密。",
+      "tone": "推论",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 114,
+          "line_end": 114,
+          "text": "看来唐二先生和常五娘都是不愿那个连横落在你们的手中的，他们用的手段虽然不同，但同样都是恐怕连横泄漏和他们有关的秘密。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_wu_ming",
+      "speaker_name": "无名真人(牟沧浪)",
+      "listener": null,
+      "text": "羽儿，你到过辽东，你知道有个黑鲨帮吗？",
+      "tone": "问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 120,
+          "line_end": 120,
+          "text": "羽儿，你到过辽东，你知道有个黑鲨帮吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "听说黑鲨帮是贩卖私监的，本来是在江南，后来在江南站不住脚，帮主罗江峰跑到辽东，重建此帮。爹爹，你因何问起黑鲨帮？",
+      "tone": "疑惑",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 122,
+          "line_end": 122,
+          "text": "听说黑鲨帮是贩卖私监的，本来是在江南，后来在江南站不住脚，帮主罗江峰跑到辽东，重建此帮。爹爹，你因何问起黑鲨帮？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_wu_ming",
+      "speaker_name": "无名真人(牟沧浪)",
+      "listener": null,
+      "text": "那个连横，正是罗江峰的副手，你想他们能在辽东建帮，要是背后没有靠山，做得到吗？",
+      "tone": "分析",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 124,
+          "line_end": 124,
+          "text": "那个连横，正是罗江峰的副手，你想他们能在辽东建帮，要是背后没有靠山，做得到吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "你是说他们和满洲人有关系？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 126,
+          "line_end": 126,
+          "text": "你是说他们和满洲人有关系？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_wu_ming",
+      "speaker_name": "无名真人(牟沧浪)",
+      "listener": null,
+      "text": "这点是不用怀疑了，我怀疑的，唐二先生有什么把柄在他手上，怕他泄漏秘密，要杀之灭口。",
+      "tone": "推断",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 128,
+          "line_end": 128,
+          "text": "这点是不用怀疑了，我怀疑的，唐二先生有什么把柄在他手上，怕他泄漏秘密，要杀之灭口。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "如此说来，莫非唐二先生，常五娘、连横他们三人都是一丘之貉？",
+      "tone": "震惊",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 130,
+          "line_end": 130,
+          "text": "如此说来，莫非唐二先生，常五娘、连横他们三人都是一丘之貉？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_wu_ming",
+      "speaker_name": "无名真人(牟沧浪)",
+      "listener": null,
+      "text": "好了，我要静坐一会，你去墓园替我慰问不歧吧。他昨晚受的伤很重．你顺便带两颗九天琼玉丸给他。",
+      "tone": "吩咐",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 136,
+          "line_end": 136,
+          "text": "好了，我要静坐一会，你去墓园替我慰问不歧吧。他昨晚受的伤很重．你顺便带两颗九天琼玉丸给他。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_mou_yi_yu",
+      "speaker_name": "牟一羽",
+      "listener": null,
+      "text": "爹爹还有什么吩咐？",
+      "tone": "问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 142,
+          "line_end": 142,
+          "text": "爹爹还有什么吩咐？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_wu_ming",
+      "speaker_name": "无名真人(牟沧浪)",
+      "listener": null,
+      "text": "没什么了。啊，对，你出去的时候，叫他们把玄通唤来见我。",
+      "tone": "补充",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 144,
+          "line_end": 144,
+          "text": "没什么了。啊，对，你出去的时候，叫他们把玄通唤来见我。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "相信我，你一定要相信我，不是我，不是我，不是我！",
+      "tone": "梦呓",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 166,
+          "line_end": 166,
+          "text": "相信我，你一定要相信我，不是我，不是我，不是我！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "义父，我当然相信你，昨晚我已经相信。姐姐也都和我说了，杀害我的养父母是那唐二先生，不是你！",
+      "tone": "安慰",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 170,
+          "line_end": 170,
+          "text": "义父，我当然相信你，昨晚我已经相信。姐姐也都和我说了，杀害我的养父母是那唐二先生，不是你！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "京儿，你，你说什么？",
+      "tone": "茫然",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 172,
+          "line_end": 172,
+          "text": "京儿，你，你说什么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "你不是凶手，我已经知道了！",
+      "tone": "告知",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 174,
+          "line_end": 174,
+          "text": "你不是凶手，我已经知道了！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "什么，你都知道了么？",
+      "tone": "惊讶",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 176,
+          "line_end": 176,
+          "text": "什么，你都知道了么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "义父，怎的你连昨晚的事情都忘记了么？不错，最初我怀疑你是杀我养父母的凶手，但后来不是都说清楚了么？",
+      "tone": "疑惑",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 178,
+          "line_end": 178,
+          "text": "义父，怎的你连昨晚的事情都忘记了么？不错，最初我怀疑你是杀我养父母的凶手，但后来不是都说清楚了么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我说的不是昨晚之事！",
+      "tone": "否认",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 180,
+          "line_end": 180,
+          "text": "我说的不是昨晚之事！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "你误杀我爹爹的事情，如今我也不怪你了，别提它吧！",
+      "tone": "谅解",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 184,
+          "line_end": 184,
+          "text": "你误杀我爹爹的事情，如今我也不怪你了，别提它吧！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我说的也不是这一件事情！",
+      "tone": "否认",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 186,
+          "line_end": 186,
+          "text": "我说的也不是这一件事情！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "那你要说的是什么事情？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 190,
+          "line_end": 190,
+          "text": "那你要说的是什么事情？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我说的是你的外公，亦即是我的师父两湖大侠何其武被害的那件案子！",
+      "tone": "告知",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 194,
+          "line_end": 194,
+          "text": "我说的是你的外公，亦即是我的师父两湖大侠何其武被害的那件案子！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "这件案子，连掌门真人都曾怀疑我是凶手！",
+      "tone": "陈述",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 198,
+          "line_end": 198,
+          "text": "这件案子，连掌门真人都曾怀疑我是凶手！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "不，我知道掌门真人的用意，他是恐防你自寻短见，因此要着落在你的身上把那凶手找出来！",
+      "tone": "分析",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 200,
+          "line_end": 200,
+          "text": "不，我知道掌门真人的用意，他是恐防你自寻短见，因此要着落在你的身上把那凶手找出来！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我知道，但说老实话，我对掌门真人也不敢十分相信，我只能相信你！",
+      "tone": "表白",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 204,
+          "line_end": 204,
+          "text": "我知道，但说老实话，我对掌门真人也不敢十分相信，我只能相信你！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "好，那你对我说吧！",
+      "tone": "答应",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 206,
+          "line_end": 206,
+          "text": "好，那你对我说吧！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "掌门人问我当年的真相，有件事情，我是瞒住他的，师父被害那天晚上，其实我曾经回过家里！",
+      "tone": "坦白",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 208,
+          "line_end": 208,
+          "text": "掌门人问我当年的真相，有件事情，我是瞒住他的，师父被害那天晚上，其实我曾经回过家里！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "义父，你见到什么？我仍然相信你不是凶手！",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 212,
+          "line_end": 212,
+          "text": "义父，你见到什么？我仍然相信你不是凶手！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "多谢你。",
+      "tone": "感激",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 214,
+          "line_end": 214,
+          "text": "多谢你。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我回到家里的时候，正是那凶手逃出来的时候。师父临终之前骂的那声：畜牲！我也听见了。",
+      "tone": "回忆",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 218,
+          "line_end": 218,
+          "text": "我回到家里的时候，正是那凶手逃出来的时候。师父临终之前骂的那声：畜牲！我也听见了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "怪不得师父要骂畜牲，那个逃出来的凶手，他的面貌简直和我一模一样！而且他的背影又和你的父亲有几分相似！",
+      "tone": "揭示",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 228,
+          "line_end": 228,
+          "text": "怪不得师父要骂畜牲，那个逃出来的凶手，他的面貌简直和我一模一样！而且他的背影又和你的父亲有几分相似！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "有这等事！",
+      "tone": "震惊",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 230,
+          "line_end": 230,
+          "text": "有这等事！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我真该死，师父对我思重如山，我却不敢挺身和杀害师父的凶手搏斗，当时我竟然给吓得躲在暗处，甚至连大气儿都不敢出，生怕给那凶手发现。",
+      "tone": "自悔",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 234,
+          "line_end": 234,
+          "text": "我真该死，师父对我思重如山，我却不敢挺身和杀害师父的凶手搏斗，当时我竟然给吓得躲在暗处，甚至连大气儿都不敢出，生怕给那凶手发现。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "那个凶手的武功比你高出许多，当时如果你露面的话，只怕也是白饶一条性命。",
+      "tone": "安慰",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 236,
+          "line_end": 236,
+          "text": "那个凶手的武功比你高出许多，当时如果你露面的话，只怕也是白饶一条性命。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我不仅贪生怕死，还是个卑鄙小人，在这样重要的关头，我还只是为了本身的利害打算。",
+      "tone": "自责",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 240,
+          "line_end": 240,
+          "text": "我不仅贪生怕死，还是个卑鄙小人，在这样重要的关头，我还只是为了本身的利害打算。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "凶手身法快极，转瞬已是越墙而去，我听得老家人何亮的脚步声跑进师父卧房，此时我本来应该进去的，可我还是未敢露面。",
+      "tone": "坦白",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 244,
+          "line_end": 244,
+          "text": "凶手身法快极，转瞬已是越墙而去，我听得老家人何亮的脚步声跑进师父卧房，此时我本来应该进去的，可我还是未敢露面。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "京儿，我把最见不得人的心事都对你说了吧。即使你因此杀我，我也甘死无辞！我一向妒忌你的父亲，尤其在他抢了师妹之后，我更是很他人骨。",
+      "tone": "自白",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 250,
+          "line_end": 250,
+          "text": "京儿，我把最见不得人的心事都对你说了吧。即使你因此杀我，我也甘死无辞！我一向妒忌你的父亲，尤其在他抢了师妹之后，我更是很他人骨。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "事情都已经过了这么多年，当时不管你是有心之错，或无心之错，总之，知错就好，我一出世就蒙你教养之恩，我总还是把你当作义父的，不过……",
+      "tone": "宽容",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 254,
+          "line_end": 254,
+          "text": "事情都已经过了这么多年，当时不管你是有心之错，或无心之错，总之，知错就好，我一出世就蒙你教养之恩，我总还是把你当作义父的，不过……"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "不过什么？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 256,
+          "line_end": 256,
+          "text": "不过什么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "不过，怀疑也总得有几分事实做根据的，我想知道你因何怀疑我的父亲。",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 258,
+          "line_end": 258,
+          "text": "不过，怀疑也总得有几分事实做根据的，我想知道你因何怀疑我的父亲。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "你不说我也要告诉你的，你知道那晚我因何赶回家吗？",
+      "tone": "反问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 260,
+          "line_end": 260,
+          "text": "你不说我也要告诉你的，你知道那晚我因何赶回家吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "因为我刚刚听到一个消息，说是你的父亲已经做了满洲奸细，已经从关外回来，明天就会回到家里，因此我要赶回来告诉你的外公。",
+      "tone": "解释",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 262,
+          "line_end": 262,
+          "text": "因为我刚刚听到一个消息，说是你的父亲已经做了满洲奸细，已经从关外回来，明天就会回到家里，因此我要赶回来告诉你的外公。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "你这消息从何而来？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 264,
+          "line_end": 264,
+          "text": "你这消息从何而来？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "是常五娘告诉我的，我和她有了不应该有的关系。我知道她行为不端，但也知道她交游广阔，消息灵通，我、我这就抱了宁可信其有，不敢信其无的态度，啊，刚才我说到哪里？",
+      "tone": "自白",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 268,
+          "line_end": 268,
+          "text": "是常五娘告诉我的，我和她有了不应该有的关系。我知道她行为不端，但也知道她交游广阔，消息灵通，我、我这就抱了宁可信其有，不敢信其无的态度，啊，刚才我说到哪里？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "你说到听见何亮的脚步跑入我外公的卧房。",
+      "tone": "提示",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 270,
+          "line_end": 270,
+          "text": "你说到听见何亮的脚步跑入我外公的卧房。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "对，正在那个时候，常五娘突然在我身边出现，示意我赶快离开，我就糊里糊涂跟她走了。",
+      "tone": "回忆",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 272,
+          "line_end": 272,
+          "text": "对，正在那个时候，常五娘突然在我身边出现，示意我赶快离开，我就糊里糊涂跟她走了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "那最新的消息又是什么？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 276,
+          "line_end": 276,
+          "text": "那最新的消息又是什么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "说是你的父亲身上藏有霍卜托的一封信，霍卜托是满洲大汗努尔哈赤的卫士，其时已经潜入京师，计划在京师谋得一官半职，为满洲人做卧底的。",
+      "tone": "回忆",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 278,
+          "line_end": 278,
+          "text": "说是你的父亲身上藏有霍卜托的一封信，霍卜托是满洲大汗努尔哈赤的卫士，其时已经潜入京师，计划在京师谋得一官半职，为满洲人做卧底的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "请五娘又怎能知道得这样清楚？",
+      "tone": "怀疑",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 280,
+          "line_end": 280,
+          "text": "请五娘又怎能知道得这样清楚？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我当时只是想把你的父亲置于死地，她不肯说消息的来源，我亦无心追问！",
+      "tone": "坦白",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 284,
+          "line_end": 284,
+          "text": "我当时只是想把你的父亲置于死地，她不肯说消息的来源，我亦无心追问！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "这个霍卜托我曾经见过，他的身份虽然复杂，但决不是满洲好细，不过，说来话长，以后有机会我再说给你听。义父，我只想问你一句，你可曾怀疑过常五娘也是满洲好细？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 286,
+          "line_end": 286,
+          "text": "这个霍卜托我曾经见过，他的身份虽然复杂，但决不是满洲好细，不过，说来话长，以后有机会我再说给你听。义父，我只想问你一句，你可曾怀疑过常五娘也是满洲好细？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "经过那晚之后，我才开始怀疑。",
+      "tone": "承认",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 288,
+          "line_end": 288,
+          "text": "经过那晚之后，我才开始怀疑。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "第二天我和何亮一起，在盘龙山碰上你的爹娘。嗯，我必须告诉你一件事情，我并非饰辞狡辩，当时我和你的父亲搏斗，不错，你的父亲是伤在我的剑下，但其实他的剑法是远远在我之上的，致他于死的，是因为他中了常五娘的毒针！",
+      "tone": "坦白",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 290,
+          "line_end": 290,
+          "text": "第二天我和何亮一起，在盘龙山碰上你的爹娘。嗯，我必须告诉你一件事情，我并非饰辞狡辩，当时我和你的父亲搏斗，不错，你的父亲是伤在我的剑下，但其实他的剑法是远远在我之上的，致他于死的，是因为他中了常五娘的毒针！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "我早已料到是这样的了。",
+      "tone": "预判",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 292,
+          "line_end": 292,
+          "text": "我早已料到是这样的了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "那封信我并没得到手，见是见过的。当时你的母亲在行囊中找出过，给了你的爹爹，后来你爹爹死后，不知怎的就不见了。但我总算也查明了一件事情，你爹绝对不是弑师凶手！",
+      "tone": "交代",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 296,
+          "line_end": 296,
+          "text": "那封信我并没得到手，见是见过的。当时你的母亲在行囊中找出过，给了你的爹爹，后来你爹爹死后，不知怎的就不见了。但我总算也查明了一件事情，你爹绝对不是弑师凶手！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "此事明白就好！",
+      "tone": "释然",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 298,
+          "line_end": 298,
+          "text": "此事明白就好！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "可惜是明白的少，不明白的多，我自问与人无仇，我不懂那人为何要扮成我的模样，移祸于我？",
+      "tone": "疑惑",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 302,
+          "line_end": 302,
+          "text": "可惜是明白的少，不明白的多，我自问与人无仇，我不懂那人为何要扮成我的模样，移祸于我？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "我看那人不是移祸于你，而是要陷害我的父亲！",
+      "tone": "推断",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 304,
+          "line_end": 304,
+          "text": "我看那人不是移祸于你，而是要陷害我的父亲！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "你的意思是那人早已知道我对你爹有心病，是以特地这样做，让我怀疑是你的爹爹？",
+      "tone": "理解",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 306,
+          "line_end": 306,
+          "text": "你的意思是那人早已知道我对你爹有心病，是以特地这样做，让我怀疑是你的爹爹？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "江湖上通晓易容术的人虽然不少，但最擅长此术的似乎还是唐仲山那老贼和得自他的真传的常五娘！",
+      "tone": "分析",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 310,
+          "line_end": 310,
+          "text": "江湖上通晓易容术的人虽然不少，但最擅长此术的似乎还是唐仲山那老贼和得自他的真传的常五娘！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "你怀疑是常五娘？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 312,
+          "line_end": 312,
+          "text": "你怀疑是常五娘？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "常五娘轻功超卓，凶手一瞥即逝之后，她很快就出现在你的身边，焉知不是她去而复回？",
+      "tone": "推断",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 314,
+          "line_end": 314,
+          "text": "常五娘轻功超卓，凶手一瞥即逝之后，她很快就出现在你的身边，焉知不是她去而复回？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "但那人并非女子。",
+      "tone": "否定",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 316,
+          "line_end": 316,
+          "text": "但那人并非女子。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "对一个精通改容易貌的人来说，女扮男装，扮得维妙维肖，也不稀奇。",
+      "tone": "辩驳",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 318,
+          "line_end": 318,
+          "text": "对一个精通改容易貌的人来说，女扮男装，扮得维妙维肖，也不稀奇。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "不对。",
+      "tone": "否定",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 320,
+          "line_end": 320,
+          "text": "不对。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "因何不对？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 322,
+          "line_end": 322,
+          "text": "因何不对？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "那人的轻功，身法非常特别，和常五娘的身法截然不同！",
+      "tone": "说明",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 324,
+          "line_end": 324,
+          "text": "那人的轻功，身法非常特别，和常五娘的身法截然不同！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "十八年来，我一直猜想不透这人是谁，直到昨晚，才有新的发现，但也还不敢说是就已揭开谜底。",
+      "tone": "揭示",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 330,
+          "line_end": 330,
+          "text": "十八年来，我一直猜想不透这人是谁，直到昨晚，才有新的发现，但也还不敢说是就已揭开谜底。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "义父，你发现了什么？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 334,
+          "line_end": 334,
+          "text": "义父，你发现了什么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "昨晚在你进来之前，有一个人曾经来过。",
+      "tone": "透露",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 336,
+          "line_end": 336,
+          "text": "昨晚在你进来之前，有一个人曾经来过。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "谁？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 338,
+          "line_end": 338,
+          "text": "谁？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "东方亮。",
+      "tone": "告知",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 340,
+          "line_end": 340,
+          "text": "东方亮。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "哦，原来东方大哥来过了。他为什么不等我呢？",
+      "tone": "恍然",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 342,
+          "line_end": 342,
+          "text": "哦，原来东方大哥来过了。他为什么不等我呢？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "那我就不知道，当时，他与掌门人交手，他们或者以为我尚在昏迷未醒，其实我已经醒了，东方亮一听得你在外面叫唤的声音，立即超墙而去。",
+      "tone": "说明",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 344,
+          "line_end": 344,
+          "text": "那我就不知道，当时，他与掌门人交手，他们或者以为我尚在昏迷未醒，其实我已经醒了，东方亮一听得你在外面叫唤的声音，立即超墙而去。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "但这件事和十八年前的那件事又有何关？难道你以为……",
+      "tone": "推测",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 346,
+          "line_end": 346,
+          "text": "但这件事和十八年前的那件事又有何关？难道你以为……"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我以前虽然也曾与东方亮交过手，却未曾见过他的轻功。",
+      "tone": "回忆",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 350,
+          "line_end": 350,
+          "text": "我以前虽然也曾与东方亮交过手，却未曾见过他的轻功。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "他的轻功怎样？",
+      "tone": "追问",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 352,
+          "line_end": 352,
+          "text": "他的轻功怎样？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "他那飞身越墙的身法，和十八年前我所见到的那个凶手的身法，正是相同！",
+      "tone": "揭示",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 354,
+          "line_end": 354,
+          "text": "他那飞身越墙的身法，和十八年前我所见到的那个凶手的身法，正是相同！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "东方亮是西门燕的表哥，虽然他的年纪比西门燕大得多，但顶多也不过是三十二三岁出头吧，怎能是当年凶手？",
+      "tone": "质疑",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 356,
+          "line_end": 356,
+          "text": "东方亮是西门燕的表哥，虽然他的年纪比西门燕大得多，但顶多也不过是三十二三岁出头吧，怎能是当年凶手？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "北方生长的少年，十四五岁的年纪，也长得相当高大了。你的父亲当也不过二十岁年纪，而且，东方亮的身材不也是和你有点相像吗？",
+      "tone": "分析",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 358,
+          "line_end": 358,
+          "text": "北方生长的少年，十四五岁的年纪，也长得相当高大了。你的父亲当也不过二十岁年纪，而且，东方亮的身材不也是和你有点相像吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "无论如何，我都不相信一个十四五岁的孩子能够做出那件案子！",
+      "tone": "否定",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 362,
+          "line_end": 362,
+          "text": "无论如何，我都不相信一个十四五岁的孩子能够做出那件案子！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "我也不敢断定凶手就是他。但他那轻功身法十分奇特，凶手即使不是他，和他恐怕也有很深的关系。",
+      "tone": "说明",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 364,
+          "line_end": 364,
+          "text": "我也不敢断定凶手就是他。但他那轻功身法十分奇特，凶手即使不是他，和他恐怕也有很深的关系。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "换句话说，所谓有很深的关系，即是曾经传授栓他武功的人了。若然不是他的父亲，就是他的师父。",
+      "tone": "推断",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 368,
+          "line_end": 368,
+          "text": "换句话说，所谓有很深的关系，即是曾经传授栓他武功的人了。若然不是他的父亲，就是他的师父。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "除了这两人之外，还有一个。",
+      "tone": "补充",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 370,
+          "line_end": 370,
+          "text": "除了这两人之外，还有一个。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "你是说他的姨母西门夫人，不对，不对，决不会是她的！",
+      "tone": "否定",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 372,
+          "line_end": 372,
+          "text": "你是说他的姨母西门夫人，不对，不对，决不会是她的！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_bu_qi",
+      "speaker_name": "不歧",
+      "listener": null,
+      "text": "也说不定那个凶手和他是先后同门。只不过我们未知罢了，京儿、你。你……",
+      "tone": "话未完",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 374,
+          "line_end": 374,
+          "text": "也说不定那个凶手和他是先后同门。只不过我们未知罢了，京儿、你。你……"
+        }
+      ]
+    },
+    {
+      "speaker": "char_meng_mian_ren",
+      "speaker_name": "蒙面人",
+      "listener": null,
+      "text": "你这娃儿要来找死吗？快快给我滚开！",
+      "tone": "凶狠",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 418,
+          "line_end": 418,
+          "text": "你这娃儿要来找死吗？快快给我滚开！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "你在关外害死慧可大师，如今又害死我的义父，舍了这条性命，我也要与你拼了！",
+      "tone": "愤怒",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 424,
+          "line_end": 424,
+          "text": "你在关外害死慧可大师，如今又害死我的义父，舍了这条性命，我也要与你拼了！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "哼，我倒要看你是……",
+      "tone": "决意",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 508,
+          "line_end": 508,
+          "text": "哼，我倒要看你是……"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "耿玉京",
+      "listener": null,
+      "text": "是你！",
+      "tone": "震惊",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 522,
+          "line_end": 522,
+          "text": "是你！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_long_ya_dao_ren",
+      "speaker_name": "聋哑道人(王晦闻)",
+      "listener": null,
+      "text": "玉京，你错过了杀我的机会，你可莫要怪我对不住你了！",
+      "tone": "冷酷",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 526,
+          "line_end": 526,
+          "text": "玉京，你错过了杀我的机会，你可莫要怪我对不住你了！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_wu_ming",
+      "speaker_name": "无名真人(牟沧浪)",
+      "listener": null,
+      "text": "能所双忘，色空并遣，大千色相，尽属虚无。既破我执，亦破法执，解脱皮囊，便登乐土！",
+      "tone": "超度",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 538,
+          "line_end": 538,
+          "text": "能所双忘，色空并遣，大千色相，尽属虚无。既破我执，亦破法执，解脱皮囊，便登乐土！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_yi_ren",
+      "speaker_name": "灰衣人",
+      "listener": null,
+      "text": "且慢！",
+      "tone": "大声",
+      "chapter": 17,
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 542,
+          "line_end": 542,
+          "text": "且慢！"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4313 @@
+{
+  "chapter": 11,
+  "chapter_title": "身陷囚牢成绝学　客奇蒙面创新招",
+  "chapter_summary": "蒙面人（实为东方亮）每日与蓝玉京在地牢中比剑，以木剑相试，实则借机切磋。蓝玉京在蒙面人指导下剑法大进。慧可怀疑蒙面人身份，借机试探，以一枝上好的人参喂慧可恢复功力。蓝水灵（扮作\"青蛇\"丁六姐）闯入断魂谷寻找弟弟，被西门燕挟持韩翔带路。西门燕与蓝水灵进入地牢上方洞口时，听见蓝玉京与蒙面人正在比剑。蓝玉京使出新创的\"白鹤亮翅\"，一剑挑开蒙面人的蒙面巾，揭穿其真身是东方亮。东方亮飞身出洞逃离，西门燕紧随追赶。韩翔在石牢中被慧可制住。班大超趁机叛乱，封死洞口。马一同不屈抵抗，受重伤。韩翔、蓝玉京、慧可、蓝水灵被封在石牢中，蓝玉京借四两拨千斤之法移开封洞巨石脱困。马一同在搏斗中受伤，班大超被蓝玉京救韩翔一剑削断毒袖箭后自尽。",
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_lu_zhi_cheng",
+        "name": "陆志诚",
+        "alias": [
+          "阴间秀才"
+        ],
+        "identity": "百花谷旧部，西门牧旧部属，西门燕的下属头目",
+        "faction": "faction_bai_hua_gu",
+        "role": "villain",
+        "archetype": "scholar",
+        "rank": "炉火纯青",
+        "one_line": "绰号阴间秀才，百花谷旧部，欲做绿林盟主",
+        "personality": {
+          "traits": [
+            "老谋深算",
+            "心机深沉",
+            "恭敬顺从",
+            "狡黠",
+            "野心勃勃"
+          ],
+          "speech_style": "谦恭绵里藏针",
+          "temperament": "阴柔"
+        },
+        "relationships": [
+          {
+            "target": "char_xi_men_mu",
+            "type": "主仆",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "西门牧旧部"
+          },
+          {
+            "target": "char_xi_men_yan",
+            "type": "主仆",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "视西门燕为主人"
+          },
+          {
+            "target": "char_han_xiang",
+            "type": "对手",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "与韩翔争夺绿林盟主"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          11
+        ],
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 1593,
+            "line_end": 1593,
+            "text": "正是那个曾经两度到过百花谷的绰号阴间秀才的陆志诚"
+          }
+        ]
+      },
+      {
+        "id": "char_ma_yi_tong",
+        "name": "马一同",
+        "alias": [
+          "老三"
+        ],
+        "identity": "断魂谷副谷主之一，排行第三",
+        "faction": "faction_duan_hun_gu",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "断魂谷副谷主之一，忠义不屈，被班大超打成重伤",
+        "personality": {
+          "traits": [
+            "忠义",
+            "稳重",
+            "沉稳"
+          ],
+          "speech_style": "恳切",
+          "temperament": "忠厚"
+        },
+        "relationships": [
+          {
+            "target": "char_han_xiang",
+            "type": "主仆",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "忠心耿耿"
+          },
+          {
+            "target": "char_ban_da_chao",
+            "type": "对手",
+            "intensity": 80,
+            "bond_level": 3,
+            "dynamic": "反对其叛乱"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          11
+        ],
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 1107,
+            "line_end": 1107,
+            "text": "这人是我的另一位副谷主，名叫马一同"
+          }
+        ]
+      },
+      {
+        "id": "char_ban_da_chao",
+        "name": "班大超",
+        "alias": [
+          "副谷主"
+        ],
+        "identity": "断魂谷副谷主之一，与陆志诚勾结欲取代韩翔",
+        "faction": "faction_duan_hun_gu",
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "炉火纯青",
+        "one_line": "断魂谷副谷主之一，趁韩翔被困石牢之机叛乱，被蓝玉京削断毒袖箭后自尽",
+        "personality": {
+          "traits": [
+            "野心勃勃",
+            "阴险",
+            "残忍",
+            "隐忍",
+            "背信弃义"
+          ],
+          "speech_style": "振振有词",
+          "temperament": "阴险"
+        },
+        "relationships": [
+          {
+            "target": "char_han_xiang",
+            "type": "对手",
+            "intensity": 90,
+            "bond_level": 4,
+            "dynamic": "图谋篡位"
+          },
+          {
+            "target": "char_lu_zhi_cheng",
+            "type": "合作者",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "暗中勾结"
+          }
+        ],
+        "known_skills": [
+          "skill_hu_tou_gou"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          11
+        ],
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 1101,
+            "line_end": 1101,
+            "text": "是我的副谷主班大超"
+          }
+        ]
+      },
+      {
+        "id": "char_han_cheng",
+        "name": "韩成",
+        "identity": "韩翔的侄儿，受命截杀送信人，与西门夫人、慧可了缘有杀身之仇",
+        "faction": "faction_duan_hun_gu",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "韩翔的侄儿，奉命截杀送信人，重伤了缘后致其死亡，本人亦变残废",
+        "personality": {
+          "traits": [
+            "奉命行事",
+            "凶残"
+          ],
+          "speech_style": "寡言",
+          "temperament": "阴沉"
+        },
+        "relationships": [
+          {
+            "target": "char_han_xiang",
+            "type": "亲属",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "叔侄"
+          }
+        ],
+        "known_skills": [
+          "skill_da_qin_na"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          11
+        ],
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 935,
+            "line_end": 935,
+            "text": "那个人是我的侄儿韩成"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_da_li_ying_zhua_gong",
+        "name": "大力鹰爪功",
+        "type": "掌法",
+        "faction": null,
+        "rank": "出神入化",
+        "one_line": "韩翔家传掌功，可徒手折断箭杆并嵌入石壁",
+        "techniques": [],
+        "progression": [],
+        "effects": [
+          {
+            "type": "特殊",
+            "condition": "近身肉搏",
+            "description": "徒手抓握力极强，可断箭碎石"
+          }
+        ],
+        "combat_style": "硬功掌法",
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 1269,
+            "line_end": 1269,
+            "text": "大力鹰爪的功夫使出，五指如钩，已是嵌入石壁"
+          }
+        ]
+      },
+      {
+        "id": "skill_luo_han_zhang",
+        "name": "罗汉掌",
+        "type": "掌法",
+        "faction": "faction_shao_lin",
+        "rank": "登堂入室",
+        "one_line": "少林弟子必修入门拳法，舒筋活络之用",
+        "techniques": [],
+        "progression": [],
+        "effects": [],
+        "combat_style": "入门拳法",
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 897,
+            "line_end": 897,
+            "text": "他拿桩站稳，跟着就伸拳踢腿，打出了一套少林派的罗汉掌来"
+          }
+        ]
+      },
+      {
+        "id": "skill_da_qin_na",
+        "name": "大擒拿手法",
+        "type": "掌法",
+        "faction": null,
+        "rank": "出神入化",
+        "one_line": "韩翔成名绝技，近身擒拿百不失一",
+        "techniques": [],
+        "progression": [],
+        "effects": [
+          {
+            "type": "控制",
+            "condition": "近身",
+            "description": "近身擒拿百不失一"
+          }
+        ],
+        "combat_style": "擒拿手",
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 771,
+            "line_end": 771,
+            "text": "韩翔的大擒拿手法本来是武林一绝"
+          }
+        ]
+      }
+    ],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_bai_hua_gu",
+        "name": "百花谷",
+        "type": "帮派",
+        "location": "loc_bai_hua_gu",
+        "sub_divisions": [
+          "香主",
+          "舵主"
+        ],
+        "one_line": "西门牧、殷明珠夫妇隐居之地，西门燕现为新主",
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 1625,
+            "line_end": 1625,
+            "text": "大小姐经过这里，倒是有句话交代下来，她叫我们送你回百花谷"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_bai_hua_gu",
+        "name": "百花谷",
+        "region": "回疆",
+        "one_line": "西门牧、殷明珠夫妇隐居之地",
+        "source_refs": [
+          {
+            "chapter": 12,
+            "line_start": 706,
+            "line_end": 706,
+            "text": "蓝水灵，你为什么不回百花谷？"
+          }
+        ]
+      }
+    ],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_meng_mian_ren",
+      "updates": {
+        "one_line": "蒙面人实为东方亮，使用太极剑法和连环夺命剑法",
+        "rag_refs": [
+          11
+        ],
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 635,
+            "line_end": 635,
+            "text": "这个蒙面人不是别人，正是东方亮"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "merge_into",
+          "target": "char_dong_fang_liang",
+          "type": "同一人",
+          "intensity": 100,
+          "bond_level": 5,
+          "dynamic": "蒙面人即东方亮的伪装"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": null,
+      "text": "“此话怎讲？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 54,
+          "line_end": 54,
+          "text": "“此话怎讲？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_han_xiang",
+      "text": "“慧可大师，你见多识广，看得出这人是什么来历？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 76,
+          "line_end": 76,
+          "text": "“慧可大师，你见多识广，看得出这人是什么来历？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“我不懂太极剑法的奥妙，也看不出他是什么来历，只看得出一点，他对你似乎并无恶意。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 78,
+          "line_end": 78,
+          "text": "“我不懂太极剑法的奥妙，也看不出他是什么来历，只看得出一点，他对你似乎并无恶意。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“不错，他本来可以伤我的，但他用的只是一把木剑。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 80,
+          "line_end": 80,
+          "text": "“不错，他本来可以伤我的，但他用的只是一把木剑。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“有一点我可是猜想不透，为什么韩翔要找这样一个人来和我比剑？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 86,
+          "line_end": 86,
+          "text": "“有一点我可是猜想不透，为什么韩翔要找这样一个人来和我比剑？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“你是不是怀疑这个人的用意乃是要偷学你的剑法？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 88,
+          "line_end": 88,
+          "text": "“你是不是怀疑这个人的用意乃是要偷学你的剑法？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“但他的太极剑法其实比我还要高明。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 90,
+          "line_end": 90,
+          "text": "“但他的太极剑法其实比我还要高明。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“好像比东方亮还要高明一点。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 96,
+          "line_end": 96,
+          "text": "“好像比东方亮还要高明一点。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“那么你也可以从和他的比剑当中得到益处的了？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 98,
+          "line_end": 98,
+          "text": "“那么你也可以从和他的比剑当中得到益处的了？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“我想是的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 100,
+          "line_end": 100,
+          "text": "“我想是的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“既然能够得益处，那你也不必多费功夫去胡猜了，反正这件事情总有一天要水落石出的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 102,
+          "line_end": 102,
+          "text": "“既然能够得益处，那你也不必多费功夫去胡猜了，反正这件事情总有一天要水落石出的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“好，那就请你指点我吧。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 117,
+          "line_end": 117,
+          "text": "“好，那就请你指点我吧。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“怎么样？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 135,
+          "line_end": 135,
+          "text": "“怎么样？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“得益不少。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 137,
+          "line_end": 137,
+          "text": "“得益不少。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“白鹤亮翅这招在太极剑法中似乎是在前十招之内的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 181,
+          "line_end": 181,
+          "text": "“白鹤亮翅这招在太极剑法中似乎是在前十招之内的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“这一招是我自认为最得意的一招，无色长老和东方大哥都曾经指点过我这一招的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 183,
+          "line_end": 183,
+          "text": "“这一招是我自认为最得意的一招，无色长老和东方大哥都曾经指点过我这一招的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“恕我不大懂得这句话的意思，请大师明以教我。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 189,
+          "line_end": 189,
+          "text": "“恕我不大懂得这句话的意思，请大师明以教我。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“那也不能说是我指点了他啊。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 203,
+          "line_end": 203,
+          "text": "“那也不能说是我指点了他啊。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“其实谁也不能说是指点谁，只能说是相互切磋。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 205,
+          "line_end": 205,
+          "text": "“其实谁也不能说是指点谁，只能说是相互切磋。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“恢复得很慢，似乎不到三成。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 213,
+          "line_end": 213,
+          "text": "“恢复得很慢，似乎不到三成。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“那也不算太慢了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 215,
+          "line_end": 215,
+          "text": "“那也不算太慢了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“大师，你呢。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 217,
+          "line_end": 217,
+          "text": "“大师，你呢。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“我……”突然只听得“啪”的一声，他手中的筷子跃了下来。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 219,
+          "line_end": 219,
+          "text": "“我……”突然只听得“啪”的一声，他手中的筷子跃了下来。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“那也不至于连筷子也拿不稳啊？",
+      "tone": "惊讶",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 223,
+          "line_end": 223,
+          "text": "“那也不至于连筷子也拿不稳啊？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“是有点不大舒服，大概还不至于是生病吧。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 227,
+          "line_end": 227,
+          "text": "“是有点不大舒服，大概还不至于是生病吧。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“韩谷主！",
+      "tone": "激动",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 229,
+          "line_end": 229,
+          "text": "“韩谷主！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“不要惊动他们，何况就算我有病，他们也不会真心给我治病的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 231,
+          "line_end": 231,
+          "text": "“不要惊动他们，何况就算我有病，他们也不会真心给我治病的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“你干什么？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 251,
+          "line_end": 251,
+          "text": "“你干什么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“好得多了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 291,
+          "line_end": 291,
+          "text": "“好得多了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“那真是太好了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 293,
+          "line_end": 293,
+          "text": "“那真是太好了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“何所见而云然？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 295,
+          "line_end": 295,
+          "text": "“何所见而云然？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“你刚才说的那两句话，好像……”",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 297,
+          "line_end": 297,
+          "text": "“你刚才说的那两句话，好像……”"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“你猜错了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 299,
+          "line_end": 299,
+          "text": "“你猜错了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“那么，依你看，他是不是和咱们相识的人？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 301,
+          "line_end": 301,
+          "text": "“那么，依你看，他是不是和咱们相识的人？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“是熟人也不稀奇，老和尚少年时曾闯荡江湖，相识的人也不知多少，怎记得清楚？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 303,
+          "line_end": 303,
+          "text": "“是熟人也不稀奇，老和尚少年时曾闯荡江湖，相识的人也不知多少，怎记得清楚？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“你还是想揭穿他的身份？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 307,
+          "line_end": 307,
+          "text": "“你还是想揭穿他的身份？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“我即使有这个念头，也没有这个本领。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 309,
+          "line_end": 309,
+          "text": "“我即使有这个念头，也没有这个本领。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“不必麻烦他们，我也不要吃他们的稀饭。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 313,
+          "line_end": 313,
+          "text": "“不必麻烦他们，我也不要吃他们的稀饭。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“你别胡猜，你以为这枝人参是东方亮从他姨母那里拿来的吗？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 327,
+          "line_end": 327,
+          "text": "“你别胡猜，你以为这枝人参是东方亮从他姨母那里拿来的吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“今天你不能和那蒙面人练剑了，你把你那一招留待最后施展的白鹤亮翅练给我看看吧。",
+      "tone": "惊讶",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 347,
+          "line_end": 347,
+          "text": "“今天你不能和那蒙面人练剑了，你把你那一招留待最后施展的白鹤亮翅练给我看看吧。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“你好像又有了新的领悟吧？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 379,
+          "line_end": 379,
+          "text": "“你好像又有了新的领悟吧？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“你怎么啦？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 383,
+          "line_end": 383,
+          "text": "“你怎么啦？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“这可真是进展神速了，可喜可贺。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 389,
+          "line_end": 389,
+          "text": "“这可真是进展神速了，可喜可贺。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“就因为这样，我才觉得奇怪。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 391,
+          "line_end": 391,
+          "text": "“就因为这样，我才觉得奇怪。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“大师的意思是……”",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 403,
+          "line_end": 403,
+          "text": "“大师的意思是……”"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“不错，包括咱们刚刚吃过的早饭在内，非但没有毒，而且那壶酒还是十全大补的药酒。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 413,
+          "line_end": 413,
+          "text": "“不错，包括咱们刚刚吃过的早饭在内，非但没有毒，而且那壶酒还是十全大补的药酒。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“你的功力已经恢复一半，这是瞒不过他的。",
+      "tone": "惊讶",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 419,
+          "line_end": 419,
+          "text": "“你的功力已经恢复一半，这是瞒不过他的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“那又怎样？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 421,
+          "line_end": 421,
+          "text": "“那又怎样？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“他敢让你恢复一半功力，不外两个原因。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 423,
+          "line_end": 423,
+          "text": "“他敢让你恢复一半功力，不外两个原因。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“我的确没有伤他的念头。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 425,
+          "line_end": 425,
+          "text": "“我的确没有伤他的念头。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“其实你也只能杀他，不能伤他的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 427,
+          "line_end": 427,
+          "text": "“其实你也只能杀他，不能伤他的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“大丈夫岂可恩将仇报，伤他我都不愿，何况杀他。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 429,
+          "line_end": 429,
+          "text": "“大丈夫岂可恩将仇报，伤他我都不愿，何况杀他。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“那么，你只是想胜他一招吗？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 431,
+          "line_end": 431,
+          "text": "“那么，你只是想胜他一招吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“在招式上我不能指点你，不过我可以给你说个故事。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 439,
+          "line_end": 439,
+          "text": "“在招式上我不能指点你，不过我可以给你说个故事。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“《庄子》里有个故事，是说楚国都城一个石匠的神技的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 445,
+          "line_end": 445,
+          "text": "“《庄子》里有个故事，是说楚国都城一个石匠的神技的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“不错，用斧头去削鼻尖上的一点泥土当然比用剑更难，但道理还是相通的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 451,
+          "line_end": 451,
+          "text": "“不错，用斧头去削鼻尖上的一点泥土当然比用剑更难，但道理还是相通的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“请大师详加指教。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 453,
+          "line_end": 453,
+          "text": "“请大师详加指教。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“斧头重拙，削鼻尖的泥垢则必须尽轻灵之极致。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 455,
+          "line_end": 455,
+          "text": "“斧头重拙，削鼻尖的泥垢则必须尽轻灵之极致。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“庄子里还有一个庖丁解牛的故事。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 459,
+          "line_end": 459,
+          "text": "“庄子里还有一个庖丁解牛的故事。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“是不是目无全牛四字？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 473,
+          "line_end": 473,
+          "text": "“是不是目无全牛四字？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“对了，庖丁所见，只是下刀最易的空隙之处，顺乎自然之理，亦即是他所谓的‘神通’。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 475,
+          "line_end": 475,
+          "text": "“对了，庖丁所见，只是下刀最易的空隙之处，顺乎自然之理，亦即是他所谓的‘神通’。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“另一个要点是避实击虚，庖丁用来解牛那柄刀，用了十九年，而刀刃若新发于硎（注八），你知道什么道理吗？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 483,
+          "line_end": 483,
+          "text": "“另一个要点是避实击虚，庖丁用来解牛那柄刀，用了十九年，而刀刃若新发于硎（注八），你知道什么道理吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“请大师指教。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 485,
+          "line_end": 485,
+          "text": "“请大师指教。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“那是因为他避开经络相连处和骨节盘结处。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 487,
+          "line_end": 487,
+          "text": "“那是因为他避开经络相连处和骨节盘结处。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“游刃有余，原来是这样来的，唉，不知我何时方能达到这个境界。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 495,
+          "line_end": 495,
+          "text": "“游刃有余，原来是这样来的，唉，不知我何时方能达到这个境界。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“听你这番说话，其实你已经领悟不少了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 497,
+          "line_end": 497,
+          "text": "“听你这番说话，其实你已经领悟不少了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“这些日子，多射你悉心指点，我的一套太极剑法，初步可以算得是练成了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 501,
+          "line_end": 501,
+          "text": "“这些日子，多射你悉心指点，我的一套太极剑法，初步可以算得是练成了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_yu_jing",
+      "text": "“你的表哥是谁？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 651,
+          "line_end": 651,
+          "text": "“你的表哥是谁？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_xi_men_yan",
+      "speaker_name": "西门燕",
+      "listener": "char_han_xiang",
+      "text": "“东方亮！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 653,
+          "line_end": 653,
+          "text": "“东方亮！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_xi_men_yan",
+      "speaker_name": "西门燕",
+      "listener": "char_xi_men_yan",
+      "text": "“我没工夫和你套交情，快快把我的表哥放出来！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 659,
+          "line_end": 659,
+          "text": "“我没工夫和你套交情，快快把我的表哥放出来！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_xi_men_yan",
+      "speaker_name": "西门燕",
+      "listener": "char_xi_men_yan",
+      "text": "“好，你给我们指路，你的手下一个也不许跟来！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 665,
+          "line_end": 665,
+          "text": "“好，你给我们指路，你的手下一个也不许跟来！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_xi_men_yan",
+      "text": "“在这下面。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 681,
+          "line_end": 681,
+          "text": "“在这下面。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_han_xiang",
+      "text": "“不错。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 687,
+          "line_end": 687,
+          "text": "“不错。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_han_xiang",
+      "text": "“不错。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 701,
+          "line_end": 701,
+          "text": "“不错。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_xi_men_yan",
+      "speaker_name": "西门燕",
+      "listener": "char_han_xiang",
+      "text": "“和谁比剑？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 703,
+          "line_end": 703,
+          "text": "“和谁比剑？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_xi_men_yan",
+      "text": "“好像是一个叫做蓝玉京的小子。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 705,
+          "line_end": 705,
+          "text": "“好像是一个叫做蓝玉京的小子。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_han_xiang",
+      "text": "“正是你的表哥设计将他骗来的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 709,
+          "line_end": 709,
+          "text": "“正是你的表哥设计将他骗来的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_dong_fang_liang",
+      "speaker_name": "东方亮",
+      "listener": "char_han_xiang",
+      "text": "“对不住韩谷主，你的忙我是帮不上了！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 763,
+          "line_end": 763,
+          "text": "“对不住韩谷主，你的忙我是帮不上了！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_dong_fang_liang",
+      "text": "“快对付那老贼！",
+      "tone": "激动",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 809,
+          "line_end": 809,
+          "text": "“快对付那老贼！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“别怕，我在这儿。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 845,
+          "line_end": 845,
+          "text": "“别怕，我在这儿。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“看得见的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 851,
+          "line_end": 851,
+          "text": "“看得见的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“慧可大师，你的武功真好。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 915,
+          "line_end": 915,
+          "text": "“慧可大师，你的武功真好。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“那也有分别啊，比如说，倘若有人害死我的亲人，我就不能饶恕他了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 919,
+          "line_end": 919,
+          "text": "“那也有分别啊，比如说，倘若有人害死我的亲人，我就不能饶恕他了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_shui_ling",
+      "text": "“蓝姑娘，你这话是什么意思？",
+      "tone": "惊讶",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 921,
+          "line_end": 921,
+          "text": "“蓝姑娘，你这话是什么意思？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_hui_ke",
+      "text": "“慧可大师，你是不是有一个在少林寺做挑水和尚的徒弟？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 923,
+          "line_end": 923,
+          "text": "“慧可大师，你是不是有一个在少林寺做挑水和尚的徒弟？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_shui_ling",
+      "text": "“不错，他名叫了缘，是我的挂名弟子。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 925,
+          "line_end": 925,
+          "text": "“不错，他名叫了缘，是我的挂名弟子。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“对啦，刚才我没空告诉你，我也曾托他带个信给你的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 927,
+          "line_end": 927,
+          "text": "“对啦，刚才我没空告诉你，我也曾托他带个信给你的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“他没有来到百花谷，我们是在路上碰见他的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 929,
+          "line_end": 929,
+          "text": "“他没有来到百花谷，我们是在路上碰见他的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_shui_ling",
+      "text": "“他怎么样了？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 931,
+          "line_end": 931,
+          "text": "“他怎么样了？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_hui_ke",
+      "text": "“他已经给人害死了！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 933,
+          "line_end": 933,
+          "text": "“他已经给人害死了！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“他变成残废是活该！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 939,
+          "line_end": 939,
+          "text": "“他变成残废是活该！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“想到也好，没想到也好，反正慧可大师的徒弟都已经给你害死。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 947,
+          "line_end": 947,
+          "text": "“想到也好，没想到也好，反正慧可大师的徒弟都已经给你害死。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“谁杀了你的家人？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 963,
+          "line_end": 963,
+          "text": "“谁杀了你的家人？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_shui_ling",
+      "text": "“你和西门燕是不是以姐妹相称？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 971,
+          "line_end": 971,
+          "text": "“你和西门燕是不是以姐妹相称？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_han_xiang",
+      "text": "“是又怎样？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 973,
+          "line_end": 973,
+          "text": "“是又怎样？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“西门牧早已死了！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 979,
+          "line_end": 979,
+          "text": "“西门牧早已死了！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_shui_ling",
+      "text": "“死了就能一笔勾消么？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 981,
+          "line_end": 981,
+          "text": "“死了就能一笔勾消么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_han_xiang",
+      "text": "“西门燕根本就不知道这件事情。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 983,
+          "line_end": 983,
+          "text": "“西门燕根本就不知道这件事情。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_shui_ling",
+      "text": "“你怎么知道她不知道？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 985,
+          "line_end": 985,
+          "text": "“你怎么知道她不知道？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_han_xiang",
+      "text": "“难道你还想找她算帐不成，你的家人又不是她杀的！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 987,
+          "line_end": 987,
+          "text": "“难道你还想找她算帐不成，你的家人又不是她杀的！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_shui_ling",
+      "text": "“慧可大师的徒弟也不是我杀的！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 989,
+          "line_end": 989,
+          "text": "“慧可大师的徒弟也不是我杀的！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_han_xiang",
+      "text": "“怎能相比？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 991,
+          "line_end": 991,
+          "text": "“怎能相比？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_shui_ling",
+      "text": "“在我看来也没有什么太大的分别，死因不同，但大家都有亲人死了，是一样的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 993,
+          "line_end": 993,
+          "text": "“在我看来也没有什么太大的分别，死因不同，但大家都有亲人死了，是一样的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_han_xiang",
+      "text": "“你错了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 999,
+          "line_end": 999,
+          "text": "“你错了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_han_xiang",
+      "text": "“你知道我想通的道理是什么？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1005,
+          "line_end": 1005,
+          "text": "“你知道我想通的道理是什么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_han_xiang",
+      "text": "“你说！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1007,
+          "line_end": 1007,
+          "text": "“你说！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_shui_ling",
+      "text": "“是弱肉强食四字。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1009,
+          "line_end": 1009,
+          "text": "“是弱肉强食四字。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_han_xiang",
+      "text": "“一片歪理，似是而非。",
+      "tone": "愤怒",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1011,
+          "line_end": 1011,
+          "text": "“一片歪理，似是而非。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“西门夫人那里，我可能劝她，不过，陆志诚那班人中否听到命于西门夫人，却就非我所知了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1037,
+          "line_end": 1037,
+          "text": "“西门夫人那里，我可能劝她，不过，陆志诚那班人中否听到命于西门夫人，却就非我所知了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_hui_ke",
+      "text": "“只要西门夫人不替他们出头，这班人我可以应付！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1039,
+          "line_end": 1039,
+          "text": "“只要西门夫人不替他们出头，这班人我可以应付！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_han_xiang",
+      "text": "“谷主此言何意？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1051,
+          "line_end": 1051,
+          "text": "“谷主此言何意？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_hui_ke",
+      "text": "“我不杀我，我的性命也是不保。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1053,
+          "line_end": 1053,
+          "text": "“我不杀我，我的性命也是不保。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_han_xiang",
+      "text": "“怎么会这样？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1055,
+          "line_end": 1055,
+          "text": "“怎么会这样？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_hui_ke",
+      "text": "“这个山洞是只能以从上方的洞口爬出去的，堵塞洞口那块巨石，决非人力所能移动！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1057,
+          "line_end": 1057,
+          "text": "“这个山洞是只能以从上方的洞口爬出去的，堵塞洞口那块巨石，决非人力所能移动！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_han_xiang",
+      "text": "“那东方亮又怎能出入自如？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1059,
+          "line_end": 1059,
+          "text": "“那东方亮又怎能出入自如？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_yu_jing",
+      "text": "“是我在外面给他开动机关的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1061,
+          "line_end": 1061,
+          "text": "“是我在外面给他开动机关的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_han_xiang",
+      "text": "“这人是谁？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1099,
+          "line_end": 1099,
+          "text": "“这人是谁？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_yu_jing",
+      "text": "“这人是我的另一位副谷主，名叫马一同。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1107,
+          "line_end": 1107,
+          "text": "“这人是我的另一位副谷主，名叫马一同。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_han_xiang",
+      "text": "“你为何以下犯上，把韩谷主囚在石牢？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1129,
+          "line_end": 1129,
+          "text": "“你为何以下犯上，把韩谷主囚在石牢？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“老三，你莫先发脾气，你知不知道东方亮已经走了？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1131,
+          "line_end": 1131,
+          "text": "“老三，你莫先发脾气，你知不知道东方亮已经走了？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“他离开断魂谷和你做的事有何相干？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1133,
+          "line_end": 1133,
+          "text": "“他离开断魂谷和你做的事有何相干？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“东方亮本来是答应帮谷主的忙的，他这一走、谷主还有什么指望？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1135,
+          "line_end": 1135,
+          "text": "“东方亮本来是答应帮谷主的忙的，他这一走、谷主还有什么指望？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“有外援固然好，没有外接，也不见得就不能立足。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1137,
+          "line_end": 1137,
+          "text": "“有外援固然好，没有外接，也不见得就不能立足。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“可惜老大的野心，不仅止于在绿林立足。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1139,
+          "line_end": 1139,
+          "text": "“可惜老大的野心，不仅止于在绿林立足。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“你若是不同意老大的图谋，那也可以从长议啊！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1141,
+          "line_end": 1141,
+          "text": "“你若是不同意老大的图谋，那也可以从长议啊！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“老大的脾气你不是不知，他表面谦和，其实是从不肯听逆耳之言的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1143,
+          "line_end": 1143,
+          "text": "“老大的脾气你不是不知，他表面谦和，其实是从不肯听逆耳之言的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“我已经知道了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1145,
+          "line_end": 1145,
+          "text": "“我已经知道了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“这就是说，谷生原定的计划，想通过东方亮来与西门夫人谋求和解，是决不可能的了！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1147,
+          "line_end": 1147,
+          "text": "“这就是说，谷生原定的计划，想通过东方亮来与西门夫人谋求和解，是决不可能的了！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“西门夫人也不见得就能踏平咱们的断魂谷！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1149,
+          "line_end": 1149,
+          "text": "“西门夫人也不见得就能踏平咱们的断魂谷！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“是谷主自己跌下石牢的，老三，你少安毋躁，听我剖陈利害好不好？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1159,
+          "line_end": 1159,
+          "text": "“是谷主自己跌下石牢的，老三，你少安毋躁，听我剖陈利害好不好？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“哦，你还有道理可说么？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1161,
+          "line_end": 1161,
+          "text": "“哦，你还有道理可说么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“论实力咱们是斗不过陆志诚那班人的了，不如和他们划分地盘，他做北方的绿林盟主……”",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1163,
+          "line_end": 1163,
+          "text": "“论实力咱们是斗不过陆志诚那班人的了，不如和他们划分地盘，他做北方的绿林盟主……”"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“谁做南方绿林盟主？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1165,
+          "line_end": 1165,
+          "text": "“谁做南方绿林盟主？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“别把我想得这样心狠手辣，好歹我和他也有二三十年的交情，焉能乘人之危投井下石。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1175,
+          "line_end": 1175,
+          "text": "“别把我想得这样心狠手辣，好歹我和他也有二三十年的交情，焉能乘人之危投井下石。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“那你为什么不许我放他出来。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1177,
+          "line_end": 1177,
+          "text": "“那你为什么不许我放他出来。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“这又是另一件事了，你放他出来，陆志诚那班人就不会放过咱们。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1179,
+          "line_end": 1179,
+          "text": "“这又是另一件事了，你放他出来，陆志诚那班人就不会放过咱们。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“这么说，你是要让他自生自灭了！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1181,
+          "line_end": 1181,
+          "text": "“这么说，你是要让他自生自灭了！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“他也不会自生自灭的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1183,
+          "line_end": 1183,
+          "text": "“他也不会自生自灭的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“你是说还有别人要杀他？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1185,
+          "line_end": 1185,
+          "text": "“你是说还有别人要杀他？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“原来关在石牢的人。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1187,
+          "line_end": 1187,
+          "text": "“原来关在石牢的人。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ban_da_chao",
+      "text": "“他每天和东方亮比剑，东方亮多少也总得让他留下三两分功力吧？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1193,
+          "line_end": 1193,
+          "text": "“他每天和东方亮比剑，东方亮多少也总得让他留下三两分功力吧？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ma_yi_tong",
+      "speaker_name": "马一同",
+      "listener": "char_ban_da_chao",
+      "text": "“为什么？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1195,
+          "line_end": 1195,
+          "text": "“为什么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ma_yi_tong",
+      "text": "“让那小子饿得头晕眼花，才容易制服他呀。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1197,
+          "line_end": 1197,
+          "text": "“让那小子饿得头晕眼花，才容易制服他呀。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ban_da_chao",
+      "text": "“只怕未必！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1203,
+          "line_end": 1203,
+          "text": "“只怕未必！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ban_da_chao",
+      "text": "“老三，我不能让大伙儿受到你的损害，你若一意孤行，可休怪我不念兄弟之情。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1209,
+          "line_end": 1209,
+          "text": "“老三，我不能让大伙儿受到你的损害，你若一意孤行，可休怪我不念兄弟之情。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_ban_da_chao",
+      "text": "“马一同一死，就没人将你放出去了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1219,
+          "line_end": 1219,
+          "text": "“马一同一死，就没人将你放出去了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_yu_jing",
+      "text": "“当然可以，不过，是必须人在外面才可以开那机关的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1229,
+          "line_end": 1229,
+          "text": "“当然可以，不过，是必须人在外面才可以开那机关的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_han_xiang",
+      "text": "“我哪有移开封洞大石的本领？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1237,
+          "line_end": 1237,
+          "text": "“我哪有移开封洞大石的本领？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“你们武当派的武学要诀是什么？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1239,
+          "line_end": 1239,
+          "text": "“你们武当派的武学要诀是什么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“以静制动，后发先至。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1241,
+          "line_end": 1241,
+          "text": "“以静制动，后发先至。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“四两可拨千斤，一百斤是多少个四两。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1253,
+          "line_end": 1253,
+          "text": "“四两可拨千斤，一百斤是多少个四两。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“本门的武学是这样说，不过，第一，我还远远未曾练到这个境界；第二，封洞的大石是‘死’的，无从借力。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1255,
+          "line_end": 1255,
+          "text": "“本门的武学是这样说，不过，第一，我还远远未曾练到这个境界；第二，封洞的大石是‘死’的，无从借力。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“第一，依我看，你的武学修为已经到了你自己都未想到的境界，以你现在的造诣，纵许未能拨开封洞巨石，但将它带动，移少许，却未必不能。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1257,
+          "line_end": 1257,
+          "text": "“第一，依我看，你的武学修为已经到了你自己都未想到的境界，以你现在的造诣，纵许未能拨开封洞巨石，但将"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“韩谷主，多谢你的大力帮忙。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1273,
+          "line_end": 1273,
+          "text": "“韩谷主，多谢你的大力帮忙。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_yu_jing",
+      "text": "“我的命都指靠你了，你怎的颠倒过来谢我。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1275,
+          "line_end": 1275,
+          "text": "“我的命都指靠你了，你怎的颠倒过来谢我。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_han_xiang",
+      "text": "“老大，这是一场误会。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1357,
+          "line_end": 1357,
+          "text": "“老大，这是一场误会。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_ban_da_chao",
+      "text": "“老大，我对不起你，不敢劳你动手，我自行了断就是。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1373,
+          "line_end": 1373,
+          "text": "“老大，我对不起你，不敢劳你动手，我自行了断就是。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_ban_da_chao",
+      "text": "“好，你有勇气自行了断，也还是条汉子。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1375,
+          "line_end": 1375,
+          "text": "“好，你有勇气自行了断，也还是条汉子。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_ban_da_chao",
+      "speaker_name": "班大超",
+      "listener": "char_han_xiang",
+      "text": "“多谢老大恩典，小弟告诉了！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1385,
+          "line_end": 1385,
+          "text": "“多谢老大恩典，小弟告诉了！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_ban_da_chao",
+      "text": "“韩谷主，老衲叨扰了你一个多月，现在该向你告辞了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1423,
+          "line_end": 1423,
+          "text": "“韩谷主，老衲叨扰了你一个多月，现在该向你告辞了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“多行善事，即是补过。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1429,
+          "line_end": 1429,
+          "text": "“多行善事，即是补过。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_hui_ke",
+      "text": "“道歉不必，不过，我却要向你打听一个人。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1431,
+          "line_end": 1431,
+          "text": "“道歉不必，不过，我却要向你打听一个人。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“你怎么说是多事，这个人可是存心要害你的啊！",
+      "tone": "惊讶",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1437,
+          "line_end": 1437,
+          "text": "“你怎么说是多事，这个人可是存心要害你的啊！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“说来话长，慢慢再告诉你。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1443,
+          "line_end": 1443,
+          "text": "“说来话长，慢慢再告诉你。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_shui_ling",
+      "text": "“你不问我也要告诉你，常五娘早已走了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1449,
+          "line_end": 1449,
+          "text": "“你不问我也要告诉你，常五娘早已走了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_han_xiang",
+      "text": "“她是要来捉拿我的，何以得手之后，反而这样快就走呢？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1451,
+          "line_end": 1451,
+          "text": "“她是要来捉拿我的，何以得手之后，反而这样快就走呢？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_yu_jing",
+      "text": "“这个，这个……”",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1453,
+          "line_end": 1453,
+          "text": "“这个，这个……”"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_han_xiang",
+      "text": "“韩谷主，你是有难言之隐吧？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1455,
+          "line_end": 1455,
+          "text": "“韩谷主，你是有难言之隐吧？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_han_xiang",
+      "speaker_name": "韩翔",
+      "listener": "char_lan_shui_ling",
+      "text": "“你这样责备我，我只能如实说了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1457,
+          "line_end": 1457,
+          "text": "“你这样责备我，我只能如实说了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_han_xiang",
+      "text": "“不错，我不喜欢听见别人说东方亮的坏话，——咦，姐姐，你怎么啦？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1459,
+          "line_end": 1459,
+          "text": "“不错，我不喜欢听见别人说东方亮的坏话，——咦，姐姐，你怎么啦？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“此亦一是非，彼亦一是非。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1465,
+          "line_end": 1465,
+          "text": "“此亦一是非，彼亦一是非。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“大师，你说得对，咱们还是走吧。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1467,
+          "line_end": 1467,
+          "text": "“大师，你说得对，咱们还是走吧。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“你不是刚刚和他相识的吗？",
+      "tone": "惊讶",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1471,
+          "line_end": 1471,
+          "text": "“你不是刚刚和他相识的吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“好，那就让我先说。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1477,
+          "line_end": 1477,
+          "text": "“好，那就让我先说。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“不错，如果没有他和我切磋剑术，我哪有今日的进境？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1483,
+          "line_end": 1483,
+          "text": "“不错，如果没有他和我切磋剑术，我哪有今日的进境？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“但有人说，他是在偷学你的太极剑法。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1485,
+          "line_end": 1485,
+          "text": "“但有人说，他是在偷学你的太极剑法。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“他本来就懂得太极剑法的，虽然所学不尽相同，最多也只能说是彼此切磋。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1487,
+          "line_end": 1487,
+          "text": "“他本来就懂得太极剑法的，虽然所学不尽相同，最多也只能说是彼此切磋。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“你还未知道他是本门之敌吗？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1489,
+          "line_end": 1489,
+          "text": "“你还未知道他是本门之敌吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“这件事无色长老已经告诉我了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1491,
+          "line_end": 1491,
+          "text": "“这件事无色长老已经告诉我了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“咦，姐姐，你一向是爽快的人，怎的却吞吞吐吐起来，难道是对弟弟都不能说的么？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1495,
+          "line_end": 1495,
+          "text": "“咦，姐姐，你一向是爽快的人，怎的却吞吞吐吐起来，难道是对弟弟都不能说的么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“好，我告诉你。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1497,
+          "line_end": 1497,
+          "text": "“好，我告诉你。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“哪位小师叔？",
+      "tone": "惊讶",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1499,
+          "line_end": 1499,
+          "text": "“哪位小师叔？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“就是送不戒师伯回山的那个牟一羽，他的父亲现在已经做了本派的掌门，所以我叫他做小师叔。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1501,
+          "line_end": 1501,
+          "text": "“就是送不戒师伯回山的那个牟一羽，他的父亲现在已经做了本派的掌门，所以我叫他做小师叔。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“姐姐，该轮到你说了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1507,
+          "line_end": 1507,
+          "text": "“姐姐，该轮到你说了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“就从你因何要下山寻长我说起吧。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1513,
+          "line_end": 1513,
+          "text": "“就从你因何要下山寻长我说起吧。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“那是什么原因？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1519,
+          "line_end": 1519,
+          "text": "“那是什么原因？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“你现在恐怕亦已知道，你义父教你的太极剑法，其实是没有多大用处的了吧？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1521,
+          "line_end": 1521,
+          "text": "“你现在恐怕亦已知道，你义父教你的太极剑法，其实是没有多大用处的了吧？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“哦，原来你是要告诉我这个。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1523,
+          "line_end": 1523,
+          "text": "“哦，原来你是要告诉我这个。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“不错。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1525,
+          "line_end": 1525,
+          "text": "“不错。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“我也不信你的义父会存心害你，但这件事情却实在令人猜想不透。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1531,
+          "line_end": 1531,
+          "text": "“我也不信你的义父会存心害你，但这件事情却实在令人猜想不透。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“是要告诉我，有个青蜂常五娘意图害我？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1535,
+          "line_end": 1535,
+          "text": "“是要告诉我，有个青蜂常五娘意图害我？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“就在你下山的第二天，这个妖妇曾经到过咱们的家里，威胁爹爹，想要把你抢去，后来，好在师父陪我回家，这才将他赶走。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1537,
+          "line_end": 1537,
+          "text": "“就在你下山的第二天，这个妖妇曾经到过咱们的家里，威胁爹爹，想要把你抢去，后来，好在师父陪我回家，这"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_shui_ling",
+      "text": "“我当然知道。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1541,
+          "line_end": 1541,
+          "text": "“我当然知道。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_hui_ke",
+      "text": "“为什么？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1543,
+          "line_end": 1543,
+          "text": "“为什么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“你是怕我惹她不起。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1545,
+          "line_end": 1545,
+          "text": "“你是怕我惹她不起。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_yu_jing",
+      "text": "“这倒不是。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1547,
+          "line_end": 1547,
+          "text": "“这倒不是。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_hui_ke",
+      "text": "“第三个原因，，我不说你也应该知道。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1551,
+          "line_end": 1551,
+          "text": "“第三个原因，，我不说你也应该知道。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“师祖叫我去找一位武林隐士，不会有什么太大的风险的，不过，我却不知什么时候才能回家。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1563,
+          "line_end": 1563,
+          "text": "“师祖叫我去找一位武林隐士，不会有什么太大的风险的，不过，我却不知什么时候才能回家。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“这几个月来，我也碰上许多意想不到的人和事。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1565,
+          "line_end": 1565,
+          "text": "“这几个月来，我也碰上许多意想不到的人和事。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“我也不知她的太极剑法是否源出武当，但好像和你所使的剑法有很大不同。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1569,
+          "line_end": 1569,
+          "text": "“我也不知她的太极剑法是否源出武当，但好像和你所使的剑法有很大不同。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“我的太极剑法本来是无师自通的，算不得准。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1571,
+          "line_end": 1571,
+          "text": "“我的太极剑法本来是无师自通的，算不得准。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“我的师父虽然尚未传我太极剑法，但我是曾经见她练过的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1573,
+          "line_end": 1573,
+          "text": "“我的师父虽然尚未传我太极剑法，但我是曾经见她练过的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“姐姐，你想到了什么，为何不说下去？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1575,
+          "line_end": 1575,
+          "text": "“姐姐，你想到了什么，为何不说下去？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“我忽然想起了，有个人的太极剑法倒是和我跟义母学的相似。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1577,
+          "line_end": 1577,
+          "text": "“我忽然想起了，有个人的太极剑法倒是和我跟义母学的相似。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“谁？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1579,
+          "line_end": 1579,
+          "text": "“谁？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“牟一羽！",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1581,
+          "line_end": 1581,
+          "text": "“牟一羽！"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_shui_ling",
+      "text": "“我是早就料到会碰上你的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1595,
+          "line_end": 1595,
+          "text": "“我是早就料到会碰上你的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_hui_ke",
+      "text": "“他也没有说你什么坏话，不过他告诉我，他的断魂谷是在你的临视之下。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1601,
+          "line_end": 1601,
+          "text": "“他也没有说你什么坏话，不过他告诉我，他的断魂谷是在你的临视之下。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_hui_ke",
+      "text": "“我是因为东方少爷被软禁在断魂谷，只能采取这个手段。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1603,
+          "line_end": 1603,
+          "text": "“我是因为东方少爷被软禁在断魂谷，只能采取这个手段。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“那为什么他在断魂谷一住几乎住上了两个月。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1607,
+          "line_end": 1607,
+          "text": "“那为什么他在断魂谷一住几乎住上了两个月。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“他不是已经出来了吗？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1609,
+          "line_end": 1609,
+          "text": "“他不是已经出来了吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_hui_ke",
+      "text": "“他是早在一个时辰之前就经过这里了，但他跑得飞快，根本没理会我们。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1611,
+          "line_end": 1611,
+          "text": "“他是早在一个时辰之前就经过这里了，但他跑得飞快，根本没理会我们。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“既然他不想告诉你们，那我就不能代他说了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1613,
+          "line_end": 1613,
+          "text": "“既然他不想告诉你们，那我就不能代他说了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_hui_ke",
+      "text": "“如果韩翔不来侵犯我们，我们自也不会多事。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1615,
+          "line_end": 1615,
+          "text": "“如果韩翔不来侵犯我们，我们自也不会多事。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“既然如此，那你就先表示诚意，把设在这里的岗哨撤去吧。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1617,
+          "line_end": 1617,
+          "text": "“既然如此，那你就先表示诚意，把设在这里的岗哨撤去吧。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_hui_ke",
+      "text": "“蓝姑娘，我正要告诉你呢。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1625,
+          "line_end": 1625,
+          "text": "“蓝姑娘，我正要告诉你呢。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“她呢？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1627,
+          "line_end": 1627,
+          "text": "“她呢？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lan_shui_ling",
+      "text": "“她好像急于去追赶表少爷，就只交代了那一话。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1629,
+          "line_end": 1629,
+          "text": "“她好像急于去追赶表少爷，就只交代了那一话。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“我不回百花谷。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1631,
+          "line_end": 1631,
+          "text": "“我不回百花谷。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lan_shui_ling",
+      "text": "“这怎么可以？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1633,
+          "line_end": 1633,
+          "text": "“这怎么可以？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“请蓝姑娘体恤我们做下人的难处。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1639,
+          "line_end": 1639,
+          "text": "“请蓝姑娘体恤我们做下人的难处。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“西门小姐的父亲本来是我的旧主人，我是出于尊敬旧主人的一点心意，谈不上什么自贬身份。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1645,
+          "line_end": 1645,
+          "text": "“西门小姐的父亲本来是我的旧主人，我是出于尊敬旧主人的一点心意，谈不上什么自贬身份。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“我或者不懂江湖上的规矩，我只知道任何人都不能勉强别人做他不愿意做的事。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1647,
+          "line_end": 1647,
+          "text": "“我或者不懂江湖上的规矩，我只知道任何人都不能勉强别人做他不愿意做的事。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“我自己会走。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1653,
+          "line_end": 1653,
+          "text": "“我自己会走。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lan_shui_ling",
+      "text": "“姑娘是和令弟一起回家么？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1655,
+          "line_end": 1655,
+          "text": "“姑娘是和令弟一起回家么？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“不是。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1657,
+          "line_end": 1657,
+          "text": "“不是。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lan_shui_ling",
+      "text": "“蓝姑娘，我知道你武功高强，但一个单身女子，在路上总是不太方便，我这里有现成的马车，我叫人驾车送你回去，你在路上也可以有人使唤。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1659,
+          "line_end": 1659,
+          "text": "“蓝姑娘，我知道你武功高强，但一个单身女子，在路上总是不太方便，我这里有现成的马车，我叫人驾车送你回"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“我又不是什么千金小姐，哪用仆人服侍。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1661,
+          "line_end": 1661,
+          "text": "“我又不是什么千金小姐，哪用仆人服侍。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lan_shui_ling",
+      "text": "“对不住，我还未曾说得清楚，我并不是怕普通的喽兵给你使唤。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1663,
+          "line_end": 1663,
+          "text": "“对不住，我还未曾说得清楚，我并不是怕普通的喽兵给你使唤。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“我安排在这里监视断魂谷的部属，本来就是要解散的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1669,
+          "line_end": 1669,
+          "text": "“我安排在这里监视断魂谷的部属，本来就是要解散的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“还是蓝少侠爽快。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1673,
+          "line_end": 1673,
+          "text": "“还是蓝少侠爽快。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“你放心去吧。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1679,
+          "line_end": 1679,
+          "text": "“你放心去吧。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“我最难过的是不能给师祖送葬，但听说举行葬礼的日期已经改了，是吗？",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1681,
+          "line_end": 1681,
+          "text": "“我最难过的是不能给师祖送葬，但听说举行葬礼的日期已经改了，是吗？"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_yu_jing",
+      "text": "“师祖要我寻找的那位武林隐者，慧可大师只知道他在辽东。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1685,
+          "line_end": 1685,
+          "text": "“师祖要我寻找的那位武林隐者，慧可大师只知道他在辽东。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“只要你不负师祖的期望，即是尽了孝思了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1687,
+          "line_end": 1687,
+          "text": "“只要你不负师祖的期望，即是尽了孝思了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_shui_ling",
+      "text": "“弟弟，你比我聪明懂事，但我也有个笨想法，你最好把心里的疑团都弄清楚之后，那再回来也未为晚。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1693,
+          "line_end": 1693,
+          "text": "“弟弟，你比我聪明懂事，但我也有个笨想法，你最好把心里的疑团都弄清楚之后，那再回来也未为晚。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“姐姐，我懂得你的意思，你回武当山之后，要是碰上什么你觉得难以应付的事情，可以去找无色长老。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1695,
+          "line_end": 1695,
+          "text": "“姐姐，我懂得你的意思，你回武当山之后，要是碰上什么你觉得难以应付的事情，可以去找无色长老。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lan_yu_jing",
+      "text": "“我知道。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1697,
+          "line_end": 1697,
+          "text": "“我知道。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lu_zhi_cheng",
+      "speaker_name": "陆志诚",
+      "listener": "char_lan_shui_ling",
+      "text": "“你这个闺名我都几乎记不起来了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1705,
+          "line_end": 1705,
+          "text": "“你这个闺名我都几乎记不起来了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_lu_zhi_cheng",
+      "text": "“不敢当。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1707,
+          "line_end": 1707,
+          "text": "“不敢当。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_feng_qi_wu",
+      "speaker_name": "凤栖梧",
+      "listener": "char_lan_shui_ling",
+      "text": "“她的死鬼当家姓平，弟兄们叫平大婶，但你可要记得，在有外人的时候，可得叫她做平大叔。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1717,
+          "line_end": 1717,
+          "text": "“她的死鬼当家姓平，弟兄们叫平大婶，但你可要记得，在有外人的时候，可得叫她做平大叔。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_feng_qi_wu",
+      "text": "“咦，慧可大师，你干什么，我可要向你告辞了。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1727,
+          "line_end": 1727,
+          "text": "“咦，慧可大师，你干什么，我可要向你告辞了。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_shui_ling",
+      "text": "“你等一等。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1729,
+          "line_end": 1729,
+          "text": "“你等一等。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_hui_ke",
+      "text": "“他又聋又哑，我和他当然谈不上如何熟识，不过碰见了也会点点头的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1733,
+          "line_end": 1733,
+          "text": "“他又聋又哑，我和他当然谈不上如何熟识，不过碰见了也会点点头的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_hui_ke",
+      "speaker_name": "慧可",
+      "listener": "char_lan_shui_ling",
+      "text": "“你把这个泥人替我交给他，以后你若是有什么事情，也可以请他帮你的忙。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1735,
+          "line_end": 1735,
+          "text": "“你把这个泥人替我交给他，以后你若是有什么事情，也可以请他帮你的忙。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_shui_ling",
+      "speaker_name": "蓝水灵",
+      "listener": "char_hui_ke",
+      "text": "“那位聋哑道长，听说他来了武当山几十年，从没人找过他的。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1737,
+          "line_end": 1737,
+          "text": "“那位聋哑道长，听说他来了武当山几十年，从没人找过他的。"
+        }
+      ]
+    },
+    {
+      "speaker": "char_lan_yu_jing",
+      "speaker_name": "蓝玉京",
+      "listener": "char_lan_shui_ling",
+      "text": "“姐姐，你善自珍重。",
+      "tone": "陈述",
+      "chapter": 11,
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1749,
+          "line_end": 1749,
+          "text": "“姐姐，你善自珍重。"
+        }
+      ]
+    }
+  ]
+}

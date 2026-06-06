@@ -1,0 +1,763 @@
+[
+  {
+    "id": "skill_tai_ji_jian",
+    "name": "太极剑法",
+    "type": "剑法",
+    "faction": "faction_wu_dang",
+    "rank": "登峰造极",
+    "one_line": "武当派正宗剑法，以静制动以柔克刚",
+    "rag_refs": [
+      4,
+      1,
+      2
+    ],
+    "techniques": [
+      {
+        "id": "tech_tui_chuang_wang_yue",
+        "name": "推窑望月",
+        "type": "defense",
+        "description": "以一招平平无奇的推窑望月消解对方剑势"
+      },
+      {
+        "id": "tech_xuan_niao_hua_sha",
+        "name": "玄鸟划砂",
+        "type": "attack",
+        "description": "正宗太极剑法杀着"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "以静制动",
+        "description": "以柔克刚化解对方攻势"
+      }
+    ],
+    "combat_style": "以静制动，以柔克刚，绵绵不断",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 114,
+        "line_end": 114,
+        "text": "本门的太极剑法，最擅于以静制动，以柔克刚"
+      },
+      {
+        "chapter": 1,
+        "line_start": 92,
+        "line_end": 94,
+        "text": "留神看我的太极剑法吧"
+      },
+      {
+        "chapter": 2,
+        "line_start": 276,
+        "line_end": 292,
+        "text": "蒙面人使出太极剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_ying_jian",
+    "name": "飞鹰剑法",
+    "type": "剑法",
+    "faction": "faction_kun_lun",
+    "rank": "出神入化",
+    "one_line": "昆仑派剑法，八八六十四手，盘旋飞舞如飞鹰",
+    "rag_refs": [
+      4
+    ],
+    "techniques": [
+      {
+        "id": "tech_ying_ji_chang_kong",
+        "name": "鹰击长空",
+        "type": "attack",
+        "description": "飞鹰剑法第十三招，最狠辣的一招，盘旋而下如饿鹰扑兔"
+      },
+      {
+        "id": "tech_peng_bo_jiu_xiao",
+        "name": "鹏搏九霄",
+        "type": "attack",
+        "description": "剑势四面扩张如大鹏展翅"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "向天明修补完所有破绽后达到登峰造极"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "连续攻击",
+        "description": "剑势如波浪般向四面扩张，变化莫测"
+      }
+    ],
+    "combat_style": "盘旋飞舞，曲直相乘，如飞鹰翱翔",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 114,
+        "line_end": 114,
+        "text": "玄贞子练的那套剑法名为飞鹰剑法，一共八八六十四手"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_ji_jian",
+    "name": "无极剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "略有小成",
+    "one_line": "钟柳堂所创剑法，以柔克刚与太极剑法有相通之处",
+    "rag_refs": [
+      4
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以柔克刚",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 318,
+        "line_end": 318,
+        "text": "他把他所创的剑法命名为无极剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_feng_zhen",
+    "name": "青蜂针",
+    "type": "暗器",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "常五娘独门暗器，剧毒无比，沾之有性命之忧",
+    "rag_refs": [
+      5,
+      1
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "毒药",
+        "condition": "见血",
+        "description": "青蜂针剧毒无比，须用特制解药或上乘内功驱毒"
+      },
+      {
+        "type": "伤害",
+        "condition": "射入人体",
+        "description": "含有剧毒，射入脑袋立即破坏脑神经中枢"
+      }
+    ],
+    "combat_style": "暗器偷袭",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 287,
+        "line_end": 287,
+        "text": "青蜂针，剧毒无比，给沾上了便有性命之忧"
+      },
+      {
+        "chapter": 1,
+        "line_start": 533,
+        "line_end": 533,
+        "text": "她最厉害的一种暗器名为青蜂针"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_xing_jian",
+    "name": "七星剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "沧州剑客郭东来独门剑法，剑伤呈北斗七星状排列",
+    "rag_refs": [
+      2
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "剑法凌厉，七点连刺",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1572,
+        "line_end": 1577,
+        "text": "胸口竟然好象北斗七星似的，排列着七个小孔"
+      }
+    ]
+  },
+  {
+    "id": "skill_tai_ji_zhang",
+    "name": "太极掌",
+    "type": "掌法",
+    "faction": "faction_wu_dang",
+    "rank": "登峰造极",
+    "one_line": "武当派掌法，炉火纯青境界可置人于死而身上不带伤痕",
+    "rag_refs": [
+      1,
+      13
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "炉火纯青",
+        "description": "可置人于死而身上不带伤痕"
+      }
+    ],
+    "combat_style": "以柔克刚，绵里藏针",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 293,
+        "line_end": 294,
+        "text": "但太极掌是本派不传之秘"
+      },
+      {
+        "chapter": 13,
+        "line_start": 826,
+        "line_end": 826,
+        "text": "你们武当派的太极掌力，是不是可以置人于死而身上不带伤痕？"
+      }
+    ]
+  },
+  {
+    "id": "skill_lian_huan_duo_ming_jian",
+    "name": "连环夺命剑法",
+    "type": "剑法",
+    "faction": "faction_wu_dang",
+    "rank": "出神入化",
+    "one_line": "武当派七十二手连环夺命剑法",
+    "rag_refs": [
+      1
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "攻势凌厉",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 96,
+        "line_end": 98,
+        "text": "此人能用连环夺命剑法抵御太极剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_tai_ji_shen_gong",
+    "name": "太极神功",
+    "type": "内功",
+    "faction": "faction_wu_dang",
+    "rank": "登峰造极",
+    "one_line": "武当派最上乘内功，可攻可守可治，能逆运真力伤人，亦可引导化毒",
+    "rag_refs": [
+      3
+    ],
+    "techniques": [
+      {
+        "id": "tech_yin_qi_hua_du",
+        "name": "引气化毒",
+        "type": "special",
+        "description": "以太极神功引导真气将患者脏腑中蟠结的毒气、浊气引导而出"
+      },
+      {
+        "id": "tech_ni_yun_zhen_li",
+        "name": "逆运真力",
+        "type": "attack",
+        "description": "将太极神功逆向运转，以柔克刚重创对手心脉"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径，可养生"
+      },
+      {
+        "level": 2,
+        "unlock": "运转自如，可施治"
+      },
+      {
+        "level": 3,
+        "unlock": "刚柔并济，可攻敌"
+      },
+      {
+        "level": 4,
+        "unlock": "炉火纯青，可逆运"
+      },
+      {
+        "level": 5,
+        "unlock": "登峰造极，攻守兼备"
+      }
+    ],
+    "effects": [
+      {
+        "type": "治疗",
+        "condition": "须高深造诣者以引导之法施用",
+        "description": "可将蟠结于脏腑中的毒气、浊气引导出来"
+      },
+      {
+        "type": "伤害",
+        "condition": "逆运真力攻人心脉",
+        "description": "可重创敌手心脉，令其中毒气扩散而亡"
+      }
+    ],
+    "combat_style": "攻守一体，柔中带刚，可治可伤",
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 146,
+        "line_end": 150,
+        "text": "掌门人正以太极神功为他祛毒"
+      },
+      {
+        "chapter": 3,
+        "line_start": 460,
+        "line_end": 478,
+        "text": "不戒被人以太极神功逆运真力打伤心脉，又中了青蜂针之毒"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_li_ying_zhua_gong",
+    "name": "大力鹰爪功",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "韩翔家传掌功，可徒手折断箭杆并嵌入石壁",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "特殊",
+        "condition": "近身肉搏",
+        "description": "徒手抓握力极强，可断箭碎石"
+      }
+    ],
+    "combat_style": "硬功掌法",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 1269,
+        "line_end": 1269,
+        "text": "大力鹰爪的功夫使出，五指如钩，已是嵌入石壁"
+      }
+    ]
+  },
+  {
+    "id": "skill_luo_han_zhang",
+    "name": "罗汉掌",
+    "type": "掌法",
+    "faction": "faction_shao_lin",
+    "rank": "登堂入室",
+    "one_line": "少林弟子必修入门拳法，舒筋活络之用",
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "入门拳法",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 897,
+        "line_end": 897,
+        "text": "他拿桩站稳，跟着就伸拳踢腿，打出了一套少林派的罗汉掌来"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_qin_na",
+    "name": "大擒拿手法",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "韩翔成名绝技，近身擒拿百不失一",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "近身",
+        "description": "近身擒拿百不失一"
+      }
+    ],
+    "combat_style": "擒拿手",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 771,
+        "line_end": 771,
+        "text": "韩翔的大擒拿手法本来是武林一绝"
+      }
+    ]
+  },
+  {
+    "id": "skill_yuanyang_dao",
+    "name": "鸳鸯刀法",
+    "type": "掌法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "凤栖梧家传绝技，一长一短两刀，长刀护身短刀攻敌",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近身",
+        "description": "招数阴狠异常"
+      }
+    ],
+    "combat_style": "长短配合",
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "凤栖梧用的是一长一短的鸳鸯刀"
+      }
+    ]
+  },
+  {
+    "id": "skill_teng_she_bian",
+    "name": "藤蛇鞭",
+    "type": "暗器",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "用钢丝缠绕的特长马鞭，柔中带刚",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "近身",
+        "description": "缠绕兵器和坐骑"
+      }
+    ],
+    "combat_style": "软兵器",
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 94,
+        "line_end": 94,
+        "text": "她这条马鞭可是用钢丝缠绕的藤蛇鞭"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_tou_gou",
+    "name": "虎头钩",
+    "type": "掌法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "虎头钩、万字夺类兵器，有克制刀剑的性能",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "对剑",
+        "description": "克制刀剑，可牵引"
+      }
+    ],
+    "combat_style": "重型钩兵",
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 384,
+        "line_end": 384,
+        "text": "他用的是一对虎头钩"
+      }
+    ]
+  },
+  {
+    "id": "skill_jing_tao_jian_fa",
+    "name": "惊涛剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "西门牧遗下的剑法，属于阳刚一路",
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "阳刚一路",
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 878,
+        "line_end": 878,
+        "text": "父亲遗留下来的剑谱... 父亲剑法名为惊涛剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_chang_bai_zhai_san_sha_gong",
+    "name": "长白派三煞功",
+    "type": "掌法",
+    "faction": "faction_chang_bai",
+    "rank": "出神入化",
+    "one_line": "长白山派本门毒掌功夫，须内外功大成后方可开始修炼",
+    "rag_refs": [
+      13
+    ],
+    "techniques": [],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "需长白派内外功大成后方能开始修炼"
+      }
+    ],
+    "effects": [
+      {
+        "type": "毒药",
+        "condition": "中掌",
+        "description": "令人骨头软化以至死亡，中掌后体内有虫行蚁走的感觉"
+      }
+    ],
+    "combat_style": "毒掌功夫，需配合内功",
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 644,
+        "line_end": 645,
+        "text": "三煞掌就是他们长白派的本门武功，是一种颇为厉害的毒掌功夫"
+      }
+    ]
+  },
+  {
+    "id": "skill_chang_bai_feng_lei_zhang",
+    "name": "长白派风雷掌",
+    "type": "掌法",
+    "faction": "faction_chang_bai",
+    "rank": "出神入化",
+    "one_line": "长白山派另一门厉害功夫，击中后表面无伤痕但五脏六腑碎裂",
+    "rag_refs": [
+      13
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "中掌",
+        "description": "表面无伤痕但五脏六腑必然碎裂"
+      }
+    ],
+    "combat_style": "凶狠毒辣",
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 906,
+        "line_end": 906,
+        "text": "长白山派有两门非常厉害的功夫。其一是三煞功，另一门是风雷掌"
+      }
+    ]
+  },
+  {
+    "id": "skill_yin_yang_zhang_li",
+    "name": "阴阳掌力",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "英松龄的独门掌法，掌力互相激荡可令对手如陷漩涡",
+    "rag_refs": [
+      13
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "双掌配合",
+        "description": "掌力互相激荡令对手如陷无形的漩涡"
+      }
+    ],
+    "combat_style": "阴阳配合，激荡对方",
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 1646,
+        "line_end": 1646,
+        "text": "也正因此，英松龄才改用阴阳掌力来对付他。他这阴阳掌力另有一功"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_shou_yin",
+    "name": "嘉错大手印",
+    "type": "掌法",
+    "faction": "faction_xi_zang_mi_zong",
+    "rank": "登峰造极",
+    "one_line": "西藏密宗掌法，据说功夫天下第二",
+    "rag_refs": [
+      14
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "中掌",
+        "description": "劈空掌力可震倒小树"
+      }
+    ],
+    "combat_style": "刚猛无俦，密宗上乘",
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 556,
+        "line_end": 556,
+        "text": "大手印功夫据说已是天下第二"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_jia_shi_ba_pai",
+    "name": "胡笳十八拍",
+    "type": "剑法",
+    "faction": "faction_chang_bai",
+    "rank": "出神入化",
+    "one_line": "原为崆峒派刺穴绝招，后被长白派以三招风雷掌法换得融入本门武学",
+    "rag_refs": [
+      14
+    ],
+    "techniques": [],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "崆峒派练到最高可刺十八处穴道；长白派练到最高只能刺十六处"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "练到最高境界",
+        "description": "崆峒派可刺十八穴，长白派可刺十六穴"
+      }
+    ],
+    "combat_style": "刺穴绝招，凌厉狠辣",
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 1306,
+        "line_end": 1306,
+        "text": "原来\"胡笳十八招\"本是崆峒派的刺穴绝招"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_men_an_qi",
+    "name": "唐门暗器",
+    "type": "暗器",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "唐门独门暗器，种类繁多，毒药暗藏，弹丸、迷雾无所不包",
+    "rag_refs": [
+      16
+    ],
+    "techniques": [
+      {
+        "id": "tech_pi_li_dan",
+        "name": "霹雳弹",
+        "type": "attack",
+        "description": "唐门火器，弹丸爆裂出火焰烟雾"
+      },
+      {
+        "id": "tech_mi_huan_yao",
+        "name": "迷幻药弹",
+        "type": "control",
+        "description": "弹丸藏迷幻药粉末，燃烧散播令人神智迷糊产生幻觉"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "毒药",
+        "condition": "吸入或吞服",
+        "description": "迷幻药由大麻制成，效力强，令受害者迷失本性"
+      }
+    ],
+    "combat_style": "暗器偷袭，配药下毒",
+    "source_refs": [
+      {
+        "chapter": 16,
+        "line_start": 86,
+        "line_end": 86,
+        "text": "西门家的小妞儿，你放心，你的大哥死不了的，我给他吃的是仙丹，不是毒药"
+      },
+      {
+        "chapter": 16,
+        "line_start": 134,
+        "line_end": 134,
+        "text": "迷幻药就是能令人神智迷糊，产生幻觉的一种药物"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_xing_jian_fa",
+    "name": "七星剑法",
+    "type": "内家剑法",
+    "description": "七星剑客郭东来所传剑法，剑光如电、瞬息百变，出招时剑花朵朵严如黑夜繁星",
+    "origin": "七星剑客郭东来",
+    "theory": "以剑花如黑夜繁星般洒落人间的剑意",
+    "related_techniques": [
+      "tech_luo_zhou_dian_xing"
+    ],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 1539,
+        "line_end": 1539,
+        "text": "七星剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_ying_hui_xuan",
+    "name": "飞鹰回旋剑法",
+    "type": "外家剑法",
+    "description": "向天明门剑法，剑势盘旋飞舞，最末绝招飞鹰九式可凌空下击",
+    "origin": "向天明门",
+    "theory": "盘旋曲折中藏有九种变化",
+    "related_techniques": [
+      "tech_fei_ying_jiu_shi"
+    ],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 371,
+        "line_end": 371,
+        "text": "他已经使出了飞鹰回旋剑法中最后的一个绝招！"
+      }
+    ]
+  },
+  {
+    "id": "skill_mu_jia_an_qi",
+    "name": "穆家暗器",
+    "type": "暗器",
+    "description": "陇西穆家祖传暗器，与川西唐家暗器齐名",
+    "origin": "陇西穆家",
+    "related_characters": [
+      "char_mu_ying_ying"
+    ],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 2320,
+        "line_end": 2320,
+        "text": "陇西穆家的暗器和川西唐家的暗器是同样的有名。"
+      }
+    ]
+  }
+]
