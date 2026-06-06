@@ -141,7 +141,7 @@ console.log(`characters.json: ${data.length} 个实体，格式正确`);
       "speaker_name": "说话人名字",
       "listener": "char_id或null",
       "text": "对话原文",
-      "tone": "语气标签",
+      "tone": "语气（从 constants.md 的 dialogue_tone 枚举中选择；只取情绪/语气，不取动作描写；无法判断用"陈述"）",
       "chapter": 5
     }
   ],

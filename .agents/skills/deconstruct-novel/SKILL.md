@@ -117,6 +117,7 @@ node .agents/skills/deconstruct-novel/scripts/prepare.js <小说目录路径>
 - 禁止使用 Write 工具写入 JSON，必须用 ctx_execute
 - 禁止对 speaker 识别过度思考，5秒内无法判断就标 null
 - 每句有说话人的对话都必须提取
+- tone 字段：从 constants.md 的 dialogue_tone 枚举（41个合法值）中选择，只取情绪/语气，不取动作或叙事描写；无法判断用"陈述"
 ```
 
 **主 Agent 并行启动示例**：
@@ -207,6 +208,7 @@ for (const [type, data] of Object.entries(registry)) {
 - known_skills 中的 skill_id 全部存在
 - chapter_summaries.json 共 N 章
 - dialogues.json 对话数合理
+- dialogues.json 中所有 tone 值均属于 constants.md 的 dialogue_tone 枚举（≤ 41 种）
 
 ---
 
@@ -262,7 +264,7 @@ for (const [type, data] of Object.entries(registry)) {
 |------|------|
 | `constants.md` | ID 规则、rank 排序表、枚举值域、更新策略表 |
 | `schemas.md` | entity_registry.json 格式 + ch_N.json delta 格式 |
-| `dialogue-rules.md` | speaker 提取的 4 条判断规则、误判排除、示例 |
+| `dialogue-rules.md` | speaker 提取规则 + tone 提取规则（受控词汇表、映射表、否定清单） |
 
 ---
 
@@ -277,6 +279,7 @@ for (const [type, data] of Object.entries(registry)) {
 - 角色 personality.traits ≥ 5 项
 - 技能 techniques ≥ 2 个招式
 - **对话数量合理：本章对话数 ≥ 本章角色数 × 2**
+- **所有 dialogue.tone 均属于 constants.md 的 dialogue_tone 枚举**
 
 ### 最终验证
 - 所有 ID 都是小写拼音+下划线
