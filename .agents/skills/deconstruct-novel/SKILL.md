@@ -122,22 +122,25 @@ node .agents/skills/deconstruct-novel/scripts/prepare.js <小说目录路径>
 **主 Agent 并行启动示例**：
 
 ```javascript
-// ⚠️ 每次最多并行 3 个批次（RPM 限制）
+// ⚠️ 维持恒定 3 个并行（RPM 限制），完成一个立即启动下一个
 const batchConfig = JSON.parse(fs.readFileSync('batch_config.json', 'utf8'));
 const MAX_PARALLEL = 3;
+const running = new Set();
 
-for (let i = 0; i < batchConfig.batches.length; i += MAX_PARALLEL) {
-  const chunk = batchConfig.batches.slice(i, i + MAX_PARALLEL);
-  console.log(`启动批次 ${chunk.map(b => b.batch).join(', ')}...`);
-  
-  // 并行启动本组的 Sub Agent
-  const promises = chunk.map(batch => launchBatchSubAgent(batch));
-  await Promise.all(promises);
-  
-  console.log(`批次 ${chunk.map(b => b.batch).join(', ')} 完成`);
-  // 等待所有 Sub Agent 的结果确认写入后，再启动下一组
+for (const batch of batchConfig.batches) {
+  // 等待有空闲槽位
+  while (running.size >= MAX_PARALLEL) {
+    await Promise.race(running);
+  }
+  // 启动新批次，完成后自动释放槽位
+  const p = launchBatchSubAgent(batch).finally(() => running.delete(p));
+  running.add(p);
+  console.log(`启动批次 ${batch.batch}（当前并行：${running.size}/${MAX_PARALLEL}）`);
 }
-// 所有批次完成后，继续下一步
+
+// 等待所有剩余批次完成
+await Promise.all(running);
+console.log('所有批次完成，继续下一步');
 ```
 
 ### 第2步：合并注册表（主 Agent 执行）
