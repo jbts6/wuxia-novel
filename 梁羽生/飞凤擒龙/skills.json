@@ -1,0 +1,103 @@
+[
+  {
+    "id": "skill_jin_dao",
+    "name": "金刀",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "杨家将祖传刀法，威力极大",
+    "rag_refs": [
+      4
+    ],
+    "techniques": [
+      {
+        "id": "tech_jin_dao砍",
+        "name": "金刀砍",
+        "type": "attack",
+        "description": "杨家将祖传金刀绝技，劈砍力道惊人"
+      },
+      {
+        "id": "tech_jin_dao_zu_chuan",
+        "name": "祖传金刀",
+        "type": "attack",
+        "description": "杨老板祖传的刀法，刀势凌厉，威力惊人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "登堂入室，刀法刚猛"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近战",
+        "description": "刚猛刀法，攻击力极强"
+      }
+    ],
+    "combat_style": "刚猛凌厉的刀法",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 134,
+        "line_end": 134,
+        "text": "先就丧在这个杨老板的祖传金刀之下"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_fa",
+    "name": "剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "鲁世雄所习剑法",
+    "rag_refs": [
+      4,
+      5
+    ],
+    "techniques": [
+      {
+        "id": "tech_bai_hong_guan_ri",
+        "name": "白虹贯日",
+        "type": "attack",
+        "description": "剑如白虹贯日，直刺敌人心窝，势不可挡"
+      },
+      {
+        "id": "tech_fan_shou_yi_jian",
+        "name": "反手一剑",
+        "type": "defense",
+        "description": "头也不回，反手一剑格住敌人兵刃，攻守兼备"
+      },
+      {
+        "id": "tech_yi_tui_wei_jin",
+        "name": "以退为进",
+        "type": "feint",
+        "description": "佯装败退诱敌深入，把握最佳时机反击制胜"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近战",
+        "description": "剑法攻击"
+      }
+    ],
+    "combat_style": "剑法轻灵迅捷，兼有刚柔并济之长，善于以退为进诱敌",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 74,
+        "line_end": 74,
+        "text": "你去给我一剑杀了"
+      }
+    ]
+  }
+]

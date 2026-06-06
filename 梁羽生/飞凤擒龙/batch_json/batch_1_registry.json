@@ -1,0 +1,1532 @@
+{
+  "chapters_processed": [
+    1,
+    2,
+    3
+  ],
+  "entity_registry": {
+    "characters": [
+      {
+        "id": "char_lu_shi_xiong",
+        "name": "鲁世雄",
+        "alias": [],
+        "identity": "南宋卧底/御林军应试者",
+        "faction": null,
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "精通武功与医术的南宋卧底，化名潜入金国御林军",
+        "personality": {
+          "traits": [
+            "冷静沉着",
+            "机敏多谋",
+            "武艺高强",
+            "医术精湛",
+            "胆识过人",
+            "谨慎隐忍"
+          ],
+          "speech_style": "沉稳得体，善于隐藏真实意图",
+          "temperament": "深沉内敛"
+        },
+        "relationships": [
+          {
+            "target": "char_du_gu_fei_feng",
+            "type": "恋人",
+            "intensity": 30,
+            "bond_level": 1,
+            "dynamic": "被王爷许婚，心中另有隐情"
+          }
+        ],
+        "known_skills": [
+          "skill_jian_fa",
+          "skill_zhi_fa"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1,
+          2,
+          3
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 5,
+            "line_end": 8,
+            "text": "这少年武士对周围的一切却似视而不见，听而不闻。"
+          },
+          {
+            "chapter": 3,
+            "line_start": 14,
+            "line_end": 14,
+            "text": "十五年前，家父在檀元帅麾下，与南宋交兵，不幸阵亡。"
+          }
+        ]
+      },
+      {
+        "id": "char_wan_yan_chang_zhi",
+        "name": "完颜长之",
+        "alias": [],
+        "identity": "金国御林军统领/金国皇上叔父",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登峰造极",
+        "one_line": "金国第一高手，统率御林军，武功极高，城府深沉",
+        "personality": {
+          "traits": [
+            "威严深沉",
+            "铁面无私",
+            "心思缜密",
+            "武力超群",
+            "老谋深算"
+          ],
+          "speech_style": "威严有力，不容置疑",
+          "temperament": "霸气凛然"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1,
+          2,
+          3
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 24,
+            "line_end": 26,
+            "text": "这是金国御林军统领完颜长之的府邸。"
+          },
+          {
+            "chapter": 3,
+            "line_start": 236,
+            "line_end": 236,
+            "text": "当今皇上未生太子，咱们是近支亲王，为父又手握兵权。"
+          }
+        ]
+      },
+      {
+        "id": "char_yu_yi",
+        "name": "御医",
+        "alias": [],
+        "identity": "金国御医/第二号杏林国手",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "healer",
+        "rank": "炉火纯青",
+        "one_line": "金国第二号杏林国手，白发苍苍的老者，医术精湛",
+        "personality": {
+          "traits": [
+            "和蔼稳重",
+            "医术精湛",
+            "目光敏锐",
+            "经验丰富",
+            "谦逊温和"
+          ],
+          "speech_style": "平和从容，语气中带着长者的稳重",
+          "temperament": "温文尔雅"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 28,
+            "line_end": 28,
+            "text": "这个老者是金国的御医。"
+          }
+        ]
+      },
+      {
+        "id": "char_wei_shi_dui_zhang",
+        "name": "卫士队长",
+        "alias": [],
+        "identity": "金国御林军卫士队长",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "完颜长之的卫士队长，负责接待和监视鲁世雄",
+        "personality": {
+          "traits": [
+            "忠诚尽职",
+            "心细谨慎",
+            "善于察言观色",
+            "服从命令",
+            "略有好奇"
+          ],
+          "speech_style": "恭敬有礼，偶有试探之意",
+          "temperament": "沉稳干练"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 108,
+            "line_end": 114,
+            "text": "完颜长之面色沉重，招手叫他的卫土队长过来。"
+          }
+        ]
+      },
+      {
+        "id": "char_wei_shi_A",
+        "name": "卫士A",
+        "alias": [],
+        "identity": "金国御林军卫士",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "平平无奇",
+        "one_line": "排在最后的两名卫士之一，对鲁世雄的考试议论纷纷",
+        "personality": {
+          "traits": [
+            "好奇",
+            "健谈",
+            "消息灵通",
+            "谨慎",
+            "八卦"
+          ],
+          "speech_style": "低声私语，爱打听消息",
+          "temperament": "普通"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 10,
+            "line_end": 21,
+            "text": "排在最后的两名卫士窃窃私语。"
+          }
+        ]
+      },
+      {
+        "id": "char_wei_shi_B",
+        "name": "卫士B",
+        "alias": [],
+        "identity": "金国御林军卫士",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "平平无奇",
+        "one_line": "排在最后的两名卫士之二，与卫士A闲聊鲁世雄的来历",
+        "personality": {
+          "traits": [
+            "好奇",
+            "健谈",
+            "谨慎",
+            "八卦",
+            "健忘"
+          ],
+          "speech_style": "低声私语",
+          "temperament": "普通"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 10,
+            "line_end": 21,
+            "text": "排在最后的两名卫士窃窃私语。"
+          }
+        ]
+      },
+      {
+        "id": "char_wei_shi_mang",
+        "name": "糊涂卫士",
+        "alias": [],
+        "identity": "金国御林军卫士",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "平平无奇",
+        "one_line": "糊涂的卫士，误以为鲁世雄在杀人而拔刀冲上",
+        "personality": {
+          "traits": [
+            "鲁莽冲动",
+            "脑筋迟钝",
+            "忠诚",
+            "勇敢",
+            "鲁莽"
+          ],
+          "speech_style": "大呼小叫",
+          "temperament": "冲动"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 62,
+            "line_end": 64,
+            "text": "有两个糊里糊涂的卫士。"
+          }
+        ]
+      },
+      {
+        "id": "char_zhu_shou",
+        "name": "助手",
+        "alias": [],
+        "identity": "御医助手",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "healer",
+        "rank": "初窥门径",
+        "one_line": "御医的助手，经验不足，误将假死认作真死",
+        "personality": {
+          "traits": [
+            "经验不足",
+            "诚实",
+            "谨慎",
+            "勤快",
+            "年轻"
+          ],
+          "speech_style": "朴实直白",
+          "temperament": "青涩"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 75,
+            "line_end": 84,
+            "text": "他们是御医的助手。"
+          }
+        ]
+      },
+      {
+        "id": "char_meng_mian_ren",
+        "name": "神秘人",
+        "alias": [
+          "大头怪人",
+          "面具少女"
+        ],
+        "identity": "南宋临安卧底/混入王府的卫士",
+        "faction": null,
+        "role": "companion",
+        "archetype": "assassin",
+        "rank": "出神入化",
+        "one_line": "戴面具的南宋女卧底，武功极高，暗器手法登峰造极",
+        "personality": {
+          "traits": [
+            "机智灵活",
+            "武功高强",
+            "善用伪装",
+            "大胆果断",
+            "聪慧敏锐"
+          ],
+          "speech_style": "多变，可模仿方言，善于伪装身份",
+          "temperament": "神秘莫测"
+        },
+        "relationships": [
+          {
+            "target": "char_lu_shi_xiong",
+            "type": "合作者",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "初识，互有试探"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 190,
+            "line_end": 310,
+            "text": "只见这个人不过五尺高，却有十个斗大的头颅。"
+          }
+        ]
+      },
+      {
+        "id": "char_liu_yuan_zong",
+        "name": "柳元宗",
+        "alias": [],
+        "identity": "穴道铜人秘奥传人",
+        "faction": null,
+        "role": "npc",
+        "archetype": "healer",
+        "rank": "登峰造极",
+        "one_line": "对穴道铜人秘奥已懂得一半的医术高手，据说医术在德充符之上",
+        "personality": {
+          "traits": [
+            "医术绝顶",
+            "神秘莫测",
+            "深不可测",
+            "低调",
+            "博学"
+          ],
+          "speech_style": "未知",
+          "temperament": "神秘"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 104,
+            "line_end": 106,
+            "text": "因为柳元宗对穴道铜人的秘奥已懂得了一半。"
+          }
+        ]
+      },
+      {
+        "id": "char_de_chong_fu",
+        "name": "德充符",
+        "alias": [
+          "医隐"
+        ],
+        "identity": "医隐/鲁世雄的师父",
+        "faction": null,
+        "role": "npc",
+        "archetype": "healer",
+        "rank": "登峰造极",
+        "one_line": "鲁世雄的师父，号称医隐，医术天下闻名",
+        "personality": {
+          "traits": [
+            "医术绝顶",
+            "淡泊名利",
+            "隐居世外",
+            "博学",
+            "深沉"
+          ],
+          "speech_style": "未知",
+          "temperament": "隐逸"
+        },
+        "relationships": [
+          {
+            "target": "char_lu_shi_xiong",
+            "type": "师徒",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "师徒传承"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 97,
+            "line_end": 98,
+            "text": "真不愧是医隐德充符的弟子。"
+          }
+        ]
+      },
+      {
+        "id": "char_du_gu_fei_feng",
+        "name": "独孤飞凤",
+        "alias": [
+          "冲天凤",
+          "凤儿",
+          "飞凤格格"
+        ],
+        "identity": "完颜长之的干女儿/南宋烈士遗孤",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "完颜长之收养的干女儿，武功高强，绰号冲天凤，真实身份为南宋烈士独孤家将之女",
+        "personality": {
+          "traits": [
+            "武艺高强",
+            "性格倔强",
+            "冷漠高傲",
+            "心思缜密",
+            "独立果断",
+            "外刚内柔"
+          ],
+          "speech_style": "言辞犀利，爱理不理时居多",
+          "temperament": "冷傲刚烈"
+        },
+        "relationships": [
+          {
+            "target": "char_wan_yan_chang_zhi",
+            "type": "亲属",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "义父女，深受宠信"
+          },
+          {
+            "target": "char_lu_shi_xiong",
+            "type": "对手",
+            "intensity": 40,
+            "bond_level": 2,
+            "dynamic": "比武败北，心存芥蒂"
+          },
+          {
+            "target": "char_lu_shi_xiong",
+            "type": "合作者",
+            "intensity": 40,
+            "bond_level": 2,
+            "dynamic": "被迫嫁给他，执行义父监视任务"
+          },
+          {
+            "target": "char_wan_yan_ding_guo",
+            "type": "宿敌",
+            "intensity": 30,
+            "bond_level": 1,
+            "dynamic": "被其纠缠，心生厌恶"
+          }
+        ],
+        "known_skills": [
+          "skill_jian_fa"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          2,
+          3
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 14,
+            "line_end": 14,
+            "text": "这是小女，闺名飞凤。"
+          },
+          {
+            "chapter": 3,
+            "line_start": 160,
+            "line_end": 160,
+            "text": "在另一个房间里，独孤飞凤也正在为着这桩婚事，心中苦恼不安。"
+          }
+        ]
+      },
+      {
+        "id": "char_ban_jian_hou",
+        "name": "班建侯",
+        "alias": [],
+        "identity": "御林军副统领/研经院主持",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "完颜长之的副手，主持研经院日常事务，武功远在鲁世雄之上",
+        "personality": {
+          "traits": [
+            "和蔼可亲",
+            "武功高强",
+            "处事圆滑",
+            "经验丰富",
+            "善于管理"
+          ],
+          "speech_style": "温和有礼，偶带调侃",
+          "temperament": "老练稳重"
+        },
+        "relationships": [
+          {
+            "target": "char_wan_yan_chang_zhi",
+            "type": "合作者",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "上下级，深受信任"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 402,
+            "line_end": 406,
+            "text": "班建侯哈哈笑道：王爷很夸赞你。不必客气，不必客气。"
+          }
+        ]
+      },
+      {
+        "id": "char_lao_che_fu",
+        "name": "老车夫",
+        "alias": [],
+        "identity": "研经院专用马车夫/监视者",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "须眉皆白的老车夫，武功深不可测，负责接送和监视鲁世雄",
+        "personality": {
+          "traits": [
+            "深藏不露",
+            "武功极高",
+            "沉默寡言",
+            "尽职尽责",
+            "老谋深算"
+          ],
+          "speech_style": "懒洋洋，言语简短",
+          "temperament": "深沉莫测"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 298,
+            "line_end": 318,
+            "text": "车夫是个须眉皆白的老者，老态龙钟地倦倚着马车，正在打瞌睡。"
+          }
+        ]
+      },
+      {
+        "id": "char_gong_e_nian_zhang",
+        "name": "年长宫娥",
+        "alias": [],
+        "identity": "研经院更衣室宫娥",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "healer",
+        "rank": "平平无奇",
+        "one_line": "研经院更衣室中负责服侍鲁世雄更衣的年长宫娥",
+        "personality": {
+          "traits": [
+            "从容淡定",
+            "尽职尽责",
+            "见多识广",
+            "温和",
+            "专业"
+          ],
+          "speech_style": "温和有礼",
+          "temperament": "从容"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 372,
+            "line_end": 394,
+            "text": "年纪较长的那个官娥笑道：这是规矩，你初来不惯，久了就惯了。"
+          }
+        ]
+      },
+      {
+        "id": "char_gong_e_yi",
+        "name": "宫娥",
+        "alias": [],
+        "identity": "研经院鲁世雄住处宫娥",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "healer",
+        "rank": "平平无奇",
+        "one_line": "被分配服侍鲁世雄的宫娥，兼有监视职责",
+        "personality": {
+          "traits": [
+            "温顺",
+            "沉默",
+            "尽职",
+            "谨慎",
+            "年轻"
+          ],
+          "speech_style": "少言寡语",
+          "temperament": "温顺"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 488,
+            "line_end": 490,
+            "text": "班建侯道：从今日起，你们服待这位鲁大人。"
+          }
+        ]
+      },
+      {
+        "id": "char_wei_shi_yan_jing",
+        "name": "守门卫士",
+        "alias": [],
+        "identity": "研经院守门卫士",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "初窥门径",
+        "one_line": "研经院大门守卫，负责验看金牌放行",
+        "personality": {
+          "traits": [
+            "尽职",
+            "谨慎",
+            "严格",
+            "服从",
+            "警觉"
+          ],
+          "speech_style": "简洁直接",
+          "temperament": "严肃"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 350,
+            "line_end": 354,
+            "text": "守门的卫士道：是新来的吗？"
+          }
+        ]
+      },
+      {
+        "id": "char_wu_shi_dai_yin",
+        "name": "带路武士",
+        "alias": [],
+        "identity": "研经院内部引路武士",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "初窥门径",
+        "one_line": "研经院中负责引路的军官服饰武士",
+        "personality": {
+          "traits": [
+            "沉默",
+            "尽职",
+            "谨慎",
+            "服从",
+            "低调"
+          ],
+          "speech_style": "简洁",
+          "temperament": "沉稳"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 358,
+            "line_end": 358,
+            "text": "有一个穿着军官服饰的武士前来带引。"
+          }
+        ]
+      },
+      {
+        "id": "char_yuan_yuan_jian_ke",
+        "name": "院中剑客",
+        "alias": [],
+        "identity": "研经院研究者/棋痴老人",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "scholar",
+        "rank": "出神入化",
+        "one_line": "研经院中苦研指元篇第七篇五年的须眉皆白老人，常自弈棋发脾气",
+        "personality": {
+          "traits": [
+            "博学多才",
+            "脾气暴躁",
+            "痴迷棋道",
+            "苦思冥想",
+            "孤独"
+          ],
+          "speech_style": "少言，多以摔棋子表达情绪",
+          "temperament": "焦躁"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 444,
+            "line_end": 458,
+            "text": "有个须眉皆白的老头子坐在石阶上把一把把的围棋子打到对面的墙壁上。"
+          }
+        ]
+      },
+      {
+        "id": "char_an_qi_gao_shou",
+        "name": "暗器高手",
+        "alias": [],
+        "identity": "研经院研究者/暗器名家",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登峰造极",
+        "one_line": "研经院中以泥沙打落蜜蜂而不伤其性命的暗器高手",
+        "personality": {
+          "traits": [
+            "暗器绝顶",
+            "耐心细致",
+            "残忍中带仁",
+            "钻研成痴",
+            "孤独"
+          ],
+          "speech_style": "少言",
+          "temperament": "痴迷"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 428,
+            "line_end": 436,
+            "text": "有个汉子正在抓起一把泥沙，向树上撒去。"
+          }
+        ]
+      },
+      {
+        "id": "char_wan_yan_ding_guo",
+        "name": "完颜定国",
+        "alias": [
+          "小王爷"
+        ],
+        "identity": "完颜长之亲生儿子/小王爷",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "完颜长之的亲生儿子，暗恋独孤飞凤，心胸狭隘，在婚宴上以绿玉杖试探鲁世雄",
+        "personality": {
+          "traits": [
+            "心胸狭隘",
+            "痴情执拗",
+            "武功不精",
+            "妒忌心强",
+            "野心勃勃",
+            "色厉内荏"
+          ],
+          "speech_style": "时而傲慢时而恳求，情绪波动大",
+          "temperament": "浮躁易怒"
+        },
+        "relationships": [
+          {
+            "target": "char_wan_yan_chang_zhi",
+            "type": "亲属",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "父子，受父亲管教"
+          },
+          {
+            "target": "char_du_gu_fei_feng",
+            "type": "恋人",
+            "intensity": 80,
+            "bond_level": 3,
+            "dynamic": "单相思，被拒后仍不死心"
+          },
+          {
+            "target": "char_lu_shi_xiong",
+            "type": "宿敌",
+            "intensity": 60,
+            "bond_level": 2,
+            "dynamic": "情敌，妒恨交加"
+          }
+        ],
+        "known_skills": [
+          "skill_jing_shen_bi_fa"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          3
+        ],
+        "source_refs": [
+          {
+            "chapter": 3,
+            "line_start": 218,
+            "line_end": 226,
+            "text": "他的儿子完颜定国不待他的叫唤，先自来了。"
+          }
+        ]
+      },
+      {
+        "id": "char_guan_jia_hai_zi",
+        "name": "管家孩子",
+        "alias": [],
+        "identity": "王府管家的孩子",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "role": "npc",
+        "archetype": "scholar",
+        "rank": "平平无奇",
+        "one_line": "王府管家的孩子，拿着木刀木剑玩耍，被鲁世雄借走木剑",
+        "personality": {
+          "traits": [
+            "天真",
+            "贪玩",
+            "爱惜玩具",
+            "直率",
+            "稚嫩"
+          ],
+          "speech_style": "童言无忌",
+          "temperament": "活泼"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          3
+        ],
+        "source_refs": [
+          {
+            "chapter": 3,
+            "line_start": 440,
+            "line_end": 444,
+            "text": "小兄弟，借这把剑给我一用。"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_jian_fa",
+        "name": "剑法",
+        "type": "剑法",
+        "faction": "",
+        "rank": "出神入化",
+        "one_line": "鲁世雄的剑法，能以退为进，诱敌急攻后一剑制敌",
+        "rag_refs": [
+          1,
+          3
+        ],
+        "techniques": [
+          {
+            "id": "tech_bai_hong_guan_ri",
+            "name": "白虹贯日",
+            "type": "attack",
+            "description": "一剑直刺前心的凌厉剑招"
+          }
+        ],
+        "progression": [
+          {
+            "level": 4,
+            "unlock": "登堂入室"
+          }
+        ],
+        "effects": [
+          {
+            "type": "伤害",
+            "condition": "近战交锋",
+            "description": "以剑刺穿敌人要害"
+          }
+        ],
+        "combat_style": "以退为进，善用骄敌之计诱使对方急攻，再把握最佳时机反击",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 278,
+            "line_end": 292,
+            "text": "鲁世雄紧接着一招白虹贯日，刺他前心。"
+          }
+        ]
+      },
+      {
+        "id": "skill_zhi_fa",
+        "name": "指法",
+        "type": "指法",
+        "faction": "",
+        "rank": "出神入化",
+        "one_line": "鲁世雄的指法，能骈指一戳点穴",
+        "rag_refs": [
+          1
+        ],
+        "techniques": [
+          {
+            "id": "tech_pian_zhi_dian_xue",
+            "name": "骈指点穴",
+            "type": "attack",
+            "description": "以两指并拢点敌人太阳穴的指法"
+          }
+        ],
+        "progression": [
+          {
+            "level": 4,
+            "unlock": "登堂入室"
+          }
+        ],
+        "effects": [
+          {
+            "type": "控制",
+            "condition": "近身",
+            "description": "点敌人穴道使其无法动弹"
+          }
+        ],
+        "combat_style": "近身突然袭击，以指代剑点穴制敌",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 262,
+            "line_end": 264,
+            "text": "突然便是骈指一戳点他的太阳穴！"
+          }
+        ]
+      },
+      {
+        "id": "skill_jing_shen_bi_fa",
+        "name": "惊神笔法",
+        "type": "指法",
+        "faction": "faction_jin_guo_yu_lin_jun",
+        "rank": "出神入化",
+        "one_line": "完颜长之从穴道铜人图解上领悟的点穴功夫，以判官笔或绿玉杖施展",
+        "rag_refs": [
+          3
+        ],
+        "techniques": [
+          {
+            "id": "tech_huan_tiao_xue",
+            "name": "环跳穴点法",
+            "type": "attack",
+            "description": "以绿玉杖点敌人膝盖环跳穴的狠辣招式"
+          }
+        ],
+        "progression": [
+          {
+            "level": 4,
+            "unlock": "登堂入室"
+          }
+        ],
+        "effects": [
+          {
+            "type": "控制",
+            "condition": "近战",
+            "description": "点敌人穴道，轻则制敌，重则取命"
+          }
+        ],
+        "combat_style": "以判官笔或绿玉杖为兵器，点穴手法奇诡莫测，招招指向要害",
+        "source_refs": [
+          {
+            "chapter": 3,
+            "line_start": 490,
+            "line_end": 490,
+            "text": "完颜长之从穴道铜人图解上所领悟的功夫，创为惊神笔法。"
+          }
+        ]
+      }
+    ],
+    "techniques": [
+      {
+        "id": "tech_bai_hong_guan_ri",
+        "name": "白虹贯日",
+        "type": "attack",
+        "description": "一剑直刺前心的凌厉剑招，剑势如白虹贯日般凌厉",
+        "source_skill": "skill_jian_fa",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 278,
+            "line_end": 280,
+            "text": "鲁世雄紧接着一招白虹贯日，刺他前心。"
+          }
+        ]
+      },
+      {
+        "id": "tech_pian_zhi_dian_xue",
+        "name": "骈指点穴",
+        "type": "attack",
+        "description": "两指并拢点敌人太阳穴，可制敌穴道",
+        "source_skill": "skill_zhi_fa",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 262,
+            "line_end": 264,
+            "text": "突然便是骈指一戳点他的太阳穴！"
+          }
+        ]
+      },
+      {
+        "id": "tech_jiao_di_zhi_ji",
+        "name": "骄敌之计",
+        "type": "feint",
+        "description": "以退为进，故意示弱诱使对方急攻，再把握最佳时机反击",
+        "source_skill": "skill_jian_fa",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 290,
+            "line_end": 292,
+            "text": "原来鲁世雄是以退为进，用的骄敌之计诱使对方急攻。"
+          }
+        ]
+      },
+      {
+        "id": "tech_huan_tiao_xue",
+        "name": "环跳穴点法",
+        "type": "attack",
+        "description": "以绿玉杖力贯杖头，戳向敌人膝盖环跳穴的狠辣招式",
+        "source_skill": "skill_jing_shen_bi_fa",
+        "source_refs": [
+          {
+            "chapter": 3,
+            "line_start": 464,
+            "line_end": 464,
+            "text": "把全身气力都使了出来，力贯杖头，竹杖一沉，戳向鲁世雄膝盖的环跳穴。"
+          }
+        ]
+      }
+    ],
+    "factions": [
+      {
+        "id": "faction_jin_guo_yu_lin_jun",
+        "name": "金国御林军",
+        "type": "帮派",
+        "location": "loc_jin_guo_da_du",
+        "sub_divisions": [],
+        "one_line": "金国皇帝的直属卫队，由完颜长之统率",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 24,
+            "line_end": 26,
+            "text": "这是金国御林军统领完颜长之的府邸。"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_jin_guo_da_du",
+        "name": "大都",
+        "region": "金国",
+        "one_line": "金国都城，即今北京",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 200,
+            "line_end": 200,
+            "text": "大都口音。"
+          }
+        ]
+      },
+      {
+        "id": "loc_wan_yan_fu_di",
+        "name": "完颜长之府邸",
+        "region": "大都",
+        "one_line": "金国御林军统领完颜长之的府邸，防卫森严",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 24,
+            "line_end": 24,
+            "text": "这是金国御林军统领完颜长之的府邸。"
+          }
+        ]
+      },
+      {
+        "id": "loc_hei_lao",
+        "name": "黑牢",
+        "region": "完颜长之府邸",
+        "one_line": "府邸中的秘密石牢，四面石壁密不通风，以水晶柱照明",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 156,
+            "line_end": 160,
+            "text": "鲁世雄一踏进房间，只听得砰的一声，卫士队长已是从外面把门关上！"
+          }
+        ]
+      },
+      {
+        "id": "loc_yan_jing_yuan",
+        "name": "研经院",
+        "region": "大都/金宫",
+        "one_line": "金国宫中秘密机构，研究穴道铜人与指元篇，由完颜长之主持",
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 252,
+            "line_end": 252,
+            "text": "在宫中设了一个研经院。"
+          }
+        ]
+      },
+      {
+        "id": "loc_du_gu_fei_feng_yuan",
+        "name": "独孤飞凤闺名",
+        "region": "完颜长之府邸",
+        "one_line": "独孤飞凤在完颜府中的身份和地位",
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 30,
+            "line_end": 34,
+            "text": "完颜长之有一个复姓独孤的家将。"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_jian_dao",
+        "name": "尖刀",
+        "type": "weapon",
+        "owner": "char_lu_shi_xiong",
+        "one_line": "鲁世雄的特制手术尖刀，薄如蝉翼",
+        "description": "样式特别的尖刀，有三尺多长，却只有二指之阔，薄得好似透明一般，专用于外科手术",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "可作手术刀也可作兵器，锋利无比"
+          }
+        ],
+        "origin": "鲁世雄随身携带",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_lu_shi_xiong"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 56,
+            "line_end": 56,
+            "text": "这柄刀的样式很是特别。"
+          }
+        ]
+      },
+      {
+        "id": "item_yin_zhen",
+        "name": "银针",
+        "type": "special",
+        "owner": "char_lu_shi_xiong",
+        "one_line": "鲁世雄用于针灸的银针，能刺激穴道使假死之人苏醒",
+        "description": "细长的银针，鲁世雄用来针刺太阳穴等穴位，救治任脉发病导致小腹结块的病人",
+        "effects": [
+          {
+            "type": "特殊",
+            "value": "",
+            "description": "针刺穴位可使假死之人苏醒，治疗任脉疾病"
+          }
+        ],
+        "origin": "鲁世雄随身携带",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_lu_shi_xiong"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 90,
+            "line_end": 92,
+            "text": "说罢取出一支银针，向那病人的额角插入。"
+          }
+        ]
+      },
+      {
+        "id": "item_mian_ju",
+        "name": "面具",
+        "type": "special",
+        "owner": "char_meng_mian_ren",
+        "one_line": "神秘人佩戴的大头面具，伪装成五尺高大头怪人",
+        "description": "精巧的人皮面具，戴上后变成五尺高、头颅斗大的怪人形象，完全掩盖真实面貌，摘下后露出少女真容",
+        "effects": [
+          {
+            "type": "特殊",
+            "value": "",
+            "description": "完美伪装身份，使对方无法辨识真实面貌"
+          }
+        ],
+        "origin": "神秘人自制",
+        "rarity": "稀世珍品",
+        "related_characters": [
+          "char_meng_mian_ren"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 308,
+            "line_end": 310,
+            "text": "那大头汉子脸皮给他刺穿，忽地把脸皮剥下。"
+          }
+        ]
+      },
+      {
+        "id": "item_mei_hua_zhen",
+        "name": "梅花针",
+        "type": "hidden_weapon",
+        "owner": "char_meng_mian_ren",
+        "one_line": "神秘人发射的梅花针暗器，分量极轻却能击落长剑",
+        "description": "分量最轻的暗器，神秘人从石牢外的小孔射入，精准打落鲁世雄手中长剑，展现听风辨器之术已臻化境",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "精准打击兵器，从远处击落敌人手中武器"
+          }
+        ],
+        "origin": "神秘人所用",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_meng_mian_ren"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 296,
+            "line_end": 298,
+            "text": "这个人的暗器不过是一枚梅花针！"
+          }
+        ]
+      },
+      {
+        "id": "item_jin_pai_124",
+        "name": "金牌（124号）",
+        "type": "special",
+        "owner": "char_lu_shi_xiong",
+        "one_line": "鲁世雄在研经院的身份凭证金牌，刻有肖像和编号124",
+        "description": "金质令牌，上面刻有鲁世雄的肖像，肖像下方有1124的号码，是进入研经院的唯一凭证，牌在人牌亡人亡，被院中卫士视为保命符",
+        "effects": [
+          {
+            "type": "剧情",
+            "value": "",
+            "description": "进出研经院的身份凭证，丢失即有性命之危"
+          }
+        ],
+        "origin": "完颜长之发放",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_lu_shi_xiong",
+          "char_wan_yan_chang_zhi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 288,
+            "line_end": 288,
+            "text": "鲁世雄接过金牌一看，只见金脾上刻有自己的肖像，肖像下面有一一二四这个号码。"
+          }
+        ]
+      },
+      {
+        "id": "item_xue_dao_tong_ren",
+        "name": "穴道铜人",
+        "type": "special",
+        "owner": null,
+        "one_line": "中国国宝，北宋大内珍藏，全身刻有最详细的穴道部位和经络",
+        "description": "铜人身上刻有最详细的穴道部位，经络分明，是武学医学研究的至高宝物，任何武学典籍与医书都没有它详细精微，武林宗师和杏林国手梦寐以求的宝贝",
+        "effects": [
+          {
+            "type": "特殊",
+            "value": "",
+            "description": "研究穴道经脉的核心参照物，对武学和医术均有极大价值"
+          }
+        ],
+        "origin": "北宋大内",
+        "rarity": "绝世神兵",
+        "related_characters": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 152,
+            "line_end": 152,
+            "text": "这铜人身上刻有最详细的穴道部位，经络分明。"
+          }
+        ]
+      },
+      {
+        "id": "item_zhi_yuan_pian",
+        "name": "指元篇",
+        "type": "special",
+        "owner": null,
+        "one_line": "陈搏所著内功心法秘笈，附于拳经之内，为宋宫第二件宝物",
+        "description": "华山隐士陈搏将毕生内功心法写成指元篇附在拳经之内传给赵匡胤，是上乘武学的至高心法，与穴道铜人并列为宋宫两大宝物",
+        "effects": [
+          {
+            "type": "增益",
+            "value": "",
+            "description": "修炼可极大提升内功造诣，但内容极为深奥"
+          }
+        ],
+        "origin": "陈搏传赵匡胤",
+        "rarity": "绝世神兵",
+        "related_characters": [],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 228,
+            "line_end": 230,
+            "text": "陈搏将他的内功心法写成了一篇指元篇附在拳经之内，都传给了赵匡胤。"
+          }
+        ]
+      },
+      {
+        "id": "item_bu_dai",
+        "name": "蒙头布袋",
+        "type": "special",
+        "owner": "char_lao_che_fu",
+        "one_line": "老车夫用来蒙住鲁世雄头部的布袋，研经院规矩要求蒙眼前往",
+        "description": "专用于蒙住去研经院之人头部的布袋，在咽喉部分收束，可呼吸但略有难受，是防止来人记住路线的规矩措施",
+        "effects": [
+          {
+            "type": "特殊",
+            "value": "",
+            "description": "蒙蔽视觉，防止研经院路线被泄露"
+          }
+        ],
+        "origin": "研经院配备",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_lao_che_fu",
+          "char_lu_shi_xiong"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          2
+        ],
+        "source_refs": [
+          {
+            "chapter": 2,
+            "line_start": 308,
+            "line_end": 320,
+            "text": "那老车夫以快得难以形容的手法，把一个布袋突然向他当头罩下。"
+          }
+        ]
+      },
+      {
+        "id": "item_lv_yu_zhang",
+        "name": "绿玉杖",
+        "type": "weapon",
+        "owner": "char_wan_yan_ding_guo",
+        "one_line": "完颜长之家传宝物，以大吉岭百年绿玉竹制成，坚逾钢铁",
+        "description": "中印交界大吉岭的百年绿玉竹所制，坚逾钢铁可御刀剑，是完颜长之的家传点穴兵器，在完颜定国十八岁时传给他，用来施展惊神笔法更是奇诡莫测",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "坚逾钢铁，可御刀剑，配合点穴功夫使用威力极大"
+          }
+        ],
+        "origin": "天竺僧人赠送完颜长之",
+        "rarity": "绝世神兵",
+        "related_characters": [
+          "char_wan_yan_chang_zhi",
+          "char_wan_yan_ding_guo"
+        ],
+        "related_skills": [
+          "skill_jing_shen_bi_fa"
+        ],
+        "rag_refs": [
+          3
+        ],
+        "source_refs": [
+          {
+            "chapter": 3,
+            "line_start": 420,
+            "line_end": 427,
+            "text": "这根碧绿色的竹杖乃是完颜长之的家传宝物。在中印交界的大吉岭中，有一种绿玉竹，坚逾钢铁，可御刀剑。"
+          }
+        ]
+      },
+      {
+        "id": "item_mu_jian",
+        "name": "木剑",
+        "type": "weapon",
+        "owner": "char_lu_shi_xiong",
+        "one_line": "鲁世雄在婚宴上向管家孩子借来的木剑，用于与完颜定国比武",
+        "description": "王府管家孩子玩耍用的木刀木剑之一，鲁世雄临时借来与完颜定国的绿玉杖比武，最后沾上污泥在完颜定国胸口点了三个泥点",
+        "effects": [
+          {
+            "type": "攻击",
+            "value": "",
+            "description": "普通木剑，在鲁世雄内力灌注下可伤人"
+          }
+        ],
+        "origin": "王府管家孩子",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_lu_shi_xiong",
+          "char_guan_jia_hai_zi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          3
+        ],
+        "source_refs": [
+          {
+            "chapter": 3,
+            "line_start": 436,
+            "line_end": 444,
+            "text": "鲁世雄笑道：小兄弟，借这把剑给我一用。"
+          }
+        ]
+      }
+    ]
+  }
+}
