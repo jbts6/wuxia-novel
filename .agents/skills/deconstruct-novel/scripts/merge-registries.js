@@ -200,10 +200,13 @@ function mergeEntity(main, batch, type) {
 }
 
 // 读取并合并每个批次的 registry
+let mergedCount = 0;
+let skippedCount = 0;
 for (const batch of batchConfig.batches) {
   const batchRegistryPath = path.join(novelDir, batch.registry副本);
   if (!fs.existsSync(batchRegistryPath)) {
     console.log(`[跳过] 批次 ${batch.batch}: ${batch.registry副本} 不存在`);
+    skippedCount++;
     continue;
   }
 
@@ -215,6 +218,7 @@ for (const batch of batchConfig.batches) {
       mergeEntityType(mainRegistry[type], batchRegistry[type], type);
     }
   }
+  mergedCount++;
 }
 
 // 写入主 registry
@@ -222,6 +226,7 @@ fs.writeFileSync(mainRegistryPath, JSON.stringify(mainRegistry, null, 2), 'utf-8
 
 // 输出统计
 console.log('\n[完成] 注册表合并完成！');
+console.log(`[进度] 已合并 ${mergedCount}/${batchConfig.totalBatches} 个批次 (跳过 ${skippedCount} 个)`);
 console.log('最终统计:');
 for (const [type, data] of Object.entries(mainRegistry)) {
   console.log(`  ${type}: ${data.length} 个实体`);

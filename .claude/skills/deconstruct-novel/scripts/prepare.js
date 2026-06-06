@@ -87,7 +87,18 @@ batches.forEach(b => {
   console.log(`  批次 ${b.batch}: ${b.chapters.join(', ')}`);
 });
 
+// 检测已有提取结果（用于恢复场景）
+const existingChapterJsons = fs.readdirSync(batchJsonDir)
+  .filter(f => f.startsWith('ch_') && f.endsWith('.json'));
+if (existingChapterJsons.length > 0) {
+  console.log(`\n[检测] 已有 ${existingChapterJsons.length} 个章节的提取结果，如需恢复中断的任务请运行:`);
+  console.log(`  node .agents/skills/deconstruct-novel/scripts/resume.js ${novelDir}`);
+} else {
+  console.log(`\n[检测] 未检测到已有提取结果`);
+}
+
 console.log('\n[完成] 准备工作完成！');
 console.log(`下一步:`);
-console.log(`  1. 为每个批次启动 Sub Agent（批间可并行）`);
-console.log(`  2. 每批完成后运行 merge-registries.js 合并注册表`);
+console.log(`  1. 如果之前有部分完成，先运行 resume.js 检测恢复点`);
+console.log(`  2. 为每个批次启动 Sub Agent（批间可并行）`);
+console.log(`  3. 每批完成后运行 merge-registries.js 合并注册表`);
