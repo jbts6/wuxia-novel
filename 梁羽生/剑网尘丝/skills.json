@@ -1,0 +1,264 @@
+[
+  {
+    "id": "skill_lian_huan_duo_ming_jian",
+    "name": "连环夺命剑法",
+    "type": "剑法",
+    "faction": "faction_wu_dang",
+    "rank": "登峰造极",
+    "one_line": "武当派镇山剑法，变化复杂，武当五老才能运用自如",
+    "rag_refs": [
+      9
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以指代剑，快捷无伦",
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 1565,
+        "line_end": 1565,
+        "text": "连环夺命剑乃是武当派的镇山剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_jing_shen_bi",
+    "name": "惊神笔法",
+    "type": "指法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "以判官笔点奇经八脉的独门武功，楚天舒和姜雪君的师门绝学",
+    "rag_refs": [
+      1,
+      4,
+      5,
+      6
+    ],
+    "techniques": [
+      {
+        "id": "tech_si_yi_bin_fu",
+        "name": "四夷宾服",
+        "type": "attack",
+        "description": "专刺奇经八脉的笔法，看似平平无奇，变化诡谲莫测，一招同时有四个落点"
+      },
+      {
+        "id": "tech_san_zhuan_fa_lun",
+        "name": "三转法轮",
+        "type": "defense",
+        "description": "以双指勾划三个圈圈化解攻击的招式"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 3,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 5,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "点中穴道",
+        "description": "以笔尖点刺奇经八脉穴道，可制敌或伤人"
+      }
+    ],
+    "combat_style": "以点穴为主，轻灵快捷，变化多端",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 52,
+        "line_end": 53,
+        "text": "一对判官笔擅点奇经八脉"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_shuai_bei_shou",
+    "name": "大摔碑手",
+    "type": "掌法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "徐中岳最厉害的掌法，以刚猛著称，后练成刚柔相济",
+    "rag_refs": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "techniques": [],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "纯刚掌力"
+      },
+      {
+        "level": 5,
+        "unlock": "刚柔相济，收发随心"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "掌力攻击",
+        "description": "刚猛掌力，可碎石裂碑"
+      }
+    ],
+    "combat_style": "以刚猛著称，后练成刚柔相济",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1652,
+        "line_end": 1652,
+        "text": "尤以大摔碑手掌力最为厉害"
+      },
+      {
+        "chapter": 4,
+        "line_start": 62,
+        "line_end": 63,
+        "text": "这一招名为开山劈石，是他最得意的大摔碑手功夫。"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_yun_fei_xiu",
+    "name": "流云飞袖",
+    "type": "指法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "齐燕然自创的独门武功，以袖代掌，柔中寓刚，有流水行云之妙",
+    "rag_refs": [
+      1,
+      4,
+      5,
+      6
+    ],
+    "techniques": [],
+    "progression": [
+      {
+        "level": 3,
+        "unlock": "以袖代掌"
+      },
+      {
+        "level": 5,
+        "unlock": "袖中拂穴"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "袖拂攻击",
+        "description": "以衣袖拂穴，内力凝于一点"
+      }
+    ],
+    "combat_style": "以袖代掌，轻灵翔动",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1213,
+        "line_end": 1213,
+        "text": "流云飞袖，足可与少林、雪山两派的铁袖功夫鼎足而立"
+      },
+      {
+        "chapter": 4,
+        "line_start": 110,
+        "line_end": 110,
+        "text": "好一招流云飞袖！"
+      }
+    ]
+  },
+  {
+    "id": "skill_mian_zhang",
+    "name": "绵掌",
+    "type": "掌法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "刚柔并济的上乘内功掌法，姜雪君之母亦擅此功",
+    "rag_refs": [
+      4
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中",
+        "description": "兼具绵掌之柔与大摔碑手之长的刚柔并济掌力"
+      }
+    ],
+    "combat_style": "刚柔并济",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 1305,
+        "line_end": 1305,
+        "text": "这种掌力兼具绵掌和大摔碑手之长，乃是一种刚柔并济的上乘内功"
+      }
+    ]
+  },
+  {
+    "id": "skill_ge_kong_dian_xue",
+    "name": "隔空点穴",
+    "type": "指法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "远距离点穴功夫，三丈外反手一指封穴",
+    "rag_refs": [
+      4
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "指力命中",
+        "description": "隔空封闭穴道，令人失觉或动弹不得"
+      }
+    ],
+    "combat_style": "远程精确打击",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 1137,
+        "line_end": 1142,
+        "text": "他是在距离三丈之外，被剪大先生反手一指，就封闭了他的穴道的。"
+      }
+    ]
+  },
+  {
+    "id": "skill_su_gu_zhen",
+    "name": "酥骨针",
+    "type": "暗器",
+    "faction": "",
+    "rank": "上乘佳品",
+    "one_line": "赵红眉独门喂毒暗器，令人筋酥骨软",
+    "rag_refs": [
+      5
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "减益",
+        "condition": "针刺入体",
+        "description": "令人筋酥骨软，需十二时辰方能自行恢复"
+      }
+    ],
+    "combat_style": "暗器",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 1901,
+        "line_end": 1901,
+        "text": "她中了我的酥骨针，最少也得昏迷十二个时辰"
+      }
+    ]
+  }
+]

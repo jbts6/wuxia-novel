@@ -1,0 +1,3205 @@
+{
+  "characters": [
+    {
+      "id": "char_chu_tian_shu",
+      "name": "楚天舒",
+      "alias": [
+        "铁笔书生"
+      ],
+      "identity": "扬州武林世家弟子",
+      "faction": null,
+      "role": "protagonist",
+      "archetype": "scholar",
+      "rank": "出神入化",
+      "one_line": "铁笔书生，一对判官笔擅点奇经八脉，表面玩世不恭实则心思缜密，来洛阳查访师叔姜远庸的下落",
+      "personality": {
+        "traits": [
+          "玩世不恭",
+          "心思缜密",
+          "机智幽默",
+          "重情重义",
+          "善于观察"
+        ],
+        "speech_style": "喜欢调侃嘲讽，话中带刺",
+        "temperament": "外表散漫内里精明"
+      },
+      "relationships": [
+        {
+          "target": "char_bao_ling_hui",
+          "type": "挚友",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "两代交情"
+        },
+        {
+          "target": "char_bao_chong_yi",
+          "type": "挚友",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "忘年之交"
+        },
+        {
+          "target": "char_you_yang",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "平辈论交的好友"
+        },
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "师徒",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "确认为同门师兄妹"
+        },
+        {
+          "target": "char_jiang_yuan_yong",
+          "type": "师徒",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "确认姜远庸为师叔"
+        }
+      ],
+      "known_skills": [
+        "skill_jing_shen_bi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 50,
+          "line_end": 54,
+          "text": "这个秀才模样的人是从扬州来的客人，名叫楚天舒，外号'铁笔书生'，一对判官笔擅点奇经八脉"
+        },
+        {
+          "chapter": 3,
+          "line_start": 1270,
+          "line_end": 1270,
+          "text": "假如我猜得不错，你、你应该是我的师妹！"
+        },
+        {
+          "chapter": 4,
+          "line_start": 4,
+          "line_end": 26,
+          "text": "楚天舒知道剪大先生的内功造诣非同小可..."
+        },
+        {
+          "chapter": 5,
+          "line_start": 22,
+          "line_end": 25,
+          "text": "我本将心照明月..."
+        }
+      ]
+    },
+    {
+      "id": "char_shen_gong_da",
+      "name": "申公达",
+      "alias": [
+        "顺风耳"
+      ],
+      "identity": "江湖包打听",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "江湖上有名的包打听，交游广阔最爱理人闲事，消息灵通但常捕风捉影",
+      "personality": {
+        "traits": [
+          "爱传闲话",
+          "虚荣好面子",
+          "交游广阔",
+          "胆小怕事",
+          "容易上当"
+        ],
+        "speech_style": "口沫横飞，爱吹嘘炫耀",
+        "temperament": "热络但浅薄"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 58,
+          "line_end": 59,
+          "text": "这个客人名叫申公达，交游广阔，最喜理人闲事，是江湖上出名的'包打听'"
+        }
+      ]
+    },
+    {
+      "id": "char_xu_zhong_yue",
+      "name": "徐中岳",
+      "alias": [
+        "中州大侠"
+      ],
+      "identity": "北五省武林领袖",
+      "faction": null,
+      "role": "villain",
+      "archetype": "scholar",
+      "rank": "炉火纯青",
+      "one_line": "号称中州大侠的洛阳首富，比武中被卫天元重伤，暗器、剑法、掌力均不敌",
+      "personality": {
+        "traits": [
+          "虚伪",
+          "爱面子",
+          "善于伪装",
+          "暗藏野心",
+          "贪恋权势"
+        ],
+        "speech_style": "冠冕堂皇，正气凛然的表象下暗藏心机",
+        "temperament": "外表大侠实则伪善"
+      },
+      "relationships": [
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "恋人",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "续弦迎娶"
+        },
+        {
+          "target": "char_wei_tian_yuan",
+          "type": "宿敌",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "被卫天元重伤，颜面尽失"
+        }
+      ],
+      "known_skills": [
+        "skill_tou_gu_ding",
+        "skill_nie_yun_jian",
+        "skill_da_shuai_bei_shou"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 22,
+          "line_end": 23,
+          "text": "他是北五省的武林领袖，人称'中州大侠'，拥有良田千顷，万贯家财"
+        },
+        {
+          "chapter": 2,
+          "line_start": 665,
+          "line_end": 665,
+          "text": "徐中岳跌了个四脚朝天，口中狂喷鲜血"
+        },
+        {
+          "chapter": 5,
+          "line_start": 1887,
+          "line_end": 1888,
+          "text": "我之所以娶她，那是因为要利用她！"
+        }
+      ]
+    },
+    {
+      "id": "char_jiang_xue_jun",
+      "name": "姜雪君",
+      "alias": [
+        "洛阳第一美人"
+      ],
+      "identity": "姜远庸之女",
+      "faction": null,
+      "role": "protagonist",
+      "archetype": "healer",
+      "rank": "登堂入室",
+      "one_line": "身怀惊神笔法和内力反震奇经八脉的上乘武功，关键时刻代表丈夫出战",
+      "personality": {
+        "traits": [
+          "外柔内刚",
+          "冷艳",
+          "重情义",
+          "沉着冷静",
+          "内心矛盾"
+        ],
+        "speech_style": "言辞简洁有力，冷淡中带坚定",
+        "temperament": "冷艳如冰"
+      },
+      "relationships": [
+        {
+          "target": "char_wei_tian_yuan",
+          "type": "恋人",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "对他有情意但被迫嫁给徐中岳"
+        },
+        {
+          "target": "char_xu_zhong_yue",
+          "type": "对手",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "被迫婚约"
+        },
+        {
+          "target": "char_qi_shu_yu",
+          "type": "对手",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "相互敌视"
+        },
+        {
+          "target": "char_chu_tian_shu",
+          "type": "师徒",
+          "intensity": 65,
+          "bond_level": 3,
+          "dynamic": "确认为同门师兄妹"
+        },
+        {
+          "target": "char_jiang_yuan_yong",
+          "type": "亲属",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "父女"
+        }
+      ],
+      "known_skills": [
+        "skill_jing_shen_bi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1130,
+          "line_end": 1131,
+          "text": "新娘子姓姜名雪君，芳名雪君，名副其实，艳如桃李，凛若冰霜"
+        },
+        {
+          "chapter": 2,
+          "line_start": 822,
+          "line_end": 823,
+          "text": "新娘子姜雪君扯下蒙面的红罗帖，反身一跃，身法美妙之极"
+        },
+        {
+          "chapter": 3,
+          "line_start": 1280,
+          "line_end": 1280,
+          "text": "楚大侠是我未见过面的师伯。如此说来，你果然是我的同门师兄了。"
+        },
+        {
+          "chapter": 4,
+          "line_start": 28,
+          "line_end": 32,
+          "text": "但姜雪君却好像不懂他的用意..."
+        }
+      ]
+    },
+    {
+      "id": "char_wei_tian_yuan",
+      "name": "卫天元",
+      "alias": [
+        "飞天神龙"
+      ],
+      "identity": "齐燕然徒弟之子，齐燕然养孙",
+      "faction": null,
+      "role": "protagonist",
+      "archetype": "assassin",
+      "rank": "登峰造极",
+      "one_line": "飞天神龙，年约二十四五岁的英俊少年，武功深不可测，身怀沾衣十八跌、弹指神通等绝技，来徐家寻仇",
+      "personality": {
+        "traits": [
+          "深情",
+          "倔强",
+          "重义",
+          "外冷内热",
+          "恩怨分明"
+        ],
+        "speech_style": "言辞犀利，时而冷酷时而深情",
+        "temperament": "外表冷峻内心炽热"
+      },
+      "relationships": [
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "恋人",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "面对旧爱无法下手，自刺一剑"
+        },
+        {
+          "target": "char_qi_shu_yu",
+          "type": "兄妹",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "齐漱玉不顾一切救他离开"
+        },
+        {
+          "target": "char_xu_zhong_yue",
+          "type": "宿敌",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "确认徐中岳制造假不在场证明，高度怀疑其为仇人之一"
+        }
+      ],
+      "known_skills": [
+        "skill_zhan_yi_shi_ba_die",
+        "skill_tan_zhi_shen_tong"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1434,
+          "line_end": 1436,
+          "text": "他是一个相貌颇为俊秀的少年，额角虽然有一道三寸多长的刀疤"
+        },
+        {
+          "chapter": 2,
+          "line_start": 904,
+          "line_end": 904,
+          "text": "他的宝剑高高举起，倏地落下。并不是向前刺出，而是插进自己的胸膛"
+        },
+        {
+          "chapter": 3,
+          "line_start": 912,
+          "line_end": 912,
+          "text": "徐中岳是最善于作伪的人，连爷爷那样精明，也受他的骗了"
+        },
+        {
+          "chapter": 4,
+          "line_start": 100,
+          "line_end": 102,
+          "text": "那人说道：不错，是我！"
+        },
+        {
+          "chapter": 6,
+          "line_start": 362,
+          "line_end": 375,
+          "text": "卫天元报仇不成..."
+        }
+      ]
+    },
+    {
+      "id": "char_bao_ling_hui",
+      "name": "鲍令晖",
+      "alias": [],
+      "identity": "鲍崇义之子",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "鲍崇义之子，与楚天舒为两代交情，暗恋姜雪君，与郭元宰为好友",
+      "personality": {
+        "traits": [
+          "热血",
+          "直率",
+          "重友情",
+          "痴情",
+          "冲动"
+        ],
+        "speech_style": "直言不讳，情绪化",
+        "temperament": "热情耿直"
+      },
+      "relationships": [
+        {
+          "target": "char_guo_yuan_zai",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "十分要好的朋友"
+        },
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "恋人",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "暗恋姜雪君"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 394,
+          "line_end": 394,
+          "text": "洛阳城内另一家武学世家鲍崇义的儿子鲍令晖"
+        },
+        {
+          "chapter": 3,
+          "line_start": 294,
+          "line_end": 294,
+          "text": "鲍令晖陪同楚天舒出城"
+        },
+        {
+          "chapter": 4,
+          "line_start": 226,
+          "line_end": 249,
+          "text": "鲍令晖逃出洞房..."
+        }
+      ]
+    },
+    {
+      "id": "char_guo_yuan_zai",
+      "name": "郭元宰",
+      "alias": [],
+      "identity": "徐中岳最得意的弟子",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "徐中岳最得意的弟子，暗恋姜雪君，与鲍令晖为好友",
+      "personality": {
+        "traits": [
+          "忠诚",
+          "隐忍",
+          "理性",
+          "重师恩",
+          "矛盾"
+        ],
+        "speech_style": "温和理性，偶尔苦涩",
+        "temperament": "沉稳内敛"
+      },
+      "relationships": [
+        {
+          "target": "char_xu_zhong_yue",
+          "type": "师徒",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "师恩深重"
+        },
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "恋人",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "暗恋师母"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        4,
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 394,
+          "line_end": 394,
+          "text": "一个是徐中岳的徒弟郭元宰"
+        },
+        {
+          "chapter": 4,
+          "line_start": 261,
+          "line_end": 276,
+          "text": "邓一舟颤声道..."
+        }
+      ]
+    },
+    {
+      "id": "char_you_yang",
+      "name": "游扬",
+      "alias": [],
+      "identity": "崆峒派掌门一瓢道人大弟子",
+      "faction": "faction_kong_tong",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "崆峒派大弟子，成名多年被尊称大侠，为人圆通善于处世，与楚天舒是平辈论交的好友",
+      "personality": {
+        "traits": [
+          "老练",
+          "圆通",
+          "重信义",
+          "稳重",
+          "善处世"
+        ],
+        "speech_style": "客气得体，偶尔含混",
+        "temperament": "圆融世故"
+      },
+      "relationships": [
+        {
+          "target": "char_chu_tian_shu",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "平辈论交的好友"
+        }
+      ],
+      "known_skills": [
+        "skill_qi_shi_er_shou_lian_huan_duo_ming_jian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 856,
+          "line_end": 857,
+          "text": "崆峒派的弟子凌玉燕。他们和游扬一样，都是代表师门来作徐家的贺客的"
+        },
+        {
+          "chapter": 2,
+          "line_start": 946,
+          "line_end": 946,
+          "text": "游扬吸了口气，胸口兀自隐隐感到有点疼痛"
+        }
+      ]
+    },
+    {
+      "id": "char_ling_yu_yan",
+      "name": "凌玉燕",
+      "alias": [],
+      "identity": "青城派女弟子",
+      "faction": "faction_qing_cheng",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "青城派女弟子，性格活泼爱管闲事，与孟仲强互有情意",
+      "personality": {
+        "traits": [
+          "活泼",
+          "爱管闲事",
+          "同情心强",
+          "倔强",
+          "冲动"
+        ],
+        "speech_style": "心直口快，爱打抱不平",
+        "temperament": "热情冲动"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 856,
+          "line_end": 856,
+          "text": "青城派的女弟子凌玉燕"
+        }
+      ]
+    },
+    {
+      "id": "char_meng_zhong_qiang",
+      "name": "孟仲强",
+      "alias": [],
+      "identity": "昆仑派弟子",
+      "faction": "faction_kun_lun",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "昆仑派弟子，与凌玉燕互有情意，擅长混元一环功",
+      "personality": {
+        "traits": [
+          "温和",
+          "理性",
+          "武功扎实",
+          "爱护凌玉燕",
+          "低调"
+        ],
+        "speech_style": "温和理性",
+        "temperament": "沉稳温和"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_hun_yuan_yi_huan_gong"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 856,
+          "line_end": 856,
+          "text": "昆仑派的弟子孟仲强"
+        }
+      ]
+    },
+    {
+      "id": "char_jian_da_xian_sheng",
+      "name": "剪大先生",
+      "alias": [
+        "剪千崖"
+      ],
+      "identity": "武林名宿，嵩阳派",
+      "faction": "faction_song_yang",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "武林德高望重的名宿，阴阳五行掌高手，嵩山比武公证人之一，为人公正但偶有偏袒",
+      "personality": {
+        "traits": [
+          "德高望重",
+          "公正",
+          "老练",
+          "有时偏袒",
+          "谨慎"
+        ],
+        "speech_style": "言辞谨慎，公正中带人情",
+        "temperament": "老成持重"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_yin_yang_wu_xing_zhang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1470,
+          "line_end": 1474,
+          "text": "剪家是有数的武学世家之一，剪大先生名千崖"
+        },
+        {
+          "chapter": 2,
+          "line_start": 996,
+          "line_end": 999,
+          "text": "剪大先生宣布的结果是：双方互为攻守，一共比试了三项武功"
+        },
+        {
+          "chapter": 4,
+          "line_start": 4,
+          "line_end": 18,
+          "text": "剪大先生沉声喝道...果然有两下子！"
+        },
+        {
+          "chapter": 5,
+          "line_start": 1094,
+          "line_end": 1102,
+          "text": "我并不是飞天神龙指控的那个凶手..."
+        },
+        {
+          "chapter": 6,
+          "line_start": 1094,
+          "line_end": 1102,
+          "text": "我并不是飞天神龙指控的那个凶手"
+        }
+      ]
+    },
+    {
+      "id": "char_yin_xin_mo",
+      "name": "印新磨",
+      "alias": [],
+      "identity": "少林派俗家弟子",
+      "faction": "faction_shao_lin",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "少林派俗家弟子，火气大，偏袒徐中岳，随身携带小还丹",
+      "personality": {
+        "traits": [
+          "火气大",
+          "鲁莽",
+          "偏袒",
+          "自以为是",
+          "虚伪"
+        ],
+        "speech_style": "粗鲁直接",
+        "temperament": "暴躁冲动"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        4,
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1517,
+          "line_end": 1517,
+          "text": "一个是少林派的俗家弟子印新磨"
+        },
+        {
+          "chapter": 4,
+          "line_start": 210,
+          "line_end": 210,
+          "text": "印新磨、叶忍堂和梅清风"
+        }
+      ]
+    },
+    {
+      "id": "char_mei_qing_feng",
+      "name": "梅清风",
+      "alias": [],
+      "identity": "梅花拳掌门",
+      "faction": "faction_mei_hua_quan",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "梅花拳掌门，外圆内方，说话不卑不亢，徐中岳的好友",
+      "personality": {
+        "traits": [
+          "外圆内方",
+          "有原则",
+          "不卑不亢",
+          "重义气",
+          "稳重"
+        ],
+        "speech_style": "温和但有分量",
+        "temperament": "温和坚定"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        4,
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1517,
+          "line_end": 1517,
+          "text": "一个是梅花拳的掌门人梅清风"
+        },
+        {
+          "chapter": 4,
+          "line_start": 210,
+          "line_end": 210,
+          "text": "印新磨、叶忍堂和梅清风"
+        }
+      ]
+    },
+    {
+      "id": "char_ye_ren_tang",
+      "name": "叶忍堂",
+      "alias": [],
+      "identity": "武当派四大弟子之一",
+      "faction": "faction_wu_dang",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "武当派四大弟子之一，沉得住气，擅长连环夺命剑法和柔云剑法",
+      "personality": {
+        "traits": [
+          "沉着",
+          "能忍",
+          "理性",
+          "偏袒徐中岳",
+          "自持身份"
+        ],
+        "speech_style": "言辞得体，较为克制",
+        "temperament": "沉稳自持"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_lian_huan_duo_ming_jian",
+        "skill_rou_yun_jian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1517,
+          "line_end": 1517,
+          "text": "武当派四大弟子之一的叶忍堂"
+        },
+        {
+          "chapter": 4,
+          "line_start": 210,
+          "line_end": 210,
+          "text": "印新磨、叶忍堂和梅清风"
+        }
+      ]
+    },
+    {
+      "id": "char_xu_jin_yao",
+      "name": "徐锦瑶",
+      "alias": [],
+      "identity": "徐中岳独生爱女",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "初窥门径",
+      "one_line": "徐中岳与前妻所生之女，年方十六，脾气大但心地不坏，不满父亲续弦",
+      "personality": {
+        "traits": [
+          "任性",
+          "脾气大",
+          "心地不坏",
+          "直率",
+          "爱憎分明"
+        ],
+        "speech_style": "尖锐直接，爱哭闹",
+        "temperament": "任性泼辣"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1302,
+          "line_end": 1302,
+          "text": "说话的是他的女儿，年方十六的独生爱女徐锦瑶"
+        }
+      ]
+    },
+    {
+      "id": "char_qi_shu_yu",
+      "name": "齐漱玉",
+      "alias": [],
+      "identity": "齐燕然孙女",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "黑衣少女，齐燕然的孙女，会流云飞袖功夫，暗恋师兄卫天元",
+      "personality": {
+        "traits": [
+          "痴情",
+          "武功高强",
+          "性格刚烈",
+          "重情",
+          "有主见"
+        ],
+        "speech_style": "言辞犀利，时而温柔时而冷酷",
+        "temperament": "外表刚烈内心柔情"
+      },
+      "relationships": [
+        {
+          "target": "char_wei_tian_yuan",
+          "type": "恋人",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "自幼一起长大，暗恋师兄"
+        },
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "对手",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "情敌，相互敌视"
+        },
+        {
+          "target": "char_qi_yan_ran",
+          "type": "亲属",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "祖孙"
+        }
+      ],
+      "known_skills": [
+        "skill_liu_yun_fei_xiu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1069,
+          "line_end": 1069,
+          "text": "骑在马背上的是个黑衣人...一骑快马如飞而来"
+        },
+        {
+          "chapter": 2,
+          "line_start": 914,
+          "line_end": 914,
+          "text": "那人穿窗而进，来得快如闪电。这少女已到了卫天元身旁"
+        },
+        {
+          "chapter": 3,
+          "line_start": 428,
+          "line_end": 428,
+          "text": "那黑衣少女名叫齐漱玉，正是齐燕然的孙女"
+        },
+        {
+          "chapter": 5,
+          "line_start": 4,
+          "line_end": 8,
+          "text": "齐漱玉从那座山上走下来..."
+        }
+      ]
+    },
+    {
+      "id": "char_bao_chong_yi",
+      "name": "鲍崇义",
+      "alias": [],
+      "identity": "洛阳武学世家当家",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "洛阳武学世家当家，家道中落，与齐燕然相识，崖岸自高不与徐中岳来往",
+      "personality": {
+        "traits": [
+          "崖岸自高",
+          "老于世故",
+          "重义气",
+          "耿直",
+          "经验老到"
+        ],
+        "speech_style": "豪爽直率",
+        "temperament": "老成耿介"
+      },
+      "relationships": [
+        {
+          "target": "char_chu_tian_shu",
+          "type": "挚友",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "忘年之交"
+        },
+        {
+          "target": "char_xu_zhong_yue",
+          "type": "对手",
+          "intensity": 30,
+          "bond_level": 1,
+          "dynamic": "崖岸自高，不与徐中岳来往"
+        },
+        {
+          "target": "char_you_yang",
+          "type": "合作者",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "游扬前来打听齐燕然消息"
+        },
+        {
+          "target": "char_qi_yan_ran",
+          "type": "挚友",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "介乎师友之间"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 398,
+          "line_end": 399,
+          "text": "鲍家本来是洛阳最有名的武学世家，但因鲍崇义不事生产，家道早已中落"
+        },
+        {
+          "chapter": 2,
+          "line_start": 1289,
+          "line_end": 1289,
+          "text": "鲍崇义看见儿子和楚天舒、游扬这两个武林中的'知名人士'一起回来"
+        },
+        {
+          "chapter": 3,
+          "line_start": 22,
+          "line_end": 22,
+          "text": "他有个孙女，是他儿子的遗腹女"
+        },
+        {
+          "chapter": 5,
+          "line_start": 999,
+          "line_end": 1005,
+          "text": "鲍崇义突然看见楚天舒..."
+        }
+      ]
+    },
+    {
+      "id": "char_li_zhong_yuan",
+      "name": "李仲元",
+      "alias": [],
+      "identity": "徐中岳大弟子",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "徐中岳大弟子，在同门中排行第一，处事比郭元宰更为机灵",
+      "personality": {
+        "traits": [
+          "机灵",
+          "精明",
+          "处事圆滑",
+          "爱面子",
+          "务实"
+        ],
+        "speech_style": "善于转圜",
+        "temperament": "圆滑世故"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        4,
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 728,
+          "line_end": 729,
+          "text": "大师兄李仲元心里在暗暗咒骂过小师弟不识自量力"
+        },
+        {
+          "chapter": 4,
+          "line_start": 228,
+          "line_end": 228,
+          "text": "徐中岳的大弟子李仲元"
+        }
+      ]
+    },
+    {
+      "id": "char_wang_dian_ying",
+      "name": "王殿英",
+      "alias": [],
+      "identity": "八卦掌掌门",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "八卦掌掌门，担任婚礼赞礼，内功深厚出手狠辣",
+      "personality": {
+        "traits": [
+          "内功深厚",
+          "出手狠辣",
+          "外貌斯文",
+          "身形枯瘦",
+          "老练"
+        ],
+        "speech_style": "明声细气",
+        "temperament": "外文内狠"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_ba_gua_zhang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1346,
+          "line_end": 1346,
+          "text": "王殿英是八卦掌的掌门"
+        }
+      ]
+    },
+    {
+      "id": "char_fatie_fu",
+      "name": "铁力夫",
+      "alias": [],
+      "identity": "徐家男傧相",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "徐家婚礼的男傧相，有一身横练外功，掌可开碑力能扛鼎",
+      "personality": {
+        "traits": [
+          "勇猛",
+          "忠心",
+          "力大无穷",
+          "鲁莽",
+          "直接"
+        ],
+        "speech_style": "不善言辞，以行动为主",
+        "temperament": "勇猛刚直"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 1344,
+          "line_end": 1345,
+          "text": "铁力夫人如其名，有一身横练的外功，掌可开碑，力能扛鼎"
+        }
+      ]
+    },
+    {
+      "id": "char_zhao_hong_mei",
+      "name": "赵红眉",
+      "alias": [
+        "玉面罗刹"
+      ],
+      "identity": "徐中岳前妻之姐",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "徐中岳前妻的姐姐，心狠手辣，江湖人称玉面罗刹，三十六岁未嫁",
+      "personality": {
+        "traits": [
+          "心狠手辣",
+          "老谋深算",
+          "武功高强",
+          "嫉妒心强",
+          "诡计多端"
+        ],
+        "speech_style": "阴险狠毒",
+        "temperament": "阴险毒辣"
+      },
+      "relationships": [
+        {
+          "target": "char_xu_zhong_yue",
+          "type": "合作者",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "小姑子帮夫家"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 1367,
+          "line_end": 1370,
+          "text": "赵红眉更是了得，她心狠手辣，在江湖上有玉面罗刹之称"
+        },
+        {
+          "chapter": 3,
+          "line_start": 1367,
+          "line_end": 1370,
+          "text": "赵红眉更是了得，她心狠手辣，在江湖上有玉面罗刹之称"
+        },
+        {
+          "chapter": 5,
+          "line_start": 1843,
+          "line_end": 1844,
+          "text": "徐中岳前妻的姐姐，玉面罗刹赵红眉。"
+        }
+      ]
+    },
+    {
+      "id": "char_jiang_yuan_yong",
+      "name": "姜远庸",
+      "alias": [
+        "姜志奇"
+      ],
+      "identity": "楚天舒的师叔",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "姜雪君之父，原名姜志奇，扬州楚家同门，隐居洛阳装作平庸武师",
+      "personality": {
+        "traits": [
+          "深藏不露",
+          "谨慎",
+          "重义气",
+          "爱护家人",
+          "善于隐忍"
+        ],
+        "speech_style": "朴实低调",
+        "temperament": "深沉内敛"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_jing_shen_bi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 1286,
+          "line_end": 1286,
+          "text": "姜远庸果然就是我那位原名差志奇的师叔"
+        }
+      ]
+    },
+    {
+      "id": "char_qi_yan_ran",
+      "name": "齐燕然",
+      "alias": [
+        "武林怪杰"
+      ],
+      "identity": "武林怪杰",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "返璞归真",
+      "one_line": "武林怪杰，武功深不可测，独创混元一气功和流云飞袖，居无定址",
+      "personality": {
+        "traits": [
+          "武功绝顶",
+          "行事怪僻",
+          "重情义",
+          "疼爱孙女",
+          "深藏不露"
+        ],
+        "speech_style": "豪迈直率",
+        "temperament": "超凡脱俗"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_hun_yuan_yi_qi_gong",
+        "skill_liu_yun_fei_xiu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        2,
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 1219,
+          "line_end": 1219,
+          "text": "听说姓齐名燕然，'燕然'山是蒙方的名山"
+        }
+      ]
+    },
+    {
+      "id": "char_wei_cheng_gang",
+      "name": "卫承纲",
+      "alias": [],
+      "identity": "齐燕然大弟子，卫天元之父",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "齐燕然的大弟子，被八名大内侍卫围攻致残后自断经脉而亡，临终托孤",
+      "personality": {
+        "traits": [
+          "倔强",
+          "重义",
+          "不屈",
+          "深藏秘密",
+          "父爱深沉"
+        ],
+        "speech_style": "嘶哑低沉",
+        "temperament": "刚毅不屈"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_hun_yuan_yi_qi_gong",
+        "skill_liu_yun_fei_xiu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 596,
+          "line_end": 596,
+          "text": "师父，是我、我，承纲回、回来了！"
+        }
+      ]
+    },
+    {
+      "id": "char_jiang_xue_jun_ma_ma",
+      "name": "姜雪君母亲",
+      "alias": [],
+      "identity": "姜远庸之妻",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "姜雪君的母亲，有才女之名，莱芜惨案后运灵柩回山东老家",
+      "personality": {
+        "traits": [
+          "温柔",
+          "坚强",
+          "有才华",
+          "爱护女儿",
+          "有主见"
+        ],
+        "speech_style": "温柔坚定",
+        "temperament": "温柔坚强"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 476,
+          "line_end": 476,
+          "text": "她的母亲有才女之名"
+        }
+      ]
+    },
+    {
+      "id": "char_jiang_xue_jun_mother",
+      "name": "姜雪君之母",
+      "alias": [],
+      "identity": "姜志奇之妻，练过绵掌功夫",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "姜雪君之母，为调查丈夫死因远行后归来，揭露真相后被杀",
+      "personality": {
+        "traits": [
+          "坚强",
+          "果断",
+          "护女心切",
+          "深谋远虑",
+          "刚烈"
+        ],
+        "speech_style": "严厉",
+        "temperament": "刚烈"
+      },
+      "relationships": [
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "亲属",
+          "intensity": 100,
+          "bond_level": 5,
+          "dynamic": "母女"
+        },
+        {
+          "target": "char_jiang_zhi_xi",
+          "type": "宿敌",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "审问并追责"
+        }
+      ],
+      "known_skills": [
+        "skill_mian_zhang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 1248,
+          "line_end": 1258,
+          "text": "那黑衣女子冷冷说道：你想不到我这样快就回来吧？"
+        }
+      ]
+    },
+    {
+      "id": "char_jiang_zhi_qi",
+      "name": "姜志奇",
+      "alias": [
+        "姜远庸"
+      ],
+      "identity": "姜雪君之父，武林一流好手",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "姜雪君之父，化名姜远庸隐居洛阳开武馆，被唐家毒药毒害致死",
+      "personality": {
+        "traits": [
+          "谨慎",
+          "深沉",
+          "正义",
+          "爱护家人",
+          "隐忍"
+        ],
+        "speech_style": "沉稳",
+        "temperament": "深沉"
+      },
+      "relationships": [
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "亲属",
+          "intensity": 100,
+          "bond_level": 5,
+          "dynamic": "父女"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 833,
+          "line_end": 835,
+          "text": "爹爹走进来道：我早知道你会说这句话了。"
+        }
+      ]
+    },
+    {
+      "id": "char_jiang_zhi_xi",
+      "name": "姜志希",
+      "alias": [
+        "三叔"
+      ],
+      "identity": "姜志奇堂弟，徐中岳门客",
+      "faction": "faction_xu_jia",
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "姜雪君三叔，贪财势利的徐中岳门下当铺掌柜",
+      "personality": {
+        "traits": [
+          "势利",
+          "贪财",
+          "胆小",
+          "谄媚",
+          "自私"
+        ],
+        "speech_style": "谄媚",
+        "temperament": "卑微"
+      },
+      "relationships": [
+        {
+          "target": "char_xu_zhong_yue",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "门客与主人"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 1219,
+          "line_end": 1230,
+          "text": "姜志希正在绕室彷徨，患得患失。"
+        }
+      ]
+    },
+    {
+      "id": "char_deng_yi_zhou",
+      "name": "邓一舟",
+      "alias": [],
+      "identity": "徐中岳四弟子",
+      "faction": "faction_xu_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "初窥门径",
+      "one_line": "徐中岳弟子，胆小怕事",
+      "personality": {
+        "traits": [
+          "胆小",
+          "谨慎"
+        ],
+        "speech_style": "怯懦",
+        "temperament": "懦弱"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 269,
+          "line_end": 271,
+          "text": "邓一舟颤声道：郭师弟，咱们还是回去禀告师父吧。"
+        }
+      ]
+    },
+    {
+      "id": "char_fang_shao_wu",
+      "name": "方绍武",
+      "alias": [],
+      "identity": "徐中岳弟子",
+      "faction": "faction_xu_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "徐中岳弟子",
+      "personality": {
+        "traits": [
+          "忠诚"
+        ],
+        "speech_style": "沉稳",
+        "temperament": "稳重"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 245,
+          "line_end": 245,
+          "text": "一个是徐中岳的四弟子方绍武"
+        }
+      ]
+    },
+    {
+      "id": "char_cui_hu_yuan",
+      "name": "崔护院",
+      "alias": [],
+      "identity": "徐家护院",
+      "faction": "faction_xu_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "徐家地位颇高的护院",
+      "personality": {
+        "traits": [
+          "谨慎",
+          "精明"
+        ],
+        "speech_style": "世故",
+        "temperament": "圆滑"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 277,
+          "line_end": 278,
+          "text": "这姓崔的护院，在徐家地位颇高"
+        }
+      ]
+    },
+    {
+      "id": "char_chu_jin_song",
+      "name": "楚劲松",
+      "alias": [
+        "楚大少爷"
+      ],
+      "identity": "扬州楚家大侠，楚天舒之父",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "扬州楚家传人，楚天舒之父，惊神笔法传人",
+      "personality": {
+        "traits": [
+          "武功高强",
+          "正直",
+          "谨慎",
+          "护家"
+        ],
+        "speech_style": "沉稳",
+        "temperament": "深沉"
+      },
+      "relationships": [
+        {
+          "target": "char_chu_tian_shu",
+          "type": "亲属",
+          "intensity": 90,
+          "bond_level": 4,
+          "dynamic": "父子"
+        }
+      ],
+      "known_skills": [
+        "skill_jing_shen_bi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 186,
+          "line_end": 186,
+          "text": "扬州楚劲松大侠是你的什么人"
+        }
+      ]
+    },
+    {
+      "id": "char_chu_jin_song_wife",
+      "name": "楚劲松继母",
+      "alias": [],
+      "identity": "楚天舒继母，与齐家有神秘关联",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": null,
+      "one_line": "楚天舒继母，被齐燕然视如己出，与齐家关系神秘",
+      "personality": {
+        "traits": [
+          "温柔",
+          "隐忍",
+          "深情",
+          "神秘"
+        ],
+        "speech_style": "温柔",
+        "temperament": "温柔"
+      },
+      "relationships": [
+        {
+          "target": "char_chu_jin_song",
+          "type": "亲属",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "夫妻"
+        },
+        {
+          "target": "char_qi_yan_ran",
+          "type": "师徒",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "视如父女"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 231,
+          "line_end": 232,
+          "text": "只听得继母叹了口气，说道：听说他已经死了。"
+        }
+      ]
+    },
+    {
+      "id": "char_yi_piao_dao_ren",
+      "name": "一瓢道人",
+      "alias": [],
+      "identity": "崆峒派掌门人",
+      "faction": "faction_kong_tong",
+      "role": "npc",
+      "archetype": "monk",
+      "rank": "出神入化",
+      "one_line": "崆峒派掌门，百年罕见的武学奇才，为人刚直",
+      "personality": {
+        "traits": [
+          "刚直",
+          "正直",
+          "武学奇才",
+          "固执"
+        ],
+        "speech_style": "严肃",
+        "temperament": "刚直"
+      },
+      "relationships": [
+        {
+          "target": "char_you_yang",
+          "type": "师徒",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "师徒"
+        }
+      ],
+      "known_skills": [
+        "skill_qi_shi_er_shou_lian_huan_duo_ming_jian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 391,
+          "line_end": 393,
+          "text": "崆峒派的掌门一瓢道人"
+        },
+        {
+          "chapter": 6,
+          "line_start": 391,
+          "line_end": 393,
+          "text": "崆峒派的掌门一瓢道人"
+        }
+      ]
+    },
+    {
+      "id": "char_ding_bo",
+      "name": "丁勃",
+      "alias": [
+        "丁大叔"
+      ],
+      "identity": "齐燕然家老仆，原辽东大盗",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "齐燕然家老仆，原名丁勃，十年前名震江湖的远东大盗",
+      "personality": {
+        "traits": [
+          "沉默寡言",
+          "多才多艺",
+          "武功高强",
+          "忠诚"
+        ],
+        "speech_style": "沉默",
+        "temperament": "深沉"
+      },
+      "relationships": [
+        {
+          "target": "char_qi_yan_ran",
+          "type": "主仆",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "忠仆"
+        },
+        {
+          "target": "char_chu_jin_song",
+          "type": "合作者",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "旧识"
+        }
+      ],
+      "known_skills": [
+        "skill_mian_zhang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 876,
+          "line_end": 878,
+          "text": "江湖上的大行家不是我，是我家里的老仆人丁大叔。"
+        }
+      ]
+    },
+    {
+      "id": "char_mu_zhi_yao",
+      "name": "穆志遥",
+      "alias": [
+        "穆统领"
+      ],
+      "identity": "御林军统领，蹑云剑穆家传人",
+      "faction": null,
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "清廷御林军统领，剪大先生的暗中靠山",
+      "personality": {
+        "traits": [
+          "野心",
+          "武功高强",
+          "城府深"
+        ],
+        "speech_style": "威严",
+        "temperament": "深沉"
+      },
+      "relationships": [
+        {
+          "target": "char_jian_da_xian_sheng",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "暗中合作"
+        }
+      ],
+      "known_skills": [
+        "skill_nie_yun_jian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 1315,
+          "line_end": 1315,
+          "text": "是御林军统领穆志遥，蹑云剑穆家的传人。"
+        }
+      ]
+    },
+    {
+      "id": "char_ku_chan_shang_ren",
+      "name": "枯禅上人",
+      "alias": [
+        "监寺"
+      ],
+      "identity": "少林寺监寺",
+      "faction": "faction_shao_lin",
+      "role": "npc",
+      "archetype": "monk",
+      "rank": "登峰造极",
+      "one_line": "少林寺监寺，武林中名望极高，与齐燕然是莫逆之交",
+      "personality": {
+        "traits": [
+          "慈悲",
+          "固执",
+          "正直",
+          "容易受蒙蔽"
+        ],
+        "speech_style": "庄严",
+        "temperament": "慈悲"
+      },
+      "relationships": [
+        {
+          "target": "char_qi_yan_ran",
+          "type": "挚友",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "莫逆之交"
+        },
+        {
+          "target": "char_wei_tian_yuan",
+          "type": "师徒",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "长辈与晚辈"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 1472,
+          "line_end": 1473,
+          "text": "正是少林寺的监寺枯禅上人。"
+        }
+      ]
+    },
+    {
+      "id": "char_huang_he_san_jie",
+      "name": "黄河三杰",
+      "alias": [
+        "黄河三鬼"
+      ],
+      "identity": "黄河水寇三兄弟",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "黄河水寇三兄弟，水底功夫第一流，曾败于齐漱玉母亲之手",
+      "personality": {
+        "traits": [
+          "凶狠",
+          "狡猾",
+          "记仇"
+        ],
+        "speech_style": "粗犷",
+        "temperament": "凶悍"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 1551,
+          "line_end": 1553,
+          "text": "咱们黄河三杰，当年都栽在那婆娘手里"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_jing_shen_bi",
+      "name": "惊神笔法",
+      "type": "指法",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "以判官笔点奇经八脉的独门武功，楚天舒和姜雪君的师门绝学",
+      "rag_refs": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "techniques": [
+        {
+          "id": "tech_si_yi_bin_fu",
+          "name": "四夷宾服",
+          "type": "attack",
+          "description": "专刺奇经八脉的笔法，看似平平无奇，变化诡谲莫测，一招同时有四个落点"
+        },
+        {
+          "id": "tech_san_zhuan_fa_lun",
+          "name": "三转法轮",
+          "type": "defense",
+          "description": "以双指勾划三个圈圈化解攻击的招式"
+        }
+      ],
+      "progression": [
+        {
+          "level": 1,
+          "unlock": "初窥门径"
+        },
+        {
+          "level": 3,
+          "unlock": "略有小成"
+        },
+        {
+          "level": 5,
+          "unlock": "炉火纯青"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "点中穴道",
+          "description": "以笔尖点刺奇经八脉穴道，可制敌或伤人"
+        }
+      ],
+      "combat_style": "以点穴为主，轻灵快捷，变化多端",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 52,
+          "line_end": 53,
+          "text": "一对判官笔擅点奇经八脉"
+        }
+      ]
+    },
+    {
+      "id": "skill_tou_gu_ding",
+      "name": "透骨钉",
+      "type": "暗器",
+      "faction": "",
+      "rank": "炉火纯青",
+      "one_line": "徐中岳成名暗器，能同时发出多枚，专打人身要害穴道，可回旋追踪",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [
+        {
+          "id": "tech_shen_long_diao_wei",
+          "name": "神龙掉尾",
+          "type": "attack",
+          "description": "透骨钉用回旋之力发出，可改变飞行方向，去而复返攻击敌人后脑"
+        }
+      ],
+      "progression": [
+        {
+          "level": 3,
+          "unlock": "一次发出十三枚"
+        },
+        {
+          "level": 5,
+          "unlock": "一次发出十七件暗器"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "命中要害",
+          "description": "专打人身要害穴道，穿透力极强"
+        }
+      ],
+      "combat_style": "以数量和巧劲取胜，暗器手法奇妙，可直射、斜飞、互撞改变方向",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 44,
+          "line_end": 45,
+          "text": "左手发了七枚透骨钉，右手发出八枚透骨钉，外加两枚短箭"
+        }
+      ]
+    },
+    {
+      "id": "skill_nie_yun_jian",
+      "name": "蹑云剑法",
+      "type": "剑法",
+      "faction": "",
+      "rank": "炉火纯青",
+      "one_line": "以轻灵飘忽见长的剑法，徐中岳三绝之一",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "剑法攻击",
+          "description": "轻灵飘忽，身法步法灵活"
+        }
+      ],
+      "combat_style": "轻灵飘忽，以身法步法见长",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1732,
+          "line_end": 1732,
+          "text": "徐中岳以暗器、剑、掌并称三绝"
+        }
+      ]
+    },
+    {
+      "id": "skill_da_shuai_bei_shou",
+      "name": "大摔碑手",
+      "type": "掌法",
+      "faction": "",
+      "rank": "炉火纯青",
+      "one_line": "徐中岳最厉害的掌法，以刚猛著称，后练成刚柔相济",
+      "rag_refs": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "techniques": [],
+      "progression": [
+        {
+          "level": 3,
+          "unlock": "纯刚掌力"
+        },
+        {
+          "level": 5,
+          "unlock": "刚柔相济，收发随心"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "掌力攻击",
+          "description": "刚猛掌力，可碎石裂碑"
+        }
+      ],
+      "combat_style": "以刚猛著称，后练成刚柔相济",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1652,
+          "line_end": 1652,
+          "text": "尤以大摔碑手掌力最为厉害"
+        },
+        {
+          "chapter": 4,
+          "line_start": 62,
+          "line_end": 63,
+          "text": "这一招名为开山劈石，是他最得意的大摔碑手功夫。"
+        }
+      ]
+    },
+    {
+      "id": "skill_zhan_yi_shi_ba_die",
+      "name": "沾衣十八跌",
+      "type": "内功",
+      "faction": "",
+      "rank": "登峰造极",
+      "one_line": "护体神功，别人一沾衣裳立即跌倒，共十八种跌法，更高级可震落暗器",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [
+        {
+          "level": 3,
+          "unlock": "沾衣即跌"
+        },
+        {
+          "level": 5,
+          "unlock": "震落暗器"
+        }
+      ],
+      "effects": [
+        {
+          "type": "防御",
+          "condition": "暗器或攻击沾衣",
+          "description": "以护体神功震落暗器或弹开来犯"
+        }
+      ],
+      "combat_style": "纯防守反击型护体神功",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1758,
+          "line_end": 1762,
+          "text": "这门功夫叫做沾衣十八跌，练成这门功夫的人，别人出手一沾着他的衣裳，立即就会跌交"
+        }
+      ]
+    },
+    {
+      "id": "skill_tan_zhi_shen_tong",
+      "name": "弹指神通",
+      "type": "指法",
+      "faction": "",
+      "rank": "登峰造极",
+      "one_line": "以弹指之力发射物体的高深指法，卫天元曾用此技弹飞徐中岳长剑",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "弹指攻击",
+          "description": "以内力凝于指尖弹射物体，力道精准"
+        }
+      ],
+      "combat_style": "远程精准打击",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 242,
+          "line_end": 242,
+          "text": "他的长剑是给飞天神龙用弹指神通的功夫，弹得脱手飞出的"
+        }
+      ]
+    },
+    {
+      "id": "skill_yin_yang_wu_xing_zhang",
+      "name": "阴阳五行掌",
+      "type": "掌法",
+      "faction": "",
+      "rank": "登峰造极",
+      "one_line": "剪大先生独门武功，右掌发阳刚掌力，左掌发阴柔掌力",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "掌力攻击",
+          "description": "刚柔并济的掌法，左右掌发出不同属性的掌力"
+        }
+      ],
+      "combat_style": "刚柔并济，攻守兼备",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1476,
+          "line_end": 1476,
+          "text": "剪千崖练的是'阴阳五行掌'，右掌发的是阳刚掌力，左掌发的是阴柔掌力"
+        }
+      ]
+    },
+    {
+      "id": "skill_liu_yun_fei_xiu",
+      "name": "流云飞袖",
+      "type": "指法",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "齐燕然自创的独门武功，以袖代掌，柔中寓刚，有流水行云之妙",
+      "rag_refs": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "techniques": [],
+      "progression": [
+        {
+          "level": 3,
+          "unlock": "以袖代掌"
+        },
+        {
+          "level": 5,
+          "unlock": "袖中拂穴"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "袖拂攻击",
+          "description": "以衣袖拂穴，内力凝于一点"
+        }
+      ],
+      "combat_style": "以袖代掌，轻灵翔动",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1213,
+          "line_end": 1213,
+          "text": "流云飞袖，足可与少林、雪山两派的铁袖功夫鼎足而立"
+        },
+        {
+          "chapter": 4,
+          "line_start": 110,
+          "line_end": 110,
+          "text": "好一招流云飞袖！"
+        }
+      ]
+    },
+    {
+      "id": "skill_qi_shi_er_shou_lian_huan_duo_ming_jian",
+      "name": "七十二手连环夺命剑法",
+      "type": "剑法",
+      "faction": "faction_kong_tong",
+      "rank": "炉火纯青",
+      "one_line": "崆峒派剑法，游扬的看家本领，在武林中享有极大声誉",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "剑法攻击",
+          "description": "以迅捷凌厉的招数取胜"
+        }
+      ],
+      "combat_style": "以迅捷凌厉的招数取胜",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 227,
+          "line_end": 227,
+          "text": "他的七十二手连环夺命剑法，在武林中也是享有极大的声誉"
+        }
+      ]
+    },
+    {
+      "id": "skill_hun_yuan_yi_huan_gong",
+      "name": "混元一环功",
+      "type": "掌法",
+      "faction": "faction_kun_lun",
+      "rank": "略有小成",
+      "one_line": "昆仑派掌力功夫，以劈空掌力制敌",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "劈空掌力",
+          "description": "以劈空掌力阻敌或震退"
+        }
+      ],
+      "combat_style": "劈空掌力",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 976,
+          "line_end": 976,
+          "text": "他使出了昆仑派的'混元一环功'"
+        }
+      ]
+    },
+    {
+      "id": "skill_lian_huan_duo_ming_jian",
+      "name": "连环夺命剑法",
+      "type": "剑法",
+      "faction": "faction_wu_dang",
+      "rank": "炉火纯青",
+      "one_line": "武当派剑法之一，以迅捷凌厉的招数取胜，与柔云剑法相反相成",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "剑法攻击",
+          "description": "以迅捷凌厉的招数取胜"
+        }
+      ],
+      "combat_style": "以迅捷凌厉的招数取胜",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1529,
+          "line_end": 1529,
+          "text": "另一种名为'连环夺命剑法'，以迅捷凌厉的招数取胜"
+        }
+      ]
+    },
+    {
+      "id": "skill_rou_yun_jian",
+      "name": "柔云剑法",
+      "type": "剑法",
+      "faction": "faction_wu_dang",
+      "rank": "炉火纯青",
+      "one_line": "武当派剑法之一，以内力为主，擅能以柔克刚",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "剑法攻击",
+          "description": "以内力为主，以柔克刚"
+        }
+      ],
+      "combat_style": "以柔克刚",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1528,
+          "line_end": 1528,
+          "text": "一种名'柔云剑法'，以内力为主，擅能以柔克刚"
+        }
+      ]
+    },
+    {
+      "id": "skill_ba_gua_zhang",
+      "name": "八卦掌",
+      "type": "掌法",
+      "faction": "",
+      "rank": "炉火纯青",
+      "one_line": "王殿英所练掌法，兼有分筋错骨之能",
+      "rag_refs": [
+        1
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "掌力攻击",
+          "description": "兼有分筋错骨之能"
+        }
+      ],
+      "combat_style": "以分筋错骨为主",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1346,
+          "line_end": 1346,
+          "text": "王殿英是八卦掌的掌门"
+        }
+      ]
+    },
+    {
+      "id": "skill_hun_yuan_yi_qi_gong",
+      "name": "混元一气功",
+      "type": "内功",
+      "faction": "",
+      "rank": "返璞归真",
+      "one_line": "齐燕然最得意的两门绝技之一，以深厚内力震碎兵器",
+      "rag_refs": [
+        2,
+        3
+      ],
+      "techniques": [],
+      "progression": [
+        {
+          "level": 3,
+          "unlock": "劈空掌力"
+        },
+        {
+          "level": 5,
+          "unlock": "震碎兵器"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "掌力攻击",
+          "description": "以深厚内力发出的掌力，可震碎钢铁"
+        }
+      ],
+      "combat_style": "以深厚内力为核心，刚猛无匹",
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 1509,
+          "line_end": 1509,
+          "text": "他以掌力震碎韩霸那柄大刀的功夫名为混元一功"
+        }
+      ]
+    },
+    {
+      "id": "skill_mian_zhang",
+      "name": "绵掌",
+      "type": "掌法",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "刚柔并济的上乘内功掌法，姜雪君之母亦擅此功",
+      "rag_refs": [
+        4
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "伤害",
+          "condition": "击中",
+          "description": "兼具绵掌之柔与大摔碑手之长的刚柔并济掌力"
+        }
+      ],
+      "combat_style": "刚柔并济",
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 1305,
+          "line_end": 1305,
+          "text": "这种掌力兼具绵掌和大摔碑手之长，乃是一种刚柔并济的上乘内功"
+        }
+      ]
+    },
+    {
+      "id": "skill_ge_kong_dian_xue",
+      "name": "隔空点穴",
+      "type": "指法",
+      "faction": "",
+      "rank": "出神入化",
+      "one_line": "远距离点穴功夫，三丈外反手一指封穴",
+      "rag_refs": [
+        4
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "控制",
+          "condition": "指力命中",
+          "description": "隔空封闭穴道，令人失觉或动弹不得"
+        }
+      ],
+      "combat_style": "远程精确打击",
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 1137,
+          "line_end": 1142,
+          "text": "他是在距离三丈之外，被剪大先生反手一指，就封闭了他的穴道的。"
+        }
+      ]
+    },
+    {
+      "id": "skill_su_gu_zhen",
+      "name": "酥骨针",
+      "type": "暗器",
+      "faction": "",
+      "rank": "上乘佳品",
+      "one_line": "赵红眉独门喂毒暗器，令人筋酥骨软",
+      "rag_refs": [
+        5
+      ],
+      "techniques": [],
+      "progression": [],
+      "effects": [
+        {
+          "type": "减益",
+          "condition": "针刺入体",
+          "description": "令人筋酥骨软，需十二时辰方能自行恢复"
+        }
+      ],
+      "combat_style": "暗器",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 1901,
+          "line_end": 1901,
+          "text": "她中了我的酥骨针，最少也得昏迷十二个时辰"
+        }
+      ]
+    }
+  ],
+  "techniques": [
+    {
+      "id": "tech_si_yi_bin_fu",
+      "name": "四夷宾服",
+      "type": "attack",
+      "description": "惊神笔法招式，专刺奇经八脉，一招四个落点",
+      "source_skill": "skill_jing_shen_bi",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1266,
+          "line_end": 1266,
+          "text": "好一招四夷宾服！"
+        }
+      ]
+    },
+    {
+      "id": "tech_san_zhuan_fa_lun",
+      "name": "三转法轮",
+      "type": "defense",
+      "description": "惊神笔法防御招式，双指勾划三个圈圈",
+      "source_skill": "skill_jing_shen_bi",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1270,
+          "line_end": 1270,
+          "text": "好一招三转法轮！"
+        }
+      ]
+    },
+    {
+      "id": "tech_shen_long_diao_wei",
+      "name": "神龙掉尾",
+      "type": "attack",
+      "description": "透骨钉回旋手法，去而复返",
+      "source_skill": "skill_tou_gu_ding",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 78,
+          "line_end": 78,
+          "text": "好一招神龙掉尾的手法"
+        }
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_kong_tong",
+      "name": "崆峒派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "中原武林大派，掌门一瓢道人",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 704,
+          "line_end": 704,
+          "text": "崆峒派的掌门一瓢道长"
+        }
+      ]
+    },
+    {
+      "id": "faction_shao_lin",
+      "name": "少林派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "中原武林大派，以武功博大精深著称",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 698,
+          "line_end": 698,
+          "text": "少林寺的监寺枯禅大师"
+        }
+      ],
+      "rag_refs": [
+        4
+      ]
+    },
+    {
+      "id": "faction_wu_dang",
+      "name": "武当派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "中原四大剑派之首，以剑法著称",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1528,
+          "line_end": 1528,
+          "text": "武当派有两种剑法"
+        }
+      ],
+      "rag_refs": [
+        4
+      ]
+    },
+    {
+      "id": "faction_qing_cheng",
+      "name": "青城派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "以剑法著称，剑法以快狠见称",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1196,
+          "line_end": 1196,
+          "text": "青城派剑法以快狠见称"
+        }
+      ]
+    },
+    {
+      "id": "faction_kun_lun",
+      "name": "昆仑派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "西域大派",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 856,
+          "line_end": 856,
+          "text": "昆仑派的弟子孟仲强"
+        }
+      ]
+    },
+    {
+      "id": "faction_mei_hua_quan",
+      "name": "梅花拳",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "武林门派，掌门梅清风",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1517,
+          "line_end": 1517,
+          "text": "梅花拳的掌门人梅清风"
+        }
+      ],
+      "rag_refs": [
+        4
+      ]
+    },
+    {
+      "id": "faction_song_yang",
+      "name": "嵩阳派",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "剪大先生所属门派",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 558,
+          "line_end": 558,
+          "text": "受家师所托，做现成媒人的是嵩阳派的剪大先生"
+        }
+      ]
+    },
+    {
+      "id": "faction_xu_jia",
+      "name": "徐家",
+      "type": "家族",
+      "location": "loc_luo_yang",
+      "sub_divisions": [],
+      "one_line": "徐中岳家族，洛阳首富，中州大侠府邸",
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 261,
+          "line_end": 263,
+          "text": "徐中岳有八个弟子"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_luo_yang",
+      "name": "洛阳",
+      "region": "河南",
+      "one_line": "古都洛阳，徐中岳所在地，以牡丹闻名",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 12,
+          "line_end": 12,
+          "text": "洛阳城内，中州大侠徐中岳的门前车水马龙"
+        }
+      ]
+    },
+    {
+      "id": "loc_jin_gu_yuan",
+      "name": "金谷园",
+      "region": "洛阳",
+      "one_line": "徐家大花园，以牡丹闻名，老翰林题匾",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 30,
+          "line_end": 31,
+          "text": "金谷园种的壮丹最多"
+        }
+      ]
+    },
+    {
+      "id": "loc_song_shan",
+      "name": "嵩山",
+      "region": "河南",
+      "one_line": "三年前徐中岳与卫天元比武之地",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 692,
+          "line_end": 692,
+          "text": "徐中岳与飞天神龙三年之前曾在嵩山约斗"
+        }
+      ]
+    },
+    {
+      "id": "loc_yang_zhou",
+      "name": "扬州",
+      "region": "江苏",
+      "one_line": "楚天舒的家乡",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 52,
+          "line_end": 52,
+          "text": "从扬州来的客人"
+        }
+      ]
+    },
+    {
+      "id": "loc_shan_dong_lai_wu",
+      "name": "山东莱芜",
+      "region": "山东",
+      "one_line": "姜远庸原籍所在地",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 752,
+          "line_end": 752,
+          "text": "姜老前辈原籍山东莱芜"
+        }
+      ]
+    },
+    {
+      "id": "loc_lai_wu",
+      "name": "莱芜",
+      "region": "山东",
+      "one_line": "姜远庸、卫天元两家当年隐居的小山村，惨遭清廷鹰爪偷袭后烧成平地",
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 1286,
+          "line_end": 1286,
+          "text": "你们十年之前在莱芜一个山村隐居"
+        }
+      ]
+    },
+    {
+      "id": "loc_feng_ling_du",
+      "name": "凤陵渡",
+      "region": "黄河",
+      "one_line": "黄河边上的渡口，徐中岳对外宣称在此收服黄河三鬼以制造不在场证明",
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 876,
+          "line_end": 876,
+          "text": "当时他是在黄河边上的凤陵渡收服黄河三鬼"
+        }
+      ]
+    },
+    {
+      "id": "loc_bei_jing",
+      "name": "北京",
+      "region": "河北",
+      "one_line": "清朝京城，震远镖局所在地",
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 58,
+          "line_end": 58,
+          "text": "震远镖局是北京最大的镖局"
+        }
+      ]
+    },
+    {
+      "id": "loc_gong_xian",
+      "name": "巩县",
+      "region": "中原",
+      "one_line": "洛阳至京师途中的县城",
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 378,
+          "line_end": 378,
+          "text": "到了巩县"
+        }
+      ]
+    },
+    {
+      "id": "loc_meng_jin",
+      "name": "孟津",
+      "region": "中原",
+      "one_line": "流入黄河的渡口",
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 1507,
+          "line_end": 1507,
+          "text": "孟津流入黄河"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_tou_gu_ding",
+      "name": "透骨钉",
+      "type": "hidden_weapon",
+      "owner": "char_xu_zhong_yue",
+      "one_line": "徐中岳成名暗器，能一次发出十三枚以上",
+      "description": "徐中岳的成名暗器，形制小巧但穿透力极强，专打人身要害穴道，能以回旋之力改变飞行方向，同时可发出十余枚",
+      "effects": [
+        {
+          "type": "攻击",
+          "value": "",
+          "description": "专打要害穴道，穿透力极强"
+        }
+      ],
+      "origin": "徐中岳",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_xu_zhong_yue"
+      ],
+      "related_skills": [
+        "skill_tou_gu_ding"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 44,
+          "line_end": 44,
+          "text": "左手发了七枚透骨钉，右手发出八枚透骨钉"
+        }
+      ]
+    },
+    {
+      "id": "item_qing_gang_jian",
+      "name": "青钢剑",
+      "type": "weapon",
+      "owner": "char_ling_yu_yan",
+      "one_line": "凌玉燕的佩剑，被黑衣人和齐漱玉先后打落",
+      "description": "凌玉燕所用的青钢剑，质地普通，在路上先后被黑衣人和齐漱玉击落",
+      "effects": [
+        {
+          "type": "攻击",
+          "value": "",
+          "description": "青钢材质的普通佩剑"
+        }
+      ],
+      "origin": "未知",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_ling_yu_yan"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 986,
+          "line_end": 986,
+          "text": "凌玉燕手上的青钢剑已飞上半空"
+        }
+      ]
+    },
+    {
+      "id": "item_xiao_huan_dan",
+      "name": "小还丹",
+      "type": "pill",
+      "owner": "char_yin_xin_mo",
+      "one_line": "少林寺秘制疗伤圣药，可治内伤",
+      "description": "少林寺秘制的小还丹，可治内伤，印新磨随身携带，给受伤的徐中岳服下",
+      "effects": [
+        {
+          "type": "剧情",
+          "value": "",
+          "description": "疗伤圣药，服后十天半月可起床"
+        }
+      ],
+      "origin": "少林寺",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_yin_xin_mo",
+        "char_xu_zhong_yue"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 676,
+          "line_end": 676,
+          "text": "印新磨是少林派的弟子！身上正有少林寺秘制的小还丹"
+        }
+      ]
+    },
+    {
+      "id": "item_jin_gang_zhang",
+      "name": "金刚掌",
+      "type": "weapon",
+      "owner": null,
+      "one_line": "少林派绝学，印新磨曾以此攻击齐漱玉",
+      "description": "少林派的金刚掌力，刚猛无匹，印新磨曾以此攻击黑衣少女但被其流云飞袖化解",
+      "effects": [
+        {
+          "type": "攻击",
+          "value": "",
+          "description": "刚猛掌力"
+        }
+      ],
+      "origin": "少林寺",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_yin_xin_mo"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1498,
+          "line_end": 1498,
+          "text": "印新磨喝道：好啊，要杀人灭口么？"
+        }
+      ]
+    },
+    {
+      "id": "item_long_feng_hua_zhu",
+      "name": "龙凤花烛",
+      "type": "special",
+      "owner": "char_xu_zhong_yue",
+      "one_line": "婚礼上的龙凤花烛，被卫天元利用暗器打灭",
+      "description": "徐中岳婚礼上的龙凤花烛，卫天元利用徐中岳射回的短箭打灭花烛，象征婚礼的破灭",
+      "effects": [
+        {
+          "type": "剧情",
+          "value": "",
+          "description": "象征婚礼中断"
+        }
+      ],
+      "origin": "徐家",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_xu_zhong_yue",
+        "char_wei_tian_yuan"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 110,
+          "line_end": 110,
+          "text": "礼案上那对龙凤花烛，烛光已经介息灭"
+        }
+      ]
+    },
+    {
+      "id": "item_la_wan",
+      "name": "蜡丸",
+      "type": "hidden_weapon",
+      "owner": "char_wei_tian_yuan",
+      "one_line": "卫天元用婚礼烛泪临时制成的暗器，用来羞辱徐中岳",
+      "description": "卫天元从熄灭的龙凤花烛上取下凝结的烛泪，捏成两颗蜡丸当作暗器，以小天星劈空掌力发射，粘在徐中岳眼皮上",
+      "effects": [
+        {
+          "type": "攻击",
+          "value": "",
+          "description": "柔软蜡丸配合劈空掌力，无法闪避"
+        }
+      ],
+      "origin": "临时制作",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_wei_tian_yuan"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 387,
+          "line_end": 387,
+          "text": "我想借用这两颗蜡丸，做我这场比试的暗器"
+        }
+      ]
+    },
+    {
+      "id": "item_ji_ming_wu_gu_fan_hun_xiang",
+      "name": "鸡鸣五鼓返魂香",
+      "type": "poison",
+      "owner": "char_zhao_hong_mei",
+      "one_line": "赵红眉使用的迷香，能令人昏迷不省人事",
+      "description": "鸡鸣五鼓返魂香，一种江湖中常见的迷香，吹入房间后可令人昏迷，赵红眉企图用此迷倒姜雪君",
+      "effects": [
+        {
+          "type": "毒药",
+          "value": "",
+          "description": "令人昏迷不省人事"
+        }
+      ],
+      "origin": "江湖",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_zhao_hong_mei"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 1408,
+          "line_end": 1408,
+          "text": "赵红眉用的是鸡鸣五鼓返魂香"
+        }
+      ]
+    },
+    {
+      "id": "item_su_gu_zhen",
+      "name": "酥骨针",
+      "type": "hidden_weapon",
+      "owner": "char_zhao_hong_mei",
+      "one_line": "赵红眉独门喂毒暗器",
+      "description": "一种喂毒暗器，中者筋酥骨软，需十二时辰方能自行恢复",
+      "effects": [
+        {
+          "type": "减益",
+          "value": "12时辰",
+          "description": "令人筋酥骨软"
+        }
+      ],
+      "origin": "赵红眉",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_zhao_hong_mei"
+      ],
+      "related_skills": [
+        "skill_su_gu_zhen"
+      ],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 1901,
+          "line_end": 1901,
+          "text": "她中了我的酥骨针"
+        }
+      ]
+    },
+    {
+      "id": "item_ren_pi_mian_ju",
+      "name": "人皮面具",
+      "type": "special",
+      "owner": "char_ding_bo",
+      "one_line": "丁勃制作的精巧人皮面具",
+      "description": "丁勃制作的精巧人皮面具，用于改容易貌",
+      "effects": [
+        {
+          "type": "特殊",
+          "value": "",
+          "description": "改变容貌，使人无法辨认"
+        }
+      ],
+      "origin": "丁勃",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_ding_bo",
+        "char_qi_shu_yu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 871,
+          "line_end": 872,
+          "text": "拿出一张人皮面具"
+        }
+      ]
+    }
+  ]
+}
