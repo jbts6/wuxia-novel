@@ -1,0 +1,947 @@
+{
+  "characters": [
+    {
+      "id": "char_shang_guan_yun_long",
+      "name": "上官云龙",
+      "alias": [],
+      "identity": "西域十三家宗主",
+      "faction": "星宿海",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "幻剑灵旗宗主，上官飞凤之父，武功深不可测",
+      "personality": {
+        "traits": [
+          "正直",
+          "固执",
+          "重情义",
+          "严厉",
+          "刚强"
+        ],
+        "speech_style": "严肃果断",
+        "temperament": "威严"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_huan_jian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 134,
+          "line_end": 134,
+          "text": "上官飞凤齐叔叔，你的剑法我一向是心眼口服的"
+        }
+      ]
+    },
+    {
+      "id": "char_gai_fu_tian",
+      "name": "盖覆天",
+      "alias": [],
+      "identity": "上官云龙结拜兄弟，叛徒",
+      "faction": "星宿海",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "上官云龙的结拜兄弟，背叛宗主企图夺权",
+      "personality": {
+        "traits": [
+          "阴险",
+          "贪婪",
+          "虚伪",
+          "狡猾",
+          "残忍"
+        ],
+        "speech_style": "虚伪客套",
+        "temperament": "阴沉"
+      },
+      "relationships": [
+        {
+          "target": "char_shang_guan_yun_long",
+          "type": "宿敌",
+          "intensity": 80,
+          "bond_level": 1,
+          "dynamic": "背叛结拜兄弟"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 4,
+          "line_end": 4,
+          "text": "宇文浩和盖覆天交换了一下眼色"
+        }
+      ]
+    },
+    {
+      "id": "char_wu_ying_yang",
+      "name": "武鹰扬",
+      "alias": [],
+      "identity": "白驼山大香主",
+      "faction": "白驼山",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "白驼山大香主，擅长鹰爪功",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "残忍",
+          "勇猛",
+          "贪生怕死"
+        ],
+        "speech_style": "冷笑",
+        "temperament": "阴狠"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 36,
+          "line_end": 36,
+          "text": "武鹰扬冷笑道"
+        }
+      ]
+    },
+    {
+      "id": "char_shi_long",
+      "name": "石龙",
+      "alias": [],
+      "identity": "黑石山头领",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "西域十三家之一，黑石山头领",
+      "personality": {
+        "traits": [
+          "胆小",
+          "诚实",
+          "服从"
+        ],
+        "speech_style": "恭敬",
+        "temperament": "软弱"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 210,
+          "line_end": 212,
+          "text": "黑石山的头领石龙首先跪下"
+        }
+      ]
+    },
+    {
+      "id": "char_zhao_qing_mei",
+      "name": "赵青眉",
+      "alias": [
+        "假上官飞凤",
+        "假飞凤"
+      ],
+      "identity": "徐中岳前妻的姐姐，赵红眉之姐",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "登堂入室",
+      "one_line": "徐中岳大姨子，假扮上官飞凤害人，最终被师父灭口",
+      "personality": {
+        "traits": [
+          "阴险",
+          "嫉妒",
+          "狠毒",
+          "狡诈",
+          "偏执"
+        ],
+        "speech_style": "阴险狡诈",
+        "temperament": "阴险偏执"
+      },
+      "relationships": [
+        {
+          "target": "char_yin_hu",
+          "type": "师徒",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "师徒关系，最终被灭口"
+        },
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "宿敌",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "因嫉妒而仇恨"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1041,
+          "line_end": 1051,
+          "text": "这个女子竟然是上官飞凤，大过出乎他的意料之外了！不是上官飞凤。是徐中岳前妻赵红眉的姐姐越青眉。"
+        }
+      ]
+    },
+    {
+      "id": "char_qing_luan",
+      "name": "青鸾",
+      "alias": [],
+      "identity": "瑶光散人的徒弟",
+      "faction": "faction_hua_shan",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "瑶光散人的还俗徒弟，与鲍令晖同行",
+      "personality": {
+        "traits": [
+          "善良",
+          "感恩",
+          "谦逊",
+          "坚强",
+          "温柔"
+        ],
+        "speech_style": "谦逊有礼",
+        "temperament": "温柔善良"
+      },
+      "relationships": [
+        {
+          "target": "char_bao_ling_hui",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "同行伙伴"
+        },
+        {
+          "target": "char_shang_guan_fei_feng",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "曾并肩作战，蒙救命之恩"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1419,
+          "line_end": 1419,
+          "text": "一路上都打听不到齐老前辈的消息，也不知他来了没有：即使他是来了，又怎样才能找到他呢？"
+        }
+      ]
+    },
+    {
+      "id": "char_bao_ling_hui",
+      "name": "鲍令晖",
+      "alias": [],
+      "identity": "玉虚子的徒弟",
+      "faction": "faction_wu_dang",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "玉虚子新收的徒弟，楚天舒的好朋友",
+      "personality": {
+        "traits": [
+          "忠诚",
+          "勇敢",
+          "谦逊",
+          "重情义",
+          "聪慧"
+        ],
+        "speech_style": "谦逊有礼",
+        "temperament": "忠诚勇敢"
+      },
+      "relationships": [
+        {
+          "target": "char_yu_xu_zi",
+          "type": "师徒",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "师徒关系"
+        },
+        {
+          "target": "char_chu_tian_shu",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "好朋友"
+        },
+        {
+          "target": "char_qing_luan",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "同行伙伴"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1425,
+          "line_end": 1425,
+          "text": "你放心，师父一定有办法打听的。"
+        }
+      ]
+    },
+    {
+      "id": "char_mu_zhi_yao",
+      "name": "穆志遥",
+      "alias": [
+        "穆大统领"
+      ],
+      "identity": "御林军统领",
+      "faction": null,
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "御林军统领，蹑云剑传人，因毒瘾受白驼山主控制",
+      "personality": {
+        "traits": [
+          "狡诈",
+          "狠毒",
+          "贪婪",
+          "堕落",
+          "矛盾"
+        ],
+        "speech_style": "老练狡猾",
+        "temperament": "矛盾复杂"
+      },
+      "relationships": [
+        {
+          "target": "char_wei_tian_yuan",
+          "type": "宿敌",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "杀父之仇"
+        },
+        {
+          "target": "char_yu_xu_zi",
+          "type": "对手",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "曾有旧怨"
+        }
+      ],
+      "known_skills": [
+        "skill_nie_yun_jian_fa"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1331,
+          "line_end": 1331,
+          "text": "竟然是御林军统领穆志遥！他已经站在上官飞凤的面前了！"
+        }
+      ]
+    },
+    {
+      "id": "char_yu_qing_shen_ni",
+      "name": "玉清神尼",
+      "alias": [
+        "老尼姑"
+      ],
+      "identity": "隐居幽谷的高僧",
+      "faction": null,
+      "role": "npc",
+      "archetype": "monk",
+      "rank": "返璞归真",
+      "one_line": "隐居白驼山幽谷的高僧，收容姜雪君",
+      "personality": {
+        "traits": [
+          "慈悲",
+          "神秘",
+          "古怪",
+          "正义",
+          "隐世"
+        ],
+        "speech_style": "少言寡语",
+        "temperament": "慈悲隐世"
+      },
+      "relationships": [
+        {
+          "target": "char_jiang_xue_jun",
+          "type": "师徒",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "收容救治"
+        },
+        {
+          "target": "char_wei_tian_yuan",
+          "type": "挚友",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "先父旧交"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1887,
+          "line_end": 1887,
+          "text": "是隐居在这幽谷中的一位本领高强的老尼姑，法号玉清。"
+        }
+      ]
+    },
+    {
+      "id": "char_yu_wen_lei",
+      "name": "宇文雷",
+      "alias": [
+        "白驼山主"
+      ],
+      "identity": "白驼山山主",
+      "faction": "白驼山",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "白驼山主，以火焰刀和寒冰掌闻名，制造神仙丸牟利",
+      "personality": {
+        "traits": [
+          "阴险",
+          "狡猾",
+          "贪婪",
+          "狠辣",
+          "虚伪"
+        ],
+        "speech_style": "冷笑",
+        "temperament": "阴沉"
+      },
+      "relationships": [
+        {
+          "target": "char_wei_tian_yuan",
+          "type": "宿敌",
+          "intensity": 95,
+          "bond_level": 1,
+          "dynamic": "杀父之仇不共戴天"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 28,
+          "line_end": 28,
+          "text": "白驼山主宇文雷却把自己关在密室里"
+        }
+      ]
+    },
+    {
+      "id": "char_yu_wen_furen",
+      "name": "宇文夫人",
+      "alias": [
+        "好好"
+      ],
+      "identity": "白驼山主妻子",
+      "faction": "白驼山",
+      "role": "villain",
+      "archetype": "healer",
+      "rank": "炉火纯青",
+      "one_line": "白驼山主妻子，穆欣欣的侄女",
+      "personality": {
+        "traits": [
+          "温柔",
+          "软弱",
+          "嫉妒",
+          "无奈"
+        ],
+        "speech_style": "柔和",
+        "temperament": "温顺"
+      },
+      "relationships": [
+        {
+          "target": "char_yu_wen_lei",
+          "type": "恋人",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "夫妻关系"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 105,
+          "line_end": 105,
+          "text": "宇文浩的妈妈已经来了。"
+        }
+      ]
+    },
+    {
+      "id": "char_ma_zan_ha",
+      "name": "麻赞哈",
+      "alias": [],
+      "identity": "西域十三家首领之一",
+      "faction": "星宿海",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "西域十三家首领之一，背叛上官云龙投靠清廷",
+      "personality": {
+        "traits": [
+          "贪婪",
+          "背叛",
+          "狡猾",
+          "残忍"
+        ],
+        "speech_style": "强硬",
+        "temperament": "阴沉"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 1300,
+          "line_end": 1300,
+          "text": "麻赞哈"
+        }
+      ]
+    },
+    {
+      "id": "char_mei_qing_feng",
+      "name": "梅清风",
+      "alias": [
+        "梅大侠"
+      ],
+      "identity": "梅花拳掌门",
+      "faction": null,
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "梅花拳掌门，与徐中岳私交甚好，贪图幻剑剑诀",
+      "personality": {
+        "traits": [
+          "贪婪",
+          "虚伪",
+          "阴险",
+          "傲慢"
+        ],
+        "speech_style": "冷笑",
+        "temperament": "冷傲"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 1309,
+          "line_end": 1309,
+          "text": "梅花拳的掌门梅清风"
+        }
+      ]
+    },
+    {
+      "id": "char_lu_ting_fang",
+      "name": "鲁廷方",
+      "alias": [
+        "鲁副统领"
+      ],
+      "identity": "御林军副统领",
+      "faction": null,
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "御林军副统领，奉命追捕卫天元",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "残忍",
+          "忠诚",
+          "贪婪"
+        ],
+        "speech_style": "冷笑",
+        "temperament": "阴沉"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 1307,
+          "line_end": 1307,
+          "text": "御林军的副统领，名叫鲁廷方"
+        }
+      ]
+    },
+    {
+      "id": "char_qi_shu_yu",
+      "name": "齐漱玉",
+      "alias": [
+        "玉儿"
+      ],
+      "identity": "齐勒铭之女",
+      "faction": null,
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "齐勒铭之女，楚天舒的未婚妻，在华山疗伤",
+      "personality": {
+        "traits": [
+          "温柔",
+          "痴情",
+          "坚强",
+          "善良",
+          "多愁善感"
+        ],
+        "speech_style": "轻柔",
+        "temperament": "温婉"
+      },
+      "relationships": [
+        {
+          "target": "char_chu_tian_shu",
+          "type": "恋人",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "恋人团聚"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 1558,
+          "line_end": 1558,
+          "text": "对齐漱玉来说，似乎也是如此。"
+        }
+      ]
+    }
+  ],
+  "skills": [],
+  "techniques": [],
+  "factions": [],
+  "locations": [
+    {
+      "id": "loc_luo_tuo_feng",
+      "name": "骆驼峰",
+      "region": "白驼山",
+      "one_line": "白驼山主峰，因形似骆驼而得名",
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 308,
+          "line_end": 308,
+          "text": "白驼山的主峰就叫骆驼峰，山上冰雪覆盖，远远望去，当真是活像一头大骆驼。"
+        }
+      ]
+    },
+    {
+      "id": "loc_bing_ta_feng",
+      "name": "冰塔峰",
+      "region": "白驼山",
+      "one_line": "白驼山上的冰塔群，排列如阵图",
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 328,
+          "line_end": 328,
+          "text": "现在出现在卫天元面前的冰塔峰约有十几个之多，排列得好像阵图一样。"
+        }
+      ]
+    },
+    {
+      "id": "loc_you_gu",
+      "name": "幽谷",
+      "region": "白驼山",
+      "one_line": "白驼山中的隐秘山谷，姜雪君藏身之处",
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 484,
+          "line_end": 484,
+          "text": "那个冰湖的后面，是云封雾锁的幽谷。显然她已跑进幽谷去了。"
+        }
+      ]
+    },
+    {
+      "id": "loc_jin_gu_yuan",
+      "name": "金谷园",
+      "region": "洛阳",
+      "one_line": "徐中岳的府邸",
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1103,
+          "line_end": 1103,
+          "text": "我早已是坐在金谷园中，安安稳稳的做洛阳首富、中州大侠的夫人了。"
+        }
+      ]
+    },
+    {
+      "id": "loc_ri_ka_ze",
+      "name": "日喀则",
+      "region": "藏边",
+      "one_line": "白驼山附近的城市",
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 1239,
+          "line_end": 1239,
+          "text": "第五天他到达一个名叫日喀则的城市"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_yuan_yang_shi",
+      "name": "鸳鸯石",
+      "type": "special",
+      "owner": "char_jiang_xue_jun",
+      "one_line": "卫天元与姜雪君的定情信物",
+      "description": "两块心形小石头，形状相似，花纹都像一只鸟儿。卫天元收藏一块，将另一块送给姜雪君。赵青眉从姜雪君手中抢得鸯石。",
+      "effects": [
+        {
+          "type": "剧情",
+          "value": "",
+          "description": "卫天元与姜雪君的定情信物"
+        }
+      ],
+      "origin": "卫天元与姜雪君拾取",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_wei_tian_yuan",
+        "char_jiang_xue_jun"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 398,
+          "line_end": 400,
+          "text": "原来这块石头正是卫天元小时候和姜雪君拾取的。本来有两块的，形状都差不多的相同两块。更巧的是，两块石头上的花纹都像一只鸟儿，卫天元把它们戏称为鸳鸯石。"
+        }
+      ]
+    },
+    {
+      "id": "item_shen_xian_wan",
+      "name": "神仙丸",
+      "type": "pill",
+      "owner": "char_mu_zhi_yao",
+      "one_line": "白驼山主制造的毒品",
+      "description": "白驼山主宇文雷制造的毒品，穆志遥因此上瘾受其控制。服用后快活似神仙，但毒瘾发作时惨过受刑。",
+      "effects": [
+        {
+          "type": "毒药",
+          "value": "",
+          "description": "令人上瘾，毒瘾发作时浑身乏力"
+        }
+      ],
+      "origin": "白驼山主宇文雷",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_mu_zhi_yao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1797,
+          "line_end": 1797,
+          "text": "一服神仙丸，快活似神仙，这是真的吗？"
+        }
+      ]
+    },
+    {
+      "id": "item_yu_hua_yu_lu_wan",
+      "name": "琼花玉露丸",
+      "type": "pill",
+      "owner": "char_jiang_xue_jun",
+      "one_line": "华山派疗伤圣药",
+      "description": "华山派的独门疗伤圣药，祛毒功效不在天山派碧灵丹之下。姜雪君用此药救醒卫天元。",
+      "effects": [
+        {
+          "type": "增益",
+          "value": "",
+          "description": "祛毒疗伤，安神助眠"
+        }
+      ],
+      "origin": "华山派",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_jiang_xue_jun",
+        "char_wei_tian_yuan"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 889,
+          "line_end": 889,
+          "text": "你放心，我已经给他服下了琼花玉露丸，药性是可以令他熟睡的。"
+        }
+      ]
+    },
+    {
+      "id": "item_long_tou_guai_zhang",
+      "name": "龙头拐杖",
+      "type": "weapon",
+      "owner": "char_yin_hu",
+      "one_line": "银狐的兵器",
+      "description": "银狐使用的龙头拐杖，拐杖在药水中浸过，可散发令人昏迷的香气。被卫天元用大摔碑手打断。",
+      "effects": [
+        {
+          "type": "控制",
+          "value": "",
+          "description": "拐杖挥舞时散发迷香，可令人昏迷"
+        }
+      ],
+      "origin": "未知",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_yin_hu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 1187,
+          "line_end": 1187,
+          "text": "是我又怎样？手中的龙头拐杖一挥，荡开了楚天舒的判官笔，击向卫天元。"
+        }
+      ]
+    },
+    {
+      "id": "item_zhu_jie_zhi",
+      "name": "竹戒指",
+      "type": "special",
+      "owner": "char_wei_tian_yuan",
+      "one_line": "用白驼山方竹制成的戒指，穆志遥的信物",
+      "description": "白驼山上特有的方竹制成的戒指，色泽斑斓如古玉，是白驼山主给穆志遥的信物。卫天元从穆志遥遗体上取下，用于冒充穆志遥潜入白驼山。",
+      "effects": [
+        {
+          "type": "剧情",
+          "value": "",
+          "description": "作为身份信物帮助卫天元混入白驼山"
+        }
+      ],
+      "origin": "白驼山主",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_wei_tian_yuan",
+        "char_mu_zhi_yao",
+        "char_yu_wen_lei"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 17,
+          "line_end": 19,
+          "text": "这枚戒指倒是有点特别，好像是竹做的。"
+        }
+      ]
+    },
+    {
+      "id": "item_yang_he_wan",
+      "name": "阳和丸",
+      "type": "pill",
+      "owner": "char_shang_guan_yun_long",
+      "one_line": "上官家传灵丹，可抵御奇寒",
+      "description": "上官家传的珍贵灵丹，能抵御奇寒之气，对内伤有奇效。上官云龙用此药丸与齐勒铭交易，换取穆娟娟帮助上官飞凤。",
+      "effects": [
+        {
+          "type": "增益",
+          "value": "",
+          "description": "抵御奇寒、疗治内伤"
+        }
+      ],
+      "origin": "星宿海上官家",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_shang_guan_yun_long",
+        "char_qi_le_ming"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        10,
+        12
+      ],
+      "source_refs": [
+        {
+          "chapter": 12,
+          "line_start": 748,
+          "line_end": 748,
+          "text": "我身上也还有阳和丹。星宿海的奇寒都能抵御。"
+        }
+      ]
+    }
+  ]
+}
