@@ -117,7 +117,7 @@ node .agents/skills/deconstruct-novel/scripts/prepare.js <小说目录路径>
 - 禁止使用 Write 工具写入 JSON，必须用 ctx_execute
 - 禁止对 speaker 识别过度思考，5秒内无法判断就标 null
 - 每句有说话人的对话都必须提取
-- tone 字段：从 constants.md 的 dialogue_tone 枚举（41个合法值）中选择，只取情绪/语气，不取动作或叙事描写；无法判断用"陈述"
+- tone 字段：从 constants.md 的 dialogue_tone 枚举（42个合法值）中选择，只取情绪/语气，不取动作或叙事描写；无法判断用"陈述"
 ```
 
 **主 Agent 并行启动示例**：
