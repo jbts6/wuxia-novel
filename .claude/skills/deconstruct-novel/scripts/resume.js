@@ -8,20 +8,20 @@ if (!novelDir) {
   process.exit(1);
 }
 
-const batchConfigPath = path.join(novelDir, 'batch_config.json');
+const chapterListPath = path.join(novelDir, 'chapter_list.json');
 const batchJsonDir = path.join(novelDir, 'batch_json');
 const registryPath = path.join(novelDir, 'entity_registry.json');
 
-// 检查必要目录
-if (!fs.existsSync(batchConfigPath)) {
-  console.error(`[恢复] ❌ ${batchConfigPath} 不存在`);
-  console.error('[恢复] 请先运行 prepare.js 生成批次配置');
+// 检查 chapter_list.json
+if (!fs.existsSync(chapterListPath)) {
+  console.error(`[恢复] ❌ ${chapterListPath} 不存在`);
+  console.error('[恢复] 请先运行 prepare.js 生成章节列表');
   process.exit(1);
 }
 
-const batchConfig = JSON.parse(fs.readFileSync(batchConfigPath, 'utf-8'));
-const totalChapters = batchConfig.totalChapters;
-const totalBatches = batchConfig.totalBatches;
+const chapterList = JSON.parse(fs.readFileSync(chapterListPath, 'utf-8'));
+const totalChapters = chapterList.totalChapters;
+const allChapters = chapterList.chapters.map(f => f.replace('.md', ''));
 
 if (!fs.existsSync(batchJsonDir)) {
   console.error(`[恢复] ❌ ${batchJsonDir} 不存在`);
@@ -30,51 +30,22 @@ if (!fs.existsSync(batchJsonDir)) {
 }
 
 // 读取所有已完成的章节
-const existingChapterFiles = new Set(
+const existingChapterJsons = new Set(
   fs.readdirSync(batchJsonDir)
     .filter(f => f.startsWith('ch_') && f.endsWith('.json'))
-    .map(f => f.replace('.json', '.md'))
+    .map(f => f.replace('.json', ''))
 );
 
-// 分析每个批次的状态
-const batchStatus = [];
-let completedChapters = 0;
-let completedBatches = 0;
-let partialBatches = 0;
-let pendingBatches = 0;
+// 检测进行中的章节（有 progress.jsonl 但没有最终 json）
+const progressFiles = new Set(
+  fs.readdirSync(batchJsonDir)
+    .filter(f => f.startsWith('ch_') && f.endsWith('_progress.jsonl'))
+    .map(f => f.replace('_progress.jsonl', ''))
+);
 
-for (const batch of batchConfig.batches) {
-  const batchNum = batch.batch;
-  const chapters = batch.chapters;
-  const batchRegistryPath = path.join(novelDir, batch.registry副本);
-  const hasRegistry = fs.existsSync(batchRegistryPath);
-
-  const done = chapters.filter(ch => existingChapterFiles.has(ch));
-  const pending = chapters.filter(ch => !existingChapterFiles.has(ch));
-
-  completedChapters += done.length;
-
-  let status;
-  if (done.length === chapters.length && hasRegistry) {
-    status = 'complete';
-    completedBatches++;
-  } else if (done.length === 0 && !hasRegistry) {
-    status = 'pending';
-    pendingBatches++;
-  } else {
-    status = 'partial';
-    partialBatches++;
-  }
-
-  batchStatus.push({
-    batch: batchNum,
-    status,
-    chapters,
-    done: done.map(ch => ch.replace('.md', '')),
-    pending: pending.map(ch => ch.replace('.md', '')),
-    hasRegistry
-  });
-}
+const completedChapters = allChapters.filter(ch => existingChapterJsons.has(ch));
+const inProgressChapters = allChapters.filter(ch => !existingChapterJsons.has(ch) && progressFiles.has(ch));
+const pendingChapters = allChapters.filter(ch => !existingChapterJsons.has(ch) && !progressFiles.has(ch));
 
 // 检查合并状态
 const hasRegistry = fs.existsSync(registryPath);
@@ -99,40 +70,40 @@ for (const f of finalOutputs) {
 }
 
 // === 输出报告 ===
-const pct = Math.round(completedChapters / totalChapters * 100);
+const pct = Math.round(completedChapters.length / totalChapters * 100);
 
 console.log(`[恢复] 小说: ${novelDir}`);
-console.log(`[恢复] 总进度: ${completedChapters}/${totalChapters} 章 (${pct}%)`);
+console.log(`[恢复] 总进度: ${completedChapters.length}/${totalChapters} 章 (${pct}%)`);
 console.log('');
 
-// 批次详情
-for (const b of batchStatus) {
-  const statusIcon = b.status === 'complete' ? '✅' : b.status === 'partial' ? '🔄' : '⬜';
-  const range = b.chapters[0].replace('.md', '') + '~' + b.chapters[b.chapters.length - 1].replace('.md', '');
-  if (b.status === 'complete') {
-    console.log(`  ${statusIcon} 第${b.batch}批(${range}): 完成`);
-  } else if (b.status === 'partial') {
-    const doneStr = b.done.join(' ');
-    const pendStr = b.pending.join(' ');
-    console.log(`  ${statusIcon} 第${b.batch}批(${range}): ${doneStr} ✓  待处理: ${pendStr}`);
-  } else {
-    console.log(`  ${statusIcon} 第${b.batch}批(${range}): 未开始`);
+if (completedChapters.length > 0) {
+  console.log(`[恢复] ✅ 已完成: ${completedChapters.join(', ')}`);
+}
+
+if (inProgressChapters.length > 0) {
+  console.log(`[恢复] 🔄 进行中: ${inProgressChapters.join(', ')}`);
+  // 显示每个进行中章节的进度
+  for (const ch of inProgressChapters) {
+    const progressFile = path.join(batchJsonDir, `${ch}_progress.jsonl`);
+    const lines = fs.readFileSync(progressFile, 'utf8').trim().split('\n').filter(Boolean);
+    console.log(`     ${ch}: 已处理 ${lines.length} 段`);
   }
 }
 
+if (pendingChapters.length > 0) {
+  console.log(`[恢复] ⬜ 待处理: ${pendingChapters.join(', ')}`);
+}
+
 console.log('');
-console.log(`[恢复] 统计: ${completedBatches}批完成, ${partialBatches}批部分完成, ${pendingBatches}批未开始`);
 
 // 合并状态
-const registriesToMerge = batchStatus.filter(b => b.hasRegistry).length;
-console.log('');
 console.log('[恢复] 合并状态:');
 if (hasRegistry) {
-  console.log(`  ✅ entity_registry.json: ${registryEntityCount} 个实体 (${registriesToMerge} 个批次已写入)`);
+  console.log(`  ✅ entity_registry.json: ${registryEntityCount} 个实体`);
 } else {
   console.log(`  ⬜ entity_registry.json: 不存在`);
-  if (completedBatches > 0) {
-    console.log(`  💡 提示: 有 ${completedBatches} 个批次已完成，可运行 merge-registries.js 合并`);
+  if (completedChapters.length > 0) {
+    console.log(`  💡 提示: 有 ${completedChapters.length} 个章节已完成，可运行 merge-entities.js 合并`);
   }
 }
 
@@ -152,19 +123,15 @@ if (finalOutputCount > 0 && finalOutputCount < 8) {
 // 下一步建议
 console.log('');
 console.log('[恢复] 下一步建议:');
-if (pendingBatches > 0 || partialBatches > 0) {
-  const partialAndPending = batchStatus.filter(b => b.status !== 'complete');
-  console.log(`  ⚠️  还有处理中的批次，请继续 Sub Agent 提取:`);
-  for (const b of partialAndPending) {
-    const range = b.chapters[0].replace('.md', '') + '~' + b.chapters[b.chapters.length - 1].replace('.md', '');
-    if (b.status === 'partial') {
-      console.log(`     - 第${b.batch}批(${range}): 恢复模式启动（跳过已完成章节）`);
-    } else {
-      console.log(`     - 第${b.batch}批(${range}): 正常启动`);
-    }
+if (inProgressChapters.length > 0 || pendingChapters.length > 0) {
+  const total = inProgressChapters.length + pendingChapters.length;
+  console.log(`  ⚠️  还有 ${total} 章待处理（${inProgressChapters.length} 章进行中，${pendingChapters.length} 章未开始）`);
+  console.log(`  💡 Agent 自主决定并行度（RPM < 100）`);
+  if (inProgressChapters.length > 0) {
+    console.log(`  💡 进行中的章节会从上次中断的段落继续`);
   }
-} else if (completedBatches === totalBatches && !hasRegistry) {
-  console.log(`  💡 运行 merge-registries.js 合并注册表`);
+} else if (completedChapters.length === totalChapters && !hasRegistry) {
+  console.log(`  💡 运行 merge-entities.js 合并注册表`);
 } else if (hasRegistry && finalOutputCount < 8) {
   if (finalOutputCount < 2) {
     console.log(`  💡 运行代码合并（第4步）和最终拆分（第5步）`);
@@ -179,17 +146,16 @@ if (pendingBatches > 0 || partialBatches > 0) {
 const resumeData = {
   novelDir,
   totalChapters,
-  totalBatches,
-  completedChapters,
+  completedChapters: completedChapters.length,
+  inProgressChapters: inProgressChapters.length,
+  pendingChapters: pendingChapters.length,
   overallProgress: pct,
-  batchStatus,
-  completedBatches,
-  partialBatches,
-  pendingBatches,
+  completed: completedChapters,
+  inProgress: inProgressChapters,
+  pending: pendingChapters,
   registry: {
     exists: hasRegistry,
-    entityCount: registryEntityCount,
-    batchCountMerged: registriesToMerge
+    entityCount: registryEntityCount
   },
   finalOutput: {
     count: finalOutputCount,

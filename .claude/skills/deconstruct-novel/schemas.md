@@ -2,19 +2,17 @@
 
 ## JSON 格式安全规则
 
-**原文引号必须原样保留。** 中文小说使用全角引号 `""`（如 `"你好"`），这些引号直接写入 JSON 字符串值即可，**不要转义、不要替换为 ASCII `"`**。
+**原文中的引号已在 formatted 阶段转为英文引号。** 写入 JSON 时，字符串值中的英文双引号必须转义为 `\"`，否则会破坏 JSON 格式。
 
-全角引号（U+201C `"`、U+201D `"`）与 JSON 语法的 ASCII 双引号（U+0022 `"`）是完全不同的 Unicode 字符，不会冲突。
+**必须使用 `JSON.stringify` 写入 JSON**，它会自动处理引号转义。不要手动拼接 JSON 字符串。
 
-```json
-// ✅ 正确：全角引号原样保留
-{"text": "他说："你好。""}
+```javascript
+// ✅ 正确：使用 JSON.stringify 自动转义
+const text = '他说："你好。"';
+const json = JSON.stringify({ text }); // {"text":"他说：\"你好。\""}
 
-// ❌ 错误：转义了全角引号
-{"text": "他说：\u201c你好。\u201d"}
-
-// ❌ 错误：全角引号被替换为 ASCII 引号（破坏 JSON）
-{"text": "他说："你好。""}
+// ❌ 错误：手动拼接 JSON，未转义引号
+const bad = '{"text": "他说："你好。""}'; // JSON 解析失败
 ```
 
 **写入每个 JSON 文件后，务必验证格式正确：**
@@ -124,6 +122,36 @@ console.log(`characters.json: ${data.length} 个实体，格式正确`);
   ]
 }
 ```
+
+---
+
+## ch_N_progress.jsonl（进度文件）
+
+每章分段处理时，每段处理完后追加一行 JSON 到此文件。用于增量写入和中断恢复。
+
+```jsonl
+{"segment": 1, "line_start": 1, "line_end": 45, "dialogues": [...], "new_entities": {...}, "entity_updates": [...]}
+{"segment": 2, "line_start": 46, "line_end": 92, "dialogues": [...], "new_entities": {...}, "entity_updates": [...]}
+```
+
+**字段说明：**
+- `segment`：段落序号（从 1 开始）
+- `line_start` / `line_end`：本段在原文章节文件中的行号范围
+- `dialogues`：本段提取的对话数组
+- `new_entities`：本段新发现的实体
+- `entity_updates`：本段的实体更新
+
+**恢复逻辑：**
+- 读取 `.jsonl` 文件的行数 = 已完成的段落数
+- 从下一段继续处理
+
+**合并逻辑：**
+- 读取所有行
+- 合并 dialogues（去重：speaker + text + line_start）
+- 合并 new_entities（去重：按 id）
+- 合并 entity_updates（按 id 聚合）
+- 加上 chapter_summary
+- 写入 `ch_N.json`
 
 ---
 

@@ -2,19 +2,17 @@ const fs = require('fs');
 const path = require('path');
 
 const novelDir = process.argv[2];
-const batchSize = parseInt(process.argv[3]) || 3;
 
 if (!novelDir) {
-  console.error('用法: node prepare.js <小说目录路径> [批次大小]');
+  console.error('用法: node prepare.js <小说目录路径>');
   console.error('示例: node prepare.js 金庸/天龙八部');
-  console.error('      node prepare.js 金庸/天龙八部 5');
   process.exit(1);
 }
 
 const chFormattedDir = path.join(novelDir, 'ch_formatted');
 const batchJsonDir = path.join(novelDir, 'batch_json');
 const registryPath = path.join(novelDir, 'entity_registry.json');
-const batchConfigPath = path.join(novelDir, 'batch_config.json');
+const chapterListPath = path.join(novelDir, 'chapter_list.json');
 
 // 1. 检查 ch_formatted 目录
 if (!fs.existsSync(chFormattedDir)) {
@@ -60,45 +58,38 @@ if (!fs.existsSync(registryPath)) {
   console.log(`[注册表] ${registryPath} 已存在，跳过初始化`);
 }
 
-// 5. 生成批次配置
-const batches = [];
-for (let i = 0; i < chapterFiles.length; i += batchSize) {
-  const batchChapters = chapterFiles.slice(i, i + batchSize);
-  const batchNum = Math.floor(i / batchSize) + 1;
-  batches.push({
-    batch: batchNum,
-    chapters: batchChapters,
-    registry副本: `batch_json/batch_${batchNum}_registry.json`
-  });
-}
-
-const batchConfig = {
+// 5. 生成章节列表
+const chapterList = {
   novelDir: novelDir,
   totalChapters: chapterFiles.length,
-  batchSize: batchSize,
-  totalBatches: batches.length,
-  batches: batches
+  chapters: chapterFiles
 };
 
-fs.writeFileSync(batchConfigPath, JSON.stringify(batchConfig, null, 2), 'utf-8');
-console.log(`\n[批次] 批次大小: ${batchSize} 章`);
-console.log(`[批次] 共 ${batches.length} 批`);
-batches.forEach(b => {
-  console.log(`  批次 ${b.batch}: ${b.chapters.join(', ')}`);
-});
+fs.writeFileSync(chapterListPath, JSON.stringify(chapterList, null, 2), 'utf-8');
+console.log(`\n[章节列表] 已生成 ${chapterListPath}`);
 
 // 检测已有提取结果（用于恢复场景）
 const existingChapterJsons = fs.readdirSync(batchJsonDir)
   .filter(f => f.startsWith('ch_') && f.endsWith('.json'));
+
 if (existingChapterJsons.length > 0) {
-  console.log(`\n[检测] 已有 ${existingChapterJsons.length} 个章节的提取结果，如需恢复中断的任务请运行:`);
-  console.log(`  node .agents/skills/deconstruct-novel/scripts/resume.js ${novelDir}`);
+  console.log(`\n[检测] 已有 ${existingChapterJsons.length} 个章节的提取结果`);
+  console.log(`  已完成: ${existingChapterJsons.sort().join(', ')}`);
+  const pendingChapters = chapterFiles.filter(f => {
+    const num = f.replace('ch_', '').replace('.md', '');
+    return !existingChapterJsons.includes(`ch_${num}.json`);
+  });
+  if (pendingChapters.length > 0) {
+    console.log(`  待处理: ${pendingChapters.join(', ')}`);
+  } else {
+    console.log(`  ✅ 所有章节已完成提取`);
+  }
 } else {
   console.log(`\n[检测] 未检测到已有提取结果`);
 }
 
 console.log('\n[完成] 准备工作完成！');
 console.log(`下一步:`);
-console.log(`  1. 如果之前有部分完成，先运行 resume.js 检测恢复点`);
-console.log(`  2. 为每个批次启动 Sub Agent（批间可并行）`);
-console.log(`  3. 每批完成后运行 merge-registries.js 合并注册表`);
+console.log(`  1. 根据 chapter_list.json 中的章节列表，启动 Sub Agent 处理`);
+console.log(`  2. Agent 自主决定并行度（RPM < 100）`);
+console.log(`  3. 所有章节完成后，运行 merge-entities.js 合并实体`);
