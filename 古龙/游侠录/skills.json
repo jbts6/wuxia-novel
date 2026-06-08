@@ -1,0 +1,2750 @@
+[
+  {
+    "id": "skill_wu_ying_zhi_du",
+    "name": "无影之毒",
+    "type": "内功",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "丁伶右手伤重后无法如常发力，导致小柳铺一战落败。",
+    "techniques": [
+      {
+        "id": "tech_wu_ying_xia_du",
+        "name": "无影下毒",
+        "type": "debuff",
+        "description": "在目标毫无所觉时施毒，使武林高手也难以察知来源。"
+      },
+      {
+        "id": "tech_wu_ying_jie_du",
+        "name": "无影解毒",
+        "type": "buff",
+        "description": "熟知毒性后以特殊法门救治中毒者，极少数人能掌握。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名",
+        "description": "江湖闻而色变，谢铿也几乎死于此毒。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "无声无息侵入身体，麻痹四肢并危及性命。"
+      },
+      {
+        "type": "控制",
+        "description": "使中毒者真气运行不畅，难以及时反击。"
+      }
+    ],
+    "combat_style": "以隐秘施毒为核心，重在无形无影而非正面搏杀。",
+    "rag_refs": [
+      1,
+      2,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 120,
+        "line_end": 122,
+        "text": "除了施毒的人之外，能解开此毒的人少之又少。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 1009,
+        "line_end": 1009,
+        "text": "那女子咯咯笑道：\"你以为我不知道吗？天下除了无影之毒外，再没有一种毒药能这么厉害了，喂，我说小妹妹，你是无影人的什么人呀？"
+      },
+      {
+        "chapter": 5,
+        "line_start": 248,
+        "line_end": 250,
+        "text": "丁伶在金鸡独立时将无影之毒施放在天赤尊者身上。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 358,
+        "line_end": 358,
+        "text": "无影之毒得自毒君金一鹏，乃天下各毒之精粹。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 450,
+        "line_end": 458,
+        "text": "\"可是无影人也自了得，在这种时候，还能又一扭腰，右掌飕然下切，唉——但是她忘了右掌已经受伤，根本不管用了，谢大爷一脚着着实实踢在她腰眼上，另外一只脚也跟着飞了起来，砰然一声，也就踢在她右边的胸前——\" 石慧听得心胆俱裂，\"叭\"的一掌将桌上的茶杯都震飞了起来，那店伙一打哆嗦，一想起昨天带着两个女子的少年，听到这里也是面目一变，他怔了一会，赶紧赔着笑说道：\"他们这些武功，我可不知道，这是我听别人吃饭的时候说的，还说谢大爷那种腿法是什么久失传的飞燕爪，我也弄不明白，明明是腿法，为什"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_hei_tie_zhang",
+    "name": "黑铁掌",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "童瞳成名掌力，掌色如铁且掌力既毒且强。",
+    "techniques": [
+      {
+        "id": "tech_hei_tie_du_zhang",
+        "name": "黑铁毒掌",
+        "type": "attack",
+        "description": "掌力阴毒刚强，练成后双手黝黑如铁，击中可致重创。"
+      },
+      {
+        "id": "tech_hei_tie_zhang_li",
+        "name": "黑铁掌力",
+        "type": "attack",
+        "description": "以内家掌劲催发强猛压力，兼具毒性与震伤效果。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "大成",
+        "description": "童瞳苦练多年，掌力举世少有。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "既毒且强，能造成致命内伤。"
+      },
+      {
+        "type": "特殊",
+        "description": "练成后手腕至指尖黝黑异于常人。"
+      }
+    ],
+    "combat_style": "沉猛阴毒，近身掌击威慑极强。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 210,
+        "line_end": 212,
+        "text": "除了黑铁手童瞳之外，武林中谁还能将黑铁掌练到这种地步？"
+      }
+    ]
+  },
+  {
+    "id": "skill_an_ying_fu_xiang",
+    "name": "暗影浮香",
+    "type": "轻功",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "辛捷成名秘技，丁伶从残页中练成上乘轻功。",
+    "techniques": [
+      {
+        "id": "tech_an_ying_piao_shen",
+        "name": "暗影飘身",
+        "type": "buff",
+        "description": "身形如暗影般轻灵隐现，能在敌人难觉时接近或远离。"
+      },
+      {
+        "id": "tech_fu_xiang_lue_ying",
+        "name": "浮香掠影",
+        "type": "feint",
+        "description": "以极轻身法掠过战场，留下难以捕捉的身影与方向错觉。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "残页修成",
+        "description": "丁伶仅凭残页便练成上乘轻功。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "大幅提升身法速度与隐秘性。"
+      },
+      {
+        "type": "特殊",
+        "description": "配合毒术能让施毒更难察觉。"
+      }
+    ],
+    "combat_style": "轻灵诡秘，重在迅捷、隐蔽与飘忽。",
+    "rag_refs": [
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 466,
+        "line_end": 472,
+        "text": "毒经里还夹着一张修习暗影浮香心法的残页。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 694,
+        "line_end": 702,
+        "text": "石慧...施展出壁虎游墙的功夫...她练的轻功暗影浮香却是武林中最高的"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_dang_nei_jia_zhen_chuan",
+    "name": "武当内家真传",
+    "type": "内功",
+    "faction": "faction_wu_dang_pai",
+    "rank": "炉火纯青",
+    "one_line": "武当派玄门正宗内家功夫，石慧得其父十之七八。",
+    "techniques": [
+      {
+        "id": "tech_wu_dang_zhen_qi",
+        "name": "武当真气",
+        "type": "buff",
+        "description": "以内家真气稳固经脉，增强持久力与抗击打能力。"
+      },
+      {
+        "id": "tech_xuan_men_tui_na",
+        "name": "玄门推拿",
+        "type": "buff",
+        "description": "以正宗内家手法推拿活血，用于救治与恢复。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "传承",
+        "description": "石坤天为武当入室弟子，石慧得其真传大半。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升内力根基与恢复能力。"
+      }
+    ],
+    "combat_style": "重根基、气脉和稳健内劲。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 512,
+        "line_end": 514,
+        "text": "石慧非但学得乃母功夫和毒经秘技，乃父的一身内家真传也得了十之七八。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xuan_men_nei_gong",
+    "name": "玄门内功",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "谢铿所用内家正宗功夫，真气运行和推拿救人皆有根基。",
+    "techniques": [
+      {
+        "id": "tech_xuan_men_yun_qi",
+        "name": "玄门运气",
+        "type": "buff",
+        "description": "调匀体内真气，使受毒后仍能逐渐恢复运行。"
+      },
+      {
+        "id": "tech_xuan_men_zhang_fa",
+        "name": "玄门掌法",
+        "type": "defense",
+        "description": "以正宗掌法拆解强敌攻势，稳健而不躁进。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "深厚",
+        "description": "谢铿内力深厚，连童瞳也惊异。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "恢复真气并支撑长期激战。"
+      },
+      {
+        "type": "控制",
+        "description": "推拿时可活络他人气血。"
+      }
+    ],
+    "combat_style": "正大稳健，兼具调息、救治与掌法防守。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 136,
+        "line_end": 138,
+        "text": "看不出你内力竟这么深。"
+      }
+    ]
+  },
+  {
+    "id": "skill_pai_shan_zhang_li",
+    "name": "排山掌力",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "谢铿危急时施展的强猛掌力，可破土救人也可正面抢攻。",
+    "techniques": [
+      {
+        "id": "tech_pai_shan_ji_tu",
+        "name": "排山击土",
+        "type": "attack",
+        "description": "以雄浑掌风击开厚重黄土，适合破障和救援。"
+      },
+      {
+        "id": "tech_zhong_feng_qiang_chu",
+        "name": "中锋抢出",
+        "type": "attack",
+        "description": "双掌从中路抢出，以正面强劲掌力压迫对手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名",
+        "description": "谢铿以雄厚掌力破开土堆并与童瞳交手。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌风雄浑，可正面震击对手。"
+      },
+      {
+        "type": "特殊",
+        "description": "可在险境中击开土石障碍。"
+      }
+    ],
+    "combat_style": "刚猛正大，重力道和中路压迫。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 584,
+        "line_end": 590,
+        "text": "他扬手发出一阵极为强烈的掌风，将下压势道缓了一缓。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_long_qi_jian",
+    "name": "天龙七剑",
+    "type": "剑法",
+    "faction": "faction_tian_long_men",
+    "rank": "登峰造极",
+    "one_line": "天龙门开派剑法，由飞龙六式增化而成。",
+    "techniques": [
+      {
+        "id": "tech_tian_long_jian_shi",
+        "name": "天龙剑势",
+        "type": "attack",
+        "description": "以天龙门开派剑势进攻，气象高远而变化多端。"
+      },
+      {
+        "id": "tech_fei_long_bian_hua",
+        "name": "飞龙变化",
+        "type": "feint",
+        "description": "承自飞龙六式的变化身法，借剑势迷惑敌人。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "开宗",
+        "description": "白化羽凭此闯荡江湖，创下绝顶声名。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑势凌厉，足以开宗立派。"
+      },
+      {
+        "type": "特殊",
+        "description": "蕴含飞龙六式的身法变化。"
+      }
+    ],
+    "combat_style": "剑势与身法并重，重变化和宗师气象。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 908,
+        "line_end": 910,
+        "text": "白化羽将飞龙六式增化，自创天龙七剑。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_long_qi_shi",
+    "name": "天龙七式",
+    "type": "轻功",
+    "faction": "faction_tian_long_men",
+    "rank": "出神入化",
+    "one_line": "天龙门身法招式，白非以此显示门派来历。",
+    "techniques": [
+      {
+        "id": "tech_tian_long_xuan_shen",
+        "name": "天龙旋身",
+        "type": "buff",
+        "description": "身形上引并在空中曼妙旋转，起落间毫无火气。"
+      },
+      {
+        "id": "tech_tian_long_jin_bu",
+        "name": "天龙进步",
+        "type": "feint",
+        "description": "迈步间忽前忽后，能迅速越过障碍逼近敌人。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "嫡传",
+        "description": "白非出身天龙门，能以此震动谢铿。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升空中转折与贴近能力。"
+      },
+      {
+        "type": "特殊",
+        "description": "出手前即可暴露天龙门身份。"
+      }
+    ],
+    "combat_style": "潇洒飘逸，起落无火气，适合迅速拉近或展示身份。",
+    "rag_refs": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 854,
+        "line_end": 858,
+        "text": "那少年身形上引，在空中极曼妙而潇洒地打了个旋。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 238,
+        "line_end": 250,
+        "text": "白非的身躯突然像游龙般的升起...这天龙七式厉害的地方就在他不但能在空中转折身形"
+      },
+      {
+        "chapter": 4,
+        "line_start": 488,
+        "line_end": 490,
+        "text": "白非更惊，他认得出这正是天龙七式里的绝学神龙巡弋，最怪的是这聋哑老人在运用此式时，身手之高，竟连他父亲都有所不及，而他父亲却是天龙门公认的第一高手。\n\n这使他坠入百里雾中，迷茫不解，但是他知道这聋哑老人一定是本门的前辈，因为天下武林除了天龙门下之外，谁也不可能将这神龙巡弋一式运用得如此纯熟、曼妙。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 508,
+        "line_end": 510,
+        "text": "他避世多年，世人虽未完全忘记他，他却已几乎完全忘记世人了，但是当他看到云龙白非的身法时，他发觉这飘逸潇洒的年轻人亦也是天龙门下时，他却不免有些心动。\n\n因为他自知已不会再活多久，他却不愿意将他在这种荒寒之地苦练多年的武林绝学在他死后便失传，而他更不愿意将这种绝学随便传给别人，于是在这种情况下，当他看到白非也是天龙门下时，他自然意动了，这当然也因为他对天龙门的思念以及人类无法消磨的念旧之情。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 384,
+        "line_end": 392,
+        "text": "白非避无可避时使出天龙七式、潜龙升天与云龙探爪。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 394,
+        "line_end": 398,
+        "text": "白非以十指扣住天赤尊者琵琶骨下，将其抛出。"
+      }
+    ]
+  },
+  {
+    "id": "skill_guai_yi_jin_shen_shou_fa",
+    "name": "怪异近身手法",
+    "type": "指法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "白非从异人处学来的贴身奇招，专攻敌人不备。",
+    "techniques": [
+      {
+        "id": "tech_tie_shen_lian_huan",
+        "name": "贴身连环",
+        "type": "attack",
+        "description": "在极近距离内双手连绵进招，使对手难以按常规还击。"
+      },
+      {
+        "id": "tech_guan_jie_dian_xue",
+        "name": "关节点穴",
+        "type": "debuff",
+        "description": "拳中暗藏中指关节点穴，沾中穴道便可制敌。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "新学",
+        "description": "白非自出道以来常以此手法克敌。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "贴近穴道使敌人难以还手。"
+      },
+      {
+        "type": "伤害",
+        "description": "拳肘近身连击胸腹咽喉。"
+      }
+    ],
+    "combat_style": "近身贴打，出敌不意，但近于缺德。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 984,
+        "line_end": 990,
+        "text": "两人距离不过五寸，白非仍能倏然发招。"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_gang_shou",
+    "name": "金刚手",
+    "type": "掌法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "伍伦夫赖以成名的刚猛掌上功夫。",
+    "techniques": [
+      {
+        "id": "tech_jin_gang_zhang_li",
+        "name": "金刚掌力",
+        "type": "attack",
+        "description": "以刚猛掌劲压迫敌人，适合正面搏击。"
+      },
+      {
+        "id": "tech_jin_gang_hu_shen",
+        "name": "金刚护身",
+        "type": "defense",
+        "description": "以稳固架势和掌劲护住门户，减少破绽。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名",
+        "description": "伍伦夫凭此在江湖中算成名人物。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌力刚猛，正面威势足。"
+      }
+    ],
+    "combat_style": "沉稳刚猛，重掌力和门户。",
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1080,
+        "line_end": 1080,
+        "text": "以金刚手伍伦夫来说，在江湖中也算成名人物。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 58,
+        "line_end": 58,
+        "text": "金刚手伍伦夫慌忙跨前一步，挡在丁善程的前面，带着一脸息事宁人的笑容说道：\"在下金刚手伍伦夫久闻阁下们的英名，平日就仰慕得很，哪知今天却让在下见着了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_an_qi",
+    "name": "暗器",
+    "type": "暗器",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "蔡新以暗器名家身份出现，兼具听声辨踪的江湖本领。",
+    "techniques": [
+      {
+        "id": "tech_ting_sheng_bian_ma",
+        "name": "听声辨马",
+        "type": "special",
+        "description": "伏地听声判断来骑数量，适合预判敌踪。"
+      },
+      {
+        "id": "tech_huo_ling_an_qi",
+        "name": "火灵暗器",
+        "type": "attack",
+        "description": "以山西暗器名家手法发射暗器，快速袭敌。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名",
+        "description": "蔡新在山西以暗器名家闻名。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "可通过地面声响判断马匹数。"
+      },
+      {
+        "type": "伤害",
+        "description": "暗器可远程袭敌。"
+      }
+    ],
+    "combat_style": "机敏细致，重预判和远程奇袭。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1218,
+        "line_end": 1238,
+        "text": "火灵官蔡新伏地听了半晌，道来了六匹马。"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_he_jian",
+    "name": "六合剑",
+    "type": "剑法",
+    "faction": "faction_liu_he_men",
+    "rank": "炉火纯青",
+    "one_line": "丁善程赖以传名江湖的六合门剑法。",
+    "techniques": [
+      {
+        "id": "tech_liu_he_jian_shi",
+        "name": "六合剑势",
+        "type": "attack",
+        "description": "六合门传承剑势，讲究六面照应与连续进击。"
+      },
+      {
+        "id": "tech_liu_he_shou_men",
+        "name": "六合守门",
+        "type": "defense",
+        "description": "以剑势守住门户，兼顾上下左右多方位。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "传人",
+        "description": "丁善程为吴掌门唯一传人，近日传名。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑势连贯可攻敌要害。"
+      },
+      {
+        "type": "控制",
+        "description": "以六合方位压制对手行动。"
+      }
+    ],
+    "combat_style": "重方位、连贯和守攻兼备。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1224,
+        "line_end": 1226,
+        "text": "六合门里吴掌门的唯一传人、近日江湖传名的六合剑丁善程。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_dang_jian_fa",
+    "name": "武当剑法",
+    "type": "剑法",
+    "faction": "faction_wu_dang_shan_zhen_wu_gong",
+    "rank": "出神入化",
+    "one_line": "石坤天夜战中以武当九宫连环剑显出精妙变化。",
+    "techniques": [
+      {
+        "id": "tech_wu_dang_jian_fa_qi",
+        "name": "剑光错落",
+        "type": "attack",
+        "description": "剑光错落体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_wu_dang_jian_fa_shi",
+        "name": "身随剑走",
+        "type": "special",
+        "description": "身随剑走体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "轻灵巧快，剑光连绵",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 88,
+        "line_end": 88,
+        "text": "六合剑丁善程双眉一轩，冷笑道：\"这正合我意，我丁某人虽然只是江湖中的一个小卒，但却早就想领教各位的武当剑法了。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 544,
+        "line_end": 600,
+        "text": "前面赶车的脚夫两侧，一边夹着一人，已经夺过缰绳，将马车赶到荒地上去，石坤天剑眉一立，厉声道：\"停住。 \" 话声未落，手中青光暴长，匹练似的杀向前座那突来的暴客，他知道这两人心怀叵测，是以下手也绝未容情。 那人缩肩藏身，\"刷\"的从车座上翻了下去，石坤天剑势一转，虹飞天畔，剑光微颤间，\"刷\"的点向另一人脑后一寸的哑穴，然后剑光微错，再分扫两目后的藏血穴。 那人冷笑一声，右手一支车座，\"刷\"的也往前面掠下，拉车的马受了惊吓，仍往前奔，石坤天身形一长，紧紧抓住了缰绳，那匹马空自发威，"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_you_xia_zhang_fa",
+    "name": "游侠掌法",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "谢铿赤手应敌的凌厉掌法",
+    "techniques": [
+      {
+        "id": "tech_you_xia_zhang_fa_qi",
+        "name": "横切穿掌",
+        "type": "attack",
+        "description": "横切穿掌体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_you_xia_zhang_fa_shi",
+        "name": "凌厉掌风",
+        "type": "special",
+        "description": "凌厉掌风体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "肉掌迎兵，沉稳刚正",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 152,
+        "line_end": 152,
+        "text": "谢铿微微一笑，道：\"我谢铿走遍江湖，从来就只以这一对肉掌应战，身上别说是兵刃，就连一块铁片都没有。"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_he_jian_fa",
+    "name": "六合剑法",
+    "type": "剑法",
+    "faction": "faction_liu_he_men",
+    "rank": "炉火纯青",
+    "one_line": "丁善程所承的六合门剑法",
+    "techniques": [
+      {
+        "id": "tech_liu_he_jian_fa_qi",
+        "name": "六合剑光",
+        "type": "attack",
+        "description": "六合剑光体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_liu_he_jian_fa_shi",
+        "name": "梨花错落",
+        "type": "special",
+        "description": "梨花错落体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "轻灵狠辣，脱源武当",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 236,
+        "line_end": 236,
+        "text": "丁善程剑光如雪，走的也是轻灵狠辣一路，须知六合剑法本自脱源于武当，因此金刚手伍伦夫才有\"他是你们的小师弟\"之说，此刻两人一交上手，剑光如梨花错落，远远望去，宛如在漫天风沙里涌起一座光幢，光景自然又和方才谢铿动手时大不相同。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yun_long_shen_fa",
+    "name": "云龙身法",
+    "type": "轻功",
+    "faction": "faction_tian_long_men",
+    "rank": "炉火纯青",
+    "one_line": "白非快速掠行的天龙门身法",
+    "techniques": [
+      {
+        "id": "tech_yun_long_shen_fa_qi",
+        "name": "云龙疾掠",
+        "type": "attack",
+        "description": "云龙疾掠体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_yun_long_shen_fa_shi",
+        "name": "缓急转换",
+        "type": "special",
+        "description": "缓急转换体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "飘逸迅快，适合长途腾掠",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 274,
+        "line_end": 274,
+        "text": "云龙白非以极快的身法掠去数十丈，才渐渐放缓速度，这并非他真力有所不继，而是心中紊乱的思潮使他极需静下来想一想。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_hui_qing_gong",
+    "name": "石慧轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "石慧逃出土崩时施展的高明轻功",
+    "techniques": [
+      {
+        "id": "tech_shi_hui_qing_gong_qi",
+        "name": "海燕掠空",
+        "type": "attack",
+        "description": "海燕掠空体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_shi_hui_qing_gong_shi",
+        "name": "弓身上掠",
+        "type": "special",
+        "description": "弓身上掠体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "轻捷如燕，爆发极快",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 657,
+        "line_end": 657,
+        "text": "何况她距离窑门本比谢铿等两人为近，当下也念头都来不及转，身形一动，便掠了出去。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shui_huo_bu_qin",
+    "name": "水火不侵",
+    "type": "内功",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "长发女子沸汤取肉仍毫发无损的内功",
+    "techniques": [
+      {
+        "id": "tech_shui_huo_bu_qin_qi",
+        "name": "沸汤取肉",
+        "type": "attack",
+        "description": "沸汤取肉体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_shui_huo_bu_qin_shi",
+        "name": "玉手切肉",
+        "type": "special",
+        "description": "玉手切肉体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "内力护体，寒热不侵",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 783,
+        "line_end": 783,
+        "text": "石慧又不禁激灵灵打了个冷战，那女子在锅里捞了半天，捞了一大块肉出来，手上仍然玉指葱葱，这双玉手竟像是钢铁所铸的，丝毫没有因着这沸腾的肉汤而有半点红肿。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ling_she_jian_fa",
+    "name": "灵蛇剑法",
+    "type": "剑法",
+    "faction": "faction_ling_she_bang",
+    "rank": "登峰造极",
+    "one_line": "邱独行以灵蛇剑得名的剑法",
+    "techniques": [
+      {
+        "id": "tech_ling_she_jian_fa_qi",
+        "name": "灵蛇吐信",
+        "type": "attack",
+        "description": "灵蛇吐信体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_ling_she_jian_fa_shi",
+        "name": "蛇影缠身",
+        "type": "special",
+        "description": "蛇影缠身体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "诡谲阴毒，变化莫测",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1051,
+        "line_end": 1051,
+        "text": "\"武林三鼎甲！\"那女子呻吟似的低语了一句，面上流露出令人难解的神色，然后点了点头道：\"对了，就是此人，他以一柄灵蛇剑和一袋灵蛇镖得名。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ling_she_biao_fa",
+    "name": "灵蛇镖法",
+    "type": "暗器",
+    "faction": "faction_ling_she_bang",
+    "rank": "登峰造极",
+    "one_line": "邱独行以灵蛇镖和黑蛇令震慑江湖",
+    "techniques": [
+      {
+        "id": "tech_ling_she_biao_fa_qi",
+        "name": "灵蛇飞镖",
+        "type": "attack",
+        "description": "灵蛇飞镖体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_ling_she_biao_fa_shi",
+        "name": "黑令传召",
+        "type": "special",
+        "description": "黑令传召体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "暗器如令，兼具召集威吓",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1053,
+        "line_end": 1053,
+        "text": "\"她又顿了顿，指着那黑蛇令道：\"哪，这就是他当年以此做尽坏事的灵蛇镖了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_yu_jian_fa",
+    "name": "白羽剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "白羽双剑昔年名动天下的剑法",
+    "techniques": [
+      {
+        "id": "tech_bai_yu_jian_fa_qi",
+        "name": "白羽清光",
+        "type": "attack",
+        "description": "白羽清光体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_bai_yu_jian_fa_shi",
+        "name": "双剑合势",
+        "type": "special",
+        "description": "双剑合势体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "双剑齐名，侠义正大",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1103,
+        "line_end": 1103,
+        "text": "然后他惊异的抬起头来，望着那老者道：\"你老人家就是白羽双剑？"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_yang_shen_zhang",
+    "name": "六阳神掌",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "郑剑平闻名江湖的掌法",
+    "techniques": [
+      {
+        "id": "tech_liu_yang_shen_zhang_qi",
+        "name": "六阳开碑",
+        "type": "attack",
+        "description": "六阳开碑体现此门武学的临敌变化与发力特点"
+      },
+      {
+        "id": "tech_liu_yang_shen_zhang_shi",
+        "name": "阳劲护体",
+        "type": "special",
+        "description": "阳劲护体体现此门武学的临敌变化与发力特点"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "入门掌握架势与发力"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯施展并借势变化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成压制"
+      },
+      {
+        "type": "特殊",
+        "description": "配合身法或内力产生额外威慑"
+      }
+    ],
+    "combat_style": "阳刚宏阔，掌势猛烈",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1159,
+        "line_end": 1159,
+        "text": "白非哦了一声，恍然忖道：\"原来她就是昆仑双绝手里六阳神掌郑剑平未过门的夫人。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_yu_shuang_jian",
+    "name": "白羽双剑",
+    "type": "剑法",
+    "faction": "白羽双剑",
+    "rank": "登峰造极",
+    "one_line": "司马之与冯碧昔年合称白羽双剑，双剑至处所向披靡。",
+    "techniques": [
+      {
+        "id": "tech_shuang_jian_he_bi",
+        "name": "双剑合璧",
+        "type": "attack",
+        "description": "司马之与冯碧昔年并肩施展的双剑攻势，讲究情意相通与剑光互补。"
+      },
+      {
+        "id": "tech_bai_yu_jian_guang",
+        "name": "白羽剑光",
+        "type": "attack",
+        "description": "白羽双剑成名剑势，出手飘逸迅疾，昔年威震武林。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "昔年司马之与冯碧双剑至处所向披靡"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "双剑联手时剑势连绵，足以压服群雄"
+      }
+    ],
+    "combat_style": "双人合击，飘逸凌厉",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 18,
+        "line_end": 20,
+        "text": "昔年白羽双剑叱咤江湖，双剑至处，所向披靡"
+      }
+    ]
+  },
+  {
+    "id": "skill_duan_hun_sha",
+    "name": "断魂砂",
+    "type": "暗器",
+    "faction": "罗刹仙女",
+    "rank": "出神入化",
+    "one_line": "无形无影的狠辣暗器，一出手便伤凌尘双目。",
+    "techniques": [
+      {
+        "id": "tech_wu_ying_sa_sha",
+        "name": "无影撒砂",
+        "type": "attack",
+        "description": "出手时几乎无形无影，使对手未及察觉便被砂毒所伤。"
+      },
+      {
+        "id": "tech_duan_hun_shang_mu",
+        "name": "断魂伤目",
+        "type": "debuff",
+        "description": "砂毒直伤双目，能令一流剑客惨呼倒地，瞬间失去战力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "罗刹仙女以断魂砂瞬间伤凌尘剑客"
+      }
+    ],
+    "effects": [
+      {
+        "type": "减益",
+        "description": "伤目制敌，使目标剧痛失明"
+      },
+      {
+        "type": "控制",
+        "description": "出手隐蔽，震慑围观群豪"
+      }
+    ],
+    "combat_style": "隐蔽狠辣，先发制人",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 154,
+        "line_end": 160,
+        "text": "凌尘剑客已是一声惨呼...这是断魂砂"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_zhong_jian_fa",
+    "name": "天中剑法",
+    "type": "剑法",
+    "faction": "天中六剑",
+    "rank": "炉火纯青",
+    "one_line": "天中六剑赖以成名的严密剑法，可合击成光墙自保攻敌。",
+    "techniques": [
+      {
+        "id": "tech_jian_ru_pi_lian",
+        "name": "剑如匹练",
+        "type": "attack",
+        "description": "凌天剑客含真力削出的一剑，剑光如匹练，风声飕然。"
+      },
+      {
+        "id": "tech_jiao_jian_dian_guang",
+        "name": "交剪电光",
+        "type": "attack",
+        "description": "凌星凌云双剑从两侧如交剪电光夹击，使敌人左右难避。"
+      },
+      {
+        "id": "tech_jian_guang_cheng_qiang",
+        "name": "剑光成墙",
+        "type": "defense",
+        "description": "多剑同时暴长，结成光墙般的剑幕，既可逼敌也可护身。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名",
+        "description": "天中六剑十余年来横行江湖"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑光密集，可从多面切削敌人"
+      },
+      {
+        "type": "控制",
+        "description": "合击光墙限制敌人闪避空间"
+      }
+    ],
+    "combat_style": "多人合击，剑幕严密",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 178,
+        "line_end": 194,
+        "text": "凌天剑客这一剑风声飕然...三道剑光同时暴长，就像一面光墙"
+      }
+    ]
+  },
+  {
+    "id": "skill_dian_xue_shou_fa",
+    "name": "点穴手法",
+    "type": "指法",
+    "faction": "石慧所学",
+    "rank": "炉火纯青",
+    "one_line": "石慧以纤指疾点穴道，配合腿法制服凌星剑客。",
+    "techniques": [
+      {
+        "id": "tech_dian_ru_qu_chi",
+        "name": "点入曲池",
+        "type": "debuff",
+        "description": "趁剑光露隙时疾点肘间曲池穴，使对手手臂受制。"
+      },
+      {
+        "id": "tech_dian_ru_ru_quan",
+        "name": "点入乳泉",
+        "type": "debuff",
+        "description": "玉指快如疾风点中左胸乳泉穴，使敌人应声倒地。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "石慧在乱战中点倒凌星剑客"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "点中穴道使敌人倒地失去行动能力"
+      }
+    ],
+    "combat_style": "轻灵迅捷，配合身法取穴",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 212,
+        "line_end": 258,
+        "text": "疾点凌星剑客肘间的曲池穴...玉指纤纤，快如疾风般点在他左胸的乳泉穴上"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhe_jian_shou",
+    "name": "折剑手",
+    "type": "指法",
+    "faction": "灵蛇帮",
+    "rank": "登峰造极",
+    "one_line": "岳入云以空手夺剑折剑的惊世手法，可瞬间夺下多名高手兵刃。",
+    "techniques": [
+      {
+        "id": "tech_duo_si_jian",
+        "name": "夺四剑",
+        "type": "special",
+        "description": "身法经天而落，在众人未看清时夺下天中剑客四把长剑。"
+      },
+      {
+        "id": "tech_dou_jian_zhe_feng",
+        "name": "抖剑折锋",
+        "type": "attack",
+        "description": "手一抖便令四把长剑一齐中折，劲力如削铁神兵。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "岳入云当街夺断天中剑客四剑"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "夺兵刃使敌人攻势骤停"
+      },
+      {
+        "type": "伤害",
+        "description": "折断长剑，摧毁敌方声势"
+      }
+    ],
+    "combat_style": "空手夺兵，内力震折",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 342,
+        "line_end": 360,
+        "text": "手中一把东西闪闪发光，却原来是天中剑客的四把长剑...四把长剑竟一齐中折"
+      }
+    ]
+  },
+  {
+    "id": "skill_yu_jia_mi_shu",
+    "name": "瑜珈秘术",
+    "type": "内功",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "天赤尊者兼修的天竺无上心法，可发展出摄心、采补等诡异法门。",
+    "techniques": [
+      {
+        "id": "tech_she_xin_zhi_fa",
+        "name": "摄心之法",
+        "type": "debuff",
+        "description": "以目光、乐声和手中红布扰乱对方心神，使目标失去自主判断并随施术者行动。"
+      },
+      {
+        "id": "tech_cai_bu_zhi_shu",
+        "name": "采补之术",
+        "type": "special",
+        "description": "天赤尊者晚年习得的邪异秘术，因石慧资质而生夺取之念。"
+      }
+    ],
+    "progression": [
+      "以天竺心法为根基",
+      "兼修中土武功后威力倍增",
+      "晚年衍生摄心与采补邪术"
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "摄乱目标心神"
+      },
+      {
+        "type": "特殊",
+        "description": "以邪术觊觎资质"
+      }
+    ],
+    "combat_style": "以眼神、乐声和仪式压迫心神，配合高深内力制敌。",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 306,
+        "line_end": 314,
+        "text": "原来这天赤尊者本是中国行者游方天竺时，被当地妇人所诱，私通而生，天赤尊者自幼被弃，却得巧遇，习得天竺无上心法——瑜珈秘术，他来到中原后，又习得一身中土武功，以一个身具瑜珈之术的人来学武功，自是事半而功倍。\n\n他在中原一呆十余年，这十余年可说是将中原武林搅得天翻地覆，后来不知怎的突然消声失踪，一别三十余年，石坤天竟然遗忘了他。\n\n石坤天长叹一声，忖道：\"此人重来此间，倒的确是武林的大难了。\n\n\"手腕一紧，原来石慧害怕得紧紧抓住了他的手，他觉得出他女儿的颤抖，心中一顿，忖道：\"只"
+      },
+      {
+        "chapter": 4,
+        "line_start": 370,
+        "line_end": 400,
+        "text": "天赤尊者虽然气忿已极，但他可不能在大街上和人动手，但如说这样一走，他自己却如何下台，他忽又微一击掌，那八个拿着乐器的僧人又吹奏了起来，这番他们奏出的乐声更为奇异，令人听了有一种像是极不舒服却又极为舒服的感觉。\n\n天赤尊者长臂一伸，将披在肩上的一块红绸扯了下来，嘶的一声，那块红布竟被他撕成两半，他双手各持其一，目光却紧盯着石慧。\n\n石慧乍一接触到他的目光，便已浑身一震，极力的想避开，哪知天赤尊者的目光里却像有一种吸力，石慧想避也避不开。\n\n渐渐，石慧眼中竟觉得那被撕成两半的红布"
+      }
+    ]
+  },
+  {
+    "id": "skill_qin_xing_bi_hua_wu_xue",
+    "name": "覃星壁画武学",
+    "type": "内功",
+    "faction": "天龙门",
+    "rank": "返璞归真",
+    "one_line": "白非触摸线条后进入心神合一状态，覃星确认其悟性可继承此道。",
+    "techniques": [
+      {
+        "id": "tech_jin_gang_zhi_ke_bi",
+        "name": "金刚指刻壁",
+        "type": "special",
+        "description": "以内家指力在石壁刻出连贯线条，将深奥武理化为可触摸的凹痕。"
+      },
+      {
+        "id": "tech_chu_xian_wu_fa",
+        "name": "触线悟法",
+        "type": "buff",
+        "description": "闭目循壁上线条而行，以手指触觉贯通心意，领悟复杂武学变化。"
+      }
+    ],
+    "progression": [
+      "以金刚指刻下武理",
+      "学习者先触摸线条",
+      "心神合一后可领悟复杂变化"
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "贯通武学疑难"
+      },
+      {
+        "type": "特殊",
+        "description": "以无文字方式传承心法"
+      }
+    ],
+    "combat_style": "不重招式名称，重在借线条触感启发心神与变化。",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 622,
+        "line_end": 628,
+        "text": "他在地穴壁上所画的线条，就是武学之中原理的演变，只是那些线条虽极为繁复，但却仅仅是一个象征式的形象而已，若非天资绝高的人，又怎能体会得出来？\n\n覃星之所以看中白非，除了天龙门的渊源外，也是看出他有着绝高的智慧。\n\n覃星将这些告诉白非之后，白非不禁窃喜自己的遇合，对那些线条，他虽只匆匆看了几眼，但他确信像九爪龙覃星这样的武林奇人，他所重视的东西必定不会差的。\n\n覃星又写道：\"这类武学的绝奥原理能否领悟，完全要看你的造化，几时能领悟，也不能断言，你且在这里暂住一个时期，别的事也都"
+      },
+      {
+        "chapter": 4,
+        "line_start": 704,
+        "line_end": 718,
+        "text": "于是他鞭策着自己，去看那壁上的线条，但光线实在太暗，他根本无法看得太清楚，因为那条线是极为繁复的。\n\n\"这么暗我怎能看得清，若看不清我又怎能学得会？\"他后悔方才没有对覃星说，但是他仍不放弃的凝视着，只是心中并无丝毫体会。\n\n有些地方他看不清，他偶然会用手指触摸，那些线条的凹痕正和手般完全吻合，显见得这些线条都是覃星以金刚指之力画上去的。\n\n他让他的手指随着这凹痕前进，渐渐，他脸上露出喜色，手指的触觉渐与他心意相通，许多武学上他以前不能了觉的繁复变化，此刻他竟从这些线条微小的转"
+      },
+      {
+        "chapter": 4,
+        "line_start": 716,
+        "line_end": 746,
+        "text": "此刻白非意与神通，自然忘却了一切事，只觉得他手指触摸到的是一个包涵无尽的深渊，他发疯似的在里面探索着，求知的渴望使得世上任何事此刻都与他无关了。\n\n渐渐，他站了起来，随着这条线走动着，线条的每一个弯曲都能使他狂喜一次，因为那都替他解答了一个武学上的难题。\n\n石慧吃惊的望着他，不知他到底怎么了，又不好意思问，这样竟过了一天，石慧饿得很难受，她本可设法出去，但不知怎么，她却又不愿意离开这个阴暗的穴洞，因为白非还在里面。\n\n白非却什么也没有感觉到，他的手始终举着，却并不觉得累，丝毫"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_wu_gu_rou_gong",
+    "name": "无骨柔功",
+    "type": "轻功",
+    "faction": "faction_tian_zhu_mi_zong",
+    "rank": "出神入化",
+    "one_line": "天赤尊者门下展示的瑜珈柔功，能令身体如无骨般折转成圈。",
+    "techniques": [
+      {
+        "id": "tech_zhe_shen_cheng_quan",
+        "name": "折身成圈",
+        "type": "special",
+        "description": "头由胯下钻出，身体弓成圆圈后仍能面对面站起。"
+      },
+      {
+        "id": "tech_rou_qiu_xuan_zhuan",
+        "name": "肉球旋转",
+        "type": "feint",
+        "description": "多人手脚扭结成圆圈和肉球，在脚上高速旋转扰乱观者。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "展示",
+        "description": "四名僧人在千蛇会上公开献艺。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "强化柔韧、缩身和怪异身法表现。"
+      }
+    ],
+    "combat_style": "以柔韧折身、圆转身形和出人意料的角度取胜。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 116,
+        "line_end": 120,
+        "text": "四个僧人头由胯下钻出，身体弓成圆圈。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 150,
+        "line_end": 158,
+        "text": "天赤尊者称小徒所使不易练成，邱独行道破为无骨柔功。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shuang_pan_zhang",
+    "name": "双盘掌",
+    "type": "掌法",
+    "faction": "无",
+    "rank": "初窥门径",
+    "one_line": "丁伶临时学来的乡下把式，用作乔装示弱与下毒掩护。",
+    "techniques": [
+      {
+        "id": "tech_shuang_pan_qi_shi",
+        "name": "双盘起式",
+        "type": "feint",
+        "description": "右掌扬、左掌沉的庄稼把式起手，用来降低群豪戒心。"
+      },
+      {
+        "id": "tech_jin_ji_du_li_tui",
+        "name": "金鸡独立腿",
+        "type": "feint",
+        "description": "借踢腿失衡撞向目标，暗中完成近身施毒。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "临时习得",
+        "description": "丁伶特意在几天内学来以伪装身手。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "外表粗浅，实为伪装与接近敌人的手段。"
+      }
+    ],
+    "combat_style": "以粗浅拳脚作掩护，让真正杀招藏在身体接触中。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 176,
+        "line_end": 192,
+        "text": "瘦小汉子自称无名无姓，起手式是乡下庄稼把式双盘掌。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 248,
+        "line_end": 248,
+        "text": "丁伶打双盘掌，并在金鸡独立时撞向天赤尊者。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_gong",
+    "name": "轻功",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "多位高手在本章展示的飞掠身法，速度、腾挪与无痕落脚皆为重点。",
+    "techniques": [
+      {
+        "id": "tech_fei_lue_shu_zhang",
+        "name": "飞掠数丈",
+        "type": "buff",
+        "description": "身形暴起一掠数丈，转向迅捷难追。"
+      },
+      {
+        "id": "tech_sha_shang_wu_hen",
+        "name": "沙上无痕",
+        "type": "special",
+        "description": "在细沙上打拳踢腿却不留下脚印，显示轻功深厚。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "群雄层次不一",
+        "description": "丁伶、岳入云、白非等人各有高明身法。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升移动、追逐、闪避和潜入能力。"
+      }
+    ],
+    "combat_style": "以速度、落点和转折控制战局。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 190,
+        "line_end": 210,
+        "text": "丁伶在细沙上不留脚印，逃掠时一掠数丈。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 486,
+        "line_end": 488,
+        "text": "石慧嗖然几个起落回到灵蛇堡。"
+      }
+    ]
+  },
+  {
+    "id": "skill_nei_jia_zhen_qi",
+    "name": "内家真气",
+    "type": "内功",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "高手以内力外放、黏附与掌风化解危局的根本功夫。",
+    "techniques": [
+      {
+        "id": "tech_zhen_qi_ge_kong",
+        "name": "真气隔空",
+        "type": "defense",
+        "description": "以内家真气隔空挡住足以开山裂石的一抓。"
+      },
+      {
+        "id": "tech_nian_zi_jue",
+        "name": "黏字诀",
+        "type": "defense",
+        "description": "掌心内陷黏住山石或承接力道，使身体暂时附着不坠。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "高手应用",
+        "description": "邱独行、司马之和白非都在本章展现不同用法。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "可挡敌、卸力、附壁和挥开火器弹丸。"
+      }
+    ],
+    "combat_style": "内力外放与精微掌劲结合，兼具防守和控制。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 226,
+        "line_end": 228,
+        "text": "邱独行以内家真气挡住天赤尊者一抓。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 849,
+        "line_end": 855,
+        "text": "白非用柔和强劲掌力减缓冲势，并以黏字诀黏在山石上。"
+      }
+    ]
+  },
+  {
+    "id": "skill_suo_gu_shu",
+    "name": "缩骨术",
+    "type": "内功",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "白非多次使用的筋骨收缩秘术，可令身躯变成幼童般高矮。",
+    "techniques": [
+      {
+        "id": "tech_suo_gu_bian_shen",
+        "name": "缩骨变身",
+        "type": "special",
+        "description": "全身骨节轻响后缩成幼童高矮，能穿过常人无法进入的狭洞。"
+      },
+      {
+        "id": "tech_suo_gu_shan_bi",
+        "name": "缩骨闪避",
+        "type": "defense",
+        "description": "战斗中猛然暴缩身形，避开天赤尊者诡异抓法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "熟练",
+        "description": "白非能在交手与探洞中连续使用。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "改变体型、闪避攻击、进入秘道。"
+      }
+    ],
+    "combat_style": "控制骨节缩放，在战斗和探险中都能化险为夷。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 314,
+        "line_end": 318,
+        "text": "白非身形暴缩，司马之惊觉这是缩骨法。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 998,
+        "line_end": 1004,
+        "text": "白非使用缩骨术，将身躯缩成幼童般高矮钻入狭洞。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_jin_jing_xin_fa",
+    "name": "易筋经心法",
+    "type": "内功",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "达摩老祖一脉久已失传的无上心法，白非所用武学显露其影子。",
+    "techniques": [
+      {
+        "id": "tech_suo_gu_bian_shen",
+        "name": "缩骨变身",
+        "type": "special",
+        "description": "运转骨节使身躯暴缩或恢复，用于闪避和穿行狭洞。"
+      },
+      {
+        "id": "tech_da_mo_xin_fa",
+        "name": "达摩心法",
+        "type": "buff",
+        "description": "以内家根基支撑复杂招式，蕴含未尽玄妙。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "秘传",
+        "description": "邱独行看出白非手法像久失传的易筋经无上心法。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升身法变化、筋骨控制和招式玄妙。"
+      }
+    ],
+    "combat_style": "以内功调筋易骨，使身法和招式超出常规武学。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 322,
+        "line_end": 332,
+        "text": "邱独行与司马之讨论白非手法像易筋经心法，缩骨术本为其中心法。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yu_jia_qi_gong",
+    "name": "瑜珈气功",
+    "type": "内功",
+    "faction": "faction_tian_zhu_mi_zong",
+    "rank": "炉火纯青",
+    "one_line": "天赤尊者幼习的密法，能支撑异常忍耐与抗毒自信。",
+    "techniques": [
+      {
+        "id": "tech_yu_jia_bi_xi",
+        "name": "瑜珈闭息",
+        "type": "buff",
+        "description": "以密法调息，支持沉水或忍耐极端环境的异行。"
+      },
+      {
+        "id": "tech_du_xing_kang_ti",
+        "name": "毒性抗体",
+        "type": "defense",
+        "description": "以气功护体抵抗普通毒物，但难敌无影之毒精粹。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "幼习",
+        "description": "天赤尊者幼年习得，未能潜心至极致。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "增强忍耐、抗毒和体能控制。"
+      }
+    ],
+    "combat_style": "以内功密法控制身体机能，却被无影之毒突破。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 354,
+        "line_end": 358,
+        "text": "天赤尊者幼习瑜珈气功密法，自信些许毒并无大碍。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bi_hu_you_qiang",
+    "name": "壁虎游墙",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "白非在瀑布山石上施展的附壁身法，依赖掌力黏附和手脚并用。",
+    "techniques": [
+      {
+        "id": "tech_bi_hu_you_qiang",
+        "name": "壁虎游墙",
+        "type": "buff",
+        "description": "像壁虎般黏在山石上，手脚并用向上游行。"
+      },
+      {
+        "id": "tech_ling_xu_shui_mian",
+        "name": "凌虚水面",
+        "type": "special",
+        "description": "借枯枝点水飞掠，跨越池面冲向瀑布。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "新成",
+        "description": "地穴十日后白非才达到凌虚水面与附壁游行境界。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提供跨水、附壁和瀑布探查能力。"
+      }
+    ],
+    "combat_style": "轻功与掌力结合，适于险地探索。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 831,
+        "line_end": 839,
+        "text": "白非借枯枝点水，向瀑布飞掠过去。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 853,
+        "line_end": 857,
+        "text": "白非以黏字诀贴住山石后施展壁虎游墙。"
+      }
+    ]
+  },
+  {
+    "id": "skill_dian_xue",
+    "name": "点穴",
+    "type": "指法",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "洞中怪人以指压玄珠穴制住白非的精微指法。",
+    "techniques": [
+      {
+        "id": "tech_xuan_zhu_dian_xue",
+        "name": "玄珠点穴",
+        "type": "debuff",
+        "description": "食指微压耳畔玄珠穴，使对手全身一软、真气受阻。"
+      },
+      {
+        "id": "tech_jia_jing_qin_na",
+        "name": "夹颈擒拿",
+        "type": "control",
+        "description": "以枯瘦手臂夹抓颈部，在狭洞中控制对方行动。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "突袭",
+        "description": "洞中怪人在极窄洞口一击制住白非。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "封穴阻气，使对手无法运功和开口。"
+      }
+    ],
+    "combat_style": "以穴道和擒拿在狭小空间内迅速制服敌人。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 1010,
+        "line_end": 1016,
+        "text": "洞中怪人夹颈抓住白非，并在玄珠穴上一拂使其穴道被点。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xian_tian_zhen_qi",
+    "name": "先天真气",
+    "type": "内功",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "道家称为罡气的上乘内功境界，无坚不摧，无物不克。",
+    "techniques": [
+      {
+        "id": "tech_gang_qi_xi_fu",
+        "name": "罡气吸附",
+        "type": "special",
+        "description": "以内家罡气吸住敌人肢体"
+      },
+      {
+        "id": "tech_tu_qi_kai_shi",
+        "name": "吐气开石",
+        "type": "buff",
+        "description": "运气涨身托动巨石"
+      }
+    ],
+    "progression": [
+      {
+        "level": "化境",
+        "description": "常东升可随意运用先天真气"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "可吸附敌人"
+      },
+      {
+        "type": "增益",
+        "description": "可大幅提升力量"
+      }
+    ],
+    "combat_style": "以内劲精纯取胜，既可防守吸附，也可托石开洞。",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 62,
+        "line_end": 100,
+        "text": "武学最难练成的就是先天之真气"
+      }
+    ]
+  },
+  {
+    "id": "skill_ling_she_mi_ji_nei_gong",
+    "name": "灵蛇秘笈内功",
+    "type": "内功",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "灵蛇秘笈所载绝顶功夫，借阴湿之气入道，奇诡难测。",
+    "techniques": [
+      {
+        "id": "tech_ling_she_ju_qi",
+        "name": "灵蛇聚气",
+        "type": "buff",
+        "description": "借阴湿之气聚成奇诡真力"
+      },
+      {
+        "id": "tech_she_xing_hua_jin",
+        "name": "蛇形化劲",
+        "type": "defense",
+        "description": "柔化敌人重击"
+      }
+    ],
+    "progression": [
+      {
+        "level": "大成",
+        "description": "常东升困居一甲子后练至极深"
+      },
+      {
+        "level": "精进",
+        "description": "邱独行得秘笈后武功大进"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "内力奇诡精纯"
+      },
+      {
+        "type": "特殊",
+        "description": "可由邪入道"
+      }
+    ],
+    "combat_style": "由阴湿环境催成，柔韧诡谲，克制刚猛外力。",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 357,
+        "line_end": 375,
+        "text": "习成了灵蛇秘笈上的绝顶功夫"
+      }
+    ]
+  },
+  {
+    "id": "skill_ying_zhua_gong",
+    "name": "鹰爪功",
+    "type": "指法",
+    "faction": "崆峒派",
+    "rank": "登堂入室",
+    "one_line": "崆峒门下蓝袍道人使用的正宗擒拿功夫。",
+    "techniques": [
+      {
+        "id": "tech_wu_zhi_ru_gou",
+        "name": "五指如钩",
+        "type": "attack",
+        "description": "五指成钩抓取肩头"
+      },
+      {
+        "id": "tech_suo_jian_qin_na",
+        "name": "锁肩擒拿",
+        "type": "control",
+        "description": "联手夹攻制住对手"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "蓝袍道人甲乙能同时发招"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "擒拿肩臂"
+      },
+      {
+        "type": "伤害",
+        "description": "指力伤筋骨"
+      }
+    ],
+    "combat_style": "以抓、扣、锁为主，适合近身围攻。",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 755,
+        "line_end": 763,
+        "text": "竟是正宗鹰爪功"
+      }
+    ]
+  },
+  {
+    "id": "skill_tan_zhi_shen_tong",
+    "name": "弹指神通",
+    "type": "指法",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "白非以两指震断青钢剑的精妙指法。",
+    "techniques": [
+      {
+        "id": "tech_tan_zhi_duan_jian",
+        "name": "弹指断剑",
+        "type": "attack",
+        "description": "敲击剑脊震断兵刃"
+      },
+      {
+        "id": "tech_zhi_jin_qiao_ji",
+        "name": "指劲敲脊",
+        "type": "special",
+        "description": "将劲力凝于指尖透入兵刃"
+      }
+    ],
+    "progression": [
+      {
+        "level": "八分火候",
+        "description": "知机道人判断白非已具八分火候"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "断兵器"
+      },
+      {
+        "type": "特殊",
+        "description": "显示内力精微"
+      }
+    ],
+    "combat_style": "以微小指劲爆发精准破坏，显露白非内力控制。",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 937,
+        "line_end": 949,
+        "text": "方才那一手弹指神通竟已有了八分火候"
+      }
+    ]
+  },
+  {
+    "id": "skill_kong_tong_zhang_fa",
+    "name": "崆峒掌法",
+    "type": "掌法",
+    "faction": "崆峒派",
+    "rank": "出神入化",
+    "one_line": "浮云子施展的崆峒派老到掌法，掌风凌厉且暗藏煞手。",
+    "techniques": [
+      {
+        "id": "tech_bo_yun_jian_ri",
+        "name": "拨云见日",
+        "type": "attack",
+        "description": "轻飘掌式暗藏掌风"
+      },
+      {
+        "id": "tech_ling_li_pi_zhang",
+        "name": "凌厉劈掌",
+        "type": "attack",
+        "description": "掌缘横折肩胛，内力含蓄未尽"
+      }
+    ],
+    "progression": [
+      {
+        "level": "老到",
+        "description": "浮云子数十年功力压制石慧"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌风震敌"
+      },
+      {
+        "type": "控制",
+        "description": "慢慢拖耗对手"
+      }
+    ],
+    "combat_style": "攻势表面轻飘，实则内劲含蓄，善于拖耗。",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 1027,
+        "line_end": 1057,
+        "text": "浮云子一招出手，虽然未尽全力"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_dang_jiu_gong_lian_huan_zhang",
+    "name": "武当九宫连环掌",
+    "type": "掌法",
+    "faction": "武当",
+    "rank": "炉火纯青",
+    "one_line": "石慧用于对抗浮云子的武当掌法。",
+    "techniques": [
+      {
+        "id": "tech_mu_zhan_yu_jin",
+        "name": "木战于金",
+        "type": "attack",
+        "description": "后发先至击向右胸"
+      },
+      {
+        "id": "tech_jiu_gong_bu_fa",
+        "name": "九宫步法",
+        "type": "feint",
+        "description": "踏奇步抢偏锋"
+      }
+    ],
+    "progression": [
+      {
+        "level": "熟练",
+        "description": "石慧能在实战中变化施展"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "连环掌击"
+      },
+      {
+        "type": "特殊",
+        "description": "步法配合抢偏锋"
+      }
+    ],
+    "combat_style": "步掌相随，连环进退，适合轻灵身法。",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 1045,
+        "line_end": 1049,
+        "text": "武当九宫连环掌里的一招\"木战于金\""
+      }
+    ]
+  },
+  {
+    "id": "skill_tai_ji_xin_fa",
+    "name": "太极心法",
+    "type": "内功",
+    "faction": "武当",
+    "rank": "登堂入室",
+    "one_line": "石慧随手推出的武当太极心法。",
+    "techniques": [
+      {
+        "id": "tech_yun_shou_tui_zhang",
+        "name": "云手推掌",
+        "type": "defense",
+        "description": "云手推出化劲"
+      },
+      {
+        "id": "tech_jie_li_hua_jin",
+        "name": "借力化劲",
+        "type": "defense",
+        "description": "圈撇来掌借势卸力"
+      }
+    ],
+    "progression": [
+      {
+        "level": "可用于实战",
+        "description": "石慧在与浮云子交手时施展"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "化解来掌"
+      },
+      {
+        "type": "减益",
+        "description": "削弱敌方掌劲"
+      }
+    ],
+    "combat_style": "以圆转、化劲为要，配合轻功游斗。",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 1053,
+        "line_end": 1053,
+        "text": "右手一个云手推出，却是太极心法"
+      }
+    ]
+  },
+  {
+    "id": "skill_yu_yuan_zi_mi_qing_zhang",
+    "name": "迷情掌法",
+    "type": "掌法",
+    "faction": "崆峒派",
+    "rank": "炉火纯青",
+    "one_line": "玉鸢子所使阴柔邪异掌法，招式声息皆带迷乱意味。",
+    "techniques": [
+      {
+        "id": "tech_yu_yuan_zi_ruan_mian_shen_fa",
+        "name": "软绵身法",
+        "type": "feint",
+        "description": "身法忽转软绵，举手投足带诡异迷情意味，使对手难以适应。"
+      },
+      {
+        "id": "tech_yu_yuan_zi_shou_zhong_dai_gong",
+        "name": "守中带攻",
+        "type": "defense",
+        "description": "甩肩错步后右掌反击，守中藏攻，快捷潇洒。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "与白非交手数十照面，虽处下风仍难被制服。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "以邪异声息和掌路扰乱对手心神。"
+      },
+      {
+        "type": "伤害",
+        "description": "掌法可在近身缠斗中反守为攻。"
+      }
+    ],
+    "combat_style": "阴柔、诡秘、以迷乱和轻佻姿态牵制对手。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 166,
+        "line_end": 184,
+        "text": "玉鸢子和白非交手时变出武林中少见的软绵身法与邪异掌法。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_yao_mi_ji",
+    "name": "天妖秘技",
+    "type": "内功",
+    "faction": "海心山",
+    "rank": "炉火纯青",
+    "one_line": "苏敏君一脉魅惑迷情武学，那霞子私授玉鸢子而酿成孽缘。",
+    "techniques": [
+      {
+        "id": "tech_shi_gu_xiao_mo_qian_nv_mi_qing_da_fa",
+        "name": "蚀骨销魔倩女迷情大法",
+        "type": "special",
+        "description": "天妖苏敏君秘技，以迷情魅惑扰人心神。"
+      },
+      {
+        "id": "tech_jin_dan_wan_an_qi",
+        "name": "金弹丸暗器",
+        "type": "attack",
+        "description": "以黄金弹丸远击伤人，隐蔽而狠辣。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "私授",
+        "description": "那霞子违背师令将秘技传给玉鸢子。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "以魅惑扰乱对手心神。"
+      },
+      {
+        "type": "伤害",
+        "description": "配合暗器可远程重创敌人。"
+      }
+    ],
+    "combat_style": "魅惑、暗器、轻功并用，重在扰心与突袭。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 700,
+        "line_end": 706,
+        "text": "那霞子随苏敏君修习秘技，并私授玉鸢子蚀骨销魔倩女迷情大法。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hai_xin_shan_qing_gong",
+    "name": "海心山轻功",
+    "type": "轻功",
+    "faction": "海心山",
+    "rank": "炉火纯青",
+    "one_line": "海心山门下轻灵迅疾的身法，能配合皮筏在湖面疾行。",
+    "techniques": [
+      {
+        "id": "tech_hong_shan_shao_nv_qing_bo_lve_shui",
+        "name": "轻波掠水",
+        "type": "special",
+        "description": "以轻身与内息控制皮筏在水面疾行。"
+      },
+      {
+        "id": "tech_hong_shan_shao_nv_piao_shen_lve_an",
+        "name": "飘身掠岸",
+        "type": "buff",
+        "description": "红衫少女衣袂飘动，短时间从远处来到近前。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登场",
+        "description": "红衫少女在青海湖边显露高明轻功和内功。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升水面移动能力。"
+      },
+      {
+        "type": "特殊",
+        "description": "配合器物横渡青海湖。"
+      }
+    ],
+    "combat_style": "轻盈、灵动、借器物发挥水上速度。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 1183,
+        "line_end": 1281,
+        "text": "红衫少女步履轻盈，吹涨皮筏并带白非在湖面疾行。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_ying_shen_fa",
+    "name": "无影身法",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "丁伶重伤前与谢铿交手时仍能以疾掠和闪避显出无影人的身法底子。",
+    "techniques": [
+      {
+        "id": "tech_chun_yan_jian_bo",
+        "name": "春燕剪波",
+        "type": "feint",
+        "description": "在对手暗器袭来时侧身闪避，身法轻疾如燕剪水。"
+      },
+      {
+        "id": "tech_wu_ying_ji_lue",
+        "name": "无影疾掠",
+        "type": "attack",
+        "description": "身形一动便掠至敌前，以左手迅速劈击抢攻。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "熟悉基本运劲与身法配合"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯变化并抓住破绽"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成实质杀伤"
+      },
+      {
+        "type": "特殊",
+        "description": "以身法、兵刃或时机变化扰乱对手判断"
+      }
+    ],
+    "combat_style": "以迅疾、贴身、闪避和抢攻见长，受伤后仍保留惊人速度。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 408,
+        "line_end": 446,
+        "text": "这店伙仿佛得意已极，接着道：\"那无影人三言两语之下，身子不知怎么一动，就掠到谢大爷身前，左手一晃，就朝谢大爷劈了过去，谢大侠没有手，当然不能还手，可是人家那两条腿却厉害得紧，像扭股糖似的，左面一拐，右面一拐，无影人根本连边都摸不到他的。 \" 这店伙像是对谢铿极为推崇，对无影人却无甚好感，石慧不禁哼了一声，店伙看了她一眼，也不知道她哼的什么，又道：\"这两人本事都大极了，就在我们街头的那一大块空地上打了半天，我也看不清他们到底怎么动的手，只看到两条人影上上下下、左左右右、前前后后"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_yan_zhua",
+    "name": "飞燕爪",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "谢铿断臂后赖以制胜的失传腿法，虽名为爪实以双腿变化取胜。",
+    "techniques": [
+      {
+        "id": "tech_fei_yan_guai_tui",
+        "name": "飞燕拐腿",
+        "type": "attack",
+        "description": "先佯踢一方再突然拐转，借对手闪避的瞬间击中腰眼。"
+      },
+      {
+        "id": "tech_fei_yan_lian_huan_ti",
+        "name": "飞燕连环踢",
+        "type": "attack",
+        "description": "两腿连续飞起追击，使受创对手接连中招难以回避。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "熟悉基本运劲与身法配合"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯变化并抓住破绽"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成实质杀伤"
+      },
+      {
+        "type": "特殊",
+        "description": "以身法、兵刃或时机变化扰乱对手判断"
+      }
+    ],
+    "combat_style": "无手亦能凭双腿腾挪进击，重在预判、变向与连环追击。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 452,
+        "line_end": 454,
+        "text": "石慧听得心胆俱裂，\"叭\"的一掌将桌上的茶杯都震飞了起来，那店伙一打哆嗦，一想起昨天带着两个女子的少年，听到这里也是面目一变，他怔了一会，赶紧赔着笑说道：\"他们这些武功，我可不知道，这是我听别人吃饭的时候说的，还说谢大爷那种腿法是什么久失传的飞燕爪，我也弄不明白，明明是腿法，为什么却又叫做爪。 \""
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_dang_jiu_gong_lian_huan_jian",
+    "name": "武当九宫连环剑",
+    "type": "剑法",
+    "faction": "faction_wu_dang",
+    "rank": "出神入化",
+    "one_line": "石坤天夜战天赤弟子时施展的武当精妙剑法。",
+    "techniques": [
+      {
+        "id": "tech_shen_long_tu_xian",
+        "name": "神龙突现",
+        "type": "attack",
+        "description": "剑身斜划半途变势，既削敌腕又借奇出之势抢占先机。"
+      },
+      {
+        "id": "tech_jian_hua_liao_rao",
+        "name": "剑花缭绕",
+        "type": "feint",
+        "description": "剑到中途拖转抖腕，化出点点剑花迷惑敌胆。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "熟悉基本运劲与身法配合"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯变化并抓住破绽"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成实质杀伤"
+      },
+      {
+        "type": "特殊",
+        "description": "以身法、兵刃或时机变化扰乱对手判断"
+      }
+    ],
+    "combat_style": "以方位、剑花和中途变招取胜，兼具正宗武当的沉稳与奇变。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 598,
+        "line_end": 600,
+        "text": "\"行家一伸手，便知有没有。\"石坤天见这和尚一式甫出，就知道这天赤尊者的徒弟手下颇有几分真实的功夫。 他突然沉肘挫腕，自剑上引，剑身突然斜斜一划，正是武当九宫连环剑里的妙着\"神龙突现\"，又削那和尚的手腕，腰畔突有风声一凛，那女徒的银鞭已带着风声横扫他的腰间。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_chi_qi_bing",
+    "name": "天赤奇兵",
+    "type": "暗器",
+    "faction": "faction_tian_zhu_mi_zong",
+    "rank": "炉火纯青",
+    "one_line": "天赤尊者弟子使用笛箫状奇兵和银鞭夹攻的怪异武技。",
+    "techniques": [
+      {
+        "id": "tech_di_xiao_dian_xue",
+        "name": "笛箫点穴",
+        "type": "attack",
+        "description": "以似笛非笛、似箫非箫的奇兵点向旋玑、天池等要穴。"
+      },
+      {
+        "id": "tech_yin_bian_pan_sao",
+        "name": "银鞭盘扫",
+        "type": "attack",
+        "description": "银鞭旋带成圈，从侧面扫击顶门或腰间配合夹攻。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "熟悉基本运劲与身法配合"
+      },
+      {
+        "level": 2,
+        "description": "临敌时能连贯变化并抓住破绽"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面交手中造成实质杀伤"
+      },
+      {
+        "type": "特殊",
+        "description": "以身法、兵刃或时机变化扰乱对手判断"
+      }
+    ],
+    "combat_style": "方位诡异，不循中原武林常格，善与同门左右夹击。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 586,
+        "line_end": 604,
+        "text": "石坤天虽然已知道他们是天赤尊者的徒弟，可是却不知道自己的爱妻和他们之间有什么仇怨，更不明白怎么会有杀师之仇，\"难道凭伶妹就能够杀了天赤尊者？ \" 他不禁有些奇怪了。 石坤天正自疑惑间，那高大的和尚已一声怒吼扑了上来，掌中寒光一点，是一枝似笛非笛似箫非箫的奇门兵刃。 另一个不问可知，就是天赤尊者的四个女徒其中之一了，也挥动着一条银色的长鞭，挥向石坤天，石坤天当然不能在车上动手，身形一动，掠了下去，手中长剑剑花错落间分剁两人。 武当九宫连环剑，剑式轻灵，那和尚脚跟半旋，掌中奇门兵"
+      }
+    ]
+  }
+]
