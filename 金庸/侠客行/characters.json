@@ -1,0 +1,5224 @@
+[
+  {
+    "id": "char_mai_bing_wang_lao_han",
+    "name": "卖饼王老汉",
+    "alias": [],
+    "identity": "烧饼铺老人",
+    "faction": null,
+    "role": "supporting",
+    "archetype": "jianghu",
+    "rank": "二流",
+    "one_line": "表面麻木做饼、实则另有身份的老人",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "隐忍",
+        "机警",
+        "老练",
+        "能临危不乱"
+      ],
+      "speech_style": "慢条斯理，故作寻常",
+      "temperament": "外松内紧"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 66,
+        "line_end": 76,
+        "text": "一个花白头发的老者弯着腰，将面粉捏成一个个小球。"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_dao_tong",
+    "name": "吴道通",
+    "alias": [],
+    "identity": "隐姓埋名的江湖人",
+    "faction": null,
+    "role": "supporting",
+    "archetype": "wanderer",
+    "rank": "一流",
+    "one_line": "化装成卖饼老人、身怀玄铁令线索的关键人物",
+    "personality": {
+      "traits": [
+        "机变",
+        "隐忍",
+        "狠决",
+        "沉着",
+        "老于江湖"
+      ],
+      "speech_style": "慢条斯理，夹带讥刺",
+      "temperament": "刚强冷静"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 98,
+        "line_end": 112,
+        "text": "卖饼老者道：“大爷认错人啦，老汉姓王。”"
+      }
+    ]
+  },
+  {
+    "id": "char_gao_ge_er",
+    "name": "高个儿",
+    "alias": [],
+    "identity": "金刀寨头领",
+    "faction": "faction_jin_dao_zhai",
+    "role": "supporting",
+    "archetype": "jianghu",
+    "rank": "二流",
+    "one_line": "面貌狰狞、使双钩逼索吴道通的悍匪头领",
+    "personality": {
+      "traits": [
+        "凶横",
+        "急躁",
+        "粗暴",
+        "贪功",
+        "残忍"
+      ],
+      "speech_style": "喝骂威逼",
+      "temperament": "暴烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 84,
+        "line_end": 110,
+        "text": "见面前那人身裁甚高，一张脸孔如橘皮般凹凹凸凸。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhou_mu",
+    "name": "周牧",
+    "alias": [],
+    "identity": "鹰爪门高手",
+    "faction": "faction_jin_dao_zhai",
+    "role": "supporting",
+    "archetype": "jianghu",
+    "rank": "一流",
+    "one_line": "金刀寨所倚重的矮瘦老者，出手狠辣而沉稳",
+    "personality": {
+      "traits": [
+        "冷静",
+        "狠辣",
+        "傲慢",
+        "老练",
+        "善于审势"
+      ],
+      "speech_style": "少言冷硬",
+      "temperament": "阴沉"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 146,
+        "line_end": 166,
+        "text": "西北角屋顶上站着一名矮瘦老者，双手叉在腰间。"
+      }
+    ]
+  },
+  {
+    "id": "char_gou_za_zhong",
+    "name": "狗杂种",
+    "alias": [],
+    "identity": "小丐",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "orphan",
+    "rank": "炉火纯青",
+    "one_line": "狗杂种在展飞误击膻中穴后阴阳内息贯通，实力陡增而本人仍懵然不知。",
+    "personality": {
+      "traits": [
+        "懵懂",
+        "胆小",
+        "顽强",
+        "能忍饥寒",
+        "天性朴拙"
+      ],
+      "speech_style": "结巴质朴",
+      "temperament": "惊惶而单纯"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_jian",
+        "type": "主仆",
+        "intensity": 34,
+        "bond_level": 2,
+        "dynamic": "侍剑贴身服侍，却因其忽善忽恶而惊疑不定"
+      },
+      {
+        "target": "char_bei_hai_shi",
+        "type": "主仆",
+        "intensity": 46,
+        "bond_level": 3,
+        "dynamic": "被贝海石等人当作长乐帮帮主拥戴与利用"
+      },
+      {
+        "target": "char_zhan_fei",
+        "type": "对手",
+        "intensity": 74,
+        "bond_level": 4,
+        "dynamic": "展飞深恨其辱妻，狗杂种却不明其仇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 202,
+        "line_end": 216,
+        "text": "那是个十二三岁的小丐。他已饿了一整天。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 72,
+        "line_end": 80,
+        "text": "小丐道：“我……我叫狗杂种。”"
+      },
+      {
+        "chapter": 3,
+        "line_start": 946,
+        "line_end": 960,
+        "text": "过得大半年，那少年已练得内息能循“足少阴肾经”经脉而行。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 795,
+        "line_end": 799,
+        "text": "一掌击到，刚好将他八阴经脉与八阳经脉中所练成的阴阳劲力打成一片。"
+      }
+    ]
+  },
+  {
+    "0": "虽",
+    "1": "忧",
+    "2": "爱",
+    "3": "子",
+    "4": "，",
+    "5": "终",
+    "6": "选",
+    "7": "择",
+    "8": "与",
+    "9": "丈",
+    "10": "夫",
+    "11": "同",
+    "12": "进",
+    "13": "退",
+    "14": "赴",
+    "15": "凌",
+    "16": "霄",
+    "17": "城",
+    "18": "。",
+    "19": "尽",
+    "20": "显",
+    "21": "。",
+    "id": "char_min_rou",
+    "name": "闵柔",
+    "alias": [],
+    "identity": "玄素庄女主人",
+    "faction": "faction_xuan_su_zhuang",
+    "role": "supporting",
+    "archetype": "swordswoman",
+    "rank": "一流",
+    "one_line": "面对梅芳姑与石破天的纠葛，疑痛交加，复仇心与疑心并起。",
+    "personality": {
+      "traits": [
+        "慈爱",
+        "柔弱",
+        "深情",
+        "护子",
+        "易伤感"
+      ],
+      "speech_style": "温软而急切，多带哭腔。",
+      "temperament": "温婉"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "亲属",
+        "intensity": 72,
+        "bond_level": 4,
+        "dynamic": "感念其母性关怀而愿以命相救"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      13,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 306,
+        "line_end": 316,
+        "text": "白马上骑着的是个白衣女子。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 52,
+        "line_end": 52,
+        "text": "闵柔向雪山派赔礼，又在后文多次因石中玉的恶行而崩溃。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 255,
+        "line_end": 261,
+        "text": "另一个妇人身穿雪白衣裙。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 4,
+        "line_end": 18,
+        "text": "闵柔含泪认子，叙述分别多年之情。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 616,
+        "line_end": 617,
+        "text": "昨日早晨在客店中不见了你，我急得什么似的。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 444,
+        "line_end": 460,
+        "text": "随夫同往"
+      },
+      {
+        "chapter": 18,
+        "line_start": 580,
+        "line_end": 612,
+        "text": "闵柔痛惜石中玉被带走，同时对石破天的善良愈发怜惜。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 304,
+        "line_end": 350,
+        "text": "闵柔向石破天瞧了一眼，道：\"小兄弟，你不许我报仇，是不是？\" 石破天道：\"我……"
+      }
+    ]
+  },
+  {
+    "0": "决",
+    "1": "意",
+    "2": "借",
+    "3": "援",
+    "4": "雪",
+    "5": "山",
+    "6": "派",
+    "7": "抗",
+    "8": "张",
+    "9": "三",
+    "10": "李",
+    "11": "四",
+    "12": "，",
+    "13": "为",
+    "14": "儿",
+    "15": "子",
+    "16": "争",
+    "17": "取",
+    "18": "将",
+    "19": "功",
+    "20": "赎",
+    "21": "罪",
+    "22": "的",
+    "23": "生",
+    "24": "机",
+    "25": "。",
+    "id": "char_shi_qing",
+    "name": "石清",
+    "alias": [],
+    "identity": "玄素庄庄主",
+    "faction": "faction_xuan_su_zhuang",
+    "role": "supporting",
+    "archetype": "swordsman",
+    "rank": "一流",
+    "one_line": "得知梅芳姑踪迹后立刻赶赴熊耳山，复仇执念更炽。",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "机敏",
+        "护子",
+        "克制",
+        "善权衡"
+      ],
+      "speech_style": "温文而锋利，善以礼法与名义逼人就范。",
+      "temperament": "沉着"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "亲属",
+        "intensity": 68,
+        "bond_level": 4,
+        "dynamic": "虽非亲生却生出父子般依恋"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      13,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 308,
+        "line_end": 316,
+        "text": "黑马乘客是个中年男子，一身黑衫。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 4,
+        "line_end": 108,
+        "text": "石清在雪山派弟子面前周旋，逐步得知石中玉闯祸。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 262,
+        "line_end": 265,
+        "text": "玄素庄石庄主夫妇驾到。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 28,
+        "line_end": 52,
+        "text": "石清询问石破天身份，与闵柔商议其是否为玉儿。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 666,
+        "line_end": 688,
+        "text": "石清当众声明石中玉与长乐帮再无干系。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 444,
+        "line_end": 460,
+        "text": "押子赴城"
+      },
+      {
+        "chapter": 18,
+        "line_start": 258,
+        "line_end": 270,
+        "text": "石清以掌门人名义激将谢烟客，阻其滥杀雪山派弟子。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 174,
+        "line_end": 218,
+        "text": "白自在一转头，问道：\"咦，丁不四那老贼呢，怎地溜得不知去向了？ \"史婆婆笑道：\""
+      }
+    ]
+  },
+  {
+    "id": "char_an_feng_ri",
+    "name": "安奉日",
+    "alias": [],
+    "identity": "金刀寨寨主",
+    "faction": "faction_jin_dao_zhai",
+    "role": "supporting",
+    "archetype": "jianghu",
+    "rank": "一流",
+    "one_line": "绰号安金刀的寨主，粗豪中颇有见识",
+    "personality": {
+      "traits": [
+        "粗豪",
+        "讲义气",
+        "重颜面",
+        "好胜",
+        "有见识"
+      ],
+      "speech_style": "豪爽得体",
+      "temperament": "外猛内明"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 318,
+        "line_end": 322,
+        "text": "那女子道：“是吴道通！看来安金刀已得手了。”"
+      },
+      {
+        "chapter": 2,
+        "line_start": 24,
+        "line_end": 30,
+        "text": "安奉日见雪山派无礼后告辞，对石清行事心服。"
+      }
+    ]
+  },
+  {
+    "id": "char_feng_zhen_wu",
+    "name": "冯振武",
+    "alias": [],
+    "identity": "金刀寨二寨主",
+    "faction": "faction_jin_dao_zhai",
+    "role": "supporting",
+    "archetype": "jianghu",
+    "rank": "二流",
+    "one_line": "安奉日身边的重要副手之一",
+    "personality": {
+      "traits": [
+        "果决",
+        "好斗",
+        "服从寨主",
+        "悍勇",
+        "重颜面"
+      ],
+      "speech_style": "短促强硬",
+      "temperament": "急进"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 514,
+        "line_end": 516,
+        "text": "这三人正是金刀寨的大寨主安奉日、二寨主冯振武、三寨主元澄道人。"
+      }
+    ]
+  },
+  {
+    "id": "char_yuan_cheng_dao_ren",
+    "name": "元澄道人",
+    "alias": [],
+    "identity": "金刀寨三寨主",
+    "faction": "faction_jin_dao_zhai",
+    "role": "supporting",
+    "archetype": "jianghu",
+    "rank": "二流",
+    "one_line": "持剑出手迅快的道人头领",
+    "personality": {
+      "traits": [
+        "警觉",
+        "狠快",
+        "贪利",
+        "好胜",
+        "偏激"
+      ],
+      "speech_style": "喝令式",
+      "temperament": "急躁"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 514,
+        "line_end": 516,
+        "text": "这三人正是金刀寨的大寨主安奉日、二寨主冯振武、三寨主元澄道人。"
+      }
+    ]
+  },
+  {
+    "id": "char_geng_wan_zhong",
+    "name": "耿万钟",
+    "alias": [],
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "supporting",
+    "archetype": "jianghu",
+    "rank": "二流",
+    "one_line": "雪山派第二代好手，领人围住小丐",
+    "personality": {
+      "traits": [
+        "稳重",
+        "戒备",
+        "争胜",
+        "讲门面",
+        "行事谨慎"
+      ],
+      "speech_style": "场面话得体",
+      "temperament": "强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 726,
+        "line_end": 730,
+        "text": "一个三十来岁的魁梧汉子说道：“是金刀安寨主吗？”"
+      },
+      {
+        "chapter": 2,
+        "line_start": 8,
+        "line_end": 98,
+        "text": "耿万钟先冷面相对，后单独向石清说明雪山派立场。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 251,
+        "line_end": 255,
+        "text": "与花万紫同闯总坛的另一名雪山派中年汉子。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 742,
+        "line_end": 744,
+        "text": "与白万剑同列出场。"
+      }
+    ]
+  },
+  {
+    "id": "char_xie_yan_ke",
+    "name": "谢烟客",
+    "alias": [],
+    "identity": "摩天崖怪客",
+    "faction": null,
+    "role": "supporting",
+    "archetype": "eccentric_master",
+    "rank": "出神入化",
+    "one_line": "被石破天的至诚打动，虽百般不愿，终因玄铁令承诺接下教化石中玉的重担。",
+    "personality": {
+      "traits": [
+        "孤傲",
+        "自负",
+        "守誓",
+        "残酷",
+        "喜怒难测"
+      ],
+      "speech_style": "低沉冷嘲，傲气极盛",
+      "temperament": "忽正忽邪"
+    },
+    "relationships": [
+      {
+        "target": "char_bei_hai_shi",
+        "type": "对手",
+        "intensity": 63,
+        "bond_level": 3,
+        "dynamic": "摩天崖首次正面试探，彼此皆存忌惮"
+      },
+      {
+        "target": "char_shi_zhong_yu",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 1,
+        "dynamic": "误认其为玄铁令主，被迫受命又心怀厌恶"
+      },
+      {
+        "target": "char_shi_zhong_yu",
+        "type": "主仆",
+        "intensity": 62,
+        "bond_level": 2,
+        "dynamic": "被迫收下石中玉，准备以强硬手段管束"
+      }
+    ],
+    "known_skills": [
+      "skill_bi_zhen_qing_zhang"
+    ],
+    "related_skills": [
+      "skill_bi_zhen_qing_zhang"
+    ],
+    "rag_refs": [
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 792,
+        "line_end": 798,
+        "text": "忽听得一个低沉的声音说道：“还是给我！”"
+      },
+      {
+        "chapter": 3,
+        "line_start": 1,
+        "line_end": 2,
+        "text": "帷子掀开，出来一个老者，左手拉着那个小丐，竟是玄铁令主人谢烟客。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 996,
+        "line_end": 1000,
+        "text": "这数年中更伴着那少年不敢稍离，除了勤练本门功夫之外，更新创了一路拳法、一路掌法。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 24,
+        "line_end": 30,
+        "text": "谢烟客与九人对答，实则十成内力中倒已去了九成。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 444,
+        "line_end": 568,
+        "text": "谢烟客在石破天恳求与石清激将下，答应带走石中玉加以管教。"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_wan_ren",
+    "name": "王万仞",
+    "alias": [],
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "supporting",
+    "archetype": "jianghu",
+    "rank": "二流",
+    "one_line": "性子火烈的雪山派弟子，敢当面顶撞谢烟客",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "好胜",
+        "直率",
+        "不服输",
+        "急躁"
+      ],
+      "speech_style": "冲口而出",
+      "temperament": "火爆"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 854,
+        "line_end": 872,
+        "text": "此人名叫王万仞。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 44,
+        "line_end": 56,
+        "text": "王万仞多次口出恶言，但也坦率通报白万剑要烧玄素庄。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 796,
+        "line_end": 804,
+        "text": "王万仞因言语受辱而大怒出剑。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 17,
+        "line_end": 17,
+        "text": "便将王万仞震得身受重伤。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 614,
+        "line_end": 618,
+        "text": "王万仞急报白自在失踪，引发众人再度惊乱。"
+      }
+    ],
+    "description": "王万仞在虎猛堂中被石破天内力震飞，断剑反刺入肩，性命无碍但狼狈受创。"
+  },
+  {
+    "id": "char_hua_wan_zi",
+    "name": "花万紫",
+    "alias": [],
+    "identity": "雪山派女弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "supporting",
+    "archetype": "swordswoman",
+    "rank": "二流",
+    "one_line": "性子刚硬、敢借谢烟客誓言设法救同门的少女",
+    "personality": {
+      "traits": [
+        "刚硬",
+        "聪敏",
+        "有胆色",
+        "重同门",
+        "不知轻重"
+      ],
+      "speech_style": "直言快语",
+      "temperament": "倔强"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 884,
+        "line_end": 904,
+        "text": "这位想必是雪山派的“寒梅女侠”花万紫花师妹。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "石清称赞花万紫胆识过人，后文她也提出黑白双剑可能被夺回的隐患。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 275,
+        "line_end": 289,
+        "text": "石破天认出雪山派寒梅女侠花万紫，花万紫却不识他。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 325,
+        "line_end": 331,
+        "text": "石破天首先想到花万紫。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 53,
+        "line_end": 57,
+        "text": "花万紫喝道，退开了。"
+      }
+    ]
+  },
+  {
+    "0": "被",
+    "1": "丁",
+    "2": "珰",
+    "3": "接",
+    "4": "应",
+    "5": "，",
+    "6": "与",
+    "7": "石",
+    "8": "破",
+    "9": "天",
+    "10": "换",
+    "11": "回",
+    "12": "身",
+    "13": "份",
+    "14": "与",
+    "15": "物",
+    "16": "件",
+    "17": "后",
+    "18": "离",
+    "19": "开",
+    "20": "。",
+    "id": "char_shi_zhong_yu",
+    "name": "石中玉",
+    "alias": [
+      "玉儿"
+    ],
+    "identity": "石清与闵柔之子，雪山派门下弟子，凌霄城风波核心",
+    "faction": "faction_xue_shan_pai",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "在长乐帮中继续冒充石破天，只求逃避侠客岛之约。",
+    "personality": {
+      "traits": [
+        "狡黠",
+        "怯懦",
+        "轻浮",
+        "机变",
+        "自私"
+      ],
+      "speech_style": "见风使舵，能文饰辞令。",
+      "temperament": "浮滑多变"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_qing",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父子失控"
+      },
+      {
+        "target": "char_min_rou",
+        "type": "亲属",
+        "intensity": 98,
+        "bond_level": 5,
+        "dynamic": "母子溺爱"
+      },
+      {
+        "target": "char_xie_yan_ke",
+        "type": "合作者",
+        "intensity": 38,
+        "bond_level": 1,
+        "dynamic": "借玄铁令强迫谢烟客为己屠灭雪山派"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 16,
+        "line_end": 108,
+        "text": "石中玉虽未现身，却被指为一切祸端的源头。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 361,
+        "line_end": 361,
+        "text": "贝海石等人口中的“帮主”实指石帮主。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 429,
+        "line_end": 435,
+        "text": "贝海石提及帮主待丁姑娘没长性，并暗示帮主与丁珰纠葛。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 326,
+        "line_end": 346,
+        "text": "换回身份"
+      },
+      {
+        "chapter": 18,
+        "line_start": 510,
+        "line_end": 568,
+        "text": "石中玉最终被谢烟客强行带走，命运转入受其管束的新阶段。"
+      }
+    ]
+  },
+  {
+    "id": "char_ke_wan_jun",
+    "name": "柯万钧",
+    "alias": [],
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "冲劲十足的雪山派弟子，言语与行动都较耿万钟更激烈。",
+    "personality": {
+      "traits": [
+        "冲动",
+        "气盛",
+        "记仇",
+        "好胜",
+        "不服软"
+      ],
+      "speech_style": "抢白直冲",
+      "temperament": "暴躁"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 184,
+        "line_end": 186,
+        "text": "柯万钧为封万里鸣不平，并细述凌霄城更深一层的变故。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 880,
+        "line_end": 884,
+        "text": "柯万钧检查王万仞伤势。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 49,
+        "line_end": 50,
+        "text": "这时柯万钧双掌抵门。"
+      }
+    ]
+  },
+  {
+    "0": "以",
+    "1": "夹",
+    "2": "械",
+    "3": "暗",
+    "4": "算",
+    "5": "并",
+    "6": "点",
+    "7": "倒",
+    "8": "白",
+    "9": "万",
+    "10": "剑",
+    "11": "，",
+    "12": "显",
+    "13": "示",
+    "14": "其",
+    "15": "已",
+    "16": "处",
+    "17": "疯",
+    "18": "癫",
+    "19": "与",
+    "20": "猜",
+    "21": "忌",
+    "22": "失",
+    "23": "控",
+    "24": "状",
+    "25": "态",
+    "26": "。",
+    "id": "char_bai_zi_zai",
+    "name": "白自在",
+    "alias": [
+      "白老爷子",
+      "威德先生"
+    ],
+    "identity": "雪山派掌门",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "最终随众人离岛。",
+    "personality": {
+      "traits": [
+        "威严",
+        "暴烈",
+        "护短",
+        "好强",
+        "刚愎"
+      ],
+      "speech_style": "命令式强硬",
+      "temperament": "盛怒难抑"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_a_xiu",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "祖孙疼爱"
+      },
+      {
+        "target": "char_bai_wan_jian",
+        "type": "亲属",
+        "intensity": 86,
+        "bond_level": 5,
+        "dynamic": "以父责与掌门职责独赴侠客岛"
+      },
+      {
+        "target": "char_long_dao_zhu",
+        "type": "敬服",
+        "intensity": 78,
+        "bond_level": 4,
+        "dynamic": "由质疑转为佩服"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 160,
+        "line_end": 186,
+        "text": "白自在因阿绣受辱身亡而大怒，迁怒门人与妻子。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 10,
+        "line_end": 18,
+        "text": "都是给一个名叫白自在的老儿所杀。他是雪山派的掌门人，外号威德先生。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 220,
+        "line_end": 224,
+        "text": "凌霄城城主、雪山派掌门人威德先生白自在。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 613,
+        "line_end": 633,
+        "text": "夹械暗算白万剑"
+      },
+      {
+        "chapter": 17,
+        "line_start": 60,
+        "line_end": 84,
+        "text": "先前各人均想凌霄城偏处西域，极少与中土武林人士往还，这邀宴铜牌未见得会送来雪山派；善恶二使的武功得诸传闻，多半言过其实，未必真有这等厉害；再则雪山派有掌门人威德"
+      },
+      {
+        "chapter": 18,
+        "line_start": 638,
+        "line_end": 680,
+        "text": "白自在点住史婆婆穴道后独自赴侠客岛，欲以掌门人身份承担后果。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 941,
+        "line_end": 953,
+        "text": "白自在以旁观者角度断言梅女侠可胜丁不四，并拿石破天说项。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第20章"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_a_xiu",
+    "name": "阿绣",
+    "alias": [
+      "白小姑娘",
+      "小公主"
+    ],
+    "identity": "白万剑之女，白自在孙女",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "被雪山派上下捧在手心的小姑娘，因受辱惊惧而跳谷身亡。",
+    "personality": {
+      "traits": [
+        "聪慧",
+        "天真",
+        "刚烈",
+        "自重",
+        "娇贵"
+      ],
+      "speech_style": "本章无直接发言",
+      "temperament": "刚烈敏感"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_wan_jian",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父女亲厚"
+      },
+      {
+        "target": "char_bai_zi_zai",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "祖孙溺爱"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 122,
+        "line_end": 178,
+        "text": "阿绣被称为凌霄城的小公主，遭石中玉侵犯未遂后跳谷而亡。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 448,
+        "line_end": 449,
+        "text": "令郎辱我爱女，累得她小小年纪，投崖自尽。"
+      }
+    ]
+  },
+  {
+    "0": "在",
+    "1": "支",
+    "2": "系",
+    "3": "内",
+    "4": "乱",
+    "5": "中",
+    "6": "反",
+    "7": "对",
+    "8": "进",
+    "9": "一",
+    "10": "步",
+    "11": "弑",
+    "12": "逆",
+    "13": "，",
+    "14": "主",
+    "15": "张",
+    "16": "监",
+    "17": "禁",
+    "18": "而",
+    "19": "非",
+    "20": "杀",
+    "21": "尽",
+    "22": "长",
+    "23": "门",
+    "24": "弟",
+    "25": "子",
+    "26": "。",
+    "id": "char_feng_wan_li",
+    "name": "封万里",
+    "alias": [
+      "风火神龙",
+      "封师兄"
+    ],
+    "identity": "雪山派大弟子，石中玉之师",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "剑法凌厉的雪山派大弟子，因石中玉闯祸而被白自在斩断右臂。",
+    "personality": {
+      "traits": [
+        "刚猛",
+        "负责",
+        "名望高",
+        "受牵连",
+        "性烈"
+      ],
+      "speech_style": "本章以他人转述为主",
+      "temperament": "刚猛"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_zhong_yu",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "师徒失控"
+      },
+      {
+        "target": "char_shi_qing",
+        "type": "合作者",
+        "intensity": 66,
+        "bond_level": 3,
+        "dynamic": "旧交未绝但被石中玉之事重创"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 184,
+        "line_end": 190,
+        "text": "封万里因管教石中玉不严，被白自在砍去一条右臂。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 173,
+        "line_end": 174,
+        "text": "封师哥练功比我勤勉。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 1083,
+        "line_end": 1111,
+        "text": "反对再弑逆"
+      },
+      {
+        "chapter": 17,
+        "line_start": 32,
+        "line_end": 58,
+        "text": "\"李四摇头道：\"我瞧着也不像。\"\n\n廖自砺道：\"姓白的早已死了，新的掌门人⋯⋯\"他一言未毕，封万里接口骂道：\"放屁！\n\n威德先生并没死，不过⋯⋯\"廖自砺怒道：\""
+      }
+    ]
+  },
+  {
+    "0": "见",
+    "1": "石",
+    "2": "清",
+    "3": "夫",
+    "4": "妇",
+    "5": "不",
+    "6": "顾",
+    "7": "儿",
+    "8": "子",
+    "9": "病",
+    "10": "重",
+    "11": "仍",
+    "12": "押",
+    "13": "赴",
+    "14": "凌",
+    "15": "霄",
+    "16": "城",
+    "17": "，",
+    "18": "心",
+    "19": "生",
+    "20": "钦",
+    "21": "佩",
+    "22": "。",
+    "id": "char_bai_wan_jian",
+    "name": "白万剑",
+    "alias": [
+      "白师哥"
+    ],
+    "identity": "阿绣之父，雪山派核心弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "白万剑与石破天比武后确认其并非石中玉，并以雪花六出略施惩戒。",
+    "personality": {
+      "traits": [
+        "烈性",
+        "护女",
+        "刚烈",
+        "悲愤",
+        "执拗"
+      ],
+      "speech_style": "本章以旁人转述为主",
+      "temperament": "悲愤暴烈"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_a_xiu",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "丧女之痛"
+      },
+      {
+        "target": "char_shi_po_tian",
+        "type": "合作者",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "被其救命并并肩作战"
+      },
+      {
+        "target": "char_bai_zi_zai",
+        "type": "亲属",
+        "intensity": 86,
+        "bond_level": 5,
+        "dynamic": "忧父安危，愿代父赴死"
+      },
+      {
+        "target": "char_shi_po_tian",
+        "type": "姻亲认可",
+        "intensity": 78,
+        "bond_level": 4,
+        "dynamic": "公开承认为一家人"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      10,
+      13,
+      15,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 56,
+        "line_end": 202,
+        "text": "白万剑因女儿阿绣之死而决意焚烧玄素庄。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 327,
+        "line_end": 331,
+        "text": "贝海石介绍白万剑领头来访。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 9,
+        "line_end": 11,
+        "text": "白万剑奉本派掌门人威德先生令谕，今日清理门户。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 102,
+        "line_end": 104,
+        "text": "石破天回报白万剑率众登岛搜寻自己。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 1084,
+        "line_end": 1210,
+        "text": "白万剑伤中与石破天比斗，终知其并非石中玉。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 14,
+        "line_end": 16,
+        "text": "闵柔提及石破天曾被白万剑擒去。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 577,
+        "line_end": 579,
+        "text": "器宇轩昂，英姿飒爽，正是“气寒西北”白万剑。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 422,
+        "line_end": 442,
+        "text": "押解途中观感"
+      },
+      {
+        "chapter": 17,
+        "line_start": 244,
+        "line_end": 268,
+        "text": "史婆婆道：\"你们服是不服？\"四人齐声道：\"口服心服，更无异言。\n\n\"心中却想：\"待这两个恶人走后，凌霄城中还不是我们的天下？\n\n谅一个老婆子和一个小鬼有何作为？"
+      },
+      {
+        "chapter": 18,
+        "line_start": 646,
+        "line_end": 680,
+        "text": "白万剑得知父亲独赴侠客岛后焦急请缨，忧心不已。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 114,
+        "line_end": 116,
+        "text": "白万剑正式以贤婿称呼石破天。"
+      }
+    ],
+    "description": "白万剑在长乐帮堂上始终认定石破天就是石中玉，以雪山派伤痕与旧案步步紧逼。",
+    "reputation": "被丁不三视作检验石破天生死的强敌"
+  },
+  {
+    "id": "char_bai_fu_ren",
+    "name": "白夫人",
+    "alias": [
+      "白师嫂"
+    ],
+    "identity": "白万剑之妻，阿绣之母",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "阿绣之母，女儿死后精神失常，成为凌霄城惨剧的又一受害者。",
+    "personality": {
+      "traits": [
+        "慈母",
+        "自责",
+        "脆弱",
+        "深情",
+        "失常"
+      ],
+      "speech_style": "反复哭喊",
+      "temperament": "悲痛失序"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_a_xiu",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "丧女自责"
+      },
+      {
+        "target": "char_bai_wan_jian",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "悲剧下失衡"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 202,
+        "line_end": 202,
+        "text": "白夫人因阿绣身死而神智胡涂，反复自责。"
+      }
+    ]
+  },
+  {
+    "id": "char_ding_bu_san",
+    "name": "丁不三",
+    "alias": [
+      "一日不过三"
+    ],
+    "identity": "武林怪客，行事邪气却武功高深",
+    "faction": "",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "神出鬼没、言语戏谑的怪客，以高深功力隔墙戏弄并震杀雪山派弟子。",
+    "personality": {
+      "traits": [
+        "乖张",
+        "残忍",
+        "戏谑",
+        "自负",
+        "难测"
+      ],
+      "speech_style": "嘲弄夸张，带狂笑",
+      "temperament": "邪诡恣肆"
+    },
+    "relationships": [
+      {
+        "target": "char_a_dang",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "祖孙同行"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      5,
+      10,
+      13,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 256,
+        "line_end": 350,
+        "text": "丁不三隔墙发话、嘲弄雪山派，并疑似无形击杀孙万年与褚万春。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 618,
+        "line_end": 630,
+        "text": "丁珰爷爷突现桥上，喝问偷酒私会之事。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 3,
+        "line_end": 22,
+        "text": "丁不三逼石破天在武功与丁珰之间二选一。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 45,
+        "line_end": 47,
+        "text": "丁不三却笑了笑。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 12,
+        "line_end": 12,
+        "text": "史婆婆提及丁不三老鬼，石破天畏之甚深。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 1000,
+        "line_end": 1070,
+        "text": "丁不三与丁不四联手仍被刀剑合璧所伤，只得退走。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 264,
+        "line_end": 266,
+        "text": "石破天向父母叙述丁不三相救又欲杀他的经过。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 692,
+        "line_end": 724,
+        "text": "\"\n\n史婆婆道：\"你师父脾气不好，我岂有不知？他断你一臂，就大大不该。\n\n到底此事如何而起，你且说来听听。\"\n\n封万里又磕了两个头，说道：\"自从师娘和白师弟、众"
+      }
+    ],
+    "judgement": "认定石破天是白痴，动念杀之",
+    "motive": "不愿孙女婿丢自己脸面",
+    "ultimatum": "坚持要杀石破天，除非出现足够体面的转机",
+    "deadline": "限石破天十天内击败白万剑，否则亲手处死",
+    "rules": "一不教二别逃三不饶",
+    "observation": "冷眼旁观石破天三日学会丁家擒拿手，嘴硬心疑",
+    "awareness": "早已识破丁珰与石破天的擒拿密谋",
+    "killings": "第十日先杀三名围船者，受一日不过三规矩限制",
+    "new_threat": "改口要废掉石破天双目与双手",
+    "failure": "未能追回被丁珰抛走的石破天，怒极反掌掴孙女"
+  },
+  {
+    "id": "char_a_dang",
+    "name": "阿珰",
+    "alias": [],
+    "identity": "与丁不三同行的小姑娘",
+    "faction": "",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "跟随丁不三行动的少女，语气顽皮尖刻。",
+    "personality": {
+      "traits": [
+        "顽皮",
+        "毒舌",
+        "听话",
+        "轻佻",
+        "胆大"
+      ],
+      "speech_style": "笑嘻嘻、带戏谑",
+      "temperament": "轻快顽劣"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_bu_san",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "祖孙相随"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 274,
+        "line_end": 284,
+        "text": "阿珰随丁不三出现，多次附和其嘲弄雪山派的话。"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_wan_nian",
+    "name": "孙万年",
+    "alias": [
+      "孙师哥"
+    ],
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "在客店中被丁不三以诡异手段害死的雪山派弟子。",
+    "personality": {
+      "traits": [
+        "好胜",
+        "急躁",
+        "轻敌",
+        "从众",
+        "倒霉"
+      ],
+      "speech_style": "本章无直接发言",
+      "temperament": "刚躁"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 316,
+        "line_end": 350,
+        "text": "孙万年被丁不三点名激怒，入房后无伤暴毙。"
+      }
+    ]
+  },
+  {
+    "id": "char_chu_wan_chun",
+    "name": "褚万春",
+    "alias": [
+      "褚师弟"
+    ],
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "与孙万年一同在客店中殒命的雪山派弟子。",
+    "personality": {
+      "traits": [
+        "急躁",
+        "从众",
+        "轻敌",
+        "冒进",
+        "不幸"
+      ],
+      "speech_style": "本章无直接发言",
+      "temperament": "躁进"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 316,
+        "line_end": 350,
+        "text": "褚万春和孙万年一同冲入黑房后被神秘杀死。"
+      }
+    ]
+  },
+  {
+    "id": "char_guan_cha",
+    "name": "官差",
+    "alias": [],
+    "identity": "侯监集附近奉命拦截雪山派的官府差役",
+    "faction": "",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "被人驱使出面喊话的官差，给轿中人偷袭雪山派创造了机会。",
+    "personality": {
+      "traits": [
+        "张扬",
+        "依命行事",
+        "外强中干",
+        "聒噪",
+        "工具人"
+      ],
+      "speech_style": "扯嗓高叫",
+      "temperament": "虚张声势"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 478,
+        "line_end": 480,
+        "text": "官差高声辱骂白自在，引得雪山派众弟子震怒。"
+      }
+    ]
+  },
+  {
+    "id": "char_da_bei_lao_ren",
+    "name": "大悲老人",
+    "alias": [
+      "白鲸岛主"
+    ],
+    "identity": "白鲸岛高手，外家功夫名家",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "宁死不屈、掌法刚猛的武林前辈。",
+    "personality": {
+      "traits": [
+        "孤僻",
+        "刚烈",
+        "勇猛",
+        "自重",
+        "倔强"
+      ],
+      "speech_style": "简短强硬，带前辈威势",
+      "temperament": "刚硬孤高"
+    },
+    "relationships": [
+      {
+        "target": "char_xie_yan_ke",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "旧日比武失利，彼此不睦"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_zhao_shou",
+      "skill_ni_ren_nei_gong_tu_pu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 432,
+        "line_end": 446,
+        "text": "受围攻的是个红面老者……谢烟客认得他是白鲸岛的大悲老人。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 48,
+        "line_end": 52,
+        "text": "大悲老人得泥人异宝却不敢损毁，至死未明秘奥。"
+      }
+    ]
+  },
+  {
+    "id": "char_mi_xiang_zhu",
+    "name": "米横野",
+    "alias": [
+      "瘦子"
+    ],
+    "identity": "长乐帮香主，使鬼头刀而刀法近剑",
+    "faction": "faction_chang_le_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "长乐帮米香主，在摩天崖上被谢烟客一招制住后重伤脱险。",
+    "personality": {
+      "traits": [
+        "阴狠",
+        "机警",
+        "狠辣",
+        "圆滑",
+        "好胜"
+      ],
+      "speech_style": "先威逼后诱降，句句试探",
+      "temperament": "阴冷精细"
+    },
+    "relationships": [
+      {
+        "target": "char_da_bei_lao_ren",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "奉命围攻并逼迫其入帮"
+      }
+    ],
+    "known_skills": [
+      "skill_mi_shi_dao_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 446,
+        "line_end": 456,
+        "text": "一个是身材甚高的瘦子……那瘦子尤为了得，剑法飘逸无定，轻灵沉猛。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 150,
+        "line_end": 150,
+        "text": "谢烟客微微一笑，说道：“米香主，得罪了。”"
+      }
+    ]
+  },
+  {
+    "id": "char_huang_mian_dao_ren",
+    "name": "黄面道人",
+    "alias": [
+      "道人"
+    ],
+    "identity": "长乐帮成员，使用链子锤",
+    "faction": "faction_chang_le_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "嗓音嘶哑、下手暴躁的长乐帮道人。",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "强横",
+        "聒噪",
+        "残忍",
+        "急切"
+      ],
+      "speech_style": "夹杂威胁与利诱，声音嘶哑",
+      "temperament": "急躁狠厉"
+    },
+    "relationships": [
+      {
+        "target": "char_da_bei_lao_ren",
+        "type": "宿敌",
+        "intensity": 66,
+        "bond_level": 2,
+        "dynamic": "围攻并以链锤重创对方"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 446,
+        "line_end": 456,
+        "text": "一个是黄面道人……道人使链子锤。"
+      }
+    ]
+  },
+  {
+    "id": "char_chou_lian_han_zi",
+    "name": "丑脸汉子",
+    "alias": [
+      "丑汉子",
+      "十字疤汉子"
+    ],
+    "identity": "长乐帮成员，使鬼头刀的壮汉",
+    "faction": "faction_chang_le_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "膂力强横、面有十字刀疤的帮中打手。",
+    "personality": {
+      "traits": [
+        "粗暴",
+        "凶悍",
+        "鲁莽",
+        "强横",
+        "耐斗"
+      ],
+      "speech_style": "少言，以动作逞凶",
+      "temperament": "暴横粗猛"
+    },
+    "relationships": [
+      {
+        "target": "char_da_bei_lao_ren",
+        "type": "宿敌",
+        "intensity": 58,
+        "bond_level": 2,
+        "dynamic": "参与围攻反受重创"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 446,
+        "line_end": 456,
+        "text": "另一个相貌极怪，两条大伤疤在脸上交叉而过。"
+      }
+    ]
+  },
+  {
+    "id": "char_bei_hai_shi",
+    "name": "贝海石",
+    "alias": [
+      "着手成春",
+      "贝大夫"
+    ],
+    "identity": "长乐帮实际主事者之一，兼具高深内功与医道见识的宿疾高手",
+    "faction": "faction_chang_le_bang",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "炉火纯青",
+    "one_line": "以假疤痕和帮主布局操纵石破天、石中玉，却因侠客岛善恶使者拆穿计划而颜面尽失。",
+    "personality": {
+      "traits": [
+        "深沉",
+        "工于心计",
+        "善伪装",
+        "审时度势",
+        "狠辣"
+      ],
+      "speech_style": "平时周密含蓄，布局时多借旁人行事。",
+      "temperament": "阴沉老练"
+    },
+    "relationships": [
+      {
+        "target": "char_xie_yan_ke",
+        "type": "合作者",
+        "intensity": 28,
+        "bond_level": 1,
+        "dynamic": "表面恭敬实则试探牵制"
+      },
+      {
+        "target": "char_shi_zhong_yu",
+        "type": "主仆",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "名义上奉帮主之命，实则急于维系帮中局面"
+      }
+    ],
+    "known_skills": [
+      "skill_wu_xing_liu_he_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 40,
+        "line_end": 40,
+        "text": "那人正是“着手成春”贝海石。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 815,
+        "line_end": 817,
+        "text": "贝海石大吃一惊，脸现喜色，大声道：“恭喜帮主，贺喜帮主，这盖世神功，终究练成了。”"
+      },
+      {
+        "chapter": 5,
+        "line_start": 201,
+        "line_end": 202,
+        "text": "侍剑称贝先生是帮里军师，最是聪明不过。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 29,
+        "line_end": 35,
+        "text": "丁珰提到贝大夫听奉石破天号令。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 52,
+        "line_end": 59,
+        "text": "贝海石斜身而上，说道。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 29,
+        "line_end": 33,
+        "text": "关东四大门派掌门人枉顾，敝帮兄弟深感荣幸，特来远迎。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 90,
+        "line_end": 108,
+        "text": "贝海石伪造疤痕混淆石破天与石中玉身份，后来被善恶使者拆穿。"
+      }
+    ]
+  },
+  {
+    "id": "char_yun_xiang_zhu",
+    "name": "云香主",
+    "alias": [],
+    "identity": "长乐帮香主，奉贝海石之命搜寻帮主",
+    "faction": "faction_chang_le_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "手持双戟、执行力强的长乐帮中层头目。",
+    "personality": {
+      "traits": [
+        "服从命令",
+        "谨慎",
+        "沉默",
+        "果断",
+        "守规矩"
+      ],
+      "speech_style": "应命简短，少有多言",
+      "temperament": "克制干练"
+    },
+    "relationships": [
+      {
+        "target": "char_bei_hai_shi",
+        "type": "主仆",
+        "intensity": 48,
+        "bond_level": 3,
+        "dynamic": "听命于贝海石调遣搜人"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 186,
+        "line_end": 190,
+        "text": "向一名魁梧的中年汉子道：“云香主，你和众贤弟四下里瞧瞧。”"
+      }
+    ]
+  },
+  {
+    "0": "识",
+    "1": "破",
+    "2": "丁",
+    "3": "珰",
+    "4": "计",
+    "5": "策",
+    "6": "并",
+    "7": "试",
+    "8": "图",
+    "9": "阻",
+    "10": "止",
+    "11": "石",
+    "12": "破",
+    "13": "天",
+    "14": "赴",
+    "15": "死",
+    "16": "。",
+    "id": "char_shi_jian",
+    "name": "侍剑",
+    "alias": [],
+    "identity": "长乐帮帮主近身侍女，常在卧房内服侍并知晓帮主秉性",
+    "faction": "faction_chang_le_bang",
+    "role": "companion",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "机灵谨慎又常怀惧意的侍女，对帮主近况最为敏感。",
+    "personality": {
+      "traits": [
+        "机敏",
+        "畏惧",
+        "善察言色",
+        "心软",
+        "谨慎"
+      ],
+      "speech_style": "称呼恭顺，语中常带试探和劝解",
+      "temperament": "惶惧敏感"
+    },
+    "relationships": [
+      {
+        "target": "char_gou_za_zhong",
+        "type": "主仆",
+        "intensity": 42,
+        "bond_level": 2,
+        "dynamic": "误把狗杂种当作帮主服侍，渐感其性情与往常大异"
+      },
+      {
+        "target": "char_zhan_fei",
+        "type": "合作者",
+        "intensity": 18,
+        "bond_level": 1,
+        "dynamic": "同帮中人，却因夜半变故受其所制"
+      },
+      {
+        "target": "char_shi_po_tian",
+        "type": "主仆",
+        "intensity": 62,
+        "bond_level": 3,
+        "dynamic": "忠心护主并直言相劝"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 521,
+        "line_end": 521,
+        "text": "侍剑在隔房已听到房中异声，走了进来。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 72,
+        "line_end": 88,
+        "text": "侍剑在房外探视石破天练功，渐生挂怀。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 693,
+        "line_end": 697,
+        "text": "侍剑被门响惊醒。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 230,
+        "line_end": 264,
+        "text": "侍剑阻拦计划"
+      }
+    ]
+  },
+  {
+    "id": "char_zhan_fei",
+    "name": "展飞",
+    "alias": [],
+    "identity": "长乐帮豹捷堂香主，妻子受辱后乘帮主病重潜入行刺",
+    "faction": "faction_chang_le_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "忍辱多时后铤而走险的香主，怨毒深重却仍有几分硬骨头。",
+    "personality": {
+      "traits": [
+        "隐忍",
+        "刚烈",
+        "怨愤",
+        "莽勇",
+        "好强"
+      ],
+      "speech_style": "压低声音仍掩不住狠气，受辱后言辞激烈",
+      "temperament": "暴烈压抑"
+    },
+    "relationships": [
+      {
+        "target": "char_gou_za_zhong",
+        "type": "宿敌",
+        "intensity": 88,
+        "bond_level": 5,
+        "dynamic": "因妻子受辱而夜入卧房行刺，仇恨极深"
+      },
+      {
+        "target": "char_shi_jian",
+        "type": "合作者",
+        "intensity": 12,
+        "bond_level": 1,
+        "dynamic": "同帮不同心，夜袭时直接制住侍剑"
+      }
+    ],
+    "known_skills": [
+      "skill_tie_sha_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 767,
+        "line_end": 767,
+        "text": "展飞是长乐帮外五堂中豹捷堂香主。"
+      }
+    ]
+  },
+  {
+    "id": "char_qiu_shan_feng",
+    "name": "邱山风",
+    "alias": [],
+    "identity": "长乐帮虎猛堂香主，闻警后率先持锏入房探看帮主",
+    "faction": "faction_chang_le_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "闻警最先赶到的香主，行事趋利避害，极懂帮中气氛。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "机变",
+        "识时务",
+        "恭顺",
+        "精明"
+      ],
+      "speech_style": "逢迎恭谨，察觉不妙即迅速退让",
+      "temperament": "圆滑自保"
+    },
+    "relationships": [
+      {
+        "target": "char_gou_za_zhong",
+        "type": "主仆",
+        "intensity": 36,
+        "bond_level": 2,
+        "dynamic": "畏惧帮主威势，唯恐触怒其人"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 807,
+        "line_end": 807,
+        "text": "虎猛堂香主邱山风想起自己阻了帮主兴头。"
+      }
+    ]
+  },
+  {
+    "0": "与",
+    "1": "阿",
+    "2": "绣",
+    "3": "重",
+    "4": "逢",
+    "5": "并",
+    "6": "在",
+    "7": "史",
+    "8": "婆",
+    "9": "婆",
+    "10": "首",
+    "11": "肯",
+    "12": "下",
+    "13": "萌",
+    "14": "生",
+    "15": "婚",
+    "16": "约",
+    "17": "。",
+    "18": "围",
+    "19": "攻",
+    "20": "者",
+    "21": "。",
+    "22": "真",
+    "23": "相",
+    "24": "。",
+    "25": "。",
+    "id": "char_shi_po_tian",
+    "name": "石破天",
+    "alias": [
+      "狗杂种"
+    ],
+    "identity": "误入长乐帮总舵的山中少年，被众人误认作帮主。",
+    "faction": "faction_jin_wu_pai",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "震古烁今",
+    "one_line": "首次正面追问父亲是谁与自己姓氏，身世困惑达到顶点。",
+    "personality": {
+      "traits": [
+        "纯朴",
+        "善良",
+        "好奇",
+        "坦率",
+        "不记仇"
+      ],
+      "speech_style": "直白天真",
+      "temperament": "温厚单纯"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_jian",
+        "type": "主仆",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "由戒备转向信任"
+      },
+      {
+        "target": "char_ding_dang",
+        "type": "恋人",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "朦胧亲近"
+      },
+      {
+        "target": "char_bei_hai_shi",
+        "type": "合作者",
+        "intensity": 58,
+        "bond_level": 2,
+        "dynamic": "明知被利用仍克制追问"
+      },
+      {
+        "target": "char_a_xiu",
+        "type": "合作者",
+        "intensity": 94,
+        "bond_level": 4,
+        "dynamic": "彼此许诺"
+      },
+      {
+        "target": "char_shi_xiao_cui",
+        "type": "师徒",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "正式拜师受名"
+      },
+      {
+        "target": "char_shi_po_po",
+        "type": "师徒",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "认作师父"
+      },
+      {
+        "target": "char_zhang_san",
+        "type": "挚友",
+        "intensity": 68,
+        "bond_level": 3,
+        "dynamic": "酒后结义"
+      },
+      {
+        "target": "char_li_si",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "酒后结义"
+      },
+      {
+        "target": "char_bai_wan_jian",
+        "type": "对手",
+        "intensity": 52,
+        "bond_level": 2,
+        "dynamic": "误会未解却暂缓冲突"
+      },
+      {
+        "target": "char_bai_wan_jian",
+        "type": "挚友",
+        "intensity": 58,
+        "bond_level": 3,
+        "dynamic": "白万剑致歉并愿日后结交"
+      },
+      {
+        "target": "char_min_rou",
+        "type": "亲属",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "错认虽破，情感仍深"
+      },
+      {
+        "target": "char_shi_qing",
+        "type": "亲属",
+        "intensity": 42,
+        "bond_level": 2,
+        "dynamic": "错认虽破，依旧眷恋"
+      },
+      {
+        "target": "char_a_xiu",
+        "type": "恋人",
+        "intensity": 84,
+        "bond_level": 5,
+        "dynamic": "重逢示爱，愿终身相守"
+      },
+      {
+        "target": "char_xie_yan_ke",
+        "type": "师徒",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "石破天对谢烟客仍极亲近依赖"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_yi_shi_ba_lu_qin_na_shou",
+      "skill_luo_han_fu_mo_gong"
+    ],
+    "rag_refs": [
+      5,
+      10,
+      13,
+      15,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 4,
+        "line_end": 28,
+        "text": "那少年发现泥人内藏木偶，并依木偶线路练功。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 3,
+        "line_end": 22,
+        "text": "石破天被逼作选择，一再否认自己身份。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 13,
+        "line_end": 16,
+        "text": "石破天迷迷糊糊的道，我不杀他。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 488,
+        "line_end": 510,
+        "text": "毫不费力的便将内力集到了掌心。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 72,
+        "line_end": 88,
+        "text": "石破天为阿绣信任自己而大喜失态，又慌乱逃出洞外。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 1160,
+        "line_end": 1204,
+        "text": "石破天手下留情，随后被白万剑以雪花六出刺伤胸前留记。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 590,
+        "line_end": 592,
+        "text": "我娘叫我狗杂种"
+      },
+      {
+        "chapter": 13,
+        "line_start": 4,
+        "line_end": 52,
+        "text": "石破天不认父母，自称只知自己叫狗杂种，被石清夫妇认作玉儿。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 193,
+        "line_end": 194,
+        "text": "不可打架，不可打架！你们要见我，不是已经见到了么？"
+      },
+      {
+        "chapter": 15,
+        "line_start": 1118,
+        "line_end": 1140,
+        "text": "石破天神色木然送客，末尾长乐帮众人黑压压跪了一地。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 949,
+        "line_end": 971,
+        "text": "定情"
+      },
+      {
+        "chapter": 17,
+        "line_start": 1,
+        "line_end": 30,
+        "text": "第十七回\n自大成狂\n\n这二三百人群相斗殴，都是穿一色衣服，使一般兵刃，谁友谁敌，倒也不易分辨。\n\n本来四支和长门斗，三支和四支斗，二支和五支斗，到得后来，本支师"
+      },
+      {
+        "chapter": 18,
+        "line_start": 350,
+        "line_end": 444,
+        "text": "石破天转述白自在比武结果，并在谢烟客面前流露真挚关怀。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 955,
+        "line_end": 961,
+        "text": "石破天面对梅女侠辱骂仍坦然作答。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第20章"
+      },
+      {
+        "chapter": 21,
+        "line_start": 352,
+        "line_end": 408,
+        "text": "石破天哭道：\"是啊，妈，我爹爹到底是谁？我……我姓什么？ 你跟我说，为什么你一直"
+      }
+    ],
+    "description": "白万剑以雪山派剑痕与石中玉旧案逼问，石破天亲见自己腿上也有六点雪花状剑疤，身份疑云陡然加深。",
+    "memory_state": "失忆混乱，否认自己会武功，也不认石清闵柔为父母",
+    "condition": "被丁珰擒住并紧缚成粽子后抛上过路小船",
+    "strengths": "厨艺出众，内力深厚但不自知",
+    "training": "开始随丁珰学习丁家擒拿手",
+    "growth": "三日内练熟丁家一十八路擒拿手，临敌机变明显提升",
+    "marks": "左颊留下黑煞掌印",
+    "combat": "以凤尾手重创雪山派弟子，又以虎爪手和玉女拈针制住闻万夫",
+    "moral_state": "因误伤敌人而强烈不安，不愿再对丁不三下狠手",
+    "conscience": "不忍对丁不三下手，也无法接受三条无辜性命因自己而死",
+    "danger": "真正意识到丁不三会下毒手",
+    "chapter_end_state": "暂时脱离丁不三祖孙的船"
+  },
+  {
+    "0": "向",
+    "1": "石",
+    "2": "破",
+    "3": "天",
+    "4": "提",
+    "5": "供",
+    "6": "闷",
+    "7": "香",
+    "8": "，",
+    "9": "使",
+    "10": "替",
+    "11": "身",
+    "12": "计",
+    "13": "划",
+    "14": "得",
+    "15": "以",
+    "16": "执",
+    "17": "行",
+    "18": "。",
+    "id": "char_chen_chong_zhi",
+    "name": "陈冲之",
+    "alias": [
+      "陈香主"
+    ],
+    "identity": "长乐帮狮威堂香主。",
+    "faction": "faction_chang_le_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "对帮主又敬又惧、行事悍勇的狮威堂香主。",
+    "personality": {
+      "traits": [
+        "桀骜",
+        "多疑",
+        "机警",
+        "悍勇",
+        "求生欲强"
+      ],
+      "speech_style": "恭谨中带试探",
+      "temperament": "紧张易惊"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "畏惧中极力讨好"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 173,
+        "line_end": 178,
+        "text": "门外自报名号为狮威堂陈冲之，求见帮主。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 625,
+        "line_end": 629,
+        "text": "贝海石转述陈香主说明花万紫之事。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 4,
+        "line_end": 5,
+        "text": "陈冲之双手横托长剑，送到石破天身前，低声道。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 170,
+        "line_end": 172,
+        "text": "我们石帮主喜欢女娘们，那是不错，但他只挺爱见年轻貌美的小妞儿。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 266,
+        "line_end": 296,
+        "text": "索取闷香"
+      }
+    ]
+  },
+  {
+    "id": "char_bang_zhong",
+    "name": "帮众",
+    "alias": [
+      "守卫帮众"
+    ],
+    "identity": "长乐帮普通守卫与巡逻帮众。",
+    "faction": "faction_chang_le_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "对帮主极为恭谨惶恐的长乐帮基层成员。",
+    "personality": {
+      "traits": [
+        "恭谨",
+        "畏惧",
+        "服从",
+        "谨慎",
+        "势利"
+      ],
+      "speech_style": "简短恭顺",
+      "temperament": "惶恐"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "主仆",
+        "intensity": 35,
+        "bond_level": 1,
+        "dynamic": "绝对服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 392,
+        "line_end": 396,
+        "text": "一路帮众见石破天皆恭谨让道，又传报贝先生到。"
+      }
+    ]
+  },
+  {
+    "id": "char_dou_zong_guan",
+    "name": "窦总管",
+    "alias": [
+      "窦总管"
+    ],
+    "identity": "长乐帮内负责调配侍女事务的总管。",
+    "faction": "faction_chang_le_bang",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "掌管侍女去向、能左右侍剑命运的帮中总管。",
+    "personality": {
+      "traits": [
+        "权势在手",
+        "冷漠",
+        "务实",
+        "威压下人",
+        "未正面出场"
+      ],
+      "speech_style": "未出场",
+      "temperament": "强势"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_jian",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 1,
+        "dynamic": "掌握其去留"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 466,
+        "line_end": 474,
+        "text": "侍剑说窦总管安排自己服侍帮主，否则会再被送走。"
+      }
+    ]
+  },
+  {
+    "0": "亲",
+    "1": "手",
+    "2": "为",
+    "3": "石",
+    "4": "破",
+    "5": "天",
+    "6": "上",
+    "7": "药",
+    "8": "并",
+    "9": "目",
+    "10": "送",
+    "11": "其",
+    "12": "回",
+    "13": "返",
+    "14": "客",
+    "15": "栈",
+    "16": "赴",
+    "17": "险",
+    "18": "。",
+    "19": "计",
+    "20": "划",
+    "21": "。",
+    "id": "char_ding_dang",
+    "name": "丁珰",
+    "alias": [
+      "叮叮当当",
+      "阿珰",
+      "那少女"
+    ],
+    "identity": "与石破天暗中来往的少女，丁不三之孙女。",
+    "faction": null,
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "在真假天哥揭晓后情感急转，立刻倒向真石中玉。",
+    "personality": {
+      "traits": [
+        "俏皮",
+        "善妒",
+        "大胆",
+        "多情",
+        "机敏"
+      ],
+      "speech_style": "清脆娇嗔",
+      "temperament": "热烈多变"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "恋人",
+        "intensity": 78,
+        "bond_level": 4,
+        "dynamic": "以柔情牵系其生死抉择"
+      },
+      {
+        "target": "char_ding_bu_san",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "既敬且惧的祖孙"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      10,
+      13,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 501,
+        "line_end": 530,
+        "text": "淡绿衣衫少女夜来相邀石破天，并显露亲昵姿态。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 3,
+        "line_end": 22,
+        "text": "丁珰担心石破天选择学武而舍弃自己。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 13,
+        "line_end": 14,
+        "text": "丁珰在他背上轻轻一推，低声道。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 836,
+        "line_end": 836,
+        "text": "丁不三并着丁珰一同现身林边。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 264,
+        "line_end": 266,
+        "text": "石破天提到丁珰救他、教他擒拿手。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 9,
+        "line_end": 9,
+        "text": "咱们躲在草丛里瞧瞧，且看是不是爷爷。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 891,
+        "line_end": 901,
+        "text": "丁珰确认石中玉身份，反斥石破天为骗子。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 348,
+        "line_end": 372,
+        "text": "上药送别"
+      }
+    ],
+    "attitude": "坚决维护石破天，认定其病后失常",
+    "concern": "担心石破天被丁不三所杀",
+    "relationship_position": "公开承认石破天是自己丈夫",
+    "strategy": "向丁不三求情争取转机",
+    "counter_plan": "口头答允十日比武，伺机保石破天脱身",
+    "intimacy": "与石破天在船尾相处日益亲密",
+    "teaching": "主动传授擒拿手并持续试探其记忆与本性",
+    "discovery": "确认石破天内力未失，只是记忆与武学意识错乱",
+    "emotion": "对石破天既怜惜又焦躁",
+    "escape_plan": "设计夜间制住丁不三后与石破天私奔深山",
+    "method": "教授灵台穴与悬枢穴拿法",
+    "manipulation": "故意引来岸上众人让丁不三在第十天先满三杀限额",
+    "pressure": "因石破天临阵退缩而越发绝望恼怒",
+    "rupture": "因绝望与羞怒反手制住并欲杀石破天，最终又借擦身小船将其抛走",
+    "conflict": "在杀与救之间剧烈摇摆"
+  },
+  {
+    "id": "char_xun_luo_bang_zhong",
+    "name": "巡逻帮众",
+    "alias": [
+      "两名巡逻帮众"
+    ],
+    "identity": "夜间在花园与围墙附近巡逻的长乐帮成员。",
+    "faction": "faction_chang_le_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "对帮主和其女伴不敢阻拦的夜巡帮众。",
+    "personality": {
+      "traits": [
+        "服从",
+        "识趣",
+        "谨慎",
+        "势利",
+        "胆小"
+      ],
+      "speech_style": "短促恭敬",
+      "temperament": "惶恐"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "主仆",
+        "intensity": 35,
+        "bond_level": 1,
+        "dynamic": "见帮主即退让"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 516,
+        "line_end": 518,
+        "text": "花园巡逻帮众拦住丁珰，见石破天后立刻赔礼。"
+      }
+    ]
+  },
+  {
+    "id": "char_unknown_fu_ren_jia",
+    "name": "中年妇人",
+    "aliases": [
+      "妇人",
+      "喜娘"
+    ],
+    "gender": "女",
+    "description": "丁家园中帮办婚礼与引导石破天更衣沐浴的中年妇人群像角色。",
+    "personality": {
+      "traits": [
+        "熟练",
+        "恭顺",
+        "爱笑",
+        "世故",
+        "机灵"
+      ]
+    },
+    "relationships": [
+      {
+        "target": "char_ding_dang",
+        "type": "家中帮办"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 162,
+        "line_end": 170,
+        "text": "两名中年妇人引石破天更衣沐浴。"
+      }
+    ]
+  },
+  {
+    "id": "char_unknown_nan_zi_zan_li",
+    "name": "赞礼男子",
+    "aliases": [
+      "男子"
+    ],
+    "gender": "男",
+    "description": "主持丁家匆忙婚礼仪节的男子，负责赞礼、引导新人拜堂。",
+    "personality": {
+      "traits": [
+        "熟练",
+        "大方",
+        "喜庆",
+        "顺从",
+        "能言"
+      ]
+    },
+    "relationships": [
+      {
+        "target": "char_ding_bu_san",
+        "type": "受命办礼"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 176,
+        "line_end": 181,
+        "text": "一名男子请石破天到堂上拜天地并主持礼节。"
+      }
+    ]
+  },
+  {
+    "id": "char_mi_heng_ye",
+    "name": "米横野",
+    "aliases": [
+      "米香主"
+    ],
+    "gender": "男",
+    "description": "长乐帮香主，负责迎客传报。",
+    "personality": {
+      "traits": [
+        "听命",
+        "利落",
+        "谨慎",
+        "恭敬",
+        "干练"
+      ]
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "属下"
+      },
+      {
+        "target": "char_bei_hai_shi",
+        "type": "同帮"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 284,
+        "line_end": 285,
+        "text": "米横野随贝海石同来。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 35,
+        "line_end": 35,
+        "text": "陈冲之和米横野刀剑齐出。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 966,
+        "line_end": 967,
+        "text": "你作本帮帮主，也不是三天两日之事。"
+      }
+    ],
+    "rag_refs": [
+      15
+    ]
+  },
+  {
+    "id": "char_wang_wan_yi",
+    "name": "汪万翼",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 93,
+        "line_end": 95,
+        "text": "白万剑听着此人脚步声，知是师弟汪万翼。"
+      }
+    ]
+  },
+  {
+    "id": "char_chuan_jia",
+    "name": "船家",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 121,
+        "line_end": 122,
+        "text": "船家大喜，说道。"
+      }
+    ]
+  },
+  {
+    "id": "char_nian_zhang_di_zi",
+    "name": "年长弟子",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 137,
+        "line_end": 138,
+        "text": "一个年长的弟子道。"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_yan_wan_shan",
+    "name": "呼延万善",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 166,
+        "line_end": 168,
+        "text": "呼延万善说道。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 422,
+        "line_end": 460,
+        "text": "呼延万善与闻万夫在江边截住石破天和丁珰。"
+      }
+    ],
+    "rag_refs": [
+      "ch_008_seg_6"
+    ],
+    "injury": "右臂被石破天内力震断"
+  },
+  {
+    "id": "char_wen_wan_fu",
+    "name": "闻万夫",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 170,
+        "line_end": 172,
+        "text": "闻万夫道。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 434,
+        "line_end": 456,
+        "text": "闻万夫抢先出手，被石破天擒拿重创。"
+      }
+    ],
+    "rag_refs": [
+      "ch_008_seg_6"
+    ],
+    "injury": "被制两处要穴后全身痉挛，手足恐残"
+  },
+  {
+    "id": "char_zhang_qian_zhao_san_ren",
+    "name": "张钱赵三人",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 151,
+        "line_end": 156,
+        "text": "张师弟、钱师弟、赵师弟三位是南方人。"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_shi_di",
+    "name": "孙师弟",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 162,
+        "line_end": 164,
+        "text": "孙、褚两位师弟死于非命。"
+      }
+    ]
+  },
+  {
+    "id": "char_chu_shi_di",
+    "name": "褚师弟",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 162,
+        "line_end": 164,
+        "text": "孙、褚两位师弟死于非命。"
+      }
+    ]
+  },
+  {
+    "id": "char_geng_shi_di",
+    "name": "耿师弟",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 162,
+        "line_end": 164,
+        "text": "耿师弟他们又陷于敌手。"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_shan_di_zi_men",
+    "name": "雪山弟子们",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 207,
+        "line_end": 212,
+        "text": "诸位师弟在临敌之际。"
+      }
+    ]
+  },
+  {
+    "id": "char_an_shang_tou_mu",
+    "name": "船头汉子",
+    "alias": [
+      "带头汉子"
+    ],
+    "identity": "地方壮汉",
+    "faction": "faction_jiang_bian_min_zhong",
+    "role": "围船者",
+    "archetype": "被利用的民众",
+    "rank": "minor",
+    "one_line": "受鼓动围攻丁不三、最终被其击毙的带头汉子。",
+    "personality": {
+      "traits": [
+        "鲁莽",
+        "迷信",
+        "易煽动",
+        "胆壮",
+        "见识浅"
+      ],
+      "speech_style": "高声叫嚷",
+      "temperament": "冲动"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "ch_008_seg_7"
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 502,
+        "line_end": 514,
+        "text": "带头汉子率人围船泼狗血，旋即被丁不三击毙。"
+      }
+    ]
+  },
+  {
+    "id": "char_an_shang_han_zi",
+    "name": "岸上汉子",
+    "alias": [
+      "岸上众人"
+    ],
+    "identity": "江边民众",
+    "faction": "faction_jiang_bian_min_zhong",
+    "role": "围船者",
+    "archetype": "从众者",
+    "rank": "minor",
+    "one_line": "随众提灯持火把围船、泼狗血驱邪的江边百姓。",
+    "personality": {
+      "traits": [
+        "从众",
+        "迷信",
+        "惊惶",
+        "喧闹",
+        "怯懦"
+      ],
+      "speech_style": "群呼乱叫",
+      "temperament": "慌乱易散"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "ch_008_seg_7"
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 502,
+        "line_end": 524,
+        "text": "岸上众人提灯持火把围船驱邪，转瞬惊散。"
+      }
+    ]
+  },
+  {
+    "id": "char_dui_mian_shao_gong",
+    "name": "对面梢公",
+    "alias": [
+      "小船梢公"
+    ],
+    "identity": "行船船夫",
+    "faction": "faction_jiang_shang_chuan_jia",
+    "role": "路过者",
+    "archetype": "无辜船夫",
+    "rank": "minor",
+    "one_line": "在两船将撞未撞之际急呼扳梢的小船梢公。",
+    "personality": {
+      "traits": [
+        "警觉",
+        "谨慎",
+        "本分",
+        "慌急",
+        "避祸"
+      ],
+      "speech_style": "短促呼喊",
+      "temperament": "紧张"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "ch_008_seg_8"
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 616,
+        "line_end": 624,
+        "text": "擦船而过的小船梢公急呼扳梢避撞。"
+      }
+    ]
+  },
+  {
+    "0": "虽",
+    "1": "与",
+    "2": "石",
+    "3": "破",
+    "4": "天",
+    "5": "定",
+    "6": "情",
+    "7": "，",
+    "8": "面",
+    "9": "对",
+    "10": "雪",
+    "11": "山",
+    "12": "派",
+    "13": "大",
+    "14": "规",
+    "15": "模",
+    "16": "内",
+    "17": "斗",
+    "18": "仍",
+    "19": "心",
+    "20": "生",
+    "21": "畏",
+    "22": "惧",
+    "23": "。",
+    "24": "。",
+    "id": "char_a_xiu",
+    "name": "阿绣",
+    "alias": [
+      "姑娘",
+      "小翠"
+    ],
+    "identity": "与史婆婆同行的少女",
+    "faction": "未知",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "仍对石中玉旧辱怀恨极深，向石破天求助报复。",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "敏感",
+        "执拗",
+        "爱憎分明",
+        "自尊强"
+      ],
+      "speech_style": "情绪起伏明显，亲近时直白，受伤时哽咽带怨。",
+      "temperament": "外柔内刚"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "合作者",
+        "intensity": 92,
+        "bond_level": 4,
+        "dynamic": "芳心暗许"
+      },
+      {
+        "target": "char_shi_po_po",
+        "type": "亲属",
+        "intensity": 93,
+        "bond_level": 5,
+        "dynamic": "祖孙相依"
+      },
+      {
+        "target": "char_shi_po_tian",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "互诉真情，婚约初定"
+      }
+    ],
+    "known_skills": [
+      "skill_wu_wang_shen_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      9,
+      10,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 94,
+        "line_end": 120,
+        "text": "老太太和小姑娘都练内功走火，动弹不得。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 20,
+        "line_end": 20,
+        "text": "阿绣劝奶奶暂且忍耐，又为石破天说话。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 398,
+        "line_end": 438,
+        "text": "阿绣哭诉梦兆，石破天郑重承诺绝不伤她。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 4,
+        "line_end": 8,
+        "text": "阿绣，阿绣！"
+      },
+      {
+        "chapter": 16,
+        "line_start": 1005,
+        "line_end": 1031,
+        "text": "密闻内变"
+      },
+      {
+        "chapter": 17,
+        "line_start": 122,
+        "line_end": 160,
+        "text": "\"\n\n唰的一声，廖自砺第一个拔出剑来。\n\n张三忽道：\"站在窗外偷瞧的，想必也都是雪山派的人了，一起都请进来罢！\n\n既是凭武功强弱以定掌门，那就不分辈份大小，人人"
+      },
+      {
+        "chapter": 18,
+        "line_start": 10,
+        "line_end": 22,
+        "text": "阿绣向石破天哭诉石中玉曾欺侮自己，并要求代为报复。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 86,
+        "line_end": 92,
+        "text": "阿绣在海边向石破天表明殉情般的守候之意。"
+      }
+    ]
+  },
+  {
+    "0": "乐",
+    "1": "见",
+    "2": "雪",
+    "3": "山",
+    "4": "派",
+    "5": "自",
+    "6": "相",
+    "7": "残",
+    "8": "杀",
+    "9": "，",
+    "10": "显",
+    "11": "露",
+    "12": "其",
+    "13": "与",
+    "14": "雪",
+    "15": "山",
+    "16": "派",
+    "17": "宿",
+    "18": "怨",
+    "19": "甚",
+    "20": "深",
+    "21": "。",
+    "id": "char_shi_po_po",
+    "name": "史婆婆",
+    "alias": [
+      "奶奶",
+      "老妇",
+      "老太太"
+    ],
+    "identity": "阿绣的奶奶，武功高强却因练功走火受制于人",
+    "faction": "未知",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "得知白自在自囚后心生悔意，决意与丈夫共同承担残局。",
+    "personality": {
+      "traits": [
+        "强硬",
+        "深情",
+        "好胜",
+        "重义",
+        "敢作敢当"
+      ],
+      "speech_style": "大声断喝，主事时不容置喙。",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_a_xiu",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "祖孙同生共死"
+      },
+      {
+        "target": "char_ding_bu_si",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "旧怨极深，宁死不屈"
+      }
+    ],
+    "known_skills": [
+      "skill_wu_wang_shen_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      9,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 94,
+        "line_end": 120,
+        "text": "那老妇哼了一声，说道：你别作声，我正凝聚真气。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 10,
+        "line_end": 12,
+        "text": "史婆婆和阿绣留字告别"
+      },
+      {
+        "chapter": 16,
+        "line_start": 1169,
+        "line_end": 1179,
+        "text": "冷眼旁观内斗"
+      },
+      {
+        "chapter": 17,
+        "line_start": 122,
+        "line_end": 160,
+        "text": "\"\n\n唰的一声，廖自砺第一个拔出剑来。\n\n张三忽道：\"站在窗外偷瞧的，想必也都是雪山派的人了，一起都请进来罢！\n\n既是凭武功强弱以定掌门，那就不分辈份大小，人人"
+      },
+      {
+        "chapter": 18,
+        "line_start": 638,
+        "line_end": 680,
+        "text": "史婆婆被石破天解穴后，转述白自在赴侠客岛始末，并表示自己也要去。"
+      }
+    ]
+  },
+  {
+    "id": "char_ding_bu_si",
+    "name": "丁不四",
+    "alias": [
+      "老人",
+      "老爷子"
+    ],
+    "identity": "丁氏兄弟之一，性情古怪、武功高强的江湖怪客",
+    "faction": "未知",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "与梅文馨重逢后被逼同行寻女，往日情债重新压身。",
+    "personality": {
+      "traits": [
+        "狂傲",
+        "善变",
+        "好胜",
+        "爱逞强",
+        "喜怒无常"
+      ],
+      "speech_style": "大声喝骂，夹杂夸耀与戏谑",
+      "temperament": "暴躁张扬"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_po",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "旧怨深重，执意带其上岛"
+      },
+      {
+        "target": "char_shi_po_tian",
+        "type": "对手",
+        "intensity": 68,
+        "bond_level": 3,
+        "dynamic": "先戏弄后较量，渐生忌惮"
+      },
+      {
+        "target": "char_shi_xiao_cui",
+        "type": "恋人",
+        "intensity": 58,
+        "bond_level": 2,
+        "dynamic": "一厢情愿旧恋难舍"
+      },
+      {
+        "target": "char_bai_zi_zai",
+        "type": "宿敌",
+        "intensity": 74,
+        "bond_level": 3,
+        "dynamic": "以史小翠为中心的多年情敌"
+      },
+      {
+        "target": "char_mei_nv_xia",
+        "type": "仇怨",
+        "intensity": 88,
+        "bond_level": 1,
+        "dynamic": "旧情旧债被当众逼问"
+      },
+      {
+        "target": "char_mei_fang_gu",
+        "type": "父女",
+        "intensity": 62,
+        "bond_level": 2,
+        "dynamic": "始知下落却无缘再见"
+      }
+    ],
+    "known_skills": [
+      "skill_yi_shi_ba_lu_qin_na_shou"
+    ],
+    "related_skills": [
+      "skill_luo_han_fu_mo_gong"
+    ],
+    "rag_refs": [
+      9,
+      10,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 148,
+        "line_end": 178,
+        "text": "那老人大惊，一掌将船篷掀起了半边。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 108,
+        "line_end": 110,
+        "text": "石破天看到白万剑正与丁不四交谈。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 1000,
+        "line_end": 1070,
+        "text": "丁不四肩头中刀，惊怒遁去。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 692,
+        "line_end": 724,
+        "text": "\"\n\n史婆婆道：\"你师父脾气不好，我岂有不知？他断你一臂，就大大不该。\n\n到底此事如何而起，你且说来听听。\"\n\n封万里又磕了两个头，说道：\"自从师娘和白师弟、众"
+      },
+      {
+        "chapter": 18,
+        "line_start": 382,
+        "line_end": 418,
+        "text": "回述丁不四对白小翠念念不忘，为逼其去碧螺山而与白自在冲突。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 983,
+        "line_end": 999,
+        "text": "丁不四终于知晓梅芳姑隐居熊耳山枯草岭。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第20章"
+      },
+      {
+        "chapter": 21,
+        "line_start": 128,
+        "line_end": 146,
+        "text": "两人生了一个女儿，便是梅芳姑。但丁不四苦恋史小翠，中途将梅文馨遗弃，事隔数十年，"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_xiao_cui",
+    "name": "史小翠",
+    "alias": [
+      "史婆婆",
+      "小翠"
+    ],
+    "identity": "金乌派创派者",
+    "faction": "faction_jin_wu_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "认定石破天天资绝高，决意收其为首徒并开创金乌派。",
+    "personality": {
+      "traits": [
+        "强硬",
+        "机警",
+        "记仇",
+        "护短",
+        "好胜"
+      ],
+      "speech_style": "尖刻直白",
+      "temperament": "刚烈急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_a_xiu",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "祖孙相依"
+      },
+      {
+        "target": "char_shi_po_tian",
+        "type": "师徒",
+        "intensity": 92,
+        "bond_level": 5,
+        "dynamic": "临别叮嘱更显关切"
+      }
+    ],
+    "known_skills": [
+      "skill_jin_wu_dao_fa",
+      "skill_wu_wang_shen_gong"
+    ],
+    "related_skills": [
+      "skill_jin_wu_dao_fa"
+    ],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 22,
+        "line_end": 36,
+        "text": "史婆婆抱怨功力恢复不易，又追问石破天为何空有内功不会武艺。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 210,
+        "line_end": 222,
+        "text": "史婆婆见石破天一晚偷学已具雏形，决意收徒。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 366,
+        "line_end": 418,
+        "text": "章中回述史婆婆闺名史小翠，与白自在、丁不四的旧事。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 56,
+        "line_end": 74,
+        "text": "史婆婆强行护送不成，转而严令石破天不可为救白自在送命。"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_shan_di_zi_jia",
+    "name": "雪山弟子",
+    "alias": [
+      "众弟子中的出声者"
+    ],
+    "identity": "围观白万剑与丁不四交手的雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "替师兄助威的普通雪山派弟子。",
+    "personality": {
+      "traits": [
+        "从众",
+        "敬师",
+        "紧张",
+        "好胜",
+        "单纯"
+      ],
+      "speech_style": "附和称赞",
+      "temperament": "激动"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_wan_jian",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "拥护师兄"
+      }
+    ],
+    "known_skills": [
+      "skill_xue_shan_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 830,
+        "line_end": 832,
+        "text": "雪山派弟子出声称赞白万剑剑招精妙。"
+      }
+    ]
+  },
+  {
+    "id": "char_li_wan_shan",
+    "name": "李万山",
+    "alias": [],
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "在混战中被丁不三夺剑折腕的雪山弟子。",
+    "personality": {
+      "traits": [
+        "冲动",
+        "忠师",
+        "勇敢",
+        "鲁直",
+        "悲壮"
+      ],
+      "speech_style": "短促强硬",
+      "temperament": "激烈"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_wan_jian",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "救援师兄"
+      }
+    ],
+    "known_skills": [
+      "skill_xue_shan_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 874,
+        "line_end": 878,
+        "text": "李万山被丁不三夺剑扭脱手腕并踢倒。"
+      }
+    ]
+  },
+  {
+    "id": "char_bao_wan_ye",
+    "name": "包万叶",
+    "alias": [],
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "在白万剑负伤后主动请战的雪山派弟子。",
+    "personality": {
+      "traits": [
+        "护短",
+        "倔强",
+        "勇敢",
+        "守序",
+        "尊师"
+      ],
+      "speech_style": "冲硬直白",
+      "temperament": "急切"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_wan_jian",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "护持师兄"
+      }
+    ],
+    "known_skills": [
+      "skill_xue_shan_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 1088,
+        "line_end": 1090,
+        "text": "包万叶见白万剑受伤，主动请战石破天。"
+      }
+    ]
+  },
+  {
+    "id": "char_shao_gong",
+    "name": "梢公",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 72,
+        "line_end": 72,
+        "text": "来船梢公见到那船斜斜淌下"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_da_ge",
+    "name": "胡大哥",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 88,
+        "line_end": 102,
+        "text": "胡大哥谈赏善罚恶令与飞鱼帮下场"
+      }
+    ]
+  },
+  {
+    "id": "char_cheng_da_yang",
+    "name": "成大洋",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 82,
+        "line_end": 98,
+        "text": "帮主成大洋也死在这里"
+      }
+    ]
+  },
+  {
+    "id": "char_lao_li",
+    "name": "老李",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 140,
+        "line_end": 144,
+        "text": "老李谈奉令而去有去无回"
+      }
+    ]
+  },
+  {
+    "id": "char_lai_tou_yuan_wang_lao_liu",
+    "name": "癞头鼋王老六",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 156,
+        "line_end": 162,
+        "text": "癞头鼋王老六主张硬拼"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_song",
+    "name": "小宋",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 184,
+        "line_end": 184,
+        "text": "小宋，你去把舵"
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_san",
+    "name": "张三",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 236,
+        "line_end": 238,
+        "text": "一人圆脸大耳，另一人瘦削阴沉"
+      },
+      {
+        "chapter": 11,
+        "line_start": 658,
+        "line_end": 660,
+        "text": "张三李四对石破天的义气大为钦佩"
+      },
+      {
+        "chapter": 13,
+        "line_start": 478,
+        "line_end": 680,
+        "text": "石清说明张三是赏善罚恶使者，与李四同为侠客岛走狗。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 738,
+        "line_end": 744,
+        "text": "大厅之中忽然站着两个人，一胖一瘦。石破天叫道：大哥，二哥。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 1,
+        "line_end": 30,
+        "text": "第十七回\n自大成狂\n\n这二三百人群相斗殴，都是穿一色衣服，使一般兵刃，谁友谁敌，倒也不易分辨。\n\n本来四支和长门斗，三支和四支斗，二支和五支斗，到得后来，本支师"
+      },
+      {
+        "chapter": 19,
+        "line_start": 526,
+        "line_end": 536,
+        "text": "张三与李四为结义之情陪石破天共饮腊八粥。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第20章"
+      }
+    ],
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "挚友",
+        "intensity": 72,
+        "bond_level": 3,
+        "dynamic": "由轻视转尊重"
+      }
+    ],
+    "rag_refs": [
+      13,
+      15,
+      17
+    ],
+    "one_line": "师父去世后向石破天说明遗言，仍以兄弟相待。"
+  },
+  {
+    "id": "char_li_si",
+    "name": "李四",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 236,
+        "line_end": 238,
+        "text": "另一个身形甚高而瘦削"
+      },
+      {
+        "chapter": 11,
+        "line_start": 658,
+        "line_end": 660,
+        "text": "张三李四对石破天的义气大为钦佩"
+      },
+      {
+        "chapter": 13,
+        "line_start": 478,
+        "line_end": 680,
+        "text": "石清说明李四与张三同为赏善罚恶使者。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 758,
+        "line_end": 760,
+        "text": "张三向李四问道：老二，你说如何？李四阴恻恻的道。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 1,
+        "line_end": 30,
+        "text": "第十七回\n自大成狂\n\n这二三百人群相斗殴，都是穿一色衣服，使一般兵刃，谁友谁敌，倒也不易分辨。\n\n本来四支和长门斗，三支和四支斗，二支和五支斗，到得后来，本支师"
+      },
+      {
+        "chapter": 20,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第20章"
+      }
+    ],
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "由冷淡转尊重"
+      }
+    ],
+    "rag_refs": [
+      13,
+      15,
+      17
+    ],
+    "one_line": "临别再告知石破天已被恩师视作侠客岛自己人。"
+  },
+  {
+    "id": "char_fan_yi_fei",
+    "name": "范一飞",
+    "alias": [],
+    "identity": "鹤笔门掌门，关东四派代表之一",
+    "faction": "鹤笔门",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "与众人一同登船离岛。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "讲义气",
+        "圆融",
+        "执着",
+        "有担当"
+      ],
+      "speech_style": "堂皇客气",
+      "temperament": "稳重"
+    },
+    "relationships": [
+      {
+        "target": "char_si_tu_heng",
+        "type": "挚友",
+        "intensity": 72,
+        "bond_level": 4,
+        "dynamic": "旧日过命交情"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 7,
+        "line_end": 8,
+        "text": "关东万马庄、快刀门、青龙门、鹤笔门拜山来啦。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第20章"
+      }
+    ]
+  },
+  {
+    "id": "char_si_tu_heng",
+    "name": "司徒横",
+    "alias": [
+      "快马",
+      "司徒前帮主"
+    ],
+    "identity": "长乐帮前帮主",
+    "faction": "长乐帮",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "因惧侠客岛邀宴而退避失势的前任帮主。",
+    "personality": {
+      "traits": [
+        "刚愎",
+        "畏死",
+        "暴躁",
+        "要面子",
+        "多疑"
+      ],
+      "speech_style": "强横喝斥",
+      "temperament": "急躁阴鸷"
+    },
+    "relationships": [
+      {
+        "target": "char_bei_hai_shi",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "权力冲突"
+      },
+      {
+        "target": "char_fan_yi_fei",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "旧友挂念"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 84,
+        "line_end": 88,
+        "text": "敝帮前帮主司徒大哥，前几年遇上了一件不快意事，心灰意懒。"
+      }
+    ]
+  },
+  {
+    "id": "char_lv_zheng_ping",
+    "name": "吕正平",
+    "alias": [],
+    "identity": "关东四派人物之一",
+    "faction": "万马庄",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "直言逼问司徒横生死真相的关东豪客。",
+    "personality": {
+      "traits": [
+        "耿直",
+        "重义",
+        "锋利",
+        "热心",
+        "执拗"
+      ],
+      "speech_style": "质问式",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_si_tu_heng",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "为友查案"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 120,
+        "line_end": 124,
+        "text": "我们听一位好朋友说道，司徒大哥是遭长乐帮的奸人所害。"
+      }
+    ]
+  },
+  {
+    "id": "char_gao_san_niang_zi",
+    "name": "高三娘子",
+    "alias": [],
+    "identity": "关东四派人物之一，飞刀好手",
+    "faction": "青龙门",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "与众人一同登船离岛。",
+    "personality": {
+      "traits": [
+        "火爆",
+        "爽利",
+        "好强",
+        "讲义气",
+        "不服软"
+      ],
+      "speech_style": "泼辣直白",
+      "temperament": "暴烈"
+    },
+    "relationships": [
+      {
+        "target": "char_si_tu_heng",
+        "type": "挚友",
+        "intensity": 58,
+        "bond_level": 3,
+        "dynamic": "为其报仇"
+      },
+      {
+        "target": "char_chen_chong_zhi",
+        "type": "对手",
+        "intensity": 62,
+        "bond_level": 2,
+        "dynamic": "言语冲突引发交手"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 156,
+        "line_end": 162,
+        "text": "你给我爽爽快快说一句，司徒大哥到底是死是活？"
+      },
+      {
+        "chapter": 20,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第20章"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_wan_nian",
+    "name": "时万年",
+    "alias": [],
+    "identity": "雪山派弟子",
+    "faction": "雪山派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "新近被擒却仍口出怒骂的雪山弟子。",
+    "personality": {
+      "traits": [
+        "血性",
+        "鲁莽",
+        "不服输",
+        "直率",
+        "胆壮"
+      ],
+      "speech_style": "破口大骂",
+      "temperament": "冲动"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_wan_jian",
+        "type": "师徒",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同门后辈"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 522,
+        "line_end": 524,
+        "text": "爽爽快快的，将老爷一刀杀了！"
+      }
+    ]
+  },
+  {
+    "id": "char_yang_guang",
+    "name": "杨光",
+    "alias": [
+      "银戟杨光"
+    ],
+    "identity": "江南武林名宿",
+    "faction": "江南武林",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "以威望镇场、推动群雄评理的江南老英雄。",
+    "personality": {
+      "traits": [
+        "威重",
+        "公允",
+        "沉着",
+        "持正",
+        "老成"
+      ],
+      "speech_style": "洪钟大吕",
+      "temperament": "稳健"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 666,
+        "line_end": 676,
+        "text": "杨光一直不作声，这时捻须说道。"
+      }
+    ]
+  },
+  {
+    "id": "char_liao_zi_li",
+    "name": "廖自砺",
+    "alias": [],
+    "identity": "雪山派四房核心人物，积极争掌门",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "锋芒毕露、野心强烈的雪山弟子。",
+    "personality": {
+      "traits": [
+        "野心重",
+        "强硬",
+        "急躁",
+        "好斗",
+        "善于争权"
+      ],
+      "speech_style": "直白强硬，常带怒气。",
+      "temperament": "争强好胜"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 1,
+        "line_end": 30,
+        "text": "第十七回\n自大成狂\n\n这二三百人群相斗殴，都是穿一色衣服，使一般兵刃，谁友谁敌，倒也不易分辨。\n\n本来四支和长门斗，三支和四支斗，二支和五支斗，到得后来，本支师"
+      }
+    ]
+  },
+  {
+    "id": "char_cheng_zi_xue",
+    "name": "成自学",
+    "alias": [],
+    "identity": "雪山派分支首脑之一",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "善于权衡局面的雪山派师兄。",
+    "personality": {
+      "traits": [
+        "圆滑",
+        "谨慎",
+        "多谋",
+        "顾全利害",
+        "争位"
+      ],
+      "speech_style": "话带盘算，擅作权衡。",
+      "temperament": "谨慎圆滑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 32,
+        "line_end": 58,
+        "text": "\"李四摇头道：\"我瞧着也不像。\"\n\n廖自砺道：\"姓白的早已死了，新的掌门人⋯⋯\"他一言未毕，封万里接口骂道：\"放屁！\n\n威德先生并没死，不过⋯⋯\"廖自砺怒道：\""
+      }
+    ]
+  },
+  {
+    "id": "char_qi_zi_mian",
+    "name": "齐自勉",
+    "alias": [],
+    "identity": "雪山派分支首脑之一",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "善于鼓动局势的雪山派师兄。",
+    "personality": {
+      "traits": [
+        "躁进",
+        "鼓动",
+        "好胜",
+        "多疑",
+        "争强"
+      ],
+      "speech_style": "鼓噪挑动，偏于强词。",
+      "temperament": "躁进"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 32,
+        "line_end": 58,
+        "text": "\"李四摇头道：\"我瞧着也不像。\"\n\n廖自砺道：\"姓白的早已死了，新的掌门人⋯⋯\"他一言未毕，封万里接口骂道：\"放屁！\n\n威德先生并没死，不过⋯⋯\"廖自砺怒道：\""
+      }
+    ]
+  },
+  {
+    "id": "char_liang_zi_jin",
+    "name": "梁自进",
+    "alias": [],
+    "identity": "雪山派分支首脑之一",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "在门内倾轧中左右逢源的师兄。",
+    "personality": {
+      "traits": [
+        "阴沉",
+        "自保",
+        "机心重",
+        "善推责",
+        "争位"
+      ],
+      "speech_style": "阴冷含刺，善推责任。",
+      "temperament": "阴沉"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 32,
+        "line_end": 58,
+        "text": "\"李四摇头道：\"我瞧着也不像。\"\n\n廖自砺道：\"姓白的早已死了，新的掌门人⋯⋯\"他一言未毕，封万里接口骂道：\"放屁！\n\n威德先生并没死，不过⋯⋯\"廖自砺怒道：\""
+      }
+    ]
+  },
+  {
+    "id": "char_xiang_zhu_duo_zhu",
+    "name": "香主舵主",
+    "alias": [
+      "长乐帮香主",
+      "长乐帮舵主"
+    ],
+    "identity": "长乐帮前来催促帮主出厅应战的一群帮众代表",
+    "faction": "faction_chang_le_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "在谢烟客压境时连番传报战况、逼石中玉出面的长乐帮帮众合称。",
+    "personality": {
+      "traits": [
+        "服从",
+        "慌乱",
+        "现实",
+        "趋利避害",
+        "依附强者"
+      ],
+      "speech_style": "通报式、催迫式、多人同声附和。",
+      "temperament": "惶急"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_zhong_yu",
+        "type": "主仆",
+        "intensity": 35,
+        "bond_level": 1,
+        "dynamic": "表面尊为帮主，实则逼其出面"
+      },
+      {
+        "target": "char_bei_hai_shi",
+        "type": "合作者",
+        "intensity": 48,
+        "bond_level": 2,
+        "dynamic": "以贝海石为实际依赖核心"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 112,
+        "line_end": 126,
+        "text": "多名香主舵主接连向石中玉传报贝海石与谢烟客激斗的消息。"
+      }
+    ]
+  },
+  {
+    "id": "char_a_xiu_zhi_mu",
+    "name": "阿绣之母",
+    "alias": [
+      "白万剑之妻",
+      "阿绣之母"
+    ],
+    "identity": "阿绣之母、白万剑之妻，因爱女堕崖一度神智迷糊。",
+    "faction": "faction_xue_shan_pai",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "因思女成狂而神智失常，见到阿绣后稍复清明的中年妇人。",
+    "personality": {
+      "traits": [
+        "慈爱",
+        "脆弱",
+        "执念深",
+        "依恋女儿",
+        "易受打击"
+      ],
+      "speech_style": "发问直接，带迷惘。",
+      "temperament": "恍惚"
+    },
+    "relationships": [
+      {
+        "target": "char_a_xiu",
+        "type": "亲属",
+        "intensity": 92,
+        "bond_level": 5,
+        "dynamic": "母女重逢后神智转清"
+      },
+      {
+        "target": "char_bai_wan_jian",
+        "type": "亲属",
+        "intensity": 65,
+        "bond_level": 4,
+        "dynamic": "夫妻同处雪山派乱局"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 350,
+        "line_end": 352,
+        "text": "后堂转出白万剑之妻、阿绣之母，向阿绣询问两个少年谁好谁坏。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_xing_ying_bin_shi",
+    "name": "赵姓迎宾使",
+    "alias": [
+      "赵姓黄衣汉子",
+      "迎宾使"
+    ],
+    "identity": "侠客岛负责接引石破天登岛的迎宾使者",
+    "faction": "侠客岛",
+    "role": "接引使者",
+    "archetype": "奉命行事的岛上执役",
+    "rank": "略有小成",
+    "one_line": "谨守岛规、态度谦恭却极其坚决的赵姓迎宾使。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "守令",
+        "镇定",
+        "克制",
+        "恭顺"
+      ],
+      "speech_style": "恭谨简洁",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_po_tian",
+        "type": "接引对象",
+        "intensity": 45,
+        "bond_level": 1,
+        "dynamic": "奉命迎送"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "第19章 迎宾使单独接石破天赴岛"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 22,
+        "line_end": 40,
+        "text": "那汉子自称姓赵，只奉命迎接石帮主一人登岛，并一路领往小舟。"
+      }
+    ]
+  },
+  {
+    "id": "char_mei_nv_xia",
+    "name": "梅女侠",
+    "alias": [
+      "蒙面梅姓女子",
+      "梅女侠"
+    ],
+    "identity": "梅芳姑之姨母、受邀赴岛的新创剑法主人",
+    "faction": "江湖散人",
+    "role": "受邀宾客",
+    "archetype": "偏锋剑客",
+    "rank": "炉火纯青",
+    "one_line": "声音尖锐、执念深重，因新创剑法被邀上侠客岛的梅姓女子。",
+    "personality": {
+      "traits": [
+        "尖刻",
+        "执拗",
+        "敏锐",
+        "记恨",
+        "重亲情"
+      ],
+      "speech_style": "尖声逼问",
+      "temperament": "偏激"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_bu_si",
+        "type": "仇怨",
+        "intensity": 88,
+        "bond_level": 1,
+        "dynamic": "追问负心旧账"
+      },
+      {
+        "target": "char_mei_fang_gu",
+        "type": "姨甥",
+        "intensity": 82,
+        "bond_level": 4,
+        "dynamic": "终于得知下落"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_mei_nv_xia_xin_chuang_jian_fa"
+    ],
+    "rag_refs": [
+      "第19章 梅女侠因新创剑法被邀上岛"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 284,
+        "line_end": 312,
+        "text": "蒙面女子当众逼问丁不四，后在席间被称作梅女侠。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 857,
+        "line_end": 971,
+        "text": "龙岛主说明邀请她是因其新创剑法。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 973,
+        "line_end": 999,
+        "text": "梅女侠得知梅芳姑并未来过侠客岛，而是隐居熊耳山枯草岭。"
+      }
+    ]
+  },
+  {
+    "id": "char_long_dao_zhu",
+    "name": "龙岛主",
+    "alias": [
+      "龙岛主"
+    ],
+    "identity": "侠客岛两位岛主之一",
+    "faction": "侠客岛",
+    "role": "岛主",
+    "archetype": "深藏不露的武学宗主",
+    "rank": "返璞归真",
+    "one_line": "与木岛主在心愿得偿后圆寂，亦因试掌至油尽灯枯。",
+    "personality": {
+      "traits": [
+        "从容",
+        "老谋深算",
+        "好礼",
+        "坚定",
+        "洞察深远"
+      ],
+      "speech_style": "温和典雅",
+      "temperament": "沉静"
+    },
+    "relationships": [
+      {
+        "target": "char_mu_dao_zhu",
+        "type": "结义兄弟",
+        "intensity": 97,
+        "bond_level": 5,
+        "dynamic": "共患难共求武学谜底"
+      },
+      {
+        "target": "char_zhang_san",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "统领弟子"
+      },
+      {
+        "target": "char_li_si",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "统领弟子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "第19章 龙岛主出面解释腊八粥与侠客岛真相"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 342,
+        "line_end": 400,
+        "text": "龙岛主率众弟子现身，以礼迎宾，并说明腊八粥与古诗图解之事。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 556,
+        "line_end": 660,
+        "text": "龙岛主详细说明古诗图解、收徒与延请妙谛愚茶的经过。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第20章"
+      }
+    ]
+  },
+  {
+    "id": "char_mu_dao_zhu",
+    "name": "木岛主",
+    "alias": [
+      "木岛主"
+    ],
+    "identity": "侠客岛两位岛主之一",
+    "faction": "侠客岛",
+    "role": "岛主",
+    "archetype": "寡言威严的武学宗主",
+    "rank": "返璞归真",
+    "one_line": "与龙岛主同逝，弟子遵其遗命遣散群雄。",
+    "personality": {
+      "traits": [
+        "威严",
+        "简洁",
+        "果断",
+        "克己",
+        "深沉"
+      ],
+      "speech_style": "短促冷峻",
+      "temperament": "刚峻"
+    },
+    "relationships": [
+      {
+        "target": "char_long_dao_zhu",
+        "type": "结义兄弟",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "共同掌岛共研武学"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "第19章 木岛主与龙岛主并掌侠客岛"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 340,
+        "line_end": 350,
+        "text": "木岛主与龙岛主并肩而出，木岛主语声尖细而威严。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第20章"
+      }
+    ]
+  },
+  {
+    "id": "char_jie_wen_bao",
+    "name": "解文豹",
+    "alias": [
+      "关西解文豹"
+    ],
+    "identity": "关西豪杰，受邀赴岛的宾客",
+    "faction": "江湖散人",
+    "role": "受邀宾客",
+    "archetype": "烈性豪客",
+    "rank": "炉火纯青",
+    "one_line": "宁死不屈、当场掷粥怒骂侠客岛的关西豪杰。",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "莽直",
+        "重义",
+        "无惧",
+        "急躁"
+      ],
+      "speech_style": "粗豪直白",
+      "temperament": "暴烈"
+    },
+    "relationships": [
+      {
+        "target": "char_zheng_guang_zhi",
+        "type": "结义兄弟",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "临死前和好如初"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "第19章 解文豹拒喝腊八粥"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 406,
+        "line_end": 420,
+        "text": "解文豹霍然起身，怒骂两岛主并掷出腊八粥。"
+      }
+    ]
+  },
+  {
+    "id": "char_zheng_guang_zhi",
+    "name": "郑光芝",
+    "alias": [
+      "郑大哥"
+    ],
+    "identity": "与解文豹相交半生的老者",
+    "faction": "江湖散人",
+    "role": "受邀宾客",
+    "archetype": "义气长者",
+    "rank": "炉火纯青",
+    "one_line": "重视旧义、在临死关头仍要护住结义兄弟的老者。",
+    "personality": {
+      "traits": [
+        "重义",
+        "沉厚",
+        "护短",
+        "坦荡",
+        "果决"
+      ],
+      "speech_style": "厚重直言",
+      "temperament": "沉雄"
+    },
+    "relationships": [
+      {
+        "target": "char_jie_wen_bao",
+        "type": "结义兄弟",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "误会尽释同赴死局"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "第19章 郑光芝为解文豹挡粥并共饮"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 422,
+        "line_end": 520,
+        "text": "郑光芝出手拦粥，后与解文豹相拥共饮腊八粥。"
+      }
+    ]
+  },
+  {
+    "id": "char_xi_men_guan_zhi",
+    "name": "西门观止",
+    "alias": [
+      "西门秀才"
+    ],
+    "identity": "名震江湖后销声匿迹的书生高手",
+    "faction": "江湖散人",
+    "role": "受邀宾客",
+    "archetype": "文士型高手",
+    "rank": "出神入化",
+    "one_line": "文辞雅驯、敢于当众质询侠客岛主的西门秀才。",
+    "personality": {
+      "traits": [
+        "沉着",
+        "自持",
+        "儒雅",
+        "有胆识",
+        "善言辞"
+      ],
+      "speech_style": "文雅得体",
+      "temperament": "平稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "第19章 西门观止代表群雄发问"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 436,
+        "line_end": 464,
+        "text": "中年书生起身陈词，龙岛主称其为西门先生，群雄认出其为西门观止。"
+      }
+    ]
+  },
+  {
+    "id": "char_mei_fang_gu",
+    "name": "梅芳姑",
+    "alias": [
+      "芳姑"
+    ],
+    "identity": "丁不四私生女，梅花拳掌门",
+    "faction": "梅花拳",
+    "role": "掌门",
+    "archetype": "隐居女侠",
+    "rank": "登堂入室",
+    "one_line": "自幼随母学艺、隐居熊耳山枯草岭的梅花拳掌门。",
+    "personality": {
+      "traits": [
+        "隐忍",
+        "孤僻",
+        "自立",
+        "倔强",
+        "谨慎"
+      ],
+      "speech_style": "未现身",
+      "temperament": "难测"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_bu_si",
+        "type": "父女",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "生父长期缺席"
+      },
+      {
+        "target": "char_mei_nv_xia",
+        "type": "姨甥",
+        "intensity": 78,
+        "bond_level": 4,
+        "dynamic": "由姨母代为挂念"
+      }
+    ],
+    "known_skills": [
+      "skill_mei_hua_quan"
+    ],
+    "related_skills": [
+      "skill_mei_hua_quan"
+    ],
+    "rag_refs": [
+      "第19章 借赏善罚恶簿得知梅芳姑下落",
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 839,
+        "line_end": 847,
+        "text": "众人口中确认芳姑名为梅芳姑。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 979,
+        "line_end": 981,
+        "text": "簿册记载梅芳姑为梅花拳掌门，隐居熊耳山枯草岭。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 254,
+        "line_end": 302,
+        "text": "石破天喜叫：\"妈！\"抱着阿黄，走到她身前。 那女子冷冷的道：\"你到那里去啦？\" "
+      }
+    ]
+  },
+  {
+    "id": "char_mei_wen_xin",
+    "name": "梅文馨",
+    "alias": [
+      "姓梅的蒙面女子"
+    ],
+    "identity": "丁不四旧情人、梅芳姑之母",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "旧情复现后强势现身，逼丁不四同去寻女。",
+    "personality": {
+      "traits": [
+        "强势",
+        "记恨",
+        "果决",
+        "执拗",
+        "护女"
+      ],
+      "speech_style": "尖利直接",
+      "temperament": "外冷内烈"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_bu_si",
+        "type": "恋人",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "旧情未断却满含怨怼"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 106,
+        "line_end": 126,
+        "text": "石破天抱着阿绣，借着船板的浮力，淌到船边，跃上甲板。 丁不四幸好识得水性，一面划"
+      }
+    ]
+  },
+  {
+    "id": "char_a_qing",
+    "name": "阿青",
+    "alias": [
+      "牧羊少女"
+    ],
+    "identity": "以竹棒演化绝顶剑理的少女",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "天真质朴却剑术通神，出手只凭本真直觉。",
+    "personality": {
+      "traits": [
+        "天真",
+        "直接",
+        "敏锐",
+        "骄傲",
+        "纯粹"
+      ],
+      "speech_style": "直言少饰",
+      "temperament": "烂漫灵动"
+    },
+    "relationships": [
+      {
+        "target": "char_fan_li",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "由信赖渐生朦胧情愫"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 1146,
+        "line_end": 1162,
+        "text": "众卫士见她天真烂漫，既直呼范蠡之名，又当街抱住了他，无不好笑，都转过了头，不敢笑"
+      }
+    ]
+  },
+  {
+    "id": "char_fan_li",
+    "name": "范蠡",
+    "alias": [],
+    "identity": "越国大夫",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "炉火纯青",
+    "one_line": "见阿青剑术后欲借其强越破吴，心志与情志并重。",
+    "personality": {
+      "traits": [
+        "机敏",
+        "沉稳",
+        "多情",
+        "有谋",
+        "坚忍"
+      ],
+      "speech_style": "温和有礼",
+      "temperament": "深沉克制"
+    },
+    "relationships": [
+      {
+        "target": "char_xi_shi",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "久别深情不改"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 1146,
+        "line_end": 1162,
+        "text": "众卫士见她天真烂漫，既直呼范蠡之名，又当街抱住了他，无不好笑，都转过了头，不敢笑"
+      }
+    ]
+  },
+  {
+    "id": "char_xi_shi",
+    "name": "西施",
+    "alias": [
+      "夷光"
+    ],
+    "identity": "吴宫中的绝世美女",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "绝色而温柔，是范蠡愿携手归隐之人。",
+    "personality": {
+      "traits": [
+        "温柔",
+        "聪慧",
+        "柔婉",
+        "深情",
+        "敏感"
+      ],
+      "speech_style": "轻柔含蓄",
+      "temperament": "温婉沉静"
+    },
+    "relationships": [
+      {
+        "target": "char_fan_li",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "重逢后愿与之远遁"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 1383,
+        "line_end": 1431,
+        "text": "阿青的声音忽东忽西，在宫墙外传进来。 范蠡定了定神，说道：\"我要去见见这人。\"轻"
+      }
+    ]
+  }
+]

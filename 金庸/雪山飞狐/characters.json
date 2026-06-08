@@ -1,0 +1,5508 @@
+[
+  {
+    "id": "char_ruan_shi_zhong",
+    "name": "阮士中",
+    "alias": [
+      "七星手"
+    ],
+    "identity": "天龙门北宗师叔、北宗第一高手",
+    "faction": "faction_tian_long_men_bei_zong",
+    "role": "supporting",
+    "archetype": "strategist",
+    "rank": "出神入化",
+    "one_line": "阮士中在宝藏洞中认出恩师田安豹尸身。",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "狠辣",
+        "谨慎",
+        "自负",
+        "善于谋划"
+      ],
+      "speech_style": "低沉冷峻，言语简短而带压迫感",
+      "temperament": "阴沉老练"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师兄弟",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "为田归农之死主张斩草除根"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师叔侄",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "指挥曹云奇发锥伤人"
+      },
+      {
+        "target": "char_yin_ji",
+        "type": "同门同辈",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "南北宗高手互相试探"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_men_wu_xue",
+      "skill_zhui_ming_du_long_zhui",
+      "skill_tian_long_men_qing_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 47,
+        "line_end": 47,
+        "text": "高瘦老者是他们师叔\"七星手\"阮士中，在天龙北宗算得是第一高手。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 291,
+        "line_end": 321,
+        "text": "阮士中道：\"殷师兄，你我同云奇三人自然不怕，云阳和青文却弱了。先出其不意的宰他一两个，余下的就好办。\"殷吉皱眉道：\"倘若江湖上传扬出去，说我天龙门暗施偷袭，岂不教天下英雄耻笑？\"阮士中冷冷的道：\"为田师哥报仇，斩草除根，一个也不留下。咱们自己不说，没人知道。\"殷吉道：\"陶氏父子当真这么难对付么？\"阮士中点点头，隔了片刻，说道：\"平手相斗，小弟没必胜把握。\"殷吉心知北宗自掌门人田归农去世后，阮士中已是门中第一高手，听说田归农在日，也忌惮他"
+      },
+      {
+        "chapter": 2,
+        "line_start": 342,
+        "line_end": 344,
+        "text": "阮士中心中焦躁...喝道：\"两个孩子果然了得。云奇、云阳退下，老夫跟他们玩玩。\""
+      },
+      {
+        "chapter": 3,
+        "line_start": 61,
+        "line_end": 63,
+        "text": "阮士中仍给右童迫在屋角之中，只情形更为狼狈，左脚鞋子跌落，头上本来盘着的辫子也给割去了半截，头发散开。 曹云奇、殷吉、周云阳等已从庄上佣仆处借得兵刃，数次猛扑上前救援，始终给左童拦住，反与阮士中越离越远。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 701,
+        "line_end": 703,
+        "text": "阮士中与田青文、曹云奇、周云阳相互对视。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 79,
+        "line_end": 81,
+        "text": "阮士中道：\"那也好。宝树大师，请您将铁盒儿见还吧。 \"说着走上一步，向宝树伸出手去。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 187,
+        "line_end": 195,
+        "text": "\"阮士中横了她一眼，说道：\"素不相识？哼，你爹爹是他老子的大仇人，他肯放过你么？ \"刘元鹤道：\"那害人的平阿四呢？他躲到那里去啦？ \" 陶子安忽向墙头一指，道：\"咱们撑住大门，他从上面不能进来么？ \"阮士中道：\"不错，陶世兄快上高守着。\"陶子安冷笑道：\"阮师叔武功高，还是你老人家上去。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 11,
+        "line_end": 13,
+        "text": "阮士中道：当日田师兄未行授刀之礼，此刀仍属北宗"
+      },
+      {
+        "chapter": 8,
+        "line_start": 423,
+        "line_end": 425,
+        "text": "阮士中拜伏哭认田安豹尸身。"
+      }
+    ],
+    "relationship_updates": [
+      {
+        "target": "char_yin_ji",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "指责殷吉借授刀逼迫南北归宗"
+      }
+    ]
+  },
+  {
+    "id": "char_yin_ji",
+    "name": "殷吉",
+    "alias": [
+      "威震天南"
+    ],
+    "identity": "天龙门南宗掌门人",
+    "faction": "faction_tian_long_men_nan_zong",
+    "role": "supporting",
+    "archetype": "elder_master",
+    "rank": "出神入化",
+    "one_line": "殷吉提出熔冰推石之法，打开藏宝石门。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "圆滑",
+        "爱惜名声",
+        "机警",
+        "自重身份"
+      ],
+      "speech_style": "语气客气，常以商量口吻掩饰试探",
+      "temperament": "稳健持重"
+    },
+    "relationships": [
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "同门同辈",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "联手追敌却在手段上有分歧"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师叔侄",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "赞赏其身手但不喜鲁莽"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_men_wu_xue",
+      "skill_zhui_ming_du_long_zhui",
+      "skill_tian_long_men_qing_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 49,
+        "line_end": 49,
+        "text": "那富商模样的老者则是天龙门南宗掌门人\"威震天南\"殷吉，这次事情与天龙门南北两宗俱有重大干系，是以他千里迢迢，远来关外。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 263,
+        "line_end": 271,
+        "text": "这上山轻功原是南宗所擅，殷吉人虽肥胖，一施展本门心法，竟矫捷胜于猿猴，片刻之间，已赶出曹云奇一里有余。阮士中却仍不即不离的与他并肩而行。殷吉数次放快，要想将他抛落，但每次只抢前数丈，阮士中又稳稳的追了上来。眼见离峰顶只两三里路程，殷吉笑道：\"阮师兄，咱俩比比脚力，瞧谁先上峰顶。\"阮士中道：\"我又怎赶得上殷师兄？\"殷吉道：\"别客气啦！"
+      },
+      {
+        "chapter": 2,
+        "line_start": 368,
+        "line_end": 390,
+        "text": "殷吉低声道：\"阮师兄，还是你上去。\"...一招\"流星赶月\""
+      },
+      {
+        "chapter": 3,
+        "line_start": 263,
+        "line_end": 269,
+        "text": "殷吉问宝树道：\"大师，飞狐此举有何用意？\"宝树道：\"那有什么难猜？ 他要咱们尽数饿死在这峰上。\"殷吉道：\"咱们跟他无怨无仇。 \"宝树道：\"他可与此间的主人仇深似海。再说，铁盒在你们手里，那就是跟他结上了梁子。 \"殷吉道：\"飞狐也要这铁盒？\"宝树道：\"可不是吗？"
+      },
+      {
+        "chapter": 6,
+        "line_start": 89,
+        "line_end": 91,
+        "text": "宝树冷笑道：\"你天龙门何德何能，要独占宝刀？这把刀天龙门掌管了一百多年，也该换换主儿了。 \"阮士中愕然，眼露凶光。殷吉、曹云奇、周云阳不约而同的抢上一步，站在阮士中身旁。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 475,
+        "line_end": 475,
+        "text": "\"殷吉道：\"很好，很好，我们正要向陶寨主请教。\""
+      },
+      {
+        "chapter": 8,
+        "line_start": 9,
+        "line_end": 11,
+        "text": "殷吉道：此刀该归我天龙南宗，再无疑问"
+      },
+      {
+        "chapter": 8,
+        "line_start": 377,
+        "line_end": 379,
+        "text": "殷吉判断两块圆石被冰冻住，可用火熔冰推动。"
+      }
+    ],
+    "relationship_updates": [
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "围绕南北宗归并和掌门继承当众互揭私欲"
+      }
+    ]
+  },
+  {
+    "id": "char_cao_yun_qi",
+    "name": "曹云奇",
+    "alias": [
+      "腾龙剑"
+    ],
+    "identity": "辽东天龙门北宗新任掌门人",
+    "faction": "faction_tian_long_men_bei_zong",
+    "role": "main",
+    "archetype": "impulsive_swordsman",
+    "rank": "炉火纯青",
+    "one_line": "曹云奇被田青文和陶子安的关系激怒。",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "痴情",
+        "鲁莽",
+        "好胜",
+        "嫉妒"
+      ],
+      "speech_style": "高声厉喝，情绪外露，常用激烈语句",
+      "temperament": "霹雳火爆"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_qing_wen",
+        "type": "爱慕",
+        "intensity": 95,
+        "bond_level": 4,
+        "dynamic": "苦恋田青文而妒恨陶子安"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "情敌",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "认定陶子安害师夺宝并多次下杀手"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "师父",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "为师父之死怒不可遏"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "对手",
+        "intensity": 85,
+        "bond_level": 2,
+        "dynamic": "围绕田青文与黄金小笔起冲突"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_men_wu_xue",
+      "skill_zhui_ming_du_long_zhui"
+    ],
+    "related_skills": [
+      "skill_tian_long_men_qing_gong"
+    ],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 41,
+        "line_end": 43,
+        "text": "那高身材的男子脱下外氅，放在鞍头。他身穿青绸面皮袍，腰悬长剑，眉头深锁，满脸怒容，眼中竟似要喷出火来，不住价的催马狂奔。这人是辽东天龙门北宗新任掌门人\"腾龙剑\"曹云奇。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 111,
+        "line_end": 189,
+        "text": "这话一出口，登时满脸红晕。曹云奇眉间有如罩上了一层黑云，叫道：\"我一说是你心上人，你就接口说陶子安！\"那女郎听他这么说，脸上更加红了，泪水在一双明澄清澈的眼中滚来滚去，顿足叫道：\"他⋯⋯他⋯⋯\"曹云奇道：\"他⋯⋯他怎么？\"那女郎道：\"他是我没过门的丈夫，自然是我心上人。\"曹云奇大怒，唰的一声，拔出长剑。那女郎反而走上一步，叫道：\"你有种就杀了我。\"曹云奇咬着牙齿，望着她微微抬起的脸，心中柔情顿起，叫道：\"罢啦，罢啦！\"回手一剑，猛往自己"
+      },
+      {
+        "chapter": 2,
+        "line_start": 153,
+        "line_end": 160,
+        "text": "曹云奇听他言语谦下...冷笑道...那汉子俯身伸手，抄住了茶碗"
+      },
+      {
+        "chapter": 3,
+        "line_start": 185,
+        "line_end": 187,
+        "text": "隔了片刻，曹云奇道：\"大师，对不起啦！这只铁盒是先师遗物，不能落入外人之手，请你还来。 \"宝树笑道：\"你说这是尊师遗物，那么盒中藏了什么东西，铁盒是何来历，你只须说得明白，就拿去罢！"
+      },
+      {
+        "chapter": 5,
+        "line_start": 171,
+        "line_end": 171,
+        "text": "曹云奇最鲁莽，抢先问是谁说谎。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 73,
+        "line_end": 75,
+        "text": "曹云奇道：\"让几位女客先下去，咱们男子汉拈筹以定先后。 \"熊元献细声细气的道：\"这样吧，天龙门、饮马川山寨、跟我们平通镖局的，每一家轮流下去一个。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 167,
+        "line_end": 171,
+        "text": "曹云奇攀到峰边，殷吉与周云阳抢过去拉住他双手，提了上来，齐问：\"这白衣人是谁？ \"曹云奇喘了几口气，说道：\"那位英雄命我上来禀报，说道是⋯⋯是雪山飞狐胡斐到了。 \""
+      },
+      {
+        "chapter": 8,
+        "line_start": 313,
+        "line_end": 325,
+        "text": "曹云奇疑云大起，回头对陶子安厉声说道"
+      },
+      {
+        "chapter": 8,
+        "line_start": 463,
+        "line_end": 477,
+        "text": "曹云奇嫉恨田青文偏向陶子安，怒称要陶先杀自己。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhou_yun_yang",
+    "name": "周云阳",
+    "alias": [
+      "回龙剑"
+    ],
+    "identity": "天龙门北宗弟子、曹云奇师弟",
+    "faction": "faction_tian_long_men_bei_zong",
+    "role": "supporting",
+    "archetype": "junior_swordsman",
+    "rank": "登堂入室",
+    "one_line": "曹云奇师弟，随众追敌，在混战中与熊元献缠斗受伤。",
+    "personality": {
+      "traits": [
+        "沉默",
+        "听命",
+        "勇敢",
+        "年轻",
+        "坚忍"
+      ],
+      "speech_style": "本章少言，行动多于言语",
+      "temperament": "朴实刚健"
+    },
+    "relationships": [
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师兄弟",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "随师兄行动"
+      },
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "敌对",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "与熊元献贴身扭斗"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_men_wu_xue"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 45,
+        "line_end": 45,
+        "text": "天龙门掌剑双绝，他所学都已颇有所成。白脸汉子是他师弟\"回龙剑\"周云阳。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 780,
+        "line_end": 790,
+        "text": "倏忽之间，众人已回到坑边，只见周云阳与熊元献互相揪扭，在雪地里滚动。两人兵刃均已脱手，贴身肉搏，连拳脚也使用不上，肘撞膝蹬、头顶口咬，直如市井无赖当街厮打一般。曹云奇仗剑上前，要待往熊元献身上刺落，但两人翻滚缠打，只怕误伤了师弟，急切间下手不得。那老僧走上几步，右手抓住周云阳背心提起。周熊两人扭斗正紧，手脚相互勾缠，提起一人，将另一人也带了上来。两人打得兴发，虽身子临空，仍殴击不休。那老僧哈哈大笑，右手一振，两人手足齐麻，砰的一响，熊元"
+      },
+      {
+        "chapter": 2,
+        "line_start": 320,
+        "line_end": 323,
+        "text": "周云阳见师兄接连三番摔跌...跟着出剑，剌向右童。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 197,
+        "line_end": 213,
+        "text": "周云阳忽道：\"我们自然知道，盒里放的是本门的镇门宝刀。 \" 他在天龙门中论武功只是二流脚色，素来不得师父宠爱，为人又非干练，突然说出这句话来，阮士中和曹云奇都想：\"胡说八道！ 谁说咱们的镇门宝刀是放在这铁盒子里的？\"他们每次见到镇门宝刀，都是从一只旧木盒中取出来，向来跟这铁盒拉扯不上干系。 那知宝树却道：\"不错，便是那口宝刀。你可知这口刀原来是谁的？ 怎么会"
+      },
+      {
+        "chapter": 5,
+        "line_start": 547,
+        "line_end": 549,
+        "text": "曹云奇与周云阳伸臂握拳，站在平阿四身前。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 89,
+        "line_end": 91,
+        "text": "宝树冷笑道：\"你天龙门何德何能，要独占宝刀？这把刀天龙门掌管了一百多年，也该换换主儿了。 \"阮士中愕然，眼露凶光。殷吉、曹云奇、周云阳不约而同的抢上一步，站在阮士中身旁。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 321,
+        "line_end": 335,
+        "text": "周云阳在坟场掩埋可疑包裹，并与田青文互相起誓隐瞒。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 255,
+        "line_end": 257,
+        "text": "周云阳与郑三娘两人纵声惊呼，先后陷入雪中窟窿"
+      }
+    ],
+    "relationship_updates": [
+      {
+        "target": "char_tian_qing_wen",
+        "type": "对手",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "掌握田青文掩埋死婴的秘密，也被田青文构陷为偷刀者"
+      }
+    ]
+  },
+  {
+    "id": "char_tao_zi_an",
+    "name": "陶子安",
+    "alias": [],
+    "identity": "饮马川少寨主、田青文未婚夫",
+    "faction": "faction_yin_ma_chuan",
+    "role": "main",
+    "archetype": "cunning_young_warrior",
+    "rank": "炉火纯青",
+    "one_line": "陶子安公开愿娶田青文，又为她向曹云奇动手。",
+    "personality": {
+      "traits": [
+        "机警",
+        "胆大",
+        "狡黠",
+        "重情",
+        "临危不乱"
+      ],
+      "speech_style": "常带冷笑与反讽，危急时也能柔声辩白",
+      "temperament": "灵捷狡黠"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_qing_wen",
+        "type": "未婚夫妻",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "向田青文立誓未害田归农"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "情敌",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "被曹云奇多次追杀"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "父子",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "与父亲共同护送铁盒"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "对手",
+        "intensity": 90,
+        "bond_level": 2,
+        "dynamic": "为田青文争风斗殴"
+      }
+    ],
+    "known_skills": [
+      "skill_tao_zi_an_dao_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 65,
+        "line_end": 67,
+        "text": "那人面目英俊，双眉斜飞，二十三四岁年纪，一身劲装结束，听得曹云奇叫声，纵声大笑，叫道：\"看箭！\"飕飕飕连响，三枝羽箭分上中下三路连珠射到。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 497,
+        "line_end": 517,
+        "text": "陶子安捧着铁盒，朗声说道：\"今日我父子中了诡计，这武林至宝么，嘿嘿，自当双手奉上。只是在下有一事不明，倒要领教。\"熊元献眯着一双小眼，道：\"少寨主有何吩咐？\"陶子安道：\"你们怎知这铁盒埋在此处？又怎知我们这几日要来挖取？\"熊元献道：\"少寨主既想知道，跟你说了，却也不妨。天龙门田老掌门封剑之日，大宴宾朋。少寨主是田门快婿，一定到了？\"陶子安点了点头。熊元献指着刘元鹤道：\"我这位师兄当日也是座上宾客，只少寨主英雄年少，没把刘师兄放在眼里。\""
+      },
+      {
+        "chapter": 2,
+        "line_start": 400,
+        "line_end": 404,
+        "text": "陶子安见田青文脸现红晕...叫道：\"青妹，你歇歇，我来替你。\""
+      },
+      {
+        "chapter": 3,
+        "line_start": 171,
+        "line_end": 173,
+        "text": "陶百岁、陶子安父子对望一眼，都想：\"如我父子在道上遇到这一批人，定当作是官宦豪富的眷属，势必动手行劫，这乱子可就闯得大了。 \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 55,
+        "line_end": 57,
+        "text": "再拉一会，苗若兰似乎有点吃力。陶子安道：\"苗姑娘你歇歇，我来拉。 \"走上前去接过丝线。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 193,
+        "line_end": 197,
+        "text": "陶子安忽向墙头一指，道：\"咱们撑住大门，他从上面不能进来么？ \"阮士中道：\"不错，陶世兄快上高守着。\"陶子安冷笑道：\"阮师叔武功高，还是你老人家上去。 \""
+      },
+      {
+        "chapter": 7,
+        "line_start": 359,
+        "line_end": 439,
+        "text": "陶子安详述田归农让他携铁盒埋往关外，以及自己发现铁盒空无一物。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 229,
+        "line_end": 243,
+        "text": "陶子安忽向左一指，叫道：那是谁；见田青文陷落叫青妹"
+      },
+      {
+        "chapter": 8,
+        "line_start": 471,
+        "line_end": 483,
+        "text": "陶子安当众表示愿娶田青文，并拔刀冲向曹云奇。"
+      }
+    ],
+    "relationship_updates": [
+      {
+        "target": "char_tian_qing_wen",
+        "type": "恋人",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "原为未婚夫妻，私下亲密，但因死婴真相感情破裂"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_qing_wen",
+    "name": "田青文",
+    "alias": [
+      "锦毛貂"
+    ],
+    "identity": "田归农之女、天龙门北宗女弟子",
+    "faction": "faction_tian_long_men_bei_zong",
+    "role": "main",
+    "archetype": "clever_heroine",
+    "rank": "登堂入室",
+    "one_line": "田青文借旧情与羞愧操控陶子安、刺激曹云奇。",
+    "personality": {
+      "traits": [
+        "聪明",
+        "机伶",
+        "柔中带刚",
+        "重情",
+        "善于周旋"
+      ],
+      "speech_style": "时而柔声安抚，时而嗔怒反击",
+      "temperament": "灵动坚韧"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_gui_nong",
+        "type": "父女",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "为父亲之死戴孝求真凶"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师兄妹",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "感念照顾却不接受其暴烈爱意"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "未婚夫妻",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "相信陶子安未害田归农"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "奉众人之意剥衣困住苗若兰"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 4,
+        "dynamic": "称陶子安是丈夫却又要他永别"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "对手",
+        "intensity": 75,
+        "bond_level": 2,
+        "dynamic": "称曹云奇害她一世"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_men_wu_xue",
+      "skill_zhui_ming_du_long_zhui",
+      "skill_tian_long_men_qing_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 195,
+        "line_end": 201,
+        "text": "那女郎名叫田青文，年纪虽轻，在关外武林中却已颇有名声。因她容貌美丽，性又机伶，辽东武林中公送她一个外号，叫作\"锦毛貂\"。那貂鼠在雪地中行走如飞，聪明伶俐，\"锦毛\"二字，自是形容她的美貌了。她是她父亲田归农前妻生的，田归农逝世不久，是以她一身缟素，戴着重孝。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 578,
+        "line_end": 590,
+        "text": "田青文奔出里许，见陶子安随后跟来，正合心意，转过个山坡，站定身子，似嗔似笑的道：\"你追我干么？\"陶子安道：\"妹子，咱们合力对付了那几个奸贼，自己的事总好商量。\"田青文道：\"谁是你妹子？你干么害我爹爹？\"陶子安突然在雪地里双膝跪倒，指天立誓，大声道：\"皇天在上，倘若我陶子安害了天龙门田老掌门，叫我万箭攒身，乱刀分尸！\"田青文脸上露出笑容，伸手拉他臂膀，柔声道：\"不是你就好啦。我也早知不是你，他们⋯⋯他们⋯⋯\"陶子安跃起身来，握住她左手，说"
+      },
+      {
+        "chapter": 2,
+        "line_start": 37,
+        "line_end": 40,
+        "text": "田青文扶着郑三娘坐入篮中，心道...向曹云奇招手道：\"师哥，你跟我一起上。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 341,
+        "line_end": 345,
+        "text": "田青文见他胀得满脸通红，知盒中必有机括，如此蛮开硬揭非但无用，只怕反而受伤，低声道：\"周师哥，你来开吧。 \"周云阳神色迟疑，道：\"我⋯⋯我不知⋯⋯\"田青文从曹云奇手中接过铁盒，放在周云阳手中，柔声道：\"我知你会的。 \"周云阳向她瞪了一眼，将铁盒放在桌上，伸手摸着盒盖，不向上揭，却在四角挨次揿了三揿，然后伸拇指在盒底正中向上一按，啪的一声，盒盖弹开。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 69,
+        "line_end": 69,
+        "text": "他说到这里，顿了一顿，向田青文道：\"我初见令尊的时候，姑娘还没出世呢。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 73,
+        "line_end": 73,
+        "text": "\"田青文眼圈儿一红，垂下了头。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 17,
+        "line_end": 17,
+        "text": "田青文追问苗若兰，想听苗人凤所述旧事。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 51,
+        "line_end": 51,
+        "text": "田青文道：\"姊姊，小心拉断了丝线。\"苗若兰点了点头。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 185,
+        "line_end": 189,
+        "text": "此时田青文已醒了过来，道：\"那雪山飞狐跟咱们素不相识，怕他怎的？ \"阮士中横了她一眼，说道：\"素不相识？哼，你爹爹是他老子的大仇人，他肯放过你么？ \"刘元鹤道：\"那害人的平阿四呢？他躲到那里去啦？"
+      },
+      {
+        "chapter": 7,
+        "line_start": 677,
+        "line_end": 693,
+        "text": "刘元鹤转述田青文诬称周云阳偷刀，并计划用毒龙锥杀周云阳灭口。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 123,
+        "line_end": 157,
+        "text": "田青文从门后出来；苗家妹子坐在此处须不好看"
+      },
+      {
+        "chapter": 8,
+        "line_start": 461,
+        "line_end": 483,
+        "text": "田青文以退为进，说陶子安是丈夫，使陶曹二人再次失控。"
+      }
+    ],
+    "relationship_updates": [
+      {
+        "target": "char_zhou_yun_yang",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "因死婴秘密与宝刀行踪互相牵制，田青文企图杀周云阳灭口"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_gui_nong",
+    "name": "田归农",
+    "alias": [],
+    "identity": "已故天龙门北宗掌门人",
+    "faction": "faction_tian_long_men_bei_zong",
+    "role": "legacy",
+    "archetype": "deceased_master",
+    "rank": "出神入化",
+    "one_line": "田青文之父、天龙门北宗前掌门，死因牵动本章所有冲突。",
+    "personality": {
+      "traits": [
+        "威望高",
+        "牵动江湖",
+        "旧交广泛",
+        "武名深重",
+        "死因成谜"
+      ],
+      "speech_style": "本章已故无对白",
+      "temperament": "余威犹在"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_qing_wen",
+        "type": "父女",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "田青文为其戴孝并求真凶"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "亲家旧交",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "数十年交情并将铁盒托付陶家"
+      },
+      {
+        "target": "char_lao_seng",
+        "type": "旧识",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "老僧直呼归农并惋惜其死"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_men_wu_xue"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      6,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 201,
+        "line_end": 201,
+        "text": "她是她父亲田归农前妻生的，田归农逝世不久，是以她一身缟素，戴着重孝。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 682,
+        "line_end": 688,
+        "text": "那老僧问道：\"尊师是那一位？\"曹云奇道：\"先师是敝门北宗掌门，姓田。\"那老僧\"啊哟\"一声，说道：\"原来归农去世了，可惜啊可惜。\"语气之中，似乎识得田归农，而口称\"归农\"，竟然自居尊长。田青文刚给郑三娘敷完药，听那老僧如此说，上前盈盈拜倒，哭道：\"求大师给先父报仇，找到真凶。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 71,
+        "line_end": 77,
+        "text": "田叔叔、范帮主曾邀苗人凤同去辽东寻仇。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 471,
+        "line_end": 473,
+        "text": "陶百岁道：\"姑娘即使不问，我也正要说。\"他指着阮士中、殷吉、曹云奇等人，大声道：\"这几位天龙门的英雄，诬指我儿害死田归农田亲家。 哼哼！\"他嗓门本就粗大，这时心中愤激，更加说得响了：\"我将这事从头说来，且请各位秉公评个是非曲直。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 817,
+        "line_end": 839,
+        "text": "苗人凤不杀田归农而令其懊恼，田归农随后以羽箭自尽。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 5,
+        "line_end": 13,
+        "text": "这口刀确是田归农亲手交给我儿；当日田师兄未行授刀之礼"
+      },
+      {
+        "chapter": 9,
+        "line_start": 309,
+        "line_end": 309,
+        "text": "赛总管听了田归农之言，要擒住苗人凤取那宝藏的关键。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 57,
+        "line_end": 61,
+        "text": "'我妈听了虽不言语，心中却甚不快。后来天龙门的田归农到我家来作客。他相貌英俊，谈吐风雅，又能低声下气的讨人喜欢。我妈一时胡涂，竟撇下了我，偷偷跟着那人走了。\""
+      },
+      {
+        "chapter": 10,
+        "line_start": 81,
+        "line_end": 91,
+        "text": "苗若兰叹了口气道：\"我爹也这么说。只是他时常埋怨自己，说道若非他对我妈不够温存体贴，我妈也不致受了旁人的骗。我爹号称打遍天下无敌手，但说到待人处世的本事，却不及田归农了。那姓田的欺骗我妈，其实是想得到我苗家家传的一张藏宝之图。可是他虽令我一家受苦，令我自幼就成了个无母之人，到头来却仍白费了心机。我妈看穿了他用心，临终之"
+      }
+    ]
+  },
+  {
+    "id": "char_tao_bai_sui",
+    "name": "陶百岁",
+    "alias": [
+      "镇关东"
+    ],
+    "identity": "饮马川寨主、陶子安之父",
+    "faction": "faction_yin_ma_chuan",
+    "role": "supporting",
+    "archetype": "bold_elder",
+    "rank": "炉火纯青",
+    "one_line": "声若雷震的饮马川老寨主，力大鞭沉，与田归农有亲家旧交。",
+    "personality": {
+      "traits": [
+        "豪勇",
+        "暴烈",
+        "重义",
+        "刚猛",
+        "护子"
+      ],
+      "speech_style": "声如雷震，怒骂直截",
+      "temperament": "刚烈豪迈"
+    },
+    "relationships": [
+      {
+        "target": "char_tao_zi_an",
+        "type": "父子",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "父子共守铁盒"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "亲家旧交",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "称田归农为数十年交情的亲家"
+      },
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "曾令熊元献折镖结仇"
+      }
+    ],
+    "known_skills": [
+      "skill_liu_he_bian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 349,
+        "line_end": 357,
+        "text": "陶子安的父亲\"镇关东\"陶百岁骂道：\"鼠辈，敢施暗算！\"这一声宛若凭空起了个响雷，威猛无比。只见身侧雪地中刀光闪动，从地底下跃出四人。原来这四人早知陶氏父子要到此处，在雪下挖了土坑，已等候数日。四人守在坑中，坑上用树枝盖了，白雪遮住，只露出几个小孔透气，旁人又怎知晓？陶氏父子抛下锄铲，急从身边取出兵刃。陶百岁使的是根十六斤重的钢鞭，陶子安则用单刀。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 696,
+        "line_end": 700,
+        "text": "陶百岁却忍不住了，喝道：\"田亲家跟我数十年交情，两家又是至亲，我们怎能害他？\"曹云奇道：\"就是为了盗宝啊！\"陶百岁大怒，纵上前去挥鞭击落。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 408,
+        "line_end": 410,
+        "text": "陶百岁慢慢走近，提着钢鞭保护儿子...挥鞭架开"
+      },
+      {
+        "chapter": 3,
+        "line_start": 171,
+        "line_end": 173,
+        "text": "陶百岁、陶子安父子对望一眼，都想：\"如我父子在道上遇到这一批人，定当作是官宦豪富的眷属，势必动手行劫，这乱子可就闯得大了。 \""
+      },
+      {
+        "chapter": 5,
+        "line_start": 507,
+        "line_end": 509,
+        "text": "陶百岁询问平阿四到山峰上来干什么。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 69,
+        "line_end": 71,
+        "text": "陶百岁喝道：\"且慢，干么要让你先下？谁知你在下面要捣什么鬼？ \"刘元鹤怒道：\"依你说便怎地？\"陶百岁一怔，心想峰上人人各怀私心，互不信任，不论谁先下去，旁人都难放心，给他这么一问，倒也难以对答。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 465,
+        "line_end": 475,
+        "text": "苗若兰向陶百岁道：\"陶伯伯，侄女有一事不明，要想请教。 \"陶百岁道：\"姑娘请说。\"苗若兰道：\"适才那位平四爷说道：胡一刀胡伯伯请宝树大师去转告我爹爹三件大事，可是我爹爹说到此事经过之时，却从未提起。 陶伯伯曾说知道此中原委，不知能见告么？\" 陶百岁道：\"姑娘即使不问，我也正要说。\"他指着阮士中、殷吉、曹云奇等人，大声道：\"这几位天龙门的英雄，诬指我儿害死田归农田亲家。 哼哼！\"他嗓门本就粗大，这时心中愤激，更加说得响了：\"我将这事从头说来，且请各位秉公评个是非曲直。 \"殷吉道：\"很好，很好，我们正要向陶寨主请教。\""
+      },
+      {
+        "chapter": 7,
+        "line_start": 3,
+        "line_end": 61,
+        "text": "陶百岁公开承认自己早年与田归农同做绿林买卖，并揭出田归农隐瞒胡一刀遗言。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 5,
+        "line_end": 7,
+        "text": "陶百岁大声道：现下话已说明白了，这口刀确是田归农亲手交给我儿的"
+      }
+    ]
+  },
+  {
+    "id": "char_ma_zhai_zhu",
+    "name": "马寨主",
+    "alias": [],
+    "identity": "饮马川三个寨主之一",
+    "faction": "faction_yin_ma_chuan",
+    "role": "supporting",
+    "archetype": "martial_raider",
+    "rank": "登堂入室",
+    "one_line": "手使链子锤的饮马川寨主，守路时被郑三娘诱入土坑杀死。",
+    "personality": {
+      "traits": [
+        "勇猛",
+        "急进",
+        "忠于山寨",
+        "好斗",
+        "粗豪"
+      ],
+      "speech_style": "本章未见明确对白",
+      "temperament": "悍勇急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_tao_bai_sui",
+        "type": "同寨",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "协助陶氏父子守路"
+      },
+      {
+        "target": "char_zheng_san_niang",
+        "type": "敌对",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "被郑三娘诱杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 359,
+        "line_end": 365,
+        "text": "滚在山沟里的马寨主怕敌人跟击，在山沟中连滚数滚，这才跃起，他手中拿着一对链子锤。看敌人时，当先一人身形瘦削，脸色漆黑，认得是北京平通镖局总镖头熊元献，此人精熟地堂刀功夫。饮马川山寨曾劫过他镖局的一枝大镖，熊元献使尽心机，始终没能要回，双方结下甚深梁子。另一个女子三十二三岁年纪，马寨主识得她是双刀郑三娘。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 439,
+        "line_end": 445,
+        "text": "马寨主踏步上前追击，突见郑三娘左刀一晃，露出老大空门，大喜之下，抢上一步，挥锤击落，蓦地里右足足底一虚，竟踏在熊元献等先前藏身的土坑上。这坑大半仍为白雪掩没，激斗之际，没加留神，郑三娘有意引他过去。他这一足踏空，身子向前扑跌，暗叫不好，待要跃起，郑三娘右刀疾砍，登时将他左肩卸落。马寨主惨叫一声，晕了过去，郑三娘右手补上一刀，将他砍死在坑中。"
+      }
+    ]
+  },
+  {
+    "id": "char_xiong_yuan_xian",
+    "name": "熊元献",
+    "alias": [],
+    "identity": "北京平通镖局总镖头",
+    "faction": "faction_ping_tong_biao_ju",
+    "role": "antagonist",
+    "archetype": "scheming_escort_master",
+    "rank": "炉火纯青",
+    "one_line": "平通镖局总镖头，因失镖与饮马川结怨，伏雪坑夺铁盒。",
+    "personality": {
+      "traits": [
+        "阴柔",
+        "精细",
+        "记仇",
+        "善谋",
+        "能忍"
+      ],
+      "speech_style": "细声细气，礼貌中带威胁",
+      "temperament": "阴沉狡诈"
+    },
+    "relationships": [
+      {
+        "target": "char_tao_bai_sui",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "因失镖结怨"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "同门师兄弟",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "称刘元鹤为师兄"
+      },
+      {
+        "target": "char_zheng_san_niang",
+        "type": "同盟",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "共同伏击饮马川"
+      }
+    ],
+    "known_skills": [
+      "skill_di_tang_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 361,
+        "line_end": 363,
+        "text": "看敌人时，当先一人身形瘦削，脸色漆黑，认得是北京平通镖局总镖头熊元献，此人精熟地堂刀功夫。饮马川山寨曾劫过他镖局的一枝大镖，熊元献使尽心机，始终没能要回，双方结下甚深梁子。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 377,
+        "line_end": 397,
+        "text": "熊元献细声细气的道：\"陶寨主，在下跟你引见引见。这位是山东百会寺的静智大师。这位是京中一等侍卫刘元鹤刘大人，是在下的同门师兄。你们多亲近亲近。\"陶百岁身材魁伟，声若雷震，熊元献恰与他相反，一个阳刚，一个阴柔，两人倒似天生的对头。陶百岁骂道：\"好小子，一齐上吧，咱们兵刃上亲近亲近。\"钢鞭在空中虚击一鞭，呼呼风响，足见膂力惊人。熊元献不动声色，低低的道：\"在下是陶寨主手下败将，不敢跟你动手，只想来讨件物事。\"陶百岁怒道：\"什么？\"熊元献向他"
+      },
+      {
+        "chapter": 2,
+        "line_start": 412,
+        "line_end": 414,
+        "text": "熊元献...叫道：\"好热闹啊，刘师兄，咱哥儿俩也上！\""
+      },
+      {
+        "chapter": 3,
+        "line_start": 631,
+        "line_end": 633,
+        "text": "刘元鹤欲待再辩，但见他英气逼人，顿然住口不说。熊元献意欲打开僵局，道：\"苗姑娘，后来怎样？ 请你说下去。\""
+      },
+      {
+        "chapter": 6,
+        "line_start": 75,
+        "line_end": 77,
+        "text": "\"熊元献细声细气的道：\"这样吧，天龙门、饮马川山寨、跟我们平通镖局的，每一家轮流下去一个。 大伙儿互相瞧着，不用怕有谁使奸行诈。\""
+      },
+      {
+        "chapter": 8,
+        "line_start": 135,
+        "line_end": 137,
+        "text": "熊元献伸出右臂，格开了他一拳，说道：师哥，咱们寻宝要紧"
+      }
+    ]
+  },
+  {
+    "id": "char_zheng_san_niang",
+    "name": "郑三娘",
+    "alias": [],
+    "identity": "双刀女客、平通镖局复仇者",
+    "faction": "faction_ping_tong_biao_ju",
+    "role": "supporting",
+    "archetype": "vengeful_blade_woman",
+    "rank": "登堂入室",
+    "one_line": "郑三娘识破红宝石反镶，帮助众人找到下一层机关。",
+    "personality": {
+      "traits": [
+        "复仇心重",
+        "机敏",
+        "狠辣",
+        "耐战",
+        "听命"
+      ],
+      "speech_style": "厉声短促，行动果断",
+      "temperament": "狠厉坚忍"
+    },
+    "relationships": [
+      {
+        "target": "char_ma_zhai_zhu",
+        "type": "敌对",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "诱杀马寨主"
+      },
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "同盟",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "听从熊元献调度"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "敌对",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "战中被陶子安暗算"
+      }
+    ],
+    "known_skills": [
+      "skill_shuang_dao_dao_fa",
+      "skill_tie_men_shuan_dao_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 365,
+        "line_end": 367,
+        "text": "另一个女子三十二三岁年纪，马寨主识得她是双刀郑三娘。她丈夫本是平通镖局镖头，在饮马川劫镖时刀伤殒命。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 407,
+        "line_end": 445,
+        "text": "郑三娘身形灵动，矮身低头，双刀一招\"旋风势\"，直扑进怀。马寨主左锤飞出，消去这招。这两人一动上手，那和尚挥戒刀直取陶百岁。镇关东不避反迎，铁鞭横打，刀鞭相交，迸出星星火花。和尚只觉手臂酸麻，刀锋已给打出个缺口。陶子安舞刀奔向熊元献。六人分作三对，在雪地里性命相扑。刘元鹤手执双拐，在旁掠阵，见和尚不是陶百岁对手，叫道：\"大师退下，让我来会会镇关东。\"那和尚兀自恋战。刘元鹤跨上一步，右膀在静智和尚肩头一撞。那和尚立足不住，跌出三步，破口骂道"
+      },
+      {
+        "chapter": 2,
+        "line_start": 37,
+        "line_end": 40,
+        "text": "田青文扶着郑三娘坐入篮中"
+      },
+      {
+        "chapter": 5,
+        "line_start": 539,
+        "line_end": 541,
+        "text": "曹云奇、陶百岁、郑三娘等一齐叫道饿死。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 211,
+        "line_end": 213,
+        "text": "苗若兰向郑三娘与田青文望了一眼，道：\"我带这两位姊姊一起去地窖吧。 \"于管家急忙摇头，低声道：\"不，这两个女人也不是好人。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 267,
+        "line_end": 279,
+        "text": "郑三娘伤处又痛；见那红宝石光彩有些异样，心中一动"
+      }
+    ]
+  },
+  {
+    "id": "char_jing_zhi",
+    "name": "静智",
+    "alias": [],
+    "identity": "山东百会寺和尚",
+    "faction": "faction_bai_hui_si",
+    "role": "supporting",
+    "archetype": "rash_monk",
+    "rank": "登堂入室",
+    "one_line": "百会寺和尚静智性情粗莽，混战中被铁盒短箭射死。",
+    "personality": {
+      "traits": [
+        "粗莽",
+        "好斗",
+        "暴躁",
+        "鲁直",
+        "不听劝"
+      ],
+      "speech_style": "粗口怒骂，火气极盛",
+      "temperament": "莽撞暴烈"
+    },
+    "relationships": [
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "同盟",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "随平通镖局伏击"
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "敌对",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "与陶子安缠斗后被其机关牵连而死"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "同盟",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "被刘元鹤推作挡箭牌"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 369,
+        "line_end": 379,
+        "text": "此外是一个胖大和尚，手使戒刀；一个紫膛脸汉子，使一对铁拐，均不相识。想来都是平通镖局邀来的好手，埋伏在这里以报昔日之仇。陶百岁喝道：\"我道是谁，原来是老夫手下败将。除了姓熊的鼠辈，武林之中，原也没人能做这下贱勾当。\"这话虽是斥骂熊元献，但殷吉听了，不禁脸上一热，斜眼看阮士中时，见他双目凝视谷中敌对双方，对这句话直如不闻。熊元献细声细气的道：\"陶寨主，在下跟你引见引见。这位是山东百会寺的静智大师。这位是京中一等侍卫刘元鹤刘大人，是在下的同"
+      },
+      {
+        "chapter": 1,
+        "line_start": 523,
+        "line_end": 525,
+        "text": "刘元鹤危急中顺手拉过静智在身前一挡。只听一声惨呼，两枝短箭一齐钉入那和尚的咽喉，静智立时气绝。第三枝箭偏在一旁，却射入了熊元献左肩，直没至羽，伤势也自不轻。"
+      }
+    ]
+  },
+  {
+    "id": "char_liu_yuan_he",
+    "name": "刘元鹤",
+    "alias": [],
+    "identity": "京中一等侍卫、熊元献同门师兄",
+    "faction": "faction_ping_tong_biao_ju",
+    "role": "supporting",
+    "archetype": "official_master",
+    "rank": "炉火纯青",
+    "one_line": "刘元鹤用封赏和分赃诱动群豪寻宝。",
+    "personality": {
+      "traits": [
+        "精细",
+        "机警",
+        "沉稳",
+        "现实",
+        "自保"
+      ],
+      "speech_style": "官样客气，寡言谨慎",
+      "temperament": "沉着精细"
+    },
+    "relationships": [
+      {
+        "target": "char_xiong_yuan_xian",
+        "type": "同门师兄弟",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "被熊元献称为师兄"
+      },
+      {
+        "target": "char_tao_bai_sui",
+        "type": "敌对",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "以双拐压制陶百岁"
+      },
+      {
+        "target": "char_lao_seng",
+        "type": "受制",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "逃走时被老僧扣腕拖回"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "当众夺钗并以杀人灭口相逼"
+      }
+    ],
+    "known_skills": [
+      "skill_shuang_guai_gong_fu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 369,
+        "line_end": 379,
+        "text": "此外是一个胖大和尚，手使戒刀；一个紫膛脸汉子，使一对铁拐，均不相识。想来都是平通镖局邀来的好手，埋伏在这里以报昔日之仇。陶百岁喝道：\"我道是谁，原来是老夫手下败将。除了姓熊的鼠辈，武林之中，原也没人能做这下贱勾当。\"这话虽是斥骂熊元献，但殷吉听了，不禁脸上一热，斜眼看阮士中时，见他双目凝视谷中敌对双方，对这句话直如不闻。熊元献细声细气的道：\"陶寨主，在下跟你引见引见。这位是山东百会寺的静智大师。这位是京中一等侍卫刘元鹤刘大人，是在下的同"
+      },
+      {
+        "chapter": 1,
+        "line_start": 738,
+        "line_end": 758,
+        "text": "刘元鹤见这老僧处处透着古怪，心中嘀咕，微一拱手，说道：\"大师莫怪，下官失陪了。\"说罢返身便奔。那老僧笑道：\"在这荒山野地之中，居然还能见到一位官老爷，好福气啊，他妈的好福气。\"他待刘元鹤奔出一阵，缓缓说完这几句话，斗然间身形晃动，随后追去。只见他在雪地里纵跳疾奔，身法极其难看，又笨又怪，令人不由得好笑。但尽管他身形既似肥鸭，又若蛤蟆，片刻间已抄在刘元鹤身前，笑道：\"和尚要对不住官老爷了。\"不待刘元鹤答话，左手兜了个圈子，忽然翻过，抓住了"
+      },
+      {
+        "chapter": 2,
+        "line_start": 189,
+        "line_end": 199,
+        "text": "刘元鹤...原来丐帮素来与朝廷作对...刘元鹤就是这大内十八高手之一。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 235,
+        "line_end": 237,
+        "text": "刘元鹤退后一步，叫道：\"大伙儿齐上，先杀老和尚。 咱们自己的事，下了山慢慢商量。\"他只觉在山峰上多耽一刻，便多一分危险。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 67,
+        "line_end": 71,
+        "text": "刘元鹤道：\"咱们走吧，待我先下。\"双手抓住了绳索，就要往下溜去。 陶百岁喝道：\"且慢，干么要让你先下？谁知你在下面要捣什么鬼？ \"刘元鹤怒道：\"依你说便怎地？\"陶百岁一怔，心想峰上人人各怀私心，互不信任，不论谁先下去，旁人都难放心，给他这么一问，倒也难以对答。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 189,
+        "line_end": 191,
+        "text": "\"刘元鹤道：\"那害人的平阿四呢？他躲到那里去啦？ \""
+      },
+      {
+        "chapter": 7,
+        "line_start": 837,
+        "line_end": 849,
+        "text": "刘元鹤作证田归农自尽，解释自己追踪陶子安和宝刀来到关外。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 31,
+        "line_end": 35,
+        "text": "本人奉旨而行，怕他什么苗大侠，秧大侠"
+      },
+      {
+        "chapter": 8,
+        "line_start": 83,
+        "line_end": 87,
+        "text": "刘元鹤以功名和私分宝藏诱使群豪同心。"
+      }
+    ]
+  },
+  {
+    "id": "char_lao_seng",
+    "name": "老僧",
+    "alias": [
+      "花白胡子老僧"
+    ],
+    "identity": "神秘老僧",
+    "faction": null,
+    "role": "mysterious_master",
+    "archetype": "eccentric_monk",
+    "rank": "登峰造极",
+    "one_line": "花白胡子老僧以念珠救人、制住刘元鹤，并邀众人去见神秘主人。",
+    "personality": {
+      "traits": [
+        "武功奇高",
+        "诙谐粗俗",
+        "好客",
+        "从容",
+        "深藏不露"
+      ],
+      "speech_style": "和气中夹粗口，常以和尚自称",
+      "temperament": "怪诞从容"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_gui_nong",
+        "type": "旧识",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "称归农并为其死惋惜"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "制伏",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "轻易扣住刘元鹤双腕"
+      },
+      {
+        "target": "char_zheng_san_niang",
+        "type": "救助",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "阻止陶子安杀郑三娘"
+      }
+    ],
+    "known_skills": [
+      "skill_lao_seng_qin_na_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 650,
+        "line_end": 666,
+        "text": "各人一惊之下，齐向暗器来路望去，见一个花白胡子的老僧右手拿着一串念珠，念道：\"善哉，善哉！\"快步走来，俯身拾起一物，串在念珠绳上，原来他适才所发暗器只是一粒念珠。这串念珠看来份量不轻，黑黝黝的似是钢铁所铸。这和尚从数丈外弹来小小一粒念珠，竟能撞开一把八九斤重的钢刀，指力非同小可。众人惊愕之下，都眼睁睁的望着他。但见他一对三角眼，塌鼻歪嘴，一双白眉斜斜下垂，容貌猥葸诡异，双眼布满红丝，单看相貌，倒似是个市井老光棍，那知武功竟如此高强。那僧"
+      },
+      {
+        "chapter": 1,
+        "line_start": 746,
+        "line_end": 758,
+        "text": "但尽管他身形既似肥鸭，又若蛤蟆，片刻间已抄在刘元鹤身前，笑道：\"和尚要对不住官老爷了。\"不待刘元鹤答话，左手兜了个圈子，忽然翻过，抓住了他右腕。刘元鹤斗感半身酸麻，知道自己胡里胡涂的已让他扣住脉门，情急之下，左手出掌往老僧击去。那老僧左手拇指与食指拿着他右腕，见他左掌击来，左手提着他右臂一举，中指、无名指、小指三根手指钩出，搭上了他左腕。这一来，他一只手将刘元鹤双手一齐抓住，右手提着念珠，一窜一跳的回来。众人见刘元鹤双手就如给一副铁铐牢"
+      }
+    ]
+  },
+  {
+    "id": "char_bao_shu",
+    "name": "宝树",
+    "alias": [
+      "宝树大师",
+      "老僧",
+      "和尚"
+    ],
+    "identity": "粗豪而自负的僧人，应邀上雪峰助拳",
+    "faction": null,
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "登堂入室",
+    "one_line": "宝树开始实际取宝，并强行安排众人分工与休息。",
+    "personality": {
+      "traits": [
+        "自负",
+        "粗鲁",
+        "机警",
+        "好面子",
+        "临敌审慎"
+      ],
+      "speech_style": "粗言秽语中夹讥刺，常以老衲和尚自称",
+      "temperament": "狂放外露而心思谨慎"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_jing_han_zi",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "受托主持雪峰迎敌"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "尚未交手已被其声势牵动"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "因宝刀铁盒正面对峙"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      6,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 57,
+        "line_end": 59,
+        "text": "那老僧笑道：\"和尚没通知主人，就带了几个朋友吃白食来了。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 155,
+        "line_end": 159,
+        "text": "宝树大师越众而前，朗声说道：\"原来姑娘是苗大侠的千金，令尊可好？ \"那少女道：\"多谢。家严托福安康。请问大师上下？ \"宝树微笑道：\"老衲宝树。姑娘芳名是什么？\""
+      },
+      {
+        "chapter": 4,
+        "line_start": 3,
+        "line_end": 3,
+        "text": "只听宝树说道：\"那时老衲尚未出家，在直隶沧州乡下的一个小镇上行医为生。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 21,
+        "line_end": 21,
+        "text": "\"我问：'什么事？老兄是谁？'那人道：'有人生了急病！"
+      },
+      {
+        "chapter": 4,
+        "line_start": 331,
+        "line_end": 331,
+        "text": "夫人道：'咱们重重酬谢他就是。'哈哈，老和尚年轻之时，确是好酒贪财，说出来也不怕各位笑话，我一听'重重酬谢'四字，早就打定了主意：'就是水里火里，也要为他走一遭。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 11,
+        "line_end": 17,
+        "text": "宝树承认年代久远，又以含糊态度回应苗若兰。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 25,
+        "line_end": 27,
+        "text": "宝树见了众人脸色，知道大家对自己颇有怪责之意，站起身来，取过了宝刀铁盒，喝道：\"今日之事，咱们只有同舟共济，一齐想个下山的法儿。 这个恶徒嘛⋯⋯\""
+      },
+      {
+        "chapter": 6,
+        "line_start": 89,
+        "line_end": 95,
+        "text": "宝树冷笑道：\"你天龙门何德何能，要独占宝刀？这把刀天龙门掌管了一百多年，也该换换主儿了。 \"阮士中愕然，眼露凶光。殷吉、曹云奇、周云阳不约而同的抢上一步，站在阮士中身旁。 宝树仰天笑道：\"哥儿们想动武，是不是？想当年天龙门在刀头上得宝，今日在刀头上失宝，可也公平得紧啊。 \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 123,
+        "line_end": 129,
+        "text": "宝树见到那白衣男子上来时的身法神态，正自惊疑不定，突觉背后有人来袭，更大吃一惊，危急中倏施\"铁板桥\"功夫，身子向左斜出。 这\"铁板桥\"功夫，原是闪避敌人暗器的救命绝招，通常是暗器来得太快，不及跃起或向旁避让，只得身子僵直，突然向后仰天斜倚，让暗器掠面而过，双脚却仍牢牢钉住地下。 功夫越高，背心越能贴近地面，讲究起落快、身形直，所谓\"足如铸铁，身挺似板，斜起若桥\"。 宝树这招\"铁板桥\"，又与通常所使的不同，并非向后仰倚，却是向左倾斜，双足钉在崖边，身子凌空，已有一小半凭虚倾在雪峰之外。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 15,
+        "line_end": 21,
+        "text": "宝树忽然朗声道：各位争夺此刀，为了何事"
+      },
+      {
+        "chapter": 8,
+        "line_start": 545,
+        "line_end": 565,
+        "text": "宝树砍冰取宝后分派周云阳、陶子安、熊元献出洞捡柴，并约束众人。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 215,
+        "line_end": 231,
+        "text": "胡斐所料丝毫不错，那地底山洞之中，天龙门、饮马川山寨、平通镖局诸路人马，为了争夺宝物，正自杀成一团。宝树袖手旁观，不住冷笑，心想且让你们打个三败俱伤，老僧再慢慢一个个的收拾。周云阳与熊元献又扭在一起，在地下滚来滚去。两人突然间滚到了火堆之旁，互欲将对方压在火上，那知几个打滚，险些压熄了火头。宝树骂道：\"压灭了火，大伙儿"
+      },
+      {
+        "chapter": 10,
+        "line_start": 237,
+        "line_end": 255,
+        "text": "宝树一见之下，不由得心胆俱裂，急忙倒跃，退在曹云奇身后，生怕胡斐跟着上前，大叫一声：\"不好了！\"双手抓住曹云奇背心，提起他一个魁伟长大的身子，就往火堆中掷将过去。他本意将火堆压灭，好教胡斐瞧不见自己，那知道火堆刚得他添了干柴，烧得正旺。曹云奇跌入火中，衣服着火，洞中更加明亮。胡斐见宝树一上来就向自己和苗若兰猛施毒手，想"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_jing_han_zi",
+    "name": "长颈汉子",
+    "alias": [
+      "长颈仆人",
+      "中年汉子"
+    ],
+    "identity": "希孟庄主的仆从，雪峰庄院管事",
+    "faction": "faction_xi_meng_zhuang_yuan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "负责迎客传话，言辞谦下却维护主人与苗人凤的名声。",
+    "personality": {
+      "traits": [
+        "恭谨",
+        "忠诚",
+        "内功不弱",
+        "机敏",
+        "护主"
+      ],
+      "speech_style": "自称小人、小的，语气谦卑而立场坚定",
+      "temperament": "恭顺中有锋芒"
+    },
+    "relationships": [
+      {
+        "target": "char_xi_meng",
+        "type": "主仆",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "奉庄主之命接待群豪"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "请求宝树主持迎敌"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "用椅背一拍警告曹云奇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 59,
+        "line_end": 64,
+        "text": "一个长颈阔额的中年汉子躬身道...团团向众人作了个四方揖"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_ren_feng",
+    "name": "苗人凤",
+    "alias": [
+      "金面佛",
+      "苗大侠"
+    ],
+    "identity": "武林前辈，号称打遍天下无敌手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "遭设伏被擒后自行冲穴反击，因女儿裸露误会胡斐。",
+    "personality": {
+      "traits": [
+        "武功绝顶",
+        "嫉恶如仇",
+        "声名赫赫",
+        "自省",
+        "威慑群豪"
+      ],
+      "speech_style": "本章无直接对白，以对联和传闻显其气度",
+      "temperament": "正气强硬"
+    },
+    "relationships": [
+      {
+        "target": "char_xi_meng",
+        "type": "挚友",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "与庄主相交多年"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "令有亏心事的刘元鹤心惊"
+      },
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "为救范帮主可能赴京入局"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "见女儿受辱后急怒失控"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "宿敌",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "误认胡斐欺侮女儿而追击"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      6,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 81,
+        "line_end": 91,
+        "text": "此人是武林前辈，真名叫作苗人凤...号称\"打遍天下无敌手\"。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 155,
+        "line_end": 163,
+        "text": "宝树大师越众而前，朗声说道：\"原来姑娘是苗大侠的千金，令尊可好？ \"那少女道：\"多谢。家严托福安康。请问大师上下？ \"宝树微笑道：\"老衲宝树。姑娘芳名是什么？\" 那少女名叫苗若兰，听了这话脸上微微一红，心道：\"我的名字，怎胡乱跟人说得的？ \"不答问话，说道：\"各位请宽坐，晚辈要进内堂拜见伯母。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 249,
+        "line_end": 249,
+        "text": "宝树道：\"苗大侠这七字外号，直到现下，我还是觉得有点儿过于目中无人。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 467,
+        "line_end": 467,
+        "text": "\"金面佛微一沉吟，说道：'四年之前，我有事去了岭南，家中却来了一人，自称是山东武定县的商剑鸣。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 941,
+        "line_end": 941,
+        "text": "金面佛伸手扶住，叫道：'得罪！'胡一刀笑道：'苗兄剑法，鬼神莫测，佩服，佩服！"
+      },
+      {
+        "chapter": 5,
+        "line_start": 27,
+        "line_end": 31,
+        "text": "苗人凤每年祭奠胡一刀夫妇，尊胡一刀为义兄。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 5,
+        "line_end": 9,
+        "text": "苗若兰忽然惊道：\"啊哟，此间主人所邀的帮手和我爹爹都未上山，如在山下撞到了那雪山飞狐，定要动手。 我爹爹不知他是胡伯伯的儿子，倘若一剑将他杀了，那便如何是好？ \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 359,
+        "line_end": 363,
+        "text": "胡斐道：\"令尊打遍天下无敌手，却何以不传姑娘武功？ 素闻苗家剑门中，传子传女，一视同仁。\"苗若兰道：\"我爹爹立志要化解这场百余年来纠缠不清的仇怨，是以苗家剑法，至他而绝，不再传授子弟。 \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 365,
+        "line_end": 367,
+        "text": "胡斐愕然，拿着酒杯的手停在半空，隔了片刻，方始举到口边，一饮而尽，叫道：\"苗人凤，苗大侠，好！ 果然称得上'大侠'二字！\""
+      },
+      {
+        "chapter": 7,
+        "line_start": 799,
+        "line_end": 827,
+        "text": "苗人凤揭开凤头珠钗地图秘密，并选择让田归农活着懊恼而非亲手杀他。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 23,
+        "line_end": 43,
+        "text": "人人想到她父亲威震天下；苗若兰挂念着父亲的安危"
+      },
+      {
+        "chapter": 8,
+        "line_start": 65,
+        "line_end": 77,
+        "text": "刘元鹤称赛总管以范帮主为饵，等苗人凤赴北京救人。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 185,
+        "line_end": 189,
+        "text": "我们惊动范帮主，本来为的是要引苗人凤上北京相救。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 523,
+        "line_end": 567,
+        "text": "苗人凤自行通解穴道，见女儿受辱后怒追胡斐。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 347,
+        "line_end": 359,
+        "text": "胡斐正要再掷雪团，投击尚未着地之人，忽听半山间有人朗声说道：\"是我放人走路，旁人不必拦阻。\"这两句话一个字一个字的从半山里飘将下来，洪亮清朗，正是苗人凤的说话。苗若兰喜叫：\"爹爹！\"胡斐听苗人凤的话声尚在百丈以外，但语音遥传，若对其面，金面佛内力之深，确是己所莫及，不禁大为钦佩，双手一振，扣在掌中的雪团双双飞出，又中躺"
+      },
+      {
+        "chapter": 10,
+        "line_start": 371,
+        "line_end": 379,
+        "text": "他不知杜希孟与胡斐之母有中表之亲，更不知胡斐就是二十多年来自己念念不忘的孤儿，缓缓转过头来，只见女儿身披男人袍服，怯生生的站在胡斐身旁，心想眼前这男子虽救了自己性命，却玷污了女儿清白，念及亡妻失节之事，恨不得杀尽天下轻薄无行之徒，一时胸口如要迸裂，低沉着声音道：\"跟我来！\"说着转身大踏步便走。苗若兰叫道：\"爹，是他⋯⋯"
+      },
+      {
+        "chapter": 10,
+        "line_start": 411,
+        "line_end": 435,
+        "text": "苗人凤低沉着嗓子说道：\"好，你有种跟来。上吧！\"他背向月光，脸上阴沉沉的瞧不清楚神色。胡斐喘了口气，对着这个自己生平想过几千几万遍之人，一时之间竟尔没了主意：\"他是我杀父仇人，可是他又是若兰的父亲。\"他害得我一生孤苦，但听平四叔说，他豪侠仗义，始终没对不起我爹妈。\"他号称打遍天下无敌手，武功艺业，举世无双，但我偏不信服"
+      }
+    ],
+    "relationship_updates": [
+      {
+        "target": "char_tian_gui_nong",
+        "type": "宿敌",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "揭破田归农贪图地图与害死南兰的真相，以精神惩罚逼其崩溃"
+      }
+    ]
+  },
+  {
+    "id": "char_xi_meng",
+    "name": "希孟",
+    "alias": [
+      "庄主",
+      "主人",
+      "敝上"
+    ],
+    "identity": "雪峰庄院主人，苗人凤题联中的希孟仁兄",
+    "faction": "faction_xi_meng_zhuang_yuan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "出门至宁古塔请苗人凤助拳，又广邀各路高手守约。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "好客",
+        "交游广阔",
+        "重义",
+        "布置周密"
+      ],
+      "speech_style": "本章由仆人口述其吩咐",
+      "temperament": "深谋远虑"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_jing_han_zi",
+        "type": "主仆",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "命仆从接待各路英雄"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "挚友",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "与苗大侠相交多年"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "与雪山飞狐约于雪峰之会"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 107,
+        "line_end": 121,
+        "text": "上款是\"希孟仁兄正之\"...我们庄主跟苗大侠已相交多年。"
+      }
+    ]
+  },
+  {
+    "id": "char_fan_bang_zhu",
+    "name": "范帮主",
+    "alias": [
+      "兴汉丐帮范帮主"
+    ],
+    "identity": "兴汉丐帮帮主，北道英雄",
+    "faction": "faction_xing_han_gai_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "受赛总管笼络偷袭苗人凤，却因毒誓阻止赛总管伤人。",
+    "personality": {
+      "traits": [
+        "豪勇",
+        "反清",
+        "声名高",
+        "身陷囹圄",
+        "震慑刘元鹤"
+      ],
+      "speech_style": "本章未登场，由他人口述",
+      "temperament": "豪侠气重"
+    },
+    "relationships": [
+      {
+        "target": "char_liu_yuan_he",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "被刘元鹤参与拘捕"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "既感其救命恩又不忍见其被废"
+      },
+      {
+        "target": "char_sai_zong_guan",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "共同设伏后关系生裂"
+      }
+    ],
+    "known_skills": [
+      "skill_long_zhua_qin_na_shou"
+    ],
+    "related_skills": [
+      "skill_long_zhua_qin_na_shou"
+    ],
+    "rag_refs": [
+      2,
+      4,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 178,
+        "line_end": 199,
+        "text": "兴汉丐帮的范帮主也要来...曾以'龙爪擒拿手'抓死过两头猛虎。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 63,
+        "line_end": 63,
+        "text": "我装睡偷看，只见进来了两人，一个叫化子打扮，双目炯炯有神，另一个面目清秀，年纪不大。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 101,
+        "line_end": 101,
+        "text": "'田相公嗯了一声，抬起了头出神。范帮主道：'贤弟不用耽心，苗大侠定能对付得了他。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 459,
+        "line_end": 459,
+        "text": "范帮主一直在旁沉着脸，这时抢上一步，叫道：'苗大侠，须防最毒妇人心。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 73,
+        "line_end": 73,
+        "text": "范帮主曾邀爹爹同去辽东寻仇。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 61,
+        "line_end": 71,
+        "text": "兴汉丐帮的范帮主；我们拿住范帮主，只是把他当作一片香饵"
+      },
+      {
+        "chapter": 9,
+        "line_start": 177,
+        "line_end": 177,
+        "text": "这位是兴汉丐帮的范帮主。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 357,
+        "line_end": 401,
+        "text": "范帮主拿住苗人凤穴道，又阻止赛总管挑断筋脉。"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_ming_zi",
+    "name": "玄冥子",
+    "alias": [
+      "玄冥子大师"
+    ],
+    "identity": "青藏派高手，应邀上雪峰助拳",
+    "faction": "faction_qing_zang_pai",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "炉火纯青",
+    "one_line": "被庄主列为日内到访的成名高手之一。",
+    "personality": {
+      "traits": [
+        "成名",
+        "神秘",
+        "受邀",
+        "有威望",
+        "未登场"
+      ],
+      "speech_style": "本章未直接对白",
+      "temperament": "未登场的高手气象"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 167,
+        "line_end": 170,
+        "text": "青藏派玄冥子大师、昆仑山灵清道长、河南无极门姜老拳师这几位，日内都要上山"
+      },
+      {
+        "chapter": 9,
+        "line_start": 209,
+        "line_end": 209,
+        "text": "杜希孟、范帮主、玄冥子、灵清道人、姜老拳师等都站起来。"
+      }
+    ]
+  },
+  {
+    "id": "char_ling_qing_dao_zhang",
+    "name": "灵清道长",
+    "alias": [
+      "昆仑山灵清道长"
+    ],
+    "identity": "昆仑山道长，应邀赴雪峰",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "庄主约来的成名人物之一，名望令宝树忌惮。",
+    "personality": {
+      "traits": [
+        "成名",
+        "道门身份",
+        "受邀",
+        "未登场",
+        "有威望"
+      ],
+      "speech_style": "本章未直接对白",
+      "temperament": "清冷未现"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 167,
+        "line_end": 170,
+        "text": "青藏派玄冥子大师、昆仑山灵清道长、河南无极门姜老拳师这几位，日内都要上山"
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_lao_quan_shi",
+    "name": "姜老拳师",
+    "alias": [
+      "河南无极门姜老拳师"
+    ],
+    "identity": "河南无极门老拳师，应邀赴雪峰",
+    "faction": "faction_wu_ji_men",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "庄主广邀的高手之一，被宝树视作名望在己之上的人物。",
+    "personality": {
+      "traits": [
+        "年高",
+        "成名",
+        "受邀",
+        "拳法高手",
+        "未登场"
+      ],
+      "speech_style": "本章未直接对白",
+      "temperament": "老成未现"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 167,
+        "line_end": 175,
+        "text": "河南无极门姜老拳师这几位，日内都要上山...没一位不是顶儿尖儿的高手"
+      },
+      {
+        "chapter": 9,
+        "line_start": 421,
+        "line_end": 421,
+        "text": "非无极门姜老拳师莫属。"
+      }
+    ]
+  },
+  {
+    "id": "char_sai_he_tu",
+    "name": "赛赫图",
+    "alias": [
+      "御前侍卫总管赛赫图"
+    ],
+    "identity": "御前侍卫总管，率大内高手擒范帮主",
+    "faction": "faction_da_nei_shi_wei",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "虽未登场，但其行动揭出刘元鹤与兴汉丐帮的旧怨。",
+    "personality": {
+      "traits": [
+        "权势",
+        "机密行事",
+        "强硬",
+        "朝廷背景",
+        "未登场"
+      ],
+      "speech_style": "本章未直接对白",
+      "temperament": "朝廷威压"
+    },
+    "relationships": [
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "率众擒范帮主入天牢"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "刘元鹤是其十八高手之一"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 189,
+        "line_end": 193,
+        "text": "御前侍卫总管赛赫图亲率大内侍卫十八高手，将范帮主擒了关入天牢。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_ren_niang_zi",
+    "name": "主人娘子",
+    "alias": [
+      "主母"
+    ],
+    "identity": "希孟庄主的妻子，雪峰庄院主母",
+    "faction": "faction_xi_meng_zhuang_yuan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "人在庄内未出面，仆从担心雪山飞狐上峰后惊动她。",
+    "personality": {
+      "traits": [
+        "尊贵",
+        "未露面",
+        "受保护",
+        "待客",
+        "牵动仆从"
+      ],
+      "speech_style": "本章未直接对白，由仆从传达谢意",
+      "temperament": "隐于幕后"
+    },
+    "relationships": [
+      {
+        "target": "char_xi_meng",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "庄主之妻"
+      },
+      {
+        "target": "char_chang_jing_han_zi",
+        "type": "主仆",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "由仆从保护并传话"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 211,
+        "line_end": 230,
+        "text": "主人娘子多谢各位光临...就怕他上峰之后，惊动了主母。"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_fei",
+    "name": "胡斐",
+    "alias": [
+      "雪山飞狐",
+      "飞狐"
+    ],
+    "identity": "雪山飞狐，雪峰之会的赴约者",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "以雪山飞狐身份现身，三招内击败赛总管并要求释放苗人凤。",
+    "personality": {
+      "traits": [
+        "声势惊人",
+        "准时守约",
+        "神秘",
+        "被敌方忌惮",
+        "孤身赴会"
+      ],
+      "speech_style": "本章仅见名帖文字，未直接发声",
+      "temperament": "未登场而压迫感强"
+    },
+    "relationships": [
+      {
+        "target": "char_xi_meng",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "按约前来雪峰之会"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "宝树自称会对付他"
+      },
+      {
+        "target": "char_zuo_tong",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "派双童前来投刺"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "因救护平阿四而初生敬意"
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "以黄金小笔试探并传讯"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "小柬威胁天龙门诸人"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "恋人",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "救护苗若兰清白并抱她离开险地"
+      },
+      {
+        "target": "char_sai_zong_guan",
+        "type": "对手",
+        "intensity": 95,
+        "bond_level": 4,
+        "dynamic": "三招内令赛总管颜面扫地"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      6,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 257,
+        "line_end": 263,
+        "text": "帖子写着：\"晚生胡斐谨拜。雪峰之会，谨于今日午时践约。\"...飞狐的外号，原来是将他名字倒转而成。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 217,
+        "line_end": 229,
+        "text": "胡一刀遗下的孩子在客店后失踪，被众人误以为已死。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 167,
+        "line_end": 171,
+        "text": "曹云奇攀到峰边，殷吉与周云阳抢过去拉住他双手，提了上来，齐问：\"这白衣人是谁？ \"曹云奇喘了几口气，说道：\"那位英雄命我上来禀报，说道是⋯⋯是雪山飞狐胡斐到了。 \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 253,
+        "line_end": 267,
+        "text": "雪山飞狐胡斐此番上峰，准拟与满山高手作一场龙争虎斗，那知庄中出来相见的竟是一个姣好少女，不禁大为诧异，暗道：\"且瞧他们使甚诡计。 \"还了一礼，说道：\"在下胡斐奉揖。不敢请问姑娘高姓。 \" 于管家向苗若兰使个眼色，叫她捏造个假姓，千万不可吐露是苗人凤之女，不料苗若兰却似不解，说道：\"胡世兄，咱们是累代世交，可惜从来未曾会面。 我姓苗。\" 胡斐心中更是一凛，脸上却不动声色，道：\"姑娘与金面佛苗大侠怎生称呼？ \"于管家大急，在苗若兰身旁暗扯她衣袖。她仍不理，道：\"金面佛就是家父。 \"胡斐一怔，心道：\"原来是你。\"说道：\"令尊怎不出来相见？"
+      },
+      {
+        "chapter": 6,
+        "line_start": 303,
+        "line_end": 325,
+        "text": "胡斐大喜，叫道：\"四叔，你没事么？\" 平阿四在厢房里早就听到他声音，低声道：\"还好，你放心。 \"胡斐抢上前去，见他脸如金纸，呼吸低微，适才一时之间的喜悦又转为担忧，问道：\"怎么受的伤？ 伤得厉害么？\"平阿四道：\"这事说来话长。若不是苗姑娘搭救，今生不能再跟你相见了。 \"原来众人一见白鸽传丝，一窝蜂的涌出大厅。苗若兰乘机与琴儿将平阿四扶入厢房。 后来宝树欲待伤他性命，却已找他不到，情势紧急，来不及仔细寻找，平阿四因此而得保全。 胡斐点点头，从衣囊中取出一颗朱红丸药，塞在他口里，道：\"四叔，你先服了这颗伤药。 \" 他见平阿四将伤药嚼烂吞下，稍稍放心，回到厅上，向苗若兰一揖到地，道：\"多谢姑娘救我平四叔。 \"苗若兰忙即还礼，道：\"平四爷古道热肠，小妹钦仰得紧。 些些微劳，何足挂齿？\"胡斐道：\"生死大事，岂是微劳？ 在下感激不尽。\""
+      },
+      {
+        "chapter": 6,
+        "line_start": 145,
+        "line_end": 159,
+        "text": "这一下时机用力都恰到好处，那白衣人右手探出，已抓住曹云奇后心。 不料曹云奇身躯甚重，这一堕之势更猛烈异常，但听得喀喇一响，衣衫破裂，竟又掉下。 那白衣人双足钩住绳索，长身伸手，就在这千钧一发之际，又抓住了曹云奇右足足踝，可是两人仍溜着长绳，向下急落，但见两人身形愈来愈小，一堕数十丈。 下堕之势奇急，白衣人武功再高，双足的力道也已钩不住绳索，看来只有松手放脱曹云奇，才保得了自己性命。 众人目眩神驰之际，忽见他右手甩起，将曹云奇的身子向绳索上端甩上。 曹云奇早神智迷糊，双手碰到绳索，立即牢牢抓住。凡溺水之人，即令在水中碰到一根水草，也必全力抓住，至死不放，原是求生本性，这时曹云奇也是如此。 按他武功，本不足以抓住绳索以抗两人急堕之势，但危难之际，不知怎的力气登时大了数倍。 那绳索直晃出去，带着二人向左飞荡。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 521,
+        "line_end": 535,
+        "text": "胡斐拜帖成为田归农恐惧和陶子安脱罪的关键证据。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 71,
+        "line_end": 75,
+        "text": "杜庄主要去邀苗人凤来对付什么雪山飞狐"
+      },
+      {
+        "chapter": 8,
+        "line_start": 533,
+        "line_end": 541,
+        "text": "黄金小笔内小柬署有飞狐图记，警告天龙门诸人归时御风。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 3,
+        "line_end": 5,
+        "text": "雪山飞狐胡斐与乌兰山玉笔峰杜希孟庄主相约。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 437,
+        "line_end": 517,
+        "text": "胡斐现身痛斥赛总管，三招赌斗后命其放了苗大侠。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 3,
+        "line_end": 5,
+        "text": "胡斐见苗人凤发怒时一副神威凛凛的模样，心下也自骇然，抱着苗若兰不敢停留，抢到崖边，一手拉索，溜下峰去。他知附近有个山洞人迹罕至，便展开轻身功夫，直奔而去，手中虽抱了人，但苗若兰身子甚轻，全没减了他奔跑之速。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 245,
+        "line_end": 265,
+        "text": "胡斐见宝树一上来就向自己和苗若兰猛施毒手，想起平阿四适才所言，这和尚卑鄙恶辣，无所不用其极，心中怒火大炽，立时也如那火堆般烧了起来，弯腰抄起一把珠宝，托在左手掌心，右手食指不住弹动。但见珍珠、珊瑚、碧玉、玛瑙、翡翠、钻石、水晶、猫儿眼、祖母绿，各种各样的珍物，如雨点般往宝树身上飞去。每一块宝物射到，都打得他剧痛难当。宝"
+      },
+      {
+        "chapter": 10,
+        "line_start": 503,
+        "line_end": 525,
+        "text": "胡斐死里逃生，已无斗志，拱手说道：\"晚辈不是苗大侠敌手，何必再比？苗大侠要如何处置，晚辈听凭吩咐就是。\"苗人凤皱眉道：\"你上手时有意相让，难道我就不知？你欺苗人凤年老力衰，不是你对手么？\"胡斐道：\"晚辈不敢。\"苗人凤喝道：\"出手！\"胡斐要解释与苗若兰同床共衾，实出意外，决非存心轻薄，说道：\"在那厢房之中⋯⋯\"苗人凤听他"
+      }
+    ]
+  },
+  {
+    "id": "char_zuo_tong",
+    "name": "左童",
+    "alias": [
+      "左边小童",
+      "哥哥"
+    ],
+    "identity": "胡斐派来投刺的双生小童之一，左手使剑",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "左手剑灵便，与右童合力遇强愈强，亮匕首后压制群豪。",
+    "personality": {
+      "traits": [
+        "俊雅",
+        "守礼",
+        "机敏",
+        "顾念兄弟",
+        "剑法奇诡"
+      ],
+      "speech_style": "童音谦逊，受逼时仍有礼数",
+      "temperament": "温和中含锋芒"
+    },
+    "relationships": [
+      {
+        "target": "char_you_tong",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "双生兄弟并练合璧剑法"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "奉主人命令前来投刺"
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "对手",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "被夺剑后联手摔倒曹云奇"
+      }
+    ],
+    "known_skills": [
+      "skill_shuang_jian_he_bi",
+      "skill_da_mo_jian_fa"
+    ],
+    "related_skills": [
+      "skill_shuang_jian_he_bi",
+      "skill_da_mo_jian_fa"
+    ],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 243,
+        "line_end": 245,
+        "text": "门中并肩进来两名小童...另一个小童的剑柄斜在左肩，手中多捧了一只拜盒。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 121,
+        "line_end": 133,
+        "text": "珠子既能夜明，玉马晚上两眼放光，岂不好看？\"左童大喜，从辫儿上摘下珠子，伸匕首剖成两半，说道：\"兄弟，咱俩的珠儿和玉马都一模一样啦。 \" 右童回嗔作喜，向少女连连道谢，又向阮士中请了个安，道：\"行啦，你老别生气。 \"阮士中满身血污，恼怒异常，却又不敢出声詈骂。 右童拉着左童的手，便要走出。左童向那少女道：\"多谢姑娘厚赐。 请问姑娘尊姓，主人问起，好有对答。\""
+      }
+    ]
+  },
+  {
+    "id": "char_you_tong",
+    "name": "右童",
+    "alias": [
+      "右边小童",
+      "弟弟"
+    ],
+    "identity": "胡斐派来投刺的双生小童之一，右手使剑",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "因明珠被削碎而含泪索赔，持剑匕双刃将阮士中逼入屋角。",
+    "personality": {
+      "traits": [
+        "俊雅",
+        "守礼",
+        "敏捷",
+        "爱惜珠饰",
+        "胆气足"
+      ],
+      "speech_style": "语声清脆童稚，受委屈时反复索赔",
+      "temperament": "清脆而倔强"
+    },
+    "relationships": [
+      {
+        "target": "char_zuo_tong",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "双生兄弟互相救应"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "奉主人命令前来投刺"
+      },
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "持宝刃逼住阮士中"
+      }
+    ],
+    "known_skills": [
+      "skill_shuang_jian_he_bi",
+      "skill_da_mo_jian_fa"
+    ],
+    "related_skills": [
+      "skill_shuang_jian_he_bi",
+      "skill_da_mo_jian_fa"
+    ],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 243,
+        "line_end": 265,
+        "text": "走在右边那小童的剑柄斜在右肩...右边那小童道：\"主人说午时准到\""
+      },
+      {
+        "chapter": 3,
+        "line_start": 73,
+        "line_end": 75,
+        "text": "\"右童叫道：\"主人差我们来下书，又没叫我们跟人打架。 他只要赔了我的珠儿，我们马上就饶他了。\"说着踏上一步，嗤的一剑，阮士中左肩又给划破了道口子。"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_guan_jia",
+    "name": "于管家",
+    "alias": [],
+    "identity": "玉笔山庄管家，江湖出身的一把好手",
+    "faction": "faction_yu_bi_shan_zhuang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "受杜希孟托付主持山庄事务，精明干练而有护主之心。",
+    "personality": {
+      "traits": [
+        "精明",
+        "干练",
+        "谨慎",
+        "护主",
+        "有担当"
+      ],
+      "speech_style": "遇急直陈，平日恭谨",
+      "temperament": "稳重中带急切"
+    },
+    "relationships": [
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "为保山庄颜面出手救援"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 3,
+        "line_end": 9,
+        "text": "这长颈汉子是山庄的管家，姓于，本也是江湖上的一把好手，为人精明干练。 他见竹篮吊到山腰，便探头下望，要瞧来援的是那一位英雄。 初时但见篮中黑黝黝的几堆东西，似乎并非人形，待吊到临近，见是几只箱笼，另有些花盆、香炉之属，把吊篮装得满满的没一点空隙。 于管家大奇：\"难道是给主人送礼来了？\""
+      },
+      {
+        "chapter": 5,
+        "line_start": 551,
+        "line_end": 561,
+        "text": "于管家查明庄中粮食肉菜全被平阿四倒下山峰。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 39,
+        "line_end": 45,
+        "text": "于管家大喜，叫道：\"咱们有救啦！\"众人齐问：\"怎么？ \"于管家道：\"这白鸽是本庄所养，山上山下用以传递消息。 定是山下的本庄伙伴发觉长索炸断，放这鸽子上峰，在丝线上缚着救咱们下峰的物事。 \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 207,
+        "line_end": 219,
+        "text": "\"向苗若兰低声道：\"苗姑娘，你快到夫人房去，跟夫人一同躲入地窖密室，可别让人瞧见。 这里的人没一个安着好心。待我出去见他。\" 苗若兰向郑三娘与田青文望了一眼，道：\"我带这两位姊姊一起去地窖吧。 \"于管家急忙摇头，低声道：\"不，这两个女人也不是好人。 姑娘跟夫人是千金贵体，莫理会旁人。\"苗若兰道：\"那姓胡的若要杀人放火，你挡得了么？ \"于管家一按腰间单刀的刀柄，惨然道：\"今日是于某以死报主之时，但求夫人与姑娘平安无事，小人就对得起主人了。 \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 241,
+        "line_end": 243,
+        "text": "于管家转出厅壁，只见那白衣人脸孔朝外，双手叉腰，抬头望天，便高声道：\"胡大爷远来，不曾远迎，还请恕罪。 \"说着献上茶去。那白衣人听得于管家说话，回过头来，见到苗若兰这样一个文秀清雅的少女，弱态生娇，明波流慧，怯生生的站在当地，不禁一怔。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 119,
+        "line_end": 123,
+        "text": "见于管家等庄上佣仆，个个已走得不知去向"
+      }
+    ]
+  },
+  {
+    "id": "char_qin_er",
+    "name": "琴儿",
+    "alias": [],
+    "identity": "苗若兰随身丫鬟",
+    "faction": "faction_miao_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "琴儿冒死阻止刘元鹤杀害苗若兰。",
+    "personality": {
+      "traits": [
+        "活泼",
+        "多话",
+        "伶俐",
+        "护主",
+        "孩子气"
+      ],
+      "speech_style": "清脆琐碎，带京片子",
+      "temperament": "欢快跳脱"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "贴身服侍苗若兰上峰"
+      },
+      {
+        "target": "char_liu_yuan_he",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 2,
+        "dynamic": "为护小姐咬伤其手腕"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 15,
+        "line_end": 21,
+        "text": "她不等竹篮停好，便即跨出，向于管家望了一眼，笑道：\"这位定是于大哥了。 你的头颈长，我听人说过的。\"一口京片子，声音清脆。 于管家生平最不喜别人说他项颈，但见她满脸笑容，倒也生不出气，只得笑着点了点头。 那丫鬟道：\"我叫琴儿。她是周奶妈，小姐吃她奶长大的。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 99,
+        "line_end": 101,
+        "text": "一时雪峰边寂静无声，忽然苗若兰的婢女琴儿指着山下叫道：\"小姐，你瞧，好像有人上来。 \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 343,
+        "line_end": 345,
+        "text": "琴儿托了一只木盘过来，盘中放着一大壶酒，一只酒杯，她左手拿着木盘，右手在杯中斟了酒，笑道：\"胡相公，山上的鸡鸭鱼肉、蔬菜瓜果，通统给你的平四爷毁啦。 对不起，只好请你喝杯白酒。\""
+      },
+      {
+        "chapter": 6,
+        "line_start": 429,
+        "line_end": 431,
+        "text": "她望着满山白雪，静静出神。琴儿道：\"小姐，快进去吧，莫着了凉。 \"苗若兰道：\"我不冷。\"琴儿催了两次，苗若兰才慢慢回进庄子。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 129,
+        "line_end": 133,
+        "text": "琴儿从椅背后跃出，抱住刘元鹤的手，狠命在他手腕上咬了一口"
+      }
+    ]
+  },
+  {
+    "id": "char_zhou_nai_ma",
+    "name": "周奶妈",
+    "alias": [],
+    "identity": "苗若兰奶妈",
+    "faction": "faction_miao_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "苗若兰幼年乳母，随苗家一行上玉笔山庄。",
+    "personality": {
+      "traits": [
+        "稳重",
+        "照料周到",
+        "谨慎",
+        "忠于小姐",
+        "沉默"
+      ],
+      "speech_style": "少言寡语",
+      "temperament": "朴实谨慎"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "主仆",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "长期照顾苗若兰"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 21,
+        "line_end": 23,
+        "text": "那丫鬟道：\"我叫琴儿。她是周奶妈，小姐吃她奶长大的。 这位是韩婶子，小姐就爱吃她烧的菜。你快放吊篮下去接小姐上来。"
+      }
+    ]
+  },
+  {
+    "id": "char_han_shen_zi",
+    "name": "韩婶子",
+    "alias": [],
+    "identity": "苗若兰随行仆妇",
+    "faction": "faction_miao_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "负责膳食的仆妇，因苗若兰爱吃她做的菜而随行。",
+    "personality": {
+      "traits": [
+        "朴实",
+        "能干",
+        "沉默",
+        "照料周到",
+        "忠仆"
+      ],
+      "speech_style": "少有发言",
+      "temperament": "安分"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "随行照料饮食"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 21,
+        "line_end": 23,
+        "text": "那丫鬟道：\"我叫琴儿。她是周奶妈，小姐吃她奶长大的。 这位是韩婶子，小姐就爱吃她烧的菜。你快放吊篮下去接小姐上来。"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_ying_wu",
+    "name": "白鹦鹉",
+    "alias": [],
+    "identity": "苗若兰随行鸟雀",
+    "faction": "faction_miao_jia",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "会吟诗的白鹦鹉，曾把于管家吓了一跳。",
+    "personality": {
+      "traits": [
+        "会学舌",
+        "声音怪异",
+        "机巧",
+        "随行",
+        "惹人惊疑"
+      ],
+      "speech_style": "吟诗学舌",
+      "temperament": "灵动"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 47,
+        "line_end": 53,
+        "text": "于管家忙将手中捧着的一小盆兰花放下，猛听得背后一人吟道：\"欲取鸣琴弹，恨无知音赏。 \"声音怪异。 他吓了一跳，急忙回头，双掌横胸，微微摆了迎敌的架式，却见吟诗的是架上那头白鹦鹉。 他又好气又好笑，命人放吊篮接小姐上来。那奶妈却说要先开箱子，取块皮裘在篮中垫好，免得小姐嫌篮底硬了，坐得不舒服。"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_ruo_lan",
+    "name": "苗若兰",
+    "alias": [
+      "苗小姐",
+      "苗姑娘"
+    ],
+    "identity": "金面佛苗人凤之女",
+    "faction": "faction_miao_jia",
+    "role": "companion",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "被点穴困于床中，羞急无法开口，后由胡斐裹被带离混战。",
+    "personality": {
+      "traits": [
+        "温柔",
+        "文雅",
+        "仁善",
+        "腼腆",
+        "厌恶争斗"
+      ],
+      "speech_style": "柔婉从容，讲故事如哄孩子",
+      "temperament": "柔和悲悯"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "父女情深，承受父亲家训影响"
+      },
+      {
+        "target": "char_qin_er",
+        "type": "主仆",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "由琴儿贴身服侍"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "坦然相见并代其震慑群豪"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "恋人",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "危急中由胡斐护住清白"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      6,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 77,
+        "line_end": 89,
+        "text": "于管家正要接话，只听背后一个女子声音说道：\"啊哟，别打架！ 别打架！我就最不爱人家动刀动枪的。\"这几句话声音不响，可是娇柔无伦，听在耳里，人人觉得真是说不出的舒服，不由自主的都回过头去。 只见一个黄衣少女笑吟吟的站在门口，肤光胜雪，双目犹似一泓清水，在各人脸上转了几转。 这少女容貌秀丽之极，当真如明珠生晕、美玉莹光，眉目间隐然有一股书卷的清气。 厅上这些人都"
+      },
+      {
+        "chapter": 5,
+        "line_start": 5,
+        "line_end": 13,
+        "text": "苗若兰出面质疑宝树所述胡一刀夫妇之死。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 5,
+        "line_end": 9,
+        "text": "苗若兰忽然惊道：\"啊哟，此间主人所邀的帮手和我爹爹都未上山，如在山下撞到了那雪山飞狐，定要动手。 我爹爹不知他是胡伯伯的儿子，倘若一剑将他杀了，那便如何是好？ \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 259,
+        "line_end": 261,
+        "text": "于管家向苗若兰使个眼色，叫她捏造个假姓，千万不可吐露是苗人凤之女，不料苗若兰却似不解，说道：\"胡世兄，咱们是累代世交，可惜从来未曾会面。 我姓苗。\""
+      },
+      {
+        "chapter": 6,
+        "line_start": 319,
+        "line_end": 323,
+        "text": "他见平阿四将伤药嚼烂吞下，稍稍放心，回到厅上，向苗若兰一揖到地，道：\"多谢姑娘救我平四叔。 \"苗若兰忙即还礼，道：\"平四爷古道热肠，小妹钦仰得紧。 些些微劳，何足挂齿？\"胡斐道：\"生死大事，岂是微劳？"
+      },
+      {
+        "chapter": 6,
+        "line_start": 221,
+        "line_end": 227,
+        "text": "苗若兰想了一想，说道：\"我跟你一齐出去会他。\"于管家大急，忙道：\"苗姑娘，你没听那和尚说，令尊苗大侠与他有杀父大仇？ 你若不躲开，落在此人手中，那⋯⋯那⋯⋯\"苗若兰道：\"自从我听爹爹说了胡伯伯的往事，一直就盼那孩子还活在世上，也盼终须有日能见他一见。 今日之事虽险，但若从此不能再与他相见，我可要抱憾一生了。 \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 333,
+        "line_end": 341,
+        "text": "苗若兰道：\"主人因有要事下山，想来途中耽搁，未及赶回，致误世兄之约，小妹先此谢过。 \" 胡斐听她应对得体，心中更奇：\"苗范田三家向称人材鼎盛，怎地男子汉都缩在后面，却叫这样一个看来弱不禁风的少女出来推搪？ 这姑娘对我丝毫不示怯意，难道她其实武功高强，却故意深藏不露么？ \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 439,
+        "line_end": 459,
+        "text": "苗若兰鄙视这些人胆怯，危急之际个个逃走，留下她一个弱女子抵挡大敌，淡淡的道：\"他什么也没说。 \"宝树道：\"我不信。你在厅上陪了他这许久，总有些话说。 \" 苗若兰本非喜爱恶作剧之人，但这时胸怀欢畅，一颗心飘飘荡荡的，只想跟人闹着玩，见各人神色古怪，便道：\"那位胡世兄说道，他这次上山，为的是报杀父之仇，可惜仇人躲了起来。 现下他守在山下，待那仇人下去，下一个，杀一个；下两个，杀一双。 \"众人一凛，都想：\"山上没粮食，山下又守着这个凶煞太岁，这便如何是好？ \" 苗若兰道：\"胡世兄言道：山上众人，个个与他有仇，只有的仇深，有的仇浅。 他恩怨分明，深者重报，浅者轻报，不愿错害了好人。 他要我代询各位，为何齐来这关外苦寒之地，是否要合力害他？ \""
+      },
+      {
+        "chapter": 7,
+        "line_start": 753,
+        "line_end": 813,
+        "text": "苗若兰坚持听完南兰死因，见珠钗与母亲遗事后痛哭失态。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 23,
+        "line_end": 43,
+        "text": "苗若兰文秀柔弱；忙问：你说我爹爹怎么了"
+      },
+      {
+        "chapter": 9,
+        "line_start": 83,
+        "line_end": 87,
+        "text": "此时胡斐鼻中充满幽香，正是适才与苗若兰酬唱时闻到的。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 539,
+        "line_end": 565,
+        "text": "苗若兰开不得口，胡斐扯过被子裹住她并抱出房外。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 11,
+        "line_end": 19,
+        "text": "火光下见苗若兰美目流波，俏脸生晕，便道：\"苗姑娘，在下绝无轻薄冒渎之意，但要解开姑娘穴道，难以不碰姑娘贵体，此事该当如何？\"苗若兰虽不能点头示意，但目光柔和，似羞似谢，殊无半点怒色。胡斐大喜，先吹熄柴火，伸手到衾中在她几处穴道上轻轻按摩，为她解通了受闭的经脉。苗若兰手足渐能活动，低声道：\"行啦，多谢您！\"胡斐急忙缩手，"
+      },
+      {
+        "chapter": 10,
+        "line_start": 293,
+        "line_end": 305,
+        "text": "苗若兰心中不忍，道：\"你要他们都死在里面么？\"胡斐道：\"你说，里面那一个是好人，饶得他活命？\"苗若兰叹了口气，道：\"这世上除了爹爹和你，我不知道还有谁是真正的好人。可是，你总不能把天下的坏人都杀了啊。\"胡斐一怔，道：\"我那算得是好人？\"苗若兰抬头望着他，说道：\"我知道你是好的。我没见你面的时候就知道啦！大哥，你可知在什"
+      },
+      {
+        "chapter": 10,
+        "line_start": 383,
+        "line_end": 399,
+        "text": "胡斐道：\"兰妹，你爹既这般说，我就过去一会儿，你在这里等着。\"苗若兰道：\"你答允我一件事。\"胡斐道：\"别说一件，就千件万件，也全凭你吩咐。\"苗若兰道：\"我爹若要你娶我⋯⋯\"最后两字声若蚊鸣，几不得闻，低下了头，羞不可抑。胡斐将适才从杜希孟手里接来的包裹交在她手里，柔声道：\"你放心。我将我妈的遗物交于你手。天下再没一件文"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_shan_fei_hu",
+    "name": "雪山飞狐",
+    "alias": [
+      "飞狐",
+      "家主姓胡"
+    ],
+    "identity": "雪山中令群豪忌惮的胡姓高手",
+    "faction": "faction_hu_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "与玉笔山庄主人仇深似海，派双童毁去长索困住众人。",
+    "personality": {
+      "traits": [
+        "神秘",
+        "强势",
+        "谋略深沉",
+        "武名震慑",
+        "行事狠绝"
+      ],
+      "speech_style": "本章未直接出言",
+      "temperament": "冷峻莫测"
+    },
+    "relationships": [
+      {
+        "target": "char_you_tong",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "命双童下书并毁索"
+      },
+      {
+        "target": "char_zuo_tong",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "命双童下书并毁索"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_hu_jia_wu_gong"
+    ],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 133,
+        "line_end": 137,
+        "text": "\"左童道：\"家主姓胡。\" 那少女一听，登时脸上变色，道：\"原来你们是雪山飞狐的家僮。 \"两童一齐躬身道：\"正是！\"那少女缓缓说道：\"我姓苗。"
+      }
+    ]
+  },
+  {
+    "id": "char_li_zi_cheng",
+    "name": "李自成",
+    "alias": [
+      "闯王",
+      "大英雄",
+      "奉天倡义大元帅"
+    ],
+    "identity": "大顺领袖，胡苗范田四卫士旧主",
+    "faction": "faction_da_shun",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "闯王军刀旧主，其死引发胡苗范田四家百年血仇。",
+    "personality": {
+      "traits": [
+        "雄才大略",
+        "军威赫赫",
+        "命运多舛",
+        "影响深远",
+        "具争议"
+      ],
+      "speech_style": "本章由他人转述",
+      "temperament": "豪雄"
+    },
+    "relationships": [
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "主仆",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "胡姓卫士曾贴身保护"
+      },
+      {
+        "target": "char_jiao_fu_gong_gong",
+        "type": "主仆",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "苗姓卫士奉命求援"
+      },
+      {
+        "target": "char_jiao_hua_gong_gong",
+        "type": "主仆",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "范姓卫士奉命求援"
+      },
+      {
+        "target": "char_lang_zhong_gong_gong",
+        "type": "主仆",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "田姓卫士奉命求援"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 365,
+        "line_end": 377,
+        "text": "\"宝树道：\"这是闯王李自成所遗下的军令。这一柄刀，是李闯王当年指挥百万大军、转战千里的军刀之一。 \" 众人一听，一齐离席而起，望着宝树手中托着的这口短刀，心中将信将疑。 此时距李闯王已有一百余年，可是在草莽群豪心中，闯王的声威仍显赫无比。 宝树道：\"各位不信，请看此面。\"说着将刀鞘翻了过来。 只见这一边刻着\"奉天倡义\"四字，字中填了朱砂。四字之旁，刻着双龙抢"
+      }
+    ]
+  },
+  {
+    "id": "char_gao_ying_xiang",
+    "name": "高迎祥",
+    "alias": [],
+    "identity": "十三家大豪二十四家寨主推举的大元帅",
+    "faction": "faction_da_shun",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "起义早期被推为大元帅，死后李自成继为首领。",
+    "personality": {
+      "traits": [
+        "首领气魄",
+        "草莽出身",
+        "影响早期义军",
+        "勇武",
+        "历史人物"
+      ],
+      "speech_style": "本章由宝树转述",
+      "temperament": "豪迈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 381,
+        "line_end": 383,
+        "text": "宝树又道：\"当年一十三家大豪、二十四家寨主结义起事，群推高迎祥为大元帅。 天启九年高迎祥战死，李自成继为首领，后来称为闯王，转战十余年，终于攻破北京，建大顺国号。"
+      }
+    ]
+  },
+  {
+    "id": "char_fei_tian_hu_li",
+    "name": "飞天狐狸",
+    "alias": [
+      "胡姓卫士",
+      "义兄",
+      "闯王第一卫士"
+    ],
+    "identity": "胡苗范田四卫士之首，胡家武功源头",
+    "faction": "faction_hu_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "武功最强的胡姓卫士，被误认为卖主求荣，临死留下石门峡线索。",
+    "personality": {
+      "traits": [
+        "武功绝顶",
+        "隐忍负名",
+        "重义",
+        "神勇",
+        "护主"
+      ],
+      "speech_style": "豪迈转悲凉",
+      "temperament": "复杂沉郁"
+    },
+    "relationships": [
+      {
+        "target": "char_li_zi_cheng",
+        "type": "主仆",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "曾保护闯王"
+      },
+      {
+        "target": "char_hu_jia_er_zi",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "儿子为其复仇并解释深义"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_jia_wu_gong",
+      "skill_fei_tian_shen_xing"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 403,
+        "line_end": 417,
+        "text": "宝树道：\"闯王身边有四名卫士，个个武艺高强，一直赤胆忠心的保他。 这四名卫士一个姓胡，一个姓苗，一个姓范，一个姓田，军中称为胡苗范田。 \" 殷吉、田青文等一听到\"胡苗范田\"四字，已知这四名卫士必与今日之事有重大关连。 田青文斜眼望了苗若兰一眼，只见她拿着一根拨火棒轻轻拨着炉中炭火，兀自出神，她白玉般的脸颊为火光一映，微现红晕。 宝树抬头望着屋顶，说道：\"这四"
+      },
+      {
+        "chapter": 5,
+        "line_start": 379,
+        "line_end": 391,
+        "text": "号称飞天狐狸的姓胡卫士救出闯王。"
+      }
+    ]
+  },
+  {
+    "id": "char_li_yan",
+    "name": "李岩",
+    "alias": [],
+    "identity": "李自成部下大将，文武双全公子",
+    "faction": "faction_da_shun",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "炉火纯青",
+    "one_line": "被宝树识出为苗若兰诗中所指的文武双全公子。",
+    "personality": {
+      "traits": [
+        "文武双全",
+        "关怀民生",
+        "才情高",
+        "影响民心",
+        "遭猜忌"
+      ],
+      "speech_style": "以诗文传世",
+      "temperament": "悲悯"
+    },
+    "relationships": [
+      {
+        "target": "char_li_zi_cheng",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "曾为闯王麾下大将"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 463,
+        "line_end": 465,
+        "text": "众人齐声道：\"请姑娘念。\"宝树听她说\"文武双全的公子\"七字，知道必是李自成手下的大将李岩，只听她念道： \"年来蝗旱苦频仍，嚼啮禾苗岁不登。米价升腾增数倍，黎民处处不聊生。"
+      }
+    ]
+  },
+  {
+    "id": "char_jiao_fu_gong_gong",
+    "name": "脚夫公公",
+    "alias": [
+      "苗姓卫士"
+    ],
+    "identity": "胡苗范田四卫士中的苗姓卫士",
+    "faction": "faction_miao_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "乔装脚夫求援复仇，后成为苗家世仇传承源头。",
+    "personality": {
+      "traits": [
+        "忠义",
+        "力大",
+        "刚烈",
+        "重情",
+        "不畏权贵"
+      ],
+      "speech_style": "刚直激烈",
+      "temperament": "豪烈"
+    },
+    "relationships": [
+      {
+        "target": "char_jiao_hua_gong_gong",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "同为三卫士"
+      },
+      {
+        "target": "char_lang_zhong_gong_gong",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "同为三卫士"
+      },
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "由结义兄弟转为血仇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 489,
+        "line_end": 497,
+        "text": "\"这时候异族人来做了皇帝，到处捉拿那位大英雄的朋友。 这三个卫士没法安身，只得乔装改扮。一个扮成卖药的江湖郎中，一个扮成叫化子，另一个力气最大，就扮成了脚夫。 他们和那第四个卫士是结义兄弟，数十年来同甘共苦，真比亲兄弟还要好。 他们时时刻刻想念他。可是找了七八年，竟没半点音讯，想来他定是在保护那位大英雄的时候战死了，三个人都十分伤心。 \""
+      }
+    ]
+  },
+  {
+    "id": "char_jiao_hua_gong_gong",
+    "name": "叫化公公",
+    "alias": [
+      "范姓卫士"
+    ],
+    "identity": "胡苗范田四卫士中的范姓卫士",
+    "faction": "faction_fan_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "乔装叫化子，与苗田二卫士追查义兄与闯王之死。",
+    "personality": {
+      "traits": [
+        "忠义",
+        "机警",
+        "果断",
+        "重情",
+        "身手高强"
+      ],
+      "speech_style": "果决直接",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_jiao_fu_gong_gong",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "同为三卫士"
+      },
+      {
+        "target": "char_lang_zhong_gong_gong",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "同为三卫士"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 489,
+        "line_end": 497,
+        "text": "\"这时候异族人来做了皇帝，到处捉拿那位大英雄的朋友。 这三个卫士没法安身，只得乔装改扮。一个扮成卖药的江湖郎中，一个扮成叫化子，另一个力气最大，就扮成了脚夫。 他们和那第四个卫士是结义兄弟，数十年来同甘共苦，真比亲兄弟还要好。 他们时时刻刻想念他。可是找了七八年，竟没半点音讯，想来他定是在保护那位大英雄的时候战死了，三个人都十分伤心。 \""
+      }
+    ]
+  },
+  {
+    "id": "char_lang_zhong_gong_gong",
+    "name": "郎中公公",
+    "alias": [
+      "田姓卫士"
+    ],
+    "identity": "胡苗范田四卫士中的田姓卫士，天龙门源头",
+    "faction": "faction_tian_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "乔装郎中，后成为田家与天龙门旧事源头。",
+    "personality": {
+      "traits": [
+        "忠义",
+        "沉着",
+        "善谋",
+        "重情",
+        "刚烈"
+      ],
+      "speech_style": "冷笑质问，行事决绝",
+      "temperament": "沉毅"
+    },
+    "relationships": [
+      {
+        "target": "char_jiao_fu_gong_gong",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "同为三卫士"
+      },
+      {
+        "target": "char_jiao_hua_gong_gong",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "同为三卫士"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 489,
+        "line_end": 497,
+        "text": "\"这时候异族人来做了皇帝，到处捉拿那位大英雄的朋友。 这三个卫士没法安身，只得乔装改扮。一个扮成卖药的江湖郎中，一个扮成叫化子，另一个力气最大，就扮成了脚夫。 他们和那第四个卫士是结义兄弟，数十年来同甘共苦，真比亲兄弟还要好。 他们时时刻刻想念他。可是找了七八年，竟没半点音讯，想来他定是在保护那位大英雄的时候战死了，三个人都十分伤心。 \""
+      }
+    ]
+  },
+  {
+    "id": "char_wu_san_gui",
+    "name": "吴三桂",
+    "alias": [
+      "大汉奸",
+      "平西亲王"
+    ],
+    "identity": "投清受封的汉奸权贵",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "在云南享福的大汉奸，成为三卫士刺杀目标。",
+    "personality": {
+      "traits": [
+        "权势深重",
+        "防范周密",
+        "卖主求荣",
+        "狠毒",
+        "善用卫士"
+      ],
+      "speech_style": "本章无直接对白",
+      "temperament": "阴狠"
+    },
+    "relationships": [
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "受胡姓义兄保护"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 509,
+        "line_end": 527,
+        "text": "苗若兰又道：\"三人到了昆明，在大汉奸的居所前后探访明白。 三月初五那天晚上，三人带了兵刃暗器，越墙进去。那大汉奸防备得十分周密，三个人刚进去，就给卫士发觉了。 那三人武艺高强，一动上手，二十多个卫士或死或伤，阻挡不住，让他们冲进了卧室。 眼见那大汉奸逃走不了，那知旁边突然闪出一人，挡在大汉奸面前。 三人一看，不禁大吃一惊，原来这人就是他们寻访了多年的义兄。 "
+      },
+      {
+        "chapter": 5,
+        "line_start": 397,
+        "line_end": 409,
+        "text": "飞天狐狸投降吴三桂后暗设连环计，使其势在必反。"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_jia_er_zi",
+    "name": "胡家儿子",
+    "alias": [
+      "义兄的儿子"
+    ],
+    "identity": "飞天狐狸之子，胡家后代",
+    "faction": "faction_hu_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "承父真传，击败三卫士并引发四家后代辗转复仇。",
+    "personality": {
+      "traits": [
+        "武功奇快",
+        "复仇心重",
+        "隐忍",
+        "行动诡秘",
+        "重视父名"
+      ],
+      "speech_style": "冷静有压迫感",
+      "temperament": "冷峻"
+    },
+    "relationships": [
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "为父辩白复仇"
+      }
+    ],
+    "known_skills": [
+      "skill_fei_tian_shen_xing",
+      "skill_hu_jia_wu_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 657,
+        "line_end": 675,
+        "text": "苗若兰道：\"我爹当时也这样说，可是那儿子的想法却大大不同。 他到了昆明，不久就在一座破庙之中找到三人，动起手来。 这儿子武功得到父亲真传，那三人果真不是对手，斗了不到半个时辰，三人为他一一打倒。 \"那儿子道：'三位叔叔，我爹爹忍耻负辱，甘愿负一个卖主求荣的恶名，你们怎懂得其中深义？ 瞧着你们和我爹爹结义一场，今日饶了你们性命。快快回家去料理后事，明年三月十五"
+      }
+    ]
+  },
+  {
+    "id": "char_kun_lun_qian_bei",
+    "name": "昆仑前辈",
+    "alias": [],
+    "identity": "昆仑派前辈英雄",
+    "faction": "faction_kun_lun_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "在郎中公公筵席上呵斥胡家儿子，却被瞬间打落牙齿。",
+    "personality": {
+      "traits": [
+        "刚直",
+        "鲁莽",
+        "江湖名宿",
+        "嫉恶",
+        "反应不及"
+      ],
+      "speech_style": "厉声斥责",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_jia_er_zi",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "出言阻拦而被重创"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 713,
+        "line_end": 719,
+        "text": "\"三位公公尚未答话，昆仑派的一位前辈英雄叫道：'男子汉大丈夫，有话要说便说，何须鬼鬼祟祟？ 你父卖主求荣，我瞧你也非善类，定是欲施奸计。三位大哥，莫上了这小贼的当。 '只听得啪啪啪、啪啪啪六声响，那人脸上吃了六记耳光，哇的一声，口吐鲜血，数十枚牙齿都撒在地下。 对方出手太快，他全无抵御之能，闪避也自不及。"
+      }
+    ]
+  },
+  {
+    "id": "char_du_bi_pu_ren",
+    "name": "独臂仆人",
+    "alias": [
+      "脸有刀疤的仆人"
+    ],
+    "identity": "苗家随行仆人，右臂已失",
+    "faction": "faction_miao_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "白发独臂、脸有长疤，听到可怜孩子时目中发出异光。",
+    "personality": {
+      "traits": [
+        "伤痕累累",
+        "沉默",
+        "嘶哑",
+        "感念苗若兰",
+        "身份可疑"
+      ],
+      "speech_style": "嘶哑而诚恳",
+      "temperament": "隐忍"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "主仆",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "侍候茶水并出言宽慰"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 795,
+        "line_end": 797,
+        "text": "站在一旁侍候茶水的一个仆人忽然说道：\"小姐，你好心有好报。 想来那个可怜的孩子一定好好活着。\"他话声嘶哑。众人一齐转头，只见他白发萧索，已过中年，缺了一条右臂，用左手托着茶盘，一条粗大的刀疤从右眉起斜过鼻子，一直延到左边嘴角。"
+      }
+    ]
+  },
+  {
+    "id": "char_guan_xi_han_zi",
+    "name": "关西汉子",
+    "alias": [
+      "拉医生的汉子",
+      "那汉子"
+    ],
+    "identity": "深夜破门请宝树救治伤者的粗豪汉子，隶属追踪胡一刀的一方。",
+    "faction": "范田一方",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "以重金请医又厉声警告宝树，显露江湖汉子的凶悍与急迫。",
+    "personality": {
+      "traits": [
+        "粗豪",
+        "焦急",
+        "凶悍",
+        "出手阔绰",
+        "忠于同伙"
+      ],
+      "speech_style": "短促急迫，常带命令口吻",
+      "temperament": "急躁凶霸"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 17,
+        "line_end": 17,
+        "text": "他奶奶的，火光一晃，一条汉子手执火把，撞了进来，叫道：'大夫，请你快去。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 47,
+        "line_end": 47,
+        "text": "我问道：'怎么伤成这样子？给强人害的么？'那汉子厉声道：'你快给治伤，另有重谢。"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_xiang_gong",
+    "name": "田相公",
+    "alias": [
+      "田公子",
+      "田青文之父",
+      "令尊"
+    ],
+    "identity": "面目清秀而果断干练的青年，田青文之父，追踪胡一刀和铁盒儿。",
+    "faction": "天龙门田家",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "精明干练却心胸较窄，屡次催逼苗人凤对胡一刀下狠手。",
+    "personality": {
+      "traits": [
+        "精明",
+        "果断",
+        "慷慨",
+        "多疑",
+        "急躁",
+        "不甘"
+      ],
+      "speech_style": "语气干脆，常带挑拨催逼",
+      "temperament": "机敏而阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_qing_wen",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父女关系由宝树当面提及"
+      },
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "合作者",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "同谋追踪胡一刀"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "追踪铁盒儿并催苗人凤进招"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 63,
+        "line_end": 63,
+        "text": "我装睡偷看，只见进来了两人，一个叫化子打扮，双目炯炯有神，另一个面目清秀，年纪不大。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 69,
+        "line_end": 69,
+        "text": "他说到这里，顿了一顿，向田青文道：\"我初见令尊的时候，姑娘还没出世呢。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 349,
+        "line_end": 349,
+        "text": "\"田相公看了那信，说道：'不必另约日子了，我们明天准到。"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_guan_tun_han_zi",
+    "name": "唐官屯汉子",
+    "alias": [
+      "没受伤的汉子",
+      "那汉子"
+    ],
+    "identity": "在唐官屯接应范田二人的汉子，向范帮主和田相公禀报胡一刀夺刀伤人的经过。",
+    "faction": "范田一方",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "亲眼见识胡一刀折刀伤众，将铁盒儿和唐官屯遭遇禀告范田二人。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "畏惧强敌",
+        "服从",
+        "细致",
+        "心有余悸"
+      ],
+      "speech_style": "低声禀报，称呼恭敬",
+      "temperament": "谨小慎微"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 75,
+        "line_end": 75,
+        "text": "宝树道：\"没受伤的几个汉子之中，有一人低声说道：'范帮主，田相公，张家兄弟从关外一路跟随这点子夫妻南来，查得确确实实，铁盒儿确在点子身上。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 95,
+        "line_end": 95,
+        "text": "\"田相公问：'他还说了些什么话？'那汉子道：'那点子本来还要伤人，他娘子在车中叫道：\"算啦，给你没出世的孩子积积德吧！"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_yi_dao",
+    "name": "胡一刀",
+    "alias": [
+      "胡大爷",
+      "胡大哥",
+      "姓胡的",
+      "那点子",
+      "恶鬼模样的人"
+    ],
+    "identity": "关外豪侠，胡家刀法传人，外貌粗豪凶恶而行事光明磊落。",
+    "faction": "胡家",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "胡一刀旧年曾见宝藏和苗田死因，却没有掘取财富。",
+    "personality": {
+      "traits": [
+        "豪迈",
+        "磊落",
+        "爱妻怜子",
+        "粗豪",
+        "重义",
+        "心软",
+        "自尊"
+      ],
+      "speech_style": "粗豪直爽，常以笑声化解生死",
+      "temperament": "豪放刚烈而内心柔软"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao_fu_ren",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "夫妻情深，临死仍相互托付"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "对手",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "由生死对决转为惺惺相惜"
+      },
+      {
+        "target": "char_hu_yi_dao_zhi_zi",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "临战前最放心不下新生儿"
+      },
+      {
+        "target": "char_shang_jian_ming",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "连夜赴山东以苗家剑法斩杀商剑鸣"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_jia_dao_fa",
+      "skill_miao_jia_jian_fa"
+    ],
+    "related_skills": [
+      "skill_qian_biao_dian_xue"
+    ],
+    "rag_refs": [
+      4,
+      6,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 83,
+        "line_end": 83,
+        "text": "不料给点子瞧破了。他一人拦在道上，说道：\"我跟你们素不相识，一路跟着我作甚？"
+      },
+      {
+        "chapter": 4,
+        "line_start": 219,
+        "line_end": 219,
+        "text": "大家管他叫胡大爷。他说道：'我姓胡，生平只要遇到做坏事的，立时一刀杀了，因此名字叫作胡一刀。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 945,
+        "line_end": 945,
+        "text": "胡一刀哈哈一笑，提起刀来往自己颈中一抹，咽喉中喷出鲜血，伏桌而死。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 45,
+        "line_end": 61,
+        "text": "胡一刀见苗人凤被制后不愿占内人相助之利，主动另行比试。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 15,
+        "line_end": 21,
+        "text": "他又道：\"胡相公今日上山，一来是找此间主人的晦气，二来是要找苗大侠比武复仇。 不过我亲眼见到当年胡苗二位大侠肝胆相照的交情，害死胡大爷的其实另有其人，我劝胡相公别向苗大侠为难了，可是他说要当面向苗大侠问个清楚。 后来我在山下见到了这位阎大夫，虽隔了这么二十几年，我还是认得他，便跟上峰来，炸索毁粮，大伙儿在这儿一齐饿死，总算是报了胡大爷待我的恩义啦。 \""
+      },
+      {
+        "chapter": 6,
+        "line_start": 369,
+        "line_end": 375,
+        "text": "苗若兰道：\"我曾听爹爹说起令尊当日之事。那时令堂请我爹爹饮酒，旁人说道须防酒中有毒。 我爹爹言道：'胡一刀乃天下英雄，光明磊落，岂能行此卑劣之事？ '今日我请你饮酒，胡世兄居然也坦然饮尽，难道你也不怕别人暗算么？ \""
+      },
+      {
+        "chapter": 8,
+        "line_start": 455,
+        "line_end": 459,
+        "text": "胡一刀必是曾经来过此间，但他见了宝藏，却不掘取"
+      },
+      {
+        "chapter": 9,
+        "line_start": 13,
+        "line_end": 15,
+        "text": "她父亲是杀害我父的大仇人。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 53,
+        "line_end": 57,
+        "text": "胡斐奇道：\"我的母亲？\"苗若兰道：\"是啊。我爹跟令尊比武之时，你妈妈英风飒爽，比男子汉还有气概。我爹平时闲谈，常自羡慕令尊，说道：'胡大侠得此佳偶，活一日胜过旁人百年。'我妈听了虽不言语，心中却甚不快。后来天龙门的田归农到我家来作客。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 517,
+        "line_end": 525,
+        "text": "苗人凤愈斗心下愈疑，不住想到当年在沧州与胡一刀比武之事，忽地向后跃开两步，叫道：\"且住！你可识得胡一刀么？\"胡斐听他提到亡父之名，悲愤交集，咬牙道：\"胡大侠乃前辈英雄，不幸为奸人所害。晚辈对胡大侠钦慕之极，我若有福气能得他教诲几句，立时死了，也所甘心。\""
+      }
+    ]
+  },
+  {
+    "id": "char_hu_yi_dao_fu_ren",
+    "name": "胡一刀夫人",
+    "alias": [
+      "夫人",
+      "胡夫人",
+      "胡大嫂",
+      "妹子"
+    ],
+    "identity": "胡一刀之妻，刚生产仍沉着机敏，武功和眼光皆极高。",
+    "faction": "胡家",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "以柔韧绸带打退群敌，并洞察苗家剑法破绽，殉夫前将孩子托付苗人凤。",
+    "personality": {
+      "traits": [
+        "沉着",
+        "聪慧",
+        "刚烈",
+        "深情",
+        "胆识过人",
+        "眼光毒辣",
+        "温柔"
+      ],
+      "speech_style": "轻声柔和却句句有分量",
+      "temperament": "外柔内刚"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "夫妻同生死，以殉情完成托孤"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "合作者",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "认可其肝胆照人后托孤"
+      },
+      {
+        "target": "char_hu_yi_dao_zhi_zi",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "临终喂饱孩子并托付苗人凤"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_fu_ren_chou_dai_gong"
+    ],
+    "related_skills": [
+      "skill_miao_jia_jian_fa"
+    ],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 95,
+        "line_end": 95,
+        "text": "\"田相公问：'他还说了些什么话？'那汉子道：'那点子本来还要伤人，他娘子在车中叫道：\"算啦，给你没出世的孩子积积德吧！"
+      },
+      {
+        "chapter": 4,
+        "line_start": 281,
+        "line_end": 281,
+        "text": "\"胡一刀抱着孩子走进房去，那房间的板壁挺薄，只听夫人问道：'大哥，是谁来了啊？"
+      },
+      {
+        "chapter": 4,
+        "line_start": 947,
+        "line_end": 947,
+        "text": "\"我惊得呆了，看夫人时，她脸上竟无悲痛之色，祇道：'苗大侠，请你稍待，我再喂一次奶，让孩子吃得饱饱的。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_da_ge",
+    "name": "张大哥",
+    "alias": [
+      "张家兄弟之一"
+    ],
+    "identity": "从关外跟随胡一刀夫妇南来的张家兄弟之一，曾狠踢胡夫人腹部。",
+    "faction": "范田一方",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "在围攻胡一刀时攻击孕妇，激怒胡一刀出手伤众。",
+    "personality": {
+      "traits": [
+        "狠毒",
+        "鲁莽",
+        "卑劣",
+        "逞强",
+        "欺软怕硬"
+      ],
+      "speech_style": "短促挑衅",
+      "temperament": "凶悍卑劣"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao_fu_ren",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 2,
+        "dynamic": "踢向孕妇腹部引发胡一刀怒意"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 75,
+        "line_end": 75,
+        "text": "宝树道：\"没受伤的几个汉子之中，有一人低声说道：'范帮主，田相公，张家兄弟从关外一路跟随这点子夫妻南来，查得确确实实，铁盒儿确在点子身上。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 85,
+        "line_end": 85,
+        "text": "你们是苗范田三家派来的不是？\"张大哥道：\"你知道就好啦。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 89,
+        "line_end": 89,
+        "text": "\"我们见点子手下厉害，一拥而上。张大哥却飞脚去踢他娘子的大肚子。"
+      }
+    ]
+  },
+  {
+    "id": "char_bao_xin_han_zi",
+    "name": "报信汉子",
+    "alias": [
+      "奔进来的汉子"
+    ],
+    "identity": "傍晚奔入客店报知胡一刀大车已到的汉子。",
+    "faction": "范田一方",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "以一句“来啦”触发众人迎战胡一刀。",
+    "personality": {
+      "traits": [
+        "紧张",
+        "急促",
+        "警觉",
+        "服从",
+        "怕事"
+      ],
+      "speech_style": "急声报信",
+      "temperament": "慌张急切"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 115,
+        "line_end": 115,
+        "text": "\"这天傍晚，大家正在厅上吃饭，一名汉子奔了进来，叫道：'来啦！"
+      }
+    ]
+  },
+  {
+    "id": "char_ping_an_ke_dian_zhang_gui",
+    "name": "平安客店掌柜",
+    "alias": [
+      "掌柜的"
+    ],
+    "identity": "沧州小镇平安客店掌柜，夹在各路江湖人物之间不敢违逆。",
+    "faction": "平安客店",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "在胡一刀威势下替其安排房间并指认宝树为医生。",
+    "personality": {
+      "traits": [
+        "胆小",
+        "圆滑",
+        "怕事",
+        "顺从",
+        "见钱眼开"
+      ],
+      "speech_style": "小心应对，少言避祸",
+      "temperament": "畏缩市侩"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 163,
+        "line_end": 163,
+        "text": "\"只听那人说道：'劳驾，掌柜的，这儿那里有医生？"
+      },
+      {
+        "chapter": 4,
+        "line_start": 177,
+        "line_end": 177,
+        "text": "医生，请你别走开。'掌柜的听说要在他店里生产，弄脏屋子，自然老大不愿意，但见了他这副凶霸霸的模样，半句也不敢多说，可是镇上做稳婆的刘婆婆前几天死啦，掌柜的只得跟他说实话。"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_yi_dao_zhi_zi",
+    "name": "胡一刀之子",
+    "alias": [
+      "孩子",
+      "小子",
+      "婴儿"
+    ],
+    "identity": "胡一刀夫妇在平安客店新生的儿子，出生后即被卷入胡苗生死约战。",
+    "faction": "胡家",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "甫出生便被父母和苗人凤托命相护，成为胡一刀最后牵挂。",
+    "personality": {
+      "traits": [
+        "幼弱",
+        "无辜",
+        "啼声响亮",
+        "承载血脉",
+        "被众人怜护"
+      ],
+      "speech_style": "咿呀啼哭，无成人言语",
+      "temperament": "懵懂无知"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父亲临终托孤"
+      },
+      {
+        "target": "char_hu_yi_dao_fu_ren",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "母亲临终喂奶托付"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "苗人凤允诺视如己出"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 211,
+        "line_end": 211,
+        "text": "\"这小子哭得好响，脸上全是毛，眼睛睁得大大的，生下来就是一副凶相，倒真像他爹，日后长大了十九也是个歹人。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 231,
+        "line_end": 231,
+        "text": "他越喝兴致越高，进房去抱了儿子出来，用指头蘸了酒给他吮。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 957,
+        "line_end": 957,
+        "text": "我不忍再看，回过头来，见苗大侠臂中抱着的孩子睡得正沉，小脸儿上似乎还露着一丝微笑。"
+      }
+    ]
+  },
+  {
+    "id": "char_shang_jian_ming",
+    "name": "商剑鸣",
+    "alias": [
+      "八卦刀商剑鸣"
+    ],
+    "identity": "山东武定县八卦门高手，曾杀苗人凤弟妹弟妇，后被胡一刀以苗家剑法所杀。",
+    "faction": "八卦门",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "八卦掌与八卦刀俱强，却因旧仇被胡一刀连夜斩首。",
+    "personality": {
+      "traits": [
+        "横暴",
+        "好胜",
+        "凶狠",
+        "武艺高强",
+        "结怨深重"
+      ],
+      "speech_style": "本章无直接对白",
+      "temperament": "强横残忍"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 2,
+        "dynamic": "杀害苗家亲属结下血仇"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "被胡一刀以苗家剑法斩杀"
+      }
+    ],
+    "known_skills": [
+      "skill_ba_gua_men_wu_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 467,
+        "line_end": 467,
+        "text": "\"金面佛微一沉吟，说道：'四年之前，我有事去了岭南，家中却来了一人，自称是山东武定县的商剑鸣。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 693,
+        "line_end": 693,
+        "text": "范帮主向那首级望了一眼，惊叫道：'是八卦刀商剑鸣！"
+      },
+      {
+        "chapter": 5,
+        "line_start": 91,
+        "line_end": 91,
+        "text": "胡伯伯以苗家剑法破去山东大豪商剑鸣的八卦刀。"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_wai_tiao_zhan_zhe",
+    "name": "屋外挑战者",
+    "alias": [
+      "屋外那些人",
+      "叫嚷汉子"
+    ],
+    "identity": "夜间在客店屋顶叫骂胡一刀的江湖汉子之一。",
+    "faction": "苗人凤随行者",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "趁夜挑衅胡一刀，却被胡夫人以绸带尽数打落兵刃。",
+    "personality": {
+      "traits": [
+        "吵嚷",
+        "胆怯",
+        "鲁莽",
+        "欺众",
+        "怕强"
+      ],
+      "speech_style": "叫骂挑衅",
+      "temperament": "虚张声势"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao_fu_ren",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "夜间挑衅后被胡夫人饶命"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 737,
+        "line_end": 737,
+        "text": "\"待到二更时分，忽听屋顶上脚步声响，有人叫道：'胡一刀，快滚出来领死！"
+      },
+      {
+        "chapter": 4,
+        "line_start": 759,
+        "line_end": 759,
+        "text": "我忙走到窗边，在窗格纸上刺了一个孔。向外张望，只见屋面上高高矮矮，站了二三十条大汉，手中都拿着兵刃，正在大声吆喝。"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_fu_ren",
+    "name": "胡夫人",
+    "alias": [
+      "胡伯母",
+      "胡一刀夫人"
+    ],
+    "identity": "胡一刀之妻，胡斐之母",
+    "faction": "胡家",
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "洞察战局又慷慨殉夫的侠女。",
+    "personality": {
+      "traits": [
+        "聪慧",
+        "刚烈",
+        "重诺",
+        "镇定",
+        "深情"
+      ],
+      "speech_style": "临死前明白坦荡，言语兼具悲痛与洒脱",
+      "temperament": "刚烈深情"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "夫死后自尽殉夫"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "原欲亲手抚养孩子"
+      }
+    ],
+    "known_skills": [
+      "skill_kong_kong_miao_shou"
+    ],
+    "related_skills": [
+      "skill_hu_jia_dao_fa"
+    ],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 143,
+        "line_end": 151,
+        "text": "胡夫人看出刀上有毒，托孤后横刀自尽。"
+      }
+    ]
+  },
+  {
+    "id": "char_ping_a_si",
+    "name": "平阿四",
+    "alias": [
+      "癞痢头阿四",
+      "独臂仆人"
+    ],
+    "identity": "昔年沧州客店烧火小厮，胡斐养护者",
+    "faction": "",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "独臂刀疤仆人，冒死揭破阎基旧罪并为胡一刀报仇。",
+    "personality": {
+      "traits": [
+        "忠义",
+        "隐忍",
+        "决绝",
+        "感恩",
+        "胆大"
+      ],
+      "speech_style": "自称低微，实则句句沉稳有力",
+      "temperament": "木然无惧"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao",
+        "type": "主仆",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "受胡一刀恩义后终身报答"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "救出并养护胡一刀遗孤"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "宿敌",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "当众揭破其阎基身份与毒害旧罪"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "挚友",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "胡斐急切探伤并称四叔"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 163,
+        "line_end": 175,
+        "text": "独臂仆人出声指称两种说法中有人故意说谎。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 11,
+        "line_end": 13,
+        "text": "平阿四淡淡一笑，道：\"苗大侠虽说是打遍天下无敌手，可是要说能一剑杀了胡相公，却也未必。 \"他脸上一个长长的伤疤，这么一笑，牵动肌肉，显得加倍的丑陋可怖。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 305,
+        "line_end": 311,
+        "text": "平阿四在厢房里早就听到他声音，低声道：\"还好，你放心。 \"胡斐抢上前去，见他脸如金纸，呼吸低微，适才一时之间的喜悦又转为担忧，问道：\"怎么受的伤？ 伤得厉害么？\"平阿四道：\"这事说来话长。若不是苗姑娘搭救，今生不能再跟你相见了。 \"原来众人一见白鸽传丝，一窝蜂的涌出大厅。苗若兰乘机与琴儿将平阿四扶入厢房。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 7,
+        "line_end": 7,
+        "text": "他与平阿四、左右双童在山洞中饱餐一顿干粮。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 169,
+        "line_end": 173,
+        "text": "后来变生不测，平四叔抱了我逃走。他以为你父有害我之意，见到遗书中有杜庄主的姓名，便抱了我前去投奔。那知杜庄主起心不良，想得我爹的武学秘本。他又隐约猜到我爹妈知道宝藏秘密，竟来搜查我妈给我的遗物。平四叔情知不妙，抱着我连夜逃下雪峰。我爹的武学秘本是带走了，但我妈给我的一包遗物，却失落在庄上。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_cai_zhu",
+    "name": "赵财主",
+    "alias": [
+      "赵财主"
+    ],
+    "identity": "沧州当地恶财主",
+    "faction": "",
+    "role": "villain",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "放债逼债、欺压平阿四一家的人。",
+    "personality": {
+      "traits": [
+        "贪婪",
+        "横暴",
+        "欺弱",
+        "无情",
+        "势利"
+      ],
+      "speech_style": "本章由平阿四转述其恶行",
+      "temperament": "横行乡里"
+    },
+    "relationships": [
+      {
+        "target": "char_ping_a_si",
+        "type": "宿敌",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "逼迫其家庭几近自尽"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 251,
+        "line_end": 255,
+        "text": "赵财主逼平阿四父亲立文书，要卖其母做小老婆。"
+      }
+    ]
+  },
+  {
+    "id": "char_ping_a_si_fu_qin",
+    "name": "平阿四父亲",
+    "alias": [
+      "阿四爹"
+    ],
+    "identity": "沧州贫民",
+    "faction": "",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "被赵财主债务逼迫的贫苦父亲。",
+    "personality": {
+      "traits": [
+        "贫苦",
+        "爱子",
+        "懦弱",
+        "绝望",
+        "守家"
+      ],
+      "speech_style": "本章无直接发言，由平阿四转述",
+      "temperament": "困苦无助"
+    },
+    "relationships": [
+      {
+        "target": "char_ping_a_si",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "因债务几欲自尽仍舍不得儿子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 251,
+        "line_end": 259,
+        "text": "平阿四父亲欠赵财主五两银子，被利滚利逼到绝境。"
+      }
+    ]
+  },
+  {
+    "id": "char_ping_a_si_mu_qin",
+    "name": "平阿四母亲",
+    "alias": [
+      "阿四妈"
+    ],
+    "identity": "沧州贫民",
+    "faction": "",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "险些被赵财主强迫卖作小老婆的贫苦母亲。",
+    "personality": {
+      "traits": [
+        "贫苦",
+        "爱子",
+        "柔弱",
+        "绝望",
+        "坚忍"
+      ],
+      "speech_style": "本章无直接发言，由平阿四转述",
+      "temperament": "苦难隐忍"
+    },
+    "relationships": [
+      {
+        "target": "char_ping_a_si",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "被逼绝境仍舍不得孩子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 253,
+        "line_end": 259,
+        "text": "赵财主要把平阿四母亲卖给他做小老婆。"
+      }
+    ]
+  },
+  {
+    "id": "char_ke_dian_dian_zhu",
+    "name": "客店店主",
+    "alias": [
+      "店主"
+    ],
+    "identity": "沧州客店主人",
+    "faction": "",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "在客店使唤平阿四烧火的店主。",
+    "personality": {
+      "traits": [
+        "势利",
+        "粗暴",
+        "忙乱",
+        "怕强",
+        "冷淡"
+      ],
+      "speech_style": "本章由平阿四转述其管束",
+      "temperament": "粗鄙势利"
+    },
+    "relationships": [
+      {
+        "target": "char_ping_a_si",
+        "type": "主仆",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "不许平阿四回家并打骂他"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 263,
+        "line_end": 268,
+        "text": "店主不让平阿四回家，又因他撞碗打了几巴掌。"
+      }
+    ]
+  },
+  {
+    "id": "char_li_chuang_wang",
+    "name": "李闯王",
+    "alias": [
+      "闯王",
+      "奉天玉和尚"
+    ],
+    "identity": "大顺领袖，后于夹山普慈寺出家",
+    "faction": "闯王大顺军",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "九宫山后未死，易容脱险并在夹山普慈寺出家。",
+    "personality": {
+      "traits": [
+        "雄才",
+        "隐忍",
+        "悲壮",
+        "聪明",
+        "重托孤臣"
+      ],
+      "speech_style": "本章多由平阿四转述，语涉军略与遗宝",
+      "temperament": "英雄末路"
+    },
+    "relationships": [
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "挚友",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "被飞天狐狸舍名相救"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 367,
+        "line_end": 379,
+        "text": "闯王兵败九宫山却未死，被飞天狐狸救出。"
+      }
+    ]
+  },
+  {
+    "id": "char_fei_tian_hu_li_zhi_zi",
+    "name": "飞天狐狸之子",
+    "alias": [
+      "胡家儿子"
+    ],
+    "identity": "飞天狐狸之子，继承秘辛者",
+    "faction": "胡家",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "向三位叔叔讲明飞天狐狸苦心，促成三人自尽。",
+    "personality": {
+      "traits": [
+        "守秘",
+        "孝义",
+        "沉痛",
+        "谨慎",
+        "坚忍"
+      ],
+      "speech_style": "本章由平阿四与苗若兰转述",
+      "temperament": "负秘而行"
+    },
+    "relationships": [
+      {
+        "target": "char_fei_tian_hu_li",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "为父亲洗清误解"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_jia_dao_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 427,
+        "line_end": 431,
+        "text": "飞天狐狸的儿子曾与三位叔叔在密室中说明真相。"
+      }
+    ]
+  },
+  {
+    "id": "char_chuan_shang_da_niang",
+    "name": "船上大娘",
+    "alias": [
+      "大娘"
+    ],
+    "identity": "救起平阿四与幼年胡斐的船上妇人",
+    "faction": "",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "在河上救起平阿四并照看胡斐的善良妇人。",
+    "personality": {
+      "traits": [
+        "善良",
+        "慈悲",
+        "镇定",
+        "热心",
+        "朴实"
+      ],
+      "speech_style": "带佛号安慰醒来的平阿四",
+      "temperament": "慈和稳重"
+    },
+    "relationships": [
+      {
+        "target": "char_ping_a_si",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "救起重伤昏迷的平阿四"
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "抱着孩子喂奶救护"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 715,
+        "line_end": 718,
+        "text": "船上一位大娘救起平阿四，抱着孩子在喂奶。"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_qing_wen_si_ying",
+    "name": "田青文死婴",
+    "alias": [
+      "死孩子",
+      "婴儿",
+      "私生儿"
+    ],
+    "identity": "田青文所生并被闷死的婴儿",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "寻常凡人",
+    "one_line": "田青文为保自身而亲手害死并试图掩埋的私生婴儿",
+    "personality": {
+      "traits": [
+        "无辜",
+        "早夭",
+        "牵动命案",
+        "身份隐秘",
+        "成为证物"
+      ],
+      "speech_style": "无台词，仅在田青文悲泣中被呼唤",
+      "temperament": "死亡后仍成为揭露丑事与凶案的关键证据"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 271,
+        "line_end": 291,
+        "text": "陶子安在田青文床上摸到已死婴儿，田青文抱着孩子低声哀哭。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 321,
+        "line_end": 335,
+        "text": "田青文与周云阳各自掩埋秘密，约定互相隐瞒。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 737,
+        "line_end": 743,
+        "text": "苗人凤把死婴带回田归农房中，称这是田归农的外孙儿子。"
+      }
+    ]
+  },
+  {
+    "id": "char_nan_lan",
+    "name": "南兰",
+    "alias": [
+      "田夫人",
+      "苗若兰生母",
+      "田归农续弦夫人"
+    ],
+    "identity": "苗人凤旧爱、田归农续弦夫人",
+    "faction": "faction_miao_jia",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "寻常凡人",
+    "one_line": "临终前识破田归农贪图宝藏地图而拒绝泄露秘密的女子",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "痴情",
+        "悔恨",
+        "守密",
+        "决绝"
+      ],
+      "speech_style": "遗言沉痛决绝，多由他人转述",
+      "temperament": "以绝食拒药赴死，并保住苗家藏宝图秘密"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "曾与苗人凤情深，死后仍让珠钗归还苗家"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "恋人",
+        "intensity": 35,
+        "bond_level": 2,
+        "dynamic": "因田归农贪图地图而失望绝食至死"
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "苗若兰之母，遗物凤头珠钗传回女儿身边"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 757,
+        "line_end": 789,
+        "text": "田归农向苗人凤叙述南兰拒药绝食而死，并留下火化和归还珠钗的遗言。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 801,
+        "line_end": 807,
+        "text": "苗人凤指出南兰识破田归农真面目，未把藏宝图秘密告知他。"
+      }
+    ]
+  },
+  {
+    "id": "char_sai_da_ren",
+    "name": "赛大人",
+    "alias": [
+      "赛总管",
+      "御前侍卫总管"
+    ],
+    "identity": "御前侍卫总管，设局擒拿反清豪杰",
+    "faction": "御前侍卫",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "赛大人虽未登场，却被刘元鹤称为擒范设伏的主脑。",
+    "personality": {
+      "traits": [
+        "权势重",
+        "手段狠",
+        "善设伏",
+        "威慑强",
+        "隐于幕后"
+      ],
+      "speech_style": "由属下转述其官威",
+      "temperament": "冷酷强势"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 65,
+        "line_end": 75,
+        "text": "这是御前侍卫总管赛大人亲自下的手；赛总管在北京安排下天罗地网"
+      }
+    ]
+  },
+  {
+    "id": "char_du_xi_meng",
+    "name": "杜希孟",
+    "alias": [
+      "杜老英雄",
+      "杜庄主"
+    ],
+    "identity": "玉笔峰庄主，隐居雪峰的武林高手",
+    "faction": "杜家庄",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "面对苗人凤追问宝物来历时支吾否认，显出心虚。",
+    "personality": {
+      "traits": [
+        "自视甚高",
+        "少与人交往",
+        "武功强",
+        "见闻广",
+        "神秘"
+      ],
+      "speech_style": "由宝树转述，少直接露面",
+      "temperament": "孤高神秘"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "因所谓家传宝物与旧帐成为胡斐赴约对象"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 49,
+        "line_end": 57,
+        "text": "此间主人姓杜名希孟，是武林中一位响当当的脚色"
+      },
+      {
+        "chapter": 9,
+        "line_start": 3,
+        "line_end": 3,
+        "text": "胡斐与乌兰山玉笔峰杜希孟庄主相约。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 321,
+        "line_end": 347,
+        "text": "杜希孟称没有宝物，急切否认雪山飞狐索物之事。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 107,
+        "line_end": 115,
+        "text": "胡斐道：\"你道我妈是谁？她是杜希孟杜庄主的表妹。\"苗若兰更加惊奇，说道：\"我自幼识得杜伯伯，爹爹却从来没提起过。\"胡斐道：\"我在爹爹的遗书中得悉此事，想来令尊未必知道其中详情。杜庄主得到一些线索，猜得宝藏必在雪峰附近，是以长住峰上找寻。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 363,
+        "line_end": 369,
+        "text": "月光下只见一人一跛一拐的走近，正是杜希孟杜庄主。他将一个尺来长的包裹递给胡斐，颤声道：\"这是你妈的遗物，里面一件不少，你收着吧。\"胡斐接在手中，似有一股热气从包裹传到心中，全身不禁发抖。苗人凤见杜希孟的背影在雪地里蹒跚远去，心想此人文武全才，广交当世英豪，也算得是个人杰，与自己二十余年的交情，只因一念之差，落得身败名裂"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_an_bao",
+    "name": "田安豹",
+    "alias": [
+      "田恩师",
+      "师祖爷"
+    ],
+    "identity": "田归农之父，天龙门上代高手",
+    "faction": "天龙门",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "田安豹被确认死在宝藏冰洞，黄金小笔为其暗器。",
+    "personality": {
+      "traits": [
+        "武功高",
+        "用暗器",
+        "牵涉旧案",
+        "师门地位高",
+        "死状惨烈"
+      ],
+      "speech_style": "尸身被阮士中认出，本章无直接发言",
+      "temperament": "旧怨沉埋"
+    },
+    "relationships": [
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师徒",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "阮士中哭认恩师"
+      },
+      {
+        "target": "char_miao_ye",
+        "type": "对手",
+        "intensity": 100,
+        "bond_level": 1,
+        "dynamic": "两人在洞中互以匕首刺死对方"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_long_huang_jin_bi"
+    ],
+    "related_skills": [
+      "skill_tian_long_huang_jin_bi"
+    ],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 431,
+        "line_end": 433,
+        "text": "这位是我田恩师；黄金小笔就是我恩师的"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_ye",
+    "name": "苗爷",
+    "alias": [
+      "金面佛的父亲",
+      "苗爷"
+    ],
+    "identity": "苗人凤之父，苗家上代人物",
+    "faction": "苗家",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "苗爷与田安豹同入关外寻宝，最终在冰洞中与其互刺而亡。",
+    "personality": {
+      "traits": [
+        "高瘦",
+        "武功强",
+        "牵涉旧案",
+        "与田安豹交好",
+        "死因复杂"
+      ],
+      "speech_style": "尸身无言，由阮士中转述",
+      "temperament": "沉默刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "其死因牵动苗胡田旧怨"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 439,
+        "line_end": 449,
+        "text": "他就是金面佛的父亲，我从小叫他苗爷"
+      }
+    ]
+  },
+  {
+    "id": "char_sai_zong_guan",
+    "name": "赛总管",
+    "alias": [
+      "赛大人",
+      "老赛"
+    ],
+    "identity": "御前侍卫总管，满洲高手",
+    "faction": "大内侍卫",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "设局诱擒苗人凤，违誓欲废其筋脉，最终败于胡斐三招。",
+    "personality": {
+      "traits": [
+        "狡诈",
+        "自负",
+        "狠毒",
+        "能言善诱",
+        "临敌机敏"
+      ],
+      "speech_style": "夸饰利诱与冷厉命令并用",
+      "temperament": "阴鸷自负，败后委顿"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "三招赌斗惨败"
+      },
+      {
+        "target": "char_fan_bang_zhu",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "先利用其擒拿苗人凤后又违誓"
+      }
+    ],
+    "known_skills": [
+      "skill_dian_xue_gong_fu"
+    ],
+    "related_skills": [
+      "skill_dian_xue_gong_fu"
+    ],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 107,
+        "line_end": 115,
+        "text": "赛总管，你当真神机妙算，人所难测。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 185,
+        "line_end": 517,
+        "text": "赛总管布置伏击，败后任凭胡斐处置。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_xian_di",
+    "name": "张贤弟",
+    "alias": [
+      "张贤弟"
+    ],
+    "identity": "随赛总管设伏的江湖人物",
+    "faction": "大内侍卫",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "在暗室中奉承赛总管神机妙算。",
+    "personality": {
+      "traits": [
+        "谄媚",
+        "机警",
+        "趋炎",
+        "随众",
+        "胆怯"
+      ],
+      "speech_style": "奉承恭维",
+      "temperament": "趋附权势"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 107,
+        "line_end": 109,
+        "text": "赛总管，你当真神机妙算，人所难测。"
+      }
+    ]
+  },
+  {
+    "id": "char_ling_qing_dao_ren",
+    "name": "灵清道人",
+    "alias": [],
+    "identity": "昆仑派名宿",
+    "faction": "昆仑派",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "炉火纯青",
+    "one_line": "被苗人凤踢飞后仍能翻身落坐，显示轻身根基。",
+    "personality": {
+      "traits": [
+        "老练",
+        "身法灵活",
+        "攻守有度",
+        "临敌镇定",
+        "随众助拳"
+      ],
+      "speech_style": "本章无对白",
+      "temperament": "名宿风范但卷入围攻"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 529,
+        "line_end": 529,
+        "text": "灵清道人虽给苗人凤一脚踢出，但他究是昆仑派名宿。"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_ruo_lan_mu_qin",
+    "name": "苗若兰母亲",
+    "alias": [
+      "兰",
+      "苗夫人"
+    ],
+    "identity": "苗人凤亡妻，曾被田归农诱走",
+    "faction": "苗家",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "被田归农欺骗后临终仍把藏宝线索还给苗人凤。",
+    "personality": {
+      "traits": [
+        "柔弱",
+        "悔悟",
+        "多情",
+        "受骗",
+        "念旧"
+      ],
+      "speech_style": "在回忆中无直接言辞",
+      "temperament": "一念之差毁己伤人，临终仍有悔意"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "母女关系"
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "夫妻情变造成苗人凤多年创痛"
+      },
+      {
+        "target": "char_tian_gui_nong",
+        "type": "恋人",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "受其诱骗离家"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 35,
+        "line_end": 43,
+        "text": "苗若兰道：\"此事说来有愧，但我也不必瞒你，那是我妈的事。\"胡斐\"啊\"了一声。苗若兰道：\"我妈做过一件错事。\"胡斐道：\"人孰无过？那也不必放在心上。\"苗若兰缓缓摇头，说道：\"那是一件大错事。一个女子一生不能错这么一次。我妈妈教这件事毁了，连我爹爹也险些给这事毁了。\""
+      },
+      {
+        "chapter": 10,
+        "line_start": 63,
+        "line_end": 91,
+        "text": "胡斐轻轻叹了口气，难以接口。苗若兰话声哽咽，说道：\"那时我还只三岁，爹抱了我连夜追赶，他不吃饭不睡觉，连追三日三夜，终于赶上了他们。那田归农见到我爹，那敢动手？我妈却全力护着他。我爹见我妈妈对这人如此真心相爱，无可奈何，抱了我走了，回到家来生了一场大病，险些死去。他对我说，若不是见我孤苦伶仃，在这世上没人照顾，他真不想"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_fei_mu_qin",
+    "name": "胡斐母亲",
+    "alias": [
+      "胡夫人",
+      "胡一刀妻子"
+    ],
+    "identity": "胡一刀之妻，杜希孟表妹",
+    "faction": "胡家",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "留下遗书遗物并被苗若兰视作楷模的侠女。",
+    "personality": {
+      "traits": [
+        "英爽",
+        "聪慧",
+        "果决",
+        "深情",
+        "刚健"
+      ],
+      "speech_style": "遗事中英风飒爽，处事直截",
+      "temperament": "重情重义，轻宝藏而重真爱"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_fei",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "以遗物遗书保护幼子身世"
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "恋人",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "与胡一刀两心相悦"
+      },
+      {
+        "target": "char_du_xi_meng",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "杜希孟表妹"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 53,
+        "line_end": 57,
+        "text": "胡斐奇道：\"我的母亲？\"苗若兰道：\"是啊。我爹跟令尊比武之时，你妈妈英风飒爽，比男子汉还有气概。我爹平时闲谈，常自羡慕令尊，说道：'胡大侠得此佳偶，活一日胜过旁人百年。'我妈听了虽不言语，心中却甚不快。后来天龙门的田归农到我家来作客。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 113,
+        "line_end": 131,
+        "text": "胡斐道：\"我在爹爹的遗书中得悉此事，想来令尊未必知道其中详情。杜庄主得到一些线索，猜得宝藏必在雪峰附近，是以长住峰上找寻。他一来心思迟钝，二来机缘不巧，始终参透不出宝藏的所在。我爹爹暗中查访，却反而先他得知。他进了藏宝之洞，见到田归农的父亲与你祖父死在洞中，正想发掘宝藏，那知我妈跟着来了。\"我妈的本事要比杜庄主高得多。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 365,
+        "line_end": 367,
+        "text": "他将一个尺来长的包裹递给胡斐，颤声道：\"这是你妈的遗物，里面一件不少，你收着吧。\"胡斐接在手中，似有一股热气从包裹传到心中，全身不禁发抖。"
+      }
+    ]
+  },
+  {
+    "id": "char_dong_zhong_qun_hao",
+    "name": "洞中群豪",
+    "alias": [
+      "众人",
+      "各人"
+    ],
+    "identity": "入藏宝洞争夺财宝的武林群豪",
+    "faction": "各路人马",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "贪恋宝藏而被胡斐堵在洞内的群豪。",
+    "personality": {
+      "traits": [
+        "贪婪",
+        "慌张",
+        "怯懦",
+        "逐利",
+        "短视"
+      ],
+      "speech_style": "惊恐时齐声乱叫",
+      "temperament": "见强则惧，见财忘命"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_fei",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "因贪宝被胡斐困在洞内"
+      },
+      {
+        "target": "char_bao_shu",
+        "type": "合作者",
+        "intensity": 35,
+        "bond_level": 2,
+        "dynamic": "同在宝洞中争夺财宝"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 215,
+        "line_end": 221,
+        "text": "胡斐所料丝毫不错，那地底山洞之中，天龙门、饮马川山寨、平通镖局诸路人马，为了争夺宝物，正自杀成一团。宝树袖手旁观，不住冷笑，心想且让你们打个三败俱伤，老僧再慢慢一个个的收拾。周云阳与熊元献又扭在一起，在地下滚来滚去。两人突然间滚到了火堆之旁，互欲将对方压在火上，那知几个打滚，险些压熄了火头。宝树骂道：\"压灭了火，大伙儿"
+      },
+      {
+        "chapter": 10,
+        "line_start": 287,
+        "line_end": 289,
+        "text": "过了良久，突然甬道中传来一阵郁闷的轧轧之声，众人初尚不解，转念之间，个个惊得脸如土色，齐叫：\"啊哟，不好啦！\"\"他堵死了咱们出路。\"\"快跟他拚了。\"众人情急之下，争先恐后的拥出，奔到圆岩之后，果见那块巨岩已让胡斐推回原处，牢牢的堵住了洞门。"
+      }
+    ]
+  }
+]
