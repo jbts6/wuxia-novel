@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { validateChapterData } = require('./validators');
+const CHAPTER_JSON_RE = /^ch_\d{3}\.json$/;
 
 const novelDir = process.argv[2];
 
@@ -20,9 +21,9 @@ if (!fs.existsSync(batchJsonDir)) {
   process.exit(1);
 }
 
-// 2. 列出所有 ch_*.json 文件，按章节号排序
+// 2. 列出所有 ch_NNN.json 文件，按章节号排序
 const chapterFiles = fs.readdirSync(batchJsonDir)
-  .filter(f => f.startsWith('ch_') && f.endsWith('.json'))
+  .filter(f => CHAPTER_JSON_RE.test(f))
   .sort((a, b) => {
     const numA = parseInt(a.replace('ch_', '').replace('.json', ''));
     const numB = parseInt(b.replace('ch_', '').replace('.json', ''));

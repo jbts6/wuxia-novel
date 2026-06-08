@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { validateChapterData } = require('./validators');
+const CHAPTER_JSON_RE = /^ch_\d{3}\.json$/;
 
 const novelDir = process.argv[2];
 if (!novelDir) {
@@ -33,7 +34,7 @@ if (!fs.existsSync(batchJsonDir)) {
 // 读取所有有效完成章节。存在但无效的 ch_N.json 不算完成。
 const existingChapterJsons = new Set();
 const invalidChapterJsons = [];
-for (const f of fs.readdirSync(batchJsonDir).filter(f => f.startsWith('ch_') && f.endsWith('.json'))) {
+for (const f of fs.readdirSync(batchJsonDir).filter(f => CHAPTER_JSON_RE.test(f))) {
   const stem = f.replace('.json', '');
   const filePath = path.join(batchJsonDir, f);
   try {
