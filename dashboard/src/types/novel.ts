@@ -151,3 +151,8 @@ export interface DetailPanelState {
   type: CardType | null;
   id: string | null;
 }
+
+export interface DetailTrailItem {
+  type: CardType;
+  id: string;
+}

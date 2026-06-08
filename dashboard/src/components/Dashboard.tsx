@@ -41,45 +41,47 @@ const Dashboard: React.FC = () => {
   const villainRoles = ['villain', '反派'];
 
   const mainCharacters = characters
-    .filter((c: any) => protagonistRoles.includes(c.role) || villainRoles.includes(c.role))
+    .filter((c) => protagonistRoles.includes(c.role) || villainRoles.includes(c.role))
     .slice(0, 6);
 
   const topSkills = skills
-    .filter((s: any) => s.rank === '登峰造极' || s.rank === '返璞归真')
+    .filter((s) => s.rank === '登峰造极' || s.rank === '返璞归真')
     .slice(0, 6);
 
   const legendaryItems = items
-    .filter((i: any) => i.rarity === '绝世神兵')
+    .filter((i) => i.rarity === '绝世神兵')
     .slice(0, 6);
 
-  const renderListItem = (
-    items: any[],
-    onClick: (item: any) => void,
-    tagColor: (item: any) => string,
-    tagText: (item: any) => string
-  ) => (
-    <div>
-      {items.map((item) => (
-        <div
-          key={item.id}
-          onClick={() => onClick(item)}
-          style={{
-            padding: '12px 0',
-            borderBottom: '1px solid #f0f0f0',
-            cursor: 'pointer',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontWeight: 500 }}>{item.name}</span>
-            <Tag color={tagColor(item)}>{tagText(item)}</Tag>
+  function renderListItem<T extends { id: string; name: string; one_line: string }>(
+    listItems: T[],
+    onClick: (item: T) => void,
+    tagColor: (item: T) => string,
+    tagText: (item: T) => string
+  ) {
+    return (
+      <div>
+        {listItems.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => onClick(item)}
+            style={{
+              padding: '12px 0',
+              borderBottom: '1px solid #f0f0f0',
+              cursor: 'pointer',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontWeight: 500 }}>{item.name}</span>
+              <Tag color={tagColor(item)}>{tagText(item)}</Tag>
+            </div>
+            <div style={{ color: '#999', fontSize: 12, marginTop: 4 }}>
+              {item.one_line}
+            </div>
           </div>
-          <div style={{ color: '#999', fontSize: 12, marginTop: 4 }}>
-            {item.one_line}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div>

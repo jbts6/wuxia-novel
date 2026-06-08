@@ -52,6 +52,10 @@ export const ROLE_COLORS: Record<string, string> = {
   'villain': '#ff4d4f',
 };
 
+function asArray<T>(value: T[] | undefined | null): T[] {
+  return Array.isArray(value) ? value : [];
+}
+
 /**
  * 构建图谱数据
  */
@@ -64,20 +68,25 @@ export function buildGraphData(
 ): { nodes: GraphNode[]; links: GraphLink[] } {
   const nodes: GraphNode[] = [];
   const links: GraphLink[] = [];
+  const knownSkillsByCharacter = new Map<string, string[]>();
 
   // 添加角色节点
   characters.forEach((char) => {
+    const relationships = asArray(char.relationships);
+    const knownSkills = asArray(char.known_skills);
+    knownSkillsByCharacter.set(char.id, knownSkills);
+
     nodes.push({
       id: char.id,
       name: char.name,
       type: 'character',
-      val: char.relationships.length + 2,
+      val: relationships.length + 2,
       color: ROLE_COLORS[char.role] || NODE_COLORS.character,
       data: char,
     });
 
     // 添加关系边
-    char.relationships.forEach((rel) => {
+    relationships.forEach((rel) => {
       const relColor = RELATION_COLORS[rel.type] || '#d9d9d9';
       links.push({
         source: char.id,
@@ -87,22 +96,25 @@ export function buildGraphData(
         color: relColor,
       });
     });
+
   });
 
   // 添加技能节点
   skills.forEach((skill) => {
+    const techniques = asArray(skill.techniques);
+
     nodes.push({
       id: skill.id,
       name: skill.name,
       type: 'skill',
-      val: skill.techniques.length + 2,
+      val: techniques.length + 2,
       color: NODE_COLORS.skill,
       data: skill,
     });
 
     // 添加角色与技能的关联
     characters.forEach((char) => {
-      if (char.known_skills.includes(skill.id)) {
+      if (asArray(knownSkillsByCharacter.get(char.id)).includes(skill.id)) {
         links.push({
           source: char.id,
           target: skill.id,
@@ -116,6 +128,8 @@ export function buildGraphData(
 
   // 添加物品节点
   items.forEach((item) => {
+    const relatedSkills = asArray(item.related_skills);
+
     nodes.push({
       id: item.id,
       name: item.name,
@@ -137,7 +151,7 @@ export function buildGraphData(
     }
 
     // 添加物品与技能的关联
-    item.related_skills.forEach((skillId) => {
+    relatedSkills.forEach((skillId) => {
       links.push({
         source: item.id,
         target: skillId,
@@ -162,11 +176,13 @@ export function buildGraphData(
 
   // 添加势力节点
   factions.forEach((faction) => {
+    const subDivisions = asArray(faction.sub_divisions);
+
     nodes.push({
       id: faction.id,
       name: faction.name,
       type: 'faction',
-      val: 4,
+      val: subDivisions.length + 3,
       color: NODE_COLORS.faction,
       data: faction,
     });
@@ -217,6 +233,60 @@ export function getRelatedIds(
     }
   });
   return [...new Set(related)];
+}
+
+export interface RelationshipChainItem {
+  targetId: string;
+  targetName: string;
+  targetType: GraphNode['type'];
+  relation: string;
+  direction: 'incoming' | 'outgoing';
+  strength: number;
+  color: string;
+}
+
+export interface RelationshipChainOptions {
+  excludeIds?: string[];
+}
+
+/**
+ * 获取某个节点的一跳关系链条，供详情面板直接展示上下文。
+ */
+export function getRelationshipChain(
+  id: string,
+  nodes: GraphNode[],
+  links: GraphLink[],
+  options: RelationshipChainOptions = {}
+): RelationshipChainItem[] {
+  const nodeById = new Map(nodes.map((node) => [node.id, node]));
+  const excludedIds = new Set(options.excludeIds || []);
+  const chain: RelationshipChainItem[] = [];
+
+  links.forEach((link) => {
+    const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+    const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+
+    if (sourceId !== id && targetId !== id) return;
+
+    const relatedId = sourceId === id ? targetId : sourceId;
+    if (excludedIds.has(relatedId)) return;
+
+    const relatedNode = nodeById.get(relatedId);
+    if (!relatedNode) return;
+
+    const direction = sourceId === id ? 'outgoing' : 'incoming';
+    chain.push({
+      targetId: relatedId,
+      targetName: relatedNode.name,
+      targetType: relatedNode.type,
+      relation: link.type,
+      direction,
+      strength: link.strength,
+      color: link.color,
+    });
+  });
+
+  return chain.sort((a, b) => b.strength - a.strength || a.targetName.localeCompare(b.targetName));
 }
 
 /**

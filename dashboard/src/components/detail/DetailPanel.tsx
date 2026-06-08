@@ -1,17 +1,51 @@
-import React from 'react';
-import { Drawer, Empty } from 'antd';
+import React, { useCallback, useMemo } from 'react';
+import { Breadcrumb, Button, Card, Drawer, Empty, List, Space, Tag, Typography } from 'antd';
+import { ArrowRightOutlined, NodeIndexOutlined } from '@ant-design/icons';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useNovelStore } from '../../stores/useNovelStore';
 import CharacterCard from '../cards/CharacterCard';
 import SkillCard from '../cards/SkillCard';
 import ItemCard from '../cards/ItemCard';
 import FactionCard from '../cards/FactionCard';
 import LocationCard from '../cards/LocationCard';
+import type { CardType } from '../../types/novel';
+import { formatDetailParam } from '../../utils/detailNavigation';
+import { getRelationshipChain } from '../../utils/graphHelper';
+
+const { Text } = Typography;
+
+const TYPE_LABELS: Record<CardType, string> = {
+  character: '人物',
+  skill: '武功',
+  item: '物品',
+  faction: '势力',
+  location: '地点',
+};
 
 const DetailPanel: React.FC = () => {
-  const { detailPanel, hideDetail, characters, skills, items, factions, locations } =
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { detailPanel, detailTrail, hideDetail, characters, skills, items, factions, locations, graphNodes, graphLinks } =
     useNovelStore();
 
   const { visible, type, id } = detailPanel;
+
+  const getEntityName = useCallback((entityType: CardType, entityId: string) => {
+    switch (entityType) {
+      case 'character':
+        return characters.find((c) => c.id === entityId)?.name || entityId;
+      case 'skill':
+        return skills.find((s) => s.id === entityId)?.name || entityId;
+      case 'item':
+        return items.find((i) => i.id === entityId)?.name || entityId;
+      case 'faction':
+        return factions.find((f) => f.id === entityId)?.name || entityId;
+      case 'location':
+        return locations.find((l) => l.id === entityId)?.name || entityId;
+      default:
+        return entityId;
+    }
+  }, [characters, factions, items, locations, skills]);
 
   const getTitle = () => {
     if (!type || !id) return '';
@@ -60,11 +94,44 @@ const DetailPanel: React.FC = () => {
     }
   };
 
+  const navigateDetail = (nextType: CardType, nextId: string, replace = false) => {
+    const params = new URLSearchParams(location.search);
+    params.set('detail', formatDetailParam({ type: nextType, id: nextId }));
+    navigate(
+      {
+        pathname: location.pathname,
+        search: params.toString(),
+      },
+      { replace },
+    );
+  };
+
+  const closeDetail = () => {
+    const params = new URLSearchParams(location.search);
+    params.delete('detail');
+    hideDetail();
+    navigate(
+      {
+        pathname: location.pathname,
+        search: params.toString(),
+      },
+      { replace: true },
+    );
+  };
+
+  const relationshipChain = useMemo(() => {
+    if (!id) return [];
+    const previous = detailTrail.length > 1 ? detailTrail[detailTrail.length - 2] : null;
+    return getRelationshipChain(id, graphNodes, graphLinks, {
+      excludeIds: previous ? [previous.id] : [],
+    }).slice(0, 12);
+  }, [detailTrail, graphLinks, graphNodes, id]);
+
   return (
     <Drawer
       title={getTitle()}
       placement="right"
-      onClose={hideDetail}
+      onClose={closeDetail}
       open={visible}
       size="large"
       key={`${type}-${id}`}
@@ -72,7 +139,74 @@ const DetailPanel: React.FC = () => {
         body: { padding: '16px', overflow: 'auto' },
       }}
     >
+      {detailTrail.length > 1 && (
+        <Breadcrumb
+          style={{ marginBottom: 12 }}
+          items={detailTrail.map((entry, index) => ({
+            title:
+              index === detailTrail.length - 1 ? (
+                <Text>{getEntityName(entry.type, entry.id)}</Text>
+              ) : (
+                <Button
+                  type="link"
+                  size="small"
+                  style={{ padding: 0 }}
+                  onClick={() => navigateDetail(entry.type, entry.id)}
+                >
+                  {getEntityName(entry.type, entry.id)}
+                </Button>
+              ),
+          }))}
+        />
+      )}
       {renderContent()}
+      {type && id && (
+        <Card
+          size="small"
+          title={
+            <Space>
+              <NodeIndexOutlined />
+              关系链
+            </Space>
+          }
+          style={{ marginTop: 16 }}
+        >
+          {relationshipChain.length === 0 ? (
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无直接关系" />
+          ) : (
+            <List
+              size="small"
+              dataSource={relationshipChain}
+              renderItem={(item) => (
+                <List.Item
+                  actions={[
+                    <Button
+                      key="open"
+                      type="link"
+                      size="small"
+                      onClick={() => navigateDetail(item.targetType, item.targetId)}
+                    >
+                      查看
+                    </Button>,
+                  ]}
+                >
+                  <List.Item.Meta
+                    title={
+                      <Space wrap size={6}>
+                        <Tag>{TYPE_LABELS[item.targetType]}</Tag>
+                        <Text strong>{item.targetName}</Text>
+                        <ArrowRightOutlined style={{ color: '#999' }} />
+                        <Tag color="blue">{item.relation}</Tag>
+                      </Space>
+                    }
+                    description={`关系强度 ${Math.round(item.strength * 100)}%`}
+                  />
+                </List.Item>
+              )}
+            />
+          )}
+        </Card>
+      )}
     </Drawer>
   );
 };

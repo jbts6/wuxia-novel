@@ -1,6 +1,7 @@
 import React, { useMemo, useCallback, useRef, useState } from 'react';
 import { Spin, Empty, Tag, Space, Checkbox, Card } from 'antd';
 import { useNovelStore } from '../../stores/useNovelStore';
+import type { CardType, GraphLink } from '../../types/novel';
 
 const ForceGraph2D = React.lazy(() => import('react-force-graph-2d'));
 
@@ -13,6 +14,20 @@ const NODE_TYPES = [
 ] as const;
 
 type NodeType = typeof NODE_TYPES[number]['key'];
+
+type ForceGraphNode = {
+  id?: string | number;
+  name?: string;
+  type?: string;
+  val?: number;
+  color?: string;
+  x?: number;
+  y?: number;
+};
+
+const getLinkEndpointId = (endpoint: GraphLink['source']): string => (
+  typeof endpoint === 'object' ? endpoint.id : endpoint
+);
 
 const CharacterGraph: React.FC = () => {
   const { graphNodes, graphLinks, showDetail, loading } = useNovelStore();
@@ -54,14 +69,14 @@ const CharacterGraph: React.FC = () => {
 
     const links = graphLinks
       .filter((link) => {
-        const sourceId = typeof link.source === 'object' ? (link.source as any).id : link.source;
-        const targetId = typeof link.target === 'object' ? (link.target as any).id : link.target;
+        const sourceId = getLinkEndpointId(link.source);
+        const targetId = getLinkEndpointId(link.target);
         return nodeIds.has(sourceId) && nodeIds.has(targetId);
       })
       .map((link) => ({
         ...link,
-        source: typeof link.source === 'object' ? (link.source as any).id : link.source,
-        target: typeof link.target === 'object' ? (link.target as any).id : link.target,
+        source: getLinkEndpointId(link.source),
+        target: getLinkEndpointId(link.target),
       }));
 
     return { nodes, links };
@@ -83,7 +98,7 @@ const CharacterGraph: React.FC = () => {
   }, []);
 
   const nodeCanvasObject = useCallback(
-    (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+    (node: ForceGraphNode, ctx: CanvasRenderingContext2D, globalScale: number) => {
       const size = Math.sqrt(node.val || 1) * 3 + 4;
       const isHovered = hoveredNodeId === node.id;
 
@@ -114,7 +129,7 @@ const CharacterGraph: React.FC = () => {
   );
 
   const nodePointerAreaPaint = useCallback(
-    (node: any, color: string, ctx: CanvasRenderingContext2D) => {
+    (node: ForceGraphNode, color: string, ctx: CanvasRenderingContext2D) => {
       const size = Math.sqrt(node.val || 1) * 3 + 4;
       ctx.beginPath();
       ctx.arc(node.x || 0, node.y || 0, size, 0, 2 * Math.PI);
@@ -125,16 +140,16 @@ const CharacterGraph: React.FC = () => {
   );
 
   const handleNodeClick = useCallback(
-    (node: any) => {
-      if (node?.type && node?.id) {
-        showDetail(node.type, node.id);
+    (node: ForceGraphNode) => {
+      if (node?.type && typeof node.id === 'string') {
+        showDetail(node.type as CardType, node.id);
       }
     },
     [showDetail]
   );
 
-  const handleNodeHover = useCallback((node: any) => {
-    setHoveredNodeId(node?.id || null);
+  const handleNodeHover = useCallback((node: ForceGraphNode | null) => {
+    setHoveredNodeId(typeof node?.id === 'string' ? node.id : null);
   }, []);
 
   if (loading) return <Spin size="large" />;

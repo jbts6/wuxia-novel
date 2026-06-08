@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { Spin, ConfigProvider, Typography } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import AppLayout from './components/layout/AppLayout';
@@ -14,8 +14,53 @@ import DetailPanel from './components/detail/DetailPanel';
 import { useDataLoader } from './hooks/useDataLoader';
 import { useNovelStore } from './stores/useNovelStore';
 import { useBookStore } from './stores/useBookStore';
+import { getDetailSyncAction } from './utils/detailNavigation';
 
 const { Text } = Typography;
+
+const DetailRouteSync: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { detailPanel, showDetail, hideDetail } = useNovelStore();
+  const previousSync = useRef<{ urlDetail: string | null; panelDetail: string | null } | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const urlDetail = params.get('detail');
+    const panelDetail = detailPanel.visible && detailPanel.type && detailPanel.id
+      ? `${detailPanel.type}:${detailPanel.id}`
+      : null;
+    const action = getDetailSyncAction(urlDetail, detailPanel, previousSync.current);
+    previousSync.current = { urlDetail, panelDetail };
+
+    switch (action.type) {
+      case 'hide':
+        hideDetail();
+        break;
+      case 'show':
+        showDetail(action.target.type, action.target.id);
+        break;
+      case 'navigate':
+        if (action.detail) {
+          params.set('detail', action.detail);
+        } else {
+          params.delete('detail');
+        }
+        navigate(
+          {
+            pathname: location.pathname,
+            search: params.toString(),
+          },
+          { replace: false },
+        );
+        break;
+      case 'none':
+        break;
+    }
+  }, [detailPanel, hideDetail, location.pathname, location.search, navigate, showDetail]);
+
+  return null;
+};
 
 const App: React.FC = () => {
   const { currentBookPath, loadBooks, initFromStorage, books } = useBookStore();
@@ -81,6 +126,7 @@ const App: React.FC = () => {
   return (
     <ConfigProvider locale={zhCN}>
       <BrowserRouter>
+        <DetailRouteSync />
         <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Dashboard />} />
