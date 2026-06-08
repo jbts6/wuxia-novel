@@ -1,0 +1,399 @@
+[
+  {
+    "id": "skill_shao_lin_shen_quan",
+    "name": "少林神拳",
+    "type": "掌法",
+    "faction": "少林",
+    "rank": "炉火纯青",
+    "one_line": "邓定侯所习少林拳法，已达八九分火候，不在少林四大长老之下",
+    "techniques": [
+      {
+        "id": "tech_shao_lin_shen_quan_yi",
+        "name": "少林神拳",
+        "type": "attack",
+        "description": "少林正宗拳法，刚猛凌厉，以拳意克敌"
+      }
+    ],
+    "progression": [
+      {
+        "level": "八九分火候",
+        "chapter": 1
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "value": "高",
+        "description": "刚猛拳法，威力极强"
+      }
+    ],
+    "combat_style": "刚猛正面",
+    "rag_refs": [
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 128,
+        "line_end": 128,
+        "text": "他的少林神拳已经到八九分火候"
+      },
+      {
+        "chapter": 3,
+        "line_start": 14,
+        "line_end": 18,
+        "text": "他本来就是少林俗家子弟中，武功拳法最好的一个。少林神拳本就以威猛雄浑见长"
+      },
+      {
+        "chapter": 7,
+        "line_start": 990,
+        "line_end": 1008,
+        "text": "少林神拳伤痕紫红"
+      },
+      {
+        "chapter": 10,
+        "line_start": 38,
+        "line_end": 42,
+        "text": "少林神拳！据说这种拳法练到炉火纯青时，在百步外就可以致人于死。"
+      }
+    ]
+  },
+  {
+    "id": "skill_dian_xue_shu",
+    "name": "点穴术",
+    "type": "指法",
+    "faction": "通用",
+    "rank": "出神入化",
+    "one_line": "以手指点按人体穴道控制行动的武学，轻重手法各异",
+    "techniques": [
+      {
+        "id": "tech_dian_xue_feng_mai",
+        "name": "点穴封脉",
+        "type": "control",
+        "description": "点中穴道使人失去行动自由，血脉被封"
+      },
+      {
+        "id": "tech_xi_men_sheng_dian_xue",
+        "name": "西门胜点穴",
+        "type": "control",
+        "description": "西门胜独门点穴打穴手法，号称中原第一"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "chapter": 3
+      }
+    ],
+    "effects": [
+      "控制"
+    ],
+    "combat_style": "精准制穴，一击封脉",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 543,
+        "line_end": 545,
+        "text": "点穴的手法有轻重、部位有轻重，重的可以致人于死，轻的也可以叫人失去行动自由"
+      }
+    ]
+  },
+  {
+    "id": "skill_ba_wang_qiang_shi_san_shi",
+    "name": "霸王十三式",
+    "alias": [
+      "霸王枪"
+    ],
+    "skill_type": "剑法",
+    "rank": "出神入化",
+    "one_line": "王万武家传枪法，仅十三式却威猛无匹",
+    "description": "霸王枪家传枪法，共十三式，招式简练却刚烈威猛，枪的份量本身能带动力量，令对手闪避困难，施展时凌厉枪风足以弥补招式变化之不足",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 374,
+        "line_end": 380,
+        "text": "霸王枪的招式，只有十三式"
+      }
+    ]
+  },
+  {
+    "id": "skill_she_ci",
+    "name": "蛇刺",
+    "alias": [
+      "蛇枪一百四十九式"
+    ],
+    "skill_type": "剑法",
+    "rank": "炉火纯青",
+    "one_line": "金枪徐家传枪法，一百四十九式，灵活凶狠如毒蛇",
+    "description": "金枪徐家传枪法，原一百零八式，金枪徐自创增加四十一式，共一百四十九式，以灵活凶狠著称，配合可弯曲的黄金精铁蛇枪使用",
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 366,
+        "line_end": 370,
+        "text": "他用的枪法就叫蛇刺"
+      },
+      {
+        "chapter": 5,
+        "line_start": 44,
+        "line_end": 44,
+        "text": "他已看出丁喜用的招式，居然就是他的独门枪法'蛇刺'"
+      },
+      {
+        "chapter": 5,
+        "line_start": 70,
+        "line_end": 70,
+        "text": "这三招正是丁喜刚才用来对付霸王枪的三招——'毒蛇出穴''盘蛇吐信''蛇尾枪'，正是蛇刺中的三招杀手"
+      }
+    ],
+    "rag_refs": [
+      5
+    ]
+  },
+  {
+    "id": "skill_shi_san_tai_bao_heng_lian",
+    "name": "十三太保横练",
+    "type": "内功",
+    "faction": null,
+    "rank": 3,
+    "one_line": "归东景修炼的横练功夫，但练得不太好",
+    "techniques": [
+      {
+        "id": "tech_shi_san_tai_bao_heng_lian",
+        "name": "十三太保横练",
+        "type": "defense",
+        "description": "硬功横练功夫，可抵御刀砍，但归东景练得不太好"
+      }
+    ],
+    "progression": {
+      "level": 3,
+      "description": "练得不太好"
+    },
+    "effects": [
+      "防御"
+    ],
+    "combat_style": "以硬碰硬",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 628,
+        "line_end": 629,
+        "text": "据说他还有十三太保横练的功夫，却也练得不太好"
+      }
+    ]
+  },
+  {
+    "id": "skill_san_shi_liu_lu_da_qin_na_shou",
+    "name": "三十六路大擒拿手",
+    "type": "指法",
+    "faction": null,
+    "rank": "上乘",
+    "one_line": "熊九太爷当年成名的绝技，出手迅速准确，虚实相间",
+    "techniques": [
+      {
+        "id": "tech_qin_na_xu_na",
+        "name": "五指虚拿",
+        "type": "attack",
+        "description": "五指虚拿，闪电般扣住对手手腕脉门，虚实相间变化多端",
+        "source_skill": "skill_san_shi_liu_lu_da_qin_na_shou",
+        "source_refs": [
+          {
+            "chapter": 7,
+            "line_start": 448,
+            "line_end": 448,
+            "text": "熊九太爷五指虚拿扣丁喜手腕"
+          }
+        ]
+      },
+      {
+        "id": "tech_qin_na_hua_tuo",
+        "name": "滑脱术",
+        "type": "defense",
+        "description": "被擒拿后手腕轻轻一翻立刻滑出，三十年来无人能做到",
+        "source_skill": "skill_san_shi_liu_lu_da_qin_na_shou",
+        "source_refs": [
+          {
+            "chapter": 7,
+            "line_start": 452,
+            "line_end": 456,
+            "text": "丁喜脉门被扣住后滑脱"
+          }
+        ]
+      }
+    ],
+    "progression": [
+      {
+        "level": "大成",
+        "description": "三十年来无人能在掌握下滑脱"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "value": "擒拿控脉"
+      }
+    ],
+    "combat_style": "以巧取胜",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 448,
+        "line_end": 458,
+        "text": "熊九太爷三十六路大擒拿手"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_gong_za_xue",
+    "name": "武功杂学",
+    "type": "综合武功",
+    "faction": null,
+    "rank": "顶尖",
+    "one_line": "黑衣人身兼多家之长，可连续使用五种不同门派的武功",
+    "combat_style": "变化多端",
+    "techniques": [
+      {
+        "id": "tech_da_ying_zhua_gong",
+        "name": "大鹰爪功"
+      },
+      {
+        "id": "tech_qi_shi_er_lu_xiao_qin_na_fa",
+        "name": "七十二路小擒拿法"
+      },
+      {
+        "id": "tech_lie_ma_fen_zong",
+        "name": "烈马分鬃"
+      },
+      {
+        "id": "tech_bei_pai_sao_tang_tui",
+        "name": "北派扫堂腿"
+      },
+      {
+        "id": "tech_guai_zi_yuan_yang_jiao",
+        "name": "拐子鸳鸯脚"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "五种门派武功自由切换",
+      "刚克刚以强打强"
+    ],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 70,
+        "line_end": 78,
+        "text": "出手五招，用的竟是五种不同门源的武功。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_bu_shen_quan",
+    "name": "百步神拳",
+    "type": "拳法",
+    "faction": null,
+    "rank": "上乘",
+    "one_line": "一种可在百步外伤人的高深拳法",
+    "combat_style": "远程攻击",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      "百步外伤人"
+    ],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 410,
+        "line_end": 410,
+        "text": "他还练过百步神拳"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_rong_shu",
+    "name": "易容术",
+    "type": "伪装术",
+    "faction": "无门无派",
+    "rank": "登堂入室",
+    "one_line": "丁喜所擅长的伪装术，可模仿他人容貌、身材、举止和气味",
+    "techniques": [
+      {
+        "id": "tech_rong_mao_wei_zhuang",
+        "name": "容貌伪装",
+        "type": "伪装",
+        "description": "通过化妆和面部修饰改变容貌，模仿他人面部特征",
+        "source_skill": "skill_yi_rong_shu",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 618,
+            "line_end": 620,
+            "text": "容貌不同，可以易容"
+          }
+        ]
+      },
+      {
+        "id": "tech_xing_tai_wei_zhuang",
+        "name": "形态伪装",
+        "type": "伪装",
+        "description": "通过调整身材、神气、举动来模仿目标人物，包括驼背、绑布带改变体型",
+        "source_skill": "skill_yi_rong_shu",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 578,
+            "line_end": 580,
+            "text": "最重要的一点，当然是容貌上的，其次是身材、神气、举动和味道"
+          }
+        ]
+      },
+      {
+        "id": "tech_qi_wei_wei_zhuang",
+        "name": "气味伪装",
+        "type": "伪装",
+        "description": "通过穿戴目标人物的衣物来模仿其独特气味",
+        "source_skill": "skill_yi_rong_shu",
+        "source_refs": [
+          {
+            "chapter": 14,
+            "line_start": 590,
+            "line_end": 590,
+            "text": "我若穿上这身衣服，嗅起来一定也差不多"
+          }
+        ]
+      }
+    ],
+    "progression": "level 3",
+    "effects": [
+      "完美伪装他人身份",
+      "瞒过熟悉目标的人"
+    ],
+    "combat_style": "非战斗",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 618,
+        "line_end": 620,
+        "text": "我的易容术虽然并不高明"
+      },
+      {
+        "chapter": 14,
+        "line_start": 596,
+        "line_end": 598,
+        "text": "他的神气举动，我有把握可以学得很象"
+      }
+    ]
+  }
+]
