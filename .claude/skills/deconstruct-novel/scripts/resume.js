@@ -36,7 +36,7 @@ const existingChapterJsons = new Set(
     .map(f => f.replace('.json', ''))
 );
 
-// 检测进行中的章节（有 progress.jsonl 但没有最终 json）
+// 检测可恢复章节（有 progress.jsonl 但没有最终 json；不代表有 Agent 正在运行）
 const progressFiles = new Set(
   fs.readdirSync(batchJsonDir)
     .filter(f => f.startsWith('ch_') && f.endsWith('_progress.jsonl'))
@@ -81,8 +81,9 @@ if (completedChapters.length > 0) {
 }
 
 if (inProgressChapters.length > 0) {
-  console.log(`[恢复] 🔄 进行中: ${inProgressChapters.join(', ')}`);
-  // 显示每个进行中章节的进度
+  console.log(`[恢复] 🔄 可恢复: ${inProgressChapters.join(', ')}`);
+  console.log(`     注意: 可恢复只表示存在 progress.jsonl，不代表有 Sub Agent 正在运行`);
+  // 显示每个可恢复章节的进度
   for (const ch of inProgressChapters) {
     const progressFile = path.join(batchJsonDir, `${ch}_progress.jsonl`);
     const lines = fs.readFileSync(progressFile, 'utf8').trim().split('\n').filter(Boolean);
@@ -125,10 +126,10 @@ console.log('');
 console.log('[恢复] 下一步建议:');
 if (inProgressChapters.length > 0 || pendingChapters.length > 0) {
   const total = inProgressChapters.length + pendingChapters.length;
-  console.log(`  ⚠️  还有 ${total} 章待处理（${inProgressChapters.length} 章进行中，${pendingChapters.length} 章未开始）`);
-  console.log(`  💡 Agent 自主决定并行度（RPM < 100）`);
+  console.log(`  ⚠️  还有 ${total} 章待处理（${inProgressChapters.length} 章可恢复，${pendingChapters.length} 章未开始）`);
+  console.log(`  💡 如果当前没有 Sub Agent 正在运行，必须立即继续派发（RPM < 100）`);
   if (inProgressChapters.length > 0) {
-    console.log(`  💡 进行中的章节会从上次中断的段落继续`);
+    console.log(`  💡 可恢复章节会从上次中断的段落继续`);
   }
 } else if (completedChapters.length === totalChapters && !hasRegistry) {
   console.log(`  💡 运行 merge-entities.js 合并注册表`);
@@ -147,10 +148,12 @@ const resumeData = {
   novelDir,
   totalChapters,
   completedChapters: completedChapters.length,
+  resumableChapters: inProgressChapters.length,
   inProgressChapters: inProgressChapters.length,
   pendingChapters: pendingChapters.length,
   overallProgress: pct,
   completed: completedChapters,
+  resumable: inProgressChapters,
   inProgress: inProgressChapters,
   pending: pendingChapters,
   registry: {
