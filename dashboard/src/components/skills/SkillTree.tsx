@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Card, Tag, Typography, Empty, Spin, Space, Row, Col } from 'antd';
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
+import { getSkillRank, getSkillSummary, getSkillTechniques, getSkillType } from '../../utils/skillDisplay';
 
 const { Text, Paragraph } = Typography;
 
@@ -11,7 +12,7 @@ const SkillTree: React.FC = () => {
   const groupedSkills = useMemo(() => {
     const groups: Record<string, typeof skills> = {};
     skills.forEach((skill) => {
-      const type = skill.type || '其他';
+      const type = getSkillType(skill);
       if (!groups[type]) {
         groups[type] = [];
       }
@@ -91,8 +92,10 @@ const SkillTree: React.FC = () => {
                   };
 
                   const relatedChars = characters.filter((c) =>
-                    c.known_skills.includes(skill.id)
+                    Array.isArray(c.known_skills) && c.known_skills.includes(skill.id)
                   );
+                  const skillRank = getSkillRank(skill);
+                  const techniques = getSkillTechniques(skill);
 
                   return (
                     <Col xs={24} sm={12} md={8} lg={6} key={skill.id}>
@@ -105,10 +108,10 @@ const SkillTree: React.FC = () => {
                         <div style={{ marginBottom: 8 }}>
                           <Text strong>{skill.name}</Text>
                           <Tag
-                            color={rankColor[skill.rank] || 'default'}
+                            color={rankColor[skillRank] || 'default'}
                             style={{ marginLeft: 8 }}
                           >
-                            {skill.rank}
+                            {skillRank}
                           </Tag>
                         </div>
                         <Paragraph
@@ -116,16 +119,16 @@ const SkillTree: React.FC = () => {
                           type="secondary"
                           style={{ marginBottom: 8, fontSize: 12 }}
                         >
-                          {skill.one_line}
+                          {getSkillSummary(skill)}
                         </Paragraph>
                         <div>
-                          {skill.techniques.slice(0, 3).map((tech) => (
+                          {techniques.slice(0, 3).map((tech) => (
                             <Tag key={tech.id} style={{ marginBottom: 4 }}>
                               {tech.name}
                             </Tag>
                           ))}
-                          {skill.techniques.length > 3 && (
-                            <Tag>+{skill.techniques.length - 3}</Tag>
+                          {techniques.length > 3 && (
+                            <Tag>+{techniques.length - 3}</Tag>
                           )}
                         </div>
                         {relatedChars.length > 0 && (

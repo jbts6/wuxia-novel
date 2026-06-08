@@ -36,6 +36,7 @@ function plain(value) {
 
 const detailNavigation = loadTsModule('src/utils/detailNavigation.ts');
 const graphHelper = loadTsModule('src/utils/graphHelper.ts');
+const skillDisplay = loadTsModule('src/utils/skillDisplay.ts');
 
 assert.equal(
   detailNavigation.formatDetailParam({ type: 'character', id: 'char_li_xun_huan' }),
@@ -46,6 +47,19 @@ assert.deepEqual(
   { type: 'skill', id: 'skill_xiao_li_fei_dao' },
 );
 assert.equal(detailNavigation.parseDetailParam('dialogue:bad'), null);
+const sparseSkill = {
+  id: 'skill_luo_han_quan',
+  name: '少林罗汉拳',
+  type: '拳法',
+  one_line: '基础拳法',
+};
+assert.deepEqual(plain(skillDisplay.getSkillTechniques(sparseSkill)), []);
+assert.equal(skillDisplay.getSkillRank(sparseSkill), '未分级');
+assert.equal(skillDisplay.getSkillType({ id: 'skill_unknown', name: '无名功' }), '其他');
+assert.equal(
+  skillDisplay.getSkillSummary({ id: 'skill_desc', name: '说明型技能', description: '来自旧数据' }),
+  '来自旧数据',
+);
 assert.deepEqual(
   plain(detailNavigation.getDetailSyncAction(
     'character:old',
