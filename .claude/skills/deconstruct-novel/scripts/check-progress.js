@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validateChapterData } = require('./validators');
 
 const novelDir = process.argv[2];
 const chapterNum = process.argv[3];
@@ -16,6 +17,26 @@ const progressJsonl = path.join(batchJsonDir, `ch_${chapterNum.padStart(3, '0')}
 
 // 检查最终文件是否已存在
 if (fs.existsSync(chapterJson)) {
+  try {
+    const chapter = JSON.parse(fs.readFileSync(chapterJson, 'utf8'));
+    const errors = validateChapterData(chapter, path.basename(chapterJson));
+    if (errors.length > 0) {
+      console.log(JSON.stringify({
+        status: 'invalid',
+        completedSegments: 0,
+        message: '本章最终文件存在但无效，需要重新合并或重新提取',
+        errors: errors.slice(0, 10)
+      }));
+      process.exit(0);
+    }
+  } catch (err) {
+    console.log(JSON.stringify({
+      status: 'invalid',
+      completedSegments: 0,
+      message: `本章最终文件无法解析: ${err.message}`
+    }));
+    process.exit(0);
+  }
   console.log(JSON.stringify({
     status: 'completed',
     completedSegments: 0,

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validateChapterData } = require('./validators');
 
 const novelDir = process.argv[2];
 if (!novelDir) {
@@ -21,7 +22,7 @@ if (!fs.existsSync(chapterListPath)) {
 
 const chapterList = JSON.parse(fs.readFileSync(chapterListPath, 'utf-8'));
 const totalChapters = chapterList.totalChapters;
-const allChapters = chapterList.chapters.map(f => f.replace('.md', ''));
+const allChapters = chapterList.chapters.map(normalizeChapterStem);
 
 if (!fs.existsSync(batchJsonDir)) {
   console.error(`[恢复] ❌ ${batchJsonDir} 不存在`);
@@ -29,12 +30,24 @@ if (!fs.existsSync(batchJsonDir)) {
   process.exit(1);
 }
 
-// 读取所有已完成的章节
-const existingChapterJsons = new Set(
-  fs.readdirSync(batchJsonDir)
-    .filter(f => f.startsWith('ch_') && f.endsWith('.json'))
-    .map(f => f.replace('.json', ''))
-);
+// 读取所有有效完成章节。存在但无效的 ch_N.json 不算完成。
+const existingChapterJsons = new Set();
+const invalidChapterJsons = [];
+for (const f of fs.readdirSync(batchJsonDir).filter(f => f.startsWith('ch_') && f.endsWith('.json'))) {
+  const stem = f.replace('.json', '');
+  const filePath = path.join(batchJsonDir, f);
+  try {
+    const chapter = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    const errors = validateChapterData(chapter, f);
+    if (errors.length > 0) {
+      invalidChapterJsons.push({ chapter: stem, file: f, errors: errors.slice(0, 5) });
+    } else {
+      existingChapterJsons.add(stem);
+    }
+  } catch (err) {
+    invalidChapterJsons.push({ chapter: stem, file: f, errors: [err.message] });
+  }
+}
 
 // 检测可恢复章节（有 progress.jsonl 但没有最终 json；不代表有 Agent 正在运行）
 const progressFiles = new Set(
@@ -48,25 +61,38 @@ const inProgressChapters = allChapters.filter(ch => !existingChapterJsons.has(ch
 const pendingChapters = allChapters.filter(ch => !existingChapterJsons.has(ch) && !progressFiles.has(ch));
 
 // 检查合并状态
-const hasRegistry = fs.existsSync(registryPath);
+const registryExists = fs.existsSync(registryPath);
+let hasRegistry = false;
 let registryEntityCount = 0;
-if (hasRegistry) {
+let registryErrors = [];
+if (registryExists) {
   try {
     const registry = JSON.parse(fs.readFileSync(registryPath, 'utf-8'));
+    hasRegistry = true;
     registryEntityCount = Object.values(registry).reduce((sum, arr) => sum + arr.length, 0);
   } catch (e) {
-    // JSON 损坏
+    registryErrors = [e.message];
   }
 }
 
 // 检查最终输出文件
 const finalOutputs = ['characters.json', 'skills.json', 'techniques.json', 'factions.json', 'locations.json', 'items.json', 'dialogues.json', 'chapter_summaries.json'];
 const outputStatus = {};
+const invalidOutputs = [];
 let finalOutputCount = 0;
 for (const f of finalOutputs) {
-  const exists = fs.existsSync(path.join(novelDir, f));
-  outputStatus[f] = exists;
-  if (exists) finalOutputCount++;
+  const outputPath = path.join(novelDir, f);
+  let valid = false;
+  if (fs.existsSync(outputPath)) {
+    try {
+      JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+      valid = true;
+    } catch (err) {
+      invalidOutputs.push({ file: f, error: err.message });
+    }
+  }
+  outputStatus[f] = valid;
+  if (valid) finalOutputCount++;
 }
 
 // === 输出报告 ===
@@ -78,6 +104,13 @@ console.log('');
 
 if (completedChapters.length > 0) {
   console.log(`[恢复] ✅ 已完成: ${completedChapters.join(', ')}`);
+}
+
+if (invalidChapterJsons.length > 0) {
+  console.log(`[恢复] ❌ 无效章节文件: ${invalidChapterJsons.map(x => x.file).join(', ')}`);
+  for (const item of invalidChapterJsons.slice(0, 5)) {
+    console.log(`     ${item.file}: ${item.errors[0]}`);
+  }
 }
 
 if (inProgressChapters.length > 0) {
@@ -101,6 +134,8 @@ console.log('');
 console.log('[恢复] 合并状态:');
 if (hasRegistry) {
   console.log(`  ✅ entity_registry.json: ${registryEntityCount} 个实体`);
+} else if (registryExists) {
+  console.log(`  ❌ entity_registry.json: 无效 (${registryErrors[0] || '无法解析'})`);
 } else {
   console.log(`  ⬜ entity_registry.json: 不存在`);
   if (completedChapters.length > 0) {
@@ -119,6 +154,9 @@ if (finalOutputCount > 0 && finalOutputCount < 8) {
   console.log(`  💡 提示: 最终产物不完整 (${finalOutputCount}/8)，需要重新运行第4~5步`);
 } else if (finalOutputCount === 8) {
   console.log('  🎉 所有最终产物已就绪');
+}
+if (invalidOutputs.length > 0) {
+  console.log(`  ❌ 无效最终产物: ${invalidOutputs.map(x => x.file).join(', ')}`);
 }
 
 // 下一步建议
@@ -151,11 +189,13 @@ const resumeData = {
   resumableChapters: inProgressChapters.length,
   inProgressChapters: inProgressChapters.length,
   pendingChapters: pendingChapters.length,
+  invalidChapters: invalidChapterJsons.length,
   overallProgress: pct,
   completed: completedChapters,
   resumable: inProgressChapters,
   inProgress: inProgressChapters,
   pending: pendingChapters,
+  invalid: invalidChapterJsons,
   registry: {
     exists: hasRegistry,
     entityCount: registryEntityCount
@@ -163,10 +203,18 @@ const resumeData = {
   finalOutput: {
     count: finalOutputCount,
     total: 8,
-    files: outputStatus
+    files: outputStatus,
+    invalid: invalidOutputs
   }
 };
 
 const resumeJsonPath = path.join(novelDir, 'batch_resume.json');
 fs.writeFileSync(resumeJsonPath, JSON.stringify(resumeData, null, 2), 'utf-8');
 console.log(`\n[恢复] 详细报告已写入 ${resumeJsonPath}`);
+
+function normalizeChapterStem(file) {
+  const stem = file.replace(/\.md$/, '');
+  const match = stem.match(/^ch_(\d+)$/);
+  if (!match) return stem;
+  return `ch_${match[1].padStart(3, '0')}`;
+}

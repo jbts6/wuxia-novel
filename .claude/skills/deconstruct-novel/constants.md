@@ -3,6 +3,9 @@
 ## ID 与来源
 
 - ID：小写拼音 + 下划线，前缀固定为 `char_`、`faction_`、`loc_`、`skill_`、`item_`、`tech_`。
+- 拼音必须按汉字逐字拆分音节：`萧秋水 -> char_xiao_qiu_shui`，不能写成 `xiao_qiushui`、`char_xiaoqiushui`。
+- ID 只能包含 ASCII 小写字母和下划线；禁止中文、数字、大小写混用：`char_刁金保`、`char_feixiao` 都不合规。
+- 生成 ID 前先写出“中文名 -> 拼音音节 -> 最终 ID”，再写入 JSON。
 - 未命名角色也要建 ID：如 `老丐 -> char_lao_gai`，`白衣女子 -> char_bai_yi_nv_zi`。真名揭晓时更新 `name`，旧称呼放入 `alias`。
 - 每个实体必须有 `source_refs`：`[{ "chapter": 1, "line_start": 42, "line_end": 45, "text": "原文片段" }]`。
 - `rag_refs` 只放章节号数组。

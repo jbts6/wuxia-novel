@@ -76,7 +76,7 @@ if (existingChapterJsons.length > 0) {
   console.log(`\n[检测] 已有 ${existingChapterJsons.length} 个章节的提取结果`);
   console.log(`  已完成: ${existingChapterJsons.sort().join(', ')}`);
   const pendingChapters = chapterFiles.filter(f => {
-    const num = f.replace('ch_', '').replace('.md', '');
+    const num = f.replace('ch_', '').replace('.md', '').padStart(3, '0');
     return !existingChapterJsons.includes(`ch_${num}.json`);
   });
   if (pendingChapters.length > 0) {

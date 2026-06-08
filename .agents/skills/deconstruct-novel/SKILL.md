@@ -15,7 +15,7 @@ description: Use when the user asks to deconstruct a formatted wuxia novel, extr
 - 先判断状态：首次运行 `prepare.js`；中断、断连或不确定进度时先运行 `resume.js`。
 - 主 Agent 不直接通读章节正文；每个 Sub Agent 只处理 1 章。
 - 并发 5-8 个 Sub Agent，保持 RPM < 100。
-- 调度必须保持活性：只要还有未完成章节且当前运行中的 Sub Agent 为 0，必须立即继续派发，不能等待、合并或收尾。
+- 调度只以文件事实为准：有效 `ch_NNN.json` 才算完成；无效 JSON、缺失字段、坏 ID 都不算完成。
 - 章节提取必须增量写 `batch_json/ch_NNN_progress.jsonl`，最后合并为 `batch_json/ch_NNN.json`；重跑要跳过已完成章节和已完成段落。
 - 使用 CommonJS `require`；不要用 ESM `import`，不要创建 `.cjs` 文件。
 - ID、schema、rank、枚举、dialogue tone 规则以参考文件为准，不在主技能里复述。
@@ -33,25 +33,24 @@ description: Use when the user asks to deconstruct a formatted wuxia novel, extr
    - `node <技能目录>/scripts/split-registry.js <小说目录路径>`
 4. 验证最终产物。
 
-## 主 Agent 调度门
+## 主 Agent 文件状态门
 
-主 Agent 维护一个运行表：`queued`、`running`、`completed`、`failed`。每次 Sub Agent 完成、失败、超时、用户恢复会话，或运行 `resume.js` 后，都必须重新计算：
+主 Agent 不依赖 Sub Agent 的口头状态、运行表或通知。每次 Sub Agent 完成、失败、超时、用户恢复会话，或准备进入下一阶段前，都必须运行 `resume.js` 或等价文件扫描，并按文件有效性重新计算：
 
 ```text
-unfinished = 可恢复章节 + 未开始章节
-capacity = min(8, max(5, 100 RPM 允许的并发)) - running
-if unfinished > 0 and running == 0:
-    立即派发 min(5, unfinished) 个 Sub Agent
-elif unfinished > 0 and capacity > 0:
-    补足到 5-8 个 Sub Agent
-else if unfinished == 0:
+completed = 存在且校验通过的 batch_json/ch_NNN.json
+unfinished = 无效章节 + 可恢复章节 + 未开始章节
+if unfinished > 0:
+    继续派发或修复对应章节，直到文件有效
+else:
     进入合并阶段
 ```
 
 硬性解释：
-- `resume.js` 中的“可恢复章节”只表示有 `progress.jsonl`，不表示有 Sub Agent 正在运行。
-- 有 `progress.jsonl` 但无 `ch_N.json` 的章节必须重新派发；Sub Agent 会从已完成段落后继续。
-- 禁止在 `unfinished > 0 && running == 0` 时向用户汇报“等待中”、进入合并、验证或最终收尾。
+- Sub Agent 是否还在运行不参与完成判定；可能已经完成但没有通知，也可能已停止但留下 progress 文件。
+- 有效完成只看 `batch_json/ch_NNN.json` 是否存在、可解析、结构有效、ID 合规。
+- 有 `progress.jsonl` 但无有效 `ch_NNN.json` 的章节必须重新派发或重新合并；Sub Agent 会从已完成段落后继续。
+- 禁止在 `unfinished > 0` 时进入合并、验证或最终收尾。
 
 ## 继续任务时
 
@@ -59,7 +58,7 @@ else if unfinished == 0:
 
 | 状态 | 下一步 |
 |------|--------|
-| 还有可恢复或未开始章节 | 继续启动 Sub Agent 提取 |
+| 还有无效、可恢复或未开始章节 | 继续启动 Sub Agent 修复/提取 |
 | 章节完成但无 `entity_registry.json` | 运行 `merge-entities.js` |
 | 最终 8 个产物不完整 | 运行 `merge-dialogues.js` 和/或 `split-registry.js` |
 | 全部完整 | 只做验证 |

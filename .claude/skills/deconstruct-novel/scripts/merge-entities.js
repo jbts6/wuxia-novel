@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validateChapterData } = require('./validators');
 
 const novelDir = process.argv[2];
 
@@ -70,7 +71,15 @@ for (const chapterFile of chapterFiles) {
     chapterData = JSON.parse(fs.readFileSync(chapterPath, 'utf8'));
   } catch (err) {
     console.error(`[错误] 无法解析 ${chapterFile}: ${err.message}`);
-    continue;
+    process.exit(1);
+  }
+
+  const validationErrors = validateChapterData(chapterData, chapterFile);
+  if (validationErrors.length > 0) {
+    console.error(`[错误] ${chapterFile} 校验失败，停止合并:`);
+    for (const err of validationErrors.slice(0, 30)) console.error(`  - ${err}`);
+    if (validationErrors.length > 30) console.error(`  ... 还有 ${validationErrors.length - 30} 个错误`);
+    process.exit(1);
   }
 
   const chapterNum = chapterData.chapter;

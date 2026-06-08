@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validateChapterData } = require('./validators');
 
 const novelDir = process.argv[2];
 
@@ -36,12 +37,20 @@ for (const f of files) {
   const chapterPath = path.join(batchJsonDir, f);
   try {
     const chapter = JSON.parse(fs.readFileSync(chapterPath, 'utf8'));
+    const validationErrors = validateChapterData(chapter, f);
+    if (validationErrors.length > 0) {
+      console.error(`[错误] ${f} 校验失败，停止合并:`);
+      for (const err of validationErrors.slice(0, 30)) console.error(`  - ${err}`);
+      if (validationErrors.length > 30) console.error(`  ... 还有 ${validationErrors.length - 30} 个错误`);
+      process.exit(1);
+    }
     allDialogues = allDialogues.concat(chapter.dialogues || []);
     if (chapter.chapter_summary) {
       allSummaries.push({ chapter: chapter.chapter, summary: chapter.chapter_summary });
     }
   } catch (err) {
-    console.warn(`[警告] 无法解析 ${f}: ${err.message}`);
+    console.error(`[错误] 无法解析 ${f}: ${err.message}`);
+    process.exit(1);
   }
 }
 

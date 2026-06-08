@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validateChapterData } = require('./validators');
 
 const novelDir = process.argv[2];
 const chapterNum = process.argv[3];
@@ -96,6 +97,14 @@ const result = {
   new_entities: allNewEntities,
   entity_updates: Array.from(updateMap.values())
 };
+
+const validationErrors = validateChapterData(result, `ch_${paddedNum}.json`);
+if (validationErrors.length > 0) {
+  console.error(`[错误] ch_${paddedNum}.json 校验失败，未写入最终文件:`);
+  for (const err of validationErrors.slice(0, 30)) console.error(`  - ${err}`);
+  if (validationErrors.length > 30) console.error(`  ... 还有 ${validationErrors.length - 30} 个错误`);
+  process.exit(1);
+}
 
 fs.writeFileSync(outputFile, JSON.stringify(result, null, 2), 'utf8');
 

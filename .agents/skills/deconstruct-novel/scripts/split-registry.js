@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validateRegistry } = require('./validators');
 
 const novelDir = process.argv[2];
 
@@ -20,6 +21,13 @@ if (!fs.existsSync(registryPath)) {
 console.log(`[拆分] 小说目录: ${novelDir}`);
 
 const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+const validationErrors = validateRegistry(registry);
+if (validationErrors.length > 0) {
+  console.error(`[错误] entity_registry.json 校验失败，停止拆分:`);
+  for (const err of validationErrors.slice(0, 30)) console.error(`  - ${err}`);
+  if (validationErrors.length > 30) console.error(`  ... 还有 ${validationErrors.length - 30} 个错误`);
+  process.exit(1);
+}
 
 // 拆分为 6 个文件
 const types = ['characters', 'skills', 'techniques', 'factions', 'locations', 'items'];
