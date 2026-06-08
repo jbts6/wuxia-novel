@@ -22,8 +22,8 @@ const path = require('path');
 const CHAPTER_PATTERNS = [
   // 中文数字章节标题（如：一　灭门、二　聆秘、十四　论杯）
   /^[\s　]*[一二三四五六七八九十百千]+[、　\s\t]+[^\s　]/m,
-  // 第X章、第X回、第X节（支持中文数字和阿拉伯数字）
-  /^[\s　]*[（(]?第[一二三四五六七八九十百千万\d]+[章回节卷][）)]?/m,
+  // 第X章、第X回、第X节（支持中文数字和阿拉伯数字，数字前后可有空格）
+  /^[\s　]*[（(]?第[\s　]*[一二三四五六七八九十百千万\d]+[\s　]*[章回节卷][）)]?/m,
   // （第X回完）
   /^[\s　]*（第[一二三四五六七八九十百千万\d]+[回章]完）/m,
   // 纯数字章节标题（如：001、002）
@@ -105,14 +105,12 @@ function main() {
   console.log(`章节数: ${chapters.length}`);
 
   if (chapters.length === 0) {
-    console.error('错误: 未检测到章节标题');
-    console.log('');
-    console.log('支持的章节格式:');
-    console.log('  - 中文数字：一、二、三...');
-    console.log('  - 第X章、第X回、第X节');
-    console.log('  - （第X回完）');
-    console.log('  - 纯数字：001、002 等');
-    process.exit(1);
+    if (!content.trim()) {
+      console.error('错误: txt 文件为空');
+      process.exit(1);
+    }
+    console.log('未检测到章节标题，按短篇/单章作品处理');
+    chapters.push(content.trim());
   }
 
   // 创建输出目录

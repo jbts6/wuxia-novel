@@ -1,144 +1,47 @@
 ---
 name: batch-format-novel
-description: 批量排版武侠小说章节。用户给出小说目录路径，自动完成 txt 拆分和排版。Use when batch formatting novel chapters or when user provides a novel directory path for formatting.
+description: Use when a wuxia novel directory needs formatted chapter files, when ch_formatted is missing before deconstruction, or when raw txt/ch_original chapters need normalization.
 ---
 
 # 批量排版小说
 
-## 快速开始
+把小说目录整理成 `<小说目录>/ch_formatted/ch_*.md`，供 `deconstruct-novel` 继续抽取。
+
+下文的 `<技能目录>` 指当前加载的 `batch-format-novel` 技能目录，例如 `.agents/skills/batch-format-novel` 或 `.claude/skills/batch-format-novel`。
+
+## 执行
 
 ```bash
-node .agents/skills/batch-format-novel/scripts/batch-format.js <小说目录路径>
+node <技能目录>/scripts/batch-format.js <小说目录路径>
 ```
 
-**示例**：
-```bash
-node .agents/skills/batch-format-novel/scripts/batch-format.js "金庸/天龙八部"
-```
+脚本会：
+- 没有 `ch_original/` 时，从目录内 `.txt` 拆分章节。
+- 没有章节标题时，把整本作为 `ch_original/ch_01.md`。
+- 创建 `ch_formatted/`，跳过已排版章节，只处理缺失章节。
+- 对章节做引号规范化、段落空行和行宽整理。
 
-## 工作流程
+## 必守规则
 
-### 1. 检测目录结构
+- 运行前确认小说目录存在。
+- 如果既没有 `.txt`，也没有 `ch_original/ch_*.md`，向用户要原文文件。
+- 如果拆分章数明显不对，先停下，让用户确认章节标题格式；不要继续排版错误章节。
+- 不要手动覆盖已存在的 `ch_formatted/ch_*.md`。要重排某章，先让用户确认删除对应文件。
+- 输出成功条件：`ch_formatted/` 存在，且至少有一个 `ch_*.md`。
 
-```
-<小说目录>/
-├── 天龙八部.txt          # 小说原文（txt 格式）
-├── ch_original/          # 拆分后的章节原文（自动创建）
-│   ├── ch_01.md
-│   ├── ch_02.md
-│   └── ...
-└── ch_formatted/         # 排版后的章节（自动生成）
-    ├── ch_01.md
-    ├── ch_02.md
-    └── ...
-```
+## 何时人工介入
 
-### 2. 章节拆分（如果需要）
-
-**重要**：每本书的章节标题格式不同，需要 LLM 灵活处理。
-
-**LLM 拆分流程**：
-1. 读取 txt 文件开头（前 200 行），识别章节标题格式
-2. 根据识别的格式，生成拆分代码
-3. 执行拆分，输出到 `ch_original/ch_01.md`, `ch_02.md`, ...
-
-**常见格式示例**：
-- 天龙八部：`一　　青衫磊落险峰行`（中文数字 + 标题）
-- 射雕英雄传：`第一回 风雪惊变`
-- 笑傲江湖：`灭门`（纯标题，需人工确认）
-
-**如果无法自动识别**：询问用户章节标题格式。
-
-### 短篇小说处理
-
-短篇小说（或单章作品）与长篇有本质区别，需要单独处理：
-
-**特征：**
-- 全文无章节标题（无"第X章"、"第X回"等分隔标记）
-- 整本体量可能只有长篇小说一个章节的大小（几千字到一两万字）
-- 结构紧凑，不宜强行拆分
-
-**处理流程：**
-1. 读取 txt 文件全部内容
-2. 判断是否有章节标题格式（尝试匹配常见格式）
-3. **如果没有章节标题** → 将整本作为**一个章节**处理：
-   - 拆分输出：`ch_original/ch_01.md`（仅此一个文件）
-   - 排版输出：`ch_formatted/ch_01.md`（仅此一个文件）
-4. **不要强行拆分** — 短篇小说的段落是连续叙事，硬拆会破坏上下文连贯性
-5. 排版时正常执行段落分离和引号规范化，与长篇单章处理一致
-
-**典型示例：** `金庸/鸳鸯刀/鸳鸯刀.txt` — 全文约8000字，无章节标题，整本作为一个章节处理。
-
-**判断标准：**
-- 全文 < 5000 字 → 大概率是短篇，整本作为一章
-- 全文 5000~20000 字 → 检查有无章节标题，有则按标题拆分，无则整本作为一章
-- 全文 > 20000 字 → 几乎一定有章节标题，按正常流程处理
-
-### 3. 增量排版
-
-- 扫描 `ch_formatted` 中已存在的章节
-- 跳过已排版的章节
-- 只处理剩余章节
-
-### 4. 执行排版
-
-对每个待处理章节调用 `auto-format.js`：
-- 识别说话标记（说道、笑道、心想等）
-- 按叙述/对话分离
-- 控制行宽（30-50 字符）
-- 保持弯引号格式
-
-## LLM 拆分示例
-
-当用户给出路径时，LLM 应该：
-
-1. **读取文件开头**，识别章节格式
-2. **生成拆分代码**，例如：
-
-```javascript
-// 天龙八部格式：一　　标题
-const chapters = content.split(/(?=^[一二三四五六七八九十]+　　)/m);
-```
-
-3. **执行拆分**，写入 `ch_original/`
-
-## 输出示例
-
-```
-[批量排版] 金庸/天龙八部
-
-[步骤 1] ch_original 不存在，开始拆分...
-[识别] 章节格式：中文数字 + 标题
-[拆分] 共 50 章
-
-[统计] 原文: 50 章
-[统计] 已排版: 3 章
-[统计] 待处理: 47 章
-
-[步骤 4] 开始排版 47 章...
-
-  排版 ch_04.md...
-  ✓ ch_04.md 完成
-
-==================================================
-[完成] 成功: 47 章
-==================================================
-```
-
-## 依赖脚本
-
-| 脚本 | 作用 |
+| 情况 | 处理 |
 |------|------|
-| `split-by-chapter.js` | 按章节标题拆分（需 LLM 配置正则） |
-| `auto-format.js` | 单章排版（说话标记、行宽、引号） |
+| 标题格式无法识别但全文很短 | 整本作为一章 |
+| 标题格式无法识别且全文很长 | 询问用户章节标题格式 |
+| 生成章节数异常 | 停止，报告章数和疑似标题样例 |
+| 需要重新排版 | 只删除用户指定章节的 formatted 文件后重跑 |
 
-## 常见问题
+## 脚本
 
-**Q: 如何重新排版某章？**
-A: 删除 `ch_formatted` 中对应的 md 文件，重新运行脚本。
-
-**Q: 章节标题格式不识别？**
-A: 让 LLM 读取 txt 开头，识别格式后生成拆分代码。
-
-**Q: 拆分不准确？**
-A: LLM 可以手动调整拆分点，或修改 `split-by-chapter.js` 中的正则。
+| 脚本 | 用途 |
+|------|------|
+| `scripts/batch-format.js` | 总入口 |
+| `scripts/split-by-chapter.js` | txt 拆分到 `ch_original/` |
+| `scripts/auto-format.js` | 单章排版到 `ch_formatted/` |

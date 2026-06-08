@@ -11,6 +11,7 @@ description: Use when the user asks to deconstruct a formatted wuxia novel, extr
 
 ## 必守规则
 
+- 先确认 `<小说目录>/ch_formatted/ch_*.md` 存在；如果 `ch_formatted` 不存在或为空，必须先使用 `batch-format-novel` 格式化原文。
 - 先判断状态：首次运行 `prepare.js`；中断、断连或不确定进度时先运行 `resume.js`。
 - 主 Agent 不直接通读章节正文；每个 Sub Agent 只处理 1 章。
 - 并发 5-8 个 Sub Agent，保持 RPM < 100。
@@ -20,6 +21,7 @@ description: Use when the user asks to deconstruct a formatted wuxia novel, extr
 
 ## 执行顺序
 
+0. 前置检查：确认 `<小说目录>/ch_formatted/` 中存在 `ch_*.md`。缺失时先调用 `batch-format-novel`，完成后再继续。
 1. 准备或恢复：
    - 首次：`node <技能目录>/scripts/prepare.js <小说目录路径>`
    - 继续：`node <技能目录>/scripts/resume.js <小说目录路径>`

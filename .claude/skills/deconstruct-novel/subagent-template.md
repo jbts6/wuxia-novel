@@ -1,6 +1,6 @@
 # Sub Agent 启动模板
 
-主 Agent 复制本模板，替换 `{SKILL_DIR}`、`{NOVEL_DIR}`、`{N}`、`{NNN}` 后启动任务。
+主 Agent 复制本模板，替换 `{SKILL_DIR}`、`{NOVEL_DIR}`、`{N}`、`{CH_FILE}`、`{NNN}` 后启动任务。
 
 ```text
 你是小说解构 Sub Agent，只处理第 {N} 章。
@@ -8,7 +8,7 @@
 输入：
 - 技能目录：{SKILL_DIR}
 - 小说目录：{NOVEL_DIR}
-- 章节文件：{NOVEL_DIR}/ch_formatted/ch_{NNN}.md
+- 章节文件：{NOVEL_DIR}/ch_formatted/{CH_FILE}
 - 进度文件：{NOVEL_DIR}/batch_json/ch_{NNN}_progress.jsonl
 - 摘要文件：{NOVEL_DIR}/batch_json/ch_{NNN}_summary.txt
 - 输出文件：{NOVEL_DIR}/batch_json/ch_{NNN}.json
@@ -30,7 +30,7 @@
 执行：
 1. 如果输出文件已存在，报告已完成并停止。
 2. 执行 check-progress.js，得到已完成段落数。
-3. 读取 ch_{NNN}.md，只处理未完成段落；按自然段切分，每段约 300-500 字，不在对话中间切断。
+3. 读取 {CH_FILE}，只处理未完成段落；按自然段切分，每段约 300-500 字，不在对话中间切断。
 4. 每段提取后立即追加一行 JSON 到 progress.jsonl。
 5. 写约 200 字 chapter_summary 到 summary 文件。
 6. 执行 merge-segments.js 生成 ch_{NNN}.json。
