@@ -1,0 +1,817 @@
+[
+  {
+    "id": "wuji_xiandan_real",
+    "name": "无极先丹（假）",
+    "type": "丹药",
+    "origin": "浣花剑派",
+    "rarity": "稀世",
+    "description": "武林人士梦寐以求的瑰宝，实为有毒的假丹药，萧秋水奉剑王之命送往李沉舟",
+    "effects": [],
+    "related_characters": [
+      "xiao_qiushui",
+      "li_chenzhou"
+    ],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      "ch_01_L12"
+    ]
+  },
+  {
+    "id": "item_wang_qing_tian_shu",
+    "name": "忘情天书",
+    "type": "special",
+    "owner": "",
+    "one_line": "燕狂徒所著武林至宝",
+    "description": "昔年第一大豪燕狂徒留下的武功秘籍，记载绝世武功，得之可拥有燕狂徒之武学造诣，为武林瑰宝",
+    "effects": [
+      "记载绝世武功",
+      "拥有燕狂徒武学造诣"
+    ],
+    "origin": "燕狂徒",
+    "rarity": "绝世神兵",
+    "related_characters": [
+      "char_yan_kuang_tu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 214,
+        "line_end": 216,
+        "text": "忘情天书出现江湖"
+      },
+      {
+        "chapter": 3,
+        "line_start": 64,
+        "line_end": 64,
+        "text": "击杀燕某夺得《忘情天书》"
+      },
+      {
+        "chapter": 4,
+        "line_start": 80,
+        "line_end": 80,
+        "text": "又听说你在此地夺得《忘情天书》"
+      }
+    ]
+  },
+  {
+    "id": "item_cu_bell",
+    "name": "金顶铜钟",
+    "type": "special",
+    "owner": "",
+    "one_line": "置于峨嵋金顶绝崖前的巨钟",
+    "description": "峨嵋金顶峰边的巨大铜钟，终年在云雾山壁之间，铁锤未必敲得响，却可以指风弹响",
+    "effects": [
+      "隔空弹指可响",
+      "声震群山"
+    ],
+    "origin": "峨嵋金顶",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_li_chen_zhou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 278,
+        "line_end": 284,
+        "text": "置放在峰边的巨大铜钟"
+      }
+    ]
+  },
+  {
+    "id": "item_wu_ji_xian_dan",
+    "name": "无极先丹",
+    "type": "pill",
+    "owner": "",
+    "one_line": "武林至宝丹药",
+    "description": "武林中人梦寐以求的丹药，具有神秘功效，多方势力争夺之物",
+    "effects": [
+      "增强功力",
+      "神秘功效"
+    ],
+    "origin": "",
+    "rarity": "绝世神兵",
+    "related_characters": [
+      "char_qu_han_shan",
+      "char_li_chen_zhou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 696,
+        "line_end": 696,
+        "text": "无极先丹"
+      },
+      {
+        "chapter": 3,
+        "line_start": 94,
+        "line_end": 96,
+        "text": "这丹丸原是邵流泪从燕狂徒那儿盗出来的"
+      },
+      {
+        "chapter": 4,
+        "line_start": 10,
+        "line_end": 10,
+        "text": "我吃了三颗无极先丹"
+      }
+    ]
+  },
+  {
+    "id": "item_hui_jian_sword",
+    "name": "慧剑（实体剑）",
+    "type": "weapon",
+    "owner": "char_mu_ye",
+    "one_line": "木叶从武林朋友处借来对付李沉舟的利剑",
+    "description": "一把一流的剑，木叶从武林朋友处借来，用于与李沉舟决斗。木叶表示此剑虽好，但其真正的剑术已超越了对实体剑的依赖。",
+    "effects": [
+      "增强攻击力"
+    ],
+    "origin": "武林友人所借",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_mu_ye",
+      "char_li_chen_zhou"
+    ],
+    "related_skills": [
+      "skill_hui_jian"
+    ],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 386,
+        "line_end": 386,
+        "text": "这剑是一流的剑，是从一位武林朋友处借来杀你的。"
+      }
+    ]
+  },
+  {
+    "id": "item_jie_dao_bao_xiang",
+    "name": "豹象戒刀",
+    "type": "weapon",
+    "owner": "char_bao_xiang",
+    "one_line": "豹象大师随身戒刀，曾击退十次以上对少林的迫犯",
+    "description": "豹象大师自幼随身的戒刀，锋利无比，曾击退十数次对少林的侵袭迫犯，是少林护法重器。",
+    "effects": [
+      "近战攻击",
+      "少林正宗刀法"
+    ],
+    "origin": "少林",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_bao_xiang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 9,
+        "line_end": 10,
+        "text": "他的一口戒刀，曾击退过十次以上对少林的迫犯"
+      }
+    ]
+  },
+  {
+    "id": "item_chang_ge_jian",
+    "name": "长歌",
+    "type": "weapon",
+    "owner": "char_xiao_qiu_shui",
+    "one_line": "萧家镇门宝剑，古剑长歌，历代风云人物佩剑",
+    "description": "萧家祠供前所奉祭的古剑，斑剥、陈旧、古意盎然，剑锋口一处隐冷闪着似波光似水光但又如毒蛇蓝牙般的寒芒，是萧家历代风云人物闯荡江湖的佩剑。",
+    "effects": [
+      "剑气凌厉",
+      "可吸云收雾"
+    ],
+    "origin": "萧家世代相传",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_xiao_qiu_shui"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 100,
+        "line_end": 101,
+        "text": "因为这柄剑就是宝剑长歌"
+      },
+      {
+        "chapter": 7,
+        "line_start": 56,
+        "line_end": 60,
+        "text": "剑鞘斑剥，剑身雪亮。古剑长歌。"
+      }
+    ]
+  },
+  {
+    "id": "item_tian_xia_ying_xiong_ling",
+    "name": "天下英雄令",
+    "type": "special",
+    "owner": null,
+    "one_line": "武林至宝，萧家剑庐藏有，各方势力争夺之物",
+    "description": "武林至高信物，天下英雄令，藏于浣花剑庐之中，萧父临终前嘱托木叶等人寻回，各方势力为此物争斗不休。",
+    "effects": [
+      "号令天下英雄",
+      "武林至宝"
+    ],
+    "origin": "浣花剑庐",
+    "rarity": "绝世神兵",
+    "related_characters": [
+      "char_xiao_qiu_shui"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      9,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 222,
+        "line_end": 222,
+        "text": "天下英雄令还留在剑庐"
+      },
+      {
+        "chapter": 9,
+        "line_start": 403,
+        "line_end": 421,
+        "text": "朱大天王要得到'天下英雄令'……费宫娥不从"
+      },
+      {
+        "chapter": 14,
+        "line_start": 152,
+        "line_end": 152,
+        "text": "老爷要激萧……萧大侠出来，是为了'天下英雄令'，有了这面令牌，朱大天王才会帮助我们"
+      }
+    ]
+  },
+  {
+    "id": "item_huan_hua_bao_jian",
+    "name": "浣花宝剑",
+    "type": "weapon",
+    "owner": "char_xiao_qiu_shui",
+    "one_line": "浣花剑派传派之宝剑",
+    "description": "浣花剑派的传派宝剑，萧父临终前交托给少林木叶和虎豹二位大师保管。",
+    "effects": [
+      "剑法增幅"
+    ],
+    "origin": "浣花剑派",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_xiao_qiu_shui"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 222,
+        "line_end": 222,
+        "text": "令尊把浣花宝剑交给我们"
+      }
+    ]
+  },
+  {
+    "id": "item_shi_chui_yang_ding",
+    "name": "石锤与秧钉",
+    "type": "weapon",
+    "owner": "char_sha_zai",
+    "one_line": "杀仔腰挂的石锤与秧钉，被罗海牛夺去杀死了杀仔",
+    "description": "杀仔随身携带的武器，石锤沉重有力，秧钉尖锐锋利，原为杀仔所有，后被罗海牛闪电般拔出并用以杀害杀仔本人。",
+    "effects": [
+      "伤害"
+    ],
+    "origin": "广东五虎",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_sha_zai",
+      "char_luo_hai_niu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 86,
+        "line_end": 86,
+        "text": "罗海牛闪电般拔出杀仔腰挂的石锤与秧钉"
+      }
+    ]
+  },
+  {
+    "id": "item_ru_xue_jian",
+    "name": "如雪",
+    "type": "weapon",
+    "owner": "char_yu_shan_ren",
+    "one_line": "于山人所使长剑，剑身如雪，攻速极快",
+    "description": "天山剑派于山人所使的长剑，剑名'如雪'，据说于山人以此剑攻得十六名使剑高手一剑都来不及还，剑法配合轻功已臻无懈可击之境。",
+    "effects": [
+      "伤害"
+    ],
+    "origin": "天山剑派",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_yu_shan_ren"
+    ],
+    "related_skills": [
+      "skill_luo_yan_zhan"
+    ],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 308,
+        "line_end": 308,
+        "text": "到了于山人手中，擅使长剑'如雪'，据说他曾以这一柄剑，攻得十六名使剑高手，一剑都来不及还。"
+      }
+    ]
+  },
+  {
+    "id": "item_liu_ye_jian",
+    "name": "柳叶剑",
+    "type": "宝剑",
+    "owner": "char_lou_xiao_ye",
+    "one_line": "娄小叶的宝剑，轻薄如纸美如仙物，明珠镶造钻石柄，但剑身易折",
+    "description": "娄小叶的柳叶剑，轻薄如纸却美如仙物，以明珠镶嵌，钻石柄子价值不菲，淡弯如眉月，但剑身实为易折之物",
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "剑身易折，断裂后可用断刃近身搏杀"
+      }
+    ],
+    "origin": "天山剑派",
+    "rarity": "珍贵",
+    "related_characters": [
+      "char_lou_xiao_ye"
+    ],
+    "related_skills": [
+      "skill_tian_shan_jian"
+    ],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 66,
+        "line_end": 78,
+        "text": "真是一把神奇的剑。这剑轻薄如纸，但美如仙物。"
+      }
+    ]
+  },
+  {
+    "id": "item_jiu_huan_dao",
+    "name": "九环刀",
+    "category": "武器",
+    "description": "长柄九环刀，齐昨飞随身兵器，刀身带环可发出声响",
+    "source_refs": [
+      "ch_08_L134",
+      "ch_08_L184"
+    ]
+  },
+  {
+    "id": "item_bai_la_gan",
+    "name": "白蜡杆",
+    "category": "武器",
+    "description": "黎九所用长杆兵器，以白蜡杆制成，轻便坚韧，可点可戳",
+    "source_refs": [
+      "ch_08_L194"
+    ]
+  },
+  {
+    "id": "item_jin_gua_chui",
+    "name": "金瓜锤",
+    "category": "武器",
+    "description": "潘桂所用短兵器，形如金瓜，近身搏击威力极大",
+    "source_refs": [
+      "ch_08_L194"
+    ]
+  },
+  {
+    "id": "item_tianxia_yingxiong_ling",
+    "name": "天下英雄令",
+    "category": "信物",
+    "description": "萧秋水随身携带的英雄令，象征武林正义力量的信物",
+    "source_refs": [
+      "ch_08_L396"
+    ]
+  },
+  {
+    "id": "item_gu_jian_chang_ge",
+    "name": "古剑长歌",
+    "category": "武器",
+    "description": "萧秋水随身古剑，名曰长歌，剑身古朴，锋利异常，伴随萧秋水行走江湖",
+    "source_refs": [
+      "ch_08_L396"
+    ]
+  },
+  {
+    "id": "item_fan_wen_zhen_jing",
+    "name": "梵文真经",
+    "category": "典籍",
+    "description": "少林珍贵典籍，以梵文写成，对少林而言价值连城，萧秋水遗失于大雁塔梁上",
+    "source_refs": [
+      "ch_08_L396",
+      "ch_08_L402"
+    ]
+  },
+  {
+    "id": "item_zhu_da_tian_wang_mi_pu",
+    "name": "朱大天王秘谱",
+    "category": "典籍",
+    "description": "朱大天王的武功秘谱，记载其独门武学，萧秋水随身携带以备研习",
+    "source_refs": [
+      "ch_08_L396"
+    ]
+  },
+  {
+    "id": "item_jin_gua_chui",
+    "name": "金瓜锤",
+    "type": "weapon",
+    "owner": "char_pan_gui",
+    "one_line": "潘桂的奇门兵器",
+    "description": "潘桂所使用的奇门兵器，形似金瓜的锤类武器，具有独特的造型和攻击方式。",
+    "effects": [
+      "打击伤害"
+    ],
+    "origin": "不明",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_pan_gui"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 26,
+        "line_end": 26,
+        "text": "尸旁还有他的奇门兵器“金瓜锤”"
+      }
+    ]
+  },
+  {
+    "id": "item_jiu_huan_dao",
+    "name": "九环刀",
+    "type": "weapon",
+    "owner": "char_qi_zuo_fei",
+    "one_line": "齐昨飞所持的三十六斤重刀",
+    "description": "齐昨飞惯用的重型兵刃，重达三十六斤，刀身上缀有九个铁环，挥动时铿锵作响，虎虎生风。",
+    "effects": [
+      "重击伤害",
+      "声威震慑"
+    ],
+    "origin": "不明",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_qi_zuo_fei"
+    ],
+    "related_skills": [
+      "skill_jiu_huan_dao"
+    ],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 86,
+        "line_end": 92,
+        "text": "一刀当头壁下……三十六斤九环刀，硬生生陡被定转"
+      }
+    ]
+  },
+  {
+    "id": "item_fei_jia_li",
+    "name": "费家铁犁",
+    "type": "weapon",
+    "owner": "char_fei_yi_kong",
+    "one_line": "费逸空所使的铁犁，举重若轻，传为太上老君开拓华山之犁",
+    "description": "传说中太上老君所用的开拓华山之犁，巨大铁犁挂在绝壁半腰，费逸空以此为兵器，举重若轻",
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "开山劈石"
+      }
+    ],
+    "origin": "华山老君犁沟",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_fei_yi_kong"
+    ],
+    "related_skills": [
+      "skill_fei_jia_li"
+    ],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 560,
+        "line_end": 562,
+        "text": "用铁索挂着一巨大的铁犁，便是传说中太上老君所用的开拓华山之犁。"
+      }
+    ]
+  },
+  {
+    "id": "item_xin_hao_zhu_tong",
+    "name": "信号竹筒",
+    "type": "hidden_weapon",
+    "owner": "char_fei_yi_kong",
+    "one_line": "费逸空携带的信号竹筒，燃放后可通知峰上同伴",
+    "description": "一根竹筒，燃放引信后可发出信号通知山峰上的同伴，用于费家联络作战",
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "联络信号"
+      }
+    ],
+    "origin": "费家",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_fei_yi_kong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 598,
+        "line_end": 604,
+        "text": "他拔出了一根竹简……这是信号。你杀了我儿子，我一燃引信，峰上的人便杀光你有朋友"
+      }
+    ]
+  },
+  {
+    "id": "item_liu_li_qiu",
+    "name": "琉璃球",
+    "type": "hidden_weapon",
+    "owner": "char_fei_hong",
+    "one_line": "费洪所使暗器，四颗琉璃球触碰后炸成红色烟雾",
+    "description": "费洪所使的暗器，外表为琉璃球，打出后触及目标便炸成红色烟雾，内含迷药，可致人昏迷全身发软",
+    "effects": [
+      "控制",
+      "减益"
+    ],
+    "origin": "费家",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_fei_hong"
+    ],
+    "related_skills": [
+      "skill_qian_she_bai_xing_jian"
+    ],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 176,
+        "line_end": 180,
+        "text": "费洪又一招手，打出四颗琉璃球！...那四颗琉璃球才一触及他的脚尖，便炸成烟雾"
+      }
+    ]
+  },
+  {
+    "id": "item_xiang_lu",
+    "name": "大香炉",
+    "type": "special",
+    "owner": null,
+    "one_line": "终南山庙中的大香炉，被秦风八踢向费洪",
+    "description": "终南山庙宇中的大香炉，内有灰与烫辣的香火，被秦风八一脚踢起迎头罩向费洪",
+    "effects": [
+      "伤害"
+    ],
+    "origin": "终南山庙宇",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_qin_feng_ba",
+      "char_fei_hong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 200,
+        "line_end": 203,
+        "text": "秦风八是跳向那烟雾袅袅的大香炉，一脚踢过去。香炉夹着灰与烫辣的香火，迎头罩下来。"
+      }
+    ]
+  },
+  {
+    "id": "item_xiao_dao_pi_feng",
+    "name": "镖客披风",
+    "type": "special",
+    "owner": "char_xiao_qiu_shui",
+    "one_line": "萧秋水随身携带的镖客披风，关键时刻用来包裹敌人和毒物",
+    "description": "萧秋水所披的镖客披风，质地坚韧，在关键时刻可张开作为防护，包裹住敌人及其暗器毒物，使毒液毒物反噬其主",
+    "effects": [
+      "包裹敌人",
+      "反制暗器",
+      "反制毒物"
+    ],
+    "origin": "萧秋水随身之物",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_xiao_qiu_shui"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 58,
+        "line_end": 58,
+        "text": "他突然脱下镖客的披风，一张一罩，便把费丹枫连人带刀带暗器包住"
+      }
+    ]
+  },
+  {
+    "id": "item_ju_shi",
+    "name": "巨石",
+    "type": "special",
+    "owner": "char_fei_hong",
+    "one_line": "费洪费晓准备的巨石，对准千尺幢蹬道，用于推落暗算萧秋水",
+    "description": "一块巨大石头，对着千尺幢蹬道，准备在姑母费鸦子一击不中时推落，在狭隘蹬道中一个也躲不掉",
+    "effects": [
+      "滚落砸杀",
+      "封锁退路"
+    ],
+    "origin": "华山天然石块",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_fei_hong",
+      "char_fei_xiao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 302,
+        "line_end": 302,
+        "text": "他们弄了一块巨大石头，对着瞪道，准备姑母一击不中时，再推落石块"
+      }
+    ]
+  },
+  {
+    "id": "item_fei_li",
+    "name": "铁犁",
+    "type": "weapon",
+    "owner": "char_fei_yi_kong",
+    "one_line": "传说中太上老君开拓华山之犁，铁索挂在绝壁半腰，费逸空举重若轻使用",
+    "description": "传说中太上老君所用的开拓华山之犁，用铁索挂在绝壁半腰的巨大铁犁，费逸空以此为武器，举重若轻",
+    "effects": [
+      "开山劈石",
+      "震慑敌人"
+    ],
+    "origin": "传说太上老君遗物",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_fei_yi_kong"
+    ],
+    "related_skills": [
+      "skill_fei_jia_li"
+    ],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 558,
+        "line_end": 558,
+        "text": "用铁索挂着一巨大的铁犁，便是传说中太上老君所用的开拓华山之犁"
+      }
+    ]
+  },
+  {
+    "id": "item_zhi_dao",
+    "name": "雉刀",
+    "type": "weapon",
+    "owner": "char_fei_shi_li",
+    "one_line": "费士理所用长刀",
+    "description": "费士理所持兵器，形制狭长，配合其快刀刀法使用，刀势密集如风雨交加",
+    "effects": [
+      {
+        "type": "伤害",
+        "value": "",
+        "description": "配合快刀刀法，攻势密集"
+      }
+    ],
+    "origin": "费家",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_fei_shi_li"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 92,
+        "line_end": 92,
+        "text": "一人执雉刀，一人持眉尖刀，飞斩过来。"
+      }
+    ]
+  },
+  {
+    "id": "item_mei_jian_dao",
+    "name": "眉尖刀",
+    "type": "weapon",
+    "owner": "char_huang_fu_xuan",
+    "one_line": "皇甫漩所用长刀",
+    "description": "皇甫漩所持兵器，形制如眉尖般锋利，与费士理的雉刀配合形成双刀合璧的攻势",
+    "effects": [
+      {
+        "type": "伤害",
+        "value": "",
+        "description": "配合快刀刀法，与雉刀双刀合璧"
+      }
+    ],
+    "origin": "费家",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_huang_fu_xuan"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 92,
+        "line_end": 92,
+        "text": "一人执雉刀，一人持眉尖刀，飞斩过来。"
+      }
+    ]
+  },
+  {
+    "id": "tie_qinzi",
+    "name": "铁棋子",
+    "type": "文物",
+    "description": "博台棋亭内的铁铸棋子，圆径逾寸，原有二百余颗，多为人取去，尚存数子，传为赵匡胤与陈传老祖对弈遗物",
+    "source_refs": [
+      "ch_15:6"
+    ]
+  },
+  {
+    "id": "erhu_hudi_qin",
+    "name": "二胡、笛子、琴",
+    "type": "乐器/武器",
+    "description": "温艳阳、江秀音、登雕梁三人各持的乐器，既是演奏之物也是攻击武器，可配合剑法形成音律攻击，后被萧秋水一掌拍碎",
+    "source_refs": [
+      "ch_15:52",
+      "ch_15:136-140"
+    ]
+  }
+]

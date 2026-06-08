@@ -1,0 +1,1575 @@
+[
+  {
+    "id": "skill_wu_dang_san_jue",
+    "name": "武当三绝",
+    "type": "剑法",
+    "faction": "faction_wu_dang",
+    "rank": "出神入化",
+    "one_line": "武当派剑法、掌法、内功三大绝学",
+    "techniques": [
+      {
+        "id": "tech_wu_dang_sword",
+        "name": "武当剑法",
+        "type": "attack",
+        "description": "武当阴柔之正宗剑法，以柔克刚"
+      },
+      {
+        "id": "tech_wu_dang_palm",
+        "name": "武当掌法",
+        "type": "attack",
+        "description": "武当绵实颠峰掌法"
+      },
+      {
+        "id": "tech_wu_dang_neigong",
+        "name": "武当内功",
+        "type": "buff",
+        "description": "内功造诣极高，炉火纯青至高无上"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "铁骑银瓶已臻至高无上阶段"
+      }
+    ],
+    "effects": [
+      "攻防兼备",
+      "内力深厚"
+    ],
+    "combat_style": "以柔克刚，阴柔正宗",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 40,
+        "line_end": 40,
+        "text": "铁骑，银瓶两人，著名的是剑，掌，内功三绝"
+      }
+    ]
+  },
+  {
+    "id": "skill_xin_ming_huo_sha",
+    "name": "心明活杀",
+    "type": "剑法",
+    "faction": "faction_shao_lin",
+    "rank": "登峰造极",
+    "one_line": "木叶未出家前所创剑法，能卸剑、驳剑、心剑合一",
+    "techniques": [
+      {
+        "id": "tech_xie_jian",
+        "name": "卸剑术",
+        "type": "defense",
+        "description": "卸去对方剑势的高深剑术"
+      },
+      {
+        "id": "tech_bo_jian",
+        "name": "驳剑术",
+        "type": "attack",
+        "description": "以巧劲拨转对方剑势"
+      },
+      {
+        "id": "tech_xin_jian_he_yi",
+        "name": "心剑合一",
+        "type": "special",
+        "description": "心意与剑合一的高深境界"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登峰造极",
+        "description": "木叶出家前已为剑术翘楚"
+      }
+    ],
+    "effects": [
+      "攻防一体",
+      "以巧制拙"
+    ],
+    "combat_style": "诡奇快急",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 320,
+        "line_end": 322,
+        "text": "剑术已到了能卸剑，驳剑、心剑合一的地步"
+      }
+    ]
+  },
+  {
+    "id": "skill_hui_jian",
+    "name": "慧剑",
+    "type": "剑法",
+    "faction": "faction_shao_lin",
+    "rank": "登峰造极",
+    "one_line": "少林佛门剑法，慧剑斩一切牵绊，剑就是佛",
+    "techniques": [
+      {
+        "id": "tech_hui_jian_zhan",
+        "name": "慧剑斩妄",
+        "type": "attack",
+        "description": "以佛门智慧斩断一切牵绊的剑法"
+      },
+      {
+        "id": "tech_wu_jian",
+        "name": "无剑",
+        "type": "special",
+        "description": "超越慧剑的至高境界，手即剑"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登峰造极",
+        "description": "木叶在少林练成慧剑后又突破至无剑"
+      }
+    ],
+    "effects": [
+      "斩断牵绊",
+      "佛门正气"
+    ],
+    "combat_style": "沉静坚忍如木石",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 398,
+        "line_end": 400,
+        "text": "在少林我练得慧剑，慧剑乃斩一切牵绊。即剑就是佛。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_dang_nei_gong",
+    "name": "武当内功心法",
+    "type": "内功",
+    "faction": "faction_wu_dang",
+    "rank": "出神入化",
+    "one_line": "武当镇派内功，铁骑银瓶合称天下三绝之一",
+    "techniques": [
+      {
+        "id": "tech_wu_dang_nei_gong_1",
+        "name": "命门穴传功",
+        "type": "buff",
+        "description": "以手抵住命门穴龙尾穴，将内力灌注他人经脉"
+      },
+      {
+        "id": "tech_wu_dang_nei_gong_2",
+        "name": "掌剑内功三绝",
+        "type": "special",
+        "description": "武当铁骑银瓶合称的三大绝技：掌功、剑法、内功"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "铁骑银瓶毕生所学"
+      }
+    ],
+    "effects": [
+      "内力灌注",
+      "增强修为"
+    ],
+    "combat_style": "以深厚内力为根基，配合掌法剑法",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 176,
+        "line_end": 178,
+        "text": "我和铁老儿的掌剑内功三绝，天下无人能及"
+      }
+    ]
+  },
+  {
+    "id": "skill_shao_lin_nei_gong",
+    "name": "少林练功绝技心法",
+    "type": "内功",
+    "faction": "faction_shao_lin",
+    "rank": "出神入化",
+    "one_line": "少林正宗内功心法，经由木叶虎豹二位大师临终传授予萧秋水",
+    "techniques": [
+      {
+        "id": "tech_shao_lin_nei_gong_1",
+        "name": "藏经楼心法",
+        "type": "buff",
+        "description": "木叶通晓的无数心法内息修练之精要"
+      },
+      {
+        "id": "tech_shao_lin_nei_gong_2",
+        "name": "少林扎铁桥马",
+        "type": "defense",
+        "description": "少林稳重扎实的马步功夫"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "木叶虎豹毕生修为之精华"
+      }
+    ],
+    "effects": [
+      "内力大增",
+      "筋骨强化"
+    ],
+    "combat_style": "以深厚内力为根基，稳扎稳打",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 246,
+        "line_end": 246,
+        "text": "木叶一只手轻按萧秋水额顶"
+      }
+    ]
+  },
+  {
+    "id": "skill_dong_yi_jian_jian_fa",
+    "name": "东一剑剑法",
+    "type": "剑法",
+    "faction": "faction_power_bang",
+    "rank": "出神入化",
+    "one_line": "蓝放晴所创剑法绝学，以凌厉剑法著称",
+    "techniques": [
+      {
+        "id": "tech_dong_ri_fei_sheng_x",
+        "name": "东日飞升",
+        "type": "attack",
+        "description": "走寅位剑捏天子决白虎奔雷取保寿官"
+      },
+      {
+        "id": "tech_fei_xing_ci_yue",
+        "name": "飞星刺月",
+        "type": "attack",
+        "description": "抢在剑先剑尖飞刺来剑剑身专破一星抛月式"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "蓝放晴数十年精研"
+      }
+    ],
+    "effects": [
+      "剑气凌厉"
+    ],
+    "combat_style": "以快剑强攻为主",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 276,
+        "line_end": 278,
+        "text": "蓝放晴教萧秋水东日飞升等招"
+      }
+    ]
+  },
+  {
+    "id": "skill_xi_yi_jian_jian_fa",
+    "name": "西一剑剑法",
+    "type": "剑法",
+    "faction": "faction_power_bang",
+    "rank": "出神入化",
+    "one_line": "白丹书所创剑法绝学，以沉雄圆转剑法著称",
+    "techniques": [
+      {
+        "id": "tech_shu_jian_en_chou_x",
+        "name": "书剑恩仇",
+        "type": "attack",
+        "description": "右肘反撞打中堂踏子午马转灯笼步九道剑花夺山根"
+      },
+      {
+        "id": "tech_jian_e_zhi_jian",
+        "name": "剑愕之剑",
+        "type": "attack",
+        "description": "以拼命剑术不借剑愕打击毁碎对方剑锋锐气"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "白丹书数十年精研"
+      }
+    ],
+    "effects": [
+      "剑气沉雄"
+    ],
+    "combat_style": "以沉雄圆转剑法为主",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 290,
+        "line_end": 292,
+        "text": "白丹书教萧秋水书剑恩仇等招"
+      }
+    ]
+  },
+  {
+    "id": "skill_can_jin_sui_yu_zhang_fa",
+    "name": "残金碎玉掌法",
+    "type": "掌法",
+    "faction": "faction_zhu_da_tian_wang",
+    "rank": "出神入化",
+    "one_line": "章残金万碎玉合创的掌法绝学，以刚猛果决著称",
+    "techniques": [
+      {
+        "id": "tech_can_jin_po_bing_x",
+        "name": "残金破兵",
+        "type": "attack",
+        "description": "右掌切左掌斩向剑身施压反刺凌灵福堂二穴"
+      },
+      {
+        "id": "tech_yu_shi_ju_mie_x",
+        "name": "玉石俱灭",
+        "type": "attack",
+        "description": "分筋错穴手拿左腕沉肘反蹲跳虎步上穿插旗门穴"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "章残金万碎玉毕生精研"
+      }
+    ],
+    "effects": [
+      "刚猛掌力",
+      "克制剑法"
+    ],
+    "combat_style": "以刚猛掌力为主，克制剑法",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 426,
+        "line_end": 426,
+        "text": "这便是名震天下的残金碎王掌法"
+      }
+    ]
+  },
+  {
+    "id": "skill_qin_na_si_xue",
+    "name": "擒拿四穴",
+    "type": "指法",
+    "faction": "朱大天王",
+    "rank": "出神入化",
+    "one_line": "同时制住对手四处要穴的擒拿绝技",
+    "techniques": [
+      {
+        "id": "tech_qu_chi_xue",
+        "name": "曲尺穴制法",
+        "type": "attack",
+        "description": "左手拿住对手尺挠二骨上的曲尺穴"
+      },
+      {
+        "id": "tech_jing_jing_xue",
+        "name": "肩井穴制法",
+        "type": "attack",
+        "description": "右手拿住对手肩部扁胛骨与锁骨之肩井穴"
+      },
+      {
+        "id": "tech_xiao_yao_xue",
+        "name": "笑腰穴制法",
+        "type": "attack",
+        "description": "左膝顶往对手左肋尾端之笑腰穴"
+      },
+      {
+        "id": "tech_yong_quan_xue",
+        "name": "涌泉穴制法",
+        "type": "attack",
+        "description": "右脚踩使对手足部之涌泉穴"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "控制"
+    ],
+    "combat_style": "近身擒拿",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 68,
+        "line_end": 68,
+        "text": "左手拿住萧秋水尺挠二骨上的'曲尺穴'，右手拿住肩部扁胛骨与锁骨之'肩井穴'，左膝顶往左肋尾端之'笑腰穴'，右脚踩使足部之'涌泉穴'，一下子，制使萧秋水四处要穴。"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_ye_jian",
+    "name": "柳叶剑",
+    "type": "剑法",
+    "faction": "天山剑派",
+    "rank": "出神入化",
+    "one_line": "娄小叶自创的剑法，将柳叶刀法移注于剑，斩风中柳叶",
+    "techniques": [
+      {
+        "id": "tech_zhan_liu_ye",
+        "name": "斩柳叶",
+        "type": "attack",
+        "description": "以剑斩落风中飘飞的柳叶，比斩飞燕更难，讲究轻飘无依中精准出击"
+      },
+      {
+        "id": "tech_shui_shang_fei",
+        "name": "水上飞",
+        "type": "buff",
+        "description": "足尖踞于水面借力的极高深轻功提纵术，借水之柔力出剑"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "轻灵快捷，水上出剑",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 314,
+        "line_end": 328,
+        "text": "这就是'柳叶剑'...柳叶刀着重灵、轻、快、捷，娄小叶便把柳叶刀的打造方法与攻守招法，全都移注到剑上来...柳叶剑法不斩飞燕，斩柳叶。"
+      }
+    ]
+  },
+  {
+    "id": "skill_luo_yan_zhan",
+    "name": "落燕斩",
+    "type": "剑法",
+    "faction": "天山剑派",
+    "rank": "登峰造极",
+    "one_line": "天山剑派绝学，在绝崖间斩落飞燕的剑法",
+    "techniques": [
+      {
+        "id": "tech_zhan_fei_yan",
+        "name": "斩飞燕",
+        "type": "attack",
+        "description": "在天山壑谷绝崖间向天空飞掠的燕子跃起斩落，需卓越轻功配合"
+      },
+      {
+        "id": "tech_shi_liu_ren_zhan",
+        "name": "十六人斩",
+        "type": "attack",
+        "description": "于山人以此剑攻得十六名使剑高手一剑都来不及还"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "轻灵快捷，崖间飞斩",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 306,
+        "line_end": 312,
+        "text": "天山剑派传到了'飞燕斩'于山人...擅使长剑'如雪'...在天山的壑谷绝崖间斩落飞燕，百试不爽，故名'落燕斩'。"
+      }
+    ]
+  },
+  {
+    "id": "skill_huan_hua_jian",
+    "name": "浣花剑法",
+    "type": "剑法",
+    "faction": "faction_huan_hua",
+    "rank": "出神入化",
+    "one_line": "浣花剑派剑法，萧秋水以将计就计之策击败娄小叶",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_huan_hua_jiang_ji_jiu_ji",
+        "name": "将计就计",
+        "type": "special",
+        "description": "故意震断对方柳叶剑后，以掌力再断断剑，以敌之断剑反击杀敌"
+      },
+      {
+        "id": "tech_huan_hua_zhi_tou",
+        "name": "指头杀人",
+        "type": "attack",
+        "description": "萧秋水声称以浣花子弟身份，用一根指头也能杀人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "已臻化境，不拘泥于剑招"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近身交战",
+        "description": "以剑气和内力配合剑招造成致命伤害"
+      }
+    ],
+    "combat_style": "灵活多变，不拘泥于固定招式，善于将计就计",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 50,
+        "line_end": 52,
+        "text": "萧秋水论浣花剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_shan_jian",
+    "name": "天山剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "天山剑派剑法，娄小叶使用斩字诀为主，配合柳叶剑易碎特性设下计谋",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_tian_shan_zhan",
+        "name": "斩字诀",
+        "type": "attack",
+        "description": "以斩击为主的天山剑法招式"
+      },
+      {
+        "id": "tech_liu_ye_duan_jian",
+        "name": "柳叶短剑法",
+        "type": "attack",
+        "description": "利用柳叶剑易折特性，断剑后以短剑近身搏杀"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "剑身断裂后",
+        "description": "断剑近身搏杀，出其不意"
+      }
+    ],
+    "combat_style": "以斩击为主，配合易折剑的诡计",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 102,
+        "line_end": 116,
+        "text": "娄小叶的天山剑法描述"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_dang_jian",
+    "name": "武当剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "萧秋水以武当剑法横江势拦截攻击",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_wu_dang_heng_jiang",
+        "name": "横江势",
+        "type": "defense",
+        "description": "武当剑法中的防御招式，横剑拦截敌方攻击"
+      },
+      {
+        "id": "tech_wu_dang_huan_jian",
+        "name": "环剑式",
+        "type": "defense",
+        "description": "武当剑法中的身法配合剑招，以圆环轨迹运剑护住周身"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "登堂入室"
+      }
+    ],
+    "effects": [
+      {
+        "type": "防御",
+        "condition": "格挡攻击",
+        "description": "横剑拦截敌方斩击"
+      }
+    ],
+    "combat_style": "稳健防御",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 106,
+        "line_end": 106,
+        "text": "萧秋水用武当剑法横江势拦住"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_wu_an_qi",
+    "name": "柳五暗器",
+    "type": "暗器",
+    "faction": "faction_quan_li_bang",
+    "rank": "登峰造极",
+    "one_line": "柳随风三大绝技之一，曾以此杀死和尚大师",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_liu_wu_an_qi_shashang",
+        "name": "致命暗器",
+        "type": "attack",
+        "description": "柳随风的暗器绝技，能杀死和尚大师级别的高手"
+      },
+      {
+        "id": "tech_liu_wu_an_qi_lian_huan",
+        "name": "连环暗器",
+        "type": "attack",
+        "description": "柳随风连续发出多枚暗器，令对手防不胜防"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "登峰造极"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "远程投掷",
+        "description": "暗器击杀武林顶尖高手"
+      }
+    ],
+    "combat_style": "出其不意，一击致命",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 192,
+        "line_end": 194,
+        "text": "柳五提到杀和尚大师的暗器"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_gong_liu_wu",
+    "name": "柳随风轻功",
+    "type": "轻功",
+    "faction": "faction_quan_li_bang",
+    "rank": "返璞归真",
+    "one_line": "柳随风绝世轻功，曾从众多高手围困中瞬间消失",
+    "rag_refs": [
+      7
+    ],
+    "techniques": [
+      {
+        "id": "tech_liu_wu_shun_jian_xiao_shi",
+        "name": "瞬间消失",
+        "type": "special",
+        "description": "在众目睽睽之下瞬间消失不见"
+      },
+      {
+        "id": "tech_liu_wu_feng_xing",
+        "name": "风行步",
+        "type": "buff",
+        "description": "柳随风以风为形的轻功身法，行走间如风过无痕，碎雪簌簌落下"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "返璞归真"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "战斗中",
+        "description": "瞬间脱离战斗，无人可追"
+      }
+    ],
+    "combat_style": "来去如风，飘忽不定",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 262,
+        "line_end": 272,
+        "text": "柳随风随风消失，轻功绝世"
+      }
+    ]
+  },
+  {
+    "id": "skill_jiu_huan_dao",
+    "name": "九环刀法",
+    "type": "刀法",
+    "faction": "无",
+    "rank": "登堂入室",
+    "one_line": "齐昨飞所使用的刀法，以三十六斤九环刀为武器",
+    "techniques": [
+      {
+        "id": "tech_jiu_huan_dao_sweep",
+        "name": "九环轮舞",
+        "type": "attack",
+        "description": "挥舞三十六斤九环刀，虎虎生风，势大力沉的劈砍招式"
+      },
+      {
+        "id": "tech_dang_tou_pi_kan",
+        "name": "当头劈砍",
+        "type": "attack",
+        "description": "三十六斤九环刀当头劈下，刀势凶猛，配合左子午步进退有据"
+      }
+    ],
+    "progression": "初窥门径",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 80,
+        "line_end": 80,
+        "text": "齐昨飞轮舞九环刀，虎虎作响"
+      }
+    ]
+  },
+  {
+    "id": "skill_zi_feng_huang_wu_gong",
+    "name": "紫凤凰武功",
+    "type": "指法",
+    "faction": "权力帮",
+    "rank": "出神入化",
+    "one_line": "高似兰所使用的高深武功，以竹竿为武器，一招败走柔水神君",
+    "techniques": [
+      {
+        "id": "tech_yu_gan_sha",
+        "name": "鱼竿杀法",
+        "type": "attack",
+        "description": "以竹竿如鱼竿般刺击，速度极快，一招可取人性命，曾一招败走雍希羽"
+      },
+      {
+        "id": "tech_qiang_wu_yu_si",
+        "name": "强武鱼丝",
+        "type": "special",
+        "description": "不用鱼丝便能以竹竿引水入鱼，显示出惊人的内力和手法"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害",
+      "穿刺"
+    ],
+    "combat_style": "凌厉",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 207,
+        "line_end": 295,
+        "text": "那渔夫的鱼竿不断发出啸啸的急风……桥上都是尸体……一招毙命"
+      }
+    ]
+  },
+  {
+    "id": "skill_rou_shui_gong",
+    "name": "柔水神功",
+    "type": "内功",
+    "faction": "朱大天王势力",
+    "rank": "出神入化",
+    "one_line": "雍希羽所擅长的水系武功，能从水中突袭",
+    "techniques": [
+      {
+        "id": "tech_shui_zhu_tu_xi",
+        "name": "水柱突袭",
+        "type": "attack",
+        "description": "从水中突然升起水柱发起攻击，配合水势增加威力"
+      },
+      {
+        "id": "tech_you_yu_shen_fa",
+        "name": "游鱼身法",
+        "type": "defense",
+        "description": "在水中如鱼般快速游动，可用于逃跑"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害",
+      "隐蔽"
+    ],
+    "combat_style": "水战",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 303,
+        "line_end": 321,
+        "text": "忽然桥下冲起一道水柱……水柱里有一个人……雍希羽快若游鱼迅速游走"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_jia_dao",
+    "name": "费家刀法",
+    "type": "剑法",
+    "faction": "faction_fei_jia",
+    "rank": "炉火纯青",
+    "one_line": "费家独门刀法，融合各种奇门异木的致命绝招，非招式变化而是致命杀招",
+    "techniques": [
+      {
+        "id": "tech_fei_jia_dao_1",
+        "name": "费家刀十六变",
+        "type": "attack",
+        "description": "费家刀法十六种变化，每一种都足以使一流高手丧命，融合各种奇门异木的绝招"
+      },
+      {
+        "id": "tech_fei_jia_du_lian",
+        "name": "毒刃连环",
+        "type": "attack",
+        "description": "费家刀法中以毒液喷射配合刀柄机关的连环杀招，刀柄间喷出毒液与暗器"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "致命杀招"
+      }
+    ],
+    "combat_style": "以毒辅刀，变化多端",
+    "rag_refs": [
+      11,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "他的刀有十六种变化，任何一种，都足以使一流高手丧命"
+      },
+      {
+        "chapter": 13,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "费丹枫信任他自己的刀，他的刀有十六种变化"
+      }
+    ]
+  },
+  {
+    "id": "skill_gai_bang_gong_fa",
+    "name": "丐帮功法",
+    "type": "内功",
+    "faction": "faction_gai_bang",
+    "rank": "登堂入室",
+    "one_line": "丐帮弟子修炼的功法，包含星象卜卦等特殊异能",
+    "techniques": [
+      {
+        "id": "tech_xing_xiang_bu_gua",
+        "name": "星象卜卦",
+        "type": "special",
+        "description": "丐帮重将擅长的星象、卜卦、气候、时令等特殊异能"
+      },
+      {
+        "id": "tech_bai_bao_dai_shu",
+        "name": "百宝袋术",
+        "type": "special",
+        "description": "丐帮有袋弟子的独门绝技，从麻袋中取出各种出人意表的法宝与工具"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "预测气候时令"
+      }
+    ],
+    "combat_style": "辅助型",
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 134,
+        "line_end": 136,
+        "text": "在裘无意严训之下，对星象，卜卦、气候。时令等都有特殊了解的异能。"
+      }
+    ]
+  },
+  {
+    "id": "skill_pi_gua_dao",
+    "name": "劈挂刀",
+    "type": "剑法",
+    "faction": "faction_fei_jia",
+    "rank": "炉火纯青",
+    "one_line": "费鸦子所使的劈挂大刀技法，重逾七十来斤，以泰山压顶之势劈砍",
+    "techniques": [
+      {
+        "id": "tech_pi_gua_dao_1",
+        "name": "泰山压顶",
+        "type": "attack",
+        "description": "以泰山压顶之势直劈而下，力道惊人，百发百中"
+      },
+      {
+        "id": "tech_pi_gua_heng_sao",
+        "name": "劈挂横扫",
+        "type": "attack",
+        "description": "费鸦子劈挂刀的横扫变招，高举大刀后横向劈砍，力道沉重"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "劈砍伤害"
+      }
+    ],
+    "combat_style": "重刀猛劈",
+    "rag_refs": [
+      11,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 262,
+        "line_end": 262,
+        "text": "费鸦子的劈挂马，封十五的扫刀……在江湖上、武林中，是二绝。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 236,
+        "line_end": 238,
+        "text": "在天井隘道上，有一妇人，高大，挽髻，长脸，高颧，双手高高举起一柄劈挂大刀"
+      }
+    ]
+  },
+  {
+    "id": "skill_feng_jia_sao_dao",
+    "name": "封家扫刀",
+    "type": "剑法",
+    "faction": "faction_feng_jia",
+    "rank": "炉火纯青",
+    "one_line": "天下闻名的'八种武器'之一，封家独门扫刀技法，出手狠绝，以血洗耻",
+    "techniques": [
+      {
+        "id": "tech_feng_jia_sao_dao_1",
+        "name": "横扫千军",
+        "type": "attack",
+        "description": "封十五横执扫刀，气势凌厉逼人，一刀横斩势不可挡"
+      },
+      {
+        "id": "tech_feng_jia_sao_dao_2",
+        "name": "拦腰扫刀",
+        "type": "attack",
+        "description": "以扫刀横扫对手腰部，力道凶猛"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "横扫伤害"
+      }
+    ],
+    "combat_style": "横扫猛攻",
+    "rag_refs": [
+      11,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 258,
+        "line_end": 260,
+        "text": "'封家扫刀'本是天下闻名的'八种武器'之一"
+      },
+      {
+        "chapter": 13,
+        "line_start": 258,
+        "line_end": 260,
+        "text": "封家扫刀本是天下闻名的八种武器之一"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_jia_li",
+    "name": "费家铁犁",
+    "type": "武器",
+    "faction": "faction_fei_jia",
+    "rank": "出神入化",
+    "one_line": "费逸空所使的铁犁，举重若轻，在老君犁沟蹬道上以犁作战",
+    "techniques": [
+      {
+        "id": "tech_fei_jia_li_1",
+        "name": "开山劈石",
+        "type": "attack",
+        "description": "以铁犁劈下，开山劈石，势无可匹"
+      },
+      {
+        "id": "tech_li_chu_luan_wu",
+        "name": "犁锄乱舞",
+        "type": "attack",
+        "description": "费逸空受伤后以铁犁狂乱挥舞的拼命招式，势不可挡但已失准头"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "重击伤害"
+      }
+    ],
+    "combat_style": "重兵器猛攻",
+    "rag_refs": [
+      11,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 566,
+        "line_end": 566,
+        "text": "那人手上也有一张犁，却举重若轻。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 563,
+        "line_end": 564,
+        "text": "那人手上也有一张犁，却举重若轻"
+      }
+    ]
+  },
+  {
+    "id": "skill_feng_dian_quan",
+    "name": "疯癫拳",
+    "type": "掌法",
+    "faction": "两广十虎",
+    "rank": "略有小成",
+    "one_line": "疯女所使的疯癫泼辣拳法，以疯疯癫癫为秘诀",
+    "techniques": [
+      {
+        "id": "tech_feng_dian_quan_1",
+        "name": "疯癫步",
+        "type": "attack",
+        "description": "以疯癫步法破绽百出诱敌，以个人意旨为中心消解对方攻势"
+      },
+      {
+        "id": "tech_feng_dian_quan_2",
+        "name": "大开大合",
+        "type": "attack",
+        "description": "打法大开大合，以拼命姿态逼退对手"
+      }
+    ],
+    "progression": [
+      "初窥门径",
+      "略有小成"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以疯癫破绽诱敌，反守为攻",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 10,
+        "line_end": 12,
+        "text": "疯女使出\"疯癫拳\"...\"疯癫拳\"的秘诀就是\"疯疯癫癫\""
+      }
+    ]
+  },
+  {
+    "id": "skill_die_zhuang_quan",
+    "name": "跌撞拳",
+    "type": "掌法",
+    "faction": "两广十虎",
+    "rank": "略有小成",
+    "one_line": "阿水所使的跌撞碰砸拳路，以跌跌撞撞为秘决",
+    "techniques": [
+      {
+        "id": "tech_die_zhuang_1",
+        "name": "碰撞顶靠",
+        "type": "attack",
+        "description": "利用天生残缺马步浮摇的特点，碰撞顶靠连消带打"
+      },
+      {
+        "id": "tech_die_zhuang_2",
+        "name": "跌撞逼敌",
+        "type": "attack",
+        "description": "以跌跌撞撞的身法反而逼住敌手"
+      }
+    ],
+    "progression": [
+      "初窥门径",
+      "略有小成"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以跌撞身法近身缠斗",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 10,
+        "line_end": 12,
+        "text": "阿水则使出\"跌撞拳\"...\"跌撞拳\"的秘决也就是跌跌撞撞"
+      }
+    ]
+  },
+  {
+    "id": "skill_qian_she_bai_xing_jian",
+    "name": "千蛇百星剑",
+    "type": "剑法",
+    "faction": "费家",
+    "rank": "登堂入室",
+    "one_line": "费洪所使奇门剑法，剑身寸寸断裂如千蛇百星",
+    "techniques": [
+      {
+        "id": "tech_qian_she_1",
+        "name": "迎风抖剑",
+        "type": "attack",
+        "description": "将剑迎风一抖，剑身寸寸断裂由细链穿连，化为千百道剑光罩向敌人"
+      },
+      {
+        "id": "tech_qian_she_2",
+        "name": "迸喷剑片",
+        "type": "attack",
+        "description": "剑片如暗器般迸喷而出，扫向对手全身"
+      }
+    ],
+    "progression": [
+      "登堂入室"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "远近皆宜，以碎剑暗器与剑法结合",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 70,
+        "line_end": 70,
+        "text": "费洪忽然将剑迎风一抖，剑身居然寸寸断裂、又似被一条细链穿在一起般，变成了千蛇百星"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_zi_qiang",
+    "name": "十字枪法",
+    "type": "掌法",
+    "faction": "费家",
+    "rank": "登堂入室",
+    "one_line": "费晓所使枪法，十字枪可拆分为二暗藏棱刃",
+    "techniques": [
+      {
+        "id": "tech_shi_zi_1",
+        "name": "十字拦挡",
+        "type": "defense",
+        "description": "以十字枪横拦敌人退路"
+      },
+      {
+        "id": "tech_shi_zi_2",
+        "name": "折枪棱刃",
+        "type": "attack",
+        "description": "十字枪折而为二，一端暗藏棱形铁刃弹出刺杀"
+      },
+      {
+        "id": "tech_shi_zi_3",
+        "name": "枪尖飞射",
+        "type": "attack",
+        "description": "枪尖离柄飞出如暗器钉射敌人"
+      }
+    ],
+    "progression": [
+      "登堂入室"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "枪法暗藏机关，变化多端",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 74,
+        "line_end": 74,
+        "text": "他用的是十字抢。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tie_bi_shen_gong",
+    "name": "铁臂神功",
+    "type": "掌法",
+    "faction": "丐帮",
+    "rank": "出神入化",
+    "one_line": "陈见鬼铁铸左臂所使的空手入白刃功夫",
+    "techniques": [
+      {
+        "id": "tech_tie_bi_1",
+        "name": "空手扫剑",
+        "type": "defense",
+        "description": "以铁臂空手将剑片尽皆扫落"
+      },
+      {
+        "id": "tech_tie_bi_2",
+        "name": "铁拳反击",
+        "type": "attack",
+        "description": "铁臂挥拳击打敌人"
+      }
+    ],
+    "progression": [
+      "出神入化"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以铁臂空手入白刃",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 86,
+        "line_end": 86,
+        "text": "一条人影飞来，一阵急抓乱拨，居然以一双空手，把剑片尽皆扫落"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhong_kui_tui",
+    "name": "钟馗伸腿",
+    "type": "轻功",
+    "faction": "丐帮",
+    "rank": "出神入化",
+    "one_line": "秦风八所使腿功，出脚精准狠辣",
+    "techniques": [
+      {
+        "id": "tech_zhong_kui_1",
+        "name": "挑枪救人",
+        "type": "attack",
+        "description": "一脚不偏不倚挑起十字枪尖"
+      },
+      {
+        "id": "tech_zhong_kui_2",
+        "name": "踢敌救人",
+        "type": "attack",
+        "description": "一脚踢走阿水使其脱离险境"
+      }
+    ],
+    "progression": [
+      "出神入化"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "腿法精准，救人与攻敌并重",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 88,
+        "line_end": 88,
+        "text": "一出脚，不偏不倚，把十字枪予尖挑起"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_jia_dao_fa",
+    "name": "费家刀法",
+    "type": "掌法",
+    "faction": "费家",
+    "rank": "出神入化",
+    "one_line": "费丹枫所使刀法，气势惊人，十七岁即击败大行山之王",
+    "techniques": [
+      {
+        "id": "tech_fei_dao_1",
+        "name": "飞跃斩杀",
+        "type": "attack",
+        "description": "飞跃十丈人，一刀斫下，气势如虹"
+      },
+      {
+        "id": "tech_fei_dao_2",
+        "name": "抱刀竖眉",
+        "type": "defense",
+        "description": "双手抱刀竖与眉齐，攻守兼备"
+      }
+    ],
+    "progression": [
+      "出神入化"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刀法凌厉，气势逼人",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 210,
+        "line_end": 217,
+        "text": "拔刀，飞跃十上人，到了秦风八身前，一刀斫下去！...双手抱刀，竖与眉齐"
+      }
+    ]
+  },
+  {
+    "id": "skill_can_jin_sui_yu",
+    "name": "残金碎玉掌法",
+    "type": "掌法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "章残金、万碎玉所使的掌法，配合金五游龙身法",
+    "techniques": [
+      {
+        "id": "tech_jin_wu_you_long",
+        "name": "金五游龙",
+        "type": "special",
+        "description": "残金碎玉掌法中的身法，灵活游走如龙，用于闪避腾挪"
+      },
+      {
+        "id": "tech_can_jin_sui_yu_zhang",
+        "name": "残金碎玉掌",
+        "type": "attack",
+        "description": "残金碎玉掌法中的掌击招式，章残金万碎玉联手时使用的掌法攻击"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "灵活游走",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 74,
+        "line_end": 74,
+        "text": "萧秋水是用了章残金、万碎玉连使残金碎玉掌法时的金五游龙身法"
+      }
+    ]
+  },
+  {
+    "id": "skill_dong_xi_jian",
+    "name": "东一剑西一剑",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "东一剑西一剑的快招，包含东忽西候轻功身法",
+    "techniques": [
+      {
+        "id": "tech_dong_hu_xi_hou",
+        "name": "东忽西候",
+        "type": "special",
+        "description": "东一剑西一剑的轻功身法，忽东忽西，飘忽不定，用于周旋对敌"
+      },
+      {
+        "id": "tech_dong_xi_jian_kuai",
+        "name": "东一剑西一剑快招",
+        "type": "attack",
+        "description": "东一剑西一剑的快招剑法，迅雷不及掩耳，用于快速击杀对手"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "飘忽迅捷",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 74,
+        "line_end": 74,
+        "text": "在香炉上乃运使东一剑、西一剑的东忽西候轻功与之周旋"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_dang_jian_fa",
+    "name": "武当剑法",
+    "type": "剑法",
+    "faction": "武当派",
+    "rank": "出神入化",
+    "one_line": "萧秋水所使武当正宗剑法，以黏带按封借力打力",
+    "techniques": [
+      {
+        "id": "tech_tie_qi_yin_ping",
+        "name": "铁骑银瓶",
+        "type": "defense",
+        "description": "武当剑法中的守势招式，以最少的精力和身法，用黏、带、按、封等字诀借力打力，使敌人为之筋疲力竭"
+      },
+      {
+        "id": "tech_nian_dai_an_feng",
+        "name": "黏带按封",
+        "type": "defense",
+        "description": "武当剑法核心字诀，黏住对手兵器借力打力，带偏攻势方向，按压制敌方劲力，封锁对手进退路线"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 5,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "防守反击时",
+        "description": "借力打力，消耗敌方体力"
+      }
+    ],
+    "combat_style": "以守为攻，后发制人，善于借力打力",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 106,
+        "line_end": 106,
+        "text": "萧秋水专心全意，发挥着铁骑、银瓶的武当剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_can_jin_sui_yu_zhang",
+    "name": "残金碎玉掌",
+    "type": "掌法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "萧秋水所使掌法，攻击迅猛如闪电",
+    "techniques": [
+      {
+        "id": "tech_can_jin_sui_yu",
+        "name": "残金碎玉掌",
+        "type": "attack",
+        "description": "萧秋水的掌法绝技，双掌拍出如闪电般迅猛，可在瞬间击中对手要害"
+      },
+      {
+        "id": "tech_shuang_zhang_pai",
+        "name": "双掌拍顶",
+        "type": "attack",
+        "description": "残金碎玉掌的终结招式，双掌同时拍出按在对手额顶，一击制敌而不必杀伤"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 5,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "双掌拍出时",
+        "description": "闪电般一击，瞬间击中对手额顶"
+      }
+    ],
+    "combat_style": "迅猛凌厉，一击制敌",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 130,
+        "line_end": 130,
+        "text": "他双掌拍出，正是'残金碎玉掌'，这闪电般的一击"
+      }
+    ]
+  },
+  {
+    "id": "music_sword_three",
+    "name": "琴笛胡三绝",
+    "type": "音乐武学",
+    "faction": "无",
+    "rank": "高",
+    "one_line": "温艳阳、江秀音、登雕梁三人各持一种乐器（琴、笛、二胡），以乐音配合剑法，形成独特的音乐武学攻击体系",
+    "techniques": [
+      {
+        "id": "qin_sound_attack",
+        "name": "琴韵攻击",
+        "type": "音律攻击",
+        "description": "以琴音扰乱对手心神，配合剑法夹击"
+      },
+      {
+        "id": "flute_sound_attack",
+        "name": "笛声攻击",
+        "type": "音律攻击",
+        "description": "以笛声悠远迷惑对手，配合剑法夹击"
+      },
+      {
+        "id": "erhu_sound_attack",
+        "name": "二胡攻击",
+        "type": "音律攻击",
+        "description": "以二胡幽伤旋律扰乱对手，配合剑法夹击"
+      }
+    ],
+    "progression": "三人配合日益默契，武功逐次提升",
+    "effects": "乐音扰乱心神+三剑夹击，使对手无法兼顾",
+    "combat_style": "三人协同，乐器与剑并用",
+    "rag_refs": [
+      "ch_15:52-53",
+      "ch_15:134-136"
+    ],
+    "source_refs": [
+      "ch_15:50-53",
+      "ch_15:134-140"
+    ]
+  }
+]
