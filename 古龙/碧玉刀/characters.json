@@ -1,0 +1,746 @@
+[
+  {
+    "id": "char_duan_yu",
+    "name": "段玉",
+    "alias": [],
+    "identity": "中原大豪段飞熊独子，携碧玉刀赴宝珠山庄拜寿求亲",
+    "faction": "faction_duan_jia",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "天真诚实的江湖少年，因碧玉刀卷入青龙会阴谋",
+    "personality": {
+      "traits": [
+        "诚实",
+        "单纯",
+        "重义气",
+        "心软",
+        "有担当"
+      ],
+      "speech_style": "坦白直率，常带少年人的窘迫",
+      "temperament": "善良而容易受骗，但关键时刻敢担当"
+    },
+    "relationships": [
+      {
+        "target": "char_zhu_zhu",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "由误会试探到真情相许"
+      },
+      {
+        "target": "char_duan_fei_xiong",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "严父与独子"
+      },
+      {
+        "target": "char_gu_dao_ren",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "从求助到并肩破局"
+      },
+      {
+        "target": "char_lu_jiu",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "因卢小云之死一度敌对，后真相渐明"
+      }
+    ],
+    "known_skills": [
+      "skill_duan_jia_nei_gong",
+      "skill_bi_yu_qi_xing_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "段玉正少年。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 8,
+        "line_end": 8,
+        "text": "段玉垂着头，道：\"是。\""
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_zhu",
+    "name": "朱珠",
+    "alias": [
+      "华华凤",
+      "夜来香",
+      "华姑娘"
+    ],
+    "identity": "宝珠山庄朱家掌上明珠，以华华凤身份试探段玉",
+    "faction": "faction_bao_zhu_shan_zhuang",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "聪明机警的朱家小姐，推动段玉揭破青龙会阴谋",
+    "personality": {
+      "traits": [
+        "机智",
+        "俏皮",
+        "大胆",
+        "善试探",
+        "重感情"
+      ],
+      "speech_style": "灵动俏皮，常以反问和调侃试探人心",
+      "temperament": "外柔内慧，敢冒险也会吃醋"
+    },
+    "relationships": [
+      {
+        "target": "char_duan_yu",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "隐藏身份考验段玉，最终承认真身"
+      },
+      {
+        "target": "char_zhu_kuan",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "朱家掌上明珠"
+      }
+    ],
+    "known_skills": [
+      "skill_zhu_jia_qing_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 38,
+        "line_end": 38,
+        "text": "她叫朱珠。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 938,
+        "line_end": 938,
+        "text": "小姑娘仿佛也知道有人在后面看着她，忽然回眸一笑，道：\"我姓华，叫华华凤。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "华华凤那小巧玲珑的鼻子又皱了起来，嫣然地道：\"连女道士都会是夜来香，华华凤为什么不能是朱珠？"
+      }
+    ]
+  },
+  {
+    "id": "char_hua_ye_lai",
+    "name": "花夜来",
+    "alias": [
+      "夜来香"
+    ],
+    "identity": "神秘女贼，青龙会阴谋中的关键诱饵与线索",
+    "faction": "faction_qing_long_hui",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "以美色与偷盗牵动段玉入局的女贼",
+    "personality": {
+      "traits": [
+        "狡黠",
+        "妩媚",
+        "胆大",
+        "善伪装",
+        "难测"
+      ],
+      "speech_style": "轻佻含笑，话语常有挑逗和误导",
+      "temperament": "危险而游移"
+    },
+    "relationships": [
+      {
+        "target": "char_duan_yu",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "偷走财物和碧玉刀，使段玉卷入杀局"
+      },
+      {
+        "target": "char_zhu_zhu",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "身份与伪装互相牵扯"
+      }
+    ],
+    "known_skills": [
+      "skill_hua_ye_lai_qing_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 530,
+        "line_end": 530,
+        "text": "花夜来。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 354,
+        "line_end": 354,
+        "text": "段玉道：\"她自己说她叫花夜来。\""
+      },
+      {
+        "chapter": 5,
+        "line_start": 92,
+        "line_end": 92,
+        "text": "因为每个人都知道，要解开这秘密，就一定要抓住花夜来。"
+      }
+    ]
+  },
+  {
+    "id": "char_duan_fei_xiong",
+    "name": "段飞熊",
+    "alias": [
+      "段老爷子"
+    ],
+    "identity": "中原大豪，段玉之父，严守家教",
+    "faction": "faction_duan_jia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "严厉谨慎的父亲，将碧玉刀托付给段玉",
+    "personality": {
+      "traits": [
+        "严厉",
+        "谨慎",
+        "重家声",
+        "疼爱儿子",
+        "守信"
+      ],
+      "speech_style": "训诫式口吻，反复叮嘱",
+      "temperament": "威严而爱子"
+    },
+    "relationships": [
+      {
+        "target": "char_duan_yu",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "不放心第一次出门的儿子"
+      },
+      {
+        "target": "char_zhu_kuan",
+        "type": "挚友",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "少年八拜之交"
+      }
+    ],
+    "known_skills": [
+      "skill_duan_jia_nei_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 28,
+        "line_end": 28,
+        "text": "家教一向最严的中原大豪段飞熊夫妇，当然不会无缘无故就放他们的独生子到江南来。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "段飞熊段老爷子也已到了宝珠山庄，他毕竟还是不放心他那第一次出门的儿子。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_kuan",
+    "name": "朱宽",
+    "alias": [
+      "朱二爷",
+      "朱二太爷"
+    ],
+    "identity": "宝珠山庄主人，朱珠之父，江南大侠",
+    "faction": "faction_bao_zhu_shan_zhuang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "宝珠山庄主人，寿宴和婚事牵引全书",
+    "personality": {
+      "traits": [
+        "稳重",
+        "宽厚",
+        "有声望",
+        "重承诺",
+        "明理"
+      ],
+      "speech_style": "长者口吻，语气温和而有分量",
+      "temperament": "慈和中带江湖威望"
+    },
+    "relationships": [
+      {
+        "target": "char_zhu_zhu",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "掌上明珠"
+      },
+      {
+        "target": "char_duan_fei_xiong",
+        "type": "挚友",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "旧年八拜之交"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 32,
+        "line_end": 32,
+        "text": "他的任务是在四月十五之前，赶到\"宝珠山庄\"去替他父亲少年时的八拜之交，\"江南大侠\"朱宽朱二太爷去拜寿，将段家祖传的宝物\"碧玉刀\"带去做寿礼，然后再把朱家的宝珠带回去。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "现在他正和朱宽朱二爷并肩坐在寿堂的花厅里，看着他这个宝贝儿子，一张本就已很严肃的脸，似已变成了铁青色。"
+      }
+    ]
+  },
+  {
+    "id": "char_gu_dao_ren",
+    "name": "顾道人",
+    "alias": [
+      "顾长青"
+    ],
+    "identity": "嗜酒好赌的道人，经营顾道人酒馆并暗中牵引众人破局",
+    "faction": "faction_gu_dao_ren_jiu_pu",
+    "role": "companion",
+    "archetype": "scholar",
+    "rank": "炉火纯青",
+    "one_line": "看似酒鬼赌徒，实则消息灵通、老于江湖",
+    "personality": {
+      "traits": [
+        "圆滑",
+        "嗜酒",
+        "好赌",
+        "机敏",
+        "老练"
+      ],
+      "speech_style": "带笑调侃，常以酒赌化解紧张",
+      "temperament": "嬉笑外表下精明沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_duan_yu",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "借酒馆与赌局帮段玉入局"
+      },
+      {
+        "target": "char_lu_jiu",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "同在江湖局中查明真相"
+      }
+    ],
+    "known_skills": [
+      "skill_gu_dao_ren_du_shu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第二回　顾道人"
+      },
+      {
+        "chapter": 3,
+        "line_start": 44,
+        "line_end": 44,
+        "text": "顾道人道：\"贫道顾长青。\""
+      },
+      {
+        "chapter": 4,
+        "line_start": 1128,
+        "line_end": 1128,
+        "text": "顾道人笑道：\"听说，有位专喜欢跟人抬扛的姑娘，想必就是这位了。"
+      }
+    ]
+  },
+  {
+    "id": "char_lu_jiu",
+    "name": "卢九",
+    "alias": [
+      "卢行九",
+      "卢九爷"
+    ],
+    "identity": "卢小云之父，江湖中有声望的中年高手",
+    "faction": "",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "因儿子之死追查段玉，恩怨分明",
+    "personality": {
+      "traits": [
+        "冷静",
+        "重亲情",
+        "讲江湖义气",
+        "谨慎",
+        "恩怨分明"
+      ],
+      "speech_style": "客气持重，言语中常带审问意味",
+      "temperament": "外表温和内心刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_xiao_yun",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "独生爱子被害后誓要追凶"
+      },
+      {
+        "target": "char_tie_shui",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "至交好友"
+      },
+      {
+        "target": "char_duan_yu",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "误认段玉涉案，后逐步转向信任"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 720,
+        "line_end": 720,
+        "text": "那中年人面上也露出微笑，道：\"在下姓卢行九，朋友们都叫我卢九。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 52,
+        "line_end": 52,
+        "text": "卢九道：\"我们现在就动身？\""
+      }
+    ]
+  },
+  {
+    "id": "char_wang_fei",
+    "name": "王飞",
+    "alias": [
+      "虬髯大汉"
+    ],
+    "identity": "江南霹雳堂人物，豪爽好赌的江湖汉子",
+    "faction": "faction_jiang_nan_pi_li_tang",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "豪迈直爽，赌桌上与段玉结交",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "直率",
+        "重朋友",
+        "好赌",
+        "急躁"
+      ],
+      "speech_style": "大声爽朗，常带江湖豪气",
+      "temperament": "火爆但讲义气"
+    },
+    "relationships": [
+      {
+        "target": "char_duan_yu",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "赌桌上欣赏段玉的大方"
+      },
+      {
+        "target": "char_tie_shui",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "面对僧王仍敢争酒"
+      }
+    ],
+    "known_skills": [
+      "skill_wang_fei_pi_li_tang_an_qi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 716,
+        "line_end": 716,
+        "text": "虬髯大汉笑道：\"好，就要这么样赌才过瘾，我王飞今天交定你这个朋友了。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 66,
+        "line_end": 66,
+        "text": "王飞道：\"江南霹雳堂的王飞。\""
+      }
+    ]
+  },
+  {
+    "id": "char_tie_shui",
+    "name": "铁水",
+    "alias": [
+      "僧王",
+      "黑衫僧"
+    ],
+    "identity": "江南武林中威名极重的僧王，与卢九交厚",
+    "faction": "",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "出神入化",
+    "one_line": "霸道威严的僧王，卷入卢小云命案与青龙会局中",
+    "personality": {
+      "traits": [
+        "威严",
+        "刚烈",
+        "好胜",
+        "重义",
+        "暴烈"
+      ],
+      "speech_style": "沉声厉语，气势压人",
+      "temperament": "如铁一般强硬"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_jiu",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "至交好友"
+      },
+      {
+        "target": "char_duan_yu",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "一度认定段玉与花夜来有关"
+      }
+    ],
+    "known_skills": [
+      "skill_tie_shui_fo_men_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 430,
+        "line_end": 430,
+        "text": "女道士道：\"你也没听说过'僧王'铁水这个人？\""
+      },
+      {
+        "chapter": 3,
+        "line_start": 76,
+        "line_end": 76,
+        "text": "他果然就是僧王铁水，除了铁水外，世上哪里还有这样的和尚？"
+      },
+      {
+        "chapter": 5,
+        "line_start": 390,
+        "line_end": 390,
+        "text": "卢九道：\"老夫一生，恩怨分明。铁水是我至交好友，小云是我独生爱子，无论谁杀了他们，我都不会让他活过今夜。"
+      }
+    ]
+  },
+  {
+    "id": "char_lu_xiao_yun",
+    "name": "卢小云",
+    "alias": [],
+    "identity": "卢九独子，赴宝珠山庄求亲者之一，被害后成为案件核心",
+    "faction": "",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "未登场已死的青年俊彦，其死牵动卢九追凶",
+    "personality": {
+      "traits": [
+        "文武双全",
+        "年轻",
+        "名门子弟",
+        "被动",
+        "关键线索"
+      ],
+      "speech_style": "无直接言语",
+      "temperament": "死者身份推动众人行动"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_jiu",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "独生子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1129,
+        "line_end": 1129,
+        "text": "其实段老爷子是叫他特别提防卢小云，因为到宝珠山庄去求亲的少年人中，只有两三个是他的劲敌，卢小云就是其中之一。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 332,
+        "line_end": 332,
+        "text": "铁水道：\"卢小云艺出名门，文武双全，当然是你的劲敌。\""
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_lai_li",
+    "name": "小癞痢",
+    "alias": [],
+    "identity": "顾道人酒馆中斜眼伙计，口齿古怪而消息灵通",
+    "faction": "faction_gu_dao_ren_jiu_pu",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "顾道人酒馆里的古怪伙计，负责招呼客人",
+    "personality": {
+      "traits": [
+        "古怪",
+        "机灵",
+        "嘴碎",
+        "懒散",
+        "观察细"
+      ],
+      "speech_style": "嘟囔、翻白眼，话带市井气",
+      "temperament": "滑头而不失机敏"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_dao_ren",
+        "type": "主仆",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "酒馆伙计与老板"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 18,
+        "line_end": 18,
+        "text": "一个斜眼的小癞痢，正将一大盆盐水煮的毛豆子从里面搬出来，摆在柜台上。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 768,
+        "line_end": 768,
+        "text": "顾道人的酒馆，大门已开了一半，那个古怪的小癞痢，正在门口扫地。"
+      }
+    ]
+  },
+  {
+    "id": "char_qiao_lao_san",
+    "name": "乔老三",
+    "alias": [],
+    "identity": "被牵入查案行动的江湖人",
+    "faction": "",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "随众人追查花夜来和青龙会线索的江湖人",
+    "personality": {
+      "traits": [
+        "随和",
+        "胆怯",
+        "现实",
+        "听从安排",
+        "谨慎"
+      ],
+      "speech_style": "少言寡语，随众附和",
+      "temperament": "普通江湖人的谨慎"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 56,
+        "line_end": 56,
+        "text": "乔老三也不禁压低了声音，问道：\"那地方究竟在哪里？\""
+      }
+    ]
+  }
+]
