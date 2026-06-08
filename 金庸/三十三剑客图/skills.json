@@ -1,0 +1,292 @@
+[
+  {
+    "id": "skill_hao_xia_jian_dao",
+    "name": "豪侠剑道",
+    "type": "剑法",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "唐传奇剑侠以胆识、剑术和义气相结合的侠客之道。",
+    "techniques": [
+      {
+        "id": "tech_ting_jian_zhui_ci",
+        "name": "挺剑追刺",
+        "type": "attack",
+        "description": "挺剑直追敌手，以迅疾刺击压迫目标。"
+      },
+      {
+        "id": "tech_yi_qi_jue_duan",
+        "name": "义气决断",
+        "type": "buff",
+        "description": "临事以义气和胆识决断，使行动不受权势压迫。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "能持剑自卫"
+      },
+      {
+        "level": "高明",
+        "description": "能以剑术行侠"
+      },
+      {
+        "level": "绝顶",
+        "description": "剑术、胆识、识人之明合一"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "以剑刺击制敌"
+      },
+      {
+        "type": "特殊",
+        "description": "以豪侠气概震慑或成全他人"
+      }
+    ],
+    "combat_style": "重在迅疾果决和侠义担当，既有武力也有识人、成全之风。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 41,
+        "line_end": 41,
+        "text": "\"见越王。越王问曰：'夫剑之道如之何？'女曰：'妾生深林之中，长于无人之野，无道不习，不达诸侯，窃好击剑之道，诵之不休。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ye_ben_yi_shu",
+    "name": "夜奔义术",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "红拂夜奔李靖所体现的决断、潜行与识人结合的传奇行动。",
+    "techniques": [
+      {
+        "id": "tech_ye_ben_tuo_shen",
+        "name": "夜奔脱身",
+        "type": "special",
+        "description": "趁夜离开权门控制，投奔所识英雄。"
+      },
+      {
+        "id": "tech_hui_yan_shi_ying",
+        "name": "慧眼识英",
+        "type": "buff",
+        "description": "在未显达前识别英雄气象并押注未来。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "识别可托之人"
+      },
+      {
+        "level": "高明",
+        "description": "敢于脱身相从"
+      },
+      {
+        "level": "绝顶",
+        "description": "以一念影响英雄际会"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "改变人物命运"
+      },
+      {
+        "type": "增益",
+        "description": "增强同伴行动决心"
+      }
+    ],
+    "combat_style": "偏向身法与胆识，不重杀伤，核心是识人和决断。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 179,
+        "line_end": 179,
+        "text": "红拂女张氏是个长头发姑娘，传中说到和虬髯客邂逅的情形：\"张氏以发长委地，立梳牀前。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ci_ke_yi_shu",
+    "name": "刺客异术",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "聂隐娘、精精儿、空空儿一类刺客隐秘行刺与反刺杀的异术。",
+    "techniques": [
+      {
+        "id": "tech_yin_mi_xing_ci",
+        "name": "隐秘行刺",
+        "type": "attack",
+        "description": "以潜入、隐蔽、迅速击杀为核心的刺杀手段。"
+      },
+      {
+        "id": "tech_fan_sha_ci_ke",
+        "name": "反杀刺客",
+        "type": "defense",
+        "description": "预判来袭刺客并以异术保护目标。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "能潜近目标"
+      },
+      {
+        "level": "高明",
+        "description": "能完成藩镇刺杀"
+      },
+      {
+        "level": "绝顶",
+        "description": "能反制同类高手"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "刺杀目标"
+      },
+      {
+        "type": "控制",
+        "description": "迫使对手不敢近身"
+      }
+    ],
+    "combat_style": "以隐蔽、奇速和预判为主，正面交锋少而危险性极高。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1092,
+        "line_end": 1092,
+        "text": "精精儿、空空儿去行刺刘悟一节，写得生动之极，\"妙手空空儿\"一词，已成为我们日常语言的一部分。"
+      }
+    ]
+  },
+  {
+    "id": "skill_fan_ci_sha_shu",
+    "name": "反刺杀术",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "聂隐娘保护刘悟时展现的侦知、护卫和反制刺客能力。",
+    "techniques": [
+      {
+        "id": "tech_yu_pan_lai_ci",
+        "name": "预判来刺",
+        "type": "defense",
+        "description": "预先判断刺客来袭方位和时机。"
+      },
+      {
+        "id": "tech_hu_shou_fan_ji",
+        "name": "护首反击",
+        "type": "defense",
+        "description": "护住要害后反制来敌。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "识别危险"
+      },
+      {
+        "level": "高明",
+        "description": "保护目标"
+      },
+      {
+        "level": "绝顶",
+        "description": "面对高手仍可保全目标"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "阻止刺客得手"
+      },
+      {
+        "type": "特殊",
+        "description": "提高目标生存机会"
+      }
+    ],
+    "combat_style": "以守护目标为中心，重侦察、预判与瞬间反制。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1039,
+        "line_end": 1039,
+        "text": "第二天果然有这样的事发生。聂隐娘大为佩服，就做了刘悟的侍从。魏博节度使再派人去行刺，两次都得聂隐娘相救。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qian_xing_qu_wu",
+    "name": "潜行取物",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "红线、昆仑奴等传奇人物夜入深宅、取物传信或助人越险的技艺。",
+    "techniques": [
+      {
+        "id": "tech_ye_ru_shen_zhai",
+        "name": "夜入深宅",
+        "type": "special",
+        "description": "夜间潜入戒备森严之处而不惊动守者。"
+      },
+      {
+        "id": "tech_qu_wu_shi_xin",
+        "name": "取物示信",
+        "type": "special",
+        "description": "以取物还物显示能力，达到威慑或传信效果。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "可避人耳目"
+      },
+      {
+        "level": "高明",
+        "description": "能越墙潜入"
+      },
+      {
+        "level": "绝顶",
+        "description": "能在强敌营中来去自如"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "潜入取物"
+      },
+      {
+        "type": "控制",
+        "description": "以不杀而威慑对手"
+      }
+    ],
+    "combat_style": "不以正面杀伤为主，善用潜行、速度和奇袭达成目的。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1340,
+        "line_end": 1340,
+        "text": "红线"
+      }
+    ]
+  }
+]

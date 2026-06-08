@@ -1,0 +1,1038 @@
+[
+  {
+    "id": "char_li_jing",
+    "name": "李靖",
+    "alias": [
+      "卫公",
+      "李药师"
+    ],
+    "identity": "唐初名将，传奇中受红拂与虬髯客牵连而显英雄气象",
+    "faction": "无",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "从隋末小官到唐代名将，是红拂、虬髯客故事中的核心豪杰。",
+    "personality": {
+      "traits": [
+        "沉着",
+        "有胆识",
+        "识时务",
+        "重义气",
+        "能受知遇",
+        "胸怀大志"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_hao_xia_jian_dao"
+    ],
+    "related_skills": [
+      "skill_hao_xia_jian_dao"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 193,
+        "line_end": 193,
+        "text": "很明显，虬髯客对李靖的眷顾，完全是起因于对红拂女的喜爱，只是英雄豪杰义气为重，压抑了心中的情意而已。"
+      }
+    ]
+  },
+  {
+    "id": "char_hong_fu",
+    "name": "红拂",
+    "alias": [
+      "红拂女",
+      "张出尘"
+    ],
+    "identity": "杨素府中歌姬，传奇中慧眼识英雄的女子",
+    "faction": "无",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "夜奔李靖，以胆识与情义推动风尘三侠故事。",
+    "personality": {
+      "traits": [
+        "慧眼识人",
+        "果断",
+        "重情",
+        "勇敢",
+        "不恋权门",
+        "机敏"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [
+      {
+        "target": "char_li_jing",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夜奔相从，结为眷属"
+      }
+    ],
+    "known_skills": [
+      "skill_ye_ben_yi_shu"
+    ],
+    "related_skills": [
+      "skill_ye_ben_yi_shu"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 179,
+        "line_end": 179,
+        "text": "红拂女张氏是个长头发姑娘，传中说到和虬髯客邂逅的情形：\"张氏以发长委地，立梳牀前。"
+      }
+    ]
+  },
+  {
+    "id": "char_qiu_ran_ke",
+    "name": "虬髯客",
+    "alias": [
+      "虬髯人"
+    ],
+    "identity": "豪侠异人，风尘三侠之一",
+    "faction": "无",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "以豪气识李靖与红拂，终知天下有主而远走海外。",
+    "personality": {
+      "traits": [
+        "豪迈",
+        "识英雄",
+        "重义",
+        "胸襟开阔",
+        "果断",
+        "慷慨"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [
+      {
+        "target": "char_li_jing",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "由试探转为敬重与成全"
+      }
+    ],
+    "known_skills": [
+      "skill_hao_xia_jian_dao"
+    ],
+    "related_skills": [
+      "skill_hao_xia_jian_dao"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 157,
+        "line_end": 157,
+        "text": "虬髯客"
+      }
+    ]
+  },
+  {
+    "id": "char_li_shi_min",
+    "name": "李世民",
+    "alias": [
+      "唐太宗"
+    ],
+    "identity": "唐代君主，风尘三侠故事中的真命天子",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "以帝王气象令虬髯客知天下有主。",
+    "personality": {
+      "traits": [
+        "英明",
+        "有气度",
+        "能识人",
+        "权势已成",
+        "沉稳",
+        "具王者气"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 225,
+        "line_end": 225,
+        "text": "第一次，他还在隋朝做小官，发觉李渊有造反的迹象，便要到江都去向隋炀帝告发，因道路不通而止。李渊取得长安后，捉住了李靖要斩。李靖大叫：\"公起义兵，本为天下除暴乱，不欲就大事而以私怨斩壮士乎？\"李渊觉得他言词很有气概，李世民又代为说项，于是饶了"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_yong",
+    "name": "金庸",
+    "alias": [
+      "查良镛"
+    ],
+    "identity": "评述三十三剑客图的现代武侠作家",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "以评论者身份串联三十三幅剑客图与唐宋传奇。",
+    "personality": {
+      "traits": [
+        "博识",
+        "善评论",
+        "重史料",
+        "有武侠想象",
+        "文笔清晰",
+        "能辨传奇源流"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1134,
+        "line_end": 1134,
+        "text": "我觉这篇传奇中写得最好的人物是妙手空空儿，聂隐娘说\"空空儿之神术，人莫能窥其用，鬼莫得蹑其踪\"。"
+      }
+    ]
+  },
+  {
+    "id": "char_ren_yuan",
+    "name": "任愿",
+    "alias": [],
+    "identity": "三十三剑客图绘图者任熊之子",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "绘制三十三剑客图，被金庸借图评述剑侠传统。",
+    "personality": {
+      "traits": [
+        "工绘事",
+        "承家学",
+        "取材传奇",
+        "审美古雅",
+        "记录剑客",
+        "连接图像与故事"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 3388,
+        "line_end": 3388,
+        "text": "任愿，字谨叔，京师人，年轻时侍奉父亲在江淮地方做官。"
+      }
+    ]
+  },
+  {
+    "id": "char_ren_xiong",
+    "name": "任熊",
+    "alias": [],
+    "identity": "清代画家，任愿之父",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "任愿之父，作为画史背景进入三十三剑客图。",
+    "personality": {
+      "traits": [
+        "画艺高",
+        "有家学",
+        "时代久远",
+        "影响后辈",
+        "文人气",
+        "重图像传统"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "一"
+      }
+    ]
+  },
+  {
+    "id": "char_nie_yin_niang",
+    "name": "聂隐娘",
+    "alias": [],
+    "identity": "唐传奇女刺客，能刺杀并反制刺客",
+    "faction": "无",
+    "role": "protagonist",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "精于异术和刺杀，保护刘悟并两次破魏博刺客。",
+    "personality": {
+      "traits": [
+        "冷静",
+        "神秘",
+        "忠于所托",
+        "身手奇绝",
+        "判断敏锐",
+        "行动果断"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_ci_ke_yi_shu",
+      "skill_fan_ci_sha_shu"
+    ],
+    "related_skills": [
+      "skill_ci_ke_yi_shu"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 993,
+        "line_end": 993,
+        "text": "聂隐娘"
+      }
+    ]
+  },
+  {
+    "id": "char_kong_kong_er",
+    "name": "空空儿",
+    "alias": [
+      "妙手空空儿"
+    ],
+    "identity": "刺客异人，聂隐娘故事中的强敌",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "行刺刘悟时令聂隐娘自知不敌，是传奇中极高明的刺客。",
+    "personality": {
+      "traits": [
+        "神出鬼没",
+        "技艺极高",
+        "危险",
+        "自负",
+        "行动隐秘",
+        "压迫感强"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_ci_ke_yi_shu"
+    ],
+    "related_skills": [
+      "skill_ci_ke_yi_shu"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1092,
+        "line_end": 1092,
+        "text": "精精儿、空空儿去行刺刘悟一节，写得生动之极，\"妙手空空儿\"一词，已成为我们日常语言的一部分。"
+      }
+    ]
+  },
+  {
+    "id": "char_jing_jing_er",
+    "name": "精精儿",
+    "alias": [],
+    "identity": "魏博派出的刺客异人",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "先于空空儿行刺刘悟，为聂隐娘所破。",
+    "personality": {
+      "traits": [
+        "迅捷",
+        "凶险",
+        "受命而动",
+        "隐秘",
+        "好杀",
+        "技艺高强"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_ci_ke_yi_shu"
+    ],
+    "related_skills": [
+      "skill_ci_ke_yi_shu"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1092,
+        "line_end": 1092,
+        "text": "精精儿、空空儿去行刺刘悟一节，写得生动之极，\"妙手空空儿\"一词，已成为我们日常语言的一部分。"
+      }
+    ]
+  },
+  {
+    "id": "char_liu_wu",
+    "name": "刘悟",
+    "alias": [
+      "陈许节度使"
+    ],
+    "identity": "唐代藩镇节度使，受聂隐娘保护",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "与魏博节度使有隙，成为刺客行刺目标。",
+    "personality": {
+      "traits": [
+        "处境危险",
+        "倚重异士",
+        "谨慎",
+        "有权势",
+        "受保护",
+        "能纳忠告"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [
+      {
+        "target": "char_nie_yin_niang",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "聂隐娘转而侍从并救其性命"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1031,
+        "line_end": 1031,
+        "text": "后来魏博节度使和陈许节度使刘悟有意见，派聂隐娘去行刺。"
+      }
+    ]
+  },
+  {
+    "id": "char_hong_xian",
+    "name": "红线",
+    "alias": [],
+    "identity": "唐传奇女侠，薛嵩府中青衣",
+    "faction": "无",
+    "role": "protagonist",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "以奇术夜入敌营取物，化解藩镇威胁。",
+    "personality": {
+      "traits": [
+        "机警",
+        "忠诚",
+        "胆大",
+        "身法奇快",
+        "智取胜敌",
+        "不嗜杀"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_qian_xing_qu_wu"
+    ],
+    "related_skills": [
+      "skill_qian_xing_qu_wu"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1340,
+        "line_end": 1340,
+        "text": "红线"
+      }
+    ]
+  },
+  {
+    "id": "char_kun_lun_nu",
+    "name": "昆仑奴",
+    "alias": [
+      "磨勒"
+    ],
+    "identity": "豪门家奴式侠客，助崔生与女子相会",
+    "faction": "无",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "以非常身手助人越墙潜行，是唐传奇豪奴侠客形象。",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "勇敢",
+        "敏捷",
+        "重诺",
+        "机变",
+        "有侠气"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_qian_xing_qu_wu"
+    ],
+    "related_skills": [
+      "skill_qian_xing_qu_wu"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1610,
+        "line_end": 1610,
+        "text": "〈昆仑奴〉也是裴铏所作。裴铏作《传奇》三卷，原书久佚，《太平广记》录有四则，得以流传至今。"
+      }
+    ]
+  },
+  {
+    "id": "char_mo_le",
+    "name": "磨勒",
+    "alias": [
+      "昆仑奴"
+    ],
+    "identity": "昆仑奴故事中的侠义奴仆",
+    "faction": "无",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "凭胆识和身手成全崔生情事，具侠义传奇色彩。",
+    "personality": {
+      "traits": [
+        "义气",
+        "忠勇",
+        "沉着",
+        "敏捷",
+        "善潜行",
+        "敢冒险"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_qian_xing_qu_wu"
+    ],
+    "related_skills": [
+      "skill_qian_xing_qu_wu"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1608,
+        "line_end": 1608,
+        "text": "昆仑磨勒"
+      }
+    ]
+  },
+  {
+    "id": "char_cui_sheng",
+    "name": "崔生",
+    "alias": [],
+    "identity": "昆仑奴故事中的青年士人",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "因恋慕权贵府中女子而得磨勒相助。",
+    "personality": {
+      "traits": [
+        "多情",
+        "年轻",
+        "犹豫",
+        "依赖侠助",
+        "诚恳",
+        "易受惊"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1622,
+        "line_end": 1622,
+        "text": "这位一品大官的艳姬为崔生所盗，发觉后并不追究，也和郭子仪豁达大度的性格相符。"
+      }
+    ]
+  },
+  {
+    "id": "char_che_zhong_nv_zi",
+    "name": "车中女子",
+    "alias": [
+      "一品夫人身边女子"
+    ],
+    "identity": "昆仑奴故事中与崔生相恋的女子",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "以暗语约崔生相会，推动昆仑奴故事。",
+    "personality": {
+      "traits": [
+        "多情",
+        "机敏",
+        "谨慎",
+        "柔婉",
+        "有主见",
+        "敢冒险"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [
+      {
+        "target": "char_cui_sheng",
+        "type": "恋人",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "以暗语约会相思"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 618,
+        "line_end": 618,
+        "text": "车中女子"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_peng_lang",
+    "name": "田膨郎",
+    "alias": [],
+    "identity": "唐传奇侠客，郭伦故事中的异人",
+    "faction": "无",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "以剑侠手段卷入郭伦奇遇，体现唐人豪侠想象。",
+    "personality": {
+      "traits": [
+        "奇诡",
+        "勇烈",
+        "重信",
+        "行动迅速",
+        "有侠气",
+        "不拘常法"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_hao_xia_jian_dao"
+    ],
+    "related_skills": [
+      "skill_hao_xia_jian_dao"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1566,
+        "line_end": 1566,
+        "text": "小仆道：\"那玉枕是田膨郎偷的。他有时在市井之间，有时混入军营，行止无定。"
+      }
+    ]
+  },
+  {
+    "id": "char_guo_lun",
+    "name": "郭伦",
+    "alias": [],
+    "identity": "田膨郎故事中的遭遇者",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "在传奇奇遇中见证侠客异事。",
+    "personality": {
+      "traits": [
+        "平凡",
+        "惊疑",
+        "被动",
+        "见闻奇事",
+        "谨慎",
+        "随境而动"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 3833,
+        "line_end": 3833,
+        "text": "《剑侠传》中的故事，讲的是另一位\"角巾道人\"。京师人郭伦，元宵节带同家人出外观灯，回家时天已很夜了，经过一条小巷，逢到十余个不良少年，手臂相挽，大声唱歌而来，喧哗嘻笑，对妇女口出不逊言语，拦住了路，不让他们走过。"
+      }
+    ]
+  },
+  {
+    "id": "char_lan_ling_lao_ren",
+    "name": "兰陵老人",
+    "alias": [],
+    "identity": "传奇中的异人老人",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "作为异人形象出现，体现传奇中的江湖高士气质。",
+    "personality": {
+      "traits": [
+        "神秘",
+        "年高",
+        "见识广",
+        "有异术",
+        "从容",
+        "难测"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_hao_xia_jian_dao"
+    ],
+    "related_skills": [
+      "skill_hao_xia_jian_dao"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 847,
+        "line_end": 847,
+        "text": "兰陵老人"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_li",
+    "name": "王立",
+    "alias": [],
+    "identity": "长安故事中的落魄士人",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "因贫困与妇人相遇，卷入市井传奇。",
+    "personality": {
+      "traits": [
+        "穷困",
+        "多情",
+        "软弱",
+        "感激",
+        "谋生艰难",
+        "随遇而安"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 2096,
+        "line_end": 2096,
+        "text": "唐时余干县的县尉王立任期已满，要另调职司，于是到京城长安去等候调派，在长安城大宁里租了一所屋子住。"
+      }
+    ]
+  },
+  {
+    "id": "char_jia_ren_qi",
+    "name": "贾人妻",
+    "alias": [
+      "妇人"
+    ],
+    "identity": "王立故事中的商人妻子",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "收留王立并说明自己的生计，是市井奇遇核心人物。",
+    "personality": {
+      "traits": [
+        "温柔",
+        "能干",
+        "现实",
+        "主动",
+        "体贴",
+        "独立"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [
+      {
+        "target": "char_wang_li",
+        "type": "恋人",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "收留同居，互相依附"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 2070,
+        "line_end": 2070,
+        "text": "\"李龟寿出来相见，原来是他的妻子。妇人道：\"我等你不见回来，昨晚半夜里从蓟州赶来相寻。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_xun",
+    "name": "张训",
+    "alias": [],
+    "identity": "五代吴国杨行密部将",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "照实向杨行密陈述异事，牵出五代武人传奇。",
+    "personality": {
+      "traits": [
+        "直率",
+        "谨慎",
+        "从军",
+        "守信",
+        "务实",
+        "胆壮"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 2921,
+        "line_end": 2921,
+        "text": "张训妻"
+      }
+    ]
+  },
+  {
+    "id": "char_yang_xing_mi",
+    "name": "杨行密",
+    "alias": [
+      "吴国太祖"
+    ],
+    "identity": "五代吴国太祖，张训主君",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "作为五代权力人物出现，连接张训故事。",
+    "personality": {
+      "traits": [
+        "有权势",
+        "能听报告",
+        "果断",
+        "猜疑",
+        "重军务",
+        "处事实际"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 2323,
+        "line_end": 2323,
+        "text": "\"简直是无所不为，无恶不作。吕用之后来为杨行密腰斩，怨家将他尸身斩成肉酱。"
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_lian_fu",
+    "name": "姜廉夫",
+    "alias": [],
+    "identity": "遇道士治病奇事的人物",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "因病遇道士，呈现方术与医药传奇。",
+    "personality": {
+      "traits": [
+        "病弱",
+        "听从嘱咐",
+        "惊疑",
+        "依赖家人",
+        "谨慎",
+        "见证异术"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 3446,
+        "line_end": 3446,
+        "text": "有一个名叫姜廉夫的人，一晚刚就枕安睡，听得喝道之声，一辆轿子忽然在堂前出现。"
+      }
+    ]
+  },
+  {
+    "id": "char_dong_guo_qing",
+    "name": "董国庆",
+    "alias": [],
+    "identity": "遇虬髯人和爱妾相助南归的人物",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "得虬髯人护送，与爱妾终能团聚。",
+    "personality": {
+      "traits": [
+        "惊喜",
+        "多情",
+        "谨慎",
+        "受人恩助",
+        "守约",
+        "归心迫切"
+      ],
+      "speech_style": "多随传奇叙述而见，言语简练有决断。",
+      "temperament": "重义气，临事果断，带有唐传奇人物的奇气。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 3499,
+        "line_end": 3499,
+        "text": "董国庆，字元卿，饶州德兴（在今江西省）人，宋徽宗宣和六年进士及第，被任为莱州胶水县（在今山东省）主簿（秘书长）。"
+      }
+    ]
+  }
+]
