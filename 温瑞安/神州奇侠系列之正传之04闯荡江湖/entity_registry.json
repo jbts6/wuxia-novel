@@ -1,7 +1,7 @@
 {
   "characters": [
     {
-      "id": "xiao_qiushui",
+      "id": "xiao_qiu_shui",
       "name": "萧秋水",
       "alias": [],
       "identity": "浣花剑派弟子",
@@ -23,7 +23,7 @@
       },
       "relationships": [
         {
-          "target": "xiao_kaiyan",
+          "target": "xiao_kai_yan",
           "type": "兄弟",
           "intensity": 85,
           "bond_level": 4,
@@ -31,9 +31,9 @@
         }
       ],
       "known_skills": [
-        "蒙江剑法",
-        "浣花剑派剑法",
-        "心刀"
+        "mengjiang_jianfa",
+        "huanhua_jianfa",
+        "xindao"
       ],
       "related_skills": [],
       "rag_refs": [],
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "id": "xiao_kaiyan",
+      "id": "xiao_kai_yan",
       "name": "萧开雁",
       "alias": [],
       "identity": "浣花剑派弟子，萧秋水之二哥",
@@ -65,7 +65,7 @@
       },
       "relationships": [
         {
-          "target": "xiao_qiushui",
+          "target": "xiao_qiu_shui",
           "type": "兄弟",
           "intensity": 80,
           "bond_level": 4,
@@ -202,7 +202,7 @@
       },
       "relationships": [
         {
-          "target": "xiao_qiushui",
+          "target": "xiao_qiu_shui",
           "type": "恩人",
           "intensity": 60,
           "bond_level": 3,
@@ -339,7 +339,7 @@
       },
       "relationships": [
         {
-          "target": "xiao_qiushui",
+          "target": "xiao_qiu_shui",
           "type": "师友",
           "intensity": 70,
           "bond_level": 3,
@@ -986,7 +986,7 @@
           "dynamic": "惺惺相惜"
         },
         {
-          "target": "char_liu sui_jin",
+          "target": "char_liu_sui_jin",
           "type": "主仆",
           "intensity": 90,
           "bond_level": 5,
@@ -1839,7 +1839,7 @@
     },
     {
       "id": "char_huang_fu_gao_qiao",
-      "name": "皇甫高桥",
+      "name": "huangfu_gao_qiao",
       "alias": [],
       "identity": "武林新秀",
       "faction": "",
@@ -1877,7 +1877,7 @@
           "chapter": 2,
           "line_start": 840,
           "line_end": 840,
-          "text": "皇甫高桥"
+          "text": "huangfu_gao_qiao"
         }
       ]
     },
@@ -3124,8 +3124,8 @@
       ]
     },
     {
-      "id": "char_刁怡保",
-      "name": "刁怡保",
+      "id": "char_diao_yi_bao",
+      "name": "diao_yi_bao",
       "aliases": [
         "使拐子棍的大汉",
         "幽州双鬼之一"
@@ -3144,8 +3144,8 @@
       "faction": null,
       "rank": null,
       "related_characters": [
-        "char_刁金保",
-        "char_皇甫高桥"
+        "char_diao_jin_bao",
+        "char_huangfu_gao_qiao"
       ],
       "related_skills": [],
       "bond_level": null,
@@ -3158,8 +3158,8 @@
       ]
     },
     {
-      "id": "char_刁金保",
-      "name": "刁金保",
+      "id": "char_diao_jin_bao",
+      "name": "diao_jin_bao",
       "aliases": [
         "使方天戟的大汉",
         "幽州双鬼之二"
@@ -3178,8 +3178,8 @@
       "faction": null,
       "rank": null,
       "related_characters": [
-        "char_刁怡保",
-        "char_皇甫高桥"
+        "char_diao_yi_bao",
+        "char_huangfu_gao_qiao"
       ],
       "related_skills": [],
       "bond_level": null,
@@ -3192,8 +3192,8 @@
       ]
     },
     {
-      "id": "char_原纹瘦",
-      "name": "原纹瘦",
+      "id": "char_yuan_wen_shou",
+      "name": "yuan_wen_shou",
       "aliases": [
         "终南剑派第十一代弟子"
       ],
@@ -3208,10 +3208,10 @@
         "temperament": "暴躁",
         "identity": "终南剑派第十一代弟子"
       },
-      "faction": "factions_终南剑派",
+      "faction": "faction_zhongnan_jianpai",
       "rank": "弟子",
       "related_characters": [
-        "char_牛送之"
+        "char_niu_song_zhi"
       ],
       "related_skills": [],
       "bond_level": null,
@@ -3224,8 +3224,8 @@
       ]
     },
     {
-      "id": "char_牛送之",
-      "name": "牛送之",
+      "id": "char_niu_song_zhi",
+      "name": "niu_song_zhi",
       "aliases": [
         "手到擒来"
       ],
@@ -3238,12 +3238,12 @@
           "刚烈"
         ],
         "temperament": "刚毅",
-        "identity": "长安名捕快，原纹瘦堂兄"
+        "identity": "长安名捕快，yuan_wen_shou堂兄"
       },
       "faction": null,
       "rank": "捕快",
       "related_characters": [
-        "char_原纹瘦"
+        "char_yuan_wen_shou"
       ],
       "related_skills": [],
       "bond_level": null,
@@ -3256,10 +3256,10 @@
       ]
     },
     {
-      "id": "char_黑煞神",
+      "id": "char_hei_sha_shen",
       "name": "蒲江沙",
       "aliases": [
-        "黑煞神",
+        "hei_sha_shen",
         "七阿哥"
       ],
       "personality": {
@@ -3271,13 +3271,13 @@
           "粗中有细"
         ],
         "temperament": "暴躁",
-        "identity": "绿林有名之辈，外号七阿哥，假扮黑煞神"
+        "identity": "绿林有名之辈，外号七阿哥，假扮hei_sha_shen"
       },
       "faction": null,
       "rank": null,
       "related_characters": [
-        "char_齐昨飞",
-        "char_皇甫高桥"
+        "char_qi_zuo_fei",
+        "char_huangfu_gao_qiao"
       ],
       "related_skills": [],
       "bond_level": null,
@@ -3290,8 +3290,8 @@
       ]
     },
     {
-      "id": "char_齐昨飞",
-      "name": "齐昨飞",
+      "id": "char_qi_zuo_fei",
+      "name": "qi_zuo_fei",
       "aliases": [
         "齐大管家"
       ],
@@ -3306,17 +3306,17 @@
         "temperament": "沉稳",
         "identity": "皇甫公子拜把弟兄，大管家"
       },
-      "faction": "factions_皇甫世家",
+      "faction": "faction_huangfu_shijia",
       "rank": "管家",
       "related_characters": [
-        "char_皇甫高桥",
-        "char_黎九",
-        "char_潘桂",
-        "char_叠不叠"
+        "char_huangfu_gao_qiao",
+        "char_liu_jiu",
+        "char_pan_gui",
+        "char_die_bu_die"
       ],
       "related_skills": [],
       "bond_level": null,
-      "combat_style": "九环刀，刀法精妙快捷",
+      "combat_style": "jiuhuan_dao，刀法精妙快捷",
       "speech_style": "沉稳有礼",
       "progression": "出场为皇甫公子手下第一人",
       "source_refs": [
@@ -3325,8 +3325,8 @@
       ]
     },
     {
-      "id": "char_黎九",
-      "name": "黎九",
+      "id": "char_liu_jiu",
+      "name": "liu_jiu",
       "aliases": [
         "竹竿"
       ],
@@ -3341,16 +3341,16 @@
         "temperament": "沉稳",
         "identity": "皇甫公子近身护卫"
       },
-      "faction": "factions_皇甫世家",
+      "faction": "faction_huangfu_shijia",
       "rank": "护卫",
       "related_characters": [
-        "char_皇甫高桥",
-        "char_齐昨飞",
-        "char_潘桂"
+        "char_huangfu_gao_qiao",
+        "char_qi_zuo_fei",
+        "char_pan_gui"
       ],
       "related_skills": [],
       "bond_level": null,
-      "combat_style": "白蜡杆，点戳精准",
+      "combat_style": "baila_gan，点戳精准",
       "speech_style": "冷静简练",
       "progression": "出场为皇甫公子护卫",
       "source_refs": [
@@ -3359,8 +3359,8 @@
       ]
     },
     {
-      "id": "char_潘桂",
-      "name": "潘桂",
+      "id": "char_pan_gui",
+      "name": "pan_gui",
       "aliases": [
         "冬瓜",
         "冬爪"
@@ -3376,16 +3376,16 @@
         "temperament": "温和",
         "identity": "皇甫公子近身护卫"
       },
-      "faction": "factions_皇甫世家",
+      "faction": "faction_huangfu_shijia",
       "rank": "护卫",
       "related_characters": [
-        "char_皇甫高桥",
-        "char_齐昨飞",
-        "char_黎九"
+        "char_huangfu_gao_qiao",
+        "char_qi_zuo_fei",
+        "char_liu_jiu"
       ],
       "related_skills": [],
       "bond_level": null,
-      "combat_style": "金瓜锤，近身搏击",
+      "combat_style": "jinguachui，近身搏击",
       "speech_style": "朴实直爽",
       "progression": "出场为皇甫公子护卫",
       "source_refs": [
@@ -3394,8 +3394,8 @@
       ]
     },
     {
-      "id": "char_皇甫高桥",
-      "name": "皇甫高桥",
+      "id": "char_huangfu_gao_qiao",
+      "name": "huangfu_gao_qiao",
       "aliases": [
         "皇甫公子",
         "少君",
@@ -3412,13 +3412,13 @@
         "temperament": "沉稳",
         "identity": "皇甫世家少主，神州结义盟主候选人"
       },
-      "faction": "factions_皇甫世家",
+      "faction": "faction_huangfu_shijia",
       "rank": "少主",
       "related_characters": [
-        "char_齐昨飞",
-        "char_黎九",
-        "char_潘桂",
-        "char_叠不叠",
+        "char_qi_zuo_fei",
+        "char_liu_jiu",
+        "char_pan_gui",
+        "char_die_bu_die",
         "char_萧秋水"
       ],
       "related_skills": [],
@@ -3433,8 +3433,8 @@
       ]
     },
     {
-      "id": "char_叠不叠",
-      "name": "叠不叠",
+      "id": "char_die_bu_die",
+      "name": "die_bu_die",
       "aliases": [
         "九尾狐",
         "叠老头儿",
@@ -3451,13 +3451,13 @@
         "temperament": "沉稳",
         "identity": "皇甫世家智囊，江湖高手，外号九尾狐"
       },
-      "faction": "factions_皇甫世家",
+      "faction": "faction_huangfu_shijia",
       "rank": "智囊/教师",
       "related_characters": [
-        "char_皇甫高桥",
-        "char_齐昨飞",
-        "char_黎九",
-        "char_潘桂"
+        "char_huangfu_gao_qiao",
+        "char_qi_zuo_fei",
+        "char_liu_jiu",
+        "char_pan_gui"
       ],
       "related_skills": [],
       "bond_level": null,
@@ -3471,12 +3471,12 @@
     },
     {
       "id": "char_pan_gui",
-      "name": "潘桂",
+      "name": "pan_gui",
       "alias": [
         "冬瓜"
       ],
-      "identity": "皇甫高桥部属",
-      "faction": "皇甫高桥势力",
+      "identity": "huangfu_gao_qiao部属",
+      "faction": "huangfu_gao_qiao势力",
       "role": "npc",
       "archetype": "warrior",
       "rank": "平平无奇",
@@ -3503,18 +3503,18 @@
           "chapter": 9,
           "line_start": 24,
           "line_end": 26,
-          "text": "死的人居然是“冬瓜”潘桂。——绝对错不了，因为尸旁还有他的奇门兵器“金瓜锤”。"
+          "text": "死的人居然是“冬瓜”pan_gui。——绝对错不了，因为尸旁还有他的奇门兵器“jinguachui”。"
         }
       ]
     },
     {
       "id": "char_li_jiu",
-      "name": "黎九",
+      "name": "liu_jiu",
       "alias": [
         "竹竿"
       ],
-      "identity": "皇甫高桥部属",
-      "faction": "皇甫高桥势力",
+      "identity": "huangfu_gao_qiao部属",
+      "faction": "huangfu_gao_qiao势力",
       "role": "npc",
       "archetype": "warrior",
       "rank": "平平无奇",
@@ -3549,7 +3549,7 @@
           "chapter": 9,
           "line_start": 32,
           "line_end": 42,
-          "text": "一把扶住，却正是“竹竿”黎九。黎九双目一瞠，呕血道“萧秋……水……杀人……凶手”"
+          "text": "一把扶住，却正是“竹竿”liu_jiu。liu_jiu双目一瞠，呕血道“萧秋……水……杀人……凶手”"
         }
       ]
     },
@@ -3557,8 +3557,8 @@
       "id": "char_die_lao_tou_er",
       "name": "叠老头儿",
       "alias": [],
-      "identity": "皇甫高桥部属",
-      "faction": "皇甫高桥势力",
+      "identity": "huangfu_gao_qiao部属",
+      "faction": "huangfu_gao_qiao势力",
       "role": "npc",
       "archetype": "warrior",
       "rank": "平平无奇",
@@ -3591,13 +3591,13 @@
     },
     {
       "id": "char_qi_zuo_fei",
-      "name": "齐昨飞",
+      "name": "qi_zuo_fei",
       "alias": [],
-      "faction": "皇甫高桥势力",
+      "faction": "huangfu_gao_qiao势力",
       "role": "npc",
       "archetype": "warrior",
       "rank": "登堂入室",
-      "one_line": "皇甫高桥部下，持九环刀追击萧秋水，在塔中发现同僚被杀",
+      "one_line": "huangfu_gao_qiao部下，持jiuhuan_dao追击萧秋水，在塔中发现同僚被杀",
       "personality": {
         "traits": [
           "刚烈",
@@ -3637,7 +3637,7 @@
           "chapter": 9,
           "line_start": 62,
           "line_end": 104,
-          "text": "齐昨飞却眶毗欲裂，轮舞九环刀，虎虎作响，嘶声厉问"
+          "text": "qi_zuo_fei却眶毗欲裂，轮舞jiuhuan_dao，虎虎作响，嘶声厉问"
         }
       ]
     },
@@ -3647,11 +3647,11 @@
       "alias": [
         "七阿哥"
       ],
-      "faction": "皇甫高桥势力",
+      "faction": "huangfu_gao_qiao势力",
       "role": "npc",
       "archetype": "warrior",
       "rank": "登堂入室",
-      "one_line": "皇甫高桥部下七阿哥，被一剑贯穿仍坚持不死，指控萧秋水后身亡",
+      "one_line": "huangfu_gao_qiao部下七阿哥，被一剑贯穿仍坚持不死，指控萧秋水后身亡",
       "personality": {
         "traits": [
           "魁梧",
@@ -6112,7 +6112,7 @@
       "skills": [],
       "relationships": [
         {
-          "target": "xiao_qiushui",
+          "target": "xiao_qiu_shui",
           "type": "考验者",
           "intensity": "中"
         },
@@ -6150,7 +6150,7 @@
       "skills": [],
       "relationships": [
         {
-          "target": "xiao_qiushui",
+          "target": "xiao_qiu_shui",
           "type": "考验者",
           "intensity": "中"
         },
@@ -6188,7 +6188,7 @@
       "skills": [],
       "relationships": [
         {
-          "target": "xiao_qiushui",
+          "target": "xiao_qiu_shui",
           "type": "考验者",
           "intensity": "中"
         },
@@ -6226,7 +6226,7 @@
       "skills": [],
       "relationships": [
         {
-          "target": "xiao_qiushui",
+          "target": "xiao_qiu_shui",
           "type": "同伴",
           "intensity": "中"
         }
@@ -6731,7 +6731,7 @@
       "type": "剑法",
       "faction": "faction_huan_hua",
       "rank": "出神入化",
-      "one_line": "浣花剑派剑法，萧秋水以将计就计之策击败娄小叶",
+      "one_line": "huanhua_jianfa，萧秋水以将计就计之策击败娄小叶",
       "rag_refs": [
         7
       ],
@@ -6962,23 +6962,23 @@
     },
     {
       "id": "skill_jiu_huan_dao",
-      "name": "九环刀法",
+      "name": "jiuhuan_dao法",
       "type": "刀法",
       "faction": "无",
       "rank": "登堂入室",
-      "one_line": "齐昨飞所使用的刀法，以三十六斤九环刀为武器",
+      "one_line": "qi_zuo_fei所使用的刀法，以三十六斤jiuhuan_dao为武器",
       "techniques": [
         {
           "id": "tech_jiu_huan_dao_sweep",
           "name": "九环轮舞",
           "type": "attack",
-          "description": "挥舞三十六斤九环刀，虎虎生风，势大力沉的劈砍招式"
+          "description": "挥舞三十六斤jiuhuan_dao，虎虎生风，势大力沉的劈砍招式"
         },
         {
-          "id": "tech_jiu_huan_dao劈砍",
+          "id": "tech_dangtou_pikan",
           "name": "当头劈砍",
           "type": "attack",
-          "description": "三十六斤九环刀当头劈下，刀势凶猛，配合左子午步进退有据"
+          "description": "三十六斤jiuhuan_dao当头劈下，刀势凶猛，配合左子午步进退有据"
         }
       ],
       "progression": "初窥门径",
@@ -6994,7 +6994,7 @@
           "chapter": 9,
           "line_start": 80,
           "line_end": 80,
-          "text": "齐昨飞轮舞九环刀，虎虎作响"
+          "text": "qi_zuo_fei轮舞jiuhuan_dao，虎虎作响"
         }
       ]
     },
@@ -7904,7 +7904,7 @@
     },
     {
       "id": "xindao",
-      "name": "心刀",
+      "name": "xindao",
       "type": "刀法",
       "description": "萧秋水所学的刀法精髓刀由心生势无可匹属于自己的刀",
       "source_skill": "梁斗刀法",
@@ -8003,7 +8003,7 @@
       "description": "章残金万碎玉合创的掌法绝学，以刚猛掌力见长"
     },
     {
-      "id": "tech_终南剑法",
+      "id": "tech_zhongnan_jianfa",
       "name": "终南剑法",
       "type": "剑法",
       "description": "终南剑派正宗剑法，变幻多端，意态飘逸，如白云舒卷",
@@ -8013,10 +8013,10 @@
       ]
     },
     {
-      "id": "tech_九环刀法",
-      "name": "九环刀法",
+      "id": "tech_jiuhuan_daofa",
+      "name": "jiuhuan_dao法",
       "type": "刀法",
-      "description": "齐昨飞所使刀法，刀势妙、快、准，一刀回环拦扫可制敌于瞬息",
+      "description": "qi_zuo_fei所使刀法，刀势妙、快、准，一刀回环拦扫可制敌于瞬息",
       "source_skill": null,
       "source_refs": [
         "ch_08_L184"
@@ -8026,14 +8026,14 @@
       "id": "tech_jiu_huan_dao_sweep",
       "name": "九环轮舞",
       "type": "attack",
-      "description": "挥舞三十六斤九环刀，虎虎生风，势大力沉的劈砍招式",
+      "description": "挥舞三十六斤jiuhuan_dao，虎虎生风，势大力沉的劈砍招式",
       "source_skill": "skill_jiu_huan_dao",
       "source_refs": [
         {
           "chapter": 9,
           "line_start": 80,
           "line_end": 80,
-          "text": "齐昨飞轮舞九环刀，虎虎作响"
+          "text": "qi_zuo_fei轮舞jiuhuan_dao，虎虎作响"
         }
       ]
     },
@@ -8041,7 +8041,7 @@
       "id": "tech_jiu_huan_pi_kan",
       "name": "当头劈砍",
       "type": "attack",
-      "description": "三十六斤九环刀当头劈下，刀势凶猛，配合左子午步进退有据",
+      "description": "三十六斤jiuhuan_dao当头劈下，刀势凶猛，配合左子午步进退有据",
       "source_skill": "skill_jiu_huan_dao",
       "source_refs": [
         {
@@ -8766,7 +8766,7 @@
       ]
     },
     {
-      "id": "factions_终南剑派",
+      "id": "faction_zhongnan_jianpai",
       "name": "终南剑派",
       "type": "武林门派",
       "location": "终南山",
@@ -8777,12 +8777,12 @@
       ]
     },
     {
-      "id": "factions_皇甫世家",
+      "id": "faction_huangfu_shijia",
       "name": "皇甫世家",
       "type": "武林世家",
       "location": null,
       "sub_divisions": [],
-      "one_line": "四大世家之一，皇甫高桥为当代少主",
+      "one_line": "四大世家之一，huangfu_gao_qiao为当代少主",
       "source_refs": [
         "ch_08_L148",
         "ch_08_L318"
@@ -9227,7 +9227,7 @@
       ]
     },
     {
-      "id": "loc_长安",
+      "id": "location_changan",
       "name": "长安",
       "region": "关中",
       "one_line": "终南右城，古都名城，谪仙楼与大雁塔所在之地",
@@ -9236,7 +9236,7 @@
       ]
     },
     {
-      "id": "loc_谪仙楼",
+      "id": "location_zhexian_lou",
       "name": "谪仙楼",
       "region": "长安",
       "one_line": "长安古城名楼，李白、杜甫、贺知章曾到访之地",
@@ -9245,7 +9245,7 @@
       ]
     },
     {
-      "id": "loc_大雁塔",
+      "id": "location_dayan_ta",
       "name": "大雁塔",
       "region": "长安",
       "one_line": "长安大小两雁塔，长安标志建筑，白乐天题名处",
@@ -9583,7 +9583,7 @@
       "description": "武林人士梦寐以求的瑰宝，实为有毒的假丹药，萧秋水奉剑王之命送往李沉舟",
       "effects": [],
       "related_characters": [
-        "xiao_qiushui",
+        "xiao_qiu_shui",
         "li_chenzhou"
       ],
       "related_skills": [],
@@ -9773,7 +9773,7 @@
       "name": "长歌",
       "type": "weapon",
       "owner": "char_xiao_qiu_shui",
-      "one_line": "萧家镇门宝剑，古剑长歌，历代风云人物佩剑",
+      "one_line": "萧家镇门宝剑，gujian_changge，历代风云人物佩剑",
       "description": "萧家祠供前所奉祭的古剑，斑剥、陈旧、古意盎然，剑锋口一处隐冷闪着似波光似水光但又如毒蛇蓝牙般的寒芒，是萧家历代风云人物闯荡江湖的佩剑。",
       "effects": [
         "剑气凌厉",
@@ -9800,17 +9800,17 @@
           "chapter": 7,
           "line_start": 56,
           "line_end": 60,
-          "text": "剑鞘斑剥，剑身雪亮。古剑长歌。"
+          "text": "剑鞘斑剥，剑身雪亮。gujian_changge。"
         }
       ]
     },
     {
       "id": "item_tian_xia_ying_xiong_ling",
-      "name": "天下英雄令",
+      "name": "tianxia_yingxiong_ling",
       "type": "special",
       "owner": null,
       "one_line": "武林至宝，萧家剑庐藏有，各方势力争夺之物",
-      "description": "武林至高信物，天下英雄令，藏于浣花剑庐之中，萧父临终前嘱托木叶等人寻回，各方势力为此物争斗不休。",
+      "description": "武林至高信物，tianxia_yingxiong_ling，藏于浣花剑庐之中，萧父临终前嘱托木叶等人寻回，各方势力为此物争斗不休。",
       "effects": [
         "号令天下英雄",
         "武林至宝"
@@ -9831,19 +9831,19 @@
           "chapter": 5,
           "line_start": 222,
           "line_end": 222,
-          "text": "天下英雄令还留在剑庐"
+          "text": "tianxia_yingxiong_ling还留在剑庐"
         },
         {
           "chapter": 9,
           "line_start": 403,
           "line_end": 421,
-          "text": "朱大天王要得到'天下英雄令'……费宫娥不从"
+          "text": "朱大天王要得到'tianxia_yingxiong_ling'……费宫娥不从"
         },
         {
           "chapter": 14,
           "line_start": 152,
           "line_end": 152,
-          "text": "老爷要激萧……萧大侠出来，是为了'天下英雄令'，有了这面令牌，朱大天王才会帮助我们"
+          "text": "老爷要激萧……萧大侠出来，是为了'tianxia_yingxiong_ling'，有了这面令牌，朱大天王才会帮助我们"
         }
       ]
     },
@@ -9968,36 +9968,36 @@
       ]
     },
     {
-      "id": "item_九环刀",
-      "name": "九环刀",
+      "id": "item_jiuhuan_dao",
+      "name": "jiuhuan_dao",
       "category": "武器",
-      "description": "长柄九环刀，齐昨飞随身兵器，刀身带环可发出声响",
+      "description": "长柄jiuhuan_dao，qi_zuo_fei随身兵器，刀身带环可发出声响",
       "source_refs": [
         "ch_08_L134",
         "ch_08_L184"
       ]
     },
     {
-      "id": "item_白蜡杆",
-      "name": "白蜡杆",
+      "id": "item_baila_gan",
+      "name": "baila_gan",
       "category": "武器",
-      "description": "黎九所用长杆兵器，以白蜡杆制成，轻便坚韧，可点可戳",
+      "description": "liu_jiu所用长杆兵器，以baila_gan制成，轻便坚韧，可点可戳",
       "source_refs": [
         "ch_08_L194"
       ]
     },
     {
-      "id": "item_金瓜锤",
-      "name": "金瓜锤",
+      "id": "item_jinguachui",
+      "name": "jinguachui",
       "category": "武器",
-      "description": "潘桂所用短兵器，形如金瓜，近身搏击威力极大",
+      "description": "pan_gui所用短兵器，形如金瓜，近身搏击威力极大",
       "source_refs": [
         "ch_08_L194"
       ]
     },
     {
-      "id": "item_天下英雄令",
-      "name": "天下英雄令",
+      "id": "item_tianxia_yingxiong_ling",
+      "name": "tianxia_yingxiong_ling",
       "category": "信物",
       "description": "萧秋水随身携带的英雄令，象征武林正义力量的信物",
       "source_refs": [
@@ -10005,8 +10005,8 @@
       ]
     },
     {
-      "id": "item_古剑长歌",
-      "name": "古剑长歌",
+      "id": "item_gujian_changge",
+      "name": "gujian_changge",
       "category": "武器",
       "description": "萧秋水随身古剑，名曰长歌，剑身古朴，锋利异常，伴随萧秋水行走江湖",
       "source_refs": [
@@ -10014,8 +10014,8 @@
       ]
     },
     {
-      "id": "item_梵文真经",
-      "name": "梵文真经",
+      "id": "item_fanwen_zhenjing",
+      "name": "fanwen_zhenjing",
       "category": "典籍",
       "description": "少林珍贵典籍，以梵文写成，对少林而言价值连城，萧秋水遗失于大雁塔梁上",
       "source_refs": [
@@ -10024,8 +10024,8 @@
       ]
     },
     {
-      "id": "item_朱大天王秘谱",
-      "name": "朱大天王秘谱",
+      "id": "item_zhuda_tianwang_mipu",
+      "name": "zhuda_tianwang_mipu",
       "category": "典籍",
       "description": "朱大天王的武功秘谱，记载其独门武学，萧秋水随身携带以备研习",
       "source_refs": [
@@ -10034,11 +10034,11 @@
     },
     {
       "id": "item_jin_gua_chui",
-      "name": "金瓜锤",
+      "name": "jinguachui",
       "type": "weapon",
       "owner": "char_pan_gui",
-      "one_line": "潘桂的奇门兵器",
-      "description": "潘桂所使用的奇门兵器，形似金瓜的锤类武器，具有独特的造型和攻击方式。",
+      "one_line": "pan_gui的奇门兵器",
+      "description": "pan_gui所使用的奇门兵器，形似金瓜的锤类武器，具有独特的造型和攻击方式。",
       "effects": [
         "打击伤害"
       ],
@@ -10056,17 +10056,17 @@
           "chapter": 9,
           "line_start": 26,
           "line_end": 26,
-          "text": "尸旁还有他的奇门兵器“金瓜锤”"
+          "text": "尸旁还有他的奇门兵器“jinguachui”"
         }
       ]
     },
     {
       "id": "item_jiu_huan_dao",
-      "name": "九环刀",
+      "name": "jiuhuan_dao",
       "type": "weapon",
       "owner": "char_qi_zuo_fei",
-      "one_line": "齐昨飞所持的三十六斤重刀",
-      "description": "齐昨飞惯用的重型兵刃，重达三十六斤，刀身上缀有九个铁环，挥动时铿锵作响，虎虎生风。",
+      "one_line": "qi_zuo_fei所持的三十六斤重刀",
+      "description": "qi_zuo_fei惯用的重型兵刃，重达三十六斤，刀身上缀有九个铁环，挥动时铿锵作响，虎虎生风。",
       "effects": [
         "重击伤害",
         "声威震慑"
@@ -10087,7 +10087,7 @@
           "chapter": 9,
           "line_start": 86,
           "line_end": 92,
-          "text": "一刀当头壁下……三十六斤九环刀，硬生生陡被定转"
+          "text": "一刀当头壁下……三十六斤jiuhuan_dao，硬生生陡被定转"
         }
       ]
     },
