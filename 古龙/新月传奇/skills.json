@@ -1,0 +1,915 @@
+[
+  {
+    "id": "skill_qing_feng_jian_fa",
+    "name": "青锋剑法",
+    "type": "剑法",
+    "faction": "未知",
+    "rank": "中",
+    "one_line": "青衣人以三尺青锋突刺试探，剑势迅疾毒辣。",
+    "techniques": [
+      {
+        "id": "tech_qing_feng_du_she_ci",
+        "name": "青锋毒蛇刺",
+        "type": "突刺",
+        "description": "寒光自手边刺出，剑路如毒蛇直取心口，强调突然与狠毒。"
+      },
+      {
+        "id": "tech_qing_feng_shou_jian",
+        "name": "青锋入鞘",
+        "type": "收势",
+        "description": "剑尖一闪后迅速入鞘，显示出手者能在试探后立刻收束锋芒。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出场",
+        "description": "青衣人以三尺青锋突刺试探，剑势迅疾毒辣。"
+      }
+    ],
+    "effects": [
+      "寒光自手边刺出，剑路如毒蛇直取心口，强调突然与狠毒。",
+      "剑尖一闪后迅速入鞘，显示出手者能在试探后立刻收束锋芒。"
+    ],
+    "combat_style": "青衣人以三尺青锋突刺试探，剑势迅疾毒辣。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 34,
+        "line_end": 42,
+        "text": "青衣人以三尺青锋刺向老板心口"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhu_kuai_dian_xue",
+    "name": "竹筷点穴",
+    "type": "点穴手法",
+    "faction": "未知",
+    "rank": "高",
+    "one_line": "面摊老板以挑面竹筷代点穴镢，攻守间直取穴位与要害。",
+    "techniques": [
+      {
+        "id": "tech_zhu_kuai_dian_jian_jing",
+        "name": "竹筷点肩井",
+        "type": "点穴",
+        "description": "以挑面大竹筷斜点肩井穴，借日常器物施展点穴手段。"
+      },
+      {
+        "id": "tech_shuang_long_duo_zhu",
+        "name": "双龙夺珠",
+        "type": "攻眼",
+        "description": "双筷齐出戳向双眼，攻势凌厉迫使持剑者退避。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出场",
+        "description": "面摊老板以挑面竹筷代点穴镢，攻守间直取穴位与要害。"
+      }
+    ],
+    "effects": [
+      "以挑面大竹筷斜点肩井穴，借日常器物施展点穴手段。",
+      "双筷齐出戳向双眼，攻势凌厉迫使持剑者退避。"
+    ],
+    "combat_style": "面摊老板以挑面竹筷代点穴镢，攻守间直取穴位与要害。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 38,
+        "line_end": 38,
+        "text": "老板将挑面的大竹筷当作点穴镢斜点肩井穴"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_ti_ying_gong",
+    "name": "护体硬功",
+    "type": "内功",
+    "faction": "未知",
+    "rank": "高",
+    "one_line": "面摊老板胸口如铁板，能硬受剑尖而只发金铁之声。",
+    "techniques": [
+      {
+        "id": "tech_tie_ban_xiong_kou",
+        "name": "铁板胸口",
+        "type": "护体",
+        "description": "剑尖刺中心口却如撞铁板，显示胸前护体功夫极强。"
+      },
+      {
+        "id": "tech_ying_shou_jian_feng",
+        "name": "硬受剑锋",
+        "type": "防御",
+        "description": "在剑锋已经临身时仍能以硬功承受，争取反击空间。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出场",
+        "description": "面摊老板胸口如铁板，能硬受剑尖而只发金铁之声。"
+      }
+    ],
+    "effects": [
+      "剑尖刺中心口却如撞铁板，显示胸前护体功夫极强。",
+      "在剑锋已经临身时仍能以硬功承受，争取反击空间。"
+    ],
+    "combat_style": "面摊老板胸口如铁板，能硬受剑尖而只发金铁之声。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 40,
+        "line_end": 40,
+        "text": "剑尖刺在老板心口上发出叮的一声响"
+      }
+    ]
+  },
+  {
+    "id": "skill_tie_jian_lian_huan_san_zhao",
+    "name": "铁剑连环三着",
+    "type": "剑法",
+    "faction": "铁剑门",
+    "rank": "中",
+    "one_line": "铁剑门年轻人所用规矩剑法，一剑发出必有连环三着。",
+    "techniques": [
+      {
+        "id": "tech_lian_huan_san_ji",
+        "name": "连环三击",
+        "type": "连击",
+        "description": "一剑出手连续三着，迅速准确地连击同一目标。"
+      },
+      {
+        "id": "tech_gui_ju_kuai_jian",
+        "name": "规矩快剑",
+        "type": "快剑",
+        "description": "剑式标准不花哨，却比常人想象快三倍，重在准确有效。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出场",
+        "description": "铁剑门年轻人所用规矩剑法，一剑发出必有连环三着。"
+      }
+    ],
+    "effects": [
+      "一剑出手连续三着，迅速准确地连击同一目标。",
+      "剑式标准不花哨，却比常人想象快三倍，重在准确有效。"
+    ],
+    "combat_style": "铁剑门年轻人所用规矩剑法，一剑发出必有连环三着。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 62,
+        "line_end": 62,
+        "text": "年轻人的剑式连绵，一剑发出一定有连环三着"
+      }
+    ]
+  },
+  {
+    "id": "skill_jiao_lin_biao_zhun_jian_fa",
+    "name": "焦林标准剑法",
+    "type": "剑法",
+    "faction": "未知",
+    "rank": "低",
+    "one_line": "焦林拔剑方法正确标准，但手已不稳，实战中迅速落败。",
+    "techniques": [
+      {
+        "id": "tech_biao_zhun_ba_jian",
+        "name": "标准拔剑",
+        "type": "起手",
+        "description": "拔剑姿势完全正确而标准，显示旧日训练扎实。"
+      },
+      {
+        "id": "tech_xin_kou_zhi_ci",
+        "name": "心口直刺",
+        "type": "突刺",
+        "description": "剑路取向对方心口，但速度与稳定性已不足以压制对手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出场",
+        "description": "焦林拔剑方法正确标准，但手已不稳，实战中迅速落败。"
+      }
+    ],
+    "effects": [
+      "拔剑姿势完全正确而标准，显示旧日训练扎实。",
+      "剑路取向对方心口，但速度与稳定性已不足以压制对手。"
+    ],
+    "combat_style": "焦林拔剑方法正确标准，但手已不稳，实战中迅速落败。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 194,
+        "line_end": 204,
+        "text": "焦林拔剑后被老板竹筷击中腕骨，长剑落地"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_zhao_duo_ming_jian",
+    "name": "一招夺命剑",
+    "type": "剑法",
+    "faction": "未知",
+    "rank": "高",
+    "one_line": "独臂人以一招取命闻名，曾连败七大剑派十三高手。",
+    "techniques": [
+      {
+        "id": "tech_yi_zhao_ci_sha",
+        "name": "一招刺杀",
+        "type": "杀招",
+        "description": "在一招间直接刺杀对手，追求极端凌厉与致命。"
+      },
+      {
+        "id": "tech_ba_shan_bai_hou_lian_jie",
+        "name": "败后连捷",
+        "type": "战绩",
+        "description": "巴山一败后四年连战七大剑派十三高手皆捷，杀招威名由战绩累积。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出场",
+        "description": "独臂人以一招取命闻名，曾连败七大剑派十三高手。"
+      }
+    ],
+    "effects": [
+      "在一招间直接刺杀对手，追求极端凌厉与致命。",
+      "巴山一败后四年连战七大剑派十三高手皆捷，杀招威名由战绩累积。"
+    ],
+    "combat_style": "独臂人以一招取命闻名，曾连败七大剑派十三高手。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 258,
+        "line_end": 264,
+        "text": "独臂人四年来连战七大剑派十三高手并一招刺杀卓飞"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_gong",
+    "name": "轻功",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "楚留香如被风吹入高墙，少年楚留香与胡铁花也凭轻功在高树上搭屋。",
+    "techniques": [
+      {
+        "id": "tech_fei_ru_gao_qiang",
+        "name": "飞入高墙",
+        "type": "special",
+        "description": "身形如鸢被风吹起般越入高墙，转瞬消失。"
+      },
+      {
+        "id": "tech_shu_shang_da_wo",
+        "name": "树上搭窝",
+        "type": "special",
+        "description": "凭轻身功夫登上枝叶浓密的高树，在树间搭建隐秘木屋。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成熟运用",
+        "description": "楚留香用来潜入巨宅，少年时与胡铁花用来上下高树。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "快速越墙潜行与高处行动"
+      }
+    ],
+    "combat_style": "飘忽迅捷，偏重身法与隐蔽移动",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 10,
+        "line_end": 10,
+        "text": "就像是个鸢子般被一阵风吹入了高墙，忽然看不见了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_rong_shu",
+    "name": "易容术",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "通过妆扮、举止和气质改变身份外貌的伪装技艺。",
+    "techniques": [
+      {
+        "id": "tech_gai_tou_huan_mian",
+        "name": "改头换面",
+        "type": "special",
+        "description": "借服饰妆容和神态让熟人也难辨真身。"
+      },
+      {
+        "id": "tech_shen_tai_bian_hua",
+        "name": "神态变化",
+        "type": "feint",
+        "description": "以步态声音和气质配合外貌伪装。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "高阶",
+        "description": "楚留香能由青年侠盗化作慈眉善目的白胡子小老头。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "隐匿真实身份并误导追踪者。"
+      }
+    ],
+    "combat_style": "以假乱真，配合身法与应变形成连续欺敌。",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 22,
+        "line_end": 38,
+        "text": "楚留香进店后出来时已成慈眉善目的白胡子小老头。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_die_chuan_hua_qi_shi_er_shi",
+    "name": "蝴蝶穿花七十二式",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "胡铁花自创的江湖绝技，变化灵动而足以应付强敌。",
+    "techniques": [
+      {
+        "id": "tech_hu_die_chuan_hua",
+        "name": "蝴蝶穿花",
+        "type": "attack",
+        "description": "以穿插游走的身法和掌势连续抢攻。"
+      },
+      {
+        "id": "tech_qi_shi_er_bian",
+        "name": "七十二变",
+        "type": "feint",
+        "description": "以多路变化制造空隙，令对手难以捉摸。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "自创绝技",
+        "description": "被视为江湖中难得见到的绝技。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "近身交手中抢占主动。"
+      },
+      {
+        "type": "特殊",
+        "description": "以灵活变化应对多人围攻。"
+      }
+    ],
+    "combat_style": "灵动穿插、变化繁复，适合乱战和贴身抢攻。",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 142,
+        "line_end": 148,
+        "text": "胡铁花自创的蝴蝶穿花七十二式，是江湖中难得见到的绝技。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hei_zhu_gan_fa",
+    "name": "黑竹竿法",
+    "type": "棍法",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "以一根黑竹竿近身顶击、硬挡围杀的奇门棍法。",
+    "techniques": [
+      {
+        "id": "tech_zhu_gan_ding_zhuang",
+        "name": "竹竿顶撞",
+        "type": "attack",
+        "description": "以黑竹竿猛然顶出，将扑近者撞飞破墙。"
+      },
+      {
+        "id": "tech_du_bi_ying_shou",
+        "name": "独臂硬守",
+        "type": "defense",
+        "description": "在残肢重伤下以单臂握竿守住要害，抗住多名高手围攻。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "黑竹竿重伤濒危仍能顶回一名杀手。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "近身顶击足以将人撞破客栈墙壁。"
+      }
+    ],
+    "combat_style": "硬桥硬马，以残躯强守反击。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 60,
+        "line_end": 84,
+        "text": "第五个人被他用手里的黑竹竿顶了回来，一下子撞在墙上。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhe_shan_zhi_fa",
+    "name": "折扇指法",
+    "type": "指法",
+    "faction": "史天王一方",
+    "rank": "出神入化",
+    "one_line": "白云生以折扇牵制、指点天灵的诡捷杀招。",
+    "techniques": [
+      {
+        "id": "tech_zhe_shan_dao_lun",
+        "name": "折扇刀轮",
+        "type": "attack",
+        "description": "折扇旋转飞出如刀轮辗向敌人。"
+      },
+      {
+        "id": "tech_tian_ling_yi_zhi",
+        "name": "天灵一指",
+        "type": "control",
+        "description": "趁折扇离手瞬间贴近，以食指点住天灵穴制敌。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "白云生一招之间让胡铁花动弹不得。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "点住天灵穴使敌人无法动弹。"
+      },
+      {
+        "type": "伤害",
+        "description": "折扇可作致命刀轮。"
+      }
+    ],
+    "combat_style": "文雅外表下突施奇袭，扇指并用。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 162,
+        "line_end": 180,
+        "text": "折扇刀轮般飞出，白云生又以食指对准胡铁花天灵穴。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ren_shu",
+    "name": "忍术",
+    "type": "轻功",
+    "faction": "伊贺忍者",
+    "rank": "出神入化",
+    "one_line": "东瀛忍者经严酷训练形成的潜行、刺探和谋杀技艺。",
+    "techniques": [
+      {
+        "id": "tech_mao_dun",
+        "name": "猫遁",
+        "type": "special",
+        "description": "以手足并用的奇特身法高速无声潜行，如猫般诡秘。"
+      },
+      {
+        "id": "tech_wu_sheng_fei_lue",
+        "name": "无声飞掠",
+        "type": "buff",
+        "description": "在夜色中高速移动而不发出声响。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "幼年训练",
+        "description": "忍者自幼接受极严格艰苦训练。"
+      },
+      {
+        "level": "任务执行",
+        "description": "长成后接受命令执行偷窃、刺探和谋杀。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升潜行和高速移动能力。"
+      },
+      {
+        "type": "特殊",
+        "description": "适合刺探与暗杀任务。"
+      }
+    ],
+    "combat_style": "诡秘无声，手足并用，善于夜间潜入。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 418,
+        "line_end": 430,
+        "text": "他所施展的身法正是忍术中的一种“猫遁”，任务通常只有偷窃、刺探和谋杀。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hua_zhi_jian_fa",
+    "name": "花枝剑法",
+    "type": "剑法",
+    "faction": "玉剑山庄",
+    "rank": "绝顶",
+    "one_line": "杜先生以花枝施展的轻巧、优雅而毒辣的剑术精髓。",
+    "techniques": [
+      {
+        "id": "tech_hua_zhi_ci_mu",
+        "name": "花枝刺目",
+        "type": "刺击",
+        "description": "以一根花枝抖出剑意，直刺对手双眼眉睫，轻巧优雅而极毒辣。"
+      },
+      {
+        "id": "tech_hua_ban_cheng_xiang",
+        "name": "花瓣成相",
+        "type": "内力化形",
+        "description": "借山茶枝瓣在内力中化为有形无质之相，展现无法无相剑意。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "绝顶",
+        "description": "花枝一抖即蕴含无法无相剑法精髓。"
+      }
+    ],
+    "effects": [
+      "刺目",
+      "试探对手",
+      "以柔物显剑意"
+    ],
+    "combat_style": "以花枝为剑，轻巧优雅中藏极致毒辣。",
+    "rag_refs": [
+      "ch_008"
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 108,
+        "line_end": 118,
+        "text": "花枝一抖刺向楚留香双眼，手法轻巧优雅而毒辣。"
+      }
+    ]
+  },
+  {
+    "id": "skill_chun_lei_dao_fa",
+    "name": "春雷刀法",
+    "type": "刀法",
+    "faction": "faction_yi_he_ren_zhe",
+    "rank": "上乘",
+    "one_line": "借雷霆闪电之势凌空下击，追求一刀必杀的东瀛刀法。",
+    "techniques": [
+      {
+        "id": "tech_lei_ting_xia_ji",
+        "name": "雷霆下击",
+        "type": "attack",
+        "description": "趁闪电照亮和雷声震动之际，自黑暗中凌空斩落，刀势与春雷合一。"
+      },
+      {
+        "id": "tech_an_zhong_si_fu",
+        "name": "暗中伺伏",
+        "type": "special",
+        "description": "在黑暗、风雨和地形遮掩中保持不动，等待对手破绽再发致命一击。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "能借天候与黑暗隐蔽身形，刀势出手便求必杀。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "雷雨黑暗中突袭",
+        "description": "以凌空长刀直取头颅，造成致命斩杀威胁。"
+      },
+      {
+        "type": "控制",
+        "condition": "对手不知杀手方位",
+        "description": "用杀气和潜伏迫使对手承受持续精神压力。"
+      }
+    ],
+    "combat_style": "沉着隐伏、借势突袭、出手凌厉无匹。",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 64,
+        "line_end": 90,
+        "text": "一道醒目的刀光……只要楚留香一出手，他势必又将发出凌厉无匹的一击。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_he_ren_shu",
+    "name": "伊贺忍术",
+    "type": "轻功",
+    "faction": "faction_yi_he_ren_zhe",
+    "rank": "上乘",
+    "one_line": "伊贺忍者用于潜伏、黑暗视物和无声行动的异国武艺。",
+    "techniques": [
+      {
+        "id": "tech_hei_an_qian_xing",
+        "name": "黑暗潜行",
+        "type": "special",
+        "description": "在黑暗中窥伺目标，借地形与雨夜掩藏踪迹。"
+      },
+      {
+        "id": "tech_ren_zhe_ye_shi",
+        "name": "忍者夜视",
+        "type": "buff",
+        "description": "能在黑暗中看到许多常人看不见的事，增强夜间刺杀能力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "unlock": "达到高阶忍者境界，可在雨夜山林中无声潜伏。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "夜间或暗处行动",
+        "description": "提升潜行、观察与刺杀时机判断能力。"
+      }
+    ],
+    "combat_style": "重潜伏、耐性与奇袭，适合刺客式战斗。",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 80,
+        "line_end": 84,
+        "text": "就算他能够像最高级的忍者一样，能在黑暗中看到很多别人看不见的事。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_tian_zhai_jian_fa",
+    "name": "石田斋剑法",
+    "type": "剑法",
+    "faction": "东瀛剑客",
+    "rank": 4,
+    "one_line": "石田斋以筷代剑，以静制动、后发制人的高深剑法。",
+    "combat_style": "静止中藏无穷变化，抢就是不抢，不抢就是抢。",
+    "techniques": [
+      {
+        "id": "tech_qing_yan_zhi_shi",
+        "name": "青眼之势"
+      },
+      {
+        "id": "tech_yi_jing_zhi_dong",
+        "name": "以静制动"
+      }
+    ],
+    "progression": [
+      {
+        "level": "剑意对峙",
+        "description": "以筷作剑即可完全占取优势。"
+      }
+    ],
+    "effects": [
+      "锁定敌人空门",
+      "后发制人",
+      "迫使对手不能动"
+    ],
+    "rag_refs": [
+      "ch10:388-410"
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 388,
+        "line_end": 410,
+        "text": "石田斋以筷作剑，静势中藏无穷变化与杀手，后发制人，以静制动。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xun_huan_liu_zhuan",
+    "name": "循环流转",
+    "type": "内功运气",
+    "faction": "无门派",
+    "rank": 5,
+    "one_line": "楚留香将左右手真气贯通，使酒与真气循环不息，造成浑圆无破绽之势。",
+    "combat_style": "借倒酒动作贯通真气，圆融流转，使敌手找不到出手机会。",
+    "techniques": [
+      {
+        "id": "tech_zhen_qi_guan_tong",
+        "name": "真气贯通"
+      },
+      {
+        "id": "tech_hun_yuan_wu_ji",
+        "name": "浑圆无极"
+      }
+    ],
+    "progression": [
+      {
+        "level": "至高应变",
+        "description": "以饮酒动作化解石田斋必杀剑势。"
+      }
+    ],
+    "effects": [
+      "酒壶不空",
+      "酒杯不满",
+      "形成圆势",
+      "消除破绽"
+    ],
+    "rag_refs": [
+      "ch10:588-606"
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 588,
+        "line_end": 606,
+        "text": "循环流转，生生不息；真气与酒两者在循回流转，就把他的势造成了一个圆。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_san_tai_bao_heng_lian",
+    "name": "十三太保横练",
+    "type": "内功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "硬练外门护体功夫，能让刀锋砍在胸膛上只留白印。",
+    "techniques": [
+      {
+        "id": "tech_heng_lian_hu_ti",
+        "name": "横练护体",
+        "type": "defense",
+        "description": "以内外兼修的硬功护住胸膛肌肤，使快刀重砍也难以破开身体防御。"
+      },
+      {
+        "id": "tech_tie_bu_shan_ying_gong",
+        "name": "铁布衫硬功",
+        "type": "buff",
+        "description": "以长期横练增强筋骨皮肉，临敌时全身如铁盾般承受兵刃打击。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "李盾可用胸膛硬受利刀一击而只留下淡淡白印。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "显著提升身体抗击打与抗刀锋能力"
+      }
+    ],
+    "combat_style": "以强悍体魄和外家掌力正面压迫对手",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 32,
+        "line_end": 58,
+        "text": "身上显然带着金钟罩铁布衫一类的横练功夫...十三太保横练的功确实练得很不错。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_kai_shu_qing_gong",
+    "name": "胡开树轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "胡开树用脚跟与脚尖两股力量配合，能三五个起落掠到二三十丈外。",
+    "techniques": [
+      {
+        "id": "tech_jiao_gen_jiao_jian_he_li",
+        "name": "脚跟脚尖合力",
+        "type": "buff",
+        "description": "以左脚脚跟、右脚脚尖同时发力，使身体凌空疾掠，适合短距离高速脱身。"
+      },
+      {
+        "id": "tech_ling_kong_fan_teng",
+        "name": "凌空翻腾",
+        "type": "defense",
+        "description": "人在半空遭遇暗器时借力翻身，临时改变身形和落点以躲避攻击。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "二三十丈距离只需三五个起落。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升短途腾挪和逃生速度"
+      }
+    ],
+    "combat_style": "以轻身提纵、凌空翻腾为主，偏向逃逸避险",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 176,
+        "line_end": 186,
+        "text": "胡开树的脚用力一蹬...以他的轻功，只要三五个起落。"
+      }
+    ]
+  },
+  {
+    "id": "skill_si_tu_ping_jian_fa",
+    "name": "司徒平剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "司徒平的剑静时不动如山，出手时剑光快如闪电，可瞬间刺破渔网并夺人性命。",
+    "techniques": [
+      {
+        "id": "tech_shan_dian_ci_wang",
+        "name": "闪电刺网",
+        "type": "attack",
+        "description": "剑光如闪电般穿出，在瞬息间刺穿大网封锁，为目标打开生路。"
+      },
+      {
+        "id": "tech_leng_yan_chuan_xin",
+        "name": "冷眼穿心",
+        "type": "attack",
+        "description": "以冷静眼神锁定对手，在对方松懈时一剑洞穿心脏。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "被称为后起一代剑客中第一高手，出剑快如闪电。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑势极快，可一击致命"
+      },
+      {
+        "type": "控制",
+        "description": "以剑光破开围网封锁"
+      }
+    ],
+    "combat_style": "静如大地，动如闪电，讲究刹那毫厘间的胜负",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 200,
+        "line_end": 208,
+        "text": "好亮的剑光，好快的剑!剑是从司徒平手里刺出来的。"
+      }
+    ]
+  }
+]
