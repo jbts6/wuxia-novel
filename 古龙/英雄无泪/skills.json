@@ -1,0 +1,1612 @@
+[
+  {
+    "id": "skill_mu_ji_sha_ren_shu",
+    "name": "木鸡杀人术",
+    "type": "暗器",
+    "faction": "中原雄狮堂",
+    "rank": "出神入化",
+    "one_line": "以绞索、飞镖与长短双刀杀人的冷酷技艺，轻松纯熟而需高价雇用。",
+    "techniques": [
+      {
+        "id": "tech_jiao_suo_suo_hou",
+        "name": "绞索锁喉",
+        "type": "attack",
+        "description": "以绞索套住目标咽喉，动作温柔却致命。"
+      },
+      {
+        "id": "tech_chang_duan_shuang_dao",
+        "name": "长短双刀",
+        "type": "attack",
+        "description": "长刀短刀配合割喉，像农夫割草般轻松纯熟。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名",
+        "description": "江湖中知其名而少有人见其人。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "快速割喉或勒杀目标"
+      }
+    ],
+    "combat_style": "冷血、精准、收价极高的杀手技艺",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 176,
+        "line_end": 182,
+        "text": "别人需要他的，通常都是他的绞索飞镖和他永远不离手边的两把刀。"
+      }
+    ]
+  },
+  {
+    "id": "skill_gao_jian_fei_jian_fa",
+    "name": "高渐飞剑法",
+    "type": "剑法",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "少年剑客高渐飞赖以挑战司马超群的神秘剑法，出剑前已令人忌惮。",
+    "techniques": [
+      {
+        "id": "tech_bu_bao_ji_dao",
+        "name": "布包击刀",
+        "type": "attack",
+        "description": "剑未出鞘，以粗布包袱连击刀手，击飞长刀并击倒多人。"
+      },
+      {
+        "id": "tech_gong_ping_yue_zhan",
+        "name": "公平约战",
+        "type": "special",
+        "description": "不在暗中杀人，逼对手选择时间地点正面决斗。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名",
+        "description": "三个月内刺杀昆仑、华山、崆峒三大剑派门下四大高手。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面决斗中刺杀强敌"
+      },
+      {
+        "type": "控制",
+        "description": "未拔剑时击倒围攻警卫"
+      }
+    ],
+    "combat_style": "孤高正面、重视公平决斗的少年剑法",
+    "rag_refs": [
+      1,
+      10,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 742,
+        "line_end": 750,
+        "text": "三个月里刺杀了昆仑华山崆峒三大剑派门下四大高手...我从不在暗中杀人！"
+      },
+      {
+        "chapter": 7,
+        "line_start": 272,
+        "line_end": 282,
+        "text": "小高忽然站了起来，身子已挺挺的直拔而起，下面的人准备好杀手等着他力竭落下。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 564,
+        "line_end": 570,
+        "text": "英勇惨烈苦战死战，俺们这些人都看得忍不住要哭出来"
+      },
+      {
+        "chapter": 17,
+        "line_start": 31,
+        "line_end": 50,
+        "text": "郑诚说看花开时生命诞生变化精微奇妙，判断高渐飞剑法一定精进不少。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_te_shen_fa",
+    "name": "奇特身法",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "小高沿墙滑出窗户、迅疾冲入长廊的难以形容身法。",
+    "techniques": [
+      {
+        "id": "tech_yan_qiang_hua_chu",
+        "name": "沿墙滑出",
+        "type": "buff",
+        "description": "贴墙滑行越窗，迅速绕到后院方向。"
+      },
+      {
+        "id": "tech_lue_chuang_chong_lang",
+        "name": "掠窗冲廊",
+        "type": "buff",
+        "description": "从窗外掠入后院长廊，快速逼近目标门外。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "初现",
+        "description": "大典混乱中首次显露，旁人难以形容。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升移动与突围速度"
+      }
+    ],
+    "combat_style": "轻捷奇诡，善于趁混乱改变位置",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 578,
+        "line_end": 580,
+        "text": "小高忽然闪身窜入大厅，用一种没有人能形容的奇特身法，沿着墙壁滑过去，滑出了一扇窗户。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiang_zi_sha_ren_shu",
+    "name": "箱子杀人术",
+    "type": "暗器",
+    "faction": "无",
+    "rank": "返璞归真",
+    "one_line": "神秘提箱人疑似借一口平凡箱子瞬间完成割喉、穿心、斩首三种杀法。",
+    "techniques": [
+      {
+        "id": "tech_san_qi_tong_sha",
+        "name": "三器同杀",
+        "type": "attack",
+        "description": "一瞬间造成快刀割喉、枪矛穿心、斧头斩首三类伤口。"
+      },
+      {
+        "id": "tech_ping_xiang_yin_xing",
+        "name": "平箱隐形",
+        "type": "feint",
+        "description": "以陈旧平凡箱子和普通外貌隐匿杀机，避开众人注意。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "传闻初现",
+        "description": "本章未见其出手，只见结果足以震慑卓东来和高渐飞。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "瞬间杀死多名高手"
+      },
+      {
+        "type": "特殊",
+        "description": "以平凡箱子隐藏真正杀机"
+      }
+    ],
+    "combat_style": "平凡外表下藏极端复杂武器与杀法",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 644,
+        "line_end": 650,
+        "text": "七个人...有的人咽喉已经被割断，有的人心脏已被刺穿...杨坚的头颅已经不见了"
+      },
+      {
+        "chapter": 1,
+        "line_start": 674,
+        "line_end": 684,
+        "text": "三种形状份量招式都完全不同的武器杀人...绝对有一个。"
+      }
+    ]
+  },
+  {
+    "type": "剑法",
+    "faction": "无",
+    "rank": "出神入化",
+    "progression": [
+      "本章尚未真正出剑"
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "以不出剑形成心理压迫"
+      }
+    ],
+    "rag_refs": [
+      "ch_002:246-270"
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 246,
+        "line_end": 270,
+        "text": "\"我也看得出你没有带杨坚的头颅！\"孙通说，\"可是我看得出你带了一口剑。\n\"\n\"你没有看错。\"\n\"你为什么不拔出你的剑来试一试。\"\n\"试什么？\"\n\"试试看究竟是谁的头颅会从脖子上落下。\"孙通说。\n小高轻抚着他那个永远不离手边的粗布包袱，微笑摇"
+      }
+    ],
+    "id": "skill_xiao_gao_jian_fa",
+    "name": "小高剑法",
+    "one_line": "小高随身不离的剑法，目标直指司马超群而非孙通。",
+    "techniques": [
+      {
+        "id": "tech_bu_ba_jian",
+        "name": "不拔剑",
+        "type": "feint",
+        "description": "面对不配的敌人拒绝出剑，以克制和判断保存真正锋芒。"
+      },
+      {
+        "id": "tech_jian_zhi_si_ma",
+        "name": "剑指司马",
+        "type": "attack",
+        "description": "将剑保留给司马超群，表现出明确且执着的成名目标。"
+      }
+    ],
+    "combat_style": "以不出剑形成心理压迫，只把真正剑锋留给强敌。",
+    "ls": 246,
+    "le": 270
+  },
+  {
+    "type": "刀法",
+    "faction": "雄狮堂",
+    "rank": "出神入化",
+    "progression": [
+      "朱猛本章以刀威震慑青衣"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "快速斩杀与震慑多人"
+      }
+    ],
+    "rag_refs": [
+      "ch_002:318-344"
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 318,
+        "line_end": 344,
+        "text": "笑声中，四尺九寸长的大砍刀高高扬起，刀背上的金光与刀锋上的寒光，在雪光反映中亮得像尖针一样刺眼。\n小高只看见刀光一闪，忽然间就变成了一片腥红。\n无数点鲜红的血花，就像是焰火般忽然从刀光中飞溅而出，和一片银白的雪色交织出一幅令人永远忘不了的图"
+      }
+    ],
+    "id": "skill_xiong_shi_kuang_dao",
+    "name": "雄狮狂刀",
+    "one_line": "朱猛以大砍刀形成狂猛压迫，瞬间杀崩大镖局青衣。",
+    "techniques": [
+      {
+        "id": "tech_da_kan_dao_heng_sao",
+        "name": "大砍刀横扫",
+        "type": "attack",
+        "description": "以四尺九寸大砍刀在近身处挥斩，刀光如金寒交错。"
+      },
+      {
+        "id": "tech_xue_zhong_sha_zhen",
+        "name": "雪中杀阵",
+        "type": "attack",
+        "description": "借风雪与豪笑压阵，令敌方青衣在血花中崩溃。"
+      }
+    ],
+    "combat_style": "狂放刚猛，以气势、巨刀和胆魄压垮对手。",
+    "ls": 318,
+    "le": 344
+  },
+  {
+    "type": "内功",
+    "faction": "无",
+    "rank": "出神入化",
+    "progression": [
+      "本章首次显露"
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "证明内力深厚并扭转朱猛判断"
+      }
+    ],
+    "rag_refs": [
+      "ch_002:390-414"
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 390,
+        "line_end": 414,
+        "text": "\"难道你还想从这个茶壶里倒杯热茶出来？\"朱猛问小高。\n\"我本来就在这么想。\"\n\"你知不知道这壶茶已经完全冷了？\"\n\"我知道，\"小高说，\"我当然知道。\"\n朱猛看着他，就好像看着个怪物一样：\"你知道这壶茶已经冷了，可是你还想从这壶茶里倒杯热的出"
+      }
+    ],
+    "id": "skill_nei_li_re_cha",
+    "name": "内力热茶",
+    "one_line": "小高以掌心内力将冷茶逼热，显露深厚内功。",
+    "techniques": [
+      {
+        "id": "tech_zhang_xin_cui_re",
+        "name": "掌心催热",
+        "type": "special",
+        "description": "以掌心内力和热力贯入茶壶，使冷茶变成滚烫热茶。"
+      },
+      {
+        "id": "tech_leng_cha_bian_re",
+        "name": "冷茶变热",
+        "type": "special",
+        "description": "不动声色地从冷壶中倒出热茶，用奇异内功震住朱猛。"
+      }
+    ],
+    "combat_style": "含蓄奇诡，以日常动作展示内力。",
+    "ls": 390,
+    "le": 414
+  },
+  {
+    "id": "skill_xiang_zi_an_qi",
+    "name": "箱子暗器",
+    "type": "暗器",
+    "rank": "宗师",
+    "faction": "无",
+    "one_line": "由一口箱子组合出多种武器威力的神秘暗器术。",
+    "techniques": [
+      {
+        "id": "tech_xiang_zhong_du_xiang",
+        "name": "箱中毒香"
+      },
+      {
+        "id": "tech_duo_qi_tong_fa",
+        "name": "多器同发"
+      }
+    ],
+    "progression": [
+      {
+        "level": "未明",
+        "description": "外观仅显露奇特铁管铁件，真实杀法未完全揭露。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "以栀子花般淡香使窥探者昏迷。"
+      },
+      {
+        "type": "特殊",
+        "description": "可同时发出多种不同武器的威力。"
+      }
+    ],
+    "combat_style": "以机关、毒香与隐藏构件压制敌人。",
+    "rag_refs": [
+      "ch3:100-130",
+      "ch3:488-512"
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 100,
+        "line_end": 130,
+        "text": "可以同时发出很多种不同武器的威力"
+      },
+      {
+        "chapter": 3,
+        "line_start": 488,
+        "line_end": 512,
+        "text": "箱子一打开，他就忽然嗅到一种淡淡的好像栀子花一样的香气。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhan_lue_qi_xi",
+    "name": "战略奇袭",
+    "type": "内功",
+    "rank": "宗师",
+    "faction": "大镖局",
+    "one_line": "以情报、速度与心理压迫制造局部空虚后突袭。",
+    "techniques": [
+      {
+        "id": "tech_ri_ye_jian_cheng",
+        "name": "昼夜兼程"
+      },
+      {
+        "id": "tech_kong_xu_qi_xi",
+        "name": "空虚奇袭"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成势",
+        "description": "调郭壮赶赴洛阳并利用朱猛轻骑远出。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "迫使敌方根基暴露，在对方回防前完成突袭。"
+      }
+    ],
+    "combat_style": "不重正面厮杀，重在速度、时机和威慑。",
+    "rag_refs": [
+      "ch3:132-162"
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 132,
+        "line_end": 162,
+        "text": "一次奇袭远比十次苦战更有效"
+      }
+    ]
+  },
+  {
+    "id": "skill_kai_suo_shou_fa",
+    "name": "开锁手法",
+    "type": "指法",
+    "rank": "高手",
+    "faction": "无",
+    "one_line": "高渐飞以铁丝拨开复杂锁簧的灵巧指法。",
+    "techniques": [
+      {
+        "id": "tech_tie_si_bo_huang",
+        "name": "铁丝拨簧"
+      },
+      {
+        "id": "tech_ling_shou_kai_suo",
+        "name": "灵手开锁"
+      }
+    ],
+    "progression": [
+      {
+        "level": "熟练",
+        "description": "曾连续打开十一位名匠打造的三十把好锁。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "快速解除箱锁机关。"
+      }
+    ],
+    "combat_style": "非战斗技巧，依靠手指灵巧与严训。",
+    "rag_refs": [
+      "ch3:488-512"
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 488,
+        "line_end": 512,
+        "text": "连续不停地打开了分别由十一位名匠打造的三十把好锁"
+      }
+    ]
+  },
+  {
+    "id": "skill_lei_hen_jian_fa",
+    "name": "泪痕剑法",
+    "type": "剑法",
+    "rank": "高手",
+    "faction": "无",
+    "one_line": "高渐飞所持泪痕剑对应的凌厉剑术。",
+    "techniques": [
+      {
+        "id": "tech_lei_hen_sha_jian",
+        "name": "泪痕杀剑"
+      },
+      {
+        "id": "tech_yi_jian_mie_kou",
+        "name": "一剑灭口"
+      }
+    ],
+    "progression": [
+      {
+        "level": "已成",
+        "description": "看过此剑者皆死在剑下。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "以奇异剑痕之剑造成致命威慑。"
+      }
+    ],
+    "combat_style": "出剑隐秘而决绝，重视瞬间杀伤。",
+    "rag_refs": [
+      "ch3:418-454",
+      "第六章泪痕剑凶煞"
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 418,
+        "line_end": 454,
+        "text": "看过我这柄剑的人，都已死在我的剑下。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 186,
+        "line_end": 198,
+        "text": "泪痕剑可瞬息取命，也会给别人瞬息取他性命的理由"
+      },
+      {
+        "chapter": 6,
+        "line_start": 312,
+        "line_end": 324,
+        "text": "萧泪血称泪痕剑天下无双且出鞘必饮人血"
+      },
+      {
+        "chapter": 18,
+        "line_start": 88,
+        "line_end": 88,
+        "text": "一剑穿胸而过"
+      }
+    ]
+  },
+  {
+    "id": "skill_hui_feng_wu_liu_jian",
+    "name": "回风舞柳剑",
+    "type": "剑法",
+    "faction": null,
+    "rank": "上乘",
+    "one_line": "巴山顾道人赖以纵横天下的七七四十九手剑法。",
+    "combat_style": "",
+    "techniques": [
+      {
+        "id": "tech_hui_feng_wu_liu",
+        "name": "回风舞柳"
+      },
+      {
+        "id": "tech_qi_qi_si_shi_jiu_shou",
+        "name": "七七四十九手"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 172,
+        "line_end": 174,
+        "text": "顾道人以七七四十九手回风舞柳剑纵横天下。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_ling_qiao_fu_fa",
+    "name": "武陵樵斧法",
+    "type": "斧法",
+    "faction": null,
+    "rank": "上乘",
+    "one_line": "黄山隐侠武陵樵所用的霸道斧法，十一招皆为杀手。",
+    "combat_style": "",
+    "techniques": [
+      {
+        "id": "tech_ba_dao_sha_shou_fu",
+        "name": "霸道杀手斧"
+      },
+      {
+        "id": "tech_shi_yi_fu_sha_shou",
+        "name": "十一斧杀手"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 178,
+        "line_end": 180,
+        "text": "武陵樵用宣花斧，招式只有十一招，每一招都是极霸道的杀手。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_san_qi_bing",
+    "name": "十三奇兵",
+    "type": "奇门兵器术",
+    "faction": null,
+    "rank": "上乘",
+    "one_line": "以箱中铁件迅速拼成十三种复合兵器，针对不同对手克制出手。",
+    "combat_style": "",
+    "techniques": [
+      {
+        "id": "tech_pin_cou_qi_bing",
+        "name": "拼凑奇兵"
+      },
+      {
+        "id": "tech_ke_di_bian_bing",
+        "name": "克敌变兵"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 216,
+        "line_end": 224,
+        "text": "箱中铁件能用十三种方法拼凑成十三种不同形式的武器。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_zhu_yu_jia_shu",
+    "name": "天竺瑜珈术",
+    "type": "身法内功",
+    "faction": null,
+    "rank": "上乘",
+    "one_line": "传自天竺秘宗圣母之水高峰的瑜珈术，使身体柔韧灵巧。",
+    "combat_style": "",
+    "techniques": [
+      {
+        "id": "tech_rou_shen_wan_zhuan",
+        "name": "柔身弯转"
+      },
+      {
+        "id": "tech_ling_qiao_tuo_shen",
+        "name": "灵巧脱身"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 294,
+        "line_end": 298,
+        "text": "黑衣人判断小高练过传自天竺秘宗、圣母之水高峰上的瑜珈术。"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_hu_zi_tui_fa",
+    "name": "大胡子腿法",
+    "type": "轻功",
+    "faction": "盗门世家",
+    "rank": "炉火纯青",
+    "one_line": "以双腿凌空绞缠、扭腰借力制敌的奇异近身腿功。",
+    "techniques": [
+      {
+        "id": "tech_ling_kong_jiao_shou",
+        "name": "凌空绞首",
+        "type": "attack",
+        "description": "两腿如扭麻花般凌空绞住敌人头颈，压制呼吸。"
+      },
+      {
+        "id": "tech_yao_zhi_niu_zhuan",
+        "name": "腰肢扭转",
+        "type": "special",
+        "description": "腰肢一拧一扭带动双腿缠身，重新锁住对手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "能出其不意缠住高渐飞头颈"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "以双腿缠锁头颈限制行动"
+      },
+      {
+        "type": "伤害",
+        "description": "压迫咽喉使敌人窒息"
+      }
+    ],
+    "combat_style": "近身缠斗，腿部力量与柔韧兼具",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 170,
+        "line_end": 180,
+        "text": "两条腿忽然像扭麻花似的凌空一绞，绞住了小高的头。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ti_yun_zong",
+    "name": "梯云纵",
+    "type": "轻功",
+    "faction": "未知",
+    "rank": "炉火纯青",
+    "one_line": "面具刺客用来判断小高身法层次的高明纵跃轻功类别。",
+    "techniques": [
+      {
+        "id": "tech_ti_yun_shang_zong",
+        "name": "梯云上纵",
+        "type": "buff",
+        "description": "纵身上拔，如踏云梯般提升高度。"
+      },
+      {
+        "id": "tech_qiang_tou_luo_shen",
+        "name": "墙头落身",
+        "type": "defense",
+        "description": "借墙头落点调整身形，保持追击或退避余地。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "类属",
+        "description": "小高身法被面具刺客比作梯云纵一类"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升纵跃高度与追击能力"
+      },
+      {
+        "type": "特殊",
+        "description": "空中借力转换方位"
+      }
+    ],
+    "combat_style": "高纵轻灵，适合追击屋脊墙头目标",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 390,
+        "line_end": 392,
+        "text": "要练成'梯云纵'这一类的轻功也很不容易。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_mi_guai_yi_dong_zuo",
+    "name": "奇秘怪异动作",
+    "type": "内功",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "高渐飞用来灵活肌肉、充沛精力、澄清思想的日常练习。",
+    "techniques": [
+      {
+        "id": "tech_cheng_qing_si_xiang",
+        "name": "澄清思想",
+        "type": "buff",
+        "description": "通过怪异动作安定情绪，使思想澄明。"
+      },
+      {
+        "id": "tech_ling_huo_ji_rou",
+        "name": "灵活肌肉",
+        "type": "buff",
+        "description": "活动全身肌肉，使精力恢复并保持战前巅峰。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "日常修炼",
+        "description": "决战前用来保持身体和心境"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "恢复精力并灵活肌肉"
+      },
+      {
+        "type": "增益",
+        "description": "安定情绪，维持战前心境"
+      }
+    ],
+    "combat_style": "非直接攻击，偏向调息与身体控制",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 868,
+        "line_end": 872,
+        "text": "他又开始在练习那些奇秘而怪异的动作。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiao_lei_xue_shen_fa",
+    "name": "萧泪血身法",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "绝顶",
+    "one_line": "萧泪血以极轻妙手法制住睡穴并飞掠高塔的身法。",
+    "techniques": [
+      {
+        "id": "tech_liu_xing_zhui_ying",
+        "name": "流星坠影",
+        "type": "轻功",
+        "description": "从高塔流星般坠下，速度快到司马超群也看不清形貌。"
+      },
+      {
+        "id": "tech_fei_niao_deng_ta",
+        "name": "飞鸟登塔",
+        "type": "轻功",
+        "description": "带起高渐飞如飞鸟般跃上塔身，转瞬至七级浮屠高处。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "绝顶",
+        "description": "能在司马超群眼前救人并脱身"
+      }
+    ],
+    "effects": [
+      "高速救援",
+      "高塔飞掠",
+      "睡穴制敌"
+    ],
+    "combat_style": "轻妙迅疾，重在速度、角度和瞬息间带人脱离战场",
+    "rag_refs": [
+      "第六章灰影飞塔"
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 202,
+        "line_end": 210,
+        "text": "灰影从塔上坠下带起高渐飞，转瞬飞上大雁塔第七级"
+      },
+      {
+        "chapter": 6,
+        "line_start": 264,
+        "line_end": 266,
+        "text": "高渐飞被人用很轻且很妙的手法拂过睡穴"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_guang_jian_fa",
+    "name": "青光剑法",
+    "type": "剑法",
+    "faction": "无门派",
+    "rank": "高手",
+    "one_line": "高渐飞在近身伪装中骤然发动的迅疾刺杀剑法。",
+    "techniques": [
+      {
+        "id": "tech_qing_guang_yi_shan",
+        "name": "青光一闪",
+        "type": "出剑",
+        "description": "剑光淡青，趁敌人心神松懈时骤然闪现，几乎不给目标反应余地。"
+      },
+      {
+        "id": "tech_chuan_xin_yi_ci",
+        "name": "穿心一刺",
+        "type": "刺杀",
+        "description": "以极短距离直取心脏，讲究近身、准度和一击断绝生机。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "能在重围中借谈笑掩饰杀机，待蔡崇大笑时完成致命一剑。"
+      }
+    ],
+    "effects": [
+      "近身突袭",
+      "一击致命",
+      "扰乱敌方伏兵节奏"
+    ],
+    "combat_style": "以镇定伪装接近目标，等待对方松懈后用极快剑光直刺要害。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 148,
+        "line_end": 148,
+        "text": "淡淡的青光一闪，已经有一把利剑刺入了蔡崇的心脏。"
+      }
+    ]
+  },
+  {
+    "id": "skill_die_wu_wu_ji",
+    "name": "蝶舞舞技",
+    "type": "身法",
+    "faction": "未知",
+    "rank": "绝顶",
+    "one_line": "以极致腿法与舞姿呈现完美无缺之美的舞技。",
+    "techniques": [
+      {
+        "id": "tech_liu_yun_luo_qun",
+        "name": "流云落裙",
+        "type": "舞姿",
+        "description": "长裙如流云般飘落，令旁观者直观感受近乎完美的动态美。"
+      },
+      {
+        "id": "tech_shuang_tui_sheng_hua",
+        "name": "双腿生华",
+        "type": "舞姿",
+        "description": "以一双腿的节奏与线条夺人心魄，足以令最懂女人的人也惊叹。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "化境",
+        "description": "舞姿被老人拿来比拟泪痕之完美。"
+      }
+    ],
+    "effects": [
+      "魅惑观者",
+      "映照利器之美"
+    ],
+    "combat_style": "以舞姿、腿法和身体控制震慑旁观者",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 464,
+        "line_end": 482,
+        "text": "老人请蝶舞一舞，琴声与长裙同时收束。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 492,
+        "line_end": 502,
+        "text": "老人以蝶舞之舞比喻泪痕的独一无二。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiao_da_shi_jian_shu",
+    "name": "萧大师剑术",
+    "type": "剑法",
+    "faction": "未知",
+    "rank": "传说",
+    "one_line": "由萧大师传下、萧泪血已尽得其奥义的高深剑术。",
+    "techniques": [
+      {
+        "id": "tech_lei_hen_jian_yi",
+        "name": "泪痕剑意",
+        "type": "剑意",
+        "description": "以完美利剑承载杀机，使见剑者仿佛必将死在剑下。"
+      },
+      {
+        "id": "tech_yin_shan_cang_feng",
+        "name": "隐山藏锋",
+        "type": "剑境",
+        "description": "铸剑者隐入深山，以不再踏入红尘的誓言封存剑锋与杀孽。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "尽得真传",
+        "description": "萧泪血已尽得萧大师剑术。"
+      }
+    ],
+    "effects": [
+      "剑术大师级传承",
+      "与泪痕形成禁忌关联"
+    ],
+    "combat_style": "重剑意与利器相合，杀机深藏不露",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 578,
+        "line_end": 582,
+        "text": "他已尽得萧大师的剑术，死后也要将泪痕陪葬深山。"
+      }
+    ]
+  },
+  {
+    "id": "skill_gui_tou_dao_fa",
+    "name": "鬼头刀法",
+    "type": "剑法",
+    "faction": "faction_xiong_shi_tang",
+    "rank": "登堂入室",
+    "one_line": "雄狮堂死士所用的悍勇刀法，以血气和群战气势压人。",
+    "combat_style": "大开大合，适合结队冲杀，重气势与劈砍威慑。",
+    "techniques": [
+      "tech_gui_tou_pi_kan",
+      "tech_xue_yi_ya_zhen"
+    ],
+    "progression": [
+      {
+        "level": "死士合击",
+        "description": "八十八人同心赴死时威势倍增"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "以鬼头刀近身斩杀敌人"
+      },
+      {
+        "type": "特殊",
+        "description": "以白巾血衣制造压迫气势"
+      }
+    ],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 22,
+        "line_end": 28,
+        "text": "背后都背着鬼头刀...每个人的脸色都像是今天的天气一样"
+      }
+    ]
+  },
+  {
+    "id": "skill_die_wu_zhi_wu",
+    "name": "蝶舞之舞",
+    "type": "轻功",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "蝶舞以生命融入舞姿，能以极致美感震动旁观者心神。",
+    "techniques": [
+      {
+        "id": "tech_wei_jun_yi_wu",
+        "name": "为君一舞",
+        "type": "special",
+        "description": "以完整舞姿倾尽情感与生命，使观者沉入悲欢交织的震动之中。"
+      },
+      {
+        "id": "tech_hua_zuo_hu_die",
+        "name": "化作蝴蝶",
+        "type": "special",
+        "description": "舞姿轻盈如蝶，在欢乐表象中释放生命消逝的悲剧美感。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "极致",
+        "description": "蝶舞冠绝天下，能在身心受创时仍完成摄人心魄的一舞。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "以舞姿引动情绪，使观者无法逃避内心痛苦。"
+      }
+    ],
+    "combat_style": "以舞代武，轻盈欢愉中蕴含决绝悲意",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 126,
+        "line_end": 128,
+        "text": "蝶舞之舞，冠绝天下，绝不是轻易能看得到的"
+      },
+      {
+        "chapter": 12,
+        "line_start": 354,
+        "line_end": 368,
+        "text": "蝶舞在最后一舞中把生命与舞融为一体，舞出欢乐与青春。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_sha_shou_qi_yue",
+    "name": "杀手契约",
+    "alias": [
+      "杀人的契约"
+    ],
+    "category": "江湖规约",
+    "description": "萧泪血早年订下的杀人信用，只要契约有效，无论何时何地都不能拒绝指定目标。",
+    "rank": "绝顶",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 280,
+        "line_end": 290,
+        "text": "萧泪血说能绑住自己的绳子是一张杀人的契约。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiang_zi_sha_ren",
+    "name": "箱子杀人",
+    "alias": [
+      "箱中杀机"
+    ],
+    "category": "武器技",
+    "description": "萧泪血以一口箱子为杀人武器，出手前只需打开一线，威慑和杀伤皆极可怕。",
+    "rank": "绝顶",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 292,
+        "line_end": 300,
+        "text": "小高问这口箱子是件杀人的武器，萧泪血承认以杀人为生。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhu_jian_yu_jian",
+    "name": "铸剑预见",
+    "alias": [
+      "萧大师铸剑"
+    ],
+    "category": "铸剑术",
+    "description": "萧大师铸成宝剑时从剑气中预见独生子会死在剑下，因此泪落成痕。",
+    "rank": "绝顶",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 520,
+        "line_end": 540,
+        "text": "宝剑已铸成，萧大师因预见独生子要死在剑下而流泪。"
+      }
+    ]
+  },
+  {
+    "id": "skill_nei_jia_qi_gong",
+    "name": "内家气功",
+    "alias": [
+      "气功"
+    ],
+    "category": "内功",
+    "description": "卓东来修炼很深的内家气功，配合冷静、反应与速度，使其成为天下少有人能击败的高手。",
+    "rank": "绝顶",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 752,
+        "line_end": 757,
+        "text": "萧泪血说卓东来反应速度快，内家气功练得很好，司马超群也不是其对手。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_gong_fei_lue",
+    "name": "轻功飞掠",
+    "alias": [
+      "飞掠屋脊"
+    ],
+    "category": "轻功",
+    "description": "萧泪血托住高渐飞肋部飞掠无数重屋脊，显示出极高的身法与移动能力。",
+    "rank": "绝顶",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 95,
+        "line_end": 99,
+        "text": "萧泪血托住高渐飞的肋，带着他飞掠过无数重屋脊才停下。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_dao",
+    "name": "无刀",
+    "type": "刀法",
+    "faction": "",
+    "rank": "绝顶",
+    "one_line": "卓东来由多年用刀经验蜕变出的无形刀法境界。",
+    "rag_refs": [
+      14
+    ],
+    "techniques": [
+      {
+        "id": "tech_you_xing_ru_wu_xing",
+        "name": "有形入无形",
+        "type": "special",
+        "description": "由多年换刀、识刀、用刀经验提炼，舍弃外在兵刃而以无形刀意胜有形刀。"
+      },
+      {
+        "id": "tech_xue_tong_duan_tui",
+        "name": "靴筒断腿",
+        "type": "attack",
+        "description": "短刀藏于靴筒，临敌时猝然出刀，可沉重锋利地切断敌人双腿。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 5,
+        "unlock": "由多年实战和用刀经验磨炼到无形胜有形"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "近身出刀",
+        "description": "锋利沉重的短刀可削铁如泥，伤人双腿如切豆腐。"
+      }
+    ],
+    "combat_style": "由繁入简，外表不用刀而内里处处皆刀",
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 40,
+        "line_end": 62,
+        "text": "卓东来少年时是用刀的，直到壮年时仍用刀。 他用过很多种刀，从他十三岁时用一柄从屠夫肉案上窃来的屠刀，把当地的鱼肉市井的恶霸\"杀猪老大\"刺杀于肉案上之后，他已不知换过多少柄刀。 十四岁时他用折铁单刀，十五岁时他用纯钢朴刀，十六岁时他用鬼头刀，十八岁时他则换单刀变为双刀，用一对极灵便轻巧的鸳鸯蝴蝶刀，二十岁时他又换双刀为单刀，换了柄份量极重、极有气派的金背砍山刀。 廿三岁时，他用的就是武林中最有气派的鱼鳞紫金刀了。 可是廿六岁以后，他用的刀"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhuo_dong_lai_dao_fa",
+    "name": "卓东来刀法",
+    "type": "刀法",
+    "faction": null,
+    "rank": "未知",
+    "one_line": "卓东来临别时出手迅疾，以刀背击倒司马超群而不取其性命。",
+    "combat_style": "冷静迅疾，刀光一闪，以刀背制人而不流血。",
+    "techniques": [
+      "tech_dao_bei_kan",
+      "tech_dao_guang_yi_shan"
+    ],
+    "effects": [
+      "以刀背击人使其失去反抗能力",
+      "在不流血的情况下完成震慑"
+    ],
+    "progression": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 828,
+        "line_end": 828,
+        "text": "只有刀光一闪，没有鲜血溅出。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhu_meng_tie_quan",
+    "name": "朱猛铁拳",
+    "type": "掌法",
+    "faction": "雄狮堂",
+    "rank": "登峰造极",
+    "one_line": "朱猛以铁拳抢攻决战的刚猛拳法，重在血气、硬撼和不退。",
+    "techniques": [
+      {
+        "id": "tech_tie_quan_qiang_gong",
+        "name": "铁拳抢攻",
+        "type": "attack",
+        "description": "以铁一般的双拳连续抢攻，逼迫对手在正面硬拼中露出破绽。"
+      },
+      {
+        "id": "tech_xiong_shi_pin_di",
+        "name": "雄狮拼底",
+        "type": "buff",
+        "description": "以不惜性命的血气支撑战意，即使悲痛失势也要将力量压到最后。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "墓前决战",
+        "description": "朱猛在蝶舞墓前准备与司马超群全力一战。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "拳势刚猛，适合近身硬拼。"
+      }
+    ],
+    "combat_style": "刚猛粗豪，重攻不重巧，靠血气压迫对手。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 584,
+        "line_end": 614,
+        "text": "朱猛表示只要还有一口气就一定拼到底，不许司马让他一招一式。"
+      }
+    ]
+  },
+  {
+    "id": "skill_si_ma_chao_qun_tie_quan",
+    "name": "司马超群铁拳",
+    "type": "掌法",
+    "faction": "大镖局",
+    "rank": "登峰造极",
+    "one_line": "司马超群剑不在身时仍可凭铁拳决战的近身武功。",
+    "techniques": [
+      {
+        "id": "tech_tie_quan_ru_dao",
+        "name": "铁拳如刀",
+        "type": "attack",
+        "description": "双拳利如刀锋，即使无剑仍可正面应战强敌。"
+      },
+      {
+        "id": "tech_leng_xiao_ji_jiang",
+        "name": "冷笑激将",
+        "type": "feint",
+        "description": "用冷笑和挑衅扰动对手心神，逼其以真正实力交锋。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "无剑应战",
+        "description": "司马超群失去原本兵器后仍答应用尽全力与朱猛决战。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "以拳代剑，近身杀伤。"
+      },
+      {
+        "type": "控制",
+        "description": "激将使对手无法避战或留手。"
+      }
+    ],
+    "combat_style": "冷硬正面，兼用心理激将逼出决战。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 548,
+        "line_end": 614,
+        "text": "司马超群冷笑激将朱猛，最后答应用尽全力与他决一死战。"
+      }
+    ]
+  },
+  {
+    "id": "skill_gui_mei_qing_gong",
+    "name": "鬼魅轻功",
+    "type": "轻功",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "神秘追杀者施展的飘忽轻功，使笑声忽远忽近、忽左忽右。",
+    "techniques": [
+      {
+        "id": "tech_hu_yuan_hu_jin",
+        "name": "忽远忽近",
+        "type": "feint",
+        "description": "以飘忽身法与声音扰乱敌人判断，让人无法辨明真正位置。"
+      },
+      {
+        "id": "tech_gui_mei_piao_hu",
+        "name": "鬼魅飘忽",
+        "type": "special",
+        "description": "在黑暗中来去自如，轻功之高使朱猛惊觉世上竟有如此可怕身法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "黑暗围猎",
+        "description": "追杀司马超群与朱猛时展现出鬼魅般飘忽轻功。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "使敌人无法判断位置与方向。"
+      },
+      {
+        "type": "特殊",
+        "description": "形成强烈心理压迫。"
+      }
+    ],
+    "combat_style": "黑暗中游走，以声音和身法扰敌，再伺机取命。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 878,
+        "line_end": 888,
+        "text": "他的笑声忽远忽近，忽左忽右，让人听不出他在哪里，朱猛认为其轻功鬼魅可怕。"
+      }
+    ]
+  },
+  {
+    "id": "skill_gong_sun_shuang_sheng_yan_mu",
+    "name": "公孙双生烟幕",
+    "type": "轻功",
+    "faction": "关东二十七大寨",
+    "rank": "登峰造极",
+    "one_line": "公孙孪生兄弟利用相同身形和左右呼应制造鬼魅轻功假象。",
+    "techniques": [
+      {
+        "id": "tech_shuang_sheng_tong_sheng",
+        "name": "双生同声",
+        "type": "feint",
+        "description": "孪生兄弟从左右两边同时发声，使敌人误以为一人轻功忽远忽近。"
+      },
+      {
+        "id": "tech_deng_huo_wei_lie",
+        "name": "灯火围猎",
+        "type": "special",
+        "description": "以三十盏孔明灯从四面八方照住目标，逼出疲态并形成围猎压迫。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "双生围杀",
+        "description": "公孙兄弟用灯光、笑声和双生身份围住司马朱猛。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "扰乱敌人对人数与方位的判断。"
+      },
+      {
+        "type": "特殊",
+        "description": "借声势制造鬼魅轻功幻象。"
+      }
+    ],
+    "combat_style": "双人配合制造烟幕，以围猎和心理震慑压迫末路英雄。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 890,
+        "line_end": 954,
+        "text": "司马听出说话的是孪生兄弟两个，朱猛明白鬼魅笑声只是公孙公孙制造的烟幕。"
+      }
+    ]
+  },
+  {
+    "id": "skill_pi_pa_bei_ge",
+    "name": "琵琶悲歌",
+    "category": "音律",
+    "level": "高",
+    "one_line": "以凄婉歌声牵动旁人心绪，使战场气氛转为哀绝。",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 8,
+        "line_end": 8,
+        "text": "歌声凄婉"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiao_sheng_yin_lu",
+    "name": "萧声音律",
+    "category": "音律",
+    "level": "高",
+    "one_line": "以洞萧伴歌营造苍凉肃杀的场域。",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 8,
+        "line_end": 8,
+        "text": "一人吹洞萧"
+      }
+    ]
+  },
+  {
+    "id": "skill_die_wu_mi_hun",
+    "name": "蝶舞迷魂",
+    "category": "舞技",
+    "level": "绝顶",
+    "one_line": "以蝴蝶般舞姿牵动旧情旧痛，使强敌意志崩溃。",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 35,
+        "line_end": 35,
+        "text": "舞衣飘飘如蝴蝶"
+      }
+    ]
+  },
+  {
+    "id": "skill_tuo_shou_yi_jian",
+    "name": "脱手一剑",
+    "category": "剑法",
+    "level": "绝顶",
+    "one_line": "高渐飞远距离掷剑追杀，剑光如惊虹，一击致命。",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 154,
+        "line_end": 154,
+        "text": "脱手一剑，一击致命"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhuo_shi_jian_fa",
+    "name": "卓氏剑法",
+    "category": "剑法",
+    "level": "绝顶",
+    "one_line": "卓东来以两指控剑、退步卸势和圆弧剑气展现的高明剑法。",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 278,
+        "line_end": 278,
+        "text": "剑尖还是被他用两根手指捏住"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_xue_feng_hou_an_qi",
+    "name": "见血封喉暗器",
+    "category": "暗器",
+    "level": "绝顶",
+    "one_line": "一类剧毒暗器，能在见血瞬间封喉致命。",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 328,
+        "line_end": 328,
+        "text": "见血封喉"
+      }
+    ]
+  },
+  {
+    "id": "skill_jue_hu_zhen",
+    "name": "绝户针",
+    "category": "暗器",
+    "level": "绝顶",
+    "one_line": "计先生所用的剧毒针筒暗器，速度极快，见血可致命。",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 478,
+        "line_end": 478,
+        "text": "三点寒星暴射而出"
+      }
+    ]
+  },
+  {
+    "id": "skill_liang_bu_yi_xing",
+    "name": "两步易形",
+    "category": "易容术",
+    "level": "绝顶",
+    "one_line": "计先生高明的易容改形之术，可假扮白头乐师混入决战现场。",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 594,
+        "line_end": 594,
+        "text": "两步易形"
+      }
+    ]
+  },
+  {
+    "id": "skill_po_jian_zhi_shu",
+    "name": "破剑之术",
+    "category": "兵器克制术",
+    "level": "绝顶",
+    "one_line": "萧泪血只传给无剑之人的破剑绝学，可破剑法、拆剑并杀剑客。",
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 978,
+        "line_end": 978,
+        "text": "破剑之术"
+      }
+    ]
+  }
+]
