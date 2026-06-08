@@ -1,0 +1,2237 @@
+[
+  {
+    "id": "skill_qu_sword",
+    "name": "屈寒山剑法",
+    "type": "剑法",
+    "faction": "faction_guangxi_wulin",
+    "rank": "登峰造极",
+    "one_line": "屈寒山的绝世剑法，一剑光寒四十州",
+    "techniques": [
+      {
+        "id": "tech_yi_jian_guang_han",
+        "name": "一剑光寒四十州",
+        "type": "attack",
+        "description": "屈寒山的标志性剑法，威力极大，近十年鲜逢敌手"
+      },
+      {
+        "id": "tech_qu_sword_50yr",
+        "name": "五十年剑功",
+        "type": "attack",
+        "description": "练剑五十年所成的深厚剑术根基，一剑可与七大名剑抗衡"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以剑为主，沉稳大气",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 6,
+        "line_end": 10,
+        "text": "屈寒山七岁练剑...一剑光寒四十州"
+      }
+    ]
+  },
+  {
+    "id": "skill_qin_na",
+    "name": "九指擒龙",
+    "type": "指法",
+    "faction": "faction_power_gang",
+    "rank": "炉火纯青",
+    "one_line": "江易海的擒拿功夫，可制服天下各路高手",
+    "techniques": [
+      {
+        "id": "tech_shuang_shou_qin_long",
+        "name": "双手擒龙",
+        "type": "debuff",
+        "description": "以双手扣住对手拳路，令其如石沉大海般无力"
+      },
+      {
+        "id": "tech_jiu_zhi_naqi",
+        "name": "九指擒拿手",
+        "type": "debuff",
+        "description": "以九指之功锁扣对手经脉，使对方无法挣脱"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "控制"
+    ],
+    "combat_style": "近身擒拿，以柔克刚",
+    "rag_refs": [
+      2,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 88,
+        "line_end": 92,
+        "text": "九指擒龙江易海...犹如石沉大海。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 472,
+        "line_end": 472,
+        "text": "江易海却闪身而上，招招擒拿，制住文鬓霜的双腿攻势"
+      }
+    ]
+  },
+  {
+    "id": "skill_guan_ri_sword",
+    "name": "观日神剑",
+    "type": "剑法",
+    "faction": "faction_power_gang",
+    "rank": "炉火纯青",
+    "one_line": "康出渔观日出日落十年所创的剑法",
+    "techniques": [
+      {
+        "id": "tech_guan_ri_attack",
+        "name": "烈日当空",
+        "type": "attack",
+        "description": "观日神剑的起手式，剑光如烈日耀眼"
+      },
+      {
+        "id": "tech_guan_ri_defense",
+        "name": "观日守势",
+        "type": "defense",
+        "description": "以观日十年之功形成的防守剑势"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以剑光压制对手",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 218,
+        "line_end": 221,
+        "text": "观日神剑，一个人在劳山观了十年日出，十年日落，才创出来这一套与傲阳齐平的剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_huan_hua_sword",
+    "name": "浣花剑法",
+    "type": "剑法",
+    "faction": "faction_huan_hua",
+    "rank": "登堂入室",
+    "one_line": "浣花剑派的传承剑法",
+    "techniques": [
+      {
+        "id": "tech_huan_hua_base",
+        "name": "浣花剑式",
+        "type": "attack",
+        "description": "浣花剑派的基础剑法，以轻灵见长"
+      },
+      {
+        "id": "tech_huan_hua_flower",
+        "name": "落花流水",
+        "type": "attack",
+        "description": "浣花剑法中的连环攻击招式"
+      }
+    ],
+    "progression": "登堂入室",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "轻灵飘逸",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 230,
+        "line_end": 230,
+        "text": "晚辈浣花萧秋水"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_an_qi",
+    "name": "唐门暗器",
+    "type": "暗器",
+    "faction": "faction_tang_men",
+    "rank": "登堂入室",
+    "one_line": "唐门的暗器功夫，江湖上暗器第一家",
+    "techniques": [
+      {
+        "id": "tech_tang_an_qi_basic",
+        "name": "唐门暗器基础",
+        "type": "attack",
+        "description": "唐门暗器基本功法"
+      },
+      {
+        "id": "tech_tang_an_qi_poison",
+        "name": "淬毒暗器",
+        "type": "debuff",
+        "description": "涂有剧毒的暗器"
+      }
+    ],
+    "progression": "登堂入室",
+    "effects": [
+      "伤害",
+      "减益"
+    ],
+    "combat_style": "远程暗器攻击",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 466,
+        "line_end": 468,
+        "text": "唐方是唐门的人，唐门是江湖上暗器第一家"
+      }
+    ]
+  },
+  {
+    "id": "skill_qin_na_chao_ran",
+    "name": "左丘擒拿手",
+    "type": "指法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "左丘超然师承项释儒与鹰爪王雷锋的擒拿功夫",
+    "techniques": [
+      {
+        "id": "tech_qin_na_cr1",
+        "name": "双擒手",
+        "type": "debuff",
+        "description": "以双手同时擒扣对手"
+      },
+      {
+        "id": "tech_qin_na_cr2",
+        "name": "鹰爪功",
+        "type": "debuff",
+        "description": "师承鹰爪王雷锋的爪功"
+      }
+    ],
+    "progression": "登堂入室",
+    "effects": [
+      "控制"
+    ],
+    "combat_style": "近身擒拿",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 90,
+        "line_end": 92,
+        "text": "左丘超然乃天下第一擒拿手项释儒与鹰爪王雷锋的唯一嫡传门徒"
+      }
+    ]
+  },
+  {
+    "id": "skill_an_qi_36",
+    "name": "暗器三十六手",
+    "type": "暗器",
+    "faction": "faction_power_gang",
+    "rank": "炉火纯青",
+    "one_line": "屠滚的暗器功夫，三十六手暗器配合三十六路暗桩",
+    "techniques": [
+      {
+        "id": "tech_an_qi_36_hand",
+        "name": "暗器三十六手",
+        "type": "attack",
+        "description": "三十六种不同的暗器手法"
+      },
+      {
+        "id": "tech_an_zhuang_36",
+        "name": "暗桩三十六路",
+        "type": "special",
+        "description": "三十六种暗器布置阵法"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害",
+      "减益"
+    ],
+    "combat_style": "远程暗器配合阵法",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 308,
+        "line_end": 310,
+        "text": "暗器三十六手，暗桩三十六路"
+      }
+    ]
+  },
+  {
+    "id": "skill_bing_tie_zhang",
+    "name": "镔铁杖法",
+    "type": "掌法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "彭九的镔铁杖武功，力大无穷",
+    "techniques": [
+      {
+        "id": "tech_zhang_fa_heavy",
+        "name": "排山倒海杖",
+        "type": "attack",
+        "description": "以镔铁杖发动的势大力沉的一击"
+      },
+      {
+        "id": "tech_zhang_fa_ground",
+        "name": "镇地杖",
+        "type": "defense",
+        "description": "以杖插入地面的防守招式"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "势大力沉",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 532,
+        "line_end": 540,
+        "text": "一杖向毕天通天灵盖拍来...镔铁杖却深人士中达两尺余"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_ma_qing_gong",
+    "name": "天马轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "柳千变的绝世轻功，天马行空天马行地",
+    "techniques": [
+      {
+        "id": "tech_tian_ma_kong",
+        "name": "天马行空",
+        "type": "attack",
+        "description": "从空中发动的攻击轻功"
+      },
+      {
+        "id": "tech_tian_ma_di",
+        "name": "天马行地",
+        "type": "attack",
+        "description": "从地面发动的闪避轻功"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "增益"
+    ],
+    "combat_style": "灵活飘逸",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 384,
+        "line_end": 390,
+        "text": "天马行空...天马行地...这种绝世的天马轻功，只有柳千变一人会"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhang_jue",
+    "name": "掌绝掌法",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "黄远庸的掌法，可与观日神剑抗衡",
+    "techniques": [
+      {
+        "id": "tech_zhang_jue_butterfly",
+        "name": "蝶舞双掌",
+        "type": "attack",
+        "description": "双掌飞快如蝶，翩翩于烈日间"
+      },
+      {
+        "id": "tech_zhang_jue_shield",
+        "name": "乌云遮日",
+        "type": "defense",
+        "description": "以双掌形成乌云般的防守"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "掌法防守反击",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 548,
+        "line_end": 554,
+        "text": "两只手掌飞快如蝶...乌云始终遮不住烈日"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhou_jue",
+    "name": "肘绝肘法",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "姚独雾的肘法，三肘连击威猛无比",
+    "techniques": [
+      {
+        "id": "tech_zhou_jue_3hit",
+        "name": "三连肘",
+        "type": "attack",
+        "description": "连续三肘攻击，每一肘都可致命"
+      },
+      {
+        "id": "tech_zhou_jue_chase",
+        "name": "追影肘",
+        "type": "attack",
+        "description": "追击敌人的肘法，如背后长眼"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "近身连击",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 514,
+        "line_end": 530,
+        "text": "冲近来就是一记左肘...柳千变立时不在那里了"
+      }
+    ]
+  },
+  {
+    "id": "skill_quan_jue",
+    "name": "拳绝拳法",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "毕天通的拳法，无坚不摧",
+    "techniques": [
+      {
+        "id": "tech_quan_jue_iron",
+        "name": "铁拳无坚",
+        "type": "attack",
+        "description": "无坚不摧的拳法"
+      },
+      {
+        "id": "tech_quan_jue_dash",
+        "name": "冲拳破暗",
+        "type": "attack",
+        "description": "以拳力撞开暗器的拳法"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛直击",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 490,
+        "line_end": 496,
+        "text": "毕天通忽然击出双拳...两点暗器斜飞出去"
+      }
+    ]
+  },
+  {
+    "id": "skill_tui_jue",
+    "name": "腿绝腿法",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "文鬓霜的腿法，可踢开镔铁杖",
+    "techniques": [
+      {
+        "id": "tech_tui_jue_fly",
+        "name": "凌空飞踢",
+        "type": "attack",
+        "description": "半空中踢出两脚的腿法"
+      },
+      {
+        "id": "tech_tui_jue_ground",
+        "name": "落地生根",
+        "type": "defense",
+        "description": "以足力稳住身形"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "空中连踢",
+    "rag_refs": [
+      2,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 536,
+        "line_end": 542,
+        "text": "半空中竟对镔铁杖踢出两脚"
+      },
+      {
+        "chapter": 7,
+        "line_start": 472,
+        "line_end": 472,
+        "text": "文鬓霜怒叱一声，一脚飞出，踢向柳千变"
+      }
+    ]
+  },
+  {
+    "id": "skill_quan_li_bang_zu_zhi",
+    "name": "权力帮组织",
+    "type": "特殊",
+    "faction": "faction_quan_li_bang",
+    "rank": "登峰造极",
+    "one_line": "权力帮的组织体系，包括八大天王和十九人魔",
+    "techniques": [
+      {
+        "id": "tech_ba_da_tian_wang",
+        "name": "八大天王",
+        "type": "special",
+        "description": "权力帮最高战力，八位天王各镇一方"
+      },
+      {
+        "id": "tech_shi_jiu_ren_mo",
+        "name": "十九人魔",
+        "type": "special",
+        "description": "权力帮十九位人魔，执行各种任务"
+      }
+    ],
+    "progression": "已完成",
+    "effects": [
+      "控制",
+      "增益"
+    ],
+    "combat_style": "组织作战",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 156,
+        "line_end": 157,
+        "text": "权力帮中'八大天王'中的'剑王'"
+      }
+    ]
+  },
+  {
+    "id": "skill_qu_han_shan_jian",
+    "name": "屈寒山剑法",
+    "type": "剑法",
+    "faction": "faction_quan_li_bang",
+    "rank": "登峰造极",
+    "one_line": "屈寒山的绝世剑法，凡铁在手亦可发挥极致",
+    "techniques": [
+      {
+        "id": "tech_fan_jian_jue_sha",
+        "name": "凡剑绝杀",
+        "type": "attack",
+        "description": "用平凡铁剑施展的致命剑法，杀过人即弃剑"
+      },
+      {
+        "id": "tech_duo_jian_bian",
+        "name": "夺剑变式",
+        "type": "feint",
+        "description": "剑在空中改变角度、高低、劲道、方向的诡异身法"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "诡异多变，笑里藏刀",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 180,
+        "line_end": 180,
+        "text": "一面腾、挪、闪、避，一面笑道"
+      }
+    ]
+  },
+  {
+    "id": "skill_qin_na_shou",
+    "name": "擒拿手",
+    "type": "指法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "项释懦及鹰爪王雷锋的擒拿绝技",
+    "techniques": [
+      {
+        "id": "tech_da_xiao_qin_na",
+        "name": "大小擒拿手",
+        "type": "attack",
+        "description": "大小擒拿手，可大开大合也可细腻精巧"
+      },
+      {
+        "id": "tech_fen_jin_cuo_xue",
+        "name": "分筋错穴法",
+        "type": "attack",
+        "description": "分筋错骨点穴的擒拿绝技"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "控制",
+      "伤害"
+    ],
+    "combat_style": "贴身近战，以巧破力",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 258,
+        "line_end": 258,
+        "text": "第一擒拿手项释懦及鹰爪王雷锋的嫡传弟子"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_jia_an_qi",
+    "name": "唐家暗器",
+    "type": "暗器",
+    "faction": "唐家",
+    "rank": "炉火纯青",
+    "one_line": "唐家绝学暗器术，手法精妙",
+    "techniques": [
+      {
+        "id": "tech_fei_yan_leng",
+        "name": "飞燕棱",
+        "type": "attack",
+        "description": "唐方使用的飞燕形暗器，可连续发射"
+      },
+      {
+        "id": "tech_yin_suo",
+        "name": "银梭",
+        "type": "attack",
+        "description": "银色梭形暗器，可单独或连续发射"
+      },
+      {
+        "id": "tech_hong_qing_ting",
+        "name": "红蜻蜓",
+        "type": "attack",
+        "description": "红色蜻蜓形暗器"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害",
+      "控制"
+    ],
+    "combat_style": "远程暗器，节奏分明",
+    "rag_refs": [
+      3,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 303,
+        "line_end": 303,
+        "text": "打出三支飞燕棱"
+      },
+      {
+        "chapter": 7,
+        "line_start": 454,
+        "line_end": 458,
+        "text": "一枚飞蝗石击中铝针，针断落，石飞开"
+      }
+    ]
+  },
+  {
+    "id": "skill_huan_hua_jian",
+    "name": "浣花剑法",
+    "type": "剑法",
+    "faction": "浣花剑庐",
+    "rank": "登堂入室",
+    "one_line": "浣花剑庐正宗剑法，可融入万物",
+    "techniques": [
+      {
+        "id": "tech_huan_hua_zheng_zong",
+        "name": "浣花正宗剑",
+        "type": "attack",
+        "description": "浣花剑庐正宗剑法，无处不成剑"
+      },
+      {
+        "id": "tech_huan_hua_bian_hua",
+        "name": "浣花变化剑",
+        "type": "feint",
+        "description": "活用浣花剑法到每一事物每一时机，加入变化"
+      }
+    ],
+    "progression": "登堂入室",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "灵活多变，可融入万物",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 342,
+        "line_end": 342,
+        "text": "用浣花剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_nan_hai_jian",
+    "name": "南海剑法",
+    "type": "剑法",
+    "faction": "南海剑派",
+    "rank": "炉火纯青",
+    "one_line": "南海剑派剑法，以快制敌",
+    "techniques": [
+      {
+        "id": "tech_nan_hai_kuai_jian",
+        "name": "南海快剑",
+        "type": "attack",
+        "description": "南海剑法精髓，以快制敌，一出剑就要对方的命"
+      },
+      {
+        "id": "tech_nan_hai_xue_ren",
+        "name": "南海血刃",
+        "type": "attack",
+        "description": "南海剑法中的血刃招式，以血气催动剑势，威力倍增"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "快准狠",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 340,
+        "line_end": 340,
+        "text": "邓玉函的南海剑法控制着他的中锋"
+      }
+    ]
+  },
+  {
+    "id": "skill_guan_ri_jian",
+    "name": "观日剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "康出渔的绝学，在劳山峰顶观日十年所悟",
+    "techniques": [
+      {
+        "id": "tech_guan_ri_zheng_zong",
+        "name": "观日正宗",
+        "type": "attack",
+        "description": "观日剑法正宗，内力浑厚，如烈日灼烧"
+      },
+      {
+        "id": "tech_hong_ri_jiao_kao",
+        "name": "红日焦烤",
+        "type": "attack",
+        "description": "观日剑法高深招式，如红日般焦烤对手"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以力压人，烈日灼烧",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 378,
+        "line_end": 378,
+        "text": "康出渔的观日剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_xian_ren_zhi",
+    "name": "仙人指",
+    "type": "指法",
+    "faction": "少林",
+    "rank": "炉火纯青",
+    "one_line": "少林古深禅师绝技，以指力攻敌要害",
+    "techniques": [
+      {
+        "id": "tech_xian_ren_zhi_1",
+        "name": "仙人指",
+        "type": "attack",
+        "description": "以双指凝聚内力点击敌方穴位或要害"
+      },
+      {
+        "id": "tech_xian_ren_zhi_2",
+        "name": "仙人指连击",
+        "type": "attack",
+        "description": "连续点击敌方多处穴位，使其经脉紊乱，功力大减"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "指力点穴，重者可废人功力"
+      }
+    ],
+    "combat_style": "以指代剑，点穴制敌",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 2,
+        "line_end": 4,
+        "text": "'仙人指'，原是少林古深禅师的绝技"
+      }
+    ]
+  },
+  {
+    "id": "skill_kuai_dao",
+    "name": "快刀",
+    "type": "剑法",
+    "faction": "权力帮",
+    "rank": "出神入化",
+    "one_line": "杜绝的快刀绝技，一刀绝命",
+    "techniques": [
+      {
+        "id": "tech_kuai_dao_1",
+        "name": "快刀绝命",
+        "type": "attack",
+        "description": "一刀劈下，快如闪电，一刀绝命无需第二刀"
+      },
+      {
+        "id": "tech_kuai_dao_2",
+        "name": "暗袭快斩",
+        "type": "feint",
+        "description": "藏于暗处，趁人不备突然出刀劈斩"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "极快刀法，一刀致命"
+      }
+    ],
+    "combat_style": "暗袭突斩，一刀绝命",
+    "rag_refs": [
+      4,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 288,
+        "line_end": 290,
+        "text": "一道刀光如雪，飞斩而下！这一刀之快...一刀绝命"
+      },
+      {
+        "chapter": 7,
+        "line_start": 36,
+        "line_end": 37,
+        "text": "杜绝大喝一声，化为漫天刀光，旋斩了过去"
+      }
+    ]
+  },
+  {
+    "id": "skill_meng_jiang_jian_fa",
+    "name": "檬江剑法",
+    "type": "剑法",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "杜月山的成名剑法，不逊屈寒山",
+    "techniques": [
+      {
+        "id": "tech_meng_jiang_1",
+        "name": "檬江剑法",
+        "type": "attack",
+        "description": "杜月山独门剑法，精妙不在屈寒山剑法之下"
+      },
+      {
+        "id": "tech_meng_jiang_2",
+        "name": "檬江剑气",
+        "type": "attack",
+        "description": "以内力催动剑气，隔空伤敌，可在无剑时以气御剑"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "精妙剑法，可与剑王匹敌"
+      }
+    ],
+    "combat_style": "以剑制敌，刚猛凌厉",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 522,
+        "line_end": 524,
+        "text": "若论剑法，我不逊给这老匹夫，他窥视我'檬江剑法'已久"
+      }
+    ]
+  },
+  {
+    "id": "skill_meng_jiang_jian",
+    "name": "檬江剑法",
+    "type": "剑法",
+    "faction": "faction_guang_xi_san_shan",
+    "rank": "炉火纯青",
+    "one_line": "杜月山所创精微剑法，以银链施展亦威力惊人",
+    "techniques": [
+      {
+        "id": "tech_meng_jiang_1",
+        "name": "檬江链剑",
+        "type": "attack",
+        "description": "以银链施展正宗剑招，可曲可直，四链同出封死四方进路"
+      },
+      {
+        "id": "tech_meng_jiang_2",
+        "name": "檬江正剑",
+        "type": "attack",
+        "description": "空檬一片的正宗剑招，着着封杀"
+      }
+    ],
+    "progression": "杜月山以银链代剑施展，自始未守过一招",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以攻为守，四链齐出",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 37,
+        "line_end": 37,
+        "text": "你的檬江剑法虽然不如我，但却是一种精微的剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_di_ma_xing_tian",
+    "name": "地马行天",
+    "type": "轻功",
+    "faction": "faction_quan_li_bang",
+    "rank": "炉火纯青",
+    "one_line": "柳千变的轻功，如蚊般迅捷无声",
+    "techniques": [
+      {
+        "id": "tech_di_ma_1",
+        "name": "飞蚊掠空",
+        "type": "attack",
+        "description": "身形如蚊般飞起，比蚊更快更急更毒"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "增益"
+    ],
+    "combat_style": "轻灵迅捷，配合毒扇攻击",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 118,
+        "line_end": 118,
+        "text": "他的'地马行天'轻功，好像一只蚊子般飞起"
+      }
+    ]
+  },
+  {
+    "id": "skill_guan_ri_shen_jian",
+    "name": "观日神剑",
+    "type": "剑法",
+    "faction": "faction_quan_li_bang",
+    "rank": "出神入化",
+    "one_line": "康出渔在东海劳山观日台修炼的剑法，剑势如日中天",
+    "techniques": [
+      {
+        "id": "tech_guan_ri_1",
+        "name": "旭日东升",
+        "type": "attack",
+        "description": "剑犹如旭日东升，骄阳漫天，对手如面对太阳"
+      },
+      {
+        "id": "tech_guan_ri_2",
+        "name": "夕照残霞",
+        "type": "attack",
+        "description": "剑势如夕照残霞，灼热逼人"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以光热压制对手，势不可挡",
+    "rag_refs": [
+      5,
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 160,
+        "line_end": 162,
+        "text": "康出渔就在那儿练他的'观日神剑'"
+      },
+      {
+        "chapter": 6,
+        "line_start": 168,
+        "line_end": 168,
+        "text": "骤起如烈日之厉芒，定必是观日神剑：只有康出渔出剑，方才有如此声势！"
+      },
+      {
+        "chapter": 7,
+        "line_start": 138,
+        "line_end": 144,
+        "text": "右手却忽然多出一柄剑来，剑如旭日，一下子令人眼睛都睁不开来"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_lang_suo_hou_kou",
+    "name": "螳螂锁喉扣",
+    "type": "指法",
+    "faction": null,
+    "rank": "略有小成",
+    "one_line": "左丘超然的擒拿功夫",
+    "techniques": [
+      {
+        "id": "tech_tang_lang_1",
+        "name": "锁喉扣",
+        "type": "attack",
+        "description": "以螳螂拳法锁住对手咽喉要害"
+      }
+    ],
+    "progression": "略有小成",
+    "effects": [
+      "控制"
+    ],
+    "combat_style": "近身擒拿",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 471,
+        "line_end": 471,
+        "text": "左丘超然一出手，螳螂锁喉扣，全力出袭！"
+      }
+    ]
+  },
+  {
+    "id": "skill_an_qi_san_shi_liu",
+    "name": "暗器三十六手",
+    "type": "暗器",
+    "faction": "faction_quan_li_bang",
+    "rank": "炉火纯青",
+    "one_line": "屠滚的三十六种暗器手法，包括寒星、弯月、毒砂",
+    "techniques": [
+      {
+        "id": "tech_han_xing",
+        "name": "九点寒星",
+        "type": "attack",
+        "description": "一次打出九点寒星暗器"
+      },
+      {
+        "id": "tech_wan_yue",
+        "name": "七弯明月",
+        "type": "attack",
+        "description": "淬厉蓝芒的明月弯刀"
+      },
+      {
+        "id": "tech_du_sha",
+        "name": "毒砂",
+        "type": "attack",
+        "description": "一蓬毒砂，有剧毒，最难闪躲"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害",
+      "控制"
+    ],
+    "combat_style": "远程投射，多品种连续攻击",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 361,
+        "line_end": 361,
+        "text": "暗器三十六手，暗桩卅六路"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhen_tie_guai",
+    "name": "镔铁拐",
+    "type": "武器",
+    "faction": "faction_quan_li_bang",
+    "rank": "炉火纯青",
+    "one_line": "彭九的独门兵器，一杖之力可撑全身武功",
+    "techniques": [
+      {
+        "id": "tech_guai_fang_yu",
+        "name": "铁拐防御",
+        "type": "defense",
+        "description": "镔铁杖舞得个风雨不透"
+      },
+      {
+        "id": "tech_guai_gong",
+        "name": "铁拐攻击",
+        "type": "attack",
+        "description": "借力用杖一点飞身攻击"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以拐代足，攻守兼备",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 519,
+        "line_end": 519,
+        "text": "他借力用杖一点，立即飞起"
+      }
+    ]
+  },
+  {
+    "id": "skill_chang_hong_guan_yue",
+    "name": "长虹贯月",
+    "type": "剑法",
+    "faction": "faction_huan_hua_jian_pai",
+    "rank": "略有小成",
+    "one_line": "浣花剑派剑招，萧秋水用于刀上同样有效",
+    "techniques": [
+      {
+        "id": "tech_chang_hong_1",
+        "name": "长虹贯月",
+        "type": "attack",
+        "description": "浣花剑派剑招，以刀代剑施展，直刺咽喉"
+      }
+    ],
+    "progression": "略有小成",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "直线突刺",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 573,
+        "line_end": 573,
+        "text": "'长虹贯日'！这是浣花剑派的剑招"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_bao_long_she_ying",
+    "name": "虎豹龙蛇鹰",
+    "type": "掌法",
+    "faction": "广西五虎",
+    "rank": "炉火纯青",
+    "one_line": "李黑所练的象形拳法，融合虎豹龙蛇鹰五种形态",
+    "techniques": [
+      {
+        "id": "tech_hu_bao_long_she_ying",
+        "name": "五形连环",
+        "type": "attack",
+        "description": "融合虎之猛、豹之捷、龙之变、蛇之柔、鹰之锐五种象形的连环拳法"
+      },
+      {
+        "id": "tech_hei_dou_qin_na",
+        "name": "黑豆擒拿",
+        "type": "attack",
+        "description": "以鹰爪手法擒拿对手脉门关节，配合蛇身游走步法近身搏击"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "多变攻击"
+    ],
+    "combat_style": "象形连环，刚柔并济",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 380,
+        "line_end": 380,
+        "text": "我练的'虎豹龙蛇鹰'"
+      }
+    ]
+  },
+  {
+    "id": "skill_yu_jia_fu_yu_shu",
+    "name": "天竺瑜咖腹语术",
+    "type": "特殊",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "源自天竺的瑜咖术，可不张嘴传音至远处",
+    "techniques": [
+      {
+        "id": "tech_fu_yin",
+        "name": "腹语传音",
+        "type": "special",
+        "description": "不张嘴而以腹部发声传音，可在众人面前秘密联络同伴"
+      },
+      {
+        "id": "tech_yin_xing_chuan_yin",
+        "name": "隐形传音",
+        "type": "special",
+        "description": "将声音聚成一线传至远处同伴耳中，旁人完全无法察觉，如同隐形交谈"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "秘密通讯"
+    ],
+    "combat_style": "辅助型秘术",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 501,
+        "line_end": 501,
+        "text": "我用天竺瑜咖腹语术，传给这几位老友们知道"
+      }
+    ]
+  },
+  {
+    "id": "skill_shaolin_shen_quan",
+    "name": "少林神拳",
+    "type": "掌法",
+    "faction": "少林",
+    "rank": "炉火纯青",
+    "one_line": "少林正宗拳法，拳如铁镌，后发先至",
+    "techniques": [
+      {
+        "id": "tech_shen_quan_ji",
+        "name": "少林神拳击",
+        "type": "attack",
+        "description": "以拳力见长，拳如铁镌，可硬抗刀锋，后发先至"
+      },
+      {
+        "id": "tech_shen_quan_fang",
+        "name": "少林神拳守",
+        "type": "defense",
+        "description": "以拳力护体，拳背硬抗刀锋"
+      }
+    ],
+    "progression": "已练至拳背可抗利刀",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以拳力硬抗，后发先至",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 16,
+        "line_end": 24,
+        "text": "洪华的拳就像是铁镌的"
+      }
+    ]
+  },
+  {
+    "id": "skill_shan_fa",
+    "name": "千变扇法",
+    "type": "暗器",
+    "faction": "权力帮",
+    "rank": "出神入化",
+    "one_line": "柳千变所使扇法，一扇多变，攻出同一招却用不同角度，暗藏毒针",
+    "techniques": [
+      {
+        "id": "tech_shan_gong",
+        "name": "扇中藏针",
+        "type": "attack",
+        "description": "扇子弹出铝针，暗算对手脉门"
+      },
+      {
+        "id": "tech_di_ma_xing_tian",
+        "name": "地马行天",
+        "type": "attack",
+        "description": "扇子一展，以不同角度和方法攻出同一招"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害",
+      "控制"
+    ],
+    "combat_style": "诡变暗算",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 440,
+        "line_end": 449,
+        "text": "他的扇子就攻向胡福拔刀的手...弹出一支铝针，直刺入金刀胡福的脉门"
+      }
+    ]
+  },
+  {
+    "id": "skill_an_qi",
+    "name": "毒暗器",
+    "type": "暗器",
+    "faction": "权力帮",
+    "rank": "炉火纯青",
+    "one_line": "屠滚所使暗器，淬有剧毒，中之无命",
+    "techniques": [
+      {
+        "id": "tech_san_dian_han_xing",
+        "name": "三点寒星",
+        "type": "attack",
+        "description": "一次射出三枚淬毒暗器，角度刁钻"
+      },
+      {
+        "id": "tech_an_qi_tou",
+        "name": "暗器投射",
+        "type": "attack",
+        "description": "从暗处突然射出淬毒暗器，出手阴毒"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "远程偷袭",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 88,
+        "line_end": 98,
+        "text": "忽然弹出三点寒星...给屠滚的暗器打中，哪还有命在？"
+      }
+    ]
+  },
+  {
+    "id": "skill_he_quan",
+    "name": "鹤拳",
+    "type": "掌法",
+    "faction": "少林",
+    "rank": "登堂入室",
+    "one_line": "施月所使拳法，融合多种鹤形拳招式，身法如鹤",
+    "techniques": [
+      {
+        "id": "tech_bai_he_zhan_chi",
+        "name": "白鹤展翅",
+        "type": "attack",
+        "description": "展翅扑击，身形灵动"
+      },
+      {
+        "id": "tech_fei_he_sheng_tian",
+        "name": "飞鹤升天",
+        "type": "attack",
+        "description": "纵身飞起，自上而下攻击"
+      },
+      {
+        "id": "tech_e_he_xun_xia",
+        "name": "饿鹤寻虾",
+        "type": "attack",
+        "description": "少林虎鹤双形中的鹤拳招式"
+      },
+      {
+        "id": "tech_huang_he_wu_zong",
+        "name": "黄鹤无踪",
+        "type": "feint",
+        "description": "三百年前黄鹤真人绝技，身形飘忽无踪"
+      }
+    ],
+    "progression": "登堂入室",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "以巧破力，身法为主",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 136,
+        "line_end": 160,
+        "text": "施月忽然双手一展，成鹤啄型...黄鹤无踪竟然是三百年前就销声灭迹的黄鹤真人之绝技"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_lu_shen_quan",
+    "name": "五路神拳",
+    "type": "掌法",
+    "faction": "广西",
+    "rank": "登堂入室",
+    "one_line": "李黑所使，融合蛇拳、龙爪、虎爪、鹰爪、蛇形腰身等五路拳法",
+    "techniques": [
+      {
+        "id": "tech_she_quan",
+        "name": "蛇拳",
+        "type": "attack",
+        "description": "以手刁腕屈指，扣住对手兵器，随剑身直上攻击面门"
+      },
+      {
+        "id": "tech_long_zhua",
+        "name": "龙爪",
+        "type": "attack",
+        "description": "十指如钩，指尖跳动不已，自上而下抓击"
+      },
+      {
+        "id": "tech_hu_zhua",
+        "name": "虎爪",
+        "type": "attack",
+        "description": "五指贴掌一收，伏地攻击对手下盘"
+      },
+      {
+        "id": "tech_ying_zhua",
+        "name": "鹰爪",
+        "type": "attack",
+        "description": "九月鹰飞、鹰击长空、神鹰裂兔三连击，声势凌厉"
+      },
+      {
+        "id": "tech_she_xing_yao_shen",
+        "name": "蛇形腰身",
+        "type": "defense",
+        "description": "腰身扭动避开致命攻击，险过剃头"
+      }
+    ],
+    "progression": "登堂入室",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "多变诡诈，五路轮换",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 182,
+        "line_end": 276,
+        "text": "李黑虎地跳前...鹰爪已无效"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_dao",
+    "name": "金刀",
+    "type": "剑法",
+    "faction": "广西",
+    "rank": "出神入化",
+    "one_line": "胡福所使厚背金刀，出刀不快但精准，一招拆一招",
+    "techniques": [
+      {
+        "id": "tech_hou_beijin_dao",
+        "name": "厚背金刀",
+        "type": "attack",
+        "description": "出刀看似不快，但精准无比，对手攻一招他便出一刀"
+      },
+      {
+        "id": "tech_shuang_li_dao",
+        "name": "双力刀",
+        "type": "buff",
+        "description": "一掌击出两种不同力道，可同时化解两大高手内力"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害",
+      "增益"
+    ],
+    "combat_style": "以静制动，后发先至",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 396,
+        "line_end": 406,
+        "text": "另一面厚背金刀当地击落寒光...胡福这一掌，竟能打出两种不同力道"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhang_fa",
+    "name": "镔铁杖法",
+    "type": "棍法",
+    "faction": "不明",
+    "rank": "出神入化",
+    "one_line": "彭九所使镔铁杖，沉猛霸道，克制棍棒类兵器",
+    "techniques": [
+      {
+        "id": "tech_zhuang_zhang",
+        "name": "撞杖",
+        "type": "attack",
+        "description": "以镔铁杖正面撞击对手兵器，以内力硬碰"
+      },
+      {
+        "id": "tech_zhang_fa_peng",
+        "name": "杖法碰击",
+        "type": "defense",
+        "description": "以镔铁杖正面硬碰对手兵器，以内力取胜"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛硬碰",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 374,
+        "line_end": 378,
+        "text": "另一黑突突的拐杖迎向黑棍撞了过去...两杖交击在一起"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_wang_jian_fa",
+    "name": "剑王剑法",
+    "type": "剑法",
+    "faction": "权力帮",
+    "rank": "返璞归真",
+    "one_line": "屈寒山所使剑法，身为八大天王之剑王，武功深不可测",
+    "techniques": [
+      {
+        "id": "tech_jian_wang_ji",
+        "name": "剑王剑击",
+        "type": "attack",
+        "description": "身为剑王的绝顶剑术，深不可测"
+      },
+      {
+        "id": "tech_jian_wang_shi",
+        "name": "剑王气势",
+        "type": "buff",
+        "description": "以剑王威势震慑对手，气势堂堂正正中藏杀机"
+      }
+    ],
+    "progression": "返璞归真",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "堂堂正正中藏杀机",
+    "rag_refs": [
+      7,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 494,
+        "line_end": 496,
+        "text": "威震阳朔屈寒山...权力帮中八大天王里的剑王屈寒山"
+      },
+      {
+        "chapter": 10,
+        "line_start": 542,
+        "line_end": 548,
+        "text": "每一出剑，就挑飞了钢镖。然后屈寒山的剑一收而没。屈寒山身上又变成没有一柄剑。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_hu_na_si_hai",
+    "name": "五湖拿四海",
+    "type": "指法",
+    "faction": "六扇门",
+    "rank": "出神入化",
+    "one_line": "胡十四成名擒拿绝技，九指扣穴制敌",
+    "techniques": [
+      {
+        "id": "tech_jiu_zhi_qin_long",
+        "name": "九指擒龙",
+        "type": "attack",
+        "description": "以九根手指同时扣拿对手全身死穴要穴，令其动弹不得"
+      },
+      {
+        "id": "tech_wu_hu_na_si_hai",
+        "name": "五湖拿四海",
+        "type": "attack",
+        "description": "擒拿术中最高境界，可同时控制对手全身大小十二处穴道"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      "控制",
+      "封穴"
+    ],
+    "combat_style": "近身擒拿",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 158,
+        "line_end": 158,
+        "text": "九指擒龙江易海的九只手指，已分别扣拿在他全身三道死穴、五处要穴上"
+      }
+    ]
+  },
+  {
+    "id": "skill_qu_han_shan_neigong",
+    "name": "屈寒山内功",
+    "type": "内功",
+    "faction": "权力帮",
+    "rank": "登峰造极",
+    "one_line": "屈寒山深厚内力，可在被扣死穴时爆发反击",
+    "techniques": [
+      {
+        "id": "tech_nei_jin_tu_fa",
+        "name": "内劲突发",
+        "type": "buff",
+        "description": "在极端困境中骤然爆发内劲，力量可增强十倍至二十倍"
+      },
+      {
+        "id": "tech_hui_jian_zhan_sha",
+        "name": "回剑斩杀",
+        "type": "attack",
+        "description": "挣脱束缚后抽身回剑一击，寒光一闪即斩敌"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      "伤害",
+      "增益"
+    ],
+    "combat_style": "内力爆发反击",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 332,
+        "line_end": 336,
+        "text": "内劲骤然增强...屈寒山一缩，抽身回剑，寒光一闪"
+      }
+    ]
+  },
+  {
+    "id": "skill_yu_ku_yu_du",
+    "name": "余哭余毒术",
+    "type": "暗器",
+    "faction": "权力帮",
+    "rank": "出神入化",
+    "one_line": "余哭余一脉相传的下毒之术，触碰死者即中毒",
+    "techniques": [
+      {
+        "id": "tech_poison_touch",
+        "name": "触尸传毒",
+        "type": "debuff",
+        "description": "将毒药附于尸体衣褶，触碰者即中毒身亡"
+      },
+      {
+        "id": "tech_poison_projectile",
+        "name": "暗器投毒",
+        "type": "debuff",
+        "description": "抛出暗器同时释放毒物，令对手中毒"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      "伤害",
+      "减益"
+    ],
+    "combat_style": "远程投毒",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 430,
+        "line_end": 434,
+        "text": "毒从死人身上来...侵入生人的手心、呼吸里来"
+      }
+    ]
+  },
+  {
+    "id": "skill_wen_yi_du",
+    "name": "瘟疫毒术",
+    "type": "暗器",
+    "faction": "faction_quan_li_bang",
+    "rank": "出神入化",
+    "one_line": "瘟疫人魔一脉的剧毒之术，所触之物皆带剧毒",
+    "techniques": [
+      {
+        "id": "tech_wen_yi_du_1",
+        "name": "瘟疫毒触",
+        "type": "debuff",
+        "description": "以瘟疫之毒接触对手，沾者即中毒"
+      },
+      {
+        "id": "tech_wen_yi_du_2",
+        "name": "毒雾弥漫",
+        "type": "debuff",
+        "description": "释放瘟疫毒雾笼罩区域，无人可近"
+      }
+    ],
+    "progression": [
+      {
+        "level": "大成",
+        "description": "瘟疫人魔一脉核心毒术"
+      }
+    ],
+    "effects": [
+      {
+        "type": "减益",
+        "description": "剧毒侵蚀，沾者必死"
+      }
+    ],
+    "combat_style": "以毒制人，无需近身",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "瘟疫人魔的东西"
+      }
+    ]
+  },
+  {
+    "id": "skill_gu_du",
+    "name": "蛊毒术",
+    "type": "暗器",
+    "faction": "faction_quan_li_bang",
+    "rank": "登峰造极",
+    "one_line": "余哭余所擅的蛊毒之术，可遥控蛊虫杀人",
+    "techniques": [
+      {
+        "id": "tech_gu_du_1",
+        "name": "蛊虫遥控",
+        "type": "debuff",
+        "description": "遥控蛊虫如雾般蠕游前进，触之即中剧毒"
+      },
+      {
+        "id": "tech_gu_du_2",
+        "name": "蛊毒附墙",
+        "type": "debuff",
+        "description": "将蛊毒附着于建筑表面，穿越即中毒"
+      }
+    ],
+    "progression": [
+      {
+        "level": "化境",
+        "description": "匪夷所思的蛊毒遥控能力"
+      }
+    ],
+    "effects": [
+      {
+        "type": "减益",
+        "description": "蛊毒侵体，无可抵御"
+      }
+    ],
+    "combat_style": "远程遥控蛊毒，以毒布阵",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 120,
+        "line_end": 124,
+        "text": "我有我的毒物跟你们拼。我在古严关布下了毒"
+      }
+    ]
+  },
+  {
+    "id": "skill_an_qi_wan_fa",
+    "name": "万法暗器",
+    "type": "暗器",
+    "faction": "faction_quan_li_bang",
+    "rank": "登峰造极",
+    "one_line": "汉四海所施展的高超暗器手法，可同时发出十余种暗器",
+    "techniques": [
+      {
+        "id": "tech_an_qi_wan_fa_1",
+        "name": "光蓬分射",
+        "type": "attack",
+        "description": "身上骤现光蓬，化为十二种暗器同时射向不同目标"
+      },
+      {
+        "id": "tech_an_qi_wan_fa_2",
+        "name": "单手收器",
+        "type": "defense",
+        "description": "以不可思议的速度收走对手暗器"
+      }
+    ],
+    "progression": [
+      {
+        "level": "化境",
+        "description": "十余种暗器同时发出，力道各异"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "多角度多力道暗器攻击，无法防御"
+      }
+    ],
+    "combat_style": "以暗器群攻压制，手法变幻莫测",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 234,
+        "line_end": 236,
+        "text": "光蓬本身有十二二样暗器"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_zi_gang_biao",
+    "name": "七子钢镖",
+    "type": "暗器",
+    "faction": "faction_tang_jia",
+    "rank": "出神入化",
+    "one_line": "唐门绝技，七枚钢镖飞旋而出，各取要穴，千回荡气万回肠",
+    "techniques": [
+      {
+        "id": "tech_qi_zi_fei_xuan",
+        "name": "七子飞旋",
+        "type": "attack",
+        "description": "七枚钢镖同时打出，飞行中无固定方向，接近目标时突然加速射向七个要穴"
+      },
+      {
+        "id": "tech_qi_zi_san_tao",
+        "name": "三套连发",
+        "type": "attack",
+        "description": "同时打出三套二十一柄飞镖，配合剑法使用，每支剑闪动七次共刺七剑"
+      }
+    ],
+    "progression": [
+      "出神入化"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "远程暗器精准打击，攻敌必救",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 92,
+        "line_end": 94,
+        "text": "七枚钢镖，飞旋打出，竟然都没有固定的方向"
+      },
+      {
+        "chapter": 10,
+        "line_start": 100,
+        "line_end": 100,
+        "text": "\"七子神镖\"就是昔日唐大在浣花剑派听雨楼前，用以诛杀\"百毒神魔\"华狐坟的\"千回荡气，万回肠\"的\"七子钢镖\""
+      }
+    ]
+  },
+  {
+    "id": "skill_yu_wu",
+    "name": "雨雾",
+    "type": "暗器",
+    "faction": "faction_tang_jia",
+    "rank": "出神入化",
+    "one_line": "唐门绝密暗器，施放时如雨似雾，杀人于无形",
+    "techniques": [
+      {
+        "id": "tech_yu_wu_sa",
+        "name": "雨雾撒放",
+        "type": "attack",
+        "description": "以特殊手法将暗器如雨雾般撒出，笼罩范围极广，令敌人无处闪避"
+      },
+      {
+        "id": "tech_xue_yu_fen_fei",
+        "name": "血雨纷飞",
+        "type": "attack",
+        "description": "雨雾的极致形态，漫天血雨布满空中，既是攻击也是掩护撤退"
+      }
+    ],
+    "progression": [
+      "出神入化"
+    ],
+    "effects": [
+      "伤害",
+      "控制"
+    ],
+    "combat_style": "大范围面杀伤，攻守兼备",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 120,
+        "line_end": 124,
+        "text": "所以他就撒出了\"雨雾\"。\"雨雾！\"唐方就是用\"雨雾\"博杀了\"三绝剑麾\"孔扬秦！"
+      }
+    ]
+  },
+  {
+    "id": "skill_luo_di_sheng_gen",
+    "name": "落地生根功",
+    "type": "拳法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "马步扎稳如生根大地，拳法刚猛可碎石裂地",
+    "techniques": [
+      {
+        "id": "tech_pu_di_quan",
+        "name": "扑地拳",
+        "type": "attack",
+        "description": "拳力贯穿地面，击碎地下藏身之敌，一拳击杀卧伏土中之人"
+      },
+      {
+        "id": "tech_wen_si_bu_dong",
+        "name": "稳丝不动",
+        "type": "defense",
+        "description": "马步扎稳根基不移，拳力贯地下击，令伏地之敌无处遁形"
+      }
+    ],
+    "progression": [
+      "登堂入室"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "近身刚猛，以拳破地",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 144,
+        "line_end": 148,
+        "text": "一拳往地上打了下去，马竟终一拳打入沙中，正打在卧伏在土中的屠滚之背脊上"
+      }
+    ]
+  },
+  {
+    "id": "skill_pai_yun_wu_jian_zhen",
+    "name": "排云五剑阵",
+    "type": "剑法",
+    "faction": "faction_quan_li_bang",
+    "rank": "炉火纯青",
+    "one_line": "长天五剑联手布阵，五柄剑交替组织，密不透风的剑阵",
+    "techniques": [
+      {
+        "id": "tech_wu_jian_jiao_ti",
+        "name": "五剑交替",
+        "type": "defense",
+        "description": "五柄剑交替攻防，形成密不透风的剑海，连蚊子都飞不进去"
+      },
+      {
+        "id": "tech_jian_hai_kun_di",
+        "name": "剑海困敌",
+        "type": "control",
+        "description": "五剑形成周密无缝的宁静剑海，令敌人无法突围，困于阵中"
+      }
+    ],
+    "progression": [
+      "炉火纯青"
+    ],
+    "effects": [
+      "控制",
+      "伤害"
+    ],
+    "combat_style": "团体配合剑阵，以阵法困敌",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 568,
+        "line_end": 568,
+        "text": "这片宁静但周密无缝的剑海乃来自五柄剑的交替组织，几乎续密得连一只蚊子都飞不出去"
+      }
+    ]
+  },
+  {
+    "id": "skill_du_jue_kuai_dao",
+    "name": "杜绝快刀",
+    "type": "剑法",
+    "faction": "faction_quan_li_bang",
+    "rank": "出神入化",
+    "one_line": "杜绝绝技，刀化为一片刀光，凌厉袭杀",
+    "techniques": [
+      {
+        "id": "tech_dao_guang_pu_tian",
+        "name": "刀光铺天",
+        "type": "attack",
+        "description": "快刀化成一片刀光笼罩敌人，令敌无处闪避"
+      },
+      {
+        "id": "tech_kuai_dao_xue_lu",
+        "name": "快刀血路",
+        "type": "attack",
+        "description": "以极快速度挥刀杀出血路，刀光如练势不可挡"
+      }
+    ],
+    "progression": [
+      "出神入化"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "快刀猛攻，化刀为光",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 564,
+        "line_end": 564,
+        "text": "刀魔杜绝已化成一片刀光袭来"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_kai_bei_shou",
+    "name": "大开碑手",
+    "type": "掌法",
+    "faction": "faction_quan_li_bang",
+    "rank": "出神入化",
+    "one_line": "血影大师绝技，掌力刚猛可开碑裂石",
+    "techniques": [
+      {
+        "id": "tech_kai_bei_zhang",
+        "name": "开碑掌",
+        "type": "attack",
+        "description": "掌力刚猛无匹，可碎碑裂石，近身搏杀威力巨大"
+      },
+      {
+        "id": "tech_kai_bei_sui_shi",
+        "name": "开碑碎石",
+        "type": "attack",
+        "description": "掌力集中一点可碎碑裂石，近身搏杀威力惊人"
+      }
+    ],
+    "progression": [
+      "出神入化"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛掌力近身搏杀",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 430,
+        "line_end": 430,
+        "text": "魔僧的'大开碑手'与'神秘血影掌'"
+      }
+    ]
+  },
+  {
+    "id": "skill_shen_mi_xue_ying_zhang",
+    "name": "神秘血影掌",
+    "type": "掌法",
+    "faction": "faction_quan_li_bang",
+    "rank": "出神入化",
+    "one_line": "血影大师独门绝技，掌法诡秘莫测",
+    "techniques": [
+      {
+        "id": "tech_xue_ying_zhang",
+        "name": "血影掌",
+        "type": "attack",
+        "description": "以诡秘手法出掌，掌影如血影般笼罩对手"
+      },
+      {
+        "id": "tech_xue_ying_man_tian",
+        "name": "血影漫天",
+        "type": "attack",
+        "description": "出掌时掌影如血色幻影弥漫，以诡秘掌法令敌人难以判断攻击方位"
+      }
+    ],
+    "progression": [
+      "出神入化"
+    ],
+    "effects": [
+      "伤害",
+      "减益"
+    ],
+    "combat_style": "诡秘掌法，以影惑敌",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 430,
+        "line_end": 430,
+        "text": "魔僧的'大开碑手'与'神秘血影掌'"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_hu_he_ji",
+    "name": "狮虎合击大法",
+    "type": "掌法",
+    "faction": "faction_quan_li_bang",
+    "rank": "出神入化",
+    "one_line": "狮公虎婆联手施展的合击绝技，尖啸与虎吼并施，威力惊人",
+    "techniques": [
+      {
+        "id": "tech_shi_hu_lian_ji",
+        "name": "狮虎连击",
+        "type": "attack",
+        "description": "两人配合，一发尖啸一发虎吼，声波与掌力并施，扰乱敌人心神后凌厉出击"
+      },
+      {
+        "id": "tech_jian_xiao_hu_hou",
+        "name": "尖啸虎吼",
+        "type": "debuff",
+        "description": "狮公发尖啸虎婆发虎吼，声波交叠扰乱敌人心神，为合击创造破绽"
+      }
+    ],
+    "progression": [
+      "出神入化"
+    ],
+    "effects": [
+      "伤害",
+      "控制"
+    ],
+    "combat_style": "双人合击，声波扰乱配合掌力攻击",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 430,
+        "line_end": 430,
+        "text": "'狮公'、'虎婆'的'狮虎合击大法'，更是非同凡响"
+      }
+    ]
+  },
+  {
+    "id": "skill_shao_lin_hu_zhua",
+    "name": "少林虎爪",
+    "type": "指法",
+    "faction": "faction_shao_lin",
+    "rank": "登堂入室",
+    "one_line": "少林绝技虎爪功，英剑波曾以此力战萧秋水",
+    "techniques": [
+      {
+        "id": "tech_hu_zhua_gong",
+        "name": "虎爪功",
+        "type": "attack",
+        "description": "以虎爪手法抓击敌人，力大势沉，是少林外功绝技"
+      },
+      {
+        "id": "tech_hu_zhua_tie_zhao",
+        "name": "虎爪铁爪",
+        "type": "attack",
+        "description": "以铁爪般的手法抓击敌人要害，力大势沉，被击中者筋断骨折"
+      }
+    ],
+    "progression": [
+      "登堂入室"
+    ],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "近身抓击，刚猛有力",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 482,
+        "line_end": 482,
+        "text": "\"凶手\"曾用\"少林虎爪\"力战萧秋水"
+      }
+    ]
+  }
+]

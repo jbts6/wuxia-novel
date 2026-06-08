@@ -1,0 +1,4212 @@
+[
+  {
+    "id": "char_ma_jing_zhong",
+    "name": "马竟终",
+    "alias": [
+      "落地生根",
+      "九命总管",
+      "钉子"
+    ],
+    "identity": "浣花剑派九命总管",
+    "faction": "faction_huan_hua_jian_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "浣花剑派九命总管，绰号落地生根，以顽强生命力著称",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "顽强",
+        "重义",
+        "顾家",
+        "刚烈"
+      ],
+      "speech_style": "直接豪爽",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "忠诚追随"
+      },
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "自责补偿"
+      }
+    ],
+    "known_skills": [
+      "skill_huan_hua_jian_pai"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      3,
+      4,
+      5,
+      8,
+      9,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 77,
+        "line_end": 77,
+        "text": "那短小精悍的汉子却向萧秋水拱手"
+      },
+      {
+        "chapter": 3,
+        "line_start": 202,
+        "line_end": 202,
+        "text": "马竟终也没有考虑，也冲了出去"
+      },
+      {
+        "chapter": 4,
+        "line_start": 12,
+        "line_end": 14,
+        "text": "马竟终扑上去，一出手就是一记'落地分金'"
+      },
+      {
+        "chapter": 5,
+        "line_start": 266,
+        "line_end": 266,
+        "text": "马竟终一见四人无恙回来，喜道"
+      },
+      {
+        "chapter": 8,
+        "line_start": 92,
+        "line_end": 92,
+        "text": "马竟终紧紧握住欧阳珊一的手"
+      },
+      {
+        "chapter": 9,
+        "line_start": 398,
+        "line_end": 400,
+        "text": "马竟终也动容道"
+      },
+      {
+        "chapter": 10,
+        "line_start": 140,
+        "line_end": 142,
+        "text": "\"落地生根\"马竟终忽然跳出来，打量了一下地面，冷冷地道："
+      }
+    ]
+  },
+  {
+    "id": "char_ou_yang_shan_yi",
+    "name": "欧阳珊一",
+    "alias": [
+      "马大嫂",
+      "迷神引"
+    ],
+    "identity": "马竟终之妻，昔日江湖女侠",
+    "faction": "faction_huan_hua_jian_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "马竟终之妻，昔日绰号迷神引的江湖女侠，现洗手作羹汤",
+    "personality": {
+      "traits": [
+        "温柔",
+        "坚韧",
+        "深情",
+        "识大体",
+        "勇敢"
+      ],
+      "speech_style": "温柔内敛",
+      "temperament": "刚柔并济"
+    },
+    "relationships": [
+      {
+        "target": "char_ma_jing_zhong",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "夫妻情深"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      5,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 210,
+        "line_end": 210,
+        "text": "门打开来，是一青衣妇人"
+      },
+      {
+        "chapter": 5,
+        "line_start": 455,
+        "line_end": 455,
+        "text": "欧阳珊一。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 394,
+        "line_end": 394,
+        "text": "欧阳珊一忍不住道"
+      },
+      {
+        "chapter": 10,
+        "line_start": 330,
+        "line_end": 330,
+        "text": "欧阳珊一悄悄伸出手来，紧紧地握住了他的手"
+      }
+    ]
+  },
+  {
+    "id": "char_kang_chu_yu",
+    "name": "康出渔",
+    "alias": [],
+    "identity": "权力帮卧底，假装中毒谋杀唐大等人",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "权力帮奸细，假装中毒谋杀唐大、张临意、萧东广等人",
+    "personality": {
+      "traits": [
+        "奸诈",
+        "狡猾",
+        "阴险",
+        "虚伪",
+        "凶残"
+      ],
+      "speech_style": "阴险狡诈",
+      "temperament": "阴险"
+    },
+    "relationships": [
+      {
+        "target": "char_ma_jing_zhong",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "胁迫合作"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 457,
+        "line_end": 457,
+        "text": "康出渔和辛妙常"
+      },
+      {
+        "chapter": 2,
+        "line_start": 56,
+        "line_end": 56,
+        "text": "那人在谈笑风生，又一副正义凛然的样子，不是康出渔是谁！"
+      },
+      {
+        "chapter": 3,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "康出渔就是权力帮中'几天十地，十九人魔'中的'无名入魔'"
+      },
+      {
+        "chapter": 5,
+        "line_start": 74,
+        "line_end": 74,
+        "text": "康出渔冷笑道"
+      },
+      {
+        "chapter": 7,
+        "line_start": 124,
+        "line_end": 134,
+        "text": "康出渔冷笑道...让你见识见识"
+      },
+      {
+        "chapter": 8,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "康出渔冷笑道"
+      }
+    ]
+  },
+  {
+    "id": "char_xin_miao_chang",
+    "name": "辛妙常",
+    "alias": [],
+    "identity": "辛虎丘之女，权力帮卧底",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "辛虎丘之女，潜伏于桂林浣花剑派中为权力帮卧底",
+    "personality": {
+      "traits": [
+        "隐忍",
+        "阴险",
+        "忠诚于权力帮",
+        "伪装",
+        "机敏"
+      ],
+      "speech_style": "谨慎",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_kang_chu_yu",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "同为卧底"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 457,
+        "line_end": 457,
+        "text": "康出渔和辛妙常"
+      }
+    ]
+  },
+  {
+    "id": "char_qu_han_shan",
+    "name": "屈寒山",
+    "alias": [
+      "威震阳朔"
+    ],
+    "identity": "永福权力帮分部主事",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "威震阳朔的剑王，在被扣死穴时仍能爆发击杀胡十四，但震伤内腑",
+    "personality": {
+      "traits": [
+        "阴险",
+        "有权谋",
+        "武艺高强",
+        "深沉",
+        "狠辣"
+      ],
+      "speech_style": "深沉",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_kang_chu_yu",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "同谋"
+      },
+      {
+        "target": "char_hu_shi_si",
+        "type": "宿敌",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "击杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 567,
+        "line_end": 567,
+        "text": "跟威震阳朔屈寒山一齐喝酒"
+      },
+      {
+        "chapter": 2,
+        "line_start": 2,
+        "line_end": 11,
+        "text": "威震阳朔屈寒山...他的剑法，据说可以以一人之力，仍可与武林七大名剑打成平手。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 8,
+        "line_end": 8,
+        "text": "屈寒山忙欠身道"
+      },
+      {
+        "chapter": 4,
+        "line_start": 38,
+        "line_end": 40,
+        "text": "萧秋水现在才知道屈寒山为什么是'剑王'！"
+      },
+      {
+        "chapter": 4,
+        "line_start": 62,
+        "line_end": 66,
+        "text": "六剑一闪而没...屈寒山现在两手还是空空的"
+      },
+      {
+        "chapter": 5,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "屈寒山自内一步步走出"
+      },
+      {
+        "chapter": 7,
+        "line_start": 494,
+        "line_end": 496,
+        "text": "威震阳朔屈寒山。也就是权力帮中八大天王里的剑王屈寒山。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 346,
+        "line_end": 350,
+        "text": "用毕生之力撞开被扣之穴，拼力发剑，杀了九指神捕胡十四"
+      },
+      {
+        "chapter": 9,
+        "line_start": 98,
+        "line_end": 98,
+        "text": "屈寒山手中"
+      },
+      {
+        "chapter": 10,
+        "line_start": 384,
+        "line_end": 388,
+        "text": "这人三络长须，飘飘不己，月下如此清瘦，就像画像中的人物。这人不是谁，却正是威震阳朔屈寒山！剑王屈寒山！"
+      }
+    ]
+  },
+  {
+    "id": "char_liang_dou",
+    "name": "梁斗",
+    "alias": [
+      "气吞丹霞"
+    ],
+    "identity": "广东武林领袖",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "广东气吞丹霞梁斗，唯一可与屈寒山平分秋色的高手",
+    "personality": {
+      "traits": [
+        "武功高强",
+        "声望极高",
+        "正道中人",
+        "豪气干云",
+        "沉稳老练"
+      ],
+      "speech_style": "豪迈大方",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_qu_han_shan",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "亦敌亦友"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 12,
+        "line_end": 12,
+        "text": "在声誉、武功、实力上，唯一可与屈寒山平分秋色的，恐怕只有广东气吞丹霞梁斗！"
+      },
+      {
+        "chapter": 8,
+        "line_start": 14,
+        "line_end": 14,
+        "text": "在广东，是梁斗梁大侠"
+      }
+    ]
+  },
+  {
+    "id": "char_tie_xing_yue",
+    "name": "铁星月",
+    "alias": [
+      "潮州屁王"
+    ],
+    "identity": "萧秋水好友",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "潮州屁王铁星月，力大无穷性格鲁莽，与邱南顾齐名",
+    "personality": {
+      "traits": [
+        "鲁莽冲动",
+        "力大无穷",
+        "直言不讳",
+        "重情重义",
+        "胆大包天"
+      ],
+      "speech_style": "粗犷直爽，大大咧咧",
+      "temperament": "急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_qiu_nan_gu",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "齐名搭档"
+      },
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "追随效忠"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 58,
+        "line_end": 66,
+        "text": "铁星月一见，便忍不住冲出去了...一拳打中康劫生鼻子一拳"
+      },
+      {
+        "chapter": 3,
+        "line_start": 190,
+        "line_end": 190,
+        "text": "铁星月大吼一声"
+      },
+      {
+        "chapter": 4,
+        "line_start": 18,
+        "line_end": 20,
+        "text": "铁星月更简单，在文鬓霜中间一拦，然后就一抱！"
+      },
+      {
+        "chapter": 5,
+        "line_start": 90,
+        "line_end": 90,
+        "text": "铁星月最看这种彬彬有礼的人不顺眼，一句就吼了回去"
+      },
+      {
+        "chapter": 7,
+        "line_start": 192,
+        "line_end": 192,
+        "text": "铁星月、萧秋水、邱南顾三人忍不注齐齐叫了一声好"
+      },
+      {
+        "chapter": 8,
+        "line_start": 481,
+        "line_end": 481,
+        "text": "铁星月惊叫道"
+      },
+      {
+        "chapter": 10,
+        "line_start": 326,
+        "line_end": 326,
+        "text": "铁星月忍不住一拳捶在大腿上"
+      }
+    ]
+  },
+  {
+    "id": "char_kang_jie_sheng",
+    "name": "康劫生",
+    "alias": [],
+    "identity": "康出渔之子",
+    "faction": "faction_power_gang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "高瘦长脸，常左手按剑，遇事抢劫杀人不眨眼的叛徒",
+    "personality": {
+      "traits": [
+        "阴险",
+        "趋炎附势",
+        "怯懦",
+        "狡诈",
+        "随风倒"
+      ],
+      "speech_style": "含糊其辞",
+      "temperament": "怯弱"
+    },
+    "relationships": [
+      {
+        "target": "char_kang_chu_yu",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 60,
+        "line_end": 60,
+        "text": "那人正是康劫生。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "剑法凌厉的康劫生"
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_yi_hai",
+    "name": "江易海",
+    "alias": [
+      "五湖拿四海",
+      "九指擒龙"
+    ],
+    "identity": "权力帮高手",
+    "faction": "faction_power_gang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "九指擒龙江易海，擒拿功夫天下一绝，有洁癖",
+    "personality": {
+      "traits": [
+        "精于擒拿",
+        "洁癖",
+        "老辣",
+        "阴沉",
+        "自负"
+      ],
+      "speech_style": "少言寡语",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_du_jue",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "联手夹攻文鬓霜"
+      }
+    ],
+    "known_skills": [
+      "skill_qin_na"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 84,
+        "line_end": 92,
+        "text": "江易海！五湖拿四海的九指擒龙江易海！"
+      },
+      {
+        "chapter": 3,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "只剩下这江易海，亦是权力帮的人"
+      },
+      {
+        "chapter": 4,
+        "line_start": 162,
+        "line_end": 162,
+        "text": "他一离洞口，江易海已闪至洞沿。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 472,
+        "line_end": 472,
+        "text": "江易海却闪身而上，招招擒拿，制住文鬓霜的双腿攻势"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_qiu_shui",
+    "name": "萧秋水",
+    "alias": [
+      "萧少侠",
+      "萧少公子"
+    ],
+    "identity": "浣花剑派萧西楼之子",
+    "faction": "faction_huan_hua",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "浣花萧家少侠，正直勇敢，揭露康出渔真面目",
+    "personality": {
+      "traits": [
+        "正直勇敢",
+        "机智果断",
+        "重情重义",
+        "年轻气盛",
+        "善于应对"
+      ],
+      "speech_style": "有礼有节，关键时刻直言不讳",
+      "temperament": "沉着"
+    },
+    "relationships": [
+      {
+        "target": "char_tie_xing_yue",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "同伴"
+      },
+      {
+        "target": "char_tang_fang",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "互有好感"
+      },
+      {
+        "target": "char_kang_chu_yu",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 1,
+        "dynamic": "揭发与被揭发"
+      },
+      {
+        "target": "char_du_yue_shan",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "接受剑谱托付"
+      }
+    ],
+    "known_skills": [
+      "skill_huan_hua_sword"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 208,
+        "line_end": 211,
+        "text": "萧秋水知道一切都在逆境之中...屈大侠！我这位铁兄弟之所以这么鲁莽无礼，皆是因为康出渔所害！"
+      },
+      {
+        "chapter": 3,
+        "line_start": 196,
+        "line_end": 196,
+        "text": "萧秋水冲出"
+      },
+      {
+        "chapter": 4,
+        "line_start": 1,
+        "line_end": 2,
+        "text": "萧秋水手中已无剑，一扬手，就打出一记，'仙人指"
+      },
+      {
+        "chapter": 5,
+        "line_start": 72,
+        "line_end": 72,
+        "text": "萧秋水忍不住道"
+      },
+      {
+        "chapter": 10,
+        "line_start": 14,
+        "line_end": 14,
+        "text": "萧秋水一下子完全明白过来"
+      },
+      {
+        "chapter": 10,
+        "line_start": 466,
+        "line_end": 466,
+        "text": "当下答：\"我就是！\""
+      }
+    ]
+  },
+  {
+    "id": "char_tang_fang",
+    "name": "唐方",
+    "alias": [
+      "唐门女侠"
+    ],
+    "identity": "唐门弟子，暗器高手",
+    "faction": "faction_tang_men",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "唐门女侠，轻功见长，暗器高手，与萧秋水同行",
+    "personality": {
+      "traits": [
+        "聪慧敏锐",
+        "身手不凡",
+        "冷静沉着",
+        "心思细腻",
+        "善于观察"
+      ],
+      "speech_style": "礼貌有礼",
+      "temperament": "沉着"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "互有好感"
+      },
+      {
+        "target": "char_tang_peng",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "同门姐弟，唐朋在辈份上要叫方姐"
+      }
+    ],
+    "known_skills": [
+      "skill_tang_an_qi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 246,
+        "line_end": 246,
+        "text": "晚辈唐方，拜见屈大侠。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 210,
+        "line_end": 210,
+        "text": "唐方见到的却是千手屠滚"
+      },
+      {
+        "chapter": 4,
+        "line_start": 6,
+        "line_end": 8,
+        "text": "唐方一扬手，'嗤嗤'射出两枚飞针。这两枚飞针细如牛毛"
+      },
+      {
+        "chapter": 5,
+        "line_start": 84,
+        "line_end": 84,
+        "text": "唐方突然道：'汉四海？'"
+      },
+      {
+        "chapter": 7,
+        "line_start": 102,
+        "line_end": 458,
+        "text": "唐方惊呼一声...发暗器的人是唐方。也只有唐家的人，能在此时十步内发暗器救人。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 58,
+        "line_end": 60,
+        "text": "我是唐方，我的哥哥唐大"
+      },
+      {
+        "chapter": 10,
+        "line_start": 16,
+        "line_end": 16,
+        "text": "难怪\"汉四海\"出现时，唐方眼眸会发亮"
+      },
+      {
+        "chapter": 10,
+        "line_start": 282,
+        "line_end": 284,
+        "text": "唐方眯着眼笑道：\"就知道是你这个调皮鬼，阿猛呢？\""
+      },
+      {
+        "chapter": 10,
+        "line_start": 124,
+        "line_end": 124,
+        "text": "唐方就是用\"雨雾\"博杀了\"三绝剑麾\"孔扬秦"
+      }
+    ]
+  },
+  {
+    "id": "char_zuo_qiu_chao_ran",
+    "name": "左丘超然",
+    "alias": [
+      "左丘少君"
+    ],
+    "identity": "项释儒与鹰爪王雷锋的嫡传门徒",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "天下第一擒拿手项释儒与鹰爪王雷锋的嫡传，十五岁已成名",
+    "personality": {
+      "traits": [
+        "擒拿精通",
+        "机智灵活",
+        "曾经不敌江易海",
+        "重义轻生",
+        "少年成名"
+      ],
+      "speech_style": "沉稳",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_yi_hai",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 1,
+        "dynamic": "曾经被制服"
+      },
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "并肩作战"
+      },
+      {
+        "target": "char_hu_shi_si",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "重逢"
+      }
+    ],
+    "known_skills": [
+      "skill_qin_na_chao_ran"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      8,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 90,
+        "line_end": 92,
+        "text": "左丘超然乃天下第一擒拿手项释儒与鹰爪王雷锋的唯一嫡传门徒"
+      },
+      {
+        "chapter": 3,
+        "line_start": 254,
+        "line_end": 254,
+        "text": "左丘超然"
+      },
+      {
+        "chapter": 4,
+        "line_start": 16,
+        "line_end": 16,
+        "text": "左丘超然一动手就是'缠'"
+      },
+      {
+        "chapter": 5,
+        "line_start": 226,
+        "line_end": 226,
+        "text": "左丘超然道"
+      },
+      {
+        "chapter": 8,
+        "line_start": 220,
+        "line_end": 220,
+        "text": "左丘超然忽然失声道"
+      },
+      {
+        "chapter": 8,
+        "line_start": 228,
+        "line_end": 228,
+        "text": "左丘超然艺出于第一擒拿手项释儒，后来加上鹰爪工雷锋之亲传"
+      },
+      {
+        "chapter": 9,
+        "line_start": 282,
+        "line_end": 284,
+        "text": "左丘超然冷笑道"
+      }
+    ]
+  },
+  {
+    "id": "char_tu_gun",
+    "name": "屠滚",
+    "alias": [
+      "暗器三十六手，暗桩三十六路"
+    ],
+    "identity": "权力帮高手，暗器与布阵专家",
+    "faction": "faction_power_gang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "暗器三十六手屠滚，暗器与布阵皆是一绝，功力绝不在唐大之下",
+    "personality": {
+      "traits": [
+        "暗器精通",
+        "阴险狠毒",
+        "心狠手辣",
+        "城府极深",
+        "冷酷无情"
+      ],
+      "speech_style": "阴冷尖刻",
+      "temperament": "阴沉"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_an_qi_36"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 308,
+        "line_end": 310,
+        "text": "我是暗器三十六手，暗桩三十六路屠滚"
+      },
+      {
+        "chapter": 3,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "屠滚就是'千手神魔'"
+      },
+      {
+        "chapter": 4,
+        "line_start": 142,
+        "line_end": 144,
+        "text": "千手人魔屠滚！屠滚一至洞口，一甩手，打出三颗黑星！"
+      },
+      {
+        "chapter": 5,
+        "line_start": 361,
+        "line_end": 361,
+        "text": "戴鹿皮手套的是'暗器三十六手，暗桩卅六路'屠滚"
+      },
+      {
+        "chapter": 7,
+        "line_start": 90,
+        "line_end": 98,
+        "text": "屠滚突然出手...给屠滚的暗器打中，哪还有命在？"
+      },
+      {
+        "chapter": 8,
+        "line_start": 108,
+        "line_end": 108,
+        "text": "屠滚"
+      },
+      {
+        "chapter": 9,
+        "line_start": 152,
+        "line_end": 154,
+        "text": "自称老子的是屠滚"
+      },
+      {
+        "chapter": 10,
+        "line_start": 28,
+        "line_end": 28,
+        "text": "\"千手\"屠滚却真正跳了起来"
+      },
+      {
+        "chapter": 10,
+        "line_start": 42,
+        "line_end": 44,
+        "text": "\"暗器三十六手\"屠滚叱道"
+      }
+    ]
+  },
+  {
+    "id": "char_peng_jiu",
+    "name": "彭九",
+    "alias": [
+      "独脚镇千山",
+      "彭独脚"
+    ],
+    "identity": "广西尤虎关口高手",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "独脚镇千山彭九，镔铁杖力大无穷",
+    "personality": {
+      "traits": [
+        "力大无穷",
+        "性格直爽",
+        "豪放不羁",
+        "独脚行走",
+        "镔铁杖法精纯"
+      ],
+      "speech_style": "豪放",
+      "temperament": "豪放"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_bing_tie_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 392,
+        "line_end": 393,
+        "text": "广西尤虎关口独脚镇千山彭九彭爷"
+      },
+      {
+        "chapter": 3,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "彭九则是'独脚神魔'"
+      },
+      {
+        "chapter": 4,
+        "line_start": 92,
+        "line_end": 92,
+        "text": "然而院中把关的是独脚神魔彭九！"
+      },
+      {
+        "chapter": 5,
+        "line_start": 361,
+        "line_end": 361,
+        "text": "那独脚'笃、笃、笃'行前来的自然就是'独脚神魔'彭九"
+      },
+      {
+        "chapter": 6,
+        "line_start": 254,
+        "line_end": 254,
+        "text": "邱南顾和左丘超然早就给彭九盯上了"
+      },
+      {
+        "chapter": 7,
+        "line_start": 380,
+        "line_end": 388,
+        "text": "出杖的人正是独脚彭九。镔铁杖好像就是躬背劳九的乞丐杖之克星"
+      },
+      {
+        "chapter": 8,
+        "line_start": 108,
+        "line_end": 108,
+        "text": "彭九"
+      },
+      {
+        "chapter": 10,
+        "line_start": 390,
+        "line_end": 390,
+        "text": "一个是彭九"
+      }
+    ]
+  },
+  {
+    "id": "char_liu_qian_bian",
+    "name": "柳千变",
+    "alias": [
+      "地马行天",
+      "天马行空",
+      "天马行地"
+    ],
+    "identity": "武林黑白二道闻名丧胆的轻功高手",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "地马行天柳千变，轻功绝世，折扇打穴功夫高超",
+    "personality": {
+      "traits": [
+        "轻功绝世",
+        "折扇打穴",
+        "老谋深算",
+        "善于暗算",
+        "笑里藏刀"
+      ],
+      "speech_style": "文质彬彬中透着阴险",
+      "temperament": "阴沉"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_tian_ma_qing_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 380,
+        "line_end": 390,
+        "text": "他就是武林黑白二道闻名丧胆的地马行天柳千变"
+      },
+      {
+        "chapter": 3,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "柳千变就是'无影神魔'"
+      },
+      {
+        "chapter": 4,
+        "line_start": 54,
+        "line_end": 54,
+        "text": "何况有'天马行地'柳千变等"
+      },
+      {
+        "chapter": 5,
+        "line_start": 67,
+        "line_end": 67,
+        "text": "存一旁的柳千变也笑道"
+      },
+      {
+        "chapter": 6,
+        "line_start": 254,
+        "line_end": 254,
+        "text": "铁星月和马竟终此刻恐怕已死在柳千变的扇下"
+      },
+      {
+        "chapter": 7,
+        "line_start": 62,
+        "line_end": 72,
+        "text": "柳千变冷笑道：这是少林神拳？...那我柳千变来领教一下你少林拳招和广西打法。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 322,
+        "line_end": 322,
+        "text": "柳千变怒道"
+      },
+      {
+        "chapter": 9,
+        "line_start": 148,
+        "line_end": 150,
+        "text": "还有在上！自称在上的是地马行天柳千变"
+      },
+      {
+        "chapter": 10,
+        "line_start": 56,
+        "line_end": 56,
+        "text": "柳千变尴尬一笑，正欲启口，却欲言又止"
+      },
+      {
+        "chapter": 10,
+        "line_start": 172,
+        "line_end": 172,
+        "text": "柳千变的脸色仿佛有些不自然"
+      },
+      {
+        "chapter": 10,
+        "line_start": 366,
+        "line_end": 372,
+        "text": "柳千变忽然回过身来，胸前一个剑孔，倒地而殁"
+      }
+    ]
+  },
+  {
+    "id": "char_gu_jun_shan",
+    "name": "顾君山",
+    "alias": [
+      "落拓神叟",
+      "一君"
+    ],
+    "identity": "四绝一君之首，武功最高",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "落拓神叟顾君山，四绝一君之首，武功最高，最恨伪君子",
+    "personality": {
+      "traits": [
+        "嫉恶如仇",
+        "眼光独到",
+        "正邪分明",
+        "武功最高",
+        "沉稳老练"
+      ],
+      "speech_style": "沉重有力",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_qu_han_shan",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "互相尊重"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 362,
+        "line_end": 364,
+        "text": "落拓神叟顾君山...这落地生根马竟终的为人，我很清楚"
+      },
+      {
+        "chapter": 3,
+        "line_start": 3,
+        "line_end": 3,
+        "text": "顾君山冷冷脱了江易海一眼，即向屈寒山拱手道"
+      },
+      {
+        "chapter": 3,
+        "line_start": 396,
+        "line_end": 408,
+        "text": "屈寒山拔剑，顾君山声嘶而绝"
+      }
+    ]
+  },
+  {
+    "id": "char_huang_yuan_yong",
+    "name": "黄远庸",
+    "alias": [
+      "掌绝"
+    ],
+    "identity": "四绝一君之掌绝",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "掌绝黄远庸，四绝一君之一，掌法精湛",
+    "personality": {
+      "traits": [
+        "掌法精通",
+        "嫉恶如仇",
+        "沉稳老练",
+        "目光如炬",
+        "重义轻利"
+      ],
+      "speech_style": "稳重",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_jun_shan",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 4,
+        "dynamic": "并肩作战"
+      }
+    ],
+    "known_skills": [
+      "skill_zhang_jue"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 414,
+        "line_end": 419,
+        "text": "掌绝黄远庸却接道：不幸得紧，兄弟等昨天已到桂林"
+      },
+      {
+        "chapter": 3,
+        "line_start": 100,
+        "line_end": 100,
+        "text": "扑向黄远庸与康出渔的战团之中"
+      },
+      {
+        "chapter": 3,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "被余哭余毒杀"
+      },
+      {
+        "chapter": 9,
+        "line_start": 96,
+        "line_end": 98,
+        "text": "毒杀了掌绝黄远庸。黄远庸是文鬓霜的兄弟"
+      }
+    ]
+  },
+  {
+    "id": "char_yao_du_wu",
+    "name": "姚独雾",
+    "alias": [
+      "肘绝"
+    ],
+    "identity": "四绝一君之肘绝",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "肘绝姚独雾，四绝一君之一，肘法刚猛",
+    "personality": {
+      "traits": [
+        "肘法刚猛",
+        "嫉恶如仇",
+        "沉默寡言",
+        "出手迅猛",
+        "重义轻利"
+      ],
+      "speech_style": "简洁有力",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_jun_shan",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 4,
+        "dynamic": "并肩作战"
+      }
+    ],
+    "known_skills": [
+      "skill_zhou_jue"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 406,
+        "line_end": 410,
+        "text": "只听一个声音冷冷地道：只怕未必。说话的人是肘绝姚独雾"
+      },
+      {
+        "chapter": 3,
+        "line_start": 88,
+        "line_end": 88,
+        "text": "一柄精光四射的短剑已刺人'肘绝'姚独雾的咽喉"
+      }
+    ]
+  },
+  {
+    "id": "char_bi_tian_tong",
+    "name": "毕天通",
+    "alias": [
+      "拳绝"
+    ],
+    "identity": "四绝一君之拳绝",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "拳绝毕天通，四绝一君之一，拳法无坚不摧",
+    "personality": {
+      "traits": [
+        "拳法无坚不摧",
+        "嫉恶如仇",
+        "勇猛直前",
+        "追踪不懈",
+        "重义轻利"
+      ],
+      "speech_style": "冷厉",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_jun_shan",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 4,
+        "dynamic": "并肩作战"
+      }
+    ],
+    "known_skills": [
+      "skill_quan_jue"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 452,
+        "line_end": 458,
+        "text": "拳绝毕天通却突然站出来，冷笑：屠滚，我也已经注意你很久了"
+      },
+      {
+        "chapter": 3,
+        "line_start": 86,
+        "line_end": 86,
+        "text": "一剑刺进了错愕中的'拳绝'毕夭通心口"
+      }
+    ]
+  },
+  {
+    "id": "char_wen_bin_shuang",
+    "name": "文鬓霜",
+    "alias": [
+      "腿绝"
+    ],
+    "identity": "四绝一君之腿绝",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "腿绝文鬓霜，四绝一君之一，腿法了得",
+    "personality": {
+      "traits": [
+        "腿法了得",
+        "嫉恶如仇",
+        "身手矫健",
+        "反应敏捷",
+        "重义轻利"
+      ],
+      "speech_style": "简洁",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_jun_shan",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 4,
+        "dynamic": "并肩作战"
+      },
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "感恩"
+      },
+      {
+        "target": "char_qu_han_shan",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "屈寒山当众污蔑文鬓霜为顾环青"
+      }
+    ],
+    "known_skills": [
+      "skill_tui_jue"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 536,
+        "line_end": 542,
+        "text": "震飞的人是腿绝文鬓霜"
+      },
+      {
+        "chapter": 3,
+        "line_start": 118,
+        "line_end": 118,
+        "text": "飞闪至顾君山身侧"
+      },
+      {
+        "chapter": 4,
+        "line_start": 26,
+        "line_end": 28,
+        "text": "文鬓霜虽然已左腿受伤，但他正竭力踢出右腿！"
+      },
+      {
+        "chapter": 5,
+        "line_start": 337,
+        "line_end": 337,
+        "text": "丈鬓霜一见，又痴了起来"
+      },
+      {
+        "chapter": 7,
+        "line_start": 472,
+        "line_end": 530,
+        "text": "文鬓霜怒叱一声，一脚飞出...文鬓霜厉声嘶问：那我是谁！？"
+      },
+      {
+        "chapter": 7,
+        "line_start": 530,
+        "line_end": 551,
+        "text": "文鬓霜厉声嘶问：那我是谁！？...我文鬓霜是顾环青！？"
+      },
+      {
+        "chapter": 8,
+        "line_start": 62,
+        "line_end": 62,
+        "text": "在一旁气得说不出话来的文鬓霜"
+      },
+      {
+        "chapter": 9,
+        "line_start": 36,
+        "line_end": 42,
+        "text": "文鬓霜冷眼旁观，向唐方道"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_ku_yu",
+    "name": "余哭余",
+    "alias": [],
+    "identity": "权力帮十九人魔之一",
+    "faction": "faction_power_gang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "权力帮十九人魔之一，与屠滚有联络",
+    "personality": {
+      "traits": [
+        "权力帮高层",
+        "行踪隐秘",
+        "武功高强",
+        "阴险狡诈",
+        "心狠手辣"
+      ],
+      "speech_style": "阴沉",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_tu_gun",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "同帮联络"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 458,
+        "line_end": 460,
+        "text": "你在连城见到权力帮十九人魔中的余哭余时"
+      },
+      {
+        "chapter": 3,
+        "line_start": 102,
+        "line_end": 102,
+        "text": "余哭余？！"
+      },
+      {
+        "chapter": 4,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "瘟疫人魔余哭余等已分五个方位"
+      },
+      {
+        "chapter": 8,
+        "line_start": 102,
+        "line_end": 102,
+        "text": "后面也有余哭余在追"
+      },
+      {
+        "chapter": 9,
+        "line_start": 82,
+        "line_end": 92,
+        "text": "我是瘟疫...余哭余。"
+      }
+    ]
+  },
+  {
+    "id": "char_du_yue_shan",
+    "name": "杜月山",
+    "alias": [
+      "檬江"
+    ],
+    "identity": "广西三山之一，已失踪",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "广西三山之一，檬江人，已失踪",
+    "personality": {
+      "traits": [
+        "正直",
+        "豪侠",
+        "神秘",
+        "忠义",
+        "刚强"
+      ],
+      "speech_style": "未知",
+      "temperament": "神秘"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_jun_shan",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "同列三山"
+      },
+      {
+        "target": "char_qu_han_shan",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "同列三山"
+      },
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "托付剑谱"
+      },
+      {
+        "target": "char_xiao_xi_lou",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "故交"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      4,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 31,
+        "line_end": 31,
+        "text": "檬江杜月山兄"
+      },
+      {
+        "chapter": 4,
+        "line_start": 476,
+        "line_end": 477,
+        "text": "这老人竟是在广西武林三山中的另一山，跟屈寒山、顾君山齐名的檬江杜月山！"
+      },
+      {
+        "chapter": 5,
+        "line_start": 5,
+        "line_end": 5,
+        "text": "杜月山冷冷地道"
+      }
+    ]
+  },
+  {
+    "id": "char_deng_yu_han",
+    "name": "邓玉函",
+    "alias": [],
+    "identity": "萧秋水结义兄弟，已故",
+    "faction": "南海剑派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "萧秋水结义兄弟，南海剑法传人，已故",
+    "personality": {
+      "traits": [
+        "锐利",
+        "果断",
+        "快意",
+        "豪爽",
+        "自信"
+      ],
+      "speech_style": "快意恩仇",
+      "temperament": "锐利果断"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "结义兄弟，已故"
+      }
+    ],
+    "known_skills": [
+      "skill_nan_hai_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 340,
+        "line_end": 340,
+        "text": "邓玉函的南海剑法"
+      },
+      {
+        "chapter": 6,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "还有剑利人做的邓玉函"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_rou",
+    "name": "唐柔",
+    "alias": [],
+    "identity": "唐家弟子，萧秋水朋友，已故",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "唐家弟子，萧秋水的朋友，已故",
+    "personality": {
+      "traits": [
+        "温柔",
+        "善良",
+        "忠诚",
+        "勇敢",
+        "纯真"
+      ],
+      "speech_style": "温柔",
+      "temperament": "温柔善良"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "已故朋友"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 354,
+        "line_end": 354,
+        "text": "唐柔，你死得好惨！"
+      },
+      {
+        "chapter": 6,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "暗器精奇的唐柔"
+      }
+    ]
+  },
+  {
+    "id": "char_du_jue",
+    "name": "杜绝",
+    "alias": [
+      "快刀地魔"
+    ],
+    "identity": "权力帮十九人魔之一",
+    "faction": "权力帮",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "权力帮快刀地魔，一刀绝命的残忍杀手",
+    "personality": {
+      "traits": [
+        "残忍",
+        "绝情",
+        "快刀",
+        "凶狠",
+        "忘恩负义"
+      ],
+      "speech_style": "暴烈",
+      "temperament": "凶残"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_kuai_dao"
+    ],
+    "related_skills": [
+      "skill_kuai_dao"
+    ],
+    "rag_refs": [
+      4,
+      5,
+      7,
+      8,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 330,
+        "line_end": 331,
+        "text": "这地道里还有权力帮的人，他是十九人魔中的'快刀地魔'杜绝。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 49,
+        "line_end": 49,
+        "text": "屈寒山身旁的杜绝也冷笑道"
+      },
+      {
+        "chapter": 7,
+        "line_start": 4,
+        "line_end": 6,
+        "text": "杜绝相信这些广州武师能有多大的能耐，九天十地十九人魔的武功是武林公认的杀手无常"
+      },
+      {
+        "chapter": 8,
+        "line_start": 108,
+        "line_end": 108,
+        "text": "杜绝"
+      },
+      {
+        "chapter": 10,
+        "line_start": 390,
+        "line_end": 390,
+        "text": "一个是杜绝"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_xi_lou",
+    "name": "萧西楼",
+    "alias": [],
+    "identity": "浣花剑派掌门",
+    "faction": "浣花剑派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "浣花剑派掌门，萧秋水之父",
+    "personality": {
+      "traits": [
+        "正直",
+        "威严",
+        "正义",
+        "深沉",
+        "武功高强"
+      ],
+      "speech_style": "威严",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 421,
+        "line_end": 422,
+        "text": "西楼么？！他儿子都那么大了。"
+      }
+    ]
+  },
+  {
+    "id": "char_han_si_hai",
+    "name": "唐朋",
+    "alias": [
+      "汉四海",
+      "唐四海"
+    ],
+    "identity": "权力帮智囊柳随风密友，实为唐家唐朋",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "脸白齿白的青年高手，暗器精湛，柳随风所识",
+    "personality": {
+      "traits": [
+        "阴险",
+        "彬彬有礼",
+        "深藏不露",
+        "狡诈",
+        "危险"
+      ],
+      "speech_style": "彬彬有礼，语气温和却令人心寒",
+      "temperament": "阴沉内敛"
+    },
+    "relationships": [
+      {
+        "target": "char_qu_han_shan",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "听命行事"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      6,
+      8,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 80,
+        "line_end": 80,
+        "text": "屈寒山立即笑道：'他是我们总护法柳五先生所结识的青年高手，姓汉大名四海'"
+      },
+      {
+        "chapter": 6,
+        "line_start": 254,
+        "line_end": 254,
+        "text": "还有汉四海压阵"
+      },
+      {
+        "chapter": 8,
+        "line_start": 102,
+        "line_end": 102,
+        "text": "前面还有汉四海在等你们"
+      },
+      {
+        "chapter": 9,
+        "line_start": 140,
+        "line_end": 146,
+        "text": "汉四海！正是在下。"
+      }
+    ]
+  },
+  {
+    "id": "char_liu_sui_feng",
+    "name": "柳随风",
+    "alias": [
+      "柳五"
+    ],
+    "identity": "权力帮总护法",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "权力帮总护法，帮主李沉舟的智囊",
+    "personality": {
+      "traits": [
+        "深沉",
+        "智谋",
+        "阴险",
+        "老练",
+        "狠辣"
+      ],
+      "speech_style": "未直接出场，通过他人提及",
+      "temperament": "深谋远虑"
+    },
+    "relationships": [
+      {
+        "target": "char_li_chen_zhou",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "核心智囊"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 262,
+        "line_end": 262,
+        "text": "汉四海是柳五先生的人，柳五就是柳随风"
+      },
+      {
+        "chapter": 9,
+        "line_start": 302,
+        "line_end": 302,
+        "text": "权力帮智囊柳随风的密友"
+      }
+    ]
+  },
+  {
+    "id": "char_li_chen_zhou",
+    "name": "李沉舟",
+    "alias": [],
+    "identity": "权力帮帮主",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "权力帮帮主，号令天下",
+    "personality": {
+      "traits": [
+        "霸气",
+        "野心",
+        "深沉",
+        "果断",
+        "冷酷"
+      ],
+      "speech_style": "未直接出场，通过他人提及",
+      "temperament": "帝王之姿"
+    },
+    "relationships": [
+      {
+        "target": "char_liu_sui_feng",
+        "type": "主仆",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "主从关系"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 262,
+        "line_end": 262,
+        "text": "柳随风就是帮主李沉舟的智囊"
+      },
+      {
+        "chapter": 8,
+        "line_start": 202,
+        "line_end": 202,
+        "text": "想到帮主李沉舟"
+      }
+    ]
+  },
+  {
+    "id": "char_qiu_nan_gu",
+    "name": "邱南顾",
+    "alias": [],
+    "identity": "萧秋水挚友",
+    "faction": "faction_huan_hua_jian_pai",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "出手前才招呼一声的奇人，劈空拳击退屠滚",
+    "personality": {
+      "traits": [
+        "豪迈",
+        "机智",
+        "勇猛",
+        "古怪",
+        "义气"
+      ],
+      "speech_style": "怪叫豪迈，出其不意",
+      "temperament": "豪放不羁"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "至交好友"
+      },
+      {
+        "target": "char_tie_xing_yue",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "性格互补的至交"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      7,
+      8,
+      9,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 430,
+        "line_end": 430,
+        "text": "有人大叫了一声：'王八蛋：我来也！'"
+      },
+      {
+        "chapter": 7,
+        "line_start": 192,
+        "line_end": 192,
+        "text": "铁星月、萧秋水、邱南顾三人忍不注齐齐叫了一声好"
+      },
+      {
+        "chapter": 8,
+        "line_start": 485,
+        "line_end": 485,
+        "text": "邱南顾连忙想扑过去扶持"
+      },
+      {
+        "chapter": 9,
+        "line_start": 78,
+        "line_end": 80,
+        "text": "邱南顾虎地跳起来"
+      },
+      {
+        "chapter": 10,
+        "line_start": 326,
+        "line_end": 326,
+        "text": "邱南顾眼睛也发了亮"
+      }
+    ]
+  },
+  {
+    "id": "char_meng_xiang_feng",
+    "name": "孟相逢",
+    "alias": [
+      "恨不相逢，别离良剑",
+      "孟师叔"
+    ],
+    "identity": "萧西楼的师弟，武林七大名剑之一",
+    "faction": "浣花剑派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "外浣花剑派之主脑，与孔别离并列'东刀西剑'",
+    "personality": {
+      "traits": [
+        "刚正",
+        "豪迈",
+        "义气",
+        "沉稳",
+        "武艺高强"
+      ],
+      "speech_style": "豪迈",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "师侄",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "萧秋水前来求助"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 22,
+        "line_end": 28,
+        "text": "孟师叔便是'恨不相逢，别离良剑'孟相逢，他是萧西楼的师弟。也是武林七大名剑其中之一。"
+      }
+    ]
+  },
+  {
+    "id": "char_kong_bie_li",
+    "name": "孔别离",
+    "alias": [
+      "天涯分手，相见宝刀"
+    ],
+    "identity": "武林五大刀客之一",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "与孟相逢并列'东刀西剑'，虎卧关东",
+    "personality": {
+      "traits": [
+        "豪迈",
+        "武艺高强",
+        "隐忍",
+        "重义",
+        "威严"
+      ],
+      "speech_style": "豪迈",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_meng_xiang_feng",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "并列东刀西剑"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 26,
+        "line_end": 26,
+        "text": "孟相逢与'天涯分手，相见宝刀'孔别离，并列为'东刀西剑'"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_yi_ren",
+    "name": "萧易人",
+    "alias": [
+      "萧易人"
+    ],
+    "identity": "浣花萧家之人",
+    "faction": "浣花剑派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "在孟相逢处助阵的萧家高手",
+    "personality": {
+      "traits": [
+        "忠义",
+        "勇猛",
+        "果断",
+        "稳重",
+        "重情"
+      ],
+      "speech_style": "刚毅",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 30,
+        "line_end": 30,
+        "text": "在那儿助阵的人还有：萧易人、萧开雁"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_kai_yan",
+    "name": "萧开雁",
+    "alias": [],
+    "identity": "浣花萧家之人",
+    "faction": "浣花剑派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "在孟相逢处助阵的萧家高手",
+    "personality": {
+      "traits": [
+        "忠义",
+        "勇猛",
+        "稳重",
+        "低调",
+        "可靠"
+      ],
+      "speech_style": "稳重",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 30,
+        "line_end": 30,
+        "text": "在那儿助阵的人还有：萧易人、萧开雁"
+      }
+    ]
+  },
+  {
+    "id": "char_deng_yu_ping",
+    "name": "邓玉平",
+    "alias": [],
+    "identity": "海南剑派历届以来最年轻的掌门人",
+    "faction": "海南剑派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "海南剑派最年轻掌门人，在孟相逢处助阵",
+    "personality": {
+      "traits": [
+        "年轻有为",
+        "剑术精湛",
+        "自信",
+        "果断",
+        "锐利"
+      ],
+      "speech_style": "锐利",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 30,
+        "line_end": 30,
+        "text": "据说海南剑派历届以来最年轻的掌门人邓玉平也在那里"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_peng",
+    "name": "唐朋",
+    "alias": [],
+    "identity": "唐门中人",
+    "faction": "唐门",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "在孟相逢处助阵的唐门高手",
+    "personality": {
+      "traits": [
+        "机敏",
+        "果断",
+        "隐忍",
+        "精明",
+        "可靠"
+      ],
+      "speech_style": "沉稳",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 30,
+        "line_end": 30,
+        "text": "还有唐朋、唐刚和唐猛"
+      },
+      {
+        "chapter": 10,
+        "line_start": 4,
+        "line_end": 6,
+        "text": "\"汉四海\"居然向萧秋水等挤挤眼睛，轻轻\"嘿、嘿\"笑了两声，道：\"唐方的唐，朋友的朋。\""
+      },
+      {
+        "chapter": 10,
+        "line_start": 8,
+        "line_end": 12,
+        "text": "唐朋！唐家唐朋！唐家最善结人缘的唐朋！"
+      },
+      {
+        "chapter": 10,
+        "line_start": 556,
+        "line_end": 558,
+        "text": "一剑刺人唐朋胸膛！唐朋猛飞起，胸前衣衫己染红了一大片"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_gang",
+    "name": "唐刚",
+    "alias": [],
+    "identity": "唐门中人",
+    "faction": "唐门",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "在孟相逢处助阵的唐门高手",
+    "personality": {
+      "traits": [
+        "刚猛",
+        "勇武",
+        "直率",
+        "忠义",
+        "沉稳"
+      ],
+      "speech_style": "直率",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 30,
+        "line_end": 30,
+        "text": "还有唐朋、唐刚和唐猛"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_meng",
+    "name": "唐猛",
+    "alias": [],
+    "identity": "唐门中人",
+    "faction": "唐门",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "在孟相逢处助阵的唐门高手",
+    "personality": {
+      "traits": [
+        "勇猛",
+        "果敢",
+        "忠诚",
+        "直率",
+        "年轻"
+      ],
+      "speech_style": "直率",
+      "temperament": "热忱"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 30,
+        "line_end": 30,
+        "text": "还有唐朋、唐刚和唐猛"
+      }
+    ]
+  },
+  {
+    "id": "char_da_du_he_shang",
+    "name": "大肚和尚",
+    "alias": [
+      "少林叛徒"
+    ],
+    "identity": "少林叛徒",
+    "faction": "少林",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "登堂入室",
+    "one_line": "萧秋水的兄弟，少林叛徒",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "不羁",
+        "义气",
+        "豁达",
+        "率直"
+      ],
+      "speech_style": "豪爽",
+      "temperament": "豪迈"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "兄弟情深"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "少林叛徒大肚和尚"
+      }
+    ]
+  },
+  {
+    "id": "char_niao_wu_da_shi",
+    "name": "鸟乌大师",
+    "alias": [],
+    "identity": "武林人物",
+    "faction": null,
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "登堂入室",
+    "one_line": "萧秋水的兄弟",
+    "personality": {
+      "traits": [
+        "忠义",
+        "沉默",
+        "可靠",
+        "勇武",
+        "低调"
+      ],
+      "speech_style": "沉默",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "鸟乌大师"
+      }
+    ]
+  },
+  {
+    "id": "char_lin_gong_zi",
+    "name": "林公子",
+    "alias": [
+      "自命风流"
+    ],
+    "identity": "武林人物",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登堂入室",
+    "one_line": "萧秋水的兄弟，自命风流",
+    "personality": {
+      "traits": [
+        "风流",
+        "潇洒",
+        "自信",
+        "机敏",
+        "多情"
+      ],
+      "speech_style": "潇洒",
+      "temperament": "洒脱"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "自命风流的林公子"
+      }
+    ]
+  },
+  {
+    "id": "char_kong_yang_qin",
+    "name": "孔扬秦",
+    "alias": [],
+    "identity": "武林剑客",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "持有'白练分水剑'，剑沉黄果飞瀑",
+    "personality": {
+      "traits": [
+        "剑术高超",
+        "勇猛",
+        "豪迈",
+        "果断",
+        "刚烈"
+      ],
+      "speech_style": "豪迈",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 128,
+        "line_end": 128,
+        "text": "孔扬秦的'白练分水剑'与辛虎丘的'扁诸神剑'，沉落于黄果飞瀑之中。"
+      }
+    ]
+  },
+  {
+    "id": "char_xin_hu_qiu",
+    "name": "辛虎丘",
+    "alias": [],
+    "identity": "武林剑客",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "持有'扁诸神剑'，剑沉黄果飞瀑",
+    "personality": {
+      "traits": [
+        "剑术高超",
+        "沉稳",
+        "豪迈",
+        "果断",
+        "刚烈"
+      ],
+      "speech_style": "沉稳",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 128,
+        "line_end": 128,
+        "text": "辛虎丘的'扁诸神剑'，沉落于黄果飞瀑之中。"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_dong_guang",
+    "name": "萧东广",
+    "alias": [],
+    "identity": "萧家前辈",
+    "faction": "浣花剑派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "持有'古松残阀'，死后剑落乌江",
+    "personality": {
+      "traits": [
+        "剑术高超",
+        "刚烈",
+        "忠义",
+        "勇武",
+        "隐忍"
+      ],
+      "speech_style": "刚烈",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 130,
+        "line_end": 130,
+        "text": "萧东广的'古松残阀'在他死后，也落入铁骑神魔战役里的乌江之中。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_lin_yi",
+    "name": "张临意",
+    "alias": [],
+    "identity": "武林剑客",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "持有'阴阳剑'，剑去无踪",
+    "personality": {
+      "traits": [
+        "剑术高超",
+        "神秘",
+        "隐逸",
+        "深沉",
+        "刚毅"
+      ],
+      "speech_style": "深沉",
+      "temperament": "深沉"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 132,
+        "line_end": 132,
+        "text": "还有张临意的'阴阳剑'，却了无踪影。"
+      }
+    ]
+  },
+  {
+    "id": "char_hong_hua",
+    "name": "洪华",
+    "alias": [
+      "少林阿洪"
+    ],
+    "identity": "广西五虎之一",
+    "faction": "广西五虎",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广西五虎之一，技出少林，状貌威烈的黑髭壮汉",
+    "personality": {
+      "traits": [
+        "豪迈",
+        "威猛",
+        "正义",
+        "寡言",
+        "出手果断"
+      ],
+      "speech_style": "豪迈",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 364,
+        "line_end": 366,
+        "text": "在下洪华，江湖人赏我绰号'少林阿洪'，自然是技出少林"
+      },
+      {
+        "chapter": 7,
+        "line_start": 2,
+        "line_end": 24,
+        "text": "洪华一拳打来，杜绝就一刀剁了过去...洪华的拳就像是铁镌的"
+      }
+    ]
+  },
+  {
+    "id": "char_lao_ming_jiu",
+    "name": "劳名九",
+    "alias": [
+      "躬背老狗"
+    ],
+    "identity": "广西五虎之一",
+    "faction": "广西五虎",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广西五虎之一，投入丐帮四十年的驼背老头",
+    "personality": {
+      "traits": [
+        "老练",
+        "沧桑",
+        "正义",
+        "幽默",
+        "坚韧"
+      ],
+      "speech_style": "苦笑",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 368,
+        "line_end": 370,
+        "text": "小老儿叫劳名九，大家叫我'躬背老狗'，投入丐帮四十年。"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_yue",
+    "name": "施月",
+    "alias": [
+      "杂鹤"
+    ],
+    "identity": "广西五虎之一",
+    "faction": "广西五虎",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广西五虎中唯一的女性，削脸高颧，习鹤拳但师门颇杂",
+    "personality": {
+      "traits": [
+        "大方",
+        "直率",
+        "刚强",
+        "泼辣",
+        "正义"
+      ],
+      "speech_style": "清锐",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 372,
+        "line_end": 374,
+        "text": "小女子施月，贱号'杂鹤'，顾名思义，所习乃鹤拳"
+      },
+      {
+        "chapter": 7,
+        "line_start": 128,
+        "line_end": 129,
+        "text": "杂鹤施月一步跟前来，脸若寒霜地道"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_fu",
+    "name": "胡福",
+    "alias": [
+      "好人不长命"
+    ],
+    "identity": "广西五虎之一",
+    "faction": "广西五虎",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广西五虎之一，使金背大刀，华衣雍容的中年人",
+    "personality": {
+      "traits": [
+        "豪迈",
+        "雍容",
+        "正义",
+        "沉稳",
+        "武艺扎实"
+      ],
+      "speech_style": "豪迈",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 376,
+        "line_end": 378,
+        "text": "在下姓胡名福，使金背大刀，外号'好人不长命'"
+      },
+      {
+        "chapter": 7,
+        "line_start": 402,
+        "line_end": 406,
+        "text": "才见出掌的人是好人不长命，金刀胡福...胡福这一掌，竟能打出两种不同力道"
+      }
+    ]
+  },
+  {
+    "id": "char_li_hei",
+    "name": "李黑",
+    "alias": [
+      "李铁钉",
+      "铁钉",
+      "黑豆"
+    ],
+    "identity": "广西五虎中最年轻的高手",
+    "faction": "广西五虎",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广西五虎中最年轻最难缠的高手，又黑又沉着，练虎豹龙蛇鹰",
+    "personality": {
+      "traits": [
+        "机敏",
+        "幽默",
+        "豪爽",
+        "沉着",
+        "深藏不露"
+      ],
+      "speech_style": "尖锐",
+      "temperament": "洒脱"
+    },
+    "relationships": [
+      {
+        "target": "char_tie_xing_yue",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "臭味相投一见如故"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      7,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 380,
+        "line_end": 380,
+        "text": "我叫李铁钉，武林人给我绰号叫铁钉，我练的'虎豹龙蛇鹰'"
+      },
+      {
+        "chapter": 7,
+        "line_start": 180,
+        "line_end": 218,
+        "text": "李黑虎地跳前...施老妹，我替你番既彩头来嘞！"
+      },
+      {
+        "chapter": 8,
+        "line_start": 12,
+        "line_end": 12,
+        "text": "李黑忽然截道"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_cai",
+    "name": "吴财",
+    "alias": [],
+    "identity": "广东五友之一",
+    "faction": "广东五友",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广东五友之一",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "正义",
+        "稳实",
+        "老练",
+        "坚韧"
+      ],
+      "speech_style": "豪爽",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 535,
+        "line_end": 535,
+        "text": "广东：吴财、疯女、杀仔、罗海牛、阿水"
+      }
+    ]
+  },
+  {
+    "id": "char_feng_nv",
+    "name": "疯女",
+    "alias": [],
+    "identity": "广东五友之一",
+    "faction": "广东五友",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广东五友之一",
+    "personality": {
+      "traits": [
+        "豪放",
+        "不羁",
+        "正义",
+        "泼辣",
+        "勇猛"
+      ],
+      "speech_style": "豪放",
+      "temperament": "豪迈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 535,
+        "line_end": 535,
+        "text": "广东：吴财、疯女、杀仔、罗海牛、阿水"
+      }
+    ]
+  },
+  {
+    "id": "char_sha_zai",
+    "name": "杀仔",
+    "alias": [],
+    "identity": "广东五友之一",
+    "faction": "广东五友",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广东五友之一",
+    "personality": {
+      "traits": [
+        "凶悍",
+        "勇猛",
+        "正义",
+        "果断",
+        "直率"
+      ],
+      "speech_style": "直率",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 535,
+        "line_end": 535,
+        "text": "广东：吴财、疯女、杀仔、罗海牛、阿水"
+      }
+    ]
+  },
+  {
+    "id": "char_luo_hai_niu",
+    "name": "罗海牛",
+    "alias": [],
+    "identity": "广东五友之一",
+    "faction": "广东五友",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广东五友之一",
+    "personality": {
+      "traits": [
+        "豪迈",
+        "力大",
+        "正义",
+        "憨厚",
+        "稳实"
+      ],
+      "speech_style": "豪迈",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 535,
+        "line_end": 535,
+        "text": "广东：吴财、疯女、杀仔、罗海牛、阿水"
+      }
+    ]
+  },
+  {
+    "id": "char_a_shui",
+    "name": "阿水",
+    "alias": [],
+    "identity": "广东五友之一",
+    "faction": "广东五友",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "广东五友之一",
+    "personality": {
+      "traits": [
+        "灵活",
+        "机敏",
+        "正义",
+        "沉稳",
+        "老练"
+      ],
+      "speech_style": "沉稳",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 535,
+        "line_end": 535,
+        "text": "广东：吴财、疯女、杀仔、罗海牛、阿水"
+      }
+    ]
+  },
+  {
+    "id": "char_gong_bei_lao_jiu",
+    "name": "躬背老狗",
+    "alias": [
+      "劳九"
+    ],
+    "identity": "广西五虎之一",
+    "faction": "faction_guangxi_wu_hu",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "广西五虎之首，佝偻老者，使黑色乞丐棍，实战经验极丰富",
+    "personality": {
+      "traits": [
+        "老练",
+        "沉稳",
+        "护短",
+        "刚毅",
+        "机敏"
+      ],
+      "speech_style": "沙哑低沉",
+      "temperament": "老成持重"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_gun_fa"
+    ],
+    "related_skills": [
+      "skill_gun_fa"
+    ],
+    "rag_refs": [
+      7,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 30,
+        "line_end": 34,
+        "text": "只听躬背老狗打气叫道：少林洪，再来一记！"
+      },
+      {
+        "chapter": 8,
+        "line_start": 26,
+        "line_end": 26,
+        "text": "躬背劳九也涩声道"
+      }
+    ]
+  },
+  {
+    "id": "char_guangxi_wu_hu_leader",
+    "name": "广西五虎众人",
+    "alias": [],
+    "identity": "广西五虎合称",
+    "faction": "faction_guangxi_wu_hu",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "广西五虎的合称，向屈寒山请安",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "好胜",
+        "讲义气",
+        "正直",
+        "地域感强"
+      ],
+      "speech_style": "豪迈",
+      "temperament": "直率好胜"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 500,
+        "line_end": 500,
+        "text": "广西五虎，向屈大侠请安"
+      }
+    ]
+  },
+  {
+    "id": "char_guang_xi_wu_hu",
+    "name": "广西五虎",
+    "alias": [],
+    "identity": "广西民间侠义团体",
+    "faction": "无固定门派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "广西侠义之士组成的五人团体，以金刀胡福为首",
+    "personality": {
+      "traits": [
+        "重义气",
+        "正直",
+        "冲动",
+        "耿直",
+        "热血"
+      ],
+      "speech_style": "江湖口语，直率豪爽",
+      "temperament": "义气为先"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "广西五虎低声议论了一番"
+      }
+    ]
+  },
+  {
+    "id": "char_shao_lin_hong_hua",
+    "name": "少林洪华",
+    "alias": [],
+    "identity": "广西五虎之一，出身少林",
+    "faction": "广西五虎",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "登堂入室",
+    "one_line": "广西五虎中出身少林的僧人",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "忠厚",
+        "武艺扎实",
+        "寡言",
+        "信义"
+      ],
+      "speech_style": "简洁沉稳",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 22,
+        "line_end": 22,
+        "text": "少林洪华道"
+      }
+    ]
+  },
+  {
+    "id": "char_za_he_shi_yue",
+    "name": "杂鹤施月",
+    "alias": [
+      "施月"
+    ],
+    "identity": "权力帮相关人物",
+    "faction": "权力帮",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "权力帮一方人物，对萧秋水等人表示不信任",
+    "personality": {
+      "traits": [
+        "冷静",
+        "审慎",
+        "直言",
+        "理性",
+        "警觉"
+      ],
+      "speech_style": "冷静理性",
+      "temperament": "冷静"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 76,
+        "line_end": 76,
+        "text": "杂鹤施月也凝视唐方道"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_shi_si",
+    "name": "胡十四",
+    "alias": [
+      "九指神捕",
+      "五湖拿四海",
+      "江易海"
+    ],
+    "identity": "六扇门三大至尊之一",
+    "faction": "六扇门",
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "六扇门三大至尊之一，卧底权力帮七年的神捕",
+    "personality": {
+      "traits": [
+        "智勇双全",
+        "隐忍",
+        "机敏",
+        "正义",
+        "孤胆英雄"
+      ],
+      "speech_style": "沉稳有力",
+      "temperament": "沉着"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 222,
+        "line_end": 222,
+        "text": "你就是九指神捕胡十四"
+      }
+    ]
+  },
+  {
+    "id": "char_liu_da_zong_guan",
+    "name": "柳大总管",
+    "alias": [
+      "柳随风"
+    ],
+    "identity": "权力帮大总管",
+    "faction": "权力帮",
+    "role": "villain",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "权力帮大总管，心思缜密，察觉胡十四可疑",
+    "personality": {
+      "traits": [
+        "精明",
+        "多疑",
+        "谋略深",
+        "冷静",
+        "阴险"
+      ],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 240,
+        "line_end": 240,
+        "text": "柳大总管还是怀疑我"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_xia_wu",
+    "name": "朱侠武",
+    "alias": [
+      "铁手铁脸铁衣铁罗网"
+    ],
+    "identity": "六扇门三大至尊之一",
+    "faction": "六扇门",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "六扇门三大至尊之一，绰号铁手铁脸铁衣铁罗网",
+    "personality": {
+      "traits": [
+        "刚正",
+        "威严",
+        "武艺高强",
+        "铁面无私",
+        "忠诚"
+      ],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 234,
+        "line_end": 234,
+        "text": "朱侠武就是跃马黄河里的铁手铁脸铁衣铁罗网朱侠武"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_ge_xiao_hua",
+    "name": "诸葛小花",
+    "alias": [],
+    "identity": "六扇门三大至尊之一",
+    "faction": "六扇门",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "六扇门三大至尊之一",
+    "personality": {
+      "traits": [
+        "智慧",
+        "武艺",
+        "正义",
+        "机敏",
+        "沉稳"
+      ],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 232,
+        "line_end": 232,
+        "text": "胡十四当时与诸葛小花，朱侠武合称六扇门三大至尊"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_xiao_bu",
+    "name": "余笑不",
+    "alias": [],
+    "identity": "余哭余弟子",
+    "faction": "权力帮",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "余哭余大弟子，笑嘻嘻的白衣人",
+    "personality": {
+      "traits": [
+        "阴毒",
+        "笑里藏刀",
+        "残忍",
+        "冷血",
+        "轻佻"
+      ],
+      "speech_style": "笑嘻嘻",
+      "temperament": "阴险"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 448,
+        "line_end": 448,
+        "text": "第一个人笑嘻嘻地道：我叫余笑不"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_bu_xiao",
+    "name": "余不笑",
+    "alias": [],
+    "identity": "余哭余弟子",
+    "faction": "权力帮",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "余哭余二弟子，苦口苦脸的白衣人",
+    "personality": {
+      "traits": [
+        "阴毒",
+        "苦相",
+        "残忍",
+        "冷血",
+        "麻木"
+      ],
+      "speech_style": "苦口苦脸",
+      "temperament": "麻木"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 449,
+        "line_end": 449,
+        "text": "第二个人苦口苦脸地道"
+      },
+      {
+        "chapter": 9,
+        "line_start": 2,
+        "line_end": 4,
+        "text": "余不笑阴阳怪气地道"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_wo_wu",
+    "name": "余我吾",
+    "alias": [],
+    "identity": "余哭余弟子",
+    "faction": "权力帮",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "余哭余三弟子，似哭似笑的白衣人",
+    "personality": {
+      "traits": [
+        "阴毒",
+        "变态",
+        "残忍",
+        "冷血",
+        "嗜杀"
+      ],
+      "speech_style": "似哭似笑",
+      "temperament": "变态"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 452,
+        "line_end": 452,
+        "text": "第三个人似哭似笑地道"
+      },
+      {
+        "chapter": 9,
+        "line_start": 10,
+        "line_end": 12,
+        "text": "余我吾冷笑道"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_xiao_bu_xiao",
+    "name": "余笑不笑",
+    "alias": [
+      "瘟疫人魔三兄弟之一"
+    ],
+    "identity": "权力帮瘟疫人魔一脉",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "瘟疫人魔三兄弟之一，嘿嘿冷笑的毒人",
+    "personality": {
+      "traits": [
+        "阴险",
+        "嗜杀",
+        "残忍",
+        "自信",
+        "冷酷"
+      ],
+      "speech_style": "嘿嘿冷笑",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_yu_bu_xiao",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      },
+      {
+        "target": "char_yu_wo_wu",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_wen_yi_du"
+    ],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 6,
+        "line_end": 8,
+        "text": "余笑不笑嘿嘿地道"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_gong",
+    "name": "狮公",
+    "alias": [
+      "狮公虎婆之夫"
+    ],
+    "identity": "权力帮高手",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "须发皆黄如巨狮的权力帮高手，与虎婆为夫妻",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "勇猛",
+        "凶悍",
+        "护妻",
+        "直接"
+      ],
+      "speech_style": "低吼",
+      "temperament": "暴烈"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_po",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "曾在剑气长江一役交手"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 190,
+        "line_end": 192,
+        "text": "须发皆黄，怒目竖眉，如一头巨狮"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_po",
+    "name": "虎婆",
+    "alias": [
+      "狮公虎婆之妻"
+    ],
+    "identity": "权力帮高手",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "口大如盆目光精厉如怒虎的权力帮高手，与狮公为夫妻",
+    "personality": {
+      "traits": [
+        "凶悍",
+        "暴躁",
+        "残忍",
+        "护夫",
+        "直接"
+      ],
+      "speech_style": "森然",
+      "temperament": "暴烈"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_gong",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_xiao_qiu_shui",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "曾在剑气长江一役交手"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 190,
+        "line_end": 192,
+        "text": "口大如盆，目光精厉，如一头怒虎"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_tian_wu_jian",
+    "name": "长天五剑",
+    "alias": [],
+    "identity": "权力帮五名剑客组成的剑阵团体",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "权力帮五名剑客，联手布阵名为排云五剑阵，密不透风",
+    "personality": {
+      "traits": [
+        "冷漠",
+        "配合默契",
+        "识时务",
+        "无情",
+        "服从"
+      ],
+      "speech_style": "五人轮流接话，一人一句",
+      "temperament": "冷漠无情，令行禁止"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_pai_yun_wu_jian_zhen"
+    ],
+    "related_skills": [
+      "skill_pai_yun_wu_jian_zhen"
+    ],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 26,
+        "line_end": 26,
+        "text": "\"长天五剑\"依然淡淡地、近乎冷漠地静观变化"
+      },
+      {
+        "chapter": 10,
+        "line_start": 196,
+        "line_end": 196,
+        "text": "\"长天五剑\"中最高的一人忽道"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_tian_wu_jian_gao",
+    "name": "长天五剑最高者",
+    "alias": [],
+    "identity": "长天五剑中身材最高的一人",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "长天五剑中身材最高者，排云五剑阵的核心",
+    "personality": {
+      "traits": [
+        "冷漠",
+        "果断",
+        "服从",
+        "配合",
+        "干脆"
+      ],
+      "speech_style": "简短有力，起头接话",
+      "temperament": "冷漠沉稳"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_pai_yun_wu_jian_zhen"
+    ],
+    "related_skills": [
+      "skill_pai_yun_wu_jian_zhen"
+    ],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 196,
+        "line_end": 196,
+        "text": "\"长天五剑\"中最高的一人忽道：\"想好好地活下去，\""
+      }
+    ]
+  },
+  {
+    "id": "char_chang_tian_wu_jian_ci",
+    "name": "长天五剑次高者",
+    "alias": [],
+    "identity": "长天五剑中身材次高的一人",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "长天五剑中身材次高者",
+    "personality": {
+      "traits": [
+        "冷漠",
+        "果断",
+        "服从",
+        "配合",
+        "干脆"
+      ],
+      "speech_style": "简短有力，接续接话",
+      "temperament": "冷漠沉稳"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_pai_yun_wu_jian_zhen"
+    ],
+    "related_skills": [
+      "skill_pai_yun_wu_jian_zhen"
+    ],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 196,
+        "line_end": 196,
+        "text": "次高的一人接道：\"就得闭上嘴，\""
+      }
+    ]
+  },
+  {
+    "id": "char_chang_tian_wu_jian_ai",
+    "name": "长天五剑矮者",
+    "alias": [],
+    "identity": "长天五剑中身材较矮的一人",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "长天五剑中身材较矮者",
+    "personality": {
+      "traits": [
+        "冷漠",
+        "果断",
+        "服从",
+        "配合",
+        "干脆"
+      ],
+      "speech_style": "简短有力",
+      "temperament": "冷漠沉稳"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_pai_yun_wu_jian_zhen"
+    ],
+    "related_skills": [
+      "skill_pai_yun_wu_jian_zhen"
+    ],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 196,
+        "line_end": 196,
+        "text": "矮一点的人即道：\"这点我们自会晓得。\""
+      }
+    ]
+  },
+  {
+    "id": "char_unknown_mysterious",
+    "name": "神秘来人",
+    "alias": [],
+    "identity": "后来揭露为屈寒山",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "拍掌而来的神秘人物，后揭露为剑王屈寒山",
+    "personality": {
+      "traits": [
+        "威严",
+        "阴沉",
+        "城府极深",
+        "武艺高强",
+        "心狠手辣"
+      ],
+      "speech_style": "谈笑风生中暗藏杀机",
+      "temperament": "笑里藏刀"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 354,
+        "line_end": 356,
+        "text": "萧秋水正欲回答，忽听一人拍掌笑道"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_ying_da_shi",
+    "name": "血影大师",
+    "alias": [
+      "佛门魔僧",
+      "天魔"
+    ],
+    "identity": "权力帮九天十地十九人魔之一，少林叛逆",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "monk",
+    "rank": "出神入化",
+    "one_line": "权力帮天魔，少林叛逆番僧，穿大红袈裟，满头刺青，为徒英剑波寻仇",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "凶狠",
+        "护短",
+        "执念",
+        "信服强者"
+      ],
+      "speech_style": "怒吼低沉如野兽",
+      "temperament": "暴烈冲动，但对强者信服"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_da_kai_bei_shou",
+      "skill_shen_mi_xue_ying_zhang"
+    ],
+    "related_skills": [
+      "skill_da_kai_bei_shou",
+      "skill_shen_mi_xue_ying_zhang"
+    ],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 390,
+        "line_end": 390,
+        "text": "还有一个人，是个穿大红袈裟的和尚"
+      },
+      {
+        "chapter": 10,
+        "line_start": 462,
+        "line_end": 464,
+        "text": "身后的红衣番僧忽然发出了一声低沉、野兽般的怒吼"
+      }
+    ]
+  },
+  {
+    "id": "char_ying_jian_bo",
+    "name": "英剑波",
+    "alias": [
+      "凶手"
+    ],
+    "identity": "血影大师之徒，曾伪装为凶手潜入谪仙楼",
+    "faction": "faction_quan_li_bang",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "血影大师之徒，曾在谪仙楼暗算萧秋水，善用少林虎爪",
+    "personality": {
+      "traits": [
+        "阴险",
+        "潜伏",
+        "善伪装",
+        "凶狠",
+        "忠诚"
+      ],
+      "speech_style": "无直接对话",
+      "temperament": "阴险狡诈"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_shao_lin_hu_zhua"
+    ],
+    "related_skills": [
+      "skill_shao_lin_hu_zhua"
+    ],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 470,
+        "line_end": 470,
+        "text": "番僧吼道：\"你杀了英剑波！\""
+      },
+      {
+        "chapter": 10,
+        "line_start": 482,
+        "line_end": 482,
+        "text": "此青年\"凶手\"就是少林叛逆\"佛门魔僧\"血影大师的传人"
+      }
+    ]
+  }
+]
