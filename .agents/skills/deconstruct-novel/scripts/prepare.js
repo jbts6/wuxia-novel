@@ -13,6 +13,7 @@ const chFormattedDir = path.join(novelDir, 'ch_formatted');
 const batchJsonDir = path.join(novelDir, 'batch_json');
 const registryPath = path.join(novelDir, 'entity_registry.json');
 const chapterListPath = path.join(novelDir, 'chapter_list.json');
+const excludePath = path.join(novelDir, 'deconstruct-exclude.json');
 
 // 1. 检查 ch_formatted 目录
 if (!fs.existsSync(chFormattedDir)) {
@@ -22,9 +23,28 @@ if (!fs.existsSync(chFormattedDir)) {
 }
 
 // 2. 列出所有章节文件
-const chapterFiles = fs.readdirSync(chFormattedDir)
-  .filter(f => f.startsWith('ch_') && f.endsWith('.md'))
+const allChapterFiles = fs.readdirSync(chFormattedDir)
+  .filter(f => /^ch_\d+\.md$/.test(f))
   .sort();
+
+let skippedChapters = [];
+let excludedFiles = new Set();
+
+if (fs.existsSync(excludePath)) {
+  try {
+    const excludeConfig = JSON.parse(fs.readFileSync(excludePath, 'utf-8'));
+    const excludes = Array.isArray(excludeConfig.chapters) ? excludeConfig.chapters : [];
+    skippedChapters = excludes
+      .filter(item => item && typeof item.file === 'string')
+      .map(item => ({ file: item.file, reason: item.reason || 'excluded' }));
+    excludedFiles = new Set(skippedChapters.map(item => item.file));
+  } catch (error) {
+    console.error(`错误: ${excludePath} 解析失败: ${error.message}`);
+    process.exit(1);
+  }
+}
+
+const chapterFiles = allChapterFiles.filter(file => !excludedFiles.has(file));
 
 if (chapterFiles.length === 0) {
   console.error(`错误: ${chFormattedDir} 中没有找到 ch_*.md 文件`);
@@ -33,6 +53,9 @@ if (chapterFiles.length === 0) {
 
 console.log(`[准备] 小说目录: ${novelDir}`);
 console.log(`[章节] 共 ${chapterFiles.length} 章`);
+if (skippedChapters.length > 0) {
+  console.log(`[跳过] ${skippedChapters.map(item => `${item.file} (${item.reason})`).join(', ')}`);
+}
 
 // 3. 创建 batch_json 目录
 if (!fs.existsSync(batchJsonDir)) {
@@ -62,7 +85,8 @@ if (!fs.existsSync(registryPath)) {
 const chapterList = {
   novelDir: novelDir,
   totalChapters: chapterFiles.length,
-  chapters: chapterFiles
+  chapters: chapterFiles,
+  skippedChapters: skippedChapters
 };
 
 fs.writeFileSync(chapterListPath, JSON.stringify(chapterList, null, 2), 'utf-8');
@@ -70,7 +94,7 @@ console.log(`\n[章节列表] 已生成 ${chapterListPath}`);
 
 // 检测已有提取结果（用于恢复场景）
 const existingChapterJsons = fs.readdirSync(batchJsonDir)
-  .filter(f => f.startsWith('ch_') && f.endsWith('.json'));
+  .filter(f => /^ch_\d{3}\.json$/.test(f));
 
 if (existingChapterJsons.length > 0) {
   console.log(`\n[检测] 已有 ${existingChapterJsons.length} 个章节的提取结果`);
