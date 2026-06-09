@@ -1,0 +1,2142 @@
+{
+  "characters": [
+    {
+      "id": "char_bai_ma_li_san",
+      "name": "白马李三",
+      "alias": [
+        "李三",
+        "那汉子",
+        "白马李三"
+      ],
+      "identity": "江南侠盗，李文秀之父",
+      "faction": "无",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "负伤仍护妻女和高昌地图，死前仍反杀强敌的侠盗。",
+      "personality": {
+        "traits": [
+          "坚忍",
+          "重情",
+          "倔强",
+          "果决",
+          "英勇"
+        ],
+        "speech_style": "简短坚决，危急时如命令般断然",
+        "temperament": "刚烈沉稳，临危不屈"
+      },
+      "relationships": [
+        {
+          "target": "char_shang_guan_hong",
+          "type": "恋人",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "夫妻同生共死"
+        },
+        {
+          "target": "char_li_wen_xiu",
+          "type": "亲属",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "舍命护女"
+        }
+      ],
+      "known_skills": [
+        "skill_bai_ma_dao_fa"
+      ],
+      "related_skills": [
+        "skill_bai_ma_dao_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 13,
+          "line_end": 91,
+          "text": "那汉子左边背心上插着一枝羽箭。鲜血从他背心流到马背上，又流到地下，渗入了黄沙之中。他不敢伸手拔箭，只怕这枝箭一拔下来，就会支持不住，立时倒毙。谁不死呢？那也没什么。可是谁来照料前面的娇妻幼女？在身后，凶悍毒辣的敌人正紧紧追杀。他胯下的枣红马"
+        }
+      ]
+    },
+    {
+      "id": "char_shang_guan_hong",
+      "name": "上官虹",
+      "alias": [
+        "虹妹",
+        "金银小剑三娘子",
+        "三娘子",
+        "那少妇"
+      ],
+      "identity": "白马李三之妻，史仲俊同门师妹",
+      "faction": "无",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "怀抱幼女逃亡，最终以金银双剑殉夫并刺死史仲俊。",
+      "personality": {
+        "traits": [
+          "温柔",
+          "烈性",
+          "忠贞",
+          "机警",
+          "决绝"
+        ],
+        "speech_style": "柔婉中带坚决，情急时声音发颤",
+        "temperament": "外柔内刚，爱憎分明"
+      },
+      "relationships": [
+        {
+          "target": "char_bai_ma_li_san",
+          "type": "恋人",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "殉夫而死"
+        },
+        {
+          "target": "char_shi_zhong_jun",
+          "type": "对手",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "以旧情诱敌同归于尽"
+        },
+        {
+          "target": "char_li_wen_xiu",
+          "type": "亲属",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "临死前送女逃生"
+        }
+      ],
+      "known_skills": [
+        "skill_jin_yin_xiao_jian"
+      ],
+      "related_skills": [
+        "skill_jin_yin_xiao_jian"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 25,
+          "line_end": 169,
+          "text": "那少妇听得声响，回过头来，忽见红马倒毙，吃了一惊，叫道：\"大哥⋯⋯怎⋯⋯怎么啦？\"那汉子皱眉摇了摇头。但见身后数里外尘沙飞扬，大队敌人追了上来。那少妇圈转马来，驰到丈夫身旁，蓦然见到他背上的羽箭，背心上的大片鲜血，不禁大惊，险些晕了过去。那"
+        }
+      ]
+    },
+    {
+      "id": "char_li_wen_xiu",
+      "name": "李文秀",
+      "alias": [
+        "秀儿",
+        "小女孩",
+        "汉人姑娘",
+        "李英雄"
+      ],
+      "identity": "白马李三与上官虹之女，流落回疆的汉人少女",
+      "faction": "无",
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "李文秀在本章从孤女成长为能救人的少女，击败陈达海并面对瓦耳拉齐。",
+      "personality": {
+        "traits": [
+          "善良",
+          "坚忍",
+          "敏感",
+          "重情",
+          "勇敢",
+          "自卑",
+          "宽厚"
+        ],
+        "speech_style": "少年时直率怯生，长成后温和克制",
+        "temperament": "孤苦而柔韧，危急时敢于担当"
+      },
+      "relationships": [
+        {
+          "target": "char_bai_ma_li_san",
+          "type": "亲属",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "父女死别"
+        },
+        {
+          "target": "char_shang_guan_hong",
+          "type": "亲属",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "母女死别"
+        },
+        {
+          "target": "char_hua_hui",
+          "type": "师徒",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "受其传授武艺"
+        },
+        {
+          "target": "char_su_pu",
+          "type": "挚友",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "童年相救相伴，心中暗恋"
+        },
+        {
+          "target": "char_a_man",
+          "type": "对手",
+          "intensity": 35,
+          "bond_level": 2,
+          "dynamic": "情感上自惭退让"
+        }
+      ],
+      "known_skills": [
+        "skill_hua_hui_zhi_fa",
+        "skill_da_qin_na_shou"
+      ],
+      "related_skills": [
+        "skill_hua_hui_zhi_fa",
+        "skill_da_qin_na_shou"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 31,
+          "line_end": 43,
+          "text": "那小姑娘失声惊叫：\"爹，爹，你背上有箭！\"那汉子苦笑了一下，说道：\"不碍事！\"一跃而起，轻轻巧巧的落在妻子身后鞍上，他虽身受重伤，身法仍轻捷利落。那少妇回头望着他，满脸关怀痛惜之情，轻声道：\"大哥，你⋯⋯\"那汉子双腿一夹，扯起马缰。白马四蹄"
+        },
+        {
+          "chapter": 1,
+          "line_start": 2404,
+          "line_end": 2496,
+          "text": "陈达海踏上一步，问李文秀：\"你是谁？你是汉人，到这里来干什么？\"李文秀微微冷笑，道：\"你不认得我，我却认得你。抢劫哈萨克部落，害死不少哈萨克人的，就是你这批汉人强盗。\"说到这里，声音变得甚是苦涩，心中在想：\"如不是你们这些强盗作了这许多坏事"
+        }
+      ]
+    },
+    {
+      "id": "char_huo_yuan_long",
+      "name": "霍元龙",
+      "alias": [
+        "神刀震关西",
+        "吕梁三杰老大"
+      ],
+      "identity": "吕梁三杰之首，晋威镖局首领",
+      "faction": "晋威镖局",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "率众追杀李三夫妇，杀死白马李三后搜寻高昌地图。",
+      "personality": {
+        "traits": [
+          "凶悍",
+          "贪婪",
+          "老练",
+          "残酷",
+          "多疑"
+        ],
+        "speech_style": "号令式短句，语气粗厉",
+        "temperament": "剽悍强横，遇事谨慎"
+      },
+      "relationships": [
+        {
+          "target": "char_bai_ma_li_san",
+          "type": "宿敌",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "追杀夺图"
+        },
+        {
+          "target": "char_chen_da_hai",
+          "type": "合作者",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "结义兄弟"
+        },
+        {
+          "target": "char_shi_zhong_jun",
+          "type": "合作者",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "结义兄弟"
+        }
+      ],
+      "known_skills": [
+        "skill_shen_dao_zhen_guan_xi"
+      ],
+      "related_skills": [
+        "skill_shen_dao_zhen_guan_xi"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 107,
+          "line_end": 111,
+          "text": "她整了整衣衫，掠好了头发，转瞬间数十骑马先后驰到，当先一人是吕梁三杰中老二史仲俊。吕梁三杰是结义兄弟。老大\"神刀震关西\"霍元龙，便是杀死白马李三的那剽悍凶狠汉子。老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东"
+        }
+      ]
+    },
+    {
+      "id": "char_shi_zhong_jun",
+      "name": "史仲俊",
+      "alias": [
+        "梅花枪",
+        "史二爷",
+        "吕梁三杰老二"
+      ],
+      "identity": "吕梁三杰老二，上官虹旧日师兄",
+      "faction": "晋威镖局",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "暗箭伤李三，仍恋上官虹，最终被她以银柄短剑刺死。",
+      "personality": {
+        "traits": [
+          "痴情",
+          "嫉妒",
+          "阴狠",
+          "软弱",
+          "执念深重"
+        ],
+        "speech_style": "对上官虹柔声，对敌狠辣",
+        "temperament": "情欲与悔意交织，执迷不悟"
+      },
+      "relationships": [
+        {
+          "target": "char_shang_guan_hong",
+          "type": "恋人",
+          "intensity": 75,
+          "bond_level": 4,
+          "dynamic": "旧情未断却被反杀"
+        },
+        {
+          "target": "char_bai_ma_li_san",
+          "type": "宿敌",
+          "intensity": 90,
+          "bond_level": 4,
+          "dynamic": "妒恨而暗箭伤人"
+        }
+      ],
+      "known_skills": [
+        "skill_mei_hua_qiang"
+      ],
+      "related_skills": [
+        "skill_mei_hua_qiang"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 107,
+          "line_end": 167,
+          "text": "她整了整衣衫，掠好了头发，转瞬间数十骑马先后驰到，当先一人是吕梁三杰中老二史仲俊。吕梁三杰是结义兄弟。老大\"神刀震关西\"霍元龙，便是杀死白马李三的那剽悍凶狠汉子。老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东"
+        }
+      ]
+    },
+    {
+      "id": "char_chen_da_hai",
+      "name": "陈达海",
+      "alias": [
+        "青蟒剑",
+        "吕梁三杰老三"
+      ],
+      "identity": "吕梁三杰老三，辽东马贼出身的镖局首脑",
+      "faction": "晋威镖局",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "陈达海十二年后追到草屋，被李文秀以华辉所授武功击败。",
+      "personality": {
+        "traits": [
+          "凶暴",
+          "贪婪",
+          "狡诈",
+          "好勇",
+          "残忍"
+        ],
+        "speech_style": "粗声厉喝，动辄威胁",
+        "temperament": "强横狠辣，临战不服输"
+      },
+      "relationships": [
+        {
+          "target": "char_huo_yuan_long",
+          "type": "合作者",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "结义兄弟"
+        },
+        {
+          "target": "char_li_wen_xiu",
+          "type": "对手",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "十二年后被其击败"
+        },
+        {
+          "target": "char_su_pu",
+          "type": "对手",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "挟持威胁"
+        }
+      ],
+      "known_skills": [
+        "skill_qing_mang_jian_fa"
+      ],
+      "related_skills": [
+        "skill_qing_mang_jian_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 111,
+          "line_end": 177,
+          "text": "老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东马贼出身，后来却在山西落脚，和霍史二人意气相投，合伙在山西省太谷县开设了一家晋威镖局。史仲俊和白马李三的妻子上官虹原是同门师兄妹，两人自幼一起学艺。史仲俊心中一直"
+        },
+        {
+          "chapter": 1,
+          "line_start": 2404,
+          "line_end": 2496,
+          "text": "陈达海踏上一步，问李文秀：\"你是谁？你是汉人，到这里来干什么？\"李文秀微微冷笑，道：\"你不认得我，我却认得你。抢劫哈萨克部落，害死不少哈萨克人的，就是你这批汉人强盗。\"说到这里，声音变得甚是苦涩，心中在想：\"如不是你们这些强盗作了这许多坏事"
+        }
+      ]
+    },
+    {
+      "id": "char_ding_tong",
+      "name": "丁同",
+      "alias": [
+        "两头蛇"
+      ],
+      "identity": "晋威镖局镖师，追捕李文秀的恶人",
+      "faction": "晋威镖局",
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "略有小成",
+      "one_line": "在绿洲茅屋发现白马和李文秀，偷袭计老人后被击退。",
+      "personality": {
+        "traits": [
+          "狡诈",
+          "贪财",
+          "胆怯",
+          "狠毒",
+          "机敏"
+        ],
+        "speech_style": "表面陪笑恭顺，动手前虚言欺骗",
+        "temperament": "贪功冒进，欺弱怕强"
+      },
+      "relationships": [
+        {
+          "target": "char_li_wen_xiu",
+          "type": "对手",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "追捕孩童"
+        },
+        {
+          "target": "char_hua_hui",
+          "type": "对手",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "偷袭负伤老人"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 247,
+          "line_end": 379,
+          "text": "镖师\"两头蛇\"丁同跨上一匹健马，纵马向西北方冲去。他是晋威镖局中已干了十七年的镖师，武功虽算不上了得，但精明干练，是吕梁三杰手下一名得力助手。他一口气驰出二十余里，众同伴都已影踪不见，在茫茫的大漠中，突然起了孤寂和恐惧之感。纵马上了一个沙丘"
+        }
+      ]
+    },
+    {
+      "id": "char_hua_hui",
+      "name": "华辉",
+      "alias": [
+        "计老人",
+        "华伯伯",
+        "一指震江南"
+      ],
+      "identity": "隐居回疆的江南武人，化名计老人",
+      "faction": "无",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "化名计老人的华辉揭开身份，与瓦耳拉齐旧怨相连。",
+      "personality": {
+        "traits": [
+          "隐忍",
+          "机警",
+          "善谋",
+          "慈爱",
+          "自负",
+          "坚毅"
+        ],
+        "speech_style": "早期冷淡寡言，授艺时严厉而细密",
+        "temperament": "外表衰老冷硬，内心护短重情"
+      },
+      "relationships": [
+        {
+          "target": "char_li_wen_xiu",
+          "type": "师徒",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "收留并传授武功"
+        },
+        {
+          "target": "char_wa_er_la_qi",
+          "type": "宿敌",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "旧年情敌与仇敌"
+        }
+      ],
+      "known_skills": [
+        "skill_hua_hui_zhi_fa",
+        "skill_da_qin_na_shou"
+      ],
+      "related_skills": [
+        "skill_hua_hui_zhi_fa",
+        "skill_da_qin_na_shou"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 299,
+          "line_end": 335,
+          "text": "丁同大吃一惊，双足一点，倒纵出去，喝问：\"是谁？\"那人冷冷的道：\"你是谁？到这里干什么？\"说的却是汉语。丁同惊魂略定，满脸笑容，说道：\"在下姓丁名同，无意间到此，惊动了老丈。请问老丈高姓大名。\"那老人道：\"老汉姓计。\"丁同陪笑道：\"原来是计"
+        },
+        {
+          "chapter": 1,
+          "line_start": 3341,
+          "line_end": 3363,
+          "text": "李文秀叫道：\"计爷爷，计爷爷。\"扶起计老人，她不敢睁眼，料想他脸上定是血肉模糊，可怖之极，那知眼开一线，看到的竟是一张壮年男子的脸孔。她吃了一惊，眼睛睁大了些，只见这张脸胡子剃得精光，面目颇为英俊，在时明时暗的火把光芒下，看来一片惨白，全无"
+        }
+      ]
+    },
+    {
+      "id": "char_su_pu",
+      "name": "苏普",
+      "alias": [
+        "哈萨克男孩",
+        "李英雄称呼者"
+      ],
+      "identity": "哈萨克少年，苏鲁克之子",
+      "faction": "哈萨克部族",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "苏普从童年放鸟相识到成年恋慕阿曼，多次受李文秀相救。",
+      "personality": {
+        "traits": [
+          "豪爽",
+          "勇敢",
+          "天真",
+          "重义",
+          "倔强"
+        ],
+        "speech_style": "少年时得意直率，成年后真诚急切",
+        "temperament": "热烈单纯，遇险不退"
+      },
+      "relationships": [
+        {
+          "target": "char_li_wen_xiu",
+          "type": "挚友",
+          "intensity": 75,
+          "bond_level": 4,
+          "dynamic": "童年结缘，受其多次相救"
+        },
+        {
+          "target": "char_a_man",
+          "type": "恋人",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "相爱并共同遇险"
+        },
+        {
+          "target": "char_su_lu_ke",
+          "type": "亲属",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "父子"
+        }
+      ],
+      "known_skills": [
+        "skill_ha_sa_ke_dao_fa"
+      ],
+      "related_skills": [
+        "skill_ha_sa_ke_dao_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 530,
+          "line_end": 604,
+          "text": "李文秀的惊呼声中，混和着一个男孩的欢叫，只见长草中跳出来一个哈萨克男孩，得意地叫道：\"捉住了，捉住了！\"他用外衣裹着天铃鸟，鸟儿惊慌的叫声，郁闷地隔着外衣传出来。李文秀又吃惊，又愤怒，叫道：\"你干什么？\"那男孩道：\"我捉天铃鸟。你也来捉么？"
+        },
+        {
+          "chapter": 1,
+          "line_start": 2634,
+          "line_end": 2755,
+          "text": "\"李文秀道：\"你还记得她么？\"苏普道：\"自然记得。那怎么会忘记？\"李文秀道：\"你怎么不去瞧瞧她的坟墓？\"苏普道：\"对！等我们杀了那批强盗，我要那卖酒的老汉人带我去瞧瞧。\"李文秀问道：\"要是那墓上也裂开了一条大缝，你会不会跳进去？\"她本不想问"
+        }
+      ]
+    },
+    {
+      "id": "char_che_er_ku",
+      "name": "车尔库",
+      "alias": [
+        "满脸虬髯的大汉"
+      ],
+      "identity": "哈萨克牧民，阿曼之父",
+      "faction": "哈萨克部族",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "粗豪的哈萨克男子，初时痛恨汉人，后被李文秀救助。",
+      "personality": {
+        "traits": [
+          "粗豪",
+          "爱女",
+          "直率",
+          "多疑",
+          "重义"
+        ],
+        "speech_style": "粗声直问，情急时高呼",
+        "temperament": "外粗内热，护女心切"
+      },
+      "relationships": [
+        {
+          "target": "char_a_man",
+          "type": "亲属",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "父女"
+        },
+        {
+          "target": "char_su_lu_ke",
+          "type": "合作者",
+          "intensity": 65,
+          "bond_level": 3,
+          "dynamic": "族人并同行"
+        },
+        {
+          "target": "char_li_wen_xiu",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "受救后改观"
+        }
+      ],
+      "known_skills": [
+        "skill_ha_sa_ke_dao_fa"
+      ],
+      "related_skills": [
+        "skill_ha_sa_ke_dao_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 736,
+          "line_end": 766,
+          "text": "苏普叫道：\"爹，你瞧，我杀死了一头大狼。\"那大汉大喜，见儿子脸上溅满了血，眼光又掠过李文秀的脸，问苏普道：\"你给狼咬了？\"苏普道：\"我在这儿听阿秀说故事，忽然这头狼来咬她⋯⋯\"突然之间，那大汉脸上罩上了一层阴影，望着李文秀冷冷的道：\"你便是"
+        }
+      ]
+    },
+    {
+      "id": "char_su_lu_ke",
+      "name": "苏鲁克",
+      "alias": [
+        "苏普的爹爹"
+      ],
+      "identity": "哈萨克牧民，苏普之父",
+      "faction": "哈萨克部族",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "略有小成",
+      "one_line": "痛恨汉人却在危难中受李文秀相救的哈萨克父亲。",
+      "personality": {
+        "traits": [
+          "暴躁",
+          "护子",
+          "固执",
+          "仇汉",
+          "率直"
+        ],
+        "speech_style": "怒声多，常以质问表达立场",
+        "temperament": "刚烈偏执，重亲情"
+      },
+      "relationships": [
+        {
+          "target": "char_su_pu",
+          "type": "亲属",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "父子"
+        },
+        {
+          "target": "char_li_wen_xiu",
+          "type": "对手",
+          "intensity": 45,
+          "bond_level": 2,
+          "dynamic": "因汉人身份而排斥，后受救"
+        }
+      ],
+      "known_skills": [
+        "skill_ha_sa_ke_dao_fa"
+      ],
+      "related_skills": [
+        "skill_ha_sa_ke_dao_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 740,
+          "line_end": 850,
+          "text": "\"这时李文秀已认出他来，那便是踢过她一脚的苏鲁克。她记起了计老人的话：\"他的妻子和大儿子，一夜之间都给汉人强盗杀了，因此他恨极了汉人。\"她点了点头，正想说：\"我爹爹妈妈也是给那些强盗害的。\"话还没出口，突然唰的一声，苏普脸上肿起了一条长长的"
+        }
+      ]
+    },
+    {
+      "id": "char_a_man",
+      "name": "阿曼",
+      "alias": [
+        "天铃鸟般的姑娘"
+      ],
+      "identity": "哈萨克少女，车尔库之女",
+      "faction": "哈萨克部族",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "阿曼与苏普相爱，被瓦耳拉齐掳走后获救。",
+      "personality": {
+        "traits": [
+          "美丽",
+          "温柔",
+          "羞怯",
+          "勇敢",
+          "忠贞"
+        ],
+        "speech_style": "轻柔羞涩，危急时直率呼喊",
+        "temperament": "柔美而坚定"
+      },
+      "relationships": [
+        {
+          "target": "char_su_pu",
+          "type": "恋人",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "互相爱慕"
+        },
+        {
+          "target": "char_che_er_ku",
+          "type": "亲属",
+          "intensity": 85,
+          "bond_level": 4,
+          "dynamic": "父女"
+        },
+        {
+          "target": "char_li_wen_xiu",
+          "type": "对手",
+          "intensity": 30,
+          "bond_level": 2,
+          "dynamic": "无意成为情感竞争者"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 946,
+          "line_end": 978,
+          "text": "过了些日子，车尔库送来了两张精致的羊毛毯子。他说：\"这是阿曼织的，一张给老的，一张给小的。\"一张毛毯上织着一个大汉，手持长刀，砍翻了一头豹子，远处一头豹子正挟着尾巴逃走。另一张毛毯上织着一个男孩，刺死了一头大灰狼。那二人一大一小，都威风凛凛"
+        },
+        {
+          "chapter": 1,
+          "line_start": 2753,
+          "line_end": 3171,
+          "text": "七人在森林中走了良久，阿曼忽然叫道：\"啊哟，不好！\"苏普忙问：\"怎么？\"阿曼指着前面路旁的一只闪闪发光的银镯，说道：\"你瞧！这是我先前掉下的镯子。\"那镯子在七人之前两三丈处，却不知何以忽然会在这里出现。阿曼道：\"我掉了镯子，心想只得回来时再"
+        }
+      ]
+    },
+    {
+      "id": "char_yun_da_ge",
+      "name": "云大哥",
+      "alias": [
+        "云大哥"
+      ],
+      "identity": "追入山洞的小强盗之一",
+      "faction": "无",
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "初窥门径",
+      "one_line": "追入华辉山洞的强盗，被毒针机关威慑。",
+      "personality": {
+        "traits": [
+          "鲁莽",
+          "贪婪",
+          "警惕",
+          "凶狠",
+          "胆怯"
+        ],
+        "speech_style": "短促呼喝",
+        "temperament": "冒进而怕死"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1390,
+          "line_end": 1410,
+          "text": "华辉脸色转愉，道：\"那就是了。你⋯⋯\"一句话没说完，忽听洞外山道中有人说道：\"定是躲在这儿，小心她毒针！\"跟着脚步声响，三个人一步一停的进来。华辉忙取出一枚毒针，将针尾插入木杖的杖头，交了给她，指着进口之处，低声道：\"等人进来后刺他背心，千"
+        }
+      ]
+    },
+    {
+      "id": "char_sang_si_er",
+      "name": "桑斯尔",
+      "alias": [
+        "桑斯尔"
+      ],
+      "identity": "哈萨克部族成员",
+      "faction": "哈萨克部族",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "随众进入迷宫附近，提出鬼魅猜测的族人。",
+      "personality": {
+        "traits": [
+          "迷信",
+          "谨慎",
+          "从众",
+          "直率",
+          "胆怯"
+        ],
+        "speech_style": "以疑问表达恐惧",
+        "temperament": "面对未知时惊惧迟疑"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 2596,
+          "line_end": 2598,
+          "text": "大家纷纷猜测，不知是什么缘故。桑斯尔忽然道：\"难道是鬼？\"这是人人心里早就想说的话，给他突然说出，各人忍不住都打了个寒噤。"
+        }
+      ]
+    },
+    {
+      "id": "char_ha_bu_la_mu",
+      "name": "哈卜拉木",
+      "alias": [
+        "哈卜拉木"
+      ],
+      "identity": "哈萨克族人或向导",
+      "faction": "哈萨克部族",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "随众行动的哈萨克人物，参与寻找与追赶。",
+      "personality": {
+        "traits": [
+          "随和",
+          "从众",
+          "谨慎",
+          "朴直",
+          "重族群"
+        ],
+        "speech_style": "简短应答",
+        "temperament": "普通族人气质"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 3000,
+          "line_end": 3020,
+          "text": "哼，再在这里附近逗留一晚，一个一个，叫他都不得好死，我在宫里住了一千年，谁都不能进来，你们这般大胆！\"说到这里，慢慢转身，双手指着远处一个青年，叫道：\"给我死！\"说了这三个字，猛地里回身，大步而去，月光下但见他越走越远，终于不见。只见那青年"
+        }
+      ]
+    },
+    {
+      "id": "char_wa_er_la_qi",
+      "name": "瓦耳拉齐",
+      "alias": [
+        "瓦耳拉齐",
+        "恶鬼"
+      ],
+      "identity": "隐居迷宫附近的老武人，华辉旧敌",
+      "faction": "无",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "瓦耳拉齐被称作恶鬼，掳走阿曼并在洞中与众人冲突。",
+      "personality": {
+        "traits": [
+          "阴鸷",
+          "执念",
+          "狠辣",
+          "孤僻",
+          "自负"
+        ],
+        "speech_style": "冷笑尖声，常以旧事刺人",
+        "temperament": "怨毒深沉，求胜不择手段"
+      },
+      "relationships": [
+        {
+          "target": "char_hua_hui",
+          "type": "宿敌",
+          "intensity": 95,
+          "bond_level": 5,
+          "dynamic": "旧怨情仇"
+        },
+        {
+          "target": "char_a_man",
+          "type": "对手",
+          "intensity": 75,
+          "bond_level": 3,
+          "dynamic": "掳走胁迫"
+        },
+        {
+          "target": "char_li_wen_xiu",
+          "type": "对手",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "洞中交手"
+        }
+      ],
+      "known_skills": [
+        "skill_wa_er_la_qi_zhang_fa"
+      ],
+      "related_skills": [
+        "skill_wa_er_la_qi_zhang_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 3151,
+          "line_end": 3363,
+          "text": "苏普抢上去松开了她绑缚，问道：\"那恶鬼呢？\"阿曼道：\"他不是鬼，是人。刚才他还在这里，听到你们声音，想抱了我逃走，我拚命挣扎，他听得你们人多，就匆匆忙忙逃走了。\"苏普舒了口气，又问：\"那⋯⋯那是怎么样一个人？他怎么会将你捉了来？\"阿曼道：\""
+        }
+      ]
+    },
+    {
+      "id": "char_ma_jia_jun",
+      "name": "马家骏",
+      "alias": [
+        "马家骏"
+      ],
+      "identity": "瓦耳拉齐认错所呼之人，疑为旧日情敌",
+      "faction": "无",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "在瓦耳拉齐旧怨中被提及，牵连高昌迷宫往事。",
+      "personality": {
+        "traits": [
+          "神秘",
+          "旧事缠身",
+          "被怨恨",
+          "远行",
+          "关键线索"
+        ],
+        "speech_style": "仅在他人口中出现",
+        "temperament": "作为旧怨对象存在于回忆中"
+      },
+      "relationships": [
+        {
+          "target": "char_wa_er_la_qi",
+          "type": "宿敌",
+          "intensity": 75,
+          "bond_level": 3,
+          "dynamic": "被瓦耳拉齐怨恨"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 3321,
+          "line_end": 3323,
+          "text": "二人越斗越紧，瓦耳拉齐忽然尖声叫道：\"马家骏，你好！\"计老人身子一颤，退了一步，瓦耳拉齐左手一扬，使的正是半招\"声东击西\"。"
+        }
+      ]
+    },
+    {
+      "id": "char_ma_jia_ji",
+      "name": "马家骥",
+      "alias": [
+        "马家骥"
+      ],
+      "identity": "旧年往事中的人物，和迷宫传闻相关",
+      "faction": "无",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "在瓦耳拉齐与华辉旧事中被提及，身份暂未详明。",
+      "personality": {
+        "traits": [
+          "神秘",
+          "旧识",
+          "牵连宝图",
+          "少露面",
+          "线索性强"
+        ],
+        "speech_style": "仅在叙述与回忆中出现",
+        "temperament": "身份含混，承载后续线索"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 3450,
+          "line_end": 3460,
+          "text": "\"他终于承认：汉人中有做强盗的坏人，也有李英雄那样的好人，（那个假扮老头儿的汉人，不肯在水井中下毒，也该算好人吧？）哈萨克人中有自己那样的好人，也有瓦耳拉齐那样的坏人。李文秀心想：\"如果当年你知道了，就不会那样狠狠的鞭打苏普，一切就会不同了"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_bai_ma_dao_fa",
+      "name": "白马刀法",
+      "type": "剑法",
+      "faction": "无",
+      "rank": "炉火纯青",
+      "one_line": "白马李三临死前以刀反击围攻者的实战刀法。",
+      "techniques": [
+        {
+          "id": "tech_hui_xuan_fan_sha",
+          "name": "回旋反杀",
+          "type": "attack",
+          "description": "伏地装死后骤然回刀，趁敌俯身时连斩强敌。"
+        },
+        {
+          "id": "tech_fu_di_yin_di",
+          "name": "伏地引敌",
+          "type": "feint",
+          "description": "以重伤不动诱使敌人近身，忍痛等待最后反击机会。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "巅峰",
+          "description": "重伤濒死时仍可斩杀围攻者。"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "近身爆发斩击"
+        }
+      ],
+      "combat_style": "忍痛诱敌后短促爆发，偏重临死反击。",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 77,
+          "line_end": 91,
+          "text": "一人挺起长枪，嗤的一声，在他右肩刺了进去。拔枪出来，鲜血直喷，白马李三仍然不动。领头的剽悍汉子道：\"死得透了，还怕什么？快搜他身上。\"两人翻身下马，去扳他身子。猛地里白光闪动，白马李三长刀回旋，嚓嚓两下，已将两人砍翻在地。众人万料不到他适才"
+        }
+      ]
+    },
+    {
+      "id": "skill_shen_dao_zhen_guan_xi",
+      "name": "神刀震关西",
+      "type": "剑法",
+      "faction": "晋威镖局",
+      "rank": "炉火纯青",
+      "one_line": "霍元龙以雁翎刀和凶悍刀势压迫对手的刀法。",
+      "techniques": [
+        {
+          "id": "tech_yan_ling_pi_zhan",
+          "name": "雁翎劈斩",
+          "type": "attack",
+          "description": "挥雁翎刀自上劈落，以力量和威势压制敌人。"
+        },
+        {
+          "id": "tech_zhong_ren_wei_sha",
+          "name": "众刃围杀",
+          "type": "attack",
+          "description": "配合同伴刀枪齐下，围困重伤对手。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "巅峰",
+          "description": "围杀白马李三时展露凶悍刀势。"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "刀锋劈斩与围攻"
+        }
+      ],
+      "combat_style": "强攻猛进，依仗人多势众。",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 79,
+          "line_end": 89,
+          "text": "领头的剽悍汉子道：\"死得透了，还怕什么？快搜他身上。\"两人翻身下马，去扳他身子。猛地里白光闪动，白马李三长刀回旋，嚓嚓两下，已将两人砍翻在地。众人万料不到他适才竟是装死，连长枪刺入身子都浑似不觉，斗然间又会忽施反击，一惊之下，六七人勒马退开"
+        }
+      ]
+    },
+    {
+      "id": "skill_mei_hua_qiang",
+      "name": "梅花枪",
+      "type": "剑法",
+      "faction": "晋威镖局",
+      "rank": "登堂入室",
+      "one_line": "史仲俊所使长枪武艺，曾以暗箭重伤李三。",
+      "techniques": [
+        {
+          "id": "tech_mei_hua_qiang_jia",
+          "name": "梅花枪架",
+          "type": "attack",
+          "description": "以长枪为主兵，马上翻身下马皆能迅速布势。"
+        },
+        {
+          "id": "tech_an_jian_shang_di",
+          "name": "暗箭伤敌",
+          "type": "special",
+          "description": "暗中放箭重创敌人，体现阴狠偷袭手段。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "巅峰",
+          "description": "追杀中暗箭伤白马李三。"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "长枪与暗箭造成创伤"
+        }
+      ],
+      "combat_style": "枪法配合暗算，偏阴狠。",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 111,
+          "line_end": 125,
+          "text": "老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东马贼出身，后来却在山西落脚，和霍史二人意气相投，合伙在山西省太谷县开设了一家晋威镖局。史仲俊和白马李三的妻子上官虹原是同门师兄妹，两人自幼一起学艺。史仲俊心中一直"
+        }
+      ]
+    },
+    {
+      "id": "skill_jin_yin_xiao_jian",
+      "name": "金银小剑",
+      "type": "剑法",
+      "faction": "无",
+      "rank": "炉火纯青",
+      "one_line": "上官虹以一金一银双短剑近身刺杀与自尽的双剑技。",
+      "techniques": [
+        {
+          "id": "tech_shuang_jian_tong_gui",
+          "name": "双剑同归",
+          "type": "special",
+          "description": "暗藏双剑相拥近身，一剑向敌一剑向己，决绝同归。"
+        },
+        {
+          "id": "tech_jin_yin_an_cang",
+          "name": "金银暗藏",
+          "type": "feint",
+          "description": "以温柔笑容掩饰兵刃，趁对方失防贴身出剑。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "巅峰",
+          "description": "以旧情为局刺死史仲俊。"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "近距离双剑穿刺"
+        },
+        {
+          "type": "特殊",
+          "description": "以情势诱敌失防"
+        }
+      ],
+      "combat_style": "贴身、迅疾、决绝，重在出其不意。",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 131,
+          "line_end": 165,
+          "text": "上官虹的兵刃是一对短剑，一把金柄，一把银柄，江湖上有个外号，叫作\"金银小剑三娘子\"。这时她手中却不拿兵刃，脸上露着淡淡微笑。史仲俊心中蓦地升起了指望，胸口发热，苍白的脸上涌起了一阵红潮。他将梅花枪往马鞍一搁，翻身下马，叫道：\"师妹！\"上官虹"
+        }
+      ]
+    },
+    {
+      "id": "skill_ha_sa_ke_dao_fa",
+      "name": "哈萨克刀法",
+      "type": "剑法",
+      "faction": "哈萨克部族",
+      "rank": "略有小成",
+      "one_line": "哈萨克牧民常用短刀与骑射搏杀之法。",
+      "techniques": [
+        {
+          "id": "tech_duan_dao_ci_lang",
+          "name": "短刀刺狼",
+          "type": "attack",
+          "description": "以短刀扑刺野狼，近身搏杀保护羊群。"
+        },
+        {
+          "id": "tech_qi_she_dao_shu",
+          "name": "骑射刀术",
+          "type": "attack",
+          "description": "哈萨克男子骑射与刀术结合的草原战法。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "日常",
+          "description": "苏普、车尔库等牧民习练防身。"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "短刀近战和骑射"
+        }
+      ],
+      "combat_style": "粗犷直接，适合草原狩猎与搏斗。",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 269,
+          "line_end": 740,
+          "text": "男子身上人人带刀，骑射刀术，威震西陲。向来有一句话说道：\"一个哈萨克人，抵得一百个懦夫；一百个哈萨克人，就可横行回部。\"丁同听见过这句话，寻思：\"在哈萨克部族之中，可得小心在意。\"只见东北角的一座小山脚下，孤另另的有座茅屋。这茅屋外形简陋，"
+        }
+      ]
+    },
+    {
+      "id": "skill_hua_hui_zhi_fa",
+      "name": "华辉指法",
+      "type": "指法",
+      "faction": "无",
+      "rank": "出神入化",
+      "one_line": "华辉一指震江南的指法，亦化为针杖点穴传授李文秀。",
+      "techniques": [
+        {
+          "id": "tech_yi_zhi_zhen_jiang_nan",
+          "name": "一指震江南",
+          "type": "attack",
+          "description": "以指力或杖头一点制敌，名震江南。"
+        },
+        {
+          "id": "tech_du_zhen_dian_ci",
+          "name": "毒针点刺",
+          "type": "debuff",
+          "description": "杖头藏针，点中敌人后以毒针令其受制。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "传授",
+          "description": "华辉将点刺诀窍教给李文秀。"
+        }
+      ],
+      "effects": [
+        {
+          "type": "控制",
+          "description": "点穴与毒针制敌"
+        },
+        {
+          "type": "减益",
+          "description": "毒针使敌痛楚难支"
+        }
+      ],
+      "combat_style": "精细狠准，以小力点中要害。",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1374,
+          "line_end": 1534,
+          "text": "老人痛楚渐减，点头示谢，过了一炷香时分，这才疼痛消失，站了起来，问道：\"你可知我是谁？\"李文秀道：\"不知道。\"老人道：\"我是汉人，姓华名辉，江南人氏，江湖上人称'一指震江南'的便是。\"李文秀道：\"唔，是华老伯伯。\"华辉道：\"你没听见过我的名"
+        }
+      ]
+    },
+    {
+      "id": "skill_da_qin_na_shou",
+      "name": "大擒拿手",
+      "type": "掌法",
+      "faction": "无",
+      "rank": "登堂入室",
+      "one_line": "李文秀从华辉处学得的擒拿手法，用于制住兵刃和关节。",
+      "techniques": [
+        {
+          "id": "tech_da_qin_na_kou_bi",
+          "name": "大擒拿扣臂",
+          "type": "special",
+          "description": "踏步近身扣抓敌臂，使其兵刃难以施展。"
+        },
+        {
+          "id": "tech_ye_di_fei_yan",
+          "name": "叶底飞燕",
+          "type": "attack",
+          "description": "身形轻巧侧进，飞足踢腕，是华辉传授的绝招之一。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "初成",
+          "description": "李文秀苦练后能击败陈达海。"
+        }
+      ],
+      "effects": [
+        {
+          "type": "控制",
+          "description": "擒拿敌臂"
+        },
+        {
+          "type": "伤害",
+          "description": "踢腕缴械"
+        }
+      ],
+      "combat_style": "轻灵迅捷，以避实击虚取胜。",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 2138,
+          "line_end": 2444,
+          "text": "眼见他第三剑跟着刺出，苏普无可抵御，势将死于非命，李文秀踏出一步，只待他刺到第三剑时，便施展\"大擒拿手\"抓他手臂，却见阿曼一跃而前，拦在苏普身前，叫道：\"不能伤他！\"陈达海见阿曼容颜如花，却满脸是惶急的神色，心中一动，这一剑便不刺出，剑尖指"
+        }
+      ]
+    },
+    {
+      "id": "skill_qing_mang_jian_fa",
+      "name": "青蟒剑法",
+      "type": "剑法",
+      "faction": "晋威镖局",
+      "rank": "炉火纯青",
+      "one_line": "陈达海所使剑法，招式狠辣如青蟒突袭。",
+      "techniques": [
+        {
+          "id": "tech_du_she_chu_dong",
+          "name": "毒蛇出洞",
+          "type": "attack",
+          "description": "长剑直刺胸前，势急如毒蛇出洞。"
+        },
+        {
+          "id": "tech_qing_mang_bi_po",
+          "name": "青蟒逼迫",
+          "type": "attack",
+          "description": "以剑尖贴喉逼人屈服，兼具威吓和控制。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "巅峰",
+          "description": "草屋中挟持众人，与李文秀交手。"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "迅急剑刺"
+        },
+        {
+          "type": "控制",
+          "description": "剑尖逼迫人质"
+        }
+      ],
+      "combat_style": "凶狠直刺，重威胁和压制。",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 2302,
+          "line_end": 2440,
+          "text": "陈达海长剑一挺，指在他喉头，喝道：\"跪下！\"苏鲁克大怒，和身扑上，但酒后乏力，没扑到敌人身前，便已摔倒。陈达海一声冷笑，挥剑砍下，登时苏鲁克肩头血光迸现。苏鲁克大声惨叫，要站起拚命，可是两条腿便如烂泥相似，说什么也站不起来。车尔库怒吼纵起，"
+        }
+      ]
+    },
+    {
+      "id": "skill_wa_er_la_qi_zhang_fa",
+      "name": "瓦耳拉齐掌法",
+      "type": "掌法",
+      "faction": "无",
+      "rank": "出神入化",
+      "one_line": "瓦耳拉齐洞中出掌迅猛，能击退车尔库并压制众人。",
+      "techniques": [
+        {
+          "id": "tech_gui_ying_zhang",
+          "name": "鬼影掌",
+          "type": "attack",
+          "description": "暗处突发掌力，令对手如遇恶鬼般难辨来势。"
+        },
+        {
+          "id": "tech_lao_mo_fan_shen",
+          "name": "老魔翻身",
+          "type": "special",
+          "description": "年老隐伏仍能骤然反扑，借地势和掌力制敌。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "巅峰",
+          "description": "迷宫附近与众人交手时显露深厚功力。"
+        }
+      ],
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "重掌击飞敌人"
+        },
+        {
+          "type": "控制",
+          "description": "暗处威慑"
+        }
+      ],
+      "combat_style": "阴狠迅捷，擅用恐惧与地形。",
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 3151,
+          "line_end": 3303,
+          "text": "苏普抢上去松开了她绑缚，问道：\"那恶鬼呢？\"阿曼道：\"他不是鬼，是人。刚才他还在这里，听到你们声音，想抱了我逃走，我拚命挣扎，他听得你们人多，就匆匆忙忙逃走了。\"苏普舒了口气，又问：\"那⋯⋯那是怎么样一个人？他怎么会将你捉了来？\"阿曼道：\""
+        }
+      ]
+    }
+  ],
+  "techniques": [
+    {
+      "id": "tech_hui_xuan_fan_sha",
+      "name": "回旋反杀",
+      "type": "attack",
+      "description": "伏地装死后骤然回刀，趁敌俯身时连斩强敌。",
+      "source_skill": "skill_bai_ma_dao_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 77,
+          "line_end": 91,
+          "text": "一人挺起长枪，嗤的一声，在他右肩刺了进去。拔枪出来，鲜血直喷，白马李三仍然不动。领头的剽悍汉子道：\"死得透了，还怕什么？快搜他身上。\"两人翻身下马，去扳他身子。猛地里白光闪动，白马李三长刀回旋，嚓嚓两下，已将两人砍翻在地。众人万料不到他适才"
+        }
+      ]
+    },
+    {
+      "id": "tech_fu_di_yin_di",
+      "name": "伏地引敌",
+      "type": "feint",
+      "description": "以重伤不动诱使敌人近身，忍痛等待最后反击机会。",
+      "source_skill": "skill_bai_ma_dao_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 77,
+          "line_end": 91,
+          "text": "一人挺起长枪，嗤的一声，在他右肩刺了进去。拔枪出来，鲜血直喷，白马李三仍然不动。领头的剽悍汉子道：\"死得透了，还怕什么？快搜他身上。\"两人翻身下马，去扳他身子。猛地里白光闪动，白马李三长刀回旋，嚓嚓两下，已将两人砍翻在地。众人万料不到他适才"
+        }
+      ]
+    },
+    {
+      "id": "tech_yan_ling_pi_zhan",
+      "name": "雁翎劈斩",
+      "type": "attack",
+      "description": "挥雁翎刀自上劈落，以力量和威势压制敌人。",
+      "source_skill": "skill_shen_dao_zhen_guan_xi",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 79,
+          "line_end": 89,
+          "text": "领头的剽悍汉子道：\"死得透了，还怕什么？快搜他身上。\"两人翻身下马，去扳他身子。猛地里白光闪动，白马李三长刀回旋，嚓嚓两下，已将两人砍翻在地。众人万料不到他适才竟是装死，连长枪刺入身子都浑似不觉，斗然间又会忽施反击，一惊之下，六七人勒马退开"
+        }
+      ]
+    },
+    {
+      "id": "tech_zhong_ren_wei_sha",
+      "name": "众刃围杀",
+      "type": "attack",
+      "description": "配合同伴刀枪齐下，围困重伤对手。",
+      "source_skill": "skill_shen_dao_zhen_guan_xi",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 79,
+          "line_end": 89,
+          "text": "领头的剽悍汉子道：\"死得透了，还怕什么？快搜他身上。\"两人翻身下马，去扳他身子。猛地里白光闪动，白马李三长刀回旋，嚓嚓两下，已将两人砍翻在地。众人万料不到他适才竟是装死，连长枪刺入身子都浑似不觉，斗然间又会忽施反击，一惊之下，六七人勒马退开"
+        }
+      ]
+    },
+    {
+      "id": "tech_mei_hua_qiang_jia",
+      "name": "梅花枪架",
+      "type": "attack",
+      "description": "以长枪为主兵，马上翻身下马皆能迅速布势。",
+      "source_skill": "skill_mei_hua_qiang",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 111,
+          "line_end": 125,
+          "text": "老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东马贼出身，后来却在山西落脚，和霍史二人意气相投，合伙在山西省太谷县开设了一家晋威镖局。史仲俊和白马李三的妻子上官虹原是同门师兄妹，两人自幼一起学艺。史仲俊心中一直"
+        }
+      ]
+    },
+    {
+      "id": "tech_an_jian_shang_di",
+      "name": "暗箭伤敌",
+      "type": "special",
+      "description": "暗中放箭重创敌人，体现阴狠偷袭手段。",
+      "source_skill": "skill_mei_hua_qiang",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 111,
+          "line_end": 125,
+          "text": "老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东马贼出身，后来却在山西落脚，和霍史二人意气相投，合伙在山西省太谷县开设了一家晋威镖局。史仲俊和白马李三的妻子上官虹原是同门师兄妹，两人自幼一起学艺。史仲俊心中一直"
+        }
+      ]
+    },
+    {
+      "id": "tech_shuang_jian_tong_gui",
+      "name": "双剑同归",
+      "type": "special",
+      "description": "暗藏双剑相拥近身，一剑向敌一剑向己，决绝同归。",
+      "source_skill": "skill_jin_yin_xiao_jian",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 131,
+          "line_end": 165,
+          "text": "上官虹的兵刃是一对短剑，一把金柄，一把银柄，江湖上有个外号，叫作\"金银小剑三娘子\"。这时她手中却不拿兵刃，脸上露着淡淡微笑。史仲俊心中蓦地升起了指望，胸口发热，苍白的脸上涌起了一阵红潮。他将梅花枪往马鞍一搁，翻身下马，叫道：\"师妹！\"上官虹"
+        }
+      ]
+    },
+    {
+      "id": "tech_jin_yin_an_cang",
+      "name": "金银暗藏",
+      "type": "feint",
+      "description": "以温柔笑容掩饰兵刃，趁对方失防贴身出剑。",
+      "source_skill": "skill_jin_yin_xiao_jian",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 131,
+          "line_end": 165,
+          "text": "上官虹的兵刃是一对短剑，一把金柄，一把银柄，江湖上有个外号，叫作\"金银小剑三娘子\"。这时她手中却不拿兵刃，脸上露着淡淡微笑。史仲俊心中蓦地升起了指望，胸口发热，苍白的脸上涌起了一阵红潮。他将梅花枪往马鞍一搁，翻身下马，叫道：\"师妹！\"上官虹"
+        }
+      ]
+    },
+    {
+      "id": "tech_duan_dao_ci_lang",
+      "name": "短刀刺狼",
+      "type": "attack",
+      "description": "以短刀扑刺野狼，近身搏杀保护羊群。",
+      "source_skill": "skill_ha_sa_ke_dao_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 269,
+          "line_end": 740,
+          "text": "男子身上人人带刀，骑射刀术，威震西陲。向来有一句话说道：\"一个哈萨克人，抵得一百个懦夫；一百个哈萨克人，就可横行回部。\"丁同听见过这句话，寻思：\"在哈萨克部族之中，可得小心在意。\"只见东北角的一座小山脚下，孤另另的有座茅屋。这茅屋外形简陋，"
+        }
+      ]
+    },
+    {
+      "id": "tech_qi_she_dao_shu",
+      "name": "骑射刀术",
+      "type": "attack",
+      "description": "哈萨克男子骑射与刀术结合的草原战法。",
+      "source_skill": "skill_ha_sa_ke_dao_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 269,
+          "line_end": 740,
+          "text": "男子身上人人带刀，骑射刀术，威震西陲。向来有一句话说道：\"一个哈萨克人，抵得一百个懦夫；一百个哈萨克人，就可横行回部。\"丁同听见过这句话，寻思：\"在哈萨克部族之中，可得小心在意。\"只见东北角的一座小山脚下，孤另另的有座茅屋。这茅屋外形简陋，"
+        }
+      ]
+    },
+    {
+      "id": "tech_yi_zhi_zhen_jiang_nan",
+      "name": "一指震江南",
+      "type": "attack",
+      "description": "以指力或杖头一点制敌，名震江南。",
+      "source_skill": "skill_hua_hui_zhi_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1374,
+          "line_end": 1534,
+          "text": "老人痛楚渐减，点头示谢，过了一炷香时分，这才疼痛消失，站了起来，问道：\"你可知我是谁？\"李文秀道：\"不知道。\"老人道：\"我是汉人，姓华名辉，江南人氏，江湖上人称'一指震江南'的便是。\"李文秀道：\"唔，是华老伯伯。\"华辉道：\"你没听见过我的名"
+        }
+      ]
+    },
+    {
+      "id": "tech_du_zhen_dian_ci",
+      "name": "毒针点刺",
+      "type": "debuff",
+      "description": "杖头藏针，点中敌人后以毒针令其受制。",
+      "source_skill": "skill_hua_hui_zhi_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1374,
+          "line_end": 1534,
+          "text": "老人痛楚渐减，点头示谢，过了一炷香时分，这才疼痛消失，站了起来，问道：\"你可知我是谁？\"李文秀道：\"不知道。\"老人道：\"我是汉人，姓华名辉，江南人氏，江湖上人称'一指震江南'的便是。\"李文秀道：\"唔，是华老伯伯。\"华辉道：\"你没听见过我的名"
+        }
+      ]
+    },
+    {
+      "id": "tech_da_qin_na_kou_bi",
+      "name": "大擒拿扣臂",
+      "type": "special",
+      "description": "踏步近身扣抓敌臂，使其兵刃难以施展。",
+      "source_skill": "skill_da_qin_na_shou",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 2138,
+          "line_end": 2444,
+          "text": "眼见他第三剑跟着刺出，苏普无可抵御，势将死于非命，李文秀踏出一步，只待他刺到第三剑时，便施展\"大擒拿手\"抓他手臂，却见阿曼一跃而前，拦在苏普身前，叫道：\"不能伤他！\"陈达海见阿曼容颜如花，却满脸是惶急的神色，心中一动，这一剑便不刺出，剑尖指"
+        }
+      ]
+    },
+    {
+      "id": "tech_ye_di_fei_yan",
+      "name": "叶底飞燕",
+      "type": "attack",
+      "description": "身形轻巧侧进，飞足踢腕，是华辉传授的绝招之一。",
+      "source_skill": "skill_da_qin_na_shou",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 2138,
+          "line_end": 2444,
+          "text": "眼见他第三剑跟着刺出，苏普无可抵御，势将死于非命，李文秀踏出一步，只待他刺到第三剑时，便施展\"大擒拿手\"抓他手臂，却见阿曼一跃而前，拦在苏普身前，叫道：\"不能伤他！\"陈达海见阿曼容颜如花，却满脸是惶急的神色，心中一动，这一剑便不刺出，剑尖指"
+        }
+      ]
+    },
+    {
+      "id": "tech_du_she_chu_dong",
+      "name": "毒蛇出洞",
+      "type": "attack",
+      "description": "长剑直刺胸前，势急如毒蛇出洞。",
+      "source_skill": "skill_qing_mang_jian_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 2302,
+          "line_end": 2440,
+          "text": "陈达海长剑一挺，指在他喉头，喝道：\"跪下！\"苏鲁克大怒，和身扑上，但酒后乏力，没扑到敌人身前，便已摔倒。陈达海一声冷笑，挥剑砍下，登时苏鲁克肩头血光迸现。苏鲁克大声惨叫，要站起拚命，可是两条腿便如烂泥相似，说什么也站不起来。车尔库怒吼纵起，"
+        }
+      ]
+    },
+    {
+      "id": "tech_qing_mang_bi_po",
+      "name": "青蟒逼迫",
+      "type": "attack",
+      "description": "以剑尖贴喉逼人屈服，兼具威吓和控制。",
+      "source_skill": "skill_qing_mang_jian_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 2302,
+          "line_end": 2440,
+          "text": "陈达海长剑一挺，指在他喉头，喝道：\"跪下！\"苏鲁克大怒，和身扑上，但酒后乏力，没扑到敌人身前，便已摔倒。陈达海一声冷笑，挥剑砍下，登时苏鲁克肩头血光迸现。苏鲁克大声惨叫，要站起拚命，可是两条腿便如烂泥相似，说什么也站不起来。车尔库怒吼纵起，"
+        }
+      ]
+    },
+    {
+      "id": "tech_gui_ying_zhang",
+      "name": "鬼影掌",
+      "type": "attack",
+      "description": "暗处突发掌力，令对手如遇恶鬼般难辨来势。",
+      "source_skill": "skill_wa_er_la_qi_zhang_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 3151,
+          "line_end": 3303,
+          "text": "苏普抢上去松开了她绑缚，问道：\"那恶鬼呢？\"阿曼道：\"他不是鬼，是人。刚才他还在这里，听到你们声音，想抱了我逃走，我拚命挣扎，他听得你们人多，就匆匆忙忙逃走了。\"苏普舒了口气，又问：\"那⋯⋯那是怎么样一个人？他怎么会将你捉了来？\"阿曼道：\""
+        }
+      ]
+    },
+    {
+      "id": "tech_lao_mo_fan_shen",
+      "name": "老魔翻身",
+      "type": "special",
+      "description": "年老隐伏仍能骤然反扑，借地势和掌力制敌。",
+      "source_skill": "skill_wa_er_la_qi_zhang_fa",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 3151,
+          "line_end": 3303,
+          "text": "苏普抢上去松开了她绑缚，问道：\"那恶鬼呢？\"阿曼道：\"他不是鬼，是人。刚才他还在这里，听到你们声音，想抱了我逃走，我拚命挣扎，他听得你们人多，就匆匆忙忙逃走了。\"苏普舒了口气，又问：\"那⋯⋯那是怎么样一个人？他怎么会将你捉了来？\"阿曼道：\""
+        }
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_jin_wei_biao_ju",
+      "name": "晋威镖局",
+      "type": "帮派",
+      "location": "山西省太谷县",
+      "sub_divisions": [
+        "吕梁三杰",
+        "镖师"
+      ],
+      "one_line": "霍元龙、史仲俊、陈达海合伙开设的镖局，追逐高昌地图。",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 111,
+          "line_end": 123,
+          "text": "老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东马贼出身，后来却在山西落脚，和霍史二人意气相投，合伙在山西省太谷县开设了一家晋威镖局。史仲俊和白马李三的妻子上官虹原是同门师兄妹，两人自幼一起学艺。史仲俊心中一直"
+        }
+      ]
+    },
+    {
+      "id": "faction_lv_liang_san_jie",
+      "name": "吕梁三杰",
+      "type": "帮派",
+      "location": "晋陕甘凉一带",
+      "sub_divisions": [
+        "霍元龙",
+        "史仲俊",
+        "陈达海"
+      ],
+      "one_line": "结义三兄弟组成的凶悍团伙，为地图追杀李三夫妇。",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 107,
+          "line_end": 123,
+          "text": "她整了整衣衫，掠好了头发，转瞬间数十骑马先后驰到，当先一人是吕梁三杰中老二史仲俊。吕梁三杰是结义兄弟。老大\"神刀震关西\"霍元龙，便是杀死白马李三的那剽悍凶狠汉子。老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东"
+        }
+      ]
+    },
+    {
+      "id": "faction_ha_sa_ke_bu_zu",
+      "name": "哈萨克部族",
+      "type": "帮派",
+      "location": "回疆草原绿洲",
+      "sub_divisions": [
+        "苏鲁克家",
+        "车尔库家"
+      ],
+      "one_line": "回疆草原上的哈萨克牧民部族，骑射刀术强悍。",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 263,
+          "line_end": 431,
+          "text": "丁同见到这等声势，不由得一惊。他自入回疆以来，所见到的帐篷人家，聚在一起的最多不过三四十个，这样的一个大部族却第一次见到。瞧那帐篷式样，显是哈萨克族人。哈萨克人在回疆诸族中最为勇武，不论男女，六七岁起就长于马背之上。男子身上人人带刀，骑射刀"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_hui_jiang_da_mo",
+      "name": "回疆大漠",
+      "region": "回疆",
+      "one_line": "黄沙莽莽的大漠，李三夫妇逃亡和风沙吞没追兵之处。",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 7,
+          "line_end": 45,
+          "text": "在黄沙莽莽的回疆大漠之上，尘沙飞起两丈来高，两骑马一前一后的急驰而来。前面是匹高腿长身的白马，马上骑着个少妇，怀中搂着个七八岁的小姑娘。后面是匹枣红马，马背上伏着的是个高瘦汉子。那汉子左边背心上插着一枝羽箭。鲜血从他背心流到马背上，又流到地"
+        }
+      ]
+    },
+    {
+      "id": "loc_gao_chang_mi_gong",
+      "name": "高昌迷宫",
+      "region": "回疆",
+      "one_line": "传说藏有珍宝的迷宫，地图引发追杀与多年旧怨。",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 51,
+          "line_end": 63,
+          "text": "那汉子一咬牙，说道：\"虹妹，我求你一件事，你答不答允？\"那少妇回头来，温柔一笑，说道：\"这一生之中，我违拗过你一次么？\"那汉子道：\"好，你带了秀儿逃命，保全咱俩的骨血，保全这幅高昌迷宫地图。\"说得十分坚决，便如是下令一般。那少妇声音发颤，说"
+        }
+      ]
+    },
+    {
+      "id": "loc_ha_sa_ke_lv_zhou",
+      "name": "哈萨克绿洲",
+      "region": "回疆",
+      "one_line": "沙漠中水草丰美的绿洲，计老人草屋与哈萨克牧民所在。",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 253,
+          "line_end": 277,
+          "text": "纵马上了一个沙丘，向前望去，只见西北角上一片青绿，高耸着七八棵大柳树。在寸草不生的大沙漠中忽然见到这一大块绿洲，当真说不出的欢喜：\"这大片绿洲中必有水泉，就算没人家，大队人马也可好好将息一番。\"他胯下坐骑也望见了水草，陡然间精神百倍，不等丁"
+        }
+      ]
+    },
+    {
+      "id": "loc_ji_lao_ren_cao_wu",
+      "name": "计老人草屋",
+      "region": "回疆绿洲",
+      "one_line": "计老人隐居并收留李文秀的小茅屋，也是多次冲突发生地。",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 277,
+          "line_end": 317,
+          "text": "丁同仔细打量这座茅屋，心想：\"这间屋似乎是汉人的式样，莫非住的是汉人？\"茅屋的屋顶上堆满戈壁边缘所生的硬茅草，墙壁是泥砖砌成，远远瞧去，似乎颇为粗糙，颜色黄黑相杂，并未刷以石灰。他想：\"先到这茅屋去瞧瞧。\"纵马往茅屋走去。他胯下的坐骑已饿了"
+        }
+      ]
+    },
+    {
+      "id": "loc_ji_lao_ren_shan_dong",
+      "name": "计老人山洞",
+      "region": "回疆山地",
+      "one_line": "华辉藏身疗伤和传授李文秀武功的山洞。",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1350,
+          "line_end": 1410,
+          "text": "\"李文秀想起适才之事，犹然心中惊怕，问道：\"伯伯，那两个强盗给我一刺，忽然一动也不动了，难道当真死了么？\"老人傲然道：\"在我毒针之下，岂有活口留下？\"李文秀伸过手去，将毒针递给他。老人伸手欲接，突然又缩回了手，道：\"放在地下。\"李文秀依言放"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_bai_ma",
+      "name": "白马",
+      "type": "special",
+      "owner": "char_li_wen_xiu",
+      "one_line": "李文秀父母留下的神骏白马。",
+      "description": "高腿长身、脚力天下无双的白马，在大漠中负着李文秀逃出生天，是她与父母离别后最重要的依靠。",
+      "effects": [
+        {
+          "type": "特殊",
+          "description": "长途疾驰救主"
+        }
+      ],
+      "origin": "白马李三夫妇所有",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_li_wen_xiu",
+        "char_bai_ma_li_san",
+        "char_shang_guan_hong"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 7,
+          "line_end": 103,
+          "text": "在黄沙莽莽的回疆大漠之上，尘沙飞起两丈来高，两骑马一前一后的急驰而来。前面是匹高腿长身的白马，马上骑着个少妇，怀中搂着个七八岁的小姑娘。后面是匹枣红马，马背上伏着的是个高瘦汉子。那汉子左边背心上插着一枝羽箭。鲜血从他背心流到马背上，又流到地"
+        }
+      ]
+    },
+    {
+      "id": "item_gao_chang_mi_gong_di_tu",
+      "name": "高昌迷宫地图",
+      "type": "special",
+      "owner": "char_li_wen_xiu",
+      "one_line": "引发吕梁三杰追杀的羊毛织图。",
+      "description": "由羊毛织成的手帕式地图，藏有高昌迷宫线索，白马李三夫妇为保此物舍命逃亡。",
+      "effects": [
+        {
+          "type": "特殊",
+          "description": "指示高昌迷宫位置"
+        }
+      ],
+      "origin": "白马李三夫妇所得",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_li_wen_xiu",
+        "char_bai_ma_li_san",
+        "char_shang_guan_hong"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 51,
+          "line_end": 103,
+          "text": "那汉子一咬牙，说道：\"虹妹，我求你一件事，你答不答允？\"那少妇回头来，温柔一笑，说道：\"这一生之中，我违拗过你一次么？\"那汉子道：\"好，你带了秀儿逃命，保全咱俩的骨血，保全这幅高昌迷宫地图。\"说得十分坚决，便如是下令一般。那少妇声音发颤，说"
+        }
+      ]
+    },
+    {
+      "id": "item_jin_yin_xiao_jian",
+      "name": "金银小剑",
+      "type": "weapon",
+      "owner": "char_shang_guan_hong",
+      "one_line": "上官虹随身金银双短剑。",
+      "description": "一金柄一银柄的双短剑，是上官虹江湖外号来源，最终被她暗藏衣内用来殉夫杀敌。",
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "近身双剑刺杀"
+        }
+      ],
+      "origin": "上官虹随身兵刃",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_shang_guan_hong",
+        "char_shi_zhong_jun"
+      ],
+      "related_skills": [
+        "skill_jin_yin_xiao_jian"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 131,
+          "line_end": 165,
+          "text": "上官虹的兵刃是一对短剑，一把金柄，一把银柄，江湖上有个外号，叫作\"金银小剑三娘子\"。这时她手中却不拿兵刃，脸上露着淡淡微笑。史仲俊心中蓦地升起了指望，胸口发热，苍白的脸上涌起了一阵红潮。他将梅花枪往马鞍一搁，翻身下马，叫道：\"师妹！\"上官虹"
+        }
+      ]
+    },
+    {
+      "id": "item_li_wen_xiu_yu_zhuo",
+      "name": "玉镯",
+      "type": "special",
+      "owner": "char_su_pu",
+      "one_line": "李文秀童年换鸟所赠玉镯。",
+      "description": "晶莹柔和的玉镯原戴在李文秀左腕，她为救天铃鸟送给苏普，成为两人童年情谊的信物。",
+      "effects": [
+        {
+          "type": "特殊",
+          "description": "承载童年约定与情感"
+        }
+      ],
+      "origin": "李文秀母亲遗物或随身物",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_li_wen_xiu",
+        "char_su_pu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 558,
+          "line_end": 576,
+          "text": "\"那男孩道：\"那你给我什么？\"李文秀伸手到怀里一摸，她什么也没有，不禁有些发窘，想了一想，道：\"赶明儿我给你缝一只好看的荷包，给你挂在身上。\"那男孩笑道：\"我才不上这个当呢。明儿你便赖了。\"李文秀胀红了脸，道：\"我说过给你，一定给你，为什么"
+        }
+      ]
+    },
+    {
+      "id": "item_su_pu_duan_dao",
+      "name": "苏普短刀",
+      "type": "weapon",
+      "owner": "char_su_pu",
+      "one_line": "苏普用于刺狼护身的短刀。",
+      "description": "哈萨克少年苏普随身携带的短刀，曾在雪地与灰狼搏斗时救下自己和李文秀。",
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "近身刺击"
+        }
+      ],
+      "origin": "哈萨克牧民常用兵刃",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_su_pu",
+        "char_li_wen_xiu"
+      ],
+      "related_skills": [
+        "skill_ha_sa_ke_dao_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 694,
+          "line_end": 740,
+          "text": "突然之间，李文秀\"啊\"的一声，向后翻倒，一头大灰狼尖利的牙齿咬向她咽喉。这头狼从背后悄无声息的袭来，两个小孩谁都没发觉。李文秀曾跟妈妈学过一些武功，自然而然的将头一侧，避开了凶狼对准着她咽喉的一咬。苏普见这头恶狼这般高大，吓得脚也软了，但他"
+        }
+      ]
+    },
+    {
+      "id": "item_hua_hui_du_zhen_zhang",
+      "name": "毒针杖",
+      "type": "weapon",
+      "owner": "char_hua_hui",
+      "one_line": "华辉藏针授艺用的拐杖。",
+      "description": "杖头暗藏毒针，点中敌人肌肤便能制敌，是华辉授予李文秀防身的重要机关兵器。",
+      "effects": [
+        {
+          "type": "控制",
+          "description": "毒针点刺制敌"
+        },
+        {
+          "type": "减益",
+          "description": "中针后痛楚受制"
+        }
+      ],
+      "origin": "华辉自制机关杖",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_hua_hui",
+        "char_li_wen_xiu"
+      ],
+      "related_skills": [
+        "skill_hua_hui_zhi_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 1360,
+          "line_end": 1534,
+          "text": "李文秀依言放下。老人道：\"你退开三步。\"李文秀觉得奇怪，便退了三步。那老人这才俯身拾起毒针，放入一个针筒。李文秀这才明白，原来他疑心很重，怕自己突然用毒针剌他。那老人道：\"我跟你素不相识，为什么刚才你让马给我，要我独自逃命？\"李文秀道：\"我"
+        }
+      ]
+    },
+    {
+      "id": "item_chen_da_hai_chang_jian",
+      "name": "陈达海长剑",
+      "type": "weapon",
+      "owner": "char_chen_da_hai",
+      "one_line": "陈达海施展青蟒剑法的长剑。",
+      "description": "陈达海用来挟持苏普阿曼和刺击李文秀的长剑，剑势狠辣，后被李文秀踢腕化解。",
+      "effects": [
+        {
+          "type": "伤害",
+          "description": "长剑直刺"
+        },
+        {
+          "type": "控制",
+          "description": "剑尖逼迫"
+        }
+      ],
+      "origin": "陈达海随身兵刃",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_chen_da_hai",
+        "char_li_wen_xiu"
+      ],
+      "related_skills": [
+        "skill_qing_mang_jian_fa"
+      ],
+      "rag_refs": [
+        1
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 2302,
+          "line_end": 2462,
+          "text": "陈达海长剑一挺，指在他喉头，喝道：\"跪下！\"苏鲁克大怒，和身扑上，但酒后乏力，没扑到敌人身前，便已摔倒。陈达海一声冷笑，挥剑砍下，登时苏鲁克肩头血光迸现。苏鲁克大声惨叫，要站起拚命，可是两条腿便如烂泥相似，说什么也站不起来。车尔库怒吼纵起，"
+        }
+      ]
+    }
+  ]
+}

@@ -3,810 +3,413 @@
     "id": "char_bai_ma_li_san",
     "name": "白马李三",
     "alias": [
-      "李三"
+      "李三",
+      "那汉子",
+      "白马李三"
     ],
-    "identity": "江湖侠客，上官虹之夫",
-    "faction": null,
-    "role": "protagonist_parent",
-    "archetype": "英雄义士",
+    "identity": "江南侠盗，李文秀之父",
+    "faction": "无",
+    "role": "companion",
+    "archetype": "warrior",
     "rank": "炉火纯青",
-    "one_line": "江湖侠客，为保高昌迷宫地图和妻女，独力对抗六十三名追兵，至死不屈",
+    "one_line": "负伤仍护妻女和高昌地图，死前仍反杀强敌的侠盗。",
     "personality": {
       "traits": [
-        "刚烈不屈",
-        "深情护家",
-        "视死如归",
-        "果断决绝",
-        "英雄气概"
+        "坚忍",
+        "重情",
+        "倔强",
+        "果决",
+        "英勇"
       ],
-      "speech_style": "简短有力，语带威严，危难中仍不失温柔",
-      "temperament": "外刚内柔，危急时冷静果断"
+      "speech_style": "简短坚决，危急时如命令般断然",
+      "temperament": "刚烈沉稳，临危不屈"
     },
     "relationships": [
       {
         "target": "char_shang_guan_hong",
-        "type": "夫妻",
-        "intensity": 10,
-        "bond_level": 10,
-        "dynamic": "深爱妻子，为保全她和女儿不惜牺牲自己"
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "夫妻同生共死"
       },
       {
         "target": "char_li_wen_xiu",
-        "type": "父女",
-        "intensity": 10,
-        "bond_level": 10,
-        "dynamic": "疼爱女儿秀儿，临死仍牵挂其安危"
-      },
-      {
-        "target": "char_huo_yuan_long",
-        "type": "敌对",
-        "intensity": 9,
-        "bond_level": 1,
-        "dynamic": "被吕梁三杰追杀，力战至死不屈"
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "舍命护女"
       }
     ],
     "known_skills": [
-      "skill_chang_dao"
+      "skill_bai_ma_dao_fa"
     ],
-    "related_skills": []
+    "related_skills": [
+      "skill_bai_ma_dao_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 13,
+        "line_end": 91,
+        "text": "那汉子左边背心上插着一枝羽箭。鲜血从他背心流到马背上，又流到地下，渗入了黄沙之中。他不敢伸手拔箭，只怕这枝箭一拔下来，就会支持不住，立时倒毙。谁不死呢？那也没什么。可是谁来照料前面的娇妻幼女？在身后，凶悍毒辣的敌人正紧紧追杀。他胯下的枣红马"
+      }
+    ]
   },
   {
     "id": "char_shang_guan_hong",
     "name": "上官虹",
     "alias": [
+      "虹妹",
       "金银小剑三娘子",
-      "虹妹"
+      "三娘子",
+      "那少妇"
     ],
-    "identity": "白马李三之妻，史仲俊师妹",
-    "faction": null,
-    "role": "protagonist_parent",
-    "archetype": "烈性贞妻",
-    "rank": "登堂入室",
-    "one_line": "外号'金银小剑三娘子'，与史仲俊同门学艺，为夫殉情以双剑刺死仇敌后自尽",
+    "identity": "白马李三之妻，史仲俊同门师妹",
+    "faction": "无",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "怀抱幼女逃亡，最终以金银双剑殉夫并刺死史仲俊。",
     "personality": {
       "traits": [
-        "温柔贤淑",
-        "刚烈殉情",
-        "深情不渝",
-        "外柔内刚"
+        "温柔",
+        "烈性",
+        "忠贞",
+        "机警",
+        "决绝"
       ],
-      "speech_style": "声音温柔颤抖，危难中仍语带柔情",
-      "temperament": "温婉中藏刚烈，以死明志"
+      "speech_style": "柔婉中带坚决，情急时声音发颤",
+      "temperament": "外柔内刚，爱憎分明"
     },
     "relationships": [
       {
         "target": "char_bai_ma_li_san",
-        "type": "夫妻",
-        "intensity": 10,
-        "bond_level": 10,
-        "dynamic": "深爱丈夫，丈夫死后毅然殉情"
-      },
-      {
-        "target": "char_li_wen_xiu",
-        "type": "母女",
-        "intensity": 10,
-        "bond_level": 10,
-        "dynamic": "临终将地图手帕托付女儿，嘱其好好照料自己"
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "殉夫而死"
       },
       {
         "target": "char_shi_zhong_jun",
-        "type": "同门师兄妹",
-        "intensity": 6,
-        "bond_level": 3,
-        "dynamic": "曾是同门师兄妹，史仲俊暗恋她，她却一见钟情于李三"
+        "type": "对手",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "以旧情诱敌同归于尽"
+      },
+      {
+        "target": "char_li_wen_xiu",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "临死前送女逃生"
       }
     ],
     "known_skills": [
       "skill_jin_yin_xiao_jian"
     ],
-    "related_skills": []
+    "related_skills": [
+      "skill_jin_yin_xiao_jian"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 25,
+        "line_end": 169,
+        "text": "那少妇听得声响，回过头来，忽见红马倒毙，吃了一惊，叫道：\"大哥⋯⋯怎⋯⋯怎么啦？\"那汉子皱眉摇了摇头。但见身后数里外尘沙飞扬，大队敌人追了上来。那少妇圈转马来，驰到丈夫身旁，蓦然见到他背上的羽箭，背心上的大片鲜血，不禁大惊，险些晕了过去。那"
+      }
+    ]
   },
   {
     "id": "char_li_wen_xiu",
     "name": "李文秀",
     "alias": [
-      "阿秀",
       "秀儿",
+      "小女孩",
+      "汉人姑娘",
       "李英雄"
     ],
-    "identity": "汉人少女，瓦耳拉齐之徒，李文道之女",
-    "faction": "铁延部",
-    "role": "主角",
-    "archetype": "痴情少女",
+    "identity": "白马李三与上官虹之女，流落回疆的汉人少女",
+    "faction": "无",
+    "role": "protagonist",
+    "archetype": "warrior",
     "rank": "登堂入室",
-    "one_line": "内功已有根基的汉人少女，痴恋苏普而不得，心地仁善",
+    "one_line": "李文秀在本章从孤女成长为能救人的少女，击败陈达海并面对瓦耳拉齐。",
     "personality": {
       "traits": [
-        "心地仁善",
-        "痴情执着",
-        "坚韧聪慧",
-        "外表柔弱内心刚强"
+        "善良",
+        "坚忍",
+        "敏感",
+        "重情",
+        "勇敢",
+        "自卑",
+        "宽厚"
       ],
-      "speech_style": "温柔低沉，措辞委婉，偶有感慨",
-      "temperament": "外柔内刚，重情重义，忍痛成全"
+      "speech_style": "少年时直率怯生，长成后温和克制",
+      "temperament": "孤苦而柔韧，危急时敢于担当"
     },
     "relationships": [
       {
-        "target": "char_su_pu",
-        "type": "青梅竹马/单恋",
-        "intensity": 10,
-        "bond_level": 9,
-        "dynamic": "深爱苏普却忍痛放手，成全他与阿曼"
+        "target": "char_bai_ma_li_san",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "父女死别"
       },
       {
-        "target": "char_ji_lao_ren",
-        "type": "祖孙相依",
-        "intensity": 8,
-        "bond_level": 9,
-        "dynamic": "计老人抚养她长大，二人相依为命"
+        "target": "char_shang_guan_hong",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "母女死别"
       },
       {
         "target": "char_hua_hui",
         "type": "师徒",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "拜华辉为师学习武功，七八天练成绝招"
-      },
-      {
-        "target": "char_chen_da_hai",
-        "type": "杀父仇敌",
-        "intensity": 9,
-        "bond_level": 1,
-        "dynamic": "认出陈达海是当年追杀父母的仇人，与之交手"
-      },
-      {
-        "target": "char_a_man",
-        "type": "主奴/成全",
-        "intensity": 7,
-        "bond_level": 6,
-        "dynamic": "夺过阿曼为奴又主动释放，忍痛成全苏普与阿曼"
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "受其传授武艺"
       },
       {
         "target": "char_su_pu",
-        "type": "暗恋",
-        "intensity": 9,
-        "bond_level": 8,
-        "dynamic": "深爱苏普却甘愿放手，独自骑白马东归"
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "童年相救相伴，心中暗恋"
       },
       {
         "target": "char_a_man",
-        "type": "情敌/朋友",
-        "intensity": 5,
-        "bond_level": 6,
-        "dynamic": "成全苏普与阿曼，最终释然"
-      },
-      {
-        "target": "char_wa_er_la_qi",
-        "type": "师徒",
-        "intensity": 6,
-        "bond_level": 6,
-        "dynamic": "敬重师父临终仍陪伴左右"
-      },
-      {
-        "target": "char_ji_lao_ren",
-        "type": "祖孙之情",
-        "intensity": 8,
-        "bond_level": 8,
-        "dynamic": "计爷爷被害，文秀悲痛万分"
-      },
-      {
-        "target": "char_su_lu_ke",
-        "type": "友人",
-        "intensity": 4,
-        "bond_level": 5,
-        "dynamic": "苏鲁克敬其武功品性，挽留其定居"
+        "type": "对手",
+        "intensity": 35,
+        "bond_level": 2,
+        "dynamic": "情感上自惭退让"
       }
     ],
     "known_skills": [
-      "skill_da_qin_na_shou",
-      "skill_ye_di_fei_yan",
-      "skill_nei_gong_base"
+      "skill_hua_hui_zhi_fa",
+      "skill_da_qin_na_shou"
     ],
-    "related_skills": []
+    "related_skills": [
+      "skill_hua_hui_zhi_fa",
+      "skill_da_qin_na_shou"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 31,
+        "line_end": 43,
+        "text": "那小姑娘失声惊叫：\"爹，爹，你背上有箭！\"那汉子苦笑了一下，说道：\"不碍事！\"一跃而起，轻轻巧巧的落在妻子身后鞍上，他虽身受重伤，身法仍轻捷利落。那少妇回头望着他，满脸关怀痛惜之情，轻声道：\"大哥，你⋯⋯\"那汉子双腿一夹，扯起马缰。白马四蹄"
+      },
+      {
+        "chapter": 1,
+        "line_start": 2404,
+        "line_end": 2496,
+        "text": "陈达海踏上一步，问李文秀：\"你是谁？你是汉人，到这里来干什么？\"李文秀微微冷笑，道：\"你不认得我，我却认得你。抢劫哈萨克部落，害死不少哈萨克人的，就是你这批汉人强盗。\"说到这里，声音变得甚是苦涩，心中在想：\"如不是你们这些强盗作了这许多坏事"
+      }
+    ]
   },
   {
     "id": "char_huo_yuan_long",
     "name": "霍元龙",
     "alias": [
-      "神刀震关西"
+      "神刀震关西",
+      "吕梁三杰老大"
     ],
-    "identity": "杀害李文秀父母的强盗首领",
-    "faction": "faction_jin_wei_biao_ju",
-    "role": "反派（提及）",
-    "archetype": "恶匪",
-    "rank": "略有小成",
-    "one_line": "强盗首领，杀害李文秀父母，携修改后的地图在沙漠中兜圈至死",
+    "identity": "吕梁三杰之首，晋威镖局首领",
+    "faction": "晋威镖局",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "率众追杀李三夫妇，杀死白马李三后搜寻高昌地图。",
     "personality": {
       "traits": [
-        "残忍嗜杀",
-        "贪婪无厌",
-        "刚愎自用"
+        "凶悍",
+        "贪婪",
+        "老练",
+        "残酷",
+        "多疑"
       ],
-      "speech_style": "凶狠霸道",
-      "temperament": "暴戾贪婪"
+      "speech_style": "号令式短句，语气粗厉",
+      "temperament": "剽悍强横，遇事谨慎"
     },
     "relationships": [
       {
-        "target": "char_shi_zhong_jun",
-        "type": "结义兄弟",
-        "intensity": 7,
-        "bond_level": 8,
-        "dynamic": "吕梁三杰结义，大哥对二弟的死深感惋惜"
-      },
-      {
-        "target": "char_chen_da_hai",
-        "type": "结义兄弟",
-        "intensity": 7,
-        "bond_level": 8,
-        "dynamic": "吕梁三杰结义，兄弟同心追图"
-      },
-      {
         "target": "char_bai_ma_li_san",
-        "type": "追杀仇敌",
-        "intensity": 9,
-        "bond_level": 1,
-        "dynamic": "为夺高昌迷宫地图率六十三人追杀李三夫妇至大漠"
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "追杀夺图"
       },
       {
         "target": "char_chen_da_hai",
-        "type": "同伙",
-        "intensity": 6,
-        "bond_level": 5,
-        "dynamic": "率盗伙追踪迷宫宝藏"
+        "type": "合作者",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "结义兄弟"
       },
       {
-        "target": "char_li_wen_xiu",
-        "type": "杀亲仇人",
-        "intensity": 8,
-        "bond_level": 0,
-        "dynamic": "杀害文秀父母，终困死沙漠"
+        "target": "char_shi_zhong_jun",
+        "type": "合作者",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "结义兄弟"
       }
     ],
     "known_skills": [
-      "skill_yan_ling_dao"
+      "skill_shen_dao_zhen_guan_xi"
     ],
-    "related_skills": []
+    "related_skills": [
+      "skill_shen_dao_zhen_guan_xi"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 107,
+        "line_end": 111,
+        "text": "她整了整衣衫，掠好了头发，转瞬间数十骑马先后驰到，当先一人是吕梁三杰中老二史仲俊。吕梁三杰是结义兄弟。老大\"神刀震关西\"霍元龙，便是杀死白马李三的那剽悍凶狠汉子。老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东"
+      }
+    ]
   },
   {
     "id": "char_shi_zhong_jun",
     "name": "史仲俊",
     "alias": [
-      "梅花枪"
+      "梅花枪",
+      "史二爷",
+      "吕梁三杰老二"
     ],
-    "identity": "吕梁三杰之二，上官虹师兄",
-    "faction": "faction_jin_wei_biao_ju",
-    "role": "antagonist",
-    "archetype": "情痴悲客",
-    "rank": "炉火纯青",
-    "one_line": "吕梁三杰老二，外号'梅花枪'，暗恋师妹上官虹十年未娶，终被其所杀",
+    "identity": "吕梁三杰老二，上官虹旧日师兄",
+    "faction": "晋威镖局",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "暗箭伤李三，仍恋上官虹，最终被她以银柄短剑刺死。",
     "personality": {
       "traits": [
-        "痴情执念",
-        "妒恨交迸",
-        "出手狠辣",
-        "悲情宿命"
+        "痴情",
+        "嫉妒",
+        "阴狠",
+        "软弱",
+        "执念深重"
       ],
-      "speech_style": "面对师妹时语气温柔颤抖，战斗中则凶狠果决",
-      "temperament": "因情而变，外表凶狠内心痴情"
+      "speech_style": "对上官虹柔声，对敌狠辣",
+      "temperament": "情欲与悔意交织，执迷不悟"
     },
     "relationships": [
       {
         "target": "char_shang_guan_hong",
-        "type": "单恋/同门",
-        "intensity": 10,
-        "bond_level": 8,
-        "dynamic": "暗恋师妹十年未娶，重逢后被其殉夫一剑刺死"
-      },
-      {
-        "target": "char_huo_yuan_long",
-        "type": "结义兄弟",
-        "intensity": 7,
-        "bond_level": 8,
-        "dynamic": "吕梁三杰结义，二弟对大哥敬畏"
+        "type": "恋人",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "旧情未断却被反杀"
       },
       {
         "target": "char_bai_ma_li_san",
-        "type": "情敌/追杀",
-        "intensity": 9,
-        "bond_level": 1,
-        "dynamic": "妒恨白马李三娶走师妹，暗箭射伤李三"
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "妒恨而暗箭伤人"
       }
     ],
     "known_skills": [
       "skill_mei_hua_qiang"
     ],
-    "related_skills": []
+    "related_skills": [
+      "skill_mei_hua_qiang"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 107,
+        "line_end": 167,
+        "text": "她整了整衣衫，掠好了头发，转瞬间数十骑马先后驰到，当先一人是吕梁三杰中老二史仲俊。吕梁三杰是结义兄弟。老大\"神刀震关西\"霍元龙，便是杀死白马李三的那剽悍凶狠汉子。老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东"
+      }
+    ]
   },
   {
     "id": "char_chen_da_hai",
     "name": "陈达海",
     "alias": [
-      "青蟒剑"
+      "青蟒剑",
+      "吕梁三杰老三"
     ],
-    "identity": "强盗，杀害李文秀父母的凶手之一",
-    "faction": "faction_jin_wei_biao_ju",
-    "role": "反派（提及）",
-    "archetype": "恶匪",
-    "rank": "略有小成",
-    "one_line": "强盗之一，持地图入迷宫被打晕后绑上马背放走，地图被篡改后困死沙漠",
+    "identity": "吕梁三杰老三，辽东马贼出身的镖局首脑",
+    "faction": "晋威镖局",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "陈达海十二年后追到草屋，被李文秀以华辉所授武功击败。",
     "personality": {
       "traits": [
-        "凶残贪婪",
-        "愚蠢固执",
-        "贪财如命"
+        "凶暴",
+        "贪婪",
+        "狡诈",
+        "好勇",
+        "残忍"
       ],
-      "speech_style": "粗野凶悍",
-      "temperament": "贪婪暴戾"
+      "speech_style": "粗声厉喝，动辄威胁",
+      "temperament": "强横狠辣，临战不服输"
     },
     "relationships": [
       {
         "target": "char_huo_yuan_long",
-        "type": "结义兄弟",
-        "intensity": 7,
-        "bond_level": 8,
-        "dynamic": "吕梁三杰结义，听从大哥号令"
+        "type": "合作者",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "结义兄弟"
       },
       {
         "target": "char_li_wen_xiu",
-        "type": "仇敌/被击败",
-        "intensity": 9,
-        "bond_level": 1,
-        "dynamic": "追杀李文秀父母十二年，最终被李文秀击败负伤逃走"
-      },
-      {
-        "target": "char_a_man",
-        "type": "劫持者",
-        "intensity": 7,
-        "bond_level": 1,
-        "dynamic": "威逼阿曼为奴，以苏普等人性命相胁"
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "十二年后被其击败"
       },
       {
         "target": "char_su_pu",
-        "type": "敌对",
-        "intensity": 8,
-        "bond_level": 1,
-        "dynamic": "与苏普刀剑相斗，刺伤苏普头颈和手腕"
-      },
-      {
-        "target": "char_huo_yuan_long",
-        "type": "同伙",
-        "intensity": 6,
-        "bond_level": 5,
-        "dynamic": "随霍元龙追宝"
-      },
-      {
-        "target": "char_wa_er_la_qi",
-        "type": "被害者/仇人",
-        "intensity": 6,
-        "bond_level": 0,
-        "dynamic": "被瓦耳拉齐打晕并篡改地图"
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "挟持威胁"
       }
     ],
     "known_skills": [
       "skill_qing_mang_jian_fa"
     ],
-    "related_skills": []
-  },
-  {
-    "id": "char_su_pu",
-    "name": "苏普",
-    "alias": [],
-    "identity": "铁延部青年勇士，苏鲁克之子",
-    "faction": "铁延部",
-    "role": "男配角",
-    "archetype": "英武少年",
-    "rank": "登堂入室",
-    "one_line": "铁延部勇士之子，骁勇朴实，不知李文秀女儿身",
-    "personality": {
-      "traits": [
-        "勇猛直率",
-        "质朴憨厚",
-        "重情重义",
-        "粗中有细"
-      ],
-      "speech_style": "直来直去，口无遮拦",
-      "temperament": "豪爽热情，对阿曼深情"
-    },
-    "relationships": [
+    "related_skills": [
+      "skill_qing_mang_jian_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
       {
-        "target": "char_li_wen_xiu",
-        "type": "儿时伙伴/不知其身份",
-        "intensity": 8,
-        "bond_level": 8,
-        "dynamic": "不知阿秀即李文秀，仍怀念儿时伙伴，为她辩护"
+        "chapter": 1,
+        "line_start": 111,
+        "line_end": 177,
+        "text": "老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东马贼出身，后来却在山西落脚，和霍史二人意气相投，合伙在山西省太谷县开设了一家晋威镖局。史仲俊和白马李三的妻子上官虹原是同门师兄妹，两人自幼一起学艺。史仲俊心中一直"
       },
       {
-        "target": "char_a_man",
-        "type": "恋人",
-        "intensity": 9,
-        "bond_level": 9,
-        "dynamic": "与阿曼相爱，二人形影不离"
-      },
-      {
-        "target": "char_su_lu_ke",
-        "type": "父子",
-        "intensity": 8,
-        "bond_level": 8,
-        "dynamic": "继承父亲苏鲁克的刀法，父子关系亲密"
-      },
-      {
-        "target": "char_a_man",
-        "type": "恋人",
-        "intensity": 8,
-        "bond_level": 8,
-        "dynamic": "与阿曼两情相悦，终成眷属"
-      },
-      {
-        "target": "char_li_wen_xiu",
-        "type": "朋友",
-        "intensity": 5,
-        "bond_level": 6,
-        "dynamic": "不知文秀是女子，视其为英雄"
-      },
-      {
-        "target": "char_su_lu_ke",
-        "type": "父子",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "听从父亲，性格受其影响"
+        "chapter": 1,
+        "line_start": 2404,
+        "line_end": 2496,
+        "text": "陈达海踏上一步，问李文秀：\"你是谁？你是汉人，到这里来干什么？\"李文秀微微冷笑，道：\"你不认得我，我却认得你。抢劫哈萨克部落，害死不少哈萨克人的，就是你这批汉人强盗。\"说到这里，声音变得甚是苦涩，心中在想：\"如不是你们这些强盗作了这许多坏事"
       }
-    ],
-    "known_skills": [
-      "skill_dao_fa"
-    ],
-    "related_skills": []
-  },
-  {
-    "id": "char_a_man",
-    "name": "阿曼",
-    "alias": [],
-    "identity": "铁延部少女，车尔库之女",
-    "faction": "铁延部",
-    "role": "女配角",
-    "archetype": "美丽少女",
-    "rank": "平平无奇",
-    "one_line": "车尔库之女，美丽聪慧，早已识破李文秀女子身份",
-    "personality": {
-      "traits": [
-        "聪慧敏锐",
-        "活泼开朗",
-        "善良温柔",
-        "观察入微"
-      ],
-      "speech_style": "娇俏灵动，善于调侃",
-      "temperament": "外向明快，心思细腻"
-    },
-    "relationships": [
-      {
-        "target": "char_su_pu",
-        "type": "恋人",
-        "intensity": 9,
-        "bond_level": 9,
-        "dynamic": "与苏普深情相爱，危难时刻挡在苏普身前"
-      },
-      {
-        "target": "char_che_er_ku",
-        "type": "父女",
-        "intensity": 7,
-        "bond_level": 8,
-        "dynamic": "孝顺父亲，跟随父亲行动"
-      },
-      {
-        "target": "char_chen_da_hai",
-        "type": "被迫为奴",
-        "intensity": 6,
-        "bond_level": 1,
-        "dynamic": "被陈达海胁迫起誓为奴，心中十分委屈"
-      },
-      {
-        "target": "char_su_pu",
-        "type": "恋人",
-        "intensity": 8,
-        "bond_level": 8,
-        "dynamic": "与苏普相爱，率先看破文秀身份"
-      },
-      {
-        "target": "char_che_er_ku",
-        "type": "父女",
-        "intensity": 6,
-        "bond_level": 6,
-        "dynamic": "车尔库疼爱之女"
-      },
-      {
-        "target": "char_li_wen_xiu",
-        "type": "朋友/情敌",
-        "intensity": 5,
-        "bond_level": 5,
-        "dynamic": "感念文秀成全，拉手告别"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": []
-  },
-  {
-    "id": "char_su_lu_ke",
-    "name": "苏鲁克",
-    "alias": [],
-    "identity": "铁延部族长级人物，苏普之父",
-    "faction": "铁延部",
-    "role": "长辈",
-    "archetype": "豪迈族人",
-    "rank": "略有小成",
-    "one_line": "铁延部长辈，性格豪迈好胜，与车尔库争闹不休但关键时刻互相扶持",
-    "personality": {
-      "traits": [
-        "豪迈好胜",
-        "爱吹牛皮",
-        "重义气",
-        "刀子嘴豆腐心"
-      ],
-      "speech_style": "粗犷豪放，爱说大话",
-      "temperament": "外刚内柔，粗中有细"
-    },
-    "relationships": [
-      {
-        "target": "char_su_pu",
-        "type": "父子",
-        "intensity": 8,
-        "bond_level": 8,
-        "dynamic": "以子为傲，自称哈萨克第一勇士，苏普第二"
-      },
-      {
-        "target": "char_che_er_ku",
-        "type": "挚友/损友",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "多年挚友，常互相斗嘴打架，酒后尤甚"
-      },
-      {
-        "target": "char_li_wen_xiu",
-        "type": "被救后改观",
-        "intensity": 6,
-        "bond_level": 5,
-        "dynamic": "被李文秀救命后，对汉人看法开始动摇"
-      },
-      {
-        "target": "char_che_er_ku",
-        "type": "同族挚友/冤家",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "一路互殴争吵，关键时刻互相安慰"
-      },
-      {
-        "target": "char_su_pu",
-        "type": "父子",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "疼爱儿子，教导其勇武"
-      },
-      {
-        "target": "char_li_wen_xiu",
-        "type": "敬重",
-        "intensity": 4,
-        "bond_level": 5,
-        "dynamic": "称其李英雄，挽留其定居"
-      }
-    ],
-    "known_skills": [
-      "skill_dao_fa"
-    ],
-    "related_skills": []
-  },
-  {
-    "id": "char_che_er_ku",
-    "name": "车尔库",
-    "alias": [],
-    "identity": "铁延部长辈，阿曼之父",
-    "faction": "铁延部",
-    "role": "长辈",
-    "archetype": "严厉父亲",
-    "rank": "略有小成",
-    "one_line": "铁延部长辈，阿曼之父，失去两名弟子后伤心拭泪",
-    "personality": {
-      "traits": [
-        "严厉刚毅",
-        "爱护弟子",
-        "重情义",
-        "倔强好胜"
-      ],
-      "speech_style": "沉稳有力，言简意赅",
-      "temperament": "外表强硬，内心重情"
-    },
-    "relationships": [
-      {
-        "target": "char_a_man",
-        "type": "父女",
-        "intensity": 7,
-        "bond_level": 8,
-        "dynamic": "疼爱女儿，不愿女儿被汉人强盗掳走"
-      },
-      {
-        "target": "char_su_lu_ke",
-        "type": "挚友/损友",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "多年好友，时常斗嘴动手，谁也不服谁"
-      },
-      {
-        "target": "char_a_man",
-        "type": "父女",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "疼爱女儿，当年选婿偏爱家境好的苏鲁克"
-      },
-      {
-        "target": "char_luo_tuo",
-        "type": "师徒",
-        "intensity": 6,
-        "bond_level": 6,
-        "dynamic": "弟子骆驼死于迷宫，伤心拭泪"
-      },
-      {
-        "target": "char_su_lu_ke",
-        "type": "同族挚友/冤家",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "与苏鲁克互殴不休但互相关心"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": []
-  },
-  {
-    "id": "char_ji_lao_ren",
-    "name": "计老人",
-    "alias": [
-      "计爷爷"
-    ],
-    "identity": "隐居老人，李文秀的看护者",
-    "faction": null,
-    "role": "配角",
-    "archetype": "慈祥长辈",
-    "rank": "平平无奇",
-    "one_line": "李文秀的祖父辈看护人，在迷宫外被瓦耳拉齐杀害",
-    "personality": {
-      "traits": [
-        "慈祥和蔼",
-        "关心晚辈",
-        "勇敢无畏",
-        "忠厚善良"
-      ],
-      "speech_style": "温和关切",
-      "temperament": "慈爱稳重"
-    },
-    "relationships": [
-      {
-        "target": "char_li_wen_xiu",
-        "type": "养育之恩",
-        "intensity": 9,
-        "bond_level": 9,
-        "dynamic": "抚养李文秀长大，视如己出，为其安危忧心忡忡"
-      },
-      {
-        "target": "char_chen_da_hai",
-        "type": "戒备应付",
-        "intensity": 5,
-        "bond_level": 1,
-        "dynamic": "面对陈达海的逼迫小心周旋，隐瞒李文秀身份"
-      },
-      {
-        "target": "char_li_wen_xiu",
-        "type": "祖孙之情",
-        "intensity": 8,
-        "bond_level": 8,
-        "dynamic": "不放心文秀独自冒险，赶来陪伴却被害"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": []
-  },
-  {
-    "id": "char_hua_hui",
-    "name": "华辉",
-    "alias": [],
-    "identity": "李文秀的武功师父",
-    "faction": null,
-    "role": "mentioned",
-    "archetype": "隐世高人",
-    "rank": "出神入化",
-    "one_line": "李文秀的武功师父，传授其大擒拿手等绝技，居所隐秘",
-    "personality": {
-      "traits": [
-        "武学高深",
-        "隐世不出"
-      ],
-      "speech_style": "",
-      "temperament": "未直接出场，推测沉稳深邃"
-    },
-    "relationships": [
-      {
-        "target": "char_li_wen_xiu",
-        "type": "师徒",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "传授李文秀武功，七八天练成绝招"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": []
-  },
-  {
-    "id": "char_sang_si_er",
-    "name": "桑斯尔",
-    "alias": [],
-    "identity": "铁延部青年",
-    "faction": "铁延部",
-    "role": "配角",
-    "archetype": "勇武青年",
-    "rank": "初窥门径",
-    "one_line": "铁延部青年，与骆驼并肩探迷宫，同被瓦耳拉齐击毙",
-    "personality": {
-      "traits": [
-        "勇敢好胜",
-        "不甘落后",
-        "年轻气盛"
-      ],
-      "speech_style": "年轻有力",
-      "temperament": "好胜冲动"
-    },
-    "relationships": [
-      {
-        "target": "char_che_er_ku",
-        "type": "师徒",
-        "intensity": 5,
-        "bond_level": 6,
-        "dynamic": "随师父车尔库出征，执行追踪任务"
-      },
-      {
-        "target": "char_luo_tuo",
-        "type": "同伴",
-        "intensity": 4,
-        "bond_level": 5,
-        "dynamic": "并肩探路，同时遇难"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": []
-  },
-  {
-    "id": "char_luo_tuo",
-    "name": "骆驼",
-    "alias": [
-      "骆驼"
-    ],
-    "identity": "车尔库的弟子",
-    "faction": "铁延部",
-    "role": "配角",
-    "archetype": "鲁莽弟子",
-    "rank": "初窥门径",
-    "one_line": "车尔库弟子，在迷宫甬道中被瓦耳拉齐击毙",
-    "personality": {
-      "traits": [
-        "勇敢鲁莽",
-        "不甘示弱",
-        "胆大冲动"
-      ],
-      "speech_style": "声洪胆壮",
-      "temperament": "冲动好胜"
-    },
-    "relationships": [
-      {
-        "target": "char_che_er_ku",
-        "type": "师徒",
-        "intensity": 5,
-        "bond_level": 6,
-        "dynamic": "随师父出征，为李文秀掘沙坑以示敬重"
-      },
-      {
-        "target": "char_che_er_ku",
-        "type": "师徒",
-        "intensity": 5,
-        "bond_level": 6,
-        "dynamic": "车尔库心爱弟子，死于迷宫"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": []
+    ]
   },
   {
     "id": "char_ding_tong",
@@ -814,289 +417,640 @@
     "alias": [
       "两头蛇"
     ],
-    "identity": "晋威镖局镖师",
-    "faction": "faction_jin_wei_biao_ju",
-    "role": "minor",
-    "archetype": "精明干练",
-    "rank": "登堂入室",
-    "one_line": "晋威镖局老镖师，外号'两头蛇'，精明干练，吕梁三杰得力助手",
+    "identity": "晋威镖局镖师，追捕李文秀的恶人",
+    "faction": "晋威镖局",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "在绿洲茅屋发现白马和李文秀，偷袭计老人后被击退。",
     "personality": {
       "traits": [
-        "精明干练",
-        "勇猛果敢",
-        "经验老道"
+        "狡诈",
+        "贪财",
+        "胆怯",
+        "狠毒",
+        "机敏"
       ],
-      "speech_style": "",
-      "temperament": "沉稳老练"
+      "speech_style": "表面陪笑恭顺，动手前虚言欺骗",
+      "temperament": "贪功冒进，欺弱怕强"
     },
     "relationships": [
       {
-        "target": "char_huo_yuan_long",
-        "type": "上下级",
-        "intensity": 5,
-        "bond_level": 6,
-        "dynamic": "效力于霍元龙麾下十七年"
+        "target": "char_li_wen_xiu",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "追捕孩童"
+      },
+      {
+        "target": "char_hua_hui",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "偷袭负伤老人"
       }
     ],
     "known_skills": [],
-    "related_skills": []
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 247,
+        "line_end": 379,
+        "text": "镖师\"两头蛇\"丁同跨上一匹健马，纵马向西北方冲去。他是晋威镖局中已干了十七年的镖师，武功虽算不上了得，但精明干练，是吕梁三杰手下一名得力助手。他一口气驰出二十余里，众同伴都已影踪不见，在茫茫的大漠中，突然起了孤寂和恐惧之感。纵马上了一个沙丘"
+      }
+    ]
   },
   {
-    "id": "char_wa_er_la_qi",
-    "name": "瓦耳拉齐",
+    "id": "char_hua_hui",
+    "name": "华辉",
     "alias": [
-      "恶鬼"
+      "计老人",
+      "华伯伯",
+      "一指震江南"
     ],
-    "identity": "哈萨克人，李文秀之师，曾暗恋雅丽仙",
-    "faction": null,
-    "role": "反派/悲剧人物",
-    "archetype": "执念魔头",
-    "rank": "炉火纯青",
-    "one_line": "李文秀师父，因情入魔扮鬼吓人，临终欲以毒针留徒陪伴，终被雅丽仙之名消解杀意",
+    "identity": "隐居回疆的江南武人，化名计老人",
+    "faction": "无",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "化名计老人的华辉揭开身份，与瓦耳拉齐旧怨相连。",
     "personality": {
       "traits": [
-        "偏执痴情",
-        "心狠手辣",
-        "孤独寂寞",
-        "内心脆弱"
+        "隐忍",
+        "机警",
+        "善谋",
+        "慈爱",
+        "自负",
+        "坚毅"
       ],
-      "speech_style": "阴森低沉，偶尔流露真情",
-      "temperament": "极端偏执，因爱生恨，死前回归人性"
+      "speech_style": "早期冷淡寡言，授艺时严厉而细密",
+      "temperament": "外表衰老冷硬，内心护短重情"
     },
     "relationships": [
       {
         "target": "char_li_wen_xiu",
         "type": "师徒",
-        "intensity": 7,
-        "bond_level": 7,
-        "dynamic": "疼爱徒弟却欲以毒针留其陪伴，最终放弃"
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "收留并传授武功"
       },
       {
-        "target": "char_ya_li_xian",
-        "type": "单恋",
-        "intensity": 9,
-        "bond_level": 3,
-        "dynamic": "一生痴恋雅丽仙不得，因她之名放弃杀害徒弟"
-      },
-      {
-        "target": "char_che_er_ku",
-        "type": "情敌",
-        "intensity": 6,
-        "bond_level": 2,
-        "dynamic": "视车尔库为夺爱仇人，被逐出部族"
-      },
-      {
-        "target": "char_ma_jia_jun",
-        "type": "师徒/仇敌",
-        "intensity": 7,
-        "bond_level": 1,
-        "dynamic": "被逆徒射毒针致重伤，恨之入骨"
-      },
-      {
-        "target": "char_ji_lao_ren",
-        "type": "仇杀",
-        "intensity": 5,
-        "bond_level": 0,
-        "dynamic": "杀死计老人"
+        "target": "char_wa_er_la_qi",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "旧年情敌与仇敌"
       }
     ],
     "known_skills": [
-      "skill_poison_needle",
-      "skill_guizhuang"
+      "skill_hua_hui_zhi_fa",
+      "skill_da_qin_na_shou"
     ],
-    "related_skills": []
+    "related_skills": [
+      "skill_hua_hui_zhi_fa",
+      "skill_da_qin_na_shou"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 299,
+        "line_end": 335,
+        "text": "丁同大吃一惊，双足一点，倒纵出去，喝问：\"是谁？\"那人冷冷的道：\"你是谁？到这里干什么？\"说的却是汉语。丁同惊魂略定，满脸笑容，说道：\"在下姓丁名同，无意间到此，惊动了老丈。请问老丈高姓大名。\"那老人道：\"老汉姓计。\"丁同陪笑道：\"原来是计"
+      },
+      {
+        "chapter": 1,
+        "line_start": 3341,
+        "line_end": 3363,
+        "text": "李文秀叫道：\"计爷爷，计爷爷。\"扶起计老人，她不敢睁眼，料想他脸上定是血肉模糊，可怖之极，那知眼开一线，看到的竟是一张壮年男子的脸孔。她吃了一惊，眼睛睁大了些，只见这张脸胡子剃得精光，面目颇为英俊，在时明时暗的火把光芒下，看来一片惨白，全无"
+      }
+    ]
+  },
+  {
+    "id": "char_su_pu",
+    "name": "苏普",
+    "alias": [
+      "哈萨克男孩",
+      "李英雄称呼者"
+    ],
+    "identity": "哈萨克少年，苏鲁克之子",
+    "faction": "哈萨克部族",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "苏普从童年放鸟相识到成年恋慕阿曼，多次受李文秀相救。",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "勇敢",
+        "天真",
+        "重义",
+        "倔强"
+      ],
+      "speech_style": "少年时得意直率，成年后真诚急切",
+      "temperament": "热烈单纯，遇险不退"
+    },
+    "relationships": [
+      {
+        "target": "char_li_wen_xiu",
+        "type": "挚友",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "童年结缘，受其多次相救"
+      },
+      {
+        "target": "char_a_man",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "相爱并共同遇险"
+      },
+      {
+        "target": "char_su_lu_ke",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "父子"
+      }
+    ],
+    "known_skills": [
+      "skill_ha_sa_ke_dao_fa"
+    ],
+    "related_skills": [
+      "skill_ha_sa_ke_dao_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 530,
+        "line_end": 604,
+        "text": "李文秀的惊呼声中，混和着一个男孩的欢叫，只见长草中跳出来一个哈萨克男孩，得意地叫道：\"捉住了，捉住了！\"他用外衣裹着天铃鸟，鸟儿惊慌的叫声，郁闷地隔着外衣传出来。李文秀又吃惊，又愤怒，叫道：\"你干什么？\"那男孩道：\"我捉天铃鸟。你也来捉么？"
+      },
+      {
+        "chapter": 1,
+        "line_start": 2634,
+        "line_end": 2755,
+        "text": "\"李文秀道：\"你还记得她么？\"苏普道：\"自然记得。那怎么会忘记？\"李文秀道：\"你怎么不去瞧瞧她的坟墓？\"苏普道：\"对！等我们杀了那批强盗，我要那卖酒的老汉人带我去瞧瞧。\"李文秀问道：\"要是那墓上也裂开了一条大缝，你会不会跳进去？\"她本不想问"
+      }
+    ]
+  },
+  {
+    "id": "char_che_er_ku",
+    "name": "车尔库",
+    "alias": [
+      "满脸虬髯的大汉"
+    ],
+    "identity": "哈萨克牧民，阿曼之父",
+    "faction": "哈萨克部族",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "粗豪的哈萨克男子，初时痛恨汉人，后被李文秀救助。",
+    "personality": {
+      "traits": [
+        "粗豪",
+        "爱女",
+        "直率",
+        "多疑",
+        "重义"
+      ],
+      "speech_style": "粗声直问，情急时高呼",
+      "temperament": "外粗内热，护女心切"
+    },
+    "relationships": [
+      {
+        "target": "char_a_man",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_su_lu_ke",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "族人并同行"
+      },
+      {
+        "target": "char_li_wen_xiu",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "受救后改观"
+      }
+    ],
+    "known_skills": [
+      "skill_ha_sa_ke_dao_fa"
+    ],
+    "related_skills": [
+      "skill_ha_sa_ke_dao_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 736,
+        "line_end": 766,
+        "text": "苏普叫道：\"爹，你瞧，我杀死了一头大狼。\"那大汉大喜，见儿子脸上溅满了血，眼光又掠过李文秀的脸，问苏普道：\"你给狼咬了？\"苏普道：\"我在这儿听阿秀说故事，忽然这头狼来咬她⋯⋯\"突然之间，那大汉脸上罩上了一层阴影，望着李文秀冷冷的道：\"你便是"
+      }
+    ]
+  },
+  {
+    "id": "char_su_lu_ke",
+    "name": "苏鲁克",
+    "alias": [
+      "苏普的爹爹"
+    ],
+    "identity": "哈萨克牧民，苏普之父",
+    "faction": "哈萨克部族",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "痛恨汉人却在危难中受李文秀相救的哈萨克父亲。",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "护子",
+        "固执",
+        "仇汉",
+        "率直"
+      ],
+      "speech_style": "怒声多，常以质问表达立场",
+      "temperament": "刚烈偏执，重亲情"
+    },
+    "relationships": [
+      {
+        "target": "char_su_pu",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_li_wen_xiu",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "因汉人身份而排斥，后受救"
+      }
+    ],
+    "known_skills": [
+      "skill_ha_sa_ke_dao_fa"
+    ],
+    "related_skills": [
+      "skill_ha_sa_ke_dao_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 740,
+        "line_end": 850,
+        "text": "\"这时李文秀已认出他来，那便是踢过她一脚的苏鲁克。她记起了计老人的话：\"他的妻子和大儿子，一夜之间都给汉人强盗杀了，因此他恨极了汉人。\"她点了点头，正想说：\"我爹爹妈妈也是给那些强盗害的。\"话还没出口，突然唰的一声，苏普脸上肿起了一条长长的"
+      }
+    ]
+  },
+  {
+    "id": "char_a_man",
+    "name": "阿曼",
+    "alias": [
+      "天铃鸟般的姑娘"
+    ],
+    "identity": "哈萨克少女，车尔库之女",
+    "faction": "哈萨克部族",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "阿曼与苏普相爱，被瓦耳拉齐掳走后获救。",
+    "personality": {
+      "traits": [
+        "美丽",
+        "温柔",
+        "羞怯",
+        "勇敢",
+        "忠贞"
+      ],
+      "speech_style": "轻柔羞涩，危急时直率呼喊",
+      "temperament": "柔美而坚定"
+    },
+    "relationships": [
+      {
+        "target": "char_su_pu",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "互相爱慕"
+      },
+      {
+        "target": "char_che_er_ku",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_li_wen_xiu",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "无意成为情感竞争者"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 946,
+        "line_end": 978,
+        "text": "过了些日子，车尔库送来了两张精致的羊毛毯子。他说：\"这是阿曼织的，一张给老的，一张给小的。\"一张毛毯上织着一个大汉，手持长刀，砍翻了一头豹子，远处一头豹子正挟着尾巴逃走。另一张毛毯上织着一个男孩，刺死了一头大灰狼。那二人一大一小，都威风凛凛"
+      },
+      {
+        "chapter": 1,
+        "line_start": 2753,
+        "line_end": 3171,
+        "text": "七人在森林中走了良久，阿曼忽然叫道：\"啊哟，不好！\"苏普忙问：\"怎么？\"阿曼指着前面路旁的一只闪闪发光的银镯，说道：\"你瞧！这是我先前掉下的镯子。\"那镯子在七人之前两三丈处，却不知何以忽然会在这里出现。阿曼道：\"我掉了镯子，心想只得回来时再"
+      }
+    ]
+  },
+  {
+    "id": "char_yun_da_ge",
+    "name": "云大哥",
+    "alias": [
+      "云大哥"
+    ],
+    "identity": "追入山洞的小强盗之一",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "初窥门径",
+    "one_line": "追入华辉山洞的强盗，被毒针机关威慑。",
+    "personality": {
+      "traits": [
+        "鲁莽",
+        "贪婪",
+        "警惕",
+        "凶狠",
+        "胆怯"
+      ],
+      "speech_style": "短促呼喝",
+      "temperament": "冒进而怕死"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1390,
+        "line_end": 1410,
+        "text": "华辉脸色转愉，道：\"那就是了。你⋯⋯\"一句话没说完，忽听洞外山道中有人说道：\"定是躲在这儿，小心她毒针！\"跟着脚步声响，三个人一步一停的进来。华辉忙取出一枚毒针，将针尾插入木杖的杖头，交了给她，指着进口之处，低声道：\"等人进来后刺他背心，千"
+      }
+    ]
+  },
+  {
+    "id": "char_sang_si_er",
+    "name": "桑斯尔",
+    "alias": [
+      "桑斯尔"
+    ],
+    "identity": "哈萨克部族成员",
+    "faction": "哈萨克部族",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "随众进入迷宫附近，提出鬼魅猜测的族人。",
+    "personality": {
+      "traits": [
+        "迷信",
+        "谨慎",
+        "从众",
+        "直率",
+        "胆怯"
+      ],
+      "speech_style": "以疑问表达恐惧",
+      "temperament": "面对未知时惊惧迟疑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 2596,
+        "line_end": 2598,
+        "text": "大家纷纷猜测，不知是什么缘故。桑斯尔忽然道：\"难道是鬼？\"这是人人心里早就想说的话，给他突然说出，各人忍不住都打了个寒噤。"
+      }
+    ]
+  },
+  {
+    "id": "char_ha_bu_la_mu",
+    "name": "哈卜拉木",
+    "alias": [
+      "哈卜拉木"
+    ],
+    "identity": "哈萨克族人或向导",
+    "faction": "哈萨克部族",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "随众行动的哈萨克人物，参与寻找与追赶。",
+    "personality": {
+      "traits": [
+        "随和",
+        "从众",
+        "谨慎",
+        "朴直",
+        "重族群"
+      ],
+      "speech_style": "简短应答",
+      "temperament": "普通族人气质"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 3000,
+        "line_end": 3020,
+        "text": "哼，再在这里附近逗留一晚，一个一个，叫他都不得好死，我在宫里住了一千年，谁都不能进来，你们这般大胆！\"说到这里，慢慢转身，双手指着远处一个青年，叫道：\"给我死！\"说了这三个字，猛地里回身，大步而去，月光下但见他越走越远，终于不见。只见那青年"
+      }
+    ]
+  },
+  {
+    "id": "char_wa_er_la_qi",
+    "name": "瓦耳拉齐",
+    "alias": [
+      "瓦耳拉齐",
+      "恶鬼"
+    ],
+    "identity": "隐居迷宫附近的老武人，华辉旧敌",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "瓦耳拉齐被称作恶鬼，掳走阿曼并在洞中与众人冲突。",
+    "personality": {
+      "traits": [
+        "阴鸷",
+        "执念",
+        "狠辣",
+        "孤僻",
+        "自负"
+      ],
+      "speech_style": "冷笑尖声，常以旧事刺人",
+      "temperament": "怨毒深沉，求胜不择手段"
+    },
+    "relationships": [
+      {
+        "target": "char_hua_hui",
+        "type": "宿敌",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "旧怨情仇"
+      },
+      {
+        "target": "char_a_man",
+        "type": "对手",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "掳走胁迫"
+      },
+      {
+        "target": "char_li_wen_xiu",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "洞中交手"
+      }
+    ],
+    "known_skills": [
+      "skill_wa_er_la_qi_zhang_fa"
+    ],
+    "related_skills": [
+      "skill_wa_er_la_qi_zhang_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 3151,
+        "line_end": 3363,
+        "text": "苏普抢上去松开了她绑缚，问道：\"那恶鬼呢？\"阿曼道：\"他不是鬼，是人。刚才他还在这里，听到你们声音，想抱了我逃走，我拚命挣扎，他听得你们人多，就匆匆忙忙逃走了。\"苏普舒了口气，又问：\"那⋯⋯那是怎么样一个人？他怎么会将你捉了来？\"阿曼道：\""
+      }
+    ]
   },
   {
     "id": "char_ma_jia_jun",
     "name": "马家骏",
-    "alias": [],
-    "identity": "瓦耳拉齐的逆徒",
-    "faction": null,
-    "role": "反派（提及）",
-    "archetype": "忘恩负义之徒",
-    "rank": "登堂入室",
-    "one_line": "瓦耳拉齐之徒，忘恩负义射毒针害师，被师父恨入骨髓",
+    "alias": [
+      "马家骏"
+    ],
+    "identity": "瓦耳拉齐认错所呼之人，疑为旧日情敌",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "在瓦耳拉齐旧怨中被提及，牵连高昌迷宫往事。",
     "personality": {
       "traits": [
-        "忘恩负义",
-        "阴险狠毒",
-        "欺师灭祖"
+        "神秘",
+        "旧事缠身",
+        "被怨恨",
+        "远行",
+        "关键线索"
       ],
-      "speech_style": "阴险狡诈",
-      "temperament": "阴险恶毒"
+      "speech_style": "仅在他人口中出现",
+      "temperament": "作为旧怨对象存在于回忆中"
     },
     "relationships": [
       {
         "target": "char_wa_er_la_qi",
-        "type": "师徒/仇敌",
-        "intensity": 8,
-        "bond_level": 0,
-        "dynamic": "射毒针害师，十多年来被师父追恨"
-      }
-    ],
-    "known_skills": [
-      "skill_poison_needle"
-    ],
-    "related_skills": []
-  },
-  {
-    "id": "char_ha_bu_la_mu",
-    "name": "哈卜拉姆",
-    "alias": [],
-    "identity": "铁延部阿訇，精通可兰经的智者",
-    "faction": "铁延部",
-    "role": "智者",
-    "archetype": "贤者",
-    "rank": "平平无奇",
-    "one_line": "铁延部最博学的阿訇，引用可兰经解答族人婚嫁之疑",
-    "personality": {
-      "traits": [
-        "博学睿智",
-        "谦逊温和",
-        "公正无私"
-      ],
-      "speech_style": "引经据典，温和庄重",
-      "temperament": "沉稳睿智"
-    },
-    "relationships": [
-      {
-        "target": "char_su_lu_ke",
-        "type": "族中智者",
-        "intensity": 3,
-        "bond_level": 5,
-        "dynamic": "为苏鲁克解答汉哈通婚之问"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": []
-  },
-  {
-    "id": "char_ya_li_xian",
-    "name": "雅丽仙",
-    "alias": [],
-    "identity": "阿曼的母亲，已故，瓦耳拉齐一生痴恋之人",
-    "faction": "铁延部",
-    "role": "已故人物（提及）",
-    "archetype": "红颜薄命",
-    "rank": "平平无奇",
-    "one_line": "当年铁延部美人，嫁与车尔库，瓦耳拉齐一生为之痴狂",
-    "personality": {
-      "traits": [
-        "美丽动人",
-        "温柔贤淑"
-      ],
-      "speech_style": "不详",
-      "temperament": "温婉"
-    },
-    "relationships": [
-      {
-        "target": "char_wa_er_la_qi",
-        "type": "被追求者",
-        "intensity": 8,
+        "type": "宿敌",
+        "intensity": 75,
         "bond_level": 3,
-        "dynamic": "拒绝瓦耳拉齐，随家人辱骂之"
-      },
-      {
-        "target": "char_che_er_ku",
-        "type": "夫妻",
-        "intensity": 6,
-        "bond_level": 6,
-        "dynamic": "嫁与车尔库"
+        "dynamic": "被瓦耳拉齐怨恨"
       }
     ],
     "known_skills": [],
-    "related_skills": []
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 3321,
+        "line_end": 3323,
+        "text": "二人越斗越紧，瓦耳拉齐忽然尖声叫道：\"马家骏，你好！\"计老人身子一颤，退了一步，瓦耳拉齐左手一扬，使的正是半招\"声东击西\"。"
+      }
+    ]
   },
   {
-    "id": "char_ju_wen_tai",
-    "name": "鞠文泰",
-    "alias": [],
-    "identity": "高昌国国王，唐贞观年间在位",
-    "faction": "高昌国",
-    "role": "历史人物（提及）",
-    "archetype": "末代君主",
+    "id": "char_ma_jia_ji",
+    "name": "马家骥",
+    "alias": [
+      "马家骥"
+    ],
+    "identity": "旧年往事中的人物，和迷宫传闻相关",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
     "rank": "平平无奇",
-    "one_line": "高昌国国王，建造迷宫以备退守，闻唐军至惊惧而死",
+    "one_line": "在瓦耳拉齐与华辉旧事中被提及，身份暂未详明。",
     "personality": {
       "traits": [
-        "自尊倔强",
-        "忧虑多谋",
-        "胆怯畏死"
+        "神秘",
+        "旧识",
+        "牵连宝图",
+        "少露面",
+        "线索性强"
       ],
-      "speech_style": "引经据典，有理有据",
-      "temperament": "外强中干"
+      "speech_style": "仅在叙述与回忆中出现",
+      "temperament": "身份含混，承载后续线索"
     },
-    "relationships": [
-      {
-        "target": "char_ju_zhi_sheng",
-        "type": "父子",
-        "intensity": 5,
-        "bond_level": 5,
-        "dynamic": "鞠文泰死后子继位"
-      }
-    ],
+    "relationships": [],
     "known_skills": [],
-    "related_skills": []
-  },
-  {
-    "id": "char_ju_zhi_sheng",
-    "name": "鞠智盛",
-    "alias": [],
-    "identity": "高昌国末代国王，鞠文泰之子",
-    "faction": "高昌国",
-    "role": "历史人物（提及）",
-    "archetype": "亡国之君",
-    "rank": "平平无奇",
-    "one_line": "高昌国末代国王，未及逃入迷宫即被迫投降",
-    "personality": {
-      "traits": [
-        "懦弱无能",
-        "命途多舛"
-      ],
-      "speech_style": "不详",
-      "temperament": "软弱"
-    },
-    "relationships": [
-      {
-        "target": "char_ju_wen_tai",
-        "type": "父子",
-        "intensity": 4,
-        "bond_level": 5,
-        "dynamic": "继父位后亡国投降"
-      }
+    "related_skills": [],
+    "rag_refs": [
+      1
     ],
-    "known_skills": [],
-    "related_skills": []
-  },
-  {
-    "id": "char_hou_jun_ji",
-    "name": "侯君集",
-    "alias": [],
-    "identity": "唐朝交河行军大总管、吏部尚书",
-    "faction": null,
-    "role": "历史人物（提及）",
-    "archetype": "名将",
-    "rank": "平平无奇",
-    "one_line": "唐朝大将，奉命讨伐高昌，攻破都城俘获国王",
-    "personality": {
-      "traits": [
-        "善用兵法",
-        "势如破竹",
-        "精明能干"
-      ],
-      "speech_style": "不详",
-      "temperament": "果敢刚毅"
-    },
-    "relationships": [
+    "source_refs": [
       {
-        "target": "char_ju_zhi_sheng",
-        "type": "攻伐",
-        "intensity": 5,
-        "bond_level": 0,
-        "dynamic": "率军攻破高昌俘获末代国王"
+        "chapter": 1,
+        "line_start": 3450,
+        "line_end": 3460,
+        "text": "\"他终于承认：汉人中有做强盗的坏人，也有李英雄那样的好人，（那个假扮老头儿的汉人，不肯在水井中下毒，也该算好人吧？）哈萨克人中有自己那样的好人，也有瓦耳拉齐那样的坏人。李文秀心想：\"如果当年你知道了，就不会那样狠狠的鞭打苏普，一切就会不同了"
       }
-    ],
-    "known_skills": [],
-    "related_skills": []
+    ]
   }
 ]

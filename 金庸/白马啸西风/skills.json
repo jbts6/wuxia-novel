@@ -1,244 +1,436 @@
 [
   {
-    "id": "skill_qing_mang_jian_fa",
-    "name": "青蟒剑法",
+    "id": "skill_bai_ma_dao_fa",
+    "name": "白马刀法",
     "type": "剑法",
-    "faction": "",
+    "faction": "无",
     "rank": "炉火纯青",
-    "one_line": "陈达海成名绝技，剑尖闪动如蟒蛇吐信，招招狠毒",
+    "one_line": "白马李三临死前以刀反击围攻者的实战刀法。",
     "techniques": [
       {
-        "id": "tech_du_she_chu_dong",
-        "name": "毒蛇出洞",
-        "type": "刺击",
-        "description": "挺剑直刺，势道劲急，如毒蛇出洞般迅猛"
+        "id": "tech_hui_xuan_fan_sha",
+        "name": "回旋反杀",
+        "type": "attack",
+        "description": "伏地装死后骤然回刀，趁敌俯身时连斩强敌。"
+      },
+      {
+        "id": "tech_fu_di_yin_di",
+        "name": "伏地引敌",
+        "type": "feint",
+        "description": "以重伤不动诱使敌人近身，忍痛等待最后反击机会。"
       }
     ],
     "progression": [
       {
-        "level": 1,
-        "unlock": "陈达海成名绝技，已练至精熟"
+        "level": "巅峰",
+        "description": "重伤濒死时仍可斩杀围攻者。"
       }
     ],
     "effects": [
-      "剑尖闪动如蟒蛇吐信，令对手难以判断攻击方向"
+      {
+        "type": "伤害",
+        "description": "近身爆发斩击"
+      }
     ],
-    "combat_style": "狠毒凌厉，以刺击为主，攻势绵密不绝"
+    "combat_style": "忍痛诱敌后短促爆发，偏重临死反击。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 77,
+        "line_end": 91,
+        "text": "一人挺起长枪，嗤的一声，在他右肩刺了进去。拔枪出来，鲜血直喷，白马李三仍然不动。领头的剽悍汉子道：\"死得透了，还怕什么？快搜他身上。\"两人翻身下马，去扳他身子。猛地里白光闪动，白马李三长刀回旋，嚓嚓两下，已将两人砍翻在地。众人万料不到他适才"
+      }
+    ]
+  },
+  {
+    "id": "skill_shen_dao_zhen_guan_xi",
+    "name": "神刀震关西",
+    "type": "剑法",
+    "faction": "晋威镖局",
+    "rank": "炉火纯青",
+    "one_line": "霍元龙以雁翎刀和凶悍刀势压迫对手的刀法。",
+    "techniques": [
+      {
+        "id": "tech_yan_ling_pi_zhan",
+        "name": "雁翎劈斩",
+        "type": "attack",
+        "description": "挥雁翎刀自上劈落，以力量和威势压制敌人。"
+      },
+      {
+        "id": "tech_zhong_ren_wei_sha",
+        "name": "众刃围杀",
+        "type": "attack",
+        "description": "配合同伴刀枪齐下，围困重伤对手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "围杀白马李三时展露凶悍刀势。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "刀锋劈斩与围攻"
+      }
+    ],
+    "combat_style": "强攻猛进，依仗人多势众。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 79,
+        "line_end": 89,
+        "text": "领头的剽悍汉子道：\"死得透了，还怕什么？快搜他身上。\"两人翻身下马，去扳他身子。猛地里白光闪动，白马李三长刀回旋，嚓嚓两下，已将两人砍翻在地。众人万料不到他适才竟是装死，连长枪刺入身子都浑似不觉，斗然间又会忽施反击，一惊之下，六七人勒马退开"
+      }
+    ]
+  },
+  {
+    "id": "skill_mei_hua_qiang",
+    "name": "梅花枪",
+    "type": "剑法",
+    "faction": "晋威镖局",
+    "rank": "登堂入室",
+    "one_line": "史仲俊所使长枪武艺，曾以暗箭重伤李三。",
+    "techniques": [
+      {
+        "id": "tech_mei_hua_qiang_jia",
+        "name": "梅花枪架",
+        "type": "attack",
+        "description": "以长枪为主兵，马上翻身下马皆能迅速布势。"
+      },
+      {
+        "id": "tech_an_jian_shang_di",
+        "name": "暗箭伤敌",
+        "type": "special",
+        "description": "暗中放箭重创敌人，体现阴狠偷袭手段。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "追杀中暗箭伤白马李三。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "长枪与暗箭造成创伤"
+      }
+    ],
+    "combat_style": "枪法配合暗算，偏阴狠。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 111,
+        "line_end": 125,
+        "text": "老二\"梅花枪\"史仲俊是个瘦瘦长长的汉子。老三\"青蟒剑\"陈达海高大虬髯，原是辽东马贼出身，后来却在山西落脚，和霍史二人意气相投，合伙在山西省太谷县开设了一家晋威镖局。史仲俊和白马李三的妻子上官虹原是同门师兄妹，两人自幼一起学艺。史仲俊心中一直"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_yin_xiao_jian",
+    "name": "金银小剑",
+    "type": "剑法",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "上官虹以一金一银双短剑近身刺杀与自尽的双剑技。",
+    "techniques": [
+      {
+        "id": "tech_shuang_jian_tong_gui",
+        "name": "双剑同归",
+        "type": "special",
+        "description": "暗藏双剑相拥近身，一剑向敌一剑向己，决绝同归。"
+      },
+      {
+        "id": "tech_jin_yin_an_cang",
+        "name": "金银暗藏",
+        "type": "feint",
+        "description": "以温柔笑容掩饰兵刃，趁对方失防贴身出剑。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "以旧情为局刺死史仲俊。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "近距离双剑穿刺"
+      },
+      {
+        "type": "特殊",
+        "description": "以情势诱敌失防"
+      }
+    ],
+    "combat_style": "贴身、迅疾、决绝，重在出其不意。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 131,
+        "line_end": 165,
+        "text": "上官虹的兵刃是一对短剑，一把金柄，一把银柄，江湖上有个外号，叫作\"金银小剑三娘子\"。这时她手中却不拿兵刃，脸上露着淡淡微笑。史仲俊心中蓦地升起了指望，胸口发热，苍白的脸上涌起了一阵红潮。他将梅花枪往马鞍一搁，翻身下马，叫道：\"师妹！\"上官虹"
+      }
+    ]
+  },
+  {
+    "id": "skill_ha_sa_ke_dao_fa",
+    "name": "哈萨克刀法",
+    "type": "剑法",
+    "faction": "哈萨克部族",
+    "rank": "略有小成",
+    "one_line": "哈萨克牧民常用短刀与骑射搏杀之法。",
+    "techniques": [
+      {
+        "id": "tech_duan_dao_ci_lang",
+        "name": "短刀刺狼",
+        "type": "attack",
+        "description": "以短刀扑刺野狼，近身搏杀保护羊群。"
+      },
+      {
+        "id": "tech_qi_she_dao_shu",
+        "name": "骑射刀术",
+        "type": "attack",
+        "description": "哈萨克男子骑射与刀术结合的草原战法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "日常",
+        "description": "苏普、车尔库等牧民习练防身。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "短刀近战和骑射"
+      }
+    ],
+    "combat_style": "粗犷直接，适合草原狩猎与搏斗。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 269,
+        "line_end": 740,
+        "text": "男子身上人人带刀，骑射刀术，威震西陲。向来有一句话说道：\"一个哈萨克人，抵得一百个懦夫；一百个哈萨克人，就可横行回部。\"丁同听见过这句话，寻思：\"在哈萨克部族之中，可得小心在意。\"只见东北角的一座小山脚下，孤另另的有座茅屋。这茅屋外形简陋，"
+      }
+    ]
+  },
+  {
+    "id": "skill_hua_hui_zhi_fa",
+    "name": "华辉指法",
+    "type": "指法",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "华辉一指震江南的指法，亦化为针杖点穴传授李文秀。",
+    "techniques": [
+      {
+        "id": "tech_yi_zhi_zhen_jiang_nan",
+        "name": "一指震江南",
+        "type": "attack",
+        "description": "以指力或杖头一点制敌，名震江南。"
+      },
+      {
+        "id": "tech_du_zhen_dian_ci",
+        "name": "毒针点刺",
+        "type": "debuff",
+        "description": "杖头藏针，点中敌人后以毒针令其受制。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "传授",
+        "description": "华辉将点刺诀窍教给李文秀。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "点穴与毒针制敌"
+      },
+      {
+        "type": "减益",
+        "description": "毒针使敌痛楚难支"
+      }
+    ],
+    "combat_style": "精细狠准，以小力点中要害。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1374,
+        "line_end": 1534,
+        "text": "老人痛楚渐减，点头示谢，过了一炷香时分，这才疼痛消失，站了起来，问道：\"你可知我是谁？\"李文秀道：\"不知道。\"老人道：\"我是汉人，姓华名辉，江南人氏，江湖上人称'一指震江南'的便是。\"李文秀道：\"唔，是华老伯伯。\"华辉道：\"你没听见过我的名"
+      }
+    ]
   },
   {
     "id": "skill_da_qin_na_shou",
     "name": "大擒拿手",
-    "type": "擒拿术",
-    "faction": "",
+    "type": "掌法",
+    "faction": "无",
     "rank": "登堂入室",
-    "one_line": "华辉所传绝技，李文秀以此空手对付持剑的陈达海",
-    "techniques": [],
-    "progression": [
-      {
-        "level": 1,
-        "unlock": "李文秀从华辉处习得"
-      }
-    ],
-    "effects": [
-      "可空手制服持兵刃的对手"
-    ],
-    "combat_style": "以巧破力，空手夺白刃"
-  },
-  {
-    "id": "skill_ye_di_fei_yan",
-    "name": "叶底飞燕",
-    "type": "腿法",
-    "faction": "",
-    "rank": "登堂入室",
-    "one_line": "华辉绝招之一，轻巧迅捷，李文秀苦练七八天方才练成",
-    "techniques": [],
-    "progression": [
-      {
-        "level": 1,
-        "unlock": "李文秀苦练七八天练成，踢中陈达海手腕"
-      }
-    ],
-    "effects": [
-      "轻巧迅捷，可踢中持剑者手腕使其兵刃脱手"
-    ],
-    "combat_style": "轻灵飘逸，出其不意"
-  },
-  {
-    "id": "skill_jin_yin_xiao_jian",
-    "name": "金银小剑术",
-    "type": "双短剑术",
-    "faction": "",
-    "rank": "登堂入室",
-    "one_line": "上官虹独门兵刃技法，以金银双短剑近身搏杀，一剑向外一剑向己",
-    "techniques": [],
-    "progression": [
-      {
-        "level": 1,
-        "unlock": "上官虹成名技法，用于殉夫一击"
-      }
-    ],
-    "effects": [
-      "双剑藏于衣中近身搏杀，外剑攻敌内剑自尽"
-    ],
-    "combat_style": "近身肉搏，同归于尽式打法"
-  },
-  {
-    "id": "skill_chang_dao",
-    "name": "长刀术",
-    "type": "刀法",
-    "faction": "",
-    "rank": "炉火纯青",
-    "one_line": "白马李三所用刀法，于重伤之际仍能回旋砍杀两名强敌",
-    "techniques": [],
-    "progression": [
-      {
-        "level": 1,
-        "unlock": "白马李三惯用武技"
-      }
-    ],
-    "effects": [
-      "重伤之下仍能发挥杀伤力"
-    ],
-    "combat_style": "刚猛凌厉，一击致命"
-  },
-  {
-    "id": "skill_mei_hua_qiang",
-    "name": "梅花枪法",
-    "type": "枪法",
-    "faction": "",
-    "rank": "炉火纯青",
-    "one_line": "史仲俊成名武功，外号'梅花枪'即由此而来",
-    "techniques": [],
-    "progression": [
-      {
-        "level": 1,
-        "unlock": "史仲俊成名绝技"
-      }
-    ],
-    "effects": [],
-    "combat_style": "未在本章直接展示"
-  },
-  {
-    "id": "skill_yan_ling_dao",
-    "name": "雁翎刀法",
-    "type": "刀法",
-    "faction": "",
-    "rank": "炉火纯青",
-    "one_line": "霍元龙惯用的雁翎刀武技",
-    "techniques": [],
-    "progression": [
-      {
-        "level": 1,
-        "unlock": "霍元龙惯用武技"
-      }
-    ],
-    "effects": [],
-    "combat_style": "凶狠霸道"
-  },
-  {
-    "id": "skill_dao_fa",
-    "name": "哈萨克刀法",
-    "type": "刀法",
-    "faction": "",
-    "rank": "登堂入室",
-    "one_line": "苏鲁克亲传的哈萨克刀法，苏普尽得其精髓，变幻多端",
-    "techniques": [],
-    "progression": [
-      {
-        "level": 1,
-        "unlock": "苏普尽得父亲苏鲁克亲传"
-      }
-    ],
-    "effects": [
-      "刀法变幻，招数凶悍"
-    ],
-    "combat_style": "刚猛凶悍，草原实战风格"
-  },
-  {
-    "id": "skill_nei_gong_base",
-    "name": "内功根基",
-    "type": "内功",
-    "faction": "",
-    "rank": "登堂入室",
-    "one_line": "李文秀修炼的内功，已有相当根基，众人疲累时仍神采奕奕",
+    "one_line": "李文秀从华辉处学得的擒拿手法，用于制住兵刃和关节。",
     "techniques": [
       {
-        "id": "skill_nei_gong_base_t1",
-        "name": "内功修炼",
-        "type": "内功",
-        "description": "文秀修习内功已有根基，持久不疲"
-      }
-    ],
-    "progression": [
-      {
-        "level": 2,
-        "unlock": "已有相当根基，众人皆疲时仍神采奕奕"
-      }
-    ],
-    "effects": [
-      "持久不疲",
-      "精力充沛"
-    ],
-    "combat_style": "以静制动，持久耐力"
-  },
-  {
-    "id": "skill_poison_needle",
-    "name": "毒针术",
-    "type": "暗器",
-    "faction": "",
-    "rank": "炉火纯青",
-    "one_line": "瓦耳拉齐及马家骏所用的毒针暗器，中之即死或重伤",
-    "techniques": [
-      {
-        "id": "skill_poison_needle_t1",
-        "name": "毒针暗刺",
-        "type": "暗器",
-        "description": "以涂毒细针刺人，无声无息，中之即亡或重伤"
-      }
-    ],
-    "progression": [
-      {
-        "level": 3,
-        "unlock": "马家骏以此射伤瓦耳拉齐，瓦耳拉齐以此杀敌"
-      }
-    ],
-    "effects": [
-      "中毒即死",
-      "重伤难愈"
-    ],
-    "combat_style": "偷袭暗杀，近身施毒"
-  },
-  {
-    "id": "skill_guizhuang",
-    "name": "扮鬼术",
-    "type": "伪装",
-    "faction": "",
-    "rank": "炉火纯青",
-    "one_line": "瓦耳拉齐披白袍扮鬼吓退众人，配合特殊手法令人畜暴毙",
-    "techniques": [
-      {
-        "id": "skill_guizhuang_t1",
-        "name": "白衣厉鬼",
-        "type": "伪装",
-        "description": "身披白色罩袍满脸鲜血扮鬼，双手指甲极长，声言千年不许人扰"
+        "id": "tech_da_qin_na_kou_bi",
+        "name": "大擒拿扣臂",
+        "type": "special",
+        "description": "踏步近身扣抓敌臂，使其兵刃难以施展。"
       },
       {
-        "id": "skill_guizhuang_t2",
-        "name": "隔空指杀",
-        "type": "暗器",
-        "description": "双手指向目标说给我死，目标随即暴毙无伤痕，疑为暗器或邪术"
+        "id": "tech_ye_di_fei_yan",
+        "name": "叶底飞燕",
+        "type": "attack",
+        "description": "身形轻巧侧进，飞足踢腕，是华辉传授的绝招之一。"
       }
     ],
     "progression": [
       {
-        "level": 3,
-        "unlock": "连续两夜扮鬼吓退众人，杀马又杀人"
+        "level": "初成",
+        "description": "李文秀苦练后能击败陈达海。"
       }
     ],
     "effects": [
-      "精神震慑",
-      "目标暴毙"
+      {
+        "type": "控制",
+        "description": "擒拿敌臂"
+      },
+      {
+        "type": "伤害",
+        "description": "踢腕缴械"
+      }
     ],
-    "combat_style": "心理威慑配合暗器偷袭"
+    "combat_style": "轻灵迅捷，以避实击虚取胜。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 2138,
+        "line_end": 2444,
+        "text": "眼见他第三剑跟着刺出，苏普无可抵御，势将死于非命，李文秀踏出一步，只待他刺到第三剑时，便施展\"大擒拿手\"抓他手臂，却见阿曼一跃而前，拦在苏普身前，叫道：\"不能伤他！\"陈达海见阿曼容颜如花，却满脸是惶急的神色，心中一动，这一剑便不刺出，剑尖指"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_mang_jian_fa",
+    "name": "青蟒剑法",
+    "type": "剑法",
+    "faction": "晋威镖局",
+    "rank": "炉火纯青",
+    "one_line": "陈达海所使剑法，招式狠辣如青蟒突袭。",
+    "techniques": [
+      {
+        "id": "tech_du_she_chu_dong",
+        "name": "毒蛇出洞",
+        "type": "attack",
+        "description": "长剑直刺胸前，势急如毒蛇出洞。"
+      },
+      {
+        "id": "tech_qing_mang_bi_po",
+        "name": "青蟒逼迫",
+        "type": "attack",
+        "description": "以剑尖贴喉逼人屈服，兼具威吓和控制。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "草屋中挟持众人，与李文秀交手。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "迅急剑刺"
+      },
+      {
+        "type": "控制",
+        "description": "剑尖逼迫人质"
+      }
+    ],
+    "combat_style": "凶狠直刺，重威胁和压制。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 2302,
+        "line_end": 2440,
+        "text": "陈达海长剑一挺，指在他喉头，喝道：\"跪下！\"苏鲁克大怒，和身扑上，但酒后乏力，没扑到敌人身前，便已摔倒。陈达海一声冷笑，挥剑砍下，登时苏鲁克肩头血光迸现。苏鲁克大声惨叫，要站起拚命，可是两条腿便如烂泥相似，说什么也站不起来。车尔库怒吼纵起，"
+      }
+    ]
+  },
+  {
+    "id": "skill_wa_er_la_qi_zhang_fa",
+    "name": "瓦耳拉齐掌法",
+    "type": "掌法",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "瓦耳拉齐洞中出掌迅猛，能击退车尔库并压制众人。",
+    "techniques": [
+      {
+        "id": "tech_gui_ying_zhang",
+        "name": "鬼影掌",
+        "type": "attack",
+        "description": "暗处突发掌力，令对手如遇恶鬼般难辨来势。"
+      },
+      {
+        "id": "tech_lao_mo_fan_shen",
+        "name": "老魔翻身",
+        "type": "special",
+        "description": "年老隐伏仍能骤然反扑，借地势和掌力制敌。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "迷宫附近与众人交手时显露深厚功力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "重掌击飞敌人"
+      },
+      {
+        "type": "控制",
+        "description": "暗处威慑"
+      }
+    ],
+    "combat_style": "阴狠迅捷，擅用恐惧与地形。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 3151,
+        "line_end": 3303,
+        "text": "苏普抢上去松开了她绑缚，问道：\"那恶鬼呢？\"阿曼道：\"他不是鬼，是人。刚才他还在这里，听到你们声音，想抱了我逃走，我拚命挣扎，他听得你们人多，就匆匆忙忙逃走了。\"苏普舒了口气，又问：\"那⋯⋯那是怎么样一个人？他怎么会将你捉了来？\"阿曼道：\""
+      }
+    ]
   }
 ]
