@@ -1,0 +1,1967 @@
+[
+  {
+    "id": "skill_hua_shan_jian_fa",
+    "name": "华山剑法",
+    "type": "剑法",
+    "faction": "faction_hua_shan_pai",
+    "rank": "出神入化",
+    "one_line": "华山派传承剑法，枯梅以此苦战太阴四剑守住门户。",
+    "techniques": [
+      {
+        "id": "tech_hua_shan_shou_shan_jian",
+        "name": "守山剑势",
+        "type": "defense",
+        "description": "以坚守门户为核心的剑势，适合浴血久战。"
+      },
+      {
+        "id": "tech_hua_shan_po_di_jian",
+        "name": "破敌剑招",
+        "type": "attack",
+        "description": "在重伤之下仍能反制来犯强敌的杀招。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "能守门户应敌"
+      },
+      {
+        "level": "出神入化",
+        "description": "身受重伤仍可连破强敌"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑招凌厉可杀伤强敌"
+      },
+      {
+        "type": "控制",
+        "description": "守势稳固可阻敌火焚玄玉观"
+      }
+    ],
+    "combat_style": "刚柔相济，重守山门与苦战不退。",
+    "rag_refs": [
+      1,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 12,
+        "line_end": 14,
+        "text": "“太阴四剑”为了报昔年一掌之仇，大举来犯……枯梅大师身受轻重伤三十九处，还是浴血苦战不懈。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 22,
+        "line_end": 24,
+        "text": "枯梅大师并没有死。丁枫既然能用药物诈死，枯梅大师当然也能。"
+      }
+    ]
+  },
+  {
+    "id": "skill_chu_liu_xiang_qing_gong",
+    "name": "楚留香轻功",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "楚留香凌空纵跃、遇险脱身的成名轻身功夫。",
+    "techniques": [
+      {
+        "id": "tech_ling_kong_yi_zhuan",
+        "name": "凌空一转",
+        "type": "special",
+        "description": "在空中转折身形跃上目标。"
+      },
+      {
+        "id": "tech_ta_huo_ru_shui",
+        "name": "踏火入水",
+        "type": "defense",
+        "description": "看破水面火势后带人跃入水下避火。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "可远距离跟踪江船"
+      },
+      {
+        "level": "登峰造极",
+        "description": "可在危局中纵跃脱身"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升移动与闪避能力"
+      }
+    ],
+    "combat_style": "轻灵迅捷，临危判断与身法结合。",
+    "rag_refs": [
+      1,
+      "ch_013:102-118"
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 54,
+        "line_end": 58,
+        "text": "楚留香远远就已瞧见了。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 102,
+        "line_end": 118,
+        "text": "原随云凭五人足音判断楚留香上船落地无声，推其轻功妙绝天下。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shui_mian_qing_gong",
+    "name": "水面轻功",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "登堂入室",
+    "one_line": "水上人物在快艇、江船间稳立纵跃的轻身功夫。",
+    "techniques": [
+      {
+        "id": "tech_wen_li_chuan_tou",
+        "name": "稳立船头",
+        "type": "buff",
+        "description": "在起伏快艇上如履平地保持身形稳定。"
+      },
+      {
+        "id": "tech_zong_shen_shang_chuan",
+        "name": "纵身上船",
+        "type": "special",
+        "description": "由快艇一跃登上江船，身法迅捷。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "略有小成",
+        "description": "可在水上船只间稳立行动"
+      },
+      {
+        "level": "登堂入室",
+        "description": "可迎风破浪仍身形不动"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升水面移动与船上平衡能力"
+      }
+    ],
+    "combat_style": "借水上环境保持身法稳定，便于登船接敌。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 104,
+        "line_end": 108,
+        "text": "站在起伏不定的快艇上，居然稳如平地。"
+      }
+    ]
+  },
+  {
+    "id": "skill_kuai_wang",
+    "name": "快网",
+    "type": "暗器",
+    "faction": "无",
+    "rank": "登堂入室",
+    "one_line": "张三赖以成名的网法，水上擒拿灵快。",
+    "techniques": [
+      {
+        "id": "tech_kuai_wang_sa_wang",
+        "name": "快网撒网",
+        "type": "special",
+        "description": "以网迅速罩住目标。"
+      },
+      {
+        "id": "tech_kuai_wang_shui_shang_bu",
+        "name": "水上步",
+        "type": "buff",
+        "description": "配合水性在河船间灵活行动。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "略有小成",
+        "description": "可在水上讨生活"
+      },
+      {
+        "level": "登堂入室",
+        "description": "朋友间以快网名号相称"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "用网牵制目标"
+      }
+    ],
+    "combat_style": "水性与网法结合，机巧多变。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 250,
+        "line_end": 250,
+        "text": "就去找快网张三。"
+      }
+    ]
+  },
+  {
+    "id": "skill_chang_tui_qing_gong",
+    "name": "长腿轻功",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "长腿神秘人所显露的高明轻功。",
+    "techniques": [
+      {
+        "id": "tech_chang_tui_yao_bu",
+        "name": "长腿摇步",
+        "type": "feint",
+        "description": "走路摇晃似要跌倒，实则暗藏轻功根基。"
+      },
+      {
+        "id": "tech_zhong_bing_qing_shen",
+        "name": "重兵轻身",
+        "type": "buff",
+        "description": "轻功高而能配合重兵器行动。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "步态隐藏身法"
+      },
+      {
+        "level": "炉火纯青",
+        "description": "轻功与重兵器兼具"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升移动与伪装身法能力"
+      }
+    ],
+    "combat_style": "以奇特步态遮掩高明轻功。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 478,
+        "line_end": 486,
+        "text": "楚留香一眼就看出这人的轻功极高。"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_ling_zhi_ruan_jian",
+    "name": "金灵芝软剑",
+    "type": "剑法",
+    "faction": "faction_wan_fu_wan_shou_yuan",
+    "rank": "炉火纯青",
+    "one_line": "金灵芝以缅铁软剑施展的快准狠剑法。",
+    "techniques": [
+      {
+        "id": "tech_ruan_jian_ying_feng",
+        "name": "软剑迎风",
+        "type": "buff",
+        "description": "软剑迎风一抖伸得笔直。"
+      },
+      {
+        "id": "tech_fan_shou_xiao_ding",
+        "name": "反手削顶",
+        "type": "attack",
+        "description": "反手一剑向对手头顶削去，快准狠。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "能使刚柔并具的软剑"
+      },
+      {
+        "level": "炉火纯青",
+        "description": "出剑快准狠，可逼迫强敌闪避"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "软剑削刺迅急，可取人性命"
+      }
+    ],
+    "combat_style": "刚柔相济，出手泼辣狠快。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 688,
+        "line_end": 698,
+        "text": "她手里已多了柄精光四射的长剑，反手一剑向胡铁花头顶削去。"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_xu_jian_fa",
+    "name": "柳絮剑法",
+    "type": "剑法",
+    "faction": "faction_e_mei_pai",
+    "rank": "出神入化",
+    "one_line": "峨嵋派剑法，剑光绵密如拔丝剥茧、滔滔不绝。",
+    "techniques": [
+      {
+        "id": "tech_liu_xu_mian_mi",
+        "name": "柳絮绵密",
+        "type": "attack",
+        "description": "剑光绵密如拔丝剥茧，招式奇幻无破绽。"
+      },
+      {
+        "id": "tech_liu_xu_lian_jiang",
+        "name": "柳絮连江",
+        "type": "special",
+        "description": "剑势如长江大河，滔滔不绝压迫对手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "剑光绵密，招式奇幻"
+      },
+      {
+        "level": "出神入化",
+        "description": "几乎毫无破绽"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "绵密剑势持续压迫"
+      },
+      {
+        "type": "控制",
+        "description": "封锁闪避空间"
+      }
+    ],
+    "combat_style": "轻灵绵密，连绵无隙。",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 920,
+        "line_end": 936,
+        "text": "剑光绵密，如拔丝、如剥茧、如长江大河，张三认作峨嵋柳絮剑法。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_feng_shi_san_shi",
+    "name": "清风十三式",
+    "type": "剑法",
+    "faction": "faction_hua_shan_pai",
+    "rank": "登峰造极",
+    "one_line": "清风十三式的秘密被人出卖，并与枯梅大师遇害动机相连。",
+    "techniques": [
+      {
+        "id": "tech_qing_feng_xu_lai",
+        "name": "清风徐来",
+        "type": "attack",
+        "description": "剑光似有似无、出手似快似慢、剑路似实似虚。"
+      },
+      {
+        "id": "tech_qing_feng_shu_dan",
+        "name": "清风疏淡",
+        "type": "feint",
+        "description": "由绵密剑式骤变疏淡，隐藏真正变化。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "能使剑式由密转疏"
+      },
+      {
+        "level": "登峰造极",
+        "description": "虚实快慢未定，令高手动容"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "虚实相间的剑路可突袭要害"
+      },
+      {
+        "type": "控制",
+        "description": "招式将变未变，压迫对手判断"
+      }
+    ],
+    "combat_style": "疏淡虚实并用，重在未变之变。",
+    "rag_refs": [
+      1,
+      2,
+      16,
+      18,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 942,
+        "line_end": 958,
+        "text": "她剑法又一变，楚留香看出正是华山派镇山剑法清风十三式第一式清风徐来。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 4,
+        "line_end": 8,
+        "text": "华山派这一套\"清风十三式\"的确是曼妙无俦，非人能及……讲究的正是：\"似有似无，似实似虚，似变未变。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 84,
+        "line_end": 84,
+        "text": "这凶手就是出卖'清风十三式'秘密的人?"
+      },
+      {
+        "chapter": 16,
+        "line_start": 385,
+        "line_end": 385,
+        "text": "胡铁花说金灵芝既然能学会华山派的清风十三式，就一定也学会了摘心手。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 1004,
+        "line_end": 1013,
+        "text": "高亚男说明华真真入华山后学得清风十三式。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 282,
+        "line_end": 282,
+        "text": "原随云道：\"东瀛甲贺客的'大拍手'、血影人的轻功、华山派的'清风十三式'、黄教密宗的'大手印'、失传已久的'朱砂掌'、蜀中唐门的毒药暗器……这几种功夫你们想必都已知道了。"
+      },
+      {
+        "chapter": 22,
+        "line_start": 360,
+        "line_end": 360,
+        "text": "胡铁花提到华真真将清风十三式的心法盗出来给原随云。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 272,
+        "line_end": 272,
+        "text": "他接着又道：\"我们一直猜不出'清风十三式'的心法是怎会失窃的，就因为我们从未想到枯梅大师会监守自盗。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_e_mei_jian_fa",
+    "name": "峨嵋剑法",
+    "type": "剑法",
+    "faction": "faction_e_mei",
+    "rank": "炉火纯青",
+    "one_line": "峨嵋嫡传剑法，含柳絮飞雪等招式，被丁枫拿来混淆清风十三式。",
+    "techniques": [
+      {
+        "id": "tech_liu_xu_fei_xue",
+        "name": "柳絮飞雪",
+        "type": "attack",
+        "description": "峨嵋嫡传剑法中的一招，外观与风动千铃骤看相似。"
+      },
+      {
+        "id": "tech_e_mei_jian_ying",
+        "name": "峨嵋剑影",
+        "type": "feint",
+        "description": "以名门剑法的飘动剑影掩饰真实路数。"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "可被用作混淆华山清风十三式招法来历的说辞。"
+      }
+    ],
+    "combat_style": "名门嫡传，轻灵飘动。",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 292,
+        "line_end": 304,
+        "text": "柳絮飞雪正是峨嵋嫡传剑法中的一招，与风动千铃骤眼看来有些相似。"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_pai_shou",
+    "name": "大拍手",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "据胡铁花判断，丁枫双掌夹剑疑似扶桑甲贺谷传来的绝技。",
+    "techniques": [
+      {
+        "id": "tech_shuang_zhang_jia_jian",
+        "name": "双掌夹剑",
+        "type": "defense",
+        "description": "以双掌夹住来剑，破去对方剑势。"
+      },
+      {
+        "id": "tech_jia_he_pai_shou",
+        "name": "甲贺拍手",
+        "type": "attack",
+        "description": "扶桑甲贺谷大拍手路数，以双掌发力制敌。"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "可夹制兵刃，阻断剑招变化。"
+      }
+    ],
+    "combat_style": "双掌迅捷夹击，既可制剑也可近身压迫。",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 476,
+        "line_end": 476,
+        "text": "他的双掌夹剑，用的仿佛是自扶桑甲贺谷传来的大拍手。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 282,
+        "line_end": 282,
+        "text": "原随云道：\"东瀛甲贺客的'大拍手'、血影人的轻功、华山派的'清风十三式'、黄教密宗的'大手印'、失传已久的'朱砂掌'、蜀中唐门的毒药暗器……这几种功夫你们想必都已知道了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xue_ying_ren_qing_gong_xin_fa",
+    "name": "血影人轻功心法",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "胡铁花认为丁枫轻功身法似血影人路数。",
+    "techniques": [
+      {
+        "id": "tech_xue_ying_shen_fa",
+        "name": "血影身法",
+        "type": "buff",
+        "description": "身形迅捷如血影闪动，来去难测。"
+      },
+      {
+        "id": "tech_yi_shan_er_mo",
+        "name": "一闪而没",
+        "type": "buff",
+        "description": "人影一闪即没，令人难以追踪。"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "大幅提升移动与隐匿身法。"
+      }
+    ],
+    "combat_style": "迅捷诡秘，借身影闪动迷惑敌人。",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 636,
+        "line_end": 636,
+        "text": "血影人的轻功心法已是武林中难见的绝技。"
+      }
+    ]
+  },
+  {
+    "id": "skill_gou_zi_chang_qing_gong",
+    "name": "勾子长轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "勾子长所施展的异域轻功，步幅极长，数息间可远出数十丈。",
+    "techniques": [
+      {
+        "id": "tech_chang_tui_ji_lue",
+        "name": "长腿疾掠",
+        "type": "buff",
+        "description": "借两条长腿连迈数步，瞬间拉开二三十丈距离。"
+      },
+      {
+        "id": "tech_shun_xi_yuan_dun",
+        "name": "瞬息远遁",
+        "type": "special",
+        "description": "身形一展便眨眼消失，适合迅速离场或避开纠缠。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "能在众目睽睽下数步远去，连胡铁花也来不及拦阻。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "大幅提升移动速度与脱身能力。"
+      }
+    ],
+    "combat_style": "身法异于中土门派，重在远掠、脱身和突然转移。",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 76,
+        "line_end": 90,
+        "text": "只见他两条长腿迈出几步，人已远在二三十丈外，眨眼就不见踪影。"
+      }
+    ]
+  },
+  {
+    "id": "skill_feng_wei_jian_she_fa",
+    "name": "凤尾箭射法",
+    "type": "暗器",
+    "faction": "faction_feng_wei_bang",
+    "rank": "出神入化",
+    "one_line": "配合五百石强弓使用的强弓大箭射法，二十丈外仍可穿肋夺命。",
+    "techniques": [
+      {
+        "id": "tech_er_shi_zhang_chuan_lei",
+        "name": "二十丈穿肋",
+        "type": "attack",
+        "description": "从二十丈外发重箭，穿透敌人左肋取命。"
+      },
+      {
+        "id": "tech_shi_san_jian_luo_peng",
+        "name": "十三箭落篷",
+        "type": "attack",
+        "description": "连发十三根凤尾箭，射落十三条船的主篷形成威慑。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "武维扬以十三箭射落神龙帮十三船主篷，箭术与臂力皆震动江湖。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "重箭可远距离贯穿要害。"
+      },
+      {
+        "type": "控制",
+        "description": "强弓准头足以使对手心胆俱寒。"
+      }
+    ],
+    "combat_style": "以强弓、重箭、远距离精准射杀为核心，兼具实战杀伤与心理威慑。",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 162,
+        "line_end": 180,
+        "text": "二十丈外取人性命，壶中十三根'凤尾箭'更是百发百中。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bei_pai_yuan_yang_tui",
+    "name": "北派鸳鸯腿",
+    "type": "轻功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "金灵芝突然施展的正宗北派腿法，可连环快踢制穴。",
+    "techniques": [
+      {
+        "id": "tech_fei_tui_dian_jian_jing",
+        "name": "飞腿点肩井",
+        "type": "attack",
+        "description": "伤腿假象下飞起一腿，准确踢中肩井穴制住对方。"
+      },
+      {
+        "id": "tech_lian_huan_gun_chu",
+        "name": "连环滚出",
+        "type": "special",
+        "description": "接连出腿将对手踢出船舱并令其不能动弹。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "金灵芝伪装重伤后仍能迅猛连踢，瞬间制住胡铁花。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "命中肩井穴后使对方不能动弹。"
+      },
+      {
+        "type": "伤害",
+        "description": "连环腿力可将人踢得滚出船舱。"
+      }
+    ],
+    "combat_style": "以欺敌、近身快腿、穴位控制为主，适合在狭小空间突然反制。",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 458,
+        "line_end": 460,
+        "text": "飞起一腿，就踢在胡铁花的肩井穴上，接着又是一腿。"
+      }
+    ]
+  },
+  {
+    "id": "skill_sun_bu_lao_an_qing_shen_fa",
+    "name": "孙不老暗器轻功",
+    "type": "暗器",
+    "faction": "faction_ji_le_gong",
+    "rank": "出神入化",
+    "one_line": "孙不老号称凌波仙子、散花天女，轻功暗器高得不可思议。",
+    "techniques": [
+      {
+        "id": "tech_ling_bo_shen_fa",
+        "name": "凌波身法",
+        "type": "buff",
+        "description": "以不可思议的轻功占据暗器赌斗优势。"
+      },
+      {
+        "id": "tech_san_hua_an_qi",
+        "name": "散花暗器",
+        "type": "attack",
+        "description": "暗器出手如散花，配合高妙轻功使强敌难以应对。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "连自负天下第一的轩辕野在第二阵也本就必败无疑。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "暗器可在轻功机动中形成密集攻势。"
+      },
+      {
+        "type": "增益",
+        "description": "高绝轻功提升闪避与战位优势。"
+      }
+    ],
+    "combat_style": "轻功游移与暗器散射结合，避实击虚，尤其克制力竭的重兵器高手。",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 754,
+        "line_end": 756,
+        "text": "孙不老号称凌波仙子，散花天女，轻功暗器之高，几乎已不可思议。"
+      }
+    ]
+  },
+  {
+    "id": "skill_feng_wei_jian",
+    "name": "凤尾箭",
+    "type": "暗器",
+    "faction": "faction_feng_wei_bang",
+    "rank": "炉火纯青",
+    "one_line": "武维扬成名暗器，一箭入骨直穿心腑，被称作神箭射日。",
+    "techniques": [
+      {
+        "id": "tech_yi_jian_ru_gu",
+        "name": "一箭入骨",
+        "type": "attack",
+        "description": "箭力强劲，入骨后直穿心腑，足以造成致命伤。"
+      },
+      {
+        "id": "tech_shen_jian_she_ri",
+        "name": "神箭射日",
+        "type": "attack",
+        "description": "武维扬以精准凌厉箭法远程杀敌的成名手段。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名绝技",
+        "description": "江湖中人从尸体伤口即可联想到武维扬的大手笔"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "贯穿心腑致命"
+      },
+      {
+        "type": "控制",
+        "description": "以凶名震慑旁观者"
+      }
+    ],
+    "combat_style": "以强劲箭力和精准杀伤见长，讲究一击致命。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 114,
+        "line_end": 120,
+        "text": "致命的伤口……一箭入骨，直穿心腑，武大帮主的\"凤尾箭\"果然是高明极了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_kuai_wang_shui_shang_gong_fu",
+    "name": "快网水上功夫",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "张三闻名江湖的水上本领，兼擅造船航行。",
+    "techniques": [
+      {
+        "id": "tech_shui_mian_tong_xing",
+        "name": "水面同行",
+        "type": "buff",
+        "description": "在水面行动与引路时胜过千百水手，保障航行路线。"
+      },
+      {
+        "id": "tech_zao_chuan_hang_xing",
+        "name": "造船航行",
+        "type": "special",
+        "description": "精通造船与航行之术，冠于江南，可应对复杂水路。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "江南冠绝",
+        "description": "江湖中人人知道其水上功夫、造船航行之术冠于江南"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "增强水路航行安全与效率"
+      },
+      {
+        "type": "特殊",
+        "description": "可作为海上远行向导"
+      }
+    ],
+    "combat_style": "不以正面搏杀为主，长于水路行动、造船航行和网捕机变。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 786,
+        "line_end": 786,
+        "text": "'快网'张三不但水上功夫了得，造船航行之术，更是冠于江南。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_la_zhu_qing_gong",
+    "name": "白蜡烛轻功",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "白蜡烛能负重缓行飞索，并以踩空假象展示身法。",
+    "techniques": [
+      {
+        "id": "tech_fu_zhong_zou_suo",
+        "name": "负重走索",
+        "type": "special",
+        "description": "挑着数百斤黄金仍能在长索上如履平地，越慢越见功力。"
+      },
+      {
+        "id": "tech_ying_kong_huan_shen",
+        "name": "影空换身",
+        "type": "feint",
+        "description": "故作踩空欲坠，转瞬已稳立船头，用身影变化惊动旁观者。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "负重过索而气息不乱。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "越险越稳，兼具炫技和震慑效果。"
+      }
+    ],
+    "combat_style": "以沉稳负重和突然变换身形震慑对手",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 70,
+        "line_end": 84,
+        "text": "白蜡烛挑着四箱黄金走索，竟如履平地，又露一手功夫。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_la_zhu_shen_li",
+    "name": "白蜡烛神力",
+    "type": "内功",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "白蜡烛吐气发劲，可托船接力，显出惊人膂力。",
+    "techniques": [
+      {
+        "id": "tech_tu_qi_kai_sheng",
+        "name": "吐气开声",
+        "type": "buff",
+        "description": "口中吐气开声，骤然催动全身劲力。"
+      },
+      {
+        "id": "tech_tuo_chuan_jie_li",
+        "name": "托船接力",
+        "type": "defense",
+        "description": "面对横空飞来的整条船，蹲身接住并平稳放下。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "能承受千斤以上冲击。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "爆发巨力"
+      },
+      {
+        "type": "控制",
+        "description": "以力量压制场面"
+      }
+    ],
+    "combat_style": "以纯厚劲力和稳定下盘化解重物冲撞",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 222,
+        "line_end": 230,
+        "text": "白蜡烛吐气开声，使船离水飞起，又将船平稳接住。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shen_jian_she_ri",
+    "name": "神箭射日",
+    "type": "暗器",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "武维扬以神箭射日成名，弓箭功夫被称当世无双。",
+    "techniques": [
+      {
+        "id": "tech_shen_jian_she_ri",
+        "name": "神箭射日",
+        "type": "attack",
+        "description": "以弓箭远射制敌，准度和威势足称当世无双。"
+      },
+      {
+        "id": "tech_gong_ma_he_ji",
+        "name": "弓马合击",
+        "type": "attack",
+        "description": "结合骑射与身法，在移动中保持强大射击压迫。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "弓箭功夫当世无双。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "远程贯杀敌手"
+      },
+      {
+        "type": "控制",
+        "description": "以箭势压制行动"
+      }
+    ],
+    "combat_style": "以弓马与箭术主攻，远距压制强于硬碰硬近战",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 644,
+        "line_end": 648,
+        "text": "武维扬号称神箭射日，弓箭上的功夫可说是当世无双，弓马功夫较高。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yun_cong_long_shui_shang_gong_fu",
+    "name": "云从龙水上功夫",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "云从龙以水上功夫见长，拳掌兵刃、轻功暗器皆与武维扬不相上下。",
+    "techniques": [
+      {
+        "id": "tech_shui_shang_zong_heng",
+        "name": "水上纵横",
+        "type": "special",
+        "description": "在水面与船上环境中行动自如，借水势占据优势。"
+      },
+      {
+        "id": "tech_jiang_shang_duan_di",
+        "name": "江上断敌",
+        "type": "attack",
+        "description": "以水战身法配合拳掌兵刃逼敌失势。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "水上功夫强于武维扬。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "水上环境优势"
+      },
+      {
+        "type": "伤害",
+        "description": "近战压迫"
+      }
+    ],
+    "combat_style": "水战与轻功相合，善在江海环境中周旋",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 648,
+        "line_end": 650,
+        "text": "两人的拳掌兵刃、轻功暗器不相上下，只不过云帮主水上功夫强些。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhu_sha_zhang",
+    "name": "朱砂掌",
+    "type": "掌法",
+    "faction": "未知",
+    "rank": "出神入化",
+    "one_line": "掌印淡红、可震断心脉的失传掌力。",
+    "techniques": [
+      {
+        "id": "tech_zhu_sha_yin",
+        "name": "朱砂印",
+        "type": "attack",
+        "description": "掌力击中后留下淡红掌印，可作为朱砂掌杀伤痕迹。"
+      },
+      {
+        "id": "tech_shuang_shou_qi_lian",
+        "name": "双手齐练",
+        "type": "buff",
+        "description": "左右双掌同时练成且劲力相近，较单掌朱砂掌更罕见。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "初练",
+        "description": "掌心会发红，手上特征明显。"
+      },
+      {
+        "level": "练成",
+        "description": "返璞归真，平时难以看出，只在使用时掌心现朱砂色。"
+      }
+    ],
+    "effects": [
+      "在膳房瞬间连杀六人"
+    ],
+    "combat_style": "以内力凝于掌心，近身拍击要害，掌印如朱砂。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 4,
+        "line_end": 16,
+        "text": "后心上有个淡红色的掌印，显然是一掌拍下，两人的心脉就被震断而死。楚留香道：\"看来这仿佛是朱砂掌一类的功夫。\""
+      },
+      {
+        "chapter": 9,
+        "line_start": 86,
+        "line_end": 90,
+        "text": "钱风胸前有淡红色左手掌印，丁枫指出这是朱砂掌。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 130,
+        "line_end": 134,
+        "text": "六名吃饭水手全因淡红掌印而死。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 282,
+        "line_end": 282,
+        "text": "原随云道：\"东瀛甲贺客的'大拍手'、血影人的轻功、华山派的'清风十三式'、黄教密宗的'大手印'、失传已久的'朱砂掌'、蜀中唐门的毒药暗器……这几种功夫你们想必都已知道了。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_bian_du_shu",
+    "name": "辨毒术",
+    "type": "感知技艺",
+    "faction": "无",
+    "rank": "奇技",
+    "one_line": "楚留香能分辨食物中有毒无毒的特殊本事。",
+    "techniques": [
+      {
+        "id": "tech_bian_du_shu_shi_wu_bian_du",
+        "name": "食物辨毒",
+        "type": "感知技巧",
+        "description": "能在入口前后判断食物酒菜是否含毒，降低误中暗算的风险。"
+      },
+      {
+        "id": "tech_bian_du_shu_yi_jiu_yan_du",
+        "name": "以酒验毒",
+        "type": "试探技巧",
+        "description": "以少量尝试结合经验判断毒性，使同伴敢于进食饮酒。"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "辨别食物毒性",
+      "安定同伴恐惧",
+      "反制投毒"
+    ],
+    "combat_style": "不用于正面交手，而是在危局中以经验和感官识破毒物。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 228,
+        "line_end": 232,
+        "text": "胡铁花说楚留香有种特别本事，能分辨食物中有毒无毒。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_rong_shu",
+    "name": "易容术",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "苏蓉蓉擅长的改扮功夫，能令熟人也难辨真身。",
+    "techniques": [
+      {
+        "id": "tech_gai_tou_huan_mian",
+        "name": "改头换面",
+        "type": "special",
+        "description": "通过面貌修饰与细节处理改变身份外观。"
+      },
+      {
+        "id": "tech_jin_zhen_miao_shou",
+        "name": "金针妙手",
+        "type": "special",
+        "description": "以细巧手法修饰面容，使伪装自然可信。"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "重在精细伪装与身份遮蔽。",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 484,
+        "line_end": 516,
+        "text": "英万里请教天下易容第一名家苏蓉蓉，连楚留香也休想认得出。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hun_yuan_yi_qi_tong_zi_gong",
+    "name": "混元一气童子功",
+    "type": "内功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "白猎所练内功，内力之强关外无人能及。",
+    "techniques": [
+      {
+        "id": "tech_hun_yuan_ju_qi",
+        "name": "混元聚气",
+        "type": "buff",
+        "description": "凝聚浑厚内息，强化持久内力。"
+      },
+      {
+        "id": "tech_tong_zi_shou_yuan",
+        "name": "童子守元",
+        "type": "defense",
+        "description": "守住元气根基，使内力稳固深厚。"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以内力深厚取胜，偏守正凝重。",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 552,
+        "line_end": 554,
+        "text": "白猎练的混元一气童子功，内力之强，关外已无人能及。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bi_xi_jia_si_shu",
+    "name": "闭息假死术",
+    "type": "内功",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "内功练到火候后闭住呼吸心跳，以僵冷状态骗过旁人。",
+    "techniques": [
+      {
+        "id": "tech_bi_qi_jia_si",
+        "name": "闭气假死",
+        "type": "special",
+        "description": "闭住呼吸并停顿心跳血脉。"
+      },
+      {
+        "id": "tech_jiang_shen_jiang_ying",
+        "name": "僵身降硬",
+        "type": "defense",
+        "description": "使全身僵硬冰冷如尸体。"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以控制气息与身体机能制造诈死假象。",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 760,
+        "line_end": 770,
+        "text": "内功练到某一种火候，就能闭住自己的呼吸，甚至可以将心跳停顿。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ting_sheng_bian_wei",
+    "name": "听声辨位",
+    "type": "内功",
+    "faction": "无争山庄",
+    "rank": "出神入化",
+    "one_line": "原随云凭足音、语声和细微动静辨识来客身份，双目失明仍洞察全局。",
+    "techniques": [
+      {
+        "id": "tech_zu_yin_bian_ke",
+        "name": "足音辨客"
+      },
+      {
+        "id": "tech_wen_sheng_shi_ren",
+        "name": "闻声识人"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "原随云凭足音、语声和细微动静辨识来客身份，双目失明仍洞察全局。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "原随云凭足音、语声和细微动静辨识来客身份，双目失明仍洞察全局。"
+      }
+    ],
+    "combat_style": "以耳代目，听足音、语气与环境回响辨人辨势。",
+    "rag_refs": [
+      "ch_013:86-120"
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 86,
+        "line_end": 120,
+        "text": "原随云未曾见过众人，却凭足音与谈吐判断胡铁花和楚留香身份。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhai_xin_shou",
+    "name": "摘心手",
+    "type": "掌法",
+    "faction": "华山派",
+    "rank": "出神入化",
+    "one_line": "华山旧传狠辣外门功夫，可用巧劲直取敌人心口。",
+    "techniques": [
+      {
+        "id": "tech_zhai_xin_qu_xin",
+        "name": "摘心取心",
+        "type": "attack",
+        "description": "以手爪直取敌人胸口要害，招式毒辣，专为瞬间毙敌。"
+      },
+      {
+        "id": "tech_qiao_jin_duan_xin",
+        "name": "巧劲断心",
+        "type": "special",
+        "description": "不全赖内力，以外门巧劲借最后一口气反杀近身敌人。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "练成",
+        "description": "枯梅大师晚年练成，可在重创濒死时一举毙敌。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "造成心口致命创伤。"
+      }
+    ],
+    "combat_style": "狠辣、近身、以巧劲取要害",
+    "rag_refs": [
+      14,
+      16,
+      18,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 741,
+        "line_end": 749,
+        "text": "华山少女说枯梅大师近年练成摘心手，临死前以此反杀四名刺客。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 751,
+        "line_end": 785,
+        "text": "原随云和楚留香说明摘心手为华山旧传外门功夫，靠巧劲可在气绝前杀敌。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 347,
+        "line_end": 351,
+        "text": "白猎胸口多了个洞，楚留香说他也是死在摘心手上的。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 990,
+        "line_end": 994,
+        "text": "胡铁花与高亚男谈及摘心手是华飞凤遗留武功之一。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 118,
+        "line_end": 118,
+        "text": "楚留香说道：\"船上会摘心手的本来只有三个人，枯梅大师既已\"死\"了，剩下的就只有高亚男和华真真。"
+      }
+    ]
+  },
+  {
+    "id": "skill_cheng_feng_qing_gong",
+    "name": "乘风轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "原随云在狂风巨浪与黑暗中施展的高绝身法，似乘风而去。",
+    "techniques": [
+      {
+        "id": "tech_shuang_xiu_zhan_feng",
+        "name": "双袖展风",
+        "type": "buff",
+        "description": "双袖展动带起劲风，借风势瞬间掠入黑暗。"
+      },
+      {
+        "id": "tech_cheng_feng_dun_ying",
+        "name": "乘风遁影",
+        "type": "special",
+        "description": "身形忽掠如乘风而行，风声消失时人亦消失。"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提高黑暗和风浪中的移动速度与突进能力。"
+      }
+    ],
+    "combat_style": "借风势与袖力疾掠，静动转换极快。",
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 480,
+        "line_end": 486,
+        "text": "他身形突然掠起，双袖展动，带起了一阵劲风，等到风声消失，他的人也已消失在黑暗里。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bi_hu_gong",
+    "name": "壁虎功",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "贴壁潜行的高明轻功，使楚留香能在黑暗石壁上无声移动。",
+    "techniques": [
+      {
+        "id": "tech_tie_bi_hua_xing",
+        "name": "贴壁滑行",
+        "type": "special",
+        "description": "触壁后放松全身并贴住山壁缓缓下滑。"
+      },
+      {
+        "id": "tech_an_zhong_qian_xing",
+        "name": "暗中潜行",
+        "type": "buff",
+        "description": "在绝对黑暗里沿石壁无声移动以避开耳目。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "高阶",
+        "description": "楚留香在坠落陷阱中借钢索和石壁连续脱险。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "无声贴壁、借势横掠、黑暗潜行。"
+      }
+    ],
+    "combat_style": "避实就虚，以轻灵身法在险境中寻找生路。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 426,
+        "line_end": 454,
+        "text": "这虽是江湖中的传言，却并不十分夸张。 借着这摆动的力量，他横空一掠，竟达七丈。 若是换了别人，纵然能一掠七丈，也难免要撞上石壁，撞得头破血流。 但他掠出时，脚在后，手在前，指尖一触及山壁，全身的肌肉立刻放松，整个人立刻贴上了山壁；缓缓的向下"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_shuai_bei_shou",
+    "name": "大摔碑手",
+    "type": "外功",
+    "faction": null,
+    "rank": "绝技",
+    "one_line": "硬功中极强的掌手功夫，文中以之反衬楚留香轻按一手的效力。",
+    "techniques": [
+      {
+        "id": "tech_da_shuai_bei_shou_zhong_ya",
+        "name": "重压",
+        "type": "掌法",
+        "description": "以刚猛劲力压制对手，讲究沉重与威慑。"
+      },
+      {
+        "id": "tech_da_shuai_bei_shou_cui_ji",
+        "name": "摧击",
+        "type": "硬功",
+        "description": "以硬劲摧击目标，表现为强横的近身制敌能力。"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "刚猛压制",
+      "近身制敌"
+    ],
+    "combat_style": "刚猛沉重",
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 34,
+        "line_end": 36,
+        "text": "这只手很轻，但却比硬功中最强的大摔碑手有效多了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_sheng_bo_chuan_yin",
+    "name": "声波传音",
+    "type": "内功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "借铜管传声并以尖锐声浪震慑、摧毁敌人感官的内力运用。",
+    "techniques": [
+      {
+        "id": "tech_tong_guan_chuan_yin",
+        "name": "铜管传音",
+        "type": "special",
+        "description": "借埋入石壁的铜管远距离传话，同时监听石狱内的细微动静。"
+      },
+      {
+        "id": "tech_jian_xiao_she_po",
+        "name": "尖啸摄魄",
+        "type": "debuff",
+        "description": "将叹息转为无数尖锐杂音，借回震令敌人耳目心神同时受创。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "石狱压制",
+        "description": "能隔墙传声并使铜管、山窟产生强烈回震。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "剥夺听觉判断并制造精神崩溃般的压迫。"
+      }
+    ],
+    "combat_style": "远距操控环境，以声音和机关先行削弱对手。",
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 40,
+        "line_end": 46,
+        "text": "对方沉默了很久，才缓缓道……这叹息声就变了，变得说不出的尖锐。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yuan_sui_yun_qing_gong",
+    "name": "原随云轻功",
+    "type": "skill",
+    "rank": "绝顶",
+    "description": "原随云展袖飞起，如蝙蝠无声滑行，速度不显却瞬息落到楚留香面前。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 118,
+        "line_end": 122,
+        "text": "他袍袖一展，整个人突然飘飘飞起，就像是一只蝙蝠在无声的滑行，姿势真有说不出的优美。\n\n他这一掠之势并不快，但忽然间就落在楚留香的面前。\n\n绝没有人见到过原随云的武功，有人甚至不知道他也会武功，直等他这一手轻功露出，大家才都不禁为之耸然动容。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xue_ying_ren_qing_gong",
+    "name": "血影人轻功",
+    "type": "skill",
+    "rank": "未知",
+    "description": "血影人的轻功，原随云列为自己会的武功之一。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 282,
+        "line_end": 282,
+        "text": "原随云道：\"东瀛甲贺客的'大拍手'、血影人的轻功、华山派的'清风十三式'、黄教密宗的'大手印'、失传已久的'朱砂掌'、蜀中唐门的毒药暗器……这几种功夫你们想必都已知道了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_shou_yin",
+    "name": "大手印",
+    "type": "skill",
+    "rank": "未知",
+    "description": "黄教密宗武功，原随云列为自己会的武功之一。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 282,
+        "line_end": 282,
+        "text": "原随云道：\"东瀛甲贺客的'大拍手'、血影人的轻功、华山派的'清风十三式'、黄教密宗的'大手印'、失传已久的'朱砂掌'、蜀中唐门的毒药暗器……这几种功夫你们想必都已知道了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_men_du_yao_an_qi",
+    "name": "唐门毒药暗器",
+    "type": "skill",
+    "rank": "未知",
+    "description": "蜀中唐门的毒药暗器，原随云列为自己会的武功之一。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 282,
+        "line_end": 282,
+        "text": "原随云道：\"东瀛甲贺客的'大拍手'、血影人的轻功、华山派的'清风十三式'、黄教密宗的'大手印'、失传已久的'朱砂掌'、蜀中唐门的毒药暗器……这几种功夫你们想必都已知道了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian",
+    "name": "七七四十九手回风舞柳剑",
+    "type": "skill",
+    "rank": "未知",
+    "description": "巴山顾道人的剑法，原随云列为自己会的武功之一。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "原随云道：\"还有巴山顾道人的'七七四十九手回风舞柳剑'、少林的'降龙伏虎罗汉'、武当的'流云飞袖'、辰州言家的'僵尸拳'、中原彭家的'五虎断门刀'、北派正宗'鸳鸯腿'……\""
+      },
+      {
+        "chapter": 21,
+        "line_start": 244,
+        "line_end": 246,
+        "text": "昔年巴山顾道人创\"七七四十九手回风舞柳剑\"，仗剑走天下，剑法之高，举世无双。 他生平只收了一个徒弟，却是俗家弟子，姓柳，名吟松。"
+      }
+    ],
+    "rag_refs": [
+      21
+    ]
+  },
+  {
+    "id": "skill_xiang_long_fu_hu_luo_han",
+    "name": "降龙伏虎罗汉",
+    "type": "skill",
+    "rank": "未知",
+    "description": "少林武功，原随云列为自己会的武功之一。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "原随云道：\"还有巴山顾道人的'七七四十九手回风舞柳剑'、少林的'降龙伏虎罗汉'、武当的'流云飞袖'、辰州言家的'僵尸拳'、中原彭家的'五虎断门刀'、北派正宗'鸳鸯腿'……\""
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_yun_fei_xiu",
+    "name": "流云飞袖",
+    "type": "skill",
+    "rank": "未知",
+    "description": "武当武功，原随云列为自己会的武功之一。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "原随云道：\"还有巴山顾道人的'七七四十九手回风舞柳剑'、少林的'降龙伏虎罗汉'、武当的'流云飞袖'、辰州言家的'僵尸拳'、中原彭家的'五虎断门刀'、北派正宗'鸳鸯腿'……\""
+      }
+    ]
+  },
+  {
+    "id": "skill_jiang_shi_quan",
+    "name": "僵尸拳",
+    "type": "skill",
+    "rank": "未知",
+    "description": "辰州言家拳法，原随云列为自己会的武功之一。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "原随云道：\"还有巴山顾道人的'七七四十九手回风舞柳剑'、少林的'降龙伏虎罗汉'、武当的'流云飞袖'、辰州言家的'僵尸拳'、中原彭家的'五虎断门刀'、北派正宗'鸳鸯腿'……\""
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_hu_duan_men_dao",
+    "name": "五虎断门刀",
+    "type": "skill",
+    "rank": "未知",
+    "description": "中原彭家刀法，原随云列为自己会的武功之一。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "原随云道：\"还有巴山顾道人的'七七四十九手回风舞柳剑'、少林的'降龙伏虎罗汉'、武当的'流云飞袖'、辰州言家的'僵尸拳'、中原彭家的'五虎断门刀'、北派正宗'鸳鸯腿'……\""
+      }
+    ]
+  },
+  {
+    "id": "skill_yuan_yang_tui",
+    "name": "鸳鸯腿",
+    "type": "skill",
+    "rank": "未知",
+    "description": "北派正宗腿法，原随云列为自己会的武功之一。",
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "原随云道：\"还有巴山顾道人的'七七四十九手回风舞柳剑'、少林的'降龙伏虎罗汉'、武当的'流云飞袖'、辰州言家的'僵尸拳'、中原彭家的'五虎断门刀'、北派正宗'鸳鸯腿'……\""
+      }
+    ]
+  },
+  {
+    "id": "skill_ba_shan_jian_fa",
+    "name": "巴山剑法",
+    "type": "剑法",
+    "faction": "faction_ba_shan_pai",
+    "rank": "出神入化",
+    "one_line": "魏行龙觊觎的巴山剑法统称，核心指向回风舞柳剑传承。",
+    "techniques": [
+      {
+        "id": "tech_ba_shan_jian_yi",
+        "name": "巴山剑意",
+        "type": "buff",
+        "description": "以巴山一脉剑意统摄剑势。"
+      },
+      {
+        "id": "tech_jian_xia_liu_qing",
+        "name": "剑下留情",
+        "type": "special",
+        "description": "以精妙控制伤敌而不杀。"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以实战变化取胜",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 274,
+        "line_end": 274,
+        "text": "魏行龙一张脸胀得更紫，咬牙道：\"就算我是为巴山剑法而来的又怎样?你呢?\""
+      }
+    ]
+  },
+  {
+    "id": "skill_ying_zhao_gong",
+    "name": "鹰爪功",
+    "type": "指法",
+    "faction": "faction_ying_zhao_men",
+    "rank": "炉火纯青",
+    "one_line": "鹰爪门绝技，王天寿以内力催动时声势惊人。",
+    "techniques": [
+      {
+        "id": "tech_ying_zhao_gou_suo",
+        "name": "鹰爪勾锁",
+        "type": "attack",
+        "description": "五指如鹰爪般勾起，锁拿敌手要害。"
+      },
+      {
+        "id": "tech_chu_shou_shuang_sha",
+        "name": "出手双杀",
+        "type": "attack",
+        "description": "双手分击腕脉与心脉，迅急狠辣。"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以爪力锁拿要害，内力刚猛狠辣",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 330,
+        "line_end": 330,
+        "text": "大家虽已全都猜出这其中有些蹊跷，但谁也不愿去惹这种麻烦，谁也没有把握能接得了王天寿的鹰爪功。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiao_tian_xing",
+    "name": "小天星",
+    "type": "内功",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "钱氏兄弟以指尖暗发的掌力，能在关键处迫退王天寿。",
+    "techniques": [
+      {
+        "id": "tech_xiao_tian_xing",
+        "name": "小天星",
+        "type": "attack",
+        "description": "以指尖搭住对手胸膛后吐出掌力。"
+      },
+      {
+        "id": "tech_zhi_jian_tan_jin",
+        "name": "指尖弹劲",
+        "type": "special",
+        "description": "远处弹指发劲，使王天寿手势骤缩。"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "貌似和气，出手隐蔽而凶险",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 508,
+        "line_end": 508,
+        "text": "他三个字刚说出，钱不赚的指尖已搭上他的胸膛，只要\"小天星\"的掌力向外一吐，他那第四个字就休想说得出来了。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_jia_quan_fa",
+    "name": "胡家拳法",
+    "type": "掌法",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "胡铁花在黑暗中以拳风笼罩四方的刚猛拳掌功夫。",
+    "techniques": [
+      {
+        "id": "tech_ji_feng_zhou_yu",
+        "name": "急风骤雨",
+        "type": "attack",
+        "description": "以连续拳势如暴风骤雨般攻出，扩大压制范围。"
+      },
+      {
+        "id": "tech_nu_ji_you_quan",
+        "name": "怒击右拳",
+        "type": "attack",
+        "description": "聚九成力于一拳，刚猛足以碎石。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "在全黑山窟中凭听风辨位，以拳风笼罩四面八方。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "正面命中可碎石伤敌。"
+      },
+      {
+        "type": "控制",
+        "description": "密集拳风可封锁近身移动。"
+      }
+    ],
+    "combat_style": "刚猛急烈，遇强越怒，偏向正面压迫。",
+    "rag_refs": [
+      22
+    ],
+    "source_refs": [
+      {
+        "chapter": 22,
+        "line_start": 50,
+        "line_end": 66,
+        "text": "胡铁花的拳法，实在比他的酒量还要惊人；右拳怒击，用了九成力。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_si_an_qi",
+    "name": "乌丝暗器",
+    "type": "暗器",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "以千百道光芒闪动的乌丝密集突袭，急、密、毒兼具的暗器手法。",
+    "techniques": [
+      {
+        "id": "tech_bao_yu_wu_si",
+        "name": "暴雨乌丝",
+        "type": "attack",
+        "description": "四手同时挥出千百道乌丝，密如暴雨乌云，覆盖近身空间。"
+      },
+      {
+        "id": "tech_zha_si_tu_xi",
+        "name": "诈死突袭",
+        "type": "feint",
+        "description": "伪装奄奄一息或尸体，引诱目标接近后骤然出手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "伏击",
+        "description": "借假死与呻吟诱敌，近距离同时发动致命暗器。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "尖锐乌丝擦衣而过，足以致命。"
+      },
+      {
+        "type": "控制",
+        "description": "密集覆盖令目标来不及闪避。"
+      },
+      {
+        "type": "特殊",
+        "description": "毒性与突发性造成巨大心理震慑。"
+      }
+    ],
+    "combat_style": "阴狠迅疾，擅长伪装、贴近和密集覆盖。",
+    "rag_refs": [
+      22
+    ],
+    "source_refs": [
+      {
+        "chapter": 22,
+        "line_start": 466,
+        "line_end": 472,
+        "text": "奄奄一息的东三娘和高亚男突然跃起，四只手闪电般挥出千百道乌丝，暗器急密毒且变化突然。"
+      }
+    ]
+  }
+]

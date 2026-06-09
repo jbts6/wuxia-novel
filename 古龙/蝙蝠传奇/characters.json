@@ -1,0 +1,7580 @@
+[
+  {
+    "id": "char_xu_shu_zhen",
+    "name": "徐淑真",
+    "alias": [
+      "南阳"
+    ],
+    "identity": "华山派前代女掌门",
+    "faction": "faction_hua_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "开创华山女子掌门传统并留下择徒极严遗训的前代掌门。",
+    "personality": {
+      "traits": [
+        "严谨",
+        "清正",
+        "守规",
+        "重才德",
+        "择徒极严"
+      ],
+      "speech_style": "传闻中以遗训影响后人，未见直接言语。",
+      "temperament": "端严自持"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 2,
+        "line_end": 4,
+        "text": "华山自“南阳”徐淑真接掌华山以来，门户便为女子所掌持。"
+      }
+    ]
+  },
+  {
+    "id": "char_yin_yu_da_shi",
+    "name": "饮雨大师",
+    "alias": [],
+    "identity": "华山派掌门名宿",
+    "faction": "faction_hua_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "择徒极严、门下仅七人的华山掌门名宿，后远赴南海。",
+    "personality": {
+      "traits": [
+        "严苛",
+        "清高",
+        "慎重",
+        "重传承",
+        "不滥收门徒"
+      ],
+      "speech_style": "本章未直接发言，以事迹侧写其择徒之严。",
+      "temperament": "冷峻沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_ku_mei_da_shi",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "收枯梅为衣钵弟子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 6,
+        "line_end": 10,
+        "text": "传至饮雨大师时，弟子只有七个了，饮雨大师择徒之严，自此天下皆知。"
+      }
+    ]
+  },
+  {
+    "id": "char_ku_mei_da_shi",
+    "name": "枯梅大师",
+    "alias": [
+      "蓝太夫人"
+    ],
+    "identity": "华山派掌门传人",
+    "faction": "faction_hua_shan_pai",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "被揭为杀局真凶与暗中主使，甚至可能是蝙蝠岛真正主使人。",
+    "personality": {
+      "traits": [
+        "坚忍",
+        "刚烈",
+        "忠于师门",
+        "不屈",
+        "勇毅"
+      ],
+      "speech_style": "本段未直接发言，事迹显出冷硬刚强。",
+      "temperament": "铁骨孤峭"
+    },
+    "relationships": [
+      {
+        "target": "char_yin_yu_da_shi",
+        "type": "师徒",
+        "intensity": 82,
+        "bond_level": 4,
+        "dynamic": "衣钵弟子"
+      },
+      {
+        "target": "char_hua_zhen_zhen",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "因害怕被追责而陷害华真真"
+      }
+    ],
+    "known_skills": [
+      "skill_hua_shan_jian_fa"
+    ],
+    "related_skills": [
+      "skill_hua_shan_jian_fa"
+    ],
+    "rag_refs": [
+      1,
+      2,
+      8,
+      18,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 10,
+        "line_end": 16,
+        "text": "枯梅大师身受轻重伤三十九处，还是浴血苦战不懈，到最后太阴四剑竟没有一人能活着下山。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 196,
+        "line_end": 202,
+        "text": "枯梅大师怎会变成蓝太夫人了，竟冒蓝太夫人之名而来赴约。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 12,
+        "line_end": 12,
+        "text": "除了高亚男外，枯梅大师根本就未将这\"清风十三式\"的心法传授给任何弟子。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 132,
+        "line_end": 132,
+        "text": "丁枫那天去接枯梅大师的时候，穿的就是这件衣服。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 741,
+        "line_end": 785,
+        "text": "枯梅大师近年练成摘心手，临死前以外门巧劲反杀四名刺客。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 2,
+        "line_end": 30,
+        "text": "丧礼简单而隆重。是水葬。枯梅大师临死前是否对她说了些秘密。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 586,
+        "line_end": 590,
+        "text": "张三说会摘心手的只有三个，楚留香说只有两个因枯梅大师已死。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 956,
+        "line_end": 994,
+        "text": "高亚男说枯梅大师临死前曾留下提防华真真的遗言。"
+      },
+      {
+        "chapter": 22,
+        "line_start": 572,
+        "line_end": 578,
+        "text": "楚留香揭开最后一层幕，凶手赫然是枯梅大师，所有计划都由她暗中主使。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 22,
+        "line_end": 28,
+        "text": "枯梅大师并没有死。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 614,
+        "line_end": 638,
+        "text": "现在，剩下的只有一个秘密。 原随云和枯梅大师之间究竟有什么秘密的感情?有什么秘密的关系? 这秘密已永远没有人能解答，已随着他们的生命埋藏在海水里。 枯梅大师也许是原随云的母亲，也许是他的情人!因为山西原家和华山派的关系本就很深，原随云有很多机会可以接近枯梅大师。 枯梅大师毕竟也是人，也有感情，何况，她相信原随云绝不会在乎她的外貌和年纪，因为，原随云是个瞎子。"
+      }
+    ]
+  },
+  {
+    "id": "char_leng_mian_luo_cha",
+    "name": "冷面罗刹",
+    "alias": [],
+    "identity": "罗刹帮高手",
+    "faction": "faction_luo_cha_bang",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "从青海送来战书，逼华山派决战投属的强横人物。",
+    "personality": {
+      "traits": [
+        "强横",
+        "冷酷",
+        "好胜",
+        "咄咄逼人",
+        "野心外露"
+      ],
+      "speech_style": "以战书传意，语气威逼。",
+      "temperament": "森冷霸道"
+    },
+    "relationships": [
+      {
+        "target": "char_yin_yu_da_shi",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "约战泰山之巅"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 16,
+        "line_end": 16,
+        "text": "青海“冷面罗刹”送来战书，要和饮雨大师决战于泰山之巅。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 22,
+        "line_end": 26,
+        "text": "冷面罗刹立刻变色，跺脚而去，从此足并再未踏入中原一步。"
+      }
+    ]
+  },
+  {
+    "id": "char_chu_liu_xiang",
+    "name": "楚留香",
+    "alias": [
+      "盗帅"
+    ],
+    "identity": "江湖名侠",
+    "faction": "无",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "群豪盛赞他横扫大沙漠、力败石观音、独探神水宫和蝙蝠岛上的作为。",
+    "personality": {
+      "traits": [
+        "机敏",
+        "观察入微",
+        "镇定",
+        "幽默",
+        "体贴"
+      ]
+    },
+    "relationships": [
+      {
+        "target": "char_hu_tie_hua",
+        "type": "挚友",
+        "intensity": 94,
+        "bond_level": 5,
+        "dynamic": "楚留香被误打仍调侃胡铁花，显示两人亲密而熟稔。"
+      },
+      {
+        "target": "char_ding_feng",
+        "type": "对手",
+        "intensity": 88,
+        "bond_level": 4,
+        "dynamic": "看破丁枫疑似以玉蟠桃诱他远去的连环计。"
+      },
+      {
+        "target": "char_dong_san_niang",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "东三娘因他给予选择机会而愿意跟随带路"
+      },
+      {
+        "target": "char_bian_fu_gong_zi",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "隔着铜管互相试探，楚留香以内力震动铜管回应威胁"
+      },
+      {
+        "target": "char_qian_lao_san",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "当众揭穿钱老三就是临城血案凶手"
+      },
+      {
+        "target": "char_hei_yi_meng_mian_ren",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "楚留香显然认得黑衣蒙面人，见其现身毫无反应。"
+      },
+      {
+        "target": "char_hua_zhen_zhen",
+        "type": "恋人",
+        "intensity": 72,
+        "bond_level": 4,
+        "dynamic": "互相信任并在交手中商量计划"
+      }
+    ],
+    "known_skills": [
+      "skill_bi_hu_gong"
+    ],
+    "related_skills": [
+      "skill_chu_liu_xiang_qing_gong"
+    ],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      "ch_011:1-38",
+      12,
+      18,
+      21,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 54,
+        "line_end": 58,
+        "text": "楚留香远远就已瞧见了。胡铁花却拉住了他。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 616,
+        "line_end": 642,
+        "text": "楚留香知道胡铁花不会出卖朋友，只觉得好笑。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 14,
+        "line_end": 14,
+        "text": "非但楚留香为之耸然动容，胡铁花更是吓了一大跳。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 12,
+        "line_end": 18,
+        "text": "他就发现楚留香、勾子长、张三都围在岸边。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 936,
+        "line_end": 972,
+        "text": "楚留香看破丁枫借刀杀人与调虎离山的连环计，并指出漏洞在金灵芝小姐脾气。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 26,
+        "line_end": 40,
+        "text": "在她看到楚留香和胡铁花时，居然还是面不改色。两个位子显然是准备留给楚留香和胡铁花的。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 138,
+        "line_end": 138,
+        "text": "楚留香笑着称赞海上孤鹰向天飞的大名。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 78,
+        "line_end": 80,
+        "text": "这两人都穿着紧身的黑衣……楚留香本要将这两具尸首埋葬的。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 964,
+        "line_end": 966,
+        "text": "听到世上竟有那么样的奇境，在下确实也动心得很。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 32,
+        "line_end": 40,
+        "text": "连楚留香手里都为灰衣人捏着把汗，又暗道这位仁兄上了贼船。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 368,
+        "line_end": 462,
+        "text": "楚留香强调不能过早定凶，拿出云从龙托付的蜡丸与蝙蝠图，并听见门外有人。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "楚留香一拉开门，她的脸立刻红了"
+      },
+      {
+        "chapter": 8,
+        "line_start": 268,
+        "line_end": 270,
+        "text": "楚留香和张三竟都已不知溜到哪里去了。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 6,
+        "line_end": 30,
+        "text": "楚留香在船舷旁听丁枫通报海帮主失踪，并追问钱风。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 567,
+        "line_end": 577,
+        "text": "楚留香推断凶手不在乎毒杯落到谁手上。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 804,
+        "line_end": 824,
+        "text": "楚留香讲完逃情酒来历后掀开丁枫棺材盖。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 14,
+        "line_end": 38,
+        "text": "楚留香沉吟着，指出勾子长告密，并将关键指向海上销金窟。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 546,
+        "line_end": 566,
+        "text": "楚留香安排两班划行，并选择东南方向寻找岛屿或通商海船。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 512,
+        "line_end": 512,
+        "text": "楚留香闪电般抓住白猎腰带，阻止他跳海。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 516,
+        "line_end": 520,
+        "text": "叙述点明楚留香也有同样情感痛苦，只是更能克制。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 861,
+        "line_end": 873,
+        "text": "楚留香认为枯梅大师未必知道刺客来历，只希望可怕事件不要再发生。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 757,
+        "line_end": 795,
+        "text": "楚留香解释他们没有请柬，跟着走会连累别人，另一条路至少不引人注意。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 704,
+        "line_end": 705,
+        "text": "楚留香说蝙蝠岛想必有与众不同、连想象都无法想象的可怕处。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 648,
+        "line_end": 676,
+        "text": "楚留香淡淡接道：\"也许……但我无论如何也要试试。\" 女人道：\"你为什么不要我帮你的忙?\" 楚留香沉默着，只因他不忍。他既不忍说，也不忍再要她做任何事，更不忍再利用她。 现在他已有了种负罪的感觉。 若有人能忍心利用她这样的可怜人，那罪恶简直不"
+      },
+      {
+        "chapter": 18,
+        "line_start": 1,
+        "line_end": 36,
+        "text": "楚留香迎向巡逻女子，在黑暗中以轻妙手法救下柳明秋，并提醒她们也是人。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 600,
+        "line_end": 646,
+        "text": "楚留香温柔安慰东三娘，压下悲愤保护她的尊严。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 751,
+        "line_end": 785,
+        "text": "楚留香道：\"如此说来……我只望各位能让我安心与他一战。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 300,
+        "line_end": 312,
+        "text": "其中也有几人瞟了高亚男和张三一眼，道：\"莫非是楚香帅?\" 魏行龙道：\"楚香帅急人之难，劫富济贫，受过他好处的人也不知有多少；武功机智，更没有话说，当然是位大英雄、大豪杰；只不过……\" 他长长吸了口气，接着道：\"这天下第一四个字，楚香帅也未必能当得起。 \" 那几人立刻大声道：\"若连楚香帅也当不起，谁当得起?\" 又有几个人道：\"楚香帅横扫大沙漠，力败石观音，独探"
+      },
+      {
+        "chapter": 22,
+        "line_start": 542,
+        "line_end": 570,
+        "text": "楚留香早知华真真身份，并引导胡铁花想到最不可能的凶手枯梅大师。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 78,
+        "line_end": 96,
+        "text": "楚留香却一把拉住了他，摇摇头，低语道：\"他既然敢现身，就想必还有所仗恃，我们不妨先听听他说什么。 \" 他说话的声音虽低如耳语，却显然还没有避过原随云那双蝙蝠般敏锐的耳朵。 原随云忽然道：\"楚香帅。\" 楚留香道：\"原公子。\" 原随云叹了口气，道：\"香帅果然是人中之杰，名下无虚，在下本以为这计划天衣无缝，不想还是被香帅揭破了。 \" 楚留香道：\"天网恢恢，疏而不漏"
+      },
+      {
+        "chapter": 23,
+        "line_start": 642,
+        "line_end": 648,
+        "text": "楚留香和华真真双双伫立在船头，凝视着远方。 家园已在望。 光明也已在望! 希望永在人间!"
+      }
+    ],
+    "speech_style": "常用譬喻和闲话表达判断，语气悠然。",
+    "temperament": "洞察细微，能在悲痛中仍察觉破绽。"
+  },
+  {
+    "id": "char_hu_tie_hua",
+    "name": "胡铁花",
+    "alias": [],
+    "identity": "楚留香好友",
+    "faction": "无",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "明知洞内凶险仍冲回去援助楚留香。",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "嘴硬",
+        "重情",
+        "爱酒",
+        "好斗"
+      ],
+      "speech_style": "直率多调侃，常与楚留香斗嘴。",
+      "temperament": "热烈爽朗"
+    },
+    "relationships": [
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "挚友",
+        "intensity": 92,
+        "bond_level": 5,
+        "dynamic": "胡铁花称楚留香为老臭虫，急怒中仍直接求证。"
+      },
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "在蝙蝠岛入口前答应陪她留下"
+      },
+      {
+        "target": "char_wu_wei_yang",
+        "type": "对手",
+        "intensity": 35,
+        "bond_level": 1,
+        "dynamic": "发现本以为已死的武维扬仍在席上"
+      },
+      {
+        "target": "char_ding_feng",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "以姓名试探丁枫并观察其反应"
+      },
+      {
+        "target": "char_gou_zi_chang",
+        "type": "合作者",
+        "intensity": 68,
+        "bond_level": 3,
+        "dynamic": "从怀疑转为保护与协助勾子长查案。"
+      },
+      {
+        "target": "char_gong_sun_jie_yu",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "接受其可能为贡案凶手的判断。"
+      },
+      {
+        "target": "char_bai_la_zhu",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "接受其可能为贡案凶手的判断。"
+      },
+      {
+        "target": "char_ying_wan_li",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 1,
+        "dynamic": "误以为对方是京城大盗而当面指控"
+      },
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "胡铁花在歉意与玩笑后确认自己喜欢金灵芝。"
+      },
+      {
+        "target": "char_yuan_sui_yun",
+        "type": "对手",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "见原随云现身而愤怒"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_jia_quan_fa"
+    ],
+    "related_skills": [
+      "skill_hu_jia_quan_fa"
+    ],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      "ch_011:4-36",
+      12,
+      18,
+      21,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 56,
+        "line_end": 62,
+        "text": "胡铁花却拉住了他，道：你见过枯梅大师么?"
+      },
+      {
+        "chapter": 1,
+        "line_start": 882,
+        "line_end": 906,
+        "text": "胡铁花面对金灵芝连环剑招仍沉得住气，只闪避不还手。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 14,
+        "line_end": 14,
+        "text": "非但楚留香为之耸然动容，胡铁花更是吓了一大跳。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 4,
+        "line_end": 14,
+        "text": "胡铁花放马而奔，沿岸非但没有死人的尸首，连个活人都瞧不见。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 438,
+        "line_end": 468,
+        "text": "胡铁花想替金灵芝验伤，反被她踢中肩井穴并以剑抵住咽喉。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 8,
+        "line_end": 42,
+        "text": "胡铁花走上这阁楼，第一眼看到的人，竟然是金灵芝。但胡铁花却宁可坐在地上，也不愿坐在那里。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 102,
+        "line_end": 120,
+        "text": "胡铁花察言观色，正色说早已知道丁枫的事，又借罚酒带过。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 4,
+        "line_end": 18,
+        "text": "胡铁花觉得它虽不如张三烤鱼的鲜香……胡铁花实在想不通，海阔天为何将这两人全都请到一个地方来?"
+      },
+      {
+        "chapter": 5,
+        "line_start": 550,
+        "line_end": 570,
+        "text": "不但是个瞎子……老臭虫，你再说一个字，我就……就……宰了你。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 186,
+        "line_end": 196,
+        "text": "胡铁花见白蜡烛酒量食量惊人，连声称妙并赞少年英雄。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 362,
+        "line_end": 460,
+        "text": "胡铁花怀疑金灵芝、追问楚留香线索，又围绕蝙蝠图和云从龙遗言不断发问。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 6,
+        "line_end": 8,
+        "text": "胡铁花冷笑道：\"我们正在这里鬼扯，想不到金姑娘竟在门口替我们守卫，这倒真不敢当。\""
+      },
+      {
+        "chapter": 8,
+        "line_start": 394,
+        "line_end": 430,
+        "text": "原来是这么回事!你为何不早说?……难道他们的目的是要将这条船上的人全都杀死灭口?"
+      },
+      {
+        "chapter": 9,
+        "line_start": 156,
+        "line_end": 166,
+        "text": "胡铁花证明勾子长一直和他聊天，又追问公孙劫余师徒去向。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 583,
+        "line_end": 585,
+        "text": "张三刚问下一个轮到谁，胡铁花便连人带椅摔倒。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 646,
+        "line_end": 662,
+        "text": "胡铁花追问珍珠为何在死人身上，并嘲讽金灵芝做贼心虚。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 4,
+        "line_end": 32,
+        "text": "胡铁花掀开棺材盖，又追问复杂诡秘之事的来龙去脉。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 584,
+        "line_end": 598,
+        "text": "胡铁花表面调侃能干女人，实际看见金灵芝疲惫后主动提出换班。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 468,
+        "line_end": 472,
+        "text": "胡铁花愤然追问是否等死，随即用玩笑抵抗绝望。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 753,
+        "line_end": 779,
+        "text": "胡铁花看见神秘女子后惊愕迟疑，喃喃怀疑她为何在船上。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 125,
+        "line_end": 147,
+        "text": "胡铁花承认自己没有忘记高亚男，又被金灵芝与高亚男两段情意夹住。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 827,
+        "line_end": 835,
+        "text": "胡铁花苦笑希望不要被变成蝙蝠，又喃喃说变狗也许还能忍受。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 749,
+        "line_end": 767,
+        "text": "胡铁花问是否一到蝙蝠岛也会变成瞎子，又冷笑说除非有魔法。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 230,
+        "line_end": 244,
+        "text": "接着，又有一个人被摔在地上，摔得更重。 胡铁花的运气并不比张三好，他落下时，落入了一张网。 一张仿佛是铁丝编成的网。 他全身骨头都被勒得发疼，这一摔，更几乎将他的骨头都拆散。 他忍不住破口大骂，但无论他怎么骂，都没有人理他。 脚步声已走了出"
+      },
+      {
+        "chapter": 18,
+        "line_start": 116,
+        "line_end": 146,
+        "text": "胡铁花与楚留香调侃并面临被困危局。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 588,
+        "line_end": 618,
+        "text": "你要的本就是我，不是胡铁花……我立刻就释放胡铁花。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 108,
+        "line_end": 112,
+        "text": "胡铁花突然跳了起来，道：\"我进去瞧瞧。\" 张三道：\"你去找她?\" 胡铁花大声叫道：\"你以为我只记得女人?老臭虫一个人在里面，不但要对付原随云，还要对付华真真，我怎么还能在这里呆得下去!\""
+      },
+      {
+        "chapter": 22,
+        "line_start": 574,
+        "line_end": 576,
+        "text": "胡铁花听见凶手是枯梅大师后再次震惊得跳起。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 4,
+        "line_end": 8,
+        "text": "在这一刹那间，胡铁花就想起了很多事。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 604,
+        "line_end": 608,
+        "text": "他忽然发觉站在他面前的是两个伟大的女性，不是一个。 高亚男沉思着，良久良久，慢慢的转过头。 她看到了胡铁花，她忽然站起来，走过去。"
+      }
+    ],
+    "relationship_updates": [
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "两人在甲板上互相理解，几乎无需再借酒遮掩情意"
+      }
+    ],
+    "updates": {
+      "personality": {
+        "traits": [
+          "寂寞",
+          "逃避情感",
+          "爱酒",
+          "外表快乐",
+          "心事深重"
+        ],
+        "temperament": "外表嬉笑豪放，内心空虚寂寞，常以流浪与酒遮掩情感。"
+      },
+      "source_refs": [
+        {
+          "chapter": 13,
+          "line_start": 498,
+          "line_end": 524,
+          "text": "胡铁花外表快乐放浪，内心却空虚寂寞，常后悔对高亚男残忍。"
+        }
+      ]
+    },
+    "temperament": "面对过于曲折的真相时会从急躁转为本能恐惧。",
+    "speech_style": "直率强硬，遇敌时常以冷笑和挑衅稳住声势。"
+  },
+  {
+    "id": "char_gao_ya_nan",
+    "name": "高亚男",
+    "alias": [
+      "清风女剑客"
+    ],
+    "identity": "华山派女弟子",
+    "faction": "faction_hua_shan_pai",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "在假死局中与伪装者同时发动乌丝暗器，事后面如死灰。",
+    "personality": {
+      "traits": [
+        "英气",
+        "冷傲",
+        "果断",
+        "敏捷",
+        "外冷内热"
+      ],
+      "speech_style": "言语冷淡简短，带锋芒。",
+      "temperament": "清冷英锐"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_tie_hua",
+        "type": "恋人",
+        "intensity": 78,
+        "bond_level": 3,
+        "dynamic": "为了不让胡铁花冒险而故意不理他"
+      },
+      {
+        "target": "char_dong_san_niang",
+        "type": "合作者",
+        "intensity": 72,
+        "bond_level": 3,
+        "dynamic": "高亚男倒在东三娘面前，像是试图保护她。"
+      },
+      {
+        "target": "char_ku_mei_da_shi",
+        "type": "师徒",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "因尊敬师父而协助诈死"
+      },
+      {
+        "target": "char_zhang_san",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "说明自己只是点穴并未杀他"
+      }
+    ],
+    "known_skills": [
+      "skill_wu_si_an_qi"
+    ],
+    "related_skills": [
+      "skill_wu_si_an_qi"
+    ],
+    "rag_refs": [
+      1,
+      2,
+      18,
+      21,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 52,
+        "line_end": 54,
+        "text": "另一个却是英气勃勃，别人瞧她一眼，她至少瞪别人两眼。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 958,
+        "line_end": 958,
+        "text": "清风十三式为华山派镇山剑法，与高亚男清风女剑客身份相关。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 10,
+        "line_end": 12,
+        "text": "高亚男号称\"清风女剑客\"，剑法之高，连楚留香都佩服得很；但是她也并未将这\"清风十三式\"学全，只不过学会了九式而已。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 651,
+        "line_end": 665,
+        "text": "高亚男悲愤指控原随云害死枯梅大师，并以狠辣招式扑向他。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 721,
+        "line_end": 727,
+        "text": "高亚男也上了桥，临走时还问胡铁花“你呢”。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 592,
+        "line_end": 593,
+        "text": "胡铁花保证高亚男绝不是凶手，因为昨夜一直跟着他。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 868,
+        "line_end": 912,
+        "text": "高亚男出现，显得受辱痛苦，引发胡铁花关切。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 914,
+        "line_end": 954,
+        "text": "高亚男承认被华真真欺骗，并为师门遭变而痛哭。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 673,
+        "line_end": 679,
+        "text": "胡铁花和高亚男他们本就倒在那虎皮交椅前……高亚男恨恨道。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 606,
+        "line_end": 606,
+        "text": "高亚男也长长叹息了一声，喃喃道：\"说不定他已经知道了。\""
+      },
+      {
+        "chapter": 22,
+        "line_start": 488,
+        "line_end": 490,
+        "text": "胡铁花质问高亚男为何突下毒手，高亚男无言扑倒痛哭。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 12,
+        "line_end": 14,
+        "text": "却看到高亚男站在船舷旁。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 604,
+        "line_end": 608,
+        "text": "他忽然发觉站在他面前的是两个伟大的女性，不是一个。 高亚男沉思着，良久良久，慢慢的转过头。 她看到了胡铁花，她忽然站起来，走过去。"
+      }
+    ],
+    "temperament": "突袭失败后崩溃痛哭，自知做错却无话可答。"
+  },
+  {
+    "id": "char_hei_yi_da_han",
+    "name": "黑衣大汉",
+    "alias": [
+      "水上讨生活的朋友"
+    ],
+    "identity": "丁枫属下",
+    "faction": "faction_ding_feng_shu_xia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "奉命乘快艇来迎接蓝太夫人的水上黑衣汉子，被枯梅拐杖震飞。",
+    "personality": {
+      "traits": [
+        "冒进",
+        "粗疏",
+        "水性熟练",
+        "礼数不足",
+        "听命行事"
+      ],
+      "speech_style": "沉声禀问，尚未说完便被击飞。",
+      "temperament": "粗豪急切"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_feng",
+        "type": "主仆",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "奉命迎接蓝太夫人"
+      }
+    ],
+    "known_skills": [
+      "skill_shui_mian_qing_gong"
+    ],
+    "related_skills": [
+      "skill_shui_mian_qing_gong"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 104,
+        "line_end": 112,
+        "text": "船头的黑衣大汉身子微微一揖，就窜上了枯梅大师的江船。"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_yi_tong_ban",
+    "name": "黑衣同伴",
+    "alias": [
+      "另一个黑衣大汉"
+    ],
+    "identity": "丁枫属下",
+    "faction": "faction_ding_feng_shu_xia",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "快艇船头另一名黑衣汉子，因质问枯梅被高亚男削去耳朵。",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "护短",
+        "鲁莽",
+        "胆气不足",
+        "听命行事"
+      ],
+      "speech_style": "厉声质问，语气冲撞。",
+      "temperament": "急躁粗硬"
+    },
+    "relationships": [
+      {
+        "target": "char_hei_yi_da_han",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "同船来迎接"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 116,
+        "line_end": 116,
+        "text": "船头上另一个黑衣大汉厉声质问。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 118,
+        "line_end": 120,
+        "text": "剑光一闪间，他耳朵已不见了。"
+      }
+    ]
+  },
+  {
+    "id": "char_ding_feng",
+    "name": "丁枫",
+    "alias": [
+      "丁公子"
+    ],
+    "identity": "神秘组织少年接引者",
+    "faction": "faction_ding_feng_shu_xia",
+    "role": "死者",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "与勾子长一起被胡铁花怀疑杀白猎，但被楚留香排除摘心手能力。",
+    "personality": {
+      "traits": [
+        "客气",
+        "机敏",
+        "从容",
+        "圆滑",
+        "恭谨"
+      ],
+      "speech_style": "婉转客气，常赔笑致歉。",
+      "temperament": "潇洒沉着"
+    },
+    "relationships": [
+      {
+        "target": "char_ku_mei_da_shi",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "以为迎接蓝太夫人"
+      },
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "疑似握有金灵芝把柄或使她不敢违抗。"
+      },
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "对手",
+        "intensity": 88,
+        "bond_level": 4,
+        "dynamic": "疑似以玉蟠桃引楚留香离开并借极乐宫之险杀人。"
+      },
+      {
+        "target": "char_hu_tie_hua",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "被胡铁花试探身份后失措"
+      },
+      {
+        "target": "char_gou_zi_chang",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 1,
+        "dynamic": "试图挑动勾子长挑战席中高手"
+      },
+      {
+        "target": "char_xiang_tian_fei",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "被张三怀疑可能杀死向天飞。"
+      },
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "临终托付",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "求楚留香代为带归骸骨"
+      }
+    ],
+    "known_skills": [
+      "skill_shui_mian_qing_gong"
+    ],
+    "related_skills": [
+      "skill_shui_mian_qing_gong"
+    ],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      "ch_011:2-18",
+      12,
+      15,
+      17,
+      18,
+      19,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 172,
+        "line_end": 184,
+        "text": "船头上站着个身长玉立的轻衫少年，后来自称弟子丁枫。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 444,
+        "line_end": 446,
+        "text": "放火的人也许是丁枫，但他绝不会是首脑。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 288,
+        "line_end": 308,
+        "text": "这人竟是昨夜和枯梅大师同船而去的英俊少年丁枫；丁枫微笑着替金灵芝圆场。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 118,
+        "line_end": 122,
+        "text": "这倒用不着我们费心，自然有别人会问他的。丁枫!"
+      },
+      {
+        "chapter": 3,
+        "line_start": 936,
+        "line_end": 972,
+        "text": "楚留香指出丁枫连环计中还有调虎离山，要把他们远远支到星宿海去。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 68,
+        "line_end": 80,
+        "text": "再下来就是丁枫、海阔天。丁枫的笑容还是那么亲切，已举杯道。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 216,
+        "line_end": 230,
+        "text": "丁枫称眼前有轻功当世无双之人，又否认是在说自己。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 22,
+        "line_end": 32,
+        "text": "丁枫皱了皱眉头，道：\"难道海帮主还请了别的客人?\""
+      },
+      {
+        "chapter": 5,
+        "line_start": 904,
+        "line_end": 918,
+        "text": "阁下若是真的想去……就请上船同行如何?"
+      },
+      {
+        "chapter": 6,
+        "line_start": 18,
+        "line_end": 20,
+        "text": "海阔天笑了笑，道；丁枫淡淡道。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 182,
+        "line_end": 250,
+        "text": "丁枫冷冷逼问勾子长的空档，又淡然解释自己衣冠不整是睡觉习惯。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 40,
+        "line_end": 46,
+        "text": "丁枫从门里探出头来，目光有意无意间瞧了张三手里的包袱一眼"
+      },
+      {
+        "chapter": 8,
+        "line_start": 398,
+        "line_end": 402,
+        "text": "海阔天、向天飞、丁枫，又都不是什么规矩人"
+      },
+      {
+        "chapter": 9,
+        "line_start": 14,
+        "line_end": 28,
+        "text": "丁枫惊慌赶来询问海帮主下落，并说最后见到海阔天的人是钱风。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 491,
+        "line_end": 523,
+        "text": "丁枫临死求楚留香将自己的骸骨带归老母处。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 822,
+        "line_end": 828,
+        "text": "英万里问丁枫是否诈死，棺材中已没有尸体，丁枫果然复活。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 2,
+        "line_end": 18,
+        "text": "血字留言与楚留香推断都指向丁枫利用勾子长布下此局。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 396,
+        "line_end": 424,
+        "text": "丁枫留下爆炸黑箱、毁船并带走小艇，却漏算棺材可作浮具。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 262,
+        "line_end": 266,
+        "text": "张三赞丁枫一石二鸟，楚留香却推断丁枫幕后还有更可怕的人物。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 781,
+        "line_end": 785,
+        "text": "勾子长既已来了，丁枫想必也来了。他早已对金姑娘不满，金姑娘若是现在去了，也许就难免要有不测。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 559,
+        "line_end": 581,
+        "text": "胡铁花说杀白猎的人一定就是勾子长和丁枫。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 138,
+        "line_end": 144,
+        "text": "楚留香道：\"蝙蝠公子就是在那里迎接宾客?\" 金灵芝道：\"有时是丁枫在那里。\" 楚留香道：\"丁枫究竟是蝙蝠公子的什么人?\" 金灵芝道：\"好像是他的徒弟。\""
+      },
+      {
+        "chapter": 18,
+        "line_start": 188,
+        "line_end": 238,
+        "text": "丁枫审问赵刚，并判断对方遭遇的正是楚留香。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 1040,
+        "line_end": 1068,
+        "text": "丁枫后来做下火药圈套，使众人陷入几乎必死的局面。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 370,
+        "line_end": 378,
+        "text": "蝙蝠公子突然拍了拍手，道：\"下去瞧瞧。\"……只听丁枫道：\"下面没有人。\""
+      },
+      {
+        "chapter": 19,
+        "line_start": 665,
+        "line_end": 665,
+        "text": "只有丁枫石像般怔在那里，呆呆的瞧着楚留香。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 24,
+        "line_end": 24,
+        "text": "丁枫既然能用药物诈死，枯梅大师当然也能。"
+      }
+    ],
+    "progression": "原随云逃遁后，丁枫仍被楚留香扣住脉门。"
+  },
+  {
+    "id": "char_zhang_san",
+    "name": "张三",
+    "alias": [
+      "快网张三"
+    ],
+    "identity": "水上功夫和造船航行术冠于江南的江湖人物",
+    "faction": "无",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "在出口外倒地身亡，身上无血渍却已无呼吸。",
+    "personality": {
+      "traits": [
+        "机警",
+        "伶俐",
+        "义气",
+        "贪珍珠",
+        "能说会道"
+      ],
+      "speech_style": "遇险时夸张求救，平日油滑机灵。",
+      "temperament": "灵活滑脱"
+    },
+    "relationships": [
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "挚友",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "水上朋友，浴池中相遇"
+      },
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "利用金灵芝不懂水性，从水中反制她。"
+      },
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "金灵芝兑现竞价买下张三，张三口头称谢"
+      }
+    ],
+    "known_skills": [
+      "skill_kuai_wang_shui_shang_gong_fu"
+    ],
+    "related_skills": [
+      "skill_kuai_wang_shui_shang_gong_fu"
+    ],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      10,
+      "ch_011:6",
+      12,
+      18,
+      21,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 250,
+        "line_end": 254,
+        "text": "有一天，你弄了两坛好酒，就去找快网张三。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 770,
+        "line_end": 776,
+        "text": "张三明知金灵芝身份仍因珍珠心动下手。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 846,
+        "line_end": 858,
+        "text": "快网张三在破旧小船上专心烤鱼，船也是他亲手造成。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 12,
+        "line_end": 22,
+        "text": "他就发现楚留香、勾子长、张三都围在岸边。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 964,
+        "line_end": 974,
+        "text": "张三赞丁枫算准众人不会防备金灵芝，也说明自己趁她听故事弄破船底。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "胡铁花觉得它虽不如张三烤鱼的鲜香，但滑嫩处却仿佛犹有过之。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 1014,
+        "line_end": 1016,
+        "text": "交有钱的奴才总比穷光蛋朋友好，至少他总不会整天到你那里去白吃。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 252,
+        "line_end": 256,
+        "text": "张三立刻应声遵命，又喃喃自语花成万两银子买下我只叫我倒酒。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 404,
+        "line_end": 452,
+        "text": "张三追问蜡丸内容，并以玩笑讥讽胡铁花咬文嚼字。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 14,
+        "line_end": 14,
+        "text": "张三立刻跳下床，赶出去，赔着笑道：\"姑娘有什么吩咐?\""
+      },
+      {
+        "chapter": 8,
+        "line_start": 268,
+        "line_end": 270,
+        "text": "楚留香和张三竟都已不知溜到哪里去了。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 6,
+        "line_end": 18,
+        "text": "张三与楚留香倚船舷看海，并建议丁枫到舱房寻找海阔天。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 411,
+        "line_end": 425,
+        "text": "张三讽刺丁枫两只手杀人更方便，却被丁枫反讥三只手。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 690,
+        "line_end": 698,
+        "text": "张三苦笑说凶手若不是众人，只怕不是胡铁花就是自己。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "张三的名字也被写在棺材里。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 440,
+        "line_end": 448,
+        "text": "张三也能在沉船绝境中笑谈丁枫准备了六口棺材。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 54,
+        "line_end": 58,
+        "text": "张三早已坐起打赤膊扇风，苦笑说自己像烤鱼。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 466,
+        "line_end": 472,
+        "text": "张三指出四间舱房门从里面拴住，住客却一直不露面。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 339,
+        "line_end": 353,
+        "text": "张三收网吃力，本以为丰收，网中却没有鱼而是四名女子。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 366,
+        "line_end": 378,
+        "text": "张三不知何时开门走出，笑称什么也没瞧见听见。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 731,
+        "line_end": 761,
+        "text": "张三说最可怕的是黑暗和看不见，并推断蝙蝠岛上的人都是瞎子。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 188,
+        "line_end": 244,
+        "text": "张三只觉自己的人就像是块石头，往下直坠。 下面是什么地方? 是刀山?是油锅?还是火坑? 无论下面是什么，他都只有认命了。 他根本已无法停住! 好深，还没有到底…… 张三索性闭起眼睛，就在这时，他忽然觉得足尖触及了一样东西。 他再想提住气，已"
+      },
+      {
+        "chapter": 18,
+        "line_start": 280,
+        "line_end": 312,
+        "text": "张三参与询问楚留香潜入方法与脚步声线索。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 170,
+        "line_end": 174,
+        "text": "张三叹了口气，道：\"我不是装孙子……反正英万里和勾子长也要人守着。\""
+      },
+      {
+        "chapter": 21,
+        "line_start": 602,
+        "line_end": 610,
+        "text": "张三长长叹息了一声，道：\"现在大家本该同舟共济，齐心来对付强敌，解决困难，谁知他们却反而自相残杀起来，原随云若是知道，一定开心得很。 \" 高亚男也长长叹息了一声，喃喃道：\"说不定他已经知道了。\" 张三冷眼瞧着混战中的群豪，缓缓道：\"不错，这件事说不定也是他早就安排好了的。 \""
+      },
+      {
+        "chapter": 22,
+        "line_start": 428,
+        "line_end": 428,
+        "text": "张三倒在他们身旁，脸伏在地上，动也不动，呼吸已停止。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 526,
+        "line_end": 530,
+        "text": "高亚男没有回答这句话，沉默了很久，忽然道：\"张三没有死。\" 楚留香动容道：\"真的?\" 高亚男道：\"对他下手的人是我，我只不过点了他的穴道而已。\""
+      }
+    ],
+    "relationship_updates": [
+      {
+        "target": "char_yuan_sui_yun",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "张三直觉原随云热心老实过度，怀疑其城府与目的"
+      }
+    ],
+    "progression": "受楚留香托付照顾金灵芝并搜救活人，同时提醒楚留香留意其他埋伏。"
+  },
+  {
+    "id": "char_hai_xiu_shao_nv",
+    "name": "害羞少女",
+    "alias": [
+      "紫衣少女"
+    ],
+    "identity": "枯梅身旁少女",
+    "faction": "faction_hua_shan_pai",
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "低头诵经、羞见生人的紫衣少女，随枯梅同船失踪。",
+    "personality": {
+      "traits": [
+        "羞怯",
+        "安静",
+        "温顺",
+        "专注",
+        "内敛"
+      ],
+      "speech_style": "本章未直接发言，常低头诵经。",
+      "temperament": "柔弱安静"
+    },
+    "relationships": [
+      {
+        "target": "char_ku_mei_da_shi",
+        "type": "主仆",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "随侍船舱诵经"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 52,
+        "line_end": 54,
+        "text": "一个斯斯文文，秀秀气气，始终低垂着头，仿佛羞见生人。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 348,
+        "line_end": 350,
+        "text": "害羞的少女和众人竟已全都不见了。"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_tui_ren",
+    "name": "长腿人",
+    "alias": [],
+    "identity": "浴池中神秘高手",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "两腿细长、上身粗壮，轻功极高且疑似使用重兵器的神秘人物。",
+    "personality": {
+      "traits": [
+        "神秘",
+        "沉稳",
+        "低调",
+        "观察敏锐",
+        "来历不明"
+      ],
+      "speech_style": "言语很少，带笑试探。",
+      "temperament": "从容隐秘"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_chang_tui_qing_gong"
+    ],
+    "related_skills": [
+      "skill_chang_tui_qing_gong"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 478,
+        "line_end": 486,
+        "text": "这人的两腿很细很长，上身粗壮，楚留香看出这人的轻功极高，兵器分量一定很重。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 816,
+        "line_end": 834,
+        "text": "长腿人微笑试探楚留香，张三判断他轻功极高且很有来头。"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_ling_zhi",
+    "name": "金灵芝",
+    "alias": [
+      "火凤凰"
+    ],
+    "identity": "万福万寿园金太夫人第三十九孙女",
+    "faction": "faction_wan_fu_wan_shou_yuan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "被华真真救出后仍脸色苍白、昏迷未醒。",
+    "personality": {
+      "traits": [
+        "骄纵",
+        "泼辣",
+        "胆大",
+        "好胜",
+        "急躁"
+      ],
+      "speech_style": "又急又快，常把一句话重复两次。",
+      "temperament": "炽烈张扬"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_tai_fu_ren",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "最受金太夫人喜爱的孙女"
+      },
+      {
+        "target": "char_zhang_san",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "惩罚张三船舱臭气，逼他跳进脏江里。"
+      },
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "要求楚留香以盗帅本事去偷玉蟠桃。"
+      },
+      {
+        "target": "char_jin_ling_zhi_zu_mu",
+        "type": "亲属",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "为祖母八旬寿辰不惜挟持胡铁花索取玉蟠桃。"
+      },
+      {
+        "target": "char_ding_feng",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "可能受丁枫要挟或因丁枫而异常忍让。"
+      },
+      {
+        "target": "char_zhang_san",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "以银票买下张三，获得其海上同行之助"
+      },
+      {
+        "target": "char_hu_tie_hua",
+        "type": "拼酒对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "被激起胜负心"
+      },
+      {
+        "target": "char_hu_tie_hua",
+        "type": "微妙情愫",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "对胡铁花的愤怒眼色异于旁人，恨与爱纠缠不清"
+      },
+      {
+        "target": "char_yuan_sui_yun",
+        "type": "恋人",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "扑入怀中并同坠海中"
+      }
+    ],
+    "known_skills": [
+      "skill_bei_pai_yuan_yang_tui"
+    ],
+    "related_skills": [
+      "skill_jin_ling_zhi_ruan_jian",
+      "skill_liu_xu_jian_fa",
+      "skill_qing_feng_shi_san_shi"
+    ],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      "ch_011:38",
+      12,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 534,
+        "line_end": 544,
+        "text": "红衣少女强闯男浴池，追骂臭小偷。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 942,
+        "line_end": 958,
+        "text": "金灵芝使出华山派镇山剑法清风十三式第一式清风徐来。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 14,
+        "line_end": 14,
+        "text": "但现在金灵芝居然竟使出了一招\"清风徐来\"。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 382,
+        "line_end": 398,
+        "text": "金灵芝还是躲在那里，不肯说话，目中竟流下泪来。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 896,
+        "line_end": 922,
+        "text": "众人推测金灵芝可能受人指使或要挟，甚至有把柄被握。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 8,
+        "line_end": 20,
+        "text": "胡铁花走上这阁楼，第一眼看到的人，竟然是金灵芝。她端端正正、规规矩矩的坐在那里。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 412,
+        "line_end": 430,
+        "text": "金姑娘呢?也赏光么?……金灵芝冷笑道：\"你以为只有你一个人酒量好?\""
+      },
+      {
+        "chapter": 5,
+        "line_start": 978,
+        "line_end": 988,
+        "text": "当然……扬手就将一大叠银票甩了出去。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 250,
+        "line_end": 266,
+        "text": "金灵芝命人倒六壶酒，又道你喝四壶，我喝两壶。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 362,
+        "line_end": 366,
+        "text": "胡铁花因珍珠出现在李得标尸身上，仍认为金灵芝嫌疑最大。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 2,
+        "line_end": 4,
+        "text": "站在门口的竟是金灵芝。楚留香一拉开门，她的脸立刻红了"
+      },
+      {
+        "chapter": 8,
+        "line_start": 144,
+        "line_end": 160,
+        "text": "她知道我们已发现那尸身上的珍珠……金灵芝本是个千金小姐"
+      },
+      {
+        "chapter": 9,
+        "line_start": 168,
+        "line_end": 168,
+        "text": "金灵芝证实她去找公孙劫余师徒时，他们的确在屋里。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 246,
+        "line_end": 252,
+        "text": "金灵芝被丁枫一提拼酒便沉不住气，要拿六壶酒来。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 674,
+        "line_end": 684,
+        "text": "金灵芝怒称杀人的不是自己，且丁枫既死，说出所见也无用。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 38,
+        "line_end": 38,
+        "text": "楚留香认为金灵芝比别人都更知道那地方的情形。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 606,
+        "line_end": 608,
+        "text": "英万里发现她对胡铁花发脾气时眼色也与看别人不同，暗示恨爱相缠。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 352,
+        "line_end": 382,
+        "text": "金灵芝解释蝙蝠图含义，并说明距离蝙蝠岛仍有数日航程。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 753,
+        "line_end": 775,
+        "text": "金灵芝追问神秘女子身份，因胡铁花闪烁其辞而酸意顿生。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 637,
+        "line_end": 637,
+        "text": "金灵芝见血腥惨状后奔出呕吐。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 797,
+        "line_end": 825,
+        "text": "金灵芝听到蝙蝠岛便露出恐惧，掉头就走；楚留香推测她被警告过。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 769,
+        "line_end": 770,
+        "text": "金灵芝说他们用不着魔法，无论谁一到那里，自己就会变成瞎子的。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 68,
+        "line_end": 86,
+        "text": "金灵芝忽然抬起头，道：\"香帅……现在我们赶快离开这里，也许还来得及……\" 楚留香道：\"离开这里?到哪里去?\" 金灵芝道：\"随便到哪里去，都比这里好得多。\" 楚留香道：\"但这里岂非无路可退么?\" 金灵芝道：\"我们可以找条破船，躲在里面等，等到"
+      },
+      {
+        "chapter": 22,
+        "line_start": 544,
+        "line_end": 548,
+        "text": "华真真放下怀中的金灵芝；金灵芝脸色苍白，受惊极大，仍昏迷未醒。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 8,
+        "line_end": 30,
+        "text": "胡铁花听到的那声惊呼，的确是金灵芝发出来的。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 482,
+        "line_end": 490,
+        "text": "大家也不知道金灵芝究竟是为了什么死的? 是为了不愿和原随云分开?是因为她知道除了死之外，自己绝对无法抓住原随云这种人的心?还是为了胡铁花? 胡铁花痴痴的站在海水旁，痴痴的瞧着海浪。 海浪已将原随云和金灵芝的尸体卷走，也不知卷到何处去了。 他但愿金灵芝没有死，原随云也没有死。"
+      }
+    ],
+    "updates": {
+      "personality": {
+        "traits": [
+          "豪爽",
+          "逞强",
+          "骄傲",
+          "隐藏脆弱",
+          "渴望被理解"
+        ]
+      },
+      "source_refs": [
+        {
+          "chapter": 13,
+          "line_start": 582,
+          "line_end": 627,
+          "text": "金灵芝深夜流泪却仍以凶悍语气掩饰，终与胡铁花饮酒。"
+        }
+      ]
+    },
+    "relationship_updates": [
+      {
+        "target": "char_hu_tie_hua",
+        "type": "恋人",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "因胡铁花疑似认得神秘女子而吃醋离去"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_shi_zhang_gui",
+    "name": "浴室掌柜",
+    "alias": [],
+    "identity": "逍遥池掌柜",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "试图阻止金灵芝闯入男浴池却被掴掌的掌柜。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "焦急",
+        "守规矩",
+        "胆小",
+        "尽责"
+      ],
+      "speech_style": "急切劝阻。",
+      "temperament": "慌张守礼"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 532,
+        "line_end": 562,
+        "text": "浴室掌柜大叫不能进去，随即被重重掴了一巴掌。"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_ling_zhi_ya_tou",
+    "name": "金灵芝丫头",
+    "alias": [
+      "小丫头"
+    ],
+    "identity": "金灵芝随侍丫头",
+    "faction": "faction_wan_fu_wan_shou_yuan",
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "圆脸带笑、跟随金灵芝闯入逍遥池的小丫头。",
+    "personality": {
+      "traits": [
+        "机灵",
+        "羞怯",
+        "爱笑",
+        "随从忠心",
+        "好奇"
+      ],
+      "speech_style": "笑嘻嘻，偶尔劝金灵芝离开。",
+      "temperament": "甜软机敏"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "随金灵芝追捕张三"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 576,
+        "line_end": 586,
+        "text": "跟着进来的是一个十四五岁的小丫头，圆圆的脸，眼睛里带着笑意。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 664,
+        "line_end": 670,
+        "text": "小丫头劝金灵芝离开，说小偷好像不在这里。"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_tai_fu_ren",
+    "name": "金太夫人",
+    "alias": [
+      "金老太太"
+    ],
+    "identity": "万福万寿园主人",
+    "faction": "faction_wan_fu_wan_shou_yuan",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "势力冠绝江湖、儿孙女婿遍布各方的万福万寿园老太君。",
+    "personality": {
+      "traits": [
+        "威望极高",
+        "家教有方",
+        "正派",
+        "势力庞大",
+        "令人敬畏"
+      ],
+      "speech_style": "本章未直接发言，以江湖声望侧写。",
+      "temperament": "尊贵威严"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "最喜欢的小孙女"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 744,
+        "line_end": 758,
+        "text": "她奶奶就是万福万寿园的金太夫人，简直没有人能惹得起。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 760,
+        "line_end": 768,
+        "text": "金太夫人子女孙辈多成名立万，金家子弟走正路。"
+      }
+    ]
+  },
+  {
+    "id": "char_ku_yin_da_shi",
+    "name": "苦因大师",
+    "alias": [
+      "峨嵋苦因师太"
+    ],
+    "identity": "峨嵋高僧",
+    "faction": "faction_e_mei_pai",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "出神入化",
+    "one_line": "金太夫人削发女儿所承衣钵的峨嵋大师。",
+    "personality": {
+      "traits": [
+        "清修",
+        "严谨",
+        "传承深厚",
+        "威望高",
+        "沉静"
+      ],
+      "speech_style": "本章未直接发言，仅以传承被提及。",
+      "temperament": "清肃"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_liu_xu_jian_fa"
+    ],
+    "related_skills": [
+      "skill_liu_xu_jian_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 762,
+        "line_end": 764,
+        "text": "一个女儿削发为尼，投入峨嵋门下，传了峨嵋苦因大师的衣钵。"
+      }
+    ]
+  },
+  {
+    "id": "char_hong_lian_ren",
+    "name": "红脸人",
+    "alias": [],
+    "identity": "逍遥池中神秘人物",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "脸红如熟螃蟹、似乎认识楚留香却避开目光的神秘人物。",
+    "personality": {
+      "traits": [
+        "回避",
+        "紧张",
+        "隐秘",
+        "沉默",
+        "可疑"
+      ],
+      "speech_style": "本段未直接发言。",
+      "temperament": "局促可疑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 820,
+        "line_end": 824,
+        "text": "这人的脸红得像熟螃蟹，自始至终没有向楚留香瞧过一眼。"
+      }
+    ]
+  },
+  {
+    "id": "char_hong_lian_tong_xing_ren",
+    "name": "红脸同行人",
+    "alias": [],
+    "identity": "红脸人同行者",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "与红脸人同行，偷瞟楚留香后又低头离开的可疑人物。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "畏缩",
+        "可疑",
+        "沉默",
+        "回避"
+      ],
+      "speech_style": "本段未直接发言。",
+      "temperament": "胆怯隐秘"
+    },
+    "relationships": [
+      {
+        "target": "char_hong_lian_ren",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "同在逍遥池出现"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 824,
+        "line_end": 824,
+        "text": "和他同行的人眼角偷偷瞟着楚留香，随即低头匆匆走出。"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_ling_zhi_qi_gu",
+    "name": "金灵芝七姑",
+    "alias": [],
+    "identity": "金太夫人之女、峨嵋苦因师太衣钵弟子",
+    "faction": "faction_e_mei_pai",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "炉火纯青",
+    "one_line": "金灵芝七姑，削发为尼后承苦因师太衣钵，疑将柳絮剑法私传金灵芝。",
+    "personality": {
+      "traits": [
+        "清修",
+        "重传承",
+        "出身金家",
+        "武学深厚",
+        "隐于峨嵋"
+      ],
+      "speech_style": "本章未直接发言。",
+      "temperament": "清冷内敛"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "亲属",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "疑将柳絮剑法私传金灵芝"
+      },
+      {
+        "target": "char_ku_yin_da_shi",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "承苦因师太衣钵"
+      }
+    ],
+    "known_skills": [
+      "skill_liu_xu_jian_fa"
+    ],
+    "related_skills": [
+      "skill_liu_xu_jian_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 936,
+        "line_end": 936,
+        "text": "她七姑是峨嵋苦因师太的衣钵弟子，这套剑法想必就是她七姑私下传授给她的。"
+      }
+    ]
+  },
+  {
+    "id": "char_zi_pao_da_han",
+    "name": "紫袍大汉",
+    "alias": [
+      "脸色像熟螃蟹的人"
+    ],
+    "identity": "穿紫缎团花袍、腰系玉带的魁伟江湖人",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "被楚留香当众指出是窝主和主使，珍珠藏在他身上。",
+    "personality": {
+      "traits": [
+        "老江湖",
+        "心虚",
+        "善作从容",
+        "派头极大",
+        "畏惧楚留香"
+      ],
+      "speech_style": "先支吾再强作镇定，喜欢以客套遮掩心虚。",
+      "temperament": "外强中虚"
+    },
+    "relationships": [
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "被楚留香当众揭穿藏珠。"
+      },
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "涉嫌盗走金灵芝珍珠。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 94,
+        "line_end": 108,
+        "text": "紫袍大汉腰系玉带，被楚留香指为窝主和主使。"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_ya_tou",
+    "name": "小丫头",
+    "alias": [],
+    "identity": "旁观并帮金灵芝起哄的小丫头",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "在搜身争执中笑眯眯帮腔，推动众人搜紫袍大汉。",
+    "personality": {
+      "traits": [
+        "机灵",
+        "爱起哄",
+        "胆大",
+        "口齿伶俐",
+        "偏向金灵芝"
+      ],
+      "speech_style": "尖俏活泼，喜欢顺势调侃。",
+      "temperament": "活泼促狭"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "在找珍珠时替金灵芝帮腔。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 148,
+        "line_end": 170,
+        "text": "那小丫头在旁边叫起来，主张搜一搜，还笑问是否要脱光再搜。"
+      }
+    ]
+  },
+  {
+    "id": "char_pei_dao_de_ren",
+    "name": "佩刀的人",
+    "alias": [],
+    "identity": "跟随紫袍大汉的佩刀江湖人",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "紫袍大汉的同伴，遇搜身时握刀威胁众人。",
+    "personality": {
+      "traits": [
+        "粗豪",
+        "急躁",
+        "护主",
+        "好斗",
+        "口气蛮横"
+      ],
+      "speech_style": "厉声喝问，语气粗鲁强硬。",
+      "temperament": "暴躁凶悍"
+    },
+    "relationships": [
+      {
+        "target": "char_zi_pao_da_han",
+        "type": "合作者",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "在紫袍大汉受逼时想拔刀相助。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 150,
+        "line_end": 156,
+        "text": "跟着紫袍大汉来的人反手握住腰上的佩刀，厉声问是否真要搜。"
+      }
+    ]
+  },
+  {
+    "id": "char_huan_zhu_da_shi",
+    "name": "还珠大师",
+    "alias": [],
+    "identity": "金灵芝的七姑，峨嵋剑法相关人物",
+    "faction": "faction_e_mei",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "金灵芝的七姑，被丁枫用来掩饰金灵芝剑法来历。",
+    "personality": {
+      "traits": [
+        "名门长辈",
+        "剑法高明",
+        "身份清贵",
+        "被人敬重",
+        "与金灵芝亲近"
+      ],
+      "speech_style": "本章未出声。",
+      "temperament": "端肃"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "丁枫称金灵芝剑法青出于蓝于还珠大师。"
+      }
+    ],
+    "known_skills": [
+      "skill_e_mei_jian_fa"
+    ],
+    "related_skills": [
+      "skill_e_mei_jian_fa"
+    ],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 292,
+        "line_end": 296,
+        "text": "还珠大师正是金灵芝的七姑，柳絮飞雪也正是峨嵋嫡传剑法中的一招。"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_tui_de_ren",
+    "name": "长腿的人",
+    "alias": [
+      "洗澡的长腿人"
+    ],
+    "identity": "衣着华丽、手提沉重黑色皮箱的长腿男子",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "主动加入三和楼酒席，后揭名为勾子长。",
+    "personality": {
+      "traits": [
+        "主动",
+        "直爽",
+        "自信",
+        "神秘",
+        "不拘小节"
+      ],
+      "speech_style": "开口自然，直问直答。",
+      "temperament": "坦率神秘"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 354,
+        "line_end": 368,
+        "text": "长腿的人提着黑色皮箱主动问席面是否请他，并与紫袍大汉约在三和楼。"
+      }
+    ]
+  },
+  {
+    "id": "char_da_she",
+    "name": "大蛇",
+    "alias": [
+      "幕后黑手"
+    ],
+    "identity": "盗取并贩卖江湖秘技秘密的幕后人物代称",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "楚留香推断丁枫背后另有更大的幕后黑手。",
+    "personality": {
+      "traits": [
+        "隐秘",
+        "心机深沉",
+        "手段高明",
+        "操控他人",
+        "善藏行迹"
+      ],
+      "speech_style": "本章未直接出声，只以楚留香推断出现。",
+      "temperament": "阴鸷莫测"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_feng",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "丁枫可能只是小蛇，背后另有大蛇。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_qing_feng_shi_san_shi",
+      "skill_da_pai_shou"
+    ],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 560,
+        "line_end": 568,
+        "text": "楚留香认为丁枫最多只是小蛇，另有大蛇藏在草里。"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_guan_yin",
+    "name": "石观音",
+    "alias": [],
+    "identity": "胡铁花提及的强敌旧例",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "被胡铁花拿来与丁枫比较的昔日强敌。",
+    "personality": {
+      "traits": [
+        "强大",
+        "危险",
+        "名声可怖",
+        "心机深",
+        "令人忌惮"
+      ],
+      "speech_style": "本章未出声。",
+      "temperament": "冷酷"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 630,
+        "line_end": 632,
+        "text": "胡铁花问丁枫难道能比石观音、血衣人更厉害。"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_yi_ren",
+    "name": "血衣人",
+    "alias": [],
+    "identity": "胡铁花提及的强敌旧例",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "被胡铁花拿来与丁枫比较的昔日强敌。",
+    "personality": {
+      "traits": [
+        "危险",
+        "武功极高",
+        "令人忌惮",
+        "神秘",
+        "杀气重"
+      ],
+      "speech_style": "本章未出声。",
+      "temperament": "阴冷"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 630,
+        "line_end": 632,
+        "text": "胡铁花问丁枫难道能比石观音、血衣人更厉害。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 174,
+        "line_end": 174,
+        "text": "薛衣人锋芒最露时也未敢到无争山庄去一撄其锋，侧显原氏威望。"
+      }
+    ]
+  },
+  {
+    "id": "char_shu_hou_ren_ying",
+    "name": "树后人影",
+    "alias": [
+      "杂树丛中人影"
+    ],
+    "identity": "藏在路旁杂树丛中窥伺楚留香等人的轻功高手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "在楚留香和胡铁花故意斗嘴时藏在树后，很快一闪而没。",
+    "personality": {
+      "traits": [
+        "隐秘",
+        "轻功高",
+        "善窥伺",
+        "警觉",
+        "不露身份"
+      ],
+      "speech_style": "本段未出声。",
+      "temperament": "诡秘"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 766,
+        "line_end": 774,
+        "text": "路旁杂树丛中有人影闪动，随后一闪而没，轻功仿佛也极高。"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_er_dai",
+    "name": "王二呆",
+    "alias": [],
+    "identity": "勾子长提到的朋友，疑似假名",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "常在勾子长面前称颂楚留香，并托其致意。",
+    "personality": {
+      "traits": [
+        "感念旧恩",
+        "身份隐秘",
+        "真心交友",
+        "熟悉楚留香",
+        "用名可疑"
+      ],
+      "speech_style": "本章未出声，只由勾子长转述。",
+      "temperament": "神秘"
+    },
+    "relationships": [
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "称楚留香对自己恩重如山。"
+      },
+      {
+        "target": "char_chang_tui_de_ren",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "托勾子长见到楚留香时致意。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 826,
+        "line_end": 832,
+        "text": "勾子长说朋友叫王二呆，虽然可能是假名，但是真心相交。"
+      }
+    ]
+  },
+  {
+    "id": "char_shui_xia_qie_ting_zhe",
+    "name": "水下窃听者",
+    "alias": [
+      "水里偷听的人"
+    ],
+    "identity": "藏在水下用银筒偷听楚留香等人谈话的人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "潜在水下用特制银筒偷听，被楚留香用醋灌耳。",
+    "personality": {
+      "traits": [
+        "隐秘",
+        "受人指使",
+        "耐性强",
+        "擅潜伏",
+        "倒霉"
+      ],
+      "speech_style": "本章未出声。",
+      "temperament": "鬼祟"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 964,
+        "line_end": 980,
+        "text": "楚留香借醋逼出水中银筒，揭破有人躲在水里偷听。"
+      }
+    ]
+  },
+  {
+    "id": "char_you_hu_zi_qi_shi",
+    "name": "有胡子骑士",
+    "alias": [],
+    "identity": "从十二连环坞方向急驰而来的凤尾帮骑士之一",
+    "faction": "faction_feng_wei_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "骑马经过张三船旁，问帮主是否真的在船上。",
+    "personality": {
+      "traits": [
+        "急迫",
+        "忠于帮主",
+        "骑术精绝",
+        "赶路疲惫",
+        "行色匆忙"
+      ],
+      "speech_style": "匆忙低语。",
+      "temperament": "紧张"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1006,
+        "line_end": 1018,
+        "text": "两匹快马沿江急驰，有胡子的人问帮主真的在那条船上。"
+      }
+    ]
+  },
+  {
+    "id": "char_mei_hu_zi_qi_shi",
+    "name": "没胡子骑士",
+    "alias": [],
+    "identity": "从十二连环坞方向急驰而来的凤尾帮骑士之一",
+    "faction": "faction_feng_wei_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "与有胡子骑士同骑快马经过，只说出只希望半句。",
+    "personality": {
+      "traits": [
+        "急迫",
+        "谨慎",
+        "骑术精绝",
+        "行色匆忙",
+        "忠于帮主"
+      ],
+      "speech_style": "话未说完便远去。",
+      "temperament": "紧张"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1006,
+        "line_end": 1018,
+        "text": "没胡子的人随快马经过，说只希望半句即远去。"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_wei_yang",
+    "name": "武维扬",
+    "alias": [
+      "武老大"
+    ],
+    "identity": "凤尾帮总瓢把子",
+    "faction": "faction_feng_wei_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "被胡铁花讽刺后立刻安排云从龙后事，并以哀辞塑造新帮主姿态。",
+    "personality": {
+      "traits": [
+        "刚正",
+        "武功极高",
+        "守约",
+        "有威望",
+        "正派"
+      ],
+      "speech_style": "本章未出声。",
+      "temperament": "刚健"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_feng_wei_jian"
+    ],
+    "related_skills": [
+      "skill_feng_wei_jian"
+    ],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1050,
+        "line_end": 1068,
+        "text": "武老大就是武维扬，凤尾帮总瓢把子，因昔年与神龙帮有约而不到长江。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 176,
+        "line_end": 180,
+        "text": "武维扬臂力之强，天下皆知，用的正是把五百石的强弓。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 288,
+        "line_end": 294,
+        "text": "楚留香推测武维扬想必已死，张三称其为武老大。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 48,
+        "line_end": 60,
+        "text": "这老人赫然竟是凤尾帮的总瓢把子神箭射日武维扬。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 10,
+        "line_end": 18,
+        "text": "云从龙自从坐下来，就一直铁青着脸，瞪着武维扬……难道是存心想找个机会让这两人打一架么?"
+      },
+      {
+        "chapter": 5,
+        "line_start": 330,
+        "line_end": 344,
+        "text": "云故帮主的遗体，自然应该由在下收殓……归君遗体，以示哀思。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 644,
+        "line_end": 652,
+        "text": "武维扬号称神箭射日，弓箭功夫当世无双，昨夜十招内掌下杀死云从龙。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 278,
+        "line_end": 278,
+        "text": "武维扬执法严峻，凤尾帮属下对他敬畏，不敢逼视假冒者。"
+      }
+    ]
+  },
+  {
+    "id": "char_yun_cong_long",
+    "name": "云从龙",
+    "alias": [],
+    "identity": "神龙帮人物",
+    "faction": "faction_shen_long_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "在惊恐中似乎悟出阴谋，仍称两具尸体为好兄弟并代饮罚酒。",
+    "personality": {
+      "traits": [
+        "霸道",
+        "有地盘意识",
+        "执着",
+        "江湖资历深",
+        "不算坏"
+      ],
+      "speech_style": "本章未出声。",
+      "temperament": "强势"
+    },
+    "relationships": [
+      {
+        "target": "char_zhang_san",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "想让张三听话，却多年吃不到张三烤鱼。"
+      },
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "临死前将蝙蝠图秘密交给楚留香"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 1058,
+        "line_end": 1068,
+        "text": "神龙帮的云从龙已想吃张三烤鱼多年，却硬是吃不到嘴。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 180,
+        "line_end": 180,
+        "text": "否则云从龙挟大胜之余威，又怎肯和风尾帮订下互不侵犯的条约?"
+      },
+      {
+        "chapter": 4,
+        "line_start": 252,
+        "line_end": 260,
+        "text": "这人正是长江神龙帮的总瓢把子云从龙云二爷。水性之高，江南第一。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 262,
+        "line_end": 272,
+        "text": "云从龙自奉虽俭，对朋友却极大方，应付人更是得体，但此刻却铁青着脸，全无笑容。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 10,
+        "line_end": 14,
+        "text": "云从龙自从坐下来，就一直铁青着脸，瞪着武维扬……如今已成为好朋友。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 186,
+        "line_end": 204,
+        "text": "喝到第六杯时……楚香帅果然名下无虚，果然是好酒量、好朋友。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 652,
+        "line_end": 652,
+        "text": "云帮主便已死在武帮主的掌下，死得太怪，也死得太快。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 400,
+        "line_end": 438,
+        "text": "云从龙临死前以酒杯藏蜡丸和蝙蝠图，慎重交托楚留香却未能明说。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 236,
+        "line_end": 252,
+        "text": "云从龙用成语和鱼眼暗示假武维扬身份，临死前留下线索。"
+      }
+    ]
+  },
+  {
+    "id": "char_gou_zi_chang",
+    "name": "勾子长",
+    "alias": [],
+    "identity": "关外熊大将军贴身卫士，奉命追查贡品巨案",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "被胡铁花怀疑有杀白猎的理由，但楚留香认为他不会摘心手。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "稳重",
+        "讲义气",
+        "懂分寸",
+        "愿调停"
+      ],
+      "speech_style": "说明事实为主，语气平实。",
+      "temperament": "紧张局面中仍愿意居中缓和。"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_tie_hua",
+        "type": "合作者",
+        "intensity": 68,
+        "bond_level": 3,
+        "dynamic": "获得胡铁花承诺相助，但仍劝他不要轻举妄动。"
+      },
+      {
+        "target": "char_xiang_tian_fei",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "以轻功为题约斗向天飞"
+      },
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "言语上站到楚留香一边"
+      },
+      {
+        "target": "char_ding_feng",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "被丁枫公开质疑为杀害向天飞的凶手"
+      },
+      {
+        "target": "char_gong_sun_jie_yu",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "被众人怀疑早已相识或串通。"
+      },
+      {
+        "target": "char_bai_la_zhu",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "被怀疑与白蜡烛、公孙劫余有旧识。"
+      },
+      {
+        "target": "char_xiong_da_jiang_jun",
+        "type": "主仆",
+        "intensity": 78,
+        "bond_level": 4,
+        "dynamic": "奉熊大将军命令入关追案。"
+      },
+      {
+        "target": "char_liang_ge_zuo_an_zhe",
+        "type": "对手",
+        "intensity": 82,
+        "bond_level": 4,
+        "dynamic": "循销金窟线索追查两名凶手。"
+      },
+      {
+        "target": "char_gong_sun_jie_yu",
+        "type": "对手",
+        "intensity": 84,
+        "bond_level": 4,
+        "dynamic": "怀疑其为贡品巨案的一名作案者。"
+      },
+      {
+        "target": "char_bai_la_zhu",
+        "type": "对手",
+        "intensity": 84,
+        "bond_level": 4,
+        "dynamic": "怀疑其为贡品巨案的一名作案者。"
+      },
+      {
+        "target": "char_mai_xia_gou_zi_chang_de_ren",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "被买家拍下，可能被用于后续作案"
+      }
+    ],
+    "known_skills": [
+      "skill_gou_zi_chang_qing_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      "ch_011:14-18",
+      15,
+      18,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 12,
+        "line_end": 18,
+        "text": "他就发现楚留香、勾子长、张三都围在岸边。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 70,
+        "line_end": 76,
+        "text": "话未说完，身形已展动。只见他两条长腿迈出几步，人已远在二三十丈外。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 68,
+        "line_end": 74,
+        "text": "勾子长也来了，武维扬旁边坐的就是他，原来他竟还是将那黑皮箱垫着坐下。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 234,
+        "line_end": 242,
+        "text": "勾子长承认楚香帅轻功胜过自己，并表示别人来指教都随时奉陪。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 74,
+        "line_end": 78,
+        "text": "胡铁花和勾子长的面色更都已变了……正是楚留香他们方才从江里捞出来的那两具尸体。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 502,
+        "line_end": 516,
+        "text": "舍不得什么?……绝对不会像胡兄这样……这么样……"
+      },
+      {
+        "chapter": 6,
+        "line_start": 62,
+        "line_end": 80,
+        "text": "勾子长忍不住道要不要帮他；他自负轻功绝顶，却瞧得眼睛发直。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 184,
+        "line_end": 236,
+        "text": "勾子长被丁枫指为可疑后急怒辩解，后由楚留香和金灵芝作证脱嫌。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "从门里走出来的，不是白蜡烛，也不是公孙劫余，赫然竟是勾子长。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 398,
+        "line_end": 428,
+        "text": "你是否怀疑公孙劫余和白蜡烛就是做案的那两个人? 勾子长道：\"不错……\""
+      },
+      {
+        "chapter": 9,
+        "line_start": 152,
+        "line_end": 166,
+        "text": "丁枫问起勾子长与公孙劫余行踪，胡铁花替勾子长作证。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 563,
+        "line_end": 579,
+        "text": "勾子长因楚留香辨明毒杯而松口气，又意识到凶手不在乎谁先死。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 132,
+        "line_end": 138,
+        "text": "公孙劫余说要找的人正是勾子长。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 414,
+        "line_end": 420,
+        "text": "楚留香追问勾子长是否回来，张三随即担心他也遭毒手。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 14,
+        "line_end": 18,
+        "text": "楚留香判断勾子长告诉丁枫众人来历，且有求于丁枫。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 284,
+        "line_end": 300,
+        "text": "勾子长一向将黑箱看得比命还重，却把它遗落在船舱。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 530,
+        "line_end": 568,
+        "text": "楚留香因那人的腿比别人长得多，胡铁花联想到勾子长。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 559,
+        "line_end": 581,
+        "text": "胡铁花怀疑勾子长，张三说他早走了，楚留香说他不会摘心手。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 346,
+        "line_end": 366,
+        "text": "勾子长惨笑道：\"这就是我的报应。\" 张三道：\"难道是丁枫?……\" 勾子长恨恨道：\"他更不是人，连畜生都不如。\" 胡铁花道：\"他为什么要这样对你?\" 勾子长闭上了嘴。 但他纵然不说，胡铁花心里也明白。 \"兔死狗烹\"。 一个人出卖了朋友，自然也"
+      },
+      {
+        "chapter": 18,
+        "line_start": 406,
+        "line_end": 452,
+        "text": "众人意识到勾子长也在房内却被制住。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 694,
+        "line_end": 740,
+        "text": "勾子长被发现并确认是被点穴控制。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 470,
+        "line_end": 478,
+        "text": "第一个人名叫勾子长……也就是一夜间连伤七十余命的凶手。"
+      },
+      {
+        "chapter": 22,
+        "line_start": 424,
+        "line_end": 424,
+        "text": "英万里呼吸停止时仍紧紧抓着勾子长。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 538,
+        "line_end": 544,
+        "text": "高亚男道：\"勾子长临死前好像对英万里说了几句话，我没有听到他们在说什么，张三却听到了。 \" 楚留香道：\"你认为勾子长临死前终于对英万里说出了那笔赃物的下落?\" 高亚男点点头，道：\"每个人将死的时候，都会变得比平时善良些的。"
+      }
+    ]
+  },
+  {
+    "id": "char_cang_an_she_jian_ren",
+    "name": "藏岸射箭人",
+    "alias": [
+      "这些人"
+    ],
+    "identity": "藏在岸边伏击两名骑士的未知凶手",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "暗藏岸边近距离发箭，制造强弓远射假象。",
+    "personality": {
+      "traits": [
+        "阴险",
+        "谨慎",
+        "善布疑阵",
+        "冷酷",
+        "耐心"
+      ],
+      "speech_style": "本段未直接发话，以布置现场表达意图。",
+      "temperament": "隐忍周密，擅长利用线索误导追查者。"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_wei_yang",
+        "type": "对手",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "布置现场不是嫁祸，而是让众人相信武维扬仍活着。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 246,
+        "line_end": 248,
+        "text": "射箭的人，必定是藏在岸边的人。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 296,
+        "line_end": 298,
+        "text": "这些人心计之深、手段之毒、计划之周密。"
+      }
+    ]
+  },
+  {
+    "id": "char_chuan_cang_gu_niang",
+    "name": "船舱姑娘",
+    "alias": [
+      "金姑娘"
+    ],
+    "identity": "蜷伏在张三船舱角落的神秘女子",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "藏在张三船舱角落，双眼明亮却充满惊慌恐惧。",
+    "personality": {
+      "traits": [
+        "惊惧",
+        "倔强",
+        "沉默",
+        "警觉",
+        "美丽"
+      ],
+      "speech_style": "初登场时不说话，只以眼神和动作回应。",
+      "temperament": "处境危险，紧张却不肯轻易离开藏身处。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 326,
+        "line_end": 330,
+        "text": "有个人蜷伏在船舱的角落里，只瞧见了一双亮晶晶的眼睛。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 370,
+        "line_end": 372,
+        "text": "楚留香已问道：是金姑娘? 船舱里的人果然点了点头。"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_gu_niang",
+    "name": "金灵芝",
+    "alias": [
+      "金灵芝"
+    ],
+    "identity": "藏入张三船舱的女子",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "眼睛明亮美丽却满含恐惧，被楚留香认出为金姑娘。",
+    "personality": {
+      "traits": [
+        "惊慌",
+        "倔强",
+        "警觉",
+        "凶巴巴",
+        "美丽"
+      ],
+      "speech_style": "本段仍不开口，借摇头、瞪眼和点头表达意愿。",
+      "temperament": "危急中固执留在船舱，对陌生调笑保持敌意。"
+    },
+    "relationships": [
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "合作者",
+        "intensity": 35,
+        "bond_level": 2,
+        "dynamic": "被楚留香认出身份并追问来由。"
+      },
+      {
+        "target": "char_hu_tie_hua",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "瞪了调笑自己的胡铁花一眼。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 332,
+        "line_end": 380,
+        "text": "这双眼睛却充满了惊慌和恐惧。楚留香已问道：是金姑娘?"
+      },
+      {
+        "chapter": 3,
+        "line_start": 382,
+        "line_end": 386,
+        "text": "金灵芝还是躲在那里，不肯说话。"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_ling_zhi_zu_mu",
+    "name": "金灵芝祖母",
+    "alias": [
+      "祖母"
+    ],
+    "identity": "金灵芝将迎来八旬华诞的长辈",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "金灵芝欲以玉蟠桃为其八旬寿礼压过亲族。",
+    "personality": {
+      "traits": [
+        "尊贵",
+        "受重视",
+        "年迈",
+        "家族核心",
+        "未直接出场"
+      ],
+      "speech_style": "本章未发话，只作为寿礼缘由被提及。",
+      "temperament": "从亲族争献寿礼可见其在家族中地位极高。"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "亲属",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "金灵芝为其八旬华诞寻找珍稀寿礼。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 594,
+        "line_end": 594,
+        "text": "半个月后，就是我祖母的八旬华诞之期。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_bi_qi",
+    "name": "张碧奇",
+    "alias": [
+      "极乐宫主"
+    ],
+    "identity": "极乐宫宫主，昔年挑战轩辕野夺得离愁宫",
+    "faction": "faction_ji_le_gong",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "为玉蟠桃能青春永驻，年轻时以夫妻性命为赌注挑战轩辕野。",
+    "personality": {
+      "traits": [
+        "大胆",
+        "深情",
+        "好胜",
+        "执着",
+        "果决"
+      ],
+      "speech_style": "本段未直接发话，其事迹由楚留香转述。",
+      "temperament": "为爱与欲望敢以性命豪赌。"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_bu_lao",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "夫妻伉俪情深，一方若死另一方也难独活。"
+      },
+      {
+        "target": "char_xuan_yuan_ye",
+        "type": "对手",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "以首阵消耗对手真力，主动认输后迫使赌斗进入下一阵。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 620,
+        "line_end": 656,
+        "text": "极乐宫主张碧奇的夫人孙不老最是爱美，张碧奇那时还不到三十岁。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 764,
+        "line_end": 786,
+        "text": "张碧奇第三阵胜出后接掌离愁宫，此后二十年绝迹红尘。"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_bu_lao",
+    "name": "孙不老",
+    "alias": [
+      "凌波仙子",
+      "散花天女"
+    ],
+    "identity": "张碧奇夫人，极爱美且怕老",
+    "faction": "faction_ji_le_gong",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "发誓不让丈夫看到自己老态，与张碧奇被称为武林最恩爱夫妻。",
+    "personality": {
+      "traits": [
+        "爱美",
+        "怕老",
+        "决绝",
+        "深情",
+        "骄傲"
+      ],
+      "speech_style": "誓言极端，显出对青春和爱情的执念。",
+      "temperament": "美貌自持而意志强烈。"
+    },
+    "relationships": [
+      {
+        "target": "char_zhang_bi_qi",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "与张碧奇夫妻情深，被称武林最恩爱的一对。"
+      },
+      {
+        "target": "char_xuan_yuan_ye",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "代张碧奇出战第二阵暗器轻功。"
+      }
+    ],
+    "known_skills": [
+      "skill_sun_bu_lao_an_qing_shen_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 620,
+        "line_end": 642,
+        "text": "张碧奇的夫人孙不老最是爱美，最怕老。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 754,
+        "line_end": 756,
+        "text": "孙不老号称凌波仙子，散花天女，轻功暗器之高不可思议。"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_yuan_ye",
+    "name": "轩辕野",
+    "alias": [
+      "离愁宫主"
+    ],
+    "identity": "昔年离愁宫宫主，天生神力的武林高手",
+    "faction": "faction_li_chou_gong",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "数一数二的武林高手，天生神力，当世无双，后忽然失踪。",
+    "personality": {
+      "traits": [
+        "刚猛",
+        "神力惊人",
+        "孤傲",
+        "神秘",
+        "威名远播"
+      ],
+      "speech_style": "本段未发话，靠传闻中的神力和兵器留下印象。",
+      "temperament": "强悍难测，失踪更添神秘。"
+    },
+    "relationships": [
+      {
+        "target": "char_zhang_bi_qi",
+        "type": "对手",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "张碧奇曾以性命赌注向其挑战离愁宫。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 646,
+        "line_end": 654,
+        "text": "离愁宫主轩辕野，也是当时数一数二的武林高手。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 778,
+        "line_end": 780,
+        "text": "轩辕野将离愁宫拱手让人后失踪四十余年。"
+      }
+    ]
+  },
+  {
+    "id": "char_hai_kuo_tian",
+    "name": "海阔天",
+    "alias": [],
+    "identity": "紫鲸帮帮主，三和楼酒宴主人",
+    "faction": "紫鲸帮",
+    "role": "疑似遇害者",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "众人推断他很可能已被凶手杀害。",
+    "personality": {
+      "traits": [
+        "周到",
+        "讲排场",
+        "好客",
+        "谨慎",
+        "善交际"
+      ],
+      "speech_style": "待客时注重礼数与场面",
+      "temperament": "外表热络，席面安排别有用心"
+    },
+    "relationships": [
+      {
+        "target": "char_xiang_tian_fei",
+        "type": "合作者",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "向天飞遇害后悲痛自责"
+      },
+      {
+        "target": "char_xiang_tian_fei",
+        "type": "悼念旧友",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "失踪前反复念起向二爷"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      12,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "海阔天请客的一桌酒，就摆在这阁楼上。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 254,
+        "line_end": 254,
+        "text": "堂堂紫鲸帮的帮主，怎么会请了这么样一位客人来?"
+      },
+      {
+        "chapter": 5,
+        "line_start": 2,
+        "line_end": 18,
+        "text": "海阔天请客的菜，是从来不会令客人失望的。胡铁花实在想不通，海阔天为何将这两人全都请到一个地方来?"
+      },
+      {
+        "chapter": 5,
+        "line_start": 992,
+        "line_end": 994,
+        "text": "好功夫，金姑娘果然有眼力。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 36,
+        "line_end": 38,
+        "text": "居然敢带着四箱黄金走上紫鲸帮帮主的船上来；海阔天背负着双手，笑眯眯的瞧着他。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 266,
+        "line_end": 356,
+        "text": "海阔天感谢张三捞尸，却被张三与楚留香私下列为可能借不在场证明自保的嫌疑人。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 210,
+        "line_end": 212,
+        "text": "海阔天也许就怕你睡得太舒服了，爬不起来，所以根本就没有替你准备枕头。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 398,
+        "line_end": 402,
+        "text": "海阔天、向天飞、丁枫，又都不是什么规矩人"
+      },
+      {
+        "chapter": 9,
+        "line_start": 14,
+        "line_end": 28,
+        "text": "丁枫称海帮主床铺整齐，最后一个见到他的人是钱风。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 138,
+        "line_end": 140,
+        "text": "楚留香认为海帮主凶多吉少，丁枫推断凶手杀人灭口。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 84,
+        "line_end": 84,
+        "text": "张三疑惑丁枫为何要杀海阔天，因海阔天似与其同党。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 104,
+        "line_end": 104,
+        "text": "楚留香道：\"我们在原公子船上遇到的事，几乎和在海阔天那条船上遇见的相差无几，我发现了这点之后，就已想到，白猎他们是否也同样是被个死人所杀死的呢?\""
+      }
+    ]
+  },
+  {
+    "id": "char_xiang_tian_fei",
+    "name": "向天飞",
+    "alias": [
+      "海上孤鹰"
+    ],
+    "identity": "海上绝无仅有的独行盗，武功高、水性熟且精于航海",
+    "faction": "",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "其死亡动机仍不明，胡铁花怀疑可能是船上灭口计划的一环。",
+    "personality": {
+      "traits": [
+        "孤傲",
+        "暴躁",
+        "自信",
+        "心狠",
+        "有底线"
+      ],
+      "speech_style": "话少而冷硬，被冒犯时立即冷笑反击",
+      "temperament": "骄横狂傲，一言不合便有出手之势"
+    },
+    "relationships": [
+      {
+        "target": "char_hai_kuo_tian",
+        "type": "合作者",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "海阔天跪血痛悔，称其为二弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 134,
+        "line_end": 164,
+        "text": "那佩刀的大汉立刻站了起来，抱拳道：在下向天飞。这海上孤鹰向天飞却正是海上绝无仅有的独行盗。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 168,
+        "line_end": 188,
+        "text": "向天飞早已扬帆而去，不知所终；他手下极少伤人性命，而且一向只劫财，不劫色。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 930,
+        "line_end": 932,
+        "text": "向天飞冷冷道：\"何况，这还不是陌生人的船，而是条海盗船。\""
+      },
+      {
+        "chapter": 6,
+        "line_start": 154,
+        "line_end": 158,
+        "text": "向天飞突然站了起来，大声道多谢，又讥讽公孙劫余。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 164,
+        "line_end": 226,
+        "text": "楚留香判断向天飞可能因熟人接近而毫无防范，被贴身暗中行刺。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 134,
+        "line_end": 134,
+        "text": "衣服上的血呢?难道就是向天飞的?丁枫难道是杀死向天飞的凶手?"
+      },
+      {
+        "chapter": 8,
+        "line_start": 430,
+        "line_end": 430,
+        "text": "但这两人并没有理由要杀死向天飞呀，难道他们的目的是要将这条船上的人全都杀死灭口?"
+      },
+      {
+        "chapter": 9,
+        "line_start": 32,
+        "line_end": 36,
+        "text": "钱风称海阔天站在船头望海，口中不停念着向二爷的名字。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 118,
+        "line_end": 118,
+        "text": "楚留香指出向天飞是海阔天的生死之交，需先被除去。"
+      }
+    ]
+  },
+  {
+    "id": "char_feng_wei_bang_si_shi_jia",
+    "name": "凤尾帮死者甲",
+    "alias": [
+      "黑衣尸体甲"
+    ],
+    "identity": "凤尾帮门下，被凤尾箭射杀的尸体之一",
+    "faction": "faction_feng_wei_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "湿淋淋的黑衣尸体被云从龙带上宴席，用来指控武维扬索命。",
+    "personality": {
+      "traits": [
+        "身份隐秘",
+        "死因可疑",
+        "牵涉帮派内斗",
+        "被人利用",
+        "沉默成证"
+      ],
+      "speech_style": "已死无言",
+      "temperament": "诡秘可怖"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 78,
+        "line_end": 100,
+        "text": "这两人都穿着紧身的黑衣，腰上都系着七色的腰带……他们是要向武帮主索命来的!"
+      }
+    ]
+  },
+  {
+    "id": "char_feng_wei_bang_si_shi_yi",
+    "name": "凤尾帮死者乙",
+    "alias": [
+      "黑衣尸体乙"
+    ],
+    "identity": "凤尾帮门下，被凤尾箭射杀的尸体之一",
+    "faction": "faction_feng_wei_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "与另一具尸体同被扶上楼，成为云从龙质问武维扬的证物。",
+    "personality": {
+      "traits": [
+        "身份隐秘",
+        "死因可疑",
+        "牵涉帮派旧怨",
+        "被人摆布",
+        "形貌狰狞"
+      ],
+      "speech_style": "已死无言",
+      "temperament": "阴冷恐怖"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 78,
+        "line_end": 100,
+        "text": "这两人都穿着紧身的黑衣，腰上都系着七色的腰带……他们是要向武帮主索命来的!"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_lao_er",
+    "name": "孙老二",
+    "alias": [
+      "满面水锈的大汉"
+    ],
+    "identity": "扶尸上楼的神龙帮属下，帮中资历很深",
+    "faction": "faction_shen_long_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "因抗命冲向武维扬，被夏奇峰从背后刺杀，临死仍震惊痛责。",
+    "personality": {
+      "traits": [
+        "忠于旧主",
+        "水上经验深",
+        "性情刚烈",
+        "资历深厚",
+        "容易激愤"
+      ],
+      "speech_style": "激烈粗直，情急时嗄声怒呼",
+      "temperament": "急烈忠悍"
+    },
+    "relationships": [
+      {
+        "target": "char_yun_cong_long",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "作为神龙帮旧属扶尸赴宴"
+      },
+      {
+        "target": "char_wu_wei_yang",
+        "type": "宿敌",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "认定武维扬杀云从龙，与神龙帮结下不共戴天之仇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 206,
+        "line_end": 210,
+        "text": "右面一人年纪较长，也是满脸水锈，眼睛发红，显见是长久在水上讨生活的。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 206,
+        "line_end": 210,
+        "text": "右面一人年纪较长，也是满脸水锈，眼睛发红，显见是长久在水上讨生活的。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 290,
+        "line_end": 292,
+        "text": "孙老二惨呼一声，转身望着这少年，颤声道：\"你……你……你好……\""
+      }
+    ]
+  },
+  {
+    "id": "char_xia_qi_feng",
+    "name": "夏奇峰",
+    "alias": [
+      "白面少年",
+      "夏舵主"
+    ],
+    "identity": "扶尸上楼的年轻神龙帮属下，目光炯炯武功不弱",
+    "faction": "faction_shen_long_bang",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "真名夏奇峰，神龙帮第三分舵弟子，杀孙老二后拜武维扬为新帮主。",
+    "personality": {
+      "traits": [
+        "冷静果断",
+        "忠于命令",
+        "心机深",
+        "武功不弱",
+        "情感压抑"
+      ],
+      "speech_style": "厉声明令，必要时直取要害",
+      "temperament": "冷硬中带痛楚"
+    },
+    "relationships": [
+      {
+        "target": "char_yun_cong_long",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "作为神龙帮属下随尸入宴"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 212,
+        "line_end": 212,
+        "text": "左面一人却是个面白无须的少年，此人年纪虽轻，但目光炯炯，武功似乎比他的同伴还要高一些。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 212,
+        "line_end": 212,
+        "text": "左面一人却是个面白无须的少年，此人年纪虽轻，但目光炯炯，武功似乎比他的同伴还要高一些。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 290,
+        "line_end": 300,
+        "text": "神龙帮属下第三分舵弟子夏奇峰，叩见新帮主。"
+      }
+    ]
+  },
+  {
+    "id": "char_song_ren_zhong",
+    "name": "宋仁钟",
+    "alias": [
+      "宋大侠",
+      "棺材店老板"
+    ],
+    "identity": "胡铁花口中的朋友，实际是棺材店老板",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "被胡铁花借来讽刺无人为云从龙收殓送终的棺材店老板。",
+    "personality": {
+      "traits": [
+        "身份寻常",
+        "与胡铁花相识",
+        "名字带双关",
+        "无江湖雄才",
+        "被借作讽刺"
+      ],
+      "speech_style": "本章未出场",
+      "temperament": "未显"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_tie_hua",
+        "type": "挚友",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "胡铁花称其为朋友并借名讽刺"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 308,
+        "line_end": 312,
+        "text": "云从龙呀云从龙，你为何不将这帮主之位传给宋仁钟呢?"
+      }
+    ]
+  },
+  {
+    "id": "char_hui_yi_mai_jia",
+    "name": "灰衣买家",
+    "alias": [
+      "船头那人",
+      "神秘买家"
+    ],
+    "identity": "戴低帽、面目不明，专为竞买张三而来的神秘人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "接受丁枫邀请上船同行，理由是自己身怀巨资更需防人。",
+    "personality": {
+      "traits": [
+        "镇定从容",
+        "财力雄厚",
+        "目的隐秘",
+        "善于压价挑衅",
+        "不露面目"
+      ],
+      "speech_style": "缓慢平和，冷冷回应",
+      "temperament": "沉着神秘"
+    },
+    "relationships": [
+      {
+        "target": "char_zhang_san",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "以高价竞买张三，意图借其水上本领"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 672,
+        "line_end": 680,
+        "text": "你就是'快网'张三么?……身上穿着件灰扑扑的衣服，头上戴着顶大帽。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 934,
+        "line_end": 944,
+        "text": "在下倒对各位没有不放心的……恭敬不如从命了。"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_jin_zhu_ren",
+    "name": "销金主人",
+    "alias": [],
+    "identity": "销金窟主人，姓名来历与形貌皆成谜",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "每年只请少数富可敌国者去销金窟，并以隐秘请帖和接引方式隔绝追踪。",
+    "personality": {
+      "traits": [
+        "神秘莫测",
+        "手段高明",
+        "善于笼络异才",
+        "行事隐秘",
+        "胸怀异志"
+      ],
+      "speech_style": "本章未亲自出场",
+      "temperament": "传闻中深不可测"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 840,
+        "line_end": 852,
+        "text": "只有销金主人的门下……令很多才智异能之土，听命于她。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 868,
+        "line_end": 890,
+        "text": "每年都要请几个人……他自会派人接引。"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_la_zhu",
+    "name": "白蜡烛",
+    "alias": [],
+    "identity": "公孙劫余的徒弟",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "与公孙劫余同被勾子长视为贡案作案者嫌疑人。",
+    "personality": {
+      "traits": [
+        "沉默",
+        "敏感",
+        "护师",
+        "易被激怒",
+        "天真痴直"
+      ],
+      "speech_style": "少言寡语，常一字字说出短句",
+      "temperament": "惊惧中带着执拗，一触即发"
+    },
+    "relationships": [
+      {
+        "target": "char_gong_sun_jie_yu",
+        "type": "师徒",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "寸步不离保护师父"
+      },
+      {
+        "target": "char_xiang_tian_fei",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "因讥讽而当众压制对方"
+      },
+      {
+        "target": "char_gou_zi_chang",
+        "type": "对手",
+        "intensity": 84,
+        "bond_level": 4,
+        "dynamic": "被勾子长试探口风后疑已起警觉。"
+      }
+    ],
+    "known_skills": [
+      "skill_bai_la_zhu_qing_gong",
+      "skill_bai_la_zhu_shen_li"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 70,
+        "line_end": 84,
+        "text": "白蜡烛挑着四口箱子走在绳子上，竟如履平地，又故意露一手功夫给大家瞧。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 78,
+        "line_end": 80,
+        "text": "那边的门也关上了，公孙劫余和白蜡烛一直没有露面。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 404,
+        "line_end": 408,
+        "text": "你是否怀疑公孙劫余和白蜡烛就是做案的那两个人? 勾子长道：\"不错\""
+      }
+    ]
+  },
+  {
+    "id": "char_gong_sun_jie_yu",
+    "name": "公孙劫余",
+    "alias": [
+      "伤残",
+      "灰衣人"
+    ],
+    "identity": "伤残怪客，白蜡烛之师",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "被勾子长列为贡品巨案中一老一少作案者之一的重大嫌疑人。",
+    "personality": {
+      "traits": [
+        "自卑",
+        "知趣",
+        "疏离",
+        "冷静",
+        "不愿麻烦别人"
+      ],
+      "speech_style": "自称在下，措辞谦卑而拒人千里",
+      "temperament": "伤残后的冷淡与自持"
+    },
+    "relationships": [
+      {
+        "target": "char_bai_la_zhu",
+        "type": "师徒",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "白蜡烛寸步不离守护他"
+      },
+      {
+        "target": "char_hai_kuo_tian",
+        "type": "合作者",
+        "intensity": 35,
+        "bond_level": 2,
+        "dynamic": "以黄金求一席容身之地"
+      },
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "夜半主动隔墙求见楚留香。"
+      },
+      {
+        "target": "char_gou_zi_chang",
+        "type": "对手",
+        "intensity": 84,
+        "bond_level": 4,
+        "dynamic": "身份被勾子长试探，疑已看穿勾子长来意。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 124,
+        "line_end": 130,
+        "text": "丁枫问尊姓大名，灰衣人道在下公孙劫余，别字伤残。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 78,
+        "line_end": 80,
+        "text": "那边的门也关上了，公孙劫余和白蜡烛一直没有露面。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 404,
+        "line_end": 408,
+        "text": "你是否怀疑公孙劫余和白蜡烛就是做案的那两个人? 勾子长道：\"不错\""
+      },
+      {
+        "chapter": 9,
+        "line_start": 162,
+        "line_end": 166,
+        "text": "公孙劫余称师徒一直在屋中，直到金灵芝来找。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 467,
+        "line_end": 473,
+        "text": "公孙劫余把勾子长起身解释为敬酒，压住冲突。"
+      }
+    ]
+  },
+  {
+    "id": "char_shou_cang_shui_shou",
+    "name": "守舱水手",
+    "alias": [
+      "两个守货舱的人"
+    ],
+    "identity": "紫鲸帮守舱水手",
+    "faction": "紫鲸帮",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "守舱水手奉海阔天之命看守货舱，发现棺材后惊慌守门。",
+    "personality": {
+      "traits": [
+        "忠实",
+        "听命",
+        "紧张",
+        "谨慎",
+        "沉默"
+      ],
+      "speech_style": "只作简短回报",
+      "temperament": "受惊而服从"
+    },
+    "relationships": [
+      {
+        "target": "char_hai_kuo_tian",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "多年随从并为其看守货舱"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 476,
+        "line_end": 480,
+        "text": "两个人守在门外，手掌紧握刀柄，海阔天问后两人一齐答没有。"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_de_zhi",
+    "name": "王得志",
+    "alias": [],
+    "identity": "守在货舱门外的紫鲸帮水手",
+    "faction": "紫鲸帮",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "王得志守在货舱外，章节结尾已被杀死。",
+    "personality": {
+      "traits": [
+        "忠实",
+        "听命",
+        "警惕",
+        "无声",
+        "不幸"
+      ],
+      "speech_style": "本章未及回应便遇害",
+      "temperament": "紧张守卫后猝然死亡"
+    },
+    "relationships": [
+      {
+        "target": "char_hai_kuo_tian",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "奉命守门却在门外被杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 746,
+        "line_end": 754,
+        "text": "海阔天厉声唤王得志、李得标，守在门外的两个人已变成两具死尸。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 66,
+        "line_end": 68,
+        "text": "楚留香忽然从王得志的衣襟中取出样东西来，沉声道：\"你们看这是什么?\" 他手里拿着的，赫然竟是粒龙眼般大小的珍珠。"
+      }
+    ]
+  },
+  {
+    "id": "char_li_de_biao",
+    "name": "李得标",
+    "alias": [],
+    "identity": "守在货舱门外的紫鲸帮水手",
+    "faction": "紫鲸帮",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "李得标与王得志一同守门，章节结尾无声遇害。",
+    "personality": {
+      "traits": [
+        "忠实",
+        "听命",
+        "警惕",
+        "无声",
+        "不幸"
+      ],
+      "speech_style": "本章未及回应便遇害",
+      "temperament": "紧张守卫后猝然死亡"
+    },
+    "relationships": [
+      {
+        "target": "char_hai_kuo_tian",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "奉命守门却在门外被杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 746,
+        "line_end": 754,
+        "text": "海阔天厉声唤王得志、李得标，守在门外的两个人已变成两具死尸。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 134,
+        "line_end": 138,
+        "text": "钱风回报：\"除了王得志和李得标，别人都在，一个不少。\" 别人都在，死的自然是向天飞了。"
+      }
+    ]
+  },
+  {
+    "id": "char_lin_bin",
+    "name": "林斌",
+    "alias": [
+      "单掌追魂"
+    ],
+    "identity": "昔年朱砂掌高手",
+    "faction": "未知",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "多年前以朱砂掌闻名、已死且无传人的高手。",
+    "personality": {
+      "traits": [
+        "成名已久",
+        "掌法专精",
+        "江湖旧闻",
+        "传承断绝",
+        "神秘"
+      ],
+      "speech_style": "仅被提及，未发言",
+      "temperament": "旧日高手的余影"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_zhu_sha_zhang"
+    ],
+    "related_skills": [
+      "skill_zhu_sha_zhang"
+    ],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 20,
+        "line_end": 22,
+        "text": "胡铁花道：\"我只听说一个'单掌追魂'林斌，练的是朱砂掌，但那也是好多年以前的事了，林斌现在已死了很久，也没有听说过他有传人。\""
+      }
+    ]
+  },
+  {
+    "id": "char_qian_feng",
+    "name": "钱风",
+    "alias": [],
+    "identity": "紫鲸帮水手",
+    "faction": "紫鲸帮",
+    "role": "死者",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "被发现死在底舱铺位，胸前有淡红左手掌印。",
+    "personality": {
+      "traits": [
+        "服从命令",
+        "胆怯",
+        "紧张",
+        "如实回报",
+        "训练有素"
+      ],
+      "speech_style": "紧张恭谨，受责时颤声解释",
+      "temperament": "骤遇命案时惶恐但仍听从号令"
+    },
+    "relationships": [
+      {
+        "target": "char_hai_kuo_tian",
+        "type": "主仆",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "受海阔天责问并回报当值经过"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 94,
+        "line_end": 110,
+        "text": "海阔天厉声责问钱风、鲁长吉，钱风颤声说明是向二爷令他们走远。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 338,
+        "line_end": 350,
+        "text": "楚留香指出钱风本该当值掌舵，不易被向天飞怀疑，行刺机会很大。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 26,
+        "line_end": 30,
+        "text": "丁枫说最后一个见到海阔天的人是钱风。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 66,
+        "line_end": 90,
+        "text": "钱风躺在床上已死，胸前有淡红色左手掌印。"
+      }
+    ]
+  },
+  {
+    "id": "char_lu_chang_ji",
+    "name": "鲁长吉",
+    "alias": [],
+    "identity": "紫鲸帮水手",
+    "faction": "紫鲸帮",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "当值掌舵水手之一，向天飞遇害时帮孙老三收拾缆绳。",
+    "personality": {
+      "traits": [
+        "服从命令",
+        "谨慎",
+        "恭顺",
+        "目击有限",
+        "训练有素"
+      ],
+      "speech_style": "简短说明事实",
+      "temperament": "面对帮主质问时拘谨"
+    },
+    "relationships": [
+      {
+        "target": "char_hai_kuo_tian",
+        "type": "主仆",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "向海阔天交代离岗原因"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 96,
+        "line_end": 106,
+        "text": "鲁长吉与钱风被海阔天责问，说明自己不敢走远，只在那里帮孙老三收拾缆绳。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 338,
+        "line_end": 350,
+        "text": "楚留香指出鲁长吉本该当值掌舵，与钱风同样有接近向天飞并换衣脱身的机会。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 68,
+        "line_end": 82,
+        "text": "鲁长吉抢着叫醒钱风，随后见到尸体吓得坐倒。"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_lao_san",
+    "name": "孙老三",
+    "alias": [],
+    "identity": "船上水手",
+    "faction": "紫鲸帮",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "在向天飞遇害时收拾缆绳的船上水手。",
+    "personality": {
+      "traits": [
+        "勤务在身",
+        "低调",
+        "服从帮务",
+        "未直接发言",
+        "涉入旁证"
+      ],
+      "speech_style": "本章无发言",
+      "temperament": "作为船上勤务人员存在于现场时间线"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 104,
+        "line_end": 104,
+        "text": "鲁长吉道：\"但我们也不敢走远，就在那里帮孙老三收拾缆绳。\""
+      }
+    ]
+  },
+  {
+    "id": "char_zhen_yuan_jiang_jun",
+    "name": "镇远将军",
+    "alias": [],
+    "identity": "押解贡品上京时在开封府遇害的将军",
+    "faction": "朝廷",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "在贡品失踪巨案中半夜失去首级，随行全军覆没。",
+    "personality": {
+      "traits": [
+        "职责重大",
+        "军旅出身",
+        "命运惨烈",
+        "牵涉贡案",
+        "未及发声"
+      ],
+      "speech_style": "本章仅由勾子长叙述，未直接发言。",
+      "temperament": "作为遇害将领，象征案件分量。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 350,
+        "line_end": 354,
+        "text": "镇远将军本来驻扎在开封府的衙门里，突然在半夜失去了首级"
+      }
+    ]
+  },
+  {
+    "id": "char_zhen_yuan_jiang_jun_shi_qie",
+    "name": "镇远将军侍妾",
+    "alias": [
+      "侍妾"
+    ],
+    "identity": "镇远将军房中幸存的目击者",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "躲在床下幸免于难，听见两名凶手准备逃往海外销金窟。",
+    "personality": {
+      "traits": [
+        "惊惧",
+        "机警",
+        "侥幸",
+        "关键证人",
+        "隐忍"
+      ],
+      "speech_style": "本段由勾子长转述，未直接发言。",
+      "temperament": "在巨变中本能求生，成为案件见证。"
+    },
+    "relationships": [
+      {
+        "target": "char_zhen_yuan_jiang_jun",
+        "type": "主仆",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "作为镇远将军侍妾在案发夜侍寝。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 372,
+        "line_end": 374,
+        "text": "是镇远将军的一个侍妾……就躲到床下去了"
+      }
+    ]
+  },
+  {
+    "id": "char_xiong_da_jiang_jun",
+    "name": "熊大将军",
+    "alias": [],
+    "identity": "关外将军，派勾子长入关追查贡品巨案",
+    "faction": "朝廷",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "命贴身卫士勾子长追查贡品失踪与屠杀巨案。",
+    "personality": {
+      "traits": [
+        "权威",
+        "果断",
+        "重视军令",
+        "隐忍",
+        "追凶心切"
+      ],
+      "speech_style": "本段未直接发言，由勾子长说明其命令。",
+      "temperament": "军中上位者，能秘密派人入关查案。"
+    },
+    "relationships": [
+      {
+        "target": "char_gou_zi_chang",
+        "type": "主仆",
+        "intensity": 78,
+        "bond_level": 4,
+        "dynamic": "派贴身卫士勾子长追查案情。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 384,
+        "line_end": 388,
+        "text": "只不过是关外熊大将军的一个贴身卫士。此次入关，正是奉了熊大将军之命"
+      }
+    ]
+  },
+  {
+    "id": "char_liang_ge_zuo_an_zhe",
+    "name": "两个作案者",
+    "alias": [
+      "一老一少两个人"
+    ],
+    "identity": "镇远将军贡品巨案的两名凶手线索",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "一老一少，杀人夺贡后准备逃到海外销金窟。",
+    "personality": {
+      "traits": [
+        "凶残",
+        "谨慎",
+        "贪婪",
+        "神秘",
+        "亡命"
+      ],
+      "speech_style": "仅由目击者转述，无直接台词。",
+      "temperament": "手段狠辣，行事周密却留下证人。"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 378,
+        "line_end": 380,
+        "text": "做案的是一老一少两个人，事成之后，就准备逃到海外去，找个'销金窟'享受一辈子"
+      }
+    ]
+  },
+  {
+    "id": "char_ying_wan_li",
+    "name": "英万里",
+    "alias": [
+      "公孙劫余",
+      "白衣神耳"
+    ],
+    "identity": "天下第一名捕，改扮公孙劫余登船查案。",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "在出口外身亡，临死仍抓住勾子长，表现出负责到底的精神。",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "谨慎",
+        "善听声辨人",
+        "老练",
+        "守密"
+      ],
+      "speech_style": "谦抑稳重，常以在下自称",
+      "temperament": "冷静而机警"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10,
+      "ch_011:10-16",
+      12,
+      18,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 464,
+        "line_end": 468,
+        "text": "白衣神耳！莫非是人称天下第一名捕，神鹰英老英雄？在下正是英万里。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 778,
+        "line_end": 780,
+        "text": "英万里补充西方扑蔻这种奇药来历。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 10,
+        "line_end": 16,
+        "text": "英万里苦笑着指出棺材被预先分配，又追问勾子长是否串通。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 604,
+        "line_end": 608,
+        "text": "英万里既为白猎有意中人欢喜，也忧虑其情意终将成空。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 408,
+        "line_end": 414,
+        "text": "英万里观察天色，判断风雨很快要来。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 232,
+        "line_end": 244,
+        "text": "英万里仍以假名周旋，原随云却提及白衣神耳试探他。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 587,
+        "line_end": 595,
+        "text": "舱房尖锐惊呼传出后，英万里与原随云都准确辨出声音来自高亚男。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 554,
+        "line_end": 554,
+        "text": "英万里抢问勾子长是否本来也在船上，原随云是否掩护他。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 212,
+        "line_end": 219,
+        "text": "楚留香说英先生乃天下第一名捕，耳力非常人能及。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 742,
+        "line_end": 786,
+        "text": "英万里说明有人告密，众人的行动被掌握。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 788,
+        "line_end": 826,
+        "text": "英万里指出知情者有限，内奸不在胡铁花、张三、楚留香三人之中。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 512,
+        "line_end": 526,
+        "text": "第二个叫英万里，号称'神鹰'……最后的得主出价是\"二十万五千两。\""
+      },
+      {
+        "chapter": 22,
+        "line_start": 424,
+        "line_end": 426,
+        "text": "英万里的呼吸停止，手仍紧抓勾子长，完成了死也不放手的任务。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 306,
+        "line_end": 312,
+        "text": "胡铁花道：\"这么样说来，英万里那天看到的白衣人也是她了?\" 楚留香道：\"不错，英万里当然也是死在枯梅大师手上的，那天他其实也已听出了枯梅大师的声音，却一直不敢说出来。 \" 胡铁花道：\"因为他绝没有想到枯梅大师会是这种人，想不到她也会诈死复活，所以他才会连自己的耳朵都信不过了。"
+      }
+    ]
+  },
+  {
+    "id": "char_su_rong_rong",
+    "name": "苏蓉蓉",
+    "alias": [
+      "苏姑娘",
+      "蓉儿"
+    ],
+    "identity": "楚留香红颜知己，天下易容第一名家。",
+    "faction": null,
+    "role": "companion",
+    "archetype": "healer",
+    "rank": "出神入化",
+    "one_line": "以高明易容帮助英万里潜伏。",
+    "personality": {
+      "traits": [
+        "聪慧",
+        "细致",
+        "温柔",
+        "手巧",
+        "博识"
+      ],
+      "speech_style": "温婉聪慧，话少而点到要害",
+      "temperament": "细腻从容"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [
+      "skill_yi_rong_shu"
+    ],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 500,
+        "line_end": 510,
+        "text": "精于易容的苏蓉蓉为英万里改扮。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 482,
+        "line_end": 510,
+        "text": "英万里说自己请教天下易容第一名家，苏蓉蓉为他易容。"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_lie",
+    "name": "白猎",
+    "alias": [
+      "白蜡烛",
+      "白少英雄"
+    ],
+    "identity": "熊大将军麾下第一高手。",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "被胡铁花评为一流高手，连高亚男都未必是其对手。",
+    "personality": {
+      "traits": [
+        "沉默",
+        "刚直",
+        "内敛",
+        "守礼",
+        "忠诚"
+      ],
+      "speech_style": "寡言谦逊，多短句应答",
+      "temperament": "稳重含蓄"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "倾慕",
+        "intensity": 82,
+        "bond_level": 4,
+        "dynamic": "情意明显，却被英万里忧虑到头来恐怕成空"
+      }
+    ],
+    "known_skills": [
+      "skill_hun_yuan_yi_qi_tong_zi_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      10,
+      "ch_011:6",
+      12,
+      18,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 548,
+        "line_end": 554,
+        "text": "白蜡烛道：在下白猎。英万里说他练混元一气童子功，内力之强关外无人能及。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 562,
+        "line_end": 564,
+        "text": "白猎说上船后才知道勾子长在船上。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "棺材里写着白猎的名字，显示丁枫已将他列入陷阱。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 604,
+        "line_end": 604,
+        "text": "英万里判断白猎一向自视甚高，如今却有了意中人。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 506,
+        "line_end": 510,
+        "text": "白猎绝望中向金灵芝告别，几乎跳海。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 223,
+        "line_end": 245,
+        "text": "白猎被金灵芝一笑迷得失态，又被她怒斥后满脸通红。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 638,
+        "line_end": 638,
+        "text": "胡铁花说白猎武功已可算一流高手。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 828,
+        "line_end": 866,
+        "text": "英万里提到白猎被一个出手极快的女人所杀。"
+      },
+      {
+        "chapter": 22,
+        "line_start": 348,
+        "line_end": 348,
+        "text": "胡铁花称杀死白猎的是华真真。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 104,
+        "line_end": 104,
+        "text": "楚留香道：\"我们在原公子船上遇到的事，几乎和在海阔天那条船上遇见的相差无几，我发现了这点之后，就已想到，白猎他们是否也同样是被个死人所杀死的呢?\""
+      }
+    ]
+  },
+  {
+    "id": "char_jia_wu_wei_yang",
+    "name": "假武维扬",
+    "alias": [
+      "冒充武维扬者",
+      "那武维扬"
+    ],
+    "identity": "丁枫安排用易容术冒充武维扬的人",
+    "faction": "丁枫一方",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "假武维扬冒充已死的武维扬，帮助丁枫制造武维扬仍在的假象。",
+    "personality": {
+      "traits": [
+        "隐秘",
+        "冷酷",
+        "受制于丁枫",
+        "胆大",
+        "善于伪装"
+      ],
+      "speech_style": "本章未直接发言，身份经楚留香推理显露。",
+      "temperament": "阴沉谨慎"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_feng",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "受丁枫安排冒充武维扬"
+      },
+      {
+        "target": "char_yun_cong_long",
+        "type": "对手",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "被云从龙识破假冒身份"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 140,
+        "line_end": 148,
+        "text": "楚留香指出武维扬早已被丁枫杀死，后来出现的那人是假的。"
+      }
+    ]
+  },
+  {
+    "id": "char_yuan_sui_yun",
+    "name": "原随云",
+    "alias": [
+      "原公子",
+      "原少庄主",
+      "少年"
+    ],
+    "identity": "蝙蝠岛主人",
+    "faction": "无争山庄",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "以蝙蝠岛主人身份掌控黑暗规则，并能用火折子制造误判。",
+    "personality": {
+      "traits": [
+        "温文有礼",
+        "耳力惊人",
+        "城府深沉",
+        "谈吐斯文",
+        "观察入微",
+        "善于待客"
+      ],
+      "speech_style": "文雅谦和，常以客气辞令周旋。",
+      "temperament": "表面温柔亲切，内里空虚寂寞且深不可测。"
+    },
+    "relationships": [
+      {
+        "target": "char_yuan_dong_yuan",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "原东园为其父，对他宠爱和寄望极深"
+      },
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "合作者",
+        "intensity": 62,
+        "bond_level": 3,
+        "dynamic": "楚留香忌惮其深不可测的实力"
+      },
+      {
+        "target": "char_hu_tie_hua",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "以礼相待并迅速赢得胡铁花好感"
+      },
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "揭露金灵芝对他的迷恋"
+      }
+    ],
+    "known_skills": [
+      "skill_ting_sheng_bian_wei"
+    ],
+    "related_skills": [
+      "skill_cheng_feng_qing_gong"
+    ],
+    "rag_refs": [
+      "ch_013:144-154",
+      19,
+      21,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 144,
+        "line_end": 154,
+        "text": "少年自称敝姓原，草字随云，并称原东园正是家父。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 184,
+        "line_end": 198,
+        "text": "原随云三岁大病后双目失明，却举止安详，耳力惊人。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 286,
+        "line_end": 316,
+        "text": "原随云暗示自己也去蝙蝠岛，并邀请众人继续同船而行。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 831,
+        "line_end": 863,
+        "text": "原随云解释采珠女屏息之谜，又追问枯梅大师是否留下遗言，点出刺杀动机关键。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 682,
+        "line_end": 702,
+        "text": "原随云问桥为何物，又问对方是否要他弃别人于不顾。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 244,
+        "line_end": 249,
+        "text": "左边第一间舱房本是原随云居处，房中没有人，陈设精致但颜色零乱。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 669,
+        "line_end": 717,
+        "text": "只有坐在远处的一个人神情还很镇定，态度还很安详。这人就是原随云……原随云也微笑着：\"楚香帅过奖了!\""
+      },
+      {
+        "chapter": 19,
+        "line_start": 713,
+        "line_end": 717,
+        "text": "原随云挥出去的袍袖已收回……原随云也微笑着：\"楚香帅过奖了!\""
+      },
+      {
+        "chapter": 21,
+        "line_start": 602,
+        "line_end": 610,
+        "text": "张三长长叹息了一声，道：\"现在大家本该同舟共济，齐心来对付强敌，解决困难，谁知他们却反而自相残杀起来，原随云若是知道，一定开心得很。 \" 高亚男也长长叹息了一声，喃喃道：\"说不定他已经知道了。\" 张三冷眼瞧着混战中的群豪，缓缓道：\"不错，这件事说不定也是他早就安排好了的。 \""
+      },
+      {
+        "chapter": 22,
+        "line_start": 356,
+        "line_end": 360,
+        "text": "胡铁花追问华真真与原随云的关系，怀疑原随云得到清风十三式心法。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "他首先想起那天在原随云船上发生的事。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 614,
+        "line_end": 638,
+        "text": "现在，剩下的只有一个秘密。 原随云和枯梅大师之间究竟有什么秘密的感情?有什么秘密的关系? 这秘密已永远没有人能解答，已随着他们的生命埋藏在海水里。 枯梅大师也许是原随云的母亲，也许是他的情人!因为山西原家和华山派的关系本就很深，原随云有很多机会可以接近枯梅大师。 枯梅大师毕竟也是人，也有感情，何况，她相信原随云绝不会在乎她的外貌和年纪，因为，原随云是个瞎子。"
+      }
+    ],
+    "updates": {
+      "alias": [
+        "原少庄主",
+        "神童"
+      ],
+      "rank": "出神入化",
+      "source_refs": [
+        {
+          "chapter": 13,
+          "line_start": 176,
+          "line_end": 184,
+          "text": "原随云晚年得于原东园，江湖皆知他为神童，文武双全却三岁后双目失明。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "char_yuan_dong_yuan",
+    "name": "原东园",
+    "alias": [
+      "原老庄主"
+    ],
+    "identity": "无争山庄当代庄主，原随云之父",
+    "faction": "无争山庄",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "出神入化",
+    "one_line": "淡泊少露面的无争山庄主人，在江湖纠纷中有极高威望。",
+    "personality": {
+      "traits": [
+        "生性淡泊",
+        "声望崇高",
+        "深藏不露",
+        "饱学风雅",
+        "护子情深"
+      ],
+      "speech_style": "少露锋芒，以威望和一句话平息纷争。",
+      "temperament": "淡泊沉稳，江湖地位极高。"
+    },
+    "relationships": [
+      {
+        "target": "char_yuan_sui_yun",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "晚年得子，对原随云宠爱和寄望极深"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "ch_013:152-154"
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 152,
+        "line_end": 154,
+        "text": "英万里问起原东园原老庄主，原随云答正是家父。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 168,
+        "line_end": 176,
+        "text": "原东园极少露面，江湖地位崇高，晚年得子。"
+      }
+    ]
+  },
+  {
+    "id": "char_yuan_qing_gu",
+    "name": "原青谷",
+    "alias": [],
+    "identity": "无争山庄开创者",
+    "faction": "无争山庄",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "三百年前创建无争山庄，强到天下无人可争一日长短。",
+    "personality": {
+      "traits": [
+        "威震天下",
+        "开宗立业",
+        "武功绝顶",
+        "受人敬重",
+        "气魄宏大"
+      ],
+      "speech_style": "以武林威望立名，事迹多由后人口述。",
+      "temperament": "雄踞一时，奠定原氏三百年声名。"
+    },
+    "relationships": [
+      {
+        "target": "char_yuan_sui_yun",
+        "type": "亲属",
+        "intensity": 35,
+        "bond_level": 2,
+        "dynamic": "原随云承继其无争山庄血脉与声望"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "ch_013:158-162"
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 158,
+        "line_end": 162,
+        "text": "原青谷建无争山庄于太原之西，当时天下无人可争一日长短。"
+      }
+    ]
+  },
+  {
+    "id": "char_yin_ying_zhong_de_nv_zi",
+    "name": "阴影中的女子",
+    "alias": [
+      "阴影中人"
+    ],
+    "identity": "藏在船舷门后窥听胡铁花与金灵芝的神秘女子",
+    "faction": "未知",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "暗中窥听并出言讥刺胡铁花与金灵芝，身法和接瓶手法极快。",
+    "personality": {
+      "traits": [
+        "隐秘",
+        "尖刻",
+        "身法敏捷",
+        "出手巧妙",
+        "身份神秘"
+      ],
+      "speech_style": "冷笑讥刺，语带恶意。",
+      "temperament": "藏身阴影，出手迅捷，疑似胡铁花旧识。"
+    },
+    "relationships": [
+      {
+        "target": "char_hu_tie_hua",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "暗中讥刺后现身脱走，胡铁花似乎认得她"
+      },
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "出言挑衅金灵芝与胡铁花的暧昧"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      "ch_013:715-737"
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 715,
+        "line_end": 737,
+        "text": "阴影中女子冷笑讥刺，接住金灵芝酒瓶并闪身脱走。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 739,
+        "line_end": 765,
+        "text": "神秘女子闪身逃脱，胡铁花惊愕得像见了鬼，疑似认得她。"
+      }
+    ]
+  },
+  {
+    "id": "char_chuan_shao_shui_shou",
+    "name": "船艄水手",
+    "alias": [],
+    "identity": "船艄操帆水手",
+    "faction": "原随云海船",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "在鱼汛时呼喝落帆收篷的船上水手。",
+    "personality": {
+      "traits": [
+        "熟悉船务",
+        "听令行事",
+        "粗豪",
+        "警醒",
+        "勤快"
+      ],
+      "speech_style": "短促号令",
+      "temperament": "务实"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 293,
+        "line_end": 299,
+        "text": "船艄有人呼喝落帆收篷，配合海船停下让张三撒网。"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_qiong",
+    "name": "王琼",
+    "alias": [],
+    "identity": "多年前有名剑客",
+    "faction": "",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "隐僻残废剑客，一拔剑便精神焕发。",
+    "personality": {
+      "traits": [
+        "孤僻",
+        "贫困",
+        "懒散",
+        "以剑为命",
+        "临战焕发"
+      ],
+      "speech_style": "少见其言，以剑显神",
+      "temperament": "落魄而专注"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 313,
+        "line_end": 335,
+        "text": "楚留香以王琼比张三撒网，说明有人一触及生命所寄便焕然有神。"
+      }
+    ]
+  },
+  {
+    "id": "char_si_ming_cai_zhu_nv",
+    "name": "四名采珠女",
+    "alias": [
+      "人鱼",
+      "鱼人",
+      "四位姑娘"
+    ],
+    "identity": "伪装成溺水人鱼的南海采珠女刺客",
+    "faction": "未知势力",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "初窥门径",
+    "one_line": "四名赤裸入网的采珠女，假作无息求救以刺杀枯梅大师。",
+    "personality": {
+      "traits": [
+        "强健",
+        "善潜水",
+        "计划周密",
+        "狠辣",
+        "敢冒奇险"
+      ],
+      "speech_style": "本章无言",
+      "temperament": "神秘冷酷"
+    },
+    "relationships": [
+      {
+        "target": "char_ku_mei_da_shi",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 1,
+        "dynamic": "设局刺杀枯梅大师，最终被摘心手反杀。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_zhai_xin_shou"
+    ],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 355,
+        "line_end": 363,
+        "text": "张三一网捞起四名赤裸女子，众人误以为是人鱼。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 811,
+        "line_end": 837,
+        "text": "众人推断四名女子故意入网装死，极可能是南海一带善屏息的采珠女。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 835,
+        "line_end": 849,
+        "text": "原随云推断四名女子可能是海南东瀛一带自幼入海训练的采珠海女，但来历与动机仍成谜。"
+      }
+    ]
+  },
+  {
+    "id": "char_hua_shan_shao_nv",
+    "name": "华山少女",
+    "alias": [
+      "墙角少女",
+      "小姑娘"
+    ],
+    "identity": "枯梅大师身边女弟子",
+    "faction": "华山派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "随枯梅大师同行的少女，受惊后说明刺客与摘心手。",
+    "personality": {
+      "traits": [
+        "羞怯",
+        "畏血",
+        "忠于师门",
+        "受惊",
+        "守口"
+      ],
+      "speech_style": "胆怯而断续",
+      "temperament": "惊惧"
+    },
+    "relationships": [
+      {
+        "target": "char_ku_mei_da_shi",
+        "type": "师徒",
+        "intensity": 82,
+        "bond_level": 4,
+        "dynamic": "称枯梅大师为师父，目睹师父惨死后惊惧昏厥。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_zhai_xin_shou"
+    ],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 543,
+        "line_end": 549,
+        "text": "墙角小姑娘偷看楚留香，被枯梅大师命男人出去打断。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 721,
+        "line_end": 747,
+        "text": "少女被楚留香救醒后，说出师父临死前以摘心手报仇。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 735,
+        "line_end": 747,
+        "text": "华山少女说师父临死前已为自己报仇，并说出摘心手之名。"
+      }
+    ]
+  },
+  {
+    "id": "char_hua_qiong_feng",
+    "name": "华琼凤",
+    "alias": [
+      "辣手仙子"
+    ],
+    "identity": "华山第四代掌门",
+    "faction": "华山派",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "摘心手创始人，晚年自觉此功太毒而禁传。",
+    "personality": {
+      "traits": [
+        "狠辣",
+        "自省",
+        "威严",
+        "武功高",
+        "立规严"
+      ],
+      "speech_style": "传闻中少有直接言语",
+      "temperament": "刚烈"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_zhai_xin_shou"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 751,
+        "line_end": 751,
+        "text": "原随云指出摘心手为华山第四代掌门辣手仙子华琼凤所创。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 232,
+        "line_end": 238,
+        "text": "楚留香道：\"华琼凤华太宗师。\" 胡铁花道：\"我知道华仙子是华山派的第四代掌门，但却已仙逝很久。 \" 楚留香道：\"华仙子虽已仙去，却将她的毕生武功心法记在一本秘笈上，交给她的堂兄，华真真就是华仙子的玄侄孙女。"
+      }
+    ]
+  },
+  {
+    "id": "char_hua_zhen_zhen",
+    "name": "华真真",
+    "alias": [
+      "那少女"
+    ],
+    "identity": "枯梅大师身边的年轻女子",
+    "faction": "华山派/蝙蝠岛",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "以黑衣蒙面人身份救出金灵芝并现身，证明自己不是假东三娘凶手。",
+    "personality": {
+      "traits": [
+        "美丽",
+        "羞怯",
+        "胆小",
+        "敏感",
+        "含蓄"
+      ],
+      "speech_style": "寡言羞怯，不敢直视他人。",
+      "temperament": "柔弱腼腆"
+    },
+    "relationships": [
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "因楚留香安慰而安心登桥"
+      },
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "恋人",
+        "intensity": 86,
+        "bond_level": 4,
+        "dynamic": "接受将来的别离，珍惜眼前相聚"
+      },
+      {
+        "target": "char_ku_mei_da_shi",
+        "type": "师徒",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "名义为弟子，实为掌门监护者"
+      }
+    ],
+    "known_skills": [
+      "skill_zhai_xin_shou",
+      "skill_qing_feng_shi_san_shi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      15,
+      18,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 8,
+        "line_end": 16,
+        "text": "楚留香现在已知道那少女的名字叫华真真。她不但人美，名字也美。只不过她的胆子太小，也太害羞。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 729,
+        "line_end": 737,
+        "text": "华真真回头深深凝注楚留香，听他柔声安慰后脸又红了。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 643,
+        "line_end": 647,
+        "text": "张三说没有说她一定是凶手，只不过觉得有可能。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 828,
+        "line_end": 866,
+        "text": "英万里听出昨夜杀白猎者是女人，众人推向华真真。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 996,
+        "line_end": 1038,
+        "text": "华真真偷练华飞凤遗留武功，又投华山学清风十三式，并早与蝙蝠岛勾结。"
+      },
+      {
+        "chapter": 22,
+        "line_start": 532,
+        "line_end": 546,
+        "text": "黑衣人掀开蒙面黑巾，露出华真真身份，并放下怀中金灵芝。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 118,
+        "line_end": 132,
+        "text": "楚留香说道：\"船上会摘心手的本来只有三个人，枯梅大师既已\"死\"了，剩下的就只有高亚男和华真真。 \" 他笑了笑，接着道：\"阁下当然知道高亚男是我们的好朋友，认为我们绝不会怀疑到她，而且每件事发生的时候，都有人能证明她不在那里。 \" 原随云道：\"确实如此。\" 楚留香道：\"高亚男既然没有嫌疑，剩下的就只有华真真了。 各种迹象都显示出她就是杀人的凶手，使得每个人都不"
+      },
+      {
+        "chapter": 23,
+        "line_start": 642,
+        "line_end": 648,
+        "text": "楚留香和华真真双双伫立在船头，凝视着远方。 家园已在望。 光明也已在望! 希望永在人间!"
+      }
+    ],
+    "temperament": "隐忍果决，关键时刻带着证人和真相出现。",
+    "speech_style": "简洁沉静，直接说明结果。"
+  },
+  {
+    "id": "char_shui_shou",
+    "name": "水手",
+    "alias": [
+      "船上水手"
+    ],
+    "identity": "原随云船上的水手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "船触礁后报告漏水和舵手失踪的水手。",
+    "personality": {
+      "traits": [
+        "惊惧",
+        "尽责",
+        "狼狈",
+        "服从",
+        "急迫"
+      ],
+      "speech_style": "危急时短促报告实情。",
+      "temperament": "慌急而务实"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 404,
+        "line_end": 416,
+        "text": "一个水手被浪打过来，嘶声报告船触礁、船底漏水。"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_yi_ren",
+    "name": "黑衣人",
+    "alias": [
+      "蒙面黑衣女子",
+      "奴婢"
+    ],
+    "identity": "蝙蝠岛派来接引原随云等人的蒙面女子",
+    "faction": "faction_bian_fu_dao",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "以长索作桥接引众人，并冷静说明坠落便万劫不复。",
+    "personality": {
+      "traits": [
+        "轻灵",
+        "恭敬",
+        "神秘",
+        "镇定",
+        "危险"
+      ],
+      "speech_style": "语声清越娇脆，礼数周到而含威胁。",
+      "temperament": "从容神秘"
+    },
+    "relationships": [
+      {
+        "target": "char_yuan_sui_yun",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "奉命迎接原随云登岛"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_cheng_feng_qing_gong"
+    ],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 630,
+        "line_end": 656,
+        "text": "黑衣蒙面女子率七八人从礁石上来，清越娇脆地迎接原随云。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 672,
+        "line_end": 700,
+        "text": "黑衣人掠上船桅系好长索，请众人上桥，并说明坠落危险。"
+      }
+    ]
+  },
+  {
+    "id": "char_bian_fu_gong_zi",
+    "name": "蝙蝠公子",
+    "alias": [
+      "岛主"
+    ],
+    "identity": "蝙蝠岛主人",
+    "faction": "蝙蝠岛",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "以绝对黑暗统治蝙蝠岛的神秘岛主。",
+    "personality": {
+      "traits": [
+        "神秘",
+        "冷酷",
+        "残忍",
+        "善控局",
+        "隐身幕后"
+      ],
+      "speech_style": "随处境变化，言语简短而情绪鲜明。",
+      "temperament": "神秘、冷酷、残忍"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_feng",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "金灵芝称丁枫好像是他的徒弟"
+      },
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "对手",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "以胡铁花性命要挟楚留香自毁双眼"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17,
+      18,
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 32,
+        "line_end": 58,
+        "text": "金灵芝道：\"是蝙蝠公子叫人送我走的。\" 胡铁花道：\"他若不送你呢?\" 金灵芝垂下头，一字字道：\"他若不送，我只有死在这里!\" 她一踏上这岛屿，连舌头都似乎已紧张得僵硬起来，每说一个字，都要费很大的力气。 说完了这两句话，她头上已沁出了冷汗。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 1040,
+        "line_end": 1068,
+        "text": "勾子长说明黑箱本无火药，火药是丁枫后来设计的圈套，众人已难活命。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 34,
+        "line_end": 40,
+        "text": "楚留香对着铜管，一字字地道：\"阁下就是蝙蝠公子?\"\n\n对方沉默了很久，才缓缓道：\"久闻楚香帅轻功妙绝江湖，不想内力也如此深厚\""
+      },
+      {
+        "chapter": 19,
+        "line_start": 759,
+        "line_end": 769,
+        "text": "野心!他这么样做，只为了要自己的野心实现……各位只怕也要变成他的奴隶!"
+      }
+    ]
+  },
+  {
+    "id": "char_dong_san_niang",
+    "name": "东三娘",
+    "alias": [
+      "第三间屋子的女人",
+      "无名女人"
+    ],
+    "identity": "双目被害的蝙蝠岛受难女子",
+    "faction": "蝙蝠岛",
+    "role": "companion",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "蜷伏在石级阴影中的女子，处境与高亚男之死相连。",
+    "personality": {
+      "traits": [
+        "麻木",
+        "悲苦",
+        "渴望自由",
+        "柔媚",
+        "知恩",
+        "勇敢"
+      ],
+      "speech_style": "随处境变化，言语简短而情绪鲜明。",
+      "temperament": "麻木、悲苦、渴望自由"
+    },
+    "relationships": [
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "楚留香给她选择机会后自愿带路"
+      }
+    ],
+    "known_skills": [
+      "skill_wu_si_an_qi"
+    ],
+    "related_skills": [
+      "skill_wu_si_an_qi"
+    ],
+    "rag_refs": [
+      17,
+      18,
+      21,
+      22,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 708,
+        "line_end": 710,
+        "text": "\"我没有名字……我只不过是个工具，你若一定要问，不妨就叫我'东三娘'吧，因为我住的是第三间屋子。 \""
+      },
+      {
+        "chapter": 17,
+        "line_start": 674,
+        "line_end": 676,
+        "text": "女人接口说道：\"这是我自己愿意的，我几乎从没有做过一件我自己愿意做的事，你至少应该给个机会给我。 \""
+      },
+      {
+        "chapter": 17,
+        "line_start": 858,
+        "line_end": 870,
+        "text": "那男人却冷笑着道：\"你的手还是留着摸男人吧，凭你这样的贱货，也配问我要……\" 东三娘突然甩脱楚留香的手，向这人扑了过去! 愤怒!只有愤怒才能令人自麻木中清醒，只有愤怒才能令人不顾一切。 东三娘扑上去时，已不顾一切!她觉得那男人的耳光就像是掴"
+      },
+      {
+        "chapter": 18,
+        "line_start": 314,
+        "line_end": 360,
+        "text": "胡铁花等发现东三娘，并谈及她的处境。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 648,
+        "line_end": 692,
+        "text": "东三娘坚持相信楚留香美好，不畏死亡，只怕面对真相。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 150,
+        "line_end": 166,
+        "text": "东三娘将火折子慢慢的交给胡铁花……忽然扑倒在楚留香胸膛上，放声痛哭了起来。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 66,
+        "line_end": 66,
+        "text": "\"东三娘!\""
+      },
+      {
+        "chapter": 22,
+        "line_start": 496,
+        "line_end": 502,
+        "text": "楚留香指出向他下毒手的人不是东三娘，东三娘的打扮也和蝙蝠一样，面目难辨。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 210,
+        "line_end": 214,
+        "text": "她轻轻叹了口气，黯然接道：\"这当然也全靠东三娘的帮忙，若没有她，我根本找不到那么多衣服，也找不到那么多烈酒。 \" 东三娘也是只可怜的\"蝙蝠\"，她当然知道衣服和酒在什么地方。"
+      }
+    ]
+  },
+  {
+    "id": "char_duo_hu_nan_ren",
+    "name": "夺壶男人",
+    "alias": [
+      "拿鼻烟壶的男人"
+    ],
+    "identity": "蝙蝠岛下层寻欢男子",
+    "faction": "蝙蝠岛",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "强占鼻烟壶并羞辱被困女子，引发东三娘愤怒出手。",
+    "personality": {
+      "traits": [
+        "轻薄",
+        "冷酷",
+        "傲慢",
+        "粗暴",
+        "自私"
+      ],
+      "speech_style": "随处境变化，言语简短而情绪鲜明。",
+      "temperament": "轻薄、冷酷、傲慢"
+    },
+    "relationships": [
+      {
+        "target": "char_bi_yan_hu_nv_ren",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 1,
+        "dynamic": "因鼻烟壶争执而施暴羞辱"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 826,
+        "line_end": 858,
+        "text": "一个男人的声音道：\"你还拉住我干什么?是不是还想问我要这个鼻烟壶?\" 一个女人的声音在软语央求，道：\"只要你把它给我，我什么都给你。 \" 男人淡淡道：\"你本就已将什么都给我了。\" 女人的声音更软，道：\"可是，你下次来……\" 男人冷笑道：\"下"
+      }
+    ]
+  },
+  {
+    "id": "char_bi_yan_hu_nv_ren",
+    "name": "鼻烟壶女人",
+    "alias": [
+      "求壶女人"
+    ],
+    "identity": "蝙蝠岛下层被困女子",
+    "faction": "蝙蝠岛",
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "把刻有山水的鼻烟壶当作回忆故乡和忍受痛苦的寄托。",
+    "personality": {
+      "traits": [
+        "卑微",
+        "哀求",
+        "怀乡",
+        "痛苦",
+        "执着"
+      ],
+      "speech_style": "随处境变化，言语简短而情绪鲜明。",
+      "temperament": "卑微、哀求、怀乡"
+    },
+    "relationships": [
+      {
+        "target": "char_duo_hu_nan_ren",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 1,
+        "dynamic": "苦求鼻烟壶却遭对方羞辱殴打"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 828,
+        "line_end": 848,
+        "text": "一个女人的声音在软语央求，道：\"只要你把它给我，我什么都给你。 \" 男人淡淡道：\"你本就已将什么都给我了。\" 女人的声音更软，道：\"可是，你下次来……\" 男人冷笑道：\"下次?你怎知我下次还会来找你?这地方的女人又不止你一个人!\" 女人不说话"
+      }
+    ]
+  },
+  {
+    "id": "char_liu_ming_qiu",
+    "name": "柳明秋",
+    "alias": [],
+    "identity": "被困蝙蝠岛的女子",
+    "faction": null,
+    "role": "supporting",
+    "archetype": "受难者",
+    "rank": "普通",
+    "one_line": "处境危急却仍有坚忍心性的女子，在黑暗中被楚留香保护。",
+    "personality": {
+      "traits": [
+        "坚忍",
+        "惊惧",
+        "敏感",
+        "求生",
+        "不忍连累他人"
+      ],
+      "speech_style": "急促而压抑",
+      "temperament": "柔弱中带倔强"
+    },
+    "relationships": [
+      {
+        "target": "char_chu_liu_xiang",
+        "type": "被保护",
+        "intensity": 68,
+        "bond_level": 3,
+        "dynamic": "危急时被楚留香按住并救下"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 1,
+        "line_end": 36,
+        "text": "柳明秋在巡逻女子逼近时欲出手，被楚留香及时按住。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 58,
+        "line_end": 72,
+        "text": "柳明秋冒险寻找鼻烟壶，显示此物对她极重要。"
+      }
+    ],
+    "related_items": [
+      "item_bi_yan_hu"
+    ]
+  },
+  {
+    "id": "char_xun_luo_nv_zi",
+    "name": "巡逻女子",
+    "alias": [
+      "两个巡逻的岛上女子"
+    ],
+    "identity": "蝙蝠岛受役巡逻者",
+    "faction": "蝙蝠岛",
+    "role": "minor",
+    "archetype": "被役使者",
+    "rank": "普通",
+    "one_line": "在蝙蝠岛黑暗中巡逻的女子，被楚留香视为同样受苦的人。",
+    "personality": {
+      "traits": [
+        "麻木",
+        "服从",
+        "警觉",
+        "受制于人",
+        "可怜"
+      ],
+      "speech_style": "本段未发言",
+      "temperament": "压抑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 1,
+        "line_end": 36,
+        "text": "两个巡逻女子靠近，楚留香阻止柳明秋伤害她们。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_gang",
+    "name": "赵刚",
+    "alias": [],
+    "identity": "蝙蝠岛手下",
+    "faction": "蝙蝠岛",
+    "role": "minor",
+    "archetype": "爪牙",
+    "rank": "普通",
+    "one_line": "参与蝙蝠岛行动的手下，面对丁枫追问时惊惧辩解。",
+    "personality": {
+      "traits": [
+        "惊惧",
+        "粗鲁",
+        "服从",
+        "迟钝",
+        "自保"
+      ],
+      "speech_style": "愤愤辩解又很快胆怯",
+      "temperament": "惶恐"
+    },
+    "relationships": [
+      {
+        "target": "char_ding_feng",
+        "type": "上下级",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "受丁枫责问"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 188,
+        "line_end": 238,
+        "text": "赵刚被丁枫追问为何未能识破楚留香。"
+      }
+    ]
+  },
+  {
+    "id": "char_hua_fei_feng",
+    "name": "华飞凤",
+    "alias": [
+      "辣手仙子"
+    ],
+    "identity": "华氏前辈",
+    "faction": null,
+    "role": "background",
+    "archetype": "武学源流",
+    "rank": "宗师",
+    "one_line": "昔年辣手仙子，留下多种毒辣武功心法给华氏后人。",
+    "personality": {
+      "traits": [
+        "狠辣",
+        "强横",
+        "传奇",
+        "决断",
+        "复杂"
+      ],
+      "speech_style": "本章未直接发言",
+      "temperament": "凌厉"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [
+      "skill_zhai_xin_shou"
+    ],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 982,
+        "line_end": 994,
+        "text": "众人推断华真真是辣手仙子华飞凤后人。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_xian_sheng",
+    "name": "朱先生",
+    "alias": [],
+    "identity": "身处第三层拍卖会、被蝙蝠公子称赞眼力的武林客人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "略有小成",
+    "one_line": "能从鬼火身法中判断高手来历，却也被蝙蝠公子的鬼魂说辞动摇。",
+    "personality": {
+      "traits": [
+        "有见识",
+        "谨慎",
+        "胆怯",
+        "善于观察",
+        "容易受暗示"
+      ],
+      "speech_style": "说话多作推断，常以在下自称，语气客气而犹疑。",
+      "temperament": "外表镇定、内里畏惧"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 254,
+        "line_end": 262,
+        "text": "终于有个人忍不住问道……那位朱先生叹了口气，道。"
+      }
+    ]
+  },
+  {
+    "id": "char_mai_xia_gou_zi_chang_de_ren",
+    "name": "买下勾子长的人",
+    "alias": [],
+    "identity": "在第二次拍卖中买下勾子长并打算与其联手作案的神秘买家",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "看中勾子长作案能力而非官府赏金的投机买家。",
+    "personality": {
+      "traits": [
+        "贪婪",
+        "机敏",
+        "投机",
+        "胆大",
+        "现实"
+      ],
+      "speech_style": "得手后才表明真实打算，语气带着自得。",
+      "temperament": "精于算计"
+    },
+    "relationships": [
+      {
+        "target": "char_gou_zi_chang",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "拍下勾子长后准备联手做案"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 498,
+        "line_end": 506,
+        "text": "得主突然道……在下正打算和他联手做几件事。"
+      }
+    ]
+  },
+  {
+    "id": "char_qian_lao_san",
+    "name": "钱老三",
+    "alias": [
+      "麻子",
+      "遍地洒金钱"
+    ],
+    "identity": "满脸麻子的黑壮男人，实为临城血案凶手",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "买下临城血案秘密后仍被楚留香当众揭穿的凶手。",
+    "personality": {
+      "traits": [
+        "凶狠",
+        "心虚",
+        "狡辩",
+        "惊惧",
+        "逃避"
+      ],
+      "speech_style": "被揭穿时急声反驳，语气粗暴。",
+      "temperament": "外强中干"
+    },
+    "relationships": [
+      {
+        "target": "char_bian_fu_gong_zi",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "因血案秘密被蝙蝠公子掌握而可能受其挟制"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 693,
+        "line_end": 725,
+        "text": "突见一个人站了起来……我认得他，他就是'遍地洒金钱'钱老三。"
+      }
+    ]
+  },
+  {
+    "id": "char_mian_se_cang_bai_de_zhong_nian_ren",
+    "name": "面色苍白的中年人",
+    "alias": [],
+    "identity": "身穿锦袍并认出钱老三身份的拍卖会宾客",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "在众人面前认出钱老三，随后追问蝙蝠公子的真实目的。",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "识人",
+        "好奇",
+        "不安",
+        "从众"
+      ],
+      "speech_style": "发言简短，先辨认人物，后顺势追问。",
+      "temperament": "苍白镇定中带着疑虑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 725,
+        "line_end": 757,
+        "text": "一个面色苍白，身穿锦袍的中年人道……若不是为了钱，他为的是什么?"
+      },
+      {
+        "chapter": 19,
+        "line_start": 757,
+        "line_end": 757,
+        "text": "那面色苍白的中年人道：\"若不是为了钱，他为的是什么?\""
+      }
+    ]
+  },
+  {
+    "id": "char_zi_mian_da_han",
+    "name": "紫面大汉",
+    "alias": [],
+    "identity": "拍卖会中的紫面武林大汉，得知蝙蝠公子野心后愤然表态",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "代表群豪质疑蝙蝠公子的目的，并愿意对其出手。",
+    "personality": {
+      "traits": [
+        "粗豪",
+        "直率",
+        "易怒",
+        "重义气",
+        "受鼓动"
+      ],
+      "speech_style": "发言直接，情绪外露，常以反问表达不满。",
+      "temperament": "豪直而冲动"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 747,
+        "line_end": 775,
+        "text": "一个紫面大汉失声道……只可惜我们连他是谁都不知道。"
+      }
+    ]
+  },
+  {
+    "id": "char_qun_hao_jia",
+    "name": "群豪甲",
+    "alias": [],
+    "identity": "被困岛上的江湖客",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "一名受楚留香义举感召、想入洞查看的江湖群豪。",
+    "personality": {
+      "traits": [
+        "热心",
+        "急切",
+        "讲义气",
+        "冲动",
+        "直率"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 172,
+        "line_end": 172,
+        "text": "其中一人道：\"我们也去瞧瞧!\""
+      }
+    ]
+  },
+  {
+    "id": "char_qun_hao_yi",
+    "name": "群豪乙",
+    "alias": [],
+    "identity": "被困岛上的江湖客",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "另一名认为不能对楚留香置身事外的江湖群豪。",
+    "personality": {
+      "traits": [
+        "感恩",
+        "讲义气",
+        "急切",
+        "正直",
+        "从众"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 174,
+        "line_end": 174,
+        "text": "另一人道：\"楚香帅为我们做了很多事，我们绝不能置身事外。\""
+      }
+    ]
+  },
+  {
+    "id": "char_wang_tian_shou",
+    "name": "王天寿",
+    "alias": [
+      "白发老人",
+      "王老爷子",
+      "朱先生",
+      "九现云龙"
+    ],
+    "identity": "鹰爪门前掌门",
+    "faction": "faction_ying_zhao_men",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "被钱氏兄弟和魏行龙逼到负伤吐血，只喊出龙抬头三个字便被制止。",
+    "personality": {
+      "traits": [
+        "老辣",
+        "多疑",
+        "好名",
+        "阴狠",
+        "善掩饰"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [
+      {
+        "target": "char_wei_xing_long",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "二人当众互揭秘密，敌意骤起"
+      },
+      {
+        "target": "char_tie_zhong_tang",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "王天寿因旧丑被铁中棠所知而预谋毒害"
+      }
+    ],
+    "known_skills": [
+      "skill_ying_zhao_gong",
+      "skill_xiao_tian_xing"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 198,
+        "line_end": 200,
+        "text": "这老人正是淮西\"鹰爪门\"的第一高手\"九现云龙\"王天寿。 二十年前已将掌门之位传给了他的侄子王维杰，近年来已很少在江湖走动，见过他真面目的人本就不多，不想竟也在这里露面了。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 490,
+        "line_end": 506,
+        "text": "谁知王天寿突然凌空一个翻身，自他头顶掠过，大喝道：\"钱老大，你快叫他住手，你难道以为我不知道你来干什么的?\" 他—面呼喝，鲜血还是不停的往外冒。 钱不赚笑嘻嘻道：\"我本就是个生意人，到这里自然是来做买卖的。 只可惜方才什么都没买到，现在只好买下你这颗脑袋了。 \" 他嘴里笑嘻嘻的说着话，慢慢的走过去，突然攻出三招。 三招之间，已将王天寿的出手全都封死。 这看来"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_wei_jie",
+    "name": "王维杰",
+    "alias": [],
+    "identity": "鹰爪门掌门",
+    "faction": "faction_ying_zhao_men",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "王天寿的侄子，二十年前接任鹰爪门掌门。",
+    "personality": {
+      "traits": [
+        "低调",
+        "承继门派",
+        "稳重",
+        "谨慎",
+        "少露面"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 200,
+        "line_end": 200,
+        "text": "二十年前已将掌门之位传给了他的侄子王维杰，近年来已很少在江湖走动，见过他真面目的人本就不多，不想竟也在这里露面了。"
+      }
+    ]
+  },
+  {
+    "id": "char_wei_xing_long",
+    "name": "魏行龙",
+    "alias": [
+      "魏三爷",
+      "紫面煞神",
+      "独行盗"
+    ],
+    "identity": "关东道豪强与马场东主",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "得钱不赚担保后精神大振，以不要命的拳势反攻。",
+    "personality": {
+      "traits": [
+        "暴烈",
+        "记仇",
+        "知恩",
+        "好胜",
+        "直率"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [
+      {
+        "target": "char_liu_yin_song",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "因昔年被柳吟松伤面而怀恨"
+      },
+      {
+        "target": "char_tie_zhong_tang",
+        "type": "挚友",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "铁中棠救过魏行龙性命"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 226,
+        "line_end": 240,
+        "text": "高亚男突然笑道：\"王老爷子毕竟是久已不在江湖走动了，连关东道上的第一条好汉'紫面煞神'魏三爷的异相都认不出来。 \" 王天寿仰面打了个哈哈，道：\"原来是魏行龙魏三爷，当真是久仰得很，久仰得很……\" 他笑声突然停顿，一双昏花的老眼立刻变得精光四射，也瞪着魏行龙，冷冷道：\"久闻魏三爷多年丰收，如今已是两家大马场的东主，姬妾之美，江湖中人人称羡，却为何不在温柔乡里纳"
+      },
+      {
+        "chapter": 21,
+        "line_start": 462,
+        "line_end": 466,
+        "text": "钱不赚道：\"魏老三，你只管放心出手，他那双爪子若是沾着你一根汗毛，我兄弟就将脑袋赔你!\" 这时王天寿早已和魏行龙交手数十招，淮西\"鹰爪门\"的武功果然不同凡响，魏行龙已被迫得几乎连还手之力都没有。 听了这句话，他精神突然一振，\"呼呼\"两拳，抢攻而出，用的竟是不要命的招式，自己完全不留后路。"
+      }
+    ]
+  },
+  {
+    "id": "char_gu_dao_ren",
+    "name": "顾道人",
+    "alias": [],
+    "identity": "巴山剑派前辈",
+    "faction": "faction_ba_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "巴山名宿，创出七七四十九手回风舞柳剑，剑法空灵清绝。",
+    "personality": {
+      "traits": [
+        "清绝",
+        "孤高",
+        "剑术通神",
+        "名重武林",
+        "传承严谨"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 244,
+        "line_end": 244,
+        "text": "昔年巴山顾道人创\"七七四十九手回风舞柳剑\"，仗剑走天下，剑法之高，举世无双。"
+      }
+    ]
+  },
+  {
+    "id": "char_liu_yin_song",
+    "name": "柳吟松",
+    "alias": [],
+    "identity": "顾道人俗家弟子",
+    "faction": "faction_ba_shan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "顾道人唯一俗家弟子，曾因路见不平伤魏行龙后又饶其性命。",
+    "personality": {
+      "traits": [
+        "清高",
+        "仁厚",
+        "正直",
+        "克制",
+        "受人推崇"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 246,
+        "line_end": 256,
+        "text": "他生平只收了一个徒弟，却是俗家弟子，姓柳，名吟松。 剑法虽不如顾道人之空灵清绝，但人品之清高，却也久受江湖之推崇。 柳吟松生平从未与人结怨，只有一次到关外采药时，路见不平，伤了个不但劫财，还要劫色的独行盗匪。 这独行盗就是魏行龙。 他脸上的这条疤，就是柳吟松留下来的。 据说他曾在柳吟松面前发下重誓，表示自己以后一定洗心革面，重新做人，所以柳吟松才剑下留情，饶"
+      }
+    ]
+  },
+  {
+    "id": "char_qun_hao_bing",
+    "name": "群豪丙",
+    "alias": [],
+    "identity": "被困岛上的江湖客",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "一名猜测天下第一大英雄是否为楚香帅的江湖群豪。",
+    "personality": {
+      "traits": [
+        "敬佩楚留香",
+        "好奇",
+        "急切",
+        "直率",
+        "从众"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 300,
+        "line_end": 300,
+        "text": "其中也有几人瞟了高亚男和张三一眼，道：\"莫非是楚香帅?\""
+      }
+    ]
+  },
+  {
+    "id": "char_qun_hao_ding",
+    "name": "群豪丁",
+    "alias": [],
+    "identity": "被困岛上的江湖客",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "列举楚留香过往壮举、极力推崇楚香帅的江湖群豪。",
+    "personality": {
+      "traits": [
+        "豪迈",
+        "敬佩英雄",
+        "健谈",
+        "激动",
+        "重义"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 310,
+        "line_end": 310,
+        "text": "又有几个人道：\"楚香帅横扫大沙漠，力败石观音，独探神水宫，与水母阴姬自陆上斗入水中，又自水中斗至陆上，这是何等英雄，何等豪气!除了楚香帅外，还有谁做得出这种惊天动地的大事?\""
+      }
+    ]
+  },
+  {
+    "id": "char_qun_hao_wu",
+    "name": "群豪戊",
+    "alias": [],
+    "identity": "被困岛上的江湖客",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "以蝙蝠岛经历为证称颂楚留香的江湖群豪。",
+    "personality": {
+      "traits": [
+        "感恩",
+        "热切",
+        "重义",
+        "从众",
+        "直爽"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 312,
+        "line_end": 312,
+        "text": "又有几人道：\"不说别的，只说这次在蝙蝠岛上，楚香帅的所作所为，有谁不佩服?世上还有谁能比得上他?\""
+      }
+    ]
+  },
+  {
+    "id": "char_qian_bu_zhuan",
+    "name": "钱不赚",
+    "alias": [
+      "钱老大",
+      "货真价实"
+    ],
+    "identity": "买卖恶人人头的生意人",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "从杨标、单鹗现身中明白龙抬头牵出的复杂旧怨。",
+    "personality": {
+      "traits": [
+        "笑里藏锋",
+        "精明",
+        "狠辣",
+        "守信",
+        "胆大"
+      ],
+      "speech_style": "笑嘻嘻地以买卖口吻说话",
+      "temperament": "和气外表下极危险"
+    },
+    "relationships": [
+      {
+        "target": "char_wei_xing_long",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "钱不赚因铁中棠之事转而支持魏行龙"
+      }
+    ],
+    "known_skills": [
+      "skill_xiao_tian_xing"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 366,
+        "line_end": 368,
+        "text": "左面一人是哥哥，人称\"货真价实\"钱不赚，右面的是弟弟，人称\"童叟无欺\"钱不要。 江湖中提起这兄弟两人来，纵然不吓得面色如土，也要变得头大如斗，只因这兄弟两人做的虽是生意买卖，但买卖的却是人头。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 526,
+        "line_end": 546,
+        "text": "钱不赚哈哈大笑，道：\"原来如此。\" 反手一掌，切向跛子的下腹。 跛子身形一缩，退出三尺，道：\"杨大哥，你攻上三路。\" 杨标道：\"好，你攻下……\" 话未说完，跛子突然一个肘拳打在他下腹。 杨标再也未想到这人会忽然反过来向他身上招呼，踉跄退出几步，疼得腰都弯了下去，两只手抱着肚子，面上冷汗滚滚而落，嘶声道：\"你……你……你龟儿疯了?\" 跛子一招得手，又扑向钱不赚"
+      }
+    ]
+  },
+  {
+    "id": "char_qian_bu_yao",
+    "name": "钱不要",
+    "alias": [
+      "钱老二",
+      "童叟无欺"
+    ],
+    "identity": "买卖恶人人头的生意人",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "暗中弹指相助，使王天寿胸口中拳。",
+    "personality": {
+      "traits": [
+        "机敏",
+        "诙谐",
+        "狠辣",
+        "默契",
+        "果断"
+      ],
+      "speech_style": "常与兄长一唱一和",
+      "temperament": "笑嘻嘻却杀机暗藏"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_xiao_tian_xing"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 366,
+        "line_end": 368,
+        "text": "左面一人是哥哥，人称\"货真价实\"钱不赚，右面的是弟弟，人称\"童叟无欺\"钱不要。 江湖中提起这兄弟两人来，纵然不吓得面色如土，也要变得头大如斗，只因这兄弟两人做的虽是生意买卖，但买卖的却是人头。"
+      },
+      {
+        "chapter": 21,
+        "line_start": 484,
+        "line_end": 486,
+        "text": "有些人简直不懂这是怎么回事，但站在前面的却已看出，钱老大说话时，钱老二的手指竟然向外一弹。 \"哧\"的一道风声响过，工天寿的手就突然向后一缩，魏行龙的拳头才能乘机击上他胸膛。"
+      }
+    ]
+  },
+  {
+    "id": "char_qian_shi_xiong_di",
+    "name": "钱氏兄弟",
+    "alias": [
+      "货真价实童叟无欺"
+    ],
+    "identity": "钱氏兄弟合称",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "钱不赚与钱不要兄弟合称，江湖人闻名变色。",
+    "personality": {
+      "traits": [
+        "默契",
+        "可怖",
+        "诙谐",
+        "精明",
+        "狠辣"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 366,
+        "line_end": 368,
+        "text": "左面一人是哥哥，人称\"货真价实\"钱不赚，右面的是弟弟，人称\"童叟无欺\"钱不要。 江湖中提起这兄弟两人来，纵然不吓得面色如土，也要变得头大如斗，只因这兄弟两人做的虽是生意买卖，但买卖的却是人头。"
+      }
+    ]
+  },
+  {
+    "id": "char_tie_zhong_tang",
+    "name": "铁中棠",
+    "alias": [
+      "铁大侠"
+    ],
+    "identity": "铁血大旗门掌门",
+    "faction": "faction_tie_xue_da_qi_men",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "铁血大旗门掌门人，被魏行龙称为天下第一、侠义无双的铁大侠。",
+    "personality": {
+      "traits": [
+        "侠义",
+        "宽厚",
+        "威望极高",
+        "面冷心热",
+        "令群豪心服"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 412,
+        "line_end": 418,
+        "text": "魏行龙一字字道：\"在下说的这位大英雄，就是'铁血大旗门'的掌门人，天下第一、侠义无双的铁大侠铁中棠!\" 铁中棠! 这名字说出来，突然没有人喘息了! 数百年来，若只有一人能今天下豪杰心悦诚服，称他为\"天下第一\"的，这人就是铁中棠!"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_da_xian_sheng",
+    "name": "唐大先生",
+    "alias": [],
+    "identity": "唐门高手",
+    "faction": "faction_tang_men",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "唐门人物，被王天寿邀至淮西鹰王堡吃春酒并可能遭嫁祸。",
+    "personality": {
+      "traits": [
+        "名望高",
+        "谨慎",
+        "受邀赴宴",
+        "牵涉毒案",
+        "身份关键"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 392,
+        "line_end": 394,
+        "text": "魏行龙道：\"若论武功，十个王天寿也比不上这位大英雄一根手指，但他却知道这位大英雄今年过年后一定会去找他，所以就先邀了唐家的唐大先生和另外几位高人到淮西鹰王堡去吃春酒!\" 他恨恨接着道：\"他在这里买下唐门的毒药，就为了要在酒中下毒，害死那位大英雄，然后再嫁祸给唐大先生。"
+      }
+    ]
+  },
+  {
+    "id": "char_yang_biao",
+    "name": "杨标",
+    "alias": [
+      "马面人"
+    ],
+    "identity": "卷入龙抬头秘密的江湖人物",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "自报杨标后被单鹗突袭，愤怒中跌倒受创。",
+    "personality": {
+      "traits": [
+        "粗豪",
+        "暴躁",
+        "川音口吻",
+        "直冲直撞",
+        "易怒"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [
+      {
+        "target": "char_shan_e",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "杨标被单鹗突然倒戈暗算"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 522,
+        "line_end": 524,
+        "text": "马面人厉声道：\"老子就是杨标，你明白了么?\" 这个人说话一口川音，两句话里必定少不了个\"老子\"。"
+      }
+    ]
+  },
+  {
+    "id": "char_shan_e",
+    "name": "单鹗",
+    "alias": [
+      "跛子",
+      "单老大"
+    ],
+    "identity": "卷入龙抬头秘密的江湖人物",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "伪装与杨标配合，旋即肘击杨标并转攻钱不赚。",
+    "personality": {
+      "traits": [
+        "冷静",
+        "阴狠",
+        "灵便",
+        "果断",
+        "善偷袭"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_biao",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "单鹗突袭杨标后暴露身份"
+      },
+      {
+        "target": "char_qian_bu_zhuan",
+        "type": "对手",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "单鹗与钱不赚迟早要干一场"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 538,
+        "line_end": 548,
+        "text": "跛子一招得手，又扑向钱不赚，冷冷道：\"在下单鹗。\" 杨标狂吼一声，道：\"好，原来是你!\" 他狂吼着往前冲，但冲出两步就跌倒，痛得在地上打滚。 单鹗道：\"钱老大，你也明白了么?\" 钱不赚笑道：\"我既然明白了，你还想跑得了?\" 单鹗道：\"反正你我迟早总要干一场的，长痛不如短痛。\""
+      },
+      {
+        "chapter": 21,
+        "line_start": 530,
+        "line_end": 548,
+        "text": "跛子身形一缩，退出三尺，道：\"杨大哥，你攻上三路。\" 杨标道：\"好，你攻下……\" 话未说完，跛子突然一个肘拳打在他下腹。 杨标再也未想到这人会忽然反过来向他身上招呼，踉跄退出几步，疼得腰都弯了下去，两只手抱着肚子，面上冷汗滚滚而落，嘶声道：\"你……你……你龟儿疯了?\" 跛子一招得手，又扑向钱不赚，冷冷道：\"在下单鹗。\" 杨标狂吼一声，道：\"好，原来是你!\" "
+      }
+    ]
+  },
+  {
+    "id": "char_wei_ming_gong_ji_zhe_jia",
+    "name": "未名攻击者甲",
+    "alias": [],
+    "identity": "卷入混战的江湖人物",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "混战中从背后袭向单鹗的未明身份攻击者。",
+    "personality": {
+      "traits": [
+        "凶狠",
+        "果断",
+        "隐秘",
+        "急切",
+        "敌意强"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 550,
+        "line_end": 550,
+        "text": "只听一人喝道：\"对，长痛不如短痛，你就拿命来吧!\""
+      }
+    ]
+  },
+  {
+    "id": "char_wei_ming_gong_ji_zhe_yi",
+    "name": "未名攻击者乙",
+    "alias": [],
+    "identity": "卷入混战的江湖人物",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "混战中出声接应单鹗、要接下钱不赚的未明人物。",
+    "personality": {
+      "traits": [
+        "凶狠",
+        "急切",
+        "同党意识",
+        "隐秘",
+        "果断"
+      ],
+      "speech_style": "言语简短，带江湖口吻",
+      "temperament": "谨慎而强硬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 556,
+        "line_end": 556,
+        "text": "突然间，又听得一人喝道：\"单老大，姓钱的交给我……\""
+      }
+    ]
+  },
+  {
+    "id": "char_hei_yi_meng_mian_ren",
+    "name": "华真真",
+    "alias": [
+      "黑衣人",
+      "黑衣蒙面人",
+      "看不见的神秘女子"
+    ],
+    "identity": "华真真",
+    "faction": "蝙蝠岛",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "黑衣蒙面人的真实身份揭为华真真。",
+    "personality": {
+      "traits": [
+        "沉默",
+        "神秘",
+        "行动迅捷",
+        "目的隐晦",
+        "临危镇定"
+      ],
+      "temperament": "冷静隐忍",
+      "speech_style": "少言，以咳嗽代替回答"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_ling_zhi",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "抱着受伤的金灵芝出现并带她离开山窟。"
+      },
+      {
+        "target": "char_hu_tie_hua",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "亲口澄清凶手不是华真真本人，改变胡铁花判断。"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      22
+    ],
+    "source_refs": [
+      {
+        "chapter": 22,
+        "line_start": 368,
+        "line_end": 376,
+        "text": "黑暗中出现一条黑衣蒙面人影，装束如蝙蝠岛上的蝙蝠，身法轻灵奇诡，怀中抱着个人，只轻轻咳嗽一声。"
+      },
+      {
+        "chapter": 22,
+        "line_start": 532,
+        "line_end": 540,
+        "text": "黑衣人掀起蒙面黑巾，身份揭为华真真。"
+      }
+    ],
+    "temperament": "沉默机敏，行动果断。",
+    "speech_style": "简短直接，关键时刻才开口。"
+  }
+]
