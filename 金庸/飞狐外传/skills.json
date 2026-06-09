@@ -1,0 +1,5797 @@
+[
+  {
+    "id": "skill_jin_biao",
+    "name": "金镖",
+    "type": "暗器",
+    "faction": "faction_shang_jia_bao",
+    "rank": "未知",
+    "one_line": "商宝震所练的飞镖暗器，以金光连珠射击木牌穴道。",
+    "techniques": [
+      {
+        "id": "tech_lian_zhu_jin_biao",
+        "name": "连珠金镖",
+        "type": "暗器手法",
+        "description": "连续发出数枝金镖，射向目标穴道。"
+      },
+      {
+        "id": "tech_ren_xing_mu_pai_lian_biao",
+        "name": "人形木牌练镖",
+        "type": "训练法",
+        "description": "以绘有人形穴道的木牌移动闪避，训练准头。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "听口令射击固定穴道"
+      },
+      {
+        "level": "熟练",
+        "description": "对移动木牌连珠发镖"
+      }
+    ],
+    "effects": [
+      "远距离击射穴道",
+      "训练暗器准头"
+    ],
+    "combat_style": "听穴发镖，连珠快射",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 10,
+        "line_end": 34,
+        "text": "四枝金镖连珠发出，少年听婆婆喊穴道名称后右手急扬射向木牌。"
+      }
+    ]
+  },
+  {
+    "id": "skill_cha_quan",
+    "name": "查拳",
+    "type": "拳法",
+    "faction": "faction_cha_quan_men",
+    "rank": "入门",
+    "one_line": "北拳四大家之一，徐铮摆对拳起手式迎战何思豪。",
+    "techniques": [
+      {
+        "id": "tech_dui_quan",
+        "name": "对拳",
+        "type": "起手式",
+        "description": "双足并拢，双手握拳相对，动手前摆出的查拳起手式。"
+      },
+      {
+        "id": "tech_cha_quan_ru_men_shi",
+        "name": "查拳入门式",
+        "type": "拳术基础",
+        "description": "北方流传极广的入门拳术架势，为多数练拳者所知。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "能摆对拳起手式"
+      },
+      {
+        "level": "熟练",
+        "description": "以查拳基础与人交手"
+      }
+    ],
+    "effects": [
+      "正面拳术交手",
+      "显示门派根脚"
+    ],
+    "combat_style": "架势端正，入门拳法",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 230,
+        "line_end": 234,
+        "text": "徐铮摆个\"对拳\"，何思豪见他这姿式是\"查拳\"门人跟人动手的起手式。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tai_ji_quan",
+    "name": "太极拳",
+    "type": "拳法",
+    "faction": "faction_tai_ji_men",
+    "rank": "高明",
+    "one_line": "何思豪所使内家拳法，开手以上步野马分鬃攻向徐铮。",
+    "techniques": [
+      {
+        "id": "tech_shang_bu_ye_ma_fen_zong",
+        "name": "上步野马分鬃",
+        "type": "拳招",
+        "description": "太极拳招式，上步出手向对方打去。"
+      },
+      {
+        "id": "tech_tai_ji_nei_jia_shou_fa",
+        "name": "太极内家手法",
+        "type": "拳理",
+        "description": "以声势甚盛的内家拳法为根基，讲究内劲与招式变化。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "识得太极拳招式"
+      },
+      {
+        "level": "熟练",
+        "description": "能以上步野马分鬃实战"
+      }
+    ],
+    "effects": [
+      "近身攻击",
+      "内家拳压制"
+    ],
+    "combat_style": "内家拳法，沉稳进招",
+    "rag_refs": [
+      4,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 238,
+        "line_end": 240,
+        "text": "一招\"上步野马分鬃\"，向徐铮打了过去，他使的是太极拳。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 338,
+        "line_end": 462,
+        "text": "赵半山讲授乱环诀与阴阳诀"
+      },
+      {
+        "chapter": 9,
+        "line_start": 947,
+        "line_end": 947,
+        "text": "胡斐运起太极拳的乱环诀，借势力抛开姜铁山。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tai_ji_dao",
+    "name": "太极刀",
+    "type": "刀法",
+    "faction": "faction_tai_ji_men",
+    "rank": "高明",
+    "one_line": "何思豪以腰刀施展的太极门刀法，商宝震称其厉害之极。",
+    "techniques": [
+      {
+        "id": "tech_hui_dao_xiao_zu",
+        "name": "回刀削足",
+        "type": "刀招",
+        "description": "何思豪回刀削向徐铮踢来的脚。"
+      },
+      {
+        "id": "tech_tai_ji_dao_shou_shi",
+        "name": "太极刀手势",
+        "type": "刀法基础",
+        "description": "何思豪拔腰刀上步直劈，以刀法压迫空手的徐铮。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "以腰刀直劈攻击"
+      },
+      {
+        "level": "熟练",
+        "description": "能回刀削足应对腿法"
+      }
+    ],
+    "effects": [
+      "兵刃压制",
+      "削足伤敌"
+    ],
+    "combat_style": "刀势狠恶，配合太极门身法",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 268,
+        "line_end": 302,
+        "text": "何思豪抽腰刀上步直劈，回刀削足；商宝震称何大人的太极拳和太极刀更厉害之极。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_er_lu_tan_tui",
+    "name": "十二路潭腿",
+    "type": "腿法",
+    "faction": "faction_shi_er_lu_tan_tui_men",
+    "rank": "入门",
+    "one_line": "商宝震演给徐铮看的腿法，姿式华丽但被徐铮误判为不中用。",
+    "techniques": [
+      {
+        "id": "tech_tou_tang_sheng_gua_yi_tiao_bian",
+        "name": "头趟绳挂一条鞭",
+        "type": "腿法套路",
+        "description": "十二路潭腿开头一路口诀所指的套路。"
+      },
+      {
+        "id": "tech_xi_niu_wang_yue_zhuan_hui_huan",
+        "name": "犀牛望月转回还",
+        "type": "腿法套路",
+        "description": "十二路潭腿收束套路之一，被徐铮看完后点评。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "能打完十二路套路"
+      },
+      {
+        "level": "熟练",
+        "description": "姿式纯熟、袍袖生风"
+      }
+    ],
+    "effects": [
+      "练腿脚架势",
+      "展示拳脚根基"
+    ],
+    "combat_style": "腿路清楚，姿式华丽",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 366,
+        "line_end": 370,
+        "text": "商宝震在场中打起拳来，使的是十二路潭腿，姿式华丽。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ba_gua_dao",
+    "name": "八卦刀",
+    "type": "刀法",
+    "faction": "faction_ba_gua_dao_men",
+    "rank": "高明",
+    "one_line": "山东大豪商剑鸣赖以成名的刀法，曾重创马行空。",
+    "techniques": [
+      {
+        "id": "tech_ba_gua_dao_pi_kan",
+        "name": "八卦刀劈砍",
+        "type": "刀招",
+        "description": "商剑鸣十三年前砍伤马行空的一刀，威力极强。"
+      },
+      {
+        "id": "tech_ba_gua_dao_dao_quan_lian_shi",
+        "name": "八卦刀拳连势",
+        "type": "刀拳合击",
+        "description": "商剑鸣刀后一拳重创马行空，使其养伤三年。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "识八卦图形和刀法门径"
+      },
+      {
+        "level": "高明",
+        "description": "能以一刀一拳重创马行空"
+      }
+    ],
+    "effects": [
+      "刀法重创",
+      "威慑镖师"
+    ],
+    "combat_style": "刀拳并用，凌厉沉重",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 398,
+        "line_end": 418,
+        "text": "马行空说十三年前给商剑鸣砍过一刀、劈过一拳，养了三年伤。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 916,
+        "line_end": 946,
+        "text": "商老太八卦刀直上直下，狂斫猛劈"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1546,
+        "line_end": 1558,
+        "text": "商宝震手提厚背薄刃单刀，后马春花认出这是商家堡家传八卦刀。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_gong",
+    "name": "轻功",
+    "type": "身法",
+    "faction": "",
+    "rank": "未知",
+    "one_line": "蓝袍汉子足尖一点穿过雨中院子的身法。",
+    "techniques": [
+      {
+        "id": "tech_zu_jian_yi_dian",
+        "name": "足尖一点",
+        "type": "身法",
+        "description": "足尖一点便倏地穿过院子，身形快极。"
+      },
+      {
+        "id": "tech_yu_zhong_fei_yue",
+        "name": "雨中飞跃",
+        "type": "身法",
+        "description": "大雨虽密，只在肩头打湿数点，显示轻功迅捷。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "步履轻快"
+      },
+      {
+        "level": "高明",
+        "description": "雨中飞跃不湿衣"
+      }
+    ],
+    "effects": [
+      "快速穿越院落",
+      "震慑旁观者"
+    ],
+    "combat_style": "身形快极，轻灵迅捷",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 470,
+        "line_end": 474,
+        "text": "足尖一点，倏地穿过院子，大雨虽密，却只在他肩头打湿了数点。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 410,
+        "line_end": 418,
+        "text": "马行空知主人不肯吐露，从此绝口不提。这天午后，胡斐打扫了大厅和练武厅，溜出庄去，到后山林子中玩耍。他常于无人时在这里练习轻功，追兔逐犬，飞身捕鹊，掷石捉鸦。这时正玩得高兴，忽听得商宝震的声音说道：\"马老伯，那路通臂连拳，其中我还有好些不明白"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_ye_dao",
+    "name": "柳叶刀",
+    "type": "刀法",
+    "faction": "",
+    "rank": "未知",
+    "one_line": "马春花见黑道强人来袭时拔出的随身刀法。",
+    "techniques": [
+      {
+        "id": "tech_ba_dao_hu_biao",
+        "name": "拔刀护镖",
+        "type": "刀法动作",
+        "description": "遇敌时拔出柳叶刀准备护镖。"
+      },
+      {
+        "id": "tech_liu_ye_dao_shou_shi",
+        "name": "柳叶刀守势",
+        "type": "刀法基础",
+        "description": "以短刀守护镖车、等待父亲眼色行事。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "能拔刀应敌"
+      },
+      {
+        "level": "熟练",
+        "description": "随镖护卫"
+      }
+    ],
+    "effects": [
+      "近身护卫",
+      "应对劫镖"
+    ],
+    "combat_style": "短刀护镖，随令出手",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 456,
+        "line_end": 466,
+        "text": "马春花脸有喜色，拔出柳叶刀，又想以袖箭先发。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yan_ji_guai_quan",
+    "name": "阎基怪拳",
+    "type": "拳法",
+    "faction": "faction_yan_ji_dao_huo",
+    "rank": "高明",
+    "one_line": "阎基来路诡异的拳脚，马行空和侍卫都认不出门派。",
+    "techniques": [
+      {
+        "id": "tech_gong_xi_fa_cai_quan",
+        "name": "恭喜发财拳",
+        "type": "拳招",
+        "description": "阎基喝出恭喜发财后右拳直击，正中徐铮胸口。"
+      },
+      {
+        "id": "tech_fan_gou_dao_ti",
+        "name": "反钩倒踢",
+        "type": "腿招",
+        "description": "阎基左腿反钩向后倒踢，腿法古怪，逼得徐铮跃避。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "出拳腿法古怪"
+      },
+      {
+        "level": "高明",
+        "description": "一拳重创徐铮，令马行空认不出路数"
+      }
+    ],
+    "effects": [
+      "重击胸口",
+      "怪招扰敌",
+      "击倒吐血"
+    ],
+    "combat_style": "拳路邪门，腿拳突变",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 536,
+        "line_end": 558,
+        "text": "阎基怪拳腿法打得徐铮吐血，马行空和三个侍卫都认不出门派。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_xing_quan",
+    "name": "五行拳",
+    "type": "拳法",
+    "faction": "",
+    "rank": "未知",
+    "one_line": "侍卫猜测阎基拳路像五行拳，但随即被否定。",
+    "techniques": [
+      {
+        "id": "tech_wu_xing_quan_lu",
+        "name": "五行拳路",
+        "type": "拳法基础",
+        "description": "侍卫用来比照阎基怪拳的已知拳路。"
+      },
+      {
+        "id": "tech_wu_xing_quan_bian_shi",
+        "name": "五行拳变式",
+        "type": "拳法变化",
+        "description": "阎基拳路被说有点像五行拳，却更邪门。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "识得五行拳路"
+      },
+      {
+        "level": "未知",
+        "description": "阎基招法并非普通五行拳"
+      }
+    ],
+    "effects": [
+      "拳法参照",
+      "门派辨识"
+    ],
+    "combat_style": "拳路被用作比较",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 556,
+        "line_end": 558,
+        "text": "三个侍卫低声议论：\"有点像五行拳。\"\"不，五行拳没那么邪门。\""
+      }
+    ]
+  },
+  {
+    "id": "skill_yan_qing_quan",
+    "name": "燕青拳",
+    "type": "拳法",
+    "faction": "faction_shao_lin_pai",
+    "rank": "高明",
+    "one_line": "马行空在查拳无效后改使的少林拳路，纵跃起伏、盘拗挑打。",
+    "techniques": [
+      {
+        "id": "tech_shang_bu_jin_zhou_guo_shen_quan",
+        "name": "上步进肘掴身拳",
+        "type": "拳招",
+        "description": "马行空燕青拳中一招，上步进肘掴身。"
+      },
+      {
+        "id": "tech_ying_mian_qiang_kuai_da_san_quan",
+        "name": "迎面抢快打三拳",
+        "type": "拳招",
+        "description": "马行空快打快踢时迎面抢攻的三拳。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "知燕青拳纵跃起伏之法"
+      },
+      {
+        "level": "高明",
+        "description": "拳势如风，旁观者目眩"
+      }
+    ],
+    "effects": [
+      "快打快踢",
+      "纵跃抢攻"
+    ],
+    "combat_style": "进手招数密集，拳势如风",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 606,
+        "line_end": 622,
+        "text": "马行空招数一变，使一路\"燕青拳\"，上步进肘掴身拳等一招接一招。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 422,
+        "line_end": 428,
+        "text": "这位是燕青拳掌门人欧阳公政欧阳老师...千里独行侠欧阳公政。"
+      }
+    ]
+  },
+  {
+    "id": "skill_quan_jing_dao_pu",
+    "name": "拳经刀谱",
+    "type": "秘籍",
+    "faction": "",
+    "rank": "绝顶",
+    "one_line": "三百多页的武学秘谱，前两页缺失，被阎基所得后练成十几招怪拳。",
+    "techniques": [
+      {
+        "id": "tech_can_que_quan_jing_shi_san_zhao",
+        "name": "残缺拳经十几招",
+        "type": "拳法残招",
+        "description": "阎基凭两页拳经学会的十几招残缺不全拳法。"
+      },
+      {
+        "id": "tech_quan_jing_dao_pu_quan_ben",
+        "name": "拳经刀谱全本",
+        "type": "秘籍总纲",
+        "description": "共有三百多页，若学全将威力极大。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "残页",
+        "description": "两页残谱可与大拳师打平"
+      },
+      {
+        "level": "全本",
+        "description": "三百多页尽学后本事难量"
+      }
+    ],
+    "effects": [
+      "补全武学根基",
+      "演化怪拳刀法"
+    ],
+    "combat_style": "拳刀兼备，残缺亦强",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 644,
+        "line_end": 654,
+        "text": "独臂人说小孩那本拳经刀谱前面缺两页，而阎基得了两页拳经学会十几招。"
+      }
+    ]
+  },
+  {
+    "id": "skill_lu_zhi_shen_zui_die",
+    "name": "鲁智深醉跌",
+    "type": "拳法",
+    "faction": "faction_shao_lin_pai",
+    "rank": "高明",
+    "one_line": "马行空继燕青拳后施展的醉跌拳路，如疯如颠，精采之极。",
+    "techniques": [
+      {
+        "id": "tech_luo_han_xie_wo",
+        "name": "罗汉斜卧",
+        "type": "醉跌招式",
+        "description": "鲁智深醉跌中忽而卧倒的招式。"
+      },
+      {
+        "id": "tech_li_yu_fan_shen_jiao_si_tui",
+        "name": "鲤鱼翻身搅丝腿",
+        "type": "腿招",
+        "description": "马行空踢中阎基腰间的醉跌腿法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "能做醉跌卧跃之形"
+      },
+      {
+        "level": "高明",
+        "description": "似醉似狂却暗含精妙杀招"
+      }
+    ],
+    "effects": [
+      "迷惑对手",
+      "腿法踢中要害"
+    ],
+    "combat_style": "如疯如颠，卧跃难测",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 660,
+        "line_end": 668,
+        "text": "马行空忽地拳法又变，使出一套\"鲁智深醉跌\"，一脚\"鲤鱼翻身搅丝腿\"踢中阎基腰间。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiao_qin_na_shou",
+    "name": "小擒拿手",
+    "type": "擒拿",
+    "faction": "",
+    "rank": "高明",
+    "one_line": "田相公以双手钩拿拍打夺下众人兵刃的擒拿手法。",
+    "techniques": [
+      {
+        "id": "tech_gou_na_pai_da",
+        "name": "钩拿拍打",
+        "type": "擒拿手法",
+        "description": "双手钩拿拍打，迅速夺下兵刃。"
+      },
+      {
+        "id": "tech_duo_ren_bing_ren",
+        "name": "夺人兵刃",
+        "type": "擒拿手法",
+        "description": "以小擒拿手夺过商宝震单刀和众人兵刃并抛落。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "能钩带夺刀"
+      },
+      {
+        "level": "高明",
+        "description": "在人丛中夺落多件兵刃"
+      }
+    ],
+    "effects": [
+      "夺取兵器",
+      "止住混战"
+    ],
+    "combat_style": "轻捷钩拿，拍打夺械",
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 704,
+        "line_end": 712,
+        "text": "华贵相公双手钩拿拍打，施展小擒拿手法夺过众人兵刃。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 26,
+        "line_end": 26,
+        "text": "展开小擒拿手中的\"九曲折骨法\"，一扭一扳，喀喇一声响"
+      }
+    ]
+  },
+  {
+    "id": "skill_dan_dao",
+    "name": "单刀",
+    "type": "刀法",
+    "faction": "",
+    "rank": "普通",
+    "one_line": "商宝震和马春花等混战中使用的单刀兵刃武艺。",
+    "techniques": [
+      {
+        "id": "tech_dan_dao_pi_kan",
+        "name": "单刀劈砍",
+        "type": "刀招",
+        "description": "商宝震挥单刀砍向高个盗伙头上。"
+      },
+      {
+        "id": "tech_dao_zhong_jia_zhang",
+        "name": "刀中夹掌",
+        "type": "刀掌合用",
+        "description": "商宝震刀招中夹左掌，击飞盗伙。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "能持刀应敌"
+      },
+      {
+        "level": "熟练",
+        "description": "刀中夹掌击退盗伙"
+      }
+    ],
+    "effects": [
+      "近战护卫",
+      "击退盗伙"
+    ],
+    "combat_style": "刀掌并用，护人解围",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 690,
+        "line_end": 698,
+        "text": "商宝震拔出单刀，刀中夹掌击退围攻马春花的盗伙。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_long_men_qin_na",
+    "name": "天龙门擒拿",
+    "type": "擒拿",
+    "faction": "faction_tian_long_men_bei_zong",
+    "rank": "高明",
+    "one_line": "田归农夺马春花刀、擒徐铮足踝的快极手法。",
+    "techniques": [
+      {
+        "id": "tech_zhi_ji_dao_bei",
+        "name": "指击刀背",
+        "type": "擒拿手法",
+        "description": "田归农手指击在马春花刀背，使她脱手撤刀。"
+      },
+      {
+        "id": "tech_zhua_zu_heng_sao",
+        "name": "抓足横扫",
+        "type": "擒拿手法",
+        "description": "田归农抓住徐铮足踝上提，抖出其身横扫马春花。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "能夺刀拿腕"
+      },
+      {
+        "level": "高明",
+        "description": "戏耍马春花、徐铮如弄婴儿"
+      }
+    ],
+    "effects": [
+      "夺刀制敌",
+      "擒足摔人",
+      "止住多人围攻"
+    ],
+    "combat_style": "快手擒拿，戏谑制人",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 766,
+        "line_end": 782,
+        "text": "田归农指击刀背夺刀，抓住徐铮足踝横扫出去，众人见他戏耍二人如弄婴儿。"
+      }
+    ]
+  },
+  {
+    "id": "skill_miao_ren_feng_shen_li",
+    "name": "苗人凤神力",
+    "type": "内功",
+    "faction": "",
+    "rank": "绝顶",
+    "one_line": "苗人凤单手拉住大车车辕，使健骡发力也不能拉动。",
+    "techniques": [
+      {
+        "id": "tech_dan_shou_la_che_yuan",
+        "name": "单手拉车辕",
+        "type": "神力表现",
+        "description": "苗人凤右手拉住大车车辕，大车如钉牢在地。"
+      },
+      {
+        "id": "tech_ling_luo_nan_xing",
+        "name": "令骡难行",
+        "type": "内劲表现",
+        "description": "健骡四蹄齐发仍不能拉动车辆半尺。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "高明",
+        "description": "能以单手阻住车马"
+      },
+      {
+        "level": "绝顶",
+        "description": "神力令人难信其身负绝世武功"
+      }
+    ],
+    "effects": [
+      "阻车止行",
+      "震慑田归农"
+    ],
+    "combat_style": "沉稳神力，不动如山",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 814,
+        "line_end": 834,
+        "text": "高瘦大汉右手拉住大车车辕，骡子四蹄发劲，大车竟似钉牢在地下一般。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhong_men_qing_gong",
+    "name": "钟门轻功",
+    "type": "轻功",
+    "faction": "faction_e_bei_gui_jian_chou_zhong_jia",
+    "rank": "炉火纯青",
+    "one_line": "鄂北鬼见愁钟家传承的轻身功夫，雪地行走虚飘，三兄弟身法尤高。",
+    "techniques": [
+      {
+        "id": "tech_xue_di_piao_xing",
+        "name": "雪地飘行",
+        "type": "special",
+        "description": "在雪地中落步极轻，行走虚飘。"
+      },
+      {
+        "id": "tech_tiao_yue_bu_fa",
+        "name": "跳跃步法",
+        "type": "special",
+        "description": "交手时每步跳跃窜动，令人难以捉摸。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "门徒",
+        "description": "补锅匠雪地虚飘赶路。"
+      },
+      {
+        "level": "高手",
+        "description": "钟氏三兄弟分进合击、飘动闪避。"
+      }
+    ],
+    "effects": [
+      "快速追踪",
+      "飘忽闪避",
+      "地面滚扑"
+    ],
+    "combat_style": "轻飘跳跃，配合围攻和地堂滚扑",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 50,
+        "line_end": 56,
+        "text": "补锅匠在雪中落步极轻，苗人凤认出钟家功夫。"
+      },
+      {
+        "chapter": 2,
+        "line_start": 563,
+        "line_end": 571,
+        "text": "钟氏三兄弟各自身形飘动，让开胡家刀法。"
+      }
+    ]
+  },
+  {
+    "id": "skill_jue_men_du_zhen",
+    "name": "绝门毒针",
+    "type": "暗器",
+    "faction": "faction_gui_zhou_jiang_shi",
+    "rank": "炉火纯青",
+    "one_line": "贵州蒋氏闻名天下的毒针暗器，善于近身暗算高手。",
+    "techniques": [
+      {
+        "id": "tech_an_fa_du_zhen",
+        "name": "暗发毒针",
+        "type": "debuff",
+        "description": "趁交接物件或敌人不备时发出细小毒针。"
+      },
+      {
+        "id": "tech_du_xing_ma_bi",
+        "name": "毒性麻痹",
+        "type": "debuff",
+        "description": "以剧毒迅速麻痹中针者肢体。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "暗算",
+        "description": "交刀时突然发针命中苗人凤双腿。"
+      },
+      {
+        "level": "追杀",
+        "description": "待毒性发作后围困强敌。"
+      }
+    ],
+    "effects": [
+      "麻痹双腿",
+      "延迟毒发",
+      "逆转战局"
+    ],
+    "combat_style": "近身示弱，暗针伤敌，借毒耗死强手",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 310,
+        "line_end": 318,
+        "text": "蒋调侯暗发绝门毒针，众人远围等待苗人凤毒发。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhong_jia_pan_guan_bi",
+    "name": "钟家判官笔",
+    "type": "指法",
+    "faction": "faction_e_bei_gui_jian_chou_zhong_jia",
+    "rank": "炉火纯青",
+    "one_line": "钟氏三兄弟以六枝判官笔合击点穴，配合轻功围攻。",
+    "techniques": [
+      {
+        "id": "tech_san_ren_fen_ji",
+        "name": "三人分击",
+        "type": "attack",
+        "description": "三兄弟分攻正面、左右，六枝判官笔如一人六臂。"
+      },
+      {
+        "id": "tech_dian_da_da_xue",
+        "name": "点打大穴",
+        "type": "attack",
+        "description": "判官笔专点对手上身大穴。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "合击",
+        "description": "三人分进合击，六枝判官笔如一人六臂。"
+      },
+      {
+        "level": "破椅",
+        "description": "转攻椅脚下盘，逼负伤对手失衡。"
+      }
+    ],
+    "effects": [
+      "围攻压制",
+      "点穴伤敌",
+      "破坏支撑"
+    ],
+    "combat_style": "轻功游走，判官笔点穴，三人默契合击",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 559,
+        "line_end": 577,
+        "text": "钟氏三兄弟以六枝判官笔合击苗人凤，上身大穴招招受攻。"
+      }
+    ]
+  },
+  {
+    "id": "skill_miao_jia_jian_fa",
+    "name": "苗家剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "苗人凤赖以独步天下的家传剑法，本章由旁白点出其威名。",
+    "techniques": [
+      {
+        "id": "tech_miao_jia_kuai_jian",
+        "name": "苗家快剑",
+        "type": "attack",
+        "description": "苗家剑法以精奇凌厉闻名。"
+      },
+      {
+        "id": "tech_jian_fa_du_bu",
+        "name": "剑法独步",
+        "type": "special",
+        "description": "凭剑法名震天下。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名",
+        "description": "苗家剑法独步天下。"
+      },
+      {
+        "level": "巅峰",
+        "description": "苗人凤以此成就打遍天下无敌手之名。"
+      }
+    ],
+    "effects": [
+      "凌厉攻杀",
+      "威慑群雄"
+    ],
+    "combat_style": "精奇凌厉，独步武林",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 565,
+        "line_end": 567,
+        "text": "他们只知苗家剑法独步天下，不料他刀法竟也如此精奇。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_jia_dao_fa",
+    "name": "胡家刀法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登峰造极",
+    "one_line": "胡家刀法刚柔并济，迅捷沉稳兼备，胡斐以此与袁紫衣软鞭相抗。",
+    "techniques": [
+      {
+        "id": "tech_yun_long_san_xian",
+        "name": "云龙三现",
+        "type": "attack",
+        "description": "一刀同时攻逼三敌，变化精妙。"
+      },
+      {
+        "id": "tech_leng_yue_heng_sao",
+        "name": "冷月横扫",
+        "type": "attack",
+        "description": "宝刀横挥，逼退多路围攻。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "传授",
+        "description": "胡一刀曾将胡家刀法授予苗人凤。"
+      },
+      {
+        "level": "实战",
+        "description": "苗人凤坐椅挥刀，不移动也能不落下风。"
+      }
+    ],
+    "effects": [
+      "同时攻逼多人",
+      "削断兵刃",
+      "以刀光守御"
+    ],
+    "combat_style": "变化奥妙、灵动绝伦，以一敌众",
+    "rag_refs": [
+      2,
+      8,
+      "第十一回苗人凤施展胡家刀法",
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 567,
+        "line_end": 591,
+        "text": "苗人凤使胡一刀所授胡家刀法，一招云龙三现同时攻逼三敌。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 288,
+        "line_end": 314,
+        "text": "胡斐道：\"如此最好，看刀吧！\"举起松枝，唰的一招横砍。 钟兆英自后抢上，提棒便打。胡斐斜跃避开，松枝已斩向钟兆能颈中。 钟兆能倒转幡杆，往他松枝上砸去，同时钟兆文的铁牌也已打到。 那胡家刀法真有鬼神莫测之变，胡斐又练得熟了，一将那松枝当作刀使，立时着着抢攻，在三人之间穿插来去，砍削斩劈，一根小小松枝，竟显出了无穷威力。 钟氏三雄越斗越奇，见他这松枝决不与三般"
+      },
+      {
+        "chapter": 11,
+        "line_start": 214,
+        "line_end": 232,
+        "text": "苗人凤使出鹞子翻身刀、怀中抱月、闭门铁扇、沙僧拜佛、上步摘星刀等胡家刀法招式。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 72,
+        "line_end": 72,
+        "text": "胡斐使的是家传胡家刀法，刚中有柔，柔中有刚。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 12,
+        "line_end": 20,
+        "text": "胡斐展开胡家刀法，连砍三十六刀后改使左手刀法"
+      },
+      {
+        "chapter": 19,
+        "line_start": 1230,
+        "line_end": 1236,
+        "text": "胡斐夺过戒刀，展开胡家快刀，九名藏僧尽皆重伤。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 8,
+        "line_end": 20,
+        "text": "胡斐连番剧斗后精力稍复，听程灵素语音严重紧迫便即缩手。"
+      }
+    ],
+    "relationships": [],
+    "battle_use": "胡斐夺戒刀后霎时间展开胡家快刀，手起刀落猛砍快剁，重创九名藏僧。"
+  },
+  {
+    "id": "skill_zhong_jia_di_tang_quan",
+    "name": "钟家地堂拳",
+    "type": "掌法",
+    "faction": "faction_e_bei_gui_jian_chou_zhong_jia",
+    "rank": "登堂入室",
+    "one_line": "钟兆英滚地攻敌下盘的险毒拳脚，专取行动不便者弱点。",
+    "techniques": [
+      {
+        "id": "tech_gun_di_gong_xia_pan",
+        "name": "滚地攻下盘",
+        "type": "attack",
+        "description": "翻滚到敌人背后，攻击椅脚或下盘。"
+      },
+      {
+        "id": "tech_heng_sao_duan_yi",
+        "name": "横扫断椅",
+        "type": "attack",
+        "description": "横腿扫断椅脚，使敌人失衡。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "突袭",
+        "description": "滚向敌背后攻下盘。"
+      },
+      {
+        "level": "破势",
+        "description": "连续打断椅脚迫使敌人摔倒。"
+      }
+    ],
+    "effects": [
+      "攻击下盘",
+      "破坏支撑",
+      "牵制强敌"
+    ],
+    "combat_style": "贴地翻滚，横扫短打，专钻死角",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 581,
+        "line_end": 609,
+        "text": "钟兆英滚到苗人凤椅后，以地堂拳法打断椅脚。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ba_gua_dao_fa",
+    "name": "八卦刀法",
+    "type": "剑法",
+    "faction": "八卦门",
+    "rank": "炉火纯青",
+    "one_line": "商剑鸣遗留下来的刀法体系，重势、游身与猛劈，商老太及王氏兄弟皆能施展。",
+    "techniques": [
+      {
+        "id": "tech_tong_zi_bai_fo",
+        "name": "童子拜佛",
+        "type": "special",
+        "description": "持刀先向灵位行礼，以礼势接入八卦刀起手。"
+      },
+      {
+        "id": "tech_chao_yang_dao",
+        "name": "朝阳刀",
+        "type": "attack",
+        "description": "刀势迅猛先声夺人，直劈敌人头颈要害。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章展现",
+        "description": "商剑鸣遗留下来的刀法体系，重势、游身与猛劈，商老太及王氏兄弟皆能施展。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "商剑鸣遗留下来的刀法体系，重势、游身与猛劈，商老太及王氏兄弟皆能施展。"
+      }
+    ],
+    "combat_style": "刀势刚猛，配合八卦方位游走压迫",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 158,
+        "line_end": 186,
+        "text": "商老太脸色一沉，叫道：\"豪杰虽逝钢刀在！老身就凭先夫这把八卦刀，要领教阎老大的高招。\"忽地抓住刀柄，一招\"童子拜佛\"，向灵位行了一礼，回过身来，已成八卦刀法中的第一招\"上势左手抱刀\"。但见她沉肩坠肘，气敛神聚，那里有半分衰迈老态？阎基虽微存"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_jia_quan_dao",
+    "name": "胡家拳刀",
+    "type": "掌法",
+    "faction": "胡家",
+    "rank": "出神入化",
+    "one_line": "胡家拳经刀谱所载绝学，胡斐凭此以少年之身连挫成人高手。",
+    "techniques": [
+      {
+        "id": "tech_si_xiang_bu",
+        "name": "四象步",
+        "type": "defense",
+        "description": "入门步法与八卦掌理相通，可巧妙避开游身八卦掌。"
+      },
+      {
+        "id": "tech_chen_zhou_qin_na",
+        "name": "沉肘擒拿",
+        "type": "attack",
+        "description": "怪异擒拿手法，能抓拿敌人曲池穴。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章展现",
+        "description": "胡家拳经刀谱所载绝学，胡斐凭此以少年之身连挫成人高手。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "胡家拳经刀谱所载绝学，胡斐凭此以少年之身连挫成人高手。"
+      }
+    ],
+    "combat_style": "重机变、虚实和临敌巧思",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 370,
+        "line_end": 478,
+        "text": "因为他其实并不姓平，而是姓胡，他的姓名不是平斐而是胡斐；因为他是胡一刀的儿子，那个和苗人凤打了五日不分胜负的辽东大侠胡一刀的儿子；因为他父亲曾遗给他记载着武林绝学的一本拳经刀谱，那便是胡家拳法和刀法的精义。这本拳经刀谱本来少了头上两页，缺了"
+      }
+    ]
+  },
+  {
+    "id": "skill_tong_bi_lian_quan",
+    "name": "通臂连拳",
+    "type": "掌法",
+    "faction": "飞马镖局",
+    "rank": "略有小成",
+    "one_line": "马行空传授的拳法，讲虚实转换与双臂连通之意。",
+    "techniques": [
+      {
+        "id": "tech_feng_huang_xuan_wo",
+        "name": "凤凰旋窝",
+        "type": "feint",
+        "description": "教学名目之一，用以解释招式虚实。"
+      },
+      {
+        "id": "tech_yan_zi_lue_shui",
+        "name": "燕子掠水",
+        "type": "feint",
+        "description": "教学名目之一，用以解释拳脚变化。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章展现",
+        "description": "马行空传授的拳法，讲虚实转换与双臂连通之意。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "马行空传授的拳法，讲虚实转换与双臂连通之意。"
+      }
+    ],
+    "combat_style": "以虚实变化迷惑对手",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 416,
+        "line_end": 468,
+        "text": "这时正玩得高兴，忽听得商宝震的声音说道：\"马老伯，那路通臂连拳，其中我还有好些不明白，请你指点。\"胡斐忙钻入一株柏树后的长草丛中，听得马行空道：\"好！铮儿、春儿，这路拳法你们练熟了的，便拆给商少爷瞧瞧。\"胡斐从草丛中向外望出来，只见马春花解"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_biao_an_qi",
+    "name": "金镖暗器",
+    "type": "暗器",
+    "faction": "八卦门",
+    "rank": "炉火纯青",
+    "one_line": "商老太以金镖练穴并暗中喂毒，赵半山则擅接暗器与解毒。",
+    "techniques": [
+      {
+        "id": "tech_qi_zhi_jin_biao",
+        "name": "七枝金镖",
+        "type": "attack",
+        "description": "一口气发出七枝毒镖，从上下左右急射目标。"
+      },
+      {
+        "id": "tech_qian_shou_chao_biao",
+        "name": "千手抄镖",
+        "type": "defense",
+        "description": "赵半山半路抄接七枝金镖，显出暗器绝技。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章展现",
+        "description": "商老太以金镖练穴并暗中喂毒，赵半山则擅接暗器与解毒。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "商老太以金镖练穴并暗中喂毒，赵半山则擅接暗器与解毒。"
+      }
+    ],
+    "combat_style": "以小及远，讲求准头与手法",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 721,
+        "line_end": 1643,
+        "text": "只听商老太叫道：\"苗人凤，命门、陶道！\"商宝震右手双镖飞出，正中木牌上所绘人形背心两穴。商老太又叫：\"胡一刀，大椎、阳关！\"商宝震左手扬起，认明穴道，登登两声发出，\"大椎穴\"打准了，\"阳关穴\"却稍偏了些，突然间见到木牌有异，一声惊噫脱口而出"
+      }
+    ]
+  },
+  {
+    "id": "skill_shou_ji_suo_gu",
+    "name": "收肌缩骨",
+    "type": "内功",
+    "faction": "胡家",
+    "rank": "略有小成",
+    "one_line": "胡斐脱出铁链麻绳所用的缩骨法门。",
+    "techniques": [
+      {
+        "id": "tech_shou_ji_suo_gu",
+        "name": "收肌缩骨",
+        "type": "special",
+        "description": "收束肌肉骨节，从紧缚中脱身。"
+      },
+      {
+        "id": "tech_xue_dao_zi_jie",
+        "name": "穴道自解",
+        "type": "buff",
+        "description": "被点穴后随时间自行恢复行动能力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章展现",
+        "description": "胡斐脱出铁链麻绳所用的缩骨法门。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "胡斐脱出铁链麻绳所用的缩骨法门。"
+      }
+    ],
+    "combat_style": "以身体控制脱困",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 873,
+        "line_end": 875,
+        "text": "他给商老太点了穴道，过了四个时辰，穴道自解，那铁链麻绳再也缚他不住。他使出收肌缩骨之法，从炼索中轻轻脱出，幸好鞭子打得虽重，却仅为肌肤之伤，并未损到筋骨。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ba_gua_zhang",
+    "name": "八卦掌",
+    "type": "掌法",
+    "faction": "八卦门",
+    "rank": "炉火纯青",
+    "one_line": "八卦掌讲究足踏八卦方位，王剑英轻功如飞燕掠波，袁紫衣亦能按方位拆解。",
+    "techniques": [
+      {
+        "id": "tech_pi_lei_zhui_di",
+        "name": "劈雷坠地",
+        "type": "attack",
+        "description": "八卦掌中向膝腿部位疾击的掌法。"
+      },
+      {
+        "id": "tech_you_kong_tan_zhua",
+        "name": "游空探爪",
+        "type": "attack",
+        "description": "掌势穿出再斜劈，出手劲急可震倒对手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章展现",
+        "description": "八卦门掌法体系，脚踏八卦方位，既有外八卦奔行亦有内八卦短架。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "八卦门掌法体系，脚踏八卦方位，既有外八卦奔行亦有内八卦短架。"
+      }
+    ],
+    "combat_style": "步法圆转，掌势连绵，以方位变化制敌",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 1000,
+        "line_end": 1027,
+        "text": "你师父姓褚还是姓商？\"一副傲慢的神色，全没把对方放在眼里。商宝震大怒，喝道：\"你管得着么？\"那人微微一笑，说道：\"天下只要是八卦门的，我们就管得着。\"商宝震为人本来精细，但此番连受挫折，盛怒之下，没细想他言语中的含意，一招\"劈雷坠地\"，往他"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1576,
+        "line_end": 1602,
+        "text": "商宝震以八卦掌击、打、劈、拿压制徐铮，并将其震成重伤。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 232,
+        "line_end": 282,
+        "text": "八卦门功夫讲究干坤巽坎震兑离艮方位，两人绕圆桌在石凳上奔驰旋转。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_ba_gua_you_shen",
+    "name": "八卦游身",
+    "type": "轻功",
+    "faction": "八卦门",
+    "rank": "出神入化",
+    "one_line": "八卦门游身功夫，连续三十二招不停转绕，令敌人难以捕捉位置。",
+    "techniques": [
+      {
+        "id": "tech_ba_gua_you_shen",
+        "name": "八卦游身",
+        "type": "buff",
+        "description": "绕敌疾行，前后左右忽变，使敌人失去判断。"
+      },
+      {
+        "id": "tech_nei_ba_gua",
+        "name": "内八卦",
+        "type": "attack",
+        "description": "短架凝重，掌掌凌厉，能以静制动克敌机先。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章展现",
+        "description": "八卦门游身功夫，连续三十二招不停转绕，令敌人难以捕捉位置。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "八卦门游身功夫，连续三十二招不停转绕，令敌人难以捕捉位置。"
+      }
+    ],
+    "combat_style": "以步法牵制和掌势连环结合",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 1333,
+        "line_end": 1867,
+        "text": "王氏八卦门的\"八卦游身\"功夫向是武林中一绝，当年王维扬曾以此迎斗\"火手判官\"张召重，丝毫不落下风。这一发足奔行，当真是\"瞻之在前，忽焉于后\"，临敌之时待得敌人转过身来，又早已绕到他背后，自己脚下按着八卦方位，或前或后，忽左绕、忽右旋，不加思"
+      }
+    ]
+  },
+  {
+    "id": "skill_tai_ji_quan_jian",
+    "name": "太极拳剑",
+    "type": "掌法",
+    "faction": "太极门",
+    "rank": "登峰造极",
+    "one_line": "赵半山以太极拳剑制陈禹、断殷仲翔剑，显示太极门高深修为。",
+    "techniques": [
+      {
+        "id": "tech_yu_nv_chuan_suo",
+        "name": "玉女穿梭",
+        "type": "attack",
+        "description": "陈禹所使太极招式，被赵半山一眼看破。"
+      },
+      {
+        "id": "tech_yun_shou",
+        "name": "云手",
+        "type": "defense",
+        "description": "赵半山微蹲牵引，借势制住陈禹手腕。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章展现",
+        "description": "赵半山以太极拳剑制陈禹、断殷仲翔剑，显示太极门高深修为。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "赵半山以太极拳剑制陈禹、断殷仲翔剑，显示太极门高深修为。"
+      }
+    ],
+    "combat_style": "后发制人，借力牵引",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 1504,
+        "line_end": 1605,
+        "text": "\"王剑英猛地省起，说道：\"啊，原来是红花会赵三爷光临，真得恕小弟眼拙。\"群豪一听，眼前此人竟是红花会的大头领千手如来赵半山，无不耸然动容。六年前红花会英雄火烧雍和宫，大闹紫禁城，乃轰动武林的大事，天下皆知（请参阅拙作《书剑恩仇录》）。此后红"
+      }
+    ]
+  },
+  {
+    "id": "skill_an_qi",
+    "name": "暗器",
+    "type": "暗器",
+    "faction": "江湖",
+    "rank": "登峰造极",
+    "one_line": "胡斐以筷子和酒杯远掷杀犬，暗器劲力已能差不失寸、透骨制敌。",
+    "techniques": [
+      {
+        "id": "tech_jin_qian_biao",
+        "name": "金钱镖",
+        "type": "attack",
+        "description": "以金钱状镖远射敌手，可精准击腕或反射制人。"
+      },
+      {
+        "id": "tech_she_tou_zhui",
+        "name": "蛇头锥",
+        "type": "attack",
+        "description": "重型暗器，可一击要害但需顾及人质风险。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "接暗器",
+        "description": "以指夹接飞刀。"
+      },
+      {
+        "level": "群发暗器",
+        "description": "双手连挥百余枚暗器而不伤目标身体。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "远距打击敌手。"
+      },
+      {
+        "type": "控制",
+        "description": "震慑群敌使其不敢出手。"
+      }
+    ],
+    "combat_style": "精准、迅疾、讲究劲道与手法门派辨识。",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 22,
+        "line_end": 38,
+        "text": "赵半山接飞刀并反射百余枚暗器"
+      },
+      {
+        "chapter": 5,
+        "line_start": 285,
+        "line_end": 291,
+        "text": "初时他听胖商人述说这件惨事，极其恼怒，后来听说那凤天南既已平白无端的逼死了一条人命，还派恶犬追捕另一个孩子，觉得世上纵有狠恶之人，亦不该如此过份，反有些将信将疑，直到亲见恶犬扑咬钟氏母子，便更无怀疑，眼见慈母孝子血溅街头，再迟得片刻，一双母子不免死于当场，抓起桌上三双筷子，劲透右臂，一枚枚的掷了下去。\n\n但听得汪汪汪、呜呜呜连声惨叫，六头恶犬均遭筷子插入脑门，伏地而死，其余恶犬呆在当地，不知该当继续扑咬，还是转身逃去。\n\n胡斐又拿起桌上的酒杯，飞掷下街，差不失寸，劲力透骨，每只酒杯杯底都击中一头恶犬的鼻子。\n\n三头"
+      },
+      {
+        "chapter": 15,
+        "line_start": 513,
+        "line_end": 521,
+        "text": "胡斐接住飞蝗石反掷，又以金壶宝石作暗器击退追兵。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_hu_jia_quan_jing_dao_pu",
+    "name": "胡家拳经刀谱",
+    "type": "掌法",
+    "faction": "胡家",
+    "rank": "炉火纯青",
+    "one_line": "飞天狐狸一脉武学以变为要，胡斐数年勤修后能随境生法。",
+    "techniques": [
+      {
+        "id": "tech_hu_jia_quan_jing",
+        "name": "胡家拳经",
+        "type": "attack",
+        "description": "胡斐按家传拳经学得的拳法招式，灵动奇妙。"
+      },
+      {
+        "id": "tech_hu_jia_dao_pu",
+        "name": "胡家刀谱",
+        "type": "attack",
+        "description": "胡斐日后参照赵半山所授拳理继续钻研的家传刀法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "自学招式",
+        "description": "只学招式，运用变化尚不明。"
+      },
+      {
+        "level": "受点拨",
+        "description": "参照乱环、阴阳拳理钻研拳经刀谱。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "拳刀并用制敌。"
+      },
+      {
+        "type": "增益",
+        "description": "配合内功日进。"
+      }
+    ],
+    "combat_style": "招式精奇，须以拳理贯通变化。",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 1328,
+        "line_end": 1336,
+        "text": "我是跟着家传的拳经刀谱学的"
+      },
+      {
+        "chapter": 5,
+        "line_start": 8,
+        "line_end": 14,
+        "text": "飞天狐狸武功的精要，是在一个\"变\"字，其后人也往往深得\"灵动活泼\"的要旨，观流水落花而悟武道，见鹰翔蛇斗而明搏击，自来武学高人，皆由此径。\n\n王剑英兄弟虽得上乘传承，却因拘泥刻板而终生不能上窥第一流武学之境。\n\n胡斐得赵半山教导，知须勤修苦练方得培厚根柢，增强内力。\n\n他多思勤修，数年不懈，随意漫游，四海为家，到处行侠仗义，扶危济困，只是赵半山所赠的二百两黄金，却也使得荡然无存了。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_an_qi_ting_feng_shu",
+    "name": "暗器听风术",
+    "type": "暗器",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "凭耳音辨识暗器、骰子等细微落点变化的听劲功夫。",
+    "techniques": [
+      {
+        "id": "tech_ting_feng_bian_wei",
+        "name": "听风辨位",
+        "type": "buff",
+        "description": "由声音判断来势方位与力道。"
+      },
+      {
+        "id": "tech_ge_zhuo_fan_tou",
+        "name": "隔桌翻骰",
+        "type": "special",
+        "description": "以内劲隔桌震动骰点反制赌局出千。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章表现",
+        "description": "胡斐借听劲辨骰点，神秘女子以指环暗器荡开单刀。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "可在黑暗或混乱中判断暗器方位，也能听出骰子点数变化。"
+      }
+    ],
+    "combat_style": "以耳音与内劲配合，先辨后制，精微胜于蛮力。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 559,
+        "line_end": 565,
+        "text": "他练过暗器听风术，耳音极精，纵在黑暗之中，若有暗器来袭，一听声音，立知暗器来势方位，是何种类，手劲如何。\n\n如赵半山这等大行家，当日在商家堡中一听到身后暗器射到，即料到对方是嵩山少林寺不疑大师的弟子，暗器听风之术，一精至斯。\n\n胡斐的耳音较之赵半山尚有不及，但听了一阵，已听出三枚骰子向天的是什么点数。\n\n骰子共有六面，每面点数不同，一点的一面与六点的一面落下之时，声音略有差别，虽所差微细之极，但在内力精深、暗器功夫极佳之人听来，自能分辨。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_hu_men_jin_gun",
+    "name": "五虎门金棍",
+    "type": "掌法",
+    "faction": "faction_wu_hu_men",
+    "rank": "出神入化",
+    "one_line": "凤天南以七尺镀金铁棍施展的刚猛长兵武功。",
+    "techniques": [
+      {
+        "id": "tech_qu_yun_sao_yue",
+        "name": "驱云扫月",
+        "type": "attack",
+        "description": "以棍尾横扫头颈，后着兼点打缠挑。"
+      },
+      {
+        "id": "tech_yang_mei_tu_qi",
+        "name": "扬眉吐气",
+        "type": "attack",
+        "description": "从下颚挑击，劲贯双臂，力道刚猛。"
+      },
+      {
+        "id": "tech_qing_long_juan_wei",
+        "name": "青龙卷尾",
+        "type": "attack",
+        "description": "性命相拼时猛烈横扫，威力更重。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "掌门绝艺",
+        "description": "凤天南凭此打遍岭南无敌手并创立五虎门。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "两丈之内金光成圈，长棍沉重，适合压制短兵与空手。"
+      }
+    ],
+    "combat_style": "刚猛厚重，兼有缠挑点打，重在长兵压迫与臂力。",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 855,
+        "line_end": 871,
+        "text": "此时凤天南那里还有半点小觑之心？向后跃开半丈，早有弟子将他的兵刃黄金棍送在手中。\n\n这金棍长达七尺，径一寸有半，通体钢铁铸成，外镀黄金，金光灿然，算得是武林中第一豪阔富丽的沉重兵器。\n\n他将金棍一抖，指着胡斐说道：\"阁下是那一位老师门下？\n\n凤某什么地方得罪了阁下，却要请教。\"\n\n胡斐道：\"我一块凤凰肉给你儿子偷吃了，非剖开他肚子瞧个明白不可。\n\n\"\n\n凤天南凭一条镀金铁棍打遍岭南无敌手，这才手创五虎门，在佛山镇定居。\n\n武家所用之棍，以齐眉最为寻常，依身材伸缩，短者五尺不足，长者六尺有余，凤天南这条棍却长达七尺，"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_he_dao_fa",
+    "name": "六合刀法",
+    "type": "剑法",
+    "faction": "少林韦陀门",
+    "rank": "登堂入室",
+    "one_line": "六合刀法守内外六合之理，以展抹钩剁砍劈等诀配合左右手攻防。",
+    "techniques": [
+      {
+        "id": "tech_yan_zi_lue_shui",
+        "name": "燕子掠水",
+        "type": "attack",
+        "description": "单刀自下向上掠起，以身步坐势带出突袭。"
+      },
+      {
+        "id": "tech_feng_huang_xuan_wo",
+        "name": "凤凰旋窝",
+        "type": "special",
+        "description": "刀势急斩并击腕卸械，可瞬间制住对手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "本章通过比武、讲解或实战显示其路数和威力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可制敌伤身并压迫对手门户。"
+      }
+    ],
+    "combat_style": "讲究招式衔接、身步配合与临场变化",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 269,
+        "line_end": 277,
+        "text": "他也不知该当先向师父灵位磕头，当下立个门户，右手持刀横护左肩，左手成钩，劲坐右腿，左脚虚出，乃是六合刀法的起手\"护肩刀\"。 少林韦陀门拳、刀、枪三绝，全守六合之法。所谓六合，\"精气神\"为内三合，\"手眼身\"为外三合，其用为\"眼与心合，心与气合，气与身合，身与手合，手与脚合，脚与胯合。 \"全身内外，浑然一体。宾客中有不少是武学行家，见杨宾横刀一立，神定气凝，均想：\"此人武功不弱。 \"孙伏虎刀藏右侧，左手成掌，自怀里翻出，使一招\"滚手刺扎\"，"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_he_qiang_fa",
+    "name": "六合枪法",
+    "type": "剑法",
+    "faction": "少林韦陀门",
+    "rank": "登堂入室",
+    "one_line": "六合枪法以中平枪为王，虚实变化繁复，能由平式变出厉害家数。",
+    "techniques": [
+      {
+        "id": "tech_si_yi_bin_fu",
+        "name": "四夷宾服",
+        "type": "attack",
+        "description": "六合枪二十四式之首，中平送枪，妙变繁富。"
+      },
+      {
+        "id": "tech_ling_mao_bu_shu",
+        "name": "灵猫捕鼠",
+        "type": "debuff",
+        "description": "从虚式中压住敌枪，属无中生有的厉害枪法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "本章通过比武、讲解或实战显示其路数和威力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可制敌伤身并压迫对手门户。"
+      }
+    ],
+    "combat_style": "讲究招式衔接、身步配合与临场变化",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 469,
+        "line_end": 481,
+        "text": "那女郎接过长枪，说道：\"接招吧！\"提枪向前送出，使的是一招\"四夷宾服\"。 这是六合枪中最精妙的招数，称为二十四式之首，其中妙变繁富，乃中平枪法。 胡斐精研单刀拳脚，对其余兵刃均不熟悉，向那中年武师望了一眼，目光中含有请教之意。 这武师武功平平，但跟随万老拳师多年，对六合门的器械拳脚却看得多、听得多了，于是背诵歌诀道：\"中平枪，枪中王，高低远近都不妨；去如箭，来如线⋯⋯\" 他歌诀尚未背完，杨宾已还了一招。那女郎枪尖向下压落。 那武师道：\""
+      }
+    ]
+  },
+  {
+    "id": "skill_chi_kao_lian_quan",
+    "name": "赤尻连拳",
+    "type": "指法",
+    "faction": "少林韦陀门",
+    "rank": "登堂入室",
+    "one_line": "赤尻连拳以六合拳为根基，近身缠斗，拿抓勾锁并点穴打穴。",
+    "techniques": [
+      {
+        "id": "tech_jin_shen_qin_na",
+        "name": "近身擒拿",
+        "type": "debuff",
+        "description": "贴身缠斗时拿抓勾锁，意在夺人关节门户。"
+      },
+      {
+        "id": "tech_dian_xue_da_xue",
+        "name": "点穴打穴",
+        "type": "debuff",
+        "description": "以拳指点打穴道，使敌身形受制或失力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "本章通过比武、讲解或实战显示其路数和威力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可制敌伤身并压迫对手门户。"
+      }
+    ],
+    "combat_style": "讲究招式衔接、身步配合与临场变化",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 511,
+        "line_end": 517,
+        "text": "尉迟连道：\"咱们正宗的六合拳是不用比了，我自然和姑娘差得远，在下想请教一套赤尻⋯⋯\"那女郎脸色更是不豫，道：\"哼，你精研赤尻连拳，那也成！ \"右掌一起，便向他肩头琵琶骨上斩落。 这\"赤尻连拳\"也是韦陀门的拳法之一，以六合拳为根基，以猴拳为形，乃一套近身缠斗的小擒拿手法，每一招不是拿抓勾锁，便是点穴打穴。 尉迟连见她刀枪招数厉害，自恃这套赤尻连拳练得极熟，心想她武功再强，小姑娘膂力总不及我，何况贴身近战，女孩儿家有许多顾忌之处，自己便可乘"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_he_quan",
+    "name": "六合拳",
+    "type": "掌法",
+    "faction": "少林韦陀门",
+    "rank": "炉火纯青",
+    "one_line": "六合拳讲求手眼身与精气神相合，在拳掌步法中体现正宗根基。",
+    "techniques": [
+      {
+        "id": "tech_san_huan_tao_yue",
+        "name": "三环套月",
+        "type": "attack",
+        "description": "六合拳中劈面进击的起手式，可配三角拳打穴。"
+      },
+      {
+        "id": "tech_fan_gong_zi_xing",
+        "name": "反躬自省",
+        "type": "attack",
+        "description": "以手背击人的苦恼拳，功力深厚后威力极大。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "本章通过比武、讲解或实战显示其路数和威力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可制敌伤身并压迫对手门户。"
+      }
+    ],
+    "combat_style": "讲究招式衔接、身步配合与临场变化",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 702,
+        "line_end": 710,
+        "text": "刘鹤真右足踏上一步，右拳劈面向袁紫衣打到，正是六合拳\"三环套月\"中的第一式。 袁紫衣见对方拳到，自食指以至小指，四指握得参差不齐，生出三片棱角，知道这三角拳法用以击打人身穴道，此人自是打穴好手，左足斜退一步，踏上另一只碗底，还了一招六合拳中的\"裁锤\"，右手握的也是三角拳。 刘鹤真见她身法、步法、拳法、外形，无一不是本门正宗功夫，但适才折服孙伏虎等三人，所使变化心法绝非本门所传，只不过其中差异，若非本门的一流高手，却也瞧不出来，心下甚感惊"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_gang_mei_hua_zhuang",
+    "name": "天罡梅花桩",
+    "type": "轻功",
+    "faction": "少林韦陀门",
+    "rank": "炉火纯青",
+    "one_line": "天罡梅花桩以三十六桩位考验步法、轻功与拳力，是韦陀门镇门之宝。",
+    "techniques": [
+      {
+        "id": "tech_fu_wan_cheng_zhuang",
+        "name": "覆碗成桩",
+        "type": "special",
+        "description": "以覆合酒碗代梅花桩，借巧劲布成桩位。"
+      },
+      {
+        "id": "tech_qiang_zhong_zhuang",
+        "name": "抢中桩",
+        "type": "buff",
+        "description": "抢占中桩逼敌至外缘，使对手无路可退。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "本章通过比武、讲解或实战显示其路数和威力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可制敌伤身并压迫对手门户。"
+      }
+    ],
+    "combat_style": "讲究招式衔接、身步配合与临场变化",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 670,
+        "line_end": 694,
+        "text": "刘鹤真不禁暗自佩服，她明明不知本门的镇门之宝是什么武功，然而这番话冠冕堂皇，令人难以辩驳，想来本门弟子人人听得心服，左手摸了摸上唇焦黄的胡髭，说道：\"好吧，我教你一个乖。 本门的镇门之宝，乃天罡梅花桩。你总练过吧？\" 袁紫衣冷笑道：\"嘿嘿，这算什么宝贝了？我也教你一个乖。 武功之中，越是大路平实，越贵重有用。什么梅花桩，尖刀阵，这些花巧把式，都是吓唬人、骗孩子的玩意儿。 你在荒山野岭遇上了敌人，几十个人骑马抡刀要杀你，你叫他们先在地下插"
+      }
+    ]
+  },
+  {
+    "id": "skill_yin_si_ruan_bian",
+    "name": "银丝软鞭",
+    "type": "暗器",
+    "faction": "未知",
+    "rank": "炉火纯青",
+    "one_line": "银丝软鞭以长鞭金球打穴、卷物、夺械，能在马上远距压制短兵。",
+    "techniques": [
+      {
+        "id": "tech_ruan_bian_da_xue",
+        "name": "软鞭打穴",
+        "type": "debuff",
+        "description": "以鞭梢金球击打穴道，隔身变向仍能取准。"
+      },
+      {
+        "id": "tech_chang_bian_juan_wu",
+        "name": "长鞭卷物",
+        "type": "special",
+        "description": "以软鞭卷帽、卷剑、夺械并牵引物件。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "本章通过比武、讲解或实战显示其路数和威力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可制敌伤身并压迫对手门户。"
+      }
+    ],
+    "combat_style": "讲究招式衔接、身步配合与临场变化",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 884,
+        "line_end": 918,
+        "text": "这软鞭展开来有一丈一尺长，绕过胡斐身后，鞭头弯转，金球迳自击向他背心上的\"大椎穴\"。 胡斐上身弯落，伏在马背，料得依着软鞭来势，鞭子必在背脊上掠过。 猛听得风声有异，知道不妙，忙左手抽出单刀，不及回头瞧那软鞭，立即挥刀砍出，当的一声，单刀与金球相撞，将袁紫衣的软鞭荡了开去。 原来她软鞭掠向胡斐背心，跟着手腕一沉，金球忽地转向，打向他右肩的\"巨骨穴\"。 她见胡斐伏在马背，只道这一下定然打中他穴道，要叫他立时半身麻软。 那知他听风出招，竟似"
+      }
+    ]
+  },
+  {
+    "id": "skill_ting_feng_bian_qi",
+    "name": "听风辨器",
+    "type": "暗器",
+    "faction": "未知",
+    "rank": "炉火纯青",
+    "one_line": "听风辨器凭耳辨物，能在不看目标时接住急坠兵器。",
+    "techniques": [
+      {
+        "id": "tech_ting_feng_jie_jian",
+        "name": "听风接剑",
+        "type": "special",
+        "description": "听风判断长剑落势，准确抓住剑柄。"
+      },
+      {
+        "id": "tech_zhi_jian_shang_tian",
+        "name": "掷剑上天",
+        "type": "feint",
+        "description": "将长剑掷成奇特轨迹，引开对手目光。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "本章通过比武、讲解或实战显示其路数和威力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可制敌伤身并压迫对手门户。"
+      }
+    ],
+    "combat_style": "讲究招式衔接、身步配合与临场变化",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 1038,
+        "line_end": 1058,
+        "text": "她并不抬头看剑，向蓝秦问道：\"你这掌门之位让是不让？ \" 蓝秦正仰头望着天空急落而下的长剑，听她说话，随口道：\"什么？ \"袁紫衣道：\"我请你让这八仙剑掌门的位子。\"这时长剑已落到她跟前，袁紫衣嘴里说话，耳中听风辨器，一伸手便抓住了剑柄。 长剑从数十丈高处落将下来，势道何等凌厉，何况这剑除剑柄外，通身是锋利刃口，她竟眼角也没斜一下，随随便便就抓住了剑柄。 这一手功夫不但蓝秦大为震惊，连旁观的胡斐也暗自佩服，心想：\"她适才夺了少林韦陀门的掌"
+      }
+    ]
+  },
+  {
+    "id": "skill_ba_xian_jian",
+    "name": "八仙剑",
+    "type": "剑法",
+    "faction": "八仙剑",
+    "rank": "炉火纯青",
+    "one_line": "八仙剑以八仙典故命名招式，剑招凌厉而门户严密，是西南名派绝艺。",
+    "techniques": [
+      {
+        "id": "tech_xiang_zi_chui_xiao",
+        "name": "湘子吹箫",
+        "type": "defense",
+        "description": "八仙剑法中横剑封挡的招式。"
+      },
+      {
+        "id": "tech_cao_guo_jiu_pai_ban",
+        "name": "曹国舅拍板",
+        "type": "attack",
+        "description": "袁紫衣叫破并借巧劲斩断蓝秦长剑的八仙剑招。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "本章通过比武、讲解或实战显示其路数和威力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可制敌伤身并压迫对手门户。"
+      }
+    ],
+    "combat_style": "讲究招式衔接、身步配合与临场变化",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 1072,
+        "line_end": 1088,
+        "text": "袁紫衣叫道：\"湘子吹箫！\"蓝秦这一招正是八仙剑法中的\"湘子吹箫\"。 八仙剑在西南各省甚为盛行，他想你识得我的招数有何希罕，要瞧你是否挡得住了，双眉一扬，喝道：\"是'湘子吹箫'便怎地？ \"袁紫衣道：\"阴阳宝扇！\"一语未毕，软鞭卷着长剑，向他左胸右胸各刺一招，正是八仙剑的正宗剑法\"汉钟离阴阳宝扇\"。 蓝秦又是一惊，心想她会使八仙剑法并不出奇，奇在以软鞭送剑，居然力透剑尖，刃直如矢，当下踏上一步，要待抢攻，心想她以软鞭使剑，剑上力道虚浮，只消"
+      }
+    ]
+  },
+  {
+    "id": "skill_jiu_jie_ruan_bian",
+    "name": "九节软鞭",
+    "type": "暗器",
+    "faction": "faction_jiu_long_pai",
+    "rank": "初窥门径",
+    "one_line": "九龙派弟子使用的九节软鞭功夫，两鞭齐出可攻膝扰敌。",
+    "techniques": [
+      {
+        "id": "tech_shuang_bian_ji_xi",
+        "name": "双鞭击膝",
+        "type": "attack",
+        "description": "两名弟子同时挥动九节软鞭攻向对手膝头，不求伤命，意在逼退对方。"
+      },
+      {
+        "id": "tech_ruan_bian_chan_jie",
+        "name": "软鞭缠结",
+        "type": "debuff",
+        "description": "软鞭鞭头相缠后会成死结，若被借力牵引便难以分开，反制持鞭者。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "弟子合击",
+        "description": "九龙派弟子以双鞭同攻，尚未见高深变化。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "以软鞭缠扰敌人下盘或兵刃。"
+      }
+    ],
+    "combat_style": "双人齐出、鞭势低扫，适合逼退不愿伤害的对手。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 191,
+        "line_end": 207,
+        "text": "两名九龙派弟子各持九节软鞭，齐声唿哨后同时向袁紫衣膝头打去。"
+      }
+    ]
+  },
+  {
+    "id": "skill_jiu_zi_lian_huan_gang_bian",
+    "name": "九子连环钢鞭",
+    "type": "暗器",
+    "faction": "faction_jiu_long_pai",
+    "rank": "炉火纯青",
+    "one_line": "易吉所使兼具软鞭与钢鞭之长的九龙派重鞭功夫。",
+    "techniques": [
+      {
+        "id": "tech_gang_bian_wu_sheng",
+        "name": "钢鞭无声",
+        "type": "buff",
+        "description": "抖出九节钢鞭时各节全无碰撞声，显示持鞭者对劲力与节奏控制极精。"
+      },
+      {
+        "id": "tech_juan_mao_ding_chuan",
+        "name": "卷锚定船",
+        "type": "special",
+        "description": "以九节钢鞭卷住船头铁锚并挥入江中，凭六七百斤膂力稳住摇晃船身。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "掌门绝技",
+        "description": "易吉能以重钢鞭无声出手，并用铁锚稳船，显出深厚膂力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "可缠卷沉重物件或对手兵刃。"
+      },
+      {
+        "type": "伤害",
+        "description": "钢鞭沉重，正面挥砸威力极强。"
+      }
+    ],
+    "combat_style": "内外兼修，既有软鞭缠卷变化，又具钢鞭沉猛劲道。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 223,
+        "line_end": 234,
+        "text": "易吉抖出晶光闪亮的九节鞭，挥鞭卷住铁锚并投入江中稳船。"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_qian_biao",
+    "name": "金钱镖",
+    "type": "暗器",
+    "faction": "unknown",
+    "rank": "初窥门径",
+    "one_line": "以铜钱或金钱状暗器远距离飞射偷袭的暗器手法。",
+    "techniques": [
+      {
+        "id": "tech_jiu_mei_lian_she",
+        "name": "九枚连射",
+        "type": "attack",
+        "description": "九枚金钱镖同时飞向目标后心，来势快且部位分散，使高处目标难以闪避。"
+      },
+      {
+        "id": "tech_san_biao_duan_lu",
+        "name": "三镖断路",
+        "type": "debuff",
+        "description": "三枚钱镖分别袭向身体与横桁，封住目标翻身上跃的退路。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "偷袭",
+        "description": "暗器手能连续以九枚、三枚钱镖封锁袁紫衣身法。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "从背后袭击要害，逼迫目标失足。"
+      },
+      {
+        "type": "控制",
+        "description": "以分散落点限制高处目标闪避路径。"
+      }
+    ],
+    "combat_style": "趁乱远射，重在出其不意与封锁身法。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 315,
+        "line_end": 320,
+        "text": "九枚金钱镖急向桅杆上飞去，射向袁紫衣后心。"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_qian_an_qi",
+    "name": "飞钱暗器",
+    "type": "暗器",
+    "faction": "unknown",
+    "rank": "登堂入室",
+    "one_line": "胡斐以制钱后发先至击落敌方钱镖的暗器手法。",
+    "techniques": [
+      {
+        "id": "tech_zhi_qian_ji_biao",
+        "name": "制钱击镖",
+        "type": "defense",
+        "description": "以三枚制钱凌厉射出，后发先至，逐一撞偏敌方钱镖。"
+      },
+      {
+        "id": "tech_hou_fa_xian_zhi",
+        "name": "后发先至",
+        "type": "buff",
+        "description": "虽出手在后，却凭劲力与准头使暗器先到并破掉敌招。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "临危救援",
+        "description": "胡斐能在袁紫衣无法闪避时以制钱撞开钱镖。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "撞偏敌方暗器轨迹。"
+      },
+      {
+        "type": "特殊",
+        "description": "可在危急中救援同伴。"
+      }
+    ],
+    "combat_style": "后发先至，劲力凌厉，重准头与时机。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 327,
+        "line_end": 331,
+        "text": "胡斐挥手三枚制钱射出，后发却更快，撞开偷袭钱镖。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ruan_bing_jie_li",
+    "name": "软兵借力",
+    "type": "轻功",
+    "faction": "unknown",
+    "rank": "登堂入室",
+    "one_line": "借竹索、软鞭等柔性器物牵引身体或救援他人的轻巧技法。",
+    "techniques": [
+      {
+        "id": "tech_zhu_suo_jiu_ren",
+        "name": "竹索救人",
+        "type": "special",
+        "description": "挥出长竹索让坠落者抓住，再以拉拽力道助其跃回安全处。"
+      },
+      {
+        "id": "tech_jie_li_yue_qi",
+        "name": "借力跃起",
+        "type": "buff",
+        "description": "借外力牵引改变坠落轨迹，使身体轻巧跃回立足处。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "临场应变",
+        "description": "胡斐和袁紫衣在坠落瞬间配合竹索借力脱险。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "可救援坠落同伴。"
+      },
+      {
+        "type": "增益",
+        "description": "增强空中转折与回身能力。"
+      }
+    ],
+    "combat_style": "重时机、劲道和默契，利用软性器物化险为夷。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 347,
+        "line_end": 355,
+        "text": "胡斐抢起竹索挥向袁紫衣，袁紫衣抓住后借势跃上船头。"
+      }
+    ]
+  },
+  {
+    "id": "skill_feng_jia_gun_fa",
+    "name": "凤家棍法",
+    "type": "掌法",
+    "faction": "faction_feng_jia",
+    "rank": "登堂入室",
+    "one_line": "凤天南以镀金钢棍施展的沉猛近战棍法。",
+    "techniques": [
+      {
+        "id": "tech_lou_tou_gai_ding",
+        "name": "搂头盖顶",
+        "type": "attack",
+        "description": "金棍从上向下猛击敌人头顶，威力直接。"
+      },
+      {
+        "id": "tech_tiao_pao_liao_yi",
+        "name": "挑袍撩衣",
+        "type": "attack",
+        "description": "棍端自下向上抄起，转攻敌人下盘。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "掌门棍法",
+        "description": "凤天南临死相拼时使出数十年苦练的金棍手段。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "重棍击顶或扫击足以致命。"
+      }
+    ],
+    "combat_style": "沉猛硬打，兼具上砸、横扫与下撩变化。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 633,
+        "line_end": 635,
+        "text": "凤天南以金棍搂头盖顶攻向胡斐。"
+      }
+    ]
+  },
+  {
+    "id": "skill_lian_zi_duan_qiang",
+    "name": "链子短枪",
+    "type": "暗器",
+    "faction": "unknown",
+    "rank": "登堂入室",
+    "one_line": "刘鹤真腰间所藏的链子短枪兵器功夫。",
+    "techniques": [
+      {
+        "id": "tech_duan_qiang_ji_zhan",
+        "name": "短枪急战",
+        "type": "attack",
+        "description": "以短枪近身急攻，适合负伤时拼死缠住敌人。"
+      },
+      {
+        "id": "tech_lian_qiang_qian_zhi",
+        "name": "链枪牵制",
+        "type": "debuff",
+        "description": "借链子牵引短枪，兼具突刺和牵制敌人身法的变化。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "拼死断后",
+        "description": "刘鹤真负伤后仍取出链子短枪准备独自缠住追敌。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "短枪近身刺击可伤敌。"
+      },
+      {
+        "type": "控制",
+        "description": "链子可牵制敌人行动。"
+      }
+    ],
+    "combat_style": "短兵拼杀，重在牵制与断后。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 1019,
+        "line_end": 1023,
+        "text": "刘鹤真取出一件兵刃，是一条链子短枪。"
+      }
+    ]
+  },
+  {
+    "id": "skill_sang_fu_qing_gong",
+    "name": "丧服轻功",
+    "type": "轻功",
+    "faction": "unknown",
+    "rank": "登堂入室",
+    "one_line": "丧服三兄弟中一人跃上屋顶监视后门的轻功身法。",
+    "techniques": [
+      {
+        "id": "tech_wu_ding_jian_shi",
+        "name": "屋顶监视",
+        "type": "buff",
+        "description": "趁同伴前后搜查时跃上屋顶监视后门，封住目标逃路。"
+      },
+      {
+        "id": "tech_yu_ye_zhui_zong",
+        "name": "雨夜追踪",
+        "type": "special",
+        "description": "在大雨夜追踪负伤目标和坐骑痕迹，逼近藏身处。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "追踪堵截",
+        "description": "三兄弟分头堵门搜殿，行动配合娴熟。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "封堵后门断绝逃路。"
+      },
+      {
+        "type": "特殊",
+        "description": "在雨夜仍能追踪敌人。"
+      }
+    ],
+    "combat_style": "分进合击，一人监视高处，两人入殿搜查。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 1045,
+        "line_end": 1058,
+        "text": "两人进殿搜查，另一人从屋顶跃下，轻功好生了得。"
+      }
+    ]
+  },
+  {
+    "id": "skill_lian_zi_qiang",
+    "name": "链子枪",
+    "type": "暗器",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "刘鹤真藏于腰间、可近身突刺的链枪功夫。",
+    "techniques": [
+      {
+        "id": "tech_lian_qiang_hui_shou_ci",
+        "name": "回手戳刺",
+        "type": "attack",
+        "description": "从腰间拔出链子枪，回手疾戳近身来敌。"
+      },
+      {
+        "id": "tech_lian_qiang_jin_shen_feng_suo",
+        "name": "近身封锁",
+        "type": "defense",
+        "description": "以链枪贴身牵制，使敌人夺枪时仍须防背后夹击。"
+      }
+    ],
+    "progression": [
+      "腰间暗藏链子枪，近身变招"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "突刺近身敌人"
+      }
+    ],
+    "combat_style": "暗藏兵刃，近身出枪，出手突然。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 452,
+        "line_end": 452,
+        "text": "刘鹤真挫膝沉肘，从腰间拔出链子枪，回手便戳。胡斐愧怒交攻，侧身闪避，伸手去夺他链子枪，猛觉背后风声劲急，一股刚猛无比的掌力直扑自己背心，只得双掌反击，运力相卸。"
+      }
+    ]
+  },
+  {
+    "id": "skill_miao_jia_jian_zhang",
+    "name": "苗家剑掌",
+    "type": "掌法",
+    "faction": null,
+    "rank": "返璞归真",
+    "one_line": "苗人凤立身江湖的高深武学，掌力刚猛，盲眼仍能应敌。",
+    "techniques": [
+      {
+        "id": "tech_miao_jia_gang_meng_zhang",
+        "name": "刚猛掌力",
+        "type": "attack",
+        "description": "掌力刚猛无比，急怒时直扑对手背心。"
+      },
+      {
+        "id": "tech_miao_jia_ting_feng_bian_wei",
+        "name": "听风辨位",
+        "type": "defense",
+        "description": "双目受创后仍凭声息与敌周旋。"
+      }
+    ],
+    "progression": [
+      "苗人凤被胡斐视为真正英雄豪杰"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌力可逼退近身敌人"
+      }
+    ],
+    "combat_style": "以雄浑内力和沉稳判断压制敌人。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 48,
+        "line_end": 52,
+        "text": "胡斐当年在商家堡中，曾跟苗人凤有过一面之缘，但觉他神威凛凛，当时幼小的心灵之中，对他大为钦服。 直到此时，生平所遇的人物之中，真正令他心折的，也只赵半山与苗人凤两人而已。 赵半山和他拜了把子，苗人凤却没跟他说过一句话，连眼角也没瞥过他一下，然而每次想到此人，总觉为人该当如此，才算得英雄豪杰。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhao_ban_shan_tui_na_shou_fa",
+    "name": "赵半山推拿手法",
+    "type": "掌法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "胡斐从赵半山处学得的卸力应变手法。",
+    "techniques": [
+      {
+        "id": "tech_tui_na_xie_li",
+        "name": "推拿卸力",
+        "type": "defense",
+        "description": "运用推拿化劲，卸去对手刚猛掌力。"
+      },
+      {
+        "id": "tech_tui_na_qian_zhi",
+        "name": "推拿牵制",
+        "type": "special",
+        "description": "以手法牵制敌招，使对方劲力难以直入。"
+      }
+    ],
+    "progression": [
+      "胡斐用以卸苗人凤背后掌力"
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升近身拆招与卸力能力"
+      }
+    ],
+    "combat_style": "借推拿化劲，柔中寓刚。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 452,
+        "line_end": 456,
+        "text": "刘鹤真挫膝沉肘，从腰间拔出链子枪，回手便戳。胡斐愧怒交攻，侧身闪避，伸手去夺他链子枪，猛觉背后风声劲急，一股刚猛无比的掌力直扑自己背心，只得双掌反击，运力相卸。 他知苗人凤急怒之下，掌力定然非同小可，不敢硬接硬架，使出赵半山所授的太极拳妙术\"阴阳诀\"，想卸开对方掌力，岂知双手与对方手掌甫接，登时眼前一黑，胸口气塞，连退三步，苗人凤的掌力只卸去了一半，余一半还"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_jia_quan",
+    "name": "胡家拳",
+    "type": "掌法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "胡斐多年练成的胡家拳谱拳法，可附内力重手毙马。",
+    "techniques": [
+      {
+        "id": "tech_hu_jia_zhong_shou_sha_zhao",
+        "name": "重手杀着",
+        "type": "attack",
+        "description": "拳上附以内力，重击马头，立时震碎脑骨。"
+      },
+      {
+        "id": "tech_hu_jia_jie_li_zhi_ji",
+        "name": "借力制机",
+        "type": "special",
+        "description": "顺马倒退之势连送带掀，借势翻倒高头大马。"
+      }
+    ],
+    "progression": [
+      "胡斐以多年之功练成拳谱杀着"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "重拳配合内力可摧毁强健坐骑"
+      }
+    ],
+    "combat_style": "拳力沉雄，善借势制敌。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 80,
+        "line_end": 82,
+        "text": "\"一提马缰，纵马便往胡斐身上冲来。胡斐左手倏地伸出，抓住马缰一勒，那马这一冲不下数百斤之力，但给他一勒，登时倒退几步。 他跟着使出借力之技，顺着那马倒退之势，连送带掀，一匹高头大马竟尔站立不定，砰的一声，翻倒在地。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_men_bing_ren_he_ji",
+    "name": "奇门兵刃合击",
+    "type": "暗器",
+    "faction": "faction_zhong_shi_san_xiong",
+    "rank": "炉火纯青",
+    "one_line": "钟氏三雄以铁灵牌、哭丧棒、招魂幡配合判官笔根底的合击兵刃术。",
+    "techniques": [
+      {
+        "id": "tech_tie_pai_gang_meng_ying_za",
+        "name": "铁牌硬砸",
+        "type": "attack",
+        "description": "铁灵牌走刚猛路子，硬打硬砸压迫敌人。"
+      },
+      {
+        "id": "tech_zhao_hun_fan_rou_gong",
+        "name": "招魂幡柔功",
+        "type": "debuff",
+        "description": "幡面柔韧卸力，拂中身体后使对手难受。"
+      },
+      {
+        "id": "tech_bing_ren_dian_xue",
+        "name": "兵柄点穴",
+        "type": "special",
+        "description": "三件兵刃木柄仍作判官笔使用，可点穴打穴。"
+      }
+    ],
+    "progression": [
+      "三兄弟败于苗人凤后弃判官笔，八年苦练奇形兵刃"
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "三面合击并以点穴压制敌人"
+      }
+    ],
+    "combat_style": "刚柔相济，三人互辅互成。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 182,
+        "line_end": 238,
+        "text": "钟氏三雄又惊又怒。三兄弟本来都使判官笔，但八年前败于苗人凤手下，引为奇耻大辱，从此弃笔不用，三人各自练了一件奇形兵刃，八年苦练，武功大进，满心要以新兵刃去和苗人凤再决雌雄，岂知在这穷乡僻壤之间，竟受这无名少年的拦阻。 钟兆文一声呼啸，兆英、兆能齐啸相应，啸声中阴风恻恻，寒气森森。 胡斐听了，不由得心惊，见三人举起铁灵牌、哭丧棒、招魂幡，分自三面攻上，当即将马"
+      }
+    ]
+  },
+  {
+    "id": "skill_pan_guan_bi",
+    "name": "判官笔",
+    "type": "指法",
+    "faction": "faction_zhong_shi_san_xiong",
+    "rank": "炉火纯青",
+    "one_line": "钟氏三雄早年本用判官笔，后虽弃笔仍以兵刃木柄保留点穴根底。",
+    "techniques": [
+      {
+        "id": "tech_pan_guan_bi_dian_xue",
+        "name": "判官笔点穴",
+        "type": "special",
+        "description": "以笔形兵器点击穴道，短促狠准。"
+      },
+      {
+        "id": "tech_pan_guan_bi_da_xue",
+        "name": "判官笔打穴",
+        "type": "attack",
+        "description": "借硬柄打穴，配合奇门兵刃合击。"
+      }
+    ],
+    "progression": [
+      "八年前败于苗人凤后弃笔不用"
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "点穴打穴以制敌"
+      }
+    ],
+    "combat_style": "短兵点穴，精准阴狠。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 182,
+        "line_end": 238,
+        "text": "钟氏三雄又惊又怒。三兄弟本来都使判官笔，但八年前败于苗人凤手下，引为奇耻大辱，从此弃笔不用，三人各自练了一件奇形兵刃，八年苦练，武功大进，满心要以新兵刃去和苗人凤再决雌雄，岂知在这穷乡僻壤之间，竟受这无名少年的拦阻。 钟兆文一声呼啸，兆英、兆能齐啸相应，啸声中阴风恻恻，寒气森森。 胡斐听了，不由得心惊，见三人举起铁灵牌、哭丧棒、招魂幡，分自三面攻上，当即将马"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_xing_chui",
+    "name": "流星锤",
+    "type": "暗器",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "流星锤以一虚一实、前后追击的流星赶月为成名绝技。",
+    "techniques": [
+      {
+        "id": "tech_bai_hong_guan_ri",
+        "name": "白虹贯日",
+        "type": "attack",
+        "description": "山东青州张家流星锤法中的横击招式。"
+      },
+      {
+        "id": "tech_yang_mei_tu_qi",
+        "name": "扬眉吐气",
+        "type": "feint",
+        "description": "陕西延州褚十锤门下流星锤招式，钟氏三雄误以为胡斐将顺势当胸直荡。"
+      },
+      {
+        "id": "tech_fan_tian_fu_di",
+        "name": "翻天覆地",
+        "type": "attack",
+        "description": "太原童怀道门中的单传绝技，被胡斐误打误撞使得依稀仿佛。"
+      }
+    ],
+    "progression": [
+      "胡斐以马镫冒用流星锤形态，扰乱钟氏三雄判断"
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "使见多识广的对手误判家数"
+      }
+    ],
+    "combat_style": "双锤飞舞，攻守兼备，重在招式变化与距离牵制。",
+    "rag_refs": [
+      8,
+      "第十八章第178-314行"
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 186,
+        "line_end": 224,
+        "text": "胡斐听了，不由得心惊，见三人举起铁灵牌、哭丧棒、招魂幡，分自三面攻上，当即将马鞍护在胸前当作盾牌，双手舞动铁镫，便似使着一对流星锤，居然有攻有守。 他拳脚和刀法虽精，却不似袁紫衣般精通多家门派武功，这流星锤的功夫他从未练过，只仗着心灵手快，武学根柢高人一等，这才用以施展抵挡。 虽说一法通，万法通，武学高强之士即令只一竹一木在手，亦能用以克敌护身，但钟氏三雄究"
+      },
+      {
+        "chapter": 18,
+        "line_start": 178,
+        "line_end": 314,
+        "text": "这童怀道在双锤上的造诣果然甚为深厚。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 306,
+        "line_end": 314,
+        "text": "左锤仍竖在半空，右锤已平胸直击出去……前锤虚招诱敌，后一锤才全力出击。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_du_shou_yao_wang_yi_du",
+    "name": "毒手药王医毒",
+    "type": "内功",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "毒手药王兼通制毒与解毒的医毒本领。",
+    "techniques": [
+      {
+        "id": "tech_duan_chang_cao_du_fen",
+        "name": "断肠草毒粉",
+        "type": "debuff",
+        "description": "以断肠草粉末伤人眼目，毒性猛恶。"
+      },
+      {
+        "id": "tech_jie_du_jiu_mu",
+        "name": "解毒救目",
+        "type": "buff",
+        "description": "或可救治断肠草粉末造成的眼毒。"
+      }
+    ],
+    "progression": [
+      "无嗔医药录记录毕生医毒心血，且书页本身染毒"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "制毒可伤眼致盲"
+      },
+      {
+        "type": "增益",
+        "description": "解毒可能挽救中毒双眼"
+      }
+    ],
+    "combat_style": "医毒兼施，声名怪异，非寻常武斗。",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 876,
+        "line_end": 888,
+        "text": "张云飞道：\"好，那我跟你说。苗大侠大仁大义，饶我性命，这句话不能不说。 苗大侠眼中所染毒药，是断肠草粉末，是我师父从毒手药王那里得来的。 小人一路寻思，若求毒手药王救治，或能解得。我本该自己去求，只不过小人是无名之辈，这事决计无力办到。 \"钟兆能\"哦\"的一声，接着脚步声响，张云飞又转身去了。 胡斐一听大喜，从厢房飞步奔出，高声问道：\"这位毒手药王住在那里？ "
+      },
+      {
+        "chapter": 10,
+        "line_start": 150,
+        "line_end": 156,
+        "text": "药王神篇实为无嗔医药录，书页染满剧毒，显示药王医毒传承深不可测。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_xin_hai_tang_du_fa",
+    "name": "七心海棠毒法",
+    "type": "暗器",
+    "faction": "faction_du_shou_yao_wang_men",
+    "rank": "登峰造极",
+    "one_line": "以七心海棠制烛、炼香、解毒，能晕敌救人而不必杀生。",
+    "techniques": [
+      {
+        "id": "tech_hai_tang_du_yan",
+        "name": "海棠毒烟",
+        "type": "debuff",
+        "description": "将七心海棠制成蜡烛或烟气，使敌人在无声无息间昏迷。"
+      },
+      {
+        "id": "tech_hai_tang_jie_du",
+        "name": "海棠解毒",
+        "type": "buff",
+        "description": "以花粉和配药熬出毒质，救治被七心海棠相关毒性所伤之人。"
+      }
+    ],
+    "progression": [
+      "程灵素先以七心海棠蜡烛制住慕容景岳等人",
+      "又用花粉和醍醐香救姜小铁并帮助姜家退敌"
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "毒烟可使高手昏迷数个时辰"
+      },
+      {
+        "type": "增益",
+        "description": "花粉与配药可导出毒质救人"
+      }
+    ],
+    "combat_style": "以极细微毒烟、花粉和药香布局，重在制敌、救人和留余地。",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 48,
+        "line_end": 50,
+        "text": "程灵素说这是用七心海棠做的蜡烛，后来又以花粉和醍醐香救人退敌。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 601,
+        "line_end": 612,
+        "text": "程灵素点燃七心海棠毒烛，众卫士入厅后头晕摔倒。"
+      }
+    ]
+  },
+  {
+    "id": "skill_du_sha_zhang",
+    "name": "毒砂掌",
+    "type": "掌法",
+    "faction": "faction_du_shou_yao_wang_men",
+    "rank": "炉火纯青",
+    "one_line": "毒手药王弟子常练的毒掌，掌气入体后掌心隐现黑气。",
+    "techniques": [
+      {
+        "id": "tech_du_sha_zhang_qi",
+        "name": "毒砂掌气",
+        "type": "debuff",
+        "description": "以掌力将毒气侵入对手掌心，令中者掌上泛黑。"
+      },
+      {
+        "id": "tech_du_sha_qin_zhang",
+        "name": "毒砂侵掌",
+        "type": "attack",
+        "description": "交手时暗藏毒砂掌劲，能在武斗中悄然留下毒伤。"
+      }
+    ],
+    "progression": [
+      "胡斐与姜铁山夫妇交手后掌心现黑气",
+      "程灵素指出毒手药王弟子岂有不练毒砂掌之理"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "交掌后可使对方中毒"
+      },
+      {
+        "type": "减益",
+        "description": "毒气潜入掌心，需要及时放血疗治"
+      }
+    ],
+    "combat_style": "掌法与毒性合一，正面交手中暗伏毒伤。",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 88,
+        "line_end": 92,
+        "text": "胡斐掌心隐隐似有黑气，程灵素指出毒手药王弟子练毒砂掌。"
+      }
+    ]
+  },
+  {
+    "id": "skill_miao_jia_jian",
+    "name": "苗家剑",
+    "type": "剑法",
+    "faction": "苗家",
+    "rank": "登峰造极",
+    "one_line": "苗人凤威震江湖的家传剑术，临敌时即便改用单刀也能化出精妙威势。",
+    "techniques": [
+      {
+        "id": "tech_ting_sheng_bian_qi",
+        "name": "听声辨器",
+        "type": "听辨应敌",
+        "description": "双目不能视物时凭兵刃破风和敌人动静判断来势。"
+      },
+      {
+        "id": "tech_dao_bei_zhen_dao",
+        "name": "刀背震刀",
+        "type": "借力格挡",
+        "description": "以手中刀背撞开飞来的单刀，既接应同伴又保持自身兵刃。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "苗人凤失明受伤时仍能以单刀逼退五名敌人。"
+      }
+    ],
+    "effects": [
+      "近身压制多名敌人",
+      "失明时仍可凭听觉辨器应敌"
+    ],
+    "combat_style": "沉雄威猛，听声辨位，攻守间兼具名家剑法底蕴。",
+    "rag_refs": [
+      "第十一回苗家剑威名"
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 198,
+        "line_end": 204,
+        "text": "苗人凤夺刀后情势大变，五敌素知苗家剑威名却误以为单刀未必更强。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_long_jian_fa",
+    "name": "天龙剑法",
+    "type": "剑法",
+    "faction": "天龙门北宗",
+    "rank": "炉火纯青",
+    "one_line": "田归农自幼修习近四十年的天龙门北宗剑法，功力深厚。",
+    "techniques": [
+      {
+        "id": "tech_tian_long_jian_feng_jia",
+        "name": "天龙剑封架",
+        "type": "剑招",
+        "description": "举剑封架胡家刀法穿手藏刀，凭深厚内力震退胡斐。"
+      },
+      {
+        "id": "tech_tian_long_jian_ling_jiao",
+        "name": "天龙剑领教",
+        "type": "剑法运用",
+        "description": "田归农以天龙剑挑战胡家刀法，借剑法和铁链布置诱苗人凤出屋。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "近四十年造诣",
+        "description": "田归农自幼练起，一较内力胜过年轻胡斐。"
+      }
+    ],
+    "effects": [
+      "剑招封架",
+      "内力碰撞占优",
+      "配合门派身份压阵"
+    ],
+    "combat_style": "功力深厚而心术阴险，常配合计谋和人多势众取胜。",
+    "rag_refs": [
+      "第十一回田归农天龙剑"
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 252,
+        "line_end": 276,
+        "text": "田归农声称用天龙剑领教胡家刀法，后文交代其自幼练天龙剑法近四十年。"
+      }
+    ]
+  },
+  {
+    "id": "skill_du_shou_yao_wang_du_shu_yi_shu",
+    "name": "毒手药王毒术医术",
+    "type": "毒术医术",
+    "faction": "毒手药王一脉",
+    "rank": "登峰造极",
+    "one_line": "毒手药王一脉兼擅用毒、解毒与疑难医治，程灵素以此为苗人凤祛除眼毒。",
+    "techniques": [
+      {
+        "id": "tech_kong_xin_jin_zhen_qu_du",
+        "name": "空心金针祛毒",
+        "type": "针术",
+        "description": "以中空金针刺入穴位控放毒血，令黑血转紫再转红以祛尽毒液。"
+      },
+      {
+        "id": "tech_qi_xin_hai_tang_fu_yan",
+        "name": "七心海棠敷眼",
+        "type": "药敷",
+        "description": "采七心海棠叶捣烂敷眼，疼痛剧烈但可助眼伤痊愈。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "传承精深",
+        "description": "程灵素承毒手药王衣钵，可处理苗人凤这类高深内力者的眼毒。"
+      }
+    ],
+    "effects": [
+      "祛除剧毒",
+      "医治眼伤",
+      "以毒物制敌"
+    ],
+    "combat_style": "以毒医相通、器具精巧、施治时兼顾人心疑虑。",
+    "rag_refs": [
+      "第十一回程灵素治眼"
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 545,
+        "line_end": 563,
+        "text": "程灵素用空心金针放出黑紫毒血，再以七心海棠叶敷眼，说明三日后可愈。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 535,
+        "line_end": 541,
+        "text": "程灵素凭检查和嗅闻识别出马春花所中鹤顶红。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_shen_gong_fu",
+    "name": "轻身功夫",
+    "type": "轻功",
+    "faction": "江湖通用",
+    "rank": "登堂入室",
+    "one_line": "胡斐夜探屋面时施展的轻身身法，便于潜行窥探。",
+    "techniques": [
+      {
+        "id": "tech_dao_juan_zhu_lian",
+        "name": "倒卷珠帘",
+        "type": "special",
+        "description": "以足钩屋檐、倒悬探窗的身法，用于隐蔽窥探室内动静。"
+      },
+      {
+        "id": "tech_wu_mian_ji_xing",
+        "name": "屋面疾行",
+        "type": "buff",
+        "description": "伏低身子在屋面迅速奔走，以减低声息并快速接近目标。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "可在夜间屋面潜行并倒悬窥探。"
+      }
+    ],
+    "effects": [
+      "提升潜行移动",
+      "便于夜探侦察"
+    ],
+    "combat_style": "以敏捷身法和隐蔽移动为主，用于追踪、窥探和突袭前占位。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 192,
+        "line_end": 194,
+        "text": "胡斐展开轻身功夫奔到西面后院，又足钩屋檐使一个倒卷珠帘。"
+      }
+    ]
+  },
+  {
+    "id": "skill_lei_zhen_dang_gong_fu",
+    "name": "雷震挡功夫",
+    "type": "暗器",
+    "faction": "塞外师门",
+    "rank": "炉火纯青",
+    "one_line": "以奇形雷震挡攻守的武功，轰发有雷震之威。",
+    "techniques": [
+      {
+        "id": "tech_lei_zhen_meng_za",
+        "name": "雷震猛砸",
+        "type": "attack",
+        "description": "挥动雷震挡正面砸击面门，以沉猛劲力压制对手。"
+      },
+      {
+        "id": "tech_she_xing_quan_la",
+        "name": "蛇形圈拉",
+        "type": "debuff",
+        "description": "雷震挡弯曲横条疾送圈转回拉，可夺刀伤腿并牵制敌方兵刃。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "单使雷震挡已有雷震之威，足以压制徐铮单刀。"
+      }
+    ],
+    "effects": [
+      "攻守兼备",
+      "压制兵刃",
+      "夺刀伤敌"
+    ],
+    "combat_style": "以长柄奇门兵器沉猛圈转，兼具砸击、防守和牵制。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 528,
+        "line_end": 552,
+        "text": "老者手持奇形雷震挡，一语不发便砸向徐铮，攻势轰发如雷。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shan_dian_zhui_gong_fu",
+    "name": "闪电锥功夫",
+    "type": "暗器",
+    "faction": "塞外师门",
+    "rank": "炉火纯青",
+    "one_line": "与雷震挡相辅相成的短兵功夫，藏于袖中出其不意。",
+    "techniques": [
+      {
+        "id": "tech_shan_dian_tu_ci",
+        "name": "闪电突刺",
+        "type": "attack",
+        "description": "以袖中闪电锥骤然刺击，配合雷震挡形成一攻一守。"
+      },
+      {
+        "id": "tech_xiu_zhong_cang_zhui",
+        "name": "袖中藏锥",
+        "type": "feint",
+        "description": "将闪电锥藏在袖中不露形迹，使敌人难以预判来路。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "单使闪电锥虽不及双兵合璧，仍为成名高手技艺。"
+      }
+    ],
+    "effects": [
+      "突袭刺击",
+      "配合雷震挡变化"
+    ],
+    "combat_style": "短兵迅疾阴狠，重在藏锋与突刺。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 536,
+        "line_end": 548,
+        "text": "程灵素指出雷震挡须与闪电锥同使，闪电锥大盗袖中藏锥。"
+      }
+    ]
+  },
+  {
+    "id": "skill_nie_jia_jian_fa",
+    "name": "聂家剑法",
+    "type": "剑法",
+    "faction": "鸡公山盗党",
+    "rank": "炉火纯青",
+    "one_line": "聂姓剑客所使轻灵迅捷剑法，配合削铁宝剑。",
+    "techniques": [
+      {
+        "id": "tech_han_guang_ji_ci",
+        "name": "寒光疾刺",
+        "type": "attack",
+        "description": "剑走轻灵，寒光闪动，向敌后心或破绽急刺。"
+      },
+      {
+        "id": "tech_li_jian_xiao_dang",
+        "name": "利剑削挡",
+        "type": "attack",
+        "description": "以锋利宝剑削断雷震挡两端，借兵器之利逼迫对手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "剑法精奇，配宝剑可削断奇门兵器。"
+      }
+    ],
+    "effects": [
+      "快速刺击",
+      "削断兵器",
+      "逼迫退让"
+    ],
+    "combat_style": "轻灵便捷，重剑锋和速度压制。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 742,
+        "line_end": 780,
+        "text": "盗众素知姓聂的剑术精奇，手中宝剑削铁如泥，剑法实非凡俗。"
+      }
+    ]
+  },
+  {
+    "id": "skill_kong_shou_duo_ren_bing_ren",
+    "name": "空手夺人兵刃",
+    "type": "掌法",
+    "faction": "胡家",
+    "rank": "出神入化",
+    "one_line": "飞天狐狸传下的夺兵绝技，来无影去无踪。",
+    "techniques": [
+      {
+        "id": "tech_shun_shou_duo_dang",
+        "name": "顺手夺挡",
+        "type": "special",
+        "description": "趁对方举挡欲架之际伸臂搭出，令雷震挡忽然易手。"
+      },
+      {
+        "id": "tech_kong_shou_ru_bai_ren",
+        "name": "空手入白刃",
+        "type": "special",
+        "description": "以神出鬼没手法夺取敌人兵刃，使旁观者误以为原主抢回兵刃。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "胡斐能在褚姓老者毫无察觉时夺还或塞回雷震挡。"
+      }
+    ],
+    "effects": [
+      "夺取敌方兵器",
+      "震慑围观敌人",
+      "制造错觉"
+    ],
+    "combat_style": "近身手法诡秘迅捷，以空手夺兵扰乱敌胆。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 760,
+        "line_end": 768,
+        "text": "胡斐伸臂搭出夺下雷震挡，此为空手夺人兵刃的飞天狐狸绝技。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_jia_jian",
+    "name": "祁家剑",
+    "type": "剑法",
+    "faction": "浙东祁家剑",
+    "rank": "炉火纯青",
+    "one_line": "浙东祁家一路剑法，聂姓剑客所使剑术非凡俗。",
+    "techniques": [
+      {
+        "id": "tech_qi_jia_qing_ling_ci",
+        "name": "祁家轻灵刺",
+        "type": "attack",
+        "description": "剑走轻灵，身手便捷，以寒光急刺压迫敌方。"
+      },
+      {
+        "id": "tech_qi_jia_jian_feng_xiao_bing",
+        "name": "祁家剑锋削兵",
+        "type": "attack",
+        "description": "借宝剑锋利和剑法角度削断敌方兵器。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "聂姓剑客施展开来寒光闪闪，程灵素辨出为浙东祁家剑。"
+      }
+    ],
+    "effects": [
+      "轻灵刺击",
+      "削断兵器"
+    ],
+    "combat_style": "以轻灵快捷和宝剑锋芒克敌。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 986,
+        "line_end": 990,
+        "text": "程灵素辨出使宝剑者剑术是浙东祁家剑。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ying_zhua_gong",
+    "name": "鹰爪功",
+    "type": "指法",
+    "faction": "鹰爪雁行门",
+    "rank": "登堂入室",
+    "one_line": "汪铁鹗所学鹰爪雁行门擒拿爪功。",
+    "techniques": [
+      {
+        "id": "tech_ying_zhua_kou_mai",
+        "name": "鹰爪扣脉",
+        "type": "debuff",
+        "description": "以爪力扣拿对手脉门，使其酸软难动。"
+      },
+      {
+        "id": "tech_ying_zhua_lie_na",
+        "name": "鹰爪裂拿",
+        "type": "attack",
+        "description": "以鹰爪劲抓裂关节筋骨，近身制敌。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "汪铁鹗学得未到家，但仍为北方大派武功。"
+      }
+    ],
+    "effects": [
+      "擒拿脉门",
+      "近身制敌"
+    ],
+    "combat_style": "以爪力扣拿和近身硬功为主。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 1422,
+        "line_end": 1426,
+        "text": "程灵素说汪铁鹗的鹰爪功和雁行刀都没学得到家。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yan_xing_dao",
+    "name": "雁行刀",
+    "type": "剑法",
+    "faction": "鹰爪雁行门",
+    "rank": "登堂入室",
+    "one_line": "鹰爪雁行门配合雁翎刀的刀法。",
+    "techniques": [
+      {
+        "id": "tech_yan_xing_heng_sao",
+        "name": "雁行横扫",
+        "type": "attack",
+        "description": "以雁翎刀横扫拦截，配合身法进退。"
+      },
+      {
+        "id": "tech_yan_ling_pi_zhan",
+        "name": "雁翎劈斩",
+        "type": "attack",
+        "description": "运雁翎刀直劈斜斩，适合近身强攻。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "汪铁鹗使雁翎刀但功夫未到家。"
+      }
+    ],
+    "effects": [
+      "刀法攻守",
+      "配合鹰爪擒拿"
+    ],
+    "combat_style": "刀爪并用，刚猛直接。",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 1422,
+        "line_end": 1428,
+        "text": "程灵素从汪铁鹗雁翎刀和姓名推知其鹰爪雁行门身份。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ba_ji_quan",
+    "name": "八极拳",
+    "type": "掌法",
+    "faction": "八极拳门",
+    "rank": "出神入化",
+    "one_line": "八极拳法诀在袁紫衣口中完整呈现，含八极、八式、八法与四十九路拳理。",
+    "techniques": [
+      {
+        "id": "tech_tui_shan_shi",
+        "name": "推山式",
+        "type": "attack",
+        "description": "左掌劈出、右拳成钩的八极拳招式，掌力厚重。"
+      },
+      {
+        "id": "tech_ba_ji_ba_shi",
+        "name": "八极八式",
+        "type": "attack",
+        "description": "搂、打、腾、封、踢、蹬、扫、挂八式连用，拳脚狠捷敏活。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "八极拳老者以此扬威大河南北三十余载，名家风范十足。"
+      }
+    ],
+    "effects": [
+      "近身拳脚压制",
+      "厚重掌力",
+      "连环身法"
+    ],
+    "combat_style": "翻手揲腕、寸恳抖展，步法连环，拳掌狠捷敏活。",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 1724,
+        "line_end": 1778,
+        "text": "八极拳老者是河南开封府掌门，施展八极拳时翻手揲腕、拳脚越来越快。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 34,
+        "line_end": 46,
+        "text": "秦耐之讲解八极拳绝招双打奇门，与胡斐研讨本门拳术精奥。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 28,
+        "line_end": 32,
+        "text": "胡斐请教秦耐之上盘故示不稳、双拳打出的精妙招式。"
+      },
+      {
+        "chapter": 14,
+        "line_start": 178,
+        "line_end": 188,
+        "text": "袁紫衣讲述八极拳翻手、揲腕、寸恳、抖展八极和四十九路拳法。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_si_men_dao_fa",
+    "name": "四门刀法",
+    "type": "剑法",
+    "faction": "江湖卖艺",
+    "rank": "初窥门径",
+    "one_line": "街头卖武汉子所演刀法，有成套刀诀但实战脚步虚浮。",
+    "techniques": [
+      {
+        "id": "tech_da_peng_zhan_chi",
+        "name": "大鹏展翅",
+        "type": "attack",
+        "description": "四门刀法中的起势招名，单刀展开如大鹏张翼。"
+      },
+      {
+        "id": "tech_du_pi_hua_shan",
+        "name": "独劈华山",
+        "type": "attack",
+        "description": "四门刀法中劈斩招式，名头响亮但卖艺者使来功力不足。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "口诀",
+        "description": "熟记刀诀与门户招名。"
+      },
+      {
+        "level": "演武",
+        "description": "能展抹钩剁、劈打磕扎以供街头表演。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "以单刀劈砍制造伤害。"
+      }
+    ],
+    "combat_style": "重刀诀和花架，实际步法刀势若功力不足则虚浮斜晃。",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 343,
+        "line_end": 357,
+        "text": "卖武汉子朗诵四门刀法刀诀并演示大鹏展翅等招式。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ying_zhua_yan_xing_men_wu_gong",
+    "name": "鹰爪雁行门武功",
+    "type": "指法",
+    "faction": "鹰爪雁行门",
+    "rank": "出神入化",
+    "one_line": "鹰爪雁行门武功以鹰爪力等外门硬功见长，可将骨牌嵌入桌面。",
+    "techniques": [
+      {
+        "id": "tech_dao_ye_jiu_niu_wei",
+        "name": "倒曳九牛尾",
+        "type": "debuff",
+        "description": "抓住对方手腕就势回拖的擒拿手，周铁鹪用以拦阻胡斐。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "硬功",
+        "description": "苦练指掌劲力与外门硬功。"
+      },
+      {
+        "level": "精深",
+        "description": "能以骨牌嵌桌展示鹰爪力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "指掌硬劲可擒拿伤敌。"
+      },
+      {
+        "type": "特殊",
+        "description": "可凭劲力震物入木，威慑同道。"
+      }
+    ],
+    "combat_style": "指掌硬劲刚猛，重擒拿、直击和外门劲力。",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 609,
+        "line_end": 609,
+        "text": "周铁鹪以本门绝技鹰爪力将骨牌嵌入桌中。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 871,
+        "line_end": 881,
+        "text": "周铁鹪施展倒曳九牛尾和鹰爪擒拿手，却被胡斐反拖挫败。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ba_gua_men_wu_gong",
+    "name": "八卦门武功",
+    "type": "掌法",
+    "faction": "八卦门",
+    "rank": "炉火纯青",
+    "one_line": "八卦门武功以步法内扣、刀掌兼修见长，王氏兄弟功夫深厚。",
+    "techniques": [
+      {
+        "id": "tech_ba_gua_bu",
+        "name": "八卦步",
+        "type": "buff",
+        "description": "脚尖稍斜向里，行走间显出八卦门深厚步法根基。"
+      },
+      {
+        "id": "tech_ba_gua_zhang",
+        "name": "八卦掌",
+        "type": "attack",
+        "description": "八卦门掌法旧为胡斐在商家堡所见，招式清晰深刻。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "练步法与掌刀基本门户。"
+      },
+      {
+        "level": "深厚",
+        "description": "脚步落地即可显出门派功夫。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "步法稳健灵活。"
+      },
+      {
+        "type": "伤害",
+        "description": "刀掌兼修可攻敌门户。"
+      }
+    ],
+    "combat_style": "环转步法配合掌刀变化，重身法和门户。",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 729,
+        "line_end": 731,
+        "text": "胡斐从两人脚尖稍斜向里认出八卦门功夫深厚。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_hu_men_wu_gong",
+    "name": "五虎门武功",
+    "type": "掌法",
+    "faction": "五虎门",
+    "rank": "炉火纯青",
+    "one_line": "凤天南所用五虎门武功，近身拳脚狠辣，逃命时还暗藏匕首。",
+    "techniques": [
+      {
+        "id": "tech_bi_shou_liao_ci",
+        "name": "匕首撩刺",
+        "type": "attack",
+        "description": "右腕翻出短刃，自下撩刺小腹的狠辣近身招。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "实战",
+        "description": "以拳脚与短刃狠辣求生。"
+      },
+      {
+        "level": "掌门",
+        "description": "可在五虎门称掌门，但遇胡斐明显不敌。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "拳脚短刃可造成近身杀伤。"
+      }
+    ],
+    "combat_style": "狠辣近身，遇险先逃，辅以短刃偷袭。",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 913,
+        "line_end": 919,
+        "text": "凤天南以匕首撩刺胡斐小腹，又左拳跟击。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xi_yue_hua_quan",
+    "name": "西岳华拳",
+    "type": "拳法",
+    "faction": "faction_xi_yue_hua_quan_men",
+    "rank": "炉火纯青",
+    "one_line": "西岳华拳门三百年传承的外门拳脚器械功夫，共有四十八路，招式繁复而精微。",
+    "techniques": [
+      {
+        "id": "tech_feng_juan_pi_li_shang_jiu_tian",
+        "name": "风卷霹雳上九天",
+        "type": "attack",
+        "description": "旋风脚跃起半空横踢的华拳招式。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂拳",
+        "description": "十八路入门登堂拳脚功夫"
+      },
+      {
+        "level": "入室拳",
+        "description": "一十二路入室拳法，精义更深"
+      },
+      {
+        "level": "器械功夫",
+        "description": "一十八路刀枪剑棍器械功夫"
+      }
+    ],
+    "effects": [
+      "近身拳脚攻防",
+      "门派比试夺位",
+      "以外门招式配合内劲制敌"
+    ],
+    "combat_style": "招式繁复、拳掌钩爪并用，步法多变，讲究门派法度与外门劲路。",
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 671,
+        "line_end": 697,
+        "text": "蔡师伯说明西岳华拳门传承华拳四十八，分五支派，掌门需在掌门人大会显本门高招。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 1319,
+        "line_end": 1327,
+        "text": "姬晓峰说明西岳华拳四十八路由十八路登堂拳、十二路入室拳、十八路器械功夫构成。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hou_quan",
+    "name": "猴拳",
+    "type": "掌法",
+    "faction": "faction_hou_quan_da_sheng_men",
+    "rank": "登堂入室",
+    "one_line": "猴拳大圣门所传的摹猴身法拳术。",
+    "techniques": [
+      {
+        "id": "tech_hou_quan_hou_xing_shen_fa",
+        "name": "猴形身法",
+        "type": "buff",
+        "description": "以猴形灵动腾挪贴近对手，强调身形变化和轻捷闪避。"
+      },
+      {
+        "id": "tech_hou_quan_chang_bi_tan_na",
+        "name": "长臂探拿",
+        "type": "attack",
+        "description": "借长臂伸探之势抢拿敌手破绽，兼具擒拿和突袭意味。"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "以形貌身法配合拳路，擅长灵动缠斗。"
+      }
+    ],
+    "combat_style": "灵动怪巧，重形似与猿猴般的手足配合。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 18,
+        "line_end": 20,
+        "text": "同席四人来自猴拳大圣门，掌门老者高顶尖嘴、红腮长臂，带猴儿相。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shen_quan",
+    "name": "神拳",
+    "type": "external",
+    "faction": "神拳门",
+    "rank": "二流",
+    "one_line": "神拳门赖以争夺御杯名位的拳法武功。",
+    "techniques": [
+      {
+        "id": "tech_shen_quan_meng_ji",
+        "name": "神拳猛击",
+        "type": "attack",
+        "description": "以刚猛拳劲正面击敌，体现神拳门武功出类拔萃的外家气势。"
+      },
+      {
+        "id": "tech_shen_quan_shou_shi",
+        "name": "神拳守势",
+        "type": "defense",
+        "description": "以拳架稳守门户，在争杯比武中护住要害并等待反击。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "拳架端正，能以拳劲应敌"
+      },
+      {
+        "level": "精熟",
+        "description": "拳劲刚猛，足以参与掌门争杯"
+      }
+    ],
+    "effects": [
+      "增强拳脚正面威力",
+      "支撑门派名声"
+    ],
+    "combat_style": "刚猛外家拳路，重视拳劲与气势。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 314,
+        "line_end": 316,
+        "text": "王老爷子，你神拳门武功出类拔萃，天下少有人比。"
+      }
+    ]
+  },
+  {
+    "id": "skill_er_lang_quan",
+    "name": "二郎拳",
+    "type": "external",
+    "faction": "二郎拳",
+    "rank": "一流",
+    "one_line": "黄希节所掌门派拳法，刚猛沉重，足以争夺玉龙杯。",
+    "techniques": [
+      {
+        "id": "tech_er_lang_quan_er_lang_dan_shan_zhang",
+        "name": "二郎担山掌",
+        "type": "attack",
+        "description": "拳快力沉的二郎拳绝招。"
+      },
+      {
+        "id": "tech_er_lang_quan_gai_ma_san_quan",
+        "name": "盖马三拳",
+        "type": "attack",
+        "description": "二郎拳中快速沉重的拳掌绝招。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "拳架沉稳，身形如塔"
+      },
+      {
+        "level": "掌门",
+        "description": "能在掌门大会上争夺玉龙杯"
+      }
+    ],
+    "effects": [
+      "增强下盘稳固",
+      "强化拳劲威压"
+    ],
+    "combat_style": "刚猛沉重，重下盘和正面压迫。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 410,
+        "line_end": 422,
+        "text": "一个大汉身如铁塔...二郎拳掌门人黄希节。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 688,
+        "line_end": 694,
+        "text": "黄希节连使英雄独立、打八式跺子脚、扫堂腿等招，二郎拳长处在拳掌。"
+      }
+    ]
+  },
+  {
+    "id": "skill_kun_lun_dao",
+    "name": "昆仑刀",
+    "type": "weapon",
+    "faction": "昆仑刀",
+    "rank": "一流",
+    "one_line": "西灵道人所属门派刀法，虽称刀而掌门不带单刀，显得莫测高深。",
+    "techniques": [
+      {
+        "id": "tech_kun_lun_dao_cang_feng",
+        "name": "昆仑藏锋",
+        "type": "feint",
+        "description": "身上不带单刀而显成竹在胸，以藏锋姿态扰乱旁人判断。"
+      },
+      {
+        "id": "tech_kun_lun_dao_dan_dao_jue",
+        "name": "昆仑单刀诀",
+        "type": "attack",
+        "description": "以昆仑一路单刀法迅疾攻敌，是昆仑刀门派成名根基。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "习练单刀基本路数"
+      },
+      {
+        "level": "掌门",
+        "description": "可不露兵刃而自信应战"
+      }
+    ],
+    "effects": [
+      "强化刀法攻击",
+      "以藏锋造成心理压迫"
+    ],
+    "combat_style": "刀法为名，兼有藏锋惑敌之势。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 430,
+        "line_end": 434,
+        "text": "昆仑刀掌门人西灵道人...身上不带兵刃，似乎成竹在胸。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zui_ba_xian",
+    "name": "醉八仙",
+    "type": "external",
+    "faction": "醉八仙",
+    "rank": "一流",
+    "one_line": "文醉翁所掌醉态武功，以酒醉姿态施展轻灵身法。",
+    "techniques": [
+      {
+        "id": "tech_zhang_guo_lao_dao_qi_lv_shuai_zai_gao_qiao_shang",
+        "name": "张果老倒骑驴摔在高桥上",
+        "type": "special",
+        "description": "文醉翁以倒转身子向后摔入空椅的高明身法，醉态中轻灵准确。"
+      },
+      {
+        "id": "tech_zui_ba_xian_zui_bu",
+        "name": "醉八仙醉步",
+        "type": "feint",
+        "description": "踉跄绕圈似醉非醉，以摇晃步法迷惑敌手并寻找入座或攻击角度。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "能以醉步迷惑旁观者"
+      },
+      {
+        "level": "掌门",
+        "description": "醉态中轻灵入座，足以争玉龙杯"
+      }
+    ],
+    "effects": [
+      "迷惑敌手判断",
+      "提升身法突变"
+    ],
+    "combat_style": "醉态掩护真实身法，虚实莫测。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 440,
+        "line_end": 444,
+        "text": "好吧！留下给我酒鬼装酒喝！...好一招张果老倒骑驴，摔在高桥上！"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_gang_quan",
+    "name": "金刚拳",
+    "type": "external",
+    "faction": "金刚拳",
+    "rank": "一流",
+    "one_line": "周隆所掌刚猛拳法，配合其矮壮如牯牛的体格。",
+    "techniques": [
+      {
+        "id": "tech_jin_gang_quan_ying_feng_da",
+        "name": "迎风打",
+        "type": "attack",
+        "description": "周隆硬挨拳脚后打出的金刚拳重拳。"
+      },
+      {
+        "id": "tech_mo_zhe_lan",
+        "name": "没遮拦",
+        "type": "attack",
+        "description": "周隆锤断欧阳公政肋骨的金刚拳重招。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "拳劲刚硬，身形矮壮有力"
+      },
+      {
+        "level": "掌门",
+        "description": "能代表门派挑战玉龙杯席位"
+      }
+    ],
+    "effects": [
+      "增强正面拳力",
+      "提升硬接能力"
+    ],
+    "combat_style": "刚猛硬打，重力道和耐受。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 452,
+        "line_end": 460,
+        "text": "小人周隆...金刚拳的掌门人...满脸肌肉虬起，身材矮壮，便如一头牯牛相似。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 478,
+        "line_end": 490,
+        "text": "周隆一身横练功夫...一招没遮拦，结结实实的锤中在敌人胸口。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ya_xing_quan",
+    "name": "鸭形拳",
+    "type": "external",
+    "faction": "鸭形门",
+    "rank": "二流",
+    "one_line": "鸭形门武功，模样不中看但马步低、下盘稳，水上功夫尤其了得。",
+    "techniques": [
+      {
+        "id": "tech_ya_xing_quan_di_ma_bu",
+        "name": "鸭形低马步",
+        "type": "defense",
+        "description": "鸭形拳马步低而下盘稳，适合贴地移动和稳住身形。"
+      },
+      {
+        "id": "tech_ya_xing_quan_shui_mian_gong_fu",
+        "name": "鸭形水面功夫",
+        "type": "buff",
+        "description": "鸭形门在水面上尤其了得，能借水势与低身法发挥特长。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "模样不中看但下盘低稳"
+      },
+      {
+        "level": "精熟",
+        "description": "可在水面功夫上称霸一方"
+      }
+    ],
+    "effects": [
+      "增强下盘稳定",
+      "提升水面移动能力"
+    ],
+    "combat_style": "低马步、怪身法，重下盘与水上优势。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 548,
+        "line_end": 570,
+        "text": "鸭形门翻江凫一死...鸭形拳的模样很不中瞧，但马步低，下盘稳，水面上的功夫尤其了得。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xian_tian_quan",
+    "name": "先天拳",
+    "type": "external",
+    "faction": "先天拳",
+    "rank": "二流",
+    "one_line": "创于唐代、传承久远但至清代已趋式微的拳法门派武功。",
+    "techniques": [
+      {
+        "id": "tech_xian_tian_quan_gu_pu_quan_jia",
+        "name": "先天古朴拳架",
+        "type": "defense",
+        "description": "先天拳历代传承下来的古朴拳架，重根基而少锋芒。"
+      },
+      {
+        "id": "tech_xian_tian_quan_liu_zhao_shou",
+        "name": "先天留招手",
+        "type": "special",
+        "description": "历代拳师传技时各自留招，使门派传承渐失完整、威力趋弱。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "传承",
+        "description": "来历甚古，创于唐代"
+      },
+      {
+        "level": "式微",
+        "description": "历代拳师留招，清代已趋式微"
+      }
+    ],
+    "effects": [
+      "保存古拳法根基",
+      "因传承残缺而威力下降"
+    ],
+    "combat_style": "古朴守成，重传承但锋芒不足。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 566,
+        "line_end": 568,
+        "text": "先天拳一派来历甚古，创于唐代...到得清代，已趋式微。"
+      }
+    ]
+  },
+  {
+    "id": "skill_dian_xue",
+    "name": "点穴",
+    "type": "internal",
+    "faction": "江湖",
+    "rank": "一流",
+    "one_line": "以手指扣拿穴道，使对方手足俱软、反抗不得的制敌功夫。",
+    "techniques": [
+      {
+        "id": "tech_kou_qiang_jian_feng_fu",
+        "name": "扣强间风府",
+        "type": "debuff",
+        "description": "以指扣脑后强间、风府两穴，使人手足俱软。"
+      },
+      {
+        "id": "tech_dian_xue_zhi_ren",
+        "name": "点穴制人",
+        "type": "debuff",
+        "description": "通过精准拿按穴位限制对方行动，适合制服而非杀伤。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "识别常用穴位"
+      },
+      {
+        "level": "精熟",
+        "description": "出手即能制住对方行动"
+      }
+    ],
+    "effects": [
+      "限制行动",
+      "令对手手足俱软"
+    ],
+    "combat_style": "精准拿穴，重控制胜过蛮力。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 614,
+        "line_end": 618,
+        "text": "两只手大拇指和食指扭住耳朵，另外三指却分扣两人脑后的强间风府两穴。"
+      }
+    ]
+  },
+  {
+    "id": "skill_di_tang_quan",
+    "name": "地堂拳",
+    "type": "external",
+    "faction": "地堂拳",
+    "rank": "一流",
+    "one_line": "宗雄所掌低身贴地的拳法，专攻对手下三路。",
+    "techniques": [
+      {
+        "id": "tech_di_tang_quan_sui_yi_quan",
+        "name": "碎椅拳",
+        "type": "attack",
+        "description": "一拳打碎紫檀木椅的地堂拳重击。"
+      },
+      {
+        "id": "tech_di_tang_quan_xia_san_lu",
+        "name": "下三路连攻",
+        "type": "attack",
+        "description": "贴地滚打并专攻对方腿脚膝弯。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "能贴地滚动攻击下盘"
+      },
+      {
+        "level": "掌门",
+        "description": "以低身法挑战玉龙杯席位"
+      }
+    ],
+    "effects": [
+      "克制高大对手",
+      "攻击下盘"
+    ],
+    "combat_style": "低身贴地、滚打翻踢，专取下三路。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 654,
+        "line_end": 690,
+        "text": "陕西地堂拳掌门人，宗雄宗老师...宗雄就地滚倒，使了地堂拳出来，手足齐施，专攻对方下三路。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 682,
+        "line_end": 696,
+        "text": "宗雄以地堂拳手足齐施，专攻下三路，踢中黄希节膝弯并绞倒。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shuang_zi_men_wu_gong",
+    "name": "双子门武功",
+    "type": "external",
+    "faction": "双子门",
+    "rank": "一流",
+    "one_line": "倪氏双雄所习的贵州双子门武功，重双人同坐同动的诡奇默契。",
+    "techniques": [
+      {
+        "id": "tech_shuang_zi_fen_jin_he_ji",
+        "name": "分进合击",
+        "type": "attack",
+        "description": "双子门二人一同出手，左右包抄，配合丝丝入扣。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "默契",
+        "description": "孪生兄弟同形同貌，动作习惯一致"
+      },
+      {
+        "level": "掌门",
+        "description": "二人共同执掌双子门并争玉龙杯"
+      }
+    ],
+    "effects": [
+      "增强双人配合",
+      "迷惑对手判断长幼身份"
+    ],
+    "combat_style": "双人合一，诡奇沉默，靠孪生默契扰敌。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 776,
+        "line_end": 792,
+        "text": "贵州双子门的掌门人倪不大、倪不小倪氏双雄...二人都非瘦削，但并排坐在一张椅中。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 858,
+        "line_end": 916,
+        "text": "双子门相传弟子不是双生兄弟便是双生姊妹，跟人动手从不单打独斗。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_hu_men_mai_jie_wu_yi",
+    "name": "五湖门卖解武艺",
+    "type": "external",
+    "faction": "五湖门",
+    "rank": "二流",
+    "one_line": "五湖门世代江湖卖解的武艺，掌门传统上由女子担任。",
+    "techniques": [
+      {
+        "id": "tech_wu_hu_men_qiao_wen",
+        "name": "五湖巧问",
+        "type": "feint",
+        "description": "以轻笑问话试探对手身份与反应，先扰乱对方心神。"
+      },
+      {
+        "id": "tech_wu_hu_men_mai_jie_shen_fa",
+        "name": "卖解身法",
+        "type": "buff",
+        "description": "江湖卖解传承出的灵巧身法，重姿态、眼神与场面调度。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "传承",
+        "description": "世代以江湖卖解为营生"
+      },
+      {
+        "level": "掌门",
+        "description": "女子执掌门派并代表出战"
+      }
+    ],
+    "effects": [
+      "增强场面表现",
+      "以言语和身法试探对手"
+    ],
+    "combat_style": "卖解出身，兼顾表演、灵巧和试探。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 800,
+        "line_end": 808,
+        "text": "凤阳府五湖门掌门人桑飞虹姑娘...五湖门的弟子都是做江湖卖解的营生。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qin_na_shou",
+    "name": "擒拿手",
+    "type": "external",
+    "faction": "江湖",
+    "rank": "一流",
+    "one_line": "以抓拿关节、后颈等要害制服敌人的近身手法。",
+    "techniques": [
+      {
+        "id": "tech_hai_lan_bi_qin_na_zhua",
+        "name": "海兰弼擒拿抓",
+        "type": "attack",
+        "description": "海兰弼快准抓向倪不小后颈的擒拿手。"
+      },
+      {
+        "id": "tech_qin_na_kou_ren",
+        "name": "擒拿扣人",
+        "type": "debuff",
+        "description": "近身扣拿敌人要害，使其难以挣脱。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "能抓拿要害逼敌回防"
+      },
+      {
+        "level": "高手",
+        "description": "可在混战中迅速制住对手"
+      }
+    ],
+    "effects": [
+      "控制敌人",
+      "逼迫回防"
+    ],
+    "combat_style": "近身快抓，重准头与要害控制。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 984,
+        "line_end": 998,
+        "text": "海兰弼一手抓向倪不小的后颈...一出擒拿手。"
+      }
+    ]
+  },
+  {
+    "id": "skill_mian_zhang",
+    "name": "绵掌",
+    "type": "internal",
+    "faction": "江湖",
+    "rank": "一流",
+    "one_line": "汤沛拍向倪不大后腰的柔中寓刚掌法。",
+    "techniques": [
+      {
+        "id": "tech_tang_pei_mian_zhang",
+        "name": "汤沛绵掌",
+        "type": "attack",
+        "description": "汤沛向倪不大后腰拍出的绵掌，令对方踉跄吐血。"
+      },
+      {
+        "id": "tech_mian_zhang_rou_jin",
+        "name": "绵掌柔劲",
+        "type": "debuff",
+        "description": "以柔劲透入对方体内，使其受内伤而难以继续抢人。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门",
+        "description": "掌力柔和绵长"
+      },
+      {
+        "level": "高手",
+        "description": "柔劲可伤人内腑"
+      }
+    ],
+    "effects": [
+      "造成内伤",
+      "柔中藏刚"
+    ],
+    "combat_style": "掌力绵长，表柔实厉。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 986,
+        "line_end": 990,
+        "text": "汤沛却是向倪不大的后腰拍出一掌绵掌...嘴里喷出一口鲜血。"
+      }
+    ]
+  },
+  {
+    "id": "skill_suo_gu_fa",
+    "name": "锁骨法",
+    "type": "external",
+    "faction": "江湖",
+    "rank": "一流",
+    "one_line": "通过锁扣骨节制服敌人的擒拿类法门。",
+    "techniques": [
+      {
+        "id": "tech_suo_gu_fa",
+        "name": "锁骨法",
+        "type": "debuff",
+        "description": "汤沛用于扣住倪氏兄弟的锁拿骨节法门。"
+      },
+      {
+        "id": "tech_suo_gu_kou_jie",
+        "name": "锁骨扣节",
+        "type": "debuff",
+        "description": "锁住敌人骨节使其无法抗拒和挣脱。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "能扣拿骨节限制行动"
+      },
+      {
+        "level": "高手",
+        "description": "可配合掌伤后快速制敌"
+      }
+    ],
+    "effects": [
+      "锁住骨节",
+      "限制反抗"
+    ],
+    "combat_style": "近身锁拿，擅长收束敌人行动。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 996,
+        "line_end": 998,
+        "text": "一出擒拿手，一使锁骨法，分别将倪氏兄弟扣住。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hei_sha_zhang",
+    "name": "黑沙掌",
+    "type": "internal",
+    "faction": "红花会",
+    "rank": "绝顶",
+    "one_line": "西川双侠常氏兄弟驰名天下的毒辣掌法，可令对手手掌紫黑麻辣。",
+    "techniques": [
+      {
+        "id": "tech_hei_sha_zhang_du_sha_jin",
+        "name": "黑沙毒煞劲",
+        "type": "debuff",
+        "description": "掌力相接后令海兰弼、汤沛手掌紫黑麻辣，气血翻涌。"
+      },
+      {
+        "id": "tech_hei_sha_zhang_shuang_gui_pai_men",
+        "name": "双鬼拍门",
+        "type": "attack",
+        "description": "常氏兄弟一人击海兰弼、一人击汤沛，双掌齐出震退两名高手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "掌力带毒煞之感，使人掌心紫黑"
+      },
+      {
+        "level": "绝顶",
+        "description": "可与海兰弼、汤沛对掌并从容退走"
+      }
+    ],
+    "effects": [
+      "掌心紫黑麻辣",
+      "震动气血",
+      "威慑群豪"
+    ],
+    "combat_style": "阴冷迅疾，双人同出，掌毒兼具威势。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 1006,
+        "line_end": 1032,
+        "text": "一个挥掌击向海兰弼，另一个击向汤沛...黑沙掌天下驰名。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xuan_zhi_men_xuan_zhi",
+    "name": "玄指门玄指",
+    "type": "external",
+    "faction": "玄指门",
+    "rank": "一流",
+    "one_line": "玄指门擅打人体三十六大穴的指法，配合上官铁生镔铁烟管更为阴毒。",
+    "techniques": [
+      {
+        "id": "tech_xuan_zhi_san_shi_liu_da_xue",
+        "name": "三十六大穴指",
+        "type": "debuff",
+        "description": "玄指门专打人身三十六大穴，上官铁生以烟管作点穴橛攻击穴道。"
+      },
+      {
+        "id": "tech_yan_guan_mi_xiang",
+        "name": "烟管迷香",
+        "type": "debuff",
+        "description": "上官铁生以烟筒喷出混有迷香的白烟，使桑飞虹头脑晕眩。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "能辨三十六大穴并以烟管代橛"
+      },
+      {
+        "level": "阴毒",
+        "description": "配合迷香和烧红烟斗伤人"
+      }
+    ],
+    "effects": [
+      "点穴制敌",
+      "迷香眩晕",
+      "灼伤对手"
+    ],
+    "combat_style": "烟管、迷香与点穴并用，阴毒诡诈。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 1118,
+        "line_end": 1164,
+        "text": "白烟迎面喷去...玄指门原擅打人身三十六大穴...闻到异香，其中竟混有黑道中所使的迷香。"
+      }
+    ]
+  },
+  {
+    "id": "skill_du_shou_yao_wang_du_yao_yi_shu",
+    "name": "毒手药王毒药医术",
+    "type": "medical",
+    "faction": "毒手药王门下",
+    "rank": "绝顶",
+    "one_line": "程灵素师承毒手药王，能顷刻解开上官铁生独门迷药。",
+    "techniques": [
+      {
+        "id": "tech_jiu_pen_jie_mi_xiang",
+        "name": "酒喷解迷香",
+        "type": "buff",
+        "description": "程灵素含酒喷面，三口便使桑飞虹从迷香昏迷中醒转。"
+      },
+      {
+        "id": "tech_bian_xiang_shi_du",
+        "name": "辨香识毒",
+        "type": "special",
+        "description": "通过气味分辨迷香成分并迅速判断解法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "能辨认黑道迷香"
+      },
+      {
+        "level": "高徒",
+        "description": "顷刻解除独门迷药"
+      }
+    ],
+    "effects": [
+      "解除迷香昏迷",
+      "识别毒香"
+    ],
+    "combat_style": "医毒并用，以解毒和伪装化解危局。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 1196,
+        "line_end": 1224,
+        "text": "那妇人含酒喷醒桑飞虹...若不是毒手药王的高徒，也决不能顷刻解了独门迷药。"
+      }
+    ]
+  },
+  {
+    "id": "skill_meng_gu_shuai_jiao_zhong_zhua_men",
+    "name": "蒙古摔跤中抓门",
+    "type": "external",
+    "faction": "蒙古武林",
+    "rank": "一流",
+    "one_line": "哈赤大师所掌蒙古摔跤门类，最擅腰腿之劲和抓人胸背。",
+    "techniques": [
+      {
+        "id": "tech_zhong_zhua_yao_tui_jin",
+        "name": "中抓腰腿劲",
+        "type": "attack",
+        "description": "以腰腿之劲配合抓胸抓背，抓人百发百中并重摔在地。"
+      },
+      {
+        "id": "tech_meng_gu_shuai_ren",
+        "name": "蒙古摔人",
+        "type": "attack",
+        "description": "抓住对手背心或胸肩后重重摔落，以力取胜。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "抓人胸背，百发百中"
+      },
+      {
+        "level": "掌门",
+        "description": "执掌蒙古摔跤中抓门"
+      }
+    ],
+    "effects": [
+      "重摔对手",
+      "强化腰腿力量"
+    ],
+    "combat_style": "抓拿摔跤，重腰腿和胸背控制。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 1304,
+        "line_end": 1316,
+        "text": "哈赤是蒙古的摔跤高手...中抓门的掌门人，最擅长腰腿之劲。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_nian_shu_sheng_dian_xue_shuai_jiao",
+    "name": "青年书生点穴摔跤",
+    "type": "external",
+    "faction": "不明",
+    "rank": "一流",
+    "one_line": "青年书生精于点穴打穴且娴熟摔跤，滑溜脱困而不伤哈赤。",
+    "techniques": [
+      {
+        "id": "tech_qing_nian_shu_sheng_tan_di",
+        "name": "落地弹起",
+        "type": "buff",
+        "description": "被哈赤重摔时双脚先着地，腿如机括般立刻弹起。"
+      },
+      {
+        "id": "tech_qing_nian_shu_sheng_xi_gai_ti",
+        "name": "膝盖踢软",
+        "type": "debuff",
+        "description": "搂住哈赤脖子后双足踢向膝盖，使其双腿一软跪倒。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "轻功、点穴和摔跤皆有造诣"
+      },
+      {
+        "level": "戏弄",
+        "description": "能不伤敌而令对方狼狈"
+      }
+    ],
+    "effects": [
+      "快速脱困",
+      "点穴打穴",
+      "扰乱大会"
+    ],
+    "combat_style": "轻灵滑溜，点穴摔跤兼用，以戏弄为主。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 1312,
+        "line_end": 1328,
+        "text": "书生落地时双脚先着...精于点穴打穴，于摔跤之术也甚娴熟。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tie_lian_gong",
+    "name": "铁莲功",
+    "type": "external",
+    "faction": "五湖门",
+    "rank": "一流",
+    "one_line": "凤阳府五湖门最擅长的腿法，鞋尖包尖铁，踢中要害可取人性命。",
+    "techniques": [
+      {
+        "id": "tech_yuan_yang_tui",
+        "name": "鸳鸯腿",
+        "type": "attack",
+        "description": "桑飞虹连环腿法之一，小巧灵动，配合铁莲功攻敌。"
+      },
+      {
+        "id": "tech_chuan_xin_tui",
+        "name": "穿心腿",
+        "type": "attack",
+        "description": "铁莲功中的要害攻击腿法，鞋尖带铁，踢中要害可致命。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "能施展多路小巧腿法游斗"
+      },
+      {
+        "level": "掌门",
+        "description": "鞋尖包铁，杀伤凌厉"
+      }
+    ],
+    "effects": [
+      "强化腿法杀伤",
+      "以鞋尖尖铁攻要害"
+    ],
+    "combat_style": "小巧灵活，腿法连绵，专以鞋尖铁莲伤敌。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 1330,
+        "line_end": 1334,
+        "text": "凤阳府五湖门最擅长的武功乃是铁莲功，鞋尖上包以尖铁，只要踢中要害，立可取人性命。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_pei_dian_xue_duo_bei",
+    "name": "汤沛点穴夺杯",
+    "type": "external",
+    "faction": "三才剑",
+    "rank": "绝顶",
+    "one_line": "汤沛以肘锥、锦缎点穴和腿法瞬间擒下书生与桑飞虹并保全三只玉龙杯。",
+    "techniques": [
+      {
+        "id": "tech_tang_pei_zhou_zhui_duo_bei",
+        "name": "肘锥夺杯",
+        "type": "special",
+        "description": "以肘撞腕底令对方玉杯脱手上飞。"
+      },
+      {
+        "id": "tech_tang_pei_jin_duan_dian_xue",
+        "name": "锦缎点穴",
+        "type": "debuff",
+        "description": "隔锦缎点中云门、曲池、合谷三穴，使对方肩臂无力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "高手",
+        "description": "能以话术诱敌，近身点穴夺杯"
+      },
+      {
+        "level": "绝顶",
+        "description": "瞬息打倒二人且保三只玉杯无损"
+      }
+    ],
+    "effects": [
+      "夺取玉杯",
+      "点穴制敌",
+      "保护器物不损"
+    ],
+    "combat_style": "笑语诱敌后突施点穴，胆识、准头与速度俱高。",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 1464,
+        "line_end": 1474,
+        "text": "汤沛肘锥、锦缎点穴、飞足同时施展，瞬间打倒二人并保全三只玉龙杯。"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_yan_yin_suo",
+    "name": "飞燕银梭",
+    "type": "暗器",
+    "faction": "红花会",
+    "rank": "出神入化",
+    "one_line": "赵半山独创的回旋暗器手法，可夺物、灭烛并扰乱强敌。",
+    "techniques": [
+      {
+        "id": "tech_yin_suo_qu_bei",
+        "name": "银梭取杯",
+        "type": "special",
+        "description": "以弧形银梭钩住远处玉杯，在众暗器拦截中仍能得手。"
+      },
+      {
+        "id": "tech_hui_suo_mie_zhu",
+        "name": "回梭灭烛",
+        "type": "attack",
+        "description": "连发暗器打熄红烛，借黑暗制造混乱并掩护同伴撤离。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "赵半山能在高手环伺之下精准夺杯灭烛。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "扰乱视线并牵制卫士。"
+      },
+      {
+        "type": "特殊",
+        "description": "夺取物件后回收暗器。"
+      }
+    ],
+    "combat_style": "奇巧迅疾，重在出其不意与制造混乱。",
+    "rag_refs": [
+      "第十八章第44-78行"
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 44,
+        "line_end": 78,
+        "text": "赵半山见福康安神色和言语间已然起疑，不待他下令拿人，先下手为强，发出一枚飞燕银梭，抢了一只玉杯。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_long_jian",
+    "name": "天龙剑",
+    "type": "剑法",
+    "faction": "天龙门",
+    "rank": "出神入化",
+    "one_line": "天龙剑在田归农手中可连鞘施展，并转化为点穴笔法。",
+    "techniques": [
+      {
+        "id": "tech_tian_long_lian_qiao",
+        "name": "连鞘点穴",
+        "type": "special",
+        "description": "长剑不出鞘，借剑鞘疾点对手穴道。"
+      },
+      {
+        "id": "tech_liu_lin_huan_jian",
+        "name": "柳林换锏",
+        "type": "attack",
+        "description": "以剑鞘横砸如铁锏，骤变兵器路数击敌。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "高深",
+        "description": "田归农能以剑法转作笔法、锏法，克制双锤。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "点中穴道限制对手行动。"
+      },
+      {
+        "type": "伤害",
+        "description": "剑鞘横砸可伤筋骨。"
+      }
+    ],
+    "combat_style": "阴柔多变，善于借招式转换取巧。",
+    "rag_refs": [
+      "第十八章第318-324行"
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 318,
+        "line_end": 324,
+        "text": "田归农长剑始终不出鞘，但一招一式，仍依着“天龙剑”的剑法使动。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_wu_lang_gun_fa",
+    "name": "五郎棍法",
+    "type": "掌法",
+    "faction": "五台派",
+    "rank": "炉火纯青",
+    "one_line": "五郎棍法招熟力猛，兼有锁喉枪法变化，但仍败于田归农剑刀合用。",
+    "techniques": [
+      {
+        "id": "tech_tui_chuang_wang_yue",
+        "name": "推窗望月",
+        "type": "attack",
+        "description": "五郎棍法招式之一，以棍势打开门户后进击。"
+      },
+      {
+        "id": "tech_qing_long_chu_dong",
+        "name": "青龙出洞",
+        "type": "attack",
+        "description": "从锁喉枪法变化而来，铁棍向前直送，奇险而讲究分寸。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "李廷豹凭此驰名北方诸省。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "铁棍圈点劈轧，力猛势沉。"
+      },
+      {
+        "type": "特殊",
+        "description": "可兼取枪法奇险变化。"
+      }
+    ],
+    "combat_style": "刚猛厚重，招式熟练，兼有枪棍变化。",
+    "rag_refs": [
+      "第十八章第368-468行"
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 368,
+        "line_end": 468,
+        "text": "李廷豹使开五郎棍法，一招招“推窗望月”、“背棍撞钟”、“白猿问路”、“横拦天门”。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 456,
+        "line_end": 468,
+        "text": "李廷豹使开五郎棍法，一招招“推窗望月”、“背棍撞钟”、“白猿问路”、“横拦天门”。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_tian_long_men_wu_xue",
+    "name": "天龙门武学",
+    "type": "剑法",
+    "faction": "天龙门",
+    "rank": "出神入化",
+    "one_line": "田归农兼用长剑与宝刀，能以宝刀削断重棍并断筋取胜。",
+    "techniques": [
+      {
+        "id": "tech_bao_dao_duan_gun",
+        "name": "宝刀断棍",
+        "type": "attack",
+        "description": "以天龙门宝刀削断铁棍，破坏对方兵器。"
+      },
+      {
+        "id": "tech_duan_jin_zhi_sheng",
+        "name": "断筋制胜",
+        "type": "debuff",
+        "description": "借刀锋断敌手筋，使对手失去再战能力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "高深",
+        "description": "田归农以剑刀并用压制李廷豹。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "宝刀锋利可断兵器伤筋。"
+      },
+      {
+        "type": "控制",
+        "description": "废去对手继续作战能力。"
+      }
+    ],
+    "combat_style": "剑刀并施，偏重阴狠取胜。",
+    "rag_refs": [
+      "第十八章第456-486行"
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 456,
+        "line_end": 486,
+        "text": "田归农却又加上那柄宝刀，将李廷豹逼得自杀。"
+      }
+    ]
+  },
+  {
+    "id": "skill_du_shou_yao_wang_du_shu",
+    "name": "毒手药王毒术",
+    "type": "暗器",
+    "faction": "毒手药王一脉",
+    "rank": "返璞归真",
+    "one_line": "毒手药王一脉擅医毒与解毒，能迅速判断并压制铁菩提毒性。",
+    "techniques": [
+      {
+        "id": "tech_yao_gao_jie_du",
+        "name": "药膏解毒",
+        "type": "buff",
+        "description": "以随身药膏涂敷中毒处，使颤抖昏厥者迅速缓解。"
+      },
+      {
+        "id": "tech_du_wu_wei_she",
+        "name": "毒物威慑",
+        "type": "debuff",
+        "description": "凭毒手药王名号与毒术认知，使群豪不敢靠近。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "宗师",
+        "description": "毒手药王名号一出，全场骇然避让。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "救治毒伤。"
+      },
+      {
+        "type": "控制",
+        "description": "以毒名震慑群豪。"
+      }
+    ],
+    "combat_style": "医毒并重，重在识毒、制毒与解毒。",
+    "rag_refs": [
+      "第十八章第598-632行",
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 598,
+        "line_end": 632,
+        "text": "毒手药王四字一出，旁人还没怎地，胡斐和程灵素已是心头剧震。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 18,
+        "line_end": 24,
+        "text": "程灵素突然抓住胡斐手臂叫且慢，随后扬动左手，一股紫褐色粉末飞向床板底下。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ke_jia_qi_ban_an_qi",
+    "name": "柯家七般暗器",
+    "type": "暗器",
+    "faction": "兰州柯家",
+    "rank": "炉火纯青",
+    "one_line": "柯家暗器重准头与暗劲，两枚丧门钉同时射出也极见功夫。",
+    "techniques": [
+      {
+        "id": "tech_tie_pu_ti_tan_she",
+        "name": "铁菩提弹射",
+        "type": "attack",
+        "description": "以强劲指力弹出铁菩提，小物也能折骨伤人。"
+      },
+      {
+        "id": "tech_sang_men_ding_lian_she",
+        "name": "丧门钉连射",
+        "type": "attack",
+        "description": "一次发射两枚丧门钉，劲道阴毒，专攻要害。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "柯子容少年时暗器功夫并未搁下。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "暗器密集伤敌。"
+      },
+      {
+        "type": "特殊",
+        "description": "多种暗器轮番施展。"
+      }
+    ],
+    "combat_style": "贵精不贵多，讲究准头和变化。",
+    "rag_refs": [
+      "第十八章第578-914行"
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 578,
+        "line_end": 914,
+        "text": "柯家七般暗器在西北一带大大有名。"
+      },
+      {
+        "chapter": 18,
+        "line_start": 898,
+        "line_end": 914,
+        "text": "这次是两枚暗器同时射出，柯子容发射暗器贵精不贵多。"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_yun_zhou_shou_fa",
+    "name": "云帚手法",
+    "type": "兵器运用",
+    "faction": "九家半",
+    "rank": "一流",
+    "one_line": "以云帚格挡暗器、吸拔银针的护身手法。",
+    "techniques": [
+      {
+        "id": "tech_yun_zhou_dang_an_qi",
+        "name": "云帚挡暗器",
+        "type": "防御",
+        "description": "借云帚丝丛与身后挥扫，遮护身后之人并挡开来袭暗器。"
+      },
+      {
+        "id": "tech_ci_tie_xi_zhen",
+        "name": "磁铁吸针",
+        "type": "解危",
+        "description": "利用云帚中暗藏磁铁，将深入穴道的镀银铁针向外吸出。"
+      }
+    ],
+    "progression": [
+      "持帚护身",
+      "身后挥帚挡暗器",
+      "以磁铁吸拔银针"
+    ],
+    "effects": [
+      "格挡暗器",
+      "救治中针之人",
+      "在混战中保护同伴"
+    ],
+    "combat_style": "机巧护身，偏重防御与解危。",
+    "rag_refs": [
+      "袁紫衣右手云帚护住胡斐、程灵素，又以磁铁吸出银针。"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 58,
+        "line_end": 66,
+        "text": "右手云帚在身后一挥，似是挡架什么暗器，并从胡斐穴道中起出银针。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_ying_yin_zhen",
+    "name": "无影银针",
+    "type": "暗器机关",
+    "faction": "汤沛",
+    "rank": "一流",
+    "one_line": "汤沛藏于靴中、由足跟触地发射的脚尖银针暗器。",
+    "techniques": [
+      {
+        "id": "tech_jiao_jian_fa_zhen",
+        "name": "脚尖发针",
+        "type": "暗器",
+        "description": "足跟在地下一碰，足尖机关便无声射出银针。"
+      },
+      {
+        "id": "tech_yin_zhen_tou_xi",
+        "name": "银针偷袭",
+        "type": "暗袭",
+        "description": "趁对手转身或混乱时从脚尖发针，难以察觉。"
+      }
+    ],
+    "progression": [
+      "靴中藏针",
+      "足跟触发",
+      "脚尖射出银针"
+    ],
+    "effects": [
+      "无影无踪伤人",
+      "制造比武作弊假象",
+      "可连续发射十余枚"
+    ],
+    "combat_style": "机关暗器，重在隐蔽偷袭。",
+    "rag_refs": [
+      "程灵素指出无影银针是汤沛脚尖上放的。"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 478,
+        "line_end": 480,
+        "text": "无影银针是汤沛脚尖上放的，正是装在靴中的巧妙暗器。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_pei_jian_fa",
+    "name": "汤沛剑法",
+    "type": "剑法",
+    "faction": "三才剑",
+    "rank": "一流",
+    "one_line": "汤沛临敌破窗时使用的剑法，能以回身斩阻敌追击。",
+    "techniques": [
+      {
+        "id": "tech_ye_ma_hui_tou",
+        "name": "野马回头",
+        "type": "剑招",
+        "description": "冲向窗口时向后回斩，封住追击路线。"
+      },
+      {
+        "id": "tech_chuang_kou_hui_zhan",
+        "name": "窗口回斩",
+        "type": "脱身",
+        "description": "借破窗逃遁之势回剑断后，使追敌难以近身。"
+      }
+    ],
+    "progression": [
+      "持剑迎敌",
+      "回身断后",
+      "破窗脱身"
+    ],
+    "effects": [
+      "阻挡追击",
+      "辅助逃遁",
+      "制造间隔"
+    ],
+    "combat_style": "工于心计，剑招服务于脱身与反击。",
+    "rag_refs": [
+      "汤沛转身冲向窗口，一剑野马回头向后斩出。"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 486,
+        "line_end": 488,
+        "text": "汤沛转身冲向窗口，一剑野马回头向后斩出。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_huan_zhi_zhang",
+    "name": "奇幻指掌",
+    "type": "指掌功夫",
+    "faction": "未知",
+    "rank": "绝顶",
+    "one_line": "郊外福康安般人物以剪刀指点穴、掌力外吐的高明武学。",
+    "techniques": [
+      {
+        "id": "tech_jian_zhi_dian_xue",
+        "name": "剪指点穴",
+        "type": "点穴",
+        "description": "食中二指成剪刀形，疾点会宗、阳池两穴。"
+      },
+      {
+        "id": "tech_shen_bi_tu_zhang",
+        "name": "伸臂吐掌",
+        "type": "掌法",
+        "description": "手臂已伸在外仍不弯臂，掌力直接送出。"
+      }
+    ],
+    "progression": [
+      "剪指点穴",
+      "翻指成掌",
+      "伸臂吐劲"
+    ],
+    "effects": [
+      "逼胡斐变招",
+      "以内力震退对手",
+      "显示绝顶武学"
+    ],
+    "combat_style": "招数奇幻、内力雄浑，出手随意而高明。",
+    "rag_refs": [
+      "福康安般人物以剪刀指点穴，又伸臂吐掌震退胡斐。"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 798,
+        "line_end": 806,
+        "text": "右手食指和中指成剪刀形点穴，随后翻成掌形吐出掌力。"
+      }
+    ]
+  },
+  {
+    "id": "skill_du_bi_kuai_jian",
+    "name": "独臂快剑",
+    "type": "剑法",
+    "faction": "未知",
+    "rank": "绝顶",
+    "one_line": "独臂道人拔剑极快，一瞬间连刺八剑的高明剑法。",
+    "techniques": [
+      {
+        "id": "tech_shun_xi_ba_jian",
+        "name": "瞬息八剑",
+        "type": "快剑",
+        "description": "一瞬之间青光闪动，连续刺出八剑。"
+      },
+      {
+        "id": "tech_nian_jian_wu_sheng",
+        "name": "粘剑无声",
+        "type": "剑法",
+        "description": "长剑一掠粘住刀身，刀剑相接却半点声音也无。"
+      }
+    ],
+    "progression": [
+      "拔剑如电",
+      "连刺八剑",
+      "粘剑无声"
+    ],
+    "effects": [
+      "压迫敌手防守",
+      "测试胡家刀法",
+      "以快剑抢先"
+    ],
+    "combat_style": "迅捷凌厉，兼具快与巧。",
+    "rag_refs": [
+      "独臂道人青光一闪拔剑，瞬息连刺八剑。"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 852,
+        "line_end": 870,
+        "text": "独臂道人拔剑手法极快，瞬间连刺八剑，后又粘住胡斐刀剑。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 980,
+        "line_end": 986,
+        "text": "独臂道人剑法凌厉，迅捷无伦，往往刺出四五剑。"
+      }
+    ],
+    "battle_use": "独臂道人剑法凌厉迅捷，在常人一剑之间往往刺出四五剑。",
+    "relationships": []
+  },
+  {
+    "id": "skill_si_xiang_bu_fa",
+    "name": "四象步法",
+    "type": "步法",
+    "faction": "胡家",
+    "rank": "一流",
+    "one_line": "胡斐从小所学、可在多名高手间穿插闪避的步法。",
+    "techniques": [
+      {
+        "id": "tech_dong_kua_xi_tui",
+        "name": "东跨西退",
+        "type": "身法",
+        "description": "东跨一步，西退半步，借方位变化穿插敌阵。"
+      },
+      {
+        "id": "tech_kong_shou_ru_bai_ren",
+        "name": "空手入白刃",
+        "type": "空手应敌",
+        "description": "兵刃脱手后以步法和肘槌在兵刃间游走反击。"
+      }
+    ],
+    "progression": [
+      "方位变换",
+      "穿插闪避",
+      "空手反击"
+    ],
+    "effects": [
+      "避开重兵器",
+      "牵制多名敌人",
+      "制造反击空隙"
+    ],
+    "combat_style": "灵活穿插，适合以少敌多。",
+    "rag_refs": [
+      "胡斐展开从小便学会的四象步法，在四名高手侍卫之间穿来插去。"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 1086,
+        "line_end": 1096,
+        "text": "胡斐兵刃离手后展开四象步法，在四名高手侍卫之间穿行。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 1096,
+        "line_end": 1108,
+        "text": "四象步按四象二十八宿变化，使胡斐在四名侍卫之间调息自保。"
+      }
+    ],
+    "principle": "按东青龙、西白虎、北玄武、南朱雀四象与二十八宿变化，能在数寸之差避兵刃。",
+    "relationships": []
+  },
+  {
+    "id": "skill_duan_gu_qin_na",
+    "name": "断骨擒拿",
+    "type": "擒拿",
+    "faction": "胡家",
+    "rank": "一流",
+    "one_line": "胡斐家传所长，用小巧阴损手法断腕折臂破摔跤。",
+    "techniques": [
+      {
+        "id": "tech_shuang_tou_xiang_zhuang",
+        "name": "双头相撞",
+        "type": "擒拿",
+        "description": "顺势合力使拉住双手的两人脑门相撞。"
+      },
+      {
+        "id": "tech_niu_wan_duan_bi",
+        "name": "扭腕断臂",
+        "type": "擒拿",
+        "description": "反抓敌手腕臂，一扭即断骨。"
+      }
+    ],
+    "progression": [
+      "顺势脱缚",
+      "合力撞头",
+      "扭腕断臂",
+      "点穴抛摔"
+    ],
+    "effects": [
+      "破解缠抱",
+      "折断骨节",
+      "制服摔跤高手"
+    ],
+    "combat_style": "小巧狠辣，专破近身缠斗。",
+    "rag_refs": [
+      "胡斐以家传断骨擒拿破五名蒙古侍卫。"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 1168,
+        "line_end": 1188,
+        "text": "胡斐喜道擒拿手法是家传所长，随即扭断侍卫腕骨臂骨。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zang_seng_zhen_shi",
+    "name": "藏僧阵势",
+    "type": "阵法",
+    "faction": "大内十八高手",
+    "rank": "一流",
+    "one_line": "九名藏僧错落合围、各持奇门兵刃的围攻阵势。",
+    "techniques": [
+      {
+        "id": "tech_cuo_luo_he_wei",
+        "name": "错落合围",
+        "type": "阵势",
+        "description": "九僧东一个西一个错落站位，步履轻稳地围住敌手。"
+      },
+      {
+        "id": "tech_qi_bing_he_ji",
+        "name": "奇兵合击",
+        "type": "合击",
+        "description": "戒刀、锡杖、金杵等奇形兵刃各据方位合攻。"
+      }
+    ],
+    "progression": [
+      "错落站位",
+      "奇兵围合",
+      "合阵压迫"
+    ],
+    "effects": [
+      "围困无兵刃对手",
+      "制造阵势压力",
+      "迫使敌人夺兵器"
+    ],
+    "combat_style": "沉默凝重，以合围阵势取胜。",
+    "rag_refs": [
+      "九名藏僧各挺兵刃将胡斐团团围住，似是布成阵势。"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 1204,
+        "line_end": 1212,
+        "text": "九名藏僧各挺兵刃，错错落落，似是布成阵势。"
+      }
+    ]
+  },
+  {
+    "id": "skill_mian_li_zhen_jian_zhang",
+    "name": "绵里针剑掌",
+    "type": "剑掌功夫",
+    "faction": "武当派",
+    "rank": "绝顶",
+    "one_line": "陆菲青剑招迅捷凌厉，掌力柔和中藏辛辣煞气。",
+    "techniques": [
+      {
+        "id": "tech_bei_hou_lian_ci",
+        "name": "背后连刺",
+        "type": "剑招",
+        "description": "从背后连刺五剑，剑招迅捷使对手无暇转身。"
+      },
+      {
+        "id": "tech_rou_zhong_cang_sha",
+        "name": "柔中藏煞",
+        "type": "掌力",
+        "description": "掌力柔和浑厚，内中暗藏辛辣煞气。"
+      }
+    ],
+    "progression": [
+      "背后试剑",
+      "连刺逼身",
+      "掌力相认"
+    ],
+    "effects": [
+      "逼敌难以转身",
+      "试探真实武功",
+      "以掌力识别对手"
+    ],
+    "combat_style": "柔中有针，剑快掌藏煞。",
+    "rag_refs": [
+      "陆菲青背后连刺五剑，又以柔和浑厚掌力与胡斐相交。"
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 1244,
+        "line_end": 1266,
+        "text": "无青子背后连刺五剑，与胡斐双掌相交，掌力柔和中藏辛辣煞气。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ruan_bian_bian_fa",
+    "name": "软鞭鞭法",
+    "type": "暗器",
+    "faction": null,
+    "rank": "一流高手",
+    "one_line": "圆性所用软鞭功夫，轻灵缠绕，能以马鞭制敌。",
+    "techniques": [
+      {
+        "id": "tech_yang_guan_zhe_liu",
+        "name": "阳关折柳",
+        "type": "attack",
+        "description": "鞭势轻柔却能圈住敌人头颈。"
+      },
+      {
+        "id": "tech_ma_bian_qian_yin",
+        "name": "马鞭牵引",
+        "type": "control",
+        "description": "借马鞭牵拉敌人，使对方失去平衡和呼吸。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "墓地突围",
+        "description": "圆性带伤仍能以马鞭圈住高一力。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "缠颈制敌，打乱围攻阵势。"
+      }
+    ],
+    "combat_style": "轻灵缠绕，借鞭势控制敌人要害。",
+    "rag_refs": [
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 1258,
+        "line_end": 1260,
+        "text": "圆性马鞭轻挥，使一招软鞭鞭法中的阳关折柳。"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiu_jian",
+    "name": "袖箭",
+    "type": "暗器",
+    "faction": "飞马镖局",
+    "rank": "普通",
+    "one_line": "袖箭是藏于袖中的暗器，马春花曾欲以此出手，马行空也曾用袖箭惩戒偷看演武者。",
+    "techniques": [
+      {
+        "id": "tech_xiu_jian_tu_fa",
+        "name": "袖箭突发",
+        "type": "attack",
+        "description": "由袖中突然射出短箭，出其不意伤敌或震慑对方。"
+      },
+      {
+        "id": "tech_xiu_jian_she_mu",
+        "name": "袖箭射目",
+        "type": "attack",
+        "description": "瞄准眼目等脆弱部位发射袖箭，可致盲但也可刻意留力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "江湖暗器",
+        "description": "飞马镖局一脉可用的袖中暗器。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可射伤眼目或打退近身敌人。"
+      }
+    ],
+    "combat_style": "袖中突发，倚仗隐蔽与速度",
+    "rag_refs": [
+      1,
+      "registry-repair-2026-06-09"
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 82,
+        "line_end": 86,
+        "text": "马春花回想马行空试发袖箭，将偷看演武者打瞎一只眼但手下留情。"
+      },
+      {
+        "chapter": 1,
+        "line_start": 464,
+        "line_end": 464,
+        "text": "马春花扬起右臂，想发一枝袖箭，马行空喝止。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 976,
+        "line_end": 976,
+        "text": "锅盖和铁锅中列有袖箭等多种暗器。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yin_si_bian",
+    "name": "银丝鞭",
+    "type": "鞭法",
+    "faction": "袁紫衣",
+    "rank": "精妙",
+    "one_line": "银丝鞭是袁紫衣以银丝软鞭施展的长兵技法，可远距击穴、卷物和制敌。",
+    "techniques": [
+      {
+        "id": "tech_yin_si_bian_da_xue",
+        "name": "银丝鞭打穴",
+        "type": "control",
+        "description": "以鞭端金球绕背回肩，精准击打大椎、巨骨等穴位。"
+      },
+      {
+        "id": "tech_yin_si_bian_juan_wu",
+        "name": "银丝鞭卷物",
+        "type": "control",
+        "description": "用鞭梢卷帽、卷兵刃或缠绕敌人，变化轻巧。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "袁紫衣专长",
+        "description": "袁紫衣在马上挥鞭压制胡斐，显示高明软兵功夫。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "可隔远击穴、卷落帽物、牵制短兵。"
+      }
+    ],
+    "combat_style": "长兵远击，柔中有刚，鞭端金球变化多端",
+    "rag_refs": [
+      6,
+      7,
+      "registry-repair-2026-06-09"
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 874,
+        "line_end": 890,
+        "text": "袁紫衣抽出银丝缠就、鞭端有金球的软鞭，挥鞭攻向胡斐。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 884,
+        "line_end": 918,
+        "text": "银丝软鞭绕背回肩，以金球击打大椎、巨骨等穴位。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 247,
+        "line_end": 307,
+        "text": "袁紫衣以银丝鞭卷桅上升，并绕桅缚住易吉。"
+      }
+    ]
+  }
+]
