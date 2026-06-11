@@ -1,0 +1,534 @@
+{
+  "characters": [
+    {
+      "id": "char_li_huai",
+      "name": "李坏",
+      "alias": [
+        "李家二少爷",
+        "浪子"
+      ],
+      "identity": "李家二少爷，飞刀传人",
+      "faction": "李家",
+      "role": "protagonist",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "天下无双的飞刀传人，浪子李家二少爷",
+      "personality": {
+        "traits": [
+          "顽皮",
+          "洒脱",
+          "聪明",
+          "勇敢",
+          "不羁",
+          "深情"
+        ],
+        "speech_style": "调侃戏谑，时而认真",
+        "temperament": "外冷内热，玩世不恭"
+      },
+      "relationships": [
+        {
+          "target": "char_tie_yin_yi",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "从对抗到合作"
+        }
+      ],
+      "known_skills": [
+        "skill_fei_dao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        1,
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 2,
+          "line_end": 3,
+          "text": "你要我回去，我就跟你回去。你至少也应该答应我一件事。"
+        }
+      ]
+    },
+    {
+      "id": "char_tie_yin_yi",
+      "name": "铁银衣",
+      "alias": [
+        "铁大总管"
+      ],
+      "identity": "李家大总管",
+      "faction": "李家",
+      "role": "companion",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "纵横天下二十年的李家大总管，冷静冷酷",
+      "personality": {
+        "traits": [
+          "冷静",
+          "冷酷",
+          "忠诚",
+          "老练",
+          "深沉",
+          "威严"
+        ],
+        "speech_style": "冷淡严肃，一字一顿",
+        "temperament": "城府极深，不动声色"
+      },
+      "relationships": [
+        {
+          "target": "char_li_huai",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "保护与引导"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 8,
+          "line_end": 10,
+          "text": "好，我请你喝酒。我一定让你痛痛快快地喝一顿。"
+        }
+      ]
+    },
+    {
+      "id": "char_she_yao_ren_yao",
+      "name": "蛇腰人妖",
+      "alias": [
+        "饱州六妖之一"
+      ],
+      "identity": "饱州六妖中的一妖，人妖",
+      "faction": "饱州六妖",
+      "role": "npc",
+      "archetype": "assassin",
+      "rank": "登堂入室",
+      "one_line": "腰肢如蛇般柔软的人妖，饱州六妖之一",
+      "personality": {
+        "traits": [
+          "妖媚",
+          "诡秘",
+          "诱惑",
+          "灵动",
+          "怪异"
+        ],
+        "speech_style": "妩媚，以姿态代替言语",
+        "temperament": "妖异诡秘"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 112,
+          "line_end": 120,
+          "text": "一个非常奇怪的人，用一种非常奇怪的姿态和步伐走了进来。这个人的腰就像是蛇一样"
+        }
+      ]
+    },
+    {
+      "id": "char_zi_teng_hua",
+      "name": "紫藤花",
+      "alias": [],
+      "identity": "杀手，以豆子为杀人符咒",
+      "faction": "紫藤花",
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "出神入化",
+      "one_line": "以致命豆子为符咒的神秘女杀手",
+      "personality": {
+        "traits": [
+          "妖媚",
+          "冷酷",
+          "自信",
+          "残忍",
+          "神秘",
+          "狡诈"
+        ],
+        "speech_style": "沙哑低沉，柔媚中带着冷意",
+        "temperament": "杀人如草，心狠手辣"
+      },
+      "relationships": [
+        {
+          "target": "char_li_huai",
+          "type": "宿敌",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "追杀与被追杀"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 378,
+          "line_end": 380,
+          "text": "这个人就是李坏？她问铁银衣。"
+        }
+      ]
+    },
+    {
+      "id": "char_xia_zi_lao_ren",
+      "name": "瞎子老人",
+      "alias": [
+        "拉胡琴的老人"
+      ],
+      "identity": "神秘盲人，拉胡琴者",
+      "faction": null,
+      "role": "npc",
+      "archetype": "monk",
+      "rank": "登峰造极",
+      "one_line": "憔悴枯瘦的盲人老者，拉出蚊鸣般胡琴声",
+      "personality": {
+        "traits": [
+          "神秘",
+          "沉默",
+          "深不可测",
+          "沧桑",
+          "孤僻"
+        ],
+        "speech_style": "沉默寡言",
+        "temperament": "深沉内敛"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 318,
+          "line_end": 328,
+          "text": "一个憔悴枯瘦矮小、衣衫褴褛满头白发苍苍的老人...老人的手在拉着胡琴。"
+        }
+      ]
+    },
+    {
+      "id": "char_feng_man_nv_ren",
+      "name": "艳丽女人",
+      "alias": [
+        "徐娘半老的女人"
+      ],
+      "identity": "搀扶瞎子老人的艳丽女人",
+      "faction": null,
+      "role": "npc",
+      "archetype": "assassin",
+      "rank": "登堂入室",
+      "one_line": "丰满高大艳丽的中年女人，搀扶瞎子老人出现",
+      "personality": {
+        "traits": [
+          "艳丽",
+          "华贵",
+          "风韵犹存",
+          "神秘",
+          "沉稳"
+        ],
+        "speech_style": "未直接对话",
+        "temperament": "沉稳内敛"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 318,
+          "line_end": 318,
+          "text": "一个丰满高大艳丽、服饰华贵、虽然已经徐娘半老"
+        }
+      ]
+    },
+    {
+      "id": "char_gong_sun_tai_fu_ren",
+      "name": "公孙太夫人",
+      "alias": [
+        "公孙太夫人"
+      ],
+      "identity": "江湖中最可怕的杀手，资格最老，身价最高",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "返璞归真",
+      "one_line": "一百七十年来江湖中最可怕的杀手，从未失手",
+      "personality": {
+        "traits": [
+          "神秘",
+          "冷酷",
+          "精准",
+          "老练",
+          "威严",
+          "无情"
+        ],
+        "speech_style": "未直接对话",
+        "temperament": "冷酷无情，杀人如草"
+      },
+      "relationships": [
+        {
+          "target": "char_zi_teng_hua",
+          "type": "对手",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "同行竞争"
+        },
+        {
+          "target": "char_yue_shen",
+          "type": "对手",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "同行竞争"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 438,
+          "line_end": 438,
+          "text": "因为公孙太夫人。"
+        }
+      ]
+    },
+    {
+      "id": "char_yue_shen",
+      "name": "月神",
+      "alias": [
+        "月光如刀",
+        "刀如月光"
+      ],
+      "identity": "神秘女杀手",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "出神入化",
+      "one_line": "月光如刀，刀如月光的神秘女杀手",
+      "personality": {
+        "traits": [
+          "神秘",
+          "冷酷",
+          "优雅",
+          "致命",
+          "低调"
+        ],
+        "speech_style": "未直接对话",
+        "temperament": "冷酷优雅"
+      },
+      "relationships": [
+        {
+          "target": "char_gong_sun_tai_fu_ren",
+          "type": "对手",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "同行竞争"
+        },
+        {
+          "target": "char_li_huai",
+          "type": "宿敌",
+          "intensity": 60,
+          "bond_level": 2,
+          "dynamic": "追杀与被追杀"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 466,
+          "line_end": 470,
+          "text": "我好像听说过还有一位月光如刀，刀如月光的月神。"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_fei_dao",
+      "name": "飞刀",
+      "type": "暗器",
+      "faction": "李家",
+      "rank": "登峰造极",
+      "one_line": "天下无双的飞刀绝技，李家传家绝学",
+      "techniques": [
+        {
+          "id": "tech_fei_dao_jue_ji",
+          "name": "飞刀绝技",
+          "type": "attack",
+          "description": "以飞刀为武器的致命暗器功夫，一击必杀"
+        },
+        {
+          "id": "tech_fei_dao_chuan_ren_gong_fa",
+          "name": "飞刀传人功法",
+          "type": "buff",
+          "description": "李家飞刀传人修炼的内功心法"
+        }
+      ],
+      "progression": "登峰造极",
+      "effects": [
+        "一击必杀",
+        "远程攻击"
+      ],
+      "combat_style": "暗器为主，近身为辅",
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 74,
+          "line_end": 74,
+          "text": "因为现在你已是天下无双的飞刀传人。"
+        }
+      ]
+    },
+    {
+      "id": "skill_hu_qin_mo_yin",
+      "name": "豆子符咒",
+      "type": "暗器",
+      "faction": "紫藤花",
+      "rank": "出神入化",
+      "one_line": "紫藤花的致命符咒，接到即死",
+      "techniques": [
+        {
+          "id": "tech_dou_zhi_ming",
+          "name": "豆之命",
+          "type": "attack",
+          "description": "将致命豆子送到目标处，见者即死"
+        },
+        {
+          "id": "tech_dou_zhi_xue",
+          "name": "豆之蚀",
+          "type": "debuff",
+          "description": "豆子入腹后化为脓血，必死无疑"
+        }
+      ],
+      "progression": "出神入化",
+      "effects": [
+        "必杀",
+        "诅咒"
+      ],
+      "combat_style": "远程诅咒，无需近身",
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 238,
+          "line_end": 238,
+          "text": "它是一种符咒，一种可以在顷刻之间致人于死的符咒。"
+        }
+      ]
+    }
+  ],
+  "techniques": [],
+  "factions": [
+    {
+      "id": "faction_li_jia",
+      "name": "李家",
+      "type": "家族",
+      "location": "山城",
+      "sub_divisions": [],
+      "one_line": "以飞刀绝技传家的武林世家",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 64,
+          "line_end": 66,
+          "text": "你是李家的二少爷"
+        }
+      ]
+    },
+    {
+      "id": "faction_bao_zhou_liu_yao",
+      "name": "饱州六妖",
+      "type": "帮派",
+      "location": "饱州",
+      "sub_divisions": [],
+      "one_line": "六个怪异妖媚的人组成的神秘组织",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 184,
+          "line_end": 184,
+          "text": "他只不过是个人妖。饱州六妖中的一妖。"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_gao_di",
+      "name": "高地",
+      "region": "草原",
+      "one_line": "一片平阔的原野，一夜之间搭起二十余顶金色流苏帐篷",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 12,
+          "line_end": 14,
+          "text": "高地，高地上一片平阔。秋风吹过，不见落叶，因为这一块原野上连一棵树木都没有。"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_zhi_ming_dou_zi",
+      "name": "致命豆子",
+      "type": "special",
+      "owner": "char_zi_teng_hua",
+      "one_line": "紫藤花的杀人符咒，接到即死",
+      "description": "一颗看似普通的豆子，却是紫藤花的致命符咒。接到此豆子的人必死无疑，无论身份地位，无人能例外。豆子入腹后会在短时间内化为脓血。",
+      "effects": [
+        "必杀",
+        "诅咒"
+      ],
+      "origin": "紫藤花",
+      "rarity": "绝世神兵",
+      "related_characters": [
+        "char_zi_teng_hua",
+        "char_li_huai"
+      ],
+      "related_skills": [
+        "skill_dou_zi_fu_zhou"
+      ],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 194,
+          "line_end": 198,
+          "text": "在这个铺满了红缎的盒子里装着的，赫然只不过是一颗豆子，一颗小小的豆子。"
+        }
+      ]
+    }
+  ]
+}
