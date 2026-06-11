@@ -1,0 +1,434 @@
+[
+  {
+    "id": "skill_jiu_gong_lian_huan_jian",
+    "name": "九宫连环剑",
+    "type": "剑法",
+    "faction": "faction_wu_dang_jian_pai",
+    "rank": "出神入化",
+    "one_line": "武当剑派名震天下的联剑攻敌之术",
+    "techniques": [
+      {
+        "id": "tech_jiu_gong_lian_huan",
+        "name": "九宫连环",
+        "type": "attack",
+        "description": "四人联剑，攻守兼备，剑剑连环，滴水难入"
+      },
+      {
+        "id": "tech_yun_long_zha_xian",
+        "name": "云龙乍现",
+        "type": "attack",
+        "description": "剑尖一引，变守为攻的起手式"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害",
+      "控制"
+    ],
+    "combat_style": "四人联剑，配合妙到毫巅",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 32,
+        "line_end": 33,
+        "text": "武当四雁并肩而立，剑势配合的佳妙，实已到了滴水难入之境"
+      },
+      {
+        "chapter": 3,
+        "line_start": 42,
+        "line_end": 42,
+        "text": "正是武当剑派名震天下的九宫连环"
+      }
+    ]
+  },
+  {
+    "id": "skill_xuan_qi_qi_yi_shi",
+    "name": "玄奇七一式",
+    "type": "剑法",
+    "faction": "faction_luo_fu_cai_yi",
+    "rank": "出神入化",
+    "one_line": "罗浮剑派镇山剑法，七十一路辛辣狠准",
+    "techniques": [
+      {
+        "id": "tech_huang_feng_che",
+        "name": "黄蜂撤",
+        "type": "attack",
+        "description": "镇山剑法中最辛辣最毒的一招，脱手飞剑，只能使用一次"
+      },
+      {
+        "id": "tech_xuan_qi_zhao_shi",
+        "name": "玄奇招式",
+        "type": "attack",
+        "description": "招招辛辣，招招狠毒的连环剑法"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "辛辣狠准，不惜以命博命",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 44,
+        "line_end": 44,
+        "text": "罗浮玄奇七一式七十一路辛辣而狠准的剑光"
+      },
+      {
+        "chapter": 3,
+        "line_start": 70,
+        "line_end": 70,
+        "text": "镇山剑法玄奇七一式"
+      }
+    ]
+  },
+  {
+    "id": "skill_sha_men_shi_ba_da",
+    "name": "沙门十八打",
+    "type": "指法",
+    "faction": "faction_shao_lin_si",
+    "rank": "出神入化",
+    "one_line": "少林绝顶打穴之法",
+    "techniques": [
+      {
+        "id": "tech_da_xue",
+        "name": "打穴",
+        "type": "attack",
+        "description": "以指力击打对手穴道，使其经脉麻痹"
+      },
+      {
+        "id": "tech_fo_zhu_zhang",
+        "name": "佛珠价",
+        "type": "attack",
+        "description": "以佛珠为武器，可如长鞭般击打对手"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "控制",
+      "伤害"
+    ],
+    "combat_style": "以佛珠为媒介的打穴手法",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 270,
+        "line_end": 270,
+        "text": "木珠大师竟以沙门十八打的绝顶打穴之法"
+      }
+    ]
+  },
+  {
+    "id": "skill_kun_lun_yun_long_shi_ba_shi",
+    "name": "昆仑云龙十八式",
+    "type": "轻功",
+    "faction": "昆仑派",
+    "rank": "登峰造极",
+    "one_line": "昆仑派绝学，身法名传天下",
+    "techniques": [
+      {
+        "id": "tech_kun_lun_yun_long_shi_ba_shi",
+        "name": "云龙十八式",
+        "type": "attack",
+        "description": "昆仑派最高轻功身法，十八式变化无穷"
+      }
+    ],
+    "progression": "已臻化境",
+    "effects": [
+      "轻功卓越",
+      "身法诡变"
+    ],
+    "combat_style": "飘逸灵动",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 834,
+        "line_end": 834,
+        "text": "昆仑云龙十八式的身法虽然名传天下"
+      }
+    ]
+  },
+  {
+    "id": "skill_ru_yi_qing_qian_nei_gong_xin_fa",
+    "name": "如意青钱内功心法",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "来自如意青钱秘笈的无上内功心法，经无数前人研习探讨方发现的捷径",
+    "techniques": [
+      {
+        "id": "tech_ru_yi_qing_qian_nei_gong_xin_fa",
+        "name": "如意青钱内功心法",
+        "type": "buff",
+        "description": "玄妙的内功修炼法门，能大幅提升修炼者的内力和体质，是武林中至高的内功心法"
+      },
+      {
+        "id": "tech_ru_yi_qing_qian_wu_gong_zhao_shi",
+        "name": "如意青钱武功招式",
+        "type": "attack",
+        "description": "秘笈中载的武功招式，太过玄妙，需极高天资方能领悟，普通武林俗手苦练一生亦不能施展"
+      }
+    ],
+    "progression": "管宁已研习数月，初窥门径",
+    "effects": [
+      "内力大增",
+      "体质强化",
+      "目力之明",
+      "出手之快"
+    ],
+    "combat_style": "以意与神会，由心而发，出手奇快",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 82,
+        "line_end": 84,
+        "text": "所习的又是妙绝天下，武林中至高的内功心法"
+      },
+      {
+        "chapter": 6,
+        "line_start": 399,
+        "line_end": 402,
+        "text": "如意青钱上这种前无古人，后无来者……无上武功心法"
+      }
+    ]
+  },
+  {
+    "id": "skill_tie_jin_gang_dao_fa",
+    "name": "铁金刚刀法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "略有小成",
+    "one_line": "铁金刚的折铁快刀刀法，刀光如电可削烛不灭",
+    "techniques": [
+      {
+        "id": "tech_tie_jin_gang_dao_fa",
+        "name": "折铁快刀",
+        "type": "attack",
+        "description": "手持折铁快刀，一刀削过三枝蜡烛而烛光不灭蜡烛不倒，刀法极快极准"
+      }
+    ],
+    "progression": [
+      {
+        "level": "略有小成",
+        "description": "刀法惊人但并非绝顶"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "快速斩击造成切割伤害"
+      }
+    ],
+    "combat_style": "刚猛霸道",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 223,
+        "line_end": 225,
+        "text": "手腕一抖，刀光点点，'刷'的一声，向桌上并排放着的三枝蜡烛削去"
+      }
+    ]
+  },
+  {
+    "id": "skill_zi_shou_yin",
+    "name": "紫手印",
+    "type": "掌法",
+    "faction": "太行派",
+    "rank": "出神入化",
+    "one_line": "太行紫鞭的不传之秘，掌力可在不知不觉中印入对手体内",
+    "techniques": [
+      {
+        "id": "tech_zi_shou_yin",
+        "name": "紫手印",
+        "type": "debuff",
+        "description": "掌力无声无息印入对手体内，造成紫黑色掌印，可致命"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "可在不知不觉间印入掌力"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌力侵入体内造成持续伤害"
+      }
+    ],
+    "combat_style": "阴柔诡秘",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 473,
+        "line_end": 491,
+        "text": "一大一小，一深一浅，一黑一紫，两个深入肌肤的掌印……'紫手印……'"
+      }
+    ]
+  },
+  {
+    "id": "skill_hei_sha_shou",
+    "name": "黑煞手",
+    "type": "掌法",
+    "faction": "终南派",
+    "rank": "出神入化",
+    "one_line": "终南派的镇山掌法，掌力刚猛霸道",
+    "techniques": [
+      {
+        "id": "tech_hei_sha_shou",
+        "name": "黑煞手",
+        "type": "attack",
+        "description": "终南派镇山掌法，掌力刚猛可造成黑色掌印"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "掌力刚猛霸道"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "刚猛掌力造成重击伤害"
+      }
+    ],
+    "combat_style": "刚猛霸道",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 597,
+        "line_end": 599,
+        "text": "他身上的两掌，一掌是终南派的镇山掌法'黑煞手'"
+      }
+    ]
+  },
+  {
+    "id": "skill_e_mei_bao_nang",
+    "name": "峨嵋豹囊",
+    "type": "暗器",
+    "faction": "faction_si_chuan_tang_men",
+    "rank": "出神入化",
+    "one_line": "四川唐门独门暗器绝技，以罗喉神针等七件奇毒暗器驰名天下",
+    "techniques": [
+      {
+        "id": "tech_luo_hou_shen_zhen",
+        "name": "罗喉神针",
+        "type": "attack",
+        "description": "峨嵋豹囊暗器中最霸道的一种，针极细比绣花针还细，见血封喉，一个时辰内毒性发作即丧命"
+      },
+      {
+        "id": "tech_xuan_wu_wu_sha",
+        "name": "玄武乌煞",
+        "type": "debuff",
+        "description": "峨嵋豹囊暗器之一，与罗喉神针合称'玄武乌煞，罗喉神针'"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      "剧毒",
+      "麻痹",
+      "见血封喉"
+    ],
+    "combat_style": "远程暗器",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 518,
+        "line_end": 520,
+        "text": "峨嵋豹囊囊中七件其毒无比的暗器中，最霸道的'玄武乌煞，罗喉神针'"
+      }
+    ]
+  },
+  {
+    "id": "skill_huang_shan_cui_xiu_jian_fa",
+    "name": "黄山翠袖剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "传自初唐公孙大娘的剑法，以快捷凶险见长",
+    "techniques": [
+      {
+        "id": "tech_shen_long_yu_feng",
+        "name": "神龙驭风",
+        "type": "attack",
+        "description": "黄山翠袖剑法中的攻招"
+      }
+    ],
+    "progression": "初窥门径",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "近身肉搏，快捷凶险",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 424,
+        "line_end": 424,
+        "text": "这正是'黄山翠袖'仗以成名的武器，剑法完全是以快捷凶险见长"
+      }
+    ]
+  },
+  {
+    "id": "skill_ru_yi_qing_qian",
+    "name": "如意青钱",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "武林绝传已久的秘笈，载有诸多绝妙招式",
+    "techniques": [
+      {
+        "id": "tech_tie_zha_lan",
+        "name": "铁栅栏",
+        "type": "defense",
+        "description": "如意青钱中的防守妙招，右掌用崩拳一挂，左拳用横拳一闩，兼有铁索横江与如封似闭之长"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "攻守兼备"
+    ],
+    "combat_style": "绝学招式",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 386,
+        "line_end": 386,
+        "text": "这一招也是那'如意青钱'中所载的妙着，仿佛叫做'铁栅栏'"
+      }
+    ]
+  }
+]
