@@ -1,0 +1,270 @@
+{
+  "chapter": 1,
+  "chapter_summary": "陆小凤在黄昏时分踏上黄土，想起七个月前与好友柳如钢（绰号\"一剑乘风\"）的最后一顿酒。柳如钢是巴山第一嫡传掌门弟子，\"七七四十九手回风舞柳剑\"名震江湖，性格刚烈如钢。他透露要去西北边陲一个叫黄石的小镇执行危险任务，但不肯说出具体内容，只说\"你知道我是干什么的\"。此后柳如钢失踪七八个月杳无音讯，陆小凤决定亲自追往黄石寻找好友。",
+  "dialogues": [
+    {
+      "speaker": "char_liu_ru_gang",
+      "speaker_name": "柳如钢",
+      "listener": "char_lu_xiao_feng",
+      "text": "今宵酒醉，从此一别，我们很可能要有三五个月不会见面了。也很有可能从此不复再见。",
+      "tone": "无奈",
+      "chapter": 1,
+      "line_start": 22,
+      "line_end": 22
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_ru_gang",
+      "text": "为什么？",
+      "tone": "疑问",
+      "chapter": 1,
+      "line_start": 24,
+      "line_end": 24
+    },
+    {
+      "speaker": "char_liu_ru_gang",
+      "speaker_name": "柳如钢",
+      "listener": "char_lu_xiao_feng",
+      "text": "因为我明天一早，就要到一个花不香鸟不语鸡不飞狗不跳兔子不拉屎的地方去。",
+      "tone": "陈述",
+      "chapter": 1,
+      "line_start": 26,
+      "line_end": 26
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_ru_gang",
+      "text": "去干什么？",
+      "tone": "疑问",
+      "chapter": 1,
+      "line_start": 28,
+      "line_end": 28
+    },
+    {
+      "speaker": "char_liu_ru_gang",
+      "speaker_name": "柳如钢",
+      "listener": "char_lu_xiao_feng",
+      "text": "你知道我是干什么的，你当然也应该知道我要去干什么。",
+      "tone": "陈述",
+      "chapter": 1,
+      "line_start": 30,
+      "line_end": 30
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_ru_gang",
+      "text": "你要去做的，一定是一件极危险的事，所以才会说这种话。",
+      "tone": "认真",
+      "chapter": 1,
+      "line_start": 52,
+      "line_end": 52
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_ru_gang",
+      "text": "你能不能告诉我，你要去做的这一件是什么事？",
+      "tone": "疑问",
+      "chapter": 1,
+      "line_start": 56,
+      "line_end": 56
+    },
+    {
+      "speaker": "char_lu_xiao_feng",
+      "speaker_name": "陆小凤",
+      "listener": "char_liu_ru_gang",
+      "text": "你要去的那个连兔子都不拉屎的地方，究竟是什么地方？",
+      "tone": "疑问",
+      "chapter": 1,
+      "line_start": 68,
+      "line_end": 68
+    },
+    {
+      "speaker": "char_liu_ru_gang",
+      "speaker_name": "柳如钢",
+      "listener": "char_lu_xiao_feng",
+      "text": "那个地方我说出来你也不会知道，不过我还是可以告诉你。那是个远在西北边陲的小镇，镇名叫作黄石，黄金的黄，石头的石。",
+      "tone": "陈述",
+      "chapter": 1,
+      "line_start": 70,
+      "line_end": 70
+    }
+  ],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_lu_xiao_feng",
+        "name": "陆小凤",
+        "alias": [],
+        "identity": "江湖名侠",
+        "faction": null,
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": "登峰造极",
+        "one_line": "天下闻名的两根手指，人与剑融为一体，是最好的朋友也是爱管闲事的江湖人",
+        "personality": {
+          "traits": [
+            "重义气",
+            "爱管闲事",
+            "豪迈",
+            "敏锐",
+            "执着"
+          ],
+          "speech_style": "直接坦率",
+          "temperament": "豪爽"
+        },
+        "relationships": [
+          {
+            "target": "char_liu_ru_gang",
+            "type": "挚友",
+            "intensity": 85,
+            "bond_level": 4,
+            "dynamic": "七个月未见，追寻失踪好友"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 6,
+            "line_end": 14,
+            "text": "陆小凤在落日下走上了这一片黄土...用他天下闻名的两根手指，撮起了一撮黄土"
+          }
+        ]
+      },
+      {
+        "id": "char_liu_ru_gang",
+        "name": "柳如钢",
+        "alias": [
+          "柳乘风",
+          "一剑乘风"
+        ],
+        "identity": "巴山第一嫡传掌门弟子",
+        "faction": "faction_ba_shan",
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "巴山第一嫡传弟子，七七四十九手回风舞柳剑名震江湖，性格烈如钢",
+        "personality": {
+          "traits": [
+            "性格烈如钢",
+            "思虑密如丝",
+            "怒气易溶",
+            "沉默寡言",
+            "义气深重"
+          ],
+          "speech_style": "简洁直接",
+          "temperament": "刚烈"
+        },
+        "relationships": [
+          {
+            "target": "char_lu_xiao_feng",
+            "type": "挚友",
+            "intensity": 85,
+            "bond_level": 4,
+            "dynamic": "共秘密共患难的朋友"
+          }
+        ],
+        "known_skills": [
+          "skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 16,
+            "line_end": 70,
+            "text": "柳如钢在酒已微醉时...柳乘风是巴山的第一嫡传掌门弟子"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian",
+        "name": "七七四十九手回风舞柳剑",
+        "type": "剑法",
+        "faction": "faction_ba_shan",
+        "rank": "出神入化",
+        "one_line": "巴山绝学，七七四十九手回风舞柳剑，需轻功配合，名震江湖",
+        "techniques": [
+          {
+            "id": "tech_hui_feng_wu_liu_jian",
+            "name": "回风舞柳剑",
+            "type": "attack",
+            "description": "七七四十九手回风舞柳剑，剑法轻灵飘逸，需配合轻功施展，是巴山第一剑法"
+          },
+          {
+            "id": "tech_qing_gong_pei_he",
+            "name": "轻功配合",
+            "type": "buff",
+            "description": "回风舞柳剑必须以轻功配合施展，剑法轻灵飘逸方能发挥极致威力"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          "伤害"
+        ],
+        "combat_style": "轻灵飘逸",
+        "rag_refs": [
+          1
+        ],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 32,
+            "line_end": 34,
+            "text": "柳乘风是巴山的第一嫡传掌门弟子，他的七七四十九手回风舞柳剑在江湖中的地位"
+          }
+        ]
+      }
+    ],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_ba_shan",
+        "name": "巴山",
+        "type": "武林门派",
+        "location": null,
+        "sub_divisions": [],
+        "one_line": "武林名门，以回风舞柳剑闻名，柳如钢为第一嫡传掌门弟子",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 32,
+            "line_end": 32,
+            "text": "柳乘风是巴山的第一嫡传掌门弟子"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_huang_shi",
+        "name": "黄石",
+        "region": "西北边陲",
+        "one_line": "西北边陲小镇，花不香鸟不语鸡不飞狗不跳，柳如钢前往之地",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 70,
+            "line_end": 70,
+            "text": "那是个远在西北边陲的小镇，镇名叫作黄石"
+          }
+        ]
+      }
+    ],
+    "items": []
+  },
+  "entity_updates": []
+}
