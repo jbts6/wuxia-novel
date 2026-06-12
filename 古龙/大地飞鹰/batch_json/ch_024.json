@@ -1,0 +1,536 @@
+{
+  "chapter": 24,
+  "chapter_summary": "第二十四回 圣地\n\n小方随卜鹰来到拉萨，发现卜鹰的家就在藏人心目的圣地。阳光带小方游览布达拉宫和大昭寺，小方在美景中不断思念波娃，无法忘怀。大昭寺外的八角街繁华热闹，卜鹰的鹰记商号就在此街。阳光带小方去见鹰记大掌柜朱云，朱云年轻能干、诚实本分，深受卜鹰信任。阳光调侃朱云不近酒色，又主动要帮小方找女人。小方借酒浇愁，醉中发现一个女孩很像波娃，圣地点缀着他的孤独与相思。",
+  "dialogues": [
+    {
+      "speaker": "char_yang_guang",
+      "speaker_name": "阳光",
+      "listener": "char_xiao_fang",
+      "text": "你喜不喜欢这地方？",
+      "tone": "疑问",
+      "chapter": 24,
+      "line_start": 28,
+      "line_end": 28
+    },
+    {
+      "speaker": "char_yang_guang",
+      "speaker_name": "阳光",
+      "listener": "char_xiao_fang",
+      "text": "你以前来过这地方没有？",
+      "tone": "疑问",
+      "chapter": 24,
+      "line_start": 32,
+      "line_end": 32
+    },
+    {
+      "speaker": "char_yang_guang",
+      "speaker_name": "阳光",
+      "listener": "char_xiao_fang",
+      "text": "我带你出去玩。他们在做生意，我们去玩。",
+      "tone": "陈述",
+      "chapter": 24,
+      "line_start": 38,
+      "line_end": 38
+    },
+    {
+      "speaker": "char_xiao_fang",
+      "speaker_name": "小方",
+      "listener": "char_yang_guang",
+      "text": "到哪里去玩？",
+      "tone": "疑问",
+      "chapter": 24,
+      "line_start": 40,
+      "line_end": 40
+    },
+    {
+      "speaker": "char_yang_guang",
+      "speaker_name": "阳光",
+      "listener": "char_xiao_fang",
+      "text": "我们先到布达拉宫去。",
+      "tone": "陈述",
+      "chapter": 24,
+      "line_start": 42,
+      "line_end": 42
+    },
+    {
+      "speaker": "char_xiao_fang",
+      "speaker_name": "小方",
+      "listener": null,
+      "text": "我们到大昭寺去。",
+      "tone": "陈述",
+      "chapter": 24,
+      "line_start": 66,
+      "line_end": 66
+    },
+    {
+      "speaker": "char_zhu_yun",
+      "speaker_name": "朱云",
+      "listener": "char_xiao_fang",
+      "text": "我就住在后面，只要你没事，随时都可以来找我。我每天都在，日夜都在。",
+      "tone": "陈述",
+      "chapter": 24,
+      "line_start": 120,
+      "line_end": 122
+    },
+    {
+      "speaker": "char_yang_guang",
+      "speaker_name": "阳光",
+      "listener": "char_xiao_fang",
+      "text": "他平时不喝酒，可是，如果你一定要他喝，他也不会比你先醉。只不过，你要找女人，他就没法子了。",
+      "tone": "调侃",
+      "chapter": 24,
+      "line_start": 126,
+      "line_end": 130
+    },
+    {
+      "speaker": "char_yang_guang",
+      "speaker_name": "阳光",
+      "listener": "char_xiao_fang",
+      "text": "你要找女人，就得来求我，我替你找的女孩子保证比你以前见到过的都温柔好看。",
+      "tone": "得意",
+      "chapter": 24,
+      "line_start": 132,
+      "line_end": 134
+    },
+    {
+      "speaker": "char_xiao_fang",
+      "speaker_name": "小方",
+      "listener": "char_yang_guang",
+      "text": "你能不能现在就带我去找！",
+      "tone": "焦急",
+      "chapter": 24,
+      "line_start": 146,
+      "line_end": 146
+    },
+    {
+      "speaker": "char_yang_guang",
+      "speaker_name": "阳光",
+      "listener": "char_xiao_fang",
+      "text": "现在？现在你就要去找女人？",
+      "tone": "惊讶",
+      "chapter": 24,
+      "line_start": 148,
+      "line_end": 148
+    },
+    {
+      "speaker": "char_xiao_fang",
+      "speaker_name": "小方",
+      "listener": "char_yang_guang",
+      "text": "不但要找女人，还要喝酒。",
+      "tone": "陈述",
+      "chapter": 24,
+      "line_start": 150,
+      "line_end": 150
+    }
+  ],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_xiao_fang",
+        "name": "小方",
+        "alias": [],
+        "identity": "卜鹰的朋友",
+        "faction": null,
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": null,
+        "one_line": "卜鹰的朋友，被波娃的阴影困扰的年轻剑客",
+        "personality": {
+          "traits": [
+            "重情",
+            "忧郁",
+            "善感",
+            "豪爽",
+            "怀旧"
+          ],
+          "speech_style": "简洁直接",
+          "temperament": "忧郁多情"
+        },
+        "relationships": [
+          {
+            "target": "char_bu_ying",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "深厚友谊"
+          },
+          {
+            "target": "char_yang_guang",
+            "type": "合作者",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "互有好感"
+          },
+          {
+            "target": "char_bo_wa",
+            "type": "恋人",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "刻骨相思"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          24
+        ],
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 2,
+            "line_end": 2,
+            "text": "小方从未想到卜鹰也有家。"
+          }
+        ]
+      },
+      {
+        "id": "char_bu_ying",
+        "name": "卜鹰",
+        "alias": [],
+        "identity": "鹰记商号的主人",
+        "faction": null,
+        "role": "npc",
+        "archetype": "scholar",
+        "rank": null,
+        "one_line": "鹰记商号的主人，家在拉萨，伙伴子弟心目中的领袖",
+        "personality": {
+          "traits": [
+            "豪爽",
+            "有担当",
+            "慷慨",
+            "有领袖气质",
+            "细心"
+          ],
+          "speech_style": "简洁有力",
+          "temperament": "沉稳大气"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_fang",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "深厚友谊"
+          },
+          {
+            "target": "char_yang_guang",
+            "type": "合作者",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "信任依赖"
+          },
+          {
+            "target": "char_zhu_yun",
+            "type": "合作者",
+            "intensity": 75,
+            "bond_level": 4,
+            "dynamic": "信任重用"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          24
+        ],
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 4,
+            "line_end": 6,
+            "text": "卜鹰有家。卜鹰的家就在藏人心目中的圣地拉萨。"
+          }
+        ]
+      },
+      {
+        "id": "char_yang_guang",
+        "name": "阳光",
+        "alias": [],
+        "identity": "卜鹰的伙伴",
+        "faction": null,
+        "role": "companion",
+        "archetype": "healer",
+        "rank": null,
+        "one_line": "卜鹰的伙伴，阳光般美丽的年轻女子，属于大家不能独占",
+        "personality": {
+          "traits": [
+            "开朗",
+            "热情",
+            "大方",
+            "活泼",
+            "无拘无束"
+          ],
+          "speech_style": "活泼自然",
+          "temperament": "阳光明朗"
+        },
+        "relationships": [
+          {
+            "target": "char_bu_ying",
+            "type": "合作者",
+            "intensity": 70,
+            "bond_level": 4,
+            "dynamic": "信任依赖"
+          },
+          {
+            "target": "char_xiao_fang",
+            "type": "合作者",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "互有好感"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          24
+        ],
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 28,
+            "line_end": 28,
+            "text": "阳光问小方：你喜不喜欢这地方？"
+          }
+        ]
+      },
+      {
+        "id": "char_bo_wa",
+        "name": "波娃",
+        "alias": [],
+        "identity": "小方的旧爱",
+        "faction": null,
+        "role": "npc",
+        "archetype": "assassin",
+        "rank": null,
+        "one_line": "小方的旧爱，像雨一样的女子，令小方难以忘怀",
+        "personality": {
+          "traits": [
+            "神秘",
+            "柔弱",
+            "静美",
+            "令人难忘",
+            "像雨"
+          ],
+          "speech_style": null,
+          "temperament": "忧郁柔美"
+        },
+        "relationships": [
+          {
+            "target": "char_xiao_fang",
+            "type": "恋人",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "刻骨相思"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          24
+        ],
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 24,
+            "line_end": 24,
+            "text": "波娃的阴影。"
+          }
+        ]
+      },
+      {
+        "id": "char_zhu_yun",
+        "name": "朱云",
+        "alias": [],
+        "identity": "鹰记大掌柜",
+        "faction": "faction_ying_ji",
+        "role": "npc",
+        "archetype": "scholar",
+        "rank": null,
+        "one_line": "鹰记商号大掌柜，卜鹰信任的年轻总管，独身不近酒色",
+        "personality": {
+          "traits": [
+            "诚实",
+            "本分",
+            "简朴",
+            "能干",
+            "忠信"
+          ],
+          "speech_style": "中肯扼要",
+          "temperament": "沉稳可靠"
+        },
+        "relationships": [
+          {
+            "target": "char_bu_ying",
+            "type": "主仆",
+            "intensity": 85,
+            "bond_level": 4,
+            "dynamic": "信任重用"
+          },
+          {
+            "target": "char_xiao_fang",
+            "type": "合作者",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "初识"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          24
+        ],
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 102,
+            "line_end": 106,
+            "text": "她说的这个人叫朱云。朱云就是鹰记的大掌柜。"
+          }
+        ]
+      },
+      {
+        "id": "char_wen_cheng_gong_zhu",
+        "name": "文成公主",
+        "alias": [],
+        "identity": "大唐天可汗侄女",
+        "faction": null,
+        "role": "npc",
+        "archetype": "scholar",
+        "rank": null,
+        "one_line": "唐代嫁给吐蕃赞普的公主，建造了大昭寺",
+        "personality": {
+          "traits": [
+            "虔诚",
+            "美丽",
+            "端庄",
+            "高贵",
+            "仁慈"
+          ],
+          "speech_style": null,
+          "temperament": "端庄虔诚"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          24
+        ],
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 74,
+            "line_end": 78,
+            "text": "大昭寺是唐代文成公主所建。"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_ying_ji",
+        "name": "鹰记",
+        "type": "帮派",
+        "location": "拉萨",
+        "sub_divisions": [],
+        "one_line": "卜鹰的商号，在拉萨八角街",
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 70,
+            "line_end": 70,
+            "text": "卜鹰的鹰记商号也在那条街上。"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_la_sa",
+        "name": "拉萨",
+        "region": "藏地",
+        "one_line": "藏人心目中的圣地，卜鹰的家所在",
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 6,
+            "line_end": 6,
+            "text": "卜鹰的家就在藏人心目中的圣地拉萨。"
+          }
+        ]
+      },
+      {
+        "id": "loc_bu_da_la_gong",
+        "name": "布达拉宫",
+        "region": "拉萨",
+        "one_line": "气势逼人的宏伟宫殿，唐代建造",
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 46,
+            "line_end": 48,
+            "text": "气势逼人的宫殿赫然出现在他们右方。"
+          }
+        ]
+      },
+      {
+        "id": "loc_da_zhao_si",
+        "name": "大昭寺",
+        "region": "拉萨",
+        "one_line": "唐代文成公主所建，外有八角街繁华街市",
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 74,
+            "line_end": 78,
+            "text": "大昭寺是唐代文成公主所建。"
+          }
+        ]
+      },
+      {
+        "id": "loc_ba_jiao_jie",
+        "name": "八角街",
+        "region": "拉萨",
+        "one_line": "大昭寺外最繁华热闹的街市",
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 68,
+            "line_end": 68,
+            "text": "大昭寺外，围绕着寺院的八角街，是这城最繁华热闹的地方。"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_su_you_cha",
+        "name": "酥油茶",
+        "type": "pill",
+        "owner": null,
+        "one_line": "藏地特产饮品，滚烫的酥油茶",
+        "description": "藏地传统饮品，用酥油和浓茶搅制而成，热饮可驱寒暖身，是藏地招待贵客的必备之物，味道浓郁醇厚。",
+        "effects": [
+          "驱寒暖身",
+          "补充体力"
+        ],
+        "origin": "藏地",
+        "rarity": "寻常凡品",
+        "related_characters": [],
+        "related_skills": [],
+        "rag_refs": [
+          24
+        ],
+        "source_refs": [
+          {
+            "chapter": 24,
+            "line_start": 116,
+            "line_end": 116,
+            "text": "他用诚恳的态度和滚烫的酥油茶招待小方。"
+          }
+        ]
+      }
+    ]
+  },
+  "entity_updates": []
+}

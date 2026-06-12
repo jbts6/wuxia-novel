@@ -1,0 +1,342 @@
+{
+  "chapter": 36,
+  "chapter_summary": "班察巴那、小方和阳光在干涸绿洲中发现三十七人已中毒跪死，班察巴那认出这是传说中最可怕的阴灵之毒——无色无味无影无形，中毒者面部扭曲肌肉痉挛跪地而亡。食尸鹰啄食死人血肉后亦被毒杀，证明毒素已渗透尸体每一寸血肉。黎明时分，一条雪白狮子狗出现，咬遍每个死人的脚踝试探是否真死，它的主人是一个梳着十七八根红丝线蝴蝶辫的可爱姑娘。随后一个全身透明如水晶的怪人现身——正是阴灵本人。阴灵柔声询问是否全都死了，姑娘确认并建议让小老虎（小狗）去咬他们试试。阳光和小方目睹此景恐惧万分。就在阴灵即将发现他们之际，三十七个跪着的死人中忽然有一人复活——那个骑驴来的胖子凌空跃起，洒出一面银网将阴灵困住。胖子身手矫健如黄河鲤鱼翻身，提网落于枯树之上，阴灵成了网中之鱼。",
+  "dialogues": [
+    {
+      "speaker": "char_yin_ling",
+      "speaker_name": "阴灵",
+      "listener": "char_shu_bian_xiao_jie",
+      "text": "是不是全都死了？",
+      "tone": "柔声",
+      "chapter": 36,
+      "line_start": 148,
+      "line_end": 150
+    },
+    {
+      "speaker": "char_shu_bian_xiao_jie",
+      "speaker_name": "梳辫姑娘",
+      "listener": "char_yin_ling",
+      "text": "当然全都死了。你要不要叫小老虎去咬他们一口试试看？",
+      "tone": "陈述",
+      "chapter": 36,
+      "line_start": 152,
+      "line_end": 154
+    },
+    {
+      "speaker": "char_shu_bian_xiao_jie",
+      "speaker_name": "梳辫姑娘",
+      "listener": "char_yin_ling",
+      "text": "你不许他们看见今天的太阳，他们怎么能活到太阳升起来的时候？",
+      "tone": "疑问",
+      "chapter": 36,
+      "line_start": 156,
+      "line_end": 158
+    }
+  ],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_yin_ling",
+        "name": "阴灵",
+        "alias": [
+          "水晶人",
+          "透明人"
+        ],
+        "identity": "传说中最可怕的毒师，无人知其真面目",
+        "faction": null,
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "出神入化",
+        "one_line": "使用无色无味阴灵之毒的神秘杀手，全身透明如水晶",
+        "personality": {
+          "traits": [
+            "冷酷无情",
+            "骄傲自大",
+            "心思缜密",
+            "追求完美",
+            "诡秘莫测"
+          ],
+          "speech_style": "柔声细语",
+          "temperament": "冷静"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_yin_ling_zhi_du"
+        ],
+        "related_skills": [
+          "skill_yin_ling_zhi_du"
+        ],
+        "rag_refs": [
+          36
+        ],
+        "source_refs": [
+          {
+            "chapter": 36,
+            "line_start": 122,
+            "line_end": 131,
+            "text": "这个人看来竟仿佛是透明的，露在衣裳外面的地方都是透明的，每一根血管，每一根筋，甚至连每一根骨头都能看得很清楚。"
+          }
+        ]
+      },
+      {
+        "id": "char_shu_bian_xiao_jie",
+        "name": "梳辫姑娘",
+        "alias": [
+          "小姑娘"
+        ],
+        "identity": "阴灵的同伴，看似天真可爱的少女",
+        "faction": null,
+        "role": "npc",
+        "archetype": "assassin",
+        "rank": "略有小成",
+        "one_line": "梳着十七八根小辫子的可爱少女，实为阴灵帮手，用小狗试探死人",
+        "personality": {
+          "traits": [
+            "天真可爱",
+            "心狠手辣",
+            "活泼好动",
+            "冷血无情",
+            "善于伪装"
+          ],
+          "speech_style": "娇声娇气",
+          "temperament": "活泼"
+        },
+        "relationships": [
+          {
+            "target": "char_yin_ling",
+            "type": "合作者",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "亲密搭档"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          36
+        ],
+        "source_refs": [
+          {
+            "chapter": 36,
+            "line_start": 106,
+            "line_end": 110,
+            "text": "她是个非常可爱的人，雪白的皮肤，灵活的眼睛，乌黑的头发，梳成十七八根小辫子。"
+          }
+        ]
+      },
+      {
+        "id": "char_shui_jing_gou",
+        "name": "水晶狗",
+        "alias": [
+          "小老虎"
+        ],
+        "identity": "阴灵和梳辫姑娘的白色狮子狗",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "平平无奇",
+        "one_line": "雪白可爱的狮子狗，被训练去咬死人脚踝试探是否真死",
+        "personality": {
+          "traits": [
+            "活泼可爱",
+            "训练有素",
+            "凶猛果断",
+            "忠心耿耿",
+            "嗜血"
+          ],
+          "speech_style": null,
+          "temperament": "活泼"
+        },
+        "relationships": [
+          {
+            "target": "char_shu_bian_xiao_jie",
+            "type": "主仆",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "忠诚"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          36
+        ],
+        "source_refs": [
+          {
+            "chapter": 36,
+            "line_start": 70,
+            "line_end": 71,
+            "text": "一条雪白可爱的狮子狗。"
+          }
+        ]
+      },
+      {
+        "id": "char_pang_zi",
+        "name": "胖子",
+        "alias": [
+          "骑驴来的胖子"
+        ],
+        "identity": "假装中毒跪死的胖子，身手不凡，用银网捕捉阴灵",
+        "faction": null,
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "高大肥胖的神秘人骑驴来到荒漠假装中毒，实为设伏捕捉阴灵",
+        "personality": {
+          "traits": [
+            "深藏不露",
+            "身手矫健",
+            "胆大心细",
+            "善于伪装",
+            "出手果断"
+          ],
+          "speech_style": null,
+          "temperament": "沉稳"
+        },
+        "relationships": [
+          {
+            "target": "char_yin_ling",
+            "type": "宿敌",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "设伏擒拿"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          36
+        ],
+        "source_refs": [
+          {
+            "chapter": 36,
+            "line_start": 186,
+            "line_end": 193,
+            "text": "复活了的死人就是那个骑驴来的胖子。他高大肥胖的身子忽然像是条黄河鲤鱼般凌空跃起洒出了一片银光。"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_yin_ling_zhi_du",
+        "name": "阴灵之毒",
+        "type": "暗器",
+        "faction": null,
+        "rank": "出神入化",
+        "one_line": "传说中最可怕的毒药，无色无味无影无形，中毒者跪地而死",
+        "techniques": [
+          {
+            "id": "tech_wu_se_wu_wei",
+            "name": "无色无味",
+            "type": "debuff",
+            "description": "毒药无色无味来得无影无形下毒的人也像是阴魂幽灵般飘忽诡秘"
+          },
+          {
+            "id": "tech_gui_di_er_si",
+            "name": "跪地而死",
+            "type": "debuff",
+            "description": "中毒者因毒性发作而面部扭曲变形肌肉痉挛跪下最终死亡"
+          }
+        ],
+        "progression": "登峰造极",
+        "effects": [
+          "伤害",
+          "控制"
+        ],
+        "combat_style": "远程投毒无需近身",
+        "rag_refs": [
+          36
+        ],
+        "source_refs": [
+          {
+            "chapter": 36,
+            "line_start": 8,
+            "line_end": 18,
+            "text": "他不但知道这些人都中了毒而且还知道他们中的就是传说中最可怕的阴灵之毒"
+          }
+        ]
+      }
+    ],
+    "techniques": [
+      {
+        "id": "tech_wu_se_wu_wei",
+        "name": "无色无味",
+        "type": "debuff",
+        "description": "毒药无色无味来得无影无形下毒的人也像是阴魂幽灵般飘忽诡秘",
+        "source_skill": "skill_yin_ling_zhi_du",
+        "source_refs": [
+          {
+            "chapter": 36,
+            "line_start": 10,
+            "line_end": 10,
+            "text": "毒性无色无味来得无影无形"
+          }
+        ]
+      },
+      {
+        "id": "tech_gui_di_er_si",
+        "name": "跪地而死",
+        "type": "debuff",
+        "description": "中毒者因毒性发作而面部扭曲变形肌肉痉挛跪下最终死亡",
+        "source_skill": "skill_yin_ling_zhi_du",
+        "source_refs": [
+          {
+            "chapter": 36,
+            "line_start": 12,
+            "line_end": 12,
+            "text": "他们的脸已因毒性发作而扭曲变形"
+          }
+        ]
+      }
+    ],
+    "factions": [],
+    "locations": [
+      {
+        "id": "loc_gan_he_lv_zhou",
+        "name": "干涸绿洲",
+        "region": "边陲荒漠",
+        "one_line": "人迹罕至的干涸绿洲三十七人在此中毒跪死",
+        "source_refs": [
+          {
+            "chapter": 36,
+            "line_start": 20,
+            "line_end": 20,
+            "text": "这个干涸的绿洲本来已很少有人迹"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_yin_wang",
+        "name": "银网",
+        "type": "hidden_weapon",
+        "owner": "char_pang_zi",
+        "one_line": "胖子用来捕捉阴灵的银色网状武器",
+        "description": "一片银光闪现的网状武器从胖子手中洒出能将人困于网中胖子以此成功捕获了全身透明如水晶的阴灵",
+        "effects": [
+          "控制"
+        ],
+        "origin": "未知",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_pang_zi"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          36
+        ],
+        "source_refs": [
+          {
+            "chapter": 36,
+            "line_start": 189,
+            "line_end": 193,
+            "text": "银光一闪落在那水晶人身上竟是一面网。"
+          }
+        ]
+      }
+    ]
+  },
+  "entity_updates": []
+}
