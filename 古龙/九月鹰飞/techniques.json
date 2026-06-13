@@ -1,0 +1,632 @@
+[
+  {
+    "id": "tech_du_she_tu_xin_main",
+    "name": "毒蛇吐信",
+    "type": "attack",
+    "description": "剑如毒蛇般刺出，直刺对手心口的招式。",
+    "source_skill": "skill_xin_men_jian_fa",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 162,
+        "line_end": 164,
+        "text": "童扬一着'毒蛇吐信'刺过去"
+      }
+    ]
+  },
+  {
+    "id": "tech_li_pi_hua_shan_main",
+    "name": "立劈华山",
+    "type": "attack",
+    "description": "由上至下急劈对方肩头的一招刀法。",
+    "source_skill": "skill_yan_ling_dao_fa",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 218,
+        "line_end": 220,
+        "text": "白衣人居然也不避不闪，掌中刀也同样以一着'立劈华山'"
+      }
+    ]
+  },
+  {
+    "id": "tech_ba_fang_cang_dao_shi",
+    "name": "八方藏刀式",
+    "type": "feint",
+    "description": "藏刀于八方之式，可变化为其他招式。",
+    "source_skill": "skill_yan_ling_dao_fa",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 220,
+        "line_end": 222,
+        "text": "刀锋反转，由八方藏刀式，突然变为倒打金钟"
+      }
+    ]
+  },
+  {
+    "id": "tech_dao_da_jin_zhong",
+    "name": "倒打金钟",
+    "type": "attack",
+    "description": "由下而上反撩对手胸肋的一招。",
+    "source_skill": "skill_yan_ling_dao_fa",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 220,
+        "line_end": 222,
+        "text": "由八方藏刀式，突然变为倒打金钟"
+      }
+    ]
+  },
+  {
+    "id": "tech_qian_mian_guan_yin",
+    "name": "千面观音",
+    "type": "special",
+    "description": "化身千百，伪装成他人模样，连亲近之人都难以分辨。",
+    "source_skill": "skill_yi_rong_shu",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 46,
+        "line_end": 46,
+        "text": "南海娘子就是千面观音，这意思就是说，她不但有千手千眼，还有一千张不同的脸。"
+      }
+    ]
+  },
+  {
+    "id": "tech_yan_zi_fei_yan",
+    "name": "燕子飞檐",
+    "type": "special",
+    "description": "倏忽来去、无声无息的轻功身法，可从三丈高处取物而不喘。",
+    "source_skill": "skill_feng_lang_jun_qing_gong",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 248,
+        "line_end": 248,
+        "text": "他的人也忽然像燕子般飞了起来"
+      }
+    ]
+  },
+  {
+    "id": "tech_feng_chi_ying_bu",
+    "name": "风驰影步",
+    "type": "special",
+    "description": "像一阵风似的从众人头顶吹过，落地无声。",
+    "source_skill": "skill_feng_lang_jun_qing_gong",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 246,
+        "line_end": 246,
+        "text": "像是一阵风似的，从众人的头顶上吹过"
+      }
+    ]
+  },
+  {
+    "id": "tech_zi_zheng_zou_cha",
+    "name": "子正走岔",
+    "type": "debuff",
+    "description": "南海娘子所练驻颜内功的副作用：每日子正时真气走岔，全身僵木至少半盏茶。",
+    "source_skill": "skill_zhu_yan_nei_gong",
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 294,
+        "line_end": 294,
+        "text": "每天一到子正时，真气就会突然走岔，至少有半盏茶的时候，全身僵木，连动都不能动。"
+      }
+    ]
+  },
+  {
+    "id": "tech_she_xin_mi_hun",
+    "name": "摄心迷魂",
+    "type": "special",
+    "description": "铁姑所用控制他人心灵的秘术，可令其听命行事甚至不知自己被控。",
+    "source_skill": "skill_she_xin_da_fa",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 118,
+        "line_end": 118,
+        "text": "只有被她摄心大法所迷的人，才会做得出这种事。"
+      }
+    ]
+  },
+  {
+    "id": "tech_she_hun_da_fa",
+    "name": "摄魂大法",
+    "type": "debuff",
+    "description": "南海门秘传的摄魂之术，与摄心大法相辅相成，可控人于无形。",
+    "source_skill": "skill_she_xin_da_fa",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 340,
+        "line_end": 340,
+        "text": "因为南海门还有种能控制别人心灵的摄魂大法。"
+      }
+    ]
+  },
+  {
+    "id": "tech_bian_sheng_shu",
+    "name": "变声术",
+    "type": "special",
+    "description": "南海娘子所创，可控制他人咽喉肌肉，改变其声音。",
+    "source_skill": "skill_yi_rong_shu",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 334,
+        "line_end": 334,
+        "text": "而且还有种手法能控制别人咽喉的肌肉，使他的声音也改变。"
+      }
+    ]
+  },
+  {
+    "id": "tech_gao_ming_yi_rong",
+    "name": "高明易容",
+    "type": "special",
+    "description": "易容术的最高境界，能让人真假难辨。",
+    "source_skill": "skill_yi_rong_shu",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 334,
+        "line_end": 334,
+        "text": "据说南海娘子不但易容术妙绝天下。"
+      }
+    ]
+  },
+  {
+    "id": "tech_xiao_li_fei_dao",
+    "name": "小李飞刀",
+    "type": "attack",
+    "description": "李寻欢所传、天下闻名的飞刀绝技，例无虚发。",
+    "source_skill": "skill_fei_dao_shu",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 664,
+        "line_end": 664,
+        "text": "担心叶开的飞刀。"
+      }
+    ]
+  },
+  {
+    "id": "tech_fei_dao_mie_dou",
+    "name": "飞刀灭敌",
+    "type": "attack",
+    "description": "飞刀一击必杀的实战应用。",
+    "source_skill": "skill_fei_dao_shu",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 672,
+        "line_end": 672,
+        "text": "在我的刀下，没有人还能活得了。"
+      }
+    ]
+  },
+  {
+    "id": "tech_fei_dao_ding_ren",
+    "name": "飞刀定人",
+    "type": "special",
+    "description": "飞刀的精准度极高，可直取要害。",
+    "source_skill": "skill_fei_dao_shu",
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 672,
+        "line_end": 672,
+        "text": "在我的刀下，没有人还能活得了。"
+      }
+    ]
+  },
+  {
+    "id": "tech_she_hun_zhen_yan",
+    "name": "摄魂震眼",
+    "type": "debuff",
+    "description": "以目光凝聚内劲施压，使对方心志涣散任人摆布。",
+    "source_skill": "skill_she_hun_da_fa",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 226,
+        "line_end": 226,
+        "text": "我的摄魂大法，对你好像连一点用也没有。"
+      }
+    ]
+  },
+  {
+    "id": "tech_she_hun_tui_ling",
+    "name": "摄魂推灵",
+    "type": "debuff",
+    "description": "直击心脉侵入对方灵魂，迫其失去自我意识。",
+    "source_skill": "skill_she_hun_da_fa",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 226,
+        "line_end": 226,
+        "text": "摄魂大法"
+      }
+    ]
+  },
+  {
+    "id": "tech_jiao_tie_chi_dao",
+    "name": "嚼铁齿刀",
+    "type": "attack",
+    "description": "以内功强化牙口，将刀剑等硬物咬成碎截吞下，常用于震慑对手。",
+    "source_skill": "skill_jiao_tie_da_fa",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 736,
+        "line_end": 736,
+        "text": "竟像是吃甘蔗一样，将这柄刀一截截咬断，吞了下去。"
+      }
+    ]
+  },
+  {
+    "id": "tech_hua_xue_mo_xue",
+    "name": "化血魔血",
+    "type": "attack",
+    "description": "以弯刀割伤自己使血化毒，沾上对方即致剧烈痛楚。",
+    "source_skill": "skill_shen_dao_hua_xue_mo_xue_da_fa",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 716,
+        "line_end": 716,
+        "text": "神刀化血、魔血大法"
+      }
+    ]
+  },
+  {
+    "id": "tech_shi_da_shen_gong_he_bi",
+    "name": "十大神功合璧",
+    "type": "special",
+    "description": "涵盖魔教所有顶尖神功的统称。",
+    "source_skill": "skill_mo_jiao_shi_da_shen_gong",
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 722,
+        "line_end": 722,
+        "text": "你们魔教的十大神功，我不知道的倒还不多。"
+      }
+    ]
+  },
+  {
+    "id": "tech_song_yang_tie_jian_xiao_shou",
+    "name": "嵩阳铁剑杀手",
+    "type": "attack",
+    "description": "郭定凌空飞起，铁剑化作乌黑长虹，人剑合一击碎红魔手",
+    "source_skill": "skill_song_yang_tie_jian_fa",
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 48,
+        "line_end": 64,
+        "text": "郭定长啸冲天，铁剑化作乌黑长虹，红魔手被击碎"
+      }
+    ]
+  },
+  {
+    "id": "tech_hong_mo_shou_fei_she",
+    "name": "红魔手飞射",
+    "type": "attack",
+    "description": "红魔手血箭般飞出，夹带令人作呕的血腥气",
+    "source_skill": "skill_hong_mo_shou_gong",
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 38,
+        "line_end": 46,
+        "text": "红魔手血箭般飞出，夹带着令人作呕的血腥气"
+      }
+    ]
+  },
+  {
+    "id": "tech_fei_dao_mie_ren",
+    "name": "飞刀灭敌",
+    "type": "attack",
+    "description": "叶开施展的飞刀绝技，可救人亦可杀人",
+    "source_skill": "skill_xiao_li_fei_dao",
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 166,
+        "line_end": 178,
+        "text": "新兵器谱将叶开飞刀评为天下第一"
+      }
+    ]
+  },
+  {
+    "id": "tech_fei_dao_jiu_ren",
+    "name": "飞刀救人",
+    "type": "special",
+    "description": "叶开飞刀救人而非杀人的正道用法",
+    "source_skill": "skill_xiao_li_fei_dao",
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 186,
+        "line_end": 192,
+        "text": "丁灵琳称叶开飞刀因救人被评为天下第一"
+      }
+    ]
+  },
+  {
+    "id": "tech_yu_xiao_an_qi_sa_ren",
+    "name": "玉箫暗器伤人",
+    "type": "special",
+    "description": "箫管中暗藏丧门钉等极厉害的暗器，于箫声掩护下出其不意急打对手前胸，来势急如闪电。",
+    "source_skill": "skill_yu_xiao_dao_fa",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 140,
+        "line_end": 142,
+        "text": "他的箫管中竟然飞出了三点寒星，急打叶开的前胸。是丧门钉一类的暗器，来势急如闪电。"
+      }
+    ]
+  },
+  {
+    "id": "tech_pan_guan_bi_dian_xue",
+    "name": "判官笔点穴",
+    "type": "attack",
+    "description": "以玉箫使判官笔招式，认穴极准，点打对手穴道，迅疾凌厉。",
+    "source_skill": "skill_yu_xiao_dao_fa",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 192,
+        "line_end": 194,
+        "text": "一根晶莹圆润的玉箫，已斜斜点了过来，急打他腰上的麻腰穴。这是判官笔的招式，认穴准，打穴快。"
+      }
+    ]
+  },
+  {
+    "id": "tech_yu_xiao_hua_jian",
+    "name": "玉箫化剑",
+    "type": "attack",
+    "description": "玉箫可作剑用，剑走轻灵，招式变化诡奇，将对手身形围困。",
+    "source_skill": "skill_yu_xiao_dao_fa",
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 198,
+        "line_end": 198,
+        "text": "但这时判官笔已变成了剑，剑走轻灵，已将叶开的身形围住。"
+      }
+    ]
+  },
+  {
+    "id": "tech_tie_sha_zhang",
+    "name": "铁砂掌",
+    "type": "attack",
+    "description": "外门硬功，掌上功夫极重，能震伤内腑。",
+    "source_skill": null,
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 160,
+        "line_end": 162,
+        "text": "看他的伤痕，也不像是被铁砂掌一类的功夫打伤的。若是那一类的掌力，必定会震伤内腑。"
+      }
+    ]
+  },
+  {
+    "id": "tech_song_wen_zhi_jian",
+    "name": "松纹掷剑",
+    "type": "attack",
+    "description": "以一掷之力将松纹长剑贯穿人身钉在物上，掷出之剑锋入木几乎没至剑柄。",
+    "source_skill": "skill_wu_dang_song_wen_jian_fa",
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 512,
+        "line_end": 516,
+        "text": "剑锋入木，几乎没至剑柄"
+      }
+    ]
+  },
+  {
+    "id": "tech_song_wen_zhou_dou",
+    "name": "松纹周斗",
+    "type": "attack",
+    "description": "武当松纹剑法中周身防御剑路。",
+    "source_skill": "skill_wu_dang_song_wen_jian_fa",
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 136,
+        "line_end": 380,
+        "text": "松纹剑法的周身防御套路"
+      }
+    ]
+  },
+  {
+    "id": "tech_tie_zhi_chu_jia",
+    "name": "铁指出击",
+    "type": "attack",
+    "description": "以三根手指贯穿对方骨肉的攻击方式。",
+    "source_skill": "skill_tie_zhi_gong",
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 582,
+        "line_end": 608,
+        "text": "吕凤先三指成名的攻击"
+      }
+    ]
+  },
+  {
+    "id": "tech_tie_zhi_kang_bu",
+    "name": "铁指抗打",
+    "type": "defense",
+    "description": "吕迪的手指已接近金刚不坏，坚硬如钢锥，能以一掌断人骨。",
+    "source_skill": "skill_tie_zhi_gong",
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 572,
+        "line_end": 686,
+        "text": "吕迪的手如金属般坚硬"
+      }
+    ]
+  },
+  {
+    "id": "tech_fei_dao_chu_shou",
+    "name": "飞刀出手",
+    "type": "attack",
+    "description": "三寸七分长的飞刀，劲力未绝，能在瞬间断筷并钉入墙壁。",
+    "source_skill": "skill_fei_dao",
+    "source_refs": [
+      {
+        "chapter": 16,
+        "line_start": 316,
+        "line_end": 326,
+        "text": "一柄三寸七分长的刀。飞刀！"
+      }
+    ]
+  },
+  {
+    "id": "tech_duo_ming_jin_ling",
+    "name": "夺命金铃",
+    "type": "attack",
+    "description": "以金铃为暗器，发射出去伤敌",
+    "source_skill": "skill_duo_ming_jin_ling",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 46,
+        "line_end": 46,
+        "text": "她身上并没有戴着她的夺命金铃"
+      }
+    ]
+  },
+  {
+    "id": "tech_yu_xiao_mi_hun_shu",
+    "name": "玉箫迷魂",
+    "type": "debuff",
+    "description": "以目光凝视配合声音，令对手精神恍惚、失去抵抗力",
+    "source_skill": "skill_yu_xiao_mi_hun_shu",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 310,
+        "line_end": 314,
+        "text": "他的眼睛里仿佛在闪动着碧光"
+      }
+    ]
+  },
+  {
+    "id": "tech_bi_yu_zhen",
+    "name": "碧玉针",
+    "type": "attack",
+    "description": "藏于白玉箫中的暗器，近距离发射碧玉针伤敌",
+    "source_skill": "skill_yu_xiao_mi_hun_shu",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 550,
+        "line_end": 550,
+        "text": "白玉箫里突然有三点寒星暴射而出"
+      }
+    ]
+  },
+  {
+    "id": "tech_tie_jian_zhi_ci",
+    "name": "铁剑直刺",
+    "type": "attack",
+    "description": "嵩阳铁剑的基本刺击，简单迅速确实有效，目标面积大不易失手",
+    "source_skill": "skill_song_yang_tie_jian",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 478,
+        "line_end": 484,
+        "text": "没有把握时，他绝不出手，只要一剑刺出，就必定要有效"
+      }
+    ]
+  },
+  {
+    "id": "tech_tie_jian_sha_zhao",
+    "name": "铁剑杀招",
+    "type": "attack",
+    "description": "嵩阳铁剑的致命一击，不求花俏只求一剑制敌",
+    "source_skill": "skill_song_yang_tie_jian",
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 480,
+        "line_end": 482,
+        "text": "简单，迅速，确实，有效。这正是嵩阳铁剑剑法的精华所在"
+      }
+    ]
+  },
+  {
+    "id": "tech_jin_gang_bu_huai",
+    "name": "金刚不坏",
+    "type": "defense",
+    "description": "金属手套提供金刚不坏的防御力",
+    "source_skill": "skill_jin_gang_bu_huai_da_sou_shen_shou",
+    "source_refs": [
+      {
+        "chapter": 35,
+        "line_start": 188,
+        "line_end": 188,
+        "text": "金刚不坏"
+      }
+    ]
+  },
+  {
+    "id": "tech_da_sou_shen",
+    "name": "大搜神",
+    "type": "attack",
+    "description": "以金属手套施展的搜神攻击手法",
+    "source_skill": "skill_jin_gang_bu_huai_da_sou_shen_shou",
+    "source_refs": [
+      {
+        "chapter": 35,
+        "line_start": 188,
+        "line_end": 188,
+        "text": "大搜神手"
+      }
+    ]
+  },
+  {
+    "id": "tech_sou_hun_zhen_fa",
+    "name": "搜魂针法",
+    "type": "attack",
+    "description": "以乌针施展的搜魂暗器手法",
+    "source_skill": "skill_shang_tian_ru_di_da_sou_hun_zhen",
+    "source_refs": [
+      {
+        "chapter": 35,
+        "line_start": 200,
+        "line_end": 202,
+        "text": "大搜魂针"
+      }
+    ]
+  },
+  {
+    "id": "tech_heng_he_sha_shu",
+    "name": "恒河沙数",
+    "type": "attack",
+    "description": "针如恒河沙数，数量无穷",
+    "source_skill": "skill_shang_tian_ru_di_da_sou_hun_zhen",
+    "source_refs": [
+      {
+        "chapter": 35,
+        "line_start": 268,
+        "line_end": 268,
+        "text": "我的针如恒河沙数"
+      }
+    ]
+  }
+]
