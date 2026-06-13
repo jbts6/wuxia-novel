@@ -1,0 +1,546 @@
+[
+  {
+    "id": "skill_long_jia_quan",
+    "name": "龙家拳",
+    "type": "掌法",
+    "faction": "none",
+    "rank": "登峰造极",
+    "one_line": "湘江一龙龙灵飞的绝学，掌力浑厚",
+    "techniques": [
+      {
+        "id": "tech_long_zhang",
+        "name": "龙掌",
+        "type": "attack",
+        "description": "龙灵飞的掌法绝学，掌力浑厚无比"
+      }
+    ],
+    "progression": "已臻化境",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 256,
+        "line_end": 268,
+        "text": "身中号称当时武林掌力最浑厚的南灵龙灵飞的一掌"
+      }
+    ]
+  },
+  {
+    "id": "skill_wei_jia_zhang",
+    "name": "魏家掌",
+    "type": "掌法",
+    "faction": "none",
+    "rank": "登峰造极",
+    "one_line": "威震河朔魏灵飞的绝学，与龙家拳齐名",
+    "techniques": [
+      {
+        "id": "tech_wei_zhang",
+        "name": "魏掌",
+        "type": "attack",
+        "description": "魏灵飞的掌法绝学，与龙掌不分伯仲"
+      }
+    ],
+    "progression": "已臻化境",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 156,
+        "line_end": 160,
+        "text": "威震河朔也不是等闲人物...两人却是武功相若"
+      }
+    ]
+  },
+  {
+    "id": "skill_kong_ling_bu_fa",
+    "name": "空灵步法",
+    "type": "轻功",
+    "faction": "faction_wei_zhen_he_shuo",
+    "rank": "出神入化",
+    "one_line": "威震河朔精心钻研的步法，身形如行云流水，飘忽自如",
+    "techniques": [
+      {
+        "id": "tech_kong_ling_bu_fa_ji_chu_bu",
+        "name": "空灵步法·基础步",
+        "type": "defense",
+        "description": "以步法为主，避开来式，身形如行云流水"
+      }
+    ],
+    "progression": {
+      "level": "出神入化",
+      "description": "向衡飞已尽得真传"
+    },
+    "effects": [
+      {
+        "type": "增益",
+        "description": "身形飘忽，难以捉摸"
+      }
+    ],
+    "combat_style": "以守为攻，以步法牵制对手",
+    "rag_refs": [
+      2,
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 84,
+        "line_end": 84,
+        "text": "还有更令武林中人钦佩的，他精心钻研而出的\"空灵步法\""
+      },
+      {
+        "chapter": 6,
+        "line_start": 201,
+        "line_end": 287,
+        "text": "空灵步法"
+      }
+    ]
+  },
+  {
+    "id": "skill_long_xing_jiu_shi",
+    "name": "龙形九式",
+    "type": "掌法",
+    "faction": "faction_nan_ling_long_ling_fei",
+    "rank": "登堂入室",
+    "one_line": "南灵龙灵飞的掌法绝学，以身法训练为主",
+    "techniques": [
+      {
+        "id": "tech_long_xing_yi_shi",
+        "name": "龙形一式",
+        "type": "attack",
+        "description": "单掌斜穿，出掌如风"
+      },
+      {
+        "id": "tech_xiao_yu_hui_feng",
+        "name": "啸雨挥风",
+        "type": "attack",
+        "description": "掌式连绵的攻击招式"
+      },
+      {
+        "id": "tech_yun_long_xian_zhao",
+        "name": "云龙现爪",
+        "type": "attack",
+        "description": "掌式连绵的攻击招式"
+      }
+    ],
+    "progression": {
+      "level": "登堂入室",
+      "description": "王一萍已尽得真传"
+    },
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌法刚猛"
+      }
+    ],
+    "combat_style": "以身法为主，出掌如风",
+    "rag_refs": [
+      2,
+      6,
+      8,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 80,
+        "line_end": 80,
+        "text": "\"龙形一式\"，单掌斜穿，正是南灵龙灵飞的\"龙形九式\"里的第一式"
+      },
+      {
+        "chapter": 6,
+        "line_start": 201,
+        "line_end": 287,
+        "text": "龙形九式"
+      },
+      {
+        "chapter": 8,
+        "line_start": 126,
+        "line_end": 126,
+        "text": "将湘江一龙龙灵飞传授给他各种秘学练得出神入化"
+      },
+      {
+        "chapter": 9,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "师父在临终之前，曾经一再提起\"龙形九式\""
+      }
+    ]
+  },
+  {
+    "id": "skill_chong_lou_fei_ling",
+    "name": "重楼飞灵",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "武林罕见的内功心法，可解开普通点穴手法",
+    "techniques": [
+      {
+        "id": "tech_chong_lou_fei_ling_xin_fa",
+        "name": "重楼飞灵心法",
+        "type": "buff",
+        "description": "内家正宗心法，修炼火候到家可自己解开穴道"
+      }
+    ],
+    "progression": "王一萍十年朝夕修习",
+    "effects": [
+      "内力运转",
+      "解穴"
+    ],
+    "combat_style": "内功心法",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 423,
+        "line_end": 437,
+        "text": "重楼飞灵乃武林罕见的内功心法"
+      },
+      {
+        "chapter": 4,
+        "line_start": 280,
+        "line_end": 280,
+        "text": "他素闻重楼飞灵是一种至高无上的内家功夫"
+      }
+    ]
+  },
+  {
+    "id": "skill_gou_hun_shi_er_zhua",
+    "name": "勾魂十二抓",
+    "type": "指法",
+    "faction": "faction_yin_shan_si_sha",
+    "rank": "登峰造极",
+    "one_line": "阴山四煞两大绝学之一，阴柔指爪功夫，极难防御",
+    "techniques": [
+      {
+        "id": "tech_gou_hun_shi_er_zhua",
+        "name": "勾魂十二抓",
+        "type": "attack",
+        "description": "阴柔之力发出的十二路抓法"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "阴柔抓力伤人"
+      }
+    ],
+    "combat_style": "阴柔诡异",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 600,
+        "line_end": 602,
+        "text": "勾魂十二抓用的全是阴柔之力"
+      }
+    ]
+  },
+  {
+    "id": "skill_yin_shan_si_sha_guai_guai_zhen",
+    "name": "阴山四煞钢拐阵",
+    "type": "内功",
+    "faction": "faction_yin_shan_si_sha",
+    "rank": "出神入化",
+    "one_line": "阴山四煞联手使用的钢拐阵法，攻守兼备",
+    "techniques": [
+      {
+        "id": "tech_guai_zhen_he_ji",
+        "name": "钢拐合击",
+        "type": "attack",
+        "description": "四人钢拐互击的奇奥打法，威力倍增"
+      },
+      {
+        "id": "tech_duan_guai_gun_fa",
+        "name": "短棍棍法",
+        "type": "attack",
+        "description": "钢拐被削断后转用短棍棍法，奇招迭出"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "四人联手时威力极大"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "钢拐合击产生强大攻击力"
+      }
+    ],
+    "combat_style": "联手合击",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 240,
+        "line_end": 240,
+        "text": "他滑步欺身，竟使出一套奇奥无比的短棍棍法"
+      },
+      {
+        "chapter": 5,
+        "line_start": 350,
+        "line_end": 350,
+        "text": "他们钢拐互击的奇奥打法，的确难斗"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_qiao_ling_long_shou_fa",
+    "name": "七巧玲珑手法",
+    "type": "指法",
+    "faction": "憨山寺",
+    "rank": "出神入化",
+    "one_line": "憨山寺秘传擒拿手法",
+    "techniques": [
+      {
+        "id": "tech_qi_qiao_ling_long",
+        "name": "七巧玲珑",
+        "type": "attack",
+        "description": "以七种不同角度同时攻击对手"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      {
+        "type": "控制",
+        "description": "快速擒拿对手兵器"
+      }
+    ],
+    "combat_style": "以巧取胜",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 396,
+        "line_end": 397,
+        "text": "若不是施出本门秘学七巧玲珑手法"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_men_jian_fa",
+    "name": "师门剑法",
+    "type": "剑法",
+    "faction": "憨山寺",
+    "rank": "炉火纯青",
+    "one_line": "憨山寺本门剑法",
+    "techniques": [
+      {
+        "id": "tech_shi_men_jian_fa",
+        "name": "师门剑法",
+        "type": "attack",
+        "description": "憨山寺本门剑法，气势恢宏"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "攻击对手"
+      }
+    ],
+    "combat_style": "气势恢宏",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 348,
+        "line_end": 349,
+        "text": "无碍决心施展师门剑法"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_fa",
+    "name": "剑法",
+    "type": "剑法",
+    "faction": "无",
+    "rank": "初窥门径",
+    "one_line": "男孩女孩所使剑法",
+    "techniques": [
+      {
+        "id": "tech_jian_fa",
+        "name": "剑法",
+        "type": "attack",
+        "description": "普通剑法"
+      }
+    ],
+    "progression": "入门",
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "攻击对手"
+      }
+    ],
+    "combat_style": "灵活多变",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 316,
+        "line_end": 317,
+        "text": "男孩一击不中，接着又是\"刷刷\"两剑"
+      }
+    ]
+  },
+  {
+    "id": "skill_yin_jian",
+    "name": "银剑",
+    "type": "剑法",
+    "faction": "无",
+    "rank": "炉火纯青",
+    "one_line": "于右湖成名剑法",
+    "techniques": [
+      {
+        "id": "tech_yin_jian",
+        "name": "银剑",
+        "type": "attack",
+        "description": "于右湖成名剑法"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "攻击对手"
+      }
+    ],
+    "combat_style": "快速凌厉",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 222,
+        "line_end": 223,
+        "text": "名震江南的银剑于右湖"
+      }
+    ]
+  },
+  {
+    "id": "skill_shen_jian_wu_di_san_zhao",
+    "name": "神剑无敌三招",
+    "type": "剑法",
+    "faction": "",
+    "rank": 7,
+    "one_line": "崔仲宇的三招绝学：惊燕掠波、回风拂柳、化雨春风",
+    "techniques": [
+      {
+        "id": "tech_jing_yan_lue_bo",
+        "name": "惊燕掠波",
+        "type": "attack",
+        "description": "崔仲宇第一招"
+      },
+      {
+        "id": "tech_hui_feng_fu_liu",
+        "name": "回风拂柳",
+        "type": "attack",
+        "description": "崔仲宇第二招"
+      },
+      {
+        "id": "tech_hua_yu_chun_feng",
+        "name": "化雨春风",
+        "type": "attack",
+        "description": "崔仲宇第三招"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登峰造极",
+        "description": "崔仲宇剑法举世无双"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "凌厉剑法攻击"
+      }
+    ],
+    "combat_style": "三招连环，极难破解",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 122,
+        "line_end": 122,
+        "text": "惊燕掠波"
+      }
+    ]
+  },
+  {
+    "id": "skill_du_men_dian_xue_fa",
+    "name": "独门点穴法",
+    "type": "指法",
+    "faction": "",
+    "rank": 6,
+    "one_line": "龙灵飞亲传的独门点穴法，普通解穴手法无法解开",
+    "techniques": [
+      {
+        "id": "tech_dian_ruan_xue",
+        "name": "点软穴",
+        "type": "control",
+        "description": "点中软穴使人四肢瘫软"
+      },
+      {
+        "id": "tech_jie_xue",
+        "name": "解穴",
+        "type": "special",
+        "description": "独门解穴手法"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "王一萍已精通"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "使人瘫软无力"
+      }
+    ],
+    "combat_style": "近身点穴",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "闪电般点中他的软穴"
+      }
+    ]
+  }
+]
