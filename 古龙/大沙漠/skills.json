@@ -1,0 +1,620 @@
+[
+  {
+    "id": "skill_hui_feng_wu_liu_jian",
+    "name": "回风舞柳剑",
+    "type": "剑法",
+    "faction": "华山派",
+    "rank": "登堂入室",
+    "one_line": "华山派剑法，高亚男醉后常练给众人看",
+    "techniques": [
+      {
+        "id": "tech_hui_feng_wu_liu_jian",
+        "name": "回风舞柳剑",
+        "type": "attack",
+        "description": "华山派剑法，以轻灵飘逸著称，招式如柳随风舞动"
+      }
+    ],
+    "progression": "已学会",
+    "effects": [
+      "攻击"
+    ],
+    "combat_style": "轻灵飘逸",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 206,
+        "line_end": 208,
+        "text": "高亚男的，那时候她刚从华山学会一套\"回风舞柳剑\""
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_hu_duan_men_dao",
+    "name": "五虎断门刀",
+    "type": "剑法",
+    "faction": "彭门",
+    "rank": "炉火纯青",
+    "one_line": "彭门祖传刀法，素来不传外姓，威力刚猛",
+    "techniques": [],
+    "progression": "已臻成熟",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛霸道",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 325,
+        "line_end": 325,
+        "text": "这竟真的是五虎断门刀"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_rong_shu",
+    "name": "易容术",
+    "type": "special",
+    "faction": "faction_shi_guan_yin_shi_li",
+    "rank": "登峰造极",
+    "one_line": "石观音精通的伪装术，能化身石塑佛像瞒过高手",
+    "techniques": [
+      {
+        "id": "tech_shen_hua_mu_shi",
+        "name": "身化木石",
+        "type": "special",
+        "description": "凝精敛气，将自身化为木石形态，扮成石塑佛像"
+      }
+    ],
+    "progression": [
+      "初窥门径",
+      "登峰造极"
+    ],
+    "effects": [
+      "伪装",
+      "潜伏",
+      "欺骗"
+    ],
+    "combat_style": "以伪装潜伏为主，出其不意",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 242,
+        "line_end": 244,
+        "text": "还有谁有那么高明的易容术"
+      }
+    ]
+  },
+  {
+    "id": "skill_yong_du_shu",
+    "name": "用毒术",
+    "type": "special",
+    "faction": "faction_shi_guan_yin_shi_li",
+    "rank": "登峰造极",
+    "one_line": "石观音精通的用毒之术，连环毒计设计精妙",
+    "techniques": [
+      {
+        "id": "tech_gou_zui_cang_du",
+        "name": "狗嘴藏毒",
+        "type": "special",
+        "description": "将蜡封毒丸藏于狗嘴中，狗喝汤时毒丸落入锅中，蜡封受热溶化释放毒药"
+      },
+      {
+        "id": "tech_lian_huan_du_ji",
+        "name": "连环毒计",
+        "type": "feint",
+        "description": "先以无毒汤引诱，再通过狗喝汤触发毒丸，形成致命陷阱"
+      }
+    ],
+    "progression": [
+      "初窥门径",
+      "登峰造极"
+    ],
+    "effects": [
+      "致命",
+      "隐蔽",
+      "连环触发"
+    ],
+    "combat_style": "以毒计设伏，不战而屈人之兵",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 302,
+        "line_end": 312,
+        "text": "好厉害的人，竟将毒丸藏在狗嘴里"
+      }
+    ]
+  },
+  {
+    "id": "skill_sha_mo_sheng_cun_shu",
+    "name": "沙漠生存术",
+    "type": "special",
+    "faction": "无门派",
+    "rank": "登峰造极",
+    "one_line": "石驼在沙漠中生存的特殊能力，能嗅出地下水源",
+    "techniques": [
+      {
+        "id": "tech_wen_shui_xun_mai",
+        "name": "闻水寻脉",
+        "type": "special",
+        "description": "通过嗅觉感知地下水源的温度，追踪水脉寻找水源"
+      },
+      {
+        "id": "tech_sha_zhong_xi_shui",
+        "name": "沙中吸水",
+        "type": "special",
+        "description": "从温沙中吮吸微量水分以维持生命"
+      }
+    ],
+    "progression": [
+      "初窥门径",
+      "登峰造极"
+    ],
+    "effects": [
+      "寻水",
+      "续命"
+    ],
+    "combat_style": "非战斗技能，生存技能",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 323,
+        "line_end": 371,
+        "text": "他在找地下的水源"
+      }
+    ]
+  },
+  {
+    "id": "skill_long_you_jian",
+    "name": "龙游剑",
+    "type": "剑法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "八八六十四手龙游剑，以轻灵严密著称于天下",
+    "techniques": [],
+    "progression": "登堂入室",
+    "effects": [
+      {
+        "type": "伤害",
+        "value": "中等"
+      }
+    ],
+    "combat_style": "以轻灵严密见长，适合近身缠斗",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 64,
+        "line_end": 64,
+        "text": "\"八八六十四手龙游剑\"素来以轻灵严密著称于天下"
+      }
+    ]
+  },
+  {
+    "id": "skill_pi_pa_an_qi",
+    "name": "琵琶暗器",
+    "type": "暗器",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "精铁琵琶中暗藏银针和利刃，攻守兼备",
+    "techniques": [],
+    "progression": "炉火纯青",
+    "effects": [
+      {
+        "type": "伤害",
+        "value": "极高"
+      },
+      {
+        "type": "控制",
+        "value": "突发性极强"
+      }
+    ],
+    "combat_style": "守中带攻，出其不意",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 60,
+        "line_end": 60,
+        "text": "手中琵琶并没有动，但话犹未了，琵琶的曲头里，突的一蓬银针暴射而出"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_gong",
+    "name": "轻功",
+    "type": "轻功",
+    "faction": "无门派",
+    "rank": "出神入化",
+    "one_line": "楚留香的轻功，身法飘逸，来去如风",
+    "techniques": [],
+    "progression": "出神入化",
+    "effects": [
+      "增益"
+    ],
+    "combat_style": "灵活闪避",
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 58,
+        "line_end": 58,
+        "text": "一人飞掠而来"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_fa",
+    "name": "剑法",
+    "type": "剑法",
+    "faction": "无门派",
+    "rank": "出神入化",
+    "one_line": "一点红的剑法，快如闪电，招式精妙",
+    "techniques": [],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "快速凌厉",
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "一点红剑出如风"
+      }
+    ]
+  },
+  {
+    "id": "skill_bi_fa",
+    "name": "笔法",
+    "type": "指法",
+    "faction": "无门派",
+    "rank": "出神入化",
+    "one_line": "姬冰雁的判官笔法，点穴精准，招式狠辣",
+    "techniques": [],
+    "progression": "出神入化",
+    "effects": [
+      "控制",
+      "伤害"
+    ],
+    "combat_style": "精准狠辣",
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 16,
+        "line_end": 16,
+        "text": "他双笔一分，'毒蛇出穴'"
+      }
+    ]
+  },
+  {
+    "id": "skill_hong_hua_jian_fa",
+    "name": "红花剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "一点红的独门剑法，出剑必见血",
+    "techniques": [],
+    "progression": "出神入化",
+    "effects": [
+      "伤害",
+      "控制"
+    ],
+    "combat_style": "一击必杀",
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 300,
+        "line_end": 300,
+        "text": "此剑不轻出，出必见血，见血必死!"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_dian_hong_jian_fa",
+    "name": "一点红剑法",
+    "type": "剑法",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "一点红的高超剑法，可在百万军中取主将首级",
+    "techniques": [
+      {
+        "id": "tech_yi_dian_hong_jian_fa",
+        "name": "一点红剑法",
+        "type": "attack",
+        "description": "以快准狠著称的杀人剑法，出剑必取要害"
+      }
+    ],
+    "progression": [
+      "精通"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "一击致命的剑术"
+      }
+    ],
+    "combat_style": "快攻取命",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 6,
+        "line_end": 8,
+        "text": "以红兄的剑法，要在百万军中取主将首级"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_ju_xuan_dian_xue_gong",
+    "name": "吴菊轩点穴功",
+    "type": "指法",
+    "faction": "faction_shi_guan_yin_zhen_ying",
+    "rank": "出神入化",
+    "one_line": "吴菊轩的一等一点穴功夫，出手如风",
+    "techniques": [
+      {
+        "id": "tech_wu_ju_xuan_dian_xue",
+        "name": "点穴制人",
+        "type": "control",
+        "description": "快速点中对手多处穴道，使其动弹不得"
+      },
+      {
+        "id": "tech_wu_ju_xuan_shen_fa",
+        "name": "身法如风",
+        "type": "special",
+        "description": "出手速度极快，令人无法防备"
+      }
+    ],
+    "progression": [
+      "精通"
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "点穴使人无法行动"
+      }
+    ],
+    "combat_style": "快速制服",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 88,
+        "line_end": 88,
+        "text": "吴菊轩突然出手如风，左右双手，在两人身上各点了七八处穴道"
+      }
+    ]
+  },
+  {
+    "id": "skill_chu_liu_xiang_yi_rong_shu",
+    "name": "楚留香易容术",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "返璞归真",
+    "one_line": "楚留香天下无双的易容术，可改变面貌肤色声音",
+    "techniques": [
+      {
+        "id": "tech_chu_liu_xiang_yi_rong",
+        "name": "易容改扮",
+        "type": "special",
+        "description": "改变面貌、肤色、声音甚至身高，但无法改变两眼间距"
+      }
+    ],
+    "progression": [
+      "登峰造极"
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "完美伪装身份"
+      }
+    ],
+    "combat_style": "潜伏伪装",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 110,
+        "line_end": 112,
+        "text": "楚香帅易窖之妙，天下无双"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_guan_yin_wu_gong",
+    "name": "石观音武功",
+    "type": "掌法",
+    "faction": "faction_shi_guan_yin_yi_mai",
+    "rank": "返璞归真",
+    "one_line": "石观音一脉传承的奇诡武功，招式异于中土各派，含有'斩'字诀",
+    "techniques": [
+      {
+        "id": "tech_zhan_zi_jue",
+        "name": "斩字诀",
+        "type": "attack",
+        "description": "以掌代刀，运用斩击手法攻击敌方，是石观音武功中独有的掌法诀要"
+      },
+      {
+        "id": "tech_yi_gui_zhao_shi",
+        "name": "奇诡招式",
+        "type": "attack",
+        "description": "融合鹰爪功、擒拿手、摔跤手法等异邦武学的奇诡攻击招式"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "奇诡迅急，异于中土各派",
+    "rag_refs": [
+      26
+    ],
+    "source_refs": [
+      {
+        "chapter": 26,
+        "line_start": 146,
+        "line_end": 150,
+        "text": "这种招式竟和天下各门各派的招式完全不相同"
+      }
+    ]
+  },
+  {
+    "id": "skill_hua_shan_jian_fa",
+    "name": "华山剑法",
+    "type": "剑法",
+    "faction": "faction_hua_shan_pai",
+    "rank": 6,
+    "one_line": "华山派正宗剑法，以惊虹贯日等招式闻名",
+    "techniques": [
+      {
+        "id": "tech_jing_hong_guan_ri",
+        "name": "惊虹贯日",
+        "type": "attack",
+        "description": "华山派绝招，剑光如匹练纵横"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛凌厉",
+    "rag_refs": [
+      28
+    ],
+    "source_refs": [
+      {
+        "chapter": 28,
+        "line_start": 288,
+        "line_end": 290,
+        "text": "阁下方才那一招惊虹贯日"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_tie_hua_wu_gong",
+    "name": "胡铁花武功",
+    "type": "掌法",
+    "faction": null,
+    "rank": 6,
+    "one_line": "胡铁花的武功，以刚猛掌法见长",
+    "techniques": [
+      {
+        "id": "tech_hu_tie_hua_zhang_fa",
+        "name": "胡铁花掌法",
+        "type": "attack",
+        "description": "刚猛凌厉的掌法"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛",
+    "rag_refs": [
+      28
+    ],
+    "source_refs": [
+      {
+        "chapter": 28,
+        "line_start": 236,
+        "line_end": 238,
+        "text": "飞身而出"
+      }
+    ]
+  },
+  {
+    "id": "skill_ying_feng_yi_dao_zhan",
+    "name": "迎风一刀斩",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "无花使用的剑法，一刀砍下脑袋",
+    "techniques": [
+      {
+        "id": "tech_ying_feng_yi_dao_zhan",
+        "name": "迎风一刀斩",
+        "type": "attack",
+        "description": "以刀迎风，一刀斩下，威力惊人"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "致命一击"
+    ],
+    "combat_style": "快速致命",
+    "rag_refs": [
+      35
+    ],
+    "source_refs": [
+      {
+        "chapter": 35,
+        "line_start": 114,
+        "line_end": 115,
+        "text": "楚留香提到无花要用迎风一刀斩杀他"
+      }
+    ]
+  },
+  {
+    "id": "skill_pi_fang_hu_xi",
+    "name": "皮肤呼吸",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "楚留香独门内功，皮肤毛孔呼吸，百毒不侵",
+    "techniques": [],
+    "progression": "出神入化",
+    "effects": [
+      "免疫迷香",
+      "增强轻功"
+    ],
+    "combat_style": "防御型",
+    "rag_refs": [
+      35
+    ],
+    "source_refs": [
+      {
+        "chapter": 35,
+        "line_start": 154,
+        "line_end": 156,
+        "text": "楚留香解释皮肤呼吸的原理"
+      }
+    ]
+  }
+]
