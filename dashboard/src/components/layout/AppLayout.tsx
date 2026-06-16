@@ -71,7 +71,7 @@ const AppLayout: React.FC = () => {
       <Sider
         breakpoint="lg"
         collapsedWidth="80"
-        style={{ background: colorBgContainer, overflow: 'auto' }}
+        style={{ background: colorBgContainer, overflow: 'auto', boxShadow: '2px 0 8px rgba(0,0,0,0.04)' }}
       >
         <div
           style={{
@@ -101,6 +101,7 @@ const AppLayout: React.FC = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             borderBottom: '1px solid #f0f0f0',
+            boxShadow: '0 1px 4px rgba(0,0,0,0.03)',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>

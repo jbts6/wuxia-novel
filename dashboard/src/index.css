@@ -11,3 +11,28 @@ html, body, #root {
   height: 100%;
   overflow: hidden;
 }
+
+/* Smoother scrolling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+/* Antd Layout tweaks */
+.ant-layout-sider {
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.ant-layout-header {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
