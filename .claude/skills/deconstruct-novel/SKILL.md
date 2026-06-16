@@ -14,7 +14,7 @@ description: Use when the user asks to deconstruct a formatted wuxia novel, extr
 - 先确认 `<小说目录>/ch_formatted/ch_*.md` 存在；如果 `ch_formatted` 不存在或为空，必须先使用 `batch-format-novel` 格式化原文。
 - 先判断状态：首次运行 `prepare.js`；中断、断连或不确定进度时先运行 `resume.js`。
 - 主 Agent 不直接通读章节正文；每个 Sub Agent 只处理 1 章。
-- 并发 5-8 个 Sub Agent，保持 RPM < 100。
+- 最多同时 3 个 Sub Agent，保持 RPM < 100。
 - 调度只以文件事实为准：有效 `ch_NNN.json` 才算完成；无效 JSON、缺失字段、坏 ID 都不算完成。
 - 章节提取必须增量写 `batch_json/ch_NNN_progress.jsonl`，最后合并为 `batch_json/ch_NNN.json`；重跑要跳过已完成章节和已完成段落。
 - 使用 CommonJS `require`；不要用 ESM `import`，不要创建 `.cjs` 文件。
