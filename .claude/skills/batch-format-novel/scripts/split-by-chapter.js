@@ -7,6 +7,7 @@
  * - 第X章、第X回、第X节
  * - （第X回完）
  * - 纯数字章节：001、002 等
+ * - 卷X第X章格式（如：卷十三 第十章 舌战青楼）
  *
  * 用法：
  *   node split-by-chapter.js <txt文件路径> [输出目录]
@@ -28,6 +29,8 @@ const CHAPTER_PATTERNS = [
   /^[\s　]*（第[一二三四五六七八九十百千万\d]+[回章]完）/m,
   // 纯数字章节标题（如：001、002）
   /^[\s　]*\d{3}[\s　]/m,
+  // 卷X第X章格式（如：卷十三 第十章 舌战青楼）
+  /^[\s　]*卷[\s　]*[一二三四五六七八九十百千万\d]+[\s　]+第[\s　]*[一二三四五六七八九十百千万\d]+[\s　]*章/m,
 ];
 
 function chineseNumberToInt(text) {
@@ -269,7 +272,7 @@ function main() {
   console.log('');
 
   for (let i = 0; i < chapters.length; i++) {
-    const chNum = String(i + 1).padStart(2, '0');
+    const chNum = String(i + 1).padStart(3, '0');
     const filename = `ch_${chNum}.md`;
     const filepath = path.join(outputDir, filename);
 

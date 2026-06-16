@@ -171,7 +171,7 @@ function main() {
   let fail = 0;
 
   for (const ch of pending) {
-    const chNum = String(ch).padStart(2, '0');
+    const chNum = String(ch).padStart(3, '0');
     const input = path.join(chOriginalDir, `ch_${chNum}.md`);
     const output = path.join(chFormattedDir, `ch_${chNum}.md`);
 
