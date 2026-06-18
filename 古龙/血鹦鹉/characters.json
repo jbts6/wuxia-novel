@@ -1,0 +1,4321 @@
+[
+  {
+    "id": "char_hai_long_wang",
+    "name": "海龙王",
+    "alias": [],
+    "identity": "七海山庄庄主，曾经纵横七海的海盗",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "曾经纵横七海的海盗，现为七海山庄庄主",
+    "personality": {
+      "traits": [
+        "残忍",
+        "好色",
+        "自负",
+        "多疑",
+        "贪婪"
+      ],
+      "speech_style": "粗犷直接",
+      "temperament": "暴躁易怒"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 28,
+        "line_end": 70,
+        "text": "海龙王卧房里精美的雕花窗户上"
+      }
+    ]
+  },
+  {
+    "id": "char_shao_nv",
+    "name": "少女",
+    "alias": [],
+    "identity": "被海龙王囚禁的少女",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "被海龙王囚禁的少女",
+    "personality": {
+      "traits": [
+        "柔弱",
+        "恐惧",
+        "绝望",
+        "感激",
+        "悲伤"
+      ],
+      "speech_style": "柔弱",
+      "temperament": "胆小"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 34,
+        "line_end": 44,
+        "text": "床上的女孩已睡着"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_feng",
+    "name": "王风",
+    "alias": [
+      "王重生",
+      "铁胆剑客"
+    ],
+    "identity": "铁胆剑客，名满天下，行侠仗义",
+    "faction": "无",
+    "role": "protagonist",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "不要命的刺客，被要命阎王针所伤，只剩不到两个月生命",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "无情",
+        "勇敢",
+        "孤独",
+        "绝望",
+        "心狠手软"
+      ],
+      "speech_style": "简洁直接",
+      "temperament": "冷漠"
+    },
+    "relationships": [
+      {
+        "target": "char_xue_nu",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "初识"
+      },
+      {
+        "target": "char_xue_nu",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "救下血奴，展现保护本能"
+      },
+      {
+        "target": "char_mo_wang",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "初入魔域，被魔王引领"
+      },
+      {
+        "target": "char_xue_ying_wu",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "血鹦鹉实现愿望"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      9,
+      11,
+      12,
+      13,
+      14,
+      17,
+      18,
+      27,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 102,
+        "line_end": 115,
+        "text": "王风正在打量着他，就好像屠夫在打量着一条待宰肥猪"
+      },
+      {
+        "chapter": 2,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "王风道：\"你知道他的愿望。\""
+      },
+      {
+        "chapter": 2,
+        "line_start": 36,
+        "line_end": 36,
+        "text": "铁恨道：\"你就是王风。\""
+      },
+      {
+        "chapter": 2,
+        "line_start": 44,
+        "line_end": 45,
+        "text": "你本来叫王重生，铁胆剑客王重生名满天下"
+      },
+      {
+        "chapter": 3,
+        "line_start": 66,
+        "line_end": 76,
+        "text": "这位客官是个年轻人，落魄的年轻人"
+      },
+      {
+        "chapter": 4,
+        "line_start": 2,
+        "line_end": 12,
+        "text": "王风的装束，显然与经常到她们这里来的那些人不大相同。王风还带着口棺材。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "王风直到现在才看出，这里并不是个很繁华的市镇"
+      },
+      {
+        "chapter": 6,
+        "line_start": 486,
+        "line_end": 488,
+        "text": "你本来叫王重生。铁胆剑客王重生名满天下，所做的几乎都是行侠仗义的事情。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 232,
+        "line_end": 232,
+        "text": "他的生命虽未尽，已将尽，一个生命已将尽的人"
+      },
+      {
+        "chapter": 9,
+        "line_start": 218,
+        "line_end": 218,
+        "text": "方才你说过王风离开这里之后，就带着棺材到鹦鹉楼找血奴。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 702,
+        "line_end": 800,
+        "text": "王风躲在棺材中假扮僵尸"
+      },
+      {
+        "chapter": 11,
+        "line_start": 2,
+        "line_end": 100,
+        "text": "王风与常笑对话，自称江湖人，为铁恨送尸"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1,
+        "line_end": 100,
+        "text": "江湖游侠"
+      },
+      {
+        "chapter": 13,
+        "line_start": 40,
+        "line_end": 40,
+        "text": "王风赶紧避开宋妈妈的目光"
+      },
+      {
+        "chapter": 14,
+        "line_start": 1,
+        "line_end": 81,
+        "text": "第十四回　杀手 雨仍在下着。  王风躺在乱坟荒草中，就像是一堆烂泥。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 1,
+        "line_end": 10,
+        "text": "王风现在正在六角亭中"
+      },
+      {
+        "chapter": 17,
+        "line_start": 552,
+        "line_end": 554,
+        "text": "他的身躯轻捷如狸猫"
+      },
+      {
+        "chapter": 18,
+        "line_start": 278,
+        "line_end": 280,
+        "text": "铃声一入耳，王风的心情立即紧张起来。这种铃声他已听过了两次。"
+      },
+      {
+        "chapter": 25,
+        "line_start": 198,
+        "line_end": 230,
+        "text": "王风连忙亦扑前去...总算他反应敏捷，火刚起就被他压熄。"
+      },
+      {
+        "chapter": 26,
+        "line_start": 6,
+        "line_end": 10,
+        "text": "王风的右手，不觉已握住了那支短剑的剑柄。"
+      },
+      {
+        "chapter": 27,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "王风不笑，血鹦鹉笑，大笑不绝。"
+      },
+      {
+        "chapter": 28,
+        "line_start": 216,
+        "line_end": 218,
+        "text": "只不过我身上带着一支削铁如泥的宝剑"
+      },
+      {
+        "chapter": 29,
+        "line_start": 38,
+        "line_end": 40,
+        "text": "王风一出了石牢就发觉石牢出口的旁边站着一个人"
+      },
+      {
+        "chapter": 30,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "王风忍不住打断了铁恨的话"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_nu",
+    "name": "血奴",
+    "alias": [],
+    "identity": "血鹦鹉的奴才，脖子上挂着铃的鸟",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "血鹦鹉的奴才，一只脖子上挂着铃的鸟",
+    "personality": {
+      "traits": [
+        "神秘",
+        "诡异",
+        "灵异"
+      ],
+      "speech_style": "无",
+      "temperament": "诡异"
+    },
+    "relationships": [
+      {
+        "target": "char_song_ma_ma",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "奶妈与养女"
+      },
+      {
+        "target": "char_wang_feng",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "王风救了她，两人关系加深"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      9,
+      11,
+      12,
+      13,
+      17,
+      27,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 302,
+        "line_end": 306,
+        "text": "一只脖子上挂着铃的鸟，铃声怪异而奇特"
+      },
+      {
+        "chapter": 3,
+        "line_start": 444,
+        "line_end": 444,
+        "text": "她叫血奴。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 176,
+        "line_end": 192,
+        "text": "她并不是赤裸着的。她还穿着一半衣裳——既不是上面一半，也不是下面一半。"
+      },
+      {
+        "chapter": 5,
+        "line_start": 88,
+        "line_end": 88,
+        "text": "你应该见过她的女儿，你从她女儿楼上走下来的。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 166,
+        "line_end": 168,
+        "text": "血奴外露的一边胸脯却仍像早春绽开的鲜花。她毕竟年轻。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 314,
+        "line_end": 314,
+        "text": "她本来是我的奶妈，我是吃她的奶长大的。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 140,
+        "line_end": 140,
+        "text": "那只鹦鹉叫做小魔神，据讲是血奴送给老掌柜的礼物。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 610,
+        "line_end": 616,
+        "text": "血奴痴痴望着王风，眼中充满羡慕之色"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1,
+        "line_end": 100,
+        "text": "血鹦鹉的奴才"
+      },
+      {
+        "chapter": 13,
+        "line_start": 318,
+        "line_end": 322,
+        "text": "从洞中望出，就看到血奴。这血奴是人，不是鸟。血奴正倚门而立"
+      },
+      {
+        "chapter": 17,
+        "line_start": 642,
+        "line_end": 646,
+        "text": "血奴已是罕见的美人"
+      },
+      {
+        "chapter": 25,
+        "line_start": 272,
+        "line_end": 282,
+        "text": "我不能看着她就那样死去...多少辛酸，多少悲哀，多少痛苦，都尽在这一哭之中。"
+      },
+      {
+        "chapter": 27,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "十三只血奴拱卫着它，不离它左右。"
+      },
+      {
+        "chapter": 28,
+        "line_start": 100,
+        "line_end": 106,
+        "text": "她气的整个身子都在发抖，张嘴哗一口鲜血喷出"
+      },
+      {
+        "chapter": 30,
+        "line_start": 226,
+        "line_end": 226,
+        "text": "我们的公主，我王惟一的女儿——血奴。"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_fa_lao_ren",
+    "name": "白衣老人",
+    "alias": [],
+    "identity": "从棺材中出现的白发老人，自称死人",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "登峰造极",
+    "one_line": "从棺材中出现的白发苍苍的白衣老人，自称死人",
+    "personality": {
+      "traits": [
+        "神秘",
+        "虚弱",
+        "智慧",
+        "悲伤",
+        "执着"
+      ],
+      "speech_style": "缓慢深沉",
+      "temperament": "凄凉"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 310,
+        "line_end": 320,
+        "text": "坟场间又出现了一个白发苍苍，枯干矮小的白衣老人"
+      }
+    ]
+  },
+  {
+    "id": "char_ye_tian_shi",
+    "name": "叶天士",
+    "alias": [
+      "叶老先生"
+    ],
+    "identity": "天下第一名医",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "登峰造极",
+    "one_line": "天下第一名医，曾为王风续命一百天",
+    "personality": {
+      "traits": [
+        "仁心仁术",
+        "高明",
+        "慈悲",
+        "无私",
+        "神医"
+      ],
+      "speech_style": "温和",
+      "temperament": "慈悲"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      23
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 466,
+        "line_end": 472,
+        "text": "叶老先生就是叶天士，也就是天下第一名医"
+      },
+      {
+        "chapter": 23,
+        "line_start": 640,
+        "line_end": 648,
+        "text": "叶天士医术天下第一，行踪也是遍天下，要找到他已经不容易，何况他只有半个时辰不到好活。偏就是这么巧，竟然给他遇上。叶天士也只能暂时保住他的命，让他多活一百天。"
+      }
+    ]
+  },
+  {
+    "id": "char_guo_fan",
+    "name": "郭繁",
+    "alias": [],
+    "identity": "富贵王府总管，富贵王的连襟",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "富贵王府总管，因宝库失窃案蒙冤",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "冤屈",
+        "绝望",
+        "执着",
+        "孝顺"
+      ],
+      "speech_style": "正式",
+      "temperament": "焦虑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      4,
+      12,
+      27,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 580,
+        "line_end": 584,
+        "text": "当时王府的总管郭繁"
+      },
+      {
+        "chapter": 4,
+        "line_start": 672,
+        "line_end": 672,
+        "text": "可是我听说他有位兄弟叫郭繁，曾经真的见过血鹦鹉。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 301,
+        "line_end": 400,
+        "text": "曾经亲眼见过血鹦鹉的人"
+      },
+      {
+        "chapter": 27,
+        "line_start": 8,
+        "line_end": 8,
+        "text": "七年前太平王府的总管郭繁得到了血鹦鹉的三个愿望。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 516,
+        "line_end": 518,
+        "text": "王府总管郭繁"
+      },
+      {
+        "chapter": 30,
+        "line_start": 54,
+        "line_end": 54,
+        "text": "郭繁嘶声叫出了他的第二个希望"
+      }
+    ]
+  },
+  {
+    "id": "char_guo_lan_ren",
+    "name": "郭兰人",
+    "alias": [],
+    "identity": "郭繁的独生子",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "郭繁的独生子，被阴差错拘魂魄",
+    "personality": {
+      "traits": [
+        "无辜",
+        "可怜",
+        "年轻",
+        "不幸",
+        "悲惨"
+      ],
+      "speech_style": "无",
+      "temperament": "无"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      27,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 618,
+        "line_end": 620,
+        "text": "拘走了郭繁的独生子郭兰人"
+      },
+      {
+        "chapter": 27,
+        "line_start": 10,
+        "line_end": 10,
+        "text": "结果郭繁夫妇双亡，独子郭兰人死而复生，生而复死，终于还是死在棺材里面。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 518,
+        "line_end": 518,
+        "text": "郭繁一辈子就只得一个儿子郭兰，却是个白痴"
+      },
+      {
+        "chapter": 30,
+        "line_start": 58,
+        "line_end": 58,
+        "text": "那正是郭兰人的声音"
+      }
+    ]
+  },
+  {
+    "id": "char_fu_gui_wang",
+    "name": "富贵王",
+    "alias": [],
+    "identity": "富甲天下的王爷",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "富甲天下的王爷，宝库失窃后变成白痴",
+    "personality": {
+      "traits": [
+        "富有",
+        "多疑",
+        "可怜",
+        "悲伤",
+        "痴呆"
+      ],
+      "speech_style": "正式",
+      "temperament": "悲伤"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 578,
+        "line_end": 580,
+        "text": "富甲天下的富贵王"
+      }
+    ]
+  },
+  {
+    "id": "char_shen_mi_ren",
+    "name": "神秘人",
+    "alias": [],
+    "identity": "章末突然出现的冷笑之人",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "章末突然出现的冷笑之人，声称知道白衣老人的第一个愿望",
+    "personality": {
+      "traits": [
+        "神秘",
+        "冷酷",
+        "自信",
+        "诡异",
+        "强大"
+      ],
+      "speech_style": "冷笑",
+      "temperament": "冷酷"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 762,
+        "line_end": 762,
+        "text": "突听一个冷冷笑声道"
+      }
+    ]
+  },
+  {
+    "id": "char_tie_hen",
+    "name": "铁恨",
+    "alias": [
+      "铁手无情"
+    ],
+    "identity": "六扇门四大名捕",
+    "faction": "六扇门",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "六扇门四大名捕之一，铁手无情，正直刚毅，追查太平王府珠宝案",
+    "personality": {
+      "traits": [
+        "正直",
+        "刚毅",
+        "执着",
+        "冷静",
+        "冷酷"
+      ],
+      "speech_style": "言语简洁有力，不苟言笑",
+      "temperament": "沉稳冷峻"
+    },
+    "relationships": [
+      {
+        "target": "char_wang_feng",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "由对立到惺惺相惜"
+      },
+      {
+        "target": "char_xiao_bai_cao",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "多年至交"
+      },
+      {
+        "target": "char_lao_ren",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "追捕与被追捕"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      11,
+      27,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 20,
+        "line_end": 20,
+        "text": "铁恨道：\"我叫铁恨。\""
+      },
+      {
+        "chapter": 2,
+        "line_start": 22,
+        "line_end": 26,
+        "text": "铁恨。他就是六扇门里，四大名捕中的铁手无情"
+      },
+      {
+        "chapter": 8,
+        "line_start": 910,
+        "line_end": 912,
+        "text": "\"铁手无情\"铁恨。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 14,
+        "line_end": 16,
+        "text": "王风提到铁恨是其朋友"
+      },
+      {
+        "chapter": 27,
+        "line_start": 12,
+        "line_end": 12,
+        "text": "铁恨得到了它的第一个愿望，那就是死亡。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 120,
+        "line_end": 120,
+        "text": "月洞门外走进来的那个人赫然是铁恨！"
+      },
+      {
+        "chapter": 30,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "铁恨摇摇头"
+      }
+    ]
+  },
+  {
+    "id": "char_lao_ren",
+    "name": "郭易",
+    "alias": [
+      "老人"
+    ],
+    "identity": "郭繁家族唯一幸存者",
+    "faction": null,
+    "role": "npc",
+    "archetype": "npc",
+    "rank": "平平无奇",
+    "one_line": "郭繁家族中唯一还活着的人，后被毒杀",
+    "personality": {
+      "traits": [
+        "胆怯",
+        "虚弱",
+        "无奈",
+        "可怜",
+        "临终"
+      ],
+      "speech_style": "声音微弱",
+      "temperament": "恐惧"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 14,
+        "line_end": 14,
+        "text": "老人忽然叹了口气，说道：\"我并不想他死。\""
+      },
+      {
+        "chapter": 2,
+        "line_start": 84,
+        "line_end": 84,
+        "text": "老人还躺在棺材里。"
+      }
+    ]
+  },
+  {
+    "id": "char_man_tian_fei",
+    "name": "满天飞",
+    "alias": [
+      "独行大盗"
+    ],
+    "identity": "独行大盗",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "独行大盗，轻功暗器均佳，行踪飘忽，后被毒杀",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "独行",
+        "机敏",
+        "多疑",
+        "谨慎"
+      ],
+      "speech_style": null,
+      "temperament": "阴沉"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 252,
+        "line_end": 254,
+        "text": "从满天飞的手里。独行大盗满天飞？"
+      },
+      {
+        "chapter": 30,
+        "line_start": 304,
+        "line_end": 304,
+        "text": "满天飞。"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_bai_cao",
+    "name": "萧百草",
+    "alias": [
+      "仵作"
+    ],
+    "identity": "名医改行仵作",
+    "faction": null,
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "登峰造极",
+    "one_line": "本是名医，因妻子惨死改行仵作，经验极丰富",
+    "personality": {
+      "traits": [
+        "严谨",
+        "执着",
+        "正直",
+        "经验丰富",
+        "认真"
+      ],
+      "speech_style": "言语简练",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_tie_hen",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "多年至交"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      9,
+      11,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 376,
+        "line_end": 382,
+        "text": "我记得他好像叫萧百草。他是我的朋友。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 84,
+        "line_end": 88,
+        "text": "那个老人竟是萧百草。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 1226,
+        "line_end": 1230,
+        "text": "一弹起他就瞥见萧百草正举起手中的剖尸刀割向自己的咽喉。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 4,
+        "line_end": 6,
+        "text": "萧百草的面上没有痛苦，只有一抹凄凉。他是仵作行中的匐轮老手..."
+      },
+      {
+        "chapter": 11,
+        "line_start": 88,
+        "line_end": 92,
+        "text": "王风提到萧百草剖验尸体"
+      },
+      {
+        "chapter": 29,
+        "line_start": 244,
+        "line_end": 244,
+        "text": "萧百草"
+      },
+      {
+        "chapter": 30,
+        "line_start": 404,
+        "line_end": 404,
+        "text": "那颗辟毒珠后来不是萧百草在郭易的大腿内侧剖出来"
+      }
+    ],
+    "status": "死亡"
+  },
+  {
+    "id": "char_he_neng",
+    "name": "何能",
+    "alias": [
+      "捕头"
+    ],
+    "identity": "县里捕头",
+    "faction": "六扇门",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "县里捕头，年纪不大但做事极慎重",
+    "personality": {
+      "traits": [
+        "慎重",
+        "果断",
+        "正直",
+        "认真",
+        "谨慎"
+      ],
+      "speech_style": "言语简洁",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_tie_hen",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "上下级合作"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 808,
+        "line_end": 809,
+        "text": "这里是个大县，县里的捕头叫何能。年纪虽不大，名气也不响，做事却极慎重。"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_tian_long",
+    "name": "谭天龙",
+    "alias": [
+      "谭老大"
+    ],
+    "identity": "谭门三霸天之首",
+    "faction": "faction_tan_men",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "谭门三霸天之首，腿功高手",
+    "personality": {
+      "traits": [
+        "霸道",
+        "果断",
+        "冷酷",
+        "重兄弟情",
+        "有谋略"
+      ],
+      "speech_style": "简洁威严",
+      "temperament": "冷酷"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_tian_hu",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      },
+      {
+        "target": "char_tian_tian_bao",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      }
+    ],
+    "known_skills": [
+      "skill_tan_tui"
+    ],
+    "related_skills": [
+      "skill_tan_tui"
+    ],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 28,
+        "line_end": 28,
+        "text": "谭老大谭天龙第一个闯进去"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_tian_hu",
+    "name": "谭天虎",
+    "alias": [
+      "谭老二"
+    ],
+    "identity": "谭门三霸天之二",
+    "faction": "faction_tan_men",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "谭门三霸天之二，火气最大，拳头最大",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "冲动",
+        "勇猛",
+        "鲁莽",
+        "重义气"
+      ],
+      "speech_style": "粗鲁直接",
+      "temperament": "暴躁"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_tian_long",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      },
+      {
+        "target": "char_tian_tian_bao",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      }
+    ],
+    "known_skills": [
+      "skill_tan_tui"
+    ],
+    "related_skills": [
+      "skill_tan_tui"
+    ],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 78,
+        "line_end": 78,
+        "text": "谭家兄弟里，火气最大，拳头也最大的，就是老二谭天虎。"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_tian_bao",
+    "name": "谭天豹",
+    "alias": [
+      "谭老三"
+    ],
+    "identity": "谭门三霸天之三",
+    "faction": "faction_tan_men",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "谭门三霸天之三，新娶爱妾",
+    "personality": {
+      "traits": [
+        "懒散",
+        "好色",
+        "武功高强",
+        "听从兄长",
+        "内敛"
+      ],
+      "speech_style": "少言",
+      "temperament": "懒散"
+    },
+    "relationships": [
+      {
+        "target": "char_tian_tian_long",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      },
+      {
+        "target": "char_tian_tian_hu",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟"
+      }
+    ],
+    "known_skills": [
+      "skill_tan_tui"
+    ],
+    "related_skills": [
+      "skill_tan_tui"
+    ],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 36,
+        "line_end": 37,
+        "text": "谭老三谭天豹新娶的一位爱妾非但貌美如花"
+      }
+    ]
+  },
+  {
+    "id": "char_lao_zhang_gui",
+    "name": "老掌柜",
+    "alias": [
+      "掌柜的"
+    ],
+    "identity": "平安老店主人",
+    "faction": "",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "平安老店的老掌柜，年老体衰",
+    "personality": {
+      "traits": [
+        "胆小怕事",
+        "老实本分",
+        "贪财",
+        "有故事",
+        "谨慎"
+      ],
+      "speech_style": "恩敬讨好",
+      "temperament": "胆怬"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 56,
+        "line_end": 64,
+        "text": "掌柜的一面抹汗，一面赞笑"
+      },
+      {
+        "chapter": 8,
+        "line_start": 286,
+        "line_end": 290,
+        "text": "平安老店的老掌柜同样是个聪明人。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 586,
+        "line_end": 590,
+        "text": "老掌柜一个\"事\"字才说完，匹练也似的一剑已哧的飞入了他的咽喉。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 58,
+        "line_end": 58,
+        "text": "那本来养着血奴送给老掌柜一只叫小魔神的鹦鹉..."
+      }
+    ],
+    "status": "死亡"
+  },
+  {
+    "id": "char_xiao_gu_niang",
+    "name": "小姑娘",
+    "alias": [],
+    "identity": "鹦鹉楼的应门侍女",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "鹦鹉楼穿红衣裳的应门小姑娘，眸子黑如点漆",
+    "personality": {
+      "traits": [
+        "机警伶俐",
+        "直言不讳",
+        "守规矩",
+        "有些势利",
+        "好奇心强"
+      ],
+      "speech_style": "直接干脆",
+      "temperament": "活泼"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 4,
+        "line_end": 6,
+        "text": "应门的是个小姑娘，穿着套红衣裳的小姑娘，一双眸子却黑如点漆。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 750,
+        "line_end": 752,
+        "text": "敲门的是两个十五六岁的小姑娘"
+      }
+    ]
+  },
+  {
+    "id": "char_lao_tai_po",
+    "name": "老太婆",
+    "alias": [],
+    "identity": "鹦鹉楼的老鸨或管事",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "鹦鹉楼穿红衣裳的老太婆，在妓院混了四十年",
+    "personality": {
+      "traits": [
+        "精明世故",
+        "察言观色",
+        "皮笑肉不笑",
+        "识相知趣",
+        "见多识广"
+      ],
+      "speech_style": "阴阳怪气",
+      "temperament": "圆滑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 46,
+        "line_end": 48,
+        "text": "老太婆也穿着一身红衣裳，也正上上下下打量着他。"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_zhong_sheng",
+    "name": "王重生",
+    "alias": [
+      "王风"
+    ],
+    "identity": "王风的真名或另一身份",
+    "faction": null,
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "血奴口中王风的另一个名字，被血奴称为不要命的小杂种",
+    "personality": {
+      "traits": [
+        "沉着冷静",
+        "胆大妄为",
+        "重情重义",
+        "幽默风趣",
+        "果敢决断"
+      ],
+      "speech_style": "直率简洁，时而调侃",
+      "temperament": "外冷内热"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 518,
+        "line_end": 519,
+        "text": "你叫王重生，你是个不要命的小杂种。"
+      }
+    ]
+  },
+  {
+    "id": "char_guo_lao_tou",
+    "name": "郭老头",
+    "alias": [
+      "姓郭的古怪老头子"
+    ],
+    "identity": "画血鹦鹉壁画的人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "姓郭的古怪老头子，在血奴墙上画了血鹦鹉壁画",
+    "personality": {
+      "traits": [
+        "古怪",
+        "神秘",
+        "画技高超",
+        "痴迷传说",
+        "行踪隐秘"
+      ],
+      "speech_style": null,
+      "temperament": "神秘"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 668,
+        "line_end": 668,
+        "text": "他姓郭，是个古里古怪的老头子。"
+      }
+    ]
+  },
+  {
+    "id": "char_sheng_yi_ren",
+    "name": "生意人",
+    "alias": [],
+    "identity": "六角亭中衣着光鲜的生意人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "六角亭中衣着光鲜的生意人，被王风强行拉去买白粉",
+    "personality": {
+      "traits": [
+        "胆小怕事",
+        "贪图享乐",
+        "无可奈何",
+        "察言观色",
+        "随遇而安"
+      ],
+      "speech_style": "慌张结巴",
+      "temperament": "怯懦"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 790,
+        "line_end": 791,
+        "text": "这人衣着光鲜，看来好像是个很成功的生意人，吃吃道：去干什么？"
+      }
+    ]
+  },
+  {
+    "id": "char_liang_bin_ban_bai_de_ren",
+    "name": "两鬓斑白的人",
+    "alias": [],
+    "identity": "六角亭中两鬓斑白的冷淡男子",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "六角亭中两鬓斑白的男子，对一切漠不关心",
+    "personality": {
+      "traits": [
+        "冷漠",
+        "淡然",
+        "事不关己",
+        "沉稳",
+        "观察力强"
+      ],
+      "speech_style": "淡然简洁",
+      "temperament": "冷漠"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 806,
+        "line_end": 812,
+        "text": "另外一个两鬓斑白，虽然在狂欢痛饮的时候，他的眼睛里并没有愉快的表情。"
+      }
+    ]
+  },
+  {
+    "id": "char_an_zi_hao",
+    "name": "安子豪",
+    "alias": [],
+    "identity": "驿站驿丞",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "小镇驿站的驿丞，善于交际，与各方势力都有往来",
+    "personality": {
+      "traits": [
+        "善于交际",
+        "沉着冷静",
+        "圆滑世故",
+        "察言观色",
+        "幽默风趣",
+        "从容不迫"
+      ],
+      "speech_style": "温和有礼，善于周旋",
+      "temperament": "温和从容"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_zhen_shan",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "表面服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      7,
+      9,
+      11,
+      12,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 14,
+        "line_end": 16,
+        "text": "我姓安，安子豪。平安的安，子孙的子，豪杰的豪。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 6,
+        "line_end": 8,
+        "text": "安子豪突然收住了脚步"
+      },
+      {
+        "chapter": 8,
+        "line_start": 94,
+        "line_end": 95,
+        "text": "附近的数百里之内，官阶最高的安子豪。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "这里却除了安子豪之外，所有的活人都是他精选的手下。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 144,
+        "line_end": 144,
+        "text": "王风提到安子豪清晨来找他说过话"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1,
+        "line_end": 100,
+        "text": "官差"
+      },
+      {
+        "chapter": 29,
+        "line_start": 18,
+        "line_end": 18,
+        "text": "这个人果然就是附近百里官阶最高的安子豪"
+      },
+      {
+        "chapter": 30,
+        "line_start": 26,
+        "line_end": 26,
+        "text": "安子豪肩头上的血鹦鹉"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_zhen_shan",
+    "name": "武镇山",
+    "alias": [
+      "武三爷"
+    ],
+    "identity": "小镇霸主",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "小镇的实权人物，掌控一半势力，与李大娘对立",
+    "personality": {
+      "traits": [
+        "老谋深算",
+        "城府深沉",
+        "虚伪狡猾",
+        "精明老练",
+        "善于算计"
+      ],
+      "speech_style": "温和中带着威严，善于试探",
+      "temperament": "阴沉多疑"
+    },
+    "relationships": [
+      {
+        "target": "char_an_zi_hao",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "利用"
+      },
+      {
+        "target": "char_li_da_niang",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "明争暗斗"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 60,
+        "line_end": 60,
+        "text": "他姓武，文武的武，叫武镇山。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 208,
+        "line_end": 208,
+        "text": "武镇山在这里已生了根，并不易动摇"
+      }
+    ]
+  },
+  {
+    "id": "char_li_da_niang",
+    "name": "李大娘",
+    "alias": [],
+    "identity": "小镇女强人",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "血奴之母，在石室火焰中自焚身亡",
+    "personality": {
+      "traits": [
+        "美丽能干",
+        "心机深沉",
+        "手段狠辣",
+        "多疑谨慎",
+        "强势霸道"
+      ],
+      "speech_style": "威严果断",
+      "temperament": "强势多疑"
+    },
+    "relationships": [
+      {
+        "target": "char_xue_nu",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "母女"
+      },
+      {
+        "target": "char_wu_zhen_shan",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "明争暗斗"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      7,
+      17,
+      18,
+      20,
+      27,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 74,
+        "line_end": 74,
+        "text": "李大娘是个女人？"
+      },
+      {
+        "chapter": 7,
+        "line_start": 10,
+        "line_end": 10,
+        "text": "你可以这样回覆李大娘"
+      },
+      {
+        "chapter": 17,
+        "line_start": 690,
+        "line_end": 710,
+        "text": "李大娘...笑容如春花开放"
+      },
+      {
+        "chapter": 18,
+        "line_start": 4,
+        "line_end": 6,
+        "text": "李大娘的面容也仿佛因此变得阴森。她终于开口，语声虽然一样的动听，却显得神秘而遥远。"
+      },
+      {
+        "chapter": 20,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "李大娘亦自笑道"
+      },
+      {
+        "chapter": 25,
+        "line_start": 34,
+        "line_end": 40,
+        "text": "李大娘！...如云的秀发已化成飞灰，空气中散发着一种异样的恶臭。"
+      },
+      {
+        "chapter": 27,
+        "line_start": 466,
+        "line_end": 466,
+        "text": "这位红衣小姑娘自然就是神针韦七娘。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 30,
+        "line_end": 30,
+        "text": "李大娘！"
+      },
+      {
+        "chapter": 30,
+        "line_start": 64,
+        "line_end": 64,
+        "text": "李大娘这位王妃连忙在左右拉住他"
+      }
+    ]
+  },
+  {
+    "id": "char_lao_hui_chong",
+    "name": "老蛔虫",
+    "alias": [],
+    "identity": "杂货铺老板",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "太平杂货铺的老板，洞察人心，对镇上秘密了如指掌",
+    "personality": {
+      "traits": [
+        "洞察人心",
+        "直言不讳",
+        "恶作剧",
+        "疲惫苍老",
+        "精明世故",
+        "神秘莫测"
+      ],
+      "speech_style": "直来直去，带着恶作剧的笑意",
+      "temperament": "阴郁神秘"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      15,
+      16,
+      17,
+      20,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 150,
+        "line_end": 150,
+        "text": "只有一样事不知道。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 873,
+        "line_end": 875,
+        "text": "他却并不叫虾米，而是叫蛔虫。老蛔虫。"
+      },
+      {
+        "chapter": 16,
+        "line_start": 140,
+        "line_end": 140,
+        "text": "旁边老蛔虫瞟着他"
+      },
+      {
+        "chapter": 17,
+        "line_start": 798,
+        "line_end": 800,
+        "text": "除了老蛔虫之外"
+      },
+      {
+        "chapter": 20,
+        "line_start": 42,
+        "line_end": 44,
+        "text": "他杀老蛔虫的时候我也在"
+      },
+      {
+        "chapter": 29,
+        "line_start": 230,
+        "line_end": 230,
+        "text": "老蛔虫！"
+      },
+      {
+        "chapter": 30,
+        "line_start": 152,
+        "line_end": 152,
+        "text": "老蛔虫。"
+      }
+    ]
+  },
+  {
+    "id": "char_zui_han_a",
+    "name": "醉汉甲",
+    "alias": [],
+    "identity": "杀手",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "假装醉酒的杀手，用短刀偷袭王风",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "凶狠",
+        "善于伪装",
+        "配合默契",
+        "冷酷无情"
+      ],
+      "speech_style": "装疯卖傻",
+      "temperament": "阴险"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 224,
+        "line_end": 226,
+        "text": "把这里的酒统统拿出来，今天我们要喝个痛快。"
+      }
+    ]
+  },
+  {
+    "id": "char_zui_han_b",
+    "name": "醉汉乙",
+    "alias": [],
+    "identity": "杀手",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "假装醉酒的杀手，用短刀偷袭王风",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "凶狠",
+        "善于伪装",
+        "配合默契",
+        "冷酷无情"
+      ],
+      "speech_style": "装疯卖傻",
+      "temperament": "阴险"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 232,
+        "line_end": 234,
+        "text": "对不起。"
+      }
+    ]
+  },
+  {
+    "id": "char_song_ma_ma",
+    "name": "宋妈妈",
+    "alias": [
+      "穿红衣裳的老太婆"
+    ],
+    "identity": "血奴的奶妈",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "血奴的奶妈，穿红衣裳的老太婆，会使用巫术诅咒",
+    "personality": {
+      "traits": [
+        "恶毒凶狠",
+        "阴险狡诈",
+        "精通邪术",
+        "忠心耿耿",
+        "疯狂偏执"
+      ],
+      "speech_style": "恶狠狠，带着狠毒",
+      "temperament": "疯狂阴险"
+    },
+    "relationships": [
+      {
+        "target": "char_xue_nu",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "奶妈与养女"
+      },
+      {
+        "target": "char_wang_feng",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "追杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      7,
+      12,
+      13,
+      17,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 282,
+        "line_end": 282,
+        "text": "是我。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 374,
+        "line_end": 444,
+        "text": "宋妈妈...她的身子竟还是赤裸...凄厉的诅咒声"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1,
+        "line_end": 100,
+        "text": "老巫婆，血奴的奶妈"
+      },
+      {
+        "chapter": 13,
+        "line_start": 22,
+        "line_end": 22,
+        "text": "开门的当然就是那个老巫婆宋妈妈"
+      },
+      {
+        "chapter": 13,
+        "line_start": 52,
+        "line_end": 54,
+        "text": "常笑盯着她，冷声道：你就是宋妈妈？是。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 878,
+        "line_end": 882,
+        "text": "宋妈妈...满肚子古古怪怪"
+      },
+      {
+        "chapter": 30,
+        "line_start": 644,
+        "line_end": 644,
+        "text": "她其实是李大娘的奶妈"
+      }
+    ]
+  },
+  {
+    "id": "char_gan_er_zi",
+    "name": "干儿子",
+    "alias": [],
+    "identity": "宋妈妈的干儿子",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "穿水绿袍子的年轻人，宋妈妈的干儿子，因吃醋要杀王风",
+    "personality": {
+      "traits": [
+        "自恋",
+        "善妒",
+        "装腔作势",
+        "胆小怕事",
+        "虚荣好面子"
+      ],
+      "speech_style": "自负，带着醋意",
+      "temperament": "嫉妒虚荣"
+    },
+    "relationships": [
+      {
+        "target": "char_song_ma_ma",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "干娘与干儿子"
+      },
+      {
+        "target": "char_xue_nu",
+        "type": "恋人",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "单相思"
+      },
+      {
+        "target": "char_wang_feng",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "情敌"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 300,
+        "line_end": 300,
+        "text": "要杀你的并不是她，是我。"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_yi_ren",
+    "name": "黑衣人",
+    "alias": [
+      "弯刀刺客"
+    ],
+    "identity": "李大娘雇佣的刺客",
+    "faction": "无",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "穿黑衣的神秘刺客，腰佩弯刀，使用魔刀，来自奇浓嘉嘉普",
+    "personality": {
+      "traits": [
+        "冷酷无情",
+        "沉默寡言",
+        "高傲自负",
+        "神秘莫测",
+        "疯狂炽热",
+        "刀法超群"
+      ],
+      "speech_style": "冷冰冰，节奏缓慢",
+      "temperament": "阴沉冷酷"
+    },
+    "relationships": [
+      {
+        "target": "char_li_da_niang",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "雇佣"
+      },
+      {
+        "target": "char_wang_feng",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "追杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 370,
+        "line_end": 370,
+        "text": "那个女人是个巫婆。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 118,
+        "line_end": 120,
+        "text": "三个瘦瘦高高的黑衣人，静静的，候在窗下。"
+      }
+    ]
+  },
+  {
+    "id": "char_guan_chai",
+    "name": "官差",
+    "alias": [],
+    "identity": "官府差役",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "佩朴刀拿锁链的官差，要求开棺验尸",
+    "personality": {
+      "traits": [
+        "蛮横无理",
+        "欺软怕硬",
+        "官腔十足",
+        "疑神疑鬼",
+        "胆大妄为"
+      ],
+      "speech_style": "官腔十足，盛气凌人",
+      "temperament": "蛮横多疑"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 942,
+        "line_end": 944,
+        "text": "忽然间一个佩着朴刀，拿着锁链的官差冲了进来"
+      },
+      {
+        "chapter": 8,
+        "line_start": 82,
+        "line_end": 83,
+        "text": "在他的身后，是十二官差，一个老人。"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_xiao",
+    "name": "常笑",
+    "alias": [
+      "毒剑常笑"
+    ],
+    "identity": "四大名捕之一，当今天子宠妃之兄",
+    "faction": "朝廷",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": null,
+    "one_line": "大理寺捕头，身怀金钟罩铁布衫横练功夫，因扑救李大娘而坠入黑油火海陷阱身亡",
+    "personality": {
+      "traits": [
+        "心狠手辣",
+        "权势熏心",
+        "宁枉毋纵",
+        "剑法高超",
+        "冷酷无情"
+      ],
+      "speech_style": "威严",
+      "temperament": "暴戾"
+    },
+    "relationships": [
+      {
+        "target": "char_tie_hen",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "同为名捕但作风迥异"
+      },
+      {
+        "target": "char_li_da_niang",
+        "type": "合作者",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "为救李大娘而死"
+      }
+    ],
+    "known_skills": [
+      "skill_e_mei_jian_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7,
+      9,
+      11,
+      12,
+      13,
+      15,
+      23,
+      27,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 56,
+        "line_end": 84,
+        "text": "毒剑常笑，的确比铁手无情铁恨更有名...是以他的声名并不好"
+      },
+      {
+        "chapter": 8,
+        "line_start": 2,
+        "line_end": 30,
+        "text": "毒剑常笑无论到什么地方都绝不会只是一个人。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 16,
+        "line_end": 16,
+        "text": "常笑已扣住了萧百草握刀的手。"
+      },
+      {
+        "chapter": 11,
+        "line_start": 2,
+        "line_end": 108,
+        "text": "常笑与王风对话，自报身份为官，外号毒剑、活阎王"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1,
+        "line_end": 100,
+        "text": "毒剑常笑，活阎王常笑"
+      },
+      {
+        "chapter": 13,
+        "line_start": 8,
+        "line_end": 10,
+        "text": "常笑也看不出那代表什么。他没有亲自拍门"
+      },
+      {
+        "chapter": 13,
+        "line_start": 42,
+        "line_end": 44,
+        "text": "常笑的面上居然还有笑容，却已像刀刻般死板、冷酷"
+      },
+      {
+        "chapter": 15,
+        "line_start": 10,
+        "line_end": 12,
+        "text": "常笑的心头却更萧索。他的十三个得力助手，已一个不剩。"
+      },
+      {
+        "chapter": 23,
+        "line_start": 16,
+        "line_end": 20,
+        "text": "一个人连随缺口中飞落。身轻如燕，这个人赫然就是毒剑常笑。"
+      },
+      {
+        "chapter": 25,
+        "line_start": 124,
+        "line_end": 137,
+        "text": "快救我上去！...火柱中一声惨叫，绝望的惨叫，刹那被熊熊的烈焰飞扬之声掩没。"
+      },
+      {
+        "chapter": 27,
+        "line_start": 58,
+        "line_end": 58,
+        "text": "常笑暗中调查这件事，亦已有两年多。"
+      },
+      {
+        "chapter": 30,
+        "line_start": 474,
+        "line_end": 474,
+        "text": "常笑已怀疑到我头上"
+      }
+    ]
+  },
+  {
+    "id": "char_tan_tian_long",
+    "name": "谭天龙",
+    "alias": [
+      "谭门三霸天"
+    ],
+    "identity": "武林人物",
+    "faction": "谭门",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "谭门三霸天之一，被七星绝命针杀死",
+    "personality": {
+      "traits": [
+        "凶狠",
+        "霸道",
+        "武功高强",
+        "贪婪",
+        "自大"
+      ],
+      "speech_style": "粗鲁",
+      "temperament": "暴躁"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 320,
+        "line_end": 322,
+        "text": "谭门三霸天的三具尸体。"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_lao_da",
+    "name": "唐老大",
+    "alias": [
+      "唐家兄弟"
+    ],
+    "identity": "川东唐门逐出弟子",
+    "faction": "川东唐门",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "川东唐门逐出弟子，精于毒药暗器鉴定",
+    "personality": {
+      "traits": [
+        "精明",
+        "能干",
+        "见识广博",
+        "忠诚",
+        "冷酷"
+      ],
+      "speech_style": "专业",
+      "temperament": "冷静"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_xiao",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10,
+      12,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 862,
+        "line_end": 868,
+        "text": "两个面貌相似，身段相若，肥肥矮矮的中年官差应声上前。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 554,
+        "line_end": 554,
+        "text": "唐老大，唐老二，你们两个随他走一趟"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1,
+        "line_end": 100,
+        "text": "江湖人士"
+      },
+      {
+        "chapter": 13,
+        "line_start": 364,
+        "line_end": 376,
+        "text": "唐老大纵身一跳，跳上了祭桌"
+      }
+    ]
+  },
+  {
+    "id": "char_lin_ping",
+    "name": "林平",
+    "alias": [],
+    "identity": "官差",
+    "faction": "",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "常笑的手下官差。",
+    "personality": {
+      "traits": [
+        "服从",
+        "警惕",
+        "普通",
+        "尽责",
+        "沉默"
+      ],
+      "speech_style": "未出场",
+      "temperament": "平和"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_xiao",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 228,
+        "line_end": 228,
+        "text": "林平、张铁留在这里..."
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_tie",
+    "name": "张铁",
+    "alias": [],
+    "identity": "官差",
+    "faction": "",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "常笑的手下官差。",
+    "personality": {
+      "traits": [
+        "服从",
+        "警惕",
+        "普通",
+        "尽责",
+        "沉默"
+      ],
+      "speech_style": "未出场",
+      "temperament": "平和"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_xiao",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 228,
+        "line_end": 228,
+        "text": "林平、张铁留在这里..."
+      }
+    ]
+  },
+  {
+    "id": "char_hong_yi_xiao_gu_niang",
+    "name": "小姑娘",
+    "alias": [
+      "红衣小姑娘"
+    ],
+    "identity": "鹦鹉楼应门侍女",
+    "faction": null,
+    "role": "npc",
+    "archetype": null,
+    "rank": null,
+    "one_line": "鹦鹉楼开门的红衣小姑娘，眸子黑漆",
+    "personality": {
+      "traits": [
+        "胆小",
+        "谨慎",
+        "乖巧",
+        "安静",
+        "识趣"
+      ],
+      "speech_style": "低声细语",
+      "temperament": "怯懦"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 272,
+        "line_end": 276,
+        "text": "应门的仍是那个小姑娘，穿着套红衣裳，一双眸子都黑漆的那个小姑娘"
+      },
+      {
+        "chapter": 15,
+        "line_start": 469,
+        "line_end": 469,
+        "text": "血奴在门外的廊子站着，在她的对面，赫然站着那个穿红衣裳的小姑娘。"
+      }
+    ]
+  },
+  {
+    "id": "char_tang_lao_er",
+    "name": "唐老二",
+    "alias": [],
+    "identity": "常笑手下官差",
+    "faction": null,
+    "role": "npc",
+    "archetype": null,
+    "rank": null,
+    "one_line": "常笑手下的官差，擅长辨识毒药",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "干练",
+        "服从",
+        "细致",
+        "务实"
+      ],
+      "speech_style": null,
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_xiao",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10,
+      12,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 554,
+        "line_end": 554,
+        "text": "唐老大，唐老二，你们两个随他走一趟"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1,
+        "line_end": 100,
+        "text": "江湖人士"
+      },
+      {
+        "chapter": 13,
+        "line_start": 438,
+        "line_end": 438,
+        "text": "唐老二算是比较清醒的一个"
+      }
+    ]
+  },
+  {
+    "id": "char_dong_chang",
+    "name": "董昌",
+    "alias": [],
+    "identity": "常笑手下官差，仵作出身",
+    "faction": null,
+    "role": "npc",
+    "archetype": null,
+    "rank": null,
+    "one_line": "常笑手下的官差，仵作出身，擅长验尸",
+    "personality": {
+      "traits": [
+        "经验丰富",
+        "谨慎",
+        "服从",
+        "细致",
+        "务实"
+      ],
+      "speech_style": null,
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_xiao",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10,
+      12,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 554,
+        "line_end": 554,
+        "text": "唐老大，唐老二，你们两个随他走一趟，董昌，你也去"
+      },
+      {
+        "chapter": 12,
+        "line_start": 1,
+        "line_end": 100,
+        "text": "官差"
+      },
+      {
+        "chapter": 13,
+        "line_start": 408,
+        "line_end": 410,
+        "text": "董昌瞪着唐老大倒下，破声狂笑。杀唐老大的人竟是董昌"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_nu_mu_qin",
+    "name": "李大娘",
+    "alias": [],
+    "identity": "血奴的母亲",
+    "faction": null,
+    "role": "npc",
+    "archetype": null,
+    "rank": null,
+    "one_line": "血奴的母亲，对女儿不好导致血奴流落风尘",
+    "personality": {
+      "traits": [
+        "不详"
+      ],
+      "speech_style": null,
+      "temperament": "不详"
+    },
+    "relationships": [
+      {
+        "target": "char_xue_nu",
+        "type": "亲属",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "疏离"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 486,
+        "line_end": 488,
+        "text": "李大娘哪里不好？如果好我根本就不会来这里。"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_ying_wu",
+    "name": "血鹦鹉",
+    "alias": [],
+    "identity": "传说中的妖怪，每隔七年降临人间，带来三个愿望",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "返璞归真",
+    "one_line": "十万神魔以十万滴魔血化成的血鹦鹉，每隔七年降临人间一次，能实现看见者的三个愿望",
+    "personality": {
+      "traits": [
+        "邪恶",
+        "妖异",
+        "诡异",
+        "神秘",
+        "残忍"
+      ],
+      "speech_style": "妖异难言",
+      "temperament": "邪恶"
+    },
+    "relationships": [
+      {
+        "target": "char_tie_hen",
+        "type": "宿敌",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "实现其死亡愿望"
+      },
+      {
+        "target": "char_wang_feng",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "留下两个愿望"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      11,
+      27,
+      28,
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 34,
+        "line_end": 46,
+        "text": "血鹦鹉每隔七年降临人间，带来三个愿望，铁恨许愿求死"
+      },
+      {
+        "chapter": 26,
+        "line_start": 420,
+        "line_end": 428,
+        "text": "血红色的羽毛，血红色的嘴爪，眼睛竟也是血红的颜色。九万八千六百八十七滴魔血，滴成了这一只血鹦鹉。"
+      },
+      {
+        "chapter": 27,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "王风不笑，血鹦鹉笑，大笑不绝。"
+      },
+      {
+        "chapter": 28,
+        "line_start": 380,
+        "line_end": 384,
+        "text": "火光闪动中，石牢上赫然立着一只鹦鹉！血红的鹦鹉！血鹦鹉！"
+      },
+      {
+        "chapter": 28,
+        "line_start": 402,
+        "line_end": 414,
+        "text": "血鹦鹉笑了，就像人一样在笑。笑声中充满了一种说不出的邪恶，说不出的妖异。"
+      },
+      {
+        "chapter": 28,
+        "line_start": 480,
+        "line_end": 488,
+        "text": "血鹦鹉每隔七年就降临人间一次，每一次都带来三个愿望。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 202,
+        "line_end": 204,
+        "text": "鹦鹉本来是王府的侍卫统领"
+      }
+    ]
+  },
+  {
+    "id": "char_guan_chai_jia",
+    "name": "公差甲",
+    "alias": [
+      "捧着棺盖的官差"
+    ],
+    "identity": "常笑手下官差，被王风打飞",
+    "faction": "朝廷",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "常笑手下的官差，率先向王风出拳被打飞",
+    "personality": {
+      "traits": [
+        "莽撞",
+        "记仇",
+        "好斗",
+        "鲁莽",
+        "逞能"
+      ],
+      "speech_style": "粗鲁",
+      "temperament": "暴躁"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_xiao",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 216,
+        "line_end": 234,
+        "text": "捧着棺盖的官差向王风出拳被打飞"
+      }
+    ]
+  },
+  {
+    "id": "char_guan_chai_yi",
+    "name": "公差乙",
+    "alias": [
+      "冷笑的公差"
+    ],
+    "identity": "常笑手下官差",
+    "faction": "朝廷",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "常笑手下的官差，冷笑威胁王风",
+    "personality": {
+      "traits": [
+        "阴狠",
+        "冷酷",
+        "服从",
+        "凶狠",
+        "狡诈"
+      ],
+      "speech_style": "冷笑",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_xiao",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 274,
+        "line_end": 274,
+        "text": "公差冷笑说由不得你"
+      }
+    ]
+  },
+  {
+    "id": "char_guo_yi",
+    "name": "郭易",
+    "alias": [],
+    "identity": "郭繁的兄弟",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "郭繁的兄弟",
+    "personality": {
+      "traits": [
+        "勇敢",
+        "机智",
+        "正义",
+        "忠诚",
+        "智慧"
+      ],
+      "speech_style": "直率",
+      "temperament": "冷静"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      12,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 301,
+        "line_end": 400,
+        "text": "郭繁的兄弟"
+      },
+      {
+        "chapter": 29,
+        "line_start": 244,
+        "line_end": 244,
+        "text": "郭易"
+      },
+      {
+        "chapter": 30,
+        "line_start": 406,
+        "line_end": 406,
+        "text": "郭易追到二龙山，格杀黑白双煞"
+      }
+    ]
+  },
+  {
+    "id": "char_you_ling",
+    "name": "幽灵",
+    "alias": [],
+    "identity": "神秘人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "雨夜乱葬岗出现的神秘幽灵，给王风喂下药丸",
+    "personality": {
+      "traits": [
+        "神秘",
+        "冷静",
+        "诡异",
+        "高效",
+        "无情"
+      ],
+      "speech_style": "沉默",
+      "temperament": "冷酷"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 598,
+        "line_end": 618,
+        "text": "闪电消逝的刹那，一个荒坟上突然冒起了一条人影"
+      }
+    ]
+  },
+  {
+    "id": "char_qi_sha_shou_lao_da",
+    "name": "老大",
+    "alias": [
+      "七杀手老大"
+    ],
+    "identity": "杀手",
+    "faction": "七杀手",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "平平无奇",
+    "one_line": "七杀手的首领",
+    "personality": {
+      "traits": [
+        "精明",
+        "谨慎",
+        "果断",
+        "狡猾",
+        "老练"
+      ],
+      "speech_style": "沉稳",
+      "temperament": "冷静"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 82,
+        "line_end": 163,
+        "text": "他没有取下竹笠，只是抬起右手，以右手的食指将那顶竹笠推高。  这已经足够。"
+      },
+      {
+        "chapter": 15,
+        "line_start": 471,
+        "line_end": 472,
+        "text": "七杀手的老大不由叹了一口气。"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_san_ye",
+    "name": "武镇山",
+    "alias": [
+      "武三爷",
+      "三爷"
+    ],
+    "identity": "地方豪强",
+    "faction": "无门派",
+    "role": "villain",
+    "archetype": "scholar",
+    "rank": "登峰造极",
+    "one_line": "少林出身的高手，持量天尺，被甘老头重伤坠入陷阱",
+    "personality": {
+      "traits": [
+        "精明",
+        "有谋略",
+        "有势力",
+        "谨慎",
+        "果断"
+      ],
+      "speech_style": "威严",
+      "temperament": "沉稳"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_shi_zi_hou",
+      "skill_liang_tian_chi_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      14,
+      16,
+      17,
+      18,
+      20,
+      27,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 164,
+        "line_end": 245,
+        "text": "老大又一愕，仰天倏的打了个哈哈，说道：\"这个女人虽然厉害，我们兄弟还不致怕了她。  \""
+      },
+      {
+        "chapter": 16,
+        "line_start": 508,
+        "line_end": 510,
+        "text": "武三爷！这个尸体竟是武三爷。武三爷一飞起就一拳打在老蛔虫的心胸之上"
+      },
+      {
+        "chapter": 16,
+        "line_start": 548,
+        "line_end": 548,
+        "text": "少林一百零八种武功之中前二十种之一种"
+      },
+      {
+        "chapter": 17,
+        "line_start": 686,
+        "line_end": 695,
+        "text": "武三爷...你就叫我武镇山"
+      },
+      {
+        "chapter": 17,
+        "line_start": 1144,
+        "line_end": 1170,
+        "text": "我要知道那只鹦鹉——血鹦鹉的秘密"
+      },
+      {
+        "chapter": 18,
+        "line_start": 10,
+        "line_end": 11,
+        "text": "到底哪一天？"
+      },
+      {
+        "chapter": 19,
+        "line_start": 501,
+        "line_end": 650,
+        "text": "武三爷与甘老头激战，右臂被打断，被铁锤击中胸膛坠入陷阱"
+      },
+      {
+        "chapter": 20,
+        "line_start": 36,
+        "line_end": 36,
+        "text": "武三爷"
+      },
+      {
+        "chapter": 27,
+        "line_start": 810,
+        "line_end": 810,
+        "text": "武三爷杀人庄院之时他们仓皇出外应战。"
+      },
+      {
+        "chapter": 30,
+        "line_start": 528,
+        "line_end": 528,
+        "text": "好像他那样的一个大强盗"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_yi_ren_ling",
+    "name": "黑衣人",
+    "alias": [
+      "另一个黑衣人"
+    ],
+    "identity": "李大娘的杀手",
+    "faction": "李大娘势力",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "三个黑衣人之二，从鹦鹉楼追来",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "嘲讽",
+        "忠于任务",
+        "观察力强",
+        "武功扎实"
+      ],
+      "speech_style": "冷嘲",
+      "temperament": "冷漠"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_mo_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 180,
+        "line_end": 181,
+        "text": "另一个黑衣人即时冷笑道：你走的倒快"
+      }
+    ]
+  },
+  {
+    "id": "char_qi_sha_shou_lao_san",
+    "name": "老三",
+    "alias": [
+      "七杀手老三"
+    ],
+    "identity": "职业杀手",
+    "faction": "七杀手",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "七杀手之三，魁梧有力，后被韦七娘刺瞎双眼",
+    "personality": {
+      "traits": [
+        "魁梧有力",
+        "凶狠",
+        "鲁莽",
+        "忠于兄弟",
+        "暴躁"
+      ],
+      "speech_style": "暴喝",
+      "temperament": "暴躁"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 709,
+        "line_end": 710,
+        "text": "一个魁梧的汉子应声上前"
+      }
+    ]
+  },
+  {
+    "id": "char_qi_sha_shou_lao_qi",
+    "name": "老七",
+    "alias": [
+      "七杀手老七"
+    ],
+    "identity": "职业杀手",
+    "faction": "七杀手",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "七杀手之七，被血奴击杀",
+    "personality": {
+      "traits": [
+        "大意",
+        "轻敌",
+        "鲁莽",
+        "缺乏警惕",
+        "运气不佳"
+      ],
+      "speech_style": "",
+      "temperament": "暴躁"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 589,
+        "line_end": 591,
+        "text": "血奴的纤纤素手已切在他的咽喉上。喀一声，他的脖子便一旁垂下"
+      }
+    ]
+  },
+  {
+    "id": "char_wei_qi_niang",
+    "name": "韦七娘",
+    "alias": [
+      "神针",
+      "红衣小姑娘"
+    ],
+    "identity": "神针韦七娘",
+    "faction": "独立",
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "登峰造极",
+    "one_line": "神针韦七娘，刺绣天下前列，以针刺瞎恶贼双眼",
+    "personality": {
+      "traits": [
+        "嫉恶如仇",
+        "武功高强",
+        "外柔内刚",
+        "重情重义",
+        "低调隐忍"
+      ],
+      "speech_style": "温和但坚定",
+      "temperament": "外柔内刚"
+    },
+    "relationships": [
+      {
+        "target": "char_xue_nu",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "报恩保护"
+      },
+      {
+        "target": "char_mo_wang",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "追寻魔王，提及魔王时悲伤落泪"
+      }
+    ],
+    "known_skills": [
+      "skill_shen_zhen"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      15,
+      17,
+      20,
+      23,
+      27,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 1197,
+        "line_end": 1198,
+        "text": "我姓韦，排第七，别人都叫我韦七娘。"
+      },
+      {
+        "chapter": 17,
+        "line_start": 988,
+        "line_end": 995,
+        "text": "韦七娘将血奴送回来"
+      },
+      {
+        "chapter": 19,
+        "line_start": 931,
+        "line_end": 949,
+        "text": "韦七娘是血奴之一，神针绝技"
+      },
+      {
+        "chapter": 20,
+        "line_start": 66,
+        "line_end": 66,
+        "text": "韦七娘？"
+      },
+      {
+        "chapter": 23,
+        "line_start": 1130,
+        "line_end": 1132,
+        "text": "韦七娘的神针绝技却是非同小可。"
+      },
+      {
+        "chapter": 26,
+        "line_start": 24,
+        "line_end": 28,
+        "text": "这个红衣小姑娘自然就是韦七娘。神针韦七娘。韦七娘原来未死！"
+      },
+      {
+        "chapter": 27,
+        "line_start": 466,
+        "line_end": 466,
+        "text": "这位红衣小姑娘自然就是神针韦七娘。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 244,
+        "line_end": 244,
+        "text": "韦七娘"
+      },
+      {
+        "chapter": 30,
+        "line_start": 214,
+        "line_end": 214,
+        "text": "韦七娘的易容术尽管出神入化"
+      }
+    ],
+    "relationship_updates": [
+      {
+        "action": "add",
+        "target": "char_li_da_niang",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "效忠"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_yi_ren_jia",
+    "name": "黑衣人甲",
+    "alias": [
+      "杀手"
+    ],
+    "identity": "武三爷手下杀手",
+    "faction": "武三爷阵营",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "武三爷手下的黑衣杀手之一，擅长暗杀配合",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "自信",
+        "服从",
+        "狡猾",
+        "凶狠"
+      ],
+      "speech_style": "简洁直接",
+      "temperament": "冷血"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_san_ye",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "听命行事"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "line_start": 240,
+        "line_end": 242,
+        "text": "轻功很好，出手也够狠辣"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_yi_ren_yi",
+    "name": "黑衣人乙",
+    "alias": [
+      "杀手"
+    ],
+    "identity": "武三爷手下杀手",
+    "faction": "武三爷阵营",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "武三爷手下的另一黑衣杀手",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "谨慎",
+        "服从",
+        "狡猾",
+        "凶狠"
+      ],
+      "speech_style": "简洁直接",
+      "temperament": "冷血"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_san_ye",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "听命行事"
+      },
+      {
+        "target": "char_hei_yi_ren_jia",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "搭档"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "line_start": 244,
+        "line_end": 246,
+        "text": "不过要用到白粉先迷住敌人的眼睛"
+      }
+    ]
+  },
+  {
+    "id": "char_gan_lao_tou",
+    "name": "甘老头",
+    "alias": [
+      "铁匠"
+    ],
+    "identity": "镇上铁匠，受神秘人委托焊铁盒并送交王风",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "镇上老铁匠，表面打铁为生实则身手不凡，受神秘人委托将装有钥匙和地图的铁盒送交王风",
+    "personality": {
+      "traits": [
+        "沉默寡言",
+        "精明老练",
+        "守口如瓶",
+        "观察敏锐",
+        "神秘莫测"
+      ],
+      "speech_style": "简短直接",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_wang_feng",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "受托送物"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      16,
+      19,
+      20,
+      27,
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "line_start": 930,
+        "line_end": 934,
+        "text": "一个老头儿似乎已被烤干。他赤裸着上身，肋骨根根可数"
+      },
+      {
+        "chapter": 19,
+        "line_start": 258,
+        "line_end": 260,
+        "text": "那个人正是这个地方惟一的铁匠甘老头"
+      },
+      {
+        "chapter": 19,
+        "line_start": 831,
+        "line_end": 967,
+        "text": "甘老头与李大娘谈判，提出条件"
+      },
+      {
+        "chapter": 20,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "甘老头仍在笑"
+      },
+      {
+        "chapter": 27,
+        "line_start": 808,
+        "line_end": 808,
+        "text": "王风并没有忘记甘老头与韦七娘都是十三个血奴之一。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 244,
+        "line_end": 244,
+        "text": "甘老头"
+      },
+      {
+        "chapter": 30,
+        "line_start": 182,
+        "line_end": 182,
+        "text": "鹦鹉与甘老头的一批终于在城北十里的江边找到了他们"
+      }
+    ]
+  },
+  {
+    "id": "char_zuo_mian_nv_zi",
+    "name": "左面女子",
+    "alias": [],
+    "identity": "武三爷安排的陪酒女子",
+    "faction": "武三爷",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "武三爷安排在六角亭陪王风饮酒的女子之一",
+    "personality": {
+      "traits": [
+        "温顺",
+        "胆怯",
+        "服从",
+        "谨慎",
+        "善于察言观色"
+      ],
+      "speech_style": "轻柔",
+      "temperament": "柔弱"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 16,
+        "line_end": 22,
+        "text": "两个年轻美丽的女孩子相伴在他左右"
+      }
+    ]
+  },
+  {
+    "id": "char_you_mian_nv_zi",
+    "name": "右面女子",
+    "alias": [],
+    "identity": "武三爷安排的陪酒女子",
+    "faction": "武三爷",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "武三爷安排在六角亭陪王风饮酒的另一名女子",
+    "personality": {
+      "traits": [
+        "温顺",
+        "胆怯",
+        "服从",
+        "谨慎",
+        "善于察言观色"
+      ],
+      "speech_style": "轻柔",
+      "temperament": "柔弱"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 16,
+        "line_end": 22,
+        "text": "两个年轻美丽的女孩子相伴在他左右"
+      }
+    ]
+  },
+  {
+    "id": "char_zuo_mian_lv_yi_ren",
+    "name": "左面绿衣人",
+    "alias": [
+      "惨绿中年人"
+    ],
+    "identity": "武三爷雇佣的杀手",
+    "faction": "",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "武三爷花钱雇佣的绿衣杀手，使用短剑，不要命的角色",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "亡命",
+        "寡言",
+        "果断",
+        "贪财"
+      ],
+      "speech_style": "冷淡",
+      "temperament": "冷漠"
+    },
+    "relationships": [
+      {
+        "target": "char_you_mian_lv_yi_ren",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟搭档"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 134,
+        "line_end": 138,
+        "text": "两个衣衫惨绿的中年人手按蕉叶，左右从芭蕉树后走出"
+      }
+    ]
+  },
+  {
+    "id": "char_you_mian_lv_yi_ren",
+    "name": "右面绿衣人",
+    "alias": [
+      "惨绿中年人"
+    ],
+    "identity": "武三爷雇佣的杀手",
+    "faction": "",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "武三爷花钱雇佣的另一名绿衣杀手，与左面绿衣人是兄弟搭档",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "亡命",
+        "寡言",
+        "果断",
+        "贪财"
+      ],
+      "speech_style": "冷淡",
+      "temperament": "冷漠"
+    },
+    "relationships": [
+      {
+        "target": "char_zuo_mian_lv_yi_ren",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "兄弟搭档"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 134,
+        "line_end": 138,
+        "text": "两个衣衫惨绿的中年人手按蕉叶，左右从芭蕉树后走出"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_yi_da_han",
+    "name": "白衣大汉",
+    "alias": [],
+    "identity": "庄院守卫",
+    "faction": "李大娘",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "李大娘庄院门前的白衣守卫，手持锋刀",
+    "personality": {
+      "traits": [
+        "凶悍",
+        "警觉",
+        "沉默",
+        "忠诚",
+        "嗜血"
+      ],
+      "speech_style": "沉默",
+      "temperament": "冷酷"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 346,
+        "line_end": 348,
+        "text": "四个白衣大汉手握锋刀站在篝火的旁边"
+      }
+    ]
+  },
+  {
+    "id": "char_song_heng",
+    "name": "宋亨",
+    "alias": [],
+    "identity": "宋妈妈干儿子",
+    "faction": "",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "初窥门径",
+    "one_line": "宋妈妈的干儿子，贪图血奴美色，向武三爷出卖情报",
+    "personality": {
+      "traits": [
+        "贪色",
+        "怯懦",
+        "自私",
+        "贪婪",
+        "无能"
+      ],
+      "speech_style": "轻浮",
+      "temperament": "懦弱"
+    },
+    "relationships": [
+      {
+        "target": "char_song_ma_ma",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "利用"
+      },
+      {
+        "target": "char_xue_nu",
+        "type": "恋人",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "单相思"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 894,
+        "line_end": 900,
+        "text": "宋亨...宋妈妈养这个干儿子"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_san_gun_dao_shou",
+    "name": "十三滚刀手",
+    "alias": [],
+    "identity": "李大娘属下刀手",
+    "faction": "李大娘",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "李大娘属下的十三名刀手，对李大娘忠心耿耿",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "勇猛",
+        "善战",
+        "服从",
+        "团结"
+      ],
+      "speech_style": "沉默",
+      "temperament": "冷酷"
+    },
+    "relationships": [
+      {
+        "target": "char_li_da_niang",
+        "type": "主仆",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "效忠"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 868,
+        "line_end": 868,
+        "text": "我属下的十三滚刀手"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_yi_shou_xia",
+    "name": "白衣人",
+    "alias": [
+      "武三爷的手下"
+    ],
+    "identity": "武三爷的十二个白衣手下之一",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "武三爷的白衣手下，听从武三爷命令行事",
+    "personality": {
+      "traits": [
+        "服从",
+        "果断",
+        "勇敢",
+        "忠诚",
+        "直接"
+      ],
+      "speech_style": "简短直接",
+      "temperament": "冷静"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_san_ye",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "忠诚服从"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 264,
+        "line_end": 264,
+        "text": "在他身旁的一个白衣人随即问道：要活的还是死的？"
+      }
+    ]
+  },
+  {
+    "id": "char_si_ge_zhong_nian_fu_ren",
+    "name": "四个中年妇人",
+    "alias": [
+      "李大娘的护卫"
+    ],
+    "identity": "李大娘身边的四个中年妇人护卫",
+    "faction": "无",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "李大娘身边的四个中年妇人护卫，使用软剑和匕首，武功不俗",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "敏捷",
+        "果断",
+        "配合默契",
+        "凶狠"
+      ],
+      "speech_style": "无直接对话",
+      "temperament": "沉着"
+    },
+    "relationships": [
+      {
+        "target": "char_li_da_niang",
+        "type": "主仆",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "誓死护卫"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 248,
+        "line_end": 256,
+        "text": "她左右的四个中年妇人不约而同推椅而起。她们一动身，武三爷的十二个手下亦放开脚步，成四面追上。四个中年妇人立时穿花蝴蝶般飘飞，分立在李大娘的前后左右。她们的手中这刹那已各自多了一支软剑。"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_nuo_niao",
+    "name": "血奴鸟",
+    "alias": [
+      "怪鸟",
+      "血鹦鹉的奴才"
+    ],
+    "identity": "血鹦鹉的奴才，一千三百滴魔血所化成的十三只血奴之一",
+    "faction": "幽冥世界",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "左半身血红如鲜血，右半身雪白的怪鸟，系着血奴铃，飞来预示死亡",
+    "personality": {
+      "traits": [
+        "邪恶",
+        "诡异",
+        "凶猛",
+        "神秘",
+        "忠诚"
+      ],
+      "speech_style": "无",
+      "temperament": "阴森"
+    },
+    "relationships": [
+      {
+        "target": "char_li_da_niang",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "召之即来"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 314,
+        "line_end": 327,
+        "text": "血红的翎毛红如鲜血，嘴爪亦仿如曾在血中啄踏，那只鸟的左半边子就像是血染成。只是左半身。那只鸟的右半身非独不是血红，连半点的红色亦没有，嘴是苍黑，爪是灰褐，羽毛却是雪白。"
+      }
+    ]
+  },
+  {
+    "id": "char_zhong_nian_fu_ren_yi",
+    "name": "中年妇人",
+    "alias": [
+      "右面中年妇人"
+    ],
+    "identity": "李大娘的手下",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "李大娘手下的两名中年妇人之一，持软剑攻击武三爷",
+    "personality": {
+      "traits": [
+        "果敢",
+        "武艺不俗",
+        "忠诚",
+        "凶狠",
+        "灵活"
+      ],
+      "speech_style": "直接",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_li_da_niang",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "效忠"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 14,
+        "line_end": 40,
+        "text": "两个中年妇人给他这一吼，手脚不由一软。右面那个中年妇人惊吓下竟仍能闪开武三爷的左拳"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_nu_niao",
+    "name": "血奴",
+    "alias": [
+      "魔鸟"
+    ],
+    "identity": "魔鸟",
+    "faction": "血奴",
+    "role": "npc",
+    "archetype": "special",
+    "rank": "平平无奇",
+    "one_line": "十三只魔鸟之一，与血奴人命相连，鸟亡人亦亡",
+    "personality": {
+      "traits": [
+        "灵性",
+        "忠诚",
+        "悲鸣",
+        "凄厉",
+        "神秘"
+      ],
+      "speech_style": "无言",
+      "temperament": "灵性"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 376,
+        "line_end": 378,
+        "text": "那只血奴唧一声"
+      }
+    ]
+  },
+  {
+    "id": "char_mo_wang",
+    "name": "魔王",
+    "alias": [
+      "诸魔之魔",
+      "紫金白玉冠年轻人"
+    ],
+    "identity": "魔中之魔，诸魔之王",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "已被囚禁在石牢中，不甘屈辱自裁而死",
+    "personality": {
+      "traits": [
+        "英俊",
+        "温和",
+        "威严",
+        "神秘",
+        "高贵"
+      ],
+      "speech_style": "温柔如女子，带有难以抗拒的威严",
+      "temperament": "从容不迫"
+    },
+    "relationships": [
+      {
+        "target": "char_xue_ying_wu",
+        "type": "主仆",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "创造者与造物"
+      },
+      {
+        "target": "char_wang_feng",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "引导王风进入魔域"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      26,
+      27
+    ],
+    "source_refs": [
+      {
+        "chapter": 26,
+        "line_start": 116,
+        "line_end": 122,
+        "text": "紫金白玉冠，英俊而温和...魔中之魔，诸魔之王。"
+      },
+      {
+        "chapter": 26,
+        "line_start": 148,
+        "line_end": 156,
+        "text": "他的面有如冠玉，他的手也是一样。他在笑，笑容温柔而高贵。"
+      },
+      {
+        "chapter": 26,
+        "line_start": 174,
+        "line_end": 178,
+        "text": "他的语声温柔如女子，却又带着一种难以抗拒的威严。"
+      },
+      {
+        "chapter": 27,
+        "line_start": 124,
+        "line_end": 124,
+        "text": "魔王更早已不知所向，整个奇浓嘉嘉普就只剩下血鹦鹉一只魔鸟。"
+      },
+      {
+        "chapter": 28,
+        "line_start": 40,
+        "line_end": 42,
+        "text": "魔王便不甘屈辱尽断经脉自裁"
+      }
+    ]
+  },
+  {
+    "id": "char_wan_tong",
+    "name": "万通",
+    "alias": [],
+    "identity": "毒剑常笑的十三个手下之一",
+    "faction": "",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "毒剑常笑的手下，曾监视铁恨",
+    "personality": {
+      "traits": [
+        "阴险狡诈",
+        "心机深沉",
+        "冷酷无情",
+        "善于监视",
+        "忠于主子"
+      ],
+      "speech_style": "阴沉",
+      "temperament": "阴险多疑"
+    },
+    "relationships": [
+      {
+        "target": "char_tie_hen",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "监视与被监视"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 340,
+        "line_end": 340,
+        "text": "万通！"
+      },
+      {
+        "chapter": 30,
+        "line_start": 456,
+        "line_end": 456,
+        "text": "当时万通已在外窥伺？"
+      }
+    ]
+  },
+  {
+    "id": "char_jin_yi",
+    "name": "金翼",
+    "alias": [],
+    "identity": "郭繁的外甥，寄养在郭繁家中",
+    "faction": "太平安乐富贵王府",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "郭繁的外甥，有些贪财，参与血鹦鹉计划",
+    "personality": {
+      "traits": [
+        "贪财忘义",
+        "小聪明",
+        "善解人意",
+        "轻功不佳",
+        "有些贪婪"
+      ],
+      "speech_style": "殷勤",
+      "temperament": "狡猾多变"
+    },
+    "relationships": [
+      {
+        "target": "char_guo_fan",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "舅甥关系"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      29,
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 518,
+        "line_end": 520,
+        "text": "这个金翼自幼父母双亡"
+      },
+      {
+        "chapter": 30,
+        "line_start": 118,
+        "line_end": 118,
+        "text": "那个人莫非就是金翼？"
+      }
+    ]
+  },
+  {
+    "id": "char_tai_ping_wang",
+    "name": "太平王",
+    "alias": [],
+    "identity": "一国之君",
+    "faction": "太平王府",
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": null,
+    "one_line": "一国之君，被李大娘囚禁",
+    "personality": {
+      "traits": [
+        "仁厚",
+        "宽宏",
+        "受困",
+        "无奈",
+        "威严"
+      ],
+      "speech_style": "威严",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_tie_hen",
+        "type": "主仆",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "被效忠"
+      },
+      {
+        "target": "char_xue_nu",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父女"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "line_start": 64,
+        "line_end": 64,
+        "text": "太平王与李大娘这位王妃连忙在左右拉住他"
+      }
+    ]
+  },
+  {
+    "id": "char_ying_wu",
+    "name": "鹦鹉",
+    "alias": [],
+    "identity": "太平王府血奴之一，武功最高",
+    "faction": "太平王府血奴",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": null,
+    "one_line": "血奴之一，武功最高，为追随太平王散去内功",
+    "personality": {
+      "traits": [
+        "忠义",
+        "勇猛",
+        "牺牲",
+        "武艺高强",
+        "刚烈"
+      ],
+      "speech_style": "无",
+      "temperament": "刚毅"
+    },
+    "relationships": [
+      {
+        "target": "char_tai_ping_wang",
+        "type": "主仆",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "誓死效忠"
+      },
+      {
+        "target": "char_li_da_niang",
+        "type": "宿敌",
+        "intensity": 60,
+        "bond_level": 1,
+        "dynamic": "被胁迫"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "line_start": 182,
+        "line_end": 184,
+        "text": "鹦鹉与甘老头的一批终于在城北十里的江边找到了他们"
+      }
+    ]
+  }
+]

@@ -1,0 +1,246 @@
+[
+  {
+    "id": "skill_gou_hun_yu_shou",
+    "name": "勾魂玉手",
+    "type": "暗器",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "一种传说中的勾魂手法，看到者魂魄将被勾走，分多种等级。",
+    "techniques": [
+      {
+        "id": "tech_gou_hun",
+        "name": "勾魂",
+        "type": "attack",
+        "description": "通过展示玉手来勾取目标的魂魄，据说有不同等级，最厉害的半个月内必取人性命。"
+      },
+      {
+        "id": "tech_gou_hun_yu_shou_zhan_shi",
+        "name": "勾魂手展示",
+        "type": "special",
+        "description": "展示勾魂手本身，让目标看到手后魂魄即开始被勾走。越是好看的手，勾魂效力越快。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "初级",
+        "description": "最差劲的一种，要勾人的魂也只不过半个月"
+      },
+      {
+        "level": "高级",
+        "description": "最好的一种，勾魂效力最快"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "看到勾魂手的人，魂魄将被勾走，最终死亡。"
+      }
+    ],
+    "combat_style": "神秘诡异，以手为器，杀人无形。",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 154,
+        "line_end": 176,
+        "text": "张洁洁叹了口气，道：\"鬼有什么可怕的?你几时听说过鬼真的杀死过人?可是这只手……\"她呼吸仿佛又变得很困难，又过了很久，才说出五个字：\"这是勾魂手。\"楚留香皱了皱眉，道：\"勾魂手?\"张洁洁道：\"无论谁只要看到一只勾魂手，迟早总要被它将魂勾走。"
+      }
+    ]
+  },
+  {
+    "id": "skill_dian_xue_shou_fa",
+    "name": "点穴手法",
+    "type": "指法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "老太婆的独门点穴手法，可排天下前五",
+    "techniques": [
+      {
+        "id": "tech_dian_xue_shou_fa",
+        "name": "点穴手法",
+        "type": "attack",
+        "description": "手法精准力道恰到好处，可封人穴道"
+      },
+      {
+        "id": "tech_dian_xue_feng_hou",
+        "name": "点穴封喉",
+        "type": "attack",
+        "description": "以点穴手法封住对手喉咙要穴，使其无法出声呼吸"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "chapter": 3
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "点穴封住对手行动"
+      }
+    ],
+    "combat_style": "精准点穴制敌",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 82,
+        "line_end": 82,
+        "text": "楚留香评老太婆的点穴手法可入天下前五"
+      }
+    ]
+  },
+  {
+    "id": "skill_tong_zi_gong",
+    "name": "童子功",
+    "type": "内功",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "习练者需终生不犯淫戒的童子功",
+    "techniques": [
+      {
+        "id": "tech_tong_zi_qi",
+        "name": "童子气",
+        "type": "defense",
+        "description": "童子功护体真气，使习练者面容比实际年龄年轻许多"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "孙不空习练数十年的童子功，因不犯淫戒而功力深厚"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "驻颜有术，六十余岁而看似三四十"
+      }
+    ],
+    "combat_style": "以童子功护体，配合腹语术迷惑敌人",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 641,
+        "line_end": 649,
+        "text": "一个练童子功的人，当然不会娶老婆"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_jia_qin_na_shou",
+    "name": "金家擒拿手",
+    "type": "掌法",
+    "faction": "faction_wan_fu_wan_shou_yuan",
+    "rank": "出神入化",
+    "one_line": "金四爷的独门擒拿手法，招式简单却极其有效，专为对付高手而创",
+    "techniques": [
+      {
+        "id": "tech_zuo_you_hu_huan",
+        "name": "左右互换",
+        "type": "attack",
+        "description": "右手虚晃吸引注意，左手突然探出扣住对方手腕"
+      },
+      {
+        "id": "tech_yao_ming_de_zuo_shou",
+        "name": "要命的左手",
+        "type": "attack",
+        "description": "以极慢速度伸出右手诱敌，左手闪电般出击扣住对方腕子"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "一招制敌，令人防不胜防"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "扣住对方手腕后可将整个人抡出"
+      }
+    ],
+    "combat_style": "以静制动，诱敌深入，简洁高效",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 264,
+        "line_end": 290,
+        "text": "他霍然长身而起，忽然已站在楚留香面前，左掌在楚留香眼前挥过，右手闪电般去抓楚留香的腕子。"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhuan_shen_gong",
+    "name": "转身功",
+    "type": "掌法",
+    "faction": "faction_ma_yi_jia_zu",
+    "rank": "出神入化",
+    "one_line": "麻衣家族独有的旋转武功，身体如陀螺转动出掌",
+    "techniques": [
+      {
+        "id": "tech_xuan_zhuan_gong_ji",
+        "name": "旋转攻击",
+        "type": "attack",
+        "description": "身体如陀螺般旋转，从四面八方出掌攻击，虚实难辨",
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 260,
+            "line_end": 300,
+            "text": "他们身子忽而向左转，忽而向右转……四面八方的向楚留香拍了过来"
+          }
+        ]
+      },
+      {
+        "id": "tech_mi_zong_xuan_zhuan_bu",
+        "name": "迷踪旋转步",
+        "type": "feint",
+        "description": "身体忽左忽右连续旋转，令对手无法判断攻击方向和角度",
+        "source_refs": [
+          {
+            "chapter": 11,
+            "line_start": 201,
+            "line_end": 300,
+            "text": "身子忽而向左转，忽而向右转，围着他的身子转"
+          }
+        ]
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "chapter": 11
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "旋转使对手头晕目眩，无法判断攻击方向和虚实"
+      }
+    ],
+    "combat_style": "近身旋转迷惑对手视线后突然出掌",
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 260,
+        "line_end": 300,
+        "text": "他们身子忽而向左转，忽而向右转……四面八方的向楚留香拍了过来"
+      }
+    ]
+  }
+]

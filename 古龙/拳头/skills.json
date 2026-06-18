@@ -1,0 +1,676 @@
+[
+  {
+    "id": "skill_wu_hu_duan_men_dao",
+    "name": "五虎断门刀",
+    "type": "剑法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "彭老虎所使的刚猛刀法",
+    "techniques": [
+      {
+        "id": "tech_wu_hu_duan_men_dao",
+        "name": "五虎断门刀",
+        "type": "attack",
+        "description": "以四十三斤纯钢刀施展的刚猛刀法，一刀可断碗口粗石柱"
+      },
+      {
+        "id": "tech_duan_men_zhan",
+        "name": "断门斩",
+        "type": "attack",
+        "description": "五虎断门刀中的致命一击，以全力劈砍对手要害，力道刚猛无匹"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "彭老虎已将此刀法练至高深境界"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "value": "极重"
+      }
+    ],
+    "combat_style": "刚猛霸道",
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 28,
+        "line_end": 28,
+        "text": "彭老虎的五虎断门刀"
+      },
+      {
+        "chapter": 1,
+        "line_start": 32,
+        "line_end": 32,
+        "text": "一把四十三斤重的纯钢刀"
+      },
+      {
+        "chapter": 2,
+        "line_start": 258,
+        "line_end": 258,
+        "text": "蓝兰苦笑道：“我们本以为他的五虎断门刀很有两下子。”"
+      }
+    ]
+  },
+  {
+    "id": "skill_fen_nu_quan_fa",
+    "name": "渔怒拳法",
+    "type": "掌法",
+    "faction": "无",
+    "rank": "登堂入室",
+    "one_line": "小马的看家本领，以渔怒情绪驱动的拳法",
+    "techniques": [
+      {
+        "id": "tech_fen_nu_quan",
+        "name": "渔怒拳",
+        "type": "attack",
+        "description": "以渔怒情绪驱动的猛烈拳法，每一拳都蕴含着强烈的怒气，威力惊人"
+      },
+      {
+        "id": "tech_fen_nu_zhang",
+        "name": "渔怒掌",
+        "type": "attack",
+        "description": "以愤怒为引发的掌法，可远程攻击对敌，声势威力惊人"
+      }
+    ],
+    "progression": [
+      "初窥门径",
+      "略有小成",
+      "登堂入室"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "高伤害近身攻击"
+      }
+    ],
+    "combat_style": "近身博击，以怒气增幅威力",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 14,
+        "line_end": 14,
+        "text": "小马故意露出牙齿猛笑"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_hong_quan",
+    "name": "大洪拳",
+    "type": "掌法",
+    "faction": null,
+    "rank": "平平无奇",
+    "one_line": "江湖中最普通的拳法",
+    "techniques": [
+      {
+        "id": "tech_da_hong_quan_ji_ben_jia_shi",
+        "name": "大洪拳基本架式",
+        "type": "attack",
+        "description": "大洪拳的基础招式，虎虎生威"
+      },
+      {
+        "id": "tech_da_hong_quan_pu_tong_ji",
+        "name": "大洪拳普通击",
+        "type": "attack",
+        "description": "大洪拳的普通攻击招式"
+      }
+    ],
+    "progression": [
+      {
+        "level": "平平无奇",
+        "description": "普通拳法"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "基础拳法攻击"
+      }
+    ],
+    "combat_style": "刚猛直接",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 6,
+        "line_end": 8,
+        "text": "我练的是大洪拳"
+      }
+    ]
+  },
+  {
+    "id": "skill_fu_huo_luo_han_quan",
+    "name": "伏虎罗汉拳",
+    "type": "掌法",
+    "faction": "faction_shao_lin",
+    "rank": "略有小成",
+    "one_line": "少林绝技，威力刚猛",
+    "techniques": [
+      {
+        "id": "tech_fu_huo_luo_han_quan_zhong_shou",
+        "name": "伏虎罗汉拳重手",
+        "type": "attack",
+        "description": "少林罗汉拳的重手，一拳击出威力巨大"
+      },
+      {
+        "id": "tech_fu_huo_luo_han_quan_lian_huan_ji",
+        "name": "伏虎罗汉拳连环击",
+        "type": "attack",
+        "description": "伏虎罗汉拳的连续攻击招式"
+      }
+    ],
+    "progression": [
+      {
+        "level": "略有小成",
+        "description": "少林弟子所练"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "刚猛拳法攻击"
+      }
+    ],
+    "combat_style": "刚猛霸道",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 20,
+        "line_end": 31,
+        "text": "居然会伏虎罗汉拳"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhui_feng_duo_ming_wu_ying_tui",
+    "name": "追风夺命无影腿",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "章长腿的成名绝技，出腿如风、无声无息",
+    "techniques": [
+      {
+        "id": "tech_zhui_feng_duo_ming_wu_ying_tui",
+        "name": "追风夺命无影腿",
+        "type": "attack",
+        "description": "章长腿的成名绝技，出腿如风、无声无息，随随便便在桌子下一踢就能将百把斤大汉踢飞数丈"
+      },
+      {
+        "id": "tech_lian_huan_tui",
+        "name": "连环腿",
+        "type": "attack",
+        "description": "章长腿被偷袭时使出的双腿急风般连环踢出的招式，但仍被神秘人轻易破解"
+      }
+    ],
+    "progression": {
+      "level": "精通"
+    },
+    "effects": [],
+    "combat_style": "以腿代手，出腿无声",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 114,
+        "line_end": 116,
+        "text": "这就是我的追风夺命无影腿"
+      }
+    ]
+  },
+  {
+    "id": "skill_kong_shou_ru_bai_ren",
+    "name": "空手入白刃",
+    "type": "指法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "常无意擅长的空手夺白刃功夫",
+    "techniques": [
+      {
+        "id": "tech_kong_shou_duo_jian",
+        "name": "空手夺剑",
+        "type": "defense",
+        "description": "以空手夹住对手兵器，化解攻势"
+      },
+      {
+        "id": "tech_xiao_qin_na_fa",
+        "name": "小擒拿法",
+        "type": "attack",
+        "description": "小擒拿手法，可制服对手"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [],
+    "combat_style": "近身搏击",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 84,
+        "line_end": 86,
+        "text": "他用的是空手入白刃，还带着七十二路小擒拿法。这种功夫他就算练得还未登蜂造极，江湖中能比得上他的人却已不多。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bu_zhan_de_han_yan_dai",
+    "name": "旱烟袋武功",
+    "type": "指法",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "卜战独创的旱烟袋武功，融合多种重兵器招式",
+    "techniques": [
+      {
+        "id": "tech_han_yan_dai_heng_sao",
+        "name": "旱烟袋横扫",
+        "type": "attack",
+        "description": "五尺一寸长、五十一斤重的旱烟袋横扫出去，有长枪大戟的威力"
+      },
+      {
+        "id": "tech_yan_si_an_qi",
+        "name": "烟丝暗器",
+        "type": "special",
+        "description": "燃烧的热烟丝作为暗器打出，比普通暗器更霸道可怕"
+      },
+      {
+        "id": "tech_huo_guang_xuan_mu",
+        "name": "火光眩目",
+        "type": "debuff",
+        "description": "烟斗中闪动的火光可以眩人眼目"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登峰造极",
+        "description": "已达到武学巅峰"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "重击造成巨大伤害"
+      }
+    ],
+    "combat_style": "刚猛霸道，以力胜",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 378,
+        "line_end": 384,
+        "text": "五尺一寸长、五十一斤重的旱烟袋已横扫出去...那些炽热的烟丝，随时都可能打出来"
+      }
+    ]
+  },
+  {
+    "id": "skill_chang_wu_yi_de_jian_fa",
+    "name": "常无意剑法",
+    "type": "剑法",
+    "faction": "无",
+    "rank": "出神入化",
+    "one_line": "常无意独创的剑法，柔若游丝，以巧胜以智胜",
+    "techniques": [
+      {
+        "id": "tech_jian_guang_quan",
+        "name": "剑光圈",
+        "type": "defense",
+        "description": "笔直的剑变成无数个光圈，可消解敌方攻势"
+      },
+      {
+        "id": "tech_zhi_zhi_si_di_er_hou_sheng",
+        "name": "置之死地而后生",
+        "type": "feint",
+        "description": "先将自己逼入死地再出手，以巧胜以智胜"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "剑法已臻化境"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "光圈消解敌方攻击"
+      }
+    ],
+    "combat_style": "以柔克刚，以巧胜以智胜",
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 404,
+        "line_end": 424,
+        "text": "他的剑忽然又变得柔若游丝，笔直的剑竟变成了无数个光圈...这一剑并不以势胜，而以巧胜！并不以力胜，而以智胜。"
+      }
+    ]
+  },
+  {
+    "id": "skill_quan_fa",
+    "name": "拳法",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "小马以速度见长的拳法，快到让人无法抵挡",
+    "techniques": [
+      {
+        "id": "tech_kuai_quan",
+        "name": "快拳",
+        "type": "attack",
+        "description": "以极快速度出拳，让对手无法反应"
+      },
+      {
+        "id": "tech_feng_yu_quan",
+        "name": "风雨拳",
+        "type": "attack",
+        "description": "连续密集出拳如雨点般打击对手"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "拳头快到连法师的内功都无法完全化解"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "直接打击造成内伤"
+      }
+    ],
+    "combat_style": "刚猛直接，以力破巧",
+    "rag_refs": [
+      13,
+      16,
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 38,
+        "line_end": 38,
+        "text": "挥拳痛击法师的鼻子"
+      },
+      {
+        "chapter": 16,
+        "line_start": 134,
+        "line_end": 134,
+        "text": "小马道：“因为我打得比人快，也比人准。”"
+      },
+      {
+        "chapter": 18,
+        "line_start": 126,
+        "line_end": 126,
+        "text": "小马更不是个谦虚的人，立刻道：“我的拳头也不慢。”"
+      }
+    ]
+  },
+  {
+    "id": "skill_nei_gong",
+    "name": "内功",
+    "type": "内功",
+    "faction": "faction_tai_yang_hu_ji_si_bu_luo",
+    "rank": "出神入化",
+    "one_line": "法师修炼的借力打力内功，能将攻击力量化解转移",
+    "techniques": [
+      {
+        "id": "tech_jie_li_da_li",
+        "name": "借力打力",
+        "type": "defense",
+        "description": "将对手攻击的力量化解并转移到他处"
+      },
+      {
+        "id": "tech_yi_li_hua_li",
+        "name": "以力化力",
+        "type": "defense",
+        "description": "以内力抵消外力攻击"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "能将凳子碎裂而身体不动"
+      }
+    ],
+    "effects": [
+      {
+        "type": "减益",
+        "description": "被打散内力后无法说话"
+      }
+    ],
+    "combat_style": "防守反击，以柔克刚",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 40,
+        "line_end": 40,
+        "text": "法师冷笑，枯瘦的手掌轻挥"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiao_ma_quan_fa",
+    "name": "小马拳法",
+    "type": "掌法",
+    "faction": "无",
+    "rank": "登堂入室",
+    "one_line": "小马以拳头为武器的独门拳法",
+    "techniques": [
+      {
+        "id": "tech_xiao_ma_quan_tou",
+        "name": "小马拳头",
+        "type": "attack",
+        "description": "以拳头直接攻击对手，力道刚猛",
+        "source_skill": "skill_xiao_ma_quan_fa"
+      },
+      {
+        "id": "tech_shan_dian_ji",
+        "name": "闪电击",
+        "type": "attack",
+        "description": "拳头如闪电般快速击出",
+        "source_skill": "skill_xiao_ma_quan_fa"
+      }
+    ],
+    "progression": {
+      "level": "登堂入室"
+    },
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "直接物理伤害"
+      }
+    ],
+    "combat_style": "近身肉搏",
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "小马的拳头已经闪电般击出"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_gong",
+    "name": "轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": 7,
+    "one_line": "扫花老人的轻功，能贴墙而立",
+    "techniques": [
+      {
+        "id": "tech_fei_shen",
+        "name": "飞身",
+        "type": "buff",
+        "description": "快速移动，躲避攻击"
+      },
+      {
+        "id": "tech_tie_qiang",
+        "name": "贴墙",
+        "type": "defense",
+        "description": "轻飘飘贴在墙上，躲避攻击"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      "增益",
+      "控制"
+    ],
+    "combat_style": "飘逸灵动",
+    "rag_refs": [
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "line_start": 266,
+        "line_end": 266,
+        "text": "他一拳击出，扫花老人已到了墙上，就象是一张纸一样，轻飘飘地飞了上去，轻飘飘地贴在墙上，看着小马微笑。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_san_tai_bao_heng_lian",
+    "name": "十三太保横练",
+    "type": "内功",
+    "faction": "朱五太爷麾下",
+    "rank": "出神入化",
+    "one_line": "童子功硬功，全身刀枪不入，双拳重逾千斤",
+    "techniques": [
+      {
+        "id": "tech_tie_quan",
+        "name": "铁拳",
+        "type": "attack",
+        "description": "以横练硬功为基础的重拳攻击，单拳重达五百斤以上"
+      },
+      {
+        "id": "tech_shi_san_tai_bao_heng_lian",
+        "name": "十三太保横练",
+        "type": "defense",
+        "description": "全身肌肉骨骼硬化，抵御普通兵器伤害"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害",
+      "减益"
+    ],
+    "combat_style": "刚猛正面",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 10,
+        "line_end": 12,
+        "text": "他是童子功，十三太保横练。左拳击出，重五百斤，右拳重五百七十斤。"
+      }
+    ]
+  },
+  {
+    "id": "skill_jin_zhong_zhao_tie_bu_shan",
+    "name": "金钟罩铁布杉",
+    "type": "内功",
+    "faction": "朱五太爷麾下",
+    "rank": "出神入化",
+    "one_line": "童子功防御硬功，刀枪难入，左拳重达七百斤",
+    "techniques": [
+      {
+        "id": "tech_jin_zhong_zhao",
+        "name": "金钟罩",
+        "type": "defense",
+        "description": "全身坚硬如铁，抵御刀剑劈砍"
+      },
+      {
+        "id": "tech_zuo_quan_zhong_ji",
+        "name": "左拳重击",
+        "type": "attack",
+        "description": "以铁布杉功法为基础的左拳猛击，重达七百斤"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害",
+      "增益"
+    ],
+    "combat_style": "刚猛正面",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 20,
+        "line_end": 23,
+        "text": "他也是从小的童子功，金钟罩、铁布杉的功夫，刀枪难入。他的右手一拳重四百斤，左拳一击却至少有七百斤重。"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_fa",
+    "name": "剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "常无意及玲珑双剑所用的剑法",
+    "techniques": [
+      {
+        "id": "tech_chang_wu_yi_kuai_jian",
+        "name": "常无意快剑",
+        "type": "attack",
+        "description": "常无意极速拔剑攻击，在十三字间剑锋六次移动"
+      },
+      {
+        "id": "tech_ling_long_fei_ji",
+        "name": "玲珑飞击",
+        "type": "attack",
+        "description": "玲珑双剑凌空飞击，金银交辉的剑术"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "快速拔剑、凌空飞击",
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 96,
+        "line_end": 96,
+        "text": "要他们根本无法拔出他们的剑。"
+      }
+    ]
+  }
+]

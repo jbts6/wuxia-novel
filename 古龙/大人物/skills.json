@@ -1,0 +1,180 @@
+[
+  {
+    "id": "skill_ge_xian_sheng_de_an_qi",
+    "name": "葛先生的暗器",
+    "type": "暗器",
+    "faction": null,
+    "rank": 6,
+    "one_line": "葛先生的独门暗器，杀人于无形，连杨凡也称其歹毒",
+    "techniques": [
+      {
+        "id": "tech_an_qi_shang_ren",
+        "name": "暗器伤人",
+        "type": "attack",
+        "description": "葛先生以暗器无声无息射入他人额角，瞬间致死，据说会折损阳寿十年"
+      },
+      {
+        "id": "tech_an_qi_wu_xing",
+        "name": "无形暗器",
+        "type": "attack",
+        "description": "葛先生无需动手即可发出暗器，连田思思也看不出出手痕迹"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "chapter": 4
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "暗器射入额角致死"
+      }
+    ],
+    "combat_style": "无声无息，远距离致死",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 162,
+        "line_end": 162,
+        "text": "葛先生究竟是用什么法子将这五个人杀了的"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_zhi_chan",
+    "name": "一指禅",
+    "type": "指法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "以单指之力精准打击敌人穴位或头部，威力巨大",
+    "techniques": [
+      {
+        "id": "tech_yi_zhi_chan",
+        "name": "一指禅",
+        "type": "attack",
+        "description": "以单指之力精准打击敌人穴位或头部，威力巨大，可令人瞬间昏厥"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      "击晕",
+      "击杀"
+    ],
+    "combat_style": "精准",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 1188,
+        "line_end": 1188,
+        "text": "和尚道：\"和尚会'一指禅'，会敲人的脑袋。\""
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_yan_qi_shi",
+    "name": "飞燕七式",
+    "type": "轻功",
+    "faction": "柳风骨",
+    "rank": "出神入化",
+    "one_line": "柳风骨独门轻功，凌空变向如燕飞",
+    "techniques": [
+      {
+        "id": "tech_fei_yan_qi_shi",
+        "name": "飞燕七式",
+        "type": "attack",
+        "description": "凌空变式轻功，双臂一张如燕子般翩翩飞出"
+      }
+    ],
+    "progression": "已臻化境",
+    "effects": [
+      "高机动性",
+      "凌空变向"
+    ],
+    "combat_style": "轻灵飘逸",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 108,
+        "line_end": 112,
+        "text": "柳风骨淡淡一笑，身子突然凌空而起。眼见他已快撞上屋顶，突然间双臂一张，人如燕子般翩翩向旁边飞了出去。"
+      }
+    ]
+  },
+  {
+    "id": "skill_luo_han_fu_hu_quan",
+    "name": "罗汉伏虎拳",
+    "type": "拳法",
+    "faction": "少林",
+    "rank": "出神入化",
+    "one_line": "少林绝学，一百零八式，以刚克柔",
+    "techniques": [
+      {
+        "id": "tech_feng_lei_bing_zuo",
+        "name": "风雷并作",
+        "type": "attack",
+        "description": "伏虎拳中最霸道的一招，招中有招，连环变化，变化无穷"
+      },
+      {
+        "id": "tech_fu_hu_yang_wei",
+        "name": "伏虎扬威",
+        "type": "attack",
+        "description": "一百零八式罗汉伏虎拳的最后一招"
+      }
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 158,
+        "line_end": 158,
+        "text": "据说一个真正对罗汉伏虎拳有造诣的少林高僧"
+      }
+    ],
+    "rag_refs": [
+      13
+    ]
+  },
+  {
+    "id": "skill_ba_gua_you_shen_quan",
+    "name": "八卦游身拳",
+    "type": "轻功",
+    "faction": "八卦门",
+    "rank": "炉火纯青",
+    "one_line": "八卦门轻功身法，以柔克刚",
+    "techniques": [
+      {
+        "id": "tech_you_shen_shen_fa",
+        "name": "游身身法",
+        "type": "defense",
+        "description": "以轻灵身法闪避敌人攻击，消耗对方体力"
+      },
+      {
+        "id": "tech_ba_gua_bu_ding",
+        "name": "八卦步法",
+        "type": "defense",
+        "description": "八卦门独步天下的步法，踏八卦方位，以步法牵引敌人，使其攻击落空"
+      }
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 220,
+        "line_end": 220,
+        "text": "现在他正以八卦游身拳的轻功身法"
+      }
+    ],
+    "rag_refs": [
+      13
+    ]
+  }
+]

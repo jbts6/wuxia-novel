@@ -1,0 +1,405 @@
+[
+  {
+    "id": "skill_yu_gu_zhua_fa",
+    "name": "玉骨爪法",
+    "type": "掌法",
+    "faction": "faction_huang_hai_shi_sha",
+    "rank": "略有小成",
+    "one_line": "以枯瘦双手施展的诡异爪法，手臂特长，双手如鬼爪。",
+    "techniques": [
+      {
+        "id": "tech_gui_zhua_sou_hun",
+        "name": "鬼爪搜魂",
+        "type": "attack",
+        "description": "以枯瘦如鬼爪的双手施展凌厉爪法，攻击敌人要害。"
+      },
+      {
+        "id": "tech_ku_gu_chan_shou",
+        "name": "枯骨缠手",
+        "type": "control",
+        "description": "利用特长手臂缠绕敌人，限制其行动能力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "初窥门径"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "爪法凌厉"
+      }
+    ],
+    "combat_style": "以诡异身法和特长手臂配合爪法攻击",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 58,
+        "line_end": 58,
+        "text": "手臂特长，几乎垂到膝下，一双手像是鬼爪"
+      }
+    ]
+  },
+  {
+    "id": "skill_gui_xiao_gong",
+    "name": "鬼啸功",
+    "type": "内功",
+    "faction": "faction_huang_hai_shi_sha",
+    "rank": "略有小成",
+    "one_line": "以洪亮嗓音施展的音功，声若洪钟，使人震惊。",
+    "techniques": [
+      {
+        "id": "tech_hong_zhong_gui_xiao",
+        "name": "洪钟鬼啸",
+        "type": "attack",
+        "description": "以枯瘦身躯发出洪钟般声响，震慑敌人心神。"
+      },
+      {
+        "id": "tech_gui_yin_guan_er",
+        "name": "鬼音灌耳",
+        "type": "debuff",
+        "description": "以巨大音量灌入敌耳，使其心神不宁。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "初窥门径"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "音功震慑"
+      }
+    ],
+    "combat_style": "以声波震慑敌人",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 66,
+        "line_end": 66,
+        "text": "声若洪钟，又使人不禁怀疑在这枯瘦的身体里怎会发出这么大的声音来"
+      }
+    ]
+  },
+  {
+    "id": "skill_an_xiang_fu_ying",
+    "name": "暗香浮影",
+    "type": "轻功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "一绝轻功，使身法飘忽如飞鹰，连天残焦化也逊色",
+    "techniques": [
+      {
+        "id": "tech_fei_ying_pu",
+        "name": "飞鹰扑",
+        "type": "attack",
+        "description": "身形如飞鹰般扑去，十指箕张如爪，双掌齐出分袭多处大穴"
+      },
+      {
+        "id": "tech_liu_yun_bu",
+        "name": "流云步",
+        "type": "special",
+        "description": "步如流云身法活动开，以速度优势绕敌于圈子之中"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "chapter": 4,
+        "description": "连天残焦化以轻软功见长的人物都为之逊色"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "身法飘忽不定，令对手难以捉摸"
+      }
+    ],
+    "combat_style": "以飘忽身法配合精准指掌攻击，攻守兼备",
+    "rag_refs": [
+      4,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 20,
+        "line_end": 21,
+        "text": "十指箕张如爪，双掌挥出"
+      },
+      {
+        "chapter": 8,
+        "line_start": 182,
+        "line_end": 182,
+        "text": "和自己昔日所练的“暗香浮影”互做融会"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_miao_shen_gong",
+    "name": "七妙神功",
+    "type": "内功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "七妙神君以无比心血创立的绝学，辛捷十年石室苦练的根基",
+    "techniques": [
+      {
+        "id": "tech_tong_gui_yu_jin",
+        "name": "同归于尽",
+        "type": "special",
+        "description": "以四肢同时击下分袭多人，不留余力的搏命招式"
+      },
+      {
+        "id": "tech_zhi_zhang_lian_huan",
+        "name": "指掌连环",
+        "type": "attack",
+        "description": "收招出招浑如一体，指掌交替抢攻无片刻余隙"
+      }
+    ],
+    "progression": [
+      {
+        "level": 4,
+        "chapter": 4,
+        "description": "十年石室苦练，招招毒辣欺身进逼"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "招招狠辣，每一出手便是杀着"
+      }
+    ],
+    "combat_style": "刚猛凌厉兼精妙变化，招招致命不留后路",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 18,
+        "line_end": 18,
+        "text": "他十年石室苦练，为的就是此刻的一击"
+      }
+    ]
+  },
+  {
+    "id": "skill_mi_mi_qing_gong",
+    "name": "咪咪轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "咪咪所习轻功，能凌空飞升不借任何动作，如仙子冉冉升空，已近神奇之境。",
+    "techniques": [
+      {
+        "id": "tech_ling_kong_fei_sheng",
+        "name": "凌空飞升",
+        "type": "buff",
+        "description": "全身无任何藉以上拔的动作即可凌空而起，如白日飞升的仙女，已近神奇之境。"
+      },
+      {
+        "id": "tech_ling_kong_yi_xing",
+        "name": "凌空移行",
+        "type": "buff",
+        "description": "凌空状态下摆动衣袖即可横移数丈，如落叶飘下，轻盈无声。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "咪咪自幼习得，十年苦修"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "凌空飞行、瞬间脱离战斗、带人飞行"
+      }
+    ],
+    "combat_style": "不主动攻击，以轻功避敌脱困为主",
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 74,
+        "line_end": 78,
+        "text": "他全身竟不由自主地飞腾了上去，生像是脚下有人托着似的"
+      },
+      {
+        "chapter": 5,
+        "line_start": 80,
+        "line_end": 86,
+        "text": "此刻咪咪婀娜的身躯正自凌空而起，全身丝毫没有一丝藉以上拔的动作"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_yi_shen_gong",
+    "name": "天一神功",
+    "type": "内功",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "上大人所创至阳至刚武学，功力雄浑不可思议，包含点穴与内力绝技，为武林绝世秘籍。",
+    "techniques": [
+      {
+        "id": "tech_tian_yi_nei_gong",
+        "name": "天一内功",
+        "type": "buff",
+        "description": "至阳至刚的内功心法，修炼后内力雄浑深厚，功力可大幅提升。"
+      },
+      {
+        "id": "tech_shi_bu_zhua_kong",
+        "name": "十步抓空",
+        "type": "attack",
+        "description": "十步之外以空劲抓取敌人要害的高深指法，超越隔山打牛之上。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "chapter": 7,
+        "description": "辛捷在山窟中发现猴皮秘籍，开始参研"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "大幅提升内力与指力"
+      }
+    ],
+    "combat_style": "至阳至刚，以内力和指法为主",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 173,
+        "line_end": 175,
+        "text": "因为这天一神功竟然真是这么神奇，其中武学包含之博大深奥，连辛捷都不禁为之惊异不已"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhi_yang_zhi_gang_nei_gong",
+    "name": "至阳至刚内功",
+    "type": "内功",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "上大人遗留秘籍中的至阳至刚内力功夫，辛捷修炼后体内真气源源不息，双掌威力惊人。",
+    "techniques": [],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "chapter": 8,
+        "description": "辛捷埋首数日修炼，将功力虚浮处全充实"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "体内真气源源不息，双掌交替而发不虑匮乏，掌力凌厉刚猛"
+      }
+    ],
+    "combat_style": "至阳至刚，硬接硬架，掌力浑厚",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 182,
+        "line_end": 182,
+        "text": "武林怪杰上大人所遗留的武林秘籍中那种至阳至刚的内力功夫"
+      },
+      {
+        "chapter": 8,
+        "line_start": 184,
+        "line_end": 184,
+        "text": "他内力的修为本已登堂入室"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_miao_shen_jun_qing_gong",
+    "name": "七妙神君轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "七妙神君所施的轻功身法，飘飘荡荡令任何人都不能预测来势，为武林绝学。",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "身法飘飘荡荡，四面八方都有来势，令对手无法判断方位"
+      }
+    ],
+    "combat_style": "以迷惑对手判断为主，身法不可捉摸",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 132,
+        "line_end": 132,
+        "text": "昔日武林中的奇人七妙神君所施的轻功身法"
+      }
+    ]
+  },
+  {
+    "id": "skill_qian_jun_zhui",
+    "name": "千钧坠",
+    "type": "内功",
+    "faction": "faction_hai_tian_shuang_sha",
+    "rank": "炉火纯青",
+    "one_line": "海天双煞所擅长的以气力见长的功夫，尤其天废焦劳对此可称一绝，能增加千斤份量。",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "施展后身形重逾千钧，二人合力可增加千斤份量，令对手无法拉动"
+      }
+    ],
+    "combat_style": "以气力硬抗为主，适合固守和对抗拉扯",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 214,
+        "line_end": 214,
+        "text": "海天双煞兄弟已施展出千钧坠的功夫"
+      }
+    ]
+  },
+  {
+    "id": "skill_suo_gu_gong",
+    "name": "缩骨功",
+    "type": "skill",
+    "description": "以内力运行全身骨节，使身躯缩小穿越狭窄缝隙的特殊功法，施展时全身骨节格格作响，衣裳变得宽大，需要极高的内力修为和身体柔韧性。",
+    "source_skill": null,
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 124,
+        "line_end": 128,
+        "text": "须知像他这样的武林高手，只要有他脑袋能够伸进去的地方，他全身就也能钻进去了。他极力屏住呼吸，内运真气，只听他全身骨节发出格格一阵声响"
+      }
+    ]
+  }
+]

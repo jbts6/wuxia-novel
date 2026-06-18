@@ -1,0 +1,564 @@
+[
+  {
+    "id": "item_hei_bu",
+    "name": "黑布",
+    "type": "special",
+    "owner": "char_hei_yi_da_han",
+    "one_line": "黑衣大汉用来蒙住小马眼睛的黑布",
+    "description": "一块黑色布料，用来蒙住眼睛使人看不见道路，黑衣大汉以此控制被带之人的行踪方向",
+    "effects": [
+      "遮蔽视线"
+    ],
+    "origin": "黑衣大汉随身携带",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_xiao_ma",
+      "char_hei_yi_da_han"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 66,
+        "line_end": 66,
+        "text": "有人从身上拿出一块黑布"
+      },
+      {
+        "chapter": 1,
+        "line_start": 78,
+        "line_end": 78,
+        "text": "黑布用来蒙眼睛最好"
+      }
+    ]
+  },
+  {
+    "id": "item_jian_feng",
+    "name": "剑",
+    "type": "weapon",
+    "owner": null,
+    "one_line": "暗算者所用的利剑，刺入小马右胯",
+    "description": "暗算小马的两名高手所使用的锋利兵刃，速度极快，冰冷的利锋刺入小马右胯，几乎刺到骨头",
+    "effects": [
+      "穿刺伤害"
+    ],
+    "origin": "暗算者随身武器",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_xiao_ma"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 232,
+        "line_end": 232,
+        "text": "冰冷的利锋，已刺入他的右胯"
+      },
+      {
+        "chapter": 1,
+        "line_start": 244,
+        "line_end": 244,
+        "text": "剑锋几乎刺在他的骨头上"
+      }
+    ]
+  },
+  {
+    "id": "item_jiu_gui",
+    "name": "酒柜",
+    "type": "special",
+    "owner": null,
+    "one_line": "屋角小柜子，内有各式各样的酒",
+    "description": "屋角的小柜子，里面存放着各式各样的酒，穿衣服洗澡的女人警告酒里可能有毒",
+    "effects": [
+      "储存酒水"
+    ],
+    "origin": "园子主人设置",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_chuan_yi_fu_xi_zao_de_nv_ren"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 314,
+        "line_end": 314,
+        "text": "屋角那个小柜子里有酒，各式各样的酒都有"
+      }
+    ]
+  },
+  {
+    "id": "item_hei_duan_chang_pao",
+    "name": "黑缎长袍",
+    "type": "armor",
+    "owner": "char_chuan_yi_fu_xi_zao_de_nv_ren",
+    "one_line": "穿衣服洗澡的女人所穿的很长很厚的黑缎长袍",
+    "description": "一件很长很厚的黑色缎面长袍，穿衣服洗澡的女人在沐浴时穿着，遮蔽全身只露出脖子",
+    "effects": [
+      "遮蔽身体"
+    ],
+    "origin": "未知",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_chuan_yi_fu_xi_zao_de_nv_ren"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 368,
+        "line_end": 368,
+        "text": "穿着件很长很厚的黑缎长袍，只露出一段晶莹雪白的脖子"
+      }
+    ]
+  },
+  {
+    "id": "item_tong_luo",
+    "name": "铜锣",
+    "type": "special",
+    "owner": null,
+    "one_line": "六面大铜锣，敲响可震聋人耳",
+    "description": "六面大铜锣，每面铜锣配木棒敲击，声音巨大可震聋人耳，用于测试张聋子是否真聋。",
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "发出巨大声响"
+      }
+    ],
+    "origin": "蓝兰准备",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_lan_lan",
+      "char_zhang_long_zi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 161,
+        "line_end": 163,
+        "text": "六个人，每个人都拿着面大铜锣"
+      }
+    ]
+  },
+  {
+    "id": "item_jiao_zi",
+    "name": "轿子",
+    "type": "special",
+    "owner": null,
+    "one_line": "密不透风的轿子，载着神秘病人",
+    "description": "密不透风的轿子，里面坐着一位奄奄一息的神秘病人，小马连这人长得是什么样子都没看见就为他去卖命。",
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "遮蔽乘客身份"
+      }
+    ],
+    "origin": "蓝兰安排",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_xiao_ma"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 419,
+        "line_end": 419,
+        "text": "病人坐在轿子里，轿子密不透风"
+      }
+    ]
+  },
+  {
+    "id": "item_yin_piao",
+    "name": "银票",
+    "type": "special",
+    "owner": "char_lan_lan",
+    "one_line": "十万两银票，常老刀上狼山的条件之一",
+    "description": "蓝兰准备的十万两银票，作为常老刀上狼山护送的酬劳。银子一两都不能少，常老刀开出来的条件从来不打折扣。",
+    "effects": [],
+    "origin": "蓝兰随身携带",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_lan_lan",
+      "char_chang_lao_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 448,
+        "line_end": 448,
+        "text": "就带回了十万两银票和两瓶最好的女儿红"
+      }
+    ]
+  },
+  {
+    "id": "item_nv_er_hong",
+    "name": "女儿红",
+    "type": "special",
+    "owner": "char_lan_lan",
+    "one_line": "两瓶最好的女儿红，常老刀上狼山的条件之一",
+    "description": "蓝兰准备的两瓶最好的女儿红，作为常老刀上狼山护送的酬劳。酒也一定是最好的，常老刀开出来的条件从来不打折扣。",
+    "effects": [],
+    "origin": "蓝兰随身携带",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_lan_lan",
+      "char_chang_lao_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 448,
+        "line_end": 448,
+        "text": "就带回了十万两银票和两瓶最好的女儿红"
+      }
+    ]
+  },
+  {
+    "id": "item_tong_qian",
+    "name": "铜钱",
+    "type": "special",
+    "owner": "char_lao_po_po",
+    "one_line": "一枚被磨光的铜钱，上有刀痕，可令左手七指者为其做任何事",
+    "description": "一枚已被磨光的铜钱，上面却有道刀痕。这是老婆婆交给常无意的信物，持此铜钱遇见左手七根手指的夜狼，可令其做任何事，能救命。",
+    "effects": "信物，可令左手七指者答应任何请求",
+    "origin": "老婆婆所有",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_lao_po_po",
+      "char_zuo_shou_qi_zhi",
+      "char_chang_wu_yi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 253,
+        "line_end": 253,
+        "text": "她拿出的是个已被磨光了的铜钱，上面却有道刀痕"
+      }
+    ]
+  },
+  {
+    "id": "item_gui_tou_dao",
+    "name": "鬼头刀",
+    "type": "weapon",
+    "owner": null,
+    "one_line": "三十七斤重的鬼头刀，刀头重刀身细，专砍人头",
+    "description": "鬼头刀是狼山匪徒常用的重型砍刀，刀头沉重刀身细长，一刀砍下如同锤子般沉重，专门砍人头颅，一刀毙命绝不用第二刀。本章中十八把鬼头刀同时架在众人脖子上，份量轻重不一。",
+    "effects": [
+      "重型砍杀"
+    ],
+    "origin": "狼山",
+    "rarity": "寻常凡品",
+    "related_characters": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 352,
+        "line_end": 388,
+        "text": "三十七斤的鬼头刀绝不会细……鬼头刀很少砍别人的地方，鬼头刀通常只砍人的头。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "十八柄鬼头刀，十九个人。狼人。"
+      }
+    ]
+  },
+  {
+    "id": "item_han_yan_guan",
+    "name": "旱烟管",
+    "type": "weapon",
+    "owner": "char_tie_san_jiao",
+    "one_line": "铁三角使用的旱烟管，比鬼头刀还长",
+    "description": "铁三角随身携带的旱烟管，比鬼头刀还长，既是烟具也是武器，用来指指点点威胁他人。",
+    "effects": [],
+    "origin": "铁三角随身之物",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_tie_san_jiao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "一个人手里没有刀，却拿着根比鬼头刀还长的旱烟管。"
+      }
+    ]
+  },
+  {
+    "id": "item_zhu_hua",
+    "name": "珠花",
+    "type": "special",
+    "owner": "char_lan_lan",
+    "one_line": "蓝兰赠给老皮的珠花，三十八粒珍珠串成",
+    "description": "蓝兰从鬓脚摘下的珠花，用三十八粒晶莹圆润的珍珠串成，每粒同样大小，价值不菲，够人大吃大喝三个月。",
+    "effects": [],
+    "origin": "蓝兰随身之物",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_lan_lan",
+      "char_lao_pi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 464,
+        "line_end": 464,
+        "text": "珠花是用三十八粒晶莹圆润的珍珠串成的，每粒都同样大小。"
+      },
+      {
+        "chapter": 8,
+        "line_start": 208,
+        "line_end": 212,
+        "text": "蓝始娘为什么要把这事一定推到他身上，而且还送他一朵至少要值好几百两银子的珠花？"
+      }
+    ]
+  },
+  {
+    "id": "item_zhe_shan",
+    "name": "折扇",
+    "type": "special",
+    "owner": "char_wen_liang_yu",
+    "one_line": "温良玉的折扇，上书淳淳君子温文如玉",
+    "description": "温良玉随身携带的折扇，扇面上隐约可见淳淳君子温文如玉八个字，是他伪善形象的标志。",
+    "effects": [],
+    "origin": "温良玉随身之物",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_wen_liang_yu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 288,
+        "line_end": 288,
+        "text": "折扇上可隐约看出八个字：淳淳君子，温文如玉。"
+      }
+    ]
+  },
+  {
+    "id": "item_duo_ming_zhen",
+    "name": "夺命针",
+    "type": "hidden_weapon",
+    "owner": "char_lao_pi",
+    "one_line": "老皮使用的致命暗器，针入眉心一滴血",
+    "description": "老皮深藏不露的致命暗器，细针射入眉心只留一滴血，被射中者当场毙命，死得极快极安静。",
+    "effects": [
+      "伤害"
+    ],
+    "origin": "老皮秘藏",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_lao_pi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 474,
+        "line_end": 476,
+        "text": "你几时学会这种武器的？我怎么从来没看见你用过？"
+      }
+    ]
+  },
+  {
+    "id": "item_han_yan_dai",
+    "name": "旱烟袋",
+    "type": "weapon",
+    "owner": "char_bu_zhan",
+    "one_line": "卜战使用的纯钢旱烟袋，重五十一斤",
+    "description": "五尺一寸长、五十一斤重的纯钢旱烟袋，比小孩子的手膀子还粗，烟斗可装半斤烟丝，既是兵器也是暗器发射器",
+    "effects": [
+      "重击伤害",
+      "发射燃烧烟丝",
+      "火光眩目"
+    ],
+    "origin": "纯钢打造",
+    "rarity": "稀世珍品",
+    "related_characters": [
+      "char_bu_zhan"
+    ],
+    "related_skills": [
+      "skill_bu_zhan_de_han_yan_dai"
+    ],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 226,
+        "line_end": 232,
+        "text": "一杆五尺长的旱烟袋，比小孩子的手膀子还粗，无论谁都应该看得出是纯钢打成的"
+      }
+    ]
+  },
+  {
+    "id": "item_ma_cao",
+    "name": "麻草",
+    "type": "poison",
+    "owner": null,
+    "one_line": "狼山特产的毒草，食用后令人精神失常",
+    "description": "狼山山阴后生长的一种麻草，食用后会令人变得疯疯癫癫、痴痴迷迷，比醉酒可怕十倍，且会上瘾，一天不吃都不行",
+    "effects": [
+      "精神失常",
+      "丧失理智",
+      "产生依赖"
+    ],
+    "origin": "狼山山阴",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_xi_lang_nv"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 428,
+        "line_end": 432,
+        "text": "这里的山阴后长着种麻草，不管谁吃了后，都会变得疯疯颠颠、痴痴迷迷的"
+      }
+    ]
+  },
+  {
+    "id": "item_cai_dao",
+    "name": "菜刀",
+    "type": "weapon",
+    "owner": "char_hao_sheng_yi",
+    "one_line": "郝生意用来杀死柳金莲的菜刀",
+    "description": "一把普通的菜刀，却被郝生意用来杀死了武功高强的柳金莲，刀锋上还沾着血迹",
+    "effects": [],
+    "origin": "太平客栈",
+    "rarity": "寻常凡品",
+    "related_characters": [
+      "char_hao_sheng_yi",
+      "char_liu_jin_lian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "line_start": 358,
+        "line_end": 358,
+        "text": "菜刀"
+      }
+    ]
+  },
+  {
+    "id": "item_hu_pi_jiao_yi",
+    "name": "虎皮交椅",
+    "type": "special",
+    "owner": "char_zhu_wu_tai_ye",
+    "one_line": "朱五太爷的宽大交椅，由玲珑双剑抬入",
+    "description": "一张宽大沉重的虎皮交椅，两边有舒服的扶手，由两个侏儒抬着飞进来飘进来",
+    "effects": [],
+    "origin": "狼山",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_zhu_wu_tai_ye"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 2,
+        "line_end": 14,
+        "text": "小马坐的是张虎皮交椅。这张椅子却象是飞进来的，飘进来的"
+      }
+    ]
+  },
+  {
+    "id": "item_ruan_jian",
+    "name": "软剑",
+    "type": "weapon",
+    "owner": "char_chang_wu_yi",
+    "one_line": "常无意使用的四尺长软剑，标枪般飞出致命一击",
+    "description": "四尺长的软剑，标枪般飞出，从后背穿入前胸穿出，一击致命将郝生意钉死在门上",
+    "effects": [
+      "伤害"
+    ],
+    "origin": "江湖",
+    "rarity": "上乘佳品",
+    "related_characters": [
+      "char_chang_wu_yi"
+    ],
+    "related_skills": [
+      "skill_jian_fa"
+    ],
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 324,
+        "line_end": 324,
+        "text": "门还没有拉开，剑已飞来，四尺长的软剑标枪般飞了过去"
+      }
+    ]
+  }
+]

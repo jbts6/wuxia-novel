@@ -1,0 +1,312 @@
+[
+  {
+    "id": "skill_qi_shou_sha",
+    "name": "七杀手",
+    "type": "掌法",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "杜七独门绝技，左手七根手指，分光捉影，一手七杀",
+    "techniques": [
+      {
+        "id": "tech_qi_sha",
+        "name": "七杀",
+        "type": "attack",
+        "description": "七根手指凌空连抓七次，速度快到无人能看清"
+      },
+      {
+        "id": "tech_fen_guang_zhuo_ying",
+        "name": "分光捉影",
+        "type": "special",
+        "description": "以草帽收取暗器，手法快如闪电"
+      }
+    ],
+    "progression": {
+      "level": 7,
+      "description": "登峰造极"
+    },
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "一击必杀"
+      }
+    ],
+    "combat_style": "以快制快，七指连抓，断剑杀人",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 250,
+        "line_end": 306,
+        "text": "帽子下只有一只左手，手上却长着七根手指。杜七手已捏着半截断剑，刺入了阴涛的咽喉。"
+      }
+    ]
+  },
+  {
+    "id": "skill_miao_shou_shen_tou",
+    "name": "妙手神偷",
+    "type": "指法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "公孙妙独门偷技，只剩两根手指却比五指俱全者灵巧十倍",
+    "techniques": [
+      {
+        "id": "tech_suo_gu_fa",
+        "name": "缩骨法",
+        "type": "special",
+        "description": "武林中久已绝传的秘技，能将身体缩入极小空间"
+      },
+      {
+        "id": "tech_kai_suo_shu",
+        "name": "开锁术",
+        "type": "special",
+        "description": "能打开世上任何锁，包括七巧童子亲手打造的锁"
+      }
+    ],
+    "progression": {
+      "level": 6,
+      "description": "炉火纯青"
+    },
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "偷盗"
+      }
+    ],
+    "combat_style": "以灵巧手法偷取物品，缩骨法穿行铜墙铁壁",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 436,
+        "line_end": 440,
+        "text": "他手上只有两只手指，他的中指、小指、无名指，都已被从根切断。"
+      }
+    ]
+  },
+  {
+    "id": "skill_feng_yan_zhi",
+    "name": "凤眼指",
+    "type": "指法",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "柳长街的指法绝技，食指屈突如凤眼，可碎关节插入咽喉",
+    "techniques": [
+      {
+        "id": "tech_feng_yan_sui_guan_jie",
+        "name": "凤眼碎关节",
+        "type": "attack",
+        "description": "食指屈突如凤眼，击中关节必碎"
+      },
+      {
+        "id": "tech_feng_yan_chuan_yan_hou",
+        "name": "凤眼穿咽喉",
+        "type": "attack",
+        "description": "两根手指如利剑般插入咽喉，一击致命"
+      }
+    ],
+    "progression": {
+      "level": 7,
+      "description": "登峰造极"
+    },
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "碎关节、穿咽喉，一击致命"
+      }
+    ],
+    "combat_style": "以指代剑，攻敌要害，后发先至",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 1048,
+        "line_end": 1051,
+        "text": "柳长街的手已到了他肘下。手肘间的关节软脆，柳长街食指屈突如凤眼，若是撞在他关节上，关节必碎。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tian_shu_wu_xue",
+    "name": "天书武学",
+    "type": "内功",
+    "faction": null,
+    "rank": "初窥门径",
+    "one_line": "柳长街自称从天书中习得的武功，来历神秘。",
+    "techniques": [
+      {
+        "id": "tech_tian_shu_ji_chu_gong",
+        "name": "天书基础功",
+        "type": "attack",
+        "description": "柳长街从天书中自学的基础武学招式。"
+      },
+      {
+        "id": "tech_tian_shu_nei_gong",
+        "name": "天书内功",
+        "type": "buff",
+        "description": "柳长街从天书中修炼的内功心法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "自学天书，武功初成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "修炼者可获得超常武学能力"
+      }
+    ],
+    "combat_style": "自学成才，招式来源不明",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 40,
+        "line_end": 41,
+        "text": "'我自己。'柳长街吃吃的笑着：'谁也不配做我的师傅，我有天书。'"
+      }
+    ]
+  },
+  {
+    "id": "skill_kong_shou_qu_tan",
+    "name": "空手取炭",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "龙五展示的绝技，隔空抓取燃烧的炭火握于掌中，炭化为灰烬。",
+    "techniques": [
+      {
+        "id": "tech_ge_kong_qu_wu",
+        "name": "隔空取物",
+        "type": "special",
+        "description": "以掌力隔空抓取远处物体，内力深厚者可抓取燃烧的炭火。"
+      },
+      {
+        "id": "tech_huo_tan_hua_hui",
+        "name": "炭化灰烬",
+        "type": "attack",
+        "description": "握紧炽热红炭使其瞬间化为冷灰，展示惊人内力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "隔空抓取并以掌力化灰"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "隔空取物后以掌力毁物，内力惊人"
+      }
+    ],
+    "combat_style": "以内力隔空制物，掌力惊人",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 519,
+        "line_end": 525,
+        "text": "他的动作很慢，慢慢地往空中一抓。就像是奇迹般，那红泥小火炉中燃烧着的几块炭，竟突然飞了起来，飞到他手里。他的手慢慢的握紧，握紧了这几块炽热的红炭。等他的手再摊开时，炭已成灰，灰已冷。"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_hu_duan_men_dao",
+    "name": "五虎断门刀",
+    "type": "剑法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "武林中凶狠毒辣的刀法",
+    "techniques": [
+      {
+        "id": "tech_fan_tian_fu_di",
+        "name": "翻天覆地",
+        "type": "attack",
+        "description": "五虎断门刀的杀手招式，从下挑起连变三个方向急砍"
+      },
+      {
+        "id": "tech_lian_huan_wu_dao",
+        "name": "连环五刀",
+        "type": "attack",
+        "description": "一出手就是连续五刀的连环攻击"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "基础刀法"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "凶狠毒辣的连环刀法"
+      }
+    ],
+    "combat_style": "凶狠毒辣，连环攻击",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 350,
+        "line_end": 350,
+        "text": "一出手就是连环五刀。五虎断门刀本就是武林中最毒辣凶狠的刀法"
+      }
+    ]
+  },
+  {
+    "id": "skill_shi_san_tai_bao_heng_lian",
+    "name": "十三太保横练",
+    "type": "内功",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "少林硬功，练至刀砍不入",
+    "techniques": [
+      {
+        "id": "tech_heng_lian_jin_gang",
+        "name": "横练金刚",
+        "type": "defense",
+        "description": "十三太保横练功法，使身体刀枪不入"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "基础横练"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "使身体坚硬如铁，刀砍不入"
+      }
+    ],
+    "combat_style": "硬功防御",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 902,
+        "line_end": 904,
+        "text": "他的十三太保横练，几乎已真的练到刀砍不入的火候"
+      }
+    ]
+  }
+]

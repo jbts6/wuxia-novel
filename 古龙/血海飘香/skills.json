@@ -1,0 +1,944 @@
+[
+  {
+    "id": "skill_zhu_sha_zhang",
+    "name": "朱砂掌",
+    "type": "掌法",
+    "faction": "faction_zhu_sha_men",
+    "rank": "出神入化",
+    "one_line": "朱砂门绝学，掌力刚猛，中者留下紫红掌印。",
+    "techniques": [
+      {
+        "id": "tech_zhu_sha_zhang_ben_lei",
+        "name": "朱砂掌·本垒",
+        "type": "attack",
+        "description": "朱砂掌的基础掌法，在胸口留下紫红掌印，可致命。"
+      },
+      {
+        "id": "tech_zhu_sha_zhang_zhui_feng",
+        "name": "朱砂掌·追风",
+        "type": "attack",
+        "description": "朱砂掌的追击掌法，连续出掌如追风逐电，不给对手喘息之机。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "初步练成朱砂掌力"
+      },
+      {
+        "level": 2,
+        "description": "掌力可裂石断木"
+      },
+      {
+        "level": 5,
+        "description": "掌力可一击毙命，留下明显朱砂掌印"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌力击中胸口要害，可致命"
+      }
+    ],
+    "combat_style": "刚猛霸道，以掌力制敌",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 256,
+        "line_end": 256,
+        "text": "他左胸第五根肋骨下，'乳根'与'期门'穴之间，赫然留着个紫红掌印"
+      },
+      {
+        "chapter": 1,
+        "line_start": 258,
+        "line_end": 258,
+        "text": "朱砂掌"
+      },
+      {
+        "chapter": 1,
+        "line_start": 260,
+        "line_end": 261,
+        "text": "朱砂掌一门近年虽然人才鼎盛"
+      }
+    ]
+  },
+  {
+    "id": "skill_hai_nan_jian_fa",
+    "name": "海南剑法",
+    "type": "剑法",
+    "faction": "faction_hai_nan_jian_pai",
+    "rank": "炉火纯青",
+    "one_line": "海南剑派的剑法，以辛辣诡谲见长，剑身狭窄。",
+    "techniques": [
+      {
+        "id": "tech_hai_nan_jian_ci",
+        "name": "海南剑刺",
+        "type": "attack",
+        "description": "以窄剑快速刺击，一剑贯穿咽喉的狠辣剑法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "辛辣诡谲的剑法"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "窄剑贯穿咽喉，一击致命"
+      }
+    ],
+    "combat_style": "辛辣诡谲，剑走偏锋",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 90,
+        "line_end": 90,
+        "text": "海南剑派素无硬拆的招式"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_ying_shen_dao",
+    "name": "无影神刀",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "札木合的刀法，刀法之快无形无影，号称中土刀法第一名家。",
+    "techniques": [
+      {
+        "id": "tech_wu_ying_yi_dao",
+        "name": "无影一刀",
+        "type": "attack",
+        "description": "快如无形无影的一刀，敌人尚未看清已中招。以海内神兵大风刀施展，可一刀砍断海南派长剑并余力劈开头颅。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "刀法快至无形无影"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "一刀砍断敌方兵器并致命"
+      }
+    ],
+    "combat_style": "快如闪电，无形无影",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 104,
+        "line_end": 108,
+        "text": "刀法之快，无形无影"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_dian_hong_de_jian_fa",
+    "name": "一点红的剑法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "中原一点红的独门剑法，出剑迅急毒辣，专攻要害不留活路",
+    "techniques": [
+      "tech_yi_dian_hong_kuai_jian",
+      "tech_yi_dian_hong_xian_shou"
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "chapter": 6
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑势迅急毒辣，专刺要害，一剑封喉"
+      }
+    ],
+    "combat_style": "以手腕力量出剑，节省体力，只攻不守，不留余地",
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 176,
+        "line_end": 178,
+        "text": "白手肘以下的部位都像是没有动，只是以手腕的力量把剑刺出来"
+      }
+    ]
+  },
+  {
+    "id": "skill_ren_shu",
+    "name": "忍术",
+    "type": "轻功",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "东瀛武士的神秘忍术，能使身形在敌人面前突然消失",
+    "techniques": [
+      "tech_ren_shu_xiao_shi"
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "chapter": 7
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "释放紫色烟雾使身形消失，阻碍对手视线和行动"
+      }
+    ],
+    "combat_style": "烟雾掩护下突然消失或转移位置",
+    "rag_refs": [
+      7,
+      8,
+      26
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 296,
+        "line_end": 306,
+        "text": "紫色烟雾爆发，人影消失，忍术"
+      },
+      {
+        "chapter": 8,
+        "line_start": 128,
+        "line_end": 146,
+        "text": "无花介绍忍术起源与传入中土的经过。"
+      },
+      {
+        "chapter": 26,
+        "line_start": 148,
+        "line_end": 148,
+        "text": "扮成天枫十四郎以忍术遁入大明湖的是无花"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_huan_tao_yue_xing_yun_bu_yu",
+    "name": "飞环套月，行云布雨",
+    "type": "鞭法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "黑衣少年纵横大漠的鞭法绝技，以无数圈套制敌",
+    "techniques": [
+      {
+        "id": "tech_yun_di_fei_xing",
+        "name": "云底飞星",
+        "type": "attack",
+        "description": "在黑色斗篷掩护下同时发出七星针的狠毒暗器招数，乃昔年纵横天下之大漠神龙的平生绝技，以云幕遮眼、星出其间的诡异手法攻敌"
+      },
+      {
+        "id": "tech_fei_huan_tao_yue",
+        "name": "飞环套月",
+        "type": "attack",
+        "description": "长鞭化为无数圈套，大圈套小圈，层层密密虚虚实实，专套对手头颈四肢，一旦被圈中便难以脱身"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "圈套连绵，虚虚实实",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 88,
+        "line_end": 94,
+        "text": "别人的鞭法或如狂风，或如骤雨，但他的鞭法却如层层密布的浓云...大圈子套着小圈子"
+      },
+      {
+        "chapter": 12,
+        "line_start": 128,
+        "line_end": 128,
+        "text": "黑衣少年这一手飞环套月，行云布雨纵横大漠，从未遇着敌手"
+      }
+    ]
+  },
+  {
+    "id": "skill_ru_yi_ba_da_ji_feng_shi_san_ci",
+    "name": "如意八打急风十三刺",
+    "type": "剑法",
+    "faction": "faction_gai_bang",
+    "rank": "出神入化",
+    "one_line": "南宫灵袖中双剑绝技，可使出八种兵刃招式，刺法如急风骤雨",
+    "techniques": [
+      {
+        "id": "tech_ru_yi_ba_da",
+        "name": "如意八打",
+        "type": "attack",
+        "description": "以袖中短剑使出点穴棒、判官笔、分水刺等八种兵刃招式的绝技，变化多端，可称武林一绝"
+      },
+      {
+        "id": "tech_ji_feng_shi_san_ci",
+        "name": "急风十三刺",
+        "type": "attack",
+        "description": "以袖中短剑疾刺对手，快如急风骤雨，令人防不胜防"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "变化多端，速攻为主",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 314,
+        "line_end": 318,
+        "text": "南宫灵袖中这两柄短剑，可使出点穴棒、判官笔、分水刺等八种兵刃的招式，如意八打，急风十三刺，可称武林一绝"
+      }
+    ]
+  },
+  {
+    "id": "skill_nan_gong_ling_wu_gong",
+    "name": "南宫灵武功",
+    "type": "掌法",
+    "faction": "faction_gai_bang",
+    "rank": "出神入化",
+    "one_line": "南宫灵的武功修为，手持乌金链双短剑，身手矫健",
+    "techniques": [
+      {
+        "id": "tech_nan_gong_ling_shuang_jian",
+        "name": "双剑连击",
+        "type": "attack",
+        "description": "以乌金链连接的双短剑，可收可放，灵活多变"
+      },
+      {
+        "id": "tech_nan_gong_ling_fei_jian",
+        "name": "飞剑出击",
+        "type": "attack",
+        "description": "短剑飞出攻击，以乌金链控制回收"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "chapter": 14,
+        "description": "能自如操控乌金链双短剑"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "双剑攻势凌厉"
+      }
+    ],
+    "combat_style": "灵活多变，远近兼顾",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 28,
+        "line_end": 28,
+        "text": "手一提，两柄短剑竟又飞了起来，原来那剑柄之上，还系着根乌金打造的细链"
+      }
+    ]
+  },
+  {
+    "id": "skill_chu_liu_xiang_qing_gong",
+    "name": "楚留香轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "楚留香天下无双的轻功身法",
+    "techniques": [
+      {
+        "id": "tech_chu_liu_xiang_shen_fa",
+        "name": "留香身法",
+        "type": "defense",
+        "description": "楚留香独有的轻功身法，避让如风"
+      },
+      {
+        "id": "tech_chu_liu_xiang_fen_guang_zhuo_ying",
+        "name": "分光捉影",
+        "type": "special",
+        "description": "以极快手法捉取对方兵刃"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登峰造极",
+        "chapter": 14,
+        "description": "几乎无人能及"
+      }
+    ],
+    "effects": [],
+    "combat_style": "以轻灵闪避为主，诱敌出招后反击",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 128,
+        "line_end": 190,
+        "text": "楚留香身形变化……他才能在那千钧一发的刹那间"
+      }
+    ]
+  },
+  {
+    "id": "skill_chu_liu_xiang_miao_shou_kong_kong",
+    "name": "楚留香妙手空空",
+    "type": "指法",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "楚留香天下无双的偷窃手法，取人怀中物易如反掌",
+    "techniques": [
+      {
+        "id": "tech_miao_shou_kong_kong",
+        "name": "妙手空空",
+        "type": "special",
+        "description": "极快手法偷取他人怀中物品"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登峰造极",
+        "chapter": 14,
+        "description": "天下无双"
+      }
+    ],
+    "effects": [],
+    "combat_style": "",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 186,
+        "line_end": 190,
+        "text": "要知楚留香手法之妙，天下无双，他若要取别人怀中之物，也是易如反掌"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_dian_hong_jian_fa",
+    "name": "一点红剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "中原一点红的剑法，出剑必见血",
+    "techniques": [
+      {
+        "id": "tech_yi_dian_hong_jian",
+        "name": "一剑封喉",
+        "type": "attack",
+        "description": "出剑极快，直取要害"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "chapter": 14,
+        "description": "纵横江湖，与人交手不下千百次"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "杀伤力极强"
+      }
+    ],
+    "combat_style": "简洁狠辣，一击必杀",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "中原一点红纵横江湖，与人交手不下千百次"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhuo_hun_ru_yi_bo",
+    "name": "捉魂如意钵",
+    "type": "暗器",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "白玉魔自创的外门兵刃招式，忽软忽硬，变化莫测",
+    "techniques": [
+      {
+        "id": "tech_ru_yi_bo_ji",
+        "name": "如意钵击",
+        "type": "attack",
+        "description": "以捉魂如意钵直击对手"
+      },
+      {
+        "id": "tech_ru_yi_bo_guai_zhao",
+        "name": "如意鬼爪",
+        "type": "attack",
+        "description": "如意钵顶端鬼爪可脱离射出，内藏机簧"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "chapter": 14,
+        "description": "在其中下过苦功"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "鬼爪带剧毒，擦破皮即致命"
+      }
+    ],
+    "combat_style": "忽软忽硬，诱敌深入后以鬼爪偷袭",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 124,
+        "line_end": 170,
+        "text": "招式果然是怪异绝伦……鬼爪便可直射而出"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_he_ren_shu",
+    "name": "伊贺忍术",
+    "type": "内功",
+    "faction": "faction_yi_he_gu",
+    "rank": "出神入化",
+    "one_line": "伊贺谷秘传的忍术体系，包含多种秘功",
+    "techniques": [
+      {
+        "id": "tech_si_juan_shu",
+        "name": "死卷术",
+        "type": "attack",
+        "description": "以银光飞环施展的诡异暗器术，飞环如影随形"
+      },
+      {
+        "id": "tech_dan_xin_shu",
+        "name": "丹心术",
+        "type": "attack",
+        "description": "释放紫雾后以雷电般威力劈开目标"
+      },
+      {
+        "id": "tech_ying_feng_yi_dao_zhan",
+        "name": "迎风一刀斩",
+        "type": "attack",
+        "description": "东瀛剑道精华，以静制动，一击必杀"
+      },
+      {
+        "id": "tech_kong_chan_shu",
+        "name": "空蝉术",
+        "type": "defense",
+        "description": "金蝉脱壳之术，以假发面具脱身，丝线荡走"
+      }
+    ],
+    "progression": [
+      {
+        "level": "九大秘功",
+        "description": "忍术包含九大秘功，已知有死卷术、丹心术、空蝉术"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "暗器、剑术均有强大杀伤力"
+      }
+    ],
+    "combat_style": "诡异奇诡，以静制动，一击必杀",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 130,
+        "line_end": 130,
+        "text": "这便是忍术九大秘功中的死卷术"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_gong",
+    "name": "轻功",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "楚留香赖以成名的绝世轻功",
+    "techniques": [
+      {
+        "id": "tech_yan_zi_ji_shen",
+        "name": "燕子急身",
+        "type": "attack",
+        "description": "身形如燕，急速掠出的轻功身法"
+      },
+      {
+        "id": "tech_chao_feng_ji_dian",
+        "name": "超风急电",
+        "type": "defense",
+        "description": "速度极快的闪避身法"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "灵动飘逸",
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 224,
+        "line_end": 226,
+        "text": "比燕子还矫健的身形"
+      }
+    ]
+  },
+  {
+    "id": "skill_dong_ying_jian_fa",
+    "name": "东瀛剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "天枫十四郎所用的东瀛剑术，剑法诡异独特",
+    "techniques": [
+      {
+        "id": "tech_dong_ying_qi_shou_shi",
+        "name": "东瀛起手式",
+        "type": "attack",
+        "description": "天枫十四郎仗剑而起时摆出的东瀛剑法中独有的门户，双手握柄，剑已出鞘"
+      },
+      {
+        "id": "tech_yi_zhan_ji_fa",
+        "name": "一战即发",
+        "type": "attack",
+        "description": "天枫十四郎出手前沉默等待，一见对手即立刻拔剑出击的独特战术，令对手猝不及防"
+      },
+      {
+        "id": "tech_shuang_shou_chi_jian",
+        "name": "双手持剑",
+        "type": "attack",
+        "description": "东瀛剑法独有的双手握柄剑术，力量集中，剑势沉稳刚猛"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "诡异凌厉",
+    "rag_refs": [
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 316,
+        "line_end": 318,
+        "text": "立出了东瀛剑法中独有的门户"
+      }
+    ]
+  },
+  {
+    "id": "skill_shao_lin_wu_gong",
+    "name": "少林武功",
+    "type": "掌法",
+    "faction": "faction_shao_lin_nan_zhi",
+    "rank": "登峰造极",
+    "one_line": "少林南支掌门天峰大师所传的武功",
+    "techniques": [
+      {
+        "id": "tech_shao_lin_zhang_fa",
+        "name": "少林掌法",
+        "type": "attack",
+        "description": "少林南支传承的掌法，博大宽厚，威力非凡"
+      },
+      {
+        "id": "tech_shao_lin_nei_gong",
+        "name": "少林内功",
+        "type": "buff",
+        "description": "少林南支传承的内功心法，修为功深"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登峰造极",
+        "description": "天峰大师武功已达登峰造极之境"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "少林掌法威力极强"
+      }
+    ],
+    "combat_style": "博大宽厚",
+    "rag_refs": [
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 24,
+        "line_start": 99,
+        "line_end": 157,
+        "text": "天峰大师武功极高，武林泰山北斗"
+      }
+    ]
+  },
+  {
+    "id": "skill_liu_yun_tie_xiu",
+    "name": "流云铁袖",
+    "type": "掌法",
+    "faction": "faction_shao_lin_si",
+    "rank": "炉火纯青",
+    "one_line": "少林袖上功夫，既可刚亦可柔。",
+    "techniques": [
+      {
+        "id": "tech_liu_yun_tie_xiu_jing_gang",
+        "name": "流云铁袖·金刚",
+        "type": "attack",
+        "description": "以长袖刚劲之力震断对方心脉"
+      },
+      {
+        "id": "tech_liu_yun_tie_xiu_rou",
+        "name": "流云铁袖·柔",
+        "type": "defense",
+        "description": "以长袖柔劲卷夺对方掌中兵刃"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "stage": "大成",
+        "chapter": 25,
+        "description": "少林僧人袖功炉火纯青，飘忽如流云，劲急如闪电"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "target": "对手",
+        "condition": "刚劲命中",
+        "description": "一着震断对方心脉"
+      }
+    ],
+    "combat_style": "以长袖为兵器，刚柔并济",
+    "rag_refs": [
+      25
+    ],
+    "source_refs": [
+      {
+        "chapter": 25,
+        "line_start": 64,
+        "line_end": 66,
+        "text": "世上只知“流云铁袖”乃是武当绝技，却不知少林门下的袖上功夫，非但绝不在武当之下，而且强劲刚猛犹有过之。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_bu_shen_quan",
+    "name": "百步神拳",
+    "type": "掌法",
+    "faction": "faction_shao_lin_si",
+    "rank": "出神入化",
+    "one_line": "少林神拳，拳风雄浑猛烈，足以开山裂石。",
+    "techniques": [
+      {
+        "id": "tech_bai_bu_shen_quan_ji",
+        "name": "百步神拳·击",
+        "type": "attack",
+        "description": "以雄浑拳风隔山打牛，可远距离伤敌"
+      },
+      {
+        "id": "tech_bai_bu_shen_quan_ge_shan_da_niu",
+        "name": "百步神拳·隔山打牛",
+        "type": "attack",
+        "description": "拳劲可隔物传导，隔山打牛，远距离伤敌于无形"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "stage": "大成",
+        "chapter": 25,
+        "description": "灰眉僧一拳将楚留香震飞，拳劲足以开山裂石"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "target": "对手",
+        "condition": "命中",
+        "description": "拳风猛烈，足以开山裂石"
+      }
+    ],
+    "combat_style": "以拳风远击伤敌，劲力雄浑",
+    "rag_refs": [
+      25
+    ],
+    "source_refs": [
+      {
+        "chapter": 25,
+        "line_start": 143,
+        "line_end": 148,
+        "text": "一道雄浑而猛烈的拳风，已扑面直击而来……楚留香咬了咬牙，不闪不避，也不招架，竟以肉身挨了这足以开山裂石的一招百步神拳。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shao_lin_shen_quan",
+    "name": "少林神拳",
+    "type": "掌法",
+    "faction": "faction_shao_lin_nan_zhi",
+    "rank": "出神入化",
+    "one_line": "少林刚猛拳法，隐浑拳势有惊天动地之力",
+    "techniques": [
+      {
+        "id": "tech_shao_lin_shen_quan_ji",
+        "name": "少林神拳",
+        "type": "attack",
+        "description": "隐浑拳势，衬以霹雳之威，当真有惊天动地之力。降龙伏虎，无一拳不是精华"
+      },
+      {
+        "id": "tech_shao_lin_quan_jing",
+        "name": "少林拳精",
+        "type": "attack",
+        "description": "降龙伏虎等少林拳法精华招式"
+      }
+    ],
+    "progression": [
+      {
+        "level": "出神入化",
+        "description": "无花使出少林神拳，声威惊人，招招精华"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "刚猛无比的拳力，势不可挡"
+      }
+    ],
+    "combat_style": "刚猛",
+    "rag_refs": [
+      26
+    ],
+    "source_refs": [
+      {
+        "chapter": 26,
+        "line_start": 246,
+        "line_end": 252,
+        "text": "无花以少林神拳攻击楚留香，拳势惊天动地"
+      }
+    ]
+  },
+  {
+    "id": "skill_tan_zhi_shen_tong",
+    "name": "弹指神通",
+    "type": "指法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "内家指法，以指风伤人，被扫中穴道则动弹不得",
+    "techniques": [
+      {
+        "id": "tech_tan_zhi_shen_tong_ji",
+        "name": "弹指神通",
+        "type": "attack",
+        "description": "一缕锐风急划穴道，被指风扫及则半边身子动弹不得"
+      },
+      {
+        "id": "tech_tan_zhi_feng_ren",
+        "name": "弹指风刃",
+        "type": "attack",
+        "description": "以指风化为锐刃远距离攻击敌人"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "无花以此指法急攻楚留香期门将台诸穴"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "指风扫中穴道则半边身子动弹不得"
+      }
+    ],
+    "combat_style": "尖锐",
+    "rag_refs": [
+      26
+    ],
+    "source_refs": [
+      {
+        "chapter": 26,
+        "line_start": 256,
+        "line_end": 260,
+        "text": "无花变拳为指使出弹指神通"
+      }
+    ]
+  },
+  {
+    "id": "skill_feng_ping_zhang",
+    "name": "风萍掌",
+    "type": "掌法",
+    "faction": "faction_shao_lin_nan_zhi",
+    "rank": "炉火纯青",
+    "one_line": "少林外家绝技，以巧取胜，掌影飘忽虚多于实",
+    "techniques": [
+      {
+        "id": "tech_feng_ping_zhang_ji",
+        "name": "风萍掌",
+        "type": "feint",
+        "description": "掌影飘飞如狂风漫天飞舞，诡异飘忽云谲变幻，虚多于实"
+      },
+      {
+        "id": "tech_feng_ping_zhang_ying",
+        "name": "风萍掌影",
+        "type": "feint",
+        "description": "掌影虚实难辨，令对手难以捉摸攻击方向"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "无花以此掌法攻击，诡异飘忽变幻莫测"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "诡异飘忽虚多于实的掌法，以巧取胜"
+      }
+    ],
+    "combat_style": "诡变",
+    "rag_refs": [
+      26
+    ],
+    "source_refs": [
+      {
+        "chapter": 26,
+        "line_start": 270,
+        "line_end": 276,
+        "text": "无花使出风萍掌，乃少林外家绝技"
+      }
+    ]
+  }
+]

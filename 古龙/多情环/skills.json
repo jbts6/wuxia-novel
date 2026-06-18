@@ -1,0 +1,307 @@
+[
+  {
+    "id": "skill_shuang_huan_wu_gong",
+    "name": "双环武功",
+    "type": "暗器",
+    "faction": "faction_shuang_huan_men",
+    "rank": "出神入化",
+    "one_line": "双环门镇派武功，以双环为兵器，出手一击有开山裂石之力。",
+    "techniques": [
+      {
+        "id": "tech_shuang_fei",
+        "name": "双飞",
+        "type": "attack",
+        "description": "双环门绝技，双环同时出手，威力极大，是盛重最擅长的招式。"
+      },
+      {
+        "id": "tech_shuang_huan_ji",
+        "name": "双环击",
+        "type": "attack",
+        "description": "以双银环为兵器进行攻击，招式狠辣致命"
+      },
+      {
+        "id": "tech_yin_huan_tou_zhi",
+        "name": "银环投掷",
+        "type": "attack",
+        "description": "将银环投掷出去攻击远处敌人"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "七大弟子均达到此境界"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "双环出手，有开山裂石之力"
+      },
+      {
+        "type": "伤害",
+        "description": "银环攻击可造成致命伤害"
+      }
+    ],
+    "combat_style": "以双环为武器，招式凌厉，杀伤力极强",
+    "rag_refs": [
+      2,
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 88,
+        "line_end": 92,
+        "text": "双环门下的七大弟子，本来就全都是铜浇成的，铁打成的。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 657,
+        "line_end": 662,
+        "text": "他忽然走过去，从桌下拿出一双闪闪发光的银环。"
+      }
+    ]
+  },
+  {
+    "id": "skill_shao_lin_wu_gong",
+    "name": "少林武功",
+    "type": "拳法",
+    "faction": "faction_shao_lin",
+    "rank": "炉火纯青",
+    "one_line": "少林正宗武功，根基最厚，七十二绝技闻名天下。",
+    "techniques": [],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "王锐出身少林，根基深厚"
+      }
+    ],
+    "effects": [],
+    "combat_style": "稳重扎实，根基深厚",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 246,
+        "line_end": 250,
+        "text": "你一向自命是少林正宗，打的根基最厚……"
+      }
+    ]
+  },
+  {
+    "id": "skill_sha_ren_shu",
+    "name": "杀人术",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "王桐的杀人技艺，没有花巧，只求一击致命",
+    "techniques": [
+      {
+        "id": "tech_fan_shou_zhou_zhuang",
+        "name": "反手肘撞",
+        "type": "attack",
+        "description": "反手一个肘拳撞出去，看似简单却力量极大，能将人击飞撞墙"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "一击致命，骨碎人亡"
+      }
+    ],
+    "combat_style": "简洁直接，以最快速度结束战斗",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 254,
+        "line_end": 258,
+        "text": "他这反手一撞，既不好看，也没有任何巧妙变化。他的招式只有一种用处。──杀人！"
+      }
+    ]
+  },
+  {
+    "id": "skill_liang_yin_pan_long_gun",
+    "name": "亮银盘龙棍",
+    "type": "掌法",
+    "faction": "faction_tian_xiang_tang",
+    "rank": "炉火纯青",
+    "one_line": "孙宾昔年威震河西的成名武器。",
+    "techniques": [
+      {
+        "id": "tech_pan_long_sao",
+        "name": "盘龙扫",
+        "type": "attack",
+        "description": "以亮银盘龙棍横扫对手，威力惊人"
+      },
+      {
+        "id": "tech_jin_ji_dian_tui",
+        "name": "金鸡点头",
+        "type": "attack",
+        "description": "棍法中一记变化招式，以腕力骤然下压，令对手防不胜防"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "chapter": 7
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "横扫河西七霸的刚猛棍法"
+      }
+    ],
+    "combat_style": "刚猛",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 139,
+        "line_end": 139,
+        "text": "昔年曾以一条亮银盘龙棍、横扫河西七霸的铁汉"
+      }
+    ]
+  },
+  {
+    "id": "skill_dao_fa",
+    "name": "刀法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "天香堂常用兵器武艺，葛停香和王桐均擅长。",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "description": "初见刀法"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "刀法凌厉，能一刀致命"
+      }
+    ],
+    "combat_style": "凶猛凌厉",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 30,
+        "line_end": 62,
+        "text": "刀砍在身上"
+      }
+    ]
+  },
+  {
+    "id": "skill_wo_yun_shuang_fei_jiao",
+    "name": "卧云双飞脚",
+    "type": "掌法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "江湖鲜见的腿法绝技，死中求生的杀招。",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "description": "施展卧云双飞脚"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "双腿连环飞出，威力惊人"
+      }
+    ],
+    "combat_style": "凌厉奇诡",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 70,
+        "line_end": 74,
+        "text": "萧少英忽然平空跃起，双腿连环飞出，用的竟是江湖鲜见的绝技，死中求生的杀招，卧云双飞脚。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ying_zhuo_quan",
+    "name": "鹰啄拳",
+    "type": "掌法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "葛新擅长的拳法，捏拳成鹰啄攻击敌人要害。",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "description": "捏拳成鹰啄"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "一拳猛击喉结，可致命"
+      }
+    ],
+    "combat_style": "凶悍精准",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 74,
+        "line_end": 76,
+        "text": "葛新捏拳成鹰啄，已一拳猛击在他喉结上。"
+      }
+    ],
+    "_old_id": "skill_ying_zhuo"
+  },
+  {
+    "id": "skill_yi_rong_shu",
+    "name": "易容术",
+    "type": "内功",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "郭玉娘精通易容，可假扮他人容貌。",
+    "techniques": [],
+    "progression": [
+      {
+        "level": 1,
+        "description": "能易容成小霞模样"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "改变容貌，假扮他人"
+      }
+    ],
+    "combat_style": "诡变",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 472,
+        "line_end": 474,
+        "text": "你的易容术本来是很不错"
+      }
+    ]
+  }
+]

@@ -1,0 +1,5097 @@
+[
+  {
+    "id": "char_lv_nan_ren",
+    "name": "吕南人",
+    "alias": [
+      "铁戟温侯"
+    ],
+    "identity": "武林高手",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "近年江湖声名赫赫的铁戟温侯，拥有寒铁双戟和火红宝马，因妻子被天争教主夺走而被迫假死隐姓埋名。",
+    "personality": {
+      "traits": [
+        "高傲",
+        "机智",
+        "隐忍",
+        "深情",
+        "果断",
+        "谨慎"
+      ],
+      "speech_style": "豪迈中带有傲气，受辱后变得沉郁隐忍",
+      "temperament": "外热内冷，表面洒脱实则心怀深仇"
+    },
+    "relationships": [
+      {
+        "target": "char_xue_ruo_bi",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "妻子背叛离去"
+      },
+      {
+        "target": "char_you_da_jun",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "天争教仇敌"
+      },
+      {
+        "target": "char_xiao_wu",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夺妻之仇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      9,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 4,
+        "line_end": 6,
+        "text": "一个长身玉立，英姿飒爽的少年俊彦，悄然推开这荒村里惟一的小客栈那扇白杨木板的店门"
+      },
+      {
+        "chapter": 1,
+        "line_start": 12,
+        "line_end": 14,
+        "text": "他，就是近年来江湖上声名赫赫的铁戟温侯吕南人"
+      },
+      {
+        "chapter": 9,
+        "line_start": 190,
+        "line_end": 192,
+        "text": "自从铁戟温侯吕南人保定城外死后，芸芸武林中，还有谁比得上杜大侠的年少挺逸，武功高强？"
+      },
+      {
+        "chapter": 14,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "一桌三个客人——吕南人、孙敏、凌琳"
+      },
+      {
+        "chapter": 14,
+        "line_start": 272,
+        "line_end": 272,
+        "text": "吕南人蓦然飞起，使出“飘香剑雨”"
+      }
+    ]
+  },
+  {
+    "id": "char_you_da_jun",
+    "name": "尤大君",
+    "alias": [
+      "朱砂掌"
+    ],
+    "identity": "天争教金衣香主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "天争教金衣香主之一，以朱砂掌称雄两河，掌力惊人但身法不甚灵便。",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "贪婪",
+        "自大",
+        "凶狠",
+        "愚钝"
+      ],
+      "speech_style": "声色俱厉，喜欢放狠话",
+      "temperament": "易怒暴躁，急于表现自己"
+    },
+    "relationships": [
+      {
+        "target": "char_lv_nan_ren",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "奉命追杀"
+      }
+    ],
+    "known_skills": [
+      "skill_zhu_sha_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 46,
+        "line_end": 48,
+        "text": "那金衫人，是一个矮胖的老者——朱砂掌尤大君"
+      },
+      {
+        "chapter": 1,
+        "line_start": 100,
+        "line_end": 102,
+        "text": "朱砂掌称雄两河多年，在武林中论掌力，已可数一流人物"
+      },
+      {
+        "chapter": 2,
+        "line_start": 90,
+        "line_end": 92,
+        "text": "和在保定城外独斗朱砂掌时又大不相同"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_ruo_bi",
+    "name": "薛若璧",
+    "alias": [
+      "销魂夫人"
+    ],
+    "identity": "武林第一美人",
+    "faction": "",
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "初窥门径",
+    "one_line": "武林第一美人，铁戟温侯吕南人之妻，后被天争教主萧无诱惑私奔。",
+    "personality": {
+      "traits": [
+        "美丽",
+        "不忠",
+        "虚荣",
+        "软弱",
+        "善变"
+      ],
+      "speech_style": "柔媚",
+      "temperament": "外柔内变，贪慕虚荣"
+    },
+    "relationships": [
+      {
+        "target": "char_lv_nan_ren",
+        "type": "恋人",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "背叛离去"
+      },
+      {
+        "target": "char_xiao_wu",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "私奔投靠"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 16,
+        "line_end": 16,
+        "text": "他英俊的仪表，使他赢得了当时武林第一美人薛若璧的青睐"
+      },
+      {
+        "chapter": 1,
+        "line_start": 180,
+        "line_end": 180,
+        "text": "铁戟温侯'忠实的'妻子——销魂夫人薛若璧"
+      },
+      {
+        "chapter": 14,
+        "line_start": 292,
+        "line_end": 292,
+        "text": "吕南人扶起气息奄奄的薛若璧，撕下她脸上的人皮面具，露出一双美艳无双的脸庞"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_wu",
+    "name": "萧无",
+    "alias": [
+      "天争教主",
+      "薛若璧"
+    ],
+    "identity": "天争教教主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "登峰造极",
+    "one_line": "天争教教主，被视为百年来仅见的奇才，以绝顶武功和高智慧独霸江湖，夺走了吕南人的妻子薛若璧。",
+    "personality": {
+      "traits": [
+        "绝顶聪明",
+        "野心勃勃",
+        "冷酷",
+        "自信",
+        "傲慢"
+      ],
+      "speech_style": "淡然从容，不屑一顾",
+      "temperament": "高深莫测，以天为敌"
+    },
+    "relationships": [
+      {
+        "target": "char_lv_nan_ren",
+        "type": "宿敌",
+        "intensity": 60,
+        "bond_level": 4,
+        "dynamic": "夺妻铲除"
+      },
+      {
+        "target": "char_xue_ruo_bi",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "诱拐私奔"
+      },
+      {
+        "target": "char_xiao_nan_ping",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "一夕缠绵后离去"
+      },
+      {
+        "target": "char_fei_hong_liu_jian",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 2,
+        "dynamic": "飞虹六剑向萧无寻仇被杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      11,
+      12,
+      13,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 180,
+        "line_end": 180,
+        "text": "她的新欢——独霸江湖的天争教教主萧无"
+      },
+      {
+        "chapter": 1,
+        "line_start": 206,
+        "line_end": 206,
+        "text": "被武林中人视为百年来仅见的奇才萧无"
+      },
+      {
+        "chapter": 10,
+        "line_start": 432,
+        "line_end": 432,
+        "text": "天争教主萧无"
+      },
+      {
+        "chapter": 11,
+        "line_start": 140,
+        "line_end": 142,
+        "text": "想不到武林中无人能知的那‘天争教主’萧无的身世，此刻却被我知道了"
+      },
+      {
+        "chapter": 12,
+        "line_start": 142,
+        "line_end": 142,
+        "text": "萧南苹一定和那萧无有了关系"
+      },
+      {
+        "chapter": 13,
+        "line_start": 172,
+        "line_end": 173,
+        "text": "伊风道：\"天争教主萧无？\""
+      },
+      {
+        "chapter": 14,
+        "line_start": 86,
+        "line_end": 86,
+        "text": "一个身材娇小，穿着黑衣的少年走下"
+      }
+    ]
+  },
+  {
+    "id": "char_yi_feng",
+    "name": "伊风",
+    "alias": [
+      "吕南人",
+      "铁戟温侯"
+    ],
+    "identity": "假死隐姓埋名的铁戟温侯",
+    "faction": "",
+    "role": "protagonist",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "本名吕南人，因被萧无所害而改名伊风，万天萍托付飘香剑雨后发誓报仇",
+    "personality": {
+      "traits": [
+        "谨慎",
+        "多疑",
+        "隐忍",
+        "机警",
+        "高傲"
+      ],
+      "speech_style": "文雅中带江湖气，自称在下",
+      "temperament": "沉郁内敛，时刻警惕"
+    },
+    "relationships": [
+      {
+        "target": "char_jian_xian_sheng",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "受恩打通经脉"
+      },
+      {
+        "target": "char_xu_bai",
+        "type": "合作者",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "被许白留下陪伴"
+      },
+      {
+        "target": "char_wan_tian_ping",
+        "type": "合作者",
+        "intensity": 10,
+        "bond_level": 1,
+        "dynamic": "初识"
+      },
+      {
+        "target": "char_wen_hua",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "救命之恩"
+      },
+      {
+        "target": "char_xiao_hun_luo_sha",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "曾为夫妻，后被背叛"
+      },
+      {
+        "target": "char_wan_tian_ping",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "被死而复生的万天萍震慑"
+      },
+      {
+        "target": "char_gu_xiao_jing",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "被认出行藏"
+      },
+      {
+        "target": "char_yao_qing_yu",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "故交重逢"
+      },
+      {
+        "target": "char_xiao_nan_ping",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "被关注产生好感"
+      },
+      {
+        "target": "char_xiao_nan_ping",
+        "type": "恋人",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "情意渐生"
+      },
+      {
+        "target": "char_hua_pin_qi",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "误会相识"
+      },
+      {
+        "target": "char_mao_wen_qi",
+        "type": "对手",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "误会相识"
+      },
+      {
+        "target": "char_wan_hong",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "初识"
+      },
+      {
+        "target": "char_xiao_wu",
+        "type": "宿敌",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "冒充其身份，恩怨未明"
+      },
+      {
+        "target": "char_ling_lin",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同伴"
+      },
+      {
+        "target": "char_sun_min",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同伴"
+      }
+    ],
+    "known_skills": [
+      "skill_piao_xiang_jian_yu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      4,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 220,
+        "line_end": 220,
+        "text": "和许多个落第秀才一齐住在一栋大四合院里的江南秀才——伊风，竟会是曾经在武林中大大有名的铁戟温侯"
+      },
+      {
+        "chapter": 1,
+        "line_start": 260,
+        "line_end": 260,
+        "text": "他当然就是吕南人——伊风了"
+      },
+      {
+        "chapter": 2,
+        "line_start": 50,
+        "line_end": 51,
+        "text": "和隐迹潜踪，易名换姓的伊风。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 812,
+        "line_end": 816,
+        "text": "阁下可就是武林中人称'铁戟温侯'的吕大侠？"
+      },
+      {
+        "chapter": 3,
+        "line_start": 838,
+        "line_end": 843,
+        "text": "小可已是死去之人，性命根本不放在心上。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "伊风风尘仆仆，昼夜奔驰，希望早一天能赶到无量山。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "尤其剑先生以先天真气，为他打通了\"督\"\"任\"两脉"
+      },
+      {
+        "chapter": 4,
+        "line_start": 522,
+        "line_end": 522,
+        "text": "吕南人呀！吕南人！"
+      },
+      {
+        "chapter": 5,
+        "line_start": 88,
+        "line_end": 88,
+        "text": "主人相邀，敢不从命？"
+      },
+      {
+        "chapter": 6,
+        "line_start": 316,
+        "line_end": 317,
+        "text": "伊风此刻心中，满被恐怖所据，已连冷静思考的能力，都没有了！"
+      },
+      {
+        "chapter": 7,
+        "line_start": 1,
+        "line_end": 2,
+        "text": "伊风的全部思想，全身精力，都因着恐惧而像是冻结住了。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 840,
+        "line_end": 841,
+        "text": "伊风——他自誓不能雪耻，就不再以吕南人的名字出现人世"
+      },
+      {
+        "chapter": 8,
+        "line_start": 18,
+        "line_end": 20,
+        "text": "小弟曾誓言如不雪耻，再也不以'吕南人'之身份出现"
+      },
+      {
+        "chapter": 9,
+        "line_start": 1,
+        "line_end": 4,
+        "text": "伊风愕了许久。方才那华品奇的一剑，虽然并没有伤到他的身体，然却像是已伤了他的心。"
+      },
+      {
+        "chapter": 9,
+        "line_start": 778,
+        "line_end": 780,
+        "text": "一条灰色的人影，随着喝声，如灰鹤行空，一掠数丈，从众豪头上飞掠而出，飘然落在地上，却正是久久未作表示的伊风。"
+      },
+      {
+        "chapter": 10,
+        "line_start": 110,
+        "line_end": 114,
+        "text": "我跟他们去看看，你到姚清宇大哥处等我"
+      },
+      {
+        "chapter": 11,
+        "line_start": 4,
+        "line_end": 6,
+        "text": "伊风在偏僻之处寻了家酒楼，和将他认做是“三弟”的“飞虹剑客”们，找了间雅座坐下"
+      },
+      {
+        "chapter": 11,
+        "line_start": 436,
+        "line_end": 437,
+        "text": "那武曲星君的天星秘笈他已仔细地看过一遍"
+      },
+      {
+        "chapter": 12,
+        "line_start": 70,
+        "line_end": 72,
+        "text": "他要是发现我并不是他的救命恩人萧无，会怎样对我？"
+      },
+      {
+        "chapter": 12,
+        "line_start": 339,
+        "line_end": 339,
+        "text": "伊风一言不发，右手五指箕张，抓向万天萍面门"
+      },
+      {
+        "chapter": 13,
+        "line_start": 1,
+        "line_end": 8,
+        "text": "黑暗。全然的黑暗。黑暗中，伊风能够看到的，只是脑海中出现萧南苹的那双明眸。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 224,
+        "line_end": 226,
+        "text": "从今以后，不要叫我伊风，叫我吕南人。我要恢复吕南人三个字，报那夺妻杀友之恨。"
+      }
+    ],
+    "source_refs_add": [
+      {
+        "chapter": 2,
+        "line_start": 212,
+        "line_end": 218,
+        "text": "竟拼着宁可自己受伤，双掌连环三掌，都着着实实地击在宫申的背上"
+      }
+    ]
+  },
+  {
+    "id": "char_lin_er",
+    "name": "凌琳",
+    "alias": [
+      "琳儿"
+    ],
+    "identity": "三湘大侠凌北修之女",
+    "faction": "",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "凌琳，本章中以敏锐洞察力识破妙灵下毒阴谋，被剑先生破格收为弟子。",
+    "personality": {
+      "traits": [
+        "泼辣",
+        "冲动",
+        "天真",
+        "好胜",
+        "孝顺"
+      ],
+      "speech_style": "口齿伶俐，言辞犀利",
+      "temperament": "火爆直率，嫉恶如仇"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_min",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "母女相依为命"
+      },
+      {
+        "target": "char_ling_bei_xiu",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "父女（已故）"
+      },
+      {
+        "target": "char_miao_ling_dao_ren",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "识破其下毒阴谋"
+      },
+      {
+        "target": "char_jian_xian_sheng",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "拜剑先生为师"
+      },
+      {
+        "target": "char_san_xin_shen_jun",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "共同揭破阴谋"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 422,
+        "line_end": 422,
+        "text": "看起来竟是一个少女，而且身躯弱小，最多也只有十四五岁光景"
+      },
+      {
+        "chapter": 1,
+        "line_start": 654,
+        "line_end": 654,
+        "text": "三湘大侠的爱女凌琳"
+      },
+      {
+        "chapter": 6,
+        "line_start": 660,
+        "line_end": 662,
+        "text": "这女孩子天资之高，心思之灵巧，实在百年罕见！"
+      },
+      {
+        "chapter": 14,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "一桌三个客人——吕南人、孙敏、凌琳"
+      }
+    ]
+  },
+  {
+    "id": "char_sun_min",
+    "name": "孙敏",
+    "alias": [
+      "凌夫人"
+    ],
+    "identity": "三湘大侠凌北修之妻",
+    "faction": "",
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "孙敏，本章中求剑先生收凌琳为徒，对剑先生暗生情愫。",
+    "personality": {
+      "traits": [
+        "冷静",
+        "警惕",
+        "坚强",
+        "护犊",
+        "江湖经验丰富"
+      ],
+      "speech_style": "冷冰冰的江湖口吻，词锋犀利",
+      "temperament": "外冷内热，为保护女儿不惜一切"
+    },
+    "relationships": [
+      {
+        "target": "char_lin_er",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "母女相依为命"
+      },
+      {
+        "target": "char_ling_bei_xiu",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "丧夫守节"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "互相猜疑后和解"
+      },
+      {
+        "target": "char_gong_shen",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "曾交手"
+      },
+      {
+        "target": "char_gong_you",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "曾交手"
+      },
+      {
+        "target": "char_jian_xian_sheng",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "被其所救，心生感激"
+      },
+      {
+        "target": "char_san_xin_shen_jun",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "获其答应疗伤"
+      },
+      {
+        "target": "char_jian_xian_sheng",
+        "type": "恋人",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "暗生情愫"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同伴"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2,
+      3,
+      13,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 508,
+        "line_end": 508,
+        "text": "见这人是个少妇，暮色中却看不甚清，但蒙胧间已看出姿色甚美"
+      },
+      {
+        "chapter": 1,
+        "line_start": 634,
+        "line_end": 634,
+        "text": "那少妇果然就是三湘大侠凌北修的未亡人——孙敏"
+      },
+      {
+        "chapter": 2,
+        "line_start": 46,
+        "line_end": 50,
+        "text": "车的角落里盘膝坐着一个三十四五的少妇，黛眉深锁，姿容绝美。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "她暗忖着，此刻她若有三心神君的功力，也会一掌震散他们的声波。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 666,
+        "line_end": 668,
+        "text": "孙敏心中一动，突然'噗'的一声，朝剑先生跪了下去。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 34,
+        "line_end": 35,
+        "text": "年纪大的赫然就是凌夫人孙敏，年纪小的就是凌琳。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 238,
+        "line_end": 238,
+        "text": "孙敏道：\"我想我们还是暂时住在这里，你呢？\""
+      },
+      {
+        "chapter": 14,
+        "line_start": 48,
+        "line_end": 51,
+        "text": "孙敏斟上满满的一杯酒，双手递向吕南人，神色庄重地道"
+      }
+    ],
+    "source_refs_add": [
+      {
+        "chapter": 2,
+        "line_start": 645,
+        "line_end": 647,
+        "text": "剑先生瘦长的身躯，已如电火一闪掠了过来"
+      }
+    ]
+  },
+  {
+    "id": "char_ling_bei_xiu",
+    "name": "凌北修",
+    "alias": [
+      "三湘大侠"
+    ],
+    "identity": "三湘大侠",
+    "faction": "",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "三湘大侠，以掌中剑独霸三湘多年，被天争教金衣坛七灵飞虹印宝林和万毒童子唐更所伤，不治身亡。",
+    "personality": {
+      "traits": [
+        "侠义",
+        "武功高强",
+        "正直",
+        "威望高",
+        "刚正不阿"
+      ],
+      "speech_style": "豪迈正气",
+      "temperament": "刚正不阿"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_min",
+        "type": "恋人",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "夫妻（已故）"
+      },
+      {
+        "target": "char_lin_er",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父女（已故）"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 634,
+        "line_end": 636,
+        "text": "三湘大侠以掌中剑独霸三湘多年，竟在天争教扩充势力至三湘时，在金衣坛中的七灵飞虹印宝林、万毒童子唐更的两件奇兵刃和绝毒暗器之下，受伤不治"
+      },
+      {
+        "chapter": 2,
+        "line_start": 50,
+        "line_end": 51,
+        "text": "三湘大侠的未亡人孙敏、凌琳母女"
+      }
+    ]
+  },
+  {
+    "id": "char_gong_shen",
+    "name": "宫申",
+    "alias": [
+      "夺命双尸"
+    ],
+    "identity": "天争教金衣香主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "夺命双尸之一，孪生兄弟宫申，与宫酉配合天衣无缝，手段狠辣，腰中十七节亮银长鞭泼风十三打称誉武林。",
+    "personality": {
+      "traits": [
+        "阴森",
+        "狠辣",
+        "奇特",
+        "自信",
+        "配合默契"
+      ],
+      "speech_style": "阴森森地齐声说话，语气怪异",
+      "temperament": "阴沉冷酷，行事诡异"
+    },
+    "relationships": [
+      {
+        "target": "char_gong_you",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "孪生兄弟，形影不离"
+      },
+      {
+        "target": "char_sun_min",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "奉命追捕"
+      },
+      {
+        "target": "char_lin_er",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "言语调戏"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 620,
+        "line_end": 622,
+        "text": "这两个怪人，就是江湖上人人闻名色变的'夺命双尸'"
+      },
+      {
+        "chapter": 1,
+        "line_start": 624,
+        "line_end": 626,
+        "text": "这'夺命双尸'是一对孪生兄弟，自幼生息相通"
+      },
+      {
+        "chapter": 2,
+        "line_start": 78,
+        "line_end": 80,
+        "text": "宫申的左掌和宫酉的右掌，砰然一声，硬接了凌琳的全力一攻。"
+      }
+    ],
+    "source_refs_add": [
+      {
+        "chapter": 2,
+        "line_start": 214,
+        "line_end": 218,
+        "text": "宫申惨呼一声...宫申再次惨呼，一口鲜血"
+      }
+    ]
+  },
+  {
+    "id": "char_gong_you",
+    "name": "宫酉",
+    "alias": [
+      "夺命双尸"
+    ],
+    "identity": "天争教金衣香主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "夺命双尸之一，孪生兄弟宫酉，与宫申配合天衣无缝，手段狠辣。",
+    "personality": {
+      "traits": [
+        "阴森",
+        "狠辣",
+        "奇特",
+        "自信",
+        "配合默契"
+      ],
+      "speech_style": "阴森森地齐声说话",
+      "temperament": "阴沉冷酷"
+    },
+    "relationships": [
+      {
+        "target": "char_gong_shen",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "孪生兄弟，形影不离"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "对其有好感"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 668,
+        "line_end": 668,
+        "text": "夺命双尸中的宫申——因为他是在申时落地的"
+      },
+      {
+        "chapter": 1,
+        "line_start": 674,
+        "line_end": 674,
+        "text": "宫酉也望着他一笑，似乎对他甚有好感"
+      },
+      {
+        "chapter": 2,
+        "line_start": 78,
+        "line_end": 80,
+        "text": "宫申的左掌和宫酉的右掌，砰然一声，硬接了凌琳的全力一攻。"
+      }
+    ],
+    "source_refs_add": [
+      {
+        "chapter": 2,
+        "line_start": 236,
+        "line_end": 238,
+        "text": "夺命双尸中的宫酉，就伤在他鼓着最后一丝真气使出的大力鹰爪神功之下。"
+      }
+    ]
+  },
+  {
+    "id": "char_ling_lin",
+    "name": "凌琳",
+    "alias": [],
+    "identity": "三湘大侠凌北修之女",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "孙敏之女，武功自幼有真传根基，但年纪太轻临敌经验不足，因贪功妄进被夺命双尸重伤。",
+    "personality": {
+      "traits": [
+        "年轻气盛",
+        "冲动",
+        "武功有根基",
+        "少不更事",
+        "贪功冒进"
+      ],
+      "speech_style": "年轻直率",
+      "temperament": "急躁冒进"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_min",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "母女"
+      },
+      {
+        "target": "char_ling_bei_xiu",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同伴"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 62,
+        "line_end": 63,
+        "text": "她想到她的家女凌琳，虽然武功亦有真传，但年纪太轻，临敌经验又毫无"
+      },
+      {
+        "chapter": 3,
+        "line_start": 132,
+        "line_end": 132,
+        "text": "她望着被日光所照着的爱女凌琳，娇美如花，但却憔悴不堪的面靥"
+      },
+      {
+        "chapter": 13,
+        "line_start": 34,
+        "line_end": 35,
+        "text": "年纪大的赫然就是凌夫人孙敏，年纪小的就是凌琳。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 222,
+        "line_end": 222,
+        "text": "凌琳抹去泪痕，轻推伊风道：\"伊大哥，走吧。\""
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_wang_tou",
+    "name": "小王头",
+    "alias": [
+      "车把式"
+    ],
+    "identity": "车夫",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "平平无奇",
+    "one_line": "赶车的车把式，心怀不轨，对孙敏起了淫念，后被奇人击毙。",
+    "personality": {
+      "traits": [
+        "贪婪",
+        "好色",
+        "狡猾",
+        "欺软怕硬",
+        "卑鄙无耻"
+      ],
+      "speech_style": "油嘴滑舌，态度轻慢",
+      "temperament": "阴险贪婪"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_min",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 1,
+        "dynamic": "觊觎美色"
+      },
+      {
+        "target": "char_song_lao_dao",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "同谋"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 34,
+        "line_end": 38,
+        "text": "车把式心里在想..."
+      }
+    ],
+    "source_refs_add": [
+      {
+        "chapter": 2,
+        "line_start": 403,
+        "line_end": 405,
+        "text": "宋老刀，我得借你的床用用"
+      }
+    ]
+  },
+  {
+    "id": "char_song_lao_dao",
+    "name": "宋老刀",
+    "alias": [
+      "老刀子"
+    ],
+    "identity": "客栈伙计",
+    "faction": null,
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "平平无奇",
+    "one_line": "客栈伙计，与车把式小王头合谋欲对孙敏不轨，后被奇人击毙。",
+    "personality": {
+      "traits": [
+        "好色",
+        "卑鄙",
+        "欺软怕硬",
+        "自大",
+        "凶性"
+      ],
+      "speech_style": "怪笑，油嘴滑舌",
+      "temperament": "阴险卑鄙"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_wang_tou",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "同谋，合谋不轨"
+      },
+      {
+        "target": "char_sun_min",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 1,
+        "dynamic": "企图侮辱"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 349,
+        "line_end": 349,
+        "text": "小王头还懂得低头呀！"
+      }
+    ],
+    "source_refs_add": [
+      {
+        "chapter": 2,
+        "line_start": 451,
+        "line_end": 453,
+        "text": "猛地自怀中拔出一把匕首，没头没脑地向那人的胸前刺去。"
+      }
+    ]
+  },
+  {
+    "id": "char_jian_xian_sheng",
+    "name": "剑先生",
+    "alias": [
+      "万剑之尊",
+      "武曲星君独孤灵之子"
+    ],
+    "identity": "武林传奇奇人",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "万剑之尊，本章中收凌琳为破格弟子，对孙敏暗生情愫。",
+    "personality": {
+      "traits": [
+        "冷酷无情",
+        "行事莫测",
+        "武功绝顶",
+        "内心有温情",
+        "受过深重刺激",
+        "孤傲独行"
+      ],
+      "speech_style": "声音冰冷，声调无高低变化，语气绝无情感",
+      "temperament": "外冷内热，受过刺激后封闭情感"
+    },
+    "relationships": [
+      {
+        "target": "char_sun_min",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "出手相救，产生关切"
+      },
+      {
+        "target": "char_san_xin_shen_jun",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "至交好友"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "为其疗伤"
+      },
+      {
+        "target": "char_du_gu_ling",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_miao_ling_dao_ren",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "发现其背叛行为"
+      },
+      {
+        "target": "char_lin_er",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "收凌琳为徒"
+      },
+      {
+        "target": "char_sun_min",
+        "type": "恋人",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "情感微妙变化"
+      }
+    ],
+    "known_skills": [
+      "skill_chuan_yin_ru_mi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 577,
+        "line_end": 577,
+        "text": "别人都叫我剑先生，你——你不妨也叫我这个名字吧！"
+      },
+      {
+        "chapter": 3,
+        "line_start": 12,
+        "line_end": 12,
+        "text": "剑先生微微一笑，只是他的笑容，却很难被人家发现。"
+      },
+      {
+        "chapter": 3,
+        "line_start": 872,
+        "line_end": 874,
+        "text": "此刻我就为他打通'督''任'两脉。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 678,
+        "line_end": 680,
+        "text": "剑先生微一沉吟，却道：'既然如此，你们快起来，我就答应了。'"
+      }
+    ],
+    "source_refs_add": [
+      {
+        "chapter": 2,
+        "line_start": 801,
+        "line_end": 803,
+        "text": "难道他们已将传音入密的内功，练到了随意可以控制自己声音的境界吗？"
+      }
+    ]
+  },
+  {
+    "id": "char_san_xin_shen_jun",
+    "name": "三心神君",
+    "alias": [
+      "金衫人"
+    ],
+    "identity": "武林隐世神医",
+    "faction": null,
+    "role": "companion",
+    "archetype": "healer",
+    "rank": "返璞归真",
+    "one_line": "三心神君，本章中识破妙灵下毒阴谋，解救终南弟子，对凌琳才华赞赏有加。",
+    "personality": {
+      "traits": [
+        "行事反复无常",
+        "医术神通",
+        "武功深不可测",
+        "外表冷酷",
+        "面无表情",
+        "口不能言用传音入密"
+      ],
+      "speech_style": "声调无高低顿挫，面部肌肉无表情",
+      "temperament": "冷酷莫测但信守承诺"
+    },
+    "relationships": [
+      {
+        "target": "char_jian_xian_sheng",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "至交好友，曾互较内力"
+      },
+      {
+        "target": "char_sun_min",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "答应为其女和伊风疗伤"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "为其疗伤"
+      },
+      {
+        "target": "char_ling_lin",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "为其疗伤"
+      },
+      {
+        "target": "char_miao_ling_dao_ren",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "制服下毒真凶"
+      },
+      {
+        "target": "char_lin_er",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "赞赏其才华"
+      }
+    ],
+    "known_skills": [
+      "skill_chuan_yin_ru_mi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      3,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 773,
+        "line_end": 773,
+        "text": "这金衫人就是昔年的三心神君"
+      },
+      {
+        "chapter": 3,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "三心神君和剑先生，互以内家绝顶功夫传音入密说话"
+      },
+      {
+        "chapter": 6,
+        "line_start": 704,
+        "line_end": 706,
+        "text": "三心神君发现终南弟子所中之毒，果然不是'蚀骨圣水'。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 102,
+        "line_end": 102,
+        "text": "凌琳道：\"三心神君呀。\""
+      }
+    ],
+    "source_refs_add": [
+      {
+        "chapter": 2,
+        "line_start": 801,
+        "line_end": 803,
+        "text": "难道他们已将传音入密的内功，练到了随意可以控制自己声音的境界吗？"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_ling_dao_ren",
+    "name": "妙灵道人",
+    "alias": [
+      "玄门一鹤",
+      "终南剑客"
+    ],
+    "identity": "终南派掌门人",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "终南掌门玄门一鹤，被天毒教色诱下毒害弟子，事败后被制服，最终丧命。",
+    "personality": {
+      "traits": [
+        "恭谨",
+        "孝顺",
+        "坚毅",
+        "忧虑",
+        "隐忍",
+        "忠诚"
+      ],
+      "speech_style": "恭敬有礼",
+      "temperament": "沉稳内敛"
+    },
+    "relationships": [
+      {
+        "target": "char_san_xin_shen_jun",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "昔日受艺"
+      },
+      {
+        "target": "char_jian_xian_sheng",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "世叔侄"
+      },
+      {
+        "target": "char_lin_er",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "企图灭口"
+      },
+      {
+        "target": "char_zheng_mei_niang",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "被色诱控制"
+      },
+      {
+        "target": "char_san_xin_shen_jun",
+        "type": "对手",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "被制服"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 280,
+        "line_end": 280,
+        "text": "慕容师伯！"
+      },
+      {
+        "chapter": 3,
+        "line_start": 338,
+        "line_end": 341,
+        "text": "终南派确是遇着数百年来未有之劫难，小侄无能，实在束手无策。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 710,
+        "line_end": 710,
+        "text": "在无数人的惋惜、不齿、责骂、愤怒之中，为着自己的欲念，丧失了他本来极有前途的生命。"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_du_zhen_jun",
+    "name": "五毒真君",
+    "alias": [],
+    "identity": "昔年魔头",
+    "faction": null,
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "出神入化",
+    "one_line": "昔年魔头，制蚀骨圣水欲一网打尽武林高手，被前辈异人一掌劈死",
+    "personality": {
+      "traits": [
+        "阴毒",
+        "狂妄",
+        "狡诈",
+        "贪婪",
+        "野心勃勃"
+      ],
+      "speech_style": "狂妄自大",
+      "temperament": "阴险毒辣"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 454,
+        "line_end": 455,
+        "text": "五毒真君竟想以此物将天下武林高手一网打尽"
+      }
+    ]
+  },
+  {
+    "id": "char_du_gu_ling",
+    "name": "独孤灵",
+    "alias": [
+      "武曲星君"
+    ],
+    "identity": "昔年天下武林至尊",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "昔年武林至尊，内功绝顶，因妻子背叛、儿子误解而万念俱灰，自绝身亡",
+    "personality": {
+      "traits": [
+        "绝顶高手",
+        "深情",
+        "悲怆",
+        "孤独",
+        "正直",
+        "刚烈"
+      ],
+      "speech_style": "威严庄重",
+      "temperament": "外刚内柔"
+    },
+    "relationships": [
+      {
+        "target": "char_jian_xian_sheng",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 720,
+        "line_end": 720,
+        "text": "那位前辈异人，就是先父"
+      }
+    ]
+  },
+  {
+    "id": "char_hei_yi_da_han",
+    "name": "黑衣汉子",
+    "alias": [],
+    "identity": "天争教徒众",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "叙州城外客栈中的天争教黑衣劲装汉子，粗鲁霸道，试图拉拢伊风入伙。",
+    "personality": {
+      "traits": [
+        "粗鲁",
+        "鲁莽",
+        "霸道",
+        "欺软怕硬",
+        "直率"
+      ],
+      "speech_style": "口无遮拦，一口一个老子，带有蜀地口语",
+      "temperament": "暴躁易怒"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 36,
+        "line_end": 36,
+        "text": "此刻这些椅子上，却坐满了黑衣劲装的大汉"
+      },
+      {
+        "chapter": 4,
+        "line_start": 52,
+        "line_end": 54,
+        "text": "一个黑衣汉子，站在他背后，粗声道"
+      }
+    ]
+  },
+  {
+    "id": "char_dian_xiao_er",
+    "name": "店小二",
+    "alias": [],
+    "identity": "客栈伙计",
+    "faction": null,
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "叙州城外客栈的伙计，殷勤圆滑，善于察言观色。",
+    "personality": {
+      "traits": [
+        "殷勤",
+        "圆滑",
+        "善于逢迎",
+        "识时务",
+        "话多"
+      ],
+      "speech_style": "恭敬客套，善于引用典故来恭维客人",
+      "temperament": "随和"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 46,
+        "line_end": 46,
+        "text": "店小二殷勤地道"
+      }
+    ]
+  },
+  {
+    "id": "char_mai_hui",
+    "name": "麦慧",
+    "alias": [
+      "稚凤",
+      "翠装少女"
+    ],
+    "identity": "天媚教弟子",
+    "faction": "faction_tian_mei_jiao",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "天媚教弟子稚凤麦慧，翠装美艳，擅长媚术和迷药，奉命以色诱之术对付伊风。",
+    "personality": {
+      "traits": [
+        "轻佻",
+        "妩媚",
+        "机灵",
+        "大胆",
+        "善于诱惑"
+      ],
+      "speech_style": "京片子口音，语调轻快娇脆，善于恭维和撒娇",
+      "temperament": "活泼外向"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_miao_xian_niang",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 108,
+        "line_end": 110,
+        "text": "门外竟站着个绝美的少女。那少女穿着翠绿长衫"
+      },
+      {
+        "chapter": 4,
+        "line_start": 174,
+        "line_end": 174,
+        "text": "天媚教下，稚凤麦慧。"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_qi",
+    "name": "于七",
+    "alias": [],
+    "identity": "天媚教手下",
+    "faction": "faction_tian_mei_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "天媚教的手下，双腕被伊风以内功震伤。",
+    "personality": {
+      "traits": [
+        "服从",
+        "低调",
+        "沉默",
+        "忠诚",
+        "隐忍"
+      ],
+      "speech_style": "未有直接发言",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_mai_hui",
+        "type": "主仆",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "下属"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 222,
+        "line_end": 222,
+        "text": "他将于七双腕震伤的手法"
+      }
+    ]
+  },
+  {
+    "id": "char_a_nv_zi",
+    "name": "矮少女",
+    "alias": [],
+    "identity": "天媚教弟子",
+    "faction": "faction_tian_mei_jiao",
+    "role": "npc",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "天媚教四弟子之一，身材微矮体态较丰，眉目间荡意浓厚，排行居长。",
+    "personality": {
+      "traits": [
+        "妖媚",
+        "放荡",
+        "大胆",
+        "直接",
+        "老练"
+      ],
+      "speech_style": "言语直接，语带轻浮",
+      "temperament": "外向张扬"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_miao_xian_niang",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 214,
+        "line_end": 214,
+        "text": "其中一个，身材微矮，体态较丰，眉目之间，荡意特别浓厚"
+      }
+    ]
+  },
+  {
+    "id": "char_wan_miao_xian_niang",
+    "name": "万妙仙娘",
+    "alias": [
+      "天媚教主"
+    ],
+    "identity": "天媚教教主",
+    "faction": "faction_tian_mei_jiao",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "炉火纯青",
+    "one_line": "天媚教教主，容貌奇丑却生具媚骨，擅迷魂之术，来自苗疆，武功极高。",
+    "personality": {
+      "traits": [
+        "贪淫",
+        "丑陋",
+        "缜密",
+        "狡猾",
+        "老练",
+        "工于心计"
+      ],
+      "speech_style": "声音沙哑粗俗，矫揉造作，带有苗疆口音",
+      "temperament": "阴险贪婪"
+    },
+    "relationships": [
+      {
+        "target": "char_mai_hui",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 250,
+        "line_end": 251,
+        "text": "那\"天媚教主\"，在一个臃肿不堪的躯体上，穿着打扮和那四个少女同样的透明轻纱，在这上面，是一张奇丑无比，上面却涂满了脂粉的面孔。"
+      },
+      {
+        "chapter": 4,
+        "line_start": 260,
+        "line_end": 260,
+        "text": "天媚教主，万妙仙娘"
+      }
+    ]
+  },
+  {
+    "id": "char_xu_bai",
+    "name": "许白",
+    "alias": [
+      "虬须大汉",
+      "南偷",
+      "妙手许白",
+      "千里追风神行无影"
+    ],
+    "identity": "三十年前名震江湖的南偷，以轻身小巧软功夫称誉武林",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "魁梧蚬须大汉，麒衣赤足，性情豪爽奇僻，以妙手轻功名满天下，与万天萍在无量山石室较技近十年，后服毒龙丸与万天萍同归于尽。",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "贪婪",
+        "奇僻",
+        "不近情理",
+        "直率",
+        "精明",
+        "好胜"
+      ],
+      "speech_style": "哈哈大笑，声若洪钟，自称老夫",
+      "temperament": "豪迈"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_tian_ping",
+        "type": "宿敌",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "同归于尽"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "初识，因寂寞而对伊风客气，后被伊风引导寻宝"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 10,
+        "line_end": 14,
+        "text": "朝东的一人，左腿盘着，右腿支起，穿着油光四腻的鹑衣……赤着双足，不停地用手指去搓着脚丫里的臭泥"
+      },
+      {
+        "chapter": 5,
+        "line_start": 360,
+        "line_end": 361,
+        "text": "这魁梧的大汉，竟是以一身轻身小巧的软功夫称誉武林的南偷——千里追风，神行无影，妙手许白"
+      },
+      {
+        "chapter": 5,
+        "line_start": 780,
+        "line_end": 782,
+        "text": "毒龙丸至阳至刚，天下没有任何人能单独服用，否则，便引发心火，喷血而死；妙手许白，也不例外"
+      }
+    ]
+  },
+  {
+    "id": "char_wan_tian_ping",
+    "name": "万天萍",
+    "alias": [
+      "枯瘦老者",
+      "铁面孤行客",
+      "北盗"
+    ],
+    "identity": "三十年前名震江湖的北盗，以大鹰爪手和金刚摔碑掌走通大河南北",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "以金刚掌力和大鹰爪手名震武林的枯瘦老者，心狠手辣却对萧无有恩，用璇光仪四处寻宝",
+    "personality": {
+      "traits": [
+        "冷漠",
+        "孤僻",
+        "贪婪",
+        "精明",
+        "不近情理",
+        "沉稳",
+        "好胜"
+      ],
+      "speech_style": "言简意赅，冷冷道，少言寡语",
+      "temperament": "冷酷"
+    },
+    "relationships": [
+      {
+        "target": "char_xu_bai",
+        "type": "宿敌",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "同归于尽"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "强迫萧无同上西梁山"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "死而复生，对峙"
+      },
+      {
+        "target": "char_miao_shou_xu_bai",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "妙手许白死后夺取璇光仪"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "宿敌",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "识破骗局，恩怨难分"
+      },
+      {
+        "target": "char_xiao_wu",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "曾被其困于秘窟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      7,
+      11,
+      12,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 14,
+        "line_end": 15,
+        "text": "枯瘦如柴，两颊内陷，颧骨高耸，胡须虽轻，但也留得很长，身上穿着一件已经洗得发白的蓝布长衫，垂目盘膝，像尊石像盘坐着"
+      },
+      {
+        "chapter": 5,
+        "line_start": 362,
+        "line_end": 363,
+        "text": "那瘦小枯干的老头子，却是昔年以大鹰爪手加杂着十二路金刚摔碑掌，以及一身童子混元一气功，走通大河南北的铁面孤行客万天萍"
+      },
+      {
+        "chapter": 5,
+        "line_start": 786,
+        "line_end": 788,
+        "text": "铁面孤行客胸前剧痛，狂吼一声，拼着最后一丝余力，右掌前击，砰然一声，也着着实实地击在妙手许白的胸前"
+      },
+      {
+        "chapter": 6,
+        "line_start": 320,
+        "line_end": 321,
+        "text": "原来他的身后，僵立着一个全身血渍的人，目中神光灼然，却正是伊风亲眼看着身受两处不治之伤，已经死去的铁面孤行客万天萍。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 4,
+        "line_end": 5,
+        "text": "他双目望着万天萍伸出来的那一双枯瘦而满沾着血迹的手掌"
+      },
+      {
+        "chapter": 7,
+        "line_start": 110,
+        "line_end": 111,
+        "text": "这万天萍不但功力已复，恐怕此刻他的功力，还在他未曾受伤的时候之上哩！"
+      },
+      {
+        "chapter": 11,
+        "line_start": 585,
+        "line_end": 585,
+        "text": "铁面孤行客万天萍"
+      },
+      {
+        "chapter": 11,
+        "line_start": 697,
+        "line_end": 699,
+        "text": "这铁面孤行客，虽以硬功掌力成名，但轻功亦极高绝"
+      },
+      {
+        "chapter": 11,
+        "line_start": 841,
+        "line_end": 843,
+        "text": "须知你在无量山巅，将老夫救出山窟"
+      },
+      {
+        "chapter": 12,
+        "line_start": 8,
+        "line_end": 11,
+        "text": "老弟，这就是地头了。老夫昔年花了无数心血，才在这里建立起来。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 335,
+        "line_end": 336,
+        "text": "万天萍的身形赫然挡在他面前"
+      },
+      {
+        "chapter": 13,
+        "line_start": 210,
+        "line_end": 210,
+        "text": "伊风怔怔注视着\"铁面孤行客\"万天萍的尸首"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_qu_xing_jun",
+    "name": "武曲星君",
+    "alias": [],
+    "identity": "百十年前的武林异人，一生行侠却死于流言",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "百年前武林异人，一生行侠却死于流言，临终将天星秘笈、毒龙丸、蚀骨圣水解药藏于无量山洞窟。",
+    "personality": {
+      "traits": [
+        "嫉恶如仇",
+        "行侠仗义",
+        "心思灵巧",
+        "悲怆",
+        "不甘"
+      ],
+      "speech_style": "临书感慨，书法渐乱",
+      "temperament": "悲怆"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "line_start": 448,
+        "line_end": 448,
+        "text": "武曲星君死前，将他生平武学之精华——'天星秘笈'和一粒'毒龙丸'，埋藏在这无量山里"
+      },
+      {
+        "chapter": 5,
+        "line_start": 714,
+        "line_end": 715,
+        "text": "余一生行侠，然却死于流言，苍天！苍天！奈何奈何！"
+      }
+    ]
+  },
+  {
+    "id": "char_wen_hua",
+    "name": "温华",
+    "alias": [
+      "落魄书生",
+      "无用书生"
+    ],
+    "identity": "川边屏山镇书香子弟",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "川边屏山镇落魄书生，被伊风救下后带去石室取宝，却在石室中被人杀害。",
+    "personality": {
+      "traits": [
+        "文雅",
+        "脆弱",
+        "自怜",
+        "重情",
+        "自卑",
+        "知恩图报"
+      ],
+      "speech_style": "词句从容得体，川黔口音",
+      "temperament": "忧郁消沉"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "救命之恩，初识"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 100,
+        "line_end": 106,
+        "text": "原来他是川边屏山镇上的一个书香子弟，姓温名华，虽非天资绝顶之人，但读书倒也非常通顺。只是命运不佳，一直蹉跎潦倒，成了个百无一用的无用书生。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 312,
+        "line_end": 312,
+        "text": "温华竟僵卧在石室里，而他身边，竟有一摊血渍。"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_hun_luo_sha",
+    "name": "销魂罗刹",
+    "alias": [
+      "销魂夫人",
+      "伊风之妻"
+    ],
+    "identity": "江南第一美人，后嫁伊风为妻，后背叛伊风投向天争教主",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "江南第一美人，伊风前妻，使用亮银鞭，后背叛伊风投向天争教主。",
+    "personality": {
+      "traits": [
+        "美貌",
+        "善变",
+        "无情",
+        "妩媚",
+        "功利"
+      ],
+      "speech_style": "温柔甜蜜时如蜜糖，无情时如冰霜",
+      "temperament": "善变无常"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_feng",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "曾为夫妻，后背叛"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 154,
+        "line_end": 156,
+        "text": "我碰到我的好友银枪陶楚时，才知道她就是江南上的第一美人，销魂罗刹。"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_zheng_jiao_zhu",
+    "name": "天争教主",
+    "alias": [],
+    "identity": "天争教教主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "天争教教主，武功高权力大，伊风妻子背叛伊风后投向此人。",
+    "personality": {
+      "traits": [
+        "权势滔天",
+        "武功高强",
+        "阴险"
+      ],
+      "speech_style": "威严霸道",
+      "temperament": "阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_hun_luo_sha",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "收为情妇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 204,
+        "line_end": 206,
+        "text": "我想不到她后来真的离开了我，做了那天争教主的情妇。"
+      }
+    ]
+  },
+  {
+    "id": "char_zheng_mei_niang",
+    "name": "郑媚娘",
+    "alias": [
+      "媚娘"
+    ],
+    "identity": "天毒教派来色诱妙灵道人的女间谍",
+    "faction": "faction_tian_du_jiao",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "略有小成",
+    "one_line": "天毒教女间谍，色诱妙灵道人使其背叛门派，事败后被三心神君击杀。",
+    "personality": {
+      "traits": [
+        "妩媚",
+        "狡诈",
+        "狠辣",
+        "善于伪装",
+        "工于心计"
+      ],
+      "speech_style": "娇柔俏语，善于撩拨",
+      "temperament": "妖媚阴险"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_ling_dao_ren",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "色诱控制"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 592,
+        "line_end": 593,
+        "text": "郑媚娘奉了密令，千方百计地接近他，使得这生平未曾经历过女色的妙灵"
+      },
+      {
+        "chapter": 6,
+        "line_start": 572,
+        "line_end": 572,
+        "text": "他可以看到有鲜血从媚娘那曾经发出不知几许令人魂销的'唔唔'之声的嘴中，流了下来"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_shou_xu_bai",
+    "name": "妙手许白",
+    "alias": [],
+    "identity": "江湖高手，与万天萍相争同归于尽，其血含毒龙丹灵效",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "与万天萍相争至死，其血含毒龙丹灵效令万天萍复生",
+    "personality": {
+      "traits": [
+        "武功高强",
+        "争强好胜",
+        "不畏生死",
+        "刚烈勇猛",
+        "执念深重"
+      ],
+      "speech_style": "未在本章直接说话",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_tian_ping",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 2,
+        "dynamic": "相争至同归于尽"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 22,
+        "line_end": 23,
+        "text": "他知道这是妙手许白的铁钩般的十指，在他身上留下的痕迹"
+      }
+    ]
+  },
+  {
+    "id": "char_qiong_shu_sheng",
+    "name": "穷书生",
+    "alias": [],
+    "identity": "自尽被救的穷书生，后因伊风赠予珠宝而变为豪富阔少",
+    "faction": null,
+    "role": "npc",
+    "archetype": "scholar",
+    "rank": "平平无奇",
+    "one_line": "被伊风所救的穷书生，获赠珠宝后变为豪富",
+    "personality": {
+      "traits": [
+        "贪恋珍宝",
+        "不会武功",
+        "命运坎坷",
+        "知恩图报",
+        "改头换面"
+      ],
+      "speech_style": "未在本章直接说话",
+      "temperament": "懦弱"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "被救后感恩"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 98,
+        "line_end": 99,
+        "text": "那自尽被救的书生，仍倒卧在石室之中，生死未卜"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_nan_ping",
+    "name": "萧南苹",
+    "alias": [
+      "萧南",
+      "潇湘妃子"
+    ],
+    "identity": "萧三爷之女，女扮男装，以易容之术及独门暗器扬名天下，武林四美之一",
+    "faction": null,
+    "role": "companion",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "女扮男装的潇湘妃子，易容术神妙，剑法凌厉",
+    "personality": {
+      "traits": [
+        "冷若冰霜",
+        "心狠手辣",
+        "高傲自负",
+        "易容神妙",
+        "外冷内热"
+      ],
+      "speech_style": "清越悦耳，时而讥讽时而冷漠",
+      "temperament": "冷漠高傲"
+    },
+    "relationships": [
+      {
+        "target": "char_ruan_da_cheng",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 1,
+        "dynamic": "阮大成单恋纠缠"
+      },
+      {
+        "target": "char_gu_xiao_jing",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "闺蜜好友"
+      }
+    ],
+    "known_skills": [
+      "skill_hui_feng_wu_liu_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 344,
+        "line_end": 346,
+        "text": "以一种非常清越，非常悦耳的声音说道"
+      },
+      {
+        "chapter": 7,
+        "line_start": 626,
+        "line_end": 627,
+        "text": "原来这'萧南'却是潇湘妃子萧南苹"
+      }
+    ]
+  },
+  {
+    "id": "char_ruan_da_cheng",
+    "name": "阮大成",
+    "alias": [
+      "伏虎金刚"
+    ],
+    "identity": "蜀中颇有盛名的好汉，少林伏虎神拳高手，痴恋萧南苹",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "伏虎金刚，蜀中好汉，为萧南苹甘愿削耳",
+    "personality": {
+      "traits": [
+        "粗豪直率",
+        "痴情执着",
+        "没奢遮",
+        "重义轻生",
+        "口无遮拦"
+      ],
+      "speech_style": "满口四川土音，粗话连篇",
+      "temperament": "暴躁直率"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_nan_ping",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 2,
+        "dynamic": "单恋痴缠"
+      }
+    ],
+    "known_skills": [
+      "skill_fu_hu_shen_quan"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 428,
+        "line_end": 429,
+        "text": "伏虎金刚阮大成，在蜀中颇有盛名，是条没奢遮的汉子"
+      }
+    ]
+  },
+  {
+    "id": "char_gu_xiao_jing",
+    "name": "谷晓静",
+    "alias": [
+      "辣手西施"
+    ],
+    "identity": "武林四美之一，火神爷姚清宇之妻，火器名家",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "辣手西施，武林四美之一，火神爷之妻，泼辣妩媚",
+    "personality": {
+      "traits": [
+        "泼辣妩媚",
+        "热情豪爽",
+        "眼波流转",
+        "武功不俗",
+        "心直口快"
+      ],
+      "speech_style": "娇声软语，时而俏骂时而调笑",
+      "temperament": "热情泼辣"
+    },
+    "relationships": [
+      {
+        "target": "char_yao_qing_yu",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_xiao_nan_ping",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "闺蜜好友"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 606,
+        "line_end": 607,
+        "text": "云鬓高挽，艳光四照，一走进门，秋波就四下一转"
+      },
+      {
+        "chapter": 8,
+        "line_start": 2,
+        "line_end": 4,
+        "text": "辣手西施却瞟了萧南苹一眼……"
+      },
+      {
+        "chapter": 8,
+        "line_start": 312,
+        "line_end": 312,
+        "text": "谷晓静虽然名列'武林四美'，但武功却并不甚高"
+      }
+    ]
+  },
+  {
+    "id": "char_yao_qing_yu",
+    "name": "姚清宇",
+    "alias": [
+      "火神爷"
+    ],
+    "identity": "武林中使火器的第一名家，谷晓静之夫",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "火神爷，武林第一火器名家，谷晓静之夫，豪爽热情",
+    "personality": {
+      "traits": [
+        "豪爽热情",
+        "重义轻财",
+        "身体虚弱",
+        "火器精通",
+        "古道热肠"
+      ],
+      "speech_style": "朗声大笑，豪爽直率",
+      "temperament": "豪爽"
+    },
+    "relationships": [
+      {
+        "target": "char_gu_xiao_jing",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "故交重逢"
+      },
+      {
+        "target": "char_hua_pin_qi",
+        "type": "宿敌",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "被震伤"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7,
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 640,
+        "line_end": 640,
+        "text": "火神爷姚清宇的爱妻辣手西施谷晓静"
+      },
+      {
+        "chapter": 8,
+        "line_start": 6,
+        "line_end": 8,
+        "text": "火神爷姚清宇也笑道：'老弟！你我一见如故……'"
+      },
+      {
+        "chapter": 8,
+        "line_start": 282,
+        "line_end": 282,
+        "text": "火神爷姚清宇的火药暗器独步武林"
+      },
+      {
+        "chapter": 8,
+        "line_start": 286,
+        "line_end": 288,
+        "text": "姚清宇却惊呼一声，身形朝后倒纵八尺，砰地落在地上"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_nan_ping",
+    "name": "萧南苹",
+    "alias": [
+      "萧三爷千金",
+      "潇湘妃子"
+    ],
+    "identity": "萧三爷之女",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "潇湘妃子，面容被毁后精神崩溃，疯狂逃离密阁",
+    "personality": {
+      "traits": [
+        "痴情",
+        "脆弱",
+        "敏感",
+        "执拗",
+        "刚烈",
+        "易受打击",
+        "精神崩溃"
+      ],
+      "speech_style": "温柔痴情，激动时语无伦次",
+      "temperament": "热烈"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_feng",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "情意渐生"
+      },
+      {
+        "target": "char_gu_xiao_jing",
+        "type": "挚友",
+        "intensity": 60,
+        "bond_level": 4,
+        "dynamic": "姐妹相称"
+      },
+      {
+        "target": "char_xiao_wu",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "被其玷污，恨之入骨"
+      },
+      {
+        "target": "char_wan_hong",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "争风吃醋，互不相让"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      9,
+      12,
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 38,
+        "line_end": 38,
+        "text": "只觉她明如秋水的双瞳里情意脉脉"
+      },
+      {
+        "chapter": 8,
+        "line_start": 104,
+        "line_end": 104,
+        "text": "萧南苹便从囊中取出一个面具来，薄薄的竟是人皮所制"
+      },
+      {
+        "chapter": 8,
+        "line_start": 116,
+        "line_end": 116,
+        "text": "这素来冷若冰霜的潇湘妃子"
+      },
+      {
+        "chapter": 9,
+        "line_start": 6,
+        "line_end": 7,
+        "text": "伊风抬头，望见萧南苹温柔而含情的眼睛"
+      },
+      {
+        "chapter": 10,
+        "line_start": 404,
+        "line_end": 404,
+        "text": "南哥哥——"
+      },
+      {
+        "chapter": 12,
+        "line_start": 98,
+        "line_end": 98,
+        "text": "萧南苹。面色苍白，发鬓蓬乱，满脸凄怨的萧南苹。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 323,
+        "line_end": 323,
+        "text": "萧南苹忽然仰天狂笑，猛力把铜镜抛向山壁"
+      },
+      {
+        "chapter": 12,
+        "line_start": 331,
+        "line_end": 331,
+        "text": "她疯狂的笑声忽然止住，目光呆滞地凝视伊风良久，然后以手掩面，发狂般奔了出去。"
+      },
+      {
+        "chapter": 13,
+        "line_start": 4,
+        "line_end": 6,
+        "text": "黑暗中，伊风能够看到的，只是脑海中出现萧南苹的那双明眸。那双脉脉含情的明眸。"
+      }
+    ]
+  },
+  {
+    "id": "char_ma_shang_ren",
+    "name": "马上人",
+    "alias": [],
+    "identity": "长白派弟子",
+    "faction": "faction_chang_bai_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "与毛文奇同行的骑马汉子，性情暴躁，一言不合便动手。",
+    "personality": {
+      "traits": [
+        "暴躁",
+        "鲁莽",
+        "凶悍",
+        "冲动",
+        "桀骜"
+      ],
+      "speech_style": "怒叱喝骂",
+      "temperament": "火爆"
+    },
+    "relationships": [
+      {
+        "target": "char_mao_wen_qi",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "同行伙伴"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 144,
+        "line_end": 146,
+        "text": "马上人一带马缰……皮鞭一挥，口中怒叱道：'杀胚！'"
+      }
+    ]
+  },
+  {
+    "id": "char_mao_wen_qi",
+    "name": "毛文奇",
+    "alias": [],
+    "identity": "飞虹七剑之二",
+    "faction": "faction_chang_bai_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "毛文奇，飞虹七剑排行第二，来自长白，内功精湛，掌力深厚，性格刚烈。",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "高傲",
+        "重兄弟情",
+        "直率",
+        "倔强"
+      ],
+      "speech_style": "冷笑厉声，言语犀利",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_hua_pin_qi",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "师兄弟"
+      },
+      {
+        "target": "char_gong_tian_qi",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "师兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      10,
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 184,
+        "line_end": 186,
+        "text": "我毛文奇倒要领教领教"
+      },
+      {
+        "chapter": 8,
+        "line_start": 192,
+        "line_end": 192,
+        "text": "毛文奇来自长白"
+      },
+      {
+        "chapter": 10,
+        "line_start": 94,
+        "line_end": 96,
+        "text": "二弟，果然不出你所料！"
+      },
+      {
+        "chapter": 11,
+        "line_start": 108,
+        "line_end": 110,
+        "text": "毛文奇忽然接口道"
+      }
+    ]
+  },
+  {
+    "id": "char_hua_pin_qi",
+    "name": "华品奇",
+    "alias": [
+      "飞虹剑"
+    ],
+    "identity": "长白派掌门",
+    "faction": "faction_chang_bai_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "飞虹剑华品奇，长白派掌门，飞虹七剑之首，跛足老人，武功出神入化，为寻失踪三弟钟英奇而入中原，误认伊风为三弟。",
+    "personality": {
+      "traits": [
+        "威严",
+        "重情义",
+        "固执",
+        "暴躁",
+        "护短"
+      ],
+      "speech_style": "厉声喝令，语气威严",
+      "temperament": "威严"
+    },
+    "relationships": [
+      {
+        "target": "char_mao_wen_qi",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "师兄弟"
+      },
+      {
+        "target": "char_gong_tian_qi",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "师兄弟"
+      },
+      {
+        "target": "char_zhong_ying_qi",
+        "type": "师徒",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "寻弟"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "误认为三弟"
+      },
+      {
+        "target": "char_gu_xiao_jing",
+        "type": "宿敌",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "冲突"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      10,
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 294,
+        "line_end": 296,
+        "text": "老夫飞虹剑华品奇，在此了断家务事"
+      },
+      {
+        "chapter": 8,
+        "line_start": 300,
+        "line_end": 300,
+        "text": "飞虹剑华品奇，是武林九大门派之一——长白派的掌门"
+      },
+      {
+        "chapter": 8,
+        "line_start": 464,
+        "line_end": 466,
+        "text": "华品奇突然长叹一声，缓缓收回剑来……'他果然不是老三，唉——怎地天下竟有如此相像之人！'"
+      },
+      {
+        "chapter": 10,
+        "line_start": 84,
+        "line_end": 84,
+        "text": "我要你的命！"
+      },
+      {
+        "chapter": 10,
+        "line_start": 104,
+        "line_end": 106,
+        "text": "三弟！我弟兄的事，不必当着这些外人面讲"
+      },
+      {
+        "chapter": 11,
+        "line_start": 18,
+        "line_end": 24,
+        "text": "华品奇长叹一声，站了起来，将桌前的酒杯拿起，一饮而尽，向伊风道"
+      }
+    ]
+  },
+  {
+    "id": "char_gong_tian_qi",
+    "name": "龚天奇",
+    "alias": [],
+    "identity": "飞虹七剑之六",
+    "faction": "faction_chang_bai_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "龚天奇，飞虹七剑排行第六，擅使飞虹剑法，身手矫健。",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "忠厚",
+        "听命行事",
+        "武艺不凡",
+        "内敛"
+      ],
+      "speech_style": "少言，多以行动表达",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_hua_pin_qi",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "师兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 304,
+        "line_end": 304,
+        "text": "他六弟龚天奇正在缠斗"
+      },
+      {
+        "chapter": 8,
+        "line_start": 312,
+        "line_end": 312,
+        "text": "抵敌龚天奇掌中的'飞虹剑'"
+      }
+    ]
+  },
+  {
+    "id": "char_zhong_ying_qi",
+    "name": "钟英奇",
+    "alias": [
+      "三弟"
+    ],
+    "identity": "飞虹七剑之三",
+    "faction": "faction_chang_bai_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "钟英奇，飞虹七剑排行第三，华品奇的三弟，多年前无意伤了大师兄右腿后失踪。",
+    "personality": {
+      "traits": [
+        "重情义",
+        "内疚",
+        "隐忍",
+        "沉默",
+        "善良"
+      ],
+      "speech_style": "沉默寡言",
+      "temperament": "沉默"
+    },
+    "relationships": [
+      {
+        "target": "char_hua_pin_qi",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "三弟失踪"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 304,
+        "line_end": 306,
+        "text": "飞虹七剑老三钟英奇……伊风易容之下，面貌竟变得和'飞虹七剑'中三侠钟英奇的面貌完全一样"
+      }
+    ]
+  },
+  {
+    "id": "char_huang_zhi_qi",
+    "name": "黄志奇",
+    "alias": [],
+    "identity": "飞虹七剑之四",
+    "faction": "faction_chang_bai_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "黄志奇，飞虹七剑排行第四，始终未出手，沉默寡言。",
+    "personality": {
+      "traits": [
+        "沉默",
+        "稳重",
+        "内敛",
+        "忠厚",
+        "克制"
+      ],
+      "speech_style": "极少开口",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_hua_pin_qi",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "师兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 386,
+        "line_end": 386,
+        "text": "那始终未出手的黄志奇"
+      }
+    ]
+  },
+  {
+    "id": "char_lan_pao_dao_ren",
+    "name": "年轻道人",
+    "alias": [],
+    "identity": "终南派弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "终南派年轻弟子，奉命在山下接待来客",
+    "personality": {
+      "traits": [
+        "恭敬",
+        "有礼",
+        "尽职",
+        "年轻",
+        "质朴",
+        "守规"
+      ],
+      "speech_style": "恭敬有礼",
+      "temperament": "温和"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_fa",
+        "type": "师徒",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "师门晚辈"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 20,
+        "line_end": 26,
+        "text": "远远一个身穿蓝色道袍的年轻道人，正缓步向他们行来"
+      }
+    ]
+  },
+  {
+    "id": "char_zhong_nian_dao_ren",
+    "name": "中年道人",
+    "alias": [],
+    "identity": "终南派弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "终南派中年道人，守在观门前，态度恭谨，隐含忧色",
+    "personality": {
+      "traits": [
+        "恭谨",
+        "持重",
+        "忧虑",
+        "谨慎",
+        "忠诚",
+        "隐忍"
+      ],
+      "speech_style": "恭谨有礼",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_fa",
+        "type": "师徒",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "师门晚辈"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "感恩"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 98,
+        "line_end": 100,
+        "text": "观门前垂手立的，却是一个颔下微髭的中年道人。"
+      }
+    ]
+  },
+  {
+    "id": "char_fan_zhong_ping",
+    "name": "范仲平",
+    "alias": [
+      "八卦神掌"
+    ],
+    "identity": "形意派名宿",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "形意派名宿，武林前辈，被推举为终南掌门之争的主持公正人",
+    "personality": {
+      "traits": [
+        "自负",
+        "好名",
+        "豪爽",
+        "老练",
+        "正直",
+        "热心"
+      ],
+      "speech_style": "朗声豪迈",
+      "temperament": "豪迈自信"
+    },
+    "relationships": [
+      {
+        "target": "char_du_chang_qing",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "欣赏后辈"
+      },
+      {
+        "target": "char_qian_yu",
+        "type": "对手",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "忌惮"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 150,
+        "line_end": 161,
+        "text": "此刻殿中诸人，眼光都注意站在大殿神龛前的一个老者身上"
+      },
+      {
+        "chapter": 9,
+        "line_start": 162,
+        "line_end": 163,
+        "text": "这老者大约是被诸人推举出来，作这以武功争掌门的大会上，终南弟子们较技时的公正人的。"
+      }
+    ]
+  },
+  {
+    "id": "char_du_chang_qing",
+    "name": "杜长卿",
+    "alias": [
+      "梅花剑"
+    ],
+    "identity": "峨嵋门下后起剑客",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "峨嵋门下后起剑客中的佼佼者，与伊风昔年同负时名",
+    "personality": {
+      "traits": [
+        "潇洒",
+        "从容",
+        "谦逊",
+        "英俊",
+        "自信",
+        "年轻有为"
+      ],
+      "speech_style": "谦逊有礼",
+      "temperament": "从容淡定"
+    },
+    "relationships": [
+      {
+        "target": "char_fan_zhong_ping",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "尊敬前辈"
+      },
+      {
+        "target": "char_xue_yin_da_shi",
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 186,
+        "line_end": 188,
+        "text": "小可要推举的，就是此刻站在那边石柱下的梅花剑杜长卿杜大侠。"
+      }
+    ]
+  },
+  {
+    "id": "char_gu_zi_ang",
+    "name": "古子昂",
+    "alias": [
+      "入云鹤"
+    ],
+    "identity": "武当后起高手",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "武当后起高手，与杜长卿、吕南人昔年同负时名",
+    "personality": {
+      "traits": [
+        "年少有为",
+        "武功高强",
+        "英俊",
+        "侠义",
+        "正直",
+        "轻功出众"
+      ],
+      "speech_style": "沉稳",
+      "temperament": "从容"
+    },
+    "relationships": [
+      {
+        "target": "char_du_chang_qing",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同辈齐名"
+      },
+      {
+        "target": "char_lv_nan_ren",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同辈齐名"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 200,
+        "line_end": 201,
+        "text": "昔年与武当的后起高手入云鹤古子昂和伊风自己——铁戟温侯吕南人同负时名。"
+      }
+    ]
+  },
+  {
+    "id": "char_xue_yin_da_shi",
+    "name": "雪因大师",
+    "identity": "峨嵋派高僧",
+    "faction": null,
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "炉火纯青",
+    "one_line": "杜长卿之师，峨嵋派高僧，与范仲平昔年为至交",
+    "personality": {
+      "traits": [
+        "德高望重",
+        "武功深厚",
+        "慈祥",
+        "正直",
+        "有远见",
+        "淡泊"
+      ],
+      "speech_style": "慈祥",
+      "temperament": "平和"
+    },
+    "relationships": [
+      {
+        "target": "char_fan_zhong_ping",
+        "type": "挚友",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "昔年至交"
+      },
+      {
+        "target": "char_du_chang_qing",
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 220,
+        "line_end": 221,
+        "text": "令师雪因大师，和老夫昔年本是至交。"
+      }
+    ]
+  },
+  {
+    "id": "char_huang_zhen_guo",
+    "name": "黄镇国",
+    "alias": [
+      "万胜刀"
+    ],
+    "identity": "浙东老武师",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "浙东设场授徒的老武师，好名但武功平平",
+    "personality": {
+      "traits": [
+        "好名",
+        "冲动",
+        "年老不服输",
+        "易怒",
+        "自尊心强",
+        "鲁莽"
+      ],
+      "speech_style": "气咻咻",
+      "temperament": "急躁易怒"
+    },
+    "relationships": [
+      {
+        "target": "char_qian_yu",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "被羞辱"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 234,
+        "line_end": 242,
+        "text": "万胜刀镇国黄老英雄。黄老英雄在浙东设场授徒"
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_ba_wang",
+    "name": "小霸王",
+    "alias": [],
+    "identity": "江湖豪客",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "走南闯北的江湖豪客，为黄镇国出头",
+    "personality": {
+      "traits": [
+        "鲁莽",
+        "冲动",
+        "仗义",
+        "好管闲事",
+        "直率",
+        "好胜"
+      ],
+      "speech_style": "质问怒斥",
+      "temperament": "急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_huang_zhen_guo",
+        "type": "合作者",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "为黄出头"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 254,
+        "line_end": 258,
+        "text": "我小霸王走南闯北，还没有看见有像阁下这号人物"
+      }
+    ]
+  },
+  {
+    "id": "char_qian_yu",
+    "name": "钱翊",
+    "alias": [],
+    "identity": "青海无名叟弟子",
+    "faction": null,
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "青海布克马因山口无名叟的高弟，武功深不可测，态度狂傲，实为天争教帮凶",
+    "personality": {
+      "traits": [
+        "狂傲",
+        "目中无人",
+        "冷酷",
+        "深藏不露",
+        "武功高强",
+        "心机深沉"
+      ],
+      "speech_style": "冷然傲慢",
+      "temperament": "冷酷傲慢"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_ming_sou",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 4,
+        "dynamic": "师徒"
+      },
+      {
+        "target": "char_fan_zhong_ping",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "震慑"
+      },
+      {
+        "target": "char_miao_yu",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同党"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 248,
+        "line_end": 250,
+        "text": "敝人钱翊。敝人要推举的，就是区区在下自己！"
+      },
+      {
+        "chapter": 9,
+        "line_start": 782,
+        "line_end": 786,
+        "text": "袍袖一展，竟在群豪无比地惊诧之中，身形如电光一闪，掠了出去。"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_ming_sou",
+    "name": "无名叟",
+    "alias": [
+      "无名老人"
+    ],
+    "identity": "青海武林异人",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "返璞归真",
+    "one_line": "隐居青海布克马因山口的武林异人，功行已参造化，数十年来未有人见其真面目",
+    "personality": {
+      "traits": [
+        "神秘",
+        "高深莫测",
+        "隐世",
+        "武功通神",
+        "淡泊",
+        "不问世事"
+      ],
+      "speech_style": "不详",
+      "temperament": "超然物外"
+    },
+    "relationships": [
+      {
+        "target": "char_qian_yu",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 4,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 322,
+        "line_end": 324,
+        "text": "青海布克马因山口里，隐居着一位武林异人，数十年来，江湖中人都知道这位异人，功行已参造化"
+      }
+    ]
+  },
+  {
+    "id": "char_meng_dao_chang",
+    "name": "孟道长",
+    "identity": "武当山道长",
+    "faction": null,
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "炉火纯青",
+    "one_line": "武当山道长，范仲平猜测可能是钱翊之师",
+    "personality": {
+      "traits": [
+        "德高望重",
+        "武功深厚",
+        "正直",
+        "清修",
+        "淡泊",
+        "有远见"
+      ],
+      "speech_style": "不详",
+      "temperament": "平和"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 290,
+        "line_end": 292,
+        "text": "尊师何人？可是武当山的孟道长？"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_fa",
+    "name": "妙法",
+    "alias": [],
+    "identity": "终南派代掌门",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "终南派发须花白的老道，掌门人妙灵之师弟，主持推选掌门之会，态度老成持重",
+    "personality": {
+      "traits": [
+        "老成持重",
+        "忧虑",
+        "隐忍",
+        "忠诚",
+        "不善言词",
+        "正直"
+      ],
+      "speech_style": "沉声严肃",
+      "temperament": "沉稳忧虑"
+    },
+    "relationships": [
+      {
+        "target": null,
+        "type": "师徒",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "师兄弟"
+      },
+      {
+        "target": "char_miao_yuan",
+        "type": "师徒",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "师兄弟"
+      },
+      {
+        "target": "char_miao_yu",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "对立"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 338,
+        "line_end": 342,
+        "text": "敝派此次因掌门人妙灵道长因病仙去"
+      },
+      {
+        "chapter": 9,
+        "line_start": 354,
+        "line_end": 354,
+        "text": "妙法道长！难道无意于此吗？"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_hua",
+    "name": "玄化",
+    "alias": [],
+    "identity": "终南派第六代弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "终南派第六代弟子中的佼佼者，连胜三场，武功不俗，心存礼让",
+    "personality": {
+      "traits": [
+        "谦逊",
+        "安详",
+        "从容",
+        "尊师重道",
+        "武功扎实",
+        "有大局观"
+      ],
+      "speech_style": "恭谨有礼",
+      "temperament": "从容淡定"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_fa",
+        "type": "师徒",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "师侄"
+      },
+      {
+        "target": "char_xuan_ji",
+        "type": "对手",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "同门较技"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 380,
+        "line_end": 382,
+        "text": "终南第六代弟子玄化，恭请各位师叔伯，师兄弟指教。"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_ji",
+    "name": "玄机",
+    "alias": [],
+    "identity": "终南派第六代弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "终南派第六代弟子，与玄化较技只输半着便自承已败，胸襟非凡",
+    "personality": {
+      "traits": [
+        "胸襟宽广",
+        "淡然",
+        "谦逊",
+        "有风度",
+        "武功不错",
+        "正直"
+      ],
+      "speech_style": "淡然",
+      "temperament": "从容"
+    },
+    "relationships": [
+      {
+        "target": "char_xuan_hua",
+        "type": "对手",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "同门较技"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 390,
+        "line_end": 394,
+        "text": "玄机恭请师兄赐招。"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_yuan",
+    "name": "妙元",
+    "alias": [],
+    "identity": "终南派五弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "终南派玉机真人的五弟子，五绺长须，义正词严揭露妙雨罪行",
+    "personality": {
+      "traits": [
+        "正义",
+        "激昂",
+        "善言",
+        "勇敢",
+        "尊师重道",
+        "嫉恶如仇"
+      ],
+      "speech_style": "义正词严",
+      "temperament": "刚正不阿"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_fa",
+        "type": "师徒",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "师兄弟"
+      },
+      {
+        "target": "char_miao_yu",
+        "type": "宿敌",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "对立"
+      },
+      {
+        "target": "char_yu_ji_zhen_ren",
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 434,
+        "line_end": 442,
+        "text": "此人本是妙灵道人的师弟，比玄化尚长出一辈。"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_tong",
+    "name": "妙通",
+    "alias": [],
+    "identity": "终南派四弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "终南派玉机真人的四弟子，被妙元以掌缘拂中前胸而败",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "谦逊",
+        "武功尚可",
+        "守礼",
+        "正直",
+        "低调"
+      ],
+      "speech_style": "不详",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_yuan",
+        "type": "师徒",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "师兄弟"
+      },
+      {
+        "target": "char_yu_ji_zhen_ren",
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 454,
+        "line_end": 456,
+        "text": "最后上来的是'玉机真人'的四弟子妙通，交手方十数个照面"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_yu",
+    "name": "妙雨",
+    "alias": [
+      "多手真人",
+      "谢雨仙"
+    ],
+    "identity": "终南派叛徒 / 天争教徒",
+    "faction": "faction_zhong_nan_pai",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "出神入化",
+    "one_line": "终南派叛徒，横行川黔的魔头多手真人谢雨仙，已投入天争教，企图夺取终南掌门",
+    "personality": {
+      "traits": [
+        "阴险",
+        "狂傲",
+        "武功高强",
+        "心机深沉",
+        "忘恩负义",
+        "野心勃勃"
+      ],
+      "speech_style": "阴森冷笑",
+      "temperament": "阴险傲慢"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_fa",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "对立"
+      },
+      {
+        "target": "char_miao_yuan",
+        "type": "宿敌",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "对立"
+      },
+      {
+        "target": "char_qian_yu",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同党"
+      },
+      {
+        "target": "char_yu_ji_zhen_ren",
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 510,
+        "line_end": 516,
+        "text": "妙法师兄！你这却不对了！小弟早已令门徒先来禀告师兄"
+      },
+      {
+        "chapter": 9,
+        "line_start": 590,
+        "line_end": 592,
+        "text": "这枯瘦的老道，就是横行川黔一带，恶行无数，却又极少有人见到真面目的魔头——多手真人。"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_ji_zhen_ren",
+    "name": "玉机真人",
+    "alias": [],
+    "identity": "终南派前掌门",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "终南派前掌门，妙灵、妙法、妙元、妙雨等人的师父",
+    "personality": {
+      "traits": [
+        "仁慈",
+        "宽厚",
+        "德高望重",
+        "武功深厚",
+        "念旧",
+        "不逐弟子"
+      ],
+      "speech_style": "不详",
+      "temperament": "仁慈宽厚"
+    },
+    "relationships": [
+      {
+        "target": null,
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      },
+      {
+        "target": "char_miao_fa",
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      },
+      {
+        "target": "char_miao_yuan",
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      },
+      {
+        "target": "char_miao_yu",
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师徒"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 454,
+        "line_end": 454,
+        "text": "玉机真人的四弟子妙通"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_qing",
+    "name": "玄清",
+    "alias": [],
+    "identity": "终南派第六代弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "终南派参加掌门之争的七弟子之一",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "武功扎实",
+        "守礼",
+        "正直",
+        "低调",
+        "忠诚"
+      ],
+      "speech_style": "不详",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_fa",
+        "type": "师徒",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "师侄"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 368,
+        "line_end": 368,
+        "text": "神龛两侧就陆续走出七个蓝袍道人"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_xu",
+    "name": "玄虚",
+    "alias": [],
+    "identity": "终南派第六代弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "终南派参加掌门之争的七弟子之一",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "武功扎实",
+        "守礼",
+        "正直",
+        "低调",
+        "忠诚"
+      ],
+      "speech_style": "不详",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_fa",
+        "type": "师徒",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "师侄"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 368,
+        "line_end": 368,
+        "text": "神龛两侧就陆续走出七个蓝袍道人"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_ming",
+    "name": "玄明",
+    "alias": [],
+    "identity": "终南派第六代弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "终南派参加掌门之争的七弟子之一",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "武功扎实",
+        "守礼",
+        "正直",
+        "低调",
+        "忠诚"
+      ],
+      "speech_style": "不详",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_fa",
+        "type": "师徒",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "师侄"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 368,
+        "line_end": 368,
+        "text": "神龛两侧就陆续走出七个蓝袍道人"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_zhen",
+    "name": "玄真",
+    "alias": [],
+    "identity": "终南派第六代弟子",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "终南派参加掌门之争的七弟子之一",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "武功扎实",
+        "守礼",
+        "正直",
+        "低调",
+        "忠诚"
+      ],
+      "speech_style": "不详",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_miao_fa",
+        "type": "师徒",
+        "intensity": 20,
+        "bond_level": 1,
+        "dynamic": "师侄"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 368,
+        "line_end": 368,
+        "text": "神龛两侧就陆续走出七个蓝袍道人"
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_hua_dao_ren",
+    "name": "玄化道人",
+    "alias": [],
+    "identity": "终南派道人",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "初窥门径",
+    "one_line": "终南派道人，被选为接掌终南掌门之人。",
+    "personality": {
+      "traits": [
+        "谦逊",
+        "感恩",
+        "守礼",
+        "忠诚",
+        "正直"
+      ],
+      "speech_style": "道家用语，恭敬有礼",
+      "temperament": "温和"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_feng",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "感恩相助"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 2,
+        "line_end": 4,
+        "text": "壮士仗义援手，此恩此德，我终南弟子不敢言报。请受贫道一拜！"
+      }
+    ]
+  },
+  {
+    "id": "char_miao_fa_dao_ren",
+    "name": "妙法道人",
+    "alias": [],
+    "identity": "终南派道人",
+    "faction": "faction_zhong_nan_pai",
+    "role": "npc",
+    "archetype": "monk",
+    "rank": "初窥门径",
+    "one_line": "终南派道人，参与终南派事务。",
+    "personality": {
+      "traits": [
+        "健忘",
+        "忠诚",
+        "正直",
+        "勤恳",
+        "朴实"
+      ],
+      "speech_style": "朴素直白",
+      "temperament": "温和"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 10,
+        "line_end": 14,
+        "text": "贫道真是糊涂，竟忘了这件大事。"
+      }
+    ]
+  },
+  {
+    "id": "char_xie_yu_xian",
+    "name": "谢雨仙",
+    "alias": [
+      "多手真人"
+    ],
+    "identity": "天争教香主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "villain",
+    "archetype": "assassin",
+    "rank": "登堂入室",
+    "one_line": "天争教香主，外号多手真人，暗器高手，心狠手辣。",
+    "personality": {
+      "traits": [
+        "心狠手辣",
+        "阴险",
+        "嫉妒",
+        "狂妄",
+        "暴躁"
+      ],
+      "speech_style": "狂妄自大，带有威胁口吻",
+      "temperament": "暴躁"
+    },
+    "relationships": [
+      {
+        "target": null,
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "奉命行事"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 148,
+        "line_end": 152,
+        "text": "韦香主！你这话是什么意思？难道我谢雨仙还不想当终南掌门？"
+      },
+      {
+        "chapter": 10,
+        "line_start": 262,
+        "line_end": 264,
+        "text": "多手真人谢雨仙"
+      },
+      {
+        "chapter": 14,
+        "line_start": 8,
+        "line_end": 8,
+        "text": "“多手真人”谢雨仙被刺长安城外"
+      }
+    ]
+  },
+  {
+    "id": "char_wei_xiang_zhu",
+    "name": "韦香主",
+    "alias": [],
+    "identity": "天争教香主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "天争教香主，在终南山附近与谢雨仙争论。",
+    "personality": {
+      "traits": [
+        "多疑",
+        "谨慎",
+        "忠诚",
+        "直率",
+        "固执"
+      ],
+      "speech_style": "直率质问",
+      "temperament": "谨慎"
+    },
+    "relationships": [
+      {
+        "target": "char_xie_yu_xian",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "互相猜忌"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 144,
+        "line_end": 146,
+        "text": "谢香主！不是小弟不信任你"
+      }
+    ]
+  },
+  {
+    "id": "char_wei_ao_wu",
+    "name": "韦傲物",
+    "alias": [
+      "七海渔子"
+    ],
+    "identity": "天争教金衣香主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "villain",
+    "archetype": "warrior",
+    "rank": "炉火纯青",
+    "one_line": "天争教金衣香主，外号七海渔子，以金丝渔网为兵器，专破暗器。",
+    "personality": {
+      "traits": [
+        "圆滑",
+        "机智",
+        "心狠",
+        "虚伪",
+        "老练"
+      ],
+      "speech_style": "客套圆滑，暗藏锋芒",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_xie_yu_xian",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "互相猜忌排轧"
+      },
+      {
+        "target": "char_xiao_nan_ping",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "擒拿"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10,
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 224,
+        "line_end": 224,
+        "text": "朋友黑夜窃听我兄弟谈话，到底有何意图？"
+      },
+      {
+        "chapter": 10,
+        "line_start": 294,
+        "line_end": 298,
+        "text": "我知道你是女子，绝不会难为你"
+      },
+      {
+        "chapter": 14,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "“七海渔子”韦傲物被刺杀于洛阳城外"
+      }
+    ]
+  },
+  {
+    "id": "char_pan_long_gun_jiang",
+    "name": "蒋伯阳",
+    "alias": [
+      "盘龙棍"
+    ],
+    "identity": "天争教香主，少林门徒",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "天争教香主，少林门徒，外号盘龙棍，负责开封分舵。",
+    "personality": {
+      "traits": [
+        "急躁",
+        "忠诚",
+        "焦虑",
+        "直率",
+        "勤奋"
+      ],
+      "speech_style": "急切直率，带有焦虑",
+      "temperament": "急躁"
+    },
+    "relationships": [
+      {
+        "target": "char_wei_ao_wu",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "同教香主"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 312,
+        "line_end": 312,
+        "text": "什么事能让你盘龙棍蒋伯阳急成这副样子？"
+      }
+    ]
+  },
+  {
+    "id": "char_deng_tu_zi",
+    "name": "登徒子",
+    "alias": [],
+    "identity": "意图侵犯萧南苹的恶徒",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "趁萧南苹穴道被点时意图侵犯她的恶徒。",
+    "personality": {
+      "traits": [
+        "淫邪",
+        "无耻",
+        "放荡",
+        "胆大",
+        "轻浮"
+      ],
+      "speech_style": "淫词浪语，轻浮下流",
+      "temperament": "放荡"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_nan_ping",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 1,
+        "dynamic": "意图侵犯"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "line_start": 354,
+        "line_end": 356,
+        "text": "碧纱窗外静无人，跪下身来忙要亲"
+      }
+    ]
+  },
+  {
+    "id": "char_ban_biao_hu",
+    "name": "白斑虎",
+    "alias": [],
+    "identity": "天争教开封分舵教众",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "平平无奇",
+    "one_line": "开封城茶馆中的天争教粗汉，满头癞痢，被伊风痛打",
+    "personality": {
+      "traits": [
+        "粗鲁",
+        "欺软怕硬",
+        "鲁莽",
+        "好勇斗狠",
+        "无脑",
+        "蛮横"
+      ],
+      "speech_style": "粗俗叫骂",
+      "temperament": "暴躁"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_bo_yang",
+        "type": "主仆",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "下属"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 184,
+        "line_end": 190,
+        "text": "一个满头癞痢的汉子站了起来，瞪着一双满布红丝的金鱼眼"
+      }
+    ]
+  },
+  {
+    "id": "char_zi_yi_xiang_zhu",
+    "name": "陈敬仁",
+    "alias": [
+      "小丧门",
+      "紫衣香主",
+      "陈敏仁"
+    ],
+    "identity": "天争教开封分舵香主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "紫衣香主，人称小丧门，擒获伊风后被其冒充教主所震慑，后在夜袭中被杀",
+    "personality": {
+      "traits": [
+        "嚣张",
+        "欺软怕硬",
+        "趋炎附势",
+        "胆小",
+        "谄媚",
+        "鲁莽"
+      ],
+      "speech_style": "嚣张跋扈",
+      "temperament": "外强中干"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_bo_yang",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "下属"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 1,
+        "dynamic": "被冒牌教主震慑后跪地求饶"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 336,
+        "line_end": 336,
+        "text": "小丧门陈敬仁"
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_bo_yang",
+    "name": "蒋伯阳",
+    "alias": [
+      "盘龙银棍",
+      "蒋舵主"
+    ],
+    "identity": "天争教开封分舵舵主",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "嵩山出身的少林弟子，任天争教开封分舵舵主，手面阔绰，认出伊风冒充教主",
+    "personality": {
+      "traits": [
+        "老练",
+        "圆滑",
+        "察言观色",
+        "见风使舵",
+        "有城府",
+        "识时务"
+      ],
+      "speech_style": "圆滑恭敬",
+      "temperament": "世故"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_feng",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "误认为教主"
+      }
+    ],
+    "known_skills": [
+      "skill_shao_lin_fu_hu_quan"
+    ],
+    "related_skills": [
+      "skill_shao_lin_fu_hu_quan"
+    ],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 300,
+        "line_end": 300,
+        "text": "这开封分舵主，正是“盘龙银棍”蒋伯阳"
+      }
+    ]
+  },
+  {
+    "id": "char_wan_hong",
+    "name": "万虹",
+    "alias": [],
+    "identity": "万天萍之女",
+    "faction": null,
+    "role": "companion",
+    "archetype": "warrior",
+    "rank": "初窥门径",
+    "one_line": "万天萍之女，翠装丽人，擅轻功，对伊风暗生情愫",
+    "personality": {
+      "traits": [
+        "娇纵",
+        "善妒",
+        "痴情",
+        "直率",
+        "泼辣",
+        "关心父亲"
+      ],
+      "speech_style": "娇声娇气，直言不讳",
+      "temperament": "热烈"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_tian_ping",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "父女情深"
+      },
+      {
+        "target": "char_yi_feng",
+        "type": "恋人",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "暗生情愫"
+      },
+      {
+        "target": "char_xiao_nan_ping",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "争风吃醋，尖酸刻薄"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 78,
+        "line_end": 80,
+        "text": "我叫万虹，是我爹的女儿。"
+      },
+      {
+        "chapter": 12,
+        "line_start": 347,
+        "line_end": 347,
+        "text": "那女子已经走了，你还拼什么命？"
+      }
+    ]
+  },
+  {
+    "id": "char_wan_tian_ping_qi_zi",
+    "name": "万天萍妻子",
+    "alias": [],
+    "identity": "万天萍之妻",
+    "faction": null,
+    "role": "npc",
+    "archetype": "healer",
+    "rank": "平平无奇",
+    "one_line": "万天萍妻子，在悬崖密阁与丈夫隐居十年，温柔慈爱",
+    "personality": {
+      "traits": [
+        "温柔",
+        "慈爱",
+        "隐忍",
+        "深情",
+        "贤淑",
+        "寡言"
+      ],
+      "speech_style": "轻声细语，语带感慨",
+      "temperament": "温柔"
+    },
+    "relationships": [
+      {
+        "target": "char_wan_tian_ping",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "十年重聚，深情不移"
+      },
+      {
+        "target": "char_wan_hong",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "母女情深"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 60,
+        "line_end": 62,
+        "text": "唉！十年了。十年来，我们几乎已经忘了这世上还有别人存在。"
+      }
+    ]
+  },
+  {
+    "id": "char_qian_yi",
+    "name": "钱翊",
+    "alias": [
+      "金衫"
+    ],
+    "identity": "武林高手",
+    "faction": "faction_tian_zheng_jiao",
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "登堂入室",
+    "one_line": "天争教高手，绰号金衫，被隐形杀手刺杀于襄阳城外",
+    "personality": {
+      "traits": [
+        "勇猛",
+        "忠诚",
+        "好斗",
+        "刚烈",
+        "豪爽"
+      ],
+      "speech_style": "豪迈直率",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_wu",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "天争教属下"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 12,
+        "line_end": 12,
+        "text": "“金衫”钱翊被刺杀于襄阳城外，身中数十点剑伤而亡"
+      }
+    ]
+  },
+  {
+    "id": "char_fei_hong_liu_jian",
+    "name": "飞虹六剑",
+    "alias": [
+      "飞虹七剑"
+    ],
+    "identity": "武林剑客团体",
+    "faction": null,
+    "role": "npc",
+    "archetype": "warrior",
+    "rank": "略有小成",
+    "one_line": "六人剑客团体，原为七人，三弟已死且脸皮被萧无所用，在西湖挑战萧无时全部被杀",
+    "personality": {
+      "traits": [
+        "团结",
+        "勇猛",
+        "重义气",
+        "不畏强敌",
+        "有血性"
+      ],
+      "speech_style": "简洁直接",
+      "temperament": "刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_wu",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 2,
+        "dynamic": "为三弟之死向萧无寻仇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 98,
+        "line_end": 98,
+        "text": "人群中跳出六个人，一字排在黑衣人面前"
+      }
+    ]
+  }
+]
