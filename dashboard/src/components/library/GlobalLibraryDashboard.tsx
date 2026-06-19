@@ -1,9 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Empty, Segmented, Spin, Typography } from 'antd';
 import { useBookStore } from '../../stores/useBookStore';
 import { useLibraryStore } from '../../stores/useLibraryStore';
 import { useLibraryData } from '../../hooks/useLibraryData';
 import type { LibrarySection } from '../../types/library';
+import { annotateRecords } from '../../utils/libraryAnnotations';
+import { filterCharacters, filterFactions, filterItems, filterSkills, getUniqueFilterValues } from '../../utils/libraryFilters';
+import { isLegendaryItem, isTopTierSkill } from '../../utils/libraryAggregate';
+import LibraryDetailDrawer from './LibraryDetailDrawer';
+import LibraryFiltersPanel from './LibraryFilters';
+import LibraryRecordTable from './LibraryRecordTable';
 import LibrarySummary from './LibrarySummary';
 
 const { Paragraph, Title } = Typography;
@@ -20,7 +26,16 @@ const SECTION_OPTIONS: Array<{ label: string; value: LibrarySection }> = [
 const GlobalLibraryDashboard: React.FC = () => {
   const books = useBookStore((state) => state.books);
   const data = useLibraryData(books);
-  const { section, setSection, hydrateAnnotations } = useLibraryStore();
+  const {
+    section,
+    setSection,
+    filters,
+    setFilters,
+    resetFilters,
+    selectRecord,
+    annotations,
+    hydrateAnnotations,
+  } = useLibraryStore();
 
   useEffect(() => {
     hydrateAnnotations();
@@ -35,6 +50,35 @@ const GlobalLibraryDashboard: React.FC = () => {
     factions: data.factions,
     items: data.items,
   };
+
+  const filterOptions = useMemo(() => ({
+    rank: getUniqueFilterValues(data.skills.map((record) => record.entity.rank)),
+    author: getUniqueFilterValues(books.map((book) => book.author)),
+    bookPath: books.map((book) => ({ label: `${book.author} / ${book.name}`, value: book.path })),
+    type: getUniqueFilterValues([
+      ...data.skills.map((record) => record.entity.type),
+      ...data.factions.map((record) => record.entity.type),
+      ...data.items.map((record) => record.entity.type),
+    ]),
+    faction: getUniqueFilterValues([
+      ...data.skills.map((record) => record.entity.faction),
+      ...data.characters.map((record) => record.entity.faction),
+    ]),
+    role: getUniqueFilterValues(data.characters.map((record) => record.entity.role)),
+    archetype: getUniqueFilterValues(data.characters.map((record) => record.entity.archetype)),
+    rarity: getUniqueFilterValues(data.items.map((record) => record.entity.rarity)),
+  }), [books, data.characters, data.factions, data.items, data.skills]);
+
+  const topSkills = useMemo(
+    () => filterSkills(data.skills.filter((record) => isTopTierSkill(record.entity)), filters),
+    [data.skills, filters],
+  );
+  const characters = useMemo(() => filterCharacters(data.characters, filters), [data.characters, filters]);
+  const factions = useMemo(() => filterFactions(data.factions, filters), [data.factions, filters]);
+  const legendaryItems = useMemo(
+    () => filterItems(data.items.filter((record) => isLegendaryItem(record.entity)), filters),
+    [data.items, filters],
+  );
 
   return (
     <div>
@@ -51,7 +95,20 @@ const GlobalLibraryDashboard: React.FC = () => {
         style={{ marginBottom: 20 }}
       />
       <LibrarySummary collections={collections} warnings={data.warnings} />
-      <div data-testid="library-section">{SECTION_OPTIONS.find((option) => option.value === section)?.label}</div>
+      {section !== 'overview' && section !== 'export' && (
+        <LibraryFiltersPanel
+          filters={filters}
+          options={filterOptions}
+          onChange={setFilters}
+          onReset={resetFilters}
+        />
+      )}
+      {section === 'skills' && <LibraryRecordTable records={annotateRecords(topSkills, annotations)} onOpen={selectRecord} />}
+      {section === 'characters' && <LibraryRecordTable records={annotateRecords(characters, annotations)} onOpen={selectRecord} />}
+      {section === 'factions' && <LibraryRecordTable records={annotateRecords(factions, annotations)} onOpen={selectRecord} />}
+      {section === 'items' && <LibraryRecordTable records={annotateRecords(legendaryItems, annotations)} onOpen={selectRecord} />}
+      {section === 'overview' && <LibraryRecordTable records={annotateRecords(topSkills.slice(0, 20), annotations)} onOpen={selectRecord} />}
+      <LibraryDetailDrawer collections={collections} />
     </div>
   );
 };

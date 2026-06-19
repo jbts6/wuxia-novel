@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 import GlobalLibraryDashboard from './GlobalLibraryDashboard';
 
@@ -32,7 +33,11 @@ vi.mock('../../hooks/useLibraryData', () => ({
 
 describe('GlobalLibraryDashboard', () => {
   it('renders the global library summary and sections', () => {
-    render(<GlobalLibraryDashboard />);
+    render(
+      <MemoryRouter>
+        <GlobalLibraryDashboard />
+      </MemoryRouter>,
+    );
 
     expect(screen.getByText('全库总览')).toBeInTheDocument();
     expect(screen.getAllByText('顶级武功').length).toBeGreaterThan(0);
