@@ -1,0 +1,452 @@
+{
+  "chapter": 34,
+  "chapter_summary": "项少龙在酒楼接受龙阳君手下沙宣的挑战。沙宣乃魏安厘王御前八大铁卫之首，剑术凶狠。项少龙以墨子剑法静守应对，利用飞虹剑反射阳光照盲沙宣双目，一剑割断其咽喉，将其斩杀。信陵君大为痛快，随后带项少龙前往雅湖小筑拜访才貌双全的女主人纪嫣然。纪嫣然大魏剑术排名第二，才艺震惊天下，与秦国寡妇清并称当代双娇。抵达后得知纪嫣然正在午睡，众人于客厅等候。",
+  "dialogues": [
+    {
+      "speaker": null,
+      "speaker_name": null,
+      "listener": null,
+      "text": "锵！",
+      "tone": "陈述",
+      "chapter": 34,
+      "line_start": 12,
+      "line_end": 12
+    },
+    {
+      "speaker": "char_xiang_shao_long",
+      "speaker_name": "项少龙",
+      "listener": "char_long_yang_jun",
+      "text": "沙兄剑法高明，我想留手亦有所不能，君上请恕罪。",
+      "tone": "淡然",
+      "chapter": 34,
+      "line_start": 50,
+      "line_end": 52
+    },
+    {
+      "speaker": "char_xin_ling_jun",
+      "speaker_name": "信陵君",
+      "listener": "char_xiang_shao_long",
+      "text": "少龙给我出了这口鸟气，真是痛快！",
+      "tone": "豪迈",
+      "chapter": 34,
+      "line_start": 54,
+      "line_end": 54
+    },
+    {
+      "speaker": "char_xiang_shao_long",
+      "speaker_name": "项少龙",
+      "listener": "char_xin_ling_jun",
+      "text": "不知安厘王会否因我杀了他的御卫而不快？",
+      "tone": "疑问",
+      "chapter": 34,
+      "line_start": 56,
+      "line_end": 58
+    },
+    {
+      "speaker": "char_xin_ling_jun",
+      "speaker_name": "信陵君",
+      "listener": "char_xiang_shao_long",
+      "text": "这沙宣藉试剑切磋为名，先后杀掉我五名得力剑手，今天被你斩杀，安厘有什么话好说的。",
+      "tone": "冷笑",
+      "chapter": 34,
+      "line_start": 60,
+      "line_end": 62
+    },
+    {
+      "speaker": "char_xin_ling_jun",
+      "speaker_name": "信陵君",
+      "listener": "char_xiang_shao_long",
+      "text": "我们现在去的是大梁所有男人都想去的'雅湖小筑'，此筑固是风光迷人，更主要的原因是它的女主人纪嫣然小姐不但有倾国倾城之色，又以才艺震惊天下，与秦国的寡妇清并称当代双娇。",
+      "tone": "陈述",
+      "chapter": 34,
+      "line_start": 66,
+      "line_end": 68
+    },
+    {
+      "speaker": "char_xiang_shao_long",
+      "speaker_name": "项少龙",
+      "listener": "char_xin_ling_jun",
+      "text": "论武？",
+      "tone": "惊讶",
+      "chapter": 34,
+      "line_start": 76,
+      "line_end": 76
+    },
+    {
+      "speaker": "char_xin_ling_jun",
+      "speaker_name": "信陵君",
+      "listener": "char_xiang_shao_long",
+      "text": "想不到你竟不知此事，嫣然小姐在我大魏剑术排名尤在龙阳君之上，位列第二。唉！如此佳人，一般凡夫俗子怎配得起她呢？所以至今仍是未嫁之身，谁人能得她心许，定可立时名扬天下，羡煞四方有心之徒。",
+      "tone": "无奈",
+      "chapter": 34,
+      "line_start": 78,
+      "line_end": 82
+    },
+    {
+      "speaker": "char_xin_ling_jun",
+      "speaker_name": "信陵君",
+      "listener": "char_xiang_shao_long",
+      "text": "说到外型、武技，少龙均有入选资格，就怕过不了诗艺才学一关。",
+      "tone": "无奈",
+      "chapter": 34,
+      "line_start": 84,
+      "line_end": 86
+    },
+    {
+      "speaker": "char_mei_bi",
+      "speaker_name": "美婢",
+      "listener": "char_xin_ling_jun",
+      "text": "小姐正做午间小睡，信陵君和诸位请在客厅小候片刻。",
+      "tone": "平静",
+      "chapter": 34,
+      "line_start": 102,
+      "line_end": 104
+    }
+  ],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_sha_xuan",
+        "name": "沙宣",
+        "alias": [],
+        "identity": "魏安厘王御前八大铁卫之首",
+        "faction": "faction_wei_guo",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "魏安厘王御前八大铁卫之首，大梁人人害怕的剑术高手，被项少龙一剑斩杀。",
+        "personality": {
+          "traits": [
+            "凶狠",
+            "好斗",
+            "骄傲",
+            "狂妄",
+            "残忍"
+          ],
+          "speech_style": "简短凶狠",
+          "temperament": "暴躁"
+        },
+        "relationships": [
+          {
+            "target": "char_xiang_shao_long",
+            "type": "宿敌",
+            "intensity": 80,
+            "bond_level": 1,
+            "dynamic": "初遇即生死对决"
+          },
+          {
+            "target": "char_wei_an_li_wang",
+            "type": "主仆",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "忠心护卫"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          34
+        ],
+        "source_refs": [
+          {
+            "chapter": 34,
+            "line_start": 8,
+            "line_end": 9,
+            "text": "沙宣的剑术在大梁非常有名，乃魏安厘王的御前八大铁卫之首，是大梁人人害怕的人物之一。"
+          }
+        ]
+      },
+      {
+        "id": "char_long_yang_jun",
+        "name": "龙阳君",
+        "alias": [],
+        "identity": "魏国权贵",
+        "faction": "faction_wei_guo",
+        "role": "villain",
+        "archetype": "scholar",
+        "rank": "初窥门径",
+        "one_line": "魏国权贵，与项少龙对立，对手下沙宣充满信心。",
+        "personality": {
+          "traits": [
+            "阴险",
+            "自负",
+            "虚伪",
+            "好色",
+            "傲慢"
+          ],
+          "speech_style": "阴柔",
+          "temperament": "阴沉"
+        },
+        "relationships": [
+          {
+            "target": "char_xiang_shao_long",
+            "type": "对手",
+            "intensity": 70,
+            "bond_level": 2,
+            "dynamic": "敌对"
+          },
+          {
+            "target": "char_sha_xuan",
+            "type": "主仆",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "信任属下"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          34
+        ],
+        "source_refs": [
+          {
+            "chapter": 34,
+            "line_start": 6,
+            "line_end": 7,
+            "text": "龙阳君对这手下充满信心，嘴角含春地看着项少龙，他的几个属下则对项少龙投以轻蔑神色。"
+          }
+        ]
+      },
+      {
+        "id": "char_ji_yan_ran",
+        "name": "纪嫣然",
+        "alias": [
+          "嫣然小姐",
+          "嫣然"
+        ],
+        "identity": "雅湖小筑女主人",
+        "faction": "faction_wei_guo",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "雅湖小筑女主人，倾国倾城之色，才艺震惊天下，大魏剑术排名第二，与秦国寡妇清并称当代双娇。",
+        "personality": {
+          "traits": [
+            "才华横溢",
+            "超凡脱俗",
+            "高傲",
+            "清雅",
+            "独立"
+          ],
+          "speech_style": "文雅",
+          "temperament": "清冷"
+        },
+        "relationships": [
+          {
+            "target": "char_xin_ling_jun",
+            "type": "合作者",
+            "intensity": 30,
+            "bond_level": 2,
+            "dynamic": "慕名来访"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          34
+        ],
+        "source_refs": [
+          {
+            "chapter": 34,
+            "line_start": 66,
+            "line_end": 68,
+            "text": "此筑固是风光迷人，更主要的原因是它的女主人纪嫣然小姐不但有倾国倾城之色，又以才艺震惊天下，与秦国的寡妇清并称当代双娇。"
+          },
+          {
+            "chapter": 34,
+            "line_start": 78,
+            "line_end": 82,
+            "text": "嫣然小姐在我大魏剑术排名尤在龙阳君之上，位列第二。"
+          }
+        ]
+      },
+      {
+        "id": "char_mei_bi",
+        "name": "美婢",
+        "alias": [],
+        "identity": "纪嫣然的侍女",
+        "faction": null,
+        "role": "npc",
+        "archetype": "healer",
+        "rank": "平平无奇",
+        "one_line": "纪嫣然的清秀侍女，在雅湖小筑接待来客。",
+        "personality": {
+          "traits": [
+            "清秀",
+            "温婉",
+            "守礼",
+            "知分寸",
+            "勤勉"
+          ],
+          "speech_style": "恭敬有礼",
+          "temperament": "温顺"
+        },
+        "relationships": [
+          {
+            "target": "char_ji_yan_ran",
+            "type": "主仆",
+            "intensity": 40,
+            "bond_level": 3,
+            "dynamic": "忠心侍奉"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          34
+        ],
+        "source_refs": [
+          {
+            "chapter": 34,
+            "line_start": 102,
+            "line_end": 104,
+            "text": "一名清秀的美婢由楼内盈盈出现，向信陵君施礼道"
+          }
+        ]
+      },
+      {
+        "id": "char_wei_an_li_wang",
+        "name": "魏安厘王",
+        "alias": [
+          "安厘王",
+          "安厘"
+        ],
+        "identity": "魏国国君",
+        "faction": "faction_wei_guo",
+        "role": "npc",
+        "archetype": "scholar",
+        "rank": "平平无奇",
+        "one_line": "魏国国君，沙宣的主人，与信陵君对立。",
+        "personality": {
+          "traits": [
+            "多疑",
+            "昏庸",
+            "懦弱",
+            "猜忌",
+            "贪图安逸"
+          ],
+          "speech_style": "威严",
+          "temperament": "阴沉"
+        },
+        "relationships": [
+          {
+            "target": "char_sha_xuan",
+            "type": "主仆",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "御前护卫"
+          },
+          {
+            "target": "char_xin_ling_jun",
+            "type": "对手",
+            "intensity": 70,
+            "bond_level": 2,
+            "dynamic": "互相猜忌"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          34
+        ],
+        "source_refs": [
+          {
+            "chapter": 34,
+            "line_start": 8,
+            "line_end": 9,
+            "text": "乃魏安厘王的御前八大铁卫之首"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_wei_guo",
+        "name": "魏国",
+        "type": "武林门派",
+        "location": "大梁",
+        "sub_divisions": [],
+        "one_line": "战国七雄之一，国都大梁，魏安厘王在位，权贵有信陵君、龙阳君等。",
+        "source_refs": [
+          {
+            "chapter": 34,
+            "line_start": 8,
+            "line_end": 9,
+            "text": "乃魏安厘王的御前八大铁卫之首"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_ya_hu_xiao_zhu",
+        "name": "雅湖小筑",
+        "region": "大梁",
+        "one_line": "大梁所有男人都想去的清幽雅致园林院落，女主人为纪嫣然小姐，湖心有小洲，洲上有精巧楼房舍。",
+        "source_refs": [
+          {
+            "chapter": 34,
+            "line_start": 66,
+            "line_end": 68,
+            "text": "我们现在去的是大梁所有男人都想去的'雅湖小筑'"
+          },
+          {
+            "chapter": 34,
+            "line_start": 88,
+            "line_end": 90,
+            "text": "林木掩映中，只见一个小湖展现眼前，湖心有片小洲，纵横数亩，上面有几座雅致精巧的小楼房舍，一道长桥连接彼岸，有若仙人隐居的福地。"
+          }
+        ]
+      }
+    ],
+    "items": []
+  },
+  "entity_updates": [
+    {
+      "id": "char_xiang_shao_long",
+      "updates": {
+        "rank": "炉火纯青",
+        "source_refs": [
+          {
+            "chapter": 34,
+            "line_start": 20,
+            "line_end": 22,
+            "text": "进入墨子剑法静守的境界"
+          },
+          {
+            "chapter": 34,
+            "line_start": 34,
+            "line_end": 36,
+            "text": "他战斗经验无比丰富，培养出高明的眼力"
+          }
+        ],
+        "known_skills": [
+          "skill_mo_zi_jian_fa"
+        ],
+        "related_skills": [
+          "skill_mo_zi_jian_fa"
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "add",
+          "target": "char_sha_xuan",
+          "type": "宿敌",
+          "intensity": 80,
+          "bond_level": 1,
+          "dynamic": "一剑斩杀"
+        },
+        {
+          "action": "add",
+          "target": "char_ji_yan_ran",
+          "type": "合作者",
+          "intensity": 10,
+          "bond_level": 1,
+          "dynamic": "慕名欲见"
+        }
+      ]
+    }
+  ]
+}

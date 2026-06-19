@@ -1,0 +1,1842 @@
+[
+  {
+    "id": "skill_mo_jia_jian_shu",
+    "name": "墨家剑术",
+    "type": "剑法",
+    "faction": "faction_mo_zhe_hang_hui",
+    "rank": "出神入化",
+    "one_line": "墨者行会传承的剑法，以守为主、以守代攻，无懈可击。",
+    "techniques": [
+      {
+        "id": "tech_shou_jian_shi",
+        "name": "守剑式",
+        "type": "defense",
+        "description": "以木剑后发先至，恰到好处地挡开对手攻击，虽只守不攻却无懈可击。"
+      },
+      {
+        "id": "tech_po_jian_shi",
+        "name": "破剑式",
+        "type": "attack",
+        "description": "在守剑基础上寻隙反击，以巧破力，使对手有力难施。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "初学剑术，凭力大身巧勉强接招"
+      },
+      {
+        "level": 2,
+        "description": "一个月后造诣可与元宗有守有攻"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "以守代攻，使对手有力难施"
+      }
+    ],
+    "combat_style": "以守为主，后发先至，以巧破力",
+    "rag_refs": [
+      6,
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "line_start": 86,
+        "line_end": 88,
+        "text": "这是用千年花榴木造的重剑，好！攻我两剑看看。"
+      },
+      {
+        "chapter": 6,
+        "line_start": 100,
+        "line_end": 106,
+        "text": "那人一动不动，手腕一摇，木剑后发先至……虽只守不攻，却是无懈可击。"
+      },
+      {
+        "chapter": 7,
+        "line_start": 26,
+        "line_end": 28,
+        "text": "少龙知否为兄因何传你墨氏举世无双的剑术？"
+      },
+      {
+        "chapter": 7,
+        "line_start": 76,
+        "line_end": 76,
+        "text": "他的心神全浸淫在元宗所授，来自一代大师墨翟的剑法里"
+      }
+    ]
+  },
+  {
+    "id": "skill_mo_zi_jian_fa",
+    "name": "墨子剑法",
+    "type": "剑法",
+    "faction": "墨家",
+    "rank": "略有小成",
+    "one_line": "元宗传授项少龙的墨家剑法，项少龙又教授公子盘起手式",
+    "techniques": [
+      {
+        "id": "tech_mo_zi_qi_shou_shi",
+        "name": "起手式",
+        "type": "attack",
+        "description": "墨子剑法的基本起手式，用于攻防转换"
+      },
+      {
+        "id": "tech_mo_zi_jian_zhen",
+        "name": "剑阵",
+        "type": "defense",
+        "description": "墨子剑法中的防御阵势"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "项少龙初学墨子剑法"
+      },
+      {
+        "level": 2,
+        "description": "项少龙传授公子盘起手式"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "墨家剑法注重实用，攻守兼备"
+      }
+    ],
+    "combat_style": "以守为攻，注重实用",
+    "rag_refs": [
+      22,
+      45,
+      46,
+      47,
+      49,
+      54,
+      74,
+      160,
+      161,
+      198
+    ],
+    "source_refs": [
+      {
+        "chapter": 22,
+        "line_start": 48,
+        "line_end": 48,
+        "text": "教他墨子剑法的起手式"
+      },
+      {
+        "chapter": 45,
+        "line_start": 4,
+        "line_end": 4,
+        "text": "元宗不但供应食住，还传授他墨子剑法"
+      },
+      {
+        "chapter": 45,
+        "line_start": 76,
+        "line_end": 76,
+        "text": "与墨子剑法的以守为主大相径庭"
+      },
+      {
+        "chapter": 46,
+        "line_start": 74,
+        "line_end": 76,
+        "text": "项少龙进入墨子剑法守心的诀窍...左手飞虹狂格猛挑，右手墨子剑重砍硬劈"
+      },
+      {
+        "chapter": 47,
+        "line_start": 136,
+        "line_end": 140,
+        "text": "墨子木剑...正是墨翟三大杀招守心如玉的心法"
+      },
+      {
+        "chapter": 47,
+        "line_start": 164,
+        "line_end": 166,
+        "text": "使出三大杀招以攻代守的招式"
+      },
+      {
+        "chapter": 47,
+        "line_start": 176,
+        "line_end": 176,
+        "text": "以守代攻乃墨氏三大杀招的首式，内中包含一百二十势"
+      },
+      {
+        "chapter": 49,
+        "line_start": 224,
+        "line_end": 225,
+        "text": "悉心传授他墨子剑法"
+      },
+      {
+        "chapter": 54,
+        "line_start": 86,
+        "line_end": 86,
+        "text": "展开墨子剑法，向项少龙横砍直劈，斜挑侧削，攻出七剑"
+      },
+      {
+        "chapter": 74,
+        "line_start": 366,
+        "line_end": 366,
+        "text": "使出《墨氏补遗》三大杀招的'以攻代守'"
+      },
+      {
+        "chapter": 160,
+        "line_start": 230,
+        "line_end": 230,
+        "text": "使出《墨氏补遗》三大杀招之一的'以守代攻'"
+      },
+      {
+        "chapter": 161,
+        "line_start": 186,
+        "line_end": 188,
+        "text": "墨子剑法除了三大杀招外，本是重守不重攻，以王道之气不战而屈人之兵。"
+      },
+      {
+        "chapter": 198,
+        "line_start": 186,
+        "line_end": 188,
+        "text": "即使以滕翼的本事，亦施展不开墨子剑法。不过墨子剑主守"
+      }
+    ]
+  },
+  {
+    "id": "skill_mo_shi_jian_fa_bu_yi_san_da_sha_zhao",
+    "name": "墨氏剑法补遗三大杀招",
+    "type": "剑法",
+    "faction": "墨家",
+    "rank": "炉火纯青",
+    "one_line": "墨翟晚年所创三大攻击杀招，藏于巨子令中，补墨子剑法之不足。",
+    "techniques": [
+      {
+        "id": "tech_yi_shou_dai_gong",
+        "name": "以守代攻",
+        "type": "feint",
+        "description": "第一式，以守势蓄力，伺机反攻"
+      },
+      {
+        "id": "tech_yi_gong_dai_shou",
+        "name": "以攻代守",
+        "type": "attack",
+        "description": "第二式，若裂岸惊涛，沛然莫御"
+      },
+      {
+        "id": "tech_gong_shou_jian_zi",
+        "name": "攻守兼资",
+        "type": "special",
+        "description": "第三式，攻中有守，守中有攻，变化无穷"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "chapter": 45,
+        "description": "项少龙发现巨子令秘密后习得"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "与墨子剑法配合，威力倍增"
+      }
+    ],
+    "combat_style": "主攻为主，攻守兼备，变化莫测",
+    "rag_refs": [
+      45
+    ],
+    "source_refs": [
+      {
+        "chapter": 45,
+        "line_start": 74,
+        "line_end": 76,
+        "text": "下卷竟是剑法，卷首写着'墨氏剑法补遗三大杀招'"
+      },
+      {
+        "chapter": 45,
+        "line_start": 82,
+        "line_end": 84,
+        "text": "第一式名为'以守代攻'……第二式名为'以攻代守'……第三式名为'攻守兼资'"
+      }
+    ]
+  },
+  {
+    "id": "skill_ye_lin_jian",
+    "name": "夜林箭",
+    "type": "暗器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "滕翼独门箭术，黑夜密林中百发百中，连走过的耗子都避不过。",
+    "techniques": [
+      {
+        "id": "tech_ye_lin_lian_she",
+        "name": "夜林连射",
+        "type": "attack",
+        "description": "以惊人熟练手法连续射箭，每箭必中一人，专射持火把者。"
+      },
+      {
+        "id": "tech_ye_lin_an_she",
+        "name": "夜林暗射",
+        "type": "attack",
+        "description": "在漆黑密林中凭声音判断敌人位置，精准射杀。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "名震韩境的箭术"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "黑夜密林中精准射杀，必有人应箭惨叫"
+      }
+    ],
+    "combat_style": "黑夜密林中凭听觉定位，劲弓强箭一箭一人",
+    "rag_refs": [
+      46
+    ],
+    "source_refs": [
+      {
+        "chapter": 46,
+        "line_start": 144,
+        "line_end": 146,
+        "text": "滕大哥的'夜林箭'名震韩境，连走过的耗子都避不过"
+      }
+    ]
+  },
+  {
+    "id": "skill_po_mo_jian_fa",
+    "name": "破墨剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "严平自创的剑法，专门用来对付墨门内的敌人",
+    "techniques": [
+      {
+        "id": "tech_po_mo_kuang_gong",
+        "name": "破墨狂攻",
+        "type": "attack",
+        "description": "破墨剑法的狂攻招式，疾如流星往对方击去"
+      },
+      {
+        "id": "tech_po_mo_shou_shi",
+        "name": "破墨守势",
+        "type": "defense",
+        "description": "破墨剑法的守势招式，门户森严泼水难进，专门用来克制墨子剑法的攻势"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "chapter": 47,
+        "description": "严平以此剑法对战项少龙"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "专门克制墨子剑法"
+      }
+    ],
+    "combat_style": "以攻为主，专门克制墨子剑法",
+    "rag_refs": [
+      47
+    ],
+    "source_refs": [
+      {
+        "chapter": 47,
+        "line_start": 172,
+        "line_end": 172,
+        "text": "他这套剑法乃出于自创，名为破墨，专门用来对付墨门内的敌人"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_zuo_xiu_lian_fa",
+    "name": "打坐修炼法",
+    "type": "内功",
+    "faction": "墨家",
+    "rank": "初窥门径",
+    "one_line": "项少龙依三大杀招卷中打坐方法修炼，进入物我两忘境界，精神超离肉身羁绊",
+    "techniques": [
+      {
+        "id": "tech_da_zuo_ru_ding",
+        "name": "打坐入定",
+        "type": "buff",
+        "description": "盘膝打坐运气，意与心会，心与神守，神与虚合，万念俱灭，进入物我两忘的境界"
+      },
+      {
+        "id": "tech_tiao_shen_yang_xi_fa",
+        "name": "调神养息法",
+        "type": "buff",
+        "description": "通过打坐调养精神，回醒后神清气爽，无血气不畅的麻痹感觉"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "chapter": 52,
+        "description": "首次依卷中方法打坐，无意进入物我两忘境界"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "恢复精神，提升内力修为，进入前所未有的清明境界"
+      }
+    ],
+    "combat_style": "修心养性，调和气息，精神超脱肉体",
+    "rag_refs": [
+      52
+    ],
+    "source_refs": [
+      {
+        "chapter": 52,
+        "line_start": 12,
+        "line_end": 16,
+        "text": "就在房内榻旁依三大杀招卷里的打坐方法，盘膝打坐运气，意与心会，心与神守，神与虚合，万念俱灭，竟无意地进入前所未有物我两忘的境界"
+      }
+    ]
+  },
+  {
+    "id": "skill_mo_shi_san_da_sha_zhao",
+    "name": "墨氏三大杀招",
+    "type": "剑法",
+    "faction": "墨门",
+    "rank": "炉火纯青",
+    "one_line": "墨门绝学，包含三招致命剑法，最厉害的为攻守兼资。",
+    "techniques": [
+      {
+        "id": "tech_gong_shou_jian_zi",
+        "name": "攻守兼资",
+        "type": "attack",
+        "description": "墨氏三大杀招中最厉害的一招，攻守合一，势如铜墙铁壁，曾在比武中令严平吃亏。"
+      },
+      {
+        "id": "tech_qian_lian_sha_zhao",
+        "name": "千连杀招",
+        "type": "attack",
+        "description": "墨氏三大杀招之一，连续攻击，势不可挡。"
+      },
+      {
+        "id": "tech_jue_di_fan_sha",
+        "name": "绝地反击",
+        "type": "special",
+        "description": "墨氏三大杀招之一，绝境反攻，以退为进。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "项少龙师从元宗习得"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑势如铜墙铁壁般压来，攻守兼备"
+      }
+    ],
+    "combat_style": "近身剑术，攻守合一",
+    "rag_refs": [
+      110
+    ],
+    "source_refs": [
+      {
+        "chapter": 110,
+        "line_start": 192,
+        "line_end": 192,
+        "text": "使出墨氏三大杀招里最厉害的攻守兼资"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_zhen_shu",
+    "name": "飞针术",
+    "type": "暗器",
+    "faction": "",
+    "rank": "出神入化",
+    "one_line": "项少龙独门暗器绝技，以手代眼掷针，二百步外命中红心，神乎其技。",
+    "techniques": [
+      {
+        "id": "tech_fei_zhen_lian_zhu",
+        "name": "飞针连珠",
+        "type": "attack",
+        "description": "五根飞针连珠迸发，排列整齐命中目标，针间相隔一寸，分毫不差。"
+      },
+      {
+        "id": "tech_fei_zhen_shou_gan",
+        "name": "手感掷针",
+        "type": "special",
+        "description": "以手的感觉代替眼睛瞄准，减少心手之间的隔阂，提升命中率和速度。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "基础飞针投掷"
+      },
+      {
+        "level": 2,
+        "description": "连珠飞针，手感瞄准"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "飞针命中要害可致命"
+      }
+    ],
+    "combat_style": "远距离暗器攻击，出其不意",
+    "rag_refs": [
+      152
+    ],
+    "source_refs": [
+      {
+        "chapter": 152,
+        "line_start": 180,
+        "line_end": 184,
+        "text": "五根飞针一排的钉在箭靶上，中间的一根正中红心"
+      }
+    ]
+  },
+  {
+    "id": "skill_jun_qi_shen_fa",
+    "name": "军奇身法",
+    "type": "轻功",
+    "faction": "无",
+    "rank": "登堂入室",
+    "one_line": "荆俊所用的诡奇灵动身法，以翻腾滚地为主",
+    "techniques": [
+      {
+        "id": "tech_che_lun_fan",
+        "name": "车轮翻",
+        "type": "feint",
+        "description": "连续多个急速翻跟斗，让人看不清楚身份，先声夺人"
+      },
+      {
+        "id": "tech_ling_kong_shuang_fan",
+        "name": "凌空双翻",
+        "type": "special",
+        "description": "在空中连续翻腾后蜷曲身体下落，配合剑击"
+      },
+      {
+        "id": "tech_juan_gun_xi_ji",
+        "name": "卷滚袭击",
+        "type": "attack",
+        "description": "蜷曲如球滚向对手下盘，从不可能的角度发起攻击"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "基础翻腾"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "身形诡变百出，忽而凌空忽而滚地，令对手难以捉摸"
+      }
+    ],
+    "combat_style": "以灵动诡奇为主，翻腾滚地结合剑击",
+    "rag_refs": [
+      156
+    ],
+    "source_refs": [
+      {
+        "chapter": 156,
+        "line_start": 10,
+        "line_end": 12,
+        "text": "由女儿军处一个人翻着跟斗出来，车轮般十多个急翻"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_ji_jian_fa",
+    "name": "剑击剑法",
+    "type": "剑法",
+    "faction": "无",
+    "rank": "登堂入室",
+    "one_line": "以木剑或短剑进行实战的剑法",
+    "techniques": [
+      {
+        "id": "tech_jian_ying_jian_shu",
+        "name": "剑影剑术",
+        "type": "defense",
+        "description": "短木剑爆出一团剑影，守得无懈可击"
+      },
+      {
+        "id": "tech_chong_ci_ji",
+        "name": "冲刺击",
+        "type": "attack",
+        "description": "汇集全身冲刺之力的重击，力道惊人"
+      },
+      {
+        "id": "tech_lian_huan_pi_jian",
+        "name": "连环劈剑",
+        "type": "attack",
+        "description": "连续三声重击，以长剑之利压制对手短剑"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "基础剑术"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "重手法击打令对手手腕麻木"
+      }
+    ],
+    "combat_style": "硬桥硬马与灵动变化相结合",
+    "rag_refs": [
+      156
+    ],
+    "source_refs": [
+      {
+        "chapter": 156,
+        "line_start": 56,
+        "line_end": 58,
+        "text": "周子桓先动剑"
+      }
+    ]
+  },
+  {
+    "id": "skill_mou_lve_shu",
+    "name": "谋略术",
+    "type": "内功",
+    "faction": "faction_qin_wang_shi",
+    "rank": "炉火纯青",
+    "one_line": "项少龙的谋略能力，善于制定长远战略和应对复杂局面",
+    "techniques": [
+      {
+        "id": "tech_yuan_jiao_jin_gong",
+        "name": "远交近攻",
+        "type": "special",
+        "description": "通过结交远处势力、攻打近处敌人的策略来扩大势力"
+      },
+      {
+        "id": "tech_qu_xian_jiu_guo",
+        "name": "曲线救国",
+        "type": "special",
+        "description": "通过迂回曲折的方式达到战略目的，不直接对抗强敌"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "初识谋略之道"
+      },
+      {
+        "level": 2,
+        "description": "善于分析局势"
+      },
+      {
+        "level": 3,
+        "description": "能制定长远战略"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升战略判断力和决策能力"
+      }
+    ],
+    "combat_style": "以智取胜，不战而屈人之兵",
+    "rag_refs": [
+      159
+    ],
+    "source_refs": [
+      {
+        "chapter": 159,
+        "line_start": 110,
+        "line_end": 112,
+        "text": "项少龙把桓齮对高陵君那支叛军的估计告诉他，道：看来高陵君并没有多大作"
+      },
+      {
+        "chapter": 159,
+        "line_start": 160,
+        "line_end": 162,
+        "text": "储君何不成立一支特别调遣部队，直接由储君亲自指挥"
+      },
+      {
+        "chapter": 159,
+        "line_start": 174,
+        "line_end": 180,
+        "text": "正因桓齮和小贲那么年轻，满腔热血，所谓'初生之犊不畏虎'"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_she_shu",
+    "name": "骑射术",
+    "type": "轻功",
+    "faction": "faction_qin_wang_shi",
+    "rank": "登堂入室",
+    "one_line": "项少龙的骑射技能，擅长骑马射箭",
+    "techniques": [
+      {
+        "id": "tech_qi_shu_chong_feng",
+        "name": "骑术冲锋",
+        "type": "attack",
+        "description": "骑马冲锋攻击敌人，利用马速增加攻击力"
+      },
+      {
+        "id": "tech_bai_bu_chuan_yang",
+        "name": "百步穿杨",
+        "type": "attack",
+        "description": "远距离精准射击，百发百中"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "基本骑术"
+      },
+      {
+        "level": 2,
+        "description": "马上射箭"
+      },
+      {
+        "level": 3,
+        "description": "骑射合一"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "提升骑马作战和远程攻击能力"
+      }
+    ],
+    "combat_style": "骑马远程攻击，机动灵活",
+    "rag_refs": [
+      159
+    ],
+    "source_refs": [
+      {
+        "chapter": 159,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "匆匆赶回骑射场去接两位娇妻"
+      }
+    ]
+  },
+  {
+    "id": "skill_yan_xiang_jian_fa",
+    "name": "燕翔剑法",
+    "type": "剑法",
+    "faction": "faction_yan_guo",
+    "rank": "登堂入室",
+    "one_line": "阎独的成名剑法，剑快如闪电，可斩杀急飞的燕子。",
+    "techniques": [
+      {
+        "id": "tech_yan_xiang_jian",
+        "name": "燕翔剑",
+        "type": "attack",
+        "description": "燕翔剑法的核心招式，剑如乳燕翔空，后发先至，快如闪电。"
+      },
+      {
+        "id": "tech_yan_xiang_hu_xuan",
+        "name": "燕翔弧旋",
+        "type": "defense",
+        "description": "燕翔剑法的防御招式，剑由内弯出划弧线，激弹对手兵器。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "阎独凭此剑法成为燕国三大剑手之一"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑快如闪电，攻击力极强"
+      }
+    ],
+    "combat_style": "快剑为主，后发先至，攻守兼备",
+    "rag_refs": [
+      160
+    ],
+    "source_refs": [
+      {
+        "chapter": 160,
+        "line_start": 44,
+        "line_end": 44,
+        "text": "据说他的燕翔剑快如闪电，可斩杀急飞的燕子"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_rong_shu",
+    "name": "易容术",
+    "type": "暗器",
+    "faction": "滇国庄家",
+    "rank": "登堂入室",
+    "one_line": "通过在面部施加伪装改变容貌，使人难以辨识真面目。",
+    "techniques": [
+      {
+        "id": "tech_yi_rong_shu_mian_bu",
+        "name": "面部易容",
+        "type": "special",
+        "description": "在面部施加伪装改变容貌"
+      },
+      {
+        "id": "tech_yi_rong_shu_sheng_yin",
+        "name": "变声",
+        "type": "special",
+        "description": "改变说话声音以配合伪装"
+      }
+    ],
+    "progression": [
+      "初窥门径",
+      "略有小成",
+      "登堂入室"
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "改变容貌使人无法辨识"
+      }
+    ],
+    "combat_style": "非战斗技能",
+    "rag_refs": [
+      169,
+      282
+    ],
+    "source_refs": [
+      {
+        "chapter": 169,
+        "line_start": 30,
+        "line_end": 31,
+        "text": "幸好我两位好妹子最懂易容之术，可在项先生脸上弄点手脚"
+      },
+      {
+        "chapter": 282,
+        "line_start": 308,
+        "line_end": 310,
+        "text": "只要老哥有方法将他的脸孔化妆成我的模样，我就有把握骗倒所有人"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiang_shao_long_jian_shu",
+    "name": "项少龙剑术",
+    "type": "剑法",
+    "faction": "",
+    "rank": "炉火纯青",
+    "one_line": "项少龙融合现代格斗理念的个人实战剑术，注重攻守转换与灵活机动，以血浪宝剑施展。",
+    "techniques": [
+      {
+        "id": "tech_yi_gong_dai_shou",
+        "name": "以攻代守",
+        "type": "attack",
+        "description": "项少龙实战剑招，幻出重重剑浪施以猛烈反击，以进攻代替防守压制敌人。"
+      },
+      {
+        "id": "tech_gong_shou_jian_zi",
+        "name": "攻守兼资",
+        "type": "attack",
+        "description": "项少龙压箱底绝招，划出绵密剑光同时抵挡多方向攻击，似有无穷后招，可一举逼退多名围攻者。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "掌握基本实战剑法"
+      },
+      {
+        "level": 2,
+        "description": "熟练运用以攻代守、攻守兼资等高级招式"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑势凌厉，可斩杀多名敌人"
+      },
+      {
+        "type": "控制",
+        "description": "剑光绵密可逼退围攻者，脱出重围"
+      }
+    ],
+    "combat_style": "实战型剑法，强调攻守转换与临场应变，善用地形和环境优势",
+    "rag_refs": [
+      177
+    ],
+    "source_refs": [
+      {
+        "chapter": 177,
+        "line_start": 196,
+        "line_end": 196,
+        "text": "使出一招\"以攻代守\"，幻出重重剑浪，照着冲上来的两人疾施反击。"
+      },
+      {
+        "chapter": 177,
+        "line_start": 214,
+        "line_end": 214,
+        "text": "使出压箱底的\"攻守兼资\"，三把剑尽劈在他划出的剑光上，更被他似有无穷后招的剑势逼退。"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_zhan_dao_fa",
+    "name": "百战刀法",
+    "type": "剑法",
+    "faction": "",
+    "rank": "登堂入室",
+    "one_line": "项少龙融合墨子剑法攻势与自身武术经验自创的刀法，以百战宝刀施展，主攻不主守，气势凌厉。",
+    "techniques": [
+      {
+        "id": "tech_qian_jun_tu_po",
+        "name": "千军突破",
+        "type": "attack",
+        "description": "毫无花巧的直线劈击，气势如千军万马纵横沙场，刀势凌厉使人生出难撄其锋之感。"
+      },
+      {
+        "id": "tech_xuan_feng_dao_ying",
+        "name": "旋风刀影",
+        "type": "attack",
+        "description": "百战宝刀幻起无数刀影，在移动中翻腾不休，结合螺旋劲道增加杀伤力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "chapter": 196,
+        "note": "项少龙在雪原练刀时领悟刀法精要，将墨子剑法攻势与空手道、国术等融合"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "全攻型打法，每一刀力贯刀梢，气势凌厉"
+      }
+    ],
+    "combat_style": "主攻不主守，融合直线出击、螺旋劲道、抛物线击出等科学原理",
+    "rag_refs": [
+      196,
+      198,
+      208,
+      215,
+      221,
+      272,
+      278
+    ],
+    "source_refs": [
+      {
+        "chapter": 196,
+        "line_start": 94,
+        "line_end": 100,
+        "text": "墨子既能自创剑法，自己于吸收他剑法的精粹后，配合自己对各国武术的认识，为何不能另创一套更适合自己的刀法出来？"
+      },
+      {
+        "chapter": 198,
+        "line_start": 38,
+        "line_end": 42,
+        "text": "想起百战宝刀和新悟出来集古今大成的百战刀法"
+      },
+      {
+        "chapter": 208,
+        "line_start": 30,
+        "line_end": 34,
+        "text": "百战宝刀厉害得过了分，否则管中邪就老命难保"
+      },
+      {
+        "chapter": 215,
+        "line_start": 146,
+        "line_end": 146,
+        "text": "见过我们大将军百战刀法的人"
+      },
+      {
+        "chapter": 221,
+        "line_start": 141,
+        "line_end": 214,
+        "text": "项少龙以百战刀法对决管中邪，舍鞘不用，以横砍直劈逼退管中邪。"
+      },
+      {
+        "chapter": 268,
+        "line_start": 136,
+        "line_end": 156,
+        "text": "项少龙一刀击败麻承甲"
+      },
+      {
+        "chapter": 272,
+        "line_start": 16,
+        "line_end": 16,
+        "text": "练了一会儿百战刀法，所以使得特别纯熟"
+      },
+      {
+        "chapter": 278,
+        "line_start": 110,
+        "line_end": 114,
+        "text": "每一刀劈出，步法均天衣无缝地配合着"
+      }
+    ]
+  },
+  {
+    "id": "skill_han_jie_jian_fa",
+    "name": "韩竭剑法",
+    "type": "剑法",
+    "faction": "内史府",
+    "rank": "炉火纯青",
+    "one_line": "韩竭所使剑法，狠辣凌厉，步法如风，几乎每出剑必伤敌",
+    "techniques": [
+      {
+        "id": "tech_han_jie_jian_fa_jin_gong",
+        "name": "韩竭剑法·进攻",
+        "type": "attack",
+        "description": "剑法狠辣，几乎每一出剑对手不是兵器被磕飞就是中剑负伤"
+      },
+      {
+        "id": "tech_han_jie_jian_fa_bu_fa",
+        "name": "韩竭剑法·步法",
+        "type": "buff",
+        "description": "闪移时步法如风，配合剑法形成凌厉攻势"
+      }
+    ],
+    "progression": {
+      "level": 5,
+      "description": "韩地第一高手"
+    },
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑法凌厉，伤敌于无形"
+      }
+    ],
+    "combat_style": "攻守兼备，以攻为主",
+    "rag_refs": [
+      199
+    ],
+    "source_refs": [
+      {
+        "chapter": 199,
+        "line_start": 250,
+        "line_end": 251,
+        "text": "此人年约二十五、六岁，长得高大俊朗，闪移时步法如风，剑法狠辣"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_long_qiang_fa",
+    "name": "飞龙枪法",
+    "type": "枪法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "纪嫣然的家传枪法，以飞龙枪施展，灵活多变，虚实相生。",
+    "techniques": [
+      {
+        "id": "tech_qiang_ying_ji",
+        "name": "枪影击",
+        "type": "attack",
+        "description": "先扬枪洒出一片枪影，再收窄枪圈，滚滚枪影在身周烟花般烁动，令对手难辨虚实。"
+      },
+      {
+        "id": "tech_xuan_zhuan_heng_sao",
+        "name": "旋转横扫",
+        "type": "attack",
+        "description": "枪杆紧贴腰身，身子急旋，藉转动之力将飞龙枪由直刺变成横扫，取对手剑鞘而非身体。"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以飞龙枪的重量和速度优势，配合灵活步法和腰马之力，虚实结合，攻敌必救之处。",
+    "rag_refs": [
+      206
+    ],
+    "source_refs": [
+      {
+        "chapter": 206,
+        "line_start": 74,
+        "line_end": 75,
+        "text": "纪嫣然一把接过乌光跪献的飞龙枪，先不理国兴，扬枪洒出一片枪影，再收窄枪圈，登时滚滚枪影"
+      },
+      {
+        "chapter": 206,
+        "line_start": 214,
+        "line_end": 215,
+        "text": "枪杆变得紧贴腰身的一刻，身子急旋，藉转动之力，飞龙枪由直刺变成横扫"
+      }
+    ]
+  },
+  {
+    "id": "skill_jing_bing_tuan",
+    "name": "精兵团",
+    "type": "内功",
+    "faction": "秦国",
+    "rank": "出神入化",
+    "one_line": "项少龙麾下精锐部队，训练有素，配合默契",
+    "techniques": [
+      {
+        "id": "tech_zhan_lue_yao_dian_zhan_ling",
+        "name": "战略要点占领",
+        "type": "special",
+        "description": "抢先占据隐蔽战略要点，掌握战场主动权"
+      },
+      {
+        "id": "tech_tian_luo_di_wang",
+        "name": "天罗地网",
+        "type": "control",
+        "description": "布下天罗地网围捕敌人，封锁所有退路"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "初建精兵团"
+      },
+      {
+        "level": 4,
+        "description": "精兵团成为项少龙核心力量"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "围捕封锁，令敌人无处可逃"
+      }
+    ],
+    "combat_style": "训练有素，配合默契，擅长围捕战术",
+    "rag_refs": [
+      208
+    ],
+    "source_refs": [
+      {
+        "chapter": 208,
+        "line_start": 2,
+        "line_end": 2,
+        "text": "滕翼和数十名精兵团的战士正在等候他们"
+      }
+    ]
+  },
+  {
+    "id": "skill_du_ji_jun",
+    "name": "都骑军",
+    "type": "内功",
+    "faction": "秦国",
+    "rank": "登堂入室",
+    "one_line": "秦国王城驻军，由小俊调来助阵",
+    "techniques": [
+      {
+        "id": "tech_zhu_zhen_yuan_zhu",
+        "name": "驻阵援助",
+        "type": "buff",
+        "description": "调动驻军增援战场，形成人数优势"
+      },
+      {
+        "id": "tech_wu_bai_ji_jie",
+        "name": "五百集结",
+        "type": "buff",
+        "description": "五百都骑军快速集结，形成压倒性兵力"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "description": "都骑军初建"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "增援战场，形成人数碾压"
+      }
+    ],
+    "combat_style": "正规军作战，人数优势明显",
+    "rag_refs": [
+      208
+    ],
+    "source_refs": [
+      {
+        "chapter": 208,
+        "line_start": 14,
+        "line_end": 16,
+        "text": "小俊已把城内驻扎的一团五百人都骑军调来助阵"
+      }
+    ]
+  },
+  {
+    "id": "skill_bai_zhan_bao_dao",
+    "name": "百战宝刀",
+    "type": "刀法",
+    "faction": "faction_qin_guo",
+    "rank": "出神入化",
+    "one_line": "项少龙所使的宝刀刀法，威力惊人。",
+    "techniques": [
+      {
+        "id": "tech_bai_zhan_heng_sao",
+        "name": "百战横扫",
+        "type": "attack",
+        "description": "百战宝刀的横扫招式，势大力沉，一刀可斩断敌刃。"
+      },
+      {
+        "id": "tech_bai_zhan_zhi_ci",
+        "name": "百战直刺",
+        "type": "attack",
+        "description": "百战宝刀的直刺招式，快如闪电，直取要害。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "chapter": 219,
+        "description": "已臻化境"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "刀势凌厉，威力惊人"
+      }
+    ],
+    "combat_style": "刚猛霸道，大开大合",
+    "rag_refs": [
+      219
+    ],
+    "source_refs": [
+      {
+        "chapter": 219,
+        "line_start": 366,
+        "line_end": 366,
+        "text": "项少龙一拍挂在腰上的百战宝刀"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "skill_jian_shu",
+    "name": "剑术",
+    "type": "剑法",
+    "faction": "faction_lv_fu",
+    "rank": "登堂入室",
+    "one_line": "管中邪所学剑术，轻灵翔动，织女穿梭般的细腻剑法。",
+    "techniques": [
+      {
+        "id": "tech_xie_tiao_shi",
+        "name": "斜挑式",
+        "type": "attack",
+        "description": "沉腕往下再斜挑而起，取敌小腹，使敌难用砍劈应付。"
+      },
+      {
+        "id": "tech_zhi_nv_chuan_suo",
+        "name": "织女穿梭",
+        "type": "attack",
+        "description": "细腻绵密的手法，如水银泻地般进攻，使敌无隙可乘。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 2,
+        "description": "已掌握应付百战刀法的战术，避免硬拼以轻灵克制坚凝"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "以巧破力，轻灵翔动"
+      }
+    ],
+    "combat_style": "轻灵翔动，避实就虚",
+    "rag_refs": [
+      221
+    ],
+    "source_refs": [
+      {
+        "chapter": 221,
+        "line_start": 153,
+        "line_end": 179,
+        "text": "管中邪以射日剑施展剑法，轻灵翔动对抗百战刀法。"
+      }
+    ]
+  },
+  {
+    "id": "skill_she_shu",
+    "name": "射术",
+    "type": "暗器",
+    "faction": "faction_lv_fu",
+    "rank": "登堂入室",
+    "one_line": "管中邪的精湛箭术，杀伤力极大，项少龙深为忌惮。",
+    "techniques": [
+      {
+        "id": "tech_qiang_gong_ji_she",
+        "name": "强弓急射",
+        "type": "attack",
+        "description": "扳开强弓急射，杀伤力惊人，令人难以闪避。"
+      }
+    ],
+    "progression": [
+      {
+        "level": 2,
+        "description": "箭术杀伤力太大，若能公开对阵则无人可保命"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "远距离致命打击"
+      }
+    ],
+    "combat_style": "远距离狙杀",
+    "rag_refs": [
+      221
+    ],
+    "source_refs": [
+      {
+        "chapter": 221,
+        "line_start": 129,
+        "line_end": 131,
+        "text": "管中邪箭术杀伤力太大，若公开对阵，只要扳开强弓，不知谁能保命。"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_she_zhi_shu",
+    "name": "骑射之术",
+    "type": "轻功",
+    "faction": "秦国",
+    "rank": "出神入化",
+    "one_line": "项少龙精通的骑射技能",
+    "techniques": [
+      {
+        "id": "tech_qi_she_gong_ji_zhi_shu",
+        "name": "骑射攻击之术",
+        "type": "attack",
+        "description": "在马背上射箭的精准攻击技巧"
+      },
+      {
+        "id": "tech_qi_she_fang_yu_zhi_shu",
+        "name": "骑射防御之术",
+        "type": "defense",
+        "description": "骑马时的闪避和格挡技巧"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升移动速度和远程攻击力"
+      }
+    ],
+    "combat_style": "远程精准打击",
+    "rag_refs": [
+      222
+    ],
+    "source_refs": [
+      {
+        "chapter": 222,
+        "line_start": 68,
+        "line_end": 68,
+        "text": "勤练骑射之术"
+      }
+    ]
+  },
+  {
+    "id": "skill_mo_shi_bu_yi",
+    "name": "墨氏补遗",
+    "type": "内功",
+    "faction": "墨家",
+    "rank": "登峰造极",
+    "one_line": "墨家兵法典籍上卷",
+    "techniques": [
+      {
+        "id": "tech_bing_fa_zhan_shu",
+        "name": "兵法战术",
+        "type": "buff",
+        "description": "墨家兵法中的战略战术思想"
+      },
+      {
+        "id": "tech_mo_jia_zhen_yan",
+        "name": "墨家箴言",
+        "type": "buff",
+        "description": "墨家核心思想与处世之道"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升战略思维和军事素养"
+      }
+    ],
+    "combat_style": "智谋取胜",
+    "rag_refs": [
+      222,
+      262
+    ],
+    "source_refs": [
+      {
+        "chapter": 222,
+        "line_start": 68,
+        "line_end": 68,
+        "text": "研习《墨氏补遗》上卷的兵法"
+      },
+      {
+        "chapter": 262,
+        "line_start": 208,
+        "line_end": 208,
+        "text": "使出墨氏补遗三大杀招最厉害的攻守兼资"
+      }
+    ]
+  },
+  {
+    "id": "skill_xun_ying_shu",
+    "name": "驯鹰术",
+    "type": "暗器",
+    "faction": "faction_wu_jia",
+    "rank": null,
+    "one_line": "驯养和训练猎鹰的技艺，可用于空中侦察敌情",
+    "techniques": [
+      {
+        "id": "tech_xun_ying_base_ji",
+        "name": "基础驯鹰",
+        "type": "special",
+        "description": "通过长期训练使猎鹰听从指令，包括召唤、栖息、侦察等基本动作"
+      },
+      {
+        "id": "tech_ying_wang_zhen_cha",
+        "name": "鹰王侦察",
+        "type": "special",
+        "description": "利用训练有素的鹰王在高空侦察敌情，发现敌方探子和兵力部署"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      "空中侦察",
+      "敌情预警"
+    ],
+    "combat_style": "辅助侦察",
+    "rag_refs": [
+      223
+    ],
+    "source_refs": [
+      {
+        "chapter": 223,
+        "line_start": 60,
+        "line_end": 68,
+        "text": "撮唇发出充满音乐感的啸叫，破风声由上而至"
+      }
+    ]
+  },
+  {
+    "id": "skill_pang_xie_zhen",
+    "name": "螃蟹阵",
+    "type": "阵法",
+    "faction": "秦国",
+    "rank": "登峰造极",
+    "one_line": "墨子兵法阵法，兵力集中两翼发动奇兵进攻",
+    "techniques": [
+      {
+        "id": "tech_pang_xie_zhen_qi_bing",
+        "name": "螃蟹阵奇兵",
+        "type": "attack",
+        "description": "将兵力集中于两翼发动进攻的奇兵战术"
+      },
+      {
+        "id": "tech_pang_xie_zhen_zheng_bing",
+        "name": "螃蟹阵正兵",
+        "type": "defense",
+        "description": "正面以高墙投石机和弩箭增加防卫力"
+      }
+    ],
+    "progression": "成熟",
+    "effects": [
+      "增强两翼攻击力",
+      "利用城防优势"
+    ],
+    "combat_style": "背城而战，两翼包抄",
+    "rag_refs": [
+      225
+    ],
+    "source_refs": [
+      {
+        "chapter": 225,
+        "line_start": 40,
+        "line_end": 44,
+        "text": "项、滕两人从墨子兵法内选取螃蟹阵"
+      }
+    ]
+  },
+  {
+    "id": "skill_mo_zi_xin_fa",
+    "name": "墨子心法",
+    "type": "内功",
+    "faction": "墨家",
+    "rank": "炉火纯青",
+    "one_line": "墨家内功心法，可敛神静养恢复精力",
+    "techniques": [
+      {
+        "id": "tech_lian_shen_jing_yang",
+        "name": "敛神静养",
+        "type": "buff",
+        "description": "通过墨子心法凝神静气，迅速恢复身体精力"
+      }
+    ],
+    "progression": "可独立使用恢复精力",
+    "effects": [
+      "增益"
+    ],
+    "combat_style": "辅助型内功",
+    "rag_refs": [
+      232
+    ],
+    "source_refs": [
+      {
+        "chapter": 232,
+        "line_start": 140,
+        "line_end": 140,
+        "text": "依墨子心法敛神静养"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhan_jiang_jian_fa",
+    "name": "斩将剑法",
+    "type": "剑法",
+    "faction": "齐国稷下学宫",
+    "rank": "返璞归真",
+    "one_line": "曹秋道的剑法，以旋身龙卷风式攻击和闪电变招为特色",
+    "techniques": [
+      {
+        "id": "tech_zhan_jiang_long_juan",
+        "name": "龙卷剑芒",
+        "type": "attack",
+        "description": "浑身旋动射出无数剑芒，如龙卷风般往对手旋转攻去"
+      },
+      {
+        "id": "tech_zhan_jiang_bian_zhao",
+        "name": "凌空变招",
+        "type": "feint",
+        "description": "剑招中途由上劈变为前搠，出其不意攻敌咽喉"
+      }
+    ],
+    "progression": "返璞归真",
+    "effects": [
+      "大范围剑芒覆盖",
+      "欺骗性变招"
+    ],
+    "combat_style": "以气势压人，决胜于数式之内，善于旋身攻击和中途变招",
+    "rag_refs": [
+      278
+    ],
+    "source_refs": [
+      {
+        "chapter": 278,
+        "line_start": 136,
+        "line_end": 136,
+        "text": "浑身像刺猬般射出无数剑芒，龙卷风似的往项少龙旋转过去"
+      }
+    ]
+  },
+  {
+    "id": "skill_te_zhong_bu_dui_zhan_shu",
+    "name": "特种部队战术",
+    "type": "轻功",
+    "faction": "faction_wu_family",
+    "rank": "出神入化",
+    "one_line": "项少龙从二十一世纪带来的特种作战战术",
+    "techniques": [
+      {
+        "id": "tech_tian_luo_di_wang",
+        "name": "天罗地网",
+        "type": "special",
+        "description": "利用特制大网从树顶和地面同时围捕敌人，使敌人无处可逃。"
+      },
+      {
+        "id": "tech_ye_ji_zhan_shu",
+        "name": "夜间突袭",
+        "type": "attack",
+        "description": "在夜间利用地形和伪装对敌人发动突然袭击。"
+      }
+    ],
+    "progression": [
+      "精通"
+    ],
+    "effects": [
+      "围捕",
+      "突袭",
+      "伪装"
+    ],
+    "combat_style": "特种作战",
+    "rag_refs": [
+      286
+    ],
+    "source_refs": [
+      {
+        "chapter": 286,
+        "line_start": 92,
+        "line_end": 92,
+        "text": "只有来自二十一世纪科学化的特种部队"
+      }
+    ]
+  },
+  {
+    "id": "skill_wu_jia_jian_fa",
+    "name": "乌家剑法",
+    "type": "剑法",
+    "faction": "faction_wu_jia",
+    "rank": "出神入化",
+    "one_line": "乌家传世剑法，刚猛凌厉",
+    "techniques": [
+      {
+        "id": "tech_wu_jia_jian_fa_ji_chu_shi",
+        "name": "乌家剑法基础式",
+        "type": "attack",
+        "description": "乌家剑法的基本攻击招式，刚猛有力"
+      },
+      {
+        "id": "tech_wu_jia_jian_fa_lian_huan_shi",
+        "name": "乌家剑法连环式",
+        "type": "attack",
+        "description": "乌家剑法的连续攻击招式，攻势绵密"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "刚猛凌厉",
+    "rag_refs": [
+      289
+    ],
+    "source_refs": [
+      {
+        "chapter": 289,
+        "line_start": 76,
+        "line_end": 76,
+        "text": "众将领对吕、嫪两党勾结一事早有所闻"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_shu",
+    "name": "骑术",
+    "type": "轻功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "精湛的马术，可在战场上灵活驰骋",
+    "techniques": [
+      {
+        "id": "tech_qi_shu_ji_chi_shu",
+        "name": "疾驰术",
+        "type": "buff",
+        "description": "高速骑乘，提升机动性"
+      },
+      {
+        "id": "tech_qi_shu_ma_shang_zuo_zhan",
+        "name": "马上作战",
+        "type": "attack",
+        "description": "在马背上进行战斗的技巧"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "增益"
+    ],
+    "combat_style": "以速度和机动性取胜",
+    "rag_refs": [
+      289
+    ],
+    "source_refs": [
+      {
+        "chapter": 289,
+        "line_start": 178,
+        "line_end": 178,
+        "text": "轻骑全速离城"
+      }
+    ]
+  },
+  {
+    "id": "skill_mou_lue",
+    "name": "谋略",
+    "type": "指法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "运筹帷幄的谋略能力，善于制定战略计划",
+    "techniques": [
+      {
+        "id": "tech_mou_lue_qing_bao_fen_xi",
+        "name": "情报分析",
+        "type": "special",
+        "description": "收集和分析情报，制定应对策略"
+      },
+      {
+        "id": "tech_mou_lue_zhan_lue_bu_shu",
+        "name": "战略部署",
+        "type": "special",
+        "description": "根据形势变化调整战略部署"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "特殊"
+    ],
+    "combat_style": "以智谋取胜",
+    "rag_refs": [
+      289
+    ],
+    "source_refs": [
+      {
+        "chapter": 289,
+        "line_start": 66,
+        "line_end": 68,
+        "text": "肖月潭分析尉缭大军动向"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_she",
+    "name": "骑射",
+    "type": "剑法",
+    "faction": "faction_wu_jia",
+    "rank": "出神入化",
+    "one_line": "在马背上射箭的精湛技艺",
+    "techniques": [
+      {
+        "id": "tech_qi_she_ji_chi_she",
+        "name": "疾驰射",
+        "type": "attack",
+        "description": "高速骑乘中精准射击"
+      },
+      {
+        "id": "tech_qi_she_hui_shen_she",
+        "name": "回身射",
+        "type": "attack",
+        "description": "转身向后射击的技巧"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "远程精准打击",
+    "rag_refs": [
+      289
+    ],
+    "source_refs": [
+      {
+        "chapter": 289,
+        "line_start": 80,
+        "line_end": 80,
+        "text": "率亲随与滕翼、荆俊、纪嫣然、肖月潭等直入官署"
+      }
+    ]
+  },
+  {
+    "id": "skill_bing_fa",
+    "name": "兵法",
+    "type": "内功",
+    "faction": "faction_qin_guo",
+    "rank": "出神入化",
+    "one_line": "精通军事战略和排兵布阵之法",
+    "techniques": [
+      {
+        "id": "tech_bing_fa_pai_bu_bu_zhen",
+        "name": "排兵布阵",
+        "type": "buff",
+        "description": "合理部署兵力，提升整体战斗力"
+      },
+      {
+        "id": "tech_bing_fa_wei_jian_zhan_shu",
+        "name": "围歼战术",
+        "type": "attack",
+        "description": "包围并歼灭敌军的战术"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "增益"
+    ],
+    "combat_style": "以阵法和谋略制胜",
+    "rag_refs": [
+      289
+    ],
+    "source_refs": [
+      {
+        "chapter": 289,
+        "line_start": 66,
+        "line_end": 67,
+        "text": "尉缭的大军该驻扎在上游某处"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_fa",
+    "name": "剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "精湛的剑术，可与高手一较高下",
+    "techniques": [
+      {
+        "id": "tech_jian_fa_ci_ji",
+        "name": "刺击",
+        "type": "attack",
+        "description": "快速精准的刺击招式"
+      },
+      {
+        "id": "tech_jian_fa_heng_zhan",
+        "name": "横斩",
+        "type": "attack",
+        "description": "大开大合的横斩招式"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "灵活多变",
+    "rag_refs": [
+      289
+    ],
+    "source_refs": [
+      {
+        "chapter": 289,
+        "line_start": 86,
+        "line_end": 86,
+        "text": "这有上蔡第一剑手之称的高手"
+      }
+    ]
+  },
+  {
+    "id": "skill_qing_bao_shou_ji",
+    "name": "情报收集",
+    "type": "指法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "善于收集和分析各类情报信息",
+    "techniques": [
+      {
+        "id": "tech_qing_bao_shou_ji_an_xian_lian_luo",
+        "name": "暗线联络",
+        "type": "special",
+        "description": "通过暗线网络获取情报"
+      },
+      {
+        "id": "tech_qing_bao_shou_ji_shen_fen_wei_zhuang",
+        "name": "身份伪装",
+        "type": "special",
+        "description": "伪装身份潜入敌方获取情报"
+      }
+    ],
+    "progression": "炉火纯青",
+    "effects": [
+      "特殊"
+    ],
+    "combat_style": "以情报制胜",
+    "rag_refs": [
+      289
+    ],
+    "source_refs": [
+      {
+        "chapter": 289,
+        "line_start": 136,
+        "line_end": 136,
+        "text": "本人肖月潭，许兄该听过我的名字吧"
+      }
+    ]
+  }
+]

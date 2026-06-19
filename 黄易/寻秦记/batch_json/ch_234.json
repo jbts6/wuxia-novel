@@ -1,0 +1,678 @@
+{
+  "chapter": 234,
+  "chapter_summary": "项少龙在密林中以弩箭和血浪宝剑伏击二十七名魏军追兵，利用树木掩护和烟火掩护逐一击杀九人后，夺取战马逃离。三天后进入魏韩交界草原，发现魏军在高丘设置哨岗展开大规模搜捕。项少龙被迫改变绕道大梁的计划，转而北上试探中牟方向，却在密林中险被千人搜索队发现。最终他抵达贾鲁河畔，利用初雪掩护自制中国第一对滑雪板，留下假足迹诱使魏军渡河追击，趁夜乘滑雪板返回河岸，首次对逃亡前途充满希望。",
+  "dialogues": [
+    {
+      "speaker": null,
+      "speaker_name": "敌人",
+      "listener": null,
+      "text": "点火把！",
+      "tone": "厉声",
+      "chapter": 234,
+      "line_start": 10,
+      "line_end": 10
+    },
+    {
+      "speaker": "char_di_fang_dai_tou_zhe",
+      "speaker_name": "敌方带头者",
+      "listener": null,
+      "text": "项少龙你今天休想逃掉，乖乖地给我们出来，否则我们就一把火将你烧个尸骨不全。",
+      "tone": "厉声",
+      "chapter": 234,
+      "line_start": 18,
+      "line_end": 20
+    },
+    {
+      "speaker": null,
+      "speaker_name": "敌人",
+      "listener": null,
+      "text": "莫成到哪里去了？",
+      "tone": "疑问",
+      "chapter": 234,
+      "line_start": 26,
+      "line_end": 28
+    },
+    {
+      "speaker": "char_xiang_shao_long",
+      "speaker_name": "项少龙",
+      "listener": null,
+      "text": "我在这里！",
+      "tone": "陈述",
+      "chapter": 234,
+      "line_start": 30,
+      "line_end": 30
+    }
+  ],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_xiang_shao_long",
+        "name": "项少龙",
+        "alias": [],
+        "identity": "穿越时空的现代特种兵，武功高强",
+        "faction": "秦国",
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "穿越时空的现代特种兵，身怀二十一世纪军事技能，智勇双全",
+        "personality": {
+          "traits": [
+            "机智",
+            "勇敢",
+            "果断",
+            "重情义",
+            "临危不乱",
+            "坚韧不拔"
+          ],
+          "speech_style": "沉稳自信",
+          "temperament": "冷静"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 2,
+            "line_end": 50,
+            "text": "项少龙手执血浪宝剑，追上落后的其中一名敌人..."
+          }
+        ]
+      },
+      {
+        "id": "char_di_fang_dai_tou_zhe",
+        "name": "敌方带头者",
+        "alias": [],
+        "identity": "魏军追兵的首领",
+        "faction": "魏国",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "登堂入室",
+        "one_line": "率领追兵围捕项少龙的魏军小队首领",
+        "personality": {
+          "traits": [
+            "凶狠",
+            "果断",
+            "警惕",
+            "多疑",
+            "残忍"
+          ],
+          "speech_style": "粗犷威严",
+          "temperament": "暴躁"
+        },
+        "relationships": [
+          {
+            "target": "char_xiang_shao_long",
+            "type": "宿敌",
+            "intensity": 70,
+            "bond_level": 2,
+            "dynamic": "追杀"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 18,
+            "line_end": 20,
+            "text": "敌方带头者对草丛大喝道..."
+          }
+        ]
+      },
+      {
+        "id": "char_mo_cheng",
+        "name": "莫成",
+        "alias": [],
+        "identity": "魏军追兵中的一员",
+        "faction": "魏国",
+        "role": "npc",
+        "archetype": "warrior",
+        "rank": "初窥门径",
+        "one_line": "被项少龙暗杀的魏军士兵，被同伴发现失踪",
+        "personality": {
+          "traits": [
+            "普通",
+            "大意",
+            "运气不佳",
+            "警惕不足",
+            "执行任务"
+          ],
+          "speech_style": "无",
+          "temperament": "普通"
+        },
+        "relationships": [],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 26,
+            "line_end": 28,
+            "text": "其中一人环目四顾，咦了一声道：莫成到哪里去了？"
+          }
+        ]
+      },
+      {
+        "id": "char_jing_nian",
+        "name": "荆年",
+        "alias": [],
+        "identity": "项少龙的同伴，负责后勤",
+        "faction": "秦国",
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "略有小成",
+        "one_line": "项少龙的忠心同伴，在逃亡前为他准备了冬衣",
+        "personality": {
+          "traits": [
+            "细心",
+            "忠诚",
+            "务实",
+            "可靠",
+            "体贴"
+          ],
+          "speech_style": "朴实",
+          "temperament": "沉稳"
+        },
+        "relationships": [
+          {
+            "target": "char_xiang_shao_long",
+            "type": "挚友",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "追随"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 64,
+            "line_end": 64,
+            "text": "幸荆年为他备有冬衣，使他不用捱冷受苦。"
+          }
+        ]
+      },
+      {
+        "id": "char_teng_yi",
+        "name": "滕翼",
+        "alias": [
+          "滕"
+        ],
+        "identity": "项少龙的挚友与战友",
+        "faction": "秦国",
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "项少龙最信任的战友之一，镇守中牟等待会合",
+        "personality": {
+          "traits": [
+            "勇猛",
+            "忠诚",
+            "沉稳",
+            "刚毅",
+            "义气"
+          ],
+          "speech_style": "豪迈",
+          "temperament": "刚毅"
+        },
+        "relationships": [
+          {
+            "target": "char_xiang_shao_long",
+            "type": "挚友",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "生死之交"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 98,
+            "line_end": 98,
+            "text": "那至多两天时间便可回去与滕、荆两人会合。"
+          }
+        ]
+      },
+      {
+        "id": "char_jing_jun",
+        "name": "荆俊",
+        "alias": [
+          "荆"
+        ],
+        "identity": "项少龙的挚友与战友",
+        "faction": "秦国",
+        "role": "companion",
+        "archetype": "warrior",
+        "rank": "炉火纯青",
+        "one_line": "项少龙最信任的战友之一，与滕翼一同镇守中牟",
+        "personality": {
+          "traits": [
+            "勇猛",
+            "忠诚",
+            "机敏",
+            "果断",
+            "热血"
+          ],
+          "speech_style": "直爽",
+          "temperament": "热血"
+        },
+        "relationships": [
+          {
+            "target": "char_xiang_shao_long",
+            "type": "挚友",
+            "intensity": 90,
+            "bond_level": 5,
+            "dynamic": "生死之交"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 98,
+            "line_end": 98,
+            "text": "那至多两天时间便可回去与滕、荆两人会合。"
+          }
+        ]
+      },
+      {
+        "id": "char_wei_wang_zeng",
+        "name": "魏王增",
+        "alias": [],
+        "identity": "魏国君主",
+        "faction": "魏国",
+        "role": "villain",
+        "archetype": "scholar",
+        "rank": "平平无奇",
+        "one_line": "魏国君主，下令不惜一切代价擒杀项少龙",
+        "personality": {
+          "traits": [
+            "多疑",
+            "狠辣",
+            "记仇",
+            "精明",
+            "心胸狭窄"
+          ],
+          "speech_style": "威严",
+          "temperament": "多疑"
+        },
+        "relationships": [
+          {
+            "target": "char_xiang_shao_long",
+            "type": "宿敌",
+            "intensity": 80,
+            "bond_level": 1,
+            "dynamic": "追杀"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 126,
+            "line_end": 126,
+            "text": "曾对他有恩的魏王增已下了不惜一切也要把他擒杀的命令。"
+          }
+        ]
+      },
+      {
+        "id": "char_li_yan_yan",
+        "name": "李嫣嫣",
+        "alias": [],
+        "identity": "楚国公主",
+        "faction": "楚国",
+        "role": "npc",
+        "archetype": "scholar",
+        "rank": "平平无奇",
+        "one_line": "楚国公主，与项少龙有旧情，可能念旧释放他",
+        "personality": {
+          "traits": [
+            "重情",
+            "善良",
+            "高贵",
+            "柔弱",
+            "念旧"
+          ],
+          "speech_style": "温柔",
+          "temperament": "温和"
+        },
+        "relationships": [
+          {
+            "target": "char_xiang_shao_long",
+            "type": "恋人",
+            "intensity": 60,
+            "bond_level": 3,
+            "dynamic": "旧情"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 168,
+            "line_end": 168,
+            "text": "就算给楚人逮着，说不定李嫣嫣和李园肯念点旧情把他释放。"
+          }
+        ]
+      },
+      {
+        "id": "char_li_yuan",
+        "name": "李园",
+        "alias": [],
+        "identity": "楚国权臣",
+        "faction": "楚国",
+        "role": "npc",
+        "archetype": "scholar",
+        "rank": "初窥门径",
+        "one_line": "楚国权臣，与项少龙有旧交，可能念旧释放他",
+        "personality": {
+          "traits": [
+            "权谋",
+            "世故",
+            "重利",
+            "念旧",
+            "圆滑"
+          ],
+          "speech_style": "圆滑",
+          "temperament": "精明"
+        },
+        "relationships": [
+          {
+            "target": "char_xiang_shao_long",
+            "type": "合作者",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "旧交"
+          }
+        ],
+        "known_skills": [],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 168,
+            "line_end": 168,
+            "text": "就算给楚人逮着，说不定李嫣嫣和李园肯念点旧情把他释放。"
+          }
+        ]
+      }
+    ],
+    "skills": [],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_wei_guo",
+        "name": "魏国",
+        "type": "帮派",
+        "location": "中原",
+        "sub_divisions": [],
+        "one_line": "战国七雄之一，派兵追捕项少龙",
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 84,
+            "line_end": 130,
+            "text": "一队约二十人的魏兵直驰而至..."
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_zhong_mu",
+        "name": "中牟",
+        "region": "魏韩交界",
+        "one_line": "项少龙渴望抵达的目的地，滕翼和荆俊在此等候",
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 62,
+            "line_end": 106,
+            "text": "中牟只在正北百里许外处..."
+          }
+        ]
+      },
+      {
+        "id": "loc_jiao_cheng",
+        "name": "焦城",
+        "region": "魏国",
+        "one_line": "魏国大城，通往中牟必经之地，设有驻军",
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 108,
+            "line_end": 108,
+            "text": "尚要经魏国另一大城焦城..."
+          }
+        ]
+      },
+      {
+        "id": "loc_da_liang",
+        "name": "大梁",
+        "region": "魏国",
+        "one_line": "魏国都城，项少龙计划绕道其郊野返回赵境",
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 76,
+            "line_end": 168,
+            "text": "朝大梁的方向进发..."
+          }
+        ]
+      },
+      {
+        "id": "loc_jia_lu_he",
+        "name": "贾鲁河",
+        "region": "魏国",
+        "one_line": "著名大河，项少龙需横渡此河才能继续逃亡",
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 142,
+            "line_end": 142,
+            "text": "来到著名大河贾鲁河的西岸。"
+          }
+        ]
+      },
+      {
+        "id": "loc_an_ling",
+        "name": "安陵",
+        "region": "魏国",
+        "one_line": "位于数条大河交汇处，可从此乘船渡河或改道南下楚境",
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 168,
+            "line_end": 168,
+            "text": "若到达下游位于数条大河交汇处的安陵..."
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_xue_lang_bao_jian",
+        "name": "血浪宝剑",
+        "type": "weapon",
+        "owner": "char_xiang_shao_long",
+        "one_line": "项少龙的随身宝剑，锋利无比",
+        "description": "血浪宝剑是项少龙的随身利器，剑身锋利无比，可轻取敌人性命，在近身格斗中发挥巨大威力。",
+        "effects": [
+          "切割",
+          "刺击"
+        ],
+        "origin": "秦国",
+        "rarity": "绝世神兵",
+        "related_characters": [
+          "char_xiang_shao_long"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 2,
+            "line_end": 56,
+            "text": "项少龙手执血浪宝剑...以血浪宝剑轻插马股"
+          }
+        ]
+      },
+      {
+        "id": "item_nv_jian",
+        "name": "弩箭",
+        "type": "weapon",
+        "owner": "char_xiang_shao_long",
+        "one_line": "项少龙从敌人处夺取的远程武器",
+        "description": "项少龙从被杀敌人处夺取的弩箭，用于远程射击，在密林战斗中发挥关键作用，连杀多名敌人。",
+        "effects": [
+          "远程射击",
+          "偷袭"
+        ],
+        "origin": "魏国",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_xiang_shao_long"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 2,
+            "line_end": 42,
+            "text": "项少龙顺手取了他的弩箭..."
+          }
+        ]
+      },
+      {
+        "id": "item_gou_suo",
+        "name": "钩索",
+        "type": "special",
+        "owner": "char_xiang_shao_long",
+        "one_line": "项少龙用于攀爬树木的特种装备",
+        "description": "钩索是项少龙随身携带的特种部队装备，可射出钩子挂住树枝，帮助他在密林中攀爬和横移。",
+        "effects": [
+          "攀爬",
+          "横移",
+          "逃生"
+        ],
+        "origin": "二十一世纪",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_xiang_shao_long"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 24,
+            "line_end": 38,
+            "text": "取出钩索...射出钩子，挂到身旁树上一个横杈处"
+          }
+        ]
+      },
+      {
+        "id": "item_hua_xue_ban",
+        "name": "滑雪板",
+        "type": "special",
+        "owner": "char_xiang_shao_long",
+        "one_line": "项少龙用榴木自制的滑雪工具，中国第一对滑雪板",
+        "description": "项少龙以特种部队技能用榴木削制而成的滑雪板，板头翘起，中间有固定脚板的装置，底部有导向槽，使他能在雪地快速移动。",
+        "effects": [
+          "雪地滑行",
+          "快速移动",
+          "隐蔽行踪"
+        ],
+        "origin": "项少龙自制",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_xiang_shao_long"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 176,
+            "line_end": 182,
+            "text": "劈下了一株精选的榴树，再以匕首削成两条长达五尺的滑雪板..."
+          }
+        ]
+      },
+      {
+        "id": "item_hua_xue_zhang",
+        "name": "滑雪杖",
+        "type": "special",
+        "owner": "char_xiang_shao_long",
+        "one_line": "项少龙自制的滑雪辅助工具，配合滑雪板使用",
+        "description": "滑雪杖头宽尾尖，近尖端三寸许处捆绑一根横枝充作雪轮，与滑雪板配合使用，使项少龙能在雪地上自如滑行。",
+        "effects": [
+          "辅助滑行",
+          "保持平衡",
+          "加速"
+        ],
+        "origin": "项少龙自制",
+        "rarity": "寻常凡品",
+        "related_characters": [
+          "char_xiang_shao_long"
+        ],
+        "related_skills": [],
+        "rag_refs": [
+          234
+        ],
+        "source_refs": [
+          {
+            "chapter": 234,
+            "line_start": 186,
+            "line_end": 187,
+            "text": "滑雪杖头宽尾尖，近尖端三寸许处，捆绑一根横枝，充作雪轮。"
+          }
+        ]
+      }
+    ]
+  },
+  "entity_updates": []
+}
