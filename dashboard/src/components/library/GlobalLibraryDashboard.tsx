@@ -3,7 +3,7 @@ import { Empty, Segmented, Spin, Typography } from 'antd';
 import { useBookStore } from '../../stores/useBookStore';
 import { useLibraryStore } from '../../stores/useLibraryStore';
 import { useLibraryData } from '../../hooks/useLibraryData';
-import type { LibrarySection } from '../../types/library';
+import type { LibraryRecord, LibrarySection } from '../../types/library';
 import { annotateRecords } from '../../utils/libraryAnnotations';
 import { filterCharacters, filterFactions, filterItems, filterSkills, getUniqueFilterValues } from '../../utils/libraryFilters';
 import { isLegendaryItem, isTopTierSkill } from '../../utils/libraryAggregate';
@@ -42,15 +42,12 @@ const GlobalLibraryDashboard: React.FC = () => {
     hydrateAnnotations();
   }, [hydrateAnnotations]);
 
-  if (data.loading) return <Spin size="large" />;
-  if (data.error) return <Empty description={data.error} />;
-
-  const collections = {
+  const collections = useMemo(() => ({
     skills: data.skills,
     characters: data.characters,
     factions: data.factions,
     items: data.items,
-  };
+  }), [data.characters, data.factions, data.items, data.skills]);
 
   const filterOptions = useMemo(() => ({
     rank: getUniqueFilterValues(data.skills.map((record) => record.entity.rank)),
@@ -81,9 +78,15 @@ const GlobalLibraryDashboard: React.FC = () => {
     [data.items, filters],
   );
   const exportRecords = useMemo(
-    () => annotateRecords([...topSkills, ...characters, ...factions, ...legendaryItems], annotations),
+    () => annotateRecords(
+      [...topSkills, ...characters, ...factions, ...legendaryItems] as LibraryRecord<unknown>[],
+      annotations,
+    ),
     [annotations, characters, factions, legendaryItems, topSkills],
   );
+
+  if (data.loading) return <Spin size="large" />;
+  if (data.error) return <Empty description={data.error} />;
 
   return (
     <div>

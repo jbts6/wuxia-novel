@@ -16,6 +16,9 @@ Object.defineProperty(window, 'matchMedia', {
   }),
 });
 
+const originalGetComputedStyle = window.getComputedStyle;
+window.getComputedStyle = (element: Element) => originalGetComputedStyle(element);
+
 afterEach(() => {
   cleanup();
   localStorage.clear();

@@ -20,6 +20,12 @@ export type LibraryFileFetcher = <TFile extends LibraryFile>(
 ) => Promise<EntityByFile[TFile]>;
 
 const EMPTY_COLLECTIONS: LibraryCollections = { skills: [], characters: [], factions: [], items: [] };
+const EMPTY_LIBRARY_STATE: LibraryDataState = {
+  ...EMPTY_COLLECTIONS,
+  loading: false,
+  error: null,
+  warnings: [],
+};
 
 export async function defaultLibraryFileFetcher<TFile extends LibraryFile>(
   file: TFile,
@@ -90,27 +96,22 @@ export async function loadLibraryData(
 }
 
 export function useLibraryData(books: BookMeta[]): LibraryDataState {
-  const [state, setState] = useState<LibraryDataState>({
-    ...EMPTY_COLLECTIONS,
-    loading: false,
-    error: null,
-    warnings: [],
-  });
+  const [state, setState] = useState<LibraryDataState>(EMPTY_LIBRARY_STATE);
 
   useEffect(() => {
     if (books.length === 0) {
-      setState({ ...EMPTY_COLLECTIONS, loading: false, error: null, warnings: [] });
       return;
     }
 
     let cancelled = false;
-    setState((prev) => ({ ...prev, loading: true, error: null }));
 
-    loadLibraryData(books)
-      .then((data) => {
+    const loadData = async () => {
+      setState((prev) => ({ ...prev, loading: true, error: null }));
+
+      try {
+        const data = await loadLibraryData(books);
         if (!cancelled) setState({ ...data, loading: false, error: null });
-      })
-      .catch((error) => {
+      } catch (error) {
         if (!cancelled) {
           setState({
             ...EMPTY_COLLECTIONS,
@@ -119,12 +120,15 @@ export function useLibraryData(books: BookMeta[]): LibraryDataState {
             warnings: [],
           });
         }
-      });
+      }
+    };
+
+    loadData();
 
     return () => {
       cancelled = true;
     };
   }, [books]);
 
-  return state;
+  return books.length === 0 ? EMPTY_LIBRARY_STATE : state;
 }

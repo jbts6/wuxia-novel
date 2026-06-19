@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Character, Faction, Item, Skill } from '../types/novel';
-import type { LibraryFilters, LibraryRecord } from '../types/library';
+import type { LibraryRecord } from '../types/library';
 import {
   createEmptyLibraryFilters,
   filterCharacters,
