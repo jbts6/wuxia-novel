@@ -15,14 +15,26 @@ export function createEmptyLibraryFilters(): LibraryFilters {
   };
 }
 
-export function getUniqueFilterValues(values: Array<string | null | undefined>): string[] {
-  return Array.from(new Set(values.filter((value): value is string => Boolean(value)))).sort((a, b) =>
+function normalizeFilterValue(value: unknown): string | null {
+  if (value == null) return null;
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+    return trimmed ? trimmed : null;
+  }
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value);
+  return null;
+}
+
+export function getUniqueFilterValues(values: unknown[]): string[] {
+  return Array.from(new Set(values.map(normalizeFilterValue).filter((value): value is string => Boolean(value)))).sort((a, b) =>
     a.localeCompare(b, 'zh-Hans-CN'),
   );
 }
 
-function includesFilter(value: string | null | undefined, selected: string[]): boolean {
-  return selected.length === 0 || Boolean(value && selected.includes(value));
+function includesFilter(value: unknown, selected: string[]): boolean {
+  if (selected.length === 0) return true;
+  const normalized = normalizeFilterValue(value);
+  return Boolean(normalized && selected.includes(normalized));
 }
 
 function textIncludesKeyword(values: Array<unknown>, keyword: string): boolean {

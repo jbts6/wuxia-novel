@@ -108,4 +108,8 @@ describe('library filters', () => {
   it('collects unique filter values without blanks', () => {
     expect(getUniqueFilterValues(['古龙', '', null, '金庸', '古龙'])).toEqual(['古龙', '金庸']);
   });
+
+  it('normalizes numeric filter values from older data files', () => {
+    expect(getUniqueFilterValues(['登峰造极', 8, null, 5, '8'])).toEqual(['5', '8', '登峰造极']);
+  });
 });
