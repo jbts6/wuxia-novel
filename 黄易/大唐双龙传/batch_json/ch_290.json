@@ -1,0 +1,665 @@
+{
+  "chapter": 290,
+  "chapter_summary": "第290章\"鹿死谁手\"讲述婠婠、杨虚彦、安隆、徐子陵、侯希白五人在大殿内围绕印卷展开的混战。婠婠以天魔大法形成凹陷力场震慑众人，安隆与杨虚彦暗中结盟欲先杀婠婠。徐子陵接印卷后遭杨虚彦全力攻击，机智将印卷掷向杨虚彦化解危机。侯希白欲抢印卷却被婠婠以飘带逼迫放弃。关键时刻石青璇幽灵般现身夺走印卷，婠婠转攻侯希白。安隆趁乱以罗汉像阻截侯希白，夺得印卷破壁而出，却在殿外遭遇神秘对手被击退回来。全章各方尔虞我诈，局势瞬息万变。",
+  "dialogues": [
+    {
+      "speaker": "char_xu_zi_ling",
+      "speaker_name": "徐子陵",
+      "listener": "char_yang_xu_yan",
+      "text": "转送给你又如何？",
+      "tone": "调侃",
+      "chapter": 290,
+      "line_start": 33,
+      "line_end": 35
+    },
+    {
+      "speaker": "char_xu_zi_ling",
+      "speaker_name": "徐子陵",
+      "listener": "char_hou_xi_bai",
+      "text": "侯兄得宝后不要理小弟，立即离开。",
+      "tone": "认真",
+      "chapter": 290,
+      "line_start": 107,
+      "line_end": 109
+    },
+    {
+      "speaker": "char_wan_wan",
+      "speaker_name": "婠婠",
+      "listener": "char_hou_xi_bai",
+      "text": "这才乖嘛！",
+      "tone": "调侃",
+      "chapter": 290,
+      "line_start": 129,
+      "line_end": 129
+    },
+    {
+      "speaker": "char_shi_qing_xuan",
+      "speaker_name": "石青璇",
+      "listener": "char_wan_wan",
+      "text": "今趟好该轮到我作那得利的渔翁吧！",
+      "tone": "得意",
+      "chapter": 290,
+      "line_start": 137,
+      "line_end": 139
+    },
+    {
+      "speaker": "char_wan_wan",
+      "speaker_name": "婠婠",
+      "listener": "char_shi_qing_xuan",
+      "text": "璇妹难道未听过鹿死谁手，尚未可知吗！",
+      "tone": "嘲讽",
+      "chapter": 290,
+      "line_start": 141,
+      "line_end": 143
+    },
+    {
+      "speaker": "char_shi_qing_xuan",
+      "speaker_name": "石青璇",
+      "listener": "char_wan_wan",
+      "text": "当然听过！",
+      "tone": "淡然",
+      "chapter": 290,
+      "line_start": 145,
+      "line_end": 145
+    },
+    {
+      "speaker": "char_an_long",
+      "speaker_name": "安隆",
+      "listener": "char_wan_wan",
+      "text": "姜毕竟是老的最辣，涫丫头你中计哩！",
+      "tone": "大笑",
+      "chapter": 290,
+      "line_start": 165,
+      "line_end": 167
+    }
+  ],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_yang_xu_yan",
+        "name": "杨虚彦",
+        "alias": [],
+        "identity": "魔门刺客",
+        "faction": "魔门",
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "出神入化",
+        "one_line": "天下第一刺客，幻影剑法传人，与安隆结盟争夺印卷",
+        "personality": {
+          "traits": [
+            "心计深沉",
+            "冷酷无情",
+            "剑法高绝",
+            "果断决绝",
+            "杀伐果断"
+          ],
+          "speech_style": "简洁直接",
+          "temperament": "冷酷"
+        },
+        "relationships": [
+          {
+            "target": "char_an_long",
+            "type": "合作者",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "暗中结盟"
+          },
+          {
+            "target": "char_xu_zi_ling",
+            "type": "宿敌",
+            "intensity": 80,
+            "bond_level": 4,
+            "dynamic": "生死相搏"
+          }
+        ],
+        "known_skills": [
+          "skill_huan_ying_jian_fa"
+        ],
+        "related_skills": [
+          "skill_huan_ying_jian_fa"
+        ],
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 3,
+            "line_end": 3,
+            "text": "杨虚彦、侯希白和安隆均生出向前倾跌的可怕感觉"
+          }
+        ]
+      },
+      {
+        "id": "char_hou_xi_bai",
+        "name": "侯希白",
+        "alias": [],
+        "identity": "花间派传人",
+        "faction": "花间派",
+        "role": "companion",
+        "archetype": "scholar",
+        "rank": "炉火纯青",
+        "one_line": "花间派传人，风流倜傥，手持美人摺扇，一心追求不死印法最高境界",
+        "personality": {
+          "traits": [
+            "风流倜傥",
+            "爱花惜花",
+            "重情重义",
+            "优柔寡断",
+            "武学天赋高"
+          ],
+          "speech_style": "文雅有礼",
+          "temperament": "温和"
+        },
+        "relationships": [
+          {
+            "target": "char_xu_zi_ling",
+            "type": "挚友",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "并肩作战"
+          },
+          {
+            "target": "char_wan_wan",
+            "type": "对手",
+            "intensity": 60,
+            "bond_level": 2,
+            "dynamic": "争抢印卷"
+          }
+        ],
+        "known_skills": [
+          "skill_hua_jian_fa"
+        ],
+        "related_skills": [
+          "skill_hua_jian_fa"
+        ],
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 39,
+            "line_end": 39,
+            "text": "侯希白此时亦抢了过来"
+          }
+        ]
+      },
+      {
+        "id": "char_an_long",
+        "name": "安隆",
+        "alias": [],
+        "identity": "邪道八大高手",
+        "faction": "魔门",
+        "role": "villain",
+        "archetype": "warrior",
+        "rank": "出神入化",
+        "one_line": "邪道八大高手之一，魔门老行尊，精通天心莲环，自私自利的老奸巨猾之辈",
+        "personality": {
+          "traits": [
+            "自私自利",
+            "老奸巨猾",
+            "贪生怕死",
+            "武功高强",
+            "城府极深"
+          ],
+          "speech_style": "狂妄自大",
+          "temperament": "阴险"
+        },
+        "relationships": [
+          {
+            "target": "char_yang_xu_yan",
+            "type": "合作者",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "暗中结盟"
+          },
+          {
+            "target": "char_wan_wan",
+            "type": "宿敌",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "互相忌惮"
+          }
+        ],
+        "known_skills": [
+          "skill_tian_xin_lian_huan"
+        ],
+        "related_skills": [
+          "skill_tian_xin_lian_huan"
+        ],
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 7,
+            "line_end": 7,
+            "text": "安隆曾因施展\"天心莲环\"而功力耗损"
+          }
+        ]
+      },
+      {
+        "id": "char_wan_wan",
+        "name": "婠婠",
+        "alias": [],
+        "identity": "天魔宫圣女",
+        "faction": "天魔宫",
+        "role": "villain",
+        "archetype": "assassin",
+        "rank": "出神入化",
+        "one_line": "天魔宫圣女，天魔大法传人，以心理战术操控局面，意图独得印卷",
+        "personality": {
+          "traits": [
+            "心计深沉",
+            "武功高强",
+            "善于操控",
+            "冷艳绝美",
+            "手段狠辣"
+          ],
+          "speech_style": "娇媚中带锋芒",
+          "temperament": "冷艳"
+        },
+        "relationships": [
+          {
+            "target": "char_an_long",
+            "type": "宿敌",
+            "intensity": 70,
+            "bond_level": 3,
+            "dynamic": "心理战博弈"
+          },
+          {
+            "target": "char_xu_zi_ling",
+            "type": "对手",
+            "intensity": 60,
+            "bond_level": 2,
+            "dynamic": "争夺印卷"
+          }
+        ],
+        "known_skills": [
+          "skill_tian_mo_da_fa"
+        ],
+        "related_skills": [
+          "skill_tian_mo_da_fa"
+        ],
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 3,
+            "line_end": 3,
+            "text": "以婠婠为核心的\"天魔劲场\""
+          }
+        ]
+      },
+      {
+        "id": "char_shi_qing_xuan",
+        "name": "石青璇",
+        "alias": [],
+        "identity": "碧秀心传人",
+        "faction": "无",
+        "role": "companion",
+        "archetype": "scholar",
+        "rank": "炉火纯青",
+        "one_line": "碧秀心真传弟子，幽灵般现身抢得印卷，冷静沉着",
+        "personality": {
+          "traits": [
+            "冷静沉着",
+            "武功高强",
+            "独立自主",
+            "神秘莫测",
+            "机敏过人"
+          ],
+          "speech_style": "淡然自若",
+          "temperament": "冷静"
+        },
+        "relationships": [
+          {
+            "target": "char_xu_zi_ling",
+            "type": "合作者",
+            "intensity": 60,
+            "bond_level": 2,
+            "dynamic": "暗中相助"
+          },
+          {
+            "target": "char_wan_wan",
+            "type": "对手",
+            "intensity": 50,
+            "bond_level": 2,
+            "dynamic": "争夺印卷"
+          }
+        ],
+        "known_skills": [
+          "skill_bi_xiu_xin_fa"
+        ],
+        "related_skills": [
+          "skill_bi_xiu_xin_fa"
+        ],
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 135,
+            "line_end": 137,
+            "text": "一只赛雪欺霜的玉手从靠墙那列罗汉之一的背后探出...石青璇幽灵般飘起来"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_tian_xin_lian_huan",
+        "name": "天心莲环",
+        "type": "内功",
+        "faction": "魔门",
+        "rank": "出神入化",
+        "one_line": "魔门一绝，全力施展时天魔大法亦奈何不得",
+        "techniques": [
+          {
+            "id": "tech_tian_xin_lian_huan",
+            "name": "天心莲环",
+            "type": "attack",
+            "description": "魔门绝学，以莲花环形真气攻击，威力惊人"
+          },
+          {
+            "id": "tech_lian_huan_zhen_qi",
+            "name": "莲环震气",
+            "type": "defense",
+            "description": "天心莲环防御形态，以莲花环形真气护身"
+          }
+        ],
+        "progression": "安隆已臻化境",
+        "effects": [
+          {
+            "type": "伤害",
+            "description": "环形真气攻击，威力可抗天魔大法"
+          }
+        ],
+        "combat_style": "刚猛霸道",
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 7,
+            "line_end": 7,
+            "text": "安隆曾因施展\"天心莲环\"而功力耗损"
+          }
+        ]
+      },
+      {
+        "id": "skill_tian_mo_da_fa",
+        "name": "天魔大法",
+        "type": "内功",
+        "faction": "天魔宫",
+        "rank": "出神入化",
+        "one_line": "天魔宫至高武学，可形成吸取真气的凹陷力场",
+        "techniques": [
+          {
+            "id": "tech_tian_mo_jing_chang",
+            "name": "天魔劲场",
+            "type": "debuff",
+            "description": "形成能吸取任何真气的凹陷力场"
+          },
+          {
+            "id": "tech_tian_mo_yin",
+            "name": "天魔音",
+            "type": "control",
+            "description": "以奇异振动破空声控制敌人心神，魔由心生"
+          }
+        ],
+        "progression": "婠婠已臻化境",
+        "effects": [
+          {
+            "type": "控制",
+            "description": "吸取真气、控制心神"
+          }
+        ],
+        "combat_style": "诡异多变",
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 3,
+            "line_end": 3,
+            "text": "以婠婠为核心的\"天魔劲场\""
+          }
+        ]
+      },
+      {
+        "id": "skill_huan_ying_jian_fa",
+        "name": "幻影剑法",
+        "type": "剑法",
+        "faction": "魔门",
+        "rank": "出神入化",
+        "one_line": "杨虚彦独门剑法，虚实难测，可化为雷霆万钧的威势",
+        "techniques": [
+          {
+            "id": "tech_huan_ying_jian",
+            "name": "幻影剑",
+            "type": "attack",
+            "description": "虚实难测的剑法，可瞬间爆发全力"
+          },
+          {
+            "id": "tech_huan_ying_bu_qi",
+            "name": "幻影步气",
+            "type": "feint",
+            "description": "幻影剑法身法配合，虚实难测的移步换位技巧"
+          }
+        ],
+        "progression": "杨虚彦已臻化境",
+        "effects": [
+          {
+            "type": "伤害",
+            "description": "剑势凌厉，杀气笼罩"
+          }
+        ],
+        "combat_style": "虚实结合，爆发力强",
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 21,
+            "line_end": 21,
+            "text": "掣出寒光四射的幻影剑"
+          }
+        ]
+      },
+      {
+        "id": "skill_luo_xuan_jin",
+        "name": "螺旋劲",
+        "type": "内功",
+        "faction": "无",
+        "rank": "炉火纯青",
+        "one_line": "徐子陵独门内劲，由慢而快沿剑入侵，令敌人头痛",
+        "techniques": [
+          {
+            "id": "tech_luo_xuan_jin",
+            "name": "螺旋劲",
+            "type": "attack",
+            "description": "螺旋状真气，可沿兵器入侵敌人体内"
+          },
+          {
+            "id": "tech_luo_xuan_qiang_ji",
+            "name": "螺旋强击",
+            "type": "attack",
+            "description": "螺旋劲凝聚于拳掌爆发，隔空击拳可撼动剑气锋锐"
+          }
+        ],
+        "progression": "徐子陵炉火纯青",
+        "effects": [
+          {
+            "type": "伤害",
+            "description": "沿兵器入侵，持续伤害"
+          }
+        ],
+        "combat_style": "绵密不绝",
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 103,
+            "line_end": 103,
+            "text": "螺旋劲气由慢而快的沿剑入侵"
+          }
+        ]
+      },
+      {
+        "id": "skill_bu_si_yin_fa",
+        "name": "不死印法",
+        "type": "内功",
+        "faction": "无",
+        "rank": "登峰造极",
+        "one_line": "至高武学印卷所载功法，侯希白梦寐以求的最高境界",
+        "techniques": [
+          {
+            "id": "tech_bu_si_yin",
+            "name": "不死印",
+            "type": "special",
+            "description": "不死印法核心技法"
+          },
+          {
+            "id": "tech_yin_fa_xin_fa",
+            "name": "印法心法",
+            "type": "buff",
+            "description": "不死印法核心心法，修习可超越凡俗武学境界"
+          }
+        ],
+        "progression": "尚未完全掌握",
+        "effects": [
+          {
+            "type": "增益",
+            "description": "修至最高境界可超越凡俗"
+          }
+        ],
+        "combat_style": "玄妙难测",
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 119,
+            "line_end": 119,
+            "text": "失去了解不死印法的机会"
+          }
+        ]
+      }
+    ],
+    "techniques": [],
+    "factions": [],
+    "locations": [
+      {
+        "id": "loc_xing_yang_shen_luo_yan_xiang_ju",
+        "name": "荥阳沈落雁香居",
+        "region": "荥阳",
+        "one_line": "当年徐子陵与杨虚彦交手之处",
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 97,
+            "line_end": 97,
+            "text": "当年在荥阳沈落雁香居的徐子陵"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_yin_juan",
+        "name": "印卷",
+        "type": "special",
+        "owner": "char_an_long",
+        "one_line": "记载不死印法的珍贵卷轴，各方势力争夺的焦点",
+        "description": "记载不死印法的珍贵卷轴，纸质脆弱但内容价值连城，是各方势力不惜生死相搏争夺的至宝。印卷被徐子陵运劲掷出时贯满真劲，若撞到物件会摔得粉碎。",
+        "effects": [
+          {
+            "type": "特殊",
+            "description": "记载不死印法，修习可臻至高武学境界"
+          }
+        ],
+        "origin": "魔门秘藏",
+        "rarity": "绝世神兵",
+        "related_characters": [
+          "char_xu_zi_ling",
+          "char_hou_xi_bai",
+          "char_wan_wan",
+          "char_an_long"
+        ],
+        "related_skills": [
+          "skill_bu_si_yin_fa"
+        ],
+        "rag_refs": [
+          290
+        ],
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 23,
+            "line_end": 23,
+            "text": "他乃武学的大行家，一眼看出杨虚彦这一剑才真正显露出实力"
+          }
+        ]
+      }
+    ]
+  },
+  "entity_updates": [
+    {
+      "id": "char_xu_zi_ling",
+      "updates": {
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 17,
+            "line_end": 17,
+            "text": "只有徐子陵视之为理所当然"
+          }
+        ]
+      },
+      "relationship_updates": [
+        {
+          "action": "add",
+          "target": "char_yang_xu_yan",
+          "type": "宿敌",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "生死相搏"
+        },
+        {
+          "action": "add",
+          "target": "char_hou_xi_bai",
+          "type": "挚友",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "并肩作战"
+        }
+      ]
+    },
+    {
+      "id": "char_an_long",
+      "updates": {
+        "source_refs": [
+          {
+            "chapter": 290,
+            "line_start": 165,
+            "line_end": 167,
+            "text": "姜毕竟是老的最辣，涫丫头你中计哩！"
+          }
+        ]
+      },
+      "relationship_updates": []
+    }
+  ]
+}

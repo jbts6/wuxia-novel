@@ -1,0 +1,996 @@
+{
+  "chapter": 360,
+  "chapter_summary": "本章讲述寇仲与徐子陵被困泗川寺大殿，遭佛门四大圣僧道信、嘉祥、智慧、帝心尊者联手围剿的激战。寇仲施展井中八法的击奇、兵诈、速战等法门与四大圣僧周旋，徐子陵则以大金刚掌配合借劲卸劲之术对抗嘉祥大师。两人通过真气连结创造联击战术，一度突破帝心尊者关防，但最终道信与智慧联手布下天罗地网。关键时刻寇仲与徐子陵以正反之气合力闯关，寇仲借徐子陵真气加持一刀震退帝心，再以井中八法巅峰刀势突破道信智慧的空中拦截。智慧大师为避免两败俱亡选择退让，寇仲趁机消失在殿外漫天风雪中，成功脱困。",
+  "dialogues": [
+    {
+      "chapter": 360,
+      "line_start": 9,
+      "line_end": 9,
+      "speaker": "char_dao_xin",
+      "speaker_name": "道信",
+      "listener": null,
+      "listener_name": null,
+      "text": "一指头禅，施主小心！",
+      "tone": "淡然"
+    },
+    {
+      "chapter": 360,
+      "line_start": 27,
+      "line_end": 27,
+      "speaker": "char_jia_xiang",
+      "speaker_name": "嘉祥",
+      "listener": null,
+      "listener_name": null,
+      "text": "枯如乾井，满似汪洋；三界六道，惟由心现。",
+      "tone": "平静"
+    },
+    {
+      "chapter": 360,
+      "line_start": 43,
+      "line_end": 43,
+      "speaker": "char_di_xin_zun_zhe",
+      "speaker_name": "帝心尊者",
+      "listener": null,
+      "listener_name": null,
+      "text": "正眼法藏。",
+      "tone": "沉声"
+    },
+    {
+      "chapter": 360,
+      "line_start": 97,
+      "line_end": 97,
+      "speaker": "char_zhi_hui",
+      "speaker_name": "智慧大师",
+      "listener": null,
+      "listener_name": null,
+      "text": "得罪",
+      "tone": "陈述"
+    },
+    {
+      "chapter": 360,
+      "line_start": 155,
+      "line_end": 156,
+      "speaker": "char_xu_zi_ling",
+      "speaker_name": "徐子陵",
+      "listener": null,
+      "listener_name": null,
+      "text": "云帅！",
+      "tone": "焦急"
+    },
+    {
+      "chapter": 360,
+      "line_start": 167,
+      "line_end": 167,
+      "speaker": "char_xu_zi_ling",
+      "speaker_name": "徐子陵",
+      "listener": "char_jia_xiang",
+      "listener_name": "嘉祥",
+      "text": "不打啦！",
+      "tone": "无奈"
+    }
+  ],
+  "new_entities": {
+    "characters": [
+      {
+        "id": "char_jia_xiang",
+        "name": "嘉祥",
+        "alias": [
+          "嘉祥大师"
+        ],
+        "identity": "佛门四大圣僧之一",
+        "faction": "faction_si_chuan_temple",
+        "role": "npc",
+        "archetype": "monk",
+        "rank": 8,
+        "one_line": "百年修为的佛门武学宗师，以一指头禅和枯井汪洋功驰名天下",
+        "personality": {
+          "traits": [
+            "大巧不工",
+            "返璞归真",
+            "深不可测",
+            "从容不迫",
+            "慈悲为怀"
+          ],
+          "speech_style": "低吟佛号，言简意赅",
+          "temperament": "沉稳内敛"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_yi_zhi_tou_chan",
+          "skill_ku_jing_wo_xiang"
+        ],
+        "related_skills": [
+          "skill_yi_zhi_tou_chan",
+          "skill_ku_jing_wo_xiang"
+        ],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 6,
+            "line_end": 8,
+            "text": "嘉祥大师全身纹风不动"
+          },
+          {
+            "chapter": 360,
+            "line_start": 15,
+            "line_end": 15,
+            "text": "嘉祥的一指头禅，已达大巧不工的层次"
+          },
+          {
+            "chapter": 360,
+            "line_start": 27,
+            "line_end": 27,
+            "text": "枯如乾井，满似汪洋；三界六道，惟由心现"
+          }
+        ]
+      },
+      {
+        "id": "char_dao_xin",
+        "name": "道信",
+        "alias": [],
+        "identity": "佛门四大圣僧之首",
+        "faction": "faction_si_chuan_temple",
+        "role": "npc",
+        "archetype": "monk",
+        "rank": 8,
+        "one_line": "佛门四大圣僧之首，精通达摩手与一指头禅",
+        "personality": {
+          "traits": [
+            "沉稳持重",
+            "佛心坚定",
+            "武学渊博",
+            "慈悲为怀",
+            "临危不乱"
+          ],
+          "speech_style": "低暄佛号",
+          "temperament": "庄严平和"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_da_mo_shou"
+        ],
+        "related_skills": [
+          "skill_da_mo_shou"
+        ],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 9,
+            "line_end": 9,
+            "text": "道信低暄道：一指头禅，施主小心"
+          },
+          {
+            "chapter": 360,
+            "line_start": 95,
+            "line_end": 95,
+            "text": "使出达摩手十八式中的拈柴择菜"
+          }
+        ]
+      },
+      {
+        "id": "char_zhi_hui",
+        "name": "智慧",
+        "alias": [
+          "智慧大师"
+        ],
+        "identity": "佛门四大圣僧之一",
+        "faction": "faction_si_chuan_temple",
+        "role": "npc",
+        "archetype": "monk",
+        "rank": 8,
+        "one_line": "佛门四大圣僧之一，擅使檀木佛珠串，步法奇诡难测",
+        "personality": {
+          "traits": [
+            "机智灵活",
+            "佛珠功夫精湛",
+            "临阵果断",
+            "慈悲为怀",
+            "审时度势"
+          ],
+          "speech_style": "简洁有力",
+          "temperament": "沉稳机敏"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_tan_mu_fo_zhu"
+        ],
+        "related_skills": [
+          "skill_tan_mu_fo_zhu"
+        ],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 97,
+            "line_end": 97,
+            "text": "智慧大师一声得罪"
+          },
+          {
+            "chapter": 360,
+            "line_start": 100,
+            "line_end": 100,
+            "text": "智慧的擅木佛珠串扬起"
+          }
+        ]
+      },
+      {
+        "id": "char_di_xin_zun_zhe",
+        "name": "帝心尊者",
+        "alias": [
+          "帝心尊者"
+        ],
+        "identity": "佛门四大圣僧之一",
+        "faction": "faction_si_chuan_temple",
+        "role": "npc",
+        "archetype": "monk",
+        "rank": 8,
+        "one_line": "佛门四大圣僧之一，持大圆满杖，气势威猛，擅长以杖法困敌",
+        "personality": {
+          "traits": [
+            "威猛刚烈",
+            "禅杖功夫出神入化",
+            "临阵经验丰富",
+            "以守为攻",
+            "佛心坚定"
+          ],
+          "speech_style": "长喧佛号",
+          "temperament": "威严庄重"
+        },
+        "relationships": [],
+        "known_skills": [
+          "skill_da_yuan_zhuang_zhang_fa"
+        ],
+        "related_skills": [
+          "skill_da_yuan_zhuang_zhang_fa"
+        ],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 43,
+            "line_end": 43,
+            "text": "帝心尊者长喧道：正眼法藏"
+          },
+          {
+            "chapter": 360,
+            "line_start": 110,
+            "line_end": 110,
+            "text": "化出万千杖影，像一堵墙般从正面往他们疾压过来"
+          }
+        ]
+      },
+      {
+        "id": "char_kou_zhong",
+        "name": "寇仲",
+        "alias": [],
+        "identity": "主角之一，魔门巨子，精通井中八法",
+        "faction": "faction_tian_long_chao",
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": 7,
+        "one_line": "魔门巨子，与徐子陵并称魔门双子，刀法冠绝天下，精通井中八法",
+        "personality": {
+          "traits": [
+            "胆识过人",
+            "临阵果断",
+            "重情重义",
+            "机智多变",
+            "不甘示弱"
+          ],
+          "speech_style": "豪爽直率",
+          "temperament": "豪迈果决"
+        },
+        "relationships": [
+          {
+            "target": "char_xu_zi_ling",
+            "type": "挚友",
+            "intensity": 95,
+            "bond_level": 5,
+            "dynamic": "生死之交"
+          }
+        ],
+        "known_skills": [
+          "skill_jing_zhong_ba_fa",
+          "skill_hui_ma_qiang"
+        ],
+        "related_skills": [
+          "skill_jing_zhong_ba_fa",
+          "skill_hui_ma_qiang"
+        ],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 2,
+            "line_end": 2,
+            "text": "寇仰那敢让嘉祥抢在先手全力进击"
+          },
+          {
+            "chapter": 360,
+            "line_start": 155,
+            "line_end": 155,
+            "text": "寇仲一声暴喝"
+          }
+        ]
+      },
+      {
+        "id": "char_xu_zi_ling",
+        "name": "徐子陵",
+        "alias": [],
+        "identity": "主角之一，魔门巨子，精通大金刚掌与借劲卸劲之术",
+        "faction": "faction_tian_long_chao",
+        "role": "protagonist",
+        "archetype": "warrior",
+        "rank": 7,
+        "one_line": "魔门双子之一，与大日如来功配合井中八法，与寇仲默契无间",
+        "personality": {
+          "traits": [
+            "冷静沉着",
+            "临危不乱",
+            "善于分析",
+            "重情重义",
+            "坚韧不拔"
+          ],
+          "speech_style": "简洁有力",
+          "temperament": "冷静内敛"
+        },
+        "relationships": [
+          {
+            "target": "char_kou_zhong",
+            "type": "挚友",
+            "intensity": 95,
+            "bond_level": 5,
+            "dynamic": "生死之交"
+          }
+        ],
+        "known_skills": [
+          "skill_da_jin_gang_zhang",
+          "skill_jie_jin_xie_jin"
+        ],
+        "related_skills": [
+          "skill_da_jin_gang_zhang",
+          "skill_jie_jin_xie_jin"
+        ],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 10,
+            "line_end": 10,
+            "text": "徐子陵看得心中咋舌"
+          },
+          {
+            "chapter": 360,
+            "line_start": 155,
+            "line_end": 155,
+            "text": "徐子陵低喝道"
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill_jing_zhong_ba_fa",
+        "name": "井中八法",
+        "type": "内功",
+        "faction": "unknown",
+        "rank": 8,
+        "one_line": "寇仲从傅采林处领悟的绝世武学，包含八种法门，涵盖攻守进退变化",
+        "techniques": [
+          {
+            "id": "tech_ji_qi",
+            "name": "击奇",
+            "type": "attack",
+            "description": "井中八法第一法，将气势推至巅峰，以高度集中的疾快刀劲以强攻强，千变万化"
+          },
+          {
+            "id": "tech_bing_zha",
+            "name": "兵诈",
+            "type": "special",
+            "description": "井中八法中的诈术，幻出千万点刀光如暴风雪般迷惑对手"
+          },
+          {
+            "id": "tech_su_zhan",
+            "name": "速战",
+            "type": "attack",
+            "description": "井中八法第七法，长刀先弯再击往前，一往无前不是你死就是我亡的气势"
+          }
+        ],
+        "progression": [
+          {
+            "level": 1,
+            "description": "寇仲初步掌握击奇"
+          },
+          {
+            "level": 2,
+            "description": "寇仲学会兵诈与速战"
+          }
+        ],
+        "effects": [
+          {
+            "type": "增益",
+            "description": "将气势推至巅峰状态"
+          },
+          {
+            "type": "特殊",
+            "description": "刀法变化无穷，可与天刀宋缺相提并论"
+          }
+        ],
+        "combat_style": "以刀为主，攻守兼备，变化多端",
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 2,
+            "line_end": 2,
+            "text": "施出井中八法的击奇"
+          },
+          {
+            "chapter": 360,
+            "line_start": 127,
+            "line_end": 127,
+            "text": "井中八法中的兵诈"
+          },
+          {
+            "chapter": 360,
+            "line_start": 159,
+            "line_end": 159,
+            "text": "井中八法第七法速战"
+          }
+        ]
+      },
+      {
+        "id": "skill_yi_zhi_tou_chan",
+        "name": "一指头禅",
+        "type": "指法",
+        "faction": "faction_si_chuan_temple",
+        "rank": 7,
+        "one_line": "佛门绝学，以大巧不工的层次按中对手兵器，蕴含庞大真气",
+        "techniques": [
+          {
+            "id": "tech_yi_zhi_an",
+            "name": "一指按",
+            "type": "attack",
+            "description": "拇指按在对手刀锋处，大巧不工，完全无法可施"
+          },
+          {
+            "id": "tech_ku_jing_wo_xiang",
+            "name": "枯井汪洋",
+            "type": "special",
+            "description": "一指头禅的内功境界，乾枯如井满似汪洋，掌中蕴含佛家博大渊深的真气"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "控制",
+            "description": "按中对手兵器使其攻势停滞"
+          },
+          {
+            "type": "伤害",
+            "description": "真气沿刀直刺入对手经脉"
+          }
+        ],
+        "combat_style": "以指代掌，大巧不工，后发制人",
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 9,
+            "line_end": 9,
+            "text": "一指头禅，施主小心"
+          },
+          {
+            "chapter": 360,
+            "line_start": 15,
+            "line_end": 15,
+            "text": "嘉祥的一指头禅，已达大巧不工的层次"
+          }
+        ]
+      },
+      {
+        "id": "skill_da_mo_shou",
+        "name": "达摩手",
+        "type": "掌法",
+        "faction": "faction_si_chuan_temple",
+        "rank": 7,
+        "one_line": "佛门绝学十八式，道信大师以此隔空虚抓形成强大回旋劲道",
+        "techniques": [
+          {
+            "id": "tech_nian_chai_ze_cai",
+            "name": "拈柴择菜",
+            "type": "attack",
+            "description": "达摩手十八式之一，双手隔空虚抓形成暗带回旋的强大劲道"
+          },
+          {
+            "id": "tech_da_mo_miao_shou",
+            "name": "达摩妙手",
+            "type": "special",
+            "description": "道信双掌互相绞缠如相戏蝴蝶，玄奥无方"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "控制",
+            "description": "形成暗带回旋的强大劲道卷住对手"
+          }
+        ],
+        "combat_style": "隔空擒拿，劲风狂作",
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 95,
+            "line_end": 95,
+            "text": "使出达摩手十八式中的拈柴择菜"
+          },
+          {
+            "chapter": 360,
+            "line_start": 185,
+            "line_end": 185,
+            "text": "道信玄奥无方的达摩妙手"
+          }
+        ]
+      },
+      {
+        "id": "skill_tan_mu_fo_zhu_chuan",
+        "name": "檀木佛珠串",
+        "type": "暗器",
+        "faction": "faction_si_chuan_temple",
+        "rank": 6,
+        "one_line": "智慧大师的独门武器，佛珠串可改变方向难测之极，脱手射出呈品字形攻击要穴",
+        "techniques": [
+          {
+            "id": "tech_fo_zhu_shan_fa",
+            "name": "佛珠散发",
+            "type": "attack",
+            "description": "三颗檀木珠脱手射出，后发先至成品字形袭击肩井和背心要穴"
+          },
+          {
+            "id": "tech_fo_zhu_bian_hua",
+            "name": "佛珠变幻",
+            "type": "special",
+            "description": "佛珠串随奇异步法可改变方向，难测之极"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "控制",
+            "description": "袭击对手两边肩井和背心要穴"
+          }
+        ],
+        "combat_style": "以珠为器，步法配合，变化难测",
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 100,
+            "line_end": 100,
+            "text": "智慧的擅木佛珠串扬起"
+          },
+          {
+            "chapter": 360,
+            "line_start": 97,
+            "line_end": 97,
+            "text": "手上佛珠串有三颗檀木珠脱手射出"
+          }
+        ]
+      },
+      {
+        "id": "skill_da_yuan_zhuang_zhang_fa",
+        "name": "大圆满杖法",
+        "type": "掌法",
+        "faction": "faction_si_chuan_temple",
+        "rank": 7,
+        "one_line": "帝心尊者的禅杖功夫，化出万千杖影如墙压来，近身搏击细腻绵密",
+        "techniques": [
+          {
+            "id": "tech_wan_qian_zhang_ying",
+            "name": "万千杖影",
+            "type": "attack",
+            "description": "禅杖化出万千杖影像一堵墙般从正面疾压过来"
+          },
+          {
+            "id": "tech_jin_shen_zhang_fa",
+            "name": "近身杖法",
+            "type": "attack",
+            "description": "双手改握禅杖中间，以杖头杖尾使出的细腻绵密利于近身搏击的杖法"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "伤害",
+            "description": "铺天盖地从后攻至"
+          }
+        ],
+        "combat_style": "禅杖为主，攻防一体",
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 110,
+            "line_end": 110,
+            "text": "化出万千杖影"
+          },
+          {
+            "chapter": 360,
+            "line_start": 130,
+            "line_end": 130,
+            "text": "使出套细腻绵密利于近身搏击的杖法"
+          }
+        ]
+      },
+      {
+        "id": "skill_hui_ma_qiang",
+        "name": "回马枪",
+        "type": "剑法",
+        "faction": "unknown",
+        "rank": 5,
+        "one_line": "从李元吉处学来的枪法技法，人退刀随，用于脱身反击",
+        "techniques": [
+          {
+            "id": "tech_hui_ma_ren_tui",
+            "name": "回马人退",
+            "type": "feint",
+            "description": "人退刀随，井中月左摆右摇从杖底脱身"
+          },
+          {
+            "id": "tech_hui_ma_ji_kan",
+            "name": "回马急砍",
+            "type": "attack",
+            "description": "从半丈外疾退回来井中月急砍反击"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "特殊",
+            "description": "脱身后立即反击"
+          }
+        ],
+        "combat_style": "退中求进，出其不意",
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 132,
+            "line_end": 132,
+            "text": "使出从李元吉学来的回马枪法门"
+          }
+        ]
+      },
+      {
+        "id": "skill_jie_jin_xie_jin",
+        "name": "借劲卸劲",
+        "type": "内功",
+        "faction": "unknown",
+        "rank": 6,
+        "one_line": "徐子陵新近的奇技，可卸去对方攻来的劲道化为己用",
+        "techniques": [
+          {
+            "id": "tech_xie_jin_hua_qu",
+            "name": "卸劲化去",
+            "type": "defense",
+            "description": "两手分开暗施卸劲化去对方四成劲道"
+          },
+          {
+            "id": "tech_jie_jin_lian_he",
+            "name": "借劲连结",
+            "type": "buff",
+            "description": "两人紧握的手变成贯通桥梁，同源真气联成一体"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "增益",
+            "description": "化去对方攻来的劲道"
+          },
+          {
+            "type": "特殊",
+            "description": "与同伴真气连结增强战力"
+          }
+        ],
+        "combat_style": "以柔克刚，借力打力",
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 36,
+            "line_end": 36,
+            "text": "暗施卸劲化去对方攻来多达四成的劲道"
+          },
+          {
+            "chapter": 360,
+            "line_start": 71,
+            "line_end": 71,
+            "text": "两人紧握的手变成一道贯通的桥梁把他们同源而异的真气联成一体"
+          }
+        ]
+      },
+      {
+        "id": "skill_da_jin_gang_zhang",
+        "name": "大金刚掌",
+        "type": "掌法",
+        "faction": "faction_tian_long_chao",
+        "rank": 6,
+        "one_line": "徐子陵的佛门根基武功，手捏大金刚轮印攻防兼备",
+        "techniques": [
+          {
+            "id": "tech_da_jin_gang_lun_yin",
+            "name": "大金刚轮印",
+            "type": "attack",
+            "description": "手捏大金刚轮印，两手指向掌心弯曲大拇指并拢中指反扣缠绕食指"
+          },
+          {
+            "id": "tech_da_jin_gang_quan",
+            "name": "大金刚拳",
+            "type": "attack",
+            "description": "往后一仰冉拗腰挺回来时一拳击出"
+          }
+        ],
+        "progression": [],
+        "effects": [
+          {
+            "type": "伤害",
+            "description": "印锋精准刺入对手虚空十字正中"
+          }
+        ],
+        "combat_style": "佛门正宗掌法，稳扎稳打",
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 23,
+            "line_end": 23,
+            "text": "徐子陵手捏大金刚轮印"
+          }
+        ]
+      }
+    ],
+    "techniques": [],
+    "factions": [
+      {
+        "id": "faction_si_chuan_temple",
+        "name": "泗川寺",
+        "type": "武林门派",
+        "location": "泗川",
+        "sub_divisions": [],
+        "one_line": "佛门圣地，拥有四大圣僧道信、嘉祥、智慧、帝心",
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 1,
+            "line_end": 192,
+            "text": "佛门四大圣僧集体出场"
+          }
+        ]
+      }
+    ],
+    "locations": [
+      {
+        "id": "loc_dian_nei",
+        "name": "大殿",
+        "region": "泗川寺",
+        "one_line": "泗川寺内的大殿，寇仲徐子陵与四大圣僧在此激战",
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 1,
+            "line_end": 192,
+            "text": "殿内四人战作一团"
+          }
+        ]
+      },
+      {
+        "id": "loc_dian_wai",
+        "name": "殿外",
+        "region": "泗川寺",
+        "one_line": "大殿之外，漫天风雪",
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 127,
+            "line_end": 127,
+            "text": "像殿外的暴风雪般"
+          },
+          {
+            "chapter": 360,
+            "line_start": 192,
+            "line_end": 192,
+            "text": "消失在殿外漫天风雪里"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "item_jing_zhong_yue",
+        "name": "井中月",
+        "type": "weapon",
+        "owner": "char_kou_zhong",
+        "one_line": "寇仲的佩刀，施展井中八法时化作黄芒如流星划过",
+        "description": "寇仲的随身宝刀，刀身狭长锋利，在寇仲手中可化作黄芒流星，配合井中八法施展时刀势撼岳摇山，刀法变化无穷，足与天刀宋缺的天刀相提并论",
+        "effects": [
+          {
+            "type": "特殊",
+            "description": "人与刀合为一体，刀锋发出充满杀气的刀劲"
+          },
+          {
+            "type": "增益",
+            "description": "配合井中八法可使刀势达到巅峰状态"
+          }
+        ],
+        "origin": "寇仲佩刀",
+        "rarity": "稀世珍品",
+        "related_characters": [
+          "char_kou_zhong"
+        ],
+        "related_skills": [
+          "skill_jing_zhong_ba_fa"
+        ],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 2,
+            "line_end": 2,
+            "text": "并中月化作黄芒"
+          },
+          {
+            "chapter": 360,
+            "line_start": 159,
+            "line_end": 159,
+            "text": "井中月使出井中八法第七法速战"
+          }
+        ]
+      },
+      {
+        "id": "item_da_yuan_man_zhang",
+        "name": "大圆满杖",
+        "type": "weapon",
+        "owner": "char_di_xin",
+        "one_line": "帝心尊者的禅杖，威力无穷",
+        "description": "帝心尊者所持的禅杖，是大圆满杖法的武器，杖身沉重，挥舞时化出万千杖影如墙压来，配合帝心尊者的深厚内力可产生铺天盖地的攻击效果",
+        "effects": [
+          {
+            "type": "伤害",
+            "description": "禅杖横扫可扫中对手刀锋"
+          },
+          {
+            "type": "控制",
+            "description": "生出狂猛的吸扯之劲使对手难以脱身"
+          }
+        ],
+        "origin": "泗川寺法器",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_di_xin_zun_zhe"
+        ],
+        "related_skills": [
+          "skill_da_yuan_zhuang_zhang_fa"
+        ],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 110,
+            "line_end": 110,
+            "text": "帝心尊者的大圆满杖"
+          },
+          {
+            "chapter": 360,
+            "line_start": 135,
+            "line_end": 135,
+            "text": "寇仲痛砍禅杖"
+          }
+        ]
+      },
+      {
+        "id": "item_tan_mu_fo_zhu_chuan",
+        "name": "檀木佛珠串",
+        "type": "weapon",
+        "owner": "char_zhi_hui",
+        "one_line": "智慧大师的独门武器，佛珠可脱手射出攻击要穴",
+        "description": "智慧大师所持的檀木佛珠串，珠子坚硬如石，可随步法改变方向，三颗脱手射出后发先至成品字形袭击对手肩井和背心要穴，是佛门中少见的攻击性法器",
+        "effects": [
+          {
+            "type": "控制",
+            "description": "佛珠串可套住对手兵器"
+          },
+          {
+            "type": "伤害",
+            "description": "三颗檀木珠脱手袭击要穴"
+          }
+        ],
+        "origin": "泗川寺法器",
+        "rarity": "上乘佳品",
+        "related_characters": [
+          "char_zhi_hui"
+        ],
+        "related_skills": [
+          "skill_tan_mu_fo_zhu"
+        ],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 100,
+            "line_end": 100,
+            "text": "智慧的擅木佛珠串扬起"
+          },
+          {
+            "chapter": 360,
+            "line_start": 97,
+            "line_end": 97,
+            "text": "手上佛珠串有三颗檀木珠脱手射出"
+          }
+        ]
+      },
+      {
+        "id": "item_fu_tan_xiang_lu",
+        "name": "佛坛香炉",
+        "type": "special",
+        "owner": null,
+        "one_line": "殿内佛坛上的香炉，清香剩余尾指般长短象征时间流逝",
+        "description": "泗川寺大殿佛坛上插香的香炉，香燃烧的长度用来衡量寇仲和徐子陵被困的时间，清香只剩尾指般长的一小截说明战斗已持续很长时间",
+        "effects": [],
+        "origin": "泗川寺佛坛",
+        "rarity": "寻常凡品",
+        "related_characters": [],
+        "related_skills": [],
+        "rag_refs": [
+          360
+        ],
+        "source_refs": [
+          {
+            "chapter": 360,
+            "line_start": 106,
+            "line_end": 106,
+            "text": "佛坛香炉插的清香只剩下尾指般长的一小截"
+          }
+        ]
+      }
+    ]
+  },
+  "entity_updates": []
+}
