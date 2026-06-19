@@ -1,8 +1,6180 @@
 {
-  "characters": [],
-  "skills": [],
-  "techniques": [],
-  "factions": [],
-  "locations": [],
-  "items": []
+  "characters": [
+    {
+      "id": "char_cui_cheng",
+      "name": "崔诚",
+      "alias": [],
+      "identity": "群英镖局趟子手",
+      "faction": "char_qun_ying_biao_ju",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "本次镖银失踪案的唯一生还者",
+      "personality": {
+        "traits": [
+          "精明",
+          "干练",
+          "忠诚",
+          "坚毅",
+          "命大"
+        ],
+        "speech_style": "沉稳",
+        "temperament": "冷静"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16,
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 10,
+          "line_end": 10,
+          "text": "崔诚知道自己现在已变得如此重要"
+        },
+        {
+          "chapter": 16,
+          "line_start": 124,
+          "line_end": 124,
+          "text": "到底是谁杀死崔诚？"
+        },
+        {
+          "chapter": 17,
+          "line_start": 20,
+          "line_end": 20,
+          "text": "崔诚是宫九杀死的"
+        }
+      ]
+    },
+    {
+      "id": "char_xiong_tian_jian",
+      "name": "熊天健",
+      "alias": [],
+      "identity": "中原大侠",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "群英镖局总镖头司徒刚的舅父，侠义正直",
+      "personality": {
+        "traits": [
+          "侠义",
+          "正直",
+          "果断",
+          "沉稳",
+          "热心"
+        ],
+        "speech_style": "豪迈",
+        "temperament": "急躁"
+      },
+      "relationships": [
+        {
+          "target": "char_si_tu_gang",
+          "type": "亲属",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "深厚"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 26,
+          "line_end": 26,
+          "text": "熊天健是中原大侠"
+        },
+        {
+          "chapter": 8,
+          "line_start": 8,
+          "line_end": 19,
+          "text": "第一个站起来的是熊天健。他率领第一批人再回到太行山下那小镇去"
+        }
+      ]
+    },
+    {
+      "id": "char_ye_xing_shi",
+      "name": "叶星士",
+      "alias": [],
+      "identity": "四大名医之一",
+      "faction": "char_shao_lin",
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "登峰造极",
+      "one_line": "少林铁肩大师的唯一俗家弟子，医术精湛",
+      "personality": {
+        "traits": [
+          "冷静",
+          "严谨",
+          "博学",
+          "洞察力强",
+          "沉稳"
+        ],
+        "speech_style": "平和",
+        "temperament": "冷静"
+      },
+      "relationships": [
+        {
+          "target": "char_tie_jian_da_shi",
+          "type": "师徒",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "尊崇"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8,
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 28,
+          "line_end": 28,
+          "text": "叶星士是少林铁肩大师的唯一俗家弟子"
+        },
+        {
+          "chapter": 8,
+          "line_start": 23,
+          "line_end": 23,
+          "text": "由叶星士率领的第二批人也一样"
+        },
+        {
+          "chapter": 17,
+          "line_start": 564,
+          "line_end": 564,
+          "text": "叶星士？"
+        }
+      ]
+    },
+    {
+      "id": "char_ying_yan_lao_qi",
+      "name": "鹰眼老七",
+      "alias": [],
+      "identity": "十二连环坞总瓢把子",
+      "faction": "char_shi_er_lian_huan_wu",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "十二连环坞首领，势力远及塞外",
+      "personality": {
+        "traits": [
+          "精明",
+          "威严",
+          "重情",
+          "果断",
+          "护短"
+        ],
+        "speech_style": "威严",
+        "temperament": "多变"
+      },
+      "relationships": [
+        {
+          "target": "char_xiao_hong_zhu",
+          "type": "恋人",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "痛失所爱"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8,
+        15,
+        19,
+        20,
+        21
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 30,
+          "line_end": 30,
+          "text": "鹰眼老七是十二连环坞的总瓢把子"
+        },
+        {
+          "chapter": 8,
+          "line_start": 27,
+          "line_end": 61,
+          "text": "鹰眼老七的回答却更令人泄气"
+        },
+        {
+          "chapter": 15,
+          "line_start": 186,
+          "line_end": 186,
+          "text": "鹰眼老七，十二连环坞的总瓢把子。"
+        },
+        {
+          "chapter": 19,
+          "line_start": 442,
+          "line_end": 530,
+          "text": "鹰眼老七带二十人来杀西门吹雪，内心挣扎"
+        },
+        {
+          "chapter": 20,
+          "line_start": 16,
+          "line_end": 18,
+          "text": "所以他很感谢鹰眼老七。"
+        },
+        {
+          "chapter": 21,
+          "line_start": 214,
+          "line_end": 214,
+          "text": "装酒的碗被鹰眼老七拿着"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_hong_zhu",
+      "name": "萧红珠",
+      "alias": [],
+      "identity": "鹰眼老七如夫人",
+      "faction": "char_shi_er_lian_huan_wu",
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "鹰眼老七最亲信的人之一，温柔聪明",
+      "personality": {
+        "traits": [
+          "温柔",
+          "聪明",
+          "细心",
+          "忠诚",
+          "凄婉"
+        ],
+        "speech_style": "柔声",
+        "temperament": "温柔"
+      },
+      "relationships": [
+        {
+          "target": "char_ying_yan_lao_qi",
+          "type": "恋人",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "恩爱"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16,
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 42,
+          "line_end": 42,
+          "text": "据鹰眼老七的如夫人萧红珠说"
+        },
+        {
+          "chapter": 16,
+          "line_start": 144,
+          "line_end": 144,
+          "text": "能自由出入的，只有程中和萧红珠"
+        },
+        {
+          "chapter": 17,
+          "line_start": 20,
+          "line_end": 20,
+          "text": "萧红珠和程中"
+        }
+      ]
+    },
+    {
+      "id": "char_cheng_zhong",
+      "name": "程中",
+      "alias": [],
+      "identity": "十二连环坞第三寨寨主",
+      "faction": "char_shi_er_lian_huan_wu",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "炉火纯青",
+      "one_line": "十二连环坞第三寨寨主，老成持重",
+      "personality": {
+        "traits": [
+          "老成",
+          "持重",
+          "细心",
+          "忠诚",
+          "稳重"
+        ],
+        "speech_style": "平和",
+        "temperament": "冷静"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        16,
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 44,
+          "line_end": 44,
+          "text": "程中和萧红珠都是鹰眼老七最亲信的人"
+        },
+        {
+          "chapter": 16,
+          "line_start": 144,
+          "line_end": 144,
+          "text": "能自由出入的，只有程中和萧红珠"
+        },
+        {
+          "chapter": 17,
+          "line_start": 20,
+          "line_end": 20,
+          "text": "萧红珠和程中"
+        }
+      ]
+    },
+    {
+      "id": "char_tai_ping_wang_shi_zi",
+      "name": "太平王世子",
+      "alias": [],
+      "identity": "太平王世子",
+      "faction": "char_tai_ping_wang_fu",
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "初窥门径",
+      "one_line": "本案委托人代表，给予四十天期限",
+      "personality": {
+        "traits": [
+          "傲慢",
+          "冷静",
+          "讲理",
+          "威严",
+          "深沉"
+        ],
+        "speech_style": "冷淡",
+        "temperament": "冷静"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 70,
+          "line_end": 70,
+          "text": "太平王的世子冷笑道"
+        }
+      ]
+    },
+    {
+      "id": "char_si_tu_gang",
+      "name": "司徒刚",
+      "alias": [],
+      "identity": "群英镖局总镖头",
+      "faction": "char_qun_ying_biao_ju",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "群英镖局总镖头",
+      "personality": {
+        "traits": [
+          "精明",
+          "干练",
+          "有魄力",
+          "稳重",
+          "有名望"
+        ],
+        "speech_style": "威严",
+        "temperament": "稳重"
+      },
+      "relationships": [
+        {
+          "target": "char_xiong_tian_jian",
+          "type": "亲属",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "舅侄"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 26,
+          "line_end": 26,
+          "text": "群英镖局总镖头司徒刚"
+        },
+        {
+          "chapter": 5,
+          "line_start": 562,
+          "line_end": 562,
+          "text": "群英镖局的总镖头铁掌金刀司徒刚"
+        }
+      ]
+    },
+    {
+      "id": "char_wang_yi",
+      "name": "王毅",
+      "alias": [],
+      "identity": "淮南武林世家长公子",
+      "faction": "faction_huai_nan_wu_lin_shi_jia",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "以鹰爪力著称",
+      "personality": {
+        "traits": [
+          "急躁",
+          "好胜",
+          "果断",
+          "热情",
+          "忠诚"
+        ],
+        "speech_style": "急促",
+        "temperament": "急躁"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 150,
+          "line_end": 150,
+          "text": "淮南武林世家长公子王毅"
+        },
+        {
+          "chapter": 8,
+          "line_start": 25,
+          "line_end": 25,
+          "text": "王毅率领的第三批人总算比较有些收获"
+        }
+      ]
+    },
+    {
+      "id": "char_shui_shang_fei",
+      "name": "水上飞",
+      "alias": [],
+      "identity": "长江水帮高手",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "水性号称天下第一，被神秘刺客杀害",
+      "personality": {
+        "traits": [
+          "水性精纯",
+          "谨慎",
+          "有名望",
+          "低调",
+          "坚毅"
+        ],
+        "speech_style": "沉稳",
+        "temperament": "冷静"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 136,
+          "line_end": 136,
+          "text": "长江水上飞"
+        }
+      ]
+    },
+    {
+      "id": "char_guo_lao_zhuang_zhu",
+      "name": "郭老庄主",
+      "alias": [],
+      "identity": "铁剑山庄老庄主",
+      "faction": "faction_tie_jian_shan_zhuang",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "剑法极高，在练剑时被杀害",
+      "personality": {
+        "traits": [
+          "孤僻",
+          "严谨",
+          "高傲",
+          "坚毅",
+          "专注"
+        ],
+        "speech_style": "冷淡",
+        "temperament": "孤傲"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 154,
+          "line_end": 154,
+          "text": "铁剑山庄的老庄主"
+        }
+      ]
+    },
+    {
+      "id": "char_tie_jian_da_shi",
+      "name": "铁肩大师",
+      "alias": [],
+      "identity": "少林高僧",
+      "faction": "faction_shao_lin",
+      "role": "npc",
+      "archetype": "monk",
+      "rank": "返璞归真",
+      "one_line": "叶星士的师父",
+      "personality": {
+        "traits": [
+          "慈悲",
+          "严谨",
+          "博学",
+          "威严",
+          "淡泊"
+        ],
+        "speech_style": "平和",
+        "temperament": "冷静"
+      },
+      "relationships": [
+        {
+          "target": "char_ye_xing_shi",
+          "type": "师徒",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "教导"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 28,
+          "line_end": 28,
+          "text": "少林铁肩大师"
+        }
+      ]
+    },
+    {
+      "id": "char_lu_xiao_feng",
+      "name": "陆小凤",
+      "alias": [],
+      "identity": "江湖奇人",
+      "faction": null,
+      "role": "protagonist",
+      "archetype": "assassin",
+      "rank": "返璞归真",
+      "one_line": "江湖传奇人物，智勇双全，坚决拒绝加入小老头的阴谋",
+      "personality": {
+        "traits": [
+          "机智",
+          "多情",
+          "好吃",
+          "懒散",
+          "正义"
+        ],
+        "speech_style": "调侃",
+        "temperament": "洒脱"
+      },
+      "relationships": [
+        {
+          "target": "char_ying_yan_lao_qi",
+          "type": "挚友",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "信任"
+        },
+        {
+          "target": "char_sha_man",
+          "type": "恋人",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "深情互许，共患难"
+        },
+        {
+          "target": "char_lao_shi_he_shang",
+          "type": "宿敌",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "被背叛"
+        },
+        {
+          "target": "char_gong_jiu",
+          "type": "宿敌",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "对立"
+        },
+        {
+          "target": "char_xiao_lao_tou",
+          "type": "宿敌",
+          "intensity": 90,
+          "bond_level": 5,
+          "dynamic": "对立"
+        },
+        {
+          "target": "char_xi_men_chui_xue",
+          "type": "挚友",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "信任"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        11,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22
+      ],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 190,
+          "line_end": 190,
+          "text": "陆小凤"
+        },
+        {
+          "chapter": 2,
+          "line_start": 2,
+          "line_end": 2,
+          "text": "陆小凤还没有出海，他怕晕船，他选了条最大最稳的海船，这条船却正在装货。"
+        },
+        {
+          "chapter": 3,
+          "line_start": 14,
+          "line_end": 14,
+          "text": "陆小凤也很想抓住这条老狐狸来问问"
+        },
+        {
+          "chapter": 4,
+          "line_start": 6,
+          "line_end": 8,
+          "text": "正是陆小凤，他还活着。他这个人早巳被千锤百炼过"
+        },
+        {
+          "chapter": 5,
+          "line_start": 2,
+          "line_end": 2,
+          "text": "最近几年来陆小凤都没有赌过钱"
+        },
+        {
+          "chapter": 6,
+          "line_start": 1,
+          "line_end": 100,
+          "text": "第六回开头至陆小凤选银票"
+        },
+        {
+          "chapter": 11,
+          "line_start": 2,
+          "line_end": 4,
+          "text": "陆小凤也有心事。他想的也不是宫九的剑"
+        },
+        {
+          "chapter": 11,
+          "line_start": 12,
+          "line_end": 12,
+          "text": "在想你。"
+        },
+        {
+          "chapter": 13,
+          "line_start": 2,
+          "line_end": 2,
+          "text": "陆小凤吃过牛肉汤。"
+        },
+        {
+          "chapter": 15,
+          "line_start": 26,
+          "line_end": 26,
+          "text": "陆小凤道：'明白了什么事？'"
+        },
+        {
+          "chapter": 16,
+          "line_start": 1,
+          "line_end": 4,
+          "text": "陆小凤就自己跳入小艇中，一个人带着一瓶水、一袋干粮"
+        },
+        {
+          "chapter": 17,
+          "line_start": 4,
+          "line_end": 4,
+          "text": "陆小凤起先以为天气会非常恶劣"
+        },
+        {
+          "chapter": 18,
+          "line_start": 1,
+          "line_end": 100,
+          "text": "第十八回　猫捉老鼠\n假如猫和老鼠比赛跑步，谁跑得最快？\n\n陆小凤飞奔的时候，忽然想起这个问题。\n\n应该是猫跑得快吧？陆小凤想，但是，老鼠能一头钻进洞里，也可以一冲就躲到阴沟里，这绝对是猫做不到的事情。..."
+        },
+        {
+          "chapter": 19,
+          "line_start": 10,
+          "line_end": 110,
+          "text": "陆小凤早起，逃离宫九追击，担忧西门吹雪安危"
+        },
+        {
+          "chapter": 20,
+          "line_start": 4,
+          "line_end": 4,
+          "text": "刀在陆小凤手上。"
+        },
+        {
+          "chapter": 20,
+          "line_start": 331,
+          "line_end": 445,
+          "text": "陆小凤决定这样做的时候，他通常都能做到。"
+        },
+        {
+          "chapter": 22,
+          "line_start": 6,
+          "line_end": 6,
+          "text": "陆小凤问道"
+        }
+      ]
+    },
+    {
+      "id": "char_wo_yun_lou_zhu_ren",
+      "name": "卧云楼主人",
+      "alias": [],
+      "identity": "卧云楼主",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "江湖闻名的美男子，陆小凤好友",
+      "personality": {
+        "traits": [
+          "好客",
+          "风趣",
+          "细心",
+          "豁达",
+          "健谈"
+        ],
+        "speech_style": "豪迈",
+        "temperament": "热情"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "挚友",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "深厚"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [],
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 214,
+          "line_end": 214,
+          "text": "卧云楼主昔年本是江湖闻名的美男子"
+        }
+      ]
+    },
+    {
+      "id": "char_lao_hu_li",
+      "name": "老狐狸",
+      "alias": [
+        "船主人"
+      ],
+      "identity": "船主",
+      "faction": null,
+      "role": "npc",
+      "archetype": "商人",
+      "rank": "平平无奇",
+      "one_line": "狡猾的船主，口才极好，经营狐狸窝。",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "精明",
+          "健谈",
+          "热情",
+          "自私"
+        ],
+        "speech_style": "圆滑",
+        "temperament": "外向"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2,
+        3,
+        4,
+        7,
+        15,
+        16
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 4,
+          "line_end": 4,
+          "text": "已收了他五百两银子的船主人，是条标标准准的老狐狸，口才尤其好！"
+        },
+        {
+          "chapter": 3,
+          "line_start": 8,
+          "line_end": 10,
+          "text": "老狐狸的大海船终于在满天夕阳下驶离了海岸"
+        },
+        {
+          "chapter": 4,
+          "line_start": 20,
+          "line_end": 20,
+          "text": "希望找到老狐狸、牛肉汤、岳洋"
+        },
+        {
+          "chapter": 7,
+          "line_start": 174,
+          "line_end": 188,
+          "text": "老狐狸那条船是你弄翻的么"
+        },
+        {
+          "chapter": 15,
+          "line_start": 46,
+          "line_end": 48,
+          "text": "小艇的船板忽然有一块掀了起来，一个人从下面伸出了头，满头白发苍苍，一双眼睛却湛蓝如海水。"
+        },
+        {
+          "chapter": 16,
+          "line_start": 2,
+          "line_end": 6,
+          "text": "老狐狸的快乐并没有维持很久"
+        }
+      ]
+    },
+    {
+      "id": "char_shao_nian",
+      "name": "岳洋",
+      "alias": [
+        "少年"
+      ],
+      "identity": "神秘少年",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "冷峻的少年，武功高强，只吃鸡蛋喝白水。",
+      "personality": {
+        "traits": [
+          "冷酷",
+          "沉默",
+          "果断",
+          "残忍",
+          "傲气"
+        ],
+        "speech_style": "简洁",
+        "temperament": "冷漠"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 48,
+          "line_end": 48,
+          "text": "他年纪还很轻，黝黑英俊的脸上，带着几分傲气，又带着几分野气，眼睛黑得发蓝，薄薄的嘴唇显得坚强而残忍。"
+        },
+        {
+          "chapter": 2,
+          "line_start": 110,
+          "line_end": 110,
+          "text": "那少年在客栈里账簿上登记的名字是岳洋，山岳的岳，海洋的洋。"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_gu_niang",
+      "name": "小姑娘",
+      "alias": [],
+      "identity": "服务员",
+      "faction": null,
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "年轻的女服务员，试图给少年送牛肉。",
+      "personality": {
+        "traits": [
+          "热情",
+          "大胆",
+          "职业化",
+          "不死心",
+          "年轻"
+        ],
+        "speech_style": "娇柔",
+        "temperament": "外向"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 62,
+          "line_end": 62,
+          "text": "一个胸脯很高，腰肢很细，年纪却很小的女孩子，正端着盘牛肉走过去，眼睛里充满了热情，轻轻地说：“这里难得有牛肉，你吃一点。”"
+        }
+      ]
+    },
+    {
+      "id": "char_hua_zhi_zhao_zhan_de_nv_ren",
+      "name": "花枝招展的女人",
+      "alias": [],
+      "identity": "妓女",
+      "faction": null,
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "打扮花枝招展的女人，头上有刨花油味。",
+      "personality": {
+        "traits": [
+          "风骚",
+          "世故",
+          "嘲讽",
+          "直接",
+          "世俗"
+        ],
+        "speech_style": "泼辣",
+        "temperament": "外向"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 90,
+          "line_end": 90,
+          "text": "陆小凤无疑也是个很能让女孩子感兴趣的男人，刚找到位子，已有两个打扮得花枝招展的女人来了，头上刨花油的香味，香得令人作呕。"
+        }
+      ]
+    },
+    {
+      "id": "char_yue_yang",
+      "name": "岳洋",
+      "alias": [
+        "少年"
+      ],
+      "identity": "神秘少年",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "冷峻的少年，多次被人暗算，只吃鸡蛋喝白水。",
+      "personality": {
+        "traits": [
+          "冷酷",
+          "沉默",
+          "果断",
+          "残忍",
+          "傲气"
+        ],
+        "speech_style": "简洁",
+        "temperament": "冷漠"
+      },
+      "relationships": [
+        {
+          "target": "char_ma_lian",
+          "type": "亲属",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "兄弟"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2,
+        3,
+        4,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 110,
+          "line_end": 110,
+          "text": "那少年在客栈里账簿上登记的名字是岳洋，山岳的岳，海洋的洋。"
+        },
+        {
+          "chapter": 3,
+          "line_start": 98,
+          "line_end": 100,
+          "text": "岳洋是个什么样的人呢？他的衣着不但质料很好"
+        },
+        {
+          "chapter": 4,
+          "line_start": 32,
+          "line_end": 34,
+          "text": "陆小凤忽然想起了岳洋，想起他眼睛里那种奇怪的表情"
+        },
+        {
+          "chapter": 6,
+          "line_start": 374,
+          "line_end": 380,
+          "text": "陆小凤想起岳洋的警告"
+        }
+      ]
+    },
+    {
+      "id": "char_niu_rou_tang",
+      "name": "牛肉汤",
+      "alias": [],
+      "identity": "服务员",
+      "faction": null,
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "年轻的女服务员，曾被少年盖牛肉汤在脸上。",
+      "personality": {
+        "traits": [
+          "热情",
+          "大胆",
+          "职业化",
+          "不死心",
+          "年轻"
+        ],
+        "speech_style": "娇柔",
+        "temperament": "外向"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "恋人",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "曾经有过一段感情，仍关心陆小凤安危"
+        },
+        {
+          "target": "char_jiu_shao_ye",
+          "type": "亲属",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "嫡亲兄妹，敬畏哥哥的权威"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        13,
+        17,
+        18,
+        19
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 104,
+          "line_end": 104,
+          "text": "她脸上当然已没有牛肉汤，却也没有笑容，对这个长着两道眉毛般怪胡子的男人，她显然没有太大的兴趣。"
+        },
+        {
+          "chapter": 3,
+          "line_start": 20,
+          "line_end": 22,
+          "text": "你怎么会上船来的？因为你们上船来了。"
+        },
+        {
+          "chapter": 4,
+          "line_start": 20,
+          "line_end": 20,
+          "text": "希望找到老狐狸、牛肉汤、岳洋"
+        },
+        {
+          "chapter": 5,
+          "line_start": 488,
+          "line_end": 488,
+          "text": "陆小凤一回头，就看见了牛肉汤"
+        },
+        {
+          "chapter": 6,
+          "line_start": 4,
+          "line_end": 100,
+          "text": "牛肉汤在九曲长桥上逼杀陆小凤"
+        },
+        {
+          "chapter": 7,
+          "line_start": 36,
+          "line_end": 40,
+          "text": "端着一大锅热气腾腾的牛肉汤进来，赫然是牛肉汤"
+        },
+        {
+          "chapter": 10,
+          "line_start": 286,
+          "line_end": 288,
+          "text": "牛肉汤不但冷笑，而且在说话"
+        },
+        {
+          "chapter": 10,
+          "line_start": 358,
+          "line_end": 360,
+          "text": "他就是你的九哥？当然是。"
+        },
+        {
+          "chapter": 13,
+          "line_start": 54,
+          "line_end": 54,
+          "text": "因为他知道只有一个人能煮出这种牛肉汤来"
+        },
+        {
+          "chapter": 17,
+          "line_start": 762,
+          "line_end": 762,
+          "text": "一个甜美的女子声音道"
+        },
+        {
+          "chapter": 18,
+          "line_start": 1,
+          "line_end": 100,
+          "text": "第十八回　猫捉老鼠\n假如猫和老鼠比赛跑步，谁跑得最快？\n\n陆小凤飞奔的时候，忽然想起这个问题。\n\n应该是猫跑得快吧？陆小凤想，但是，老鼠能一头钻进洞里，也可以一冲就躲到阴沟里，这绝对是猫做不到的事情。..."
+        },
+        {
+          "chapter": 19,
+          "line_start": 14,
+          "line_end": 16,
+          "text": "牛肉汤是女人，女人都喜欢花前月下"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_ji",
+      "name": "小鸡",
+      "alias": [],
+      "identity": "妓女",
+      "faction": null,
+      "role": "npc",
+      "archetype": "healer",
+      "rank": "平平无奇",
+      "one_line": "年轻妓女，对陆小凤的胡子感兴趣。",
+      "personality": {
+        "traits": [
+          "好奇",
+          "活泼",
+          "大胆",
+          "年轻",
+          "风骚"
+        ],
+        "speech_style": "娇声",
+        "temperament": "外向"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 166,
+          "line_end": 166,
+          "text": "“你嘴上的这两条东西，究竟是眉毛？还是胡子？”小鸡好像很想去摸摸看。"
+        }
+      ]
+    },
+    {
+      "id": "char_xing_xing",
+      "name": "猩猩",
+      "alias": [],
+      "identity": "壮汉",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "猩猩般的壮汉，与小鸡一同出现。",
+      "personality": {
+        "traits": [
+          "强壮",
+          "简单",
+          "直接",
+          "粗鲁",
+          "顺从"
+        ],
+        "speech_style": "粗声",
+        "temperament": "外向"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 160,
+          "line_end": 160,
+          "text": "房门果然很快就开了，一条猩猩般的壮汉，带着个小鸡般的女孩子走出来。"
+        }
+      ]
+    },
+    {
+      "id": "char_ma_lian",
+      "name": "胡生",
+      "alias": [
+        "马脸",
+        "长脸"
+      ],
+      "identity": "下五门贼",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "马脸鹰钩鼻的男子，擅长使用鸡鸣五更返魂香，轻功高强。",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "阴险",
+          "轻功高",
+          "谨慎",
+          "神秘"
+        ],
+        "speech_style": "低沉",
+        "temperament": "阴沉"
+      },
+      "relationships": [
+        {
+          "target": "char_yue_yang",
+          "type": "亲属",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "兄弟"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 240,
+          "line_end": 240,
+          "text": "一张又长又狭的马脸，却长着个特别大的鹰钩鼻子，无论谁只要看过一眼就很难忘记。"
+        },
+        {
+          "chapter": 2,
+          "line_start": 430,
+          "line_end": 430,
+          "text": "他决心不再去想这些已无法改变的事，抬起头，就看见胡生正在前面的一块岩石下等着他。"
+        }
+      ]
+    },
+    {
+      "id": "char_du_yan_lao_yu_ren",
+      "name": "独眼老渔人",
+      "alias": [
+        "独眼的老渔人"
+      ],
+      "identity": "受人指使的刺客",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "独眼老渔人，受人指使在水中下毒暗害岳洋，被陆小凤揭穿后淹死。",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "怯懦",
+          "贪婪",
+          "阴险",
+          "顺从"
+        ],
+        "speech_style": "慢吞吞",
+        "temperament": "阴沉"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 548,
+          "line_end": 548,
+          "text": "这壶水还是刚才一个独眼的老渔人提来的"
+        },
+        {
+          "chapter": 2,
+          "line_start": 590,
+          "line_end": 594,
+          "text": "那老渔人慢吞吞地站了起来"
+        },
+        {
+          "chapter": 2,
+          "line_start": 614,
+          "line_end": 614,
+          "text": "这个一辈子在海上生活的老渔人竟活活的被淹死了"
+        }
+      ]
+    },
+    {
+      "id": "char_hu_sheng",
+      "name": "胡生",
+      "alias": [],
+      "identity": "神秘人物",
+      "faction": null,
+      "role": "npc",
+      "archetype": "assassin",
+      "rank": "出神入化",
+      "one_line": "马脸冷酷男子，身怀绝顶轻功，后溺水身亡",
+      "personality": {
+        "traits": [
+          "冷酷",
+          "镇定",
+          "神秘",
+          "果断",
+          "警觉",
+          "冷漠"
+        ],
+        "speech_style": "简洁冷淡，惜字如金",
+        "temperament": "冷峻内敛"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "对手",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "试探"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 236,
+          "line_end": 244,
+          "text": "远处的岩石旁，有个人正在向这边眺望，一张又长又狭的马脸上"
+        }
+      ]
+    },
+    {
+      "id": "char_mi_le_fo",
+      "name": "弥勒佛",
+      "alias": [
+        "木佛"
+      ],
+      "identity": "漂流佛像",
+      "faction": null,
+      "role": "npc",
+      "archetype": "npc",
+      "rank": "平平无奇",
+      "one_line": "丈高的弥勒佛木像，成为陆小凤的漂流伙伴",
+      "personality": {
+        "traits": [
+          "笑口常开",
+          "沉默",
+          "随波逐流"
+        ],
+        "speech_style": "无",
+        "temperament": "无"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 46,
+          "line_end": 48,
+          "text": "他坐在一尊佛像上。一丈高的佛像，恰巧是仙佛中块头最大的弥勒佛"
+        }
+      ]
+    },
+    {
+      "id": "char_wu_ming",
+      "name": "吴明",
+      "alias": [
+        "小老头"
+      ],
+      "identity": "山谷主人",
+      "faction": "世外桃源",
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "和和气气的小老头，荒岛山谷的主人，好客风趣",
+      "personality": {
+        "traits": [
+          "和蔼可亲",
+          "风趣幽默",
+          "精明老练",
+          "好客热情",
+          "深藏不露"
+        ],
+        "speech_style": "温和有礼，常用微笑和玩笑",
+        "temperament": "从容淡定"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "合作者",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "初识"
+        },
+        {
+          "target": "char_sha_man",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "债主与赌客"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 313,
+          "line_end": 313,
+          "text": "一个人背负着双手，站在五色缤纷的花丛中，圆圆的脸，头顶已半秃"
+        }
+      ]
+    },
+    {
+      "id": "char_he_shang_shu",
+      "name": "贺尚书",
+      "alias": [
+        "四明狂客"
+      ],
+      "identity": "自认贺知章转世的酒客",
+      "faction": "世外桃源",
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "平平无奇",
+      "one_line": "爱喝酒的中年人，自称唐时贺知章转生",
+      "personality": {
+        "traits": [
+          "嗜酒如命",
+          "自命不凡",
+          "豪放不羁",
+          "爱说大话",
+          "性情中人"
+        ],
+        "speech_style": "醉后自吹自擂",
+        "temperament": "放浪形骸"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 401,
+          "line_end": 401,
+          "text": "一个穿着唐时一品朝服，腰缠白玉带，头戴紫金冠的中年人"
+        },
+        {
+          "chapter": 5,
+          "line_start": 698,
+          "line_end": 698,
+          "text": "贺尚书刚才总算给了他一杯酒"
+        },
+        {
+          "chapter": 6,
+          "line_start": 674,
+          "line_end": 700,
+          "text": "贺尚书出场，冒充刑部尚书审问陆小凤"
+        },
+        {
+          "chapter": 7,
+          "line_start": 76,
+          "line_end": 78,
+          "text": "贺尚书已撒开钓竿，轻飘飘地掠了过来，用的竟是密宗大手印的功夫"
+        }
+      ]
+    },
+    {
+      "id": "char_sha_man",
+      "name": "沙曼",
+      "alias": [],
+      "identity": "山谷中的神秘女子",
+      "faction": "世外桃源",
+      "role": "npc",
+      "archetype": "assassin",
+      "rank": "登堂入室",
+      "one_line": "猫一般冷酷聪明的女子，赌技高超，魅力无法抗拒",
+      "personality": {
+        "traits": [
+          "冷酷聪明",
+          "魅力四射",
+          "懒散厌世",
+          "赌技高超",
+          "坚强独立"
+        ],
+        "speech_style": "简洁冷淡",
+        "temperament": "冷漠疏离"
+      },
+      "relationships": [
+        {
+          "target": "char_wu_ming",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "债主与赌客"
+        },
+        {
+          "target": "char_jiu_shao_ye",
+          "type": "恋人",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "被九少爷从妓院救出并订婚，但态度冷淡"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 415,
+          "line_end": 419,
+          "text": "一双猫一般的眼睛里闪动着海水般的碧光，显得冷酷而聪明"
+        },
+        {
+          "chapter": 5,
+          "line_start": 64,
+          "line_end": 64,
+          "text": "沙曼冷冷道"
+        },
+        {
+          "chapter": 6,
+          "line_start": 16,
+          "line_end": 100,
+          "text": "沙曼与牛肉汤对话，后与陆小凤赌钱"
+        },
+        {
+          "chapter": 8,
+          "line_start": 87,
+          "line_end": 197,
+          "text": "沙曼就站在花丛中...他虽然是我的哥哥，却害了我一生。"
+        },
+        {
+          "chapter": 10,
+          "line_start": 220,
+          "line_end": 222,
+          "text": "这个人竟是沙曼。"
+        },
+        {
+          "chapter": 10,
+          "line_start": 224,
+          "line_end": 224,
+          "text": "沙曼的脸色还是苍白的，虽然显得比往昔憔悴，眼睛里却充满欢喜。"
+        },
+        {
+          "chapter": 11,
+          "line_start": 8,
+          "line_end": 10,
+          "text": "沙曼忽然问道：你在想什么？"
+        },
+        {
+          "chapter": 11,
+          "line_start": 60,
+          "line_end": 60,
+          "text": "只要能跟你在一起，就算只能再活一个时辰，我也心满意足！"
+        },
+        {
+          "chapter": 13,
+          "line_start": 182,
+          "line_end": 182,
+          "text": "她又问沙曼：\"曼姑娘也不吃牛肉汤？\""
+        },
+        {
+          "chapter": 15,
+          "line_start": 272,
+          "line_end": 272,
+          "text": "沙曼道：'这些黑衣人绝不是十二连环坞的属下。'"
+        },
+        {
+          "chapter": 16,
+          "line_start": 18,
+          "line_end": 30,
+          "text": "他开始后悔，后悔自己一再坚持不让沙曼来"
+        },
+        {
+          "chapter": 17,
+          "line_start": 30,
+          "line_end": 30,
+          "text": "一个等他的人——沙曼"
+        },
+        {
+          "chapter": 18,
+          "line_start": 658,
+          "line_end": 660,
+          "text": "陆小凤道：\"不见他，我就见不到沙曼。\"宫九道：\"不见他，你还是可以见到沙曼的。\""
+        },
+        {
+          "chapter": 19,
+          "line_start": 96,
+          "line_end": 96,
+          "text": "陆小凤想起沙曼"
+        },
+        {
+          "chapter": 20,
+          "line_start": 60,
+          "line_end": 60,
+          "text": "西门吹雪并没有见到沙曼。"
+        },
+        {
+          "chapter": 22,
+          "line_start": 8,
+          "line_end": 8,
+          "text": "一个宫九，一个是你朝思暮想的沙曼"
+        }
+      ]
+    },
+    {
+      "id": "char_zhuang_jia",
+      "name": "庄家",
+      "alias": [],
+      "identity": "赌局庄家",
+      "faction": "未知",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "赌局庄家，手法老练",
+      "personality": {
+        "traits": [
+          "冷静",
+          "老练",
+          "沉着",
+          "精明",
+          "冷漠"
+        ],
+        "speech_style": "冷淡",
+        "temperament": "沉稳"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 18,
+          "line_end": 18,
+          "text": "庄家反抓起骰子"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_hu_zi",
+      "name": "小胡子",
+      "alias": [],
+      "identity": "化骨绵掌传人",
+      "faction": "未知",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "年轻的化骨绵掌高手，外表像花花大少",
+      "personality": {
+        "traits": [
+          "狡黠",
+          "阴险",
+          "年轻气盛",
+          "深藏不露",
+          "好色"
+        ],
+        "speech_style": "轻佻",
+        "temperament": "阴险"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_hua_gu_mian_zhang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 126,
+          "line_end": 128,
+          "text": "一个年纪还很轻，却留着两撇小胡子的人忽然笑道"
+        },
+        {
+          "chapter": 6,
+          "line_start": 140,
+          "line_end": 200,
+          "text": "小胡子与陆小凤赌钱"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_lao_tou",
+      "name": "小老头",
+      "alias": [],
+      "identity": "神秘富翁，陆小凤的债主",
+      "faction": "未知",
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "返璞归真",
+      "one_line": "和和气气的小老头，大智若愚，深不可测",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "和善",
+          "精明",
+          "深沉",
+          "幽默",
+          "大智若愚"
+        ],
+        "speech_style": "温和",
+        "temperament": "和蔼"
+      },
+      "relationships": [
+        {
+          "target": "char_niu_rou_tang",
+          "type": "亲属",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "父女"
+        },
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "合作者",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "利用与试探"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        5,
+        6,
+        7,
+        18,
+        20
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 124,
+          "line_end": 124,
+          "text": "那个又客气、又多礼的小老头"
+        },
+        {
+          "chapter": 6,
+          "line_start": 100,
+          "line_end": 100,
+          "text": "陆小凤还钱给小老头"
+        },
+        {
+          "chapter": 7,
+          "line_start": 98,
+          "line_end": 100,
+          "text": "笑容亲切慈祥，赫然竟是那小老头"
+        },
+        {
+          "chapter": 18,
+          "line_start": 696,
+          "line_end": 698,
+          "text": "陆小凤道：\"是小老头的意思？\"宫九道：\"对。\""
+        },
+        {
+          "chapter": 20,
+          "line_start": 343,
+          "line_end": 345,
+          "text": "陆小凤记起小老头对他说的话"
+        }
+      ]
+    },
+    {
+      "id": "char_bai_fa_lao_weng",
+      "name": "白发老翁",
+      "alias": [],
+      "identity": "指刀传人",
+      "faction": "未知",
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "出神入化",
+      "one_line": "满头白发的老学究，擅长指刀绝技",
+      "personality": {
+        "traits": [
+          "道貌岸然",
+          "深藏不露",
+          "阴险",
+          "老练",
+          "沉稳"
+        ],
+        "speech_style": "斯文",
+        "temperament": "沉稳"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_zhi_dao"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 242,
+          "line_end": 244,
+          "text": "坐在陆小凤身旁一个白发老翁的手轻轻一弹"
+        }
+      ]
+    },
+    {
+      "id": "char_mu_yi_ban",
+      "name": "木一半",
+      "alias": [],
+      "identity": "九少爷的随从，独臂单足",
+      "faction": "未知",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "独臂单足的诡秘随从，天残十三式传人",
+      "personality": {
+        "traits": [
+          "诡秘",
+          "阴毒",
+          "恭顺",
+          "残忍",
+          "深藏不露"
+        ],
+        "speech_style": "恭敬",
+        "temperament": "阴沉"
+      },
+      "relationships": [],
+      "known_skills": [
+        "skill_tian_can_shi_san_shi"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        5,
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 532,
+          "line_end": 534,
+          "text": "独臂单足，拄着根铁杖"
+        },
+        {
+          "chapter": 6,
+          "line_start": 4,
+          "line_end": 70,
+          "text": "木一半出场介绍及拒绝杀人"
+        }
+      ]
+    },
+    {
+      "id": "char_lao_shi_he_shang",
+      "name": "老实和尚",
+      "alias": [],
+      "identity": "四大高僧之一，排名第三",
+      "faction": "未知",
+      "role": "npc",
+      "archetype": "monk",
+      "rank": "出神入化",
+      "one_line": "四大高僧中名排第三，武功深不可测",
+      "personality": {
+        "traits": [
+          "老实",
+          "幽默",
+          "深藏不露",
+          "狡黠",
+          "贪生怕死",
+          "随和"
+        ],
+        "speech_style": "平和",
+        "temperament": "随和"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "对手",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "亦敌亦友"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        5,
+        6,
+        11,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20,
+        22
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 566,
+          "line_end": 566,
+          "text": "赫然竟是四大高僧中名排第三的老实和尚"
+        },
+        {
+          "chapter": 6,
+          "line_start": 38,
+          "line_end": 50,
+          "text": "老实和尚拒绝杀人后离去"
+        },
+        {
+          "chapter": 11,
+          "line_start": 410,
+          "line_end": 416,
+          "text": "忽然听见床下有人在鼓掌...一个光秃秃的脑袋从床底下伸了出来。老实和尚！"
+        },
+        {
+          "chapter": 13,
+          "line_start": 30,
+          "line_end": 30,
+          "text": "老实和尚！陆小凤霍然推开箱盖"
+        },
+        {
+          "chapter": 15,
+          "line_start": 4,
+          "line_end": 6,
+          "text": "老实和尚擦着汗，叹着气，苦笑道：'看来这叫做天生的一物治一物。'"
+        },
+        {
+          "chapter": 17,
+          "line_start": 70,
+          "line_end": 70,
+          "text": "老实和尚、沙曼、小玉"
+        },
+        {
+          "chapter": 18,
+          "line_start": 870,
+          "line_end": 870,
+          "text": "陆小凤道：\"还有老实和尚、沙曼和小玉。\""
+        },
+        {
+          "chapter": 19,
+          "line_start": 346,
+          "line_end": 354,
+          "text": "西门吹雪要去跟老实和尚学坐怀不乱"
+        },
+        {
+          "chapter": 20,
+          "line_start": 253,
+          "line_end": 255,
+          "text": "老实咈尊在四大高僧中排名第三。"
+        },
+        {
+          "chapter": 22,
+          "line_start": 4,
+          "line_end": 4,
+          "text": "老实咈尚站在门外对着陆小凤道"
+        }
+      ]
+    },
+    {
+      "id": "char_jiu_shao_ye",
+      "name": "九少爷",
+      "alias": [
+        "九哥"
+      ],
+      "identity": "神秘势力的九少爷",
+      "faction": "未知",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "牛肉汤的哥哥，武功深不可测的天才，沙曼的未婚夫，能一学就会任何武功",
+      "personality": {
+        "traits": [
+          "复杂",
+          "孤僻",
+          "古怪",
+          "天才",
+          "慷慨",
+          "沉默寡言",
+          "忍耐力强"
+        ],
+        "speech_style": "寡言",
+        "temperament": "深沉"
+      },
+      "relationships": [
+        {
+          "target": "char_niu_rou_tang",
+          "type": "亲属",
+          "intensity": 70,
+          "bond_level": 3,
+          "dynamic": "兄妹"
+        },
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "对手",
+          "intensity": 40,
+          "bond_level": 2,
+          "dynamic": "陆小凤与沙曼的关系使其成为潜在对手"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        5,
+        6,
+        8,
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 526,
+          "line_end": 526,
+          "text": "老九不但有消息带回来"
+        },
+        {
+          "chapter": 6,
+          "line_start": 4,
+          "line_end": 12,
+          "text": "众人谈论九少爷"
+        },
+        {
+          "chapter": 8,
+          "line_start": 197,
+          "line_end": 282,
+          "text": "九少爷回来了...除了那神龙般的九公子外，还有谁能做得出这种事来？"
+        },
+        {
+          "chapter": 9,
+          "line_start": 28,
+          "line_end": 38,
+          "text": "九少爷特地叫我来请曼姑娘去吃饭"
+        },
+        {
+          "chapter": 9,
+          "line_start": 68,
+          "line_end": 68,
+          "text": "那位九公子在这里一定有操纵别人命运的权力"
+        },
+        {
+          "chapter": 9,
+          "line_start": 86,
+          "line_end": 152,
+          "text": "牛肉汤描述九少爷的才能和性格"
+        }
+      ]
+    },
+    {
+      "id": "char_luo_fei",
+      "name": "罗飞",
+      "alias": [
+        "黑燕子"
+      ],
+      "identity": "十二连环坞第一寨寨主",
+      "faction": "faction_shi_er_lian_huan_wu",
+      "role": "npc",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "十二连环坞第一寨寨主，以轻功成名",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "轻功卓绝",
+          "阴险",
+          "果断",
+          "冷酷"
+        ],
+        "speech_style": "阴沉",
+        "temperament": "阴险"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 692,
+          "line_end": 692,
+          "text": "这黑衣人竟是十二连环坞第一寨的寨主黑燕子罗飞"
+        }
+      ]
+    },
+    {
+      "id": "char_kun_lun_nu",
+      "name": "昆仑奴",
+      "alias": [],
+      "identity": "异族仆从",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "来自西域的力士仆从",
+      "personality": {
+        "traits": [
+          "力大",
+          "沉默",
+          "忠诚",
+          "木讷",
+          "听命行事"
+        ],
+        "speech_style": "不详",
+        "temperament": "木讷"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 64,
+          "line_end": 66,
+          "text": "昆仑奴抬箱子及听不懂话"
+        }
+      ]
+    },
+    {
+      "id": "char_bai_fa_lao_xue_jiu",
+      "name": "白发老学究",
+      "alias": [],
+      "identity": "赌客",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "登堂入室",
+      "one_line": "赌坊中的白发老者，性格沉稳",
+      "personality": {
+        "traits": [
+          "沉稳",
+          "精明",
+          "谨慎",
+          "老练",
+          "世故",
+          "低调"
+        ],
+        "speech_style": "老成持重",
+        "temperament": "沉稳"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 208,
+          "line_end": 250,
+          "text": "白发老学究在赌局中出场"
+        }
+      ]
+    },
+    {
+      "id": "char_du_yan_lao_yu_weng",
+      "name": "独眼老渔翁",
+      "alias": [],
+      "identity": "渔夫",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "被牛肉汤杀害的独眼渔夫",
+      "personality": {
+        "traits": [
+          "倒霉",
+          "无辜",
+          "普通"
+        ],
+        "speech_style": "不详",
+        "temperament": "平凡"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 364,
+          "line_end": 370,
+          "text": "陆小凤回忆独眼老渔翁之死"
+        }
+      ]
+    },
+    {
+      "id": "char_ma_lian_ren",
+      "name": "马脸人",
+      "alias": [],
+      "identity": "渔夫",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "被牛肉汤杀害的马脸渔夫",
+      "personality": {
+        "traits": [
+          "倒霉",
+          "无辜",
+          "普通"
+        ],
+        "speech_style": "不详",
+        "temperament": "平凡"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 364,
+          "line_end": 370,
+          "text": "陆小凤回忆马脸人之死"
+        }
+      ]
+    },
+    {
+      "id": "char_jin_pao_shu_sheng",
+      "name": "锦袍书生",
+      "alias": [],
+      "identity": "木头人首领",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "登峰造极",
+      "one_line": "花轩中白面微须的锦袍木头人，能操控八个木人",
+      "personality": {
+        "traits": [
+          "精巧",
+          "诡异",
+          "深藏不露",
+          "精于机关",
+          "不动声色"
+        ],
+        "speech_style": "不详",
+        "temperament": "诡异"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 402,
+          "line_end": 500,
+          "text": "锦袍书生木头人出场"
+        }
+      ]
+    },
+    {
+      "id": "char_mu_ren_ba_shi",
+      "name": "木人八侍",
+      "alias": [],
+      "identity": "木头人侍从",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登堂入室",
+      "one_line": "八个配合天衣无缝的木头人侍从",
+      "personality": {
+        "traits": [
+          "配合默契",
+          "招猛力沉",
+          "铜臂铁骨",
+          "不怕疼痛",
+          "机械行动"
+        ],
+        "speech_style": "不详",
+        "temperament": "机械"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 452,
+          "line_end": 500,
+          "text": "八个木头人围攻陆小凤"
+        }
+      ]
+    },
+    {
+      "id": "char_ge_tong",
+      "name": "葛通",
+      "alias": [
+        "大力神鹰"
+      ],
+      "identity": "大通镖局总镖头",
+      "faction": "大通镖局",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "大通镖局总镖头，武功高强，被藏在佛像中",
+      "personality": {
+        "traits": [
+          "武功高强",
+          "意志坚强",
+          "隐忍",
+          "经验丰富",
+          "忠诚"
+        ],
+        "speech_style": "沉稳",
+        "temperament": "坚毅"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        6,
+        7,
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 940,
+          "line_end": 944,
+          "text": "葛通被藏在佛像中，认出陆小凤"
+        },
+        {
+          "chapter": 7,
+          "line_start": 1,
+          "line_end": 10,
+          "text": "第三代鹰爪王的义子，也是王家的乘龙快婿，为人诚恳朴实，做事循规蹈矩"
+        },
+        {
+          "chapter": 17,
+          "line_start": 604,
+          "line_end": 604,
+          "text": "葛通霍地起身"
+        }
+      ]
+    },
+    {
+      "id": "char_feng_chen_xiu_ji",
+      "name": "丰臣秀吉",
+      "alias": [],
+      "identity": "日本执政者",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "登峰造极",
+      "one_line": "日本战国时代枭雄，一代霸主",
+      "personality": {
+        "traits": [
+          "野心极大",
+          "枭雄",
+          "雄才大略",
+          "贪婪",
+          "果断"
+        ],
+        "speech_style": "威严",
+        "temperament": "刚毅"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 170,
+          "line_end": 170,
+          "text": "现在扶桑国中是丰臣秀吉当政，此人一代枭雄，野心极大"
+        }
+      ]
+    },
+    {
+      "id": "char_ru_yi_xian_zi",
+      "name": "如意仙子",
+      "alias": [],
+      "identity": "武林传奇",
+      "faction": null,
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "返璞归真",
+      "one_line": "昔年与化骨仙人齐名的武林不世才女，练如意兰花手仅花三年",
+      "personality": {
+        "traits": [
+          "天才",
+          "博学",
+          "多才多艺",
+          "勤奋",
+          "传奇"
+        ],
+        "speech_style": "优雅",
+        "temperament": "超凡"
+      },
+      "relationships": [
+        {
+          "target": "char_hua_gu_xian_ren",
+          "type": "对手",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "齐名"
+        }
+      ],
+      "known_skills": [
+        "skill_ru_yi_lan_hua_shou"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 350,
+          "line_end": 352,
+          "text": "昔年和化骨仙人齐名的如意仙子练这功夫时，只花了三年工夫"
+        }
+      ]
+    },
+    {
+      "id": "char_hua_gu_xian_ren",
+      "name": "化骨仙人",
+      "alias": [],
+      "identity": "武林传奇",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "返璞归真",
+      "one_line": "昔年与如意仙子齐名的武林高手，化骨绵掌创始人",
+      "personality": {
+        "traits": [
+          "神秘",
+          "高深",
+          "传奇",
+          "孤高",
+          "绝技"
+        ],
+        "speech_style": "寡言",
+        "temperament": "超凡"
+      },
+      "relationships": [
+        {
+          "target": "char_ru_yi_xian_zi",
+          "type": "对手",
+          "intensity": 50,
+          "bond_level": 3,
+          "dynamic": "齐名"
+        }
+      ],
+      "known_skills": [
+        "skill_hua_gu_mian_zhang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 350,
+          "line_end": 350,
+          "text": "昔年和化骨仙人齐名的如意仙子"
+        }
+      ]
+    },
+    {
+      "id": "char_jiu_lou_huo_ji",
+      "name": "酒楼伙计",
+      "alias": [],
+      "identity": "酒楼伙计",
+      "faction": null,
+      "role": "npc",
+      "archetype": "npc",
+      "rank": "平平无奇",
+      "one_line": "狐狸窝酒楼伙计",
+      "personality": {
+        "traits": [
+          "普通",
+          "正常",
+          "打工",
+          "配合",
+          "诚实"
+        ],
+        "speech_style": "朴实",
+        "temperament": "平静"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 45,
+          "line_end": 49,
+          "text": "那个人也在我们老板的那条船上。就是遇难沉没的那条船？是的。"
+        }
+      ]
+    },
+    {
+      "id": "char_zhong_ren",
+      "name": "众人",
+      "alias": [],
+      "identity": "在场众人",
+      "faction": "十二连环坞",
+      "role": "npc",
+      "archetype": "npc",
+      "rank": "平平无奇",
+      "one_line": "十二连环坞大厅中的众人",
+      "personality": {
+        "traits": [
+          "好奇",
+          "焦虑",
+          "困惑",
+          "无助",
+          "期待"
+        ],
+        "speech_style": "集体询问",
+        "temperament": "焦急"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 59,
+          "line_end": 59,
+          "text": "大家立刻问：什么法子？"
+        }
+      ]
+    },
+    {
+      "id": "char_lao_dao_ba_zi",
+      "name": "老刀把子",
+      "alias": [],
+      "identity": "幽灵山庄主人",
+      "faction": "幽灵山庄",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "出神入化",
+      "one_line": "幽灵山庄的主人，了不起的角色",
+      "personality": {
+        "traits": [
+          "了不起",
+          "角色",
+          "厉害",
+          "深不可测",
+          "有手段"
+        ],
+        "speech_style": "深沉",
+        "temperament": "深沉"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 109,
+          "line_end": 109,
+          "text": "老刀把子虽然是个了不起的角色"
+        }
+      ]
+    },
+    {
+      "id": "char_jiang_yu_fei",
+      "name": "江玉飞",
+      "alias": [
+        "飞天玉虎"
+      ],
+      "identity": "沙曼之兄",
+      "faction": null,
+      "role": "villain",
+      "archetype": "assassin",
+      "rank": "炉火纯青",
+      "one_line": "狡猾残酷，飞天玉虎，沙曼的哥哥",
+      "personality": {
+        "traits": [
+          "狡猾",
+          "残酷",
+          "卑鄙",
+          "可耻",
+          "恶毒"
+        ],
+        "speech_style": "阴险",
+        "temperament": "冷酷"
+      },
+      "relationships": [
+        {
+          "target": "char_sha_man",
+          "type": "亲属",
+          "intensity": -60,
+          "bond_level": 1,
+          "dynamic": "害了妹妹一生"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 131,
+          "line_end": 167,
+          "text": "飞天玉虎狡猾残酷...他的真名叫江玉飞...他虽然是我的哥哥，却害了我一生。"
+        }
+      ]
+    },
+    {
+      "id": "char_xiao_yu",
+      "name": "小玉",
+      "alias": [],
+      "identity": "九少爷的侍女，实为年轻女子，常扮男装传话",
+      "faction": "faction_shi_wai_tao_yuan",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "九少爷的侍女，实为年轻女子，曾受宫主指使炸毁陆小凤的船只",
+      "personality": {
+        "traits": [
+          "怯懦",
+          "顺从",
+          "机灵",
+          "好奇",
+          "少女"
+        ],
+        "speech_style": "细声",
+        "temperament": "胆怯"
+      },
+      "relationships": [
+        {
+          "target": "char_jiu_shao_ye",
+          "type": "主仆",
+          "intensity": 60,
+          "bond_level": 3,
+          "dynamic": "服从命令"
+        },
+        {
+          "target": "char_gong_zhu",
+          "type": "主仆",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "受其指使执行炸船任务"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        9,
+        10,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 28,
+          "line_end": 40,
+          "text": "我是小玉，九少爷特地叫我来请曼姑娘去吃饭"
+        },
+        {
+          "chapter": 10,
+          "line_start": 2,
+          "line_end": 2,
+          "text": "小玉笑了，仿佛已忘记了他那双可怕的手。"
+        },
+        {
+          "chapter": 13,
+          "line_start": 76,
+          "line_end": 76,
+          "text": "果然就有个小小的女孩从箱子后面跳出来。"
+        },
+        {
+          "chapter": 15,
+          "line_start": 16,
+          "line_end": 16,
+          "text": "小玉笑了，道：'原来……'"
+        },
+        {
+          "chapter": 17,
+          "line_start": 70,
+          "line_end": 70,
+          "text": "老实和尚、沙曼、小玉"
+        },
+        {
+          "chapter": 18,
+          "line_start": 870,
+          "line_end": 870,
+          "text": "陆小凤道：\"还有老实和尚、沙曼和小玉。\""
+        },
+        {
+          "chapter": 19,
+          "line_start": 366,
+          "line_end": 366,
+          "text": "西门吹雪提到小玉与沙曼并称两大美人"
+        },
+        {
+          "chapter": 20,
+          "line_start": 109,
+          "line_end": 110,
+          "text": "第三个房间却有一个人。死人。死去的女人。"
+        }
+      ]
+    },
+    {
+      "id": "char_gong_zhu",
+      "name": "宫主",
+      "alias": [
+        "宫主（非公主）"
+      ],
+      "identity": "指使手下炸毁陆小凤船只的人，姓宫名主",
+      "faction": "faction_shi_wai_tao_yuan",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "姓宫名主，指使小玉炸毁陆小凤船只的人",
+      "personality": {
+        "traits": [
+          "狠毒",
+          "阴险",
+          "权势",
+          "果断",
+          "冷酷"
+        ],
+        "speech_style": "威严",
+        "temperament": "暴戾"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        9,
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 466,
+          "line_end": 474,
+          "text": "不是，是公主...她本来就姓宫，叫宫主。"
+        },
+        {
+          "chapter": 10,
+          "line_start": 48,
+          "line_end": 48,
+          "text": "你那位宫主不但要杀我，还要将你也一起杀了灭口。"
+        }
+      ]
+    },
+    {
+      "id": "char_gong_jiu",
+      "name": "宫九",
+      "alias": [
+        "太平王世子"
+      ],
+      "identity": "九少爷",
+      "faction": "宫九势力",
+      "role": "villain",
+      "archetype": "warrior",
+      "rank": 7,
+      "one_line": "太平王世子，阴谋篡位的幕后黑手，被陆小凤以长鞭刺杀",
+      "personality": {
+        "traits": [
+          "孤僻",
+          "自负",
+          "狠辣",
+          "聪明",
+          "残忍",
+          "骄傲"
+        ],
+        "speech_style": "不详",
+        "temperament": "阴沉多疑"
+      },
+      "relationships": [
+        {
+          "target": "char_sha_man",
+          "type": "宿敌",
+          "intensity": 70,
+          "bond_level": 2,
+          "dynamic": "被背弃"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [
+        "skill_wu_jian"
+      ],
+      "rag_refs": [
+        11,
+        13,
+        17,
+        18,
+        19,
+        20
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 88,
+          "line_end": 88,
+          "text": "毒蛇的液、狐狸的心..."
+        },
+        {
+          "chapter": 11,
+          "line_start": 380,
+          "line_end": 384,
+          "text": "他一向是个孤僻自负的人..."
+        },
+        {
+          "chapter": 13,
+          "line_start": 124,
+          "line_end": 124,
+          "text": "这两天九少爷和宫主的脾气都大得要命"
+        },
+        {
+          "chapter": 17,
+          "line_start": 16,
+          "line_end": 16,
+          "text": "想打倒陆小凤的，无疑只有一个人——宫九"
+        },
+        {
+          "chapter": 18,
+          "line_start": 1,
+          "line_end": 100,
+          "text": "第十八回　猫捉老鼠\n假如猫和老鼠比赛跑步，谁跑得最快？\n\n陆小凤飞奔的时候，忽然想起这个问题。\n\n应该是猫跑得快吧？陆小凤想，但是，老鼠能一头钻进洞里，也可以一冲就躲到阴沟里，这绝对是猫做不到的事情。..."
+        },
+        {
+          "chapter": 19,
+          "line_start": 58,
+          "line_end": 74,
+          "text": "宫九与西门吹雪对峙，被其杀气所慑"
+        },
+        {
+          "chapter": 20,
+          "line_start": 307,
+          "line_end": 307,
+          "text": "这是老实咈尊和宫九串通的吗？"
+        },
+        {
+          "chapter": 22,
+          "line_start": 652,
+          "line_end": 652,
+          "text": "陆小凤就用这样的硬鞭，一鞭刺入宫九的心脏中。"
+        }
+      ]
+    },
+    {
+      "id": "char_liang_tiao_da_han",
+      "name": "两条大汉",
+      "alias": [],
+      "identity": "宫九的手下",
+      "faction": "宫九势力",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "初窥门径",
+      "one_line": "宫九手下的两名壮汉，负责搬运物品，对九少爷的命令绝对服从",
+      "personality": {
+        "traits": [
+          "忠诚",
+          "服从",
+          "沉默",
+          "强壮",
+          "谨慎"
+        ],
+        "speech_style": "恭敬简短",
+        "temperament": "沉默寡言"
+      },
+      "relationships": [
+        {
+          "target": "char_gong_jiu",
+          "type": "主仆",
+          "intensity": 80,
+          "bond_level": 4,
+          "dynamic": "绝对服从"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 256,
+          "line_end": 270,
+          "text": "十个活人，抬着五个大箱子走过来...两条大汉都垂下头：曼姑娘有什么吩咐？"
+        }
+      ]
+    },
+    {
+      "id": "char_xi_men_chui_xue",
+      "name": "西门吹雪",
+      "alias": [
+        "剑神"
+      ],
+      "identity": "剑客",
+      "faction": "无门派",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "登峰造极",
+      "one_line": "当世剑术巅峰之一，已练到无剑境界的传奇剑客",
+      "personality": {
+        "traits": [
+          "孤傲",
+          "冷峻",
+          "专注",
+          "高洁",
+          "执着",
+          "超然"
+        ],
+        "speech_style": "寡言冷淡",
+        "temperament": "孤高自许"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "挚友",
+          "intensity": 70,
+          "bond_level": 4,
+          "dynamic": "惺惺相惜"
+        }
+      ],
+      "known_skills": [
+        "skill_wu_jian"
+      ],
+      "related_skills": [
+        "skill_wu_jian"
+      ],
+      "rag_refs": [
+        11,
+        18,
+        20
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 398,
+          "line_end": 400,
+          "text": "我知道还有一个人，剑术也已练到无剑的境界。沙曼道：西门吹雪？"
+        },
+        {
+          "chapter": 18,
+          "line_start": 590,
+          "line_end": 592,
+          "text": "宫九道：\"西门吹雪？你要见的人是西门吹雪？\"陆小凤道：\"不错，虽然他常常吹的不是雪，是血，但是，他的的确确叫西门吹雪。\""
+        },
+        {
+          "chapter": 20,
+          "line_start": 60,
+          "line_end": 60,
+          "text": "西门吹雪并没有见到沙曼。"
+        },
+        {
+          "chapter": 20,
+          "line_start": 111,
+          "line_end": 120,
+          "text": "西门吹雪把小玉救回他的马车上时，他又发现了一件事。"
+        }
+      ]
+    },
+    {
+      "id": "char_chen_ping",
+      "name": "陈平",
+      "alias": [],
+      "identity": "珍宝保镖",
+      "faction": "无门派",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "失窃珍宝的保镖之一，临死前指证陆小凤偷珠宝",
+      "personality": {
+        "traits": [
+          "忠诚",
+          "普通",
+          "不幸",
+          "正直",
+          "可怜"
+        ],
+        "speech_style": "普通",
+        "temperament": "普通"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 150,
+          "line_end": 150,
+          "text": "也有人发现了陈平、李大中、孙五通"
+        }
+      ]
+    },
+    {
+      "id": "char_li_da_zhong",
+      "name": "李大中",
+      "alias": [],
+      "identity": "珍宝保镖",
+      "faction": "无门派",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "失窃珍宝的保镖之一，临死前指证陆小凤偷珠宝",
+      "personality": {
+        "traits": [
+          "忠诚",
+          "普通",
+          "不幸",
+          "正直",
+          "可怜"
+        ],
+        "speech_style": "普通",
+        "temperament": "普通"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 150,
+          "line_end": 150,
+          "text": "也有人发现了陈平、李大中、孙五通"
+        }
+      ]
+    },
+    {
+      "id": "char_sun_wu_tong",
+      "name": "孙五通",
+      "alias": [],
+      "identity": "珍宝保镖",
+      "faction": "无门派",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "失窃珍宝的保镖之一，临死前指证陆小凤偷珠宝",
+      "personality": {
+        "traits": [
+          "忠诚",
+          "普通",
+          "不幸",
+          "正直",
+          "可怜"
+        ],
+        "speech_style": "普通",
+        "temperament": "普通"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 150,
+          "line_end": 150,
+          "text": "也有人发现了陈平、李大中、孙五通"
+        }
+      ]
+    },
+    {
+      "id": "char_hua_man_lou",
+      "name": "花满楼",
+      "alias": [],
+      "identity": "陆小凤的好友",
+      "faction": "无门派",
+      "role": "companion",
+      "archetype": "scholar",
+      "rank": "炉火纯青",
+      "one_line": "陆小凤的知己好友，眼盲心明",
+      "personality": {
+        "traits": [
+          "豁达",
+          "聪慧",
+          "温和",
+          "乐观",
+          "敏锐"
+        ],
+        "speech_style": "温和从容",
+        "temperament": "淡然从容"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "挚友",
+          "intensity": 80,
+          "bond_level": 5,
+          "dynamic": "知己"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 276,
+          "line_end": 276,
+          "text": "花满楼？"
+        }
+      ]
+    },
+    {
+      "id": "char_wu_biao",
+      "name": "吴彪",
+      "alias": [],
+      "identity": "珍宝保镖",
+      "faction": "无门派",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "失窃珍宝的保镖之一，临死前指证陆小凤偷珠宝",
+      "personality": {
+        "traits": [
+          "忠诚",
+          "普通",
+          "不幸",
+          "正直",
+          "可怜"
+        ],
+        "speech_style": "普通",
+        "temperament": "普通"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 366,
+          "line_end": 366,
+          "text": "吴彪"
+        }
+      ]
+    },
+    {
+      "id": "char_ye_xing_shi_jia_ding",
+      "name": "叶星士家丁",
+      "alias": [],
+      "identity": "叶星士的家丁",
+      "faction": "无门派",
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "叶星士宅邸的看门家丁",
+      "personality": {
+        "traits": [
+          "忠诚",
+          "粗鲁",
+          "警惕",
+          "势利",
+          "尽责"
+        ],
+        "speech_style": "粗鲁",
+        "temperament": "暴躁"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 514,
+          "line_end": 514,
+          "text": "叶星士的家丁把门打开"
+        }
+      ]
+    },
+    {
+      "id": "char_mian_tan_lao_ban",
+      "name": "面摊老板",
+      "alias": [],
+      "identity": "面摊老板",
+      "faction": "",
+      "role": "npc",
+      "archetype": "npc",
+      "rank": "",
+      "one_line": "小镇面摊的老板，年迈慈祥",
+      "personality": {
+        "traits": [
+          "慈祥",
+          "勤劳",
+          "朴实",
+          "精明",
+          "和善"
+        ],
+        "speech_style": "亲切",
+        "temperament": "平静"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        18
+      ],
+      "source_refs": [
+        {
+          "chapter": 18,
+          "line_start": 1,
+          "line_end": 100,
+          "text": "第十八回　猫捉老鼠\n假如猫和老鼠比赛跑步，谁跑得最快？\n\n陆小凤飞奔的时候，忽然想起这个问题。\n\n应该是猫跑得快吧？陆小凤想，但是，老鼠能一头钻进洞里，也可以一冲就躲到阴沟里，这绝对是猫做不到的事情。..."
+        }
+      ]
+    },
+    {
+      "id": "char_zhu_ting",
+      "name": "朱停",
+      "alias": [],
+      "identity": "陆小凤的老友",
+      "faction": "",
+      "role": "npc",
+      "archetype": "npc",
+      "rank": "",
+      "one_line": "陆小凤的发小，外号\"老板\"",
+      "personality": {
+        "traits": [
+          "聪明",
+          "灵巧",
+          "幽默",
+          "懒散",
+          "有福气"
+        ],
+        "speech_style": "随和",
+        "temperament": "平静"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        18
+      ],
+      "source_refs": [
+        {
+          "chapter": 18,
+          "line_start": 201,
+          "line_end": 300,
+          "text": "\n——剃自己的眉毛？多可笑！\n\n陆小凤不禁笑了起来。\n\n宫九奇怪道：“你笑什么？”\n\n陆小凤道：“我笑自己，实在太傻。”\n\n宫九道：“为什么？”\n\n陆小凤道：“既然走不了，我为什么还要走？”\n\n宫九道..."
+        }
+      ]
+    },
+    {
+      "id": "char_lao_ban_niang",
+      "name": "老板娘",
+      "alias": [],
+      "identity": "朱停的妻子",
+      "faction": "",
+      "role": "npc",
+      "archetype": "npc",
+      "rank": "",
+      "one_line": "朱停的妻子，美丽动人",
+      "personality": {
+        "traits": [
+          "美丽",
+          "温柔",
+          "贤惠",
+          "大方",
+          "体贴"
+        ],
+        "speech_style": "温柔",
+        "temperament": "温柔"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        18
+      ],
+      "source_refs": [
+        {
+          "chapter": 18,
+          "line_start": 201,
+          "line_end": 300,
+          "text": "\n——剃自己的眉毛？多可笑！\n\n陆小凤不禁笑了起来。\n\n宫九奇怪道：“你笑什么？”\n\n陆小凤道：“我笑自己，实在太傻。”\n\n宫九道：“为什么？”\n\n陆小凤道：“既然走不了，我为什么还要走？”\n\n宫九道..."
+        }
+      ]
+    },
+    {
+      "id": "char_huo_xiu",
+      "name": "霍休",
+      "alias": [
+        "霍老头"
+      ],
+      "identity": "富甲天下的隐士",
+      "faction": "未知",
+      "role": "npc",
+      "archetype": "scholar",
+      "rank": "登峰造极",
+      "one_line": "富甲天下却喜欢过隐士生活的怪人",
+      "personality": {
+        "traits": [
+          "孤僻",
+          "富有",
+          "神秘",
+          "古怪",
+          "深沉"
+        ],
+        "speech_style": "寡言",
+        "temperament": "孤傲"
+      },
+      "relationships": [],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        19
+      ],
+      "source_refs": [
+        {
+          "chapter": 19,
+          "line_start": 260,
+          "line_end": 284,
+          "text": "西门吹雪提起霍休，陆小凤回忆起霍休的木屋"
+        }
+      ]
+    },
+    {
+      "id": "char_lu_da_long",
+      "name": "陆大龙",
+      "alias": [],
+      "identity": "长安闹市混混",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "长安饭店中冒充陆小凤的粗壮大汉",
+      "personality": {
+        "traits": [
+          "鲁莽",
+          "胆小",
+          "粗鲁",
+          "怕事",
+          "滑稽",
+          "自卑"
+        ],
+        "speech_style": "粗声大气",
+        "temperament": "暴躁"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_xiao_feng",
+          "type": "对手",
+          "intensity": 20,
+          "bond_level": 1,
+          "dynamic": "初识即被制服"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        21
+      ],
+      "source_refs": [
+        {
+          "chapter": 21,
+          "line_start": 484,
+          "line_end": 484,
+          "text": "我叫陆大龙"
+        }
+      ]
+    },
+    {
+      "id": "char_da_han_jia",
+      "name": "大汉甲",
+      "alias": [],
+      "identity": "长安闹市混混",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "长安饭店中与陆大龙同桌的粗壮大汉之一",
+      "personality": {
+        "traits": [
+          "鲁莽",
+          "粗鲁",
+          "胆小",
+          "冲动",
+          "无知"
+        ],
+        "speech_style": "粗声",
+        "temperament": "暴躁"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_da_long",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "同伙"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        21
+      ],
+      "source_refs": [
+        {
+          "chapter": 21,
+          "line_start": 452,
+          "line_end": 452,
+          "text": "不可以"
+        }
+      ]
+    },
+    {
+      "id": "char_da_han_yi",
+      "name": "大汉乙",
+      "alias": [],
+      "identity": "长安闹市混混",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "长安饭店中与陆大龙同桌的粗壮大汉之一",
+      "personality": {
+        "traits": [
+          "鲁莽",
+          "胆小",
+          "粗鲁",
+          "跟风",
+          "怕事"
+        ],
+        "speech_style": "粗声",
+        "temperament": "暴躁"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_da_long",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "同伙"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        21
+      ],
+      "source_refs": [
+        {
+          "chapter": 21,
+          "line_start": 508,
+          "line_end": 508,
+          "text": "你真不懂"
+        }
+      ]
+    },
+    {
+      "id": "char_da_han_bing",
+      "name": "大汉丙",
+      "alias": [],
+      "identity": "长安闹市混混",
+      "faction": null,
+      "role": "npc",
+      "archetype": "warrior",
+      "rank": "平平无奇",
+      "one_line": "长安饭店中与陆大龙同桌的粗壮大汉之一",
+      "personality": {
+        "traits": [
+          "鲁莽",
+          "胆小",
+          "粗鲁",
+          "跟风",
+          "怕事"
+        ],
+        "speech_style": "粗声",
+        "temperament": "暴躁"
+      },
+      "relationships": [
+        {
+          "target": "char_lu_da_long",
+          "type": "合作者",
+          "intensity": 50,
+          "bond_level": 2,
+          "dynamic": "同伙"
+        }
+      ],
+      "known_skills": [],
+      "related_skills": [],
+      "rag_refs": [
+        21
+      ],
+      "source_refs": [
+        {
+          "chapter": 21,
+          "line_start": 542,
+          "line_end": 542,
+          "text": "你是老子，我们都是你的龟儿子"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_yue_yang_wu_gong",
+      "name": "岳洋武功",
+      "type": "掌法",
+      "faction": "无门派",
+      "rank": "登堂入室",
+      "one_line": "岳洋所使的诡异掌法，招式怪异且进步神速",
+      "techniques": [
+        {
+          "id": "tech_guai_yi_zhang_fa",
+          "name": "怪异掌法",
+          "type": "attack",
+          "description": "右掌上翻，左掌斜斜划了个圈，右掌突然从圈子里穿出，急砍对手左颈。招式怪异且又急又猛。"
+        },
+        {
+          "id": "tech_wu_ming_shen_gong",
+          "name": "无名神功",
+          "type": "attack",
+          "description": "岳洋武功进步极快，三十多天内便有精湛进步，简直像是奇迹。招式变化诡异，前所未见。"
+        }
+      ],
+      "progression": [
+        {
+          "level": "登堂入室",
+          "description": "三十多天内武功精湛进步，招式怪异"
+        }
+      ],
+      "effects": [
+        "攻击",
+        "压制"
+      ],
+      "combat_style": "诡异多变，出手又急又猛",
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 281,
+          "line_end": 283,
+          "text": "他的出手不但招式怪异，而且又急又猛"
+        }
+      ]
+    },
+    {
+      "id": "skill_hua_gu_mian_zhang",
+      "name": "化骨绵掌",
+      "type": "掌法",
+      "faction": "未知",
+      "rank": "登峰造极",
+      "one_line": "武林绝传已久的阴毒掌力，中者无觉，两个时辰后全身骨骼变软",
+      "techniques": [
+        {
+          "id": "tech_hua_gu_mian_zhang",
+          "name": "化骨绵掌",
+          "type": "attack",
+          "description": "一掌打在人身上，被打的人浑如不觉，两个时辰后掌力发作，全身骨骼变得其软如绵，神仙也救不活"
+        },
+        {
+          "id": "tech_mian_zhang",
+          "name": "绵掌",
+          "type": "defense",
+          "description": "武当绝技，内家正宗，以柔克刚的掌法"
+        }
+      ],
+      "progression": "已臻化境",
+      "effects": [
+        "伤害"
+      ],
+      "combat_style": "阴毒",
+      "rag_refs": [
+        5,
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 232,
+          "line_end": 238,
+          "text": "手上竟有武林中绝传已久的化骨绵掌功夫"
+        },
+        {
+          "chapter": 7,
+          "line_start": 338,
+          "line_end": 338,
+          "text": "如意兰花手和化骨绵掌一样，都是久已绝传的武功秘技"
+        }
+      ]
+    },
+    {
+      "id": "skill_zhi_dao",
+      "name": "指刀",
+      "type": "指法",
+      "faction": "未知",
+      "rank": "登峰造极",
+      "one_line": "武林绝传已久的指法，指甲伸直如刀锋",
+      "techniques": [
+        {
+          "id": "tech_zhi_dao",
+          "name": "指刀",
+          "type": "attack",
+          "description": "卷曲的指甲突然伸得笔直，晶莹洁白，闪闪发光，如刀锋般锋利"
+        },
+        {
+          "id": "tech_zhi_jia_tan_she",
+          "name": "指甲弹射",
+          "type": "attack",
+          "description": "卷曲的指甲突然伸直弹射而出，如刀锋般锋利"
+        }
+      ],
+      "progression": "已臻化境",
+      "effects": [
+        "伤害"
+      ],
+      "combat_style": "精准",
+      "rag_refs": [
+        5,
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 250,
+          "line_end": 254,
+          "text": "卷成一圈的指甲就突然伸得笔直，晶莹洁白，闪闪发光"
+        },
+        {
+          "chapter": 7,
+          "line_start": 368,
+          "line_end": 368,
+          "text": "指刀和混元气功力也不容易"
+        }
+      ]
+    },
+    {
+      "id": "skill_ling_xi_zhi",
+      "name": "灵犀指",
+      "type": "指法",
+      "faction": "未知",
+      "rank": "出神入化",
+      "one_line": "陆小凤的独门绝技，天下无双的指法",
+      "techniques": [
+        {
+          "id": "tech_ling_xi_zhi",
+          "name": "灵犀指",
+          "type": "attack",
+          "description": "两指夹住闪电般刺来的剑，隔空夹住滚动的骰子"
+        },
+        {
+          "id": "tech_ling_xi_jia_jian",
+          "name": "灵犀夹剑",
+          "type": "defense",
+          "description": "两指夹住闪电般刺来的剑，化攻击于无形"
+        }
+      ],
+      "progression": "出神入化",
+      "effects": [
+        "伤害",
+        "控制"
+      ],
+      "combat_style": "精准",
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 256,
+          "line_end": 256,
+          "text": "他自己的灵犀指也是天下无双的绝技"
+        }
+      ]
+    },
+    {
+      "id": "skill_ru_yi_lan_hua_shou",
+      "name": "如意兰花手",
+      "type": "掌法",
+      "faction": "未知",
+      "rank": "登峰造极",
+      "one_line": "武林中最可怕的几种功夫之一，分筋错脉，伤人于无形",
+      "techniques": [
+        {
+          "id": "tech_ru_yi_lan_hua_shou",
+          "name": "如意兰花手",
+          "type": "debuff",
+          "description": "分筋错脉，伤人于无形，中者手臂废坏，一个对时后疼痛不堪，除了砍断手臂别无解法"
+        },
+        {
+          "id": "tech_fen_jin_cuo_mai",
+          "name": "分筋错脉",
+          "type": "debuff",
+          "description": "以精妙手法分筋错脉，令对手手臂废坏"
+        }
+      ],
+      "progression": "已臻化境",
+      "effects": [
+        "控制",
+        "伤害"
+      ],
+      "combat_style": "阴柔",
+      "rag_refs": [
+        5,
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 628,
+          "line_end": 630,
+          "text": "如意兰花手中最简单的一着"
+        },
+        {
+          "chapter": 7,
+          "line_start": 88,
+          "line_end": 93,
+          "text": "如意兰花手分筋错脉，不但阴劲狠毒，手法的变化更诡秘飘忽"
+        }
+      ]
+    },
+    {
+      "id": "skill_zui_zhong_qi_sha_shou",
+      "name": "醉中七杀手",
+      "type": "指法",
+      "faction": "未知",
+      "rank": "登峰造极",
+      "one_line": "绝传八十年的醉拳绝技，惟有饮者得真传",
+      "techniques": [
+        {
+          "id": "tech_zui_zhong_qi_sha_shou",
+          "name": "醉中七杀手",
+          "type": "attack",
+          "description": "醉卧流云中施展的杀手绝技，一杀便已致命"
+        },
+        {
+          "id": "tech_zui_wo_liu_yun",
+          "name": "醉卧流云",
+          "type": "attack",
+          "description": "醉卧之中施展的身法，看似烂醉实则暗藏杀机"
+        }
+      ],
+      "progression": "已臻化境",
+      "effects": [
+        "伤害"
+      ],
+      "combat_style": "醉拳",
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 708,
+          "line_end": 712,
+          "text": "醉卧流云七杀手"
+        }
+      ]
+    },
+    {
+      "id": "skill_tian_can_shi_san_shi",
+      "name": "天残十三式",
+      "type": "剑法",
+      "faction": "faction_hai_nan_pai",
+      "rank": "登峰造极",
+      "one_line": "海南派镇山剑法，绝传三十年，专走偏锋",
+      "techniques": [
+        {
+          "id": "tech_tian_can_shi_san_shi",
+          "name": "天残十三式",
+          "type": "attack",
+          "description": "海南派镇山剑法，专走偏锋，以残躯发挥精髓"
+        },
+        {
+          "id": "tech_xiao_zhi_tian_nan",
+          "name": "笑指天南",
+          "type": "attack",
+          "description": "天残十三式中的一招，以铁杖当长剑刺出"
+        }
+      ],
+      "progression": "已臻化境",
+      "effects": [
+        "伤害"
+      ],
+      "combat_style": "偏锋",
+      "rag_refs": [
+        5
+      ],
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 668,
+          "line_end": 682,
+          "text": "天残十三式中简单的三招"
+        }
+      ]
+    },
+    {
+      "id": "skill_luo_han_zhen",
+      "name": "罗汉阵",
+      "type": "攻击",
+      "faction": "少林寺",
+      "rank": "登峰造极",
+      "one_line": "少林镇山绝技，多人配合的围攻阵法",
+      "techniques": [
+        {
+          "id": "tech_luo_han_zhen",
+          "name": "罗汉阵",
+          "type": "attack",
+          "description": "多人配合的围攻阵法，威力巨大"
+        }
+      ],
+      "progression": "圆满",
+      "effects": [
+        "围攻",
+        "压制"
+      ],
+      "combat_style": "阵法围攻",
+      "rag_refs": [
+        6
+      ],
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 474,
+          "line_end": 480,
+          "text": "罗汉阵的描述"
+        }
+      ]
+    },
+    {
+      "id": "skill_mi_zong_da_shou_yin",
+      "name": "密宗大手印",
+      "type": "掌法",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "密宗武学绝技，出手奇重，掌力惊人",
+      "techniques": [
+        {
+          "id": "tech_mi_zong_da_shou_yin",
+          "name": "密宗大手印",
+          "type": "attack",
+          "description": "一掌拍出威力惊人，出手奇重"
+        },
+        {
+          "id": "tech_da_shou_yin_zhang_li",
+          "name": "大手印掌力",
+          "type": "attack",
+          "description": "以密宗内力催动掌力，势大力沉"
+        }
+      ],
+      "progression": "出神入化",
+      "effects": [
+        "重掌伤人"
+      ],
+      "combat_style": "刚猛掌法",
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 78,
+          "line_end": 78,
+          "text": "用的竟是密宗大手印的功夫"
+        }
+      ]
+    },
+    {
+      "id": "skill_hun_yuan_qi_gong",
+      "name": "混元气功",
+      "type": "内功",
+      "faction": null,
+      "rank": "出神入化",
+      "one_line": "深湛的内功心法，混元归一，提升全身功力",
+      "techniques": [
+        {
+          "id": "tech_hun_yuan_qi_gong",
+          "name": "混元气功",
+          "type": "buff",
+          "description": "混元归一的内功心法，大幅提升全身功力"
+        },
+        {
+          "id": "tech_hun_yuan_hu_ti",
+          "name": "混元护体",
+          "type": "defense",
+          "description": "以混元真气护体，刀枪不入"
+        }
+      ],
+      "progression": "出神入化",
+      "effects": [
+        "提升功力",
+        "护体"
+      ],
+      "combat_style": "内功心法",
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 368,
+          "line_end": 368,
+          "text": "指刀和混元气功力也不容易"
+        }
+      ]
+    },
+    {
+      "id": "skill_wu_jian",
+      "name": "无剑",
+      "type": "剑法",
+      "faction": "无",
+      "rank": "登峰造极",
+      "one_line": "剑术的最高境界，已不必执著于剑，人剑合一，无剑胜有剑",
+      "techniques": [
+        {
+          "id": "tech_wu_jian_zhi_jing",
+          "name": "无剑之境",
+          "type": "special",
+          "description": "剑术练到极致，已不必执著于剑，人剑合一，无剑胜有剑，是剑道的至高境界"
+        },
+        {
+          "id": "tech_wu_xing_jian_qi",
+          "name": "无形剑气",
+          "type": "attack",
+          "description": "以无形剑气攻敌，无需持剑即可发挥剑术威力，是无剑境界的实战应用"
+        }
+      ],
+      "progression": [
+        {
+          "level": "登峰造极",
+          "description": "已达到无剑境界，不必用剑即可发挥剑意"
+        }
+      ],
+      "effects": [
+        "以意驭剑",
+        "人剑合一",
+        "无形剑气"
+      ],
+      "combat_style": "以无形之意驭有形之剑",
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 398,
+          "line_end": 408,
+          "text": "剑术也已练到无剑的境界"
+        }
+      ]
+    },
+    {
+      "id": "skill_ying_zhua_gong_fu",
+      "name": "鹰爪功夫",
+      "type": "指法",
+      "faction": "无门派",
+      "rank": "登堂入室",
+      "one_line": "鹰爪门的指法功夫",
+      "techniques": [
+        {
+          "id": "tech_ying_zhua_gong",
+          "name": "鹰爪功",
+          "type": "attack",
+          "description": "鹰爪门的指法功夫，抓取对手"
+        },
+        {
+          "id": "tech_ying_zhua_na_xue",
+          "name": "鹰爪拿穴",
+          "type": "attack",
+          "description": "以鹰爪手法扣拿对手穴位，令其动弹不得"
+        }
+      ],
+      "progression": "熟练",
+      "effects": [
+        "控制"
+      ],
+      "combat_style": "近身抓取",
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 604,
+          "line_end": 604,
+          "text": "他外号'大力神鹰'，手底下的鹰爪功夫自然不弱"
+        }
+      ]
+    },
+    {
+      "id": "skill_shao_lin_nei_jia_shou_fa",
+      "name": "少林内家手法",
+      "type": "内功",
+      "faction": "少林",
+      "rank": "炉火纯青",
+      "one_line": "少林内家手法的内劲，银针认穴入脑七分",
+      "techniques": [
+        {
+          "id": "tech_yin_zhen_ren_xue",
+          "name": "银针认穴",
+          "type": "attack",
+          "description": "使用银针认穴，入脑七分，少林内家手法的内劲"
+        },
+        {
+          "id": "tech_nei_jia_yin_jin",
+          "name": "内家阴劲",
+          "type": "attack",
+          "description": "少林内家手法的阴劲内力，可将银针射入对手脑中一击致命"
+        }
+      ],
+      "progression": "精湛",
+      "effects": [
+        "伤害",
+        "暗杀"
+      ],
+      "combat_style": "暗器",
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 656,
+          "line_end": 656,
+          "text": "银针认穴，入脑七分，这可的的确确是少林内家手法的内劲"
+        }
+      ]
+    }
+  ],
+  "techniques": [
+    {
+      "id": "tech_guai_yi_zhang_fa",
+      "name": "怪异掌法",
+      "type": "attack",
+      "description": "右掌上翻，左掌斜斜划了个圈，右掌突然从圈子里穿出，急砍对手左颈。招式怪异且又急又猛。",
+      "source_skill": "skill_yue_yang_wu_gong",
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 281,
+          "line_end": 282,
+          "text": "他右掌上翻，左掌斜斜划了个圈，右掌突然从圈子里穿出，急砍陆小凤左颈"
+        }
+      ]
+    },
+    {
+      "id": "tech_hua_gu_mian_zhang",
+      "name": "化骨绵掌",
+      "type": "attack",
+      "description": "一掌打在人身上，被打的人浑如不觉，两个时辰后掌力发作，全身骨骼变得其软如绵",
+      "source_skill": "skill_hua_gu_mian_zhang",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 232,
+          "line_end": 238,
+          "text": "化骨绵掌功夫"
+        },
+        {
+          "chapter": 7,
+          "line_start": 338,
+          "line_end": 338,
+          "text": "如意兰花手和化骨绵掌一样，都是久已绝传的武功秘技"
+        }
+      ]
+    },
+    {
+      "id": "tech_zhi_dao",
+      "name": "指刀",
+      "type": "attack",
+      "description": "卷曲的指甲突然伸得笔直，晶莹洁白，闪闪发光，如刀锋般锋利",
+      "source_skill": "skill_zhi_dao",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 250,
+          "line_end": 254,
+          "text": "指刀"
+        },
+        {
+          "chapter": 7,
+          "line_start": 368,
+          "line_end": 368,
+          "text": "指刀和混元气功力也不容易"
+        }
+      ]
+    },
+    {
+      "id": "tech_ling_xi_zhi",
+      "name": "灵犀指",
+      "type": "attack",
+      "description": "两指夹住闪电般刺来的剑，隔空夹住滚动的骰子",
+      "source_skill": "skill_ling_xi_zhi",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 256,
+          "line_end": 256,
+          "text": "灵犀指"
+        }
+      ]
+    },
+    {
+      "id": "tech_mian_zhang",
+      "name": "绵掌",
+      "type": "defense",
+      "description": "武当绝技，内家正宗，以柔克刚的掌法",
+      "source_skill": "skill_hua_gu_mian_zhang",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 234,
+          "line_end": 234,
+          "text": "绵掌是武当绝技"
+        }
+      ]
+    },
+    {
+      "id": "tech_zhi_jia_tan_she",
+      "name": "指甲弹射",
+      "type": "attack",
+      "description": "卷曲的指甲突然伸直弹射而出，如刀锋般锋利",
+      "source_skill": "skill_zhi_dao",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 250,
+          "line_end": 250,
+          "text": "指甲就突然伸得笔直"
+        }
+      ]
+    },
+    {
+      "id": "tech_ling_xi_jia_jian",
+      "name": "灵犀夹剑",
+      "type": "defense",
+      "description": "两指夹住闪电般刺来的剑，化攻击于无形",
+      "source_skill": "skill_ling_xi_zhi",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 86,
+          "line_end": 86,
+          "text": "这两根手指，不但能夹住闪电般刺来的一剑"
+        }
+      ]
+    },
+    {
+      "id": "tech_ru_yi_lan_hua_shou",
+      "name": "如意兰花手",
+      "type": "debuff",
+      "description": "分筋错脉，伤人于无形，中者手臂废坏，一个对时后疼痛不堪",
+      "source_skill": "skill_ru_yi_lan_hua_shou",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 628,
+          "line_end": 630,
+          "text": "如意兰花手"
+        },
+        {
+          "chapter": 7,
+          "line_start": 88,
+          "line_end": 93,
+          "text": "如意兰花手分筋错脉，不但阴劲狠毒，手法的变化更诡秘飘忽"
+        }
+      ]
+    },
+    {
+      "id": "tech_tie_sha_zhang",
+      "name": "铁砂掌",
+      "type": "attack",
+      "description": "掌力深厚，掌心隐隐发黑，至少已练就到八成火候",
+      "source_skill": null,
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 620,
+          "line_end": 622,
+          "text": "铁砂掌至少已练就到八成火候"
+        }
+      ]
+    },
+    {
+      "id": "tech_wu_hu_duan_men_dao_fa",
+      "name": "五虎断门刀法",
+      "type": "attack",
+      "description": "配合金背砍山刀施展的刀法，江湖中少有对手",
+      "source_skill": null,
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 562,
+          "line_end": 562,
+          "text": "五虎断门刀法"
+        }
+      ]
+    },
+    {
+      "id": "tech_fen_jin_cuo_mai",
+      "name": "分筋错脉",
+      "type": "debuff",
+      "description": "以精妙手法分筋错脉，令对手手臂废坏",
+      "source_skill": "skill_ru_yi_lan_hua_shou",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 630,
+          "line_end": 630,
+          "text": "分筋错脉，伤人于无形"
+        }
+      ]
+    },
+    {
+      "id": "tech_zui_zhong_qi_sha_shou",
+      "name": "醉中七杀手",
+      "type": "attack",
+      "description": "醉卧流云中施展的杀手绝技，一杀便已致命",
+      "source_skill": "skill_zui_zhong_qi_sha_shou",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 708,
+          "line_end": 712,
+          "text": "醉中七杀手"
+        }
+      ]
+    },
+    {
+      "id": "tech_tian_can_shi_san_shi",
+      "name": "天残十三式",
+      "type": "attack",
+      "description": "海南派镇山剑法，专走偏锋，以残躯发挥精髓",
+      "source_skill": "skill_tian_can_shi_san_shi",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 668,
+          "line_end": 682,
+          "text": "天残十三式"
+        }
+      ]
+    },
+    {
+      "id": "tech_xiao_zhi_tian_nan",
+      "name": "笑指天南",
+      "type": "attack",
+      "description": "天残十三式中的一招，以铁杖当长剑刺出",
+      "source_skill": "skill_tian_can_shi_san_shi",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 668,
+          "line_end": 668,
+          "text": "笑指天南"
+        }
+      ]
+    },
+    {
+      "id": "tech_yan_zi_fei_yun_zong",
+      "name": "燕子飞云纵",
+      "type": "special",
+      "description": "轻功身法，纵横天下，杀人无数",
+      "source_skill": null,
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 690,
+          "line_end": 690,
+          "text": "燕子飞云纵"
+        }
+      ]
+    },
+    {
+      "id": "tech_fei_yan_qu_lai",
+      "name": "飞燕去来",
+      "type": "feint",
+      "description": "一招轻功杀手绝技，身法巧妙，姿势优美，一击不中可全身而退",
+      "source_skill": null,
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 690,
+          "line_end": 696,
+          "text": "飞燕去来"
+        }
+      ]
+    },
+    {
+      "id": "tech_zui_wo_liu_yun",
+      "name": "醉卧流云",
+      "type": "attack",
+      "description": "醉卧之中施展的身法，看似烂醉实则暗藏杀机",
+      "source_skill": "skill_zui_zhong_qi_sha_shou",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 708,
+          "line_end": 708,
+          "text": "醉卧流云七杀手"
+        }
+      ]
+    },
+    {
+      "id": "tech_shao_lin_shen_quan",
+      "name": "少林神拳",
+      "type": "attack",
+      "description": "少林正宗拳法，招猛力沉",
+      "source_skill": "skill_luo_han_zhen",
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 474,
+          "line_end": 474,
+          "text": "木人施展出少林神拳"
+        }
+      ]
+    },
+    {
+      "id": "tech_mi_zong_da_shou_yin",
+      "name": "密宗大手印",
+      "type": "attack",
+      "description": "密宗武学绝技，出手奇重，掌力惊人",
+      "source_skill": "skill_mi_zong_da_shou_yin",
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 78,
+          "line_end": 78,
+          "text": "用的竟是密宗大手印的功夫"
+        }
+      ]
+    },
+    {
+      "id": "tech_hun_yuan_qi_gong",
+      "name": "混元气功",
+      "type": "buff",
+      "description": "深湛的内功心法，混元归一，提升全身功力",
+      "source_skill": "skill_hun_yuan_qi_gong",
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 368,
+          "line_end": 368,
+          "text": "指刀和混元气功力也不容易"
+        }
+      ]
+    },
+    {
+      "id": "tech_wu_jian_zhi_jing",
+      "name": "无剑之境",
+      "type": "special",
+      "description": "剑术练到极致，已不必执著于剑，人剑合一，无剑胜有剑，是剑道的至高境界",
+      "source_skill": "skill_wu_jian",
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 398,
+          "line_end": 408,
+          "text": "剑术也已练到无剑的境界"
+        }
+      ]
+    },
+    {
+      "id": "tech_wu_xing_jian_qi",
+      "name": "无形剑气",
+      "type": "attack",
+      "description": "以无形剑气攻敌，无需持剑即可发挥剑术威力，是无剑境界的实战应用",
+      "source_skill": "skill_wu_jian",
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 398,
+          "line_end": 408,
+          "text": "剑术也已练到无剑的境界"
+        }
+      ]
+    },
+    {
+      "id": "tech_ying_zhua_gong",
+      "name": "鹰爪功",
+      "type": "attack",
+      "description": "鹰爪门的指法功夫，抓取对手，手底下的鹰爪功夫自然不弱",
+      "source_skill": "skill_ying_zhua_gong_fu",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 604,
+          "line_end": 604,
+          "text": "手底下的鹰爪功夫自然不弱"
+        }
+      ]
+    },
+    {
+      "id": "tech_yin_zhen_ren_xue",
+      "name": "银针认穴",
+      "type": "attack",
+      "description": "使用银针认穴，入脑七分，少林内家手法的内劲",
+      "source_skill": "skill_shao_lin_nei_jia_shou_fa",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 656,
+          "line_end": 656,
+          "text": "银针认穴，入脑七分"
+        }
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "faction_qun_ying_biao_ju",
+      "name": "群英镖局",
+      "type": "帮派",
+      "location": "中原",
+      "sub_divisions": [],
+      "one_line": "中原十三家最大镖局之一",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 14,
+          "line_end": 14,
+          "text": "群英镖局"
+        },
+        {
+          "chapter": 5,
+          "line_start": 562,
+          "line_end": 562,
+          "text": "群英镖局的总镖头"
+        }
+      ]
+    },
+    {
+      "id": "faction_shi_er_lian_huan_wu",
+      "name": "十二连环坞",
+      "type": "帮派",
+      "location": "塞外",
+      "sub_divisions": [
+        "第一寨",
+        "第二寨",
+        "第三寨"
+      ],
+      "one_line": "势力远及塞外的庞大组织",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 30,
+          "line_end": 30,
+          "text": "十二连环坞的总瓢把子"
+        },
+        {
+          "chapter": 5,
+          "line_start": 692,
+          "line_end": 692,
+          "text": "十二连环坞第一寨"
+        },
+        {
+          "chapter": 8,
+          "line_start": 1,
+          "line_end": 6,
+          "text": "十二连环坞总舵的大厅里灯火辉煌"
+        },
+        {
+          "chapter": 15,
+          "line_start": 186,
+          "line_end": 186,
+          "text": "鹰眼老七，十二连环坞的总瓢把子。"
+        },
+        {
+          "chapter": 19,
+          "line_start": 470,
+          "line_end": 470,
+          "text": "鹰眼老七是十二连环坞的总瓢把子"
+        }
+      ]
+    },
+    {
+      "id": "faction_tai_ping_wang_fu",
+      "name": "太平王府",
+      "type": "家族",
+      "location": "京师",
+      "sub_divisions": [],
+      "one_line": "本案的委托方",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 34,
+          "line_end": 34,
+          "text": "太平王府"
+        },
+        {
+          "chapter": 15,
+          "line_start": 649,
+          "line_end": 649,
+          "text": "他们都是太平王府的木匠"
+        }
+      ]
+    },
+    {
+      "id": "faction_shao_lin",
+      "name": "少林",
+      "type": "武林门派",
+      "location": "嵩山",
+      "sub_divisions": [],
+      "one_line": "天下武学正宗",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 28,
+          "line_end": 28,
+          "text": "少林铁肩大师"
+        },
+        {
+          "chapter": 17,
+          "line_start": 638,
+          "line_end": 638,
+          "text": "少林铁肩大师"
+        }
+      ]
+    },
+    {
+      "id": "faction_huai_nan_wu_lin_shi_jia",
+      "name": "淮南武林世家",
+      "type": "家族",
+      "location": "淮南",
+      "sub_divisions": [],
+      "one_line": "以鹰爪力著称的世家",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 150,
+          "line_end": 150,
+          "text": "淮南武林世家长公子"
+        }
+      ]
+    },
+    {
+      "id": "faction_tie_jian_shan_zhuang",
+      "name": "铁剑山庄",
+      "type": "武林门派",
+      "location": "嵩阳",
+      "sub_divisions": [],
+      "one_line": "以铁剑法传家",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 154,
+          "line_end": 154,
+          "text": "嵩阳“铁剑山庄”"
+        }
+      ]
+    },
+    {
+      "id": "faction_wo_yun_lou",
+      "name": "卧云楼",
+      "type": "帮派",
+      "location": "湖州",
+      "sub_divisions": [],
+      "one_line": "名动公卿的酒楼",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 208,
+          "line_end": 208,
+          "text": "卧云楼主人"
+        }
+      ]
+    },
+    {
+      "id": "faction_shi_wai_tao_yuan",
+      "name": "世外桃源",
+      "type": "家族",
+      "location": "loc_tao_hua_yuan",
+      "sub_divisions": [],
+      "one_line": "荒岛山谷中的隐居者群体，自食其力，享受安乐太平",
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 389,
+          "line_end": 391,
+          "text": "小阁里已经有十来个人，大家的态度都很轻松"
+        }
+      ]
+    },
+    {
+      "id": "faction_hai_nan_pai",
+      "name": "海南派",
+      "type": "武林门派",
+      "location": "海南",
+      "sub_divisions": [],
+      "one_line": "以天残十三式闻名的武林门派",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 668,
+          "line_end": 682,
+          "text": "海南派镇山剑法"
+        }
+      ]
+    },
+    {
+      "id": "faction_shao_lin_si",
+      "name": "少林寺",
+      "type": "武林门派",
+      "location": "嵩山",
+      "sub_divisions": [
+        "罗汉堂",
+        "般若堂"
+      ],
+      "one_line": "天下武林泰斗，以罗汉阵闻名",
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 474,
+          "line_end": 478,
+          "text": "少林罗汉阵的威名"
+        }
+      ]
+    },
+    {
+      "id": "faction_da_tong_biao_ju",
+      "name": "大通镖局",
+      "type": "帮派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "镖局组织，由葛通担任总镖头",
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 1,
+          "line_end": 2,
+          "text": "十八岁入大通镖局，三十一岁已升为总镖头"
+        }
+      ]
+    },
+    {
+      "id": "faction_hu_li_wo",
+      "name": "狐狸窝",
+      "type": "帮派",
+      "location": "沿海港口",
+      "sub_divisions": [],
+      "one_line": "远近驰名的风月地",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 33,
+          "line_end": 37,
+          "text": "狐狸窝。可是这个远近驰名的风月地"
+        }
+      ]
+    },
+    {
+      "id": "faction_jiang_nan_pi_li_tang",
+      "name": "江南霹雳堂",
+      "type": "帮派",
+      "location": "江南",
+      "sub_divisions": [],
+      "one_line": "以火器闻名的帮派，霹雳子是其招牌武器",
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 450,
+          "line_end": 450,
+          "text": "船舱底下有桶江南霹雳堂的霹雳子"
+        }
+      ]
+    },
+    {
+      "id": "faction_gong_zhu_shi_li",
+      "name": "宫主势力",
+      "type": "帮派",
+      "location": "loc_hai_dao",
+      "sub_divisions": [],
+      "one_line": "宫主统领的神秘势力，以蜜蜂为代号，行事诡秘",
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 48,
+          "line_end": 48,
+          "text": "你那位宫主不但要杀我"
+        }
+      ]
+    },
+    {
+      "id": "faction_tian_long_nan_zong",
+      "name": "天龙南宗",
+      "type": "武林门派",
+      "location": "大内",
+      "sub_divisions": [],
+      "one_line": "以轻功和暗器闻名的门派，门下多为大内侍卫",
+      "source_refs": [
+        {
+          "chapter": 15,
+          "line_start": 326,
+          "line_end": 330,
+          "text": "天龙南宗的轻功身法很特别...天龙南宗的门下，十个中倒有九个是大内侍卫。"
+        }
+      ]
+    },
+    {
+      "id": "faction_si_da_gao_seng",
+      "name": "四大高僧",
+      "type": "武林门派",
+      "location": null,
+      "sub_divisions": [],
+      "one_line": "江湖四大高僧，老实咈尊排名第三",
+      "source_refs": [
+        {
+          "chapter": 20,
+          "line_start": 253,
+          "line_end": 253,
+          "text": "老实咈尊在四大高僧中排名第三。"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc_tai_hang_shan",
+      "name": "太行山",
+      "region": "中原",
+      "one_line": "镖银失踪案发生地",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 16,
+          "line_end": 16,
+          "text": "太行山"
+        }
+      ]
+    },
+    {
+      "id": "loc_ying_yan",
+      "name": "鹰眼",
+      "region": "中原",
+      "one_line": "十二连环坞总寨密室所在",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 62,
+          "line_end": 62,
+          "text": "就叫做“鹰眼”"
+        }
+      ]
+    },
+    {
+      "id": "loc_cang_jian_ge",
+      "name": "藏剑阁",
+      "region": "嵩阳",
+      "one_line": "铁剑山庄老庄主练剑处",
+      "source_refs": [
+        {
+          "chapter": 1,
+          "line_start": 154,
+          "line_end": 154,
+          "text": "在他的藏剑阁中练剑"
+        }
+      ]
+    },
+    {
+      "id": "loc_hu_li_wo",
+      "name": "狐狸窝",
+      "region": "海上",
+      "one_line": "漂浮在海上的娱乐场所，提供赌钱、喝酒、女人等服务。",
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 20,
+          "line_end": 20,
+          "text": "那地方当然是他开的，所以就叫做“狐狸窝”。"
+        },
+        {
+          "chapter": 15,
+          "line_start": 148,
+          "line_end": 148,
+          "text": "低矮破旧的平房已变得焕然一新"
+        }
+      ]
+    },
+    {
+      "id": "loc_fo_tou_hai",
+      "name": "佛头海",
+      "region": "东海",
+      "one_line": "陆小凤落水后漂浮的海域，靠近海口航线",
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 128,
+          "line_end": 128,
+          "text": "这里离海口还不太远，又在航线上"
+        }
+      ]
+    },
+    {
+      "id": "loc_hai_mian",
+      "name": "海面",
+      "region": "东海",
+      "one_line": "暴风雨后的海面，漂浮着船板残骸",
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 2,
+          "line_end": 4,
+          "text": "海面上漂浮着一块块破碎的船板"
+        }
+      ]
+    },
+    {
+      "id": "loc_huang_dao",
+      "name": "荒岛",
+      "region": "东海",
+      "one_line": "陆小凤漂流到的无人海岛，有清泉、芭蕉和茂密丛林",
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 92,
+          "line_end": 94,
+          "text": "阳光灿烂，沙滩洁白柔细，海水湛蓝如碧"
+        }
+      ]
+    },
+    {
+      "id": "loc_tao_hua_yuan",
+      "name": "山谷",
+      "region": "荒岛",
+      "one_line": "荒岛深处的世外桃源，有亭台楼阁和九曲桥水阁",
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 221,
+          "line_end": 221,
+          "text": "山势竟真的豁然开朗，山谷里芬芳翠绿，就像是个好大好大的花园"
+        }
+      ]
+    },
+    {
+      "id": "loc_shui_ge",
+      "name": "水阁",
+      "region": "荒岛山谷",
+      "one_line": "九曲桥头的朱栏绿水阁，山谷居民聚会赌钱之所",
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 387,
+          "line_end": 387,
+          "text": "前面半顷荷塘上的九曲桥头，有个朱栏绿瓦的水阁"
+        }
+      ]
+    },
+    {
+      "id": "loc_jiu_qu_qiao",
+      "name": "九曲桥",
+      "region": "未知",
+      "one_line": "小老头所在之地的标志性桥梁建筑",
+      "source_refs": [
+        {
+          "chapter": 5,
+          "line_start": 530,
+          "line_end": 530,
+          "text": "九曲桥上就有十六个赤膊秃顶"
+        }
+      ]
+    },
+    {
+      "id": "loc_hua_cong_mi_zhen",
+      "name": "花丛迷阵",
+      "region": "九少爷府邸",
+      "one_line": "环绕九少爷府邸的神秘花丛，夜间无人能辨方向",
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 342,
+          "line_end": 348,
+          "text": "陆小凤在花丛中迷路"
+        }
+      ]
+    },
+    {
+      "id": "loc_hua_xuan",
+      "name": "花轩",
+      "region": "九少爷府邸",
+      "one_line": "一栋三明两暗的华美建筑",
+      "source_refs": [
+        {
+          "chapter": 6,
+          "line_start": 396,
+          "line_end": 400,
+          "text": "灯光从花轩中透出"
+        }
+      ]
+    },
+    {
+      "id": "loc_fo_xiang_shi_shi",
+      "name": "佛像石室",
+      "region": "本岛",
+      "one_line": "藏有百余尊佛像的地下石室，每尊佛像内都关着一个人",
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 1,
+          "line_end": 10,
+          "text": "这么样一个人竟会藏在佛像里"
+        }
+      ]
+    },
+    {
+      "id": "loc_di_dao",
+      "name": "地道",
+      "region": "本岛",
+      "one_line": "通往佛像石室的地下通道",
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 26,
+          "line_end": 26,
+          "text": "地道中忽然响起一阵很轻的脚步声"
+        }
+      ]
+    },
+    {
+      "id": "loc_mi_shi",
+      "name": "密室",
+      "region": "本岛",
+      "one_line": "小老头的精雅密室，藏有波斯葡萄酒和蝶鲨卵",
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 150,
+          "line_end": 152,
+          "text": "里面的密室布置得精雅而优美"
+        }
+      ]
+    },
+    {
+      "id": "loc_ben_dao",
+      "name": "本岛",
+      "region": "海外",
+      "one_line": "小老头据守的海外岛屿，靠暖流与外界联系",
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 192,
+          "line_end": 196,
+          "text": "这股暖流是流向本岛的"
+        }
+      ]
+    },
+    {
+      "id": "loc_shi_er_lian_huan_wu_zong_duo",
+      "name": "十二连环坞总舵",
+      "region": "南海岛屿",
+      "one_line": "十二连环坞的总部，大厅灯火辉煌，警卫森严",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 1,
+          "line_end": 6,
+          "text": "十二连环坞总舵的大厅里灯火辉煌，大厅外却警卫森严。"
+        }
+      ]
+    },
+    {
+      "id": "loc_yue_lai_ke_zhan",
+      "name": "悦来客栈",
+      "region": "太行山小镇",
+      "one_line": "镖师们投宿的客栈，共三十九间客房",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 11,
+          "line_end": 13,
+          "text": "镖师们投宿的那客栈叫悦来，因为地方偏僻，土地不值钱，所以客栈建造得很宽阔，一共有三十九间客房。"
+        }
+      ]
+    },
+    {
+      "id": "loc_wo_yun_lou",
+      "name": "卧云楼",
+      "region": "沿海一带",
+      "one_line": "陆小凤离开的地方",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 31,
+          "line_end": 31,
+          "text": "他离开卧云楼之后，就立刻赶到沿海一带的港口去查问。"
+        }
+      ]
+    },
+    {
+      "id": "loc_xiao_lao_tou_de_mi_shi",
+      "name": "小老头的密室",
+      "region": "南海岛屿",
+      "one_line": "小老头的隐秘住处，有地道通向荷塘",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 63,
+          "line_end": 71,
+          "text": "陆小凤从小老头的密室中出来时...地道的出口处，就在那九曲桥下的荷塘附近"
+        }
+      ]
+    },
+    {
+      "id": "loc_jiu_qu_qiao_he_tang",
+      "name": "九曲桥荷塘",
+      "region": "南海岛屿",
+      "one_line": "小老头密室地道的出口处",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 71,
+          "line_end": 71,
+          "text": "地道的出口处，就在那九曲桥下的荷塘附近"
+        }
+      ]
+    },
+    {
+      "id": "loc_hua_cong_xiao_wu",
+      "name": "花丛小屋",
+      "region": "南海岛屿",
+      "one_line": "沙曼居住的小屋，月季花掩映中",
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 95,
+          "line_end": 97,
+          "text": "走过一条铺满朱石的花径，前面一丛月季花掩映中有栋小小的屋子。她推开门走了进去，这栋小屋无疑就是住的地方。"
+        }
+      ]
+    },
+    {
+      "id": "loc_xiao_cao_peng",
+      "name": "小草棚",
+      "region": "海岛",
+      "one_line": "陆小凤在海岛上搭建的简陋草棚，旁有泉水和弥勒佛像",
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 182,
+          "line_end": 182,
+          "text": "泉水依然不停的流，他那小草棚也依然无恙"
+        }
+      ]
+    },
+    {
+      "id": "loc_hai_dao",
+      "name": "海岛",
+      "region": "海上",
+      "one_line": "宫九势力所在的海岛，有五千多个隐秘的躲藏之处，地形复杂适合隐蔽",
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 92,
+          "line_end": 96,
+          "text": "这岛上的确有很多隐秘的地方可以躲藏。我知道的虽然没有五千多个，可是也不算少。"
+        }
+      ]
+    },
+    {
+      "id": "loc_gong_jiu_de_wu_zi",
+      "name": "宫九的屋子",
+      "region": "岛上",
+      "one_line": "宫九的卧房，华美居室，精雅器皿，无人敢闯入，连他老子都没有",
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 370,
+          "line_end": 378,
+          "text": "九少爷住的地方，当然绝不会像鸡蛋壳。华美的居室，精雅的器皿。"
+        }
+      ]
+    },
+    {
+      "id": "loc_sha_tan",
+      "name": "沙滩",
+      "region": "小岛",
+      "one_line": "陆小凤登陆的小岛沙滩",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 26,
+          "line_end": 26,
+          "text": "沙滩虽然很小"
+        }
+      ]
+    },
+    {
+      "id": "loc_hua_man_lou_de_zhu_suo",
+      "name": "花满楼的住所",
+      "region": "小楼",
+      "one_line": "花满楼居住的小楼",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 280,
+          "line_end": 280,
+          "text": "鲜花满楼"
+        }
+      ]
+    },
+    {
+      "id": "loc_ye_xing_shi_da_zhai",
+      "name": "叶星士大宅",
+      "region": "城市",
+      "one_line": "四大名医之一叶星士的住所",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 512,
+          "line_end": 512,
+          "text": "站在叶星士大宅门前的陆小凤"
+        }
+      ]
+    },
+    {
+      "id": "loc_po_luo_shan_shen_miao",
+      "name": "破落山神庙",
+      "region": "山林",
+      "one_line": "破落的山神庙，陆小凤与叶星士对峙之地",
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 616,
+          "line_end": 616,
+          "text": "庙，破落的山神庙"
+        }
+      ]
+    },
+    {
+      "id": "loc_wan_mei_shan_zhuang",
+      "name": "万梅山庄",
+      "region": "中原",
+      "one_line": "西门吹雪的住所，种满各种鲜花",
+      "source_refs": [
+        {
+          "chapter": 18,
+          "line_start": 588,
+          "line_end": 588,
+          "text": "陆小凤道：\"万梅山庄。\""
+        }
+      ]
+    },
+    {
+      "id": "loc_xuan_ya_mu_wu",
+      "name": "悬崖木屋",
+      "region": "海边悬崖",
+      "one_line": "陆小凤安置沙曼等人隐居的海边木屋",
+      "source_refs": [
+        {
+          "chapter": 20,
+          "line_start": 64,
+          "line_end": 70,
+          "text": "然后他才看到陆小凤说的木屋。他很喜欢这里。"
+        }
+      ]
+    },
+    {
+      "id": "loc_chang_an",
+      "name": "长安",
+      "region": "中原",
+      "one_line": "古都长安，陆小凤寻找鹰眼老七之地",
+      "source_refs": [
+        {
+          "chapter": 21,
+          "line_start": 210,
+          "line_end": 210,
+          "text": "要找鹰眼老七，他必须要到长安"
+        }
+      ]
+    },
+    {
+      "id": "loc_chang_an_fan_dian",
+      "name": "长安饭店",
+      "region": "长安",
+      "one_line": "长安闹市最大的饭店，陆小凤在此扬名",
+      "source_refs": [
+        {
+          "chapter": 21,
+          "line_start": 437,
+          "line_end": 437,
+          "text": "饭店。长安饭店"
+        }
+      ]
+    },
+    {
+      "id": "loc_hao_hua_zhai_di",
+      "name": "豪华宅邸",
+      "region": "不明",
+      "one_line": "老实和尚囚禁沙曼的豪华宅邸，官府般的规模",
+      "source_refs": [
+        {
+          "chapter": 21,
+          "line_start": 582,
+          "line_end": 582,
+          "text": "这官府般的宅邸"
+        }
+      ]
+    },
+    {
+      "id": "loc_yuan_luo",
+      "name": "院落",
+      "region": "无名岛",
+      "one_line": "三间房左右各一、中央一间的黑漂漂的院落，陆小凤在此面对三个选择",
+      "source_refs": [
+        {
+          "chapter": 22,
+          "line_start": 58,
+          "line_end": 62,
+          "text": "繁星虽然依旧挂满天空，但倨大的一座院落却是黑漂漂的一片"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "item_ji_ming_wu_geng_fan_hun_xiang",
+      "name": "鸡鸣五更返魂香",
+      "type": "poison",
+      "owner": "char_ma_lian",
+      "one_line": "江湖中下五门才会用的迷香，能使人昏迷。",
+      "description": "一种江湖中下五门才会使用的迷香，形似仙鹤，可对着嘴往窗里吹气，使人昏迷不醒。",
+      "effects": [
+        "昏迷"
+      ],
+      "origin": "江湖下五门",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_ma_lian"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        2,
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 236,
+          "line_end": 236,
+          "text": "陆小凤从十来岁时就已闯江湖，当然认得这个人手里拿的，就是江湖中只有下五门才会用的鸡鸣五更返魂香。"
+        },
+        {
+          "chapter": 3,
+          "line_start": 264,
+          "line_end": 264,
+          "text": "特地来用鸡鸣五更返魂香对付你的兄弟"
+        }
+      ]
+    },
+    {
+      "id": "item_nuo_mi_jiu",
+      "name": "糯米酒",
+      "type": "pill",
+      "owner": null,
+      "one_line": "吊在海水里冻得冰凉的糯米酒，可解饿。",
+      "description": "一种用糯米酿制的酒，吊在海水里冻得冰凉，配合馒头夹牛肉食用，可解饿提神。",
+      "effects": [
+        "解饿",
+        "提神"
+      ],
+      "origin": "狐狸窝",
+      "rarity": "寻常凡品",
+      "related_characters": [],
+      "related_skills": [],
+      "rag_refs": [
+        2
+      ],
+      "source_refs": [
+        {
+          "chapter": 2,
+          "line_start": 278,
+          "line_end": 278,
+          "text": "馒头夹牛肉，再用一大壶吊在海水里冻得冰凉的糯米酒送下去，你看怎么样？"
+        }
+      ]
+    },
+    {
+      "id": "item_jiu_sheng_xiao_ting",
+      "name": "救生小艇",
+      "type": "special",
+      "owner": "char_lu_xiao_feng",
+      "one_line": "岳洋抛下的救生小艇，内有水和鸡蛋",
+      "description": "一条从船舷上抛下的救生小艇，艇上有一壶水、十个煮熟的鸡蛋，还有岳洋补偿的五百两银子包袱。岳洋将小艇抛下时力量用得很巧妙，小艇并未倾覆。",
+      "effects": [
+        "提供漂浮工具",
+        "内含补给物资"
+      ],
+      "origin": "岳洋从大船上抛下",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_lu_xiao_feng",
+        "char_yue_yang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        3
+      ],
+      "source_refs": [
+        {
+          "chapter": 3,
+          "line_start": 148,
+          "line_end": 158,
+          "text": "一样东西从船舷上落下来，竟是条救生的小艇"
+        }
+      ]
+    },
+    {
+      "id": "item_qing_tong_ye_hu",
+      "name": "青铜夜壶",
+      "type": "special",
+      "owner": "char_lu_xiao_feng",
+      "one_line": "陆小凤从海中捞起的青铜夜壶，后被改造成刀",
+      "description": "一个青铜铸成的夜壶，在暴风雨后从海面漂过，被陆小凤抓住。后来被他剖开、打平、磨制成一把可以使用的刀。",
+      "effects": "被改造成简易刀具，可用于切割和劳作",
+      "origin": "海难遗物",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_lu_xiao_feng"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 10,
+          "line_end": 10,
+          "text": "一样闪闪发光的东西从他眼前漂过，他伸手抓住，竟是个青铜铸成的夜壶"
+        }
+      ]
+    },
+    {
+      "id": "item_ye_hu_dao",
+      "name": "夜壶刀",
+      "type": "weapon",
+      "owner": "char_lu_xiao_feng",
+      "one_line": "陆小凤用青铜夜壶改造的简易刀具",
+      "description": "将铜夜壶剖开，用石头打平，夹上两片木头做柄，再就着泉水磨上一两个时辰，变成一把可以使用的刀。",
+      "effects": "可用于切割、砍伐、制作工具",
+      "origin": "青铜夜壶改造",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_lu_xiao_feng"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        4,
+        5,
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 142,
+          "line_end": 142,
+          "text": "将夜壶剖开，用石头打平，夹上两片木头做柄"
+        },
+        {
+          "chapter": 5,
+          "line_start": 30,
+          "line_end": 30,
+          "text": "拿出了那柄用夜壶改成的刀"
+        },
+        {
+          "chapter": 8,
+          "line_start": 221,
+          "line_end": 221,
+          "text": "我的夜壶刀。"
+        }
+      ]
+    },
+    {
+      "id": "item_zhang_mu_xiang_zi",
+      "name": "樟木箱子",
+      "type": "special",
+      "owner": "char_lu_xiao_feng",
+      "one_line": "陆小凤在海滩捡到的樟木箱，内有珠宝、书籍和女人衣服",
+      "description": "一个在潮退时被冲上沙滩的樟木箱子，内有小小的珠宝箱装满珍珠首饰，还有梳子、金簪、两本通俗小说和花花绿绿的女人衣服。",
+      "effects": "提供书籍打发寂寞，珠宝首饰在荒岛上无用",
+      "origin": "海难遗物",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_lu_xiao_feng"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 159,
+          "line_end": 167,
+          "text": "潮退的时候，他在沙滩上找到个樟木箱子"
+        }
+      ]
+    },
+    {
+      "id": "item_mu_yu",
+      "name": "木鱼",
+      "type": "special",
+      "owner": null,
+      "one_line": "海面上漂浮的各式木鱼，可当作碗使用",
+      "description": "暴风雨后海面上漂浮的各式各样的木鱼，大大小小顺着海流漂动。陆小凤将木鱼剖开当作碗，用来盛水。",
+      "effects": "剖开后可当作碗盛水",
+      "origin": "海难遗物",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_lu_xiao_feng"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        4
+      ],
+      "source_refs": [
+        {
+          "chapter": 4,
+          "line_start": 62,
+          "line_end": 62,
+          "text": "他惟一能看见的一种鱼，就是木鱼"
+        }
+      ]
+    },
+    {
+      "id": "item_niu_rou_tang_potion",
+      "name": "牛肉汤",
+      "type": "pill",
+      "owner": "char_niu_rou_tang",
+      "one_line": "营养丰富的牛肉汤，用于维持佛像中囚徒的性命",
+      "description": "营养丰富煮得浓浓的牛肉汤，可让虚脱之人恢复元气，每天一勺维持佛像中囚徒活命",
+      "effects": [
+        "恢复元气",
+        "维持生命"
+      ],
+      "origin": "岛上厨房",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_niu_rou_tang"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 18,
+          "line_end": 18,
+          "text": "只要一大碗营养丰富，煮得浓浓的牛肉汤，就可让他元气恢复"
+        }
+      ]
+    },
+    {
+      "id": "item_diao_si_yu_gou",
+      "name": "钓丝鱼钩",
+      "type": "hidden_weapon",
+      "owner": "char_he_shang_shu",
+      "one_line": "贺尚书使用的暗器，带鱼钩的钓丝可远距离攻击",
+      "description": "一根带着鱼钩的钓丝，从远处飞来闪闪发光，可钩人眼珠，也可作为兵器使用",
+      "effects": [
+        "远程攻击",
+        "钩刺"
+      ],
+      "origin": null,
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_he_shang_shu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 64,
+          "line_end": 64,
+          "text": "一根带着鱼钩的钓丝从外面飞进来，闪闪发光的鱼钩飞向他的眼睛"
+        }
+      ]
+    },
+    {
+      "id": "item_shui_jing_jiu_zun",
+      "name": "水晶酒樽",
+      "type": "special",
+      "owner": "char_xiao_lao_tou",
+      "one_line": "小老头用来盛放波斯葡萄酒的水晶酒樽",
+      "description": "精美的水晶酒樽，小老头特地从波斯带来的葡萄酒盛放其中，晶莹剔透",
+      "effects": [
+        "盛酒"
+      ],
+      "origin": "波斯",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_xiao_lao_tou"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 152,
+          "line_end": 152,
+          "text": "从壁柜中取出个水晶酒樽"
+        }
+      ]
+    },
+    {
+      "id": "item_die_sha_luan_ka_wei_ya",
+      "name": "蝶鲨卵（卡维亚）",
+      "type": "pill",
+      "owner": "char_xiao_lao_tou",
+      "one_line": "蝶鲨鱼子酱，风味绝佳的珍稀佐酒佳品",
+      "description": "蝶鲨的卵制成的酱，昆仑以北称之为卡维亚，腥咸之外另有鲜美绝伦的异味",
+      "effects": [
+        "佐酒提味"
+      ],
+      "origin": "昆仑以北",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_xiao_lao_tou"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 154,
+          "line_end": 156,
+          "text": "这是蝶鲨的卵，在昆仑以北，有很多人都称之为卡维亚"
+        }
+      ]
+    },
+    {
+      "id": "item_zhu_zhuo",
+      "name": "珠宝",
+      "type": "special",
+      "owner": "char_xiao_lao_tou",
+      "one_line": "朝中要人送给丰臣秀吉的珠宝，被小老头半途截获",
+      "description": "朝中要人特地送给丰臣秀吉的一批珍贵珠宝，本会引发中土大乱，被小老头截获",
+      "effects": [
+        "政治筹码"
+      ],
+      "origin": "中原朝廷",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_xiao_lao_tou",
+        "char_feng_chen_xiu_ji"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 170,
+          "line_end": 172,
+          "text": "外面的那批珠宝，本是朝中一位要人特地去送给他的"
+        }
+      ]
+    },
+    {
+      "id": "item_bo_si_pu_tao_jiu",
+      "name": "波斯葡萄酒",
+      "type": "pill",
+      "owner": "char_xiao_lao_tou",
+      "one_line": "小老头特地从波斯带来的葡萄美酒",
+      "description": "葡萄美酒夜光杯，小老头特地叫人从波斯带来的葡萄酒，盛于水晶酒樽之中，风味绝佳",
+      "effects": [
+        "提神"
+      ],
+      "origin": "波斯",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_xiao_lao_tou"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "line_start": 152,
+          "line_end": 152,
+          "text": "葡萄美酒夜光杯，这是我特地叫人从波斯带来的葡萄酒"
+        }
+      ]
+    },
+    {
+      "id": "item_hua",
+      "name": "花",
+      "type": "special",
+      "owner": "char_sha_man",
+      "one_line": "百花盛开，阳光下更艳丽",
+      "description": "百花盛开，在阳光下看来更艳丽了，沙曼就站在花丛中，穿着件轻轻飘飘的袍，脸上不着脂粉，百花在她身边却已都失去了颜色。",
+      "effects": [],
+      "origin": null,
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_sha_man"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 89,
+          "line_end": 89,
+          "text": "百花盛开，在阳光下看来更艳丽了"
+        }
+      ]
+    },
+    {
+      "id": "item_bing_hua",
+      "name": "冰花",
+      "type": "special",
+      "owner": "char_jiu_shao_ye",
+      "one_line": "用冰雕成的花，仲夏时节送来",
+      "description": "一朵用冰雕成的花，透明的花瓣还没有开始溶化，要在多么遥远的地方才有窖藏的冬冰，要费多么大的苦心才能将这朵冰花完完整整的运到这里来。",
+      "effects": [
+        "表达柔情",
+        "表达爱心"
+      ],
+      "origin": "遥远地方窖藏的冬冰",
+      "rarity": "稀世珍品",
+      "related_characters": [
+        "char_jiu_shao_ye",
+        "char_sha_man"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        8,
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "line_start": 261,
+          "line_end": 282,
+          "text": "他们却看到了他留下的一朵花。一朵冰花。现在正是仲夏，这朵花却是用冰雕成的"
+        },
+        {
+          "chapter": 9,
+          "line_start": 2,
+          "line_end": 56,
+          "text": "陆小凤看着这朵冰花...拿起那朵已将溶化的冰花"
+        }
+      ]
+    },
+    {
+      "id": "item_pi_li_zi",
+      "name": "霹雳子",
+      "type": "hidden_weapon",
+      "owner": null,
+      "one_line": "江南霹雳堂秘制火器，点燃引线后可引发剧烈爆炸",
+      "description": "江南霹雳堂秘制的火器，装在桶中，点燃引线后可引发剧烈爆炸和燃烧，足以将整条船化为灰烬，威力惊人。",
+      "effects": "爆炸燃烧，可摧毁整条船只",
+      "origin": "江南霹雳堂",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_gong_zhu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 450,
+          "line_end": 450,
+          "text": "船舱底下有桶江南霹雳堂的霹雳子"
+        }
+      ]
+    },
+    {
+      "id": "item_hei_you",
+      "name": "黑油",
+      "type": "special",
+      "owner": null,
+      "one_line": "高度易燃的黑色油脂，配合霹雳子可使火焰迅速蔓延",
+      "description": "一种高度易燃的黑色油脂，常被用于火攻，与霹雳子配合使用时能使火焰迅速蔓延，将整条船吞噬殆尽。",
+      "effects": "助燃，加速火焰蔓延",
+      "origin": "未知",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_gong_zhu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        9
+      ],
+      "source_refs": [
+        {
+          "chapter": 9,
+          "line_start": 450,
+          "line_end": 450,
+          "text": "还有几桶黑油"
+        }
+      ]
+    },
+    {
+      "id": "item_huang_la",
+      "name": "黄蜡",
+      "type": "special",
+      "owner": "char_xiao_yu",
+      "one_line": "小玉随身携带的黄蜡，用于堵住船底漏洞",
+      "description": "小玉事先准备的黄色蜡块，分成两半揉软后可塞住船底破洞，阻止海水涌入。小玉共准备了十七八块，是她逃命的保命手段。",
+      "effects": [
+        "堵漏防水"
+      ],
+      "origin": "小玉自备",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_xiao_yu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        10
+      ],
+      "source_refs": [
+        {
+          "chapter": 10,
+          "line_start": 76,
+          "line_end": 78,
+          "text": "从船头下找出了一大块黄蜡，然后分成两半，用手揉软，将船底的两个洞塞了起来"
+        }
+      ]
+    },
+    {
+      "id": "item_xiang_zi",
+      "name": "箱子",
+      "type": "special",
+      "owner": "char_gong_jiu",
+      "one_line": "宫九用来运送物品的大木箱，黑暗而安静，足以容纳两个成年人藏身",
+      "description": "宫九用来运送物品的大木箱，木质厚实，内部黑暗而安静，体积足够大，可以容纳两个成年人紧紧相拥藏身其中，是陆小凤和沙曼躲避追捕的关键道具。",
+      "effects": [
+        "隐藏身形",
+        "躲避追踪"
+      ],
+      "origin": "宫九的物资运输",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_lu_xiao_feng",
+        "char_sha_man",
+        "char_gong_jiu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 256,
+          "line_end": 258,
+          "text": "十个活人，抬着五个大箱子走过来，箱子显然很重"
+        }
+      ]
+    },
+    {
+      "id": "item_gong_jiu_de_jian",
+      "name": "宫九的剑",
+      "type": "weapon",
+      "owner": "char_gong_jiu",
+      "one_line": "悬挂在铜镜旁的狭长古雅长剑，精光四射，但宫九杀人已不必用剑",
+      "description": "悬挂于宫九卧房铜镜旁的一柄长剑，剑身狭长，形式古雅，精光四射，乃名匠所铸。宫九虽以此剑为佩，但杀人已不必用剑，可见其武功之高已臻化境。",
+      "effects": [
+        "攻击",
+        "威慑"
+      ],
+      "origin": "名匠打造",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_gong_jiu"
+      ],
+      "related_skills": [
+        "skill_wu_jian"
+      ],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 390,
+          "line_end": 396,
+          "text": "镜旁悬着一柄剑，剑身狭长，形式古雅。这就是他的剑。"
+        }
+      ]
+    },
+    {
+      "id": "item_tian_xia_di_yi_ming_jing",
+      "name": "天下第一明镜",
+      "type": "special",
+      "owner": "char_gong_jiu",
+      "one_line": "宫九用最好青铜亲自磨制的大镜子，自认为天下第一",
+      "description": "宫九卧房中悬挂的一面大铜镜，名匠用最好的青铜磨成，宫九自认为这无疑已是天下第一明镜，反映了他孤僻自负的性格。",
+      "effects": [
+        "照映",
+        "映射性格"
+      ],
+      "origin": "宫九亲手磨制",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_gong_jiu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        11
+      ],
+      "source_refs": [
+        {
+          "chapter": 11,
+          "line_start": 386,
+          "line_end": 388,
+          "text": "屋子里果然有面很大的镜子，看来显然是名匠用最好的青铜磨成的。"
+        }
+      ]
+    },
+    {
+      "id": "item_mian_yi_bian",
+      "name": "棉衣鞭",
+      "type": "weapon",
+      "owner": "char_gong_jiu",
+      "one_line": "宫九舱房中挂的鞭子",
+      "description": "一条挂于床头木架上的鞭子，用于宫九自虐时抽打自己苍白瘦弱的胸膛",
+      "effects": [
+        "抽打皮肤造成鞭痕和血渍"
+      ],
+      "origin": "宫九舱房",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_gong_jiu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        14
+      ],
+      "source_refs": [
+        {
+          "chapter": 14,
+          "line_start": 148,
+          "line_end": 148,
+          "text": "床头的木架上果然挂着条鞭子。"
+        }
+      ]
+    },
+    {
+      "id": "item_shi_qie_zhen_bao",
+      "name": "失窃珍宝",
+      "type": "special",
+      "owner": null,
+      "one_line": "价值三千五百万两的金珠珍宝",
+      "description": "价值三千五百万两的金珠珍宝，被宫九设计盗窃并嫁祸给陆小凤",
+      "effects": [
+        "引发追杀",
+        "嫁祸陆小凤"
+      ],
+      "origin": "太平王世子",
+      "rarity": "绝世神兵",
+      "related_characters": [
+        "char_lu_xiao_feng",
+        "char_gong_jiu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 146,
+          "line_end": 146,
+          "text": "那批失窃的珍宝，有几颗最名贵的，已经被人卖掉了"
+        }
+      ]
+    },
+    {
+      "id": "item_bai_liang_liang_de_zhen",
+      "name": "白亮亮的针",
+      "type": "hidden_weapon",
+      "owner": "char_ye_xing_shi",
+      "one_line": "叶星士使用的小型暗器",
+      "description": "三枝白亮亮的银针，用于暗杀，手法为少林内家手法的内劲",
+      "effects": [
+        "暗杀",
+        "认穴"
+      ],
+      "origin": "少林",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_ye_xing_shi",
+        "char_ge_tong"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        17
+      ],
+      "source_refs": [
+        {
+          "chapter": 17,
+          "line_start": 610,
+          "line_end": 610,
+          "text": "赫然发现葛通脑后并排插着三枝白亮亮的针"
+        }
+      ]
+    },
+    {
+      "id": "item_zhi_tiao_xue_xie",
+      "name": "血写纸条",
+      "type": "special",
+      "owner": "char_xiao_yu",
+      "one_line": "小玉临死前用血写下的七个字",
+      "description": "小玉被老实咈尊刺伤后，临死前用血在纸上写下“老实咈尊不老实”七个字，紧握在手中，作为对陆小凤的警示。",
+      "effects": [
+        "警示陆小凤老实咈尊的真面目"
+      ],
+      "origin": "小玉临死前亲笔所书",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_xiao_yu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        20
+      ],
+      "source_refs": [
+        {
+          "chapter": 20,
+          "line_start": 121,
+          "line_end": 125,
+          "text": "纸条上只写着七个字。用血写的七个字——老实咈尊不老实。"
+        }
+      ]
+    },
+    {
+      "id": "item_zhu_ye_qing",
+      "name": "竹叶青",
+      "type": "pill",
+      "owner": null,
+      "one_line": "碧绿澄清的竹叶青酒",
+      "description": "碧绿澄清的竹叶青，西门吹雪杯中的美酒，色泽澄澈如碧玉，入口醇香。",
+      "effects": [
+        "提神醒脑",
+        "增添豪情"
+      ],
+      "origin": "江湖",
+      "rarity": "寻常凡品",
+      "related_characters": [
+        "char_xi_men_chui_xue",
+        "char_lu_xiao_feng"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        21
+      ],
+      "source_refs": [
+        {
+          "chapter": 21,
+          "line_start": 6,
+          "line_end": 6,
+          "text": "杯中依旧是碧绿澄清的竹叶青"
+        }
+      ]
+    },
+    {
+      "id": "item_ying_yan_lao_qi_de_dao",
+      "name": "鹰眼老七的刀",
+      "type": "weapon",
+      "owner": "char_ying_yan_lao_qi",
+      "one_line": "鹰眼老七随身佩刀，被陆小凤偷走用来引他来长安",
+      "description": "鹰眼老七的随身佩刀，被陆小凤偷走数日，后以指力刻字归还，以此引鹰眼老七至长安。",
+      "effects": [
+        "身份象征",
+        "引蛇出洞"
+      ],
+      "origin": "十二连环坞",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_ying_yan_lao_qi",
+        "char_lu_xiao_feng"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        21
+      ],
+      "source_refs": [
+        {
+          "chapter": 21,
+          "line_start": 220,
+          "line_end": 220,
+          "text": "原来放碗的地方，忽然多出了一把刀"
+        }
+      ]
+    },
+    {
+      "id": "item_chang_bian",
+      "name": "长鞭",
+      "type": "weapon",
+      "owner": "char_lu_xiao_feng",
+      "one_line": "陆小凤在决斗中选择的武器，可灌注内力变硬刺杀",
+      "description": "一条软鞭，平时柔软可发出刺耳声响，灌注内力后可变得又直又硬，兼具鞭击和刺击两种用法。陆小凤用此鞭一击刺入宫九心脏。",
+      "effects": [
+        "可灌注内力变硬",
+        "兼具鞭击与刺击"
+      ],
+      "origin": "宫九提供",
+      "rarity": "上乘佳品",
+      "related_characters": [
+        "char_lu_xiao_feng",
+        "char_gong_jiu"
+      ],
+      "related_skills": [],
+      "rag_refs": [
+        22
+      ],
+      "source_refs": [
+        {
+          "chapter": 22,
+          "line_start": 626,
+          "line_end": 628,
+          "text": "陆小凤道：'长鞭。'宫九脸上神色大变，道：'长鞭？'陆小凤冷冷道：'是的，长鞭！'"
+        }
+      ]
+    }
+  ]
 }

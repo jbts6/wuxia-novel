@@ -1,0 +1,362 @@
+[
+  {
+    "id": "skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian",
+    "name": "七七四十九手回风舞柳剑",
+    "type": "剑法",
+    "faction": "faction_ba_shan",
+    "rank": "出神入化",
+    "one_line": "巴山绝学，七七四十九手回风舞柳剑，需轻功配合，名震江湖",
+    "techniques": [
+      {
+        "id": "tech_hui_feng_wu_liu_jian",
+        "name": "回风舞柳剑",
+        "type": "attack",
+        "description": "七七四十九手回风舞柳剑，剑法轻灵飘逸，需配合轻功施展，是巴山第一剑法"
+      },
+      {
+        "id": "tech_qing_gong_pei_he",
+        "name": "轻功配合",
+        "type": "buff",
+        "description": "回风舞柳剑必须以轻功配合施展，剑法轻灵飘逸方能发挥极致威力"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      "伤害"
+    ],
+    "combat_style": "轻灵飘逸",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 32,
+        "line_end": 34,
+        "text": "柳乘风是巴山的第一嫡传掌门弟子，他的七七四十九手回风舞柳剑在江湖中的地位"
+      }
+    ]
+  },
+  {
+    "id": "skill_chuan_yin_ru_mi",
+    "name": "传音入密",
+    "type": "内功",
+    "faction": null,
+    "rank": "返璞归真",
+    "one_line": "将声音凝聚传入远方耳中的内功心法",
+    "techniques": [
+      {
+        "id": "tech_chuan_yin_ru_mi",
+        "name": "传音入密",
+        "type": "special",
+        "description": "以内力凝聚声音，传入指定目标耳中，旁人无法听闻"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "声音定向传递"
+      }
+    ],
+    "combat_style": "非直接战斗技能",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 336,
+        "line_end": 338,
+        "text": "小屋与花径还有段距离，温柔甜蜜的声音绝不会是大喊大叫出来的。可是她轻轻的说出来，陆小凤远远的听在耳里，每个字都听得很清楚"
+      }
+    ]
+  },
+  {
+    "id": "skill_chu_ju_an_qi",
+    "name": "厨具暗器",
+    "type": "暗器",
+    "faction": null,
+    "rank": "返璞归真",
+    "one_line": "以日常餐具为暗器的独门绝技",
+    "techniques": [
+      {
+        "id": "tech_tang_wan_fei_ji",
+        "name": "汤碗飞击",
+        "type": "attack",
+        "description": "以盛满汤水的碗为暗器飞出，汤水飞溅可遮挡对手视线"
+      },
+      {
+        "id": "tech_jiu_bei_sui_pian",
+        "name": "酒杯碎击",
+        "type": "attack",
+        "description": "将酒杯碎成数十片锋锐暗器，如不规则棱角暗器齐射"
+      },
+      {
+        "id": "tech_kuai_zi_fei_ding",
+        "name": "筷子飞钉",
+        "type": "attack",
+        "description": "以筷子如飞钉般射出，精准钉住对手要害"
+      },
+      {
+        "id": "tech_xuan_zhuan_die_zi",
+        "name": "旋转碟击",
+        "type": "feint",
+        "description": "将酱油碟旋转飞出，方向难以预测"
+      }
+    ],
+    "progression": "圆满",
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "多角度全方位封死退路"
+      }
+    ],
+    "combat_style": "以日常器具为暗器，出手周密精准",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 433,
+        "line_end": 457,
+        "text": "一对筷子，一个酒杯，一个小酱油碟子，和一个装汤的大海碗"
+      }
+    ]
+  },
+  {
+    "id": "skill_ling_xi_yi_zhi",
+    "name": "灵犀一指",
+    "type": "指法",
+    "faction": "无",
+    "rank": "登峰造极",
+    "one_line": "陆小凤名震天下的两根手指绝技，可夹暗器、破招式",
+    "techniques": [
+      {
+        "id": "tech_ling_xi_jia_qi",
+        "name": "灵犀夹器",
+        "type": "defense",
+        "description": "以两根手指精准夹住飞来的暗器"
+      },
+      {
+        "id": "tech_ling_xi_po_zhao",
+        "name": "灵犀破招",
+        "type": "attack",
+        "description": "以两根手指破解对手招式"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      {
+        "type": "控制",
+        "description": "精准夹取与破解"
+      }
+    ],
+    "combat_style": "以巧破力，精准制敌",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 484,
+        "line_end": 484,
+        "text": "陆小凤伸出两根手指像夹苍蝇般一夹，暗器就已到了他手指间"
+      }
+    ]
+  },
+  {
+    "id": "skill_san_shou_xian_yu_an_qi_shu",
+    "name": "三手仙妪暗器术",
+    "type": "暗器",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "许煞独步江湖的暗器手法，以银针封穴，精准狠辣",
+    "techniques": [
+      {
+        "id": "tech_yin_zhen_feng_xue",
+        "name": "银针封穴",
+        "type": "attack",
+        "description": "以银针打入对手要穴，使其丧失行动能力"
+      },
+      {
+        "id": "tech_an_qi_tou_xi",
+        "name": "暗器偷袭",
+        "type": "attack",
+        "description": "从远处以暗器偷袭目标，防不胜防"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      "控制",
+      "伤害"
+    ],
+    "combat_style": "远程暗器攻击，以银针封穴为主",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 198,
+        "line_end": 198,
+        "text": "这些银针是被人用一种极厉害的暗器手法打入宫萍的穴道的"
+      }
+    ]
+  },
+  {
+    "id": "skill_hui_feng_wu_liu_jian",
+    "name": "回风舞柳剑",
+    "type": "剑法",
+    "faction": "巴山剑派",
+    "rank": "登峰造极",
+    "one_line": "巴山剑派绝学，七七四十九手回风舞柳剑",
+    "techniques": [
+      {
+        "id": "tech_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian",
+        "name": "七七四十九手回风舞柳剑",
+        "type": "attack",
+        "description": "巴山剑派镇派剑法，共四十九手，以回风舞柳之意演化，剑势飘逸灵动如风中柳枝"
+      }
+    ],
+    "progression": [
+      "巴山剑派弟子均可修习"
+    ],
+    "effects": [
+      "剑势飘逸，攻守兼备"
+    ],
+    "combat_style": "以柔克刚，剑随风走",
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 12,
+        "line_end": 12,
+        "text": "七七四十九手回风舞柳剑"
+      }
+    ]
+  },
+  {
+    "id": "skill_sha_shou_ji_qiao",
+    "name": "杀手技巧",
+    "type": "暗器",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "以伪装体型和轻功见长的暗杀技巧",
+    "techniques": [
+      {
+        "id": "tech_qing_gong_tie_xue",
+        "name": "铁靴轻功",
+        "type": "special",
+        "description": "穿二十斤铁靴却行走无声，以极端负重训练轻功"
+      },
+      {
+        "id": "tech_ti_xing_wei_zhuang",
+        "name": "体型伪装",
+        "type": "feint",
+        "description": "以臃肿肥胖的外表令人放松警惕，实则身手敏捷"
+      }
+    ],
+    "progression": "已臻成熟",
+    "effects": [
+      "使敌人低估自身实力",
+      "出其不意的致命一击"
+    ],
+    "combat_style": "伪装接近，近身暗杀",
+    "rag_refs": [
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "line_start": 146,
+        "line_end": 150,
+        "text": "他从小瘦瘦，所以他穿大铁靴...他这么样吃，怎么能不胖？"
+      },
+      {
+        "chapter": 12,
+        "line_start": 160,
+        "line_end": 162,
+        "text": "像这么样一个臃肿平凡俗气的人，有谁会提防他？"
+      }
+    ]
+  },
+  {
+    "id": "skill_gui_xi_gong",
+    "name": "龟息功",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "能够闭气假死的特殊内功，由老实和尚掌握",
+    "techniques": [
+      {
+        "id": "tech_gui_xi_gong",
+        "name": "龟息术",
+        "type": "special",
+        "description": "运功闭气，使人陷入假死状态，呼吸脉搏几乎停止，常人无法辨别真假"
+      },
+      {
+        "id": "tech_jia_si_zhuang",
+        "name": "假死术",
+        "type": "special",
+        "description": "将龟息功发挥到极致，使人完全呈现死亡状态，连高手也无法分辨真伪"
+      }
+    ],
+    "progression": "大师级",
+    "effects": [
+      "控制",
+      "特殊"
+    ],
+    "combat_style": "非战斗技能，用于保命和伪装",
+    "rag_refs": [
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 418,
+        "line_end": 418,
+        "text": "因为老实和尚会龟息功"
+      }
+    ]
+  },
+  {
+    "id": "skill_hua_zhuang_shu",
+    "name": "化妆术",
+    "type": "特殊",
+    "faction": null,
+    "rank": "返璞归真",
+    "one_line": "司空摘星独步天下的易容化妆术，能将人装扮成任何模样",
+    "techniques": [
+      {
+        "id": "tech_yi_rong_shu",
+        "name": "易容术",
+        "type": "special",
+        "description": "通过特殊材料和技巧改变容貌，使被化妆者完全变成另一个人"
+      },
+      {
+        "id": "tech_qiao_zhuang_shu",
+        "name": "巧装术",
+        "type": "special",
+        "description": "通过服装、体态、声音等多方面伪装，使人从外到内都变成另一个角色"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      "特殊"
+    ],
+    "combat_style": "非战斗技能，用于伪装和情报",
+    "rag_refs": [
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 374,
+        "line_end": 374,
+        "text": "因为我就是化妆术天下第一的人"
+      }
+    ]
+  }
+]

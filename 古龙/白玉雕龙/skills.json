@@ -1,0 +1,861 @@
+[
+  {
+    "id": "skill_bai_yu_lao_hu",
+    "name": "白玉老虎",
+    "type": "内功",
+    "faction": "faction_da_feng_tang",
+    "rank": "出神入化",
+    "one_line": "赵简、上官刃、司空晓风三人制定的以牺牲换取卧底的秘密计划",
+    "techniques": [
+      {
+        "id": "tech_bai_yu_hu_mi_ji",
+        "name": "白玉虎秘计",
+        "type": "special",
+        "description": "以一人牺牲携人头投靠敌营为手段，派重要叛徒卧底刺探唐门秘密的精密计划"
+      },
+      {
+        "id": "tech_wo_di_zhi_ce",
+        "name": "卧底之策",
+        "type": "special",
+        "description": "利用叛徒携首级投敌的手段获取敌方信任，深入敌营刺探核心机密的长期潜伏策略"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "非战斗类，属情报战略型计谋",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 86,
+        "line_end": 102,
+        "text": "司空晓风曾经交给他一只白玉老虎，要他在杀上官刃之前，必须参透白玉老虎的秘密"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhao_wu_ji_jian_shu",
+    "name": "赵无忌剑术",
+    "type": "剑法",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "赵无忌为报仇不眠不休苦练而成的剑术，以漂泊杀手身份行走江湖",
+    "techniques": [
+      {
+        "id": "tech_zhi_jian",
+        "name": "直剑",
+        "type": "attack",
+        "description": "赵无忌苦练而成的凌厉直刺剑招，曾一剑刺向上官刃"
+      },
+      {
+        "id": "tech_hui_jian_fan_ji",
+        "name": "回剑反击",
+        "type": "defense",
+        "description": "在刺击被格挡后迅速借力变招的防御反击剑法，赵无忌用来应对黑衣人借剑力脱身时的应变"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "凌厉迅捷，以杀手风格出剑",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 72,
+        "line_end": 74,
+        "text": "所以他用尽了一切办法去学剑，不眠不休的学。他学成了剑术，装成是一个到处飘泊的杀手"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_men_an_qi",
+    "name": "唐门暗器",
+    "type": "暗器",
+    "faction": "faction_shu_zhong_tang_men",
+    "rank": "炉火纯青",
+    "one_line": "蜀中唐门世代相传的独门暗器手法，以精妙诡异闻名武林",
+    "techniques": [
+      {
+        "id": "tech_bao_yu_li_hua_zhen",
+        "name": "暴雨梨花针",
+        "type": "attack",
+        "description": "唐门招牌暗器，发射时如暴雨般密集，令人防不胜防"
+      },
+      {
+        "id": "tech_du_sha_an_qi",
+        "name": "毒砂暗器",
+        "type": "attack",
+        "description": "唐门以毒砂配合暗器发射的阴毒手法，中者若无解药将毒发身亡"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "精妙诡异，令人防不胜防",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 62,
+        "line_end": 64,
+        "text": "做为投靠蜀中唐门的手段。蜀中唐门正是大风堂的对头"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiao_dong_lou_jian_fa",
+    "name": "萧东楼剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "萧东楼所授的精妙剑法，赵无忌不眠不休地练成",
+    "techniques": [
+      {
+        "id": "tech_jian_fa_xiu_lian",
+        "name": "剑法修炼",
+        "type": "attack",
+        "description": "萧东楼传授的精妙剑术，需要极高的专注和天赋，无忌几乎不眠不休地练习"
+      }
+    ],
+    "progression": [
+      {
+        "level": "入门"
+      },
+      {
+        "level": "精通"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "超群的剑术攻击力"
+      }
+    ],
+    "combat_style": "精妙凌厉",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 16,
+        "line_end": 16,
+        "text": "无忌早就跟他学剑"
+      }
+    ]
+  },
+  {
+    "id": "skill_jiang_shi_dian_xue_shu",
+    "name": "僵尸点穴术",
+    "type": "指法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "能在最短时间内连点人体每一处大小穴道的独特本领",
+    "techniques": [
+      {
+        "id": "tech_xue_dao_shu_tong_shu",
+        "name": "穴道疏通术",
+        "type": "special",
+        "description": "能在极短时间内连点人体每一处大小穴道，可用来舒通血脉，对气血不通之症有奇效"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精通"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "疏通血脉，打通全身筋脉"
+      }
+    ],
+    "combat_style": "精准快速",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 96,
+        "line_end": 96,
+        "text": "僵尸有一个独特的本领，就是能在最短的时间内，连点人体每一处大小穴道"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhi_yi_shu",
+    "name": "指移术",
+    "type": "指法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "萧东楼以指力操控物品移动的独特指法",
+    "techniques": [
+      {
+        "id": "tech_zhi_yi_shu",
+        "name": "指移术",
+        "type": "special",
+        "description": "中指指甲贴着拇指向前一弹，可将面前物品移向指定方向，力道精准"
+      },
+      {
+        "id": "tech_zhi_kong_shu",
+        "name": "指控术",
+        "type": "special",
+        "description": "以指力远程控制物品轨迹，展现精妙的内力操控能力"
+      }
+    ],
+    "progression": [],
+    "effects": [],
+    "combat_style": "以指力操控物品，精妙异常",
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "line_start": 186,
+        "line_end": 186,
+        "text": "中指指甲贴着拇指向前一弹，他面前的葫芦便移向唐傲面前"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_rong_shu",
+    "name": "易容术",
+    "type": "特殊",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "易百脸的绝技，可变换百种面容",
+    "techniques": [],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "可制作精细人皮面具，以假乱真"
+      }
+    ],
+    "effects": [],
+    "combat_style": "非战斗技能，用于潜伏和情报",
+    "rag_refs": [
+      8,
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 134,
+        "line_end": 134,
+        "text": "她姓易，叫百脸，精通易容之术"
+      },
+      {
+        "chapter": 19,
+        "line_start": 331,
+        "line_end": 420,
+        "text": "然而，上官刃又开口了，他说：\"你听过夫妻脸这三个字吗？\"\"听过。\"\"你知道这三个字的意思吗？\"\"知道，就是一对夫妻生活久了，两个人的相貌变得很相似的。\"\"不错，但是，朋友处久了，也会相像的，你知道吗？我跟你爹出生入死，一起共事了二十多年，相貌也很相似，你没有发觉吗？\"上官刃停了一下，又说：\"你当然不会发觉的，因为连我们自己都没有发觉，不过，有一个人发觉了。\"\"哦？是谁？\"\"是妙手李天回。\"\"妙手李"
+      }
+    ]
+  },
+  {
+    "id": "skill_xun_lian_xin_ge",
+    "name": "训练信鸽",
+    "type": "特殊",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "易百脸专门训练夜间飞行的信鸽传递消息",
+    "techniques": [],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "鸽子经训练可在夜间无声飞行传递信息"
+      }
+    ],
+    "effects": [],
+    "combat_style": "非战斗技能，用于情报传递",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 130,
+        "line_end": 132,
+        "text": "他专门训练夜间飞行的鸽子"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_feng_zhen",
+    "name": "虎蜂针",
+    "type": "暗器",
+    "faction": "faction_tang_jia_bao",
+    "rank": "出神入化",
+    "one_line": "唐家堡剧毒暗器，中者全身发黑而死",
+    "techniques": [],
+    "progression": [
+      {
+        "level": "巅峰",
+        "description": "唐家独门毒针，中者一个时辰内毒发身亡，牙齿发黑"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剧毒，中者全身发黑，一个时辰内死亡"
+      }
+    ],
+    "combat_style": "远程暗器偷袭",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 822,
+        "line_end": 824,
+        "text": "中了我们的虎蜂针毒？"
+      }
+    ]
+  },
+  {
+    "id": "skill_mian_li_zhen",
+    "name": "棉里针",
+    "type": "掌法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "唐棉所用，改自武当棉里针掌法，戴手套可发射毒针",
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌力中含毒针暗器"
+      }
+    ],
+    "combat_style": "攻守兼备",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 46,
+        "line_end": 49,
+        "text": "唐棉用的是一双肉掌，是改自武当棉里针的一套掌法"
+      }
+    ]
+  },
+  {
+    "id": "skill_mei_hua_san_san_nong",
+    "name": "梅花三三弄",
+    "type": "刀法",
+    "faction": "faction_tang_jia_bu",
+    "rank": "炉火纯青",
+    "one_line": "唐梅所创刀法，共三十三招，后三招含暗器",
+    "techniques": [
+      "tech_mei_kai_er_du",
+      "tech_ta_xue_xun_mei"
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "刀法与暗器结合"
+      }
+    ],
+    "combat_style": "攻守兼备",
+    "rag_refs": [
+      9
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "line_start": 92,
+        "line_end": 94,
+        "text": "梅花三三弄"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_jia_zhang_fa",
+    "name": "唐家掌法",
+    "type": "掌法",
+    "faction": "faction_tang_jia_bao",
+    "rank": "登堂入室",
+    "one_line": "唐家堡嫡传掌法，刚猛凌厉",
+    "techniques": [
+      {
+        "id": "tech_tang_zhang_zhi_ji",
+        "name": "唐掌直击",
+        "type": "attack",
+        "description": "正面直拍对手胸口的掌法"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "chapter": 11,
+        "description": "唐花用掌法击败黑衣女守卫"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "中掌者口吐鲜血倒地"
+      }
+    ],
+    "combat_style": "正面对攻",
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 56,
+        "line_end": 70,
+        "text": "唐花以掌法击败两名黑衣女守卫"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_fa",
+    "name": "剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "初窥门径",
+    "one_line": "基本的剑术技巧",
+    "techniques": [
+      {
+        "id": "tech_hua_quan_zhi_ci",
+        "name": "划圈直刺",
+        "type": "attack",
+        "description": "长剑划一小圈圈住对方攻势，再改为直刺"
+      },
+      {
+        "id": "tech_gai_ci_wei_xia_pi",
+        "name": "改刺为下劈",
+        "type": "attack",
+        "description": "长剑由直刺改为向下劈砍"
+      }
+    ],
+    "progression": [
+      {
+        "level": "初窥门径",
+        "chapter": 11,
+        "description": "黑衣女守卫使用剑法攻击唐花"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可劈开对方衣物，造成外伤"
+      }
+    ],
+    "combat_style": "攻守兼备",
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 58,
+        "line_end": 69,
+        "text": "黑衣女守卫以剑法攻击唐花"
+      }
+    ]
+  },
+  {
+    "id": "skill_zhi_tou_ji_qiao",
+    "name": "掷骰技巧",
+    "type": "暗器",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "赵无忌的掷骰绝技，能精准控制骰子连续掷出三个六",
+    "techniques": [
+      {
+        "id": "tech_lian_zhu_bao_zi",
+        "name": "连掷豹子",
+        "type": "special",
+        "description": "连续多次掷出三个六点的骰子，需要极其精准的手腕控制和手法"
+      }
+    ],
+    "progression": [
+      {
+        "level": "炉火纯青",
+        "description": "能连续掷出十多把三个六",
+        "chapter": 17
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "精准控制骰子点数，在赌博中必胜"
+      }
+    ],
+    "combat_style": "以精准的手腕控制暗器般的骰子旋转和停止",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 56,
+        "line_end": 158,
+        "text": "赵无忌能连掷十多把三个六，在和兴号展示掷骰绝技"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_zhen_ji_qiao",
+    "name": "飞针技巧",
+    "type": "暗器",
+    "faction": null,
+    "rank": "登堂入室",
+    "one_line": "钱老板的飞针绝技，能以细长针穿透空中下落的骰子钉入碗底",
+    "techniques": [
+      {
+        "id": "tech_fei_zhen_chuan_tou",
+        "name": "飞针穿透",
+        "type": "attack",
+        "description": "向上抛掷骰子后，以三根长针从不同角度射穿下落的骰子，钉入碗底，需要精准的眼力、手法和深厚内力"
+      }
+    ],
+    "progression": [
+      {
+        "level": "登堂入室",
+        "description": "能精准射穿空中下落的骰子，三针穿透碗底",
+        "chapter": 17
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "以飞针穿透骰子和瓷碗，展示深厚内力"
+      }
+    ],
+    "combat_style": "以精准手法和内力操控飞针射穿移动目标",
+    "rag_refs": [
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 291,
+        "line_end": 303,
+        "text": "钱老板向上抛掷骰子，以三根长针从不同角度射穿骰子钉入碗底"
+      }
+    ]
+  },
+  {
+    "id": "skill_nei_gong",
+    "name": "内功",
+    "type": "内功",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "武林人士的内功修为",
+    "techniques": [
+      {
+        "id": "tech_nei_li_yun_qi",
+        "name": "内力运气",
+        "type": "buff",
+        "description": "运功调息，增强战力"
+      },
+      {
+        "id": "tech_nei_xi_zhen_cha",
+        "name": "内息侦察",
+        "type": "special",
+        "description": "运功探查自身内息状态"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "增强身体素质与战斗力"
+      }
+    ],
+    "combat_style": "内功深厚",
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 161,
+        "line_end": 250,
+        "text": "\"\"有可能。\"无忌说：\"不过我不相信。\"\"为什么？\"\"因为这个方法太笨了。\"\"何以见得？\"\"你的武功在我之上，利用我来杀你，岂非不智之举？\"\"那你为什么还敢来找我？\"\"父仇不可不报，明知不可为而为，人到了拼命的时候，很多事情都是不能预料的。\"\"那就是说，你有杀我的可能，对不对？\"\"不错。\"\"你想得到的，唐家的唐做会不会想得到？\"\"会。\"无忌说：\"但是，我还是不相信这是一个阴谋。\"\"那我告诉你，我也"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_jia_an_qi",
+    "name": "唐家暗器",
+    "type": "暗器",
+    "faction": "faction_tang_jia_bao",
+    "rank": "出神入化",
+    "one_line": "唐家堡独门暗器功夫，天下无双",
+    "techniques": [
+      {
+        "id": "tech_tang_men_du_biao",
+        "name": "唐门毒镖",
+        "type": "attack",
+        "description": "涂有剧毒的飞镖"
+      },
+      {
+        "id": "tech_tang_men_mi_qi",
+        "name": "唐门迷器",
+        "type": "special",
+        "description": "各种奇门暗器"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "暗器带毒，中者难防"
+      }
+    ],
+    "combat_style": "诡谲多变，防不胜防",
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 501,
+        "line_end": 536,
+        "text": "\"不。\"上官刃平静的说：\"我要恢复自己的容貌。\"无忌心中思潮起伏，不知如何是好，的确，只有这个方法才能看出面前的人，到底是不是自己的爹。但是，万一他真的是自己的爹呢？那容颜岂不变得血淋淋的全毁了？可是万一他不是呢？他会不会举刀作势，装腔作态来骗自己？假如眼前的人是上官刃，他能够深谋远虑，不动声息的谋害自己的爹爹，那么作一下状要恢复容貌，是他一惯的作法，他一定猜想自己绝不会让他毁容的。这难题，实在太"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_fa_da_feng",
+    "name": "大风剑法",
+    "type": "剑法",
+    "faction": "faction_da_feng_tang",
+    "rank": "登峰造极",
+    "one_line": "大风堂的传承剑法，无忌与赵简的看家本领",
+    "techniques": [
+      {
+        "id": "tech_da_feng_qi_shou",
+        "name": "大风起手",
+        "type": "attack",
+        "description": "大风剑法的起手式，气势磅礴"
+      },
+      {
+        "id": "tech_feng_hui_lu_zhuan",
+        "name": "风回路转",
+        "type": "defense",
+        "description": "剑势回旋，攻守兼备"
+      }
+    ],
+    "progression": [
+      {
+        "level": "略有小成",
+        "chapter": 19,
+        "description": "无忌继承家传剑法"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑势如风，凌厉无比"
+      }
+    ],
+    "combat_style": "刚猛凌厉，气势如虹",
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 501,
+        "line_end": 536,
+        "text": "\"不。\"上官刃平静的说：\"我要恢复自己的容貌。\"无忌心中思潮起伏，不知如何是好，的确，只有这个方法才能看出面前的人，到底是不是自己的爹。但是，万一他真的是自己的爹呢？那容颜岂不变得血淋淋的全毁了？可是万一他不是呢？他会不会举刀作势，装腔作态来骗自己？假如眼前的人是上官刃，他能够深谋远虑，不动声息的谋害自己的爹爹，那么作一下状要恢复容貌，是他一惯的作法，他一定猜想自己绝不会让他毁容的。这难题，实在太"
+      }
+    ]
+  },
+  {
+    "id": "skill_jian_fa_shang_guan",
+    "name": "上官剑法",
+    "type": "剑法",
+    "faction": "faction_shang_guan_bao",
+    "rank": "登峰造极",
+    "one_line": "上官堡传承剑法，上官刃/赵简皆精通",
+    "techniques": [
+      {
+        "id": "tech_shang_guan_po_shi",
+        "name": "上官破势",
+        "type": "attack",
+        "description": "上官剑法的核心攻击招式"
+      },
+      {
+        "id": "tech_shang_guan_shou_shi",
+        "name": "上官守势",
+        "type": "defense",
+        "description": "上官剑法的防御架势"
+      }
+    ],
+    "progression": [],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑法稳健老辣"
+      }
+    ],
+    "combat_style": "稳健犀利",
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 501,
+        "line_end": 536,
+        "text": "\"不。\"上官刃平静的说：\"我要恢复自己的容貌。\"无忌心中思潮起伏，不知如何是好，的确，只有这个方法才能看出面前的人，到底是不是自己的爹。但是，万一他真的是自己的爹呢？那容颜岂不变得血淋淋的全毁了？可是万一他不是呢？他会不会举刀作势，装腔作态来骗自己？假如眼前的人是上官刃，他能够深谋远虑，不动声息的谋害自己的爹爹，那么作一下状要恢复容貌，是他一惯的作法，他一定猜想自己绝不会让他毁容的。这难题，实在太"
+      }
+    ]
+  },
+  {
+    "id": "skill_da_feng_shi_san_shi",
+    "name": "大风十三式",
+    "type": "剑法",
+    "faction": "faction_da_feng_tang",
+    "rank": "出神入化",
+    "one_line": "无忌父亲所传的独门剑法，共十三式，每一式有十三招，一招比一招快，如大风狂吹。",
+    "techniques": [
+      "tech_da_feng_qi_xi",
+      "tech_xie_feng_xi_yu"
+    ],
+    "progression": [
+      {
+        "chapter": 21,
+        "level": "精通"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "连续快攻，速度递增，令对手难以招架"
+      }
+    ],
+    "combat_style": "以快制慢，连绵不断，如狂风般压迫对手",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 52,
+        "line_end": 58,
+        "text": "这套剑法就用大风堂的名称来命名，叫「大风十三式」。无忌刺的十三剑，只是「大风十三式」里的第一式「大风起兮」。每一式都有十三招，一招比一招速度快，有如大风狂吹般，霎忽即至。"
+      }
+    ]
+  },
+  {
+    "id": "skill_tang_jia_jian_fa",
+    "name": "唐家剑法",
+    "type": "剑法",
+    "faction": "faction_tang_jia_bao",
+    "rank": "炉火纯青",
+    "one_line": "唐家特有的剑法，短兵相接式，范围小，便于在近距离发射暗器。",
+    "techniques": [],
+    "progression": [
+      {
+        "chapter": 21,
+        "level": "精通"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "短兵相接，缩小战斗范围，创造暗器发射空隙"
+      }
+    ],
+    "combat_style": "短兵相接，正面碰撞，以剑碰剑制造发射暗器的机会",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 67,
+        "line_end": 83,
+        "text": "唐家特有的剑法，立时在唐傲手上施展开来。因为唐家驰名江湖的，不是剑术。是暗器。所以唐家的剑法，不是大开大合的，是短兵相接式的，把范围缩得很小。"
+      }
+    ]
+  },
+  {
+    "id": "skill_ling_she_jian_fa",
+    "name": "灵蛇剑法",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "唐傲以解药向萧东楼换来的剑法，后揉合唐家施放暗器的变幻手法。",
+    "techniques": [
+      "tech_ling_she_chu_dong"
+    ],
+    "progression": [
+      {
+        "chapter": 21,
+        "level": "精通"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "剑法变化与原版不同，每一招方向都经过暗器手法改造，可设陷阱诱敌"
+      }
+    ],
+    "combat_style": "变化莫测，以暗器手法揉合剑法，实中有虚、虚中有实",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 171,
+        "line_end": 183,
+        "text": "这不是唐家的剑法，这是唐傲当年以解药向萧东楼换来的「灵蛇剑法」。唐傲在「灵蛇剑法」之中，揉合唐家施放暗器的变幻手法，使得每一招使出之后，剑的方向都和原来的剑法不同。"
+      }
+    ]
+  },
+  {
+    "id": "skill_gui_shou_ba_shi",
+    "name": "鬼手八式",
+    "type": "剑法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "僵尸的独门剑法，以诡异无声为特点。",
+    "techniques": [
+      "tech_gui_gui_guai_guai"
+    ],
+    "progression": [
+      {
+        "chapter": 21,
+        "level": "精通"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "剑招如幽灵般毫无声息，令人防不胜防"
+      }
+    ],
+    "combat_style": "诡异无声，出奇不意",
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "line_start": 193,
+        "line_end": 213,
+        "text": "无忌立刻纵身后退，准备施展「僵尸」的独门剑法「鬼手八式」。「鬼手八式」的起手式「鬼鬼怪怪」已如幽灵般，毫无声息的刺向唐傲胸前八个穴道。"
+      }
+    ]
+  }
+]

@@ -1,0 +1,305 @@
+[
+  {
+    "id": "skill_yue_shen_zhi_dao",
+    "name": "月神之刀",
+    "type": "暗器",
+    "faction": null,
+    "rank": "返璞归真",
+    "one_line": "月光般的飞刀，例不虚发，如月光般不可躲避",
+    "techniques": [
+      {
+        "id": "tech_yue_guang_fei_dao",
+        "name": "月光飞刀",
+        "type": "attack",
+        "description": "刀光淡如月光，出现时必杀必亡，无人能躲"
+      },
+      {
+        "id": "tech_yue_shen_bi_sha",
+        "name": "月神必杀",
+        "type": "attack",
+        "description": "月神飞刀出手时必杀必亡，如月光般不可躲避，一刀穿心死无救"
+      }
+    ],
+    "progression": [
+      "刀光出现",
+      "银月色变",
+      "例不虚发"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "一刀穿心，死无救"
+      }
+    ],
+    "combat_style": "一击必杀",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 444,
+        "line_end": 454,
+        "text": "淡淡的刀光...刀光出现，银月色变，李坏死"
+      }
+    ]
+  },
+  {
+    "id": "skill_qi_duan_qi_jue_shang_xin_zhang",
+    "name": "七断七绝伤心掌",
+    "type": "掌法",
+    "faction": null,
+    "rank": "出神入化",
+    "one_line": "绝传掌法，伤人伤心，被击中者面容扭曲仿佛在笑",
+    "techniques": [
+      {
+        "id": "tech_qi_duan_qi_jue_shang_xin_zhang",
+        "name": "七断七绝伤心掌",
+        "type": "attack",
+        "description": "七断七绝，伤人伤心，被击中者面容扭曲仿佛在笑",
+        "source_skill": "skill_qi_duan_qi_jue_shang_xin_zhang"
+      },
+      {
+        "id": "tech_shang_xin_zhang_fa",
+        "name": "伤心掌法",
+        "type": "attack",
+        "description": "七断七绝伤心掌的掌法招式，击中者面容扭曲仿佛在笑，笑容比哭更悲惨"
+      }
+    ],
+    "progression": [
+      "七断",
+      "七绝",
+      "伤人伤心"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "七断七绝，伤人伤心，面容扭曲"
+      }
+    ],
+    "combat_style": "掌法",
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "line_start": 567,
+        "line_end": 577,
+        "text": "七断...七绝...七断七绝，伤人伤心"
+      }
+    ]
+  },
+  {
+    "id": "skill_xiao_qin_na_shou",
+    "name": "小擒拿手",
+    "type": "指法",
+    "faction": null,
+    "rank": "炉火纯青",
+    "one_line": "七十二路小擒拿手，近身格斗绝技",
+    "techniques": [
+      {
+        "id": "tech_qin_na_suo_shou",
+        "name": "擒拿锁手",
+        "type": "attack",
+        "description": "七十二路小擒拿手中最厉害的一招，如铁铐般锁住对手手腕"
+      },
+      {
+        "id": "tech_qin_na_zhua_wo",
+        "name": "擒拿抓握",
+        "type": "attack",
+        "description": "七十二路小擒拿手基础招式，以五指扣住对手关节经脉"
+      }
+    ],
+    "progression": "精通",
+    "effects": [
+      "控制"
+    ],
+    "combat_style": "近身擒拿",
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 165,
+        "line_end": 165,
+        "text": "李坏这一次竟然是用七十二路小擒拿手中最厉害的一招去握她的手。"
+      }
+    ]
+  },
+  {
+    "id": "skill_fei_dao",
+    "name": "飞刀",
+    "type": "暗器",
+    "faction": "李家",
+    "rank": "登峰造极",
+    "one_line": "天下无双的飞刀绝技，李家传家绝学",
+    "techniques": [
+      {
+        "id": "tech_fei_dao_jue_ji",
+        "name": "飞刀绝技",
+        "type": "attack",
+        "description": "以飞刀为武器的致命暗器功夫，一击必杀"
+      },
+      {
+        "id": "tech_fei_dao_chuan_ren_gong_fa",
+        "name": "飞刀传人功法",
+        "type": "buff",
+        "description": "李家飞刀传人修炼的内功心法"
+      }
+    ],
+    "progression": "登峰造极",
+    "effects": [
+      "一击必杀",
+      "远程攻击"
+    ],
+    "combat_style": "暗器为主，近身为辅",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 74,
+        "line_end": 74,
+        "text": "因为现在你已是天下无双的飞刀传人。"
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_qin_mo_yin",
+    "name": "豆子符咒",
+    "type": "暗器",
+    "faction": "紫藤花",
+    "rank": "出神入化",
+    "one_line": "紫藤花的致命符咒，接到即死",
+    "techniques": [
+      {
+        "id": "tech_dou_zhi_ming",
+        "name": "豆之命",
+        "type": "attack",
+        "description": "将致命豆子送到目标处，见者即死"
+      },
+      {
+        "id": "tech_dou_zhi_xue",
+        "name": "豆之蚀",
+        "type": "debuff",
+        "description": "豆子入腹后化为脓血，必死无疑"
+      }
+    ],
+    "progression": "出神入化",
+    "effects": [
+      "必杀",
+      "诅咒"
+    ],
+    "combat_style": "远程诅咒，无需近身",
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "line_start": 238,
+        "line_end": 238,
+        "text": "它是一种符咒，一种可以在顷刻之间致人于死的符咒。"
+      }
+    ]
+  },
+  {
+    "id": "skill_li_jia_fei_dao",
+    "name": "李家飞刀",
+    "type": "暗器",
+    "faction": "李家",
+    "rank": "登峰造极",
+    "one_line": "李家祖传飞刀绝技，例不虚发",
+    "techniques": [
+      {
+        "id": "tech_fei_dao",
+        "name": "飞刀",
+        "type": "attack",
+        "description": "李家祖传暗器绝技，以飞刀为兵器，例不虚发，一击必杀"
+      },
+      {
+        "id": "tech_li_xun_huan_fei_dao",
+        "name": "小李飞刀",
+        "type": "attack",
+        "description": "小李飞刀李寻欢所创，天下第一暗器，出手必中"
+      }
+    ],
+    "progression": [
+      "初窥门径",
+      "略有小成",
+      "登堂入室",
+      "炉火纯青",
+      "出神入化",
+      "登峰造极"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "飞刀一出，例不虚发，一击毙命"
+      }
+    ],
+    "combat_style": "远程暗器攻击，以精准和速度著称",
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 118,
+        "line_end": 122,
+        "text": "一把杀人的刀，一把例不虚发的刀，飞刀。"
+      }
+    ]
+  },
+  {
+    "id": "skill_yi_jian_fei_xue",
+    "name": "一剑飞雪",
+    "type": "剑法",
+    "faction": null,
+    "rank": "登峰造极",
+    "one_line": "薛青碧的绝世剑法，连胜三十一场的不败神话",
+    "techniques": [
+      {
+        "id": "tech_yi_jian_fei_xue",
+        "name": "一剑飞雪",
+        "type": "attack",
+        "description": "薛青碧的绝世剑法，剑势如飞雪漫天，凌厉无比"
+      },
+      {
+        "id": "tech_lian_sheng_san_shi_yi_chang",
+        "name": "连胜三十一场",
+        "type": "buff",
+        "description": "薛青碧凭借此剑法连胜三十一场，未尝一败"
+      }
+    ],
+    "progression": [
+      "初窥门径",
+      "略有小成",
+      "登堂入室",
+      "炉火纯青",
+      "出神入化",
+      "登峰造极"
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑势凌厉，如飞雪漫天，几乎横扫武林"
+      }
+    ],
+    "combat_style": "刚猛凌厉的剑法，攻势如潮",
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "line_start": 222,
+        "line_end": 222,
+        "text": "一剑飞雪薛青碧挟连胜三十一场之余威。"
+      }
+    ]
+  }
+]
