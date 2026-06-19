@@ -2,15 +2,16 @@ import React, { useMemo, useCallback, useRef, useState } from 'react';
 import { Spin, Empty, Tag, Space, Checkbox, Card } from 'antd';
 import { useNovelStore } from '../../stores/useNovelStore';
 import type { CardType, GraphLink } from '../../types/novel';
+import { ENTITY_COLORS, INK, PAPER, CINNABAR } from '../../theme/palette';
 
 const ForceGraph2D = React.lazy(() => import('react-force-graph-2d'));
 
 const NODE_TYPES = [
-  { key: 'character', label: '角色', color: '#1890ff' },
-  { key: 'skill', label: '技能', color: '#52c41a' },
-  { key: 'item', label: '物品', color: '#faad14' },
-  { key: 'location', label: '地点', color: '#722ed1' },
-  { key: 'faction', label: '势力', color: '#13c2c2' },
+  { key: 'character', label: '角色', color: ENTITY_COLORS.character },
+  { key: 'skill', label: '技能', color: ENTITY_COLORS.skill },
+  { key: 'item', label: '物品', color: ENTITY_COLORS.item },
+  { key: 'location', label: '地点', color: ENTITY_COLORS.location },
+  { key: 'faction', label: '势力', color: ENTITY_COLORS.faction },
 ] as const;
 
 type NodeType = typeof NODE_TYPES[number]['key'];
@@ -104,25 +105,25 @@ const CharacterGraph: React.FC = () => {
 
       ctx.beginPath();
       ctx.arc(node.x || 0, node.y || 0, size, 0, 2 * Math.PI);
-      ctx.fillStyle = node.color || '#1890ff';
+      ctx.fillStyle = node.color || ENTITY_COLORS.character;
       ctx.fill();
 
       if (isHovered) {
-        ctx.strokeStyle = '#000';
+        ctx.strokeStyle = CINNABAR.base;
         ctx.lineWidth = 3;
         ctx.stroke();
       }
 
-      ctx.strokeStyle = '#fff';
+      ctx.strokeStyle = PAPER.raised;
       ctx.lineWidth = 2 / globalScale;
       ctx.stroke();
 
       const label = node.name || '';
       const fontSize = Math.max(10 / globalScale, 2);
-      ctx.font = `${fontSize}px sans-serif`;
+      ctx.font = `${fontSize}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-serif') || 'serif'}`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
-      ctx.fillStyle = '#333';
+      ctx.fillStyle = INK.body;
       ctx.fillText(label, node.x || 0, (node.y || 0) + size + 4 / globalScale);
     },
     [hoveredNodeId]
@@ -159,21 +160,21 @@ const CharacterGraph: React.FC = () => {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Card size="small" style={{ marginBottom: 12 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-          <span style={{ fontWeight: 'bold', color: '#666' }}>显示类型：</span>
+          <span style={{ fontWeight: 'bold', color: 'var(--ink-secondary)' }}>显示类型：</span>
 
           <Space size={8}>
             <a onClick={() => setPreset(NODE_TYPES.map((t) => t.key))} style={{ fontSize: 12 }}>
               全部
             </a>
-            <span style={{ color: '#d9d9d9' }}>|</span>
+            <span style={{ color: 'var(--ink-hairline)' }}>|</span>
             <a onClick={() => setPreset(['character'])} style={{ fontSize: 12 }}>
               仅角色
             </a>
-            <span style={{ color: '#d9d9d9' }}>|</span>
+            <span style={{ color: 'var(--ink-hairline)' }}>|</span>
             <a onClick={() => setPreset(['character', 'skill'])} style={{ fontSize: 12 }}>
               角色+技能
             </a>
-            <span style={{ color: '#d9d9d9' }}>|</span>
+            <span style={{ color: 'var(--ink-hairline)' }}>|</span>
             <a onClick={() => setPreset(['character', 'faction'])} style={{ fontSize: 12 }}>
               角色+势力
             </a>
@@ -201,11 +202,11 @@ const CharacterGraph: React.FC = () => {
         ref={containerRef}
         style={{
           flex: 1,
-          border: '1px solid #f0f0f0',
+          border: '1px solid var(--ink-hairline)',
           borderRadius: 8,
           overflow: 'hidden',
           minHeight: 400,
-          background: '#fafafa',
+          background: PAPER.base,
         }}
       >
         <React.Suspense fallback={<Spin size="large" />}>
@@ -213,14 +214,14 @@ const CharacterGraph: React.FC = () => {
             graphData={graphData}
             width={dimensions.width}
             height={dimensions.height}
-            backgroundColor="#fafafa"
+            backgroundColor={PAPER.base}
             nodeCanvasObject={nodeCanvasObject}
             nodeCanvasObjectMode={() => 'replace'}
             nodePointerAreaPaint={nodePointerAreaPaint}
             linkDirectionalParticles={1}
             linkDirectionalParticleWidth={2}
-            linkDirectionalParticleColor={() => '#999'}
-            linkColor={() => '#bbb'}
+            linkDirectionalParticleColor={() => INK.faint}
+            linkColor={() => INK.hairline}
             linkWidth={0.5}
             d3AlphaDecay={0.02}
             d3VelocityDecay={0.3}

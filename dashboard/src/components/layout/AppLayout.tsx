@@ -22,7 +22,7 @@ const AppLayout: React.FC = () => {
   const { currentBookPath } = useBookStore();
   const books = useBookStore(state => state.books);
   const {
-    token: { colorBgContainer, borderRadiusLG },
+    token: { borderRadiusLG },
   } = theme.useToken();
 
   const currentBook = books.find(b => b.path === currentBookPath);
@@ -67,55 +67,71 @@ const AppLayout: React.FC = () => {
   ];
 
   return (
-    <Layout style={{ height: '100vh', overflow: 'hidden' }}>
+    <Layout style={{ height: '100vh', overflow: 'hidden', background: 'transparent' }}>
       <Sider
         breakpoint="lg"
         collapsedWidth="80"
-        style={{ background: colorBgContainer, overflow: 'auto', boxShadow: '2px 0 8px rgba(0,0,0,0.04)' }}
+        width={220}
+        style={{ overflow: 'auto', borderRight: '1px solid var(--ink-hairline)' }}
       >
         <div
           style={{
-            height: 64,
+            height: 60,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            borderBottom: '1px solid #f0f0f0',
+            gap: 10,
+            padding: '0 18px',
+            borderBottom: '1px solid var(--ink-hairline)',
           }}
         >
-          <h2 style={{ margin: 0, fontSize: 18 }}>{bookTitle}</h2>
+          <span className="ink-seal" style={{ width: 32, height: 32, fontSize: 16 }}>侠</span>
+          <h2
+            style={{
+              margin: 0,
+              fontSize: 17,
+              fontFamily: 'var(--font-serif)',
+              color: 'var(--ink-black)',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+            }}
+          >
+            {bookTitle}
+          </h2>
         </div>
         <Menu
           mode="inline"
           selectedKeys={[location.pathname]}
           items={menuItems}
           onClick={({ key }) => navigate(key)}
-          style={{ borderRight: 0 }}
+          style={{ borderRight: 0, background: 'transparent', padding: '8px 0' }}
         />
       </Sider>
-      <Layout style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+      <Layout style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>
         <Header
           style={{
             padding: '0 24px',
-            background: colorBgContainer,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            borderBottom: '1px solid #f0f0f0',
-            boxShadow: '0 1px 4px rgba(0,0,0,0.03)',
+            borderBottom: '1px solid var(--ink-hairline)',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <BookSelector />
-            <h1 style={{ margin: 0, fontSize: 18 }}>武侠小说可视化</h1>
+            <h1 style={{ margin: 0, fontSize: 17, fontFamily: 'var(--font-serif)', color: 'var(--ink-black)' }}>
+              武侠图志
+            </h1>
           </div>
           <GlobalSearch />
         </Header>
         <Content
           style={{
             flex: 1,
-            margin: '24px 16px',
+            margin: '20px 18px',
             padding: 24,
-            background: colorBgContainer,
+            background: 'var(--paper-raised)',
+            border: '1px solid var(--ink-hairline)',
             borderRadius: borderRadiusLG,
             overflow: 'auto',
           }}

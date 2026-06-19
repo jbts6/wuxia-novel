@@ -1,56 +1,34 @@
 import type { Character, Skill, Item, Location, Faction, GraphNode, GraphLink } from '../types/novel';
+import {
+  ENTITY_COLORS,
+  RELATION_COLORS as INK_RELATION_COLORS,
+  RANK_COLORS as INK_RANK_COLORS,
+  RARITY_COLORS as INK_RARITY_COLORS,
+  ROLE_COLORS as INK_ROLE_COLORS,
+  CINNABAR,
+} from '../theme/palette';
 
-// 颜色映射
+// 颜色映射（水墨颜料）
 export const NODE_COLORS = {
-  character: '#1890ff',
-  skill: '#52c41a',
-  item: '#faad14',
-  event: '#ff4d4f',
-  location: '#722ed1',
-  faction: '#13c2c2',
+  character: ENTITY_COLORS.character,
+  skill: ENTITY_COLORS.skill,
+  item: ENTITY_COLORS.item,
+  event: CINNABAR.soft,
+  location: ENTITY_COLORS.location,
+  faction: ENTITY_COLORS.faction,
 };
 
 // 关系类型颜色
-export const RELATION_COLORS: Record<string, string> = {
-  '挚友': '#52c41a',
-  '恋人': '#ff4d4f',
-  '旧爱': '#ff7875',
-  '结义兄弟': '#1890ff',
-  '知己': '#9254de',
-  '主仆': '#8c8c8c',
-  '宿敌': '#ff4d4f',
-  '对手': '#faad14',
-  '朋友': '#69c0ff',
-  '合作者': '#b7eb8f',
-};
+export const RELATION_COLORS: Record<string, string> = INK_RELATION_COLORS;
 
 // 等级颜色
-export const RANK_COLORS: Record<string, string> = {
-  '返璞归真': '#ff4d4f',
-  '登峰造极': '#faad14',
-  '出神入化': '#1890ff',
-  '炉火纯青': '#52c41a',
-  '登堂入室': '#722ed1',
-  '略有小成': '#13c2c2',
-  '初窥门径': '#8c8c8c',
-  '平平无奇': '#d9d9d9',
-};
+export const RANK_COLORS: Record<string, string> = INK_RANK_COLORS;
 
 // 稀有度颜色
-export const RARITY_COLORS: Record<string, string> = {
-  '绝世神兵': '#ff4d4f',
-  '稀世珍品': '#faad14',
-  '上乘佳品': '#1890ff',
-  '寻常凡品': '#8c8c8c',
-};
+export const RARITY_COLORS: Record<string, string> = INK_RARITY_COLORS;
 
 // 角色类型颜色
-export const ROLE_COLORS: Record<string, string> = {
-  'protagonist': '#1890ff',
-  'companion': '#52c41a',
-  'npc': '#8c8c8c',
-  'villain': '#ff4d4f',
-};
+export const ROLE_COLORS: Record<string, string> = INK_ROLE_COLORS;
 
 function asArray<T>(value: T[] | undefined | null): T[] {
   return Array.isArray(value) ? value : [];

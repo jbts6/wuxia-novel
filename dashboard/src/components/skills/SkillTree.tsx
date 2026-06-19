@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Card, Tag, Typography, Empty, Spin, Space, Row, Col } from 'antd';
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
-import { getSkillRank, getSkillSummary, getSkillTechniques, getSkillType } from '../../utils/skillDisplay';
+import { getRankColor, getSkillRank, getSkillSummary, getSkillTechniques, getSkillType } from '../../utils/skillDisplay';
 
 const { Text, Paragraph } = Typography;
 
@@ -45,16 +45,16 @@ const SkillTree: React.FC = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{ paddingBottom: 16, borderBottom: '1px solid #f0f0f0', marginBottom: 16 }}>
-        <Space>
-          <Tag color="red">返璞归真</Tag>
-          <Tag color="orange">登峰造极</Tag>
-          <Tag color="blue">出神入化</Tag>
-          <Tag color="green">炉火纯青</Tag>
-          <Tag color="purple">登堂入室</Tag>
-          <Tag color="cyan">略有小成</Tag>
-          <Tag color="default">初窥门径</Tag>
-          <Tag color="default">平平无奇</Tag>
+      <div style={{ paddingBottom: 16, borderBottom: '1px solid var(--ink-hairline)', marginBottom: 16 }}>
+        <Space wrap>
+          {rankOrder.map((rank) => {
+            const color = getRankColor(rank);
+            return (
+              <Tag key={rank} style={{ color, borderColor: color, background: 'transparent' }}>
+                {rank}
+              </Tag>
+            );
+          })}
         </Space>
       </div>
 
@@ -80,21 +80,11 @@ const SkillTree: React.FC = () => {
                   return aIndex - bIndex;
                 })
                 .map((skill) => {
-                  const rankColor: Record<string, string> = {
-                    '返璞归真': 'red',
-                    '登峰造极': 'orange',
-                    '出神入化': 'blue',
-                    '炉火纯青': 'green',
-                    '登堂入室': 'purple',
-                    '略有小成': 'cyan',
-                    '初窥门径': 'default',
-                    '平平无奇': 'default',
-                  };
-
                   const relatedChars = characters.filter((c) =>
                     Array.isArray(c.known_skills) && c.known_skills.includes(skill.id)
                   );
                   const skillRank = getSkillRank(skill);
+                  const skillRankColor = getRankColor(skillRank);
                   const techniques = getSkillTechniques(skill);
 
                   return (
@@ -106,10 +96,9 @@ const SkillTree: React.FC = () => {
                         style={{ height: '100%' }}
                       >
                         <div style={{ marginBottom: 8 }}>
-                          <Text strong>{skill.name}</Text>
+                          <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{skill.name}</Text>
                           <Tag
-                            color={rankColor[skillRank] || 'default'}
-                            style={{ marginLeft: 8 }}
+                            style={{ marginLeft: 8, color: skillRankColor, borderColor: skillRankColor, background: 'transparent' }}
                           >
                             {skillRank}
                           </Tag>

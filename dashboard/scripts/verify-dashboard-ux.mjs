@@ -6,7 +6,12 @@ import ts from 'typescript';
 
 const root = path.resolve(import.meta.dirname, '..');
 
+const moduleCache = new Map();
+
 function loadTsModule(relativePath) {
+  if (moduleCache.has(relativePath)) {
+    return moduleCache.get(relativePath);
+  }
   const absolutePath = path.join(root, relativePath);
   const source = fs.readFileSync(absolutePath, 'utf8');
   const compiled = ts.transpileModule(source, {
@@ -19,14 +24,23 @@ function loadTsModule(relativePath) {
   }).outputText;
 
   const module = { exports: {} };
+  moduleCache.set(relativePath, module.exports);
   const context = vm.createContext({
     exports: module.exports,
     module,
     require: (specifier) => {
+      // 解析相对 .ts 导入（如 graphHelper 引用 ../theme/palette）
+      if (specifier.startsWith('.')) {
+        const fromDir = path.dirname(path.join(root, relativePath));
+        let resolved = path.relative(root, path.resolve(fromDir, specifier));
+        if (!/\.[cm]?tsx?$/.test(resolved)) resolved += '.ts';
+        return loadTsModule(resolved);
+      }
       throw new Error(`Unexpected runtime import in ${relativePath}: ${specifier}`);
     },
   });
   vm.runInContext(compiled, context, { filename: relativePath });
+  moduleCache.set(relativePath, module.exports);
   return module.exports;
 }
 

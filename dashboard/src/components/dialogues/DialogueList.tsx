@@ -2,14 +2,31 @@ import React, { useMemo, useState } from 'react';
 import { Card, Typography, Empty, Spin, Select, Space, Input, Row, Col, Pagination } from 'antd';
 import { useNovelStore } from '../../stores/useNovelStore';
 import DialogueCard from '../cards/DialogueCard';
+import { CINNABAR, PIGMENT } from '../../theme/palette';
 
 const { Text } = Typography;
 const { Search } = Input;
 
-const PAGE_SIZE = 20;
+// 非「我方」说话者的头像配色（赭石/竹青/黛蓝/黛紫/青/石灰循环）
+const OTHER_AVATAR_COLORS = [
+  PIGMENT.indigo,
+  PIGMENT.celadon,
+  PIGMENT.ochre,
+  PIGMENT.violet,
+  PIGMENT.cyan,
+  PIGMENT.stone,
+];
+
+function colorForSpeaker(id: string): string {
+  let hash = 0;
+  for (let i = 0; i < id.length; i += 1) {
+    hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+  }
+  return OTHER_AVATAR_COLORS[hash % OTHER_AVATAR_COLORS.length];
+}
 
 const DialogueList: React.FC = () => {
-  const { dialogues, loading } = useNovelStore();
+  const { dialogues, characters, loading } = useNovelStore();
   const [chapterFilter, setChapterFilter] = useState<number | null>(null);
   const [toneFilter, setToneFilter] = useState<string | null>(null);
   const [speakerFilter, setSpeakerFilter] = useState<string | null>(null);
@@ -58,10 +75,35 @@ const DialogueList: React.FC = () => {
     return filtered;
   }, [dialogues, chapterFilter, toneFilter, speakerFilter, searchQuery]);
 
+  // 每章一页：分页项即章节
+  const filteredChapters = useMemo(
+    () => [...new Set(filteredDialogues.map((d) => d.chapter))].sort((a, b) => a - b),
+    [filteredDialogues],
+  );
+
+  const currentChapter = filteredChapters[currentPage - 1];
+
   const pagedDialogues = useMemo(() => {
-    const start = (currentPage - 1) * PAGE_SIZE;
-    return filteredDialogues.slice(start, start + PAGE_SIZE);
-  }, [filteredDialogues, currentPage]);
+    if (currentChapter === undefined) return [];
+    return filteredDialogues.filter((d) => d.chapter === currentChapter);
+  }, [filteredDialogues, currentChapter]);
+
+  // 「我方」气泡（靠右）：优先主角，其次出场最多的说话者，作为聊天视角锚点。
+  const selfId = useMemo(() => {
+    const protagonist = characters.find((c) => c.role === 'protagonist');
+    if (protagonist) return protagonist.id;
+    const counts = new Map<string, number>();
+    dialogues.forEach((d) => counts.set(d.speaker, (counts.get(d.speaker) ?? 0) + 1));
+    let best: string | null = null;
+    let bestCount = -1;
+    counts.forEach((count, id) => {
+      if (count > bestCount) {
+        bestCount = count;
+        best = id;
+      }
+    });
+    return best;
+  }, [characters, dialogues]);
 
   if (loading) {
     return <Spin size="large" />;
@@ -73,7 +115,7 @@ const DialogueList: React.FC = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{ paddingBottom: 16, borderBottom: '1px solid #f0f0f0', marginBottom: 16 }}>
+      <div style={{ paddingBottom: 16, borderBottom: '1px solid var(--ink-hairline)', marginBottom: 16 }}>
         <Card size="small">
           <Row gutter={[16, 16]}>
             <Col xs={24} sm={12} md={6}>
@@ -147,42 +189,66 @@ const DialogueList: React.FC = () => {
         </Card>
       </div>
 
-      <div style={{ flex: 1, overflow: 'auto' }}>
-        <div style={{ marginBottom: 16 }}>
-          <Text type="secondary">
-            共 {filteredDialogues.length} 条对话
-            {chapterFilter !== null && ` · 第${chapterFilter}章`}
-            {toneFilter && ` · ${toneFilter}`}
-            {speakerFilter && ` · ${speakerFilter}`}
-            {searchQuery && ` · 搜索"${searchQuery}"`}
-          </Text>
-        </div>
-
-        {pagedDialogues.map((dialogue, index) => (
-          <DialogueCard
-            key={`${dialogue.speaker}-${dialogue.chapter}-${index}`}
-            speaker={dialogue.speaker}
-            speaker_name={dialogue.speaker_name}
-            listener={dialogue.listener}
-            text={dialogue.text}
-            tone={dialogue.tone}
-            chapter={dialogue.chapter}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: 12,
+          flexWrap: 'wrap',
+          paddingBottom: 12,
+          marginBottom: 12,
+          borderBottom: '1px solid var(--ink-hairline)',
+        }}
+      >
+        <Text type="secondary">
+          共 {filteredDialogues.length} 条对话
+          {toneFilter && ` · ${toneFilter}`}
+          {speakerFilter && ` · ${speakerFilter}`}
+          {searchQuery && ` · 搜索"${searchQuery}"`}
+        </Text>
+        {filteredChapters.length > 1 && (
+          <Pagination
+            current={currentPage}
+            total={filteredChapters.length}
+            pageSize={1}
+            onChange={setCurrentPage}
+            showSizeChanger={false}
+            showQuickJumper
+            showTotal={(total) => `共 ${total} 章`}
+            size="small"
           />
-        ))}
-
-        {filteredDialogues.length > PAGE_SIZE && (
-          <div style={{ marginTop: 16, textAlign: 'center' }}>
-            <Pagination
-              current={currentPage}
-              total={filteredDialogues.length}
-              pageSize={PAGE_SIZE}
-              onChange={setCurrentPage}
-              showSizeChanger={false}
-              showQuickJumper
-              showTotal={(total) => `共 ${total} 条`}
-            />
-          </div>
         )}
+      </div>
+
+      <div style={{ flex: 1, overflow: 'auto' }}>
+        <div className="chat-thread">
+          {pagedDialogues.map((dialogue, index) => {
+            const prev = index > 0 ? pagedDialogues[index - 1] : null;
+            const newChapter = !prev || prev.chapter !== dialogue.chapter;
+            const isSelf = dialogue.speaker === selfId;
+            // 同章节、同说话者的连续气泡合并：不重复显示头像与名字
+            const showHeader = newChapter || !prev || prev.speaker !== dialogue.speaker;
+            return (
+              <React.Fragment key={`${dialogue.speaker}-${dialogue.chapter}-${index}`}>
+                {newChapter && (
+                  <div className="chat-divider">
+                    <span>第 {dialogue.chapter} 章</span>
+                  </div>
+                )}
+                <DialogueCard
+                  speaker={dialogue.speaker}
+                  speaker_name={dialogue.speaker_name}
+                  text={dialogue.text}
+                  tone={dialogue.tone}
+                  isSelf={isSelf}
+                  showHeader={showHeader}
+                  avatarColor={isSelf ? CINNABAR.base : colorForSpeaker(dialogue.speaker)}
+                />
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

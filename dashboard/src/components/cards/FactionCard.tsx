@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, Tag, Descriptions, Typography, Space } from 'antd';
-import { TeamOutlined, UserOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
+import { ENTITY_COLORS, INK } from '../../theme/palette';
 
 const { Text, Paragraph } = Typography;
 
@@ -22,9 +23,11 @@ const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
     <div>
       <Card size="small" style={{ marginBottom: 16 }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: 12 }}>
-          <TeamOutlined style={{ fontSize: 24, marginRight: 12, color: '#13c2c2' }} />
+          <span className="ink-seal" style={{ marginRight: 12, background: ENTITY_COLORS.faction }}>
+            {faction.name.charAt(0)}
+          </span>
           <div>
-            <h3 style={{ margin: 0 }}>{faction.name}</h3>
+            <h3 style={{ margin: 0, fontFamily: 'var(--font-serif)', color: INK.black }}>{faction.name}</h3>
             <Text type="secondary">{faction.type}</Text>
           </div>
         </div>
@@ -53,14 +56,14 @@ const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
       {members.length > 0 && (
         <Card size="small" title={<span><UserOutlined /> 成员 ({members.length})</span>} style={{ marginBottom: 16 }}>
           {members.map((char) => (
-            <div key={char.id} style={{ cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid #f0f0f0' }} onClick={() => showDetail('character', char.id)}>
+            <div key={char.id} style={{ cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }} onClick={() => showDetail('character', char.id)}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontWeight: 500 }}>{char.name}</span>
                 <Tag color={char.role === 'protagonist' ? 'blue' : char.role === 'villain' ? 'red' : 'default'}>
                   {char.role === 'protagonist' ? '主角' : char.role === 'villain' ? '反派' : 'NPC'}
                 </Tag>
               </div>
-              <div style={{ color: '#999', fontSize: 12 }}>{char.identity}</div>
+              <div style={{ color: INK.secondary, fontSize: 12 }}>{char.identity}</div>
             </div>
           ))}
         </Card>
@@ -69,9 +72,9 @@ const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
       {faction.source_refs?.length > 0 && (
         <Card size="small" title="原文引用">
           {faction.source_refs.slice(0, 3).map((ref, index) => (
-            <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid #f0f0f0' }}>
+            <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}>
               <div style={{ fontWeight: 500 }}>第{ref.chapter}章 (行 {ref.line_start}-{ref.line_end})</div>
-              <Paragraph ellipsis={{ rows: 3, expandable: true }} style={{ marginBottom: 0, fontStyle: 'italic' }}>
+              <Paragraph ellipsis={{ rows: 3, expandable: true }} className="ink-quote" style={{ marginBottom: 0 }}>
                 {ref.text}
               </Paragraph>
             </div>

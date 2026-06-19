@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, Tag, Descriptions, Typography, Divider, Space } from 'antd';
 import {
-  UserOutlined,
   ThunderboltOutlined,
   TeamOutlined,
   FireOutlined,
 } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
+import { ENTITY_COLORS, INK } from '../../theme/palette';
 
 const { Text, Paragraph } = Typography;
 
@@ -52,9 +52,11 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
       {/* 基础信息 */}
       <Card size="small" style={{ marginBottom: 16 }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: 12 }}>
-          <UserOutlined style={{ fontSize: 24, marginRight: 12, color: '#1890ff' }} />
+          <span className="ink-seal" style={{ marginRight: 12, background: ENTITY_COLORS.character }}>
+            {character.name.charAt(0)}
+          </span>
           <div>
-            <h3 style={{ margin: 0 }}>{character.name}</h3>
+            <h3 style={{ margin: 0, fontFamily: 'var(--font-serif)', color: INK.black }}>{character.name}</h3>
             {character.alias.length > 0 && (
               <Text type="secondary">{character.alias.join(' · ')}</Text>
             )}
@@ -103,14 +105,14 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
             return (
               <div
                 key={rel.target}
-                style={{ cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid #f0f0f0' }}
+                style={{ cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}
                 onClick={() => showDetail('character', rel.target)}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <span style={{ fontWeight: 500 }}>{target?.name || rel.target}</span>
                   <Tag color="blue">{rel.type}</Tag>
                 </div>
-                <div style={{ color: '#999', fontSize: 12 }}>
+                <div style={{ color: INK.secondary, fontSize: 12 }}>
                   强度: {rel.intensity} · {rel.dynamic}
                 </div>
               </div>
@@ -141,11 +143,11 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
           {charItems.map((item) => (
             <div
               key={item.id}
-              style={{ cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid #f0f0f0' }}
+              style={{ cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}
               onClick={() => showDetail('item', item.id)}
             >
               <div style={{ fontWeight: 500 }}>{item.name}</div>
-              <div style={{ color: '#999', fontSize: 12 }}>{item.one_line}</div>
+              <div style={{ color: INK.secondary, fontSize: 12 }}>{item.one_line}</div>
             </div>
           ))}
         </Card>
@@ -155,13 +157,13 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
       {charDialogues.length > 0 && (
         <Card size="small" title="经典台词" style={{ marginBottom: 16 }}>
           {charDialogues.map((dialogue, index) => (
-            <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid #f0f0f0' }}>
+            <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                 <Tag color="purple">{dialogue.tone}</Tag>
-                <span style={{ color: '#999', fontSize: 12 }}>第{dialogue.chapter}章</span>
+                <span style={{ color: INK.secondary, fontSize: 12 }}>第{dialogue.chapter}章</span>
               </div>
-              <Paragraph ellipsis={{ rows: 2, expandable: true }} style={{ marginBottom: 0 }}>
-                "{dialogue.text}"
+              <Paragraph ellipsis={{ rows: 2, expandable: true }} className="ink-quote" style={{ marginBottom: 0 }}>
+                {dialogue.text}
               </Paragraph>
             </div>
           ))}
@@ -172,11 +174,11 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
       {character.source_refs?.length > 0 && (
         <Card size="small" title="原文引用">
           {character.source_refs.slice(0, 3).map((ref, index) => (
-            <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid #f0f0f0' }}>
+            <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}>
               <div style={{ fontWeight: 500, marginBottom: 4 }}>
                 第{ref.chapter}章 (行 {ref.line_start}-{ref.line_end})
               </div>
-              <Paragraph ellipsis={{ rows: 3, expandable: true }} style={{ marginBottom: 0, fontStyle: 'italic' }}>
+              <Paragraph ellipsis={{ rows: 3, expandable: true }} className="ink-quote" style={{ marginBottom: 0 }}>
                 {ref.text}
               </Paragraph>
             </div>

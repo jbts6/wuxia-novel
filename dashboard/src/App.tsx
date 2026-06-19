@@ -15,6 +15,7 @@ import { useDataLoader } from './hooks/useDataLoader';
 import { useNovelStore } from './stores/useNovelStore';
 import { useBookStore } from './stores/useBookStore';
 import { getDetailSyncAction } from './utils/detailNavigation';
+import { inkTheme } from './theme/inkTheme';
 
 const { Text } = Typography;
 
@@ -93,12 +94,16 @@ const App: React.FC = () => {
           justifyContent: 'center',
           alignItems: 'center',
           height: '100vh',
-          gap: 16,
+          gap: 18,
+          background: 'var(--paper-base)',
         }}
       >
+        <span className="ink-seal" style={{ width: 56, height: 56, fontSize: 28 }}>侠</span>
         <Spin size="large" />
         {currentBook && (
-          <Text type="secondary">正在加载《{currentBook.name}》...</Text>
+          <Text style={{ color: 'var(--ink-secondary)', fontFamily: 'var(--font-serif)' }}>
+            正在展卷《{currentBook.name}》…
+          </Text>
         )}
       </div>
     );
@@ -112,25 +117,20 @@ const App: React.FC = () => {
           justifyContent: 'center',
           alignItems: 'center',
           height: '100vh',
+          background: 'var(--paper-base)',
         }}
       >
-        <div>
-          <h2>加载失败</h2>
-          <p>{error}</p>
-          <p>请确保数据文件存在于正确位置</p>
+        <div style={{ textAlign: 'center', color: 'var(--ink-body)' }}>
+          <h2 style={{ fontFamily: 'var(--font-serif)', color: 'var(--ink-black)' }}>加载失败</h2>
+          <p style={{ color: 'var(--cinnabar)' }}>{error}</p>
+          <p style={{ color: 'var(--ink-secondary)' }}>请确保数据文件存在于正确位置</p>
         </div>
       </div>
     );
   }
 
   return (
-    <ConfigProvider locale={zhCN} theme={{
-      token: {
-        colorPrimary: '#c41d7f',
-        borderRadius: 8,
-        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif',
-      },
-    }}>
+    <ConfigProvider locale={zhCN} theme={inkTheme}>
       <BrowserRouter>
         <DetailRouteSync />
         <Routes>

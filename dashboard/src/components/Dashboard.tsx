@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Row, Col, Statistic, Tag, Typography } from 'antd';
+import { Row, Col, Tag } from 'antd';
 import {
   UserOutlined,
   ThunderboltOutlined,
@@ -10,8 +10,8 @@ import {
 } from '@ant-design/icons';
 import { useNovelStore } from '../stores/useNovelStore';
 import { useBookStore } from '../stores/useBookStore';
-
-const { Title } = Typography;
+import { ENTITY_COLORS, CINNABAR, PIGMENT, INK } from '../theme/palette';
+import { getRankColor } from '../utils/skillDisplay';
 
 const Dashboard: React.FC = () => {
   const {
@@ -29,12 +29,12 @@ const Dashboard: React.FC = () => {
   const bookName = currentBook?.name || '数据概览';
 
   const stats = [
-    { title: '角色', value: characters.length, icon: <UserOutlined />, color: '#1890ff' },
-    { title: '技能', value: skills.length, icon: <ThunderboltOutlined />, color: '#52c41a' },
-    { title: '物品', value: items.length, icon: <ToolOutlined />, color: '#faad14' },
-    { title: '地点', value: locations.length, icon: <EnvironmentOutlined />, color: '#722ed1' },
-    { title: '势力', value: factions.length, icon: <TeamOutlined />, color: '#13c2c2' },
-    { title: '对话', value: dialogues.length, icon: <CommentOutlined />, color: '#722ed1' },
+    { title: '角色', value: characters.length, icon: <UserOutlined />, color: ENTITY_COLORS.character },
+    { title: '武功', value: skills.length, icon: <ThunderboltOutlined />, color: ENTITY_COLORS.skill },
+    { title: '物品', value: items.length, icon: <ToolOutlined />, color: ENTITY_COLORS.item },
+    { title: '地点', value: locations.length, icon: <EnvironmentOutlined />, color: ENTITY_COLORS.location },
+    { title: '势力', value: factions.length, icon: <TeamOutlined />, color: ENTITY_COLORS.faction },
+    { title: '对话', value: dialogues.length, icon: <CommentOutlined />, color: PIGMENT.indigo },
   ];
 
   const protagonistRoles = ['protagonist', '主角', '侠之大者'];
@@ -52,91 +52,155 @@ const Dashboard: React.FC = () => {
     .filter((i) => i.rarity === '绝世神兵')
     .slice(0, 6);
 
-  function renderListItem<T extends { id: string; name: string; one_line: string }>(
-    listItems: T[],
-    onClick: (item: T) => void,
-    tagColor: (item: T) => string,
-    tagText: (item: T) => string
-  ) {
-    return (
-      <div>
-        {listItems.map((item) => (
-          <div
-            key={item.id}
-            onClick={() => onClick(item)}
-            style={{
-              padding: '12px 0',
-              borderBottom: '1px solid #f0f0f0',
-              cursor: 'pointer',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ fontWeight: 500 }}>{item.name}</span>
-              <Tag color={tagColor(item)}>{tagText(item)}</Tag>
-            </div>
-            <div style={{ color: '#999', fontSize: 12, marginTop: 4 }}>
-              {item.one_line}
-            </div>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
   return (
     <div>
-      <Title level={2}>{bookName} · 数据概览</Title>
+      {/* 标题区 */}
+      <div style={{ marginBottom: 28 }}>
+        <h1
+          style={{
+            margin: 0,
+            fontFamily: 'var(--font-serif)',
+            fontSize: 28,
+            color: INK.black,
+            letterSpacing: '0.04em',
+          }}
+        >
+          {bookName}
+          <span style={{ fontSize: 16, color: INK.faint, marginLeft: 12, fontFamily: 'var(--font-sans)' }}>
+            图志总览
+          </span>
+        </h1>
+        <div className="ink-rule" />
+      </div>
 
-      <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
+      {/* 统计卡 */}
+      <Row gutter={[16, 16]} style={{ marginBottom: 28 }}>
         {stats.map((stat) => (
           <Col xs={12} sm={8} md={6} lg={4} key={stat.title}>
-            <Card>
-              <Statistic
-                title={stat.title}
-                value={stat.value}
-                prefix={React.cloneElement(stat.icon, { style: { color: stat.color } })}
-              />
-            </Card>
+            <div
+              className="ink-card"
+              style={{ padding: '16px 18px', display: 'flex', alignItems: 'center', gap: 14 }}
+            >
+              <span
+                className="ink-seal"
+                style={{ background: stat.color, width: 38, height: 38, fontSize: 18 }}
+              >
+                {React.cloneElement(stat.icon, { style: { fontSize: 18 } })}
+              </span>
+              <div>
+                <div style={{ fontSize: 13, color: INK.secondary }}>{stat.title}</div>
+                <div
+                  style={{
+                    fontSize: 26,
+                    fontFamily: 'var(--font-serif)',
+                    fontWeight: 600,
+                    color: INK.black,
+                    lineHeight: 1.1,
+                  }}
+                >
+                  {stat.value}
+                </div>
+              </div>
+            </div>
           </Col>
         ))}
       </Row>
 
+      {/* 三栏精选 */}
       <Row gutter={[16, 16]}>
         <Col xs={24} md={12} lg={8}>
-          <Card title="主要角色">
-            {renderListItem(
-              mainCharacters,
-              (c) => showDetail('character', c.id),
-              (c) => (protagonistRoles.includes(c.role) ? 'blue' : 'red'),
-              (c) => (protagonistRoles.includes(c.role) ? '主角' : '反派')
-            )}
-          </Card>
+          <SectionPanel title="主要人物" accent={ENTITY_COLORS.character}>
+            {mainCharacters.map((c) => (
+              <ListRow
+                key={c.id}
+                name={c.name}
+                desc={c.one_line}
+                tag={protagonistRoles.includes(c.role) ? '主角' : '反派'}
+                tagColor={protagonistRoles.includes(c.role) ? CINNABAR.base : INK.black}
+                onClick={() => showDetail('character', c.id)}
+              />
+            ))}
+          </SectionPanel>
         </Col>
 
         <Col xs={24} md={12} lg={8}>
-          <Card title="顶级武功">
-            {renderListItem(
-              topSkills,
-              (s) => showDetail('skill', s.id),
-              () => 'orange',
-              (s) => s.rank
-            )}
-          </Card>
+          <SectionPanel title="顶级武功" accent={ENTITY_COLORS.skill}>
+            {topSkills.map((s) => (
+              <ListRow
+                key={s.id}
+                name={s.name}
+                desc={s.one_line}
+                tag={s.rank}
+                tagColor={getRankColor(s.rank)}
+                onClick={() => showDetail('skill', s.id)}
+              />
+            ))}
+          </SectionPanel>
         </Col>
 
         <Col xs={24} md={12} lg={8}>
-          <Card title="绝世神兵">
-            {renderListItem(
-              legendaryItems,
-              (i) => showDetail('item', i.id),
-              () => 'red',
-              (i) => i.rarity
-            )}
-          </Card>
+          <SectionPanel title="绝世神兵" accent={ENTITY_COLORS.item}>
+            {legendaryItems.map((i) => (
+              <ListRow
+                key={i.id}
+                name={i.name}
+                desc={i.one_line}
+                tag={i.rarity}
+                tagColor={CINNABAR.base}
+                onClick={() => showDetail('item', i.id)}
+              />
+            ))}
+          </SectionPanel>
         </Col>
       </Row>
     </div>
   );
 };
+
+const SectionPanel: React.FC<{ title: string; accent: string; children: React.ReactNode }> = ({
+  title,
+  accent,
+  children,
+}) => (
+  <div
+    className="ink-card"
+    style={{ height: '100%', padding: 0, overflow: 'hidden' }}
+  >
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 8,
+        padding: '14px 18px',
+        borderBottom: '1px solid var(--ink-hairline)',
+      }}
+    >
+      <span style={{ width: 4, height: 16, background: accent, borderRadius: 2 }} />
+      <span style={{ fontFamily: 'var(--font-serif)', fontSize: 16, color: INK.black }}>{title}</span>
+    </div>
+    <div style={{ padding: '4px 18px 8px' }}>{children}</div>
+  </div>
+);
+
+const ListRow: React.FC<{
+  name: string;
+  desc: string;
+  tag: string;
+  tagColor: string;
+  onClick: () => void;
+}> = ({ name, desc, tag, tagColor, onClick }) => (
+  <div
+    onClick={onClick}
+    style={{ padding: '11px 0', borderBottom: '1px solid var(--ink-hairline)', cursor: 'pointer' }}
+  >
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      <span style={{ fontWeight: 600, color: INK.black }}>{name}</span>
+      <Tag style={{ color: tagColor, borderColor: tagColor, background: 'transparent', marginInlineEnd: 0 }}>
+        {tag}
+      </Tag>
+    </div>
+    <div style={{ color: INK.secondary, fontSize: 12, marginTop: 4 }}>{desc}</div>
+  </div>
+);
 
 export default Dashboard;

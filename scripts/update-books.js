@@ -4,7 +4,7 @@ const path = require('path');
 const ROOT_DIR = path.resolve(__dirname, '..');
 const BOOKS_JSON = path.join(ROOT_DIR, 'dashboard', 'public', 'data', 'books.json');
 
-const AUTHORS = ['古龙', '金庸', '黄易', '梁羽', '温瑞安'];
+const AUTHORS = ['古龙', '金庸', '黄易', '梁羽生'];
 
 function scanBooks() {
   const books = [];

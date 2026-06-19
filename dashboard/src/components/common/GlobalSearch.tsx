@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { Input, Dropdown, Empty, Spin } from 'antd';
 import { SearchOutlined, UserOutlined, ThunderboltOutlined, ToolOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
+import { ENTITY_COLORS } from '../../theme/palette';
 
 interface SearchResult {
   id: string;
@@ -84,9 +85,9 @@ const GlobalSearch: React.FC = () => {
   }, [showDetail]);
 
   const typeIcons: Record<string, React.ReactNode> = {
-    character: <UserOutlined style={{ color: '#1890ff' }} />,
-    skill: <ThunderboltOutlined style={{ color: '#52c41a' }} />,
-    item: <ToolOutlined style={{ color: '#faad14' }} />,
+    character: <UserOutlined style={{ color: ENTITY_COLORS.character }} />,
+    skill: <ThunderboltOutlined style={{ color: ENTITY_COLORS.skill }} />,
+    item: <ToolOutlined style={{ color: ENTITY_COLORS.item }} />,
   };
 
   const typeLabels: Record<string, string> = {
@@ -110,10 +111,11 @@ const GlobalSearch: React.FC = () => {
             <div key={type} style={{ marginBottom: 8 }}>
               <div style={{
                 padding: '4px 12px',
-                background: '#fafafa',
+                background: 'var(--paper-sunken)',
                 fontWeight: 'bold',
                 fontSize: 12,
-                color: '#666',
+                color: 'var(--ink-secondary)',
+                fontFamily: 'var(--font-serif)',
               }}>
                 {typeLabels[type]} ({results.length})
               </div>
@@ -128,7 +130,7 @@ const GlobalSearch: React.FC = () => {
                     alignItems: 'center',
                     gap: 8,
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = '#f5f5f5'}
+                  onMouseEnter={(e) => e.currentTarget.style.background = 'var(--paper-sunken)'}
                   onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                 >
                   {typeIcons[result.type]}
@@ -136,7 +138,7 @@ const GlobalSearch: React.FC = () => {
                     <div style={{ fontWeight: 500 }}>{result.name}</div>
                     <div style={{
                       fontSize: 12,
-                      color: '#999',
+                      color: 'var(--ink-faint)',
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
                       whiteSpace: 'nowrap',

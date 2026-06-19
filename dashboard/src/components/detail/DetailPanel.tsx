@@ -8,6 +8,7 @@ import SkillCard from '../cards/SkillCard';
 import ItemCard from '../cards/ItemCard';
 import FactionCard from '../cards/FactionCard';
 import LocationCard from '../cards/LocationCard';
+import ErrorBoundary from '../common/ErrorBoundary';
 import type { CardType } from '../../types/novel';
 import { formatDetailParam } from '../../utils/detailNavigation';
 import { getRelationshipChain } from '../../utils/graphHelper';
@@ -159,7 +160,7 @@ const DetailPanel: React.FC = () => {
           }))}
         />
       )}
-      {renderContent()}
+      <ErrorBoundary resetKey={`${type}-${id}`}>{renderContent()}</ErrorBoundary>
       {type && id && (
         <Card
           size="small"
@@ -195,7 +196,7 @@ const DetailPanel: React.FC = () => {
                       <Space wrap size={6}>
                         <Tag>{TYPE_LABELS[item.targetType]}</Tag>
                         <Text strong>{item.targetName}</Text>
-                        <ArrowRightOutlined style={{ color: '#999' }} />
+                        <ArrowRightOutlined style={{ color: 'var(--ink-faint)' }} />
                         <Tag color="blue">{item.relation}</Tag>
                       </Space>
                     }

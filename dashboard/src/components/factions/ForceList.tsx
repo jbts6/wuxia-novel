@@ -53,16 +53,16 @@ const ForceList: React.FC = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{ paddingBottom: 16, borderBottom: '1px solid #f0f0f0', marginBottom: 16 }}>
+      <div style={{ paddingBottom: 16, borderBottom: '1px solid var(--ink-hairline)', marginBottom: 16 }}>
         <Input
-          prefix={<SearchOutlined style={{ color: '#999' }} />}
+          prefix={<SearchOutlined style={{ color: 'var(--ink-faint)' }} />}
           placeholder="搜索门派、地点..."
           allowClear
           value={search}
           onChange={e => setSearch(e.target.value)}
           style={{ width: 300 }}
         />
-        <div style={{ marginTop: 8, color: '#999' }}>
+        <div style={{ marginTop: 8, color: 'var(--ink-secondary)' }}>
           共 {filteredFactions.length} 个门派 · {filteredLocations.length} 个地点
         </div>
       </div>

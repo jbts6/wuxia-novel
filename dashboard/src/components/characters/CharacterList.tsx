@@ -45,16 +45,16 @@ const CharacterList: React.FC = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{ paddingBottom: 16, borderBottom: '1px solid #f0f0f0', marginBottom: 16 }}>
+      <div style={{ paddingBottom: 16, borderBottom: '1px solid var(--ink-hairline)', marginBottom: 16 }}>
         <Input
-          prefix={<SearchOutlined style={{ color: '#999' }} />}
+          prefix={<SearchOutlined style={{ color: 'var(--ink-faint)' }} />}
           placeholder="搜索角色名、别名、身份..."
           allowClear
           value={search}
           onChange={e => setSearch(e.target.value)}
           style={{ width: 300 }}
         />
-        <div style={{ marginTop: 8, color: '#999' }}>共 {filtered.length} 个角色</div>
+        <div style={{ marginTop: 8, color: 'var(--ink-secondary)' }}>共 {filtered.length} 个角色</div>
       </div>
 
       <div style={{ flex: 1, overflow: 'auto' }}>
@@ -75,7 +75,7 @@ const CharacterList: React.FC = () => {
                     style={{ height: '100%' }}
                   >
                     <div style={{ marginBottom: 4 }}>
-                      <Text strong>{char.name}</Text>
+                      <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
                       {char.rank && (
                         <Tag color={rankColor[char.rank] || 'default'} style={{ marginLeft: 8 }}>{char.rank}</Tag>
                       )}

@@ -35,10 +35,10 @@ const BookSelector: React.FC = () => {
       trigger={['click']}
       placement="bottomLeft"
       popupRender={() => (
-        <div style={{ width: 320, background: '#fff', borderRadius: 8, boxShadow: '0 6px 16px rgba(0,0,0,0.08)' }}>
-          <div style={{ padding: '8px 12px', borderBottom: '1px solid #f0f0f0' }}>
+        <div style={{ width: 320, background: 'var(--paper-raised)', borderRadius: 8, border: '1px solid var(--ink-hairline)', boxShadow: '0 6px 18px rgba(43,38,32,0.12)' }}>
+          <div style={{ padding: '8px 12px', borderBottom: '1px solid var(--ink-hairline)' }}>
             <Input
-              prefix={<SearchOutlined style={{ color: '#999' }} />}
+              prefix={<SearchOutlined style={{ color: 'var(--ink-faint)' }} />}
               placeholder="搜索书名或作者..."
               allowClear
               value={search}
@@ -48,11 +48,11 @@ const BookSelector: React.FC = () => {
           </div>
           <div style={{ maxHeight: 400, overflow: 'auto', padding: '4px 0' }}>
             {filteredGroups.length === 0 && (
-              <div style={{ padding: '12px', textAlign: 'center', color: '#999' }}>未找到匹配书籍</div>
+              <div style={{ padding: '12px', textAlign: 'center', color: 'var(--ink-faint)' }}>未找到匹配书籍</div>
             )}
             {filteredGroups.map(group => (
               <div key={group.author}>
-                <div style={{ padding: '4px 12px', fontWeight: 'bold', fontSize: 12, color: '#666', background: '#fafafa' }}>
+                <div style={{ padding: '4px 12px', fontWeight: 'bold', fontSize: 12, color: 'var(--ink-secondary)', background: 'var(--paper-sunken)', fontFamily: 'var(--font-serif)' }}>
                   {group.author}
                 </div>
                 {group.books.map(book => (
@@ -65,9 +65,9 @@ const BookSelector: React.FC = () => {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      background: book.path === currentBookPath ? '#e6f7ff' : undefined,
+                      background: book.path === currentBookPath ? 'var(--cinnabar-wash)' : undefined,
                     }}
-                    onMouseEnter={e => { if (book.path !== currentBookPath) e.currentTarget.style.background = '#f5f5f5'; }}
+                    onMouseEnter={e => { if (book.path !== currentBookPath) e.currentTarget.style.background = 'var(--paper-sunken)'; }}
                     onMouseLeave={e => { if (book.path !== currentBookPath) e.currentTarget.style.background = 'transparent'; }}
                   >
                     <span>{book.name}</span>
@@ -88,11 +88,11 @@ const BookSelector: React.FC = () => {
           cursor: 'pointer',
           padding: '4px 12px',
           borderRadius: 6,
-          border: '1px solid #d9d9d9',
-          background: '#fff',
+          border: '1px solid var(--ink-hairline)',
+          background: 'var(--paper-raised)',
         }}
       >
-        <BookOutlined style={{ color: '#1890ff' }} />
+        <BookOutlined style={{ color: 'var(--cinnabar)' }} />
         <Text style={{ maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {displayText}
         </Text>

@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+/* ============ 水墨宣纸 · 浅色古典 ============ */
+:root {
+  --paper-base: #f4ece0;
+  --paper-raised: #faf5ea;
+  --paper-sunken: #ece1d0;
+  --paper-edge: #d9cab2;
+
+  --ink-black: #2b2620;
+  --ink-body: #3f3a32;
+  --ink-secondary: #6f675b;
+  --ink-faint: #9a9082;
+  --ink-hairline: #d8ccba;
+
+  --cinnabar: #a8332a;
+  --cinnabar-soft: #c0473b;
+  --cinnabar-wash: #f0ddd4;
+  --cinnabar-deep: #7d241d;
+
+  --font-serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", serif;
+  --font-sans: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,27 +34,212 @@ html, body, #root {
   overflow: hidden;
 }
 
-/* Smoother scrolling */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+body {
+  font-family: var(--font-sans);
+  color: var(--ink-body);
+  /* 宣纸纤维质感：极淡的双向斜向噪点叠加 */
+  background-color: var(--paper-base);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(168, 51, 42, 0.015) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(63, 58, 50, 0.02) 0%, transparent 50%),
+    repeating-linear-gradient(45deg, rgba(120, 100, 70, 0.012) 0px, rgba(120, 100, 70, 0.012) 1px, transparent 1px, transparent 4px);
 }
-::-webkit-scrollbar-track {
+
+/* 衬线标题 */
+h1, h2, h3, h4, h5,
+.ant-typography h1, .ant-typography h2, .ant-typography h3,
+.ant-card-head-title,
+.ant-drawer-title {
+  font-family: var(--font-serif);
+  letter-spacing: 0.02em;
+}
+
+/* 滚动条 —— 淡墨 */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--paper-edge); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
+
+/* ============ Antd 预设标签色 → 水墨颜料（全站自动改色） ============ */
+/* 现有组件大量用 <Tag color="red"|"blue"|... />，此处统一重映射为印章式描边标签 */
+.ant-tag {
+  border-radius: 2px;
+  border-style: solid;
   background: transparent;
+  font-family: var(--font-sans);
 }
-::-webkit-scrollbar-thumb {
-  background: #d9d9d9;
-  border-radius: 3px;
+.ant-tag-red, .ant-tag-magenta { color: #a8332a; border-color: #a8332a; background: #f0ddd4; }
+.ant-tag-volcano { color: #c0473b; border-color: #c0473b; background: #f5e1d9; }
+.ant-tag-orange, .ant-tag-gold, .ant-tag-yellow { color: #9c6f25; border-color: #b8863b; background: #f1e6cf; }
+.ant-tag-lime, .ant-tag-green { color: #4d6645; border-color: #5e7a54; background: #e2e8d8; }
+.ant-tag-cyan { color: #356664; border-color: #3f7a78; background: #dbe8e7; }
+.ant-tag-blue, .ant-tag-geekblue { color: #3f5a78; border-color: #3f5a78; background: #dde3ec; }
+.ant-tag-purple { color: #6d557e; border-color: #6d557e; background: #e6dfec; }
+.ant-tag:not([class*="ant-tag-"]),
+.ant-tag-default { color: var(--ink-secondary); border-color: var(--paper-edge); background: var(--paper-sunken); }
+
+/* 细墨线分隔，去除 Antd 默认硬边 */
+.ant-card { border-color: var(--ink-hairline); }
+.ant-divider { border-color: var(--ink-hairline); }
+
+/* ============ 通用工具类 ============ */
+/* 朱砂印章式徽记（实体首字 / 类型标记） */
+.ink-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background: var(--cinnabar);
+  color: #faf5ea;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 2px rgba(250, 245, 234, 0.25);
+  flex-shrink: 0;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #bfbfbf;
+/* 标题下的朱砂短笔 */
+.ink-rule {
+  width: 36px;
+  height: 3px;
+  background: var(--cinnabar);
+  border-radius: 2px;
+  margin-top: 6px;
+}
+/* 卡片浮起手感 */
+.ink-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--ink-hairline);
+  border-radius: 6px;
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+}
+.ink-card:hover {
+  box-shadow: 0 6px 22px rgba(43, 38, 32, 0.10);
+  border-color: var(--cinnabar);
+  transform: translateY(-2px);
+}
+/* 原文引用：仿古笺，左侧朱砂边 */
+.ink-quote {
+  font-family: var(--font-serif);
+  font-style: normal;
+  color: var(--ink-body);
+  background: linear-gradient(90deg, var(--cinnabar-wash) 0%, transparent 18%), var(--paper-base);
+  border-left: 3px solid var(--cinnabar);
+  padding: 10px 14px;
+  border-radius: 0 4px 4px 0;
+  line-height: 2;
 }
 
-/* Antd Layout tweaks */
-.ant-layout-sider {
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+/* ============ 经典对话 · IM 聊天视图 ============ */
+.chat-thread {
+  display: flex;
+  flex-direction: column;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 4px 4px 8px;
 }
-
-.ant-layout-header {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+/* 章节分隔，仿 IM 日期分割线 */
+.chat-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 12px;
+}
+.chat-thread > .chat-divider:first-child {
+  margin-top: 4px;
+}
+.chat-divider::before,
+.chat-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--ink-hairline);
+}
+.chat-divider span {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 2px 14px;
+  background: var(--paper-sunken);
+  border: 1px solid var(--ink-hairline);
+  border-radius: 999px;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+}
+/* 单条消息行 */
+.chat-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 14px;
+}
+.chat-row.grouped {
+  margin-top: 3px;
+}
+.chat-row.self {
+  flex-direction: row-reverse;
+}
+.chat-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #faf5ea;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 2px rgba(250, 245, 234, 0.25);
+}
+.chat-col {
+  display: flex;
+  flex-direction: column;
+  max-width: 74%;
+  min-width: 0;
+}
+.chat-row.self .chat-col {
+  align-items: flex-end;
+}
+.chat-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 2px 4px;
+  line-height: 1.4;
+}
+.chat-name-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-secondary);
+}
+.chat-tone {
+  font-size: 11px;
+  color: var(--ink-faint);
+  border: 1px solid var(--ink-hairline);
+  border-radius: 999px;
+  padding: 0 7px;
+  line-height: 16px;
+  background: var(--paper-raised);
+}
+/* 气泡：尖角朝向头像一侧 */
+.chat-bubble {
+  padding: 9px 14px;
+  border-radius: 4px 13px 13px 13px;
+  background: var(--paper-raised);
+  border: 1px solid var(--ink-hairline);
+  color: var(--ink-body);
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1.9;
+  word-break: break-word;
+  white-space: pre-wrap;
+  box-shadow: 0 1px 2px rgba(43, 38, 32, 0.05);
+}
+.chat-row.self .chat-bubble {
+  border-radius: 13px 4px 13px 13px;
+  background: var(--cinnabar-wash);
+  border-color: #e6c8bd;
 }
