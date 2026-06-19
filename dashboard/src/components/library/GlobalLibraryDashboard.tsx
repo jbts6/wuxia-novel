@@ -8,6 +8,7 @@ import { annotateRecords } from '../../utils/libraryAnnotations';
 import { filterCharacters, filterFactions, filterItems, filterSkills, getUniqueFilterValues } from '../../utils/libraryFilters';
 import { isLegendaryItem, isTopTierSkill } from '../../utils/libraryAggregate';
 import LibraryDetailDrawer from './LibraryDetailDrawer';
+import LibraryExportPanel from './LibraryExportPanel';
 import LibraryFiltersPanel from './LibraryFilters';
 import LibraryRecordTable from './LibraryRecordTable';
 import LibrarySummary from './LibrarySummary';
@@ -79,6 +80,10 @@ const GlobalLibraryDashboard: React.FC = () => {
     () => filterItems(data.items.filter((record) => isLegendaryItem(record.entity)), filters),
     [data.items, filters],
   );
+  const exportRecords = useMemo(
+    () => annotateRecords([...topSkills, ...characters, ...factions, ...legendaryItems], annotations),
+    [annotations, characters, factions, legendaryItems, topSkills],
+  );
 
   return (
     <div>
@@ -107,6 +112,7 @@ const GlobalLibraryDashboard: React.FC = () => {
       {section === 'characters' && <LibraryRecordTable records={annotateRecords(characters, annotations)} onOpen={selectRecord} />}
       {section === 'factions' && <LibraryRecordTable records={annotateRecords(factions, annotations)} onOpen={selectRecord} />}
       {section === 'items' && <LibraryRecordTable records={annotateRecords(legendaryItems, annotations)} onOpen={selectRecord} />}
+      {section === 'export' && <LibraryExportPanel records={exportRecords} />}
       {section === 'overview' && <LibraryRecordTable records={annotateRecords(topSkills.slice(0, 20), annotations)} onOpen={selectRecord} />}
       <LibraryDetailDrawer collections={collections} />
     </div>
