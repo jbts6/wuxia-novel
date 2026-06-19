@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Layout, Menu, theme } from 'antd';
 import {
+  AppstoreOutlined,
   TeamOutlined,
   ThunderboltOutlined,
   CommentOutlined,
@@ -33,6 +34,11 @@ const AppLayout: React.FC = () => {
       key: '/',
       icon: <DashboardOutlined />,
       label: '概览',
+    },
+    {
+      key: '/library',
+      icon: <AppstoreOutlined />,
+      label: '全库总览',
     },
     {
       key: '/graph',

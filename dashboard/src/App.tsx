@@ -10,6 +10,7 @@ import DialogueList from './components/dialogues/DialogueList';
 import CharacterList from './components/characters/CharacterList';
 import ItemList from './components/items/ItemList';
 import ForceList from './components/factions/ForceList';
+import GlobalLibraryDashboard from './components/library/GlobalLibraryDashboard';
 import DetailPanel from './components/detail/DetailPanel';
 import { useDataLoader } from './hooks/useDataLoader';
 import { useNovelStore } from './stores/useNovelStore';
@@ -136,6 +137,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Dashboard />} />
+            <Route path="library" element={<GlobalLibraryDashboard />} />
             <Route path="graph" element={<CharacterGraph />} />
             <Route path="skills" element={<SkillTree />} />
             <Route path="characters" element={<CharacterList />} />
