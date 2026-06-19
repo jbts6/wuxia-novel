@@ -5,9 +5,8 @@ import { useLibraryStore } from '../../stores/useLibraryStore';
 import { useLibraryData } from '../../hooks/useLibraryData';
 import type { LibraryRecord, LibrarySection } from '../../types/library';
 import { annotateRecords } from '../../utils/libraryAnnotations';
-import { filterCharacters, filterFactions, filterItems, filterSkills } from '../../utils/libraryFilters';
+import { filterCharacters, filterFactions, filterItems, filterSkills, getUniqueFilterValues } from '../../utils/libraryFilters';
 import { isLegendaryItem, isTopTierSkill } from '../../utils/libraryAggregate';
-import { getLibraryFilterOptions, resetInactiveLibraryFilters } from '../../utils/libraryFilterOptions';
 import LibraryDetailDrawer from './LibraryDetailDrawer';
 import LibraryExportPanel from './LibraryExportPanel';
 import LibraryFiltersPanel from './LibraryFilters';
@@ -43,14 +42,6 @@ const GlobalLibraryDashboard: React.FC = () => {
     hydrateAnnotations();
   }, [hydrateAnnotations]);
 
-  const handleSectionChange = (nextSection: LibrarySection) => {
-    setSection(nextSection);
-    const inactiveFilters = resetInactiveLibraryFilters(filters, nextSection);
-    if (Object.keys(inactiveFilters).length > 0) {
-      setFilters(inactiveFilters);
-    }
-  };
-
   const collections = useMemo(() => ({
     skills: data.skills,
     characters: data.characters,
@@ -58,10 +49,23 @@ const GlobalLibraryDashboard: React.FC = () => {
     items: data.items,
   }), [data.characters, data.factions, data.items, data.skills]);
 
-  const filterOptions = useMemo(
-    () => getLibraryFilterOptions(section, collections, books),
-    [books, collections, section],
-  );
+  const filterOptions = useMemo(() => ({
+    rank: getUniqueFilterValues(data.skills.map((record) => record.entity.rank)),
+    author: getUniqueFilterValues(books.map((book) => book.author)),
+    bookPath: books.map((book) => ({ label: `${book.author} / ${book.name}`, value: book.path })),
+    type: getUniqueFilterValues([
+      ...data.skills.map((record) => record.entity.type),
+      ...data.factions.map((record) => record.entity.type),
+      ...data.items.map((record) => record.entity.type),
+    ]),
+    faction: getUniqueFilterValues([
+      ...data.skills.map((record) => record.entity.faction),
+      ...data.characters.map((record) => record.entity.faction),
+    ]),
+    role: getUniqueFilterValues(data.characters.map((record) => record.entity.role)),
+    archetype: getUniqueFilterValues(data.characters.map((record) => record.entity.archetype)),
+    rarity: getUniqueFilterValues(data.items.map((record) => record.entity.rarity)),
+  }), [books, data.characters, data.factions, data.items, data.skills]);
 
   const topSkills = useMemo(
     () => filterSkills(data.skills.filter((record) => isTopTierSkill(record.entity)), filters),
@@ -95,7 +99,7 @@ const GlobalLibraryDashboard: React.FC = () => {
       <Segmented
         options={SECTION_OPTIONS}
         value={section}
-        onChange={(value) => handleSectionChange(value as LibrarySection)}
+        onChange={(value) => setSection(value as LibrarySection)}
         style={{ marginBottom: 20 }}
       />
       <LibrarySummary collections={collections} warnings={data.warnings} />
