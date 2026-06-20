@@ -1,11 +1,21 @@
 import React from 'react';
-import { Card, Tag, Descriptions, Typography, Space } from 'antd';
+import { Card, Descriptions, Typography, Space } from 'antd';
 import { UserOutlined, FireOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
-import { ENTITY_COLORS, INK } from '../../theme/palette';
+import { ENTITY_COLORS, INK, PIGMENT, CINNABAR } from '../../theme/palette';
 import { getSkillEffects, getSkillProgression, getRankColor } from '../../utils/skillDisplay';
+import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
+
+const TECH_TYPE_LABELS: Record<string, string> = {
+  attack: '攻击',
+  defense: '防御',
+  special: '特殊',
+  feint: '虚招',
+  buff: '增益',
+  debuff: '减益',
+};
 
 interface SkillCardProps {
   id: string;
@@ -23,7 +33,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ id }) => {
 
   const effects = getSkillEffects(skill);
   const progression = getSkillProgression(skill);
-  const rankColor = getRankColor(skill.rank);
+  const rankColor = getRankColor(skill.mastery_rank);
 
   return (
     <div>
@@ -38,8 +48,8 @@ const SkillCard: React.FC<SkillCardProps> = ({ id }) => {
           </div>
         </div>
         <Descriptions column={1} size="small">
-          <Descriptions.Item label="等级"><Tag style={{ color: rankColor, borderColor: rankColor, background: 'transparent' }}>{skill.rank}</Tag></Descriptions.Item>
-          {skill.faction && <Descriptions.Item label="所属势力"><Tag color="cyan">{skill.faction}</Tag></Descriptions.Item>}
+          <Descriptions.Item label="等级"><InkTag color={skill.mastery_rank}>{skill.mastery_rank}</InkTag></Descriptions.Item>
+          {skill.faction && <Descriptions.Item label="所属势力"><InkTag color="cyan">{skill.faction}</InkTag></Descriptions.Item>}
         </Descriptions>
         <Paragraph style={{ marginTop: 12, marginBottom: 0 }}>{skill.one_line}</Paragraph>
       </Card>
@@ -50,9 +60,9 @@ const SkillCard: React.FC<SkillCardProps> = ({ id }) => {
             <div key={tech.id} style={{ padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontWeight: 500 }}>{tech.name}</span>
-                <Tag color={tech.type === 'attack' ? 'red' : tech.type === 'defense' ? 'blue' : 'default'}>
-                  {tech.type === 'attack' ? '攻击' : tech.type === 'defense' ? '防御' : tech.type}
-                </Tag>
+                <InkTag color={tech.type} wash={false}>
+                  {TECH_TYPE_LABELS[tech.type] || tech.type}
+                </InkTag>
               </div>
               <div style={{ color: INK.secondary, fontSize: 12 }}>{tech.description}</div>
             </div>
@@ -70,7 +80,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ id }) => {
         <Card size="small" title={<span><FireOutlined /> 效果</span>} style={{ marginBottom: 16 }}>
           <Space wrap>
             {effects.map((effect, index) => (
-              <Tag key={index} color="volcano">
+              <Tag key={index} style={{ color: CINNABAR.soft, borderColor: CINNABAR.soft, background: 'transparent', marginInlineEnd: 0 }}>
                 {effect}
               </Tag>
             ))}

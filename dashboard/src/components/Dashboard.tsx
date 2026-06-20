@@ -13,6 +13,9 @@ import { useBookStore } from '../stores/useBookStore';
 import { ENTITY_COLORS, CINNABAR, PIGMENT, INK } from '../theme/palette';
 import { getRankColor } from '../utils/skillDisplay';
 
+const RANK_ORDER = ['返璞归真', '登峰造极', '出神入化', '炉火纯青', '登堂入室', '略有小成', '初窥门径', '平平无奇'];
+const RARITY_ORDER = ['绝世神兵', '稀世珍品', '上乘佳品', '寻常凡品'];
+
 const Dashboard: React.FC = () => {
   const {
     characters,
@@ -45,11 +48,13 @@ const Dashboard: React.FC = () => {
     .slice(0, 6);
 
   const topSkills = skills
-    .filter((s) => s.rank === '登峰造极' || s.rank === '返璞归真')
+    .filter((s) => s.mastery_rank === '登峰造极' || s.mastery_rank === '返璞归真')
+    .sort((a, b) => RANK_ORDER.indexOf(a.mastery_rank) - RANK_ORDER.indexOf(b.mastery_rank))
     .slice(0, 6);
 
   const legendaryItems = items
-    .filter((i) => i.rarity === '绝世神兵')
+    .filter((i) => i.rarity_tier === '绝世神兵')
+    .sort((a, b) => RARITY_ORDER.indexOf(a.rarity_tier) - RARITY_ORDER.indexOf(b.rarity_tier))
     .slice(0, 6);
 
   return (
@@ -130,8 +135,8 @@ const Dashboard: React.FC = () => {
                 key={s.id}
                 name={s.name}
                 desc={s.one_line}
-                tag={s.rank}
-                tagColor={getRankColor(s.rank)}
+                tag={s.mastery_rank}
+                tagColor={getRankColor(s.mastery_rank)}
                 onClick={() => showDetail('skill', s.id)}
               />
             ))}
@@ -145,7 +150,7 @@ const Dashboard: React.FC = () => {
                 key={i.id}
                 name={i.name}
                 desc={i.one_line}
-                tag={i.rarity}
+                tag={i.rarity_tier}
                 tagColor={CINNABAR.base}
                 onClick={() => showDetail('item', i.id)}
               />

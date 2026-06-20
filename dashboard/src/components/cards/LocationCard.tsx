@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Tag, Typography, Space } from 'antd';
+import { Card, Typography, Space } from 'antd';
 import { TeamOutlined, UserOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ENTITY_COLORS, INK } from '../../theme/palette';
+import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
 
@@ -49,14 +50,14 @@ const LocationCard: React.FC<LocationCardProps> = ({ id }) => {
         <Card size="small" title={<span><UserOutlined /> 关联人物</span>} style={{ marginBottom: 16 }}>
           <Space wrap>
             {relatedCharacters.slice(0, 10).map((char) => (
-              <Tag
+              <InkTag
                 key={char.id}
-                color={char.role === 'protagonist' ? 'blue' : char.role === 'villain' ? 'red' : 'default'}
+                color={char.role === 'protagonist' ? 'indigo' : char.role === 'villain' ? 'attack' : 'default'}
                 style={{ cursor: 'pointer' }}
                 onClick={() => showDetail('character', char.id)}
               >
                 {char.name}
-              </Tag>
+              </InkTag>
             ))}
           </Space>
         </Card>

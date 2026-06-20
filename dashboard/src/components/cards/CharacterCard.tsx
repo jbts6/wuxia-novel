@@ -1,12 +1,14 @@
 import React from 'react';
-import { Card, Tag, Descriptions, Typography, Divider, Space } from 'antd';
+import { Card, Descriptions, Typography, Divider, Space } from 'antd';
 import {
   ThunderboltOutlined,
   TeamOutlined,
   FireOutlined,
 } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
-import { ENTITY_COLORS, INK } from '../../theme/palette';
+import { ENTITY_COLORS, INK, PIGMENT, CINNABAR, ROLE_COLORS, RELATION_COLORS } from '../../theme/palette';
+import { getRankColor } from '../../utils/skillDisplay';
+import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
 
@@ -33,13 +35,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
     .filter((d) => d.speaker === id || d.speaker_name === character.name)
     .slice(0, 5);
 
-  const roleColors: Record<string, string> = {
-    protagonist: 'blue',
-    companion: 'green',
-    npc: 'default',
-    villain: 'red',
-  };
-
   const roleLabels: Record<string, string> = {
     protagonist: '主角',
     companion: '同伴',
@@ -65,18 +60,18 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
         <Descriptions column={1} size="small">
           <Descriptions.Item label="身份">{character.identity}</Descriptions.Item>
           <Descriptions.Item label="等级">
-            <Tag color="orange">{character.rank}</Tag>
+            <InkTag color={character.rank}>{character.rank}</InkTag>
           </Descriptions.Item>
           <Descriptions.Item label="类型">
-            <Tag color={roleColors[character.role]}>
+            <InkTag color={character.role}>
               {roleLabels[character.role]}
-            </Tag>
+            </InkTag>
           </Descriptions.Item>
           {faction && (
             <Descriptions.Item label="势力">
-              <Tag color="cyan" style={{ cursor: 'pointer' }} onClick={() => showDetail('faction', faction.id)}>
+              <InkTag color="cyan" style={{ cursor: 'pointer' }} onClick={() => showDetail('faction', faction.id)}>
                 {faction.name}
-              </Tag>
+              </InkTag>
             </Descriptions.Item>
           )}
         </Descriptions>
@@ -87,7 +82,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
       <Card size="small" title="性格特征" style={{ marginBottom: 16 }}>
         <Space wrap>
           {character.personality.traits.map((trait, index) => (
-            <Tag key={index} color="blue">{trait}</Tag>
+            <InkTag key={index} color="indigo">{trait}</InkTag>
           ))}
         </Space>
         <Divider style={{ margin: '12px 0' }} />
@@ -110,7 +105,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <span style={{ fontWeight: 500 }}>{target?.name || rel.target}</span>
-                  <Tag color="blue">{rel.type}</Tag>
+                  <Tag style={{ color: RELATION_COLORS[rel.type] || PIGMENT.indigo, borderColor: RELATION_COLORS[rel.type] || PIGMENT.indigo, background: 'transparent', marginInlineEnd: 0 }}>{rel.type}</Tag>
                 </div>
                 <div style={{ color: INK.secondary, fontSize: 12 }}>
                   强度: {rel.intensity} · {rel.dynamic}
@@ -128,7 +123,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
             {character.known_skills.map((skillId) => {
               const skill = skills.find((s) => s.id === skillId);
               return skill ? (
-                <Tag key={skillId} color="green" style={{ cursor: 'pointer' }} onClick={() => showDetail('skill', skillId)}>
+                <Tag key={skillId} style={{ color: ENTITY_COLORS.skill, borderColor: ENTITY_COLORS.skill, background: 'transparent', cursor: 'pointer' }} onClick={() => showDetail('skill', skillId)}>
                   {skill.name}
                 </Tag>
               ) : null;
@@ -159,7 +154,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
           {charDialogues.map((dialogue, index) => (
             <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                <Tag color="purple">{dialogue.tone}</Tag>
+                <Tag style={{ color: PIGMENT.violet, borderColor: PIGMENT.violet, background: 'transparent', marginInlineEnd: 0 }}>{dialogue.tone}</Tag>
                 <span style={{ color: INK.secondary, fontSize: 12 }}>第{dialogue.chapter}章</span>
               </div>
               <Paragraph ellipsis={{ rows: 2, expandable: true }} className="ink-quote" style={{ marginBottom: 0 }}>

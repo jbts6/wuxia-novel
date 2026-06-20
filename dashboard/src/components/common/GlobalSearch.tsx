@@ -162,7 +162,7 @@ const GlobalSearch: React.FC = () => {
       trigger={[]}
       popupRender={() => dropdownContent}
       placement="bottomRight"
-      overlayStyle={{ width: 350, position: 'fixed' }}
+      styles={{ root: { width: 350, position: 'fixed' } }}
     >
       <Input
         prefix={<SearchOutlined style={{ color: '#999' }} />}

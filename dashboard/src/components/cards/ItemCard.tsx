@@ -1,17 +1,13 @@
 import React from 'react';
-import { Card, Tag, Descriptions, Typography, Space } from 'antd';
+import { Card, Descriptions, Typography, Space } from 'antd';
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
-import { ENTITY_COLORS, INK } from '../../theme/palette';
+import { ENTITY_COLORS, INK, RARITY_COLORS, PIGMENT, CINNABAR } from '../../theme/palette';
+import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
 
-const rarityColors: Record<string, string> = {
-  '绝世神兵': 'red',
-  '稀世珍品': 'orange',
-  '上乘佳品': 'blue',
-  '寻常凡品': 'default',
-};
+
 
 interface ItemCardProps {
   id: string;
@@ -39,12 +35,12 @@ const ItemCard: React.FC<ItemCardProps> = ({ id }) => {
           </div>
         </div>
         <Descriptions column={1} size="small">
-          <Descriptions.Item label="稀有度"><Tag color={rarityColors[item.rarity] || 'default'}>{item.rarity}</Tag></Descriptions.Item>
+          <Descriptions.Item label="稀有度"><InkTag color={item.rarity_tier}>{item.rarity_tier}</InkTag></Descriptions.Item>
           {owner && (
             <Descriptions.Item label="持有者">
-              <Tag color="blue" style={{ cursor: 'pointer' }} onClick={() => showDetail('character', owner.id)}>
+              <InkTag color="indigo" style={{ cursor: 'pointer' }} onClick={() => showDetail('character', owner.id)}>
                 {owner.name}
-              </Tag>
+              </InkTag>
             </Descriptions.Item>
           )}
           {item.origin && <Descriptions.Item label="来源">{item.origin}</Descriptions.Item>}
@@ -62,7 +58,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ id }) => {
         <Card size="small" title="效果" style={{ marginBottom: 16 }}>
           <Space wrap>
             {item.effects.map((effect, index) => (
-              <Tag key={index} color="volcano">
+              <Tag key={index} style={{ color: CINNABAR.soft, borderColor: CINNABAR.soft, background: 'transparent', marginInlineEnd: 0 }}>
                 {typeof effect === 'string' ? effect : `${effect.type}: ${effect.description}`}
               </Tag>
             ))}

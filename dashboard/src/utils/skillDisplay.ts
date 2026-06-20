@@ -6,7 +6,7 @@ export function getSkillTechniques(skill: Skill): Technique[] {
 }
 
 export function getSkillRank(skill: Skill): string {
-  return typeof skill.rank === 'string' && skill.rank ? skill.rank : '未分级';
+  return typeof skill.mastery_rank === 'string' && skill.mastery_rank ? skill.mastery_rank : '未分级';
 }
 
 // 武学境界 → 颜色（全站统一用调色板 RANK_COLORS，未知境界回退淡墨）

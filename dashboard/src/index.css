@@ -14,9 +14,24 @@
   --ink-hairline: #d8ccba;
 
   --cinnabar: #a8332a;
+  --cinnabar-base: #a8332a;
   --cinnabar-soft: #c0473b;
   --cinnabar-wash: #f0ddd4;
   --cinnabar-deep: #7d241d;
+
+  /* 辅助国画颜料 */
+  --pigment-ochre: #b8863b;
+  --pigment-ochre-wash: #f1e6cf;
+  --pigment-celadon: #5e7a54;
+  --pigment-celadon-wash: #e2e8d8;
+  --pigment-indigo: #3f5a78;
+  --pigment-indigo-wash: #dde3ec;
+  --pigment-violet: #6d557e;
+  --pigment-violet-wash: #e6dfec;
+  --pigment-cyan: #3f7a78;
+  --pigment-cyan-wash: #dbe8e7;
+  --pigment-stone: #7a7268;
+  --pigment-stone-wash: #e7e1d7;
 
   --font-serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", serif;
   --font-sans: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -61,22 +76,31 @@ h1, h2, h3, h4, h5,
 ::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
 
 /* ============ Antd 预设标签色 → 水墨颜料（全站自动改色） ============ */
-/* 现有组件大量用 <Tag color="red"|"blue"|... />，此处统一重映射为印章式描边标签 */
+/* 基于 ui-ux-pro-max-skill E-Ink/Paper 风格：高对比度、纸质纹理、单色调 */
 .ant-tag {
   border-radius: 2px;
   border-style: solid;
+  border-width: 1px;
   background: transparent;
   font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0 7px;
+  transition: all 0.2s ease;
 }
-.ant-tag-red, .ant-tag-magenta { color: #a8332a; border-color: #a8332a; background: #f0ddd4; }
-.ant-tag-volcano { color: #c0473b; border-color: #c0473b; background: #f5e1d9; }
-.ant-tag-orange, .ant-tag-gold, .ant-tag-yellow { color: #9c6f25; border-color: #b8863b; background: #f1e6cf; }
-.ant-tag-lime, .ant-tag-green { color: #4d6645; border-color: #5e7a54; background: #e2e8d8; }
-.ant-tag-cyan { color: #356664; border-color: #3f7a78; background: #dbe8e7; }
-.ant-tag-blue, .ant-tag-geekblue { color: #3f5a78; border-color: #3f5a78; background: #dde3ec; }
-.ant-tag-purple { color: #6d557e; border-color: #6d557e; background: #e6dfec; }
+.ant-tag:hover {
+  opacity: 0.85;
+}
+/* 语义色映射：使用 CSS 变量保持一致性 */
+.ant-tag-red, .ant-tag-magenta { color: var(--cinnabar-base); border-color: var(--cinnabar-base); background: var(--cinnabar-wash); }
+.ant-tag-volcano { color: var(--cinnabar-soft); border-color: var(--cinnabar-soft); background: var(--cinnabar-wash); }
+.ant-tag-orange, .ant-tag-gold, .ant-tag-yellow { color: var(--pigment-ochre); border-color: var(--pigment-ochre); background: var(--pigment-ochre-wash); }
+.ant-tag-lime, .ant-tag-green { color: var(--pigment-celadon); border-color: var(--pigment-celadon); background: var(--pigment-celadon-wash); }
+.ant-tag-cyan { color: var(--pigment-cyan); border-color: var(--pigment-cyan); background: var(--pigment-cyan-wash); }
+.ant-tag-blue, .ant-tag-geekblue { color: var(--pigment-indigo); border-color: var(--pigment-indigo); background: var(--pigment-indigo-wash); }
+.ant-tag-purple { color: var(--pigment-violet); border-color: var(--pigment-violet); background: var(--pigment-violet-wash); }
 .ant-tag:not([class*="ant-tag-"]),
-.ant-tag-default { color: var(--ink-secondary); border-color: var(--paper-edge); background: var(--paper-sunken); }
+.ant-tag-default { color: var(--ink-secondary); border-color: var(--ink-hairline); background: var(--paper-sunken); }
 
 /* 细墨线分隔，去除 Antd 默认硬边 */
 .ant-card { border-color: var(--ink-hairline); }

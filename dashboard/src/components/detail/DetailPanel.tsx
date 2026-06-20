@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { Breadcrumb, Button, Card, Drawer, Empty, List, Space, Tag, Typography } from 'antd';
+import { Breadcrumb, Button, Card, Drawer, Empty, Space, Tag, Typography } from 'antd';
 import { ArrowRightOutlined, NodeIndexOutlined } from '@ant-design/icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useNovelStore } from '../../stores/useNovelStore';
@@ -175,36 +175,22 @@ const DetailPanel: React.FC = () => {
           {relationshipChain.length === 0 ? (
             <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无直接关系" />
           ) : (
-            <List
-              size="small"
-              dataSource={relationshipChain}
-              renderItem={(item) => (
-                <List.Item
-                  actions={[
-                    <Button
-                      key="open"
-                      type="link"
-                      size="small"
-                      onClick={() => navigateDetail(item.targetType, item.targetId)}
-                    >
-                      查看
-                    </Button>,
-                  ]}
-                >
-                  <List.Item.Meta
-                    title={
-                      <Space wrap size={6}>
-                        <Tag>{TYPE_LABELS[item.targetType]}</Tag>
-                        <Text strong>{item.targetName}</Text>
-                        <ArrowRightOutlined style={{ color: 'var(--ink-faint)' }} />
-                        <Tag color="blue">{item.relation}</Tag>
-                      </Space>
-                    }
-                    description={`关系强度 ${Math.round(item.strength * 100)}%`}
-                  />
-                </List.Item>
-              )}
-            />
+            <div>
+              {relationshipChain.map((item, idx) => (
+                <div key={idx} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: idx < relationshipChain.length - 1 ? '1px solid var(--ink-hairline)' : undefined }}>
+                  <div>
+                    <Space wrap size={6}>
+                      <Tag>{TYPE_LABELS[item.targetType]}</Tag>
+                      <Text strong>{item.targetName}</Text>
+                      <ArrowRightOutlined style={{ color: 'var(--ink-faint)' }} />
+                      <Tag>{item.relation}</Tag>
+                    </Space>
+                    <div style={{ fontSize: 12, color: 'var(--ink-secondary)', marginTop: 4 }}>关系强度 {Math.round(item.strength * 100)}%</div>
+                  </div>
+                  <Button type="link" size="small" onClick={() => navigateDetail(item.targetType, item.targetId)}>查看</Button>
+                </div>
+              ))}
+            </div>
           )}
         </Card>
       )}

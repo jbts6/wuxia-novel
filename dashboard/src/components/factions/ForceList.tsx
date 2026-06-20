@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Tag, Typography, Empty, Spin, Input, Row, Col, Tabs } from 'antd';
+import { Card, Tag, Typography, Empty, Spin, Input, Row, Col, Tabs, Collapse } from 'antd';
 import { TeamOutlined, EnvironmentOutlined, SearchOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
+import { PIGMENT } from '../../theme/palette';
 
 const { Text, Paragraph } = Typography;
 
@@ -77,57 +78,58 @@ const ForceList: React.FC = () => {
               children: (
                 <>
                   {groupedFactions.length === 0 && <Empty description="暂无门派数据" />}
-                  {groupedFactions.map(({ type, items }) => (
-                    <Card
-                      key={type}
-                      size="small"
-                      title={<span><TeamOutlined style={{ marginRight: 8 }} />{type}<Tag style={{ marginLeft: 8 }}>{items.length}个</Tag></span>}
-                      style={{ marginBottom: 16 }}
-                    >
-                      <Row gutter={[12, 12]}>
-                        {items.map(faction => {
-                          const location = locations.find(l => l.id === faction.location);
-                          const members = characters.filter(c => c.faction === faction.id);
-                          return (
-                            <Col xs={24} sm={12} md={8} lg={6} key={faction.id}>
-                              <Card
-                                size="small"
-                                hoverable
-                                onClick={() => showDetail('faction', faction.id)}
-                                style={{ height: '100%' }}
-                              >
-                                <div style={{ marginBottom: 4 }}>
-                                  <Text strong>{faction.name}</Text>
-                                </div>
-                                {location && (
-                                  <div style={{ marginBottom: 4 }}>
-                                    <Tag
-                                      color="purple"
-                                      style={{ cursor: 'pointer' }}
-                                      onClick={e => { e.stopPropagation(); showDetail('location', location.id); }}
-                                    >
-                                      {location.name}
-                                    </Tag>
-                                  </div>
-                                )}
-                                {members.length > 0 && (
-                                  <div style={{ marginBottom: 4 }}>
-                                    <Text type="secondary" style={{ fontSize: 11 }}>
-                                      成员：{members.slice(0, 3).map(m => m.name).join('、')}
-                                      {members.length > 3 && ` 等${members.length}人`}
-                                    </Text>
-                                  </div>
-                                )}
-                                <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
-                                  {faction.one_line}
-                                </Paragraph>
-                              </Card>
-                            </Col>
-                          );
-                        })}
-                      </Row>
-                    </Card>
-                  ))}
+                  {groupedFactions.length > 0 && (
+                    <Collapse
+                      defaultActiveKey={[groupedFactions[0]?.type]}
+                      items={groupedFactions.map(({ type, items }) => ({
+                        key: type,
+                        label: <span><TeamOutlined style={{ marginRight: 8 }} />{type}<Tag style={{ marginLeft: 8 }}>{items.length}个</Tag></span>,
+                        children: (
+                          <Row gutter={[12, 12]}>
+                            {items.map(faction => {
+                              const location = locations.find(l => l.id === faction.location);
+                              const members = characters.filter(c => c.faction === faction.id);
+                              return (
+                                <Col xs={24} sm={12} md={8} lg={6} key={faction.id}>
+                                  <Card
+                                    size="small"
+                                    hoverable
+                                    onClick={() => showDetail('faction', faction.id)}
+                                    style={{ height: '100%' }}
+                                  >
+                                    <div style={{ marginBottom: 4 }}>
+                                      <Text strong>{faction.name}</Text>
+                                    </div>
+                                    {location && (
+                                      <div style={{ marginBottom: 4 }}>
+                                        <Tag
+                                          style={{ color: PIGMENT.violet, borderColor: PIGMENT.violet, background: 'transparent', cursor: 'pointer' }}
+                                          onClick={e => { e.stopPropagation(); showDetail('location', location.id); }}
+                                        >
+                                          {location.name}
+                                        </Tag>
+                                      </div>
+                                    )}
+                                    {members.length > 0 && (
+                                      <div style={{ marginBottom: 4 }}>
+                                        <Text type="secondary" style={{ fontSize: 11 }}>
+                                          成员：{members.slice(0, 3).map(m => m.name).join('、')}
+                                          {members.length > 3 && ` 等${members.length}人`}
+                                        </Text>
+                                      </div>
+                                    )}
+                                    <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
+                                      {faction.one_line}
+                                    </Paragraph>
+                                  </Card>
+                                </Col>
+                              );
+                            })}
+                          </Row>
+                        ),
+                      }))}
+                    />
+                  )}
                 </>
               )
             },
@@ -137,51 +139,52 @@ const ForceList: React.FC = () => {
               children: (
                 <>
                   {groupedLocations.length === 0 && <Empty description="暂无地点数据" />}
-                  {groupedLocations.map(({ region, items }) => (
-                    <Card
-                      key={region}
-                      size="small"
-                      title={<span><EnvironmentOutlined style={{ marginRight: 8 }} />{region}<Tag style={{ marginLeft: 8 }}>{items.length}个</Tag></span>}
-                      style={{ marginBottom: 16 }}
-                    >
-                      <Row gutter={[12, 12]}>
-                        {items.map(location => {
-                          const relatedFactions = factions.filter(f => f.location === location.id);
-                          return (
-                            <Col xs={24} sm={12} md={8} lg={6} key={location.id}>
-                              <Card
-                                size="small"
-                                hoverable
-                                onClick={() => showDetail('location', location.id)}
-                                style={{ height: '100%' }}
-                              >
-                                <div style={{ marginBottom: 4 }}>
-                                  <Text strong>{location.name}</Text>
-                                </div>
-                                {relatedFactions.length > 0 && (
-                                  <div style={{ marginBottom: 4 }}>
-                                    {relatedFactions.map(f => (
-                                      <Tag
-                                        key={f.id}
-                                        color="cyan"
-                                        style={{ cursor: 'pointer', marginBottom: 2 }}
-                                        onClick={e => { e.stopPropagation(); showDetail('faction', f.id); }}
-                                      >
-                                        {f.name}
-                                      </Tag>
-                                    ))}
-                                  </div>
-                                )}
-                                <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
-                                  {location.one_line}
-                                </Paragraph>
-                              </Card>
-                            </Col>
-                          );
-                        })}
-                      </Row>
-                    </Card>
-                  ))}
+                  {groupedLocations.length > 0 && (
+                    <Collapse
+                      defaultActiveKey={[groupedLocations[0]?.region]}
+                      items={groupedLocations.map(({ region, items }) => ({
+                        key: region,
+                        label: <span><EnvironmentOutlined style={{ marginRight: 8 }} />{region}<Tag style={{ marginLeft: 8 }}>{items.length}个</Tag></span>,
+                        children: (
+                          <Row gutter={[12, 12]}>
+                            {items.map(location => {
+                              const relatedFactions = factions.filter(f => f.location === location.id);
+                              return (
+                                <Col xs={24} sm={12} md={8} lg={6} key={location.id}>
+                                  <Card
+                                    size="small"
+                                    hoverable
+                                    onClick={() => showDetail('location', location.id)}
+                                    style={{ height: '100%' }}
+                                  >
+                                    <div style={{ marginBottom: 4 }}>
+                                      <Text strong>{location.name}</Text>
+                                    </div>
+                                    {relatedFactions.length > 0 && (
+                                      <div style={{ marginBottom: 4 }}>
+                                        {relatedFactions.map(f => (
+                                          <Tag
+                                            key={f.id}
+                                            style={{ color: PIGMENT.cyan, borderColor: PIGMENT.cyan, background: 'transparent', cursor: 'pointer', marginBottom: 2 }}
+                                            onClick={e => { e.stopPropagation(); showDetail('faction', f.id); }}
+                                          >
+                                            {f.name}
+                                          </Tag>
+                                        ))}
+                                      </div>
+                                    )}
+                                    <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
+                                      {location.one_line}
+                                    </Paragraph>
+                                  </Card>
+                                </Col>
+                              );
+                            })}
+                          </Row>
+                        ),
+                      }))}
+                    />
+                  )}
                 </>
               )
             }

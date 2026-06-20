@@ -18,6 +18,7 @@ const OTHER_AVATAR_COLORS = [
 ];
 
 function colorForSpeaker(id: string): string {
+  if (!id) return PIGMENT.stone;
   let hash = 0;
   for (let i = 0; i < id.length; i += 1) {
     hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
@@ -44,7 +45,7 @@ const DialogueList: React.FC = () => {
   }, [dialogues]);
 
   const speakers = useMemo(() => {
-    const uniqueSpeakers = [...new Set(dialogues.map((d) => d.speaker_name))];
+    const uniqueSpeakers = [...new Set(dialogues.map((d) => d.speaker_name))].filter(Boolean) as string[];
     return uniqueSpeakers.sort();
   }, [dialogues]);
 
@@ -67,8 +68,8 @@ const DialogueList: React.FC = () => {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
         (d) =>
-          d.text.toLowerCase().includes(query) ||
-          d.speaker_name.toLowerCase().includes(query)
+          (d.text?.toLowerCase().includes(query) ||
+          d.speaker_name?.toLowerCase().includes(query))
       );
     }
 

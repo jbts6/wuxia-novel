@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Tag, Descriptions, Typography, Space } from 'antd';
+import { Card, Descriptions, Typography, Space } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ENTITY_COLORS, INK } from '../../theme/palette';
+import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
 
@@ -34,9 +35,9 @@ const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
         <Descriptions column={1} size="small">
           {location && (
             <Descriptions.Item label="总部">
-              <Tag color="purple" style={{ cursor: 'pointer' }} onClick={() => showDetail('location', location.id)}>
+              <InkTag color="violet" style={{ cursor: 'pointer' }} onClick={() => showDetail('location', location.id)}>
                 {location.name}
-              </Tag>
+              </InkTag>
             </Descriptions.Item>
           )}
         </Descriptions>
@@ -47,7 +48,7 @@ const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
         <Card size="small" title="下属机构" style={{ marginBottom: 16 }}>
           <Space wrap>
             {faction.sub_divisions.map((div, index) => (
-              <Tag key={index} color="cyan">{div}</Tag>
+              <InkTag key={index} color="cyan">{div}</InkTag>
             ))}
           </Space>
         </Card>
