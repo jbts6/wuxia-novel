@@ -6,6 +6,15 @@ const BOOKS_JSON = path.join(ROOT_DIR, 'dashboard', 'public', 'data', 'books.jso
 
 const AUTHORS = ['古龙', '金庸', '黄易', '梁羽生'];
 
+function countJsonArray(filePath) {
+  try {
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    return Array.isArray(data) ? data.length : 0;
+  } catch {
+    return 0;
+  }
+}
+
 function scanBooks() {
   const books = [];
 
@@ -19,24 +28,15 @@ function scanBooks() {
 
       const bookDir = path.join(authorDir, entry.name);
       const charactersPath = path.join(bookDir, 'characters.json');
-
       if (!fs.existsSync(charactersPath)) continue;
-
-      let characters = 0;
-      try {
-        const data = JSON.parse(fs.readFileSync(charactersPath, 'utf-8'));
-        if (Array.isArray(data)) {
-          characters = data.length;
-        }
-      } catch (e) {
-        console.error(`Failed to parse ${charactersPath}: ${e.message}`);
-      }
 
       books.push({
         path: `${author}/${entry.name}`,
         author,
         name: entry.name,
-        characters,
+        characters: countJsonArray(charactersPath),
+        skills: countJsonArray(path.join(bookDir, 'skills.json')),
+        factions: countJsonArray(path.join(bookDir, 'factions.json')),
       });
     }
   }

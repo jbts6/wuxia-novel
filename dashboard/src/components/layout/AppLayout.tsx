@@ -1,8 +1,7 @@
 import React from 'react';
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { Layout, Menu, theme } from 'antd';
+import { Outlet, useNavigate, useLocation, Link } from 'react-router-dom';
+import { Layout, Menu, Breadcrumb, theme } from 'antd';
 import {
-  AppstoreOutlined,
   TeamOutlined,
   ThunderboltOutlined,
   CommentOutlined,
@@ -26,51 +25,56 @@ const AppLayout: React.FC = () => {
     token: { borderRadiusLG },
   } = theme.useToken();
 
+  const isBookRoute = location.pathname.startsWith('/book/');
   const currentBook = books.find(b => b.path === currentBookPath);
-  const bookTitle = currentBook ? currentBook.name : '武侠小说可视化';
 
-  const menuItems = [
-    {
-      key: '/',
-      icon: <DashboardOutlined />,
-      label: '概览',
-    },
-    {
-      key: '/library',
-      icon: <AppstoreOutlined />,
-      label: '全库总览',
-    },
-    {
-      key: '/graph',
-      icon: <TeamOutlined />,
-      label: '人物关系',
-    },
-    {
-      key: '/skills',
-      icon: <ThunderboltOutlined />,
-      label: '武功技能',
-    },
-    {
-      key: '/characters',
-      icon: <UserOutlined />,
-      label: '所有人物',
-    },
-    {
-      key: '/items',
-      icon: <ToolOutlined />,
-      label: '装备道具',
-    },
-    {
-      key: '/forces',
-      icon: <EnvironmentOutlined />,
-      label: '势力分布',
-    },
-    {
-      key: '/dialogues',
-      icon: <CommentOutlined />,
-      label: '经典对话',
-    },
+  const bookMenuItems = [
+    { key: '.', icon: <DashboardOutlined />, label: '概览' },
+    { key: 'graph', icon: <TeamOutlined />, label: '人物关系' },
+    { key: 'skills', icon: <ThunderboltOutlined />, label: '武功技能' },
+    { key: 'characters', icon: <UserOutlined />, label: '所有人物' },
+    { key: 'items', icon: <ToolOutlined />, label: '装备道具' },
+    { key: 'forces', icon: <EnvironmentOutlined />, label: '势力分布' },
+    { key: 'dialogues', icon: <CommentOutlined />, label: '经典对话' },
   ];
+
+  const getSelectedMenuKey = () => {
+    const parts = location.pathname.split('/').filter(Boolean);
+    if (parts.length <= 3) return '.';
+    return parts.slice(3).join('/');
+  };
+
+  const getBreadcrumbItems = () => {
+    const items = [
+      { title: <Link to="/">全库总览</Link> },
+    ];
+    if (currentBook) {
+      const bookBase = `/book/${encodeURIComponent(currentBook.author)}/${encodeURIComponent(currentBook.name)}`;
+      items.push({ title: <span>{currentBook.author}</span> });
+      items.push({ title: <Link to={bookBase}>{currentBook.name}</Link> });
+      const subPath = location.pathname.slice(bookBase.length).replace(/^\//, '');
+      if (subPath) {
+        const labelMap: Record<string, string> = {
+          graph: '人物关系', skills: '武功技能', characters: '所有人物',
+          items: '装备道具', forces: '势力分布', dialogues: '经典对话',
+        };
+        items.push({ title: <span>{labelMap[subPath] || subPath}</span> });
+      }
+    }
+    return items;
+  };
+
+  if (!isBookRoute) {
+    return (
+      <Layout style={{ height: '100vh', overflow: 'hidden', background: 'transparent' }}>
+        <Layout style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>
+          <Content style={{ flex: 1, overflow: 'auto', background: 'var(--paper-base)' }}>
+            <Outlet />
+          </Content>
+        </Layout>
+      </Layout>
+    );
+  }
 
   return (
     <Layout style={{ height: '100vh', overflow: 'hidden', background: 'transparent' }}>
@@ -102,14 +106,17 @@ const AppLayout: React.FC = () => {
               textOverflow: 'ellipsis',
             }}
           >
-            {bookTitle}
+            {currentBook?.name || '武侠图志'}
           </h2>
         </div>
         <Menu
           mode="inline"
-          selectedKeys={[location.pathname]}
-          items={menuItems}
-          onClick={({ key }) => navigate(key)}
+          selectedKeys={[getSelectedMenuKey()]}
+          items={bookMenuItems}
+          onClick={({ key }) => {
+            const bookBase = `/book/${encodeURIComponent(currentBook!.author)}/${encodeURIComponent(currentBook!.name)}`;
+            navigate(key === '.' ? bookBase : `${bookBase}/${key}`);
+          }}
           style={{ borderRight: 0, background: 'transparent', padding: '8px 0' }}
         />
       </Sider>
@@ -125,9 +132,7 @@ const AppLayout: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <BookSelector />
-            <h1 style={{ margin: 0, fontSize: 17, fontFamily: 'var(--font-serif)', color: 'var(--ink-black)' }}>
-              武侠图志
-            </h1>
+            <Breadcrumb items={getBreadcrumbItems()} />
           </div>
           <GlobalSearch />
         </Header>

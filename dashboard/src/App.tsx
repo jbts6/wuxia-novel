@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import { Spin, ConfigProvider, Typography } from 'antd';
+import { ConfigProvider } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import AppLayout from './components/layout/AppLayout';
+import BookLayout from './components/layout/BookLayout';
+import GlobalOverview from './components/library/GlobalOverview';
 import Dashboard from './components/Dashboard';
 import CharacterGraph from './components/graph/CharacterGraph';
 import SkillTree from './components/skills/SkillTree';
@@ -10,15 +12,11 @@ import DialogueList from './components/dialogues/DialogueList';
 import CharacterList from './components/characters/CharacterList';
 import ItemList from './components/items/ItemList';
 import ForceList from './components/factions/ForceList';
-import GlobalLibraryDashboard from './components/library/GlobalLibraryDashboard';
 import DetailPanel from './components/detail/DetailPanel';
-import { useDataLoader } from './hooks/useDataLoader';
 import { useNovelStore } from './stores/useNovelStore';
 import { useBookStore } from './stores/useBookStore';
 import { getDetailSyncAction } from './utils/detailNavigation';
 import { inkTheme } from './theme/inkTheme';
-
-const { Text } = Typography;
 
 const DetailRouteSync: React.FC = () => {
   const location = useLocation();
@@ -49,10 +47,7 @@ const DetailRouteSync: React.FC = () => {
           params.delete('detail');
         }
         navigate(
-          {
-            pathname: location.pathname,
-            search: params.toString(),
-          },
+          { pathname: location.pathname, search: params.toString() },
           { replace: false },
         );
         break;
@@ -65,70 +60,11 @@ const DetailRouteSync: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const { currentBookPath, loadBooks, initFromStorage, books } = useBookStore();
-  const data = useDataLoader(currentBookPath);
-  const { setData, loading: storeLoading, error: storeError } = useNovelStore();
+  const { loadBooks } = useBookStore();
 
   useEffect(() => {
-    initFromStorage();
     loadBooks();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    if (!data.loading && !data.error && currentBookPath) {
-      setData(data);
-    }
-  }, [data, setData, currentBookPath]);
-
-  const isLoading = data.loading || storeLoading;
-  const error = data.error || storeError;
-
-  const currentBook = books.find(b => b.path === currentBookPath);
-
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-          gap: 18,
-          background: 'var(--paper-base)',
-        }}
-      >
-        <span className="ink-seal" style={{ width: 56, height: 56, fontSize: 28 }}>侠</span>
-        <Spin size="large" />
-        {currentBook && (
-          <Text style={{ color: 'var(--ink-secondary)', fontFamily: 'var(--font-serif)' }}>
-            正在展卷《{currentBook.name}》…
-          </Text>
-        )}
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-          background: 'var(--paper-base)',
-        }}
-      >
-        <div style={{ textAlign: 'center', color: 'var(--ink-body)' }}>
-          <h2 style={{ fontFamily: 'var(--font-serif)', color: 'var(--ink-black)' }}>加载失败</h2>
-          <p style={{ color: 'var(--cinnabar)' }}>{error}</p>
-          <p style={{ color: 'var(--ink-secondary)' }}>请确保数据文件存在于正确位置</p>
-        </div>
-      </div>
-    );
-  }
+  }, [loadBooks]);
 
   return (
     <ConfigProvider locale={zhCN} theme={inkTheme}>
@@ -136,14 +72,16 @@ const App: React.FC = () => {
         <DetailRouteSync />
         <Routes>
           <Route path="/" element={<AppLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="library" element={<GlobalLibraryDashboard />} />
-            <Route path="graph" element={<CharacterGraph />} />
-            <Route path="skills" element={<SkillTree />} />
-            <Route path="characters" element={<CharacterList />} />
-            <Route path="items" element={<ItemList />} />
-            <Route path="forces" element={<ForceList />} />
-            <Route path="dialogues" element={<DialogueList />} />
+            <Route index element={<GlobalOverview />} />
+            <Route path="book/:author/:bookName" element={<BookLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="graph" element={<CharacterGraph />} />
+              <Route path="skills" element={<SkillTree />} />
+              <Route path="characters" element={<CharacterList />} />
+              <Route path="items" element={<ItemList />} />
+              <Route path="forces" element={<ForceList />} />
+              <Route path="dialogues" element={<DialogueList />} />
+            </Route>
           </Route>
         </Routes>
         <DetailPanel />

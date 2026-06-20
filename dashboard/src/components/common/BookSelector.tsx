@@ -1,12 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { Dropdown, Input, Tag, Typography } from 'antd';
 import { BookOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import { useBookStore } from '../../stores/useBookStore';
 
 const { Text } = Typography;
 
 const BookSelector: React.FC = () => {
-  const { books, currentBookPath, selectBook } = useBookStore();
+  const { books, currentBookPath } = useBookStore();
+  const navigate = useNavigate();
   const [search, setSearch] = useState('');
 
   const filteredGroups = useMemo(() => {
@@ -58,7 +60,10 @@ const BookSelector: React.FC = () => {
                 {group.books.map(book => (
                   <div
                     key={book.path}
-                    onClick={() => { selectBook(book.path); setSearch(''); }}
+                    onClick={() => {
+                      navigate(`/book/${encodeURIComponent(book.author)}/${encodeURIComponent(book.name)}`);
+                      setSearch('');
+                    }}
                     style={{
                       padding: '8px 12px',
                       cursor: 'pointer',

@@ -5,6 +5,8 @@ export interface BookMeta {
   author: string;
   name: string;
   characters: number;
+  skills: number;
+  factions: number;
 }
 
 interface BookStore {
@@ -15,52 +17,32 @@ interface BookStore {
 
   loadBooks: () => Promise<void>;
   selectBook: (bookPath: string) => void;
-  initFromStorage: () => void;
 }
 
-const STORAGE_KEY = 'novel-dashboard-last-book';
-
-export const useBookStore = create<BookStore>((set, get) => ({
+export const useBookStore = create<BookStore>((set) => ({
   books: [],
   currentBookPath: null,
   loading: false,
   error: null,
 
   loadBooks: async () => {
+    const staticMeta = (window as unknown as { __BOOK_META__?: BookMeta }).__BOOK_META__;
+    if (staticMeta) {
+      set({ books: [staticMeta], currentBookPath: staticMeta.path, loading: false });
+      return;
+    }
     set({ loading: true, error: null });
     try {
       const response = await fetch('/data/books.json');
       if (!response.ok) throw new Error('Failed to load books');
       const books = await response.json();
-
-      const { currentBookPath } = get();
-      if (!currentBookPath && books.length > 0) {
-        set({ books, currentBookPath: books[0].path, loading: false });
-      } else {
-        set({ books, loading: false });
-      }
+      set({ books, loading: false });
     } catch (error) {
       set({ error: error instanceof Error ? error.message : '加载书籍列表失败', loading: false });
     }
   },
 
   selectBook: (bookPath: string) => {
-    set({ currentBookPath: bookPath, loading: true });
-    try {
-      localStorage.setItem(STORAGE_KEY, bookPath);
-    } catch {
-      // localStorage may be unavailable
-    }
-  },
-
-  initFromStorage: () => {
-    try {
-      const lastBook = localStorage.getItem(STORAGE_KEY);
-      if (lastBook) {
-        set({ currentBookPath: lastBook });
-      }
-    } catch {
-      // localStorage may be unavailable
-    }
+    set({ currentBookPath: bookPath });
   },
 }));

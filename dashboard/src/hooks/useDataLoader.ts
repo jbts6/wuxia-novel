@@ -40,6 +40,22 @@ export function useDataLoader(bookPath: string | null): NovelData {
       return;
     }
 
+    const staticData = (window as unknown as { __NOVEL_DATA__?: NovelData }).__NOVEL_DATA__;
+    if (staticData) {
+      setData({
+        characters: staticData.characters || [],
+        skills: staticData.skills || [],
+        techniques: staticData.techniques || [],
+        items: staticData.items || [],
+        locations: staticData.locations || [],
+        factions: staticData.factions || [],
+        dialogues: staticData.dialogues || [],
+        loading: false,
+        error: null,
+      });
+      return;
+    }
+
     const loadData = async () => {
       setData(prev => ({ ...prev, loading: true, error: null }));
 

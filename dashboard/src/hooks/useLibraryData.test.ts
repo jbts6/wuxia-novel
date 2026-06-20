@@ -4,8 +4,8 @@ import type { BookMeta } from '../stores/useBookStore';
 import { loadLibraryData, type LibraryFileFetcher } from './useLibraryData';
 
 const books: BookMeta[] = [
-  { author: '金庸', name: '射雕英雄传', path: '金庸/射雕英雄传', characters: 2 },
-  { author: '古龙', name: '多情剑客无情剑', path: '古龙/多情剑客无情剑', characters: 1 },
+  { author: '金庸', name: '射雕英雄传', path: '金庸/射雕英雄传', characters: 2, skills: 10, factions: 3 },
+  { author: '古龙', name: '多情剑客无情剑', path: '古龙/多情剑客无情剑', characters: 1, skills: 5, factions: 2 },
 ];
 
 describe('loadLibraryData', () => {

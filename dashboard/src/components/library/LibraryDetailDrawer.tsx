@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Button, Collapse, Drawer, Input, InputNumber, Select, Space, Tag, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { useBookStore } from '../../stores/useBookStore';
 import { useLibraryStore } from '../../stores/useLibraryStore';
 import type { LibraryCollections, LibraryRecord } from '../../types/library';
 import { displayArchetype, displayImportance, displayRole } from '../../utils/displayLabels';
@@ -15,7 +14,6 @@ interface LibraryDetailDrawerProps {
 
 const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }) => {
   const navigate = useNavigate();
-  const selectBook = useBookStore((state) => state.selectBook);
   const { selectedKey, selectRecord, annotations, updateAnnotation } = useLibraryStore();
   const [tagInput, setTagInput] = useState('');
 
@@ -73,17 +71,21 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
   const openSourceBook = (bookPath?: string) => {
     const targetKey = selectedKey;
     if (!targetKey) return;
+    const routeByKind = { skill: 'skills', character: 'characters', faction: 'forces', item: 'items' };
+
     if (bookPath) {
-      selectBook(bookPath);
-      navigate(`/characters?detail=character:${(displayEntity as { id?: string }).id}`);
+      const [author, ...nameParts] = bookPath.split('/');
+      const name = nameParts.join('/');
+      navigate(`/book/${encodeURIComponent(author)}/${encodeURIComponent(name)}/characters?detail=character:${(displayEntity as { id?: string }).id}`);
       return;
     }
     if (!record) return;
     const parsed = parseLibraryKey(targetKey);
     if (!parsed) return;
-    selectBook(parsed.bookPath);
-    const routeByKind = { skill: 'skills', character: 'characters', faction: 'forces', item: 'items' };
-    navigate(`/${routeByKind[parsed.kind]}?detail=${parsed.kind}:${parsed.entityId}`);
+    const [author, ...nameParts] = parsed.bookPath.split('/');
+    const name = nameParts.join('/');
+    const route = routeByKind[parsed.kind];
+    navigate(`/book/${encodeURIComponent(author)}/${encodeURIComponent(name)}/${route}?detail=${parsed.kind}:${parsed.entityId}`);
   };
 
   const addTag = () => {

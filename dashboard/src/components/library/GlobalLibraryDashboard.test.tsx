@@ -6,7 +6,7 @@ import GlobalLibraryDashboard from './GlobalLibraryDashboard';
 vi.mock('../../stores/useBookStore', () => ({
   useBookStore: (selector?: unknown) => {
     const state = {
-      books: [{ author: '金庸', name: '射雕英雄传', path: '金庸/射雕英雄传', characters: 2 }],
+      books: [{ author: '金庸', name: '射雕英雄传', path: '金庸/射雕英雄传', characters: 2, skills: 10, factions: 3 }],
     };
     return typeof selector === 'function' ? selector(state) : state;
   },
