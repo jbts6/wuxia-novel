@@ -1,4 +1,9 @@
 const ENTITY_TYPES = ['characters', 'skills', 'techniques', 'factions', 'locations', 'items'];
+const {
+  RANK_VALUES,
+  CHARACTER_IMPORTANCE_VALUES,
+  ITEM_RARITY_VALUES,
+} = require('./semantic-fields');
 
 const PREFIX_BY_TYPE = {
   characters: 'char_',
@@ -73,6 +78,20 @@ function validateSourceRefs(entity, label) {
   return errors;
 }
 
+function validateEnum(value, allowed, label) {
+  if (typeof value !== 'string' || !allowed.includes(value)) {
+    return [`${label}: 必须是 ${allowed.join(' / ')} 之一`];
+  }
+  return [];
+}
+
+function validateLegacyAlias(entity, legacyKey, canonicalKey, auditKey, label) {
+  if (entity[legacyKey] === undefined || entity[legacyKey] === null) return [];
+  if (entity[legacyKey] === entity[canonicalKey]) return [];
+  if (entity[auditKey] === entity[legacyKey]) return [];
+  return [`${label}.${legacyKey}: legacy alias 必须等于 ${canonicalKey} 或记录在 ${auditKey}`];
+}
+
 function validateEntity(type, entity, label) {
   const errors = [];
   if (!isObject(entity)) return [`${label}: 实体必须是对象`];
@@ -84,6 +103,9 @@ function validateEntity(type, entity, label) {
   errors.push(...validateSourceRefs(entity, label));
 
   if (type === 'characters') {
+    errors.push(...validateEnum(entity.power_rank, RANK_VALUES, `${label}.power_rank`));
+    errors.push(...validateEnum(entity.importance, CHARACTER_IMPORTANCE_VALUES, `${label}.importance`));
+    errors.push(...validateLegacyAlias(entity, 'rank', 'power_rank', 'legacy_rank', label));
     for (const [i, rel] of (entity.relationships || []).entries()) {
       if (isObject(rel) && rel.target) {
         errors.push(...validateId(rel.target, 'char_', `${label}.relationships[${i}].target`));
@@ -98,6 +120,8 @@ function validateEntity(type, entity, label) {
   }
 
   if (type === 'skills') {
+    errors.push(...validateEnum(entity.mastery_rank, RANK_VALUES, `${label}.mastery_rank`));
+    errors.push(...validateLegacyAlias(entity, 'rank', 'mastery_rank', 'legacy_rank', label));
     for (const [i, tech] of (entity.techniques || []).entries()) {
       if (isObject(tech) && tech.id) {
         errors.push(...validateId(tech.id, 'tech_', `${label}.techniques[${i}].id`, tech.name));
@@ -110,6 +134,8 @@ function validateEntity(type, entity, label) {
   }
 
   if (type === 'items') {
+    errors.push(...validateEnum(entity.rarity_tier, ITEM_RARITY_VALUES, `${label}.rarity_tier`));
+    errors.push(...validateLegacyAlias(entity, 'rarity', 'rarity_tier', 'legacy_rarity', label));
     if (entity.owner) errors.push(...validateId(entity.owner, 'char_', `${label}.owner`));
     for (const [i, charId] of (entity.related_characters || []).entries()) {
       errors.push(...validateId(charId, 'char_', `${label}.related_characters[${i}]`));

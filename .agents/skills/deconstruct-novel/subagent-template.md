@@ -45,6 +45,8 @@
 - 未命名角色要建 ID，不能因为没有真名就把 speaker 设为 null。
 - tone 必须来自 constants.md 的 dialogue_tone。
 - 所有新实体必须有 source_refs。
+- 实体输出必须使用语义字段：功法写 `mastery_rank`，角色写 `power_rank` 与 `importance`，物品写 `rarity_tier`。
+- 不要把角色重要性、英文标签、数字评分或物品稀有度塞进 `rank`；`rank` / `rarity` 只作为兼容别名。
 - 角色 personality.traits 至少 5 项；武功 techniques 至少 2 项；物品 description 至少 20 字。
 - merge-segments.js 校验失败时，先修正 progress.jsonl 中的坏 ID/结构，再重新合并。
 ```
