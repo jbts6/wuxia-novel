@@ -94,7 +94,7 @@ export const RELATION_COLORS: Record<string, string> = {
 };
 
 // Antd 预设色名 → 水墨色（供 ConfigProvider 或 CSS 覆盖参考）
-// 现有组件大量使用 <Tag color="red"> 等预设名，统一映射到水墨色。
+// 旧版组件曾使用 antd 预设色名，统一映射到水墨色。
 export const ANTD_PRESET_MAP: Record<string, string> = {
   red: CINNABAR.base,
   volcano: CINNABAR.soft,

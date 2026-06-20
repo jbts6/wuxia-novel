@@ -1,7 +1,8 @@
-import { Button, Space, Table, Tag, Typography } from 'antd';
+import { Button, Space, Table, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import type { AnnotatedLibraryRecord, LibraryRecord } from '../../types/library';
 import { displayArchetype, displayImportance, displayRole } from '../../utils/displayLabels';
+import InkTag from '../common/InkTag';
 
 const { Text } = Typography;
 
@@ -62,13 +63,13 @@ const LibraryRecordTable = <T,>({ records, onOpen }: LibraryRecordTableProps<T>)
         const impLabel = displayImportance(entity.importance);
         return (
           <Space wrap size={4}>
-            {rank && <Tag color="red">{rank}</Tag>}
-            {impLabel && <Tag color="blue">{impLabel}</Tag>}
-            {rarity && <Tag color="gold">{rarity}</Tag>}
-            {entity.type && <Tag>{entity.type}</Tag>}
-            {roleLabel && <Tag color="blue">{roleLabel}</Tag>}
-            {archLabel && <Tag color="green">{archLabel}</Tag>}
-            {entity.faction && <Tag color="cyan">{entity.faction}</Tag>}
+            {rank && <InkTag color="red">{rank}</InkTag>}
+            {impLabel && <InkTag color="blue">{impLabel}</InkTag>}
+            {rarity && <InkTag color="gold">{rarity}</InkTag>}
+            {entity.type && <InkTag>{entity.type}</InkTag>}
+            {roleLabel && <InkTag color="blue">{roleLabel}</InkTag>}
+            {archLabel && <InkTag color="green">{archLabel}</InkTag>}
+            {entity.faction && <InkTag color="cyan">{entity.faction}</InkTag>}
           </Space>
         );
       },

@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Tag, Typography, Empty, Spin, Input, Row, Col, Collapse } from 'antd';
+import { Card, Typography, Empty, Spin, Input, Row, Col, Collapse } from 'antd';
 import { ToolOutlined, SearchOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { RARITY_COLORS, PIGMENT, INK } from '../../theme/palette';
+import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
 
@@ -61,7 +62,7 @@ const ItemList: React.FC = () => {
               <span>
                 <ToolOutlined style={{ marginRight: 8 }} />
                 {rarity}
-                <Tag style={{ marginLeft: 8 }}>{rarityItems.length}件</Tag>
+                <InkTag style={{ marginLeft: 8 }}>{rarityItems.length}件</InkTag>
               </span>
             ),
             children: (
@@ -78,15 +79,15 @@ const ItemList: React.FC = () => {
                       >
                         <div style={{ marginBottom: 4 }}>
                           <Text strong>{item.name}</Text>
-                          <Tag style={{ color: RARITY_COLORS[item.rarity_tier] || INK.faint, borderColor: RARITY_COLORS[item.rarity_tier] || INK.faint, background: 'transparent', marginLeft: 8 }}>
+                          <InkTag color={RARITY_COLORS[item.rarity_tier] || INK.faint} wash={false} style={{ marginLeft: 8 }}>
                             {typeLabel[item.type] || item.type}
-                          </Tag>
+                          </InkTag>
                         </div>
                         {owner && (
                           <div style={{ marginBottom: 4 }}>
-                            <Tag style={{ color: PIGMENT.indigo, borderColor: PIGMENT.indigo, background: 'transparent', cursor: 'pointer' }} onClick={e => { e.stopPropagation(); showDetail('character', owner.id); }}>
+                            <InkTag color={PIGMENT.indigo} wash={false} style={{ cursor: 'pointer' }} onClick={e => { e.stopPropagation(); showDetail('character', owner.id); }}>
                               {owner.name}
-                            </Tag>
+                            </InkTag>
                           </div>
                         )}
                         <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>

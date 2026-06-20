@@ -60,9 +60,9 @@ const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
             <div key={char.id} style={{ cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }} onClick={() => showDetail('character', char.id)}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontWeight: 500 }}>{char.name}</span>
-                <Tag color={char.role === 'protagonist' ? 'blue' : char.role === 'villain' ? 'red' : 'default'}>
+                <InkTag color={char.role}>
                   {char.role === 'protagonist' ? '主角' : char.role === 'villain' ? '反派' : 'NPC'}
-                </Tag>
+                </InkTag>
               </div>
               <div style={{ color: INK.secondary, fontSize: 12 }}>{char.identity}</div>
             </div>

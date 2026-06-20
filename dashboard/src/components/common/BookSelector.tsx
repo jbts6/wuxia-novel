@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { Dropdown, Input, Tag, Typography } from 'antd';
+import { Dropdown, Input, Typography } from 'antd';
 import { BookOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useBookStore } from '../../stores/useBookStore';
+import InkTag from './InkTag';
 
 const { Text } = Typography;
 
@@ -76,7 +77,7 @@ const BookSelector: React.FC = () => {
                     onMouseLeave={e => { if (book.path !== currentBookPath) e.currentTarget.style.background = 'transparent'; }}
                   >
                     <span>{book.name}</span>
-                    <Tag color="blue" style={{ marginLeft: 8 }}>{book.characters}角色</Tag>
+                    <InkTag color="blue" style={{ marginLeft: 8 }}>{book.characters}角色</InkTag>
                   </div>
                 ))}
               </div>

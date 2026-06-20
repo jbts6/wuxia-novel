@@ -2,8 +2,8 @@ import React from 'react';
 import { Card, Descriptions, Typography, Space } from 'antd';
 import { UserOutlined, FireOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
-import { ENTITY_COLORS, INK, PIGMENT, CINNABAR } from '../../theme/palette';
-import { getSkillEffects, getSkillProgression, getRankColor } from '../../utils/skillDisplay';
+import { ENTITY_COLORS, INK, CINNABAR } from '../../theme/palette';
+import { getSkillEffects, getSkillProgression } from '../../utils/skillDisplay';
 import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
@@ -33,7 +33,6 @@ const SkillCard: React.FC<SkillCardProps> = ({ id }) => {
 
   const effects = getSkillEffects(skill);
   const progression = getSkillProgression(skill);
-  const rankColor = getRankColor(skill.mastery_rank);
 
   return (
     <div>
@@ -80,9 +79,9 @@ const SkillCard: React.FC<SkillCardProps> = ({ id }) => {
         <Card size="small" title={<span><FireOutlined /> 效果</span>} style={{ marginBottom: 16 }}>
           <Space wrap>
             {effects.map((effect, index) => (
-              <Tag key={index} style={{ color: CINNABAR.soft, borderColor: CINNABAR.soft, background: 'transparent', marginInlineEnd: 0 }}>
+              <InkTag key={index} color={CINNABAR.soft} wash={false}>
                 {effect}
-              </Tag>
+              </InkTag>
             ))}
           </Space>
         </Card>

@@ -1,10 +1,11 @@
 import React, { useMemo, useState } from 'react';
-import { Button, Collapse, Drawer, Input, InputNumber, Select, Space, Tag, Typography } from 'antd';
+import { Button, Collapse, Drawer, Input, InputNumber, Select, Space, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useLibraryStore } from '../../stores/useLibraryStore';
 import type { LibraryCollections, LibraryRecord } from '../../types/library';
 import { displayArchetype, displayImportance, displayRole } from '../../utils/displayLabels';
 import { parseLibraryKey } from '../../utils/libraryKeys';
+import InkTag from '../common/InkTag';
 
 const { Paragraph, Text, Title } = Typography;
 
@@ -109,7 +110,7 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
           {mergedEntity.identity && <Paragraph style={{ marginTop: 4 }}>{mergedEntity.identity}</Paragraph>}
           <Paragraph style={{ marginTop: 8 }}>{mergedEntity.one_line}</Paragraph>
           <Space wrap>
-            {mergedEntity.archetype && <Tag color="green">{mergedEntity.archetype}</Tag>}
+            {mergedEntity.archetype && <InkTag color="green">{mergedEntity.archetype}</InkTag>}
           </Space>
         </div>
 
@@ -126,13 +127,13 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
               children: (
                 <Space orientation="vertical" size={8} style={{ width: '100%' }}>
                   <Space wrap>
-                    {rank && <Tag color="red">{rank}</Tag>}
-                    {displayImportance(e.importance) && <Tag color="blue">{displayImportance(e.importance)}</Tag>}
-                    {rarity && <Tag color="gold">{rarity}</Tag>}
-                    {e.type && <Tag>{e.type}</Tag>}
-                    {displayRole(e.role) && <Tag color="blue">{displayRole(e.role)}</Tag>}
-                    {e.faction && <Tag color="cyan">{e.faction}</Tag>}
-                    {e.legacy_rank && <Tag>legacy: {e.legacy_rank}</Tag>}
+                    {rank && <InkTag color="red">{rank}</InkTag>}
+                    {displayImportance(e.importance) && <InkTag color="blue">{displayImportance(e.importance)}</InkTag>}
+                    {rarity && <InkTag color="gold">{rarity}</InkTag>}
+                    {e.type && <InkTag>{e.type}</InkTag>}
+                    {displayRole(e.role) && <InkTag color="blue">{displayRole(e.role)}</InkTag>}
+                    {e.faction && <InkTag color="cyan">{e.faction}</InkTag>}
+                    {e.legacy_rank && <InkTag>legacy: {e.legacy_rank}</InkTag>}
                   </Space>
                   <Button size="small" onClick={() => openSourceBook(r.source.bookPath)}>打开原书</Button>
                 </Space>
@@ -144,7 +145,7 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
         <div>
           <Text strong>游戏标签</Text>
           <Space wrap style={{ display: 'flex', marginTop: 8 }}>
-            {(annotation?.gameTags ?? []).map((tag) => <Tag key={tag}>{tag}</Tag>)}
+            {(annotation?.gameTags ?? []).map((tag) => <InkTag key={tag}>{tag}</InkTag>)}
             <Input value={tagInput} onChange={(event) => setTagInput(event.target.value)} onPressEnter={addTag} placeholder="新增标签" style={{ width: 140 }} />
             <Button onClick={addTag}>添加</Button>
           </Space>
@@ -185,15 +186,15 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
           <Text type="secondary">{record.source.author} / {record.source.bookName}</Text>
           <Paragraph style={{ marginTop: 12 }}>{entity.one_line}</Paragraph>
           <Space wrap>
-            {displayRank && <Tag color="red">{displayRank}</Tag>}
-            {displayImportance(entity.importance) && <Tag color="blue">{displayImportance(entity.importance)}</Tag>}
-            {displayRarity && <Tag color="gold">{displayRarity}</Tag>}
-            {entity.type && <Tag>{entity.type}</Tag>}
-            {displayRole(entity.role) && <Tag color="blue">{displayRole(entity.role)}</Tag>}
-            {displayArchetype(entity.archetype) && <Tag color="green">{displayArchetype(entity.archetype)}</Tag>}
-            {entity.faction && <Tag color="cyan">{entity.faction}</Tag>}
-            {entity.legacy_rank && <Tag color="default">legacy: {entity.legacy_rank}</Tag>}
-            {entity.legacy_rarity && <Tag color="default">legacy: {entity.legacy_rarity}</Tag>}
+            {displayRank && <InkTag color="red">{displayRank}</InkTag>}
+            {displayImportance(entity.importance) && <InkTag color="blue">{displayImportance(entity.importance)}</InkTag>}
+            {displayRarity && <InkTag color="gold">{displayRarity}</InkTag>}
+            {entity.type && <InkTag>{entity.type}</InkTag>}
+            {displayRole(entity.role) && <InkTag color="blue">{displayRole(entity.role)}</InkTag>}
+            {displayArchetype(entity.archetype) && <InkTag color="green">{displayArchetype(entity.archetype)}</InkTag>}
+            {entity.faction && <InkTag color="cyan">{entity.faction}</InkTag>}
+            {entity.legacy_rank && <InkTag color="default">legacy: {entity.legacy_rank}</InkTag>}
+            {entity.legacy_rarity && <InkTag color="default">legacy: {entity.legacy_rarity}</InkTag>}
           </Space>
         </div>
 
@@ -202,7 +203,7 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
         <div>
           <Text strong>游戏标签</Text>
           <Space wrap style={{ display: 'flex', marginTop: 8 }}>
-            {(annotation?.gameTags ?? []).map((tag) => <Tag key={tag}>{tag}</Tag>)}
+            {(annotation?.gameTags ?? []).map((tag) => <InkTag key={tag}>{tag}</InkTag>)}
             <Input value={tagInput} onChange={(event) => setTagInput(event.target.value)} onPressEnter={addTag} placeholder="新增标签" style={{ width: 140 }} />
             <Button onClick={addTag}>添加</Button>
           </Space>

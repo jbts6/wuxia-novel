@@ -1,7 +1,8 @@
-import { Badge, Button, Space, Table, Tag, Typography } from 'antd';
+import { Badge, Button, Space, Table, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import type { MergedCharacterRecord } from '../../types/library';
 import { displayArchetype, displayImportance, displayRole } from '../../utils/displayLabels';
+import InkTag from '../common/InkTag';
 
 const { Text } = Typography;
 
@@ -45,14 +46,14 @@ const MergedCharacterTable: React.FC<MergedCharacterTableProps> = ({ records, on
         const impLabel = displayImportance(p.importance);
         return (
           <Space wrap size={4}>
-            {p.power_rank && <Tag color="red">{p.power_rank}</Tag>}
-            {impLabel && <Tag color="blue">{impLabel}</Tag>}
-            {roleLabel && <Tag color="blue">{roleLabel}</Tag>}
-            {archLabel && <Tag color="green">{archLabel}</Tag>}
-            {p.faction && <Tag color="cyan">{p.faction}</Tag>}
+            {p.power_rank && <InkTag color="red">{p.power_rank}</InkTag>}
+            {impLabel && <InkTag color="blue">{impLabel}</InkTag>}
+            {roleLabel && <InkTag color="blue">{roleLabel}</InkTag>}
+            {archLabel && <InkTag color="green">{archLabel}</InkTag>}
+            {p.faction && <InkTag color="cyan">{p.faction}</InkTag>}
             {record.appearances.length > 1 && (
               <Badge count={record.appearances.length} size="small" color="blue">
-                <Tag style={{ marginRight: 0 }}>出处</Tag>
+                <InkTag style={{ marginRight: 0 }}>出处</InkTag>
               </Badge>
             )}
           </Space>

@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { Breadcrumb, Button, Card, Drawer, Empty, Space, Tag, Typography } from 'antd';
+import { Breadcrumb, Button, Card, Drawer, Empty, Space, Typography } from 'antd';
 import { ArrowRightOutlined, NodeIndexOutlined } from '@ant-design/icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useNovelStore } from '../../stores/useNovelStore';
@@ -12,6 +12,7 @@ import ErrorBoundary from '../common/ErrorBoundary';
 import type { CardType } from '../../types/novel';
 import { formatDetailParam } from '../../utils/detailNavigation';
 import { getRelationshipChain } from '../../utils/graphHelper';
+import InkTag from '../common/InkTag';
 
 const { Text } = Typography;
 
@@ -180,10 +181,10 @@ const DetailPanel: React.FC = () => {
                 <div key={idx} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: idx < relationshipChain.length - 1 ? '1px solid var(--ink-hairline)' : undefined }}>
                   <div>
                     <Space wrap size={6}>
-                      <Tag>{TYPE_LABELS[item.targetType]}</Tag>
+                      <InkTag>{TYPE_LABELS[item.targetType]}</InkTag>
                       <Text strong>{item.targetName}</Text>
                       <ArrowRightOutlined style={{ color: 'var(--ink-faint)' }} />
-                      <Tag>{item.relation}</Tag>
+                      <InkTag>{item.relation}</InkTag>
                     </Space>
                     <div style={{ fontSize: 12, color: 'var(--ink-secondary)', marginTop: 4 }}>关系强度 {Math.round(item.strength * 100)}%</div>
                   </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Descriptions, Typography, Space } from 'antd';
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
-import { ENTITY_COLORS, INK, RARITY_COLORS, PIGMENT, CINNABAR } from '../../theme/palette';
+import { ENTITY_COLORS, INK, CINNABAR } from '../../theme/palette';
 import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
@@ -58,9 +58,9 @@ const ItemCard: React.FC<ItemCardProps> = ({ id }) => {
         <Card size="small" title="效果" style={{ marginBottom: 16 }}>
           <Space wrap>
             {item.effects.map((effect, index) => (
-              <Tag key={index} style={{ color: CINNABAR.soft, borderColor: CINNABAR.soft, background: 'transparent', marginInlineEnd: 0 }}>
+              <InkTag key={index} color={CINNABAR.soft} wash={false}>
                 {typeof effect === 'string' ? effect : `${effect.type}: ${effect.description}`}
-              </Tag>
+              </InkTag>
             ))}
           </Space>
         </Card>

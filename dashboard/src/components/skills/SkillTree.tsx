@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react';
-import { Card, Tag, Typography, Empty, Spin, Space, Row, Col, Collapse } from 'antd';
+import { Card, Typography, Empty, Spin, Space, Row, Col, Collapse } from 'antd';
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { getRankColor, getSkillRank, getSkillSummary, getSkillTechniques, getSkillType } from '../../utils/skillDisplay';
-import { ENTITY_COLORS, PIGMENT } from '../../theme/palette';
+import { ENTITY_COLORS } from '../../theme/palette';
+import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
 
@@ -51,9 +52,9 @@ const SkillTree: React.FC = () => {
           {rankOrder.map((rank) => {
             const color = getRankColor(rank);
             return (
-              <Tag key={rank} style={{ color, borderColor: color, background: 'transparent' }}>
+              <InkTag key={rank} color={color} wash={false}>
                 {rank}
-              </Tag>
+              </InkTag>
             );
           })}
         </Space>
@@ -68,7 +69,7 @@ const SkillTree: React.FC = () => {
               <span>
                 <ThunderboltOutlined style={{ marginRight: 8 }} />
                 {type}
-                <Tag style={{ marginLeft: 8 }}>{typeSkills.length}个</Tag>
+                <InkTag style={{ marginLeft: 8 }}>{typeSkills.length}个</InkTag>
               </span>
             ),
             children: (
@@ -97,11 +98,9 @@ const SkillTree: React.FC = () => {
                         >
                           <div style={{ marginBottom: 8 }}>
                             <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{skill.name}</Text>
-                            <Tag
-                              style={{ marginLeft: 8, color: skillRankColor, borderColor: skillRankColor, background: 'transparent' }}
-                            >
+                            <InkTag color={skillRankColor} wash={false} style={{ marginLeft: 8 }}>
                               {skillRank}
-                            </Tag>
+                            </InkTag>
                           </div>
                           <Paragraph
                             ellipsis={{ rows: 2 }}
@@ -112,12 +111,12 @@ const SkillTree: React.FC = () => {
                           </Paragraph>
                           <div>
                             {techniques.slice(0, 3).map((tech) => (
-                              <Tag key={tech.id} style={{ marginBottom: 4 }}>
+                              <InkTag key={tech.id} style={{ marginBottom: 4 }}>
                                 {tech.name}
-                              </Tag>
+                              </InkTag>
                             ))}
                             {techniques.length > 3 && (
-                              <Tag>+{techniques.length - 3}</Tag>
+                              <InkTag>+{techniques.length - 3}</InkTag>
                             )}
                           </div>
                           {relatedChars.length > 0 && (
@@ -126,16 +125,18 @@ const SkillTree: React.FC = () => {
                                 掌握者：
                               </Text>
                               {relatedChars.slice(0, 2).map((char) => (
-                                <Tag
+                                <InkTag
                                   key={char.id}
-                                  style={{ color: ENTITY_COLORS.character, borderColor: ENTITY_COLORS.character, background: 'transparent', cursor: 'pointer' }}
+                                  color={ENTITY_COLORS.character}
+                                  wash={false}
+                                  style={{ cursor: 'pointer' }}
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     showDetail('character', char.id);
                                   }}
                                 >
                                   {char.name}
-                                </Tag>
+                                </InkTag>
                               ))}
                             </div>
                           )}

@@ -6,8 +6,7 @@ import {
   FireOutlined,
 } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
-import { ENTITY_COLORS, INK, PIGMENT, CINNABAR, ROLE_COLORS, RELATION_COLORS } from '../../theme/palette';
-import { getRankColor } from '../../utils/skillDisplay';
+import { ENTITY_COLORS, INK, PIGMENT, RELATION_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
@@ -105,7 +104,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <span style={{ fontWeight: 500 }}>{target?.name || rel.target}</span>
-                  <Tag style={{ color: RELATION_COLORS[rel.type] || PIGMENT.indigo, borderColor: RELATION_COLORS[rel.type] || PIGMENT.indigo, background: 'transparent', marginInlineEnd: 0 }}>{rel.type}</Tag>
+                  <InkTag color={RELATION_COLORS[rel.type] || PIGMENT.indigo} wash={false}>{rel.type}</InkTag>
                 </div>
                 <div style={{ color: INK.secondary, fontSize: 12 }}>
                   强度: {rel.intensity} · {rel.dynamic}
@@ -123,9 +122,9 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
             {character.known_skills.map((skillId) => {
               const skill = skills.find((s) => s.id === skillId);
               return skill ? (
-                <Tag key={skillId} style={{ color: ENTITY_COLORS.skill, borderColor: ENTITY_COLORS.skill, background: 'transparent', cursor: 'pointer' }} onClick={() => showDetail('skill', skillId)}>
+                <InkTag key={skillId} color={ENTITY_COLORS.skill} wash={false} style={{ cursor: 'pointer' }} onClick={() => showDetail('skill', skillId)}>
                   {skill.name}
-                </Tag>
+                </InkTag>
               ) : null;
             })}
           </Space>
@@ -152,9 +151,9 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
       {charDialogues.length > 0 && (
         <Card size="small" title="经典台词" style={{ marginBottom: 16 }}>
           {charDialogues.map((dialogue, index) => (
-            <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                <Tag style={{ color: PIGMENT.violet, borderColor: PIGMENT.violet, background: 'transparent', marginInlineEnd: 0 }}>{dialogue.tone}</Tag>
+              <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                <InkTag color={PIGMENT.violet} wash={false}>{dialogue.tone}</InkTag>
                 <span style={{ color: INK.secondary, fontSize: 12 }}>第{dialogue.chapter}章</span>
               </div>
               <Paragraph ellipsis={{ rows: 2, expandable: true }} className="ink-quote" style={{ marginBottom: 0 }}>

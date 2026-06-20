@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Tag, Typography, Empty, Spin, Input, Row, Col } from 'antd';
+import { Card, Typography, Empty, Spin, Input, Row, Col } from 'antd';
 import { UserOutlined, SearchOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
+import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
 
@@ -62,7 +63,7 @@ const CharacterList: React.FC = () => {
           <Card
             key={factionName}
             size="small"
-            title={<span><UserOutlined style={{ marginRight: 8 }} />{factionName}<Tag style={{ marginLeft: 8 }}>{chars.length}人</Tag></span>}
+            title={<span><UserOutlined style={{ marginRight: 8 }} />{factionName}<InkTag style={{ marginLeft: 8 }}>{chars.length}人</InkTag></span>}
             style={{ marginBottom: 16 }}
           >
             <Row gutter={[12, 12]}>
@@ -80,12 +81,12 @@ const CharacterList: React.FC = () => {
                     <div style={{ marginBottom: 4 }}>
                       <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
                       {powerRank && (
-                        <Tag color={rankColor[powerRank] || 'default'} style={{ marginLeft: 8 }}>{powerRank}</Tag>
+                        <InkTag color={rankColor[powerRank] || 'default'} style={{ marginLeft: 8 }}>{powerRank}</InkTag>
                       )}
                     </div>
                     {char.alias?.length > 0 && (
                       <div style={{ marginBottom: 4 }}>
-                        {char.alias.slice(0, 2).map(a => <Tag key={a} style={{ fontSize: 11 }}>{a}</Tag>)}
+                        {char.alias.slice(0, 2).map(a => <InkTag key={a} style={{ fontSize: 11 }}>{a}</InkTag>)}
                       </div>
                     )}
                     <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>

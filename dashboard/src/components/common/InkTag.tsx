@@ -1,12 +1,10 @@
 /**
  * InkTag — 水墨标签组件
  * 
- * 基于 Antd Tag 封装，统一应用水墨主题样式。
+ * 原生水墨徽签，避免业务 UI 继续继承 antd Tag 的视觉语言。
  * 支持语义色（attack/defense/special 等）和自定义色。
  */
 import React from 'react';
-import { Tag } from 'antd';
-import type { TagProps } from 'antd/es/tag';
 import { CINNABAR, PIGMENT, INK } from '../../theme/palette';
 
 /** 语义色映射（用于 technique type、rank 等） */
@@ -60,7 +58,7 @@ const SEMANTIC_COLORS: Record<string, { color: string; wash: string }> = {
   default: { color: PIGMENT.stone, wash: PIGMENT.stoneWash },
 };
 
-export interface InkTagProps extends Omit<TagProps, 'color'> {
+export interface InkTagProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'> {
   /** 语义色 key 或自定义颜色 */
   color?: string;
   /** 是否使用半透明底色（默认 true） */
@@ -71,30 +69,45 @@ const InkTag: React.FC<InkTagProps> = ({
   color, 
   wash = true, 
   style, 
+  className,
   children, 
+  onClick,
+  onKeyDown,
+  tabIndex,
+  role,
   ...props 
 }) => {
   // 查找语义色
   const semantic = color ? SEMANTIC_COLORS[color] : undefined;
   const resolvedColor = semantic?.color || color || PIGMENT.stone;
   const resolvedWash = semantic?.wash;
+  const interactive = Boolean(onClick);
+
+  const handleKeyDown: React.KeyboardEventHandler<HTMLSpanElement> = (event) => {
+    onKeyDown?.(event);
+    if (!interactive || event.defaultPrevented) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onClick?.(event as unknown as React.MouseEvent<HTMLSpanElement>);
+    }
+  };
 
   return (
-    <Tag
+    <span
       {...props}
+      className={['ink-tag', interactive ? 'ink-tag-clickable' : '', className].filter(Boolean).join(' ')}
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
+      role={role ?? (interactive ? 'button' : undefined)}
+      tabIndex={tabIndex ?? (interactive ? 0 : undefined)}
       style={{
-        color: resolvedColor,
-        borderColor: resolvedColor,
-        background: wash && resolvedWash ? resolvedWash : 'transparent',
-        fontFamily: 'var(--font-sans)',
-        borderRadius: 2,
-        borderStyle: 'solid',
-        marginInlineEnd: 0,
+        '--ink-tag-color': resolvedColor,
+        '--ink-tag-wash': wash && resolvedWash ? resolvedWash : 'transparent',
         ...style,
-      }}
+      } as React.CSSProperties}
     >
       {children}
-    </Tag>
+    </span>
   );
 };
 

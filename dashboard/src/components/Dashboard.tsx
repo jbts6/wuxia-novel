@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Tag } from 'antd';
+import { Row, Col } from 'antd';
 import {
   UserOutlined,
   ThunderboltOutlined,
@@ -12,6 +12,7 @@ import { useNovelStore } from '../stores/useNovelStore';
 import { useBookStore } from '../stores/useBookStore';
 import { ENTITY_COLORS, CINNABAR, PIGMENT, INK } from '../theme/palette';
 import { getRankColor } from '../utils/skillDisplay';
+import InkTag from './common/InkTag';
 
 const RANK_ORDER = ['返璞归真', '登峰造极', '出神入化', '炉火纯青', '登堂入室', '略有小成', '初窥门径', '平平无奇'];
 const RARITY_ORDER = ['绝世神兵', '稀世珍品', '上乘佳品', '寻常凡品'];
@@ -200,9 +201,7 @@ const ListRow: React.FC<{
   >
     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
       <span style={{ fontWeight: 600, color: INK.black }}>{name}</span>
-      <Tag style={{ color: tagColor, borderColor: tagColor, background: 'transparent', marginInlineEnd: 0 }}>
-        {tag}
-      </Tag>
+      <InkTag color={tagColor} wash={false}>{tag}</InkTag>
     </div>
     <div style={{ color: INK.secondary, fontSize: 12, marginTop: 4 }}>{desc}</div>
   </div>

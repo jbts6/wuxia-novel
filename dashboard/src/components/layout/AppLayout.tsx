@@ -66,9 +66,9 @@ const AppLayout: React.FC = () => {
 
   if (!isBookRoute) {
     return (
-      <Layout style={{ height: '100vh', overflow: 'hidden', background: 'transparent' }}>
+      <Layout className="app-shell app-shell-global">
         <Layout style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>
-          <Content style={{ flex: 1, overflow: 'auto', background: 'var(--paper-base)' }}>
+          <Content className="app-global-content">
             <Outlet />
           </Content>
         </Layout>
@@ -77,12 +77,13 @@ const AppLayout: React.FC = () => {
   }
 
   return (
-    <Layout style={{ height: '100vh', overflow: 'hidden', background: 'transparent' }}>
+    <Layout className="app-shell">
       <Sider
+        className="app-sider"
         breakpoint="lg"
         collapsedWidth="80"
         width={220}
-        style={{ overflow: 'auto', borderRight: '1px solid var(--ink-hairline)' }}
+        style={{ overflow: 'auto' }}
       >
         <div
           style={{
@@ -122,12 +123,12 @@ const AppLayout: React.FC = () => {
       </Sider>
       <Layout style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>
         <Header
+          className="app-header"
           style={{
             padding: '0 24px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            borderBottom: '1px solid var(--ink-hairline)',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -137,12 +138,11 @@ const AppLayout: React.FC = () => {
           <GlobalSearch />
         </Header>
         <Content
+          className="app-content-panel"
           style={{
             flex: 1,
             margin: '20px 18px',
             padding: 24,
-            background: 'var(--paper-raised)',
-            border: '1px solid var(--ink-hairline)',
             borderRadius: borderRadiusLG,
             overflow: 'auto',
           }}

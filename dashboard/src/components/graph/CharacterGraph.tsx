@@ -1,8 +1,9 @@
 import React, { useMemo, useCallback, useRef, useState } from 'react';
-import { Spin, Empty, Tag, Space, Checkbox, Card } from 'antd';
+import { Spin, Empty, Space, Checkbox, Card } from 'antd';
 import { useNovelStore } from '../../stores/useNovelStore';
 import type { CardType, GraphLink } from '../../types/novel';
 import { ENTITY_COLORS, INK, PAPER, CINNABAR } from '../../theme/palette';
+import InkTag from '../common/InkTag';
 
 const ForceGraph2D = React.lazy(() => import('react-force-graph-2d'));
 
@@ -189,9 +190,9 @@ const CharacterGraph: React.FC = () => {
                 checked={visibleTypes.includes(type.key)}
                 onChange={() => toggleType(type.key)}
               >
-                <Tag color={type.color} style={{ margin: 0 }}>
+                <InkTag color={type.color} style={{ margin: 0 }}>
                   {type.label}
-                </Tag>
+                </InkTag>
               </Checkbox>
             ))}
           </Space>

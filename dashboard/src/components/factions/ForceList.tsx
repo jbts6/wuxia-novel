@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Tag, Typography, Empty, Spin, Input, Row, Col, Tabs, Collapse } from 'antd';
+import { Card, Typography, Empty, Spin, Input, Row, Col, Tabs, Collapse } from 'antd';
 import { TeamOutlined, EnvironmentOutlined, SearchOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { PIGMENT } from '../../theme/palette';
+import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
 
@@ -83,7 +84,7 @@ const ForceList: React.FC = () => {
                       defaultActiveKey={[groupedFactions[0]?.type]}
                       items={groupedFactions.map(({ type, items }) => ({
                         key: type,
-                        label: <span><TeamOutlined style={{ marginRight: 8 }} />{type}<Tag style={{ marginLeft: 8 }}>{items.length}个</Tag></span>,
+                        label: <span><TeamOutlined style={{ marginRight: 8 }} />{type}<InkTag style={{ marginLeft: 8 }}>{items.length}个</InkTag></span>,
                         children: (
                           <Row gutter={[12, 12]}>
                             {items.map(faction => {
@@ -102,12 +103,14 @@ const ForceList: React.FC = () => {
                                     </div>
                                     {location && (
                                       <div style={{ marginBottom: 4 }}>
-                                        <Tag
-                                          style={{ color: PIGMENT.violet, borderColor: PIGMENT.violet, background: 'transparent', cursor: 'pointer' }}
+                                        <InkTag
+                                          color={PIGMENT.violet}
+                                          wash={false}
+                                          style={{ cursor: 'pointer' }}
                                           onClick={e => { e.stopPropagation(); showDetail('location', location.id); }}
                                         >
                                           {location.name}
-                                        </Tag>
+                                        </InkTag>
                                       </div>
                                     )}
                                     {members.length > 0 && (
@@ -144,7 +147,7 @@ const ForceList: React.FC = () => {
                       defaultActiveKey={[groupedLocations[0]?.region]}
                       items={groupedLocations.map(({ region, items }) => ({
                         key: region,
-                        label: <span><EnvironmentOutlined style={{ marginRight: 8 }} />{region}<Tag style={{ marginLeft: 8 }}>{items.length}个</Tag></span>,
+                        label: <span><EnvironmentOutlined style={{ marginRight: 8 }} />{region}<InkTag style={{ marginLeft: 8 }}>{items.length}个</InkTag></span>,
                         children: (
                           <Row gutter={[12, 12]}>
                             {items.map(location => {
@@ -163,13 +166,15 @@ const ForceList: React.FC = () => {
                                     {relatedFactions.length > 0 && (
                                       <div style={{ marginBottom: 4 }}>
                                         {relatedFactions.map(f => (
-                                          <Tag
+                                          <InkTag
                                             key={f.id}
-                                            style={{ color: PIGMENT.cyan, borderColor: PIGMENT.cyan, background: 'transparent', cursor: 'pointer', marginBottom: 2 }}
+                                            color={PIGMENT.cyan}
+                                            wash={false}
+                                            style={{ cursor: 'pointer', marginBottom: 2 }}
                                             onClick={e => { e.stopPropagation(); showDetail('faction', f.id); }}
                                           >
                                             {f.name}
-                                          </Tag>
+                                          </InkTag>
                                         ))}
                                       </div>
                                     )}
