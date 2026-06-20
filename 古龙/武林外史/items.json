@@ -2,13 +2,12 @@
   {
     "id": "item_zhan_xin_guan_mu",
     "name": "崭新棺木",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "仁义庄前厅陈放的十多具崭新棺木",
     "description": "仁义庄前厅中陈放的十多具崭新棺木，似是专等死人前来入葬，冷三以棺木为桌饮酒",
     "effects": [],
     "origin": "仁义庄",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_leng_san"
     ],
@@ -29,13 +28,12 @@
   {
     "id": "item_gou_zhao",
     "name": "铁钩",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_leng_san",
     "one_line": "冷三断臂上的黝黑巨大铁钩",
     "description": "冷三右腕齐肘断去后配的黝黑巨大铁钩，少说十余斤重，可挑花生亦可击人",
     "effects": [],
     "origin": "仁义庄",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_leng_san"
     ],
@@ -56,13 +54,12 @@
   {
     "id": "item_sang_men_ding",
     "name": "丧门钉",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_lai_qiu_huang",
     "one_line": "赖秋煌所使七十三口丧门钉",
     "description": "赖秋煌囊中七十三口丧门钉，武林十九种歹毒暗器之一",
     "effects": [],
     "origin": "崆峒",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lai_qiu_huang"
     ],
@@ -83,13 +80,12 @@
   {
     "id": "item_huo_cai_shen_jia_cai",
     "name": "活财神家财",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qi_gu_niang",
     "one_line": "沈天君后人捐赠的全部家财",
     "description": "九州王沈天君后人散尽家财送至仁义庄，资财何止千万，冠绝古今",
     "effects": [],
     "origin": "沈家",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shen_tian_jun",
       "char_qi_gu_niang"
@@ -111,13 +107,12 @@
   {
     "id": "item_wu_di_bao_jian",
     "name": "无敌宝鉴",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -134,13 +129,12 @@
   {
     "id": "item_tian_yun_wu_hua_mian",
     "name": "天云五花绵",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -157,13 +151,12 @@
   {
     "id": "item_zi_wu_cui_hun_sha",
     "name": "子午催魂沙",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_mo_xi",
     "one_line": "歹毒暗器",
     "description": "名列武林十九种歹毒暗器第三的暗器，含有剧毒",
     "effects": [],
     "origin": "江湖",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_mo_xi"
     ],
@@ -184,13 +177,12 @@
   {
     "id": "item_bai_lian_jing_gang_ruan_jian",
     "name": "百炼精钢软剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ding_lei",
     "one_line": "可伸缩软剑",
     "description": "丁雷随身佩剑，可伸缩自如",
     "effects": [],
     "origin": "江湖",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ding_lei"
     ],
@@ -211,13 +203,12 @@
   {
     "id": "item_shen_xian_yi_ri_zui",
     "name": "神仙一日醉",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_jin_wu_wang",
     "one_line": "花梗仙独门秘制的迷香",
     "description": "花梗仙独门秘制的迷香，就算是神仙，只要嗅着一丝，也要醉上一日，神智纵然醒了，四肢还是软绵绵的不能动弹",
     "effects": "迷倒敌人",
     "origin": "花梗仙",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hua_rui_xian",
       "char_jin_wu_wang"
@@ -239,15 +230,17 @@
   {
     "id": "item_tian_yun_ling",
     "name": "天云令",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yun_meng_xian_zi",
     "one_line": "云梦仙子号令群魔之令",
     "description": "云梦仙子号令群魔之天云令，铁牌制成，持有者可号令群魔",
     "effects": [
-      "号令群魔"
+      {
+        "type": "效果",
+        "description": "号令群魔"
+      }
     ],
     "origin": "云梦仙子",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yun_meng_xian_zi"
     ],
@@ -268,15 +261,17 @@
   {
     "id": "item_bai_hu_chang",
     "name": "白狐氅",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_hua_rui_xian",
     "one_line": "白色狐皮大氅",
     "description": "白色狐皮制成的大氅，用以包裹火孩儿",
     "effects": [
-      "保暖"
+      {
+        "type": "效果",
+        "description": "保暖"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hua_rui_xian"
     ],
@@ -297,13 +292,12 @@
   {
     "id": "item_yu_mao",
     "name": "玉猫",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_lian_hua",
     "one_line": "熊猫儿手琢的玉猫，是其随身之物",
     "description": "熊猫儿以腰间宝刀手琢的一只猫儿，后被沈浪取回",
     "effects": [],
     "origin": "熊猫儿手琢",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiong_mao_er",
       "char_shen_lang"
@@ -325,13 +319,12 @@
   {
     "id": "item_yu_bi",
     "name": "玉璧",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shen_lang",
     "one_line": "刻有沈浪名字的玉璧",
     "description": "朱七七贴身之物，上面刻着沈浪两字，被熊猫儿拾得",
     "effects": [],
     "origin": "朱七七",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhu_qi_qi",
       "char_shen_lang",
@@ -354,7 +347,7 @@
   {
     "id": "item_shen_ci_hu_lu",
     "name": "神磁葫芦",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiong_mao_er",
     "one_line": "以东海磁铁所铸的宝葫芦，号称乾坤一袋装",
     "description": "以东海磁铁所铸，号称乾坤一袋装，专破天下各门各派暗器",
@@ -365,7 +358,6 @@
       }
     ],
     "origin": "东海",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xiong_mao_er"
     ],
@@ -388,13 +380,12 @@
   {
     "id": "item_yin_piao",
     "name": "银票",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shen_lang",
     "one_line": "沈浪与金无望施舍给青衣妇人的银票",
     "description": "票面朱笔字，五千两以上的巨额银票",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shen_lang",
       "char_jin_wu_wang",
@@ -424,13 +415,12 @@
   {
     "id": "item_he_bao",
     "name": "荷包",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiong_mao_er",
     "one_line": "熊猫儿的随身荷包",
     "description": "熊猫儿的随身荷包，内有玉猫和姑娘贴身之物",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiong_mao_er"
     ],
@@ -451,16 +441,21 @@
   {
     "id": "item_xin_cai_bai_sha",
     "name": "新裁白纱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_lian_hua",
     "one_line": "王怜花新裁的白纱布",
     "description": "王怜花准备的白纱布，用于清洗和治疗白飞飞与朱七七被毁的容貌",
     "effects": [
-      "清洗面部易容药物",
-      "辅助恢复容貌"
+      {
+        "type": "效果",
+        "description": "清洗面部易容药物"
+      },
+      {
+        "type": "效果",
+        "description": "辅助恢复容貌"
+      }
     ],
     "origin": "王怜花准备",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wang_lian_hua",
       "char_bai_fei_fei",
@@ -483,15 +478,17 @@
   {
     "id": "item_dao_jian",
     "name": "刀剪",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_lian_hua",
     "one_line": "王怜花用于易容手术的刀剪",
     "description": "王怜花用于剪除白飞飞和朱七七脸上易容药物层的锋利刀剪",
     "effects": [
-      "剪除易容药物层"
+      {
+        "type": "效果",
+        "description": "剪除易容药物层"
+      }
     ],
     "origin": "王怜花准备",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wang_lian_hua"
     ],
@@ -512,17 +509,25 @@
   {
     "id": "item_zhi_mian_yao_wan",
     "name": "镇眠药丸",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_wang_lian_hua",
     "one_line": "王怜花用于迷倒沈浪的药丸",
     "description": "王怜花特制的迷药，药力奇异，服用后只会像打了个盹儿，醒来毫无不良反应",
     "effects": [
-      "迷倒目标",
-      "无不良反应",
-      "醒来无记忆"
+      {
+        "type": "效果",
+        "description": "迷倒目标"
+      },
+      {
+        "type": "效果",
+        "description": "无不良反应"
+      },
+      {
+        "type": "效果",
+        "description": "醒来无记忆"
+      }
     ],
     "origin": "王怜花炼制",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wang_lian_hua",
       "char_shen_lang"
@@ -544,13 +549,12 @@
   {
     "id": "item_da_che",
     "name": "大车",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "朱七七让熊猫儿找来的大车，用以重现当日路线",
     "description": "一辆可容马车进入的大车，朱七七要求用来模拟当日被囚时的车行路线，以便凭记忆找回囚禁之地。",
     "effects": [],
     "origin": "熊猫儿不知从何处寻来",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhu_qi_qi",
       "char_xiong_mao_er"
@@ -572,13 +576,12 @@
   {
     "id": "item_sha_dan_zhi_wang_guan",
     "name": "傻蛋王冠",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "神秘人戴在熊猫儿与朱七七头上的枯枝王冠，附有戏谑字条",
     "description": "用枯枝编成的皇冠，上面分别插着\"傻蛋之王\"和\"傻蛋之后\"的字条，是神秘高手无声无息戴在两人头上的戏弄之物。",
     "effects": [],
     "origin": "神秘人所制",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiong_mao_er",
       "char_zhu_qi_qi"
@@ -600,13 +603,12 @@
   {
     "id": "item_yin_ding",
     "name": "银锭",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_wu_wang",
     "one_line": "金无望抛在桌上付账的银子",
     "description": "一锭银子，金无望在西谷饭铺用以付账后拉朱七七离开",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jin_wu_wang"
     ],
@@ -627,15 +629,17 @@
   {
     "id": "item_ying_man_tou",
     "name": "硬馒头",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "狱卒投喂囚犯的坚硬馒头，后被沈浪用作暗器",
     "description": "狱卒从牢洞上方抛下的馒头，坚硬异常，落地发出嘣嘣之声，后被沈浪拾起藏于怀中，关键时刻用作暗器击晕敌人",
     "effects": [
-      "可作为投掷暗器使用"
+      {
+        "type": "效果",
+        "description": "可作为投掷暗器使用"
+      }
     ],
     "origin": "狱卒提供",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shen_lang",
       "char_da_huang"
@@ -657,16 +661,21 @@
   {
     "id": "item_zhu_huan_xin_wu",
     "name": "珠环信物",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhu_qi_qi",
     "one_line": "朱七七耳上的两粒珠环，取下即为印章，可凭此提取七十万两黄金",
     "description": "朱七七随身佩戴的两粒珠环，外表看似寻常女子耳饰，实则取下珠子后嵌珠之处便是印章，左面阴文'朱'字，右面阳文'朱朱'两字，可在四省三十七家钱铺中随意提取约七十万两黄金",
     "effects": [
-      "可在四省三十七家钱铺提取黄金",
-      "认物不认人"
+      {
+        "type": "效果",
+        "description": "可在四省三十七家钱铺提取黄金"
+      },
+      {
+        "type": "效果",
+        "description": "认物不认人"
+      }
     ],
     "origin": "朱家",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zhu_qi_qi",
       "char_shen_lang"
@@ -688,15 +697,17 @@
   {
     "id": "item_bai_fei_fei_fa_zan",
     "name": "白飞飞发簪",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_fei_fei",
     "one_line": "白飞飞暗中抛落的发簪，实为金不换伪造用以引诱金无望",
     "description": "白飞飞头上的发簪，在被掳途中暗中抛落以指示方向。后被金不换揭露实为他伪造的诱饵。",
     "effects": [
-      "追踪线索"
+      {
+        "type": "效果",
+        "description": "追踪线索"
+      }
     ],
     "origin": "金不换伪造",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_fei_fei",
       "char_jin_bu_huan",
@@ -719,15 +730,17 @@
   {
     "id": "item_xiu_mei_hua_xie",
     "name": "绣梅花鞋",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_fei_fei",
     "one_line": "白飞飞的绣花鞋，实为金不换放置的诱饵",
     "description": "小巧的、绣着血红梅花的鞋子，在雪地上显得分外刺目。金不换用来伪造白飞飞逃跑痕迹。",
     "effects": [
-      "追踪线索"
+      {
+        "type": "效果",
+        "description": "追踪线索"
+      }
     ],
     "origin": "金不换伪造",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_fei_fei",
       "char_jin_bu_huan"
@@ -749,7 +762,7 @@
   {
     "id": "item_huang_gong_da_nei_jin_chuang_yao",
     "name": "皇宫大内金创药",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_zhu_qi_qi",
     "one_line": "朱七七从父亲处偷来的皇宫大内救伤圣药",
     "description": "据说来自皇宫大内的珍贵金创药，由朱七七之父花了不少心血求来，一半外敷一半内服，对重伤有显著疗效",
@@ -760,7 +773,6 @@
       }
     ],
     "origin": "皇宫大内",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zhu_qi_qi",
       "char_jin_wu_wang"
@@ -782,13 +794,12 @@
   {
     "id": "item_zuo_gong_long_bi_shou",
     "name": "左公龙匕首",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zuo_gong_long",
     "one_line": "左公龙随身匕首，被凶手用来杀害他本人",
     "description": "左公龙随身携带的精钢匕首，刃长七寸，柄上刻有丐帮标记。此匕首被凶手从左公龙身上拔出后反插入其胸膛，凶手以此掩盖自己的兵刃痕迹。",
     "effects": [],
     "origin": "丐帮",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zuo_gong_long"
     ],
@@ -809,7 +820,7 @@
   {
     "id": "item_xiong_mao_er_jiu_hu_lu",
     "name": "熊猫儿酒葫芦",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiong_mao_er",
     "one_line": "熊猫儿随身酒葫芦，可黏住敌人兵刃",
     "description": "熊猫儿随身携带的大号酒葫芦，材质特殊，能黏住敌人兵刃使其无法脱手。韩伶的鸳鸯双飞剑击中葫芦后竟被黏住，第三柄剑亦无法幸免。",
@@ -820,7 +831,6 @@
       }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xiong_mao_er"
     ],
@@ -841,13 +851,12 @@
   {
     "id": "item_duo_ming_yin_zhen",
     "name": "夺命银针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "夺命银针在第25章出现",
     "description": "杀死灭口女子的暗器",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -866,13 +875,12 @@
   {
     "id": "item_ma_che",
     "name": "马车",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "马车在第25章出现",
     "description": "王怜花特制的囚禁马车，四面夹着钢板",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -891,13 +899,12 @@
   {
     "id": "item_xue_dai",
     "name": "雪袋",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "雪袋在第25章出现",
     "description": "朱七七醒来时枕着的冰袋",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -916,13 +923,12 @@
   {
     "id": "item_jiu_hu_lu",
     "name": "酒葫芦",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "酒葫芦在第25章出现",
     "description": "熊猫儿随身携带的酒具",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -941,13 +947,12 @@
   {
     "id": "item_zhu_huan",
     "name": "珠环",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -966,13 +971,12 @@
   {
     "id": "item_jin_deng",
     "name": "金灯",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -991,13 +995,12 @@
   {
     "id": "item_jie_yao",
     "name": "解药",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_zhu_qi_qi",
     "one_line": "快活王所持解药",
     "description": "快活王声称能解其特制剧毒的解药，装在一只匣子中，天下仅有此处可得。",
     "effects": "解毒",
     "origin": "快活王",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zhu_qi_qi",
       "char_shen_lang"
@@ -1019,13 +1022,12 @@
   {
     "id": "item_bao_jian",
     "name": "宝剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhu_qi_qi",
     "one_line": "剑鞘缀绿玉、剑锋闪碧光的宝剑",
     "description": "剑鞘缀着绿玉，剑锋闪着碧光，价值连城，吹毛断发，削铁如泥。",
     "effects": "攻击",
     "origin": "快活王府",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_shen_lang",
       "char_zhu_qi_qi"
@@ -1047,13 +1049,12 @@
   {
     "id": "item_zhu_qi_qi_yi_shu",
     "name": "朱七七遗书",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhu_qi_qi",
     "one_line": "朱七七写给熊猫儿的绝笔信",
     "description": "朱七七伪装成快活王后写给熊猫儿的遗书，信中详述了她如何利用王怜花的易容术扮成快活王，目的是逼沈浪杀她。信纸五六张，字迹零乱，末尾满是泪痕。",
     "effects": "揭示朱七七的自杀计划",
     "origin": "朱七七",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhu_qi_qi",
       "char_xiong_mao_er",
@@ -1076,13 +1077,12 @@
   {
     "id": "item_bo_li_pian",
     "name": "玻璃片",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhu_qi_qi",
     "one_line": "自波斯商人处购得的绿色透明玻璃片",
     "description": "两片薄薄的绿色透明玻璃，自波斯商人手中购得，价值数千两银子，可戴在眼中改变瞳色，用于易容伪装。",
     "effects": "改变瞳色",
     "origin": "波斯",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zhu_qi_qi",
       "char_wang_lian_hua"
@@ -1104,13 +1104,12 @@
   {
     "id": "item_mi_yao",
     "name": "迷药",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_wang_lian_hua",
     "one_line": "王怜花所制缓性迷药",
     "description": "王怜花放入酒中的迷药，药性极缓，发作缓慢但难以解毒，用于让沈浪在不知情状态下杀死朱七七。",
     "effects": "迷晕",
     "origin": "王怜花",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wang_lian_hua",
       "char_shen_lang",
@@ -1133,15 +1132,17 @@
   {
     "id": "item_bi_shou",
     "name": "匕首",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhu_qi_qi",
     "one_line": "朱七七用来自残的匕首",
     "description": "一把锋利的短刃，朱七七在精神崩溃时用来刺伤自己",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "不明",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhu_qi_qi"
     ],
@@ -1162,13 +1163,12 @@
   {
     "id": "item_ba_huo_lin_bi_yan_hu",
     "name": "碧玉鼻烟壶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_da_shao",
     "one_line": "李大少随身携带的碧绿鼻烟壶",
     "description": "碧绿的鼻烟壶，系在丝绦上，是李大少的随身之物。",
     "effects": [],
     "origin": "世家旧物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_da_shao"
     ],
@@ -1189,13 +1189,12 @@
   {
     "id": "item_fei_cui_jie_zhi",
     "name": "翡翠戒指",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "翡翠戒指，赌博用具",
     "description": "翡翠戒指，在快活林赌局中使用的物品",
     "effects": [],
     "origin": "快活林",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1214,13 +1213,12 @@
   {
     "id": "item_yin_zi",
     "name": "银子",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "银子，赌博用具",
     "description": "银子，在快活林赌局中使用的物品",
     "effects": [],
     "origin": "快活林",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1239,13 +1237,12 @@
   {
     "id": "item_xiang_ya_pai_jiu",
     "name": "象牙牌九",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "象牙牌九，赌博用具",
     "description": "象牙牌九，在快活林赌局中使用的物品",
     "effects": [],
     "origin": "快活林",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1264,13 +1261,12 @@
   {
     "id": "item_xiang_ya_tou_zi",
     "name": "象牙骰子",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "象牙骰子，赌博用具",
     "description": "象牙骰子，在快活林赌局中使用的物品",
     "effects": [],
     "origin": "快活林",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1289,13 +1285,12 @@
   {
     "id": "item_zi_jin_jie_zhi",
     "name": "紫金戒指",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "紫金戒指，赌博用具",
     "description": "紫金戒指，在快活林赌局中使用的物品",
     "effects": [],
     "origin": "快活林",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1314,13 +1309,12 @@
   {
     "id": "item_ya_pai",
     "name": "牙牌",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "牙牌，赌博用具",
     "description": "牙牌，在快活林赌局中使用的物品",
     "effects": [],
     "origin": "快活林",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1339,13 +1333,12 @@
   {
     "id": "item_zi_jin_ke_zi",
     "name": "紫金锞子",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "紫金锞子，赌博用具",
     "description": "紫金锞子，在快活林赌局中使用的物品",
     "effects": [],
     "origin": "快活林",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1364,15 +1357,17 @@
   {
     "id": "item_you_hun_si",
     "name": "游魂丝",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_ke_ren",
     "one_line": "一种无声无息的银丝暗器，歹毒绝伦。",
     "description": "游魂丝是一种银丝暗器，发射时无声无息，可刺穿敌人后背，歹毒绝伦。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "幽灵宫",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ke_ren"
     ],
@@ -1393,13 +1388,12 @@
   {
     "id": "item_zi_tan_mu_xiang",
     "name": "紫檀木箱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_kuai_huo_wang",
     "one_line": "装有金无望书信的小木箱。",
     "description": "一只小小的紫檀木箱，长不及四尺，宽不过两尺，镶着紫金的环饰，雕刻得十分精巧雅致。",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_kuai_huo_wang",
       "char_jin_wu_wang"
@@ -1421,13 +1415,12 @@
   {
     "id": "item_ren_pi_xiu",
     "name": "人皮绣",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_fei_fei",
     "one_line": "用白骨为针、发丝青筋为线绣在人皮上的刺绣",
     "description": "以白骨为针，以发丝和青筋为线，绣在一张人皮上的刺绣，上面绣着青的山、白的云、绿的水，是神针杜七娘的杰作",
     "effects": [],
     "origin": "幽灵鬼狱",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_bai_fei_fei"
     ],
@@ -1448,13 +1441,12 @@
   {
     "id": "item_you_ling_mi_ji",
     "name": "幽灵秘籍",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_kuai_huo_wang",
     "one_line": "快活王为得到此秘籍而接近白飞飞之母",
     "description": "武林中的神秘秘籍，快活王为了得到它而接近白飞飞的母亲，最终遗弃了她",
     "effects": [],
     "origin": "幽灵宫",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_kuai_huo_wang"
     ],
@@ -1475,16 +1467,21 @@
   {
     "id": "item_hao_jiao",
     "name": "号角",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_char_long_juan_feng",
     "one_line": "龙卷风用于发号施令的号角",
     "description": "龙卷风腰带上悬挂的号角，用于指挥铁骑进攻和撤退",
     "effects": [
-      "发号施令",
-      "指挥军队"
+      {
+        "type": "效果",
+        "description": "发号施令"
+      },
+      {
+        "type": "效果",
+        "description": "指挥军队"
+      }
     ],
     "origin": "大漠",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_long_juan_feng"
     ],
@@ -1505,13 +1502,12 @@
   {
     "id": "item_lv_qiao_chang_jian",
     "name": "绿鞘长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_kuai_huo_wang",
     "one_line": "绿鞘长剑是一件物品",
     "description": "绿鞘长剑是江湖中的一件物品，制作精良",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1530,13 +1526,12 @@
   {
     "id": "item_zhang_mu_xiang_zi",
     "name": "樟木箱子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bu_gong_zhi",
     "one_line": "樟木箱子是一件物品",
     "description": "樟木箱子是江湖中的一件物品，制作精良",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [

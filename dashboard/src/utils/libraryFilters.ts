@@ -18,6 +18,29 @@ export function createEmptyLibraryFilters(): LibraryFilters {
   };
 }
 
+export const MASTERY_RANK_ORDER = [
+  '返璞归真',
+  '登峰造极',
+  '出神入化',
+  '炉火纯青',
+  '登堂入室',
+  '平平无奇',
+  '略有小成',
+  '初窥门径',
+];
+
+export function sortByRank(values: string[]): string[] {
+  const index = new Map(MASTERY_RANK_ORDER.map((r, i) => [r, i]));
+  return [...values].sort((a, b) => {
+    const ia = index.get(a);
+    const ib = index.get(b);
+    if (ia != null && ib != null) return ia - ib;
+    if (ia != null) return -1;
+    if (ib != null) return 1;
+    return a.localeCompare(b, 'zh-Hans-CN');
+  });
+}
+
 function normalizeFilterValue(value: unknown): string | null {
   if (value == null) return null;
   if (typeof value === 'string') {

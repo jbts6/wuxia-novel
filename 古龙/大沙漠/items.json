@@ -2,15 +2,17 @@
   {
     "id": "item_hei_zhen_zhu",
     "name": "黑珍珠",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "楚留香椅上发现的黄沙与黑珍珠",
     "description": "一堆发光的黄沙上，有一粒发亮的黑珍珠，这张纸条暗示了楚留香湖边盗马、黑珍珠海上劫美的阴谋",
     "effects": [
-      "暗示阴谋线索"
+      {
+        "type": "效果",
+        "description": "暗示阴谋线索"
+      }
     ],
     "origin": "楚留香船上",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -31,13 +33,12 @@
   {
     "id": "item_bai_yu_jiu_bei",
     "name": "白玉酒杯",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ji_bing_yan",
     "one_line": "白玉雕成的酒杯，盛满琥珀色美酒",
     "description": "白玉精雕细琢而成的酒杯，杯中盛满琥珀色的美酒，在灯光下晶莹剔透，尽显富贵气象",
     "effects": [],
     "origin": "姬冰雁府中",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ji_bing_yan"
     ],
@@ -58,13 +59,12 @@
   {
     "id": "item_ruan_ta",
     "name": "软榻",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ji_bing_yan",
     "one_line": "姬冰雁乘坐的软榻，由白衣少女抬入",
     "description": "柔软舒适的坐榻，由四个白衣垂髫少女抬着行走，姬冰雁因双腿瘫痪而以此代步",
     "effects": [],
     "origin": "姬冰雁府中",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ji_bing_yan"
     ],
@@ -85,13 +85,12 @@
   {
     "id": "item_zhu_lian",
     "name": "竹帘",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ji_bing_yan",
     "one_line": "客厅中悬挂的多重竹帘，隔绝暑气",
     "description": "数重竹帘悬挂于客厅堂中，将秋日溽暑隔在帘外，微风吹动时帘影摇曳，似有燕子飞翔",
     "effects": [],
     "origin": "姬冰雁府中",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ji_bing_yan"
     ],
@@ -112,13 +111,12 @@
   {
     "id": "item_gui_cai_xing_da_che",
     "name": "棺材形大车",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "方方正正如棺材的神秘大车，门窗紧闭",
     "description": "一辆方方正正的奇怪大车，形状酷似棺材，门窗关得紧紧的，瞧不出里面有什么，在深夜中随神秘队伍行进。",
     "effects": [],
     "origin": "不明",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_che_fu",
       "char_hei_liu_da_han"
@@ -140,15 +138,17 @@
   {
     "id": "item_yin_bei",
     "name": "银杯",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ji_bing_yan",
     "one_line": "姬冰雁马车中的酒具",
     "description": "六只发亮的银杯，用于饮用各种美酒，是姬冰雁奢华马车中的配套酒具。",
     "effects": [
-      "饮酒"
+      {
+        "type": "效果",
+        "description": "饮酒"
+      }
     ],
     "origin": "姬冰雁所有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ji_bing_yan"
     ],
@@ -169,15 +169,17 @@
   {
     "id": "item_bai_yin_fang_ping_zi",
     "name": "白银方瓶子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ji_bing_yan",
     "one_line": "姬冰雁马车中的酒瓶",
     "description": "十个用白银铸成的方瓶子，每个可装三斤十二两酒，内含十种不同美酒。",
     "effects": [
-      "盛酒"
+      {
+        "type": "效果",
+        "description": "盛酒"
+      }
     ],
     "origin": "姬冰雁所有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ji_bing_yan"
     ],
@@ -198,16 +200,21 @@
   {
     "id": "item_di_tu_zhuo_mian",
     "name": "地图桌面",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ji_bing_yan",
     "one_line": "姬冰雁马车中的隐藏地图桌面",
     "description": "马车桌面翻转后露出的详细地图，背面刻有黄河上游及周边地区的地形路线，用于规划沙漠行动路线。",
     "effects": [
-      "导航",
-      "路线规划"
+      {
+        "type": "效果",
+        "description": "导航"
+      },
+      {
+        "type": "效果",
+        "description": "路线规划"
+      }
     ],
     "origin": "姬冰雁所有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ji_bing_yan"
     ],
@@ -228,16 +235,21 @@
   {
     "id": "item_wu_guang_an_qi",
     "name": "乌光暗器",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "藏于头发中的机簧弩筒暗器，射出数十道乌光",
     "description": "一种以机簧弩筒发射的暗器，乌光闪烁，去势比闪电还急，可同时射出十几道，藏在头发中用于偷袭",
     "effects": [
-      "远距离射击",
-      "突袭"
+      {
+        "type": "效果",
+        "description": "远距离射击"
+      },
+      {
+        "type": "效果",
+        "description": "突袭"
+      }
     ],
     "origin": "不明",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_liang_ge_chui_si_zhi_ren"
     ],
@@ -258,16 +270,21 @@
   {
     "id": "item_pi_fu_wei_zhuang",
     "name": "皮肤伪装",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_liang_ge_cishi",
     "one_line": "覆盖全身的伪装皮，使杀手看起来像被晒伤的垂死之人",
     "description": "一种特殊的伪装道具，覆盖在光滑肌肤上，模拟被烈日晒得皮焦肉绽的效果，抖落后露出里面光滑平整的肌肤",
     "effects": [
-      "伪装外貌",
-      "欺骗视觉"
+      {
+        "type": "效果",
+        "description": "伪装外貌"
+      },
+      {
+        "type": "效果",
+        "description": "欺骗视觉"
+      }
     ],
     "origin": "不明",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -286,15 +303,17 @@
   {
     "id": "item_yang_pi_dai",
     "name": "羊皮袋",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ji_bing_yan",
     "one_line": "装水的羊皮容器，被暗器射穿后水被毒药污染",
     "description": "沙漠中用于装水的羊皮容器，质地坚韧，可容纳大量清水，是沙漠行军的重要补给装备",
     "effects": [
-      "储水"
+      {
+        "type": "效果",
+        "description": "储水"
+      }
     ],
     "origin": "沙漠商队标配",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ji_bing_yan",
       "char_hu_tie_hua"
@@ -316,16 +335,21 @@
   {
     "id": "item_you_hei_tie_tong_zhen_tong",
     "name": "黝黑铁筒针筒",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "神秘敌人射穿水袋的暗器针筒，构造精巧超过天魔神针",
     "description": "一种构造极其精巧的暗器发射装置，通体黝黑，能发射带毒的细针，威力远超昔年名震天下的九天十地天魔神针",
     "effects": [
-      "发射毒针",
-      "见血封喉"
+      {
+        "type": "效果",
+        "description": "发射毒针"
+      },
+      {
+        "type": "效果",
+        "description": "见血封喉"
+      }
     ],
     "origin": "神秘人物制造",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -346,15 +370,17 @@
   {
     "id": "item_shui_jing_deng",
     "name": "水晶灯",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "帐篷中的照明灯具，灯光温柔如星光",
     "description": "放置在帐篷内的水晶材质灯具，发出柔和温暖的光芒，在沙漠之夜中提供照明",
     "effects": [
-      "照明"
+      {
+        "type": "效果",
+        "description": "照明"
+      }
     ],
     "origin": "沙漠商队装备",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -373,16 +399,21 @@
   {
     "id": "item_ji_le_zhi_xing",
     "name": "极乐之星",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "极为珍贵的珠宝，是神秘势力真正觊觎的目标",
     "description": "一颗极为珍贵的宝石，是彭门七虎所保红货中最珍贵的物品，被神秘势力视为志在必得之物，价值远超普通珠宝",
     "effects": [
-      "引发争夺",
-      "价值连城"
+      {
+        "type": "效果",
+        "description": "引发争夺"
+      },
+      {
+        "type": "效果",
+        "description": "价值连城"
+      }
     ],
     "origin": "不明",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_peng_yi_hu",
       "char_hei_yi_ren"
@@ -472,13 +503,12 @@
   {
     "id": "item_hong_huo_xiang",
     "name": "红货箱",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "装有极乐之星等珍贵物品的箱子，被鹰劫走",
     "description": "彭门七虎押运的货物箱，内含极乐之星等珍贵珠宝，箱上做了标记供训练有素的鹰辨认",
     "effects": [],
     "origin": "彭门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_peng_yi_hu"
     ],
@@ -499,17 +529,25 @@
   {
     "id": "item_mi_huan_du_yao",
     "name": "迷幻毒药",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "一种类似大麻、罂粟的毒药，可使人产生恐怖幻觉",
     "description": "一种类似大麻和罂粟成分的毒药，不致令人丧命却可使人发狂，中毒者会看到成千成百个恶魔的幻象，直到将最后一丝力气用光为止",
     "effects": [
-      "致幻",
-      "使人发狂",
-      "消耗体力"
+      {
+        "type": "效果",
+        "description": "致幻"
+      },
+      {
+        "type": "效果",
+        "description": "使人发狂"
+      },
+      {
+        "type": "效果",
+        "description": "消耗体力"
+      }
     ],
     "origin": "不明",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hei_yi_ren",
       "char_peng_yi_hu"
@@ -531,16 +569,21 @@
   {
     "id": "item_shui_yuan",
     "name": "水源",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "沙漠中极度稀缺的救命资源，是众人面临的最大生存威胁",
     "description": "在酷热的沙漠中，水源是决定生死的关键资源，干渴会导致幻觉和死亡，黑衣人以此作为交换极乐之星的筹码",
     "effects": [
-      "维持生命",
-      "交换筹码"
+      {
+        "type": "效果",
+        "description": "维持生命"
+      },
+      {
+        "type": "效果",
+        "description": "交换筹码"
+      }
     ],
     "origin": "不明",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hei_yi_ren",
       "char_ji_bing_yan"
@@ -562,16 +605,21 @@
   {
     "id": "item_shen_kan_fo_xiang",
     "name": "神龛佛像",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_guan_yin",
     "one_line": "木屋神龛中供奉的石塑观音菩萨像，实为石观音伪装",
     "description": "木屋神龛中供奉的一尊很大的观音菩萨石塑像，实际上是石观音运用身化木石之术伪装而成，后不翼而飞",
     "effects": [
-      "伪装",
-      "吓退石驼"
+      {
+        "type": "效果",
+        "description": "伪装"
+      },
+      {
+        "type": "效果",
+        "description": "吓退石驼"
+      }
     ],
     "origin": "石观音制造",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shi_guan_yin",
       "char_shi_tuo"
@@ -595,16 +643,21 @@
   {
     "id": "item_kan_zhong_ren_zi_tiao",
     "name": "龛中人留书",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_guan_yin",
     "one_line": "石观音留在铁锅下的字条，自称龛中人",
     "description": "石观音留在铁锅下的一张字条，以文雅措辞致歉并留下肉羹，署名龛中人，实为石观音本人",
     "effects": [
-      "心理战",
-      "示威"
+      {
+        "type": "效果",
+        "description": "心理战"
+      },
+      {
+        "type": "效果",
+        "description": "示威"
+      }
     ],
     "origin": "石观音手书",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shi_guan_yin"
     ],
@@ -625,17 +678,25 @@
   {
     "id": "item_tie_guo_rou_tang",
     "name": "铁锅肉汤",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_shi_guan_yin",
     "one_line": "石观音留下的肉汤，先无毒后变有毒，设计精妙",
     "description": "石观音留在木屋中的铁锅肉汤，初始无毒，但狗喝汤时会将藏在嘴中的毒丸落入锅中，蜡封受热溶化后汤变剧毒，小潘因此丧命",
     "effects": [
-      "致命剧毒",
-      "连环触发",
-      "心理战"
+      {
+        "type": "效果",
+        "description": "致命剧毒"
+      },
+      {
+        "type": "效果",
+        "description": "连环触发"
+      },
+      {
+        "type": "效果",
+        "description": "心理战"
+      }
     ],
     "origin": "石观音制造",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shi_guan_yin",
       "char_xiao_pan"
@@ -659,16 +720,21 @@
   {
     "id": "item_huang_gou",
     "name": "黄狗",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_guan_yin",
     "one_line": "石观音训练的黄狗，嘴中藏毒丸用于触发毒计",
     "description": "石观音训练的一条黄狗，嘴中藏有蜡封毒丸，跳入锅中舔汤时毒丸落入汤中，是石观音连环毒计的关键一环",
     "effects": [
-      "触发毒计",
-      "伪装无害"
+      {
+        "type": "效果",
+        "description": "触发毒计"
+      },
+      {
+        "type": "效果",
+        "description": "伪装无害"
+      }
     ],
     "origin": "石观音训练",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shi_guan_yin"
     ],
@@ -691,16 +757,21 @@
   {
     "id": "item_pi_pa",
     "name": "琵琶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_pi_pa_gong_zhu",
     "one_line": "曲颈四弦琵琶，龟兹国传统乐器",
     "description": "曲颈四弦琵琶，较中土琵琶更为简陋，但音域华丽，如珠走玉盘，如霓裳轻舞，乃龟兹国世代传承之乐器",
     "effects": [
-      "演奏妙音",
-      "迷人心魄"
+      {
+        "type": "效果",
+        "description": "演奏妙音"
+      },
+      {
+        "type": "效果",
+        "description": "迷人心魄"
+      }
     ],
     "origin": "龟兹国",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_pi_pa_gong_zhu"
     ],
@@ -721,15 +792,17 @@
   {
     "id": "item_jin_ge",
     "name": "金戈",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_gui_zi_wang",
     "one_line": "龟兹武士使用的金色长戈",
     "description": "戈长几达两丈，金色外观，由龟兹武士执掌，力道不小，刺出如毒蛇出穴",
     "effects": [
-      "远程攻击"
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      }
     ],
     "origin": "龟兹国",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gui_zi_wang"
     ],
@@ -750,13 +823,12 @@
   {
     "id": "item_du_huan_gang_huan",
     "name": "淬毒钢环",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_du_huan",
     "one_line": "杜环戴在手上的五只黑黝黝的淬毒钢环暗器",
     "description": "五只黑黝黝的光环，钢环上淬着见血封喉的剧毒，乌光闪动，光泽丑恶，是杜环的致命暗器",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_du_huan"
     ],
@@ -777,16 +849,21 @@
   {
     "id": "item_mao_er_yan_bao_shi",
     "name": "猫儿眼宝石",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hu_tie_hua",
     "one_line": "龟兹王赐给胡铁花的见面礼，中土极为罕见的猫儿眼",
     "description": "大如鸽卵，碧光流动，光芒流转不息，价值连城，绝不在极乐之星之下，是中土极为罕见的猫儿眼宝石。",
     "effects": [
-      "吉祥寓意",
-      "价值连城"
+      {
+        "type": "效果",
+        "description": "吉祥寓意"
+      },
+      {
+        "type": "效果",
+        "description": "价值连城"
+      }
     ],
     "origin": "龟兹国",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hu_tie_hua",
       "char_gui_zi_wang"
@@ -808,16 +885,21 @@
   {
     "id": "item_yu_pan_bao_wu",
     "name": "玉盘宝物",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hu_tie_hua",
     "one_line": "龟兹王妃赐给胡铁花的见面礼，玉盘上宝光灿烂",
     "description": "龟兹王妃命少女托出的玉盘，玉盘上宝光灿烂，内有众多珍贵宝物，是王妃赐予未来女婿的见面礼。",
     "effects": [
-      "见面礼",
-      "财富象征"
+      {
+        "type": "效果",
+        "description": "见面礼"
+      },
+      {
+        "type": "效果",
+        "description": "财富象征"
+      }
     ],
     "origin": "龟兹国",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hu_tie_hua",
       "char_gui_zi_wang_fei"
@@ -839,17 +921,25 @@
   {
     "id": "item_jing_tie_pi_pa",
     "name": "精铁琵琶",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_pi_pa_gong_zhu",
     "one_line": "琵琶公主所用兵器，精铁铸造，内藏银针暗器",
     "description": "精铁铸造的曲头琵琶，沉重异常，常人难以舞动自如。外表是普通乐器，实则暗藏玄机，曲头可射出银针如雨，曲颈可弹出锋利白刃，攻守兼备的奇门兵器。",
     "effects": [
-      "射出银针暗器",
-      "曲颈变刃近身攻击",
-      "坚硬可当盾牌格挡"
+      {
+        "type": "效果",
+        "description": "射出银针暗器"
+      },
+      {
+        "type": "效果",
+        "description": "曲颈变刃近身攻击"
+      },
+      {
+        "type": "效果",
+        "description": "坚硬可当盾牌格挡"
+      }
     ],
     "origin": "西域",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_pi_pa_gong_zhu"
     ],
@@ -872,16 +962,21 @@
   {
     "id": "item_kan_zhong_ren_bai_tie",
     "name": "龛中人拜帖",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "神秘人\"龛中人\"留下的威胁信，警告楚留香等人速速离去",
     "description": "雪白纸上写着娟秀字迹的威胁信，署名\"龛中人又拜\"，警告诸君远离此地否则悔之晚矣，并称若听良言将洗手作羹汤款待，语气亦刚亦柔，暗藏杀机。",
     "effects": [
-      "传递威胁信息",
-      "暗示幕后势力存在"
+      {
+        "type": "效果",
+        "description": "传递威胁信息"
+      },
+      {
+        "type": "效果",
+        "description": "暗示幕后势力存在"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -900,13 +995,12 @@
   {
     "id": "item_ji_xiang_dan",
     "name": "吉祥蛋",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gui_zi_wang",
     "one_line": "龟兹王赐予贵客的吉祥之物",
     "description": "龟兹王剖开鸡腹取出的吉祥蛋，据说吃了大吉大利，下次做新郎的必定是他",
     "effects": [],
     "origin": "龟兹国",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_gui_zi_wang"
     ],
@@ -925,16 +1019,21 @@
   {
     "id": "item_yin_dao",
     "name": "银刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "银刀",
     "description": "一把小银刀，用于检验毒物，刀尖插入蛋中会发黑显示毒性",
     "effects": [
-      "检验毒性",
-      "御寒"
+      {
+        "type": "效果",
+        "description": "检验毒性"
+      },
+      {
+        "type": "效果",
+        "description": "御寒"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -953,16 +1052,21 @@
   {
     "id": "item_du_zhen",
     "name": "毒针",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "毒针",
     "description": "一根须丝般的小针，藏在蛋黄中，含有剧毒",
     "effects": [
-      "检验毒性",
-      "御寒"
+      {
+        "type": "效果",
+        "description": "检验毒性"
+      },
+      {
+        "type": "效果",
+        "description": "御寒"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -981,16 +1085,21 @@
   {
     "id": "item_jiu_ping",
     "name": "酒瓶",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "酒瓶",
     "description": "装酒的瓶子，被用作投掷武器和饮酒工具",
     "effects": [
-      "投掷武器",
-      "饮酒容器"
+      {
+        "type": "效果",
+        "description": "投掷武器"
+      },
+      {
+        "type": "效果",
+        "description": "饮酒容器"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1009,13 +1118,12 @@
   {
     "id": "item_xiu_bei",
     "name": "绣被",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "绣被，洞房中的绣花被子，崭新的绣被边沿染着斑斑血迹",
     "description": "绣被，洞房中的绣花被子，崭新的绣被边沿染着斑斑血迹",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1034,13 +1142,12 @@
   {
     "id": "item_xue_ji",
     "name": "血迹",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "血迹，绣被边沿的斑斑血迹，暗示发生了命案",
     "description": "血迹，绣被边沿的斑斑血迹，暗示发生了命案",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1059,13 +1166,12 @@
   {
     "id": "item_nv_shi",
     "name": "女尸",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "女尸，洞房中发现的陌生女尸，胸膛被生生抓出个血洞",
     "description": "女尸，洞房中发现的陌生女尸，胸膛被生生抓出个血洞",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1084,15 +1190,17 @@
   {
     "id": "item_xie_zi",
     "name": "蝎子",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "大漠中的毒蝎，毒性极强，被咬一口几乎无救",
     "description": "大漠之中常见的毒蝎，体型大，毒性极强，无论谁被噬上一口，当时只怕就无救。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "大漠",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1111,15 +1219,17 @@
   {
     "id": "item_jiu_huan_jin_bei_kan_shan_dao",
     "name": "九环金背砍山刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ban_tian_feng",
     "one_line": "半天风的重兵器，九环金背，长达五尺",
     "description": "九环金背砍山刀，长达五尺，重达四五十斤，刀锋劈空声震人魂魄",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "沙漠",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ban_tian_feng"
     ],
@@ -1140,15 +1250,17 @@
   {
     "id": "item_hei_pi_jian_qiao_chang_jian",
     "name": "黑皮剑鞘长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yi_dian_hong",
     "one_line": "一点红的长剑，又长又细，黑皮剑鞘",
     "description": "又长又细的长剑，配有黑皮剑鞘，看来就像毒蛇般，出必见血",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yi_dian_hong"
     ],
@@ -1171,7 +1283,7 @@
   {
     "id": "item_jian_dao",
     "name": "尖刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_chang_sun_hong",
     "one_line": "红衣女子用于威胁一点红的尖刀",
     "description": "一柄尖刀，刀尖冷得像冰，被红衣女子用来抵住一点红的后颈",
@@ -1182,7 +1294,6 @@
       }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chang_sun_hong",
       "char_yi_dian_hong"
@@ -1204,7 +1315,7 @@
   {
     "id": "item_hun_wang_shou_ji",
     "name": "昏王首级",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hun_wang",
     "one_line": "龟兹国王的首级，一点红受命刺杀的目标",
     "description": "龟兹国王的首级，一点红奉命刺杀但未能得手，国王已闻风藏匿",
@@ -1215,7 +1326,6 @@
       }
     ],
     "origin": "龟兹国",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yi_dian_hong"
     ],
@@ -1236,17 +1346,25 @@
   {
     "id": "item_da_wan_pu_tao_jiu",
     "name": "大宛葡萄酒",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_wu_shi_qian",
     "one_line": "龟兹武士用来灌醉胡铁花的酒，实为迷药",
     "description": "大宛葡萄酒，又香又淡，跟糖水差不了多少，但实为宫廷迷药，能令饮用者全身发软、失去力气，龟兹武士以此算计胡铁花。",
     "effects": [
-      "全身发软",
-      "失去力气",
-      "意识模糊"
+      {
+        "type": "效果",
+        "description": "全身发软"
+      },
+      {
+        "type": "效果",
+        "description": "失去力气"
+      },
+      {
+        "type": "效果",
+        "description": "意识模糊"
+      }
     ],
     "origin": "龟兹国宫廷",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hu_tie_hua",
       "char_wu_shi_qian"
@@ -1278,7 +1396,6 @@
     ],
     "description": "一条精致的丝巾，角上绣着一个\"曲\"字，质地轻柔，绣工精细，散发淡淡香气，疑似女子贴身之物，可能是楚留香从某位女子处得到的定情信物。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1296,7 +1413,6 @@
     ],
     "description": "一个小巧的木瓶，拔开瓶塞会发出淡淡的郁金香香气，这是楚留香的标志性物品，盗帅夜留香的香气来源，瓶中装有特殊香料。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1314,7 +1430,6 @@
     ],
     "description": "一粒黑色的珍珠，色泽深沉，光泽圆润，价值不菲，是楚留香随身携带的珍宝之一。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1332,7 +1447,6 @@
     ],
     "description": "一对打造精致的判官笔，比武林中通常所见的沉重，打造得分外精致，是姬冰雁的武器，用于点穴和近身搏斗。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1350,7 +1464,6 @@
     ],
     "description": "一包金珠，价值不菲，是姬冰雁随身携带的财物，显示其富有身份。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1368,7 +1481,6 @@
     ],
     "description": "一大串钥匙，姬冰雁随身携带，显示其谨慎性格，连钥匙都带在身上，防止他人进入房间。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1386,7 +1498,6 @@
     ],
     "description": "一个翡翠鼻烟壶，质地温润，做工精美，是姬冰雁随身携带的物品，显示其生活品味。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1404,7 +1515,6 @@
     ],
     "description": "一柄小银刀，锋利轻巧，便于携带，是姬冰雁随身携带的武器或工具。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1422,7 +1532,6 @@
     ],
     "description": "一只鲜红的睡鞋，绣着并蒂莲图案，是女子贴身衣物，出现在楚留香的物品中，引发胡铁花的猜测。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1440,7 +1549,6 @@
     ],
     "description": "一个粉红色的绣花肚兜，绣着牡丹图案，是女子贴身衣物，出现在楚留香的物品中，显示楚留香与某位女子关系亲密。",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1448,16 +1556,21 @@
   {
     "id": "item_mi_yao",
     "name": "迷药",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_shi_guan_yin",
     "one_line": "一种强烈的迷药，能使人昏迷，失去功力。",
     "description": "一种无色无味的迷药，能使人昏迷，失去功力，常用于控制他人。",
     "effects": [
-      "昏迷",
-      "失去功力"
+      {
+        "type": "效果",
+        "description": "昏迷"
+      },
+      {
+        "type": "效果",
+        "description": "失去功力"
+      }
     ],
     "origin": "石观音",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chu_liu_xiang",
       "char_ji_bing_yan",
@@ -1480,17 +1593,25 @@
   {
     "id": "item_yin_su_hua",
     "name": "罂粟花",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_shi_guan_yin",
     "one_line": "从天竺移植的毒品花卉，可提炼迷药",
     "description": "罂粟花与大麻草均为白天竺移植至大沙漠的毒品植物，从其提炼的迷药分量轻重可改变效果，过量致幻发疯，适量令人飘飘欲仙",
     "effects": [
-      "致幻",
-      "迷乱心神",
-      "令人飘飘欲仙"
+      {
+        "type": "效果",
+        "description": "致幻"
+      },
+      {
+        "type": "效果",
+        "description": "迷乱心神"
+      },
+      {
+        "type": "效果",
+        "description": "令人飘飘欲仙"
+      }
     ],
     "origin": "天竺",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shi_guan_yin",
       "char_chu_liu_xiang"
@@ -1512,16 +1633,21 @@
   {
     "id": "item_ying_rou",
     "name": "鹰肉",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "沙漠中鹰的肉，虽粗粝但可充饥",
     "description": "沙漠中鹰的肉，虽粗粝腥臭，但对饥渴垂死的人来说，却真比什么十全大补剂都要有用多了",
     "effects": [
-      "充饥",
-      "恢复体力"
+      {
+        "type": "效果",
+        "description": "充饥"
+      },
+      {
+        "type": "效果",
+        "description": "恢复体力"
+      }
     ],
     "origin": "沙漠之鹰",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1540,16 +1666,21 @@
   {
     "id": "item_hua_mei_niao_zhi_zhi",
     "name": "画眉鸟之纸",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hua_mei_niao",
     "one_line": "画眉鸟留下的翠绿色纸条",
     "description": "翠绿色的纸条，上面写着\"楚香帅笑纳：画眉鸟敬赠\"，是画眉鸟杀人后留下的标记。",
     "effects": [
-      "标记",
-      "威慑"
+      {
+        "type": "效果",
+        "description": "标记"
+      },
+      {
+        "type": "效果",
+        "description": "威慑"
+      }
     ],
     "origin": "画眉鸟",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -1570,16 +1701,21 @@
   {
     "id": "item_fei_cui_xiao_jian",
     "name": "翡翠小剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hua_mei_niao",
     "one_line": "画眉鸟使用的翡翠小剑",
     "description": "翡翠制成的小剑，脆而易折，却被画眉鸟掷入人的鼻梁中，显示出惊人的腕力。",
     "effects": [
-      "攻击",
-      "标记"
+      {
+        "type": "效果",
+        "description": "攻击"
+      },
+      {
+        "type": "效果",
+        "description": "标记"
+      }
     ],
     "origin": "画眉鸟",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -1600,16 +1736,21 @@
   {
     "id": "item_zhen_zhu_ju",
     "name": "珍珠驹",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hei_zhen_zhu",
     "one_line": "黑珍珠的神驹坐骑，通灵识途",
     "description": "一匹通灵神驹，是沙漠之王黑珍珠的坐骑，能自行脱笼头寻访旧主人，在大漠中无人敢打它的主意。",
     "effects": [
-      "通灵识途",
-      "日行千里"
+      {
+        "type": "效果",
+        "description": "通灵识途"
+      },
+      {
+        "type": "效果",
+        "description": "日行千里"
+      }
     ],
     "origin": "大漠",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hei_zhen_zhu",
       "char_chu_liu_xiang"
@@ -1631,16 +1772,21 @@
   {
     "id": "item_shi_guan_ying_jing_zi",
     "name": "石观音镜子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_guan_yin",
     "one_line": "石观音秘室中的巨镜，镶满翡翠珠宝，具有神秘魔力",
     "description": "一面晶莹而巨大的镜子，镜框上镶满了翡翠和珠宝，就算是这些价值连城的珠宝也不能夺去镜子的光彩，镜子本身就像带着种神秘的魔力，无论谁走到镜子前几乎都会忍不住要向它膜拜下来。",
     "effects": [
-      "魅惑",
-      "自我欣赏"
+      {
+        "type": "效果",
+        "description": "魅惑"
+      },
+      {
+        "type": "效果",
+        "description": "自我欣赏"
+      }
     ],
     "origin": "石观音秘室",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shi_guan_yin"
     ],
@@ -1661,16 +1807,21 @@
   {
     "id": "item_yan_er_mei",
     "name": "眼儿媚",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_shi_guan_yin",
     "one_line": "五色无味的迷药，像雪花般",
     "description": "一种五色无味，就像雪花般的迷药，名字叫'眼儿媚'，能迷倒一个人，就像少女们抛媚眼那么容易，而且飘飘然，再也使不出半分力气。",
     "effects": [
-      "迷幻",
-      "无力"
+      {
+        "type": "效果",
+        "description": "迷幻"
+      },
+      {
+        "type": "效果",
+        "description": "无力"
+      }
     ],
     "origin": "不明",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shi_guan_yin",
       "char_wu_hua"
@@ -1692,13 +1843,12 @@
   {
     "id": "item_bi_lv_zhi_tiao",
     "name": "碧绿纸条",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "画眉鸟留在无花尸体上的碧绿色纸条",
     "description": "一张惨碧色的纸条，系在一支贯穿无花咽喉的长箭上，上书“楚香帅不愿杀人，画眉鸟一定代劳”，是画眉鸟表明身份与意图的信物。",
     "effects": [],
     "origin": "画眉鸟",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang",
       "char_hua_mei_niao"
@@ -1720,13 +1870,12 @@
   {
     "id": "item_bi_lv_chang_xian",
     "name": "碧绿长线",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hua_mei_niao",
     "one_line": "系在箭翎上的碧绿色长线，引导楚留香前往画眉鸟所在之处",
     "description": "一根碧绿色的长线，系在箭翎之上，长得瞧不见尽头，用于引导楚留香前往画眉鸟等候之处。箭镞已被折断，表明射箭之人并无杀意。",
     "effects": [],
     "origin": "画眉鸟",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang",
       "char_hua_mei_niao"

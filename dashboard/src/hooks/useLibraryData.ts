@@ -53,6 +53,11 @@ async function mapWithConcurrency<T, R>(items: T[], limit: number, mapper: (item
   return results;
 }
 
+function resolveFaction(value: string | null, map: Map<string, string>): string | null {
+  if (!value || value === 'faction_none') return null;
+  return map.get(value) ?? value;
+}
+
 export async function loadLibraryData(
   books: BookMeta[],
   fetcher: LibraryFileFetcher = defaultLibraryFileFetcher,
@@ -92,7 +97,26 @@ export async function loadLibraryData(
     return data;
   });
 
-  return { ...aggregateLibraryCollections(rawBooks), warnings };
+  const factionNameMap = new Map<string, string>();
+  for (const book of rawBooks) {
+    for (const faction of book.factions) {
+      factionNameMap.set(faction.id, faction.name);
+    }
+  }
+
+  const resolvedBooks = rawBooks.map((book) => ({
+    ...book,
+    skills: book.skills.map((skill) => ({
+      ...skill,
+      faction: resolveFaction(skill.faction, factionNameMap),
+    })),
+    characters: book.characters.map((character) => ({
+      ...character,
+      faction: resolveFaction(character.faction, factionNameMap),
+    })),
+  }));
+
+  return { ...aggregateLibraryCollections(resolvedBooks), warnings };
 }
 
 export function useLibraryData(books: BookMeta[]): LibraryDataState {

@@ -4,9 +4,9 @@
     "name": "秦元浩",
     "alias": [],
     "identity": "武当派掌门雷震子高足",
-    "faction": "faction_wu_dang",
-    "role": "companion",
-    "archetype": "warrior",
+    "faction": "武当",
+    "role": "同伴",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "武当后起之秀，封妙嫦心上人，曾在水云庄杀匪救人",
     "personality": {
@@ -110,8 +110,8 @@
     ],
     "identity": "文道庄之子",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "文道庄之子，使玄铁宝剑，素来狂妄",
     "personality": {
@@ -234,8 +234,8 @@
     ],
     "identity": "封子超之女",
     "faction": null,
-    "role": "companion",
-    "archetype": "scholar",
+    "role": "同伴",
+    "archetype": "文士",
     "rank": "略有小成",
     "one_line": "封子超之女，心属秦元浩，被父亲抛弃",
     "personality": {
@@ -361,8 +361,8 @@
     ],
     "identity": "封妙嫦之父",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "炉火纯青",
     "one_line": "封妙嫦之父，贪生怕死，弃女而逃",
     "personality": {
@@ -484,8 +484,8 @@
     ],
     "identity": "武林高手",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "三象神功高手，与史白都联手围攻金逐流",
     "personality": {
@@ -693,8 +693,8 @@
     ],
     "identity": "侠客",
     "faction": null,
-    "role": "protagonist",
-    "archetype": "warrior",
+    "role": "主角",
+    "archetype": "武者",
     "rank": "返璞归真",
     "one_line": "身怀护体神功的年轻侠客，剑法精奇轻功超妙",
     "personality": {
@@ -1053,8 +1053,8 @@
     ],
     "identity": "朝廷鹰犬",
     "faction": "清廷",
-    "role": "villain",
-    "archetype": "assassin",
+    "role": "反派",
+    "archetype": "刺客",
     "rank": "登堂入室",
     "one_line": "朝廷鹰犬，受萨总管之命来招揽文道庄和封子超",
     "personality": {
@@ -1113,8 +1113,8 @@
     ],
     "identity": "朝廷鹰犬",
     "faction": "清廷",
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "朝廷鹰犬，使厚背刀，与朱虎臣搭档",
     "personality": {
@@ -1168,7 +1168,7 @@
   {
     "id": "char_ye_mu_hua",
     "name": "叶慕华",
-    "role": "配角",
+    "role": "路人",
     "archetype": "大师兄",
     "one_line": "江海天大弟子，曾任援川义军统帅",
     "faction": "fa_jiang_family",
@@ -1189,13 +1189,14 @@
     "migration_notes": [
       "unresolved power rank: 出类拔萃",
       "unresolved importance: 出类拔萃"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_li_guang_xia",
     "name": "李光夏",
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "one_line": "江海天徒弟，将与竺清华成婚",
     "faction": null,
     "rank": "略有小成",
@@ -1254,7 +1255,7 @@
   {
     "id": "char_jiang_hai_tian",
     "name": "江海天",
-    "role": "主要",
+    "role": "路人",
     "archetype": "一代大侠",
     "one_line": "天下第一高手，金世遗之徒",
     "faction": "fa_jiang_family",
@@ -1335,12 +1336,13 @@
     "importance": "未知",
     "migration_notes": [
       "unresolved importance: 登峰造极"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_gu_zhong_lian",
     "name": "谷中莲",
-    "role": "配角",
+    "role": "路人",
     "archetype": "贤妻",
     "one_line": "江海天之妻",
     "faction": "fa_jiang_family",
@@ -1367,15 +1369,16 @@
     "importance": "配角",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_zhong_chang_tong",
     "name": "仲长统",
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "one_line": "丐帮帮主，豪迈义气的老前辈",
-    "faction": "faction_gai_bang",
+    "faction": "丐帮",
     "rank": "出神入化",
     "related_characters": [
       "char_jiang_hai_tian"
@@ -1452,7 +1455,7 @@
   {
     "id": "char_yi_yang_zi",
     "name": "一阳子",
-    "role": "配角",
+    "role": "路人",
     "archetype": "峨嵋名宿",
     "one_line": "峨嵋派名宿",
     "faction": "fa_emei",
@@ -1468,12 +1471,13 @@
     "importance": "配角",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_jiang_xiao_fu",
     "name": "江晓芙",
-    "role": "配角",
+    "role": "路人",
     "archetype": "新娘",
     "one_line": "江海天之女，本日出嫁",
     "faction": "fa_jiang_family",
@@ -1491,12 +1495,13 @@
     "importance": "配角",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_yu_wen_xiong",
     "name": "宇文雄",
-    "role": "配角",
+    "role": "路人",
     "archetype": "新郎",
     "one_line": "江海天掌门弟子，今日成婚",
     "faction": "fa_jiang_family",
@@ -1514,12 +1519,13 @@
     "importance": "配角",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_tang_jia_yuan",
     "name": "唐加源",
-    "role": "配角",
+    "role": "路人",
     "archetype": "少年英杰",
     "one_line": "天山派少掌门",
     "faction": "fa_tianshan",
@@ -1535,7 +1541,8 @@
     "importance": "配角",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_zhi_ke",
@@ -1556,7 +1563,8 @@
     "importance": "路人",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_bai_xiong",
@@ -1577,12 +1585,13 @@
     "importance": "路人",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_shang_guan_tai",
     "name": "上官泰",
-    "role": "配角",
+    "role": "路人",
     "archetype": "义军联络人",
     "one_line": "西星义军竺尚父的盟友，赶来江家报讯求援",
     "faction": null,
@@ -1618,13 +1627,14 @@
     "importance": "配角",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_zhu_shang_fu",
     "name": "竺尚父",
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "one_line": "大凉山义军首领，武学大师，竺清华之父",
     "faction": null,
     "rank": "登峰造极",
@@ -1711,7 +1721,7 @@
   {
     "id": "char_wen_ting_bi",
     "name": "文廷璧",
-    "role": "配角",
+    "role": "路人",
     "archetype": "前辈魔头",
     "one_line": "文道庄之叔，曾被金世遗在邙山放走",
     "faction": null,
@@ -1730,12 +1740,13 @@
     "importance": "配角",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_leng_tie_qiao",
     "name": "冷铁樵",
-    "role": "配角",
+    "role": "路人",
     "archetype": "义军领袖",
     "one_line": "小金川义军领袖",
     "faction": null,
@@ -1751,13 +1762,14 @@
     "importance": "配角",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_zhu_qing_hua",
     "name": "竺清华",
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "one_line": "竺尚父之女，与李光夏相恋，公孙燕好友",
     "faction": null,
     "rank": "平平无奇",
@@ -1825,7 +1837,7 @@
   {
     "id": "char_shang_guan_wan",
     "name": "上官纨",
-    "role": "配角",
+    "role": "路人",
     "archetype": "义军之女",
     "one_line": "上官泰之女",
     "faction": null,
@@ -1844,7 +1856,8 @@
     "importance": "配角",
     "migration_notes": [
       "unresolved power rank: <blank>"
-    ]
+    ],
+    "alias": []
   },
   {
     "id": "char_gong_ping_ye",
@@ -1852,8 +1865,8 @@
     "alias": [],
     "identity": "邪派高手，阳浩弟子",
     "faction": null,
-    "role": "villain",
-    "archetype": "assassin",
+    "role": "反派",
+    "archetype": "刺客",
     "rank": "略有小成",
     "one_line": "邪派中二流角色，会玄阴指，面色苍白如病夫",
     "personality": {
@@ -1914,8 +1927,8 @@
     "alias": [],
     "identity": "武学世家后人",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "欧阳伯和之子，家传雷神拳高手，为父报仇屡败于仲长统，性格自负好胜",
     "personality": {
@@ -2010,8 +2023,8 @@
     ],
     "identity": "不明身份的窃贼，后知为李敦",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "登堂入室",
     "one_line": "以穷书生面目出现的窃贼，实际身份是六合帮记室李敦",
     "personality": {
@@ -2054,9 +2067,9 @@
       "焦磊"
     ],
     "identity": "六合帮四大高手之一",
-    "faction": "faction_liu_he_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "六合帮中强盗高手，短小精悍，使鬼头刀",
     "personality": {
@@ -2095,9 +2108,9 @@
       "青符"
     ],
     "identity": "六合帮四大高手之一",
-    "faction": "faction_liu_he_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "六合帮四大高手之一，道号青符，使拂尘",
     "personality": {
@@ -2138,9 +2151,9 @@
       "穷酸"
     ],
     "identity": "义军卧底",
-    "faction": "faction_yi_jun",
-    "role": "companion",
-    "archetype": "scholar",
+    "faction": "义军",
+    "role": "同伴",
+    "archetype": "文士",
     "rank": "炉火纯青",
     "one_line": "义军卧底人员，擅使天魔教暗器毒雾金针烈焰弹，精于改容易貌",
     "personality": {
@@ -2299,8 +2312,8 @@
     ],
     "identity": "武林世家，金世遗旧友",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "炉火纯青",
     "one_line": "金世遗世交好友，官宦世家出身的武林人物，家住木渎",
     "personality": {
@@ -2357,8 +2370,8 @@
     ],
     "identity": "陈天宇之妻，前冰宫侍女",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "陈天宇之妻，曾为冰川天女侍女，擅长冰魄神弹",
     "personality": {
@@ -2404,9 +2417,9 @@
       "史帮主"
     ],
     "identity": "六合帮帮主",
-    "faction": "faction_liu_he_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "六合帮帮主，善于作伪，暗中无恶不作，意图结交权贵",
     "personality": {
@@ -2450,9 +2463,9 @@
       "二哥"
     ],
     "identity": "六合帮香主",
-    "faction": "faction_liu_he_bang",
-    "role": "villain",
-    "archetype": "monk",
+    "faction": "六合帮",
+    "role": "反派",
+    "archetype": "僧道",
     "rank": "炉火纯青",
     "one_line": "六合帮四大香主之一，出家人，戒刀被厉南星削断",
     "personality": {
@@ -2567,9 +2580,9 @@
       "四妹"
     ],
     "identity": "六合帮高手",
-    "faction": "faction_liu_he_bang",
-    "role": "villain",
-    "archetype": "assassin",
+    "faction": "六合帮",
+    "role": "反派",
+    "archetype": "刺客",
     "rank": "出神入化",
     "one_line": "六合帮高手，受命带回史红英，擅长鞭法和暗器银梭",
     "personality": {
@@ -2686,8 +2699,8 @@
     "alias": [],
     "identity": "剑客",
     "faction": null,
-    "role": "companion",
-    "archetype": "warrior",
+    "role": "同伴",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "持冰魄寒光剑的青年剑客，与石霞姑一同来袭",
     "personality": {
@@ -2816,9 +2829,9 @@
       "蒙面人"
     ],
     "identity": "六合帮帮主之妹",
-    "faction": "faction_liu_he_bang",
-    "role": "protagonist",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "主角",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "史白都之妹，性格刚烈独立，擅长鞭法",
     "personality": {
@@ -3061,9 +3074,9 @@
       "史红英（真面目）"
     ],
     "identity": "六合帮帮主之妹",
-    "faction": "faction_liu_he_bang",
-    "role": "companion",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "同伴",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "蒙面盗取玄铁的神秘人，后揭晓为史红英",
     "personality": {
@@ -3102,9 +3115,9 @@
       "宦秉藩"
     ],
     "identity": "红缨会舵主",
-    "faction": "faction_hong_ying_hui",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "红缨会",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "红缨会舵主，受阳浩重伤后逃出",
     "personality": {
@@ -3229,9 +3242,9 @@
     "name": "高大成",
     "alias": [],
     "identity": "青龙帮帮主",
-    "faction": "faction_qing_long_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "青龙帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "青龙帮帮主，天生神力，使狼牙棒",
     "personality": {
@@ -3294,9 +3307,9 @@
     "name": "杜大业",
     "alias": [],
     "identity": "白虎帮帮主",
-    "faction": "faction_bai_hu_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "白虎帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "白虎帮帮主，使护手钩，擅长克制剑术",
     "personality": {
@@ -3359,9 +3372,9 @@
     "name": "郑雄图",
     "alias": [],
     "identity": "卫士教头",
-    "faction": "faction_chao_ting",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "朝廷",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "冀北大盗出身，铁砂掌功夫了得，将军府卫士教头，被公孙燕击杀",
     "personality": {
@@ -3435,9 +3448,9 @@
       "窦老大"
     ],
     "identity": "长江水寇",
-    "faction": "faction_hai_sha_bang",
-    "role": "villain",
-    "archetype": "assassin",
+    "faction": "海沙帮",
+    "role": "反派",
+    "archetype": "刺客",
     "rank": "略有小成",
     "one_line": "长江水寇，假扮梢公以毒茶暗算金逐流",
     "personality": {
@@ -3473,9 +3486,9 @@
     "name": "窦老大",
     "alias": [],
     "identity": "长江水寇",
-    "faction": "faction_hai_sha_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "海沙帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "长江水寇头目，曾被金逐流击败",
     "personality": {
@@ -3511,9 +3524,9 @@
     "name": "海沙帮舵主",
     "alias": [],
     "identity": "海沙帮舵主",
-    "faction": "faction_hai_sha_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "海沙帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "海沙帮舵主，与史白邵交情深厚",
     "personality": {
@@ -3549,9 +3562,9 @@
     "name": "钱大",
     "alias": [],
     "identity": "海沙帮舵主心腹",
-    "faction": "faction_hai_sha_bang",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "海沙帮",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "初窥门径",
     "one_line": "海沙帮舵主心腹，负责看守金逐流",
     "personality": {
@@ -3587,9 +3600,9 @@
     "name": "看守甲",
     "alias": [],
     "identity": "海沙帮帮众",
-    "faction": "faction_hai_sha_bang",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "海沙帮",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "海沙帮帮众，看守金逐流",
     "personality": {
@@ -3624,9 +3637,9 @@
     "name": "看守乙",
     "alias": [],
     "identity": "海沙帮帮众",
-    "faction": "faction_hai_sha_bang",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "海沙帮",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "海沙帮帮众，看守金逐流，知晓许多内情",
     "personality": {
@@ -3662,9 +3675,9 @@
     "name": "沙千峰",
     "alias": [],
     "identity": "海砂帮帮主",
-    "faction": "faction_hai_sha_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "海沙帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "海砂帮帮主，与史白都八拜之交，擅长毒砂掌和判官笔",
     "personality": {
@@ -3742,9 +3755,9 @@
     "name": "厨子",
     "alias": [],
     "identity": "海沙帮厨子",
-    "faction": "faction_hai_sha_bang",
-    "role": "npc",
-    "archetype": "scholar",
+    "faction": "海沙帮",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "海沙帮厨子，给沙千峰和文道庄送消夜",
     "personality": {
@@ -3779,9 +3792,9 @@
     "name": "帅孟雄",
     "alias": [],
     "identity": "将军",
-    "faction": "faction_chao_ting",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "朝廷",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "镇守西昌的将军，手握重兵，迎娶史红英以拉拢六合帮",
     "personality": {
@@ -3891,9 +3904,9 @@
     "name": "史白都",
     "alias": [],
     "identity": "六合帮帮主",
-    "faction": "faction_liu_he_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "六合帮帮主，武功高强，欲夺玄铁宝剑并强娶石霞姑",
     "personality": {
@@ -4085,9 +4098,9 @@
       "天魔教祖师"
     ],
     "identity": "天魔教祖师，厉复生的姑母",
-    "faction": "faction_tian_mo_jiao",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "天魔教",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "返璞归真",
     "one_line": "天魔教祖师，曾以绝顶武功镇服武林，痴恋金世遗，洞房之夜香消玉殒",
     "personality": {
@@ -4151,8 +4164,8 @@
     ],
     "identity": "江湖卖艺人",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "卖艺老人，外家功夫不弱，内力深厚，拂云手精妙",
     "personality": {
@@ -4208,8 +4221,8 @@
     ],
     "identity": "江湖卖艺女",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "略有小成",
     "one_line": "何老大之女，十六八岁，姿色清丽，武功不弱，擅长梨花鼓和柳叶刀",
     "personality": {
@@ -4262,8 +4275,8 @@
     "alias": [],
     "identity": "恶霸",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "济南曹家公子，好色纨绔，武功不弱，白纸折扇为武器",
     "personality": {
@@ -4315,9 +4328,9 @@
     "name": "连城虎",
     "alias": [],
     "identity": "朝廷护院",
-    "faction": "faction_cao_zhen_lian",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "曹振联势力",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "天下第一点穴名家，双笔点四穴绝技，出身武学世家误入歧途",
     "personality": {
@@ -4433,8 +4446,8 @@
     "alias": [],
     "identity": "山寨之主",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "秃头壮汉，少林派大力金刚掌高手，后做曹家保镖",
     "personality": {
@@ -4489,8 +4502,8 @@
     "alias": [],
     "identity": "曹家教头",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "略有小成",
     "one_line": "曹家的教头，面肉横生，带人强抢民女",
     "personality": {
@@ -4527,8 +4540,8 @@
     "alias": [],
     "identity": "文华殿大学士",
     "faction": null,
-    "role": "villain",
-    "archetype": "scholar",
+    "role": "反派",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "当朝汉人宰相，助纣为虐，专为清廷出主意欺压汉人",
     "personality": {
@@ -4574,9 +4587,9 @@
       "青符"
     ],
     "identity": "六合帮第三高手",
-    "faction": "faction_liu_he_bang",
-    "role": "antagonist",
-    "archetype": "enforcer",
+    "faction": "六合帮",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "六合帮第三高手，使乌金玄丝拂尘",
     "related_characters": [
@@ -4615,9 +4628,9 @@
     "name": "店主人",
     "alias": [],
     "identity": "小镇客店店主",
-    "faction": "faction_liu_he_bang",
-    "role": "minor",
-    "archetype": "civilian",
+    "faction": "六合帮",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "小镇客店店主，与六合帮有来往",
     "related_characters": [
@@ -4652,9 +4665,9 @@
     "name": "焦磊",
     "alias": [],
     "identity": "六合帮香主",
-    "faction": "faction_liu_he_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "六合帮四大香主之一，独脚大盗出身，被厉南星断臂",
     "related_characters": [
@@ -4721,7 +4734,7 @@
     ],
     "identity": "震远镖局退休老镖头",
     "faction": null,
-    "role": "supporter",
+    "role": "路人",
     "archetype": "mentor",
     "rank": "平平无奇",
     "one_line": "震远镖局退休老镖头，为避仇假死，古道热肠的前辈英雄",
@@ -4771,8 +4784,8 @@
     "alias": [],
     "identity": "戴均长子",
     "faction": null,
-    "role": "supporter",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "戴均长子，武功不弱，守灵期间招待金逐流",
     "related_characters": [
@@ -4815,8 +4828,8 @@
     ],
     "identity": "江湖游侠",
     "faction": null,
-    "role": "protagonist",
-    "archetype": "warrior",
+    "role": "主角",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "天魔教教主，厉胜男后人，与公孙燕在桃花谷死里逃生",
     "related_characters": [
@@ -5095,8 +5108,8 @@
     "alias": [],
     "identity": "独脚大盗",
     "faction": null,
-    "role": "minor",
-    "archetype": "enforcer",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "曾受封子超庇护的独脚大盗，参与追击封妙嫦被金逐流废去武功",
     "related_characters": [
@@ -5129,8 +5142,8 @@
     "alias": [],
     "identity": "关外大盗、义军头目",
     "faction": null,
-    "role": "supporter",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "关外著名大盗，现为小金川义军头目，闯入萨府劫宝劫饷",
     "related_characters": [
@@ -5187,8 +5200,8 @@
     ],
     "identity": "尉迟炯之妻",
     "faction": null,
-    "role": "supporter",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "尉迟炯之妻，外号千手观音，暗器天下一绝",
     "related_characters": [
@@ -5239,8 +5252,8 @@
     ],
     "identity": "大内总管",
     "faction": null,
-    "role": "antagonist",
-    "archetype": "villain",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "大内总管，过六十大寿，贺礼被劫",
     "related_characters": [
@@ -5293,9 +5306,9 @@
     "name": "公孙宏",
     "alias": [],
     "identity": "红缨会总舵主",
-    "faction": "faction_hong_ying_hui",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "红缨会",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "登峰造极",
     "one_line": "红缨会总舵主，江湖第一大帮会首领，中毒后以绵掌击破屋顶逃出",
     "related_characters": [
@@ -5431,8 +5444,8 @@
     "alias": [],
     "identity": "独脚大盗",
     "faction": null,
-    "role": "minor",
-    "archetype": "enforcer",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "独脚大盗，与李壮结拜，持萨府请帖入京贺寿",
     "related_characters": [
@@ -5464,8 +5477,8 @@
     "alias": [],
     "identity": "独脚大盗",
     "faction": null,
-    "role": "minor",
-    "archetype": "enforcer",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "独脚大盗，与张宏结拜，被金逐流设计偷走请帖",
     "related_characters": [
@@ -5497,8 +5510,8 @@
     "alias": [],
     "identity": "武林前辈",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "与戴均交好的武林前辈，武功高强，性格豪爽",
     "personality": {
@@ -5573,8 +5586,8 @@
     "alias": [],
     "identity": "修罗阴煞功传人",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "天魔教邪徒，用修罗阴煞功伤人，设计毒害公孙宏",
     "personality": {
@@ -5703,9 +5716,9 @@
     "name": "厉复生",
     "alias": [],
     "identity": "厉南星之父",
-    "faction": "faction_tian_mo_jiao",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "天魔教",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "厉胜男的侄儿，厉南星之父，早已金盆洗手退出武林",
     "personality": {
@@ -5762,8 +5775,8 @@
     "alias": [],
     "identity": "金逐流之父，一代大侠",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "返璞归真",
     "one_line": "金逐流之父，曾与厉胜男有一段情缘，武功天下第一",
     "personality": {
@@ -5853,8 +5866,8 @@
     "alias": [],
     "identity": "卧佛寺方丈",
     "faction": null,
-    "role": "npc",
-    "archetype": "monk",
+    "role": "路人",
+    "archetype": "僧道",
     "rank": "炉火纯青",
     "one_line": "卧佛寺得道高僧，与抗清义士有秘密来往，精通佛法",
     "personality": {
@@ -5910,9 +5923,9 @@
     "name": "王泰",
     "alias": [],
     "identity": "丐帮济南分舵舵主",
-    "faction": "faction_gai_bang",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "丐帮",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "丐帮济南分舵舵主，老于世故，对金逐流恭敬有加",
     "personality": {
@@ -5960,8 +5973,8 @@
     "alias": [],
     "identity": "陈光照旧日意中人",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "略有小成",
     "one_line": "陈光照三年前的意中人，精通诗词，以画船游湖相约",
     "personality": {
@@ -6009,8 +6022,8 @@
     "alias": [],
     "identity": "霞姑的丫鬟",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "霞姑身边穿红衣的丫鬟，能弹琴唱歌，口齿伶俐",
     "personality": {
@@ -6058,8 +6071,8 @@
     "alias": [],
     "identity": "霞姑的丫鬟",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "霞姑身边穿绿衣的丫鬟，负责端茶递水",
     "personality": {
@@ -6109,8 +6122,8 @@
     ],
     "identity": "济南曹家大少爷",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "济南富户曹家大少爷，贪恋女色，与六合帮勾结",
     "personality": {
@@ -6165,8 +6178,8 @@
     "alias": [],
     "identity": "曹通的宠妾",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "曹通最宠爱的妾室，被金逐流点穴制住",
     "personality": {
@@ -6215,9 +6228,9 @@
       "霞姑"
     ],
     "identity": "天魔教传人",
-    "faction": "faction_tian_mo_jiao",
-    "role": "companion",
-    "archetype": "warrior",
+    "faction": "天魔教",
+    "role": "同伴",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "持金蛇索的美貌少女，被贺大娘以毒发之期胁迫嫁给史白都",
     "personality": {
@@ -6317,8 +6330,8 @@
     "alias": [],
     "identity": "曹家新请来的黑道人物",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "略有小成",
     "one_line": "曹家新聘黑道高手，使链子锤，被暗器所伤",
     "personality": {
@@ -6358,8 +6371,8 @@
     "alias": [],
     "identity": "曹家新请来的黑道人物",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "略有小成",
     "one_line": "曹家新聘黑道高手，使藤蛇棒，被金逐流所伤",
     "personality": {
@@ -6398,9 +6411,9 @@
     "name": "贺大娘",
     "alias": [],
     "identity": "天魔教侍女/石霞姑奶妈",
-    "faction": "faction_tian_mo_jiao",
-    "role": "villain",
-    "archetype": "assassin",
+    "faction": "天魔教",
+    "role": "反派",
+    "archetype": "刺客",
     "rank": "炉火纯青",
     "one_line": "厉胜男的旧侍女，擅用毒针暗器，逼迫石霞姑嫁给史白都",
     "personality": {
@@ -6470,9 +6483,9 @@
       "彩凤"
     ],
     "identity": "义军",
-    "faction": "faction_yi_jun",
-    "role": "companion",
-    "archetype": "healer",
+    "faction": "义军",
+    "role": "同伴",
+    "archetype": "医者",
     "rank": "略有小成",
     "one_line": "李敦之妻，混入乐家班子潜入西昌，说鼓书为掩护",
     "personality": {
@@ -6565,9 +6578,9 @@
     "name": "李茂",
     "alias": [],
     "identity": "丐帮第八代弟子",
-    "faction": "faction_gai_bang",
-    "role": "companion",
-    "archetype": "warrior",
+    "faction": "丐帮",
+    "role": "同伴",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "丐帮扬州分舵舵主，率众攻打六合帮后路",
     "personality": {
@@ -6621,9 +6634,9 @@
     "name": "青符道人",
     "alias": [],
     "identity": "六合帮香主",
-    "faction": "faction_liu_he_bang",
-    "role": "villain",
-    "archetype": "monk",
+    "faction": "六合帮",
+    "role": "反派",
+    "archetype": "僧道",
     "rank": "登堂入室",
     "one_line": "六合帮四大香主之一，出家道士",
     "personality": {
@@ -6669,9 +6682,9 @@
     "name": "六合帮大头目",
     "alias": [],
     "identity": "六合帮头目",
-    "faction": "faction_liu_he_bang",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "六合帮大头目，持独脚铜人，被厉南星一剑震死",
     "personality": {
@@ -6710,9 +6723,9 @@
     "name": "董十三娘",
     "alias": [],
     "identity": "六合帮高手",
-    "faction": "faction_liu_he_bang",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "六合帮女高手，使长鞭，与文道庄联手围攻金逐流",
     "personality": {
@@ -6772,8 +6785,8 @@
     "alias": [],
     "identity": "渔夫",
     "faction": null,
-    "role": "npc",
-    "archetype": "healer",
+    "role": "路人",
+    "archetype": "医者",
     "rank": "平平无奇",
     "one_line": "善良的老渔夫，与两个儿子捞起江中的厉南星",
     "personality": {
@@ -6813,8 +6826,8 @@
     "alias": [],
     "identity": "金逐流师兄",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "金逐流的师兄，已到西昌义军处",
     "personality": {
@@ -6861,9 +6874,9 @@
     "name": "王吉",
     "alias": [],
     "identity": "六合帮小头目",
-    "faction": "faction_liu_he_bang",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "六合帮",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "略有小成",
     "one_line": "六合帮小头目，受李敦影响企图叛帮逃走，编假消息吓退封子超",
     "personality": {
@@ -6911,8 +6924,8 @@
     "alias": [],
     "identity": "不明",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "略有小成",
     "one_line": "章末出现的神秘少女，与父亲乘船经过，要看热闹",
     "personality": {
@@ -6952,8 +6965,8 @@
     "alias": [],
     "identity": "神秘老者",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "陌生少女的父亲，手持旱烟袋的老者，武功深不可测",
     "personality": {
@@ -7001,8 +7014,8 @@
     "alias": [],
     "identity": "公孙宏之女",
     "faction": null,
-    "role": "companion",
-    "archetype": "warrior",
+    "role": "同伴",
+    "archetype": "武者",
     "rank": "略有小成",
     "one_line": "公孙宏之女，与厉南星同坠桃花谷后死里逃生",
     "personality": {
@@ -7172,8 +7185,8 @@
     "alias": [],
     "identity": "饮马川寨主",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "饮马川寨主，曾至红缨会拜见公孙宏",
     "personality": {
@@ -7211,8 +7224,8 @@
     "alias": [],
     "identity": "水云庄庄主",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "水云庄庄主，有小盂尝之称，侠义好客",
     "personality": {
@@ -7267,8 +7280,8 @@
     "alias": [],
     "identity": "云龙之女",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "云龙之女，与大师兄秦少阳相爱",
     "personality": {
@@ -7322,8 +7335,8 @@
     "alias": [],
     "identity": "云龙掌门大弟子",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "略有小成",
     "one_line": "云龙掌门大弟子，与云中燕成婚",
     "personality": {
@@ -7376,8 +7389,8 @@
     "alias": [],
     "identity": "云龙二徒弟",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "云龙二徒弟，负责庄中巡防",
     "personality": {
@@ -7423,8 +7436,8 @@
     "alias": [],
     "identity": "跳虎涧寨主",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "跳虎涧寨主，与李虎儿同行赴水云庄",
     "personality": {
@@ -7461,9 +7474,9 @@
     "name": "彭巨嵘",
     "alias": [],
     "identity": "朝廷鹰犬",
-    "faction": "faction_cao_zhen_lian",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "曹振联势力",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "秃头大汉，金刚掌力刚猛，背叛师门投靠曹振联，被厉南星一剑劈杀",
     "personality": {
@@ -7538,9 +7551,9 @@
     "name": "芍药",
     "alias": [],
     "identity": "丫鬟",
-    "faction": "faction_liu_he_bang",
-    "role": "npc",
-    "archetype": "healer",
+    "faction": "六合帮",
+    "role": "路人",
+    "archetype": "医者",
     "rank": "平平无奇",
     "one_line": "史红英的心腹丫头，与表哥有婚约，奉命出城传递消息",
     "personality": {
@@ -7589,9 +7602,9 @@
     "name": "牡丹",
     "alias": [],
     "identity": "丫鬟",
-    "faction": "faction_liu_he_bang",
-    "role": "npc",
-    "archetype": "healer",
+    "faction": "六合帮",
+    "role": "路人",
+    "archetype": "医者",
     "rank": "平平无奇",
     "one_line": "史红英的另一心腹丫头，被安排替代董十三娘陪伴史红英",
     "personality": {
@@ -7640,9 +7653,9 @@
     "name": "关大伦",
     "alias": [],
     "identity": "义军卧底",
-    "faction": "faction_yi_jun",
-    "role": "npc",
-    "archetype": "scholar",
+    "faction": "义军",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "义军派在西昌将军府卧底的联络人，厉南星与李敦的藏身之处",
     "personality": {
@@ -7691,9 +7704,9 @@
     "name": "安俊庭",
     "alias": [],
     "identity": "将军府总管",
-    "faction": "faction_chao_ting",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "朝廷",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "将军府总管，大力鹰爪功高手，七节鞭法精熟",
     "personality": {
@@ -7753,8 +7766,8 @@
     ],
     "identity": "村中老农",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "桃花谷附近村中的老农夫，熟知赭石山与桃花谷的情形",
     "personality": {
@@ -7802,8 +7815,8 @@
     "alias": [],
     "identity": "华山脚下村民",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "平平无奇",
     "one_line": "儿子患涝病的农妇，求医途中得金逐流赠药",
     "personality": {
@@ -7845,8 +7858,8 @@
     ],
     "identity": "长练帮帮主之弟",
     "faction": null,
-    "role": "supporter",
-    "archetype": "commoner",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "略有小成",
     "one_line": "长练帮帮主之弟，率众前来助拳并求医，对史红英恭敬有加",
     "personality": {
@@ -7922,8 +7935,8 @@
     ],
     "identity": "漱石道人的弟子",
     "faction": null,
-    "role": "npc",
-    "archetype": "monk",
+    "role": "路人",
+    "archetype": "僧道",
     "rank": "平平无奇",
     "one_line": "漱石道人的弟子，守护师父灵柩",
     "personality": {
@@ -7971,8 +7984,8 @@
     "alias": [],
     "identity": "华山医隐华天风的弟子",
     "faction": null,
-    "role": "npc",
-    "archetype": "healer",
+    "role": "路人",
+    "archetype": "医者",
     "rank": "炉火纯青",
     "one_line": "华山医隐华天风的道童出身，医术精湛，被人毒杀",
     "personality": {
@@ -8022,8 +8035,8 @@
     ],
     "identity": "华山名医",
     "faction": null,
-    "role": "npc",
-    "archetype": "healer",
+    "role": "路人",
+    "archetype": "医者",
     "rank": "返璞归真",
     "one_line": "天下第一的名医，金逐流父亲的老友，大师兄的义父",
     "personality": {
@@ -8077,9 +8090,9 @@
     "name": "庄远",
     "alias": [],
     "identity": "红缨会第三把交椅香主",
-    "faction": "faction_hong_ying_hui",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "红缨会",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "红缨会坐第三把交椅的香主，大擒拿手和绵掌功夫为武林一绝",
     "personality": {
@@ -8134,8 +8147,8 @@
     "alias": [],
     "identity": "丐帮四大香主之一，绰号霹雳火",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "丐帮香主，性烈如火，绰号霹雳火",
     "personality": {
@@ -8205,8 +8218,8 @@
     "alias": [],
     "identity": "红缨会排名第三的香主",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "红缨会香主，对仲长统推荐武林盟主人选感到诧异",
     "personality": {
@@ -8272,9 +8285,9 @@
     "name": "假厉南星",
     "alias": [],
     "identity": "冒充天魔教教主的傀儡",
-    "faction": "faction_tian_mo_jiao",
-    "role": "villain",
-    "archetype": "assassin",
+    "faction": "天魔教",
+    "role": "反派",
+    "archetype": "刺客",
     "rank": "登堂入室",
     "one_line": "阳浩的师侄，相貌酷似厉南星，被阳浩利用冒充天魔教教主",
     "personality": {
@@ -8321,9 +8334,9 @@
     "name": "黄衣老者",
     "alias": [],
     "identity": "天魔教一流高手",
-    "faction": "faction_tian_mo_jiao",
-    "role": "minion",
-    "archetype": "warrior",
+    "faction": "天魔教",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "天魔教中鹰爪功高手，奉阳浩之命围攻史红英，被公孙燕一剑刺瞎一目",
     "personality": {
@@ -8363,9 +8376,9 @@
     "name": "青衣老者",
     "alias": [],
     "identity": "天魔教高手",
-    "faction": "faction_tian_mo_jiao",
-    "role": "minion",
-    "archetype": "warrior",
+    "faction": "天魔教",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "天魔教高手，因惧怕公孙宏之名而心怯，被公孙燕刺中穴道擒获",
     "personality": {
@@ -8406,8 +8419,8 @@
     "alias": [],
     "identity": "天魔教总舵负责人",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "天魔教总舵留守人员，负责招待庆功宴",
     "personality": {
@@ -8467,8 +8480,8 @@
     "alias": [],
     "identity": "扶桑岛传人",
     "faction": null,
-    "role": "wanderer",
-    "archetype": "mysterious",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "扶桑岛虬髯客一脉传人，以折扇为兵器可变多种兵器招数，武功深不可测",
     "personality": {
@@ -8508,8 +8521,8 @@
     "alias": [],
     "identity": "扶桑岛虬髯客后人，海外武学传人",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "扶桑岛虬髯客后人，武功高强，来中原寻访同门、整理先祖武学",
     "personality": {
@@ -8593,8 +8606,8 @@
     "alias": [],
     "identity": "西域小国王子，避居海外的岛主",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "西域王子，为让王位避居海外，与江海天为郎舅之亲",
     "personality": {
@@ -8670,8 +8683,8 @@
     "alias": [],
     "identity": "欧阳伯和侄女，叶冲霄之妻",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "欧阳家族女子，与叶冲霄私奔成婚，远居海外",
     "personality": {
@@ -8726,8 +8739,8 @@
     "alias": [],
     "identity": "欧阳家族一家之主，武林一霸",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "欧阳家族族长，武林一霸，已被仲长统废了武功后死去",
     "personality": {
@@ -8782,8 +8795,8 @@
     "alias": [],
     "identity": "长鲸帮帮主",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "长鲸帮帮主，感恩戴德，拥戴史红英为盟主",
     "personality": {
@@ -8833,8 +8846,8 @@
     ],
     "identity": "江海天与金逐流的师父，武林顶尖高手",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "庆功宴上出现的神秘青袍人，冷笑众人对金逐流的吹捧",
     "personality": {
@@ -8881,8 +8894,8 @@
     "alias": [],
     "identity": "长鲸帮头目，曾到江海天家作客",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "平平无奇",
     "one_line": "长鲸帮小头目，曾赴江海天嫁女喜酒，率先对金逐流武功评头论足",
     "personality": {
@@ -8923,8 +8936,8 @@
     "alias": [],
     "identity": "金世遗之妻",
     "faction": null,
-    "role": "npc",
-    "archetype": "scholar",
+    "role": "路人",
+    "archetype": "文士",
     "rank": "出神入化",
     "one_line": "金世遗之妻，吕四娘传人，赠霜华剑给史红英作为聘礼",
     "personality": {
@@ -9003,8 +9016,8 @@
     "alias": [],
     "identity": "邙山派四大弟子之首",
     "faction": null,
-    "role": "npc",
-    "archetype": "warrior",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "邙山派四大弟子之首，江南大侠甘凤池后人",
     "personality": {
@@ -9052,8 +9065,8 @@
     "alias": [],
     "identity": "身份不明的神秘高手，与金世遗为敌",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "高鼻深目的神秘男子，与金世遗有敌意，掌力刚柔相济",
     "personality": {
@@ -9108,8 +9121,8 @@
     "alias": [],
     "identity": "身份不明的神秘高手，与金世遗为敌",
     "faction": null,
-    "role": "villain",
-    "archetype": "warrior",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "高鼻深目的神秘女子，与神秘男子为夫妻，武功极高",
     "personality": {
@@ -9163,9 +9176,9 @@
     "name": "牟宗涛",
     "alias": [],
     "identity": "扶桑派弟子",
-    "faction": "faction_fu_sang_pai",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "扶桑派",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "扶桑派牟家嫡系后人，一心复兴本派，从海外来到中原寻访同门",
     "personality": {
@@ -9235,9 +9248,9 @@
     "name": "石卫",
     "alias": [],
     "identity": "扶桑派弟子",
-    "faction": "faction_fu_sang_pai",
-    "role": "supporting",
-    "archetype": "warrior",
+    "faction": "扶桑派",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "扶桑派弟子，桑青之夫，支持牟宗涛清理门户",
     "personality": {
@@ -9326,9 +9339,9 @@
     "name": "桑青",
     "alias": [],
     "identity": "扶桑派弟子",
-    "faction": "faction_fu_sang_pai",
-    "role": "supporting",
-    "archetype": "warrior",
+    "faction": "扶桑派",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "扶桑派弟子，石卫之妻，支持牟宗涛清理门户",
     "personality": {
@@ -9411,9 +9424,9 @@
     "name": "宗神龙",
     "alias": [],
     "identity": "扶桑七子领袖/清廷使者",
-    "faction": "faction_fu_sang_pai",
-    "role": "villain",
-    "archetype": "assassin",
+    "faction": "扶桑派",
+    "role": "反派",
+    "archetype": "刺客",
     "rank": "登峰造极",
     "one_line": "扶桑七子领袖，依附清廷为萨福鼎私人使者，被牟宗涛清理门户",
     "personality": {
@@ -9518,8 +9531,8 @@
     "alias": [],
     "identity": "清风观道士，漱石道人弟子",
     "faction": null,
-    "role": "npc",
-    "archetype": "monk",
+    "role": "路人",
+    "archetype": "僧道",
     "rank": "初窥门径",
     "one_line": "漱石道人的弟子，继承清风观，武功平平但懂得一些医术",
     "personality": {
@@ -9566,8 +9579,8 @@
     "name": "林无双",
     "alias": [],
     "identity": "扶桑派弟子/土王表妹",
-    "faction": "faction_fu_sang_pai",
-    "role": "supporting",
+    "faction": "扶桑派",
+    "role": "路人",
     "archetype": "maiden",
     "rank": "出神入化",
     "one_line": "暗恋表哥牟宗涛的扶桑派女弟子",
@@ -9662,9 +9675,9 @@
       "飞鱼岛主"
     ],
     "identity": "扶桑派弟子，飞鱼岛前任岛主",
-    "faction": "faction_fu_sang_pai",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "扶桑派",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "登峰造极",
     "one_line": "林无双之父，扶桑派高人，曾在海外飞鱼岛开垦为岛主，后被倭人逼走迁回中原隐居",
     "personality": {
@@ -9720,9 +9733,9 @@
     "name": "方卫",
     "alias": [],
     "identity": "扶桑七子之一",
-    "faction": "faction_fu_sang_pai",
-    "role": "villain",
-    "archetype": "warrior",
+    "faction": "扶桑派",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "扶桑七子之一，对宗神龙极为恭敬，称其为宗师叔",
     "personality": {
@@ -9771,9 +9784,9 @@
     "name": "林道轩",
     "alias": [],
     "identity": "天理会新任总舵主，金逐流师侄",
-    "faction": "faction_tian_li_hui",
-    "role": "companion",
-    "archetype": "warrior",
+    "faction": "天理会",
+    "role": "同伴",
+    "archetype": "武者",
     "rank": "登堂入室",
     "one_line": "前任天理会总舵主林清之子，张士龙临终托付接任总舵主，金逐流的三师侄",
     "personality": {
@@ -9829,9 +9842,9 @@
       "张总舵主"
     ],
     "identity": "天理会总舵主",
-    "faction": "faction_tian_li_hui",
-    "role": "npc",
-    "archetype": "warrior",
+    "faction": "天理会",
+    "role": "路人",
+    "archetype": "武者",
     "rank": "出神入化",
     "one_line": "天理会总舵主，前任舵主林清的结拜兄弟，为抵抗扶桑七子壮烈牺牲",
     "personality": {
@@ -9878,8 +9891,8 @@
     "name": "练彩虹",
     "alias": [],
     "identity": "扶桑派弟子/牟宗涛未婚妻",
-    "faction": "faction_fu_sang_pai",
-    "role": "supporting",
+    "faction": "扶桑派",
+    "role": "路人",
     "archetype": "maiden",
     "rank": "出神入化",
     "one_line": "宗神龙亡妻的关门弟子，牟宗涛的未婚妻子",
@@ -9920,13 +9933,6 @@
         "intensity": 85,
         "bond_level": 4,
         "dynamic": "已与牟宗涛订婚，支持其清理门户"
-      },
-      {
-        "target": null,
-        "type": "师门",
-        "intensity": 40,
-        "bond_level": 2,
-        "dynamic": "与宗神龙有师公辈分关系但立场对立"
       }
     ],
     "known_skills": [
@@ -9962,9 +9968,9 @@
     "name": "宗达完真",
     "alias": [],
     "identity": "白教大喇嘛",
-    "faction": "faction_bai_jiao",
-    "role": "supporting",
-    "archetype": "monk",
+    "faction": "白教",
+    "role": "路人",
+    "archetype": "僧道",
     "rank": "出神入化",
     "one_line": "伊克昭盟白教大喇嘛，金世遗故交，协助金逐流斡旋土王",
     "personality": {
@@ -10037,9 +10043,9 @@
     "name": "满州使者",
     "alias": [],
     "identity": "萨福鼎私人使者",
-    "faction": "faction_qing_ting",
-    "role": "villain",
-    "archetype": "bureaucrat",
+    "faction": "清廷",
+    "role": "反派",
+    "archetype": "武者",
     "rank": "炉火纯青",
     "one_line": "萨福鼎派来的假清廷使者，与宗神龙合谋毒害金逐流",
     "personality": {
@@ -10088,7 +10094,7 @@
     "alias": [],
     "identity": "伊克昭盟土王",
     "faction": null,
-    "role": "npc",
+    "role": "路人",
     "archetype": "ruler",
     "rank": "炉火纯青",
     "one_line": "伊克昭盟土王，态度暧昧，最终答应义军两不相助",

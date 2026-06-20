@@ -3,15 +3,24 @@ import { Empty, Segmented, Spin, Typography } from 'antd';
 import { useBookStore } from '../../stores/useBookStore';
 import { useLibraryStore } from '../../stores/useLibraryStore';
 import { useLibraryData } from '../../hooks/useLibraryData';
-import type { LibraryRecord, LibrarySection } from '../../types/library';
+import type { LibraryMaterialType, LibraryRecord, LibrarySection } from '../../types/library';
 import { annotateRecords } from '../../utils/libraryAnnotations';
-import { filterCharacters, filterFactions, filterItems, filterSkills, getUniqueFilterValues } from '../../utils/libraryFilters';
+import { filterCharacters, filterFactions, filterItems, filterSkills, getUniqueFilterValues, sortByRank } from '../../utils/libraryFilters';
 import { isLegendaryItem, isTopTierSkill } from '../../utils/libraryAggregate';
+import { mergeCharacterRecords } from '../../utils/libraryMerge';
 import LibraryDetailDrawer from './LibraryDetailDrawer';
-import LibraryExportPanel from './LibraryExportPanel';
 import LibraryFiltersPanel from './LibraryFilters';
 import LibraryRecordTable from './LibraryRecordTable';
 import LibrarySummary from './LibrarySummary';
+import MergedCharacterTable from './MergedCharacterTable';
+
+const SECTION_MATERIAL_MAP: Record<LibrarySection, LibraryMaterialType> = {
+  overview: 'all',
+  skills: 'skill',
+  characters: 'character',
+  factions: 'faction',
+  items: 'item',
+};
 
 const { Paragraph, Title } = Typography;
 
@@ -21,7 +30,6 @@ const SECTION_OPTIONS: Array<{ label: string; value: LibrarySection }> = [
   { label: '人物原型', value: 'characters' },
   { label: '门派资源', value: 'factions' },
   { label: '神兵物品', value: 'items' },
-  { label: '导出', value: 'export' },
 ];
 
 const GlobalLibraryDashboard: React.FC = () => {
@@ -42,6 +50,13 @@ const GlobalLibraryDashboard: React.FC = () => {
     hydrateAnnotations();
   }, [hydrateAnnotations]);
 
+  useEffect(() => {
+    const materialType = SECTION_MATERIAL_MAP[section];
+    if (filters.materialType !== materialType) {
+      setFilters({ materialType, masteryRank: [], powerRank: [], importance: [], rarityTier: [], type: [] });
+    }
+  }, [section]);
+
   const collections = useMemo(() => ({
     skills: data.skills,
     characters: data.characters,
@@ -50,8 +65,8 @@ const GlobalLibraryDashboard: React.FC = () => {
   }), [data.characters, data.factions, data.items, data.skills]);
 
   const filterOptions = useMemo(() => ({
-    masteryRank: getUniqueFilterValues(data.skills.map((record) => record.entity.mastery_rank ?? record.entity.rank)),
-    powerRank: getUniqueFilterValues(data.characters.map((record) => record.entity.power_rank ?? record.entity.rank)),
+    masteryRank: sortByRank(getUniqueFilterValues(data.skills.map((record) => record.entity.mastery_rank ?? record.entity.rank))),
+    powerRank: sortByRank(getUniqueFilterValues(data.characters.map((record) => record.entity.power_rank ?? record.entity.rank))),
     importance: getUniqueFilterValues(data.characters.map((record) => record.entity.importance)),
     author: getUniqueFilterValues(books.map((book) => book.author)),
     bookPath: books.map((book) => ({ label: `${book.author} / ${book.name}`, value: book.path })),
@@ -74,6 +89,7 @@ const GlobalLibraryDashboard: React.FC = () => {
     [data.skills, filters],
   );
   const characters = useMemo(() => filterCharacters(data.characters, filters), [data.characters, filters]);
+  const mergedCharacters = useMemo(() => mergeCharacterRecords(characters), [characters]);
   const factions = useMemo(() => filterFactions(data.factions, filters), [data.factions, filters]);
   const legendaryItems = useMemo(
     () => filterItems(data.items.filter((record) => isLegendaryItem(record.entity)), filters),
@@ -104,20 +120,20 @@ const GlobalLibraryDashboard: React.FC = () => {
         onChange={(value) => setSection(value as LibrarySection)}
         style={{ marginBottom: 20 }}
       />
-      <LibrarySummary collections={collections} warnings={data.warnings} />
-      {section !== 'overview' && section !== 'export' && (
+      <LibrarySummary collections={collections} warnings={data.warnings} exportRecords={exportRecords} />
+      {section !== 'overview' && (
         <LibraryFiltersPanel
           filters={filters}
+          section={section}
           options={filterOptions}
           onChange={setFilters}
           onReset={resetFilters}
         />
       )}
       {section === 'skills' && <LibraryRecordTable records={annotateRecords(topSkills, annotations)} onOpen={selectRecord} />}
-      {section === 'characters' && <LibraryRecordTable records={annotateRecords(characters, annotations)} onOpen={selectRecord} />}
+      {section === 'characters' && <MergedCharacterTable records={mergedCharacters} onOpen={selectRecord} />}
       {section === 'factions' && <LibraryRecordTable records={annotateRecords(factions, annotations)} onOpen={selectRecord} />}
       {section === 'items' && <LibraryRecordTable records={annotateRecords(legendaryItems, annotations)} onOpen={selectRecord} />}
-      {section === 'export' && <LibraryExportPanel records={exportRecords} />}
       {section === 'overview' && <LibraryRecordTable records={annotateRecords(topSkills.slice(0, 20), annotations)} onOpen={selectRecord} />}
       <LibraryDetailDrawer collections={collections} />
     </div>

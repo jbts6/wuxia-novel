@@ -2,15 +2,17 @@
   {
     "id": "item_wu_qiao_jian",
     "name": "乌鞘剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_guo_da_lu",
     "one_line": "郭大路的佩剑，价值一百多两银子",
     "description": "郭大路花一百多两银子买来的宝剑，乌黑剑鞘，锋利异常",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "购买",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_guo_da_lu"
     ],
@@ -31,15 +33,17 @@
   {
     "id": "item_da_bai_ma",
     "name": "大白马",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_guo_da_lu",
     "one_line": "郭大路的坐骑，价值二百八十两",
     "description": "郭大路买的好马，价值二百八十两银子",
     "effects": [
-      "坐骑"
+      {
+        "type": "效果",
+        "description": "坐骑"
+      }
     ],
     "origin": "购买",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_guo_da_lu"
     ],
@@ -60,17 +64,25 @@
   {
     "id": "item_hong_ma_yi_an_qi",
     "name": "红蚂蚁暗器",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_hong_ma_yi",
     "one_line": "红蚂蚁随身携带的各种微型暗器",
     "description": "红蚂蚁全身都是暗器，暗器特别小，破风之力特别强，别人特别难躲。五颜六色、各式各样，有的又快又急，有的互相撞击，有的在空中打着转。",
     "effects": [
-      "远程攻击",
-      "多角度打击",
-      "难以躲避"
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      },
+      {
+        "type": "效果",
+        "description": "多角度打击"
+      },
+      {
+        "type": "效果",
+        "description": "难以躲避"
+      }
     ],
     "origin": "蚂蚁帮",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hong_ma_yi"
     ],
@@ -91,17 +103,25 @@
   {
     "id": "item_wang_dong_de_you_mian_bei",
     "name": "王动的油棉被",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_dong",
     "one_line": "王动床上那床沾满各种油脂的棉被，可挡暗器",
     "description": "王动的棉被上有猪油、有鸭油、有鸡油，还有麻油。这床棉被简直就像是用油泡过的，泡得又滑又韧，就算是强弓硬弩，也未必能够射得穿。",
     "effects": [
-      "防御暗器",
-      "包裹敌人",
-      "滑韧难破"
+      {
+        "type": "效果",
+        "description": "防御暗器"
+      },
+      {
+        "type": "效果",
+        "description": "包裹敌人"
+      },
+      {
+        "type": "效果",
+        "description": "滑韧难破"
+      }
     ],
     "origin": "富贵山庄",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wang_dong"
     ],
@@ -122,16 +142,21 @@
   {
     "id": "item_yin_jia",
     "name": "银甲",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_yin_ma_yi",
     "one_line": "银蚂蚁所穿的银色铠甲，刀枪不入",
     "description": "银蚂蚁身上穿的银色铠甲，使其刀枪不入，但一跌倒就不容易爬起来，成为其致命弱点。",
     "effects": [
-      "防御物理攻击",
-      "刀枪不入"
+      {
+        "type": "效果",
+        "description": "防御物理攻击"
+      },
+      {
+        "type": "效果",
+        "description": "刀枪不入"
+      }
     ],
     "origin": "蚂蚁帮",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yin_ma_yi"
     ],
@@ -152,13 +177,12 @@
   {
     "id": "item_zhu_ye_qing",
     "name": "竹叶青",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_dong",
     "one_line": "王动十几年前埋在梅树下的三十年陈竹叶青酒",
     "description": "一坛埋藏了十几年的三十年陈竹叶青酒，埋在梅树下以沾梅花香气，酒力比普通两坛还大，林太平一人喝了半坛面不改色",
     "effects": [],
     "origin": "王动埋藏",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wang_dong",
       "char_lin_tai_ping",
@@ -182,13 +206,12 @@
   {
     "id": "item_wu_xiang_yuan_bao",
     "name": "五箱元宝",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "酸梅汤留下的五口箱子，四箱元宝一箱珠宝",
     "description": "四口箱子里装满大大小小的元宝，最小的也有十两重；还有一口箱子里全是珠宝，其中无论哪口箱子都可以把富贵山庄全买下来。",
     "effects": [],
     "origin": "酸梅汤等人偷来",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_suan_mei_tang"
     ],
@@ -209,13 +232,12 @@
   {
     "id": "item_jin_zi",
     "name": "金子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_guo_da_lu",
     "one_line": "郭大路用来付账的金子，引起棍子怀疑",
     "description": "郭大路用金子购买麦老广的酒肉，被棍子发现后追问来源，成为冲突的导火索",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_guo_da_lu",
       "char_mai_lao_guang",
@@ -238,13 +260,12 @@
   {
     "id": "item_fei_cui",
     "name": "翡翠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_feng_qi_wu",
     "one_line": "凤栖梧藏在鸭肚中的翡翠珠宝",
     "description": "从烧鸭肚中掉出的指头般大小的翡翠，是凤栖梧准备用来隐藏运走的赃物之一。翡翠色泽碧绿，价值连城。",
     "effects": [],
     "origin": "凤栖梧盗窃所得",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_feng_qi_wu"
     ],
@@ -265,13 +286,12 @@
   {
     "id": "item_ma_nao",
     "name": "玛瑙",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_feng_qi_wu",
     "one_line": "凤栖梧藏在鸭肚中的玛瑙珠宝",
     "description": "从烧鸭肚中取出的玛瑙，与翡翠同为凤栖梧藏匿的赃物。玛瑙色泽温润，与翡翠相映成趣。",
     "effects": [],
     "origin": "凤栖梧盗窃所得",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_feng_qi_wu"
     ],
@@ -300,13 +320,12 @@
         "text": "他吃鸭子的原则是：\"有肉的时候，绝不啃骨头，有皮的时候，绝不吃肉。"
       }
     ],
-    "type": "food",
+    "type": "食物",
     "owner": "char_guo_da_lu",
     "one_line": "郭大路吃的鸭子",
     "description": "一只被剥皮的鸭子，郭大路吃的原则是有肉绝不啃骨头",
     "effects": "无",
     "origin": "饭馆",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_guo_da_lu"
     ],
@@ -339,13 +358,12 @@
         "text": "小小姑娘果然已回来了，挽着个竹篮子，站在门口，右手果然还提着一大坛酒。…小小姑娘嫣然道：\"当然是喜酒，我在山下看到他们两位亲热的样子，就知道应该去买些喜酒回来了。\""
       }
     ],
-    "type": "food",
+    "type": "食物",
     "owner": "char_guo_da_lu",
     "one_line": "郭大路喝的酒",
     "description": "郭大路喝的酒，喝完后容易联想到女人",
     "effects": "无",
     "origin": "饭馆",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_guo_da_lu"
     ],
@@ -367,13 +385,12 @@
         "text": "现在酒已喝完，珠宝也已分成四份。"
       }
     ],
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "四人平分的珠宝",
     "description": "郭大路等人分得的珠宝，后被郭大路丢失",
     "effects": "财富",
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_guo_da_lu",
       "char_yan_qi",
@@ -397,13 +414,12 @@
         "text": "郭大路站起来，又坐下，笑道：\"我只不过想单独活动个一天半天，明天晚上我们再见面。"
       }
     ],
-    "type": "food",
+    "type": "食物",
     "owner": "char_wang_dong",
     "one_line": "奎元馆的面条",
     "description": "王动请客的面条，味道不错",
     "effects": "充饥",
     "origin": "奎元馆",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wang_dong"
     ],
@@ -424,13 +440,12 @@
         "text": "这条街上也有茶馆，一个人手提着鸟笼，悠悠然从茶馆里走了出来。"
       }
     ],
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lu_ren",
     "one_line": "路人手提的鸟笼",
     "description": "一个路人手提的鸟笼，显示其悠闲",
     "effects": "无",
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -449,13 +464,12 @@
         "text": "燕七道：\"给我来碗炖鸡面，煮三个蛋下去，再煎两个排骨，有炸鱼和咸肉也来两块。"
       }
     ],
-    "type": "food",
+    "type": "食物",
     "owner": "char_yan_qi",
     "one_line": "奎元馆的排骨",
     "description": "燕七点的排骨，郭大路想偷吃",
     "effects": "充饥",
     "origin": "奎元馆",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yan_qi",
       "char_guo_da_lu"
@@ -477,13 +491,12 @@
         "text": "燕七道：\"给我来碗炖鸡面，煮三个蛋下去，再煎两个排骨，有炸鱼和咸肉也来两块。"
       }
     ],
-    "type": "food",
+    "type": "食物",
     "owner": "char_yan_qi",
     "one_line": "奎元馆的咸肉",
     "description": "燕七点的咸肉",
     "effects": "充饥",
     "origin": "奎元馆",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yan_qi"
     ],
@@ -504,13 +517,12 @@
         "text": "好大的两碗面，还外带两大碟烧鱼排骨。一阵阵香味随着热气往郭大路鼻子里钻，你叫郭大路怎么还受得了？"
       }
     ],
-    "type": "food",
+    "type": "食物",
     "owner": "char_yan_qi",
     "one_line": "奎元馆的烧鱼",
     "description": "燕七点的烧鱼",
     "effects": "充饥",
     "origin": "奎元馆",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yan_qi"
     ],
@@ -531,13 +543,12 @@
         "text": "林太平道：\"除了他的衣服外，我还认得他的那柄剑。\""
       }
     ],
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hei_yi_ren",
     "one_line": "黑衣人的剑",
     "description": "一尺七寸长的剑，却配着四尺长的剑鞘",
     "effects": "攻击",
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -562,13 +573,12 @@
         "text": "\n黑衣人道：\"每个人都有。\"\n\n郭大路道：\"你若能找出来，一刀砍下我的脑袋，也可以走了。\"\n\n黑衣人冷笑道：\"我已用不着再找。\"\n\n郭大路道：\"你刚才就已找了出来？\"\n\n黑衣人道：\"刚才我未曾下手，是..."
       }
     ],
-    "type": "armor",
+    "type": "防具",
     "owner": "char_hei_yi_ren",
     "one_line": "黑衣人的剑鞘",
     "description": "四尺长的剑鞘，配着一尺七寸的剑",
     "effects": "防御",
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -580,15 +590,17 @@
   {
     "id": "item_zhan_xin_tong_deng",
     "name": "崭新铜灯",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_dong",
     "one_line": "神秘人送来的崭新铜灯",
     "description": "一盏崭新的铜灯，亮得像黄金，摆在崭新的梨花木桌上，是神秘人送来的礼物之一。",
     "effects": [
-      "照明"
+      {
+        "type": "效果",
+        "description": "照明"
+      }
     ],
     "origin": "神秘人赠送",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -607,15 +619,17 @@
   {
     "id": "item_nan_gong_chou_zhi_guan",
     "name": "南宫丑之棺",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "装有黑狗的崭新棺材，棺头刻字",
     "description": "一口崭新的棺材，棺头上刻着\"南宫丑之枢\"，里面装的却是一条活生生的黑狗，是神秘人用来试探和警告的道具。",
     "effects": [
-      "心理震慑"
+      {
+        "type": "效果",
+        "description": "心理震慑"
+      }
     ],
     "origin": "神秘人放置",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_nan_gong_chou"
     ],
@@ -636,15 +650,17 @@
   {
     "id": "item_black_cat",
     "name": "黑猫",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_he_ya_feng",
     "one_line": "被绳子吊铃铛的黑猫，用来叫人吃早饭",
     "description": "一只黑猫，脚上绑着绳子连接花架下的铃铛，不停跳动使铃铛响动，用来叫醒众人吃早饭。是神秘人安排的巧妙机关。",
     "effects": [
-      "叫醒服务"
+      {
+        "type": "效果",
+        "description": "叫醒服务"
+      }
     ],
     "origin": "神秘人安排",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_he_ya_feng"
     ],
@@ -665,15 +681,17 @@
   {
     "id": "item_feng_sheng_zao_can",
     "name": "丰盛早餐",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_he_ya_feng",
     "one_line": "神秘人送来的丰盛早餐",
     "description": "一大桌热腾腾的早餐，包括鸡鸭包子馒头和一大坛酒，由黑猫摇铃通知众人来享用，是神秘人暗中照料的又一证据。",
     "effects": [
-      "提供饮食"
+      {
+        "type": "效果",
+        "description": "提供饮食"
+      }
     ],
     "origin": "神秘人赠送",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_he_ya_feng"
     ],
@@ -694,13 +712,12 @@
   {
     "id": "item_jin_lian_zi",
     "name": "金链子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_guo_da_lu",
     "one_line": "朱珠送给郭大路的订情之物，郭大路随身携带的秘密",
     "description": "一条很粗的金链子，上面有个比真的鸡心大一倍的金鸡心。是朱珠给郭大路的订情之物，也是她给他的唯一一样东西。郭大路一直随身携带，是他的秘密和痛苦的根源。",
     "effects": [],
     "origin": "朱珠所赠",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_guo_da_lu",
       "char_zhu_zhu"
@@ -729,13 +746,12 @@
   {
     "id": "item_man_tou",
     "name": "馒头",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_lin_tai_ping",
     "one_line": "林太平当衣换来的四个夹肥肉大馒头",
     "description": "四个大馒头，每个馒头里夹着块大肥肉。是林太平将自己的厚衣服当掉换来的，体现了朋友间患难与共的真情。",
     "effects": [],
     "origin": "林太平当衣所换",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lin_tai_ping"
     ],
@@ -756,13 +772,12 @@
   {
     "id": "item_lin_tai_ping_de_yi_fu",
     "name": "林太平的衣服",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huo_bo_pi",
     "one_line": "林太平当给活剥皮的旧衣，衣角衬里绣有特殊标记，是追捕者辨认身份的关键",
     "description": "林太平当给活剥皮的一件旧衣服，质料不错但已很旧。衣角衬里上绣着样东西，不知是字是花，却是独臂人和刀疤大汉辨认林太平身份的关键信物。",
     "effects": [],
     "origin": "林太平典当",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lin_tai_ping",
       "char_huo_bo_pi"
@@ -796,16 +811,21 @@
   {
     "id": "item_sheng_zi",
     "name": "绳子",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yan_qi",
     "one_line": "燕七常用的绳索武器，柔软灵活如蛇",
     "description": "燕七身上携带的绳索武器，出手又快又准，像长着眼睛一样，能够缠住敌人的腿脚。",
     "effects": [
-      "束缚",
-      "控制"
+      {
+        "type": "效果",
+        "description": "束缚"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yan_qi"
     ],
@@ -826,13 +846,12 @@
   {
     "id": "item_fei_cui_xiang_de_kuai_zi",
     "name": "翡翠镶的筷子",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wei_fu_ren",
     "one_line": "卫夫人随身携带的翡翠镶筷子，看似脆弱却坚硬无比",
     "description": "一双翡翠镶的筷子，这种筷子往往碰一碰就会断，但卫夫人却能用它夹住一个成年人的腰带而不断",
     "effects": "可用于点穴制敌，亦可夹住人体",
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wei_fu_ren"
     ],
@@ -855,13 +874,12 @@
   {
     "id": "item_du_lao_shu_rou_xian",
     "name": "毒老鼠肉馅",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_wei_fu_ren",
     "one_line": "卫夫人用来毒害郭大路和燕七的毒老鼠肉",
     "description": "混在包子和烧卖馅中的毒老鼠肉，老鼠本来是可以吃的，但毒老鼠吃下去却能要人的命",
     "effects": "中毒后四肢发软、脑袋发晕，面色变灰发黑，严重可致死",
     "origin": "卫夫人准备",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wei_fu_ren",
       "char_guo_da_lu",
@@ -884,13 +902,12 @@
   {
     "id": "item_li_yuan_dang_pu",
     "name": "利源当铺",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huo_bo_pi",
     "one_line": "活剥皮经营的当铺",
     "description": "活剥皮在小城经营的当铺，本章提到已换了老板。",
     "effects": "无",
     "origin": "小城",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_huo_bo_pi"
     ],
@@ -911,13 +928,12 @@
   {
     "id": "item_feng_zheng",
     "name": "风筝",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -934,13 +950,12 @@
   {
     "id": "item_dao_cao_ren",
     "name": "稻草人",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -971,13 +986,12 @@
   {
     "id": "item_ku_sang_bang",
     "name": "哭丧棒",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -994,13 +1008,12 @@
   {
     "id": "item_dao",
     "name": "刀",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -1017,13 +1030,12 @@
   {
     "id": "item_zhi_tiao",
     "name": "纸条",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -1040,13 +1052,12 @@
   {
     "id": "item_du_zhen",
     "name": "毒针",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -1063,13 +1074,12 @@
   {
     "id": "item_jiu_tan",
     "name": "酒坛",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -1086,13 +1096,12 @@
   {
     "id": "item_wan_dao",
     "name": "弯刀",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -1109,13 +1118,12 @@
   {
     "id": "item_yu_wang",
     "name": "渔网",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -1132,13 +1140,12 @@
   {
     "id": "item_sang_men_ding",
     "name": "丧门钉",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -1155,13 +1162,12 @@
   {
     "id": "item_xiu_jian",
     "name": "袖箭",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "",
     "description": "",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -1178,7 +1184,7 @@
   {
     "id": "item_chi_lian_she_du_men_jie_yao",
     "name": "赤练蛇独门解药",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "赤练蛇独门毒药的唯一解药，极为珍贵",
     "description": "赤练蛇精心配制的独门解药，能解其独门剧毒，王动曾藏起少许但已全部用来救郭大路",
@@ -1189,7 +1195,6 @@
       }
     ],
     "origin": "赤练蛇配制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wang_dong",
       "char_chi_lian_she",
@@ -1213,7 +1218,7 @@
   {
     "id": "item_cui_ming_fu_feng_zheng_fu_zhou",
     "name": "催命符（风筝符咒）",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_cui_ming_fu",
     "one_line": "淡黄色风筝，上面画满朱红色符咒，是催命符的催命信物",
     "description": "淡黄色的方形风筝，上面用朱笔画满弯弯曲曲的符咒，红得像血，是催命符发出的死亡威胁",
@@ -1224,7 +1229,6 @@
       }
     ],
     "origin": "催命符制作",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_cui_ming_fu"
     ],
@@ -1245,16 +1249,21 @@
   {
     "id": "item_you_hun_ci",
     "name": "游魂刺",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_cui_ming_fu",
     "one_line": "催命符的独门兵器，银针暗器",
     "description": "催命符的独门暗器，银针形状，可从袖中双飞发射。刺入心脏后不会出血，极为致命。红娘子也学得了不完整版本。",
     "effects": [
-      "致命伤害",
-      "无声无息"
+      {
+        "type": "效果",
+        "description": "致命伤害"
+      },
+      {
+        "type": "效果",
+        "description": "无声无息"
+      }
     ],
     "origin": "催命符独创",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_cui_ming_fu",
       "char_hong_niang_zi"
@@ -1276,15 +1285,17 @@
   {
     "id": "item_gui_tou_dao",
     "name": "鬼头刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "十三把大刀成员使用的沉重鬼头刀",
     "description": "一种丑恶而沉重的鬼头刀，刀身雪亮，是十三把大刀成员的标配武器，每把刀都沾满了血腥。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "十三把大刀",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1303,13 +1314,12 @@
   {
     "id": "item_jin_men_huan",
     "name": "金门环",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_da_shuai",
     "one_line": "金公馆大门上的黄金门环，彰显主人财力",
     "description": "用黄金铸成的门环，闪闪发光，虽俗气却是江湖世家大族的象征",
     "effects": [],
     "origin": "金公馆",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_jin_da_shuai"
     ],
@@ -1330,7 +1340,7 @@
   {
     "id": "item_chun_jin_dan_zi",
     "name": "纯金弹子",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_jin_da_shuai",
     "one_line": "金大帅暗器，每颗重五六两，一发二十一颗",
     "description": "纯金打造的弹子，每颗重达五六两，配合金弓使用，连环发射威力巨大",
@@ -1341,7 +1351,6 @@
       }
     ],
     "origin": "金公馆",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_da_shuai"
     ],
@@ -1364,13 +1373,12 @@
   {
     "id": "item_teng_yi",
     "name": "藤椅",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_da_shuai",
     "one_line": "金大帅命老门房搬出的藤椅，讽刺郭大路骂累了可以坐下",
     "description": "一张很舒服的藤椅，金大帅特地叫老门房搬出来给郭大路坐的，实为讽刺之举",
     "effects": [],
     "origin": "金家",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jin_da_shuai",
       "char_lao_men_fang",
@@ -1393,15 +1401,17 @@
   {
     "id": "item_jin_guang_ju_gong",
     "name": "金光巨弓",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_jin_da_shuai",
     "one_line": "金大帅成名武器，金光闪闪的巨弓",
     "description": "金大帅的成名武器，一柄金光闪闪的巨弓，配合连珠神弹威力惊人，握在手中令人精神抖擞",
     "effects": [
-      "增益：提升使用者气势与精神状态"
+      {
+        "type": "效果",
+        "description": "增益：提升使用者气势与精神状态"
+      }
     ],
     "origin": "金大帅成名武器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_da_shuai"
     ],
@@ -1424,15 +1434,17 @@
   {
     "id": "item_jin_dan_zi",
     "name": "金弹子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_da_shuai",
     "one_line": "金大帅连珠弹所用的金色弹丸，每粒约四两",
     "description": "金大帅连珠神弹所用的金色弹丸，每粒约四两重，可大量发射，实际上大部分是铁弹子外镀金色",
     "effects": [
-      "远程攻击弹药"
+      {
+        "type": "效果",
+        "description": "远程攻击弹药"
+      }
     ],
     "origin": "金大帅制造",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jin_da_shuai"
     ],
@@ -1462,15 +1474,17 @@
   {
     "id": "item_tie_dan_zi",
     "name": "铁弹子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_da_shuai",
     "one_line": "金大帅故意用铁弹子外镀金色迷惑贪心者",
     "description": "金大帅用来教训贪心者的铁弹子，外表镀金看似黄金，实际只是普通铁丸，只有最底下一颗是真的金弹子",
     "effects": [
-      "特殊：教训贪心者的道具"
+      {
+        "type": "效果",
+        "description": "特殊：教训贪心者的道具"
+      }
     ],
     "origin": "金大帅制造",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jin_da_shuai",
       "char_guo_da_lu"
@@ -1492,7 +1506,7 @@
   {
     "id": "item_jin_gong",
     "name": "金弓",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_jin_da_shuai",
     "one_line": "金大帅专用金弓，配合连珠弹发射",
     "description": "金大帅所用的金色弓弩，是发射连珠弹的主要武器，弓身金光闪闪，做工精良",
@@ -1503,7 +1517,6 @@
       }
     ],
     "origin": "金大帅所有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_da_shuai"
     ],
@@ -1526,16 +1539,21 @@
   {
     "id": "item_han_ji_jian",
     "name": "寒机剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hei_yi_ren",
     "one_line": "六尺长剑，剑锋发乌光，可穿透柱子杀人",
     "description": "一柄五尺多长的乌黑长剑，剑锋发乌光，剑尖能穿透柱子刺入敌人体内，威力惊人",
     "effects": [
-      "穿刺",
-      "远程攻击"
+      {
+        "type": "效果",
+        "description": "穿刺"
+      },
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hei_yi_ren"
     ],
@@ -1556,13 +1574,12 @@
   {
     "id": "item_chuang",
     "name": "床",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "床。",
     "description": "一张大床。",
     "effects": [],
     "origin": "无",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -1603,16 +1620,21 @@
   {
     "id": "item_long_tou_guai_zhang",
     "name": "龙头拐杖",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zi_yi_nv",
     "one_line": "紫衣女所用的九尺长龙头拐杖，内藏精光四射的短剑",
     "description": "一根很长的龙头拐杖，既是紫衣女的武器也是她的身份象征。杖中藏有一柄精光四射的短剑，可拔出单独使用。",
     "effects": [
-      "攻击",
-      "藏剑"
+      {
+        "type": "效果",
+        "description": "攻击"
+      },
+      {
+        "type": "效果",
+        "description": "藏剑"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zi_yi_nv"
     ],
@@ -1635,16 +1657,21 @@
   {
     "id": "item_liang_yin_shui_yan_dai",
     "name": "亮银水烟袋",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zi_yi_nv",
     "one_line": "紫衣女手持的亮银水烟袋，可喷出浓烟攻击",
     "description": "一个亮银制成的水烟袋，紫衣女用来吸烟，也可将浓烟如箭般喷出攻击敌人，烟雾具有呛人和刺痛效果。",
     "effects": [
-      "攻击",
-      "干扰"
+      {
+        "type": "效果",
+        "description": "攻击"
+      },
+      {
+        "type": "效果",
+        "description": "干扰"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zi_yi_nv"
     ],
@@ -1665,15 +1692,17 @@
   {
     "id": "item_tuan_jin_ling",
     "name": "金铃",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_man_nv",
     "one_line": "蛮女腿上戴的金铃，随舞姿叮当作响",
     "description": "蛮女腿上戴着的一串金铃，随着舞姿叮叮当当地响，既是装饰也是信号工具。",
     "effects": [
-      "干扰"
+      {
+        "type": "效果",
+        "description": "干扰"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1692,15 +1721,17 @@
   {
     "id": "item_chang_jian",
     "name": "长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hei_yi_ren",
     "one_line": "七尺长剑，如一泓秋水",
     "description": "黑衣人所使用的七尺长剑，剑身如秋水般清澈，锋利无比。最终被郭大路用剑鞘套住，后被真正的南宫丑从墙外掷入杀死黑衣人。",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hei_yi_ren",
       "char_nan_gong_chou"
@@ -1722,13 +1753,12 @@
   {
     "id": "item_xiu_hua_he_bao",
     "name": "绣花荷包",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shui_rou_qing",
     "one_line": "水柔青赠给郭大路的浅紫色绣花荷包，内装明珠作为贺礼",
     "description": "一个浅紫色的绣花荷包，里面装着明珠，是水柔青送给郭大路和燕七的贺礼，代表着她对真情的祝福",
     "effects": [],
     "origin": "水柔青",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shui_rou_qing",
       "char_guo_da_lu",
@@ -1751,13 +1781,12 @@
   {
     "id": "item_qing_tie",
     "name": "请帖",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_he_yi_lao_ren",
     "one_line": "褐衣老人送来的请帖，邀请王动今晚赴宴",
     "description": "一张大红帖子，由褐衣老人专程送来，邀请王动今晚在富贵山庄附近赴宴",
     "effects": [],
     "origin": "天外八龙",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wang_dong",
       "char_he_yi_lao_ren"
@@ -1781,13 +1810,12 @@
   {
     "id": "item_hua_lan",
     "name": "花篮",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiao_xiao_gu_niang",
     "one_line": "小小姑娘用来买菜的竹篮子",
     "description": "小小姑娘用来买菜的竹篮子，里面装满了青菜豆腐",
     "effects": [],
     "origin": "不详",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiao_xiao_gu_niang"
     ],
@@ -1808,7 +1836,7 @@
   {
     "id": "item_bi_yu_hu_jiu",
     "name": "碧玉壶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lu_shang_long_wang",
     "one_line": "陆上龙王金樽旁的碧玉壶，装着看似毒酒实为假死药的神秘酒液",
     "description": "陆上龙王金樽旁的一只碧玉壶，壶中装有惨碧色的酒液，看似剧毒实为能让人假死再复活的神秘药酒",
@@ -1819,7 +1847,6 @@
       }
     ],
     "origin": "陆上龙王所有",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_lu_shang_long_wang",
       "char_yu_long_long",

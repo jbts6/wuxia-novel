@@ -2,16 +2,21 @@
   {
     "id": "item_jin_chai",
     "name": "金钗",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_yuan_zhi",
     "one_line": "李沅芷用来刺破窗纸偷看的发饰。",
     "description": "这是李沅芷头上佩戴的金钗，她拔下来刺破窗纸窥看书房，推动她发现老师暗器绝技。",
     "effects": [
-      "刺破窗纸",
-      "引出窥见金针暗器的情节"
+      {
+        "type": "效果",
+        "description": "刺破窗纸"
+      },
+      {
+        "type": "效果",
+        "description": "引出窥见金针暗器的情节"
+      }
     ],
     "origin": "李沅芷随身发饰",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_yuan_zhi"
     ],
@@ -32,16 +37,21 @@
   {
     "id": "item_jin_zhen",
     "name": "金针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_li_yuan_zhi",
     "one_line": "陆菲青随身暗器，可近距离密射使敌双目失明。",
     "description": "细如头发的金针在阳光下才显反光，可被陆菲青扬手射出，将苍蝇钉在板壁上。",
     "effects": [
-      "钉住飞虫",
-      "显示暗器功夫"
+      {
+        "type": "效果",
+        "description": "钉住飞虫"
+      },
+      {
+        "type": "效果",
+        "description": "显示暗器功夫"
+      }
     ],
     "origin": "陆菲青随身暗器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lu_fei_qing",
       "char_li_yuan_zhi"
@@ -85,16 +95,21 @@
   {
     "id": "item_bai_long_jian",
     "name": "白龙剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lu_fei_qing",
     "one_line": "陆菲青随身宝剑，可在重手投掷下穿胸制敌。",
     "description": "白龙剑是陆菲青随身携带的兵刃，他在行囊萧然之际仍将此剑裹在衣服里准备带走。",
     "effects": [
-      "随身防身",
-      "作为陆菲青离开时携带的主要兵器"
+      {
+        "type": "效果",
+        "description": "随身防身"
+      },
+      {
+        "type": "效果",
+        "description": "作为陆菲青离开时携带的主要兵器"
+      }
     ],
     "origin": "陆菲青随身兵刃",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lu_fei_qing"
     ],
@@ -136,13 +151,12 @@
   {
     "id": "item_hong_bu_bao_fu",
     "name": "红布包袱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yan_shi_kui",
     "one_line": "阎世魁随身背负并由镇远镖局押送入京的神秘包袱。",
     "description": "一只用红布包裹的神秘包袱，镖师卸下兵器后仍背在身上，被同伴称作要送到京城的玩意儿。",
     "effects": [],
     "origin": "不明",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yan_shi_kui"
     ],
@@ -170,7 +184,7 @@
   {
     "id": "item_jin_di",
     "name": "金笛",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yu_yu_tong",
     "one_line": "余鱼同随身携带的纯金笛子，可吹奏也可点穴克敌。",
     "description": "一支金光灿烂、似以纯金所铸的笛子，余鱼同以它吹曲，也能当作兵刃抵穴制敌。",
@@ -181,7 +195,6 @@
       }
     ],
     "origin": "余鱼同随身兵器",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yu_yu_tong"
     ],
@@ -228,7 +241,7 @@
   {
     "id": "item_ke_lan_jing",
     "name": "可兰经",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yan_shi_zhang",
     "one_line": "继续作为回部夺还的圣经被陈家洛提及，成为镖师朋友寻仇和他赶来报讯的缘由。",
     "description": "回部极为看重的圣经，经书被包在红布包袱内，张召重和镖局众人奉命护送进京。",
@@ -239,7 +252,6 @@
       }
     ],
     "origin": "回部圣物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yan_shi_zhang",
       "char_zhang_zhao_zhong"
@@ -281,7 +293,7 @@
   {
     "id": "item_da_hong_rong_hua",
     "name": "大红绒花",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lu_fei_qing",
     "one_line": "文泰来交给陆菲青的红花会接引信物。",
     "description": "一朵大红绒花，文泰来交给陆菲青，嘱其到安西后插在衣襟上，红花会自会有人前来接引。",
@@ -292,7 +304,6 @@
       }
     ],
     "origin": "文泰来随身所藏红花会信物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wen_tai_lai",
       "char_lu_fei_qing"
@@ -335,7 +346,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -364,7 +374,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -393,7 +402,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -437,7 +445,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -445,7 +452,7 @@
   {
     "id": "item_tie_dan",
     "name": "铁胆",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhou_zhong_ying",
     "one_line": "周仲英随身所带的两枚大铁胆，周绮夜间取一枚打碎徐天宏酒葫芦。",
     "description": "周仲英枕边随身放着的两枚大铁胆，既是其铁胆名号相应的随身器物，也可被周绮掷出击碎酒葫芦。",
@@ -460,7 +467,6 @@
       }
     ],
     "origin": "周仲英随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhou_zhong_ying",
       "char_zhou_qi",
@@ -504,7 +510,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -526,7 +531,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -554,7 +558,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -588,7 +591,6 @@
     "relationships": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -610,7 +612,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -618,16 +619,21 @@
   {
     "id": "item_mu_he",
     "name": "木盒",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qian_zheng_lun",
     "one_line": "钱正伦藏在大车暗格中的木盒，内装疑似可兰经的羊皮册。",
     "description": "钱正伦从大车垫子下撬开木板取出的木盒，藏在怀中准备骑马带走。",
     "effects": [
-      "藏匿经书",
-      "引出周绮拦截钱正伦"
+      {
+        "type": "效果",
+        "description": "藏匿经书"
+      },
+      {
+        "type": "效果",
+        "description": "引出周绮拦截钱正伦"
+      }
     ],
     "origin": "钱正伦藏于大车暗格",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_qian_zheng_lun",
       "char_zhou_qi",
@@ -657,17 +663,25 @@
   {
     "id": "item_shou_chao_ke_lan_jing",
     "name": "手抄可兰经",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huang_shan_nv_lang_fu_qin",
     "one_line": "回人合族奉为圣物的手抄可兰经，被钱正伦藏在木盒中企图带走。",
     "description": "木盒内厚厚一叠羊皮，装订成书，写有周绮不识的古怪文字，徐天宏和陈家洛判断其多半就是回人经书。",
     "effects": [
-      "回人圣物",
-      "推动红花会与回人结盟",
-      "揭示钱正伦藏匿真经"
+      {
+        "type": "效果",
+        "description": "回人圣物"
+      },
+      {
+        "type": "效果",
+        "description": "推动红花会与回人结盟"
+      },
+      {
+        "type": "效果",
+        "description": "揭示钱正伦藏匿真经"
+      }
     ],
     "origin": "回人合族圣物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huang_shan_nv_lang_fu_qin",
       "char_qian_zheng_lun",
@@ -729,7 +743,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -751,7 +764,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -780,7 +792,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -802,7 +813,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -824,7 +834,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -859,7 +868,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -881,7 +889,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -940,7 +947,6 @@
     ],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -962,7 +968,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -991,7 +996,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1013,7 +1017,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1035,7 +1038,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1064,7 +1066,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1086,7 +1087,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1108,7 +1108,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1130,7 +1129,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1186,7 +1184,6 @@
     ],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1215,7 +1212,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1244,7 +1240,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1266,7 +1261,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1288,7 +1282,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1310,7 +1303,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1341,7 +1333,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1372,7 +1363,6 @@
     "relationships": [],
     "related_characters": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1394,7 +1384,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1425,7 +1414,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1447,7 +1435,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1478,7 +1465,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1500,7 +1486,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1538,7 +1523,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1567,7 +1551,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1598,7 +1581,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1620,7 +1602,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1642,7 +1623,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1700,7 +1680,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1729,7 +1708,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1752,7 +1730,6 @@
     "related_characters": [],
     "related_skills": [],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1760,16 +1737,21 @@
   {
     "id": "item_hong_hei_yao_bao",
     "name": "红黑药包",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_cao_si_peng",
     "one_line": "曹司朋交给唐六爷的两包害人药物。",
     "description": "红纸包药能让女子短时间人事不知，黑纸包药伪作治伤药，服后会令男子伤口流血而死。",
     "effects": [
-      "红纸包使人昏迷",
-      "黑纸包使伤口流血致死"
+      {
+        "type": "效果",
+        "description": "红纸包使人昏迷"
+      },
+      {
+        "type": "效果",
+        "description": "黑纸包使伤口流血致死"
+      }
     ],
     "origin": "曹司朋配制后卖给唐六爷",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_cao_si_peng",
       "char_tang_liu_ye"
@@ -1802,10 +1784,12 @@
     "one_line": "徐天宏从镇远镖局众镖师身上搜到的几封信。",
     "description": "徐天宏在救出周大奶奶、处置童兆和后，从昏倒的镖师身上搜出几封信，因急于撤离暂未细看，收在怀中。",
     "effects": [
-      "提供后续线索"
+      {
+        "type": "效果",
+        "description": "提供后续线索"
+      }
     ],
     "origin": "镇远镖局镖师随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xu_tian_hong"
     ],
@@ -1832,15 +1816,17 @@
   {
     "id": "item_wang_wei_yang_xin_jian",
     "name": "王维扬信件",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xu_tian_hong",
     "one_line": "王维扬写给韩文冲、催其赴京护送重宝前往江南的信。",
     "description": "徐天宏从镇远镖局镖师身上搜得的书信之一，内容催韩文冲即日赴京，并护送一批重宝前赴江南。",
     "effects": [
-      "揭示镇远镖局护送重宝前往江南的线索"
+      {
+        "type": "效果",
+        "description": "揭示镇远镖局护送重宝前往江南的线索"
+      }
     ],
     "origin": "镇远镖局总镖头王维扬写给韩文冲",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xu_tian_hong",
       "char_wang_wei_yang",
@@ -1861,15 +1847,17 @@
   {
     "id": "item_mu_zhuo_lun_hui_xin",
     "name": "木卓伦回信",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "石双英从回疆送信后带回给陈家洛的木卓伦老英雄回信。",
     "description": "石双英完成送信任务后交给陈家洛的回信，来自木卓伦老英雄。",
     "effects": [
-      "传递木卓伦对陈家洛书信的回应"
+      {
+        "type": "效果",
+        "description": "传递木卓伦对陈家洛书信的回应"
+      }
     ],
     "origin": "木卓伦老英雄回信，由石双英送回",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_mu_zhuo_lun",
       "char_shi_shuang_ying",
@@ -1897,16 +1885,21 @@
   {
     "id": "item_huo_qing_tong_suo_zeng_duan_jian",
     "name": "霍青桐所赠短剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_chen_jia_luo",
     "one_line": "霍青桐赠给陈家洛的八寸古短剑，据说剑中藏有极大秘密。",
     "description": "短剑刃长八寸、精光耀眼，剑柄以金丝缠绕且磨损甚多，看似数百年前古物；霍青桐曾说故老相传剑中藏着一个极大秘密。",
     "effects": [
-      "可作随身短兵",
-      "据传剑中藏有极大秘密"
+      {
+        "type": "效果",
+        "description": "可作随身短兵"
+      },
+      {
+        "type": "效果",
+        "description": "据传剑中藏有极大秘密"
+      }
     ],
     "origin": "霍青桐赠予陈家洛的古物短剑",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huo_qing_tong",
       "char_chen_jia_luo"
@@ -1926,16 +1919,21 @@
   {
     "id": "item_liu_bai_li_jia_ji_gong_wen",
     "name": "六百里加急公文",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "军官身上搜出的急报公文，禀告兆惠军粮因黄河泛滥延误。",
     "description": "封上插鸡毛、角被烧焦，封皮写有六百里加急呈定边大将军兆，原是驿站连日连夜赶递的军中密件。",
     "effects": [
-      "传递清军粮饷运送延误的军情",
-      "让陈家洛判断此事与文泰来无关"
+      {
+        "type": "效果",
+        "description": "传递清军粮饷运送延误的军情"
+      },
+      {
+        "type": "效果",
+        "description": "让陈家洛判断此事与文泰来无关"
+      }
     ],
     "origin": "运粮总兵官孙克通署名呈送兆惠的急报公文",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_zhang_jin",
@@ -1967,15 +1965,17 @@
   {
     "id": "item_lai_feng_qin",
     "name": "来凤琴",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "琴头以金丝篆刻“来凤”的千年古琴，被陈家洛视作无价之宝。",
     "description": "一张木质斑斓蕴华的七弦古琴，琴头以金丝缠出“来凤”篆字，气韵古雅，被陈家洛判断为千年古物、无价之宝。",
     "effects": [
-      "琴音清越，可供高手抚奏雅曲并辨出弹奏者经历气韵。"
+      {
+        "type": "效果",
+        "description": "琴音清越，可供高手抚奏雅曲并辨出弹奏者经历气韵。"
+      }
     ],
     "origin": "东方耳随身携带",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qian_long",
       "char_chen_jia_luo"
@@ -2010,7 +2010,7 @@
   {
     "id": "item_na_lan_xing_de_zhe_shan",
     "name": "纳兰性德摺扇",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qian_long",
     "one_line": "陈家洛所持摺扇，正面书有纳兰性德《金缕曲》。",
     "description": "陈家洛随身携带的摺扇，扇上有前朝词人纳兰性德所书《金缕曲》，词旨峻崎而笔力俊雅。",
@@ -2021,7 +2021,6 @@
       }
     ],
     "origin": "陈家洛自称在书肆中以十金购得。",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_qian_long"
@@ -2050,7 +2049,7 @@
   {
     "id": "item_qian_biao",
     "name": "钱镖",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_zhao_ban_shan",
     "one_line": "赵半山发出三枚便击倒三名旗兵的暗器钱镖。",
     "description": "赵半山随身所用的钱镖暗器，出手迅疾精准，三枚齐发便可击倒三名巡逻旗兵。",
@@ -2061,7 +2060,6 @@
       }
     ],
     "origin": "赵半山随身暗器。",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhao_ban_shan"
     ],
@@ -2082,7 +2080,7 @@
   {
     "id": "item_pi_pa",
     "name": "琵琶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yu_ru_yi",
     "one_line": "玉如意在湖上佐酒唱曲时拨弹的琵琶。",
     "description": "玉如意登上陈家洛花艇后所用的琵琶，曲调或缠绵或俏皮，配合她的歌喉挑动席间气氛。",
@@ -2093,7 +2091,6 @@
       }
     ],
     "origin": "湖船宴席所备乐器。",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yu_ru_yi",
       "char_qian_long",
@@ -2116,7 +2113,7 @@
   {
     "id": "item_bi_yu_ban_zhi",
     "name": "碧玉扳指",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yu_ru_yi",
     "one_line": "乾隆从手上脱下赏给玉如意的碧玉扳指。",
     "description": "乾隆听玉如意唱曲入迷后，从手上脱下一个碧玉般指赏赐给她，显示一时兴起与迷恋。",
@@ -2127,7 +2124,6 @@
       }
     ],
     "origin": "乾隆随身佩戴之物。",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qian_long",
       "char_yu_ru_yi"
@@ -2149,7 +2145,7 @@
   {
     "id": "item_du_ji_li",
     "name": "毒蒺藜",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_long_jun",
     "one_line": "龙骏暗器中喂有剧毒的蒺藜，击中心砚后令其肩头麻痒。",
     "description": "御前侍卫龙骏所用阴毒暗器，形如蒺藜并喂有剧毒，可连发数枚射向敌人要害。",
@@ -2164,7 +2160,6 @@
       }
     ],
     "origin": "龙骏随身暗器。",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_long_jun",
       "char_xin_yan"
@@ -2195,7 +2190,7 @@
   {
     "id": "item_luo_bing_fei_dao",
     "name": "骆冰飞刀",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_luo_bing",
     "one_line": "骆冰射出拦截毒蒺藜的两把飞刀。",
     "description": "骆冰随身飞刀，出手快捷，在心砚遇险时射落两枚龙骏的毒蒺藜。",
@@ -2210,7 +2205,6 @@
       }
     ],
     "origin": "骆冰随身暗器。",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_luo_bing",
       "char_xin_yan",
@@ -2233,7 +2227,7 @@
   {
     "id": "item_jie_du_yao_wan",
     "name": "解毒药丸",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_zhao_ban_shan",
     "one_line": "赵半山从囊中取出给心砚服下的应急药丸。",
     "description": "赵半山随身携带的药丸，在心砚中了毒蒺藜后塞入其口中，只能暂时应急，无法根除毒性。",
@@ -2244,7 +2238,6 @@
       }
     ],
     "origin": "赵半山囊中常备。",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhao_ban_shan",
       "char_xin_yan"
@@ -2266,7 +2259,7 @@
   {
     "id": "item_bei_nu",
     "name": "背弩",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_zhao_ban_shan",
     "one_line": "赵半山藏在背后、低头即射的弩箭暗器。",
     "description": "赵半山暗器机关之一，藏于背后，低头时可突然射出，使敌人难以预料。",
@@ -2281,7 +2274,6 @@
       }
     ],
     "origin": "赵半山随身暗器机关。",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhao_ban_shan",
       "char_long_jun"
@@ -2305,7 +2297,7 @@
   {
     "id": "item_du_ji_li_jie_yao",
     "name": "毒蒺藜解药",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_long_jun",
     "one_line": "龙骏随身携带的三色解药，可解毒蒺藜之毒。",
     "description": "龙骏随身藏有的三包解药，红色内服，黑色吸毒，白色收口，是解除毒蒺藜剧毒的关键。",
@@ -2324,7 +2316,6 @@
       }
     ],
     "origin": "龙骏随身毒蒺藜配套解药。",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_long_jun",
       "char_xin_yan",
@@ -2349,7 +2340,7 @@
   {
     "id": "item_hu_jia",
     "name": "胡笳",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_ke_xiu",
     "one_line": "李可秀用以调兵的号角",
     "description": "李可秀在湖岸摸出胡笳吹响三声，随即调来御林军骁骑营军士，显示清军预设埋伏。",
@@ -2360,7 +2351,6 @@
       }
     ],
     "origin": "清军军中号角",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_ke_xiu"
     ],
@@ -2381,7 +2371,7 @@
   {
     "id": "item_huo_pao_liu_xing",
     "name": "火炮流星",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_ma_shan_jun",
     "one_line": "马善均父子用来召集红花会的信号火器",
     "description": "火炮流星射入天空如彗星横过湖面，是红花会在杭州召集会众的紧急信号。",
@@ -2392,7 +2382,6 @@
       }
     ],
     "origin": "红花会联络器物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xu_tian_hong",
       "char_ma_shan_jun",
@@ -2415,7 +2404,7 @@
   {
     "id": "item_zong_duo_zhu_hong_hua",
     "name": "总舵主红花",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "红花会总舵主身份标志",
     "description": "这朵大红花以金丝红绒绕成，衬绿叶镶宝石，佩在襟上如同帅旗，令红花会会众俯身致敬。",
@@ -2426,7 +2415,6 @@
       }
     ],
     "origin": "红花会首领信物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chen_jia_luo"
     ],
@@ -2447,7 +2435,7 @@
   {
     "id": "item_xiu_hua_mao",
     "name": "绣花帽",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "陈家洛儿时戴过的红缎绣花帽",
     "description": "红缎绣花帽上钉绿玉、缀八颗大珠，被瑞芳藏在徐夫人床上枕头下，承载陈家洛幼年记忆。",
@@ -2458,7 +2446,6 @@
       }
     ],
     "origin": "陈家洛幼年旧物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_rui_fang"
@@ -2480,7 +2467,7 @@
   {
     "id": "item_zhe_shan",
     "name": "摺扇",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qian_long",
     "one_line": "陈家洛赠给乾隆的摺扇",
     "description": "这柄摺扇原由陈家洛赠予乾隆，观潮时跌落海塘，白振冒险拾回，成为二人交情和白振忠勇的触发物。",
@@ -2491,7 +2478,6 @@
       }
     ],
     "origin": "陈家洛赠物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_qian_long",
@@ -2514,7 +2500,7 @@
   {
     "id": "item_huang_ma_gua",
     "name": "黄马褂",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_bai_zhen",
     "one_line": "乾隆赏赐白振的荣誉服饰",
     "description": "白振冒险拾回摺扇后，乾隆许诺赏他黄马褂，是御前侍卫忠勇受赏的象征。",
@@ -2525,7 +2511,6 @@
       }
     ],
     "origin": "乾隆御赐",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_zhen",
       "char_qian_long"
@@ -2547,7 +2532,7 @@
   {
     "id": "item_nuan_yu",
     "name": "暖玉",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "乾隆赠给陈家洛的温润宝玉",
     "description": "暖玉玉色晶莹，触手生温，铭有情深不寿、强极则辱等语，乾隆让陈家洛将来赠给意中人作定情物。",
@@ -2558,7 +2543,6 @@
       }
     ],
     "origin": "乾隆随身佩玉",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qian_long",
       "char_chen_jia_luo"
@@ -2580,7 +2564,7 @@
   {
     "id": "item_yu_ping",
     "name": "玉瓶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_luo_bing",
     "one_line": "羊脂白玉瓶被骆冰从巡抚衙门盗来，暂交陈家洛处置。",
     "description": "一对回部珍物羊脂白玉瓶，绘有传说女英雄玛米儿美人图，是红花会用来牵制乾隆、拖延文泰来性命的关键筹码。",
@@ -2591,7 +2575,6 @@
       }
     ],
     "origin": "回部珍物，喀丝丽所有",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_kai_bie_xing",
       "char_chen_jia_luo",
@@ -2627,7 +2610,7 @@
   {
     "id": "item_bi_yan_hu",
     "name": "鼻烟壶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ma_shan_jun",
     "one_line": "张老爷伪装中使用的道具",
     "description": "鼻烟壶被徐天宏用双份道具和周绮配合变戏法，吸引镖师侍卫注意。",
@@ -2638,7 +2621,6 @@
       }
     ],
     "origin": "马善均伪装富商的随身物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xu_tian_hong",
       "char_ma_shan_jun"
@@ -2660,7 +2642,7 @@
   {
     "id": "item_fei_cui_ban_zhi",
     "name": "翡翠般指",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ma_shan_jun",
     "one_line": "张老爷伪装中交给徐天宏的道具",
     "description": "翡翠般指与鼻烟壶一样有成对道具，配合徐天宏戏法转移众人视线。",
@@ -2671,7 +2653,6 @@
       }
     ],
     "origin": "马善均伪装富商的随身物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xu_tian_hong",
       "char_ma_shan_jun"
@@ -2693,7 +2674,7 @@
   {
     "id": "item_li_ke_xiu_ji_cheng_wen_shu",
     "name": "李可秀急呈文书",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chang_he_zhi",
     "one_line": "伪装军官拿出的假公文",
     "description": "封皮写急呈北京兵部王大人及浙江水陆提督李的官衔，是徐天宏骗局中迫使众人争执玉瓶皮盒的诱饵。",
@@ -2704,7 +2685,6 @@
       }
     ],
     "origin": "红花会伪造道具",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xu_tian_hong",
       "char_chang_he_zhi"
@@ -2726,16 +2706,21 @@
   {
     "id": "item_yu_wan_ting_mi_xin",
     "name": "于万亭密信",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yuan_shi_xiao",
     "one_line": "记录乾隆身世秘密并与证物同藏的密封书信。",
     "description": "文泰来用来牵制乾隆的关键密信，据称由于万亭预先写明乾隆身世，并与重要证物一同交托保管。",
     "effects": [
-      "牵制乾隆",
-      "保护红花会知情人"
+      {
+        "type": "效果",
+        "description": "牵制乾隆"
+      },
+      {
+        "type": "效果",
+        "description": "保护红花会知情人"
+      }
     ],
     "origin": "于万亭进宫前预作安排",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yu_wan_ting",
       "char_qian_long",
@@ -2759,16 +2744,21 @@
   {
     "id": "item_zi_jin_ba_gua_dao",
     "name": "紫金八卦刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wang_wei_yang",
     "one_line": "王维扬随身八卦刀，后来在狮子峰与凝碧剑交锋。",
     "description": "王维扬赴狮子峰比武时所用兵刃，配合八卦门刀法施展，刀身虽坚仍被凝碧剑削断。",
     "effects": [
-      "配合八卦刀法",
-      "可与金镖夹击"
+      {
+        "type": "效果",
+        "description": "配合八卦刀法"
+      },
+      {
+        "type": "效果",
+        "description": "可与金镖夹击"
+      }
     ],
     "origin": "镇远镖局王维扬随身兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wang_wei_yang"
     ],
@@ -2791,16 +2781,21 @@
   {
     "id": "item_jin_biao_wang_wei_yang",
     "name": "金镖",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_wang_wei_yang",
     "one_line": "王维扬配合刀势暗发的金色飞镖。",
     "description": "王维扬在与张召重比武时随刀势发出的暗器，可与左手刀术互相牵制敌人。",
     "effects": [
-      "远距伤敌",
-      "配合刀中夹镖"
+      {
+        "type": "效果",
+        "description": "远距伤敌"
+      },
+      {
+        "type": "效果",
+        "description": "配合刀中夹镖"
+      }
     ],
     "origin": "王维扬镖囊所藏暗器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wang_wei_yang",
       "char_zhang_zhao_zhong"
@@ -2824,13 +2819,12 @@
   {
     "id": "item_ta_zhong_dian_xin",
     "name": "塔中点心",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "陈家洛在六和塔中款待乾隆的汤包烧卖等酒食。",
     "description": "汤包、蟹粉烧卖、炸春卷、虾仁芝麻卷与荷叶汤等精致饮食，既解乾隆两日饥饿，也为陈家洛后续谈判铺垫气氛。",
     "effects": [],
     "origin": "陈家洛安排心砚送入六和塔",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_qian_long",
@@ -2853,13 +2847,12 @@
   {
     "id": "item_ao_quan",
     "name": "獒犬",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_zheng_de",
     "one_line": "天山双鹰追踪乾隆所用的四条猛恶獒犬。",
     "description": "四条身躯庞大的獒犬如豹子般猛恶，能凭啸声听令追踪冲塔，是天山双鹰追击乾隆的重要助力。",
     "effects": [],
     "origin": "天山双鹰携带并以啸声指挥",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chen_zheng_de",
       "char_guan_ming_mei"
@@ -2881,13 +2874,12 @@
   {
     "id": "item_shen_shi_zheng_wu",
     "name": "身世证物",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yu_wan_ting",
     "one_line": "于万亭放在回部、可证明乾隆出身的几件要紧物事。",
     "description": "这些证物由故总舵主于万亭放在回部，乾隆要求陈家洛亲自取来验证自己汉人身份，是驱满复汉盟约能否落实的关键凭据。",
     "effects": [],
     "origin": "于万亭留置于回部",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yu_wan_ting",
       "char_qian_long",
@@ -2911,13 +2903,12 @@
   {
     "id": "item_meng_jiu",
     "name": "盟酒",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "陈家洛与乾隆、群雄歃血为盟时所饮之酒。",
     "description": "盟酒象征红花会与乾隆共图驱满复汉的秘密誓约，乾隆饮了一口，天山双鹰则因不信官府拒饮。",
     "effects": [],
     "origin": "六和塔中歃血为盟所备",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_qian_long",
@@ -2941,7 +2932,7 @@
   {
     "id": "item_li_yuan_zhi_zi_tiao",
     "name": "李沅芷字条",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_yuan_zhi",
     "one_line": "李沅芷写给余鱼同的十六字情笺。",
     "description": "纸上写着情深意真、千山万水等十六字，笔致娟秀，表明李沅芷不因余鱼同毁容而退缩，愿一路苦随。",
@@ -2952,7 +2943,6 @@
       }
     ],
     "origin": "李沅芷亲笔书写",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_yuan_zhi",
       "char_yu_yu_tong"
@@ -2974,7 +2964,7 @@
   {
     "id": "item_xiang_yin_yang_jiao",
     "name": "镶银羊角",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ha_he_tai",
     "one_line": "哈合台随身携带并吹奏的大漠羊角。",
     "description": "这只羊角从哈合台衣底取出，饰有镶银，吹声悲壮激昂，使余鱼同联想到大漠风光并暗暗默记曲调。",
@@ -2985,7 +2975,6 @@
       }
     ],
     "origin": "哈合台随身之物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ha_he_tai"
     ],
@@ -3006,7 +2995,7 @@
   {
     "id": "item_san_jie_gun",
     "name": "三节棍",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_peng_san_chun",
     "one_line": "彭三春所用三节棍，能扫下盘、点背心并变化回打。",
     "description": "彭三春以三节棍横扫余鱼同下盘，继而外抖前送直点背心，是他惯用兵刃。",
@@ -3017,7 +3006,6 @@
       }
     ],
     "origin": "彭三春随身兵刃",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_peng_san_chun"
     ],
@@ -3038,7 +3026,7 @@
   {
     "id": "item_yan_jia_zhu_jian",
     "name": "言家竹箭",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_yan_bo_gan",
     "one_line": "湖南辰州言家拳的独门竹箭暗器。",
     "description": "言家竹箭在山洞攻防中被余鱼同接住并反掷回去，成为暂时阻敌的就手暗器。",
@@ -3049,7 +3037,6 @@
       }
     ],
     "origin": "湖南辰州言家拳",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yan_bo_gan",
       "char_yu_yu_tong"
@@ -3077,7 +3064,7 @@
   {
     "id": "item_liang_zi",
     "name": "银子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_yuan_zhi",
     "one_line": "李沅芷用来打点店伴并换取遮掩的一块银子。",
     "description": "这块银子约有三四两重，李沅芷将它塞给店伴，用来快速取得房间并让店伴替她隐瞒行踪。",
@@ -3088,7 +3075,6 @@
       }
     ],
     "origin": "李沅芷随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_yuan_zhi",
       "char_dian_ban"
@@ -3113,11 +3099,16 @@
     "one_line": "宝相寺客房桌上的佛经，其中“革囊众秽”一语促使余鱼同决意出家。",
     "description": "从天竺最早传到中国的佛经；余鱼同翻到“树下一宿”故事后大受震动。",
     "effects": [
-      "触发余鱼同对色相与执念的反省",
-      "促成余鱼同求剃度出家"
+      {
+        "type": "效果",
+        "description": "触发余鱼同对色相与执念的反省"
+      },
+      {
+        "type": "效果",
+        "description": "促成余鱼同求剃度出家"
+      }
     ],
     "origin": "宝相寺客房桌上经书",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yu_yu_tong",
       "char_bao_xiang_si_zhu_chi"
@@ -3138,16 +3129,21 @@
   {
     "id": "item_mu_yu_chui",
     "name": "木鱼槌",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yu_yu_tong",
     "one_line": "余鱼同在宝相寺中持以敲木鱼，也暗中用来点戳宋天保胁下。",
     "description": "佛寺中敲木鱼的器具，被余鱼同临机当作短兵器，藏在僧袍动作中击伤宋天保。",
     "effects": [
-      "可作为短兵器点戳穴道或伤处",
-      "帮助余鱼同保持僧人伪装并脱身"
+      {
+        "type": "效果",
+        "description": "可作为短兵器点戳穴道或伤处"
+      },
+      {
+        "type": "效果",
+        "description": "帮助余鱼同保持僧人伪装并脱身"
+      }
     ],
     "origin": "宝相寺佛事器物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yu_yu_tong",
       "char_song_tian_bao"
@@ -3168,16 +3164,21 @@
   {
     "id": "item_luo_bing_de_bai_ma",
     "name": "骆冰的白马",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "凭灵性在沙漠中替陈家洛找到清溪，饮水后欢喜跳跃，并继续载他沿溪上溯。",
     "description": "骆冰的白马脚程甚快，适合长途急驰，徐天宏建议派人骑它赶过关东三魔。",
     "effects": [
-      "长途急驰",
-      "赶路示警"
+      {
+        "type": "效果",
+        "description": "长途急驰"
+      },
+      {
+        "type": "效果",
+        "description": "赶路示警"
+      }
     ],
     "origin": "骆冰坐骑",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_luo_bing",
       "char_chen_jia_luo",
@@ -3207,16 +3208,21 @@
   {
     "id": "item_hui_ren_zhuang_shu",
     "name": "回人装束",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "陈家洛为免回人疑心自己是奸细，在二堡买来换上的绣花小帽、皮靴和条纹衣衫。",
     "description": "一套回人常见装束，包括绣花小帽、皮靴和条纹衣衫，使陈家洛外貌宛如回族少年。",
     "effects": [
-      "掩饰汉人身份",
-      "便于在回疆寻访霍青桐"
+      {
+        "type": "效果",
+        "description": "掩饰汉人身份"
+      },
+      {
+        "type": "效果",
+        "description": "便于在回疆寻访霍青桐"
+      }
     ],
     "origin": "二堡购得",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chen_jia_luo"
     ],
@@ -3237,15 +3243,17 @@
   {
     "id": "item_ha_mi_gua",
     "name": "哈密瓜",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_yi_shao_nv",
     "one_line": "白衣少女在湖畔拿来招待陈家洛的碧绿哈密瓜，瓜肉香甜爽脆。",
     "description": "湖畔少女从树丛中拿来的碧绿哈密瓜，剖开后瓜肉如黄色缎子，汁液胜蜜。",
     "effects": [
-      "充饥解渴"
+      {
+        "type": "效果",
+        "description": "充饥解渴"
+      }
     ],
     "origin": "回疆绿洲湖畔",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_yi_shao_nv",
       "char_chen_jia_luo"
@@ -3267,16 +3275,21 @@
   {
     "id": "item_ma_ru_jiu",
     "name": "马乳酒",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_yi_shao_nv",
     "one_line": "白衣少女拿来招待陈家洛的一大碗马乳酒，入口甘美。",
     "description": "回疆常见饮品，白衣少女在湖畔以一大碗马乳酒招待陈家洛。",
     "effects": [
-      "解渴",
-      "待客"
+      {
+        "type": "效果",
+        "description": "解渴"
+      },
+      {
+        "type": "效果",
+        "description": "待客"
+      }
     ],
     "origin": "回疆绿洲湖畔",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_yi_shao_nv",
       "char_chen_jia_luo"
@@ -3298,15 +3311,17 @@
   {
     "id": "item_xiao_yin_dao",
     "name": "小银刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bai_yi_shao_nv",
     "one_line": "白衣少女递给陈家洛剖开哈密瓜的小银刀。",
     "description": "一把用来剖瓜的小银刀，白衣少女在招待陈家洛时递给他使用。",
     "effects": [
-      "剖切食物"
+      {
+        "type": "效果",
+        "description": "剖切食物"
+      }
     ],
     "origin": "白衣少女随身或住处所备",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_yi_shao_nv",
       "char_chen_jia_luo"
@@ -3328,17 +3343,25 @@
   {
     "id": "item_xue_zhong_lian",
     "name": "雪中莲",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_yi_shao_nv",
     "one_line": "开在冰雪峭壁上的碧绿奇花，陈家洛冒险采下后交给香香公主。",
     "description": "海碗般大的碧绿奇花，花瓣白中映碧，香气幽甜浓郁，生于积雪峭壁之上。",
     "effects": [
-      "散发幽香",
-      "寄托香香公主对花草的喜爱",
-      "成为陈家洛为少女涉险的信物"
+      {
+        "type": "效果",
+        "description": "散发幽香"
+      },
+      {
+        "type": "效果",
+        "description": "寄托香香公主对花草的喜爱"
+      },
+      {
+        "type": "效果",
+        "description": "成为陈家洛为少女涉险的信物"
+      }
     ],
     "origin": "回疆大山冰雪峭壁",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_bai_yi_shao_nv"
@@ -3362,16 +3385,21 @@
   {
     "id": "item_xiao_lu",
     "name": "小鹿",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_yi_shao_nv",
     "one_line": "被香香公主抱走并以掌中马奶喂养，仍因失母而叫唤。",
     "description": "刚出生不久、稚弱悲鸣的小鹿，母亲被清兵打死，香香公主将其抱在怀中。",
     "effects": [
-      "激发香香公主怜悯",
-      "引出陈家洛与清兵冲突"
+      {
+        "type": "效果",
+        "description": "激发香香公主怜悯"
+      },
+      {
+        "type": "效果",
+        "description": "引出陈家洛与清兵冲突"
+      }
     ],
     "origin": "塔里木河边树丛",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_yi_shao_nv",
       "char_chen_jia_luo",
@@ -3401,16 +3429,21 @@
   {
     "id": "item_zhao_zhong_gong_wen",
     "name": "召重公文",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qing_bing_ba_zong",
     "one_line": "兆惠派人迎接张召重的公文，使陈家洛得知张召重奉旨来到回疆。",
     "description": "封皮写有呈张佐领召重大人勋启，文中称得知张召重奉旨前来回疆，兆惠特派人迎接。",
     "effects": [
-      "暴露张召重行踪",
-      "使陈家洛判断可能与乾隆收兵敕命有关"
+      {
+        "type": "效果",
+        "description": "暴露张召重行踪"
+      },
+      {
+        "type": "效果",
+        "description": "使陈家洛判断可能与乾隆收兵敕命有关"
+      }
     ],
     "origin": "兆惠军中",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_qing_bing_ba_zong",
       "char_zhao_hui",
@@ -3434,16 +3467,21 @@
   {
     "id": "item_jian_dun",
     "name": "剑盾",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_chen_jia_luo",
     "one_line": "陈家洛护身突围的剑与盾。",
     "description": "陈家洛在清军阵中拿出剑盾护在喀丝丽胸口，用于抵挡乱军冲撞与箭矛威胁。",
     "effects": [
-      "护身",
-      "近战格挡"
+      {
+        "type": "效果",
+        "description": "护身"
+      },
+      {
+        "type": "效果",
+        "description": "近战格挡"
+      }
     ],
     "origin": "陈家洛随身兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_ka_si_li"
@@ -3465,16 +3503,21 @@
   {
     "id": "item_dian_xue_zhu_suo",
     "name": "点穴珠索",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_chen_jia_luo",
     "one_line": "陈家洛以珠索辅助突围。",
     "description": "陈家洛右手挥动的珠索，可在骑战与近身时扰敌制敌，后来也被他作为点穴暗器使用。",
     "effects": [
-      "远距牵制",
-      "扰乱敌阵"
+      {
+        "type": "效果",
+        "description": "远距牵制"
+      },
+      {
+        "type": "效果",
+        "description": "扰乱敌阵"
+      }
     ],
     "origin": "陈家洛随身器械",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chen_jia_luo"
     ],
@@ -3510,16 +3553,21 @@
   {
     "id": "item_jin_dai",
     "name": "锦带",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ka_si_li",
     "one_line": "偎郎大会上少女定情用的锦带。",
     "description": "锦带灿烂华美，由香香公主拿来在偎郎大会中向陈家洛示爱，象征回部少女主动定情。",
     "effects": [
-      "定情信物",
-      "礼俗象征"
+      {
+        "type": "效果",
+        "description": "定情信物"
+      },
+      {
+        "type": "效果",
+        "description": "礼俗象征"
+      }
     ],
     "origin": "回部偎郎大会礼俗",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ka_si_li",
       "char_chen_jia_luo"
@@ -3541,16 +3589,21 @@
   {
     "id": "item_hui_bu_sheng_jing",
     "name": "回部圣经",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_mu_zhuo_lun",
     "one_line": "陈家洛曾为回部夺回的圣经。",
     "description": "回部圣经是族中极重的信仰宝物，木卓伦称它曾由陈家洛夺回，因此回部视陈家洛为大恩人。",
     "effects": [
-      "信仰象征",
-      "恩义凭证"
+      {
+        "type": "效果",
+        "description": "信仰象征"
+      },
+      {
+        "type": "效果",
+        "description": "恩义凭证"
+      }
     ],
     "origin": "回部族中圣物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_mu_zhuo_lun",
       "char_chen_jia_luo"
@@ -3572,16 +3625,21 @@
   {
     "id": "item_huo_qing_tong_gu_jian",
     "name": "霍青桐古剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_chen_jia_luo",
     "one_line": "霍青桐赠给陈家洛的古剑。",
     "description": "周绮指出霍青桐曾送一柄古剑给陈家洛，作为她与陈家洛含情脉脉、一见钟情的证据。",
     "effects": [
-      "定情暗示",
-      "身份牵连"
+      {
+        "type": "效果",
+        "description": "定情暗示"
+      },
+      {
+        "type": "效果",
+        "description": "身份牵连"
+      }
     ],
     "origin": "霍青桐赠予陈家洛",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huo_qing_tong",
       "char_chen_jia_luo"
@@ -3609,16 +3667,21 @@
   {
     "id": "item_wen_fang_si_bao",
     "name": "文房四宝",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xin_yan",
     "one_line": "心砚包裹中的书写用具。",
     "description": "心砚从包裹中取出文房四宝，供香香公主写求救信，是向回人大营求援的关键工具。",
     "effects": [
-      "书写求救信",
-      "传递军情"
+      {
+        "type": "效果",
+        "description": "书写求救信"
+      },
+      {
+        "type": "效果",
+        "description": "传递军情"
+      }
     ],
     "origin": "心砚随身包裹",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xin_yan",
       "char_ka_si_li"
@@ -3640,16 +3703,21 @@
   {
     "id": "item_ling_qi_ling_jian",
     "name": "令旗令箭",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huo_qing_tong",
     "one_line": "回部号令全军的令旗令箭。",
     "description": "木卓伦将号令全军的令旗令箭交给霍青桐，使她取得本场战役的指挥权。",
     "effects": [
-      "号令全军",
-      "授予指挥权"
+      {
+        "type": "效果",
+        "description": "号令全军"
+      },
+      {
+        "type": "效果",
+        "description": "授予指挥权"
+      }
     ],
     "origin": "回部军中信物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_mu_zhuo_lun",
       "char_huo_qing_tong"
@@ -3671,16 +3739,21 @@
   {
     "id": "item_san_guo_yan_yi",
     "name": "三国演义",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huo_qing_tong",
     "one_line": "霍青桐借以说明兵谋的汉人故事书。",
     "description": "霍青桐引用《三国演义》中“将在谋而不在勇”的意思，说服父亲要以奇谋反制兆惠。",
     "effects": [
-      "兵法启发",
-      "说服父亲"
+      {
+        "type": "效果",
+        "description": "兵法启发"
+      },
+      {
+        "type": "效果",
+        "description": "说服父亲"
+      }
     ],
     "origin": "汉人故事书",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_huo_qing_tong",
       "char_mu_zhuo_lun"
@@ -3702,7 +3775,7 @@
   {
     "id": "item_xin_yue_da_du",
     "name": "新月大纛",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huo_qing_tong",
     "one_line": "霍青桐身旁象征主帅位置的新月大纛，被她用于诱使兆惠铁甲军追击。",
     "description": "立在霍青桐身旁的回部主帅大纛，旗帜显眼，能在大漠战场上暴露或伪装主帅动向。",
@@ -3713,7 +3786,6 @@
       }
     ],
     "origin": "回部军中主帅旗帜",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_huo_qing_tong",
       "char_zhao_hui"
@@ -3743,15 +3815,17 @@
   {
     "id": "item_tie_tai_gong",
     "name": "铁胎弓",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "文泰来用来远射张召重的强弓。",
     "description": "弓力沉重，文泰来施展神力曾拉断一张，又并用两张弓射出劲箭。",
     "effects": [
-      "远距离强弓射击"
+      {
+        "type": "效果",
+        "description": "远距离强弓射击"
+      }
     ],
     "origin": "回人军中",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wen_tai_lai",
       "char_zhang_zhao_zhong"
@@ -3771,7 +3845,7 @@
   {
     "id": "item_ju_ying",
     "name": "巨鹰",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huo_qing_tong",
     "one_line": "天山双鹰训练的传讯巨鹰，腿缚黑布示意师父将至，并带走霍青桐最后水囊引三魔追逐。",
     "description": "巨鹰受天山双鹰训练，可行猎传讯；霍青桐以唿哨驱使它带水囊飞向师父，成为沙漠脱险的关键信号。",
@@ -3782,7 +3856,6 @@
       }
     ],
     "origin": "天山双鹰所赐",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huo_qing_tong"
     ],
@@ -3809,7 +3882,7 @@
   {
     "id": "item_xue_shen_wan",
     "name": "雪参丸",
-    "type": "药物",
+    "type": "丹药",
     "rank": "珍稀",
     "one_line": "天池怪侠袁士霄所赠朱红药丸，由珍奇药材配制，传有起死回生之功。",
     "description": "雪参丸是袁士霄衣囊中取出的朱红色药丸，天山双鹰素知其名，认为它珍贵灵验，可救霍青桐病弱之体。",
@@ -3844,7 +3917,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -3852,7 +3924,7 @@
   {
     "id": "item_huo_zhe_zi",
     "name": "火摺子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huo_qing_tong",
     "one_line": "霍青桐携带并掷给陈家洛照亮峰内的火摺。",
     "description": "陈家洛取出火摺迎风点亮，虽火光微弱，却令群狼大骇后退，成为脱险关键。",
@@ -3863,7 +3935,6 @@
       }
     ],
     "origin": "随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_huo_qing_tong"
@@ -3891,7 +3962,7 @@
   {
     "id": "item_jian_zhong_jian",
     "name": "剑中剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_huo_qing_tong",
     "one_line": "锋利到吹毛断发、能割断丝帕的紫光宝剑。",
     "description": "短剑外层剑鞘带刃，内里另藏一柄紫光四射、砍金断玉、锋锐无匹的宝剑。",
@@ -3906,7 +3977,6 @@
       }
     ],
     "origin": "霍青桐祖传短剑中的秘密",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_huo_qing_tong"
@@ -3946,7 +4016,7 @@
   {
     "id": "item_la_wan_hui_wen_sha_zhi",
     "name": "蜡丸回文纱纸",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huo_qing_tong",
     "one_line": "记载入峰暗号“爱龙阿巴生”和山峰内路的古回文图纸。",
     "description": "剑鞘蜡丸中的薄纱纸写有古文回字，说明通往沙漠古城的路径方位，并提到古城环绕参天玉峰而建。",
@@ -3957,7 +4027,6 @@
       }
     ],
     "origin": "隐藏于霍青桐短剑第二层剑鞘内",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huo_qing_tong",
       "char_chen_jia_luo",
@@ -3986,7 +4055,7 @@
   {
     "id": "item_yong_zheng_tong_bao",
     "name": "雍正通宝",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "张召重等人用来拈阄引狼的铜钱。",
     "description": "雍正年间所铸铜钱，张召重挑出四枚与顺治通宝大小相同者，用作拈阄决定谁去引开狼群。",
@@ -3997,7 +4066,6 @@
       }
     ],
     "origin": "张召重与关东三魔随身制钱",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhang_zhao_zhong",
       "char_chen_jia_luo",
@@ -4024,7 +4092,7 @@
   {
     "id": "item_shun_zhi_tong_bao",
     "name": "顺治通宝",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "张召重最初设置为摸中即去引狼的旧铜钱。",
     "description": "顺治通宝因流通年代久远较雍正通宝磨损更薄，被张召重利用厚薄差异在拈阄中作弊。",
@@ -4035,7 +4103,6 @@
       }
     ],
     "origin": "张召重随身制钱",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhang_zhao_zhong",
       "char_chen_jia_luo",
@@ -4060,7 +4127,7 @@
   {
     "id": "item_bai_tong_zhi_qian",
     "name": "白铜制钱",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "顾金标提议替换顺治通宝后用于拈阄的白铜铜钱。",
     "description": "顾金标要求以一枚白铜制钱混入四枚黄铜制钱，谁拿到白铜谁去引狼，却被张召重暗中捏弯。",
@@ -4071,7 +4138,6 @@
       }
     ],
     "origin": "张召重随身制钱",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhang_zhao_zhong",
       "char_gu_jin_biao",
@@ -4097,7 +4163,7 @@
   {
     "id": "item_yu_jian",
     "name": "玉剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "古城磁山大殿中不受磁力影响的白色玉制长剑。",
     "description": "玉剑由白玉磨制，刃口锋锐可与钢铁兵器相比，因非铁器不受磁山吸力影响，是古城守军用来克制铁兵敌人的武器。",
@@ -4112,7 +4178,6 @@
       }
     ],
     "origin": "古城玉峰内宫守军",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huo_qing_tong",
       "char_chen_jia_luo"
@@ -4140,7 +4205,7 @@
   {
     "id": "item_huang_jin_kui_jia",
     "name": "黄金盔甲",
-    "type": "armor",
+    "type": "防具",
     "owner": null,
     "one_line": "玉峰甬道尽头骸骨所穿的精致黄金甲胄。",
     "description": "甬道尽头一具枯骨身披打造精致的黄金盔甲，胸甲刻有背生翅膀的骆驼徽记，疑为古国国王或王子遗物。",
@@ -4151,7 +4216,6 @@
       }
     ],
     "origin": "沙漠古城古国王族",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huo_qing_tong",
       "char_chen_jia_luo",
@@ -4174,7 +4238,7 @@
   {
     "id": "item_chang_bing_jin_fu",
     "name": "长柄金斧",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "插在玉峰内宫门环中的沉重金斧。",
     "description": "一把长柄金斧插在巨门门环里，斧柄被铁锈锈住，陈家洛刮去铁锈后拔出，入手甚重。",
@@ -4189,7 +4253,6 @@
       }
     ],
     "origin": "玉峰内宫门前古国遗物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chen_jia_luo"
     ],
@@ -4210,7 +4273,7 @@
   {
     "id": "item_yu_zhi_wu_qi",
     "name": "玉制武器",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "磁山大殿中遍布的玉制刀枪剑戟。",
     "description": "磁山大殿内散落着大大小小的玉制武器，刀枪剑戟俱全，形状奇特，与中土兵器迥异，疑为守军借磁山克敌所用。",
@@ -4225,7 +4288,6 @@
       }
     ],
     "origin": "古城玉峰内宫守军",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huo_qing_tong",
       "char_chen_jia_luo"
@@ -4247,7 +4309,7 @@
   {
     "id": "item_huang_bu_bao",
     "name": "黄布包",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yuan_shi_xiao",
     "one_line": "于万亭托常氏兄弟交袁士霄保管、内藏两封关键身世证物的黄布包。",
     "description": "黄布包由袁士霄保管多年，内中油纸密裹两个发黄信封，是揭开陈家洛与乾隆身世关系的重要证物。",
@@ -4258,7 +4320,6 @@
       }
     ],
     "origin": "于万亭临终前托常氏兄弟交袁士霄收存",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yuan_shi_xiao",
       "char_chen_jia_luo",
@@ -4281,7 +4342,7 @@
   {
     "id": "item_yong_di_shou_shu",
     "name": "雍邸手书",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_jia_luo",
     "one_line": "署名雍邸、要求陈世倌交出新生儿子的雍正旧信。",
     "description": "雍邸手书是雍正未登基时写给陈世倌的信札，要求将刚生的儿子交来人抱去一看，成为换子旧事的重要书面证据。",
@@ -4292,7 +4353,6 @@
       }
     ],
     "origin": "雍正仍为四阿哥、居雍邸时所写",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_qian_long"
@@ -4319,10 +4379,12 @@
     "one_line": "乾隆曾在海塘赠给陈家洛，陈家洛转赠香香公主作为相见之信的温润佩玉。",
     "description": "触手生温的一块玉，陈家洛临别时交给香香公主，嘱她见玉如见己。",
     "effects": [
-      "寄托陈家洛与香香公主的离别约定"
+      {
+        "type": "效果",
+        "description": "寄托陈家洛与香香公主的离别约定"
+      }
     ],
     "origin": "乾隆海塘所赠",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chen_jia_luo"
     ],
@@ -4361,11 +4423,16 @@
     "one_line": "记载于万亭与徐潮生旧事、乾隆调包身世、血衣与雍正遗旨的少林案卷。",
     "description": "黄纸大摺，连同绣花背心、血衣及雍正遗旨收藏在于万亭黄布包中，是乾隆身世的重要证据。",
     "effects": [
-      "证明乾隆为陈家洛母亲所生之子",
-      "说明于万亭被革出少林的因由"
+      {
+        "type": "效果",
+        "description": "证明乾隆为陈家洛母亲所生之子"
+      },
+      {
+        "type": "效果",
+        "description": "说明于万亭被革出少林的因由"
+      }
     ],
     "origin": "福建少林寺戒持院案卷",
-    "rarity": "未知",
     "related_characters": [
       "char_yu_wan_ting",
       "char_chen_jia_luo"
@@ -4394,11 +4461,16 @@
     "one_line": "骆冰盗回、绘有回族美女玛米儿的一对玉瓶，令陈家洛联想到香香公主。",
     "description": "回部送来求和的玉瓶，瓶上美女形貌神韵近似香香公主。",
     "effects": [
-      "作为陈家洛来京觐见信号",
-      "唤起陈家洛对香香公主的思念"
+      {
+        "type": "效果",
+        "description": "作为陈家洛来京觐见信号"
+      },
+      {
+        "type": "效果",
+        "description": "唤起陈家洛对香香公主的思念"
+      }
     ],
     "origin": "回部求和贡物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_qian_long"
@@ -4424,11 +4496,16 @@
     "one_line": "木卓伦临危交给香香公主、让她抵抗侵犯的短剑。",
     "description": "香香公主被逼迫时紧握的短剑，承载父亲遗命与清白誓守。",
     "effects": [
-      "用于抵抗侵犯",
-      "象征香香公主的决绝"
+      {
+        "type": "效果",
+        "description": "用于抵抗侵犯"
+      },
+      {
+        "type": "效果",
+        "description": "象征香香公主的决绝"
+      }
     ],
     "origin": "木卓伦临终相授",
-    "rarity": "未知",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -4454,10 +4531,12 @@
     "one_line": "徐天宏与周绮的初生婴儿，被白振夺来京城以挟制红花会。",
     "description": "方有德奏称白振从红花会余党处夺得，可用于日后剿灭红花会时挟制匪党。",
     "effects": [
-      "挟制徐天宏与红花会"
+      {
+        "type": "效果",
+        "description": "挟制徐天宏与红花会"
+      }
     ],
     "origin": "福建少林寺旁红花会余党处",
-    "rarity": "未知",
     "related_characters": [
       "char_xu_tian_hong",
       "char_zhou_qi",
@@ -4482,7 +4561,7 @@
   {
     "id": "item_xian_huang_yi_zhao",
     "name": "先皇遗诏",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhuang_qin_wang_yun_lu",
     "one_line": "雍正留下、须八旗亲王会同开拆的密诏。",
     "description": "卷轴外题有雍正亲笔遗诏二字，注明国家有变时由八旗亲王会同开拆，是制衡乾隆的重要政治凭据。",
@@ -4493,7 +4572,6 @@
       }
     ],
     "origin": "雍正临终布置",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qian_long",
       "char_huang_tai_hou",
@@ -4516,7 +4594,7 @@
   {
     "id": "item_hui_wen_mi_xin",
     "name": "回文密信",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiang_xiang_gong_zhu",
     "one_line": "香香公主写给陈家洛、警告乾隆谋害之心的回文密信。",
     "description": "香香公主以回文写成的急信，说明皇帝有加害陈家洛之心，并请求红花会首领速救她逃出皇宫。",
@@ -4527,7 +4605,6 @@
       }
     ],
     "origin": "香香公主在宝月楼亲笔所写",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_qian_long"
@@ -4549,7 +4626,7 @@
   {
     "id": "item_xue_zi_jing_shi",
     "name": "血字警示",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiang_xiang_gong_zhu",
     "one_line": "香香公主临死前以短剑和鲜血留下的“不可相信皇帝”警示。",
     "description": "香香公主无法传信，又受教义禁忌煎熬，最终以短剑自尽并在清真寺砖上划下不可相信皇帝的血字。",
@@ -4560,7 +4637,6 @@
       }
     ],
     "origin": "香香公主在清真寺临终留下",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chen_jia_luo",
       "char_qian_long"
@@ -4582,7 +4658,7 @@
   {
     "id": "item_yin_yang_du_jiu_hu",
     "name": "阴阳毒酒壶",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_chi_xuan",
     "one_line": "左右隔层藏酒、以壶柄小孔控制出酒的毒酒机关壶。",
     "description": "酒壶内分左右两隔，壶柄左右各有小孔，以拇指按孔可控制流出无毒或有毒之酒，是迟玄诱陈家洛饮毒的机关。",
@@ -4597,7 +4673,6 @@
       }
     ],
     "origin": "清宫设宴机关",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chi_xuan",
       "char_wu_ming_fu",
@@ -4620,7 +4695,7 @@
   {
     "id": "item_hong_deng_hao_ling",
     "name": "红灯号令",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "清军屋顶指挥者用来调度围兵方向的红灯信号。",
     "description": "鼓楼屋顶四人各持红灯，红花会群雄奔向何方，对应红灯便高举，清兵随灯号围堵。",
@@ -4631,7 +4706,6 @@
       }
     ],
     "origin": "清军围捕阵势",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_huo_qing_tong",
       "char_zhao_ban_shan"
@@ -4653,7 +4727,7 @@
   {
     "id": "item_liu_xing_huo_pao",
     "name": "流星火炮",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chen_zheng_de",
     "one_line": "徐天宏交给天山双鹰用于发现乾隆后示警的流星火炮。",
     "description": "徐天宏交给陈正德的四枚流星火炮，用于发现乾隆而无法立即击杀时向群雄发出夜空信号。",
@@ -4664,7 +4738,6 @@
       }
     ],
     "origin": "徐天宏随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xu_tian_hong",
       "char_chen_zheng_de",
@@ -4687,7 +4760,7 @@
   {
     "id": "item_jin_si_ruan_jia",
     "name": "金丝软甲",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_qian_long",
     "one_line": "乾隆为防红花会报复而暗衬在外衣内的护身软甲。",
     "description": "乾隆变盟后害怕红花会刺杀，外衣内总衬金丝软甲，陈正德临终掷剑刺穿马敬侠后被它挡住。",
@@ -4698,7 +4771,6 @@
       }
     ],
     "origin": "清宫护身宝甲",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qian_long",
       "char_chen_zheng_de",
@@ -4721,7 +4793,7 @@
   {
     "id": "item_chen_zheng_de_chang_jian",
     "name": "陈正德长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_chen_jia_luo",
     "one_line": "陈正德自尽之剑，由霍青桐托阿凡提交给陈家洛警醒其不可轻生。",
     "description": "剑刃极锋利，映着半刃干血，是陈正德用来自尽的长剑；霍青桐托阿凡提带来，逼陈家洛面对自杀后果。",
@@ -4736,7 +4808,6 @@
       }
     ],
     "origin": "陈正德自尽遗剑",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chen_zheng_de",
       "char_huo_qing_tong",

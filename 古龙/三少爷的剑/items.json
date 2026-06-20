@@ -2,7 +2,7 @@
   {
     "id": "item_yan_shi_san_de_jian",
     "name": "燕十三的剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yan_shi_san",
     "one_line": "燕十三的佩剑，黑鱼皮鞘黄金吞口，缀十三颗明珠",
     "description": "一柄黑鱼皮鞘、黄金吞口的长剑，剑鞘上面缀着十三颗豆大明珠，江湖中不认得这柄剑的人并不多，是燕十三十七岁名满江湖的随身佩剑",
@@ -13,7 +13,6 @@
       }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yan_shi_san"
     ],
@@ -36,16 +35,21 @@
   {
     "id": "item_qian_she_jian",
     "name": "千蛇剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xia_hou_xing",
     "one_line": "夏侯星所持怪剑，可分可合，如千蛇游动",
     "description": "一柄装有机簧的怪剑，合起来是一柄剑，分开时变成千百道暗器用银丝联系，剑身如千蛇游动，攻敌于无形",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "夏侯山庄",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xia_hou_xing"
     ],
@@ -75,13 +79,12 @@
   {
     "id": "item_cui_lv_de_si_dai",
     "name": "翠绿的丝带",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "翠云峰绿水湖的标布。",
     "description": "一条翠绿色的丝带，是翠云峰绿水湖的标识，代表该门派的信物。",
     "effects": [],
     "origin": "翠云峰绿水湖",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -98,13 +101,12 @@
   {
     "id": "item_qin",
     "name": "琴",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xia_hou_xing",
     "one_line": "夏侯星留下的琴。",
     "description": "一张古琴，放置在席上，是夏侯星匆忙离开时留下的物品。",
     "effects": [],
     "origin": "夏侯星",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xia_hou_xing"
     ],
@@ -123,13 +125,12 @@
   {
     "id": "item_xiang_lu",
     "name": "香炉",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xia_hou_xing",
     "one_line": "夏侯星留下的香炉。",
     "description": "一个香炉，放置在席上，是夏侯星匆忙离开时留下的物品。",
     "effects": [],
     "origin": "夏侯星",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xia_hou_xing"
     ],
@@ -148,13 +149,12 @@
   {
     "id": "item_jiu_hu",
     "name": "酒壶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xia_hou_xing",
     "one_line": "夏侯星留下的酒壶。",
     "description": "一个酒壶，放置在席上，是夏侯星匆忙离开时留下的物品。",
     "effects": [],
     "origin": "夏侯星",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xia_hou_xing"
     ],
@@ -173,13 +173,12 @@
   {
     "id": "item_heng_bian",
     "name": "横匾",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xie_tian",
     "one_line": "神剑山庄大厅中的横匾，上书“天下第一剑”。",
     "description": "一块巨大的横匾，上面有五个金字“天下第一剑”，是江湖剑客赠予神剑山庄的荣誉。",
     "effects": [],
     "origin": "江湖剑客",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xie_tian"
     ],
@@ -198,15 +197,17 @@
   {
     "id": "item_yan_shi_san_zhi_jian",
     "name": "燕十三之剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yan_shi_san",
     "one_line": "跟随燕十三十九年的普通长剑，饮过六十三人的血后似乎有了生命",
     "description": "一柄跟随燕十三十九年的长剑，原本平凡，但在饮过六十三人的血、见证六十三个杀手的死亡后，本身已有了生命，出鞘便要杀人，连持剑者都无法完全控制其杀意",
     "effects": [
-      "出鞘必杀人"
+      {
+        "type": "效果",
+        "description": "出鞘必杀人"
+      }
     ],
     "origin": "普通凡铁",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yan_shi_san"
     ],
@@ -236,13 +237,12 @@
   {
     "id": "item_ku_zhi",
     "name": "枯枝",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_mu_rong_qiu_di",
     "one_line": "慕容秋荻用来代替剑的一段枯枝",
     "description": "慕容秋荻手中的一段枯枝，她将其当作剑来使用，但燕十三指出枯枝是死的，没有杀人的渴望，最终被燕十三一剑击成粉末",
     "effects": [],
     "origin": "树林中的枯枝",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_mu_rong_qiu_di"
     ],
@@ -263,13 +263,12 @@
   {
     "id": "item_shu_pi_qian_tiao",
     "name": "树皮欠条",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiao_tao_yan",
     "one_line": "燕十三用剑削树皮写下的五万两欠条",
     "description": "燕十三在小讨厌的要求下，用剑削下一块树皮，以剑尖刻字写下的一张五万两银子的欠条，作为问话费的凭证，被小讨厌随随便便塞进衣襟",
     "effects": [],
     "origin": "燕十三用剑削制",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yan_shi_san",
       "char_xiao_tao_yan"
@@ -291,15 +290,17 @@
   {
     "id": "item_mo_jian_shi",
     "name": "磨剑石",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "船上备有的磨剑之石",
     "description": "一块光滑坚硬的石头，放在船舱中供前往神剑山庄的挑战者磨剑之用，是渡湖船上常备之物。",
     "effects": [
-      "磨剑"
+      {
+        "type": "效果",
+        "description": "磨剑"
+      }
     ],
     "origin": "神剑山庄",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xie_wang_sun"
     ],
@@ -327,15 +328,17 @@
   {
     "id": "item_shi_san_li_ming_zhu_jian",
     "name": "十三粒明珠剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yan_shi_san",
     "one_line": "燕十三所持的镶有十三粒明珠的名剑",
     "description": "剑上镶着十三粒明珠，不是宝剑却是把名剑，非常有名的剑，在江湖中广为人知。",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yan_shi_san"
     ],
@@ -358,15 +361,17 @@
   {
     "id": "item_tian_xia_di_yi_jian",
     "name": "天下第一剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xie_xiao_feng",
     "one_line": "三少爷谢晓峰所持的天下无双名剑",
     "description": "华山论剑时三少爷所用之剑，被公认为天下无双的名剑，是无数挑战者慕名而来想要瞻仰的神兵。",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "华山论剑",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xie_xiao_feng"
     ],
@@ -393,16 +398,21 @@
   {
     "id": "item_xie_xiao_feng_guan_cai",
     "name": "谢晓峰棺材",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xie_xiao_feng",
     "one_line": "装殓谢晓峰尸体的崭新棺材",
     "description": "一口崭新的棺材，上面刻有八九个字，燕十三只看清了“谢晓峰”三字。它静静地立在神剑山庄大厅旁的屋子里，象征着一代剑神的陨落。",
     "effects": [
-      "承载死者",
-      "象征死亡"
+      {
+        "type": "效果",
+        "description": "承载死者"
+      },
+      {
+        "type": "效果",
+        "description": "象征死亡"
+      }
     ],
     "origin": "神剑山庄",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xie_xiao_feng"
     ],
@@ -421,15 +431,17 @@
   {
     "id": "item_shen_jian",
     "name": "神剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xie_wang_sun",
     "one_line": "神剑山庄镇庄之宝，剑在山庄永存",
     "description": "神剑山庄代代相传的绝世名剑，象征山庄不朽的精神，即使人不在剑亦永存",
     "effects": [
-      "代表神剑山庄的精神象征"
+      {
+        "type": "效果",
+        "description": "代表神剑山庄的精神象征"
+      }
     ],
     "origin": "神剑山庄世代传承",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xie_wang_sun"
     ],
@@ -452,15 +464,17 @@
   {
     "id": "item_yin_zi",
     "name": "银子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_han_dai_nai_nai",
     "one_line": "韩大奶奶留给阿吉的酬劳银子",
     "description": "韩大奶奶因阿吉替她挡刀而留下的银子，放在哑巴饭锅里，阿吉未取",
     "effects": [
-      "偿还债务"
+      {
+        "type": "效果",
+        "description": "偿还债务"
+      }
     ],
     "origin": "韩大奶奶赏赐",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_han_dai_nai_nai",
       "char_xie_xiao_feng"
@@ -482,13 +496,12 @@
   {
     "id": "item_cai_dao",
     "name": "菜刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "老婆婆用来切菜的刀，被三角眼夺去后险些成为杀人凶器",
     "description": "一把普通的家用菜刀，老婆婆从厨房拿出试图与三角眼拼命，被三角眼夺过，后来三角眼用它威胁阿吉",
     "effects": [],
     "origin": "老苗子家厨房",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lao_po_po",
       "char_san_jiao_yan",
@@ -511,13 +524,12 @@
   {
     "id": "item_zhi_zun_bao",
     "name": "至尊宝",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "赌桌上的至尊牌九，拿到的概率仅有万分之一",
     "description": "一副极其罕见的牌九，传说能拿到这副牌的机会只有万分之一，是赌徒梦寐以求的至高幸运象征。铁头死后仍留在赌桌上。",
     "effects": [],
     "origin": "赌桌上的牌九",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tie_tou",
       "char_xie_xiao_feng"
@@ -539,13 +551,12 @@
   {
     "id": "item_zhen_zhu",
     "name": "珍珠",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "大老板用来引诱金兰花开口的一斛珍珠",
     "description": "上等珍珠，大老板用以威逼利诱金兰花说出阿吉来历的工具，象征着世俗的诱惑与金钱的力量。",
     "effects": [],
     "origin": "大老板府中",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_da_lao_ban",
       "char_jin_lan_hua"
@@ -567,7 +578,7 @@
   {
     "id": "item_yin_piao",
     "name": "银票",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tie_hu",
     "one_line": "铁虎给阿勇的银票，让他趁早做打算",
     "description": "铁虎从身上取出的一叠银票，看也不看就甩给阿勇，暗示他的手已废，让他趁早做打算",
@@ -578,7 +589,6 @@
       }
     ],
     "origin": "铁虎",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_tie_hu",
       "char_a_yong"
@@ -600,15 +610,17 @@
   {
     "id": "item_lie_jiu",
     "name": "劣酒",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_ya_ba",
     "one_line": "哑巴妻子准备的劣酒，并非好酒但是真酒",
     "description": "哑巴妻子为阿吉准备的劣酒，若干干的并不好喝，却是真正的粮酒，是他们苦日子里难得一见的奠品",
     "effects": [
-      "酬谊友情"
+      {
+        "type": "效果",
+        "description": "酬谊友情"
+      }
     ],
     "origin": "哑巴妻子自己准备",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xie_xiao_feng",
       "char_ya_ba",
@@ -631,16 +643,21 @@
   {
     "id": "item_jin_ye_zi",
     "name": "金叶子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhu_ye_qing",
     "one_line": "竹叶青用来收买哑巴之妻的金叶子",
     "description": "一叠金叶子和两锭白银，竹叶青用来引诱哑巴之妻说出秘密的财物",
     "effects": [
-      "收买人心",
-      "引诱背叛"
+      {
+        "type": "效果",
+        "description": "收买人心"
+      },
+      {
+        "type": "效果",
+        "description": "引诱背叛"
+      }
     ],
     "origin": "大老板势力",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhu_ye_qing",
       "char_ya_ba_zhi_qi"
@@ -662,13 +679,12 @@
   {
     "id": "item_zhu_ye_qing_jiu",
     "name": "竹叶青酒",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_miao_zi",
     "one_line": "上等美酒，被竹叶青用来设局",
     "description": "芳香甘美的竹叶青酒，本是好酒，却因竹叶青这个人的存在而变得又酸又苦。大闸蟹配竹叶青，是精心准备的酒席。",
     "effects": [],
     "origin": "酒馆",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_miao_zi",
       "char_xie_xiao_feng"
@@ -690,15 +706,17 @@
   {
     "id": "item_jing_gang_chan_zhang",
     "name": "精钢禅杖",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_tu_he_shang",
     "one_line": "土和尚的成名兵器",
     "description": "百炼精钢打成，比鸭蛋还粗的精钢禅杖，土和尚连睡觉都舍不得放手的武器，威力惊人，一杖有千斤之力。",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "百炼精钢",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tu_he_shang"
     ],
@@ -719,7 +737,7 @@
   {
     "id": "item_wo_dao_zuo_zuo_mu",
     "name": "佐佐木倭刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zuo_zuo_mu",
     "one_line": "佐佐木的八尺长倭刀，被仇二先生拔出抛给阿吉",
     "description": "一柄八尺长的日本武士刀，刀身狭长锋利，原属于日本武士佐佐木，佐佐木死后被钉在窗框上",
@@ -730,7 +748,6 @@
       }
     ],
     "origin": "日本",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zuo_zuo_mu",
       "char_xie_xiao_feng",
@@ -753,13 +770,12 @@
   {
     "id": "item_ku_zhu_jian_jian_jian",
     "name": "枯竹剑剑尖",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiao_di",
     "one_line": "柳枯竹刺入小弟肩胛的断剑尖",
     "description": "枯竹剑拔出时留下的一截半寸长的剑尖，深深嵌入小弟的肩胛骨节中，造成剧烈疼痛。",
     "effects": [],
     "origin": "柳枯竹",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiao_di"
     ],
@@ -780,13 +796,12 @@
   {
     "id": "item_shan_cha_hua",
     "name": "山茶花",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xie_xiao_feng",
     "one_line": "谢晓峰初次遇见慕容秋荻时采下送她的花",
     "description": "谢晓峰在绿草如茵的山坡上采下的一朵山茶花，送给慕容秋荻，却换来她的一剑。这是两人初遇的信物。",
     "effects": [],
     "origin": "山坡野花",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xie_xiao_feng",
       "char_mu_rong_qiu_di"
@@ -808,15 +823,17 @@
   {
     "id": "item_huang_bu_dai",
     "name": "黄布袋",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hua_shao_kun",
     "one_line": "华少坤包裹木棍的黄布包袱，针脚密缝、布带紧结",
     "description": "用黄布做成的包袱，针脚缝得很密，外面还缠着长长的布带，打着密密的结，里面包裹着华少坤苦练二十年的木棍武器",
     "effects": [
-      "心战道具，通过珍惜包裹生出对武器的信心"
+      {
+        "type": "效果",
+        "description": "心战道具，通过珍惜包裹生出对武器的信心"
+      }
     ],
     "origin": "华少坤自制",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hua_shao_kun"
     ],
@@ -839,16 +856,21 @@
   {
     "id": "item_mu_gun",
     "name": "木棍",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hua_shao_kun",
     "one_line": "华少坤苦练二十年的兵器，一根普通的木棍",
     "description": "一根普通的木棍，本质虽然很坚硬，却绝对不能与百炼精钢的宝剑相比，是华少坤苦练二十年后选择的武器",
     "effects": [
-      "可模拟各种兵器招式",
-      "出其不意的战斗效果"
+      {
+        "type": "效果",
+        "description": "可模拟各种兵器招式"
+      },
+      {
+        "type": "效果",
+        "description": "出其不意的战斗效果"
+      }
     ],
     "origin": "华少坤苦练二十年",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hua_shao_kun",
       "char_xie_xiao_feng"
@@ -879,13 +901,12 @@
   {
     "id": "item_san_shao_ye_de_jian",
     "name": "三少爷的剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "谢晓峰的佩剑，天下无双的名剑",
     "description": "谢晓峰的佩剑，天下无双的名剑",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -904,13 +925,12 @@
   {
     "id": "item_shi_bei",
     "name": "石碑",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "华少坤请求慕容秋荻立的石碑，刻有三少爷之剑的警示",
     "description": "华少坤请求慕容秋荻立的石碑，刻有三少爷之剑的警示",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -929,13 +949,12 @@
   {
     "id": "item_jian_ting",
     "name": "剑亭",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "慕容秋荻提议建造的亭子，用于守护三少爷的剑",
     "description": "慕容秋荻提议建造的亭子，用于守护三少爷的剑",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -954,13 +973,12 @@
   {
     "id": "item_xue_dao",
     "name": "血刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "华少坤身旁的带血刀具",
     "description": "华少坤身旁的带血刀具",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -979,13 +997,12 @@
   {
     "id": "item_xu_lu_zi_zhu_jian",
     "name": "徐鲁子铸剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "",
     "one_line": "武当七大弟子所持的七柄利剑之一",
     "description": "昔年铸剑大师徐鲁子以西方精铁之英，用武当解剑池的水铸成的七柄利剑之一，由武当掌门传给门下剑术最高的七大弟子，人在剑在，死后交回掌门收执。",
     "effects": [],
     "origin": "徐鲁子大师铸造",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_cao_han_yu"
     ],
@@ -1006,13 +1023,12 @@
   {
     "id": "item_hong_qi_biao_ju_ma_che",
     "name": "红旗镖局马车",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hu_fei",
     "one_line": "红旗镖局的黑漆马车，插着小红旗",
     "description": "崭新的黑漆车厢，擦得比镜子还亮，窗口斜插着一面小红旗，是红旗镖局的标志性交通工具。",
     "effects": [],
     "origin": "红旗镖局",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hu_fei"
     ],
@@ -1033,16 +1049,21 @@
   {
     "id": "item_zhu_hua",
     "name": "珠花",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_xie_xiao_feng",
     "one_line": "谢晓峰从猫一样的女人头上摘下的珠花，用作暗器伤人",
     "description": "一朵精致的珠花，原为铁开诚所买送给外室，被谢晓峰摘下当作暗器使用，珍珠可弹射伤人",
     "effects": [
-      "弹射珍珠攻击敌人穴位",
-      "击落兵刀"
+      {
+        "type": "效果",
+        "description": "弹射珍珠攻击敌人穴位"
+      },
+      {
+        "type": "效果",
+        "description": "击落兵刀"
+      }
     ],
     "origin": "铁开诚在天宝号购买",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xie_xiao_feng",
       "char_tie_kai_cheng"
@@ -1064,16 +1085,21 @@
   {
     "id": "item_hei_se_duan_dai",
     "name": "黑色缎带",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xie_xiao_feng",
     "one_line": "谢晓峰随手使用的黑色缎带，却胜过世上所有杀人的利器",
     "description": "一条黑色缎带，在谢晓峰手中却拥有奇异的力量，能带动对手的剑，化作匹练般的飞虹，其威力胜过世上所有杀人的利器",
     "effects": [
-      "控制",
-      "伤害"
+      {
+        "type": "效果",
+        "description": "控制"
+      },
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "不详",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xie_xiao_feng"
     ],
@@ -1094,13 +1120,12 @@
   {
     "id": "item_yi_duo_zhu_hua",
     "name": "一朵珠花",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "铁开诚送给父亲女人的珠花，引发一系列秘密",
     "description": "一朵精美的珠花，铁开诚在其父铁中奇的女人寿辰时所赠。这朵珠花背后牵涉到红旗镖局内部的叛变与慕容秋荻的阴谋，成为揭开真相的关键线索。",
     "effects": [],
     "origin": "铁开诚赠送",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tie_kai_cheng",
       "char_tie_zhong_qi"
@@ -1122,13 +1147,12 @@
   {
     "id": "item_cui_lv_yu_pai",
     "name": "翠绿玉牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiao_di",
     "one_line": "五色丝绦系着的翠绿玉牌，代表至高无上的权力",
     "description": "一块翠绿色的玉牌，系着五色丝绦，本身虽无追魂夺命之力，却代表着一种至高无上、生杀予夺的权力。持此牌者可号令天尊势力，令曹寒玉等人不敢违抗。",
     "effects": [],
     "origin": "天尊势力",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xiao_di",
       "char_cao_han_yu"
@@ -1150,13 +1174,12 @@
   {
     "id": "item_bi_yu_bi_yan_hu",
     "name": "碧玉鼻烟壶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jian_fu_sheng",
     "one_line": "简复生随身携带的碧玉鼻烟壶，价值千金",
     "description": "整块碧玉雕成的鼻烟壶，雕工精美，价值连城，简复生时时刻刻带在身边，就连睡着了都压在枕头下面，后被小弟摔碎。",
     "effects": [],
     "origin": "病人赠送的诊金所购",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_jian_fu_sheng"
     ],
@@ -1177,15 +1200,17 @@
   {
     "id": "item_jin_chuang_yao",
     "name": "金创药",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "上等金创药，能生肌愈合刀剑创伤",
     "description": "最好的金创药，能够生肌愈合刀剑创伤，是江湖中人常备的外伤药物。然而在此处，它却被别有用心之人利用，与化骨散配合使用，反而成为致命的陷阱。",
     "effects": [
-      "生肌愈合"
+      {
+        "type": "效果",
+        "description": "生肌愈合"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1204,16 +1229,21 @@
   {
     "id": "item_hua_gu_san",
     "name": "化骨散",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "天下最毒的化骨散，能蚀骨化脓",
     "description": "天下最毒的化骨散，与金创药配合使用时，剑痕收口后创毒入骨，七天之内能将全身骨骼化为脓血，无药可解，是极其阴毒的暗算手段。",
     "effects": [
-      "蚀骨",
-      "化脓"
+      {
+        "type": "效果",
+        "description": "蚀骨"
+      },
+      {
+        "type": "效果",
+        "description": "化脓"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1232,16 +1262,21 @@
   {
     "id": "item_hao_jian",
     "name": "好剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "百炼精钢铸成的好剑，谢晓峰借来演示剑法",
     "description": "不是古剑也不是名剑，是柄百炼精钢铸成的好剑。谢晓峰用此剑演示剑法时，剑光化作一道弧形光华，灿烂辉煌，变化超越人类能力极限，犹如流星闪电般奇迹般出现又消失。",
     "effects": [
-      "锋利无比",
-      "适合施展高超剑法"
+      {
+        "type": "效果",
+        "description": "锋利无比"
+      },
+      {
+        "type": "效果",
+        "description": "适合施展高超剑法"
+      }
     ],
     "origin": "杂货铺所藏",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xie_xiao_feng"
     ],
@@ -1262,13 +1297,12 @@
   {
     "id": "item_qing_yun_jian",
     "name": "青云剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wu_tao",
     "one_line": "点苍七剑专用的缅铁之英炼成的宝剑",
     "description": "以缅铁之英炼成的青云剑，剑光青中带蓝，是点苍七剑专用的宝剑，一共只有七柄",
     "effects": [],
     "origin": "点苍",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wu_tao"
     ],
@@ -1289,18 +1323,29 @@
   {
     "id": "item_shi_san_ba_bo_dao",
     "name": "十三把薄刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bai_fa_lao_ren",
     "one_line": "老人皮匣中的十三把形式奇特的薄而锋利的手术刀",
     "description": "十三把形式奇特的刀，有的如钩镰，有的如齿锯，有的狭长，有的弯曲，刀锋都很薄，薄而锐利，装在黑色陈旧皮匣中",
     "effects": [
-      "割开腐肉",
-      "撕开血肉",
-      "挫开骨头",
-      "刮出毒素"
+      {
+        "type": "效果",
+        "description": "割开腐肉"
+      },
+      {
+        "type": "效果",
+        "description": "撕开血肉"
+      },
+      {
+        "type": "效果",
+        "description": "挫开骨头"
+      },
+      {
+        "type": "效果",
+        "description": "刮出毒素"
+      }
     ],
     "origin": "老人所有",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_fa_lao_ren"
     ],
@@ -1323,15 +1368,17 @@
   {
     "id": "item_hei_se_pi_xia",
     "name": "黑色皮匣",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_fa_lao_ren",
     "one_line": "装着十三把薄刀的陈旧黑色皮匣",
     "description": "扁而平的黑色皮匣，虽然已经很陈旧，却又因为人手的摩擦而显现出一种奇特的光泽",
     "effects": [
-      "盛放十三把手术刀"
+      {
+        "type": "效果",
+        "description": "盛放十三把手术刀"
+      }
     ],
     "origin": "老人所有",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_fa_lao_ren"
     ],
@@ -1352,15 +1399,17 @@
   {
     "id": "item_duan_jian",
     "name": "断剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yan_shi_san",
     "one_line": "燕十三手中的断剑",
     "description": "一柄已经断裂的剑，曾经是燕十三的佩剑，见证了他创造夺命十三剑的历程。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "燕十三旧佩",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yan_shi_san"
     ],
@@ -1383,15 +1432,17 @@
   {
     "id": "item_xie_xiao_feng_de_jian",
     "name": "谢晓峰的剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xie_xiao_feng",
     "one_line": "谢晓峰曾经的佩剑",
     "description": "乌黑陈旧的剑鞘，形式古雅的剑锷，剑柄上有一道道因时常摩擦而发的黑绸子，是谢晓峰永远忘不了的剑。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "神剑山庄旧物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xie_xiao_feng"
     ],
@@ -1412,13 +1463,12 @@
   {
     "id": "item_yan_shi_san_zhi_mu_bei",
     "name": "燕十三之墓碑",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yan_shi_san",
     "one_line": "花冈石墓碑，上刻'燕十三之墓'五字",
     "description": "用花冈石做成的墓碑，上面只有简简单单的五个字——'燕十三之墓'，无论用多少字，都无法刻画出他充满悲伤和传奇的一生。",
     "effects": [],
     "origin": "花冈石",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yan_shi_san"
     ],

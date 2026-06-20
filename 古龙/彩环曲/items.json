@@ -2,17 +2,25 @@
   {
     "id": "item_qing_xiao",
     "name": "青箫",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_liu_he_ting",
     "one_line": "柳鹤亭随身携带的青竹长箫，可发出令人无法抗拒的箫声",
     "description": "一支青竹制成的长箫，柳鹤亭横抚吹奏时能发出梦幻般的箫声，具有以音克敌的威力，可令人心神沉醉，甚至操纵马匹方向。箫声能随演奏者心意变换四季意境。",
     "effects": [
-      "以音克敌",
-      "摄人心神",
-      "变换四季意境"
+      {
+        "type": "效果",
+        "description": "以音克敌"
+      },
+      {
+        "type": "效果",
+        "description": "摄人心神"
+      },
+      {
+        "type": "效果",
+        "description": "变换四季意境"
+      }
     ],
     "origin": "柳鹤亭随身之物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_liu_he_ting"
     ],
@@ -33,16 +41,21 @@
   {
     "id": "item_cui_shan_shao_nv_de_chang_jian",
     "name": "翠衫少女的长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_cui_shan_shao_nv",
     "one_line": "翠衫少女背后的古剑，出鞘时光华如电，可一剑劈开铜鼓",
     "description": "一柄形式奇古的长剑，出鞘时青蓝光华如电，剑光森寒明亮，可将铜鼓一劈为二，乃武林中百年难见的利器神兵。剑光映照下更显少女风华绝代。",
     "effects": [
-      "一剑劈鼓",
-      "光华夺目"
+      {
+        "type": "效果",
+        "description": "一剑劈鼓"
+      },
+      {
+        "type": "效果",
+        "description": "光华夺目"
+      }
     ],
     "origin": "翠衫少女随身之物",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_cui_shan_shao_nv"
     ],
@@ -63,16 +76,21 @@
   {
     "id": "item_tong_deng",
     "name": "铜灯",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "铁屋密室中的古雅铜灯，是地下机关消息的枢纽",
     "description": "一盏形式制造得颇为古雅的铜灯，放置在铁屋密室的八仙桌上。灯内灯油枯竭、布满灰尘显见久未使用，但灯外每天有人擦拭保持光亮。此灯是铁屋地下秘密通道的机关枢纽，按下即可启动机簧打开地道入口。",
     "effects": [
-      "开启地下通道",
-      "机关枢纽"
+      {
+        "type": "效果",
+        "description": "开启地下通道"
+      },
+      {
+        "type": "效果",
+        "description": "机关枢纽"
+      }
     ],
     "origin": "铁屋密室中",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shi_qi"
     ],
@@ -93,16 +111,21 @@
   {
     "id": "item_bei_sei_xiao_ping",
     "name": "黑色小瓶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_qi",
     "one_line": "石琪用来贮存被害武林人士尸身化成脓血的黑色玉瓶",
     "description": "一种晶光莹然、极为精致的黑色小瓶，非金非玉，亦不知是何物所制。瓶上刻有被害者的名号和死亡日期，瓶内贮存着被害武林人士被化成的脓血和遗骸碎片，散发腐臭之气。每只瓶子对应一名遇害者。",
     "effects": [
-      "贮存遗骸",
-      "标记遇害者身份"
+      {
+        "type": "效果",
+        "description": "贮存遗骸"
+      },
+      {
+        "type": "效果",
+        "description": "标记遇害者身份"
+      }
     ],
     "origin": "石琪所有",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shi_qi",
       "char_zhao_ming_qi",
@@ -125,16 +148,21 @@
   {
     "id": "item_zhu_zhen_yi_wan",
     "name": "珠宝珍玩",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_qi",
     "one_line": "石琪从南海得来的奇珍异宝，放置在红色门后的绣阁中",
     "description": "石琪得自南海的珍贵珠宝和珍玩，放置在铁屋地下红色门后绣阁的桌几妆台上，珠光璀璨，价值连城。石琪曾扬言将这些珍宝赠予能将她请出铁屋的人。",
     "effects": [
-      "诱惑武林人士",
-      "价值连城"
+      {
+        "type": "效果",
+        "description": "诱惑武林人士"
+      },
+      {
+        "type": "效果",
+        "description": "价值连城"
+      }
     ],
     "origin": "南海",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_shi_qi"
     ],
@@ -155,13 +183,12 @@
   {
     "id": "item_hei_se_xiao_ping",
     "name": "黑色小瓶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_cui_zhuang_shao_nv",
     "one_line": "刻有被害人姓名籍贯的黑色小瓶",
     "description": "黑色小瓶之上，只只都刻有被害人的姓名籍贯，材质不明，瓶身刻有'西门笑鸥'四字",
     "effects": [],
     "origin": "浓林秘屋",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_cui_zhuang_shao_nv"
     ],
@@ -182,13 +209,12 @@
   {
     "id": "item_long_yin_jian",
     "name": "龙吟剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_tao_chun_chun",
     "one_line": "无恨大师昔年佩剑，又名避魔龙吟剑",
     "description": "通体有如一泓秋水，虽在明亮的珠光之下，却仍闪闪地散发着清澈的寒光，长约三尺",
     "effects": [],
     "origin": "无恨大师",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tao_chun_chun",
       "char_cui_zhuang_shao_nv"
@@ -210,13 +236,12 @@
   {
     "id": "item_miao_jin_zhe_shan",
     "name": "描金折扇",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiang_huang",
     "one_line": "项煌随身折扇，双面绘有图案",
     "description": "描金折扇，双面绘有不同图案，一面普通，另一面金光闪烁，画着一条金龙，神态矢矫，似欲破扇飞去",
     "effects": [],
     "origin": "南荒",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiang_huang"
     ],
@@ -237,13 +262,12 @@
   {
     "id": "item_zi_jin_yu_lin_dao",
     "name": "紫金鱼鳞刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_sheng_kui_ying",
     "one_line": "胜奎英佩刀，刀身狭长，隐射紫色鳞光",
     "description": "刀身狭长、隐射紫色鳞光，一眼望去，通体有如一条紫色带鱼的奇形长刀，绿鲨鱼鞘、紫金舌口",
     "effects": [],
     "origin": "河南胜家",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_sheng_kui_ying"
     ],
@@ -264,13 +288,12 @@
   {
     "id": "item_tian_lei_shen_gu",
     "name": "天雷神鼓",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiang_huang",
     "one_line": "项煌苦心独创的八面皮鼓",
     "description": "项煌苦心独创的八面皮鼓，珍爱异常，被翠装少女以龙吟剑划破",
     "effects": [],
     "origin": "南荒",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiang_huang"
     ],
@@ -291,13 +314,12 @@
   {
     "id": "item_hei_se_sui_bu",
     "name": "黑色碎布",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "金四掌心中紧握的黑色碎布",
     "description": "边缘残落的碎布，入手竟非常轻柔，像是一种质料异常高贵的丝绸，从凶手面上拉落",
     "effects": [],
     "origin": "凶手",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jin_si"
     ],
@@ -318,13 +340,12 @@
   {
     "id": "item_chi_se_xu_fa",
     "name": "赤色须发",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "金四掌心中紧握的赤色须发",
     "description": "两根长只数寸的赤色须发，坚硬得有如猪鬃，从凶手面上拉落",
     "effects": [],
     "origin": "凶手",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jin_si"
     ],
@@ -345,15 +366,17 @@
   {
     "id": "item_huang_juan_mi_ji",
     "name": "黄绢秘笈",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_fa_wu_bi_lao_zhe",
     "one_line": "白发老者靴筒中藏着的武功秘笈",
     "description": "以黄绢为封面的武功秘笈册子，据说藏有白发老者一生武功奥秘，可使武功在数天之内高明一倍，从靴筒中取出时热烘烘的还带有些臭气。",
     "effects": [
-      "提升武功"
+      {
+        "type": "效果",
+        "description": "提升武功"
+      }
     ],
     "origin": "白发老者所藏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_fa_wu_bi_lao_zhe",
       "char_liu_he_ting"
@@ -375,15 +398,17 @@
   {
     "id": "item_lv_che_jiu_shi",
     "name": "驴车酒食",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qi_si_qi",
     "one_line": "戚四奇驾驴车送来的丰盛酒食",
     "description": "一整锅红烧肥肉鸡蛋、一整锅红油冰糖肘子、一整锅黄油肥鸡、大肉油汤、雪白馒头、一大葫芦美酒，香气四溢，令人馋涎欲滴。",
     "effects": [
-      "充饥"
+      {
+        "type": "效果",
+        "description": "充饥"
+      }
     ],
     "origin": "戚四奇所备",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_qi_si_qi"
     ],
@@ -404,16 +429,21 @@
   {
     "id": "item_te_zhi_mei_jiu",
     "name": "特制美酒",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "戚氏兄弟以多种名酒混合调制的烈酒",
     "description": "由二分贵州茅台、分半泸州大曲、分半景芝高粱、一分江南花雕、一分福州四平，再杂有三分清酴混合而成的特制美酒，酒力极劲，常人饮之立醉。",
     "effects": [
-      "醉人",
-      "辛辣"
+      {
+        "type": "效果",
+        "description": "醉人"
+      },
+      {
+        "type": "效果",
+        "description": "辛辣"
+      }
     ],
     "origin": "戚氏兄弟调制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qi_er_qi",
       "char_xiang_huang"
@@ -435,16 +465,21 @@
   {
     "id": "item_zhu_chuan_feng_zu",
     "name": "珠穿凤足",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "戚氏兄弟特制的超辣鸡腿菜",
     "description": "将鸡腿肉中骨头全部取出，填入异种辣椒朝天尖烹制而成的名菜，辣度惊人，食者涕泪横流，满头大汗。",
     "effects": [
-      "极辣",
-      "刺激"
+      {
+        "type": "效果",
+        "description": "极辣"
+      },
+      {
+        "type": "效果",
+        "description": "刺激"
+      }
     ],
     "origin": "戚氏兄弟烹制",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_qi_er_qi",
       "char_xiang_huang"
@@ -466,15 +501,17 @@
   {
     "id": "item_fei_cui_kuai_zi",
     "name": "翡翠筷子",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "翠碧所制镶以银壳的精致筷子",
     "description": "筷子通体翠碧所制，筷头镶以银壳，精致非常，即便是大富人家也难见如此精美食具，乃戚氏兄弟用来招待客人的珍品。",
     "effects": [
-      "精致美观"
+      {
+        "type": "效果",
+        "description": "精致美观"
+      }
     ],
     "origin": "不明",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_qi_da_qi"
     ],
@@ -495,16 +532,21 @@
   {
     "id": "item_huang_ling_hei_jian",
     "name": "黄翎黑箭",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_hei_chuan_yun",
     "one_line": "黄翎黑杆的毒箭，翎上刻有穿云破月字样",
     "description": "箭身特长，箭杆乌黑隐泛黑光，箭镞紫红之色，杆尾黄翎上一边刻有穿云二字，另一边刻有破月二字，箭上淬有剧毒，触之即黑，乃是黄翎黑箭门的独门暗器。",
     "effects": [
-      "剧毒",
-      "远程攻击"
+      {
+        "type": "效果",
+        "description": "剧毒"
+      },
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      }
     ],
     "origin": "黄翎黑箭门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hei_chuan_yun",
       "char_huang_po_yue"
@@ -526,16 +568,21 @@
   {
     "id": "item_huang_jin_chang_gong",
     "name": "黄金长弓",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_huang_po_yue",
     "one_line": "黄破月使用的金色长弓",
     "description": "弓身色如黄金，影映日光之下闪闪生光，弓身极长，可作点穴镢使用，与玄铁长弓一金一玄，配合精妙。",
     "effects": [
-      "点穴",
-      "远程攻击"
+      {
+        "type": "效果",
+        "description": "点穴"
+      },
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      }
     ],
     "origin": "黄翎黑箭门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_huang_po_yue"
     ],
@@ -556,16 +603,21 @@
   {
     "id": "item_xuan_tie_chang_gong",
     "name": "玄铁长弓",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hei_chuan_yun",
     "one_line": "黑穿云使用的黑色长弓",
     "description": "弓身有如玄玉，影映日光之下闪闪生光，弓身极长，可作点穴镢使用，与黄金长弓一金一玄，配合精妙，后被柳鹤亭以真力震断。",
     "effects": [
-      "点穴",
-      "远程攻击"
+      {
+        "type": "效果",
+        "description": "点穴"
+      },
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      }
     ],
     "origin": "黄翎黑箭门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hei_chuan_yun"
     ],
@@ -586,16 +638,21 @@
   {
     "id": "item_zhu_ge_shen_nu",
     "name": "诸葛神弩",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_ling_shi_gu_gui",
     "one_line": "灵尸谷鬼使用的连弩暗器",
     "description": "诸葛神弩可连续发射弩箭，取之不尽用之不竭，威力惊人，数百支弩箭从四面山巅射下，形成密集箭雨，是攻城略地的利器。",
     "effects": [
-      "连续射击",
-      "密集箭雨"
+      {
+        "type": "效果",
+        "description": "连续射击"
+      },
+      {
+        "type": "效果",
+        "description": "密集箭雨"
+      }
     ],
     "origin": "不明",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ling_shi_gu_gui"
     ],
@@ -616,16 +673,21 @@
   {
     "id": "item_zhang_peng",
     "name": "帐篷",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_da_bao",
     "one_line": "巨人大宝用来抵挡箭雨的厚重帐篷",
     "description": "厚重的帐篷被巨人大宝双手握住飞旋而舞，形成一片乌云般的屏障，将数百支强弓硬弩尽数挡开，展现出惊人的神力。",
     "effects": [
-      "防御箭矢",
-      "旋转护身"
+      {
+        "type": "效果",
+        "description": "防御箭矢"
+      },
+      {
+        "type": "效果",
+        "description": "旋转护身"
+      }
     ],
     "origin": "戚氏兄弟所有",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -644,16 +706,21 @@
   {
     "id": "item_jin_chai",
     "name": "金钗",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tao_chun_chun",
     "one_line": "陶纯纯随身金钗，用于在石壁上留记号探路",
     "description": "一根玲珑小巧的金钗，在天光下闪着璇光，陶纯纯在石室石壁上以金钗划出之字形标记以免迷路，后赠予柳鹤亭作为定情之物。",
     "effects": [
-      "标记路径",
-      "定情信物"
+      {
+        "type": "效果",
+        "description": "标记路径"
+      },
+      {
+        "type": "效果",
+        "description": "定情信物"
+      }
     ],
     "origin": "陶纯纯随身之物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_tao_chun_chun",
       "char_liu_he_ting"
@@ -681,15 +748,17 @@
   {
     "id": "item_wan_sheng_shen_dao",
     "name": "万胜神刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bian_ao_tian",
     "one_line": "边傲天的佩刀，净重七十九斤，九年前刀劈金川五虎后封刀",
     "description": "背厚刃薄，刀光雪亮，净重七十九斤，血槽清晰，刀刃可发出一泓秋光般的光芒，江湖人称万胜神刀",
     "effects": [
-      "攻击力极强，可震退高手"
+      {
+        "type": "效果",
+        "description": "攻击力极强，可震退高手"
+      }
     ],
     "origin": "边傲天早年所得",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_bian_ao_tian"
     ],
@@ -712,15 +781,17 @@
   {
     "id": "item_liu_huang_huo_yao",
     "name": "硫磺火药",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_yi_shen_mo",
     "one_line": "乌衣神魔在荒祠外布置的火药陷阱",
     "description": "乌衣神魔在荒祠殿角四周堆放的硫磺火药，意图将边傲天等人诱入祠中后引爆炸毁，被陶纯纯及时发现",
     "effects": [
-      "大范围爆炸杀伤"
+      {
+        "type": "效果",
+        "description": "大范围爆炸杀伤"
+      }
     ],
     "origin": "乌衣神魔所制",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wu_yi_shen_mo",
       "char_tao_chun_chun"
@@ -742,16 +813,21 @@
   {
     "id": "item_duo_ming_dan",
     "name": "夺命丹",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "武林常见丹方，用于治疗内伤",
     "description": "精制地鳖五钱、自然铜二钱、虾之乳香没药一钱五分、去油透明血竭二钱五分、古钱一钱五分醋炙匕次、红花二钱、碎补二钱去毛童便炙、炒麻皮根二钱、归尾二钱酒浸、蜜糖二两，共研细末，火酒送下",
     "effects": [
-      "治疗内伤",
-      "活血化瘀"
+      {
+        "type": "效果",
+        "description": "治疗内伤"
+      },
+      {
+        "type": "效果",
+        "description": "活血化瘀"
+      }
     ],
     "origin": "武林常见丹方",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bian_ao_tian",
       "char_liu_he_ting"
@@ -773,15 +849,17 @@
   {
     "id": "item_tian_wu_shen_jing",
     "name": "天武神经",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "记载武家大秘的秘笈",
     "description": "一本记载武家大秘的秘笈，分为上乘和下乘武学。",
     "effects": [
-      "记载武家大秘八法"
+      {
+        "type": "效果",
+        "description": "记载武家大秘八法"
+      }
     ],
     "origin": "江湖传说",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -807,13 +885,12 @@
   {
     "id": "item_tie_yu_ling",
     "name": "铁鱼令",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tao_chun_chun",
     "one_line": "长江铁鱼帮信物，持令者可号令长江水道",
     "description": "黑铁所制的青鱼形状信物，是长江铁鱼帮的至高信物，谁得到它便可做长江水道的盟主",
     "effects": "号令长江水道五十二寨",
     "origin": "铁鱼帮",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yu_sheng_yu",
       "char_tao_chun_chun",
@@ -836,13 +913,12 @@
   {
     "id": "item_ru_yi_qing_qian",
     "name": "如意青钱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tao_chun_chun",
     "one_line": "神秘信物，可调动江北骡马帮",
     "description": "一枚神秘的钱币状信物，持此可调动江北骡马帮为其换马服务",
     "effects": "调动骡马帮换马",
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tao_chun_chun"
     ],
@@ -863,16 +939,21 @@
   {
     "id": "item_jie_wan_jian_dao",
     "name": "解腕尖刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_biao_xing_da_han",
     "one_line": "彪形大汉随身携带的尖刀",
     "description": "彪形大汉自腰间拔出的一柄解腕尖刀，锋利无比，用来残害无辜的利器",
     "effects": [
-      "切割",
-      "刺杀"
+      {
+        "type": "效果",
+        "description": "切割"
+      },
+      {
+        "type": "效果",
+        "description": "刺杀"
+      }
     ],
     "origin": "铁鱼帮",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_biao_xing_da_han"
     ],
@@ -893,15 +974,17 @@
   {
     "id": "item_hei_shen_ma",
     "name": "黑神马",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "帮中急事才能出厩的宝马",
     "description": "乌衣神魔帮中苦心搜罗的宝马，毛泽乌黑，除了帮中急事很难出厩一次",
     "effects": [
-      "日行千里"
+      {
+        "type": "效果",
+        "description": "日行千里"
+      }
     ],
     "origin": "乌衣神魔",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -920,16 +1003,21 @@
   {
     "id": "item_jin_chuang_yao",
     "name": "金创药",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_liu_he_ting",
     "one_line": "江湖中人常备的伤药",
     "description": "柳鹤亭随身携带的金创药，用于治疗刀剑创伤",
     "effects": [
-      "止血",
-      "疗伤"
+      {
+        "type": "效果",
+        "description": "止血"
+      },
+      {
+        "type": "效果",
+        "description": "疗伤"
+      }
     ],
     "origin": "江湖",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_liu_he_ting"
     ],
@@ -950,17 +1038,25 @@
   {
     "id": "item_ying_su",
     "name": "罂粟",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "来自西土天竺的异果，配以七种异草制成的迷药，服食成瘾后痛苦骇人",
     "description": "罂粟乃西土天竺异果，配合金钱草、仙人铃、无子花等七种异草精制而成，少服有提神兴奋之功用，但极易成瘾。成瘾者瘾发时若无此药，痛苦如剐肉散骨，甘愿割鼻换药。",
     "effects": [
-      "提神兴奋",
-      "控制成瘾者意志",
-      "瘾发时极度痛苦"
+      {
+        "type": "效果",
+        "description": "提神兴奋"
+      },
+      {
+        "type": "效果",
+        "description": "控制成瘾者意志"
+      },
+      {
+        "type": "效果",
+        "description": "瘾发时极度痛苦"
+      }
     ],
     "origin": "西土天竺",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xi_men_ou",
       "char_liu_he_ting"
@@ -982,15 +1078,17 @@
   {
     "id": "item_hei_se_yu_ping",
     "name": "黑色玉瓶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_liu_he_ting",
     "one_line": "柳鹤亭怀中的黑色玉瓶，与陶纯纯/石观音的秘密有关",
     "description": "柳鹤亭随身携带的黑色玉瓶，触手冰凉，乃石观音交托之物，其中可能藏有罂粟药丸或关键证物，与整个阴谋有密切关联。",
     "effects": [
-      "隐藏秘密"
+      {
+        "type": "效果",
+        "description": "隐藏秘密"
+      }
     ],
     "origin": "石琪",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_liu_he_ting",
       "char_shi_qi"
@@ -1012,15 +1110,17 @@
   {
     "id": "item_hei_se_yu_he",
     "name": "黑色玉盒",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "装有罂粟药丸的黑色玉盒，令成瘾者不顾一切索求",
     "description": "一只小小的黑色玉盒，内贮六七粒光泽乌黑的罂粟药丸，散发着难以描摹的诱人香气。对成瘾者有致命的吸引力，如神奇符咒般令其神情剧变。",
     "effects": [
-      "控制成瘾者"
+      {
+        "type": "效果",
+        "description": "控制成瘾者"
+      }
     ],
     "origin": null,
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xi_men_ou",
       "char_liu_he_ting"
@@ -1048,15 +1148,17 @@
   {
     "id": "item_zhu_xiao",
     "name": "竹箫",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tao_chun_chun",
     "one_line": "陶纯纯手中的竹箫，发出凄惋哀怨的曲调",
     "description": "一支翠色竹箫，由真正的陶纯纯持有。箫声凄惋哀怨，如寂寞少妇思念远方征人，与柳鹤亭心情落寞时所喜爱的曲调相同。",
     "effects": [
-      "吹奏乐曲"
+      {
+        "type": "效果",
+        "description": "吹奏乐曲"
+      }
     ],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_tao_chun_chun"
     ],

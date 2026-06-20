@@ -2,16 +2,21 @@
   {
     "id": "item_hong_mu_ling_pai",
     "name": "红木令牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhang_xian_liao",
     "one_line": "红旗帮传令信牌，长约三寸，亮光闪闪",
     "description": "红旗帮舵主随身携带的传令信牌，长约三寸，亮光闪闪，持此令牌可号令帮众，是帮中身份与权力的象征",
     "effects": [
-      "号令帮众",
-      "身份象征"
+      {
+        "type": "效果",
+        "description": "号令帮众"
+      },
+      {
+        "type": "效果",
+        "description": "身份象征"
+      }
     ],
     "origin": "红旗帮",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhang_xian_liao",
       "char_xiang_heng_fei"
@@ -33,7 +38,7 @@
   {
     "id": "item_jin_se_duan_jian",
     "name": "金色短剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wang_yi_ping",
     "one_line": "王一萍随身兵器，长九寸，金光夺目",
     "description": "一柄长只九寸、金光夺目的短剑，锋利无比，可削断钢拐",
@@ -44,7 +49,6 @@
       }
     ],
     "origin": "南灵传承",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wang_yi_ping"
     ],
@@ -72,7 +76,7 @@
   {
     "id": "item_du_men_an_qi",
     "name": "独门暗器",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_he_xian_shan",
     "one_line": "贺衔山身藏的独门暗器，威力强大",
     "description": "贺衔山偶尔得来的独门暗器，施放时用内力震碎外壳甩出，可产生轰然巨响和浓烟",
@@ -87,7 +91,6 @@
       }
     ],
     "origin": "偶然获得",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_he_xian_shan"
     ],
@@ -114,13 +117,12 @@
   {
     "id": "item_da_tie_gui",
     "name": "大铁龟",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gan_shou_lao_ren",
     "one_line": "重逾千斤的大铁龟，龟背上插着三柄宝剑",
     "description": "一只重逾千斤的大铁龟，龟背上插着三柄古色斑斓的宝剑，无一不是极难一睹的珍品",
     "effects": [],
     "origin": "干瘦老人所有",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gan_shou_lao_ren"
     ],
@@ -155,13 +157,12 @@
   {
     "id": "item_san_bing_bao_jian",
     "name": "三柄宝剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_gan_shou_lao_ren",
     "one_line": "龟背上插着的三柄古色斑斓的宝剑",
     "description": "三柄古色斑斓的宝剑，无一不是极难一睹的珍品，干瘦老人欲为其物色主人",
     "effects": [],
     "origin": "干瘦老人所有",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_gan_shou_lao_ren"
     ],
@@ -182,7 +183,7 @@
   {
     "id": "item_wan_nian_xu_duan",
     "name": "万年续断",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "憨山寺秘制的救伤圣品",
     "description": "武从中绝无仅有的救伤圣品，有化腐生肌之功，能治愈极重伤势",
@@ -193,7 +194,6 @@
       }
     ],
     "origin": "憨山寺秘制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_du_ru_qian_shou_kong"
     ],
@@ -214,13 +214,12 @@
   {
     "id": "item_jie_dao",
     "name": "戒刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "僧人使用的刀具",
     "description": "寒光闪闪的戒刀，被用于执行自断臂膀的惩罚",
     "effects": [],
     "origin": "憨山寺",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_miao_chen",
       "char_wu_ai_he_shang"
@@ -242,7 +241,7 @@
   {
     "id": "item_wan_nian_duan_xu",
     "name": "万年断续",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "憨山寺珍藏之灵药，可重续断臂",
     "description": "憨山寺珍藏的万年灵药，据石瑛所言，其师崔仲宇可借此药为憨山寺僧众重续已断之臂",
@@ -253,7 +252,6 @@
       }
     ],
     "origin": "憨山寺珍藏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_cui_zhong_yu"
     ],
@@ -274,13 +272,12 @@
   {
     "id": "item_jin_jian",
     "name": "金剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wang_yi_ping",
     "one_line": "王一萍遗下的金色短剑",
     "description": "王一萍使用的金色短剑，锋利无比，是其师父湘江一龙所赠。",
     "effects": [],
     "origin": "湘江一龙",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wang_yi_ping",
       "char_cui_zhong_yu",

@@ -2,13 +2,12 @@
   {
     "id": "item_hua_li_ma_che",
     "name": "华丽马车",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jian_zhao_wu",
     "one_line": "简家专用的马车，装饰豪华富丽，显示简家豪富",
     "description": "简家专用的马车，装饰豪华富丽，显示简家豪富",
     "effects": "",
     "origin": "",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jian_zhao_wu"
     ],
@@ -27,13 +26,12 @@
   {
     "id": "item_hei_bao_lai_xin",
     "name": "黑堡来信",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jian_lao_fu_ren",
     "one_line": "山西黑堡寄给天池府的威胁信函",
     "description": "金陵第一镖局总镖头从山西带来的信函，山西黑堡声称简公在世时搜夺民间财物，现简公去世，黑堡要前去天池府取回失物，否则免生干戈。",
     "effects": [],
     "origin": "山西黑堡",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jian_lao_fu_ren",
       "char_rui_wei"
@@ -55,15 +53,17 @@
   {
     "id": "item_xun_shi_bian",
     "name": "驯狮鞭",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_jian_huai_xuan",
     "one_line": "专门用来驯狮的鞭子，常人难以使用",
     "description": "天池府专门用来驯狮的鞭子，鞭柄特殊设计，需要特殊技巧才能使用，常人无法驾驭",
     "effects": [
-      "驯服狮子"
+      {
+        "type": "效果",
+        "description": "驯服狮子"
+      }
     ],
     "origin": "天池府",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jian_huai_xuan"
     ],
@@ -84,16 +84,21 @@
   {
     "id": "item_xiao_bi_shou",
     "name": "匕首",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_rui_wei",
     "one_line": "猎装配备的匕首，危急时可用",
     "description": "猎装宽皮带上插着的匕首，用于猎狮时防身，危急时可刺伤狮子",
     "effects": [
-      "防身",
-      "刺伤狮子"
+      {
+        "type": "效果",
+        "description": "防身"
+      },
+      {
+        "type": "效果",
+        "description": "刺伤狮子"
+      }
     ],
     "origin": "天池府",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_rui_wei"
     ],
@@ -114,15 +119,17 @@
   {
     "id": "item_bai_ma",
     "name": "白马",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "天池府的坐骑，简怀萱骑乘去后山",
     "description": "天池府饲养的白马，简怀萱骑乘前往后山猎狮的坐骑",
     "effects": [
-      "骑行"
+      {
+        "type": "效果",
+        "description": "骑行"
+      }
     ],
     "origin": "天池府",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jian_huai_xuan"
     ],
@@ -143,15 +150,17 @@
   {
     "id": "item_lian_zi_tang",
     "name": "莲子汤",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_qiu_shu",
     "one_line": "秋书深夜煮给芮玮的莲子汤",
     "description": "秋书深夜为芮玮煮的一杯莲子汤，表面是服侍，实则别有用心",
     "effects": [
-      "无特殊效果"
+      {
+        "type": "效果",
+        "description": "无特殊效果"
+      }
     ],
     "origin": "天池府",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_qiu_shu",
       "char_rui_wei"
@@ -173,15 +182,17 @@
   {
     "id": "item_zhong_nan_quan_jian_lu_book",
     "name": "终南拳剑录",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "书房中收藏的武学书籍之一",
     "description": "终南山拳法及剑法的详细记载，很高深的武学，流到江湖人手中便是无价之宝",
     "effects": [
-      "记载终南山武学"
+      {
+        "type": "效果",
+        "description": "记载终南山武学"
+      }
     ],
     "origin": "天池府书房",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -200,15 +211,17 @@
   {
     "id": "item_di_tu",
     "name": "地图",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_wei",
     "one_line": "简召舞留下的万寿居左侧森林地图",
     "description": "夹在谭家鸳鸯腿书中的一张旧得发黄的白纸地图，画的是万寿居附近，标注了机关埋伏和一条生路",
     "effects": [
-      "指引穿越人工森林的路径"
+      {
+        "type": "效果",
+        "description": "指引穿越人工森林的路径"
+      }
     ],
     "origin": "简召舞",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei"
     ],
@@ -229,16 +242,21 @@
   {
     "id": "item_bai_gu_jian",
     "name": "白骨剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_huang_wen_kai",
     "one_line": "黑堡三魔所用怪剑，以白骨制成，附有剧毒",
     "description": "以白骨制成的怪异长剑，剑身苍白如骨，附有剧毒，中者必死，是黑堡三魔的标志性兵器",
     "effects": [
-      "伤害",
-      "减益"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "减益"
+      }
     ],
     "origin": "黑堡",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_huang_wen_kai",
       "char_na_yin_yuan",
@@ -261,13 +279,12 @@
   {
     "id": "item_mu_jian",
     "name": "木剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_rui_wei",
     "one_line": "喻百龙特制的练习用木剑",
     "description": "喻百龙为芮玮特制的练习用木剑，比真剑还重，不知是什么木头做成",
     "effects": [],
     "origin": "喻百龙制作",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_rui_wei",
       "char_yu_bai_long"
@@ -312,16 +329,21 @@
   {
     "id": "item_xuan_tie_mu_jian",
     "name": "玄铁木剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_rui_wei",
     "one_line": "喻百龙以玄铁木制成的两把木剑，坚逾金刚",
     "description": "喻百龙以玄铁木制成的两把木剑，坚逾金刚，不怕宝刀利刃，赠予芮玮防身之用。",
     "effects": [
-      "坚逾金刚",
-      "不怕宝刀利刃"
+      {
+        "type": "效果",
+        "description": "坚逾金刚"
+      },
+      {
+        "type": "效果",
+        "description": "不怕宝刀利刃"
+      }
     ],
     "origin": "喻百龙制作",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei",
       "char_yu_bai_long"
@@ -378,16 +400,21 @@
   {
     "id": "item_xuan_se_chang_shan",
     "name": "玄色长衫",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_rui_wei",
     "one_line": "简召舞与芮玮换穿的玄色长衫，质料不凡",
     "description": "简召舞与芮玮换穿的玄色长衫，质料精良，穿了年余毫不褪色亦无损坏，使芮玮得以假扮大公子。",
     "effects": [
-      "伪装身份",
-      "质料不凡"
+      {
+        "type": "效果",
+        "description": "伪装身份"
+      },
+      {
+        "type": "效果",
+        "description": "质料不凡"
+      }
     ],
     "origin": "简召舞所有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei",
       "char_jian_zhao_wu"
@@ -409,13 +436,12 @@
   {
     "id": "item_yan_qiang",
     "name": "烟枪",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yan_chun_fu",
     "one_line": "颜春富使用的精光闪闪的烟枪",
     "description": "一根精光闪闪的烟枪，为颜春富所使用，不断吞云吐雾，是其标志性物品。",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yan_chun_fu"
     ],
@@ -443,15 +469,17 @@
   {
     "id": "item_bi_du_zhu",
     "name": "避毒珠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lin_san_han",
     "one_line": "林三寒用来招亲的珍贵宝物",
     "description": "一颗可避毒的珍贵宝珠，林三寒作为招亲比武的奖品之一",
     "effects": [
-      "避毒"
+      {
+        "type": "效果",
+        "description": "避毒"
+      }
     ],
     "origin": "黑堡珍藏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_lin_san_han"
     ],
@@ -491,16 +519,21 @@
   {
     "id": "item_jin_suan_pan",
     "name": "金算盘",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhang_bu_xiao",
     "one_line": "张不笑的奇门兵刃，数十斤重，可锁住敌人兵器",
     "description": "数十斤重的金算盘，可用来攻击和锁住敌人兵器，是张不笑的独门兵刃",
     "effects": [
-      "攻击",
-      "锁拿"
+      {
+        "type": "效果",
+        "description": "攻击"
+      },
+      {
+        "type": "效果",
+        "description": "锁拿"
+      }
     ],
     "origin": null,
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhang_bu_xiao"
     ],
@@ -521,17 +554,25 @@
   {
     "id": "item_jiu_zhuan_fan_hun_dan",
     "name": "九转返魂丹",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "不世奇药，可治愈严重的内腑伤害",
     "description": "九转返魂丹为不世奇药，能治愈严重的内腑伤害，芮玮服下后气色日见好转，竟能行动自如。此丹由小五台山史伯伯赐予高莫野。",
     "effects": [
-      "治愈内腑重伤",
-      "恢复气色",
-      "使人行动自如"
+      {
+        "type": "效果",
+        "description": "治愈内腑重伤"
+      },
+      {
+        "type": "效果",
+        "description": "恢复气色"
+      },
+      {
+        "type": "效果",
+        "description": "使人行动自如"
+      }
     ],
     "origin": "小五台山史伯伯",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei",
       "char_gao_mo_ye"
@@ -559,17 +600,25 @@
   {
     "id": "item_ci_ke_lu",
     "name": "刺客录",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gao_shou",
     "one_line": "高寿所藏的绢册，记录了历年行刺高寿的刺客详情",
     "description": "刺客录是一本绢册，封皮上用墨笔写着'刺客录'，里面每段均记着某年某月某日刺某人以及当时行刺高寿的过程，一一详述，是高寿多年遇刺的完整记录。",
     "effects": [
-      "记录刺客身份",
-      "记录行刺过程",
-      "提供仇人线索"
+      {
+        "type": "效果",
+        "description": "记录刺客身份"
+      },
+      {
+        "type": "效果",
+        "description": "记录行刺过程"
+      },
+      {
+        "type": "效果",
+        "description": "提供仇人线索"
+      }
     ],
     "origin": "高寿亲笔记录",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_gao_shou",
       "char_rui_wei"
@@ -598,16 +647,21 @@
   {
     "id": "item_bing_ma_da_jiang_jun_jin_pai",
     "name": "兵马大将军金牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_wei",
     "one_line": "高寿赐予芮玮的金牌，持牌至官府可得帮助",
     "description": "金牌一面刻'令'字，另一面是兵马大将军的官印。此牌有如高寿本人亲临，持牌至官府便可得到应求，是高寿对芮玮的信任与帮助。",
     "effects": [
-      "调动官府",
-      "代表大将军亲临"
+      {
+        "type": "效果",
+        "description": "调动官府"
+      },
+      {
+        "type": "效果",
+        "description": "代表大将军亲临"
+      }
     ],
     "origin": "高寿",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gao_shou",
       "char_rui_wei"
@@ -629,13 +683,12 @@
   {
     "id": "item_xuan_he_mu_jian",
     "name": "玄铁木剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_rui_wei",
     "one_line": "芮玮使用的木剑。",
     "description": "一把乌黑的木剑，却能吸住毒沙，坚硬无比。",
     "effects": [],
     "origin": null,
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei"
     ],
@@ -656,13 +709,12 @@
   {
     "id": "item_xi_yu_mo_lan",
     "name": "西域魔蓝",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "剧毒，中人一刻即死。",
     "description": "来自西域的剧毒，呈蓝色，中者皮肤发蓝，毒气侵入极快。",
     "effects": [],
     "origin": "西域",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -681,13 +733,12 @@
   {
     "id": "item_mao_xi",
     "name": "草席",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_cai_se_luo_ren",
     "one_line": "盖住陷阱的草席。",
     "description": "普通的草席，被用来掩盖青铜大盆和迷烟陷阱。",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_cai_se_luo_ren"
     ],
@@ -708,13 +759,12 @@
   {
     "id": "item_qing_tong_da_pen",
     "name": "青铜大盆",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hui_yi_lao_zhe",
     "one_line": "释放迷烟的器具。",
     "description": "放置在草席下的青铜大盆，内含燃烧物产生致人昏迷的青烟。",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hui_yi_lao_zhe"
     ],
@@ -735,15 +785,17 @@
   {
     "id": "item_shen_xian_dao",
     "name": "神仙倒",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "彩衣教至宝，令人失去内力",
     "description": "神仙倒是彩衣教中至宝，吸进后无论多大本领，没有十三天不能行动自如，内力全失。",
     "effects": [
-      "使人失去内力"
+      {
+        "type": "效果",
+        "description": "使人失去内力"
+      }
     ],
     "origin": "彩衣教",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -760,16 +812,21 @@
   {
     "id": "item_ling_wan",
     "name": "灵丸",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_shi_bu_jiu",
     "one_line": "史不旧的珍贵灵丹",
     "description": "史不旧所制的珍贵灵丹，可解百毒治百病，二十年前曾应高莫野之求赠出一颗",
     "effects": [
-      "解毒",
-      "疗伤"
+      {
+        "type": "效果",
+        "description": "解毒"
+      },
+      {
+        "type": "效果",
+        "description": "疗伤"
+      }
     ],
     "origin": "史不旧炼制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shi_bu_jiu",
       "char_gao_mo_ye"
@@ -791,15 +848,17 @@
   {
     "id": "item_ji_du_yao_wan",
     "name": "极毒药丸",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_rui_wei",
     "one_line": "史不旧给若珎的绿色毒药丸",
     "description": "鸽蛋般大的绿色丸子，实为极毒之药，毒性要到两年后才发作，史不旧以此换取若珎为父报仇的时间",
     "effects": [
-      "两年后毒性发作致死"
+      {
+        "type": "效果",
+        "description": "两年后毒性发作致死"
+      }
     ],
     "origin": "史不旧炼制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei",
       "char_shi_bu_jiu"
@@ -821,15 +880,17 @@
   {
     "id": "item_huo_hong_yao_wan",
     "name": "火红药丸",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_shi_bu_jiu",
     "one_line": "史不旧弹给若珎的火红色恢复内劲药丸",
     "description": "火红色的丸子，吃下一个时辰内可恢复内劲，史不旧以此试探若珎",
     "effects": [
-      "恢复内劲"
+      {
+        "type": "效果",
+        "description": "恢复内劲"
+      }
     ],
     "origin": "史不旧炼制",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei",
       "char_shi_bu_jiu"
@@ -851,16 +912,21 @@
   {
     "id": "item_san_yang_dan",
     "name": "三阳丹",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_shi_bu_jiu",
     "one_line": "史不旧珍藏的解毒灵药，可解寒毒",
     "description": "白色丸子，盛于白瓷小瓶中，瓶身标签写有“三阳丹”三字。药效极佳，服后可令寒毒消散、身体回暖，是克制阴寒毒掌的珍贵丹药。",
     "effects": [
-      "解毒",
-      "增益"
+      {
+        "type": "效果",
+        "description": "解毒"
+      },
+      {
+        "type": "效果",
+        "description": "增益"
+      }
     ],
     "origin": "史不旧自制或收藏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shi_bu_jiu",
       "char_rui_wei"
@@ -882,15 +948,17 @@
   {
     "id": "item_tian_long_zhu",
     "name": "天龙珠",
-    "type": "pill",
+    "type": "丹药",
     "owner": "",
     "one_line": "突厥国宝，可治寒毒掌伤",
     "description": "突厥国宝天龙珠，研碎成粉和酒服下可治寒毒掌伤",
     "effects": [
-      "疗伤"
+      {
+        "type": "效果",
+        "description": "疗伤"
+      }
     ],
     "origin": "突厥",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -923,16 +991,21 @@
   {
     "id": "item_bai_ri_zui",
     "name": "百日醉",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "一种强效迷药，能使人昏迷数日",
     "description": "百日醉是一种极其强效的迷药，服用后能使人昏迷数日不醒。芮玮在李潮帐中饮酒后被下此药，昏迷七、八天后被抬至金山地牢。药效期间浑身酒气，被害人对此毫无知觉。",
     "effects": [
-      "使人昏迷数日",
-      "无色无味难以察觉"
+      {
+        "type": "效果",
+        "description": "使人昏迷数日"
+      },
+      {
+        "type": "效果",
+        "description": "无色无味难以察觉"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei",
       "char_li_chao"
@@ -954,15 +1027,17 @@
   {
     "id": "item_pi_ge_juan",
     "name": "皮革卷",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_wei",
     "one_line": "无目叟从腿上割下刺有剑法要诀的皮革",
     "description": "无目叟将惊天动地的一招剑法练法要诀刺在从腿上割下的薄皮革上托付给芮玮",
     "effects": [
-      "记载绝世剑法要诀"
+      {
+        "type": "效果",
+        "description": "记载绝世剑法要诀"
+      }
     ],
     "origin": "无目叟亲制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_xu_lao_ren",
       "char_rui_wei"
@@ -984,15 +1059,17 @@
   {
     "id": "item_mao_yan",
     "name": "猫眼",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "十二对价值连城的猫眼珠宝",
     "description": "十二对价值连城的猫眼珠宝芮玮以之向阿史那都也购买天龙珠的筹码",
     "effects": [
-      "价值连城的珠宝"
+      {
+        "type": "效果",
+        "description": "价值连城的珠宝"
+      }
     ],
     "origin": "芮玮所有",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei",
       "char_a_shi_na_du_ye"
@@ -1014,15 +1091,17 @@
   {
     "id": "item_wu_ri_sou_pi_ge",
     "name": "无日叟皮革",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_wei",
     "one_line": "无日叟赠予芮玮的皮革，载有洪水剑法",
     "description": "一块皮革，内里记载着洪水剑法的要诀，无日叟将其交给芮玮",
     "effects": [
-      "记载剑法"
+      {
+        "type": "效果",
+        "description": "记载剑法"
+      }
     ],
     "origin": "无日叟赠予",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei",
       "char_wu_ri_sou"
@@ -1044,15 +1123,17 @@
   {
     "id": "item_pi_qiu",
     "name": "皮裘",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_hu_ha_na",
     "one_line": "呼哈娜赠予芮玮御寒的皮裘",
     "description": "一件皮裘，呼哈娜在塞外寒冷之夜赠予芮玮披在身上御寒",
     "effects": [
-      "御寒"
+      {
+        "type": "效果",
+        "description": "御寒"
+      }
     ],
     "origin": "伊吾国",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hu_ha_na",
       "char_rui_wei"
@@ -1074,13 +1155,12 @@
   {
     "id": "item_yi_wu_guo_tong_xing_xin_fu",
     "name": "伊吾国通行信符",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hu_ha_na",
     "one_line": "伊吾国通行无阻的信符",
     "description": "花绿绿的牌子，持此到伊吾国无人阻拦，遇原氏兄弟可凭此免于刁难",
     "effects": "通行伊吾国，震慑原氏兄弟",
     "origin": "伊吾国",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hu_ha_na",
       "char_rui_wei"
@@ -1102,13 +1182,12 @@
   {
     "id": "item_qi_kong_di",
     "name": "七孔笛",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yuan_si_min",
     "one_line": "原思敏随身乐器，用于施展笛音催眠术",
     "description": "一管七孔笛，吹奏时发出幽怨哀伤的乐音，配合歌声可催眠听者，令人不知不觉坠入沉睡，是原思敏施展催眠术的核心道具。",
     "effects": "催眠控制、精神攻击",
     "origin": "原思敏随身之物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yuan_si_min"
     ],
@@ -1131,13 +1210,12 @@
   {
     "id": "item_wan_liang_huang_jin",
     "name": "万两黄金",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hu_yi_fan",
     "one_line": "白堡英雄大会的彩头，万两黄金分十盘装",
     "description": "白堡英雄大会十周年纪念的彩头，共一万两黄金分装十盘，用以奖励能打败断门刀的英雄",
     "effects": [],
     "origin": "白堡",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hu_yi_fan",
       "char_rui_wei"
@@ -1159,16 +1237,21 @@
   {
     "id": "item_qing_zhu_jian",
     "name": "青竹剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lao_dao",
     "one_line": "老道所用长剑，形式古朴，十分锋利",
     "description": "一柄形式古朴的长剑，剑身青翠如竹，锋利异常，是老道随身兵刃",
     "effects": [
-      "锋利",
-      "坚固"
+      {
+        "type": "效果",
+        "description": "锋利"
+      },
+      {
+        "type": "效果",
+        "description": "坚固"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lao_dao"
     ],
@@ -1196,7 +1279,7 @@
   {
     "id": "item_xue_lian",
     "name": "雪莲",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_lao_dao",
     "one_line": "珍贵无比的雪莲，专治内伤",
     "description": "一枚雪白的莲花，花中结着一颗果实，是珍贵无比的雪莲，专治内伤，有灵效。",
@@ -1207,7 +1290,6 @@
       }
     ],
     "origin": null,
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_lao_dao",
       "char_lin_qiong_ju"
@@ -1229,13 +1311,12 @@
   {
     "id": "item_xue_lian_hua_he",
     "name": "雪莲花盒",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lao_dao",
     "one_line": "老道用来装雪莲的三层布包和木盒",
     "description": "老道从怀中掏出的小包，解开三层布，里面是个木盒，小心翼翼打开木盒取出雪莲。",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lao_dao"
     ],
@@ -1256,15 +1337,17 @@
   {
     "id": "item_fu_chen",
     "name": "拂尘",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yi_deng",
     "one_line": "一灯神尼的武器",
     "description": "一灯神尼所持拂尘，可作武器击人天灵盖",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "不明",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yi_deng"
     ],
@@ -1285,15 +1368,17 @@
   {
     "id": "item_yao_wang_ye_di_tu",
     "name": "药王爷地图",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huo_si_ren",
     "one_line": "记载药王爷五处居所的地图",
     "description": "活死人交给芮玮的地图，上面详细记载了药王爷五个居所的位置，是找到药王爷的关键信物",
     "effects": [
-      "指引药王爷五处居所位置"
+      {
+        "type": "效果",
+        "description": "指引药王爷五处居所位置"
+      }
     ],
     "origin": "活死人收藏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huo_si_ren",
       "char_rui_wei",
@@ -1316,16 +1401,21 @@
   {
     "id": "item_he_shou_wu",
     "name": "何首乌",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_wei_suo_xiao_lao_tou",
     "one_line": "珍贵药材，可入药治病",
     "description": "天下珍贵药材，最好的何首乌万金难买，可入药治疗各种奇毒奇伤，是药王爷药铺的镇店之宝级药材",
     "effects": [
-      "治疗奇毒",
-      "续命疗伤"
+      {
+        "type": "效果",
+        "description": "治疗奇毒"
+      },
+      {
+        "type": "效果",
+        "description": "续命疗伤"
+      }
     ],
     "origin": "天然药材",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei",
       "char_wei_suo_xiao_lao_tou"
@@ -1347,13 +1437,12 @@
   {
     "id": "item_yu_zan",
     "name": "玉簪",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lin_qiong_ju",
     "one_line": "林琼菊发边的珍贵玉簪",
     "description": "林琼菊发边所戴的玉簪，发出晕晕光彩，少说也值千两金子，用以彰显身份与财力",
     "effects": [],
     "origin": "京中",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lin_qiong_ju"
     ],
@@ -1374,13 +1463,12 @@
   {
     "id": "item_xiao_yin_zan",
     "name": "小银簪",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yao_wang_ye",
     "one_line": "药王爷随身携带的银簪，用于探毒",
     "description": "一只小巧的银制簪子，药王爷用以探入伤者掌心试探毒药性质，簪尖可沾染毒素供嗅辨，是诊毒验毒的专用器具。",
     "effects": "探入伤口沾染毒液，嗅辨毒药种类与性质",
     "origin": "药王爷随身之物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yao_wang_ye"
     ],
@@ -1401,13 +1489,12 @@
   {
     "id": "item_niu_mao_tian_wang_zhen",
     "name": "牛毛天王针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "细如牛毛的独门毒针暗器，中者颈部留下针孔伤口",
     "description": "细如牛毛的毒针暗器，中者颈间留下针孔般伤口，此为药王爷师兄一脉的独门暗器，毒性阴狠，伤人于无形。",
     "effects": "刺入人体后释放剧毒，中毒者颈部留下细微针孔伤口",
     "origin": "药王爷师兄一脉独门暗器",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yao_wang_ye"
     ],
@@ -1428,15 +1515,17 @@
   {
     "id": "item_bian_que_shen_pian",
     "name": "扁鹊神篇",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yao_wang_ye",
     "one_line": "战国神医扁鹊的医术秘典，为黄山野叟珍藏",
     "description": "黄皮书卷，封皮上写'扁鹊神篇'四字，下书'黄山野叟珍藏'。扁鹊是战国神医，医术通神，名传后世，此书为其医术秘典，为医家至宝，内载配制解药之法。",
     "effects": [
-      "记载配制解药之法"
+      {
+        "type": "效果",
+        "description": "记载配制解药之法"
+      }
     ],
     "origin": "黄山野叟珍藏",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_yao_wang_ye",
       "char_rui_wei"
@@ -1486,17 +1575,25 @@
   {
     "id": "item_du_sai_du_yao",
     "name": "赌赛毒药",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_shi_bu_jiu",
     "one_line": "药王爷师兄配制的剧毒，后被史不旧改成慢性毒药",
     "description": "药王爷师兄为报复而配制的剧毒，与药王爷配制的毒药互赌，毒性发作极快，不到一刻便会毒发身亡。",
     "effects": [
-      "剧毒无比",
-      "发作后不可收拾",
-      "不到一刻便会毒发"
+      {
+        "type": "效果",
+        "description": "剧毒无比"
+      },
+      {
+        "type": "效果",
+        "description": "发作后不可收拾"
+      },
+      {
+        "type": "效果",
+        "description": "不到一刻便会毒发"
+      }
     ],
     "origin": "药王爷师兄配制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shi_xiong",
       "char_yao_wang_ye",
@@ -1519,13 +1616,12 @@
   {
     "id": "item_nuan_jiao",
     "name": "暖轿",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bing_mei_ren",
     "one_line": "病美人乘坐的暖轿",
     "description": "一顶暖轿，由四个壮健的杠夫抬着，轿边还站着一人，是病美人的代步工具。",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bing_mei_ren"
     ],
@@ -1546,15 +1642,17 @@
   {
     "id": "item_hong_ye_shen",
     "name": "红叶参",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "一种罕见的有毒人参品种",
     "description": "红叶参是一种与普通人参极为相似的有毒参种，品种稀少，世上罕有人知。常人购来吃下后慢慢毒发，最先症状为全身软弱无力，而后皮肤局部发红，到得全身发红便无救。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "自然生长",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bing_mei_ren"
     ],
@@ -1575,15 +1673,17 @@
   {
     "id": "item_jin_zhen_san_shi_liu_zhi",
     "name": "金针三十六只",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yao_wang_ye",
     "one_line": "药王爷遗留的盈尺长金针",
     "description": "三十六只盈尺长的金针，为药王爷行医之物，去时留给芮玮。用于金针过穴法，刺入人体三十六处穴道，须配合真气护穴方可使用。",
     "effects": [
-      "特殊"
+      {
+        "type": "效果",
+        "description": "特殊"
+      }
     ],
     "origin": "药王爷遗物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei",
       "char_yao_wang_ye"
@@ -1607,15 +1707,17 @@
   {
     "id": "item_qi_xing_xiao_di",
     "name": "奇形小笛",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_yi_lao_tou",
     "one_line": "夺魄使者用来召唤白衣女奴的怪笛",
     "description": "一只奇形小笛，夺魄使者从袖口取出，放在口中轻轻一吹便发出尖锐怪声，可召唤白衣女奴前来。芮玮见那小笛十分眼熟，却忘了何处见过。",
     "effects": [
-      "特殊"
+      {
+        "type": "效果",
+        "description": "特殊"
+      }
     ],
     "origin": "魔鬼岛",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bai_yi_lao_tou",
       "char_ye_qing"
@@ -1637,16 +1739,21 @@
   {
     "id": "item_shuang_bo",
     "name": "双钹",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ma_yi_lao_tou",
     "one_line": "勾魂使者使用的铜钹武器",
     "description": "一对铜钹，勾魂使者（麻衣老头）的兵器，双钹击打可发出刺耳巨响，能震得人耳鼓发麻、在地上翻滚惨叫，具有强大的音波攻击效果。",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ma_yi_lao_tou"
     ],
@@ -1667,16 +1774,21 @@
   {
     "id": "item_yuan_hu_si_cao_sheng",
     "name": "猿狐丝草绳",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_duo_po_shi_zhe",
     "one_line": "夺魄使者使用的草绳，实为猿狐丝制成",
     "description": "夺魄使者使用的草绳，外表像草绳，实为猿狐丝做成，贯注真力坚逾金钢",
     "effects": [
-      "伤害",
-      "缠绕"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "缠绕"
+      }
     ],
     "origin": "魔鬼岛",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_duo_po_shi_zhe"
     ],
@@ -1697,16 +1809,21 @@
   {
     "id": "item_ru_yi_ling",
     "name": "如意令",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_fa_hai",
     "one_line": "少林最高信符，纯白色玉如意",
     "description": "少林派最高信符，纯白色玉如意，仅有巴掌大，触手生温，柄手雕刻蝇头海字，凭此信物可使少林寺僧相信传话",
     "effects": [
-      "代表少林最高权威",
-      "持令者可传达少林最高指令"
+      {
+        "type": "效果",
+        "description": "代表少林最高权威"
+      },
+      {
+        "type": "效果",
+        "description": "持令者可传达少林最高指令"
+      }
     ],
     "origin": "少林寺",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_fa_hai",
       "char_rui_wei"
@@ -1728,15 +1845,17 @@
   {
     "id": "item_jie_du_wan",
     "name": "解毒丸",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_rui_wei",
     "one_line": "芮玬配制的解毒药丸",
     "description": "芮玬亲手配制的解毒药丸，可解郭少峰身上二十余年的巨毒",
     "effects": [
-      "解毒"
+      {
+        "type": "效果",
+        "description": "解毒"
+      }
     ],
     "origin": "芮玬配制",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei",
       "char_guo_shao_feng"
@@ -1760,13 +1879,12 @@
   {
     "id": "item_bi_shou",
     "name": "匕首",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_rui_wei",
     "one_line": "芮玬随身携带的匕首",
     "description": "芮玬随身携带的锋利匕首，曾要求郭少峰用刚刺矮自己左眼",
     "effects": [],
     "origin": "芮玬随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_rui_wei",
       "char_guo_shao_feng"
@@ -1788,16 +1906,21 @@
   {
     "id": "item_mi_hun_jin",
     "name": "迷魂巾",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hua_yi_nv_zi",
     "one_line": "花衣女子使用的迷魂武器",
     "description": "一条长长的汗巾，上面涂有迷魂香，可使闻到的人昏迷不醒",
     "effects": [
-      "控制",
-      "减益"
+      {
+        "type": "效果",
+        "description": "控制"
+      },
+      {
+        "type": "效果",
+        "description": "减益"
+      }
     ],
     "origin": "魔鬼岛",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hua_yi_nv_zi"
     ],
@@ -1824,16 +1947,21 @@
   {
     "id": "item_fu_long_suo",
     "name": "缚龙索",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hua_yi_nv_zi",
     "one_line": "天下绝技，只有叶士谋能解开",
     "description": "一种特殊的绳索，材质坚韧无比，刀剑难断，打结后只有叶士谋能解开",
     "effects": [
-      "控制",
-      "束缚"
+      {
+        "type": "效果",
+        "description": "控制"
+      },
+      {
+        "type": "效果",
+        "description": "束缚"
+      }
     ],
     "origin": "魔鬼岛",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_hua_yi_nv_zi",
       "char_ye_shi_mou"
@@ -1868,15 +1996,17 @@
   {
     "id": "item_gang_ju",
     "name": "钢锯",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_ye_qing",
     "one_line": "叶青暗中留下的钢锯，帮助芮玮锯开墙壁",
     "description": "一把用于锯铁的钢锯，可锯开牢房墙壁，帮助芮玮逃脱",
     "effects": [
-      "切割"
+      {
+        "type": "效果",
+        "description": "切割"
+      }
     ],
     "origin": "叶青提供",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ye_qing",
       "char_rui_wei"
@@ -1898,16 +2028,21 @@
   {
     "id": "item_yao_bao",
     "name": "药包",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_wei",
     "one_line": "芮玮随身携带的药包，内含金创药粉和灵丹",
     "description": "芮玮随身携带的药包，内含亮银小刀、黄色金创药粉和疗伤灵丹，用于紧急救治重伤",
     "effects": [
-      "止血疗伤",
-      "培养元气"
+      {
+        "type": "效果",
+        "description": "止血疗伤"
+      },
+      {
+        "type": "效果",
+        "description": "培养元气"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei",
       "char_ye_qing"
@@ -1929,16 +2064,21 @@
   {
     "id": "item_jin_chuang_yao_fen",
     "name": "金创药粉",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_rui_wei",
     "one_line": "黄色药粉，敷于伤口可止血愈合",
     "description": "黄色的金创药粉，从药包中取出，敷于箭伤创口可止血愈合，效果显著",
     "effects": [
-      "止血",
-      "促进伤口愈合"
+      {
+        "type": "效果",
+        "description": "止血"
+      },
+      {
+        "type": "效果",
+        "description": "促进伤口愈合"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei",
       "char_ye_qing"
@@ -1960,15 +2100,17 @@
   {
     "id": "item_liang_yin_xiao_dao",
     "name": "亮银小刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_rui_wei",
     "one_line": "从药包中取出的银色小刀，用于剜出箭头",
     "description": "一把亮银小刀，从药包中取出，用于剜出叶青背上的箭头，刀身银亮，锋利精巧",
     "effects": [
-      "切割"
+      {
+        "type": "效果",
+        "description": "切割"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_rui_wei"
     ],
@@ -1989,16 +2131,21 @@
   {
     "id": "item_ling_dan",
     "name": "灵丹",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_rui_wei",
     "one_line": "芮玮的疗伤灵丹，对重伤最具神效",
     "description": "芮玮随身携带的疗伤灵丹，功在培养元气，对重伤最具神效，可助伤者快速恢复",
     "effects": [
-      "培养元气",
-      "治疗重伤"
+      {
+        "type": "效果",
+        "description": "培养元气"
+      },
+      {
+        "type": "效果",
+        "description": "治疗重伤"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei",
       "char_ye_qing"
@@ -2031,7 +2178,6 @@
     "description": "用于辨别方向的工具",
     "owner": "char_ye_qing",
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -2039,15 +2185,17 @@
   {
     "id": "item_xuan_gui_ji",
     "name": "玄龟集",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_ming_lao_ren",
     "one_line": "记载绝世武功的神秘典籍",
     "description": "无名老人所学武功的真正来源，记载了足以横扫武林的绝世功法",
     "effects": [
-      "横扫武林"
+      {
+        "type": "效果",
+        "description": "横扫武林"
+      }
     ],
     "origin": "未知",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_wu_ming_lao_ren",
       "char_hu_yi_dao"
@@ -2112,16 +2260,21 @@
   {
     "id": "item_ba_ben_dao_pu",
     "name": "八本刀谱",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "胡一刀从无名老人处学得的八路刀法秘籍，后被张玉珍窃去",
     "description": "记载八路精妙刀法的秘籍，胡一刀凭此练成后以数招胜过武林四大宗师，后被张玉珍窃去并改为剑法",
     "effects": [
-      "传授刀法",
-      "记载精妙武学"
+      {
+        "type": "效果",
+        "description": "传授刀法"
+      },
+      {
+        "type": "效果",
+        "description": "记载精妙武学"
+      }
     ],
     "origin": "无名老人",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hu_yi_dao",
       "char_zhang_yu_zhen"
@@ -2149,16 +2302,21 @@
   {
     "id": "item_han_quan",
     "name": "寒泉",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "葫芦岛地下的冰寒泉水，水温极低但为淡水",
     "description": "葫芦岛地下涌出的冰寒泉水，触手生凉比冰水还冷，但却是难得的淡水，无名老人可借此饮食和练功",
     "effects": [
-      "解渴",
-      "辅助练功"
+      {
+        "type": "效果",
+        "description": "解渴"
+      },
+      {
+        "type": "效果",
+        "description": "辅助练功"
+      }
     ],
     "origin": "葫芦岛地下",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wu_ming_lao_ren"
     ],
@@ -2179,17 +2337,25 @@
   {
     "id": "item_han_liu_guai_yu",
     "name": "寒流怪鱼",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "生活在海底洞寒流中的怪鱼，身体凉如冰块，食后产生燥热",
     "description": "生活在海底洞寒流中的怪鱼，身体凉如冰块，入口清凉无比但落入腹中会升起一团火来，需要剧烈运动或打坐来驱除燥热",
     "effects": [
-      "充饥",
-      "产生燥热",
-      "增强体质"
+      {
+        "type": "效果",
+        "description": "充饥"
+      },
+      {
+        "type": "效果",
+        "description": "产生燥热"
+      },
+      {
+        "type": "效果",
+        "description": "增强体质"
+      }
     ],
     "origin": "海底洞寒流",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei",
       "char_ye_qing"
@@ -2217,16 +2383,21 @@
   {
     "id": "item_guai_yu",
     "name": "怪鱼",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "生活在海底寒泉中的白色扁形怪鱼，眼睛极小",
     "description": "这种鱼生在漆黑不见光线的泉底里，眼睛奇小，身体成扁形，全身雪白，样子十分怪里怪气，足以解饥解渴。",
     "effects": [
-      "解饥",
-      "解渴"
+      {
+        "type": "效果",
+        "description": "解饥"
+      },
+      {
+        "type": "效果",
+        "description": "解渴"
+      }
     ],
     "origin": "海底寒泉",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_rui_wei",
       "char_ye_qing"
@@ -2248,15 +2419,17 @@
   {
     "id": "item_hai_yuan_dao_pu",
     "name": "海渊刀谱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hu_yi_dao",
     "one_line": "无名老人传给胡一刀的八本刀谱，载有海渊刀法",
     "description": "无名老人感激胡一刀收留疗伤之恩，传授的八本刀谱，记载海渊刀法，后在华山武会中扬名",
     "effects": [
-      "记载海渊刀法"
+      {
+        "type": "效果",
+        "description": "记载海渊刀法"
+      }
     ],
     "origin": "无名老人传授",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wu_ming_lao_ren",
       "char_hu_yi_dao"
@@ -2280,17 +2453,25 @@
   {
     "id": "item_yu_chang_jian",
     "name": "鱼肠剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hong_yi_nv_zi",
     "one_line": "天下瑰宝，能刺穿任何奇坚宝石的神兵利器",
     "description": "尺余长的短剑，剑身细如鱼肠，能削铁如泥且可刺穿任何奇坚宝石，为武林人梦寐以求的绝世神兵。",
     "effects": [
-      "削铁如泥",
-      "刺穿奇坚宝石",
-      "飞剑伤人百丈外"
+      {
+        "type": "效果",
+        "description": "削铁如泥"
+      },
+      {
+        "type": "效果",
+        "description": "刺穿奇坚宝石"
+      },
+      {
+        "type": "效果",
+        "description": "飞剑伤人百丈外"
+      }
     ],
     "origin": "铁网帮主传给女儿",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_hong_yi_nv_zi",
       "char_rui_wei"
@@ -2333,15 +2514,17 @@
   {
     "id": "item_yu_diao_shi_zi",
     "name": "玉雕狮子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_ji_ye",
     "one_line": "刘育芷送芮纪野弥月之庆的玉雕狮子",
     "description": "尺余见方的锦盒内装着一只玉雕成的狮子，雕工惟妙惟肖，就好像一只真的狮子，价值不菲，内附一笺写明纪野侄弥月之庆",
     "effects": [
-      "纪念"
+      {
+        "type": "效果",
+        "description": "纪念"
+      }
     ],
     "origin": "刘育芷",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_liu_yu_zhi",
       "char_rui_ji_ye"
@@ -2363,16 +2546,21 @@
   {
     "id": "item_huo_long_zhu",
     "name": "火龙珠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_mo_zai_xian",
     "one_line": "莫家牧场九龙鞭莫在先珍藏的异宝",
     "description": "火龙珠白日看来并无异处，颜色通红发出暗光，但一到夜晚放在暗处，顿时大放光明，照亮一室如在火中，端是一件异宝。",
     "effects": [
-      "夜间发光照明",
-      "稀世珍品"
+      {
+        "type": "效果",
+        "description": "夜间发光照明"
+      },
+      {
+        "type": "效果",
+        "description": "稀世珍品"
+      }
     ],
     "origin": "莫在先牧马时在山壑中拣到",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_mo_zai_xian",
       "char_li_kun"
@@ -2394,16 +2582,21 @@
   {
     "id": "item_qian_nian_wen_yu",
     "name": "千年温玉",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhu_chang_yu",
     "one_line": "雁行门掌门祝长玉送给黎昆的寿礼",
     "description": "千年温玉，价值连城，是雁行门掌门祝长玉送给黎昆六十大寿的贵重寿礼。",
     "effects": [
-      "珍贵无比",
-      "价值连城"
+      {
+        "type": "效果",
+        "description": "珍贵无比"
+      },
+      {
+        "type": "效果",
+        "description": "价值连城"
+      }
     ],
     "origin": "雁行门收藏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zhu_chang_yu",
       "char_li_kun"
@@ -2425,16 +2618,21 @@
   {
     "id": "item_huang_jin_qian_liang",
     "name": "黄金千两",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_mo_zai_xian",
     "one_line": "莫家牧场送给黎昆的寿礼金票",
     "description": "关内外通汇的金票，面额黄金一千两，是莫家牧场九龙鞭莫在先送给黎昆六十大寿的寿礼。",
     "effects": [
-      "通汇兑现",
-      "财富"
+      {
+        "type": "效果",
+        "description": "通汇兑现"
+      },
+      {
+        "type": "效果",
+        "description": "财富"
+      }
     ],
     "origin": "莫家牧场",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_mo_zai_xian",
       "char_li_kun"
@@ -2456,16 +2654,21 @@
   {
     "id": "item_fen_hong_se_han_jin",
     "name": "粉红色汗巾",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hong_yi_nv_zi",
     "one_line": "铁网帮标志的女用汗巾，在怀庐院中发现",
     "description": "一条粉红色的女用汗巾，右角上绣着一面作撒出状的鱼网，是长江铁网帮的标志。在怀庐院中被史不旧捡到。",
     "effects": [
-      "标记身份",
-      "证据"
+      {
+        "type": "效果",
+        "description": "标记身份"
+      },
+      {
+        "type": "效果",
+        "description": "证据"
+      }
     ],
     "origin": "铁网帮",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hong_yi_nv_zi",
       "char_shi_bu_jiu"
@@ -2487,16 +2690,21 @@
   {
     "id": "item_yu_shi_shi_zi",
     "name": "玉石狮子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_wei",
     "one_line": "芮纯弥月时朋友送的贺礼",
     "description": "玉石狮子，芮纯弥月时一位朋友送的贺礼，系在摇篮上镇邪，后在凶手劫掠时被取走。",
     "effects": [
-      "镇邪",
-      "纪念"
+      {
+        "type": "效果",
+        "description": "镇邪"
+      },
+      {
+        "type": "效果",
+        "description": "纪念"
+      }
     ],
     "origin": "朋友赠送",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_rui_wei"
     ],
@@ -2517,13 +2725,12 @@
   {
     "id": "item_fen_hong_se_de_han_jin",
     "name": "粉红色的汗巾",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_xiao_jie",
     "one_line": "黎小姐送给简召舞的定情之物。",
     "description": "一条粉红色的汗巾，是黎小姐赠予简召舞的定情信物，后被芮玮发现，成为揭露真相的关键物品。",
     "effects": [],
     "origin": "黎小姐赠予",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_xiao_jie",
       "char_jian_zhao_wu",
@@ -2546,13 +2753,12 @@
   {
     "id": "item_bing_ma_da_jiang_jun_ling_pai",
     "name": "兵马大将军令牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_wei",
     "one_line": "芮玮怀中的金色令牌，刻有兵马大将军官印。",
     "description": "一块金色令牌，一面雕刻\"令\"字，另一面是兵马大将军的官印，显示持有者身份尊贵。",
     "effects": [],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei"
     ],
@@ -2573,16 +2779,21 @@
   {
     "id": "item_yi_rong_yao",
     "name": "易容药",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_wei",
     "one_line": "改变容貌的药物。",
     "description": "一种可改变容貌的药物，芮玮用其伪装成黄脸汉子，被江水溶掉后恢复原貌。",
     "effects": [
-      "改变容貌",
-      "遇水溶解"
+      {
+        "type": "效果",
+        "description": "改变容貌"
+      },
+      {
+        "type": "效果",
+        "description": "遇水溶解"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_rui_wei"
     ],
@@ -2603,16 +2814,21 @@
   {
     "id": "item_jiu_yang_fan_hun_san",
     "name": "九阳返魂散",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_qian_fei_long",
     "one_line": "点苍派神药，可救重伤濒死之人",
     "description": "点苍派秘传神药，能救治重伤濒死之人，配合内功疗伤效果更佳",
     "effects": [
-      "续命",
-      "疗伤"
+      {
+        "type": "效果",
+        "description": "续命"
+      },
+      {
+        "type": "效果",
+        "description": "疗伤"
+      }
     ],
     "origin": "点苍派",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qian_fei_long"
     ],
@@ -2633,16 +2849,21 @@
   {
     "id": "item_jin_pai",
     "name": "金牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_rui_wei",
     "one_line": "高寿赠予芮玮的信物，被钱飞龙发现后用于救人",
     "description": "高寿当年赠予芮玮的一面金牌信物，凭此牌可知芮玮与高寿有故旧之情",
     "effects": [
-      "身份证明",
-      "通行信物"
+      {
+        "type": "效果",
+        "description": "身份证明"
+      },
+      {
+        "type": "效果",
+        "description": "通行信物"
+      }
     ],
     "origin": "高寿",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_gao_shou",
       "char_rui_wei",
@@ -2665,16 +2886,21 @@
   {
     "id": "item_wu_wei_zi_tang",
     "name": "五味子汤",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_gao_mo_jing",
     "one_line": "高莫静特制的皇家食品，兼具提神益气与疗饥之效",
     "description": "高莫静亲手熬制的五味子汤，采用珍贵药材，喝后全身舒坦，兼具提神益气与消除饥饿之功效",
     "effects": [
-      "提神益气",
-      "疗饥"
+      {
+        "type": "效果",
+        "description": "提神益气"
+      },
+      {
+        "type": "效果",
+        "description": "疗饥"
+      }
     ],
     "origin": "高莫静",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gao_mo_jing",
       "char_rui_wei"
@@ -2696,15 +2922,17 @@
   {
     "id": "item_yue_xing_men_juan_ce",
     "name": "月形门绢册",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gao_mo_jing",
     "one_line": "高莫静赠予芮玮的武功秘籍",
     "description": "旧黄色绢册，封面画有半月形青记，记载月形门武学及四照神功",
     "effects": [
-      "记载高深内功心法"
+      {
+        "type": "效果",
+        "description": "记载高深内功心法"
+      }
     ],
     "origin": "高莫静母亲嫁妆",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gao_mo_jing",
       "char_rui_wei",
@@ -2729,15 +2957,17 @@
   {
     "id": "item_hai_yuan_jian_pu",
     "name": "海渊剑谱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gao_mo_ye",
     "one_line": "天下第一等的剑法",
     "description": "八本海渊剑谱，记载天下第一等的剑法，学会八剑可天下无敌。",
     "effects": [
-      "武学至宝"
+      {
+        "type": "效果",
+        "description": "武学至宝"
+      }
     ],
     "origin": "点苍山",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_gao_mo_ye",
       "char_rui_wei",
@@ -2774,13 +3004,12 @@
   {
     "id": "item_yu_shi_xiang",
     "name": "玉石像",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_liu_zhong_zhu",
     "one_line": "刘忠柱妻子的玉石雕像，被张玉珍暗器射破",
     "description": "刘忠柱请巧匠雕刻的妻子玉石像，长五六尺，栩栩如生，活像生人，是刘忠柱对亡妻的唯一纪念",
     "effects": [],
     "origin": "巧匠雕刻",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_liu_zhong_zhu"
     ],
@@ -2808,13 +3037,12 @@
   {
     "id": "item_tan_mu_chang_he",
     "name": "檀木长盒",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gao_mo_ye",
     "one_line": "高莫野托官府送给芮玮的檀木长盒",
     "description": "高莫野出家后托官府送来给芮玮的密封檀木长盒，内含一束削发时留下的青丝和海渊剑谱",
     "effects": [],
     "origin": "高莫野",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_gao_mo_ye",
       "char_rui_wei"
@@ -2836,13 +3064,12 @@
   {
     "id": "item_qing_si",
     "name": "青丝",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gao_mo_ye",
     "one_line": "高莫野削发为尼时留下的头发",
     "description": "高莫野出家为尼时削下的秀丽漆黑的娟发，压在海渊剑谱之上，象征她对芮玮的情意",
     "effects": [],
     "origin": "高莫野",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_gao_mo_ye",
       "char_rui_wei"
@@ -2864,13 +3091,12 @@
   {
     "id": "item_tan_mu_he",
     "name": "檀木盒",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gao_mo_jing",
     "one_line": "高莫野削发后封起的檀木盒",
     "description": "高莫野出家前封起的檀木盒，内藏一束青丝与海渊剑谱，后由高寿转交芮玮",
     "effects": [],
     "origin": "高莫野削发时封存",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gao_mo_ye",
       "char_rui_wei"
@@ -2892,13 +3118,12 @@
   {
     "id": "item_shi_jing",
     "name": "诗经",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "姚济生随身携带的书卷",
     "description": "姚济生随身携带的一册书，名为诗经，被芮玮在庵堂中捡起翻看。书卷内容为古代诗歌经典，是读书人常用的文房读物。",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yao_ji_sheng",
       "char_rui_wei"
@@ -2927,13 +3152,12 @@
   {
     "id": "item_chi_luo_nv_xiang",
     "name": "赤裸女像",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lao_bi_qiu",
     "one_line": "供桌上木匣中的赤裸女人坐像，背后刻有无影门相关文字",
     "description": "供桌上小木匣内藏的赤裸女人坐像，全身赤条条一丝不挂，坐像背后刻有十二字：'无影门，无君子，有君子，失影人'，暗示无影门与卖影人之间的关联。",
     "effects": [],
     "origin": "无影门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei"
     ],
@@ -2954,16 +3178,21 @@
   {
     "id": "item_ren_pi_mian_ju",
     "name": "人皮面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_yan",
     "one_line": "买影人用来化装老人的人皮面具",
     "description": "一张薄薄的人皮面具，做工精妙，戴上后容貌、言谈、举动皆能逼真模仿老人，从未被人识破，直到遇到芮玮才首次被拆穿",
     "effects": [
-      "化装易容",
-      "伪装身份"
+      {
+        "type": "效果",
+        "description": "化装易容"
+      },
+      {
+        "type": "效果",
+        "description": "伪装身份"
+      }
     ],
     "origin": "无影门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_yan"
     ],
@@ -2984,15 +3213,17 @@
   {
     "id": "item_chi_luo_nv_shen_xiang",
     "name": "赤裸女神像",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "无影门供奉的神像，背后刻有四句祖传秘诀",
     "description": "无影门世代供奉的赤裸女神像，因门人怕亵渎神像无人敢碰，脏成乌漆巴黑，背后刻有'无影门，无君子，有君子，失影人'四句祖传秘诀，代代相传却无人知神像背后也刻着",
     "effects": [
-      "记载无影门秘史"
+      {
+        "type": "效果",
+        "description": "记载无影门秘史"
+      }
     ],
     "origin": "无影门",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -3011,16 +3242,21 @@
   {
     "id": "item_xiao_hei_bing",
     "name": "小黑饼",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_bai_yan",
     "one_line": "白燕所制的圆形黑色药丸，可解毒针之毒，但三十粒方能完全解毒，暗藏另一种控制手段",
     "description": "装在锦盒中的圆形小黑饼，好几十个，白燕声称一次服三十粒可永解毒针之毒，实则含有另一种慢性成分，能改变服用者体质气味",
     "effects": [
-      "解毒针之毒",
-      "改变体质气味"
+      {
+        "type": "效果",
+        "description": "解毒针之毒"
+      },
+      {
+        "type": "效果",
+        "description": "改变体质气味"
+      }
     ],
     "origin": "无影门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_yan",
       "char_rui_wei"
@@ -3042,16 +3278,21 @@
   {
     "id": "item_jin_zhen",
     "name": "金针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_bai_yan",
     "one_line": "白燕用来暗算芮玮的六枚毒针，分别插入背后六穴，可控制中毒者",
     "description": "六只细小的有毒金针，白燕趁芮玮背诵誓言时插入其背后神道、灵台、至阳、筋缩、中枢、脊中六穴，用于控制芮玮",
     "effects": [
-      "封穴控制",
-      "每日发作毒性"
+      {
+        "type": "效果",
+        "description": "封穴控制"
+      },
+      {
+        "type": "效果",
+        "description": "每日发作毒性"
+      }
     ],
     "origin": "无影门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bai_yan",
       "char_rui_wei"
@@ -3073,13 +3314,12 @@
   {
     "id": "item_jin_gang_jian",
     "name": "金刚鉴",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ru_meng",
     "one_line": "金刚鉴，太阳门之物",
     "description": "金刚鉴是太阳门的重要物品，秦百龄向如梦大师索要此物，具体用途不明。",
     "effects": [],
     "origin": "太阳门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ru_meng",
       "char_qin_bai_ling"
@@ -3114,16 +3354,21 @@
   {
     "id": "item_fu_gu_zhen",
     "name": "附骨针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_rui_wei",
     "one_line": "秦百龄射入芮玮体内的暗器，尚未取出",
     "description": "秦百龄暗算芮玮时射入其体内的暗器，嵌入骨中难以取出，令芮玮时常受其困扰。",
     "effects": [
-      "嵌入骨骼",
-      "持续痛苦"
+      {
+        "type": "效果",
+        "description": "嵌入骨骼"
+      },
+      {
+        "type": "效果",
+        "description": "持续痛苦"
+      }
     ],
     "origin": "秦百龄",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei",
       "char_qin_bai_ling"
@@ -3145,16 +3390,21 @@
   {
     "id": "item_qi_ye_guo",
     "name": "七叶果",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_ru_meng_da_shi",
     "one_line": "百年一结果的奇药，可解摄魂针之毒",
     "description": "七叶果一叶大注七瓣，十载一开花，花呈淡红色，百年一结果，花果皆为不世药，尤其果子更为贵重，可解摄魂针之毒",
     "effects": [
-      "解摄魂针之毒",
-      "解天下迷药之毒"
+      {
+        "type": "效果",
+        "description": "解摄魂针之毒"
+      },
+      {
+        "type": "效果",
+        "description": "解天下迷药之毒"
+      }
     ],
     "origin": "如梦大师栽活",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_rui_wei",
       "char_ru_meng_da_shi"
@@ -3204,16 +3454,21 @@
   {
     "id": "item_she_hun_zhen",
     "name": "摄魂针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_tao_gen",
     "one_line": "无影门买影人三大针之一，令中者终身受制",
     "description": "无影门买影人三大针之一，中针者需常闻买影人身上香味方可存活，否则浑身不舒服直至软倒",
     "effects": [
-      "令中者终身受制于买影人",
-      "需常闻香味止瘾"
+      {
+        "type": "效果",
+        "description": "令中者终身受制于买影人"
+      },
+      {
+        "type": "效果",
+        "description": "需常闻香味止瘾"
+      }
     ],
     "origin": "无影门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_rui_wei",
       "char_bai_yan"
@@ -3235,16 +3490,21 @@
   {
     "id": "item_hua_ye_yao_zhi_du",
     "name": "花月妖之毒",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_tao_gen",
     "one_line": "桃根所下迷毒，可令中者散失功力",
     "description": "无影门买影人所用迷毒，中者散失功力成为瓮中之鳖，假以时日可令其乖乖就范",
     "effects": [
-      "散失功力",
-      "控制心智"
+      {
+        "type": "效果",
+        "description": "散失功力"
+      },
+      {
+        "type": "效果",
+        "description": "控制心智"
+      }
     ],
     "origin": "无影门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_liu_yu_zhi",
       "char_tao_gen"
@@ -3266,15 +3526,17 @@
   {
     "id": "item_xian_tian_zhang",
     "name": "先天掌",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_rui_wei",
     "one_line": "芮玮所破之掌法，破后心愿得偿",
     "description": "芮玮此前所中之掌，破后心愿得偿但需履行卖影子诺言",
     "effects": [
-      "破后可解"
+      {
+        "type": "效果",
+        "description": "破后可解"
+      }
     ],
     "origin": "未详",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_rui_wei"
     ],
@@ -3295,15 +3557,17 @@
   {
     "id": "item_qi_ye_shu",
     "name": "七叶树",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ru_meng_da_shi",
     "one_line": "珍稀奇树，每叶七瓣，所结果实可延寿",
     "description": "栽种在花篮内的奇树，每叶七瓣，嗅着满室清香。树上结一枚七叶果，果熟树枯。原为简药官所有，后被如梦大师夺得。",
     "effects": [
-      "结七叶果可延寿"
+      {
+        "type": "效果",
+        "description": "结七叶果可延寿"
+      }
     ],
     "origin": "简药官培育",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_ru_meng_da_shi",
       "char_chen_shu_zhen",
@@ -3326,15 +3590,17 @@
   {
     "id": "item_hua_lan",
     "name": "花篮",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ru_meng_da_shi",
     "one_line": "如梦大师用来栽种七叶树的花篮，手把涂有毒药",
     "description": "如梦大师用来栽种七叶树的大花篮，悬挂在秘室中央屋顶。花篮手把上涂有毒药，抓之如万针攒刺。芮玮打开暗门后发现花篮内叶外吐，每叶七瓣。",
     "effects": [
-      "手把涂毒可伤人"
+      {
+        "type": "效果",
+        "description": "手把涂毒可伤人"
+      }
     ],
     "origin": "如梦大师所有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ru_meng_da_shi",
       "char_rui_wei",
@@ -3357,16 +3623,21 @@
   {
     "id": "item_xiang_nang",
     "name": "香囊",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_yan",
     "one_line": "白燕随身携带的精致锦绣织品香囊，内装碧绿色小叶子，发出浓烈香气",
     "description": "精致的锦绣织品，上面绣着一对栩栩如生的鸳鸯，内装碧绿色的小小尖形叶子，发出浓烈的香气，能使人迷惑神智",
     "effects": [
-      "迷惑神智",
-      "掩盖体味"
+      {
+        "type": "效果",
+        "description": "迷惑神智"
+      },
+      {
+        "type": "效果",
+        "description": "掩盖体味"
+      }
     ],
     "origin": "无影门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_yan",
       "char_rui_wei"
@@ -3395,16 +3666,21 @@
   {
     "id": "item_nv_xiang_ye_xiang_nang",
     "name": "女香叶香囊",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_yan",
     "one_line": "装有女香叶的香囊，可抑制摄魂饼之毒",
     "description": "香囊内装着长在深山顶峰的长青女香叶，此叶浸水涂在身上，一闻即可解除摄魂针之毒。是无影门控制摄魂饼中毒者的关键物品。",
     "effects": [
-      "抑制摄魂饼毒发",
-      "解摄魂针之毒"
+      {
+        "type": "效果",
+        "description": "抑制摄魂饼毒发"
+      },
+      {
+        "type": "效果",
+        "description": "解摄魂针之毒"
+      }
     ],
     "origin": "深山顶峰",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_yan",
       "char_rui_wei"
@@ -3426,16 +3702,21 @@
   {
     "id": "item_she_hun_bing",
     "name": "摄魂饼",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "无影门三大毒饼之一，服下后可控制中毒者",
     "description": "小黑饼共分三种：追魂饼、失魂饼、摄魂饼。摄魂饼是最后一种，服下后产生控制作用，于身体并无大害，但需要持续用女香叶抑制毒发。是无影门控制他人的手段。",
     "effects": [
-      "控制中毒者",
-      "需女香叶抑制毒发"
+      {
+        "type": "效果",
+        "description": "控制中毒者"
+      },
+      {
+        "type": "效果",
+        "description": "需女香叶抑制毒发"
+      }
     ],
     "origin": "无影门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bai_yan",
       "char_rui_wei"
@@ -3459,13 +3740,12 @@
   {
     "id": "item_nv_xiang_ye",
     "name": "女香叶",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_bai_yan",
     "one_line": "香囊中的奇药，可解摄魂饼之毒",
     "description": "女香叶为无影门特有之物，生长于香囊之中，服用后可完全解除摄魂饼所中之毒",
     "effects": "完全解除摄魂饼毒药",
     "origin": "无影门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_yan",
       "char_rui_wei"
@@ -3487,13 +3767,12 @@
   {
     "id": "item_qian_zhang_da_suo",
     "name": "千丈大索",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_su_xin",
     "one_line": "素心费十月之功用葛藤编织的千丈长索",
     "description": "素心在绝谷峰顶日日采葛藤编成的千丈大索，坚韧异常，可从峰顶垂至谷底，是逃离绝谷的唯一途径",
     "effects": "连接峰顶与谷底，供人攀索上下",
     "origin": "素心手编",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_su_xin",
       "char_rui_wei",
@@ -3516,13 +3795,12 @@
   {
     "id": "item_hai_yuan_ba_dao_xue_hui_juan_jin",
     "name": "海渊八刀血绘绢巾",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wan_bu_tong",
     "one_line": "万有全以鲜血绘成的海渊八刀秘术",
     "description": "万有全以鲜血绘成的海渊八刀秘术绢巾，连同玄龟集绢册一同交给万不同，万不同以此练成全部海渊八刀。",
     "effects": [],
     "origin": "万有全",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_wan_you_quan",
       "char_wan_bu_tong"
@@ -3544,15 +3822,17 @@
   {
     "id": "item_ju_bao_xiang",
     "name": "聚宝箱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jian_zhao_wu",
     "one_line": "天池府三代珍藏的珠宝箱",
     "description": "巨大的铁箱，内藏天池府三代为宰所聚集的财富，宝光四射，价值连城，珠宝莹光冰清。",
     "effects": [
-      "财富诱惑"
+      {
+        "type": "效果",
+        "description": "财富诱惑"
+      }
     ],
     "origin": "天池府三代珍藏",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_jian_zhao_wu",
       "char_wu_nan_tian"
@@ -3574,13 +3854,12 @@
   {
     "id": "item_yi_fu",
     "name": "衣馥",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "白燕与芮玮所生双胞儿中的女儿，谐音忆父",
     "description": "白燕与芮玮所生双胞儿中的女儿，衣馥谐音忆父，表示怀念芮玮之意",
     "effects": [],
     "origin": "白燕与芮玮之女",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_yan",
       "char_rui_wei"

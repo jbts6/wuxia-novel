@@ -2,13 +2,12 @@
   {
     "id": "item_liu_cheng_feng_de_jian",
     "name": "柳乘风的剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_liu_cheng_feng",
     "one_line": "柳乘风的佩剑，后被紫衣老妪夺取使用",
     "description": "柳乘风生前的佩剑，锋利异常，是江湖名剑。柳乘风死后被紫衣老妪获取并用来刺杀陆小凤。",
     "effects": [],
     "origin": "柳乘风",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_liu_cheng_feng",
       "char_zi_yi_lao_yu"
@@ -30,15 +29,17 @@
   {
     "id": "item_dao",
     "name": "刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "陆小凤来黄石镇追寻的凶器",
     "description": "一把与命案相关的刀，陆小凤来黄石镇的主要目标之一，具体形制未详述",
     "effects": [
-      "杀伤"
+      {
+        "type": "效果",
+        "description": "杀伤"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lu_xiao_feng"
     ],
@@ -59,16 +60,21 @@
   {
     "id": "item_po_si_bi_shou",
     "name": "波斯匕首",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_sha_da_hu",
     "one_line": "波斯宫廷古匕首，象牙裸女刀柄，刺杀柳乘风的凶器",
     "description": "一柄波斯宫廷古匕首，刀柄用整支象牙雕成裸女，曲线玲珑栩栩如生，轻按胸脯即弹出暗赤色锋刃，价值曾高达黄金五千五百两。",
     "effects": [
-      "刺杀",
-      "暗杀"
+      {
+        "type": "效果",
+        "description": "刺杀"
+      },
+      {
+        "type": "效果",
+        "description": "暗杀"
+      }
     ],
     "origin": "波斯宫廷",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_sha_da_hu",
       "char_liu_cheng_feng"
@@ -90,7 +96,7 @@
   {
     "id": "item_mian_tie_duan_dao",
     "name": "缅铁短刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_gong_ping",
     "one_line": "极品缅铁打造的短刀，刀锋仅七寸七分长",
     "description": "用极品缅铁打造成的短刀，刀锋仅七寸七分长，使用方法与匕首相似，招式变化极快，出手极凶险，从缠腰的丝带中抽出",
@@ -101,7 +107,6 @@
       }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gong_ping"
     ],
@@ -122,13 +127,12 @@
   {
     "id": "item_qiu_shou_xing_lie_tu",
     "name": "秋狩行猎图",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gong_su_su",
     "one_line": "挂在宫素素木屋墙上的画，画中王者骑白马狩猎",
     "description": "一幅画在木屋墙上的行猎图，画上一位王者骑在高大神骏的白马上，弓在手，箭在壶，鹰在肩，扈从在马后追随呐喊，猎犬在马旁跳跃吼叫，晴空万里天高气爽",
     "effects": [],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gong_su_su"
     ],
@@ -149,13 +153,12 @@
   {
     "id": "item_yu_ban",
     "name": "玉绊",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "宫萍腰间掉落的玉绊，陆小凤看到后脸色骤变",
     "description": "一块从宫萍腰带里跌落的玉绊，陆小凤看见后脸色立刻变得像被人刺中一刀，暗示与某件重要案件有关",
     "effects": [],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gong_ping",
       "char_lu_xiao_feng"
@@ -196,16 +199,21 @@
   {
     "id": "item_yin_zhen",
     "name": "银针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_xu_sha",
     "one_line": "许煞使用的银针暗器，可封住穴道使人动弹不得",
     "description": "九根银质细针，由许煞以精湛暗器手法打入对手穴道，每一根都插在重要穴位上，令中者全身麻痹无法反抗",
     "effects": [
-      "控制",
-      "封穴"
+      {
+        "type": "效果",
+        "description": "控制"
+      },
+      {
+        "type": "效果",
+        "description": "封穴"
+      }
     ],
     "origin": "许煞",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xu_sha",
       "char_gong_ping"
@@ -229,15 +237,17 @@
   {
     "id": "item_feng_zheng",
     "name": "风筝",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "一只巨大的风筝，上面用碧磷写着神秘的八个字",
     "description": "一只大如翱翔大鹰的风筝，在黎明前最黑暗时出现，上面用碧磷写出要找祸秧打破鱼缸八个大字，为陆小凤指引了新的线索方向",
     "effects": [
-      "传递信息"
+      {
+        "type": "效果",
+        "description": "传递信息"
+      }
     ],
     "origin": "不明",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lu_xiao_feng"
     ],
@@ -258,15 +268,17 @@
   {
     "id": "item_jin_yu_gang",
     "name": "金鱼缸",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "八个一样的金鱼缸，缸底藏有密道入口",
     "description": "八个大小形状质料色泽都一样的金鱼缸，干得像老太婆的脸一样起了皱纹，缸底藏有通往地下密室的入口，是隐藏秘密通道的巧妙机关。",
     "effects": [
-      "隐藏密道入口"
+      {
+        "type": "效果",
+        "description": "隐藏密道入口"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -285,15 +297,17 @@
   {
     "id": "item_bi_lin",
     "name": "碧磷",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "用于在风筝上写字的昂贵材料",
     "description": "一种用来在风筝上写字的碧绿色磷光材料，价格不便宜，能在黑暗中发光，被人用来在风筝上写下'要找祸秧，打破鱼缸'八个大字作为线索。",
     "effects": [
-      "发光标记"
+      {
+        "type": "效果",
+        "description": "发光标记"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -312,15 +326,17 @@
   {
     "id": "item_tong_zhi_tao",
     "name": "铜指套",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_lao_ban_niang",
     "one_line": "老板娘手指上的薄铜指套，锋利如剑",
     "description": "每个指甲上都套着一种用薄铜打成的指套，锋利如剑，是老板娘的独门武器，十个指套合在一起威力巨大，能抓破敌人的要害穴位。",
     "effects": [
-      "攻击要害穴位"
+      {
+        "type": "效果",
+        "description": "攻击要害穴位"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lao_ban_niang"
     ],
@@ -341,15 +357,17 @@
   {
     "id": "item_jian_xue",
     "name": "箭靴",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_gong_ping",
     "one_line": "宫萍脚上穿的靴子，一脚踢出碎石如粉",
     "description": "宫萍脚上穿的特制靴子，鞋尖坚硬如箭头，一脚踢出能碎石如粉，是近身搏斗的致命武器，配合轻功使用威力倍增。",
     "effects": [
-      "碎石如粉的踢击"
+      {
+        "type": "效果",
+        "description": "碎石如粉的踢击"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gong_ping"
     ],
@@ -370,15 +388,17 @@
   {
     "id": "item_qi_qiao_tang_tie_lian",
     "name": "七巧堂铁链",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lao_shi_he_shang",
     "one_line": "七巧堂制造的精巧铁链，锁住老实和尚双腿",
     "description": "七巧堂制造的精巧铁链，极为粗大，锁在老实和尚足踝之上，钥匙已被抛入绝壑，世上再无人能打开",
     "effects": [
-      "锁住目标无法行动"
+      {
+        "type": "效果",
+        "description": "锁住目标无法行动"
+      }
     ],
     "origin": "七巧堂",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_lao_shi_he_shang"
     ],
@@ -399,16 +419,21 @@
   {
     "id": "item_tie_xue",
     "name": "铁靴",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_da_gu",
     "one_line": "大鼓所穿的纯铁打成的靴子，每只重九斤半到十三四斤",
     "description": "用纯铁打成的靴子，每只最少有一个最胖的人一条腿那么重，约九斤半到十三四斤之间，两只合计二十斤。大鼓从小穿铁靴训练轻功。",
     "effects": [
-      "负重训练轻功",
-      "增加踏击力度"
+      {
+        "type": "效果",
+        "description": "负重训练轻功"
+      },
+      {
+        "type": "效果",
+        "description": "增加踏击力度"
+      }
     ],
     "origin": "大鼓自幼穿戴",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_da_gu"
     ],
@@ -431,13 +456,12 @@
   {
     "id": "item_bing_bi_bing_shui_bing",
     "name": "冰比冰水冰",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "古龙所出的绝对上联，金庸倪匡均未能对出下联",
     "description": "五个字中三个冰字，第一个为名词，第二个为形容词，第三个也为形容词。冰一定比冰水冰，冰溶为水后温度升高。古龙认为世界上绝没有任何一种其他文字能用这么少的字写出类似的词句来。",
     "effects": [],
     "origin": "古龙与倪匡深夜喝酒时所出",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gu_long",
       "char_jin_yong",
@@ -460,13 +484,12 @@
   {
     "id": "item_yu_dai_chang_jian",
     "name": "玉带长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bai_yi_shao_nian",
     "one_line": "白衣少年佩带的价值连城的玉带和长剑",
     "description": "白衣少年腰间佩戴的玉带和长剑，二者都是价值连城的宝物，彰显其尊贵身份",
     "effects": [],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_yi_shao_nian"
     ],
@@ -487,13 +510,12 @@
   {
     "id": "item_xiao_xiao_xie_de_wu_pin",
     "name": "绣花鞋的物品",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiu_hua_xie",
     "one_line": "绣花鞋随身携带的箫、梳妆箱和赌具",
     "description": "绣花鞋上山时携带的物品，包括一管箫、一个用上好漆器制成的梳妆箱、一副用象牙匣装着的赌具，其中包括了一副骰子、一副牌九，和四副叶子牌",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiu_hua_xie"
     ],
@@ -514,16 +536,21 @@
   {
     "id": "item_niu_rou_tang",
     "name": "牛肉汤",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_niu_rou_tang",
     "one_line": "牛小姐亲手炖制的特号大碗牛肉汤",
     "description": "用特号大碗装上来的牛肉汤，汤已经炖得比米汤还浓，肉是用牛身上三个最精彩的部分集合到一起炖的，牛是一条最精彩的牛，从小用酒拌小麦喂大，炖了四五个时辰。",
     "effects": [
-      "满足口腹之欲",
-      "以美食打动人心"
+      {
+        "type": "效果",
+        "description": "满足口腹之欲"
+      },
+      {
+        "type": "效果",
+        "description": "以美食打动人心"
+      }
     ],
     "origin": "牛小姐亲手炖制",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_niu_rou_tang",
       "char_si_kong_zhai_xing"
@@ -545,15 +572,17 @@
   {
     "id": "item_yin_piao",
     "name": "银票",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_niu_xiao_jie",
     "one_line": "大鼓付给牛小姐的银票",
     "description": "大鼓从身上掏出的一叠银票，用双手送到牛小姐面前，摆在地上，作为某种交易或报酬。",
     "effects": [
-      "交易媒介"
+      {
+        "type": "效果",
+        "description": "交易媒介"
+      }
     ],
     "origin": "大鼓支付",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_da_gu",
       "char_niu_xiao_jie"
@@ -575,15 +604,17 @@
   {
     "id": "item_jin_zhen",
     "name": "金针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_lu_xiao_feng",
     "one_line": "细小的金针暗器，一击致命",
     "description": "一枚细小的金针，从花丛中无声无息飞出，直取守卫咽喉，被击中者连叫一声都叫不出来",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lu_xiao_feng"
     ],
@@ -604,15 +635,17 @@
   {
     "id": "item_gui_cai",
     "name": "棺材",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhao_xia_zi",
     "one_line": "赵瞎子的棺材店中的新棺材，用来装被杀害的人",
     "description": "赵瞎子棺材店中的新棺材，外表普通，内藏杀人阴谋，镖师被杀后尸体被塞入其中",
     "effects": [
-      "隐藏尸体"
+      {
+        "type": "效果",
+        "description": "隐藏尸体"
+      }
     ],
     "origin": "赵瞎子棺材店",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhao_xia_zi",
       "char_xiao_jiao_hua"
@@ -634,15 +667,17 @@
   {
     "id": "item_huang_jin_bei_zhan_jin",
     "name": "黄金（备战金）",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "朝廷三千五百万两备战金，被涂上特殊颜色伪装成废铁",
     "description": "朝廷为南方战事准备的三千五百万两黄金备战金，由中原镖局押运，被陆小凤涂上特殊颜色伪装成乌黑废铁，实际黄金完好无损",
     "effects": [
-      "伪装"
+      {
+        "type": "效果",
+        "description": "伪装"
+      }
     ],
     "origin": "朝廷",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_lu_xiao_feng",
       "char_jin_peng",
@@ -671,15 +706,17 @@
   {
     "id": "item_yu_shan",
     "name": "玉扇",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lu_xiao_feng",
     "one_line": "陆小凤随身携带的玉扇，用来刮去黄金上的伪装涂层",
     "description": "陆小凤随身携带的精美玉扇，不仅是装饰品，更可用来刮去黄金上的特殊涂层，露出里面黄澄澄的真金",
     "effects": [
-      "特殊"
+      {
+        "type": "效果",
+        "description": "特殊"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lu_xiao_feng"
     ],

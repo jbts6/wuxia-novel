@@ -4,7 +4,6 @@
     "name": "虎爪手",
     "type": "掌法",
     "faction": null,
-    "rank": "登堂入室",
     "one_line": "大悲老人临战抓拿见血的狠劲手法。",
     "techniques": [
       {
@@ -49,8 +48,7 @@
     "id": "skill_mi_shi_dao_fa",
     "name": "米氏刀法",
     "type": "剑法",
-    "faction": "faction_chang_le_bang",
-    "rank": "登堂入室",
+    "faction": "长乐帮",
     "one_line": "米香主以剑法驭刀，三十六刀连绵无隙。",
     "techniques": [
       {
@@ -96,7 +94,6 @@
     "name": "控鹤功",
     "type": "内功",
     "faction": null,
-    "rank": "炉火纯青",
     "one_line": "谢烟客赖以制敌擒摄的上乘内功。",
     "techniques": [
       {
@@ -142,7 +139,6 @@
     "name": "泥人内功图谱",
     "type": "内功",
     "faction": null,
-    "rank": "登堂入室",
     "one_line": "绘于十八泥人身上的经脉练功法门。",
     "techniques": [
       {
@@ -195,7 +191,6 @@
     "name": "谢家掌法",
     "type": "掌法",
     "faction": null,
-    "rank": "出神入化",
     "one_line": "谢烟客在摩天崖上新创、掌风狠辣的掌法。",
     "techniques": [
       {
@@ -241,7 +236,6 @@
     "name": "碧针清掌",
     "type": "掌法",
     "faction": null,
-    "rank": "出神入化",
     "one_line": "谢烟客以精纯内力驱动松针成圈的高深掌功。",
     "techniques": [
       {
@@ -292,8 +286,7 @@
     "id": "skill_wu_xing_liu_he_zhang",
     "name": "五行六合掌",
     "type": "掌法",
-    "faction": "faction_chang_le_bang",
-    "rank": "炉火纯青",
+    "faction": "长乐帮",
     "one_line": "贝海石赖以名动武林的多变掌法。",
     "techniques": [
       {
@@ -351,7 +344,6 @@
     "name": "玄冰碧火功",
     "type": "内功",
     "faction": null,
-    "rank": "出神入化",
     "one_line": "狗杂种误练而成、阴阳二劲交攻又互济的奇异内功。",
     "techniques": [
       {
@@ -396,8 +388,7 @@
     "id": "skill_tie_sha_zhang",
     "name": "铁沙掌",
     "type": "掌法",
-    "faction": "faction_bao_jie_tang",
-    "rank": "登堂入室",
+    "faction": "豹捷堂",
     "one_line": "展飞苦练二十余年的刚猛外门掌功。",
     "techniques": [
       {
@@ -442,8 +433,7 @@
     "id": "skill_luo_han_fu_mo_shen_gong",
     "name": "罗汉伏魔神功",
     "type": "内功",
-    "faction": "faction_shao_lin_pai",
-    "rank": "出神入化",
+    "faction": "少林派",
     "one_line": "少林前辈神僧所创的佛门高深内功。",
     "techniques": [
       {
@@ -493,7 +483,6 @@
     "name": "丁家武功",
     "aliases": [],
     "description": "丁不三自恃极高的一身武学总称，被他作为招婿诱因与奖赏。",
-    "rank": "平平无奇",
     "techniques": [
       {
         "id": "tech_xuan_bing_bi_huo_jiu",
@@ -516,14 +505,14 @@
     "legacy_rank": "高",
     "migration_notes": [
       "unresolved mastery rank: 高"
-    ]
+    ],
+    "faction": null
   },
   {
     "id": "skill_xue_shan_pai_jian_fa",
     "name": "雪山派剑法",
     "aliases": [],
     "description": "雪山派传承剑法，能留下雪花六出形伤痕，是白万剑用以辨认石中玉身份的关键。",
-    "rank": "平平无奇",
     "techniques": [
       {
         "id": "tech_xue_hua_liu_chu_jian_hen",
@@ -546,7 +535,8 @@
     "legacy_rank": "高",
     "migration_notes": [
       "unresolved mastery rank: 高"
-    ]
+    ],
+    "faction": null
   },
   {
     "0": "雪",
@@ -605,10 +595,10 @@
     ],
     "relationships": [],
     "mastery_rank": "平平无奇",
-    "rank": "平平无奇",
     "migration_notes": [
       "unresolved mastery rank: <blank>"
-    ]
+    ],
+    "faction": null
   },
   {
     "id": "skill_xue_shan_pai_nei_gong",
@@ -622,10 +612,10 @@
       }
     ],
     "mastery_rank": "平平无奇",
-    "rank": "平平无奇",
     "migration_notes": [
       "unresolved mastery rank: <blank>"
-    ]
+    ],
+    "faction": null
   },
   {
     "id": "skill_shang_qing_guan_da_xue_fa",
@@ -639,17 +629,16 @@
       }
     ],
     "mastery_rank": "平平无奇",
-    "rank": "平平无奇",
     "migration_notes": [
       "unresolved mastery rank: <blank>"
-    ]
+    ],
+    "faction": null
   },
   {
     "id": "skill_ding_jia_qin_na_shou",
     "name": "丁家擒拿手",
     "category": "擒拿",
     "description": "丁家家传擒拿体系，重认穴与借内力制敌，是丁珰用以速成石破天的近身功夫。",
-    "rank": "平平无奇",
     "source_refs": [
       {
         "chapter": 8,
@@ -666,14 +655,14 @@
     "legacy_rank": "first_rate",
     "migration_notes": [
       "unresolved mastery rank: first_rate"
-    ]
+    ],
+    "faction": null
   },
   {
     "id": "skill_wu_wang_shen_gong",
     "name": "无妄神功",
     "type": "内功",
-    "faction": "未知",
-    "rank": "炉火纯青",
+    "faction": null,
     "one_line": "史婆婆与阿绣同练的内功，稍有差池便可能走火受创。",
     "techniques": [
       {
@@ -728,8 +717,7 @@
     "id": "skill_yi_shi_ba_lu_qin_na_shou",
     "name": "一十八路擒拿手",
     "type": "指法",
-    "faction": "未知",
-    "rank": "登堂入室",
+    "faction": null,
     "one_line": "丁家一脉的近身擒拿功夫，石破天曾受丁珰点拨并在实战中使出。",
     "techniques": [
       {
@@ -784,7 +772,6 @@
     "name": "罗汉伏魔功",
     "type": "内功",
     "faction": "少林派",
-    "rank": "登峰造极",
     "one_line": "石破天所修的精妙内功，阴阳刚柔兼备，在本章中开始被引导出用法。",
     "techniques": [
       {
@@ -858,8 +845,7 @@
     "id": "skill_jin_wu_dao_fa",
     "name": "金乌刀法",
     "type": "掌法",
-    "faction": "faction_jin_wu_pai",
-    "rank": "炉火纯青",
+    "faction": "金乌派",
     "one_line": "专为克制雪山剑法而创的七十三路刀法。",
     "techniques": [
       {
@@ -916,7 +902,6 @@
     "name": "一十八手擒拿法",
     "type": "掌法",
     "faction": null,
-    "rank": "初窥门径",
     "one_line": "丁珰曾教石破天的简单擒拿招法。",
     "techniques": [
       {
@@ -953,7 +938,6 @@
     "name": "玉兔剑法",
     "type": "剑法",
     "faction": null,
-    "rank": "登堂入室",
     "one_line": "史婆婆计划由阿绣配合施展的剑法。",
     "techniques": [
       {
@@ -989,8 +973,7 @@
     "id": "skill_xuan_su_jian_fa",
     "name": "玄素剑法",
     "type": "剑法",
-    "faction": "faction_xuan_su_zhuang",
-    "rank": "出神入化",
+    "faction": "玄素庄",
     "one_line": "石清夫妇所传、讲究剑理与正大气象的家传剑法。",
     "techniques": [
       {
@@ -1036,8 +1019,7 @@
     "id": "skill_du_zhang_gong_fu",
     "name": "毒掌功夫",
     "type": "掌法",
-    "faction": "",
-    "rank": "登堂入室",
+    "faction": null,
     "one_line": "石破天身上自带剧毒气息，动手时会逼毒外散。",
     "techniques": [
       {
@@ -1089,8 +1071,7 @@
     "id": "skill_shen_dao_gui_die_san_lian_huan",
     "name": "神倒鬼跌三连环",
     "type": "掌法",
-    "faction": "faction_xue_shan_pai",
-    "rank": "出神入化",
+    "faction": "雪山派",
     "one_line": "白自在以擒、抓、绊连环制敌的近身绝技。",
     "techniques": [
       {
@@ -1147,7 +1128,6 @@
     "name": "侠客岛腊八药理",
     "type": "药理",
     "faction": "侠客岛",
-    "rank": "登堂入室",
     "one_line": "侠客岛以断肠蚀骨腐心草配伍而成的补益药理。",
     "techniques": [
       {
@@ -1184,7 +1164,6 @@
     "name": "梅花拳",
     "type": "拳法",
     "faction": "梅花拳",
-    "rank": "登堂入室",
     "one_line": "梅芳姑一脉相承的祖传拳法。",
     "techniques": [
       {
@@ -1221,7 +1200,6 @@
     "name": "梅女侠新创剑法",
     "type": "剑法",
     "faction": "江湖散人",
-    "rank": "炉火纯青",
     "one_line": "专为克制丁氏武学而创、路数狠辣偏锋的新创剑法。",
     "techniques": [
       {

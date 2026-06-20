@@ -2,15 +2,17 @@
   {
     "id": "item_hai_long_wang_wan_dao",
     "name": "海龙王弯刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hai_long_wang",
     "one_line": "海龙王昔年纵横七海时用的弯刀",
     "description": "形状怪异、分量极重的弯刀，刀下不知有多少人的头颅落地",
     "effects": [
-      "砍杀"
+      {
+        "type": "效果",
+        "description": "砍杀"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hai_long_wang"
     ],
@@ -31,15 +33,17 @@
   {
     "id": "item_wang_feng_duan_jian",
     "name": "王风短剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wang_feng",
     "one_line": "王风使用的短剑",
     "description": "王风使用的短剑，近身刺杀利器，剑身短小精悍",
     "effects": [
-      "刺杀"
+      {
+        "type": "效果",
+        "description": "刺杀"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wang_feng"
     ],
@@ -60,15 +64,17 @@
   {
     "id": "item_yao_ming_yan_wang_zhen",
     "name": "要命阎王针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "致命暗器，中者活不过半个时辰",
     "description": "一种极其致命的暗器，被打中者绝对活不过半个时辰，王风被此暗器所伤",
     "effects": [
-      "致命毒素"
+      {
+        "type": "效果",
+        "description": "致命毒素"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wang_feng"
     ],
@@ -96,15 +102,17 @@
   {
     "id": "item_bi_yu",
     "name": "碧玉",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tie_hen",
     "one_line": "太平王冠上的碧玉，价值连城",
     "description": "一块晶莹无瑕的碧玉，本是太平王冠上的宝物，价值连城，王府失窃珠宝之一",
     "effects": [
-      "辟毒"
+      {
+        "type": "效果",
+        "description": "辟毒"
+      }
     ],
     "origin": "太平王府",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tie_hen",
       "char_man_tian_fei"
@@ -126,16 +134,21 @@
   {
     "id": "item_pi_du_zhu",
     "name": "辟毒珠",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "王府五宝之一，专辟五毒",
     "description": "一粒明珠，能辟五毒，王府五宝中的一宝，价值在碧玉之上",
     "effects": [
-      "辟毒",
-      "专克五毒"
+      {
+        "type": "效果",
+        "description": "辟毒"
+      },
+      {
+        "type": "效果",
+        "description": "专克五毒"
+      }
     ],
     "origin": "太平王府",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -168,13 +181,12 @@
   {
     "id": "item_guan_cai",
     "name": "棳材",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_feng",
     "one_line": "王风随身携带的崭新棳材",
     "description": "一口崭新的棳材，王风随身携带，据称里面装着他的一位朋友。棳材是崭新的，与王风破旧的衣衫形成鲜明对比。",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wang_feng"
     ],
@@ -208,16 +220,21 @@
   {
     "id": "item_xue_hong_se_shi_tou",
     "name": "血红色石头",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "神秘的血红色小石头，能一下子夺去人的魂魄",
     "description": "一块小小的血红色石头，红得可怕，从窗子外面打进来，能一下子打断人的腿，还能夺去人的魂魄。",
     "effects": [
-      "伤害",
-      "特殊"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "特殊"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -236,13 +253,12 @@
   {
     "id": "item_ming_zhu",
     "name": "明珠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tian_tian_long",
     "one_line": "谭天龙临死前送给王风的价值连城之物",
     "description": "一颗比龙眼还大的珠珠，虽然不是辟毒珠也不是夜明珠，却无疑也是价值连城之物。谭天龙临死前将其送给王风，伺佛是天平王遗失的那批珠宝之一。",
     "effects": [],
     "origin": "天平王遗失珠宝",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tian_tian_long",
       "char_wang_feng"
@@ -271,13 +287,12 @@
   {
     "id": "item_ying_wu_long",
     "name": "鹦鹉笼",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lao_zhang_gui",
     "one_line": "老掌柜养过的鹦鹉小魔神，已死",
     "description": "一个空鹦鹉笼，曾养有一只叫小魔神的鹦鹉，又活泰又可爱。鹦鹉在七月初一鬼门开之夜被吓死，死状可怕。",
     "effects": [],
     "origin": "血奴赠送",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lao_zhang_gui",
       "char_xue_nu"
@@ -299,15 +314,17 @@
   {
     "id": "item_xue_ying_wu_bi_hua",
     "name": "血鹦鹉壁画",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xue_nu",
     "one_line": "小楼墙壁上的巨大壁画，画满妖魔和血鹦鹉",
     "description": "五丈宽的墙壁上画满了各式各样的妖魔，有的半人半兽，有的非人非兽。妖魔们手里都有柄弯刀，刀锋上都在滴着血，滴成了一只血鹦鹉。血鹦鹉旁有十三只美丽的怪鸟围绕飞翔。画的是奇浓嘉嘉普诸魔世界，魔王十万岁寿诞的景象。",
     "effects": [
-      "激发观者对血鹦鹉传说的敬畏与迷惑"
+      {
+        "type": "效果",
+        "description": "激发观者对血鹦鹉传说的敬畏与迷惑"
+      }
     ],
     "origin": "姓郭的古怪老头子所画",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xue_nu",
       "char_guo_lao_tou"
@@ -329,15 +346,17 @@
   {
     "id": "item_ying_di_pi_xue",
     "name": "硬底皮靴",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xue_nu",
     "one_line": "血奴用来踩人的硬底皮靴，摆在精致雕花木架上",
     "description": "硬底的皮靴，摆在一个精致的雕花的木架上，是血奴用来踩踏男人的工具。",
     "effects": [
-      "踩踏攻击"
+      {
+        "type": "效果",
+        "description": "踩踏攻击"
+      }
     ],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xue_nu"
     ],
@@ -358,15 +377,17 @@
   {
     "id": "item_dai_ci_pi_bian",
     "name": "带刺皮鞭",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xue_nu",
     "one_line": "血奴用来抽人的带刺皮鞭",
     "description": "带刺的皮鞭，挂在皮靴旁，是血奴用来抽打男人的工具。",
     "effects": [
-      "抽打攻击"
+      {
+        "type": "效果",
+        "description": "抽打攻击"
+      }
     ],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xue_nu"
     ],
@@ -387,13 +408,12 @@
   {
     "id": "item_yin_gou",
     "name": "银钩",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xue_nu",
     "one_line": "床顶上挂着的发亮银钩",
     "description": "床顶上挂着的发亮的银钩，用途不明，王风不敢问其用途。",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xue_nu"
     ],
@@ -414,17 +434,25 @@
   {
     "id": "item_hong_shi",
     "name": "魔石",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_feng",
     "one_line": "血红的魔石，由血鹦鹉的魔血凝结而成",
     "description": "血红的石头，由血鹦鹉最后剩下的十三滴魔血结成，在一瞬间就可以夺走人的魂魄。血奴吞下后引发魔化，随后魔石又回到王风怀中。",
     "effects": [
-      "引发魔化反应",
-      "夺走魂魄",
-      "使人看见魔王"
+      {
+        "type": "效果",
+        "description": "引发魔化反应"
+      },
+      {
+        "type": "效果",
+        "description": "夺走魂魄"
+      },
+      {
+        "type": "效果",
+        "description": "使人看见魔王"
+      }
     ],
     "origin": "血鹦鹉魔血凝结",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_wang_feng",
       "char_xue_nu"
@@ -453,15 +481,17 @@
   {
     "id": "item_bai_fen",
     "name": "白粉",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lao_hui_chong",
     "one_line": "刷墙用的白粉，被王风用作武器",
     "description": "刷墙用的白色粉末，太平杂货铺出售，王风用来迷住黑衣人的眼睛",
     "effects": [
-      "迷眼"
+      {
+        "type": "效果",
+        "description": "迷眼"
+      }
     ],
     "origin": "太平杂货铺",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wang_feng",
       "char_lao_hui_chong"
@@ -490,15 +520,17 @@
   {
     "id": "item_duan_dao",
     "name": "短刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "杀手常用的薄而快的短刀",
     "description": "又薄又快的短刀，只有经常杀人的人才会用这种刀，刀锋轻柔而自然",
     "effects": [
-      "刺杀"
+      {
+        "type": "效果",
+        "description": "刺杀"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zui_han_a",
       "char_zui_han_b"
@@ -520,15 +552,17 @@
   {
     "id": "item_wan_dao",
     "name": "弯刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hei_yi_ren",
     "one_line": "新月般的弯刀，漆黑刀鞘上画着半人半兽的妖兽",
     "description": "一把新月般的弯刀，漆黑的刀鞘上画着个半人半兽的妖兽，来自奇浓嘉嘉普的魔刀",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "奇浓嘉嘉普",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hei_yi_ren"
     ],
@@ -549,16 +583,21 @@
   {
     "id": "item_mo_dao",
     "name": "魔刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hei_yi_ren",
     "one_line": "来自奇浓嘉嘉普的魔刀，经诸魔祝福，第十三刀无人能躲",
     "description": "一把新月般的弯刀，经诸魔祝福，第十三刀具有魔力，无人能躲",
     "effects": [
-      "攻击",
-      "魔力"
+      {
+        "type": "效果",
+        "description": "攻击"
+      },
+      {
+        "type": "效果",
+        "description": "魔力"
+      }
     ],
     "origin": "奇浓嘉嘉普",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_hei_yi_ren"
     ],
@@ -593,13 +632,12 @@
   {
     "id": "item_chen_nian_zhu_ye_qing",
     "name": "陈年竹叶青",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_zhen_shan",
     "one_line": "最好的陈年竹叶青酒，武三爷用来待客",
     "description": "上好的陈年竹叶青酒，武三爷在六角亭中用来招待王风",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wu_zhen_shan",
       "char_wang_feng"
@@ -628,13 +666,12 @@
   {
     "id": "item_xue_ying_wu_hua",
     "name": "血鹦鹉画",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xue_nu",
     "one_line": "墙上的血鹦鹉和十三只怪鸟的画，被王风用白粉刷掉",
     "description": "墙上画着血鹦鹉和十三只怪鸟的画，王风用白粉将其刷掉，怪鸟数量从十三只变成十二只",
     "effects": [],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wang_feng",
       "char_xue_nu"
@@ -656,17 +693,25 @@
   {
     "id": "item_pi_du_bao_zhu",
     "name": "辟毒宝珠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tie_hen",
     "one_line": "含在铁恨口中的奇异珍珠，可保持尸身不腐",
     "description": "一颗光泽奇异的珍珠，含在死者口中，能辟毒辟邪，保持尸身不腐，使死人看上去竟如睡着一般。",
     "effects": [
-      "辟毒",
-      "辟邪",
-      "保持尸身不腐"
+      {
+        "type": "效果",
+        "description": "辟毒"
+      },
+      {
+        "type": "效果",
+        "description": "辟邪"
+      },
+      {
+        "type": "效果",
+        "description": "保持尸身不腐"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tie_hen"
     ],
@@ -691,15 +736,17 @@
       "红石",
       "魔血石"
     ],
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chang_xiao",
     "one_line": "血鹦鹉的魔血凝结而成的石头，实为媚药",
     "description": "血红色的石头，红得可怕。据讲是十万神魔的魔血滴成血鹦鹉后，剩下的十三滴化成的石头。实则是在红蝙蝠血液中浸泡而成的媚药。",
     "effects": [
-      "媚药"
+      {
+        "type": "效果",
+        "description": "媚药"
+      }
     ],
     "origin": "血鹦鹉传说",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chang_xiao",
       "char_tan_tian_long"
@@ -722,16 +769,21 @@
     "alias": [
       "毒针"
     ],
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_mo_chong",
     "one_line": "七星堂独门暗器，淬有牵机毒，见血封喉",
     "description": "寸许长，头发般粗细的钢针，淬有最毒的牵机毒，一针足以致命。原为七星堂莫氏七兄弟的独门暗器。",
     "effects": [
-      "伤害",
-      "中毒"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "中毒"
+      }
     ],
     "origin": "七星堂",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tan_tian_long"
     ],
@@ -772,15 +824,17 @@
   {
     "id": "item_pou_shi_dao",
     "name": "剖尸刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiao_bai_cao",
     "one_line": "仵作专用的解剖刀。",
     "description": "萧百草随身携带的锋利小刀，用于解剖尸体，也被他用来自尽。",
     "effects": [
-      "切割"
+      {
+        "type": "效果",
+        "description": "切割"
+      }
     ],
     "origin": "仵作行",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiao_bai_cao"
     ],
@@ -801,13 +855,12 @@
   {
     "id": "item_xiao_mo_shen",
     "name": "小魔神",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lao_zhang_gui",
     "one_line": "一只已经死去的鹦鹉。",
     "description": "血奴送给老掌柜的鹦鹉，曾在鬼门大开之日被吓死。",
     "effects": [],
     "origin": "血奴",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xue_nu",
       "char_lao_zhang_gui"
@@ -829,17 +882,25 @@
   {
     "id": "item_xue_ying_wu",
     "name": "血鹦鹉",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "十万魔血化成的血鹦鹉，每隔七年降临人间，实现看见者三个愿望",
     "description": "由十万神魔的十万滴魔血化成的血鹦鹉，每隔七年降临人间一次，能实现看见者的三个愿望，但愿望的实现往往伴随着邪恶与灾祸",
     "effects": [
-      "实现三个愿望",
-      "带来邪恶与灾祸",
-      "令人死亡"
+      {
+        "type": "效果",
+        "description": "实现三个愿望"
+      },
+      {
+        "type": "效果",
+        "description": "带来邪恶与灾祸"
+      },
+      {
+        "type": "效果",
+        "description": "令人死亡"
+      }
     ],
     "origin": "十万神魔以十万滴魔血化成",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_tie_hen",
       "char_wang_feng"
@@ -875,15 +936,17 @@
   {
     "id": "item_tai_ping_wang_fu_zhu_bao",
     "name": "太平王府珠宝",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "七年前太平王府库藏的珠宝，一夜之间完全神秘失踪",
     "description": "太平王府库藏的珍贵珠宝，七年前一夜之间完全神秘失踪，与血鹦鹉案有关",
     "effects": [
-      "引发调查"
+      {
+        "type": "效果",
+        "description": "引发调查"
+      }
     ],
     "origin": "太平王府库藏",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -902,7 +965,7 @@
   {
     "id": "item_hua_shi_san",
     "name": "化尸散",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "化尸散",
     "description": "一种能将尸体化为浓血的毒药，江湖上多个帮会使用",
@@ -913,7 +976,6 @@
       }
     ],
     "origin": "江湖",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wan_tong"
     ],
@@ -934,7 +996,7 @@
   {
     "id": "item_pei_dao",
     "name": "配刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "配刀",
     "description": "官差万通的随身佩刀，刀口有血，刀柄有血，刀口的血与一般无异，刀柄的血是那种浓血。",
@@ -945,7 +1007,6 @@
       }
     ],
     "origin": "江湖",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wan_tong"
     ],
@@ -966,7 +1027,7 @@
   {
     "id": "item_mo_hua",
     "name": "魔画",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "魔画",
     "description": "一幅描绘奇浓嘉嘉普和十万神魔的神秘画作，画中的血奴会飞走又飞回",
@@ -977,7 +1038,6 @@
       }
     ],
     "origin": "奇浓嘉嘉普",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wang_feng",
       "char_xue_nu"
@@ -1008,16 +1068,21 @@
   {
     "id": "item_mo_yao",
     "name": "魔药",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_song_ma_ma",
     "one_line": "巫婆制作的邪恶药物，用于与妖魔沟通",
     "description": "用粪便、月经、眼泪、脓血和尿液混合面粉制成的黑色圆饼，据说吃下后可以与妖魔沟通，使诅咒灵验",
     "effects": [
-      "与妖魔沟通",
-      "增强诅咒效果"
+      {
+        "type": "效果",
+        "description": "与妖魔沟通"
+      },
+      {
+        "type": "效果",
+        "description": "增强诅咒效果"
+      }
     ],
     "origin": "宋妈妈自制",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_song_ma_ma"
     ],
@@ -1044,16 +1109,21 @@
   {
     "id": "item_jiu_zi_gui_mu",
     "name": "九子鬼母",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "祭坛供奉的恐怖魔像",
     "description": "漆黑的木身在灯光下闪着乌光，九个形状各异，面目狰狞的鬼子环抱着獠牙裂目的鬼母，有的在哭，有的在笑，有的仿佛要择人而噬",
     "effects": [
-      "恐怖",
-      "心理压迫"
+      {
+        "type": "效果",
+        "description": "恐怖"
+      },
+      {
+        "type": "效果",
+        "description": "心理压迫"
+      }
     ],
     "origin": "宋妈妈祭坛供奉",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_song_ma_ma"
     ],
@@ -1074,15 +1144,17 @@
   {
     "id": "item_po_shi_yao",
     "name": "破尸药",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_tang_lao_da",
     "one_line": "唐老大携带的解毒药丸",
     "description": "紫色瓷瓶装的白色药丸，可解黑鼎毒雾，唐老大经验丰富随身携带",
     "effects": [
-      "解毒"
+      {
+        "type": "效果",
+        "description": "解毒"
+      }
     ],
     "origin": "唐门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tang_lao_da",
       "char_chang_xiao"
@@ -1110,15 +1182,17 @@
   {
     "id": "item_men_xiang",
     "name": "闷香",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_qi_sha_shou_lao_qi",
     "one_line": "使人昏迷的迷香",
     "description": "通过铜鹤吹入房间的迷香，可使人昏迷不醒，七杀手用来制服目标",
     "effects": [
-      "迷晕"
+      {
+        "type": "效果",
+        "description": "迷晕"
+      }
     ],
     "origin": "七杀手",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_qi_sha_shou_lao_qi",
       "char_xue_nu"
@@ -1140,15 +1214,17 @@
   {
     "id": "item_tong_he",
     "name": "铜鹤",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qi_sha_shou_lao_qi",
     "one_line": "吹送闷香的铜制鹤形器具",
     "description": "铜制鹤形器具，鹤嘴可吐出闷香烟雾，已用过不少日子",
     "effects": [
-      "吹送迷香"
+      {
+        "type": "效果",
+        "description": "吹送迷香"
+      }
     ],
     "origin": "七杀手",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_qi_sha_shou_lao_qi"
     ],
@@ -1169,15 +1245,17 @@
   {
     "id": "item_ren_pi_mian_ju",
     "name": "人皮面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wei_qi_niang",
     "one_line": "韦七娘用来易容的人皮面具",
     "description": "戴上后可将三十四五的大姑娘变成十四五的小姑娘，用于隐藏身份",
     "effects": [
-      "易容伪装"
+      {
+        "type": "效果",
+        "description": "易容伪装"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wei_qi_niang"
     ],
@@ -1198,15 +1276,17 @@
   {
     "id": "item_tie_he_yu_yao_shi",
     "name": "铁盒与钥匙",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_feng",
     "one_line": "内含两把青铜钥匙和一张庄院地图的神秘铁盒",
     "description": "一个扁平的小铁盒，开口焊上焊药，内放两把结着铜锈的青铜钥匙和一张墨画的庄院地图，地图上有两个红色交叉标记旁书血奴二字",
     "effects": [
-      "指向李大娘庄院入口"
+      {
+        "type": "效果",
+        "description": "指向李大娘庄院入口"
+      }
     ],
     "origin": "不明人物托甘老头打造",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wang_feng",
       "char_gan_lao_tou"
@@ -1228,13 +1308,12 @@
   {
     "id": "item_song_zi_guan_yin",
     "name": "送子观音",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_san_ye",
     "one_line": "当今天子赐予太平王府的白玉送子观音，太平王府五宝之一",
     "description": "晶莹无瑕的白玉，精巧细致的雕刻，观音手抱孩子的容貌栩栩如生，赐自天子，价值不菲",
     "effects": [],
     "origin": "当今天子赐予太平王府",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_wu_san_ye"
     ],
@@ -1255,13 +1334,12 @@
   {
     "id": "item_ruan_jian",
     "name": "软剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_si_ge_zhong_nian_fu_ren",
     "one_line": "四个中年妇人使用的三尺长软剑，迎风可抖得笔直",
     "description": "三尺长的软剑，迎风嗖的抖得笔直，剑锋锋利，剑尖跳动如毒蛇吐舌，显示出使用者在剑上下过一番苦功",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_si_ge_zhong_nian_fu_ren"
     ],
@@ -1282,13 +1360,12 @@
   {
     "id": "item_bi_shou",
     "name": "匕首",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_si_ge_zhong_nian_fu_ren",
     "one_line": "四个中年妇人从怀中取出的匕首，可用于近身搏斗和投掷",
     "description": "中年妇人从怀中抽出的匕首，锋利无比，既可近身格挡，也可飞掷伤人，一掷又准又狠",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_si_ge_zhong_nian_fu_ren"
     ],
@@ -1309,13 +1386,12 @@
   {
     "id": "item_xue_nuo_ling",
     "name": "血奴铃",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xue_nuo_niao",
     "one_line": "系在怪鸟左爪上的小铃，发出怪异而奇特的铃声，仿佛要摄人魂魄",
     "description": "系在怪鸟左爪上的小铃，发出怪异而奇特的铃声，铃声由远迅速飞逝，仿佛带着某种魔力，诱人的魔力，每一次都带来死亡",
     "effects": [],
     "origin": "幽冥世界",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xue_nuo_niao"
     ],
@@ -1336,16 +1412,21 @@
   {
     "id": "item_liang_tian_chi",
     "name": "量天尺",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wu_san_ye",
     "one_line": "武三爷的独门兵器，漆黑如墨，实为磁铁所制",
     "description": "一把漆黑的尺，毫不起眼，却仿佛隐藏着某种魔力。实为磁铁所制，可吸附一切金属兵器，令对手措手不及。尺身约十来斤重，与重兵器对敌时反被克制。",
     "effects": [
-      "吸附金属兵器",
-      "干扰对手招式"
+      {
+        "type": "效果",
+        "description": "吸附金属兵器"
+      },
+      {
+        "type": "效果",
+        "description": "干扰对手招式"
+      }
     ],
     "origin": "少林寺",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wu_san_ye"
     ],
@@ -1375,16 +1456,21 @@
   {
     "id": "item_da_tie_chui",
     "name": "大铁锤",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_gan_lao_tou",
     "one_line": "甘老头的兵器，重逾百斤的大铁锤",
     "description": "老大一个大铁锤，重逾百斤，在甘老头手中却灵活如剑，势子凌厉非凡。铁锤本身也是磁铁的吸附对象，与量天尺对战时互相牵制。",
     "effects": [
-      "重击",
-      "破甲"
+      {
+        "type": "效果",
+        "description": "重击"
+      },
+      {
+        "type": "效果",
+        "description": "破甲"
+      }
     ],
     "origin": "铁匠铺",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gan_lao_tou"
     ],
@@ -1407,16 +1493,21 @@
   {
     "id": "item_xue_nu_niao",
     "name": "血奴鸟",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gan_lao_tou",
     "one_line": "甘老头所养的血红色怪鸟，爪上有小铃，能伤人眼目",
     "description": "一只血红色的怪鸟，与甘老头之间有无形的联系，爪上系有小铃。鸟与人配合默契，铃声可摄人魂魄。甘老头称之为血奴，既是鸟也是人，是十三只魔鸟之一。",
     "effects": [
-      "撕裂眼盖",
-      "铃声摄魂"
+      {
+        "type": "效果",
+        "description": "撕裂眼盖"
+      },
+      {
+        "type": "效果",
+        "description": "铃声摄魂"
+      }
     ],
     "origin": "血鹦鹉",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_gan_lao_tou",
       "char_wu_san_ye"
@@ -1438,15 +1529,17 @@
   {
     "id": "item_tie_chui",
     "name": "铁锤",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_gan_lao_tou",
     "one_line": "甘老头的兵器，沉重过百斤",
     "description": "甘老头的随身兵器，重量超过百斤，是他武力的象征",
     "effects": [
-      "重击"
+      {
+        "type": "效果",
+        "description": "重击"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gan_lao_tou"
     ],
@@ -1467,13 +1560,12 @@
   {
     "id": "item_tian_mo_nv_hua_xiang",
     "name": "天魔女画像",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "照壁上绘制的天魔女画像，与李大娘容貌相同",
     "description": "照壁上绘制的天魔女画像，水蛇般的腰，飞云般的发，浑身赤裸，只有一条轻纱环绕，在风雾冰火之中飞舞，容颜美丽绝伦，与李大娘完全一样。",
     "effects": [],
     "origin": "奇浓嘉嘉普",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_li_da_niang"
     ],
@@ -1494,16 +1586,21 @@
   {
     "id": "item_mo_wang_shi_xiang",
     "name": "魔王石像",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "石室中央石坛上的魔王石像，与鹦鹉楼血奴房中魔画上的魔王一模一样",
     "description": "一丈高的石像，立在石坛之上，刻工细致栩栩如生，头戴紫金冠，面容英俊温和。碧绿色火焰映照下，面容在飞扬的火焰中幻变，英俊温和的容颜变得诡异。与鹦鹉楼血奴房中魔画上的魔王完全一致。",
     "effects": [
-      "象征魔王权威",
-      "在火焰映照下产生诡异幻变"
+      {
+        "type": "效果",
+        "description": "象征魔王权威"
+      },
+      {
+        "type": "效果",
+        "description": "在火焰映照下产生诡异幻变"
+      }
     ],
     "origin": "地下石室",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wang_feng",
       "char_xue_nu"
@@ -1525,17 +1622,25 @@
   {
     "id": "item_hei_you",
     "name": "黑油",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "陷阱底部铺设的黑色油状物体，遇火即燃，令人无法逃脱",
     "description": "陷阱底下铺着半尺深浅的黑色油状物体，粘性极强，人一旦落入便双脚被黏紧无法脱身。遇火即燃，火势蔓延极快，形成一片火海，连钢铁都能化成飞灰。",
     "effects": [
-      "黏住落入者使其无法逃脱",
-      "遇火即燃形成火海",
-      "火势蔓延迅速无法扑灭"
+      {
+        "type": "效果",
+        "description": "黏住落入者使其无法逃脱"
+      },
+      {
+        "type": "效果",
+        "description": "遇火即燃形成火海"
+      },
+      {
+        "type": "效果",
+        "description": "火势蔓延迅速无法扑灭"
+      }
     ],
     "origin": "地下石室陷阱",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chang_xiao",
       "char_li_da_niang"
@@ -1557,16 +1662,21 @@
   {
     "id": "item_mo_zhou",
     "name": "魔舟",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "血海中出现的木排，实为幻象",
     "description": "一艘在血海中出现的木排，实为李大娘制造的幻象，用于引诱王风跳入陷阱。",
     "effects": [
-      "幻象",
-      "传送"
+      {
+        "type": "效果",
+        "description": "幻象"
+      },
+      {
+        "type": "效果",
+        "description": "传送"
+      }
     ],
     "origin": "李大娘制造",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_da_niang"
     ],
@@ -1587,16 +1697,21 @@
   {
     "id": "item_hong_yi_xiao_gu_niang_mian_ju",
     "name": "红衣小姑娘面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_da_niang",
     "one_line": "韦七娘的面具，被李大娘夺取",
     "description": "一张制作精巧的面具，戴上后可变成红衣小姑娘的模样，原本属于韦七娘，被李大娘夺取后用于伪装。",
     "effects": [
-      "伪装",
-      "催眠辅助"
+      {
+        "type": "效果",
+        "description": "伪装"
+      },
+      {
+        "type": "效果",
+        "description": "催眠辅助"
+      }
     ],
     "origin": "韦七娘",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wei_qi_niang",
       "char_li_da_niang"
@@ -1618,16 +1733,21 @@
   {
     "id": "item_tai_ping_an_le_fu_gui_wang_fu_zhu_bao",
     "name": "太平安乐富贵王府珠宝",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_da_niang",
     "one_line": "太平王府失窃的巨额珠宝",
     "description": "太平安乐富贵王府库藏的巨额珠宝，一夜之间神秘失踪，后被李大娘藏于地下石室。",
     "effects": [
-      "财富",
-      "诱因"
+      {
+        "type": "效果",
+        "description": "财富"
+      },
+      {
+        "type": "效果",
+        "description": "诱因"
+      }
     ],
     "origin": "太平王府",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_li_da_niang"
     ],
@@ -1648,16 +1768,21 @@
   {
     "id": "item_shi_san_chong_ji_guan",
     "name": "十三重机关",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_da_niang",
     "one_line": "地下石室的十三重凶毒机关",
     "description": "地下石室入口处设置的十三重机关埋伏，由西域高手匠人打造，终年开启，九死一生。",
     "effects": [
-      "防御",
-      "杀伤"
+      {
+        "type": "效果",
+        "description": "防御"
+      },
+      {
+        "type": "效果",
+        "description": "杀伤"
+      }
     ],
     "origin": "西域高手匠人",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_li_da_niang"
     ],
@@ -1678,16 +1803,21 @@
   {
     "id": "item_du_yan",
     "name": "毒烟",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_li_da_niang",
     "one_line": "第十三道机关释放的致命毒烟",
     "description": "地下石室第十三道机关释放的一蓬致命毒烟，吸入体内立即毙命，韦七娘即死于此。",
     "effects": [
-      "致命",
-      "范围伤害"
+      {
+        "type": "效果",
+        "description": "致命"
+      },
+      {
+        "type": "效果",
+        "description": "范围伤害"
+      }
     ],
     "origin": "西域高手匠人",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_li_da_niang",
       "char_wei_qi_niang"
@@ -1709,16 +1839,21 @@
   {
     "id": "item_huo_jing",
     "name": "火阱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_da_niang",
     "one_line": "地下石室的火焰陷阱",
     "description": "地下石室内的火焰陷阱，可将人活活烧死，常笑即死于此。",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "西域高手匠人",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_li_da_niang",
       "char_chang_xiao"
@@ -1740,16 +1875,21 @@
   {
     "id": "item_lv_deng",
     "name": "绿灯",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_da_niang",
     "one_line": "李大娘使用的碧绿色灯笼",
     "description": "一盏碧绿色的灯笼，灯光暗淡而诡异，可照亮黑暗石牢，由李大娘投掷给王风。",
     "effects": [
-      "照明",
-      "心理压迫"
+      {
+        "type": "效果",
+        "description": "照明"
+      },
+      {
+        "type": "效果",
+        "description": "心理压迫"
+      }
     ],
     "origin": "李大娘",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_da_niang"
     ],
@@ -1770,15 +1910,17 @@
   {
     "id": "item_huo_zhe_zi",
     "name": "火折子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wang_feng",
     "one_line": "江湖人随身携带的点火工具",
     "description": "江湖人随身携带的点火工具，可在黑暗中点燃灯火，王风在跌落时失落。",
     "effects": [
-      "点火"
+      {
+        "type": "效果",
+        "description": "点火"
+      }
     ],
     "origin": "江湖",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wang_feng"
     ],
@@ -1799,13 +1941,12 @@
   {
     "id": "item_zi_jin_bai_yu_guan",
     "name": "紫金白玉冠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_mo_wang",
     "one_line": "魔王所戴的紫金白玉冠，戴在骷髅头上",
     "description": "一顶紫金白玉冠，戴在石牢中那具骷髅的头上，碧绿火光下闪烁着诡异光芒，是魔王身份的象征。",
     "effects": [],
     "origin": "魔王所有",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_mo_wang"
     ],
@@ -1826,16 +1967,21 @@
   {
     "id": "item_tong_di_shu_xin",
     "name": "通敌书信",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_da_niang",
     "one_line": "李大娘以魔眼控制太平王意志写下的通敌信件",
     "description": "李大娘用魔眼控制太平王意志写下的通敌书信，上有太平王亲笔、掌印及四个私用印章，内容表示太平王东来另有用意，表面臣服私下与外敌暗通消息",
     "effects": [
-      "要挟太平王",
-      "威胁十万国民性命"
+      {
+        "type": "效果",
+        "description": "要挟太平王"
+      },
+      {
+        "type": "效果",
+        "description": "威胁十万国民性命"
+      }
     ],
     "origin": "太平安乐富贵王府",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_li_da_niang",
       "char_tai_ping_wang"
@@ -1857,13 +2003,12 @@
   {
     "id": "item_wang_fu_wu_bao",
     "name": "王府五宝",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tai_ping_wang",
     "one_line": "太平王府最名贵的五件宝物",
     "description": "太平王府珍藏的五件至宝，包括辟毒珠等，是李大娘一心要得到的宝物，其中辟毒珠后来被金翼卖出。",
     "effects": [],
     "origin": "太平王府世代珍藏",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_tai_ping_wang",
       "char_jin_yi",
@@ -1886,15 +2031,17 @@
   {
     "id": "item_hua_si_san",
     "name": "化尸散",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "能化去尸体的毒药",
     "description": "一种能将尸体化为无形的特殊毒药，铁恨和武三爷的手下都有使用。",
     "effects": [
-      "化尸"
+      {
+        "type": "效果",
+        "description": "化尸"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tie_hen",
       "char_wu_san_ye"

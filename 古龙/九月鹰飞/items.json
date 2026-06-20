@@ -2,7 +2,7 @@
   {
     "id": "item_yan_xiang_xiu_bao_dao",
     "name": "雁翎绣豹刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_feng_liu",
     "one_line": "冯六所使用的佩刀，后来被冯六在自己股间割下一片肉。",
     "description": "一柄普通的佩刀，原本为卫八太爷门下弟子冯六的随身武器，刀质普通，钢质一般，曾被神秘女子评价为'杀的人太多了，血腥味太重'，并不好吃。",
@@ -14,7 +14,6 @@
       }
     ],
     "origin": "寻常铁匠铺",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_feng_liu"
     ],
@@ -35,7 +34,7 @@
   {
     "id": "item_bai_lian_jing_gang_kuai_dao",
     "name": "百炼精钢快刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bai_yi_ren_bing",
     "one_line": "白衣人丙所使的百炼精钢快刀，被神秘女子拗断吞下。",
     "description": "白衣人丙所用的百炼精钢快刀，原本藏在短杖之中，钢质很好，炼得也很纯，薄而锋利，被神秘女子轻易拗断成数截并吞下。",
@@ -47,7 +46,6 @@
       }
     ],
     "origin": "白衣人随身短杖中",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bai_yi_ren_bing",
       "char_shen_mi_nv_zi"
@@ -71,13 +69,12 @@
   {
     "id": "item_deng_long",
     "name": "灯笼",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ding_lin",
     "one_line": "高悬于屋外竹竿上的灯笼，被丁麟以轻功取下。",
     "description": "高悬于屋外一根竹竿上的灯笼，竹竿至少三丈多高，距离丁麟站立之处至少有五六丈远。",
     "effects": [],
     "origin": "普通灯笼",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ding_lin"
     ],
@@ -100,13 +97,12 @@
   {
     "id": "item_nan_hai_niang_zi_mian_ju",
     "name": "南海娘子面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_nan_hai_niang_zi",
     "one_line": "南海娘子平日所戴面具，未易容改扮时也以此遮面。",
     "description": "南海娘子平时脸上总戴着的面具，未易容改扮时也不愿以真面目示人。",
     "effects": [],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_nan_hai_niang_zi"
     ],
@@ -127,7 +123,7 @@
   {
     "id": "item_tan_mu_mian_ju",
     "name": "檀木面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_nan_hai_niang_zi",
     "one_line": "问佛堂中四人所戴的檀木雕成的面具，狰狞呆板，戴上后诡秘可怖。",
     "description": "檀木雕成的面具，狰狞呆板，戴于脸上显得诡秘可怖，用于掩饰身份或迷惑对手，是南海娘子门下常用的伪装之物。",
@@ -138,7 +134,6 @@
       }
     ],
     "origin": "南海娘子门下",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_nan_hai_niang_zi",
       "char_xin_gu"
@@ -160,16 +155,21 @@
   {
     "id": "item_shi_fang_ru_yi_bang_zheng",
     "name": "十方如意棒",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wei_tian_peng",
     "one_line": "卫天鹏的兵器，一尺三寸长的漆黑短棍",
     "description": "卫天鹏随身携带的漆黑暗器，一尺三寸长，暗无光华，看似平常却威力无穷，可一击敲断百炼精钢打造的弯刀，又能划圆弧吸住数十点暗器寒星，其神奇之处或许可与昔年兵器谱上排名第一的天机棒相比。",
     "effects": [
-      "敲断精钢弯刀",
-      "粘住暗器寒星"
+      {
+        "type": "效果",
+        "description": "敲断精钢弯刀"
+      },
+      {
+        "type": "效果",
+        "description": "粘住暗器寒星"
+      }
     ],
     "origin": "卫天鹏随身兵器",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_wei_tian_peng"
     ],
@@ -192,15 +192,17 @@
   {
     "id": "item_wan_dao",
     "name": "弯刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_jie_jie",
     "one_line": "姐妹两人随身双宝之一",
     "description": "姐妹两人随身携带的碧光闪闪弯刀，形状奇特，材质为百炼精钢打造，是她们护身双宝之一；可作为暗器使用，射出时如暴雨般寒星。",
     "effects": [
-      "百炼精钢锋利"
+      {
+        "type": "效果",
+        "description": "百炼精钢锋利"
+      }
     ],
     "origin": "东海筷子岛珍珠城",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jie_jie",
       "char_mei_mei"
@@ -229,16 +231,21 @@
   {
     "id": "item_han_xing_zhui",
     "name": "寒星锥",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_han_zhen",
     "one_line": "韩贞使用的发亮锥子",
     "description": "韩贞随身携带的暗器，发亮的锋利锥子，可用于近身刺杀，杀人后以手巾擦血；曾刺杀姐妹两人。",
     "effects": [
-      "穿刺刺杀",
-      "一击致命"
+      {
+        "type": "效果",
+        "description": "穿刺刺杀"
+      },
+      {
+        "type": "效果",
+        "description": "一击致命"
+      }
     ],
     "origin": "韩贞随身兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_han_zhen"
     ],
@@ -259,16 +266,21 @@
   {
     "id": "item_xiao_li_fei_dao_zheng",
     "name": "小李飞刀",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_ye_kai",
     "one_line": "叶开承袭自小李探花的飞刀",
     "description": "叶开所使用的飞刀绝技兵器，承袭自昔年小李探花李寻欢；此刀二十年多年前曾独上嵩山，将少林寺当作无人之地。江湖传言其出手从不落空，号称小李飞刀，刀不虚发。",
     "effects": [
-      "出手必中",
-      "刀不虚发"
+      {
+        "type": "效果",
+        "description": "出手必中"
+      },
+      {
+        "type": "效果",
+        "description": "刀不虚发"
+      }
     ],
     "origin": "小李探花李寻欢所传",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_ye_kai"
     ],
@@ -291,16 +303,21 @@
   {
     "id": "item_xiao_duan_dao",
     "name": "短刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xi_men_shi_san",
     "one_line": "姐姐阴魂送与西门十三的短刀",
     "description": "西门十三从姐姐阴魂处得到的锋利短刀，闪动着寒光，被阴魂引诱西门十三用来刺杀卫天鹏和韩贞。西门十三藏在衣袖中准备偷袭。",
     "effects": [
-      "锋利",
-      "刺杀"
+      {
+        "type": "效果",
+        "description": "锋利"
+      },
+      {
+        "type": "效果",
+        "description": "刺杀"
+      }
     ],
     "origin": "姐姐阴魂所赠",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xi_men_shi_san"
     ],
@@ -321,16 +338,21 @@
   {
     "id": "item_zhen_zhu_ming_zhu_jian",
     "name": "珍珠明珠剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhenzhu_xiong_di",
     "one_line": "珍珠兄弟的双剑，剑鞘镶满龙眼般大明珠",
     "description": "珍珠兄弟所佩带的双剑，剑鞘上镶满了龙眼般大的明珠，每一粒都是价值连城、人间少有的宝物，剑法迅急轻灵，可双剑合璧威力倍增。",
     "effects": [
-      "价值连城",
-      "双剑合璧"
+      {
+        "type": "效果",
+        "description": "价值连城"
+      },
+      {
+        "type": "效果",
+        "description": "双剑合璧"
+      }
     ],
     "origin": "珍珠城",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -349,16 +371,21 @@
   {
     "id": "item_jin_qian_bang_bao_zang",
     "name": "金钱帮宝藏",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jing_wu_ming",
     "one_line": "上官金虹留下的富可敌国的财富和武功心法",
     "description": "昔年上官金虹将金钱帮所有财富及武功心法收藏于一处极秘密之地的惊天宝藏，至今二十余年无人找到，仅荆无命与上官小仙知晓下落，富可敌国，得之可纵横武林。",
     "effects": [
-      "富可敌国",
-      "包含武功心法"
+      {
+        "type": "效果",
+        "description": "富可敌国"
+      },
+      {
+        "type": "效果",
+        "description": "包含武功心法"
+      }
     ],
     "origin": "上官金虹生前收藏",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_shang_guan_jin_hong",
       "char_jing_wu_ming",
@@ -381,15 +408,17 @@
   {
     "id": "item_guan_yin_shen_xiang",
     "name": "观音神像",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xin_gu",
     "one_line": "南海门大厅中的木雕观音神像",
     "description": "南海门大厅中供奉的木雕观音神像，手拈柳枝，面带微笑，被心姑借以施展腹语术来伪装南海娘子之声，威严神圣却又暗藏玄机。",
     "effects": [
-      "可借以腹语发声"
+      {
+        "type": "效果",
+        "description": "可借以腹语发声"
+      }
     ],
     "origin": "南海门供奉",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xin_gu",
       "char_tie_gu"
@@ -413,13 +442,12 @@
   {
     "id": "item_ni_wa_wa",
     "name": "泥娃娃",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shang_guan_xiao_xian",
     "one_line": "上官小仙怀抱的泥塑娃娃，被当作真正的孩子。",
     "description": "上官小仙遗留在屋中的泥娃娃，被玉箫道人质问来源，叶开坦言是上官小仙所有。",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shang_guan_xiao_xian"
     ],
@@ -467,7 +495,7 @@
   {
     "id": "item_bi_lin_lin_de_dao",
     "name": "碧粼粼的刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_tie_gu",
     "one_line": "铁姑所赠的可藏于袖中的短刀，碧绿锋利。",
     "description": "铁姑交给丁麟的碧粼粼短刀，刀锋碧绿透亮，可藏于衣袖，授意丁麟刺杀叶开。",
@@ -479,7 +507,6 @@
       }
     ],
     "origin": "南海门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tie_gu",
       "char_ding_lin"
@@ -501,7 +528,7 @@
   {
     "id": "item_sha_bu_si_ren_de_dao",
     "name": "杀不死人的刀",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_yang_tian",
     "one_line": "杨天所用的假刀，看似插入胸口实则无害。",
     "description": "飞狐杨天所用的诡诈道具，刀锋可收缩于刀柄，看似凶器实则杀不死人，多用于演戏与试探。",
@@ -513,7 +540,6 @@
       }
     ],
     "origin": "南海门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yang_tian",
       "char_ding_lin"
@@ -535,7 +561,7 @@
   {
     "id": "item_mo_dao",
     "name": "魔刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "杀不死别人却杀得死韩贞自己的毒刀。",
     "description": "心姑所用的诡刀，杀不死别人但对韩贞却能令刀锋不回缩，使其中毒身亡，见血封喉。",
@@ -547,7 +573,6 @@
       }
     ],
     "origin": "南海门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xin_gu",
       "char_han_zhen"
@@ -582,15 +607,17 @@
   {
     "id": "item_jin_qian_bang_biao_zhi_jin_qian",
     "name": "金钱帮标志金钱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shang_guan_xiao_xian",
     "one_line": "金钱帮昔年的标志，黄澄澄一文钱，上刻'役鬼通神'四字。",
     "description": "金钱帮昔年标志之物，黄澄澄发金光，钱面铸有'役鬼通神'四字，是上官金虹所创帮会的信物。",
     "effects": [
-      "金钱帮帮主身份象征"
+      {
+        "type": "效果",
+        "description": "金钱帮帮主身份象征"
+      }
     ],
     "origin": "上官金虹创立金钱帮时所铸",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shang_guan_xiao_xian",
       "char_shang_guan_jin_hong"
@@ -618,16 +645,21 @@
   {
     "id": "item_da_tong_hu",
     "name": "大铜壶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yang_tian",
     "one_line": "杨天取来的大铜壶，份量沉重，原装水而非酒。",
     "description": "杨天替叶开取来的大铜壶，分量沉重看似酒壶，实则装着冷水，借此戏弄并羞辱已无力的叶开。",
     "effects": [
-      "盛装酒水",
-      "作为戏弄工具"
+      {
+        "type": "效果",
+        "description": "盛装酒水"
+      },
+      {
+        "type": "效果",
+        "description": "作为戏弄工具"
+      }
     ],
     "origin": "杨天就地取来",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yang_tian",
       "char_ye_kai"
@@ -655,7 +687,7 @@
   {
     "id": "item_jin_ling_dang",
     "name": "金铃铛",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_ding_ling_lin",
     "one_line": "丁灵琳身上常挂的暗器铃铛，可作击敌之用。",
     "description": "丁灵琳以往随身佩戴的金色铃铛，可远攻亦能作暗器，但需摘下才能奏效。",
@@ -667,7 +699,6 @@
       }
     ],
     "origin": "丁灵琳的随身饰物暗器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ding_ling_lin"
     ],
@@ -688,17 +719,25 @@
   {
     "id": "item_yu_xiao",
     "name": "玉箫",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yu_xiao_dao_ren",
     "one_line": "玉箫道人的兵器，晶莹圆润的白玉箫，可作剑、可打穴、管中藏暗器，昔年兵器谱排名第十之兵。",
     "description": "晶莹圆润的白玉箫，斜插于杏黄色腰带之上。既可作判官笔招式点穴，亦可化作长剑围困对手，箫管中暗藏极厉害的丧门钉等暗器，是昔年兵器谱上排名第十的传奇兵器。",
     "effects": [
-      "点穴",
-      "剑用",
-      "暗器藏匿"
+      {
+        "type": "效果",
+        "description": "点穴"
+      },
+      {
+        "type": "效果",
+        "description": "剑用"
+      },
+      {
+        "type": "效果",
+        "description": "暗器藏匿"
+      }
     ],
     "origin": "东海玉箫道人随身兵器",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yu_xiao_dao_ren"
     ],
@@ -721,15 +760,17 @@
   {
     "id": "item_sang_men_ding",
     "name": "丧门钉",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_yu_xiao_dao_ren",
     "one_line": "藏于玉箫箫管中的暗器，急打对手前胸，闪电般取命。",
     "description": "藏于玉箫箫管中的极厉害暗器，三点寒星急打对手前胸，来势急如闪电，配合箫声掩袭极难防范。",
     "effects": [
-      "暗袭伤人"
+      {
+        "type": "效果",
+        "description": "暗袭伤人"
+      }
     ],
     "origin": "玉箫道人兵器内置",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yu_xiao_dao_ren"
     ],
@@ -752,15 +793,17 @@
   {
     "id": "item_song_wen_chang_jian",
     "name": "松纹长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lv_di",
     "one_line": "精钢百炼、剑背带松纹的古雅长剑。",
     "description": "形式古雅的长剑，由精钢百炼而成，非常锋利，剑背上带着松纹。血迹已被黄布包去，是武当弟子专用之剑。",
     "effects": [
-      "能以一掷之力贯穿人身钉在床上"
+      {
+        "type": "效果",
+        "description": "能以一掷之力贯穿人身钉在床上"
+      }
     ],
     "origin": "武当派",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lv_di",
       "char_han_zhen"
@@ -782,13 +825,12 @@
   {
     "id": "item_xiang_yin_xiang_ya_kuai_zi",
     "name": "镶银象牙筷",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_shang_guan_xiao_xian",
     "one_line": "上官小仙手中的镶银象牙筷，能在一瞬间化作取人性命的利器。",
     "description": "上官小仙随身所携的餐具，镶银象牙所制，可在一刹那间点向咽喉杀人于无形。",
     "effects": [],
     "origin": "unknown",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shang_guan_xiao_xian"
     ],
@@ -809,13 +851,12 @@
   {
     "id": "item_jia_liao_can_tang",
     "name": "加料参汤",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_shang_guan_xiao_xian",
     "one_line": "上官小仙下令戴高岗为叶开准备的加料参汤，能让人昏睡不醒。",
     "description": "上官小仙命戴高岗准备的参汤，实为可令人昏睡的加料补品，叶开虽饮下却将含口水吐在戴高岗鸡腿上反制。",
     "effects": [],
     "origin": "上官小仙",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shang_guan_xiao_xian",
       "char_ye_kai",
@@ -838,7 +879,7 @@
   {
     "id": "item_bing_tang_yin_si",
     "name": "冰糖银丝",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_shang_guan_xiao_xian",
     "one_line": "上官小仙独门暗器，外甜内毒，入口即死。",
     "description": "上官小仙独门暗器，形如银丝，含于口中时清凉甘甜如冰糖，入口即能封喉致人于死，外甜内毒，防不胜防。",
@@ -849,7 +890,6 @@
       }
     ],
     "origin": "上官小仙独门暗器",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shang_guan_xiao_xian"
     ],
@@ -870,13 +910,12 @@
   {
     "id": "item_yan_zhi_hua_fen",
     "name": "胭脂花粉",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ding_ling_lin",
     "one_line": "丁灵琳上街购买的化妆品",
     "description": "丁灵琳在长安城最热闹的街上购买的胭脂花粉，是女孩子最喜欢的化妆品，色彩鲜艳，用于装扮自己。",
     "effects": [],
     "origin": "长安城商铺",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ding_ling_lin"
     ],
@@ -897,16 +936,21 @@
   {
     "id": "item_bai_yu_xiao",
     "name": "白玉箫",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yu_xiao_dao_ren",
     "one_line": "玉箫道人的随身武器，莹白圆润，内藏暗器",
     "description": "一管莹白圆润的白玉箫，既是玉箫道人的武器，也是其身份象征。箫中暗藏碧玉针，可在近身时发射伤敌。",
     "effects": [
-      "攻击",
-      "暗器发射"
+      {
+        "type": "效果",
+        "description": "攻击"
+      },
+      {
+        "type": "效果",
+        "description": "暗器发射"
+      }
     ],
     "origin": "东海",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yu_xiao_dao_ren"
     ],
@@ -935,16 +979,21 @@
   {
     "id": "item_bai_yu_ding",
     "name": "白玉钉",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_yu_xiao_dao_ren",
     "one_line": "藏于白玉箫中的三枚白玉钉暗器，近距离可致命",
     "description": "三枚白玉制成的暗器，藏于白玉箫中，可在拔剑等近身动作时趁机发射，几乎打断郭定心脉，威力极大。",
     "effects": [
-      "伤害",
-      "暗器"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "暗器"
+      }
     ],
     "origin": "东海",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yu_xiao_dao_ren",
       "char_guo_ding"
@@ -974,16 +1023,21 @@
   {
     "id": "item_hei_ge_zi",
     "name": "黑鸽子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shang_guan_xiao_xian",
     "one_line": "天下仅三只的黑色信鸽，以活人肉为食",
     "description": "羽毛漆黑发亮，钢喙利爪，闪闪有光的眼睛，比鹰更健壮雄猛，以年轻女子活肉为食，能飞行数千里传递消息",
     "effects": [
-      "远距离传信",
-      "情报传递"
+      {
+        "type": "效果",
+        "description": "远距离传信"
+      },
+      {
+        "type": "效果",
+        "description": "情报传递"
+      }
     ],
     "origin": "未知",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_shang_guan_xiao_xian"
     ],
@@ -1004,15 +1058,17 @@
   {
     "id": "item_yin_dao",
     "name": "银刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiao_cui",
     "one_line": "小翠随身携带的弯刀，柄上镶着明珠",
     "description": "一把弯弯的银刀，刀柄上镶嵌着明珠，锋利无比，小翠用它从自己身上割肉喂养黑鸽",
     "effects": [
-      "切割"
+      {
+        "type": "效果",
+        "description": "切割"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiao_cui"
     ],
@@ -1033,16 +1089,21 @@
   {
     "id": "item_mo_jiao_yu_pai",
     "name": "魔教玉牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qi_gai",
     "one_line": "乞丐送来的珠宝中附带的刻有四个魔神的玉牌",
     "description": "一块玉牌，上面刻着四个魔神，一个手执智磐，一个手执法杖，一个手托山峰，还有一个手里竟托着赤裸的女人。此物与魔教有关。",
     "effects": [
-      "身份标识",
-      "魔教信物"
+      {
+        "type": "效果",
+        "description": "身份标识"
+      },
+      {
+        "type": "效果",
+        "description": "魔教信物"
+      }
     ],
     "origin": "魔教",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qi_gai"
     ],
@@ -1063,16 +1124,21 @@
   {
     "id": "item_wan_bao_xiang",
     "name": "万宝箱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ge_bing",
     "one_line": "葛病随身携带的华贵精美箱子，内藏各种药物和器具",
     "description": "一口华贵而精美的箱子，是神医葛病随身携带的宝物，内藏各种珍贵药物和医疗器具，用于救治伤者。",
     "effects": [
-      "存放药物",
-      "医疗器具"
+      {
+        "type": "效果",
+        "description": "存放药物"
+      },
+      {
+        "type": "效果",
+        "description": "医疗器具"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ge_bing"
     ],
@@ -1100,15 +1166,17 @@
   {
     "id": "item_jin_chai",
     "name": "金钗",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ding_ling_lin",
     "one_line": "丁灵琳用来自杀的八寸长金钗",
     "description": "一根八寸长的金钗，丁灵琳在绝望中从头下拔出，用尽全力往自己心口刺下，被叶开及时阻止。",
     "effects": [
-      "刺杀"
+      {
+        "type": "效果",
+        "description": "刺杀"
+      }
     ],
     "origin": "丁灵琳随身饰物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ding_ling_lin",
       "char_ye_kai"
@@ -1130,16 +1198,21 @@
   {
     "id": "item_zhu_bao_dai",
     "name": "珠宝袋",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "四大天王送来的那袋珠宝，用于在杀人前\"买命\"",
     "description": "四大天王每次杀人前送来的那袋珠宝，是他们相信地狱轮回、不愿欠来生之债的象征，用珠宝换取杀人的权利。",
     "effects": [
-      "象征买命",
-      "标记复仇目标"
+      {
+        "type": "效果",
+        "description": "象征买命"
+      },
+      {
+        "type": "效果",
+        "description": "标记复仇目标"
+      }
     ],
     "origin": "魔教",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ban_cha_ba_na"
     ],
@@ -1160,16 +1233,21 @@
   {
     "id": "item_mo_shen_mian_ju",
     "name": "魔神面具",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "四大天王复仇杀人时佩戴的面具",
     "description": "四大天王为复仇杀人时总是戴在脸上的面具，用以隐藏身份，令目击者无法辨认其真面目。",
     "effects": [
-      "隐藏身份",
-      "恐吓"
+      {
+        "type": "效果",
+        "description": "隐藏身份"
+      },
+      {
+        "type": "效果",
+        "description": "恐吓"
+      }
     ],
     "origin": "魔教",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ban_cha_ba_na"
     ],
@@ -1190,16 +1268,21 @@
   {
     "id": "item_qian_kun_san",
     "name": "乾坤伞",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_ge_bing",
     "one_line": "葛病的杀人武器，伞柄藏有毒暗器",
     "description": "葛病随身携带的兵器，外表是一把普通的伞，但伞柄中空，顶端有尖针般大的洞，内藏剧毒暗器，可在近距离瞬间发射致命一击。",
     "effects": [
-      "暗器攻击",
-      "近身防御"
+      {
+        "type": "效果",
+        "description": "暗器攻击"
+      },
+      {
+        "type": "效果",
+        "description": "近身防御"
+      }
     ],
     "origin": "魔教",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ge_bing"
     ],
@@ -1220,15 +1303,17 @@
   {
     "id": "item_fu_chou_yu_pai",
     "name": "复仇玉牌",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "魔教四大天王复仇时出现的玉牌",
     "description": "玉牌晶莹而美丽，上面刻着四个天魔，是魔教四大天王复仇的信物，出现即代表有人要被复仇。",
     "effects": [
-      "威慑"
+      {
+        "type": "效果",
+        "description": "威慑"
+      }
     ],
     "origin": "魔教",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1247,16 +1332,21 @@
   {
     "id": "item_jia_pi",
     "name": "假皮",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yang_tian",
     "one_line": "杨天用来伪装伤口的薄皮，与皮肤颜色相同，可掩盖重伤",
     "description": "一层和杨天皮肤同样颜色的薄皮，贴在肩头上，在水中看来跟肉色完全一样，可以掩盖真实的伤口，使外人看不出受伤痕迹。",
     "effects": [
-      "伪装伤口",
-      "在水中与皮肤颜色一致"
+      {
+        "type": "效果",
+        "description": "伪装伤口"
+      },
+      {
+        "type": "效果",
+        "description": "在水中与皮肤颜色一致"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yang_tian"
     ],
@@ -1277,13 +1367,12 @@
   {
     "id": "item_die_er_bu_hu_shen_fu_yu_pai",
     "name": "牒儿布护身符玉牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_mo_jiu_xing",
     "one_line": "牒儿布随身携带的护身符玉牌，现被墨九星所得",
     "description": "晶莹无瑕的玉牌，上面刻着手执智慧之磬的魔神，是魔教牒儿布的随身护身符",
     "effects": [],
     "origin": "魔教",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_die_er_bu",
       "char_mo_jiu_xing"
@@ -1305,15 +1394,17 @@
   {
     "id": "item_xue_shu",
     "name": "血书",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gu_feng",
     "one_line": "孤峰写给多尔甲的血书",
     "description": "用血写成的书信，内容为初三正午入长安会于延平门的约定，下面画了一座山峰作为署名。",
     "effects": [
-      "传递信息"
+      {
+        "type": "效果",
+        "description": "传递信息"
+      }
     ],
     "origin": "孤峰",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_gu_feng",
       "char_lv_di"
@@ -1335,15 +1426,17 @@
   {
     "id": "item_cao_mao",
     "name": "草帽",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_mo_jiu_xing",
     "one_line": "墨九星常戴的草帽",
     "description": "墨九星一直戴着的草帽，用来遮住脸，似乎隐藏着什么秘密。",
     "effects": [
-      "遮挡面部"
+      {
+        "type": "效果",
+        "description": "遮挡面部"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_mo_jiu_xing"
     ],
@@ -1364,15 +1457,17 @@
   {
     "id": "item_yu_pai",
     "name": "玉牌",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "魔教大天王的身份玉牌",
     "description": "玉牌上刻着权杖图案，是魔教大天王的身份象征，每个大天王身上都有这样一块玉牌。",
     "effects": [
-      "身份象征"
+      {
+        "type": "效果",
+        "description": "身份象征"
+      }
     ],
     "origin": "魔教",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lv_di",
       "char_gu_feng"
@@ -1401,15 +1496,17 @@
   {
     "id": "item_zhen_zhu",
     "name": "珍珠",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "从死者身上搜出的珍珠",
     "description": "从多尔甲的身外化身身上搜出的七八颗珍珠，可能是魔教中人的财物。",
     "effects": [
-      "财物"
+      {
+        "type": "效果",
+        "description": "财物"
+      }
     ],
     "origin": "魔教",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1428,15 +1525,17 @@
   {
     "id": "item_mu_ping",
     "name": "木瓶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_mo_jiu_xing",
     "one_line": "墨九星装粉末的木瓶",
     "description": "墨九星随身携带的木瓶，里面装着暗黄色的粉末，用来吸引毒物。",
     "effects": [
-      "吸引毒物"
+      {
+        "type": "效果",
+        "description": "吸引毒物"
+      }
     ],
     "origin": "墨九星",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_mo_jiu_xing"
     ],
@@ -1457,13 +1556,12 @@
   {
     "id": "item_qing_tong_mian_ju",
     "name": "青铜面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ye_kai",
     "one_line": "多尔甲遗物，狰狞的青铜面具",
     "description": "狰狞的青铜面具，在太阳下闪闪的发着青光，是多尔甲的遗物，被叶开用来作为钓大鱼的鱼饵。",
     "effects": [],
     "origin": "多尔甲遗物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ye_kai"
     ],
@@ -1484,13 +1582,12 @@
   {
     "id": "item_yin_piao",
     "name": "银票",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_song_lao_ban",
     "one_line": "京城四大恒开出的千两银票，共三十张",
     "description": "京城四大恒开出的千两银票，共三十张合计三万两，保证十足兑现，宋老板用以购买叶开的玉牌。",
     "effects": [],
     "origin": "京城四大恒",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_song_lao_ban"
     ],
@@ -1511,16 +1608,21 @@
   {
     "id": "item_jin_gang_bu_huai_da_sou_shen_shou",
     "name": "金刚不坏大搜神手",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_shang_guan_xiao_xian",
     "one_line": "上官小仙佩戴的金属手套，金刚不坏且攻击凌厉",
     "description": "一双金属般锐利却又像冰一般透明的手套，发着寒光，是传说中的金刚不坏大搜神手，可攻可守，锐利无比",
     "effects": [
-      "防御增强",
-      "近身攻击增强"
+      {
+        "type": "效果",
+        "description": "防御增强"
+      },
+      {
+        "type": "效果",
+        "description": "近身攻击增强"
+      }
     ],
     "origin": "金钱帮",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shang_guan_xiao_xian"
     ],
@@ -1543,16 +1645,21 @@
   {
     "id": "item_shang_tian_ru_di_da_sou_hun_zhen",
     "name": "上天入地大搜魂针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_shang_guan_xiao_xian",
     "one_line": "上官小仙的独门暗器乌针，比梅花针更可怕",
     "description": "比绣花针还细的乌针，数量如恒河沙数般无穷，杨天等四人皆死于此针之下",
     "effects": [
-      "远程攻击",
-      "致命伤害"
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      },
+      {
+        "type": "效果",
+        "description": "致命伤害"
+      }
     ],
     "origin": "金钱帮",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shang_guan_xiao_xian"
     ],

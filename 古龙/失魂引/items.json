@@ -2,13 +2,12 @@
   {
     "id": "item_qing_feng_chang_jian",
     "name": "青锋长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_jin_yi_shao_nian",
     "one_line": "绿鲨鱼皮剑鞘，紫金吞口的青锋长剑",
     "description": "一柄绿鲨鱼皮剑鞘、紫金吞口的青锋长剑，是锦衣少年随身佩带的宝剑。",
     "effects": [],
     "origin": "",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_yi_shao_nian"
     ],
@@ -29,13 +28,12 @@
   {
     "id": "item_cai_nang",
     "name": "彩囊",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_nang_er",
     "one_line": "垂髫童子胁下斜背着的极大的彩囊",
     "description": "囊儿胁下斜背着的一个极大的彩囊，用来盛放笔墨纸砚和公子的诗稿。",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_nang_er",
       "char_jin_yi_shao_nian"
@@ -57,13 +55,12 @@
   {
     "id": "item_qing_shi_duan_yan",
     "name": "青石端砚",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_yi_shao_nian",
     "one_line": "囊儿捧着的一方青石端砚",
     "description": "囊儿一手捧着的一方青石端砚，用于磨墨书写。",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jin_yi_shao_nian",
       "char_nang_er"
@@ -85,13 +82,12 @@
   {
     "id": "item_zi_lang_hao_bi",
     "name": "紫狼毫笔",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_yi_shao_nian",
     "one_line": "囊儿拿着的两枝紫狼毫笔",
     "description": "囊儿一手拿着的两枝紫狼毫笔，用于书写诗词。",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jin_yi_shao_nian",
       "char_nang_er"
@@ -113,13 +109,12 @@
   {
     "id": "item_jin_ling",
     "name": "金铃",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_cui_zhuang_shao_nu",
     "one_line": "翠装少女手中的拳大金铃",
     "description": "翠装少女左手拿着的一个拳大金铃，不住地摇晃，用以示警或召唤。",
     "effects": [],
     "origin": "黄山",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_cui_zhuang_shao_nu"
     ],
@@ -140,16 +135,21 @@
   {
     "id": "item_duan_jian",
     "name": "短剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_cui_zhuang_shao_nv",
     "one_line": "翠装少女所持精光耀目的尺许短剑，剑尾带有寸许寒芒",
     "description": "一柄精光耀目、寒气侵人的尺许短剑，微一挥动，剑身光华流转，剑尾似带有寸许寒芒，藏于翠装少女袖中剑鞘内",
     "effects": [
-      "锋利无比",
-      "寒气侵人"
+      {
+        "type": "效果",
+        "description": "锋利无比"
+      },
+      {
+        "type": "效果",
+        "description": "寒气侵人"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_cui_zhuang_shao_nv"
     ],
@@ -170,16 +170,21 @@
   {
     "id": "item_qing_tong_zhi_qian",
     "name": "青铜制钱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gong_sun_you_zu",
     "one_line": "公孙右足遗物，十余枚以黄绳串连的古朴制钱，引发各方争夺",
     "description": "十余枚青铜制钱，以黄绳串连，形状比普通制钱略大，似非近年所铸之物，内藏武林重大秘密",
     "effects": [
-      "引发武林争夺",
-      "疑似藏有秘密"
+      {
+        "type": "效果",
+        "description": "引发武林争夺"
+      },
+      {
+        "type": "效果",
+        "description": "疑似藏有秘密"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gong_sun_you_zu",
       "char_bo_zu_gai_zhe",
@@ -202,15 +207,17 @@
   {
     "id": "item_yi_shu_jing_xin",
     "name": "遗书信",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_shan_du_xing_ke",
     "one_line": "终南乌衫独行客贴身所藏的一封书信，内容未知",
     "description": "终南山乌衫独行客贴身所藏的一封书信，内容未知，管宁从其遗体中取出保存",
     "effects": [
-      "可能藏有重要信息"
+      {
+        "type": "效果",
+        "description": "可能藏有重要信息"
+      }
     ],
     "origin": "终南山",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wu_shan_du_xing_ke"
     ],
@@ -231,17 +238,25 @@
   {
     "id": "item_ru_yi_qing_qian",
     "name": "如意青钱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gong_sun_you_zu",
     "one_line": "公孙右足遗物中的制钱串，实为'如意青钱'，干系甚大，引发蓝雁道人与于谨费慎争夺",
     "description": "十余枚以黄绳串连的古朴制钱，形状比普通制钱略大，看似寻常之物实则暗藏重大秘密，各方势力为之争夺",
     "effects": [
-      "引发武林争夺",
-      "干系重大",
-      "疑似藏有秘密"
+      {
+        "type": "效果",
+        "description": "引发武林争夺"
+      },
+      {
+        "type": "效果",
+        "description": "干系重大"
+      },
+      {
+        "type": "效果",
+        "description": "疑似藏有秘密"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gong_sun_you_zu",
       "char_guan_ning",
@@ -297,16 +312,21 @@
   {
     "id": "item_zi_tan_fo_zhu",
     "name": "紫檀佛珠",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_mu_zhu_da_shi",
     "one_line": "木珠大师随身武器，一大一小两串",
     "description": "一大一小两串紫檀佛珠，既是佛门法器也是绝顶兵器，可如长鞭般击飞精钢长剑，施展沙门十八打的打穴绝技",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "少林寺",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_mu_zhu_da_shi"
     ],
@@ -335,15 +355,17 @@
   {
     "id": "item_jin_nang",
     "name": "锦囊",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_guan_ning",
     "one_line": "公孙右足的遗物，内藏如意青钱",
     "description": "公孙右足随身携带的锦囊，内藏一串青铜制钱即如意青钱",
     "effects": [
-      "特殊"
+      {
+        "type": "效果",
+        "description": "特殊"
+      }
     ],
     "origin": "公孙右足遗物",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_gong_sun_you_zu",
       "char_guan_ning"
@@ -371,16 +393,21 @@
   {
     "id": "item_ru_yi_qing_qian_ruan_juan",
     "name": "如意青钱柔绢",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_guan_ning",
     "one_line": "藏于如意青钱之中的柔绢，以明硪书写有十六字秘诗",
     "description": "一方纯色柔绢，被山风吹得紧贴在山石上，被雨水一打，上面竟现出四行英雄英气的蜜头小字，写着如意青钱的秘密",
     "effects": [
-      "显示如意青钱真伪的秘密",
-      "十六字秘诗藏有武学秘技的钰匙"
+      {
+        "type": "效果",
+        "description": "显示如意青钱真伪的秘密"
+      },
+      {
+        "type": "效果",
+        "description": "十六字秘诗藏有武学秘技的钰匙"
+      }
     ],
     "origin": "百十年前武林异人所制",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_guan_ning"
     ],
@@ -399,16 +426,21 @@
   {
     "id": "item_cui_xiu_hu_xin_dan",
     "name": "翠袖护心丹",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_cui_xiu_shao_nv",
     "one_line": "安徽烟袖所炼的灵药，能护心绝毒，但不能解毒",
     "description": "采集七十二种以上的灵药才能炼成，炼的时候又要耗去七十二天的时间。虽不解毒，但能保心，普天之下任何一种毒性便无法攻心",
     "effects": [
-      "护心绝毒，中毒者服下后毒性无法攻心",
-      "保命万年，只要有一粒便不会死亡"
+      {
+        "type": "效果",
+        "description": "护心绝毒，中毒者服下后毒性无法攻心"
+      },
+      {
+        "type": "效果",
+        "description": "保命万年，只要有一粒便不会死亡"
+      }
     ],
     "origin": "安徽翠袖炼制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_cui_xiu_shao_nv"
     ],
@@ -442,15 +474,17 @@
   {
     "id": "item_ling_wei",
     "name": "灵位",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_du_yu",
     "one_line": "杜守仓的灵位",
     "description": "尺许长的白木灵位，上书\"金丸铁剑，杜守仓总镖头之灵\"。",
     "effects": [
-      "纪念"
+      {
+        "type": "效果",
+        "description": "纪念"
+      }
     ],
     "origin": "杜家",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_du_yu"
     ],
@@ -471,15 +505,17 @@
   {
     "id": "item_jin_wan",
     "name": "金丸",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_du_yu",
     "one_line": "杜守仓的暗器金丸",
     "description": "一盘金光闪烁的弹丸，杜守仓的暗器。",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "杜家",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_du_yu"
     ],
@@ -500,15 +536,17 @@
   {
     "id": "item_tie_jian",
     "name": "铁剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_du_yu",
     "one_line": "杜守仓的长剑",
     "description": "一柄寒气森森的长剑，杜守仓的兵器。",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "杜家",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_du_yu"
     ],
@@ -529,16 +567,21 @@
   {
     "id": "item_e_mei_bao_nang",
     "name": "峨嵋豹囊",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_tang_hu",
     "one_line": "四川唐门弟子随身佩戴的豹皮革囊，装有暗器，囊在人在囊去人亡",
     "description": "豹皮革囊，皮上斑纹绚烂，囊口囊边密绣一排'鹘'字，绣工精细无与伦比，黑色丝线触手冰凉，是唐门弟子的标志信物",
     "effects": [
-      "装有暗器",
-      "唐门信物"
+      {
+        "type": "效果",
+        "description": "装有暗器"
+      },
+      {
+        "type": "效果",
+        "description": "唐门信物"
+      }
     ],
     "origin": "四川唐门",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tang_hu",
       "char_tang_an",
@@ -561,16 +604,21 @@
   {
     "id": "item_ru_yi_qian_qian",
     "name": "如意青钱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_guan_ning",
     "one_line": "前无古人后无来者的无上武功秘笈",
     "description": "一部记载无上武功心法的秘笈，内含玄妙的内功修炼法门和武功招式，经过无数前人研习探讨方自发现一条捷径的无上武功心法",
     "effects": [
-      "内功修炼",
-      "武功心法"
+      {
+        "type": "效果",
+        "description": "内功修炼"
+      },
+      {
+        "type": "效果",
+        "description": "武功心法"
+      }
     ],
     "origin": "未知",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_guan_ning"
     ],
@@ -593,7 +641,7 @@
   {
     "id": "item_zhe_tie_kuai_dao",
     "name": "折铁快刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_tie_jin_gang",
     "one_line": "铁金刚的兵器，刀光如电",
     "description": "铁金刚所用的折铁快刀，刀身可弯曲折叠，刀光闪烁如电，削铁如泥",
@@ -604,7 +652,6 @@
       }
     ],
     "origin": "草莽",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_tie_jin_gang"
     ],
@@ -627,13 +674,12 @@
   {
     "id": "item_fei_cui_bi_yan_hu",
     "name": "翡翠鼻烟壶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shou_yu_tan_jing",
     "one_line": "黑衣瘦汉交出的翠绿翡翠鼻烟壶",
     "description": "翠绿色翡翠鼻烟壶，做工精美，价值千把两银子，黑衣瘦汉随手交出的随身之物",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shou_yu_tan_jing"
     ],
@@ -654,13 +700,12 @@
   {
     "id": "item_jin_ding",
     "name": "金锭",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tan_jing",
     "one_line": "谭菁从铁金刚处取回并赠予管宁的金锭",
     "description": "一锭黄金，原本在铁金刚手中，被谭菁取回后随手赠予管宁，用以补偿被沈三娘驾走的马车",
     "effects": [],
     "origin": "谭菁从铁金刚处取回",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_tan_jing",
       "char_guan_ning"
@@ -682,15 +727,17 @@
   {
     "id": "item_cui_yu_xiao_ping",
     "name": "翠玉小瓶",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_tang_hu",
     "one_line": "唐鹘抛给管宁的翠玉小瓶，内装解罗喉神针之毒的解药",
     "description": "峨嵋豹囊兄弟随身携带的翠玉小瓶，内藏解罗喉神针剧毒的解药，一半敷于伤口一半吞服",
     "effects": [
-      "解毒"
+      {
+        "type": "效果",
+        "description": "解毒"
+      }
     ],
     "origin": "四川唐门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tang_hu",
       "char_tan_jing"
@@ -714,16 +761,21 @@
   {
     "id": "item_xu_ming_shen_gao",
     "name": "续命神膏",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "太行紫靴门下所炼的灵药，或可救唐氏兄弟之命",
     "description": "太行紫靴门下所炼的续命神膏，是救治唐氏兄弟剑伤和腹伤的唯一希望",
     "effects": [
-      "续命",
-      "疗伤"
+      {
+        "type": "效果",
+        "description": "续命"
+      },
+      {
+        "type": "效果",
+        "description": "疗伤"
+      }
     ],
     "origin": "太行紫靴门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tang_an",
       "char_tang_hu"
@@ -752,13 +804,12 @@
   {
     "id": "item_chun_jin_jie_zhi",
     "name": "纯金戒指",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_luo_yi_shao_fu",
     "one_line": "沈三娘手上佩戴的人形纯金戒指，造型奇特",
     "description": "罗衣少妇沈三娘手上佩戴的纯金戒指，做成人形，造型奇特，在灯光下看得不甚清楚",
     "effects": [],
     "origin": "不详",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_luo_yi_shao_fu"
     ],
@@ -779,15 +830,17 @@
   {
     "id": "item_yu_ping",
     "name": "玉瓶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_guan_ning",
     "one_line": "装续命神膏的玉瓶",
     "description": "一只玉质小瓶，内装太行紫靴门中的至宝续命神膏，淡青药末，能起死人而肉白骨",
     "effects": [
-      "装盛灵药"
+      {
+        "type": "效果",
+        "description": "装盛灵药"
+      }
     ],
     "origin": "太行紫靴",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_guan_ning",
       "char_le_shui_lao_ren"
@@ -809,13 +862,12 @@
   {
     "id": "item_bi_yu_he_zi",
     "name": "碧玉盒子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_guan_ning",
     "one_line": "内贮续命神膏的碧玉盒子",
     "description": "碧玉制成的小盒子，内装续命神膏，管宁随身携带，在关键时刻用作暗器击马使马车奔出。",
     "effects": [],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_guan_ning"
     ],
@@ -836,13 +888,12 @@
   {
     "id": "item_shuang_feng_bi_shou",
     "name": "双锋匕首",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_guan_ning",
     "one_line": "公孙庸在客栈前院拾起的匕首，用来在车座下刻字",
     "description": "双锋匕首，背厚锋薄，在日光下精光闪烁。原为强盗所有，被公孙庸拾起藏于车座下，并用以刻下重要字迹。",
     "effects": [],
     "origin": "强盗之物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_guan_ning",
       "char_gong_sun_yong"
@@ -864,13 +915,12 @@
   {
     "id": "item_cui_yu_jiu_hu",
     "name": "翠玉酒壶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_guan_ning",
     "one_line": "管宅后园饮酒时使用的翠玉酒壶",
     "description": "一把翠玉制成的酒壶，色泽温润，做工精致，置于管宅后园桌上，管宁、凌影、沈三娘三人在此饮酒叙谈",
     "effects": [],
     "origin": "管宅旧藏",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_guan_ning",
       "char_ling_ying",

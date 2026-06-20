@@ -2,13 +2,12 @@
   {
     "id": "item_lu_niu_rou",
     "name": "卤牛肉",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_ding_peng",
     "one_line": "丁鹏用最后的财产买来的食物",
     "description": "半斤多卤牛肉，十块豆腐干，一大包花生米和五个大馒头，是丁鹏用仅剩的碎银买来的",
     "effects": [],
     "origin": "市集购买",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ding_peng"
     ],
@@ -29,15 +28,17 @@
   {
     "id": "item_ku_dai",
     "name": "裤带",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ding_peng",
     "one_line": "丁鹏的蓝布裤带，内编天外流星剑谱残页",
     "description": "一根用蓝布编成的裤带，一寸宽，四尺长，里面编着一张残破而陈旧的纸，纸上画着天外流星剑法图形和密雀",
     "effects": [
-      "藏匿剑谱"
+      {
+        "type": "效果",
+        "description": "藏匿剑谱"
+      }
     ],
     "origin": "丁鹏父进遗物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ding_peng"
     ],
@@ -60,15 +61,17 @@
   {
     "id": "item_wang_you_cao",
     "name": "忘忧草",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "能让人忘记所有忧愁烦恼的神奇植物",
     "description": "每年只长一次，每次只有三片叶子，碧绿比翡翠还绿，比花更美",
     "effects": [
-      "忘记忧愁"
+      {
+        "type": "效果",
+        "description": "忘记忧愁"
+      }
     ],
     "origin": "忧愁谷",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -87,16 +90,21 @@
   {
     "id": "item_wan_dao",
     "name": "弯刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_qing_qing",
     "one_line": "青青的弯刀，刀锋青如远山，上刻七字'小楼一夜听春雨'",
     "description": "一柄青色弯刀，刀锋青如远山，青如春树，青如情人们眼中的湖水。刀身上刻着七个字：小楼一夜听春雨。此刀来历神秘，看过此刀的人都已死在刀下。",
     "effects": [
-      "神秘力量",
-      "致命杀伤"
+      {
+        "type": "效果",
+        "description": "神秘力量"
+      },
+      {
+        "type": "效果",
+        "description": "致命杀伤"
+      }
     ],
     "origin": "狐族",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_qing_qing",
       "char_ding_peng",
@@ -128,15 +136,17 @@
   {
     "id": "item_wan_yue_dao",
     "name": "弯月刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ding_peng",
     "one_line": "丁鹏的弯刀，形式奇特，刀身弯曲，可一刀劈开坚硬青石",
     "description": "一把形式很奇特的刀，刀身仿佛有点弯曲，是丁鹏重回人间后用凡铁铸成的，虽然不是青青的弯刀，但丁鹏用此刀已无敌于天下，一刀劈下可将比钢铁还硬的青石劈成两半",
     "effects": [
-      "一刀劈开坚硬青石"
+      {
+        "type": "效果",
+        "description": "一刀劈开坚硬青石"
+      }
     ],
     "origin": "丁鹏重回人间后铸成",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ding_peng"
     ],
@@ -157,17 +167,25 @@
   {
     "id": "item_song_zi",
     "name": "松子",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_lan_lan",
     "one_line": "蓝蓝使用的暗器，以松子为武器，力道惊人",
     "description": "蓝蓝以松子作为暗器，一枚松子竟能打断名匠吴道古铸造的精钢剑，可见其内力之深厚、手法之精妙，远超寻常暗器名家",
     "effects": [
-      "可打断精钢剑",
-      "可打穴道",
-      "力道惊人"
+      {
+        "type": "效果",
+        "description": "可打断精钢剑"
+      },
+      {
+        "type": "效果",
+        "description": "可打穴道"
+      },
+      {
+        "type": "效果",
+        "description": "力道惊人"
+      }
     ],
     "origin": "蓝蓝随身暗器",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_lan_lan"
     ],
@@ -188,16 +206,21 @@
   {
     "id": "item_yin_zhen",
     "name": "银针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_qing_qing",
     "one_line": "青青暗算蓝蓝的暗器，三寸长银针淬有剧毒",
     "description": "青青用来暗算蓝蓝的三寸长银针，暗藏于曲池穴附近，针上淬有剧毒，是青青口蜜腹剑笑里藏刀的手段",
     "effects": [
-      "暗算",
-      "淬毒"
+      {
+        "type": "效果",
+        "description": "暗算"
+      },
+      {
+        "type": "效果",
+        "description": "淬毒"
+      }
     ],
     "origin": "青青随身暗器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_qing_qing",
       "char_lan_lan"
@@ -219,16 +242,21 @@
   {
     "id": "item_wu_dao_gu_zhu_jian",
     "name": "吴道古铸剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_liu_ruo_song",
     "one_line": "关外名匠吴道古铸造的精钢剑，价值一千八百两银子",
     "description": "柳若松花一千八百两银子请关外名匠吴道古铸成的精钢宝剑，吴道古铸剑三十年无一不是精品，连铁锤都敲不断，却被蓝蓝一枚松子打断",
     "effects": [
-      "锋利坚韧",
-      "精品名剑"
+      {
+        "type": "效果",
+        "description": "锋利坚韧"
+      },
+      {
+        "type": "效果",
+        "description": "精品名剑"
+      }
     ],
     "origin": "关外名匠吴道古铸造",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_liu_ruo_song"
     ],
@@ -249,15 +277,17 @@
   {
     "id": "item_bai_niao_chao_feng_zhu_hua",
     "name": "百鸟朝凤珠花",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lan_lan",
     "one_line": "蓝蓝佩戴的珠花，百鸟朝凤样式",
     "description": "蓝蓝约定在会仙楼见面时佩戴的珠花，百鸟朝凤样式，是她标识身份的信物",
     "effects": [
-      "标识身份"
+      {
+        "type": "效果",
+        "description": "标识身份"
+      }
     ],
     "origin": "蓝蓝随身饰物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lan_lan"
     ],
@@ -278,13 +308,12 @@
   {
     "id": "item_song_wen_gu_jian",
     "name": "松纹古剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ling_xu",
     "one_line": "凌虚的佩剑，形式古拙，象征身份尊贵",
     "description": "一柄形式古拙的松纹古剑，带着鲜明的杏黄色剑穗，不但表明了他的身份，也象征着他的地位之尊贵",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ling_xu"
     ],
@@ -307,17 +336,25 @@
   {
     "id": "item_yuan_yue_wan_dao",
     "name": "圆月弯刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ding_peng",
     "one_line": "丁鹏的弯刀，刀锋弯弯，刀柄弯弯，看似普通却蕴含惊人威力",
     "description": "一柄形式普通的弯刀，刀锋弯弯，刀柄弯弯，既没有吹毛断发的锋刃，也没有足以炫耀的历史。但刀光一起宛如一弯新月化为飞虹，一刀便可割破对手手腕并在脸上划出十字，快到连血都延迟流出。",
     "effects": [
-      "一刀制敌",
-      "刀光如新月",
-      "速度极快"
+      {
+        "type": "效果",
+        "description": "一刀制敌"
+      },
+      {
+        "type": "效果",
+        "description": "刀光如新月"
+      },
+      {
+        "type": "效果",
+        "description": "速度极快"
+      }
     ],
     "origin": "丁鹏首次使用的佩刀",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ding_peng"
     ],
@@ -375,16 +412,21 @@
   {
     "id": "item_ren_pi_mian_ju",
     "name": "人皮面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shang_zhen",
     "one_line": "七巧童子亲手制成的面具，制作极精巧",
     "description": "昔年七巧童子亲手制成的人皮面具，制作极精巧，戴在脸上旁人肉眼凡胎根本看不出来，江湖中流传极少，如今剩下的最多不过三四副",
     "effects": [
-      "伪装容貌",
-      "隐匿身份"
+      {
+        "type": "效果",
+        "description": "伪装容貌"
+      },
+      {
+        "type": "效果",
+        "description": "隐匿身份"
+      }
     ],
     "origin": "七巧童子制成",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shang_zhen"
     ],
@@ -405,15 +447,17 @@
   {
     "id": "item_yan_zi_dao",
     "name": "燕子刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_tie_yan_fu_ren",
     "one_line": "铁燕夫人的魔刀，缅铁之英百炼而成，薄如蝉翼寒如秋水",
     "description": "一把四尺九寸长的长刀，薄如蝉翼，寒如秋水，看来仿佛是透明的。缅铁之英百炼而成，可刚可柔，不用时可以卷成一团藏在衣袖里。只要出现就必定带来血光和灾祸。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "魔教",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_tie_yan_fu_ren"
     ],
@@ -436,15 +480,17 @@
   {
     "id": "item_tian_mo_sheng_xue_gao",
     "name": "天魔圣血膏",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "魔教续命救伤灵药，天下无双",
     "description": "魔教秘传的天下无双续命救伤灵药，能令重伤之人起死回生，也可用于控制他人",
     "effects": [
-      "增益"
+      {
+        "type": "效果",
+        "description": "增益"
+      }
     ],
     "origin": "魔教",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -463,15 +509,17 @@
   {
     "id": "item_mian_si_tie_ling",
     "name": "免死铁令",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tie_yan_zhang_lao",
     "one_line": "昔年天下英雄公认的免死铁令",
     "description": "一块黝黑的铁牌，是神剑山庄和江湖中三大门帮、七大剑派、四大世家联名要求天下英雄承认的，只要有了这块免死令，无论他做了什么事，天下英雄都要免除他的一死。",
     "effects": [
-      "免死一次"
+      {
+        "type": "效果",
+        "description": "免死一次"
+      }
     ],
     "origin": "神剑山庄和三大门帮、七大剑派、四大世家联名",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_tie_yan_zhang_lao"
     ],
@@ -492,16 +540,21 @@
   {
     "id": "item_liu_li_qiu",
     "name": "琉璃球",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "山神像眼中的琉璃球，能反射光线发出碧光",
     "description": "两颗嵌入山神像眼眶的琉璃球，一半嵌入眼眶，另一半凸出成半圆球面，能收入广泛光线，在黑暗中反射发光，曾被牧童摘走后引发噩梦和高烧。",
     "effects": [
-      "反射光线",
-      "引发噩梦"
+      {
+        "type": "效果",
+        "description": "反射光线"
+      },
+      {
+        "type": "效果",
+        "description": "引发噩梦"
+      }
     ],
     "origin": "山神庙古物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_you_jiang_jun"
     ],
@@ -522,15 +575,17 @@
   {
     "id": "item_mian_she_tie_pai",
     "name": "免死铁牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tie_yan_fu_fu",
     "one_line": "五大门派和神剑山庄发放的免死铁牌，只能使用一次",
     "description": "五大门派和神剑山庄所发放的免死铁牌，持有者可免一死，但只能使用一次，用过之后便失去保护效力。",
     "effects": [
-      "免死一次"
+      {
+        "type": "效果",
+        "description": "免死一次"
+      }
     ],
     "origin": "五大门派/神剑山庄",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tie_yan_fu_fu"
     ],
@@ -551,16 +606,21 @@
   {
     "id": "item_bo_si_qing_sha",
     "name": "波斯轻纱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xie_xiao_yu",
     "one_line": "波斯胡贾带来的透明轻纱衣物，价值千两银子",
     "description": "一件波斯胡贾带来的透明轻纱衣物，用两根细长金色带子穿着两排寸来长的流苏，一排系在胸前遮住乳晕，另一排系在小腹下，隐约间展现女性美妙身材，价值数千两银子。",
     "effects": [
-      "诱惑敌人注意力",
-      "掩饰关键部位"
+      {
+        "type": "效果",
+        "description": "诱惑敌人注意力"
+      },
+      {
+        "type": "效果",
+        "description": "掩饰关键部位"
+      }
     ],
     "origin": "波斯胡贾带来",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xie_xiao_yu"
     ],
@@ -581,16 +641,21 @@
   {
     "id": "item_mei_gui_fei_jian",
     "name": "玫瑰飞箭",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_xie_xiao_yu",
     "one_line": "藏于玫瑰花中的淬毒钢箭暗器",
     "description": "藏在谢小玉卧室玫瑰花中的淬毒小钢箭，射劲强大，箭身泛淡蓝，为淬过剧毒之色，能射穿寒铁铸成的梅树并陷进大半。",
     "effects": [
-      "远程射击",
-      "淬毒伤害"
+      {
+        "type": "效果",
+        "description": "远程射击"
+      },
+      {
+        "type": "效果",
+        "description": "淬毒伤害"
+      }
     ],
     "origin": "谢小玉自制或购置",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xie_xiao_yu"
     ],
@@ -611,16 +676,21 @@
   {
     "id": "item_han_tie_mei_shu",
     "name": "寒铁梅树",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xie_xiao_yu",
     "one_line": "谢小玉卧室中用寒铁铸成的装饰梅树",
     "description": "用极名贵寒铁铸成的梅树形状装饰品，置于花屋之中，寒铁性奇寒，即使长曝在烈日之下也始终冷冰冰。泉水从梅树顶端流入、从根部流出，使水变冷。能被玫瑰飞箭射穿。",
     "effects": [
-      "冰镇泉水",
-      "防御伪装"
+      {
+        "type": "效果",
+        "description": "冰镇泉水"
+      },
+      {
+        "type": "效果",
+        "description": "防御伪装"
+      }
     ],
     "origin": "谢小玉定制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xie_xiao_yu"
     ],
@@ -641,16 +711,21 @@
   {
     "id": "item_bai_hua_niang",
     "name": "百花酿",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_xie_xiao_yu",
     "one_line": "取百花之蜜酿制的私藏美酒",
     "description": "谢小玉私藏的百花酿，取百花之蜜酿制，宜冷饮用泉水冰着。用惠泉山惠泉水和虎跑泉水各取其半混合，从寒铁梅树顶端流过再从根部流出，变得极为冰凉。",
     "effects": [
-      "解渴生津",
-      "宁心静气"
+      {
+        "type": "效果",
+        "description": "解渴生津"
+      },
+      {
+        "type": "效果",
+        "description": "宁心静气"
+      }
     ],
     "origin": "谢小玉自酿",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xie_xiao_yu"
     ],
@@ -671,15 +746,17 @@
   {
     "id": "item_zhen",
     "name": "针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_xiao_yun",
     "one_line": "小云用来暗杀丁鹏的长针",
     "description": "一根长长的，亮亮的针，虽然握着针的手在发抖，但是她仍然一咬牙，对准丁鹏的心口刺下去。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "小云随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiao_yun",
       "char_ding_peng"
@@ -701,16 +778,21 @@
   {
     "id": "item_jin_she_ling_pai",
     "name": "金蛇令牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lao_zhu_ren",
     "one_line": "老主人的信物，可以号令手下",
     "description": "金蛇令已经不再是老主人独一专用的了，还有很多块失散在外面。这一块却不会错，是老主人身边的神刀天王送来的。",
     "effects": [
-      "控制",
-      "特殊"
+      {
+        "type": "效果",
+        "description": "控制"
+      },
+      {
+        "type": "效果",
+        "description": "特殊"
+      }
     ],
     "origin": "老主人",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lao_zhu_ren",
       "char_xiao_yun"
@@ -732,7 +814,7 @@
   {
     "id": "item_mian_si_jin_pai",
     "name": "免死金牌",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "五大门派赠予魔教四大长老的免死信物",
     "description": "五大门派为避免魔教四大长老被报仇而赠予的免死金牌，凭此牌可免于仇家追杀",
@@ -743,7 +825,6 @@
       }
     ],
     "origin": "五大门派联合赠予",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tie_yan_shuang_fei"
     ],
@@ -764,16 +845,21 @@
   {
     "id": "item_qian_li_xiang_er_huan",
     "name": "千里香耳环",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiao_yun",
     "one_line": "青青和小云佩戴的耳环，内藏特殊气味，可用于追踪",
     "description": "耳环珠子内藏有特殊气味，危急时拍碎珠子，气味可留存半个月，只有组织内的人才能辨别，用于追踪和传递信号",
     "effects": [
-      "追踪",
-      "信号传递"
+      {
+        "type": "效果",
+        "description": "追踪"
+      },
+      {
+        "type": "效果",
+        "description": "信号传递"
+      }
     ],
     "origin": "狐族秘术",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xiao_yun",
       "char_qing_qing"
@@ -795,13 +881,12 @@
   {
     "id": "item_lian_yun_si_shi_xing_yin_piao",
     "name": "连云十四煞银票",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yu_wu_xia",
     "one_line": "连云十四煞星历年收入的银票，被玉无瑕卷走",
     "description": "连云十四煞星历年暗杀劫掠所得的银票，存放在连云山庄的木柜抽屉中，每人一份，玉无瑕作为老大分得最多",
     "effects": [],
     "origin": "连云十四煞星暗杀劫掠所得",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yu_wu_xia",
       "char_xiang_hua_qiang"
@@ -823,13 +908,12 @@
   {
     "id": "item_lian_yun_si_shi_xing_zhang_bu",
     "name": "连云十四煞账簿",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yu_wu_xia",
     "one_line": "连云十四煞星的账簿，记载每人历年收入支出",
     "description": "一本记载连云十四煞星成员历年暗杀劫掠收入和支出的账簿，玉无瑕在离开前将其烧毁",
     "effects": [],
     "origin": "连云十四煞星内部记录",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yu_wu_xia"
     ],
@@ -850,13 +934,12 @@
   {
     "id": "item_jin_shi_xiu_qiu",
     "name": "金狮绣球",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_shi",
     "one_line": "金狮长老的信物，含白色绣球和字条",
     "description": "金狮长老交给柳若松的信物，外为金制狮子，口中含着白色绣球，绣球捏碎后内有字条，是金狮长老对春花秋月的指令",
     "effects": "传达命令",
     "origin": "金狮长老",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_jin_shi",
       "char_liu_ruo_song"
@@ -878,13 +961,12 @@
   {
     "id": "item_long_hu_da_bu_wan",
     "name": "龙虎大补丸",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_liu_ruo_song",
     "one_line": "柳若松从采花贼处获得的催情秘药",
     "description": "从一个下五门的采花贼那里得来的秘药，虽然伤身体却十分有效，能在极短时间内激发服用者的强烈情欲冲动，但药性猛烈难以消除",
     "effects": "激发强烈情欲，药性持久难以消除",
     "origin": "下五门采花贼",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_liu_ruo_song"
     ],
@@ -905,13 +987,12 @@
   {
     "id": "item_hua_fang",
     "name": "画舫",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xie_xiao_yu",
     "one_line": "神剑山庄的华丽画舫，用于接送客人过河",
     "description": "神剑山庄的华丽画舫，停在山庄前的河对岸，用于接送来访的客人过河，装饰华丽，工艺精湛",
     "effects": "接送客人过河",
     "origin": "神剑山庄",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xie_xiao_yu"
     ],
@@ -932,16 +1013,21 @@
   {
     "id": "item_xiao_li_fei_dao",
     "name": "小李飞刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiao_xiang",
     "one_line": "李寻欢的飞刀，例不虚发，江湖神兵",
     "description": "小李飞刀是李寻欢的成名武器，刀身薄而锋利，出手后从不落空，被江湖人士视为神物。此刀介乎暗器与兵器之间，结构特殊，不同于寻常的刀。",
     "effects": [
-      "例不虚发",
-      "杀伤力极强"
+      {
+        "type": "效果",
+        "description": "例不虚发"
+      },
+      {
+        "type": "效果",
+        "description": "杀伤力极强"
+      }
     ],
     "origin": "李寻欢所铸",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xiao_xiang",
       "char_li_xun_huan"
@@ -963,15 +1049,17 @@
   {
     "id": "item_tian_ji_bang",
     "name": "天机棒",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xie_xiao_yu",
     "one_line": "天机老人的兵器，曾为兵器谱排名第一",
     "description": "天机棒是天机老人的成名兵器，曾在百晓生兵器谱中排名第一，后被谢小玉收藏于神剑山庄。",
     "effects": [
-      "攻击力极强"
+      {
+        "type": "效果",
+        "description": "攻击力极强"
+      }
     ],
     "origin": "天机老人",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -990,15 +1078,17 @@
   {
     "id": "item_long_feng_huan",
     "name": "龙凤环",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xie_xiao_yu",
     "one_line": "上官金虹的兵器，曾为兵器谱排名第二",
     "description": "龙凤环是上官金虹的成名兵器，曾在百晓生兵器谱中排名第二，后被谢小玉收藏于神剑山庄。",
     "effects": [
-      "攻击力极强"
+      {
+        "type": "效果",
+        "description": "攻击力极强"
+      }
     ],
     "origin": "上官金虹",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1017,15 +1107,17 @@
   {
     "id": "item_song_yang_tie_jian",
     "name": "嵩阳铁剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_guo_song_yang",
     "one_line": "郭嵩阳的成名剑，被郭家后人奉为圣物",
     "description": "嵩阳铁剑是郭嵩阳的成名兵器，李寻欢将其送回郭家，被郭家后人奉为圣物供奉在祠堂中。",
     "effects": [
-      "攻击力极强"
+      {
+        "type": "效果",
+        "description": "攻击力极强"
+      }
     ],
     "origin": "郭嵩阳",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_guo_song_yang"
     ],
@@ -1053,15 +1145,17 @@
   {
     "id": "item_xie_jia_shen_jian",
     "name": "谢家神剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xie_xiao_feng",
     "one_line": "神剑山庄谢家世代相传的神剑，已随谢晓峰离开藏剑庐",
     "description": "神剑山庄谢家世代相传的神剑，曾是藏剑庐中的镇庄之宝，如今已被谢晓峰带走，下落不明。",
     "effects": [
-      "谢家剑法的核心载体"
+      {
+        "type": "效果",
+        "description": "谢家剑法的核心载体"
+      }
     ],
     "origin": "神剑山庄世代相传",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xie_xiao_feng"
     ],
@@ -1082,15 +1176,17 @@
   {
     "id": "item_yan_shi_san_de_bao_jian",
     "name": "燕十三的宝剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "燕十三的宝剑，缀着十三颗明珠，昔日兵器谱上的名器",
     "description": "燕十三所用的宝剑，剑身上缀有十三颗明珠，是昔日兵器谱上排名靠前的名器，如今下落不明。",
     "effects": [
-      "与燕十三的至杀至威剑法相配"
+      {
+        "type": "效果",
+        "description": "与燕十三的至杀至威剑法相配"
+      }
     ],
     "origin": "燕十三所有",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1109,15 +1205,17 @@
   {
     "id": "item_tong_jia",
     "name": "铜甲",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_tong_tuo",
     "one_line": "铜驼所穿的铜制铠甲，可抵御普通刀剑",
     "description": "铜驼穿戴的全身铜制铠甲，质地坚硬可抵御寻常刀剑攻击，但在面对百炼精钢的高手利器时仍会被刺穿",
     "effects": [
-      "防御物理攻击"
+      {
+        "type": "效果",
+        "description": "防御物理攻击"
+      }
     ],
     "origin": "魔教",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tong_tuo"
     ],
@@ -1138,16 +1236,21 @@
   {
     "id": "item_long_tou_zhang",
     "name": "龙头杖",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lao_fu",
     "one_line": "老妇所使的铁杖，杖首为龙头造型，威力可拦腰斩人",
     "description": "老妇所持的铁制龙头杖，杖身沉重，杖首铸有龙头造型，挥舞时威力与刀剑无异，可将人拦腰扫为两段",
     "effects": [
-      "攻击",
-      "扫击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      },
+      {
+        "type": "效果",
+        "description": "扫击"
+      }
     ],
     "origin": "魔教",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lao_fu"
     ],
@@ -1168,15 +1271,17 @@
   {
     "id": "item_xiao_dao",
     "name": "小刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_tong_tuo",
     "one_line": "铜驼随身携带的小刀，映着绿光，用于执行兵解仪式",
     "description": "铜驼随身携带的一柄小刀，刀身在密室碧绿灯光映照下发出妖异的绿芒，被用于斩下老教主首级以完成兵解成道的仪式",
     "effects": [
-      "斩首"
+      {
+        "type": "效果",
+        "description": "斩首"
+      }
     ],
     "origin": "魔教",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_tong_tuo",
       "char_lao_ren"
@@ -1198,16 +1303,21 @@
   {
     "id": "item_yuan_yue_wan_dao_shen_dao",
     "name": "圆月弯刀（神刀）",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ding_ke_wen",
     "one_line": "魔教传世神刀，刀上刻有小楼一夜听春雨诗句",
     "description": "一柄黑黑的连鞘弯刀，刀上刻着小楼一夜听春雨的诗句，是魔教传世之宝，至杀至威，配合特定刀法可发挥十二成威力",
     "effects": [
-      "至杀至威",
-      "配合刀法十二成威力"
+      {
+        "type": "效果",
+        "description": "至杀至威"
+      },
+      {
+        "type": "效果",
+        "description": "配合刀法十二成威力"
+      }
     ],
     "origin": "魔教传承",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_ding_peng",
       "char_tong_tuo",
@@ -1232,16 +1342,21 @@
   {
     "id": "item_mu_dao_chu_bi",
     "name": "出跸木刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ding_peng",
     "one_line": "丁鹏以十万两黄金购得的艺术弯刀，黄杨木所制，用于以心理战取胜",
     "description": "一柄三尺半长的圆月形弯刀，黄杨木所制，木质脆硬，刀身雕有美人出跸图，人物一百四十三，马匹一百零九头，车辆十六，出自名家手笔，价值连城",
     "effects": [
-      "心理战先手",
-      "利用对手不忍之心"
+      {
+        "type": "效果",
+        "description": "心理战先手"
+      },
+      {
+        "type": "效果",
+        "description": "利用对手不忍之心"
+      }
     ],
     "origin": "收藏家处以十万两黄金购得",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ding_peng"
     ],

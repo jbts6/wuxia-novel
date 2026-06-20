@@ -71,4 +71,27 @@ export interface AnnotatedLibraryRecord<T> extends LibraryRecord<T> {
   annotation: LibraryAnnotation | null;
 }
 
-export type LibrarySection = 'overview' | 'skills' | 'characters' | 'factions' | 'items' | 'export';
+export type LibrarySection = 'overview' | 'skills' | 'characters' | 'factions' | 'items';
+
+export interface CharacterAppearance {
+  source: LibrarySource;
+  role: string;
+  power_rank: string;
+  importance: string;
+  faction: string | null;
+  relationships: Character['relationships'];
+  known_skills: string[];
+}
+
+export interface MergedCharacterRecord {
+  key: string;
+  entityId: string;
+  name: string;
+  alias: string[];
+  identity: string;
+  one_line: string;
+  personality: Character['personality'];
+  archetype: string;
+  appearances: CharacterAppearance[];
+  primary: CharacterAppearance;
+}

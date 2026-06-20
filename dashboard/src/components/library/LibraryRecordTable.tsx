@@ -1,6 +1,7 @@
 import { Button, Space, Table, Tag, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import type { AnnotatedLibraryRecord, LibraryRecord } from '../../types/library';
+import { displayArchetype, displayImportance, displayRole } from '../../utils/displayLabels';
 
 const { Text } = Typography;
 
@@ -56,14 +57,17 @@ const LibraryRecordTable = <T,>({ records, onOpen }: LibraryRecordTableProps<T>)
         const entity = record.entity as EntityPreview;
         const rank = entity.mastery_rank ?? entity.power_rank ?? entity.rank;
         const rarity = entity.rarity_tier ?? entity.rarity;
+        const roleLabel = displayRole(entity.role);
+        const archLabel = displayArchetype(entity.archetype);
+        const impLabel = displayImportance(entity.importance);
         return (
           <Space wrap size={4}>
             {rank && <Tag color="red">{rank}</Tag>}
-            {entity.importance && <Tag color="blue">{entity.importance}</Tag>}
+            {impLabel && <Tag color="blue">{impLabel}</Tag>}
             {rarity && <Tag color="gold">{rarity}</Tag>}
             {entity.type && <Tag>{entity.type}</Tag>}
-            {entity.role && <Tag color="blue">{entity.role}</Tag>}
-            {entity.archetype && <Tag color="green">{entity.archetype}</Tag>}
+            {roleLabel && <Tag color="blue">{roleLabel}</Tag>}
+            {archLabel && <Tag color="green">{archLabel}</Tag>}
             {entity.faction && <Tag color="cyan">{entity.faction}</Tag>}
           </Space>
         );

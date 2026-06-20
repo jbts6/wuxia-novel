@@ -2,7 +2,7 @@
   {
     "id": "item_du_jing",
     "name": "毒经",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ding_ling",
     "one_line": "毒君金一鹏遗留的施毒秘笈。",
     "description": "毒经汇集毒君金一鹏一生毒术心血，后又经辛捷悟出妙方附加，丁伶据此学成无影人毒术。",
@@ -13,7 +13,6 @@
       }
     ],
     "origin": "毒君金一鹏遗留，辛捷所得后补入妙方",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ding_ling"
     ],
@@ -36,7 +35,7 @@
   {
     "id": "item_hei_she_ling",
     "name": "黑蛇令",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qiu_du_xing",
     "one_line": "邱独行召集群雄的黑色令符",
     "description": "黑黝黝的金属令符，源自灵蛇镖旧物，重现后引来中原群豪和关东马贼。",
@@ -47,7 +46,6 @@
       }
     ],
     "origin": "江湖旧物",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -66,7 +64,7 @@
   {
     "id": "item_ling_she_jian",
     "name": "灵蛇剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_qiu_du_xing",
     "one_line": "千蛇剑客昔年成名兵刃",
     "description": "邱独行昔年凭以成名的诡异长剑，与灵蛇镖并称，是其恶名来源之一。",
@@ -77,7 +75,6 @@
       }
     ],
     "origin": "江湖旧物",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -96,7 +93,7 @@
   {
     "id": "item_ling_she_biao",
     "name": "灵蛇镖",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_qiu_du_xing",
     "one_line": "黑蛇令前身的阴毒暗器",
     "description": "灵蛇镖原是邱独行作恶江湖的暗器，后又以黑蛇令形态重现召集群雄。",
@@ -107,7 +104,6 @@
       }
     ],
     "origin": "江湖旧物",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -126,7 +122,7 @@
   {
     "id": "item_bai_yu_ling",
     "name": "白羽令",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_si_ma_zhi",
     "one_line": "白羽双剑身份与威望的象征",
     "description": "司马之手中的白色羽令，江湖中极难一见，足以令群豪震慑退让。",
@@ -137,7 +133,6 @@
       }
     ],
     "origin": "江湖旧物",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -156,7 +151,7 @@
   {
     "id": "item_qiu_du_xing_zhi_tiao",
     "name": "邱独行纸条",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qiu_du_xing",
     "one_line": "邱独行传给司马之的邀候纸条",
     "description": "纸条以故人语气向司马之致意，显示邱独行消息灵通并已布下接待人手。",
@@ -167,7 +162,6 @@
       }
     ],
     "origin": "江湖旧物",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -186,7 +180,7 @@
   {
     "id": "item_zhen_zhu_deng_long",
     "name": "珍珠灯笼",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ling_she_ying_ke_di_zi",
     "one_line": "灵蛇帮迎客所用的钢架珍珠灯笼。",
     "description": "灯笼支架由纯钢制成，内里不是烛火而是一颗大珍珠，风中不灭不晃，显出千蛇剑客财力与奇巧。",
@@ -197,7 +191,6 @@
       }
     ],
     "origin": "千蛇剑客布置迎客之物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qiu_du_xing"
     ],
@@ -218,16 +211,21 @@
   {
     "id": "item_zi_tan_mu_zhuo",
     "name": "紫檀木桌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tian_chi_zun_zhe",
     "one_line": "天赤尊者出行时由四名僧人抬负的坐具。",
     "description": "这张紫檀木桌由红衣僧人抬行，天赤尊者端坐其上出场，既显排场也制造诡秘威压。",
     "effects": [
-      "承载出行排场",
-      "震慑围观群豪"
+      {
+        "type": "效果",
+        "description": "承载出行排场"
+      },
+      {
+        "type": "效果",
+        "description": "震慑围观群豪"
+      }
     ],
     "origin": "天赤尊者随行仪仗",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tian_chi_zun_zhe"
     ],
@@ -255,16 +253,21 @@
   {
     "id": "item_chi_jin_shou_zhuo",
     "name": "赤金手镯",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tian_chi_zun_zhe",
     "one_line": "套在天赤尊者赤露手臂上的怪异饰物。",
     "description": "十余个赤金手镯由手腕套到臂头，使天赤尊者的枯瘦形貌更显怪异可怖。",
     "effects": [
-      "强化诡异形象",
-      "配合宗教式威仪"
+      {
+        "type": "效果",
+        "description": "强化诡异形象"
+      },
+      {
+        "type": "效果",
+        "description": "配合宗教式威仪"
+      }
     ],
     "origin": "天赤尊者随身饰物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tian_chi_zun_zhe"
     ],
@@ -285,17 +288,25 @@
   {
     "id": "item_tie_ban",
     "name": "铁板",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_tan_xing",
     "one_line": "覃星地穴入口用于封闭与透气的机关板。",
     "description": "两块铁板覆盖在地穴入口，上有并排小孔，可透入微光和浑浊空气，隐蔽性极强。",
     "effects": [
-      "封闭地穴入口",
-      "透光透气",
-      "隐藏地下修炼处"
+      {
+        "type": "效果",
+        "description": "封闭地穴入口"
+      },
+      {
+        "type": "效果",
+        "description": "透光透气"
+      },
+      {
+        "type": "效果",
+        "description": "隐藏地下修炼处"
+      }
     ],
     "origin": "覃星自建地穴机关",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tan_xing",
       "char_bai_fei"
@@ -317,7 +328,7 @@
   {
     "id": "item_wu_ying_zhi_du",
     "name": "无影之毒",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_ding_ling",
     "one_line": "丁伶用来毒倒天赤尊者的剧毒。",
     "description": "无影之毒能在人无形无影中中毒，源自毒君金一鹏，本章以重分量施在天赤尊者身上。",
@@ -328,7 +339,6 @@
       }
     ],
     "origin": "毒君金一鹏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ding_ling",
       "char_tian_chi_zun_zhe"
@@ -352,7 +362,7 @@
   {
     "id": "item_tian_lei_shen_zhu",
     "name": "天雷神珠",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_tian_chi_zun_zhe",
     "one_line": "天赤尊者弟子用来炸伤群豪的异邦火器。",
     "description": "天雷神珠被邱独行推测为异邦厉害火器，铁弹丸掷下后突然爆炸，造成近百人受伤。",
@@ -363,7 +373,6 @@
       }
     ],
     "origin": "异邦火器",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tian_chi_zun_zhe"
     ],
@@ -397,7 +406,7 @@
   {
     "id": "item_pi_li_shen_huo_jian",
     "name": "霹雳神火箭",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_yao_xin",
     "one_line": "火神姚忻的成名火器。",
     "description": "霹雳神火箭是西姚家铺火神姚忻的火器，被邱独行用来衬托天雷神珠威力更强。",
@@ -408,7 +417,6 @@
       }
     ],
     "origin": "西姚家铺",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yao_xin"
     ],
@@ -429,7 +437,7 @@
   {
     "id": "item_fang_yu_you_bu",
     "name": "防雨油布",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "白非发现并用来冲入瀑布的油布。",
     "description": "这块宽约三尺的防雨油布藏在假山裂隙中，暗示有人借它穿越瀑布并进入隐藏洞穴。",
@@ -440,7 +448,6 @@
       }
     ],
     "origin": "堡后林园假山裂隙",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_fei"
     ],
@@ -463,13 +470,12 @@
   {
     "id": "item_han_yan_dai",
     "name": "旱烟袋",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qin_xing",
     "one_line": "覃星手中的旧烟具。",
     "description": "旱烟袋握在覃星手中，烟已灭而他仍不时啜着，衬出老人迟暮淡漠的状态。",
     "effects": [],
     "origin": "覃星随身物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_qin_xing"
     ],
@@ -490,7 +496,7 @@
   {
     "id": "item_xiang_li",
     "name": "香狸",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chang_dong_sheng",
     "one_line": "寰宇六珍之一，常东升称其为香奴。",
     "description": "通体金毛、碧眼发光，体发异香能吸引飞禽走兽，也可用精血使女子体发异香。",
@@ -505,7 +511,6 @@
       }
     ],
     "origin": "常东升师傅所藏三件珍物之一",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chang_dong_sheng",
       "char_qiu_du_xing",
@@ -528,7 +533,7 @@
   {
     "id": "item_fu_hun_dai",
     "name": "缚魂带",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chang_dong_sheng",
     "one_line": "寰宇六珍之一，以千年蛟筋制成并穿入常东升足踝。",
     "description": "黑色细带非金非铁，深通地底，即使白非全力也扯不断，只有九抓乌金扎可斩断。",
@@ -543,7 +548,6 @@
       }
     ],
     "origin": "常东升师傅所藏三件珍物之一",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chang_dong_sheng",
       "char_chang_dong_sheng_shi_fu"
@@ -565,7 +569,7 @@
   {
     "id": "item_ling_she_mi_ji",
     "name": "灵蛇秘笈",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qiu_du_xing",
     "one_line": "寰宇六珍之一，被邱独行从常东升处骗走。",
     "description": "记载阴湿洞穴中可修成的诡异绝顶功夫，使常东升练成随意运用先天真气的境界。",
@@ -580,7 +584,6 @@
       }
     ],
     "origin": "常东升师傅所藏三件珍物之一",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chang_dong_sheng",
       "char_qiu_du_xing"
@@ -604,7 +607,7 @@
   {
     "id": "item_jiu_zhua_wu_jin_zha",
     "name": "九抓乌金扎",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_su_min_jun",
     "one_line": "唯一可断缚魂带的寰宇奇珍。",
     "description": "武林珍物，削铁如泥，曾在熊立信手中出现，后来落入天妖苏敏君之手。",
@@ -619,7 +622,6 @@
       }
     ],
     "origin": "两甲子前曾在熊立信手上使用，后流落苏敏君处",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_su_min_jun",
       "char_chang_dong_sheng",
@@ -649,7 +651,7 @@
   {
     "id": "item_jin_dan_wan",
     "name": "金弹丸",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_na_xia_zi",
     "one_line": "黄金打造的弹丸暗器，打伤浮云子并引出万家堡、齐青寨线索。",
     "description": "金光灿然的黄金弹丸，被玄天子从浮云子肩伤中按出，体积虽小却能造成酒杯大小伤口，是青海或万家堡一类豪富势力才用得起的暗器。",
@@ -664,7 +666,6 @@
       }
     ],
     "origin": "青海齐青寨相关人物使用",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_fu_yun_zi",
       "char_na_xia_zi"
@@ -686,7 +687,7 @@
   {
     "id": "item_bai_fei_xiang_li",
     "name": "香狸",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_fei",
     "one_line": "白非携带的奇香之物，是求见天妖苏敏君的重要引子。",
     "description": "香狸使白非身上带有异香，连海心山少女都闻之喜动眉梢，判断师父苏敏君可能因此愿意见白非。",
@@ -701,7 +702,6 @@
       }
     ],
     "origin": "白非随身携带",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_fei",
       "char_hong_shan_shao_nv",
@@ -724,7 +724,7 @@
   {
     "id": "item_hai_xin_shan_pi_fa",
     "name": "海心山皮筏",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hong_shan_shao_nv",
     "one_line": "非皮非帛、可吹涨的大皮筏，用于青海湖面疾行。",
     "description": "红衫少女背负的包袱抖开后成为非皮非帛的绝大之物，经她以内力吹涨成皮筏，可载人箭一般在青海湖面窜行。",
@@ -739,7 +739,6 @@
       }
     ],
     "origin": "海心山门下器物",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hong_shan_shao_nv",
       "char_bai_fei"
@@ -761,7 +760,7 @@
   {
     "id": "item_xie_keng_tiao_zhan_zi_jian",
     "name": "谢铿挑战字柬",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xie_keng",
     "one_line": "谢铿贴在榆林关和小柳铺各处、约战无影人的公开字柬。",
     "description": "谢铿挑战字柬像告示牌一样贴满榆林关内外与小柳铺，宣称他要凭两条腿在红柳河边清算旧账。",
@@ -772,7 +771,6 @@
       }
     ],
     "origin": "谢铿亲贴",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xie_keng",
       "char_ding_ling"
@@ -794,7 +792,7 @@
   {
     "id": "item_fei_yan_xiao_wan",
     "name": "飞燕小丸",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_xie_keng",
     "one_line": "谢铿交手时从口中喷出的暗器小丸，逼出丁伶闪避破绽。",
     "description": "这粒小丸由谢铿在激战中张口喷出，速度极快，目的不是单纯伤人，而是迫使无影人落入腿法计算。",
@@ -805,7 +803,6 @@
       }
     ],
     "origin": "谢铿暗藏",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xie_keng",
       "char_ding_ling"
@@ -829,7 +826,7 @@
   {
     "id": "item_lao_liu_ma_che",
     "name": "老刘马车",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_kun_tian",
     "one_line": "小潘替石坤天雇来护送丁伶南下的马车。",
     "description": "这辆马车由小潘安排，马少一只左耳朵，载着重伤丁伶由小柳铺经西安再往湖北，后来在黄陵附近遭截。",
@@ -840,7 +837,6 @@
       }
     ],
     "origin": "小柳铺客栈雇用",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shi_kun_tian",
       "char_ding_ling"

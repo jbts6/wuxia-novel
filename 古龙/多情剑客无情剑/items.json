@@ -2,13 +2,12 @@
   {
     "id": "item_mu_diao_ren_xiang",
     "name": "木雕人像",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_xun_huan",
     "one_line": "李寻欢用小刀雕刻的女子人像",
     "description": "李寻欢在旅途中精心雕刻的女子人像，轮廓和线条柔和优美，栩栩如生，承载着他生命和灵魂的寄托",
     "effects": [],
     "origin": "李寻欢亲手雕刻",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_xun_huan"
     ],
@@ -29,16 +28,21 @@
   {
     "id": "item_ke_mu_xiao_dao",
     "name": "刻木小刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_li_xun_huan",
     "one_line": "李寻欢用来雕刻的薄锋小刀，实为飞刀",
     "description": "一把刀锋薄而锋锐的小刀，李寻欢用它雕刻人像，刀身轻薄锋利，关键时刻可作为飞刀使用，例不虚发",
     "effects": [
-      "雕刻",
-      "飞刀攻击"
+      {
+        "type": "效果",
+        "description": "雕刻"
+      },
+      {
+        "type": "效果",
+        "description": "飞刀攻击"
+      }
     ],
     "origin": "李寻欢随身携带",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_li_xun_huan"
     ],
@@ -61,15 +65,17 @@
   {
     "id": "item_shao_nian_de_jian",
     "name": "少年的剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_shao_nian",
     "one_line": "少年腰间插着的三尺多长铁片剑",
     "description": "一条三尺多长的铁片，既没有剑锋也没有剑锷，连剑柄都没有，只用两片软木钉在上面充作剑柄，看起来像个玩具却锋利无比",
     "effects": [
-      "穿刺攻击"
+      {
+        "type": "效果",
+        "description": "穿刺攻击"
+      }
     ],
     "origin": "不明",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shao_nian"
     ],
@@ -90,17 +96,25 @@
   {
     "id": "item_bai_she_ruan_jian",
     "name": "白蛇软剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bai_she",
     "one_line": "白蛇所用的白色毒蛇般软剑",
     "description": "一柄毒蛇般的白色软剑，剑光如白虹般炫人眼目，可弯曲如鞭又可挺直如枪，是碧血双蛇的标志性武器",
     "effects": [
-      "穿刺",
-      "切割",
-      "缠绕"
+      {
+        "type": "效果",
+        "description": "穿刺"
+      },
+      {
+        "type": "效果",
+        "description": "切割"
+      },
+      {
+        "type": "效果",
+        "description": "缠绕"
+      }
     ],
     "origin": "碧血双蛇随身武器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bai_she"
     ],
@@ -123,17 +137,25 @@
   {
     "id": "item_hei_she_ruan_jian",
     "name": "黑蛇软剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hei_she",
     "one_line": "黑蛇所用的漆黑细长软剑",
     "description": "一柄漆黑细长的软剑，迎面一抖便能抖得笔直，如黑色毒蛇般灵活致命，是碧血双蛇的标志性武器",
     "effects": [
-      "穿刺",
-      "缠绕",
-      "切割"
+      {
+        "type": "效果",
+        "description": "穿刺"
+      },
+      {
+        "type": "效果",
+        "description": "缠绕"
+      },
+      {
+        "type": "效果",
+        "description": "切割"
+      }
     ],
     "origin": "碧血双蛇随身武器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hei_she"
     ],
@@ -156,13 +178,12 @@
   {
     "id": "item_huang_bu_bao_fu",
     "name": "黄布包袱",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "诸葛雷从口外带回的神秘包袱",
     "description": "诸葛雷从口外押镖带回的黄布包袱，内藏贵重货物，被碧血双蛇看中抢夺，引起了一场血腥争斗",
     "effects": [],
     "origin": "口外押镖所得",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhu_ge_lei",
       "char_bai_she",
@@ -185,13 +206,12 @@
   {
     "id": "item_bao_fu",
     "name": "包袱",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "引发多方争夺的神秘包袱，原在酒店桌上",
     "description": "一只神秘的包袱，原放在酒店桌上，被黑蛇趁乱偷走后又被人夺去，引发金狮镖局和多方势力的争夺，其中似乎藏有极为重要的东西",
     "effects": [],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hei_she",
       "char_li_xun_huan"
@@ -213,7 +233,7 @@
   {
     "id": "item_yu_chang_jian",
     "name": "鱼肠剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_nv_qing_yi",
     "one_line": "上古神兵，武林重宝",
     "description": "鱼肠剑乃上古神兵，武林重宝，藏剑山庄以此剑闻名，因藏龙老人与三大派掌门人的关系才得以保存，是武林中最珍贵的兵刃之一。",
@@ -224,7 +244,6 @@
       }
     ],
     "origin": "藏剑山庄",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -243,7 +262,7 @@
   {
     "id": "item_jin_si_jia",
     "name": "金丝甲",
-    "type": "armor",
+    "type": "防具",
     "owner": null,
     "one_line": "神秘宝甲，多人争夺",
     "description": "金丝甲是一件神秘的宝甲，价值连城，江湖中多人不惜代价争夺，李寻欢和女青衣人都对其势在必得。",
@@ -254,7 +273,6 @@
       }
     ],
     "origin": "江湖",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_li_xun_huan"
     ],
@@ -317,17 +335,25 @@
   {
     "id": "item_han_ji_san",
     "name": "寒鸡散",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_mei_er_xian_sheng",
     "one_line": "梅家独门剧毒，能毒死李寻欢的罕见毒药",
     "description": "梅家独门配制的剧毒药物，由七妙人中的妙郎中梅二先生所配，花老六曾以此毒害李寻欢，毒性极烈，天下罕有其匹",
     "effects": [
-      "剧毒致命",
-      "侵蚀内力",
-      "令人虚弱"
+      {
+        "type": "效果",
+        "description": "剧毒致命"
+      },
+      {
+        "type": "效果",
+        "description": "侵蚀内力"
+      },
+      {
+        "type": "效果",
+        "description": "令人虚弱"
+      }
     ],
     "origin": "梅家秘传",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_mei_er_xian_sheng",
       "char_li_xun_huan"
@@ -349,16 +375,21 @@
   {
     "id": "item_qing_ming_shang_he_tu",
     "name": "清明上河图",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "李寻欢家传名画，真品已赠人，大内所藏为膺品",
     "description": "北宋张择端所绘汴京繁华盛景，李寻欢家传真品，十年前李寻欢败尽家财时已将此画送人，大内所藏反为膺品，梅大先生对此画极为痴迷",
     "effects": [
-      "鉴别书画真伪的标准",
-      "梅大先生以此为条件交换解药"
+      {
+        "type": "效果",
+        "description": "鉴别书画真伪的标准"
+      },
+      {
+        "type": "效果",
+        "description": "梅大先生以此为条件交换解药"
+      }
     ],
     "origin": "李寻欢家传",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_li_xun_huan",
       "char_mei_da_xian_sheng"
@@ -380,16 +411,21 @@
   {
     "id": "item_zhu_ye_qing",
     "name": "竹叶青",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_mei_da_xian_sheng",
     "one_line": "梅大先生窖藏二十年的名酒，专为款待李寻欢这样的名士",
     "description": "梅大先生珍藏二十年的竹叶青酒，窖藏日久，香洌异常，梅大先生称好酒待名士，专为款待李寻欢这等大名士而留",
     "effects": [
-      "款待贵宾",
-      "梅大先生以此表达对李寻欢的敬意"
+      {
+        "type": "效果",
+        "description": "款待贵宾"
+      },
+      {
+        "type": "效果",
+        "description": "梅大先生以此表达对李寻欢的敬意"
+      }
     ],
     "origin": "梅大先生窖藏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_mei_da_xian_sheng",
       "char_li_xun_huan"
@@ -418,13 +454,12 @@
   {
     "id": "item_wang_mo_jie_de_hua",
     "name": "王摩诘的画",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_qin_xiao_yi",
     "one_line": "唐代王维的名画，被秦孝仪用来讨好梅大先生",
     "description": "一幅唐代名家王维（字摩诘）的画作，被秦孝仪重金购来，经名家鉴定确为真品，用以投其所好请梅大先生出山",
     "effects": [],
     "origin": "秦孝仪重金购得",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qin_xiao_yi"
     ],
@@ -445,7 +480,7 @@
   {
     "id": "item_xiu_jian",
     "name": "袖箭",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_hong_hai_er",
     "one_line": "红孩儿暗藏的袖箭，小巧但劲道十足",
     "description": "红孩儿从袖中发出的三根小型袖箭，奇快奇准，劲道十足，是他随身携带的暗器之一",
@@ -456,7 +491,6 @@
       }
     ],
     "origin": "红孩儿随身暗器",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hong_hai_er"
     ],
@@ -477,7 +511,7 @@
   {
     "id": "item_jin_bei_di_tou_hua_zhuang_nu",
     "name": "紧背低头花装弩",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_hong_hai_er",
     "one_line": "红孩儿背藏的花装弩，趁人不备发射",
     "description": "红孩儿假装拜师时从背后发射的巧手精制暗器，名为紧背低头花装弩，三道乌光射出，极其阴毒",
@@ -488,7 +522,6 @@
       }
     ],
     "origin": "红孩儿随身暗器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hong_hai_er"
     ],
@@ -509,7 +542,7 @@
   {
     "id": "item_xiao_huan_dan",
     "name": "小还丹",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_qin_zhong",
     "one_line": "少林佛门圣药，可暂时保全重伤者性命",
     "description": "少林寺珍藏的佛门圣药，能暂时保全重伤者性命，秦重受伤后服用此药维持",
@@ -520,7 +553,6 @@
       }
     ],
     "origin": "少林寺",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qin_zhong"
     ],
@@ -541,13 +573,12 @@
   {
     "id": "item_yin_qiang",
     "name": "银枪",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_long_xiao_yun",
     "one_line": "龙啸云的兵器，曾以此枪挑杀大凶卜霸",
     "description": "龙啸云惯用的银色长枪，曾以此枪在邯郸大道上活挑大凶卜霸，救了李寻欢的性命",
     "effects": [],
     "origin": "龙啸云随身兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_long_xiao_yun"
     ],
@@ -568,16 +599,21 @@
   {
     "id": "item_mei_hua_xiao_dao",
     "name": "梅花小刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_li_xun_huan",
     "one_line": "李寻欢的飞刀，刀光如黑夜流星",
     "description": "李寻欢随身携带的飞刀，刀身发亮，出手如流星般迅疾，是小李飞刀的标志性武器，百发百中",
     "effects": [
-      "远程攻击",
-      "一击必杀"
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      },
+      {
+        "type": "效果",
+        "description": "一击必杀"
+      }
     ],
     "origin": "李寻欢",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_li_xun_huan"
     ],
@@ -598,15 +634,17 @@
   {
     "id": "item_diao_qiu",
     "name": "貂裘",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_li_xun_huan",
     "one_line": "李寻欢所穿的珍贵貂裘大衣",
     "description": "李寻欢身穿的貂裘大衣，极为珍贵，被锦衣少年的剑划破，上面有一双眼睛的花样",
     "effects": [
-      "保暖"
+      {
+        "type": "效果",
+        "description": "保暖"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_li_xun_huan"
     ],
@@ -627,15 +665,17 @@
   {
     "id": "item_mei_hua_jian",
     "name": "梅花剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_jin_yi_shao_nian",
     "one_line": "锦衣少年所用的名剑，折为两段",
     "description": "锦衣少年所用的名剑，剑身锋利，削破了李寻欢的貂裘，后被少年亲手折为两段",
     "effects": [
-      "锋利无比"
+      {
+        "type": "效果",
+        "description": "锋利无比"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_yi_shao_nian",
       "char_li_xun_huan"
@@ -657,16 +697,21 @@
   {
     "id": "item_yu_cang_jian",
     "name": "鱼藏剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lin_xian_er",
     "one_line": "名贵藏剑，游龙生赠予林仙儿",
     "description": "一柄精致的藏于鱼形鞘中的短剑，为游龙生所有后转赠林仙儿，剑身锋利，鞘身雕工精巧，乃名家铸造之上乘兵刃。",
     "effects": [
-      "锋利无比",
-      "便于隐藏"
+      {
+        "type": "效果",
+        "description": "锋利无比"
+      },
+      {
+        "type": "效果",
+        "description": "便于隐藏"
+      }
     ],
     "origin": "游龙生所有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lin_xian_er"
     ],
@@ -687,16 +732,21 @@
   {
     "id": "item_duo_gu_dao",
     "name": "剁骨刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_du_yan_fu_ren",
     "one_line": "独眼妇人所持的车轮般大小的剁骨刀",
     "description": "车轮般大小的剁骨刀，刀身沉重锋利，独眼妇人以此刀在菜场肉案上行凶，可一刀砍入桌面一半，威力惊人。",
     "effects": [
-      "劈砍威力极大",
-      "震慑对手"
+      {
+        "type": "效果",
+        "description": "劈砍威力极大"
+      },
+      {
+        "type": "效果",
+        "description": "震慑对手"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_du_yan_fu_ren"
     ],
@@ -717,7 +767,7 @@
   {
     "id": "item_li_hua_da_qiang",
     "name": "梨花大枪",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bian_hao",
     "one_line": "边浩的兵器，比他的人还高出半截",
     "description": "一柄梨花大枪，枪身比持枪者还高出半截，是边浩的成名兵器，枪法精湛",
@@ -728,7 +778,6 @@
       }
     ],
     "origin": "中原",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bian_hao"
     ],
@@ -749,16 +798,21 @@
   {
     "id": "item_duo_qing_jian",
     "name": "夺情剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_you_long_sheng",
     "one_line": "三百年前剑豪狄武子的佩剑，武林名剑，名气不在鱼肠剑之下",
     "description": "夺情剑为三百年前一代剑豪狄武子的佩剑，剑光如一泓秋水，虽比不上鱼肠剑等上古神兵，但在武林中的名气却绝不在鱼肠剑之下。狄武子用此剑杀了好友彭琼后，从此以剑为伴，以剑为命。",
     "effects": [
-      "锋利无比",
-      "剑气逼人"
+      {
+        "type": "效果",
+        "description": "锋利无比"
+      },
+      {
+        "type": "效果",
+        "description": "剑气逼人"
+      }
     ],
     "origin": "三百年前剑豪狄武子所铸",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_di_wu_zi"
     ],
@@ -800,15 +854,17 @@
   {
     "id": "item_jin_si_jia_chi_ruan_gun",
     "name": "金丝夹翅软棍",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_tian_qi",
     "one_line": "田七的兵器，四尺二寸长的金丝夹翅软棍",
     "description": "一条四尺二寸长的金丝夹翅软棍，毒蛇般抽在李寻欢腿上，可轻易击倒高手",
     "effects": [
-      "击打"
+      {
+        "type": "效果",
+        "description": "击打"
+      }
     ],
     "origin": "田七所有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tian_qi"
     ],
@@ -829,15 +885,17 @@
   {
     "id": "item_mei_hua_dao_si_shi",
     "name": "梅花盗死尸",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_a_fei",
     "one_line": "真正的梅花盗尸体，阿飞带回",
     "description": "一具又干又瘦的尸体，脸上刀疤纵横，身穿紧身黑衣，咽喉被刺穿，嘴里藏着暗器钢筒，是梅花盗的真身",
     "effects": [
-      "证明李寻欢清白"
+      {
+        "type": "效果",
+        "description": "证明李寻欢清白"
+      }
     ],
     "origin": "阿飞击杀",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_a_fei"
     ],
@@ -858,15 +916,17 @@
   {
     "id": "item_gang_dao",
     "name": "钢刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ban_lei_qiu_ran_da_han",
     "one_line": "田七护卫所用的精钢大刀",
     "description": "精钢打造的大刀，刀锋锋利，刀身沉重，适合劈砍，是江湖护卫常用的兵刃。",
     "effects": [
-      "近身劈砍"
+      {
+        "type": "效果",
+        "description": "近身劈砍"
+      }
     ],
     "origin": "江湖匠人锻造",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -885,16 +945,21 @@
   {
     "id": "item_fo_zhu",
     "name": "佛珠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xin_mei_da_shi",
     "one_line": "心眉大师所持佛珠，可作暗器使用",
     "description": "心眉大师随身携带的佛珠，由特殊材质制成，蕴含深厚内力，既可礼佛念经，又可作为暗器掷出，力道千钧。",
     "effects": [
-      "远程攻击",
-      "蕴含内力"
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      },
+      {
+        "type": "效果",
+        "description": "蕴含内力"
+      }
     ],
     "origin": "少林寺",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xin_mei_da_shi"
     ],
@@ -917,16 +982,21 @@
   {
     "id": "item_chi_gun",
     "name": "翅棍",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_tian_qi",
     "one_line": "田七所用兵器，比剑更长，专点穴道",
     "description": "田七所用的翅棍，比一般兵刃更长，以己之长击人之短，专点敌人穴道，是江湖中一绝的点穴兵器。",
     "effects": [
-      "点穴",
-      "长距离攻击"
+      {
+        "type": "效果",
+        "description": "点穴"
+      },
+      {
+        "type": "效果",
+        "description": "长距离攻击"
+      }
     ],
     "origin": "江湖匠人锻造",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tian_qi"
     ],
@@ -947,16 +1017,21 @@
   {
     "id": "item_li_xun_huan_de_fei_dao",
     "name": "李寻欢的飞刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hong_hai_er",
     "one_line": "李寻欢的飞刀，被林诗音送给红孩儿护身",
     "description": "李寻欢的飞刀，刀锋锐利，蕴含深厚内力，被林诗音送给红孩儿作为护身符",
     "effects": [
-      "护身",
-      "攻击"
+      {
+        "type": "效果",
+        "description": "护身"
+      },
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "李寻欢",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_li_xun_huan",
       "char_hong_hai_er",
@@ -979,15 +1054,17 @@
   {
     "id": "item_zhu_ge_nu",
     "name": "诸葛弩",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_tian_qi",
     "one_line": "十余人手持的连弩，近距离威力极强",
     "description": "诸葛连弩，可连续发射弩箭，十余人同时使用时形成密集箭雨，近距离内无可比拟",
     "effects": [
-      "远程密集攻击"
+      {
+        "type": "效果",
+        "description": "远程密集攻击"
+      }
     ],
     "origin": "军用器械",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tian_qi"
     ],
@@ -1008,16 +1085,21 @@
   {
     "id": "item_xiao_li_fei_dao",
     "name": "小李飞刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_li_xun_huan",
     "one_line": "李寻欢的随身飞刀，从不虚发",
     "description": "一柄很轻很薄的小刀，是李寻欢的标志性武器，江湖传说从不虚发，百步之内取人性命如探囊取物。",
     "effects": [
-      "远程攻击",
-      "一击必杀"
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      },
+      {
+        "type": "效果",
+        "description": "一击必杀"
+      }
     ],
     "origin": "李家祖传",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_li_xun_huan"
     ],
@@ -1082,17 +1164,25 @@
   {
     "id": "item_wu_du_shui_jing",
     "name": "五毒水晶",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_ji_le_dong_zhu",
     "one_line": "极乐峒主炼制的剧毒，无色无味",
     "description": "苗疆极乐峒主精炼而成的剧毒，无色无味，透明如水晶，中毒者全身肌肤渐渐变得透明，五脏六腑历历可数，毒发无救。",
     "effects": [
-      "中毒",
-      "肌肤透明",
-      "致命"
+      {
+        "type": "效果",
+        "description": "中毒"
+      },
+      {
+        "type": "效果",
+        "description": "肌肤透明"
+      },
+      {
+        "type": "效果",
+        "description": "致命"
+      }
     ],
     "origin": "苗疆极乐峒",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ji_le_dong_zhu",
       "char_xin_mei_da_shi"
@@ -1121,15 +1211,17 @@
   {
     "id": "item_mei_hua_xue_hua",
     "name": "梅花血花",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "梅花盗杀人时留下的五点血迹，状如梅花",
     "description": "梅花盗杀人后在受害者身上留下的独特伤痕，五点血迹状如梅花，是梅花盗的标志性作案痕迹",
     "effects": [
-      "标记身份"
+      {
+        "type": "效果",
+        "description": "标记身份"
+      }
     ],
     "origin": "梅花盗",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1148,15 +1240,17 @@
   {
     "id": "item_li_xun_huan_cai_dan",
     "name": "李寻欢菜单",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_xun_huan",
     "one_line": "李寻欢写给少林的菜单，要求四菜一汤三斤竹叶青",
     "description": "李寻欢以灵飞经书法写就的菜单，包含红焖冬笋、汉罗斋、发菜花菇、翡翠菜心、笋尖冬菇豆腐羹四菜一汤，外加三斤上好竹叶青",
     "effects": [
-      "展示李寻欢傲骨"
+      {
+        "type": "效果",
+        "description": "展示李寻欢傲骨"
+      }
     ],
     "origin": "李寻欢",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_xun_huan"
     ],
@@ -1177,7 +1271,7 @@
   {
     "id": "item_gang_ban",
     "name": "钢板",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_shen_lao_san",
     "one_line": "申老三胸前藏着的钢板，可挡利剑",
     "description": "申老三胸前藏着的一块钢板，能挡住阿飞的利剑一刺，可见其坚硬程度",
@@ -1188,7 +1282,6 @@
       }
     ],
     "origin": "申老三所藏",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shen_lao_san"
     ],
@@ -1209,7 +1302,7 @@
   {
     "id": "item_jiu_gu_cu_sheng_wang",
     "name": "九股粗绳网",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_bai_xiao_sheng",
     "one_line": "浸有桐油的九股粗绳结成的巨网",
     "description": "浸有桐油的九股粗绳结成的巨网，与整个屋子同样大小，一旦撒下难以逃脱",
@@ -1220,7 +1313,6 @@
       }
     ],
     "origin": "百晓生等人所设陷阱",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bai_xiao_sheng",
       "char_a_fei"
@@ -1242,7 +1334,7 @@
   {
     "id": "item_bai_la_gan_zi",
     "name": "白蜡竿子",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xin_chong",
     "one_line": "心宠和百晓生手中所持的长竿",
     "description": "很长的白蜡竿子，心宠和百晓生各持一根，用来点穴制敌",
@@ -1253,7 +1345,6 @@
       }
     ],
     "origin": "少林",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xin_chong",
       "char_bai_xiao_sheng"
@@ -1275,13 +1366,12 @@
   {
     "id": "item_nai_ping_xin_jing",
     "name": "耐平心经",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xin_mei",
     "one_line": "少林藏经之一，七次失窃中唯一非武林秘笈的佛门经典",
     "description": "耐平心经是少林藏经之一，在七次失窃事件中被偷走，是一部佛门经典而非武林秘笈",
     "effects": [],
     "origin": "少林寺",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xin_mei"
     ],
@@ -1302,13 +1392,12 @@
   {
     "id": "item_du_jing_liu_ji",
     "name": "读经鎏记",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xin_mei",
     "one_line": "心眉大师的读经笔记，最后一页写有嫌疑人姓名",
     "description": "心眉大师的读经鎏记，最后一页本应写有他怀疑的偷经人姓名，但已被撕下",
     "effects": [],
     "origin": "心眉大师所著",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xin_mei",
       "char_xin_shu"
@@ -1337,13 +1426,12 @@
   {
     "id": "item_xue_bei_dan",
     "name": "血被单",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xin_mei",
     "one_line": "覆在心眉尸身上的白被单，沾有血迹",
     "description": "覆在心眉尸身上的白被单，上面沾有血迹，被李寻欢掀起以查看尸身",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xin_mei"
     ],
@@ -1364,16 +1452,21 @@
   {
     "id": "item_da_mo_yi_jin_jing",
     "name": "达摩易筋经",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "少林寺至宝，达摩祖师所传内功心法",
     "description": "少林寺镇寺之宝，达摩祖师亲传的内功修炼秘籍，载有易筋经功法，乃武林中最珍贵的内功典籍之一",
     "effects": [
-      "修炼内功",
-      "提升功力"
+      {
+        "type": "效果",
+        "description": "修炼内功"
+      },
+      {
+        "type": "效果",
+        "description": "提升功力"
+      }
     ],
     "origin": "达摩祖师",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xin_mei",
       "char_xin_chong",
@@ -1396,13 +1489,12 @@
   {
     "id": "item_qiang_jian",
     "name": "枪尖",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yang_cheng_zu",
     "one_line": "杨承祖铁枪的枪尖，被青面汉子折断",
     "description": "杨承祖所使铁枪的枪尖，被青面瘦长汉子轻易折断，插入桌面。",
     "effects": [],
     "origin": "杨家枪",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yang_cheng_zu",
       "char_qing_mian_shou_chang_han_zi"
@@ -1424,15 +1516,17 @@
   {
     "id": "item_huang_tong_zhi_qian",
     "name": "黄铜制钱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_huang_shan_shao_nian",
     "one_line": "黄衫少年用来控制他人的六枚黄铜制钱",
     "description": "黄衫少年从怀中取出的六枚黄铜铸成的制钱，放在每人头顶，被放者不敢动弹，似有大祸临头之感。",
     "effects": [
-      "威慑控制"
+      {
+        "type": "效果",
+        "description": "威慑控制"
+      }
     ],
     "origin": "神秘组织",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_huang_shan_shao_nian"
     ],
@@ -1453,13 +1547,12 @@
   {
     "id": "item_yang_cheng_zu_yao_dao",
     "name": "杨承祖腰刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yang_cheng_zu",
     "one_line": "黄衫大汉递给杨承祖的腰刀，用来杀死胡媚",
     "description": "黄衫大汉拔出的腰刀，刀刃锋利，杀人不用第二刀，被用来砍在胡媚脖子上",
     "effects": [],
     "origin": "黄衫势力",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yang_cheng_zu",
       "char_hu_mei",
@@ -1482,16 +1575,21 @@
   {
     "id": "item_she_bian",
     "name": "蛇鞭",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xi_men_rou",
     "one_line": "西门柔的乌黑长蛇鞭，长约两丈七八，出神入化如活物般长了眼睛",
     "description": "一条乌黑的长鞭，长近三丈，鞭身如蛇般灵活，到了西门柔手上便如活物般长了眼睛，能卷落铜钱而不伤人毫发，旋转时可拗断飞来的标枪",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": null,
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xi_men_rou"
     ],
@@ -1514,15 +1612,17 @@
   {
     "id": "item_jin_gang_tie_guai",
     "name": "金刚铁拐",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhu_ge_gang",
     "one_line": "诸葛刚的金刚铁拐，重六十三斤，是武林中最重的兵器之一",
     "description": "一只金刚铁拐，重六十三斤，天下武林豪杰所使的兵器没有一个比它更重，诸葛刚以此施展出横扫千军，力道无与伦比",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": null,
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhu_ge_gang"
     ],
@@ -1545,16 +1645,21 @@
   {
     "id": "item_pan_guan_bi",
     "name": "判官笔",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_gao_xing_kong",
     "one_line": "高行空的一对判官笔，点穴名家的标志性兵器",
     "description": "一对判官笔，自长袖中退出，是点穴名家高行空的标志性兵器，配合其精妙点穴功夫使用",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": null,
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gao_xing_kong"
     ],
@@ -1575,16 +1680,21 @@
   {
     "id": "item_tang_lang_dao",
     "name": "螳螂刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_tang_du",
     "one_line": "唐独的奇形外门兵刃，似刀非刀似锯非锯，刀上剧毒",
     "description": "一对奇形外门兵刃，看来似刀非刀似锯非锯，阴森森地发着碧光，兵刃上显然有剧毒，无论谁只要被划破一丝血口，一个对时内必死无救",
     "effects": [
-      "伤害",
-      "减益"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "减益"
+      }
     ],
     "origin": null,
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tang_du"
     ],
@@ -1605,15 +1715,17 @@
   {
     "id": "item_zi_mu_gang_huan",
     "name": "子母钢环",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_shang_guan_fei",
     "one_line": "上官飞的子母钢环，险中之险的绝险兵器，招招抢攻",
     "description": "一双子母钢环，是险中之险的绝险兵器，一出手就是招招抢攻的进手招式，不能伤人便被人伤，武林中敢用这种兵器的人武功绝不会弱",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": null,
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shang_guan_fei"
     ],
@@ -1634,15 +1746,17 @@
   {
     "id": "item_biao_qiang",
     "name": "标枪",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_yan_shuang_fei",
     "one_line": "燕双飞的四十九柄标枪，有长有短，枪头红缨鲜红如血",
     "description": "七七四十九柄标枪，密密地插在刀带上，有长有短，长的一尺三寸，短的六寸五分，枪头的红缨鲜红如血，燕双飞双手能顷刻间连发四十九柄，百发百中",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": null,
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yan_shuang_fei"
     ],
@@ -1663,13 +1777,12 @@
   {
     "id": "item_xin_zhi",
     "name": "书信",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "诸葛刚留下的神秘书信，上写九月十五夜兴云庄有重宝将现",
     "description": "一封揉皱了的纸，上面写着'九月十五夜，兴云庄有重宝将现，盼阁下勿失之交臂'，只三句话没有署名，但信上说的越少反而越能引起好奇心，写信人很懂得人的心理",
     "effects": [],
     "origin": "诸葛刚",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhu_ge_gang",
       "char_jiu_gui"
@@ -1691,13 +1804,12 @@
   {
     "id": "item_chun_jin_da_qian",
     "name": "纯金大钱",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "五位来客所送八色礼物之一，纯金打成，重达四五斤",
     "description": "用纯金打成的大钱，至少也有四五斤重，是诸葛刚等五人送给林诗音的寿礼，出手极为大方，连龙啸云在世时都无人送过这么重的礼。",
     "effects": [],
     "origin": "诸葛刚等五人所赠",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zhu_ge_gang"
     ],
@@ -1718,7 +1830,7 @@
   {
     "id": "item_guo_song_yang_tie_jian",
     "name": "郭嵩阳铁剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_guo_song_yang",
     "one_line": "郭嵩阳惯用铁剑，可折断小李飞刀刀锋",
     "description": "郭嵩阳所用铁剑，剑身乌黑，剑气森寒。此剑迎风挥出时寒光逼人，可摧红叶碎成血雨，更能折断小李飞刀刀锋，足见其锋利坚硬。",
@@ -1729,7 +1841,6 @@
       }
     ],
     "origin": "不详",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_guo_song_yang"
     ],
@@ -1758,13 +1869,12 @@
   {
     "id": "item_a_fei_zhu_chu_tu",
     "name": "阿飞住处图",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_sun_xiao_hong",
     "one_line": "记录阿飞住处的纸卷。",
     "description": "孙小红交给李寻欢的一张纸卷，上面画着阿飞目前的住处，以便李寻欢按图索骥。",
     "effects": [],
     "origin": "孙小红",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_sun_xiao_hong",
       "char_li_xun_huan",
@@ -1787,15 +1897,17 @@
   {
     "id": "item_jiu_huan_dao",
     "name": "九环刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_chu_xiang_yu",
     "one_line": "楚相羽的佩刀，刀环相击声势惊人",
     "description": "楚相羽腰间所挂的九环刀，刀身厚重，环环相扣，挥动时刀环相击发出哗啦啦的响声，声势惊人，配合九九八十一手万胜连环刀法威力极大。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "洪运镖局",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chu_xiang_yu"
     ],
@@ -1829,16 +1941,21 @@
   {
     "id": "item_xie_zi_wei",
     "name": "蝎子尾",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_lan_xie_zi",
     "one_line": "蓝蝎子的独门暗器，形如蝎尾，带倒刺，见血封喉",
     "description": "蓝蝎子藏于长袖中的独门兵器，形如放大了十几倍的蝎子毒尾，长长的，弯弯的，似软实硬，可以随意曲折，由头到尾都带着钩子般的倒刺，一击便可封喉取命。",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "不详",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_lan_xie_zi"
     ],
@@ -1865,13 +1982,12 @@
   {
     "id": "item_han_yan_guan",
     "name": "旱烟管",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_sun_lao_xian_sheng",
     "one_line": "老人随身的旱烟管，暗藏武功",
     "description": "两尺长的旱烟管，老人用来抽烟，同时也是其武功的载体，烟管动作中暗藏精微变化",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_sun_lao_xian_sheng"
     ],
@@ -1892,15 +2008,17 @@
   {
     "id": "item_bai_yin_jiu_ping",
     "name": "白银酒瓶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_xun_huan",
     "one_line": "李寻欢随身携带的扁酒瓶",
     "description": "李寻欢随身携带的扁扁的白银打成的酒瓶，里面装着酒，是他消愁的伴侣。",
     "effects": [
-      "盛酒"
+      {
+        "type": "效果",
+        "description": "盛酒"
+      }
     ],
     "origin": "白银打造",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_xun_huan"
     ],
@@ -1919,13 +2037,12 @@
   {
     "id": "item_jiu_ping",
     "name": "酒瓶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_xun_huan",
     "one_line": "李寻欢随身携带的半瓶酒",
     "description": "李寻欢随身携带的酒瓶，瓶子里还剩下半瓶酒，是他排遣寂寞的伴侣，酒瓶是他行走江湖的标志性随身之物。",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_xun_huan"
     ],
@@ -1946,15 +2063,17 @@
   {
     "id": "item_shang_guan_jin_hong_de_tiao_zhan_xin",
     "name": "上官金虹的挑战信",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_xun_huan",
     "one_line": "上官金虹亲笔所书，约李寻欢十月初一于山谷飞泉之下相会的挑战信",
     "description": "上官金虹写给李寻欢的挑战信，信中客气地邀请李寻欢于十月初一到山谷飞泉之下相会，署名赫然是上官金虹。信虽措辞谦恭，但实为武林第一人的战书，接到此信之人无不心惊胆战。",
     "effects": [
-      "引发李寻欢与上官金虹决战的导火索"
+      {
+        "type": "效果",
+        "description": "引发李寻欢与上官金虹决战的导火索"
+      }
     ],
     "origin": "上官金虹",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_li_xun_huan",
       "char_shang_guan_jin_hong"
@@ -1976,15 +2095,17 @@
   {
     "id": "item_xie_zi_wei_bing",
     "name": "蝎尾兵器",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_lan_xie_zi",
     "one_line": "蓝蝎子将蝎尾形兵器接在断腕上，以宽大衣袖遮掩，可释放剧毒",
     "description": "蓝蝎子右手被李寻欢折断后，将蝎尾形兵器接在断腕上，用宽大衣袖遮住。兵器可射出青蓝色电光般的毒刺，中者剧毒入体，七步必死。",
     "effects": [
-      "蝎尾剧毒，七步必死"
+      {
+        "type": "效果",
+        "description": "蝎尾剧毒，七步必死"
+      }
     ],
     "origin": "蓝蝎子自用暗器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lan_xie_zi"
     ],
@@ -2005,15 +2126,17 @@
   {
     "id": "item_song_yang_tie_jian",
     "name": "嵩阳铁剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_guo_song_yang",
     "one_line": "郭嵩阳的成名兵器",
     "description": "名动天下的嵩阳铁剑，以精铁铸成，剑身沉厚，剑锋凌厉，是郭嵩阳仗之纵横江湖的成名兵器。临死前将剑插入山石，以尸体悬挂飞泉之上。",
     "effects": [
-      "攻杀"
+      {
+        "type": "效果",
+        "description": "攻杀"
+      }
     ],
     "origin": "嵩阳铁剑传承",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_guo_song_yang"
     ],
@@ -2036,15 +2159,17 @@
   {
     "id": "item_niu_rou_tang",
     "name": "牛肉汤",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "林仙儿炖给阿飞喝的滋补牛肉汤",
     "description": "林仙儿精心炖制的牛肉汤，香味浓郁，滋补身体，是她照顾阿飞日常饮食的一部分",
     "effects": [
-      "增益"
+      {
+        "type": "效果",
+        "description": "增益"
+      }
     ],
     "origin": "林仙儿烹饪",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lin_xian_er",
       "char_a_fei"
@@ -2066,13 +2191,12 @@
   {
     "id": "item_hu_pi_yi_fu",
     "name": "狐皮衣服",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "阿飞打猎所获的狐皮制成的衣物，当时正风行",
     "description": "阿飞打猎获得的狐狸皮毛制成的衣物，在当时正流行，林仙儿将其变卖换取银两维持生活",
     "effects": [],
     "origin": "阿飞打猎所得",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_a_fei",
       "char_lin_xian_er"
@@ -2094,16 +2218,21 @@
   {
     "id": "item_zhen_zhu_fen",
     "name": "珍珠粉",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_lin_xian_er",
     "one_line": "珍珠磨成的粉，女子服用可保青春",
     "description": "珍珠磨成的粉末，每天服用可使青春永驻，林仙儿视为珍宝。用小木瓶盛装，配合茶水吞服。据说价值不菲。",
     "effects": [
-      "驻颜",
-      "延缓衰老"
+      {
+        "type": "效果",
+        "description": "驻颜"
+      },
+      {
+        "type": "效果",
+        "description": "延缓衰老"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_lin_xian_er"
     ],
@@ -2124,16 +2253,21 @@
   {
     "id": "item_xing_yun_zhuang_cang_bao",
     "name": "兴云庄藏宝",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "传闻藏于兴云庄园中的宝藏，疑为骗局",
     "description": "据传兴云庄园中藏有宝藏，龙啸云认为李寻欢知道藏宝所在，但李寻欢指出这从头到尾就是个骗局",
     "effects": [
-      "引发各方争夺",
-      "成为阴谋导火索"
+      {
+        "type": "效果",
+        "description": "引发各方争夺"
+      },
+      {
+        "type": "效果",
+        "description": "成为阴谋导火索"
+      }
     ],
     "origin": "传闻/骗局",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_li_xun_huan",
       "char_long_xiao_yun"
@@ -2155,13 +2289,12 @@
   {
     "id": "item_soft_wood_sword",
     "name": "软木剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_a_fei",
     "one_line": "阿飞的新佩剑",
     "description": "一柄很薄的剑，很轻，连剑柄都是用最轻的软木做成。没有剑锷护手。",
     "effects": [],
     "origin": "林仙儿特地找人铸的",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_a_fei",
       "char_lin_xian_er"
@@ -2183,13 +2316,12 @@
   {
     "id": "item_yin_ji",
     "name": "银戟",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "吕凤先曾经的兵器，在兵器谱上排名第五",
     "description": "银戟温侯的标志性兵器，曾被列入百晓生兵器谱第五位，吕凤先因不满排名而自毁此戟，转练手指绝技",
     "effects": [],
     "origin": "吕凤先前使用的兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lv_feng_xian"
     ],
@@ -2210,7 +2342,7 @@
   {
     "id": "item_jiu_bei_sui_pian",
     "name": "酒杯碎片",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_a_fei",
     "one_line": "阿飞握碎的酒杯，碎片嵌入肉中",
     "description": "阿飞因吕凤先的话语刺激而捏碎酒杯，碎片嵌入掌心，鲜血染红了手，他以肉体痛苦来刺激精神振作",
@@ -2221,7 +2353,6 @@
       }
     ],
     "origin": "饺子店酒杯",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_a_fei"
     ],
@@ -2242,7 +2373,7 @@
   {
     "id": "item_long_feng_shuang_huan",
     "name": "龙凤双环",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_shang_guan_fei",
     "one_line": "上官飞的兵器，武林中至绝至险之兵刃",
     "description": "龙凤双环是武林中至绝至险之兵刃，一寸短一寸险，脱手飞出时更是险中之险，若非情急拼命不会轻易使出",
@@ -2257,7 +2388,6 @@
       }
     ],
     "origin": "上官金虹",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shang_guan_fei",
       "char_shang_guan_jin_hong"
@@ -2279,13 +2409,12 @@
   {
     "id": "item_fen_hong_se_de_xin",
     "name": "粉红色的信",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "一封粉红色的信，只有几个字",
     "description": "淡黄色卷宗中唯一一封粉红色的信，上面写着'老地方等候，吕凤先也在等你'，由林仙儿发出",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shang_guan_jin_hong"
     ],
@@ -2306,13 +2435,12 @@
   {
     "id": "item_qing_gang_jian",
     "name": "青钢剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_a_fei",
     "one_line": "阿飞从镖客身上借来的普通青钢剑",
     "description": "一柄很普通的青钢剑，是阿飞在半途中从一个镖客身上借来的，但上官金虹却对这柄剑很有兴趣",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_a_fei"
     ],
@@ -2340,13 +2468,12 @@
   {
     "id": "item_a_fei_de_jian",
     "name": "阿飞的剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_a_fei",
     "one_line": "阿飞随身佩剑，被上官金虹插入泥土中",
     "description": "阿飞的随身佩剑，剑身冰冷锋利，曾伴随阿飞行走江湖。在这一章中被上官金虹取出插入泥土，贴着阿飞的脸颊划破血口。",
     "effects": [],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_a_fei",
       "char_shang_guan_jin_hong"
@@ -2368,13 +2495,12 @@
   {
     "id": "item_zhu_bao_xiang",
     "name": "珠宝箱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shang_guan_jin_hong",
     "one_line": "上官金虹展示的珠光宝气的箱子",
     "description": "一只装满珠宝的箱子，打开时珠光宝气辉煌夺目，灯光都为之黯淡。上官金虹用来展示金钱的力量，证明可以用财富买到一切。",
     "effects": [],
     "origin": "金钱帮",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_shang_guan_jin_hong",
       "char_a_fei"
@@ -2396,13 +2522,12 @@
   {
     "id": "item_song_wen_gu_jian",
     "name": "松纹古剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xi_men_yu",
     "one_line": "西门玉的佩剑，乌鞘镶翡翠",
     "description": "西门玉随身佩带的松纹古剑，乌鞘上镶着几块翡翠，剑身古朴有松纹。西门玉十岁时便以此剑杀人，是碧华轩的传世之剑。",
     "effects": [],
     "origin": "碧华轩",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xi_men_yu"
     ],
@@ -2425,13 +2550,12 @@
   {
     "id": "item_nan_shou_guan_cai",
     "name": "楠寿棺材",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shang_guan_jin_hong",
     "one_line": "姓宋神秘人定制的崭新楠木棺材，内装上官飞尸体",
     "description": "一口崭新的楠木棺材，油漆未干，分量不轻。由四名脚夫从半夜开始运送至如云客栈高贵厅。棺内装有上官飞的尸体，尸体已被清洗干净，穿着崭新寿衣，咽喉处有一处致命伤口。",
     "effects": [],
     "origin": "姓宋的神秘人定制",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shang_guan_jin_hong",
       "char_shang_guan_fei"
@@ -2453,16 +2577,21 @@
   {
     "id": "item_feng_yu_shuang_liu_xing",
     "name": "风雨双流星",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiang_song",
     "one_line": "向松的独门兵器，金链两端各悬一个瓜大的铜锤",
     "description": "一根金链两端各悬一个瓜大的铜锤，挥舞时如流星般飞射，攻击力极强，是向松的标志性武器",
     "effects": [
-      "远距离打击",
-      "链身缠绕控制"
+      {
+        "type": "效果",
+        "description": "远距离打击"
+      },
+      {
+        "type": "效果",
+        "description": "链身缠绕控制"
+      }
     ],
     "origin": "金钱帮",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiang_song"
     ],
@@ -2485,15 +2614,17 @@
   {
     "id": "item_gui_tou_dao",
     "name": "鬼头刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhi_dao_ren",
     "one_line": "执刀黄衣人的兵器，刀身宽大，刀头如鬼面",
     "description": "金钱帮黄衣人所用鬼头刀，刀身宽厚沉重，刀头雕有鬼面纹饰，劈砍威力极大",
     "effects": [
-      "劈砍伤害"
+      {
+        "type": "效果",
+        "description": "劈砍伤害"
+      }
     ],
     "origin": "金钱帮",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhi_dao_ren"
     ],
@@ -2514,15 +2645,17 @@
   {
     "id": "item_sang_men_jian",
     "name": "丧门剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhi_jian_ren",
     "one_line": "执剑黄衣人的兵器，剑身狭长，剑势凌厉",
     "description": "金钱帮黄衣人所用丧门剑，剑身狭长锋利，出剑凌厉狠辣，专取要害",
     "effects": [
-      "穿刺伤害"
+      {
+        "type": "效果",
+        "description": "穿刺伤害"
+      }
     ],
     "origin": "金钱帮",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhi_jian_ren"
     ],
@@ -2543,16 +2676,21 @@
   {
     "id": "item_tie_xia_zi",
     "name": "铁匣子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shang_guan_jin_hong",
     "one_line": "上官金虹留在八角亭顶的铁匡子，内装一束头发用于政决李寻欢心智",
     "description": "普通铁匡子，无雕纹装饰，无机关消息，用黄色布带折住放在八角亭顶金顶上，内含一束黑色长发，是上官金虹对李寻欢的心理攻击手段",
     "effects": [
-      "心理攻击",
-      "动摇对手心智"
+      {
+        "type": "效果",
+        "description": "心理攻击"
+      },
+      {
+        "type": "效果",
+        "description": "动摇对手心智"
+      }
     ],
     "origin": "上官金虹放置",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shang_guan_jin_hong",
       "char_li_xun_huan"
@@ -2574,7 +2712,7 @@
   {
     "id": "item_lian_hua_bao_dian",
     "name": "怜花宝典",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "王怜花毕生所学之秘笈，藏于兴云庄，疑被龙小云所得",
     "description": "王怜花将毕生所学全记载在上面的一本书，涵盖星卜琴棋书画医道易容及武功，是稀世的武功秘笈，藏于兴云庄中",
@@ -2585,7 +2723,6 @@
       }
     ],
     "origin": "王怜花所著",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_wang_lian_hua",
       "char_long_xiao_yun"
@@ -2629,13 +2766,12 @@
   {
     "id": "item_zhu_jian",
     "name": "竹剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_a_fei",
     "one_line": "阿飞以竹子削成的临时剑器",
     "description": "阿飞从路旁竹林砍下竹子，剖成三片，削尖削平，撕衣襟缠住剑柄，制成轻如柳叶的竹剑",
     "effects": [],
     "origin": "路旁竹林",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_a_fei"
     ],
@@ -2665,16 +2801,21 @@
   {
     "id": "item_feng_chi_liu_jin_dang",
     "name": "凤翅流金铛",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "稀有奇门兵刃，满是倒刺，推撕挂三诀兼备",
     "description": "凤翅流金铛是一种极为罕见的奇门兵刃，形如凤翅，通体鎏金，铛上满是倒刺。可用推字诀出击，同时兼带撕、挂两诀妙用，被其沾着一点，皮肉立刻被撕得四分五裂，威力惊人。",
     "effects": [
-      "推击伤害",
-      "撕裂伤害"
+      {
+        "type": "效果",
+        "description": "推击伤害"
+      },
+      {
+        "type": "效果",
+        "description": "撕裂伤害"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [

@@ -2,16 +2,21 @@
   {
     "id": "item_shen_jia_de_jin_zhen",
     "name": "沈家的金针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "江湖中有名的金针，比风四娘的银针更有名。",
     "description": "沈家的金针是江湖中闻名遐迩的暗器，据说比风四娘的银针更为高超，很少有人能抵挡。",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "沈家",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -30,15 +35,17 @@
   {
     "id": "item_wu_mu_he",
     "name": "乌木盒",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xia_zi",
     "one_line": "装着花平断手的盒子。",
     "description": "一个乌木制成的盒子，里面装着花平血淋淋的右手，用来威胁风四娘。",
     "effects": [
-      "威胁"
+      {
+        "type": "效果",
+        "description": "威胁"
+      }
     ],
     "origin": "瞎子",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hua_ping"
     ],
@@ -59,15 +66,17 @@
   {
     "id": "item_jin_pan",
     "name": "金盘",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xin_xin",
     "one_line": "装着新衣裳的金盘。",
     "description": "两个垂髫少女手里托着的金盘，上面放着一套质料高贵，颜色鲜艳的新衣裳。",
     "effects": [
-      "装饰"
+      {
+        "type": "效果",
+        "description": "装饰"
+      }
     ],
     "origin": "花公子",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xin_xin",
       "char_hua_ru_yu"
@@ -89,16 +98,21 @@
   {
     "id": "item_chang_bian",
     "name": "长鞭",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bian_ke",
     "one_line": "一条四五丈长的长鞭，运用灵活。",
     "description": "一条四五丈长的长鞭，鞭梢在心心手腕上轻轻一搭，心心手里的刀已冲天飞起。鞭子运用灵活，如同长蛇。",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bian_ke"
     ],
@@ -126,16 +140,21 @@
   {
     "id": "item_zhan_hu_dao",
     "name": "斩虎刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_li_qing_feng",
     "one_line": "厉青锋的兵器，重五十七斤的金背大刀",
     "description": "五十七斤重的金背大刀，刀身比人还长，在斜阳下闪闪发光，能一刀砍断海碗粗的枫树",
     "effects": [
-      "劈砍",
-      "威慑"
+      {
+        "type": "效果",
+        "description": "劈砍"
+      },
+      {
+        "type": "效果",
+        "description": "威慑"
+      }
     ],
     "origin": "厉青锋成名兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_li_qing_feng"
     ],
@@ -156,16 +175,21 @@
   {
     "id": "item_yin_wan",
     "name": "银丸",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_li_qing_feng",
     "one_line": "厉青锋的暗器，龙眼大小的银丸",
     "description": "龙眼般大小的银丸，以金弓发射，闪电般飞行，能准确击中目标如长鞭般灵活的兵器",
     "effects": [
-      "远程攻击",
-      "击落兵器"
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      },
+      {
+        "type": "效果",
+        "description": "击落兵器"
+      }
     ],
     "origin": "厉青锋暗器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_li_qing_feng"
     ],
@@ -186,16 +210,21 @@
   {
     "id": "item_jin_gong",
     "name": "金弓",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_li_qing_feng",
     "one_line": "厉青锋的长弓，弓弦利如刀锋",
     "description": "比人还长的金背弓，弓弦锋利如刀刃，既能发射银丸，又能近身格挡，可割破铁拳",
     "effects": [
-      "远程射击",
-      "格挡切割"
+      {
+        "type": "效果",
+        "description": "远程射击"
+      },
+      {
+        "type": "效果",
+        "description": "格挡切割"
+      }
     ],
     "origin": "厉青锋兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_li_qing_feng"
     ],
@@ -216,16 +245,21 @@
   {
     "id": "item_ge_lu_dao",
     "name": "割鹿刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiao_shi_yi_lang",
     "one_line": "萧十一郎的宝刀，形状与一般刀不同",
     "description": "萧十一郎的成名宝刀，形状独特与一般刀不同，锋利无比，能一招削断松纹剑，江湖中人人觊觎",
     "effects": [
-      "极锋利",
-      "削铁如泥"
+      {
+        "type": "效果",
+        "description": "极锋利"
+      },
+      {
+        "type": "效果",
+        "description": "削铁如泥"
+      }
     ],
     "origin": "传说中的宝刀",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xiao_shi_yi_lang"
     ],
@@ -309,15 +343,17 @@
   {
     "id": "item_song_wen_jian",
     "name": "松纹剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xie_tian_shi",
     "one_line": "谢天石的佩剑，被割鹿刀一招削断",
     "description": "点苍派掌门谢天石的佩剑，名贵宝剑，却被萧十一郎的割鹿刀交手一招即削断",
     "effects": [
-      "劈砍"
+      {
+        "type": "效果",
+        "description": "劈砍"
+      }
     ],
     "origin": "点苍派传承",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xie_tian_shi",
       "char_xiao_shi_yi_lang"
@@ -339,15 +375,17 @@
   {
     "id": "item_chen_nian_hua_diao",
     "name": "陈年花雕",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hua_ru_yu",
     "one_line": "花如玉提供的陈年花雕酒，用竹筒装着",
     "description": "二十斤陈年花雕酒，用五六个竹筒装着，每筒最少有三斤，还有七八样下酒的菜，从会走路的屋子顶部小窗送入",
     "effects": [
-      "一醉解千愁"
+      {
+        "type": "效果",
+        "description": "一醉解千愁"
+      }
     ],
     "origin": "花如玉提供",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_feng_si_niang",
       "char_shen_bi_jun",
@@ -370,13 +408,12 @@
   {
     "id": "item_cui_yu_er_huan",
     "name": "翠玉耳环",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_liu_su_zhou_zhi_qi",
     "one_line": "真正的祖母绿耳环，绿得晶莹清澈，姑苏难找第二对",
     "description": "一对真正的祖母绿耳环，绿得晶莹，绿得清澈，绿得令每个女人的心都动了，姑苏就很难找得出第二对来",
     "effects": [],
     "origin": "柳苏州赠予其妻",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_liu_su_zhou_zhi_qi",
       "char_liu_su_zhou"
@@ -398,13 +435,12 @@
   {
     "id": "item_hei_qi_ma_che",
     "name": "黑漆马车",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiao_shi_yi_lang",
     "one_line": "八匹骏马拉着的崭新黑漆马车，极为华丽",
     "description": "一辆崭新的、用八匹骏马拉着的黑漆马车，连风四娘都从未见过如此华丽的马车，是萧十一郎身份转变的象征",
     "effects": [],
     "origin": "不明",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xiao_shi_yi_lang"
     ],
@@ -425,13 +461,12 @@
   {
     "id": "item_xiao_shi_yi_lang_de_dao",
     "name": "萧十一郎的刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiao_shi_yi_lang",
     "one_line": "形式奇特的短刀，黄金刀鞘镶三粒黑珍珠",
     "description": "一柄形式奇特的短刀，刀鞘仿佛是黄金打成的，却镶着三粒人间少见的黑珍珠，衬着一身黑衣服更显得说不出的夺目",
     "effects": [],
     "origin": "不明",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xiao_shi_yi_lang"
     ],
@@ -459,16 +494,21 @@
   {
     "id": "item_er_huan",
     "name": "耳环",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiao_shi_yi_lang",
     "one_line": "柳苏州花八千两买下、萧十一郎花一万六千两强买的耳环，后被扔出窗外",
     "description": "一副颜色很好的耳环，柳苏州以八千两银子买下，萧十一郎为冰冰花一万六千两强买，最终因冰冰说不喜欢而被萧十一郎随手抛出窗外。",
     "effects": [
-      "引发萧十一郎与柳苏州的冲突",
-      "导致柳苏州让出座位"
+      {
+        "type": "效果",
+        "description": "引发萧十一郎与柳苏州的冲突"
+      },
+      {
+        "type": "效果",
+        "description": "导致柳苏州让出座位"
+      }
     ],
     "origin": "柳苏州购得",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiao_shi_yi_lang",
       "char_liu_su_zhou",
@@ -492,16 +532,21 @@
   {
     "id": "item_yuan_ji_yin_piao",
     "name": "源记银票",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiao_shi_yi_lang",
     "one_line": "杨家源记票号开出的十足兑现银票，共两张共一万六千两",
     "description": "杨家源记票号开出的银票，十足兑现，萧十一郎用两张共一万六千两银子买下耳环。",
     "effects": [
-      "用于购买耳环",
-      "显示萧十一郎财力雄厚"
+      {
+        "type": "效果",
+        "description": "用于购买耳环"
+      },
+      {
+        "type": "效果",
+        "description": "显示萧十一郎财力雄厚"
+      }
     ],
     "origin": "杨家源记票号",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiao_shi_yi_lang",
       "char_liu_su_zhou"
@@ -523,17 +568,25 @@
   {
     "id": "item_zi_mu_li_hun_quan",
     "name": "子母离魂圈",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ou_yang_wen_zhong",
     "one_line": "欧阳文仲的奇门兵刃，两个精光四射的连环钢环，带铃声",
     "description": "欧阳文仲威慑江湖的奇门兵刃，两个精光四射的连环钢环，环上带铃声可震人魂魄。招式变化最奇特，和所有软硬兵刃都完全不同，需十五年以上火候方能施展。",
     "effects": [
-      "铃声震人魂魄",
-      "招式变化奇特",
-      "连环出击"
+      {
+        "type": "效果",
+        "description": "铃声震人魂魄"
+      },
+      {
+        "type": "效果",
+        "description": "招式变化奇特"
+      },
+      {
+        "type": "效果",
+        "description": "连环出击"
+      }
     ],
     "origin": "传承",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ou_yang_wen_zhong"
     ],
@@ -554,17 +607,25 @@
   {
     "id": "item_bin_tie_yuan_yang_guai",
     "name": "镔铁鸳鸯拐",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ou_yang_wen_bo",
     "one_line": "欧阳文伯的外门兵器，一长一短两根黝黑铁拐，共重六十三斤",
     "description": "欧阳文伯使用的外门兵器，一长一短两根黝黑沉重的铁拐，共重六十三斤，没有惊人膂力连提都提不起来。其中还可夹带暗器，据说昔年太湖三杰就是死在这双兵器下。",
     "effects": [
-      "夹带暗器",
-      "膂力要求极高",
-      "沉重威猛"
+      {
+        "type": "效果",
+        "description": "夹带暗器"
+      },
+      {
+        "type": "效果",
+        "description": "膂力要求极高"
+      },
+      {
+        "type": "效果",
+        "description": "沉重威猛"
+      }
     ],
     "origin": "传承",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ou_yang_wen_bo"
     ],
@@ -585,13 +646,12 @@
   {
     "id": "item_wu_mu_zan",
     "name": "乌木簪",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_feng_si_niang",
     "one_line": "风四娘最珍惜的乌木簪，萧十一郎所赠",
     "description": "一根已经很陈旧的乌木簪，风四娘虽有无数珠宝首饰却一直用这根，因为是萧十一郎送给她的。",
     "effects": [],
     "origin": "萧十一郎赠送",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_feng_si_niang",
       "char_xiao_shi_yi_lang"
@@ -613,7 +673,7 @@
   {
     "id": "item_ming_zhang",
     "name": "明杖",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "盲人所用白色明杖，百炼精钢打制，内藏机簧暗器。",
     "description": "七名盲人使用的白色明杖，百炼精钢铸成，杖中藏有极厉害的机簧暗器，可射出浓烟毒雾。",
@@ -624,7 +684,6 @@
       }
     ],
     "origin": "残疾人帮派制式兵器",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [
       "skill_qi_sha_zhen"
@@ -645,7 +704,7 @@
   {
     "id": "item_gong_qin",
     "name": "古琴",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xuan_yuan_san_que",
     "one_line": "轩辕三缺的兵器，以琴为武器，琴弦齐断可发琴声控制七杀阵节奏。",
     "description": "轩辕三缺使用的古琴兵器，以精钢打制，刀劈不裂，双手捧琴可格挡利器，琴声可驱动七杀阵节奏。",
@@ -656,7 +715,6 @@
       }
     ],
     "origin": "轩辕三缺自用兵器",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xuan_yuan_san_que"
     ],
@@ -679,15 +737,17 @@
   {
     "id": "item_diao_hua_mu_jia_jing",
     "name": "雕花木架镜",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_feng_si_niang",
     "one_line": "配着雕花木架的镜子",
     "description": "一面配着雕花木架的铜镜，做工精致，是风四娘在苏州逛街时随手购买的物品。",
     "effects": [
-      "装饰"
+      {
+        "type": "效果",
+        "description": "装饰"
+      }
     ],
     "origin": "苏州商铺",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_feng_si_niang"
     ],
@@ -708,16 +768,21 @@
   {
     "id": "item_chen_xiang_shu_shu_zhuang_xia",
     "name": "沉香木梳妆匣",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_feng_si_niang",
     "one_line": "沉香木制的梳妆匣",
     "description": "用沉香木制成的精致梳妆匣，散发着淡淡香气，风四娘逛街时购得。",
     "effects": [
-      "收纳",
-      "芳香"
+      {
+        "type": "效果",
+        "description": "收纳"
+      },
+      {
+        "type": "效果",
+        "description": "芳香"
+      }
     ],
     "origin": "苏州商铺",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_feng_si_niang"
     ],
@@ -738,15 +803,17 @@
   {
     "id": "item_wu_xi_ni_wa_wa",
     "name": "无锡泥娃娃",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_feng_si_niang",
     "one_line": "一对无锡泥娃娃",
     "description": "两个无锡产的泥娃娃，做工精巧，是风四娘逛街时买来把玩的小物件。",
     "effects": [
-      "装饰"
+      {
+        "type": "效果",
+        "description": "装饰"
+      }
     ],
     "origin": "无锡",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_feng_si_niang"
     ],
@@ -767,16 +834,21 @@
   {
     "id": "item_yin_piao",
     "name": "银票",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiao_shi_yi_lang",
     "one_line": "利通号开出的银票",
     "description": "利通号开出的银票，信用极好，到处都可以兑现，萧十一郎提取了大量银票用于江湖开支。",
     "effects": [
-      "交易",
-      "流通"
+      {
+        "type": "效果",
+        "description": "交易"
+      },
+      {
+        "type": "效果",
+        "description": "流通"
+      }
     ],
     "origin": "利通号",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiao_shi_yi_lang",
       "char_yan_shi"
@@ -805,13 +877,12 @@
   {
     "id": "item_zhang_bu",
     "name": "账簿",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yang_kai_tai",
     "one_line": "利源利通钱庄的账簿",
     "description": "记录萧十一郎在利源利通两家钱庄存款明细的账簿，显示其尚存一百七十二万两",
     "effects": [],
     "origin": "利源利通钱庄",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yang_kai_tai",
       "char_xiao_shi_yi_lang"
@@ -833,13 +904,12 @@
   {
     "id": "item_zhu_guan",
     "name": "珠冠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ren_shang_ren",
     "one_line": "人上人头戴的珠冠",
     "description": "人上人头戴的装饰性珠冠，与其独臂残腿的形象形成对比",
     "effects": [],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ren_shang_ren"
     ],
@@ -860,13 +930,12 @@
   {
     "id": "item_li_yuan_li_tong_yin_zhuang",
     "name": "利源利通钱庄",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yang_kai_tai",
     "one_line": "杨开泰经营的两家钱庄",
     "description": "杨开泰经营的利源利通两家钱庄，萧十一郎在其中存有巨额银两",
     "effects": [],
     "origin": "杨家产业",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yang_kai_tai",
       "char_xiao_shi_yi_lang"
@@ -888,17 +957,25 @@
   {
     "id": "item_hong_ying_lv_liu_duan_jian",
     "name": "红樱绿柳短剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "红樱绿柳所用七寸短剑，剑中精魂，其利穿心",
     "description": "剑长仅七寸，以乌丝飞线驭动，剑气凌厉逼人，数十丈方圆内所有生物尽被笼罩。两柄短剑一红一绿，是红樱绿柳纵横天下的绝世利器。",
     "effects": [
-      "远程驭剑攻击",
-      "剑气笼罩数十丈",
-      "以飞线操纵如意"
+      {
+        "type": "效果",
+        "description": "远程驭剑攻击"
+      },
+      {
+        "type": "效果",
+        "description": "剑气笼罩数十丈"
+      },
+      {
+        "type": "效果",
+        "description": "以飞线操纵如意"
+      }
     ],
     "origin": "红樱绿柳自制",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_li_hong_ying",
       "char_yang_lv_liu"
@@ -920,16 +997,21 @@
   {
     "id": "item_mu_gun",
     "name": "木棍",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiao_shi_yi_lang",
     "one_line": "萧十一郎临时使用的长木棍",
     "description": "一丈二尺长的木棍，萧十一郎横持着与红樱绿柳对战，后被头顶撞断为两截",
     "effects": [
-      "格挡",
-      "弹射"
+      {
+        "type": "效果",
+        "description": "格挡"
+      },
+      {
+        "type": "效果",
+        "description": "弹射"
+      }
     ],
     "origin": "临时武器",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiao_shi_yi_lang"
     ],
@@ -948,16 +1030,21 @@
   {
     "id": "item_yu_zhi_ren_de_dao",
     "name": "鱼吃人的刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yu_chi_ren",
     "one_line": "鲨王鱼吃人所用之刀",
     "description": "鲨王鱼吃人随身佩戴的利刃，用于杀人越货，是江湖中令人闻风丧胆的凶器。",
     "effects": [
-      "锋利无比",
-      "一击致命"
+      {
+        "type": "效果",
+        "description": "锋利无比"
+      },
+      {
+        "type": "效果",
+        "description": "一击致命"
+      }
     ],
     "origin": "江湖",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yu_chi_ren"
     ],
@@ -978,7 +1065,7 @@
   {
     "id": "item_zhe_shan",
     "name": "折扇",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_shi_qiu_shan",
     "one_line": "史秋山的折扇武器",
     "description": "要命书生史秋山的独门武器，看似普通的折扇，实则锋利如刀，可要人性命。",
@@ -989,7 +1076,6 @@
       }
     ],
     "origin": "江湖",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shi_qiu_shan"
     ],
@@ -1013,13 +1099,12 @@
     "alias": [
       "盖子面具"
     ],
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "平的铁面具，用以隐藏身份。",
     "description": "平的铁面具，没有脸的轮廓和五官，只有两个洞露出眼睛，看起来像个盖子。神秘青衣人用以隐藏身份的工具。",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_qing_yi_ren"
     ],
@@ -1040,12 +1125,11 @@
   {
     "id": "item_jin_ke_luo",
     "name": "金柯萝",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "生长在悬崖上的剧毒灌木，藏人用以染黄袈裟",
     "description": "金柯萝是一种生长在悬崖上的灌木，枯黄了的金柯萝是藏人最普通的黄色染料，黄教喇嘛的袈裟就是用金柯萝染黄的，金柯萝却有剧毒，是种罕见的毒草。",
     "origin": "藏地悬崖",
-    "rarity": "稀世珍品",
     "effects": [
       {
         "type": "减益",
@@ -1072,13 +1156,12 @@
   {
     "id": "item_mu_zhi_mian_ju",
     "name": "木板面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_qiu_shan",
     "one_line": "青衣人脸上戴着的厚木板面具，用来遮住真面目",
     "description": "厚木板做成的面具，遮住整张脸，没有眉毛鼻子嘴巴，只有两个又黑又深的洞露出眼睛",
     "effects": [],
     "origin": "",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shi_qiu_shan",
       "char_lian_cheng_bi"
@@ -1100,13 +1183,12 @@
   {
     "id": "item_gou_lian_dao",
     "name": "钩镰刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "带长练的钩镰刀，江湖中罕见的外门兵器",
     "description": "一柄带着长练的钩镰刀，刚柔并济，使用此兵刃者必为一等一的高手。",
     "effects": [],
     "origin": "江湖",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1132,13 +1214,12 @@
   {
     "id": "item_lang_ya_bang",
     "name": "狼牙棒",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "纯银狼牙棒，极刚猛的外门兵器",
     "description": "一对纯银打成的狼牙棒，极刚猛，使用此兵刃者必为一等一的高手。",
     "effects": [],
     "origin": "江湖",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1157,7 +1238,7 @@
   {
     "id": "item_chun_yin_lang_ya_bang",
     "name": "纯银狼牙棒",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zheng_gang",
     "one_line": "郑刚使用的七十三斤纯银狼牙棒",
     "description": "一对纯银制成的狼牙棒，净重七十三斤，招式刚猛，威不可挡。",
@@ -1168,7 +1249,6 @@
       }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zheng_gang"
     ],
@@ -1191,7 +1271,7 @@
   {
     "id": "item_san_leng_tou_gu_zhen",
     "name": "三棱透骨针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "天下最可怕的七种暗器之一，三角形钉子状，乌黑细长。",
     "description": "一种三角形钉子形状的暗器，比普通钉子长些细些，颜色乌黑，通常用机簧发射，在水里能打出三五丈远，在水面上七八丈外也能取人性命。天下暗器一百七十多种中最可怕的七种之一。",
@@ -1202,7 +1282,6 @@
       }
     ],
     "origin": "天宗",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1221,7 +1300,7 @@
   {
     "id": "item_yin_dao",
     "name": "银刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ge_shu_tian",
     "one_line": "刺入逍遥侯心口的银刀，刀锋被他自己拔出。",
     "description": "一柄银刀，刺在逍遥侯哥舒天心口，刀锋已被他自己拔出来，还在流着血。鲜血从掌纹间流过，流出一个鲜红的'天'字。",
@@ -1232,7 +1311,6 @@
       }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ge_shu_tian"
     ],
@@ -1253,13 +1331,12 @@
   {
     "id": "item_feng_si_niang_liu_xin",
     "name": "风四娘留信",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_feng_si_niang",
     "one_line": "风四娘留给萧十一郎的信，归还了萧十一郎当初留下的信。",
     "description": "展开铺平的信纸，内容是萧十一郎当初留给风四娘的信，被风四娘珍藏并交还给萧十一郎，暗示她已决定赴死。",
     "effects": [],
     "origin": "风四娘",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_feng_si_niang",
       "char_xiao_shi_yi_lang"
@@ -1281,7 +1358,7 @@
   {
     "id": "item_xia_yi_wu_shuang_jin_jian",
     "name": "侠义无双金剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lian_cheng_bi",
     "one_line": "地方父老赠予连城璧的金剑，上刻\"侠义无双\"四字。",
     "description": "一柄精致古雅的黄金铸剑，剑身上刻着\"侠义无双\"四个字，代表了人们对连城璧的敬意。黄金本身并非其真正价值，而是那四个字的意义。这柄金色宝剑古朴雅致，仅供陈列而非实战。",
@@ -1292,7 +1369,6 @@
       }
     ],
     "origin": "地方父老相赠",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_lian_cheng_bi"
     ],
@@ -1313,13 +1389,12 @@
   {
     "id": "item_jin_jian",
     "name": "金剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lian_cheng_bi",
     "one_line": "黄金铸成的剑，刻有侠义无双四字。",
     "description": "一柄黄金铸成的剑，剑身上原刻有侠义无双四字颂词和当地父老联合署名，后被萧十一郎以大力金刚手武功抹去字迹，重新刻上侠义双无和大盗萧十一郎敬献字样。",
     "effects": [],
     "origin": "当地父老敬献",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xiao_shi_yi_lang",
       "char_lian_cheng_bi"

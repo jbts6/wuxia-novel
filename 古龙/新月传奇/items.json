@@ -7,11 +7,16 @@
     "one_line": "碗中无面而藏明珠，是面摊暗号中的奇异面。",
     "description": "面碗里盛的不是寻常面食，而是一颗龙眼大小的明珠，用来标识能吃下这种面的人。",
     "effects": [
-      "接头暗号",
-      "身份试探"
+      {
+        "type": "效果",
+        "description": "接头暗号"
+      },
+      {
+        "type": "效果",
+        "description": "身份试探"
+      }
     ],
     "origin": "江南泥巷面摊",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_qing_yi_ren",
       "char_mian_tan_lao_ban_niang"
@@ -37,11 +42,16 @@
     "one_line": "独臂人斜背的漆黑竹竿，暗藏其凶险剑法。",
     "description": "这根漆黑竹竿斜背在独臂人肩后，被他反手抽取，显然并非普通竹竿，而是施展杀招的随身兵器。",
     "effects": [
-      "隐藏兵器",
-      "配合一招夺命剑法"
+      {
+        "type": "效果",
+        "description": "隐藏兵器"
+      },
+      {
+        "type": "效果",
+        "description": "配合一招夺命剑法"
+      }
     ],
     "origin": "独臂人随身携带",
-    "rarity": "未知",
     "related_characters": [
       "char_du_bi_ren"
     ],
@@ -71,11 +81,16 @@
     "one_line": "楚留香撑着的新油纸伞，衬托其雨夜从容气度。",
     "description": "一柄很新的油纸伞，在斜风细雨中遮住楚留香，也让他进入泥巷时仍显得干净、舒展而从容。",
     "effects": [
-      "遮雨",
-      "烘托身份气度"
+      {
+        "type": "效果",
+        "description": "遮雨"
+      },
+      {
+        "type": "效果",
+        "description": "烘托身份气度"
+      }
     ],
     "origin": "楚留香随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -95,7 +110,7 @@
   {
     "id": "item_chun_si_shou_pa",
     "name": "纯丝手帕",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "绣有红色新月的旧手帕，是寻找焦林之女的关键信物。",
     "description": "雪白纯丝手帕已经泛黄，上面以红丝线绣着一钩弯弯的新月，对应焦林女儿脖子下面的新月胎记。",
@@ -106,7 +121,6 @@
       }
     ],
     "origin": "焦林保存十八年的寻女信物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jiao_lin",
       "char_jiao_lin_zhi_nv",
@@ -136,7 +150,7 @@
   {
     "id": "item_bai_fen_gou_wo_liu_zi",
     "name": "白粉狗窝留字",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hu_tie_hua",
     "one_line": "胡铁花按旧约留下的狗窝二字，表示处境紧急。",
     "description": "胡铁花在楚留香常去处用白粉写下狗窝二字，粉尘脱落后仍可判断已过去十五到二十天，是催促楚留香赶赴旧地的求救暗号。",
@@ -147,7 +161,6 @@
       }
     ],
     "origin": "楚留香与胡铁花少年时约定的呼救讯号",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hu_tie_hua",
       "char_chu_liu_xiang"
@@ -174,11 +187,16 @@
     "one_line": "三十年的女儿红在本章场景中推动识破或制敌。",
     "description": "坛中陈年女儿红被摆在桌上招待楚留香，实际与迷药疑云相连。",
     "effects": [
-      "诱客饮酒",
-      "烘托陷阱"
+      {
+        "type": "效果",
+        "description": "诱客饮酒"
+      },
+      {
+        "type": "效果",
+        "description": "烘托陷阱"
+      }
     ],
     "origin": "本章场景出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -203,11 +221,16 @@
     "one_line": "泸州大曲在本章场景中推动识破或制敌。",
     "description": "泸州大曲与女儿红并置，作为胡铁花口中待客的好酒，暗藏危险气息。",
     "effects": [
-      "诱客饮酒",
-      "场景铺垫"
+      {
+        "type": "效果",
+        "description": "诱客饮酒"
+      },
+      {
+        "type": "效果",
+        "description": "场景铺垫"
+      }
     ],
     "origin": "本章场景出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -232,11 +255,16 @@
     "one_line": "白玉杯在本章场景中推动识破或制敌。",
     "description": "白玉杯洁白精致，原本盛女儿红诱楚留香饮下，转瞬被他当作暗器制敌。",
     "effects": [
-      "敬酒诱敌",
-      "临时暗器"
+      {
+        "type": "效果",
+        "description": "敬酒诱敌"
+      },
+      {
+        "type": "效果",
+        "description": "临时暗器"
+      }
     ],
     "origin": "本章场景出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -261,11 +289,16 @@
     "one_line": "翡翠戒指在本章场景中推动识破或制敌。",
     "description": "碧绿翡翠戒指戴在少女手上，被楚留香悄然取下后弹出，成为点穴制敌的小暗器。",
     "effects": [
-      "伪装饰物",
-      "弹指制穴"
+      {
+        "type": "效果",
+        "description": "伪装饰物"
+      },
+      {
+        "type": "效果",
+        "description": "弹指制穴"
+      }
     ],
     "origin": "本章场景出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -285,16 +318,21 @@
   {
     "id": "item_han_guang_duan_dao",
     "name": "寒光短刀",
-    "type": "兵刃",
+    "type": "兵器",
     "owner": "char_jiao_xiao_na_dao_shao_nv",
     "one_line": "寒光短刀在本章场景中推动识破或制敌。",
     "description": "短刀寒光四射，藏在最柔弱娇小的少女身上，忽然亮出便足以威胁胡铁花性命。",
     "effects": [
-      "近身胁持",
-      "制造僵局"
+      {
+        "type": "效果",
+        "description": "近身胁持"
+      },
+      {
+        "type": "效果",
+        "description": "制造僵局"
+      }
     ],
     "origin": "本章场景出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -314,16 +352,21 @@
   {
     "id": "item_hei_zhu_gan_li_de_jian",
     "name": "黑竹竿里的剑",
-    "type": "兵刃",
+    "type": "兵器",
     "owner": "char_hei_zhu_gan",
     "one_line": "黑竹竿里的剑在本章场景中推动识破或制敌。",
     "description": "这柄剑藏在黑竹竿中，外形隐蔽而出手可靠，是黑竹竿成为顶尖杀手的根本依仗。",
     "effects": [
-      "藏锋突袭",
-      "杀人几乎不失手"
+      {
+        "type": "效果",
+        "description": "藏锋突袭"
+      },
+      {
+        "type": "效果",
+        "description": "杀人几乎不失手"
+      }
     ],
     "origin": "本章场景出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -343,13 +386,12 @@
   {
     "id": "item_bai_mu_zhao_pai",
     "name": "白木招牌",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "写有店名与服务项目的白木板招牌。",
     "description": "挂在窄店门口的白木板，标明崔大娘老店出售胭脂宫粉针线刨花油，并收钱替女客绞脸梳头穿耳。",
     "effects": [],
     "origin": "崔大娘老店",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -370,7 +412,7 @@
   {
     "id": "item_shao_nv_xiao_bing_ren",
     "name": "少女小兵刃",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_si_ge_xiao_gu_niang",
     "one_line": "四件短小精钢利器，适合少女近身抢攻。",
     "description": "一刀一剑一双判官笔一对分水峨嵋刺，全由精钢打造，比常人兵刃小半截，短小却更险。",
@@ -381,7 +423,6 @@
       }
     ],
     "origin": "四个小姑娘携带",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_si_ge_xiao_gu_niang"
     ],
@@ -402,7 +443,7 @@
   {
     "id": "item_fang_hua_shen_you",
     "name": "防滑身油",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_si_ge_xiao_gu_niang",
     "one_line": "涂在少女身上的滑油，使被擒时能从手中滑脱。",
     "description": "四名少女全身涂油，阳光下如缎子般细滑，胡铁花抓住长腿少女小腿仍被滑走。",
@@ -413,7 +454,6 @@
       }
     ],
     "origin": "四个小姑娘战前涂抹",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_si_ge_xiao_gu_niang"
     ],
@@ -434,13 +474,12 @@
   {
     "id": "item_liu_qi_ding_mao_zi",
     "name": "六七顶帽子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "楚留香从袭击者处带回的帽子，可作为识别来历的线索。",
     "description": "楚留香现身时手托至少六七顶帽子，没有抓人却带回袭击者身上的帽子，显示他已经从袭击中脱身并掌握对方身份。",
     "effects": [],
     "origin": "袭击楚留香者遗留",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -461,9 +500,8 @@
   {
     "id": "item_zhe_shan",
     "name": "折扇",
-    "type": "weapon",
+    "type": "兵器",
     "origin": "白云生随身兵器",
-    "rarity": "上乘佳品",
     "owner": "char_bai_yun_sheng",
     "one_line": "白云生手中折扇，可旋飞如刀轮。",
     "description": "一柄看似文雅的折扇，到了白云生手中能化为高速旋转的致命兵器，攻势如刀轮。",
@@ -493,9 +531,8 @@
   {
     "id": "item_shang_yao",
     "name": "伤药",
-    "type": "pill",
+    "type": "丹药",
     "origin": "花姑妈随身携带",
-    "rarity": "上乘佳品",
     "owner": "char_hua_gu_ma",
     "one_line": "花姑妈预先备好的上等治伤药。",
     "description": "一种治疗外伤的好药，花姑妈早已拿在手里，用来给重伤昏睡的黑竹竿敷治伤口。",
@@ -526,9 +563,8 @@
   {
     "id": "item_da_tong_yin_piao",
     "name": "大通银票",
-    "type": "special",
+    "type": "特殊",
     "origin": "南七北六十三省通用的大通银票",
-    "rarity": "稀世珍品",
     "owner": "char_hei_zhu_gan",
     "one_line": "黑竹竿从断腿靴筒中取出的十万两银票。",
     "description": "一张南七北六十三省都能通用的十万两大通银票，是花姑妈雇黑竹竿刺杀史天王的酬金。",
@@ -559,7 +595,7 @@
   {
     "id": "item_zang_ren_xiang_zi",
     "name": "藏人箱子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "樱子用来偷走刚洗澡女子的大箱子。",
     "description": "大樟木箱藏在床后，箱中有一名刚洗过澡、半晕半迷且胸前有新月印记的年轻女子。",
@@ -570,7 +606,6 @@
       }
     ],
     "origin": "富贵客栈事件",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xin_yue_gu_niang",
       "char_chu_liu_xiang"
@@ -600,7 +635,7 @@
   {
     "id": "item_yin_se_yao_dai",
     "name": "银色腰带",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_xue_chuan_xin",
     "one_line": "薛穿心腰间藏有银线暗器的机关腰带。",
     "description": "薛穿心的银色腰带环扣中暗藏一蓬银线，可在微笑与扑击间突然射出，配合拳掌发动致命杀招。",
@@ -611,7 +646,6 @@
       }
     ],
     "origin": "薛穿心随身兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xue_chuan_xin",
       "char_chu_liu_xiang"
@@ -633,7 +667,7 @@
   {
     "id": "item_yin_jian_ruan_jian",
     "name": "银箭软剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xue_chuan_xin",
     "one_line": "薛穿心从腰带中拔出的银光软剑。",
     "description": "一柄藏于腰带中的银光闪闪软剑，出鞘后如毒蛇般疾噬咽喉，可攻敌亦可自尽。",
@@ -644,7 +678,6 @@
       }
     ],
     "origin": "薛穿心随身兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xue_chuan_xin"
     ],
@@ -665,7 +698,7 @@
   {
     "id": "item_bai_yin_du_zhen_jie_zhi",
     "name": "白银毒针戒指",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_xue_chuan_xin",
     "one_line": "薛穿心左手戒指中暗藏三寸三分毒针。",
     "description": "白银戒指中藏有三寸三分长的致命毒针，握紧左手时会从无名指戒指弹出，如杀人蜂毒刺。",
@@ -680,7 +713,6 @@
       }
     ],
     "origin": "薛穿心随身暗器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xue_chuan_xin"
     ],
@@ -701,13 +733,12 @@
   {
     "id": "item_da_xiang_zi",
     "name": "大箱子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xue_chuan_xin",
     "one_line": "薛穿心带来的大箱子，曾用来困住楚留香。",
     "description": "这口大箱子既是囚禁楚留香的工具，也是薛穿心当众拍卖、逼迫各方露出目的的关键道具。",
     "effects": [],
     "origin": "第七章情节中出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -726,13 +757,12 @@
   {
     "id": "item_ye_cai_ji_ma_che",
     "name": "叶财记马车",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "楚留香指定叶财记监工制造的马车。",
     "description": "这辆马车被楚留香要求由叶财记特别监工制造，用来让他睡醒后抵达玉剑山庄见杜先生。",
     "effects": [],
     "origin": "第七章情节中出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -751,13 +781,12 @@
   {
     "id": "item_er_shi_nian_chen_nv_er_hong",
     "name": "二十年陈女儿红",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "楚留香要求备在车厢中的美酒。",
     "description": "两坛真正二十年陈的女儿红，是楚留香向花姑妈提出的行程条件，也照应胡铁花嗜酒情节。",
     "effects": [],
     "origin": "第七章情节中出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -776,13 +805,12 @@
   {
     "id": "item_qi_qiao_shi_he",
     "name": "七巧食盒",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "苏州雪宜斋食盒，用来盛装行路食物。",
     "description": "苏州雪宜斋的七巧食盒是楚留香指定的精致食盒，要求花姑妈一并准备在马车中。",
     "effects": [],
     "origin": "第七章情节中出现",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -806,11 +834,16 @@
     "one_line": "绘二十朵牡丹的白瓷酒坛所盛陈年花雕。",
     "description": "白瓷酒坛上彩釉绘着二十朵牡丹，坛中是二十年陈的绝顶花雕，被胡铁花视为难得好酒。",
     "effects": [
-      "醉人",
-      "引出胡铁花豪饮与友情剖白"
+      {
+        "type": "效果",
+        "description": "醉人"
+      },
+      {
+        "type": "效果",
+        "description": "引出胡铁花豪饮与友情剖白"
+      }
     ],
     "origin": "玉剑山庄",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hu_tie_hua",
       "char_chu_liu_xiang",
@@ -839,12 +872,20 @@
     "one_line": "玉剑公主反复弹奏、引楚留香登楼的幽柔琴曲。",
     "description": "幽柔琴声反复弹奏同一个调子，曲牌名为新月，像无形线索一样牵引楚留香进入小楼。",
     "effects": [
-      "引路",
-      "牵动心神",
-      "揭示玉剑公主身份"
+      {
+        "type": "效果",
+        "description": "引路"
+      },
+      {
+        "type": "效果",
+        "description": "牵动心神"
+      },
+      {
+        "type": "效果",
+        "description": "揭示玉剑公主身份"
+      }
     ],
     "origin": "玉剑公主所奏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yu_jian_gong_zhu",
       "char_chu_liu_xiang"
@@ -879,7 +920,6 @@
       }
     ],
     "origin": "石田斋携来",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shi_tian_zhai_yan_zuo_wei_men",
       "char_chu_liu_xiang",
@@ -908,12 +948,20 @@
     "one_line": "石田斋用来招待楚留香的日本佳酿。",
     "description": "盛在精致浅盏中的清澄美酒，清而不涩、甜而不腻，淡中另有真味。",
     "effects": [
-      "待客",
-      "试探",
-      "营造对峙前的礼数气氛"
+      {
+        "type": "效果",
+        "description": "待客"
+      },
+      {
+        "type": "效果",
+        "description": "试探"
+      },
+      {
+        "type": "效果",
+        "description": "营造对峙前的礼数气氛"
+      }
     ],
     "origin": "日本",
-    "rarity": "未知",
     "related_characters": [
       "char_shi_tian_zhai_yan_zuo_wei_men",
       "char_chu_liu_xiang"
@@ -944,11 +992,16 @@
     "one_line": "京都御守屋精制的火镰火石锦囊。",
     "description": "装着京都御守屋精制火镰和火石的锦囊，就放在石田斋手边，用于击石点火燃灯。",
     "effects": [
-      "取火",
-      "照明"
+      {
+        "type": "效果",
+        "description": "取火"
+      },
+      {
+        "type": "效果",
+        "description": "照明"
+      }
     ],
     "origin": "京都御守屋",
-    "rarity": "未知",
     "related_characters": [
       "char_shi_tian_zhai_yan_zuo_wei_men"
     ],
@@ -973,7 +1026,7 @@
   {
     "id": "item_hei_bao",
     "name": "黑豹",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bao_ji",
     "one_line": "豹姬脚下伏着的黑豹。",
     "description": "全身漆黑发亮，伏在豹姬脚下安静如猫，却象征着她野性威慑的随身猛兽。",
@@ -984,7 +1037,6 @@
       }
     ],
     "origin": "豹姬豢养",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bao_ji"
     ],
@@ -1010,11 +1062,16 @@
     "one_line": "豹姬备给楚留香的第二样礼物，足够在海上支撑半个月。",
     "description": "包含波斯葡萄酒、风鸡肉脯和一大桶清水，在海上比珠宝更有实际救命价值。",
     "effects": [
-      "补给饮食",
-      "海上求生"
+      {
+        "type": "效果",
+        "description": "补给饮食"
+      },
+      {
+        "type": "效果",
+        "description": "海上求生"
+      }
     ],
     "origin": "豹姬战船",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -1041,11 +1098,16 @@
     "one_line": "史天王属下遇难呼救用的圆铁筒子，救了楚留香和白云生。",
     "description": "外形像袖箭般的小圆铁筒，实际是一筒旗花火箭，可在海上发出史天王属下遇难求援讯号。",
     "effects": [
-      "遇难呼救",
-      "引来救援渔船"
+      {
+        "type": "效果",
+        "description": "遇难呼救"
+      },
+      {
+        "type": "效果",
+        "description": "引来救援渔船"
+      }
     ],
     "origin": "史天王海上势力",
-    "rarity": "未知",
     "related_characters": [
       "char_chu_liu_xiang",
       "char_bai_yun_sheng",
@@ -1077,11 +1139,16 @@
     "one_line": "史天王七人乘坐的破旧普通渔船，速度却快得异常。",
     "description": "外表普通甚至破旧，没有战船巨舰威仪，却破浪极快，载着七个渔夫装束的史天王上岸。",
     "effects": [
-      "高速航行",
-      "隐藏身份"
+      {
+        "type": "效果",
+        "description": "高速航行"
+      },
+      {
+        "type": "效果",
+        "description": "隐藏身份"
+      }
     ],
     "origin": "史天王海上势力",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_qi_ge_shi_tian_wang",
       "char_shi_tian_wang"
@@ -1104,7 +1171,7 @@
   {
     "id": "item_li_dun_de_kuai_dao",
     "name": "李盾的快刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_li_dun",
     "one_line": "李盾随身携带的名家快刀，被用来证明自己的横练功夫。",
     "description": "这柄快刀尚未出鞘便显出名家铸造的锋锐气象，李盾拔出后反手砍向自己胸膛，用刀锋证明十三太保横练的成色。",
@@ -1115,7 +1182,6 @@
       }
     ],
     "origin": "名家铸造",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_li_dun"
     ],
@@ -1138,7 +1204,7 @@
   {
     "id": "item_shi_tian_wang_hai_chuan",
     "name": "史天王海船",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_tian_wang",
     "one_line": "史天王许给胡开树逃生的好船，轻巧快速并备足水粮。",
     "description": "这条船外表普通，内里却比看起来更可靠，轻巧快速，经得起大风大浪，还备有充足水粮和老练好手。",
@@ -1149,7 +1215,6 @@
       }
     ],
     "origin": "史天王船队",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shi_tian_wang",
       "char_hu_kai_shu"
@@ -1171,7 +1236,7 @@
   {
     "id": "item_yu_wang_sha_zhen",
     "name": "渔网杀阵",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shi_tian_wang",
     "one_line": "渔村妇孺撒出的大片渔网，配合贝壳暗器封死胡开树退路。",
     "description": "看似普通补渔用的大渔网，被老太太和小媳妇撒出时如乌云罩顶，前后左右封住退路，使轻功高手力尽被困。",
@@ -1182,7 +1247,6 @@
       }
     ],
     "origin": "海边渔村伪装布置",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hu_kai_shu",
       "char_si_tu_ping"
@@ -1207,7 +1271,7 @@
   {
     "id": "item_bai_se_shan_cha_hua",
     "name": "白色山茶花",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_du_xian_sheng",
     "one_line": "杜先生洁癖与优雅风姿的标志，被摆在简陋小屋的木桌上。",
     "description": "一瓶开着八重瓣的白色山茶花置于木桌，令简陋小屋也显得洁净优雅，映衬杜先生如山茶般的微笑。",
@@ -1218,7 +1282,6 @@
       }
     ],
     "origin": "杜先生随身布置",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_du_xian_sheng"
     ],

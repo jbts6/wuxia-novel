@@ -202,8 +202,8 @@ export function getRelatedIds(
 ): string[] {
   const related: string[] = [];
   links.forEach((link) => {
-    const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
-    const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+    const sourceId = link.source && typeof link.source === 'object' ? link.source.id : link.source;
+    const targetId = link.target && typeof link.target === 'object' ? link.target.id : link.target;
     if (sourceId === id) {
       related.push(targetId);
     } else if (targetId === id) {
@@ -241,8 +241,8 @@ export function getRelationshipChain(
   const chain: RelationshipChainItem[] = [];
 
   links.forEach((link) => {
-    const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
-    const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+    const sourceId = link.source && typeof link.source === 'object' ? link.source.id : link.source;
+    const targetId = link.target && typeof link.target === 'object' ? link.target.id : link.target;
 
     if (sourceId !== id && targetId !== id) return;
 

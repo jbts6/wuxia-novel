@@ -2,16 +2,21 @@
   {
     "id": "item_niao_long_hua_mei_niao",
     "name": "画眉鸟笼",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "神秘人手中提着的鸟笼，内有一只画眉鸟，与画眉鸟身份有关",
     "description": "一个普通的鸟笼，里面装着一只画眉鸟。神秘人提着此笼出现在酒楼，被蓝衫大汉看见，是画眉鸟身份的关键线索。",
     "effects": [
-      "身份标识",
-      "线索"
+      {
+        "type": "效果",
+        "description": "身份标识"
+      },
+      {
+        "type": "效果",
+        "description": "线索"
+      }
     ],
     "origin": "神秘人所有",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -30,16 +35,21 @@
   {
     "id": "item_da_jin_yu_gang",
     "name": "大金鱼缸",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "客栈院子里的大金鱼缸，被黑衣人从窗外抛入，重三五百斤",
     "description": "一个摆在客栈院子里的大金鱼缸，少说也有三五百斤重，缸里装着水。被神秘黑衣人自窗外抛入酒楼，不偏不倚落在桌子上，水竟半点没有溅出，展现了惊人的手力腕力。",
     "effects": [
-      "展示内力",
-      "震慑众人"
+      {
+        "type": "效果",
+        "description": "展示内力"
+      },
+      {
+        "type": "效果",
+        "description": "震慑众人"
+      }
     ],
     "origin": "客栈院子里",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -58,13 +68,12 @@
   {
     "id": "item_guan_cai",
     "name": "棺材",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "坟场中的棺材，被用作座椅和餐桌",
     "description": "四口小棺材摆在坟堆边，上面盖着草垛，被李玉函和柳无眉用作请客的座椅，后来又抬来一口大棺材装满水果和酒水",
     "effects": [],
     "origin": "李玉函和柳无眉准备",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_yu_han",
       "char_liu_wu_mei"
@@ -86,7 +95,7 @@
   {
     "id": "item_gu_yu_chang_jian",
     "name": "古鱼肠剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_li_guan_yu",
     "one_line": "拥翠山庄传世宝剑，李观鱼以此剑令三十一位名剑客心悦诚服",
     "description": "拥翠山庄世代相传的古鱼肠剑，锋利无比，配合凌风剑法可发挥极大威力，李观鱼曾以此剑在剑池试剑石边令天下剑客折服",
@@ -97,7 +106,6 @@
       }
     ],
     "origin": "拥翠山庄世代相传",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_li_guan_yu"
     ],
@@ -120,13 +128,12 @@
   {
     "id": "item_shi_jian_shi",
     "name": "试剑石",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "剑池旁的名胜，李观鱼曾在此柬邀天下剑客煮茶试剑",
     "description": "位于拥翠山庄剑池旁陆羽茶亭中的试剑石，是武林名胜，李观鱼曾在此柬邀天下三十一位最著名的剑客煮茶试剑",
     "effects": [],
     "origin": "拥翠山庄",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_guan_yu"
     ],
@@ -147,7 +154,7 @@
   {
     "id": "item_bao_yu_li_hua_ding",
     "name": "暴雨梨花钉",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "暗器之王，二十七枚银针一齐射出，无人能闪避",
     "description": "扁平银匣子，七寸长三寸厚，匣旁排列三行极细针孔每行九孔，匣面刻有小篆'出必见血，空回不祥。急中之急，暗器之王。'发射时二十七枚银针齐出，速度极快力量极猛，四五丈外射来可直没入土，被誉为暗器之王。",
@@ -158,7 +165,6 @@
       }
     ],
     "origin": "古物，不会武功之人制成",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -252,16 +258,21 @@
   {
     "id": "item_qing_miao_san",
     "name": "清妙散",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_liu_wu_mei",
     "one_line": "柳无眉随身携带的治疗风寒疾病的药散",
     "description": "柳无眉随身携带的药散，对劳累过度又受风寒的病症有特效，每隔两个时辰吃一包，可在短期内控制病情不致恶化。",
     "effects": [
-      "治疗风寒",
-      "控制病情"
+      {
+        "type": "效果",
+        "description": "治疗风寒"
+      },
+      {
+        "type": "效果",
+        "description": "控制病情"
+      }
     ],
     "origin": "柳无眉持有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_liu_wu_mei",
       "char_chu_liu_xiang"
@@ -283,15 +294,17 @@
   {
     "id": "item_duan_jian",
     "name": "短剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hu_tie_hua",
     "one_line": "胡铁花靴筒中藏着的雪亮短剑",
     "description": "胡铁花随身携带藏于靴筒中的雪亮短剑，是他准备用来断腕解毒的最后手段，剑身锋利寒光闪闪。",
     "effects": [
-      "切割"
+      {
+        "type": "效果",
+        "description": "切割"
+      }
     ],
     "origin": "胡铁花随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hu_tie_hua"
     ],
@@ -312,13 +325,12 @@
   {
     "id": "item_yin_piao",
     "name": "银票",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_ming_ci_ke",
     "one_line": "二十万两银票，雇凶杀人的酬金",
     "description": "当时最通行最可靠的一种银票，无论在任何地方都可以提现，面额高达二十万两，是雇凶暗算楚留香的酬金。",
     "effects": [],
     "origin": "神秘雇主提供",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -339,13 +351,12 @@
   {
     "id": "item_sha_shou_ji_tuan_tong_pai",
     "name": "铜牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_ming_ci_ke",
     "one_line": "秘密杀手集团的信物，正面十三柄剑环绕一只手，背面刻'八'字",
     "description": "形状古怪的铜牌，正面花纹雕刻着十三柄剑环绕着一只手，剑的形状与刺客所使完全一样，反面刻着个'八'字，代表刺客在组织中排行第八。",
     "effects": [],
     "origin": "秘密杀手集团",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zhong_yuan_yi_dian_hong"
     ],
@@ -366,16 +377,21 @@
   {
     "id": "item_mo_li_hua_qiu",
     "name": "茉莉花球",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_xiao_gu_niang",
     "one_line": "藏有毒针的花球",
     "description": "外表是普通的茉莉花球，内藏十几根发着乌光的毒针，是精心伪装的暗器。花球用花线缠绕，外表看不出异样，但轻轻一甩即可射出毒针。",
     "effects": [
-      "伤害",
-      "毒性"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "毒性"
+      }
     ],
     "origin": "李家",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiao_gu_niang"
     ],
@@ -396,16 +412,21 @@
   {
     "id": "item_shuai_yi_fan_pei_jian",
     "name": "帅一帆佩剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_shuai_yi_fan",
     "one_line": "碧如秋水的长剑，十三年未曾离鞘的绝世名剑",
     "description": "一柄碧如秋水的长剑，剑气逼人眉睫，削铁如泥，帅一帆十三年未曾离鞘，最终投入剑池",
     "effects": [
-      "剑气逼人",
-      "削铁如泥"
+      {
+        "type": "效果",
+        "description": "剑气逼人"
+      },
+      {
+        "type": "效果",
+        "description": "削铁如泥"
+      }
     ],
     "origin": "昔年名剑",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_shuai_yi_fan"
     ],
@@ -426,16 +447,21 @@
   {
     "id": "item_shu_zhi",
     "name": "柔枝",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "楚留香从树上采下的柔枝，用作兵器对抗帅一帆",
     "description": "一段从木叶未枯的大树上采下的柔枝，拗成五尺长短，枝头留有三五片树叶，楚留香以此以柔克刚",
     "effects": [
-      "以柔克刚",
-      "诱发剑气"
+      {
+        "type": "效果",
+        "description": "以柔克刚"
+      },
+      {
+        "type": "效果",
+        "description": "诱发剑气"
+      }
     ],
     "origin": "虎丘山上大树",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -456,16 +482,21 @@
   {
     "id": "item_bo_lian_qiang",
     "name": "钵镰枪",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "外门兵刃，枪尖带钩可勾人",
     "description": "极少见的外门兵刃，枪尖呈钩状，可用于勾取目标，攻击时可从隐蔽处闪电般刺出",
     "effects": [
-      "勾取敌人",
-      "出其不意攻击"
+      {
+        "type": "效果",
+        "description": "勾取敌人"
+      },
+      {
+        "type": "效果",
+        "description": "出其不意攻击"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -484,16 +515,21 @@
   {
     "id": "item_jin_si_tie_wang",
     "name": "金丝铁网",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "金丝铁织成的巨网，极轻极软但来势极快",
     "description": "以金丝铁织成的巨网，虽然极轻极软，来势却极快，可从塔顶撒下将人包裹，网丝能勒入肉中令人无法挣脱",
     "effects": [
-      "困住敌人",
-      "限制行动"
+      {
+        "type": "效果",
+        "description": "困住敌人"
+      },
+      {
+        "type": "效果",
+        "description": "限制行动"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -512,15 +548,17 @@
   {
     "id": "item_li_guan_yu_zhi_jian",
     "name": "李观鱼之剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_li_guan_yu",
     "one_line": "李观鱼的佩剑，剑身沉碧，光彩夺目",
     "description": "剑身沉碧如一泓秋水，剑鞘缀满珍贵宝石，在剑光映照下宝石已失尽颜色，是李观鱼生命光彩的寄托",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "未知",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_li_guan_yu"
     ],
@@ -541,15 +579,17 @@
   {
     "id": "item_qiu_shui_chang_jian",
     "name": "秋水长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_chu_liu_xiang",
     "one_line": "精光四射的长剑，楚留香从柳无眉处夺得",
     "description": "一柄精光四射的长剑，剑身泛着寒光，锋利无比，是武林中的名剑",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_chu_liu_xiang",
       "char_liu_wu_mei"
@@ -571,15 +611,17 @@
   {
     "id": "item_shi_he",
     "name": "食盒",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhao_lao_da",
     "one_line": "厨房分发饭菜用的多层木制食盒",
     "description": "多层木制食盒，用于装盛和分送饭菜点心，是拥翠山庄厨房日常分餐的器具",
     "effects": [
-      "盛放食物"
+      {
+        "type": "效果",
+        "description": "盛放食物"
+      }
     ],
     "origin": "拥翠山庄厨房",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhao_lao_da",
       "char_qiao_ya_tou",
@@ -602,15 +644,17 @@
   {
     "id": "item_guang_dong_dian_xin",
     "name": "广东点心",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_ping_gu_niang",
     "one_line": "叉烧包、虾饺、滑鸡粥等广东风味早点",
     "description": "包括叉烧包、虾饺、滑鸡粥等广东风味点心，是上房客人指定要吃的早点，由大厨房制作",
     "effects": [
-      "充饥"
+      {
+        "type": "效果",
+        "description": "充饥"
+      }
     ],
     "origin": "广东",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ping_gu_niang",
       "char_zhao_lao_da",
@@ -633,15 +677,17 @@
   {
     "id": "item_tian_yi_shen_shui",
     "name": "天一神水",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_shui_mu_yin_ji",
     "one_line": "神水宫秘制之水，具体功效未知",
     "description": "神水宫的珍贵之物，失窃后被怀疑是楚留香所偷，其真正功效和用途在本章尚未完全揭示，是推动剧情发展的重要物件",
     "effects": [
-      "神秘毒性"
+      {
+        "type": "效果",
+        "description": "神秘毒性"
+      }
     ],
     "origin": "神水宫",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chu_liu_xiang"
     ],
@@ -669,7 +715,7 @@
   {
     "id": "item_ren_pi_mian_ju",
     "name": "人皮面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_dai_mian_ju_zhi_ren",
     "one_line": "精巧绝伦的人皮面具，可瞒过武林行家的眼睛",
     "description": "以特殊工艺制作的人皮面具，与江湖常见的不同，是顶尖好手制造的神品，佩戴后可完全改变容貌，连大行家也瞧不出破绽",
@@ -680,7 +726,6 @@
       }
     ],
     "origin": "三位人皮面具制作大师之一",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_dai_mian_ju_zhi_ren",
       "char_xiao_shen_tong",
@@ -706,13 +751,12 @@
   {
     "id": "item_da_bao_fu",
     "name": "大包袱",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "雷老三等人携带的大包袱，内装不知何物",
     "description": "鼓鼓囊囊的大包袱，雷老三等江洋大盗刚做完一票买卖所得，四人为此自相残杀，后被宫南燕提走",
     "effects": [],
     "origin": "江洋大盗抢劫所得",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -731,15 +775,17 @@
   {
     "id": "item_mu_yu",
     "name": "木鱼",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_hua",
     "one_line": "无花寄存在南宫灵处的古雅木鱼，内藏秘记",
     "description": "一个制作很古雅的木鱼，本是出家人诵经用具，被无花用来藏匿记载其一生秘密的纸簿，摔碎后内现秘记。",
     "effects": [
-      "藏匿秘记"
+      {
+        "type": "效果",
+        "description": "藏匿秘记"
+      }
     ],
     "origin": "无花所有",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_wu_hua"
     ],
@@ -760,15 +806,17 @@
   {
     "id": "item_mi_ji_zhi_bu",
     "name": "无花秘记",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_hua",
     "one_line": "无花记载一生秘密的纸簿，藏于木鱼之中",
     "description": "无花将自己一生的秘密逐条记载于纸簿之上，藏于木鱼之中，内容涉及神水宫及诸多名门闺秀隐私，后被戴独行烧毁。",
     "effects": [
-      "记载无花秘密"
+      {
+        "type": "效果",
+        "description": "记载无花秘密"
+      }
     ],
     "origin": "无花手书",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wu_hua",
       "char_dai_du_xing"
@@ -790,16 +838,21 @@
   {
     "id": "item_pi_nang",
     "name": "皮囊",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiong_niang_zi",
     "one_line": "雄娘子随身携带的黑色皮囊，可充气做皮筏",
     "description": "一个黑色的皮囊，雄娘子特意回到客栈取来，囊中装着易容之物，充气后可膨胀如车轮，做成皮筏顺流而下直入神水宫。",
     "effects": [
-      "充气后可做皮筏渡水",
-      "可装易容工具"
+      {
+        "type": "效果",
+        "description": "充气后可做皮筏渡水"
+      },
+      {
+        "type": "效果",
+        "description": "可装易容工具"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiong_niang_zi"
     ],
@@ -824,16 +877,21 @@
   {
     "id": "item_pi_fa",
     "name": "皮筏",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiong_niang_zi",
     "one_line": "由皮囊充气制成的渡水工具",
     "description": "将黑色皮囊充气后膨胀如车轮，放入水中可作皮筏，乘之顺流而下直入神水宫。充气后由雄娘子用脚探载重量后坐上，但被暗中之人击破泄气。",
     "effects": [
-      "顺流而下进入神水宫",
-      "充气后可载人渡水"
+      {
+        "type": "效果",
+        "description": "顺流而下进入神水宫"
+      },
+      {
+        "type": "效果",
+        "description": "充气后可载人渡水"
+      }
     ],
     "origin": "由皮囊充气制成",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiong_niang_zi"
     ],
@@ -852,15 +910,17 @@
   {
     "id": "item_da_gou_bang",
     "name": "打狗棒",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_dai_du_xing",
     "one_line": "丐帮历代相传的帮规信物，打狗棒法",
     "description": "丐帮弟子行走江湖时的唯一兵刃，黑黝黝的短棒，是丐帮历代相传的帮规信物，除了此棒外绝不许再带其他兵刃",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "丐帮",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_dai_du_xing"
     ],
@@ -881,15 +941,17 @@
   {
     "id": "item_zhe_tie_dao",
     "name": "折铁刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_hu_tie_hua",
     "one_line": "胡铁花所用的折铁刀，刀法威烈刚猛",
     "description": "胡铁花自命双掌无敌，对敌时平生从不使用兵刃，但此刻不知从哪里弄来了一柄折铁刀，刀法虎虎生威，绝不在武林任何一位使刀名家之下",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hu_tie_hua"
     ],
@@ -910,15 +972,17 @@
   {
     "id": "item_fen_shui_ci",
     "name": "分水刺",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_shao_nv",
     "one_line": "一种水战武器，可在水中灵活使用",
     "description": "分水刺是一种专门用于水战的短兵器，形如匕首，两面开刃，可在水中灵活刺击，是神水宫弟子常用的武器。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "神水宫",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shao_nv"
     ],
@@ -939,16 +1003,21 @@
   {
     "id": "item_tie_wan",
     "name": "铁碗",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_dai_du_xing",
     "one_line": "戴独行随身携带的铁碗，可扣在石壁上增强听觉",
     "description": "丐帮弟子常用的工具，将铁碗扣在石壁上可以放大声音，便于窃听或探查动静，是丐帮偷鸡摸狗本事的体现。",
     "effects": [
-      "增强听觉",
-      "声波传导"
+      {
+        "type": "效果",
+        "description": "增强听觉"
+      },
+      {
+        "type": "效果",
+        "description": "声波传导"
+      }
     ],
     "origin": "丐帮",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_dai_du_xing"
     ],
@@ -969,16 +1038,21 @@
   {
     "id": "item_tong_pai",
     "name": "铜牌",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "刻有十三柄狭长的剑和一只手的神秘铜牌",
     "description": "铜牌上刻有十三柄狭长的剑，围绕着一只手，代表神秘组织的标志，是世上最神秘、最邪恶、也最有权力的象征。",
     "effects": [
-      "代表神秘组织的权力",
-      "令人恐惧"
+      {
+        "type": "效果",
+        "description": "代表神秘组织的权力"
+      },
+      {
+        "type": "效果",
+        "description": "令人恐惧"
+      }
     ],
     "origin": "神秘组织",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chu_liu_xiang",
       "char_yi_dian_hong"
@@ -1000,16 +1074,21 @@
   {
     "id": "item_han_tie_tie_lian",
     "name": "寒铁链",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_qing_yi_ni",
     "one_line": "寒铁精英所铸的铁链，削铁如泥的宝刀利刃也难砍断",
     "description": "以寒铁精英铸造的铁链，坚韧异常，连削铁如泥的宝刀利刃都无法将其砍断。此链两端分别缚在青衣尼和黄幔怪人的足踝上，既是禁锢之物，也被二人用作配合杀敌的奇特武器，长两丈开外，可绞杀敌人。",
     "effects": [
-      "束缚",
-      "绞杀"
+      {
+        "type": "效果",
+        "description": "束缚"
+      },
+      {
+        "type": "效果",
+        "description": "绞杀"
+      }
     ],
     "origin": "水母阴姬所制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_qing_yi_ni",
       "char_huang_man_guai_ren"

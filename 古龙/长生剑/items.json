@@ -2,8 +2,7 @@
   {
     "id": "item_jin_huan",
     "name": "金环",
-    "type": "weapon",
-    "rarity": "上乘佳品",
+    "type": "兵器",
     "description": "碗大的金环，可嵌入石头，赤发帮信物。",
     "owner": "char_miao_shao_tian",
     "source_refs": [
@@ -28,8 +27,7 @@
   {
     "id": "item_kuai_dao",
     "name": "快刀",
-    "type": "weapon",
-    "rarity": "上乘佳品",
+    "type": "兵器",
     "description": "雪亮无鞘快刀，刀柄系红绸刀衣，赵一刀随身兵刃。",
     "owner": "char_zhao_yi_dao",
     "source_refs": [
@@ -45,8 +43,7 @@
   {
     "id": "item_hu_xing_jian",
     "name": "弧形剑",
-    "type": "weapon",
-    "rarity": "稀世珍品",
+    "type": "兵器",
     "description": "外门奇门兵刃，弧形双剑，极难练成，能使者多为高手。",
     "owner": "char_hei_yi_ren",
     "source_refs": [
@@ -62,15 +59,17 @@
   {
     "id": "item_tie_gou",
     "name": "铁钩",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_fang_long_xiang",
     "one_line": "方龙香的右手替代物，冰冷锋利",
     "description": "方龙香的右手是个铁钩子，冰冷异常，没有人有这么冷的手。铁钩既是他的手，也是他的武器。",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_fang_long_xiang"
     ],
@@ -98,15 +97,17 @@
   {
     "id": "item_er_shi_qi_jin_da_dao",
     "name": "二十七斤大刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhao_yi_dao",
     "one_line": "赵一刀的兵器，藏在藕粉车中",
     "description": "二十七斤重的大刀，藏在卖藕粉的车子里，是太行山刀客赵一刀的惯用兵器。",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "太行山",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhao_yi_dao"
     ],
@@ -127,15 +128,17 @@
   {
     "id": "item_chang_sheng_jian",
     "name": "长生剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bai_yu_jing",
     "one_line": "白玉京的佩剑，被三骑手借走又送回",
     "description": "白玉京随身佩戴的宝剑，剑鞘陈旧但剑锋不损。曾被三名骑手借走查看，后又恭敬送回。",
     "effects": [
-      "攻击"
+      {
+        "type": "效果",
+        "description": "攻击"
+      }
     ],
     "origin": "未知",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_bai_yu_jing"
     ],
@@ -195,15 +198,17 @@
   {
     "id": "item_guan_cai",
     "name": "棺材",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "出现在客栈院子里的棺材，引发老太婆和小男孩痛哭",
     "description": "一口不知是谁抬来的棺材，就摆在刚才放鱼缸的地方。这地方来的活人已够多了，想不到现在居然又来了个死人。",
     "effects": [
-      "特殊"
+      {
+        "type": "效果",
+        "description": "特殊"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_fa_lao_tai_po",
       "char_xiao_nan_hai"
@@ -225,13 +230,12 @@
   {
     "id": "item_zhi_jin_jin_nang",
     "name": "织金锦囊",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bai_yu_jing",
     "one_line": "白玉京装满珠宝的织金锦囊，随手抛出价值连城",
     "description": "织金锦囊中装满了波斯猫眼石、天竺宝石、和阗美玉、龙眼般大的明珠等珍宝，价值连城。白玉京却视若无物随手抛出，只为换取与袁紫霞平安离开的机会。",
     "effects": [],
     "origin": "白玉京多年积累",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bai_yu_jing"
     ],
@@ -252,7 +256,7 @@
   {
     "id": "item_kong_que_ling",
     "name": "孔雀翎",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "孔雀山庄的至宝，江湖中传说的神秘利器",
     "description": "孔雀山庄的镇庄之宝，江湖中传说的神秘利器，威力无穷，连青龙会都为之垂涎",
@@ -263,7 +267,6 @@
       }
     ],
     "origin": "孔雀山庄",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_gong_sun_jing"
     ],
@@ -284,16 +287,21 @@
   {
     "id": "item_kong_que_lin",
     "name": "孔雀翎",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "天下最成功最可怕的暗器，发射时美丽如孔雀开屏却致命",
     "description": "孔雀翎是暗器之王，据说发出来时美丽得就像孔雀翎开屏一样，不但美丽，而且辉煌灿烂，世上决没有任何事能比拟。就在你被这种惊人的神灵感动得目瞪神迷时，它已经要了你的命。此暗器的秘密只有孔雀山庄的嫡系子孙才知道如何打造和使用。",
     "effects": [
-      "瞬间致命",
-      "视觉迷惑"
+      {
+        "type": "效果",
+        "description": "瞬间致命"
+      },
+      {
+        "type": "效果",
+        "description": "视觉迷惑"
+      }
     ],
     "origin": "孔雀山庄",
-    "rarity": "绝世神兵",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -312,16 +320,21 @@
   {
     "id": "item_kong_que_tu",
     "name": "孔雀图",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "打造孔雀翎的秘图，包含图形和使用方法",
     "description": "孔雀图是打造孔雀翎的秘图，上面绘有孔雀翎的打造图形和使用方法。此图原属孔雀山庄，后被青龙会获取，袁紫霞从公孙静手中盗走，辗转藏于白玉京长生剑的剑柄之中。",
     "effects": [
-      "记载打造方法",
-      "记载使用方法"
+      {
+        "type": "效果",
+        "description": "记载打造方法"
+      },
+      {
+        "type": "效果",
+        "description": "记载使用方法"
+      }
     ],
     "origin": "孔雀山庄",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gong_sun_jing",
       "char_yuan_zi_xia"

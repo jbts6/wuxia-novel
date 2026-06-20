@@ -54,6 +54,7 @@ describe('GlobalLibraryDashboard', () => {
     );
 
     expect(screen.getByText('全库总览')).toBeInTheDocument();
+    expect(screen.getByText('数据统计')).toBeInTheDocument();
     expect(screen.getAllByText('顶级武功').length).toBeGreaterThan(0);
     expect(screen.getByText('人物原型')).toBeInTheDocument();
     expect(screen.getByText('门派资源')).toBeInTheDocument();
@@ -61,6 +62,10 @@ describe('GlobalLibraryDashboard', () => {
 
     fireEvent.click(screen.getAllByText('顶级武功')[0]);
 
-    expect(screen.getByLabelText('素材类型')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('搜索名称、简介、招式、效果...')).toBeInTheDocument();
+    expect(screen.getByText('境界/强度')).toBeInTheDocument();
+    expect(screen.getByText('作者')).toBeInTheDocument();
+    expect(screen.getByText('作品')).toBeInTheDocument();
+    expect(screen.queryByLabelText('素材类型')).not.toBeInTheDocument();
   });
 });

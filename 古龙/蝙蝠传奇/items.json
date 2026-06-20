@@ -2,7 +2,7 @@
   {
     "id": "item_long_tou_guai_zhang",
     "name": "龙头拐杖",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ku_mei_da_shi",
     "one_line": "枯梅大师右手扶持、可一点击飞来人的龙头拐杖。",
     "description": "一根龙头形制的拐杖，枯梅大师端坐船舱时扶在右手，后来一点便将黑衣大汉击飞十几丈。",
@@ -13,7 +13,6 @@
       }
     ],
     "origin": "枯梅大师随身兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ku_mei_da_shi"
     ],
@@ -41,7 +40,7 @@
   {
     "id": "item_gao_ya_nan_duan_jian",
     "name": "高亚男短剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_gao_ya_nan",
     "one_line": "高亚男腰边短剑，寒光一闪便削去黑衣大汉耳朵。",
     "description": "一柄佩在高亚男腰边的短剑，出鞘入鞘极快，剑光一闪间便让对手耳朵不见。",
@@ -52,7 +51,6 @@
       }
     ],
     "origin": "高亚男随身兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gao_ya_nan"
     ],
@@ -75,7 +73,7 @@
   {
     "id": "item_cang_bian_hei_you",
     "name": "藏边黑油",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ding_feng",
     "one_line": "被神秘人物倒入江面并以火箭点燃的易燃黑油。",
     "description": "一种产自藏边地下、黑腻油腥且极易点燃的黑油，被倒在长江水面形成油光，火箭射入后江面立成火海。",
@@ -86,7 +84,6 @@
       }
     ],
     "origin": "藏边地下",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ding_feng"
     ],
@@ -114,7 +111,7 @@
   {
     "id": "item_zhen_zhu",
     "name": "珍珠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhang_san",
     "one_line": "金灵芝金冠上被张三偷走的珍珠。",
     "description": "原本镶在金灵芝紫金冠上的一颗大珍珠，张三见到后心痒偷走，引来金灵芝追入男浴池。",
@@ -125,7 +122,6 @@
       }
     ],
     "origin": "金灵芝紫金冠",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_jin_ling_zhi",
       "char_li_de_biao",
@@ -182,7 +178,7 @@
   {
     "id": "item_huang_jin",
     "name": "黄金",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hu_tie_hua",
     "one_line": "金灵芝为悬赏张三随手抛出的金子。",
     "description": "一锭黄澄澄的金子，被金灵芝随手抛入水中作赏，胡铁花捞起后用来开玩笑。",
@@ -193,7 +189,6 @@
       }
     ],
     "origin": "金灵芝随身财物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_ling_zhi",
       "char_hu_tie_hua"
@@ -215,7 +210,7 @@
   {
     "id": "item_jin_ling_zhi_ruan_jian",
     "name": "金灵芝软剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_jin_ling_zhi",
     "one_line": "金灵芝藏在紫金带中的缅铁软剑。",
     "description": "一柄薄而细、以上好缅铁打成的软剑，平时藏在腰带里，用时迎风一抖便伸得笔直。",
@@ -226,7 +221,6 @@
       }
     ],
     "origin": "金灵芝紫金带中",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_ling_zhi"
     ],
@@ -249,16 +243,21 @@
   {
     "id": "item_yu_dai",
     "name": "玉带",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zi_pao_da_han",
     "one_line": "紫袍大汉腰间所系的玉带，后来被指出与藏珍珠有关。",
     "description": "一根系在紫袍大汉腰间的玉带，外观显贵，关系重大，后文显露出中空藏物与暗器机关。",
     "effects": [
-      "藏匿珍珠",
-      "暗藏机关"
+      {
+        "type": "效果",
+        "description": "藏匿珍珠"
+      },
+      {
+        "type": "效果",
+        "description": "暗藏机关"
+      }
     ],
     "origin": "紫袍大汉随身携带",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zi_pao_da_han"
     ],
@@ -279,17 +278,25 @@
   {
     "id": "item_yu_dai_cang_zhen",
     "name": "玉带藏针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_zi_pao_da_han",
     "one_line": "紫袍大汉玉带中暗藏的剧毒飞针机关。",
     "description": "藏在玉带内部的暗器机关，一扳便暴雨般射出数十点惨碧寒星，带见血封喉剧毒。",
     "effects": [
-      "暴雨般发射数十枚毒针",
-      "剧毒见血封喉",
-      "近身交手时出其不意伤敌"
+      {
+        "type": "效果",
+        "description": "暴雨般发射数十枚毒针"
+      },
+      {
+        "type": "效果",
+        "description": "剧毒见血封喉"
+      },
+      {
+        "type": "效果",
+        "description": "近身交手时出其不意伤敌"
+      }
     ],
     "origin": "巧手匠人为紫袍大汉制造，匠人后被灭口",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zi_pao_da_han"
     ],
@@ -310,16 +317,21 @@
   {
     "id": "item_qing_feng_shi_san_shi_xin_fa_mi_ji",
     "name": "清风十三式心法秘笈",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ku_mei_da_shi",
     "one_line": "华山派不传剑法清风十三式的心法秘笈，楚留香推断已经失窃。",
     "description": "记载清风十三式秘传心法的华山派重要秘笈，本应由枯梅大师严密收藏，却可能已被人盗走。",
     "effects": [
-      "泄漏华山派不传心法",
-      "引出枯梅大师下山追查"
+      {
+        "type": "效果",
+        "description": "泄漏华山派不传心法"
+      },
+      {
+        "type": "效果",
+        "description": "引出枯梅大师下山追查"
+      }
     ],
     "origin": "华山派",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ku_mei_da_shi",
       "char_gao_ya_nan"
@@ -343,17 +355,25 @@
   {
     "id": "item_zhang_san_kao_yu",
     "name": "张三烤鱼",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhang_san",
     "one_line": "张三专心烤出的鱼，被胡铁花视为天下美味。",
     "description": "张三在船头红泥火炉上用小铁叉和各色佐料慢慢烤出的鱼，香气极浓，讲究专心火候。",
     "effects": [
-      "慰劳众人",
-      "引发胡铁花食欲",
-      "体现张三专心诀窍"
+      {
+        "type": "效果",
+        "description": "慰劳众人"
+      },
+      {
+        "type": "效果",
+        "description": "引发胡铁花食欲"
+      },
+      {
+        "type": "效果",
+        "description": "体现张三专心诀窍"
+      }
     ],
     "origin": "张三船上现烤",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhang_san",
       "char_hu_tie_hua"
@@ -375,17 +395,25 @@
   {
     "id": "item_hei_se_pi_xiang",
     "name": "黑色皮箱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chang_tui_de_ren",
     "one_line": "勾子长随身提着的沉重破旧黑色皮箱。",
     "description": "三尺见方的黑色皮箱，外表破旧却重得惊人，勾子长随身提着，视为比性命还珍贵。",
     "effects": [
-      "隐藏未知珍贵物",
-      "凸显勾子长轻功与臂力",
-      "引起张三好奇"
+      {
+        "type": "效果",
+        "description": "隐藏未知珍贵物"
+      },
+      {
+        "type": "效果",
+        "description": "凸显勾子长轻功与臂力"
+      },
+      {
+        "type": "效果",
+        "description": "引起张三好奇"
+      }
     ],
     "origin": "勾子长随身携带",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chang_tui_de_ren",
       "char_zhang_san"
@@ -414,16 +442,21 @@
   {
     "id": "item_yin_tong",
     "name": "银筒",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "水下窃听者用来传声偷听的特制银筒。",
     "description": "三尺多长、小碗粗细的薄银圆筒，套在耳朵上伸出水面，可将水上声音传入水下。",
     "effects": [
-      "水下偷听水上谈话",
-      "薄银材质可浮起"
+      {
+        "type": "效果",
+        "description": "水下偷听水上谈话"
+      },
+      {
+        "type": "效果",
+        "description": "薄银材质可浮起"
+      }
     ],
     "origin": "水下窃听者携带",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_shui_xia_qie_ting_zhe"
     ],
@@ -444,16 +477,21 @@
   {
     "id": "item_xue_ji_ma_an",
     "name": "血渍马鞍",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "白马马鞍上未干的血渍，显示凤尾帮骑士遇害。",
     "description": "白马马鞍上斑斑殷红的未干血渍，是楚留香与勾子长判断马上人已遭毒手的直接线索。",
     "effects": [
-      "指示骑士遇害",
-      "推动追查凶手"
+      {
+        "type": "效果",
+        "description": "指示骑士遇害"
+      },
+      {
+        "type": "效果",
+        "description": "推动追查凶手"
+      }
     ],
     "origin": "凤尾帮骑士坐骑",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_you_hu_zi_qi_shi",
       "char_mei_hu_zi_qi_shi"
@@ -475,7 +513,7 @@
   {
     "id": "item_wu_bai_shi_qiang_gong",
     "name": "五百石强弓",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wu_wei_yang",
     "one_line": "需惊人臂力才能挽起的重弓，被推为二十丈外穿肋杀人的凶器。",
     "description": "这是一柄至少五百石的强弓，需极罕见臂力方能使用，可配合沉重大箭从远处穿透肋骨取人性命。",
@@ -486,7 +524,6 @@
       }
     ],
     "origin": "江湖强弓",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wu_wei_yang"
     ],
@@ -516,7 +553,7 @@
   {
     "id": "item_feng_wei_jian",
     "name": "凤尾箭",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_wu_wei_yang",
     "one_line": "武维扬壶中十三根百发百中的重箭，痕迹太显眼而被疑为凶器。",
     "description": "凤尾箭是武维扬随壶携带的十三根强弓大箭，百发百中，曾射落十三条船主篷，因特征鲜明而极易暴露使用者。",
@@ -531,7 +568,6 @@
       }
     ],
     "origin": "风尾帮武维扬",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wu_wei_yang"
     ],
@@ -554,7 +590,7 @@
   {
     "id": "item_jin_ling_zhi_chang_jian",
     "name": "金灵芝长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_chu_liu_xiang",
     "one_line": "金灵芝制住胡铁花后抵住其咽喉的长剑。",
     "description": "一柄由金灵芝随身使用的长剑，在黑暗船舱外剑光一闪便抵住胡铁花咽喉，用于威慑和近距离控制。",
@@ -569,7 +605,6 @@
       }
     ],
     "origin": "金灵芝随身兵刃",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_ling_zhi",
       "char_hu_tie_hua"
@@ -598,7 +633,7 @@
   {
     "id": "item_yu_pan_tao",
     "name": "玉蟠桃",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "极乐宫十三年才结七枚的奇珍，传可养气驻颜、延年益寿。",
     "description": "玉蟠桃相传源自西天王母蟠桃园仙种，十三年才结实一次且仅七枚，少年食之养气驻颜，老人食之延年益寿。",
@@ -613,7 +648,6 @@
       }
     ],
     "origin": "西方星宿海极乐宫",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_jin_ling_zhi",
       "char_jin_ling_zhi_zu_mu"
@@ -635,7 +669,7 @@
   {
     "id": "item_xuan_yuan_ye_zhong_bing_qi",
     "name": "轩辕野重兵器",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xuan_yuan_ye",
     "one_line": "轩辕野所用重达一百多斤的兵器，衬托其天生神力。",
     "description": "轩辕野所用兵器重达一百多斤，非天生神力者难以挥动，江湖传闻天下无人能在力量上出其右。",
@@ -650,7 +684,6 @@
       }
     ],
     "origin": "离愁宫轩辕野",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xuan_yuan_ye"
     ],
@@ -671,7 +704,7 @@
   {
     "id": "item_xiao_hun_suo",
     "name": "销魂索",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_zhang_bi_qi",
     "one_line": "张碧奇自创的三丈长绳兵器，用来克制轩辕野重兵器并消耗内力。",
     "description": "销魂索本质是一条长达三丈的绳子，由张碧奇自创并命名，可在三丈外与重兵器高手周旋，使对手无法近身也难以震飞。",
@@ -686,7 +719,6 @@
       }
     ],
     "origin": "张碧奇自创",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_zhang_bi_qi",
       "char_xuan_yuan_ye"
@@ -708,16 +740,21 @@
   {
     "id": "item_qi_se_si_tao_yao_dai",
     "name": "七色丝绦腰带",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_wu_wei_yang",
     "one_line": "武维扬锦袍上系着的七色丝绦腰带，是识别凤尾帮总瓢把子的标志。",
     "description": "这条腰带由七根不同颜色的丝绦编成，系在武维扬锦袍上，足以让熟悉江湖掌故的人认出他的身份。",
     "effects": [
-      "表明凤尾帮总瓢把子身份",
-      "引发胡铁花认出武维扬"
+      {
+        "type": "效果",
+        "description": "表明凤尾帮总瓢把子身份"
+      },
+      {
+        "type": "效果",
+        "description": "引发胡铁花认出武维扬"
+      }
     ],
     "origin": "凤尾帮身份服饰",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_wu_wei_yang"
     ],
@@ -738,16 +775,21 @@
   {
     "id": "item_hei_pi_xiang",
     "name": "黑皮箱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gou_zi_chang",
     "one_line": "勾子长随身携带并垫坐的黑皮箱，显然极怕被人抢走。",
     "description": "这个黑皮箱被勾子长带到酒席上，甚至坐下时也垫在身下，显示其中物件或秘密对他极为重要。",
     "effects": [
-      "承载未知秘密",
-      "显示勾子长戒心极重"
+      {
+        "type": "效果",
+        "description": "承载未知秘密"
+      },
+      {
+        "type": "效果",
+        "description": "显示勾子长戒心极重"
+      }
     ],
     "origin": "勾子长随身之物",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gou_zi_chang"
     ],
@@ -768,16 +810,21 @@
   {
     "id": "item_qing_zheng_shi_yu",
     "name": "清蒸时鱼",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "三和楼钱师傅的拿手名菜，象征宴席本该丰盛舒适。",
     "description": "这道清蒸时鱼滑嫩鲜美，是三和楼钱师傅的招牌菜，却因席间气氛别扭而无人真正品味。",
     "effects": [
-      "烘托海阔天宴席排场",
-      "反衬众人心事重重"
+      {
+        "type": "效果",
+        "description": "烘托海阔天宴席排场"
+      },
+      {
+        "type": "效果",
+        "description": "反衬众人心事重重"
+      }
     ],
     "origin": "三和楼钱师傅",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hai_kuo_tian",
       "char_hu_tie_hua",
@@ -800,16 +847,21 @@
   {
     "id": "item_jin_shen_shui_kao",
     "name": "紧身水靠",
-    "type": "armor",
+    "type": "防具",
     "owner": null,
     "one_line": "神龙帮扶尸者所穿的水上行动服饰。",
     "description": "紧身水靠便于水上活动，扶尸上楼的神龙帮属下皆穿此衣，显示他们长期在江水上行走。",
     "effects": [
-      "标示神龙帮水上身份",
-      "便于江湖水路行动"
+      {
+        "type": "效果",
+        "description": "标示神龙帮水上身份"
+      },
+      {
+        "type": "效果",
+        "description": "便于江湖水路行动"
+      }
     ],
     "origin": "神龙帮水上装束",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_sun_lao_er",
       "char_xia_qi_feng"
@@ -831,17 +883,25 @@
   {
     "id": "item_yun_cong_long_yi_shu",
     "name": "云从龙遗书",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_sun_lao_er",
     "one_line": "云从龙预留的帮主传位信，宣布神龙帮并入凤尾帮。",
     "description": "这封遗书由孙老二保管，内容要求云从龙一月不返或发生意外时，将神龙帮帮主之位传给武维扬，并令弟子不得异议。",
     "effects": [
-      "改变神龙帮帮主继承",
-      "促成神龙帮与凤尾帮合并",
-      "压制反抗者"
+      {
+        "type": "效果",
+        "description": "改变神龙帮帮主继承"
+      },
+      {
+        "type": "效果",
+        "description": "促成神龙帮与凤尾帮合并"
+      },
+      {
+        "type": "效果",
+        "description": "压制反抗者"
+      }
     ],
     "origin": "云从龙亲手交给孙老二",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yun_cong_long",
       "char_sun_lao_er",
@@ -865,16 +925,21 @@
   {
     "id": "item_mai_shen_zang_you_bai_bu",
     "name": "卖身葬友白布",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhang_san",
     "one_line": "张三在小船船头张开的招牌白布，写着卖身葬友四字。",
     "description": "这块白布写着卖身葬友四个大字，是张三伪装卖身的滑稽招牌，也将众人的注意力引到他的离奇叫卖上。",
     "effects": [
-      "吸引座船众人注意",
-      "制造张三卖身的荒唐戏码"
+      {
+        "type": "效果",
+        "description": "吸引座船众人注意"
+      },
+      {
+        "type": "效果",
+        "description": "制造张三卖身的荒唐戏码"
+      }
     ],
     "origin": "张三临时张挂",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhang_san"
     ],
@@ -895,16 +960,21 @@
   {
     "id": "item_shan_xi_li_yuan_hao_yin_piao",
     "name": "山西利源号银票",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_ling_zhi",
     "one_line": "金灵芝用于竞买张三的一叠大额银票。",
     "description": "这叠山西利源号银票被丁枫认定和现金一样，证明金灵芝确有竞价财力。",
     "effects": [
-      "证明金灵芝现款充足",
-      "推动竞买张三的价格继续升高"
+      {
+        "type": "效果",
+        "description": "证明金灵芝现款充足"
+      },
+      {
+        "type": "效果",
+        "description": "推动竞买张三的价格继续升高"
+      }
     ],
     "origin": "山西利源号",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_ling_zhi",
       "char_ding_feng",
@@ -927,16 +997,21 @@
   {
     "id": "item_jin_yuan_bao_xiang",
     "name": "金元宝箱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hui_yi_mai_jia",
     "one_line": "灰衣买家小艇上抬出的满箱金元宝。",
     "description": "箱子打开后金光灿然，满满一箱金元宝证明灰衣买家财力惊人，并且他还声称另有几箱。",
     "effects": [
-      "证明灰衣买家财力真实",
-      "压迫金灵芝继续竞价"
+      {
+        "type": "效果",
+        "description": "证明灰衣买家财力真实"
+      },
+      {
+        "type": "效果",
+        "description": "压迫金灵芝继续竞价"
+      }
     ],
     "origin": "灰衣买家随船携带",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hui_yi_mai_jia",
       "char_jin_ling_zhi",
@@ -959,16 +1034,21 @@
   {
     "id": "item_xiao_jin_zhu_ren_qing_tie",
     "name": "销金主人请帖",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xiao_jin_zhu_ren",
     "one_line": "销金主人发给豪门巨富的神秘请帖。",
     "description": "请帖不写明销金窟去处，只约定某时某地相见，再由门下接引，收到者也讳莫如深。",
     "effects": [
-      "筛选有资格前往销金窟的宾客",
-      "防止外人追踪真实路径"
+      {
+        "type": "效果",
+        "description": "筛选有资格前往销金窟的宾客"
+      },
+      {
+        "type": "效果",
+        "description": "防止外人追踪真实路径"
+      }
     ],
     "origin": "销金主人",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xiao_jin_zhu_ren"
     ],
@@ -989,7 +1069,7 @@
   {
     "id": "item_si_xiang_huang_jin",
     "name": "四箱黄金",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "公孙劫余师徒带上紫鲸帮船的四口黄金箱。",
     "description": "四口箱子装着沉重黄金，合计至少数百斤，既是登船献礼，也成为白蜡烛展示轻功和力量的重物。",
@@ -1000,7 +1080,6 @@
       }
     ],
     "origin": "公孙劫余师徒带来",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_gong_sun_jie_yu",
       "char_bai_la_zhu"
@@ -1024,7 +1103,7 @@
   {
     "id": "item_chang_suo_tie_mao",
     "name": "长索铁锚",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "连接小船与大船的长索和钉入船头的小铁锚。",
     "description": "船夫以长索系铁器横空掷出，铁锚深深钉入船头，成为白蜡烛负重走索登船的临时桥梁。",
@@ -1035,7 +1114,6 @@
       }
     ],
     "origin": "公孙劫余师徒的小船所备",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bai_la_zhu"
     ],
@@ -1058,7 +1136,7 @@
   {
     "id": "item_jiu_hu",
     "name": "酒壶",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "船舱桌上不断添满的酒壶，引发白蜡烛豪饮和金灵芝逼酒。",
     "description": "酒壶肚大身圆，容量近似酒坛，白蜡烛一口气喝干，金灵芝又命人摆出六壶作为拼酒赌气的道具。",
@@ -1069,7 +1147,6 @@
       }
     ],
     "origin": "紫鲸帮船上备酒",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bai_la_zhu",
       "char_hu_tie_hua",
@@ -1092,7 +1169,7 @@
   {
     "id": "item_liu_kou_guan_cai",
     "name": "六口棺材",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "神秘出现在紫鲸帮大船货舱里的六口棺材。",
     "description": "六口棺材被油布盖在货舱中央，来源无人知晓；海船本无棺材习俗，因此它们像死亡预告般压住众人的心。",
@@ -1103,7 +1180,6 @@
       }
     ],
     "origin": "未知人物暗中送入货舱",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hai_kuo_tian",
       "char_chu_liu_xiang",
@@ -1134,7 +1210,7 @@
   {
     "id": "item_tan_xiang_mu_xia",
     "name": "檀香木匣",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hai_kuo_tian",
     "one_line": "海阔天临危托付楚留香前取出的檀香木匣。",
     "description": "小小的檀香木匣由海阔天藏在怀中，他正欲托楚留香带走时门外异响打断，说明匣中之物关系重大。",
@@ -1145,7 +1221,6 @@
       }
     ],
     "origin": "海阔天随身收藏",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_hai_kuo_tian",
       "char_chu_liu_xiang"
@@ -1167,7 +1242,7 @@
   {
     "id": "item_la_wan",
     "name": "蜡丸",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "云从龙临死前托楚留香饮酒暗交的藏图蜡丸。",
     "description": "蜡丸藏在云从龙临死前请楚留香代饮的酒杯中，内含一张画有蝙蝠、流水、黑点和太阳的神秘图。",
@@ -1178,7 +1253,6 @@
       }
     ],
     "origin": "云从龙临死前交托",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yun_cong_long",
       "char_chu_liu_xiang"
@@ -1200,7 +1274,7 @@
   {
     "id": "item_bian_fu_tu",
     "name": "蝙蝠图",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "蜡丸中藏着的神秘图，画有蝙蝠、流水、黑点和太阳。",
     "description": "图上画着蝙蝠，周围有弯曲线条、大小黑点和发光圆圈，楚留香推测线条代表流水、圆圈代表太阳、黑点可能是礁石。",
@@ -1211,7 +1285,6 @@
       }
     ],
     "origin": "蜡丸内藏图纸",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yun_cong_long",
       "char_chu_liu_xiang",
@@ -1248,7 +1321,7 @@
   {
     "id": "item_bao_fu",
     "name": "包袱",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_jin_ling_zhi",
     "one_line": "包袱被胡铁花抢开后露出染血长衫。",
     "description": "这包东西由金灵芝藏在身后带来，来历被她说成刚刚捡得，引起丁枫等人注意，显然牵连船上疑案。",
@@ -1259,7 +1332,6 @@
       }
     ],
     "origin": "金灵芝声称刚捡来",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_ling_zhi",
       "char_zhang_san",
@@ -1295,7 +1367,7 @@
   {
     "id": "item_dan_qing_se_chang_shan",
     "name": "淡青色长衫",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_ding_feng",
     "one_line": "血衣既可能指向丁枫，也可能是被人故意放给金灵芝发现的栽赃物。",
     "description": "这件淡青色长衫质料轻软、前襟溅满鲜血，胡铁花认出丁枫曾穿它去接枯梅大师，因而成为指向向天飞命案的重要证物。",
@@ -1306,7 +1378,6 @@
       }
     ],
     "origin": "金灵芝交给张三的包袱中发现",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_ding_feng",
       "char_jin_ling_zhi",
@@ -1337,7 +1408,7 @@
   {
     "id": "item_gong_pin",
     "name": "贡品",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "贡品巨案因规模太大被暂时压下，只待查出真凶再上报。",
     "description": "这批贡品原本由镇远将军自关外押解进京，半夜随将军首级和一百二十名随行者的死亡一同失踪，是勾子长所说巨案核心。",
@@ -1348,7 +1419,6 @@
       }
     ],
     "origin": "关外押解进贡朝廷",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zhen_yuan_jiang_jun",
       "char_gou_zi_chang"
@@ -1382,12 +1452,20 @@
     "one_line": "金灵芝找到、属于丁枫的染血衣服。",
     "description": "包袱中藏着的染血衣服，丁枫承认本是自己的，却辩称可能有人偷穿嫁祸。",
     "effects": [
-      "指向丁枫嫌疑",
-      "引发勾子长质问",
-      "迫使丁枫解释嫁祸可能"
+      {
+        "type": "效果",
+        "description": "指向丁枫嫌疑"
+      },
+      {
+        "type": "效果",
+        "description": "引发勾子长质问"
+      },
+      {
+        "type": "效果",
+        "description": "迫使丁枫解释嫁祸可能"
+      }
     ],
     "origin": "金灵芝先前找到后由张三带来",
-    "rarity": "未知",
     "related_characters": [
       "char_ding_feng",
       "char_jin_ling_zhi",
@@ -1418,12 +1496,20 @@
     "one_line": "丁枫中毒的真正载体，毒不在酒而在杯上。",
     "description": "凶手预先在空酒杯内涂上强烈毒汁，冷酒未能溶毒，后来毒汁被酒化开使丁枫中毒。",
     "effects": [
-      "隐藏投毒痕迹",
-      "随机杀伤持杯者",
-      "制造勾子长嫌疑"
+      {
+        "type": "效果",
+        "description": "隐藏投毒痕迹"
+      },
+      {
+        "type": "效果",
+        "description": "随机杀伤持杯者"
+      },
+      {
+        "type": "效果",
+        "description": "制造勾子长嫌疑"
+      }
     ],
     "origin": "厨房或膳房酒杯被预先处理",
-    "rarity": "未知",
     "related_characters": [
       "char_ding_feng",
       "char_chu_liu_xiang",
@@ -1449,13 +1535,12 @@
   {
     "id": "item_hei_xiang_zi",
     "name": "黑箱子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gou_zi_chang",
     "one_line": "勾子长受伤时紧抓的神秘箱子。",
     "description": "勾子长遇袭时右手仍紧抓黑箱子，使箱子成为他行踪与身份的重要疑点。",
     "effects": [],
     "origin": "勾子长随身携带",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gou_zi_chang"
     ],
@@ -1483,7 +1568,7 @@
   {
     "id": "item_fei_dao",
     "name": "飞刀",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": null,
     "one_line": "从旁飞出刺向勾子长的暗器。",
     "description": "这柄刀出手奇快奇准，若非勾子长躲得快，几乎能刺穿他的咽喉。",
@@ -1494,7 +1579,6 @@
       }
     ],
     "origin": "暗算者所发",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gou_zi_chang"
     ],
@@ -1515,13 +1599,12 @@
   {
     "id": "item_mian_ju",
     "name": "面具",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "胡铁花从袭击者脸上抓下的伪装。",
     "description": "胡铁花醉中被人扼喉，反手抓下对方面具，才看见对方似乎是丁枫。",
     "effects": [],
     "origin": "袭击胡铁花者所戴",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hu_tie_hua",
       "char_ding_feng"
@@ -1543,7 +1626,7 @@
   {
     "id": "item_xi_fang_pu_kou",
     "name": "西方扑蔻",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "一种可令人近似假死的奇药。",
     "description": "英万里知道西方扑蔻由天竺、波斯以西的基度山小岛传来，可使人活动机能停顿。",
@@ -1554,7 +1637,6 @@
       }
     ],
     "origin": "基度山小岛",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1573,7 +1655,7 @@
   {
     "id": "item_tao_qing_jiu",
     "name": "逃情酒",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "最著名的假死药酒。",
     "description": "逃情酒由风流才子参照古方秘典制成，服后会进入假死状态，用来摆脱情债纠缠。",
@@ -1584,7 +1666,6 @@
       }
     ],
     "origin": "风流才子参照古方秘典制成",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -1622,7 +1703,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1643,7 +1723,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1670,7 +1749,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1691,7 +1769,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1712,7 +1789,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1733,7 +1809,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1760,7 +1835,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1781,7 +1855,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -1789,7 +1862,7 @@
   {
     "id": "item_chang_suo_sheng_qiao",
     "name": "长索绳桥",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hei_yi_ren",
     "one_line": "在狂风中飘摇，通往黑暗深处，桥上人随时可能坠落。",
     "description": "一条横空伸向黑暗深处的长索，被黑衣人称作桥，能让轻功足够者越过风浪礁石抵达蝙蝠岛。",
@@ -1800,7 +1873,6 @@
       }
     ],
     "origin": "蝙蝠岛接引布置",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hei_yi_ren",
       "char_yuan_sui_yun"
@@ -1831,16 +1903,21 @@
   {
     "id": "item_yan_guan",
     "name": "盐罐",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zhang_san",
     "one_line": "张三从船舱取出的盐罐，用来戏弄胡铁花并引出蝙蝠岛联想。",
     "description": "张三从船舱捧出的罐子，里面装着盐；他借民间避邪除霉之说让胡铁花试吃，实则用来调侃人吃盐是否会像老鼠变蝙蝠。",
     "effects": [
-      "可用作避邪除霉的玩笑道具",
-      "引出蝙蝠岛与蝙蝠传说的联想"
+      {
+        "type": "效果",
+        "description": "可用作避邪除霉的玩笑道具"
+      },
+      {
+        "type": "效果",
+        "description": "引出蝙蝠岛与蝙蝠传说的联想"
+      }
     ],
     "origin": "船舱",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_zhang_san",
       "char_hu_tie_hua"
@@ -1862,16 +1939,21 @@
   {
     "id": "item_dai_xue_bian_fu",
     "name": "带血蝙蝠",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "从枯梅大师遇难舱房中飞出的黑蝙蝠，身上沾满鲜血。",
     "description": "一只从外面锁住的舱房中扑出的死黑色蝙蝠，被胡铁花击落后显出满身鲜血，血量远超小蝙蝠自身，暗示舱房内另有命案。",
     "effects": [
-      "制造恐惧",
-      "提示舱房内有新的血案"
+      {
+        "type": "效果",
+        "description": "制造恐惧"
+      },
+      {
+        "type": "效果",
+        "description": "提示舱房内有新的血案"
+      }
     ],
     "origin": "枯梅大师遇难舱房",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hu_tie_hua",
       "char_zhang_san",
@@ -1896,16 +1978,21 @@
   {
     "id": "item_jin_ling_zhi_bi_shou",
     "name": "金灵芝匕首",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_jin_ling_zhi",
     "one_line": "金灵芝为戏弄胡铁花而拔出的匕首。",
     "description": "金灵芝沉着脸反手拔出的匕首，用来吓唬胡铁花割舌头，最终只是让赔罪的紧张气氛转为笑闹。",
     "effects": [
-      "近身威吓",
-      "可作短兵器"
+      {
+        "type": "效果",
+        "description": "近身威吓"
+      },
+      {
+        "type": "效果",
+        "description": "可作短兵器"
+      }
     ],
     "origin": "金灵芝随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_jin_ling_zhi",
       "char_hu_tie_hua"
@@ -1927,16 +2014,21 @@
   {
     "id": "item_chu_liu_xiang_di_mian_xian_suo",
     "name": "地面线索纸包",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "楚留香从白猎尸房地上刮起并小心包好的未知线索。",
     "description": "众人离开后，楚留香俯身用指甲从地上刮起一些东西，再找纸小心包起；其内容未明，但显然与白猎之死有关。",
     "effects": [
-      "保存命案现场微小线索",
-      "供后续推理使用"
+      {
+        "type": "效果",
+        "description": "保存命案现场微小线索"
+      },
+      {
+        "type": "效果",
+        "description": "供后续推理使用"
+      }
     ],
     "origin": "枯梅大师遇难舱房地面",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang",
       "char_bai_lie"
@@ -1958,7 +2050,7 @@
   {
     "id": "item_bi_yan_hu",
     "name": "鼻烟壶",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_duo_hu_nan_ren",
     "one_line": "刻有山水图画的小鼻烟壶，是被困女子怀念故乡的精神寄托。",
     "description": "这只小小的鼻烟壶上刻着山水，被困女子摸着它时仿佛回到故乡，因此愿付出一切换取。",
@@ -1969,7 +2061,6 @@
       }
     ],
     "origin": "蝙蝠岛来客随身之物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bi_yan_hu_nv_ren",
       "char_duo_hu_nan_ren",
@@ -2022,7 +2113,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -2030,7 +2120,7 @@
   {
     "id": "item_tong_guan",
     "name": "铜管",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_bian_fu_gong_zi",
     "one_line": "埋在石壁中用于传声与监听的机关铜管。",
     "description": "这根铜管藏在屋角石壁内，管口如喇叭，既能把远处声音送入石狱，也能让另一端听清囚室动静。",
@@ -2041,7 +2131,6 @@
       }
     ],
     "origin": "石狱机关",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bian_fu_gong_zi",
       "char_chu_liu_xiang"
@@ -2071,7 +2160,7 @@
   {
     "id": "item_da_shou_yin_mi_ji",
     "name": "大手印秘笈",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "黄教密宗大手印的武学秘笈。",
     "description": "这部秘笈属于黄教密宗大手印一脉，被蝙蝠公子当成独卖货物售出，足见其江湖价值极高。",
@@ -2082,7 +2171,6 @@
       }
     ],
     "origin": "黄教密宗",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -2101,7 +2189,7 @@
   {
     "id": "item_tang_men_shi_san_zhong_du_yao",
     "name": "唐门十三种毒药",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "蜀中唐门所制十三种毒药。",
     "description": "这十三种毒药出自蜀中唐门，被蝙蝠公子列为第一次拍卖货物，显然兼具杀伤价值和秘密交易价值。",
@@ -2112,7 +2200,6 @@
       }
     ],
     "origin": "蜀中唐门",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -2131,7 +2218,7 @@
   {
     "id": "item_lin_cheng_xue_an_xiong_shou_xing_ming",
     "name": "临城血案凶手姓名",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "五年前临城大血案真凶姓名。",
     "description": "这份秘密揭示五年前临城大血案凶手姓名，被凶手本人或相关人高价买走后反成蝙蝠公子要挟顾客的把柄。",
@@ -2142,7 +2229,6 @@
       }
     ],
     "origin": "蝙蝠公子搜集的江湖秘密",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -2173,7 +2259,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -2193,7 +2278,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -2201,7 +2285,7 @@
   {
     "id": "item_tang_men_du_yao",
     "name": "唐门毒药",
-    "type": "poison",
+    "type": "毒药",
     "owner": null,
     "one_line": "王天寿涉嫌购买的蜀中唐门毒药。",
     "description": "出自蜀中唐门的数瓶剧毒药物，被魏行龙指称王天寿欲用于酒中害人并嫁祸唐家。",
@@ -2212,7 +2296,6 @@
       }
     ],
     "origin": "蜀中唐门",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_wang_tian_shou"
     ],
@@ -2233,7 +2316,7 @@
   {
     "id": "item_huo_zhe_zi",
     "name": "火折子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_chu_liu_xiang",
     "one_line": "楚留香随身携带、能在黑暗山窟中提供瞬间火光的火具。",
     "description": "火折子在黑暗山窟中成为判断楚留香身份和方位的重要线索，远处一闪的火光直接动摇了胡铁花对身旁之人的判断。",
@@ -2244,7 +2327,6 @@
       }
     ],
     "origin": "楚留香随身物",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_chu_liu_xiang",
       "char_hu_tie_hua",
@@ -2274,7 +2356,7 @@
   {
     "id": "item_zha_si_yao_wu",
     "name": "诈死药物",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_ding_feng",
     "one_line": "能使人呈现死亡假象的药物。",
     "description": "此药物可制造诈死假象，使旁人误以为服用者已经死亡，从而借机脱身或布局。",
@@ -2285,7 +2367,6 @@
       }
     ],
     "origin": "江湖秘药",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ding_feng",
       "char_ku_mei_da_shi"
@@ -2307,7 +2388,7 @@
   {
     "id": "item_bi_lin_zi",
     "name": "碧磷字",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_gao_ya_nan",
     "one_line": "能在背上印下荧光字迹的碧磷文字。",
     "description": "以碧磷反写在手上，拍到他人背后即成正字，用来嫁祸制造嫌疑。",
@@ -2318,7 +2399,6 @@
       }
     ],
     "origin": "本章情节相关",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gao_ya_nan",
       "char_chu_liu_xiang"
@@ -2340,7 +2420,7 @@
   {
     "id": "item_lie_jiu",
     "name": "烈酒",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "浇在干衣上极易燃烧的烈酒。",
     "description": "烈酒被华真真布置在石台四周，配合干燥衣服形成迅速燃起的大火。",
@@ -2351,7 +2431,6 @@
       }
     ],
     "origin": "本章情节相关",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hua_zhen_zhen",
       "char_dong_san_niang"
@@ -2373,7 +2452,7 @@
   {
     "id": "item_bian_fu_yi_fu",
     "name": "蝙蝠衣服",
-    "type": "armor",
+    "type": "防具",
     "owner": "",
     "one_line": "蝙蝠岛人物所穿的轻薄奇特衣物。",
     "description": "这种衣服质料既轻又薄，干燥后被烈酒浇透，极易一点即燃。",
@@ -2384,7 +2463,6 @@
       }
     ],
     "origin": "本章情节相关",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -2403,7 +2481,7 @@
   {
     "id": "item_hua_shan_mi_ji",
     "name": "华山秘笈",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hua_zhen_zhen",
     "one_line": "华琼凤记载毕生武功心法的秘笈。",
     "description": "秘笈承载华仙子毕生武功心法，并赋予华真真监督华山掌门的特殊责任。",
@@ -2414,7 +2492,6 @@
       }
     ],
     "origin": "本章情节相关",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hua_zhen_zhen",
       "char_hua_qiong_feng"
@@ -2438,7 +2515,7 @@
   {
     "id": "item_xiao_ting",
     "name": "小艇",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_yuan_sui_yun",
     "one_line": "原随云安排用来脱身的小艇。",
     "description": "八名精赤上身的大汉摇动小艇，速度极快，是原随云从礁石脱逃到海船的工具。",
@@ -2449,7 +2526,6 @@
       }
     ],
     "origin": "本章情节相关",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yuan_sui_yun"
     ],
@@ -2470,7 +2546,7 @@
   {
     "id": "item_zang_wu",
     "name": "赃物",
-    "type": "special",
+    "type": "特殊",
     "owner": "",
     "one_line": "需要归还的旧案赃物。",
     "description": "勾子长临死前可能透露其下落，高亚男提醒楚留香回去后要将它们归还。",
@@ -2481,7 +2557,6 @@
       }
     ],
     "origin": "本章情节相关",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_gou_zi_chang",
       "char_zhang_san"

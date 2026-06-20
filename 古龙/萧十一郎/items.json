@@ -2,16 +2,21 @@
   {
     "id": "item_yin_zhen",
     "name": "银针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_feng_si_niang",
     "one_line": "风四娘使用的暗器，从指缝间飞出",
     "description": "风四娘使用的银针暗器，细小锋利，可从指缝间飞出，插入敌人眼睛，令人防不胜防",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "风四娘的暗器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_feng_si_niang"
     ],
@@ -32,13 +37,12 @@
   {
     "id": "item_xiao_niu_pi_xue_zi",
     "name": "小牛皮靴子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_dao_diao_nan",
     "one_line": "镶着珠花的小牛皮靴子，偷棺贼的标志性物品",
     "description": "用硝过的小牛皮制成，手工精细，镶着珠花，非规矩人所穿，江湖豪杰也少见。这种靴子与偷棺贼的身份相关，也是风四娘识破其身份的关键线索。",
     "effects": [],
     "origin": "不明",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_dao_diao_nan_zi",
       "char_feng_si_niang"
@@ -60,16 +64,21 @@
   {
     "id": "item_duan_jian",
     "name": "短剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_feng_si_niang",
     "one_line": "逍遥侯赠予风四娘的短剑",
     "description": "一尺多长的小短剑，剑锋奇薄，发着青中带蓝的光，最适女子使用，唐代最负盛名的女剑客公孙大娘曾用类似剑器。虽不能真的削铁如泥，却也差不多。",
     "effects": [
-      "锋利",
-      "适合女性使用"
+      {
+        "type": "效果",
+        "description": "锋利"
+      },
+      {
+        "type": "效果",
+        "description": "适合女性使用"
+      }
     ],
     "origin": "逍遥侯赠予",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_feng_si_niang",
       "char_xiao_yao_hou"
@@ -91,16 +100,21 @@
   {
     "id": "item_chi_xia",
     "name": "赤霞",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_feng_si_niang",
     "one_line": "逍遥侯赠予风四娘的另一柄短剑，已是断剑",
     "description": "剑鞘上镶着淡红的宝玉，是柄断剑，被一把不知名的刀削断。与'蓝玉'成对，原为公孙大娘首徒申若兰所用。",
     "effects": [
-      "锋利",
-      "与蓝玉成对"
+      {
+        "type": "效果",
+        "description": "锋利"
+      },
+      {
+        "type": "效果",
+        "description": "与蓝玉成对"
+      }
     ],
     "origin": "逍遥侯赠予",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_feng_si_niang",
       "char_xiao_yao_hou"
@@ -122,17 +136,25 @@
   {
     "id": "item_lan_yu",
     "name": "蓝玉",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_feng_si_niang",
     "one_line": "公孙大娘首徒申若兰所用的雌剑",
     "description": "一尺多长的小短剑，剑锋奇薄，发着青中带蓝的光，是柄雌剑。与'赤霞'成对，现为风四娘所有。",
     "effects": [
-      "锋利",
-      "适合女性使用",
-      "雌剑"
+      {
+        "type": "效果",
+        "description": "锋利"
+      },
+      {
+        "type": "效果",
+        "description": "适合女性使用"
+      },
+      {
+        "type": "效果",
+        "description": "雌剑"
+      }
     ],
     "origin": "逍遥侯赠予",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_feng_si_niang",
       "char_xiao_yao_hou"
@@ -154,16 +176,21 @@
   {
     "id": "item_ge_lu_dao",
     "name": "割鹿刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": null,
     "one_line": "徐鲁子耗尽心血铸造的绝世宝刀，取意“秦失其鹿，天下共逐，惟胜者得鹿而割之”。",
     "description": "割鹿刀是当代铸剑名家徐鲁子耗尽毕生心血铸造的宝刀，出炉不到半年，却能砍断古代利器。其名取自“秦失其鹿，天下共逐，惟胜者得鹿而割之”，寓意唯有天下第一的英雄才能拥有。此刀锋利无比，连名剑“赤霞”在它面前也如废铁。",
     "effects": [
-      "锋利无匹",
-      "斩断古代利器"
+      {
+        "type": "效果",
+        "description": "锋利无匹"
+      },
+      {
+        "type": "效果",
+        "description": "斩断古代利器"
+      }
     ],
     "origin": "徐鲁子铸造",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_xu_lu_zi",
       "char_xiao_shi_yi_lang",
@@ -207,15 +234,17 @@
   {
     "id": "item_lan_yu_jian",
     "name": "蓝玉剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_feng_si_niang",
     "one_line": "风四娘持有的宝剑，赠予萧十一郎",
     "description": "一柄精致的宝剑，原为风四娘所有，后赠予萧十一郎作为礼物",
     "effects": [
-      "锋利"
+      {
+        "type": "效果",
+        "description": "锋利"
+      }
     ],
     "origin": "风四娘所有",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_feng_si_niang",
       "char_xiao_shi_yi_lang"
@@ -237,13 +266,12 @@
   {
     "id": "item_yue_bin_lou",
     "name": "悦宾楼",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "济南城中昂贵的饭馆",
     "description": "济南城中特别贵的饭馆，水泡肚卖五钱银子一份，生意却特别好，花钱的大爷们爱的就是这调调儿。",
     "effects": [],
     "origin": "济南",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_feng_si_niang",
       "char_yang_kai_tai"
@@ -265,16 +293,21 @@
   {
     "id": "item_liu_xing",
     "name": "流星",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_shen_jia_zhuang",
     "one_line": "沈家庄传世宝刀",
     "description": "沈家庄传世宝刀，由赵无极等人护送入关，后在老鹰王手中被风四娘和萧十一郎夺走",
     "effects": [
-      "象征身份",
-      "武林至宝"
+      {
+        "type": "效果",
+        "description": "象征身份"
+      },
+      {
+        "type": "效果",
+        "description": "武林至宝"
+      }
     ],
     "origin": "沈家庄",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zhao_wu_ji",
       "char_lao_ying_wang",
@@ -298,16 +331,21 @@
   {
     "id": "item_yin_dao",
     "name": "银刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lao_zhao",
     "one_line": "老赵随身携带的小银刀，用于检验食物安全",
     "description": "一把打造古雅精致的小银刀，原为老赵随身携带用于检验食物是否有毒，后被阔少爷夺去用作杀人的凶器。刀身小巧但锋利异常，能轻松插入人的咽喉。",
     "effects": [
-      "检验毒素",
-      "近身刺杀"
+      {
+        "type": "效果",
+        "description": "检验毒素"
+      },
+      {
+        "type": "效果",
+        "description": "近身刺杀"
+      }
     ],
     "origin": "老赵随身携带",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lao_zhao",
       "char_kuo_shao_ye"
@@ -329,15 +367,17 @@
   {
     "id": "item_lu_dan",
     "name": "卤蛋",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_xiao_shi_yi_lang",
     "one_line": "萧十一郎使用的卤蛋",
     "description": "普通的卤蛋，被萧十一郎用来展示手法，实际上并无毒性，只是用来迷惑对手。",
     "effects": [
-      "无"
+      {
+        "type": "效果",
+        "description": "无"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiao_shi_yi_lang"
     ],
@@ -358,15 +398,17 @@
   {
     "id": "item_gang_zhi_jia",
     "name": "钢指甲",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_xiao_gong_zi",
     "one_line": "小公子使用的钢指甲暗器",
     "description": "薄而锋利的钢指甲，可飞射而出攻击穴道，是小公子的暗器之一。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiao_gong_zi"
     ],
@@ -389,15 +431,17 @@
   {
     "id": "item_qi_qiao_hua_gu_san",
     "name": "七巧化骨散",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_xiao_gong_zi",
     "one_line": "小公子使用的剧毒",
     "description": "一种剧毒，不到半个时辰就能让人全身溃烂，小公子藏在指甲中使用。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xiao_gong_zi"
     ],
@@ -418,15 +462,17 @@
   {
     "id": "item_ruan_jian",
     "name": "软剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiao_gong_zi",
     "one_line": "小公子使用的软剑",
     "description": "薄而细的软剑，迎风一抖便伸得笔直，毒蛇般刺出，剑法快而辛辣。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiao_gong_zi"
     ],
@@ -454,16 +500,21 @@
   {
     "id": "item_yu_dai_an_qi",
     "name": "玉带暗器",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_xiao_gong_zi",
     "one_line": "小公子玉带中的暗器",
     "description": "玉带中藏有银芒暴雨般的暗器，可射出大量银芒攻击敌人。",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_xiao_gong_zi"
     ],
@@ -486,7 +537,7 @@
   {
     "id": "item_bei_shou",
     "name": "匕首",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_liu_yong_nan",
     "one_line": "柳永南随身携带的匕首，用来刺杀赶车人",
     "description": "柳永南随身携带的短刃匕首，锋利异常，一刺直没至柄，用来暗算赶车人得手",
@@ -497,7 +548,6 @@
       }
     ],
     "origin": "柳永南随身武器",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_liu_yong_nan",
       "char_gan_che_de"
@@ -519,13 +569,12 @@
   {
     "id": "item_xing_hong_dou_peng",
     "name": "猩红斗篷",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_xiao_gong_zi",
     "one_line": "小公子披着的猩红色斗篷，衬着雪白粉嫩的脸",
     "description": "小公子身上披着的猩红色斗篷，漆黑头发上束着金冠，红缨随风摇动，衬着她雪白粉嫩的一张脸",
     "effects": [],
     "origin": "小公子服饰",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiao_gong_zi"
     ],
@@ -546,16 +595,21 @@
   {
     "id": "item_lei_gong_zao",
     "name": "雷公凿",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lei_man_tang",
     "one_line": "雷满堂善使的一双精钢雷公凿",
     "description": "一双精钢制成的雷公凿，用于击打人身穴道，招式精奇，无论水里陆上都可运转如意，配合天生神力可万夫不挡",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "太湖",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lei_man_tang"
     ],
@@ -578,15 +632,17 @@
   {
     "id": "item_duan_dao",
     "name": "短刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_xiao_shi_yi_lang",
     "one_line": "萧十一郎腰间斜插的短刀，被沈天菊指认为杀人凶器",
     "description": "萧十一郎随身携带的短刀，腰带上斜插，被沈天菊指认为杀害沈太夫人的凶器，实际上并非萧十一郎所用",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_xiao_shi_yi_lang",
       "char_shen_tian_ju"
@@ -614,15 +670,17 @@
   {
     "id": "item_da_tie_qiang",
     "name": "大铁枪",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_long_yi_shan",
     "one_line": "龙一闪使用的比身子还长三尺的大铁枪，枪头红缨闪动",
     "description": "龙一闪使用的大铁枪，比他身子还长三尺，枪头红缨闪动，威风凛凛，与软枪配合枪中夹剑是其成名绝技",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "未知",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_long_yi_shan"
     ],
@@ -643,15 +701,17 @@
   {
     "id": "item_jin_chai",
     "name": "金钗",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_shen_bi_jun",
     "one_line": "连城璧婚后第一天亲手插在沈璧君头上的金钗",
     "description": "沈璧君最珍惜之物，是她婚后第一天连城璧亲手插在她头上的金钗，象征着她与连城璧的婚姻。她用此物换酒请萧十一郎，表示对萧十一郎的感恩与诀别。",
     "effects": [
-      "情感象征"
+      {
+        "type": "效果",
+        "description": "情感象征"
+      }
     ],
     "origin": "连城璧赠送",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_shen_bi_jun",
       "char_lian_cheng_bi"
@@ -680,16 +740,21 @@
   {
     "id": "item_xian_cha",
     "name": "仙茶",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_tian_gong_zi",
     "one_line": "天公子所赐的仙茶。",
     "description": "据天公子说，这茶叶是仙种，不但益气补身，而且喝下去后，还会有种意想不到的好处。",
     "effects": [
-      "益气补身",
-      "意外效力"
+      {
+        "type": "效果",
+        "description": "益气补身"
+      },
+      {
+        "type": "效果",
+        "description": "意外效力"
+      }
     ],
     "origin": "天公子",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tian_gong_zi"
     ],
@@ -710,15 +775,17 @@
   {
     "id": "item_jin_zhen",
     "name": "金针",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_shen_bi_jun",
     "one_line": "沈璧君所用的暗器。",
     "description": "沈璧君所用的暗器，数量有限，用完即无。",
     "effects": [
-      "远程攻击"
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      }
     ],
     "origin": "沈璧君",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -737,13 +804,12 @@
   {
     "id": "item_lian_cheng_bi_chang_jian",
     "name": "连城璧长剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_lian_cheng_bi",
     "one_line": "连城璧随身佩剑，漆黑色剑鞘",
     "description": "连城璧随身佩戴的长剑，剑鞘为漆黑色，在昏暗灯光下闪烁着令人心寒的冷光，象征着主人内心的杀意与痛苦。",
     "effects": [],
     "origin": "连家",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_lian_cheng_bi"
     ],

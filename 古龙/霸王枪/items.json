@@ -2,7 +2,7 @@
   {
     "id": "item_kai_hua_wu_quan_qi",
     "name": "开花五犬旗",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_deng_ding_hou",
     "one_line": "联营镖局标志旗帜，黑色旗面绣五条白犬一朵红花，旗杆藏红货",
     "description": "黑色大旗，旗杆纯钢打造，旗面绣着五条白犬一朵红花，是联营镖局的标志，旗杆内暗藏价值百万的红货珠宝",
@@ -14,7 +14,6 @@
       }
     ],
     "origin": "联营镖局",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_bai_li_chang_qing",
       "char_deng_ding_hou",
@@ -45,7 +44,6 @@
     "description": "七十二颗同样大小、同样光泽的珍珠，辉煌美丽无可比拟，原为谭道购买用作京城靠山的寿礼，藏于旗杆之中",
     "effects": "价值连城，可换取大量银两用于接济江湖孤寡",
     "origin": "谭道特别购买的寿礼",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_tan_dao",
       "char_ding_xi",
@@ -75,7 +73,6 @@
     "description": "用百炼精钢打成的一对笔，斜插在西门胜腰带上，与主人一样锋利精炼，是西门胜的标志性兵器",
     "effects": "点穴、打穴、暗器配合使用，威力无穷",
     "origin": "百炼精钢打造",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xi_men_sheng"
     ],
@@ -97,16 +94,21 @@
   {
     "id": "item_lu_zhou_da_qu",
     "name": "泸洲大曲",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "产自泸洲的名酒，酒香浓烈",
     "description": "刚开封便有强烈酒香扑鼻而来的好酒，产自泸洲的大曲名酒，色泽清澈，入口醇厚。",
     "effects": [
-      "提神",
-      "助兴"
+      {
+        "type": "效果",
+        "description": "提神"
+      },
+      {
+        "type": "效果",
+        "description": "助兴"
+      }
     ],
     "origin": "泸洲",
-    "rarity": "寻常凡品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -125,16 +127,21 @@
   {
     "id": "item_ba_wang_qiang",
     "name": "霸王枪",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ba_wang_qiang_nv",
     "one_line": "世上最霸道的七种兵器之一，长一丈三尺七寸三分，重七十三斤七两三钱",
     "description": "枪长一丈三尺七寸三分，重七十三斤七两三钱，枪尖枪杆皆纯钢所制。枪尖刺人必死无疑，枪杆打人也得呕血五斗。江湖中独一无二的霸王枪。",
     "effects": [
-      "伤害",
-      "威慑"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "威慑"
+      }
     ],
     "origin": "王万武",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_wang_wan_wu"
     ],
@@ -182,15 +189,17 @@
   {
     "id": "item_jin_qiang",
     "name": "金枪",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_jin_qiang_xu",
     "one_line": "金枪徐的成名兵器，配合银梭使用",
     "description": "金枪徐的成名兵器，由两个彪形大汉扛着的很长很重的布袋装着，份量沉重。",
     "effects": [
-      "伤害"
+      {
+        "type": "效果",
+        "description": "伤害"
+      }
     ],
     "origin": "金枪徐",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_qiang_xu"
     ],
@@ -224,16 +233,21 @@
   {
     "id": "item_yin_suo",
     "name": "银梭",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_jin_qiang_xu",
     "one_line": "金枪徐的暗器，三枚银梭可击碎飞碗",
     "description": "金枪徐囊中暗器，银色梭形暗器，可精准击碎半空中的碗碟，威力不俗。",
     "effects": [
-      "伤害",
-      "控制"
+      {
+        "type": "效果",
+        "description": "伤害"
+      },
+      {
+        "type": "效果",
+        "description": "控制"
+      }
     ],
     "origin": "金枪徐",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_jin_qiang_xu"
     ],
@@ -254,16 +268,21 @@
   {
     "id": "item_liu_feng_xin",
     "name": "六封信",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "六封伪造邓定侯笔迹的信件，泄露镖的秘密",
     "description": "六封由同一人书写的信件，笔迹模仿邓定侯几乎乱真，信中泄露了联营镖局走镖的秘密，导致镖被劫",
     "effects": [
-      "泄露秘密",
-      "嫁祸邓定侯"
+      {
+        "type": "效果",
+        "description": "泄露秘密"
+      },
+      {
+        "type": "效果",
+        "description": "嫁祸邓定侯"
+      }
     ],
     "origin": "归东景伪造",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_deng_ding_hou",
       "char_gui_dong_jing"
@@ -285,16 +304,21 @@
   {
     "id": "item_ri_yue_shuang_qiang",
     "name": "日月双枪",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yue_lin",
     "one_line": "岳麟所使的双枪，日枪重二十一斤长四尺五寸，月枪重十七斤半长三尺九寸",
     "description": "一对份量极重的双枪，日枪重二十一斤长四尺五寸，月枪重十七斤半长三尺九寸，平时用布袋套着由专人提携",
     "effects": [
-      "攻击力极强",
-      "适合双持作战"
+      {
+        "type": "效果",
+        "description": "攻击力极强"
+      },
+      {
+        "type": "效果",
+        "description": "适合双持作战"
+      }
     ],
     "origin": "岳麟专属兵器",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yue_lin"
     ],
@@ -313,16 +337,21 @@
   {
     "id": "item_jiang_nan_nv_er_hong",
     "name": "江南女儿红",
-    "type": "pill",
+    "type": "丹药",
     "owner": null,
     "one_line": "好几十两银子一坛的上好女儿红，酒香扑鼻",
     "description": "上好的江南女儿红，酒香浓郁扑鼻，价值数十两银子一坛，是极为难得的好酒",
     "effects": [
-      "助兴",
-      "消愁"
+      {
+        "type": "效果",
+        "description": "助兴"
+      },
+      {
+        "type": "效果",
+        "description": "消愁"
+      }
     ],
     "origin": "江南",
-    "rarity": "上乘佳品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [],
@@ -339,16 +368,21 @@
   {
     "id": "item_yu_ping",
     "name": "玉瓶",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_hei_yi_ren",
     "one_line": "黑衣人随身携带的药瓶，内含黑色丸药",
     "description": "白玉制成的小瓶，内装黑色丸药，拔开瓶塞会散发奇异药香。黑衣人呼吸急促时服用，似可暂时压制某种疾病或恢复功力。",
     "effects": [
-      "压制病情",
-      "恢复状态"
+      {
+        "type": "效果",
+        "description": "压制病情"
+      },
+      {
+        "type": "效果",
+        "description": "恢复状态"
+      }
     ],
     "origin": "不明",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_hei_yi_ren"
     ],
@@ -374,11 +408,16 @@
     "one_line": "丁喜的随身短剑，剑锋奇窄，精光四射，可远程投掷",
     "description": "一柄剑锋奇窄、精光四射的短剑，丁喜随身携带，可远距离投掷且精准无比。钉入马车仅两寸，说明丁喜有意控制力度不伤人。",
     "effects": [
-      "远程投掷",
-      "精准钉入目标"
+      {
+        "type": "效果",
+        "description": "远程投掷"
+      },
+      {
+        "type": "效果",
+        "description": "精准钉入目标"
+      }
     ],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_ding_xi"
     ],
@@ -403,11 +442,16 @@
     "one_line": "归东景的马车用马，品种优良，被丁喜牵走",
     "description": "归东景配备的马车用马，品种优良。丁喜临走前将马系在树上，后来连马带人一起消失在清晨中。",
     "effects": [
-      "拉车",
-      "供骑乘"
+      {
+        "type": "效果",
+        "description": "拉车"
+      },
+      {
+        "type": "效果",
+        "description": "供骑乘"
+      }
     ],
     "origin": "归东景",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_gui_dong_jing",
       "char_ding_xi"
@@ -433,10 +477,12 @@
     "one_line": "丁喜不辞而别时带走的一坛酒",
     "description": "丁喜离开时随身带走的一坛酒，是他洒脱不羁性格的体现，具体酒名不详。",
     "effects": [
-      "增添豪迈气氛"
+      {
+        "type": "效果",
+        "description": "增添豪迈气氛"
+      }
     ],
     "origin": "不详",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ding_xi"
     ],
@@ -463,10 +509,12 @@
     "one_line": "老山东馒头店的大馒头",
     "description": "老山东馒头店的招牌馒头，个头很大，生意不错，是当地特色食物。",
     "effects": [
-      "充饥"
+      {
+        "type": "效果",
+        "description": "充饥"
+      }
     ],
     "origin": "老山东馒头店制作",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lao_shan_dong"
     ],
@@ -493,11 +541,16 @@
     "one_line": "老山东馒头店的招牌菜",
     "description": "老山东馒头店的招牌烧鸡，味道极佳，尤其鸡卤蘸馒头堪称一绝，是江湖人最爱的美食。",
     "effects": [
-      "充饥",
-      "犒赏"
+      {
+        "type": "效果",
+        "description": "充饥"
+      },
+      {
+        "type": "效果",
+        "description": "犒赏"
+      }
     ],
     "origin": "老山东亲手制作",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lao_shan_dong"
     ],
@@ -524,11 +577,16 @@
     "one_line": "包送终使用的长索，可如毒蛇般缠住目标",
     "description": "一条极其灵活的长索，使用时去势比弩箭还急，能够像毒蛇一样追踪目标，绕缠两圈即可将人紧紧缚住。",
     "effects": [
-      "擒人",
-      "远程攻击"
+      {
+        "type": "效果",
+        "description": "擒人"
+      },
+      {
+        "type": "效果",
+        "description": "远程攻击"
+      }
     ],
     "origin": "不详",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_bao_song_zhong"
     ],
@@ -555,10 +613,12 @@
     "one_line": "包送终的同伙用来装人的麻袋",
     "description": "包送终的同伙准备的大号麻袋，用于在飞索套住目标后将人装入，配合快马来去如风。",
     "effects": [
-      "装人"
+      {
+        "type": "效果",
+        "description": "装人"
+      }
     ],
     "origin": "不详",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_bao_song_zhong"
     ],
@@ -582,13 +642,18 @@
     "name": "人皮面具",
     "type": "易容道具",
     "origin": "伍先生",
-    "rarity": "稀世珍品",
     "owner": "char_wu_xian_sheng",
     "one_line": "伍先生所持人皮面具，制作精巧，可瞬间变换",
     "description": "用人皮制作的面具，做工极精巧，用法极方便，伍先生至少有七八张，可在一瞬间变换七八种面具",
     "effects": [
-      "瞬间变换面容",
-      "完美伪装"
+      {
+        "type": "效果",
+        "description": "瞬间变换面容"
+      },
+      {
+        "type": "效果",
+        "description": "完美伪装"
+      }
     ],
     "related_characters": [
       "char_wu_xian_sheng"
@@ -611,11 +676,13 @@
     "name": "烧鸡",
     "type": "食物",
     "origin": "老山东馒头店",
-    "rarity": "寻常凡品",
     "one_line": "丁喜带上山寨的烧鸡，作为伪装老山东的道具",
     "description": "老山东馒头店的招牌烧鸡，也是丁喜乔装老山东时携带的第三样'礼物'",
     "effects": [
-      "增强伪装可信度"
+      {
+        "type": "效果",
+        "description": "增强伪装可信度"
+      }
     ],
     "related_characters": [
       "char_ding_xi",

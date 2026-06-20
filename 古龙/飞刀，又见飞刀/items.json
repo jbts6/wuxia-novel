@@ -2,13 +2,12 @@
   {
     "id": "item_jin_yuan_bao",
     "name": "金元宝",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_pang_xiao_hai",
     "one_line": "胖小孩捧来的满盘金元宝",
     "description": "圆盘上堆满的无数圆圆的金元宝，金光闪闪，价值连城，由神秘胖小孩送来给老张。",
     "effects": [],
     "origin": "神秘",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_pang_xiao_hai",
       "char_lao_zhang"
@@ -30,13 +29,12 @@
   {
     "id": "item_ma_bian",
     "name": "马鞭",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_ke_ke",
     "one_line": "可可手中的马鞭，用来抽打李坏",
     "description": "可可手中提着的一根马鞭，看起来不像用来打马，倒像是专门用来抽人的武器，鞭梢灵活如蛇。",
     "effects": [],
     "origin": "普通",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_ke_ke"
     ],
@@ -57,7 +55,7 @@
   {
     "id": "item_yue_shen_zhi_dao",
     "name": "月神之刀",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yue_shen",
     "one_line": "月光般的飞刀，淡金色，窄窄的刀身",
     "description": "淡金色的窄刀，刀光淡如月光，能穿透心脏。与昔年小李探花的飞刀一样例不虚发。",
@@ -68,7 +66,6 @@
       }
     ],
     "origin": "月神",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_yue_shen",
       "char_li_huai"
@@ -92,7 +89,7 @@
   {
     "id": "item_ya_pian",
     "name": "鸦片",
-    "type": "poison",
+    "type": "毒药",
     "owner": "char_fang_tian_hao",
     "one_line": "红毛人从天竺弄来的邪恶香气，能引诱人",
     "description": "一种邪恶的香气，来自天竺，能引诱人，比江南春天最芬芳的花朵更迷人。",
@@ -103,7 +100,6 @@
       }
     ],
     "origin": "天竺",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_fang_tian_hao"
     ],
@@ -124,15 +120,17 @@
   {
     "id": "item_yin_yi",
     "name": "银衣",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_tie_yin_yi",
     "one_line": "铁银衣的银色衣裳，闪灿银光",
     "description": "满头银发如丝的老人穿着的一身闪灿银光的衣裳，连腰带都是用纯银合白金所制，体现其奢侈讲究的性格",
     "effects": [
-      "袍袖可震飞高手"
+      {
+        "type": "效果",
+        "description": "袍袖可震飞高手"
+      }
     ],
     "origin": "李家庄",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_tie_yin_yi"
     ],
@@ -153,13 +151,12 @@
   {
     "id": "item_hong_si_jin_bao_guo_de_shi_wu",
     "name": "红丝巾包裹的食物",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_hong_yi_xiao_nv_hai",
     "one_line": "红衣小女孩用红丝巾包的鸡腿、烧肉、油饼、卤蛋、糖糕",
     "description": "红衣小女孩用一块红丝巾包裹的食物，包含一只鸡腿、两块烧肉、三张油饼、四个卤蛋、五六卷糖糕，是小女孩悄悄送给小孩的节日礼物",
     "effects": [],
     "origin": "红衣小女孩赠送",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_hong_yi_xiao_nv_hai",
       "char_li_huai"
@@ -181,16 +178,21 @@
   {
     "id": "item_zhi_ming_dou_zi",
     "name": "致命豆子",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_zi_teng_hua",
     "one_line": "紫藤花的杀人符咒，接到即死",
     "description": "一颗看似普通的豆子，却是紫藤花的致命符咒。接到此豆子的人必死无疑，无论身份地位，无人能例外。豆子入腹后会在短时间内化为脓血。",
     "effects": [
-      "必杀",
-      "诅咒"
+      {
+        "type": "效果",
+        "description": "必杀"
+      },
+      {
+        "type": "效果",
+        "description": "诅咒"
+      }
     ],
     "origin": "紫藤花",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_zi_teng_hua",
       "char_li_huai"
@@ -214,16 +216,21 @@
   {
     "id": "item_dou_dou",
     "name": "毒豆",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_zi_teng_hua",
     "one_line": "紫藤花用以杀人的暗器毒豆，可令人冰冻结冻",
     "description": "紫藤花所用的一颗小小毒豆，入口后可令人冰冻结冻而死，是一种极为隐蔽的暗器",
     "effects": [
-      "冰冻",
-      "致命"
+      {
+        "type": "效果",
+        "description": "冰冻"
+      },
+      {
+        "type": "效果",
+        "description": "致命"
+      }
     ],
     "origin": "紫藤花秘制",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_zi_teng_hua",
       "char_li_huai"
@@ -245,13 +252,12 @@
   {
     "id": "item_xue_jia_zhan_shu",
     "name": "薛家战书",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_xue_de_xia",
     "one_line": "薛家后人寄给李曼青的挑战书",
     "description": "一封绝不能算很标准的战书，字里行间有一种逼人的傲气，仿佛已然将对方的生死掌握在自己的手里。日期定于元夜子时，要求在贵宅比试飞刀。",
     "effects": [],
     "origin": "薛家后人",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_li_man_qing"
     ],
@@ -272,15 +278,17 @@
   {
     "id": "item_fei_dao_xiao_ce",
     "name": "飞刀小册",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_huai",
     "one_line": "记载小李探花天下无双飞刀绝技的小册",
     "description": "一本小册，记载昔年小李探花天下无双的飞刀绝技要诀，由铁银衣转交给李坏，是李家飞刀传承的精髓所在。",
     "effects": [
-      "记载飞刀秘法要诀"
+      {
+        "type": "效果",
+        "description": "记载飞刀秘法要诀"
+      }
     ],
     "origin": "李家传承",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_li_huai",
       "char_li_xun_huan",
@@ -303,15 +311,17 @@
   {
     "id": "item_jin_nang",
     "name": "锦囊",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_li_huai",
     "one_line": "李坏母亲所留锦囊，内藏宝藏地图",
     "description": "李坏母亲要其父亲转交的锦囊，内有一张简略地图和几行解说，指向一处富可敌国的宝藏所在地，是上官金虹金钱帮遗留的宝藏。",
     "effects": [
-      "指引宝藏位置"
+      {
+        "type": "效果",
+        "description": "指引宝藏位置"
+      }
     ],
     "origin": "上官家族",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_li_huai",
       "char_shang_guan_xiao_xian"
@@ -333,13 +343,12 @@
   {
     "id": "item_yin_hu_pi_mao",
     "name": "银狐皮毛",
-    "type": "armor",
+    "type": "防具",
     "owner": "char_xiao_jie",
     "one_line": "铺满小楼地面的雪白色银狐皮毛",
     "description": "雪白色的银狐皮毛铺满小楼地面，洁白如雪，与整个白色房间融为一体，营造出冰雪宫殿般的氛围",
     "effects": [],
     "origin": "未知",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_xiao_jie"
     ],

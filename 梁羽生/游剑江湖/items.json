@@ -2,7 +2,7 @@
   {
     "id": "item_yin_zan",
     "name": "银簪",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yun_zi_luo",
     "one_line": "云紫萝的银簪，用作暗器打伤快活张",
     "description": "云紫萝平日插在头上的银簪，却能当作暗器使用，打中快活张的环跳穴",
@@ -14,7 +14,6 @@
       }
     ],
     "origin": "云紫萝",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yun_zi_luo",
       "char_kuai_huo_zhang"
@@ -36,7 +35,7 @@
   {
     "id": "item_quan_jing_jian_pu",
     "name": "拳经剑谱",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "杨牧的武功秘籍，下落不明",
     "description": "杨牧的拳经剑谱，众弟子觊觎之物，闵成龙和岳豪多方搜寻未果",
@@ -48,7 +47,6 @@
       }
     ],
     "origin": "杨牧",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yang_mu",
       "char_min_cheng_long",
@@ -71,7 +69,7 @@
   {
     "id": "item_hua_tu",
     "name": "画图",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_kuai_huo_zhang",
     "one_line": "云紫萝所绘孟元超肖像画，上题朱淑真词",
     "description": "云紫萝偷画的一幅男子画像，画的是一个丰神俊秀的男子，题有朱淑真生查子词，暗示她另有心上人",
@@ -83,7 +81,6 @@
       }
     ],
     "origin": "云紫萝",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yun_zi_luo",
       "char_kuai_huo_zhang",
@@ -106,7 +103,7 @@
   {
     "id": "item_xiong_dan_wan",
     "name": "熊胆丸",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_kuai_huo_zhang",
     "one_line": "杨大姑赠予快活张的内伤良药",
     "description": "医治内伤的良药，杨大姑用来酬谢快活张",
@@ -118,7 +115,6 @@
       }
     ],
     "origin": "杨大姑",
-    "rarity": "上乘佳品",
     "related_characters": [
       "char_yang_da_gu",
       "char_kuai_huo_zhang"
@@ -140,7 +136,7 @@
   {
     "id": "item_hua_zhuan",
     "name": "空棺砖头",
-    "type": "special",
+    "type": "特殊",
     "owner": null,
     "one_line": "棺材中用来替代杨牧尸体的砖头",
     "description": "开棺验尸时发现棺中只有几块砖头，杨牧尸体不翼而飞",
@@ -152,7 +148,6 @@
       }
     ],
     "origin": "未知",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yang_mu"
     ],
@@ -178,11 +173,16 @@
     "one_line": "少林寺无碍禅师所赠，功能固本培元",
     "description": "元一冲身上携带的三粒小还丹，来自少林寺无碍禅师",
     "effects": [
-      "固本培元",
-      "疗伤"
+      {
+        "type": "效果",
+        "description": "固本培元"
+      },
+      {
+        "type": "效果",
+        "description": "疗伤"
+      }
     ],
     "origin": "少林寺",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_yuan_yi_chong"
     ],
@@ -209,11 +209,16 @@
     "one_line": "清廷大内高手所用暗器，十三枚射入穴道",
     "description": "清廷大内高手所用的淬毒梅花针，射入穴道极为棘手",
     "effects": [
-      "毒入穴道",
-      "难以医治"
+      {
+        "type": "效果",
+        "description": "毒入穴道"
+      },
+      {
+        "type": "效果",
+        "description": "难以医治"
+      }
     ],
     "origin": "清廷大内",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_meng_yuan_chao"
     ],
@@ -235,7 +240,7 @@
   {
     "id": "item_han_yu",
     "name": "家传汉玉",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_meng_yuan_chao",
     "one_line": "孟元超临走留给云紫萝的家传汉玉，用作父子相认的信物",
     "description": "孟元超临行前留给云紫萝的家传汉玉，嘱咐她在孩子长大后交给孩子，作为父子相认的信物。后被杨牧偷去。",
@@ -247,7 +252,6 @@
       }
     ],
     "origin": "孟元超家传",
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_meng_yuan_chao",
       "char_yun_zi_luo",
@@ -270,15 +274,17 @@
   {
     "id": "item_hong_zong_ma",
     "name": "红鬃马",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_yu_chi_jiong",
     "one_line": "尉迟炯的坐骑，原为御林军统领北宫望所有",
     "description": "四蹄雪白，毛色深红的骏马，原是御林军统领的坐骑，被尉迟炯和快活张联手盗得",
     "effects": [
-      "日行三五百里"
+      {
+        "type": "效果",
+        "description": "日行三五百里"
+      }
     ],
     "origin": "御林军统领北宫望",
-    "rarity": "未知",
     "related_characters": [
       "char_yu_chi_jiong",
       "char_meng_yuan_chao"
@@ -304,7 +310,7 @@
   {
     "id": "item_ren_pi_mian_ju",
     "name": "人皮面具",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_miao_chang_feng",
     "one_line": "苗疆精制的人皮面具轻软贴面不易识破",
     "description": "十年前缪长风从苗疆得来的人皮面具制作精巧轻柔软熟有弹性可粘在脸上决计不会给人看破面具主人生前都是丑女共剩四张分赠箫夫人等人",
@@ -316,7 +322,6 @@
       }
     ],
     "origin": "苗疆",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_miao_chang_feng",
       "char_xiao_furen"
@@ -338,7 +343,7 @@
   {
     "id": "item_ye_ming_zhu",
     "name": "夜明珠",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lin_wu_shuang",
     "one_line": "山洞中发现的一串又圆又大的夜明珠",
     "description": "一串又圆又大的夜明珠，光华耀目，乃世上奇珍，林无双在山洞角落发现，用于照明观看石壁武功秘图",
@@ -350,7 +355,6 @@
       }
     ],
     "origin": "山洞中遗留",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_lin_wu_shuang"
     ],
@@ -377,7 +381,6 @@
     "description": "清廷大内侍卫的身份标识金牌",
     "effects": [],
     "origin": "清廷大内",
-    "rarity": "稀世珍品",
     "related_characters": [],
     "related_skills": [],
     "rag_refs": [
@@ -396,7 +399,6 @@
     "description": "孟元超与云紫萝分手时留下的玉佩，作为父子相识的信物",
     "effects": [],
     "origin": "孟元超",
-    "rarity": "未知",
     "related_characters": [
       "char_meng_yuan_chao",
       "char_yun_zi_luo",
@@ -421,11 +423,16 @@
     "one_line": "陈德泰的兵器，青铜混合玄铁铸造，外表似漆木",
     "description": "外表看似漆木烟杆，实为青铜混合玄铁铸造，比凡铁重十倍，曾一敲碎石碑",
     "effects": [
-      "重击碎碑",
-      "反震虎口"
+      {
+        "type": "效果",
+        "description": "重击碎碑"
+      },
+      {
+        "type": "效果",
+        "description": "反震虎口"
+      }
     ],
     "origin": "陈德泰",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_chen_de_tai"
     ],
@@ -442,7 +449,7 @@
   {
     "id": "item_she_yan_jian",
     "name": "蛇焰箭",
-    "type": "hidden_weapon",
+    "type": "暗器",
     "owner": "char_yu_chi_jiong",
     "one_line": "夜行人联络信号，射上半空发出蓝色火焰",
     "description": "夜行人惯常用来作联络的信号的，射上半空，会发出一团蓝色的火焰，方圆数里之内，都看得见。",
@@ -454,7 +461,6 @@
       }
     ],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_yu_chi_jiong"
     ],
@@ -475,13 +481,12 @@
   {
     "id": "item_yu_zan",
     "name": "玉簪",
-    "type": "special",
+    "type": "特殊",
     "owner": "char_lv_si_mei",
     "one_line": "吕思美头上佩戴的玉簪",
     "description": "吕思美头上佩戴的玉簪，被快活张偷走后归还。",
     "effects": [],
     "origin": null,
-    "rarity": "寻常凡品",
     "related_characters": [
       "char_lv_si_mei"
     ],
@@ -502,7 +507,7 @@
   {
     "id": "item_qing_long_bao_jian",
     "name": "青龙宝剑",
-    "type": "weapon",
+    "type": "兵器",
     "owner": "char_bei_gong_wang",
     "one_line": "大内所藏古代七把宝剑之一，剑柄镶金嵌玉，剑尖吐碧莹光芒",
     "description": "皇上赐予北宫望的宝剑，剑名青龙，是大内所藏的古代七把宝剑之一，剑柄镶金嵌玉，剑尖吐出碧莹莹的光芒",
@@ -514,7 +519,6 @@
       }
     ],
     "origin": "皇上御赐",
-    "rarity": "绝世神兵",
     "related_characters": [
       "char_bei_gong_wang"
     ],
@@ -535,7 +539,7 @@
   {
     "id": "item_gu_yu_gao",
     "name": "固玉膏",
-    "type": "pill",
+    "type": "丹药",
     "owner": "char_meng_yuan_chao",
     "one_line": "青城派秘方炼制的续筋驳骨圣药，号称天下第一",
     "description": "萧志远所赠的续筋驳骨圣药，青城派秘方炼制，功能续筋驳骨，号称天下第一",
@@ -547,7 +551,6 @@
       }
     ],
     "origin": "青城派",
-    "rarity": "稀世珍品",
     "related_characters": [
       "char_meng_yuan_chao",
       "char_kuai_huo_zhang"
@@ -571,7 +574,6 @@
     "name": "御赐朝珠",
     "alias": [],
     "type": "accessory",
-    "rarity": "稀世珍品",
     "description": "皇帝赏赐给石朝玑的珊瑚朝珠",
     "owner": "char_shi_zhao_ji",
     "rag_refs": [
@@ -592,7 +594,6 @@
     "id": "item_lao_shan_shen",
     "name": "老山参",
     "type": "药材",
-    "rarity": "稀世珍品",
     "description": "尉迟炯的妻子千手观音祈圣因送给林无双的礼物，适合产后虚弱之人服用",
     "source_refs": [
       {
@@ -609,7 +610,6 @@
     "id": "item_hua_gu_san",
     "name": "化骨散",
     "type": "毒药",
-    "rarity": "稀世珍品",
     "description": "大内秘制毒药，药丸研成粉可毒害数十人，整颗吞服可令人化为血水",
     "source_refs": [
       {
@@ -626,7 +626,6 @@
     "id": "item_jie_yao",
     "name": "化骨散解药",
     "type": "解药",
-    "rarity": "稀世珍品",
     "description": "化骨散的独门解药，十颗可救全帮五百人",
     "source_refs": [
       {
@@ -643,7 +642,6 @@
     "id": "item_hua_gu_san_ping",
     "name": "化骨散药瓶",
     "item_type": "药瓶",
-    "rarity": "稀世珍品",
     "description": "快活张从皇宫内库偷出的药瓶，与张宏达的化骨散药瓶一模一样，用来吓唬张宏达。",
     "rank": null,
     "source_refs": [
@@ -661,7 +659,6 @@
     "id": "item_ci_tie_qi_pan",
     "name": "磁铁棋盘",
     "item_type": "兵器",
-    "rarity": "稀世珍品",
     "description": "刘隐农的棋盘，乃是一块磁铁所制，可吸收铁制暗器，也可当作兵器使用。",
     "rank": null,
     "source_refs": [
@@ -689,7 +686,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
@@ -708,7 +704,6 @@
       }
     ],
     "rarity_tier": "未知",
-    "rarity": "未知",
     "migration_notes": [
       "unresolved rarity: <blank>"
     ]
