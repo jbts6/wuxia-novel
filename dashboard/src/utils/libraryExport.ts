@@ -2,6 +2,10 @@ import type { AnnotatedLibraryRecord } from '../types/library';
 
 type ExportableEntity = {
   name?: string;
+  mastery_rank?: string;
+  power_rank?: string;
+  importance?: string;
+  rarity_tier?: string;
   rank?: string;
   type?: string;
   rarity?: string;
@@ -35,9 +39,13 @@ export function serializeLibraryCsv(records: AnnotatedLibraryRecord<unknown>[]):
     'bookName',
     'bookPath',
     'name',
+    'mastery_rank',
+    'power_rank',
+    'importance',
+    'rarity_tier',
     'rank',
-    'type',
     'rarity',
+    'type',
     'role',
     'archetype',
     'faction',
@@ -55,9 +63,13 @@ export function serializeLibraryCsv(records: AnnotatedLibraryRecord<unknown>[]):
       record.source.bookName,
       record.source.bookPath,
       entity.name,
+      entity.mastery_rank,
+      entity.power_rank,
+      entity.importance,
+      entity.rarity_tier,
       entity.rank,
-      entity.type,
       entity.rarity,
+      entity.type,
       entity.role,
       entity.archetype,
       entity.faction,

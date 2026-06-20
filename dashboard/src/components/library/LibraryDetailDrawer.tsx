@@ -29,13 +29,21 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
     id?: string;
     name?: string;
     one_line?: string;
+    mastery_rank?: string;
+    power_rank?: string;
+    importance?: string;
     rank?: string;
+    legacy_rank?: string;
     type?: string;
+    rarity_tier?: string;
     rarity?: string;
+    legacy_rarity?: string;
     role?: string;
     archetype?: string;
     faction?: string | null;
   };
+  const displayRank = entity.mastery_rank ?? entity.power_rank ?? entity.rank;
+  const displayRarity = entity.rarity_tier ?? entity.rarity;
 
   const openSourceBook = () => {
     if (!selectedKey || !record) return;
@@ -75,12 +83,15 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
             <Text type="secondary">{record.source.author} / {record.source.bookName}</Text>
             <Paragraph style={{ marginTop: 12 }}>{entity.one_line}</Paragraph>
             <Space wrap>
-              {entity.rank && <Tag color="red">{entity.rank}</Tag>}
-              {entity.rarity && <Tag color="gold">{entity.rarity}</Tag>}
+              {displayRank && <Tag color="red">{displayRank}</Tag>}
+              {entity.importance && <Tag color="blue">{entity.importance}</Tag>}
+              {displayRarity && <Tag color="gold">{displayRarity}</Tag>}
               {entity.type && <Tag>{entity.type}</Tag>}
               {entity.role && <Tag color="blue">{entity.role}</Tag>}
               {entity.archetype && <Tag color="green">{entity.archetype}</Tag>}
               {entity.faction && <Tag color="cyan">{entity.faction}</Tag>}
+              {entity.legacy_rank && <Tag color="default">legacy: {entity.legacy_rank}</Tag>}
+              {entity.legacy_rarity && <Tag color="default">legacy: {entity.legacy_rarity}</Tag>}
             </Space>
           </div>
 

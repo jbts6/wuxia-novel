@@ -68,6 +68,9 @@ const CharacterList: React.FC = () => {
             <Row gutter={[12, 12]}>
               {chars.map(char => (
                 <Col xs={24} sm={12} md={8} lg={6} key={char.id}>
+                  {(() => {
+                    const powerRank = char.power_rank ?? char.rank;
+                    return (
                   <Card
                     size="small"
                     hoverable
@@ -76,8 +79,8 @@ const CharacterList: React.FC = () => {
                   >
                     <div style={{ marginBottom: 4 }}>
                       <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
-                      {char.rank && (
-                        <Tag color={rankColor[char.rank] || 'default'} style={{ marginLeft: 8 }}>{char.rank}</Tag>
+                      {powerRank && (
+                        <Tag color={rankColor[powerRank] || 'default'} style={{ marginLeft: 8 }}>{powerRank}</Tag>
                       )}
                     </div>
                     {char.alias?.length > 0 && (
@@ -89,6 +92,8 @@ const CharacterList: React.FC = () => {
                       {char.identity || char.one_line}
                     </Paragraph>
                   </Card>
+                    );
+                  })()}
                 </Col>
               ))}
             </Row>

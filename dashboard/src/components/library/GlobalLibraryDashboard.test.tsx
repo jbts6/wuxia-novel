@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 import GlobalLibraryDashboard from './GlobalLibraryDashboard';
@@ -19,12 +19,26 @@ vi.mock('../../hooks/useLibraryData', () => ({
         key: 'skill:book:s1',
         kind: 'skill',
         source: { author: '金庸', bookName: '射雕英雄传', bookPath: '金庸/射雕英雄传' },
-        entity: { id: 's1', name: '九阴真经', rank: '返璞归真', type: '内功', techniques: [], effects: [] },
+        entity: { id: 's1', name: '九阴真经', mastery_rank: '返璞归真', rank: '返璞归真', type: '内功', techniques: [], effects: [] },
       },
     ],
-    characters: [],
+    characters: [
+      {
+        key: 'character:book:c1',
+        kind: 'character',
+        source: { author: '金庸', bookName: '射雕英雄传', bookPath: '金庸/射雕英雄传' },
+        entity: { id: 'c1', name: '郭靖', power_rank: '出神入化', rank: '出神入化', importance: '主角', role: 'protagonist', archetype: 'warrior', faction: null },
+      },
+    ],
     factions: [],
-    items: [],
+    items: [
+      {
+        key: 'item:book:i1',
+        kind: 'item',
+        source: { author: '金庸', bookName: '射雕英雄传', bookPath: '金庸/射雕英雄传' },
+        entity: { id: 'i1', name: '打狗棒', rarity_tier: '绝世神兵', rarity: '绝世神兵', type: 'weapon' },
+      },
+    ],
     loading: false,
     error: null,
     warnings: [],
@@ -44,5 +58,9 @@ describe('GlobalLibraryDashboard', () => {
     expect(screen.getByText('人物原型')).toBeInTheDocument();
     expect(screen.getByText('门派资源')).toBeInTheDocument();
     expect(screen.getByText('神兵物品')).toBeInTheDocument();
+
+    fireEvent.click(screen.getAllByText('顶级武功')[0]);
+
+    expect(screen.getByLabelText('素材类型')).toBeInTheDocument();
   });
 });

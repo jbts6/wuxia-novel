@@ -11,24 +11,24 @@ const source = { author: '金庸', bookName: '射雕英雄传', bookPath: '金�
 
 describe('library aggregation', () => {
   it('classifies top-tier martial arts by current rank policy', () => {
-    expect(isTopTierSkill({ rank: '返璞归真' } as Skill)).toBe(true);
-    expect(isTopTierSkill({ rank: '登峰造极' } as Skill)).toBe(true);
-    expect(isTopTierSkill({ rank: '出神入化' } as Skill)).toBe(false);
+    expect(isTopTierSkill({ mastery_rank: '返璞归真' } as Skill)).toBe(true);
+    expect(isTopTierSkill({ mastery_rank: '登峰造极' } as Skill)).toBe(true);
+    expect(isTopTierSkill({ mastery_rank: '出神入化' } as Skill)).toBe(false);
   });
 
   it('classifies legendary items by current rarity policy', () => {
-    expect(isLegendaryItem({ rarity: '绝世神兵' } as Item)).toBe(true);
-    expect(isLegendaryItem({ rarity: '稀世珍品' } as Item)).toBe(false);
+    expect(isLegendaryItem({ rarity_tier: '绝世神兵' } as Item)).toBe(true);
+    expect(isLegendaryItem({ rarity_tier: '稀世珍品' } as Item)).toBe(false);
   });
 
   it('attaches source metadata and stable keys', () => {
     const collections = aggregateLibraryCollections([
       {
         source,
-        skills: [{ id: 'skill_1', name: '九阴真经', rank: '返璞归真' } as Skill],
-        characters: [{ id: 'char_1', name: '郭靖', role: 'protagonist' } as Character],
+        skills: [{ id: 'skill_1', name: '九阴真经', mastery_rank: '返璞归真' } as Skill],
+        characters: [{ id: 'char_1', name: '郭靖', role: 'protagonist', power_rank: '出神入化', importance: '主角' } as Character],
         factions: [{ id: 'faction_1', name: '全真教' } as Faction],
-        items: [{ id: 'item_1', name: '打狗棒', rarity: '绝世神兵' } as Item],
+        items: [{ id: 'item_1', name: '打狗棒', rarity_tier: '绝世神兵' } as Item],
       },
     ]);
 
@@ -42,12 +42,12 @@ describe('library aggregation', () => {
   it('summarizes all library material', () => {
     const summary = summarizeLibrary({
       skills: [
-        { key: 'a', kind: 'skill', source, entity: { id: 's1', rank: '返璞归真' } as Skill },
-        { key: 'b', kind: 'skill', source, entity: { id: 's2', rank: '炉火纯青' } as Skill },
+        { key: 'a', kind: 'skill', source, entity: { id: 's1', mastery_rank: '返璞归真' } as Skill },
+        { key: 'b', kind: 'skill', source, entity: { id: 's2', mastery_rank: '炉火纯青' } as Skill },
       ],
       characters: [{ key: 'c', kind: 'character', source, entity: { id: 'c1' } as Character }],
       factions: [{ key: 'f', kind: 'faction', source, entity: { id: 'f1' } as Faction }],
-      items: [{ key: 'i', kind: 'item', source, entity: { id: 'i1', rarity: '绝世神兵' } as Item }],
+      items: [{ key: 'i', kind: 'item', source, entity: { id: 'i1', rarity_tier: '绝世神兵' } as Item }],
     });
 
     expect(summary).toEqual({

@@ -6,8 +6,12 @@ const { Text } = Typography;
 
 type EntityPreview = {
   name?: string;
+  mastery_rank?: string;
+  power_rank?: string;
+  importance?: string;
   rank?: string;
   type?: string;
+  rarity_tier?: string;
   rarity?: string;
   role?: string;
   archetype?: string;
@@ -50,10 +54,13 @@ const LibraryRecordTable = <T,>({ records, onOpen }: LibraryRecordTableProps<T>)
       key: 'meta',
       render: (_, record) => {
         const entity = record.entity as EntityPreview;
+        const rank = entity.mastery_rank ?? entity.power_rank ?? entity.rank;
+        const rarity = entity.rarity_tier ?? entity.rarity;
         return (
           <Space wrap size={4}>
-            {entity.rank && <Tag color="red">{entity.rank}</Tag>}
-            {entity.rarity && <Tag color="gold">{entity.rarity}</Tag>}
+            {rank && <Tag color="red">{rank}</Tag>}
+            {entity.importance && <Tag color="blue">{entity.importance}</Tag>}
+            {rarity && <Tag color="gold">{rarity}</Tag>}
             {entity.type && <Tag>{entity.type}</Tag>}
             {entity.role && <Tag color="blue">{entity.role}</Tag>}
             {entity.archetype && <Tag color="green">{entity.archetype}</Tag>}

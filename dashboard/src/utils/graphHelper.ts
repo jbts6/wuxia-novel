@@ -113,7 +113,7 @@ export function buildGraphData(
       name: item.name,
       type: 'item',
       val: 3,
-      color: RARITY_COLORS[item.rarity] || NODE_COLORS.item,
+      color: RARITY_COLORS[item.rarity_tier ?? item.rarity] || NODE_COLORS.item,
       data: item,
     });
 

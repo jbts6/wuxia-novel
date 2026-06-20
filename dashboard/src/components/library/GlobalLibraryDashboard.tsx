@@ -50,7 +50,9 @@ const GlobalLibraryDashboard: React.FC = () => {
   }), [data.characters, data.factions, data.items, data.skills]);
 
   const filterOptions = useMemo(() => ({
-    rank: getUniqueFilterValues(data.skills.map((record) => record.entity.rank)),
+    masteryRank: getUniqueFilterValues(data.skills.map((record) => record.entity.mastery_rank ?? record.entity.rank)),
+    powerRank: getUniqueFilterValues(data.characters.map((record) => record.entity.power_rank ?? record.entity.rank)),
+    importance: getUniqueFilterValues(data.characters.map((record) => record.entity.importance)),
     author: getUniqueFilterValues(books.map((book) => book.author)),
     bookPath: books.map((book) => ({ label: `${book.author} / ${book.name}`, value: book.path })),
     type: getUniqueFilterValues([
@@ -64,7 +66,7 @@ const GlobalLibraryDashboard: React.FC = () => {
     ]),
     role: getUniqueFilterValues(data.characters.map((record) => record.entity.role)),
     archetype: getUniqueFilterValues(data.characters.map((record) => record.entity.archetype)),
-    rarity: getUniqueFilterValues(data.items.map((record) => record.entity.rarity)),
+    rarityTier: getUniqueFilterValues(data.items.map((record) => record.entity.rarity_tier ?? record.entity.rarity)),
   }), [books, data.characters, data.factions, data.items, data.skills]);
 
   const topSkills = useMemo(

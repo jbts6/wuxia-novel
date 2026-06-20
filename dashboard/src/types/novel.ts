@@ -7,7 +7,11 @@ export interface Character {
   faction: string | null;
   role: 'protagonist' | 'companion' | 'npc' | 'villain';
   archetype: 'scholar' | 'warrior' | 'monk' | 'assassin' | 'healer';
+  power_rank: string;
+  importance: string;
   rank: string;
+  legacy_rank?: string;
+  migration_notes?: string[];
   one_line: string;
   personality: {
     traits: string[];
@@ -44,7 +48,10 @@ export interface Skill {
   name: string;
   type: string;
   faction: string | null;
+  mastery_rank: string;
   rank: string;
+  legacy_rank?: string;
+  migration_notes?: string[];
   one_line: string;
   rag_refs?: number[];
   techniques: Technique[];
@@ -79,7 +86,10 @@ export interface Item {
   description: string;
   effects: Effect[];
   origin: string;
+  rarity_tier: string;
   rarity: string;
+  legacy_rarity?: string;
+  migration_notes?: string[];
   related_skills: string[];
   rag_refs?: number[];
   source_refs: SourceRef[];

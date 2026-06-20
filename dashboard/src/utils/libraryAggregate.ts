@@ -21,12 +21,13 @@ export interface LibrarySummary {
   legendaryItems: number;
 }
 
-export function isTopTierSkill(skill: Pick<Skill, 'rank'>): boolean {
-  return skill.rank === '返璞归真' || skill.rank === '登峰造极';
+export function isTopTierSkill(skill: Pick<Skill, 'mastery_rank' | 'rank'>): boolean {
+  const rank = skill.mastery_rank ?? skill.rank;
+  return rank === '返璞归真' || rank === '登峰造极';
 }
 
-export function isLegendaryItem(item: Pick<Item, 'rarity'>): boolean {
-  return item.rarity === '绝世神兵';
+export function isLegendaryItem(item: Pick<Item, 'rarity_tier' | 'rarity'>): boolean {
+  return (item.rarity_tier ?? item.rarity) === '绝世神兵';
 }
 
 export function aggregateLibraryCollections(books: RawBookLibraryData[]): LibraryCollections {

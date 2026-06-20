@@ -4,14 +4,17 @@ import type { LibraryFilters, LibraryRecord } from '../types/library';
 export function createEmptyLibraryFilters(): LibraryFilters {
   return {
     keyword: '',
-    rank: [],
+    materialType: 'all',
+    masteryRank: [],
+    powerRank: [],
+    importance: [],
     author: [],
     bookPath: [],
     type: [],
     faction: [],
     role: [],
     archetype: [],
-    rarity: [],
+    rarityTier: [],
   };
 }
 
@@ -56,11 +59,16 @@ function matchesSource<T>(record: LibraryRecord<T>, filters: LibraryFilters): bo
   );
 }
 
+function matchesMaterialType(filters: LibraryFilters, kind: 'skill' | 'character' | 'faction' | 'item'): boolean {
+  return filters.materialType === 'all' || filters.materialType === kind;
+}
+
 export function filterSkills(records: LibraryRecord<Skill>[], filters: LibraryFilters): LibraryRecord<Skill>[] {
   return records.filter(
     (record) =>
+      matchesMaterialType(filters, 'skill') &&
       matchesSource(record, filters) &&
-      includesFilter(record.entity.rank, filters.rank) &&
+      includesFilter(record.entity.mastery_rank ?? record.entity.rank, filters.masteryRank) &&
       includesFilter(record.entity.type, filters.type) &&
       includesFilter(record.entity.faction, filters.faction) &&
       textIncludesKeyword(
@@ -81,8 +89,10 @@ export function filterSkills(records: LibraryRecord<Skill>[], filters: LibraryFi
 export function filterCharacters(records: LibraryRecord<Character>[], filters: LibraryFilters): LibraryRecord<Character>[] {
   return records.filter(
     (record) =>
+      matchesMaterialType(filters, 'character') &&
       matchesSource(record, filters) &&
-      includesFilter(record.entity.rank, filters.rank) &&
+      includesFilter(record.entity.power_rank ?? record.entity.rank, filters.powerRank) &&
+      includesFilter(record.entity.importance, filters.importance) &&
       includesFilter(record.entity.faction, filters.faction) &&
       includesFilter(record.entity.role, filters.role) &&
       includesFilter(record.entity.archetype, filters.archetype) &&
@@ -104,6 +114,7 @@ export function filterCharacters(records: LibraryRecord<Character>[], filters: L
 export function filterFactions(records: LibraryRecord<Faction>[], filters: LibraryFilters): LibraryRecord<Faction>[] {
   return records.filter(
     (record) =>
+      matchesMaterialType(filters, 'faction') &&
       matchesSource(record, filters) &&
       includesFilter(record.entity.type, filters.type) &&
       textIncludesKeyword(
@@ -123,9 +134,10 @@ export function filterFactions(records: LibraryRecord<Faction>[], filters: Libra
 export function filterItems(records: LibraryRecord<Item>[], filters: LibraryFilters): LibraryRecord<Item>[] {
   return records.filter(
     (record) =>
+      matchesMaterialType(filters, 'item') &&
       matchesSource(record, filters) &&
       includesFilter(record.entity.type, filters.type) &&
-      includesFilter(record.entity.rarity, filters.rarity) &&
+      includesFilter(record.entity.rarity_tier ?? record.entity.rarity, filters.rarityTier) &&
       textIncludesKeyword(
         [
           record.entity.name,

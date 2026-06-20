@@ -23,6 +23,7 @@ describe('library filters', () => {
         entity: {
           id: 's1',
           name: '小李飞刀',
+          mastery_rank: '登峰造极',
           rank: '登峰造极',
           type: '暗器',
           faction: null,
@@ -36,7 +37,7 @@ describe('library filters', () => {
       },
     ];
 
-    expect(filterSkills(records, { ...empty, rank: ['登峰造极'], keyword: '爆发' })).toHaveLength(1);
+    expect(filterSkills(records, { ...empty, materialType: 'skill', masteryRank: ['登峰造极'], keyword: '爆发' })).toHaveLength(1);
     expect(filterSkills(records, { ...empty, type: ['拳掌'] })).toHaveLength(0);
   });
 
@@ -52,7 +53,9 @@ describe('library filters', () => {
           role: 'protagonist',
           archetype: 'scholar',
           faction: null,
-          rank: '绝顶',
+          power_rank: '返璞归真',
+          importance: '主角',
+          rank: '返璞归真',
           identity: '探花',
           one_line: '重情重义',
         } as Character,
@@ -89,6 +92,7 @@ describe('library filters', () => {
           id: 'i1',
           name: '小李飞刀',
           type: '暗器',
+          rarity_tier: '绝世神兵',
           rarity: '绝世神兵',
           owner: 'char_li_xun_huan',
           one_line: '例不虚发',
@@ -102,7 +106,80 @@ describe('library filters', () => {
     ];
 
     expect(filterFactions(factions, { ...empty, type: ['帮会'], keyword: '关中' })).toHaveLength(1);
-    expect(filterItems(items, { ...empty, rarity: ['绝世神兵'], keyword: '薄刃' })).toHaveLength(1);
+    expect(filterItems(items, { ...empty, materialType: 'item', rarityTier: ['绝世神兵'], keyword: '薄刃' })).toHaveLength(1);
+  });
+
+  it('filters skills, characters, and items by separate semantic fields', () => {
+    const skills: LibraryRecord<Skill>[] = [
+      {
+        key: 'skill:a:s1',
+        kind: 'skill',
+        source,
+        entity: {
+          id: 's1',
+          name: '小李飞刀',
+          mastery_rank: '登峰造极',
+          rank: '登峰造极',
+          type: '暗器',
+          faction: null,
+          one_line: '例不虚发',
+          combat_style: '精准爆发',
+          techniques: [],
+          effects: [],
+          progression: [],
+          source_refs: [],
+        },
+      },
+    ];
+    const characters: LibraryRecord<Character>[] = [
+      {
+        key: 'character:a:c1',
+        kind: 'character',
+        source,
+        entity: {
+          id: 'c1',
+          name: '李寻欢',
+          power_rank: '返璞归真',
+          rank: '返璞归真',
+          importance: '主角',
+          role: 'protagonist',
+          archetype: 'scholar',
+          faction: null,
+          identity: '探花',
+          one_line: '重情重义',
+        } as Character,
+      },
+    ];
+    const items: LibraryRecord<Item>[] = [
+      {
+        key: 'item:a:i1',
+        kind: 'item',
+        source,
+        entity: {
+          id: 'i1',
+          name: '飞刀',
+          type: '暗器',
+          rarity_tier: '绝世神兵',
+          rarity: '绝世神兵',
+          owner: 'char_li_xun_huan',
+          one_line: '例不虚发',
+          description: '薄刃',
+          effects: [],
+          origin: '李家',
+          related_skills: ['s1'],
+          source_refs: [],
+        },
+      },
+    ];
+
+    expect(filterSkills(skills, { ...empty, materialType: 'skill', masteryRank: ['登峰造极'] })).toHaveLength(1);
+    expect(filterSkills(skills, { ...empty, materialType: 'skill', masteryRank: ['返璞归真'] })).toHaveLength(0);
+    expect(filterCharacters(characters, { ...empty, materialType: 'character', powerRank: ['返璞归真'], importance: ['主角'] })).toHaveLength(1);
+    expect(filterCharacters(characters, { ...empty, materialType: 'character', powerRank: ['登峰造极'] })).toHaveLength(0);
+    expect(filterCharacters(characters, { ...empty, materialType: 'character', importance: ['配角'] })).toHaveLength(0);
+    expect(filterItems(items, { ...empty, materialType: 'item', rarityTier: ['绝世神兵'] })).toHaveLength(1);
+    expect(filterItems(items, { ...empty, materialType: 'item', rarityTier: ['寻常凡品'] })).toHaveLength(0);
+    expect(filterItems(items, { ...empty, materialType: 'item', masteryRank: ['登峰造极'] })).toHaveLength(1);
   });
 
   it('collects unique filter values without blanks', () => {

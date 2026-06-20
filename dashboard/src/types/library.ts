@@ -1,6 +1,7 @@
 import type { Character, Faction, Item, Skill } from './novel';
 
 export type LibraryEntityKind = 'skill' | 'character' | 'faction' | 'item';
+export type LibraryMaterialType = 'all' | LibraryEntityKind;
 
 export interface LibrarySource {
   author: string;
@@ -42,14 +43,17 @@ export interface LibraryDataState extends LibraryCollections {
 
 export interface LibraryFilters {
   keyword: string;
-  rank: string[];
+  materialType: LibraryMaterialType;
+  masteryRank: string[];
+  powerRank: string[];
+  importance: string[];
   author: string[];
   bookPath: string[];
   type: string[];
   faction: string[];
   role: string[];
   archetype: string[];
-  rarity: string[];
+  rarityTier: string[];
 }
 
 export interface LibraryAnnotation {
