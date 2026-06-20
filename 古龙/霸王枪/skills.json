@@ -57,7 +57,8 @@
         "line_end": 42,
         "text": "少林神拳！据说这种拳法练到炉火纯青时，在百步外就可以致人于死。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_dian_xue_shu",
@@ -100,7 +101,8 @@
         "line_end": 545,
         "text": "点穴的手法有轻重、部位有轻重，重的可以致人于死，轻的也可以叫人失去行动自由"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_ba_wang_qiang_shi_san_shi",
@@ -119,7 +121,8 @@
         "line_end": 380,
         "text": "霸王枪的招式，只有十三式"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_she_ci",
@@ -153,14 +156,15 @@
     ],
     "rag_refs": [
       5
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_shi_san_tai_bao_heng_lian",
     "name": "十三太保横练",
     "type": "内功",
     "faction": null,
-    "rank": 3,
+    "rank": "略有小成",
     "one_line": "归东景修炼的横练功夫，但练得不太好",
     "techniques": [
       {
@@ -188,14 +192,16 @@
         "line_end": 629,
         "text": "据说他还有十三太保横练的功夫，却也练得不太好"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成",
+    "legacy_rank": "3"
   },
   {
     "id": "skill_san_shi_liu_lu_da_qin_na_shou",
     "name": "三十六路大擒拿手",
     "type": "指法",
     "faction": null,
-    "rank": "上乘",
+    "rank": "平平无奇",
     "one_line": "熊九太爷当年成名的绝技，出手迅速准确，虚实相间",
     "techniques": [
       {
@@ -250,6 +256,11 @@
         "line_end": 458,
         "text": "熊九太爷三十六路大擒拿手"
       }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "上乘",
+    "migration_notes": [
+      "unresolved mastery rank: 上乘"
     ]
   },
   {
@@ -257,7 +268,7 @@
     "name": "武功杂学",
     "type": "综合武功",
     "faction": null,
-    "rank": "顶尖",
+    "rank": "平平无奇",
     "one_line": "黑衣人身兼多家之长，可连续使用五种不同门派的武功",
     "combat_style": "变化多端",
     "techniques": [
@@ -295,6 +306,11 @@
         "line_end": 78,
         "text": "出手五招，用的竟是五种不同门源的武功。"
       }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "顶尖",
+    "migration_notes": [
+      "unresolved mastery rank: 顶尖"
     ]
   },
   {
@@ -302,7 +318,7 @@
     "name": "百步神拳",
     "type": "拳法",
     "faction": null,
-    "rank": "上乘",
+    "rank": "平平无奇",
     "one_line": "一种可在百步外伤人的高深拳法",
     "combat_style": "远程攻击",
     "techniques": [],
@@ -318,6 +334,11 @@
         "line_end": 410,
         "text": "他还练过百步神拳"
       }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "上乘",
+    "migration_notes": [
+      "unresolved mastery rank: 上乘"
     ]
   },
   {
@@ -394,6 +415,7 @@
         "line_end": 598,
         "text": "他的神气举动，我有把握可以学得很象"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   }
 ]

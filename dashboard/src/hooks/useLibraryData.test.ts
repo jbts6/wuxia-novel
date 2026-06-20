@@ -14,10 +14,10 @@ describe('loadLibraryData', () => {
       if (book.author === '古龙' && file === 'items.json') {
         throw new Error('missing items');
       }
-      if (file === 'skills.json') return [{ id: `${book.author}_skill`, name: '武功', rank: '登峰造极' }] as Skill[];
-      if (file === 'characters.json') return [{ id: `${book.author}_char`, name: '人物', role: 'protagonist', archetype: 'warrior' }] as Character[];
+      if (file === 'skills.json') return [{ id: `${book.author}_skill`, name: '武功', mastery_rank: '登峰造极', rank: '登峰造极' }] as Skill[];
+      if (file === 'characters.json') return [{ id: `${book.author}_char`, name: '人物', power_rank: '出神入化', rank: '出神入化', importance: '主角', role: 'protagonist', archetype: 'warrior' }] as Character[];
       if (file === 'factions.json') return [{ id: `${book.author}_faction`, name: '门派', type: '门派' }] as Faction[];
-      if (file === 'items.json') return [{ id: `${book.author}_item`, name: '神兵', rarity: '绝世神兵' }] as Item[];
+      if (file === 'items.json') return [{ id: `${book.author}_item`, name: '神兵', rarity_tier: '绝世神兵', rarity: '绝世神兵' }] as Item[];
       return [];
     }) as LibraryFileFetcher;
 

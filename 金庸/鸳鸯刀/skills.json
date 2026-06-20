@@ -6,15 +6,54 @@
     "faction": "",
     "rank": "登堂入室",
     "one_line": "周威信所使的铁鞭功夫",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_heng_sao_qian_jun", "name": "横扫千军", "type": "attack", "description": "铁鞭横扫，力道沉雄"},
-      {"id": "tech_ye_chun_san_zhai", "name": "夜闯三寨", "type": "defense", "description": "铁鞭后挥，荡开背后袭击"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}],
-    "effects": [{"type": "伤害", "condition": "击中敌人", "description": "造成钝击伤害"}],
+    "techniques": [
+      {
+        "id": "tech_heng_sao_qian_jun",
+        "name": "横扫千军",
+        "type": "attack",
+        "description": "铁鞭横扫，力道沉雄"
+      },
+      {
+        "id": "tech_ye_chun_san_zhai",
+        "name": "夜闯三寨",
+        "type": "defense",
+        "description": "铁鞭后挥，荡开背后袭击"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中敌人",
+        "description": "造成钝击伤害"
+      }
+    ],
     "combat_style": "以力取胜，招数简单直接",
-    "source_refs": [{"chapter": 1, "line_start": 40, "line_end": 40, "text": "举铁鞭挡格，使一招“桃园夺槊”"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 40,
+        "line_end": 40,
+        "text": "举铁鞭挡格，使一招“桃园夺槊”"
+      }
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_hu_yan_shi_ba_bian",
@@ -23,15 +62,58 @@
     "faction": "",
     "rank": "炉火纯青",
     "one_line": "相传为北宋呼延赞所传的鞭法，共十八招",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_heng_sao_qian_jun2", "name": "横扫千军", "type": "attack", "description": "铁鞭横扫，力道沉雄"},
-      {"id": "tech_yi_bian_duan_shi_qiang", "name": "一鞭断十枪", "type": "attack", "description": "最后一招，以深厚内力震断敌人兵器"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}, {"level": 4, "unlock": "炉火纯青"}],
-    "effects": [{"type": "伤害", "condition": "击中敌人", "description": "造成严重钝击伤害"}],
+    "techniques": [
+      {
+        "id": "tech_heng_sao_qian_jun2",
+        "name": "横扫千军",
+        "type": "attack",
+        "description": "铁鞭横扫，力道沉雄"
+      },
+      {
+        "id": "tech_yi_bian_duan_shi_qiang",
+        "name": "一鞭断十枪",
+        "type": "attack",
+        "description": "最后一招，以深厚内力震断敌人兵器"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 4,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中敌人",
+        "description": "造成严重钝击伤害"
+      }
+    ],
     "combat_style": "以内力见长，招数刚猛",
-    "source_refs": [{"chapter": 1, "line_start": 250, "line_end": 250, "text": "使一招“呼延十八鞭”的“横扫千军”"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 250,
+        "line_end": 250,
+        "text": "使一招“呼延十八鞭”的“横扫千军”"
+      }
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_e_mei_ci",
@@ -40,15 +122,50 @@
     "faction": "",
     "rank": "略有小成",
     "one_line": "盖一鸣所使的峨嵋钢刺",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_shuang_ci_gai_qi_sheng", "name": "双刺盖七省", "type": "attack", "description": "双刺齐出，攻击敌人"},
-      {"id": "tech_ding_gua_zhi_fa", "name": "叮当作响", "type": "feint", "description": "双刺击打发出声响，扰乱敌人"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}],
-    "effects": [{"type": "伤害", "condition": "刺中敌人", "description": "造成穿刺伤害"}],
+    "techniques": [
+      {
+        "id": "tech_shuang_ci_gai_qi_sheng",
+        "name": "双刺盖七省",
+        "type": "attack",
+        "description": "双刺齐出，攻击敌人"
+      },
+      {
+        "id": "tech_ding_gua_zhi_fa",
+        "name": "叮当作响",
+        "type": "feint",
+        "description": "双刺击打发出声响，扰乱敌人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "刺中敌人",
+        "description": "造成穿刺伤害"
+      }
+    ],
     "combat_style": "灵活多变，以巧取胜",
-    "source_refs": [{"chapter": 1, "line_start": 6, "line_end": 6, "text": "最左一人短小精悍，下巴尖削，双手分拿一对峨嵋钢刺。"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "最左一人短小精悍，下巴尖削，双手分拿一对峨嵋钢刺。"
+      }
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_qing_gong",
@@ -57,15 +174,54 @@
     "faction": "",
     "rank": "登堂入室",
     "one_line": "太岳四侠所擅长的轻身功夫",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_ba_bu_gan_chan", "name": "八步赶蟾", "type": "buff", "description": "快速移动，追击敌人"},
-      {"id": "tech_ta_xue_wu_hen", "name": "踏雪无痕", "type": "buff", "description": "行动无声，难以察觉"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}],
-    "effects": [{"type": "增益", "condition": "移动时", "description": "提高移动速度和隐蔽性"}],
+    "techniques": [
+      {
+        "id": "tech_ba_bu_gan_chan",
+        "name": "八步赶蟾",
+        "type": "buff",
+        "description": "快速移动，追击敌人"
+      },
+      {
+        "id": "tech_ta_xue_wu_hen",
+        "name": "踏雪无痕",
+        "type": "buff",
+        "description": "行动无声，难以察觉"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "移动时",
+        "description": "提高移动速度和隐蔽性"
+      }
+    ],
     "combat_style": "以速度和灵活性见长",
-    "source_refs": [{"chapter": 1, "line_start": 32, "line_end": 32, "text": "八步赶蟾、赛专诸、踏雪无痕、独脚水上飞"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 32,
+        "line_end": 32,
+        "text": "八步赶蟾、赛专诸、踏雪无痕、独脚水上飞"
+      }
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_yan_guan_fa",
@@ -74,15 +230,50 @@
     "faction": "",
     "rank": "略有小成",
     "one_line": "逍遥子以精铁旱烟管使出的判官笔招数",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_dian_xue_da_xue", "name": "点穴打穴", "type": "attack", "description": "以烟管点敌人穴道"},
-      {"id": "tech_tou_tian_huan_ri", "name": "偷天换日", "type": "feint", "description": "虚实变化，迷惑敌人"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}],
-    "effects": [{"type": "控制", "condition": "点中穴道", "description": "使敌人麻痹或瘫痪"}],
+    "techniques": [
+      {
+        "id": "tech_dian_xue_da_xue",
+        "name": "点穴打穴",
+        "type": "attack",
+        "description": "以烟管点敌人穴道"
+      },
+      {
+        "id": "tech_tou_tian_huan_ri",
+        "name": "偷天换日",
+        "type": "feint",
+        "description": "虚实变化，迷惑敌人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "点中穴道",
+        "description": "使敌人麻痹或瘫痪"
+      }
+    ],
     "combat_style": "以点穴为主，招数精准",
-    "source_refs": [{"chapter": 1, "line_start": 112, "line_end": 112, "text": "他这烟管是精铁所铸，使的是判官笔招数，居然出手点穴打穴"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 112,
+        "line_end": 112,
+        "text": "他这烟管是精铁所铸，使的是判官笔招数，居然出手点穴打穴"
+      }
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_dian_xue",
@@ -91,15 +282,58 @@
     "faction": "",
     "rank": "炉火纯青",
     "one_line": "卓天雄所擅长的点穴功夫",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_feng_chi_xue", "name": "风池穴", "type": "attack", "description": "点敌人风池穴，使人麻痹"},
-      {"id": "tech_tian_zhu_xue", "name": "天柱穴", "type": "attack", "description": "点敌人天柱穴，使人瘫痪"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}, {"level": 4, "unlock": "炉火纯青"}],
-    "effects": [{"type": "控制", "condition": "点中穴道", "description": "使敌人麻痹、瘫痪或无法动弹"}],
+    "techniques": [
+      {
+        "id": "tech_feng_chi_xue",
+        "name": "风池穴",
+        "type": "attack",
+        "description": "点敌人风池穴，使人麻痹"
+      },
+      {
+        "id": "tech_tian_zhu_xue",
+        "name": "天柱穴",
+        "type": "attack",
+        "description": "点敌人天柱穴，使人瘫痪"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 4,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "condition": "点中穴道",
+        "description": "使敌人麻痹、瘫痪或无法动弹"
+      }
+    ],
     "combat_style": "精准快速，一击制敌",
-    "source_refs": [{"chapter": 1, "line_start": 248, "line_end": 248, "text": "他一伸手便夺过萧中慧手中一对鸳鸯刀"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 248,
+        "line_end": 248,
+        "text": "他一伸手便夺过萧中慧手中一对鸳鸯刀"
+      }
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_zhang_fa",
@@ -108,15 +342,50 @@
     "faction": "",
     "rank": "略有小成",
     "one_line": "常长风所使的掌法，以力大著称",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_shuang_zhang_kai_bei", "name": "双掌开碑", "type": "attack", "description": "双掌齐出，力道沉雄，可开碑裂石"},
-      {"id": "tech_pai_zhang", "name": "拍掌", "type": "attack", "description": "以掌力击打敌人"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}],
-    "effects": [{"type": "伤害", "condition": "击中敌人", "description": "造成钝击伤害"}],
+    "techniques": [
+      {
+        "id": "tech_shuang_zhang_kai_bei",
+        "name": "双掌开碑",
+        "type": "attack",
+        "description": "双掌齐出，力道沉雄，可开碑裂石"
+      },
+      {
+        "id": "tech_pai_zhang",
+        "name": "拍掌",
+        "type": "attack",
+        "description": "以掌力击打敌人"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中敌人",
+        "description": "造成钝击伤害"
+      }
+    ],
     "combat_style": "以力取胜，招数刚猛",
-    "source_refs": [{"chapter": 1, "line_start": 32, "line_end": 32, "text": "二哥是双掌开碑常长风"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 32,
+        "line_end": 32,
+        "text": "二哥是双掌开碑常长风"
+      }
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_li_qi",
@@ -125,15 +394,54 @@
     "faction": "",
     "rank": "登堂入室",
     "one_line": "常长风天生神力，能举起墓碑",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_ju_bei_za", "name": "举碑砸", "type": "attack", "description": "举起墓碑当头砸下"},
-      {"id": "tech_duan_bei", "name": "端碑", "type": "defense", "description": "以墓碑格挡敌人攻击"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}],
-    "effects": [{"type": "伤害", "condition": "砸中敌人", "description": "造成严重钝击伤害"}],
+    "techniques": [
+      {
+        "id": "tech_ju_bei_za",
+        "name": "举碑砸",
+        "type": "attack",
+        "description": "举起墓碑当头砸下"
+      },
+      {
+        "id": "tech_duan_bei",
+        "name": "端碑",
+        "type": "defense",
+        "description": "以墓碑格挡敌人攻击"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "砸中敌人",
+        "description": "造成严重钝击伤害"
+      }
+    ],
     "combat_style": "以力碾压，简单直接",
-    "source_refs": [{"chapter": 1, "line_start": 64, "line_end": 64, "text": "便以墓碑作兵器，仗着力大，端起大石碑当头砸将过去"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 64,
+        "line_end": 64,
+        "text": "便以墓碑作兵器，仗着力大，端起大石碑当头砸将过去"
+      }
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_liu_xing_chui",
@@ -142,15 +450,50 @@
     "faction": "",
     "rank": "略有小成",
     "one_line": "花剑影所使的流星锤",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_fei_chui_da_xin", "name": "飞锤打心", "type": "attack", "description": "流星锤飞出，直打敌人心口"},
-      {"id": "tech_shou_chui", "name": "收锤", "type": "defense", "description": "收回流星锤，准备下次攻击"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}],
-    "effects": [{"type": "伤害", "condition": "击中敌人", "description": "造成钝击伤害"}],
+    "techniques": [
+      {
+        "id": "tech_fei_chui_da_xin",
+        "name": "飞锤打心",
+        "type": "attack",
+        "description": "流星锤飞出，直打敌人心口"
+      },
+      {
+        "id": "tech_shou_chui",
+        "name": "收锤",
+        "type": "defense",
+        "description": "收回流星锤，准备下次攻击"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中敌人",
+        "description": "造成钝击伤害"
+      }
+    ],
     "combat_style": "远程攻击，灵活多变",
-    "source_refs": [{"chapter": 1, "line_start": 6, "line_end": 6, "text": "他手中拿的是一对流星锤。"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 6,
+        "line_end": 6,
+        "text": "他手中拿的是一对流星锤。"
+      }
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_shuang_dao",
@@ -159,15 +502,54 @@
     "faction": "",
     "rank": "登堂入室",
     "one_line": "萧中慧和袁冠南所使的双刀",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_fen_hua_fu_liu_shi", "name": "分花拂柳式", "type": "attack", "description": "长刀急旋，攻击敌人"},
-      {"id": "tech_shi_zi_hui_shou", "name": "狮子回首", "type": "defense", "description": "回身招架背后袭击"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}],
-    "effects": [{"type": "伤害", "condition": "砍中敌人", "description": "造成切割伤害"}],
+    "techniques": [
+      {
+        "id": "tech_fen_hua_fu_liu_shi",
+        "name": "分花拂柳式",
+        "type": "attack",
+        "description": "长刀急旋，攻击敌人"
+      },
+      {
+        "id": "tech_shi_zi_hui_shou",
+        "name": "狮子回首",
+        "type": "defense",
+        "description": "回身招架背后袭击"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "砍中敌人",
+        "description": "造成切割伤害"
+      }
+    ],
     "combat_style": "双刀配合，灵活多变",
-    "source_refs": [{"chapter": 1, "line_start": 108, "line_end": 108, "text": "只见那少女手中已多了一对双刀"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 108,
+        "line_end": 108,
+        "text": "只见那少女手中已多了一对双刀"
+      }
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_fu_qie_dao_fa",
@@ -176,17 +558,74 @@
     "faction": "",
     "rank": "出神入化",
     "one_line": "古代恩爱夫妻所创的刀法，需两人合使",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_nv_mao_lang_cai_zhu_wan_hu", "name": "女貌郎才珠万斛", "type": "attack", "description": "第一招，双刀配合攻击"},
-      {"id": "tech_tian_jiao_yan_zhi_wei_juan_shu", "name": "天教艳质为眷属", "type": "attack", "description": "第二招，双刀配合攻击"},
-      {"id": "tech_qing_feng_yin_pei_xia_yao_tai", "name": "清风引佩下瑶台", "type": "attack", "description": "第三招，双刀齐飞"},
-      {"id": "tech_bi_xiao_sheng_li_shuang_ming_feng", "name": "碧箫声里双鸣凤", "type": "attack", "description": "第九招，双刀如凤舞鸾翔"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}, {"level": 4, "unlock": "炉火纯青"}, {"level": 5, "unlock": "出神入化"}],
-    "effects": [{"type": "伤害", "condition": "双刀配合", "description": "双刀阴阳开阖，配合天衣无缝，威力倍增"}],
+    "techniques": [
+      {
+        "id": "tech_nv_mao_lang_cai_zhu_wan_hu",
+        "name": "女貌郎才珠万斛",
+        "type": "attack",
+        "description": "第一招，双刀配合攻击"
+      },
+      {
+        "id": "tech_tian_jiao_yan_zhi_wei_juan_shu",
+        "name": "天教艳质为眷属",
+        "type": "attack",
+        "description": "第二招，双刀配合攻击"
+      },
+      {
+        "id": "tech_qing_feng_yin_pei_xia_yao_tai",
+        "name": "清风引佩下瑶台",
+        "type": "attack",
+        "description": "第三招，双刀齐飞"
+      },
+      {
+        "id": "tech_bi_xiao_sheng_li_shuang_ming_feng",
+        "name": "碧箫声里双鸣凤",
+        "type": "attack",
+        "description": "第九招，双刀如凤舞鸾翔"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 4,
+        "unlock": "炉火纯青"
+      },
+      {
+        "level": 5,
+        "unlock": "出神入化"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "双刀配合",
+        "description": "双刀阴阳开阖，配合天衣无缝，威力倍增"
+      }
+    ],
     "combat_style": "两人配合，攻守兼备，招招致命",
-    "source_refs": [{"chapter": 1, "line_start": 320, "line_end": 320, "text": "这套刀法传给林玉龙和传给任飞燕的全然不同，要两人练得纯熟，共同应敌"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 320,
+        "line_end": 320,
+        "text": "这套刀法传给林玉龙和传给任飞燕的全然不同，要两人练得纯熟，共同应敌"
+      }
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_lian_zhu_dan",
@@ -195,15 +634,54 @@
     "faction": "",
     "rank": "登堂入室",
     "one_line": "任飞燕所使的弹弓绝技",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_hui_ma_dan", "name": "回马弹", "type": "attack", "description": "回身发弹，准头奇佳"},
-      {"id": "tech_lian_zhu_dan", "name": "连珠弹", "type": "attack", "description": "连续发射多枚弹丸"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}],
-    "effects": [{"type": "伤害", "condition": "击中敌人", "description": "造成钝击伤害"}],
+    "techniques": [
+      {
+        "id": "tech_hui_ma_dan",
+        "name": "回马弹",
+        "type": "attack",
+        "description": "回身发弹，准头奇佳"
+      },
+      {
+        "id": "tech_lian_zhu_dan",
+        "name": "连珠弹",
+        "type": "attack",
+        "description": "连续发射多枚弹丸"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中敌人",
+        "description": "造成钝击伤害"
+      }
+    ],
     "combat_style": "远程攻击，准头极佳",
-    "source_refs": [{"chapter": 1, "line_start": 74, "line_end": 74, "text": "这一弹手劲既强，准头更是奇佳，乃弹弓术中出名的“回马弹”。"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 74,
+        "line_end": 74,
+        "text": "这一弹手劲既强，准头更是奇佳，乃弹弓术中出名的“回马弹”。"
+      }
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_dan_gong",
@@ -212,15 +690,54 @@
     "faction": "",
     "rank": "登堂入室",
     "one_line": "任飞燕所使的弹弓",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_ba_ba_ba", "name": "吧吧吧", "type": "attack", "description": "连续发射弹丸"},
-      {"id": "tech_dan_gong_shu", "name": "弹弓术", "type": "attack", "description": "使用弹弓发射弹丸"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}],
-    "effects": [{"type": "伤害", "condition": "击中敌人", "description": "造成钝击伤害"}],
+    "techniques": [
+      {
+        "id": "tech_ba_ba_ba",
+        "name": "吧吧吧",
+        "type": "attack",
+        "description": "连续发射弹丸"
+      },
+      {
+        "id": "tech_dan_gong_shu",
+        "name": "弹弓术",
+        "type": "attack",
+        "description": "使用弹弓发射弹丸"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中敌人",
+        "description": "造成钝击伤害"
+      }
+    ],
     "combat_style": "远程攻击，灵活多变",
-    "source_refs": [{"chapter": 1, "line_start": 66, "line_end": 66, "text": "手执弹弓，吧吧吧吧，一阵声响，连珠弹猛向那壮汉打去。"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 66,
+        "line_end": 66,
+        "text": "手执弹弓，吧吧吧吧，一阵声响，连珠弹猛向那壮汉打去。"
+      }
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_dan_dao",
@@ -229,15 +746,50 @@
     "faction": "",
     "rank": "略有小成",
     "one_line": "林玉龙等人所使的单刀",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_pian_zhuang", "name": "劈砍", "type": "attack", "description": "单刀劈砍，力道沉雄"},
-      {"id": "tech_ge_dang", "name": "格挡", "type": "defense", "description": "以单刀格挡敌人攻击"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}],
-    "effects": [{"type": "伤害", "condition": "砍中敌人", "description": "造成切割伤害"}],
+    "techniques": [
+      {
+        "id": "tech_pian_zhuang",
+        "name": "劈砍",
+        "type": "attack",
+        "description": "单刀劈砍，力道沉雄"
+      },
+      {
+        "id": "tech_ge_dang",
+        "name": "格挡",
+        "type": "defense",
+        "description": "以单刀格挡敌人攻击"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "砍中敌人",
+        "description": "造成切割伤害"
+      }
+    ],
     "combat_style": "简单直接，以力取胜",
-    "source_refs": [{"chapter": 1, "line_start": 66, "line_end": 66, "text": "手执单刀，大声喝骂"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 66,
+        "line_end": 66,
+        "text": "手执单刀，大声喝骂"
+      }
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_hun_yuan_qi",
@@ -246,15 +798,62 @@
     "faction": "",
     "rank": "登峰造极",
     "one_line": "萧半和所练的童子功内力",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_hun_yuan_zhang", "name": "混元掌", "type": "attack", "description": "以深厚内力发出掌力"},
-      {"id": "tech_hun_yuan_qi", "name": "混元气", "type": "buff", "description": "深厚内力护体，刀枪不入"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}, {"level": 4, "unlock": "炉火纯青"}, {"level": 5, "unlock": "登峰造极"}],
-    "effects": [{"type": "增益", "condition": "运功时", "description": "内力深厚，可震退敌人"}],
+    "techniques": [
+      {
+        "id": "tech_hun_yuan_zhang",
+        "name": "混元掌",
+        "type": "attack",
+        "description": "以深厚内力发出掌力"
+      },
+      {
+        "id": "tech_hun_yuan_qi",
+        "name": "混元气",
+        "type": "buff",
+        "description": "深厚内力护体，刀枪不入"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 4,
+        "unlock": "炉火纯青"
+      },
+      {
+        "level": 5,
+        "unlock": "登峰造极"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "condition": "运功时",
+        "description": "内力深厚，可震退敌人"
+      }
+    ],
     "combat_style": "以内力见长，招数刚猛",
-    "source_refs": [{"chapter": 1, "line_start": 404, "line_end": 404, "text": "那“震天三十掌”惟有“混元气”可与匹敌，适才萧半和所使的，正是“混元气”"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 404,
+        "line_end": 404,
+        "text": "那“震天三十掌”惟有“混元气”可与匹敌，适才萧半和所使的，正是“混元气”"
+      }
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_zhen_tian_san_shi_zhang",
@@ -263,14 +862,57 @@
     "faction": "",
     "rank": "炉火纯青",
     "one_line": "卓天雄所使的掌法",
-    "rag_refs": [1],
-    "techniques": [
-      {"id": "tech_zhen_tian_zhang", "name": "震天掌", "type": "attack", "description": "以深厚内力发出掌力"},
-      {"id": "tech_pie_zhang", "name": "劈掌", "type": "attack", "description": "单掌劈出，力道沉雄"}
+    "rag_refs": [
+      1
     ],
-    "progression": [{"level": 1, "unlock": "初窥门径"}, {"level": 2, "unlock": "略有小成"}, {"level": 3, "unlock": "登堂入室"}, {"level": 4, "unlock": "炉火纯青"}],
-    "effects": [{"type": "伤害", "condition": "击中敌人", "description": "造成严重内伤"}],
+    "techniques": [
+      {
+        "id": "tech_zhen_tian_zhang",
+        "name": "震天掌",
+        "type": "attack",
+        "description": "以深厚内力发出掌力"
+      },
+      {
+        "id": "tech_pie_zhang",
+        "name": "劈掌",
+        "type": "attack",
+        "description": "单掌劈出，力道沉雄"
+      }
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "unlock": "初窥门径"
+      },
+      {
+        "level": 2,
+        "unlock": "略有小成"
+      },
+      {
+        "level": 3,
+        "unlock": "登堂入室"
+      },
+      {
+        "level": 4,
+        "unlock": "炉火纯青"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "condition": "击中敌人",
+        "description": "造成严重内伤"
+      }
+    ],
     "combat_style": "以内力见长，招数刚猛",
-    "source_refs": [{"chapter": 1, "line_start": 404, "line_end": 404, "text": "他以“震天三十掌”与“呼延十八鞭”称雄武林"}]
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 404,
+        "line_end": 404,
+        "text": "他以“震天三十掌”与“呼延十八鞭”称雄武林"
+      }
+    ],
+    "mastery_rank": "炉火纯青"
   }
 ]
