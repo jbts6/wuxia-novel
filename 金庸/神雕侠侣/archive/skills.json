@@ -3,8 +3,7 @@
     "id": "skill_guai_ke_kuang_li",
     "name": "怪客狂力",
     "type": "内外兼修",
-    "faction": "未知",
-    "rank": "出神入化",
+    "faction": null,
     "one_line": "怪客在悲痛癫狂中运劲拔树、踢断槐树所显露的惊人力道。",
     "techniques": [
       {
@@ -44,14 +43,14 @@
         "line_end": 276,
         "text": "他一指点中石碑，又双掌连发打碑，十指如锥插入坟土。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_xue_shou_yin",
     "name": "血手印",
     "type": "威慑标记",
     "faction": "道门",
-    "rank": "出神入化",
     "one_line": "李莫愁杀人前在门墙上印下的血色掌印，一个手印对应一条人命。",
     "techniques": [
       {
@@ -89,14 +88,14 @@
         "line_end": 328,
         "text": "那道姑杀人之前，往往先在那人家中墙上或是门上印上血手印，一个手印便杀一人。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_jie_gu_dian_xue",
     "name": "接骨点穴",
     "type": "医武手法",
-    "faction": "未知",
-    "rank": "登堂入室",
+    "faction": null,
     "one_line": "中年妇人用来止痛接骨的医武手法。",
     "techniques": [
       {
@@ -146,14 +145,14 @@
         "line_end": 443,
         "text": "那妇人在白海穴与委中穴各点一指，止住她的疼痛。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_wu_niang_zi_jian_fa",
     "name": "武娘子剑法",
     "type": "剑法",
     "faction": "大理武家",
-    "rank": "登堂入室",
     "one_line": "中年妇人在屋顶与小道姑交手并震飞其剑的剑法。",
     "techniques": [
       {
@@ -191,14 +190,14 @@
         "line_end": 479,
         "text": "那妇人凝神应敌，乘隙递出招数……挥剑击开银针。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_du_yin_zhen",
     "name": "毒银针",
     "type": "暗器",
     "faction": "李莫愁门下",
-    "rank": "登堂入室",
     "one_line": "小道姑挥手射出的剧毒银针，触碰即能使手指麻肿。",
     "techniques": [
       {
@@ -236,14 +235,14 @@
         "line_end": 489,
         "text": "三枚银针激射而出……针上有毒？剧毒无比。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_shuang_diao_xun_ling",
     "name": "双雕驯令",
     "type": "驯养",
-    "faction": "未知",
-    "rank": "略有小成",
+    "faction": null,
     "one_line": "淡绿罗衣女孩以低啸和招手驱使双雕飞落听令的能力。",
     "techniques": [
       {
@@ -282,14 +281,14 @@
         "line_end": 627,
         "text": "那女孩一声轻哨，那雕儿左翅突然扫出……这对雕儿真好，肯听你话。"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_wen_xiang_dian_xue",
     "name": "闻香点穴",
     "type": "医武手法",
-    "faction": "未知",
-    "rank": "登堂入室",
+    "faction": null,
     "one_line": "跛足瞎眼老者按压闻香穴替武修文止鼻血的手法。",
     "techniques": [
       {
@@ -327,14 +326,14 @@
         "line_end": 673,
         "text": "他摔出了鼻血，你给他治治啊……在他鼻旁闻香穴按了几下。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_xiao_qin_na_shou",
     "name": "小擒拿手",
     "type": "擒拿",
     "faction": "大理武家",
-    "rank": "初窥门径",
     "one_line": "李莫愁以小擒拿手第四招抓住尘丝，夺回拂尘。",
     "techniques": [
       {
@@ -371,14 +370,14 @@
         "line_end": 677,
         "text": "使出母亲所授的小擒拿手功夫……向外逆翻。"
       }
-    ]
+    ],
+    "mastery_rank": "初窥门径"
   },
   {
     "id": "skill_yi_yang_zhi",
     "name": "一阳指",
     "type": "指法",
     "faction": "大理一灯门下",
-    "rank": "出神入化",
     "one_line": "一阳指神功可由施治者以浑厚内力助伤者打通周身穴道，见功甚快但内力耗损极大。",
     "techniques": [
       {
@@ -407,7 +406,9 @@
     "combat_style": "以内力贯注指端，配合点穴和攻击。",
     "rag_refs": [
       1,
-      2
+      2,
+      30,
+      36
     ],
     "source_refs": [
       {
@@ -439,16 +440,34 @@
         "line_start": 982,
         "line_end": 988,
         "text": "一灯大师曾以一阳指神功为黄蓉打通周身穴道，治愈重伤。"
+      },
+      {
+        "chapter": 30,
+        "line_start": 146,
+        "line_end": 174,
+        "text": "白眉僧是一灯大师，后文说明其一阳指可助小龙女逼毒。"
+      },
+      {
+        "chapter": 30,
+        "line_start": 570,
+        "line_end": 572,
+        "text": "一灯若未受伤，可用一阳指功夫助小龙女体内毒质暂不发作。"
+      },
+      {
+        "chapter": 36,
+        "line_start": 194,
+        "line_end": 194,
+        "text": "得父亲与师叔授了一阳指神技。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_bo_zu_lao_zhe_qing_gong",
     "name": "跛足老者轻功",
     "type": "轻功",
-    "faction": "未知",
-    "rank": "炉火纯青",
+    "faction": null,
     "one_line": "跛足瞎眼老者虽拄铁杖仍能疾行赶路的轻功。",
     "techniques": [
       {
@@ -485,14 +504,14 @@
         "line_end": 729,
         "text": "拄起铁杖，一跷一拐的疾行而去……双目虽盲，但熟悉道路。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_li_mo_chou_fu_chen_sha_fa",
     "name": "李莫愁拂尘杀法",
     "type": "拂尘功",
     "faction": "李莫愁门下",
-    "rank": "出神入化",
     "one_line": "李莫愁挥拂尘瞬间击杀阿根与两名婢女的杀法。",
     "techniques": [
       {
@@ -537,14 +556,14 @@
         "line_end": 112,
         "text": "拂尘已乘势弯过，卷住了锤头，这是李莫愁夺人兵刃的绝招"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_li_mo_chou_qing_gong",
     "name": "李莫愁轻功",
     "type": "轻功",
     "faction": "李莫愁门下",
-    "rank": "出神入化",
     "one_line": "李莫愁歌声未歇便到门外、轻飘上屋的轻功。",
     "techniques": [
       {
@@ -582,14 +601,14 @@
         "line_end": 793,
         "text": "每唱一字，便近了不少……已轻飘飘的上了屋顶。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_jiang_nan_lu_jia_dao_fa",
     "name": "江南陆家刀法",
     "type": "刀法",
     "faction": "陆家庄",
-    "rank": "略有小成",
     "one_line": "陆展元传给陆立鼎的江南陆家刀法，架势令李莫愁想起陆展元。",
     "techniques": [
       {
@@ -626,14 +645,14 @@
         "line_end": 811,
         "text": "出刀踢腿、转身劈掌的架子……再也看不到江南陆家刀法了。"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_ke_zhen_e_fu_mo_zhang_fa",
     "name": "柯镇恶伏魔杖法",
     "type": "杖法",
     "faction": "江南七怪",
-    "rank": "炉火纯青",
     "one_line": "江南七怪之首柯镇恶用来守住门户的铁杖杖法。",
     "techniques": [
       {
@@ -671,14 +690,14 @@
         "line_end": 833,
         "text": "铁杖疾横，斗地点出……正是江南七怪之首的飞天蝙蝠柯镇恶。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_tai_gong_diao_yu",
     "name": "太公钓鱼",
     "type": "拂尘夺兵",
     "faction": "李莫愁门下",
-    "rank": "出神入化",
     "one_line": "李莫愁以拂尘银丝卷住敌兵、借力夺械的招式。",
     "techniques": [
       {
@@ -716,14 +735,14 @@
         "line_end": 827,
         "text": "银丝倒转，已卷住了铁杖杖头……这一招太公钓鱼。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_li_mo_chou_fu_chen_qiao_jin",
     "name": "李莫愁拂尘巧劲",
     "type": "拂尘功",
     "faction": "李莫愁门下",
-    "rank": "出神入化",
     "one_line": "李莫愁将柔软拂尘银丝运成枪刺并借势转身伤人的巧劲。",
     "techniques": [
       {
@@ -779,14 +798,14 @@
         "line_end": 925,
         "text": "李莫愁拂尘银丝卷住杖头，令柯镇恶劲力落空，随即按住其胸口。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_bing_po_yin_zhen",
     "name": "冰魄银针",
     "type": "暗器毒功",
     "faction": "李莫愁门下",
-    "rank": "出神入化",
     "one_line": "冰魄银针被黄蓉用苹果反转针尖，刺破李莫愁双掌，令施针者自中其毒。",
     "techniques": [
       {
@@ -818,7 +837,8 @@
       1,
       2,
       10,
-      27
+      27,
+      29
     ],
     "source_refs": [
       {
@@ -862,16 +882,22 @@
         "line_start": 518,
         "line_end": 522,
         "text": "黄蓉举起两只苹果，每只苹果上都刺着一枚银针，李莫愁省悟被诱中毒。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 524,
+        "line_end": 546,
+        "text": "李莫愁以冰魄银针威胁武氏父子，并射针阻止追门。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_chi_lian_shen_zhang",
     "name": "赤练神掌",
     "type": "掌法毒功",
     "faction": "李莫愁门下",
-    "rank": "出神入化",
     "one_line": "赤练神掌被李莫愁用作近身明攻，配合掌中夹针形成阴毒杀招。",
     "techniques": [
       {
@@ -902,7 +928,8 @@
     "rag_refs": [
       1,
       10,
-      27
+      27,
+      29
     ],
     "source_refs": [
       {
@@ -934,16 +961,22 @@
         "line_start": 494,
         "line_end": 504,
         "text": "黄蓉要接赤练神掌，李莫愁双掌一拍运力掌心，并在掌中夹发银针。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 662,
+        "line_end": 694,
+        "text": "李莫愁以赤练神掌攻杨过，毒力经掌心传入杨过和小龙女体内。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_qing_gong_shen_fa",
     "name": "轻功身法",
     "type": "轻功",
-    "faction": "无",
-    "rank": "登峰造极",
+    "faction": null,
     "one_line": "高手在战斗中进退飘忽、借势腾挪的身法总称。",
     "techniques": [
       {
@@ -982,14 +1015,14 @@
         "line_end": 126,
         "text": "身子随势飘出，不等他树干力道使足，随即飞跃而前"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_fu_chen_gong_fu",
     "name": "拂尘功夫",
     "type": "暗器",
     "faction": "古墓派",
-    "rank": "登峰造极",
     "one_line": "李莫愁以拂尘攻防兼备的兵刃功夫。",
     "techniques": [
       {
@@ -1032,14 +1065,14 @@
         "line_end": 268,
         "text": "拂尘一起，搂头拂落；一招混元式护住身周"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_ni_xing_jing_mai",
     "name": "逆行经脉",
     "type": "内功",
     "faction": "白驼山",
-    "rank": "登峰造极",
     "one_line": "逆运经脉时口唇运气会自然生咬人之意，帮助杨过夺拂尘。",
     "techniques": [
       {
@@ -1096,14 +1129,14 @@
         "text": "杨过说明欧阳锋经脉逆行，所有穴道尽都移位，并以百会穴撞桌角演示。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_chi_lian_xue_shou_yin",
     "name": "赤练血手印",
     "type": "掌法",
     "faction": "古墓派",
-    "rank": "出神入化",
     "one_line": "李莫愁在陆家墙上留下血手印以宣示追杀和毒手。",
     "techniques": [
       {
@@ -1142,14 +1175,14 @@
         "line_end": 464,
         "text": "墙上印着几个血手印；郭靖脱口而出：赤练仙子"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_ha_ma_gong",
     "name": "蛤蟆功",
     "type": "内功",
     "faction": "白驼山",
-    "rank": "登峰造极",
     "one_line": "欧阳锋所授逆行经脉与倒立怪招让杨过避过李莫愁穴道攻击。",
     "techniques": [
       {
@@ -1205,14 +1238,14 @@
         "text": "杨过双腿一弯，口中叫喝，手掌推出打飞鹿清笃；旁白说明蛤蟆功内功自然迸发"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_xiang_long_shi_ba_zhang",
     "name": "降龙十八掌",
     "type": "掌法",
     "faction": "丐帮",
-    "rank": "登峰造极",
     "one_line": "郭靖以雄浑掌力尚未近身便震飞敌手，显出深厚掌功。",
     "techniques": [
       {
@@ -1307,14 +1340,14 @@
         "text": "杨过忌惮郭靖降龙十八掌，郭靖怒称若以此掌打郭芙会打得稀烂。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_xiang_mo_zhang_fa",
     "name": "降魔杖法",
     "type": "掌法",
     "faction": "江南七怪",
-    "rank": "炉火纯青",
     "one_line": "柯镇恶使用铁杖的刚猛杖法，招式连环追击。",
     "techniques": [
       {
@@ -1353,14 +1386,14 @@
         "line_end": 992,
         "text": "一招秦王鞭石；降魔杖法；杵伏药叉击中左肩"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_quan_zhen_pai_nei_gong",
     "name": "全真派内功",
     "type": "内功",
     "faction": "全真教",
-    "rank": "出神入化",
     "one_line": "全真教武学根基，郭靖称其为自己所学之一并将杨过托付此派。",
     "techniques": [
       {
@@ -1410,14 +1443,14 @@
         "line_end": 162,
         "text": "全真派内功是天下内功正宗，进境虽慢，却绝不出岔子"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_jiang_nan_qi_guai_gen_ji_gong_fu",
     "name": "江南七怪根基功夫",
     "type": "掌法",
     "faction": "江南七怪",
-    "rank": "炉火纯青",
     "one_line": "郭靖先教孩童的武学根基，黄蓉则借朱聪之名改教杨过读书。",
     "techniques": [
       {
@@ -1466,14 +1499,14 @@
         "line_end": 412,
         "text": "郭靖教武氏兄弟一招擒拿手托梁换柱"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_quan_zhen_quan_jiao",
     "name": "全真拳脚",
     "type": "掌法",
     "faction": "全真教",
-    "rank": "炉火纯青",
     "one_line": "全真门人徒手合击与腿法拳掌，山下二道用来试攻郭靖。",
     "techniques": [
       {
@@ -1516,14 +1549,14 @@
         "line_end": 634,
         "text": "这两招叫做大关门式，乃全真派武功的高明招数；二道又使出鸳鸯连环腿"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_quan_zhen_jian_fa",
     "name": "全真剑法",
     "type": "剑法",
     "faction": "全真教",
-    "rank": "炉火纯青",
     "one_line": "赵志敬以全真剑法凌厉招式“大江东去”出手，剑刃破空直取王志坦小腹。",
     "techniques": [
       {
@@ -1567,7 +1600,8 @@
       10,
       20,
       25,
-      26
+      26,
+      29
     ],
     "source_refs": [
       {
@@ -1611,15 +1645,21 @@
         "line_start": 18,
         "line_end": 22,
         "text": "鹿清笃仗人多势众挺剑抢攻，被小龙女四肢刺中。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 802,
+        "line_end": 806,
+        "text": "耶律齐以双掌推石块，又使个“黏”字诀将石块吸出。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_tan_zhi_shen_tong",
     "name": "弹指神通",
     "type": "指法",
     "faction": "桃花岛",
-    "rank": "登峰造极",
     "one_line": "可用来克制李莫愁赤练神掌的桃花岛绝技。",
     "techniques": [
       {
@@ -1673,16 +1713,22 @@
         "line_start": 986,
         "line_end": 996,
         "text": "黄药师着重讲解弹指神通如何克制赤练神掌。"
+      },
+      {
+        "chapter": 31,
+        "line_start": 298,
+        "line_end": 300,
+        "text": "程英使弹指神通，以巧劲在剑力成虚时弹落郭芙兵刃。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_tian_gang_bei_dou_zhen",
     "name": "天罡北斗阵",
     "type": "剑法",
     "faction": "全真教",
-    "rank": "登峰造极",
     "one_line": "天罡北斗阵在数百全真道人协同下重叠成围，比单个高手更能牵制杨过与小龙女。",
     "techniques": [
       {
@@ -1777,16 +1823,22 @@
         "line_start": 1090,
         "line_end": 1112,
         "text": "全真道人七人一队重重叠叠，断剑后以璇玑摇光后击转位围攻。"
+      },
+      {
+        "chapter": 39,
+        "line_start": 802,
+        "line_end": 804,
+        "text": "西路军由全真教弟子分队，每队各结天罡北斗阵。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_zuo_you_hu_bo_shu",
     "name": "左右互搏术",
     "type": "内功",
     "faction": "桃花岛",
-    "rank": "出神入化",
     "one_line": "小龙女迅速领会左右互搏，并能双手试演数招圆转如意。",
     "techniques": [
       {
@@ -1842,14 +1894,14 @@
         "line_end": 438,
         "text": "小龙女说我全懂啦，双手试演数招竟圆转如意。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_qian_jin_zhui",
     "name": "千斤坠",
     "type": "内功",
     "faction": "江湖通用",
-    "rank": "炉火纯青",
     "one_line": "金轮国师以千斤坠踏碎酒楼桌椅，破去杨过小龙女借杂物游斗的屏障。",
     "techniques": [
       {
@@ -1905,14 +1957,14 @@
         "line_end": 899,
         "text": "杨过被神雕拂入溪中，忙使千斤坠身法落在巨石上。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_shuang_xi_zhuang_hun_men",
     "name": "双膝撞魂门",
     "type": "掌法",
     "faction": "郭靖",
-    "rank": "炉火纯青",
     "one_line": "郭靖跪地不动，借腾空下坠之势以双膝撞中偷袭者背心魂门穴。",
     "techniques": [
       {
@@ -1955,14 +2007,14 @@
         "line_end": 64,
         "text": "郭靖听得脑后风响，手肘在地微撑，身子腾空，双膝顺势撞出，正中偷袭的两人背心魂门穴"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_huo_du_mi_jiao_nei_gong",
     "name": "霍都密教内功",
     "type": "内功",
     "faction": "蒙古密教",
-    "rank": "出神入化",
     "one_line": "霍都以内力守住钢骨折扇，运法近于密教却更机巧灵活。",
     "techniques": [
       {
@@ -2005,14 +2057,14 @@
         "line_end": 102,
         "text": "摺扇居然并未脱手，郭靖判断其内力运法近于密教，霍都脸上现出紫气"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_guo_jing_tui_jin",
     "name": "郭靖推劲",
     "type": "掌法",
     "faction": "郭靖",
-    "rank": "登峰造极",
     "one_line": "郭靖由抓扇转为推劲，既能摔倒霍都又刻意收手保全面子。",
     "techniques": [
       {
@@ -2055,14 +2107,14 @@
         "line_end": 108,
         "text": "郭靖突然张开手掌，掌力从摺扇传到对方手上，转为推劲，随即松手"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_da_shou_yin",
     "name": "大手印",
     "type": "掌法",
     "faction": "蒙古密教",
-    "rank": "出神入化",
     "one_line": "密教一派掌功，掌印深紫陷入肉里，虽无毒却功力沉重。",
     "techniques": [
       {
@@ -2105,14 +2157,14 @@
         "line_end": 146,
         "text": "胸口印个手印，五指箕张，颜色深紫，陷入肉里，这是大手印功夫"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_ji_liu_yong_tui",
     "name": "急流勇退",
     "type": "轻功",
     "faction": "全真教",
-    "rank": "初窥门径",
     "one_line": "鹿清笃慌乱避开净桶时所使的退避身法。",
     "techniques": [
       {
@@ -2155,14 +2207,14 @@
         "line_end": 236,
         "text": "忙使一招急流勇退，立时避开，一脚却踩在屎尿之中"
       }
-    ]
+    ],
+    "mastery_rank": "初窥门径"
   },
   {
     "id": "skill_zhi_shang_ke_shi",
     "name": "指上刻石",
     "type": "指法",
     "faction": "古墓派",
-    "rank": "返璞归真",
     "one_line": "林朝英以手指刻石表象赢得文比，成为活死人墓归属转折。",
     "techniques": [
       {
@@ -2212,14 +2264,14 @@
         "text": "林朝英提出比指上功夫，手指到处石屑纷落，刻出诗前半截八句"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "返璞归真"
   },
   {
     "id": "skill_xiao_long_nv_qin_yin",
     "name": "小龙女琴音",
     "type": "特殊",
     "faction": "古墓派",
-    "rank": "炉火纯青",
     "one_line": "小龙女以琴声回应外敌，音韵可表达谢意、怒意与逐客之意。",
     "techniques": [
       {
@@ -2262,14 +2314,14 @@
         "line_end": 744,
         "text": "树林中响三下琴声似是回答，随后琴声激亢高昂，有怒意和斥责之意"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_yu_feng_xun_zhao",
     "name": "玉蜂驯召",
     "type": "暗器",
     "faction": "古墓派",
-    "rank": "出神入化",
     "one_line": "小龙女能以玉蜂蜜浆召来野蜂，并在解毒完成后将蜂群驱走。",
     "techniques": [
       {
@@ -2326,14 +2378,14 @@
         "text": "小龙女揭开玉瓶召野蜂叮周伯通，又微微一笑将野蜂驱走。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_dian_xue_zhi_fu",
     "name": "点穴制伏",
     "type": "指法",
     "faction": "全真教",
-    "rank": "登堂入室",
     "one_line": "赵志敬以手指点中杨过胁下，封闭穴道使其动弹不得。",
     "techniques": [
       {
@@ -2376,14 +2428,14 @@
         "line_end": 889,
         "text": "赵志敬连踢杨过几个筋斗，最后伸指在他胁下一点，封闭穴道"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_quan_zhen_ru_men_xin_fa",
     "name": "全真入门心法",
     "type": "内功",
     "faction": "全真教",
-    "rank": "初窥门径",
     "one_line": "心法口诀每句配有拳脚招式，赵志敬却只让杨过背诀不教用法。",
     "techniques": [
       {
@@ -2433,14 +2485,14 @@
         "text": "几句歌诀是内功要旨，每一句均有几招拳脚与之相配"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "初窥门径"
   },
   {
     "id": "skill_quan_zhen_ru_men_quan_fa",
     "name": "全真入门拳法",
     "type": "拳法",
     "faction": "全真教",
-    "rank": "初窥门径",
     "one_line": "全真心法口诀配套的简明入门拳法，每句口诀对应数招拳脚。",
     "techniques": [
       {
@@ -2489,14 +2541,14 @@
         "line_end": 1105,
         "text": "口诀每句均有几招拳脚相配，合成简明全真入门拳法，小道士用风扫落叶、揩磨尘垢、无欠无余击倒杨过"
       }
-    ]
+    ],
+    "mastery_rank": "初窥门径"
   },
   {
     "id": "skill_lu_qing_du_hu_men_shou",
     "name": "鹿清笃虎门手",
     "type": "掌法",
     "faction": "全真教",
-    "rank": "略有小成",
     "one_line": "鹿清笃用来重击杨过胸口的刚猛掌法。",
     "techniques": [
       {
@@ -2539,14 +2591,14 @@
         "line_end": 1201,
         "text": "鹿清笃以虎门手击中杨过胸口，又拳击小腹、掌缘斩项颈"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_gu_mu_pai_shen_fa",
     "name": "古墓派身法",
     "type": "轻功",
-    "faction": "faction_gu_mu_pai",
-    "rank": "登堂入室",
+    "faction": "古墓派",
     "one_line": "古墓派迅捷飘忽的近身救护与脱身身法。",
     "techniques": [
       {
@@ -2589,14 +2641,14 @@
         "line_end": 156,
         "text": "孙婆婆衣袖一抖拂在道人手上，随即抱起杨过转身而行，迅捷已极。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_gu_mu_pai_qun_li_tui",
     "name": "古墓派裙里腿",
     "type": "轻功",
-    "faction": "faction_gu_mu_pai",
-    "rank": "登堂入室",
+    "faction": "古墓派",
     "one_line": "藏于裙裾动作中的无影腿法，出招隐蔽迅疾。",
     "techniques": [
       {
@@ -2639,14 +2691,14 @@
         "line_end": 246,
         "text": "孙婆婆右臂格出碰向赵志敬手腕，随后侧身避过，裙里腿无影无踪飞出。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_gu_mu_pai_yu_feng_shu",
     "name": "古墓派驭蜂术",
     "type": "暗器",
-    "faction": "faction_gu_mu_pai",
-    "rank": "炉火纯青",
+    "faction": "古墓派",
     "one_line": "以低吟声召引玉蜂群攻击或威慑敌人的古墓秘术。",
     "techniques": [
       {
@@ -2689,14 +2741,14 @@
         "line_end": 268,
         "text": "孙婆婆口中嗡嗡低吟，远处蜂鸣与之相合，树林中飞出一群玉蜂。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_gu_mu_pai_an_qi_shou_fa",
     "name": "古墓派暗器手法",
     "type": "暗器",
-    "faction": "faction_gu_mu_pai",
-    "rank": "登堂入室",
+    "faction": "古墓派",
     "one_line": "女流所创、阴柔多变的古墓派暗器手法。",
     "techniques": [
       {
@@ -2739,14 +2791,14 @@
         "line_end": 413,
         "text": "孙婆婆低头作跪，忽然以“前恭后踞”掷出空瓷瓶打中张志光。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_gu_mu_pai_kong_shou_ru_bai_ren",
     "name": "古墓派空手入白刃",
     "type": "掌法",
-    "faction": "faction_gu_mu_pai",
-    "rank": "登堂入室",
+    "faction": "古墓派",
     "one_line": "空手夺取敌人兵刃的古墓派怪异巧妙功夫。",
     "techniques": [
       {
@@ -2789,14 +2841,14 @@
         "line_end": 433,
         "text": "孙婆婆大喝着，抓住两名道士手腕，一拗一夺抢过两柄长剑。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_gu_mu_pai_bai_chou_jin_qiu",
     "name": "古墓派白绸金球",
     "type": "暗器",
-    "faction": "faction_gu_mu_pai",
-    "rank": "出神入化",
+    "faction": "古墓派",
     "one_line": "以白绸带和金球点穴、扰心、缠击的古墓派奇门武功。",
     "techniques": [
       {
@@ -2839,14 +2891,14 @@
         "line_end": 587,
         "text": "小龙女绸带无声甩出并在空中转弯，金球三点郝大通迎香、承泣、人中。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_gu_mu_pai_qing_shen_gong_fu",
     "name": "古墓派轻身功夫",
     "type": "轻功",
-    "faction": "faction_gu_mu_pai",
-    "rank": "登峰造极",
+    "faction": "古墓派",
     "one_line": "古墓派轻功在杨过脚下疾奔如电，使丐帮好手也跟不上。",
     "techniques": [
       {
@@ -2896,14 +2948,14 @@
         "text": "杨过抱着陆无双飞驰，脚下迅捷，上身稳然不动，轻功令她暗惊。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_gu_mu_pai_sheng_sheng_shui_fa",
     "name": "古墓派绳上睡法",
     "type": "轻功",
-    "faction": "faction_gu_mu_pai",
-    "rank": "炉火纯青",
+    "faction": "古墓派",
     "one_line": "古墓派绳上睡法被杨过用于荒野守夜，凌空卧于两树之间。",
     "techniques": [
       {
@@ -2953,14 +3005,14 @@
         "text": "杨过取出长绳缚在两株大树之间，凌空而卧。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_han_yu_chuang_nei_gong",
     "name": "寒玉床内功",
     "type": "内功",
-    "faction": "faction_gu_mu_pai",
-    "rank": "炉火纯青",
+    "faction": "古墓派",
     "one_line": "借寒玉床至阴至寒之力逼发抗寒内功的修炼法。",
     "techniques": [
       {
@@ -3013,14 +3065,14 @@
         "line_end": 968,
         "text": "寒玉床至阴至寒，修道人坐卧其上心火自清，练功时勇猛精进。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_gu_mu_pai_ru_men_nei_gong",
     "name": "古墓派入门内功",
     "type": "内功",
-    "faction": "faction_gu_mu_pai",
-    "rank": "略有小成",
+    "faction": "古墓派",
     "one_line": "小龙女古墓派根基内功在心灰意懒中回复八九成，帮助她领会左右互搏。",
     "techniques": [
       {
@@ -3070,14 +3122,14 @@
         "line_end": 430,
         "text": "小龙女旧日的玄功回复八九成，古墓派内功与此时心境感应，顿生妙悟。"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_gu_mu_pai_zhuo_ma_que_gong",
     "name": "古墓派捉麻雀功",
     "type": "轻功",
-    "faction": "faction_gu_mu_pai",
-    "rank": "略有小成",
+    "faction": "古墓派",
     "one_line": "以捉麻雀训练窜高扑低、出手拿捏的古墓派入门轻功。",
     "techniques": [
       {
@@ -3124,14 +3176,14 @@
         "line_end": 1192,
         "text": "小龙女命杨过捉三只麻雀且不可伤羽脚，教他窜高扑低、挥抓拿捏，八日后成功。"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_tian_luo_di_wang_shi",
     "name": "天罗地网势",
     "type": "掌法",
     "faction": "古墓派",
-    "rank": "炉火纯青",
     "one_line": "杨过在绝情谷渔网阵中使出天罗地网势身法，从两张大网间倏然逸出。",
     "techniques": [
       {
@@ -3213,14 +3265,14 @@
         "text": "杨过退后纵前迅如脱兔，被叙为古墓派嫡传轻功。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_yu_nv_xin_jing",
     "name": "玉女心经",
     "type": "内功",
     "faction": "古墓派",
-    "rank": "登峰造极",
     "one_line": "玉女心经顺行至阴，倒练时可转为纯阳，成为小龙女借寒玉床疗伤的关键。",
     "techniques": [
       {
@@ -3337,14 +3389,14 @@
         "text": "李莫愁认为杨过功夫练到这步田地，定是得力于她师父的玉女心经。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_gu_mu_pai_jian_fa",
     "name": "古墓派剑法",
     "type": "剑法",
     "faction": "古墓派",
-    "rank": "炉火纯青",
     "one_line": "古墓派嫡传剑术，剑招轻灵诡谲，能以细巧变化攻敌要害。",
     "techniques": [
       {
@@ -3388,15 +3440,15 @@
         "text": "杨过认出陆无双所使果然是本派武功，刀法大半是剑路。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_jiu_yin_zhen_jing",
     "name": "九阴真经",
     "type": "内功",
-    "faction": "无",
-    "rank": "登峰造极",
-    "one_line": "杨过无意以九阴真经拨劲拨转铁轮，但因功夫未熟第二次力道用错而长剑脱手。",
+    "faction": null,
+    "one_line": "后记中说明九阴之名属于小说游戏文章，不必以易学术语拘泥解释。",
     "techniques": [
       {
         "id": "tech_yi_hun_da_fa",
@@ -3464,16 +3516,22 @@
         "line_start": 21,
         "line_end": 1001,
         "text": "郭靖近二十年来勤练\"九阴真经\""
+      },
+      {
+        "chapter": 39,
+        "line_start": 660,
+        "line_end": 660,
+        "text": "小龙女凭古墓中习得的九阴真经闭气法潜回冰窖疗毒。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_gu_mu_dian_xue_shou_fa",
     "name": "古墓点穴手法",
     "type": "指法",
-    "faction": "faction_gu_mu_pai",
-    "rank": "炉火纯青",
+    "faction": "古墓派",
     "one_line": "古墓派秘传点穴手法，李莫愁用以制住杨过小龙女，逼问出墓道路。",
     "techniques": [
       {
@@ -3516,14 +3574,14 @@
         "line_end": 520,
         "text": "过了不知多少时候，突然腰间一酸，腰后\"中枢穴\"上给人点了一指。 他一惊而醒，待要跃起抵御，后颈已给人施擒拿手牢牢抓住，登时动弹不得，侧过头来，但见李莫愁师徒笑吟吟的站在身旁，师父也已给点中了穴道。 原来杨、龙两人殊无江湖上应敌防身的经历，喜悦之余，竟没想到要回上去安上棺底石板，竟让李莫愁发现了这地下石室，偷袭成功。 李"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_yin_hu_wan_dao",
     "name": "银弧弯刀",
     "type": "剑法",
     "faction": "古墓派",
-    "rank": "略有小成",
     "one_line": "陆无双将古墓剑路化入薄弯刀的轻盈兵刃打法。",
     "techniques": [
       {
@@ -3566,14 +3624,14 @@
         "line_end": 174,
         "text": "她刀法轻盈流动，大半却是使剑的路子，刺削多而砍斫少。"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_di_tang_dao_fa",
     "name": "地堂刀法",
     "type": "剑法",
     "faction": "丐帮",
-    "rank": "略有小成",
     "one_line": "陈乞丐贴地翻滚、专攻下盘的单刀打法。",
     "techniques": [
       {
@@ -3612,14 +3670,14 @@
         "line_end": 190,
         "text": "那姓陈乞丐就地打滚，展开地堂刀法，刀背在驴腿上重重一击。"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_yang_guo_fei_shi_dian_xue",
     "name": "杨过飞石点穴",
     "type": "暗器",
     "faction": "古墓派",
-    "rank": "登堂入室",
     "one_line": "杨过伏在牛腹下以小石子遥点敌人背心穴道的暗器点穴法。",
     "techniques": [
       {
@@ -3658,14 +3716,14 @@
         "line_end": 232,
         "text": "杨过伏在牛腹之下，看准了五个男子的背心穴道，小石子一枚枚掷出。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_yang_guo_zhuang_shui_zhi_xue",
     "name": "杨过装睡制穴",
     "type": "指法",
     "faction": "古墓派",
-    "rank": "炉火纯青",
     "one_line": "杨过以装睡翻身、伸腿碰穴戏弄并制住陆无双的穴道手段。",
     "techniques": [
       {
@@ -3708,14 +3766,14 @@
         "line_end": 526,
         "text": "两条泥腿倏地伸出，左腿搁在陆无双臂弯里的\"曲池穴\"，右腿却搁在她肩头的\"肩井穴\"。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_lu_wu_shuang_duo_jian",
     "name": "陆无双夺剑",
     "type": "剑法",
     "faction": "古墓派",
-    "rank": "略有小成",
     "one_line": "陆无双以古墓派手法翻腕夺剑、顺势反伤敌人的近身招法。",
     "techniques": [
       {
@@ -3758,14 +3816,14 @@
         "line_end": 576,
         "text": "她手腕斗翻，已施展古墓派武功，夺过道人手中长剑。"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_tie_bian_han_zi_zuo_zhang",
     "name": "铁鞭汉子左掌",
     "type": "掌法",
-    "faction": "未知",
-    "rank": "炉火纯青",
+    "faction": null,
     "one_line": "铁鞭汉子隐藏在铁鞭之后的迅捷左掌功夫。",
     "techniques": [
       {
@@ -3804,14 +3862,14 @@
         "line_end": 596,
         "text": "左掌快似闪电，倏地穿出，噗的一声，击正陆无双胸口。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_yang_guo_jie_gu",
     "name": "杨过接骨",
     "type": "指法",
     "faction": "古墓派",
-    "rank": "登堂入室",
     "one_line": "杨过为陆无双接续断肋的外伤处置手法。",
     "techniques": [
       {
@@ -3861,14 +3919,14 @@
         "text": "杨过闭眼摸准断肋，将断骨对准，又用树枝树皮固定。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_yi_qi_hua_san_qing_jian_shu",
     "name": "一气化三清剑术",
     "type": "剑法",
-    "faction": "faction_quan_zhen_jiao",
-    "rank": "炉火纯青",
+    "faction": "全真教",
     "one_line": "全真派上乘剑术，每招可分化多招，杨过在本章以化二清的近似变化逼退二丐。",
     "techniques": [
       {
@@ -3911,14 +3969,14 @@
         "line_end": 414,
         "text": "杨过长剑分攻两人胸口小腹，连刺十八剑，每一剑一分为二，近似全真派上乘武功一气化三清。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_tian_gang_bei_dou_qiang_wei_bu_fa",
     "name": "天罡北斗抢位步法",
     "type": "轻功",
-    "faction": "faction_quan_zhen_jiao",
-    "rank": "登堂入室",
+    "faction": "全真教",
     "one_line": "全真派为天罡北斗阵抢位所练的轻功步法，杨过借其外形绕二丐急转。",
     "techniques": [
       {
@@ -3961,14 +4019,14 @@
         "line_end": 434,
         "text": "全真派门人练轻功以便天罡北斗阵抢位，杨过步伐似全真，呼吸运气却用玉女心经。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_san_wu_san_bu_shou",
     "name": "三无三不手",
     "type": "指法",
-    "faction": "faction_li_mo_chou_men_xia",
-    "rank": "出神入化",
+    "faction": "李莫愁门下",
     "one_line": "三无三不手连续点穴和攻要害，却被杨过倒立逆行经脉扰乱部位。",
     "techniques": [
       {
@@ -4017,14 +4075,14 @@
         "line_end": 622,
         "text": "李莫愁使出生平最得意的三无三不手，无孔不入、无所不至、无所不为三招连环。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_da_li_ying_zhua_gong",
     "name": "大力鹰爪功",
     "type": "指法",
-    "faction": "faction_ying_zhua_men",
-    "rank": "登堂入室",
+    "faction": "鹰爪门",
     "one_line": "耶律铸少时所学鹰爪门武功，双手十指如鹰爪猛插，招数凌厉。",
     "techniques": [
       {
@@ -4067,14 +4125,14 @@
         "line_end": 704,
         "text": "耶律铸听到背后风声，双手十指犹似两把鹰爪，猛插过来，竟是招数凌厉的大力鹰爪功。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_hei_yi_shao_nv_liu_ye_dao_fa",
     "name": "黑衣少女柳叶刀法",
     "type": "剑法",
-    "faction": "",
-    "rank": "登堂入室",
+    "faction": null,
     "one_line": "黑衣少女持柳叶刀刺杀耶律楚材，刀法狠辣迅捷，连砍板凳凳脚。",
     "techniques": [
       {
@@ -4117,14 +4175,14 @@
         "line_end": 923,
         "text": "黑衣女子手中柳叶刀锋利异常，连砍数刀将板凳四只凳脚砍去，并踢倒耶律铸。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_ye_lv_yan_kong_shou_duo_bai_ren",
     "name": "耶律燕空手夺白刃",
     "type": "指法",
-    "faction": "faction_meng_gu_guan_fu",
-    "rank": "登堂入室",
+    "faction": "蒙古官府",
     "one_line": "耶律燕以掌劈与空手夺白刃配合，急救父亲并抢夺黑衣少女柳叶刀。",
     "techniques": [
       {
@@ -4167,14 +4225,14 @@
         "line_end": 929,
         "text": "耶律燕右手出掌往少女脸上劈落，左手以空手夺白刃手法去抢她刀子。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_ye_lv_qi_quan_zhen_bie_lu_zhang_fa",
     "name": "耶律齐全真别路掌法",
     "type": "掌法",
-    "faction": "faction_meng_gu_guan_fu",
-    "rank": "炉火纯青",
+    "faction": "蒙古官府",
     "one_line": "耶律齐出手似全真而又不同，单手三掌便显精妙准稳。",
     "techniques": [
       {
@@ -4217,14 +4275,14 @@
         "line_end": 959,
         "text": "耶律齐斜身侧进，右手连发三掌，左手插腰不动，随手应付少女单刀，招数精妙。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_quan_zhen_wu_gong",
     "name": "全真武功",
     "type": "内功",
-    "faction": "faction_quan_zhen_pai",
-    "rank": "炉火纯青",
+    "faction": "全真派",
     "one_line": "面对练成的玉女心经时被克制得一败涂地，连招架也无能为力。",
     "combat_style": "端凝厚重，重视内力、剑法与擒拿的稳健配合。",
     "techniques": [
@@ -4267,14 +4325,14 @@
         "line_end": 192,
         "text": "玉女心经克制全真派武功，赵志敬一格落空，全真武功输得一败涂地。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_tie_zhang_qin_na_shou",
     "name": "铁掌擒拿手",
     "type": "掌法",
     "faction": null,
-    "rank": "登堂入室",
     "one_line": "完颜萍所习的铁掌一脉擒拿掌法，掌势凌厉，能与刀招互相夹击。",
     "combat_style": "以铁掌劲力配合擒拿变化，近身纠缠时刚猛凌厉。",
     "techniques": [
@@ -4309,14 +4367,14 @@
         "line_end": 16,
         "text": "完颜萍临敌记着不可举刀反砍，却仍因招式形势被迫出刀。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_gu_mu_pai_wu_gong",
     "name": "古墓派武功",
     "type": "轻功",
-    "faction": "faction_gu_mu_pai",
-    "rank": "出神入化",
+    "faction": "古墓派",
     "one_line": "杨过以内劲灌入空袖施展柔物刚劲，威力不下钢鞭巨杵，击弯郭芙长剑。",
     "combat_style": "轻灵飘忽，擅以奇招、轻功和细密手法化解强敌。",
     "techniques": [
@@ -4365,14 +4423,14 @@
         "text": "杨过空袖裹住长剑甩出，柔物施展刚劲正是古墓派武功精要。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_tao_hua_dao_wu_gong",
     "name": "桃花岛武功",
     "type": "剑法",
-    "faction": "faction_tao_hua_dao",
-    "rank": "炉火纯青",
+    "faction": "桃花岛",
     "one_line": "桃花岛武功在黄蓉手中展现为桃华落英掌与兰花拂穴手联用，姿态端丽而招招凌厉。",
     "combat_style": "招式精巧，讲究配合、身法与兵刃变化。",
     "techniques": [
@@ -4413,15 +4471,22 @@
         "line_start": 530,
         "line_end": 534,
         "text": "李莫愁见桃华落英掌与兰花拂穴手交互为用，面若死灰。"
+      },
+      {
+        "chapter": 31,
+        "line_start": 888,
+        "line_end": 912,
+        "text": "黄蓉临敌心念电闪，凭机变、真气与口咬化解三枚枣核钉。"
       }
-    ]
+    ],
+    "relationships": [],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_gai_bang_wu_gong",
     "name": "丐帮武功",
     "type": "掌法",
-    "faction": "faction_gai_bang",
-    "rank": "登峰造极",
+    "faction": "丐帮",
     "one_line": "鲁有脚所练打狗棒法与洪七公在华山传给杨过的棒法分毫不错。",
     "combat_style": "刚猛豪迈，兼具掌法、棒法、轻功与深厚内力。",
     "techniques": [
@@ -4463,14 +4528,14 @@
         "text": "杨过认出鲁有脚所使棒法与洪七公当日在华山所传相同。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_jiang_long_shi_ba_zhang",
     "name": "降龙十八掌",
     "type": "掌法",
-    "faction": "faction_gai_bang",
-    "rank": "登峰造极",
+    "faction": "丐帮",
     "one_line": "洪七公名震天下的绝技，本章由杨过回忆其名头与洪七公相连。",
     "combat_style": "至刚至猛，掌力雄浑，为丐帮绝顶掌法。",
     "techniques": [
@@ -4504,15 +4569,21 @@
         "line_start": 1240,
         "line_end": 1242,
         "text": "杨过曾听小龙女说过洪七公名头和“降龙十八掌”等绝技。"
+      },
+      {
+        "chapter": 39,
+        "line_start": 222,
+        "line_end": 228,
+        "text": "郭靖枪挑掌劈，在蒙古亲兵围攻中以掌力击杀多人。"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_chuan_bian_wu_chou_dao_fa",
     "name": "川边五丑刀法",
     "type": "剑法",
     "faction": null,
-    "rank": "登堂入室",
     "one_line": "川边五丑同门所用厚背大刀刀法，五人联手时足以压制杨过。",
     "combat_style": "厚背大刀合围猛劈，依靠人数和同门路数压迫对手。",
     "techniques": [
@@ -4547,14 +4618,14 @@
         "line_end": 1096,
         "text": "洪七公跟踪川边五丑，准备等五丑聚会后一举屠绝。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_yu_feng_zhen",
     "name": "玉蜂针",
     "type": "暗器",
-    "faction": "faction_gu_mu_pai",
-    "rank": "炉火纯青",
+    "faction": "古墓派",
     "one_line": "霍都所中玉蜂针毒性仍未解除，成为金轮国师挟持郭芙索要解药的原因。",
     "combat_style": "以细小银针突袭，讲究手法精微和准头准确。",
     "techniques": [
@@ -4595,14 +4666,14 @@
         "line_end": 436,
         "text": "霍都身中玉蜂针毒性发作，金轮国师借郭芙逼黄蓉等交解药。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_wu_chou_nei_li_chuan_jie",
     "name": "五丑内力传接",
     "type": "内功",
-    "faction": "faction_jin_lun_guo_shi_men_xia",
-    "rank": "advanced",
+    "faction": "金轮国师门下",
     "one_line": "川边五丑所习的合力传劲内功，能让五人互相承接洪七公掌力。",
     "techniques": [
       {
@@ -4640,14 +4711,18 @@
         "line_end": 74,
         "text": "洪七公突然\"咦\"的一声，显得颇为诧异，将掌力收回了八成，问道：\"你们的内功很有些儿门道，你们的师父是谁？ \" 大丑双掌仍和他相抵，气喘吁吁的道：\"我们⋯⋯是⋯⋯是达尔巴师父⋯⋯的⋯⋯的门下。 \"洪七公摇头道：\"达尔巴？没听见过。嗯，你们内力能互相传接，这功夫很了不起哪。 \"杨过心想：\"能得洪老前辈说一句'很了不起'，那是当真了不起了。 可是我看这五个家伙也平平无奇，没一个打得过我。\" 只听洪七公又问：\"你们是什么门派的？\"大丑道：\"我们"
       }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "advanced",
+    "migration_notes": [
+      "unresolved mastery rank: advanced"
     ]
   },
   {
     "id": "skill_da_gou_bang_fa",
     "name": "打狗棒法",
     "type": "棍棒",
-    "faction": "faction_gai_bang",
-    "rank": "ultimate",
+    "faction": "丐帮",
     "one_line": "黄蓉以打狗棒法按狗低头及多变棒路压住李莫愁，使其久战必败。",
     "techniques": [
       {
@@ -4679,7 +4754,8 @@
       "第十一回",
       12,
       26,
-      27
+      27,
+      29
     ],
     "source_refs": [
       {
@@ -4741,16 +4817,32 @@
         "line_start": 428,
         "line_end": 440,
         "text": "打狗棒法奥妙无比，竹棒到身前方向部位斗然大异，周身大穴皆受威胁。"
+      },
+      {
+        "chapter": 29,
+        "line_start": 126,
+        "line_end": 126,
+        "text": "黄蓉打狗棒挥出，使个“封”字诀，已接过了这掌。"
+      },
+      {
+        "chapter": 31,
+        "line_start": 390,
+        "line_end": 392,
+        "text": "黄蓉以竹棒护身，准备使打狗棒法“封”字诀抵御慈恩掌力。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "ultimate",
+    "migration_notes": [
+      "unresolved mastery rank: ultimate"
+    ]
   },
   {
     "id": "skill_tao_hua_luo_ying_zhang",
     "name": "桃华落英掌",
     "type": "掌法",
-    "faction": "",
-    "rank": "advanced",
+    "faction": null,
     "one_line": "黄蓉家传掌法，出手迅捷无兆，用以试探杨过是否真无武功。",
     "techniques": [
       {
@@ -4787,15 +4879,25 @@
         "line_start": 945,
         "line_end": 963,
         "text": "郭靖大惊，叫得一声：\"蓉儿！\"但黄蓉落手奇快，这一掌是她家传的\"桃华落英掌\"，毫无先兆，手动掌至，郭靖待要相救，已自不及。 杨过身子微微向后一仰，要待避开，但黄蓉此时何等功夫，既然出手，那里还能容他闪避，眼见手掌已拍上他脑门。 杨过大惊之下，急忙伸手格架，脑中念头急转，右手微微一动，又即垂下。 如郭靖这等武功高强而心智迟钝之人，心中尚未明白，便已出手。 杨过却见事快极，心中立时想到：\"郭伯母是试我功夫来着，要是我架了她这一掌，那就是自认"
+      },
+      {
+        "chapter": 37,
+        "line_start": 867,
+        "line_end": 867,
+        "text": "黄药师的桃华落英掌法在黯然销魂掌前相形见绌。"
       }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "advanced",
+    "migration_notes": [
+      "unresolved mastery rank: advanced"
     ]
   },
   {
     "id": "skill_quan_zhen_ru_men_tao_lu",
     "name": "全真入门套路",
     "type": "掌法",
-    "faction": "faction_quan_zhen_jiao",
-    "rank": "basic",
+    "faction": "全真教",
     "one_line": "全真教入门攻守套子，赵志敬用来试杨过是否学过本门基础。",
     "techniques": [
       {
@@ -4839,6 +4941,11 @@
         "line_end": 1029,
         "text": "这招\"天山飞渡\"刚中有柔，阳劲蕴蓄阴劲，着实厉害。 但这一脚劲力虽强，却并不深奥，乃全真派武功入门第一课，出招平淡无奇，只要稍会武功，便能拆解。 凡全真教弟子第一天学武，就必先学\"天山飞渡\"，跟着就学\"退马势\"，那是避让\"天山飞渡\"的一着，一攻一守，乃最简易的套子。 赵志敬使出这一招，是要使郭靖、黄蓉明白：\"就算我没传他高深武功，难道这入门第一课也不教么？ \" 杨过见他飞腿踢来，却不使那\"退马势\"，叫声：\"啊哟！ \"左手下垂，挡住了小腹"
       }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "basic",
+    "migration_notes": [
+      "unresolved mastery rank: basic"
     ]
   },
   {
@@ -4846,7 +4953,6 @@
     "name": "一阳书指",
     "type": "指法",
     "faction": "大理一灯门下",
-    "rank": "出神入化",
     "one_line": "朱子柳由房玄龄碑转入张旭自言帖草书笔法，借酒意增锋芒，划中霍都衣衫。",
     "techniques": [
       {
@@ -4904,14 +5010,14 @@
         "text": "朱子柳以真草隶篆四般一阳书指点中霍都穴道。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_kuang_feng_xun_lei_gong",
     "name": "狂风迅雷功",
     "type": "内功",
-    "faction": "faction_meng_gu",
-    "rank": "炉火纯青",
+    "faction": "蒙古",
     "one_line": "霍都以扇袖鼓荡疾风并配合呼喝抢攻的猛烈功法。",
     "techniques": [
       {
@@ -4955,14 +5061,14 @@
         "text": "霍都右扇左袖鼓起疾风，袖藏铁掌，大声呼喝反击玉女剑法。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_tie_jiang_gong",
     "name": "铁桨功",
     "type": "掌法",
-    "faction": "faction_da_li",
-    "rank": "炉火纯青",
+    "faction": "大理",
     "one_line": "点苍渔隐以双铁桨硬拚的刚猛外功。",
     "techniques": [
       {
@@ -4999,14 +5105,14 @@
         "line_end": 266,
         "text": "点苍渔隐以两柄铁桨强攻达尔巴，昔日逆流练臂。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_fei_zu_dian_xue",
     "name": "飞足点穴",
     "type": "指法",
-    "faction": "faction_gu_mu_pai",
-    "rank": "出神入化",
+    "faction": "古墓派",
     "one_line": "小龙女以足尖疾点穴道的奇袭功夫。",
     "techniques": [
       {
@@ -5043,14 +5149,14 @@
         "line_end": 574,
         "text": "小龙女双足微抬，分别踢向霍都昆仑穴与涌泉穴。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_yu_nv_jian_fa",
     "name": "玉女剑法",
     "type": "剑法",
-    "faction": "faction_gu_mu_pai",
-    "rank": "出神入化",
+    "faction": "古墓派",
     "one_line": "古墓派轻柔精妙的剑法，杨过从小龙女处学得。",
     "techniques": [
       {
@@ -5106,14 +5212,14 @@
         "text": "她与杨过双剑合璧使玉女素心剑法，此刻一人同使两剑。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_mei_nv_quan_fa",
     "name": "美女拳法",
     "type": "掌法",
-    "faction": "faction_gu_mu_pai",
-    "rank": "出神入化",
+    "faction": "古墓派",
     "one_line": "古墓派最奇妙花巧的拳掌功夫，每招取历代美人典故。",
     "techniques": [
       {
@@ -5167,14 +5273,14 @@
         "text": "美女拳法最后一招收式古墓幽居由杨过自拟，模拟小龙女神态。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_wu_shang_da_li_chu_fa",
     "name": "无上大力杵法",
     "type": "掌法",
-    "faction": "faction_meng_gu",
-    "rank": "登峰造极",
+    "faction": "蒙古",
     "one_line": "达尔巴所使至刚至猛的密宗重杵功夫。",
     "techniques": [
       {
@@ -5211,14 +5317,14 @@
         "line_end": 931,
         "text": "金轮国师命达尔巴快使无上大力杵法，点苍渔隐见之暗自钦佩。"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_yi_hun_da_fa",
     "name": "移魂大法",
     "type": "内功",
-    "faction": "faction_jiu_yin_zhen_jing",
-    "rank": "登峰造极",
+    "faction": "九阴真经",
     "one_line": "九阴真经中以心神影响敌人的高深法门。",
     "techniques": [
       {
@@ -5262,14 +5368,14 @@
         "text": "杨过由制心止而至体真止，以笑容和丽华梳妆诱达尔巴受感。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_she_xin_shu",
     "name": "慑心术",
     "type": "内功",
-    "faction": "faction_gai_bang_pan_tu",
-    "rank": "炉火纯青",
+    "faction": "丐帮叛徒",
     "one_line": "彭长老曾用的迷神催眠术。",
     "techniques": [
       {
@@ -5306,14 +5412,14 @@
         "line_end": 981,
         "text": "黄蓉曾以移魂大法克制彭长老迷神催眠的慑心术。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_jiang_mo_fu_yao_zhou",
     "name": "降魔伏妖咒",
     "type": "内功",
-    "faction": "faction_meng_gu",
-    "rank": "登堂入室",
+    "faction": "蒙古",
     "one_line": "金轮国师临战念诵的密宗真言咒语。",
     "techniques": [
       {
@@ -5350,14 +5456,14 @@
         "line_end": 1101,
         "text": "金轮国师念密宗真言降魔伏妖咒，杨过用心硬记。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_jin_ling_suo_fa",
     "name": "金铃索法",
     "type": "暗器",
-    "faction": "faction_gu_mu_pai",
-    "rank": "出神入化",
+    "faction": "古墓派",
     "one_line": "小龙女的金铃索法变招极快极狠，可在狭窄山洞内连续点袭对手要穴。",
     "techniques": [
       {
@@ -5409,14 +5515,14 @@
         "text": "小龙女一点不中，兜转软索，倏地点他后心大椎穴，这一下变招极快极狠。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_yu_nv_su_xin_jian_fa",
     "name": "玉女素心剑法",
     "type": "剑法",
     "faction": "古墓派",
-    "rank": "登峰造极",
     "one_line": "小龙女说明玉女素心剑法须双方心中相爱、两心相通，方能发挥双剑合璧威力。",
     "techniques": [
       {
@@ -5507,14 +5613,14 @@
         "text": "小龙女剑法陡变，双手剑招相同，无法再发挥玉女素心剑法威力。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_cheng_ying_tu_zhen_qi_men",
     "name": "程英土阵奇门",
     "type": "掌法",
     "faction": "桃花岛",
-    "rank": "略有小成",
     "one_line": "程英依桃花岛奇门粗浅布置土阵以御强敌。",
     "techniques": [
       {
@@ -5551,14 +5657,14 @@
         "line_end": 486,
         "text": "程英决定在屋前布土阵，以逸待劳抵挡李莫愁。"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_li_mo_chou_bei_ge_she_xin",
     "name": "李莫愁悲歌慑心",
     "type": "内功",
     "faction": "古墓派",
-    "rank": "炉火纯青",
     "one_line": "李莫愁以悲切歌声牵动敌人心神的音律手段。",
     "techniques": [
       {
@@ -5595,14 +5701,14 @@
         "line_end": 574,
         "text": "李莫愁纵声而歌，以问世间情词压过程英琴箫。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_sha_gu_huo_cha_gong_fu",
     "name": "傻姑火叉功夫",
     "type": "掌法",
     "faction": "桃花岛",
-    "rank": "出神入化",
     "one_line": "傻姑以朴拙火叉直刺化解繁复招式的桃花岛怪异功夫。",
     "techniques": [
       {
@@ -5639,14 +5745,14 @@
         "line_end": 682,
         "text": "傻姑被黄药师多年传授，武功虽然不能成套，却有深厚根基。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_yu_xiao_jian_fa",
     "name": "玉箫剑法",
     "type": "剑法",
     "faction": "桃花岛",
-    "rank": "登堂入室",
     "one_line": "杨过以木棒代剑，借玉箫剑法招意继续激斗二武。",
     "techniques": [
       {
@@ -5680,7 +5786,8 @@
     ],
     "combat_style": "以音律意境带动剑势，轻灵雅致，适合与同门联手。",
     "rag_refs": [
-      20
+      20,
+      30
     ],
     "source_refs": [
       {
@@ -5700,15 +5807,28 @@
         "line_start": 574,
         "line_end": 592,
         "text": "武修文见机得快，长剑疾出，攻向杨过右胁，终究还是慢了一步，杨过木棒回转，忽地刺向他的右腕。 这一招后发而先至，武修文剑尖未及对方身体，手腕先得给棒端刺中，长剑便非脱手不可。 他急忙收剑变招，缩腕回剑，左腿踢出，杨过的木棒"
+      },
+      {
+        "chapter": 30,
+        "line_start": 778,
+        "line_end": 812,
+        "text": "程英得黄药师真传，玉箫剑法好生了得。"
+      },
+      {
+        "chapter": 31,
+        "line_start": 290,
+        "line_end": 296,
+        "text": "郭芙使黄蓉所授家传绝技玉箫剑法“玉漏催银箭”。"
       }
-    ]
+    ],
+    "relationships": [],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_yang_guo_da_jian_dao_po_fu_chen",
     "name": "杨过大剪刀破拂尘",
     "type": "剑法",
     "faction": "古墓派",
-    "rank": "略有小成",
     "one_line": "杨过临时创拟以大剪刀剪断李莫愁拂尘的奇门兵刃法。",
     "techniques": [
       {
@@ -5745,14 +5865,14 @@
         "line_end": 1116,
         "text": "杨过受傻姑启发，用剪刀和丝线创拟剪拂尘招术。"
       }
-    ]
+    ],
+    "mastery_rank": "略有小成"
   },
   {
     "id": "skill_li_mo_chou_chi_lian_shen_zhang",
     "name": "李莫愁赤练神掌",
     "type": "掌法",
     "faction": "古墓派",
-    "rank": "出神入化",
     "one_line": "李莫愁弃拂尘后施展的毒掌，必须贴近方能发挥威力。",
     "techniques": [
       {
@@ -5791,14 +5911,14 @@
         "line_end": 124,
         "text": "她临危不乱，掷下拂尘柄，改使赤练神掌"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_huang_yao_shi_yu_xiao_jian_fa",
     "name": "黄药师玉箫剑法",
     "type": "剑法",
     "faction": "桃花岛",
-    "rank": "登峰造极",
     "one_line": "黄药师传给杨过的剑法，可针对李莫愁拂尘招数逐一破招。",
     "techniques": [
       {
@@ -5837,14 +5957,14 @@
         "line_end": 172,
         "text": "一路玉箫剑法，尽可破得你的拂尘功夫"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_huang_yao_shi_tan_zhi_shen_tong",
     "name": "黄药师弹指神通",
     "type": "指法",
     "faction": "桃花岛",
-    "rank": "登峰造极",
     "one_line": "黄药师绝技之一，可借指甲弹击掌心破赤练毒掌。",
     "techniques": [
       {
@@ -5887,14 +6007,14 @@
         "line_end": 176,
         "text": "他使出弹指神通功夫，指甲在你掌心这么一弹"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_yang_guo_yu_nv_shen_zhang",
     "name": "杨过玉女神掌",
     "type": "掌法",
     "faction": "古墓派",
-    "rank": "登堂入室",
     "one_line": "杨过用以设想克制赤练神掌的古墓派秘技，招数快速无伦、变幻莫测。",
     "techniques": [
       {
@@ -5933,14 +6053,14 @@
         "line_end": 210,
         "text": "杨过所仗以对付赤练神掌者，乃玉女神掌快速无伦、变幻莫测的招数"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_jin_gang_zong_nei_gong",
     "name": "金刚宗内功",
     "type": "内功",
     "faction": "金刚宗",
-    "rank": "登堂入室",
     "one_line": "金轮国师疗伤所用内功，以任督气脉调理重伤。",
     "techniques": [
       {
@@ -5979,14 +6099,14 @@
         "line_end": 478,
         "text": "于金刚宗内功更一无所知……便气走任脉，全力调理前胸小腹的伤势"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_zhou_bo_tong_tai_ji_jin",
     "name": "周伯通太极劲",
     "type": "内功",
     "faction": "全真派",
-    "rank": "返璞归真",
     "one_line": "周伯通以太极劲令盘子周而复始、借物取食并戏弄众人。",
     "techniques": [
       {
@@ -6029,14 +6149,14 @@
         "line_end": 755,
         "text": "原来他使的是股\"太极劲\"……四根长矛同时断折"
       }
-    ]
+    ],
+    "mastery_rank": "返璞归真"
   },
   {
     "id": "skill_jue_qing_gu_qing_gong",
     "name": "绝情谷轻功",
     "type": "轻功",
-    "faction": "faction_jue_qing_gu",
-    "rank": "登堂入室",
+    "faction": "绝情谷",
     "one_line": "绝情谷门人在水塘木桩间纵跃往来的轻身功夫。",
     "techniques": [
       {
@@ -6072,14 +6192,14 @@
         "line_end": 220,
         "text": "绿衫人带众人穿过竹林水仙塘，身形微晃纵跃踏桩而过"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_fan_yi_weng_hu_zi_gong",
     "name": "樊一翁胡子功",
     "type": "内功",
-    "faction": "faction_jue_qing_gu",
-    "rank": "出神入化",
+    "faction": "绝情谷",
     "one_line": "长须老者以垂地长须配合身法制敌的奇门功夫。",
     "techniques": [
       {
@@ -6122,14 +6242,14 @@
         "line_end": 996,
         "text": "樊一翁胡子功有十余年功力，双掌空着为辅，比一般软鞭云帚更厉害"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_jue_qing_gu_nei_gong",
     "name": "绝情谷内功",
     "type": "内功",
-    "faction": "faction_jue_qing_gu",
-    "rank": "出神入化",
+    "faction": "绝情谷",
     "one_line": "绝情谷门下使身体僵直如木、劲力隐而不发的内家功夫。",
     "techniques": [
       {
@@ -6165,14 +6285,14 @@
         "line_end": 248,
         "text": "尼摩星握住长须老者之手逐层加劲，只觉似握硬木，老者脸上微现绿气"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_ni_mo_xing_wo_shou_shi_jin",
     "name": "尼摩星握手试劲",
     "type": "内功",
-    "faction": "faction_meng_gu",
-    "rank": "炉火纯青",
+    "faction": "蒙古",
     "one_line": "尼摩星借握手逐层加力试探对方内劲深浅的手上功夫。",
     "techniques": [
       {
@@ -6208,14 +6328,14 @@
         "line_end": 248,
         "text": "尼摩星握住老者之手逐层加劲，发现对方手似硬木后哈哈一笑放脱"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_xiao_xiang_zi_gui_yin",
     "name": "潇湘子鬼音",
     "type": "内功",
-    "faction": "faction_meng_gu",
-    "rank": "炉火纯青",
+    "faction": "蒙古",
     "one_line": "潇湘子以异常奇特声音扰乱旁人心神的怪异功夫。",
     "techniques": [
       {
@@ -6251,14 +6371,14 @@
         "line_end": 294,
         "text": "潇湘子怪声怪气问谷主祖宗是否见过杨贵妃，众人听惯其声仍觉有异"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_fan_yi_weng_long_tou_gang_zhang",
     "name": "樊一翁龙头钢杖",
     "type": "内功",
-    "faction": "faction_jue_qing_gu",
-    "rank": "出神入化",
+    "faction": "绝情谷",
     "one_line": "樊一翁操使一丈一尺龙头钢杖的沉重奇门兵器功夫。",
     "techniques": [
       {
@@ -6294,14 +6414,14 @@
         "line_end": 358,
         "text": "两名绿衣童子扛出一丈一尺龙头钢杖，樊一翁接过后顿地震出嗡嗡之声"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_xiao_xiang_zi_jian_dao_tou_xi",
     "name": "潇湘子剪刀偷袭",
     "type": "剑法",
-    "faction": "faction_meng_gu",
-    "rank": "炉火纯青",
+    "faction": "蒙古",
     "one_line": "潇湘子以杨过大剪刀突然剪向敌人胡须的诡异偷袭手法。",
     "techniques": [
       {
@@ -6338,14 +6458,14 @@
         "line_end": 384,
         "text": "潇湘子自称大剪刀为狗毛剪，忽然闪电般伸出剪向樊一翁胡子，剪断三茎"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_zhou_bo_tong_yi_rong_hun_zhang",
     "name": "周伯通易容混战",
     "type": "轻功",
-    "faction": "faction_quan_zhen_jiao",
-    "rank": "登峰造极",
+    "faction": "全真教",
     "one_line": "周伯通戴人皮面具假扮潇湘子，连椅纵跃并用剪刀胡闹的混战手段。",
     "techniques": [
       {
@@ -6382,14 +6502,14 @@
         "line_end": 466,
         "text": "假潇湘子连人带椅纵跃，用剪刀招呼樊一翁长须，后被识破是周伯通易容混闹"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_zhou_bo_tong_dian_xue_tuo_shen",
     "name": "周伯通点穴脱身",
     "type": "指法",
-    "faction": "faction_quan_zhen_jiao",
-    "rank": "登峰造极",
+    "faction": "全真教",
     "one_line": "周伯通故意被擒后破网逃脱，并点倒潇湘子换衣混入的脱身手段。",
     "techniques": [
       {
@@ -6427,14 +6547,14 @@
         "line_end": 486,
         "text": "周伯通故意被四弟子渔网擒住，入谷破网逃出，夜间点潇湘子穴道并偷换衣物面具剪刀"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_xiao_xiang_zi_ku_sang_bang",
     "name": "潇湘子哭丧棒",
     "type": "轻功",
-    "faction": "faction_meng_gu",
-    "rank": "出神入化",
+    "faction": "蒙古",
     "one_line": "潇湘子双膝不弯、全身僵直如僵尸般跃扑的诡异身法。",
     "techniques": [
       {
@@ -6470,14 +6590,14 @@
         "line_end": 540,
         "text": "潇湘子怪啸跃起，双膝不弯全身僵直如僵尸般抓向周伯通小腹"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_yin_ke_xi_jin_si_zhu_bian",
     "name": "尹克西金丝珠鞭",
     "type": "暗器",
-    "faction": "faction_meng_gu",
-    "rank": "炉火纯青",
+    "faction": "蒙古",
     "one_line": "尹克西以金丝银丝珠宝软鞭缠击敌腿的华贵兵器功夫。",
     "techniques": [
       {
@@ -6513,14 +6633,14 @@
         "line_end": 550,
         "text": "尹克西取出金丝银丝绞成、镶满珠玉宝石的软鞭，向周伯通小腿缠去"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_kong_ming_quan",
     "name": "空明拳",
     "type": "掌法",
-    "faction": "faction_quan_zhen_jiao",
-    "rank": "登峰造极",
+    "faction": "全真教",
     "one_line": "周伯通虚飘飘发拳，以拳风牵引敌方长须的高明拳法。",
     "techniques": [
       {
@@ -6556,14 +6676,14 @@
         "line_end": 582,
         "text": "周伯通左手使出空明拳拳招，虚飘飘挥拳，拳风推动樊一翁胡子向右甩去"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_jin_lun_guo_shi_shuang_lun_lun_fa",
     "name": "金轮国师双轮轮法",
     "type": "暗器",
-    "faction": "faction_meng_gu_mi_jiao",
-    "rank": "出神入化",
+    "faction": "蒙古密教",
     "one_line": "金轮国师以银轮铜轮划弧旋击的沉重轮法。",
     "techniques": [
       {
@@ -6599,14 +6719,14 @@
         "line_end": 604,
         "text": "金轮国师取出银轮铜轮划成两道弧光袭周伯通，铜轮激飞钢杖后又回旋攻上横梁"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_jue_qing_gu_yu_wang_zhen",
     "name": "绝情谷渔网阵",
     "type": "暗器",
-    "faction": "faction_jue_qing_gu",
-    "rank": "炉火纯青",
+    "faction": "绝情谷",
     "one_line": "绝情谷渔网阵换出遍生倒钩匕首的杀阵版本，足以将被兜者全身刺杀。",
     "techniques": [
       {
@@ -6662,14 +6782,14 @@
         "text": "十六名弟子转出后仍拉渔网，网上遍生倒钩和匕首，谷主以此最后逼杨过出谷。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_fan_yi_weng_po_shui_zhang_fa",
     "name": "樊一翁泼水杖法",
     "type": "内功",
-    "faction": "faction_jue_qing_gu",
-    "rank": "出神入化",
+    "faction": "绝情谷",
     "one_line": "樊一翁以纯钢巨杖施展的九九八十一路猛烈杖法。",
     "techniques": [
       {
@@ -6705,14 +6825,14 @@
         "line_end": 958,
         "text": "樊一翁抖起钢杖猛力往杨过脚胫叩去，绿萼知其有九九八十一路泼水杖法"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_yang_guo_da_jian_dao_po_xu",
     "name": "杨过大剪刀破须",
     "type": "剑法",
-    "faction": "faction_gu_mu_pai",
-    "rank": "炉火纯青",
+    "faction": "古墓派",
     "one_line": "杨过以预研破拂尘的剪刀招式破解樊一翁长须软兵。",
     "techniques": [
       {
@@ -6749,14 +6869,14 @@
         "line_end": 984,
         "text": "杨过曾为斗李莫愁细想大剪刀招式，此时用来破樊一翁胡子，第一剪险些剪断全须"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_yang_guo_ta_zhang_qing_gong",
     "name": "杨过踏杖轻功",
     "type": "轻功",
-    "faction": "faction_gu_mu_pai",
-    "rank": "炉火纯青",
+    "faction": "古墓派",
     "one_line": "杨过以古墓派轻功踏住长大兵刃，顺杖而进夺取钢杖。",
     "techniques": [
       {
@@ -6792,14 +6912,14 @@
         "line_end": 1086,
         "text": "杨过左足稳站杖上，身随杖起并从杖身走过，迫使樊一翁抛杖后抄得钢杖"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_gong_sun_zhi_tie_zhang",
     "name": "公孙止铁掌",
     "type": "掌法",
     "faction": "绝情谷",
-    "rank": "炉火纯青",
     "one_line": "公孙止的部分掌势与铁掌门功夫相通，杨过借其身法掌势混入完颜萍拳法取信裘千尺。",
     "techniques": [
       {
@@ -6849,14 +6969,14 @@
         "text": "公孙止周身穴道不受侵害，铁掌之来掌力沉重，杨过不敢硬接。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_yang_guo_yu_feng_jin_zhen_an_xi",
     "name": "杨过玉蜂金针暗袭",
     "type": "暗器",
     "faction": "古墓派",
-    "rank": "登堂入室",
     "one_line": "杨过借拍打穴道作虚招，将喂毒玉蜂金针暗拍入敌人背穴。",
     "techniques": [
       {
@@ -6899,14 +7019,14 @@
         "line_end": 354,
         "text": "杨过第三次手中暗持玉蜂金针，拍打八下，将两枚喂毒金针拍入公孙止中枢穴。"
       }
-    ]
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_gong_sun_zhi_yin_yang_ren",
     "name": "公孙止阴阳刃",
     "type": "兵器",
     "faction": "绝情谷",
-    "rank": "出神入化",
     "one_line": "公孙止阴阳双刃进一步转为阴阳倒乱，黑剑作刀、金刀作剑，短暂打乱杨龙合璧。",
     "techniques": [
       {
@@ -6952,14 +7072,14 @@
         "text": "公孙止使出阴阳倒乱刃法，黑剑硬砍猛斫，金刀刺挑削洗，令杨过小龙女手忙脚乱。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_gong_sun_zhi_yin_yang_dao_luan_ren_fa",
     "name": "公孙止阴阳倒乱刃法",
     "type": "兵器",
     "faction": "绝情谷",
-    "rank": "出神入化",
     "one_line": "公孙止以金刀作剑、刀背砸淑女剑平面，刚柔合一震倒小龙女。",
     "techniques": [
       {
@@ -7009,14 +7129,14 @@
         "text": "公孙止将全身劲力运在右臂，金刀作剑砸向淑女剑平面，劲力刚强，震得小龙女倒去。"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_qiu_qian_chi_zao_he_ding",
     "name": "裘千尺枣核钉",
     "type": "暗器内劲",
     "faction": "铁掌帮旧脉",
-    "rank": "炉火纯青",
     "one_line": "裘千尺以枣核向上激射数丈打中树干，可借枣核取物并用作攻击暗器。",
     "techniques": [
       {
@@ -7062,14 +7182,14 @@
         "text": "波波两响，他右腿“环跳”、左足“阳关”两穴同时为枣核打中"
       }
     ],
-    "relationships": []
+    "relationships": [],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_yin_yang_dao_luan_ren_fa",
     "name": "阴阳倒乱刃法",
     "type": "剑法",
     "faction": "绝情谷",
-    "rank": "炉火纯青",
     "one_line": "公孙止以黑剑金刀施展的诡异刃法，刀剑招意倒置。",
     "techniques": [
       {
@@ -7112,14 +7232,14 @@
         "line_end": 60,
         "text": "公孙止知他二人双剑联手的厉害，一上手即使开阴阳倒乱刃法"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_shi_ju_jian_fa",
     "name": "诗句剑法",
     "type": "剑法",
     "faction": null,
-    "rank": "出神入化",
     "one_line": "杨过临阵以诗句化入剑招，自创潇洒雄秀的剑法。",
     "techniques": [
       {
@@ -7158,14 +7278,14 @@
         "line_end": 216,
         "text": "杨过长声吟诗，以诗句化入武功，剑法挥舞得潇洒有致。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_dan_zhi_shen_tong",
     "name": "弹指神通",
     "type": "指法",
     "faction": "桃花岛",
-    "rank": "出神入化",
     "one_line": "黄蓉以家传弹指神通弹石假击郭襄，劲急而暗藏回力，专为逼李莫愁防护。",
     "techniques": [
       {
@@ -7200,7 +7320,8 @@
     "combat_style": "指劲精微，出手突兀",
     "rag_refs": [
       20,
-      27
+      27,
+      30
     ],
     "source_refs": [
       {
@@ -7214,15 +7335,27 @@
         "line_start": 364,
         "line_end": 370,
         "text": "黄蓉弹出石子挟破空之声急向郭襄飞去，手指上早已使了回力。"
+      },
+      {
+        "chapter": 30,
+        "line_start": 824,
+        "line_end": 832,
+        "text": "杨过拾起小石使出黄药师传授的弹指神通，救程英于冷月窥人剑下。"
+      },
+      {
+        "chapter": 37,
+        "line_start": 867,
+        "line_end": 871,
+        "text": "黄药师以弹指神通化解杨过黯然销魂掌的掌力。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_gong_sun_zhi_bi_xue_gong",
     "name": "公孙止闭穴功",
     "type": "内功",
     "faction": "绝情谷",
-    "rank": "炉火纯青",
     "one_line": "公孙止家传上乘内功，能封闭穴道防敌点穴，却严忌荤腥。",
     "techniques": [
       {
@@ -7265,14 +7398,14 @@
         "line_end": 314,
         "text": "家传闭穴功夫有一项重大禁忌，决不能饮食半点荤腥"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_jin_lun_guo_shi_gang_rou_tuo_shuai",
     "name": "金轮国师刚柔托摔",
     "type": "掌法",
     "faction": "蒙古密教",
-    "rank": "炉火纯青",
     "one_line": "金轮国师虚拳诱敌，以刚柔劲托起对手摔落山坡。",
     "techniques": [
       {
@@ -7315,14 +7448,14 @@
         "line_end": 624,
         "text": "左手倏地伸出，在他背上一托，刚劲柔劲同时使出"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_shi_jia_zhi_xiang_gong",
     "name": "释迦掷象功",
     "type": "外功",
     "faction": "天竺佛家武学",
-    "rank": "出神入化",
     "one_line": "尼摩星所用天竺佛家外功，以巨力掷物并连续加势追击。",
     "techniques": [
       {
@@ -7365,14 +7498,14 @@
         "line_end": 704,
         "text": "天竺佛家武学的一门厉害武功，叫作“释迦掷象功”。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_guo_jing_jie_jian_fan_she",
     "name": "郭靖接箭反射",
     "type": "箭术",
     "faction": null,
-    "rank": "登峰造极",
     "one_line": "郭靖双手接住飞箭后借铁胎硬弓反射，瞬间射杀两名卫士。",
     "techniques": [
       {
@@ -7415,14 +7548,14 @@
         "line_end": 895,
         "text": "郭靖双手向内一拢，两手各已抓着一枝羽箭"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_shang_tian_ti",
     "name": "上天梯",
     "type": "轻功",
     "faction": "全真教",
-    "rank": "出神入化",
     "one_line": "借一口气在光滑城墙上连踏上升的高深轻功。",
     "techniques": [
       {
@@ -7472,14 +7605,14 @@
         "line_end": 1009,
         "text": "杨过心想郭伯伯的上天梯功夫我可不会，便以重剑刺城墙攀上。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化"
   },
   {
     "id": "skill_jin_yan_gong",
     "name": "金雁功",
     "type": "轻功",
     "faction": "全真教",
-    "rank": "炉火纯青",
     "one_line": "马钰所传轻身功夫，是郭靖上天梯的根基。",
     "techniques": [
       {
@@ -7522,14 +7655,14 @@
         "line_end": 381,
         "text": "曾随马钰练\"金雁功\""
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_fen_xin_er_yong",
     "name": "分心二用",
     "type": "内功心法",
     "faction": "周伯通传授",
-    "rank": "绝顶",
     "one_line": "一心分使两路招数的奇术，使小龙女能同时操控双剑。",
     "techniques": [
       {
@@ -7567,14 +7700,15 @@
         "line_end": 30,
         "text": "小龙女得周伯通授以分心二用、左右互搏之术，斗然间武功倍增。"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极",
+    "legacy_rank": "绝顶"
   },
   {
     "id": "skill_zuo_you_hu_bo",
     "name": "左右互搏",
     "type": "奇门武功",
     "faction": "周伯通传授",
-    "rank": "绝顶",
     "one_line": "左右手各自成招的奇门功夫，能让一人兼具两人攻势。",
     "techniques": [
       {
@@ -7618,14 +7752,15 @@
         "line_end": 204,
         "text": "小龙女想到两手该能同时使四柄剑，或能扰乱敌人脱困。"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极",
+    "legacy_rank": "绝顶"
   },
   {
     "id": "skill_jin_long_bian_fa",
     "name": "金龙鞭法",
     "type": "鞭法",
     "faction": "西域",
-    "rank": "一流",
     "one_line": "尹克西使用的软鞭武功，防守严密，能舞成黄光护身。",
     "techniques": [
       {
@@ -7663,14 +7798,15 @@
         "line_end": 82,
         "text": "尹克西挥金龙鞭格开长剑，又以金龙鞭护住赵志敬。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化",
+    "legacy_rank": "一流"
   },
   {
     "id": "skill_tie_she_gong",
     "name": "铁蛇功",
     "type": "奇门兵刃",
     "faction": "天竺",
-    "rank": "一流",
     "one_line": "尼摩星铁蛇配合拐杖的奇门武功，黑影倏进倏退。",
     "techniques": [
       {
@@ -7708,14 +7844,15 @@
         "line_end": 116,
         "text": "尼摩星左手撑拐杖，右手以铁蛇抵挡小龙女。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化",
+    "legacy_rank": "一流"
   },
   {
     "id": "skill_ku_sang_bang_fa",
     "name": "哭丧棒法",
     "type": "棒法",
     "faction": "湘西",
-    "rank": "一流",
     "one_line": "潇湘子所用哭丧棒法，能搅成灰幕严密遮护身前。",
     "techniques": [
       {
@@ -7753,14 +7890,15 @@
         "line_end": 118,
         "text": "潇湘子左手挥掌推出，哭丧棒同时击出。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化",
+    "legacy_rank": "一流"
   },
   {
     "id": "skill_huang_sha_wan_li_bian_fa",
     "name": "黄沙万里鞭法",
     "type": "鞭法",
     "faction": "西域",
-    "rank": "一流",
     "one_line": "尹克西反复施展的鞭法，能以软鞭舞成守势并缓步合围。",
     "techniques": [
       {
@@ -7798,14 +7936,15 @@
         "line_end": 184,
         "text": "尹克西一套黄沙万里鞭法反复已使四次，叫二人一齐踏上半步。"
       }
-    ]
+    ],
+    "mastery_rank": "出神入化",
+    "legacy_rank": "一流"
   },
   {
     "id": "skill_wu_lun_da_zhuan",
     "name": "五轮大转",
     "type": "奇门兵刃",
     "faction": "蒙古密宗",
-    "rank": "绝顶",
     "one_line": "金轮国师驱使金银铜铁铅五轮的绝技，回旋飞舞声势震耳。",
     "techniques": [
       {
@@ -7843,14 +7982,15 @@
         "line_end": 290,
         "text": "金银铜铁铅五只巨轮回旋飞舞，响声震得众人耳中嗡嗡作响。"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极",
+    "legacy_rank": "绝顶"
   },
   {
     "id": "skill_qi_xing_ju_hui",
     "name": "七星聚会",
     "type": "阵法合击",
     "faction": "全真教",
-    "rank": "绝顶",
     "one_line": "全真五子从天罡北斗阵法演化出的并力合击法，可聚多人劲力于一点。",
     "techniques": [
       {
@@ -7894,14 +8034,15 @@
         "line_end": 486,
         "text": "全真五子并肩而立，五股大力归并为一使出七星聚会。"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极",
+    "legacy_rank": "绝顶"
   },
   {
     "id": "skill_dian_xue_zhi_xue",
     "name": "点穴止血",
     "type": "点穴医法",
     "faction": "江湖通用",
-    "rank": "上乘",
     "one_line": "以点穴封闭经脉止住创口流血的急救法。",
     "techniques": [
       {
@@ -7939,6 +8080,11 @@
         "line_end": 622,
         "text": "杨过伸左手点了自己右肩肩贞穴，缚住肩膀止血，再用金创药敷伤口。"
       }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "上乘",
+    "migration_notes": [
+      "unresolved mastery rank: 上乘"
     ]
   },
   {
@@ -7946,7 +8092,6 @@
     "name": "独孤重剑剑法",
     "type": "剑法",
     "faction": "独孤求败遗脉",
-    "rank": "绝顶",
     "one_line": "杨过从玄铁重剑和山洪练功中悟得无锋胜有锋、劲雄凝重的剑道。",
     "techniques": [
       {
@@ -7990,14 +8135,15 @@
         "line_end": 965,
         "text": "杨过悟到重剑无锋与天罗地网皆是武学至高绝诣。"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极",
+    "legacy_rank": "绝顶"
   },
   {
     "id": "skill_huang_rong_jiu_gong_ba_gua_ji_teng_zhen",
     "name": "黄蓉九宫八卦棘藤阵",
     "type": "内功",
     "faction": "桃花岛",
-    "rank": "炉火纯青",
     "one_line": "黄蓉的棘藤阵依桃花岛奇门方位布成，寻常高手难入，但被她怀疑可由杨过举一反三破解。",
     "techniques": [
       {
@@ -8050,14 +8196,14 @@
         "line_end": 596,
         "text": "黄蓉自认棘藤按九宫八卦方位而布，除桃花岛弟子外无人识得，但杨过曾听阵法大要。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_li_mo_chou_zhang_zhong_jia_zhen",
     "name": "李莫愁掌中夹针",
     "type": "暗器",
     "faction": "古墓派",
-    "rank": "炉火纯青",
     "one_line": "李莫愁自创的阴毒近身手法，掌击同时发出冰魄银针，常使对手防掌不防针。",
     "techniques": [
       {
@@ -8104,14 +8250,14 @@
         "line_end": 504,
         "text": "李莫愁右掌击出之际，同时发出两枚银针，射向黄蓉胸腹之间。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_yang_guo_kong_xiu_ta_jian",
     "name": "杨过空袖踏剑",
     "type": "内功",
     "faction": "古墓派与独孤重剑内力",
-    "rank": "炉火纯青",
     "one_line": "杨过以空袖劲摔飞鹿清笃，又一足踏定赵志敬长剑，借撤劲令其自伤。",
     "techniques": [
       {
@@ -8158,14 +8304,14 @@
         "line_end": 790,
         "text": "杨过空袖猛拂摔飞鹿清笃，右足踏住赵志敬长剑，撤去劲力令剑柄撞其胸口。"
       }
-    ]
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_yang_guo_xuan_tie_zhong_jian",
     "name": "杨过玄铁重剑",
     "type": "剑法",
     "faction": "独孤求败剑冢",
-    "rank": "登峰造极",
     "one_line": "玄铁重剑无锋而无坚不摧，虽近战压制五轮，互拼内力时却难施鼓荡冲击之威。",
     "techniques": [
       {
@@ -8218,14 +8364,14 @@
         "line_end": 976,
         "text": "玄铁剑虽无锋，运上内力无坚不摧；但与金轮相抵互拼内力时威势难施。"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_dao_lian_yu_nv_xin_jing",
     "name": "倒练玉女心经",
     "type": "内功",
     "faction": "古墓派",
-    "rank": "登峰造极",
     "one_line": "经脉逆行与寒玉床相辅相成的怪法大有效验，但比一阳指疗伤更耗时，需二人内息丝丝合拍。",
     "techniques": [
       {
@@ -8268,14 +8414,14 @@
         "line_end": 996,
         "text": "经脉逆行和寒玉床相辅相成大有效功，因小龙女伤重需长久疗治。"
       }
-    ]
+    ],
+    "mastery_rank": "登峰造极"
   },
   {
     "id": "skill_lan_hua_fu_xue_shou",
     "name": "兰花拂穴手",
     "type": "指法",
     "faction": "桃花岛",
-    "rank": "出神入化",
     "one_line": "黄蓉用以制住李莫愁并暂封璇玑穴的桃花岛点穴手法。",
     "techniques": [
       {
@@ -8318,6 +8464,899 @@
         "line_end": 1008,
         "text": "黄蓉以兰花拂穴手制住李莫愁，解穴后又拂中璇玑穴令其不能发劲。"
       }
+    ],
+    "mastery_rank": "出神入化"
+  },
+  {
+    "id": "skill_yu_feng_zhi_hui_fa",
+    "name": "玉蜂指挥法",
+    "type": "暗器",
+    "faction": "古墓派",
+    "one_line": "周伯通钻研出的指挥玉蜂法门，可驱使玉蜂成阵扰敌。",
+    "techniques": [
+      {
+        "id": "tech_qu_feng_cheng_zhen",
+        "name": "驱蜂成阵",
+        "type": "special",
+        "description": "以特定法门指挥玉蜂聚散行动，形成可用的蜂群阵势。"
+      },
+      {
+        "id": "tech_yu_feng_rao_di",
+        "name": "玉蜂扰敌",
+        "type": "debuff",
+        "description": "借玉蜂飞舞叮扰敌人，使敌方难以从容行动。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "小成",
+        "description": "周伯通锲而不舍，已能初步指挥玉蜂。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "以蜂群扰乱敌人"
+      },
+      {
+        "type": "特殊",
+        "description": "借玉蜂追踪或牵制"
+      }
+    ],
+    "combat_style": "奇巧玩闹而实具威力",
+    "rag_refs": [
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 352,
+        "line_end": 352,
+        "text": "周伯通尽在钻研指挥玉蜂的法门，居然已有小成。"
+      }
+    ],
+    "mastery_rank": "略有小成"
+  },
+  {
+    "id": "skill_yu_nv_xin_jing_jian_shu",
+    "name": "玉女心经剑术",
+    "type": "剑法",
+    "faction": "古墓派",
+    "one_line": "杨过与小龙女曾以《玉女心经》中的剑术击败金轮国师。",
+    "techniques": [
+      {
+        "id": "tech_yu_nv_su_xin_jian",
+        "name": "玉女素心剑",
+        "type": "attack",
+        "description": "双人心意相通时施展的古墓派精妙剑术，攻守互补。"
+      },
+      {
+        "id": "tech_yu_nv_lian_huan_jian",
+        "name": "玉女连环剑",
+        "type": "attack",
+        "description": "以连绵剑势压制强敌，变化细密而迅捷。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "高深",
+        "description": "杨过与小龙女凭此击败金轮国师，李莫愁尚不会。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "剑术精妙，可克强敌"
+      },
+      {
+        "type": "增益",
+        "description": "双人同使时威力倍增"
+      }
+    ],
+    "combat_style": "灵动绵密、双剑合璧",
+    "rag_refs": [
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 432,
+        "line_end": 436,
+        "text": "杨过与小龙女曾以《玉女心经》的剑术击败金轮国师，而李莫愁显然不会这门武功。"
+      }
+    ],
+    "mastery_rank": "登峰造极"
+  },
+  {
+    "id": "skill_ni_chong_jing_mai",
+    "name": "逆冲经脉",
+    "type": "内功",
+    "faction": "古墓派",
+    "one_line": "杨过授小龙女以逆冲经脉之法打通大穴疗伤。",
+    "techniques": [
+      {
+        "id": "tech_chong_tan_zhong_xue",
+        "name": "冲膻中穴",
+        "type": "buff",
+        "description": "以内息冲激任脉膻中穴，打通后重伤可大为好转。"
+      },
+      {
+        "id": "tech_ni_xing_nei_xi",
+        "name": "逆行内息",
+        "type": "special",
+        "description": "逆向运行经脉，艰危倍增但可用于特殊疗伤。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "紧要关头",
+        "description": "小龙女已逐一打通三十六处大穴，正冲任脉膻中。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "打通经脉疗伤"
+      },
+      {
+        "type": "特殊",
+        "description": "逆行内息风险极高"
+      }
+    ],
+    "combat_style": "险中求生，内息绵密",
+    "rag_refs": [
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "line_start": 570,
+        "line_end": 584,
+        "text": "小龙女坐寒玉床，依杨过所授逆冲经脉之法打通三十六处大穴。"
+      }
+    ],
+    "mastery_rank": "登峰造极"
+  },
+  {
+    "id": "skill_she_hun_da_fa",
+    "name": "摄魂大法",
+    "type": "内功",
+    "faction": "丐帮",
+    "one_line": "彭长老掌握的迷心摄魂之术，被瘦丐视为可以傍身的绝技。",
+    "techniques": [
+      {
+        "id": "tech_she_hun_mi_xin",
+        "name": "摄魂迷心",
+        "type": "debuff",
+        "description": "以精神与言语控制扰乱对方心志，使其受施术者影响。"
+      },
+      {
+        "id": "tech_she_hun_kong_shen",
+        "name": "摄魂控神",
+        "type": "special",
+        "description": "以摄魂之力制约对手判断，用于威慑、收服或欺骗他人。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "传授承诺",
+        "description": "彭长老以传授此功为饵，拉拢瘦丐参与另立北派丐帮。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "扰乱或控制心神"
+      },
+      {
+        "type": "特殊",
+        "description": "用作政治笼络和威慑"
+      }
+    ],
+    "combat_style": "偏重心神控制和江湖权谋，不以正面攻杀见长。",
+    "rag_refs": [
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "line_start": 60,
+        "line_end": 64,
+        "text": "瘦丐追问彭长老答应传授的摄魂大法。"
+      },
+      {
+        "chapter": 30,
+        "line_start": 310,
+        "line_end": 322,
+        "text": "彭长老以摄心术唆使慈恩杀人，一灯目光使摄心术消于无形。"
+      }
+    ],
+    "relationships": [],
+    "mastery_rank": "出神入化"
+  },
+  {
+    "id": "skill_tie_zhang",
+    "name": "铁掌",
+    "type": "掌法",
+    "faction": "铁掌帮",
+    "one_line": "裘千仞赖以成名的刚猛掌功，发作时凶性与内力俱盛。",
+    "techniques": [
+      {
+        "id": "tech_tie_zhang_meng_ji",
+        "name": "铁掌猛击",
+        "type": "attack",
+        "description": "以刚猛掌力正面击敌，威势凌厉。"
+      },
+      {
+        "id": "tech_tie_zhang_zheng_feng",
+        "name": "铁掌争锋",
+        "type": "attack",
+        "description": "以精纯掌力与强敌硬拼，可同一阳指分庭抗礼。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "昔日成名",
+        "description": "慈恩出家前即以铁掌功夫威震江湖。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌力沉雄，可重创敌手"
+      },
+      {
+        "type": "控制",
+        "description": "强攻之势逼人退让"
+      }
+    ],
+    "combat_style": "刚猛凌厉，重在正面攻杀。",
+    "rag_refs": [
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "line_start": 164,
+        "line_end": 174,
+        "text": "黑衣僧自铐手足，显示其体内凶性将发，后文说明其铁掌功夫极高。"
+      },
+      {
+        "chapter": 30,
+        "line_start": 390,
+        "line_end": 398,
+        "text": "慈恩铁掌如斧钺，一掌掌向一灯劈去。"
+      }
+    ],
+    "relationships": [],
+    "mastery_rank": "登峰造极"
+  },
+  {
+    "id": "skill_xuan_tie_jian_fa",
+    "name": "玄铁剑法",
+    "type": "剑法",
+    "faction": "独孤求败传承",
+    "one_line": "杨过以玄铁重剑施展的沉雄剑法，重剑无锋而力压当世高手。",
+    "techniques": [
+      {
+        "id": "tech_xuan_tie_zhong_jian_zhi_ci",
+        "name": "玄铁重剑直刺",
+        "type": "attack",
+        "description": "以玄铁重剑劲风直刺，剑锋虽钝而力道沉雄。"
+      },
+      {
+        "id": "tech_xuan_tie_heng_sao",
+        "name": "玄铁横扫",
+        "type": "attack",
+        "description": "以重剑横扫激起狂风巨力，压迫对手闪避。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "洪水练剑",
+        "description": "杨过经洪水练剑、蛇胆增力、神雕相助，剑法近于剑魔遗意。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "重剑巨力可压倒绝顶掌力"
+      },
+      {
+        "type": "控制",
+        "description": "剑风逼迫敌手退闪"
+      }
+    ],
+    "combat_style": "大巧不工，以重、拙、猛、沉破敌。",
+    "rag_refs": [
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "line_start": 414,
+        "line_end": 452,
+        "text": "杨过提起玄铁重剑，与慈恩铁掌正面相抗。"
+      },
+      {
+        "chapter": 31,
+        "line_start": 1,
+        "line_end": 26,
+        "text": "杨过持玄铁重剑救人，武功进境为朱子柳所称赞。"
+      }
+    ],
+    "relationships": [],
+    "mastery_rank": "登峰造极"
+  },
+  {
+    "id": "skill_gu_mu_qing_gong",
+    "name": "古墓轻功",
+    "type": "轻功",
+    "faction": "古墓派",
+    "one_line": "小龙女所承古墓派轻功，身法飘逸迅疾，短程奔驰几近天下无双。",
+    "techniques": [
+      {
+        "id": "tech_gu_mu_fei_shen",
+        "name": "古墓飞身",
+        "type": "buff",
+        "description": "身形轻灵飞掠，能在雪地中迅速越过同伴。"
+      },
+      {
+        "id": "tech_gu_mu_xue_di_ji_xing",
+        "name": "古墓雪地疾行",
+        "type": "buff",
+        "description": "在雪地中保持高速前行，足步轻捷不滞。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "古墓传人",
+        "description": "小龙女自幼习得古墓派轻功，服药后精神健旺更显迅捷。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "大幅提升移动速度"
+      },
+      {
+        "type": "特殊",
+        "description": "在雪地赶路仍保持飘忽身法"
+      }
+    ],
+    "combat_style": "轻灵飘逸，短程速度极强。",
+    "rag_refs": [
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "line_start": 616,
+        "line_end": 622,
+        "text": "一个是轻功天下无双的古墓派传人，一个是铁掌水上飘。"
+      }
+    ],
+    "mastery_rank": "登峰造极"
+  },
+  {
+    "id": "skill_quan_zhen_qing_gong",
+    "name": "全真轻功",
+    "type": "轻功",
+    "faction": "全真教",
+    "one_line": "周伯通所展现的全真派精妙轻身功夫，负箱仍能疾追绝顶高手。",
+    "techniques": [
+      {
+        "id": "tech_quan_zhen_da_bu_ji_xing",
+        "name": "全真大步疾行",
+        "type": "buff",
+        "description": "迈开大步长途奔驰，能准确判断对手脚力消长。"
+      },
+      {
+        "id": "tech_quan_zhen_shan_shen_tuo_ju",
+        "name": "全真闪身托举",
+        "type": "buff",
+        "description": "身形晃动间贴近对手，迅速托举移动而令人难以抗拒。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "老顽童精髓",
+        "description": "周伯通将全真派轻功练至精妙，远胜寻常全真道人。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "提升长途奔行与贴身移动速度"
+      },
+      {
+        "type": "特殊",
+        "description": "负重仍可与高手并驰"
+      }
+    ],
+    "combat_style": "兼具长途耐力与顽皮机变。",
+    "rag_refs": [
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "line_start": 666,
+        "line_end": 686,
+        "text": "周伯通背着木箱追上小龙女，出手托她上箱。"
+      }
+    ],
+    "mastery_rank": "登峰造极"
+  },
+  {
+    "id": "skill_tie_zao_he_an_qi",
+    "name": "铁枣核暗器",
+    "type": "暗器",
+    "faction": "绝情谷",
+    "one_line": "裘千尺以口喷铁枣核发射的狠辣暗器，出其不意且劲力惊人。",
+    "techniques": [
+      {
+        "id": "tech_kou_pen_zao_he",
+        "name": "口喷枣核",
+        "type": "attack",
+        "description": "以口中蓄力喷出铁枣核，突袭敌方面门。"
+      },
+      {
+        "id": "tech_zao_he_duan_jian",
+        "name": "枣核断剑",
+        "type": "attack",
+        "description": "铁枣核劲力强横，能击断长剑。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "裘千尺绝技",
+        "description": "连公孙止也曾被此功射瞎右眼，郭芙几乎丧命。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "铁枣核可穿面伤目"
+      },
+      {
+        "type": "特殊",
+        "description": "发射隐蔽，难以预判"
+      }
+    ],
+    "combat_style": "无手足亦能施展，靠口劲突发制敌。",
+    "rag_refs": [
+      30
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "line_start": 1140,
+        "line_end": 1158,
+        "text": "裘千尺口喷铁枣核袭向郭芙，杨过以长剑挡下，长剑断成两截。"
+      }
+    ],
+    "mastery_rank": "出神入化"
+  },
+  {
+    "id": "skill_da_qin_na_shou",
+    "name": "大擒拿手",
+    "type": "掌法",
+    "faction": null,
+    "one_line": "擒拿制敌的上乘武功，可借势摔跌敌手。",
+    "techniques": [
+      {
+        "id": "tech_dao_die_jin_gang",
+        "name": "倒跌金刚",
+        "type": "attack",
+        "description": "勾带对手手臂，令其身不由主向外跌飞。"
+      },
+      {
+        "id": "tech_qin_na_kou_bi",
+        "name": "擒拿扣臂",
+        "type": "special",
+        "description": "搭腕勾带，借敌力破其重心。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "上乘",
+        "description": "武修文以此招摔飞童大海。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "破坏重心并摔掷对手"
+      }
+    ],
+    "combat_style": "以巧劲、扣拿、牵引为主",
+    "rag_refs": [
+      36
+    ],
+    "source_refs": [
+      {
+        "chapter": 36,
+        "line_start": 182,
+        "line_end": 184,
+        "text": "那人一勾一带，施出了大擒拿手中一招倒跌金刚。"
+      }
+    ],
+    "mastery_rank": "炉火纯青"
+  },
+  {
+    "id": "skill_qi_shi_er_lu_kong_ming_quan",
+    "name": "七十二路空明拳",
+    "type": "掌法",
+    "faction": "全真教",
+    "one_line": "周伯通所授，以虚柔空明化解刚猛掌力。",
+    "techniques": [
+      {
+        "id": "tech_kong_ming_xu_jing",
+        "name": "空明虚劲",
+        "type": "defense",
+        "description": "掌心似空非空，黏缠敌劲并导入虚处。"
+      },
+      {
+        "id": "tech_kong_ming_nian_li",
+        "name": "空明黏力",
+        "type": "special",
+        "description": "以内力黏住敌掌，使对手撤劲不得。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "精熟",
+        "description": "耶律齐用空明拳败蓝天和于无形。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "黏缠敌掌并以内力威慑丹田"
+      },
+      {
+        "type": "减益",
+        "description": "化去刚猛掌力，使对方不敢再斗"
+      }
+    ],
+    "combat_style": "虚柔含蓄，后发制人",
+    "rag_refs": [
+      36
+    ],
+    "source_refs": [
+      {
+        "chapter": 36,
+        "line_start": 474,
+        "line_end": 518,
+        "text": "耶律齐施展周伯通所授的七十二路空明拳。"
+      }
+    ],
+    "mastery_rank": "出神入化"
+  },
+  {
+    "id": "skill_feng_lei_zhang_fa",
+    "name": "风雷掌法",
+    "type": "掌法",
+    "faction": null,
+    "one_line": "蓝天和一路刚猛险狠的外门掌法，掌力隐有风雷声。",
+    "techniques": [
+      {
+        "id": "tech_jiu_gui_zhai_xing",
+        "name": "九鬼摘星",
+        "type": "attack",
+        "description": "以刚猛掌力直击敌胸，声势险狠。"
+      },
+      {
+        "id": "tech_feng_lei_zhang_li",
+        "name": "风雷掌力",
+        "type": "attack",
+        "description": "掌力鼓荡如风雷，连续催逼敌手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名",
+        "description": "蓝天和凭此在西南二十余年少逢敌手。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "刚猛掌力重击敌身"
+      }
+    ],
+    "combat_style": "刚猛险狠，声势威猛但难持久",
+    "rag_refs": [
+      36
+    ],
+    "source_refs": [
+      {
+        "chapter": 36,
+        "line_start": 476,
+        "line_end": 498,
+        "text": "学得了一身刚猛险狠兼而有之的外门武功；一掌九鬼摘星。"
+      }
+    ],
+    "mastery_rank": "出神入化"
+  },
+  {
+    "id": "skill_da_feng_xiu",
+    "name": "大风袖",
+    "type": "掌法",
+    "faction": null,
+    "one_line": "何师我突然以袖力吹灭高台火把，趁黑施诈。",
+    "techniques": [
+      {
+        "id": "tech_xiu_feng_mie_huo",
+        "name": "袖风灭火",
+        "type": "debuff",
+        "description": "双袖齐拂，疾风外吐，使火把同时熄灭。"
+      },
+      {
+        "id": "tech_an_ye_tu_xi",
+        "name": "暗夜突袭",
+        "type": "attack",
+        "description": "借黑暗掩护，以暗藏兵刃突袭对手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "突施",
+        "description": "何师我在被耶律齐掌风罩住时忽然施展。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "制造黑暗混乱"
+      },
+      {
+        "type": "伤害",
+        "description": "配合机关兵刃伤敌"
+      }
+    ],
+    "combat_style": "袖力疾吐，制造暗袭机会",
+    "rag_refs": [
+      36
+    ],
+    "source_refs": [
+      {
+        "chapter": 36,
+        "line_start": 954,
+        "line_end": 968,
+        "text": "突然使出大风袖功夫，将高台四周的火把尽数吹灭。"
+      }
+    ],
+    "mastery_rank": "出神入化"
+  },
+  {
+    "id": "skill_er_shi_ba_xiu_da_zhen",
+    "name": "二十八宿大阵",
+    "type": "内功",
+    "faction": "桃花岛",
+    "one_line": "黄药师参照天罡北斗阵与五行生克所创，可由五位高手主持的大阵。",
+    "techniques": [
+      {
+        "id": "tech_er_shi_ba_xiu_wu_fang_zhu_chi",
+        "name": "五方主持",
+        "type": "buff",
+        "description": "以东南西北中五位高手主持阵势，统摄二十八宿方位变化。"
+      },
+      {
+        "id": "tech_er_shi_ba_xiu_wu_xing_sheng_ke",
+        "name": "五行生克变化",
+        "type": "special",
+        "description": "依五行生克运转阵法，使原本武林阵势可略作变化用于战场。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "初创",
+        "description": "黄药师为较量全真天罡北斗阵而创。"
+      },
+      {
+        "level": "战阵变化",
+        "description": "襄阳战场上黄药师拟将其变化用于千军万马。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "可统合多名高手与军阵方位，扰乱敌阵。"
+      },
+      {
+        "type": "特殊",
+        "description": "若配合双雕，可借阵势牵制敌军并飞救高台人质。"
+      }
+    ],
+    "combat_style": "以五行方位和二十八宿名位组织群战，重在变化牵制而非单人猛攻。",
+    "rag_refs": [
+      39
+    ],
+    "source_refs": [
+      {
+        "chapter": 39,
+        "line_start": 438,
+        "line_end": 450,
+        "text": "黄药师说明二十八宿大阵由天罡北斗阵启发，依五行生克变化，由五位高手主持。"
+      },
+      {
+        "chapter": 39,
+        "line_start": 848,
+        "line_end": 856,
+        "text": "二十八宿大阵数次运转，使高台守将眼花缭乱，金轮国师亦暗自骇异。"
+      }
+    ],
+    "mastery_rank": "登堂入室"
+  },
+  {
+    "id": "skill_long_xiang_bo_re_gong",
+    "name": "龙象般若功",
+    "type": "内功",
+    "faction": "密宗宁玛教",
+    "one_line": "金轮国师垂死前运起的密宗绝顶劲力，可将燃烧大木柱挥出。",
+    "techniques": [
+      {
+        "id": "tech_long_xiang_ju_li",
+        "name": "龙象巨力",
+        "type": "attack",
+        "description": "以内劲爆发出如龙象般的巨力，足以挪动沉重大物。"
+      },
+      {
+        "id": "tech_long_xiang_lin_si_fen_li",
+        "name": "临死奋力",
+        "type": "buff",
+        "description": "垂死之际竭尽平生功力，短时爆发远超常态的劲力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "大成",
+        "description": "金轮国师一十六年后功力大进，龙象般若功劲力非同小可。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌轮相合可与杨过怒涛磨炼出的巨力抗衡。"
+      },
+      {
+        "type": "特殊",
+        "description": "濒死爆发可撑起并掷开燃烧火柱救人。"
+      }
+    ],
+    "combat_style": "劲力沉雄坚实，直上直下，以强横内劲压迫对手。",
+    "rag_refs": [
+      39
+    ],
+    "source_refs": [
+      {
+        "chapter": 39,
+        "line_start": 1118,
+        "line_end": 1122,
+        "text": "金轮国师垂死前运起龙象般若功，竭尽平生之力将燃烧火柱挥出。"
+      }
+    ],
+    "mastery_rank": "登峰造极"
+  },
+  {
+    "id": "skill_jiu_yang_zhen_jing",
+    "name": "九阳真经",
+    "type": "内功",
+    "faction": "少林派",
+    "one_line": "后记中说明九阳之名亦为小说创作命名，与九阴并列为武侠想象。",
+    "techniques": [
+      {
+        "id": "tech_jiu_yang_hu_ti",
+        "name": "九阳护体",
+        "type": "defense",
+        "description": "以浑厚内力护身，使外力击打难以真正伤及身体。"
+      },
+      {
+        "id": "tech_hou_fa_zhi_ren",
+        "name": "后发制人",
+        "type": "special",
+        "description": "顺其自然、不执定向，以后发应先发而反制来势。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "熟读成诵",
+        "description": "觉远长期诵读经文而不知其为武学。"
+      },
+      {
+        "level": "自然运行",
+        "description": "张君宝临敌时气脉流贯，能承受重击并反震敌手。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "增益",
+        "description": "强身健体并养成充沛内力"
+      },
+      {
+        "type": "控制",
+        "description": "以内劲反震和牵制敌手"
+      }
+    ],
+    "combat_style": "内力浑厚，重在防身护体和后发制人",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 40,
+        "line_start": 555,
+        "line_end": 936,
+        "text": "\"觉远微一沉吟，道：\"出家人不打诳语，杨居士既然垂询，小僧直说便是。 这部楞伽经中的夹缝之中，另有昔年一位高人书写的一部经书，称为《九阳真经》。 \" 此言一出，众人矍然而惊。当年武学之士为争夺《九阴真经》，闹到辗转杀戮，流血天下，最后五大高手聚集华山论剑，这部经书终于为武功最强的王重阳所得。 此后黄药师尽逐门下弟子、周"
+      }
+    ],
+    "relationships": [],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "绝世",
+    "migration_notes": [
+      "unresolved mastery rank: 绝世"
+    ]
+  },
+  {
+    "id": "skill_yang_guo_san_zhao",
+    "name": "杨过三招",
+    "type": "拳掌",
+    "faction": "杨过",
+    "one_line": "杨过临阵传给张君宝的三式拳法，左右前后变化奇诡。",
+    "techniques": [
+      {
+        "id": "tech_tui_xin_zhi_fu",
+        "name": "推心置腹",
+        "type": "attack",
+        "description": "左右互调用势，诱敌误判后击中胸腹要害。"
+      },
+      {
+        "id": "tech_si_tong_ba_da",
+        "name": "四通八达",
+        "type": "attack",
+        "description": "拳势大开大阖，包容四方八门的攻势变化。"
+      },
+      {
+        "id": "tech_lu_si_shei_shou",
+        "name": "鹿死谁手",
+        "type": "special",
+        "description": "依步法前后对调，虎爪指节按穴制敌。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "临阵传授",
+        "description": "杨过根据张君宝处境即席拆招传授。"
+      },
+      {
+        "level": "实战奏效",
+        "description": "张君宝照法施展，先后击中尹克西和潇湘子。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "击中敌人胸腹和穴位"
+      },
+      {
+        "type": "特殊",
+        "description": "利用错位变化诱使敌人判断错误"
+      }
+    ],
+    "combat_style": "招意精巧，借敌预判反制敌人",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 40,
+        "line_start": 743,
+        "line_end": 876,
+        "text": "这一下额头撞在岩石之上，登时鲜血长流。他却毫不气馁，伸袖抹了抹额上鲜血，走到杨过身前，跪下磕了个头，道：\"杨居士，求你再教我一招。 \" 杨过心道：\"我若再当面教招，那尹克西瞧在眼内，定有防备。 这便无用。\"于是在他耳边低声说道：\"这一次我连教你三招。 第一招左右互调，我使左手时，实则是该使右手，我出右袖时，你打他时须用"
+      }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "上乘",
+    "migration_notes": [
+      "unresolved mastery rank: 上乘"
     ]
   }
 ]
