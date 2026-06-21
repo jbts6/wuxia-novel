@@ -80,14 +80,14 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
       {/* 性格特征 */}
       <Card size="small" title="性格特征" style={{ marginBottom: 16 }}>
         <Space wrap>
-          {character.personality.traits.map((trait, index) => (
+          {character.personality?.traits?.map((trait, index) => (
             <InkTag key={index} color="indigo">{trait}</InkTag>
           ))}
         </Space>
         <Divider style={{ margin: '12px 0' }} />
         <Descriptions column={1} size="small">
-          <Descriptions.Item label="说话风格">{character.personality.speech_style}</Descriptions.Item>
-          <Descriptions.Item label="气质">{character.personality.temperament}</Descriptions.Item>
+          <Descriptions.Item label="说话风格">{character.personality?.speech_style}</Descriptions.Item>
+          <Descriptions.Item label="气质">{character.personality?.temperament}</Descriptions.Item>
         </Descriptions>
       </Card>
 
