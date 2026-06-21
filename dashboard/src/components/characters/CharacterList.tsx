@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { Typography, Empty, Spin, Input, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { FixedSizeList as VirtualList } from 'react-window';
+import ReactWindow from 'react-window';
+const VirtualList = ReactWindow.List;
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ROLE_COLORS, RANK_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
