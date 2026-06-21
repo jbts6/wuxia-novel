@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from 'react';
-import { Card, Typography, Empty, Spin, Select, Space, Input, Row, Col, Pagination } from 'antd';
+import React, { useMemo, useState, useRef, useCallback } from 'react';
+import { Card, Typography, Empty, Spin, Select, Space, Input, Row, Col, Pagination, FloatButton } from 'antd';
 import { useNovelStore } from '../../stores/useNovelStore';
 import DialogueCard from '../cards/DialogueCard';
 import { CINNABAR, PIGMENT } from '../../theme/palette';
@@ -33,6 +33,17 @@ const DialogueList: React.FC = () => {
   const [speakerFilter, setSpeakerFilter] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [showTopBtn, setShowTopBtn] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = useCallback(() => {
+    const el = scrollContainerRef.current;
+    setShowTopBtn(el ? el.scrollTop > 300 : false);
+  }, []);
+
+  const scrollToTop = useCallback(() => {
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   const chapters = useMemo(() => {
     const uniqueChapters = [...new Set(dialogues.map((d) => d.chapter))];
@@ -115,7 +126,7 @@ const DialogueList: React.FC = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
       <div style={{ paddingBottom: 16, borderBottom: '1px solid var(--ink-hairline)', marginBottom: 16 }}>
         <Card size="small">
           <Row gutter={[16, 16]}>
@@ -222,7 +233,7 @@ const DialogueList: React.FC = () => {
         )}
       </div>
 
-      <div style={{ flex: 1, overflow: 'auto' }}>
+      <div ref={scrollContainerRef} onScroll={handleScroll} style={{ flex: 1, overflow: 'auto' }}>
         <div className="chat-thread">
           {pagedDialogues.map((dialogue, index) => {
             const prev = index > 0 ? pagedDialogues[index - 1] : null;
@@ -251,6 +262,9 @@ const DialogueList: React.FC = () => {
           })}
         </div>
       </div>
+      {showTopBtn && (
+        <FloatButton onClick={scrollToTop} style={{ position: 'absolute', bottom: 24, right: 24 }} tooltip="回到顶部" />
+      )}
     </div>
   );
 };
