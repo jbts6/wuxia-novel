@@ -1,16 +1,12 @@
 import React, { useMemo, useState } from 'react';
-import { Typography, Empty, Spin, Input, Select } from 'antd';
+import { Typography, Empty, Spin, Input, Select, Table } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import ReactWindow from 'react-window';
-const VirtualList = ReactWindow.List;
+import type { ColumnsType } from 'antd/es/table';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ROLE_COLORS, RANK_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
 
 const { Text } = Typography;
-
-const ROW_HEIGHT = 40;
-const HEADER_HEIGHT = 36;
 
 const rankOrder = [
   '返璞归真', '登峰造极', '出神入化', '炉火纯青',
@@ -30,13 +26,23 @@ const resolveFactionName = (factionValue: string | null, factions: { id: string;
   return factionValue;
 };
 
+interface CharacterRow {
+  id: string;
+  name: string;
+  alias: string[];
+  role: string;
+  powerRank: string;
+  faction: string;
+  factionName: string;
+  identity: string;
+}
+
 const CharacterList: React.FC = () => {
   const { characters, factions, showDetail, loading } = useNovelStore();
   const [search, setSearch] = useState('');
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
   const [selectedRanks, setSelectedRanks] = useState<string[]>([]);
   const [selectedFactions, setSelectedFactions] = useState<string[]>([]);
-  const [listHeight, setListHeight] = useState(600);
 
   const allRoles = useMemo(() => {
     const set = new Set<string>();
@@ -68,7 +74,7 @@ const CharacterList: React.FC = () => {
     return Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name, 'zh'));
   }, [characters, factions]);
 
-  const filtered = useMemo(() => {
+  const dataSource = useMemo<CharacterRow[]>(() => {
     let result = characters;
     if (search) {
       const q = search.toLowerCase();
@@ -87,24 +93,77 @@ const CharacterList: React.FC = () => {
     if (selectedFactions.length > 0) {
       result = result.filter(c => selectedFactions.includes(c.faction || '_none'));
     }
-    return result.sort((a, b) => {
-      const ai = rankOrder.indexOf(a.power_rank ?? a.rank);
-      const bi = rankOrder.indexOf(b.power_rank ?? b.rank);
-      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-    });
-  }, [characters, search, selectedRoles, selectedRanks, selectedFactions]);
+    return result
+      .sort((a, b) => {
+        const ai = rankOrder.indexOf(a.power_rank ?? a.rank);
+        const bi = rankOrder.indexOf(b.power_rank ?? b.rank);
+        return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+      })
+      .map(c => ({
+        id: c.id,
+        name: c.name,
+        alias: c.alias || [],
+        role: c.role,
+        powerRank: c.power_rank ?? c.rank ?? '',
+        faction: c.faction || '_none',
+        factionName: resolveFactionName(c.faction, factions),
+        identity: c.identity || c.one_line || '',
+      }));
+  }, [characters, search, selectedRoles, selectedRanks, selectedFactions, factions]);
 
-  React.useEffect(() => {
-    const calcHeight = () => {
-      const header = document.querySelector('[data-role="character-table"]')?.getBoundingClientRect();
-      if (header) {
-        setListHeight(Math.max(200, window.innerHeight - header.top - 40));
-      }
-    };
-    calcHeight();
-    window.addEventListener('resize', calcHeight);
-    return () => window.removeEventListener('resize', calcHeight);
-  }, []);
+  const columns: ColumnsType<CharacterRow> = [
+    {
+      title: '姓名',
+      dataIndex: 'name',
+      width: 100,
+      fixed: 'left' as const,
+      render: (name: string) => <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{name}</Text>,
+    },
+    {
+      title: '别名',
+      dataIndex: 'alias',
+      width: 120,
+      render: (alias: string[]) => (
+        <Text type="secondary" ellipsis style={{ fontSize: 12 }}>
+          {alias?.slice(0, 2).join('、')}
+        </Text>
+      ),
+    },
+    {
+      title: '身份',
+      dataIndex: 'role',
+      width: 80,
+      render: (role: string) => (
+        <InkTag color={ROLE_COLORS[role] || 'default'} wash={false} style={{ fontSize: 11 }}>
+          {roleLabel[role] || role}
+        </InkTag>
+      ),
+    },
+    {
+      title: '境界',
+      dataIndex: 'powerRank',
+      width: 100,
+      render: (rank: string) => rank ? (
+        <InkTag color={RANK_COLORS[rank] || 'default'} wash={false} style={{ fontSize: 11 }}>
+          {rank}
+        </InkTag>
+      ) : null,
+    },
+    {
+      title: '门派 / 简介',
+      key: 'factionIdentity',
+      render: (_, row) => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, overflow: 'hidden' }}>
+          {row.faction !== '_none' && (
+            <InkTag style={{ fontSize: 11, flexShrink: 0 }}>{row.factionName}</InkTag>
+          )}
+          <Text type="secondary" ellipsis style={{ fontSize: 12, marginBottom: 0 }}>
+            {row.identity}
+          </Text>
+        </div>
+      ),
+    },
+  ];
 
   if (loading) return <Spin size="large" />;
   if (characters.length === 0) return <Empty description="暂无角色数据" />;
@@ -163,86 +222,23 @@ const CharacterList: React.FC = () => {
           />
         </div>
         <div style={{ color: 'var(--ink-secondary)', fontSize: 12 }}>
-          共 {filtered.length} 个角色
+          共 {dataSource.length} 个角色
         </div>
       </div>
 
-      <div style={{ flex: 1, overflow: 'hidden' }}>
-        {filtered.length === 0 ? (
-          <Empty description="无匹配角色" />
-        ) : (
-          <div data-role="character-table" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '100px 120px 80px 100px 1fr',
-              gap: 0,
-              padding: '0 12px',
-              height: HEADER_HEIGHT,
-              background: 'var(--paper-sunken)',
-              borderBottom: '1px solid var(--ink-hairline)',
-              fontWeight: 'bold',
-              fontSize: 12,
-              color: 'var(--ink-secondary)',
-              fontFamily: 'var(--font-serif)',
-              alignItems: 'center',
-              flexShrink: 0,
-            }}>
-              <div>姓名</div>
-              <div>别名</div>
-              <div>身份</div>
-              <div>境界</div>
-              <div>门派 / 简介</div>
-            </div>
-            <VirtualList
-              height={listHeight}
-              width="100%"
-              itemCount={filtered.length}
-              itemSize={ROW_HEIGHT}
-              overscanCount={20}
-            >
-              {({ index, style }) => {
-                const char = filtered[index];
-                const powerRank = char.power_rank ?? char.rank;
-                const factionName = resolveFactionName(char.faction, factions);
-                return (
-                  <div
-                    style={{ ...style, display: 'grid', gridTemplateColumns: '100px 120px 80px 100px 1fr', gap: 0, padding: '0 12px', borderBottom: '1px solid var(--ink-hairline)', fontSize: 13, alignItems: 'center' }}
-                    onClick={() => showDetail('character', char.id)}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'var(--paper-sunken)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
-                  >
-                    <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', cursor: 'pointer' }}>
-                      <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
-                    </div>
-                    <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 12, color: 'var(--ink-secondary)' }}>
-                      {char.alias?.slice(0, 2).join('、')}
-                    </div>
-                    <div>
-                      <InkTag color={ROLE_COLORS[char.role] || 'default'} wash={false} style={{ fontSize: 11 }}>
-                        {roleLabel[char.role] || char.role}
-                      </InkTag>
-                    </div>
-                    <div>
-                      {powerRank && (
-                        <InkTag color={RANK_COLORS[powerRank] || 'default'} wash={false} style={{ fontSize: 11 }}>
-                          {powerRank}
-                        </InkTag>
-                      )}
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, overflow: 'hidden' }}>
-                      {char.faction && (
-                        <InkTag style={{ fontSize: 11, flexShrink: 0 }}>{factionName}</InkTag>
-                      )}
-                      <Text type="secondary" ellipsis style={{ fontSize: 12, marginBottom: 0 }}>
-                        {char.identity || char.one_line}
-                      </Text>
-                    </div>
-                  </div>
-                );
-              }}
-            </VirtualList>
-          </div>
-        )}
+      <div style={{ flex: 1, overflow: 'auto' }}>
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+          rowKey="id"
+          size="small"
+          scroll={{ x: 500, y: 'calc(100vh - 280px)' }}
+          pagination={false}
+          onRow={(record) => ({
+            onClick: () => showDetail('character', record.id),
+            style: { cursor: 'pointer' },
+          })}
+        />
       </div>
     </div>
   );
