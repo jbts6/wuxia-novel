@@ -65,7 +65,9 @@
 
 必填：`id`、`name`、`type`、`faction`、`rank`、`one_line`、`techniques`、`progression`、`effects`、`combat_style`、`rag_refs`、`source_refs`。
 
-`techniques` 至少 2 项；每项含 `id`、`name`、`type`、`description`。
+`techniques` 至少 2 项；如果原文明确描述了更多招式，必须全部提取，不要截断到 2 项。每项含 `id`、`name`、`type`、`description`。
+
+**禁止模板化 description**：technique 的 `description` 必须从原文提取真实内容。错误示例："降龙十八掌的代表性变化：亢龙有悔"。正确示例："洪七公传授的第一招，劲力刚猛，蓄而后发，留有余力"。
 
 ### techniques
 
