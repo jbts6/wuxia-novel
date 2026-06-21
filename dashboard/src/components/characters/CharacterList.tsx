@@ -115,14 +115,14 @@ const CharacterList: React.FC = () => {
     {
       title: '姓名',
       dataIndex: 'name',
-      width: 100,
+      width: 140,
       fixed: 'left' as const,
       render: (name: string) => <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{name}</Text>,
     },
     {
       title: '别名',
       dataIndex: 'alias',
-      width: 120,
+      width: 180,
       render: (alias: string[]) => (
         <Text type="secondary" ellipsis style={{ fontSize: 12 }}>
           {alias?.slice(0, 2).join('、')}
@@ -226,13 +226,13 @@ const CharacterList: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ flex: 1, overflow: 'auto' }}>
+      <div style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
         <Table
           dataSource={dataSource}
           columns={columns}
           rowKey="id"
           size="small"
-          scroll={{ x: 500, y: 'calc(100vh - 280px)' }}
+          scroll={{ x: 600, y: 'calc(100vh - 320px)' }}
           pagination={false}
           onRow={(record) => ({
             onClick: () => showDetail('character', record.id),
