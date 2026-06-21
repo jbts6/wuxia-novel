@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Typography, Empty, Spin, Input, Row, Col, Select } from 'antd';
+import { Card, Typography, Empty, Spin, Input, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { VirtuosoGrid } from 'react-virtuoso';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ROLE_COLORS, RANK_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
@@ -154,47 +155,69 @@ const CharacterList: React.FC = () => {
         {filtered.length === 0 ? (
           <Empty description="无匹配角色" />
         ) : (
-          <Row gutter={[12, 12]}>
-            {filtered.map(char => {
+          <VirtuosoGrid
+            totalCount={filtered.length}
+            components={{
+              Item: ({ children, ...props }) => (
+                <div {...props} style={{ ...props.style, padding: '6px', boxSizing: 'border-box' }}>
+                  {children}
+                </div>
+              ),
+              List: React.forwardRef(({ style, children, ...props }, ref) => (
+                <div
+                  ref={ref}
+                  {...props}
+                  style={{
+                    ...style,
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
+                    gap: 12,
+                  }}
+                >
+                  {children}
+                </div>
+              )),
+            }}
+            itemContent={(index) => {
+              const char = filtered[index];
               const powerRank = char.power_rank ?? char.rank;
               const factionName = resolveFactionName(char.faction, factions);
               return (
-                <Col xs={24} sm={12} md={8} lg={6} key={char.id}>
-                  <Card
-                    size="small"
-                    hoverable
-                    onClick={() => showDetail('character', char.id)}
-                    style={{ height: '100%' }}
-                  >
-                    <div style={{ marginBottom: 4 }}>
-                      <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
-                      {powerRank && (
-                        <InkTag color={RANK_COLORS[powerRank] || 'default'} wash={false} style={{ marginLeft: 8 }}>
-                          {powerRank}
-                        </InkTag>
-                      )}
-                    </div>
-                    {char.alias?.length > 0 && (
-                      <div style={{ marginBottom: 4 }}>
-                        {char.alias.slice(0, 2).map(a => <InkTag key={a} style={{ fontSize: 11 }}>{a}</InkTag>)}
-                      </div>
-                    )}
-                    <div style={{ marginBottom: 4 }}>
-                      {char.faction && (
-                        <InkTag style={{ fontSize: 11 }}>{factionName}</InkTag>
-                      )}
-                      <InkTag color={ROLE_COLORS[char.role] || 'default'} wash={false} style={{ fontSize: 11 }}>
-                        {roleLabel[char.role] || char.role}
+                <Card
+                  size="small"
+                  hoverable
+                  onClick={() => showDetail('character', char.id)}
+                  style={{ height: '100%' }}
+                >
+                  <div style={{ marginBottom: 4 }}>
+                    <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
+                    {powerRank && (
+                      <InkTag color={RANK_COLORS[powerRank] || 'default'} wash={false} style={{ marginLeft: 8 }}>
+                        {powerRank}
                       </InkTag>
+                    )}
+                  </div>
+                  {char.alias?.length > 0 && (
+                    <div style={{ marginBottom: 4 }}>
+                      {char.alias.slice(0, 2).map(a => <InkTag key={a} style={{ fontSize: 11 }}>{a}</InkTag>)}
                     </div>
-                    <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
-                      {char.identity || char.one_line}
-                    </Paragraph>
-                  </Card>
-                </Col>
+                  )}
+                  <div style={{ marginBottom: 4 }}>
+                    {char.faction && (
+                      <InkTag style={{ fontSize: 11 }}>{factionName}</InkTag>
+                    )}
+                    <InkTag color={ROLE_COLORS[char.role] || 'default'} wash={false} style={{ fontSize: 11 }}>
+                      {roleLabel[char.role] || char.role}
+                    </InkTag>
+                  </div>
+                  <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
+                    {char.identity || char.one_line}
+                  </Paragraph>
+                </Card>
               );
-            })}
-          </Row>
+            }}
+            style={{ height: '100%' }}
+          />
         )}
       </div>
     </div>
