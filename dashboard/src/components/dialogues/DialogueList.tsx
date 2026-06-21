@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useRef, useCallback } from 'react';
 import { Card, Typography, Empty, Spin, Select, Space, Input, Row, Col, Pagination, FloatButton } from 'antd';
+import { ArrowUpOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import DialogueCard from '../cards/DialogueCard';
 import { CINNABAR, PIGMENT } from '../../theme/palette';
@@ -263,7 +264,7 @@ const DialogueList: React.FC = () => {
         </div>
       </div>
       {showTopBtn && (
-        <FloatButton onClick={scrollToTop} style={{ position: 'absolute', bottom: 24, right: 24 }} tooltip="回到顶部" />
+        <FloatButton icon={<ArrowUpOutlined />} onClick={scrollToTop} style={{ position: 'absolute', bottom: 24, right: 24 }} tooltip="回到顶部" />
       )}
     </div>
   );
