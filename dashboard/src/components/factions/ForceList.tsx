@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Typography, Empty, Spin, Input, Select, Tabs } from 'antd';
+import { Card, Typography, Empty, Spin, Input, Row, Col, Select, Tabs } from 'antd';
 import { TeamOutlined, EnvironmentOutlined, SearchOutlined } from '@ant-design/icons';
-import { VirtuosoGrid } from 'react-virtuoso';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { PIGMENT } from '../../theme/palette';
 import InkTag from '../common/InkTag';
@@ -78,16 +77,15 @@ const ForceList: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, overflow: 'auto' }}>
         <Tabs
           defaultActiveKey="factions"
-          style={{ flex: 1, display: 'flex', flexDirection: 'column' }}
           items={[
             {
               key: 'factions',
               label: <span><TeamOutlined /> 门派</span>,
               children: (
-                <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 220px)' }}>
+                <>
                   <div style={{ marginBottom: 12 }}>
                     <Select
                       mode="multiple"
@@ -106,82 +104,58 @@ const ForceList: React.FC = () => {
                   {filteredFactions.length === 0 ? (
                     <Empty description="暂无门派数据" />
                   ) : (
-                    <VirtuosoGrid
-                      totalCount={filteredFactions.length}
-                      overscan={200}
-                      computeItemKey={(index) => filteredFactions[index].id}
-                      components={{
-                        Item: ({ children, ...props }) => (
-                          <div {...props} style={{ ...props.style, padding: '6px', boxSizing: 'border-box' }}>
-                            {children}
-                          </div>
-                        ),
-                        List: React.forwardRef(({ style, children, ...props }, ref) => (
-                          <div
-                            ref={ref}
-                            {...props}
-                            style={{
-                              ...style,
-                              display: 'grid',
-                              gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
-                              gap: 12,
-                            }}
-                          >
-                            {children}
-                          </div>
-                        )),
-                      }}
-                      itemContent={(index) => {
-                        const faction = filteredFactions[index];
+                    <Row gutter={[12, 12]}>
+                      {filteredFactions.map(faction => {
                         const location = locations.find(l => l.id === faction.location);
                         const members = characters.filter(c => c.faction === faction.id);
                         return (
-                          <Card
-                            size="small"
-                            hoverable
-                            onClick={() => showDetail('faction', faction.id)}
-                            style={{ height: 160 }}
-                          >
-                            <div style={{ marginBottom: 4 }}>
-                              <Text strong>{faction.name}</Text>
-                            </div>
-                            {location && (
+                          <Col xs={24} sm={12} md={8} lg={6} key={faction.id}>
+                            <Card
+                              size="small"
+                              hoverable
+                              onClick={() => showDetail('faction', faction.id)}
+                              style={{ height: '100%' }}
+                            >
                               <div style={{ marginBottom: 4 }}>
-                                <InkTag
-                                  color={PIGMENT.violet}
-                                  wash={false}
-                                  style={{ cursor: 'pointer' }}
-                                  onClick={e => { e.stopPropagation(); showDetail('location', location.id); }}
-                                >
-                                  {location.name}
-                                </InkTag>
+                                <Text strong>{faction.name}</Text>
                               </div>
-                            )}
-                            {members.length > 0 && (
-                              <div style={{ marginBottom: 4 }}>
-                                <Text type="secondary" style={{ fontSize: 11 }}>
-                                  成员：{members.slice(0, 3).map(m => m.name).join('、')}
-                                  {members.length > 3 && ` 等${members.length}人`}
-                                </Text>
-                              </div>
-                            )}
-                            <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
-                              {faction.one_line}
-                            </Paragraph>
-                          </Card>
+                              {location && (
+                                <div style={{ marginBottom: 4 }}>
+                                  <InkTag
+                                    color={PIGMENT.violet}
+                                    wash={false}
+                                    style={{ cursor: 'pointer' }}
+                                    onClick={e => { e.stopPropagation(); showDetail('location', location.id); }}
+                                  >
+                                    {location.name}
+                                  </InkTag>
+                                </div>
+                              )}
+                              {members.length > 0 && (
+                                <div style={{ marginBottom: 4 }}>
+                                  <Text type="secondary" style={{ fontSize: 11 }}>
+                                    成员：{members.slice(0, 3).map(m => m.name).join('、')}
+                                    {members.length > 3 && ` 等${members.length}人`}
+                                  </Text>
+                                </div>
+                              )}
+                              <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
+                                {faction.one_line}
+                              </Paragraph>
+                            </Card>
+                          </Col>
                         );
-                      }}
-                      style={{ height: '100%' }}
-                    />
+                      })}
+                    </Row>
                   )}
-                </div>
+                </>
               )
             },
             {
               key: 'locations',
               label: <span><EnvironmentOutlined /> 地点</span>,
               children: (
-                <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 220px)' }}>
+                <>
                   <div style={{ marginBottom: 12 }}>
                     <Select
                       mode="multiple"
@@ -200,69 +174,45 @@ const ForceList: React.FC = () => {
                   {filteredLocations.length === 0 ? (
                     <Empty description="暂无地点数据" />
                   ) : (
-                    <VirtuosoGrid
-                      totalCount={filteredLocations.length}
-                      overscan={200}
-                      computeItemKey={(index) => filteredLocations[index].id}
-                      components={{
-                        Item: ({ children, ...props }) => (
-                          <div {...props} style={{ ...props.style, padding: '6px', boxSizing: 'border-box' }}>
-                            {children}
-                          </div>
-                        ),
-                        List: React.forwardRef(({ style, children, ...props }, ref) => (
-                          <div
-                            ref={ref}
-                            {...props}
-                            style={{
-                              ...style,
-                              display: 'grid',
-                              gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
-                              gap: 12,
-                            }}
-                          >
-                            {children}
-                          </div>
-                        )),
-                      }}
-                      itemContent={(index) => {
-                        const location = filteredLocations[index];
+                    <Row gutter={[12, 12]}>
+                      {filteredLocations.map(location => {
                         const relatedFactions = factions.filter(f => f.location === location.id);
                         return (
-                          <Card
-                            size="small"
-                            hoverable
-                            onClick={() => showDetail('location', location.id)}
-                            style={{ height: 160 }}
-                          >
-                            <div style={{ marginBottom: 4 }}>
-                              <Text strong>{location.name}</Text>
-                            </div>
-                            {relatedFactions.length > 0 && (
+                          <Col xs={24} sm={12} md={8} lg={6} key={location.id}>
+                            <Card
+                              size="small"
+                              hoverable
+                              onClick={() => showDetail('location', location.id)}
+                              style={{ height: '100%' }}
+                            >
                               <div style={{ marginBottom: 4 }}>
-                                {relatedFactions.map(f => (
-                                  <InkTag
-                                    key={f.id}
-                                    color={PIGMENT.cyan}
-                                    wash={false}
-                                    style={{ cursor: 'pointer', marginBottom: 2 }}
-                                    onClick={e => { e.stopPropagation(); showDetail('faction', f.id); }}
-                                  >
-                                    {f.name}
-                                  </InkTag>
-                                ))}
+                                <Text strong>{location.name}</Text>
                               </div>
-                            )}
-                            <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
-                              {location.one_line}
-                            </Paragraph>
-                          </Card>
+                              {relatedFactions.length > 0 && (
+                                <div style={{ marginBottom: 4 }}>
+                                  {relatedFactions.map(f => (
+                                    <InkTag
+                                      key={f.id}
+                                      color={PIGMENT.cyan}
+                                      wash={false}
+                                      style={{ cursor: 'pointer', marginBottom: 2 }}
+                                      onClick={e => { e.stopPropagation(); showDetail('faction', f.id); }}
+                                    >
+                                      {f.name}
+                                    </InkTag>
+                                  ))}
+                                </div>
+                              )}
+                              <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
+                                {location.one_line}
+                              </Paragraph>
+                            </Card>
+                          </Col>
                         );
-                      }}
-                      style={{ height: '100%' }}
-                    />
+                      })}
+                    </Row>
                   )}
-                </div>
+                </>
               )
             }
           ]}
