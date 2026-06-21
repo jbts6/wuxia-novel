@@ -157,17 +157,20 @@ const CharacterList: React.FC = () => {
           <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: '120px 80px 100px 1fr',
+              gridTemplateColumns: '100px 120px 80px 100px 1fr',
               gap: 0,
-              padding: '8px 12px',
+              padding: '0 12px',
+              height: 36,
               background: 'var(--paper-sunken)',
               borderBottom: '1px solid var(--ink-hairline)',
               fontWeight: 'bold',
               fontSize: 12,
               color: 'var(--ink-secondary)',
               fontFamily: 'var(--font-serif)',
+              alignItems: 'center',
             }}>
               <div>姓名</div>
+              <div>别名</div>
               <div>身份</div>
               <div>境界</div>
               <div>门派 / 简介</div>
@@ -185,24 +188,24 @@ const CharacterList: React.FC = () => {
                     onClick={() => showDetail('character', char.id)}
                     style={{
                       display: 'grid',
-                      gridTemplateColumns: '120px 80px 100px 1fr',
+                      gridTemplateColumns: '100px 120px 80px 100px 1fr',
                       gap: 0,
-                      padding: '8px 12px',
+                      padding: '0 12px',
+                      height: 40,
                       borderBottom: '1px solid var(--ink-hairline)',
                       cursor: 'pointer',
                       fontSize: 13,
                       alignItems: 'center',
+                      overflow: 'hidden',
                     }}
                     onMouseEnter={e => { e.currentTarget.style.background = 'var(--paper-sunken)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                   >
-                    <div>
+                    <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
-                      {char.alias?.length > 0 && (
-                        <div style={{ marginTop: 2 }}>
-                          {char.alias.slice(0, 2).map(a => <InkTag key={a} style={{ fontSize: 10 }}>{a}</InkTag>)}
-                        </div>
-                      )}
+                    </div>
+                    <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 12, color: 'var(--ink-secondary)' }}>
+                      {char.alias?.slice(0, 2).join('、')}
                     </div>
                     <div>
                       <InkTag color={ROLE_COLORS[char.role] || 'default'} wash={false} style={{ fontSize: 11 }}>
