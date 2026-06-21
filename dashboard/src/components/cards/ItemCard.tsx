@@ -20,7 +20,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ id }) => {
   if (!item) return null;
 
   const owner = characters.find((c) => c.id === item.owner);
-  const relatedSkills = skills.filter((s) => item.related_skills.includes(s.id));
+  const relatedSkills = skills.filter((s) => item.related_skills?.includes(s.id));
 
   return (
     <div>
@@ -54,7 +54,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ id }) => {
         </Card>
       )}
 
-      {item.effects.length > 0 && (
+      {item.effects?.length > 0 && (
         <Card size="small" title="效果" style={{ marginBottom: 16 }}>
           <Space wrap>
             {item.effects.map((effect, index) => (
