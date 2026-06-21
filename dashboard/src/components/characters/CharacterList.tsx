@@ -95,17 +95,14 @@ const CharacterList: React.FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <div style={{ paddingBottom: 12, borderBottom: '1px solid var(--ink-hairline)', marginBottom: 12 }}>
-        <div style={{ marginBottom: 8 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr 1fr', gap: 8, marginBottom: 8 }}>
           <Input
             prefix={<SearchOutlined style={{ color: 'var(--ink-faint)' }} />}
             placeholder="搜索角色名、别名、身份..."
             allowClear
             value={search}
             onChange={e => setSearch(e.target.value)}
-            style={{ width: 300 }}
           />
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 8, marginBottom: 8 }}>
           <Select
             mode="multiple"
             placeholder="身份筛选"
@@ -132,6 +129,8 @@ const CharacterList: React.FC = () => {
               value: r,
             }))}
           />
+        </div>
+        <div style={{ marginBottom: 8 }}>
           <Select
             mode="multiple"
             placeholder="门派筛选"
@@ -146,7 +145,7 @@ const CharacterList: React.FC = () => {
             }))}
           />
         </div>
-        <div style={{ marginTop: 8, color: 'var(--ink-secondary)', fontSize: 12 }}>
+        <div style={{ color: 'var(--ink-secondary)', fontSize: 12 }}>
           共 {filtered.length} 个角色
         </div>
       </div>
@@ -157,6 +156,8 @@ const CharacterList: React.FC = () => {
         ) : (
           <VirtuosoGrid
             totalCount={filtered.length}
+            overscan={200}
+            computeItemKey={(index) => filtered[index].id}
             components={{
               Item: ({ children, ...props }) => (
                 <div {...props} style={{ ...props.style, padding: '6px', boxSizing: 'border-box' }}>
@@ -187,7 +188,7 @@ const CharacterList: React.FC = () => {
                   size="small"
                   hoverable
                   onClick={() => showDetail('character', char.id)}
-                  style={{ height: '100%' }}
+                  style={{ height: 160 }}
                 >
                   <div style={{ marginBottom: 4 }}>
                     <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
