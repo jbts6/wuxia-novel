@@ -78,15 +78,16 @@ const ForceList: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ flex: 1, overflow: 'auto' }}>
+      <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <Tabs
           defaultActiveKey="factions"
+          style={{ flex: 1, display: 'flex', flexDirection: 'column' }}
           items={[
             {
               key: 'factions',
               label: <span><TeamOutlined /> 门派</span>,
               children: (
-                <>
+                <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 220px)' }}>
                   <div style={{ marginBottom: 12 }}>
                     <Select
                       mode="multiple"
@@ -173,14 +174,14 @@ const ForceList: React.FC = () => {
                       style={{ height: '100%' }}
                     />
                   )}
-                </>
+                </div>
               )
             },
             {
               key: 'locations',
               label: <span><EnvironmentOutlined /> 地点</span>,
               children: (
-                <>
+                <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 220px)' }}>
                   <div style={{ marginBottom: 12 }}>
                     <Select
                       mode="multiple"
@@ -261,7 +262,7 @@ const ForceList: React.FC = () => {
                       style={{ height: '100%' }}
                     />
                   )}
-                </>
+                </div>
               )
             }
           ]}
