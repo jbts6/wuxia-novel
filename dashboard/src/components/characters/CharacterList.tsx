@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Typography, Empty, Spin, Input, Select } from 'antd';
+import { Typography, Empty, Spin, Input, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { VirtuosoGrid } from 'react-virtuoso';
+import { Virtuoso } from 'react-virtuoso';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ROLE_COLORS, RANK_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
 
-const { Text, Paragraph } = Typography;
+const { Text } = Typography;
 
 const rankOrder = [
   '返璞归真', '登峰造极', '出神入化', '炉火纯青',
@@ -154,71 +154,82 @@ const CharacterList: React.FC = () => {
         {filtered.length === 0 ? (
           <Empty description="无匹配角色" />
         ) : (
-          <VirtuosoGrid
-            totalCount={filtered.length}
-            overscan={200}
-            computeItemKey={(index) => filtered[index].id}
-            components={{
-              Item: ({ children, ...props }) => (
-                <div {...props} style={{ ...props.style, padding: '6px', boxSizing: 'border-box' }}>
-                  {children}
-                </div>
-              ),
-              List: React.forwardRef(({ style, children, ...props }, ref) => (
-                <div
-                  ref={ref}
-                  {...props}
-                  style={{
-                    ...style,
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
-                    gap: 12,
-                  }}
-                >
-                  {children}
-                </div>
-              )),
-            }}
-            itemContent={(index) => {
-              const char = filtered[index];
-              const powerRank = char.power_rank ?? char.rank;
-              const factionName = resolveFactionName(char.faction, factions);
-              return (
-                <Card
-                  size="small"
-                  hoverable
-                  onClick={() => showDetail('character', char.id)}
-                  style={{ height: 160 }}
-                >
-                  <div style={{ marginBottom: 4 }}>
-                    <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
-                    {powerRank && (
-                      <InkTag color={RANK_COLORS[powerRank] || 'default'} wash={false} style={{ marginLeft: 8 }}>
-                        {powerRank}
-                      </InkTag>
-                    )}
-                  </div>
-                  {char.alias?.length > 0 && (
-                    <div style={{ marginBottom: 4 }}>
-                      {char.alias.slice(0, 2).map(a => <InkTag key={a} style={{ fontSize: 11 }}>{a}</InkTag>)}
+          <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '120px 80px 100px 1fr',
+              gap: 0,
+              padding: '8px 12px',
+              background: 'var(--paper-sunken)',
+              borderBottom: '1px solid var(--ink-hairline)',
+              fontWeight: 'bold',
+              fontSize: 12,
+              color: 'var(--ink-secondary)',
+              fontFamily: 'var(--font-serif)',
+            }}>
+              <div>姓名</div>
+              <div>身份</div>
+              <div>境界</div>
+              <div>门派 / 简介</div>
+            </div>
+            <Virtuoso
+              totalCount={filtered.length}
+              overscan={300}
+              computeItemKey={(index) => filtered[index].id}
+              itemContent={(index) => {
+                const char = filtered[index];
+                const powerRank = char.power_rank ?? char.rank;
+                const factionName = resolveFactionName(char.faction, factions);
+                return (
+                  <div
+                    onClick={() => showDetail('character', char.id)}
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '120px 80px 100px 1fr',
+                      gap: 0,
+                      padding: '8px 12px',
+                      borderBottom: '1px solid var(--ink-hairline)',
+                      cursor: 'pointer',
+                      fontSize: 13,
+                      alignItems: 'center',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'var(--paper-sunken)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+                  >
+                    <div>
+                      <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
+                      {char.alias?.length > 0 && (
+                        <div style={{ marginTop: 2 }}>
+                          {char.alias.slice(0, 2).map(a => <InkTag key={a} style={{ fontSize: 10 }}>{a}</InkTag>)}
+                        </div>
+                      )}
                     </div>
-                  )}
-                  <div style={{ marginBottom: 4 }}>
-                    {char.faction && (
-                      <InkTag style={{ fontSize: 11 }}>{factionName}</InkTag>
-                    )}
-                    <InkTag color={ROLE_COLORS[char.role] || 'default'} wash={false} style={{ fontSize: 11 }}>
-                      {roleLabel[char.role] || char.role}
-                    </InkTag>
+                    <div>
+                      <InkTag color={ROLE_COLORS[char.role] || 'default'} wash={false} style={{ fontSize: 11 }}>
+                        {roleLabel[char.role] || char.role}
+                      </InkTag>
+                    </div>
+                    <div>
+                      {powerRank && (
+                        <InkTag color={RANK_COLORS[powerRank] || 'default'} wash={false} style={{ fontSize: 11 }}>
+                          {powerRank}
+                        </InkTag>
+                      )}
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, overflow: 'hidden' }}>
+                      {char.faction && (
+                        <InkTag style={{ fontSize: 11, flexShrink: 0 }}>{factionName}</InkTag>
+                      )}
+                      <Text type="secondary" ellipsis style={{ fontSize: 12, marginBottom: 0 }}>
+                        {char.identity || char.one_line}
+                      </Text>
+                    </div>
                   </div>
-                  <Paragraph ellipsis={{ rows: 2 }} type="secondary" style={{ marginBottom: 0, fontSize: 12 }}>
-                    {char.identity || char.one_line}
-                  </Paragraph>
-                </Card>
-              );
-            }}
-            style={{ height: '100%' }}
-          />
+                );
+              }}
+              style={{ flex: 1 }}
+            />
+          </div>
         )}
       </div>
     </div>
