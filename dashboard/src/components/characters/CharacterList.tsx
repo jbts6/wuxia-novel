@@ -1,12 +1,15 @@
 import React, { useMemo, useState } from 'react';
 import { Typography, Empty, Spin, Input, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { Virtuoso } from 'react-virtuoso';
+import { FixedSizeList as VirtualList } from 'react-window';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ROLE_COLORS, RANK_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
 
 const { Text } = Typography;
+
+const ROW_HEIGHT = 40;
+const HEADER_HEIGHT = 36;
 
 const rankOrder = [
   '返璞归真', '登峰造极', '出神入化', '炉火纯青',
@@ -32,6 +35,7 @@ const CharacterList: React.FC = () => {
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
   const [selectedRanks, setSelectedRanks] = useState<string[]>([]);
   const [selectedFactions, setSelectedFactions] = useState<string[]>([]);
+  const [listHeight, setListHeight] = useState(600);
 
   const allRoles = useMemo(() => {
     const set = new Set<string>();
@@ -88,6 +92,18 @@ const CharacterList: React.FC = () => {
       return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
     });
   }, [characters, search, selectedRoles, selectedRanks, selectedFactions]);
+
+  React.useEffect(() => {
+    const calcHeight = () => {
+      const header = document.querySelector('[data-role="character-table"]')?.getBoundingClientRect();
+      if (header) {
+        setListHeight(Math.max(200, window.innerHeight - header.top - 40));
+      }
+    };
+    calcHeight();
+    window.addEventListener('resize', calcHeight);
+    return () => window.removeEventListener('resize', calcHeight);
+  }, []);
 
   if (loading) return <Spin size="large" />;
   if (characters.length === 0) return <Empty description="暂无角色数据" />;
@@ -150,17 +166,17 @@ const CharacterList: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ flex: 1, overflow: 'auto' }}>
+      <div style={{ flex: 1, overflow: 'hidden' }}>
         {filtered.length === 0 ? (
           <Empty description="无匹配角色" />
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+          <div data-role="character-table" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             <div style={{
               display: 'grid',
               gridTemplateColumns: '100px 120px 80px 100px 1fr',
               gap: 0,
               padding: '0 12px',
-              height: 36,
+              height: HEADER_HEIGHT,
               background: 'var(--paper-sunken)',
               borderBottom: '1px solid var(--ink-hairline)',
               fontWeight: 'bold',
@@ -168,6 +184,7 @@ const CharacterList: React.FC = () => {
               color: 'var(--ink-secondary)',
               fontFamily: 'var(--font-serif)',
               alignItems: 'center',
+              flexShrink: 0,
             }}>
               <div>姓名</div>
               <div>别名</div>
@@ -175,33 +192,25 @@ const CharacterList: React.FC = () => {
               <div>境界</div>
               <div>门派 / 简介</div>
             </div>
-            <Virtuoso
-              totalCount={filtered.length}
-              overscan={300}
-              computeItemKey={(index) => filtered[index].id}
-              itemContent={(index) => {
+            <VirtualList
+              height={listHeight}
+              width="100%"
+              itemCount={filtered.length}
+              itemSize={ROW_HEIGHT}
+              overscanCount={20}
+            >
+              {({ index, style }) => {
                 const char = filtered[index];
                 const powerRank = char.power_rank ?? char.rank;
                 const factionName = resolveFactionName(char.faction, factions);
                 return (
                   <div
+                    style={{ ...style, display: 'grid', gridTemplateColumns: '100px 120px 80px 100px 1fr', gap: 0, padding: '0 12px', borderBottom: '1px solid var(--ink-hairline)', fontSize: 13, alignItems: 'center' }}
                     onClick={() => showDetail('character', char.id)}
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: '100px 120px 80px 100px 1fr',
-                      gap: 0,
-                      padding: '0 12px',
-                      height: 40,
-                      borderBottom: '1px solid var(--ink-hairline)',
-                      cursor: 'pointer',
-                      fontSize: 13,
-                      alignItems: 'center',
-                      overflow: 'hidden',
-                    }}
                     onMouseEnter={e => { e.currentTarget.style.background = 'var(--paper-sunken)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                   >
-                    <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', cursor: 'pointer' }}>
                       <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{char.name}</Text>
                     </div>
                     <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: 12, color: 'var(--ink-secondary)' }}>
@@ -230,8 +239,7 @@ const CharacterList: React.FC = () => {
                   </div>
                 );
               }}
-              style={{ flex: 1 }}
-            />
+            </VirtualList>
           </div>
         )}
       </div>
