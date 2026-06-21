@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Typography, Empty, Spin, Input, Row, Col, Checkbox } from 'antd';
+import { Card, Typography, Empty, Spin, Input, Row, Col, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ROLE_COLORS, RANK_COLORS } from '../../theme/palette';
@@ -104,70 +104,46 @@ const CharacterList: React.FC = () => {
             style={{ width: 300 }}
           />
         </div>
-        <div style={{ marginBottom: 8 }}>
-          <Text type="secondary" style={{ fontSize: 12, marginRight: 8 }}>身份：</Text>
-          <Checkbox
-            checked={selectedRoles.length === 0}
-            onChange={() => setSelectedRoles([])}
-            style={{ marginRight: 4 }}
-          >
-            全部
-          </Checkbox>
-          {allRoles.map(r => (
-            <Checkbox
-              key={r}
-              checked={selectedRoles.includes(r)}
-              onChange={() => setSelectedRoles(prev => prev.includes(r) ? prev.filter(x => x !== r) : [...prev, r])}
-            >
-              <InkTag color={ROLE_COLORS[r] || 'default'} wash={false} style={{ margin: 0 }}>
-                {roleLabel[r] || r}
-              </InkTag>
-              <Text type="secondary" style={{ fontSize: 11, marginLeft: 2 }}>
-                ({characters.filter(c => c.role === r).length})
-              </Text>
-            </Checkbox>
-          ))}
-        </div>
-        <div style={{ marginBottom: 8 }}>
-          <Text type="secondary" style={{ fontSize: 12, marginRight: 8 }}>境界：</Text>
-          <Checkbox
-            checked={selectedRanks.length === 0}
-            onChange={() => setSelectedRanks([])}
-            style={{ marginRight: 4 }}
-          >
-            全部
-          </Checkbox>
-          {allRanks.map(r => (
-            <Checkbox
-              key={r}
-              checked={selectedRanks.includes(r)}
-              onChange={() => setSelectedRanks(prev => prev.includes(r) ? prev.filter(x => x !== r) : [...prev, r])}
-            >
-              <InkTag color={RANK_COLORS[r] || 'default'} wash={false} style={{ margin: 0 }}>{r}</InkTag>
-            </Checkbox>
-          ))}
-        </div>
-        <div>
-          <Text type="secondary" style={{ fontSize: 12, marginRight: 8 }}>门派：</Text>
-          <Checkbox
-            checked={selectedFactions.length === 0}
-            onChange={() => setSelectedFactions([])}
-            style={{ marginRight: 4 }}
-          >
-            全部
-          </Checkbox>
-          {allFactions.map(f => (
-            <Checkbox
-              key={f.key}
-              checked={selectedFactions.includes(f.key)}
-              onChange={() => setSelectedFactions(prev => prev.includes(f.key) ? prev.filter(x => x !== f.key) : [...prev, f.key])}
-            >
-              {f.name}
-              <Text type="secondary" style={{ fontSize: 11, marginLeft: 2 }}>
-                ({f.count})
-              </Text>
-            </Checkbox>
-          ))}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 8, marginBottom: 8 }}>
+          <Select
+            mode="multiple"
+            placeholder="身份筛选"
+            allowClear
+            value={selectedRoles}
+            onChange={setSelectedRoles}
+            style={{ width: '100%' }}
+            maxTagCount="responsive"
+            options={allRoles.map(r => ({
+              label: <span><InkTag color={ROLE_COLORS[r] || 'default'} wash={false} style={{ margin: 0 }}>{roleLabel[r] || r}</InkTag> <Text type="secondary" style={{ fontSize: 11 }}>({characters.filter(c => c.role === r).length})</Text></span>,
+              value: r,
+            }))}
+          />
+          <Select
+            mode="multiple"
+            placeholder="境界筛选"
+            allowClear
+            value={selectedRanks}
+            onChange={setSelectedRanks}
+            style={{ width: '100%' }}
+            maxTagCount="responsive"
+            options={allRanks.map(r => ({
+              label: <span><InkTag color={RANK_COLORS[r] || 'default'} wash={false} style={{ margin: 0 }}>{r}</InkTag></span>,
+              value: r,
+            }))}
+          />
+          <Select
+            mode="multiple"
+            placeholder="门派筛选"
+            allowClear
+            value={selectedFactions}
+            onChange={setSelectedFactions}
+            style={{ width: '100%' }}
+            maxTagCount="responsive"
+            options={allFactions.map(f => ({
+              label: <span>{f.name} <Text type="secondary" style={{ fontSize: 11 }}>({f.count})</Text></span>,
+              value: f.key,
+            }))}
+          />
         </div>
         <div style={{ marginTop: 8, color: 'var(--ink-secondary)', fontSize: 12 }}>
           共 {filtered.length} 个角色

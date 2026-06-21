@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Typography, Empty, Spin, Input, Row, Col, Checkbox, Tabs } from 'antd';
+import { Card, Typography, Empty, Spin, Input, Row, Col, Select, Tabs } from 'antd';
 import { TeamOutlined, EnvironmentOutlined, SearchOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { PIGMENT } from '../../theme/palette';
@@ -87,26 +87,19 @@ const ForceList: React.FC = () => {
               children: (
                 <>
                   <div style={{ marginBottom: 12 }}>
-                    <Text type="secondary" style={{ fontSize: 12, marginRight: 8 }}>类型：</Text>
-                    <Checkbox
-                      checked={selectedFactionTypes.length === 0}
-                      onChange={() => setSelectedFactionTypes([])}
-                      style={{ marginRight: 4 }}
-                    >
-                      全部
-                    </Checkbox>
-                    {allFactionTypes.map(t => (
-                      <Checkbox
-                        key={t}
-                        checked={selectedFactionTypes.includes(t)}
-                        onChange={() => setSelectedFactionTypes(prev => prev.includes(t) ? prev.filter(x => x !== t) : [...prev, t])}
-                      >
-                        {t}
-                        <Text type="secondary" style={{ fontSize: 11, marginLeft: 2 }}>
-                          ({factions.filter(f => (f.type || '其他') === t).length})
-                        </Text>
-                      </Checkbox>
-                    ))}
+                    <Select
+                      mode="multiple"
+                      placeholder="类型筛选"
+                      allowClear
+                      value={selectedFactionTypes}
+                      onChange={setSelectedFactionTypes}
+                      style={{ width: '100%' }}
+                      maxTagCount="responsive"
+                      options={allFactionTypes.map(t => ({
+                        label: <span>{t} <Text type="secondary" style={{ fontSize: 11 }}>({factions.filter(f => (f.type || '其他') === t).length})</Text></span>,
+                        value: t,
+                      }))}
+                    />
                   </div>
                   {filteredFactions.length === 0 ? (
                     <Empty description="暂无门派数据" />
@@ -164,26 +157,19 @@ const ForceList: React.FC = () => {
               children: (
                 <>
                   <div style={{ marginBottom: 12 }}>
-                    <Text type="secondary" style={{ fontSize: 12, marginRight: 8 }}>区域：</Text>
-                    <Checkbox
-                      checked={selectedRegions.length === 0}
-                      onChange={() => setSelectedRegions([])}
-                      style={{ marginRight: 4 }}
-                    >
-                      全部
-                    </Checkbox>
-                    {allRegions.map(r => (
-                      <Checkbox
-                        key={r}
-                        checked={selectedRegions.includes(r)}
-                        onChange={() => setSelectedRegions(prev => prev.includes(r) ? prev.filter(x => x !== r) : [...prev, r])}
-                      >
-                        {r}
-                        <Text type="secondary" style={{ fontSize: 11, marginLeft: 2 }}>
-                          ({locations.filter(l => (l.region || '未分类') === r).length})
-                        </Text>
-                      </Checkbox>
-                    ))}
+                    <Select
+                      mode="multiple"
+                      placeholder="区域筛选"
+                      allowClear
+                      value={selectedRegions}
+                      onChange={setSelectedRegions}
+                      style={{ width: '100%' }}
+                      maxTagCount="responsive"
+                      options={allRegions.map(r => ({
+                        label: <span>{r} <Text type="secondary" style={{ fontSize: 11 }}>({locations.filter(l => (l.region || '未分类') === r).length})</Text></span>,
+                        value: r,
+                      }))}
+                    />
                   </div>
                   {filteredLocations.length === 0 ? (
                     <Empty description="暂无地点数据" />
