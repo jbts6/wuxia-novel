@@ -1,13 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import { build } from 'vite';
+import { NOVEL_DATA_FILES } from '../src/data/novelData.ts';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DATA_ROOT = path.resolve(ROOT, '..');
 const OUT_DIR = path.join(ROOT, 'dist-static');
 const BUILD_DIR = path.join(ROOT, 'dist-static-build');
-
-const DATA_FILES = ['characters', 'skills', 'techniques', 'items', 'locations', 'factions', 'dialogues'];
 
 async function main() {
   console.log('Building static entry...');
@@ -47,12 +46,12 @@ async function main() {
     const bookDir = path.join(DATA_ROOT, book.path);
     const data = {};
 
-    for (const file of DATA_FILES) {
+    for (const fileName of NOVEL_DATA_FILES) {
       try {
-        const raw = fs.readFileSync(path.join(bookDir, `${file}.json`), 'utf8');
-        data[file] = JSON.parse(raw);
+        const raw = fs.readFileSync(path.join(bookDir, fileName), 'utf8');
+        data[path.basename(fileName, '.json')] = JSON.parse(raw);
       } catch {
-        data[file] = [];
+        data[path.basename(fileName, '.json')] = [];
       }
     }
 

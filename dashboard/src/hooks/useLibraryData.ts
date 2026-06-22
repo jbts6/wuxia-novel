@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react';
 import type { Character, Faction, Item, Skill } from '../types/novel';
 import type { LibraryCollections, LibraryDataState, LibraryLoadWarning } from '../types/library';
 import type { BookMeta } from '../stores/useBookStore';
+import {
+  buildNovelFileUrl,
+  type NovelDataFile,
+} from '../data/novelData';
 import { aggregateLibraryCollections, type RawBookLibraryData } from '../utils/libraryAggregate';
 
 const LIBRARY_FILES = ['skills.json', 'characters.json', 'factions.json', 'items.json'] as const;
-type LibraryFile = (typeof LIBRARY_FILES)[number];
+type LibraryFile = Extract<NovelDataFile, (typeof LIBRARY_FILES)[number]>;
 
 type EntityByFile = {
   'skills.json': Skill[];
@@ -31,8 +35,7 @@ export async function defaultLibraryFileFetcher<TFile extends LibraryFile>(
   file: TFile,
   book: BookMeta,
 ): Promise<EntityByFile[TFile]> {
-  const encodedBook = encodeURIComponent(book.path);
-  const response = await fetch(`/api/novel/${file}?book=${encodedBook}`);
+  const response = await fetch(buildNovelFileUrl(file, book.path));
   if (!response.ok) throw new Error(`Failed to load ${file}`);
   return response.json();
 }

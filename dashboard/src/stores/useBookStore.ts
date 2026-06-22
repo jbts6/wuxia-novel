@@ -1,13 +1,7 @@
 import { create } from 'zustand';
+import { getStaticBookMeta, type BookMeta } from '../data/novelData';
 
-export interface BookMeta {
-  path: string;
-  author: string;
-  name: string;
-  characters: number;
-  skills: number;
-  factions: number;
-}
+export type { BookMeta };
 
 interface BookStore {
   books: BookMeta[];
@@ -26,7 +20,7 @@ export const useBookStore = create<BookStore>((set) => ({
   error: null,
 
   loadBooks: async () => {
-    const staticMeta = (window as unknown as { __BOOK_META__?: BookMeta }).__BOOK_META__;
+    const staticMeta = getStaticBookMeta();
     if (staticMeta) {
       set({ books: [staticMeta], currentBookPath: staticMeta.path, loading: false });
       return;

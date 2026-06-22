@@ -1,35 +1,14 @@
 import { useEffect, useState } from 'react';
-import type {
-  Character,
-  Skill,
-  Technique,
-  Item,
-  Location,
-  Faction,
-  Dialogue,
-} from '../types/novel';
+import { emptyNovelData, getStaticNovelData, loadNovelData, type NovelData } from '../data/novelData';
 
-interface NovelData {
-  characters: Character[];
-  skills: Skill[];
-  techniques: Technique[];
-  items: Item[];
-  locations: Location[];
-  factions: Faction[];
-  dialogues: Dialogue[];
+interface NovelDataState extends NovelData {
   loading: boolean;
   error: string | null;
 }
 
-export function useDataLoader(bookPath: string | null): NovelData {
-  const [data, setData] = useState<NovelData>({
-    characters: [],
-    skills: [],
-    techniques: [],
-    items: [],
-    locations: [],
-    factions: [],
-    dialogues: [],
+export function useDataLoader(bookPath: string | null): NovelDataState {
+  const [data, setData] = useState<NovelDataState>({
+    ...emptyNovelData(),
     loading: false,
     error: null,
   });
@@ -40,16 +19,10 @@ export function useDataLoader(bookPath: string | null): NovelData {
       return;
     }
 
-    const staticData = (window as unknown as { __NOVEL_DATA__?: NovelData }).__NOVEL_DATA__;
+    const staticData = getStaticNovelData();
     if (staticData) {
       setData({
-        characters: staticData.characters || [],
-        skills: staticData.skills || [],
-        techniques: staticData.techniques || [],
-        items: staticData.items || [],
-        locations: staticData.locations || [],
-        factions: staticData.factions || [],
-        dialogues: staticData.dialogues || [],
+        ...staticData,
         loading: false,
         error: null,
       });
@@ -60,39 +33,10 @@ export function useDataLoader(bookPath: string | null): NovelData {
       setData(prev => ({ ...prev, loading: true, error: null }));
 
       try {
-        const encodedBook = encodeURIComponent(bookPath);
-        const fetchFile = (file: string) =>
-          fetch(`/api/novel/${file}?book=${encodedBook}`).then(r => {
-            if (!r.ok) throw new Error(`Failed to load ${file}`);
-            return r.json();
-          });
-
-        const [
-          characters,
-          skills,
-          techniques,
-          items,
-          locations,
-          factions,
-          dialogues,
-        ] = await Promise.all([
-          fetchFile('characters.json'),
-          fetchFile('skills.json'),
-          fetchFile('techniques.json'),
-          fetchFile('items.json'),
-          fetchFile('locations.json'),
-          fetchFile('factions.json'),
-          fetchFile('dialogues.json'),
-        ]);
+        const loaded = await loadNovelData(bookPath);
 
         setData({
-          characters,
-          skills,
-          techniques,
-          items,
-          locations,
-          factions,
-          dialogues,
+          ...loaded,
           loading: false,
           error: null,
         });
