@@ -6,6 +6,7 @@ import { ROLE_COLORS, RANK_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
 import { EntityTableLayout, type FilterConfig } from '../common/EntityTable';
 import { nameColumn, rankColumn, summaryColumn } from '../common/entityColumns';
+import { buildCharacterRows, resolveFactionName, type CharacterRow } from './characterRows';
 
 const { Text } = Typography;
 
@@ -17,26 +18,6 @@ const rankOrder = [
 const roleLabel: Record<string, string> = {
   protagonist: '主角', companion: '同伴', npc: '配角', villain: '反派',
 };
-
-const resolveFactionName = (factionValue: string | null, factions: { id: string; name: string }[]): string => {
-  if (!factionValue) return '无门派';
-  const byId = factions.find(f => f.id === factionValue);
-  if (byId) return byId.name;
-  const byName = factions.find(f => f.name === factionValue);
-  if (byName) return byName.name;
-  return factionValue;
-};
-
-interface CharacterRow {
-  id: string;
-  name: string;
-  alias: string[];
-  role: string;
-  rank: string;
-  faction: string;
-  factionName: string;
-  summary: string;
-}
 
 const CharacterList: React.FC = () => {
   const characters = useNovelStore((s) => s.characters);
@@ -79,40 +60,12 @@ const CharacterList: React.FC = () => {
   }, [characters, factions]);
 
   const dataSource = useMemo<CharacterRow[]>(() => {
-    let result = characters;
-    if (search) {
-      const q = search.toLowerCase();
-      result = result.filter(c =>
-        c.name.toLowerCase().includes(q) ||
-        c.alias?.some(a => a.toLowerCase().includes(q)) ||
-        c.identity?.toLowerCase().includes(q)
-      );
-    }
-    if (selectedRoles.length > 0) {
-      result = result.filter(c => selectedRoles.includes(c.role));
-    }
-    if (selectedRanks.length > 0) {
-      result = result.filter(c => selectedRanks.includes(c.power_rank ?? c.rank));
-    }
-    if (selectedFactions.length > 0) {
-      result = result.filter(c => selectedFactions.includes(c.faction || '_none'));
-    }
-    return [...result]
-      .sort((a, b) => {
-        const ai = rankOrder.indexOf(a.power_rank ?? a.rank);
-        const bi = rankOrder.indexOf(b.power_rank ?? b.rank);
-        return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-      })
-      .map(c => ({
-        id: c.id,
-        name: c.name,
-        alias: c.alias || [],
-        role: c.role,
-        rank: c.power_rank ?? c.rank ?? '',
-        faction: c.faction || '_none',
-        factionName: resolveFactionName(c.faction, factions),
-        summary: c.identity || c.one_line || '',
-      }));
+    return buildCharacterRows(characters, factions, {
+      search,
+      roles: selectedRoles,
+      ranks: selectedRanks,
+      factions: selectedFactions,
+    });
   }, [characters, search, selectedRoles, selectedRanks, selectedFactions, factions]);
 
   const columns: ColumnsType<CharacterRow> = useMemo(() => [

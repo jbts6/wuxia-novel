@@ -2,30 +2,14 @@ import React, { useMemo, useState } from 'react';
 import { Empty, Spin, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useNovelStore } from '../../stores/useNovelStore';
-import { getRankColor, getSkillRank, getSkillSummary, getSkillTechniques, getSkillType } from '../../utils/skillDisplay';
+import { getRankColor, getSkillRank, getSkillType } from '../../utils/skillDisplay';
 import { ENTITY_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
 import { EntityTableLayout, type FilterConfig } from '../common/EntityTable';
 import { nameColumn, typeColumn, rankColumn, summaryColumn } from '../common/entityColumns';
+import { buildSkillRows, SKILL_RANK_ORDER, type SkillRow } from './skillRows';
 
 const { Text } = Typography;
-
-const rankOrder = [
-  '返璞归真', '登峰造极', '出神入化', '炉火纯青',
-  '登堂入室', '略有小成', '初窥门径', '平平无奇',
-];
-
-interface SkillRow {
-  id: string;
-  name: string;
-  type: string;
-  rank: string;
-  summary: string;
-  techniqueNames: string;
-  techniqueCount: number;
-  holderNames: string;
-  holderIds: string[];
-}
 
 const SkillTree: React.FC = () => {
   const skills = useNovelStore((s) => s.skills);
@@ -48,47 +32,15 @@ const SkillTree: React.FC = () => {
   const allRanks = useMemo(() => {
     const set = new Set<string>();
     skills.forEach(s => set.add(getSkillRank(s)));
-    return rankOrder.filter(r => set.has(r));
+    return SKILL_RANK_ORDER.filter(r => set.has(r));
   }, [skills]);
 
   const dataSource = useMemo<SkillRow[]>(() => {
-    let result = skills;
-    if (search) {
-      const q = search.toLowerCase();
-      result = result.filter(s =>
-        s.name.toLowerCase().includes(q) ||
-        getSkillSummary(s).toLowerCase().includes(q)
-      );
-    }
-    if (selectedTypes.length > 0) {
-      result = result.filter(s => selectedTypes.includes(getSkillType(s)));
-    }
-    if (selectedRanks.length > 0) {
-      result = result.filter(s => selectedRanks.includes(getSkillRank(s)));
-    }
-    return [...result]
-      .sort((a, b) => {
-        const ai = rankOrder.indexOf(getSkillRank(a));
-        const bi = rankOrder.indexOf(getSkillRank(b));
-        return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-      })
-      .map(s => {
-        const techniques = getSkillTechniques(s);
-        const holders = characters.filter(c =>
-          Array.isArray(c.known_skills) && c.known_skills.includes(s.id)
-        );
-        return {
-          id: s.id,
-          name: s.name,
-          type: getSkillType(s),
-          rank: getSkillRank(s),
-          summary: getSkillSummary(s),
-          techniqueNames: techniques.map(t => t.name).join('、'),
-          techniqueCount: techniques.length,
-          holderNames: holders.map(c => c.name).join('、'),
-          holderIds: holders.map(c => c.id),
-        };
-      });
+    return buildSkillRows(skills, characters, {
+      search,
+      types: selectedTypes,
+      ranks: selectedRanks,
+    });
   }, [skills, search, selectedTypes, selectedRanks, characters]);
 
   const columns: ColumnsType<SkillRow> = useMemo(() => [
@@ -145,7 +97,7 @@ const SkillTree: React.FC = () => {
   if (skills.length === 0) return <Empty description="暂无技能数据" />;
 
   const rankColorMap: Record<string, string> = {};
-  rankOrder.forEach(r => { rankColorMap[r] = getRankColor(r); });
+  SKILL_RANK_ORDER.forEach(r => { rankColorMap[r] = getRankColor(r); });
 
   const filters: FilterConfig[] = [
     {
