@@ -16,14 +16,12 @@ interface CharacterCardProps {
 }
 
 const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
-  const {
-    characters,
-    skills,
-    items,
-    factions,
-    dialogues,
-    showDetail,
-  } = useNovelStore();
+  const characters = useNovelStore((s) => s.characters);
+  const skills = useNovelStore((s) => s.skills);
+  const items = useNovelStore((s) => s.items);
+  const factions = useNovelStore((s) => s.factions);
+  const dialogues = useNovelStore((s) => s.dialogues);
+  const showDetail = useNovelStore((s) => s.showDetail);
 
   const character = characters.find((c) => c.id === id);
   if (!character) return null;
@@ -183,4 +181,4 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
   );
 };
 
-export default CharacterCard;
+export default React.memo(CharacterCard);

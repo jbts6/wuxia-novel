@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { Breadcrumb, Button, Card, Drawer, Empty, Space, Typography } from 'antd';
 import { ArrowRightOutlined, NodeIndexOutlined } from '@ant-design/icons';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { useNovelStore } from '../../stores/useNovelStore';
 import CharacterCard from '../cards/CharacterCard';
 import SkillCard from '../cards/SkillCard';
@@ -10,7 +9,6 @@ import FactionCard from '../cards/FactionCard';
 import LocationCard from '../cards/LocationCard';
 import ErrorBoundary from '../common/ErrorBoundary';
 import type { CardType } from '../../types/novel';
-import { formatDetailParam } from '../../utils/detailNavigation';
 import { getRelationshipChain } from '../../utils/graphHelper';
 import InkTag from '../common/InkTag';
 
@@ -25,12 +23,19 @@ const TYPE_LABELS: Record<CardType, string> = {
 };
 
 const DetailPanel: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { detailPanel, detailTrail, hideDetail, characters, skills, items, factions, locations, graphNodes, graphLinks } =
-    useNovelStore();
-
-  const { visible, type, id } = detailPanel;
+  const visible = useNovelStore((s) => s.detailPanel.visible);
+  const type = useNovelStore((s) => s.detailPanel.type);
+  const id = useNovelStore((s) => s.detailPanel.id);
+  const detailTrail = useNovelStore((s) => s.detailTrail);
+  const showDetail = useNovelStore((s) => s.showDetail);
+  const hideDetail = useNovelStore((s) => s.hideDetail);
+  const graphNodes = useNovelStore((s) => s.graphNodes);
+  const graphLinks = useNovelStore((s) => s.graphLinks);
+  const characters = useNovelStore((s) => s.characters);
+  const skills = useNovelStore((s) => s.skills);
+  const items = useNovelStore((s) => s.items);
+  const factions = useNovelStore((s) => s.factions);
+  const locations = useNovelStore((s) => s.locations);
 
   const getEntityName = useCallback((entityType: CardType, entityId: string) => {
     switch (entityType) {
@@ -49,7 +54,7 @@ const DetailPanel: React.FC = () => {
     }
   }, [characters, factions, items, locations, skills]);
 
-  const getTitle = () => {
+  const title = useMemo(() => {
     if (!type || !id) return '';
     switch (type) {
       case 'character': {
@@ -69,13 +74,13 @@ const DetailPanel: React.FC = () => {
         return faction ? `${faction.name} - 势力详情` : '势力详情';
       }
       case 'location': {
-        const location = locations.find((l) => l.id === id);
-        return location ? `${location.name} - 地点详情` : '地点详情';
+        const loc = locations.find((l) => l.id === id);
+        return loc ? `${loc.name} - 地点详情` : '地点详情';
       }
       default:
         return '详情';
     }
-  };
+  }, [type, id, characters, skills, items, factions, locations]);
 
   const renderContent = () => {
     if (!type || !id) return <Empty description="请选择一个实体" />;
@@ -96,29 +101,12 @@ const DetailPanel: React.FC = () => {
     }
   };
 
-  const navigateDetail = (nextType: CardType, nextId: string, replace = false) => {
-    const params = new URLSearchParams(location.search);
-    params.set('detail', formatDetailParam({ type: nextType, id: nextId }));
-    navigate(
-      {
-        pathname: location.pathname,
-        search: params.toString(),
-      },
-      { replace },
-    );
+  const navigateDetail = (nextType: CardType, nextId: string) => {
+    showDetail(nextType, nextId);
   };
 
   const closeDetail = () => {
-    const params = new URLSearchParams(location.search);
-    params.delete('detail');
     hideDetail();
-    navigate(
-      {
-        pathname: location.pathname,
-        search: params.toString(),
-      },
-      { replace: true },
-    );
   };
 
   const relationshipChain = useMemo(() => {
@@ -131,12 +119,11 @@ const DetailPanel: React.FC = () => {
 
   return (
     <Drawer
-      title={getTitle()}
+      title={title}
       placement="right"
       onClose={closeDetail}
       open={visible}
       size="large"
-      key={`${type}-${id}`}
       styles={{
         body: { padding: '16px', overflow: 'auto' },
       }}

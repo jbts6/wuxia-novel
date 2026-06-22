@@ -95,7 +95,7 @@ const InkTag: React.FC<InkTagProps> = ({
   return (
     <span
       {...props}
-      className={['ink-tag', interactive ? 'ink-tag-clickable' : '', className].filter(Boolean).join(' ')}
+      className={`ink-tag${interactive ? ' ink-tag-clickable' : ''}${className ? ` ${className}` : ''}`}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       role={role ?? (interactive ? 'button' : undefined)}
@@ -111,4 +111,4 @@ const InkTag: React.FC<InkTagProps> = ({
   );
 };
 
-export default InkTag;
+export default React.memo(InkTag);

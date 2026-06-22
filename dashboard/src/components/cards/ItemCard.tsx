@@ -14,7 +14,10 @@ interface ItemCardProps {
 }
 
 const ItemCard: React.FC<ItemCardProps> = ({ id }) => {
-  const { items, characters, skills, showDetail } = useNovelStore();
+  const items = useNovelStore((s) => s.items);
+  const characters = useNovelStore((s) => s.characters);
+  const skills = useNovelStore((s) => s.skills);
+  const showDetail = useNovelStore((s) => s.showDetail);
 
   const item = items.find((i) => i.id === id);
   if (!item) return null;
@@ -93,4 +96,4 @@ const ItemCard: React.FC<ItemCardProps> = ({ id }) => {
   );
 };
 
-export default ItemCard;
+export default React.memo(ItemCard);

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { Empty, Segmented, Spin, Typography } from 'antd';
 import { useBookStore } from '../../stores/useBookStore';
 import { useLibraryStore } from '../../stores/useLibraryStore';
@@ -35,16 +35,16 @@ const SECTION_OPTIONS: Array<{ label: string; value: LibrarySection }> = [
 const GlobalLibraryDashboard: React.FC = () => {
   const books = useBookStore((state) => state.books);
   const data = useLibraryData(books);
-  const {
-    section,
-    setSection,
-    filters,
-    setFilters,
-    resetFilters,
-    selectRecord,
-    annotations,
-    hydrateAnnotations,
-  } = useLibraryStore();
+  const section = useLibraryStore((s) => s.section);
+  const setSection = useLibraryStore((s) => s.setSection);
+  const filters = useLibraryStore((s) => s.filters);
+  const setFilters = useLibraryStore((s) => s.setFilters);
+  const resetFilters = useLibraryStore((s) => s.resetFilters);
+  const selectRecord = useLibraryStore((s) => s.selectRecord);
+  const annotations = useLibraryStore((s) => s.annotations);
+  const hydrateAnnotations = useLibraryStore((s) => s.hydrateAnnotations);
+
+  const handleOpen = useCallback((key: string) => selectRecord(key), [selectRecord]);
 
   useEffect(() => {
     hydrateAnnotations();
@@ -95,6 +95,11 @@ const GlobalLibraryDashboard: React.FC = () => {
     () => filterItems(data.items.filter((record) => isLegendaryItem(record.entity)), filters),
     [data.items, filters],
   );
+  const annotatedSkills = useMemo(() => annotateRecords(topSkills, annotations), [topSkills, annotations]);
+  const annotatedCharacters = useMemo(() => annotateRecords(characters, annotations), [characters, annotations]);
+  const annotatedFactions = useMemo(() => annotateRecords(factions, annotations), [factions, annotations]);
+  const annotatedItems = useMemo(() => annotateRecords(legendaryItems, annotations), [legendaryItems, annotations]);
+
   const exportRecords = useMemo(
     () => annotateRecords(
       [...topSkills, ...characters, ...factions, ...legendaryItems] as LibraryRecord<unknown>[],
@@ -130,11 +135,11 @@ const GlobalLibraryDashboard: React.FC = () => {
           onReset={resetFilters}
         />
       )}
-      {section === 'skills' && <LibraryRecordTable records={annotateRecords(topSkills, annotations)} onOpen={selectRecord} />}
-      {section === 'characters' && <MergedCharacterTable records={mergedCharacters} onOpen={selectRecord} />}
-      {section === 'factions' && <LibraryRecordTable records={annotateRecords(factions, annotations)} onOpen={selectRecord} />}
-      {section === 'items' && <LibraryRecordTable records={annotateRecords(legendaryItems, annotations)} onOpen={selectRecord} />}
-      {section === 'overview' && <LibraryRecordTable records={annotateRecords(topSkills.slice(0, 20), annotations)} onOpen={selectRecord} />}
+      {section === 'skills' && <LibraryRecordTable records={annotatedSkills} onOpen={handleOpen} />}
+      {section === 'characters' && <MergedCharacterTable records={mergedCharacters} onOpen={handleOpen} />}
+      {section === 'factions' && <LibraryRecordTable records={annotatedFactions} onOpen={handleOpen} />}
+      {section === 'items' && <LibraryRecordTable records={annotatedItems} onOpen={handleOpen} />}
+      {section === 'overview' && <LibraryRecordTable records={annotatedSkills.slice(0, 20)} onOpen={handleOpen} />}
       <LibraryDetailDrawer collections={collections} />
     </div>
   );

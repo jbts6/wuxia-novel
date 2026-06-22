@@ -12,7 +12,10 @@ interface LocationCardProps {
 }
 
 const LocationCard: React.FC<LocationCardProps> = ({ id }) => {
-  const { locations, characters, factions, showDetail } = useNovelStore();
+  const locations = useNovelStore((s) => s.locations);
+  const characters = useNovelStore((s) => s.characters);
+  const factions = useNovelStore((s) => s.factions);
+  const showDetail = useNovelStore((s) => s.showDetail);
 
   const location = locations.find((l) => l.id === id);
   if (!location) return null;
@@ -79,4 +82,4 @@ const LocationCard: React.FC<LocationCardProps> = ({ id }) => {
   );
 };
 
-export default LocationCard;
+export default React.memo(LocationCard);

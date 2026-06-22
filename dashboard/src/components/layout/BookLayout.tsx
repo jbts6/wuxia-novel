@@ -12,7 +12,7 @@ const BookLayout: React.FC = () => {
   useBookRouteSync();
   const { currentBookPath, books } = useBookStore();
   const data = useDataLoader(currentBookPath);
-  const { setData } = useNovelStore();
+  const setData = useNovelStore((s) => s.setData);
   const currentBook = books.find(b => b.path === currentBookPath);
 
   useEffect(() => {

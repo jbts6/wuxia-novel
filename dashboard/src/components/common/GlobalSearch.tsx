@@ -12,7 +12,11 @@ interface SearchResult {
 }
 
 const GlobalSearch: React.FC = () => {
-  const { characters, skills, items, showDetail, loading } = useNovelStore();
+  const characters = useNovelStore((s) => s.characters);
+  const skills = useNovelStore((s) => s.skills);
+  const items = useNovelStore((s) => s.items);
+  const showDetail = useNovelStore((s) => s.showDetail);
+  const loading = useNovelStore((s) => s.loading);
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
 

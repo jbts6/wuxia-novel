@@ -28,7 +28,9 @@ function colorForSpeaker(id: string): string {
 }
 
 const DialogueList: React.FC = () => {
-  const { dialogues, characters, loading } = useNovelStore();
+  const dialogues = useNovelStore((s) => s.dialogues);
+  const characters = useNovelStore((s) => s.characters);
+  const loading = useNovelStore((s) => s.loading);
   const [chapterFilter, setChapterFilter] = useState<number | null>(null);
   const [toneFilter, setToneFilter] = useState<string | null>(null);
   const [speakerFilter, setSpeakerFilter] = useState<string | null>(null);

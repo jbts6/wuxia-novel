@@ -1,3 +1,4 @@
+import React, { useMemo } from 'react';
 import { Button, Space, Table, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import type { AnnotatedLibraryRecord, LibraryRecord } from '../../types/library';
@@ -26,8 +27,8 @@ interface LibraryRecordTableProps<T> {
   onOpen: (key: string) => void;
 }
 
-const LibraryRecordTable = <T,>({ records, onOpen }: LibraryRecordTableProps<T>) => {
-  const columns: ColumnsType<LibraryRecord<T> | AnnotatedLibraryRecord<T>> = [
+const LibraryRecordTableInner = <T,>({ records, onOpen }: LibraryRecordTableProps<T>) => {
+  const columns: ColumnsType<LibraryRecord<T> | AnnotatedLibraryRecord<T>> = useMemo(() => [
     {
       title: '名称',
       key: 'name',
@@ -80,9 +81,11 @@ const LibraryRecordTable = <T,>({ records, onOpen }: LibraryRecordTableProps<T>)
       width: 100,
       render: (_, record) => <Button aria-label="查看" size="small" onClick={() => onOpen(record.key)}>查看</Button>,
     },
-  ];
+  ], [onOpen]);
 
   return <Table rowKey="key" size="small" columns={columns} dataSource={records} pagination={{ pageSize: 20 }} />;
 };
+
+const LibraryRecordTable = React.memo(LibraryRecordTableInner) as typeof LibraryRecordTableInner;
 
 export default LibraryRecordTable;

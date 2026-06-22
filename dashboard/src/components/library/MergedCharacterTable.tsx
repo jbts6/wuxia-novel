@@ -1,3 +1,4 @@
+import React, { useMemo } from 'react';
 import { Badge, Button, Space, Table, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import type { MergedCharacterRecord } from '../../types/library';
@@ -11,8 +12,8 @@ interface MergedCharacterTableProps {
   onOpen: (key: string) => void;
 }
 
-const MergedCharacterTable: React.FC<MergedCharacterTableProps> = ({ records, onOpen }) => {
-  const columns: ColumnsType<MergedCharacterRecord> = [
+const MergedCharacterTableInner: React.FC<MergedCharacterTableProps> = ({ records, onOpen }) => {
+  const columns: ColumnsType<MergedCharacterRecord> = useMemo(() => [
     {
       title: '名称',
       key: 'name',
@@ -68,9 +69,11 @@ const MergedCharacterTable: React.FC<MergedCharacterTableProps> = ({ records, on
         <Button aria-label="查看" size="small" onClick={() => onOpen(record.key)}>查看</Button>
       ),
     },
-  ];
+  ], [onOpen]);
 
   return <Table rowKey="key" size="small" columns={columns} dataSource={records} pagination={{ pageSize: 20 }} />;
 };
+
+const MergedCharacterTable = React.memo(MergedCharacterTableInner);
 
 export default MergedCharacterTable;

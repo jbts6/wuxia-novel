@@ -15,7 +15,10 @@ interface LibraryDetailDrawerProps {
 
 const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }) => {
   const navigate = useNavigate();
-  const { selectedKey, selectRecord, annotations, updateAnnotation } = useLibraryStore();
+  const selectedKey = useLibraryStore((s) => s.selectedKey);
+  const selectRecord = useLibraryStore((s) => s.selectRecord);
+  const annotations = useLibraryStore((s) => s.annotations);
+  const updateAnnotation = useLibraryStore((s) => s.updateAnnotation);
   const [tagInput, setTagInput] = useState('');
 
   const allRecords = useMemo(
@@ -77,7 +80,7 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
     if (bookPath) {
       const [author, ...nameParts] = bookPath.split('/');
       const name = nameParts.join('/');
-      navigate(`/book/${encodeURIComponent(author)}/${encodeURIComponent(name)}/characters?detail=character:${(displayEntity as { id?: string }).id}`);
+      navigate(`/book/${encodeURIComponent(author)}/${encodeURIComponent(name)}/characters`);
       return;
     }
     if (!record) return;
@@ -86,7 +89,7 @@ const LibraryDetailDrawer: React.FC<LibraryDetailDrawerProps> = ({ collections }
     const [author, ...nameParts] = parsed.bookPath.split('/');
     const name = nameParts.join('/');
     const route = routeByKind[parsed.kind];
-    navigate(`/book/${encodeURIComponent(author)}/${encodeURIComponent(name)}/${route}?detail=${parsed.kind}:${parsed.entityId}`);
+    navigate(`/book/${encodeURIComponent(author)}/${encodeURIComponent(name)}/${route}`);
   };
 
   const addTag = () => {

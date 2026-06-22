@@ -22,7 +22,11 @@ interface SkillCardProps {
 }
 
 const SkillCard: React.FC<SkillCardProps> = ({ id }) => {
-  const { skills, characters, items, techniques, showDetail } = useNovelStore();
+  const skills = useNovelStore((s) => s.skills);
+  const characters = useNovelStore((s) => s.characters);
+  const items = useNovelStore((s) => s.items);
+  const techniques = useNovelStore((s) => s.techniques);
+  const showDetail = useNovelStore((s) => s.showDetail);
 
   const skill = skills.find((s) => s.id === id);
   if (!skill) return null;
@@ -123,4 +127,4 @@ const SkillCard: React.FC<SkillCardProps> = ({ id }) => {
   );
 };
 
-export default SkillCard;
+export default React.memo(SkillCard);

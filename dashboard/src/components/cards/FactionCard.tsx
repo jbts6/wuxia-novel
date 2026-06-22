@@ -12,7 +12,10 @@ interface FactionCardProps {
 }
 
 const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
-  const { factions, characters, locations, showDetail } = useNovelStore();
+  const factions = useNovelStore((s) => s.factions);
+  const characters = useNovelStore((s) => s.characters);
+  const locations = useNovelStore((s) => s.locations);
+  const showDetail = useNovelStore((s) => s.showDetail);
 
   const faction = factions.find((f) => f.id === id);
   if (!faction) return null;
@@ -86,4 +89,4 @@ const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
   );
 };
 
-export default FactionCard;
+export default React.memo(FactionCard);

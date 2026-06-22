@@ -21,7 +21,8 @@ const DialogueCard: React.FC<DialogueCardProps> = ({
   showHeader,
   avatarColor,
 }) => {
-  const { characters, showDetail } = useNovelStore();
+  const characters = useNovelStore((s) => s.characters);
+  const showDetail = useNovelStore((s) => s.showDetail);
 
   const speakerChar = characters.find((c) => c.id === speaker);
   const openDetail = () => {

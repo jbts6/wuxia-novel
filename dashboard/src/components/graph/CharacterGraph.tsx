@@ -32,7 +32,10 @@ const getLinkEndpointId = (endpoint: GraphLink['source']): string => (
 );
 
 const CharacterGraph: React.FC = () => {
-  const { graphNodes, graphLinks, showDetail, loading } = useNovelStore();
+  const graphNodes = useNovelStore((s) => s.graphNodes);
+  const graphLinks = useNovelStore((s) => s.graphLinks);
+  const showDetail = useNovelStore((s) => s.showDetail);
+  const loading = useNovelStore((s) => s.loading);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });

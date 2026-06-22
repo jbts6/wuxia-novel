@@ -1,10 +1,11 @@
 import React, { useMemo, useState } from 'react';
-import { Typography, Empty, Spin, Input, Select, Table } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { Empty, Spin, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ROLE_COLORS, RANK_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
+import { EntityTableLayout, type FilterConfig } from '../common/EntityTable';
+import { nameColumn, rankColumn, summaryColumn } from '../common/entityColumns';
 
 const { Text } = Typography;
 
@@ -31,14 +32,17 @@ interface CharacterRow {
   name: string;
   alias: string[];
   role: string;
-  powerRank: string;
+  rank: string;
   faction: string;
   factionName: string;
-  identity: string;
+  summary: string;
 }
 
 const CharacterList: React.FC = () => {
-  const { characters, factions, showDetail, loading } = useNovelStore();
+  const characters = useNovelStore((s) => s.characters);
+  const factions = useNovelStore((s) => s.factions);
+  const showDetail = useNovelStore((s) => s.showDetail);
+  const loading = useNovelStore((s) => s.loading);
   const [search, setSearch] = useState('');
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
   const [selectedRanks, setSelectedRanks] = useState<string[]>([]);
@@ -104,25 +108,19 @@ const CharacterList: React.FC = () => {
         name: c.name,
         alias: c.alias || [],
         role: c.role,
-        powerRank: c.power_rank ?? c.rank ?? '',
+        rank: c.power_rank ?? c.rank ?? '',
         faction: c.faction || '_none',
         factionName: resolveFactionName(c.faction, factions),
-        identity: c.identity || c.one_line || '',
+        summary: c.identity || c.one_line || '',
       }));
   }, [characters, search, selectedRoles, selectedRanks, selectedFactions, factions]);
 
-  const columns: ColumnsType<CharacterRow> = [
-    {
-      title: '姓名',
-      dataIndex: 'name',
-      width: 140,
-      fixed: 'left' as const,
-      render: (name: string) => <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{name}</Text>,
-    },
+  const columns: ColumnsType<CharacterRow> = useMemo(() => [
+    nameColumn<CharacterRow>(),
     {
       title: '别名',
       dataIndex: 'alias',
-      width: 180,
+      width: 200,
       render: (alias: string[]) => (
         <Text type="secondary" ellipsis style={{ fontSize: 12 }}>
           {alias?.slice(0, 2).join('、')}
@@ -132,115 +130,75 @@ const CharacterList: React.FC = () => {
     {
       title: '身份',
       dataIndex: 'role',
-      width: 80,
+      width: 120,
       render: (role: string) => (
         <InkTag color={ROLE_COLORS[role] || 'default'} wash={false} style={{ fontSize: 11 }}>
           {roleLabel[role] || role}
         </InkTag>
       ),
     },
+    rankColumn<CharacterRow>('境界', RANK_COLORS),
     {
-      title: '境界',
-      dataIndex: 'powerRank',
-      width: 100,
-      render: (rank: string) => rank ? (
-        <InkTag color={RANK_COLORS[rank] || 'default'} wash={false} style={{ fontSize: 11 }}>
-          {rank}
-        </InkTag>
+      title: '门派',
+      dataIndex: 'factionName',
+      width: 140,
+      render: (name: string, row) => row.faction !== '_none' ? (
+        <InkTag wash={false} style={{ fontSize: 11 }}>{name}</InkTag>
       ) : null,
     },
-    {
-      title: '门派 / 简介',
-      key: 'factionIdentity',
-      render: (_, row) => (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, overflow: 'hidden' }}>
-          {row.faction !== '_none' && (
-            <InkTag style={{ fontSize: 11, flexShrink: 0 }}>{row.factionName}</InkTag>
-          )}
-          <Text type="secondary" ellipsis style={{ fontSize: 12, marginBottom: 0 }}>
-            {row.identity}
-          </Text>
-        </div>
-      ),
-    },
-  ];
+    summaryColumn<CharacterRow>(),
+  ], []);
 
   if (loading) return <Spin size="large" />;
   if (characters.length === 0) return <Empty description="暂无角色数据" />;
 
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{ paddingBottom: 12, borderBottom: '1px solid var(--ink-hairline)', marginBottom: 12 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr 1fr', gap: 8, marginBottom: 8 }}>
-          <Input
-            prefix={<SearchOutlined style={{ color: 'var(--ink-faint)' }} />}
-            placeholder="搜索角色名、别名、身份..."
-            allowClear
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
-          <Select
-            mode="multiple"
-            placeholder="身份筛选"
-            allowClear
-            value={selectedRoles}
-            onChange={setSelectedRoles}
-            style={{ width: '100%' }}
-            maxTagCount="responsive"
-            options={allRoles.map(r => ({
-              label: <span><InkTag color={ROLE_COLORS[r] || 'default'} wash={false} style={{ margin: 0 }}>{roleLabel[r] || r}</InkTag> <Text type="secondary" style={{ fontSize: 11 }}>({characters.filter(c => c.role === r).length})</Text></span>,
-              value: r,
-            }))}
-          />
-          <Select
-            mode="multiple"
-            placeholder="境界筛选"
-            allowClear
-            value={selectedRanks}
-            onChange={setSelectedRanks}
-            style={{ width: '100%' }}
-            maxTagCount="responsive"
-            options={allRanks.map(r => ({
-              label: <span><InkTag color={RANK_COLORS[r] || 'default'} wash={false} style={{ margin: 0 }}>{r}</InkTag></span>,
-              value: r,
-            }))}
-          />
-        </div>
-        <div style={{ marginBottom: 8 }}>
-          <Select
-            mode="multiple"
-            placeholder="门派筛选"
-            allowClear
-            value={selectedFactions}
-            onChange={setSelectedFactions}
-            style={{ width: '100%' }}
-            maxTagCount="responsive"
-            options={allFactions.map(f => ({
-              label: <span>{f.name} <Text type="secondary" style={{ fontSize: 11 }}>({f.count})</Text></span>,
-              value: f.key,
-            }))}
-          />
-        </div>
-        <div style={{ color: 'var(--ink-secondary)', fontSize: 12 }}>
-          共 {dataSource.length} 个角色
-        </div>
-      </div>
+  const filters: FilterConfig[] = [
+    {
+      placeholder: '身份筛选',
+      value: selectedRoles,
+      onChange: setSelectedRoles,
+      options: allRoles.map(r => ({
+        label: <span><InkTag color={ROLE_COLORS[r] || 'default'} wash={false} style={{ margin: 0 }}>{roleLabel[r] || r}</InkTag> <Text type="secondary" style={{ fontSize: 11 }}>({characters.filter(c => c.role === r).length})</Text></span>,
+        value: r,
+      })),
+    },
+    {
+      placeholder: '境界筛选',
+      value: selectedRanks,
+      onChange: setSelectedRanks,
+      options: allRanks.map(r => ({
+        label: <span><InkTag color={RANK_COLORS[r] || 'default'} wash={false} style={{ margin: 0 }}>{r}</InkTag></span>,
+        value: r,
+      })),
+    },
+    {
+      placeholder: '门派筛选',
+      value: selectedFactions,
+      onChange: setSelectedFactions,
+      options: allFactions.map(f => ({
+        label: <span>{f.name} <Text type="secondary" style={{ fontSize: 11 }}>({f.count})</Text></span>,
+        value: f.key,
+      })),
+    },
+  ];
 
-      <div style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
-        <Table
-          dataSource={dataSource}
-          columns={columns}
-          rowKey="id"
-          size="small"
-          scroll={{ x: 600, y: 'calc(100vh - 320px)' }}
-          pagination={false}
-          onRow={(record) => ({
-            onClick: () => showDetail('character', record.id),
-            style: { cursor: 'pointer' },
-          })}
-        />
-      </div>
-    </div>
+  return (
+    <EntityTableLayout<CharacterRow>
+      searchPlaceholder="搜索角色名、别名、身份..."
+      searchValue={search}
+      onSearchChange={setSearch}
+      filters={filters}
+      count={dataSource.length}
+      countLabel="个角色"
+      columns={columns}
+      dataSource={dataSource}
+      rowKey="id"
+      scrollX={700}
+      onRow={(record) => ({
+        onClick: () => showDetail('character', record.id),
+        style: { cursor: 'pointer' },
+      })}
+    />
   );
 };
 

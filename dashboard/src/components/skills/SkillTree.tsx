@@ -1,24 +1,48 @@
 import React, { useMemo, useState } from 'react';
-import { Card, Typography, Empty, Spin, Row, Col, Checkbox } from 'antd';
+import { Empty, Spin, Typography } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { getRankColor, getSkillRank, getSkillSummary, getSkillTechniques, getSkillType } from '../../utils/skillDisplay';
 import { ENTITY_COLORS } from '../../theme/palette';
 import InkTag from '../common/InkTag';
+import { EntityTableLayout, type FilterConfig } from '../common/EntityTable';
+import { nameColumn, typeColumn, rankColumn, summaryColumn } from '../common/entityColumns';
 
-const { Text, Paragraph } = Typography;
+const { Text } = Typography;
 
 const rankOrder = [
   '返璞归真', '登峰造极', '出神入化', '炉火纯青',
   '登堂入室', '略有小成', '初窥门径', '平平无奇',
 ];
 
+interface SkillRow {
+  id: string;
+  name: string;
+  type: string;
+  rank: string;
+  summary: string;
+  techniqueNames: string;
+  techniqueCount: number;
+  holderNames: string;
+  holderIds: string[];
+}
+
 const SkillTree: React.FC = () => {
-  const { skills, characters, showDetail, loading } = useNovelStore();
+  const skills = useNovelStore((s) => s.skills);
+  const characters = useNovelStore((s) => s.characters);
+  const showDetail = useNovelStore((s) => s.showDetail);
+  const loading = useNovelStore((s) => s.loading);
+  const [search, setSearch] = useState('');
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [selectedRanks, setSelectedRanks] = useState<string[]>([]);
 
   const allTypes = useMemo(() => {
-    const set = new Set<string>();
-    skills.forEach(s => set.add(getSkillType(s)));
-    return Array.from(set);
+    const counts = new Map<string, number>();
+    skills.forEach(s => {
+      const t = getSkillType(s);
+      counts.set(t, (counts.get(t) || 0) + 1);
+    });
+    return Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
   }, [skills]);
 
   const allRanks = useMemo(() => {
@@ -27,138 +51,140 @@ const SkillTree: React.FC = () => {
     return rankOrder.filter(r => set.has(r));
   }, [skills]);
 
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [selectedRanks, setSelectedRanks] = useState<string[]>([]);
-
-  const filtered = useMemo(() => {
-    return skills
-      .filter(s => selectedTypes.length === 0 || selectedTypes.includes(getSkillType(s)))
-      .filter(s => selectedRanks.length === 0 || selectedRanks.includes(getSkillRank(s)))
+  const dataSource = useMemo<SkillRow[]>(() => {
+    let result = skills;
+    if (search) {
+      const q = search.toLowerCase();
+      result = result.filter(s =>
+        s.name.toLowerCase().includes(q) ||
+        getSkillSummary(s).toLowerCase().includes(q)
+      );
+    }
+    if (selectedTypes.length > 0) {
+      result = result.filter(s => selectedTypes.includes(getSkillType(s)));
+    }
+    if (selectedRanks.length > 0) {
+      result = result.filter(s => selectedRanks.includes(getSkillRank(s)));
+    }
+    return result
       .sort((a, b) => {
         const ai = rankOrder.indexOf(getSkillRank(a));
         const bi = rankOrder.indexOf(getSkillRank(b));
-        return ai - bi;
+        return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+      })
+      .map(s => {
+        const techniques = getSkillTechniques(s);
+        const holders = characters.filter(c =>
+          Array.isArray(c.known_skills) && c.known_skills.includes(s.id)
+        );
+        return {
+          id: s.id,
+          name: s.name,
+          type: getSkillType(s),
+          rank: getSkillRank(s),
+          summary: getSkillSummary(s),
+          techniqueNames: techniques.map(t => t.name).join('、'),
+          techniqueCount: techniques.length,
+          holderNames: holders.map(c => c.name).join('、'),
+          holderIds: holders.map(c => c.id),
+        };
       });
-  }, [skills, selectedTypes, selectedRanks]);
+  }, [skills, search, selectedTypes, selectedRanks, characters]);
+
+  const columns: ColumnsType<SkillRow> = useMemo(() => [
+    nameColumn<SkillRow>(),
+    typeColumn<SkillRow>(),
+    rankColumn<SkillRow>('境界', {
+      '返璞归真': 'red', '登峰造极': 'red', '出神入化': 'gold',
+      '炉火纯青': 'green', '登堂入室': 'purple', '略有小成': 'cyan',
+      '初窥门径': 'default', '平平无奇': 'default',
+    }),
+    {
+      title: '招式',
+      dataIndex: 'techniqueNames',
+      width: 200,
+      render: (names: string, row) => (
+        <Text type="secondary" ellipsis style={{ fontSize: 12 }}>
+          {row.techniqueCount > 0 ? `${names}（${row.techniqueCount}）` : '—'}
+        </Text>
+      ),
+    },
+    {
+      title: '掌握者',
+      dataIndex: 'holderNames',
+      width: 240,
+      render: (_: string, row) => {
+        if (!row.holderNames) return null;
+        const display = row.holderIds.slice(0, 2);
+        const rest = row.holderIds.length - display.length;
+        return (
+          <span>
+            {display.map(id => {
+              const char = characters.find(c => c.id === id);
+              return char ? (
+                <InkTag
+                  key={id}
+                  color={ENTITY_COLORS.character}
+                  wash={false}
+                  style={{ fontSize: 11, cursor: 'pointer', marginRight: 4 }}
+                  onClick={(e) => { e.stopPropagation(); showDetail('character', id); }}
+                >
+                  {char.name}
+                </InkTag>
+              ) : null;
+            })}
+            {rest > 0 && <Text type="secondary" style={{ fontSize: 11 }}>+{rest}</Text>}
+          </span>
+        );
+      },
+    },
+    summaryColumn<SkillRow>(),
+  ], [characters, showDetail]);
 
   if (loading) return <Spin size="large" />;
   if (skills.length === 0) return <Empty description="暂无技能数据" />;
 
+  const rankColorMap: Record<string, string> = {};
+  rankOrder.forEach(r => { rankColorMap[r] = getRankColor(r); });
+
+  const filters: FilterConfig[] = [
+    {
+      placeholder: '类型筛选',
+      value: selectedTypes,
+      onChange: setSelectedTypes,
+      options: allTypes.map(([t, count]) => ({
+        label: <span>{t} <span style={{ fontSize: 11, color: 'var(--ink-secondary)' }}>({count})</span></span>,
+        value: t,
+      })),
+    },
+    {
+      placeholder: '境界筛选',
+      value: selectedRanks,
+      onChange: setSelectedRanks,
+      options: allRanks.map(r => ({
+        label: <InkTag color={getRankColor(r)} wash={false} style={{ margin: 0 }}>{r}</InkTag>,
+        value: r,
+      })),
+    },
+  ];
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{ paddingBottom: 12, borderBottom: '1px solid var(--ink-hairline)', marginBottom: 12 }}>
-        <div style={{ marginBottom: 8 }}>
-          <Text type="secondary" style={{ fontSize: 12, marginRight: 8 }}>类型：</Text>
-          <Checkbox
-            checked={selectedTypes.length === 0}
-            onChange={() => setSelectedTypes([])}
-            style={{ marginRight: 4 }}
-          >
-            全部
-          </Checkbox>
-          {allTypes.map(t => (
-            <Checkbox
-              key={t}
-              checked={selectedTypes.includes(t)}
-              onChange={() => setSelectedTypes(prev => prev.includes(t) ? prev.filter(x => x !== t) : [...prev, t])}
-            >
-              {t}
-              <Text type="secondary" style={{ fontSize: 11, marginLeft: 2 }}>
-                ({skills.filter(s => getSkillType(s) === t).length})
-              </Text>
-            </Checkbox>
-          ))}
-        </div>
-        <div>
-          <Text type="secondary" style={{ fontSize: 12, marginRight: 8 }}>境界：</Text>
-          {allRanks.map(r => (
-            <Checkbox
-              key={r}
-              checked={selectedRanks.includes(r)}
-              onChange={() => setSelectedRanks(prev => prev.includes(r) ? prev.filter(x => x !== r) : [...prev, r])}
-            >
-              <InkTag color={getRankColor(r)} wash={false} style={{ margin: 0 }}>{r}</InkTag>
-            </Checkbox>
-          ))}
-        </div>
-        <div style={{ marginTop: 8, color: 'var(--ink-secondary)', fontSize: 12 }}>
-          共 {filtered.length} 项武功
-        </div>
-      </div>
-
-      <div style={{ flex: 1, overflow: 'auto' }}>
-        {filtered.length === 0 ? (
-          <Empty description="无匹配项" />
-        ) : (
-          <Row gutter={[16, 16]}>
-            {filtered.map(skill => {
-              const relatedChars = characters.filter(c =>
-                Array.isArray(c.known_skills) && c.known_skills.includes(skill.id)
-              );
-              const skillRank = getSkillRank(skill);
-              const skillRankColor = getRankColor(skillRank);
-              const techniques = getSkillTechniques(skill);
-
-              return (
-                <Col xs={24} sm={12} md={8} lg={6} key={skill.id}>
-                  <Card
-                    size="small"
-                    hoverable
-                    onClick={() => showDetail('skill', skill.id)}
-                    style={{ height: '100%' }}
-                  >
-                    <div style={{ marginBottom: 8 }}>
-                      <Text strong style={{ fontFamily: 'var(--font-serif)' }}>{skill.name}</Text>
-                      <InkTag color={skillRankColor} wash={false} style={{ marginLeft: 8 }}>
-                        {skillRank}
-                      </InkTag>
-                    </div>
-                    <Paragraph
-                      ellipsis={{ rows: 2 }}
-                      type="secondary"
-                      style={{ marginBottom: 8, fontSize: 12 }}
-                    >
-                      {getSkillSummary(skill)}
-                    </Paragraph>
-                    <div>
-                      {techniques.slice(0, 3).map((tech) => (
-                        <InkTag key={tech.id} style={{ marginBottom: 4 }}>
-                          {tech.name}
-                        </InkTag>
-                      ))}
-                      {techniques.length > 3 && (
-                        <InkTag>+{techniques.length - 3}</InkTag>
-                      )}
-                    </div>
-                    {relatedChars.length > 0 && (
-                      <div style={{ marginTop: 8 }}>
-                        <Text type="secondary" style={{ fontSize: 11 }}>
-                          掌握者：
-                        </Text>
-                        {relatedChars.slice(0, 2).map((char) => (
-                          <InkTag
-                            key={char.id}
-                            color={ENTITY_COLORS.character}
-                            wash={false}
-                            style={{ cursor: 'pointer' }}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              showDetail('character', char.id);
-                            }}
-                          >
-                            {char.name}
-                          </InkTag>
-                        ))}
-                      </div>
-                    )}
-                  </Card>
-                </Col>
-              );
-            })}
-          </Row>
-        )}
-      </div>
-    </div>
+    <EntityTableLayout<SkillRow>
+      searchPlaceholder="搜索武功名、简介..."
+      searchValue={search}
+      onSearchChange={setSearch}
+      filters={filters}
+      count={dataSource.length}
+      countLabel="项武功"
+      columns={columns}
+      dataSource={dataSource}
+      rowKey="id"
+      scrollX={800}
+      onRow={(record) => ({
+        onClick: () => showDetail('skill', record.id),
+        style: { cursor: 'pointer' },
+      })}
+    />
   );
 };
 
