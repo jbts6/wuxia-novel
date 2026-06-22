@@ -55,7 +55,7 @@ const GlobalLibraryDashboard: React.FC = () => {
     if (filters.materialType !== materialType) {
       setFilters({ materialType, masteryRank: [], powerRank: [], importance: [], rarityTier: [], type: [] });
     }
-  }, [section]);
+  }, [filters.materialType, section, setFilters]);
 
   const collections = useMemo(() => ({
     skills: data.skills,
@@ -96,7 +96,6 @@ const GlobalLibraryDashboard: React.FC = () => {
     [data.items, filters],
   );
   const annotatedSkills = useMemo(() => annotateRecords(topSkills, annotations), [topSkills, annotations]);
-  const annotatedCharacters = useMemo(() => annotateRecords(characters, annotations), [characters, annotations]);
   const annotatedFactions = useMemo(() => annotateRecords(factions, annotations), [factions, annotations]);
   const annotatedItems = useMemo(() => annotateRecords(legendaryItems, annotations), [legendaryItems, annotations]);
 

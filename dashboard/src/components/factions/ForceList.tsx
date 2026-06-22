@@ -1,9 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { Empty, Spin, Tabs, Typography } from 'antd';
+import { Spin, Tabs, Typography } from 'antd';
 import { TeamOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import { useNovelStore } from '../../stores/useNovelStore';
-import { PIGMENT } from '../../theme/palette';
 import InkTag from '../common/InkTag';
 import { EntityTableLayout, type FilterConfig } from '../common/EntityTable';
 import { nameColumn, typeColumn, summaryColumn } from '../common/entityColumns';

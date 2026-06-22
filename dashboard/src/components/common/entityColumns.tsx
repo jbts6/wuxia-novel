@@ -4,7 +4,6 @@
  * 返回 antd ColumnsType 元素，各列表页组合拼装即可。
  * 所有列宽度统一，「简介」列始终放最后。
  */
-import React from 'react';
 import { Typography } from 'antd';
 import type { ColumnType } from 'antd/es/table';
 import InkTag from './InkTag';

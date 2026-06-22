@@ -80,7 +80,7 @@ const ItemList: React.FC = () => {
     if (selectedTypes.length > 0) {
       result = result.filter(i => selectedTypes.includes(normalizeType(i.type)));
     }
-    return result
+    return [...result]
       .sort((a, b) => {
         const ai = rarityOrder.indexOf(a.rarity_tier || '未分类');
         const bi = rarityOrder.indexOf(b.rarity_tier || '未分类');

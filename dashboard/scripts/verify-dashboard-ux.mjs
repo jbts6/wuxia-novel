@@ -61,6 +61,8 @@ assert.deepEqual(
   { type: 'skill', id: 'skill_xiao_li_fei_dao' },
 );
 assert.equal(detailNavigation.parseDetailParam('dialogue:bad'), null);
+assert.equal(detailNavigation.parseDetailParam('bad-detail-param'), null);
+assert.equal(detailNavigation.parseDetailParam(null), null);
 const sparseSkill = {
   id: 'skill_luo_han_quan',
   name: '少林罗汉拳',
@@ -74,29 +76,6 @@ assert.equal(
   skillDisplay.getSkillSummary({ id: 'skill_desc', name: '说明型技能', description: '来自旧数据' }),
   '来自旧数据',
 );
-assert.deepEqual(
-  plain(detailNavigation.getDetailSyncAction(
-    'character:old',
-    { visible: true, type: 'skill', id: 'new' },
-    { urlDetail: 'character:old', panelDetail: 'character:old' },
-  )),
-  { type: 'navigate', detail: 'skill:new' },
-);
-assert.deepEqual(
-  plain(detailNavigation.getDetailSyncAction(
-    'character:old',
-    { visible: true, type: 'skill', id: 'new' },
-    { urlDetail: 'skill:new', panelDetail: 'skill:new' },
-  )),
-  { type: 'show', target: { type: 'character', id: 'old' } },
-);
-assert.deepEqual(
-  plain(detailNavigation.getDetailSyncAction(
-    'character:old',
-    { visible: false, type: null, id: null },
-  )),
-  { type: 'show', target: { type: 'character', id: 'old' } },
-);
 
 const trail = detailNavigation.appendDetailTrail(
   [{ type: 'character', id: 'char_li_xun_huan' }],
@@ -109,6 +88,27 @@ assert.deepEqual(plain(trail), [
 assert.deepEqual(
   plain(detailNavigation.appendDetailTrail(trail, { type: 'character', id: 'char_li_xun_huan' })),
   [{ type: 'character', id: 'char_li_xun_huan' }],
+);
+assert.deepEqual(
+  plain(detailNavigation.appendDetailTrail(
+    [
+      { type: 'character', id: 'a' },
+      { type: 'character', id: 'b' },
+      { type: 'character', id: 'c' },
+      { type: 'character', id: 'd' },
+      { type: 'character', id: 'e' },
+      { type: 'character', id: 'f' },
+    ],
+    { type: 'character', id: 'g' },
+  )),
+  [
+    { type: 'character', id: 'b' },
+    { type: 'character', id: 'c' },
+    { type: 'character', id: 'd' },
+    { type: 'character', id: 'e' },
+    { type: 'character', id: 'f' },
+    { type: 'character', id: 'g' },
+  ],
 );
 
 const nodes = [

@@ -97,7 +97,7 @@ const CharacterList: React.FC = () => {
     if (selectedFactions.length > 0) {
       result = result.filter(c => selectedFactions.includes(c.faction || '_none'));
     }
-    return result
+    return [...result]
       .sort((a, b) => {
         const ai = rankOrder.indexOf(a.power_rank ?? a.rank);
         const bi = rankOrder.indexOf(b.power_rank ?? b.rank);

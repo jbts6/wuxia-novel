@@ -66,7 +66,7 @@ const SkillTree: React.FC = () => {
     if (selectedRanks.length > 0) {
       result = result.filter(s => selectedRanks.includes(getSkillRank(s)));
     }
-    return result
+    return [...result]
       .sort((a, b) => {
         const ai = rankOrder.indexOf(getSkillRank(a));
         const bi = rankOrder.indexOf(getSkillRank(b));

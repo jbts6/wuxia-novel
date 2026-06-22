@@ -2,14 +2,14 @@ import React, { useState, useMemo, useRef, useCallback } from 'react';
 import { Dropdown, Input, Typography } from 'antd';
 import { BookOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { useBookStore } from '../../stores/useBookStore';
+import { useBookStore, type BookMeta } from '../../stores/useBookStore';
 import InkTag from './InkTag';
 
 const { Text } = Typography;
 
 interface AuthorGroup {
   author: string;
-  books: { path: string; name: string; characters: number }[];
+  books: BookMeta[];
 }
 
 const BookSelector: React.FC = () => {

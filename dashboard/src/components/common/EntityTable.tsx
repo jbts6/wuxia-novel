@@ -5,11 +5,9 @@
  * 供 CharacterList / ItemList / SkillTree 共用。
  */
 import React from 'react';
-import { Empty, Input, Select, Table, Typography } from 'antd';
+import { Empty, Input, Select, Table } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import type { ColumnsType, TableProps } from 'antd/es/table';
-
-const { Text } = Typography;
 
 /* ── 筛选器配置 ── */
 export interface FilterConfig {
