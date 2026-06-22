@@ -1,9 +1,18 @@
-import React, { useMemo, useCallback, useRef, useState } from 'react';
+import React, { useMemo, useCallback, useRef, useState, useEffect } from 'react';
 import { Spin, Empty, Space, Checkbox, Card } from 'antd';
 import { useNovelStore } from '../../stores/useNovelStore';
 import type { CardType, GraphLink } from '../../types/novel';
 import { ENTITY_COLORS, INK, PAPER, CINNABAR } from '../../theme/palette';
 import InkTag from '../common/InkTag';
+
+// CSS 强制 canvas 填满容器，绕过 react-force-graph-2d 的 JS 内联样式
+const GRAPH_CSS = `
+.force-graph-container,
+.force-graph-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+`;
 
 const ForceGraph2D = React.lazy(() => import('react-force-graph-2d'));
 
@@ -37,25 +46,13 @@ const CharacterGraph: React.FC = () => {
   const showDetail = useNovelStore((s) => s.showDetail);
   const loading = useNovelStore((s) => s.loading);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+  const hoveredRef = useRef<string | null>(null);
   const [visibleTypes, setVisibleTypes] = useState<NodeType[]>(['character']);
 
-  React.useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const observer = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect;
-        if (width > 0 && height > 0) {
-          setDimensions({ width, height });
-        }
-      }
-    });
-
-    observer.observe(container);
-    return () => observer.disconnect();
+  // 缓存字体字符串，避免每节点每帧调用 getComputedStyle
+  const fontFamily = useMemo(() => {
+    const ff = getComputedStyle(document.documentElement).getPropertyValue('--font-serif');
+    return ff?.trim() || 'serif';
   }, []);
 
   const graphData = useMemo(() => {
@@ -102,10 +99,13 @@ const CharacterGraph: React.FC = () => {
     setVisibleTypes(types);
   }, []);
 
+  // 同步 hoveredNodeId 到 ref，使 nodeCanvasObject 不依赖 state
+  useEffect(() => { hoveredRef.current = hoveredNodeId; }, [hoveredNodeId]);
+
   const nodeCanvasObject = useCallback(
     (node: ForceGraphNode, ctx: CanvasRenderingContext2D, globalScale: number) => {
       const size = Math.sqrt(node.val || 1) * 3 + 4;
-      const isHovered = hoveredNodeId === node.id;
+      const isHovered = hoveredRef.current === node.id;
 
       ctx.beginPath();
       ctx.arc(node.x || 0, node.y || 0, size, 0, 2 * Math.PI);
@@ -124,13 +124,13 @@ const CharacterGraph: React.FC = () => {
 
       const label = node.name || '';
       const fontSize = Math.max(10 / globalScale, 2);
-      ctx.font = `${fontSize}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-serif') || 'serif'}`;
+      ctx.font = `${fontSize}px ${fontFamily}`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
       ctx.fillStyle = INK.body;
       ctx.fillText(label, node.x || 0, (node.y || 0) + size + 4 / globalScale);
     },
-    [hoveredNodeId]
+    [fontFamily]
   );
 
   const nodePointerAreaPaint = useCallback(
@@ -161,8 +161,9 @@ const CharacterGraph: React.FC = () => {
   if (graphNodes.length === 0) return <Empty description="暂无图谱数据" />;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <Card size="small" style={{ marginBottom: 12 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 180px)' }}>
+      <style>{GRAPH_CSS}</style>
+      <Card size="small" style={{ marginBottom: 12, flexShrink: 0 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <span style={{ fontWeight: 'bold', color: 'var(--ink-secondary)' }}>显示类型：</span>
 
@@ -203,21 +204,18 @@ const CharacterGraph: React.FC = () => {
       </Card>
 
       <div
-        ref={containerRef}
         style={{
           flex: 1,
+          minHeight: 0,
           border: '1px solid var(--ink-hairline)',
           borderRadius: 8,
           overflow: 'hidden',
-          minHeight: 400,
           background: PAPER.base,
         }}
       >
         <React.Suspense fallback={<Spin size="large" />}>
           <ForceGraph2D
             graphData={graphData}
-            width={dimensions.width}
-            height={dimensions.height}
             backgroundColor={PAPER.base}
             nodeCanvasObject={nodeCanvasObject}
             nodeCanvasObjectMode={() => 'replace'}
@@ -229,8 +227,8 @@ const CharacterGraph: React.FC = () => {
             linkWidth={0.5}
             d3AlphaDecay={0.02}
             d3VelocityDecay={0.3}
-            warmupTicks={100}
-            cooldownTime={3000}
+            warmupTicks={20}
+            cooldownTime={2000}
             onNodeClick={handleNodeClick}
             onNodeHover={handleNodeHover}
           />
