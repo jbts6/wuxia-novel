@@ -26,15 +26,9 @@ interface NovelStore {
   factions: Faction[];
   dialogues: Dialogue[];
 
-  // 书籍路径
-  currentBookPath: string | null;
-
   // 状态
   loading: boolean;
   error: string | null;
-  searchQuery: string;
-  selectedNodeType: CardType | null;
-  selectedNodeId: string | null;
   detailPanel: DetailPanelState;
   detailTrail: DetailTrailItem[];
 
@@ -52,10 +46,6 @@ interface NovelStore {
     factions: Faction[];
     dialogues: Dialogue[];
   }) => void;
-  setBookPath: (path: string | null) => void;
-  setLoading: (loading: boolean) => void;
-  setError: (error: string | null) => void;
-  setSearchQuery: (query: string) => void;
   showDetail: (type: CardType, id: string) => void;
   hideDetail: () => void;
   buildGraphData: () => void;
@@ -71,15 +61,9 @@ export const useNovelStore = create<NovelStore>((set, get) => ({
   factions: [],
   dialogues: [],
 
-  // 书籍路径
-  currentBookPath: null,
-
   // 初始状态
   loading: true,
   error: null,
-  searchQuery: '',
-  selectedNodeType: null,
-  selectedNodeId: null,
   detailPanel: {
     visible: false,
     type: null,
@@ -96,12 +80,6 @@ export const useNovelStore = create<NovelStore>((set, get) => ({
     set(data);
     get().buildGraphData();
   },
-
-  setBookPath: (path) => set({ currentBookPath: path }),
-
-  setLoading: (loading) => set({ loading }),
-  setError: (error) => set({ error }),
-  setSearchQuery: (searchQuery) => set({ searchQuery }),
 
   // 显示详情
   showDetail: (type, id) => {
