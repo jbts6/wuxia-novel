@@ -8,6 +8,37 @@ const DATA_ROOT = path.resolve(ROOT, '..');
 const OUT_DIR = path.join(ROOT, 'dist-static');
 const BUILD_DIR = path.join(ROOT, 'dist-static-build');
 
+export function readBookData(bookDir) {
+  const data = {};
+
+  for (const fileName of NOVEL_DATA_FILES) {
+    const key = path.basename(fileName, '.json');
+    const filePath = path.join(bookDir, fileName);
+    if (!fs.existsSync(filePath)) {
+      data[key] = [];
+      continue;
+    }
+
+    try {
+      const raw = fs.readFileSync(filePath, 'utf8');
+      data[key] = JSON.parse(raw);
+    } catch (error) {
+      if (error instanceof SyntaxError) {
+        throw new Error(`Invalid JSON in ${fileName}: ${error.message}`);
+      }
+      throw error;
+    }
+  }
+
+  return data;
+}
+
+export function sumHtmlFileSizes(outDir) {
+  return fs.readdirSync(outDir, { recursive: true })
+    .filter(f => f.endsWith('.html'))
+    .reduce((sum, f) => sum + fs.statSync(path.join(outDir, f)).size, 0);
+}
+
 async function main() {
   console.log('Building static entry...');
   await build({
@@ -44,16 +75,7 @@ async function main() {
 
   for (const book of books) {
     const bookDir = path.join(DATA_ROOT, book.path);
-    const data = {};
-
-    for (const fileName of NOVEL_DATA_FILES) {
-      try {
-        const raw = fs.readFileSync(path.join(bookDir, fileName), 'utf8');
-        data[path.basename(fileName, '.json')] = JSON.parse(raw);
-      } catch {
-        data[path.basename(fileName, '.json')] = [];
-      }
-    }
+    const data = readBookData(bookDir);
 
     const html = `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -78,12 +100,7 @@ async function main() {
 
   fs.rmSync(BUILD_DIR, { recursive: true, force: true });
 
-  const totalSize = fs.readdirSync(OUT_DIR, { recursive: true })
-    .filter(f => f.endsWith('.html'))
-    .reduce((sum, f) => {
-      const authorDir = fs.readdirSync(OUT_DIR).find(d => fs.existsSync(path.join(OUT_DIR, d, f)));
-      return sum + (authorDir ? fs.statSync(path.join(OUT_DIR, authorDir, f)).size : 0);
-    }, 0);
+  const totalSize = sumHtmlFileSizes(OUT_DIR);
 
   console.log(`\nDone! Generated ${books.length} static HTML files in ${OUT_DIR}`);
   console.log(`Total size: ${(totalSize / 1024 / 1024).toFixed(1)} MB`);
@@ -97,7 +114,9 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error('Build failed:', err);
-  process.exit(1);
-});
+if (process.argv[1] === import.meta.filename) {
+  main().catch(err => {
+    console.error('Build failed:', err);
+    process.exit(1);
+  });
+}
