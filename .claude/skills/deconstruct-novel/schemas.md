@@ -55,7 +55,11 @@
 
 ### characters
 
-必填：`id`、`name`、`alias`、`identity`、`faction`、`role`、`archetype`、`rank`、`one_line`、`personality`、`relationships`、`known_skills`、`related_skills`、`rag_refs`、`source_refs`。
+必填：`id`、`name`、`alias`、`identity`、`faction`、`role`、`archetype`、`power_rank`、`importance`、`one_line`、`personality`、`relationships`、`known_skills`、`related_skills`、`rag_refs`、`source_refs`。
+
+`role` 为重要性等级，取值：核心/重要/次要/龙套/背景（五级制）。
+
+`rank` 仅为兼容别名，必须等于 `power_rank` 或作为 `legacy_rank` 保留旧值；不能承载角色重要性、英文标签或数字评分。
 
 `personality`：`traits` 至少 5 项，另有 `speech_style`、`temperament`。
 
@@ -63,7 +67,9 @@
 
 ### skills
 
-必填：`id`、`name`、`type`、`faction`、`rank`、`one_line`、`techniques`、`progression`、`effects`、`combat_style`、`rag_refs`、`source_refs`。
+必填：`id`、`name`、`type`、`faction`、`mastery_rank`、`one_line`、`techniques`、`progression`、`effects`、`combat_style`、`rag_refs`、`source_refs`。
+
+`rank` 仅为兼容别名，必须等于 `mastery_rank` 或作为 `legacy_rank` 保留旧值；不能承载角色强度、英文标签或物品稀有度。
 
 `techniques` 至少 2 项；如果原文明确描述了更多招式，必须全部提取，不要截断到 2 项。每项含 `id`、`name`、`type`、`description`。
 
@@ -83,7 +89,9 @@
 
 ### items
 
-必填：`id`、`name`、`type`、`owner`、`one_line`、`description`、`effects`、`origin`、`rarity`、`related_characters`、`related_skills`、`rag_refs`、`source_refs`。
+必填：`id`、`name`、`type`、`owner`、`one_line`、`description`、`effects`、`origin`、`rarity_tier`、`related_characters`、`related_skills`、`rag_refs`、`source_refs`。
+
+`rarity` 仅为兼容别名，必须等于 `rarity_tier` 或作为 `legacy_rarity` 保留旧值。
 
 `description` 至少 20 字。
 
@@ -94,7 +102,7 @@
 ```json
 {
   "id": "char_xxx",
-  "updates": { "rank": "出神入化", "source_refs": [] },
+  "updates": { "power_rank": "出神入化", "source_refs": [] },
   "relationship_updates": [
     { "action": "add", "target": "char_yyy", "type": "挚友", "intensity": 60, "bond_level": 3, "dynamic": "初识" }
   ]
@@ -103,7 +111,7 @@
 
 - 字段更新放 `updates`。
 - 关系更新放 `relationship_updates`，`action` 只能是 `add` 或 `update`。
-- `rank` 只在新值更高时更新；临时削弱写入描述，不降 rank。
+- `mastery_rank` 和 `power_rank` 只在新值更高时更新；临时削弱写入描述，不降 canonical rank。
 
 ## 最终输出
 

@@ -35,8 +35,8 @@
 | `item.type` | 兵器 / 暗器 / 防具 / 丹药 / 毒药 / 信物 / 秘籍 / 坐骑 / 食物 / 工具 / 饰品 |
 | `item.rarity_tier` | 寻常凡品 / 上乘佳品 / 稀世珍品 / 绝世神兵 / 未知 |
 | `faction.type` | 武林门派 / 帮派 / 家族 |
-| `character.role` | protagonist / companion / npc / villain |
-| `character.importance` | 主角 / 主要人物 / 配角 / 路人 / 未知 |
+| `character.role` | 核心 / 重要 / 次要 / 龙套 / 背景 |
+| `character.importance` | 核心 / 重要 / 次要 / 龙套 / 背景 |
 | `character.archetype` | scholar / warrior / monk / assassin / healer |
 | `relationship.type` | 挚友 / 恋人 / 师徒 / 宿敌 / 对手 / 主仆 / 合作者 / 亲属 |
 | `technique.type` | attack / defense / buff / debuff / feint / special |

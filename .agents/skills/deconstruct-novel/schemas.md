@@ -57,6 +57,8 @@
 
 必填：`id`、`name`、`alias`、`identity`、`faction`、`role`、`archetype`、`power_rank`、`importance`、`one_line`、`personality`、`relationships`、`known_skills`、`related_skills`、`rag_refs`、`source_refs`。
 
+`role` 为重要性等级，取值：核心/重要/次要/龙套/背景（五级制）。
+
 `rank` 仅为兼容别名，必须等于 `power_rank` 或作为 `legacy_rank` 保留旧值；不能承载角色重要性、英文标签或数字评分。
 
 `personality`：`traits` 至少 5 项，另有 `speech_style`、`temperament`。

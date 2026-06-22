@@ -12,7 +12,7 @@
 
 ## Rank
 
-只记录巅峰状态；更新时取更高值。
+只记录巅峰状态；更新时取更高值。功法 `mastery_rank` 与角色 `power_rank` 都使用这条序列，`返璞归真` 最强。
 
 | 顺序 | rank |
 |------|------|
@@ -25,15 +25,18 @@
 | 7 | 登峰造极 |
 | 8 | 返璞归真 |
 
+兼容字段 `rank` 只能同步对应 canonical 值，不能承载角色重要性、英文标签、数字评分或物品稀有度。
+
 ## 枚举
 
 | 字段 | 合法值 |
 |------|--------|
 | `skill.type` | 剑法 / 掌法 / 内功 / 轻功 / 暗器 / 指法 / 拳法 / 棍法 / 杖法 / 棒法 / 刀法 / 枪法 / 音攻 / 毒功 / 身法 / 点穴 / 医术 |
 | `item.type` | 兵器 / 暗器 / 防具 / 丹药 / 毒药 / 信物 / 秘籍 / 坐骑 / 食物 / 工具 / 饰品 |
-| `item.rarity` | 绝世神兵 / 稀世珍品 / 上乘佳品 / 寻常凡品 |
+| `item.rarity_tier` | 寻常凡品 / 上乘佳品 / 稀世珍品 / 绝世神兵 / 未知 |
 | `faction.type` | 武林门派 / 帮派 / 家族 |
-| `character.role` | protagonist / companion / npc / villain |
+| `character.role` | 核心 / 重要 / 次要 / 龙套 / 背景 |
+| `character.importance` | 核心 / 重要 / 次要 / 龙套 / 背景 |
 | `character.archetype` | scholar / warrior / monk / assassin / healer |
 | `relationship.type` | 挚友 / 恋人 / 师徒 / 宿敌 / 对手 / 主仆 / 合作者 / 亲属 |
 | `technique.type` | attack / defense / buff / debuff / feint / special |
@@ -117,9 +120,9 @@
 
 | 类型 | 保留首次 | 追加去重 | 覆盖/更新 |
 |------|----------|----------|-----------|
-| characters | `id`、`identity`、`faction`、`archetype` | `alias`、`personality.traits`、`relationships(target+type)`、`known_skills`、`related_skills`、`rag_refs`、`source_refs` | `name` 仅真名揭晓时更新；`role`、`one_line`、`speech_style`、`temperament` 覆盖；`rank` 取更高 |
-| skills | `id`、`name`、`type`、`faction` | `techniques(id)`、`progression(level)`、`effects`、`rag_refs`、`source_refs` | `rank` 取更高；`one_line`、`combat_style` 覆盖 |
+| characters | `id`、`identity`、`faction`、`archetype` | `alias`、`personality.traits`、`relationships(target+type)`、`known_skills`、`related_skills`、`rag_refs`、`source_refs` | `name` 仅真名揭晓时更新；`role`、`one_line`、`speech_style`、`temperament` 覆盖；`power_rank` 取更高；`importance` 按文本证据覆盖 |
+| skills | `id`、`name`、`type`、`faction` | `techniques(id)`、`progression(level)`、`effects`、`rag_refs`、`source_refs` | `mastery_rank` 取更高；`one_line`、`combat_style` 覆盖 |
 | techniques | `id`、`name`、`type`、`source_skill` | `source_refs` | `description` 覆盖 |
 | factions | `id`、`name`、`type`、`location` | `sub_divisions`、`source_refs` | `one_line` 覆盖 |
 | locations | `id`、`name`、`region` | `source_refs` | `one_line` 覆盖 |
-| items | `id`、`name`、`type`、`origin`、`rarity` | `effects`、`related_characters`、`related_skills`、`rag_refs`、`source_refs` | `owner`、`one_line`、`description` 覆盖 |
+| items | `id`、`name`、`type`、`origin`、`rarity_tier` | `effects`、`related_characters`、`related_skills`、`rag_refs`、`source_refs` | `owner`、`one_line`、`description` 覆盖 |

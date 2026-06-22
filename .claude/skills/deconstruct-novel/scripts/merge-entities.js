@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { validateChapterData } = require('./validators');
+const { normalizeSkill, normalizeCharacter, normalizeItem } = require('./semantic-fields');
 const CHAPTER_JSON_RE = /^ch_\d{3}\.json$/;
 
 const novelDir = process.argv[2];
@@ -64,6 +65,13 @@ let processedCount = 0;
 let newEntityCount = 0;
 let updateCount = 0;
 
+function normalizeEntityForType(type, entity) {
+  if (type === 'skills') return normalizeSkill(entity).entity;
+  if (type === 'characters') return normalizeCharacter(entity).entity;
+  if (type === 'items') return normalizeItem(entity).entity;
+  return entity;
+}
+
 for (const chapterFile of chapterFiles) {
   const chapterPath = path.join(batchJsonDir, chapterFile);
   let chapterData;
@@ -109,8 +117,9 @@ for (const chapterFile of chapterFiles) {
           updateCount++;
         } else {
           // 新实体
-          registry[type].push(entity);
-          index.set(entity.id, entity);
+          const normalized = normalizeEntityForType(type, entity);
+          registry[type].push(normalized);
+          index.set(normalized.id, normalized);
           newEntityCount++;
         }
       }
@@ -155,6 +164,8 @@ for (const chapterFile of chapterFiles) {
             entity[key] = value;
           }
         }
+        const normalized = normalizeEntityForType(entityType, entity);
+        Object.assign(entity, normalized);
         updateCount++;
       }
 
