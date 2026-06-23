@@ -30,116 +30,11 @@
     ]
   },
   {
-    "id": "tech_sheng_si_fu",
-    "name": "生死符",
-    "type": "debuff",
-    "description": "天山童姥施加的制人符毒，发作时苦楚极重，外人难解。",
-    "source_skill": "skill_sheng_si_fu",
-    "source_refs": [
-      {
-        "chapter": 1,
-        "line_start": 570,
-        "line_end": 592,
-        "text": "生死符发作起来求生不得，求死不能。"
-      }
-    ]
-  },
-  {
-    "id": "tech_fu_du_fa_zuo",
-    "name": "符毒发作",
-    "type": "debuff",
-    "description": "生死符潜伏后发作的痛苦状态，使中者受制于施术者。",
-    "source_skill": "skill_sheng_si_fu",
-    "source_refs": [
-      {
-        "chapter": 1,
-        "line_start": 570,
-        "line_end": 572,
-        "text": "通天草只能在生死符发作时稍稍减轻苦楚。"
-      }
-    ]
-  },
-  {
-    "id": "tech_yang_zhi_dian_xue",
-    "name": "扬指点穴",
-    "type": "control",
-    "description": "大理段氏名声中的点穴手段，扬指便可制住对手穴道。",
-    "source_skill": "skill_dian_xue_gong_fu",
-    "source_refs": [
-      {
-        "chapter": 1,
-        "line_start": 816,
-        "line_end": 828,
-        "text": "你段家的点穴功夫天下无双，伸出手指这么一指人家就不能动。"
-      }
-    ]
-  },
-  {
-    "id": "tech_shao_shang_zhi_yun_men",
-    "name": "少商至云门",
-    "type": "buff",
-    "description": "北冥神功第一课所述逆行经脉法，由少商至云门引入他人内力。",
-    "source_skill": "skill_bei_ming_shen_gong",
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 630,
-        "line_end": 638,
-        "text": "此手太阴肺经为北冥神功之第一课。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ji_xu_nei_li",
-    "name": "积蓄内力",
-    "type": "buff",
-    "description": "以北冥大水容百川为喻，强调积聚内力后天下武功皆可为用。",
-    "source_skill": "skill_bei_ming_shen_gong",
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 592,
-        "line_end": 602,
-        "text": "本派武功，以积蓄内力为第一要义。"
-      }
-    ]
-  },
-  {
-    "id": "tech_yi_jing_bu_fa",
-    "name": "易经步法",
-    "type": "defense",
-    "description": "凌波微步足印按易经卦位排列，绿线箭头贯串足印形成路线。",
-    "source_skill": "skill_ling_bo_wei_bu",
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 662,
-        "line_end": 668,
-        "text": "足印注明归妹、无妄等字样。"
-      }
-    ]
-  },
-  {
-    "id": "tech_bao_shen_bi_di",
-    "name": "保身避敌",
-    "type": "defense",
-    "description": "凌波微步用于避开强敌、保存自身，待积内力后再决定攻守。",
-    "source_skill": "skill_ling_bo_wei_bu",
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 668,
-        "line_end": 680,
-        "text": "步法神妙，保身避敌。"
-      }
-    ]
-  },
-  {
     "id": "tech_du_jian_lian_fa",
     "name": "毒箭连发",
-    "type": "暗器手法",
+    "type": "special",
     "description": "木婉清连发短箭，可在烛灭或乱战中迅速射倒多人。",
-    "source_skill": "skill_du_jian_an_qi",
+    "source_skill": "skill_qing_zi_jiu_da",
     "source_refs": [
       {
         "chapter": 3,
@@ -152,9 +47,9 @@
   {
     "id": "tech_jian_xue_feng_hou",
     "name": "见血封喉",
-    "type": "毒性效果",
+    "type": "debuff",
     "description": "短箭剧毒见血即致命，使敌人中箭后很快倒毙。",
-    "source_skill": "skill_du_jian_an_qi",
+    "source_skill": "skill_qing_zi_jiu_da",
     "source_refs": [
       {
         "chapter": 3,
@@ -167,7 +62,7 @@
   {
     "id": "tech_duan_chang_san_tou_du",
     "name": "断肠散投毒",
-    "type": "毒药手段",
+    "type": "poison",
     "description": "神农帮以断肠散控制段誉，声称七日后毒发身亡。",
     "source_skill": "skill_shen_nong_yong_du",
     "source_refs": [
@@ -182,7 +77,7 @@
   {
     "id": "tech_bian_yao_shi_du",
     "name": "辨药识毒",
-    "type": "药理能力",
+    "type": "support",
     "description": "司空玄毕生钻研药性，却把木婉清香粉误认为灵鹫宫灵药。",
     "source_skill": "skill_shen_nong_yong_du",
     "source_refs": [
@@ -195,122 +90,17 @@
     ]
   },
   {
-    "id": "tech_jie_li_zhuan_gong",
-    "name": "借力转攻",
-    "type": "身法剑招",
-    "description": "木婉清借铁铲铲柄变向，转而攻击平婆婆。",
-    "source_skill": "skill_mu_wan_qing_jian_fa",
-    "source_refs": [
-      {
-        "chapter": 3,
-        "line_start": 1072,
-        "line_end": 1082,
-        "text": "木婉清从鞍上纵身而起，向那老者扑去。 那老者白须飘动，年纪已着实不小，应变倒也极快，右手疾抖，铁铲向木婉清撩去。 木婉清身未落地，左足在铲柄上一借力，挺剑指向平婆婆。 平婆婆挥刀格去，嚓的一声，刀头已给剑锋削断，白刃如霜，直劈下来。 瑞婆婆急挥铁拐向木婉清背心扫去。木婉清不及剑伤平婆婆，长剑平拍，剑刃在平婆婆肩头一按，"
-      }
-    ]
-  },
-  {
-    "id": "tech_tie_guai_heng_sao",
-    "name": "铁拐横扫",
-    "type": "兵刃招",
-    "description": "瑞婆婆以铁拐扫击木婉清背心，与他人形成夹击。",
-    "source_skill": "skill_jiang_nan_zhui_sha_zhen",
-    "source_refs": [
-      {
-        "chapter": 3,
-        "line_start": 1078,
-        "line_end": 1082,
-        "text": "平婆婆挥刀格去，嚓的一声，刀头已给剑锋削断，白刃如霜，直劈下来。 瑞婆婆急挥铁拐向木婉清背心扫去。木婉清不及剑伤平婆婆，长剑平拍，剑刃在平婆婆肩头一按，轻飘飘的窜了出去。 瑞婆婆和两个男子同时攻上，木婉清剑光霍霍，在四人围攻下穿插来去。"
-      }
-    ]
-  },
-  {
-    "id": "tech_jian_guang_bian_huan",
-    "name": "剑光变幻",
-    "type": "剑招",
-    "description": "木婉清伤中变招，剑光如流星飘絮，连续逼开围攻者。",
-    "source_skill": "skill_mu_wan_qing_jian_fa",
-    "source_refs": [
-      {
-        "chapter": 3,
-        "line_start": 1124,
-        "line_end": 1150,
-        "text": "木婉清喝走钟灵，在四人之间穿来插去，腿上钩伤处隐隐作痛，剑招忽变，一缕缕剑光如流星飘絮，变幻无定。 忽听得那老者大叫一声，胁下中剑，木婉清唰唰唰三剑，将瑞婆婆和那使剑汉子逼得跳出圈子相避，剑锋回转，已将平婆婆卷入剑光之中。 顷刻之间，平婆婆身上已受了三处剑伤。她毫不理会，如疯虎般向木婉清扑去。 余下三人回身再斗。平婆婆"
-      }
-    ]
-  },
-  {
-    "id": "tech_duan_dao_jin_pu",
-    "name": "短刀近扑",
-    "type": "短兵招",
-    "description": "平婆婆滚近敌身以短刀削腿，凶悍贴身搏杀。",
-    "source_skill": "skill_jiang_nan_zhui_sha_zhen",
-    "source_refs": [
-      {
-        "chapter": 3,
-        "line_start": 1128,
-        "line_end": 1146,
-        "text": "顷刻之间，平婆婆身上已受了三处剑伤。她毫不理会，如疯虎般向木婉清扑去。 余下三人回身再斗。平婆婆滚近木婉清身畔，右手短刀往她小腿上削去。 木婉清飞腿将她踢了个筋斗，就在此时，瑞婆婆的铁拐已点到眉心。 木婉清迅即回转长剑，格开铁拐，顺势向敌人分心便刺。 瑞婆婆斜身闪过，横拐自保。木婉清轻吁一口气，正待变招，突然间噗的一声"
-      }
-    ]
-  },
-  {
-    "id": "tech_shan_dian_diao_pu_yao",
-    "name": "闪电貂扑咬",
-    "type": "毒兽攻击",
-    "description": "闪电貂疾如闪电般窜出扑咬目标，以齿伤制造中毒契机。",
-    "source_skill": "skill_shan_dian_diao_du",
-    "source_refs": [
-      {
-        "chapter": 4,
-        "line_start": 28,
-        "line_end": 32,
-        "text": "那小貂窜了出来，跟着有人大声吆喝：“咬这小贱人，咬她！”"
-      }
-    ]
-  },
-  {
-    "id": "tech_du_xing_kuo_san",
-    "name": "毒性扩散",
-    "type": "毒性发作",
-    "description": "闪电貂咬伤后毒力沿伤口迅速蔓延，使中毒者感到剧痛并陷入性命危险。",
-    "source_skill": "skill_shan_dian_diao_du",
-    "source_refs": [
-      {
-        "chapter": 4,
-        "line_start": 34,
-        "line_end": 58,
-        "text": "只觉左手背上一阵剧痛，已被那貂儿狠狠咬了一口。"
-      }
-    ]
-  },
-  {
     "id": "tech_xiu_jian_she_ji",
     "name": "袖箭射击",
-    "type": "暗器发射",
+    "type": "special",
     "description": "木婉清从袖中射出短箭，适合近距离突袭或压制敌人。",
-    "source_skill": "skill_xiu_jian_shu",
+    "source_skill": "skill_qing_zi_jiu_da",
     "source_refs": [
       {
         "chapter": 4,
         "line_start": 170,
         "line_end": 202,
         "text": "\"木婉清道：\"有人想爬上山来，是不是？\"\n段誉眼中泪水夺眶而出，举袖擦了擦眼泪，呜咽道：\"我失手打死了两人，又⋯⋯又吓得⋯⋯吓得跌死了一人。\n\"木婉清见他哭泣，好生奇怪，问道：\"那便怎样？\"段誉呜咽道：\"上天有好生之德，我⋯⋯我无故杀人，罪"
-      }
-    ]
-  },
-  {
-    "id": "tech_e_zui_jian_jia_ji",
-    "name": "鳄嘴剪夹击",
-    "type": "兵器招式",
-    "description": "南海鳄神以鳄嘴剪般的怪兵器或招式夹击敌人，声势凶猛。",
-    "source_skill": "skill_e_zui_jian_fa",
-    "source_refs": [
-      {
-        "chapter": 4,
-        "line_start": 360,
-        "line_end": 388,
-        "text": "\"\n木婉清冷冷的道：\"来不及啦。\"段誉还待再说，猛然间背心上一股大力推到，登时凌空飞出，一交摔入树丛，只跌得昏天黑地，幸好着地处长满了矮树，除了脸上擦破数处，并未受伤。\n他挣扎着爬起，只见那人已站在木婉清之前。\n段誉快步奔前，挡在木婉清身前"
       }
     ]
   },
@@ -366,138 +156,6 @@
     ]
   },
   {
-    "id": "tech_shao_shang_qu_li",
-    "name": "少商取力",
-    "type": "special",
-    "description": "北冥神功根基之一，以拇指少商穴取人内力。",
-    "source_skill": "skill_bei_ming_shen_gong",
-    "source_refs": [
-      {
-        "chapter": 5,
-        "line_start": 648,
-        "line_end": 654,
-        "text": "图中言道：手太阴肺经暨任脉，乃北冥神功根基，其中拇指之少商穴、及两乳间之膻中穴，尤为要中之要，前者取，后者贮。人有四海：胃者水谷之海，冲脉者十二经之海，膻中者气之海，脑者髓之海是也"
-      }
-    ]
-  },
-  {
-    "id": "tech_tan_zhong_zhu_qi",
-    "name": "膻中贮气",
-    "type": "buff",
-    "description": "北冥神功根基之一，将外来内力贮入膻中气海。",
-    "source_skill": "skill_bei_ming_shen_gong",
-    "source_refs": [
-      {
-        "chapter": 5,
-        "line_start": 648,
-        "line_end": 654,
-        "text": "图中言道：手太阴肺经暨任脉，乃北冥神功根基，其中拇指之少商穴、及两乳间之膻中穴，尤为要中之要，前者取，后者贮。人有四海：胃者水谷之海，冲脉者十二经之海，膻中者气之海，脑者髓之海是也"
-      }
-    ]
-  },
-  {
-    "id": "tech_ming_yi_qi_bu",
-    "name": "明夷起步",
-    "type": "feint",
-    "description": "凌波微步从卦位起步，借奇正转换避开追击。",
-    "source_skill": "skill_ling_bo_wei_bu",
-    "source_refs": [
-      {
-        "chapter": 5,
-        "line_start": 682,
-        "line_end": 696,
-        "text": "卷到卷轴末端，又见到了凌波微步那四字，登时便想起〈洛神赋〉中那些句子来：凌波微步，罗袜生尘⋯⋯转眄流精，光润玉颜。含辞未吐，气若幽兰。华容婀娜，令我忘餐。曹子建那些千古名句，在脑海"
-      }
-    ]
-  },
-  {
-    "id": "tech_liu_shi_si_gua_huan_xing",
-    "name": "六十四卦环行",
-    "type": "special",
-    "description": "将六十四卦步法踏成大圈，使身法圆转且经脉随之运行。",
-    "source_skill": "skill_ling_bo_wei_bu",
-    "source_refs": [
-      {
-        "chapter": 5,
-        "line_start": 882,
-        "line_end": 888,
-        "text": "未到正午，所有步法已尽数想通。他心下默念，将卷轴上所绘的六十四卦步法，自明夷起始，经贲、既济、家人，一共踏遍六十四卦，恰好走了一个大圈而至无妄，自知全套步法已然学会，大喜之下，跳起"
-      }
-    ]
-  },
-  {
-    "id": "tech_yi_yang_zhi_liao_shang",
-    "name": "一阳指疗伤",
-    "type": "buff",
-    "description": "段正淳以指掌并用替高升泰疗伤，使其脸色很快转有红晕。",
-    "source_skill": "skill_yi_yang_zhi",
-    "source_refs": [
-      {
-        "chapter": 6,
-        "line_start": 675,
-        "line_end": 681,
-        "text": "\"伸指搭他腕脉。高升泰道：\"我督脉上受了些伤，并不碍事，你⋯⋯你不用损耗功力⋯⋯\"一言未毕，镇南王已伸出右手食指，在他后颈中点了三指，左掌按住他腰间。 镇南王头顶冒出丝丝白气，过了一盏茶时分，才放开左掌。 高升泰道：\"淳哥，大敌当前，你何苦在这时候为我耗损内力？ \"镇南王笑道：\"你内伤不轻，早治一刻好一刻。待得见了大哥，他就不让我动手，自己要出指了。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ren_mai_qu_xue",
-    "name": "任脉取穴",
-    "type": "special",
-    "description": "段誉抓住膻中、神阙两处任脉要穴，误触北冥神功吸纳对手内力的关窍。",
-    "source_skill": "skill_bei_ming_shen_gong",
-    "source_refs": [
-      {
-        "chapter": 6,
-        "line_start": 1017,
-        "line_end": 1023,
-        "text": "段誉陡然间斜上一步，有若飘风，毛手毛脚的抓住了他胸口\"膻中穴\"，大拇指对准了穴道正中。 这一下手法笨拙之极，但段誉身上蕴藏了无量剑七名弟子的内力，虽不会运用，一抓之下，劲道却也不小。 南海鳄神只感胸口一窒，段誉左手又已抓住他肚脐上的\"神阙穴\"。 \"北冥神功\"卷轴上所绘经脉穴道甚多，段誉只练过手太阴肺经和任脉两图，这\"膻中\"、\"神阙\"两穴，正是任脉中的两大要穴"
-      },
-      {
-        "chapter": 6,
-        "line_start": 1115,
-        "line_end": 1129,
-        "text": "段誉看准穴道方位，右手抓住了他\"膻中穴\"，左手抓住了\"神阙穴\"。 他内力全然不会运使，虽已抓住了两处要穴，但若南海鳄神置之不理，不运内力而缓缓摆脱，段誉原也丝毫奈何他不得。 可是南海鳄神要害受制，心中惊了，双手急伸，突袭对方面门。 这一招以攻为守，攻的是段誉眼目要害，武学中所谓\"攻敌之不得不救\"，敌人再强，也非回手自救不可，那就摆脱了自己的危难，原是极高明的"
-      }
-    ]
-  },
-  {
-    "id": "tech_ling_bo_dui_zhan",
-    "name": "凌波对战",
-    "type": "defense",
-    "description": "段誉按六十四卦方位回旋进退，连续避开南海鳄神迅猛掌爪。",
-    "source_skill": "skill_ling_bo_wei_bu",
-    "source_refs": [
-      {
-        "chapter": 6,
-        "line_start": 1031,
-        "line_end": 1039,
-        "text": "厅上众人见此变故，无不惊诧万分。段正淳见南海鳄神出抓凌厉，正要出手阻格，却见段誉向左斜走，步法古怪，只跨出一步，便避开了对方奔雷闪电般的一抓。 段正淳喝采：\"妙极！\"南海鳄神第二掌跟着劈到。段誉并不还手，斜走两步，又已闪开。 南海鳄神两招不中，又惊又怒，见段誉站在自己面前，相距不过三尺，突然间大声狂吼，双手齐出，向他胸腹间急抓过去，臂上、手上、指上全都使上了"
-      },
-      {
-        "chapter": 6,
-        "line_start": 1073,
-        "line_end": 1089,
-        "text": "段誉凝神专志，轻轻念道：\"观我生，进退。艮其背，不获其人；行其庭，不见其人。 鼎耳革，其行塞。剥，不利有攸往。\"口中念着《易传》，竟不看南海鳄神的掌势来路，自管自的左上右下，斜进直退，走着\"凌波微步\"。 南海鳄神双掌加快，劲力增强，花厅中砰嘭、喀喇、呛啷、乒乓之声不绝，椅子、桌子、茶壶、茶杯纷纷随着他掌力而坏，但始终打不到段誉身上。 转眼间三十余招已过，保定"
-      }
-    ]
-  },
-  {
-    "id": "tech_yi_yang_zhi_zhu_li",
-    "name": "一阳指助力",
-    "type": "buff",
-    "description": "段正淳以食指抵住段誉大椎穴，送入暖气激发原有内力。",
-    "source_skill": "skill_yi_yang_zhi",
-    "source_refs": [
-      {
-        "chapter": 6,
-        "line_start": 1135,
-        "line_end": 1143,
-        "text": "段正淳和段誉相距不过数尺，见他脸如涂丹，越来越红，当即伸出食指抵在他后心\"大椎穴\"上。 大理段氏\"一阳指\"神功驰名天下，非同小可，一股融和的暖气透将过去，激发段誉体内原有的内力。 南海鳄神全身剧震，慢慢软倒。段正淳伸手扶住儿子。 段誉内息回顺，将南海鳄神送入自己手太阴肺经的内力缓缓贮向气海，一时却也说不出话来。 段正淳以\"一阳指\"暗助儿子，合父子二人之力方将"
-      }
-    ]
-  },
-  {
     "id": "tech_xiu_jian_lian_fa",
     "name": "袖箭连发",
     "type": "attack",
@@ -509,36 +167,6 @@
         "line_start": 40,
         "line_end": 40,
         "text": "木婉清叫道：\"师恩深重，师命难违！\"右手急扬，两枝毒箭向刀白凤当胸射去。"
-      }
-    ]
-  },
-  {
-    "id": "tech_xie_ci_chuan_xing",
-    "name": "斜刺穿行",
-    "type": "special",
-    "description": "凌波微步中的快速斜向穿插，用于抢到刀白凤身前挡箭。",
-    "source_skill": "skill_ling_bo_wei_bu",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 48,
-        "line_end": 48,
-        "text": "段誉曾数次见木婉清言谈间便飞箭杀人，她箭上喂的毒药厉害非常，端的是见血封喉，一见她挥动衣袖，便知不妙，他站在母亲身旁，苦于不会武功，没法代为挡格，当即脚下使出\"凌波微步\"，斜刺里穿到，挡在母亲身前，卜卜两声，两枝毒箭正中他胸口。"
-      }
-    ]
-  },
-  {
-    "id": "tech_feng_xue_zhi_xue",
-    "name": "封穴止血",
-    "type": "defense",
-    "description": "段正淳飞指连点段誉中箭处周围八处穴道，暂阻毒血归心。",
-    "source_skill": "skill_yi_yang_zhi",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 52,
-        "line_end": 52,
-        "text": "段正淳应变奇速，飞指而出，连点段誉中箭处周围八处穴道，使得毒血暂时不能归心，反手勾出，喀的一声，已卸脱木婉清右臂关节，令她不能再发毒箭，然后拍开她穴道，厉声道：\"取解药来！"
       }
     ]
   },
@@ -558,21 +186,6 @@
     ]
   },
   {
-    "id": "tech_zhang_feng_mie_zhu",
-    "name": "掌风灭烛",
-    "type": "attack",
-    "description": "五罗轻烟掌隔空劈熄红烛，显示掌风控制精细。",
-    "source_skill": "skill_wu_luo_qing_yan_zhang",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 136,
-        "line_end": 138,
-        "text": "段正淳不答，站起身来，忽地左掌向后斜劈，飕的一声轻响，身后一枝红烛随掌风而熄，跟着右掌向后斜劈，又一枝红烛陡然熄灭，如此连出五掌，劈熄了五枝红烛，眼光始终向前，出掌却如行云流水，潇洒之极。\n木婉清惊道：\"这⋯⋯这是'五罗轻烟掌'，你怎么也会？"
-      }
-    ]
-  },
-  {
     "id": "tech_xing_yun_zhang_shi",
     "name": "行云掌势",
     "type": "buff",
@@ -584,141 +197,6 @@
         "line_start": 136,
         "line_end": 152,
         "text": "段正淳不答，站起身来，忽地左掌向后斜劈，飕的一声轻响，身后一枝红烛随掌风而熄，跟着右掌向后斜劈，又一枝红烛陡然熄灭，如此连出五掌，劈熄了五枝红烛，眼光始终向前，出掌却如行云流水，潇洒之极。\n木婉清惊道：\"这⋯⋯这是'五罗轻烟掌'，你怎么也会？\n\"段正淳苦笑道：\"你师父教过你罢？\"木婉清道：\"我师父说，这套掌法她决不传人，日后要带进棺材里去。\n\"段正淳道：\"嗯，她说过决不传人，日后要带入土中？\n\"木婉清道：\"是啊！不过师父当我不在面前之时，时常独个儿练，我暗中却瞧得多了。\n\"段"
-      }
-    ]
-  },
-  {
-    "id": "tech_zhang_men_dian_xue",
-    "name": "章门点穴",
-    "type": "debuff",
-    "description": "点中腰间章门穴使秦红棉、甘宝宝软倒失去行动。",
-    "source_skill": "skill_dian_xue_shu",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 430,
-        "line_end": 436,
-        "text": "钟夫人道：\"有什么不好？\"段正淳反手出指，无声无息，点中了她腰间\"章门穴\"。\n钟夫人猝不及防，便即软倒。段正淳伸左手揽住了她，假作惊惶，叫道：\"啊哟！\n宝宝，你怎⋯⋯怎么啦？\"秦红棉不虞有诈，奔过来问道：\"师妹，什么事？\n\"段正淳\"一阳指\"点出，点中的同样是她腰间\"章门穴\"。"
-      }
-    ]
-  },
-  {
-    "id": "tech_huan_tiao_qu_quan",
-    "name": "环跳曲泉",
-    "type": "debuff",
-    "description": "点腿上环跳、曲泉两穴，使二女无法走动。",
-    "source_skill": "skill_dian_xue_shu",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 450,
-        "line_end": 450,
-        "text": "待众人退下，段正淳点了二女腿上\"环跳\"、\"曲泉\"两穴，令她们没法走动，然后笑吟吟的拍开二女腰间\"章门穴\"。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ge_kong_dian_xue",
-    "name": "隔空点穴",
-    "type": "special",
-    "description": "保定帝凭空出指解开钟夫人穴道，令钟万仇震惊。",
-    "source_skill": "skill_yi_yang_zhi",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 622,
-        "line_end": 626,
-        "text": "段正淳叫道：\"皇兄！\"保定帝点了点头，身子微侧，凭空出指，往钟夫人胸腹之间点去。\n钟夫人只觉丹田上首一热，两道暖流通向双腿，登时血脉畅通，站起身来。\n钟万仇见他露了这手\"隔空解穴\"的神技，满脸惊异之色，张大了口，一句话也说不出来，实不信世间居然有这等不可思议的能耐。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ling_kong_hou_yang",
-    "name": "凌空后仰",
-    "type": "defense",
-    "description": "高升泰在墙头后仰避开钟万仇双掌。",
-    "source_skill": "skill_tie_ban_qiao",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 662,
-        "line_end": 666,
-        "text": "钟万仇人在半空，退固不能，转向亦已不得，喝道：\"让开！\n\"双掌齐出，向高升泰击去。他想我这双掌之力足可开碑裂石，对方倘若硬接，定须将他震下墙去，就算对方和自己功力相若，也可借他之力，转向站上他身旁墙头。\n眼见双掌便要击上对方胸口，高升泰身子突向后仰，凌空使个\"铁板桥\"，两足仍牢牢钉在墙头，却已让开了双掌的扑击。"
-      }
-    ]
-  },
-  {
-    "id": "tech_qiang_tou_ding_zu",
-    "name": "墙头钉足",
-    "type": "buff",
-    "description": "铁板桥中两足牢牢钉在墙头保持平衡。",
-    "source_skill": "skill_tie_ban_qiao",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 666,
-        "line_end": 674,
-        "text": "眼见双掌便要击上对方胸口，高升泰身子突向后仰，凌空使个\"铁板桥\"，两足仍牢牢钉在墙头，却已让开了双掌的扑击。\n钟万仇一击不中，暗叫：\"不好！\"已从高升泰横卧的身上越过，这一着失了先机，胸腹下肢，尽皆门户大开，成了听由敌人任意宰割的局面。\n幸喜高升泰并不乘机袭击，钟万仇双足落地，暗叫：\"还好！\n\"跟着钟夫人和秦红棉越墙而出。\n高升泰站直身子，转身一揖，说道：\"不送了！\"钟万仇哼了一声，突觉裤子向下直堕，急忙伸手抓住，才算没出丑，一摸之下，裤带已断，才知适才从高升泰身上横越而过时"
-      }
-    ]
-  },
-  {
-    "id": "tech_bi_chun_chuan_yin",
-    "name": "闭唇传音",
-    "type": "special",
-    "description": "面部肌肉僵硬仍能清晰说话，令人误以为鬼魅。",
-    "source_skill": "skill_fu_yu_shu",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 742,
-        "line_end": 756,
-        "text": "只听得有声音说道：\"我确是活得不耐烦了。\"木婉清一惊非小，眼前就只这个怪人，然而清清楚楚的见到他嘴唇紧闭，决不是他在说话。\n她大声喝问：\"谁在说话？\"那声音道：\"你自己在说话啊！\n\"木婉清道：\"跟我说话的人是谁？\"那声音道：\"没人跟你说话。\n\"木婉清急速转身三次，除了自己的影子外，什么也看不到。\n这时已料定是这青袍客作怪，走近身去，大着胆子，伸手按住他嘴唇，问道：\"是你跟我说话吗？\n\"那声音道：\"不是！\"木婉清手掌中丝毫不觉颤动，又问：\"明明有人跟我说话，为什么说没人？\n\"那"
-      }
-    ]
-  },
-  {
-    "id": "tech_fu_yu_fa_sheng",
-    "name": "腹语发声",
-    "type": "special",
-    "description": "青袍客声音从肚中发出，口唇不动。",
-    "source_skill": "skill_fu_yu_shu",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 790,
-        "line_end": 802,
-        "text": "木婉清更无怀疑，情知声音便是眼前青袍老者所发，问道：\"你口唇不动，怎么会说话？\n\"那声音道：\"我是活死人，嘴唇动不来的，声音从肚子里发出来。\n\"\n木婉清年纪尚小，童心未脱，片刻之前还满腹哀愁，这时听他说居然能口唇不动而说话，不由得大感有趣，说道：\"用肚子也会说话，可当真奇了。\n\"青袍客道：\"你伸手摸摸我肚皮，就知道了。\"木婉清伸手按在他肚上。\n那青袍客道：\"我肚子在震动，你觉到了么？\"木婉清掌心之中，果然觉到他肚子随着声音而波动起伏，笑道：\"哈哈，真古怪！\n\"她不知这青袍客所"
-      }
-    ]
-  },
-  {
-    "id": "tech_tie_zhang_fei_yue",
-    "name": "铁杖飞跃",
-    "type": "special",
-    "description": "青袍客以铁杖点地纵跃，双足残废仍如青鸟越空。",
-    "source_skill": "skill_tie_zhang_qing_gong",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 826,
-        "line_end": 830,
-        "text": "青袍客道：\"你的心事，我自然知道。\"双手衣袖中分别伸出一根细细的黑铁杖，说道：\"走罢！\n\"左手铁杖在岩石上一点，已纵身而起，轻飘飘的落在丈许之外。\n木婉清见他双足凌空，虽只一根铁杖支地，身子却平稳之极，奇道：\"你的两只脚⋯⋯\"青袍客道：\"我双足残废已久。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tie_zhang_dian_xue",
-    "name": "铁杖点穴",
-    "type": "debuff",
-    "description": "青袍客用铁杖在木婉清膝弯连点，令其酸软倒地。",
-    "source_skill": "skill_tie_zhang_qing_gong",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 834,
-        "line_end": 838,
-        "text": "木婉清道：\"我要是再问呢？\"几个字刚出口，突然双腿酸软，摔倒在地，原来青袍客快若飘风般欺近，右手铁杖在她膝弯连点两下，跟着举杖击下，只打得她双腿痛入骨髓，\"啊\"的一声，大叫出来。\n青袍客接着铁杖连点，解开了她穴道，手法奇快。木婉清急跃而起，怒道：\"你这人好生无礼！\n\"扣住袖中短箭，便欲发射。"
       }
     ]
   },
@@ -738,36 +216,6 @@
     ]
   },
   {
-    "id": "tech_bu_fa_shan_bi",
-    "name": "步法闪避",
-    "type": "defense",
-    "description": "段誉在石室中以复杂步法躲开木婉清连环掌击。",
-    "source_skill": "skill_ling_bo_wei_bu",
-    "source_refs": [
-      {
-        "chapter": 7,
-        "line_start": 1020,
-        "line_end": 1022,
-        "text": "这一次段誉有了防备，脚下一错，使出\"凌波微步\"，已闪到了她身后。\n木婉清反手一掌，段誉又已躲开。石室不过丈许见方，但\"凌波微步\"委实神妙之极，木婉清出掌越来越快，却再也打他不到。"
-      }
-    ]
-  },
-  {
-    "id": "tech_xiong_kou_zhong_chu",
-    "name": "胸口中杵",
-    "type": "attack",
-    "description": "大韦陀杵击中胸口后令肋骨根根断折，是玄悲死因线索。",
-    "source_skill": "skill_da_wei_tuo_chu",
-    "source_refs": [
-      {
-        "chapter": 9,
-        "line_start": 678,
-        "line_end": 684,
-        "text": "黄眉僧一直静听不语，忽然插口道：\"玄悲大师可是胸口中了敌人的一招'大韦陀杵'而圆寂么？\n\"慧真一惊，说道：\"大师所料不错，不知如何⋯⋯如何⋯⋯\"黄眉僧道：\"久闻少林玄悲大师'大韦陀杵'功夫乃武林一绝，中杵者肋骨根根断折。\n这门武功自然厉害之极，但终究太过霸道，似乎非我佛门弟子⋯⋯唉！\n\"段誉插嘴道：\"是啊，这门功夫太过狠辣。\""
-      }
-    ]
-  },
-  {
     "id": "tech_wei_tuo_gang_jin",
     "name": "韦陀刚劲",
     "type": "attack",
@@ -779,51 +227,6 @@
         "line_start": 678,
         "line_end": 684,
         "text": "黄眉僧一直静听不语，忽然插口道：\"玄悲大师可是胸口中了敌人的一招'大韦陀杵'而圆寂么？\n\"慧真一惊，说道：\"大师所料不错，不知如何⋯⋯如何⋯⋯\"黄眉僧道：\"久闻少林玄悲大师'大韦陀杵'功夫乃武林一绝，中杵者肋骨根根断折。\n这门武功自然厉害之极，但终究太过霸道，似乎非我佛门弟子⋯⋯唉！\n\"段誉插嘴道：\"是啊，这门功夫太过狠辣。\""
-      }
-    ]
-  },
-  {
-    "id": "tech_ruan_bian_lie_ding",
-    "name": "软鞭裂顶",
-    "type": "attack",
-    "description": "天灵千裂中击向头顶要害的杀招，足以粉碎头盖。",
-    "source_skill": "skill_tian_ling_qian_lie",
-    "source_refs": [
-      {
-        "chapter": 9,
-        "line_start": 726,
-        "line_end": 738,
-        "text": "段正淳点头道：\"那就是了。\"突然想起一事，说道：\"过彦之过大爷的师父柯百岁，听说擅用软鞭，鞭上的劲力却是纯刚一路，杀敌时往往一鞭击得对方头盖粉碎，难道他⋯⋯他⋯⋯\"击掌三下，召来一名侍仆，道：\"请崔先生和过大爷到这里，说我有事相商。\n\"那侍仆应道：\"是！\"但他不知崔先生是谁，迟疑不走。\n高升泰笑道：\"崔先生便是帐房中那个霍先生。\"那侍仆这才大声应了一个\"是\""
-      }
-    ]
-  },
-  {
-    "id": "tech_gang_jin_ruan_bian",
-    "name": "刚劲软鞭",
-    "type": "attack",
-    "description": "以刚猛内劲贯入软鞭，使软兵器产生硬打威力。",
-    "source_skill": "skill_tian_ling_qian_lie",
-    "source_refs": [
-      {
-        "chapter": 9,
-        "line_start": 726,
-        "line_end": 738,
-        "text": "段正淳点头道：\"那就是了。\"突然想起一事，说道：\"过彦之过大爷的师父柯百岁，听说擅用软鞭，鞭上的劲力却是纯刚一路，杀敌时往往一鞭击得对方头盖粉碎，难道他⋯⋯他⋯⋯\"击掌三下，召来一名侍仆，道：\"请崔先生和过大爷到这里，说我有事相商。\n\"那侍仆应道：\"是！\"但他不知崔先生是谁，迟疑不走。\n高升泰笑道：\"崔先生便是帐房中那个霍先生。\"那侍仆这才大声应了一个\"是\""
-      }
-    ]
-  },
-  {
-    "id": "tech_ling_kong_zhi_li",
-    "name": "凌空指力",
-    "type": "attack",
-    "description": "金刚指指力可凌空发出，荡开兵器或直击人体。",
-    "source_skill": "skill_jin_gang_zhi",
-    "source_refs": [
-      {
-        "chapter": 9,
-        "line_start": 838,
-        "line_end": 844,
-        "text": "'马鞭距那花驴臀边尚有尺许，只听得嗤的一声，那少年回身一指，指力凌空而来，将我的马鞭荡得飞了出去。\n这一下可将我吓得呆了，他这一指指力凌厉，远胜于我。\n只听那妇人道：'既出了手，便得了结。'那少年道：'是。\n'勒转花驴，向我冲过来。我伸左掌使一招'拦云手'向他推去，突然间嗤的一声，他伸指戳出，我只觉左边胸口一痛，全身劲力尽失。"
       }
     ]
   },
@@ -847,7 +250,7 @@
     "name": "算珠激射",
     "type": "attack",
     "description": "以机括或内力射出算盘珠，能隔空嵌入敌身。",
-    "source_skill": "skill_suan_pan_zhu_an_qi",
+    "source_skill": "skill_qing_zi_jiu_da",
     "source_refs": [
       {
         "chapter": 9,
@@ -862,7 +265,7 @@
     "name": "算珠定身",
     "type": "control",
     "description": "算盘珠击中要处后令敌人僵立不动，难以挣脱。",
-    "source_skill": "skill_suan_pan_zhu_an_qi",
+    "source_skill": "skill_qing_zi_jiu_da",
     "source_refs": [
       {
         "chapter": 9,
@@ -875,7 +278,7 @@
   {
     "id": "tech_guan_chong_jian",
     "name": "关冲剑",
-    "type": "无名指剑气",
+    "type": "attack",
     "description": "六脉神剑一路，自丹田至手少阳三焦经脉，聚气于无名指关冲穴射出。",
     "source_skill": "skill_liu_mai_shen_jian",
     "source_refs": [
@@ -890,7 +293,7 @@
   {
     "id": "tech_shao_chong_jian",
     "name": "少冲剑",
-    "type": "小指剑气",
+    "type": "attack",
     "description": "六脉神剑一路，经手少阴心经运气，剑路轻灵迅速，临敌可忽发奇袭。",
     "source_skill": "skill_liu_mai_shen_jian",
     "source_refs": [
@@ -905,7 +308,7 @@
   {
     "id": "tech_shao_ze_jian",
     "name": "少泽剑",
-    "type": "小指剑气",
+    "type": "attack",
     "description": "少泽剑本为无形剑气，段誉在酒气与真气混合时循其线路运行，意外把酒水由左手小指逼出。",
     "source_skill": "skill_liu_mai_shen_jian",
     "source_refs": [
@@ -939,7 +342,7 @@
   {
     "id": "tech_zhong_chong_jian",
     "name": "中冲剑",
-    "type": "中指剑气",
+    "type": "attack",
     "description": "六脉神剑一路，气势浑厚，中正强劲，可正面破敌。",
     "source_skill": "skill_liu_mai_shen_jian",
     "source_refs": [
@@ -961,7 +364,7 @@
   {
     "id": "tech_shang_yang_jian",
     "name": "商阳剑",
-    "type": "食指剑气",
+    "type": "attack",
     "description": "六脉神剑一路，灵动精巧，段誉后来以此误发剑气。",
     "source_skill": "skill_liu_mai_shen_jian",
     "source_refs": [
@@ -997,111 +400,6 @@
         "line_start": 124,
         "line_end": 130,
         "text": "\"阿朱道：\"公子的棒法使得好快，从头至尾便如行云流水一般⋯⋯\"那女子\"啊\"的一声轻呼，道：\"不好！ 他⋯⋯他当真使得很快？\"阿朱道：\"是啊，有什么不对么？ \"那女子道：\"自然不对。打狗棒法的心法我虽不知，但从'水阁'中书册上看来，有几路定要越慢越好，有几路却要忽快忽慢，快中有慢，慢中有快。 他⋯⋯他一味抢快，跟丐帮中高"
-      }
-    ]
-  },
-  {
-    "id": "tech_da_gou_bang_fa_xin_fa_pei_he",
-    "name": "心法配合",
-    "type": "buff",
-    "description": "棒法须以内劲心法配合，单凭招式难以真正发挥威力。",
-    "source_skill": "skill_da_gou_bang_fa",
-    "source_refs": [
-      {
-        "chapter": 12,
-        "line_start": 106,
-        "line_end": 114,
-        "text": "姑娘放心好啦。\"那女子幽幽的道：\"丐帮'打狗棒法'与'降龙廿八掌'两大神技，是丐帮的不传之秘。 你们'还施水阁'和我家'琅嬛玉洞'的藏谱拼凑起来，也只一些残缺不全的棒法，运功的心法却全然没有。 你家公子可怎生练？\" 阿朱道：\"公子说道，这'打狗棒法'的心法既是人创的，他为什么就想不出？ 有了棒法，自己再想了心法加上去，"
-      }
-    ]
-  },
-  {
-    "id": "tech_xiang_long_gang_meng_zhang_jin",
-    "name": "刚猛掌劲",
-    "type": "attack",
-    "description": "降龙廿八掌以刚猛掌劲闻名，本章作为丐帮神技被提及。",
-    "source_skill": "skill_xiang_long_nian_ba_zhang",
-    "source_refs": [
-      {
-        "chapter": 12,
-        "line_start": 106,
-        "line_end": 108,
-        "text": "姑娘放心好啦。\"那女子幽幽的道：\"丐帮'打狗棒法'与'降龙廿八掌'两大神技，是丐帮的不传之秘。 你们'还施水阁'和我家'琅嬛玉洞'的藏谱拼凑起来，也只一些残缺不全的棒法，运功的心法却全然没有。"
-      }
-    ]
-  },
-  {
-    "id": "tech_xiang_long_lian_huan_zhang_shi",
-    "name": "连环掌势",
-    "type": "attack",
-    "description": "降龙廿八掌多路掌势互相呼应，构成丐帮镇帮绝学。",
-    "source_skill": "skill_xiang_long_nian_ba_zhang",
-    "source_refs": [
-      {
-        "chapter": 12,
-        "line_start": 106,
-        "line_end": 108,
-        "text": "姑娘放心好啦。\"那女子幽幽的道：\"丐帮'打狗棒法'与'降龙廿八掌'两大神技，是丐帮的不传之秘。 你们'还施水阁'和我家'琅嬛玉洞'的藏谱拼凑起来，也只一些残缺不全的棒法，运功的心法却全然没有。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tou_gu_shan",
-    "name": "透骨扇",
-    "type": "attack",
-    "description": "清凉扇法第三十八招，倒转扇柄斜打肩贞。",
-    "source_skill": "skill_qing_liang_shan_fa",
-    "source_refs": [
-      {
-        "chapter": 12,
-        "line_start": 808,
-        "line_end": 812,
-        "text": "那少女道：\"嗯，这是'清凉扇'法的打穴功夫，第三十八招'透骨扇'，倒转扇柄，斜打肩贞。 这位朱先生是昆仑旁支、三因观门下弟子，这一派武功，用判官笔比用扇柄更厉害。 你说正经的罢，不用跟我说武功。\""
-      }
-    ]
-  },
-  {
-    "id": "tech_shan_bing_da_xue",
-    "name": "扇柄打穴",
-    "type": "debuff",
-    "description": "以扇柄点穴制敌，使对方身体瘫软难动。",
-    "source_skill": "skill_qing_liang_shan_fa",
-    "source_refs": [
-      {
-        "chapter": 12,
-        "line_start": 800,
-        "line_end": 806,
-        "text": "\"咳嗽一声，说道：\"我自己不会武功，什么'金鸡独立'、'黑虎偷心'，最容易的招式也不会一招。 但我乡下有个朋友，姓朱，名叫朱丹臣，外号叫作'笔砚生'，你别瞧他文文弱弱的，好像跟我一样，只道也是个书呆子，嘿，他的武功可真不小。 有一天我见他把扇子一收拢，倒了转来，噗的一声，扇子柄在一条大汉肩膀上这么一点，那大汉便缩成一团"
-      }
-    ]
-  },
-  {
-    "id": "tech_yi_rong_shu_mian_fen_zong_gao",
-    "name": "面粉粽膏",
-    "type": "special",
-    "description": "阿朱用面粉粽膏改换年龄容貌，使四人化成渔人渔婆。",
-    "source_skill": "skill_yi_rong_shu",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 52,
-        "line_end": 54,
-        "text": "阿朱以面粉粽膏霎时改变四人年纪容貌。"
-      }
-    ]
-  },
-  {
-    "id": "tech_yi_rong_shu_yu_ren_qiao_zhuang",
-    "name": "渔人乔装",
-    "type": "special",
-    "description": "借渔舟渔网鱼篓和衣衫混入水榭，掩饰真实身份。",
-    "source_skill": "skill_yi_rong_shu",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 46,
-        "line_end": 56,
-        "text": "阿朱借衣裳和渔具带众人扮作渔人。"
       }
     ]
   },
@@ -1162,36 +460,6 @@
         "line_start": 334,
         "line_end": 338,
         "text": "诸保昆称暗器是青字第四打青蜂钉。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tian_wang_bu_xin_zhen_lian_fa",
-    "name": "天王补心针连发",
-    "type": "attack",
-    "description": "蓬莱派霸道暗器，可借锥中机簧连续射出钢针。",
-    "source_skill": "skill_tian_wang_bu_xin_zhen",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 322,
-        "line_end": 330,
-        "text": "诸保昆心想锥中共有一十二枚钢针，可不停击锤连发。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tian_wang_bu_xin_zhen_ji_huang_cang_zhen",
-    "name": "机簧藏针",
-    "type": "attack",
-    "description": "把强力机簧藏入弯曲锥尖之内，伪饰外形而直线发针。",
-    "source_skill": "skill_tian_wang_bu_xin_zhen",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 344,
-        "line_end": 348,
-        "text": "旁观众人看出锥中空管藏有强力机簧。"
       }
     ]
   },
@@ -1346,216 +614,6 @@
     ]
   },
   {
-    "id": "tech_pao_xiao_xia_shan_dan_dao_tuo_shou",
-    "name": "单刀脱手",
-    "type": "attack",
-    "description": "秦家寨投掷单刀的绝技，七八斤重刀脱手飞掷。",
-    "source_skill": "skill_pao_xiao_xia_shan",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 928,
-        "line_end": 934,
-        "text": "秦家寨副寨主发令后群盗以单刀脱手相救。"
-      }
-    ]
-  },
-  {
-    "id": "tech_pao_xiao_xia_shan_qun_dao_qi_zhi",
-    "name": "群刀齐掷",
-    "type": "attack",
-    "description": "十余柄单刀同时掷出，风声呼呼，令人难挡难避。",
-    "source_skill": "skill_pao_xiao_xia_shan",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 930,
-        "line_end": 936,
-        "text": "十余柄单刀齐向司马林飞去。"
-      }
-    ]
-  },
-  {
-    "id": "tech_da_wei_tuo_chu_fo_men_quan_li",
-    "name": "大韦陀杵拳力",
-    "type": "attack",
-    "description": "少林相关刚猛拳力，被传用于击杀玄悲而嫁祸慕容氏。",
-    "source_skill": "skill_da_wei_tuo_chu",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 1188,
-        "line_end": 1190,
-        "text": "包不同询问玄悲被大韦陀杵打死的经过。"
-      }
-    ]
-  },
-  {
-    "id": "tech_da_wei_tuo_chu_wan_li_fa_li",
-    "name": "万里发力",
-    "type": "special",
-    "description": "包不同讥称慕容氏不可能万里外发出大韦陀杵拳力。",
-    "source_skill": "skill_da_wei_tuo_chu",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 1250,
-        "line_end": 1254,
-        "text": "包不同以万里外发力反驳慕容复杀玄悲。"
-      }
-    ]
-  },
-  {
-    "id": "tech_suo_hou_gong_suo_hou",
-    "name": "锁喉",
-    "type": "attack",
-    "description": "马大元成名绝技，被凶手反用来杀马大元以嫁祸姑苏慕容。",
-    "source_skill": "skill_suo_hou_gong",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 1278,
-        "line_end": 1285,
-        "text": "包不同说明马大元被自己的锁喉功所杀。"
-      }
-    ]
-  },
-  {
-    "id": "tech_suo_hou_gong_jia_huo_shou_fa",
-    "name": "嫁祸手法",
-    "type": "special",
-    "description": "以死者成名绝技反杀死者，制造以彼之道还施彼身假象。",
-    "source_skill": "skill_suo_hou_gong",
-    "source_refs": [
-      {
-        "chapter": 13,
-        "line_start": 1266,
-        "line_end": 1285,
-        "text": "包不同推断有人用各派绝技嫁祸姑苏慕容。"
-      }
-    ]
-  },
-  {
-    "id": "tech_qiao_feng_ji_xing",
-    "name": "疾行追风",
-    "type": "buff",
-    "description": "乔峰以大步疾行催发脚力，越走越快，能在顷刻间远远赶在段誉前头。",
-    "source_skill": "skill_qiao_feng_qing_gong",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 284,
-        "line_end": 300,
-        "text": "乔峰越走越快，出城后迈开大步顺路疾趋而前。"
-      }
-    ]
-  },
-  {
-    "id": "tech_qiao_feng_bu_fa_shi_tan",
-    "name": "步法试探",
-    "type": "feint",
-    "description": "乔峰在疾行中反复加速和稍缓，借此观察段誉是否能追上，判断其内力胜过自己。",
-    "source_skill": "skill_qiao_feng_qing_gong",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 300,
-        "line_end": 306,
-        "text": "乔峰数次加快又被段誉追上，心下佩服并判断长途胜负。"
-      }
-    ]
-  },
-  {
-    "id": "tech_gai_bang_ji_ben",
-    "name": "丐帮疾奔",
-    "type": "movement",
-    "description": "丐帮弟子在大路上疾奔传讯，晃眼间奔至乔峰跟前。",
-    "source_skill": "skill_gai_bang_qing_gong",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 424,
-        "line_end": 426,
-        "text": "那两人施展轻功，晃眼间便奔到跟前。"
-      }
-    ]
-  },
-  {
-    "id": "tech_gong_shen_ting_ling",
-    "name": "躬身听令",
-    "type": "movement",
-    "description": "丐帮弟子奔到帮主面前后齐齐躬身禀报并听命，兼具礼数和组织纪律。",
-    "source_skill": "skill_gai_bang_qing_gong",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 426,
-        "line_end": 440,
-        "text": "一齐躬身，一人说道：\"启禀帮主……\"那两名汉子脸露喜色，齐声应道：\"是！"
-      }
-    ]
-  },
-  {
-    "id": "tech_feng_bo_e_heng_kan",
-    "name": "横砍而至",
-    "type": "attack",
-    "description": "风波恶手中单刀白光耀眼，向红脸老者横砍而至。",
-    "source_skill": "skill_feng_bo_e_dao_fa",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 584,
-        "line_end": 586,
-        "text": "白光耀眼，他手中已多了一柄单刀，横砍而至。"
-      }
-    ]
-  },
-  {
-    "id": "tech_feng_bo_e_lian_kan_si_dao",
-    "name": "连砍四刀",
-    "type": "attack",
-    "description": "风波恶趁白须老者闪身相让时呼呼连砍四刀，势若飘风迅捷无比。",
-    "source_skill": "skill_feng_bo_e_dao_fa",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 596,
-        "line_end": 600,
-        "text": "向他呼呼呼呼的连砍四刀，全是进手招数，势若飘风，迅捷无比。"
-      }
-    ]
-  },
-  {
-    "id": "tech_li_jin_sheng_xin_li",
-    "name": "力尽生新力",
-    "type": "attack",
-    "description": "通臂拳拳势看似已尽，末端又生新力，拳头继续向前伸出半尺。",
-    "source_skill": "skill_tong_bi_quan",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 618,
-        "line_end": 620,
-        "text": "这一拳似乎拳力已尽，偏是力尽处又有新力生出，拳头更向前伸了半尺。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tong_bi_mian_men_ji",
-    "name": "面门击",
-    "type": "attack",
-    "description": "长臂老者左臂回转挥拳往风波恶面门击去。",
-    "source_skill": "skill_tong_bi_quan",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 616,
-        "line_end": 618,
-        "text": "长臂老者陡然间袋交右手，左臂回转，挥拳往他面门击去。"
-      }
-    ]
-  },
-  {
     "id": "tech_yao_luo_quan_tou",
     "name": "咬落拳头",
     "type": "counter",
@@ -1616,36 +674,6 @@
     ]
   },
   {
-    "id": "tech_wu_se_xie_ding_shou",
-    "name": "五色蝎钉手",
-    "type": "poison",
-    "description": "五色小蝎从麻袋中出，尾巴牢牢钉住风波恶手背。",
-    "source_skill": "skill_cai_xie_du",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 676,
-        "line_end": 680,
-        "text": "只见一只小小蝎子钉上了自己手背……蝎子尾巴牢牢钉住了他手背。"
-      }
-    ]
-  },
-  {
-    "id": "tech_du_xing_su_xing",
-    "name": "毒性速行",
-    "type": "poison",
-    "description": "五色彩蝎毒性发作极快，虽非见血封喉却如响应声。",
-    "source_skill": "skill_cai_xie_du",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 696,
-        "line_end": 698,
-        "text": "那五色彩蝎的毒性行得快速之极，虽非见血封喉，却也如响斯应。"
-      }
-    ]
-  },
-  {
     "id": "tech_ruan_bian_hui_da_jin",
     "name": "软鞭回打劲",
     "type": "attack",
@@ -1672,96 +700,6 @@
         "line_start": 650,
         "line_end": 652,
         "text": "使那麻袋的手法，有大别山回打软鞭十三式的劲道。"
-      }
-    ]
-  },
-  {
-    "id": "tech_san_jie_gun_tao_zi",
-    "name": "三节棍套子",
-    "type": "combo",
-    "description": "湖北阮家三节棍套式痕迹夹在麻袋手法之中，被王语嫣点破。",
-    "source_skill": "skill_ruan_jia_san_jie_gun",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 650,
-        "line_end": 656,
-        "text": "也夹着湖北阮家八十一路三节棍的套子……三节棍是家传的功夫。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ruan_jia_lian_huan",
-    "name": "阮家连环",
-    "type": "attack",
-    "description": "阮家家传三节棍的连环旧学，虽被长臂叟摒弃仍在剧斗中自然露出。",
-    "source_skill": "skill_ruan_jia_san_jie_gun",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 656,
-        "line_end": 658,
-        "text": "不料幼时所学的武功虽竭力摒弃，到了剧斗酣战之际，自然而然的便露了出来。"
-      }
-    ]
-  },
-  {
-    "id": "tech_da_gou_zhen_he_wei",
-    "name": "四面合围",
-    "type": "formation",
-    "description": "丐帮帮众从四面奔出，持兵刃围住包不同、风波恶和两名长老。",
-    "source_skill": "skill_da_gou_zhen",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 856,
-        "line_end": 858,
-        "text": "东南西北四面的丐帮帮众之中，每一处都奔出十余人、二十余人不等，各持兵刃。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tao_fan_diao_ling",
-    "name": "讨饭调令",
-    "type": "command",
-    "description": "陈长老唱乞丐讨饭调用作打狗阵进攻号令。",
-    "source_skill": "skill_da_gou_zhen",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 880,
-        "line_end": 884,
-        "text": "南面弟兄来讨饭哟……其实是在施发进攻的号令。"
-      }
-    ]
-  },
-  {
-    "id": "tech_qiang_zhu_san_shi",
-    "name": "抢珠三式",
-    "type": "grab",
-    "description": "乔峰起手制风波恶、包不同的龙爪手擒拿招式之一。",
-    "source_skill": "skill_long_zhua_shou",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 888,
-        "line_end": 892,
-        "text": "左手往他面门抓去……好一招'龙爪手''抢珠三式'！"
-      }
-    ]
-  },
-  {
-    "id": "tech_pei_ran_you_yu",
-    "name": "沛然有雨",
-    "type": "grab",
-    "description": "龙爪手招式，肘撞、掌斩、抓气户穴连续完成。",
-    "source_skill": "skill_long_zhua_shou",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 890,
-        "line_end": 898,
-        "text": "左肘要撞你胸口，右掌要斩你腰胁，右手跟着抓你'气户穴'，这是'龙爪手'的'沛然有雨'。"
       }
     ]
   },
@@ -1796,39 +734,9 @@
     ]
   },
   {
-    "id": "tech_suo_hou",
-    "name": "锁喉",
-    "type": "grab",
-    "description": "锁喉擒拿手的咽喉控制手法，是马副帮主成名绝技核心。",
-    "source_skill": "skill_suo_hou_qin_na_shou",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 974,
-        "line_end": 976,
-        "text": "马二哥死于'锁喉擒拿手'的功夫之下。"
-      }
-    ]
-  },
-  {
-    "id": "tech_qin_na_zhi_di",
-    "name": "擒拿制敌",
-    "type": "grab",
-    "description": "锁喉擒拿手以擒拿制服对手，因马副帮主遇害而成为疑案线索。",
-    "source_skill": "skill_suo_hou_qin_na_shou",
-    "source_refs": [
-      {
-        "chapter": 14,
-        "line_start": 974,
-        "line_end": 976,
-        "text": "马二哥的'锁喉擒拿手'天下无双无对。"
-      }
-    ]
-  },
-  {
     "id": "tech_fan_shou_kou_xue",
     "name": "反手扣穴",
-    "type": "grab",
+    "type": "control",
     "description": "乔峰不转身倒退近身，反手扣住全冠清中庭和鸠尾两穴。",
     "source_skill": "skill_qiao_feng_fan_kou_zhi_xue",
     "source_refs": [
@@ -1867,7 +775,8 @@
         "line_end": 1,
         "text": "第十七回"
       }
-    ]
+    ],
+    "source_skill": "skill_mu_rong_fu_za_zhao"
   },
   {
     "id": "tech_da_mo_fei_sha",
@@ -1881,112 +790,8 @@
         "line_end": 949,
         "text": "王语嫣道：\"适才你使了青海玉树派那一招'大漠飞沙'之后，段公子快步而过，你若使太乙派的'羽衣刀'第十七招，再使灵飞派的'清风徐来'，早就将段公子打倒在地了，何必华而不实的去用山西郝家刀法？"
       }
-    ]
-  },
-  {
-    "id": "tech_lan_lu_duo_ren",
-    "name": "拦路夺人",
-    "type": "healing",
-    "description": "薛神医被传能从阎罗王手下夺回将死之人，象征其起死回生般的救治能力。",
-    "source_skill": "skill_xue_shen_yi_yi_shu",
-    "source_refs": [
-      {
-        "chapter": 19,
-        "line_start": 34,
-        "line_end": 38,
-        "text": "他早听说薛神医是当世医中第一圣手，只因\"神医\"两字太出名，连他本来名字大家也都不知道了。\n\n江湖上传说更加夸大，说他连死人也医得活，至于活人，不论受了多么重的伤，生了多么重的病，他总能有法子治好，因此令得阴间的阎罗王也大为头痛，派了无常小鬼去拘人，往往给薛神医从旁阻挠，拦路夺人。\n\n这薛神医不但医道如神，武功也颇了得。他爱和江湖上的朋友结交，给人治了病，往往向对方请教一两招武功。"
-      }
-    ]
-  },
-  {
-    "id": "tech_jie_jiao_wu_gong",
-    "name": "借教武功",
-    "type": "support",
-    "description": "薛神医治好江湖人物后请教对方最得意招数，借医恩积累各派武学见闻。",
-    "source_skill": "skill_xue_shen_yi_yi_shu",
-    "source_refs": [
-      {
-        "chapter": 19,
-        "line_start": 38,
-        "line_end": 40,
-        "text": "这薛神医不但医道如神，武功也颇了得。他爱和江湖上的朋友结交，给人治了病，往往向对方请教一两招武功。\n\n对方感他活命之恩，传授时自然决不藏私，教他的都是自己最得意的功夫。"
-      }
-    ]
-  },
-  {
-    "id": "tech_cang_shen_fa_sheng",
-    "name": "藏身发声",
-    "type": "support",
-    "description": "谭青口唇不动而发出细声，使众人难辨说话方位。",
-    "source_skill": "skill_tan_qing_fu_yu",
-    "source_refs": [
-      {
-        "chapter": 19,
-        "line_start": 686,
-        "line_end": 732,
-        "text": "人丛中忽有一个细声细气的声音说道：\"是啊，你是杂种，自己也不知道是什么种！\n\n\"这人便是先前曾出言讥刺丐帮的，只是他挤在人丛之中，说得一两句话便即住口，谁也不知到底是谁，群雄几次向声音发出处注目查察，始终没见到是谁口唇在动。\n\n若说那人身材矮小，这群人中也无特异矮小之人。\n\n乔峰听了这几句话，凝目瞧了半晌，点了点头，不加理会，向薛神医续道：\"倘若我是汉人，你今日如此辱我，乔某岂能善罢干休？\n\n倘若我果然是契丹人，决意和大宋豪杰为敌，第一个便要杀你，免得我伤一个大宋英雄，你便救一位大宋好汉。\n\n是也不是？\"薛神医道：\"不错，不管怎样，你都是要杀我的了。\n\n\"乔峰道：\"我求你今日救了这位姑娘，一命还一命，乔某永远不动你一根寒毛便是。\n\n\"薛神医嘿嘿冷笑，道：\"老夫生平救人治病，只有受人求恳，从不受人胁迫。\n\n\"乔峰道：\"一命还一命，甚是公平，也说不了是什么胁迫。\n\n\"\n\n人丛中那细声细气的声音忽然又道：\"你羞也不羞？你自己转眼便要给人乱刀斩成肉酱，还说什么饶人性命？\n\n你⋯⋯\"\n\n乔峰突然一声怒喝：\"滚出来！\"声震屋瓦，梁上灰尘簌簌而落。\n\n群雄个个耳中雷鸣，心跳加剧。人丛中一条大汉应声而出，摇摇晃晃的站立不定，便似醉酒一般。\n\n这人身穿青袍，脸色灰败，群雄都不认得他是谁。\n\n谭公忽然叫道：\"啊，他是追魂杖谭青。是了，他是'恶贯满盈'的弟子。\n\n\"\n\n丐帮群豪听得他是\"四大恶人\"之首\"恶贯满盈\"的弟子，更加怒不可遏，齐声喝骂，心中却也均栗栗危惧。\n\n原来那日西夏赫连铁树将军，以及一品堂众高手中了自己\"悲酥清风\"之毒，尽为丐帮所擒。\n\n不久\"恶贯满盈\"段延庆赶到，丐帮群豪无一是他敌手。\n\n段延庆以奇臭解药解除一品堂众高手所中毒质，群起反戈而击，丐帮反而吃了大亏。\n\n群丐对段延庆又恼且惧，均觉丐帮中既没了乔峰，此后再遇上这\"天下第一大恶人\"，终究仍难抗拒。\n\n只见追魂杖谭青脸上肌肉扭曲，显得全身痛楚已极，双手不住乱抓胸口，从他身上发出话声道：\"我⋯⋯我和你无怨无仇，何⋯⋯何故破我法术？\n\n\"说话仍细声细气，只是断断续续、上气不接下气，口唇却丝毫不动。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ling_kong_pai_zhang",
-    "name": "凌空拍掌",
-    "type": "attack",
-    "description": "乔峰掌力疾吐如无形兵刃，可隔空击中远处敌手。",
-    "source_skill": "skill_qiao_feng_pi_kong_zhang",
-    "source_refs": [
-      {
-        "chapter": 19,
-        "line_start": 760,
-        "line_end": 764,
-        "text": "乔峰喝道：\"留下罢！\"挥掌凌空拍出，掌力疾吐，便如有一道无形兵刃，击在云中鹤背心。\n\n云中鹤闷哼一声，重重摔落，背心着地，口中鲜血狂喷，有如泉涌。\n\n那谭青却仍直立，只不过忽而跄踉向东，忽而蹒跚向西，口中咿咿啊啊的胡言乱语，甚是滑稽。"
-      }
-    ]
-  },
-  {
-    "id": "tech_xiu_di_quan_jin",
-    "name": "袖底拳劲",
-    "type": "attack",
-    "description": "玄难以衣袖遮掩拳劲，使敌人难看清拳势来路。",
-    "source_skill": "skill_shao_lin_xiu_li_qian_kun",
-    "source_refs": [
-      {
-        "chapter": 19,
-        "line_start": 980,
-        "line_end": 990,
-        "text": "他这几句话本意是向玄难道歉，但玄难听在耳中，却是加倍的不受用，哼了一声，道：\"薛神医想考较考较少林派的功夫，是也不是？\n\n\"不等他回答，便即缓步而前，大袖飘动，袖底呼呼呼的拳力向乔峰发出。\n\n他这门功夫乃少林寺七十二绝技之一，叫作\"袖里乾坤\"，衣袖拂起，拳劲却在袖底发出。\n\n少林高僧自来以参禅学佛为本，练武习拳为末，嗔怒已然犯戒，何况出手打人？\n\n但少林派数百年来以武学为天下之宗，又岂能不动拳脚？\n\n这路\"袖里乾坤\"拳藏袖底，形相便雅观得多。衣袖似是拳劲的掩饰，旨在令敌人无法看到拳势来路，攻他个措手不及。"
-      }
-    ]
-  },
-  {
-    "id": "tech_chong_zhen_zhan_jiang",
-    "name": "冲阵斩将",
-    "type": "attack",
-    "description": "乔峰以太祖长拳中的冲阵斩将反攻玄难，拳势勇猛精妙。",
-    "source_skill": "skill_tai_zu_chang_quan",
-    "source_refs": [
-      {
-        "chapter": 19,
-        "line_start": 1018,
-        "line_end": 1028,
-        "text": "乔峰见旁人退开，蓦地心念一动，呼的一拳打出，一招\"冲阵斩将\"，也正是\"太祖长拳\"中的招数。\n\n这一招姿式既潇洒大方已极，劲力更是刚中有柔，柔中有刚，武林高手毕生所盼望达到的拳术完美之境，便在这一招中表露无遗。\n\n来到这英雄宴中的人物，就算本身武功不是甚高，见识也必广博，\"太祖拳法\"的精要所在，可说无人不知。\n\n乔峰一招打出，人人都情不自禁的喝了一声采！\n\n这满堂大采之后，随即有许多人觉得不妥，这声喝采，是赞誉各人欲杀之而甘心的胡虏大敌，如何可以长敌人志气，灭自己威风？\n\n但采声已然出口，再也缩不回来，眼见乔峰第二招\"河朔立威\"一般的精极妙极，比之他第一招，实难分辨到底那一招更为佳妙，大厅上仍有不少人大声喝采。"
-      }
-    ]
-  },
-  {
-    "id": "tech_he_shuo_li_wei",
-    "name": "河朔立威",
-    "type": "attack",
-    "description": "太祖长拳中的河朔立威被乔峰使得妙绝，使群豪忍不住喝采。",
-    "source_skill": "skill_tai_zu_chang_quan",
-    "source_refs": [
-      {
-        "chapter": 19,
-        "line_start": 1028,
-        "line_end": 1032,
-        "text": "但采声已然出口，再也缩不回来，眼见乔峰第二招\"河朔立威\"一般的精极妙极，比之他第一招，实难分辨到底那一招更为佳妙，大厅上仍有不少人大声喝采。\n\n只是有些人憬然惊觉，自知收敛，采声便不及第一招时那么响亮，但许多\"哦，哦！\n\n\"\"呵，呵！\"的低声赞叹，钦服之忱，未必不及那大声叫好。"
-      }
-    ]
+    ],
+    "source_skill": "skill_yu_shu_pai_dao_fa"
   },
   {
     "id": "tech_fo_zhi_dian_xue",
@@ -2000,21 +805,6 @@
         "line_start": 1058,
         "line_end": 1064,
         "text": "玄寂眼见玄难转瞬便临生死关头，更不打话，嗤的一指，点向乔峰的\"璇玑穴\"，使的是少林派的点穴绝技\"天竺佛指\"。\n\n乔峰听他一指点出，挟着极轻微的嗤嗤声响，侧身避过，说道：\"久仰'天竺佛指'的名头，果然了得！\n\n你以天竺胡人的武功，来攻我大宋太祖的拳法。倘若你打胜了我，岂不是通番卖国，有辱堂堂中华上国？\n\n\""
-      }
-    ]
-  },
-  {
-    "id": "tech_yuan_dun_pan_xuan",
-    "name": "圆盾盘旋",
-    "type": "defense",
-    "description": "乔峰夺过游氏钢盾后盘旋飞舞，盾缘锋锐可攻可守。",
-    "source_skill": "skill_you_shi_gang_dun",
-    "source_refs": [
-      {
-        "chapter": 19,
-        "line_start": 1178,
-        "line_end": 1188,
-        "text": "乔峰一瞥之间，见圆盾边缘极是锋锐，却是开了口的，如同是一柄圆斧相似，这一下若给划上了，身子登时断为两截，端的厉害无比，当即喝道：\"好家伙！\n\n\"抛去手中单刀，左手一拳，当的一声巨响，击在游骥圆盾正中，右手也是一拳，当的一声巨响，击在游驹圆盾正中。\n\n游氏双雄只感半身酸麻，在乔峰刚猛无俦的拳力震撼之下，眼前金星飞舞，双臂酸软，盾牌和刀枪再也拿捏不住，四件兵刃呛啷啷落地。\n\n两人左手虎口同时震裂，满手鲜血。乔峰笑道：\"好极，送了这两件利器给我！\n\n\"双手抢起钢盾，盘旋飞舞。这两块钢盾实为攻守俱佳的利器，只听得\"啊唷\"、\"呵呵\"几声惨呼，已有五人死在钢盾之下。\n\n游氏兄弟脸如土色，神气灰败。游骥叫道：\"兄弟，师父说道：'盾在人在，盾亡人亡。"
       }
     ]
   },
@@ -2049,69 +839,9 @@
     ]
   },
   {
-    "id": "tech_lao_gong_zhi_zhi",
-    "name": "劳宫指制",
-    "type": "defense",
-    "description": "将食指放在自己颊边，指向敌掌劳宫穴，使对手掌未及面颊先触要穴。",
-    "source_skill": "skill_ren_xue_zhi_zhang",
-    "source_refs": [
-      {
-        "chapter": 20,
-        "line_start": 72,
-        "line_end": 76,
-        "text": "这食指所向，正是那大汉掌心的劳宫穴。"
-      }
-    ]
-  },
-  {
-    "id": "tech_lian_huan_zhi_xue",
-    "name": "连环指穴",
-    "type": "defense",
-    "description": "随对方掌背、掌缘变招，连续指向二间、后溪、前谷等穴，令敌掌难落。",
-    "source_skill": "skill_ren_xue_zhi_zhang",
-    "source_refs": [
-      {
-        "chapter": 20,
-        "line_start": 78,
-        "line_end": 86,
-        "text": "乔峰也迅速之极的转过手指，指尖对住了他手背上的二间穴。"
-      }
-    ]
-  },
-  {
-    "id": "tech_chan_si_kou_mai",
-    "name": "缠丝扣脉",
-    "type": "debuff",
-    "description": "以缠丝劲扣住对方脉门，令其腕臂和内息一时受制。",
-    "source_skill": "skill_chan_si_qin_na_shou",
-    "source_refs": [
-      {
-        "chapter": 20,
-        "line_start": 250,
-        "line_end": 250,
-        "text": "白世镜长老，答允传他七招'缠丝擒拿手'。"
-      }
-    ]
-  },
-  {
-    "id": "tech_chan_si_fan_na",
-    "name": "缠丝反拿",
-    "type": "special",
-    "description": "利用对方近身动作反手扣腕，转守为擒，适合近距离突袭。",
-    "source_skill": "skill_chan_si_qin_na_shou",
-    "source_refs": [
-      {
-        "chapter": 20,
-        "line_start": 314,
-        "line_end": 316,
-        "text": "那天晚上我假装晕倒，他来给我搭脉，我反手一扣，就抓住了他脉门。"
-      }
-    ]
-  },
-  {
     "id": "tech_ban_ruo_zhang_yi_kong_dao_di",
     "name": "一空到底",
-    "type": "心法",
+    "type": "internal",
     "source_skill": "skill_ban_ruo_zhang",
     "description": "般若掌最高关窍之一，迟姓老者因萧峰大仁大义撤掌相让而悟成。",
     "source_refs": [
@@ -2126,7 +856,7 @@
   {
     "id": "tech_ban_ruo_zhang_shuang_zhang_hua_quan",
     "name": "双掌画圈",
-    "type": "招式",
+    "type": "attack",
     "source_skill": "skill_ban_ruo_zhang",
     "description": "迟姓老者双掌分别画圈同时推出，作为般若掌与萧峰试掌的起手方式。",
     "source_refs": [
@@ -2139,223 +869,9 @@
     ]
   },
   {
-    "id": "tech_yi_yang_zhi_dian_xue",
-    "name": "一阳指点穴",
-    "type": "点穴",
-    "description": "段氏一阳指的制穴运用，可令康敏等人穴道受制。",
-    "source_skill": "skill_yi_yang_zhi",
-    "effects": [
-      "克敌制胜"
-    ],
-    "rag_refs": [],
-    "source_refs": [
-      {
-        "chapter": 24,
-        "line_start": 250,
-        "line_end": 264,
-        "text": "有的便想污言秽语骂上几句，苦于没法开口出声。 段正淳左手撑在炕边，用力想站起身来，但身子刚挺直，双膝酸软，又即坐倒，笑道：\"我也没半点力气啦，当真奇了。 我一见到你，便如耗子见了猫，全身都酸软啦。\"马夫人轻笑道：\"我不依你，只喝了这一点儿，"
-      }
-    ]
-  },
-  {
-    "id": "tech_hua_du_ru_jiu",
-    "name": "化毒入酒",
-    "type": "debuff",
-    "description": "阿紫以手指浸入酒中，片刻便令酒水剧毒，入口舌肿乌黑。",
-    "source_skill": "skill_xing_su_du_gong",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 173,
-        "line_end": 183,
-        "text": "手指只在酒中浸了一会"
-      }
-    ]
-  },
-  {
-    "id": "tech_du_zhang",
-    "name": "毒掌",
-    "type": "attack",
-    "description": "摩云子掌心炙热且蕴有剧毒，抓住萧峰手腕试图令毒力透体。",
-    "source_skill": "skill_xing_su_du_gong",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 331,
-        "line_end": 339,
-        "text": "知对方掌心蕴有剧毒"
-      }
-    ]
-  },
-  {
-    "id": "tech_ju_du_chong",
-    "name": "聚毒虫",
-    "type": "buff",
-    "description": "神木王鼎能聚集毒虫，是修炼星宿邪功的前置手段。",
-    "source_skill": "skill_bu_lao_chang_chun_gong",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 797,
-        "line_end": 803,
-        "text": "神木王鼎能聚集毒虫"
-      }
-    ]
-  },
-  {
-    "id": "tech_xi_du_chong_jing_hua",
-    "name": "吸毒虫精华",
-    "type": "buff",
-    "description": "通过吸取毒虫精华来加功增气、驻颜不老。",
-    "source_skill": "skill_bu_lao_chang_chun_gong",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 797,
-        "line_end": 803,
-        "text": "吸了毒虫的精华"
-      }
-    ]
-  },
-  {
-    "id": "tech_hua_ren_gong_li",
-    "name": "化人功力",
-    "type": "debuff",
-    "description": "化功大法恶名所在，可损化他人功力。",
-    "source_skill": "skill_hua_gong_da_fa",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 797,
-        "line_end": 803,
-        "text": "化功大法"
-      }
-    ]
-  },
-  {
-    "id": "tech_wang_ding_zhu_lian",
-    "name": "王鼎助练",
-    "type": "buff",
-    "description": "借神木王鼎辅助修习化功大法。",
-    "source_skill": "skill_hua_gong_da_fa",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 797,
-        "line_end": 803,
-        "text": "神木王鼎是本门的三宝之一"
-      }
-    ]
-  },
-  {
-    "id": "tech_lian_xin_dan",
-    "name": "炼心弹",
-    "type": "attack",
-    "description": "摘星子以袖中蓝色火花惩戒同门，火毒入肉后痛楚持续。",
-    "source_skill": "skill_xing_su_du_gong",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 989,
-        "line_end": 1001,
-        "text": "这是小号的炼心弹"
-      }
-    ]
-  },
-  {
-    "id": "tech_bi_yan_kong_huo",
-    "name": "碧焰控火",
-    "type": "attack",
-    "description": "摘星子以内力推动绿色火焰，或烧绳、或逼杀阿紫。",
-    "source_skill": "skill_xing_su_du_gong",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 1123,
-        "line_end": 1155,
-        "text": "火焰中又分出一道细细的绿火"
-      }
-    ]
-  },
-  {
-    "id": "tech_bi_xi_zha_si",
-    "name": "闭息诈死",
-    "type": "feint",
-    "description": "阿紫伏在雪地中闭住鼻息，诱使萧峰以为她濒死。",
-    "source_skill": "skill_gui_xi_gong",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 1447,
-        "line_end": 1453,
-        "text": "有一门龟息功夫，可以闭住呼吸"
-      }
-    ]
-  },
-  {
-    "id": "tech_kou_zhong_du_zhen",
-    "name": "口中毒针",
-    "type": "attack",
-    "description": "阿紫睁眼时从口中喷出蓝色细针，直射萧峰眉心。",
-    "source_skill": "skill_gui_xi_gong",
-    "source_refs": [
-      {
-        "chapter": 25,
-        "line_start": 1451,
-        "line_end": 1459,
-        "text": "一枚蓝晃晃的细针急喷而出"
-      }
-    ]
-  },
-  {
-    "id": "tech_duan_xing_cheng_jiu_shen_zu_gong",
-    "name": "断行成就神足功",
-    "source_skill": "skill_yu_san_mo_di_duan_xing_cheng_jiu_shen_zu_jing",
-    "description": "依红色小箭头导引经脉运行的法门，可吸纳冰蚕寒毒，但未全学会时会入而不出。",
-    "effect": "导引寒毒入体并积蓄为内力隐患",
-    "source_refs": [
-      {
-        "chapter": 29,
-        "line_start": 54,
-        "line_end": 76,
-        "text": "游坦之只学会一项法门，入而不出，寒毒将他冻僵。"
-      }
-    ]
-  },
-  {
-    "id": "tech_bing_can_yin_jin",
-    "name": "冰蚕阴劲",
-    "source_skill": "skill_yu_san_mo_di_duan_xing_cheng_jiu_shen_zu_jing",
-    "description": "游坦之吸纳冰蚕寒毒并以神足经瑜伽术修成的凌厉阴寒掌劲。",
-    "effect": "掌力附极凌厉阴劲，可随手击毙野兽。",
-    "source_refs": [
-      {
-        "chapter": 29,
-        "line_start": 124,
-        "line_end": 142,
-        "text": "游坦之随手一掌击毙饿狼，内力中已附有极凌厉的阴劲。"
-      }
-    ]
-  },
-  {
-    "id": "tech_sha_ren_yu_wu_xing",
-    "name": "杀人于无形",
-    "source_skill": "skill_xing_xiu_du_gong",
-    "description": "星宿派以剧毒暗害敌人的手段，受害者不见明伤而死。",
-    "effect": "中毒者面露诡异笑容后毙命",
-    "source_refs": [
-      {
-        "chapter": 29,
-        "line_start": 400,
-        "line_end": 432,
-        "text": "星宿派人物自夸杀人于无形，两个哑巴使者已中毒而死。"
-      }
-    ]
-  },
-  {
     "id": "tech_du_she_zhen",
     "name": "毒蛇阵",
-    "source_skill": "skill_gai_bang_bu_she_yu_du",
+    "source_skill": "skill_fu_shi_du",
     "description": "丐帮以毒蛇毒虫布阵，对付星宿派剧毒手段的阵势。",
     "effect": "群丐散开盘坐，以毒攻毒防备星宿派来袭。",
     "source_refs": [
@@ -2365,179 +881,15 @@
         "line_end": 500,
         "text": "全冠清命群丐布毒蛇阵，以毒攻毒对抗星宿派。"
       }
-    ]
-  },
-  {
-    "id": "tech_tie_shao_du_fen",
-    "name": "铁哨毒粉",
-    "source_skill": "skill_hua_gong_da_fa",
-    "description": "从铁哨喷出毒粉，再以羽扇拨动伤人。",
-    "effect": "隔空击倒多人。",
-    "source_refs": [
-      {
-        "chapter": 29,
-        "line_start": 532,
-        "line_end": 546,
-        "text": "击倒丐帮人众的是铁哨中喷出的毒粉。"
-      }
-    ]
-  },
-  {
-    "id": "tech_hua_qu_nei_li",
-    "name": "化去内力",
-    "type": "运功",
-    "description": "无崖子用北冥神功将虚竹的少林内力化去。",
-    "source_skill": "skill_bei_ming_shen_gong",
-    "source_refs": [
-      {
-        "chapter": 31,
-        "line_start": 925,
-        "line_end": 925,
-        "text": "无崖子用北冥神功将虚竹的少林内力化去。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ni_yun_chuan_gong",
-    "name": "逆运传功",
-    "type": "运功",
-    "description": "无崖子逆运北冥神功，将七十余年修为注入虚竹体内。",
-    "source_skill": "skill_bei_ming_shen_gong",
-    "source_refs": [
-      {
-        "chapter": 31,
-        "line_start": 1073,
-        "line_end": 1073,
-        "text": "无崖子逆运北冥神功，将七十余年修为注入虚竹体内。"
-      }
-    ]
-  },
-  {
-    "id": "tech_shi_zhi_jian_qi",
-    "name": "食指剑气",
-    "type": "剑气",
-    "description": "段誉食指点出，以六脉神剑打落慕容复手中长剑。",
-    "source_skill": "skill_liu_mai_shen_jian",
-    "source_refs": [
-      {
-        "chapter": 31,
-        "line_start": 393,
-        "line_end": 393,
-        "text": "段誉食指点出，以六脉神剑打落慕容复手中长剑。"
-      }
-    ]
-  },
-  {
-    "id": "tech_mi_yin_zhi_dian",
-    "name": "密音指点",
-    "type": "传音",
-    "description": "段延庆暗中传音，指点虚竹下棋。",
-    "source_skill": "skill_chuan_yin_ru_mi",
-    "source_refs": [
-      {
-        "chapter": 31,
-        "line_start": 749,
-        "line_end": 749,
-        "text": "段延庆暗中传音，指点虚竹下棋。"
-      }
-    ]
-  },
-  {
-    "id": "tech_mi_ren_xin_po",
-    "name": "迷人心魄",
-    "type": "邪术",
-    "description": "丁春秋在旁施展邪术，迷惑范百龄、慕容复、段延庆等人心神。",
-    "source_skill": "skill_xing_su_xie_gong",
-    "source_refs": [
-      {
-        "chapter": 31,
-        "line_start": 215,
-        "line_end": 215,
-        "text": "丁春秋在旁施展邪术，迷惑范百龄、慕容复、段延庆等人心神。"
-      }
-    ]
-  },
-  {
-    "id": "tech_san_xiao_du_fen",
-    "name": "三笑毒粉",
-    "type": "debuff",
-    "description": "以无色无臭细微毒粉暗害敌人，中者笑声干涩，最终气绝。",
-    "source_skill": "skill_san_xiao_xiao_yao_san",
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 38,
-        "line_end": 46,
-        "text": "他是中了师父\"三笑逍遥散\"之毒；这毒粉无色无臭，细微之极。"
-      }
-    ]
-  },
-  {
-    "id": "tech_wu_xing_zhuan_du",
-    "name": "无形转毒",
-    "type": "special",
-    "description": "借势将细微毒粉转送到旁人身上，使施毒者误伤己方。",
-    "source_skill": "skill_san_xiao_xiao_yao_san",
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 44,
-        "line_end": 48,
-        "text": "慕容复谈笑之间，没见他举手抬足，便将毒粉转到了旁人身上。"
-      }
-    ]
-  },
-  {
-    "id": "tech_jie_li_da_li",
-    "name": "借力打力",
-    "type": "special",
-    "description": "把敌方劲力转换方向，使对手自作自受或转嫁给旁人。",
-    "source_skill": "skill_dou_zhuan_xing_yi",
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 114,
-        "line_end": 116,
-        "text": "乃是一门借力打力之技，叫作\"斗转星移\"。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tui_qi_huan_jin",
-    "name": "推气换劲",
-    "type": "special",
-    "description": "抓住第三者后旁拨侧挑，把化功毒质改由旁人承受。",
-    "source_skill": "skill_dou_zhuan_xing_yi",
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 110,
-        "line_end": 116,
-        "text": "慕容复抓住星宿弟子的胸口，以斗转星移借力打力。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tian_ling_qian_lie",
-    "name": "天灵千裂",
-    "type": "attack",
-    "description": "伏牛派不传之秘，曾被疑为杀害崔百泉师兄的绝招。",
-    "source_skill": "skill_fu_niu_pai_wu_gong",
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 564,
-        "line_end": 566,
-        "text": "好像我师哥这招“天灵千裂”，是我伏牛派的不传之秘。"
-      }
-    ]
+    ],
+    "type": "special"
   },
   {
     "id": "tech_shi_po_tian_jing",
     "name": "石破天惊",
     "type": "attack",
     "description": "邓百川以内力掌风施展的刚猛招式，可将强敌震落深谷。",
-    "source_skill": "skill_deng_bai_chuan_zhang_fa",
+    "source_skill": "skill_ban_ruo_zhang",
     "source_refs": [
       {
         "chapter": 33,
@@ -2548,71 +900,11 @@
     ]
   },
   {
-    "id": "tech_gui_qu_lai_xi",
-    "name": "归去来兮",
-    "type": "attack",
-    "description": "五斗米神功中的招式，使吐出之物半空转弯，打向指定穴道。",
-    "source_skill": "skill_wu_dou_mi_shen_gong",
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 862,
-        "line_end": 876,
-        "text": "这口痰吐出之后，竟会在半空中转弯；端木洞主，你练成了这“归去来兮”的五斗米神功。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tan_jin_da_xue",
-    "name": "痰劲打穴",
-    "type": "attack",
-    "description": "痰中含劲，打人穴道，劲力不小且路线诡异。",
-    "source_skill": "skill_wu_dou_mi_shen_gong",
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 862,
-        "line_end": 872,
-        "text": "那大头老者咳嗽一声，一口浓痰吐出，疾向包不同脸上射来。"
-      }
-    ]
-  },
-  {
-    "id": "tech_di_huo_yun_jin",
-    "name": "地火运劲",
-    "type": "buff",
-    "description": "赤焰洞地火功的基本运劲法门，为门中旁门技巧根基。",
-    "source_skill": "skill_di_huo_gong",
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 890,
-        "line_end": 896,
-        "text": "地火功是赤焰洞一派的基本功夫。"
-      }
-    ]
-  },
-  {
-    "id": "tech_chi_yan_hua_gong",
-    "name": "赤焰化功",
-    "type": "special",
-    "description": "借地火功名义解释诡异功夫，以遮掩五斗米神功。",
-    "source_skill": "skill_di_huo_gong",
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 890,
-        "line_end": 900,
-        "text": "端木洞主这功夫原来不是五斗米神功，那么想必是从地火功中化出来的一门神妙功夫。"
-      }
-    ]
-  },
-  {
     "id": "tech_jin_deng_wan_zhan",
     "name": "金灯万盏",
     "type": "attack",
     "description": "刀光连环幻出点点寒光，借视觉声势逼退众敌。",
-    "source_skill": null,
+    "source_skill": "skill_mu_rong_fu_za_zhao",
     "source_refs": [
       {
         "chapter": 34,
@@ -2627,7 +919,7 @@
     "name": "披襟当风",
     "type": "defense",
     "description": "以袖劲牵引敌招，使对手双锤互击自伤。",
-    "source_skill": null,
+    "source_skill": "skill_mu_rong_fu_za_zhao",
     "source_refs": [
       {
         "chapter": 34,
@@ -2642,7 +934,7 @@
     "name": "凭虚临风",
     "type": "buff",
     "description": "以拂尘真气反激地面托住身形，使下落缓慢如临风。",
-    "source_skill": null,
+    "source_skill": "skill_bu_ping_dao_ren",
     "source_refs": [
       {
         "chapter": 34,
@@ -2657,7 +949,7 @@
     "name": "春雷乍动",
     "type": "attack",
     "description": "九翼道人雷公挡招式，护胸同时斜劈敌人。",
-    "source_skill": null,
+    "source_skill": "skill_lei_gong_hong",
     "source_refs": [
       {
         "chapter": 34,
@@ -2672,7 +964,7 @@
     "name": "白帝斩蛇势",
     "type": "attack",
     "description": "可斩对手悬枢穴脊骨的剑势。",
-    "source_skill": null,
+    "source_skill": "skill_mu_rong_fu_za_zhao",
     "source_refs": [
       {
         "chapter": 34,
@@ -2698,113 +990,9 @@
     ]
   },
   {
-    "id": "tech_bei_ming_hu_ti",
-    "name": "北冥护体",
-    "type": "defense",
-    "description": "以北冥真气护住周身经脉，危急时承受点穴掌力。",
-    "source_skill": "skill_bei_ming_zhen_qi",
-    "source_refs": [
-      {
-        "chapter": 36,
-        "line_start": 110,
-        "line_end": 132,
-        "text": "虚竹身具北冥真气，受击后仍能支撑。"
-      }
-    ]
-  },
-  {
-    "id": "tech_zhen_qi_chong_xue",
-    "name": "真气冲穴",
-    "type": "buff",
-    "description": "运转真气冲开受制穴道，使行动恢复。",
-    "source_skill": "skill_bei_ming_zhen_qi",
-    "source_refs": [
-      {
-        "chapter": 36,
-        "line_start": 110,
-        "line_end": 132,
-        "text": "虚竹依真气运行逐步脱困。"
-      }
-    ]
-  },
-  {
-    "id": "tech_zhe_mei_po_zhao",
-    "name": "折梅破招",
-    "type": "defense",
-    "description": "天山折梅手中的拆招守势，用简洁手法化解来袭掌指。",
-    "source_skill": "skill_tian_shan_zhe_mei_shou",
-    "source_refs": [
-      {
-        "chapter": 36,
-        "line_start": 196,
-        "line_end": 210,
-        "text": "童姥口授天山折梅手破招法门。"
-      }
-    ]
-  },
-  {
-    "id": "tech_zhe_mei_qin_na",
-    "name": "折梅擒拿",
-    "type": "attack",
-    "description": "天山折梅手中的擒拿变化，可转守为攻牵制对手。",
-    "source_skill": "skill_tian_shan_zhe_mei_shou",
-    "source_refs": [
-      {
-        "chapter": 36,
-        "line_start": 196,
-        "line_end": 210,
-        "text": "童姥口授天山折梅手擒拿变化。"
-      }
-    ]
-  },
-  {
-    "id": "tech_sheng_si_fu_fa_zuo",
-    "name": "生死符发作",
-    "type": "debuff",
-    "description": "生死符发作时痛痒难忍，用以迫使受制者听命。",
-    "source_skill": "skill_sheng_si_fu",
-    "source_refs": [
-      {
-        "chapter": 36,
-        "line_start": 342,
-        "line_end": 366,
-        "text": "众人畏惧生死符发作。"
-      }
-    ]
-  },
-  {
-    "id": "tech_sheng_si_fu_jie_fa",
-    "name": "生死符解法",
-    "type": "special",
-    "description": "以逍遥派内力与手法暂解生死符之苦。",
-    "source_skill": "skill_sheng_si_fu",
-    "source_refs": [
-      {
-        "chapter": 36,
-        "line_start": 342,
-        "line_end": 366,
-        "text": "虚竹被推向为群豪解除生死符。"
-      }
-    ]
-  },
-  {
-    "id": "tech_di_qi_zhong_shou_fa",
-    "name": "第七种手法",
-    "source_skill": "skill_tian_shan_liu_yang_zhang",
-    "description": "童姥传给虚竹用以化解生死符的掌法变化之一。",
-    "source_refs": [
-      {
-        "chapter": 37,
-        "line_start": 194,
-        "line_end": 210,
-        "text": "随手以第七种手法化开。"
-      }
-    ]
-  },
-  {
     "id": "tech_ling_kong_tan_zhi",
     "name": "凌空弹指",
-    "source_skill": "skill_xiao_yao_pai_nei_gong",
+    "source_skill": "skill_bei_ming_shen_gong",
     "description": "虚竹以深厚内力隔空弹指，点中花刺上的蜜蜂。",
     "source_refs": [
       {
@@ -2813,41 +1001,12 @@
         "line_end": 898,
         "text": "虚竹使这凌空弹指之法。"
       }
-    ]
-  },
-  {
-    "id": "tech_tian_shan_zhe_mei_shou_qi_shou_shi",
-    "name": "天山折梅手起手式",
-    "type": "attack",
-    "description": "天山折梅手第一招起手式，虚竹在甲一图中一眼认出。",
-    "source_skill": "skill_tian_shan_zhe_mei_shou",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 132,
-        "line_end": 136,
-        "text": "虚竹看甲一图，认出圈中所绘是天山折梅手第一招起手式。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tian_shan_zhe_mei_shou_di_er_zhao",
-    "name": "天山折梅手第二招",
-    "type": "attack",
-    "description": "天山折梅手第二招，紧接甲一图之后刻在甲二图中。",
-    "source_skill": "skill_tian_shan_zhe_mei_shou",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 136,
-        "line_end": 136,
-        "text": "看甲二时，果真是天山折梅手的第二招。"
-      }
-    ]
+    ],
+    "type": "attack"
   },
   {
     "id": "tech_tian_shan_liu_yang_zhang_ba_fu",
-    "name": "天山六阳掌拔符",
+    "name": "拔符",
     "type": "special",
     "description": "以天山六阳掌真力按生死符种入部位与内力差异拔除符毒。",
     "source_skill": "skill_tian_shan_liu_yang_zhang",
@@ -2857,126 +1016,6 @@
         "line_start": 82,
         "line_end": 90,
         "text": "拔除生死符须以真力使动天山六阳掌，虚竹细思拔除之法。"
-      }
-    ]
-  },
-  {
-    "id": "tech_tian_shan_liu_yang_zhang_liao_shang",
-    "name": "天山六阳掌疗伤",
-    "type": "buff",
-    "description": "以阳和浑厚力道拍入背心穴道，使四剑内伤平复醒转。",
-    "source_skill": "skill_tian_shan_liu_yang_zhang",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 150,
-        "line_end": 154,
-        "text": "虚竹使出天山六阳掌在四剑背心穴道轻拍，为她们治伤。"
-      }
-    ]
-  },
-  {
-    "id": "tech_da_jin_gang_quan_gang_meng_quan_li",
-    "name": "大金刚拳刚猛拳力",
-    "type": "attack",
-    "description": "大金刚拳的刚猛拳力，常被外人用来联想胸背肋骨齐断的掌伤。",
-    "source_skill": "skill_da_jin_gang_quan",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 665,
-        "line_end": 671,
-        "text": "神山追问单判官伤势是否大金刚拳，玄慈否认。"
-      }
-    ]
-  },
-  {
-    "id": "tech_xiang_mo_zhang_qing_rou_chu_zhang",
-    "name": "降魔掌轻柔出掌",
-    "type": "attack",
-    "description": "降魔掌出掌轻柔若有若无，是少林佛门柔功的表现。",
-    "source_skill": "skill_xiang_mo_zhang",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 755,
-        "line_end": 761,
-        "text": "经书序文称降魔掌为元元大师所创，出掌轻柔若有若无。"
-      }
-    ]
-  },
-  {
-    "id": "tech_mo_he_zhi_gang_meng_zhi_li",
-    "name": "摩诃指刚猛指力",
-    "type": "attack",
-    "description": "摩诃指纯走刚猛路子，外人以眼珠凸出后脑骨碎裂辨认为摩诃指伤。",
-    "source_skill": "skill_mo_he_zhi",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 715,
-        "line_end": 733,
-        "text": "神山以智光伤状质疑摩诃指，玄慈说明摩诃指刚猛且难与降魔掌并学。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ban_ruo_zhang_zhang_li",
-    "name": "般若掌掌力",
-    "type": "attack",
-    "description": "般若掌以内功催动掌力，为少林七十二绝技中的掌法。",
-    "source_skill": "skill_ban_ruo_zhang",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 815,
-        "line_end": 823,
-        "text": "鸠摩智提及般若掌可与摩诃指兼通。"
-      }
-    ]
-  },
-  {
-    "id": "tech_da_jin_gang_quan_ge_kong_zhen_ding",
-    "name": "大金刚拳隔空震鼎",
-    "type": "attack",
-    "description": "右拳直击而出，拳劲使佛座前铜鼎跳起，正是洛钟东应一招。",
-    "source_skill": "skill_da_jin_gang_quan",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 855,
-        "line_end": 857,
-        "text": "鸠摩智右拳击出，铜鼎受拳劲跳起，正是大金刚拳洛钟东应。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ban_ruo_zhang_she_fu_wai_dao",
-    "name": "般若掌慑伏外道",
-    "type": "attack",
-    "description": "左手反拍一掌，掌力如宝刀利刃，在铜鼎上割下手掌般一块。",
-    "source_skill": "skill_ban_ruo_zhang",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 859,
-        "line_end": 875,
-        "text": "鸠摩智使般若掌慑伏外道，在铜鼎上割下掌形一块。"
-      }
-    ]
-  },
-  {
-    "id": "tech_mo_he_zhi_san_ru_di_yu",
-    "name": "摩诃指三入地狱",
-    "type": "attack",
-    "description": "以大拇指三捺发出凌厉指力，使铜鼎横移，正是摩诃指正宗招数。",
-    "source_skill": "skill_mo_he_zhi",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 861,
-        "line_end": 865,
-        "text": "鸠摩智三次拇指前捺，少林高僧认出是摩诃指三入地狱。"
       }
     ]
   },
@@ -2996,21 +1035,6 @@
     ]
   },
   {
-    "id": "tech_xiao_wu_xiang_gong_mo_ni_zhao_shi",
-    "name": "小无相功模拟招式",
-    "type": "special",
-    "description": "以小无相功运行大金刚拳、般若掌、摩诃指等外形招式，旁人难辨。",
-    "source_skill": "skill_xiao_wu_xiang_gong",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 903,
-        "line_end": 919,
-        "text": "虚竹看出鸠摩智使用少林招式时内功实为小无相功。"
-      }
-    ]
-  },
-  {
     "id": "tech_nian_hua_zhi_san_tan",
     "name": "拈花三弹",
     "type": "attack",
@@ -3022,51 +1046,6 @@
         "line_start": 963,
         "line_end": 965,
         "text": "鸠摩智与玄渡作拈花之状，二僧同时向对方弹三弹。"
-      }
-    ]
-  },
-  {
-    "id": "tech_huo_yan_dao_ling_xu_fa_jin",
-    "name": "火焰刀凌虚发劲",
-    "type": "attack",
-    "description": "密教宁玛派神功，可凌空发出凌厉劲力伤敌。",
-    "source_skill": "skill_huo_yan_dao",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 1015,
-        "line_end": 1017,
-        "text": "鸠摩智少年时由宁玛派上师授以火焰刀凌虚发劲神功。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ban_ruo_zhang_xia_gu_tian_feng",
-    "name": "般若掌峡谷天风",
-    "type": "attack",
-    "description": "双掌一立不合拢，掌力疾吐而出，鸠摩智用得狠猛沉重。",
-    "source_skill": "skill_ban_ruo_zhang",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 1029,
-        "line_end": 1033,
-        "text": "鸠摩智使出般若掌峡谷天风，掌力奔向虚竹。"
-      }
-    ]
-  },
-  {
-    "id": "tech_luo_han_quan_ru_men_quan_lu",
-    "name": "罗汉拳入门拳路",
-    "type": "attack",
-    "description": "少林寺第三代弟子虚竹所学入门拳路，扎根基用。",
-    "source_skill": "skill_luo_han_quan",
-    "source_refs": [
-      {
-        "chapter": 39,
-        "line_start": 1043,
-        "line_end": 1061,
-        "text": "虚竹称所学不过罗汉拳入门功夫。"
       }
     ]
   },
@@ -3088,9 +1067,9 @@
   {
     "id": "tech_kong_he_gong",
     "name": "控鹤功",
-    "type": "擒拿",
+    "type": "control",
     "description": "凌空牵引取物一类的上乘功夫，被旁观者用来类比丁春秋擒阿紫。",
-    "source_skill": "skill_qin_na_gong",
+    "source_skill": "skill_qin_long_gong",
     "source_refs": [
       {
         "chapter": 41,
@@ -3103,9 +1082,9 @@
   {
     "id": "tech_qin_long_gong",
     "name": "擒龙功",
-    "type": "擒拿",
+    "type": "control",
     "description": "凌空摄物擒人的上乘功夫，被旁观者用来解释丁春秋手法。",
-    "source_skill": "skill_qin_na_gong",
+    "source_skill": "skill_qin_long_gong",
     "source_refs": [
       {
         "chapter": 41,
@@ -3118,9 +1097,9 @@
   {
     "id": "tech_jian_long_zai_tian",
     "name": "见龙在田",
-    "type": "掌招",
+    "type": "attack",
     "description": "降龙廿八掌中的一招，萧峰远距出掌击退丁春秋。",
-    "source_skill": "skill_xiang_long_er_shi_ba_zhang",
+    "source_skill": "skill_xiang_long_nian_ba_zhang",
     "source_refs": [
       {
         "chapter": 41,
@@ -3131,264 +1110,9 @@
     ]
   },
   {
-    "id": "tech_bi_xi_gui_qi",
-    "name": "闭息龟息",
-    "type": "defense",
-    "description": "无名老僧令萧远山、慕容博陷入似死非死状态以暂息仇杀。",
-    "source_skill": "skill_shao_lin_nei_gong",
-    "source_refs": [
-      {
-        "chapter": 43,
-        "line_start": 280,
-        "line_end": 326,
-        "text": "萧远山和慕容博气息俱无，片刻后又被老僧救转。"
-      }
-    ]
-  },
-  {
-    "id": "tech_fo_fa_du_hua",
-    "name": "佛法度化",
-    "type": "special",
-    "description": "以佛理说明武学障与因果执念，使敌对者放下仇怨。",
-    "source_skill": "skill_shao_lin_nei_gong",
-    "source_refs": [
-      {
-        "chapter": 43,
-        "line_start": 520,
-        "line_end": 650,
-        "text": "老僧开示武功与佛法相辅，劝二人放下血海深仇。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ling_bo_shan_zhuan",
-    "name": "凌波闪转",
-    "type": "defense",
-    "description": "以奇步闪避追截。",
-    "source_skill": "skill_ling_bo_wei_bu",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 284,
-        "line_end": 284,
-        "text": "段誉吃了一惊，暗叫：\"不好，她又要去寻死了。\"使开凌波微步，抢了过去，霎时间便到了那白衣人背后。"
-      }
-    ]
-  },
-  {
-    "id": "tech_ling_bo_qiang_shen",
-    "name": "凌波抢身",
-    "type": "buff",
-    "description": "短瞬间逼近目标。",
-    "source_skill": "skill_ling_bo_wei_bu",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 284,
-        "line_end": 284,
-        "text": "段誉吃了一惊，暗叫：\"不好，她又要去寻死了。\"使开凌波微步，抢了过去，霎时间便到了那白衣人背后。"
-      }
-    ]
-  },
-  {
-    "id": "tech_liu_mai_jian_qi",
-    "name": "六脉剑气",
-    "type": "attack",
-    "description": "以内力化作无形剑气远攻。",
-    "source_skill": "skill_liu_mai_shen_jian",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 450,
-        "line_end": 450,
-        "text": "\""
-      }
-    ]
-  },
-  {
-    "id": "tech_zhi_jian_yun_shi",
-    "name": "指剑运使",
-    "type": "buff",
-    "description": "调运真气使六脉神剑收发更稳。",
-    "source_skill": "skill_liu_mai_shen_jian",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 450,
-        "line_end": 450,
-        "text": "\""
-      }
-    ]
-  },
-  {
-    "id": "tech_liu_yang_rong_xue",
-    "name": "六阳融雪",
-    "type": "buff",
-    "description": "以阳和内力化解寒凝。",
-    "source_skill": "skill_liu_yang_rong_xue_gong",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 472,
-        "line_end": 472,
-        "text": "\"（王语嫣心道：段公子还会\"凌波微步\"、\"六阳融雪功\"，这些功夫，表哥可都不会。"
-      }
-    ]
-  },
-  {
-    "id": "tech_rong_xue_huo_qi",
-    "name": "融雪活气",
-    "type": "special",
-    "description": "调和体内真气。",
-    "source_skill": "skill_liu_yang_rong_xue_gong",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 472,
-        "line_end": 472,
-        "text": "\"（王语嫣心道：段公子还会\"凌波微步\"、\"六阳融雪功\"，这些功夫，表哥可都不会。"
-      }
-    ]
-  },
-  {
-    "id": "tech_huo_yan_dao_zhang",
-    "name": "火焰刀掌",
-    "type": "attack",
-    "description": "以内劲如刀劈击敌人。",
-    "source_skill": "skill_huo_yan_dao",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 1106,
-        "line_end": 1106,
-        "text": "鸠摩智站在井畔，不住喘气，烦恶难当。那日他以火焰刀暗算了段誉后，生怕众高手向他群起而攻，立即奔逃下山，还没下少室山，已觉丹田中热气如焚，当即停步调息，却觉内力运行艰难，不禁暗惊：\"那老贼秃说我以小无相功为底子，强练少林七十二绝技，戾气所钟，"
-      }
-    ]
-  },
-  {
-    "id": "tech_huo_yan_an_suan",
-    "name": "火焰暗算",
-    "type": "special",
-    "description": "乘人不备以火焰刀伤敌。",
-    "source_skill": "skill_huo_yan_dao",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 1106,
-        "line_end": 1106,
-        "text": "鸠摩智站在井畔，不住喘气，烦恶难当。那日他以火焰刀暗算了段誉后，生怕众高手向他群起而攻，立即奔逃下山，还没下少室山，已觉丹田中热气如焚，当即停步调息，却觉内力运行艰难，不禁暗惊：\"那老贼秃说我以小无相功为底子，强练少林七十二绝技，戾气所钟，"
-      }
-    ]
-  },
-  {
-    "id": "tech_wu_xiang_ni_yan",
-    "name": "无相拟演",
-    "type": "buff",
-    "description": "以无相内力摹拟外门绝技。",
-    "source_skill": "skill_xiao_wu_xiang_gong",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 1142,
-        "line_end": 1142,
-        "text": "少林寺藏经阁中那老僧的话不断在耳中鸣响，这时早知此言非虚，自己贪多务得，以小无相功为基，误练少林派七十二绝技，佛道两派武功本有抵触，他又均是照本自练，未得旁人指点，再加本末颠倒，大祸已然临头。"
-      }
-    ]
-  },
-  {
-    "id": "tech_wu_xiang_cui_dong",
-    "name": "无相催动",
-    "type": "special",
-    "description": "催动多门武学但易埋隐患。",
-    "source_skill": "skill_xiao_wu_xiang_gong",
-    "source_refs": [
-      {
-        "chapter": 45,
-        "line_start": 1142,
-        "line_end": 1142,
-        "text": "少林寺藏经阁中那老僧的话不断在耳中鸣响，这时早知此言非虚，自己贪多务得，以小无相功为基，误练少林派七十二绝技，佛道两派武功本有抵触，他又均是照本自练，未得旁人指点，再加本末颠倒，大祸已然临头。"
-      }
-    ]
-  },
-  {
-    "id": "tech_bi_ke_ren_xing_tu",
-    "name": "壁刻人形图",
-    "type": "special",
-    "description": "李秋水旧居壁上围在圆圈中的人形姿态，旁注天干地支和数目字，暗藏逍遥派武学奥义。",
-    "source_skill": "skill_xiao_yao_pai_bi_ke_wu_xue",
-    "source_refs": [
-      {
-        "chapter": 46,
-        "line_start": 894,
-        "line_end": 900,
-        "text": "壁上刻了无数人形，有的打坐，有的腾跃，姿势千奇百怪。"
-      }
-    ]
-  },
-  {
-    "id": "tech_guan_tu_ru_mo",
-    "name": "观图入魔",
-    "type": "debuff",
-    "description": "观看壁刻图形而修为不足时，容易沉迷姿态变化，轻则昏迷受伤，重则癫狂大乱。",
-    "source_skill": "skill_xiao_yao_pai_bi_ke_wu_xue",
-    "source_refs": [
-      {
-        "chapter": 46,
-        "line_start": 902,
-        "line_end": 906,
-        "text": "倘若内力修为不到，看得着了迷，重则走火入魔，轻则昏迷不醒。"
-      }
-    ]
-  },
-  {
-    "id": "tech_sui_mu_mie_deng",
-    "name": "碎木灭灯",
-    "type": "special",
-    "description": "萧峰将椅背捏成碎片掷出，连珠射灭书房灯烛，使众人无法继续观看壁刻图形。",
-    "source_skill": "skill_qiao_feng_pi_kong_zhang",
-    "source_refs": [
-      {
-        "chapter": 46,
-        "line_start": 948,
-        "line_end": 952,
-        "text": "萧峰拗下椅背捏成数十块碎片，扬手掷出，数十下声响过后灯火尽熄。"
-      }
-    ]
-  },
-  {
-    "id": "tech_fu_bu_fa_sheng",
-    "name": "腹部发声",
-    "type": "发声",
-    "description": "以腹部运气发声，代替受损喉咙说话。",
-    "source_skill": "skill_fu_yu_shu",
-    "source_refs": [
-      {
-        "chapter": 48,
-        "line_start": 458,
-        "line_end": 462,
-        "text": "然后练成了腹语术。"
-      }
-    ]
-  },
-  {
-    "id": "tech_chuan_yin_ru_mi",
-    "name": "传音入密",
-    "type": "传音",
-    "description": "以内力将话音暗送入特定对象耳中，避免旁人听见。",
-    "source_skill": "skill_fu_yu_shu",
-    "source_refs": [
-      {
-        "chapter": 48,
-        "line_start": 1198,
-        "line_end": 1202,
-        "text": "以传音入密之术与你说话。"
-      }
-    ]
-  },
-  {
     "id": "tech_liu_xu_huan_ci",
     "name": "柳絮缓刺",
-    "type": "剑招",
+    "type": "attack",
     "description": "慕容复缓缓挺剑，试图以无声剑路突破段誉闪避。",
     "source_skill": "skill_liu_xu_jian_fa",
     "source_refs": [

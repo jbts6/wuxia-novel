@@ -61,82 +61,6 @@
     "mastery_rank": "炉火纯青"
   },
   {
-    "id": "skill_sheng_si_fu",
-    "name": "生死符",
-    "type": "暗器",
-    "faction": "天山童姥",
-    "one_line": "生死符种入部位和内力各异，须以天山六阳掌精细拔除。",
-    "techniques": [
-      {
-        "id": "tech_sheng_si_fu",
-        "name": "生死符",
-        "type": "debuff",
-        "description": "以符毒制住敌人，发作时令其痛苦难当。"
-      },
-      {
-        "id": "tech_fu_du_fa_zuo",
-        "name": "符毒发作",
-        "type": "debuff",
-        "description": "潜伏后周期发作，迫使中者求药或听命。"
-      }
-    ],
-    "progression": [
-      {
-        "level": "入门",
-        "description": "识得基础用法并能在局势中施展"
-      },
-      {
-        "level": "精熟",
-        "description": "可依敌情变化运用，形成压制或自保"
-      }
-    ],
-    "effects": [
-      {
-        "type": "伤害",
-        "description": "可直接伤敌或迫使对手退避"
-      },
-      {
-        "type": "控制",
-        "description": "可改变战局节奏并限制敌人行动"
-      }
-    ],
-    "combat_style": "因势而发，重视速度、虚实与临机判断。",
-    "rag_refs": [
-      1,
-      34,
-      "天龙八部 第36章 342-366",
-      39
-    ],
-    "source_refs": [
-      {
-        "chapter": 1,
-        "line_start": 570,
-        "line_end": 592,
-        "text": "身上这生死符除了天山童姥本人谁也没法解得，发作时求生不得求死不能。"
-      },
-      {
-        "chapter": 34,
-        "line_start": 1032,
-        "line_end": 1038,
-        "text": "乌老大说童姥手中握住众人的生死符，谁也反抗不得。"
-      },
-      {
-        "chapter": 36,
-        "line_start": 342,
-        "line_end": 366,
-        "text": "乌老大等人身中生死符，求童姥或虚竹解救。"
-      },
-      {
-        "chapter": 39,
-        "line_start": 82,
-        "line_end": 90,
-        "text": "虚竹需以天山六阳掌真力拔除不同部位和内力的生死符。"
-      }
-    ],
-    "relationships": [],
-    "mastery_rank": "出神入化"
-  },
-  {
     "id": "skill_bei_ming_shen_gong",
     "name": "北冥神功",
     "type": "内功",
@@ -354,6 +278,51 @@
     "mastery_rank": "返璞归真"
   },
   {
+    "id": "skill_shen_nong_yong_du",
+    "name": "神农用毒",
+    "type": "药毒术",
+    "faction": "神农帮",
+    "one_line": "神农帮以断肠散和药物制敌，司空玄也熟悉多种药性。",
+    "techniques": [
+      {
+        "id": "tech_duan_chang_san_tou_du",
+        "name": "断肠散投毒",
+        "type": "毒药手段",
+        "description": "以七日毒发的断肠散胁迫敌人交出解药或听命。"
+      },
+      {
+        "id": "tech_bian_yao_shi_du",
+        "name": "辨药识毒",
+        "type": "药理能力",
+        "description": "凭气味和药性判断解毒之物，但面对香粉时误判为灵药。"
+      }
+    ],
+    "progression": [
+      "本章实战显露",
+      "可突袭也可正面应敌"
+    ],
+    "effects": [
+      "伤敌",
+      "脱围",
+      "震慑敌方"
+    ],
+    "combat_style": "以迅疾、狠辣、出其不意为主",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "line_start": 856,
+        "line_end": 964,
+        "text": "\"那女郎道：\"你呢？\"段誉道：\"我给神农帮逼着服了断肠散的毒药，司空玄帮主说是服后七天，毒发身亡，须得设法先骗到解药，这才逃走。 \" 那女郎道：\"原来你已给他们逼着服了毒药。你怎么不想及早设法解毒，仍来给我报讯？ \"段誉道：\"我本以为黑玫瑰脚程快，报个讯息，也耽搁不了多少时候。 \"那女郎道：\"你到底是生来好心呢，还是个"
+      }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "熟练",
+    "migration_notes": [
+      "unresolved mastery rank: 熟练"
+    ]
+  },
+  {
     "id": "skill_e_zui_jian_fa",
     "name": "鳄嘴剪法",
     "type": "兵器武功",
@@ -484,6 +453,56 @@
       }
     ],
     "mastery_rank": "返璞归真"
+  },
+  {
+    "id": "skill_xiu_zhong_du_jian",
+    "name": "袖中毒箭",
+    "type": "暗器",
+    "faction": "幽谷",
+    "one_line": "木婉清袖中短箭淬毒，出手突然，见血封喉。",
+    "techniques": [
+      {
+        "id": "tech_xiu_jian_lian_fa",
+        "name": "袖箭连发",
+        "type": "attack",
+        "description": "右手急扬，两枝毒箭齐射。"
+      },
+      {
+        "id": "tech_du_jian_feng_hou",
+        "name": "毒箭封喉",
+        "type": "debuff",
+        "description": "箭上剧毒见血封喉。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "熟练",
+        "description": "木婉清多次言谈间发箭杀人。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "近距突袭杀伤极强。"
+      },
+      {
+        "type": "减益",
+        "description": "毒性猛烈。"
+      }
+    ],
+    "combat_style": "暗器突袭，狠辣迅捷。",
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "line_start": 40,
+        "line_end": 48,
+        "text": "木婉清叫道：\"师恩深重，师命难违！\"右手急扬，两枝毒箭向刀白凤当胸射去。\n筵席之间，四人言笑晏晏，亲如家人，那料到木婉清竟会突然发难？\n刀白凤的武功本较木婉清略强，但这时两人相距极近，又是变起俄顷，猝不及防，眼见这两枝毒箭势非射中不可。\n段正淳坐在对席，是在木婉清背后，\"啊哟\"一声叫，伸指急点，但这一指只能制住木婉清，却不能救得妻子。\n段誉曾数次见木婉清言谈间便飞箭杀人，她箭上喂的毒药厉害非常，端的是见血封喉，一见她挥动衣袖，便知不妙，他站在母亲身旁，苦于不会武功，没法代为挡"
+      }
+    ],
+    "mastery_rank": "登堂入室"
   },
   {
     "id": "skill_wu_luo_qing_yan_zhang",
@@ -1732,6 +1751,108 @@
     "mastery_rank": "出神入化"
   },
   {
+    "id": "skill_tie_guai_zhen",
+    "name": "铁拐阵",
+    "type": "剑法",
+    "faction": "蓬莱派",
+    "one_line": "蓬莱派多人围攻阵法，都灵子认为围攻司马卫须用此阵。",
+    "techniques": [
+      {
+        "id": "tech_tie_guai_zhen_duo_ren_wei_gong",
+        "name": "多人围攻",
+        "type": "attack",
+        "description": "多人合阵围攻强敌。"
+      },
+      {
+        "id": "tech_tie_guai_zhen_qi_li_po_di",
+        "name": "齐力破敌",
+        "type": "attack",
+        "description": "借合阵分担强敌功力。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "推断",
+        "description": "都灵子写明若多人围攻司马卫须用铁拐阵。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "合围牵制强敌。"
+      }
+    ],
+    "combat_style": "多人合阵，重在围攻消耗。",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 468,
+        "line_end": 470,
+        "text": "都灵子写道多人围攻司马卫须用本派铁拐阵。"
+      }
+    ],
+    "mastery_rank": "炉火纯青"
+  },
+  {
+    "id": "skill_peng_lai_ba_xian_zhao",
+    "name": "蓬莱八仙招",
+    "type": "轻功",
+    "faction": "蓬莱派",
+    "one_line": "蓬莱派以八仙为名的一路招式，可与青城招法奇妙串联。",
+    "techniques": [
+      {
+        "id": "tech_peng_lai_ba_xian_zhao_zhang_guo_lao_dao_qi_lv",
+        "name": "张果老倒骑驴",
+        "type": "defense",
+        "description": "踉跄后退避伏击。"
+      },
+      {
+        "id": "tech_peng_lai_ba_xian_zhao_han_xiang_zi_xue_yong_lan_guan",
+        "name": "韩湘子雪拥蓝关",
+        "type": "defense",
+        "description": "先封门户再接青城招。"
+      },
+      {
+        "id": "tech_peng_lai_ba_xian_zhao_ao_you_dong_hai",
+        "name": "遨游东海",
+        "type": "defense",
+        "description": "跃身避暗器。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "本章",
+        "description": "王语嫣指点诸保昆以蓬莱招式化险。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "打乱对手预判。"
+      },
+      {
+        "type": "增益",
+        "description": "与青城招法互补。"
+      }
+    ],
+    "combat_style": "身法奇巧，借错位和步法避敌。",
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "line_start": 590,
+        "line_end": 618,
+        "text": "王语嫣以张果老倒骑驴等蓬莱招指点诸保昆。"
+      }
+    ],
+    "mastery_rank": "炉火纯青"
+  },
+  {
     "id": "skill_xiu_li_qian_kun",
     "name": "袖里乾坤",
     "type": "暗器",
@@ -1873,6 +1994,102 @@
     "legacy_rank": "高手"
   },
   {
+    "id": "skill_lv_dong_bin_yao_gou",
+    "name": "吕洞宾咬狗",
+    "type": "拳法",
+    "faction": "姑苏慕容",
+    "one_line": "包不同戏称风波恶张口咬人的怪招。",
+    "techniques": [
+      {
+        "id": "tech_yao_luo_quan_tou",
+        "name": "咬落拳头",
+        "type": "counter",
+        "description": "风波恶百忙中张口咬向对手拳头，迫使长臂老者缩手不及。"
+      },
+      {
+        "id": "tech_yao_gou_da_jiu_shi",
+        "name": "咬狗大九式",
+        "type": "feint",
+        "description": "包不同胡诌的七十二咬说法，用来调侃风波恶咬人得手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "戏称",
+        "description": "并非正式武学，多为包不同调侃"
+      }
+    ],
+    "effects": [
+      "出其不意咬伤对手手指",
+      "引发旁观者大笑"
+    ],
+    "combat_style": "急中生智，近身咬击",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 620,
+        "line_end": 636,
+        "text": "百忙中张开口来，便往他拳头上咬落……你这招'吕洞宾咬狗'，名不虚传。"
+      }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "平常",
+    "migration_notes": [
+      "unresolved mastery rank: 平常"
+    ]
+  },
+  {
+    "id": "skill_ma_dai_bing_ren",
+    "name": "麻袋兵刃",
+    "type": "兵器",
+    "faction": "丐帮",
+    "one_line": "长臂老者以装米麻袋作奇门兵刃罩向敌人。",
+    "techniques": [
+      {
+        "id": "tech_ma_dai_zhao_luo",
+        "name": "麻袋罩落",
+        "type": "control",
+        "description": "麻袋受风鼓起，口子张开，自上而下罩向对手头顶。"
+      },
+      {
+        "id": "tech_ma_dai_huang_ying",
+        "name": "麻袋黄影",
+        "type": "control",
+        "description": "长臂老者将麻袋舞成一团黄影，笼罩敌人身形。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "奇门",
+        "description": "以粗麻袋攻守，令风波恶惊喜戒惧"
+      }
+    ],
+    "effects": [
+      "罩住对手视线和身形",
+      "以怪兵刃扰乱普通刀法判断"
+    ],
+    "combat_style": "奇门软兵，罩、卷、舞并用",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 608,
+        "line_end": 640,
+        "text": "左手中提着一件软软的兵刃……竟是一只装米的麻袋……将麻袋舞成一团黄影。"
+      }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "奇诡",
+    "migration_notes": [
+      "unresolved mastery rank: 奇诡"
+    ]
+  },
+  {
     "id": "skill_hui_da_ruan_bian_shi_san_shi",
     "name": "回打软鞭十三式",
     "type": "兵器",
@@ -1957,6 +2174,51 @@
         "line_start": 650,
         "line_end": 658,
         "text": "也夹着湖北阮家八十一路三节棍的套子……他本是湖北阮家的子弟，三节棍是家传的功夫。"
+      }
+    ],
+    "mastery_rank": "出神入化",
+    "legacy_rank": "高手"
+  },
+  {
+    "id": "skill_cai_xie_du",
+    "name": "彩蝎毒",
+    "type": "毒术",
+    "faction": "丐帮",
+    "one_line": "长臂叟从麻袋中放出的五色小蝎所含剧毒，发作极快。",
+    "techniques": [
+      {
+        "id": "tech_wu_se_xie_ding_shou",
+        "name": "五色蝎钉手",
+        "type": "poison",
+        "description": "五色小蝎牢牢钉住对手手背，尾巴注入剧毒。"
+      },
+      {
+        "id": "tech_du_xing_su_xing",
+        "name": "毒性速行",
+        "type": "poison",
+        "description": "毒性行走迅速，点穴也难完全阻止上行。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "剧毒",
+        "description": "比一般毒蛇毒性发作更快"
+      }
+    ],
+    "effects": [
+      "令风波恶仆倒僵硬",
+      "逼迫包不同急点关节穴道"
+    ],
+    "combat_style": "暗藏毒物，出其不意",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 676,
+        "line_end": 698,
+        "text": "只见一只小小蝎子钉上了自己手背……五色彩蝎的毒性行得快速之极。"
       }
     ],
     "mastery_rank": "出神入化",
@@ -2152,6 +2414,54 @@
     "legacy_rank": "高手"
   },
   {
+    "id": "skill_qiao_feng_fan_kou_zhi_xue",
+    "name": "乔峰反扣制穴",
+    "type": "拳法",
+    "faction": "丐帮",
+    "one_line": "乔峰倒退反手扣中全冠清胸口穴道并以内力迫其下跪的制敌手法。",
+    "techniques": [
+      {
+        "id": "tech_fan_shou_kou_xue",
+        "name": "反手扣穴",
+        "type": "grab",
+        "description": "乔峰背身倒退，左手反扣右手擒拿，抓中全冠清中庭和鸠尾。"
+      },
+      {
+        "id": "tech_tou_jing_chong_xi",
+        "name": "透经冲膝",
+        "type": "internal",
+        "description": "内力从胸口穴道透入经脉，直奔膝关节穴道迫敌跪倒。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "生平所学",
+        "description": "乔峰此举兔起鹘落，一气呵成，需部位毫厘不差"
+      }
+    ],
+    "effects": [
+      "一招制住全冠清主谋",
+      "避免丐帮自相残杀扩大"
+    ],
+    "combat_style": "擒穴与内力透经并用",
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "line_start": 1002,
+        "line_end": 1026,
+        "text": "左手反过扣出，右手擒拿……内力从全冠清两处穴道中透将进去……迫得他下跪。"
+      }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "绝学",
+    "migration_notes": [
+      "unresolved mastery rank: 绝学"
+    ]
+  },
+  {
     "id": "skill_suo_gu_gong",
     "name": "缩骨功",
     "type": "内功",
@@ -2334,6 +2644,112 @@
       }
     ],
     "mastery_rank": "炉火纯青"
+  },
+  {
+    "id": "skill_shao_lin_qin_na_shou_fa",
+    "name": "少林擒拿手法",
+    "type": "指法",
+    "faction": "少林寺",
+    "one_line": "少林高僧黑暗中以各式擒拿手法准确制住守律僧。",
+    "techniques": [
+      {
+        "id": "tech_qin_long_shou",
+        "name": "擒龙手",
+        "type": "attack",
+        "description": "黑暗中循风抓拿敌身要处的少林擒拿手。"
+      },
+      {
+        "id": "tech_ying_zhua_shou",
+        "name": "鹰爪手",
+        "type": "attack",
+        "description": "以爪力扣拿关节和要穴的少林擒拿法。"
+      },
+      {
+        "id": "tech_jin_gang_zhi",
+        "name": "金刚指",
+        "type": "attack",
+        "description": "以刚猛指力制穴拿人的少林指法。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "群僧合用",
+        "description": "十余高僧同时出手，招式各不相同却能不差厘毫。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "制住周身要穴，使对方凌空悬身、作声不得。"
+      }
+    ],
+    "combat_style": "重在黑暗听风辨位、拿穴制敌。",
+    "rag_refs": [
+      18
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "line_start": 1168,
+        "line_end": 1174,
+        "text": "这十余位高僧均是少林寺第一流好手，各人擒拿手法并不相同，却各有独到之处。\n一时之间，擒龙手、鹰爪手、虎爪功、金刚指、握石掌⋯⋯各种各式少林派最高明的擒拿手法，都抓在守律僧身上。\n众高僧武功也真了得，黑暗中单听风声，出手不差厘毫。\n那守律僧这一下可吃足了苦头，霎时之间，周身要穴着了诸般擒拿手法，身子凌空而悬，作声不得，这等经历，只怕自古以来从未有人受过。"
+      }
+    ],
+    "mastery_rank": "出神入化",
+    "legacy_rank": "一流高手"
+  },
+  {
+    "id": "skill_qi_liu_kuai_dao",
+    "name": "祁六快刀",
+    "type": "刀法",
+    "faction": "江湖群豪",
+    "one_line": "关西快刀祁六的成名刀法，临敌不肯放手。",
+    "techniques": [
+      {
+        "id": "tech_kuai_dao_chu_qiao",
+        "name": "快刀出鞘",
+        "type": "attack",
+        "description": "遇敌迅速拔刀抢占先手的关西刀法。"
+      },
+      {
+        "id": "tech_cheng_ming_li_ren",
+        "name": "成名利刃",
+        "type": "attack",
+        "description": "以惯用快刀护身拒敌，兵刃不肯离手。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "成名兵刃",
+        "description": "祁六以快刀称名关西。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "斩击",
+        "description": "快速出刀近身攻击。"
+      }
+    ],
+    "combat_style": "爽快直接，以快刀和胆气立身。",
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "line_start": 16,
+        "line_end": 18,
+        "text": "乔峰心道：\"关西祁老六人称'快刀祁六'，是关西闻名的好汉。\n\n那向八爷想必是湘东的向望海，听说此人家财豪富，武功了得。"
+      },
+      {
+        "chapter": 19,
+        "line_start": 934,
+        "line_end": 940,
+        "text": "\"左脚向他踢出。他话虽如此说，对丐帮群豪总不免尚有香火之情，非但不欲伤他们性命，甚至不愿他们在外人之前出丑，这一脚踢出，忽尔中途转向，快刀祁六一声怪叫，飞身而起。\n\n他却不是自己跃起，而是给乔峰踢中臀部，身不由主的向上飞起。\n\n他手中单刀本来运劲向乔峰头上砍去，身子高飞，这一刀仍猛力砍出，嗒的一声，砍上了大厅的横梁，深入尺许，竟将他刃锋牢牢咬住。\n\n快刀祁六这口刀是他成名的利器，今日面临大敌，那肯放手？"
+      }
+    ],
+    "mastery_rank": "炉火纯青",
+    "legacy_rank": "二流高手"
   },
   {
     "id": "skill_da_jin_gang_quan",
@@ -2543,6 +2959,56 @@
     "legacy_rank": "一流高手"
   },
   {
+    "id": "skill_chang_suo_ruan_bian_gong",
+    "name": "长索软鞭功",
+    "type": "暗器",
+    "faction": null,
+    "one_line": "以长索作软兵刃，能卷人、越树、横扫群敌并借力飞渡。",
+    "techniques": [
+      {
+        "id": "tech_tian_nv_san_hua",
+        "name": "天女散花",
+        "type": "attack",
+        "description": "长索如软鞭横扫，劲道分散而准，可同时挥击数十名敌人。"
+      },
+      {
+        "id": "tech_chang_suo_fei_du",
+        "name": "长索飞渡",
+        "type": "special",
+        "description": "甩索卷住旗杆、树枝等远处支点，借力腾跃飞渡险处。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "绝顶高手",
+        "description": "黑衣大汉在聚贤庄救人时施展，乔峰自认难以使得同样恰到好处。"
+      }
+    ],
+    "effects": [
+      {
+        "type": "控制",
+        "description": "缠卷目标或支点，迅速改变身位。"
+      },
+      {
+        "type": "伤害",
+        "description": "横扫人群时可迫使多人举兵刃挡格。"
+      }
+    ],
+    "combat_style": "刚柔并济，兼具远距缠卷、群体横扫与身法转移",
+    "rag_refs": [
+      "ch_020:38-40"
+    ],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "line_start": 38,
+        "line_end": 40,
+        "text": "这一招'天女散花'的软鞭功夫，我就不能使得如他这般恰到好处。"
+      }
+    ],
+    "mastery_rank": "登峰造极"
+  },
+  {
     "id": "skill_chan_si_qin_na_shou",
     "name": "缠丝擒拿手",
     "type": "指法",
@@ -2695,6 +3161,53 @@
     ]
   },
   {
+    "id": "skill_xing_su_du_gong",
+    "name": "星宿毒功",
+    "type": "内功",
+    "faction": "星宿派",
+    "one_line": "星宿派弟子以毒伤人的邪门功夫。",
+    "rag_refs": [
+      22,
+      25,
+      30
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [
+      {
+        "type": "减益",
+        "condition": "掌击或近身接触",
+        "description": "可使受击处墨黑肿起并剧痛"
+      }
+    ],
+    "combat_style": "以毒掌、毒药克敌",
+    "source_refs": [
+      {
+        "chapter": 22,
+        "line_start": 333,
+        "line_end": 349,
+        "text": "只见他半张脸已成墨黑，高高肿起，不住叫嚷呼痛。"
+      },
+      {
+        "chapter": 25,
+        "line_start": 173,
+        "line_end": 183,
+        "text": "这小魔头的手指只在酒中浸了一会，这碗酒就毒得如此厉害"
+      },
+      {
+        "chapter": 30,
+        "line_start": 891,
+        "line_end": 891,
+        "text": "倘若真要使毒，还用拿毒蝎子来吓你们？"
+      }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "高阶",
+    "migration_notes": [
+      "unresolved mastery rank: 高阶"
+    ]
+  },
+  {
     "id": "skill_mo_yun_huo_gong",
     "name": "摩云火功",
     "type": "掌法",
@@ -2779,6 +3292,33 @@
         "line_start": 1449,
         "line_end": 1449,
         "text": "段延庆铁棒上内力不断加重，拆到六十余招后，一路段家剑法堪堪拆完，见段正淳鼻上渗出几粒汗珠，呼吸之声却仍曼长调匀，心想：\"听说此人好色，颇多内宠，居然内力如此悠长，倒也不可小觑于他了。"
+      }
+    ],
+    "mastery_rank": "平平无奇",
+    "legacy_rank": "高阶",
+    "migration_notes": [
+      "unresolved mastery rank: 高阶"
+    ]
+  },
+  {
+    "id": "skill_duan_jia_zhi_li",
+    "name": "段家指力",
+    "type": "指法",
+    "faction": "大理段氏",
+    "one_line": "段氏以内劲与指力见长的武学根基。",
+    "rag_refs": [
+      22
+    ],
+    "techniques": [],
+    "progression": [],
+    "effects": [],
+    "combat_style": "段氏以内劲与指力见长的武学根基。",
+    "source_refs": [
+      {
+        "chapter": 22,
+        "line_start": 1443,
+        "line_end": 1443,
+        "text": "段家武功于内劲一道最是讲究，内息不畅，便是输招落败的先兆。"
       }
     ],
     "mastery_rank": "平平无奇",
@@ -2915,88 +3455,6 @@
     "mastery_rank": "登峰造极",
     "legacy_rank": "绝顶",
     "faction": null
-  },
-  {
-    "id": "skill_chuan_yin_ru_mi",
-    "name": "传音入密",
-    "type": "内功技巧",
-    "faction": "少林派",
-    "one_line": "玄难被虚竹误认为以传音入密暗中指点棋局。",
-    "techniques": [
-      {
-        "id": "tech_mi_yin_zhi_dian",
-        "name": "密音指点",
-        "type": "传音",
-        "description": "以内力束音暗中传话。"
-      },
-      {
-        "id": "tech_ge_kong_ru_er",
-        "name": "隔空入耳",
-        "type": "传音",
-        "description": "使声音只入指定之人耳中。"
-      }
-    ],
-    "progression": "依修习者资质与传承而进境不同",
-    "effects": [
-      "玄难被虚竹误认为以传音入密暗中指点棋局。"
-    ],
-    "combat_style": "以内力或招式影响攻防",
-    "rag_refs": [],
-    "source_refs": [
-      {
-        "chapter": 31,
-        "line_start": 899,
-        "line_end": 899,
-        "text": "玄难被虚竹误认为以传音入密暗中指点棋局。"
-      }
-    ],
-    "mastery_rank": "炉火纯青"
-  },
-  {
-    "id": "skill_san_xiao_xiao_yao_san",
-    "name": "三笑逍遥散",
-    "type": "暗器",
-    "faction": "星宿派",
-    "one_line": "丁春秋暗施的无色无臭毒粉，中者三笑而绝。",
-    "techniques": [
-      {
-        "id": "tech_san_xiao_du_fen",
-        "name": "三笑毒粉",
-        "type": "debuff",
-        "description": "以细微毒粉暗中侵袭，使中毒者笑声渐绝而亡。"
-      },
-      {
-        "id": "tech_wu_xing_zhuan_du",
-        "name": "无形转毒",
-        "type": "special",
-        "description": "毒粉细微无色，能被高手借势转嫁到旁人身上。"
-      }
-    ],
-    "progression": [
-      {
-        "level": "暗施",
-        "description": "大袖微扬潜运内力，将毒粉撒向敌手。"
-      }
-    ],
-    "effects": [
-      {
-        "type": "减益",
-        "description": "令中毒者三笑后气绝，威慑旁观者。"
-      }
-    ],
-    "combat_style": "阴毒隐秘，适合暗中下手。",
-    "rag_refs": [
-      33
-    ],
-    "source_refs": [
-      {
-        "chapter": 33,
-        "line_start": 38,
-        "line_end": 46,
-        "text": "星宿群弟子均知他是中了师父\"三笑逍遥散\"之毒；丁春秋潜运内力，将毒粉向慕容复挥去。"
-      }
-    ],
-    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_dou_zhuan_xing_yi",
@@ -3146,6 +3604,52 @@
       }
     ],
     "mastery_rank": "登堂入室"
+  },
+  {
+    "id": "skill_tian_chang_di_jiu_bu_lao_chang_chun_gong",
+    "name": "天长地久不老长春功",
+    "type": "内功",
+    "faction": null,
+    "one_line": "天山童姥修炼的返老还童神功。",
+    "techniques": [
+      {
+        "id": "tech_tian_chang_di_jiu_bu_lao_chang_chun_gong_fa_men",
+        "name": "天长地久不老长春功法门",
+        "type": "special",
+        "description": "天山童姥修炼的返老还童神功。"
+      },
+      {
+        "id": "tech_tian_chang_di_jiu_bu_lao_chang_chun_gong_yun_qi",
+        "name": "天长地久不老长春功运气",
+        "type": "buff",
+        "description": "以内力运行配合招式，发挥本门功效。"
+      }
+    ],
+    "progression": [
+      {
+        "level": "初学",
+        "description": "依口诀和经穴运行真气"
+      }
+    ],
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "天山童姥修炼的返老还童神功。"
+      }
+    ],
+    "combat_style": "以内力和经穴运使为核心",
+    "rag_refs": [
+      35
+    ],
+    "source_refs": [
+      {
+        "chapter": 35,
+        "line_start": 895,
+        "line_end": 907,
+        "text": "这是天长地久不老长春功"
+      }
+    ],
+    "mastery_rank": "炉火纯青"
   },
   {
     "id": "skill_bei_ming_zhen_qi",
@@ -3796,5 +4300,86 @@
       "unresolved mastery rank: <blank>"
     ],
     "faction": null
+  },
+  {
+    "id": "skill_mu_rong_fu_za_zhao",
+    "name": "慕容复杂招",
+    "type": "杂技",
+    "faction": "姑苏慕容",
+    "one_line": "慕容复伪装或临场发挥的招式合集。",
+    "techniques": [],
+    "progression": "",
+    "effects": "",
+    "combat_style": "",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 1,
+        "line_end": 1,
+        "text": "第十七回"
+      },
+      {
+        "chapter": 34,
+        "line_start": 180,
+        "line_end": 184,
+        "text": "王语嫣指点慕容复使金灯万盏，刀光幻出点点寒光。"
+      },
+      {
+        "chapter": 34,
+        "line_start": 184,
+        "line_end": 188,
+        "text": "慕容复左袖拂出披襟当风，使矮子双锤互击震断臂骨。"
+      },
+      {
+        "chapter": 34,
+        "line_start": 868,
+        "line_end": 870,
+        "text": "王语嫣推测杀九翼道人者可用白帝斩蛇势一类招式。"
+      }
+    ],
+    "mastery_rank": 1
+  },
+  {
+    "id": "skill_yu_shu_pai_dao_fa",
+    "name": "玉树派刀法",
+    "type": "刀法",
+    "faction": "青海玉树派",
+    "one_line": "青海玉树派刀招。",
+    "techniques": [],
+    "progression": "",
+    "effects": "",
+    "combat_style": "",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "line_start": 949,
+        "line_end": 949,
+        "text": "王语嫣道：\"适才你使了青海玉树派那一招'大漠飞沙'之后，段公子快步而过，你若使太乙派的'羽衣刀'第十七招，再使灵飞派的'清风徐来'，早就将段公子打倒在地了，何必华而不实的去用山西郝家刀法？"
+      }
+    ],
+    "mastery_rank": 1
+  },
+  {
+    "id": "skill_bu_ping_dao_ren",
+    "name": "不平道人拂尘",
+    "type": "奇门兵器",
+    "faction": "",
+    "one_line": "不平道人以拂尘真气施展的招式。",
+    "techniques": [],
+    "progression": "",
+    "effects": "",
+    "combat_style": "",
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 34,
+        "line_start": 236,
+        "line_end": 240,
+        "text": "不平道人以拂尘摆出劲风反激，托住身子缓缓而落，被乌老大称为凭虚临风。"
+      }
+    ],
+    "mastery_rank": 1
   }
 ]
