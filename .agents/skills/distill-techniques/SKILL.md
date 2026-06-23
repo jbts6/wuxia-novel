@@ -1,9 +1,13 @@
 ---
 name: distill-techniques
-description: Use when a wuxia novel directory needs its techniques.json cleaned — normalizing types, fixing broken source_skill references, and removing noise. Trigger on "clean techniques", "distill techniques", "fix technique types", or "招式清洗".
+description: DEPRECATED — use distill-skills-and-techniques instead. Kept for reference only.
 ---
 
-# 提炼招式
+# 提炼招式（已合并）
+
+> **⚠ 已合并入 `distill-skills-and-techniques`。** 单独运行会导致 skill 交叉校验缺失。请使用合并版本。
+
+# 提炼招式（旧版，仅供参考）
 
 从 `<小说目录>/techniques.json` 提炼出干净的招式数据：标准化 type 枚举、修复无效 source_skill 引用、去除噪声条目。
 
@@ -53,8 +57,21 @@ description: Use when a wuxia novel directory needs its techniques.json cleaned 
 | type 为 `formation`（阵法） | 天罡北斗阵某阵位 |
 | type 为 `command`（号令） | 指挥号令 |
 | source_skill 已被 distill-skills 删除且无法重指向 | — |
-| description < 10 字且无独特信息 | — |
+| 泛称/描述性名称，非独立招式名 | 般若掌掌力、刚猛掌劲、凌空指力、北冥护体 |
+| 功法+动作描述 | 一阳指疗伤、天山六阳掌疗伤、天山折梅手起手式 |
+| 状态/过程描述 | 生死符发作、符毒发作、生死符解法 |
+| 普通兵器动作 | 单刀脱手、横砍而至、连砍四刀、铁拐横扫 |
+| 训练/辅助手段 | 王鼎助练、心法配合 |
+| 内功/特殊功法下的所有 technique | 北冥神功、一阳指、化功大法、小无相功等本身无招式体系 |
 | 与同 skill 下其他 technique 高度重复 | — |
+
+**内功规则**：内功类 skill（北冥神功、一阳指、化功大法、小无相功、易筋经等）在原著中是整套功法，没有独立招式。其 technique 实为描述性文字，全部删除。例外：若功法有公认的特定能力（如「返老还童」），可保留为一条 technique。
+
+**身法规则**：身法类 skill（凌波微步、传音入密等）在原著中是整套身法/技能，没有独立招式。其 technique 实为动作描述，全部删除。
+
+**判断关键**：招式名是否有独立的武学身份？「关冲剑」是招式名，「食指剑气」是描述。「见龙在田」是招式名，「刚猛掌劲」是描述。至少要像「关冲剑」「少冲剑」这种级别才算合格。
+
+**前缀去重**：若招式名以所属功法名开头（如「火焰刀凌虚发劲」「大金刚拳隔空震鼎」），去掉功法前缀，只保留招式本名（「凌虚发劲」「隔空震鼎」）。去掉前缀后若只剩泛称（如「掌」「劲」），则删除整条。
 
 ## 无效 source_skill 处理
 
@@ -104,12 +121,14 @@ description: Use when a wuxia novel directory needs its techniques.json cleaned 
 | attack | 45 |
 | ... | ... |
 
-## 按功法统计（top 10）
-| 功法 | 招式数 |
-|------|--------|
-| 六脉神剑 | 6 |
-| ... | ... |
+## 按功法统计（全部）
+| 功法 | 招式数 | 招式 |
+|------|--------|------|
+| 六脉神剑 | 6 | 少商剑、商阳剑、中冲剑、关冲剑、少冲剑、少泽剑 |
+| ... | ... | ... |
 ```
+
+每个功法下列出具体招式名，便于人工校对归属是否合理。
 
 ## 产物校验
 
@@ -119,7 +138,7 @@ description: Use when a wuxia novel directory needs its techniques.json cleaned 
 - 所有 `type` 属于 13 种标准枚举
 - 所有 `source_skill` 指向有效 skill（在 skills.json 中存在）
 - `source_refs` 原样保留
-- 保留率预期 60%–75%
+- 保留率预期 35%–50%（仅保留有独立招式名的，内功/身法/泛称/描述类删除）
 
 ## 与其他 distill 的依赖
 

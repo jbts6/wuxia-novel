@@ -31,7 +31,7 @@
 
 | 字段 | 合法值 |
 |------|--------|
-| `skill.type` | 剑法 / 掌法 / 内功 / 轻功 / 暗器 / 指法 / 拳法 / 棍法 / 杖法 / 棒法 / 刀法 / 枪法 / 音攻 / 毒功 / 身法 / 点穴 / 医术 |
+| `skill.type` | 剑法 / 掌法 / 指法 / 拳法 / 刀法 / 枪法 / 棍法 / 杖法 / 棒法 / 暗器 / 阵法 / 奇门兵器 / 内功 / 轻功 / 毒功 / 音攻 / 点穴 |
 | `item.type` | 兵器 / 暗器 / 防具 / 丹药 / 毒药 / 信物 / 秘籍 / 坐骑 / 食物 / 工具 / 饰品 |
 | `item.rarity_tier` | 寻常凡品 / 上乘佳品 / 稀世珍品 / 绝世神兵 / 未知 |
 | `faction.type` | 武林门派 / 帮派 / 家族 |
@@ -39,7 +39,7 @@
 | `character.importance` | 核心 / 重要 / 次要 / 龙套 / 背景 |
 | `character.archetype` | scholar / warrior / monk / assassin / healer |
 | `relationship.type` | 挚友 / 恋人 / 师徒 / 宿敌 / 对手 / 主仆 / 合作者 / 亲属 |
-| `technique.type` | attack / defense / buff / debuff / feint / special |
+| `technique.type` | attack / defense / buff / debuff / control / feint / movement / poison / internal / support / combo / counter / special |
 | `effect.type` | 伤害 / 控制 / 增益 / 减益 / 特殊 |
 
 ### dialogue_tone
@@ -62,11 +62,19 @@
 - 单次使用的武器而非武学体系（"拿起一把刀"）
 - 纯粹的内力描述而非独立功法（"运起内力"）
 - 已有技能的简单重复提及（用 entity_updates 更新 rag_refs/source_refs 即可）
+- **人名+泛称**（"乔峰轻功"、"少林高僧掌法"、"木婉清剑法"）——必须有独立功法名
+- **事件/场景描述**（"雁门暗器伏击"、"江南追杀阵"）——不是功法
+- **非武术能力**（"腹语术"、"易容术"、"棋艺"、"音律"）——不是武功
+
+**内功/身法规则**：内功类（一阳指、北冥神功、化功大法等）和身法类（凌波微步等）在原著中是整套功法，**没有独立招式**。不为其生成 technique。例外：若功法有公认的特定能力（如"返老还童"），可保留为一条 technique。
 
 **techniques 提取规则**：
-- 每个 skill 至少提取 2 个 techniques；如果原文明确描述了更多招式，必须全部提取
+- **仅当原文明确给出招式名时才提取 technique**，不要凑数
+- 招式名必须有独立的武学身份：「关冲剑」是招式名，「食指剑气」是描述；「见龙在田」是招式名，「刚猛掌劲」是描述
+- 不要提取泛称/描述性 technique：「XX掌力」「XX拳劲」「XX指力」「XX疗伤」「XX解法」「XX发作」
+- 不要提取普通兵器动作：「单刀脱手」「横砍而至」「连砍四刀」
 - technique 的 `description` **必须从原文提取真实描述**，禁止使用"XXX的代表性变化：YYY"这类模板
-- 如果原文没有为某招式提供足够描述，用一句话概括其在原文中的表现（如"洪七公示范的降龙十八掌第一招，刚猛蓄劲"）
+- technique 名称不要包含所属功法名作为前缀：「火焰刀凌虚发劲」→「凌虚发劲」
 
 ## 功法命名规则
 

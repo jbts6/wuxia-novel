@@ -1,9 +1,13 @@
 ---
 name: distill-skills
-description: Use when a wuxia novel directory needs its archive/skills.json refined to skills.json, when the user asks to filter skills to only keep real martial arts, or when distilling skills for all books.
+description: DEPRECATED — use distill-skills-and-techniques instead. Kept for reference only.
 ---
 
-# 提炼功法
+# 提炼功法（已合并）
+
+> **⚠ 已合并入 `distill-skills-and-techniques`。** 单独运行会导致 technique 交叉校验缺失。请使用合并版本。
+
+# 提炼功法（旧版，仅供参考）
 
 从 `<小说目录>/archive/skills.json` 提炼出 `<小说目录>/skills.json`，只保留真正的功法。
 
@@ -75,11 +79,12 @@ description: Use when a wuxia novel directory needs its archive/skills.json refi
 2. 将 `<小说目录>/skills.json` 移动到 `<小说目录>/archive/skills.json`
 3. 读取 `<小说目录>/archive/skills.json`
 4. 按上述标准逐条判断保留/删除
-5. 对保留条目应用命名规则
-6. **游戏设计师过滤**：再过一遍保留清单——这个功法是否有资格列入技能图鉴？有独立名号、有传承体系、有武学价值的才留，凑数的删
-7. 去重：去人名后同名功法合并为一条
-8. 写入 `<小说目录>/skills.json`
-9. 写入 `<小说目录>/skills_summary.md`
+5. **交叉检查 techniques.json**：遍历待删除 skill，检查 `techniques.json` 中是否有 technique 指向该 skill。若 technique 名称合格（有独立招式名，非泛称/描述），则保留该 skill
+6. 对保留条目应用命名规则
+7. **游戏设计师过滤**：再过一遍保留清单——这个功法是否有资格列入技能图鉴？有独立名号、有传承体系、有武学价值的才留，凑数的删
+8. 去重：去人名后同名功法合并为一条
+9. 写入 `<小说目录>/skills.json`
+10. 写入 `<小说目录>/skills_summary.md`
 
 ## skills_summary.md 格式
 
