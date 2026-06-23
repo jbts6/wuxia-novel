@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ENTITY_COLORS, INK, PIGMENT, RELATION_COLORS } from '../../theme/palette';
+import { findById, getCharacterDialogues, getCharacterItems } from '../../utils/entityLookup';
 import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
@@ -23,14 +24,12 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
   const dialogues = useNovelStore((s) => s.dialogues);
   const showDetail = useNovelStore((s) => s.showDetail);
 
-  const character = characters.find((c) => c.id === id);
+  const character = findById(characters, id);
   if (!character) return null;
 
-  const faction = factions.find((f) => f.id === character.faction);
-  const charItems = items.filter((i) => i.owner === id);
-  const charDialogues = dialogues
-    .filter((d) => d.speaker === id || d.speaker_name === character.name)
-    .slice(0, 5);
+  const faction = findById(factions, character.faction);
+  const charItems = getCharacterItems(items, id);
+  const charDialogues = getCharacterDialogues(dialogues, id, character.name).slice(0, 5);
 
   const roleLabels: Record<string, string> = {
     protagonist: '主角',
@@ -93,7 +92,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
       {character.relationships.length > 0 && (
         <Card size="small" title={<span><TeamOutlined /> 关系网络</span>} style={{ marginBottom: 16 }}>
           {character.relationships.map((rel) => {
-            const target = characters.find((c) => c.id === rel.target);
+            const target = findById(characters, rel.target);
             return (
               <div
                 key={rel.target}
@@ -118,7 +117,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
         <Card size="small" title={<span><ThunderboltOutlined /> 武功技能</span>} style={{ marginBottom: 16 }}>
           <Space wrap>
             {character.known_skills.map((skillId) => {
-              const skill = skills.find((s) => s.id === skillId);
+              const skill = findById(skills, skillId);
               return skill ? (
                 <InkTag key={skillId} color={ENTITY_COLORS.skill} wash={false} style={{ cursor: 'pointer' }} onClick={() => showDetail('skill', skillId)}>
                   {skill.name}

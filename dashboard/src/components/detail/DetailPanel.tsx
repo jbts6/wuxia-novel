@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Breadcrumb, Button, Card, Drawer, Empty, Space, Typography } from 'antd';
 import { ArrowRightOutlined, NodeIndexOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
@@ -9,6 +9,7 @@ import FactionCard from '../cards/FactionCard';
 import LocationCard from '../cards/LocationCard';
 import ErrorBoundary from '../common/ErrorBoundary';
 import type { CardType } from '../../types/novel';
+import { getEntityDetailTitle, getEntityName } from '../../utils/entityLookup';
 import { getRelationshipChain } from '../../utils/graphHelper';
 import InkTag from '../common/InkTag';
 
@@ -37,50 +38,14 @@ const DetailPanel: React.FC = () => {
   const factions = useNovelStore((s) => s.factions);
   const locations = useNovelStore((s) => s.locations);
 
-  const getEntityName = useCallback((entityType: CardType, entityId: string) => {
-    switch (entityType) {
-      case 'character':
-        return characters.find((c) => c.id === entityId)?.name || entityId;
-      case 'skill':
-        return skills.find((s) => s.id === entityId)?.name || entityId;
-      case 'item':
-        return items.find((i) => i.id === entityId)?.name || entityId;
-      case 'faction':
-        return factions.find((f) => f.id === entityId)?.name || entityId;
-      case 'location':
-        return locations.find((l) => l.id === entityId)?.name || entityId;
-      default:
-        return entityId;
-    }
-  }, [characters, factions, items, locations, skills]);
+  const entityCollections = useMemo(
+    () => ({ characters, skills, items, factions, locations }),
+    [characters, factions, items, locations, skills],
+  );
 
   const title = useMemo(() => {
-    if (!type || !id) return '';
-    switch (type) {
-      case 'character': {
-        const char = characters.find((c) => c.id === id);
-        return char ? `${char.name} - 角色详情` : '角色详情';
-      }
-      case 'skill': {
-        const skill = skills.find((s) => s.id === id);
-        return skill ? `${skill.name} - 技能详情` : '技能详情';
-      }
-      case 'item': {
-        const item = items.find((i) => i.id === id);
-        return item ? `${item.name} - 物品详情` : '物品详情';
-      }
-      case 'faction': {
-        const faction = factions.find((f) => f.id === id);
-        return faction ? `${faction.name} - 势力详情` : '势力详情';
-      }
-      case 'location': {
-        const loc = locations.find((l) => l.id === id);
-        return loc ? `${loc.name} - 地点详情` : '地点详情';
-      }
-      default:
-        return '详情';
-    }
-  }, [type, id, characters, skills, items, factions, locations]);
+    return getEntityDetailTitle(entityCollections, type, id);
+  }, [entityCollections, type, id]);
 
   const renderContent = () => {
     if (!type || !id) return <Empty description="请选择一个实体" />;
@@ -134,7 +99,7 @@ const DetailPanel: React.FC = () => {
           items={detailTrail.map((entry, index) => ({
             title:
               index === detailTrail.length - 1 ? (
-                <Text>{getEntityName(entry.type, entry.id)}</Text>
+                <Text>{getEntityName(entityCollections, entry.type, entry.id)}</Text>
               ) : (
                 <Button
                   type="link"
@@ -142,7 +107,7 @@ const DetailPanel: React.FC = () => {
                   style={{ padding: 0 }}
                   onClick={() => navigateDetail(entry.type, entry.id)}
                 >
-                  {getEntityName(entry.type, entry.id)}
+                  {getEntityName(entityCollections, entry.type, entry.id)}
                 </Button>
               ),
           }))}

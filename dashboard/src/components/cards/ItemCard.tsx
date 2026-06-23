@@ -3,6 +3,7 @@ import { Card, Descriptions, Typography, Space } from 'antd';
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ENTITY_COLORS, INK, CINNABAR } from '../../theme/palette';
+import { findById, getItemRelatedSkills } from '../../utils/entityLookup';
 import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
@@ -19,11 +20,11 @@ const ItemCard: React.FC<ItemCardProps> = ({ id }) => {
   const skills = useNovelStore((s) => s.skills);
   const showDetail = useNovelStore((s) => s.showDetail);
 
-  const item = items.find((i) => i.id === id);
+  const item = findById(items, id);
   if (!item) return null;
 
-  const owner = characters.find((c) => c.id === item.owner);
-  const relatedSkills = skills.filter((s) => item.related_skills?.includes(s.id));
+  const owner = findById(characters, item.owner);
+  const relatedSkills = getItemRelatedSkills(skills, item.related_skills);
 
   return (
     <div>

@@ -3,6 +3,7 @@ import { Card, Typography, Space } from 'antd';
 import { TeamOutlined, UserOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ENTITY_COLORS, INK } from '../../theme/palette';
+import { findById, getLocationCharacters, getLocationFactions } from '../../utils/entityLookup';
 import InkTag from '../common/InkTag';
 
 const { Text, Paragraph } = Typography;
@@ -17,11 +18,11 @@ const LocationCard: React.FC<LocationCardProps> = ({ id }) => {
   const factions = useNovelStore((s) => s.factions);
   const showDetail = useNovelStore((s) => s.showDetail);
 
-  const location = locations.find((l) => l.id === id);
+  const location = findById(locations, id);
   if (!location) return null;
 
-  const relatedFactions = factions.filter((f) => f.location === id);
-  const relatedCharacters = characters.filter((c) => c.faction && relatedFactions.some(f => f.id === c.faction));
+  const relatedFactions = getLocationFactions(factions, id);
+  const relatedCharacters = getLocationCharacters(characters, factions, id);
 
   return (
     <div>

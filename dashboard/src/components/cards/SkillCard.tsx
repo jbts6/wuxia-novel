@@ -3,6 +3,12 @@ import { Card, Descriptions, Typography, Space } from 'antd';
 import { UserOutlined, FireOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ENTITY_COLORS, INK, CINNABAR } from '../../theme/palette';
+import {
+  findById,
+  getSkillCharacters,
+  getSkillItems,
+  getSkillTechniques,
+} from '../../utils/entityLookup';
 import { getSkillEffects, getSkillProgression } from '../../utils/skillDisplay';
 import InkTag from '../common/InkTag';
 
@@ -28,12 +34,12 @@ const SkillCard: React.FC<SkillCardProps> = ({ id }) => {
   const techniques = useNovelStore((s) => s.techniques);
   const showDetail = useNovelStore((s) => s.showDetail);
 
-  const skill = skills.find((s) => s.id === id);
+  const skill = findById(skills, id);
   if (!skill) return null;
 
-  const skillTechniques = techniques.filter((t) => t.source_skill === id);
-  const relatedCharacters = characters.filter((c) => Array.isArray(c.known_skills) && c.known_skills.includes(id));
-  const relatedItems = items.filter((i) => Array.isArray(i.related_skills) && i.related_skills.includes(id));
+  const skillTechniques = getSkillTechniques(techniques, id);
+  const relatedCharacters = getSkillCharacters(characters, id);
+  const relatedItems = getSkillItems(items, id);
 
   const effects = getSkillEffects(skill);
   const progression = getSkillProgression(skill);
