@@ -5,6 +5,7 @@ import { useNovelStore } from '../../stores/useNovelStore';
 import { ENTITY_COLORS, INK } from '../../theme/palette';
 import { findById, getLocationCharacters, getLocationFactions } from '../../utils/entityLookup';
 import InkTag from '../common/InkTag';
+import SourceReferencesCard from './SourceReferencesCard';
 
 const { Text, Paragraph } = Typography;
 
@@ -67,18 +68,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ id }) => {
         </Card>
       )}
 
-      {location.source_refs?.length > 0 && (
-        <Card size="small" title="原文引用">
-          {location.source_refs.slice(0, 3).map((ref, index) => (
-            <div key={index} style={{ padding: '8px 0', borderBottom: '1px solid var(--ink-hairline)' }}>
-              <div style={{ fontWeight: 500 }}>第{ref.chapter}章 (行 {ref.line_start}-{ref.line_end})</div>
-              <Paragraph ellipsis={{ rows: 3, expandable: true }} className="ink-quote" style={{ marginBottom: 0 }}>
-                {ref.text}
-              </Paragraph>
-            </div>
-          ))}
-        </Card>
-      )}
+      <SourceReferencesCard sourceRefs={location.source_refs} />
     </div>
   );
 };
