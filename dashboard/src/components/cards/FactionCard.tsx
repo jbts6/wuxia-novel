@@ -3,6 +3,7 @@ import { Card, Descriptions, Typography, Space } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ENTITY_COLORS, INK } from '../../theme/palette';
+import { displayRole } from '../../utils/displayLabels';
 import { findById, getFactionMembers } from '../../utils/entityLookup';
 import InkTag from '../common/InkTag';
 
@@ -65,7 +66,7 @@ const FactionCard: React.FC<FactionCardProps> = ({ id }) => {
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontWeight: 500 }}>{char.name}</span>
                 <InkTag color={char.role}>
-                  {char.role === 'protagonist' ? '主角' : char.role === 'villain' ? '反派' : 'NPC'}
+                  {displayRole(char.role)}
                 </InkTag>
               </div>
               <div style={{ color: INK.secondary, fontSize: 12 }}>{char.identity}</div>

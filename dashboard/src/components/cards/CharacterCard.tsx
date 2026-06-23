@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons';
 import { useNovelStore } from '../../stores/useNovelStore';
 import { ENTITY_COLORS, INK, PIGMENT, RELATION_COLORS } from '../../theme/palette';
+import { displayRole } from '../../utils/displayLabels';
 import { findById, getCharacterDialogues, getCharacterItems } from '../../utils/entityLookup';
 import InkTag from '../common/InkTag';
 
@@ -31,13 +32,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
   const charItems = getCharacterItems(items, id);
   const charDialogues = getCharacterDialogues(dialogues, id, character.name).slice(0, 5);
 
-  const roleLabels: Record<string, string> = {
-    protagonist: '主角',
-    companion: '同伴',
-    npc: 'NPC',
-    villain: '反派',
-  };
-
   return (
     <div>
       {/* 基础信息 */}
@@ -58,11 +52,11 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ id }) => {
           <Descriptions.Item label="等级">
             <InkTag color={character.rank}>{character.rank}</InkTag>
           </Descriptions.Item>
-          <Descriptions.Item label="类型">
-            <InkTag color={character.role}>
-              {roleLabels[character.role]}
-            </InkTag>
-          </Descriptions.Item>
+            <Descriptions.Item label="类型">
+              <InkTag color={character.role}>
+                {displayRole(character.role)}
+              </InkTag>
+            </Descriptions.Item>
           {faction && (
             <Descriptions.Item label="势力">
               <InkTag color="cyan" style={{ cursor: 'pointer' }} onClick={() => showDetail('faction', faction.id)}>
