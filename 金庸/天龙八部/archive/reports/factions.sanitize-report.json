@@ -1,0 +1,41 @@
+{
+  "novel": "/private/tmp/preclean-regenerate-20260624-2",
+  "file": "factions.json",
+  "started_at": "2026-06-24T01:51:34.153Z",
+  "raw_archive": "archive/raw/factions.json",
+  "preclean_archive": "archive/preclean/factions.json",
+  "summary": {
+    "records_before": 63,
+    "records_after": 62,
+    "changed_records": 3,
+    "deleted_records": 1,
+    "pending_records": 0
+  },
+  "changes": [
+    {
+      "id": "faction_xing_xiu_pai",
+      "field": "*",
+      "before": "星宿派",
+      "after": "[merged into faction_xing_su_pai]",
+      "rule": "faction_dedup",
+      "confidence": "high"
+    },
+    {
+      "id": "faction_zhi_guan_chan_si",
+      "field": "location",
+      "before": "loc_zhi_guan_chan_si",
+      "after": "止观禅寺",
+      "rule": "location_id_to_name",
+      "confidence": "high"
+    },
+    {
+      "id": "faction_xing_su_pai",
+      "field": "location",
+      "before": "",
+      "after": null,
+      "rule": "null_normalize",
+      "confidence": "high"
+    }
+  ],
+  "pending": []
+}
