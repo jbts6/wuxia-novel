@@ -114,6 +114,7 @@ if (existingChapterJsons.length > 0) {
 
 console.log('\n[完成] 准备工作完成！');
 console.log(`下一步:`);
-console.log(`  1. 根据 chapter_list.json 中的章节列表，启动 Sub Agent 处理`);
-console.log(`  2. Agent 自主决定并行度（RPM < 100）`);
-console.log(`  3. 所有章节完成后，运行 merge-entities.js 合并实体`);
+console.log(`  1. 根据 chapter_list.json 中的章节列表处理章节`);
+console.log(`  2. 优先启动 Sub Agent；如果当前 Claude Code/第三方模型无法派发，按 SKILL.md 的顺序兼容模式由主 Agent 每次处理 1 章`);
+console.log(`  3. Sub Agent 模式最多同时 3 个；顺序兼容模式并行度固定为 1`);
+console.log(`  4. 所有章节完成后，运行 merge-entities.js 合并实体`);

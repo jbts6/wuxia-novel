@@ -6,7 +6,7 @@ const ref = [{ chapter: 1, line_start: 1, line_end: 2, text: '原文' }];
 
 test('accepts entities with canonical semantic fields', () => {
   const errors = validateEntityCollections({
-    characters: [{ id: 'char_li_xun_huan', name: '李寻欢', power_rank: '返璞归真', importance: '主角', source_refs: ref }],
+    characters: [{ id: 'char_li_xun_huan', name: '李寻欢', power_rank: '返璞归真', importance: '核心', source_refs: ref }],
     skills: [{ id: 'skill_xiao_li_fei_dao', name: '小李飞刀', mastery_rank: '登峰造极', source_refs: ref }],
     techniques: [],
     factions: [],

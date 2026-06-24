@@ -116,7 +116,7 @@ if (invalidChapterJsons.length > 0) {
 
 if (inProgressChapters.length > 0) {
   console.log(`[恢复] 🔄 可恢复: ${inProgressChapters.join(', ')}`);
-  console.log(`     注意: 可恢复只表示存在 progress.jsonl，不代表有 Sub Agent 正在运行`);
+  console.log(`     注意: 可恢复只表示存在 progress.jsonl，不代表有 Sub Agent 或章节工作单元正在运行`);
   // 显示每个可恢复章节的进度
   for (const ch of inProgressChapters) {
     const progressFile = path.join(batchJsonDir, `${ch}_progress.jsonl`);
@@ -166,7 +166,7 @@ console.log('[恢复] 下一步建议:');
 if (inProgressChapters.length > 0 || pendingChapters.length > 0) {
   const total = inProgressChapters.length + pendingChapters.length;
   console.log(`  ⚠️  还有 ${total} 章待处理（${inProgressChapters.length} 章可恢复，${pendingChapters.length} 章未开始）`);
-  console.log(`  💡 如果当前没有 Sub Agent 正在运行，必须立即继续派发（RPM < 100）`);
+  console.log(`  💡 继续处理章节：Sub Agent 可用则派发；不可用时按 SKILL.md 的顺序兼容模式由主 Agent 每次处理 1 章`);
   if (inProgressChapters.length > 0) {
     console.log(`  💡 可恢复章节会从上次中断的段落继续`);
   }

@@ -5,6 +5,8 @@
 - 只能用 `JSON.stringify(data, null, 2)` 写 JSON；禁止手拼 JSON 字符串。
 - 写入后立刻 `JSON.parse` 验证。
 - `source_refs`、`line_start`、`line_end` 必须来自原文章节文件行号。
+- `name`、`one_line`、`description`、`effects`、`origin` 等人工可读字段禁止使用英文占位或问号兜底，例如 `unknown`、`weapon`、`hidden_weapon`、`???`、`?`、`N/A`。
+- deconstruct 产物是 raw extraction 候选层；不确定性通过原文证据和质量报告暴露，最终取舍交给 `distill-*`。
 
 ## 进度文件：`batch_json/ch_NNN_progress.jsonl`
 
@@ -118,3 +120,9 @@
 从 `entity_registry.json` 拆分 6 个实体文件，再从所有 `ch_NNN.json` 合并：
 
 `characters.json`、`skills.json`、`techniques.json`、`factions.json`、`locations.json`、`items.json`、`dialogues.json`、`chapter_summaries.json`。
+
+同时由 `quality-report.js` 生成：
+
+`deconstruct_report.json`、`deconstruct_report.md`。
+
+质量报告不是 schema 替代品；它负责暴露 schema 合法但人工不可用的问题，例如英文/问号占位、泛称实体、短说明、speaker 为空、重名和跨类型污染。

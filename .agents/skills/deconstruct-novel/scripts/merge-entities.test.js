@@ -30,7 +30,7 @@ test('normalizes semantic aliases before writing entity registry', () => {
         id: 'char_li_xun_huan',
         name: '李寻欢',
         power_rank: '返璞归真',
-        importance: '主角',
+        importance: '核心',
         source_refs: [{ chapter: 1, line_start: 1, line_end: 2, text: '李寻欢出手。' }],
       }],
       skills: [{
