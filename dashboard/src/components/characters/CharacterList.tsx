@@ -146,7 +146,6 @@ const CharacterList: React.FC = () => {
       columns={columns}
       dataSource={dataSource}
       rowKey="id"
-      scrollX={700}
       onRow={(record) => ({
         onClick: () => showDetail('character', record.id),
         style: { cursor: 'pointer' },

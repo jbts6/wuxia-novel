@@ -106,7 +106,6 @@ const ItemList: React.FC = () => {
       columns={columns}
       dataSource={dataSource}
       rowKey="id"
-      scrollX={600}
       onRow={(record) => ({
         onClick: () => showDetail('item', record.id),
         style: { cursor: 'pointer' },

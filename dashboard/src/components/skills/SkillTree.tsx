@@ -131,7 +131,6 @@ const SkillTree: React.FC = () => {
       columns={columns}
       dataSource={dataSource}
       rowKey="id"
-      scrollX={800}
       onRow={(record) => ({
         onClick: () => showDetail('skill', record.id),
         style: { cursor: 'pointer' },

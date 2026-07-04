@@ -32,11 +32,8 @@ export interface EntityTableLayoutProps<T extends object> {
   columns: ColumnsType<T>;
   dataSource: T[];
   rowKey: keyof T & string;
-  scrollX?: number;
   onRow?: TableProps<T>['onRow'];
 }
-
-const Y_SCROLL = 'calc(100vh - 320px)';
 
 function EntityTableLayoutInner<T extends object>({
   searchPlaceholder,
@@ -48,7 +45,6 @@ function EntityTableLayoutInner<T extends object>({
   columns,
   dataSource,
   rowKey,
-  scrollX = 600,
   onRow,
 }: EntityTableLayoutProps<T>) {
   return (
@@ -83,7 +79,7 @@ function EntityTableLayoutInner<T extends object>({
       </div>
 
       {/* ── 表格 ── */}
-      <div style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
+      <div style={{ flex: 1, minHeight: 0 }}>
         {dataSource.length === 0 ? (
           <Empty description="无匹配项" />
         ) : (
@@ -92,7 +88,6 @@ function EntityTableLayoutInner<T extends object>({
             columns={columns}
             rowKey={rowKey}
             size="small"
-            scroll={{ x: scrollX, y: Y_SCROLL }}
             pagination={false}
             onRow={onRow}
           />

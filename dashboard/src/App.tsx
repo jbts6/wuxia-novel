@@ -2,19 +2,10 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
-import AppLayout from './components/layout/AppLayout';
-import BookLayout from './components/layout/BookLayout';
-import GlobalOverview from './components/library/GlobalOverview';
-import Dashboard from './components/Dashboard';
-import CharacterGraph from './components/graph/CharacterGraph';
-import SkillTree from './components/skills/SkillTree';
-import DialogueList from './components/dialogues/DialogueList';
-import CharacterList from './components/characters/CharacterList';
-import ItemList from './components/items/ItemList';
-import ForceList from './components/factions/ForceList';
-import DetailPanel from './components/detail/DetailPanel';
 import { useBookStore } from './stores/useBookStore';
 import { inkTheme } from './theme/inkTheme';
+import routes from './app/routes';
+import DetailPanel from './components/detail/DetailPanel';
 
 const App: React.FC = () => {
   const { loadBooks } = useBookStore();
@@ -26,24 +17,37 @@ const App: React.FC = () => {
   return (
     <ConfigProvider locale={zhCN} theme={inkTheme}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<AppLayout />}>
-            <Route index element={<GlobalOverview />} />
-            <Route path="book/:author/:bookName" element={<BookLayout />}>
-              <Route index element={<Dashboard />} />
-              <Route path="graph" element={<CharacterGraph />} />
-              <Route path="skills" element={<SkillTree />} />
-              <Route path="characters" element={<CharacterList />} />
-              <Route path="items" element={<ItemList />} />
-              <Route path="forces" element={<ForceList />} />
-              <Route path="dialogues" element={<DialogueList />} />
-            </Route>
-          </Route>
-        </Routes>
+        <div className="app-shell" style={{ height: '100vh', overflow: 'hidden' }}>
+          <RenderRoutes routes={routes} />
+        </div>
         <DetailPanel />
       </BrowserRouter>
     </ConfigProvider>
   );
 };
+
+const RenderRoutes: React.FC<{ routes: typeof import('./app/routes').default }> = ({ routes }) => (
+  <Routes>
+    {routes.map((route, idx) => (
+      <Route key={idx} path={route.path} element={route.element}>
+        {route.children?.map((child, cidx) =>
+          child.index ? (
+            <Route key={`i-${cidx}`} index element={child.element} />
+          ) : (
+            <Route key={cidx} path={child.path} element={child.element}>
+              {child.children?.map((grand, gidx) =>
+                grand.index ? (
+                  <Route key={`gi-${gidx}`} index element={grand.element} />
+                ) : (
+                  <Route key={gidx} path={grand.path} element={grand.element} />
+                ),
+              )}
+            </Route>
+          ),
+        )}
+      </Route>
+    ))}
+  </Routes>
+);
 
 export default App;

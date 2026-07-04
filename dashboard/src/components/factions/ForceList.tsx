@@ -236,7 +236,6 @@ const ForceList: React.FC = () => {
                 columns={factionColumns}
                 dataSource={factionData}
                 rowKey="id"
-                scrollX={700}
                 onRow={(record) => ({
                   onClick: () => showDetail('faction', record.id),
                   style: { cursor: 'pointer' },
@@ -258,7 +257,6 @@ const ForceList: React.FC = () => {
                 columns={locationColumns}
                 dataSource={locationData}
                 rowKey="id"
-                scrollX={600}
                 onRow={(record) => ({
                   onClick: () => showDetail('location', record.id),
                   style: { cursor: 'pointer' },

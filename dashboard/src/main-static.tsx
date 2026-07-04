@@ -6,7 +6,6 @@ import zhCN from 'antd/locale/zh_CN';
 import AppLayout from './components/layout/AppLayout';
 import BookLayout from './components/layout/BookLayout';
 import Dashboard from './components/Dashboard';
-import CharacterGraph from './components/graph/CharacterGraph';
 import SkillTree from './components/skills/SkillTree';
 import DialogueList from './components/dialogues/DialogueList';
 import CharacterList from './components/characters/CharacterList';
@@ -35,7 +34,6 @@ const App: React.FC = () => (
         <Route path="/" element={<AppLayout />}>
           <Route path="book/:author/:bookName" element={<BookLayout />}>
             <Route index element={<Dashboard />} />
-            <Route path="graph" element={<CharacterGraph />} />
             <Route path="skills" element={<SkillTree />} />
             <Route path="characters" element={<CharacterList />} />
             <Route path="items" element={<ItemList />} />
