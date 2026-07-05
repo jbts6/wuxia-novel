@@ -1,0 +1,190 @@
+[
+  {
+    "id": "char_chen_jia_luo",
+    "name": "陈家洛",
+    "alias": [],
+    "role": "核心",
+    "importance": "核心",
+    "archetype": "warrior",
+    "one_line": "红花会总舵主，乾隆皇帝的亲弟弟",
+    "description": "陈家洛是红花会总舵主，乾隆皇帝的亲弟弟，武功高强，为反清复明大业奋斗。",
+    "personality": {
+      "traits": ["武功高强", "重情重义", "为反清复明奋斗"],
+      "speech_style": "说话直接",
+      "core_values": ["反清复明", "爱情", "正义"]
+    },
+    "power_rank": "出神入化",
+    "faction": "faction_hong_hua_hui",
+    "known_skills": ["skill_hong_hua_hui_wu_gong"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_qian_long",
+        "type": "亲属",
+        "dynamic": "亲兄弟关系",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "anchor": "陈家洛与乾隆是亲兄弟",
+            "event_type": "background"
+          }
+        ]
+      },
+      {
+        "target": "char_xiang_ting",
+        "type": "恋人",
+        "dynamic": "与香香公主相爱",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "anchor": "陈家洛与香香公主相爱",
+            "event_type": "climax"
+          }
+        ]
+      },
+      {
+        "target": "char_zhang_zhao_chong",
+        "type": "宿敌",
+        "dynamic": "与张召重为敌",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "anchor": "陈家洛与张召重为敌",
+            "event_type": "climax"
+          }
+        ]
+      }
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "陈家洛出场",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_qian_long",
+    "name": "乾隆",
+    "alias": [],
+    "role": "核心",
+    "importance": "核心",
+    "archetype": "warrior",
+    "one_line": "清朝皇帝，陈家洛的亲哥哥",
+    "description": "乾隆是清朝皇帝，陈家洛的亲哥哥，与陈家洛为敌。",
+    "personality": {
+      "traits": ["武功高强", "重情重义", "与陈家洛为敌"],
+      "speech_style": "说话直接",
+      "core_values": ["权力", "爱情"]
+    },
+    "power_rank": "出神入化",
+    "faction": "faction_qing_court",
+    "known_skills": ["skill_qing_court_wu_gong"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_chen_jia_luo",
+        "type": "亲属",
+        "dynamic": "亲兄弟关系",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "anchor": "乾隆与陈家洛是亲兄弟",
+            "event_type": "background"
+          }
+        ]
+      }
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "乾隆出场",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_xiang_ting",
+    "name": "香香公主",
+    "alias": [],
+    "role": "重要",
+    "importance": "重要",
+    "archetype": "warrior",
+    "one_line": "回族美女，陈家洛的恋人",
+    "description": "香香公主是回族美女，陈家洛的恋人，最终为陈家洛牺牲。",
+    "personality": {
+      "traits": ["美丽善良", "重情重义", "为爱牺牲"],
+      "speech_style": "说话温柔善良",
+      "core_values": ["爱情", "正义"]
+    },
+    "power_rank": "略有小成",
+    "faction": null,
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_chen_jia_luo",
+        "type": "恋人",
+        "dynamic": "与陈家洛相爱",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "anchor": "香香公主与陈家洛相爱",
+            "event_type": "climax"
+          }
+        ]
+      }
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "香香公主出场",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_zhang_zhao_chong",
+    "name": "张召重",
+    "alias": [],
+    "role": "重要",
+    "importance": "重要",
+    "archetype": "warrior",
+    "one_line": "清廷高手，与红花会为敌",
+    "description": "张召重是清廷高手，武功高强，与红花会为敌。",
+    "personality": {
+      "traits": ["武功高强", "与红花会为敌"],
+      "speech_style": "说话直接",
+      "core_values": ["权力"]
+    },
+    "power_rank": "出神入化",
+    "faction": "faction_qing_court",
+    "known_skills": ["skill_qing_court_wu_gong"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_chen_jia_luo",
+        "type": "宿敌",
+        "dynamic": "与陈家洛为敌",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "anchor": "张召重与陈家洛为敌",
+            "event_type": "climax"
+          }
+        ]
+      }
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "张召重出场",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "id": "item_gao_chang_mi_gong_di_tu",
+    "name": "高昌迷宫地图",
+    "type": "秘籍",
+    "rarity_tier": "稀世珍品",
+    "one_line": "传说中藏有无数珍宝的迷宫地图",
+    "description": "高昌迷宫地图是传说中藏有无数珍宝的迷宫地图，实际上迷宫里只有日常用具，没有珍宝。白马李三为保护此图而死。",
+    "owner": "char_li_wen_xiu",
+    "related_characters": ["char_bai_ma_li_san", "char_li_wen_xiu", "char_wa_er_la_qi"],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "高昌迷宫地图首次出现",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "item_bai_ma",
+    "name": "白马",
+    "type": "坐骑",
+    "rarity_tier": "稀世珍品",
+    "one_line": "李文秀的坐骑，忠诚护主",
+    "description": "白马是李文秀的坐骑，忠诚护主，在逃亡过程中立下大功。",
+    "owner": "char_li_wen_xiu",
+    "related_characters": ["char_li_wen_xiu", "char_bai_ma_li_san"],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "白马出场，忠诚护主",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "item_yu_jian",
+    "name": "羽箭",
+    "type": "暗器",
+    "rarity_tier": "寻常凡品",
+    "one_line": "射伤白马李三的羽箭",
+    "description": "羽箭是射伤白马李三的暗器，白马李三背心插着羽箭逃亡。",
+    "owner": "char_huo_yuan_long",
+    "related_characters": ["char_bai_ma_li_san", "char_huo_yuan_long"],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "白马李三背心插着羽箭",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "item_du_zhen",
+    "name": "毒针",
+    "type": "暗器",
+    "rarity_tier": "上乘佳品",
+    "one_line": "瓦耳拉齐使用的暗器，剧毒无比",
+    "description": "毒针是瓦耳拉齐使用的暗器，剧毒无比，中者必死。马家骏曾用毒针射伤瓦耳拉齐。",
+    "owner": "char_wa_er_la_qi",
+    "related_characters": ["char_wa_er_la_qi", "char_ma_jia_jun"],
+    "related_skills": ["skill_du_zhen"],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "瓦耳拉齐使用毒针攻击",
+        "event_type": "climax"
+      }
+    ],
+    "rag_refs": [1]
+  }
+]

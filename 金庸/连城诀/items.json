@@ -1,0 +1,78 @@
+[
+  {
+    "id": "item_lian_cheng_jue",
+    "name": "连城诀",
+    "type": "密码文书",
+    "rarity_tier": "绝世神兵",
+    "one_line": "藏有宝藏秘密的密码文书，非武功秘籍",
+    "description": "连城诀是一份藏有宝藏秘密的密码文书，记录了梁元帝宝藏的位置。万震山、言达平、戚长发三人都想得到。需配合唐诗选辑解读。",
+    "owner": null,
+    "related_characters": ["char_wan_zhen_shan", "char_yan_da_ping", "char_qi_chang_fa"],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "连城诀首次出现",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "item_tang_shi_xuan_ji",
+    "name": "唐诗选辑",
+    "type": "秘籍",
+    "rarity_tier": "稀世珍品",
+    "one_line": "藏有连城诀密码的书籍，需配合连城诀解读",
+    "description": "唐诗选辑是藏有连城诀密码的书籍，梅念笙传给丁典，丁典传给狄云。需配合连城诀解读宝藏位置。",
+    "owner": "char_di_yun",
+    "related_characters": ["char_mei_nian_sheng", "char_ding_dian", "char_di_yun"],
+    "related_skills": ["skill_lian_cheng_jian_fa"],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "唐诗选辑首次出现",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "item_xue_dao",
+    "name": "血刀",
+    "type": "兵器",
+    "rarity_tier": "绝世神兵",
+    "one_line": "血刀门的镇派宝刀",
+    "description": "血刀是血刀门的镇派宝刀，与血刀经配合使用，威力强大。",
+    "owner": "char_xue_dao_lao_zu",
+    "related_characters": ["char_xue_dao_lao_zu", "char_di_yun"],
+    "related_skills": ["skill_xue_dao_jing"],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "血刀首次出现",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "item_wu_can_yi",
+    "name": "乌蚕衣",
+    "type": "防具",
+    "rarity_tier": "稀世珍品",
+    "one_line": "刀枪不入的护身宝衣",
+    "description": "乌蚕衣是一件刀枪不入的护身宝衣，水岱赠予狄云，助其多次脱险。",
+    "owner": "char_di_yun",
+    "related_characters": ["char_shui_dai", "char_di_yun"],
+    "related_skills": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "乌蚕衣首次出现",
+        "event_type": "first_mention"
+      }
+    ],
+    "rag_refs": [1]
+  }
+]

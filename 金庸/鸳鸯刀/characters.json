@@ -1,0 +1,996 @@
+[
+  {
+    "id": "char_xiao_ban_he",
+    "name": "萧半和",
+    "alias": [
+      "萧义",
+      "萧老英雄"
+    ],
+    "identity": "晋阳大侠，实为清廷太监卧底十六年",
+    "faction": null,
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "核心",
+    "one_line": "晋阳大侠实为太监萧义，十六年卧薪尝胆，为救袁杨二夫人后隐姓埋名",
+    "personality": {
+      "traits": [
+        "义薄云天",
+        "深谋远虑",
+        "幽默豁达",
+        "坚忍不拔",
+        "老当益壮"
+      ],
+      "speech_style": "豪爽直率，不失诙谐",
+      "temperament": "威武中带慈祥"
+    },
+    "relationships": [
+      {
+        "target": "char_yuan_guan_nan",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "抚养其长大成人后与其母相认"
+      },
+      {
+        "target": "char_xiao_zhong_hui",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "视如己出的养女"
+      },
+      {
+        "target": "char_yuan_fu_ren",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "冒充夫妻掩护十六年"
+      },
+      {
+        "target": "char_zhuo_tian_xiong",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 1,
+        "dynamic": "与卓天雄功力悉敌最终被识破身份"
+      }
+    ],
+    "known_skills": [
+      "skill_hun_yuan_qi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 444,
+        "line_end": 448,
+        "anchor": "萧半和自称太监萧义",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_zhou_wei_xin",
+    "name": "周威信",
+    "alias": [
+      "铁鞭镇八方",
+      "铁鞭拜八方"
+    ],
+    "identity": "威信镖局总镖头，护送鸳鸯刀进京",
+    "faction": "faction_wei_xin_biao_ju",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "重要",
+    "one_line": "威信镖局总镖头，受命暗中护送鸳鸯刀进京，胆小谨慎又好面子",
+    "personality": {
+      "traits": [
+        "谨慎多疑",
+        "老谋深算",
+        "贪生怕死",
+        "爱面子",
+        "口头禅多"
+      ],
+      "speech_style": "满口江湖俗语，动辄引用江湖上有言道",
+      "temperament": "惊弓之鸟般的精明"
+    },
+    "relationships": [
+      {
+        "target": "char_zhuo_tian_xiong",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "尊卓天雄为师伯，唯命是从"
+      },
+      {
+        "target": "char_xiao_yao_zi",
+        "type": "对手",
+        "intensity": 40,
+        "bond_level": 1,
+        "dynamic": "被太岳四侠拦路惊吓"
+      }
+    ],
+    "known_skills": [
+      "skill_hu_yan_shi_ba_bian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 10,
+        "line_end": 12,
+        "anchor": "铁鞭镇八方周威信",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_zhuo_tian_xiong",
+    "name": "卓天雄",
+    "alias": [
+      "烟霞神龙逍遥子"
+    ],
+    "identity": "清廷大内七大高手之首，假扮瞎子追踪鸳鸯刀",
+    "faction": null,
+    "role": "重要",
+    "archetype": "assassin",
+    "power_rank": "出神入化",
+    "importance": "重要",
+    "one_line": "清廷第一高手，精通震天三十掌与呼延十八鞭，假扮盲人追踪鸳鸯刀",
+    "personality": {
+      "traits": [
+        "城府极深",
+        "武功卓绝",
+        "老奸巨猾",
+        "自负轻敌",
+        "心思缜密"
+      ],
+      "speech_style": "冷峻威严，偶尔阴险嘲讽",
+      "temperament": "深不可测的阴沉"
+    },
+    "relationships": [
+      {
+        "target": "char_zhou_wei_xin",
+        "type": "师徒",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "师伯与师侄关系，一路护送"
+      },
+      {
+        "target": "char_xiao_ban_he",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 1,
+        "dynamic": "与萧半和功力悉敌"
+      },
+      {
+        "target": "char_yuan_guan_nan",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 1,
+        "dynamic": "被袁冠南用假毒药吓退"
+      },
+      {
+        "target": "char_xiao_zhong_hui",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 1,
+        "dynamic": "擒住萧中慧作为要挟"
+      }
+    ],
+    "known_skills": [
+      "skill_zhen_tian_san_shi_zhang",
+      "skill_hu_yan_shi_ba_bian"
+    ],
+    "related_skills": [
+      "skill_hun_yuan_qi"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 172,
+        "line_end": 172,
+        "anchor": "老瞎子名叫卓天雄",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_yao_zi",
+    "name": "逍遥子",
+    "alias": [],
+    "identity": "太岳四侠之首，烟霞神龙",
+    "faction": "faction_tai_yue_si_xia",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "次要",
+    "one_line": "太岳四侠排行老大，手持旱烟管点穴，武功平平却自视甚高",
+    "personality": {
+      "traits": [
+        "自命不凡",
+        "虚张声势",
+        "讲义气",
+        "沉着",
+        "好面子"
+      ],
+      "speech_style": "老气横秋，故作高深",
+      "temperament": "装腔作势的江湖老手"
+    },
+    "relationships": [
+      {
+        "target": "char_chang_chang_feng",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_hua_jian_ying",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_gai_yi_ming",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 32,
+        "line_end": 32,
+        "anchor": "烟霞神龙逍遥子",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_chang_chang_feng",
+    "name": "常长风",
+    "alias": [
+      "双掌开碑"
+    ],
+    "identity": "太岳四侠排行老二，力大无穷",
+    "faction": "faction_tai_yue_si_xia",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "次要",
+    "one_line": "太岳四侠老二，力大无穷以墓碑为兵器，性格鲁莽直率",
+    "personality": {
+      "traits": [
+        "力大无穷",
+        "鲁莽直率",
+        "讲义气",
+        "急躁",
+        "憨厚"
+      ],
+      "speech_style": "大大咧咧，说话直来直去",
+      "temperament": "粗豪莽撞"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yao_zi",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_hua_jian_ying",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_gai_yi_ming",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 32,
+        "line_end": 32,
+        "anchor": "双掌开碑常长风",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_hua_jian_ying",
+    "name": "花剑影",
+    "alias": [
+      "流星赶月"
+    ],
+    "identity": "太岳四侠排行老三，擅长流星锤",
+    "faction": "faction_tai_yue_si_xia",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "次要",
+    "one_line": "太岳四侠老三，使一对流星锤，白净脸皮牙齿外凸",
+    "personality": {
+      "traits": [
+        "好面子",
+        "好奇心重",
+        "讲义气",
+        "小聪明",
+        "爱挑事"
+      ],
+      "speech_style": "喜欢使眼色、使小聪明",
+      "temperament": "精明中带几分滑稽"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yao_zi",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_chang_chang_feng",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_gai_yi_ming",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 32,
+        "line_end": 32,
+        "anchor": "流星赶月花剑影",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_gai_yi_ming",
+    "name": "盖一鸣",
+    "alias": [
+      "八步赶蟾",
+      "赛专诸",
+      "踏雪无痕",
+      "独脚水上飞",
+      "双刺盖七省"
+    ],
+    "identity": "太岳四侠排行老四，外号最长",
+    "faction": "faction_tai_yue_si_xia",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "次要",
+    "one_line": "太岳四侠老四，短小精悍使一对峨嵋刺，外号极长却武功平平",
+    "personality": {
+      "traits": [
+        "话多嘴碎",
+        "虚张声势",
+        "讲义气",
+        "胆小",
+        "滑稽"
+      ],
+      "speech_style": "啰里啰唆，外号说一大串",
+      "temperament": "外强中干的瘦小个子"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yao_zi",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_chang_chang_feng",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      },
+      {
+        "target": "char_hua_jian_ying",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "结拜兄弟"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 32,
+        "line_end": 32,
+        "anchor": "八步赶蟾赛专诸踏雪无痕独脚水上飞双刺盖七省盖一鸣",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_zhong_hui",
+    "name": "萧中慧",
+    "alias": [
+      "杨中慧",
+      "慧儿"
+    ],
+    "identity": "萧半和养女，三湘大侠杨伯冲之女",
+    "faction": null,
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "核心",
+    "one_line": "晋阳大侠之女，与袁冠南互生情愫后发现实为同母异父兄妹",
+    "personality": {
+      "traits": [
+        "聪明伶俐",
+        "侠义心肠",
+        "勇敢冲动",
+        "天真烂漫",
+        "感情丰富"
+      ],
+      "speech_style": "活泼直率，偶有娇嗔",
+      "temperament": "英气逼人的少女"
+    },
+    "relationships": [
+      {
+        "target": "char_yuan_guan_nan",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "互生情愫后发现是同母异父兄妹"
+      },
+      {
+        "target": "char_xiao_ban_he",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "视如己出的养父"
+      },
+      {
+        "target": "char_yang_fu_ren",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 5,
+        "dynamic": "亲生母亲"
+      },
+      {
+        "target": "char_lin_yu_long",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "误打误撞与之交手"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_fu_qi_dao_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 142,
+        "line_end": 142,
+        "anchor": "萧中慧姓萧名中慧",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_yuan_guan_nan",
+    "name": "袁冠南",
+    "alias": [
+      "狮官"
+    ],
+    "identity": "少年书生，袁夫人失散十六年的儿子",
+    "faction": null,
+    "role": "核心",
+    "archetype": "scholar",
+    "power_rank": "登堂入室",
+    "importance": "核心",
+    "one_line": "文武双全的少年书生，用毛笔墨盒作兵器，与萧中慧互生情愫",
+    "personality": {
+      "traits": [
+        "风流倜傥",
+        "足智多谋",
+        "侠义心肠",
+        "胆大心细",
+        "油嘴滑舌"
+      ],
+      "speech_style": "文绉绉引经据典，偶有调侃",
+      "temperament": "书卷气中透出英气"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_zhong_hui",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "互生情愫后发现是同母异父兄妹"
+      },
+      {
+        "target": "char_yuan_fu_ren",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "失散十六年的母亲"
+      },
+      {
+        "target": "char_zhuo_tian_xiong",
+        "type": "宿敌",
+        "intensity": 70,
+        "bond_level": 1,
+        "dynamic": "用假毒药腐骨穿心膏吓退卓天雄"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_fu_qi_dao_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 172,
+        "line_end": 172,
+        "anchor": "书生姓袁名冠南",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lin_yu_long",
+    "name": "林玉龙",
+    "alias": [
+      "龙哥"
+    ],
+    "identity": "使单刀的江湖汉子，任飞燕之夫",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "性格暴躁的江湖汉子，与妻子任飞燕终日吵闹却恩爱如初",
+    "personality": {
+      "traits": [
+        "暴躁鲁莽",
+        "嗓门大",
+        "重情重义",
+        "嘴硬心软",
+        "卤莽急躁"
+      ],
+      "speech_style": "粗声大嗓，动辄骂人",
+      "temperament": "火爆脾气的直肠子"
+    },
+    "relationships": [
+      {
+        "target": "char_ren_fei_yan",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "夫妻恩爱却终日吵闹打架"
+      },
+      {
+        "target": "char_xiao_zhong_hui",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "被萧中慧误会为恶人打了一刀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_fu_qi_dao_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 66,
+        "line_end": 66,
+        "anchor": "前面那人是个汉子手执单刀",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_ren_fei_yan",
+    "name": "任飞燕",
+    "alias": [],
+    "identity": "林玉龙之妻，擅长弹弓",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "林玉龙之妻，弹弓百发百中，刀法狡谲与丈夫争吵不休",
+    "personality": {
+      "traits": [
+        "泼辣直爽",
+        "弹弓了得",
+        "刀法狡谲",
+        "嘴不饶人",
+        "心地善良"
+      ],
+      "speech_style": "尖锐犀利，得理不饶人",
+      "temperament": "外刚内柔的少妇"
+    },
+    "relationships": [
+      {
+        "target": "char_lin_yu_long",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "夫妻恩爱却终日吵闹打架"
+      },
+      {
+        "target": "char_xiao_zhong_hui",
+        "type": "对手",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "被萧中慧误会后反攻"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [
+      "skill_fu_qi_dao_fa"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 68,
+        "line_end": 68,
+        "anchor": "少妇任飞燕",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_biao_shi",
+    "name": "张镖师",
+    "alias": [],
+    "identity": "威信镖局镖师",
+    "faction": "faction_wei_xin_biao_ju",
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "龙套",
+    "one_line": "威信镖局镖师，性格鲁莽爱吹嘘",
+    "personality": {
+      "traits": [
+        "鲁莽冲动",
+        "爱吹嘘",
+        "自以为是",
+        "胆子大",
+        "粗心"
+      ],
+      "speech_style": "大大咧咧，爱说笑",
+      "temperament": "莽撞的江湖汉子"
+    },
+    "relationships": [
+      {
+        "target": "char_zhou_wei_xin",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "下属镖师"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 50,
+        "line_end": 50,
+        "anchor": "张镖师扬着单刀",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_yuan_fu_ren",
+    "name": "袁夫人",
+    "alias": [],
+    "identity": "袁冠南之母，原为钦犯",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "袁冠南失散十六年的母亲，小指生有支指为相认凭证",
+    "personality": {
+      "traits": [
+        "慈爱",
+        "坚韧",
+        "端庄",
+        "深沉",
+        "隐忍"
+      ],
+      "speech_style": "温和稳重",
+      "temperament": "端庄慈祥的贵妇"
+    },
+    "relationships": [
+      {
+        "target": "char_yuan_guan_nan",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "失散十六年后母子相认"
+      },
+      {
+        "target": "char_xiao_ban_he",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "被萧半和救出天牢后冒充其妻"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 382,
+        "line_end": 382,
+        "anchor": "袁夫人右手小指上生着一个支指",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_yang_fu_ren",
+    "name": "杨夫人",
+    "alias": [],
+    "identity": "萧中慧亲生母亲，三湘大侠杨伯冲之妻",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "萧中慧亲生母亲，三湘大侠杨伯冲之妻",
+    "personality": {
+      "traits": [
+        "慈爱",
+        "温柔",
+        "持重",
+        "细心",
+        "关怀"
+      ],
+      "speech_style": "温和关切",
+      "temperament": "温婉的妇人"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_zhong_hui",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "亲生女儿"
+      },
+      {
+        "target": "char_xiao_ban_he",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "被萧半和救出后冒充其妾"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+      "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 148,
+        "line_end": 148,
+        "anchor": "大夫人姓袁二夫人姓杨",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_liu_yu_yi",
+    "name": "刘于义",
+    "alias": [
+      "刘大人"
+    ],
+    "identity": "川陕总督，奉皇帝密旨追查鸳鸯刀",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "重要",
+    "one_line": "川陕总督，得到鸳鸯刀后派周威信护送进京",
+    "personality": {
+      "traits": [
+        "狡猾多智",
+        "老谋深算",
+        "心狠手辣"
+      ],
+      "speech_style": "官腔十足，威严中带威胁",
+      "temperament": "阴沉多疑"
+    },
+    "relationships": [
+      {
+        "target": "char_zhou_wei_xin",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "利用周威信护送鸳鸯刀，以家眷为质"
+      },
+      {
+        "target": "char_xiao_ban_he",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "追查鸳鸯刀下落，与萧半和为敌"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 14,
+        "line_end": 16,
+        "anchor": "川陕总督刘于义将鸳鸯刀交给周威信护送进京",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_wang_de_rong",
+    "name": "汪德荣",
+    "alias": [
+      "汪盐商"
+    ],
+    "identity": "西安府大盐商，托保十万两镖银",
+    "faction": null,
+    "role": "龙套",
+    "archetype": "merchant",
+    "power_rank": "不会武功",
+    "importance": "龙套",
+    "one_line": "西安大盐商，托保镖银后随队押运，被误伤",
+    "personality": {
+      "traits": [
+        "胆小怕事",
+        "贪生怕死",
+        "有钱无势"
+      ],
+      "speech_style": "商人口气，唯唯诺诺",
+      "temperament": "懦弱"
+    },
+    "relationships": [
+      {
+        "target": "char_zhou_wei_xin",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "托保镖银给威信镖局"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 12,
+        "line_end": 12,
+        "anchor": "西安府大盐商汪德荣托保十万两镖银",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 1,
+        "line_start": 58,
+        "line_end": 58,
+        "anchor": "汪盐商被甩手箭射中屁股",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "json_file": "skills",
+    "index": 1,
+    "id": "skill_tang_shi_jian_fa",
+    "name": "唐诗剑法",
+    "issue_type": "category_error",
+    "severity": "high",
+    "reason": "唐诗剑法与连城剑法在小说中是同一套剑法的两个名字（旧丐明确说'是唐诗，不是躺尸'，连城剑法本名即唐诗剑法）。当前将两者作为两个独立skill分别收录，且practitioners不同，造成同一武学体系分裂为两个条目。",
+    "suggestion": "删除skill_tang_shi_jian_fa条目，将唐诗剑法作为skill_lian_cheng_jian_fa的别名(别名字段或description中说明)。practitioners应合并所有相关角色。"
+  },
+  {
+    "json_file": "skills",
+    "index": -1,
+    "id": null,
+    "name": "神照功",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "神照功是连城诀中最核心的内功心法，丁典修炼十二年大成，后传授给狄云。这是全书最重要的武学体系之一，但skills.json中完全没有收录。",
+    "suggestion": "新增skill_shen_zhao_gong条目，type为'内功'，practitioners包括char_ding_dian和char_di_yun，description说明其为天下最强内功。"
+  },
+  {
+    "json_file": "items",
+    "index": 0,
+    "id": "item_lian_cheng_jue",
+    "name": "连城诀",
+    "issue_type": "category_error",
+    "severity": "high",
+    "reason": "连城诀在小说中并非'秘籍'（武功秘籍），而是梅念笙留下的藏宝线索/密码，隐藏在唐诗选辑中。它记载的是梁元帝宝藏的位置，而非武功。当前type标注为'秘籍'，rarity_tier为'绝世神兵'均不准确。",
+    "suggestion": "将type改为'藏宝图/密码文书'，rarity_tier改为'稀世珍品'，description应说明它是藏宝线索而非武功秘籍。"
+  },
+  {
+    "json_file": "characters",
+    "index": 11,
+    "id": "char_wu_liu_qi",
+    "name": "吴六奇",
+    "issue_type": "cross_book",
+    "severity": "high",
+    "reason": "吴六奇是鹿鼎记中的重要角色（天地会红旗香主），在连城诀中仅以极简短的背景提及（梅念笙传人），从未正式出场。将其列入连城诀角色库属于跨书混淆。且description中'天地会广东红旗香主'的身份来自鹿鼎记而非连城诀。",
+    "suggestion": "从characters.json中删除此条目。如确需保留背景信息，可在梅念笙条目的description中简要提及'弟子吴六奇'。"
+  },
+  {
+    "json_file": "characters",
+    "index": 8,
+    "id": "char_ling_tui_si",
+    "name": "凌退思",
+    "issue_type": "type_error",
+    "severity": "medium",
+    "reason": "凌退思是荆州知府（朝廷官员），不会武功。当前power_rank标注为'炉火纯青'明显错误——他是文官，靠权势和阴谋害人，不是武林人物。",
+    "suggestion": "将power_rank改为'不适用'或'无'，archetype改为'politician'或'official'。"
+  },
+  {
+    "json_file": "factions",
+    "index": 0,
+    "id": "faction_wan_zhen_shan",
+    "name": "万震山门下",
+    "issue_type": "type_error",
+    "severity": "medium",
+    "reason": "万震山、言达平、戚长发三人是梅念笙的三个徒弟，他们各自独立行动、互相算计，并非一个正式的'武林门派'。将其归类为门派不符合小说设定。他们没有共同的门派组织、门规或总坛。",
+    "suggestion": "将type改为'师门关系'或'同门'，或者删除此条目，将三人关系在各自character条目中体现。"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 0,
+    "id": null,
+    "name": "连城诀",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "连城诀全书有十余回（乡下人进城、牢狱、人淡如菊等），但chapter_summaries.json仅有一个chapter:1的条目，将全书所有情节压缩为一条。这导致无法按章节追溯情节，也缺少分章摘要。",
+    "suggestion": "按小说实际章回拆分为多个chapter条目（至少按'乡下人进城''牢狱''人淡如菊'等主要章节分段），每个条目包含对应章节的key_events和key_characters。"
+  },
+  {
+    "json_file": "locations",
+    "index": -1,
+    "id": null,
+    "name": "荆州死囚牢",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "监狱/死囚牢是连城诀中最重要的场景之一，狄云在此关押五年多，与丁典相遇、学成神照功。但locations.json中完全没有收录。",
+    "suggestion": "新增loc_jing_zhou_laoo条目，region为'荆州'，description说明是关押狄云和丁典的死囚牢。"
+  },
+  {
+    "json_file": "characters",
+    "index": -1,
+    "id": null,
+    "name": "桃红",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "桃红是万震山的小妾，是陷害狄云强奸的关键人物。她出场并直接导致狄云被捕入狱，是重要情节推动者。但characters.json中完全没有收录。",
+    "suggestion": "新增char_tao_hong条目，role为'次要'，description说明她是万震山的小妾，受万圭指使陷害狄云。"
+  },
+  {
+    "json_file": "characters",
+    "index": -1,
+    "id": null,
+    "name": "无名老丐",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "无名老丐（实为丁典的岳父凌退思的旧识或相关人物）在第一回中教授狄云三招剑法（刺肩式、耳光式、去剑式），对狄云的成长至关重要。虽然后文未揭示其完整身份，但他在小说中是独立出场的角色。",
+    "suggestion": "新增char_old_beggar条目，role为'背景'，description说明他教授狄云三招剑法，身份后文揭示（或标注为'身份未明'）。"
+  },
+  {
+    "json_file": "characters",
+    "index": -1,
+    "id": null,
+    "name": "宝象",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "宝象是血刀门五大高僧之一，是唯一逃脱丁典追杀的人，后在江湖上与狄云有重要交集。丁典特别提醒狄云要小心此人。但characters.json中未收录。",
+    "suggestion": "新增char_bao_xiang条目，faction为血刀门，importance为'次要'。"
+  },
+  {
+    "json_file": "techniques",
+    "index": -1,
+    "id": null,
+    "name": "刺肩式/耳光式/去剑式",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "techniques.json完全为空。无名老丐教授狄云的三招（刺肩式、耳光式、去剑式）是具体招式，且在万门弟子比剑中发挥关键作用。这些招式在skills.json中也未体现。",
+    "suggestion": "在techniques.json中新增三条招式记录，或者在skill_lian_cheng_jian_fa中添加sub_skills字段列出这些具体招式。"
+  },
+  {
+    "json_file": "items",
+    "index": -1,
+    "id": null,
+    "name": "乌蚕衣",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "乌蚕衣是用大雪山乌蚕丝织成的刀枪不入宝衣，丁典将它赠予狄云，是狄云后续江湖生涯中的重要防护装备。但items.json中未收录。",
+    "suggestion": "新增item_wu_can_yi条目，type为'护具'，owner为char_di_yun，description说明其为刀枪不入的乌蚕丝宝衣。"
+  },
+  {
+    "json_file": "dialogues",
+    "index": 0,
+    "id": "dlg_001",
+    "name": "狄云请求师父不要杀他",
+    "issue_type": "id_ref",
+    "severity": "medium",
+    "reason": "所有4条dialogues的source_refs均指向chapter:1，但dlg_001-003实际发生在小说后段天宁寺宝藏情节中，dlg_004发生在结尾水笙与狄云重逢处。chapter字段和source_refs的chapter编号严重不匹配。",
+    "suggestion": "修正每条dialogue的chapter字段和source_refs中的chapter编号，使其对应实际发生的章节。"
+  },
+  {
+    "json_file": "characters",
+    "index": 10,
+    "id": "char_mei_nian_sheng",
+    "name": "梅念笙",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "梅念笙的known_skills包含skill_tang_shi_jian_fa，但根据小说，唐诗剑法即连城剑法（同一套剑法的别名）。如果唐诗剑法与连城剑法合并，则此处应只保留skill_lian_cheng_jian_fa。",
+    "suggestion": "待唐诗剑法与连城剑法合并后，统一修改practitioners和known_skills引用。"
+  },
+  {
+    "json_file": "characters",
+    "index": 9,
+    "id": "char_mei_nian_sheng",
+    "name": "梅念笙",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "description中说'将连城诀传给吴六奇'，但根据小说原著，梅念笙是将唐诗剑法/连城剑法传给三个徒弟（万震山、言达平、戚长发），连城诀（藏宝线索）的传承路径不同。且吴六奇是否为梅念笙弟子在连城诀原著中并未明确交代。",
+    "suggestion": "修正description，准确描述梅念笙将连城剑法传给三位徒弟的事实。关于吴六奇的关系应标注为'原著未明确'。"
+  },
+  {
+    "json_file": "characters",
+    "index": 7,
+    "id": "char_shui_sheng",
+    "name": "水笙",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "水笙的faction为null，但她是水岱之女，水岱属于雪山派/水家。应补充其门派归属或家族信息。",
+    "suggestion": "将faction设为相关门派ID，或在description中说明其家族背景。"
+  },
+  {
+    "json_file": "characters",
+    "index": 0,
+    "id": "char_di_yun",
+    "name": "狄云",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "狄云的faction标注为faction_xue_dao_sect（血刀门），但他只是被迫穿上血刀门僧袍，并非真正加入血刀门。他的师承是戚长发（万震山门下/梅念笙一脉），后从丁典学得神照功。将其归为血刀门成员不准确。",
+    "suggestion": "将faction改为null或改为师承相关的faction。可在description中说明他'曾被误认为血刀门弟子'的经历。"
+  },
+  {
+    "json_file": "skills",
+    "index": 0,
+    "id": "skill_lian_cheng_jian_fa",
+    "name": "连城剑法",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "practitioners仅列出万震山、言达平、戚长发三人，但实际上狄云也通过老丐的教导学会了此剑法的正确版本，梅念笙和吴六奇也精通此剑法。practitioners列表不完整。",
+    "suggestion": "补充狄云、梅念笙、吴六奇到practitioners列表中。"
+  },
+  {
+    "json_file": "locations",
+    "index": 1,
+    "id": "loc_tian_ning_si",
+    "name": "天宁寺",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "description中说'荆州天宁寺藏有宝藏'，但原著中天宁寺位于江陵（今荆州），且宝藏藏在佛像肚中。天宁寺本身并非'藏宝的寺庙'的固有属性，而是宝藏被藏匿于此。描述略有误导。",
+    "suggestion": "修正description为'位于江陵的寺庙，佛像肚中藏有梁元帝遗留的无数珍宝'。"
+  }
+]

@@ -1,0 +1,673 @@
+[
+  {
+    "id": "char_hu_fei",
+    "name": "胡斐",
+    "alias": ["雪山飞狐"],
+    "role": "核心",
+    "importance": "核心",
+    "archetype": "warrior",
+    "one_line": "胡一刀之子，外号雪山飞狐，武功高强",
+    "description": "胡斐是胡一刀之子，外号雪山飞狐，武功高强，与苗人凤有深仇大恨。故事结尾他与苗人凤对决，最终留下悬念。",
+    "personality": {
+      "traits": ["武功高强", "重情重义", "复仇心切", "最终犹豫"],
+      "speech_style": "说话直接，武功高强",
+      "core_values": ["复仇", "爱情", "正义"]
+    },
+    "power_rank": "出神入化",
+    "faction": "faction_hu_family",
+    "known_skills": ["skill_hu_jia_dao_fa"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_hu_yi_dao",
+        "type": "亲属",
+        "dynamic": "父子关系",
+        "source_refs": [{"chapter": 1, "anchor": "胡斐是胡一刀之子", "event_type": "background"}]
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "宿敌",
+        "dynamic": "与苗人凤有深仇大恨",
+        "source_refs": [{"chapter": 1, "anchor": "胡斐与苗人凤对决", "event_type": "climax"}]
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "恋人",
+        "dynamic": "与苗若兰相爱",
+        "source_refs": [{"chapter": 1, "anchor": "胡斐与苗若兰相爱", "event_type": "climax"}]
+      },
+      {
+        "target": "char_ping_a_si",
+        "type": "主仆",
+        "dynamic": "平阿四照顾胡斐长大",
+        "source_refs": [{"chapter": 1, "anchor": "平阿四照顾胡斐", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "胡斐出场，雪山飞狐", "event_type": "first_mention"},
+      {"chapter": 1, "anchor": "胡斐与苗人凤对决", "event_type": "climax"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_miao_ren_feng",
+    "name": "苗人凤",
+    "alias": ["打遍天下无敌手"],
+    "role": "核心",
+    "importance": "核心",
+    "archetype": "warrior",
+    "one_line": "武林高手，外号打遍天下无敌手，与胡一刀有深仇",
+    "description": "苗人凤是武林高手，外号打遍天下无敌手，与胡一刀有深仇大恨。故事结尾与胡斐对决，最终留下悬念。",
+    "personality": {
+      "traits": ["武功高强", "重情重义", "正直豪迈", "光明磊落"],
+      "speech_style": "说话豪迈，光明磊落",
+      "core_values": ["正义", "信义", "武功"]
+    },
+    "power_rank": "返璞归真",
+    "faction": "faction_miao_family",
+    "known_skills": ["skill_miao_jia_jian_fa"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_hu_fei",
+        "type": "宿敌",
+        "dynamic": "与胡斐有深仇大恨",
+        "source_refs": [{"chapter": 1, "anchor": "苗人凤与胡斐对决", "event_type": "climax"}]
+      },
+      {
+        "target": "char_miao_ruo_lan",
+        "type": "亲属",
+        "dynamic": "父女关系",
+        "source_refs": [{"chapter": 1, "anchor": "苗人凤是苗若兰之父", "event_type": "background"}]
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "宿敌",
+        "dynamic": "与胡一刀有深仇大恨",
+        "source_refs": [{"chapter": 1, "anchor": "苗人凤与胡一刀对决", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "苗人凤出场", "event_type": "first_mention"},
+      {"chapter": 1, "anchor": "苗人凤与胡斐对决", "event_type": "climax"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_hu_yi_dao",
+    "name": "胡一刀",
+    "alias": [],
+    "role": "重要",
+    "importance": "重要",
+    "archetype": "warrior",
+    "one_line": "胡斐之父，与苗人凤有深仇，已故",
+    "description": "胡一刀是胡斐之父，与苗人凤有深仇大恨，已故。故事中通过回忆讲述他的事迹。",
+    "personality": {
+      "traits": ["武功高强", "豪迈直爽", "重情重义", "已故"],
+      "speech_style": "说话豪迈直爽",
+      "core_values": ["复仇", "信义", "武功"]
+    },
+    "power_rank": "出神入化",
+    "faction": "faction_hu_family",
+    "known_skills": ["skill_hu_jia_dao_fa"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_hu_fei",
+        "type": "亲属",
+        "dynamic": "父子关系",
+        "source_refs": [{"chapter": 1, "anchor": "胡一刀是胡斐之父", "event_type": "background"}]
+      },
+      {
+        "target": "char_miao_ren_feng",
+        "type": "宿敌",
+        "dynamic": "与苗人凤有深仇大恨",
+        "source_refs": [{"chapter": 1, "anchor": "胡一刀与苗人凤对决", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "胡一刀出场（回忆）", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_miao_ruo_lan",
+    "name": "苗若兰",
+    "alias": [],
+    "role": "重要",
+    "importance": "重要",
+    "archetype": "scholar",
+    "one_line": "苗人凤之女，与胡斐相爱",
+    "description": "苗若兰是苗人凤之女，与胡斐相爱，是故事中的重要角色。",
+    "personality": {
+      "traits": ["美丽", "善良", "温柔", "知书达理"],
+      "speech_style": "说话温柔，知书达理",
+      "core_values": ["爱情", "亲情"]
+    },
+    "power_rank": "略有小成",
+    "faction": "faction_miao_family",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "亲属",
+        "dynamic": "父女关系",
+        "source_refs": [{"chapter": 1, "anchor": "苗若兰是苗人凤之女", "event_type": "background"}]
+      },
+      {
+        "target": "char_hu_fei",
+        "type": "恋人",
+        "dynamic": "与胡斐相爱",
+        "source_refs": [{"chapter": 1, "anchor": "苗若兰与胡斐相爱", "event_type": "climax"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "苗若兰出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_cao_yun_qi",
+    "name": "曹云奇",
+    "alias": ["腾龙剑"],
+    "role": "重要",
+    "importance": "重要",
+    "archetype": "warrior",
+    "one_line": "天龙门北宗掌门人，外号腾龙剑",
+    "description": "曹云奇是天龙门北宗掌门人，外号腾龙剑，武功高强，故事开头出场追杀胡斐。",
+    "personality": {
+      "traits": ["武功高强", "心胸狭隘", "嫉妒"],
+      "speech_style": "说话直接",
+      "core_values": ["门派", "面子"]
+    },
+    "power_rank": "炉火纯青",
+    "faction": "faction_tian_long_men",
+    "known_skills": ["skill_tian_long_jian"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_ruan_shi_zhong",
+        "type": "师徒",
+        "dynamic": "师侄关系",
+        "source_refs": [{"chapter": 1, "anchor": "阮士中是曹云奇的师叔", "event_type": "background"}]
+      },
+      {
+        "target": "char_zhou_yun_yang",
+        "type": "师徒",
+        "dynamic": "师兄弟关系",
+        "source_refs": [{"chapter": 1, "anchor": "周云阳是曹云奇的师弟", "event_type": "background"}]
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "恋人",
+        "dynamic": "暗恋田青文",
+        "source_refs": [{"chapter": 1, "anchor": "曹云奇暗恋田青文", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "曹云奇出场，追杀胡斐", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_yin_ji",
+    "name": "殷吉",
+    "alias": ["威震天南"],
+    "role": "重要",
+    "importance": "重要",
+    "archetype": "warrior",
+    "one_line": "天龙门南宗掌门人，外号威震天南",
+    "description": "殷吉是天龙门南宗掌门人，外号威震天南，武功高强，故事开头出场追杀胡斐。",
+    "personality": {
+      "traits": ["武功高强", "沉稳"],
+      "speech_style": "说话沉稳",
+      "core_values": ["门派"]
+    },
+    "power_rank": "炉火纯青",
+    "faction": "faction_tian_long_men",
+    "known_skills": ["skill_tian_long_jian"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_cao_yun_qi",
+        "type": "挚友",
+        "dynamic": "天龙门南北两宗掌门人",
+        "source_refs": [{"chapter": 1, "anchor": "殷吉与曹云奇是天龙门掌门人", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "殷吉出场，追杀胡斐", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_ruan_shi_zhong",
+    "name": "阮士中",
+    "alias": ["七星手"],
+    "role": "次要",
+    "importance": "次要",
+    "archetype": "warrior",
+    "one_line": "天龙门北宗高手，外号七星手",
+    "description": "阮士中是天龙门北宗高手，外号七星手，是曹云奇的师叔。",
+    "personality": {
+      "traits": ["武功高强", "沉稳"],
+      "speech_style": "说话直接",
+      "core_values": ["门派"]
+    },
+    "power_rank": "炉火纯青",
+    "faction": "faction_tian_long_men",
+    "known_skills": ["skill_tian_long_jian"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师徒",
+        "dynamic": "师侄关系",
+        "source_refs": [{"chapter": 1, "anchor": "阮士中是曹云奇的师叔", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "阮士中出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_zhou_yun_yang",
+    "name": "周云阳",
+    "alias": ["回龙剑"],
+    "role": "次要",
+    "importance": "次要",
+    "archetype": "warrior",
+    "one_line": "天龙门北宗高手，外号回龙剑",
+    "description": "周云阳是天龙门北宗高手，外号回龙剑，是曹云奇的师弟。",
+    "personality": {
+      "traits": ["武功高强"],
+      "speech_style": "说话直接",
+      "core_values": ["门派"]
+    },
+    "power_rank": "登堂入室",
+    "faction": "faction_tian_long_men",
+    "known_skills": ["skill_tian_long_jian"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_cao_yun_qi",
+        "type": "师徒",
+        "dynamic": "师兄弟关系",
+        "source_refs": [{"chapter": 1, "anchor": "周云阳是曹云奇的师弟", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "周云阳出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_tian_qing_wen",
+    "name": "田青文",
+    "alias": [],
+    "role": "重要",
+    "importance": "重要",
+    "archetype": "warrior",
+    "one_line": "田归农之女，曹云奇暗恋的对象",
+    "description": "田青文是田归农之女，武功高强，曹云奇暗恋她。她与陶子安有婚约，后背叛陶子安。",
+    "personality": {
+      "traits": ["美丽", "心机深沉", "背叛"],
+      "speech_style": "说话温柔",
+      "core_values": ["利益", "权力"]
+    },
+    "power_rank": "登堂入室",
+    "faction": "faction_tian_long_men",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_tian_gui_nong",
+        "type": "亲属",
+        "dynamic": "父女关系",
+        "source_refs": [{"chapter": 1, "anchor": "田青文是田归农之女", "event_type": "background"}]
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "恋人",
+        "dynamic": "与陶子安有婚约，后背叛",
+        "source_refs": [{"chapter": 1, "anchor": "田青文与陶子安有婚约", "event_type": "background"}]
+      },
+      {
+        "target": "char_cao_yun_qi",
+        "type": "恋人",
+        "dynamic": "曹云奇暗恋她",
+        "source_refs": [{"chapter": 1, "anchor": "曹云奇暗恋田青文", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "田青文出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_tao_bai_sui",
+    "name": "陶百岁",
+    "alias": [],
+    "role": "次要",
+    "importance": "次要",
+    "archetype": "warrior",
+    "one_line": "陶子安之父，饮马川山寨寨主",
+    "description": "陶百岁是陶子安之父，饮马川山寨寨主，为儿子的婚事与田归农结怨。",
+    "personality": {
+      "traits": ["豪迈", "护短"],
+      "speech_style": "说话豪迈",
+      "core_values": ["家庭", "面子"]
+    },
+    "power_rank": "炉火纯青",
+    "faction": "faction_yin_ma_chuan",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_tao_zi_an",
+        "type": "亲属",
+        "dynamic": "父子关系",
+        "source_refs": [{"chapter": 1, "anchor": "陶百岁是陶子安之父", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "陶百岁出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_tao_zi_an",
+    "name": "陶子安",
+    "alias": [],
+    "role": "次要",
+    "importance": "次要",
+    "archetype": "warrior",
+    "one_line": "陶百岁之子，田青文的未婚夫",
+    "description": "陶子安是陶百岁之子，田青文的未婚夫，后被田青文背叛。",
+    "personality": {
+      "traits": ["正直", "重情"],
+      "speech_style": "说话直接",
+      "core_values": ["爱情", "信义"]
+    },
+    "power_rank": "登堂入室",
+    "faction": "faction_yin_ma_chuan",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_tao_bai_sui",
+        "type": "亲属",
+        "dynamic": "父子关系",
+        "source_refs": [{"chapter": 1, "anchor": "陶子安是陶百岁之子", "event_type": "background"}]
+      },
+      {
+        "target": "char_tian_qing_wen",
+        "type": "恋人",
+        "dynamic": "与田青文有婚约，后被背叛",
+        "source_refs": [{"chapter": 1, "anchor": "陶子安与田青文有婚约", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "陶子安出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_tian_gui_nong",
+    "name": "田归农",
+    "alias": [],
+    "role": "重要",
+    "importance": "重要",
+    "archetype": "warrior",
+    "one_line": "天龙门掌门人，野心勃勃",
+    "description": "田归农是天龙门掌门人，野心勃勃，为夺取宝藏不惜一切代价。",
+    "personality": {
+      "traits": ["野心勃勃", "心机深沉", "贪婪"],
+      "speech_style": "说话阴沉",
+      "core_values": ["权力", "财富"]
+    },
+    "power_rank": "炉火纯青",
+    "faction": "faction_tian_long_men",
+    "known_skills": ["skill_tian_long_jian"],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_tian_qing_wen",
+        "type": "亲属",
+        "dynamic": "父女关系",
+        "source_refs": [{"chapter": 1, "anchor": "田归农是田青文之父", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "田归农出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_ping_a_si",
+    "name": "平阿四",
+    "alias": [],
+    "role": "次要",
+    "importance": "次要",
+    "archetype": "warrior",
+    "one_line": "胡家老仆，照顾胡斐长大",
+    "description": "平阿四是胡家老仆，照顾胡斐长大，忠心耿耿。",
+    "personality": {
+      "traits": ["忠心", "朴实", "勇敢"],
+      "speech_style": "说话朴实",
+      "core_values": ["忠义"]
+    },
+    "power_rank": "略有小成",
+    "faction": "faction_hu_family",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_hu_fei",
+        "type": "主仆",
+        "dynamic": "照顾胡斐长大",
+        "source_refs": [{"chapter": 1, "anchor": "平阿四照顾胡斐", "event_type": "background"}]
+      },
+      {
+        "target": "char_hu_yi_dao",
+        "type": "主仆",
+        "dynamic": "胡家老仆",
+        "source_refs": [{"chapter": 1, "anchor": "平阿四是胡家老仆", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "平阿四出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_bao_shu",
+    "name": "宝树",
+    "alias": [],
+    "role": "次要",
+    "importance": "次要",
+    "archetype": "warrior",
+    "one_line": "雪山上的和尚，武功高强",
+    "description": "宝树是雪山上的和尚，武功高强，参与争夺宝藏。",
+    "personality": {
+      "traits": ["武功高强", "贪婪"],
+      "speech_style": "说话阴沉",
+      "core_values": ["财富"]
+    },
+    "power_rank": "炉火纯青",
+    "faction": null,
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [],
+    "source_refs": [
+      {"chapter": 1, "anchor": "宝树出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_liu_yuan_he",
+    "name": "刘元鹤",
+    "alias": [],
+    "role": "次要",
+    "importance": "次要",
+    "archetype": "warrior",
+    "one_line": "清廷高手，参与追杀胡斐",
+    "description": "刘元鹤是清廷高手，参与追杀胡斐，武功高强。",
+    "personality": {
+      "traits": ["武功高强", "阴险"],
+      "speech_style": "说话阴沉",
+      "core_values": ["权力"]
+    },
+    "power_rank": "炉火纯青",
+    "faction": "faction_qing_court",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [],
+    "source_refs": [
+      {"chapter": 1, "anchor": "刘元鹤出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_du_xi_meng",
+    "name": "杜希孟",
+    "alias": [],
+    "role": "次要",
+    "importance": "次要",
+    "archetype": "warrior",
+    "one_line": "雪山飞狐故事中的参与者",
+    "description": "杜希孟是雪山飞狐故事中的参与者，参与争夺宝藏。",
+    "personality": {
+      "traits": ["贪婪"],
+      "speech_style": "说话直接",
+      "core_values": ["财富"]
+    },
+    "power_rank": "登堂入室",
+    "faction": null,
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [],
+    "source_refs": [
+      {"chapter": 1, "anchor": "杜希孟出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_sai_zong_guan",
+    "name": "赛总管",
+    "alias": [],
+    "role": "次要",
+    "importance": "次要",
+    "archetype": "warrior",
+    "one_line": "清廷总管，参与追杀胡斐",
+    "description": "赛总管是清廷总管，参与追杀胡斐，武功高强。",
+    "personality": {
+      "traits": ["武功高强", "阴险"],
+      "speech_style": "说话阴沉",
+      "core_values": ["权力"]
+    },
+    "power_rank": "炉火纯青",
+    "faction": "faction_qing_court",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [],
+    "source_refs": [
+      {"chapter": 1, "anchor": "赛总管出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_xiong_yuan_xian",
+    "name": "熊元献",
+    "alias": [],
+    "role": "龙套",
+    "importance": "龙套",
+    "archetype": "warrior",
+    "one_line": "天龙门弟子",
+    "description": "熊元献是天龙门弟子，参与追杀胡斐。",
+    "personality": {
+      "traits": ["武功一般"],
+      "speech_style": "说话直接",
+      "core_values": ["门派"]
+    },
+    "power_rank": "略有小成",
+    "faction": "faction_tian_long_men",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [],
+    "source_refs": [
+      {"chapter": 1, "anchor": "熊元献出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_zheng_san_niang",
+    "name": "郑三娘",
+    "alias": [],
+    "role": "龙套",
+    "importance": "龙套",
+    "archetype": "warrior",
+    "one_line": "陶百岁的妻子",
+    "description": "郑三娘是陶百岁的妻子，陶子安之母。",
+    "personality": {
+      "traits": ["泼辣"],
+      "speech_style": "说话泼辣",
+      "core_values": ["家庭"]
+    },
+    "power_rank": "略有小成",
+    "faction": "faction_yin_ma_chuan",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_tao_bai_sui",
+        "type": "亲属",
+        "dynamic": "夫妻关系",
+        "source_refs": [{"chapter": 1, "anchor": "郑三娘是陶百岁之妻", "event_type": "background"}]
+      },
+      {
+        "target": "char_tao_zi_an",
+        "type": "亲属",
+        "dynamic": "母子关系",
+        "source_refs": [{"chapter": 1, "anchor": "郑三娘是陶子安之母", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "郑三娘出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  },
+  {
+    "id": "char_yu_guan_jia",
+    "name": "于管家",
+    "alias": [],
+    "role": "龙套",
+    "importance": "龙套",
+    "archetype": "scholar",
+    "one_line": "苗家管家",
+    "description": "于管家是苗家管家，照顾苗若兰。",
+    "personality": {
+      "traits": ["忠心", "朴实"],
+      "speech_style": "说话恭敬",
+      "core_values": ["忠义"]
+    },
+    "power_rank": "不会武功",
+    "faction": "faction_miao_family",
+    "known_skills": [],
+    "related_skills": [],
+    "relationships": [
+      {
+        "target": "char_miao_ren_feng",
+        "type": "主仆",
+        "dynamic": "苗家管家",
+        "source_refs": [{"chapter": 1, "anchor": "于管家是苗家管家", "event_type": "background"}]
+      }
+    ],
+    "source_refs": [
+      {"chapter": 1, "anchor": "于管家出场", "event_type": "first_mention"}
+    ],
+    "rag_refs": [1]
+  }
+]

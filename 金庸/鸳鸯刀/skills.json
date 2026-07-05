@@ -1,0 +1,216 @@
+[
+  {
+    "id": "skill_hun_yuan_qi",
+    "name": "混元气",
+    "type": "内功",
+    "faction": null,
+    "mastery_rank": "登峰造极",
+    "one_line": "须童子身方可修习的内功，婚后即散，极为珍贵",
+    "techniques": [],
+    "progression": "童子身修习，成婚后即消失，练时艰辛散失极易",
+    "effects": [
+      {
+        "type": "增益",
+        "description": "内力深厚可与震天三十掌匹敌，运气时衣袖生风"
+      }
+    ],
+    "combat_style": "以深厚内力为根基，配合掌法或兵器发挥威力",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 404,
+        "line_end": 406,
+        "anchor": "混元气必须童子身方能修习成婚后即行消失",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "skill_zhen_tian_san_shi_zhang",
+    "name": "震天三十掌",
+    "type": "掌法",
+    "faction": null,
+    "mastery_rank": "登峰造极",
+    "one_line": "卓天雄成名绝技，掌力雄浑霸道",
+    "techniques": [],
+    "progression": null,
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "掌力刚猛，与混元气内力匹敌，可与呼延十八鞭并称"
+      }
+    ],
+    "combat_style": "以雄浑内力驱动，掌势沉猛",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 404,
+        "line_end": 404,
+        "anchor": "卓天雄以震天三十掌与呼延十八鞭称雄武林",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "skill_hu_yan_shi_ba_bian",
+    "name": "呼延十八鞭",
+    "type": "奇门兵器",
+    "faction": null,
+    "mastery_rank": "出神入化",
+    "one_line": "北宋呼延赞所传鞭法，传世仅十七招，最后一招一鞭断十枪",
+    "techniques": [
+      {
+        "id": "tech_heng_sao_qian_jun",
+        "name": "横扫千军",
+        "type": "attack",
+        "description": "呼延十八鞭中的一招，铁鞭横砸而出，力道刚猛霸道"
+      },
+      {
+        "id": "tech_yi_bian_duan_shi_qiang",
+        "name": "一鞭断十枪",
+        "type": "attack",
+        "description": "呼延十八鞭最后一招，单凭内力震断十条长枪，会者极少，传世仅十七招此招最为神秘"
+      }
+    ],
+    "progression": "号称十八鞭，传世仅十七招，最后一招一鞭断十枪为最高境界",
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "鞭法刚猛，可震脱敌人手中兵器"
+      }
+    ],
+    "combat_style": "以铁鞭施展，招数沉雄霸道，内力深厚者威力倍增",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 250,
+        "line_end": 252,
+        "anchor": "呼延十八鞭最后一招一鞭断十枪",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "skill_fu_qi_dao_fa",
+    "name": "夫妻刀法",
+    "type": "刀法",
+    "faction": null,
+    "mastery_rank": "略有小成",
+    "one_line": "古代恩爱夫妻所创的合璧刀法，双人配合方有威力",
+    "techniques": [
+      {
+        "id": "tech_nv_mao_lang_cai_zhu_wan_hu",
+        "name": "女貌郎才珠万斛",
+        "type": "combo",
+        "description": "夫妻刀法第一招，双刀一攻一守互相回护，正合阴阳开阖之道"
+      },
+      {
+        "id": "tech_tian_jiao_yan_zhi_wei_juan_shu",
+        "name": "天教艳质为眷属",
+        "type": "combo",
+        "description": "夫妻刀法第二招，一人抢攻一人守御，配合默契"
+      },
+      {
+        "id": "tech_qing_feng_yin_pei_xia_yao_tai",
+        "name": "清风引佩下瑶台",
+        "type": "combo",
+        "description": "夫妻刀法第三招，双刀齐飞飒飒生风"
+      },
+      {
+        "id": "tech_ming_yue_zhao_zhuang_cheng_jin_wu",
+        "name": "明月照妆成金屋",
+        "type": "combo",
+        "description": "夫妻刀法第四招，刀光如月照映娇脸，攻守兼备"
+      },
+      {
+        "id": "tech_dao_guang_yan_ying_kong_que_ping",
+        "name": "刀光掩映孔雀屏",
+        "type": "combo",
+        "description": "夫妻刀法招式之一，双刀舞动如孔雀开屏"
+      },
+      {
+        "id": "tech_xi_jie_si_luo_zai_qiao_mu",
+        "name": "喜结丝萝在乔木",
+        "type": "combo",
+        "description": "夫妻刀法招式之一，双刀交织如丝萝缠绕乔木"
+      },
+      {
+        "id": "tech_ying_xiong_wu_shuang_feng_liu_xu",
+        "name": "英雄无双风流婿",
+        "type": "combo",
+        "description": "夫妻刀法招式之一，双刀合璧截住敌人退路"
+      },
+      {
+        "id": "tech_que_shan_dong_fang_ran_hua_zhu",
+        "name": "却扇洞房燃花烛",
+        "type": "combo",
+        "description": "夫妻刀法招式之一，刀势温柔中藏杀机"
+      },
+      {
+        "id": "tech_bi_xiao_sheng_li_shuang_ming_feng",
+        "name": "碧箫声里双鸣凤",
+        "type": "combo",
+        "description": "夫妻刀法招式之一，双刀如凤舞鸾翔灵动翻飞，威力极大"
+      },
+      {
+        "id": "tech_jin_zhao_you_nv_yan_ru_yu",
+        "name": "今朝有女颜如玉",
+        "type": "combo",
+        "description": "夫妻刀法招式之一，双刀配合攻敌要害"
+      },
+      {
+        "id": "tech_qian_jin_yi_ke_qing_liang_xiao",
+        "name": "千金一刻庆良宵",
+        "type": "combo",
+        "description": "夫妻刀法招式之一"
+      },
+      {
+        "id": "tech_zhan_duan_ren_jian_tian_shang_fu",
+        "name": "占断人间天上福",
+        "type": "combo",
+        "description": "夫妻刀法起手十二招的最后一招"
+      }
+    ],
+    "progression": "共七十二路，需两人各学不同部分，配合施展方有威力，单独一人使此刀法半点用处也没有",
+    "effects": [
+      {
+        "type": "增益",
+        "description": "双人合璧时威力极大，可击败武功高出许多的对手"
+      },
+      {
+        "type": "控制",
+        "description": "阴阳开阖配合天衣无缝，攻守兼备使敌人无从招架"
+      }
+    ],
+    "combat_style": "两人双刀配合，一攻一守一进一退，正合夫妻恩爱之意",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "line_start": 320,
+        "line_end": 321,
+        "anchor": "夫妻刀法古代恩爱夫妻所创",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  }
+]

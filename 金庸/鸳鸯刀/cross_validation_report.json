@@ -1,0 +1,262 @@
+{
+  "generated_at": "2026-07-05T09:23:31.400Z",
+  "summary": {
+    "total": 35,
+    "errors": 0,
+    "warnings": 29,
+    "info": 6
+  },
+  "issues": [
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_xiao_ban_he",
+      "target": "char_yuan_guan_nan",
+      "rel_type": "亲属",
+      "message": "萧半和(char_xiao_ban_he) -> char_yuan_guan_nan (亲属) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_zhou_wei_xin",
+      "target": "char_xiao_yao_zi",
+      "rel_type": "对手",
+      "message": "周威信(char_zhou_wei_xin) -> char_xiao_yao_zi (对手) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_zhuo_tian_xiong",
+      "target": "char_xiao_zhong_hui",
+      "rel_type": "对手",
+      "message": "卓天雄(char_zhuo_tian_xiong) -> char_xiao_zhong_hui (对手) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_ren_fei_yan",
+      "target": "char_xiao_zhong_hui",
+      "rel_type": "对手",
+      "message": "任飞燕(char_ren_fei_yan) -> char_xiao_zhong_hui (对手) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_zhang_biao_shi",
+      "target": "char_zhou_wei_xin",
+      "rel_type": "主仆",
+      "message": "张镖师(char_zhang_biao_shi) -> char_zhou_wei_xin (主仆) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_yang_fu_ren",
+      "target": "char_xiao_ban_he",
+      "rel_type": "合作者",
+      "message": "杨夫人(char_yang_fu_ren) -> char_xiao_ban_he (合作者) exists, but reverse not found"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_xiao_ban_he",
+      "name": "萧半和",
+      "message": "Character \"萧半和\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_zhou_wei_xin",
+      "name": "周威信",
+      "message": "Character \"周威信\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_zhuo_tian_xiong",
+      "name": "卓天雄",
+      "message": "Character \"卓天雄\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_xiao_yao_zi",
+      "name": "逍遥子",
+      "message": "Character \"逍遥子\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_chang_chang_feng",
+      "name": "常长风",
+      "message": "Character \"常长风\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_hua_jian_ying",
+      "name": "花剑影",
+      "message": "Character \"花剑影\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_gai_yi_ming",
+      "name": "盖一鸣",
+      "message": "Character \"盖一鸣\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_xiao_zhong_hui",
+      "name": "萧中慧",
+      "message": "Character \"萧中慧\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_yuan_guan_nan",
+      "name": "袁冠南",
+      "message": "Character \"袁冠南\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_lin_yu_long",
+      "name": "林玉龙",
+      "message": "Character \"林玉龙\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_ren_fei_yan",
+      "name": "任飞燕",
+      "message": "Character \"任飞燕\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_zhang_biao_shi",
+      "name": "张镖师",
+      "message": "Character \"张镖师\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_yuan_fu_ren",
+      "name": "袁夫人",
+      "message": "Character \"袁夫人\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "char_yang_fu_ren",
+      "name": "杨夫人",
+      "message": "Character \"杨夫人\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_yuan_yang_dao",
+      "name": "鸳鸯刀",
+      "message": "Item \"鸳鸯刀\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_tie_bian",
+      "name": "铁鞭",
+      "message": "Item \"铁鞭\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_e_mei_ci",
+      "name": "峨嵋刺",
+      "message": "Item \"峨嵋刺\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_liu_xing_chui",
+      "name": "流星锤",
+      "message": "Item \"流星锤\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_mu_bei",
+      "name": "墓碑",
+      "message": "Item \"墓碑\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_han_yan_guan",
+      "name": "旱烟管",
+      "message": "Item \"旱烟管\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_dan_gong",
+      "name": "弹弓",
+      "message": "Item \"弹弓\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_shuai_shou_jian",
+      "name": "甩手箭",
+      "message": "Item \"甩手箭\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_jin_chai",
+      "name": "金钗",
+      "message": "Item \"金钗\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "skill_hun_yuan_qi",
+      "name": "混元气",
+      "message": "Skill \"混元气\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "skill_zhen_tian_san_shi_zhang",
+      "name": "震天三十掌",
+      "message": "Skill \"震天三十掌\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "skill_hu_yan_shi_ba_bian",
+      "name": "呼延十八鞭",
+      "message": "Skill \"呼延十八鞭\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "skill_fu_qi_dao_fa",
+      "name": "夫妻刀法",
+      "message": "Skill \"夫妻刀法\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "faction_tai_yue_si_xia",
+      "name": "太岳四侠",
+      "message": "Faction \"太岳四侠\" not found in mention_summary.json - possible hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "faction_wei_xin_biao_ju",
+      "name": "威信镖局",
+      "message": "Faction \"威信镖局\" not found in mention_summary.json - possible hallucination"
+    }
+  ]
+}

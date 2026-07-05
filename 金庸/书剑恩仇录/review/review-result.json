@@ -1,0 +1,702 @@
+[
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "角色总数",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "characters.json 仅收录4个角色（陈家洛、乾隆、香香公主、张召重），严重不完整。书中至少有30+重要角色缺失，包括：陆菲青、李沅芷、李可秀、霍青桐、文泰来、骆冰、徐天宏、章进、常赫志、常伯志、卫春华、杨成协、周绮、周仲英、赵半山、无尘、余鱼同、蒋四根、心砚、马善均、石双英、焦文期、韩文冲、范中恩、白振、福康安、兆惠、木卓伦等。",
+    "suggestion": "补充所有重要角色，按 importance 分级录入。"
+  },
+  {
+    "json_file": "characters",
+    "index": 2,
+    "id": "char_xiang_ting",
+    "name": "香香公主",
+    "issue_type": "logic",
+    "severity": "high",
+    "reason": "power_rank 设为「略有小成」，但香香公主在原著中基本不会武功，她是以美貌和纯真著称的回族女子，不应有任何武功评级。",
+    "suggestion": "将 power_rank 改为「不会武功」或 null，并移除 archetype 中的 warrior。"
+  },
+  {
+    "json_file": "characters",
+    "index": 1,
+    "id": "char_qian_long",
+    "name": "乾隆",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "archetype 设为「warrior」不准确。乾隆在书中主要是政治人物、皇帝，虽有武功但并非以武力著称。power_rank「出神入化」也偏高，他的武功并非顶尖。",
+    "suggestion": "archetype 改为「ruler」或「politician」，power_rank 降至「驾轻就熟」。"
+  },
+  {
+    "json_file": "characters",
+    "index": 3,
+    "id": "char_zhang_zhao_chong",
+    "name": "张召重",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "description 过于笼统，只说「清廷高手」。实际上张召重是御林军军官，武功以剑术见长（柔云剑法），是书中主要反派之一，应有更具体的描述。",
+    "suggestion": "补充其御林军身份、擅长柔云剑法、性格阴险等细节。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "陆菲青",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "陆菲青（化名陆高止）是书中极重要角色，武当派大侠，李沅芷的师父，武功高强（无极玄功拳、柔云剑术、芙蓉金针），在第一回即出场，贯穿全书。完全缺失。",
+    "suggestion": "添加陆菲青角色条目，role 为「重要」。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "霍青桐",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "霍青桐是回部女英雄，木卓伦之女，香香公主的姐姐，精通天山派剑法（三分剑术），是书中重要角色，第二回即出场。完全缺失。",
+    "suggestion": "添加霍青桐角色条目，role 为「重要」。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "文泰来",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "文泰来是红花会四当家，绰号「奔雷手」，武功卓绝（霹雳掌），是全书核心情节（营救文泰来）的关键人物。完全缺失。",
+    "suggestion": "添加文泰来角色条目，role 为「重要」。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "徐天宏",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "徐天宏是红花会七当家，绰号「武诸葛」，机智过人，是红花会的核心智囊。完全缺失。",
+    "suggestion": "添加徐天宏角色条目，role 为「重要」。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "骆冰",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "骆冰是文泰来之妻，红花会成员，使鸳鸯刀，是书中重要女性角色。完全缺失。",
+    "suggestion": "添加骆冰角色条目。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "李沅芷",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "李沅芷是第一回开场角色，总兵李可秀之女，陆菲青的徒弟，贯穿全书。完全缺失。",
+    "suggestion": "添加李沅芷角色条目。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "余鱼同",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "余鱼同是红花会十四当家，绰号「金笛秀才」，使金笛，与骆冰有感情纠葛，是书中重要角色。完全缺失。",
+    "suggestion": "添加余鱼同角色条目。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "周仲英",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "周仲英是铁胆庄庄主，使子母铁胆，武功高强，在营救文泰来等情节中多次出场。完全缺失。",
+    "suggestion": "添加周仲英角色条目。"
+  },
+  {
+    "json_file": "factions",
+    "index": 1,
+    "id": "faction_qing_court",
+    "name": "清廷",
+    "issue_type": "id_ref",
+    "severity": "high",
+    "reason": "members 列表中包含 \"char_zhao Qiusheng\"（混合大小写），ID 格式错误，且该 ID 在 characters.json 中不存在。另外 members 列表不完整，缺失白振、范中恩、褚圆、瑞大林、福康安、兆惠等重要清廷人物。",
+    "suggestion": "修正 ID 为 char_zhao_qiusheng，补充缺失的清廷成员。"
+  },
+  {
+    "json_file": "factions",
+    "index": 0,
+    "id": "faction_hong_hua_hui",
+    "name": "红花会",
+    "issue_type": "id_ref",
+    "severity": "high",
+    "reason": "members 列表中引用了 char_wu_hai、char_wu_jian、char_yu_yuan_tong、char_chang_he_zhi、char_jiang_si_tai、char_xin_han、char_xin_ran、char_xin_wei、char_xin_shuang 等 ID，这些在 characters.json 中均不存在。此外红花会十三位当家（无尘、赵半山、文泰来、常赫志、常伯志、徐天宏、杨成协、卫春华、章进、蒋四根、心砚等）大部分缺失。",
+    "suggestion": "先补充 characters.json 中缺失的角色，再修正 members 引用。"
+  },
+  {
+    "json_file": "factions",
+    "index": null,
+    "id": null,
+    "name": "回部",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "回部（回族部落）是书中极其重要的势力，木卓伦是其首领，霍青桐和香香公主都是回部人。全书大量情节围绕回部与清廷的战争展开。完全缺失。",
+    "suggestion": "添加回部势力条目。"
+  },
+  {
+    "json_file": "factions",
+    "index": null,
+    "id": null,
+    "name": "镇远镖局",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "镇远镖局是书中重要势力，王维扬是总镖头，韩文冲、焦文期等都是镖局相关人物。在多个章节中出现。完全缺失。",
+    "suggestion": "添加镇远镖局势力条目。"
+  },
+  {
+    "json_file": "factions",
+    "index": 0,
+    "id": "faction_hong_hua_hui",
+    "name": "红花会",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "location 引用 loc_jiang_nan（江南），但红花会的总舵和主要活动区域并不在江南。书中红花会在杭州、回疆等地活动，应有更准确的 location。",
+    "suggestion": "修正 location 或改为多个活动地点。"
+  },
+  {
+    "json_file": "skills",
+    "index": 0,
+    "id": "skill_hong_hua_hui_wu_gong",
+    "name": "红花会武功",
+    "issue_type": "category_error",
+    "severity": "high",
+    "reason": "「红花会武功」是一个笼统的门派概念，不是具体的武学技能。skills.json 应收录具体的武学体系（如百花错拳、柔云剑术等），而非帮派级别的泛称。且书中红花会各当家武功各不相同，并无统一的「红花会武功」。",
+    "suggestion": "删除此条目，替换为具体的武学技能（如百花错拳、霹雳掌等）。"
+  },
+  {
+    "json_file": "skills",
+    "index": 1,
+    "id": "skill_qing_court_wu_gong",
+    "name": "清廷武功",
+    "issue_type": "category_error",
+    "severity": "high",
+    "reason": "同上，「清廷武功」是笼统概念而非具体武学。清廷侍卫各有师承，并无统一武功体系。",
+    "suggestion": "删除此条目，替换为具体武学。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "百花错拳",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "百花错拳是陈家洛的标志性武功，全书多次出现。在 ch_015 中明确提到「一个展开百花错拳，一个使起无极玄功拳」。完全缺失。",
+    "suggestion": "添加百花错拳条目，type 为「拳法」。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "无极玄功拳",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "无极玄功拳是武当派武功，陆菲青和张召重都使用。在 ch_001 和 ch_015 中多次出现。完全缺失。",
+    "suggestion": "添加无极玄功拳条目。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "柔云剑术",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "柔云剑术是陆菲青的剑法，也是张召重擅长的剑法。在 ch_001 中详细描写「柔云剑术连绵不断」。完全缺失。",
+    "suggestion": "添加柔云剑术条目，type 为「剑法」。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "三分剑术",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "三分剑术是天山派剑法，霍青桐擅长。在 ch_002 中明确提到「施展三分剑术」。完全缺失。",
+    "suggestion": "添加三分剑术条目。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "铁琵琶手",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "铁琵琶手是焦文期和韩文冲的武功，洛阳韩家门绝技。在 ch_001 和 ch_005 中多次出现。完全缺失。",
+    "suggestion": "添加铁琵琶手条目。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "霹雳掌",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "霹雳掌是文泰来的生平绝技。在 ch_015 中明确提到「出手便是生平绝技霹雳掌」。完全缺失。",
+    "suggestion": "添加霹雳掌条目。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "芙蓉金针",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "芙蓉金针是陆菲青的暗器功夫，在第一回中用金针钉苍蝇、射杀焦文期。完全缺失。",
+    "suggestion": "添加芙蓉金针条目，type 为「暗器」。"
+  },
+  {
+    "json_file": "techniques",
+    "index": null,
+    "id": null,
+    "name": "techniques.json 为空",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "techniques.json 是空数组。书中大量具体招式和技法缺失，如：沾衣十八跌、金刚伏虎刀法、五行拳、壁虎游墙功、轻功提纵术、燕子三抄水、大摔碑手等。",
+    "suggestion": "补充 techniques.json，收录具体的招式和技法。"
+  },
+  {
+    "json_file": "items",
+    "index": 0,
+    "id": "item_hong_hua_hui_xin_wu",
+    "name": "红花会信物",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "红花会信物描述过于笼统（「代表红花会的身份」），且在书中并未作为重要道具出现。相比之下，书中实际出现的重要物品（凝碧剑、白龙剑等）完全缺失。",
+    "suggestion": "保留但完善描述，同时补充书中实际出现的重要物品。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "凝碧剑",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "凝碧剑是书中极其重要的宝剑，多次出现。在 ch_010 中「周绮拿了凝碧剑细看」，用来削断铁链、砍铁笼等。完全缺失。",
+    "suggestion": "添加凝碧剑条目，type 为「兵器/剑」。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "白龙剑",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "白龙剑是陆菲青的佩剑，第一回即出现（「白龙剑出手」），贯穿多个战斗场景。完全缺失。",
+    "suggestion": "添加白龙剑条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "鸳鸯刀",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "鸳鸯刀是骆冰的兵器，一长一短，在 ch_015 中明确提到「骆冰对自己的这对鸳鸯刀的长刀短刀本来无所偏爱」。完全缺失。",
+    "suggestion": "添加鸳鸯刀条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "铁琵琶",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "铁琵琶是韩家门的独门兵器，在 ch_001 和 ch_005 中多次出现。完全缺失。",
+    "suggestion": "添加铁琵琶条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "金笛",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "金笛是余鱼同的兵器，在 ch_005 中「腰插金笛」。完全缺失。",
+    "suggestion": "添加金笛条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "珠索",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "珠索是陈家洛的兵器之一，在 ch_010 中「从怀中掏出珠索」，用来缠住敌人。完全缺失。",
+    "suggestion": "添加珠索条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "子母铁胆",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "子母铁胆是周仲英的兵器，也是徐天宏后来学会的绝技。在 ch_015 中「铁胆来了」。完全缺失。",
+    "suggestion": "添加子母铁胆条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "剑盾",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "剑盾是陈家洛的兵器之一，在 ch_010 中「马大挺把他的钩剑盾递了过来」「盾牌迎了上来，盾上明晃晃的插着九枝利剑」。完全缺失。",
+    "suggestion": "添加剑盾条目。"
+  },
+  {
+    "json_file": "dialogues",
+    "index": null,
+    "id": null,
+    "name": "对话总数",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "dialogues.json 仅有1条对话（dlg_001），严重不完整。书中大量经典对话缺失，如陆菲青教训焦文期的话（ch_001）、陈家洛劝韩文冲的话（ch_005）、霍青桐与李沅芷的对话（ch_002）等。",
+    "suggestion": "补充重要对话，至少覆盖每回的关键对话场景。"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": null,
+    "id": null,
+    "name": "章节数量",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "chapter_summaries.json 仅有5个章节摘要，但原著共有20回（ch_001 到 ch_020）。缺失第6-20回的摘要。",
+    "suggestion": "补充第6-20回的章节摘要。"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 0,
+    "id": null,
+    "name": "第一回摘要",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "摘要过于笼统（「故事开头，陈家洛出场，红花会与清廷的斗争开始」）。实际第一回主要内容是：陆菲青（化名陆高止）在李可秀府中教读，被焦文期等三人追杀，以芙蓉金针和点穴手连毙三敌。陈家洛并未在第一回出场。",
+    "suggestion": "修正摘要，准确反映第一回实际内容（陆菲青出场、焦文期之死）。"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 1,
+    "id": null,
+    "name": "第二回摘要",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "摘要称「陈家洛与香香公主相遇，两人相爱」。实际第二回主要内容是：李沅芷与霍青桐斗剑，陆菲青出手调解，抢回回部圣经。陈家洛与香香公主的相遇并非第二回核心。",
+    "suggestion": "修正摘要为第二回实际内容。"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 4,
+    "id": null,
+    "name": "第五回摘要",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "摘要称「香香公主为陈家洛牺牲」。实际香香公主牺牲是在第二十回（ch_020），第五回是乌鞘岭口拚鬼侠、赤套渡头扼官军的情节。",
+    "suggestion": "修正第五回摘要，将香香公主牺牲移到第二十回。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "李可秀",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "李可秀是陕西扶风延绥镇总兵，李沅芷的父亲，陆菲青的东家，在多个章节中出现。完全缺失。",
+    "suggestion": "添加李可秀角色条目。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "木卓伦",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "木卓伦是回部首领，霍青桐和香香公主的父亲，在 ch_015 等章节中多次出现。完全缺失。",
+    "suggestion": "添加木卓伦角色条目。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "白振",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "白振是御前侍卫，在 ch_020 中出现，传达乾隆旨意。完全缺失。",
+    "suggestion": "添加白振角色条目。"
+  },
+  {
+    "json_file": "characters",
+    "index": null,
+    "id": null,
+    "name": "福康安",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "福康安在 ch_020 中出现，奉乾隆之命率骁骑营埋伏。完全缺失。",
+    "suggestion": "添加福康安角色条目。"
+  },
+  {
+    "json_file": "locations",
+    "index": null,
+    "id": null,
+    "name": "回疆",
+    "issue_type": "missing_entity",
+    "severity": "high",
+    "reason": "回疆是书中大量情节的发生地，包括回部与清军的战争、陈家洛与香香公主的相遇等。完全缺失。",
+    "suggestion": "添加回疆地点条目。"
+  },
+  {
+    "json_file": "locations",
+    "index": null,
+    "id": null,
+    "name": "铁胆庄",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "铁胆庄是周仲英的庄园，在多个章节中作为重要场景出现。完全缺失。",
+    "suggestion": "添加铁胆庄地点条目。"
+  },
+  {
+    "json_file": "locations",
+    "index": null,
+    "id": null,
+    "name": "提督府",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "提督府是李可秀的官邸，文泰来被关押之处，ch_010 营救文泰来的主要场景。完全缺失。",
+    "suggestion": "添加提督府地点条目。"
+  },
+  {
+    "json_file": "locations",
+    "index": null,
+    "id": null,
+    "name": "雍和宫",
+    "issue_type": "missing_entity",
+    "severity": "medium",
+    "reason": "雍和宫在 ch_020 中是关键场景，乾隆在此设宴企图一网打尽红花会。完全缺失。",
+    "suggestion": "添加雍和宫地点条目。"
+  },
+  {
+    "json_file": "locations",
+    "index": null,
+    "id": null,
+    "name": "凉州",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "凉州在 ch_005 中出现，余鱼同在此侦查文泰来踪迹。完全缺失。",
+    "suggestion": "添加凉州地点条目。"
+  },
+  {
+    "json_file": "locations",
+    "index": null,
+    "id": null,
+    "name": "扶风",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "扶风是第一回开场地点，李沅芷和陆菲青所在地。完全缺失。",
+    "suggestion": "添加扶风地点条目。"
+  },
+  {
+    "json_file": "locations",
+    "index": null,
+    "id": null,
+    "name": "长城",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "长城在 ch_020 中出现，陈家洛带香香公主游长城。完全缺失。",
+    "suggestion": "添加长城地点条目。"
+  },
+  {
+    "json_file": "dialogues",
+    "index": 0,
+    "id": "dlg_001",
+    "name": "陈家洛与乾隆对峙",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "对话内容「乾隆，你虽然是皇帝，但你也是我的亲哥哥！」过于戏剧化，不符合原著风格。且 chapter 标注为1，但陈家洛与乾隆的对峙并非第一回内容。",
+    "suggestion": "修正对话内容使其更贴近原著，修正 chapter 引用。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "沾衣十八跌",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "沾衣十八跌是内家拳术上乘功夫，在 ch_001 中陆菲青使用（「原来陆菲青使的是内家拳术中的上乘功夫，叫做沾衣十八跌」）。完全缺失。",
+    "suggestion": "添加沾衣十八跌条目。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "五行拳",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "五行拳是罗信使用的拳法，在 ch_001 中出现（「施展五行拳又猛攻过来」）。完全缺失。",
+    "suggestion": "添加五行拳条目。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "壁虎游墙功",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "壁虎游墙功是轻功，在 ch_001 中陆菲青使用（「施展壁虎游墙功，悄声沿壁直上」）。完全缺失。",
+    "suggestion": "添加壁虎游墙功条目。"
+  },
+  {
+    "json_file": "skills",
+    "index": null,
+    "id": null,
+    "name": "金刚伏虎刀法",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "金刚伏虎刀法在 ch_015 中陈家洛使用（「使开金刚伏虎刀法」）。完全缺失。",
+    "suggestion": "添加金刚伏虎刀法条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "吴钩剑",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "吴钩剑是贝人龙的兵器，在 ch_001 中出现（「一对吴钩剑分上下两路」）。完全缺失。",
+    "suggestion": "添加吴钩剑条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "七节钢鞭",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "七节钢鞭是罗信的兵器，在 ch_001 中出现（「取出七节钢鞭，冲上夹击」）。完全缺失。",
+    "suggestion": "添加七节钢鞭条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "琵琶钉",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "琵琶钉是铁琵琶中藏的暗器，在 ch_001 中出现（「三枚琵琶钉带着一股劲风向他背心射来」）。完全缺失。",
+    "suggestion": "添加琵琶钉条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "狼牙棒",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "狼牙棒是章进的兵器，在 ch_010 中出现（「章进短柄狼牙棒乌龙扫地」）。完全缺失。",
+    "suggestion": "添加狼牙棒条目。"
+  },
+  {
+    "json_file": "items",
+    "index": null,
+    "id": null,
+    "name": "铁桨",
+    "issue_type": "missing_entity",
+    "severity": "low",
+    "reason": "铁桨是蒋四根的兵器，在 ch_010 中出现（「手握铁桨，守住地道入口」）。完全缺失。",
+    "suggestion": "添加铁桨条目。"
+  },
+  {
+    "json_file": "characters",
+    "index": 0,
+    "id": "char_chen_jia_luo",
+    "name": "陈家洛",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "source_refs 中所有事件的 chapter 都标注为1，但陈家洛出场并非第一回（第一回是陆菲青的故事）。他的出场和主要事件分布在多个章节中。",
+    "suggestion": "修正 source_refs 中的 chapter 引用，使其对应实际章节。"
+  },
+  {
+    "json_file": "characters",
+    "index": 1,
+    "id": "char_qian_long",
+    "name": "乾隆",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "power_rank「出神入化」偏高。乾隆武功虽不错但并非顶尖高手，他的武功在书中并未被特别强调。",
+    "suggestion": "将 power_rank 降至「驾轻就熟」或「炉火纯青」。"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 2,
+    "id": null,
+    "name": "第三回摘要",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "摘要「红花会与清廷的斗争加剧」过于笼统，缺乏具体情节描述。第三回标题为「乌鞘岭口拚鬼侠 赤套渡头扼官军」，有具体战斗场景。",
+    "suggestion": "补充第三回的具体情节摘要。"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 3,
+    "id": null,
+    "name": "第四回摘要",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "摘要「陈家洛与乾隆的对峙」过于笼统。需要补充具体情节。",
+    "suggestion": "补充第四回的具体情节摘要。"
+  },
+  {
+    "json_file": "locations",
+    "index": 0,
+    "id": "loc_jiang_nan",
+    "name": "江南",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "description 称「江南是红花会的活动区域」，但书中红花会的主要活动并非在江南，而是在回疆、杭州等地。江南作为地点过于宽泛。",
+    "suggestion": "修正 description 或改为更具体的地点（如杭州）。"
+  },
+  {
+    "json_file": "characters",
+    "index": 2,
+    "id": "char_xiang_ting",
+    "name": "香香公主",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "archetype 为「warrior」不准确。香香公主在书中是以美貌和纯真著称，不会武功，最终以死示警陈家洛。应改为「maiden」或类似原型。",
+    "suggestion": "将 archetype 改为非战斗类型。"
+  },
+  {
+    "json_file": "dialogues",
+    "index": 0,
+    "id": "dlg_001",
+    "name": "陈家洛与乾隆对峙",
+    "issue_type": "id_ref",
+    "severity": "low",
+    "reason": "speaker 和 listener 的 ID 引用正确（char_chen_jia_luo 和 char_qian_long），但 line_start/line_end 为100，这个行号在原文中无法验证。",
+    "suggestion": "验证并修正行号引用。"
+  },
+  {
+    "json_file": "items",
+    "index": 0,
+    "id": "item_hong_hua_hui_xin_wu",
+    "name": "红花会信物",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "rarity_tier 设为「稀世珍品」，但红花会信物在书中并未被描述为稀世珍品，更多是身份象征。",
+    "suggestion": "将 rarity_tier 降至「帮派信物」或「普通」。"
+  }
+]
