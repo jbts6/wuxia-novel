@@ -20,14 +20,22 @@ description: Use when the user wants to build a high-quality knowledge base for 
 
 ## 流水线
 
-### Phase 1：split（纯代码）
+### Phase 1：split + keywords（纯代码）
 
 ```bash
 node <skill>/scripts/split-chapters.js <novelDir>
 node <skill>/scripts/compact-mention.js <novelDir>
+node <skill>/scripts/extract-keywords.js <novelDir>
 ```
 
-输出：`ch_split/`、`manifest.json`、`mention_summary.json`
+输出：`ch_split/`、`manifest.json`、`mention_summary.json`、`keywords.json`
+
+**重要**：`keywords.json` 是 locate.js 的核心依赖。它包含：
+- mention_index.jsonl 中的高频词
+- 原文中出现的武侠关键词（门派、地名、功法、事件等）
+- locate.js 会优先读取这个文件，如果没有则使用硬编码的 fallback（可能不适合本书）
+
+**如果 locate 率低**，首先检查 `keywords.json` 是否包含足够的关键词。
 
 ### Phase 1.6：prompt-craft（LLM 生成书籍专属 prompt）
 

@@ -29,6 +29,24 @@ for (const f of fs.readdirSync(splitDir)) {
 let ANCHOR_DICT = null;
 function loadAnchorDict() {
   if (ANCHOR_DICT) return ANCHOR_DICT;
+  
+  // 优先读取小说专属关键词文件
+  const keywordsPath = path.join(novelDir, 'keywords.json');
+  if (fs.existsSync(keywordsPath)) {
+    try {
+      const keywords = JSON.parse(fs.readFileSync(keywordsPath, 'utf8'));
+      if (Array.isArray(keywords) && keywords.length > 0) {
+        ANCHOR_DICT = keywords.filter(t => t.length >= 2).sort((a, b) => b.length - a.length);
+        console.log(`Loaded ${ANCHOR_DICT.length} keywords from keywords.json`);
+        return ANCHOR_DICT;
+      }
+    } catch (e) {
+      console.warn(`Failed to load keywords.json: ${e.message}, falling back to defaults`);
+    }
+  }
+  
+  // Fallback: 使用 mention_index + 硬编码关键词
+  console.log('keywords.json not found, using default keywords');
   const terms = new Set();
   const mentionPath = path.join(novelDir, 'mention_index.jsonl');
   if (fs.existsSync(mentionPath)) {
