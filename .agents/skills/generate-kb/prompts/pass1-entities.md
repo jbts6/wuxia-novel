@@ -67,7 +67,9 @@
 - 常见错误：引用 `skill_yi_rong_shu`（易容术）、`skill_xing_su_du_gong`（星宿毒功）等不存在的 skill。
 
 **items.owner / related_characters / related_skills**：
-- 必须使用 `characters.json` / `skills.json` 中的 `id`，不能使用名称。
+- `owner` 可以是 `characters.json` 中的 `id`（人物拥有），也可以是 `factions.json` 中的 `id`（门派拥有）。不能使用名称。
+- `related_characters` 必须使用 `characters.json` 中的 `id`。
+- `related_skills` 必须使用 `skills.json` 中的 `id`。
 
 **dialogues.speaker / listener**：
 - 必须使用 `characters.json` 中的 `id`，不能使用名称。

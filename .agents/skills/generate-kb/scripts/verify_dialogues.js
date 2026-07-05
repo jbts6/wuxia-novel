@@ -1,7 +1,23 @@
 const fs = require('fs');
 const path = require('path');
 
-const novelDir = '/Users/jbts6/Site/wuxia-novel/金庸/天龙八部';
+const args = process.argv.slice(2);
+if (args.length < 1) {
+  console.log('用法: node verify_dialogues.js <dialogues_json_file> [novel_dir]');
+  console.log('如果 novel_dir 未指定，从 dialogues JSON 的 chapter 字段推断 ch_split 目录');
+  process.exit(1);
+}
+
+const dialoguesFile = path.resolve(args[0]);
+
+// 尝试从 dialogues 文件路径推断 novelDir
+let novelDir;
+if (args.length >= 2) {
+  novelDir = path.resolve(args[1]);
+} else {
+  // 从 dialogues 文件路径推断：假设 dialogues.json 在小说目录下
+  novelDir = path.dirname(dialoguesFile);
+}
 const chSplitDir = path.join(novelDir, 'ch_split');
 
 // 读取所有章节原文
@@ -51,15 +67,8 @@ function verifyDialogue(chNum, speaker, text) {
   return { status: 'not_found', matchRatio: 0 };
 }
 
-// 从 stdin 或文件读取 LLM 输出的 dialogues JSON
-const inputFile = process.argv[2];
-if (!inputFile) {
-  console.log('用法: node verify_dialogues.js <dialogues_json_file>');
-  console.log('文件格式: [{chapter, speaker, text, event}, ...]');
-  process.exit(1);
-}
-
-const dialogues = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
+// 读取 LLM 输出的 dialogues JSON
+const dialogues = JSON.parse(fs.readFileSync(dialoguesFile, 'utf8'));
 
 let exact = 0, fragment = 0, prefix = 0, firstSent = 0, notFound = 0;
 

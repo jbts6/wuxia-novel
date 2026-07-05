@@ -27,7 +27,8 @@
 - `description` ≥20字，必须基于原文描述，禁止模板。
 - **source_refs 格式**：`{ chapter, anchor, event_type }`
   - `event_type` 选 `first_mention`（物品首次出现）/ `climax`（物品起关键作用的事件）/ `resolution`（物品的最终去向）/ `background`（背景提及）
-- `owner` 和 `related_characters` 的 char_id 必须在 Pass 1 的 characters.json 里存在。
+- `owner` 可以是 Pass 1 的 `characters.json` 中的 char_id（人物拥有），也可以是 `factions.json` 中的 faction_id（门派拥有）。
+- `related_characters` 的 char_id 必须在 Pass 1 的 `characters.json` 里存在。
 - `related_skills` 的 skill_id 必须在 Pass 1 的 skills.json 里存在。
 
 ### dialogues

@@ -152,7 +152,7 @@ for (const c of characters) {
 
 // items.owner and items.related_characters
 for (const i of items) {
-  if (i.owner && !charIds.has(i.owner)) {
+  if (i.owner && !charIds.has(i.owner) && !factionIds.has(i.owner)) {
     issues.push({
       type: 'dangling_reference',
       severity: 'error',
