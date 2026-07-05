@@ -135,15 +135,60 @@ function extractKeyPhrases(text) {
   return [...phrases].filter(p => p.length >= 3);
 }
 
+// Build dynamic patterns from JSON files
+let charNames = [];
+let placeNames = [];
+let eventWords = [];
+
+// Load character names
+const charPath = path.join(novelDir, 'characters.json');
+if (fs.existsSync(charPath)) {
+  try {
+    const chars = JSON.parse(fs.readFileSync(charPath, 'utf8'));
+    for (const c of chars) {
+      if (c.name) charNames.push(c.name);
+      if (Array.isArray(c.alias)) charNames.push(...c.alias);
+    }
+  } catch {}
+}
+
+// Load location names
+const locPath = path.join(novelDir, 'locations.json');
+if (fs.existsSync(locPath)) {
+  try {
+    const locs = JSON.parse(fs.readFileSync(locPath, 'utf8'));
+    for (const l of locs) {
+      if (l.name) placeNames.push(l.name);
+      if (Array.isArray(l.alias)) placeNames.push(...l.alias);
+    }
+  } catch {}
+}
+
+// Common event words (generic, not book-specific)
+const COMMON_EVENT_WORDS = ['斗酒', '结拜', '自尽', '误杀', '相认', '招亲', '传功', '揭发', '独战', '定情', '登场', '落败', '认父', '传授', '初见', '论武', '重逢', '相会', '拜师', '比武', '决战', '成亲', '分离', '中毒', '疗伤', '逃脱', '被捕', '背叛', '和解'];
+
 function extractAnchors(text) {
   const anchors = new Set();
-  const knownChars = /段誉|萧峰|乔峰|虚竹|王语嫣|慕容复|阿朱|阿紫|木婉清|钟灵|段正淳|刀白凤|阮星竹|秦红棉|甘宝宝|王夫人|李秋水|天山童姥|无崖子|丁春秋|游坦之|鸠摩智|玄慈|萧远山|慕容博|扫地僧|耶律洪基|完颜阿骨打|全冠清|包不同|阿碧|邓百川|公冶乾|风波恶|南海鳄神|叶二娘|云中鹤|枯荣|本因|段正明|高升泰|保定帝|康敏|马夫人|白世镜|单正|谭公|谭婆|赵钱孙|智光|徐长老|马大元|奚长老|陈长老|吴长老|宋长老|吕长老|传功长老|止清|止渊|慧真|慧观|慧方|慧镜|慧轮|苏星河|薛神医|康广陵|范百龄|苟读|吴领军|冯阿三|石清露|李傀儡|摘星子|出尘子|天狼子|狮吼子|乌老大|不平道人|崔绿华|卓不凡|赫连铁树|努儿海|段誉|李清露|梦姑/g;
+  
+  // Match character names
+  if (charNames.length > 0) {
+    const charPattern = new RegExp(charNames.join('|'), 'g');
+    let m;
+    while ((m = charPattern.exec(text)) !== null) anchors.add(m[0]);
+  }
+  
+  // Match place names
+  if (placeNames.length > 0) {
+    const placePattern = new RegExp(placeNames.join('|'), 'g');
+    let m;
+    while ((m = placePattern.exec(text)) !== null) anchors.add(m[0]);
+  }
+  
+  // Match event words
+  const eventPattern = new RegExp(COMMON_EVENT_WORDS.join('|'), 'g');
   let m;
-  while ((m = knownChars.exec(text)) !== null) anchors.add(m[0]);
-  const places = /松鹤楼|聚贤庄|小镜湖|雁门关|杏子林|曼陀山庄|燕子坞|参合庄|听香水榭|少林寺|灵鹫宫|无量山|剑湖宫|大理城|镇南王府|少室山|缥缈峰|擂鼓山|天龙寺|星宿海|西夏皇宫|大轮寺|磨坊|枯井|冰窖|无锡|信阳|洛阳|苏州|开封|长安|开封/g;
-  while ((m = places.exec(text)) !== null) anchors.add(m[0]);
-  const events = /斗酒|结拜|自尽|折箭|误杀|相认|招亲|破棋|传功|化功|揭发|独战|喝绝交酒|定情|登场|落败|图谋|认父|杀包不同|传授|初见|论武|重逢|相会/g;
-  while ((m = events.exec(text)) !== null) anchors.add(m[0]);
+  while ((m = eventPattern.exec(text)) !== null) anchors.add(m[0]);
+  
   return [...anchors];
 }
 

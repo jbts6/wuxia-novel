@@ -7,8 +7,9 @@
 ## 输入
 
 1. `manifest.json`：章节清单（章节号、标题、起止行号、字数）。
-2. `mention_index.jsonl`：高频实体提及索引（章节号、行号、原文片段）。
-3. 原文（已注入上下文）。
+2. `mention_summary.json`：高频实体提及汇总（从 mention_index.jsonl 聚合）。
+3. `outline.json`（可选）：实体清单大纲（Phase 1.5 生成），包含 characters、factions、locations、skills 的骨架清单。
+4. 原文（已注入上下文）。
 
 ## 输出
 
@@ -27,9 +28,9 @@
 - 每个实体必须附 `source_refs: [{chapter, anchor, event_type}]`。
 - `anchor` 是对事件的一句话描述（含角色名 + 地名 + 事件关键词），不必是原文原句。后续由 `locate.js` 自动回填精确位置。
 - `event_type` 必须是以下四种之一：
-  - `first_mention`：角色/地点/功法/物品的**首次登场**（如"段誉在无量山初见钟灵"、"萧峰首次以丐帮帮主身份登场"）
-  - `climax`：事件的**高潮/关键冲突**（如"萧峰独闯聚贤庄血战群雄"、"段誉与乔峰松鹤楼斗酒结拜"、"虚竹误破珍珑棋局"）
-  - `resolution`：事件的**收尾/结局**（如"萧峰雁门关折箭自尽"、"段誉与王语嫣枯井定情"、"慕容复疯癫收场"）
+  - `first_mention`：角色/地点/功法/物品的**首次登场**（如"主角初遇某角色"、"某门派首次出现"）
+  - `climax`：事件的**高潮/关键冲突**（如"大战某高手"、"揭秘身世之谜"、"比武招亲"）
+  - `resolution`：事件的**收尾/结局**（如"最终决战"、"定情/分离"、"角色收场"）
   - `background`：背景介绍、日常描写、非关键情节
 - 每个 source_ref 必须满足：(1) `chapter` 大致正确（事件发生的章节之一）；(2) `anchor` 包含至少 2 个实体关键词（人名 / 地名 / 武功 / 事件词）；(3) `event_type` 与事件性质匹配。
 - **禁止捏造引文**。如果你不确定某事实的确切位置，宁可省略该实体，也不要编造 anchor。
@@ -47,11 +48,34 @@
   - 对：`大理段氏世子，后为帝，一生追寻王语嫣与身世之谜`
   - 错：`在第3章被蜂麻倒并被缚`
 - `alias` 只收原文真正出现过的别名/称呼，禁止泛称。
-  - 对：`段公子`、`段郎`、`段誉`
-  - 错：`青衫年轻男子`、`段姓青年`、`那少年`
+  - 对：`X公子`、`X郎`、`X兄`（具体称呼）
+  - 错：`青衫年轻男子`、`X姓青年`、`那少年`（泛称）
 - `personality.traits` 至少 5 项，必须基于全书行为总结，不要套话。
 - `description`（items/factions/locations）必须 ≥20字，禁止模板化。
 - 禁止英文占位或问号兜底：`unknown`、`weapon`、`???`、`?`、`N/A` 都不允许。
+
+### ID 引用一致性（必须严格遵守）
+
+**characters.faction**：
+- 必须使用 `factions.json` 中的 `id`（如 `faction_da_li_duan_shi`），**不能**使用名称（如"大理段氏"）。
+- 如果人物不属于任何门派，设置为 `null`，**不能**使用"无"、"无门派"等字符串。
+- 常见错误：`"曼陀山庄"`、`"聚贤庄"`、`"四大恶人"` 等不是 faction，是 location 或 group，应设为 `null`。
+
+**characters.known_skills / related_skills**：
+- 必须使用 `skills.json` 中的 `id`（如 `skill_yi_yang_zhi`），**不能**使用名称（如"一阳指"）。
+- **禁止引用 skills.json 中不存在的 skill ID**。如果某 skill 不在 skills.json 中，先在 skills.json 中添加该 skill，再在 characters.json 中引用。
+- 常见错误：引用 `skill_yi_rong_shu`（易容术）、`skill_xing_su_du_gong`（星宿毒功）等不存在的 skill。
+
+**items.owner / related_characters / related_skills**：
+- 必须使用 `characters.json` / `skills.json` 中的 `id`，不能使用名称。
+
+**dialogues.speaker / listener**：
+- 必须使用 `characters.json` 中的 `id`，不能使用名称。
+
+**生成顺序建议**：
+1. 先生成 `factions.json` 和 `skills.json`（它们是基础数据）
+2. 再生成 `characters.json`（引用 factions 和 skills 的 ID）
+3. 最后生成 `locations.json` 和 `techniques.json`
 
 ### ID 与枚举
 
@@ -60,11 +84,19 @@
 
 ## 工作流
 
-1. 先通读 `manifest.json` 和 `mention_index.jsonl`，建立全书结构感。
-2. 在脑中/草稿里列出主要角色、门派、地点、功法的清单。
-3. 按重要性从高到低生成实体：核心 → 重要 → 次要 → 龙套 → 背景。
-4. 写完一个实体，立刻回查原文确认 source_refs 的真实性。
-5. 最后检查：关系图无冲突、ID 无重复、枚举值合法、所有字段非空。
+1. 先通读 `manifest.json` 和 `mention_summary.json`，建立全书结构感。
+2. **如果 `outline.json` 存在**：以 outline 为骨架，对每个实体填充 details（relationships、personality、source_refs 等）。LLM 不再需要同时决定"列谁"和"细节是什么"，注意力更聚焦。
+3. **如果 `outline.json` 不存在**：在脑中/草稿里列出主要角色、门派、地点、功法的清单。
+4. **按以下顺序生成**（重要！确保 ID 引用正确）：
+   - **第一步**：生成 `factions.json`（门派）和 `skills.json`（功法）—— 这是基础数据
+   - **第二步**：生成 `characters.json`（角色）—— 引用 factions 和 skills 的 ID
+   - **第三步**：生成 `locations.json`（地点）和 `techniques.json`（招式）
+5. 按重要性从高到低生成实体：核心 → 重要 → 次要 → 龙套 → 背景。
+6. 写完一个实体，立刻回查原文确认 source_refs 的真实性。
+7. **最后检查**：
+   - 关系图无冲突、ID 无重复、枚举值合法、所有字段非空
+   - **ID 引用一致性**：characters.faction 必须是 factions.json 中的 ID，characters.known_skills 必须是 skills.json 中的 ID
+   - **禁止使用名称代替 ID**：如"大理段氏"应为 `faction_da_li_duan_shi`，"一阳指"应为 `skill_yi_yang_zhi`
 
 ## 输出格式
 
