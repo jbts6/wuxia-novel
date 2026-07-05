@@ -1,5 +1,378 @@
+# Dialogues Review Prompt
+
+## 角色
+
+你是一位武侠小说设定库的**审阅专家**，目标是**挑刺**。你需要审阅本书的 dialogues.json，找出最可疑的条目。
+
+## 输入
+
+1. `dialogues.json`：对话数组，每条包含 speaker、listener、text、tone、chapter、line_start、line_end
+2. `characters.json`：角色数组，用于验证 speaker/listener 是否存在
+3. `manifest.json`：章节清单，用于了解本书的章节结构
+
+## 审阅标准
+
+对每条对话，检查以下问题：
+
+### 1. 跨书混淆（最严重）
+- 对话内容是否包含其他武侠作品的元素？
+- 检查方法：查看对话中提到的人名、地名、武功、道具是否属于本书
+- 常见问题：提到其他金庸/古龙/梁羽生/黄易作品的角色或元素
+
+### 2. 说话风格不符
+- 说话风格是否符合角色性格？
+- 检查方法：参考 characters.json 中的 personality.traits 和 speech_style
+- 常见问题：文绉绉的角色说出现代口语，或豪迈的角色说话过于文雅
+
+### 3. 时代背景错误
+- 对话是否符合本书的时代背景？
+- 检查方法：参考 manifest.json 中的时代信息（如有）
+- 常见问题：出现现代用语、不符合时代的表达
+
+### 4. 措辞偏差（可能 LLM 凭记忆写而非原文）
+- 对话是否像是 LLM 凭记忆写的，而非原文？
+- 检查方法：对比已知的本书经典台词
+- 常见问题：措辞过于现代或口语化，与原文风格不符
+
+### 5. 情节逻辑错误
+- 对话是否与上下文情节矛盾？
+- 检查方法：参考 chapter_summaries.json（如有）
+- 常见问题：角色在不可能的时间/地点说话，对话内容与已知情节冲突
+
+## 输出格式
+
+输出一个 JSON 数组，包含所有可疑条目（最多 50 条，按严重程度排序）：
+
+```json
 [
   {
+    "index": 0,
+    "speaker": "char_xxx",
+    "text": "原始对话文本",
+    "chapter": 1,
+    "issue_type": "cross_book|style|era|wording|logic",
+    "severity": "high|medium|low",
+    "reason": "具体问题描述",
+    "suggestion": "建议处理方式（删除/重读原文/人工复核）"
+  }
+]
+```
+
+## 工作流
+
+1. 先通读 characters.json，建立角色性格基线
+2. 逐条审阅 dialogues.json，按上述标准检查
+3. 对可疑条目，记录问题类型和严重程度
+4. 按严重程度排序输出（high → medium → low）
+
+## 注意事项
+
+- 不要过度挑刺：只标记真正有问题的条目，不要因为"措辞不够优美"就标记
+- 优先标记跨书混淆和时代错误，这些是硬伤
+- 对于"可能措辞偏差"，只标记非常明显的问题（如现代用语）
+- 如果不确定，宁可不标记，避免假阳性
+
+## 输出
+
+直接输出 JSON 数组，不要额外解释。
+
+
+## 数据
+
+### characters.json (摘要)
+[
+  {
+    "id": "char_duan_yu",
+    "name": "段誉",
+    "role": "核心",
+    "personality": [
+      "温文尔雅",
+      "痴情专一",
+      "不喜武功"
+    ],
+    "one_line": "大理段氏世子，痴情书生，因缘际会习得六脉神剑与北冥神功"
+  },
+  {
+    "id": "char_xiao_feng",
+    "name": "萧峰",
+    "role": "核心",
+    "personality": [
+      "豪迈大方",
+      "重情重义",
+      "武艺高强"
+    ],
+    "one_line": "丐帮前帮主，契丹人，身世坎坷的悲剧英雄，ch21前名为乔峰"
+  },
+  {
+    "id": "char_xu_zhu",
+    "name": "虚竹",
+    "role": "核心",
+    "personality": [
+      "憨厚老实",
+      "心地善良",
+      "重情重义"
+    ],
+    "one_line": "少林小和尚，因缘际会成为逍遥派掌门，与梦姑（西夏公主）相爱"
+  },
+  {
+    "id": "char_wang_yu_yan",
+    "name": "王语嫣",
+    "role": "重要",
+    "personality": [
+      "博学多才",
+      "温婉可人",
+      "痴情专一"
+    ],
+    "one_line": "慕容复表妹，熟读天下武学，后与段誉结为夫妻"
+  },
+  {
+    "id": "char_mu_rong_fu",
+    "name": "慕容复",
+    "role": "重要",
+    "personality": [
+      "野心勃勃",
+      "心狠手辣",
+      "武艺高强"
+    ],
+    "one_line": "姑苏慕容氏传人，一心复兴大燕，后疯癫"
+  },
+  {
+    "id": "char_a_zhu",
+    "name": "阿朱",
+    "role": "重要",
+    "personality": [
+      "温柔善良",
+      "聪慧机敏",
+      "易容术高超"
+    ],
+    "one_line": "慕容复婢女，与萧峰相爱，为救萧峰而死"
+  },
+  {
+    "id": "char_a_zi",
+    "name": "阿紫",
+    "role": "重要",
+    "personality": [
+      "刁蛮任性",
+      "心狠手辣",
+      "痴情专一"
+    ],
+    "one_line": "星宿派弟子，阿朱妹妹，对萧峰痴情"
+  },
+  {
+    "id": "char_you_tan_zhi",
+    "name": "游坦之",
+    "role": "重要",
+    "personality": [
+      "痴情懦弱",
+      "命运多舛",
+      "心地善良"
+    ],
+    "one_line": "聚贤庄少庄主，对阿紫痴情，误练易筋经后武功大进"
+  },
+  {
+    "id": "char_duan_zheng_chun",
+    "name": "段正淳",
+    "role": "重要",
+    "personality": [
+      "风流倜傥",
+      "重情重义",
+      "武艺高强"
+    ],
+    "one_line": "大理镇南王，风流倜傥，与多位女子有情"
+  },
+  {
+    "id": "char_mu_wan_qing",
+    "name": "木婉清",
+    "role": "重要",
+    "personality": [
+      "外刚内柔",
+      "敢爱敢恨",
+      "武艺不俗"
+    ],
+    "one_line": "段正淳与秦红棉之女，对段誉痴情"
+  },
+  {
+    "id": "char_zhong_ling",
+    "name": "钟灵",
+    "role": "重要",
+    "personality": [
+      "天真烂漫",
+      "活泼可爱",
+      "心地善良"
+    ],
+    "one_line": "钟万仇与甘宝宝之女，天真烂漫"
+  },
+  {
+    "id": "char_jiu_mo_zhi",
+    "name": "鸠摩智",
+    "role": "重要",
+    "personality": [
+      "武功高强",
+      "贪恋武学",
+      "诡计多端"
+    ],
+    "one_line": "吐蕃护国法王，武功高强，痴迷少林绝技"
+  },
+  {
+    "id": "char_ding_chun_qiu",
+    "name": "丁春秋",
+    "role": "重要",
+    "personality": [
+      "心狠手辣",
+      "诡计多端",
+      "武功高强"
+    ],
+    "one_line": "星宿派掌门，逍遥派叛徒，善用毒功"
+  },
+  {
+    "id": "char_xuan_ci",
+    "name": "玄慈",
+    "role": "重要",
+    "personality": [
+      "慈悲为怀",
+      "佛法高深",
+      "重情重义"
+    ],
+    "one_line": "少林寺方丈，虚竹师父，身怀秘密"
+  },
+  {
+    "id": "char_xiao_yuan_shan",
+    "name": "萧远山",
+    "role": "重要",
+    "personality": [
+      "隐忍深沉",
+      "武功高强",
+      "心怀仇恨"
+    ],
+    "one_line": "萧峰之父，雁门关血案幸存者，隐居少林三十年复仇"
+  },
+  {
+    "id": "char_tian_shan_tong_lao",
+    "name": "天山童姥",
+    "role": "重要",
+    "personality": [
+      "武功高强",
+      "心狠手辣",
+      "外刚内柔"
+    ],
+    "one_line": "逍遥派大师姐，天山童姥，武功高强，身形如孩童"
+  },
+  {
+    "id": "char_li_qiu_shui",
+    "name": "李秋水",
+    "role": "重要",
+    "personality": [
+      "武功高强",
+      "心机深沉",
+      "外柔内刚"
+    ],
+    "one_line": "逍遥派二师姐，西夏皇太妃，与天山童姥争斗一生"
+  },
+  {
+    "id": "char_wu_ya_zi",
+    "name": "无崖子",
+    "role": "重要",
+    "personality": [
+      "武功高强",
+      "才华横溢",
+      "重情重义"
+    ],
+    "one_line": "逍遥派掌门，武功高强，被丁春秋暗算后隐居"
+  },
+  {
+    "id": "char_ye_lv_hong_ji",
+    "name": "耶律洪基",
+    "role": "重要",
+    "personality": [
+      "雄才大略",
+      "重情重义",
+      "野心勃勃"
+    ],
+    "one_line": "辽国皇帝，与萧峰结义，后逼萧峰攻宋"
+  },
+  {
+    "id": "char_mu_rong_bo",
+    "name": "慕容博",
+    "role": "重要",
+    "personality": [
+      "心机深沉",
+      "武功高强",
+      "野心勃勃"
+    ],
+    "one_line": "慕容复之父，雁门关血案幕后推手"
+  },
+  {
+    "id": "char_qin_hong_mian",
+    "name": "秦红棉",
+    "role": "次要",
+    "personality": [
+      "外刚内柔",
+      "敢爱敢恨",
+      "重情重义"
+    ],
+    "one_line": "段正淳情妇，木婉清之母，外号修罗刀"
+  },
+  {
+    "id": "char_ruan_xing_zhu",
+    "name": "阮星竹",
+    "role": "次要",
+    "personality": [
+      "温柔善良",
+      "重情重义",
+      "外柔内刚"
+    ],
+    "one_line": "段正淳情妇，阿朱阿紫之母"
+  },
+  {
+    "id": "char_dao_bai_feng",
+    "name": "刀白凤",
+    "role": "次要",
+    "personality": [
+      "外刚内柔",
+      "重情重义",
+      "刚烈不屈"
+    ],
+    "one_line": "段正淳正妻，段誉之母，出家为道"
+  },
+  {
+    "id": "char_gan_bao_bao",
+    "name": "甘宝宝",
+    "role": "次要",
+    "personality": [
+      "温柔善良",
+      "重情重义",
+      "外柔内刚"
+    ],
+    "one_line": "钟万仇之妻，钟灵之母，曾是段正淳情妇"
+  },
+  {
+    "id": "char_zhong_wan_chou",
+    "name": "钟万仇",
+    "role": "次要",
+    "personality": [
+      "心狠手辣",
+      "嫉妒心强",
+      "重情重义"
+    ],
+    "one_line": "钟灵之父，甘宝宝之夫，外号见人就杀"
+  },
+  {
+    "id": "char_xi_xia_gong_zhu",
+    "name": "西夏公主",
+    "role": "重要",
+    "personality": [
+      "温婉可人",
+      "痴情专一",
+      "心地善良"
+    ],
+    "one_line": "西夏公主，与虚竹在冰窖中相爱"
+  }
+]
+
+### dialogues.json (前 50 条)
+[
+  {
+    "index": 0,
     "speaker": "char_duan_yu",
     "speaker_name": "段誉",
     "listener": null,
@@ -10,6 +383,7 @@
     "line_end": 30
   },
   {
+    "index": 1,
     "speaker": "char_duan_yu",
     "speaker_name": "段誉",
     "listener": "char_gong_guang_jie",
@@ -20,6 +394,7 @@
     "line_end": 38
   },
   {
+    "index": 2,
     "speaker": "char_duan_yu",
     "speaker_name": "段誉",
     "listener": null,
@@ -30,8 +405,9 @@
     "line_end": 44
   },
   {
-    "speaker": "char_mu_wan_qing",
-    "speaker_name": "木婉清",
+    "index": 3,
+    "speaker": "char_zhong_ling",
+    "speaker_name": "钟灵",
     "listener": "char_duan_yu",
     "text": "喂，段誉，我的名字，不用钟灵这小鬼跟你说，我自己说好了，我叫木婉清。",
     "tone": "陈述",
@@ -40,6 +416,7 @@
     "line_end": 40
   },
   {
+    "index": 4,
     "speaker": "char_duan_yu",
     "speaker_name": "段誉",
     "listener": "char_mu_wan_qing",
@@ -50,6 +427,7 @@
     "line_end": 41
   },
   {
+    "index": 5,
     "speaker": null,
     "speaker_name": "保定帝",
     "listener": "char_duan_yu",
@@ -60,6 +438,7 @@
     "line_end": 62
   },
   {
+    "index": 6,
     "speaker": null,
     "speaker_name": "保定帝",
     "listener": null,
@@ -70,6 +449,7 @@
     "line_end": 66
   },
   {
+    "index": 7,
     "speaker": "char_xiao_feng",
     "speaker_name": "乔峰",
     "listener": "char_duan_yu",
@@ -80,6 +460,7 @@
     "line_end": 5
   },
   {
+    "index": 8,
     "speaker": "char_a_zhu",
     "speaker_name": "阿朱",
     "listener": "char_xiao_feng",
@@ -90,6 +471,7 @@
     "line_end": 14
   },
   {
+    "index": 9,
     "speaker": "char_xiao_feng",
     "speaker_name": "萧峰",
     "listener": "char_a_zhu",
@@ -100,6 +482,7 @@
     "line_end": 50
   },
   {
+    "index": 10,
     "speaker": "char_a_zhu",
     "speaker_name": "阿朱",
     "listener": "char_xiao_feng",
@@ -110,6 +493,7 @@
     "line_end": 52
   },
   {
+    "index": 11,
     "speaker": "char_xiao_feng",
     "speaker_name": "萧峰",
     "listener": "char_a_zhu",
@@ -120,6 +504,7 @@
     "line_end": 120
   },
   {
+    "index": 12,
     "speaker": "char_a_zhu",
     "speaker_name": "阿朱",
     "listener": "char_xiao_feng",
@@ -130,6 +515,7 @@
     "line_end": 130
   },
   {
+    "index": 13,
     "speaker": "char_xiao_feng",
     "speaker_name": "萧峰",
     "listener": null,
@@ -140,6 +526,7 @@
     "line_end": 132
   },
   {
+    "index": 14,
     "speaker": null,
     "speaker_name": "向望海",
     "listener": "char_bao_qian_ling",
@@ -150,6 +537,7 @@
     "line_end": 4
   },
   {
+    "index": 15,
     "speaker": null,
     "speaker_name": "鲍千灵",
     "listener": "char_xiang_wang_hai",
@@ -160,6 +548,7 @@
     "line_end": 6
   },
   {
+    "index": 16,
     "speaker": null,
     "speaker_name": "徐长老",
     "listener": null,
@@ -170,6 +559,7 @@
     "line_end": 104
   },
   {
+    "index": 17,
     "speaker": null,
     "speaker_name": "鲍千灵",
     "listener": "char_xiao_feng",
@@ -180,6 +570,7 @@
     "line_end": 80
   },
   {
+    "index": 18,
     "speaker": "char_xiao_feng",
     "speaker_name": "乔峰",
     "listener": "char_bao_qian_ling",
@@ -190,6 +581,7 @@
     "line_end": 86
   },
   {
+    "index": 19,
     "speaker": "char_xiao_feng",
     "speaker_name": "乔峰",
     "listener": "char_a_zhu",
@@ -200,8 +592,9 @@
     "line_end": 90
   },
   {
+    "index": 20,
     "speaker": "char_xiao_feng",
-    "speaker_name": "乔峰",
+    "speaker_name": "萧峰",
     "listener": null,
     "text": "我便是乔峰，你们倘若不说，后患无穷！",
     "tone": "愤怒",
@@ -210,6 +603,7 @@
     "line_end": 200
   },
   {
+    "index": 21,
     "speaker": null,
     "speaker_name": "谭婆",
     "listener": "char_xiao_feng",
@@ -220,6 +614,7 @@
     "line_end": 210
   },
   {
+    "index": 22,
     "speaker": null,
     "speaker_name": "赵钱孙",
     "listener": "char_tan_po",
@@ -230,6 +625,7 @@
     "line_end": 195
   },
   {
+    "index": 23,
     "speaker": null,
     "speaker_name": "赵钱孙",
     "listener": "char_tan_po",
@@ -240,6 +636,7 @@
     "line_end": 205
   },
   {
+    "index": 24,
     "speaker": null,
     "speaker_name": "吴长老",
     "listener": "char_xiao_feng",
@@ -250,6 +647,7 @@
     "line_end": 104
   },
   {
+    "index": 25,
     "speaker": "char_xiao_feng",
     "speaker_name": "萧峰",
     "listener": "char_wu_zhang_lao",
@@ -260,6 +658,7 @@
     "line_end": 106
   },
   {
+    "index": 26,
     "speaker": "char_duan_yu",
     "speaker_name": "段誉",
     "listener": "char_xiao_feng",
@@ -270,6 +669,7 @@
     "line_end": 114
   },
   {
+    "index": 27,
     "speaker": null,
     "speaker_name": "慧轮",
     "listener": "char_xu_zhu",
@@ -280,6 +680,7 @@
     "line_end": 200
   },
   {
+    "index": 28,
     "speaker": "char_xu_zhu",
     "speaker_name": "虚竹",
     "listener": "char_hui_lun",
@@ -290,6 +691,7 @@
     "line_end": 198
   },
   {
+    "index": 29,
     "speaker": "char_xu_zhu",
     "speaker_name": "虚竹",
     "listener": null,
@@ -300,6 +702,7 @@
     "line_end": 202
   },
   {
+    "index": 30,
     "speaker": "char_xiao_feng",
     "speaker_name": "萧峰",
     "listener": "char_duan_yu",
@@ -310,6 +713,7 @@
     "line_end": 50
   },
   {
+    "index": 31,
     "speaker": "char_xiao_feng",
     "speaker_name": "萧峰",
     "listener": "char_mu_rong_fu",
@@ -320,6 +724,7 @@
     "line_end": 60
   },
   {
+    "index": 32,
     "speaker": "char_xiao_feng",
     "speaker_name": "萧峰",
     "listener": "char_mu_rong_fu",
@@ -330,6 +735,7 @@
     "line_end": 70
   },
   {
+    "index": 33,
     "speaker": "char_xiao_feng",
     "speaker_name": "萧峰",
     "listener": "char_mu_rong_fu",
@@ -340,6 +746,7 @@
     "line_end": 74
   },
   {
+    "index": 34,
     "speaker": null,
     "speaker_name": "灰衣僧",
     "listener": "char_mu_rong_fu",
@@ -350,6 +757,7 @@
     "line_end": 80
   },
   {
+    "index": 35,
     "speaker": "char_mu_rong_fu",
     "speaker_name": "慕容复",
     "listener": "char_hui_yi_seng",
@@ -360,6 +768,7 @@
     "line_end": 82
   },
   {
+    "index": 36,
     "speaker": null,
     "speaker_name": "灰衣僧",
     "listener": "char_mu_rong_fu",
@@ -370,6 +779,7 @@
     "line_end": 86
   },
   {
+    "index": 37,
     "speaker": null,
     "speaker_name": "灰衣僧",
     "listener": "char_mu_rong_fu",
@@ -380,6 +790,7 @@
     "line_end": 90
   },
   {
+    "index": 38,
     "speaker": null,
     "speaker_name": "灰衣僧",
     "listener": "char_xiao_feng",
@@ -390,6 +801,7 @@
     "line_end": 100
   },
   {
+    "index": 39,
     "speaker": "char_xu_zhu",
     "speaker_name": "虚竹",
     "listener": "char_yu_po_po",
@@ -400,6 +812,7 @@
     "line_end": 110
   },
   {
+    "index": 40,
     "speaker": "char_mu_rong_fu",
     "speaker_name": "慕容复",
     "listener": "char_hui_yi_seng",
@@ -410,6 +823,7 @@
     "line_end": 92
   },
   {
+    "index": 41,
     "speaker": null,
     "speaker_name": "灰衣僧",
     "listener": "char_mu_rong_fu",
@@ -419,8 +833,19 @@
     "line_start": 94,
     "line_end": 94
   },
-
   {
+    "index": 42,
+    "speaker": null,
+    "speaker_name": "南海鳄神",
+    "listener": "char_duan_yu",
+    "text": "小和尚，我早知你是个好和尚。你是我二姊的儿子，是我岳老二的侄儿。既是岳老二的侄儿，本领自然不会太差。",
+    "tone": "欣喜",
+    "chapter": 45,
+    "line_start": 50,
+    "line_end": 50
+  },
+  {
+    "index": 43,
     "speaker": "char_wang_yu_yan",
     "speaker_name": "王语嫣",
     "listener": null,
@@ -431,6 +856,7 @@
     "line_end": 60
   },
   {
+    "index": 44,
     "speaker": null,
     "speaker_name": "云中鹤",
     "listener": null,
@@ -441,6 +867,7 @@
     "line_end": 55
   },
   {
+    "index": 45,
     "speaker": "char_a_zi",
     "speaker_name": "阿紫",
     "listener": "char_ye_lv_hong_ji",
@@ -451,6 +878,7 @@
     "line_end": 10
   },
   {
+    "index": 46,
     "speaker": "char_a_zi",
     "speaker_name": "阿紫",
     "listener": "char_xiao_feng",
@@ -461,6 +889,7 @@
     "line_end": 20
   },
   {
+    "index": 47,
     "speaker": "char_duan_yu",
     "speaker_name": "段誉",
     "listener": "char_xiao_feng",
@@ -471,6 +900,7 @@
     "line_end": 55
   },
   {
+    "index": 48,
     "speaker": "char_wang_yu_yan",
     "speaker_name": "王语嫣",
     "listener": "char_duan_yu",
@@ -481,6 +911,7 @@
     "line_end": 65
   },
   {
+    "index": 49,
     "speaker": "char_duan_yu",
     "speaker_name": "段誉",
     "listener": "char_mu_rong_fu",
@@ -489,397 +920,9 @@
     "chapter": 42,
     "line_start": 72,
     "line_end": 72
-  },
-  {
-    "speaker": "char_jiu_mo_zhi",
-    "speaker_name": "鸠摩智",
-    "listener": "char_duan_yu",
-    "text": "段公子会错意了。小僧当年与慕容先生有约，要借贵门《六脉神剑经》去给他一观。此约未践，一直耿耿于怀。",
-    "tone": "陈述",
-    "chapter": 11,
-    "line_start": 16,
-    "line_end": 22
-  },
-  {
-    "speaker": "char_a_zhu",
-    "speaker_name": "阿朱",
-    "listener": "char_he_lian_tie_shu",
-    "text": "快报与你家将军知道，说道丐帮乔峰、江南慕容复，前来拜会西夏赫连大将军。",
-    "tone": "陈述",
-    "chapter": 18,
-    "line_start": 2,
-    "line_end": 5
-  },
-  {
-    "speaker": null,
-    "speaker_name": "赫连铁树",
-    "listener": null,
-    "text": "久仰'姑苏慕容'的大名，有道是'以彼之道，还施彼身'，今日得见高贤，荣幸啊荣幸。",
-    "tone": "欣喜",
-    "chapter": 18,
-    "line_start": 6,
-    "line_end": 6
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": "char_nan_hai_e_shen",
-    "text": "南海鳄神岳老三，你本来最拿手的本领，是喀喇一声，扭断了旁人脖子，近年来功夫大有进步，现下最得意的武功，是鳄尾鞭和鳄嘴剪。我要对付你，自然是用鳄尾鞭与鳄嘴剪了。",
-    "tone": "调侃",
-    "chapter": 18,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": null,
-    "text": "神仙姊姊，你……你当真美得不得了，我……我三生有幸，娶了你做我的……我的老婆。",
-    "tone": "欣喜",
-    "chapter": 2,
-    "line_start": 200,
-    "line_end": 200
-  },
-
-  {
-    "speaker": "char_duan_zheng_chun",
-    "speaker_name": "段正淳",
-    "listener": "char_qin_hong_mian",
-    "text": "红棉，这些年来，我……我一直没忘了你。",
-    "tone": "悲伤",
-    "chapter": 6,
-    "line_start": 80,
-    "line_end": 80
-  },
-  {
-    "speaker": "char_jiu_mo_zhi",
-    "speaker_name": "鸠摩智",
-    "listener": null,
-    "text": "小僧与慕容先生当年有约，要将六脉神剑经借去一观。此约未践，小僧食不甘味，寝不安席。",
-    "tone": "陈述",
-    "chapter": 7,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": "char_wang_yu_yan",
-    "text": "姑⋯⋯姑娘，你叫什么名字？",
-    "tone": "疑问",
-    "chapter": 8,
-    "line_start": 50,
-    "line_end": 50
-  },
-  {
-    "speaker": null,
-    "speaker_name": "包不同",
-    "listener": "char_duan_yu",
-    "text": "非也，非也！我慕容兄弟是何等样人，岂会跟你这等酸丁为伍？",
-    "tone": "嘲讽",
-    "chapter": 9,
-    "line_start": 80,
-    "line_end": 80
-  },
-  {
-    "speaker": "char_wang_yu_yan",
-    "speaker_name": "王语嫣",
-    "listener": "char_duan_yu",
-    "text": "你怎么会使'化功大法'？这等污秽的功夫，学来干什么？",
-    "tone": "疑问",
-    "chapter": 12,
-    "line_start": 200,
-    "line_end": 200
-  },
-  {
-    "speaker": null,
-    "speaker_name": "全冠清",
-    "listener": null,
-    "text": "乔峰是契丹人，他做丐帮帮主，咱们汉人的脸面往哪里搁？",
-    "tone": "愤怒",
-    "chapter": 15,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": null,
-    "speaker_name": "智光禅师",
-    "listener": "char_xiao_feng",
-    "text": "乔大爷，当年雁门关之事，贫僧也有份参与。事已至此，贫僧不敢隐瞒。",
-    "tone": "陈述",
-    "chapter": 17,
-    "line_start": 200,
-    "line_end": 200
-  },
-  {
-    "speaker": "char_xiao_feng",
-    "speaker_name": "萧峰",
-    "listener": "char_a_zhu",
-    "text": "阿朱，我查明了，那带头大哥不是段正淳，是另有其人！",
-    "tone": "激动",
-    "chapter": 20,
-    "line_start": 150,
-    "line_end": 150
-  },
-  {
-    "speaker": "char_a_zhu",
-    "speaker_name": "阿朱",
-    "listener": "char_xiao_feng",
-    "text": "大哥，我……我不能让你杀他，他……他是我的亲生父亲！",
-    "tone": "悲伤",
-    "chapter": 24,
-    "line_start": 200,
-    "line_end": 200
-  },
-  {
-    "speaker": "char_a_zhu",
-    "speaker_name": "阿朱",
-    "listener": "char_xiao_feng",
-    "text": "大哥，我……我求你一件事……你……你要好好保重……",
-    "tone": "悲伤",
-    "chapter": 25,
-    "line_start": 300,
-    "line_end": 300
-  },
-  {
-    "speaker": "char_xu_zhu",
-    "speaker_name": "虚竹",
-    "listener": null,
-    "text": "小僧虚竹，在少林寺出家。",
-    "tone": "陈述",
-    "chapter": 29,
-    "line_start": 50,
-    "line_end": 50
-  },
-  {
-    "speaker": "char_xu_zhu",
-    "speaker_name": "虚竹",
-    "listener": "char_xi_xia_gong_zhu",
-    "text": "姑娘，你……你是谁？这冰窖里好冷。",
-    "tone": "疑问",
-    "chapter": 36,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_jiu_mo_zhi",
-    "speaker_name": "鸠摩智",
-    "listener": null,
-    "text": "少林寺自诩武林泰斗，今日小僧便要领教领教！",
-    "tone": "嘲讽",
-    "chapter": 40,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_xu_zhu",
-    "speaker_name": "虚竹",
-    "listener": "char_xuan_ci",
-    "text": "方丈……方丈大师，弟子……弟子万死不恕！",
-    "tone": "悲伤",
-    "chapter": 43,
-    "line_start": 200,
-    "line_end": 200
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": "char_wang_yu_yan",
-    "text": "王姑娘，段誉对你的心意，天地可鉴。此生此世，只爱你一人！",
-    "tone": "激动",
-    "chapter": 44,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": null,
-    "text": "大理虽是小国，但段誉既然做了皇帝，便当以百姓为重，不可妄动刀兵。",
-    "tone": "陈述",
-    "chapter": 48,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_a_zi",
-    "speaker_name": "阿紫",
-    "listener": "char_xiao_feng",
-    "text": "姊夫，阿紫拼了命也要救你出去！",
-    "tone": "激动",
-    "chapter": 49,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": "char_mu_wan_qing",
-    "text": "婉清姑娘，你……你待我真好。",
-    "tone": "欣喜",
-    "chapter": 4,
-    "line_start": 80,
-    "line_end": 80
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": null,
-    "text": "包三先生，你说我油头粉脸，油腔滑调，我也不来怪你。只是你家慕容公子的事，跟我有什么相干？",
-    "tone": "调侃",
-    "chapter": 13,
-    "line_start": 150,
-    "line_end": 150
-  },
-  {
-    "speaker": "char_xiao_feng",
-    "speaker_name": "乔峰",
-    "listener": "char_a_zhu",
-    "text": "阿朱，你说我到底是汉人还是契丹人？",
-    "tone": "疑问",
-    "chapter": 16,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_a_zhu",
-    "speaker_name": "阿朱",
-    "listener": null,
-    "text": "我……我竟是段正淳的女儿？不，不，这不可能！",
-    "tone": "恐惧",
-    "chapter": 23,
-    "line_start": 100,
-    "line_end": 100
-  },
-
-  {
-    "speaker": "char_you_tan_zhi",
-    "speaker_name": "游坦之",
-    "listener": "char_a_zi",
-    "text": "姑……姑娘，是你救了我？我……我粉身碎骨也要报答你的恩情。",
-    "tone": "恳求",
-    "chapter": 27,
-    "line_start": 50,
-    "line_end": 50
-  },
-  {
-    "speaker": "char_you_tan_zhi",
-    "speaker_name": "游坦之",
-    "listener": "char_a_zi",
-    "text": "阿紫姑娘，你要我做什么，我都依你。就是你要我的命，我也给了你！",
-    "tone": "恳求",
-    "chapter": 28,
-    "line_start": 80,
-    "line_end": 80
-  },
-  {
-    "speaker": "char_tian_shan_tong_lao",
-    "speaker_name": "天山童姥",
-    "listener": "char_xu_zhu",
-    "text": "小和尚，你别怕。姥姥不会害你，只要你乖乖听话，姥姥传你一身绝世武功！",
-    "tone": "欣喜",
-    "chapter": 30,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_tian_shan_tong_lao",
-    "speaker_name": "天山童姥",
-    "listener": "char_xu_zhu",
-    "text": "小和尚，你记住了！这天山六阳掌的口诀是：第一招，少阳初生……",
-    "tone": "陈述",
-    "chapter": 31,
-    "line_start": 150,
-    "line_end": 150
-  },
-  {
-    "speaker": "char_tian_shan_tong_lao",
-    "speaker_name": "天山童姥",
-    "listener": "char_xu_zhu",
-    "text": "小和尚，姥姥……姥姥把这一身功力都传给你……你……你要替姥姥报仇……",
-    "tone": "悲伤",
-    "chapter": 32,
-    "line_start": 200,
-    "line_end": 200
-  },
-  {
-    "speaker": "char_xu_zhu",
-    "speaker_name": "虚竹",
-    "listener": null,
-    "text": "弟子虚竹，违犯了本寺清规戒律，特来向方丈大师领罪。",
-    "tone": "陈述",
-    "chapter": 33,
-    "line_start": 50,
-    "line_end": 50
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": "char_jiu_mo_zhi",
-    "text": "鸠摩智，你三番五次跟我过不去，今日段誉便要领教你的火焰刀！",
-    "tone": "愤怒",
-    "chapter": 34,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_xu_zhu",
-    "speaker_name": "虚竹",
-    "listener": null,
-    "text": "各位，生死符的解药就在我身上。你们只要从此改过自新，我便给你们解药。",
-    "tone": "陈述",
-    "chapter": 35,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_xu_zhu",
-    "speaker_name": "虚竹",
-    "listener": "char_xuan_ci",
-    "text": "方丈大师，弟子虽已不是少林弟子，但少林寺于弟子有养育之恩，弟子不敢忘本。",
-    "tone": "悲伤",
-    "chapter": 37,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": "char_duan_zheng_chun",
-    "text": "爹爹，不管我是不是你亲生的，你永远是我的爹爹！",
-    "tone": "激动",
-    "chapter": 38,
-    "line_start": 150,
-    "line_end": 150
-  },
-  {
-    "speaker": "char_xiao_feng",
-    "speaker_name": "萧峰",
-    "listener": null,
-    "text": "我萧峰今日在此，谁要动手，尽管上来！",
-    "tone": "愤怒",
-    "chapter": 41,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": "char_mu_wan_qing",
-    "text": "婉清妹子，段誉心中只有王姑娘一人。你待我的好，段铭记在心，只是……",
-    "tone": "悲伤",
-    "chapter": 46,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "speaker": "char_duan_yu",
-    "speaker_name": "段誉",
-    "listener": "char_zhong_ling",
-    "text": "灵妹，这画中的缺字，让段誉来填上罢。",
-    "tone": "欣喜",
-    "chapter": 47,
-    "line_start": 80,
-    "line_end": 80
   }
 ]
+
+---
+
+请审阅上述 dialogues，输出 JSON 数组（最多 50 条可疑条目）。
