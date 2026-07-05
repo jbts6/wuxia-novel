@@ -35,11 +35,25 @@ for (let i = 0; i < lines.length; i++) {
   if (chapterHeaderRe.test(lines[i].trim())) candidateIndices.push(i);
 }
 
-const realHeaderSet = new Set();
+// Detect TOC entries: if the same title appears more than once, the first occurrence is likely TOC
+const titleCountMap = new Map();
 for (const i of candidateIndices) {
   const title = lines[i].trim();
-  const isTocStyle = title.length >= 8;
-  if (!isTocStyle) realHeaderSet.add(i);
+  if (!titleCountMap.has(title)) titleCountMap.set(title, []);
+  titleCountMap.get(title).push(i);
+}
+const realHeaderSet = new Set();
+for (const [title, indices] of titleCountMap) {
+  if (indices.length > 1) {
+    // Duplicate title: keep only the last occurrence (actual chapter, not TOC)
+    for (let j = 0; j < indices.length - 1; j++) {
+      // Skip earlier occurrences (likely TOC)
+    }
+    realHeaderSet.add(indices[indices.length - 1]);
+  } else {
+    // Unique title: keep it
+    realHeaderSet.add(indices[0]);
+  }
 }
 
 const cnDigitMap = { '零': 0, '一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9, '十': 10, '百': 100, '千': 1000 };

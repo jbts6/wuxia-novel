@@ -32,7 +32,7 @@ node <skill>/scripts/compact-mention.js <novelDir>
 ### Phase 1.6：prompt-craft（LLM 生成书籍专属 prompt）
 
 读取 `prompts/prompt-craft.md`（meta-prompt），输入 manifest.json + mention_summary.json + 原文采样，输出 `<novelDir>/prompts/` 下 4 个文件：
-- `outline.md`、`pass1-entities.md`、`pass2-details.md`、`review-dialogues.md`
+- `outline.md`、`pass1-entities.md`、`pass2-details.md`、`review-all.md`
 
 专属 prompt 包含：本书简介、核心角色提示、易混淆提醒、叙事风格、source_ref 锚定策略、角色说话风格。
 
@@ -83,13 +83,29 @@ node <skill>/scripts/cross-validate.js <novelDir>
 - `cross-validate.js`：跨 JSON 一致性（关系对称、ID 引用完整性、幻觉检测）
   - `items.owner` 支持 characters.json 或 factions.json 的 ID
 
-### Phase 3.5：双视角对抗校验
+### Phase 3.5：全量 JSON 对抗校验
 
 ```bash
 node <skill>/scripts/review-dialogues.js <novelDir>
-# 用同一 LLM + reviewer prompt 审阅
+# 用同一 LLM + reviewer prompt 审阅所有 8 个 JSON
 # 输出到 review/review-result.json
 ```
+
+审阅范围：
+- characters.json：角色身份、关系、别名
+- factions.json：门派类型、地点关联
+- locations.json：地点情节意义
+- skills.json：**重点检查**是否混入武器（应为武学体系）
+- techniques.json：招式归属
+- items.json：**重点检查**物品分类是否正确
+- dialogues.json：对话真实性、说话风格
+- chapter_summaries.json：情节准确性
+
+**审核不通过条件**：
+1. 跨书混淆（其他作品的角色/功法/地点混入）
+2. skills.json 混入武器（铁鞭、峨嵋刺等应为 item）
+3. ID 引用缺失（引用不存在的 ID）
+4. **数量完整性**：对照原文检查是否有重大遗漏（如重要角色、核心功法、关键物品）
 
 ## 质量指标（天龙八部 pilot）
 
