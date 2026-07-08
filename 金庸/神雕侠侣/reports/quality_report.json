@@ -1,0 +1,408 @@
+{
+  "generated_at": "2026-07-08T06:38:10.954Z",
+  "novel": "神雕侠侣",
+  "author": "金庸",
+  "overall_score": 91,
+  "metrics": {
+    "entity_completeness": {
+      "score": 100,
+      "details": {
+        "core": {
+          "expected": 2,
+          "actual": 2,
+          "coverage": 100
+        },
+        "important": {
+          "expected": 12,
+          "actual": 12,
+          "coverage": 100
+        },
+        "secondary": {
+          "expected": 10,
+          "actual": 10,
+          "coverage": 100
+        },
+        "minor": {
+          "expected": 8,
+          "actual": 8,
+          "coverage": 100
+        }
+      },
+      "missing": []
+    },
+    "entity_quantity": {
+      "score": 100,
+      "details": {
+        "characters": {
+          "actual": 53,
+          "minimum": 20,
+          "passed": true
+        },
+        "factions": {
+          "actual": 10,
+          "minimum": 5,
+          "passed": true
+        },
+        "skills": {
+          "actual": 20,
+          "minimum": 10,
+          "passed": true
+        },
+        "items": {
+          "actual": 22,
+          "minimum": 8,
+          "passed": true
+        },
+        "locations": {
+          "actual": 18,
+          "minimum": 10,
+          "passed": true
+        }
+      },
+      "chapterCount": 40
+    },
+    "relationship_completeness": {
+      "score": 100,
+      "accuracy": 100,
+      "details": {
+        "core": {
+          "expected": 0,
+          "actual": 0
+        },
+        "important": {
+          "expected": 0,
+          "actual": 0
+        },
+        "secondary": {
+          "expected": 0,
+          "actual": 0
+        }
+      },
+      "missing": [],
+      "incorrect": []
+    },
+    "description_accuracy": {
+      "score": 100,
+      "totalChecked": 14,
+      "accurate": 14,
+      "issues": []
+    },
+    "event_coverage": {
+      "score": 100,
+      "details": {
+        "main": {
+          "expected": 0,
+          "actual": 0
+        },
+        "branch": {
+          "expected": 0,
+          "actual": 0
+        },
+        "detail": {
+          "expected": 0,
+          "actual": 0
+        }
+      },
+      "missing": []
+    },
+    "dialogue_quality": {
+      "authenticity": 60,
+      "representativeness": 94.9,
+      "characterFit": 0,
+      "details": {
+        "total": 254,
+        "withSpeaker": 241,
+        "withListener": 211,
+        "baselineChecked": 5,
+        "baselineMatched": 3
+      },
+      "issues": [
+        {
+          "index": 82,
+          "chapter": 14,
+          "speaker": "杨过",
+          "issue": "Speech style mismatch: expected \"叛逆深情，宁死不屈\", got \"口齿伶俐，时而戏谑调侃，时而深情款款，言语间带有几分玩世不恭\""
+        },
+        {
+          "index": 163,
+          "chapter": 26,
+          "speaker": "小龙女",
+          "issue": "Speech style mismatch: expected \"深情内敛，含泪留书\", got \"言语简洁平淡，不喜多言，说话直来直去不加修饰\""
+        },
+        {
+          "index": 218,
+          "chapter": 37,
+          "speaker": "杨过",
+          "issue": "Speech style mismatch: expected \"悲喜交加，十六年等待终于如愿\", got \"口齿伶俐，时而戏谑调侃，时而深情款款，言语间带有几分玩世不恭\""
+        }
+      ]
+    },
+    "cross_book_purity": {
+      "score": 50.5,
+      "totalEntities": 105,
+      "pureEntities": 53,
+      "suspicious": [
+        {
+          "id": "char_qiu_qian_ren",
+          "name": "裘千仞",
+          "type": "character"
+        },
+        {
+          "id": "char_yin_ke_xi",
+          "name": "尹克西",
+          "type": "character"
+        },
+        {
+          "id": "char_xiao_xiang_zi",
+          "name": "潇湘子",
+          "type": "character"
+        },
+        {
+          "id": "char_jue_yuan",
+          "name": "觉远",
+          "type": "character"
+        },
+        {
+          "id": "char_hong_ling_bo",
+          "name": "洪凌波",
+          "type": "character"
+        },
+        {
+          "id": "char_lu_li_ding",
+          "name": "陆立鼎",
+          "type": "character"
+        },
+        {
+          "id": "char_lu_er_niang",
+          "name": "陆二娘",
+          "type": "character"
+        },
+        {
+          "id": "char_shi_shu_gang",
+          "name": "史叔刚",
+          "type": "character"
+        },
+        {
+          "id": "char_shi_shao_je",
+          "name": "史少捷",
+          "type": "character"
+        },
+        {
+          "id": "char_da_tou_gui",
+          "name": "大头鬼",
+          "type": "character"
+        },
+        {
+          "id": "char_guo_po_lu",
+          "name": "郭破虏",
+          "type": "character"
+        },
+        {
+          "id": "char_ye_lv_yan",
+          "name": "耶律燕",
+          "type": "character"
+        },
+        {
+          "id": "char_lu_you_jiao",
+          "name": "鲁有脚",
+          "type": "character"
+        },
+        {
+          "id": "char_zhu_zi_liu",
+          "name": "朱子柳",
+          "type": "character"
+        },
+        {
+          "id": "char_lu_zhan_yuan",
+          "name": "陆展元",
+          "type": "character"
+        },
+        {
+          "id": "char_he_yuan_jun",
+          "name": "何沅君",
+          "type": "character"
+        },
+        {
+          "id": "char_wu_niang_zi",
+          "name": "武娘子",
+          "type": "character"
+        },
+        {
+          "id": "char_zhen_zhi_bing",
+          "name": "甄志丙",
+          "type": "character"
+        },
+        {
+          "id": "char_lv_wen_huan",
+          "name": "吕文焕",
+          "type": "character"
+        },
+        {
+          "id": "char_tian_zhu_seng",
+          "name": "天竺僧",
+          "type": "character"
+        },
+        {
+          "id": "char_wang_zhi_tan",
+          "name": "王志坦",
+          "type": "character"
+        },
+        {
+          "id": "char_lu_qing_du",
+          "name": "鹿清笃",
+          "type": "character"
+        },
+        {
+          "id": "char_ci_en",
+          "name": "慈恩",
+          "type": "character"
+        },
+        {
+          "id": "faction_da_li_duan_shi",
+          "name": "大理段氏",
+          "type": "faction"
+        },
+        {
+          "id": "faction_bai_tuo_shan",
+          "name": "白驼山",
+          "type": "faction"
+        },
+        {
+          "id": "faction_wan_shou_shan_zhuang",
+          "name": "万兽山庄",
+          "type": "faction"
+        },
+        {
+          "id": "skill_yi_yang_zhi",
+          "name": "一阳指",
+          "type": "skill"
+        },
+        {
+          "id": "skill_zuo_you_hu_bo_shu",
+          "name": "左右互搏术",
+          "type": "skill"
+        },
+        {
+          "id": "skill_quan_zhen_jian_fa",
+          "name": "全真剑法",
+          "type": "skill"
+        },
+        {
+          "id": "skill_tie_zhang_gong",
+          "name": "铁掌功",
+          "type": "skill"
+        },
+        {
+          "id": "skill_long_xiang_ban_re_gong",
+          "name": "龙象般若功",
+          "type": "skill"
+        },
+        {
+          "id": "skill_tian_luo_di_wang_shi",
+          "name": "天罗地网势",
+          "type": "skill"
+        },
+        {
+          "id": "skill_yin_bian_fa",
+          "name": "银鞭法",
+          "type": "skill"
+        },
+        {
+          "id": "skill_wu_du_shen_zhang",
+          "name": "五毒神掌",
+          "type": "skill"
+        },
+        {
+          "id": "skill_bing_po_yin_zhen",
+          "name": "冰魄银针",
+          "type": "skill"
+        },
+        {
+          "id": "skill_fu_mo_zhang_fa",
+          "name": "伏魔杖法",
+          "type": "skill"
+        },
+        {
+          "id": "skill_xian_tian_gong",
+          "name": "先天功",
+          "type": "skill"
+        },
+        {
+          "id": "item_da_gou_bang",
+          "name": "打狗棒",
+          "type": "item"
+        },
+        {
+          "id": "item_tie_jiang",
+          "name": "铁桨",
+          "type": "item"
+        },
+        {
+          "id": "item_fu_chen",
+          "name": "拂尘",
+          "type": "item"
+        },
+        {
+          "id": "item_yu_feng_jin_zhen",
+          "name": "玉蜂金针",
+          "type": "item"
+        },
+        {
+          "id": "item_bing_po_yin_zhen",
+          "name": "冰魄银针",
+          "type": "item"
+        },
+        {
+          "id": "item_yu_nv_xin_jing_mi_ji",
+          "name": "玉女心经秘籍",
+          "type": "item"
+        },
+        {
+          "id": "item_jue_qing_dan",
+          "name": "绝情丹",
+          "type": "item"
+        },
+        {
+          "id": "item_qing_hua_du",
+          "name": "情花毒",
+          "type": "item"
+        },
+        {
+          "id": "item_ban_mei_ling_dan",
+          "name": "半枚灵丹",
+          "type": "item"
+        },
+        {
+          "id": "item_jin_zhen",
+          "name": "金针",
+          "type": "item"
+        },
+        {
+          "id": "item_mian_ju",
+          "name": "面具",
+          "type": "item"
+        },
+        {
+          "id": "item_shen_diao",
+          "name": "神雕",
+          "type": "item"
+        },
+        {
+          "id": "item_yu_nyu_jian",
+          "name": "玉女剑",
+          "type": "item"
+        },
+        {
+          "id": "item_xuan_tie_zhi_huan",
+          "name": "玄铁指环",
+          "type": "item"
+        },
+        {
+          "id": "item_yu_feng_jiang",
+          "name": "玉蜂浆",
+          "type": "item"
+        }
+      ]
+    }
+  }
+}

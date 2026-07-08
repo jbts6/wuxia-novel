@@ -1,0 +1,2959 @@
+[
+  {
+    "id": "char_yang_guo",
+    "name": "杨过",
+    "alias": [
+      "神雕大侠",
+      "杨兄弟"
+    ],
+    "identity": "杨康之子，古墓派传人，后自创武功成为神雕大侠",
+    "faction": null,
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "核心",
+    "one_line": "叛逆深情的独臂大侠，与小龙女历经磨难终成眷属",
+    "personality": {
+      "traits": [
+        "叛逆不羁",
+        "深情专一",
+        "聪明机敏",
+        "狂放傲物",
+        "重情重义",
+        "亦正亦邪"
+      ],
+      "speech_style": "口齿伶俐，时而戏谑调侃，时而深情款款，言语间带有几分玩世不恭",
+      "temperament": "外放张扬，内心炽热，兼具邪气与侠气"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_long_nyu",
+        "type": "恋人",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "师徒→恋人→历经十六年分离终成夫妻"
+      },
+      {
+        "target": "char_guo_jing",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "从怨恨疏离到敬重认同，受其侠义精神感化"
+      },
+      {
+        "target": "char_guo_fu",
+        "type": "宿敌",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "被其斩断右臂，恩怨纠葛终化解"
+      }
+    ],
+    "known_skills": [
+      "skill_an_ran_xiao_hun_zhang",
+      "skill_xuan_tie_jian_fa",
+      "skill_yu_nv_xin_jing",
+      "skill_yu_nv_su_xin_jian_fa",
+      "skill_ha_ma_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 37,
+        "anchor": "杨过幼年登场，流落嘉兴",
+        "line_start": 82,
+        "line_end": 84,
+        "text": "\n群雄见杨过适才送了那三件厚礼，都对他佩服得五体投地，暗想他召集这一大批人来，定又大有作为。那知过不多时，西南角上一座木台首先搭成，有人打起锣鼓，做起傀儡戏来，做的是“八仙贺寿”。接着西北角上有人粉墨登场，唱一出“满床笏”，那是郭子仪生日，七子八婿祝寿的故事。片刻之间，这边放花炮，那边玩把戏，满场上闹哄哄的全是喜庆之声。每一台戏都是三湘湖广、河南四川的名班所演，当真人人卖力，各展绝艺。群雄各依所喜，分站各处台前观赏，喝采之声，此伏彼起。\n",
+        "anchors_hit": [
+          "登场"
+        ],
+        "anchors_total": 1,
+        "locate_status": "not_located",
+        "locate_score": 109,
+        "locate_method": "window",
+        "hint_chapter": 1,
+        "alternatives": [],
+        "locate_reason": "no anchor terms recognized"
+      },
+      {
+        "chapter": 7,
+        "anchor": "入古墓派拜小龙女为师",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 26,
+        "line_end": 29,
+        "text": "\n古墓派祖师林朝英当年苦恋王重阳，终于好事难谐。她伤心之余，立下门规，凡是得她衣钵真传之人，必须发誓一世居于古墓，终身不下终南山，但若有个男子心甘情愿的为她而死，这誓言就算破了。不过此事决不能事先让那男子得知。只因林朝英认定天下男子无不寡恩薄情，决无一个能心甘情愿为心爱的女子而死，王重阳英雄侠义，尚且如此，何况旁人？日后倘若真有这样的人，那么她后代弟子跟他下山，也不枉了。李莫愁比小龙女早入师门，原该承受衣钵，但她不肯守那终身不下山之誓，是以后来反由小龙女得了真传。\n\n此时李莫愁见杨过这般诚心对待小龙女，不由得又羡慕，又恼恨，想起陆展元对自己的负心薄幸，双眉扬起，叫道：“师妹，你真有福气。”恼恨心起，要师妹也享不到真心情郎之爱，长剑疾向杨过喉头刺去。小龙女见她真下毒手，事到临头，不由得不救，左手挥动，十余枚玉蜂针急掷而出。",
+        "anchors_hit": [
+          "古墓派"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 7
+      },
+      {
+        "chapter": 23,
+        "anchor": "与小龙女十六年后重逢于绝情谷",
+        "line_start": 64,
+        "line_end": 67,
+        "text": "\n武氏兄弟重逢父亲，喜极而泣，然一提到郭芙，兄弟俩却谁也不肯退让。武三通不论怒骂斥责，又或温言劝谕，要他二人息了对郭芙的爱念，却始终难以成功。武氏兄弟在父亲面前不敢相互露出敌意，但只要他走开数步，便又争吵起来。当晚两兄弟悄悄约定，半夜里到这荒山中来决一胜败。武三通偷听到了二人言语，悲愤无已，抢先赶到二人约定之处，要阻止二子相斗。他本来不自节制心情，越想越难过，不由得在荒野中放声悲号。\n\n武三通正当心神激荡之际，突见一个少年从山洞中走了出来，登时大生敌意，喝道：“你是谁？怎知我的名字？”杨过听他自承，说道：“武老伯，小侄杨过，从前与敦儒、修文二兄曾同在桃花岛郭大侠府上寄居，对老伯威名一直仰慕得紧。”",
+        "anchors_hit": [
+          "重逢"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 23,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_long_nyu",
+    "name": "小龙女",
+    "alias": [
+      "龙儿",
+      "龙姑娘"
+    ],
+    "identity": "古墓派掌门，杨过之妻",
+    "faction": "faction_gu_mu_pai",
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "超一流",
+    "importance": "核心",
+    "one_line": "冷若冰霜的古墓仙子，与杨过生死相随至死不渝",
+    "personality": {
+      "traits": [
+        "冷若冰霜",
+        "天真纯净",
+        "深情专一",
+        "超然物外",
+        "不谙世事",
+        "意志坚韧"
+      ],
+      "speech_style": "言语简洁平淡，不喜多言，说话直来直去不加修饰",
+      "temperament": "清冷出尘，如冰雪仙子，内心却深情似海"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_guo",
+        "type": "恋人",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "师徒→恋人→夫妻，十六年痴心等待"
+      }
+    ],
+    "known_skills": [
+      "skill_yu_nv_xin_jing",
+      "skill_yu_nv_su_xin_jian_fa",
+      "skill_tian_luo_di_wang_shi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "anchor": "古墓中初遇杨过",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 14,
+        "anchor": "与杨过在重阳宫成亲",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 23,
+        "anchor": "绝情谷底与杨过重逢",
+        "line_start": 64,
+        "line_end": 67,
+        "text": "\n武氏兄弟重逢父亲，喜极而泣，然一提到郭芙，兄弟俩却谁也不肯退让。武三通不论怒骂斥责，又或温言劝谕，要他二人息了对郭芙的爱念，却始终难以成功。武氏兄弟在父亲面前不敢相互露出敌意，但只要他走开数步，便又争吵起来。当晚两兄弟悄悄约定，半夜里到这荒山中来决一胜败。武三通偷听到了二人言语，悲愤无已，抢先赶到二人约定之处，要阻止二子相斗。他本来不自节制心情，越想越难过，不由得在荒野中放声悲号。\n\n武三通正当心神激荡之际，突见一个少年从山洞中走了出来，登时大生敌意，喝道：“你是谁？怎知我的名字？”杨过听他自承，说道：“武老伯，小侄杨过，从前与敦儒、修文二兄曾同在桃花岛郭大侠府上寄居，对老伯威名一直仰慕得紧。”",
+        "anchors_hit": [
+          "重逢"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 23,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_guo_jing",
+    "name": "郭靖",
+    "alias": [
+      "北侠",
+      "郭大侠"
+    ],
+    "identity": "丐帮前帮主，襄阳守城大侠，新五绝之北侠",
+    "faction": "faction_gai_bang",
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "核心",
+    "one_line": "侠之大者为国为民，镇守襄阳数十年的当世大侠",
+    "personality": {
+      "traits": [
+        "正直忠厚",
+        "大义凛然",
+        "愚钝执着",
+        "仁义为先",
+        "刚正不阿"
+      ],
+      "speech_style": "言辞质朴，不善巧辩，说理直白恳切",
+      "temperament": "厚重沉稳，如山岳般坚定不移"
+    },
+    "relationships": [
+      {
+        "target": "char_huang_rong",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻，互补相成，共守襄阳"
+      },
+      {
+        "target": "char_yang_guo",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "叔侄兼半师，对杨过又怜又忧"
+      }
+    ],
+    "known_skills": [
+      "skill_jiang_long_shi_ba_zhang",
+      "skill_jiu_yin_zhen_jing"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "襄阳城中与杨过初会",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 22,
+        "anchor": "襄阳大战力抗蒙古",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 254,
+        "line_end": 257,
+        "text": "\n杨过要以旁人来作自己的垫脚石，实有所不忍，见时机紧迫，心念一动，发掌将一匹战马推出城头，不待战马落地，飞身跃在马背，那马摔得骨骼粉碎，他却安然跃下，跟在国师之后追去。他先一日在蒙古军营中大战，为国师的轮子割伤两处，虽无大碍，但流血甚多，身子疲软，这日又苦战多时，实已支撑不住，然想到郭靖的幼女不论落在李莫愁或国师手中都凶多吉少，虽觉心跳渐剧，仍仗剑急追。\n\n这三人本来脚程均快，但李莫愁手中多了个婴儿，国师臂受剑伤，剑上到底是否有毒毕竟捉摸不准，时时耽心创口毒发，不敢发力，因此每人奔跑都已不及往时迅捷，待得奔出数里，襄阳城已远远抛在背后，三人仍分别相距十余丈，国师追不上李莫愁，杨过也追不上国师。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 22
+      }
+    ]
+  },
+  {
+    "id": "char_huang_rong",
+    "name": "黄蓉",
+    "alias": [
+      "蓉儿",
+      "黄帮主"
+    ],
+    "identity": "丐帮帮主之妻，黄药师之女",
+    "faction": "faction_gai_bang",
+    "role": "核心",
+    "archetype": "scholar",
+    "power_rank": "一流",
+    "importance": "核心",
+    "one_line": "聪慧绝伦的丐帮女侠，为护女儿对杨过多有防备",
+    "personality": {
+      "traits": [
+        "聪明机智",
+        "护女心切",
+        "心思缜密",
+        "伶牙俐齿",
+        "多疑谨慎"
+      ],
+      "speech_style": "言辞犀利，机锋百出，善于以理服人亦善于诡辩",
+      "temperament": "聪慧灵动，外表温和内心刚强"
+    },
+    "relationships": [
+      {
+        "target": "char_guo_jing",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "夫妻，以智辅愚，共守襄阳"
+      },
+      {
+        "target": "char_yang_guo",
+        "type": "对手",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "防备猜疑→和解合作"
+      }
+    ],
+    "known_skills": [
+      "skill_da_gou_bang_fa",
+      "skill_tan_zhi_shen_tong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "襄阳城中招待杨过",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "反对杨过与小龙女之恋",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_guo_fu",
+    "name": "郭芙",
+    "alias": [
+      "芙儿"
+    ],
+    "identity": "郭靖黄蓉长女，耶律齐之妻",
+    "faction": "faction_gai_bang",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "重要",
+    "one_line": "骄纵任性的郭家大小姐，一怒斩断杨过右臂",
+    "personality": {
+      "traits": [
+        "骄纵任性",
+        "鲁莽冲动",
+        "争强好胜",
+        "心胸狭窄",
+        "外强中干"
+      ],
+      "speech_style": "颐指气使，盛气凌人，动辄发怒斥责",
+      "temperament": "外刚内虚，以家世自傲"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_guo",
+        "type": "宿敌",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "青梅竹马→斩臂之仇→终释前嫌"
+      },
+      {
+        "target": "char_ye_lv_qi",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "相识相爱，结为夫妻"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "幼年与杨过争执",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 10,
+        "anchor": "怒斩杨过右臂",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_guo_xiang",
+    "name": "郭襄",
+    "alias": [
+      "小东邪",
+      "襄儿"
+    ],
+    "identity": "郭靖黄蓉次女，峨嵋派创始人",
+    "faction": "faction_gai_bang",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "二流",
+    "importance": "重要",
+    "one_line": "豪爽仗义的郭家二小姐，一生仰慕神雕大侠",
+    "personality": {
+      "traits": [
+        "豪爽洒脱",
+        "聪慧可爱",
+        "痴情不悔",
+        "巾帼不让须眉",
+        "重情执着"
+      ],
+      "speech_style": "豪爽直率",
+      "temperament": "洒脱"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_guo",
+        "type": "合作者",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "仰慕神雕大侠，一见倾心却终身未嫁"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "anchor": "风陵渡口初闻神雕大侠",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 22,
+        "anchor": "十六岁生日，杨过送三份大礼",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_li_mo_chou",
+    "name": "李莫愁",
+    "alias": [
+      "赤练仙子"
+    ],
+    "identity": "古墓派大弟子，小龙女师姐，赤练仙子",
+    "faction": null,
+    "role": "重要",
+    "archetype": "assassin",
+    "power_rank": "一流",
+    "importance": "重要",
+    "one_line": "因情生恨的赤练仙子，为爱痴狂终葬身火海",
+    "personality": {
+      "traits": [
+        "心狠手辣",
+        "因爱生恨",
+        "孤傲偏执",
+        "才貌双全",
+        "至死不悔"
+      ],
+      "speech_style": "冷言冷语，时而吟诵情诗，语气中带着刻骨怨毒",
+      "temperament": "外冷内热，爱恨极端"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_zhan_yuan",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "相爱→被弃→因恨入魔"
+      }
+    ],
+    "known_skills": [
+      "skill_yin_bian_fa",
+      "skill_wu_du_shen_zhang",
+      "skill_bing_po_yin_zhen"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "血洗陆家庄",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 32,
+        "anchor": "葬身绝情谷大火",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_jin_lun_fa_wang",
+    "name": "金轮法王",
+    "alias": [
+      "金轮国师"
+    ],
+    "identity": "蒙古国师，密宗高手",
+    "faction": "faction_meng_gu",
+    "role": "重要",
+    "archetype": "monk",
+    "power_rank": "超一流",
+    "importance": "重要",
+    "one_line": "蒙古第一高手，与中原群侠多次交锋的大反派",
+    "personality": {
+      "traits": [
+        "武功盖世",
+        "心机深沉",
+        "蒙古第一高手",
+        "争强好胜",
+        "刚愎自用"
+      ],
+      "speech_style": "威严沉稳",
+      "temperament": "霸气"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_guo",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "多次交锋，亦敌亦敬"
+      }
+    ],
+    "known_skills": [
+      "skill_long_xiang_ban_re_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "anchor": "首次现身中原武林",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "襄阳大战中被杨过击毙",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 298,
+        "line_end": 301,
+        "text": "\n郭靖想起当日君山大战，与黄蓉力战丐帮，对手武功虽均不强，但一经联手，却难抵敌，便不敢与众道强攻硬战，展开轻身功夫，在阵中钻来窜去，找寻空隙。\n\n他东奔西跃，引动阵法生变，只一盏茶时分，已知单凭一己之力，要破此阵实极为难。一来他不愿下重手伤人；二来阵法严密之极，竟似没半点破绽；三来他心思迟钝，阵法变幻却快，纵有破绽，一时之间也看不出来。溶溶月色下，剑光似水，人影如潮，此来彼去，更无已时。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      }
+    ]
+  },
+  {
+    "id": "char_zhou_bo_tong",
+    "name": "周伯通",
+    "alias": [
+      "中顽童",
+      "老顽童"
+    ],
+    "identity": "全真教王重阳师弟，天下五绝之首",
+    "faction": "faction_quan_zhen_jiao",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "重要",
+    "one_line": "天真烂漫的老顽童，武学修为冠绝天下却毫无架子",
+    "personality": {
+      "traits": [
+        "天真烂漫",
+        "嗜武如命",
+        "不拘礼法",
+        "童心未泯",
+        "洒脱自在"
+      ],
+      "speech_style": "嘻嘻哈哈，不正经，说话像孩童般无拘无束",
+      "temperament": "如顽童般无忧无虑，至老不失赤子之心"
+    },
+    "relationships": [
+      {
+        "target": "char_ying_gu",
+        "type": "恋人",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "旧情纠葛，逃避不面对"
+      }
+    ],
+    "known_skills": [
+      "skill_zuo_you_hu_bo_shu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "anchor": "百花谷中与杨过结交",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "襄阳大战参战",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 298,
+        "line_end": 301,
+        "text": "\n郭靖想起当日君山大战，与黄蓉力战丐帮，对手武功虽均不强，但一经联手，却难抵敌，便不敢与众道强攻硬战，展开轻身功夫，在阵中钻来窜去，找寻空隙。\n\n他东奔西跃，引动阵法生变，只一盏茶时分，已知单凭一己之力，要破此阵实极为难。一来他不愿下重手伤人；二来阵法严密之极，竟似没半点破绽；三来他心思迟钝，阵法变幻却快，纵有破绽，一时之间也看不出来。溶溶月色下，剑光似水，人影如潮，此来彼去，更无已时。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      }
+    ]
+  },
+  {
+    "id": "char_yi_deng_da_shi",
+    "name": "一灯大师",
+    "alias": [
+      "南僧",
+      "段智兴",
+      "段皇爷"
+    ],
+    "identity": "大理段氏皇帝出家，新五绝之南僧",
+    "faction": "faction_da_li_duan_shi",
+    "role": "重要",
+    "archetype": "monk",
+    "power_rank": "登峰造极",
+    "importance": "重要",
+    "one_line": "昔日大理皇帝出家为僧，一阳指绝技威震天下",
+    "personality": {
+      "traits": [
+        "慈悲为怀",
+        "大彻大悟",
+        "沉稳睿智",
+        "德高望重",
+        "内疚自责"
+      ],
+      "speech_style": "言语温和，常含禅机，说理透彻",
+      "temperament": "慈祥平和，如古佛般安详"
+    },
+    "relationships": [
+      {
+        "target": "char_ying_gu",
+        "type": "宿敌",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "昔日恩怨，最终化解"
+      }
+    ],
+    "known_skills": [
+      "skill_yi_yang_zhi"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "anchor": "救治杨过",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "襄阳大战参战",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 298,
+        "line_end": 301,
+        "text": "\n郭靖想起当日君山大战，与黄蓉力战丐帮，对手武功虽均不强，但一经联手，却难抵敌，便不敢与众道强攻硬战，展开轻身功夫，在阵中钻来窜去，找寻空隙。\n\n他东奔西跃，引动阵法生变，只一盏茶时分，已知单凭一己之力，要破此阵实极为难。一来他不愿下重手伤人；二来阵法严密之极，竟似没半点破绽；三来他心思迟钝，阵法变幻却快，纵有破绽，一时之间也看不出来。溶溶月色下，剑光似水，人影如潮，此来彼去，更无已时。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      }
+    ]
+  },
+  {
+    "id": "char_huang_yao_shi",
+    "name": "黄药师",
+    "alias": [
+      "东邪",
+      "黄老邪"
+    ],
+    "identity": "桃花岛主，天下五绝之一",
+    "faction": "faction_tao_hua_dao",
+    "role": "重要",
+    "archetype": "scholar",
+    "power_rank": "登峰造极",
+    "importance": "重要",
+    "one_line": "孤傲狂放的东邪，琴棋书画医卜无所不通",
+    "personality": {
+      "traits": [
+        "孤傲狂放",
+        "才华横溢",
+        "离经叛道",
+        "深情内敛",
+        "恃才傲物"
+      ],
+      "speech_style": "言辞犀利，不屑世俗礼法，时而吟诗作对",
+      "temperament": "飘逸出尘，狂放不羁"
+    },
+    "relationships": [
+      {
+        "target": "char_huang_rong",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 5,
+        "dynamic": "父女，视若珍宝"
+      }
+    ],
+    "known_skills": [
+      "skill_tan_zhi_shen_tong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "anchor": "现身襄阳",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "襄阳大战参战",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 298,
+        "line_end": 301,
+        "text": "\n郭靖想起当日君山大战，与黄蓉力战丐帮，对手武功虽均不强，但一经联手，却难抵敌，便不敢与众道强攻硬战，展开轻身功夫，在阵中钻来窜去，找寻空隙。\n\n他东奔西跃，引动阵法生变，只一盏茶时分，已知单凭一己之力，要破此阵实极为难。一来他不愿下重手伤人；二来阵法严密之极，竟似没半点破绽；三来他心思迟钝，阵法变幻却快，纵有破绽，一时之间也看不出来。溶溶月色下，剑光似水，人影如潮，此来彼去，更无已时。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      }
+    ]
+  },
+  {
+    "id": "char_gong_sun_zhi",
+    "name": "公孙止",
+    "alias": [
+      "谷主"
+    ],
+    "identity": "绝情谷谷主",
+    "faction": "faction_jue_qing_gu",
+    "role": "重要",
+    "archetype": "assassin",
+    "power_rank": "一流",
+    "importance": "重要",
+    "one_line": "阴险狡诈的绝情谷主，贪慕小龙女美色",
+    "personality": {
+      "traits": [
+        "阴险狡诈",
+        "虚伪好色",
+        "心胸狭窄",
+        "残忍无情",
+        "外表儒雅"
+      ],
+      "speech_style": "文质彬彬，表面客气实则暗藏杀机",
+      "temperament": "外雅内毒，伪君子"
+    },
+    "relationships": [
+      {
+        "target": "char_gong_sun_lu_e",
+        "type": "亲属",
+        "intensity": 30,
+        "bond_level": 2,
+        "dynamic": "父女，利用女儿毫无父爱"
+      },
+      {
+        "target": "char_xiao_long_nyu",
+        "type": "恋人",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "贪慕美色，强求不得"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "anchor": "绝情谷中初遇杨过小龙女",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "绝情谷大战中身亡",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 298,
+        "line_end": 301,
+        "text": "\n郭靖想起当日君山大战，与黄蓉力战丐帮，对手武功虽均不强，但一经联手，却难抵敌，便不敢与众道强攻硬战，展开轻身功夫，在阵中钻来窜去，找寻空隙。\n\n他东奔西跃，引动阵法生变，只一盏茶时分，已知单凭一己之力，要破此阵实极为难。一来他不愿下重手伤人；二来阵法严密之极，竟似没半点破绽；三来他心思迟钝，阵法变幻却快，纵有破绽，一时之间也看不出来。溶溶月色下，剑光似水，人影如潮，此来彼去，更无已时。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      }
+    ]
+  },
+  {
+    "id": "char_gong_sun_lu_e",
+    "name": "公孙绿萼",
+    "alias": [
+      "萼儿"
+    ],
+    "identity": "公孙止之女",
+    "faction": "faction_jue_qing_gu",
+    "role": "重要",
+    "archetype": "healer",
+    "power_rank": "三流",
+    "importance": "重要",
+    "one_line": "温柔善良的绝情谷主之女，为救杨过甘愿牺牲性命",
+    "personality": {
+      "traits": [
+        "温柔善良",
+        "痴情无私",
+        "逆来顺受",
+        "外柔内刚",
+        "至死不悔"
+      ],
+      "speech_style": "细声细语，温柔体贴，少有主见",
+      "temperament": "温婉如水，柔中带刚"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_guo",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "单恋杨过，甘愿赴死"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "anchor": "绝情谷中与杨过相识",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 24,
+        "anchor": "为救杨过吞食断肠草而死",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_ye_lv_qi",
+    "name": "耶律齐",
+    "alias": [],
+    "identity": "丐帮帮主，郭芙之夫",
+    "faction": "faction_gai_bang",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "二流",
+    "importance": "重要",
+    "one_line": "稳重有才干的丐帮帮主，郭靖女婿",
+    "personality": {
+      "traits": [
+        "沉稳干练",
+        "武功不俗",
+        "侠义心肠",
+        "忠厚老实",
+        "有勇有谋"
+      ],
+      "speech_style": "沉稳有礼",
+      "temperament": "干练"
+    },
+    "relationships": [
+      {
+        "target": "char_guo_fu",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "相识相爱，结为夫妻"
+      },
+      {
+        "target": "char_guo_jing",
+        "type": "亲属",
+        "intensity": 65,
+        "bond_level": 4,
+        "dynamic": "翁婿，继承丐帮帮主之位"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 37,
+        "anchor": "英雄大宴登场",
+        "line_start": 82,
+        "line_end": 84,
+        "text": "\n群雄见杨过适才送了那三件厚礼，都对他佩服得五体投地，暗想他召集这一大批人来，定又大有作为。那知过不多时，西南角上一座木台首先搭成，有人打起锣鼓，做起傀儡戏来，做的是“八仙贺寿”。接着西北角上有人粉墨登场，唱一出“满床笏”，那是郭子仪生日，七子八婿祝寿的故事。片刻之间，这边放花炮，那边玩把戏，满场上闹哄哄的全是喜庆之声。每一台戏都是三湘湖广、河南四川的名班所演，当真人人卖力，各展绝艺。群雄各依所喜，分站各处台前观赏，喝采之声，此伏彼起。\n",
+        "anchors_hit": [
+          "登场"
+        ],
+        "anchors_total": 1,
+        "locate_status": "not_located",
+        "locate_score": 109,
+        "locate_method": "window",
+        "hint_chapter": 12,
+        "alternatives": [],
+        "locate_reason": "no anchor terms recognized"
+      },
+      {
+        "chapter": 21,
+        "anchor": "继任丐帮帮主",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 78,
+        "line_end": 81,
+        "text": "\n郭靖叫道：“丐帮兄弟和各位武林朋友，大家跟我来！”说着奔下城头。杨过跟了下来。郭靖道：“你昨晚练气伤身，今日千万不能用力，在城头上给我掠阵罢。”杨过见蒙古兵屠戮汉人，当他们猪狗不如，本想随郭靖下去大杀一阵，听了他这话，心中一怔，又不能直说昨晚其实并非练功走火，只得回上城头。\n\n郭靖率领众人，大开西门，冲了出去，迂回攻向蒙古军侧翼。在众百姓之后押队的蒙古军当即分兵来敌。郭靖所率领的大半是丐帮好手，另有一小半是各地来投效的忠义之士，齐声呐喊，奋勇当先，两军相交，即有百余名蒙古兵给砍下马来。眼见这队蒙古千人队抵挡不住，斜刺里又冲到一个千人队，挥动长刀，冲刺劈杀。蒙古军是百战之师，猛勇剽悍，郭靖所率壮士虽身有武艺，一时间却也不易取胜。被逼攻城的众百姓见蒙古军专心厮杀，不再逼攻，发一声喊，四下逃散。",
+        "anchors_hit": [
+          "丐帮"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 21
+      }
+    ]
+  },
+  {
+    "id": "char_cheng_ying",
+    "name": "程英",
+    "alias": [],
+    "identity": "黄药师关门弟子",
+    "faction": "faction_tao_hua_dao",
+    "role": "重要",
+    "archetype": "scholar",
+    "power_rank": "二流",
+    "importance": "重要",
+    "one_line": "温柔内敛的桃花岛弟子，一生暗恋杨过却默默守候",
+    "personality": {
+      "traits": [
+        "温柔内敛",
+        "含蓄深沉",
+        "知书达理",
+        "善解人意",
+        "痴情不悔"
+      ],
+      "speech_style": "轻声细语，含蓄委婉，常用箫声表达心事",
+      "temperament": "温婉恬静，如清风明月"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_guo",
+        "type": "恋人",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "暗恋杨过，终身未嫁"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "anchor": "与杨过在嘉兴相遇",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 32,
+        "anchor": "终篇仍独身",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lu_wu_shuang",
+    "name": "陆无双",
+    "alias": [],
+    "identity": "李莫愁弟子，陆展元侄女",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "重要",
+    "one_line": "泼辣直爽的李莫愁弟子，暗恋杨过一生",
+    "personality": {
+      "traits": [
+        "泼辣直爽",
+        "倔强好胜",
+        "外刚内柔",
+        "口是心非"
+      ],
+      "speech_style": "快言快语，嘴上不饶人，实则心软",
+      "temperament": "外刚内柔，刀子嘴豆腐心"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_guo",
+        "type": "恋人",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "暗恋杨过，终身未嫁"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "anchor": "被李莫愁追杀",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 8,
+        "anchor": "与杨过同行",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_wu_san_tong",
+    "name": "武三通",
+    "alias": [
+      "怪客"
+    ],
+    "identity": "一灯大师弟子，武氏兄弟之父",
+    "faction": "faction_da_li_duan_shi",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "二流",
+    "importance": "重要",
+    "one_line": "痴恋义女何沅君的一灯弟子，疯疯癫癫的老怪客",
+    "personality": {
+      "traits": [
+        "痴情偏执",
+        "疯疯癫癫",
+        "护短",
+        "重情重义"
+      ],
+      "speech_style": "时而清醒时而疯癫，言语杂乱无章",
+      "temperament": "疯癫痴情，亦悲亦喜"
+    },
+    "relationships": [
+      {
+        "target": "char_he_yuan_jun",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "义父→痴恋，因爱成疯"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "疯癫状态出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴现身",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_wu_dun_ru",
+    "name": "武敦儒",
+    "alias": [],
+    "identity": "武三通长子",
+    "faction": "faction_da_li_duan_shi",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "重要",
+    "one_line": "武三通之子，郭靖弟子，性格敦厚",
+    "personality": {
+      "traits": [
+        "敦厚老实",
+        "循规蹈矩",
+        "忠厚木讷"
+      ],
+      "speech_style": "言语不多，老实本分",
+      "temperament": "沉稳老实"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_xiu_wen",
+        "type": "亲属",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "兄弟，共同习武成长"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "随父出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴参战",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_wu_xiu_wen",
+    "name": "武修文",
+    "alias": [],
+    "identity": "武三通次子",
+    "faction": "faction_da_li_duan_shi",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "重要",
+    "one_line": "武三通之子，郭靖弟子，曾暗恋郭芙",
+    "personality": {
+      "traits": [
+        "机灵活泼",
+        "争强好胜",
+        "心直口快"
+      ],
+      "speech_style": "话多嘴快，爱争风头",
+      "temperament": "活泼好动"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_dun_ru",
+        "type": "亲属",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "兄弟，共同习武成长"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "随父出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴参战",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_wan_yan_ping",
+    "name": "完颜萍",
+    "alias": [],
+    "identity": "金国贵族后裔",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "重要",
+    "one_line": "金国遗族女子，暗恋杨过后嫁给武修文",
+    "personality": {
+      "traits": [
+        "温婉秀丽",
+        "外柔内刚",
+        "痴情执着"
+      ],
+      "speech_style": "言语温和，少言寡语",
+      "temperament": "温婉中带有刚烈"
+    },
+    "relationships": [
+      {
+        "target": "char_yang_guo",
+        "type": "恋人",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "暗恋杨过，后嫁给武修文"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "anchor": "与杨过在长安相遇",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 300,
+        "line_end": 303,
+        "text": "\n洪凌波提了几次，见师父始终无可无不可，暗自留了心，向师父详问去终南山古墓的道路，私下绘了一图，却不知李莫愁其实并未尽举所知以告。这次师父派她上长安杀个并无多大武功的仇家，事成之后，便迳上终南山来，不意与杨过相遇；便命杨过使短斧砍开阻路荆棘，觅路入墓。\n\n杨过心想这般披荆斩棘而行，搅上一年半载也走不近古墓，痴痴呆呆的只依命而行。闹了大半时辰，天色全黑，还行不到里许路，离古墓仍极遥远。他记挂小龙女之心越来越热切，急于想去瞧她，暗想自己能制住这小道姑，也不怕她能有什么古怪，举斧乱劈几下，对准一块石头砍了下去，火星四溅，斧口登时卷了。他大声叫道：“嗳哟，嗳哟，这儿有一块大石头。斧头坏啦，回头爹爹准要打我。仙姑，我⋯⋯我要回家去啦。”",
+        "anchors_hit": [
+          "长安"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 6
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴再会",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_ke_zhen_e",
+    "name": "柯镇恶",
+    "alias": [
+      "飞天蝙蝠"
+    ],
+    "identity": "江南七怪之首",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "二流",
+    "importance": "次要",
+    "one_line": "瞎眼却刚正不阿的江南七怪之首，郭靖恩师",
+    "personality": {
+      "traits": [
+        "刚正不阿",
+        "嫉恶如仇",
+        "倔强固执",
+        "光明磊落"
+      ],
+      "speech_style": "声如洪钟，说话直来直去，脾气火爆",
+      "temperament": "刚烈倔强，正气凛然"
+    },
+    "relationships": [
+      {
+        "target": "char_guo_jing",
+        "type": "师徒",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "授业恩师，情同父子"
+      }
+    ],
+    "known_skills": [
+      "skill_fu_mo_zhang_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "襄阳城中出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴现身",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_qiu_qian_ren",
+    "name": "裘千仞",
+    "alias": [
+      "慈恩",
+      "铁掌水上漂"
+    ],
+    "identity": "原铁掌帮帮主，后出家法号慈恩",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "超一流",
+    "importance": "次要",
+    "one_line": "昔日铁掌帮主改邪归正出家为僧，终被金轮法王击毙",
+    "personality": {
+      "traits": [
+        "改邪归正",
+        "心魔难除",
+        "武功高强",
+        "悔恨内疚"
+      ],
+      "speech_style": "出家后言语平和，偶有杀心发作",
+      "temperament": "亦僧亦魔，善恶挣扎"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_deng_da_shi",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "被一灯点化出家，师徒相随"
+      }
+    ],
+    "known_skills": [
+      "skill_tie_zhang_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "anchor": "以慈恩身份出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "襄阳大战中被金轮法王击毙",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 298,
+        "line_end": 301,
+        "text": "\n郭靖想起当日君山大战，与黄蓉力战丐帮，对手武功虽均不强，但一经联手，却难抵敌，便不敢与众道强攻硬战，展开轻身功夫，在阵中钻来窜去，找寻空隙。\n\n他东奔西跃，引动阵法生变，只一盏茶时分，已知单凭一己之力，要破此阵实极为难。一来他不愿下重手伤人；二来阵法严密之极，竟似没半点破绽；三来他心思迟钝，阵法变幻却快，纵有破绽，一时之间也看不出来。溶溶月色下，剑光似水，人影如潮，此来彼去，更无已时。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      }
+    ]
+  },
+  {
+    "id": "char_ying_gu",
+    "name": "瑛姑",
+    "alias": [
+      "神算子"
+    ],
+    "identity": "周伯通旧情人，段智兴妃子",
+    "faction": null,
+    "role": "次要",
+    "archetype": "healer",
+    "power_rank": "二流",
+    "importance": "次要",
+    "one_line": "痴等周伯通数十年的苦命女子，精通奇门术数",
+    "personality": {
+      "traits": [
+        "痴情执着",
+        "怨恨难消",
+        "聪明机敏",
+        "苦命"
+      ],
+      "speech_style": "时而幽怨时而尖刻，言语中带着多年积怨",
+      "temperament": "幽怨痴情"
+    },
+    "relationships": [
+      {
+        "target": "char_zhou_bo_tong",
+        "type": "恋人",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "相爱→被弃→苦等数十年→终得团圆"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "anchor": "百花谷中与周伯通重逢",
+        "line_start": 240,
+        "line_end": 243,
+        "text": "\n杨过自幼与她不睦，此番重逢，见她仍厌憎自己，自卑自伤之心更加强了，心道：“你瞧我不起，难道我就非要你瞧得起不可？你爹爹是当世大侠、你妈妈是丐帮帮主、你外公是武学大宗师，普天下武学之士，没一人不敬重你郭家。可是我父母呢？我妈是个乡下女子，我从来没见过我爹，他又死得不明不白⋯⋯哼，我自然不能跟你比，我生来命苦，受人欺侮。你再来欺侮，也不过又多一个瞧不起我的人而已，老子在乎吗？”他站在一旁暗暗伤心，但觉天地之间无人看重自己，活在世上了无意味。只师父小龙女对自己一片真心，可是此时又不知去了何方？不知今生今世，是否还有重见她的日子？\n\n正自难过，听得马蹄声响，又有两乘马驰来。两匹马一青一黄，也都是良种，但与郭芙的红马相形之下，可就差得太远。每匹马上骑着一个少年男子，均身穿黄衫。",
+        "anchors_hit": [
+          "重逢"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 10,
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "襄阳大战后与周伯通团聚",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 298,
+        "line_end": 301,
+        "text": "\n郭靖想起当日君山大战，与黄蓉力战丐帮，对手武功虽均不强，但一经联手，却难抵敌，便不敢与众道强攻硬战，展开轻身功夫，在阵中钻来窜去，找寻空隙。\n\n他东奔西跃，引动阵法生变，只一盏茶时分，已知单凭一己之力，要破此阵实极为难。一来他不愿下重手伤人；二来阵法严密之极，竟似没半点破绽；三来他心思迟钝，阵法变幻却快，纵有破绽，一时之间也看不出来。溶溶月色下，剑光似水，人影如潮，此来彼去，更无已时。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      }
+    ]
+  },
+  {
+    "id": "char_huo_du",
+    "name": "霍都",
+    "alias": [
+      "蒙古王子"
+    ],
+    "identity": "蒙古王子，金轮法王弟子",
+    "faction": "faction_meng_gu",
+    "role": "次要",
+    "archetype": "assassin",
+    "power_rank": "二流",
+    "importance": "次要",
+    "one_line": "蒙古王子，金轮法王弟子，阴险狡诈",
+    "personality": {
+      "traits": [
+        "阴险狡诈",
+        "野心勃勃",
+        "善于伪装",
+        "欺软怕硬"
+      ],
+      "speech_style": "油嘴滑舌，善于奉承讨好",
+      "temperament": "阴险狡诈，小人行径"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_lun_fa_wang",
+        "type": "师徒",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "师徒，实则各怀鬼胎"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "anchor": "随金轮法王现身",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴挑战",
+        "line_start": 218,
+        "line_end": 221,
+        "text": "\n黄蓉初时见有人在他耳边说话，并未在意，忽听他提到打狗棒法，只轻轻几句话，便将武功最强的郭靖撇在一边，却是谁人献此妙策？向那蒙古人瞧去，当即认出此人是丐帮中四大长老之一的彭长老，原来他已投靠蒙古，改穿了蒙古装束，留了蓬蓬松松的满腮大胡子，帽子低垂，直遮至眼，若不留神细看，还真认不出来，也只有他，才知打狗棒法非丐帮帮主不传，郭靖武功虽高，却是不会。霍都说这番话，明是指名向自己与鲁有脚挑战。鲁有脚的棒法新学乍练，领会有限，使用不得，那是非自己出马不可了。\n\n郭靖知道妻子的打狗棒法妙绝天下，料想可以胜得霍都，但她这几个月来胎气方动，内息不调，万不能与人动武，于是步出座位，站在席间，朗声道：“我洪恩师的打狗棒法，只在遇上天下一等一的高手之时才用，只怕阁下这点微末功夫，还不配见识。你这就来领教他老人家的降龙十八掌好了。”群雄大声喝采。",
+        "anchors_hit": [
+          "挑战"
+        ],
+        "anchors_total": 1,
+        "locate_status": "not_located",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 12,
+        "alternatives": [],
+        "locate_reason": "no anchor terms recognized"
+      }
+    ]
+  },
+  {
+    "id": "char_da_er_ba",
+    "name": "达尔巴",
+    "alias": [],
+    "identity": "金轮法王弟子",
+    "faction": "faction_meng_gu",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "二流",
+    "importance": "次要",
+    "one_line": "金轮法王大弟子，憨厚忠诚的蒙古武士",
+    "personality": {
+      "traits": [
+        "憨厚忠诚",
+        "武艺高强",
+        "头脑简单",
+        "尊师重道"
+      ],
+      "speech_style": "说话不多，言语朴实",
+      "temperament": "憨厚朴实"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_lun_fa_wang",
+        "type": "师徒",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "忠心耿耿的弟子"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "anchor": "随师父出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴参战",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_yin_ke_xi",
+    "name": "尹克西",
+    "alias": [],
+    "identity": "波斯商人，蒙古高手",
+    "faction": "faction_meng_gu",
+    "role": "次要",
+    "archetype": "assassin",
+    "power_rank": "二流",
+    "importance": "次要",
+    "one_line": "波斯商人出身的蒙古高手，精于算计",
+    "personality": {
+      "traits": [
+        "精明算计",
+        "见风使舵",
+        "贪财好利"
+      ],
+      "speech_style": "言语圆滑，善于周旋",
+      "temperament": "圆滑世故"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_lun_fa_wang",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "同为蒙古效力的合作者"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "anchor": "随蒙古高手团出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴参战",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_xiang_zi",
+    "name": "潇湘子",
+    "alias": [],
+    "identity": "湘西名宿，蒙古高手",
+    "faction": "faction_meng_gu",
+    "role": "次要",
+    "archetype": "assassin",
+    "power_rank": "二流",
+    "importance": "次要",
+    "one_line": "湘西名宿，蒙古阵营高手，武功诡异",
+    "personality": {
+      "traits": [
+        "阴沉诡异",
+        "沉默寡言",
+        "心狠手辣"
+      ],
+      "speech_style": "少言寡语，说话阴森",
+      "temperament": "阴沉诡异"
+    },
+    "relationships": [
+      {
+        "target": "char_jin_lun_fa_wang",
+        "type": "合作者",
+        "intensity": 30,
+        "bond_level": 1,
+        "dynamic": "同为蒙古效力的合作者"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "anchor": "随蒙古高手团出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴参战",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_jue_yuan",
+    "name": "觉远",
+    "alias": [],
+    "identity": "少林寺僧人",
+    "faction": "faction_shao_lin_si",
+    "role": "次要",
+    "archetype": "monk",
+    "power_rank": "一流",
+    "importance": "次要",
+    "one_line": "少林寺藏经阁僧人，内功深厚却不自知",
+    "personality": {
+      "traits": [
+        "憨厚老实",
+        "佛法精深",
+        "不谙世事",
+        "内功深厚"
+      ],
+      "speech_style": "言语朴实，常引佛经",
+      "temperament": "朴实憨厚"
+    },
+    "relationships": [
+      {
+        "target": "char_zhang_jun_bao",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒情深，携徒逃出少林"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 35,
+        "anchor": "少林寺中携张君宝出逃",
+        "line_start": 274,
+        "line_end": 277,
+        "text": "\n众人瞧到这里，不再发笑，脸上竟似都有忧色。那脸有疤痕的妇人道：“人厨子，你别为争面子，却给郭二姑娘惹麻烦！这是嵩山少林寺的铁罗汉，你怎地去偷来的？”人厨子笑道：“嘿嘿，我人厨子便有天大胆子，也不敢去少林寺偷鸡摸狗。这是少林寺罗汉堂首座无色禅师叫我送来的。他老人家说，到姑娘生辰正日，决能赶到襄阳来跟姑娘祝寿。哪，这才是我人厨子的薄礼呢！”掀开铁盒的夹层，露出一只黑色玉镯。\n\n这黑玉镯乌沉沉的，看来也没什么奇处。人厨子从腰间拔出一柄厚背薄刃的鬼头刀，对准玉镯使劲一刀砍了下去，当的一声，鬼头刀反弹起来，黑玉镯竟丝毫不损。众人齐声喝采。接着文士、尼姑、头陀、妇人等均有礼物送给郭襄，无一不是争奇斗胜、生平罕见的珍物。郭襄笑吟吟的谢着收下。",
+        "anchors_hit": [
+          "少林寺"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 35,
+        "alternatives": []
+      },
+      {
+        "chapter": 26,
+        "anchor": "圆寂于逃亡途中",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_jun_bao",
+    "name": "张君宝",
+    "alias": [
+      "张三丰"
+    ],
+    "identity": "觉远弟子，后创武当派",
+    "faction": "faction_shao_lin_si",
+    "role": "次要",
+    "archetype": "monk",
+    "power_rank": "一流",
+    "importance": "次要",
+    "one_line": "少林小僧得杨过指点，后创立武当派成一代宗师",
+    "personality": {
+      "traits": [
+        "天资聪颖",
+        "勤奋好学",
+        "沉稳内敛",
+        "尊师重道"
+      ],
+      "speech_style": "言语谦恭有礼，少年老成",
+      "temperament": "沉稳内敛，少年即有宗师气度"
+    },
+    "relationships": [
+      {
+        "target": "char_jue_yuan",
+        "type": "师徒",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "师徒情深，继承师父武学"
+      },
+      {
+        "target": "char_yang_guo",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "受杨过指点三招，受益终身"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 35,
+        "anchor": "少林寺中受杨过指点",
+        "line_start": 274,
+        "line_end": 277,
+        "text": "\n众人瞧到这里，不再发笑，脸上竟似都有忧色。那脸有疤痕的妇人道：“人厨子，你别为争面子，却给郭二姑娘惹麻烦！这是嵩山少林寺的铁罗汉，你怎地去偷来的？”人厨子笑道：“嘿嘿，我人厨子便有天大胆子，也不敢去少林寺偷鸡摸狗。这是少林寺罗汉堂首座无色禅师叫我送来的。他老人家说，到姑娘生辰正日，决能赶到襄阳来跟姑娘祝寿。哪，这才是我人厨子的薄礼呢！”掀开铁盒的夹层，露出一只黑色玉镯。\n\n这黑玉镯乌沉沉的，看来也没什么奇处。人厨子从腰间拔出一柄厚背薄刃的鬼头刀，对准玉镯使劲一刀砍了下去，当的一声，鬼头刀反弹起来，黑玉镯竟丝毫不损。众人齐声喝采。接着文士、尼姑、头陀、妇人等均有礼物送给郭襄，无一不是争奇斗胜、生平罕见的珍物。郭襄笑吟吟的谢着收下。",
+        "anchors_hit": [
+          "少林寺"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 35,
+        "alternatives": []
+      },
+      {
+        "chapter": 26,
+        "anchor": "觉远圆寂后自立门户",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_hong_ling_bo",
+    "name": "洪凌波",
+    "alias": [],
+    "identity": "李莫愁弟子",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "次要",
+    "one_line": "李莫愁大弟子，性格温顺却命途多舛",
+    "personality": {
+      "traits": [
+        "温顺柔弱",
+        "胆小怕事",
+        "善良"
+      ],
+      "speech_style": "言语怯弱，不敢多言",
+      "temperament": "柔弱温顺"
+    },
+    "relationships": [
+      {
+        "target": "char_li_mo_chou",
+        "type": "师徒",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "畏惧师父，不敢违命"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "anchor": "随李莫愁出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 8,
+        "anchor": "奉命追杀杨过",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lu_li_ding",
+    "name": "陆立鼎",
+    "alias": [],
+    "identity": "陆展元之弟",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "次要",
+    "one_line": "陆展元之弟，因兄嫂恩怨被李莫愁杀害",
+    "personality": {
+      "traits": [
+        "忠厚老实",
+        "胆小怕事"
+      ],
+      "speech_style": "言语不多，老实本分",
+      "temperament": "忠厚老实"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_zhan_yuan",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "兄弟，继承兄长家业"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "陆家庄中被李莫愁杀害",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lu_er_niang",
+    "name": "陆二娘",
+    "alias": [],
+    "identity": "陆立鼎之妻",
+    "faction": null,
+    "role": "次要",
+    "archetype": "healer",
+    "power_rank": "不入流",
+    "importance": "次要",
+    "one_line": "陆立鼎之妻，随夫被李莫愁杀害",
+    "personality": {
+      "traits": [
+        "温柔贤淑",
+        "胆小怕事"
+      ],
+      "speech_style": "言语温顺",
+      "temperament": "温顺柔弱"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_li_ding",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "夫妻，同遭毒手"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "陆家庄中被李莫愁杀害",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_shi_shu_gang",
+    "name": "史叔刚",
+    "alias": [],
+    "identity": "万兽山庄庄主",
+    "faction": "faction_wan_shou_shan_zhuang",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "二流",
+    "importance": "次要",
+    "one_line": "万兽山庄庄主，驯兽高手",
+    "personality": {
+      "traits": [
+        "豪爽直率",
+        "善于驯兽",
+        "重义气"
+      ],
+      "speech_style": "声音洪亮，言语直率",
+      "temperament": "豪爽直率"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_shao_je",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "兄弟，共同掌管万兽山庄"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "anchor": "风陵渡口出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 22,
+        "anchor": "参加郭襄生日宴",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_shi_shao_je",
+    "name": "史少捷",
+    "alias": [],
+    "identity": "万兽山庄少庄主",
+    "faction": "faction_wan_shou_shan_zhuang",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "次要",
+    "one_line": "万兽山庄少庄主，史叔刚之弟",
+    "personality": {
+      "traits": [
+        "年少气盛",
+        "争强好胜"
+      ],
+      "speech_style": "言语冲撞，年少轻狂",
+      "temperament": "年少气盛"
+    },
+    "relationships": [
+      {
+        "target": "char_shi_shu_gang",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "兄弟，共同掌管万兽山庄"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "anchor": "风陵渡口出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 22,
+        "anchor": "参加郭襄生日宴",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_da_tou_gui",
+    "name": "大头鬼",
+    "alias": [],
+    "identity": "西山一窟鬼之一",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "次要",
+    "one_line": "西山一窟鬼之一，头大身矮的怪人",
+    "personality": {
+      "traits": [
+        "古怪",
+        "重义气",
+        "豪爽"
+      ],
+      "speech_style": "言语粗豪，不拘小节",
+      "temperament": "古怪豪爽"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "anchor": "风陵渡口出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 22,
+        "anchor": "参加郭襄生日宴",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_guo_po_lu",
+    "name": "郭破虏",
+    "alias": [],
+    "identity": "郭靖之子",
+    "faction": "faction_gai_bang",
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "龙套",
+    "one_line": "郭靖之子，少年英杰，随父母殉城",
+    "personality": {
+      "traits": [
+        "忠厚老实",
+        "勤勉刻苦"
+      ],
+      "speech_style": "言语不多，老实本分",
+      "temperament": "忠厚老实"
+    },
+    "relationships": [
+      {
+        "target": "char_guo_jing",
+        "type": "亲属",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "父子，继承父亲忠义"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "襄阳城中出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 22,
+        "anchor": "郭襄生日宴上出现",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_ye_lv_yan",
+    "name": "耶律燕",
+    "alias": [],
+    "identity": "耶律齐之妹",
+    "faction": "faction_gai_bang",
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "龙套",
+    "one_line": "耶律齐之妹，嫁给武敦儒",
+    "personality": {
+      "traits": [
+        "温婉秀丽",
+        "知书达理"
+      ],
+      "speech_style": "言语温和，有礼有节",
+      "temperament": "温婉大方"
+    },
+    "relationships": [
+      {
+        "target": "char_ye_lv_qi",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "兄妹，随兄长入中原"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 16,
+        "anchor": "嫁与武敦儒",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lu_you_jiao",
+    "name": "鲁有脚",
+    "alias": [],
+    "identity": "丐帮长老",
+    "faction": "faction_gai_bang",
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "二流",
+    "importance": "龙套",
+    "one_line": "丐帮长老，忠心耿耿的老帮众",
+    "personality": {
+      "traits": [
+        "忠心耿耿",
+        "老成持重",
+        "正直"
+      ],
+      "speech_style": "言语朴实，忠厚老成",
+      "temperament": "忠厚老成"
+    },
+    "relationships": [
+      {
+        "target": "char_guo_jing",
+        "type": "主仆",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "对郭靖忠心耿耿"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "anchor": "丐帮中出场",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 2,
+        "line_end": 5,
+        "text": "投师终南\n 郭靖在舟中潜运神功，数日间伤势便已痊愈了大半。夫妇俩说起欧阳锋十余年不见，不但未见衰迈，武功犹胜往昔，这一掌倘若打中了郭靖胸口要害，那便非十天半月之内所能痊可了。两人谈到师父洪七公，不知他身在何处，伤势是否复发，甚是记挂。黄蓉虽在桃花岛隐居，仍遥领丐帮帮主之位，帮中事务由鲁有脚奉黄蓉之名处分勾当。她此番来到内陆，原拟乘便会见帮中诸长老会商帮务，并打听父亲及洪七公近况，郭靖既然受伤，只有先行归岛。\n\n其后谈到杨过，郭靖说道：“我向来有个心愿，你自然知道。今日天幸寻到过儿，我的心愿就可得偿了。”当年郭靖之父郭啸天与杨过的祖父杨铁心义结兄弟，两家妻室同时怀孕。二人相约，日后生下的若均是男儿，就结为兄弟，若均是女儿，则结为金兰姊妹，如是一男一女，则为夫妇。后来两家生下的各为男儿，郭靖与杨过之父杨康如约结为兄弟。但杨康认贼作父，多行不义，终于惨死于嘉兴王铁枪庙中。郭靖念及此事，常自耿耿于怀。此时这么一说，黄蓉早知他的心意，摇头道：“我不答允。”",
+        "anchors_hit": [
+          "丐帮"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      },
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴参战",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_zi_liu",
+    "name": "朱子柳",
+    "alias": [],
+    "identity": "一灯大师弟子",
+    "faction": "faction_da_li_duan_shi",
+    "role": "龙套",
+    "archetype": "scholar",
+    "power_rank": "二流",
+    "importance": "龙套",
+    "one_line": "一灯大师弟子，大理国丞相，文武双全",
+    "personality": {
+      "traits": [
+        "文武双全",
+        "忠心耿耿",
+        "儒雅风流"
+      ],
+      "speech_style": "言语文雅，出口成章",
+      "temperament": "儒雅风流"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_deng_da_shi",
+        "type": "师徒",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "忠心弟子，侍奉左右"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "襄阳大战参战",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 298,
+        "line_end": 301,
+        "text": "\n郭靖想起当日君山大战，与黄蓉力战丐帮，对手武功虽均不强，但一经联手，却难抵敌，便不敢与众道强攻硬战，展开轻身功夫，在阵中钻来窜去，找寻空隙。\n\n他东奔西跃，引动阵法生变，只一盏茶时分，已知单凭一己之力，要破此阵实极为难。一来他不愿下重手伤人；二来阵法严密之极，竟似没半点破绽；三来他心思迟钝，阵法变幻却快，纵有破绽，一时之间也看不出来。溶溶月色下，剑光似水，人影如潮，此来彼去，更无已时。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      }
+    ]
+  },
+  {
+    "id": "char_dian_cang_yu_yin",
+    "name": "点苍渔隐",
+    "alias": [],
+    "identity": "一灯大师弟子",
+    "faction": "faction_da_li_duan_shi",
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "二流",
+    "importance": "龙套",
+    "one_line": "一灯大师弟子，渔夫打扮的大理高手",
+    "personality": {
+      "traits": [
+        "沉默寡言",
+        "忠心耿耿",
+        "武艺高强"
+      ],
+      "speech_style": "极少言语，以行动表达",
+      "temperament": "沉默寡言"
+    },
+    "relationships": [
+      {
+        "target": "char_yi_deng_da_shi",
+        "type": "师徒",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "忠心弟子，侍奉左右"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "anchor": "英雄大宴出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "襄阳大战参战",
+        "locate_status": "partial",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 298,
+        "line_end": 301,
+        "text": "\n郭靖想起当日君山大战，与黄蓉力战丐帮，对手武功虽均不强，但一经联手，却难抵敌，便不敢与众道强攻硬战，展开轻身功夫，在阵中钻来窜去，找寻空隙。\n\n他东奔西跃，引动阵法生变，只一盏茶时分，已知单凭一己之力，要破此阵实极为难。一来他不愿下重手伤人；二来阵法严密之极，竟似没半点破绽；三来他心思迟钝，阵法变幻却快，纵有破绽，一时之间也看不出来。溶溶月色下，剑光似水，人影如潮，此来彼去，更无已时。",
+        "anchors_hit": [
+          "大战"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3
+      }
+    ]
+  },
+  {
+    "id": "char_lu_zhan_yuan",
+    "name": "陆展元",
+    "alias": [],
+    "identity": "陆立鼎之兄，李莫愁旧情人",
+    "faction": null,
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "三流",
+    "importance": "龙套",
+    "one_line": "抛弃李莫愁娶何沅君的陆家大公子，已故",
+    "personality": {
+      "traits": [
+        "风流倜傥",
+        "薄情寡义"
+      ],
+      "speech_style": "言语温文尔雅",
+      "temperament": "风流文雅"
+    },
+    "relationships": [
+      {
+        "target": "char_li_mo_chou",
+        "type": "恋人",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "相爱→抛弃→成为李莫愁恨意根源"
+      },
+      {
+        "target": "char_he_yuan_jun",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "夫妻，婚后幸福"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "已被提及，陆家往事",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_he_yuan_jun",
+    "name": "何沅君",
+    "alias": [],
+    "identity": "武三通义女，陆展元之妻",
+    "faction": null,
+    "role": "龙套",
+    "archetype": "healer",
+    "power_rank": "不入流",
+    "importance": "龙套",
+    "one_line": "武三通义女，陆展元之妻，已故",
+    "personality": {
+      "traits": [
+        "温柔善良",
+        "美丽动人"
+      ],
+      "speech_style": "言语温婉",
+      "temperament": "温柔善良"
+    },
+    "relationships": [
+      {
+        "target": "char_lu_zhan_yuan",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 4,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_wu_san_tong",
+        "type": "亲属",
+        "intensity": 50,
+        "bond_level": 3,
+        "dynamic": "义父女，武三通痴恋义女"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "已被提及，陆家往事",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_wu_niang_zi",
+    "name": "武娘子",
+    "alias": [],
+    "identity": "武三通之妻",
+    "faction": "faction_da_li_duan_shi",
+    "role": "龙套",
+    "archetype": "healer",
+    "power_rank": "不入流",
+    "importance": "龙套",
+    "one_line": "武三通之妻，武敦儒武修文之母",
+    "personality": {
+      "traits": [
+        "贤良淑德",
+        "逆来顺受"
+      ],
+      "speech_style": "言语不多，温顺恭敬",
+      "temperament": "温顺贤良"
+    },
+    "relationships": [
+      {
+        "target": "char_wu_san_tong",
+        "type": "亲属",
+        "intensity": 65,
+        "bond_level": 4,
+        "dynamic": "夫妻，忍受丈夫痴恋义女"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "随武三通出场",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_zhi_jing",
+    "name": "赵志敬",
+    "alias": [],
+    "identity": "全真教道士，杨过在全真教时的师父",
+    "faction": "faction_quan_zhen_jiao",
+    "role": "次要",
+    "archetype": "assassin",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "阴险狡诈的全真教道士，虐待杨过后叛教投蒙",
+    "personality": {
+      "traits": [
+        "阴险",
+        "狡诈",
+        "贪婪",
+        "忘恩负义",
+        "懦弱"
+      ],
+      "speech_style": "阴沉",
+      "temperament": "阴险"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "anchor": "赵志敬虐待杨过",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_ou_yang_feng",
+    "name": "欧阳锋",
+    "alias": [
+      "西毒"
+    ],
+    "identity": "西毒，杨过义父",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "返璞归真",
+    "importance": "重要",
+    "one_line": "逆练九阴真经致疯癫的西毒，杨过义父",
+    "personality": {
+      "traits": [
+        "阴毒",
+        "狠辣",
+        "疯癫",
+        "重情义",
+        "武痴"
+      ],
+      "speech_style": "疯癫",
+      "temperament": "阴毒"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_ha_ma_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "anchor": "杨过认欧阳锋为义父",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_zhen_zhi_bing",
+    "name": "甄志丙",
+    "alias": [],
+    "identity": "全真教道士，后为代掌教",
+    "faction": "faction_quan_zhen_jiao",
+    "role": "次要",
+    "archetype": "monk",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "暗恋小龙女的全真教道士，为赎罪而死",
+    "personality": {
+      "traits": [
+        "痴情",
+        "懦弱",
+        "内疚",
+        "有良知",
+        "刚烈"
+      ],
+      "speech_style": "温和",
+      "temperament": "懦弱"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 24,
+        "anchor": "甄志丙对小龙女忏悔",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lv_wen_huan",
+    "name": "吕文焕",
+    "alias": [],
+    "identity": "襄阳守将",
+    "faction": null,
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "龙套",
+    "one_line": "懦弱无能的襄阳守将",
+    "personality": {
+      "traits": [
+        "懦弱",
+        "无能",
+        "贪生怕死"
+      ],
+      "speech_style": "怯懦",
+      "temperament": "懦弱"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "anchor": "吕文焕守襄阳",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_tian_zhu_seng",
+    "name": "天竺僧",
+    "alias": [],
+    "identity": "一灯大师师弟，医术高明",
+    "faction": null,
+    "role": "次要",
+    "archetype": "monk",
+    "power_rank": "登峰造极",
+    "importance": "次要",
+    "one_line": "医术高明的天竺僧，一灯大师师弟",
+    "personality": {
+      "traits": [
+        "慈悲",
+        "智慧",
+        "淡泊"
+      ],
+      "speech_style": "平和",
+      "temperament": "慈悲"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 24,
+        "anchor": "天竺僧论情花毒",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_wang_zhi_tan",
+    "name": "王志坦",
+    "alias": [],
+    "identity": "全真教道士",
+    "faction": "faction_quan_zhen_jiao",
+    "role": "龙套",
+    "archetype": "monk",
+    "power_rank": "初窥门径",
+    "importance": "龙套",
+    "one_line": "全真教道士，曾斥责赵志敬",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 25,
+        "anchor": "王志坦斥责赵志敬",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lu_qing_du",
+    "name": "鹿清笃",
+    "alias": [],
+    "identity": "全真教道士，赵志敬弟子",
+    "faction": "faction_quan_zhen_jiao",
+    "role": "龙套",
+    "archetype": "monk",
+    "power_rank": "平平无奇",
+    "importance": "龙套",
+    "one_line": "赵志敬弟子，欺侮杨过的全真教道士",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "anchor": "鹿清笃欺侮杨过",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_ci_en",
+    "name": "慈恩",
+    "alias": [
+      "裘千仞",
+      "铁掌水上漂"
+    ],
+    "identity": "原铁掌帮帮主，后出家法号慈恩，一灯大师弟子",
+    "faction": null,
+    "role": "次要",
+    "archetype": "monk",
+    "power_rank": "登峰造极",
+    "importance": "次要",
+    "one_line": "原裘千仞改邪归正出家为僧，忏悔挣扎终得解脱",
+    "personality": {
+      "traits": [
+        "忏悔",
+        "挣扎",
+        "刚烈",
+        "有佛性"
+      ],
+      "speech_style": "沉痛",
+      "temperament": "挣扎"
+    },
+    "relationships": [],
+    "known_skills": [
+      "skill_tie_zhang_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 30,
+        "anchor": "慈恩忏悔",
+        "locate_status": "not_located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_sun_po_po",
+    "name": "孙婆婆",
+    "alias": [
+      "婆婆"
+    ],
+    "identity": "古墓派侍女",
+    "faction": "faction_gu_mu_pai",
+    "role": "龙套",
+    "archetype": "healer",
+    "power_rank": "略有小成",
+    "importance": "龙套",
+    "one_line": "小龙女侍女，收留杨过后被全真教郝大通所杀",
+    "personality": {
+      "traits": [
+        "慈祥",
+        "护主",
+        "善良",
+        "忠诚",
+        "勇敢"
+      ],
+      "speech_style": "慈祥温和",
+      "temperament": "善良"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_long_nyu",
+        "type": "主仆",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "侍奉小龙女多年，视如己出"
+      },
+      {
+        "target": "char_yang_guo",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "临终托付小龙女给杨过"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "anchor": "孙婆婆收留杨过"
+      }
+    ]
+  },
+  {
+    "id": "char_ma_yu",
+    "name": "马钰",
+    "alias": [
+      "丹阳子"
+    ],
+    "identity": "全真教掌教",
+    "faction": "faction_quan_zhen_jiao",
+    "role": "龙套",
+    "archetype": "monk",
+    "power_rank": "登堂入室",
+    "importance": "龙套",
+    "one_line": "全真教掌教，王重阳弟子",
+    "personality": {
+      "traits": [
+        "稳重",
+        "仁厚",
+        "谦逊",
+        "有远见"
+      ],
+      "speech_style": "稳重温和",
+      "temperament": "沉稳"
+    },
+    "relationships": [
+      {
+        "target": "char_guo_jing",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "传授郭靖内功"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "anchor": "马钰掌管全真教"
+      }
+    ]
+  }
+]
