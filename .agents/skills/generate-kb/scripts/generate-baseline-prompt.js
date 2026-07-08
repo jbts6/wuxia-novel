@@ -12,8 +12,8 @@ if (args.length < 1) {
 
 const novelDir = path.resolve(args[0]);
 
-// Load manifest for novel info
-const manifestPath = path.join(novelDir, 'manifest.json');
+// Load manifest for novel info (from build/)
+const manifestPath = path.join(novelDir, 'build', 'manifest.json');
 let novelName = path.basename(novelDir);
 let author = 'Unknown';
 let chapterCount = 0;
@@ -27,8 +27,8 @@ if (fs.existsSync(manifestPath)) {
   } catch {}
 }
 
-// Load mention_summary for entity hints
-const mentionPath = path.join(novelDir, 'mention_summary.json');
+// Load mention_summary for entity hints (from build/)
+const mentionPath = path.join(novelDir, 'build', 'mention_summary.json');
 let mentionTerms = [];
 if (fs.existsSync(mentionPath)) {
   try {
@@ -37,8 +37,8 @@ if (fs.existsSync(mentionPath)) {
   } catch {}
 }
 
-// Load existing characters.json for ID reference
-const charPath = path.join(novelDir, 'characters.json');
+// Load existing characters.json for ID reference (from data/)
+const charPath = path.join(novelDir, 'data', 'characters.json');
 let existingChars = [];
 if (fs.existsSync(charPath)) {
   try {

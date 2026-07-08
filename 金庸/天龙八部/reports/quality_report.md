@@ -1,6 +1,6 @@
 # Quality Report — 天龙八部
 
-Generated: 2026-07-08T00:45:06.044Z
+Generated: 2026-07-08T03:27:57.399Z
 
 ## Overall Score: 100/100
 
@@ -17,6 +17,18 @@ Generated: 2026-07-08T00:45:06.044Z
 | Dialogue Representativeness | 100% | 0.05 | ✅ |
 | Cross-Book Purity | 100% | 0.10 | ✅ |
 
+## Entity Quantity (参考建议，不计入综合分数)
+
+Chapter Count: 50
+
+| Type | Actual | Minimum | Status |
+|------|--------|---------|--------|
+| characters | 79 | 30 | ✅ |
+| factions | 14 | 6 | ✅ |
+| skills | 26 | 15 | ✅ |
+| items | 36 | 10 | ✅ |
+| locations | 30 | 15 | ✅ |
+
 ## Entity Completeness
 
 | Importance | Expected | Actual | Coverage |
@@ -24,7 +36,7 @@ Generated: 2026-07-08T00:45:06.044Z
 | 核心 | 3 | 3 | 100% |
 | 重要 | 20 | 20 | 100% |
 | 次要 | 15 | 15 | 100% |
-| 龙套 | 52 | 52 | 100% |
+| 龙套 | 46 | 46 | 100% |
 
 ## Relationship Completeness
 
@@ -52,6 +64,6 @@ Generated: 2026-07-08T00:45:06.044Z
 
 ## Cross-Book Purity
 
-- Total entities: 136
-- Pure entities: 136
+- Total entities: 155
+- Pure entities: 155
 - Suspicious: 0

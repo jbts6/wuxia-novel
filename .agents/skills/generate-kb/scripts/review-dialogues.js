@@ -12,27 +12,32 @@ if (args.length < 1) {
 
 const novelDir = path.resolve(args[0]);
 
-// Load JSON files
-function loadJson(filename) {
-  const fp = path.join(novelDir, filename);
-  if (!fs.existsSync(fp)) return null;
-  try {
-    return JSON.parse(fs.readFileSync(fp, 'utf8'));
-  } catch (e) {
-    console.error(`Error parsing ${filename}: ${e.message}`);
-    return null;
+// Load JSON file helper with subdirectory support
+function loadJson(filename, subdir) {
+  const dirs = subdir ? [path.join(novelDir, subdir), novelDir] : [novelDir];
+  for (const dir of dirs) {
+    const fp = path.join(dir, filename);
+    if (fs.existsSync(fp)) {
+      try {
+        return JSON.parse(fs.readFileSync(fp, 'utf8'));
+      } catch (e) {
+        console.error(`Error parsing ${filename}: ${e.message}`);
+        return null;
+      }
+    }
   }
+  return null;
 }
 
-// Load all 8 JSON files
-const characters = loadJson('characters.json') || [];
-const factions = loadJson('factions.json') || [];
-const locations = loadJson('locations.json') || [];
-const skills = loadJson('skills.json') || [];
-const techniques = loadJson('techniques.json') || [];
-const items = loadJson('items.json') || [];
-const dialogues = loadJson('dialogues.json') || [];
-const chapterSummaries = loadJson('chapter_summaries.json') || [];
+// Load all 8 JSON files (from data/)
+const characters = loadJson('characters.json', 'data') || [];
+const factions = loadJson('factions.json', 'data') || [];
+const locations = loadJson('locations.json', 'data') || [];
+const skills = loadJson('skills.json', 'data') || [];
+const techniques = loadJson('techniques.json', 'data') || [];
+const items = loadJson('items.json', 'data') || [];
+const dialogues = loadJson('dialogues.json', 'data') || [];
+const chapterSummaries = loadJson('chapter_summaries.json', 'data') || [];
 
 // Load review prompt
 const promptPath = path.join(__dirname, '..', 'prompts', 'review-all.md');

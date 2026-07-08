@@ -3057,42 +3057,6 @@
     "source_refs": []
   },
   {
-    "id": "char_zhu_dan_chen",
-    "name": "竹丹臣",
-    "alias": [
-      "朱丹臣"
-    ],
-    "identity": "大理段氏侍卫",
-    "faction": "fac_duan_shi",
-    "role": "龙套",
-    "archetype": "warrior",
-    "power_rank": "略有小成",
-    "importance": "龙套",
-    "one_line": "大理段氏四大护卫之一，忠心护主",
-    "personality": {
-      "traits": [
-        "忠心耿耿",
-        "文武双全",
-        "温文尔雅"
-      ],
-      "speech_style": "恭敬有礼，引经据典",
-      "temperament": "儒雅忠厚"
-    },
-    "relationships": [
-      {
-        "target": "char_duan_yu",
-        "type": "主仆",
-        "intensity": 70,
-        "bond_level": 3,
-        "dynamic": "护卫段誉，忠心不二"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [],
-    "source_refs": []
-  },
-  {
     "id": "char_ba_tian_shi",
     "name": "巴天石",
     "alias": [],
@@ -3903,56 +3867,6 @@
     "source_refs": []
   },
   {
-    "id": "char_qin_mian",
-    "name": "琴面",
-    "alias": [],
-    "identity": "逍遥派弟子",
-    "faction": "fac_xiao_yao",
-    "role": "龙套",
-    "archetype": "scholar",
-    "power_rank": "初窥门径",
-    "importance": "龙套",
-    "one_line": "逍遥派弟子，擅长琴艺",
-    "personality": {
-      "traits": [
-        "风雅清高",
-        "淡泊名利"
-      ],
-      "speech_style": "文雅含蓄，古风盎然",
-      "temperament": "清雅脱俗"
-    },
-    "relationships": [],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [],
-    "source_refs": []
-  },
-  {
-    "id": "char_gou_zhi_shi",
-    "name": "钩之势",
-    "alias": [],
-    "identity": "逍遥派弟子",
-    "faction": "fac_xiao_yao",
-    "role": "龙套",
-    "archetype": "warrior",
-    "power_rank": "初窥门径",
-    "importance": "龙套",
-    "one_line": "逍遥派弟子，精通杂学",
-    "personality": {
-      "traits": [
-        "机敏灵活",
-        "博学多才"
-      ],
-      "speech_style": "机智诙谐，言辞犀利",
-      "temperament": "机敏聪慧"
-    },
-    "relationships": [],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [],
-    "source_refs": []
-  },
-  {
     "id": "char_lu_du_ya",
     "name": "卢毒牙",
     "alias": [],
@@ -3978,105 +3892,6 @@
         "intensity": 40,
         "bond_level": 2,
         "dynamic": "对丁春秋阿谀奉承，摇旗呐喊"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [],
-    "source_refs": []
-  },
-  {
-    "id": "char_chu_wang_gui",
-    "name": "出王鬼",
-    "alias": [],
-    "identity": "星宿派弟子",
-    "faction": "fac_xing_xiu",
-    "role": "龙套",
-    "archetype": "assassin",
-    "power_rank": "初窥门径",
-    "importance": "龙套",
-    "one_line": "星宿派弟子，擅长溜须拍马",
-    "personality": {
-      "traits": [
-        "趋炎附势",
-        "胆小怕事"
-      ],
-      "speech_style": "谄媚逢迎，随声附和",
-      "temperament": "谄媚无骨"
-    },
-    "relationships": [
-      {
-        "target": "char_ding_chun_qiu",
-        "type": "师徒",
-        "intensity": 40,
-        "bond_level": 2,
-        "dynamic": "对丁春秋阿谀奉承，摇旗呐喊"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [],
-    "source_refs": []
-  },
-  {
-    "id": "char_shi_xiong_di",
-    "name": "师兄弟",
-    "alias": [],
-    "identity": "星宿派弟子",
-    "faction": "fac_xing_xiu",
-    "role": "龙套",
-    "archetype": "assassin",
-    "power_rank": "初窥门径",
-    "importance": "龙套",
-    "one_line": "星宿派弟子，随众附和的平庸之辈",
-    "personality": {
-      "traits": [
-        "随波逐流",
-        "见利忘义"
-      ],
-      "speech_style": "随声附和，人云亦云",
-      "temperament": "平庸怯懦"
-    },
-    "relationships": [
-      {
-        "target": "char_ding_chun_qiu",
-        "type": "师徒",
-        "intensity": 40,
-        "bond_level": 2,
-        "dynamic": "星宿派门下，随众行事"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [],
-    "source_refs": []
-  },
-  {
-    "id": "char_ming_wang",
-    "name": "明王",
-    "alias": [],
-    "identity": "吐蕃国师鸠摩智随从",
-    "faction": null,
-    "role": "龙套",
-    "archetype": "warrior",
-    "power_rank": "初窥门径",
-    "importance": "龙套",
-    "one_line": "鸠摩智随从，跟随国师四处奔走",
-    "personality": {
-      "traits": [
-        "忠心耿耿",
-        "沉默寡言"
-      ],
-      "speech_style": "简练恭敬",
-      "temperament": "沉稳内敛"
-    },
-    "relationships": [
-      {
-        "target": "char_jiu_mo_zhi",
-        "type": "主仆",
-        "intensity": 50,
-        "bond_level": 2,
-        "dynamic": "忠心追随鸠摩智"
       }
     ],
     "known_skills": [],
@@ -4245,42 +4060,6 @@
       }
     ],
     "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [],
-    "source_refs": []
-  },
-  {
-    "id": "char_qiao_feng_2",
-    "name": "乔峰",
-    "alias": [],
-    "identity": "萧峰原名，丐帮前帮主",
-    "faction": "fac_gai_bang",
-    "role": "龙套",
-    "archetype": "warrior",
-    "power_rank": "返璞归真",
-    "importance": "龙套",
-    "one_line": "萧峰在中原时的化名，杏子林事变前的身份",
-    "personality": {
-      "traits": [
-        "豪迈大方",
-        "重情重义"
-      ],
-      "speech_style": "豪爽直率，声若洪钟",
-      "temperament": "英雄气概"
-    },
-    "relationships": [
-      {
-        "target": "char_xiao_feng",
-        "type": "同一人",
-        "intensity": 100,
-        "bond_level": 5,
-        "dynamic": "乔峰即萧峰，杏子林事变前的化名"
-      }
-    ],
-    "known_skills": [
-      "skill_xiang_long_shi_ba_zhang",
-      "skill_da_gou_bang_fa"
-    ],
     "related_skills": [],
     "rag_refs": [],
     "source_refs": []

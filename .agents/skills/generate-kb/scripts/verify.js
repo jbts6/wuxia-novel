@@ -140,8 +140,10 @@ let charNames = [];
 let placeNames = [];
 let eventWords = [];
 
-// Load character names
-const charPath = path.join(novelDir, 'characters.json');
+// Load character names (from data/)
+const charPath = fs.existsSync(path.join(novelDir, 'data', 'characters.json'))
+  ? path.join(novelDir, 'data', 'characters.json')
+  : path.join(novelDir, 'characters.json');
 if (fs.existsSync(charPath)) {
   try {
     const chars = JSON.parse(fs.readFileSync(charPath, 'utf8'));
@@ -152,8 +154,10 @@ if (fs.existsSync(charPath)) {
   } catch {}
 }
 
-// Load location names
-const locPath = path.join(novelDir, 'locations.json');
+// Load location names (from data/)
+const locPath = fs.existsSync(path.join(novelDir, 'data', 'locations.json'))
+  ? path.join(novelDir, 'data', 'locations.json')
+  : path.join(novelDir, 'locations.json');
 if (fs.existsSync(locPath)) {
   try {
     const locs = JSON.parse(fs.readFileSync(locPath, 'utf8'));
@@ -195,7 +199,10 @@ function extractAnchors(text) {
 const FILES = ['characters.json', 'factions.json', 'locations.json', 'skills.json', 'techniques.json', 'items.json'];
 const results = {};
 for (const file of FILES) {
-  const fp = path.join(novelDir, file);
+  // Try data/ subdirectory first, then root
+  const fp = fs.existsSync(path.join(novelDir, 'data', file))
+    ? path.join(novelDir, 'data', file)
+    : path.join(novelDir, file);
   if (!fs.existsSync(fp)) {
     results[file] = { error: 'file not found' };
     continue;
@@ -249,9 +256,13 @@ for (const file of FILES) {
   results[file] = fileResults;
 }
 
-if (fs.existsSync(path.join(novelDir, 'dialogues.json'))) {
+// Try data/ subdirectory first, then root
+const dialoguesPath = fs.existsSync(path.join(novelDir, 'data', 'dialogues.json'))
+  ? path.join(novelDir, 'data', 'dialogues.json')
+  : path.join(novelDir, 'dialogues.json');
+if (fs.existsSync(dialoguesPath)) {
   let arr;
-  try { arr = JSON.parse(fs.readFileSync(path.join(novelDir, 'dialogues.json'), 'utf8')); }
+  try { arr = JSON.parse(fs.readFileSync(dialoguesPath, 'utf8')); }
   catch (e) { results['dialogues.json'] = { error: `parse error: ${e.message}` }; arr = null; }
   if (arr && Array.isArray(arr)) {
     const fileResults = { total: arr.length, grounded: 0, weak: 0, unverified: 0, sample_issues: [] };
@@ -272,7 +283,7 @@ if (fs.existsSync(path.join(novelDir, 'dialogues.json'))) {
   }
 }
 
-const mentionPath = path.join(novelDir, 'mention_index.jsonl');
+const mentionPath = path.join(novelDir, 'build', 'mention_index.jsonl');
 let coverage = null;
 if (fs.existsSync(mentionPath)) {
   const termFreq = new Map();

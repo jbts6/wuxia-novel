@@ -13,30 +13,41 @@ if (args.length < 1) {
 
 const novelDir = path.resolve(args[0]);
 
-// Load JSON file helper
-function loadJson(filename) {
-  const fp = path.join(novelDir, filename);
-  if (!fs.existsSync(fp)) return null;
-  try {
-    return JSON.parse(fs.readFileSync(fp, 'utf8'));
-  } catch (e) {
-    console.error(`Error parsing ${filename}: ${e.message}`);
-    return null;
+// Directory structure
+const dataDir = path.join(novelDir, 'data');
+const reportsDir = path.join(novelDir, 'reports');
+const buildDir = path.join(novelDir, 'build');
+
+// Load JSON file helper with subdirectory support
+function loadJson(filename, subdir) {
+  // Try subdir first, then root
+  const dirs = subdir ? [path.join(novelDir, subdir), novelDir] : [novelDir];
+  for (const dir of dirs) {
+    const fp = path.join(dir, filename);
+    if (fs.existsSync(fp)) {
+      try {
+        return JSON.parse(fs.readFileSync(fp, 'utf8'));
+      } catch (e) {
+        console.error(`Error parsing ${filename}: ${e.message}`);
+        return null;
+      }
+    }
   }
+  return null;
 }
 
-// Load knowledge base files
-const characters = loadJson('characters.json') || [];
-const factions = loadJson('factions.json') || [];
-const locations = loadJson('locations.json') || [];
-const skills = loadJson('skills.json') || [];
-const techniques = loadJson('techniques.json') || [];
-const items = loadJson('items.json') || [];
-const dialogues = loadJson('dialogues.json') || [];
-const chapterSummaries = loadJson('chapter_summaries.json') || [];
+// Load knowledge base files (from data/)
+const characters = loadJson('characters.json', 'data') || [];
+const factions = loadJson('factions.json', 'data') || [];
+const locations = loadJson('locations.json', 'data') || [];
+const skills = loadJson('skills.json', 'data') || [];
+const techniques = loadJson('techniques.json', 'data') || [];
+const items = loadJson('items.json', 'data') || [];
+const dialogues = loadJson('dialogues.json', 'data') || [];
+const chapterSummaries = loadJson('chapter_summaries.json', 'data') || [];
 
-// Load baseline
-const baseline = loadJson('baseline.json');
+// Load baseline (from build/)
+const baseline = loadJson('baseline.json', 'build');
 if (!baseline) {
   console.error('baseline.json not found. Run generate-baseline-prompt.js first.');
   process.exit(1);
@@ -453,6 +464,41 @@ function assessCrossBookPurity() {
 }
 
 // ============================================================
+// 7. Entity Quantity
+// ============================================================
+function assessEntityQuantity() {
+  // Minimum entity counts based on chapter count
+  const chapterCount = chapterSummaries.length || 0;
+  
+  // Define minimums based on chapter count (after Phase 2.6 cleanup)
+  let minCharacters, minFactions, minSkills, minItems, minLocations;
+  
+  if (chapterCount >= 50) {
+    minCharacters = 30; minFactions = 6; minSkills = 15; minItems = 10; minLocations = 15;
+  } else if (chapterCount >= 30) {
+    minCharacters = 20; minFactions = 5; minSkills = 10; minItems = 8; minLocations = 10;
+  } else if (chapterCount >= 20) {
+    minCharacters = 15; minFactions = 4; minSkills = 8; minItems = 6; minLocations = 8;
+  } else {
+    minCharacters = 8; minFactions = 3; minSkills = 5; minItems = 3; minLocations = 5;
+  }
+  
+  const details = {
+    characters: { actual: characters.length, minimum: minCharacters, passed: characters.length >= minCharacters },
+    factions: { actual: factions.length, minimum: minFactions, passed: factions.length >= minFactions },
+    skills: { actual: skills.length, minimum: minSkills, passed: skills.length >= minSkills },
+    items: { actual: items.length, minimum: minItems, passed: items.length >= minItems },
+    locations: { actual: locations.length, minimum: minLocations, passed: locations.length >= minLocations }
+  };
+  
+  const totalTypes = Object.keys(details).length;
+  const passedTypes = Object.values(details).filter(d => d.passed).length;
+  const score = Math.round((passedTypes / totalTypes) * 1000) / 10;
+  
+  return { score, details, chapterCount };
+}
+
+// ============================================================
 // Run all assessments
 // ============================================================
 const entityCompleteness = assessEntityCompleteness();
@@ -461,8 +507,10 @@ const descriptionAccuracy = assessDescriptionAccuracy();
 const eventCoverage = assessEventCoverage();
 const dialogueQuality = assessDialogueQuality();
 const crossBookPurity = assessCrossBookPurity();
+const entityQuantity = assessEntityQuantity();
 
 // Calculate overall score (weights sum to 1.0, scores are percentages)
+// Note: entity_quantity is informational only, not included in score
 const overallScore = Math.round(
   entityCompleteness.score * 0.25 +
   relationships.completeness * 0.15 +
@@ -484,6 +532,7 @@ const report = {
   overall_score: overallScore,
   metrics: {
     entity_completeness: entityCompleteness,
+    entity_quantity: entityQuantity,
     relationship_completeness: {
       score: relationships.completeness,
       accuracy: relationships.accuracy,
@@ -498,12 +547,13 @@ const report = {
   }
 };
 
-// Write JSON report
-const jsonPath = path.join(novelDir, 'quality_report.json');
+// Write JSON report (to reports/ subdirectory)
+if (!fs.existsSync(reportsDir)) fs.mkdirSync(reportsDir, { recursive: true });
+const jsonPath = path.join(reportsDir, 'quality_report.json');
 fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2), 'utf8');
 
 // Write Markdown report
-const mdPath = path.join(novelDir, 'quality_report.md');
+const mdPath = path.join(reportsDir, 'quality_report.md');
 const md = generateMarkdownReport(report);
 fs.writeFileSync(mdPath, md, 'utf8');
 
@@ -511,6 +561,7 @@ fs.writeFileSync(mdPath, md, 'utf8');
 console.log(`\nOverall Quality Score: ${overallScore}/100\n`);
 console.log('Metric Scores:');
 console.log(`  Entity Completeness:       ${entityCompleteness.score}%`);
+console.log(`  Entity Quantity:           ${entityQuantity.score}%`);
 console.log(`  Relationship Completeness: ${relationships.completeness}%`);
 console.log(`  Relationship Accuracy:     ${relationships.accuracy}%`);
 console.log(`  Description Accuracy:      ${descriptionAccuracy.score}%`);
@@ -544,6 +595,16 @@ function generateMarkdownReport(report) {
   lines.push(`| Dialogue Authenticity | ${report.metrics.dialogue_quality.authenticity}% | 0.10 | ${statusIcon(report.metrics.dialogue_quality.authenticity)} |`);
   lines.push(`| Dialogue Representativeness | ${report.metrics.dialogue_quality.representativeness}% | 0.05 | ${statusIcon(report.metrics.dialogue_quality.representativeness)} |`);
   lines.push(`| Cross-Book Purity | ${report.metrics.cross_book_purity.score}% | 0.10 | ${statusIcon(report.metrics.cross_book_purity.score)} |`);
+
+  // Entity Quantity Details (informational only)
+  lines.push('\n## Entity Quantity (参考建议，不计入综合分数)\n');
+  const eq = report.metrics.entity_quantity;
+  lines.push(`Chapter Count: ${eq.chapterCount}\n`);
+  lines.push('| Type | Actual | Minimum | Status |');
+  lines.push('|------|--------|---------|--------|');
+  for (const [key, val] of Object.entries(eq.details)) {
+    lines.push(`| ${key} | ${val.actual} | ${val.minimum} | ${val.passed ? '✅' : '⚠️'} |`);
+  }
 
   // Entity Completeness Details
   lines.push('\n## Entity Completeness\n');

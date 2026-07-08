@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T00:45:06.044Z",
+  "generated_at": "2026-07-08T03:27:57.399Z",
   "novel": "天龙八部",
   "author": "金庸",
   "overall_score": 100,
@@ -23,12 +23,43 @@
           "coverage": 100
         },
         "minor": {
-          "expected": 52,
-          "actual": 52,
+          "expected": 46,
+          "actual": 46,
           "coverage": 100
         }
       },
       "missing": []
+    },
+    "entity_quantity": {
+      "score": 100,
+      "details": {
+        "characters": {
+          "actual": 79,
+          "minimum": 30,
+          "passed": true
+        },
+        "factions": {
+          "actual": 14,
+          "minimum": 6,
+          "passed": true
+        },
+        "skills": {
+          "actual": 26,
+          "minimum": 15,
+          "passed": true
+        },
+        "items": {
+          "actual": 36,
+          "minimum": 10,
+          "passed": true
+        },
+        "locations": {
+          "actual": 30,
+          "minimum": 15,
+          "passed": true
+        }
+      },
+      "chapterCount": 50
     },
     "relationship_completeness": {
       "score": 100,
@@ -89,8 +120,8 @@
     },
     "cross_book_purity": {
       "score": 100,
-      "totalEntities": 136,
-      "pureEntities": 136,
+      "totalEntities": 155,
+      "pureEntities": 155,
       "suspicious": []
     }
   }

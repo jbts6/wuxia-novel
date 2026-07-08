@@ -30,8 +30,8 @@ let ANCHOR_DICT = null;
 function loadAnchorDict() {
   if (ANCHOR_DICT) return ANCHOR_DICT;
   
-  // 优先读取小说专属关键词文件
-  const keywordsPath = path.join(novelDir, 'keywords.json');
+  // 优先读取小说专属关键词文件 (from build/)
+  const keywordsPath = path.join(novelDir, 'build', 'keywords.json');
   if (fs.existsSync(keywordsPath)) {
     try {
       const keywords = JSON.parse(fs.readFileSync(keywordsPath, 'utf8'));
@@ -48,7 +48,7 @@ function loadAnchorDict() {
   // Fallback: 使用 mention_index + 硬编码关键词
   console.log('keywords.json not found, using default keywords');
   const terms = new Set();
-  const mentionPath = path.join(novelDir, 'mention_index.jsonl');
+  const mentionPath = path.join(novelDir, 'build', 'mention_index.jsonl');
   if (fs.existsSync(mentionPath)) {
     for (const raw of fs.readFileSync(mentionPath, 'utf8').split(/\r?\n/)) {
       if (!raw) continue;
@@ -315,7 +315,10 @@ const FILES = ['characters.json', 'factions.json', 'locations.json', 'skills.jso
 const summary = {};
 
 for (const file of FILES) {
-  const fp = path.join(novelDir, file);
+  // Try data/ subdirectory first, then root
+  const fp = fs.existsSync(path.join(novelDir, 'data', file))
+    ? path.join(novelDir, 'data', file)
+    : path.join(novelDir, file);
   if (!fs.existsSync(fp)) { summary[file] = { error: 'file not found' }; continue; }
   let arr;
   try { arr = JSON.parse(fs.readFileSync(fp, 'utf8')); }

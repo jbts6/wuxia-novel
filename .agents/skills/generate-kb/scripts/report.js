@@ -11,7 +11,10 @@ if (args.length < 1) {
 }
 
 const novelDir = path.resolve(args[0]);
-const resultPath = path.join(novelDir, 'verification_result.json');
+// Try reports/ subdirectory first, then root
+const resultPath = fs.existsSync(path.join(novelDir, 'reports', 'verification_result.json'))
+  ? path.join(novelDir, 'reports', 'verification_result.json')
+  : path.join(novelDir, 'verification_result.json');
 if (!fs.existsSync(resultPath)) {
   console.error(`verification_result.json not found; run verify.js first`);
   process.exit(1);
@@ -76,7 +79,10 @@ const crossItems = [];
 for (const file of Object.keys(results)) {
   const r = results[file];
   if (r.error) continue;
-  const fp = path.join(novelDir, file);
+  // Try data/ subdirectory first, then root
+  const fp = fs.existsSync(path.join(novelDir, 'data', file))
+    ? path.join(novelDir, 'data', file)
+    : path.join(novelDir, file);
   if (!fs.existsSync(fp)) continue;
   let arr;
   try { arr = JSON.parse(fs.readFileSync(fp, 'utf8')); } catch { continue; }
@@ -186,8 +192,11 @@ if (needsPatch) {
 lines.push('');
 
 const md = lines.join('\n');
-fs.writeFileSync(path.join(novelDir, 'verification_report.md'), md, 'utf8');
-fs.writeFileSync(path.join(novelDir, 'verification_report.json'), JSON.stringify({
+// Output to reports/ subdirectory
+const reportsDir = path.join(novelDir, 'reports');
+if (!fs.existsSync(reportsDir)) fs.mkdirSync(reportsDir, { recursive: true });
+fs.writeFileSync(path.join(reportsDir, 'verification_report.md'), md, 'utf8');
+fs.writeFileSync(path.join(reportsDir, 'verification_report.json'), JSON.stringify({
   generated_at: data.generated_at,
   grand_total: grandTotal,
   grand_grounded_ratio: grandTotal.refs ? grandTotal.grounded / grandTotal.refs : 0,
