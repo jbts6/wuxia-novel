@@ -79,7 +79,7 @@
   },
   {
     "id": "item_jin_she_mi_ji",
-    "name": "金蛇秘籍",
+    "name": "金蛇秘笈",
     "type": "秘籍",
     "owner": null,
     "one_line": "金蛇郎君的武功秘籍，袁承志所得",
@@ -112,45 +112,6 @@
         "locate_score": 100,
         "locate_method": "partial",
         "hint_chapter": 4,
-        "alternatives": []
-      }
-    ]
-  },
-  {
-    "id": "item_hua_shan_jian_pu",
-    "name": "华山剑谱",
-    "type": "秘籍",
-    "owner": null,
-    "one_line": "华山派武功秘籍",
-    "description": "华山剑谱是华山派武功秘籍，记载华山剑法等武功。",
-    "effects": [
-      {
-        "type": "增益",
-        "description": "记载华山剑法等武功"
-      }
-    ],
-    "origin": "华山派",
-    "related_characters": [],
-    "related_skills": [],
-    "rarity_tier": "稀世珍品",
-    "rag_refs": [
-      3
-    ],
-    "source_refs": [
-      {
-        "chapter": 3,
-        "anchor": "华山剑谱在华山提及",
-        "line_start": 46,
-        "line_end": 49,
-        "text": "\n哑巴摆了张香案。那老人取出一幅画，画上绘的是个中年书生，空手作着个持剑姿式。那老人点了香烛，对着画像恭恭敬敬的磕了头，对袁承志道：“这是咱们华山派的开山祖师风祖师爷，你过来磕头。”袁承志向画中人瞧了两眼，心道：“你可比我师父年轻得多啦，怎么反而是祖师爷？”当下过去磕头，不知该磕几个头，心想总是越多越好，直磕到那老人笑着叫他停止才罢。那老人笑吟吟的正要开口说话，袁承志又跪下磕头，算是正式拜师。\n\n那老人微笑着受了，说道：“从今而后，你是我华山派的弟子了。我多年前收过两个徒弟，此后一直没再遇到聪颖肯学的孩子，这些年来没再传人。你是我的第三个弟子，也是我的关门徒弟。你可得好好学，别给我丢人现眼。”袁承志连连点头。",
-        "anchors_hit": [
-          "华山"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 3,
         "alternatives": []
       }
     ]
@@ -234,45 +195,6 @@
     ]
   },
   {
-    "id": "item_chong_zhen_xue_zhao",
-    "name": "崇祯血诏",
-    "type": "信物",
-    "owner": null,
-    "one_line": "崇祯皇帝的遗诏",
-    "description": "崇祯血诏是崇祯皇帝的遗诏，写在白纸上，朱笔写着几行字，血迹斑斑。",
-    "effects": [
-      {
-        "type": "特殊",
-        "description": "崇祯皇帝的遗诏"
-      }
-    ],
-    "origin": "崇祯皇帝",
-    "related_characters": [],
-    "related_skills": [],
-    "rarity_tier": "稀世珍品",
-    "rag_refs": [
-      19
-    ],
-    "source_refs": [
-      {
-        "chapter": 19,
-        "anchor": "崇祯血诏在华山提及",
-        "line_start": 268,
-        "line_end": 271,
-        "text": "\n“吾华山派历来门规，不得在朝居官任职。今闯王大业克就，吾派弟子功成身退，其于四月月圆之夕，齐集华山之巅。”下面签着个“清”字。\n\n袁承志道：“啊，会期就将临近，咱们该得动身了。”崔希敏道：“正是，我叔叔他们也都要去呢。”",
-        "anchors_hit": [
-          "华山"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 19,
-        "alternatives": []
-      }
-    ]
-  },
-  {
     "id": "item_tie_bian",
     "name": "铁鞭",
     "type": "兵器",
@@ -346,6 +268,46 @@
         "locate_score": 100,
         "locate_method": "partial",
         "hint_chapter": 20,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "item_chong_zhen_xue_zhao",
+    "name": "血诏",
+    "type": "信物",
+    "owner": null,
+    "one_line": "崇祯皇帝的遗诏，血迹斑斑",
+    "description": "崇祯血诏是崇祯皇帝上吊前写的遗诏，用朱笔写在白纸上，血迹斑斑。内容为'朕登极十七年，致敌入内地四次，逆贼直逼京师，虽朕薄德匪躬，上干天咎，然皆诸臣之误朕也。朕死，无面目见祖宗于地下，去朕冠冕，以发覆面，任贼分裂朕尸，勿伤百姓一人。'袁承志从崇祯遗体上取得。",
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "历史文物，崇祯皇帝遗诏"
+      }
+    ],
+    "origin": "崇祯皇帝",
+    "related_characters": [],
+    "related_skills": [],
+    "rarity_tier": "稀世珍品",
+    "rag_refs": [
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "anchor": "崇祯血诏在煤山提及",
+        "event_type": "first_mention",
+        "line_start": 6246,
+        "line_end": 6246,
+        "text": "\n袁承志拿了这张血诏，颇感怅惘，二十年来大仇今日得报，本是喜事，但见仇人如此凄惨下场，不禁恻然久之，心想：'你话倒说得漂亮，什么勿伤百姓一人。要是你早知爱惜百姓，不是逼得天下饥民无路可走，又怎会到今日这步田地。'\n",
+        "anchors_hit": [
+          "血诏"
+        ],
+        "anchors_total": 1,
+        "locate_status": "located",
+        "locate_score": 100,
+        "locate_method": "exact",
+        "hint_chapter": 19,
         "alternatives": []
       }
     ]

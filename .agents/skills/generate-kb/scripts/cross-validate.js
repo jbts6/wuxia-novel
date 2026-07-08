@@ -75,6 +75,19 @@ for (const item of mentionSummary) {
   if (item.term) mentionedTerms.add(item.term);
 }
 
+// Load original text for verification
+const baseName = path.basename(novelDir);
+const txtPath = path.join(novelDir, `${baseName}.txt`);
+let originalText = '';
+if (fs.existsSync(txtPath)) {
+  originalText = fs.readFileSync(txtPath, 'utf8');
+}
+
+// Helper: check if term exists in original text
+function existsInOriginalText(term) {
+  return originalText.includes(term);
+}
+
 const issues = [];
 
 // 1. Relationship symmetry check
@@ -340,65 +353,83 @@ const SUSPICIOUS_PATTERNS = [
 for (const c of characters) {
   const name = c.name;
   // Check if name or any alias appears in mention_summary
-  const found = mentionedTerms.has(name) || 
+  const foundInMention = mentionedTerms.has(name) || 
                 (Array.isArray(c.alias) && c.alias.some(a => mentionedTerms.has(a)));
   
-  if (!found && c.importance !== '背景') {
-    issues.push({
-      type: 'possible_hallucination',
-      severity: 'warning',
-      source: c.id,
-      name: name,
-      message: `Character "${name}" not found in mention_summary.json - possible hallucination`
-    });
+  // If not in mention_summary, verify against original text
+  if (!foundInMention && c.importance !== '背景') {
+    const foundInText = existsInOriginalText(name) || 
+                       (Array.isArray(c.alias) && c.alias.some(a => existsInOriginalText(a)));
+    
+    if (!foundInText) {
+      issues.push({
+        type: 'possible_hallucination',
+        severity: 'warning',
+        source: c.id,
+        name: name,
+        message: `Character "${name}" not found in original text - likely hallucination`
+      });
+    }
   }
 }
 
 // Check items not mentioned
 for (const i of items) {
   const name = i.name;
-  const found = mentionedTerms.has(name);
+  const foundInMention = mentionedTerms.has(name);
   
-  if (!found) {
-    issues.push({
-      type: 'possible_hallucination',
-      severity: 'warning',
-      source: i.id,
-      name: name,
-      message: `Item "${name}" not found in mention_summary.json - possible hallucination`
-    });
+  if (!foundInMention) {
+    const foundInText = existsInOriginalText(name);
+    
+    if (!foundInText) {
+      issues.push({
+        type: 'possible_hallucination',
+        severity: 'warning',
+        source: i.id,
+        name: name,
+        message: `Item "${name}" not found in original text - likely hallucination`
+      });
+    }
   }
 }
 
 // Check skills not mentioned
 for (const s of skills) {
   const name = s.name;
-  const found = mentionedTerms.has(name);
+  const foundInMention = mentionedTerms.has(name);
   
-  if (!found) {
-    issues.push({
-      type: 'possible_hallucination',
-      severity: 'info',
-      source: s.id,
-      name: name,
-      message: `Skill "${name}" not found in mention_summary.json - possible hallucination`
-    });
+  if (!foundInMention) {
+    const foundInText = existsInOriginalText(name);
+    
+    if (!foundInText) {
+      issues.push({
+        type: 'possible_hallucination',
+        severity: 'info',
+        source: s.id,
+        name: name,
+        message: `Skill "${name}" not found in original text - likely hallucination`
+      });
+    }
   }
 }
 
 // Check factions not mentioned
 for (const f of factions) {
   const name = f.name;
-  const found = mentionedTerms.has(name) || mentionedTerms.has(name.replace('寺', '').replace('派', ''));
+  const foundInMention = mentionedTerms.has(name) || mentionedTerms.has(name.replace('寺', '').replace('派', ''));
   
-  if (!found) {
-    issues.push({
-      type: 'possible_hallucination',
-      severity: 'info',
-      source: f.id,
-      name: name,
-      message: `Faction "${name}" not found in mention_summary.json - possible hallucination`
-    });
+  if (!foundInMention) {
+    const foundInText = existsInOriginalText(name);
+    
+    if (!foundInText) {
+      issues.push({
+        type: 'possible_hallucination',
+        severity: 'info',
+        source: f.id,
+        name: name,
+        message: `Faction "${name}" not found in original text - likely hallucination`
+      });
+    }
   }
 }
 

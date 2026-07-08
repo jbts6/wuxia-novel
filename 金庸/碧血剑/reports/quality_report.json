@@ -1,0 +1,144 @@
+{
+  "generated_at": "2026-07-08T05:39:15.214Z",
+  "novel": "碧血剑",
+  "author": "金庸",
+  "overall_score": 96,
+  "metrics": {
+    "entity_completeness": {
+      "score": 100,
+      "details": {
+        "core": {
+          "expected": 2,
+          "actual": 2,
+          "coverage": 100
+        },
+        "important": {
+          "expected": 7,
+          "actual": 7,
+          "coverage": 100
+        },
+        "secondary": {
+          "expected": 19,
+          "actual": 19,
+          "coverage": 100
+        },
+        "minor": {
+          "expected": 18,
+          "actual": 18,
+          "coverage": 100
+        }
+      },
+      "missing": []
+    },
+    "entity_quantity": {
+      "score": 100,
+      "details": {
+        "characters": {
+          "actual": 46,
+          "minimum": 15,
+          "passed": true
+        },
+        "factions": {
+          "actual": 12,
+          "minimum": 4,
+          "passed": true
+        },
+        "skills": {
+          "actual": 13,
+          "minimum": 8,
+          "passed": true
+        },
+        "items": {
+          "actual": 8,
+          "minimum": 6,
+          "passed": true
+        },
+        "locations": {
+          "actual": 20,
+          "minimum": 8,
+          "passed": true
+        }
+      },
+      "chapterCount": 20
+    },
+    "relationship_completeness": {
+      "score": 100,
+      "accuracy": 100,
+      "details": {
+        "core": {
+          "expected": 0,
+          "actual": 0
+        },
+        "important": {
+          "expected": 0,
+          "actual": 0
+        },
+        "secondary": {
+          "expected": 7,
+          "actual": 7
+        }
+      },
+      "missing": [],
+      "incorrect": []
+    },
+    "description_accuracy": {
+      "score": 100,
+      "totalChecked": 9,
+      "accurate": 9,
+      "issues": []
+    },
+    "event_coverage": {
+      "score": 100,
+      "details": {
+        "main": {
+          "expected": 0,
+          "actual": 0
+        },
+        "branch": {
+          "expected": 0,
+          "actual": 0
+        },
+        "detail": {
+          "expected": 80,
+          "actual": 80
+        }
+      },
+      "missing": []
+    },
+    "dialogue_quality": {
+      "authenticity": 80,
+      "representativeness": 59.5,
+      "characterFit": 80,
+      "details": {
+        "total": 200,
+        "withSpeaker": 119,
+        "withListener": 130,
+        "baselineChecked": 10,
+        "baselineMatched": 8
+      },
+      "issues": []
+    },
+    "cross_book_purity": {
+      "score": 96.2,
+      "totalEntities": 79,
+      "pureEntities": 76,
+      "suspicious": [
+        {
+          "id": "faction_yuan_dang",
+          "name": "袁党",
+          "type": "faction"
+        },
+        {
+          "id": "item_jin_she_mi_ji",
+          "name": "金蛇秘笈",
+          "type": "item"
+        },
+        {
+          "id": "item_chong_zhen_xue_zhao",
+          "name": "血诏",
+          "type": "item"
+        }
+      ]
+    }
+  }
+}
