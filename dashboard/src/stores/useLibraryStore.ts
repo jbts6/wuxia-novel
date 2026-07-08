@@ -1,35 +1,15 @@
 import { create } from 'zustand';
-import type { LibraryAnnotationMap, LibraryFilters, LibrarySection } from '../types/library';
-import { createEmptyLibraryFilters } from '../utils/libraryFilters';
-import { loadLibraryAnnotations, saveLibraryAnnotations, updateLibraryAnnotation } from '../utils/libraryAnnotations';
+import type { BookMeta } from '../types/novel';
+import { books } from '../data/books';
 
 interface LibraryStore {
-  section: LibrarySection;
-  filters: LibraryFilters;
-  selectedKey: string | null;
-  annotations: LibraryAnnotationMap;
-  setSection: (section: LibrarySection) => void;
-  setFilters: (filters: Partial<LibraryFilters>) => void;
-  resetFilters: () => void;
-  selectRecord: (key: string | null) => void;
-  hydrateAnnotations: () => void;
-  updateAnnotation: (key: string, patch: Parameters<typeof updateLibraryAnnotation>[2]) => void;
+  books: BookMeta[];
+  currentBook: string | null;
+  setCurrentBook: (path: string | null) => void;
 }
 
-export const useLibraryStore = create<LibraryStore>((set, get) => ({
-  section: 'overview',
-  filters: createEmptyLibraryFilters(),
-  selectedKey: null,
-  annotations: {},
-
-  setSection: (section) => set({ section }),
-  setFilters: (filters) => set((state) => ({ filters: { ...state.filters, ...filters } })),
-  resetFilters: () => set({ filters: createEmptyLibraryFilters() }),
-  selectRecord: (selectedKey) => set({ selectedKey }),
-  hydrateAnnotations: () => set({ annotations: loadLibraryAnnotations() }),
-  updateAnnotation: (key, patch) => {
-    const annotations = updateLibraryAnnotation(get().annotations, key, patch);
-    saveLibraryAnnotations(annotations);
-    set({ annotations });
-  },
+export const useLibraryStore = create<LibraryStore>((set) => ({
+  books,
+  currentBook: null,
+  setCurrentBook: (path) => set({ currentBook: path }),
 }));

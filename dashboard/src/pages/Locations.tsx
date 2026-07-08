@@ -6,26 +6,26 @@ import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
 
-export default function Factions() {
-  const { factions, detailPanel, showDetail, hideDetail } = useNovelStore();
+export default function Locations() {
+  const { locations, detailPanel, showDetail, hideDetail } = useNovelStore();
   const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
-    return factions.filter((f) => !search || f.name.includes(search));
-  }, [factions, search]);
+    return locations.filter((l) => !search || l.name.includes(search));
+  }, [locations, search]);
 
   const selected = useMemo(() => {
-    if (detailPanel.type === 'faction' && detailPanel.id) {
-      return factions.find((f) => f.id === detailPanel.id);
+    if (detailPanel.type === 'location' && detailPanel.id) {
+      return locations.find((l) => l.id === detailPanel.id);
     }
     return null;
-  }, [factions, detailPanel]);
+  }, [locations, detailPanel]);
 
   return (
     <div>
-      <PageHeader title="势力录" description={`共 ${filtered.length} 个势力`}>
+      <PageHeader title="地点志" description={`共 ${filtered.length} 个地点`}>
         <Input
-          placeholder="搜索势力..."
+          placeholder="搜索地点..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="w-48"
@@ -37,27 +37,29 @@ export default function Factions() {
           <thead>
             <tr className="border-b bg-muted/50">
               <th className="p-3 text-left font-medium">名称</th>
-              <th className="p-3 text-left font-medium">类型</th>
-              <th className="p-3 text-left font-medium">地点</th>
-              <th className="p-3 text-left font-medium">领袖</th>
+              <th className="p-3 text-left font-medium">区域</th>
+              <th className="p-3 text-left font-medium">关联势力</th>
               <th className="p-3 text-left font-medium">简介</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.map((faction) => (
+            {filtered.map((location) => (
               <tr
-                key={faction.id}
+                key={location.id}
                 className="cursor-pointer border-b transition-colors hover:bg-muted/50"
-                onClick={() => showDetail('faction', faction.id)}
+                onClick={() => showDetail('location', location.id)}
               >
-                <td className="p-3 font-medium">{faction.name}</td>
+                <td className="p-3 font-medium">{location.name}</td>
+                <td className="p-3 text-sm">{location.region || '-'}</td>
                 <td className="p-3">
-                  <Badge variant="outline">{faction.type}</Badge>
+                  <div className="flex flex-wrap gap-1">
+                    {location.factions?.slice(0, 2).map((f) => (
+                      <Badge key={f} variant="secondary" className="text-xs">{f}</Badge>
+                    ))}
+                  </div>
                 </td>
-                <td className="p-3 text-sm">{faction.location || '-'}</td>
-                <td className="p-3 text-sm">{faction.leader || '-'}</td>
                 <td className="p-3 text-sm text-muted-foreground max-w-xs truncate">
-                  {faction.one_line || faction.description?.slice(0, 50) || '-'}
+                  {location.one_line || location.description?.slice(0, 50) || '-'}
                 </td>
               </tr>
             ))}
@@ -65,7 +67,7 @@ export default function Factions() {
         </table>
       </div>
 
-      <Sheet open={detailPanel.open && detailPanel.type === 'faction'} onOpenChange={(open) => !open && hideDetail()}>
+      <Sheet open={detailPanel.open && detailPanel.type === 'location'} onOpenChange={(open) => !open && hideDetail()}>
         <SheetContent className="w-[400px] sm:w-[540px] overflow-y-auto p-6">
           {selected && (
             <>
@@ -74,36 +76,34 @@ export default function Factions() {
               </SheetHeader>
               <div className="mt-6 space-y-4">
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div>类型：{selected.type}</div>
-                  <div>地点：{selected.location || '-'}</div>
-                  <div>领袖：{selected.leader || '-'}</div>
+                  <div>区域：{selected.region || '-'}</div>
                 </div>
                 <Separator />
                 <div>
                   <h4 className="mb-2 font-medium">简介</h4>
                   <p className="text-sm text-muted-foreground">{selected.one_line || selected.description || '暂无简介'}</p>
                 </div>
-                {selected.members && selected.members.length > 0 && (
+                {selected.factions && selected.factions.length > 0 && (
                   <>
                     <Separator />
                     <div>
-                      <h4 className="mb-2 font-medium">成员</h4>
+                      <h4 className="mb-2 font-medium">关联势力</h4>
                       <div className="flex flex-wrap gap-1">
-                        {selected.members.map((m) => (
-                          <Badge key={m} variant="outline">{m}</Badge>
+                        {selected.factions.map((f) => (
+                          <Badge key={f} variant="outline">{f}</Badge>
                         ))}
                       </div>
                     </div>
                   </>
                 )}
-                {selected.sub_organizations && selected.sub_organizations.length > 0 && (
+                {selected.characters && selected.characters.length > 0 && (
                   <>
                     <Separator />
                     <div>
-                      <h4 className="mb-2 font-medium">下属机构</h4>
+                      <h4 className="mb-2 font-medium">关联人物</h4>
                       <div className="flex flex-wrap gap-1">
-                        {selected.sub_organizations.map((o) => (
-                          <Badge key={o} variant="secondary">{o}</Badge>
+                        {selected.characters.map((c) => (
+                          <Badge key={c} variant="secondary">{c}</Badge>
                         ))}
                       </div>
                     </div>

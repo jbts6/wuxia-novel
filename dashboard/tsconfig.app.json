@@ -19,7 +19,15 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path aliases */
+    "paths": {
+      "@/*": ["./src/*"],
+      "@data/天龙八部": ["../金庸/天龙八部/data"],
+      "@data/神雕侠侣": ["../金庸/神雕侠侣/data"],
+      "@data/碧血剑": ["../金庸/碧血剑/data"]
+    }
   },
   "include": ["src"]
 }

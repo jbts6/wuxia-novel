@@ -1,184 +1,92 @@
-import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { useBookStore } from '../stores/useBookStore';
-import { BookChapter, SealStamp, InkRule } from '../shared/components';
+import { useLibraryStore } from '../stores/useLibraryStore';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { BookOpen, Users, Swords, Gem, Building2, MapPin } from 'lucide-react';
+import { useMemo } from 'react';
 
-const AUTHOR_SEALS: Record<string, string> = {
-  金庸: '金',
-  古龙: '古',
-  梁羽生: '梁',
-  黄易: '黄',
-};
+export default function Library() {
+  const { books } = useLibraryStore();
 
-const AUTHOR_INTROS: Record<string, string> = {
-  金庸: '侠之大者，家国天下',
-  古龙: '浪子江湖，奇情诡事',
-  梁羽生: '名士风流，历史传奇',
-  黄易: '玄幻先驱，时空交织',
-};
-
-const Library: React.FC = () => {
-  const books = useBookStore(s => s.books);
-
-  const authors = useMemo(() => {
-    const map = new Map<string, { count: number; characters: number; skills: number; factions: number }>();
-    for (const b of books) {
-      const cur = map.get(b.author) ?? { count: 0, characters: 0, skills: 0, factions: 0 };
-      cur.count += 1;
-      cur.characters += b.characters;
-      cur.skills += b.skills;
-      cur.factions += b.factions;
-      map.set(b.author, cur);
-    }
-    return Array.from(map.entries())
-      .map(([name, stats]) => ({ name, ...stats }))
-      .sort((a, b) => b.characters - a.characters);
+  // 按作者分组
+  const groupedByAuthor = useMemo(() => {
+    const groups = new Map<string, typeof books>();
+    books.forEach((book) => {
+      const existing = groups.get(book.author) || [];
+      groups.set(book.author, [...existing, book]);
+    });
+    return groups;
   }, [books]);
 
-  const totals = useMemo(() => ({
-    books: books.length,
-    authors: authors.length,
-    characters: authors.reduce((s, a) => s + a.characters, 0),
-    skills: authors.reduce((s, a) => s + a.skills, 0),
-    factions: authors.reduce((s, a) => s + a.factions, 0),
-  }), [authors, books]);
-
   return (
-    <BookChapter title="藏 书 阁" subtitle="四家卷宗，一阁尽览" seal="阁">
-      <div
-        style={{
-          display: 'flex',
-          gap: 28,
-          padding: '12px 20px',
-          marginBottom: 32,
-          background: 'var(--paper-raised)',
-          border: '1px solid var(--ink-hairline)',
-          borderRadius: 2,
-          flexWrap: 'wrap',
-        }}
-      >
-        {[
-          { label: '书斋', value: totals.authors },
-          { label: '卷宗', value: totals.books },
-          { label: '人物', value: totals.characters },
-          { label: '武功', value: totals.skills },
-          { label: '门派', value: totals.factions },
-        ].map(s => (
-          <div key={s.label} style={{ minWidth: 80 }}>
-            <div
-              style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: 22,
-                fontWeight: 600,
-                color: 'var(--cinnabar)',
-                lineHeight: 1.2,
-              }}
-            >
-              {s.value}
-            </div>
-            <div
-              style={{
-                fontSize: 11,
-                color: 'var(--ink-secondary)',
-                letterSpacing: '0.2em',
-                marginTop: 2,
-              }}
-            >
-              {s.label}
+    <div className="min-h-screen bg-background p-8">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-8">
+          <h1 className="font-serif text-3xl font-bold text-foreground">武侠知识库</h1>
+          <p className="mt-2 text-muted-foreground">探索经典武侠小说的世界</p>
+        </div>
+
+        {Array.from(groupedByAuthor.entries()).map(([author, authorBooks]) => (
+          <div key={author} className="mb-10">
+            <Link to={`/${author}`} className="inline-block mb-4">
+              <h2 className="font-serif text-xl font-semibold text-foreground hover:text-accent transition-colors">
+                {author}
+                <span className="ml-2 text-sm font-normal text-muted-foreground">
+                  ({authorBooks.length} 部)
+                </span>
+              </h2>
+            </Link>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {authorBooks.map((book) => {
+                const stats = {
+                  characters: book.data.characters.length,
+                  skills: book.data.skills.length,
+                  items: book.data.items.length,
+                  factions: book.data.factions.length,
+                  locations: book.data.locations.length,
+                };
+
+                return (
+                  <Link key={book.path} to={`/${book.path}/overview`}>
+                    <Card className="transition-shadow hover:shadow-lg">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2 font-serif">
+                          <BookOpen className="h-5 w-5 text-accent" />
+                          {book.name}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid grid-cols-3 gap-2 text-sm">
+                          <div className="flex items-center gap-1">
+                            <Users className="h-3 w-3 text-muted-foreground" />
+                            <span>{stats.characters}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Swords className="h-3 w-3 text-muted-foreground" />
+                            <span>{stats.skills}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Gem className="h-3 w-3 text-muted-foreground" />
+                            <span>{stats.items}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Building2 className="h-3 w-3 text-muted-foreground" />
+                            <span>{stats.factions}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin className="h-3 w-3 text-muted-foreground" />
+                            <span>{stats.locations}</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         ))}
       </div>
-
-      <h2
-        style={{
-          fontFamily: 'var(--font-serif)',
-          fontSize: 16,
-          letterSpacing: '0.2em',
-          color: 'var(--ink-black)',
-          marginBottom: 20,
-        }}
-      >
-        四 家 书 斋
-      </h2>
-
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
-          gap: 28,
-        }}
-      >
-        {authors.map(a => (
-          <Link
-            key={a.name}
-            to={`/${encodeURIComponent(a.name)}`}
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <div className="book-cover" style={{ maxWidth: 240 }}>
-              <span className="book-cover__author">
-                <SealStamp text={AUTHOR_SEALS[a.name] ?? a.name.slice(0, 1)} shape="sm" />
-              </span>
-              <span className="book-cover__title">{a.name}书斋</span>
-              <span className="book-cover__seal">
-                <SealStamp text="斋" shape="square" />
-              </span>
-            </div>
-            <div style={{ marginTop: 12, textAlign: 'center' }}>
-              <div
-                style={{
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: 18,
-                  fontWeight: 600,
-                  letterSpacing: '0.18em',
-                  color: 'var(--ink-black)',
-                  lineHeight: 1.3,
-                }}
-              >
-                {a.name}
-              </div>
-              <p
-                style={{
-                  marginTop: 6,
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: 12,
-                  color: 'var(--ink-secondary)',
-                  letterSpacing: '0.1em',
-                }}
-              >
-                {AUTHOR_INTROS[a.name] ?? '名家卷宗'}
-              </p>
-              <p
-                style={{
-                  marginTop: 6,
-                  fontSize: 11,
-                  color: 'var(--ink-faint)',
-                  letterSpacing: '0.08em',
-                }}
-              >
-                {a.count} 卷 · {a.characters} 人物
-              </p>
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      {authors.length === 0 && (
-        <p
-          style={{
-            color: 'var(--ink-faint)',
-            fontFamily: 'var(--font-serif)',
-            padding: '40px 0',
-            textAlign: 'center',
-          }}
-        >
-          阁中暂无书斋。
-        </p>
-      )}
-
-      <InkRule />
-    </BookChapter>
+    </div>
   );
-};
-
-export default Library;
+}

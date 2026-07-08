@@ -2,115 +2,67 @@ import { create } from 'zustand';
 import type {
   Character,
   Skill,
-  Technique,
   Item,
-  Location,
   Faction,
+  Location,
   Dialogue,
+  Technique,
+  ChapterSummary,
   CardType,
   DetailPanelState,
-  DetailTrailItem,
-  GraphNode,
-  GraphLink,
 } from '../types/novel';
-import { buildGraphData as buildNovelGraphData } from '../utils/graphHelper';
-import { appendDetailTrail } from '../utils/detailNavigation';
 
 interface NovelStore {
-  // 数据
   characters: Character[];
   skills: Skill[];
-  techniques: Technique[];
   items: Item[];
-  locations: Location[];
   factions: Faction[];
+  locations: Location[];
   dialogues: Dialogue[];
+  techniques: Technique[];
+  chapterSummaries: ChapterSummary[];
 
-  // 状态
-  loading: boolean;
-  error: string | null;
   detailPanel: DetailPanelState;
-  detailTrail: DetailTrailItem[];
-
-  // 图谱数据
-  graphNodes: GraphNode[];
-  graphLinks: GraphLink[];
-
-  // Actions
-  setData: (data: {
-    characters: Character[];
-    skills: Skill[];
-    techniques: Technique[];
-    items: Item[];
-    locations: Location[];
-    factions: Faction[];
-    dialogues: Dialogue[];
-  }) => void;
   showDetail: (type: CardType, id: string) => void;
   hideDetail: () => void;
-  buildGraphData: () => void;
+
+  loadData: (data: {
+    characters: Character[];
+    skills: Skill[];
+    items: Item[];
+    factions: Faction[];
+    locations: Location[];
+    dialogues: Dialogue[];
+    techniques: Technique[];
+    chapter_summaries: ChapterSummary[];
+  }) => void;
 }
 
-export const useNovelStore = create<NovelStore>((set, get) => ({
-  // 初始数据
+export const useNovelStore = create<NovelStore>((set) => ({
   characters: [],
   skills: [],
-  techniques: [],
   items: [],
-  locations: [],
   factions: [],
+  locations: [],
   dialogues: [],
+  techniques: [],
+  chapterSummaries: [],
 
-  // 初始状态
-  loading: true,
-  error: null,
-  detailPanel: {
-    visible: false,
-    type: null,
-    id: null,
-  },
-  detailTrail: [],
+  detailPanel: { open: false, type: null, id: null },
+  showDetail: (type, id) =>
+    set({ detailPanel: { open: true, type, id } }),
+  hideDetail: () =>
+    set({ detailPanel: { open: false, type: null, id: null } }),
 
-  // 图谱数据
-  graphNodes: [],
-  graphLinks: [],
-
-  // 设置数据
-  setData: (data) => {
-    set(data);
-    get().buildGraphData();
-  },
-
-  // 显示详情
-  showDetail: (type, id) => {
-    const currentTrail = get().detailTrail;
+  loadData: (data) =>
     set({
-      detailPanel: {
-        visible: true,
-        type,
-        id,
-      },
-      detailTrail: appendDetailTrail(currentTrail, { type, id }),
-    });
-  },
-
-  // 隐藏详情
-  hideDetail: () => {
-    set({
-      detailPanel: {
-        visible: false,
-        type: null,
-        id: null,
-      },
-      detailTrail: [],
-    });
-  },
-
-  // 构建图谱数据
-  buildGraphData: () => {
-    const { characters, skills, items, locations, factions } = get();
-    const { nodes, links } = buildNovelGraphData(characters, skills, items, locations, factions);
-
-    set({ graphNodes: nodes, graphLinks: links });
-  },
+      characters: data.characters,
+      skills: data.skills,
+      items: data.items,
+      factions: data.factions,
+      locations: data.locations,
+      dialogues: data.dialogues,
+      techniques: data.techniques,
+      chapterSummaries: data.chapter_summaries,
+    }),
 }));
