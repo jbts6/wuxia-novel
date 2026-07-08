@@ -153,8 +153,12 @@ function assessRelationships() {
 
     details[importance].expected++;
 
-    const key = `${rel.source}->${rel.target}`;
-    const reverseKey = `${rel.target}->${rel.source}`;
+    // Support both source/target and char1/char2 formats
+    const source = rel.source || rel.char1;
+    const target = rel.target || rel.char2;
+
+    const key = `${source}->${target}`;
+    const reverseKey = `${target}->${source}`;
     const actualTypes = actualRelMap.get(key) || actualRelMap.get(reverseKey) || new Set();
 
     if (actualTypes.size > 0) {
@@ -162,8 +166,8 @@ function assessRelationships() {
       // Check if type matches
       if (!actualTypes.has(rel.type)) {
         incorrect.push({
-          source: rel.source,
-          target: rel.target,
+          source,
+          target,
           expected: rel.type,
           actual: [...actualTypes][0],
           importance: importanceLabel(importance)
@@ -306,27 +310,34 @@ function assessEventCoverage() {
     }
   }
 
-  for (const [chapter, events] of Object.entries(baselineEvents)) {
-    const chNum = parseInt(chapter, 10);
+  for (const [chapter, chapterData] of Object.entries(baselineEvents)) {
+    // Use chapterData.chapter if available, otherwise parse the key
+    const chNum = chapterData.chapter || parseInt(chapter, 10);
     const actualEvents = chapterEvents.get(chNum) || [];
 
+    // Handle both formats: array of events or object with events array
+    const events = Array.isArray(chapterData) ? chapterData : (chapterData.events || []);
+    const chapterTitle = chapterData.title || '';
+
     for (const event of events) {
-      const importance = event.importance || 'detail';
+      // Handle both string events and object events
+      const eventStr = typeof event === 'string' ? event : (event.event || event.name || '');
+      const importance = (typeof event === 'object' ? event.importance : null) || 'detail';
       if (!details[importance]) continue;
 
       details[importance].expected++;
 
       // Check if any actual event matches
       const found = actualEvents.some(ae => 
-        ae.includes(event.event) || 
-        event.event.includes(ae) ||
-        hasCommonKeywords(ae, event.event, 2)
+        ae.includes(eventStr) || 
+        eventStr.includes(ae) ||
+        hasCommonKeywords(ae, eventStr, 2)
       );
 
       if (found) {
         details[importance].actual++;
       } else {
-        missing.push({ chapter: chNum, ...event });
+        missing.push({ chapter: chNum, event: eventStr, importance });
       }
     }
   }

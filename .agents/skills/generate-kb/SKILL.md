@@ -30,7 +30,34 @@ node <skill>/scripts/compact-mention.js <novelDir>
 node <skill>/scripts/extract-keywords.js <novelDir>
 ```
 
-输出：`ch_split/`、`manifest.json`、`mention_summary.json`、`keywords.json`
+输出：`ch_split/`、`build/manifest.json`、`mention_summary.json`、`keywords.json`
+
+**配置文件**：`split-chapters.js` 支持通过 `split-config.json` 配置章节格式和关键词模式。
+
+配置文件位置（按优先级）：
+1. `<novelDir>/split-config.json`
+2. `<novelDir>/build/split-config.json`
+3. `<novelDir>/prompts/split-config.json`
+
+配置文件格式：
+```json
+{
+  "chapterPattern": "^第[零一二三四五六七八九十百千\\d]{1,8}[回章]\\s*.*$",
+  "numberPattern": "^第([零一二三四五六七八九十百千\\d]{1,8})[回章]",
+  "seedPatterns": [
+    "角色名1|角色名2|角色名3",
+    "门派1|门派2|门派3",
+    "地点1|地点2|地点3",
+    "武功1|武功2|武功3"
+  ]
+}
+```
+
+- `chapterPattern`：章节标题的正则表达式
+- `numberPattern`：提取章节号的正则表达式
+- `seedPatterns`：关键词模式数组，用于生成 mention_index.jsonl
+
+如果没有配置文件，使用默认配置（匹配"第X回/章"格式），不生成 mention_index.jsonl。
 
 **重要**：`keywords.json` 是 locate.js 的核心依赖。它包含：
 - mention_index.jsonl 中的高频词
@@ -344,3 +371,4 @@ node <skill>/scripts/review-dialogues.js <novelDir>
 | `scripts/assess-quality.js` | Phase 3.6 质量评估 |
 | `prompts/generate-baseline.md` | Phase 3.6 基准生成 prompt 模板 |
 | `scripts/generate-summary.js` | Phase 3.7 生成 summary.md |
+| `prompts/split-config-default.json` | Phase 1 拆章节配置文件模板 |
