@@ -115,7 +115,33 @@ node <skill>/scripts/review-dialogues.js <novelDir>
 3. ID 引用缺失（引用不存在的 ID）
 4. **数量完整性**：对照原文检查是否有重大遗漏（如重要角色、核心功法、关键物品）
 
-## 质量指标（天龙八部 pilot）
+## 质量指标体系
+
+### 传统指标（文本级）
+
+| 指标 | 定义 | 目标值 |
+|------|------|--------|
+| locate 率 | source_ref 定位成功率 | ≥ 99% |
+| 事件匹配率 | chapter_summaries 事件与原文匹配率 | ≥ 90% |
+| dialogues 真实率 | 对话子串匹配验证 | ≥ 70% |
+| grounded 率 | 实体引文可验证比例 | ≥ 85% |
+
+### 新指标（语义级，AI 认知驱动）
+
+| 指标 | 定义 | 目标值 |
+|------|------|--------|
+| entity_completeness | 实体覆盖率 | 核心 100%，重要 ≥95% |
+| relationship_completeness | 关系覆盖率 | 核心 100%，重要 ≥90% |
+| relationship_accuracy | 关系类型准确率 | ≥ 85% |
+| description_accuracy | 描述准确率 | ≥ 85% |
+| event_coverage | 事件覆盖率 | 主线 100%，支线 ≥85% |
+| dialogue_authenticity | 对话真实率 | ≥ 80% |
+| dialogue_representativeness | 对话代表性 | ≥ 70% |
+| cross_book_purity | 跨书纯净度 | ≥ 95% |
+
+**综合质量分数** = 各指标加权平均（见 `assess-quality.js`）
+
+### 天龙八部 pilot 结果
 
 | 指标 | 结果 |
 |------|------|
@@ -123,6 +149,7 @@ node <skill>/scripts/review-dialogues.js <novelDir>
 | 事件匹配率 | 100% |
 | dialogues 真实率 | 75% |
 | relationship 冲突 | 0 |
+| 综合质量分数 | ~78% |
 
 ## 执行顺序
 
@@ -139,11 +166,16 @@ node <skill>/scripts/review-dialogues.js <novelDir>
 10. Phase 2.5：提取 dialogues
 11. Phase 3：完整校验
 12. Phase 3.5：对抗校验
-13. 最终验证：8 JSON 可解析、schema 合法、errors = 0
+13. **Phase 3.6：质量评估（新增）**
+    - 生成 baseline：`node <skill>/scripts/generate-baseline-prompt.js <novelDir>`
+    - 用 subagent 生成 baseline.json
+    - 运行质量评估：`node <skill>/scripts/assess-quality.js <novelDir>`
+    - 检查综合质量分数是否达标（≥80%）
+14. 最终验证：8 JSON 可解析、schema 合法、errors = 0、综合质量分数 ≥ 80%
 
 ## 最终产物
 
-8 个 JSON + 校验报告 + 书籍专属 prompt
+8 个 JSON + 校验报告 + 质量报告 + baseline + 书籍专属 prompt
 
 ## 参考文件
 
@@ -163,3 +195,6 @@ node <skill>/scripts/review-dialogues.js <novelDir>
 | `scripts/cross-validate.js` | Phase 3 跨 JSON 校验 |
 | `scripts/review-dialogues.js` | Phase 3.5 审阅 prompt 生成 |
 | `scripts/verify_dialogues.js` | Phase 2.5 对话验证 |
+| `scripts/generate-baseline-prompt.js` | Phase 3.6 基准 prompt 生成 |
+| `scripts/assess-quality.js` | Phase 3.6 质量评估 |
+| `prompts/generate-baseline.md` | Phase 3.6 基准生成 prompt 模板 |

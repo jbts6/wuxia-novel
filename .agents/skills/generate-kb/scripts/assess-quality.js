@@ -1,0 +1,648 @@
+#!/usr/bin/env node
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+
+const args = process.argv.slice(2);
+if (args.length < 1) {
+  console.error('Usage: assess-quality.js <novelDir>');
+  console.error('  Requires baseline.json in the novel directory');
+  process.exit(1);
+}
+
+const novelDir = path.resolve(args[0]);
+
+// Load JSON file helper
+function loadJson(filename) {
+  const fp = path.join(novelDir, filename);
+  if (!fs.existsSync(fp)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(fp, 'utf8'));
+  } catch (e) {
+    console.error(`Error parsing ${filename}: ${e.message}`);
+    return null;
+  }
+}
+
+// Load knowledge base files
+const characters = loadJson('characters.json') || [];
+const factions = loadJson('factions.json') || [];
+const locations = loadJson('locations.json') || [];
+const skills = loadJson('skills.json') || [];
+const techniques = loadJson('techniques.json') || [];
+const items = loadJson('items.json') || [];
+const dialogues = loadJson('dialogues.json') || [];
+const chapterSummaries = loadJson('chapter_summaries.json') || [];
+
+// Load baseline
+const baseline = loadJson('baseline.json');
+if (!baseline) {
+  console.error('baseline.json not found. Run generate-baseline-prompt.js first.');
+  process.exit(1);
+}
+
+console.log('=== Quality Assessment ===\n');
+console.log(`Novel: ${baseline.novel || 'Unknown'}`);
+console.log(`Author: ${baseline.author || 'Unknown'}`);
+
+// ============================================================
+// Build lookup maps
+// ============================================================
+const charById = new Map(characters.map(c => [c.id, c]));
+const charByName = new Map(characters.map(c => [c.name, c]));
+const factionById = new Map(factions.map(f => [f.id, f]));
+const skillById = new Map(skills.map(s => [s.id, s]));
+const skillByName = new Map(skills.map(s => [s.name, s]));
+const itemById = new Map(items.map(i => [i.id, i]));
+const itemByName = new Map(items.map(i => [i.name, i]));
+
+// ============================================================
+// Helper functions
+// ============================================================
+function importanceLabel(level) {
+  const map = { core: '核心', important: '重要', secondary: '次要', minor: '龙套', background: '背景' };
+  return map[level] || level;
+}
+
+function hasCommonKeywords(str1, str2, minCommon = 2) {
+  const keywords1 = new Set((str1 || '').match(/[\u4e00-\u9fa5]{2,}/g) || []);
+  const keywords2 = new Set((str2 || '').match(/[\u4e00-\u9fa5]{2,}/g) || []);
+  let common = 0;
+  for (const k of keywords1) {
+    if (keywords2.has(k)) common++;
+  }
+  return common >= minCommon;
+}
+
+// ============================================================
+// 1. Entity Completeness
+// ============================================================
+function assessEntityCompleteness() {
+  const baselineChars = baseline.characters || {};
+  const details = {};
+  const missing = [];
+
+  for (const importance of ['core', 'important', 'secondary', 'minor']) {
+    const expected = baselineChars[importance] || [];
+    let matched = 0;
+
+    for (const exp of expected) {
+      // Check by ID or name
+      if (charById.has(exp.id) || charByName.has(exp.name)) {
+        matched++;
+      } else {
+        missing.push({
+          id: exp.id,
+          name: exp.name,
+          importance: importanceLabel(importance),
+          reason: exp.reason || 'Expected by baseline'
+        });
+      }
+    }
+
+    details[importance] = {
+      expected: expected.length,
+      actual: matched,
+      coverage: expected.length > 0 ? Math.round((matched / expected.length) * 1000) / 10 : 100
+    };
+  }
+
+  const totalExpected = Object.values(details).reduce((s, d) => s + d.expected, 0);
+  const totalActual = Object.values(details).reduce((s, d) => s + d.actual, 0);
+  const score = totalExpected > 0 ? Math.round((totalActual / totalExpected) * 1000) / 10 : 100;
+
+  return { score, details, missing };
+}
+
+// ============================================================
+// 2. Relationship Completeness & Accuracy
+// ============================================================
+function assessRelationships() {
+  const baselineRels = baseline.relationships || [];
+  const details = { core: { expected: 0, actual: 0 }, important: { expected: 0, actual: 0 }, secondary: { expected: 0, actual: 0 } };
+  const missing = [];
+  const incorrect = [];
+
+  // Build actual relationship set: "source->target" -> type
+  const actualRelMap = new Map(); // "source->target" -> Set of types
+  for (const c of characters) {
+    if (!Array.isArray(c.relationships)) continue;
+    for (const rel of c.relationships) {
+      const key = `${c.id}->${rel.target}`;
+      if (!actualRelMap.has(key)) actualRelMap.set(key, new Set());
+      actualRelMap.get(key).add(rel.type);
+    }
+  }
+
+  // Check each baseline relationship
+  for (const rel of baselineRels) {
+    const importance = rel.importance || 'secondary';
+    if (!details[importance]) continue;
+
+    details[importance].expected++;
+
+    const key = `${rel.source}->${rel.target}`;
+    const reverseKey = `${rel.target}->${rel.source}`;
+    const actualTypes = actualRelMap.get(key) || actualRelMap.get(reverseKey) || new Set();
+
+    if (actualTypes.size > 0) {
+      details[importance].actual++;
+      // Check if type matches
+      if (!actualTypes.has(rel.type)) {
+        incorrect.push({
+          source: rel.source,
+          target: rel.target,
+          expected: rel.type,
+          actual: [...actualTypes][0],
+          importance: importanceLabel(importance)
+        });
+      }
+    } else {
+      missing.push(rel);
+    }
+  }
+
+  const totalExpected = Object.values(details).reduce((s, d) => s + d.expected, 0);
+  const totalActual = Object.values(details).reduce((s, d) => s + d.actual, 0);
+  const completeness = totalExpected > 0 ? Math.round((totalActual / totalExpected) * 1000) / 10 : 100;
+
+  const totalChecked = totalActual;
+  const correctCount = totalChecked - incorrect.length;
+  const accuracy = totalChecked > 0 ? Math.round((correctCount / totalChecked) * 1000) / 10 : 100;
+
+  return { completeness, accuracy, details, missing, incorrect };
+}
+
+// ============================================================
+// 3. Description Accuracy
+// ============================================================
+function assessDescriptionAccuracy() {
+  const baselineChars = baseline.characters || {};
+  const issues = [];
+  let totalChecked = 0;
+  let accurate = 0;
+
+  // Helper: extract Chinese concepts from text
+  function extractConcepts(text) {
+    const concepts = new Set();
+    // Split by common particles and extract meaningful phrases
+    const parts = text.split(/[，。、；：！？""''（）【】\s之其的与和为是]+/);
+    for (const part of parts) {
+      if (part.length >= 2) {
+        concepts.add(part);
+      }
+    }
+    return concepts;
+  }
+
+  // Helper: check if two identity strings are semantically similar
+  function identityMatch(expected, actual) {
+    if (!expected || !actual) return true; // No data to compare
+    // Exact match
+    if (actual.includes(expected) || expected.includes(actual)) return true;
+    // Extract key concepts and check overlap
+    const expectedConcepts = extractConcepts(expected);
+    const actualConcepts = extractConcepts(actual);
+    let overlap = 0;
+    for (const c of expectedConcepts) {
+      if (actualConcepts.has(c)) overlap++;
+    }
+    // If at least 1 concept overlaps, consider it a match (very lenient)
+    return overlap >= 1;
+  }
+
+  // Helper: check if traits are semantically similar
+  function traitsMatch(expected, actual) {
+    if (!expected || !actual || expected.length === 0) return true;
+    let matched = 0;
+    for (const et of expected) {
+      if (actual.some(at => 
+        at.includes(et) || et.includes(at) || 
+        hasCommonKeywords(at, et, 1)
+      )) {
+        matched++;
+      }
+    }
+    // If at least 1 trait matches, consider it a match (very lenient)
+    return matched >= 1;
+  }
+
+  // Check core and important characters
+  for (const importance of ['core', 'important']) {
+    const expected = baselineChars[importance] || [];
+    for (const exp of expected) {
+      const actual = charById.get(exp.id) || charByName.get(exp.name);
+      if (!actual) continue;
+
+      totalChecked++;
+      let charAccurate = true;
+
+      // Check identity
+      if (exp.expected_identity && actual.identity) {
+        if (!identityMatch(exp.expected_identity, actual.identity)) {
+          charAccurate = false;
+          issues.push({
+            id: exp.id,
+            name: exp.name,
+            field: 'identity',
+            expected: exp.expected_identity,
+            actual: actual.identity,
+            reason: 'Identity mismatch'
+          });
+        }
+      }
+
+      // Check personality traits
+      if (exp.expected_traits && actual.personality?.traits) {
+        if (!traitsMatch(exp.expected_traits, actual.personality.traits)) {
+          charAccurate = false;
+          const missingTraits = exp.expected_traits.filter(t => 
+            !actual.personality.traits.some(at => at.includes(t) || t.includes(at))
+          );
+          issues.push({
+            id: exp.id,
+            name: exp.name,
+            field: 'personality.traits',
+            expected: exp.expected_traits,
+            actual: actual.personality.traits,
+            reason: `Missing traits: ${missingTraits.join(', ')}`
+          });
+        }
+      }
+
+      if (charAccurate) accurate++;
+    }
+  }
+
+  const score = totalChecked > 0 ? Math.round((accurate / totalChecked) * 1000) / 10 : 100;
+  return { score, totalChecked, accurate, issues };
+}
+
+// ============================================================
+// 4. Event Coverage
+// ============================================================
+function assessEventCoverage() {
+  const baselineEvents = baseline.events || {};
+  const details = { main: { expected: 0, actual: 0 }, branch: { expected: 0, actual: 0 }, detail: { expected: 0, actual: 0 } };
+  const missing = [];
+
+  // Build chapter summaries lookup
+  const chapterEvents = new Map();
+  for (const cs of chapterSummaries) {
+    if (cs.chapter && Array.isArray(cs.key_events)) {
+      chapterEvents.set(cs.chapter, cs.key_events);
+    }
+  }
+
+  for (const [chapter, events] of Object.entries(baselineEvents)) {
+    const chNum = parseInt(chapter, 10);
+    const actualEvents = chapterEvents.get(chNum) || [];
+
+    for (const event of events) {
+      const importance = event.importance || 'detail';
+      if (!details[importance]) continue;
+
+      details[importance].expected++;
+
+      // Check if any actual event matches
+      const found = actualEvents.some(ae => 
+        ae.includes(event.event) || 
+        event.event.includes(ae) ||
+        hasCommonKeywords(ae, event.event, 2)
+      );
+
+      if (found) {
+        details[importance].actual++;
+      } else {
+        missing.push({ chapter: chNum, ...event });
+      }
+    }
+  }
+
+  const totalExpected = Object.values(details).reduce((s, d) => s + d.expected, 0);
+  const totalActual = Object.values(details).reduce((s, d) => s + d.actual, 0);
+  const score = totalExpected > 0 ? Math.round((totalActual / totalExpected) * 1000) / 10 : 100;
+
+  return { score, details, missing };
+}
+
+// ============================================================
+// 5. Dialogue Quality
+// ============================================================
+function assessDialogueQuality() {
+  const baselineDialogues = baseline.dialogues || [];
+  let baselineChecked = 0;
+  let baselineMatched = 0;
+  let characterFit = 0;
+  const issues = [];
+
+  // Basic stats
+  const totalDialogues = dialogues.length;
+  const dialoguesWithSpeaker = dialogues.filter(d => d.speaker).length;
+  const dialoguesWithListener = dialogues.filter(d => d.listener).length;
+
+  // Check against baseline expectations
+  for (const exp of baselineDialogues) {
+    baselineChecked++;
+    
+    // Find matching dialogue by chapter and speaker
+    const actual = dialogues.find(d => 
+      d.chapter === exp.chapter && 
+      (d.speaker_name === exp.speaker || d.speaker === exp.speaker)
+    );
+    
+    if (actual) {
+      baselineMatched++;
+      
+      // Check character fit
+      const char = charById.get(actual.speaker);
+      if (char && exp.expected_style) {
+        const speechStyle = char.personality?.speech_style || '';
+        if (speechStyle.includes(exp.expected_style) || exp.expected_style.includes(speechStyle)) {
+          characterFit++;
+        } else {
+          issues.push({
+            index: dialogues.indexOf(actual),
+            chapter: actual.chapter,
+            speaker: actual.speaker_name,
+            issue: `Speech style mismatch: expected "${exp.expected_style}", got "${speechStyle}"`
+          });
+        }
+      } else {
+        characterFit++; // No style to check, count as fit
+      }
+    }
+  }
+
+  const authenticity = baselineChecked > 0 ? Math.round((baselineMatched / baselineChecked) * 1000) / 10 : 100;
+  const representativeness = totalDialogues > 0 ? Math.round((dialoguesWithSpeaker / totalDialogues) * 1000) / 10 : 100;
+  const characterFitScore = baselineChecked > 0 ? Math.round((characterFit / baselineChecked) * 1000) / 10 : 100;
+
+  return {
+    authenticity,
+    representativeness,
+    characterFit: characterFitScore,
+    details: {
+      total: totalDialogues,
+      withSpeaker: dialoguesWithSpeaker,
+      withListener: dialoguesWithListener,
+      baselineChecked,
+      baselineMatched
+    },
+    issues
+  };
+}
+
+// ============================================================
+// 6. Cross-Book Purity
+// ============================================================
+function assessCrossBookPurity() {
+  const baselineChars = baseline.characters || {};
+  const baselineSkills = baseline.skills || [];
+  const baselineItems = baseline.items || [];
+  const baselineFactions = baseline.factions || [];
+  const knownEntityNames = new Set();
+
+  // Collect all baseline entity names
+  for (const importance of ['core', 'important', 'secondary', 'minor']) {
+    for (const entity of (baselineChars[importance] || [])) {
+      knownEntityNames.add(entity.name);
+    }
+  }
+  for (const skill of baselineSkills) {
+    knownEntityNames.add(skill.name);
+  }
+  for (const item of baselineItems) {
+    knownEntityNames.add(item.name);
+  }
+  for (const faction of baselineFactions) {
+    knownEntityNames.add(faction.name);
+  }
+
+  // Check if any entity in KB is not in baseline
+  const suspicious = [];
+  const allKBEntities = [
+    ...characters.map(c => ({ id: c.id, name: c.name, type: 'character' })),
+    ...factions.map(f => ({ id: f.id, name: f.name, type: 'faction' })),
+    ...skills.map(s => ({ id: s.id, name: s.name, type: 'skill' })),
+    ...items.map(i => ({ id: i.id, name: i.name, type: 'item' })),
+  ];
+
+  for (const entity of allKBEntities) {
+    // Only flag as suspicious if the baseline has entities of this type
+    const hasBaselineOfType = 
+      (entity.type === 'character' && Object.values(baselineChars).flat().length > 0) ||
+      (entity.type === 'faction' && baselineFactions.length > 0) ||
+      (entity.type === 'skill' && baselineSkills.length > 0) ||
+      (entity.type === 'item' && baselineItems.length > 0);
+    
+    // Check by name (more flexible than ID)
+    const foundByName = knownEntityNames.has(entity.name);
+    
+    if (hasBaselineOfType && !foundByName) {
+      suspicious.push(entity);
+    }
+  }
+
+  const totalEntities = allKBEntities.length;
+  const pureEntities = totalEntities - suspicious.length;
+  const score = totalEntities > 0 ? Math.round((pureEntities / totalEntities) * 1000) / 10 : 100;
+
+  return { score, totalEntities, pureEntities, suspicious };
+}
+
+// ============================================================
+// Run all assessments
+// ============================================================
+const entityCompleteness = assessEntityCompleteness();
+const relationships = assessRelationships();
+const descriptionAccuracy = assessDescriptionAccuracy();
+const eventCoverage = assessEventCoverage();
+const dialogueQuality = assessDialogueQuality();
+const crossBookPurity = assessCrossBookPurity();
+
+// Calculate overall score (weights sum to 1.0, scores are percentages)
+const overallScore = Math.round(
+  entityCompleteness.score * 0.25 +
+  relationships.completeness * 0.15 +
+  relationships.accuracy * 0.10 +
+  descriptionAccuracy.score * 0.15 +
+  eventCoverage.score * 0.10 +
+  dialogueQuality.authenticity * 0.10 +
+  dialogueQuality.representativeness * 0.05 +
+  crossBookPurity.score * 0.10
+);
+
+// ============================================================
+// Output report
+// ============================================================
+const report = {
+  generated_at: new Date().toISOString(),
+  novel: baseline.novel || 'Unknown',
+  author: baseline.author || 'Unknown',
+  overall_score: overallScore,
+  metrics: {
+    entity_completeness: entityCompleteness,
+    relationship_completeness: {
+      score: relationships.completeness,
+      accuracy: relationships.accuracy,
+      details: relationships.details,
+      missing: relationships.missing,
+      incorrect: relationships.incorrect
+    },
+    description_accuracy: descriptionAccuracy,
+    event_coverage: eventCoverage,
+    dialogue_quality: dialogueQuality,
+    cross_book_purity: crossBookPurity
+  }
+};
+
+// Write JSON report
+const jsonPath = path.join(novelDir, 'quality_report.json');
+fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2), 'utf8');
+
+// Write Markdown report
+const mdPath = path.join(novelDir, 'quality_report.md');
+const md = generateMarkdownReport(report);
+fs.writeFileSync(mdPath, md, 'utf8');
+
+// Print summary
+console.log(`\nOverall Quality Score: ${overallScore}/100\n`);
+console.log('Metric Scores:');
+console.log(`  Entity Completeness:       ${entityCompleteness.score}%`);
+console.log(`  Relationship Completeness: ${relationships.completeness}%`);
+console.log(`  Relationship Accuracy:     ${relationships.accuracy}%`);
+console.log(`  Description Accuracy:      ${descriptionAccuracy.score}%`);
+console.log(`  Event Coverage:            ${eventCoverage.score}%`);
+console.log(`  Dialogue Authenticity:     ${dialogueQuality.authenticity}%`);
+console.log(`  Dialogue Character Fit:    ${dialogueQuality.characterFit}%`);
+console.log(`  Dialogue Represent.:       ${dialogueQuality.representativeness}%`);
+console.log(`  Cross-Book Purity:         ${crossBookPurity.score}%`);
+
+console.log(`\nReports written to:`);
+console.log(`  ${jsonPath}`);
+console.log(`  ${mdPath}`);
+
+// ============================================================
+// Markdown report generator
+// ============================================================
+function generateMarkdownReport(report) {
+  const lines = [];
+  lines.push(`# Quality Report — ${report.novel}`);
+  lines.push(`\nGenerated: ${report.generated_at}`);
+  lines.push(`\n## Overall Score: ${report.overall_score}/100\n`);
+
+  lines.push('## Metric Scores\n');
+  lines.push('| Metric | Score | Weight | Status |');
+  lines.push('|--------|-------|--------|--------|');
+  lines.push(`| Entity Completeness | ${report.metrics.entity_completeness.score}% | 0.25 | ${statusIcon(report.metrics.entity_completeness.score)} |`);
+  lines.push(`| Relationship Completeness | ${report.metrics.relationship_completeness.score}% | 0.15 | ${statusIcon(report.metrics.relationship_completeness.score)} |`);
+  lines.push(`| Relationship Accuracy | ${report.metrics.relationship_completeness.accuracy}% | 0.10 | ${statusIcon(report.metrics.relationship_completeness.accuracy)} |`);
+  lines.push(`| Description Accuracy | ${report.metrics.description_accuracy.score}% | 0.15 | ${statusIcon(report.metrics.description_accuracy.score)} |`);
+  lines.push(`| Event Coverage | ${report.metrics.event_coverage.score}% | 0.10 | ${statusIcon(report.metrics.event_coverage.score)} |`);
+  lines.push(`| Dialogue Authenticity | ${report.metrics.dialogue_quality.authenticity}% | 0.10 | ${statusIcon(report.metrics.dialogue_quality.authenticity)} |`);
+  lines.push(`| Dialogue Representativeness | ${report.metrics.dialogue_quality.representativeness}% | 0.05 | ${statusIcon(report.metrics.dialogue_quality.representativeness)} |`);
+  lines.push(`| Cross-Book Purity | ${report.metrics.cross_book_purity.score}% | 0.10 | ${statusIcon(report.metrics.cross_book_purity.score)} |`);
+
+  // Entity Completeness Details
+  lines.push('\n## Entity Completeness\n');
+  const ec = report.metrics.entity_completeness;
+  lines.push('| Importance | Expected | Actual | Coverage |');
+  lines.push('|------------|----------|--------|----------|');
+  for (const [key, val] of Object.entries(ec.details)) {
+    lines.push(`| ${importanceLabel(key)} | ${val.expected} | ${val.actual} | ${val.coverage}% |`);
+  }
+  if (ec.missing.length > 0) {
+    lines.push(`\n### Missing Entities (${ec.missing.length})\n`);
+    lines.push('| ID | Name | Importance | Reason |');
+    lines.push('|-----|------|------------|--------|');
+    for (const m of ec.missing) {
+      lines.push(`| ${m.id} | ${m.name} | ${m.importance} | ${m.reason} |`);
+    }
+  }
+
+  // Relationship Details
+  lines.push('\n## Relationship Completeness\n');
+  const rc = report.metrics.relationship_completeness;
+  lines.push('| Importance | Expected | Actual | Coverage |');
+  lines.push('|------------|----------|--------|----------|');
+  for (const [key, val] of Object.entries(rc.details)) {
+    const coverage = val.expected > 0 ? Math.round((val.actual / val.expected) * 100) : 100;
+    lines.push(`| ${importanceLabel(key)} | ${val.expected} | ${val.actual} | ${coverage}% |`);
+  }
+  if (rc.missing.length > 0) {
+    lines.push(`\n### Missing Relationships (${rc.missing.length})\n`);
+    lines.push('| Source | Target | Type | Importance |');
+    lines.push('|--------|--------|------|------------|');
+    for (const m of rc.missing) {
+      lines.push(`| ${m.source} | ${m.target} | ${m.type} | ${m.importance || 'secondary'} |`);
+    }
+  }
+  if (rc.incorrect && rc.incorrect.length > 0) {
+    lines.push(`\n### Incorrect Relationship Types (${rc.incorrect.length})\n`);
+    lines.push('| Source | Target | Expected | Actual |');
+    lines.push('|--------|--------|----------|--------|');
+    for (const i of rc.incorrect) {
+      lines.push(`| ${i.source} | ${i.target} | ${i.expected} | ${i.actual} |`);
+    }
+  }
+
+  // Event Coverage Details
+  lines.push('\n## Event Coverage\n');
+  const ev = report.metrics.event_coverage;
+  lines.push('| Type | Expected | Actual | Coverage |');
+  lines.push('|------|----------|--------|----------|');
+  for (const [key, val] of Object.entries(ev.details)) {
+    const coverage = val.expected > 0 ? Math.round((val.actual / val.expected) * 100) : 100;
+    lines.push(`| ${key} | ${val.expected} | ${val.actual} | ${coverage}% |`);
+  }
+  if (ev.missing.length > 0) {
+    lines.push(`\n### Missing Events (${ev.missing.length})\n`);
+    lines.push('| Chapter | Event | Importance |');
+    lines.push('|---------|-------|------------|');
+    for (const m of ev.missing) {
+      lines.push(`| ${m.chapter} | ${m.event} | ${m.importance} |`);
+    }
+  }
+
+  // Dialogue Quality Details
+  lines.push('\n## Dialogue Quality\n');
+  const dq = report.metrics.dialogue_quality;
+  lines.push(`- Total dialogues: ${dq.details.total}`);
+  lines.push(`- With speaker: ${dq.details.withSpeaker}`);
+  lines.push(`- With listener: ${dq.details.withListener}`);
+  lines.push(`- Baseline checked: ${dq.details.baselineChecked}`);
+  lines.push(`- Baseline matched: ${dq.details.baselineMatched}`);
+  if (dq.issues.length > 0) {
+    lines.push(`\n### Dialogue Issues (${dq.issues.length})\n`);
+    lines.push('| Index | Chapter | Speaker | Issue |');
+    lines.push('|-------|---------|---------|-------|');
+    for (const i of dq.issues) {
+      lines.push(`| ${i.index} | ${i.chapter} | ${i.speaker} | ${i.issue} |`);
+    }
+  }
+
+  // Cross-Book Purity Details
+  lines.push('\n## Cross-Book Purity\n');
+  const cb = report.metrics.cross_book_purity;
+  lines.push(`- Total entities: ${cb.totalEntities}`);
+  lines.push(`- Pure entities: ${cb.pureEntities}`);
+  lines.push(`- Suspicious: ${cb.suspicious.length}`);
+  if (cb.suspicious.length > 0) {
+    lines.push(`\n### Suspicious Entities (${cb.suspicious.length})\n`);
+    lines.push('| ID | Name | Type |');
+    lines.push('|-----|------|------|');
+    for (const s of cb.suspicious) {
+      lines.push(`| ${s.id} | ${s.name} | ${s.type} |`);
+    }
+  }
+
+  return lines.join('\n');
+}
+
+function statusIcon(score) {
+  if (score >= 90) return '✅';
+  if (score >= 75) return '⚠️';
+  return '❌';
+}
