@@ -90,6 +90,7 @@ node <skill>/scripts/extract-keywords.js <novelDir>
 **Pass 2 — 细节**
 - 输入：Pass 1 的 5 个 JSON
 - 输出：`items.json`、`dialogues.json`、`chapter_summaries.json`
+- **items.json 必须为每个物品分配 `rarity_tier`**（凡品/良品/珍品/神品），不能全部设为"未知"
 
 **Phase 2.6：实体审核（新增）**
 
@@ -112,7 +113,11 @@ node <skill>/scripts/extract-keywords.js <novelDir>
 
 **审核规则**：
 - **skills.json**：只保留真正的武学体系，武器（铁鞭、峨嵋刺等）应放入 items.json
-- **items.json**：只保留对剧情有重要意义的物品，trivial 物品（手帕、灯等）应删除
+- **items.json**：
+  - 只保留对剧情有重要意义的物品，trivial 物品（手帕、灯等）应删除
+  - **必须检查 `rarity_tier` 是否已分配**，不能全部为"未知"
+  - **地点错放**：固定的地点/场所/建筑物（如琅嬛福地、还施水阁）应放入 locations.json
+  - **功法错放**：口传心授的功法名称（如一阳指、火焰刀）应放入 skills.json，除非原文明确提到有实体秘籍
 - **characters.json**：只保留有名字、有剧情作用的角色，龙套角色可以保留但不需要太多细节
 
 **items.json 物品分类标准**：
@@ -120,10 +125,19 @@ node <skill>/scripts/extract-keywords.js <novelDir>
 - **兵器**：刀、剑、枪、棍、棒、暗器等（暗器是兵器的子类）
 - **丹药/毒药**：有名字的丹药、毒药、解药
 - **信物**：帮派信物、家族信物、身份象征
+- **奇门**：特殊功法体系（如斗转星移、化功大法等不属于传统兵器/秘籍的武学）
 - **剧情关键物品**：推动剧情发展的物品
 - **特殊工具**：有特殊功能的工具
+- **异兽**：有名字的灵兽、毒物、坐骑等活物（如闪电貂、莽牯朱蛤）
 
 **tags 字段**：物品使用标签数组进行更灵活的分类，详见 `schemas.md`
+
+**rarity_tier 稀有度分配规则**：
+- **凡品**：普通兵器、常见药物、日常工具
+- **良品**：名门正派的兵器、有特殊功效的药物、珍贵的秘籍
+- **珍品**：失传秘籍、罕见神兵、珍贵丹药
+- **神品**：传说级神兵、失传绝学、极品丹药
+- **未知**：无法确定稀有度的物品
 
 **Phase 2.2：chapter_summaries 交叉验证**
 
@@ -197,8 +211,10 @@ node <skill>/scripts/review-dialogues.js <novelDir>
 **审核不通过条件**：
 1. 跨书混淆（其他作品的角色/功法/地点混入）
 2. skills.json 混入武器（铁鞭、峨嵋刺等应为 item）
-3. ID 引用缺失（引用不存在的 ID）
-4. **数量完整性**：对照原文检查是否有重大遗漏（如重要角色、核心功法、关键物品）
+3. items.json 混入地点（琅嬛福地、还施水阁等应为 location）
+4. items.json 混入功法名称（一阳指、火焰刀等应为 skill，除非有实体秘籍）
+5. ID 引用缺失（引用不存在的 ID）
+6. **数量完整性**：对照原文检查是否有重大遗漏（如重要角色、核心功法、关键物品）
 
 ## 质量指标体系
 
@@ -248,6 +264,14 @@ node <skill>/scripts/review-dialogues.js <novelDir>
 - **信物**：帮派信物、家族信物、身份象征
 - **剧情关键物品**：推动剧情发展的物品
 - **特殊工具**：有特殊功能的工具
+- **动物**：有名字的灵兽、毒物、坐骑等活物（如闪电貂、莽牯朱蛤）
+
+**rarity_tier 稀有度分配规则**：
+- **凡品**：普通兵器、常见药物、日常工具
+- **良品**：名门正派的兵器、有特殊功效的药物、珍贵的秘籍
+- **珍品**：失传秘籍、罕见神兵、珍贵丹药
+- **神品**：传说级神兵、失传绝学、极品丹药
+- **未知**：无法确定稀有度的物品
 
 ### 天龙八部 pilot 结果
 
@@ -282,11 +306,13 @@ node <skill>/scripts/review-dialogues.js <novelDir>
 6. Phase 3：locate + verify + cross-validate（评估 Pass 1 质量）
 7. 如 locate 率 < 95% 或有 errors，调整 prompt 后重跑
 8. Phase 2 Pass 2：生成 items + dialogues + chapter_summaries
+    - **items.json 必须为每个物品分配 `rarity_tier`**（凡品/良品/珍品/神品）
 9. **Phase 2.6：实体审核（新增）**
     - 广撒网：尽可能多地提取实体（凭记忆 + 原文），输出 `*_candidates.json`
     - 精挑选：用 LLM 逐个审核，删除 trivial、重复、错误分类的实体
-    - 物品分类标准：秘籍、兵器、丹药/毒药、信物、剧情关键、特殊工具
+    - 物品分类标准：秘籍、兵器、丹药/毒药、信物、剧情关键、特殊工具、异兽
     - items.json 必须包含 `tags` 字段
+    - **必须检查 `rarity_tier` 是否已分配**，不能全部为"未知"
 10. Phase 2.2：交叉验证 chapter_summaries
 11. **Phase 2.5：提取 dialogues（LLM 上下文理解方案）**
     - 读取 `prompts/extract-dialogues.md`

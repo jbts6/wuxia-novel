@@ -25,6 +25,11 @@
 - **只收真正重要的物品**：推动剧情的关键道具、体现人物的标志性物品、武学相关的秘籍/兵器等。
 - 普通物品（路边买的刀、普通饭菜）不要凑数。宁缺毋滥。
 - `description` ≥20字，必须基于原文描述，禁止模板。
+- **必须为每个物品分配 `rarity_tier`**（凡品/良品/珍品/神品），不能全部设为"未知"。
+  - 凡品：普通兵器、常见药物、日常工具
+  - 良品：名门正派的兵器、有特殊功效的药物、珍贵的秘籍
+  - 珍品：失传秘籍、罕见神兵、珍贵丹药
+  - 神品：传说级神兵、失传绝学、极品丹药
 - **source_refs 格式**：`{ chapter, anchor, event_type }`
   - `event_type` 选 `first_mention`（物品首次出现）/ `climax`（物品起关键作用的事件）/ `resolution`（物品的最终去向）/ `background`（背景提及）
 - `owner` 可以是 Pass 1 的 `characters.json` 中的 char_id（人物拥有），也可以是 `factions.json` 中的 faction_id（门派拥有）。
