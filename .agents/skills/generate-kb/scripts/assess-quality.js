@@ -417,29 +417,67 @@ function assessDialogueQuality() {
 }
 
 // ============================================================
-// 6. Cross-Book Purity
+// 6. Cross-Book Purity (Enhanced)
 // ============================================================
+
+// Name variant matching helper
+function normalizeName(name) {
+  // Remove common suffixes/prefixes for matching
+  return name
+    .replace(/派$|教$|帮$|门$|山庄$|谷$/, '')
+    .replace(/法$|功$|术$|剑$|掌$|拳$/, '')
+    .replace(/秘籍$|秘笈$/, '')
+    .replace(/神掌$/, '')
+    .replace(/剑法$/, '剑')
+    .replace(/掌法$/, '掌');
+}
+
+function namesMatch(name1, name2) {
+  // Exact match
+  if (name1 === name2) return true;
+  // Check if one contains the other
+  if (name1.includes(name2) || name2.includes(name1)) return true;
+  // Normalized match
+  const n1 = normalizeName(name1);
+  const n2 = normalizeName(name2);
+  if (n1 === n2) return true;
+  if (n1.includes(n2) || n2.includes(n1)) return true;
+  return false;
+}
+
 function assessCrossBookPurity() {
   const baselineChars = baseline.characters || {};
   const baselineSkills = baseline.skills || [];
   const baselineItems = baseline.items || [];
   const baselineFactions = baseline.factions || [];
   const knownEntityNames = new Set();
+  const knownEntityNamesNormalized = new Set();
 
-  // Collect all baseline entity names
+  // Collect all baseline entity names (with variants)
   for (const importance of ['core', 'important', 'secondary', 'minor']) {
     for (const entity of (baselineChars[importance] || [])) {
       knownEntityNames.add(entity.name);
+      knownEntityNamesNormalized.add(normalizeName(entity.name));
+      // Add aliases if present
+      if (entity.alias) {
+        for (const a of (Array.isArray(entity.alias) ? entity.alias : [entity.alias])) {
+          knownEntityNames.add(a);
+          knownEntityNamesNormalized.add(normalizeName(a));
+        }
+      }
     }
   }
   for (const skill of baselineSkills) {
     knownEntityNames.add(skill.name);
+    knownEntityNamesNormalized.add(normalizeName(skill.name));
   }
   for (const item of baselineItems) {
     knownEntityNames.add(item.name);
+    knownEntityNamesNormalized.add(normalizeName(item.name));
   }
   for (const faction of baselineFactions) {
     knownEntityNames.add(faction.name);
+    knownEntityNamesNormalized.add(normalizeName(faction.name));
   }
 
   // Check if any entity in KB is not in baseline
@@ -459,10 +497,20 @@ function assessCrossBookPurity() {
       (entity.type === 'skill' && baselineSkills.length > 0) ||
       (entity.type === 'item' && baselineItems.length > 0);
     
-    // Check by name (more flexible than ID)
+    // Check by name (exact match)
     const foundByName = knownEntityNames.has(entity.name);
+    // Check by normalized name (variant match)
+    const foundByVariant = knownEntityNamesNormalized.has(normalizeName(entity.name));
+    // Check by contains match
+    let foundByContains = false;
+    for (const known of knownEntityNames) {
+      if (namesMatch(entity.name, known)) {
+        foundByContains = true;
+        break;
+      }
+    }
     
-    if (hasBaselineOfType && !foundByName) {
+    if (hasBaselineOfType && !foundByName && !foundByVariant && !foundByContains) {
       suspicious.push(entity);
     }
   }
@@ -472,6 +520,170 @@ function assessCrossBookPurity() {
   const score = totalEntities > 0 ? Math.round((pureEntities / totalEntities) * 1000) / 10 : 100;
 
   return { score, totalEntities, pureEntities, suspicious };
+}
+
+// ============================================================
+// 6.5 Baseline Validation (New)
+// ============================================================
+
+// Normalize quotes for matching
+function normalizeQuotes(str) {
+  return str
+    .replace(/[\u2018\u2019\u0027]/g, "'")  // Normalize single quotes (full-width and half-width)
+    .replace(/[\u201c\u201d\u0022]/g, '"')  // Normalize double quotes (full-width and half-width)
+    .replace(/[「」]/g, '"')  // Normalize Japanese quotes
+    .replace(/[『』]/g, "'"); // Normalize Japanese single quotes
+}
+
+// Check if name exists in text with variant matching
+function nameExistsInText(name, text) {
+  // Normalize quotes for both name and text
+  const normalizedName = normalizeQuotes(name);
+  const normalizedText = normalizeQuotes(text);
+  
+  // Exact match (with normalized quotes)
+  if (normalizedText.includes(normalizedName)) return true;
+  
+  // Try splitting name into parts and check if major parts exist
+  // E.g., "金轮法王" -> check if "金轮" exists
+  const parts = name.match(/[\u4e00-\u9fa5]{2,}/g) || [];
+  if (parts.length >= 2) {
+    // Check if the longest part exists
+    const longestPart = parts.reduce((a, b) => a.length > b.length ? a : b);
+    if (longestPart.length >= 2 && normalizedText.includes(longestPart)) return true;
+  }
+  
+  // Try removing common suffixes
+  const withoutSuffix = name.replace(/法王$|大师$|真人$|掌门$|帮主$|教主$/, '');
+  if (withoutSuffix !== name && withoutSuffix.length >= 2 && normalizedText.includes(withoutSuffix)) return true;
+  
+  // Try matching without quotes
+  const nameWithoutQuotes = name.replace(/['""「」『』']/g, '');
+  if (nameWithoutQuotes.length >= 4 && normalizedText.includes(nameWithoutQuotes)) return true;
+  
+  return false;
+}
+
+function validateBaseline() {
+  const issues = [];
+  
+  // Load original text for verification
+  const baseName = path.basename(novelDir);
+  const txtPath = path.join(novelDir, `${baseName}.txt`);
+  let originalText = '';
+  try {
+    originalText = fs.readFileSync(txtPath, 'utf8');
+  } catch (e) {
+    issues.push({ type: 'error', message: `Cannot read original text: ${txtPath}` });
+    return { score: 0, issues };
+  }
+  
+  // Check baseline characters exist in original text
+  const baselineChars = baseline.characters || {};
+  for (const importance of ['core', 'important', 'secondary', 'minor']) {
+    for (const entity of (baselineChars[importance] || [])) {
+      if (!nameExistsInText(entity.name, originalText)) {
+        // Check aliases
+        const aliases = Array.isArray(entity.alias) ? entity.alias : (entity.alias ? [entity.alias] : []);
+        const foundInAlias = aliases.some(a => nameExistsInText(a, originalText));
+        if (!foundInAlias) {
+          issues.push({
+            type: 'hallucination',
+            entity_type: 'character',
+            id: entity.id,
+            name: entity.name,
+            message: `Character "${entity.name}" not found in original text`
+          });
+        }
+      }
+    }
+  }
+  
+  // Check baseline skills exist in original text
+  for (const skill of (baseline.skills || [])) {
+    if (!nameExistsInText(skill.name, originalText)) {
+      issues.push({
+        type: 'hallucination',
+        entity_type: 'skill',
+        id: skill.id,
+        name: skill.name,
+        message: `Skill "${skill.name}" not found in original text`
+      });
+    }
+  }
+  
+  // Check baseline items exist in original text
+  for (const item of (baseline.items || [])) {
+    if (!nameExistsInText(item.name, originalText)) {
+      issues.push({
+        type: 'hallucination',
+        entity_type: 'item',
+        id: item.id,
+        name: item.name,
+        message: `Item "${item.name}" not found in original text`
+      });
+    }
+  }
+  
+  // Check baseline factions exist in original text
+  for (const faction of (baseline.factions || [])) {
+    if (!nameExistsInText(faction.name, originalText)) {
+      issues.push({
+        type: 'hallucination',
+        entity_type: 'faction',
+        id: faction.id,
+        name: faction.name,
+        message: `Faction "${faction.name}" not found in original text`
+      });
+    }
+  }
+  
+  // Check baseline dialogues exist in original text
+  for (const dialogue of (baseline.dialogues || [])) {
+    const quote = dialogue.quote || dialogue.text || '';
+    if (quote && quote.length >= 10) {
+      // Try multiple substrings for matching
+      const substrings = [
+        quote.substring(0, 30),
+        quote.substring(0, 20),
+        quote.substring(0, 15)
+      ];
+      const found = substrings.some(s => s.length >= 10 && originalText.includes(s));
+      if (!found) {
+        issues.push({
+          type: 'hallucination',
+          entity_type: 'dialogue',
+          id: dialogue.id,
+          name: quote.substring(0, 50) + '...',
+          message: `Dialogue not found in original text`
+        });
+      }
+    }
+  }
+  
+  // Check for duplicate entities in KB
+  const nameCounts = new Map();
+  for (const c of characters) {
+    const count = (nameCounts.get(c.name) || 0) + 1;
+    nameCounts.set(c.name, count);
+  }
+  for (const [name, count] of nameCounts) {
+    if (count > 1) {
+      issues.push({
+        type: 'duplicate',
+        entity_type: 'character',
+        name: name,
+        count: count,
+        message: `Duplicate character name "${name}" found ${count} times`
+      });
+    }
+  }
+  
+  const hallucinations = issues.filter(i => i.type === 'hallucination');
+  const duplicates = issues.filter(i => i.type === 'duplicate');
+  const score = issues.length === 0 ? 100 : Math.max(0, 100 - (hallucinations.length * 10) - (duplicates.length * 5));
+  
+  return { score, issues, hallucinations, duplicates };
 }
 
 // ============================================================
@@ -519,6 +731,7 @@ const eventCoverage = assessEventCoverage();
 const dialogueQuality = assessDialogueQuality();
 const crossBookPurity = assessCrossBookPurity();
 const entityQuantity = assessEntityQuantity();
+const baselineValidation = validateBaseline();
 
 // Calculate overall score (weights sum to 1.0, scores are percentages)
 // Note: entity_quantity is informational only, not included in score
@@ -554,7 +767,8 @@ const report = {
     description_accuracy: descriptionAccuracy,
     event_coverage: eventCoverage,
     dialogue_quality: dialogueQuality,
-    cross_book_purity: crossBookPurity
+    cross_book_purity: crossBookPurity,
+    baseline_validation: baselineValidation
   }
 };
 
@@ -581,6 +795,24 @@ console.log(`  Dialogue Authenticity:     ${dialogueQuality.authenticity}%`);
 console.log(`  Dialogue Character Fit:    ${dialogueQuality.characterFit}%`);
 console.log(`  Dialogue Represent.:       ${dialogueQuality.representativeness}%`);
 console.log(`  Cross-Book Purity:         ${crossBookPurity.score}%`);
+console.log(`  Baseline Validation:       ${baselineValidation.score}%`);
+
+if (baselineValidation.hallucinations && baselineValidation.hallucinations.length > 0) {
+  console.log(`\n⚠️  Baseline Hallucinations (${baselineValidation.hallucinations.length}):`);
+  for (const h of baselineValidation.hallucinations.slice(0, 10)) {
+    console.log(`  - ${h.entity_type}: ${h.name}`);
+  }
+  if (baselineValidation.hallucinations.length > 10) {
+    console.log(`  ... and ${baselineValidation.hallucinations.length - 10} more`);
+  }
+}
+
+if (baselineValidation.duplicates && baselineValidation.duplicates.length > 0) {
+  console.log(`\n⚠️  Duplicate Entities (${baselineValidation.duplicates.length}):`);
+  for (const d of baselineValidation.duplicates) {
+    console.log(`  - ${d.name} (${d.count} times)`);
+  }
+}
 
 console.log(`\nReports written to:`);
 console.log(`  ${jsonPath}`);
@@ -707,6 +939,29 @@ function generateMarkdownReport(report) {
     lines.push('|-----|------|------|');
     for (const s of cb.suspicious) {
       lines.push(`| ${s.id} | ${s.name} | ${s.type} |`);
+    }
+  }
+
+  // Baseline Validation Details
+  lines.push('\n## Baseline Validation\n');
+  const bv = report.metrics.baseline_validation;
+  lines.push(`- Score: ${bv.score}%`);
+  lines.push(`- Hallucinations: ${(bv.hallucinations || []).length}`);
+  lines.push(`- Duplicates: ${(bv.duplicates || []).length}`);
+  if (bv.hallucinations && bv.hallucinations.length > 0) {
+    lines.push(`\n### Baseline Hallucinations (${bv.hallucinations.length})\n`);
+    lines.push('| Type | ID | Name | Issue |');
+    lines.push('|------|-----|------|-------|');
+    for (const h of bv.hallucinations) {
+      lines.push(`| ${h.entity_type} | ${h.id} | ${h.name} | ${h.message} |`);
+    }
+  }
+  if (bv.duplicates && bv.duplicates.length > 0) {
+    lines.push(`\n### Duplicate Entities (${bv.duplicates.length})\n`);
+    lines.push('| Name | Count |');
+    lines.push('|------|-------|');
+    for (const d of bv.duplicates) {
+      lines.push(`| ${d.name} | ${d.count} |`);
     }
   }
 

@@ -433,6 +433,61 @@ for (const f of factions) {
   }
 }
 
+// 6. Duplicate entity detection
+console.log('Checking for duplicate entities...');
+
+// Check for duplicate character names
+const charNameMap = new Map();
+for (const c of characters) {
+  if (!charNameMap.has(c.name)) {
+    charNameMap.set(c.name, []);
+  }
+  charNameMap.get(c.name).push(c.id);
+}
+
+for (const [name, ids] of charNameMap) {
+  if (ids.length > 1) {
+    issues.push({
+      type: 'duplicate_entity',
+      severity: 'error',
+      entity_type: 'character',
+      name: name,
+      ids: ids,
+      message: `Duplicate character name "${name}" found ${ids.length} times: ${ids.join(', ')}`
+    });
+  }
+}
+
+// Check for similar character names (name containment)
+const charNames = characters.map(c => c.name);
+for (let i = 0; i < charNames.length; i++) {
+  for (let j = i + 1; j < charNames.length; j++) {
+    const name1 = charNames[i];
+    const name2 = charNames[j];
+    // Check if one name contains the other (e.g., "青青" contains "夏青青")
+    if (name1.includes(name2) || name2.includes(name1)) {
+      // Skip if it's a common pattern (e.g., "老X" and "X")
+      if (name1.length > 1 && name2.length > 1) {
+        const char1 = characters[i];
+        const char2 = characters[j];
+        // Only flag if both are important
+        if (char1.importance !== '龙套' || char2.importance !== '龙套') {
+          issues.push({
+            type: 'similar_entity',
+            severity: 'warning',
+            entity_type: 'character',
+            name1: name1,
+            name2: name2,
+            id1: char1.id,
+            id2: char2.id,
+            message: `Similar character names: "${name1}" (${char1.id}) and "${name2}" (${char2.id})`
+          });
+        }
+      }
+    }
+  }
+}
+
 // Generate report
 console.log('\n=== Cross Validation Report ===\n');
 
