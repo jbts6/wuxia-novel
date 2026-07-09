@@ -56,7 +56,7 @@
     "id": "skill_shen_xing_bai_bian",
     "name": "神行百变",
     "type": "轻功",
-    "faction": null,
+    "faction": "faction_hua_shan_pai",
     "mastery_rank": "出神入化",
     "one_line": "木桑道人轻功，天下独步",
     "techniques": [],
@@ -145,7 +145,7 @@
     "id": "skill_fu_hu_zhang_fa",
     "name": "伏虎掌法",
     "type": "掌法",
-    "faction": null,
+    "faction": "faction_hua_shan_pai",
     "mastery_rank": "出神入化",
     "one_line": "袁承志最初所学掌法",
     "techniques": [],
@@ -185,7 +185,7 @@
     "id": "skill_po_yu_quan",
     "name": "破玉拳",
     "type": "拳法",
-    "faction": null,
+    "faction": "faction_hua_shan_pai",
     "mastery_rank": "出神入化",
     "one_line": "华山派拳法，归辛树擅长",
     "techniques": [],
@@ -223,7 +223,7 @@
     "id": "skill_hun_yuan_gong",
     "name": "混元功",
     "type": "内功",
-    "faction": null,
+    "faction": "faction_hua_shan_pai",
     "mastery_rank": "出神入化",
     "one_line": "华山派内功心法",
     "techniques": [],
@@ -276,7 +276,7 @@
     "id": "skill_hua_shan_jian_fa",
     "name": "华山剑法",
     "type": "剑法",
-    "faction": null,
+    "faction": "faction_hua_shan_pai",
     "mastery_rank": "出神入化",
     "one_line": "华山派基础剑法",
     "techniques": [],
@@ -370,7 +370,7 @@
     "id": "skill_shi_duan_jin",
     "name": "十段锦",
     "type": "内功",
-    "faction": null,
+    "faction": "faction_hua_shan_pai",
     "mastery_rank": "出神入化",
     "one_line": "袁承志初学内功",
     "techniques": [],
@@ -405,137 +405,10 @@
     ]
   },
   {
-    "id": "skill_jin_she_zhui",
-    "name": "金蛇锥",
-    "type": "暗器",
-    "faction": null,
-    "mastery_rank": "出神入化",
-    "one_line": "金蛇郎君的暗器手法",
-    "techniques": [],
-    "progression": "传承",
-    "effects": [
-      {
-        "type": "伤害",
-        "description": "威力强大"
-      }
-    ],
-    "combat_style": "以攻为主",
-    "rag_refs": [
-      1
-    ],
-    "source_refs": [
-      {
-        "chapter": 3,
-        "anchor": "金蛇锥在走火入魔提及",
-        "line_start": 82,
-        "line_end": 85,
-        "text": "\n一晃三年，袁承志已十三岁了。这三年之中，穆人清又传了他“破玉拳”和“混元掌”。“混元掌”虽是掌法，却是修习内功之用。自来武学各派修练内功，都讲究呼吸吐纳，打坐练气，华山派的内功却别具蹊径，自外而内，于掌法中修习内劲。这门功夫虽费时甚久，见效颇慢，但修习时既无走火入魔之虞，练成后又威力奇大。因内外同修，临敌时一招一式之中，皆自然而有内劲相附，能于不着意间制胜克敌。待得“混元功”大成，那更是无往不利、无坚不摧了。袁承志练武时日尚浅，“混元功”自未有成，但身子已出落得壮健异常，百病不侵。穆人清有时下山，一去便两三月、三四月不等，回山后查考武功，见他用功勤奋，进境迅速，每次均奖勉有加。\n\n这一年端午节，吃过雄黄酒，穆人清又请出祖师爷的画像，自己磕了头，又命袁承志磕头，说道：“今天教你拜祖师，你知为了什么？”袁承志道：“请师父示知。” 穆人清从室内捧出一只长木匣，放在案上，木匣盖一揭开，只见精光耀眼，匣中横放着一柄明晃晃的三尺长剑。",
-        "anchors_hit": [
-          "走火入魔"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 3,
-        "alternatives": []
-      }
-    ]
-  },
-  {
-    "id": "skill_ruan_hong_zhu_suo",
-    "name": "软红蛛索",
-    "type": "奇门兵器",
-    "faction": null,
-    "mastery_rank": "出神入化",
-    "one_line": "何惕守的独门兵器",
-    "techniques": [],
-    "progression": "传承",
-    "effects": [
-      {
-        "type": "伤害",
-        "description": "威力强大"
-      }
-    ],
-    "combat_style": "以攻为主",
-    "rag_refs": [
-      1
-    ],
-    "source_refs": [
-      {
-        "chapter": 3,
-        "anchor": "软红蛛索在华山派提及",
-        "event_type": "first_mention",
-        "line_start": 46,
-        "line_end": 48,
-        "text": "\n哑巴摆了张香案。那老人取出一幅画，画上绘的是个中年书生，空手作着个持剑姿式。那老人点了香烛，对着画像恭恭敬敬的磕了头，对袁承志道：“这是咱们华山派的开山祖师风祖师爷，你过来磕头。”袁承志向画中人瞧了两眼，心道：“你可比我师父年轻得多啦，怎么反而是祖师爷？”当下过去磕头，不知该磕几个头，心想总是越多越好，直磕到那老人笑着叫他停止才罢。那老人笑吟吟的正要开口说话，袁承志又跪下磕头，算是正式拜师。\n",
-        "anchors_hit": [
-          "华山派",
-          "华山"
-        ],
-        "anchors_total": 2,
-        "locate_status": "located",
-        "locate_score": 251,
-        "locate_method": "window",
-        "hint_chapter": 3,
-        "alternatives": [
-          {
-            "chapter": 4,
-            "line_start": 8,
-            "line_end": 10,
-            "text": "\n读到第三日上，见秘笈所载武功已与自己过去所学全然不同，不但与华山派武功无丝毫共通之处，而且从来不曾听师父或木桑道长提到过，那也并非仅是别有蹊径而已，委实异想天开，往往与武学要旨背道而驰，却也自具克敌制胜之妙。他一艺通百艺通，武学上既已有颇深造诣，再学旁门自是点到即会。秘笈中所载武功奇想怪着，纷至沓来，一学之下，再也不能自休，当下照着秘笈一路学将下去。\n",
-            "score": 248,
-            "anchors_hit": [
-              "华山派",
-              "华山"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 5,
-            "line_start": 82,
-            "line_end": 84,
-            "text": "\n袁承志已看明白她武功家数，虽不是华山派门人，但必受过本门中人的指点，否则依她功力，早已支持不住，仗着剑术精奇，才跟温正勉强打个平手，莫看她攻势凌厉，其实温正又稳又狠，后劲比她长得多。温青也已瞧出那少女非温正敌手，微微冷笑，说道：“凭这点子道行，也想上门来讨东西。”\n",
-            "score": 245,
-            "anchors_hit": [
-              "华山派",
-              "华山"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 7,
-            "line_start": 4,
-            "line_end": 6,
-            "text": "\n这些人中最感奇怪的却是黄真。他见袁承志在吕七胁下这一戳，确是华山派绝技“铁指诀”，然而他绕着对方游走、以及抓挟金条的手法，却与自己所习迥然不同，除了反手抓夺烟管这一招之外，余下这几下小巧变幻，都带着三分诡秘之气，决非华山派武功以浑厚精奇见长的家数，自不是师父晚年别创新招而传授了这小师弟，一时也想不明白，当下在铁算盘上一拨，说道：“刚才那位老爷子说过，只要动了三根金条，全部黄金奉还，兄弟在这里谢过。”双手一拱，对崔希敏道：“都捡起来吧。”\n",
-            "score": 239,
-            "anchors_hit": [
-              "华山派",
-              "华山"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 8,
-            "line_start": 168,
-            "line_end": 170,
-            "text": "\n乱了一阵，闵子华又道：“这几日内，昆仑派的张心一师兄，峨嵋派的几位道长，华山派的几位师兄也都可到了。”有人问道：“华山派也有人来吗？那好极了，是谁的门下呀？”袁承志心想：“你问得倒好，我也正想问这句话。”闵子华道：“是神拳无敌门下的几位师兄。”袁承志心道：“那是二师哥的门下了。”那人又问：“闵二哥 跟归二爷夫妇有交情么？那好极啦，有他们夫妇撑腰，还怕那姓焦的奸贼什么？”\n",
-            "score": 236,
-            "anchors_hit": [
-              "华山派",
-              "华山"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "skill_wu_long_sao_di",
     "name": "乌龙扫地",
     "type": "腿法",
-    "faction": null,
+    "faction": "faction_hua_shan_pai",
     "mastery_rank": "出神入化",
     "one_line": "杨鹏举所使腿法",
     "techniques": [],
@@ -573,7 +446,7 @@
     "id": "skill_qin_na_shou_fa",
     "name": "擒拿手法",
     "type": "拳法",
-    "faction": null,
+    "faction": "faction_hua_shan_pai",
     "mastery_rank": "出神入化",
     "one_line": "崔秋山所使擒拿功夫",
     "techniques": [],
@@ -604,82 +477,6 @@
         "locate_status": "located",
         "locate_score": 244,
         "locate_method": "window",
-        "hint_chapter": 2,
-        "alternatives": []
-      }
-    ]
-  },
-  {
-    "id": "skill_pan_guan_shuang_bi",
-    "name": "判官双笔",
-    "type": "奇门兵器",
-    "faction": null,
-    "mastery_rank": "出神入化",
-    "one_line": "白脸太监所使兵器",
-    "techniques": [],
-    "progression": "传承",
-    "effects": [
-      {
-        "type": "伤害",
-        "description": "威力强大"
-      }
-    ],
-    "combat_style": "以攻为主",
-    "rag_refs": [
-      1
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "anchor": "判官双笔在广州提及",
-        "line_start": 68,
-        "line_end": 71,
-        "text": "\n张朝唐和杨鹏举迳赴广州，途中更无他故。杨鹏举遭此挫折，心灰意懒，知道江湖上山外有山，人上有人，自己凭这点微末功夫，居然能挨到今日，算得是侥幸之极，此番若非袁承志这小小孩童一言相救，已变成没眼睛的废人，想想暗自心惊，当即向镖局辞了工，便欲回家务农。张朝唐感他救命之恩，见他心情郁郁，便邀他同去浡泥国游览散心。杨鹏举眼见左右无事，自己又无家累，当即答允。\n\n三人在广州雇了海舶，前往浡泥。杨鹏举住了月余，见当地太平安乐，真如世外桃源一般，竟然不兴归意，便在张朝唐之父张信的那督府中担任个小小职司。每日当差一两个时辰，余下来喝酒赌钱，甚是逍遥快乐。",
-        "anchors_hit": [
-          "广州"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 2,
-        "alternatives": []
-      }
-    ]
-  },
-  {
-    "id": "skill_hong_yi_da_pao",
-    "name": "红夷大炮",
-    "type": "阵法",
-    "faction": null,
-    "mastery_rank": "出神入化",
-    "one_line": "罗大千所用火炮",
-    "techniques": [],
-    "progression": "传承",
-    "effects": [
-      {
-        "type": "伤害",
-        "description": "威力强大"
-      }
-    ],
-    "combat_style": "以攻为主",
-    "rag_refs": [
-      1
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "anchor": "红夷大炮在广州提及",
-        "line_start": 68,
-        "line_end": 71,
-        "text": "\n张朝唐和杨鹏举迳赴广州，途中更无他故。杨鹏举遭此挫折，心灰意懒，知道江湖上山外有山，人上有人，自己凭这点微末功夫，居然能挨到今日，算得是侥幸之极，此番若非袁承志这小小孩童一言相救，已变成没眼睛的废人，想想暗自心惊，当即向镖局辞了工，便欲回家务农。张朝唐感他救命之恩，见他心情郁郁，便邀他同去浡泥国游览散心。杨鹏举眼见左右无事，自己又无家累，当即答允。\n\n三人在广州雇了海舶，前往浡泥。杨鹏举住了月余，见当地太平安乐，真如世外桃源一般，竟然不兴归意，便在张朝唐之父张信的那督府中担任个小小职司。每日当差一两个时辰，余下来喝酒赌钱，甚是逍遥快乐。",
-        "anchors_hit": [
-          "广州"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
         "hint_chapter": 2,
         "alternatives": []
       }
