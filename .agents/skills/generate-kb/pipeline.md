@@ -122,7 +122,26 @@ node <skill>/scripts/generate-baseline-prompt.js <novelDir>
 node <skill>/scripts/assess-quality.js <novelDir>
 ```
 
-检查综合质量分数是否达标（≥85%）。
+### 质量标准
+
+**综合质量分数 ≥ 85%**，且**所有单项指标必须达标**：
+
+| 指标 | 最低门槛 | 权重 | 说明 |
+|------|----------|------|------|
+| Entity Completeness | ≥ 95% | 0.25 | 实体覆盖率 |
+| Relationship Completeness | ≥ 95% | 0.15 | 关系覆盖率 |
+| Relationship Accuracy | ≥ 90% | 0.10 | 关系准确率 |
+| Description Accuracy | ≥ 70% | 0.15 | 描述准确率 |
+| Event Coverage | ≥ 95% | 0.10 | 事件覆盖率 |
+| Dialogue Authenticity | ≥ 70% | 0.10 | **对话真实率**（衡量对话是否为原文） |
+| Cross-Book Purity | ≥ 85% | 0.10 | 跨书纯净度 |
+
+**注意**：综合分数可能达标（如85%），但个别指标可能很低（如 Dialogue Authenticity 只有40%）。这种情况必须修复后重跑，不能放过。
+
+**常见问题及修复方法**：
+- **Dialogue Authenticity 低**：baseline.dialogues 缺少实际对话文本，需要更新 baseline.json 添加正确的 quote 字段
+- **Cross-Book Purity 低**：baseline 缺少本书的真实实体，需要更新 baseline.json 添加所有应有实体
+- **Description Accuracy 低**：baseline 中的角色描述与 KB 不一致，需要更新 baseline 的 expected_identity 和 expected_traits
 
 ## Phase 3.7：生成总览
 

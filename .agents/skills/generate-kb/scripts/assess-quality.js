@@ -814,6 +814,31 @@ if (baselineValidation.duplicates && baselineValidation.duplicates.length > 0) {
   }
 }
 
+// Check minimum thresholds for individual metrics
+const thresholds = {
+  'Entity Completeness': { score: entityCompleteness.score, min: 95 },
+  'Relationship Completeness': { score: relationships.completeness, min: 95 },
+  'Relationship Accuracy': { score: relationships.accuracy, min: 90 },
+  'Description Accuracy': { score: descriptionAccuracy.score, min: 70 },
+  'Event Coverage': { score: eventCoverage.score, min: 95 },
+  'Dialogue Authenticity': { score: dialogueQuality.authenticity, min: 70 },
+  'Cross-Book Purity': { score: crossBookPurity.score, min: 85 }
+};
+
+const failedMetrics = Object.entries(thresholds)
+  .filter(([_, v]) => v.score < v.min)
+  .map(([name, v]) => ({ name, score: v.score, min: v.min }));
+
+if (failedMetrics.length > 0) {
+  console.log(`\n❌ 未达标指标 (${failedMetrics.length}):`);
+  for (const m of failedMetrics) {
+    console.log(`  - ${m.name}: ${m.score}% (最低要求 ${m.min}%)`);
+  }
+  console.log('\n⚠️  综合分数可能达标，但单项指标未达标，必须修复后重跑！');
+} else {
+  console.log('\n✅ 所有单项指标均达标');
+}
+
 console.log(`\nReports written to:`);
 console.log(`  ${jsonPath}`);
 console.log(`  ${mdPath}`);

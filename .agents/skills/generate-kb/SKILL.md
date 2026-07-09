@@ -14,6 +14,12 @@ description: Use when the user wants to build a high-quality knowledge base for 
 - 仅当 `<小说目录>/<小说名>.txt` 存在时才可运行
 - 每个实体必须附 `source_refs: [{chapter, anchor, event_type}]`，由 `locate.js` 自动回填
 - 核心质量指标：**综合质量分数 ≥ 85%**
+- **单项指标最低门槛**（任一不达标需修复后重跑）：
+  - Entity Completeness ≥ 95%
+  - Relationship Completeness ≥ 95%
+  - Description Accuracy ≥ 70%
+  - Dialogue Authenticity ≥ 70%（对话真实率，衡量对话是否为原文）
+  - Cross-Book Purity ≥ 85%
 - ID、schema、枚举以 `schemas.md` / `constants.md` 为准
 - 生成阶段必须使用长上下文模型（≥ 1M tokens）
 - **dialogues 必须用"LLM 读原文 + 事件锚定"方案提取**，禁止凭记忆生成

@@ -14,6 +14,8 @@ export default defineConfig({
       '@data/天龙八部': path.resolve(__dirname, '../金庸/天龙八部/data'),
       '@data/神雕侠侣': path.resolve(__dirname, '../金庸/神雕侠侣/data'),
       '@data/碧血剑': path.resolve(__dirname, '../金庸/碧血剑/data'),
+      '@data/射雕英雄传': path.resolve(__dirname, '../金庸/射雕英雄传/data'),
+      '@data/鸳鸯刀': path.resolve(__dirname, '../金庸/鸳鸯刀/data'),
     },
   },
 })

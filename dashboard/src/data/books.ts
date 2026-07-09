@@ -4,6 +4,8 @@ import type { BookMeta } from '../types/novel';
 import * as 天龙八部 from '@data/天龙八部';
 import * as 神雕侠侣 from '@data/神雕侠侣';
 import * as 碧血剑 from '@data/碧血剑';
+import * as 射雕英雄传 from '@data/射雕英雄传';
+import * as 鸳鸯刀 from '@data/鸳鸯刀';
 
 export const books: BookMeta[] = [
   {
@@ -23,5 +25,17 @@ export const books: BookMeta[] = [
     name: '碧血剑',
     author: '金庸',
     data: 碧血剑 as unknown as BookMeta['data'],
+  },
+  {
+    path: '金庸/射雕英雄传',
+    name: '射雕英雄传',
+    author: '金庸',
+    data: 射雕英雄传 as unknown as BookMeta['data'],
+  },
+  {
+    path: '金庸/鸳鸯刀',
+    name: '鸳鸯刀',
+    author: '金庸',
+    data: 鸳鸯刀 as unknown as BookMeta['data'],
   },
 ];
