@@ -4,10 +4,11 @@ import { StatCard } from '../components/common/StatCard';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Users, Swords, Gem, Building2, MapPin, BookMarked, MessageSquare } from 'lucide-react';
+import { resolveId } from '../lib/resolveId';
 
 export default function BookOverview() {
   const { currentBook } = useBookData();
-  const { characters, skills, items, factions, locations, chapterSummaries, dialogues } =
+  const { characters, skills, items, factions, locations, chapterSummaries, dialogues, factionMap, locationMap } =
     useNovelStore();
 
   if (!currentBook) {
@@ -46,7 +47,7 @@ export default function BookOverview() {
                     <span className="font-medium">{char.name}</span>
                     {char.faction && (
                       <span className="ml-2 text-sm text-muted-foreground">
-                        {char.faction}
+                        {resolveId(char.faction, factionMap)}
                       </span>
                     )}
                   </div>
@@ -78,7 +79,7 @@ export default function BookOverview() {
                   </div>
                   {faction.location && (
                     <span className="text-sm text-muted-foreground">
-                      {faction.location}
+                      {resolveId(faction.location, locationMap)}
                     </span>
                   )}
                 </div>
