@@ -2,17 +2,43 @@ import { useState, useMemo } from 'react';
 import { useNovelStore } from '../stores/useNovelStore';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Input } from '../components/ui/input';
+import { MultiSearchableSelect } from '../components/ui/multi-searchable-select';
 import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
+import { resolveId } from '../lib/resolveId';
 
 export default function Items() {
-  const { items, detailPanel, showDetail, hideDetail } = useNovelStore();
+  const { items, characterMap, detailPanel, showDetail, hideDetail } = useNovelStore();
   const [search, setSearch] = useState('');
+  const [typeFilter, setTypeFilter] = useState<string[]>([]);
+  const [tagFilter, setTagFilter] = useState<string[]>([]);
+  const [rarityFilter, setRarityFilter] = useState<string[]>([]);
+
+  const typeOptions = useMemo(() => {
+    const set = new Set(items.map((i) => i.type).filter(Boolean));
+    return Array.from(set).sort().map((t) => ({ value: t, label: t }));
+  }, [items]);
+
+  const tagOptions = useMemo(() => {
+    const set = new Set(items.flatMap((i) => i.tags || []).filter(Boolean));
+    return Array.from(set).sort().map((t) => ({ value: t, label: t }));
+  }, [items]);
+
+  const rarityOptions = useMemo(() => {
+    const set = new Set(items.map((i) => i.rarity_tier).filter(Boolean));
+    return Array.from(set).sort().map((r) => ({ value: r!, label: r! }));
+  }, [items]);
 
   const filtered = useMemo(() => {
-    return items.filter((i) => !search || i.name.includes(search));
-  }, [items, search]);
+    return items.filter((i) => {
+      const matchSearch = !search || i.name.includes(search);
+      const matchType = typeFilter.length === 0 || typeFilter.includes(i.type);
+      const matchTag = tagFilter.length === 0 || i.tags?.some((t) => tagFilter.includes(t));
+      const matchRarity = rarityFilter.length === 0 || (i.rarity_tier && rarityFilter.includes(i.rarity_tier));
+      return matchSearch && matchType && matchTag && matchRarity;
+    });
+  }, [items, search, typeFilter, tagFilter, rarityFilter]);
 
   const selected = useMemo(() => {
     if (detailPanel.type === 'item' && detailPanel.id) {
@@ -23,13 +49,42 @@ export default function Items() {
 
   return (
     <div>
-      <PageHeader title="兵器谱" description={`共 ${filtered.length} 件物品`}>
-        <Input
-          placeholder="搜索物品..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-48"
-        />
+      <PageHeader title="百宝录" description={`共 ${filtered.length} 件物品`}>
+        <div className="flex gap-2">
+          <Input
+            placeholder="搜索物品..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-48"
+          />
+          <MultiSearchableSelect
+            className="w-48"
+            options={typeOptions}
+            value={typeFilter}
+            onChange={setTypeFilter}
+            placeholder="类型"
+            searchPlaceholder="搜索类型..."
+            maxDisplay={2}
+          />
+          <MultiSearchableSelect
+            className="w-48"
+            options={tagOptions}
+            value={tagFilter}
+            onChange={setTagFilter}
+            placeholder="标签"
+            searchPlaceholder="搜索标签..."
+            maxDisplay={2}
+          />
+          <MultiSearchableSelect
+            className="w-48"
+            options={rarityOptions}
+            value={rarityFilter}
+            onChange={setRarityFilter}
+            placeholder="稀有度"
+            searchPlaceholder="搜索稀有度..."
+            maxDisplay={2}
+          />
+        </div>
       </PageHeader>
 
       <div className="rounded-md border">
@@ -103,7 +158,7 @@ export default function Items() {
                       <h4 className="mb-2 font-medium">效果</h4>
                       <ul className="list-disc list-inside text-sm text-muted-foreground">
                         {selected.effects.map((e, i) => (
-                          <li key={i}>{e}</li>
+                          <li key={i}>{typeof e === 'string' ? e : e.description}</li>
                         ))}
                       </ul>
                     </div>
@@ -116,7 +171,7 @@ export default function Items() {
                       <h4 className="mb-2 font-medium">关联人物</h4>
                       <div className="flex flex-wrap gap-1">
                         {selected.related_characters.map((c) => (
-                          <Badge key={c} variant="outline">{c}</Badge>
+                          <Badge key={c} variant="outline">{resolveId(c, characterMap)}</Badge>
                         ))}
                       </div>
                     </div>

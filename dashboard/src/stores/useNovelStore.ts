@@ -11,6 +11,7 @@ import type {
   CardType,
   DetailPanelState,
 } from '../types/novel';
+import { buildIdMaps } from '../lib/resolveId';
 
 interface NovelStore {
   characters: Character[];
@@ -21,6 +22,12 @@ interface NovelStore {
   dialogues: Dialogue[];
   techniques: Technique[];
   chapterSummaries: ChapterSummary[];
+
+  characterMap: Map<string, string>;
+  factionMap: Map<string, string>;
+  locationMap: Map<string, string>;
+  skillMap: Map<string, string>;
+  itemMap: Map<string, string>;
 
   detailPanel: DetailPanelState;
   showDetail: (type: CardType, id: string) => void;
@@ -48,13 +55,20 @@ export const useNovelStore = create<NovelStore>((set) => ({
   techniques: [],
   chapterSummaries: [],
 
+  characterMap: new Map(),
+  factionMap: new Map(),
+  locationMap: new Map(),
+  skillMap: new Map(),
+  itemMap: new Map(),
+
   detailPanel: { open: false, type: null, id: null },
   showDetail: (type, id) =>
     set({ detailPanel: { open: true, type, id } }),
   hideDetail: () =>
     set({ detailPanel: { open: false, type: null, id: null } }),
 
-  loadData: (data) =>
+  loadData: (data) => {
+    const maps = buildIdMaps(data);
     set({
       characters: data.characters,
       skills: data.skills,
@@ -64,5 +78,7 @@ export const useNovelStore = create<NovelStore>((set) => ({
       dialogues: data.dialogues,
       techniques: data.techniques,
       chapterSummaries: data.chapter_summaries,
-    }),
+      ...maps,
+    });
+  },
 }));

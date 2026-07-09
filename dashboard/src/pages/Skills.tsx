@@ -2,25 +2,26 @@ import { useState, useMemo } from 'react';
 import { useNovelStore } from '../stores/useNovelStore';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Input } from '../components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { MultiSearchableSelect } from '../components/ui/multi-searchable-select';
 import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
+import { resolveId } from '../lib/resolveId';
 
 export default function Skills() {
-  const { skills, detailPanel, showDetail, hideDetail } = useNovelStore();
+  const { skills, factionMap, characterMap, detailPanel, showDetail, hideDetail } = useNovelStore();
   const [search, setSearch] = useState('');
-  const [typeFilter, setTypeFilter] = useState<string>('all');
+  const [typeFilter, setTypeFilter] = useState<string[]>([]);
 
-  const types = useMemo(() => {
+  const typeOptions = useMemo(() => {
     const set = new Set(skills.map((s) => s.type).filter(Boolean));
-    return Array.from(set).sort();
+    return Array.from(set).sort().map((t) => ({ value: t, label: t }));
   }, [skills]);
 
   const filtered = useMemo(() => {
     return skills.filter((s) => {
       const matchSearch = !search || s.name.includes(search);
-      const matchType = typeFilter === 'all' || s.type === typeFilter;
+      const matchType = typeFilter.length === 0 || typeFilter.includes(s.type);
       return matchSearch && matchType;
     });
   }, [skills, search, typeFilter]);
@@ -42,17 +43,15 @@ export default function Skills() {
             onChange={(e) => setSearch(e.target.value)}
             className="w-48"
           />
-          <Select value={typeFilter} onValueChange={(value) => setTypeFilter(value ?? 'all')}>
-            <SelectTrigger className="w-32">
-              <SelectValue placeholder="类型" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">全部类型</SelectItem>
-              {types.map((t) => (
-                <SelectItem key={t} value={t}>{t}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <MultiSearchableSelect
+            className="w-48"
+            options={typeOptions}
+            value={typeFilter}
+            onChange={setTypeFilter}
+            placeholder="类型"
+            searchPlaceholder="搜索类型..."
+            maxDisplay={2}
+          />
         </div>
       </PageHeader>
 
@@ -78,7 +77,7 @@ export default function Skills() {
                 <td className="p-3">
                   <Badge variant="outline">{skill.type}</Badge>
                 </td>
-                <td className="p-3 text-sm">{skill.faction || '-'}</td>
+                <td className="p-3 text-sm">{resolveId(skill.faction, factionMap)}</td>
                 <td className="p-3 text-sm text-accent">{skill.mastery_rank || '-'}</td>
                 <td className="p-3 text-sm text-muted-foreground max-w-xs truncate">
                   {skill.one_line || skill.description?.slice(0, 50) || '-'}
@@ -99,7 +98,7 @@ export default function Skills() {
               <div className="mt-6 space-y-4">
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div>类型：{selected.type}</div>
-                  <div>门派：{selected.faction || '-'}</div>
+                  <div>门派：{resolveId(selected.faction, factionMap)}</div>
                   <div>境界：{selected.mastery_rank || '-'}</div>
                 </div>
                 <Separator />
@@ -127,7 +126,7 @@ export default function Skills() {
                       <h4 className="mb-2 font-medium">掌握人物</h4>
                       <div className="flex flex-wrap gap-1">
                         {selected.holders.map((h) => (
-                          <Badge key={h} variant="outline">{h}</Badge>
+                          <Badge key={h} variant="outline">{resolveId(h, characterMap)}</Badge>
                         ))}
                       </div>
                     </div>

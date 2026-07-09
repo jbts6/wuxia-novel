@@ -5,9 +5,10 @@ import { Input } from '../components/ui/input';
 import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
+import { resolveId } from '../lib/resolveId';
 
 export default function Locations() {
-  const { locations, detailPanel, showDetail, hideDetail } = useNovelStore();
+  const { locations, factionMap, characterMap, detailPanel, showDetail, hideDetail } = useNovelStore();
   const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
@@ -54,7 +55,7 @@ export default function Locations() {
                 <td className="p-3">
                   <div className="flex flex-wrap gap-1">
                     {location.factions?.slice(0, 2).map((f) => (
-                      <Badge key={f} variant="secondary" className="text-xs">{f}</Badge>
+                      <Badge key={f} variant="secondary" className="text-xs">{resolveId(f, factionMap)}</Badge>
                     ))}
                   </div>
                 </td>
@@ -90,7 +91,7 @@ export default function Locations() {
                       <h4 className="mb-2 font-medium">关联势力</h4>
                       <div className="flex flex-wrap gap-1">
                         {selected.factions.map((f) => (
-                          <Badge key={f} variant="outline">{f}</Badge>
+                          <Badge key={f} variant="outline">{resolveId(f, factionMap)}</Badge>
                         ))}
                       </div>
                     </div>
@@ -103,7 +104,7 @@ export default function Locations() {
                       <h4 className="mb-2 font-medium">关联人物</h4>
                       <div className="flex flex-wrap gap-1">
                         {selected.characters.map((c) => (
-                          <Badge key={c} variant="secondary">{c}</Badge>
+                          <Badge key={c} variant="secondary">{resolveId(c, characterMap)}</Badge>
                         ))}
                       </div>
                     </div>

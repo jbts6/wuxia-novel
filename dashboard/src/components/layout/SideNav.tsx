@@ -16,7 +16,7 @@ const navItems = [
   { path: 'overview', label: '概览', icon: LayoutDashboard },
   { path: 'characters', label: '人物志', icon: Users },
   { path: 'skills', label: '武功阁', icon: Swords },
-  { path: 'items', label: '兵器谱', icon: Gem },
+  { path: 'items', label: '百宝录', icon: Gem },
   { path: 'factions', label: '势力录', icon: Building2 },
   { path: 'locations', label: '地点志', icon: MapPin },
   { path: 'chapter-summaries', label: '章回录', icon: BookMarked },

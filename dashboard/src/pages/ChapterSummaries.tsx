@@ -24,9 +24,8 @@ export default function ChapterSummaries() {
         {chapterSummaries.map((chapter) => (
           <Card key={chapter.chapter}>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 font-serif">
-                <Badge variant="outline">第{chapter.chapter}章</Badge>
-                {chapter.title}
+              <CardTitle className="font-serif">
+                {chapter.title || `第${chapter.chapter}章`}
               </CardTitle>
             </CardHeader>
             <CardContent>

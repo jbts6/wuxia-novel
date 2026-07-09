@@ -5,9 +5,10 @@ import { Input } from '../components/ui/input';
 import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
+import { resolveId } from '../lib/resolveId';
 
 export default function Factions() {
-  const { factions, detailPanel, showDetail, hideDetail } = useNovelStore();
+  const { factions, locationMap, characterMap, detailPanel, showDetail, hideDetail } = useNovelStore();
   const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
@@ -54,8 +55,8 @@ export default function Factions() {
                 <td className="p-3">
                   <Badge variant="outline">{faction.type}</Badge>
                 </td>
-                <td className="p-3 text-sm">{faction.location || '-'}</td>
-                <td className="p-3 text-sm">{faction.leader || '-'}</td>
+                <td className="p-3 text-sm">{resolveId(faction.location, locationMap)}</td>
+                <td className="p-3 text-sm">{resolveId(faction.leader, characterMap)}</td>
                 <td className="p-3 text-sm text-muted-foreground max-w-xs truncate">
                   {faction.one_line || faction.description?.slice(0, 50) || '-'}
                 </td>
@@ -75,8 +76,8 @@ export default function Factions() {
               <div className="mt-6 space-y-4">
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div>类型：{selected.type}</div>
-                  <div>地点：{selected.location || '-'}</div>
-                  <div>领袖：{selected.leader || '-'}</div>
+                  <div>地点：{resolveId(selected.location, locationMap)}</div>
+                  <div>领袖：{resolveId(selected.leader, characterMap)}</div>
                 </div>
                 <Separator />
                 <div>
@@ -90,7 +91,7 @@ export default function Factions() {
                       <h4 className="mb-2 font-medium">成员</h4>
                       <div className="flex flex-wrap gap-1">
                         {selected.members.map((m) => (
-                          <Badge key={m} variant="outline">{m}</Badge>
+                          <Badge key={m} variant="outline">{resolveId(m, characterMap)}</Badge>
                         ))}
                       </div>
                     </div>

@@ -74,7 +74,7 @@ export interface Item {
   description: string;
   one_line?: string;
   description_source_refs?: SourceRef[];
-  effects?: string[];
+  effects?: (string | { type: string; description: string })[];
   related_skills?: string[];
   related_characters?: string[];
   source_refs?: SourceRef[];

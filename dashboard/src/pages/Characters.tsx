@@ -2,20 +2,34 @@ import { useState, useMemo } from 'react';
 import { useNovelStore } from '../stores/useNovelStore';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Input } from '../components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { MultiSearchableSelect } from '../components/ui/multi-searchable-select';
 import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
+import { resolveId } from '../lib/resolveId';
 
 export default function Characters() {
-  const { characters, detailPanel, showDetail, hideDetail } = useNovelStore();
+  const { characters, factionMap, characterMap, detailPanel, showDetail, hideDetail } = useNovelStore();
   const [search, setSearch] = useState('');
-  const [roleFilter, setRoleFilter] = useState<string>('all');
-  const [factionFilter, setFactionFilter] = useState<string>('all');
+  const [roleFilter, setRoleFilter] = useState<string[]>([]);
+  const [factionFilter, setFactionFilter] = useState<string[]>([]);
+  const [rankFilter, setRankFilter] = useState<string[]>([]);
 
-  const factions = useMemo(() => {
+  const roleOptions = useMemo(() => [
+    { value: '核心', label: '核心' },
+    { value: '重要', label: '重要' },
+    { value: '次要', label: '次要' },
+    { value: '龙套', label: '龙套' },
+  ], []);
+
+  const factionOptions = useMemo(() => {
     const set = new Set(characters.map((c) => c.faction).filter(Boolean));
-    return Array.from(set).sort();
+    return Array.from(set).sort().map((id) => ({ value: id!, label: factionMap.get(id!) || id! }));
+  }, [characters, factionMap]);
+
+  const rankOptions = useMemo(() => {
+    const set = new Set(characters.map((c) => c.power_rank).filter(Boolean));
+    return Array.from(set).sort().map((r) => ({ value: r!, label: r! }));
   }, [characters]);
 
   const filtered = useMemo(() => {
@@ -23,13 +37,14 @@ export default function Characters() {
       const matchSearch =
         !search ||
         c.name.includes(search) ||
-        c.aliases?.some((a) => a.includes(search)) ||
+        c.alias?.some((a) => a.includes(search)) ||
         c.identity?.includes(search);
-      const matchRole = roleFilter === 'all' || c.role === roleFilter;
-      const matchFaction = factionFilter === 'all' || c.faction === factionFilter;
-      return matchSearch && matchRole && matchFaction;
+      const matchRole = roleFilter.length === 0 || roleFilter.includes(c.role);
+      const matchFaction = factionFilter.length === 0 || (c.faction && factionFilter.includes(c.faction));
+      const matchRank = rankFilter.length === 0 || (c.power_rank && rankFilter.includes(c.power_rank));
+      return matchSearch && matchRole && matchFaction && matchRank;
     });
-  }, [characters, search, roleFilter, factionFilter]);
+  }, [characters, search, roleFilter, factionFilter, rankFilter]);
 
   const selectedCharacter = useMemo(() => {
     if (detailPanel.type === 'character' && detailPanel.id) {
@@ -48,29 +63,33 @@ export default function Characters() {
             onChange={(e) => setSearch(e.target.value)}
             className="w-48"
           />
-          <Select value={roleFilter} onValueChange={(value) => setRoleFilter(value ?? 'all')}>
-            <SelectTrigger className="w-32">
-              <SelectValue placeholder="身份" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">全部身份</SelectItem>
-              <SelectItem value="核心">核心</SelectItem>
-              <SelectItem value="重要">重要</SelectItem>
-              <SelectItem value="次要">次要</SelectItem>
-              <SelectItem value="龙套">龙套</SelectItem>
-            </SelectContent>
-          </Select>
-          <Select value={factionFilter} onValueChange={(value) => setFactionFilter(value ?? 'all')}>
-            <SelectTrigger className="w-32">
-              <SelectValue placeholder="门派" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">全部门派</SelectItem>
-              {factions.map((f) => (
-                <SelectItem key={f} value={f!}>{f}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <MultiSearchableSelect
+            className="w-48"
+            options={roleOptions}
+            value={roleFilter}
+            onChange={setRoleFilter}
+            placeholder="身份"
+            searchPlaceholder="搜索身份..."
+            maxDisplay={2}
+          />
+          <MultiSearchableSelect
+            className="w-48"
+            options={factionOptions}
+            value={factionFilter}
+            onChange={setFactionFilter}
+            placeholder="门派"
+            searchPlaceholder="搜索门派..."
+            maxDisplay={2}
+          />
+          <MultiSearchableSelect
+            className="w-48"
+            options={rankOptions}
+            value={rankFilter}
+            onChange={setRankFilter}
+            placeholder="境界"
+            searchPlaceholder="搜索境界..."
+            maxDisplay={2}
+          />
         </div>
       </PageHeader>
 
@@ -95,12 +114,12 @@ export default function Characters() {
               >
                 <td className="p-3 font-medium">{char.name}</td>
                 <td className="p-3 text-sm text-muted-foreground">
-                  {char.aliases?.join(', ') || '-'}
+                  {char.alias?.join(', ') || '-'}
                 </td>
                 <td className="p-3">
                   <Badge variant="outline">{char.role}</Badge>
                 </td>
-                <td className="p-3 text-sm">{char.faction || '-'}</td>
+                <td className="p-3 text-sm">{resolveId(char.faction, factionMap)}</td>
                 <td className="p-3 text-sm text-accent">{char.power_rank || '-'}</td>
                 <td className="p-3 text-sm text-muted-foreground max-w-xs truncate">
                   {char.one_line || char.identity || char.bio?.slice(0, 50) || '-'}
@@ -123,7 +142,7 @@ export default function Characters() {
                   <h4 className="mb-2 font-medium">基本信息</h4>
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div>身份：{selectedCharacter.identity || '-'}</div>
-                    <div>门派：{selectedCharacter.faction || '-'}</div>
+                    <div>门派：{resolveId(selectedCharacter.faction, factionMap)}</div>
                     <div>境界：{selectedCharacter.power_rank || '-'}</div>
                     <div>类型：{selectedCharacter.archetype || '-'}</div>
                   </div>
@@ -155,7 +174,7 @@ export default function Characters() {
                       <div className="space-y-2">
                         {selectedCharacter.relationships.map((r, i) => (
                           <div key={i} className="flex items-center justify-between text-sm">
-                            <span>{r.target}</span>
+                            <span>{resolveId(r.target, characterMap)}</span>
                             <Badge variant="outline">{r.type}</Badge>
                           </div>
                         ))}
