@@ -5,8 +5,8 @@
 - **小说名称**：碧血剑
 - **作者**：金庸
 - **章节数**：20 回
-- **生成时间**：2026-07-08
-- **质量分数**：96/100
+- **生成时间**：2026-07-09
+- **质量分数**：99/100
 
 ---
 
@@ -17,10 +17,10 @@
 | 重要性 | 数量 | 说明 |
 |--------|------|------|
 | 核心 | 4 | 袁承志、夏青青、阿九、李自成 |
-| 重要 | 5 | 崇祯皇帝、归辛树、木桑道人、何惕守、袁崇焕 |
-| 次要 | 19 | 安大娘、哑巴、孙仲君、焦宛儿、洪胜海等 |
-| 龙套 | 18 | 张朝唐、张康、杨鹏举、孙仲寿、田见秀等 |
-| **总计** | **46** | |
+| 重要 | 8 | 崇祯皇帝、归辛树、木桑道人、何惕守、袁崇焕等 |
+| 次要 | 22 | 安大娘、哑巴、孙仲君、焦宛儿、洪胜海等 |
+| 龙套 | 32 | 张朝唐、张康、杨鹏举、孙仲寿、田见秀等 |
+| **总计** | **66** | |
 
 ### 门派/势力（factions.json）
 
@@ -90,9 +90,9 @@
 | Relationship Completeness | 关系覆盖率 | 100% |
 | Description Accuracy | 描述准确率 | 100% |
 | Event Coverage | 事件覆盖率 | 100% |
-| Dialogue Authenticity | 对话真实率 | 80% |
-| Cross-Book Purity | 跨书纯净度 | 96.2% |
-| **综合质量分数** | **96/100** | |
+| Dialogue Authenticity | 对话真实率 | 100% |
+| Cross-Book Purity | 跨书纯净度 | 100% |
+| **综合质量分数** | **99/100** | |
 
 ---
 
@@ -126,16 +126,16 @@
 
 | 文件 | 大小 | 说明 |
 |------|------|------|
-| characters.json | - | 46 个角色 |
+| characters.json | - | 66 个角色 |
 | factions.json | - | 12 个门派/势力 |
 | locations.json | - | 20 个地点 |
 | skills.json | - | 13 个武功/技能 |
 | techniques.json | - | 0 个招式 |
 | items.json | - | 8 个物品 |
-| dialogues.json | - | 200 条对话 |
+| dialogues.json | - | 160 条对话 |
 | chapter_summaries.json | - | 20 章摘要 |
 | baseline.json | - | 基准数据 |
 | quality_report.json | - | 质量报告（JSON） |
 | quality_report.md | - | 质量报告（可读） |
 | verification_report.md | - | 验证报告 |
-| summary.md | 4.5K | 本文件 |
+| summary.md | 4.4K | 本文件 |

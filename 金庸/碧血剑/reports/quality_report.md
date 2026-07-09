@@ -1,8 +1,8 @@
 # Quality Report — 碧血剑
 
-Generated: 2026-07-08T05:39:15.214Z
+Generated: 2026-07-09T05:01:50.851Z
 
-## Overall Score: 96/100
+## Overall Score: 99/100
 
 ## Metric Scores
 
@@ -13,9 +13,9 @@ Generated: 2026-07-08T05:39:15.214Z
 | Relationship Accuracy | 100% | 0.10 | ✅ |
 | Description Accuracy | 100% | 0.15 | ✅ |
 | Event Coverage | 100% | 0.10 | ✅ |
-| Dialogue Authenticity | 80% | 0.10 | ⚠️ |
-| Dialogue Representativeness | 59.5% | 0.05 | ❌ |
-| Cross-Book Purity | 96.2% | 0.10 | ✅ |
+| Dialogue Authenticity | 100% | 0.10 | ✅ |
+| Dialogue Representativeness | 74.4% | 0.05 | ❌ |
+| Cross-Book Purity | 100% | 0.10 | ✅ |
 
 ## Entity Quantity (参考建议，不计入综合分数)
 
@@ -23,7 +23,7 @@ Chapter Count: 20
 
 | Type | Actual | Minimum | Status |
 |------|--------|---------|--------|
-| characters | 46 | 15 | ✅ |
+| characters | 66 | 15 | ✅ |
 | factions | 12 | 4 | ✅ |
 | skills | 13 | 8 | ✅ |
 | items | 8 | 6 | ✅ |
@@ -33,10 +33,10 @@ Chapter Count: 20
 
 | Importance | Expected | Actual | Coverage |
 |------------|----------|--------|----------|
-| 核心 | 2 | 2 | 100% |
-| 重要 | 7 | 7 | 100% |
-| 次要 | 19 | 19 | 100% |
-| 龙套 | 18 | 18 | 100% |
+| 核心 | 3 | 3 | 100% |
+| 重要 | 10 | 10 | 100% |
+| 次要 | 22 | 22 | 100% |
+| 龙套 | 31 | 31 | 100% |
 
 ## Relationship Completeness
 
@@ -44,7 +44,7 @@ Chapter Count: 20
 |------------|----------|--------|----------|
 | 核心 | 0 | 0 | 100% |
 | 重要 | 0 | 0 | 100% |
-| 次要 | 7 | 7 | 100% |
+| 次要 | 0 | 0 | 100% |
 
 ## Event Coverage
 
@@ -52,26 +52,18 @@ Chapter Count: 20
 |------|----------|--------|----------|
 | main | 0 | 0 | 100% |
 | branch | 0 | 0 | 100% |
-| detail | 80 | 80 | 100% |
+| detail | 0 | 0 | 100% |
 
 ## Dialogue Quality
 
-- Total dialogues: 200
+- Total dialogues: 160
 - With speaker: 119
-- With listener: 130
-- Baseline checked: 10
-- Baseline matched: 8
+- With listener: 102
+- Baseline checked: 12
+- Baseline matched: 12
 
 ## Cross-Book Purity
 
-- Total entities: 79
-- Pure entities: 76
-- Suspicious: 3
-
-### Suspicious Entities (3)
-
-| ID | Name | Type |
-|-----|------|------|
-| faction_yuan_dang | 袁党 | faction |
-| item_jin_she_mi_ji | 金蛇秘笈 | item |
-| item_chong_zhen_xue_zhao | 血诏 | item |
+- Total entities: 99
+- Pure entities: 99
+- Suspicious: 0
