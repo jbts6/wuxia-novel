@@ -95,7 +95,20 @@
 
 ## factions
 
-必填：`id`、`name`、`type`、`location`、`sub_divisions`、`one_line`、`source_refs`。
+```json
+{
+  "id": "faction_<pinyin>",
+  "name": "门派名",
+  "type": "<faction.type>",
+  "location": "loc_<pinyin>",
+  "leader": "char_<pinyin> 或 null",
+  "sub_divisions": [],
+  "one_line": "≤40字",
+  "source_refs": [{ "chapter": 1, "anchor": "..." }]
+}
+```
+
+必填：`id`、`name`、`type`、`location`、`leader`、`sub_divisions`、`one_line`、`source_refs`。
 
 ## locations
 
