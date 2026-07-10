@@ -124,19 +124,19 @@ node <skill>/scripts/assess-quality.js <novelDir>
 
 ### 质量标准
 
-**综合质量分数 ≥ 85%**，且**所有单项指标必须达标**：
+**综合质量分数 ≥ 95%**，且**所有单项指标必须达标**：
 
 | 指标 | 最低门槛 | 权重 | 说明 |
 |------|----------|------|------|
-| Entity Completeness | ≥ 95% | 0.25 | 实体覆盖率 |
-| Relationship Completeness | ≥ 95% | 0.15 | 关系覆盖率 |
-| Relationship Accuracy | ≥ 90% | 0.10 | 关系准确率 |
-| Description Accuracy | ≥ 70% | 0.15 | 描述准确率 |
-| Event Coverage | ≥ 95% | 0.10 | 事件覆盖率 |
-| Dialogue Authenticity | ≥ 70% | 0.10 | **对话真实率**（衡量对话是否为原文） |
-| Cross-Book Purity | ≥ 85% | 0.10 | 跨书纯净度 |
+| Entity Completeness | **100%** | 0.25 | 实体覆盖率，outline.json 锁定清单后必须全部覆盖 |
+| Relationship Completeness | **100%** | 0.15 | 关系覆盖率，遍历所有角色对补全关系 |
+| Relationship Accuracy | **100%** | 0.10 | 关系准确率，关系类型明确无歧义 |
+| Description Accuracy | ≥ 70% | 0.15 | 描述准确率，描述主观难以量化 |
+| Event Coverage | **100%** | 0.10 | 事件覆盖率，chapter_summaries 覆盖所有章节 |
+| Dialogue Authenticity | **100%** | 0.10 | **对话真实率**，用原文提取不做改写 |
+| Cross-Book Purity | **100%** | 0.10 | 跨书纯净度，baseline 包含所有应有实体 |
 
-**注意**：综合分数可能达标（如85%），但个别指标可能很低（如 Dialogue Authenticity 只有40%）。这种情况必须修复后重跑，不能放过。
+**注意**：综合分数可能达标（如95%），但个别指标可能很低（如 Description Accuracy 只有70%）。这种情况必须修复后重跑，不能放过。
 
 **常见问题及修复方法**：
 - **Dialogue Authenticity 低**：baseline.dialogues 缺少实际对话文本，需要更新 baseline.json 添加正确的 quote 字段

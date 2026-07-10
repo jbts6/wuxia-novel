@@ -34,13 +34,15 @@ Don't ask the user about something memory may already record.
 
 - 仅当 `<小说目录>/<小说名>.txt` 存在时才可运行
 - 每个实体必须附 `source_refs: [{chapter, anchor, event_type}]`，由 `locate.js` 自动回填
-- 核心质量指标：**综合质量分数 ≥ 85%**
+- 核心质量指标：**综合质量分数 ≥ 95%**
 - **单项指标最低门槛**（任一不达标需修复后重跑）：
-  - Entity Completeness ≥ 95%
-  - Relationship Completeness ≥ 95%
-  - Description Accuracy ≥ 70%
-  - Dialogue Authenticity ≥ 70%（对话真实率，衡量对话是否为原文）
-  - Cross-Book Purity ≥ 85%
+  - Entity Completeness = 100%（outline.json 锁定清单后必须全部覆盖）
+  - Relationship Completeness = 100%（遍历所有角色对补全关系）
+  - Relationship Accuracy = 100%（关系类型明确无歧义）
+  - Description Accuracy ≥ 70%（描述主观难以量化）
+  - Event Coverage = 100%（chapter_summaries 覆盖所有章节）
+  - Dialogue Authenticity = 100%（用原文提取不做改写）
+  - Cross-Book Purity = 100%（baseline 包含所有应有实体）
 - ID、schema、枚举以 `schemas.md` / `constants.md` 为准
 - 生成阶段必须使用长上下文模型（≥ 1M tokens）
 - **dialogues 必须用"LLM 读原文 + 事件锚定"方案提取**，禁止凭记忆生成
