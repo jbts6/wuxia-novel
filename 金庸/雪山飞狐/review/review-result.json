@@ -1,143 +1,73 @@
 [
   {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "田青文",
-    "issue_type": "missing_entity",
-    "severity": "high",
-    "reason": "原文核心角色，田归农之女、曹云奇师妹、陶子安未婚妻，在全书1-10章大量出场，与曹云奇有感情纠葛，持有铁盒，是多条情节线的关键人物。完全缺失。",
-    "suggestion": "添加 char_tian_qing_wen，角色类型为重要，补全其 relationships（曹云奇-师兄妹、陶子安-未婚夫妻、田归农-父女）"
-  },
-  {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "陶百岁",
-    "issue_type": "missing_entity",
-    "severity": "high",
-    "reason": "原文重要角色，外号'镇关东'，饮马川山寨大寨主，陶子安之父，田归农老兄弟。在ch1-ch10大量出场，是宝藏争夺和田归农往事的核心叙述者之一。完全缺失。",
-    "suggestion": "添加 char_tao_bai_sui，角色类型为重要，补全 relationships（陶子安-父子、田归农-挚友/亲家）"
-  },
-  {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "陶子安",
-    "issue_type": "missing_entity",
-    "severity": "high",
-    "reason": "原文重要角色，陶百岁之子，田青文未婚夫，被冤为杀害田归农的凶手。在ch1-ch10大量出场，持有铁盒，是多条冲突线的关键人物。完全缺失。",
-    "suggestion": "添加 char_tao_zi_an，角色类型为重要，补全 relationships（陶百岁-父子、田青文-未婚夫妻、曹云奇-情敌）"
-  },
-  {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "宝树",
-    "issue_type": "missing_entity",
-    "severity": "high",
-    "reason": "原文核心反派，实为跌打医生阎基出家后的法号。原为胡一刀接生之人，后出家为僧，是全书多条阴谋的幕后推手，在ch2-ch10大量出场，武功极高。完全缺失。",
-    "suggestion": "添加 char_bao_shu，角色类型为核心/重要，补全 relationships（胡一刀-接生者/仇人、苗人凤-仇敌）"
-  },
-  {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "刘元鹤",
-    "issue_type": "missing_entity",
-    "severity": "high",
-    "reason": "原文重要角色，大内御前侍卫，熊元献师兄，是朝廷势力的代表人物。在ch1-ch10大量出场，参与宝藏争夺，设计擒拿苗人凤的阴谋。完全缺失。",
-    "suggestion": "添加 char_liu_yuan_he，角色类型为重要，补全 relationships（熊元献-同门师兄弟、赛总管-上下级）"
-  },
-  {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "杜希孟",
-    "issue_type": "missing_entity",
-    "severity": "high",
-    "reason": "原文重要角色，玉笔山庄庄主，与胡一刀之母有亲戚关系（表兄妹），在玉笔峰居住数十年寻找宝藏。ch2-ch10多次提及，是故事发生地的主人。完全缺失。",
-    "suggestion": "添加 char_du_xi_meng，角色类型为重要，补全 relationships（胡一刀之母-表兄妹、苗人凤-友人）"
-  },
-  {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "赛总管",
-    "issue_type": "missing_entity",
-    "severity": "high",
-    "reason": "原文重要反派，满洲第一高手，乾隆皇帝第一亲信卫士，御前侍卫总管。在ch9-ch10出场，是朝廷势力的核心人物，设计擒拿苗人凤。完全缺失。",
-    "suggestion": "添加 char_sai_zong_guan，角色类型为重要，补全 relationships（刘元鹤-上下级、苗人凤-宿敌）"
-  },
-  {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "平阿四",
-    "issue_type": "missing_entity",
-    "severity": "high",
-    "reason": "原文重要角色，胡家老仆，抚养胡斐长大，在ch9提及，是胡斐身世的关键见证人。完全缺失。",
-    "suggestion": "添加 char_ping_a_si，角色类型为次要，补全 relationships（胡斐-主仆/抚养者）"
-  },
-  {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "熊元献",
-    "issue_type": "missing_entity",
+    "json_file": "techniques",
+    "index": 0,
+    "id": "tech_ba_fang_cang_dao",
+    "name": "八方藏刀式",
+    "issue_type": "logic",
     "severity": "medium",
-    "reason": "原文角色，平通镖局总镖头，刘元鹤师弟，在ch1-ch10出场，参与宝藏争夺。完全缺失。",
-    "suggestion": "添加 char_xiong_yuan_xian，角色类型为次要"
+    "reason": "source_refs 中的 anchor 描述不够精确，locate 率低",
+    "suggestion": "需要更精确的 anchor 描述以提高定位准确率"
   },
   {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "郑三娘",
-    "issue_type": "missing_entity",
+    "json_file": "techniques",
+    "index": 1,
+    "id": "tech_sha_ou_lue_bo",
+    "name": "沙鸥掠波",
+    "issue_type": "logic",
     "severity": "medium",
-    "reason": "原文角色，双刀，平通镖局镖头遗孀，在ch1-ch8出场，参与战斗和宝藏争夺。完全缺失。",
-    "suggestion": "添加 char_zheng_san_niang，角色类型为次要"
+    "reason": "source_refs 中的 anchor 描述不够精确，locate 率低",
+    "suggestion": "需要更精确的 anchor 描述以提高定位准确率"
   },
   {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "于管家",
-    "issue_type": "missing_entity",
+    "json_file": "techniques",
+    "index": 2,
+    "id": "tech_ti_liao_jian_bai_he_shu_chi",
+    "name": "提撩剑白鹤舒翅",
+    "issue_type": "logic",
     "severity": "medium",
-    "reason": "原文角色，玉笔山庄管家，姓名于某，在ch2-ch3出场，是山庄的重要仆从。完全缺失。",
-    "suggestion": "添加 char_yu_guan_jia，角色类型为次要"
+    "reason": "source_refs 中的 anchor 描述不够精确，locate 率低",
+    "suggestion": "需要更精确的 anchor 描述以提高定位准确率"
   },
   {
-    "json_file": "characters",
-    "index": null,
-    "id": null,
-    "name": "琴儿",
-    "issue_type": "missing_entity",
+    "json_file": "techniques",
+    "index": 3,
+    "id": "tech_bi_men_tie_shan_dao",
+    "name": "闭门铁扇刀",
+    "issue_type": "logic",
     "severity": "medium",
-    "reason": "原文角色，苗若兰的丫鬟，在ch3-ch10出场，是苗若兰的贴身侍女。完全缺失。",
-    "suggestion": "添加 char_qin_er，角色类型为次要"
+    "reason": "source_refs 中的 anchor 描述不够精确，locate 率低",
+    "suggestion": "需要更精确的 anchor 描述以提高定位准确率"
+  },
+  {
+    "json_file": "items",
+    "index": 0,
+    "id": "item_hua_tong_huo_jian",
+    "name": "花筒火箭",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "物品重要性较低，对剧情推动作用有限",
+    "suggestion": "可考虑删除或标记为背景物品"
+  },
+  {
+    "json_file": "items",
+    "index": 1,
+    "id": "item_zhu_lan",
+    "name": "竹篮",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "物品重要性较低，仅为场景道具",
+    "suggestion": "可考虑删除或标记为背景物品"
   },
   {
     "json_file": "characters",
     "index": 0,
-    "id": "char_hu_fei",
-    "name": "胡斐",
+    "id": "char_tian_qing_wen",
+    "name": "田青文",
     "issue_type": "logic",
-    "severity": "medium",
-    "reason": "personality.traits与苗人凤、胡一刀几乎完全相同（'武功高强''重情重义''复仇心切''最终犹豫'），三人性格明显不同，应分别刻画。胡斐聪明机变、苗人凤刚毅正直、胡一刀豪迈粗犷。",
-    "suggestion": "修改胡斐的traits为['聪明机变','重情重义','豪迈不羁','偶有犹豫']，并分别为苗人凤和胡一刀定制不同性格描述"
-  },
-  {
-    "json_file": "characters",
-    "index": 3,
-    "id": "char_cao_yun_qi",
-    "name": "曹云奇",
-    "issue_type": "logic",
-    "severity": "medium",
-    "reason": "与阮士中的relationship type标注为'师徒'，但原文明确写道'高瘦老者是他们师叔七星手阮士中'，应为'师叔侄'关系。同时与周云阳的relationship type也为'师徒'，实际为'师兄弟'关系。",
-    "suggestion": "修改阮士中的relationship type为'师叔侄'，修改周云阳的relationship type为'师兄弟'"
+    "severity": "low",
+    "reason": "personality.traits 只有5项，刚好达到最低要求",
+    "suggestion": "可补充更多性格特征"
   },
   {
     "json_file": "factions",
@@ -145,298 +75,8 @@
     "id": "faction_tian_long_men",
     "name": "天龙门",
     "issue_type": "logic",
-    "severity": "medium",
-    "reason": "leader标注为char_cao_yun_qi，但原文明确指出田归农才是前任掌门，曹云奇是新任北宗掌门人。应标注田归农为前任领袖。members缺少田青文。",
-    "suggestion": "将leader改为char_tian_gui_nong（需先添加田归农角色），或标注'北宗掌门：曹云奇，南宗掌门：殷吉'；members中添加田青文"
-  },
-  {
-    "json_file": "skills",
-    "index": 0,
-    "id": "skill_tian_long_jian",
-    "name": "天龙剑法",
-    "issue_type": "missing_entity",
-    "severity": "medium",
-    "reason": "practitioners只列了曹云奇和殷吉，但原文明确写道阮士中'将天龙剑法使将开来'，周云阳也是天龙门弟子，应精通此剑法。",
-    "suggestion": "practitioners添加char_ruan_shi_zhong和char_zhou_yun_yang"
-  },
-  {
-    "json_file": "skills",
-    "index": null,
-    "id": null,
-    "name": "六合鞭法",
-    "issue_type": "missing_entity",
-    "severity": "medium",
-    "reason": "原文ch1明确写道陶百岁'使开六合鞭法，单鞭斗双拐'，是陶百岁的核心武学。skills.json完全缺失此功法。",
-    "suggestion": "添加skill_liu_he_bian_fa，type为'鞭法'，practitioners为['char_tao_bai_sui']"
-  },
-  {
-    "json_file": "skills",
-    "index": null,
-    "id": null,
-    "name": "追命毒龙锥",
-    "issue_type": "category_error",
-    "severity": "medium",
-    "reason": "原文ch1写道'那毒锥是天龙门世代相传的绝技……江湖上有个名号，叫作追命毒龙锥'，这是天龙门的独门暗器/武器，应归入items.json而非skills.json。",
-    "suggestion": "从skills.json移除（如果存在），在items.json中添加item_zhui_ming_du_long_zhui，type为'暗器'"
-  },
-  {
-    "json_file": "items",
-    "index": null,
-    "id": null,
-    "name": "天龙门宝刀",
-    "issue_type": "missing_entity",
-    "severity": "medium",
-    "reason": "原文多章提及天龙门镇门宝刀，是故事核心道具，刻有'奉天倡义'字样和双龙抢珠图，内藏宝藏线索。items.json完全缺失。",
-    "suggestion": "添加item_tian_long_bao_dao，type为'兵器'，rarity_tier为'绝世神兵'"
-  },
-  {
-    "json_file": "items",
-    "index": null,
-    "id": null,
-    "name": "铁盒",
-    "issue_type": "missing_entity",
-    "severity": "medium",
-    "reason": "原文核心道具，田归农交给陶子安的铁盒，内藏天龙门宝刀。在ch1-ch8反复出现，是多方争夺的焦点。",
-    "suggestion": "添加item_tie_he，type为'容器/道具'"
-  },
-  {
-    "json_file": "items",
-    "index": null,
-    "id": null,
-    "name": "凤头珠钗",
-    "issue_type": "missing_entity",
-    "severity": "medium",
-    "reason": "原文核心道具，藏有李自成宝藏地图的凤头珠钗，苗若兰佩戴，刘元鹤拔下后取出地图。在ch8-ch10关键出现。",
-    "suggestion": "添加item_feng_tou_zhu_chai，type为'饰品/道具'"
-  },
-  {
-    "json_file": "dialogues",
-    "index": 2,
-    "id": "dlg_003",
-    "name": "苗人凤台词",
-    "issue_type": "logic",
-    "severity": "medium",
-    "reason": "原文中苗人凤从未说过'胡斐，你父亲当年害死了我全家，今日我要你血债血偿！'这样的话。原文写的是苗人凤与胡一刀比武，胡一刀并非害死苗人凤全家的凶手（是误会）。此对话疑似AI编造。",
-    "suggestion": "删除或替换为原文实际对话，核实苗人凤的台词是否与原文一致"
-  },
-  {
-    "json_file": "dialogues",
-    "index": 3,
-    "id": "dlg_004",
-    "name": "胡斐台词",
-    "issue_type": "logic",
-    "severity": "medium",
-    "reason": "原文中胡斐从未说过'苗人凤，你当年害死了我父亲，今日我要为父报仇！'。原文写的是胡一刀与苗人凤比武，胡一刀死于毒药（宝树/田归农所害），并非苗人凤直接杀害。此对话疑似AI编造。",
-    "suggestion": "删除或替换为原文实际对话"
-  },
-  {
-    "json_file": "dialogues",
-    "index": null,
-    "id": null,
-    "name": "对话覆盖不足",
-    "issue_type": "missing_entity",
-    "severity": "medium",
-    "reason": "全书10章仅5条对话记录，遗漏大量关键对话。例如：宝树讲述胡一刀往事的长篇叙述（ch4-ch6）、陶百岁揭露田归农阴谋（ch7）、刘元鹤揭露宝藏秘密（ch8）、胡斐与苗若兰的酬答对话（ch9-ch10）等核心对话均缺失。",
-    "suggestion": "补充各章关键对话，至少覆盖宝树叙述、陶百岁叙述、胡苗对话等核心场景"
-  },
-  {
-    "json_file": "locations",
-    "index": null,
-    "id": null,
-    "name": "玉笔山庄",
-    "issue_type": "missing_entity",
-    "severity": "medium",
-    "reason": "原文核心地点，杜希孟的山庄，位于玉笔峰上，是故事主要发生地。locations.json中只收录了'玉笔峰'（自然地点），未收录山庄（建筑地点）。",
-    "suggestion": "添加loc_yu_bi_shan_zhuang，关联loc_yu_bi_feng"
-  },
-  {
-    "json_file": "locations",
-    "index": null,
-    "id": null,
-    "name": "平安客店",
-    "issue_type": "missing_entity",
     "severity": "low",
-    "reason": "原文ch4提及的沧州小镇客店，是胡一刀与苗人凤初次相遇之地，也是宝树回忆的关键场景。完全缺失。",
-    "suggestion": "添加loc_ping_an_ke_dian，region为'沧州'"
-  },
-  {
-    "json_file": "locations",
-    "index": 0,
-    "id": "loc_tian_long_men",
-    "name": "天龙门",
-    "issue_type": "logic",
-    "severity": "low",
-    "reason": "description写道'天龙门是天龙门的总部所在地'，存在自指循环，未提供有效信息。原文未明确描述天龙门总部的具体位置。",
-    "suggestion": "修改description为更有信息量的描述，如'天龙门总部，以剑法著称的武林门派所在地'"
-  },
-  {
-    "json_file": "factions",
-    "index": null,
-    "id": null,
-    "name": "饮马川山寨",
-    "issue_type": "missing_entity",
-    "severity": "medium",
-    "reason": "原文重要势力，陶百岁为大寨主，陶子安为少寨主。在ch1-ch8多次出场，是宝藏争夺的重要参与方。factions.json完全缺失。",
-    "suggestion": "添加faction_yin_ma_chuan，type为'绿林'，leader为char_tao_bai_sui"
-  },
-  {
-    "json_file": "factions",
-    "index": null,
-    "id": null,
-    "name": "平通镖局",
-    "issue_type": "missing_entity",
-    "severity": "low",
-    "reason": "原文角色势力，熊元献为总镖头，在ch1-ch8出场参与战斗。完全缺失。",
-    "suggestion": "添加faction_ping_tong_biao_ju，type为'镖局'"
-  },
-  {
-    "json_file": "factions",
-    "index": null,
-    "id": null,
-    "name": "兴汉丐帮",
-    "issue_type": "missing_entity",
-    "severity": "low",
-    "reason": "原文提及的丐帮分支，范帮主为领袖，有反清之意，在ch2-ch9多次提及。完全缺失。",
-    "suggestion": "添加faction_xing_han_gai_bang，type为'帮会'"
-  },
-  {
-    "json_file": "chapter_summaries",
-    "index": 0,
-    "id": null,
-    "name": "第一章摘要",
-    "issue_type": "logic",
-    "severity": "low",
-    "reason": "摘要过于笼统，遗漏关键情节：田青文出场、金笔情节、饮马川陶氏父子挖宝、熊元献等埋伏偷袭、马寨主被杀、宝树出场调停等。仅提及'追杀胡斐'一个事件。",
-    "suggestion": "补充各章关键情节点，使摘要更具信息量"
-  },
-  {
-    "json_file": "chapter_summaries",
-    "index": 1,
-    "id": null,
-    "name": "第二章摘要",
-    "issue_type": "logic",
-    "severity": "low",
-    "reason": "摘要遗漏关键情节：宝树出场、双童下书、苗若兰登场、双童与曹云奇等人的打斗、苗若兰赠玉马等核心场景。",
-    "suggestion": "补充宝树、双童、苗若兰等关键角色的出场和情节"
-  },
-  {
-    "json_file": "chapter_summaries",
-    "index": 3,
-    "id": null,
-    "name": "第四章摘要",
-    "issue_type": "logic",
-    "severity": "low",
-    "reason": "摘要遗漏关键情节：宝树讲述其身世（跌打医生阎基）、胡一刀与苗人凤在平安客店的初次相遇、胡一刀之子出生等核心回忆内容。",
-    "suggestion": "补充宝树叙述的核心内容"
-  },
-  {
-    "json_file": "chapter_summaries",
-    "index": 6,
-    "id": null,
-    "name": "第七章摘要",
-    "issue_type": "logic",
-    "severity": "low",
-    "reason": "摘要遗漏关键情节：陶百岁揭露田归农阴谋（药膏毒害胡一刀和苗人凤）、殷吉揭露田归农未交宝刀、田青文与曹云奇的私情揭露等核心冲突。",
-    "suggestion": "补充陶百岁和殷吉揭露真相的关键情节"
-  },
-  {
-    "json_file": "chapter_summaries",
-    "index": 7,
-    "id": null,
-    "name": "第八章摘要",
-    "issue_type": "logic",
-    "severity": "low",
-    "reason": "摘要遗漏关键情节：刘元鹤拔下苗若兰珠钗取出宝藏地图、杜希孟身份揭露、众人下峰寻宝、发现圆峰与刀鞘花纹对应等。",
-    "suggestion": "补充宝藏地图发现和寻宝过程"
-  },
-  {
-    "json_file": "chapter_summaries",
-    "index": 8,
-    "id": null,
-    "name": "第九章摘要",
-    "issue_type": "logic",
-    "severity": "low",
-    "reason": "摘要遗漏关键情节：胡斐与苗若兰在山洞中的对话、赛总管和大内侍卫的阴谋、苗人凤被暗算、胡斐救苗若兰等核心场景。",
-    "suggestion": "补充胡苗对话和赛总管阴谋的关键情节"
-  },
-  {
-    "json_file": "chapter_summaries",
-    "index": 9,
-    "id": null,
-    "name": "第十章摘要",
-    "issue_type": "logic",
-    "severity": "low",
-    "reason": "摘要遗漏关键情节：胡斐用珠宝弹射宝树、地洞中的最终混战、胡斐与苗人凤在玉笔峰的最后对决（经典悬念结尾）。",
-    "suggestion": "补充最终对决和悬念结尾的描述"
-  },
-  {
-    "json_file": "skills",
-    "index": null,
-    "id": null,
-    "name": "轻功提纵术",
-    "issue_type": "missing_entity",
-    "severity": "low",
-    "reason": "原文ch1明确提及殷吉等人'展开轻功提纵术，从山坡右首上山'，是天龙门的重要轻功功法。skills.json完全缺失。",
-    "suggestion": "添加skill_qing_gong_ti_zong_shu，type为'轻功'"
-  },
-  {
-    "json_file": "skills",
-    "index": null,
-    "id": null,
-    "name": "达摩剑法",
-    "issue_type": "missing_entity",
-    "severity": "low",
-    "reason": "原文ch2明确提及双童使用'一路少林派的达摩剑法'，是双童的核心剑法。skills.json完全缺失。",
-    "suggestion": "添加skill_damo_jian_fa，type为'剑法'，practitioners为双童"
-  },
-  {
-    "json_file": "skills",
-    "index": null,
-    "id": null,
-    "name": "大擒拿手",
-    "issue_type": "missing_entity",
-    "severity": "low",
-    "reason": "原文ch2提及阮士中'展开大擒拿手法'与双童对战，是其核心武学之一。skills.json完全缺失。",
-    "suggestion": "添加skill_da_qin_na_shou，type为'拳掌'"
-  },
-  {
-    "json_file": "locations",
-    "index": null,
-    "id": null,
-    "name": "宁古塔",
-    "issue_type": "missing_entity",
-    "severity": "low",
-    "reason": "原文ch2提及杜希孟'到宁古塔去了'，是故事中的重要地名（清代流放之地）。完全缺失。",
-    "suggestion": "添加loc_ning_gu_ta，region为'关外'"
-  },
-  {
-    "json_file": "locations",
-    "index": null,
-    "id": null,
-    "name": "沧州",
-    "issue_type": "missing_entity",
-    "severity": "low",
-    "reason": "原文ch4宝树回忆中提及的地点，胡一刀与苗人凤初次相遇之地。完全缺失。",
-    "suggestion": "添加loc_cang_zhou，region为'中原'"
-  },
-  {
-    "json_file": "characters",
-    "index": 0,
-    "id": "char_hu_fei",
-    "name": "胡斐",
-    "issue_type": "id_ref",
-    "severity": "low",
-    "reason": "所有source_refs的chapter均为1，但胡斐在ch1-ch10全书出场。chapter应覆盖全书范围。",
-    "suggestion": "补充多章节的source_refs，至少覆盖ch1、ch9、ch10等关键出场章节"
-  },
-  {
-    "json_file": "chapter_summaries",
-    "index": null,
-    "id": null,
-    "name": "全部摘要",
-    "issue_type": "logic",
-    "severity": "low",
-    "reason": "10章摘要整体过于简略和模板化，大量使用'众人讲述''故事结尾'等泛化表述，缺乏具体情节点。每章摘要应包含3-5个具体关键事件。",
-    "suggestion": "重写各章摘要，补充具体情节、关键转折和角色行动"
+    "reason": "location 字段为 null，但天龙门有明确的势力范围",
+    "suggestion": "可设置为关外或辽东"
   }
 ]

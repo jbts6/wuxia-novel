@@ -1,123 +1,91 @@
 {
-  "generated_at": "2026-07-05T08:03:19.343Z",
+  "generated_at": "2026-07-10T00:42:10.533Z",
   "summary": {
-    "total": 16,
+    "total": 10,
     "errors": 0,
     "warnings": 10,
-    "info": 6
+    "info": 0
   },
   "issues": [
     {
-      "type": "possible_hallucination",
-      "severity": "warning",
-      "source": "char_hu_fei",
-      "name": "胡斐",
-      "message": "Character \"胡斐\" not found in mention_summary.json - possible hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "warning",
-      "source": "char_miao_ren_feng",
-      "name": "苗人凤",
-      "message": "Character \"苗人凤\" not found in mention_summary.json - possible hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "warning",
-      "source": "char_hu_yi_dao",
-      "name": "胡一刀",
-      "message": "Character \"胡一刀\" not found in mention_summary.json - possible hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "warning",
-      "source": "char_cao_yun_qi",
-      "name": "曹云奇",
-      "message": "Character \"曹云奇\" not found in mention_summary.json - possible hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "warning",
-      "source": "char_yin_ji",
-      "name": "殷吉",
-      "message": "Character \"殷吉\" not found in mention_summary.json - possible hallucination"
-    },
-    {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
       "source": "char_miao_ruo_lan",
-      "name": "苗若兰",
-      "message": "Character \"苗若兰\" not found in mention_summary.json - possible hallucination"
+      "target": "char_tian_gui_nong",
+      "rel_type": "宿敌",
+      "message": "苗若兰(char_miao_ruo_lan) -> char_tian_gui_nong (宿敌) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "char_ruan_shi_zhong",
-      "name": "阮士中",
-      "message": "Character \"阮士中\" not found in mention_summary.json - possible hallucination"
+      "source": "char_hu_fu_ren",
+      "target": "char_hu_fei",
+      "rel_type": "亲属",
+      "message": "胡夫人(char_hu_fu_ren) -> char_hu_fei (亲属) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_bao_shu",
+      "target": "char_hu_fei",
+      "rel_type": "合作者",
+      "message": "宝树(char_bao_shu) -> char_hu_fei (合作者) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_tao_bai_sui",
+      "target": "char_cao_yun_qi",
+      "rel_type": "对手",
+      "message": "陶百岁(char_tao_bai_sui) -> char_cao_yun_qi (对手) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
       "severity": "warning",
       "source": "char_zhou_yun_yang",
-      "name": "周云阳",
-      "message": "Character \"周云阳\" not found in mention_summary.json - possible hallucination"
+      "target": "char_cao_yun_qi",
+      "rel_type": "师徒",
+      "message": "周云阳(char_zhou_yun_yang) -> char_cao_yun_qi (师徒) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "item_hu_jia_dao",
-      "name": "胡家刀",
-      "message": "Item \"胡家刀\" not found in mention_summary.json - possible hallucination"
+      "source": "char_fan_bang_zhu",
+      "target": "char_miao_ren_feng",
+      "rel_type": "挚友",
+      "message": "范帮主(char_fan_bang_zhu) -> char_miao_ren_feng (挚友) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "item_miao_jia_jian",
-      "name": "苗家剑",
-      "message": "Item \"苗家剑\" not found in mention_summary.json - possible hallucination"
+      "source": "char_ping_a_si",
+      "target": "char_hu_yi_dao",
+      "rel_type": "主仆",
+      "message": "平阿四(char_ping_a_si) -> char_hu_yi_dao (主仆) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
-      "severity": "info",
-      "source": "skill_tian_long_jian",
-      "name": "天龙剑法",
-      "message": "Skill \"天龙剑法\" not found in mention_summary.json - possible hallucination"
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_du_xi_meng",
+      "target": "char_hu_fu_ren",
+      "rel_type": "亲属",
+      "message": "杜希孟(char_du_xi_meng) -> char_hu_fu_ren (亲属) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
-      "severity": "info",
-      "source": "skill_hu_jia_dao_fa",
-      "name": "胡家刀法",
-      "message": "Skill \"胡家刀法\" not found in mention_summary.json - possible hallucination"
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_sai_zong_guan",
+      "target": "char_miao_ren_feng",
+      "rel_type": "宿敌",
+      "message": "赛总管(char_sai_zong_guan) -> char_miao_ren_feng (宿敌) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
-      "severity": "info",
-      "source": "skill_miao_jia_jian_fa",
-      "name": "苗家剑法",
-      "message": "Skill \"苗家剑法\" not found in mention_summary.json - possible hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "info",
-      "source": "faction_tian_long_men",
-      "name": "天龙门",
-      "message": "Faction \"天龙门\" not found in mention_summary.json - possible hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "info",
-      "source": "faction_miao_family",
-      "name": "苗家",
-      "message": "Faction \"苗家\" not found in mention_summary.json - possible hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "info",
-      "source": "faction_hu_family",
-      "name": "胡家",
-      "message": "Faction \"胡家\" not found in mention_summary.json - possible hallucination"
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_shang_jian_ming",
+      "target": "char_hu_yi_dao",
+      "rel_type": "对手",
+      "message": "商剑鸣(char_shang_jian_ming) -> char_hu_yi_dao (对手) exists, but reverse not found"
     }
   ]
 }
