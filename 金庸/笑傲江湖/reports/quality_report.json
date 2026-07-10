@@ -1,0 +1,219 @@
+{
+  "generated_at": "2026-07-10T04:23:59.955Z",
+  "novel": "笑傲江湖",
+  "author": "金庸",
+  "overall_score": 100,
+  "metrics": {
+    "entity_completeness": {
+      "score": 100,
+      "details": {
+        "core": {
+          "expected": 3,
+          "actual": 3,
+          "coverage": 100
+        },
+        "important": {
+          "expected": 12,
+          "actual": 12,
+          "coverage": 100
+        },
+        "secondary": {
+          "expected": 15,
+          "actual": 15,
+          "coverage": 100
+        },
+        "minor": {
+          "expected": 26,
+          "actual": 26,
+          "coverage": 100
+        }
+      },
+      "missing": []
+    },
+    "entity_quantity": {
+      "score": 100,
+      "details": {
+        "characters": {
+          "actual": 56,
+          "minimum": 20,
+          "passed": true
+        },
+        "factions": {
+          "actual": 14,
+          "minimum": 5,
+          "passed": true
+        },
+        "skills": {
+          "actual": 24,
+          "minimum": 10,
+          "passed": true
+        },
+        "items": {
+          "actual": 14,
+          "minimum": 8,
+          "passed": true
+        },
+        "locations": {
+          "actual": 20,
+          "minimum": 10,
+          "passed": true
+        }
+      },
+      "chapterCount": 40
+    },
+    "relationship_completeness": {
+      "score": 100,
+      "accuracy": 100,
+      "details": {
+        "core": {
+          "expected": 0,
+          "actual": 0
+        },
+        "important": {
+          "expected": 0,
+          "actual": 0
+        },
+        "secondary": {
+          "expected": 0,
+          "actual": 0
+        }
+      },
+      "missing": [],
+      "incorrect": []
+    },
+    "description_accuracy": {
+      "score": 100,
+      "totalChecked": 15,
+      "accurate": 15,
+      "issues": []
+    },
+    "event_coverage": {
+      "score": 100,
+      "details": {
+        "main": {
+          "expected": 0,
+          "actual": 0
+        },
+        "branch": {
+          "expected": 0,
+          "actual": 0
+        },
+        "detail": {
+          "expected": 0,
+          "actual": 0
+        }
+      },
+      "missing": []
+    },
+    "dialogue_quality": {
+      "authenticity": 100,
+      "representativeness": 100,
+      "characterFit": 10,
+      "details": {
+        "total": 90,
+        "withSpeaker": 90,
+        "withListener": 45,
+        "baselineChecked": 10,
+        "baselineMatched": 10
+      },
+      "issues": [
+        {
+          "index": 26,
+          "chapter": 10,
+          "speaker": "风清扬",
+          "issue": "Speech style mismatch: expected \"淡泊名利，传授剑道真谛\", got \"淡泊名利，不问世事\""
+        },
+        {
+          "index": 26,
+          "chapter": 10,
+          "speaker": "风清扬",
+          "issue": "Speech style mismatch: expected \"指点剑术\", got \"淡泊名利，不问世事\""
+        },
+        {
+          "index": 16,
+          "chapter": 5,
+          "speaker": "令狐冲",
+          "issue": "Speech style mismatch: expected \"幽默诙谐，调侃应对\", got \"幽默诙谐，口无遮拦，常以俏皮话化解危机\""
+        },
+        {
+          "index": 56,
+          "chapter": 39,
+          "speaker": "令狐冲",
+          "issue": "Speech style mismatch: expected \"豪放不羁，拒绝谀词\", got \"幽默诙谐，口无遮拦，常以俏皮话化解危机\""
+        },
+        {
+          "index": 23,
+          "chapter": 7,
+          "speaker": "令狐冲",
+          "issue": "Speech style mismatch: expected \"调侃幽默\", got \"幽默诙谐，口无遮拦，常以俏皮话化解危机\""
+        },
+        {
+          "index": 48,
+          "chapter": 34,
+          "speaker": "岳不群",
+          "issue": "Speech style mismatch: expected \"伪善谦虚\", got \"表面温文尔雅，实则口蜜腹剑\""
+        },
+        {
+          "index": 50,
+          "chapter": 35,
+          "speaker": "林平之",
+          "issue": "Speech style mismatch: expected \"愤怒偏执\", got \"初期温文尔雅，后期阴沉偏执\""
+        },
+        {
+          "index": 57,
+          "chapter": 40,
+          "speaker": "方证大师",
+          "issue": "Speech style mismatch: expected \"慈悲智慧\", got \"慈祥温和，充满智慧\""
+        },
+        {
+          "index": 80,
+          "chapter": 37,
+          "speaker": "任我行",
+          "issue": "Speech style mismatch: expected \"霸道威胁\", got \"霸气十足，唯我独尊\""
+        }
+      ]
+    },
+    "cross_book_purity": {
+      "score": 100,
+      "totalEntities": 108,
+      "pureEntities": 108,
+      "suspicious": []
+    },
+    "baseline_validation": {
+      "score": 80,
+      "issues": [
+        {
+          "type": "hallucination",
+          "entity_type": "item",
+          "id": "item_xiao_ao_jiang_hu_qu_pu",
+          "name": "笑傲江湖曲谱",
+          "message": "Item \"笑傲江湖曲谱\" not found in original text"
+        },
+        {
+          "type": "hallucination",
+          "entity_type": "item",
+          "id": "item_guang_ling_san_qin_pu",
+          "name": "广陵散琴谱",
+          "message": "Item \"广陵散琴谱\" not found in original text"
+        }
+      ],
+      "hallucinations": [
+        {
+          "type": "hallucination",
+          "entity_type": "item",
+          "id": "item_xiao_ao_jiang_hu_qu_pu",
+          "name": "笑傲江湖曲谱",
+          "message": "Item \"笑傲江湖曲谱\" not found in original text"
+        },
+        {
+          "type": "hallucination",
+          "entity_type": "item",
+          "id": "item_guang_ling_san_qin_pu",
+          "name": "广陵散琴谱",
+          "message": "Item \"广陵散琴谱\" not found in original text"
+        }
+      ],
+      "duplicates": []
+    }
+  }
+}
