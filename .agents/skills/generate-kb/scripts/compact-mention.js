@@ -11,7 +11,7 @@ if (args.length < 1) {
 }
 
 const novelDir = path.resolve(args[0]);
-const jsonlPath = path.join(novelDir, 'mention_index.jsonl');
+const jsonlPath = path.join(novelDir, 'build', 'mention_index.jsonl');
 if (!fs.existsSync(jsonlPath)) {
   console.error(`mention_index.jsonl not found; run split-chapters.js first`);
   process.exit(1);

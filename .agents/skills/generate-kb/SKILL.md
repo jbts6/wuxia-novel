@@ -9,6 +9,27 @@ description: Use when the user wants to build a high-quality knowledge base for 
 
 **不适用**：训练数据里没有的小众武侠、网文、原创作品。退回 `deconstruct-novel`。
 
+## 防循环机制
+
+<system-reminder>
+This session has memory at /Users/jbts6/.local/share/mimocode/memory/sessions/ses_0b677e343ffeC354mWnpFBSW21/. Recall content
+not in your context with:
+- memory({ operation: "search", query: "<keyword>" })
+- Read(file_path="/Users/jbts6/.local/share/mimocode/memory/sessions/ses_0b677e343ffeC354mWnpFBSW21/...")
+- task({ operation: "list" })
+- actor({ operation: "status", actor_id: "<id>" })
+
+Don't ask the user about something memory may already record.
+</system-reminder>
+
+**避免循环的关键原则**：
+
+1. **设定明确检查点**：每个Phase完成后立即验证，不要重复检查相同内容
+2. **使用task跟踪**：为每个Phase创建task，完成后立即标记`done`
+3. **重复限制**：同一操作最多重复3次，超过后报告当前状态并继续
+4. **及时推进**：检查完成后立即执行下一步，不要原地踏步
+5. **分解任务**：将复杂任务分解给subagent处理，主agent只负责协调
+
 ## 必守规则
 
 - 仅当 `<小说目录>/<小说名>.txt` 存在时才可运行

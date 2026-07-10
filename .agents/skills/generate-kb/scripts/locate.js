@@ -30,11 +30,23 @@ let ANCHOR_DICT = null;
 function loadAnchorDict() {
   if (ANCHOR_DICT) return ANCHOR_DICT;
   
-  // 优先读取小说专属关键词文件 (from build/)
+  // 优先读取小说专属关键词文件 (from build/ or novelDir/)
   const keywordsPath = path.join(novelDir, 'build', 'keywords.json');
+  const keywordsPathAlt = path.join(novelDir, 'keywords.json');
   if (fs.existsSync(keywordsPath)) {
     try {
       const keywords = JSON.parse(fs.readFileSync(keywordsPath, 'utf8'));
+      if (Array.isArray(keywords) && keywords.length > 0) {
+        ANCHOR_DICT = keywords.filter(t => t.length >= 2).sort((a, b) => b.length - a.length);
+        console.log(`Loaded ${ANCHOR_DICT.length} keywords from keywords.json`);
+        return ANCHOR_DICT;
+      }
+    } catch (e) {
+      console.warn(`Failed to load keywords.json: ${e.message}, falling back to defaults`);
+    }
+  } else if (fs.existsSync(keywordsPathAlt)) {
+    try {
+      const keywords = JSON.parse(fs.readFileSync(keywordsPathAlt, 'utf8'));
       if (Array.isArray(keywords) && keywords.length > 0) {
         ANCHOR_DICT = keywords.filter(t => t.length >= 2).sort((a, b) => b.length - a.length);
         console.log(`Loaded ${ANCHOR_DICT.length} keywords from keywords.json`);
