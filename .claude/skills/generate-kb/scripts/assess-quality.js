@@ -979,11 +979,17 @@ const honestOverall = Math.round(
 );
 
 const overallScore = goldUsable ? goldOverall : null;
-const completionOk = honestOverall >= 85
+
+// Gate: check ALL metrics, not just overall
+const completionOk = baselineAudit.mode !== 'invalid_self_ref'
+  && honestOverall >= 85
   && hGround >= 85
   && hDlg >= 95
   && hQty >= 80
-  && baselineAudit.mode !== 'invalid_self_ref';
+  && (entityCompleteness.score == null || entityCompleteness.score >= 95)
+  && (relationships.completeness == null || relationships.completeness >= 95)
+  && (relationships.accuracy == null || relationships.accuracy >= 90)
+  && (crossBookPurity.score == null || crossBookPurity.score >= 85);
 
 // ============================================================
 // Output report

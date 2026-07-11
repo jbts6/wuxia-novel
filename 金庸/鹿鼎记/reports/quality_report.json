@@ -1,0 +1,235 @@
+{
+  "generated_at": "2026-07-11T12:57:10.143Z",
+  "novel": "鹿鼎记",
+  "author": "金庸",
+  "baseline_mode": "ok",
+  "baseline_audit_reasons": [
+    "baseline.dialogues appear copied from data/dialogues.json"
+  ],
+  "overall_score": 99,
+  "overall_score_note": "gold baseline comparison",
+  "honest_overall_score": 87,
+  "completion_gate_passed": true,
+  "metrics": {
+    "entity_completeness": {
+      "score": 98.1,
+      "status": "ok",
+      "details": {
+        "core": {
+          "expected": 3,
+          "actual": 3,
+          "coverage": 100
+        },
+        "important": {
+          "expected": 21,
+          "actual": 21,
+          "coverage": 100
+        },
+        "secondary": {
+          "expected": 17,
+          "actual": 17,
+          "coverage": 100
+        },
+        "minor": {
+          "expected": 13,
+          "actual": 12,
+          "coverage": 92.3
+        }
+      },
+      "missing": [
+        {
+          "id": "char_wei_jiao",
+          "name": "韦春芳",
+          "importance": "龙套",
+          "reason": "Expected by baseline"
+        }
+      ]
+    },
+    "entity_quantity": {
+      "score": 100,
+      "details": {
+        "characters": {
+          "actual": 52,
+          "minimum": 30,
+          "passed": true
+        },
+        "factions": {
+          "actual": 10,
+          "minimum": 6,
+          "passed": true
+        },
+        "skills": {
+          "actual": 16,
+          "minimum": 15,
+          "passed": true
+        },
+        "items": {
+          "actual": 10,
+          "minimum": 10,
+          "passed": true
+        },
+        "locations": {
+          "actual": 21,
+          "minimum": 15,
+          "passed": true
+        }
+      },
+      "chapterCount": 50
+    },
+    "relationship_completeness": {
+      "score": 100,
+      "accuracy": 90,
+      "status": "ok",
+      "details": {
+        "core": {
+          "expected": 7,
+          "actual": 7
+        },
+        "important": {
+          "expected": 12,
+          "actual": 12
+        },
+        "secondary": {
+          "expected": 1,
+          "actual": 1
+        }
+      },
+      "missing": [],
+      "incorrect": [
+        {
+          "source": "char_zheng_ke_shuang",
+          "target": "char_feng_xi_fan",
+          "expected": "主从",
+          "actual": "主仆",
+          "importance": "重要"
+        },
+        {
+          "source": "char_hong_an_tong",
+          "target": "char_su_quan",
+          "expected": "主从",
+          "actual": "主仆",
+          "importance": "重要"
+        }
+      ]
+    },
+    "description_accuracy": {
+      "score": 100,
+      "status": "ok",
+      "totalChecked": 4,
+      "accurate": 4,
+      "issues": []
+    },
+    "event_coverage": {
+      "score": 100,
+      "status": "ok",
+      "details": {
+        "main": {
+          "expected": 16,
+          "actual": 16
+        },
+        "branch": {
+          "expected": 9,
+          "actual": 9
+        },
+        "detail": {
+          "expected": 2,
+          "actual": 2
+        }
+      },
+      "missing": []
+    },
+    "dialogue_quality": {
+      "authenticity": 100,
+      "representativeness": 100,
+      "characterFit": 80,
+      "quoteAuthenticity": 100,
+      "chapterCoverage": 6,
+      "status": "ok",
+      "details": {
+        "total": 10,
+        "withSpeaker": 10,
+        "withListener": 0,
+        "baselineChecked": 10,
+        "baselineMatched": 10,
+        "quoteChecked": 8,
+        "quoteOk": 8
+      },
+      "issues": [
+        {
+          "index": 0,
+          "chapter": 1,
+          "speaker": "吕留良",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 0,
+          "chapter": 1,
+          "speaker": "吕留良",
+          "issue": "Speech style mismatch"
+        }
+      ]
+    },
+    "cross_book_purity": {
+      "score": 100,
+      "status": "ok",
+      "totalEntities": 88,
+      "pureEntities": 88,
+      "suspicious": []
+    },
+    "baseline_validation": {
+      "score": 100,
+      "issues": [],
+      "hallucinations": [],
+      "duplicates": [],
+      "self_refs": [],
+      "baseline_mode": "ok"
+    },
+    "honest_metrics": {
+      "entity_grounded_ratio": 92.3,
+      "grand_grounded_from_report": 82.7,
+      "entity_refs": {
+        "total": 194,
+        "grounded": 179,
+        "weak": 0,
+        "unverified": 15
+      },
+      "per_file": {
+        "characters": {
+          "entities": 52,
+          "refs": 89,
+          "grounded_ratio": 96.6
+        },
+        "factions": {
+          "entities": 10,
+          "refs": 28,
+          "grounded_ratio": 100
+        },
+        "locations": {
+          "entities": 21,
+          "refs": 30,
+          "grounded_ratio": 100
+        },
+        "skills": {
+          "entities": 16,
+          "refs": 31,
+          "grounded_ratio": 87.1
+        },
+        "techniques": {
+          "entities": 3,
+          "refs": 3,
+          "grounded_ratio": 66.7
+        },
+        "items": {
+          "entities": 10,
+          "refs": 13,
+          "grounded_ratio": 46.2
+        }
+      },
+      "dialogue_count": 10,
+      "dialogue_chapter_coverage": 6,
+      "summary_count": 50,
+      "summary_quality_proxy": 0,
+      "entity_quantity_score": 100
+    }
+  }
+}
