@@ -4254,6 +4254,125 @@
     "biography": "宋远桥是武当七侠之首，张三丰大弟子，武功稳重扎实。他性格沉稳，是武当七侠中的领袖。"
   },
   {
+    "id": "char_song_qing_shu",
+    "name": "宋青书",
+    "alias": [
+      "玉面孟尝",
+      "宋少侠"
+    ],
+    "identity": "宋远桥之子，武当派弟子，后叛变投靠峨嵋派周芷若",
+    "faction": "faction_wu_dang_pai",
+    "role": "重要",
+    "archetype": "tragic",
+    "power_rank": "登堂入室",
+    "importance": "重要",
+    "one_line": "武当七侠之首宋远桥独子，因迷恋周芷若而叛变投敌，杀害莫声谷，最终被父亲亲手击毙",
+    "personality": {
+      "traits": [
+        "聪明机智",
+        "过目不忘",
+        "俊美潇洒",
+        "心胸狭隘",
+        "嫉妒成性"
+      ],
+      "speech_style": "彬彬有礼，善于辞令",
+      "temperament": "外柔内嫉，心机深沉"
+    },
+    "relationships": [
+      {
+        "target": "char_song_yuan_qiao",
+        "type": "父子",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "独生爱子，最终被父亲亲手击毙"
+      },
+      {
+        "target": "char_zhou_zhi_ruo",
+        "type": "单恋",
+        "intensity": 85,
+        "bond_level": 2,
+        "dynamic": "痴迷周芷若，为其不惜叛变投敌"
+      },
+      {
+        "target": "char_zhang_wu_ji",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "嫉妒张无忌与周芷若的关系"
+      },
+      {
+        "target": "char_cheng_kun",
+        "type": "仇敌",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "受陈友谅蛊惑利用，被胁迫叛变"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "anchor": "宋青书出场，玉面孟尝之名",
+        "line_start": 1647,
+        "line_end": 1653,
+        "text": "\n殷梨亭道：「这是我大师哥的独生爱子，叫做青书。」静玄道：「近年来多闻玉面孟尝的侠名，江湖上都说宋少侠慷慨仗义，济人解困。今日得识尊范，幸何如之。」\n",
+        "anchors_hit": [
+          "宋青书",
+          "殷梨亭"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 18,
+        "alternatives": [],
+        "locate_reason": "no anchor terms recognized",
+        "event_type": "first_mention"
+      },
+      {
+        "chapter": 22,
+        "anchor": "宋青书在光明顶提议杀害张无忌",
+        "line_start": 182,
+        "line_end": 188,
+        "text": "\n宋远桥、俞莲舟、张松溪、殷梨亭、莫声谷五人面面相觑，谁都拿不定主意。宋青书突然道：「爹，四位师叔，让孩儿去料理了他。」武当五侠明白他意思，只须几个庸手上来纠缠一番，自然毫不费力的便能将他击死。\n",
+        "anchors_hit": [
+          "宋青书",
+          "宋远桥"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 22,
+        "alternatives": [],
+        "locate_reason": "no anchor terms recognized",
+        "event_type": "background"
+      },
+      {
+        "chapter": 30,
+        "anchor": "宋青书受陈友谅蛊惑叛变",
+        "line_start": 2611,
+        "line_end": 2617,
+        "text": "\n忽听宋青书道：「陈大哥、龙头大哥，是我做兄弟的一时胡涂，请你两位原宥，我这里给你们赔罪啦。」陈友谅哈哈大笑，说道：「是啊，是啊，那才是咱们的好兄弟呢。我拍胸膛给你担保，只须你去将这蒙汗药带到武当山上，悄悄下在各人茶水之中，你令尊大人性命决然无忧，美佳人周芷若必成你的妻房。」\n",
+        "anchors_hit": [
+          "宋青书",
+          "陈友谅"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 30,
+        "alternatives": [],
+        "locate_reason": "no anchor terms recognized",
+        "event_type": "background"
+      }
+    ],
+    "biography": "宋青书是武当七侠之首宋远桥的独生爱子，人称「玉面孟尝」，相貌俊美，武功扎实，聪明过人，有过目不忘之能。他初登场时与殷梨亭同行，受到峨嵋派众弟子赞佩。然而他对周芷若心生痴迷，嫉妒张无忌与周芷若的关系。后受陈友谅蛊惑利用，叛变投敌，杀害七师叔莫声谷。最终在少林寺屠狮大会上被父亲宋远桥亲手击毙，是一个因痴情而走上不归路的悲剧人物。"
+  },
+  {
     "id": "char_huang_shan_nv_zi",
     "name": "黄衫女子",
     "alias": [],

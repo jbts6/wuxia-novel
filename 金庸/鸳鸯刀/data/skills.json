@@ -246,5 +246,59 @@
         "alternatives": []
       }
     ]
+  },
+  {
+    "id": "skill_tan_gong_shu",
+    "name": "弹弓术",
+    "type": "暗器",
+    "faction": null,
+    "mastery_rank": "登堂入室",
+    "one_line": "任飞燕成名绝技，连珠弹百发百中，更有回马弹高明手法",
+    "techniques": [
+      {
+        "id": "tech_lian_zhu_dan",
+        "name": "连珠弹",
+        "type": "attack",
+        "description": "弹弓术基本手法，连续发射弹丸，如珠落玉盘，敌人难以招架"
+      },
+      {
+        "id": "tech_hui_ma_dan",
+        "name": "回马弹",
+        "type": "attack",
+        "description": "弹弓术高明手法，回首飞弹，手劲既强准头奇佳，曾打落逍遥子手中烟管"
+      }
+    ],
+    "progression": "以弹弓发射弹丸，连珠弹为基本功，回马弹为高阶技巧",
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "弹丸远距离攻击，可打人穴道，打落兵器"
+      }
+    ],
+    "combat_style": "远距离射击，以弹丸制敌，出手快准狠",
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "任飞燕弹弓术连珠弹回马弹",
+        "locate_status": "located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 66,
+        "line_end": 74,
+        "text": "\n那两人一前一后，奔进林子。前面那人是个二十七八岁的汉子，手执单刀，大声喝骂：“贼婆娘，这么横，当真要杀人么？”太岳四侠一怔，瞧后面追来那人却是个少妇。那女子背上负着个婴儿，手执弹弓，吧吧吧吧，一阵声响，连珠弹猛向那壮汉打去。那壮汉挥单刀左挡右格，却不敢回身砍杀。\n\n逍遥子见一男一女互斗，喝道：“来者是谁？为何动手？”盖一鸣一声唿哨，四人齐从大树后奔出，喝道：“快快住手。”那壮汉向前直冲，回头骂道：“贼婆娘，你这般狠毒，我可要出手无情了！”那少妇骂道：“狗贼！今日不打死你，我任飞燕誓不为人。”\n\n任飞燕让四人这么一阻，眼见林玉龙已头也不回的奔出林子，心中大怒，急步抢出，回首吧的一响，飞弹打出，将逍遥子手中的烟管打落在地。这一弹手劲既强，准头更是奇佳，乃弹弓术中出名的“回马弹”。任飞燕微微一笑，转头骂道：“林玉龙你这臭贼，还不给我站住。”",
+        "anchors_hit": [
+          "弹弓",
+          "连珠弹",
+          "回马弹"
+        ],
+        "anchors_total": 3,
+        "locate_score": 300,
+        "locate_method": "window",
+        "hint_chapter": 1
+      }
+    ]
   }
 ]

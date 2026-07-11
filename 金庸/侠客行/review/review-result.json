@@ -1,0 +1,292 @@
+[
+  {
+    "json_file": "dialogues",
+    "index": 1,
+    "id": null,
+    "name": "谢烟客",
+    "issue_type": "logic",
+    "severity": "high",
+    "reason": "第1章谢烟客对小丐说'听说这三枚玄铁令，有两枚已归还谢先生之手'，但谢烟客就是谢先生本人，不会自称'谢先生'，且不会用'听说'来描述自己的事。原文中这段话应是石清或其他旁观者所说，说话人标注错误",
+    "suggestion": "重读原文第1章确认说话人身份，修正speaker字段"
+  },
+  {
+    "json_file": "skills",
+    "index": 21,
+    "id": "skill_xuan_tie_ling_wu_gong",
+    "name": "玄铁令武功",
+    "issue_type": "logic",
+    "severity": "high",
+    "reason": "玄铁令是谢烟客的信物（见items.json item_xuan_tie_ling），本身不是武功。原文中石破天从谢烟客处学的是罗汉伏魔神功等内功，不存在名为'玄铁令武功'的武学体系。此条目疑似LLM幻觉",
+    "suggestion": "删除此技能条目，或重读原文确认是否存在此武功"
+  },
+  {
+    "json_file": "dialogues",
+    "index": 139,
+    "id": null,
+    "name": "丁珰",
+    "issue_type": "era",
+    "severity": "medium",
+    "reason": "丁珰的对话含现代用语'不好意思'，不符合武侠时代背景。《侠客行》设定在明代，应使用古风用语",
+    "suggestion": "修正为古风用语，如'得罪了'、'恕罪'等"
+  },
+  {
+    "json_file": "skills",
+    "index": 19,
+    "id": "skill_an_qi_shou_fa",
+    "name": "暗器手法",
+    "issue_type": "category_error",
+    "severity": "medium",
+    "reason": "技能type为'暗器'，暗器通常指投掷武器（如飞镖、梅花针等）而非武学体系。暗器的使用手法应归为'奇门'或独立的'暗器手法'类，而非直接用'暗器'作为技能type",
+    "suggestion": "将type改为'奇门'或创建独立的暗器手法分类"
+  },
+  {
+    "json_file": "items",
+    "index": 2,
+    "id": "item_tai_xuan_jing_shi_bi",
+    "name": "太玄经石壁",
+    "issue_type": "category_error",
+    "severity": "medium",
+    "reason": "太玄经石壁是侠客岛上固定的石壁，刻有武学图谱，不可携带转移。根据审阅标准，不可携带的固定物体应归为locations.json而非items.json",
+    "suggestion": "重分类到locations.json，或人工复核是否保留为items"
+  },
+  {
+    "json_file": "items",
+    "index": 8,
+    "id": "item_xia_ke_dao_mu_bei",
+    "name": "侠客岛墓碑",
+    "issue_type": "category_error",
+    "severity": "medium",
+    "reason": "侠客岛墓碑是固定建筑物/纪念物，不可携带转移。type为'奇门'也不准确（奇门通常指机关、阵法）。应归为locations.json或删除",
+    "suggestion": "重分类到locations.json或删除此条目"
+  },
+  {
+    "json_file": "factions",
+    "index": 7,
+    "id": "faction_shang_qing_guan",
+    "name": "上清观",
+    "issue_type": "type_error",
+    "severity": "medium",
+    "reason": "上清观是道观，type应为'道观'而非'寺院'。寺院指佛教寺庙，道观是道教场所，二者有本质区别。上清观的元澄道人是道士身份",
+    "suggestion": "将type改为'道观'"
+  },
+  {
+    "json_file": "skills",
+    "index": 6,
+    "id": "skill_ding_jia_qin_na_shou",
+    "name": "丁家擒拿手",
+    "issue_type": "category_error",
+    "severity": "medium",
+    "reason": "丁家擒拿手的type为'指法'，但擒拿手是以手法锁拿敌人关节要害的武功，不属于指法范畴。擒拿术是以手为主的综合技法，应归为'擒拿'或'拳法'",
+    "suggestion": "将type改为'擒拿'或人工复核"
+  },
+  {
+    "json_file": "skills",
+    "index": 16,
+    "id": "skill_fen_jin_cuo_gu_shou",
+    "name": "分筋错骨手",
+    "issue_type": "category_error",
+    "severity": "medium",
+    "reason": "分筋错骨手的type为'指法'，但分筋错骨是以手法伤人筋骨的擒拿类武功，不属于指法范畴。应归为'擒拿'或'奇门'",
+    "suggestion": "将type改为'擒拿'或人工复核"
+  },
+  {
+    "json_file": "skills",
+    "index": 20,
+    "id": "skill_xia_ke_xing_bi_wu_gong",
+    "name": "侠客行石壁武功",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "侠客行石壁武功与skill_tai_xuan_jing(太玄经)高度重叠。原文中侠客岛石壁上的武学就是太玄经，两者描述的是同一套武学体系。存在重复条目",
+    "suggestion": "人工复核是否应合并为太玄经或删除此条目"
+  },
+  {
+    "json_file": "items",
+    "index": 4,
+    "id": "item_jin_wu_dao",
+    "name": "金乌刀",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "金乌刀owner为char_shi_po_tian(石破天)，但金乌刀是金乌派的配刀，原属史小翠。石破天虽然后来学习金乌刀法并使用金乌刀，但刀的原始所有者应为史小翠或阿绣",
+    "suggestion": "将owner改为char_shi_xiao_cui或char_a_xiu，或人工复核"
+  },
+  {
+    "json_file": "items",
+    "index": 8,
+    "id": "item_xia_ke_dao_mu_bei",
+    "name": "侠客岛墓碑",
+    "issue_type": "type_error",
+    "severity": "medium",
+    "reason": "侠客岛墓碑type为'奇门'，墓碑是固定建筑/纪念物，不属于奇门（奇门通常指机关、阵法等可操作的装置），且不可携带转移",
+    "suggestion": "将type改为更合适的分类，或重分类到locations.json"
+  },
+  {
+    "json_file": "factions",
+    "index": 11,
+    "id": "faction_fei_yu_bang",
+    "name": "飞鱼帮",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "飞鱼帮在《侠客行》原文中是否存在存疑。飞鱼帮更常见于《天龙八部》等其他金庸作品中，可能是跨书混入的帮派",
+    "suggestion": "重读原文确认飞鱼帮是否在《侠客行》中出现，如无则删除"
+  },
+  {
+    "json_file": "characters",
+    "index": 45,
+    "id": "char_mei_wen_xin",
+    "name": "梅文馨",
+    "issue_type": "cross_book",
+    "severity": "medium",
+    "reason": "梅文馨是否是《侠客行》中的人物存疑。《侠客行》中有梅芳姑（石破天养母），但梅文馨可能是其他金庸作品的角色混入，或为LLM幻觉",
+    "suggestion": "重读原文确认梅文馨是否在本书中出现，如无则删除"
+  },
+  {
+    "json_file": "characters",
+    "index": 34,
+    "id": "char_tian_xu",
+    "name": "天虚",
+    "issue_type": "cross_book",
+    "severity": "medium",
+    "reason": "天虚是否是《侠客行》中的人物存疑。天虚道人更常见于其他金庸作品，需确认原文中是否有此角色",
+    "suggestion": "重读原文确认天虚是否在本书中出现，如无则删除"
+  },
+  {
+    "json_file": "characters",
+    "index": 40,
+    "id": "char_feng_liang",
+    "name": "风良",
+    "issue_type": "cross_book",
+    "severity": "medium",
+    "reason": "风良是否是《侠客行》中的人物存疑。需确认原文中是否有此角色出场",
+    "suggestion": "重读原文确认风良是否在本书中出现，如无则删除"
+  },
+  {
+    "json_file": "dialogues",
+    "index": 0,
+    "id": null,
+    "name": "石清",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "对话中石清称对方为'周世兄'，但listener设为char_an_feng_ri(安奉日)而非char_zhou_mu(周牧)。周世兄指周牧，listener标注错误",
+    "suggestion": "将listener改为char_zhou_mu或人工复核"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 1,
+    "id": null,
+    "name": "章节2",
+    "issue_type": "logic",
+    "severity": "medium",
+    "reason": "第2章'荒唐无耻'key_characters含char_bai_wan_jian(白万剑)，但第2章主要讲石中玉在凌霄城闯祸和石清夫妇得知真相，白万剑是否在第2章出场存疑。白万剑首次出场可能在后续章节",
+    "suggestion": "重读原文第2章确认白万剑是否出场"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 4,
+    "id": null,
+    "name": "章节5",
+    "issue_type": "id_ref",
+    "severity": "medium",
+    "reason": "第5章key_events提到'侍剑服侍石破天起居'，但侍剑未在characters.json中定义。侍剑是长乐帮的丫鬟，在书中出场较多，是重要配角",
+    "suggestion": "补充侍剑到characters.json"
+  },
+  {
+    "json_file": "characters",
+    "index": 0,
+    "id": "char_shi_po_tian",
+    "name": "石破天",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "石破天known_skills含skill_xuan_tie_ling_wu_gong(玄铁令武功)，但玄铁令本身是信物而非武功。原文中石破天从谢烟客处学的是罗汉伏魔神功等内功",
+    "suggestion": "人工复核该技能是否应存在或是否应关联到石破天"
+  },
+  {
+    "json_file": "characters",
+    "index": 1,
+    "id": "char_ding_dang",
+    "name": "丁珰",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "丁珰known_skills含暗器手法，但《侠客行》中丁珰主要用毒而非暗器。需确认原文中丁珰是否确实使用暗器",
+    "suggestion": "重读原文确认丁珰是否使用暗器"
+  },
+  {
+    "json_file": "skills",
+    "index": 22,
+    "id": "skill_bai_mang_bian_fa",
+    "name": "白蟒鞭法",
+    "issue_type": "category_error",
+    "severity": "low",
+    "reason": "白蟒鞭法type为'奇门'，鞭法可归为奇门但也可有独立type'鞭法'。当前分类可接受但不够精确",
+    "suggestion": "人工复核是否需要更精确分类"
+  },
+  {
+    "json_file": "skills",
+    "index": 23,
+    "id": "skill_tie_cha_gong",
+    "name": "铁叉功",
+    "issue_type": "category_error",
+    "severity": "low",
+    "reason": "铁叉功type为'奇门'，以铁叉为兵器的武功，归为奇门可接受但不够精确",
+    "suggestion": "人工复核"
+  },
+  {
+    "json_file": "items",
+    "index": 6,
+    "id": "item_xuan_bing_bi_huo_jiu",
+    "name": "玄冰碧火酒",
+    "issue_type": "type_error",
+    "severity": "low",
+    "reason": "玄冰碧火酒type为'丹药'，但它是酒而非丹药。丹药指药丸、药散等固态药物，酒属于液态饮品",
+    "suggestion": "将type改为'食物'或'药物'"
+  },
+  {
+    "json_file": "factions",
+    "index": 2,
+    "id": "faction_xia_ke_dao",
+    "name": "侠客岛",
+    "issue_type": "type_error",
+    "severity": "low",
+    "reason": "侠客岛type为'帮派'，但侠客岛是一个海外岛屿势力，有龙木两位岛主统领，更像是一个独立门派而非帮派",
+    "suggestion": "人工复核是否改为'武林门派'"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 0,
+    "id": null,
+    "name": "章节1",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "第1章key_characters含char_shi_po_tian(石破天)，但此时主角尚无名字，只是'小丐'。虽然后来确认是石破天，但严格来说此时尚未确认身份",
+    "suggestion": "可保留但建议加注说明"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 2,
+    "id": null,
+    "name": "章节3",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "第3章'不求人'key_characters含char_bei_hai_shi(贝海石)，但第3章主要讲谢烟客与小丐在摩天崖，贝海石出场（长乐帮上崖寻找帮主）应为第4章内容",
+    "suggestion": "重读原文确认贝海石首次出场章节"
+  },
+  {
+    "json_file": "chapter_summaries",
+    "index": 10,
+    "id": null,
+    "name": "章节11",
+    "issue_type": "logic",
+    "severity": "low",
+    "reason": "第11章'毒酒和义兄'key_characters含char_zhan_fei(展飞)，需确认展飞是否在第11章出场",
+    "suggestion": "重读原文确认"
+  },
+  {
+    "json_file": "skills",
+    "index": -1,
+    "id": null,
+    "name": "全局问题",
+    "issue_type": "style",
+    "severity": "low",
+    "reason": "所有24个技能的practitioners数组均为空，没有技能关联到具体修炼者。虽然characters.json的known_skills字段做了反向引用，但skills.json本身缺乏正向关联，数据不完整",
+    "suggestion": "补充practitioners字段或确认设计意图"
+  }
+]

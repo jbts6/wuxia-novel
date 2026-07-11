@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-09T05:01:50.851Z",
+  "generated_at": "2026-07-11T02:18:32.966Z",
   "novel": "碧血剑",
   "author": "金庸",
-  "overall_score": 99,
+  "overall_score": 98,
   "metrics": {
     "entity_completeness": {
       "score": 100,
@@ -39,17 +39,17 @@
           "passed": true
         },
         "factions": {
-          "actual": 12,
+          "actual": 14,
           "minimum": 4,
           "passed": true
         },
         "skills": {
-          "actual": 13,
+          "actual": 9,
           "minimum": 8,
           "passed": true
         },
         "items": {
-          "actual": 8,
+          "actual": 11,
           "minimum": 6,
           "passed": true
         },
@@ -106,23 +106,87 @@
       "missing": []
     },
     "dialogue_quality": {
-      "authenticity": 100,
-      "representativeness": 74.4,
-      "characterFit": 100,
+      "authenticity": 91.7,
+      "representativeness": 75.4,
+      "characterFit": 91.7,
       "details": {
-        "total": 160,
-        "withSpeaker": 119,
-        "withListener": 102,
+        "total": 134,
+        "withSpeaker": 101,
+        "withListener": 88,
         "baselineChecked": 12,
-        "baselineMatched": 12
+        "baselineMatched": 11
       },
       "issues": []
     },
     "cross_book_purity": {
       "score": 100,
-      "totalEntities": 99,
-      "pureEntities": 99,
+      "totalEntities": 100,
+      "pureEntities": 100,
       "suspicious": []
+    },
+    "baseline_validation": {
+      "score": 60,
+      "issues": [
+        {
+          "type": "hallucination",
+          "entity_type": "item",
+          "id": "item_hua_shan_jian_pu",
+          "name": "华山剑谱",
+          "message": "Item \"华山剑谱\" not found in original text"
+        },
+        {
+          "type": "hallucination",
+          "entity_type": "faction",
+          "id": "faction_sha_jia_zhai",
+          "name": "沙家寨",
+          "message": "Faction \"沙家寨\" not found in original text"
+        },
+        {
+          "type": "hallucination",
+          "entity_type": "dialogue",
+          "id": "dlg_huang_zhen_001",
+          "name": "贱姓黄，便是'黄金万两'之黄，彩头甚好。草字单名一个真字，取其真不二价、货真价实的意思。一两银子的东...",
+          "message": "Dialogue not found in original text"
+        },
+        {
+          "type": "hallucination",
+          "entity_type": "dialogue",
+          "id": "dlg_mu_ren_qing_001",
+          "name": "咱们华山派的内功却别具蹊径，自外而内，于掌法中修习内劲。这门功夫虽费时甚久，见效颇慢，但修习时既无走...",
+          "message": "Dialogue not found in original text"
+        }
+      ],
+      "hallucinations": [
+        {
+          "type": "hallucination",
+          "entity_type": "item",
+          "id": "item_hua_shan_jian_pu",
+          "name": "华山剑谱",
+          "message": "Item \"华山剑谱\" not found in original text"
+        },
+        {
+          "type": "hallucination",
+          "entity_type": "faction",
+          "id": "faction_sha_jia_zhai",
+          "name": "沙家寨",
+          "message": "Faction \"沙家寨\" not found in original text"
+        },
+        {
+          "type": "hallucination",
+          "entity_type": "dialogue",
+          "id": "dlg_huang_zhen_001",
+          "name": "贱姓黄，便是'黄金万两'之黄，彩头甚好。草字单名一个真字，取其真不二价、货真价实的意思。一两银子的东...",
+          "message": "Dialogue not found in original text"
+        },
+        {
+          "type": "hallucination",
+          "entity_type": "dialogue",
+          "id": "dlg_mu_ren_qing_001",
+          "name": "咱们华山派的内功却别具蹊径，自外而内，于掌法中修习内劲。这门功夫虽费时甚久，见效颇慢，但修习时既无走...",
+          "message": "Dialogue not found in original text"
+        }
+      ],
+      "duplicates": []
     }
   }
 }

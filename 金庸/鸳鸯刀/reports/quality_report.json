@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-09T09:45:47.167Z",
+  "generated_at": "2026-07-11T02:18:31.548Z",
   "novel": "鸳鸯刀",
   "author": "金庸",
-  "overall_score": 89,
+  "overall_score": 98,
   "metrics": {
     "entity_completeness": {
-      "score": 94.1,
+      "score": 100,
       "details": {
         "core": {
           "expected": 3,
@@ -24,36 +24,29 @@
         },
         "minor": {
           "expected": 1,
-          "actual": 0,
-          "coverage": 0
+          "actual": 1,
+          "coverage": 100
         }
       },
-      "missing": [
-        {
-          "id": "char_yu_biao_shi",
-          "name": "詹镖师",
-          "importance": "龙套",
-          "reason": "威信镖局镖师，随镖队行动"
-        }
-      ]
+      "missing": []
     },
     "entity_quantity": {
-      "score": 60,
+      "score": 100,
       "details": {
         "characters": {
-          "actual": 16,
+          "actual": 17,
           "minimum": 8,
           "passed": true
         },
         "factions": {
-          "actual": 2,
+          "actual": 3,
           "minimum": 3,
-          "passed": false
+          "passed": true
         },
         "skills": {
-          "actual": 4,
+          "actual": 5,
           "minimum": 5,
-          "passed": false
+          "passed": true
         },
         "items": {
           "actual": 11,
@@ -89,42 +82,10 @@
       "incorrect": []
     },
     "description_accuracy": {
-      "score": 66.7,
+      "score": 100,
       "totalChecked": 9,
-      "accurate": 6,
-      "issues": [
-        {
-          "id": "char_zhuo_tian_xiong",
-          "name": "卓天雄",
-          "field": "identity",
-          "expected": "清宫侍卫，大内七大高手之首",
-          "actual": "清廷大内七大高手之首，奉旨接应鸳鸯刀",
-          "reason": "Identity mismatch"
-        },
-        {
-          "id": "char_yang_fu_ren",
-          "name": "杨夫人",
-          "field": "personality.traits",
-          "expected": [
-            "慈爱",
-            "温和"
-          ],
-          "actual": [
-            "慈祥和蔼",
-            "深明大义",
-            "坚韧不拔"
-          ],
-          "reason": "Missing traits: 慈爱, 温和"
-        },
-        {
-          "id": "char_ren_fei_yan",
-          "name": "任飞燕",
-          "field": "identity",
-          "expected": "林玉龙之妻，擅弹弓和单刀",
-          "actual": "林玉龙妻子，弹弓名家",
-          "reason": "Identity mismatch"
-        }
-      ]
+      "accurate": 9,
+      "issues": []
     },
     "event_coverage": {
       "score": 100,
@@ -147,76 +108,28 @@
     "dialogue_quality": {
       "authenticity": 75,
       "representativeness": 100,
-      "characterFit": 0,
+      "characterFit": 50,
       "details": {
-        "total": 21,
-        "withSpeaker": 21,
-        "withListener": 13,
+        "total": 16,
+        "withSpeaker": 16,
+        "withListener": 11,
         "baselineChecked": 4,
         "baselineMatched": 3
       },
       "issues": [
         {
-          "index": 8,
+          "index": 15,
           "chapter": 1,
           "speaker": "周威信",
           "issue": "Speech style mismatch: expected \"爱说江湖谚语，谨慎胆小，老江湖口吻\", got \"满口江湖谚语，自我吹嘘\""
-        },
-        {
-          "index": 0,
-          "chapter": 1,
-          "speaker": "盖一鸣",
-          "issue": "Speech style mismatch: expected \"口若悬河，爱吹牛，自报家门时外号极长\", got \"滔滔不绝，自我吹嘘\""
-        },
-        {
-          "index": 2,
-          "chapter": 1,
-          "speaker": "逍遥子",
-          "issue": "Speech style mismatch: expected \"故作高深，爱装世外高人，实则武功平平\", got \"故作高深，自我吹嘘\""
         }
       ]
     },
     "cross_book_purity": {
-      "score": 78.8,
-      "totalEntities": 33,
-      "pureEntities": 26,
-      "suspicious": [
-        {
-          "id": "item_e_mei_ci",
-          "name": "峨嵋刺",
-          "type": "item"
-        },
-        {
-          "id": "item_liu_xing_chui",
-          "name": "流星锤",
-          "type": "item"
-        },
-        {
-          "id": "item_mu_bei",
-          "name": "墓碑",
-          "type": "item"
-        },
-        {
-          "id": "item_han_yan_guan",
-          "name": "旱烟管",
-          "type": "item"
-        },
-        {
-          "id": "item_shuai_shou_jian",
-          "name": "甩手箭",
-          "type": "item"
-        },
-        {
-          "id": "item_fei_cu_shou_gao",
-          "name": "腐骨穿心膏",
-          "type": "item"
-        },
-        {
-          "id": "item_yu_shi_zi",
-          "name": "翡翠狮子",
-          "type": "item"
-        }
-      ]
+      "score": 100,
+      "totalEntities": 36,
+      "pureEntities": 36,
+      "suspicious": []
     },
     "baseline_validation": {
       "score": 100,

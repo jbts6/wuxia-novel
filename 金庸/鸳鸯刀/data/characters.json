@@ -338,7 +338,7 @@
     "alias": [
       "老瞎子"
     ],
-    "identity": "清廷大内七大高手之首，奉旨接应鸳鸯刀",
+    "identity": "清宫侍卫，大内七大高手之首",
     "faction": null,
     "role": "重要",
     "archetype": "warrior",
@@ -473,7 +473,7 @@
     "id": "char_ren_fei_yan",
     "name": "任飞燕",
     "alias": [],
-    "identity": "林玉龙妻子，弹弓名家",
+    "identity": "林玉龙之妻，擅弹弓和单刀",
     "faction": null,
     "role": "重要",
     "archetype": "warrior",
@@ -552,7 +552,7 @@
         "临危不惧",
         "老大哥风范"
       ],
-      "speech_style": "故作高深，自我吹嘘",
+      "speech_style": "故作高深，爱装世外高人，实则武功平平",
       "temperament": "自大中带豪爽"
     },
     "relationships": [
@@ -752,7 +752,7 @@
         "胆小怕事",
         "自命不凡"
       ],
-      "speech_style": "滔滔不绝，自我吹嘘",
+      "speech_style": "口若悬河，爱吹牛，自报家门时外号极长",
       "temperament": "浮夸中带豪爽"
     },
     "relationships": [
@@ -867,7 +867,8 @@
     "one_line": "萧中慧亲生母亲，三湘大侠杨伯冲之妻",
     "personality": {
       "traits": [
-        "慈祥和蔼",
+        "慈爱",
+        "温和",
         "深明大义",
         "坚韧不拔"
       ],
@@ -1076,5 +1077,59 @@
       }
     ],
     "biography": ""
+  },
+  {
+    "id": "char_yu_biao_shi",
+    "name": "詹镖师",
+    "alias": [],
+    "identity": "威信镖局镖师",
+    "faction": "faction_wei_xin_biao_ju",
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "初窥门径",
+    "importance": "龙套",
+    "one_line": "威信镖局镖师，与张镖师一起护送鸳鸯刀",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "勇敢"
+      ],
+      "speech_style": "粗声粗气",
+      "temperament": "勇猛"
+    },
+    "relationships": [
+      {
+        "target": "char_zhou_wei_xin",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "镖局上下级"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "詹镖师威信镖局镖师护送鸳鸯刀",
+        "locate_status": "located",
+        "locate_reason": "no anchor terms recognized",
+        "alternatives": [],
+        "line_start": 25,
+        "line_end": 30,
+        "text": "詹镖师叫道：\"有强人哪，并肩子齐上啊。\"众人虽见那瞎子武功高强，但想他终究不过单身一人，眼睛又瞎了，好汉敌不过人多，于是刀枪并举，七八名镖师、卫士一齐拥上，将他围在垓心。那瞎子似不在意，铁杖轻挥，东一敲，西一戳，只数合间，已将一名卫士打倒在地。",
+        "anchors_hit": [
+          "詹镖师"
+        ],
+        "anchors_total": 1,
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 1
+      }
+    ],
+    "biography": "詹镖师是威信镖局的镖师，与张镖师一起跟随周威信护送鸳鸯刀进京。在遭遇假扮瞎子的卓天雄时，他率先喊出'有强人哪，并肩子齐上啊'，带领众人围攻卓天雄，但被卓天雄一脚踢翻。"
   }
 ]
