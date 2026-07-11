@@ -3,38 +3,41 @@
     "id": "item_jin_she_jian",
     "name": "金蛇剑",
     "type": "兵器",
-    "owner": null,
-    "one_line": "金蛇郎君的佩剑，袁承志所得",
-    "description": "金蛇剑是金蛇郎君的佩剑，剑身呈金色，剑尖如蛇信，威力强大。袁承志从金蛇郎君处所得。",
+    "tags": ["兵器", "剑", "剧情关键"],
+    "owner": "char_yuan_cheng_zhi",
+    "one_line": "金蛇郎君遗物，剑身金黄弯曲如蛇，袁承行走江湖的标志性兵器",
+    "description": "金蛇郎君夏雪宜的遗物，剑身金黄弯曲如蛇形，剑尖分叉如蛇信，剑身铸有金蛇图案，护手处铸有男女裸像。此剑锋利异常，配合金蛇剑法威力倍增，是袁承志行走江湖的标志性兵器。夏雪宜死后藏于华山石洞中，后被袁承志发现",
     "effects": [
       {
         "type": "伤害",
-        "description": "剑法凌厉，招式诡异，威力强大"
+        "description": "剑身锋利无比，剑尖分叉如蛇信可钩可刺，配合金蛇剑法可发挥极大威力"
       }
     ],
-    "origin": "金蛇郎君",
-    "related_characters": [],
-    "related_skills": [],
-    "rarity_tier": "绝世神兵",
-    "rag_refs": [
-      4
-    ],
+    "origin": "金蛇郎君夏雪宜遗物，藏于华山石洞中",
+    "related_characters": ["char_yuan_cheng_zhi", "char_xia_xue_yi", "char_xia_qing_qing", "char_a_jiu"],
+    "related_skills": ["skill_jin_she_jian_fa"],
+    "rarity_tier": "珍品",
+    "rag_refs": [4, 7, 10, 14, 19, 20],
     "source_refs": [
       {
         "chapter": 4,
-        "anchor": "金蛇剑在华山提及",
-        "line_start": 8,
-        "line_end": 11,
-        "text": "\n读到第三日上，见秘笈所载武功已与自己过去所学全然不同，不但与华山派武功无丝毫共通之处，而且从来不曾听师父或木桑道长提到过，那也并非仅是别有蹊径而已，委实异想天开，往往与武学要旨背道而驰，却也自具克敌制胜之妙。他一艺通百艺通，武学上既已有颇深造诣，再学旁门自是点到即会。秘笈中所载武功奇想怪着，纷至沓来，一学之下，再也不能自休，当下照着秘笈一路学将下去。\n\n他既有混元功的深厚根柢，要学任何武功皆轻而易举，但练到二十余日后却遇上了难关，秘笈中要诀关窍，记载详明，然根基所在的姿势却无图形，诀要甚是简略，不知招式，只得略过不练。",
-        "anchors_hit": [
-          "华山"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 4,
-        "alternatives": []
+        "anchor": "袁承志在华山石洞中发现金蛇剑和金蛇秘笈",
+        "event_type": "first_mention"
+      },
+      {
+        "chapter": 7,
+        "anchor": "袁承志以金蛇剑对战温氏五老破五行阵",
+        "event_type": "climax"
+      },
+      {
+        "chapter": 10,
+        "anchor": "哑巴将金蛇剑交给袁承志",
+        "event_type": "climax"
+      },
+      {
+        "chapter": 20,
+        "anchor": "阿九将金蛇剑带在身边前往华山",
+        "event_type": "resolution"
       }
     ]
   },
@@ -42,38 +45,31 @@
     "id": "item_jin_she_zhui",
     "name": "金蛇锥",
     "type": "暗器",
-    "owner": null,
-    "one_line": "金蛇郎君的暗器，袁承志所得",
-    "description": "金蛇锥是金蛇郎君的暗器，呈金色，形如蛇锥，百发百中。袁承志从金蛇郎君处所得。",
+    "tags": ["暗器", "剧情关键"],
+    "owner": "char_yuan_cheng_zhi",
+    "one_line": "金蛇郎君的暗器，形如小蛇，出手诡谲难防",
+    "description": "金蛇郎君夏雪宜使用的暗器，形如小蛇，通体金黄，锋利异常。配合金蛇锥法使用，出手诡谲难防。袁承志在华山石洞中与金蛇秘笈一同发现，后成为他行走江湖的重要暗器",
     "effects": [
       {
         "type": "伤害",
-        "description": "暗器凌厉，百发百中"
+        "description": "暗器手法精妙，出手诡谲难防，可连发多枚"
       }
     ],
-    "origin": "金蛇郎君",
-    "related_characters": [],
-    "related_skills": [],
-    "rarity_tier": "稀世珍品",
-    "rag_refs": [
-      15
-    ],
+    "origin": "金蛇郎君夏雪宜遗物，藏于华山石洞中",
+    "related_characters": ["char_yuan_cheng_zhi", "char_xia_xue_yi"],
+    "related_skills": ["skill_jin_she_zhui_fa"],
+    "rarity_tier": "良品",
+    "rag_refs": [3, 13, 15, 16],
     "source_refs": [
       {
+        "chapter": 3,
+        "anchor": "木桑道人在华山绝顶发现金蛇锥暗器",
+        "event_type": "first_mention"
+      },
+      {
         "chapter": 15,
-        "anchor": "金蛇锥在华山提及",
-        "line_start": 200,
-        "line_end": 203,
-        "text": "\n哑巴拳法颇得华山派精要，力敌三名高手，虽脱身不得，却不致落败。何铁手一声唿哨，五毒教人众齐向两人围来。袁承志东一窜，西一晃，缠住哑巴的两人一个下颚脱落，一个臂上脱臼，另一个一呆，给哑巴劈面一拳打中鼻梁，鲜血直流。哑巴打发了性，还要追打，袁承志拉住他手臂，拖到墙边，叫道：“大家快走，我来应付。”胡桂南当即游上高墙，将一行人众接应上去。袁承志在墙下来回游走，又打倒了十多名敌人，每人均是教中好手，但个个关节脱臼瘫痪。五毒教一败涂地，更无余力再斗。\n\n袁承志向何铁手拱手道：“教主姑娘，再见了！”哈哈长笑，背脊贴在墙上，倏忽间游到墙顶。何铁手心中只盼他指点武功，情不自禁的纵声大叫：“师父⋯⋯”两个字出口，急忙收口，旁人不知她是在叫谁。何铁手心神荡漾，摇摇晃晃，几欲晕倒。",
-        "anchors_hit": [
-          "华山"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 15,
-        "alternatives": []
+        "anchor": "袁承志以金蛇锥杀毙五毒教巨獒",
+        "event_type": "climax"
       }
     ]
   },
@@ -81,77 +77,53 @@
     "id": "item_jin_she_mi_ji",
     "name": "金蛇秘笈",
     "type": "秘籍",
-    "owner": null,
-    "one_line": "金蛇郎君的武功秘籍，袁承志所得",
-    "description": "金蛇秘籍是金蛇郎君的武功秘籍，记载金蛇剑法等武功。袁承志从金蛇郎君处所得。",
+    "tags": ["秘籍", "剧情关键"],
+    "owner": "char_yuan_cheng_zhi",
+    "one_line": "金蛇郎君所著武学秘籍，记载金蛇剑法等绝学及破五行阵之法",
+    "description": "金蛇郎君夏雪宜亲笔所著武学秘籍，详细记载金蛇剑法、金蛇锥法及破五行阵等绝学。秘笈以男女情爱之辞命名招式，武学理念独辟蹊径，往往与常理背道而驰却自具克敌制胜之妙。袁承志在华山石洞中发现后日夜研习，武功大进",
     "effects": [
       {
         "type": "增益",
-        "description": "记载金蛇剑法等武功"
+        "description": "修习后可掌握金蛇剑法、金蛇锥法及破五行阵等绝学"
       }
     ],
-    "origin": "金蛇郎君",
-    "related_characters": [],
-    "related_skills": [],
-    "rarity_tier": "绝世神兵",
-    "rag_refs": [
-      4
-    ],
+    "origin": "金蛇郎君夏雪宜困于华山时所著",
+    "related_characters": ["char_yuan_cheng_zhi", "char_xia_xue_yi"],
+    "related_skills": ["skill_jin_she_jian_fa", "skill_jin_she_zhui_fa"],
+    "rarity_tier": "珍品",
+    "rag_refs": [4, 7],
     "source_refs": [
       {
         "chapter": 4,
-        "anchor": "金蛇秘籍在华山提及",
-        "line_start": 8,
-        "line_end": 11,
-        "text": "\n读到第三日上，见秘笈所载武功已与自己过去所学全然不同，不但与华山派武功无丝毫共通之处，而且从来不曾听师父或木桑道长提到过，那也并非仅是别有蹊径而已，委实异想天开，往往与武学要旨背道而驰，却也自具克敌制胜之妙。他一艺通百艺通，武学上既已有颇深造诣，再学旁门自是点到即会。秘笈中所载武功奇想怪着，纷至沓来，一学之下，再也不能自休，当下照着秘笈一路学将下去。\n\n他既有混元功的深厚根柢，要学任何武功皆轻而易举，但练到二十余日后却遇上了难关，秘笈中要诀关窍，记载详明，然根基所在的姿势却无图形，诀要甚是简略，不知招式，只得略过不练。",
-        "anchors_hit": [
-          "华山"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 4,
-        "alternatives": []
+        "anchor": "袁承志在华山石洞中发现金蛇秘笈并开始修习",
+        "event_type": "first_mention"
       }
     ]
   },
   {
-    "id": "item_yu_zan",
-    "name": "玉簪",
-    "type": "信物",
-    "owner": null,
-    "one_line": "阿九的信物，推动情节发展",
-    "description": "玉簪是阿九的信物，推动情节发展。阿九将玉簪送给袁承志，表达爱意。",
+    "id": "item_wu_jin_bei_xin",
+    "name": "乌金丝背心",
+    "type": "防具",
+    "tags": ["防具", "剧情关键"],
+    "owner": "char_yuan_cheng_zhi",
+    "one_line": "木桑道人赠予袁承志的防身宝衣，以乌金丝等混织而成，刀枪不入",
+    "description": "以乌金丝、头发和金丝猿毛混同织成的背心，任何厉害的兵刃都伤它不得。木桑道人当年花无数心血、拚了九死一生才得来的防身至宝，后赠予袁承志作为见面礼。穆人清曾以利剑试之，剑尖碰到背心便轻轻反弹出来",
     "effects": [
       {
-        "type": "特殊",
-        "description": "信物，表达爱意"
+        "type": "增益",
+        "description": "穿着后可抵御任何兵刃攻击，刀枪不入"
       }
     ],
-    "origin": "阿九",
-    "related_characters": [],
+    "origin": "木桑道人所有，后赠予袁承志",
+    "related_characters": ["char_yuan_cheng_zhi", "char_mu_sang_dao_ren"],
     "related_skills": [],
-    "rarity_tier": "稀世珍品",
-    "rag_refs": [
-      15
-    ],
+    "rarity_tier": "珍品",
+    "rag_refs": [3],
     "source_refs": [
       {
-        "chapter": 15,
-        "anchor": "玉簪在华山提及",
-        "line_start": 200,
-        "line_end": 203,
-        "text": "\n哑巴拳法颇得华山派精要，力敌三名高手，虽脱身不得，却不致落败。何铁手一声唿哨，五毒教人众齐向两人围来。袁承志东一窜，西一晃，缠住哑巴的两人一个下颚脱落，一个臂上脱臼，另一个一呆，给哑巴劈面一拳打中鼻梁，鲜血直流。哑巴打发了性，还要追打，袁承志拉住他手臂，拖到墙边，叫道：“大家快走，我来应付。”胡桂南当即游上高墙，将一行人众接应上去。袁承志在墙下来回游走，又打倒了十多名敌人，每人均是教中好手，但个个关节脱臼瘫痪。五毒教一败涂地，更无余力再斗。\n\n袁承志向何铁手拱手道：“教主姑娘，再见了！”哈哈长笑，背脊贴在墙上，倏忽间游到墙顶。何铁手心中只盼他指点武功，情不自禁的纵声大叫：“师父⋯⋯”两个字出口，急忙收口，旁人不知她是在叫谁。何铁手心神荡漾，摇摇晃晃，几欲晕倒。",
-        "anchors_hit": [
-          "华山"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 15,
-        "alternatives": []
+        "chapter": 3,
+        "anchor": "木桑道人将乌金丝背心赠予袁承志作为见面礼",
+        "event_type": "first_mention"
       }
     ]
   },
@@ -159,38 +131,43 @@
     "id": "item_jin_si_zhuo_zi",
     "name": "金丝镯子",
     "type": "饰品",
-    "owner": null,
-    "one_line": "安大娘送给袁承志的信物",
-    "description": "金丝镯子是安大娘送给袁承志的信物，表达关爱之情。",
-    "effects": [
-      {
-        "type": "特殊",
-        "description": "信物，表达关爱之情"
-      }
-    ],
-    "origin": "安大娘",
-    "related_characters": [],
+    "tags": ["饰品", "信物"],
+    "owner": "char_yuan_cheng_zhi",
+    "one_line": "安大娘赠予袁承志的金丝镯子，轻轻一捏便可收紧",
+    "description": "安大娘赠予袁承志的金丝镯子，轻轻一捏便可收紧不再落下。这是安大娘对袁承志关爱之情的象征，也是袁承志童年时代与安家母女情谊的信物",
+    "effects": [],
+    "origin": "安大娘赠予袁承志",
+    "related_characters": ["char_yuan_cheng_zhi", "char_an_da_niang"],
     "related_skills": [],
-    "rarity_tier": "上乘佳品",
-    "rag_refs": [
-      3
-    ],
+    "rarity_tier": "凡品",
+    "rag_refs": [3, 5],
     "source_refs": [
       {
         "chapter": 3,
-        "anchor": "金丝镯子在华山提及",
-        "line_start": 46,
-        "line_end": 49,
-        "text": "\n哑巴摆了张香案。那老人取出一幅画，画上绘的是个中年书生，空手作着个持剑姿式。那老人点了香烛，对着画像恭恭敬敬的磕了头，对袁承志道：“这是咱们华山派的开山祖师风祖师爷，你过来磕头。”袁承志向画中人瞧了两眼，心道：“你可比我师父年轻得多啦，怎么反而是祖师爷？”当下过去磕头，不知该磕几个头，心想总是越多越好，直磕到那老人笑着叫他停止才罢。那老人笑吟吟的正要开口说话，袁承志又跪下磕头，算是正式拜师。\n\n那老人微笑着受了，说道：“从今而后，你是我华山派的弟子了。我多年前收过两个徒弟，此后一直没再遇到聪颖肯学的孩子，这些年来没再传人。你是我的第三个弟子，也是我的关门徒弟。你可得好好学，别给我丢人现眼。”袁承志连连点头。",
-        "anchors_hit": [
-          "华山"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 3,
-        "alternatives": []
+        "anchor": "安大娘将金丝镯子赠予袁承志作为离别纪念",
+        "event_type": "first_mention"
+      }
+    ]
+  },
+  {
+    "id": "item_yu_zan",
+    "name": "玉簪",
+    "type": "饰品",
+    "tags": ["饰品", "信物"],
+    "owner": "char_a_jiu",
+    "one_line": "阿九的发簪，袁承志曾以此为兵器破五行阵",
+    "description": "阿九的发簪，袁承志曾以此为兵器破五行阵。他使一根一碰就碎的玉簪，好教温氏五老心无所忌便出手进攻，招式中就露出破绽。后来青青为此大吃飞醋",
+    "effects": [],
+    "origin": "阿九所有",
+    "related_characters": ["char_yuan_cheng_zhi", "char_a_jiu", "char_xia_qing_qing"],
+    "related_skills": ["skill_jin_she_jian_fa"],
+    "rarity_tier": "凡品",
+    "rag_refs": [7, 8],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "anchor": "袁承志以玉簪使出金蛇剑法破五行阵",
+        "event_type": "climax"
       }
     ]
   },
@@ -198,38 +175,26 @@
     "id": "item_tie_bian",
     "name": "铁鞭",
     "type": "兵器",
+    "tags": ["兵器", "鞭"],
     "owner": null,
-    "one_line": "归辛树的兵器，刚猛有力",
-    "description": "铁鞭是归辛树的兵器，刚猛有力，威力强大。归辛树以铁鞭闻名江湖。",
+    "one_line": "冯不破、冯不摧兄弟使用的兵器",
+    "description": "冯不破、冯不摧兄弟使用的铁鞭，华山派第三代弟子的常用兵器。冯氏兄弟曾以此铁鞭与何惕守交手，被何惕守以软红蛛索轻松制服",
     "effects": [
       {
         "type": "伤害",
-        "description": "鞭法刚猛，威力强大"
+        "description": "鞭法刚猛有力"
       }
     ],
-    "origin": "归辛树",
-    "related_characters": [],
+    "origin": "冯氏兄弟所有",
+    "related_characters": ["char_feng_bu_cui", "char_feng_bu_po"],
     "related_skills": [],
-    "rarity_tier": "上乘佳品",
-    "rag_refs": [
-      10
-    ],
+    "rarity_tier": "凡品",
+    "rag_refs": [20],
     "source_refs": [
       {
-        "chapter": 10,
-        "anchor": "铁鞭在华山提及",
-        "line_start": 6,
-        "line_end": 9,
-        "text": "\n袁承志心里一动，偷眼看木桑道人时，见他拿了两颗白子、两颗黑子，放在棋盘四角，手中拈着一颗黑子，轻轻敲击棋盘，发出丁丁之声，嘴角边露出微笑。本来在华山下棋时，袁承志已要让木桑一先，后来更加非让上三子不可，此时却又平手分先。袁承志心想：“今晚二师哥、二师嫂雨花台之约，非去不可。瞧二师嫂神气，只怕不能不动手，我又不能跟他们真打。二师哥号称神拳无敌，我全力施为，尚且未必能胜，如再相让，非受重伤不可，真有差池，只怕连命也送了。道长传授她武功，似乎别有深意。”便道：“下棋倒也可以，可是你得把这套功夫转教给我。”青青笑道：“好哇，这叫见者有份，你跟我讲起黑道上的规矩来啦。”两人说笑几句，承志就陪木桑下棋。此时承志多历世事，已不似儿时一味好胜，手下自然留情，让木桑赢得心情大快。\n\n午饭后，袁承志和崔秋山谈起别来情由。一个知道闯王势力大张，不久就要大举入京；另一个见旧时小友已英武如斯，艺成品立，均觉喜慰。谈了一阵，又说到崔希敏和安小慧失金夺金之事。青青不住向承志打手势，叫他出去。崔秋山笑道：“你小朋友叫你呢，快去吧！”承志脸一红，不好意思便走。",
-        "anchors_hit": [
-          "华山"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 10,
-        "alternatives": []
+        "chapter": 20,
+        "anchor": "冯氏兄弟以铁鞭与何惕守交手",
+        "event_type": "first_mention"
       }
     ]
   },
@@ -237,80 +202,26 @@
     "id": "item_qing_zhu_zhang",
     "name": "青竹杖",
     "type": "兵器",
-    "owner": null,
-    "one_line": "阿九的兵器，程青竹所传",
-    "description": "青竹杖是阿九的兵器，程青竹所传，以青竹制成，轻巧灵活。",
+    "tags": ["兵器", "杖"],
+    "owner": "char_a_jiu",
+    "one_line": "程青竹传授阿九的兵器，以青竹制成",
+    "description": "青竹帮帮主程青竹传授阿九使用的兵器，以青竹制成，坚韧轻巧。阿九右手拄着青竹杖，受程青竹的点拨教导，杖法已颇有根柢。阿九断臂后仍以此杖行走",
     "effects": [
       {
         "type": "伤害",
-        "description": "杖法精妙，攻守兼备"
+        "description": "杖法灵活多变，攻守兼备"
       }
     ],
-    "origin": "程青竹",
-    "related_characters": [],
-    "related_skills": [],
-    "rarity_tier": "上乘佳品",
-    "rag_refs": [
-      20
-    ],
+    "origin": "程青竹传授阿九",
+    "related_characters": ["char_a_jiu", "char_cheng_qing_zhu"],
+    "related_skills": ["skill_qing_zhu_zhang_fa"],
+    "rarity_tier": "良品",
+    "rag_refs": [10, 16, 20],
     "source_refs": [
       {
         "chapter": 20,
-        "anchor": "青竹杖在华山提及",
-        "line_start": 22,
-        "line_end": 25,
-        "text": "\n何惕守想雇辆骡车给阿九乘坐，但兵荒马乱之际，再也没车夫做这生意。何惕守见到有人乘车出京，不管三七二十一，把乘客赶下车来，强迫车夫驾车西行。阿九虽然身受重伤，但何惕守是江湖大行家，讲文，有金银毒药，讲武，有拳脚刀剑，出得门来处处都占便宜，一路上却也未受风霜之苦。何惕守颇识医药，更当她是小妹子兼未来小师母般呵护服侍，阿九的臂伤在途中逐渐痊可。健骡轻车，到了华山脚下。何惕守将阿九负在背上，展开轻功，走得又快又稳。上得山来，正逢洪胜海给暗器打倒，将遭擒拿，何惕守便挥出软红蛛索相救。\n\n梅剑和与孙仲君等不知洪胜海已跟随袁承志，更不知何惕守是何等样人，眼见她赤了双脚，怪模怪样，显是妖邪一流，忽上华山来放肆捣乱，都甚恼怒。孙仲君喝问：“你们是什么路道？都是渤海派的么？”何惕守笑道：“姊姊高姓大名？不知这位朋友什么地方得罪了姊姊，小妹给两位说和成么？”孙仲君听她说话娇声嗲气，装模作样，显非端人，骂道：“你是什么邪教妖人？可知道这是什么地方？”何惕守笑笑不答。",
-        "anchors_hit": [
-          "华山"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 20,
-        "alternatives": []
-      }
-    ]
-  },
-  {
-    "id": "item_chong_zhen_xue_zhao",
-    "name": "血诏",
-    "type": "信物",
-    "owner": null,
-    "one_line": "崇祯皇帝的遗诏，血迹斑斑",
-    "description": "崇祯血诏是崇祯皇帝上吊前写的遗诏，用朱笔写在白纸上，血迹斑斑。内容为'朕登极十七年，致敌入内地四次，逆贼直逼京师，虽朕薄德匪躬，上干天咎，然皆诸臣之误朕也。朕死，无面目见祖宗于地下，去朕冠冕，以发覆面，任贼分裂朕尸，勿伤百姓一人。'袁承志从崇祯遗体上取得。",
-    "effects": [
-      {
-        "type": "特殊",
-        "description": "历史文物，崇祯皇帝遗诏"
-      }
-    ],
-    "origin": "崇祯皇帝",
-    "related_characters": [],
-    "related_skills": [],
-    "rarity_tier": "稀世珍品",
-    "rag_refs": [
-      19
-    ],
-    "source_refs": [
-      {
-        "chapter": 19,
-        "anchor": "崇祯血诏在煤山提及",
-        "line_start": 28,
-        "line_end": 30,
-        "text": "\n忽有一人疾奔而来，向李自成报道：“大王，有个太监说，见到崇祯逃到煤山那边去了。”李自成转头对袁承志道：“金蛇王兄弟，你快带人去拿来！”袁承志道： “是！”手一摆，率领了胡桂南等人驰向煤山。\n",
-        "anchors_hit": [
-          "崇祯",
-          "煤山"
-        ],
-        "anchors_total": 2,
-        "locate_status": "located",
-        "locate_score": 200,
-        "locate_method": "window",
-        "hint_chapter": 19,
-        "alternatives": [],
-        "locate_reason": "no anchor terms recognized",
-        "event_type": "background"
+        "anchor": "阿九右手拄着青竹杖出现在华山",
+        "event_type": "first_mention"
       }
     ]
   },
@@ -318,92 +229,80 @@
     "id": "item_ruan_hong_zhu_suo",
     "name": "软红蛛索",
     "type": "兵器",
-    "tags": [
-      "兵器"
+    "tags": ["兵器", "奇门兵器"],
+    "owner": "char_he_ti_shou",
+    "one_line": "何惕守的独门兵器，数十条蛛丝般的软索",
+    "description": "五毒教教主何惕守（何铁手）的独门兵器，以数十条非丝非革的软索组成，挥出时可缠绕对手。何惕守以此索救人制敌，手法高明，索上或喂有剧毒",
+    "effects": [
+      {
+        "type": "控制",
+        "description": "软索缠绕对手，兼有毒性"
+      }
     ],
-    "owner": null,
-    "one_line": "何惕守的独门兵器",
-    "description": "",
+    "origin": "五毒教独门兵器",
+    "related_characters": ["char_he_ti_shou"],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [16, 20],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "anchor": "何惕守挥出软红蛛索在华山救人",
+        "event_type": "first_mention"
+      }
+    ]
+  },
+  {
+    "id": "item_han_sha_she_ying",
+    "name": "含沙射影",
+    "type": "暗器",
+    "tags": ["暗器", "奇门兵器"],
+    "owner": "char_he_ti_shou",
+    "one_line": "五毒教机括暗器，按下机括即可连发毒针",
+    "description": "五毒教独门机括暗器，藏于腰间，按下机括即可连发毒针，中者立时毙命。何惕守曾以此暗器瞬杀追兵，神不知鬼不觉",
     "effects": [
       {
         "type": "伤害",
-        "description": "威力强大"
+        "description": "连发毒针，中者立时毙命"
       }
     ],
-    "origin": null,
-    "related_characters": [],
+    "origin": "五毒教独门暗器",
+    "related_characters": ["char_he_ti_shou"],
     "related_skills": [],
     "rarity_tier": "良品",
-    "rag_refs": [
-      1
-    ],
+    "rag_refs": [20],
     "source_refs": [
       {
-        "chapter": 3,
-        "anchor": "软红蛛索在华山派提及",
-        "event_type": "first_mention",
-        "line_start": 46,
-        "line_end": 48,
-        "text": "\n哑巴摆了张香案。那老人取出一幅画，画上绘的是个中年书生，空手作着个持剑姿式。那老人点了香烛，对着画像恭恭敬敬的磕了头，对袁承志道：“这是咱们华山派的开山祖师风祖师爷，你过来磕头。”袁承志向画中人瞧了两眼，心道：“你可比我师父年轻得多啦，怎么反而是祖师爷？”当下过去磕头，不知该磕几个头，心想总是越多越好，直磕到那老人笑着叫他停止才罢。那老人笑吟吟的正要开口说话，袁承志又跪下磕头，算是正式拜师。\n",
-        "anchors_hit": [
-          "华山派",
-          "华山"
-        ],
-        "anchors_total": 2,
-        "locate_status": "located",
-        "locate_score": 251,
-        "locate_method": "window",
-        "hint_chapter": 3,
-        "alternatives": [
-          {
-            "chapter": 4,
-            "line_start": 8,
-            "line_end": 10,
-            "text": "\n读到第三日上，见秘笈所载武功已与自己过去所学全然不同，不但与华山派武功无丝毫共通之处，而且从来不曾听师父或木桑道长提到过，那也并非仅是别有蹊径而已，委实异想天开，往往与武学要旨背道而驰，却也自具克敌制胜之妙。他一艺通百艺通，武学上既已有颇深造诣，再学旁门自是点到即会。秘笈中所载武功奇想怪着，纷至沓来，一学之下，再也不能自休，当下照着秘笈一路学将下去。\n",
-            "score": 248,
-            "anchors_hit": [
-              "华山派",
-              "华山"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 5,
-            "line_start": 82,
-            "line_end": 84,
-            "text": "\n袁承志已看明白她武功家数，虽不是华山派门人，但必受过本门中人的指点，否则依她功力，早已支持不住，仗着剑术精奇，才跟温正勉强打个平手，莫看她攻势凌厉，其实温正又稳又狠，后劲比她长得多。温青也已瞧出那少女非温正敌手，微微冷笑，说道：“凭这点子道行，也想上门来讨东西。”\n",
-            "score": 245,
-            "anchors_hit": [
-              "华山派",
-              "华山"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 7,
-            "line_start": 4,
-            "line_end": 6,
-            "text": "\n这些人中最感奇怪的却是黄真。他见袁承志在吕七胁下这一戳，确是华山派绝技“铁指诀”，然而他绕着对方游走、以及抓挟金条的手法，却与自己所习迥然不同，除了反手抓夺烟管这一招之外，余下这几下小巧变幻，都带着三分诡秘之气，决非华山派武功以浑厚精奇见长的家数，自不是师父晚年别创新招而传授了这小师弟，一时也想不明白，当下在铁算盘上一拨，说道：“刚才那位老爷子说过，只要动了三根金条，全部黄金奉还，兄弟在这里谢过。”双手一拱，对崔希敏道：“都捡起来吧。”\n",
-            "score": 239,
-            "anchors_hit": [
-              "华山派",
-              "华山"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 8,
-            "line_start": 168,
-            "line_end": 170,
-            "text": "\n乱了一阵，闵子华又道：“这几日内，昆仑派的张心一师兄，峨嵋派的几位道长，华山派的几位师兄也都可到了。”有人问道：“华山派也有人来吗？那好极了，是谁的门下呀？”袁承志心想：“你问得倒好，我也正想问这句话。”闵子华道：“是神拳无敌门下的几位师兄。”袁承志心道：“那是二师哥的门下了。”那人又问：“闵二哥 跟归二爷夫妇有交情么？那好极啦，有他们夫妇撑腰，还怕那姓焦的奸贼什么？”\n",
-            "score": 236,
-            "anchors_hit": [
-              "华山派",
-              "华山"
-            ],
-            "method": "window"
-          }
-        ]
+        "chapter": 20,
+        "anchor": "何惕守以含沙射影毒针瞬杀追兵",
+        "event_type": "first_mention"
+      }
+    ]
+  },
+  {
+    "id": "item_chong_zhen_xue_zhao",
+    "name": "崇祯血诏",
+    "type": "信物",
+    "tags": ["信物", "剧情关键"],
+    "owner": null,
+    "one_line": "崇祯皇帝自缢前以朱笔写在白纸上的遗诏，血迹斑斑",
+    "description": "崇祯皇帝在煤山自缢前写下的遗诏，以朱笔写在白纸上，血迹斑斑。内容为'朕登极十七年，致敌入内地四次，逆贼直逼京师，虽朕薄德匪躬，上干天咎，然皆诸臣之误朕也。朕死，无面目见祖宗于地下，去朕冠冕，以发覆面，任贼分裂朕尸，勿伤百姓一人。'袁承志从崇祯遗体衣袋中取出",
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "历史文物，崇祯皇帝遗诏，见证明朝覆灭"
+      }
+    ],
+    "origin": "崇祯皇帝自缢前手书",
+    "related_characters": ["char_chong_zhen_huang_di", "char_yuan_cheng_zhi"],
+    "related_skills": [],
+    "rarity_tier": "珍品",
+    "rag_refs": [19],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "anchor": "袁承志在煤山从崇祯遗体上取得血诏",
+        "event_type": "first_mention"
       }
     ]
   },
@@ -411,41 +310,26 @@
     "id": "item_pan_guan_shuang_bi",
     "name": "判官双笔",
     "type": "兵器",
-    "tags": [
-      "兵器"
-    ],
+    "tags": ["兵器", "奇门兵器"],
     "owner": null,
-    "one_line": "白脸太监所使兵器",
-    "description": "",
+    "one_line": "曹化淳手下东厂番子使用的奇门兵器",
+    "description": "曹化淳手下东厂太监番子使用的判官双笔，可点穴打穴。在圣峰嶂上，白脸太监以此兵器与崔秋山交手，被崔秋山空手夺下",
     "effects": [
       {
-        "type": "伤害",
-        "description": "威力强大"
+        "type": "控制",
+        "description": "以判官笔点穴制敌"
       }
     ],
-    "origin": null,
-    "related_characters": [],
+    "origin": "东厂番子所有",
+    "related_characters": ["char_cui_qiu_shan"],
     "related_skills": [],
-    "rarity_tier": "良品",
-    "rag_refs": [
-      1
-    ],
+    "rarity_tier": "凡品",
+    "rag_refs": [2],
     "source_refs": [
       {
         "chapter": 2,
-        "anchor": "判官双笔在广州提及",
-        "line_start": 68,
-        "line_end": 71,
-        "text": "\n张朝唐和杨鹏举迳赴广州，途中更无他故。杨鹏举遭此挫折，心灰意懒，知道江湖上山外有山，人上有人，自己凭这点微末功夫，居然能挨到今日，算得是侥幸之极，此番若非袁承志这小小孩童一言相救，已变成没眼睛的废人，想想暗自心惊，当即向镖局辞了工，便欲回家务农。张朝唐感他救命之恩，见他心情郁郁，便邀他同去浡泥国游览散心。杨鹏举眼见左右无事，自己又无家累，当即答允。\n\n三人在广州雇了海舶，前往浡泥。杨鹏举住了月余，见当地太平安乐，真如世外桃源一般，竟然不兴归意，便在张朝唐之父张信的那督府中担任个小小职司。每日当差一两个时辰，余下来喝酒赌钱，甚是逍遥快乐。",
-        "anchors_hit": [
-          "广州"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 2,
-        "alternatives": []
+        "anchor": "白脸太监以判官双笔在圣峰嶂与崔秋山交手",
+        "event_type": "first_mention"
       }
     ]
   },
@@ -453,41 +337,80 @@
     "id": "item_hong_yi_da_pao",
     "name": "红夷大炮",
     "type": "兵器",
-    "tags": [
-      "兵器"
-    ],
+    "tags": ["兵器"],
     "owner": null,
-    "one_line": "罗大千所用火炮",
-    "description": "",
+    "one_line": "罗大千在宁远一战点燃的西洋火炮，轰死清兵无数",
+    "description": "西洋传入的火炮，威力巨大。袁崇焕旧部罗大千是著名炮手，宁远一战他点燃红夷大炮轰死清兵无数，因功升到参将",
     "effects": [
       {
         "type": "伤害",
-        "description": "威力强大"
+        "description": "火炮轰击威力巨大"
       }
     ],
-    "origin": null,
-    "related_characters": [],
+    "origin": "军事装备",
+    "related_characters": ["char_luo_da_qian", "char_yuan_chong_huan"],
     "related_skills": [],
     "rarity_tier": "良品",
-    "rag_refs": [
-      1
-    ],
+    "rag_refs": [2],
     "source_refs": [
       {
         "chapter": 2,
-        "anchor": "红夷大炮在广州提及",
-        "line_start": 68,
-        "line_end": 71,
-        "text": "\n张朝唐和杨鹏举迳赴广州，途中更无他故。杨鹏举遭此挫折，心灰意懒，知道江湖上山外有山，人上有人，自己凭这点微末功夫，居然能挨到今日，算得是侥幸之极，此番若非袁承志这小小孩童一言相救，已变成没眼睛的废人，想想暗自心惊，当即向镖局辞了工，便欲回家务农。张朝唐感他救命之恩，见他心情郁郁，便邀他同去浡泥国游览散心。杨鹏举眼见左右无事，自己又无家累，当即答允。\n\n三人在广州雇了海舶，前往浡泥。杨鹏举住了月余，见当地太平安乐，真如世外桃源一般，竟然不兴归意，便在张朝唐之父张信的那督府中担任个小小职司。每日当差一两个时辰，余下来喝酒赌钱，甚是逍遥快乐。",
-        "anchors_hit": [
-          "广州"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 2,
-        "alternatives": []
+        "anchor": "应松提及罗大千宁远一战点燃红夷大炮轰死清兵无数",
+        "event_type": "background"
+      }
+    ]
+  },
+  {
+    "id": "item_tie_suan_pan",
+    "name": "铁算盘",
+    "type": "兵器",
+    "tags": ["兵器", "奇门兵器"],
+    "owner": "char_huang_zhen",
+    "one_line": "黄真的独门兵器，铜笔铁算盘",
+    "description": "华山派大弟子黄真的独门兵器，以精钢铸成的算盘，既是兵器也是算账工具。黄真外号'铜笔铁算盘'，以此兵器行走江湖，拨打算盘珠子亦可作为暗器",
+    "effects": [
+      {
+        "type": "伤害",
+        "description": "可作兵器攻敌，也可拨打算盘珠子作为暗器"
+      }
+    ],
+    "origin": "黄真独门兵器",
+    "related_characters": ["char_huang_zhen"],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [7],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "anchor": "黄真以铁算盘为兵器在温家庄大战",
+        "event_type": "first_mention"
+      }
+    ]
+  },
+  {
+    "id": "item_zhu_bing_bing_chan",
+    "name": "朱睛冰蟾",
+    "type": "丹药",
+    "tags": ["丹药", "解药"],
+    "owner": "char_mu_sang_dao_ren",
+    "one_line": "木桑道人所有的解毒圣物，可解百毒",
+    "description": "木桑道人所有的珍稀解毒圣物，形如冰蟾，眼睛朱红，可解百毒。是江湖中人人觊觎的宝物",
+    "effects": [
+      {
+        "type": "特殊",
+        "description": "可解百毒，是解毒圣物"
+      }
+    ],
+    "origin": "木桑道人所有",
+    "related_characters": ["char_mu_sang_dao_ren"],
+    "related_skills": [],
+    "rarity_tier": "珍品",
+    "rag_refs": [17],
+    "source_refs": [
+      {
+        "chapter": 17,
+        "anchor": "木桑道人提及朱睛冰蟾可解百毒",
+        "event_type": "background"
       }
     ]
   }

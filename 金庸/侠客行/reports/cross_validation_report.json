@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-07-11T09:36:17.057Z",
+  "summary": {
+    "total": 14,
+    "errors": 0,
+    "warnings": 10,
+    "info": 4
+  },
+  "issues": [
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_ding_bu_san",
+      "target": "char_shi_po_tian",
+      "rel_type": "对手",
+      "message": "丁不三(char_ding_bu_san) -> char_shi_po_tian (对手) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_li_si",
+      "target": "char_shi_po_tian",
+      "rel_type": "挚友",
+      "message": "李四(char_li_si) -> char_shi_po_tian (挚友) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_bai_wan_jian",
+      "target": "char_shi_zhong_yu",
+      "rel_type": "宿敌",
+      "message": "白万剑(char_bai_wan_jian) -> char_shi_zhong_yu (宿敌) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_shi_jian",
+      "target": "char_shi_po_tian",
+      "rel_type": "主仆",
+      "message": "侍剑(char_shi_jian) -> char_shi_po_tian (主仆) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_mei_fang_gu",
+      "target": "char_ding_bu_si",
+      "rel_type": "亲属",
+      "message": "梅芳姑(char_mei_fang_gu) -> char_ding_bu_si (亲属) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_feng_wan_li",
+      "target": "char_bai_zi_zai",
+      "rel_type": "师徒",
+      "message": "封万里(char_feng_wan_li) -> char_bai_zi_zai (师徒) exists, but reverse not found"
+    },
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_tian_xu_dao_ren",
+      "target": "char_shi_qing",
+      "rel_type": "挚友",
+      "message": "天虚道人(char_tian_xu_dao_ren) -> char_shi_qing (挚友) exists, but reverse not found"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "warning",
+      "source": "dialogue[14]",
+      "field": "speaker",
+      "ref": "char_hua_wan_zi",
+      "message": "Dialogue speaker \"char_hua_wan_zi\" not found in characters.json"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "warning",
+      "source": "dialogue[31]",
+      "field": "speaker",
+      "ref": "char_mi_heng_ye",
+      "message": "Dialogue speaker \"char_mi_heng_ye\" not found in characters.json"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_xia_ke_dao_mu_bei",
+      "name": "侠客岛墓碑",
+      "message": "Item \"侠客岛墓碑\" not found in original text - likely hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "skill_xia_ke_xing_bi_wu_gong",
+      "name": "侠客行石壁武学",
+      "message": "Skill \"侠客行石壁武学\" not found in original text - likely hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "skill_wu_xing_quan",
+      "name": "五行拳",
+      "message": "Skill \"五行拳\" not found in original text - likely hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "skill_ding_jia_qin_na_shou",
+      "name": "丁家擒拿手",
+      "message": "Skill \"丁家擒拿手\" not found in original text - likely hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "skill_tie_cha_gong",
+      "name": "铁叉功",
+      "message": "Skill \"铁叉功\" not found in original text - likely hallucination"
+    }
+  ]
+}

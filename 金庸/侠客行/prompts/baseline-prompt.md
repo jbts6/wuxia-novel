@@ -14,22 +14,22 @@
 - char_ding_bu_san: 丁不三
 - char_ding_bu_si: 丁不四
 - char_bai_zi_zai: 白自在
-- char_shi_zhong_yu: 石中玉
-- char_shi_qing: 石清
-- char_min_rou: 闵柔
 - char_zhang_san: 张三
+- char_shi_zhong_yu: 石中玉
 - char_li_si: 李四
 - char_long_dao_zhu: 龙岛主
-- char_mu_dao_zhu: 木岛主
-- char_shi_xiao_cui: 史小翠
+- char_shi_qing: 石清
+- char_min_rou: 闵柔
+- char_bai_wan_jian: 白万剑
 - char_a_xiu: 阿绣
-- char_hua_wan_zi: 花万紫
-- char_feng_wan_li: 封万里
-- char_wang_wan_ren: 王万仞
-- char_geng_wan_zhong: 耿万钟
+- char_shi_xiao_cui: 史小翠
+- char_mu_dao_zhu: 木岛主
+- char_gao_san_niang_zi: 高三娘子
+- char_fan_yi_fei: 范一飞
+- char_lv_zheng_ping: 吕正平
 
 ## 高频提及术语（供参考）
-
+石破天、丁珰、雪山派、丁不四、谢烟客、贝海石、长乐帮、丁不三、白自在、张三、石中玉、侠客岛、凌霄城、李四、龙岛主、玄铁令、木岛主、铁叉会、玄素庄、侠客行、太玄经、赏善罚恶令
 
 ## Prompt 模板
 

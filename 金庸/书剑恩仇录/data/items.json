@@ -1,0 +1,272 @@
+[
+  {
+    "id": "item_ning_bi_jian",
+    "name": "凝碧剑",
+    "type": "兵器",
+    "tags": ["兵器", "剑", "神兵"],
+    "owner": "char_zhang_zhao_zhong",
+    "one_line": "削铁如泥的神兵，张召重佩剑，后归陈家洛",
+    "description": "剑身碧绿如凝脂，锋利无匹，削铁如泥。张召重仗此剑横行江湖，在乌鞘岭、赤套渡等处多次以此剑力克群雄。后在回疆大战中被陈家洛以庖丁解牛掌法夺下，转交陆菲青保管。",
+    "effects": [{ "type": "伤害", "description": "削铁如泥，锋利异常，可轻易斩断普通刀剑" }],
+    "origin": "张召重佩剑，后被红花会夺走",
+    "related_characters": ["char_zhang_zhao_zhong", "char_chen_jia_luo", "char_lu_fei_qing"],
+    "related_skills": ["skill_rou_yun_jian_shu"],
+    "rarity_tier": "神品",
+    "rag_refs": [4, 5, 10, 11, 19],
+    "source_refs": [
+      { "chapter": 10, "line_start": 3170, "line_end": 3175, "text": "周绮拿了凝碧剑细看，找了几柄纯钢旧刀剑，一剑削下，应手而断，果然锐利无匹" }
+    ]
+  },
+  {
+    "id": "item_bai_long_jian",
+    "name": "白龙剑",
+    "type": "兵器",
+    "tags": ["兵器", "剑"],
+    "owner": "char_lu_fei_qing",
+    "one_line": "武当派名剑，陆菲青的随身佩剑",
+    "description": "武当派传承名剑，陆菲青行走江湖数十年的随身兵器。剑身轻灵，适配武当柔云剑术。陆菲青以此剑行侠仗义，名震江湖。后在狼城之战中失落。",
+    "effects": [{ "type": "伤害", "description": "剑走轻灵，适配武当柔云剑法" }],
+    "origin": "武当派传承",
+    "related_characters": ["char_lu_fei_qing"],
+    "related_skills": ["skill_rou_yun_jian_shu"],
+    "rarity_tier": "珍品",
+    "rag_refs": [1, 2, 18],
+    "source_refs": [
+      { "chapter": 1, "line_start": 28, "line_end": 31, "text": "他行囊萧然，只随身几件衣服，把一口白龙剑裹在里面，打了个包裹" }
+    ]
+  },
+  {
+    "id": "item_jin_di",
+    "name": "金笛",
+    "type": "兵器",
+    "tags": ["兵器", "奇门兵器"],
+    "owner": "char_yu_yu_tong",
+    "one_line": "余鱼同的标志性兵器，既可吹奏又可御敌",
+    "description": "余鱼同随身携带的金笛，纯金所铸，既可当铁鞭使，又可当判官笔用，招数中更夹杂着剑法。余鱼同文武双全，以此笛吹奏名曲，亦以此笛施展武功，江湖人称'金笛秀才'。后被张召重削断，断笛成为与李沅芷的定情信物。",
+    "effects": [{ "type": "伤害", "description": "可当铁鞭、判官笔、短剑使用" }],
+    "origin": "余鱼同自制",
+    "related_characters": ["char_yu_yu_tong", "char_li_yuan_zhi"],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [2, 18],
+    "source_refs": [
+      { "chapter": 2, "line_start": 98, "line_end": 104, "text": "余鱼同施展金笛，和三名公差斗在一起。他的金笛有时当铁鞭使，有时当判官笔用，有时招数中更夹杂着剑法" }
+    ]
+  },
+  {
+    "id": "item_ke_lan_jing",
+    "name": "可兰经",
+    "type": "秘籍",
+    "tags": ["秘籍", "信物", "剧情关键"],
+    "owner": null,
+    "one_line": "回部圣物，引发红花会与回部结缘的关键",
+    "description": "回部伊斯兰教的圣典，被清廷托镇远镖局护送进京。霍青桐率族人追夺，红花会群雄相助抢回。此经是红花会与回部结盟的契机，也是全书情节推进的重要信物。",
+    "effects": [{ "type": "特殊", "description": "回部圣物，具有极高的宗教和政治意义" }],
+    "origin": "回部所有，被清廷夺走",
+    "related_characters": ["char_huo_qing_tong", "char_chen_jia_luo"],
+    "related_skills": [],
+    "rarity_tier": "神品",
+    "rag_refs": [1, 2],
+    "source_refs": [
+      { "chapter": 1, "line_start": 192, "line_end": 200, "text": "他们当作性命宝贝的玩意儿咱们给抢了来" }
+    ]
+  },
+  {
+    "id": "item_fu_rong_jin_zhen",
+    "name": "芙蓉金针",
+    "type": "暗器",
+    "tags": ["暗器", "针"],
+    "owner": "char_lu_fei_qing",
+    "one_line": "陆菲青的独门暗器，细如发丝的金针",
+    "description": "陆菲青的独门暗器，针身极细如发丝，却能精准命中目标。陆菲青曾以此针钉死书房中的苍蝇，李沅芷见后大为惊叹，拜师学艺。后陆菲青将此暗器传授给李沅芷。",
+    "effects": [{ "type": "伤害", "description": "针身极细，命中精准，万万无法闪避" }],
+    "origin": "陆菲青自制",
+    "related_characters": ["char_lu_fei_qing", "char_li_yuan_zhi"],
+    "related_skills": ["skill_fu_rong_jin_zhen"],
+    "rarity_tier": "良品",
+    "rag_refs": [1],
+    "source_refs": [
+      { "chapter": 1, "line_start": 5, "line_end": 10, "text": "每只苍蝇背上都插着一根细如头发的金针" }
+    ]
+  },
+  {
+    "id": "item_yuan_yang_dao",
+    "name": "鸳鸯刀",
+    "type": "兵器",
+    "tags": ["兵器", "刀"],
+    "owner": "char_luo_bing",
+    "one_line": "骆冰的家传双刀，配合飞刀使用",
+    "description": "骆冰的家传双刀，配合飞刀使用，威力不俗。江湖上凭此双刀与飞刀，人称'鸳鸯刀骆冰'。骆冰之父骆元通以此传女，骆冰仗之行走江湖。",
+    "effects": [{ "type": "伤害", "description": "双刀合璧，攻守兼备" }],
+    "origin": "骆冰家传",
+    "related_characters": ["char_luo_bing"],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [1],
+    "source_refs": [
+      { "chapter": 1, "line_start": 310, "line_end": 313, "text": "凭您这对鸳鸯刀跟这手飞刀，江湖上谁不知道？" }
+    ]
+  },
+  {
+    "id": "item_yu_ping",
+    "name": "玉瓶",
+    "type": "饰品",
+    "tags": ["饰品", "剧情关键"],
+    "owner": "char_qian_long",
+    "one_line": "回部进贡的精美玉瓶，引发乾隆垂涎香香公主",
+    "description": "回部向清廷求和时进贡的一对玉瓶，瓶上绘有回部古代美女。乾隆见后大赞美艳，回部使者称今日回族美女更胜瓶上美人，乾隆遂命张召重将香香公主送京，引发全书悲剧。",
+    "effects": [{ "type": "特殊", "description": "精美绝伦，引发乾隆垂涎回部美女" }],
+    "origin": "回部进贡",
+    "related_characters": ["char_qian_long", "char_huo_qing_tong"],
+    "related_skills": [],
+    "rarity_tier": "珍品",
+    "rag_refs": [9, 15],
+    "source_refs": [
+      { "chapter": 15, "line_start": 4912, "line_end": 4920, "text": "回人送了一对玉瓶向皇上求和。玉瓶上画了一个回人古代女子，皇上大赞美艳" }
+    ]
+  },
+  {
+    "id": "item_wen_yu",
+    "name": "温玉",
+    "type": "信物",
+    "tags": ["信物", "玉", "剧情关键"],
+    "owner": "char_xiang_xiang_gong_zhu",
+    "one_line": "乾隆赠陈家洛的温玉，后转赠香香公主",
+    "description": "乾隆在海宁塘上赠给陈家洛的温玉，质地温润。陈家洛离开回疆时转赠香香公主，作为定情信物。此物贯穿全书，象征陈家洛与乾隆的兄弟之情及与香香公主的爱情。",
+    "effects": [{ "type": "特殊", "description": "冬暖夏凉，温润养人" }],
+    "origin": "乾隆御赐",
+    "related_characters": ["char_qian_long", "char_chen_jia_luo", "char_xiang_xiang_gong_zhu"],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [11, 14, 19],
+    "source_refs": [
+      { "chapter": 11, "line_start": 3486, "line_end": 3500, "text": "乾隆在六和塔顶饿了两日两夜" }
+    ]
+  },
+  {
+    "id": "item_wu_xing_lun",
+    "name": "五行轮",
+    "type": "兵器",
+    "tags": ["兵器", "奇门兵器"],
+    "owner": null,
+    "one_line": "关东六魔的奇形兵器，外门利器",
+    "description": "关东六魔中阎世魁、阎世章兄弟的兵器，奇形怪状，属于外门中的利器。五魔六魔都使五行轮，外家硬功夫甚是了得。",
+    "effects": [{ "type": "伤害", "description": "外门利器，招数诡异" }],
+    "origin": "关东六魔所有",
+    "related_characters": [],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [1],
+    "source_refs": [
+      { "chapter": 1, "line_start": 162, "line_end": 166, "text": "背上负着一个红布包袱，还有一对奇形兵器，竟是外门中的利器五行轮" }
+    ]
+  },
+  {
+    "id": "item_pi_pa_ding",
+    "name": "琵琶钉",
+    "type": "暗器",
+    "tags": ["暗器", "钉"],
+    "owner": null,
+    "one_line": "焦文期的暗器，藏于铁牌中",
+    "description": "焦文期藏于铁牌中的暗器，带着倒刺，射进肉里有如生根。焦文期在洛阳韩家学的武艺，韩家铁琵琶手至韩五娘而臻大成，琵琶之腹中空藏有十二枚琵琶钉，一物三用。",
+    "effects": [{ "type": "伤害", "description": "带着倒刺，一射进肉里有如生根" }],
+    "origin": "洛阳韩家",
+    "related_characters": [],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [1],
+    "source_refs": [
+      { "chapter": 1, "line_start": 76, "line_end": 79, "text": "琵琶之腹中空，藏有十二枚琵琶钉，一物三用，端的厉害" }
+    ]
+  },
+  {
+    "id": "item_xue_shen_wan",
+    "name": "雪参丸",
+    "type": "丹药",
+    "tags": ["丹药", "增益"],
+    "owner": "char_yuan_shi_xiao",
+    "one_line": "天山灵药，有起死回生之效",
+    "description": "天山派珍藏的灵药，以雪参等珍贵药材炼制。霍青桐病重时服用此药，一股热气从丹田中直冒上来，登时全身舒泰，恢复极快。",
+    "effects": [{ "type": "增益", "description": "补气培元，治疗重伤重病，恢复极快" }],
+    "origin": "天山派珍藏",
+    "related_characters": ["char_yuan_shi_xiao", "char_huo_qing_tong", "char_guan_ming_mei"],
+    "related_skills": [],
+    "rarity_tier": "珍品",
+    "rag_refs": [16],
+    "source_refs": [
+      { "chapter": 16, "line_start": 5313, "line_end": 5320, "text": "霍青桐吞了下去，只觉一股热气从丹田中直冒上来，登时全身舒泰" }
+    ]
+  },
+  {
+    "id": "item_tie_dan",
+    "name": "铁胆",
+    "type": "暗器",
+    "tags": ["暗器", "铁胆"],
+    "owner": "char_zhou_zhong_ying",
+    "one_line": "周仲英的暗器，误杀亲子的悲剧之物",
+    "description": "周仲英的铁胆暗器，力道强劲。周仲英因爱子周英杰泄露文泰来藏身之处，盛怒之下掷出铁胆，竟将亲子打死，铸成全书最大悲剧之一。后徐天宏拜周仲英为义父，学得子母铁胆绝技。",
+    "effects": [{ "type": "伤害", "description": "力道强劲，中者立伤" }],
+    "origin": "周仲英所有",
+    "related_characters": ["char_zhou_zhong_ying", "char_xu_tian_hong"],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [3, 4, 15],
+    "source_refs": [
+      { "chapter": 3, "line_start": 938, "line_end": 945, "text": "周仲英按着少林礼数" }
+    ]
+  },
+  {
+    "id": "item_hua_gong",
+    "name": "画弓",
+    "type": "兵器",
+    "tags": ["兵器", "弓"],
+    "owner": "char_huo_qing_tong",
+    "one_line": "霍青桐的随身弓箭，草原女侠的标志",
+    "description": "霍青桐在草原上使用的弓箭，弓身绘有精美花纹。霍青桐以此弓射术精湛，率领回部族人抵抗清兵，是她作为回部女将的标志性兵器。",
+    "effects": [{ "type": "伤害", "description": "远程攻击，精准有力" }],
+    "origin": "回部打造",
+    "related_characters": ["char_huo_qing_tong"],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [14],
+    "source_refs": [
+      { "chapter": 14, "line_start": 4509, "line_end": 4520, "text": "长枪大戟铁弓鸣" }
+    ]
+  },
+  {
+    "id": "item_qing_lang_ya_bang",
+    "name": "狼牙棒",
+    "type": "兵器",
+    "tags": ["兵器", "棒"],
+    "owner": "char_zhang_jin",
+    "one_line": "章进的重型兵器，力大势沉",
+    "description": "章进（十哥）使用的重型兵器狼牙棒，棒身布满狼牙般的铁钉，力大势沉。章进以此棒与人对敌，勇猛异常，在赤套渡头等多次战斗中发挥威力。",
+    "effects": [{ "type": "伤害", "description": "重击，力大势沉，破甲能力强" }],
+    "origin": "章进所有",
+    "related_characters": ["char_zhang_jin"],
+    "related_skills": [],
+    "rarity_tier": "凡品",
+    "rag_refs": [5],
+    "source_refs": [
+      { "chapter": 5, "line_start": 1340, "line_end": 1350, "text": "十爷才用狼牙棒将他柴刀砸飞" }
+    ]
+  },
+  {
+    "id": "item_tie_pai",
+    "name": "铁牌",
+    "type": "兵器",
+    "tags": ["兵器", "奇门兵器"],
+    "owner": null,
+    "one_line": "焦文期的兵器，藏有琵琶钉",
+    "description": "焦文期嫌琵琶是女子弹弄之物，别出心裁打造的一面铁牌，形状虽异，使用手法和师门所传的铁琵琶并无二致。铁牌两边锋利，攻时如板斧，守时作盾牌，腹中空藏有琵琶钉。",
+    "effects": [{ "type": "伤害", "description": "一物三用，可攻可守可发暗器" }],
+    "origin": "焦文期自制",
+    "related_characters": [],
+    "related_skills": [],
+    "rarity_tier": "良品",
+    "rag_refs": [1],
+    "source_refs": [
+      { "chapter": 1, "line_start": 76, "line_end": 79, "text": "焦文期嫌琵琶是女子弹弄之物，在江湖上使用出来，给口齿轻薄之人损上几句可受不了，是以别出心裁，打造了一面铁牌" }
+    ]
+  }
+]

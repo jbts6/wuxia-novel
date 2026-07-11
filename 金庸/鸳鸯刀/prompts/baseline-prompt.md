@@ -23,6 +23,7 @@
 - char_liu_yu_yi: 刘于义
 - char_wang_de_rong: 汪德荣
 - char_zhang_biao_shi: 张镖师
+- char_yu_biao_shi: 詹镖师
 
 ## 高频提及术语（供参考）
 

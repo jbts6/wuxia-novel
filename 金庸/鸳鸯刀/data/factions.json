@@ -3,16 +3,14 @@
     "id": "faction_wei_xin_biao_ju",
     "name": "威信镖局",
     "type": "帮派",
-    "location": "陕西西安府",
+    "location": "loc_xi_an_fu",
+    "leader": "char_zhou_wei_xin",
     "sub_divisions": [],
     "one_line": "西安府镖局，总镖头周威信受命护送鸳鸯刀进京",
     "source_refs": [
       {
         "chapter": 1,
         "anchor": "威信镖局周威信护送鸳鸯刀",
-        "locate_status": "located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": [],
         "line_start": 11,
         "line_end": 17,
         "text": "\n他这枝镖共有十万两银子，那是西安府的大盐商汪德荣托保的。十万两银子的数目的确不小，但威信镖局过去二十万两银子的镖曾经保过，四十万两银子的也曾保过，金银财物，那算不了什么。自从一离西安，他挂在心头的只是暗藏在背上包袱中的两把刀，只是那天晚上在川陕总督府中所听到的一番话。\n\n跟他说话的竟是川陕总督刘于义刘大人。周威信在江湖上虽赫赫有名，生平见过的官府，最大的也不过是府台大人，这一次居然是总督大人亲自接见，自然要受宠若惊，自然要战战兢兢，坐立不安。\n\n刘大人那几句话，在心头已不知翻来覆去的重温了几百遍：“周镖头，这一对刀，叫作‘鸳鸯刀’，当真非同小可，你好好接下了。今上还在当贝勒爷的时候，就已密派亲信，到处寻觅。接位之后，更下了密旨，命天下十八省督抚着意查访。好容易逮到了‘鸳鸯刀’的主儿，可是这对宝刀却给那两个刁徒藏了起来，不论如何侦查，始终石沉大海。天幸本督祖上积德，托了皇上洪福，终于给我得…",
@@ -22,28 +20,27 @@
           "鸳鸯刀"
         ],
         "anchors_total": 3,
+        "locate_status": "located",
         "locate_score": 300,
         "locate_method": "window",
         "hint_chapter": 1,
-        "event_type": "background"
+        "event_type": "background",
+        "alternatives": []
       }
-    ],
-    "leader": null
+    ]
   },
   {
     "id": "faction_tai_yue_si_xia",
     "name": "太岳四侠",
     "type": "帮派",
-    "location": "太岳山",
+    "location": null,
+    "leader": "char_xiao_yao_zi",
     "sub_divisions": [],
     "one_line": "四个自称侠客的乌合之众，义气深重却武功平平",
     "source_refs": [
       {
         "chapter": 1,
         "anchor": "太岳四侠义结金兰行侠仗义",
-        "locate_status": "partial",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": [],
         "line_start": 33,
         "line_end": 36,
         "text": "\n周威信越听越奇，心道：“这人的外号怎地如此啰里啰唆一大串？”只听那瘦子又道：“咱四兄弟义结金兰，行侠仗义，专门锄强扶弱，劫富济贫，江湖上人称‘太岳四侠’，那便是了！”周威信心想：“听这四人外号，想来这瘦子轻功了得，那壮汉掌力沉雄，这白脸汉子流星锤功夫有独到的造诣，那‘烟霞神龙逍遥子’七字，更像是武林前辈、世外高人的身分。‘太岳四侠’的名头虽没听见过，但定是我孤陋寡闻，不识能人。既称得上一个‘侠’字，定然非同小可。江湖上有言道：‘宁可不识字，不可不识人。’”抱拳说道：“久仰，久仰！敝镖局跟四侠素来没过节，便请让道，日后专诚拜谒道谢。”\n\n盖一鸣双刺一击，叮叮作响，说道：“要让道那也不难，我们也不要你的镖银，只须借一两件宝物用用，那也行了。”周威信道：“什么宝物？”盖一鸣道：“嘿嘿，你来问我，这可奇了。你自己不知道，我怎知道？”",
@@ -51,40 +48,97 @@
           "太岳四侠"
         ],
         "anchors_total": 1,
+        "locate_status": "partial",
         "locate_score": 100,
         "locate_method": "partial",
-        "hint_chapter": 1
+        "hint_chapter": 1,
+        "alternatives": []
       }
-    ],
-    "leader": null
+    ]
+  },
+  {
+    "id": "faction_xiao_fu",
+    "name": "萧府",
+    "type": "家族",
+    "location": "loc_jin_yang",
+    "leader": "char_xiao_ban_he",
+    "sub_divisions": [],
+    "one_line": "晋阳萧半和府邸，实为反清义士据点",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "晋阳大侠萧半和府邸",
+        "line_start": 123,
+        "line_end": 125,
+        "text": "\n盖一鸣道：“今年三月初十，是晋阳大侠萧半和的五十诞辰⋯⋯”那少女听到萧半和的名字，微微一怔，道：“你们识得萧老英雄么？”盖一鸣道：“我们不识萧老英雄，只素仰他老人家英名，算得上神交已久，要乘他五十诞辰前去拜寿。说来惭愧，我们四兄弟少了一份贺礼，上不得门，因此⋯⋯便⋯⋯所⋯⋯以⋯⋯这个⋯⋯”那少女笑道：“原来你们要抢我坐骑去送礼。嗯，这个容易。”从头上拔下一枚金钗，说道：“这只金钗给了你们，钗上这颗明珠很值钱，你们拿去作为贺礼，萧老英雄一定欢喜。”说着一提马缰，那骏马四蹄翻飞，远远去了。\n",
+        "anchors_hit": [
+          "萧半和",
+          "晋阳"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 1,
+        "event_type": "background",
+        "alternatives": []
+      }
+    ]
   },
   {
     "id": "faction_qing_gong_shi_wei",
     "name": "清宫侍卫",
-    "type": "朝廷",
-    "location": "北京紫禁城",
+    "type": "官署",
+    "location": null,
+    "leader": null,
     "sub_divisions": [],
     "one_line": "清廷皇宫侍卫，大内七大高手为其翘楚，卓天雄为其之首",
     "source_refs": [
       {
         "chapter": 1,
         "anchor": "清廷侍卫大内七大高手之首卓天雄",
-        "locate_status": "located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": [],
-        "line_start": 252,
-        "line_end": 254,
-        "text": "\n周威信这一惊非同小可，'呼延十八鞭'虽号称十八鞭，但传世的只十七招，他师父曾道，最后一招叫做'一鞭断十枪'，当年北宋大将呼延赞受敌人围攻，曾以一根钢鞭震断十条长枪，这一路鞭法，不论招数，单凭内力，会者无多，当世只他师伯有此神功。周威信从未见过师伯，只知他是清廷侍卫，'大内七大高手'之首，向来深居禁宫，从不出外，因此始终无缘拜见。这时心念一动，颤声问道：'你⋯⋯你老人家姓卓？'那瞎子道：'不错。'周威信惊喜交集，拜伏在地，说道：'弟子周威信，叩见卓师伯。'",
+        "line_start": 171,
+        "line_end": 174,
+        "text": "\n那书生道：“你瞧，人家年纪轻轻一位大姑娘，尚且如此好心。小二哥，你枉为男子汉，可差得远了。”萧中慧向他扫了一眼，见他长脸俊目，剑眉斜飞，容颜间英气逼人，心中一跳，忙低下头去。只听那老瞎子道：“多谢相公好心，你给老瞎子付了房饭钱，当真多谢多谢，但不知恩公高姓大名，我瞎子记在心中，日后也好感恩报德。”那书生道：“小可姓袁名冠南，区区小事，何足挂齿？这房饭钱，其实不是我代惠的。老丈你尊姓大名啊？”那老瞎子道：“我瞎子的贱名，叫做卓天雄。”\n\n萧中慧心中正自好笑：“这老瞎子当真眼盲心也盲，明明是我给的银子，却去多谢旁人。”突然间听到“卓天雄”三字，心头一震：“这名字好像听见过的。那天爹爹和大妈似乎曾低声说过这个名字，那时我刚好走过大妈房门口，爹爹和大妈一见到我，便住了口。但说不定是同名同姓，更许是音同字不同。爹爹怎能识得这老瞎子？”",
         "anchors_hit": [
-          "清廷侍卫",
-          "大内七大高手"
+          "卓天雄"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 1,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "faction_chuan_shan_dong_du_fu",
+    "name": "川陕总督府",
+    "type": "官署",
+    "location": "loc_xi_an_fu",
+    "leader": "char_liu_yu_yi",
+    "sub_divisions": [],
+    "one_line": "川陕总督刘于义的官署",
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "川陕总督刘于义得到鸳鸯刀",
+        "line_start": 13,
+        "line_end": 17,
+        "text": "\n跟他说话的竟是川陕总督刘于义刘大人。周威信在江湖上虽赫赫有名，生平见过的官府，最大的也不过是府台大人，这一次居然是总督大人亲自接见，自然要受宠若惊，自然要战战兢兢，坐立不安。\n\n刘大人那几句话，在心头已不知翻来覆去的重温了几百遍：“周镖头，这一对刀，叫作‘鸳鸯刀’，当真非同小可，你好好接下了。今上还在当贝勒爷的时候，就已密派亲信，到处寻觅。接位之后，更下了密旨，命天下十八省督抚着意查访。好容易逮到了‘鸳鸯刀’的主儿，可是这对宝刀却给那两个刁徒藏了起来，不论如何侦查，始终石沉大海。天幸本督祖上积德，托了皇上洪福，终于给我得到了。嘿嘿，你们威信镖局做事还算牢靠，现下派你护送这对鸳鸯宝刀进京，路上可不许泄漏半点风声。你把宝刀平安送到北京，回头自然重重有赏。”\n",
+        "anchors_hit": [
+          "刘于义",
+          "鸳鸯刀"
         ],
         "anchors_total": 2,
+        "locate_status": "located",
         "locate_score": 200,
         "locate_method": "window",
-        "hint_chapter": 1
+        "hint_chapter": 1,
+        "event_type": "background",
+        "alternatives": []
       }
-    ],
-    "leader": "char_zhuo_tian_xiong"
+    ]
   }
 ]

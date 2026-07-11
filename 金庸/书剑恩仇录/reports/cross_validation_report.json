@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-07-11T09:36:19.923Z",
+  "summary": {
+    "total": 7,
+    "errors": 5,
+    "warnings": 0,
+    "info": 2
+  },
+  "issues": [
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "char_chen_jia_luo",
+      "field": "known_skills",
+      "ref": "skill_pao_ding_jie_niu_gong",
+      "message": "陈家洛.known_skills references non-existent skill_pao_ding_jie_niu_gong"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "char_huo_qing_tong",
+      "field": "faction",
+      "ref": "faction_hui_bu",
+      "message": "霍青桐.faction \"faction_hui_bu\" not found in factions.json"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "char_xiang_xiang_gong_zhu",
+      "field": "faction",
+      "ref": "faction_hui_bu",
+      "message": "香香公主.faction \"faction_hui_bu\" not found in factions.json"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "char_a_fan_ti",
+      "field": "faction",
+      "ref": "faction_hui_bu",
+      "message": "阿凡提.faction \"faction_hui_bu\" not found in factions.json"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_ke_lan_jing",
+      "field": "owner",
+      "ref": "faction_hui_bu",
+      "message": "可兰经.owner references non-existent faction_hui_bu"
+    },
+    {
+      "type": "rank_inconsistency",
+      "severity": "info",
+      "source": "char_li_yuan_zhi",
+      "skill": "skill_rou_yun_jian_shu",
+      "char_rank": "略有小成",
+      "skill_rank": "出神入化",
+      "message": "李沅芷(略有小成) has 柔云剑术(出神入化) - rank gap > 2"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "info",
+      "source": "skill_pao_ding_jie_niu_zhang_fa",
+      "name": "庖丁解牛掌法",
+      "message": "Skill \"庖丁解牛掌法\" not found in original text - likely hallucination"
+    }
+  ]
+}

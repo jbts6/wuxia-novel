@@ -8,28 +8,28 @@
 
 ## 已有角色 ID 参考
 - char_hu_fei: 胡斐
-- char_miao_ren_feng: 苗人凤
 - char_miao_ruo_lan: 苗若兰
+- char_miao_ren_feng: 苗人凤
 - char_hu_yi_dao: 胡一刀
-- char_hu_fu_ren: 胡夫人
+- char_bao_shu: 宝树
+- char_ping_a_si: 平阿四
 - char_cao_yun_qi: 曹云奇
 - char_ruan_shi_zhong: 阮士中
 - char_yin_ji: 殷吉
-- char_bao_shu: 宝树
-- char_tao_bai_sui: 陶百岁
-- char_tao_zi_an: 陶子安
 - char_tian_qing_wen: 田青文
-- char_zhou_yun_yang: 周云阳
-- char_fan_bang_zhu: 范帮主
+- char_tao_zi_an: 陶子安
+- char_tao_bai_sui: 陶百岁
 - char_liu_yuan_he: 刘元鹤
+- char_zhou_yun_yang: 周云阳
 - char_xiong_yuan_xian: 熊元献
+- char_zheng_san_niang: 郑三娘
 - char_tian_gui_nong: 田归农
-- char_ping_a_si: 平阿四
+- char_fan_bang_zhu: 范帮主
 - char_du_xi_meng: 杜希孟
 - char_sai_zong_guan: 赛总管
 
 ## 高频提及术语（供参考）
-
+胡斐、曹云奇、宝树、苗若兰、胡一刀、苗人凤、阮士中、陶子安、刘元鹤、田青文、范帮主、陶百岁、殷吉、天龙门、熊元献、雪山、周云阳、田归农、苗家、胡家、北京、关外、辽东、玉笔峰、田家、八卦刀、商剑鸣、长白山、天龙剑法、八卦掌
 
 ## Prompt 模板
 

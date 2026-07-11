@@ -1,10 +1,19 @@
 {
-  "generated_at": "2026-07-09T09:25:28.848Z",
+  "generated_at": "2026-07-11T09:36:17.672Z",
   "summary": {
-    "total": 0,
+    "total": 1,
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "info": 0
   },
-  "issues": []
+  "issues": [
+    {
+      "type": "relationship_asymmetric",
+      "severity": "warning",
+      "source": "char_yu_biao_shi",
+      "target": "char_zhou_wei_xin",
+      "rel_type": "主仆",
+      "message": "詹镖师(char_yu_biao_shi) -> char_zhou_wei_xin (主仆) exists, but reverse not found"
+    }
+  ]
 }
