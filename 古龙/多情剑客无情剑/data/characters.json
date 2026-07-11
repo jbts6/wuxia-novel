@@ -1,0 +1,2930 @@
+[
+  {
+    "id": "char_li_xun_huan",
+    "name": "李寻欢",
+    "alias": [
+      "小李探花",
+      "李探花"
+    ],
+    "identity": "小李飞刀传人、浪子",
+    "faction": "faction_li_jia",
+    "role": "核心",
+    "archetype": "assassin",
+    "power_rank": "返璞归真",
+    "importance": "核心",
+    "one_line": "小李飞刀传人，情义与十八年旧怨的中心浪子",
+    "biography": "出身李家，以飞刀闻名江湖，却因情伤与旧怨漂泊。与阿飞结为知己，牵涉林诗音、龙啸云的十八年恩怨，并与金钱帮上官金虹等势力周旋，最终走向巅峰对决与命运收束。",
+    "personality": {
+      "traits": [
+        "多情",
+        "重义",
+        "孤傲",
+        "病弱",
+        "聪明",
+        "自嘲"
+      ],
+      "speech_style": "淡而自嘲",
+      "temperament": "玩世深情"
+    },
+    "relationships": [
+      {
+        "target": "char_a_fei",
+        "type": "挚友",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "海内存知己，互相成就"
+      },
+      {
+        "target": "char_lin_shi_yin",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "未竟之爱与愧疚"
+      },
+      {
+        "target": "char_long_xiao_yun",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "故友反目纠葛"
+      },
+      {
+        "target": "char_shang_guan_jin_hong",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "巅峰对决"
+      },
+      {
+        "target": "char_lin_xian_er",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "被算计与周旋"
+      },
+      {
+        "target": "char_jing_wu_ming",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "生死交手"
+      },
+      {
+        "target": "char_guo_song_yang",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "较量"
+      },
+      {
+        "target": "char_mei_hua_dao",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "悬疑对立"
+      },
+      {
+        "target": "char_tian_ji_lao_ren",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "天机交汇"
+      }
+    ],
+    "known_skills": [
+      "skill_xiao_li_fei_dao"
+    ],
+    "related_skills": [
+      "skill_kuai_jian"
+    ],
+    "rag_refs": [
+      1,
+      2,
+      8,
+      10,
+      31,
+      68,
+      79,
+      89
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "anchor": "李寻欢 飞刀与快剑 开篇",
+        "event_type": "first_mention",
+        "line_start": 147,
+        "line_end": 153,
+        "text": "\n　　李寻欢道：“百晓生作‘兵器谱’，青魔手排名第九，可算珍品。”\n\n　　青衣人道：“那么，我若将这青魔手送给你，你肯不肯将金丝甲让给我？”\n\n　　李寻欢沉默了半晌，望着手里的小刀，缓缓道：“我这把小刀只不过是大冶的铁匠，花了三个时辰打好的，但百晓生品评天下兵器，小李飞刀却排名第三！”\n",
+        "anchors_hit": [
+          "李寻欢",
+          "飞刀"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 458,
+        "locate_method": "window",
+        "hint_chapter": 4,
+        "alternatives": [
+          {
+            "chapter": 5,
+            "line_start": 25,
+            "line_end": 31,
+            "text": "\n　　李寻欢冷冷道：“在下人还在这里，刀还在手中，阁下说这话，只怕还太早了些。”\n\n　　这怪人又蛤蟆般跳了下来，滚到李寻欢面前，望着李寻欢咧嘴一笑，露出了满嘴发黄的牙齿。\n\n　　他格格地笑着道：“你的刀既然在手里，为什么不杀我呢？小李飞刀，例不虚发，你飞刀一出，我这残废是万万躲不开的呀。”\n",
+            "score": 455,
+            "anchors_hit": [
+              "李寻欢",
+              "飞刀"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 7,
+            "line_start": 211,
+            "line_end": 215,
+            "text": "\n　　巴英失笑道：“一伸手就能要他的命？这话我们有些不信，你那病人难道还能像李探花一样，飞刀夺命，例不虚发么？”\n\n　　梅二先生淡淡一笑道：“老实话，我这病人正是李寻欢。”\n",
+            "score": 449,
+            "anchors_hit": [
+              "飞刀",
+              "李寻欢"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 8,
+            "line_start": 365,
+            "line_end": 367,
+            "text": "\n　　李寻欢箭一般退了出去，身子几乎已和地面平行，他的手似乎并没有什么动作，但飞刀已射出去。\n",
+            "score": 446,
+            "anchors_hit": [
+              "李寻欢",
+              "飞刀"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 9,
+            "line_start": 65,
+            "line_end": 69,
+            "text": "\n　　游龙生忽然一笑，道：“赵大爷毕竟老了，脾气越来越大，胆子却越来越小，其实伊哭来了又有何妨，在下也正好见识见识名满天下的探花飞刀！”\n\n　　李寻欢淡淡道：“其实阁下若有此心，就并不一定要等伊哭来了。”\n",
+            "score": 443,
+            "anchors_hit": [
+              "飞刀",
+              "李寻欢"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 2,
+        "anchor": "李寻欢 阿飞 海内存知己",
+        "event_type": "climax",
+        "line_start": 75,
+        "line_end": 81,
+        "text": "\n　　少年没有回答他这句话，目中却流露出一种悲伤愤怒之色，李寻欢这才发觉他有时虽然天真坦白得像个孩子，但有时却又似藏着许多秘密，他的身世，如谜却又显然充满了悲痛与不幸。\n\n　　李寻欢柔声道：“你若想成名，至少应该先说出自己的名字。”\n\n　　少年这次沉默得更久，然后才缓缓道：“认得我的人，都叫我阿飞。”\n",
+        "anchors_hit": [
+          "李寻欢",
+          "阿飞"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 2,
+        "alternatives": [
+          {
+            "chapter": 3,
+            "line_start": 35,
+            "line_end": 41,
+            "text": "\n　　除了这些人之外，李寻欢实在想不出世上还有谁的剑如此快，直到现在，他已知道是还有这么一个人的。\n\n　　李寻欢闭起眼睛，仿佛就可以看到他落寞地走人这屋子里，极乐峒的护法童子们立刻迎了上去，将他包围。\n\n　　但他们的金镯刚褪下，面上的狞笑还未消失，阿飞的剑已如闪电，如毒蛇般将他们的咽喉刺穿。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李寻欢",
+              "阿飞"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 5,
+            "line_start": 371,
+            "line_end": 377,
+            "text": "\n　　李寻欢笑道：“你去找他有什么用？”\n\n　　虬髯大汉道：“解药……”\n\n　　李寻欢道：“花蜂身上当真有解药，真被千手罗刹搜去了又被施耀先劫走，那么，现在就一定还在施耀先身上，阿飞他绝不会妄取别人东西的，他只带走那金丝甲，只不过他认为金丝甲应该是我的。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "李寻欢",
+              "阿飞"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 3,
+            "line_end": 9,
+            "text": "\n　　阿飞不急不徐地走着，就和铁传甲第一次看到他时完全一样，看来，是那么孤独，又那么疲倦。\n\n　　但铁传甲现在已知道，只要一遇到危险，这疲倦的少年立刻就会振作起来，变得鹰一般敏锐、矫健。\n\n　　铁传甲走在他身边，心里也不知有多少话想说，却又不知该如何说起，李寻欢也并不是个多话的人，和李寻欢在一起生活了十几年，他已学会了用沉默来代替语言，他只说了两个字：“多谢。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "阿飞",
+              "李寻欢"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 13,
+            "line_start": 373,
+            "line_end": 379,
+            "text": "\n　　阿飞！\n\n　　阿飞怎会忽然来了？\n\n　　李寻欢心里一阵激动，也不知是惊是喜。但他立刻扭转头，因为他不愿被阿飞看到他如此模样。\n",
+            "score": 200,
+            "anchors_hit": [
+              "阿飞",
+              "李寻欢"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 5,
+        "anchor": "李寻欢 十八年旧怨 林诗音",
+        "event_type": "climax",
+        "line_start": 241,
+        "line_end": 247,
+        "text": "\n　　李寻欢紧紧闭着眼睛，眼角的泪珠已凝成冰珠。\n\n　　但他嘴角还是带着微笑，道：“浪子、酒鬼，也没有什么不好，总比那些伪君子、假道学好得多了，是吗？”\n\n　　虬髯大汉满面热泪，嘶声道：“可是……可是少爷你本该是天下最有作为的人，你的好处谁也比不上，你为何定要如此自暴自弃，自伤自苦，为了林诗音那女人，这值得吗？”\n",
+        "anchors_hit": [
+          "李寻欢",
+          "林诗音"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 5,
+        "alternatives": [
+          {
+            "chapter": 7,
+            "line_start": 315,
+            "line_end": 317,
+            "text": "\n　　只有他最了解龙啸云和林诗音夫妻间的关系，现在李寻欢竟伤了他们的爱子，其心情之沉痛可想而知。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李寻欢",
+              "林诗音"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 8,
+            "line_start": 81,
+            "line_end": 87,
+            "text": "\n　　大厅中的人本多是老江湖，光棍的眼睛哪有不亮的，早巳全部围了过来，向李寻欢赔笑问好。\n\n　　突听内堂一人道：“快掀帘子，夫人出来了。”\n\n　　站在门口的童子刚将门帘掀起，林诗音已冲了出来。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李寻欢",
+              "林诗音"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 9,
+            "line_start": 117,
+            "line_end": 123,
+            "text": "\n　　李寻欢一走进门，又一脚踏入十年前的回忆里。\n\n　　这屋子里的一切竟都和十年前没有丝毫变化，一桌一几，也依旧全都安放在十年前的位置，甚至连桌上的笔墨书籍，都没有丝毫变动，若不是在雪夜，那窗前明月，屋角斜阳，想必也都依旧无恙。\n\n　　李寻欢仿佛骤然又回到十年前，时光若倒退十年，他也许刚陪林诗音数过梅花，也许正想回来取一件狐裘为她披上，也许是回来将他们方自吟出的佳句记下，免得以后遗忘。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李寻欢",
+              "林诗音"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 313,
+            "line_end": 317,
+            "text": "\n　　李寻欢暗中叹了口气，手伸出来，指尖已挟着柄小刀。\n\n　　林诗音在帘后道：“李大叔从未将飞刀传人，有了这柄刀，你就有了护身符，还不快多谢李大叔。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "李寻欢",
+              "林诗音"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 31,
+        "anchor": "李寻欢 小李飞刀",
+        "event_type": "climax",
+        "line_start": 191,
+        "line_end": 197,
+        "text": "\n　　燕双飞大喝一声，双手齐挥，眨眼间已发出九柄飞枪，但见红缨漫天，还未击到李寻欢面前，突又纷纷掉了下来。\n\n　　再看燕双飞竟已仰天跌倒，咽喉上赫然已多了柄雪亮的刀！\n\n　　小李飞刀！\n",
+        "anchors_hit": [
+          "李寻欢",
+          "小李飞刀",
+          "飞刀"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 300,
+        "locate_method": "window",
+        "hint_chapter": 31,
+        "alternatives": [
+          {
+            "chapter": 32,
+            "line_start": 161,
+            "line_end": 167,
+            "text": "\n　　一刀封喉，例无虚发的小李飞刀！\n\n　　风更急，穿林而过，带着一阵阵凄厉的呼啸声。\n\n　　郭嵩阳铁剑迎风挥出，一道乌黑的寒光直取李寻欢咽喉，剑还未到，森寒的剑气已刺碎了西风！\n",
+            "score": 300,
+            "anchors_hit": [
+              "小李飞刀",
+              "飞刀",
+              "李寻欢"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 33,
+            "line_start": 91,
+            "line_end": 95,
+            "text": "\n　　但李寻欢一向很识相，也一向不愿被人看成是个多嘴的男人——和孙小红在一起，也根本就没有机会让他多嘴。\n\n　　她好像存心不让李寻欢再问第二句话，已抢着先问他：“小李飞刀，例不虚发，你这手飞刀是怎么练出来的呢？”\n",
+            "score": 300,
+            "anchors_hit": [
+              "李寻欢",
+              "小李飞刀",
+              "飞刀"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 34,
+            "line_start": 13,
+            "line_end": 17,
+            "text": "\n　　她仿佛存心想将李寻欢灌醉似的，只不过她的问题实在太惊人，回答更惊人，李寻欢明知要喝醉，也只得喝下去。\n\n　　孙小红这才接着道：“因为他听说沈大侠归隐之前，曾托令尊保管两本书，这两本书就是他毕生所练的武功心法，你只练了其中的一本，小李飞刀就已无敌于天下，若是两本都练成，那还得了？所以连上官金虹那样的人也无法不动心了。”\n",
+            "score": 300,
+            "anchors_hit": [
+              "李寻欢",
+              "小李飞刀",
+              "飞刀"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 4,
+            "line_start": 147,
+            "line_end": 153,
+            "text": "\n　　李寻欢道：“百晓生作‘兵器谱’，青魔手排名第九，可算珍品。”\n\n　　青衣人道：“那么，我若将这青魔手送给你，你肯不肯将金丝甲让给我？”\n\n　　李寻欢沉默了半晌，望着手里的小刀，缓缓道：“我这把小刀只不过是大冶的铁匠，花了三个时辰打好的，但百晓生品评天下兵器，小李飞刀却排名第三！”\n",
+            "score": 300,
+            "anchors_hit": [
+              "李寻欢",
+              "小李飞刀",
+              "飞刀"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 89,
+        "anchor": "李寻欢 胜败 对决",
+        "line_start": 5,
+        "line_end": 8,
+        "text": "\n　　李寻欢就在这扇门里，慢慢地受着死的折磨。\n\n　　他们却只能在外面等着。",
+        "anchors_hit": [
+          "李寻欢"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 89,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_a_fei",
+    "name": "阿飞",
+    "alias": [],
+    "identity": "快剑少年",
+    "faction": null,
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "核心",
+    "one_line": "快剑少年，从孤僻剑痴成长为一代剑客",
+    "biography": "少年时孤傲冷僻，因缘结识李寻欢。剑心在爱恨与对决中磨砺，牵涉孙小红、林仙儿与金钱帮诸役，最终在胜败之际完成剑道与人性的蜕变。",
+    "personality": {
+      "traits": [
+        "孤僻",
+        "骄傲",
+        "重诺",
+        "剑痴",
+        "冷外热内",
+        "倔强"
+      ],
+      "speech_style": "少言冷淡",
+      "temperament": "锋利孤绝"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "挚友",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "知己情义"
+      },
+      {
+        "target": "char_sun_xiao_hong",
+        "type": "恋人",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "情感羁绊"
+      },
+      {
+        "target": "char_lin_xian_er",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "被诱惑利用"
+      },
+      {
+        "target": "char_jing_wu_ming",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "剑客对决"
+      },
+      {
+        "target": "char_shang_guan_jin_hong",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "巅峰相关"
+      }
+    ],
+    "known_skills": [
+      "skill_kuai_jian"
+    ],
+    "related_skills": [
+      "skill_xiao_li_fei_dao"
+    ],
+    "rag_refs": [
+      2,
+      25,
+      39,
+      56,
+      68,
+      89
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "anchor": "阿飞 李寻欢 结识",
+        "event_type": "first_mention",
+        "line_start": 75,
+        "line_end": 81,
+        "text": "\n　　少年没有回答他这句话，目中却流露出一种悲伤愤怒之色，李寻欢这才发觉他有时虽然天真坦白得像个孩子，但有时却又似藏着许多秘密，他的身世，如谜却又显然充满了悲痛与不幸。\n\n　　李寻欢柔声道：“你若想成名，至少应该先说出自己的名字。”\n\n　　少年这次沉默得更久，然后才缓缓道：“认得我的人，都叫我阿飞。”\n",
+        "anchors_hit": [
+          "李寻欢",
+          "阿飞"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 464,
+        "locate_method": "window",
+        "hint_chapter": 2,
+        "alternatives": [
+          {
+            "chapter": 3,
+            "line_start": 35,
+            "line_end": 41,
+            "text": "\n　　除了这些人之外，李寻欢实在想不出世上还有谁的剑如此快，直到现在，他已知道是还有这么一个人的。\n\n　　李寻欢闭起眼睛，仿佛就可以看到他落寞地走人这屋子里，极乐峒的护法童子们立刻迎了上去，将他包围。\n\n　　但他们的金镯刚褪下，面上的狞笑还未消失，阿飞的剑已如闪电，如毒蛇般将他们的咽喉刺穿。\n",
+            "score": 461,
+            "anchors_hit": [
+              "李寻欢",
+              "阿飞"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 5,
+            "line_start": 371,
+            "line_end": 377,
+            "text": "\n　　李寻欢笑道：“你去找他有什么用？”\n\n　　虬髯大汉道：“解药……”\n\n　　李寻欢道：“花蜂身上当真有解药，真被千手罗刹搜去了又被施耀先劫走，那么，现在就一定还在施耀先身上，阿飞他绝不会妄取别人东西的，他只带走那金丝甲，只不过他认为金丝甲应该是我的。”\n",
+            "score": 455,
+            "anchors_hit": [
+              "李寻欢",
+              "阿飞"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 3,
+            "line_end": 9,
+            "text": "\n　　阿飞不急不徐地走着，就和铁传甲第一次看到他时完全一样，看来，是那么孤独，又那么疲倦。\n\n　　但铁传甲现在已知道，只要一遇到危险，这疲倦的少年立刻就会振作起来，变得鹰一般敏锐、矫健。\n\n　　铁传甲走在他身边，心里也不知有多少话想说，却又不知该如何说起，李寻欢也并不是个多话的人，和李寻欢在一起生活了十几年，他已学会了用沉默来代替语言，他只说了两个字：“多谢。”\n",
+            "score": 434,
+            "anchors_hit": [
+              "阿飞",
+              "李寻欢"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 13,
+            "line_start": 373,
+            "line_end": 379,
+            "text": "\n　　阿飞！\n\n　　阿飞怎会忽然来了？\n\n　　李寻欢心里一阵激动，也不知是惊是喜。但他立刻扭转头，因为他不愿被阿飞看到他如此模样。\n",
+            "score": 431,
+            "anchors_hit": [
+              "阿飞",
+              "李寻欢"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 25,
+        "anchor": "阿飞 剑无情人却多情",
+        "line_start": 1,
+        "line_end": 4,
+        "text": "\n　　阿飞听说梅花盗是女人，不由笑道：“女人再强也不过是女人。”\n\n　　李寻欢道：“这也许正是她在故设疑阵，让别人都想不到梅花盗是女人。”",
+        "anchors_hit": [
+          "阿飞"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 25,
+        "alternatives": []
+      },
+      {
+        "chapter": 39,
+        "anchor": "阿飞 专章 成长",
+        "line_start": 7,
+        "line_end": 10,
+        "text": "\n　　他沿着山泉，慢慢地走着，走得并不急。他不愿在天还未亮时就走到阿飞住的地方，免得惊扰他们的好梦。\n\n　　他从不愿打扰别人。",
+        "anchors_hit": [
+          "阿飞"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 39,
+        "alternatives": []
+      },
+      {
+        "chapter": 56,
+        "anchor": "阿飞 出鞘剑",
+        "line_start": 17,
+        "line_end": 20,
+        "text": "\n　　阿飞醒来时，第一眼就看到了这柄剑。\n\n　　他的眼睛立刻发了光。",
+        "anchors_hit": [
+          "阿飞"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 56,
+        "alternatives": []
+      },
+      {
+        "chapter": 89,
+        "anchor": "阿飞 胜败",
+        "line_start": 1,
+        "line_end": 4,
+        "text": "\n　　阿飞的腿弯下，整个人都似在抽搐，他又有了那种“无可奈何”的感觉，这种感觉每次都要令他发疯。\n\n　　但发疯也没有用。",
+        "anchors_hit": [
+          "阿飞"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 89,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lin_xian_er",
+    "name": "林仙儿",
+    "alias": [],
+    "identity": "绝色阴谋女子",
+    "faction": null,
+    "role": "重要",
+    "archetype": "assassin",
+    "power_rank": "登堂入室",
+    "importance": "重要",
+    "one_line": "以美色与心机搅动江湖的魔女式人物",
+    "biography": "以魅惑与算计布局，牵动阿飞、龙啸云与金钱帮周边，制造温柔陷阱与毒妇心机线。",
+    "personality": {
+      "traits": [
+        "美艳",
+        "心机",
+        "善变",
+        "狠毒",
+        "魅惑"
+      ],
+      "speech_style": "柔媚藏刀",
+      "temperament": "冶艳"
+    },
+    "relationships": [
+      {
+        "target": "char_a_fei",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "诱惑利用"
+      },
+      {
+        "target": "char_li_xun_huan",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "周旋算计"
+      },
+      {
+        "target": "char_long_xiao_yun",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "阴谋合作"
+      },
+      {
+        "target": "char_lin_shi_yin",
+        "type": "亲属",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "林氏相关对照"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      47,
+      50,
+      55,
+      71,
+      87
+    ],
+    "source_refs": [
+      {
+        "chapter": 48,
+        "anchor": "林仙儿 大欢喜女菩萨",
+        "line_start": 181,
+        "line_end": 229,
+        "text": "\n　　见到大欢喜女菩萨的门下一个个全都走了，她又觉得很奇怪！\n\n　　“她们为什么没有替师傅报仇的意思呢？”\n\n　　李寻欢叹了口气，道：“这也许是因为那位女菩萨只顾着拼命填她们的肚子，却忘了去照顾她们的心。”\n\n　　铃铃笑了，道：“不错，一个人的肚子若太饱，就懒得用心了。”\n\n　　她又皱了皱眉，道：“但你为什么就这样放她们走了呢？”\n\n　　李寻欢淡淡一笑，道：“我养不起她们。”\n\n　　铃铃咬着嘴唇，沉默了半晌，用眼睛瞟着李寻欢，道：“若是只养一个人，你养得起吗？”\n\n　　她眼珠子一转，接着又道：“那人吃得并不多，既不喝酒，也很少吃肉，每天只要青菜豆腐就行了，而且她还会自己煮饭，自己炒菜，菜做得好极了，你晚上睡觉，她会替你铺床，早上起来，她会替你梳头，”\n\n　　李寻欢笑了笑，道：“这样的人，她自己一定会活得很愉快，用不着跟我受苦。”\n\n　　铃铃的小嘴嘟了起来，恨恨道：“我知道你心里只有蓝蝎子，…",
+        "anchors_hit": [
+          "欢喜女菩萨",
+          "林仙儿"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 191,
+        "locate_method": "window",
+        "hint_chapter": 48,
+        "alternatives": [
+          {
+            "chapter": 44,
+            "line_start": 115,
+            "line_end": 199,
+            "text": "\n　　另一个女子沉默了很久，才缓缓道：“林仙儿既然不在这里，我们走吧。”\n\n　　那女子道：“急什么？我们既然来了，多坐坐又何妨？”\n\n　　衣橱的门一开，李寻欢就闻到一股很诱人的香气，现在这香气更近了，那女子好像已走到他面前。\n\n　　过了半晌，她又笑着道：“小妹妹，你年纪虽小，选择男人的眼光倒真不错。”\n\n　　铃铃居然也在笑，道：“这地方的男人不多，好的都被小姐挑走了，我也只好将就些。”\n\n　　那女子道：“这样的男人你还不满意么？你看他既不胖，也不瘦，脸长得也不讨人厌，而且看样子对女人很有经验。”\n\n　　铃铃笑道：“他别的倒也还不错，就是太喜欢睡觉，一睡着就不醒。”\n\n　　那女子吃吃笑道：“这也许是因为他太累了……遇着你这样的小狐狸精，他怎么会不累？”\n\n　　铃铃道：“他年纪也太大了些。”\n\n　　那女人道：“嗯，不错，他配你的确嫌太大了些，配我倒刚好。”\n\n　　银铃般地笑着接道：“小妹妹，你…",
+            "score": 184,
+            "anchors_hit": [
+              "林仙儿",
+              "欢喜女菩萨"
+            ],
+            "method": "window"
+          }
+        ],
+        "event_type": "background"
+      },
+      {
+        "chapter": 48,
+        "anchor": "林仙儿 温柔陷阱 阿飞",
+        "event_type": "climax",
+        "line_start": 225,
+        "line_end": 229,
+        "text": "\n　　阿飞捧在手里慢慢地啜着，眼睛茫然直视着汤碗的边缘，脸上一点表情也没有，仿佛根本辨不出这碗汤的滋味。\n\n　　林仙儿就坐在对面，手托着腮，温柔地望着他，柔声道：“最近你脸色不太好，多喝些汤吧，这汤滋补得很，你快趁着热喝，冷了就不好吃了。”\n",
+        "anchors_hit": [
+          "阿飞",
+          "林仙儿"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 48,
+        "alternatives": [
+          {
+            "chapter": 49,
+            "line_start": 1,
+            "line_end": 5,
+            "text": "\n　　林仙儿说着说着，眼泪已流了下来，幽幽地道：“你知道，以前我　那些钱，都已听你的话分给人家了，你难道不信？”\n\n　　阿飞长长叹了口气，柔声道：“我不是不信，只不过……我应该养　你的，我不能让你受苦。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "林仙儿",
+              "阿飞"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 50,
+            "line_start": 269,
+            "line_end": 275,
+            "text": "\n　　林仙儿道：“因为有人在等我。”\n\n　　上官金虹道：“谁？”\n\n　　林仙儿道：“阿飞，你当然听说过他。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "林仙儿",
+              "阿飞"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 13,
+            "line_start": 393,
+            "line_end": 397,
+            "text": "\n　　没有人拦住他，这并不奇怪，因为赵正义就惟恐他们打不起来，田七也想借别人的手，来看看这少年的武功深浅，林仙儿呢？她只是吃惊地望着李寻欢，根本没有注意到别人，至于龙啸云，他似已无心再管别人的闲事了。\n\n　　奇怪的是，阿飞居然也没有闪避。\n",
+            "score": 200,
+            "anchors_hit": [
+              "林仙儿",
+              "阿飞"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 14,
+            "line_start": 23,
+            "line_end": 27,
+            "text": "\n　　林仙儿道：“不错，就是他。”\n\n　　她瞟了阿飞一眼，目中充满了温柔感激之色，道：“他来得实在太快了，梅花盗似也吃了一惊，立刻将我抛在地上，我就听到他说：‘你是不是梅花盗？’又听到梅花盗说：‘是又怎样？不是又怎样？你反正已是快死的人了’……”\n",
+            "score": 200,
+            "anchors_hit": [
+              "林仙儿",
+              "阿飞"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 71,
+        "anchor": "林仙儿 毒妇的心",
+        "line_start": 15,
+        "line_end": 18,
+        "text": "\n　　来的当然就是林仙儿。\n\n　　她在笑着，银铃般笑着道：“我的确很少到这种地方来，但我却知道只有在这里才能找得到你，只要能找到你，什么地方我都去。”",
+        "anchors_hit": [
+          "林仙儿"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 71,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_shang_guan_jin_hong",
+    "name": "上官金虹",
+    "alias": [
+      "金钱帮总瓢把子"
+    ],
+    "identity": "金钱帮帮主",
+    "faction": "faction_jin_qian_bang",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "返璞归真",
+    "importance": "重要",
+    "one_line": "金钱帮总瓢把子，武学与权势巅峰对手",
+    "biography": "执掌金钱帮，以财富与武力纵横武林，与李寻欢、阿飞构成巅峰级对决线。",
+    "personality": {
+      "traits": [
+        "霸气",
+        "自信",
+        "冷酷",
+        "城府",
+        "绝顶"
+      ],
+      "speech_style": "霸气果断",
+      "temperament": "帝王气"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "巅峰对决"
+      },
+      {
+        "target": "char_a_fei",
+        "type": "宿敌",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "对决"
+      },
+      {
+        "target": "char_tie_chuan_jia",
+        "type": "主仆",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "帮主与心腹"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      28,
+      68,
+      79,
+      89
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "anchor": "上官金虹 金钱帮 要人命的金钱",
+        "event_type": "first_mention",
+        "line_start": 113,
+        "line_end": 119,
+        "text": "\n　　老头子道：“那少年叫上官飞，正是上官金虹的独生子，诸葛刚、唐独、高行空、燕双飞，也都是上官金虹的属下。”\n\n　　辫子姑娘伸了伸舌头，道：“难怪他们如此强横霸道了，原来他们还有这么硬的后台。”\n\n　　老头子道：“上官金虹沉寂了多年，两年前忽然东山复起，网罗了兵器谱中的十七位高手，组成了‘金钱帮’，这两年来战无不胜，横行无忌，江湖中人人为之侧目，声势之壮，甚至已凌驾在‘丐帮’之上！”\n",
+        "anchors_hit": [
+          "上官金虹",
+          "金钱帮",
+          "金钱"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 483,
+        "locate_method": "window",
+        "hint_chapter": 29,
+        "alternatives": [
+          {
+            "chapter": 36,
+            "line_start": 239,
+            "line_end": 245,
+            "text": "\n　　孙小红压低了语声，道：“金钱帮？”\n\n　　李寻欢点了点头。\n\n　　孙小红皱了皱眉，道：“原来上官金虹现在才到，莫非他路上也遇着什么事了么？”\n",
+            "score": 462,
+            "anchors_hit": [
+              "金钱帮",
+              "金钱",
+              "上官金虹"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 54,
+            "line_start": 1,
+            "line_end": 7,
+            "text": "\n　　这两人自然就是荆无命和上官金虹。\n\n　　像他们这样的人，世上也许还找不出第三个。\n\n　　江湖中声名最响，势力最大，财力也最雄厚的“金钱帮”帮主，住所竟如此粗陋，生活竟如此简朴。\n",
+            "score": 408,
+            "anchors_hit": [
+              "上官金虹",
+              "金钱帮",
+              "金钱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 57,
+            "line_start": 311,
+            "line_end": 313,
+            "text": "\n　　金钱帮之崛起，虽然只有短短两年，但在创立之前，却已不知经过多久的策划，上官金虹最推崇的两句话就是：\n",
+            "score": 399,
+            "anchors_hit": [
+              "上官金虹",
+              "金钱帮",
+              "金钱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 64,
+            "line_start": 43,
+            "line_end": 47,
+            "text": "\n　　金钱帮管辖的范围，已越来越广了。\n\n　　上官金虹的责任也的确越来越重，因为每件事他都要自己来决定。\n",
+            "score": 378,
+            "anchors_hit": [
+              "金钱帮",
+              "金钱",
+              "上官金虹"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 68,
+        "anchor": "上官金虹 武学巅峰",
+        "line_start": 1,
+        "line_end": 4,
+        "text": "\n　　江湖中人人都知道上官金虹的武功深不可测，谁也没有看到过他出手——现在还是没有看到他出手。\n\n　　他的手根本好像没有动，只不过在桌上轻轻一按，筷子已急箭般射出，西门玉身子已软了下去。",
+        "anchors_hit": [
+          "上官金虹"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 68,
+        "alternatives": []
+      },
+      {
+        "chapter": 89,
+        "anchor": "上官金虹 胜败",
+        "line_start": 9,
+        "line_end": 12,
+        "text": "\n　　等什么呢，等上官金虹自己开门走出来？\n\n　　他出来的时候，李寻欢就不会再活着。",
+        "anchors_hit": [
+          "上官金虹"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 89,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_sun_xiao_hong",
+    "name": "孙小红",
+    "alias": [],
+    "identity": "聪明少女",
+    "faction": null,
+    "role": "重要",
+    "archetype": "scholar",
+    "power_rank": "初窥门径",
+    "importance": "重要",
+    "one_line": "机灵重情的少女，阿飞情感线关键",
+    "biography": "活泼机敏，牵动阿飞心性与情感，在阴谋与对决间穿插温情。",
+    "personality": {
+      "traits": [
+        "机灵",
+        "活泼",
+        "重情",
+        "胆大",
+        "俏皮"
+      ],
+      "speech_style": "俏皮",
+      "temperament": "明媚"
+    },
+    "relationships": [
+      {
+        "target": "char_a_fei",
+        "type": "恋人",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "情愫"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      35,
+      45,
+      60
+    ],
+    "source_refs": [
+      {
+        "chapter": 35,
+        "anchor": "孙小红 吃人的蝎子",
+        "line_start": 5,
+        "line_end": 8,
+        "text": "\n　　孙小红也低下了头，道：“二叔已有十三四年没有回过家了么？”\n\n　　孙驼子沉重地点了点头，喃喃道：“不错，十四年，还差几天就是十四年。”",
+        "anchors_hit": [
+          "孙小红"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 35,
+        "alternatives": []
+      },
+      {
+        "chapter": 33,
+        "anchor": "孙小红 阿飞 千钧一发",
+        "event_type": "climax",
+        "line_start": 91,
+        "line_end": 97,
+        "text": "\n　　但李寻欢一向很识相，也一向不愿被人看成是个多嘴的男人——和孙小红在一起，也根本就没有机会让他多嘴。\n\n　　她好像存心不让李寻欢再问第二句话，已抢着先问他：“小李飞刀，例不虚发，你这手飞刀是怎么练出来的呢？”\n\n　　“听说你有个好朋友叫‘阿飞’，他出手之快，也和你差不多，但现在他忽然失踪了，你知不知道他在哪里？”\n",
+        "anchors_hit": [
+          "孙小红",
+          "阿飞"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 33,
+        "alternatives": [
+          {
+            "chapter": 34,
+            "line_start": 67,
+            "line_end": 71,
+            "text": "\n　　李寻欢沉吟着，问道：“阿飞现在究竟在什么地方？”\n\n　　孙小红笑了笑，道：“我早就知道你第一句要问的就是这句话了，除了‘她’之外，阿飞恐怕就是你最关心的人。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "阿飞",
+              "孙小红"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 36,
+            "line_start": 87,
+            "line_end": 93,
+            "text": "\n　　孙小红道：“无论为了什么原因，你都不肯走的，是不是？”\n\n　　李寻欢还是沉默着。\n\n　　孙小红道：“可是，你有没有想到阿飞呢？你不想去看看他？他难道不是你的朋友？”\n",
+            "score": 200,
+            "anchors_hit": [
+              "孙小红",
+              "阿飞"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 37,
+            "line_start": 343,
+            "line_end": 349,
+            "text": "\n　　孙小红道：“哪两个人？”\n\n　　老人含笑望着李寻欢，道：“其中一人是李探花，另一人就是胡疯子。”\n\n　　李寻欢笑道：“前辈过奖了，据我所知：我的朋友阿飞武功就绝不在我之下，还有荆无命……”\n",
+            "score": 200,
+            "anchors_hit": [
+              "孙小红",
+              "阿飞"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 72,
+            "line_start": 37,
+            "line_end": 39,
+            "text": "\n　　孙小红的脸也已有些发红，咬着嘴唇道：“我至少也能带他去找阿飞。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "孙小红",
+              "阿飞"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_jing_wu_ming",
+    "name": "荆无命",
+    "alias": [],
+    "identity": "冷血杀手剑客",
+    "faction": null,
+    "role": "重要",
+    "archetype": "assassin",
+    "power_rank": "出神入化",
+    "importance": "重要",
+    "one_line": "冷酷杀手，与李寻欢阿飞多次生死周旋",
+    "biography": "以杀伐果断闻名，在多线对决中考验主角剑心与飞刀。",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "寡言",
+        "致命",
+        "守信",
+        "孤绝"
+      ],
+      "speech_style": "冷短",
+      "temperament": "刀锋"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "生死交手"
+      },
+      {
+        "target": "char_a_fei",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "剑客对决"
+      }
+    ],
+    "known_skills": [
+      "skill_kuai_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      20,
+      43,
+      60
+    ],
+    "source_refs": [
+      {
+        "chapter": 34,
+        "anchor": "荆无命 人心难测",
+        "line_start": 241,
+        "line_end": 244,
+        "text": "\n　　她闭上眼睛，扳着手指头道：“男的有上官金虹、吕凤先、荆无命，还有……还有个人二叔你一定猜不出是谁。”\n\n　　孙驼子还是在慢慢地抹着桌子，头也不抬，道：“谁？”",
+        "anchors_hit": [
+          "荆无命"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 34,
+        "alternatives": []
+      },
+      {
+        "chapter": 42,
+        "anchor": "荆无命 生死之间 李寻欢",
+        "event_type": "climax",
+        "line_start": 215,
+        "line_end": 221,
+        "text": "\n　　荆无命道：“是你约我们在这里见面的？”\n\n　　林仙儿道：“是。”\n\n　　荆无命道：“你已替我们约好了李寻欢？”\n",
+        "anchors_hit": [
+          "荆无命",
+          "李寻欢"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 42,
+        "alternatives": [
+          {
+            "chapter": 43,
+            "line_start": 297,
+            "line_end": 303,
+            "text": "\n　　郭嵩阳是不是已开始和上官金虹、荆无命他们作生死之斗？\n\n　　“他的生死也许已只是呼吸间的事，但我却反而安安静静地躺在这里，什么事也不能为他做。”\n\n　　想到这里，李寻欢的心好似已将裂开。\n",
+            "score": 200,
+            "anchors_hit": [
+              "荆无命",
+              "李寻欢"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 45,
+            "line_start": 107,
+            "line_end": 111,
+            "text": "\n　　“难道这些枫叶会是被荆无命和郭嵩阳的剑气摧落的么？”\n\n　　李寻欢的心情更沉重，因为他已从这些落叶中看出了两件事。\n",
+            "score": 200,
+            "anchors_hit": [
+              "荆无命",
+              "李寻欢"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 37,
+            "line_start": 25,
+            "line_end": 29,
+            "text": "\n　　单只上官金虹一人，已是武林中数一数二的绝顶高手，若再加上一个荆无命，那还得了？！\n\n　　李寻欢的心在收缩着。\n",
+            "score": 200,
+            "anchors_hit": [
+              "荆无命",
+              "李寻欢"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 46,
+            "line_start": 57,
+            "line_end": 61,
+            "text": "\n　　李寻欢点了点头，道：“很好，你已学会很多了。”\n\n　　铃铃嫣然一笑，又道：“由此可见，伤他的人一定是荆无命，因为上官金虹用的是龙凤环，不是剑。上官金虹也许并没有来。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "李寻欢",
+              "荆无命"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_long_xiao_yun",
+    "name": "龙啸云",
+    "alias": [],
+    "identity": "龙氏传人",
+    "faction": "faction_long_jia",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "李寻欢故友，因林诗音与飞刀阴影纠葛十八年",
+    "biography": "与李寻欢曾为挚友，因情与误会结怨。婚姻与权谋线交织林仙儿等人，最终走向因果清算。",
+    "personality": {
+      "traits": [
+        "刚愎",
+        "愧疚",
+        "重面子",
+        "矛盾",
+        "勇武"
+      ],
+      "speech_style": "硬朗",
+      "temperament": "外强内耗"
+    },
+    "relationships": [
+      {
+        "target": "char_lin_shi_yin",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "夫妻"
+      },
+      {
+        "target": "char_li_xun_huan",
+        "type": "挚友",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "故友反目"
+      },
+      {
+        "target": "char_lin_xian_er",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "被利用"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      10,
+      40,
+      87
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "anchor": "龙啸云 李寻欢 往事",
+        "event_type": "first_mention",
+        "line_start": 313,
+        "line_end": 319,
+        "text": "\n　　他当时没有见到龙啸云的表情，但后来他却可想像得到，龙啸云自然第一次看到她时，心神就已醉了。\n\n　　现在，那庭园是否仍依旧？她是否还时常坐在小亭的栏杆上，数梅花上的雪花，雪花下的梅花？\n\n　　李寻欢抬头向梅二先生一笑，道：“车上有酒，我们喝一杯吧。”\n",
+        "anchors_hit": [
+          "龙啸云",
+          "李寻欢"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 452,
+        "locate_method": "window",
+        "hint_chapter": 6,
+        "alternatives": [
+          {
+            "chapter": 7,
+            "line_start": 303,
+            "line_end": 309,
+            "text": "\n　　秦孝仪目中又露出一丝恶毒的笑意，缓缓道：“他就是名动八方的‘天下第一刀’李寻欢，也就是你爹爹的生死八拜之交！”\n\n　　这句话说出来，红孩儿固然呆住了，李寻欢更吃了一惊，失声道：“他是什么人的儿子？”\n\n　　巴英叹了口气，道：“这孩子就是龙啸云龙四爷的大公子，龙小云！”\n",
+            "score": 449,
+            "anchors_hit": [
+              "李寻欢",
+              "龙啸云"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 8,
+            "line_start": 43,
+            "line_end": 49,
+            "text": "\n　　只听龙啸云不住喃喃道：“兄弟，你真是想死我了，想死我了……”\n\n　　他这句话翻来覆去也不知说了多少遍，忽又大笑道：“你我兄弟相见，本该高兴才是，怎地却眼泪巴巴的像个老太婆……”\n\n　　他大笑着拥着李寻欢往里走，还在大呼着道：“快去请夫人出来，大家全出来，来见见我的兄弟，你们可知道我这兄弟是谁么？……哈哈，我说出来保险你们都要吓一跳。”\n",
+            "score": 446,
+            "anchors_hit": [
+              "龙啸云",
+              "李寻欢"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 9,
+            "line_start": 3,
+            "line_end": 9,
+            "text": "\n　　李寻欢淡淡一笑道：“我这件貂裘上若是没有长着眼睛，又怎会看见阁下的宝剑，又怎会躲得过阁下自背后刺来的一剑呢？”\n\n　　少年脸色立刻变了，一双手已气得发抖。\n\n　　龙啸云干咳两声，大笑道：　“两位都在说笑，‘藏剑山庄’的少庄主，固然绝不会在乎区区一柄剑，但兄弟你又怎会在乎区区一袭貂裘呢？”\n",
+            "score": 443,
+            "anchors_hit": [
+              "李寻欢",
+              "龙啸云"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 49,
+            "line_end": 53,
+            "text": "\n　　龙啸云正在一旁跺着脚相劝，游龙生却在负手旁观。\n\n　　李寻欢燕子般掠了过去，龙啸云立刻迎上来，跺脚道：“兄弟，你快劝劝他们吧，梅花盗还未现身，自己人却先打起来了，这……这算什么呢？”\n",
+            "score": 440,
+            "anchors_hit": [
+              "龙啸云",
+              "李寻欢"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 10,
+        "anchor": "龙啸云 十八年旧怨",
+        "line_start": 49,
+        "line_end": 52,
+        "text": "\n　　龙啸云正在一旁跺着脚相劝，游龙生却在负手旁观。\n\n　　李寻欢燕子般掠了过去，龙啸云立刻迎上来，跺脚道：“兄弟，你快劝劝他们吧，梅花盗还未现身，自己人却先打起来了，这……这算什么呢？”",
+        "anchors_hit": [
+          "龙啸云"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 10,
+        "alternatives": []
+      },
+      {
+        "chapter": 87,
+        "anchor": "龙啸云 血洗一身孽",
+        "line_start": 7,
+        "line_end": 10,
+        "text": "\n　　龙啸云已走上了石阶。\n\n　　院子里静悄悄的，仿佛连一个人都没有，但他一踏上石阶，忽然间就有十几个人幽灵般出现了。",
+        "anchors_hit": [
+          "龙啸云"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 87,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lin_shi_yin",
+    "name": "林诗音",
+    "alias": [],
+    "identity": "林家女子、龙啸云之妻",
+    "faction": null,
+    "role": "核心",
+    "archetype": "scholar",
+    "power_rank": "平平无奇",
+    "importance": "核心",
+    "one_line": "李寻欢挚爱，牵动十八年旧怨的情感核心",
+    "biography": "与李寻欢情深，后嫁龙啸云，十八年心结与愧疚贯穿主线。在旧怨揭开与命运纠葛中承受情义两难。",
+    "personality": {
+      "traits": [
+        "温婉",
+        "坚忍",
+        "深情",
+        "愧疚",
+        "柔中有刚"
+      ],
+      "speech_style": "柔声含悲",
+      "temperament": "温润压抑"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "未竟之爱"
+      },
+      {
+        "target": "char_long_xiao_yun",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "夫妻与旧怨"
+      },
+      {
+        "target": "char_lin_xian_er",
+        "type": "亲属",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "林氏相关对照"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      10,
+      12,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "anchor": "林诗音 往事不可追 李寻欢",
+        "event_type": "first_mention",
+        "line_start": 241,
+        "line_end": 247,
+        "text": "\n　　李寻欢紧紧闭着眼睛，眼角的泪珠已凝成冰珠。\n\n　　但他嘴角还是带着微笑，道：“浪子、酒鬼，也没有什么不好，总比那些伪君子、假道学好得多了，是吗？”\n\n　　虬髯大汉满面热泪，嘶声道：“可是……可是少爷你本该是天下最有作为的人，你的好处谁也比不上，你为何定要如此自暴自弃，自伤自苦，为了林诗音那女人，这值得吗？”\n",
+        "anchors_hit": [
+          "李寻欢",
+          "林诗音"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 455,
+        "locate_method": "window",
+        "hint_chapter": 5,
+        "alternatives": [
+          {
+            "chapter": 7,
+            "line_start": 315,
+            "line_end": 317,
+            "text": "\n　　只有他最了解龙啸云和林诗音夫妻间的关系，现在李寻欢竟伤了他们的爱子，其心情之沉痛可想而知。\n",
+            "score": 449,
+            "anchors_hit": [
+              "李寻欢",
+              "林诗音"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 8,
+            "line_start": 81,
+            "line_end": 87,
+            "text": "\n　　大厅中的人本多是老江湖，光棍的眼睛哪有不亮的，早巳全部围了过来，向李寻欢赔笑问好。\n\n　　突听内堂一人道：“快掀帘子，夫人出来了。”\n\n　　站在门口的童子刚将门帘掀起，林诗音已冲了出来。\n",
+            "score": 446,
+            "anchors_hit": [
+              "李寻欢",
+              "林诗音"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 9,
+            "line_start": 117,
+            "line_end": 123,
+            "text": "\n　　李寻欢一走进门，又一脚踏入十年前的回忆里。\n\n　　这屋子里的一切竟都和十年前没有丝毫变化，一桌一几，也依旧全都安放在十年前的位置，甚至连桌上的笔墨书籍，都没有丝毫变动，若不是在雪夜，那窗前明月，屋角斜阳，想必也都依旧无恙。\n\n　　李寻欢仿佛骤然又回到十年前，时光若倒退十年，他也许刚陪林诗音数过梅花，也许正想回来取一件狐裘为她披上，也许是回来将他们方自吟出的佳句记下，免得以后遗忘。\n",
+            "score": 443,
+            "anchors_hit": [
+              "李寻欢",
+              "林诗音"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 313,
+            "line_end": 317,
+            "text": "\n　　李寻欢暗中叹了口气，手伸出来，指尖已挟着柄小刀。\n\n　　林诗音在帘后道：“李大叔从未将飞刀传人，有了这柄刀，你就有了护身符，还不快多谢李大叔。”\n",
+            "score": 434,
+            "anchors_hit": [
+              "李寻欢",
+              "林诗音"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 7,
+        "anchor": "林诗音 十八年旧怨 龙啸云",
+        "event_type": "climax",
+        "line_start": 315,
+        "line_end": 317,
+        "text": "\n　　只有他最了解龙啸云和林诗音夫妻间的关系，现在李寻欢竟伤了他们的爱子，其心情之沉痛可想而知。\n",
+        "anchors_hit": [
+          "林诗音",
+          "龙啸云"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 7,
+        "alternatives": [
+          {
+            "chapter": 8,
+            "line_start": 129,
+            "line_end": 133,
+            "text": "\n　　林诗音瞪着他，咬着嘴唇道：“很好，很好，我早就知道你不会让我快快乐乐地活着，你连我最后剩下的一点幸福都要剥夺，你……”\n\n　　龙啸云干咳一声，打断了她的话，大声道：“你不能这样对寻欢说话，这完全不能怪他，全是云儿自己闯出来的祸，何况，当时他并不知道云儿是我们的孩子。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "林诗音",
+              "龙啸云"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 15,
+            "line_start": 145,
+            "line_end": 151,
+            "text": "\n　　林诗音根本不理他，扳过他身子，就要解他的穴道。\n\n　　就在这时，突听一人厉声道：“诗音，你想做什么？”\n\n　　这是龙啸云的声音。\n",
+            "score": 200,
+            "anchors_hit": [
+              "林诗音",
+              "龙啸云"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 17,
+            "line_start": 7,
+            "line_end": 13,
+            "text": "\n　　龙啸云也打起了精神，展颜笑道：“不错，你回来我一定接你，那时我们再好好醉一场。”\n\n　　突听一人幽幽道：“你们明知他这一去永远也不会回来了，又何必还要自己骗自己？”\n\n　　林诗音缓缓走了过来，美丽的面容似又憔悴了许多。\n",
+            "score": 200,
+            "anchors_hit": [
+              "龙啸云",
+              "林诗音"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 20,
+            "line_start": 225,
+            "line_end": 231,
+            "text": "\n　　林诗音突然跳了起来大声道：“你走吧，快走，快走……一个字都莫要说了，快走！快走！”\n\n　　她挥着双手，将林仙儿和阿飞全部都赶了下去，又缓缓坐回灯边，眼泪已流下了面颊。\n\n　　低垂着的黄幔外缓缓走出了一个人，竟是龙啸云。\n",
+            "score": 200,
+            "anchors_hit": [
+              "林诗音",
+              "龙啸云"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 12,
+        "anchor": "林诗音 同是断肠人",
+        "line_start": 315,
+        "line_end": 318,
+        "text": "\n　　林诗音在帘后道：“李大叔从未将飞刀传人，有了这柄刀，你就有了护身符，还不快多谢李大叔。”\n\n　　红孩儿果然拜倒在地，道：“多谢李大叔。”",
+        "anchors_hit": [
+          "林诗音"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 12,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_ling_ling",
+    "name": "铃铃",
+    "alias": [],
+    "identity": "少女",
+    "faction": null,
+    "role": "次要",
+    "archetype": "scholar",
+    "power_rank": "平平无奇",
+    "importance": "次要",
+    "one_line": "情感/场景线中的少女角色",
+    "biography": "",
+    "personality": {
+      "traits": [
+        "单纯",
+        "柔弱",
+        "依赖",
+        "善良",
+        "胆怯"
+      ],
+      "speech_style": "软",
+      "temperament": "怯"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 43,
+        "anchor": "铃铃 美色惑人意",
+        "line_start": 113,
+        "line_end": 116,
+        "text": "\n　　小姑娘道：“你不想听，是不是？我偏要告诉你，我没有爹，也没有娘，所以也不知道自己姓什么，五年前小姐把我买下来了，所以我就姓林，小姐喜欢叫我‘铃铃’，所以我就叫做林铃铃……”\n\n　　她吃吃地笑着，接着道：“林铃铃，你说这名字好不好？就像是个铃，别人摇一摇，我就‘林铃铃’地响，别人不摇，我就不能响。”",
+        "anchors_hit": [
+          "铃铃"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 43,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_tian_qi",
+    "name": "田七",
+    "alias": [],
+    "identity": "田七",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的田七",
+    "biography": "田七在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "anchor": "田七 出场",
+        "line_start": 109,
+        "line_end": 112,
+        "text": "\n　　“老实告诉你，洛阳府的田七爷今天已赶来了，还有‘摩云手’公孙大侠，再加上赵大爷，龙四爷……”\n\n　　纷乱中，突听一人厉声道：“莫要乱，先静下来！”",
+        "anchors_hit": [
+          "田七"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 13,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_mei_hua_dao",
+    "name": "梅花盗",
+    "alias": [],
+    "identity": "神秘大盗",
+    "faction": null,
+    "role": "重要",
+    "archetype": "assassin",
+    "power_rank": "出神入化",
+    "importance": "重要",
+    "one_line": "身份成谜的大盗，推动悬疑与武林震动",
+    "biography": "梅花盗之名屡现江湖，牵动宝物、杀人与身份之谜。",
+    "personality": {
+      "traits": [
+        "神秘",
+        "狠辣",
+        "狡黠",
+        "冷酷"
+      ],
+      "speech_style": "不定",
+      "temperament": "诡"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "悬疑对立"
+      },
+      {
+        "target": "char_lv_feng_xian",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "梅花盗相关"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      22,
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 19,
+        "anchor": "梅花盗 梅花又现",
+        "line_start": 85,
+        "line_end": 87,
+        "text": "\n　　李寻欢非但没有走，甚至连动都没有动，沉声道：“你为何要救我？你已知道我不是梅花盗？”\n",
+        "anchors_hit": [
+          "梅花盗",
+          "梅花"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 19,
+        "alternatives": [
+          {
+            "chapter": 21,
+            "line_start": 237,
+            "line_end": 239,
+            "text": "\n　　那辫子姑娘已捧了碗茶过来，老人掀起茶碗盖子，吹着碗里的茶叶，啜了几口茶，忽然道：“梅花盗无恶不作，探花郎仗义疏财。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "梅花盗",
+              "梅花"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 22,
+            "line_start": 23,
+            "line_end": 25,
+            "text": "\n　　孙老先生的目光又往阿飞那边一扫，缓缓道：“除非那真的梅花盗若是还没有死，又忽然出现了，自然就可证明李寻欢并不是梅花盗，他若非梅花盗，自然也就没有害死心眉大师的理由了。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "梅花盗",
+              "梅花"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 3,
+            "line_start": 415,
+            "line_end": 417,
+            "text": "\n　　然后他才压低声音道：“你可知道，三十年前横行天下的‘梅花盗’又出现了！”\n",
+            "score": 200,
+            "anchors_hit": [
+              "梅花盗",
+              "梅花"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 4,
+            "line_start": 1,
+            "line_end": 3,
+            "text": "\n　　孙逵笑道：“你懂得什么？我若能将梅花盗置之于死地，非但从此扬眉吐气，而且……而且那好处也不知有多少。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "梅花盗",
+              "梅花"
+            ],
+            "method": "window"
+          }
+        ],
+        "event_type": "background"
+      },
+      {
+        "chapter": 19,
+        "anchor": "梅花盗 逆徒授首",
+        "line_start": 85,
+        "line_end": 87,
+        "text": "\n　　李寻欢非但没有走，甚至连动都没有动，沉声道：“你为何要救我？你已知道我不是梅花盗？”\n",
+        "anchors_hit": [
+          "梅花盗",
+          "梅花"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 19,
+        "alternatives": [
+          {
+            "chapter": 21,
+            "line_start": 237,
+            "line_end": 239,
+            "text": "\n　　那辫子姑娘已捧了碗茶过来，老人掀起茶碗盖子，吹着碗里的茶叶，啜了几口茶，忽然道：“梅花盗无恶不作，探花郎仗义疏财。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "梅花盗",
+              "梅花"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 22,
+            "line_start": 23,
+            "line_end": 25,
+            "text": "\n　　孙老先生的目光又往阿飞那边一扫，缓缓道：“除非那真的梅花盗若是还没有死，又忽然出现了，自然就可证明李寻欢并不是梅花盗，他若非梅花盗，自然也就没有害死心眉大师的理由了。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "梅花盗",
+              "梅花"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 3,
+            "line_start": 415,
+            "line_end": 417,
+            "text": "\n　　然后他才压低声音道：“你可知道，三十年前横行天下的‘梅花盗’又出现了！”\n",
+            "score": 200,
+            "anchors_hit": [
+              "梅花盗",
+              "梅花"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 4,
+            "line_start": 1,
+            "line_end": 3,
+            "text": "\n　　孙逵笑道：“你懂得什么？我若能将梅花盗置之于死地，非但从此扬眉吐气，而且……而且那好处也不知有多少。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "梅花盗",
+              "梅花"
+            ],
+            "method": "window"
+          }
+        ],
+        "event_type": "background"
+      }
+    ]
+  },
+  {
+    "id": "char_long_xiao_yun_xiao",
+    "name": "龙小云",
+    "alias": [],
+    "identity": "龙小云",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的龙小云",
+    "biography": "龙小云在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      7
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "anchor": "龙小云 出场",
+        "line_start": 307,
+        "line_end": 310,
+        "text": "\n　　巴英叹了口气，道：“这孩子就是龙啸云龙四爷的大公子，龙小云！”\n\n　　刹那之间，李寻欢宛如被巨雷轰顶，震散了魂魄！",
+        "anchors_hit": [
+          "龙小云"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 7,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_sun_tuo_zi",
+    "name": "孙驼子",
+    "alias": [],
+    "identity": "孙驼子",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的孙驼子",
+    "biography": "孙驼子在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      26
+    ],
+    "source_refs": [
+      {
+        "chapter": 26,
+        "anchor": "孙驼子 出场",
+        "line_start": 29,
+        "line_end": 32,
+        "text": "\n　　弄堂里有个鸡毛小店，前面卖些粗劣的饮食，后面有三五间简陋的客房，店主人孙驼子是个残废的侏儒。\n\n　　他虽然明知这弄堂里绝不会有什么高贵的主顾，但却宁愿在这里等着些卑贱的过客进来以低微的代价换取食宿。",
+        "anchors_hit": [
+          "孙驼子"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 26,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_sun_lao_xian_sheng",
+    "name": "孙老先生",
+    "alias": [],
+    "identity": "孙老先生",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的孙老先生",
+    "biography": "孙老先生在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "anchor": "孙老先生 出场",
+        "line_start": 195,
+        "line_end": 198,
+        "text": "\n　　突听外面传人了一阵“叮叮当当”的敲打声，阿飞将窗子支开一些，就看到店伙计正在院子里敲着水壶，大声道：“各位客官们，你们可想知道江湖中最轰动的消息，武林中最近发生的大事么？那么就请到饭厅，由南边来的孙老先生准午时开讲，保证既新鲜，又紧张，各位还可以一边吃着饭喝着酒。”\n\n　　阿飞放下窗子，摇了摇头。",
+        "anchors_hit": [
+          "孙老先生"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 21,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lv_feng_xian",
+    "name": "吕凤先",
+    "alias": [],
+    "identity": "武林高手",
+    "faction": null,
+    "role": "重要",
+    "archetype": "assassin",
+    "power_rank": "登堂入室",
+    "importance": "重要",
+    "one_line": "与梅花盗及阴谋线交织的阴鸷高手",
+    "biography": "参与梅花盗相关波澜，与主角阵营多次交锋。",
+    "personality": {
+      "traits": [
+        "阴鸷",
+        "机敏",
+        "狠厉",
+        "狡黠"
+      ],
+      "speech_style": "阴冷",
+      "temperament": "阴"
+    },
+    "relationships": [
+      {
+        "target": "char_mei_hua_dao",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "梅花盗相关"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      22,
+      24
+    ],
+    "source_refs": [
+      {
+        "chapter": 33,
+        "anchor": "吕凤先 梅花又现",
+        "event_type": "first_mention",
+        "line_start": 131,
+        "line_end": 135,
+        "text": "\n　　孙小红一直在瞅着他，眼睛里带着温柔的笑意。仿佛她不但很欣赏这个人，也很了解这个人。\n\n　　李寻欢抬起头，接触到她的温柔的眼波。\n",
+        "anchors_hit": [
+          "梅花"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located_chapter_level",
+        "locate_score": 221,
+        "locate_method": "chapter_score",
+        "hint_chapter": 33,
+        "alternatives": [
+          {
+            "chapter": 34,
+            "line_start": 151,
+            "line_end": 155,
+            "text": "\n　　他又将杯中酒一饮而尽。\n\n　　喝完了这杯酒，他目光晕迷，喃喃道：“我还有句话要问你。”\n",
+            "score": 218,
+            "anchors_hit": [
+              "吕凤先"
+            ],
+            "method": "chapter_score"
+          }
+        ]
+      },
+      {
+        "chapter": 34,
+        "anchor": "吕凤先 逆徒授首",
+        "line_start": 241,
+        "line_end": 244,
+        "text": "\n　　她闭上眼睛，扳着手指头道：“男的有上官金虹、吕凤先、荆无命，还有……还有个人二叔你一定猜不出是谁。”\n\n　　孙驼子还是在慢慢地抹着桌子，头也不抬，道：“谁？”",
+        "anchors_hit": [
+          "吕凤先"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 34,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_guo_song_yang",
+    "name": "郭嵩阳",
+    "alias": [],
+    "identity": "名门剑客",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "正派名门剑客，重名重义的对手型人物",
+    "biography": "以剑道与名节立足武林，与主线人物有对决或交锋。",
+    "personality": {
+      "traits": [
+        "刚正",
+        "骄傲",
+        "侠义",
+        "重名",
+        "刻板"
+      ],
+      "speech_style": "正声",
+      "temperament": "端严"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "对手",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "较量"
+      }
+    ],
+    "known_skills": [
+      "skill_kuai_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      30,
+      58
+    ],
+    "source_refs": [
+      {
+        "chapter": 31,
+        "anchor": "郭嵩阳 漫漫的长夜",
+        "line_start": 299,
+        "line_end": 302,
+        "text": "\n　　黑衣人道：“正是郭嵩阳。”\n\n　　李寻欢长长叹了口气，道：“嵩阳铁剑果然名下无虚！”",
+        "anchors_hit": [
+          "郭嵩阳"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 31,
+        "alternatives": []
+      },
+      {
+        "chapter": 59,
+        "anchor": "郭嵩阳 英雄",
+        "line_start": 167,
+        "line_end": 170,
+        "text": "\n　　他有意间扫了阿飞一眼，接着道：“因为郭嵩阳的人已死了，还有一个，虽然活着却也和死了相差无几。”\n\n　　阿飞是背对着吕凤先的，根本没有看到他的脸色。",
+        "anchors_hit": [
+          "郭嵩阳"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 59,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_xin_mei_da_shi",
+    "name": "心眉大师",
+    "alias": [],
+    "identity": "心眉大师",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的心眉大师",
+    "biography": "心眉大师在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      14
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "anchor": "心眉大师 出场",
+        "line_start": 281,
+        "line_end": 284,
+        "text": "\n　　林仙儿忽然笑道：“心眉大师既然并不怪罪，你还不快走？”\n\n　　赵正义冷冷道：“他方才不走，此刻想走只怕太迟了！”",
+        "anchors_hit": [
+          "心眉大师"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 14,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_tie_chuan_jia",
+    "name": "铁传甲",
+    "alias": [],
+    "identity": "金钱帮高手",
+    "faction": "faction_jin_qian_bang",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "金钱帮心腹高手，执行帮主意志",
+    "biography": "追随上官金虹，以武力贯彻金钱帮权势。",
+    "personality": {
+      "traits": [
+        "强悍",
+        "忠帮",
+        "凶狠",
+        "果决"
+      ],
+      "speech_style": "粗硬",
+      "temperament": "悍"
+    },
+    "relationships": [
+      {
+        "target": "char_shang_guan_jin_hong",
+        "type": "主仆",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "心腹"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      28,
+      46
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "anchor": "铁传甲 金钱帮",
+        "event_type": "first_mention",
+        "line_start": 117,
+        "line_end": 119,
+        "text": "\n　　老头子道：“上官金虹沉寂了多年，两年前忽然东山复起，网罗了兵器谱中的十七位高手，组成了‘金钱帮’，这两年来战无不胜，横行无忌，江湖中人人为之侧目，声势之壮，甚至已凌驾在‘丐帮’之上！”\n",
+        "anchors_hit": [
+          "金钱帮",
+          "金钱"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 383,
+        "locate_method": "window",
+        "hint_chapter": 29,
+        "alternatives": [
+          {
+            "chapter": 36,
+            "line_start": 239,
+            "line_end": 241,
+            "text": "\n　　孙小红压低了语声，道：“金钱帮？”\n",
+            "score": 362,
+            "anchors_hit": [
+              "金钱帮",
+              "金钱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 80,
+            "line_start": 47,
+            "line_end": 75,
+            "text": "\n　　他们都是“金钱帮”最忠实、最得力的部属，绝没一个是胆小怕死的人，但现在他们已太累，太疲倦，看到了太多死亡，太多血腥。\n\n　　这已使他们丧失了大部分勇气，何况，“小李飞刀”在江湖人心目中已不仅是一柄刀，而是一种恶魔的化身！\n\n　　现在，“小李飞刀”这四个字更几乎变得和“死亡”同样意义。\n\n　　也许直到现在他们才懂得死亡的真正意义。\n\n　　他们同伴的尸体，就倒在他们脚下。\n\n　　就在一瞬间以前，他还是个活生生的人。\n\n　　然后小李飞刀忽然来了，事先完全没有丝毫预兆，这活生生的人忽然就变成了一具尸体。\n\n　　他的生命忽然就变得毫无意义，绝不会有人关心。\n\n　　世上也绝没有任何事能比这种突来的变化更令人恐惧！他们恐惧的也许并不是死，而是这种恐惧的本身。\n\n　　那瞎子突然道：“小李探花？”\n\n　　他虽然什么也瞧不见，也没有听见任何声音，但却也已感觉到李寻欢的存在，他似已嗅到了一种慑人的杀气。\n…",
+            "score": 325,
+            "anchors_hit": [
+              "金钱帮",
+              "金钱",
+              "铁传甲"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 54,
+            "line_start": 5,
+            "line_end": 7,
+            "text": "\n　　江湖中声名最响，势力最大，财力也最雄厚的“金钱帮”帮主，住所竟如此粗陋，生活竟如此简朴。\n",
+            "score": 308,
+            "anchors_hit": [
+              "金钱帮",
+              "金钱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 57,
+            "line_start": 311,
+            "line_end": 313,
+            "text": "\n　　金钱帮之崛起，虽然只有短短两年，但在创立之前，却已不知经过多久的策划，上官金虹最推崇的两句话就是：\n",
+            "score": 299,
+            "anchors_hit": [
+              "金钱帮",
+              "金钱"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 6,
+        "anchor": "铁传甲 英雄与枭雄",
+        "line_start": 283,
+        "line_end": 286,
+        "text": "\n　　梅二先生道：“据说近五十年来，只有一个人肯下苦功练这种笨功夫，据说此人叫‘铁甲金刚’铁传甲，但二十年前就被人一掌自舍身崖上震下去了，也不知死了没有，也许并没有死，还能坐着喝酒。”\n\n　　虬髯大汉的嘴里就像是咬牢了个鸡爪，无论梅二先生怎么说，怎么问，他却再也不肯开口了。",
+        "anchors_hit": [
+          "铁传甲"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 6,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_shang_guan_fei",
+    "name": "上官飞",
+    "alias": [],
+    "identity": "上官飞",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的上官飞",
+    "biography": "上官飞在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      29
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "anchor": "上官飞 出场",
+        "line_start": 113,
+        "line_end": 116,
+        "text": "\n　　老头子道：“那少年叫上官飞，正是上官金虹的独生子，诸葛刚、唐独、高行空、燕双飞，也都是上官金虹的属下。”\n\n　　辫子姑娘伸了伸舌头，道：“难怪他们如此强横霸道了，原来他们还有这么硬的后台。”",
+        "anchors_hit": [
+          "上官飞"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 29,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_zheng_yi",
+    "name": "赵正义",
+    "alias": [],
+    "identity": "赵正义",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的赵正义",
+    "biography": "赵正义在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      8
+    ],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "anchor": "赵正义 出场",
+        "line_start": 183,
+        "line_end": 186,
+        "text": "\n　　另一人道：“赵大爷就是人称‘铁面无私’赵正义赵老爷子，也就是我们龙四爷的结拜大哥，李探花难道还不知道么？”\n\n　　李寻欢举杯大笑道：“十年不见，想不到大哥竟又结交了这许多名声显赫的好兄弟，且待小弟先敬大哥一杯。”",
+        "anchors_hit": [
+          "赵正义"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 8,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_bai_xiao_sheng",
+    "name": "百晓生",
+    "alias": [],
+    "identity": "百晓生",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的百晓生",
+    "biography": "百晓生在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "anchor": "百晓生 出场",
+        "line_start": 147,
+        "line_end": 150,
+        "text": "\n　　李寻欢道：“百晓生作‘兵器谱’，青魔手排名第九，可算珍品。”\n\n　　青衣人道：“那么，我若将这青魔手送给你，你肯不肯将金丝甲让给我？”",
+        "anchors_hit": [
+          "百晓生"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 4,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_you_long_sheng",
+    "name": "游龙生",
+    "alias": [],
+    "identity": "游龙生",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的游龙生",
+    "biography": "游龙生在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "anchor": "游龙生 出场",
+        "line_start": 175,
+        "line_end": 178,
+        "text": "\n　　青衣人道：“老龙已死了，这是他儿子游龙生送给我的。”\n\n　　李寻欢道：“鱼肠剑上古神兵，武林重宝，‘藏剑山庄’也以剑而名，若非因为藏龙老人与少林、武当、昆仑三大派的掌门人俱是生死之交，此剑早已被人夺去，虽是如此，藏剑山庄为了此剑还是不知经过多少次浴血奋战，那游少庄主又怎会将这传家之宝轻易送人呢？”",
+        "anchors_hit": [
+          "游龙生"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 4,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_tie_di_xian_sheng",
+    "name": "铁笛先生",
+    "alias": [],
+    "identity": "铁笛先生",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的铁笛先生",
+    "biography": "铁笛先生在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "anchor": "铁笛先生 出场",
+        "line_start": 311,
+        "line_end": 314,
+        "text": "\n　　林仙儿道：“铁笛先生。”\n\n　　阿飞道：“铁笛先生？这是什么人？”",
+        "anchors_hit": [
+          "铁笛先生"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 15,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_jin_feng_bai",
+    "name": "金风白",
+    "alias": [],
+    "identity": "金风白",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的金风白",
+    "biography": "金风白在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      11
+    ],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "anchor": "金风白 出场",
+        "line_start": 141,
+        "line_end": 144,
+        "text": "\n　　卖野药的郎中道：“我三哥‘宝马神枪’边浩你已见过了，我行四，叫金风白。”\n\n　　说书的道：“听阁下的口音，好像是南阳府的人。”",
+        "anchors_hit": [
+          "金风白"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 11,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_tian_ji_lao_ren",
+    "name": "天机老人",
+    "alias": [],
+    "identity": "武林前辈",
+    "faction": null,
+    "role": "重要",
+    "archetype": "monk",
+    "power_rank": "登峰造极",
+    "importance": "重要",
+    "one_line": "天机棒相关高人，武学与智计兼备",
+    "biography": "以天机与棒法立足，在关键节点与主角线交汇。",
+    "personality": {
+      "traits": [
+        "深沉",
+        "睿智",
+        "强势",
+        "老辣"
+      ],
+      "speech_style": "缓而深",
+      "temperament": "渊"
+    },
+    "relationships": [
+      {
+        "target": "char_li_xun_huan",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "天机交汇"
+      }
+    ],
+    "known_skills": [
+      "skill_tian_ji_bang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      37,
+      38
+    ],
+    "source_refs": [
+      {
+        "chapter": 29,
+        "anchor": "天机老人 老人",
+        "line_start": 137,
+        "line_end": 140,
+        "text": "\n　　老头子摇了摇头，道：“如意棒又叫做天机棒，天机不可泄露，除了那位‘天机老人’外，别的人怎会知道？”\n\n　　辫子姑娘嘟着嘴，沉默了半晌，忽又笑了，道：“金钱帮就算很了不起，但名字却起得太不高明了，简直又俗气又可笑。”",
+        "anchors_hit": [
+          "天机老人"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 29,
+        "alternatives": []
+      },
+      {
+        "chapter": 29,
+        "anchor": "天机老人 祖孙",
+        "line_start": 137,
+        "line_end": 140,
+        "text": "\n　　老头子摇了摇头，道：“如意棒又叫做天机棒，天机不可泄露，除了那位‘天机老人’外，别的人怎会知道？”\n\n　　辫子姑娘嘟着嘴，沉默了半晌，忽又笑了，道：“金钱帮就算很了不起，但名字却起得太不高明了，简直又俗气又可笑。”",
+        "anchors_hit": [
+          "天机老人"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 29,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_lan_xie_zi",
+    "name": "蓝蝎子",
+    "alias": [],
+    "identity": "毒蝎相关人物",
+    "faction": null,
+    "role": "次要",
+    "archetype": "assassin",
+    "power_rank": "登堂入室",
+    "importance": "次要",
+    "one_line": "毒蝎意象相关对手",
+    "biography": "",
+    "personality": {
+      "traits": [
+        "狠毒",
+        "阴",
+        "诡秘",
+        "残忍",
+        "冷静"
+      ],
+      "speech_style": "阴",
+      "temperament": "毒"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      35
+    ],
+    "source_refs": [
+      {
+        "chapter": 35,
+        "anchor": "蓝蝎子 吃人的蝎子",
+        "line_start": 93,
+        "line_end": 96,
+        "text": "\n　　孙驼子干咳了两声，道：“蓝蝎子？”\n\n　　蓝蝎子笑了。",
+        "anchors_hit": [
+          "蓝蝎子"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 35,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_bian_zi_gu_niang",
+    "name": "辫子姑娘",
+    "alias": [],
+    "identity": "辫子姑娘",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的辫子姑娘",
+    "biography": "辫子姑娘在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      21
+    ],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "anchor": "辫子姑娘 出场",
+        "line_start": 223,
+        "line_end": 226,
+        "text": "\n　　阿飞和林仙儿一走进来，每个人的眼睛都发了直，这位辫子姑娘的大眼睛正不停地在他们身上转。\n\n　　林仙儿也在盯着这大姑娘，忽然抿嘴一笑，悄悄道：“你看她那双眼睛，我倒真得小心点，莫让她把你勾了去。”",
+        "anchors_hit": [
+          "辫子姑娘"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 21,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_mei_er_xian_sheng",
+    "name": "梅二先生",
+    "alias": [],
+    "identity": "梅二先生",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的梅二先生",
+    "biography": "梅二先生在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "anchor": "梅二先生 出场",
+        "line_start": 117,
+        "line_end": 120,
+        "text": "\n　　穷酸咧嘴一笑，道：“这意思各位难道还不懂么？只不过是酒瘾大发而已，梅二先生酒瘾发作时，就算天塌下来也得先喝了酒再说，哪有心情为别人治病。”\n\n　　一个麻面大汉道：“赵老大，你听见没有，我早就知道这酒鬼不是个东西，只要银子到手，立刻就六亲不认了。”",
+        "anchors_hit": [
+          "梅二先生"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 6,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_xin_hu_da_shi",
+    "name": "心湖大师",
+    "alias": [],
+    "identity": "心湖大师",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的心湖大师",
+    "biography": "心湖大师在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "anchor": "心湖大师 出场",
+        "line_start": 173,
+        "line_end": 176,
+        "text": "\n　　龙啸云道：“兄弟，你受的委屈，我全都知道，但我可以保证，他们绝不会害死你的，你只要见到心湖大师，就会没事了。”\n\n　　李寻欢皱眉道：“心湖大师？他们难道要将我送到少林寺去？”",
+        "anchors_hit": [
+          "心湖大师"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 15,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_huan_xi_nv_pu_sa",
+    "name": "欢喜女菩萨",
+    "alias": [],
+    "identity": "欢喜女菩萨",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "《多情剑客无情剑》中的欢喜女菩萨",
+    "biography": "欢喜女菩萨在书中多次出场，参与江湖纠葛与人物互动。",
+    "personality": {
+      "traits": [
+        "鲜明",
+        "江湖气",
+        "有主见",
+        "冷静",
+        "务实"
+      ],
+      "speech_style": "口语",
+      "temperament": "杂"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      34
+    ],
+    "source_refs": [
+      {
+        "chapter": 34,
+        "anchor": "欢喜女菩萨 出场",
+        "line_start": 223,
+        "line_end": 226,
+        "text": "\n　　孙小红道：“男的不说，先说女的，其中就有苗疆‘大欢喜女菩萨’和关外‘蓝蝎子’……”\n\n　　她只说了两个人的名字，孙驼子已皱起了眉头。",
+        "anchors_hit": [
+          "欢喜女菩萨"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 34,
+        "alternatives": []
+      }
+    ]
+  }
+]

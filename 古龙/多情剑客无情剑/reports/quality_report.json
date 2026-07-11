@@ -1,0 +1,291 @@
+{
+  "generated_at": "2026-07-11T11:30:16.070Z",
+  "novel": "多情剑客无情剑",
+  "author": "古龙",
+  "baseline_mode": "ok",
+  "baseline_audit_reasons": [],
+  "overall_score": 99,
+  "overall_score_note": "gold baseline comparison",
+  "honest_overall_score": 100,
+  "completion_gate_passed": true,
+  "metrics": {
+    "entity_completeness": {
+      "score": 100,
+      "status": "ok",
+      "details": {
+        "core": {
+          "expected": 3,
+          "actual": 3,
+          "coverage": 100
+        },
+        "important": {
+          "expected": 10,
+          "actual": 10,
+          "coverage": 100
+        },
+        "secondary": {
+          "expected": 12,
+          "actual": 12,
+          "coverage": 100
+        },
+        "minor": {
+          "expected": 0,
+          "actual": 0,
+          "coverage": null
+        }
+      },
+      "missing": []
+    },
+    "entity_quantity": {
+      "score": 100,
+      "details": {
+        "characters": {
+          "actual": 30,
+          "minimum": 30,
+          "passed": true
+        },
+        "factions": {
+          "actual": 8,
+          "minimum": 6,
+          "passed": true
+        },
+        "skills": {
+          "actual": 15,
+          "minimum": 15,
+          "passed": true
+        },
+        "items": {
+          "actual": 10,
+          "minimum": 10,
+          "passed": true
+        },
+        "locations": {
+          "actual": 18,
+          "minimum": 15,
+          "passed": true
+        }
+      },
+      "chapterCount": 90
+    },
+    "relationship_completeness": {
+      "score": 100,
+      "accuracy": 100,
+      "status": "ok",
+      "details": {
+        "core": {
+          "expected": 23,
+          "actual": 23
+        },
+        "important": {
+          "expected": 2,
+          "actual": 2
+        },
+        "secondary": {
+          "expected": 0,
+          "actual": 0
+        }
+      },
+      "missing": [],
+      "incorrect": []
+    },
+    "description_accuracy": {
+      "score": 100,
+      "status": "ok",
+      "totalChecked": 13,
+      "accurate": 13,
+      "issues": []
+    },
+    "event_coverage": {
+      "score": 100,
+      "status": "ok",
+      "details": {
+        "main": {
+          "expected": 18,
+          "actual": 18
+        },
+        "branch": {
+          "expected": 3,
+          "actual": 3
+        },
+        "detail": {
+          "expected": 0,
+          "actual": 0
+        }
+      },
+      "missing": []
+    },
+    "dialogue_quality": {
+      "authenticity": 100,
+      "representativeness": 100,
+      "characterFit": 0,
+      "quoteAuthenticity": 100,
+      "chapterCoverage": 98.9,
+      "status": "ok",
+      "details": {
+        "total": 222,
+        "withSpeaker": 222,
+        "withListener": 0,
+        "baselineChecked": 12,
+        "baselineMatched": 11,
+        "quoteChecked": 209,
+        "quoteOk": 209
+      },
+      "issues": [
+        {
+          "index": 0,
+          "chapter": 1,
+          "speaker": "李寻欢",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 2,
+          "chapter": 2,
+          "speaker": "李寻欢",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 15,
+          "chapter": 8,
+          "speaker": "李寻欢",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 21,
+          "chapter": 10,
+          "speaker": "李寻欢",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 63,
+          "chapter": 25,
+          "speaker": "李寻欢",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 75,
+          "chapter": 31,
+          "speaker": "李寻欢",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 98,
+          "chapter": 39,
+          "speaker": "李寻欢",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 126,
+          "chapter": 50,
+          "speaker": "荆无命",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 172,
+          "chapter": 68,
+          "speaker": "上官金虹",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 214,
+          "chapter": 87,
+          "speaker": "龙啸云",
+          "issue": "Speech style mismatch"
+        },
+        {
+          "index": 218,
+          "chapter": 89,
+          "speaker": "阿飞",
+          "issue": "Speech style mismatch"
+        }
+      ]
+    },
+    "cross_book_purity": {
+      "score": 92.1,
+      "status": "ok",
+      "totalEntities": 63,
+      "pureEntities": 58,
+      "suspicious": [
+        {
+          "id": "char_lan_xie_zi",
+          "name": "蓝蝎子",
+          "type": "character"
+        },
+        {
+          "id": "char_bian_zi_gu_niang",
+          "name": "辫子姑娘",
+          "type": "character"
+        },
+        {
+          "id": "char_mei_er_xian_sheng",
+          "name": "梅二先生",
+          "type": "character"
+        },
+        {
+          "id": "char_xin_hu_da_shi",
+          "name": "心湖大师",
+          "type": "character"
+        },
+        {
+          "id": "char_huan_xi_nv_pu_sa",
+          "name": "欢喜女菩萨",
+          "type": "character"
+        }
+      ]
+    },
+    "baseline_validation": {
+      "score": 100,
+      "issues": [],
+      "hallucinations": [],
+      "duplicates": [],
+      "self_refs": [],
+      "baseline_mode": "ok"
+    },
+    "honest_metrics": {
+      "entity_grounded_ratio": 99.1,
+      "grand_grounded_from_report": null,
+      "entity_refs": {
+        "total": 108,
+        "grounded": 107,
+        "weak": 0,
+        "unverified": 1
+      },
+      "per_file": {
+        "characters": {
+          "entities": 30,
+          "refs": 53,
+          "grounded_ratio": 100
+        },
+        "factions": {
+          "entities": 8,
+          "refs": 10,
+          "grounded_ratio": 100
+        },
+        "locations": {
+          "entities": 18,
+          "refs": 19,
+          "grounded_ratio": 100
+        },
+        "skills": {
+          "entities": 15,
+          "refs": 15,
+          "grounded_ratio": 100
+        },
+        "techniques": {
+          "entities": 1,
+          "refs": 1,
+          "grounded_ratio": 100
+        },
+        "items": {
+          "entities": 10,
+          "refs": 10,
+          "grounded_ratio": 90
+        }
+      },
+      "dialogue_count": 222,
+      "dialogue_chapter_coverage": 98.9,
+      "summary_count": 90,
+      "summary_quality_proxy": 100,
+      "entity_quantity_score": 100
+    }
+  }
+}
