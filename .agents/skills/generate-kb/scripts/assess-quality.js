@@ -75,8 +75,28 @@ const itemByName = new Map(items.map(i => [i.name, i]));
 // Helper functions
 // ============================================================
 function importanceLabel(level) {
-  const map = { core: '核心', important: '重要', secondary: '次要', minor: '龙套', background: '背景' };
+  const map = { core: '核心', important: '重要', secondary: '次要', minor: '龙套', background: '背景', main: '主线', branch: '支线', detail: '细节' };
   return map[level] || level;
+}
+
+/** Map Chinese or mixed importance labels to English keys used by gold metrics. */
+function normalizeImportance(raw, kind) {
+  if (raw == null || raw === '') {
+    return kind === 'event' ? 'detail' : 'secondary';
+  }
+  const s = String(raw).trim();
+  const relMap = {
+    core: 'core', important: 'important', secondary: 'secondary', minor: 'secondary',
+    核心: 'core', 重要: 'important', 次要: 'secondary', 龙套: 'secondary', 背景: 'secondary',
+  };
+  const eventMap = {
+    main: 'main', branch: 'branch', detail: 'detail',
+    主线: 'main', 支线: 'branch', 细节: 'detail',
+    core: 'main', important: 'branch', secondary: 'detail',
+    核心: 'main', 重要: 'branch', 次要: 'detail',
+  };
+  const map = kind === 'event' ? eventMap : relMap;
+  return map[s] || (kind === 'event' ? 'detail' : 'secondary');
 }
 
 function hasCommonKeywords(str1, str2, minCommon = 2) {
@@ -207,7 +227,7 @@ function assessRelationships() {
 
   // Check each baseline relationship
   for (const rel of baselineRels) {
-    const importance = rel.importance || 'secondary';
+    const importance = normalizeImportance(rel.importance, 'rel');
     if (!details[importance]) continue;
 
     details[importance].expected++;
@@ -388,7 +408,10 @@ function assessEventCoverage() {
     for (const event of events) {
       // Handle both string events and object events
       const eventStr = typeof event === 'string' ? event : (event.event || event.name || '');
-      const importance = (typeof event === 'object' ? event.importance : null) || 'detail';
+      const importance = normalizeImportance(
+        typeof event === 'object' ? event.importance : null,
+        'event'
+      );
       if (!details[importance]) continue;
 
       details[importance].expected++;
@@ -500,27 +523,47 @@ function assessDialogueQuality() {
 // ============================================================
 
 // Name variant matching helper
+// Generic 1–2 char combat/item words must not substring-match arbitrary names
+// (e.g. item "剑" must not pure-match character "辫子姑娘").
+const GENERIC_SHORT_NAMES = new Set([
+  '剑', '刀', '枪', '棍', '棒', '鞭', '弓', '箭', '斧', '戟',
+  '毒', '酒', '信', '药', '针', '环', '印', '令', '旗', '鼓',
+  '掌', '拳', '指', '功', '法', '术',
+]);
+
 function normalizeName(name) {
-  // Remove common suffixes/prefixes for matching
-  return name
+  if (!name) return '';
+  return String(name)
     .replace(/派$|教$|帮$|门$|山庄$|谷$/, '')
-    .replace(/法$|功$|术$|剑$|掌$|拳$/, '')
     .replace(/秘籍$|秘笈$/, '')
     .replace(/神掌$/, '')
     .replace(/剑法$/, '剑')
-    .replace(/掌法$/, '掌');
+    .replace(/掌法$/, '掌')
+    .replace(/法$|功$|术$/, '');
 }
 
 function namesMatch(name1, name2) {
-  // Exact match
+  if (!name1 || !name2) return false;
   if (name1 === name2) return true;
-  // Check if one contains the other
-  if (name1.includes(name2) || name2.includes(name1)) return true;
-  // Normalized match
+
+  // Never treat ultra-short / generic tokens as a contains match
+  if (GENERIC_SHORT_NAMES.has(name1) || GENERIC_SHORT_NAMES.has(name2)) {
+    return false;
+  }
+
+  const shorter = name1.length <= name2.length ? name1 : name2;
+  const longer = name1.length <= name2.length ? name2 : name1;
+  // Substring match only when shorter side is long enough to be distinctive
+  if (shorter.length >= 3 && longer.includes(shorter)) return true;
+
   const n1 = normalizeName(name1);
   const n2 = normalizeName(name2);
+  if (!n1 || !n2) return false;
   if (n1 === n2) return true;
-  if (n1.includes(n2) || n2.includes(n1)) return true;
+  if (GENERIC_SHORT_NAMES.has(n1) || GENERIC_SHORT_NAMES.has(n2)) return false;
+  const ns = n1.length <= n2.length ? n1 : n2;
+  const nl = n1.length <= n2.length ? n2 : n1;
+  if (ns.length >= 3 && nl.includes(ns)) return true;
   return false;
 }
 
