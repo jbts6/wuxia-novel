@@ -53,6 +53,9 @@ if (!baseline) {
   process.exit(1);
 }
 
+// Optional verification / locate artifacts for honest metrics
+const verificationReport = loadJson('verification_report.json', 'reports') || loadJson('verification_result.json', 'reports');
+
 console.log('=== Quality Assessment ===\n');
 console.log(`Novel: ${baseline.novel || 'Unknown'}`);
 console.log(`Author: ${baseline.author || 'Unknown'}`);
@@ -86,10 +89,68 @@ function hasCommonKeywords(str1, str2, minCommon = 2) {
   return common >= minCommon;
 }
 
+/**
+ * Detect baseline copied from current KB (self-referential).
+ * Such baselines make completeness/purity metrics trivially 100%.
+ */
+function detectSelfReferentialBaseline() {
+  const reasons = [];
+  const blChars = [];
+  for (const tier of ['core', 'important', 'secondary', 'minor']) {
+    for (const c of (baseline.characters?.[tier] || [])) blChars.push(c);
+  }
+  const kbIds = new Set(characters.map(c => c.id));
+  const blIds = blChars.map(c => c.id).filter(Boolean);
+  if (blIds.length > 0 && blIds.every(id => kbIds.has(id))) {
+    const coverage = blIds.length / Math.max(kbIds.size, 1);
+    if (coverage >= 0.85 || blIds.length === kbIds.size) {
+      reasons.push('character ids are a subset/copy of data/characters.json');
+    }
+  }
+  const hasRels = Array.isArray(baseline.relationships) && baseline.relationships.length > 0;
+  const hasEvents = baseline.events && typeof baseline.events === 'object' && Object.keys(baseline.events).length > 0;
+  if (!hasRels) reasons.push('missing baseline.relationships (gold relations)');
+  if (!hasEvents) reasons.push('missing baseline.events (gold events)');
+  // dialogues copied from KB with same speaker+chapter+quote
+  const blDlgs = baseline.dialogues || [];
+  if (blDlgs.length > 0 && dialogues.length > 0) {
+    let copied = 0;
+    for (const d of blDlgs) {
+      const q = (d.quote || d.text || '').trim();
+      if (!q) continue;
+      if (dialogues.some(x => (x.text || '').includes(q.slice(0, 20)) || q.includes((x.text || '').slice(0, 20)))) {
+        copied++;
+      }
+    }
+    if (copied / blDlgs.length >= 0.9) {
+      reasons.push('baseline.dialogues appear copied from data/dialogues.json');
+    }
+  }
+  // strong self-ref: full char copy AND no gold relations/events
+  const isInvalid = reasons.some(r => r.includes('subset/copy')) && (!hasRels || !hasEvents);
+  const isWeak = !hasRels || !hasEvents;
+  return {
+    mode: isInvalid ? 'invalid_self_ref' : (isWeak ? 'incomplete_gold' : 'ok'),
+    reasons,
+    hasRels,
+    hasEvents,
+  };
+}
+
+const baselineAudit = detectSelfReferentialBaseline();
+console.log(`Baseline mode: ${baselineAudit.mode}`);
+if (baselineAudit.reasons.length) {
+  for (const r of baselineAudit.reasons) console.log(`  - ${r}`);
+}
+
+
 // ============================================================
 // 1. Entity Completeness
 // ============================================================
 function assessEntityCompleteness() {
+  if (baselineAudit.mode === 'invalid_self_ref') {
+    return { score: null, status: 'invalid_self_ref', details: {}, missing: [], note: 'skipped: self-referential baseline' };
+  }
   const baselineChars = baseline.characters || {};
   const details = {};
   const missing = [];
@@ -115,20 +176,18 @@ function assessEntityCompleteness() {
     details[importance] = {
       expected: expected.length,
       actual: matched,
-      coverage: expected.length > 0 ? Math.round((matched / expected.length) * 1000) / 10 : 100
+      coverage: expected.length > 0 ? Math.round((matched / expected.length) * 1000) / 10 : null
     };
   }
 
   const totalExpected = Object.values(details).reduce((s, d) => s + d.expected, 0);
   const totalActual = Object.values(details).reduce((s, d) => s + d.actual, 0);
-  const score = totalExpected > 0 ? Math.round((totalActual / totalExpected) * 1000) / 10 : 100;
+  // expected=0 must NOT default to 100 (self-ref / empty gold trap)
+  const score = totalExpected > 0 ? Math.round((totalActual / totalExpected) * 1000) / 10 : null;
+  const status = totalExpected > 0 ? 'ok' : 'no_gold';
 
-  return { score, details, missing };
+  return { score, status, details, missing };
 }
-
-// ============================================================
-// 2. Relationship Completeness & Accuracy
-// ============================================================
 function assessRelationships() {
   const baselineRels = baseline.relationships || [];
   const details = { core: { expected: 0, actual: 0 }, important: { expected: 0, actual: 0 }, secondary: { expected: 0, actual: 0 } };
@@ -180,13 +239,14 @@ function assessRelationships() {
 
   const totalExpected = Object.values(details).reduce((s, d) => s + d.expected, 0);
   const totalActual = Object.values(details).reduce((s, d) => s + d.actual, 0);
-  const completeness = totalExpected > 0 ? Math.round((totalActual / totalExpected) * 1000) / 10 : 100;
+  const completeness = totalExpected > 0 ? Math.round((totalActual / totalExpected) * 1000) / 10 : null;
+  const status = totalExpected > 0 ? 'ok' : 'no_gold';
 
   const totalChecked = totalActual;
   const correctCount = totalChecked - incorrect.length;
-  const accuracy = totalChecked > 0 ? Math.round((correctCount / totalChecked) * 1000) / 10 : 100;
+  const accuracy = totalChecked > 0 ? Math.round((correctCount / totalChecked) * 1000) / 10 : null;
 
-  return { completeness, accuracy, details, missing, incorrect };
+  return { completeness, accuracy, status, details, missing, incorrect };
 }
 
 // ============================================================
@@ -243,12 +303,15 @@ function assessDescriptionAccuracy() {
     return matched >= 1;
   }
 
-  // Check core and important characters
+  // Check core and important characters — only when gold fields exist
+  let hasGoldFields = false;
   for (const importance of ['core', 'important']) {
     const expected = baselineChars[importance] || [];
     for (const exp of expected) {
+      if (exp.expected_identity || (exp.expected_traits && exp.expected_traits.length)) hasGoldFields = true;
       const actual = charById.get(exp.id) || charByName.get(exp.name);
       if (!actual) continue;
+      if (!exp.expected_identity && !(exp.expected_traits && exp.expected_traits.length)) continue;
 
       totalChecked++;
       let charAccurate = true;
@@ -290,8 +353,11 @@ function assessDescriptionAccuracy() {
     }
   }
 
-  const score = totalChecked > 0 ? Math.round((accurate / totalChecked) * 1000) / 10 : 100;
-  return { score, totalChecked, accurate, issues };
+  if (!hasGoldFields || totalChecked === 0) {
+    return { score: null, status: 'no_gold', totalChecked: 0, accurate: 0, issues: [] };
+  }
+  const score = Math.round((accurate / totalChecked) * 1000) / 10;
+  return { score, status: 'ok', totalChecked, accurate, issues };
 }
 
 // ============================================================
@@ -344,14 +410,11 @@ function assessEventCoverage() {
 
   const totalExpected = Object.values(details).reduce((s, d) => s + d.expected, 0);
   const totalActual = Object.values(details).reduce((s, d) => s + d.actual, 0);
-  const score = totalExpected > 0 ? Math.round((totalActual / totalExpected) * 1000) / 10 : 100;
+  const score = totalExpected > 0 ? Math.round((totalActual / totalExpected) * 1000) / 10 : null;
+  const status = totalExpected > 0 ? 'ok' : 'no_gold';
 
-  return { score, details, missing };
+  return { score, status, details, missing };
 }
-
-// ============================================================
-// 5. Dialogue Quality
-// ============================================================
 function assessDialogueQuality() {
   const baselineDialogues = baseline.dialogues || [];
   let baselineChecked = 0;
@@ -359,60 +422,76 @@ function assessDialogueQuality() {
   let characterFit = 0;
   const issues = [];
 
+  // Load original text for quote authenticity (true metric)
+  const baseName = path.basename(novelDir);
+  const txtPath = path.join(novelDir, `${baseName}.txt`);
+  let originalText = '';
+  try { originalText = fs.readFileSync(txtPath, 'utf8'); } catch {}
+
   // Basic stats
   const totalDialogues = dialogues.length;
   const dialoguesWithSpeaker = dialogues.filter(d => d.speaker).length;
   const dialoguesWithListener = dialogues.filter(d => d.listener).length;
 
-  // Check against baseline expectations
+  // Quote-in-source authenticity (primary)
+  let quoteOk = 0;
+  let quoteChecked = 0;
+  for (const d of dialogues) {
+    const q = (d.text || d.quote || '').trim();
+    if (q.length < 6) continue;
+    quoteChecked++;
+    const needle = q.length > 40 ? q.slice(0, 40) : q;
+    if (originalText.includes(needle) || originalText.includes(q.slice(0, 15))) quoteOk++;
+    else issues.push({ index: quoteChecked, chapter: d.chapter, speaker: d.speaker, issue: 'quote not found in source text' });
+  }
+  const quoteAuthenticity = quoteChecked > 0 ? Math.round((quoteOk / quoteChecked) * 1000) / 10 : null;
+
+  // Baseline chapter+speaker match (secondary; null if no gold dialogues)
   for (const exp of baselineDialogues) {
     baselineChecked++;
-    
-    // Find matching dialogue by chapter and speaker
-    const actual = dialogues.find(d => 
-      d.chapter === exp.chapter && 
+    const actual = dialogues.find(d =>
+      d.chapter === exp.chapter &&
       (d.speaker_name === exp.speaker || d.speaker === exp.speaker)
     );
-    
     if (actual) {
       baselineMatched++;
-      
-      // Check character fit
       const char = charById.get(actual.speaker);
       if (char && exp.expected_style) {
         const speechStyle = char.personality?.speech_style || '';
-        if (speechStyle.includes(exp.expected_style) || exp.expected_style.includes(speechStyle)) {
-          characterFit++;
-        } else {
-          issues.push({
-            index: dialogues.indexOf(actual),
-            chapter: actual.chapter,
-            speaker: actual.speaker_name,
-            issue: `Speech style mismatch: expected "${exp.expected_style}", got "${speechStyle}"`
-          });
-        }
-      } else {
-        characterFit++; // No style to check, count as fit
-      }
+        if (speechStyle.includes(exp.expected_style) || exp.expected_style.includes(speechStyle)) characterFit++;
+        else issues.push({ index: dialogues.indexOf(actual), chapter: actual.chapter, speaker: actual.speaker_name, issue: `Speech style mismatch` });
+      } else characterFit++;
     }
   }
 
-  const authenticity = baselineChecked > 0 ? Math.round((baselineMatched / baselineChecked) * 1000) / 10 : 100;
-  const representativeness = totalDialogues > 0 ? Math.round((dialoguesWithSpeaker / totalDialogues) * 1000) / 10 : 100;
-  const characterFitScore = baselineChecked > 0 ? Math.round((characterFit / baselineChecked) * 1000) / 10 : 100;
+  // Prefer quote authenticity; fall back to baseline match only if quotes unavailable
+  const authenticity = quoteAuthenticity != null ? quoteAuthenticity
+    : (baselineChecked > 0 ? Math.round((baselineMatched / baselineChecked) * 1000) / 10 : null);
+  const representativeness = totalDialogues > 0 ? Math.round((dialoguesWithSpeaker / totalDialogues) * 1000) / 10 : null;
+  const characterFitScore = baselineChecked > 0 ? Math.round((characterFit / baselineChecked) * 1000) / 10 : null;
+  const chapterCoverage = (() => {
+    const chSet = new Set(dialogues.map(d => d.chapter).filter(Boolean));
+    const totalCh = chapterSummaries.length || 0;
+    return totalCh > 0 ? Math.round((chSet.size / totalCh) * 1000) / 10 : null;
+  })();
 
   return {
     authenticity,
     representativeness,
     characterFit: characterFitScore,
+    quoteAuthenticity,
+    chapterCoverage,
+    status: authenticity == null ? 'no_gold' : 'ok',
     details: {
       total: totalDialogues,
       withSpeaker: dialoguesWithSpeaker,
       withListener: dialoguesWithListener,
       baselineChecked,
-      baselineMatched
+      baselineMatched,
+      quoteChecked,
+      quoteOk,
     },
-    issues
+    issues: issues.slice(0, 50),
   };
 }
 
@@ -446,6 +525,10 @@ function namesMatch(name1, name2) {
 }
 
 function assessCrossBookPurity() {
+  // Self-ref baseline makes purity trivially 100 — mark invalid
+  if (baselineAudit.mode === 'invalid_self_ref') {
+    return { score: null, status: 'invalid_self_ref', totalEntities: 0, pureEntities: 0, suspicious: [], note: 'skipped: baseline is self-referential' };
+  }
   const baselineChars = baseline.characters || {};
   const baselineSkills = baseline.skills || [];
   const baselineItems = baseline.items || [];
@@ -517,9 +600,9 @@ function assessCrossBookPurity() {
 
   const totalEntities = allKBEntities.length;
   const pureEntities = totalEntities - suspicious.length;
-  const score = totalEntities > 0 ? Math.round((pureEntities / totalEntities) * 1000) / 10 : 100;
+  const score = totalEntities > 0 ? Math.round((pureEntities / totalEntities) * 1000) / 10 : null;
 
-  return { score, totalEntities, pureEntities, suspicious };
+  return { score, status: score == null ? 'no_gold' : 'ok', totalEntities, pureEntities, suspicious };
 }
 
 // ============================================================
@@ -576,6 +659,20 @@ function validateBaseline() {
   } catch (e) {
     issues.push({ type: 'error', message: `Cannot read original text: ${txtPath}` });
     return { score: 0, issues };
+  }
+
+  if (baselineAudit.mode === 'invalid_self_ref') {
+    issues.push({
+      type: 'self_ref',
+      message: 'baseline appears copied from current KB; gold metrics are invalid',
+      reasons: baselineAudit.reasons,
+    });
+  }
+  if (!baselineAudit.hasRels) {
+    issues.push({ type: 'incomplete_gold', message: 'baseline.relationships missing or empty' });
+  }
+  if (!baselineAudit.hasEvents) {
+    issues.push({ type: 'incomplete_gold', message: 'baseline.events missing or empty' });
   }
   
   // Check baseline characters exist in original text
@@ -681,9 +778,14 @@ function validateBaseline() {
   
   const hallucinations = issues.filter(i => i.type === 'hallucination');
   const duplicates = issues.filter(i => i.type === 'duplicate');
-  const score = issues.length === 0 ? 100 : Math.max(0, 100 - (hallucinations.length * 10) - (duplicates.length * 5));
+  const selfRefs = issues.filter(i => i.type === 'self_ref' || i.type === 'incomplete_gold');
+  let score = 100;
+  score -= hallucinations.length * 10;
+  score -= duplicates.length * 5;
+  score -= selfRefs.length * 15;
+  score = Math.max(0, score);
   
-  return { score, issues, hallucinations, duplicates };
+  return { score, issues, hallucinations, duplicates, self_refs: selfRefs, baseline_mode: baselineAudit.mode };
 }
 
 // ============================================================
@@ -721,6 +823,62 @@ function assessEntityQuantity() {
   return { score, details, chapterCount };
 }
 
+/** Honest metrics from locate/verify — always computable without gold baseline */
+function assessHonestMetrics() {
+  const nonDialogueFiles = ['characters', 'factions', 'locations', 'skills', 'techniques', 'items'];
+  let refs = 0, grounded = 0, weak = 0, unverified = 0;
+  const perFile = {};
+
+  for (const file of nonDialogueFiles) {
+    const arr = loadJson(`${file}.json`, 'data') || [];
+    let fRefs = 0, fG = 0, fW = 0, fU = 0;
+    for (const e of arr) {
+      for (const s of (e.source_refs || [])) {
+        fRefs++; refs++;
+        if (s.verify_status === 'grounded') { fG++; grounded++; }
+        else if (s.verify_status === 'weak') { fW++; weak++; }
+        else if (s.verify_status === 'unverified' || s.locate_status === 'not_located') { fU++; unverified++; }
+        else if (s.line_start || (s.locate_status && s.locate_status !== 'not_located')) { fG++; grounded++; }
+        else { fU++; unverified++; }
+      }
+    }
+    perFile[file] = {
+      entities: arr.length,
+      refs: fRefs,
+      grounded_ratio: fRefs ? Math.round((fG / fRefs) * 1000) / 10 : null,
+    };
+  }
+
+  const digs = dialogues;
+  const digCh = new Set(digs.map(d => d.chapter)).size;
+  const summaryCh = chapterSummaries.length;
+  let goodSummaries = 0;
+  for (const cs of chapterSummaries) {
+    const ke = cs.key_events || [];
+    if (ke.length >= 2 && ke.some(k => String(k).length >= 12)) goodSummaries++;
+  }
+  const summaryQuality = summaryCh > 0 ? Math.round((goodSummaries / summaryCh) * 1000) / 10 : 0;
+  const entityGrounded = refs > 0 ? Math.round((grounded / refs) * 1000) / 10 : null;
+  const vr = verificationReport;
+  let grandFromReport = null;
+  if (vr && vr.grand_grounded_ratio != null) {
+    const g = Number(vr.grand_grounded_ratio);
+    grandFromReport = g <= 1 ? Math.round(g * 1000) / 10 : Math.round(g * 10) / 10;
+  }
+
+  return {
+    entity_grounded_ratio: entityGrounded,
+    grand_grounded_from_report: grandFromReport,
+    entity_refs: { total: refs, grounded, weak, unverified },
+    per_file: perFile,
+    dialogue_count: digs.length,
+    dialogue_chapter_coverage: summaryCh > 0 ? Math.round((digCh / summaryCh) * 1000) / 10 : null,
+    summary_count: summaryCh,
+    summary_quality_proxy: summaryQuality,
+    entity_quantity_score: null,
+  };
+}
+
 // ============================================================
 // Run all assessments
 // ============================================================
@@ -732,19 +890,57 @@ const dialogueQuality = assessDialogueQuality();
 const crossBookPurity = assessCrossBookPurity();
 const entityQuantity = assessEntityQuantity();
 const baselineValidation = validateBaseline();
+const honest = assessHonestMetrics();
+honest.entity_quantity_score = entityQuantity.score;
 
-// Calculate overall score (weights sum to 1.0, scores are percentages)
-// Note: entity_quantity is informational only, not included in score
-const overallScore = Math.round(
-  entityCompleteness.score * 0.25 +
-  relationships.completeness * 0.15 +
-  relationships.accuracy * 0.10 +
-  descriptionAccuracy.score * 0.15 +
-  eventCoverage.score * 0.10 +
-  dialogueQuality.authenticity * 0.10 +
-  dialogueQuality.representativeness * 0.05 +
-  crossBookPurity.score * 0.10
+function numOrNull(v) {
+  return (v === null || v === undefined || Number.isNaN(v)) ? null : Number(v);
+}
+
+// Gold-weighted overall only if baseline is valid; else N/A
+const goldParts = [
+  { w: 0.25, v: numOrNull(entityCompleteness.score) },
+  { w: 0.15, v: numOrNull(relationships.completeness) },
+  { w: 0.10, v: numOrNull(relationships.accuracy) },
+  { w: 0.15, v: numOrNull(descriptionAccuracy.score) },
+  { w: 0.10, v: numOrNull(eventCoverage.score) },
+  { w: 0.10, v: numOrNull(dialogueQuality.authenticity) },
+  { w: 0.05, v: numOrNull(dialogueQuality.representativeness) },
+  { w: 0.10, v: numOrNull(crossBookPurity.score) },
+];
+const goldUsable = baselineAudit.mode === 'ok' && goldParts.every(p => p.v != null);
+let goldOverall = null;
+if (goldUsable) {
+  goldOverall = Math.round(goldParts.reduce((s, p) => s + p.v * p.w, 0));
+} else if (baselineAudit.mode !== 'invalid_self_ref') {
+  // partial gold: reweight only available metrics
+  const avail = goldParts.filter(p => p.v != null);
+  const wsum = avail.reduce((s, p) => s + p.w, 0);
+  if (wsum > 0 && avail.length >= 3) {
+    goldOverall = Math.round(avail.reduce((s, p) => s + p.v * (p.w / wsum), 0));
+  }
+}
+
+// Honest overall always
+const hGround = numOrNull(honest.entity_grounded_ratio) ?? 0;
+const hDlg = numOrNull(dialogueQuality.quoteAuthenticity ?? dialogueQuality.authenticity) ?? 0;
+const hQty = numOrNull(entityQuantity.score) ?? 0;
+const hSum = numOrNull(honest.summary_quality_proxy) ?? 0;
+const hBase = numOrNull(baselineValidation.score) ?? 0;
+const honestOverall = Math.round(
+  hGround * 0.35 +
+  hDlg * 0.25 +
+  hQty * 0.15 +
+  hSum * 0.10 +
+  hBase * 0.15
 );
+
+const overallScore = goldUsable ? goldOverall : null;
+const completionOk = honestOverall >= 85
+  && hGround >= 85
+  && hDlg >= 95
+  && hQty >= 80
+  && baselineAudit.mode !== 'invalid_self_ref';
 
 // ============================================================
 // Output report
@@ -753,13 +949,21 @@ const report = {
   generated_at: new Date().toISOString(),
   novel: baseline.novel || 'Unknown',
   author: baseline.author || 'Unknown',
+  baseline_mode: baselineAudit.mode,
+  baseline_audit_reasons: baselineAudit.reasons,
   overall_score: overallScore,
+  overall_score_note: goldUsable
+    ? 'gold baseline comparison'
+    : 'N/A — baseline invalid or incomplete; use honest_overall_score',
+  honest_overall_score: honestOverall,
+  completion_gate_passed: completionOk,
   metrics: {
     entity_completeness: entityCompleteness,
     entity_quantity: entityQuantity,
     relationship_completeness: {
       score: relationships.completeness,
       accuracy: relationships.accuracy,
+      status: relationships.status,
       details: relationships.details,
       missing: relationships.missing,
       incorrect: relationships.incorrect
@@ -768,7 +972,8 @@ const report = {
     event_coverage: eventCoverage,
     dialogue_quality: dialogueQuality,
     cross_book_purity: crossBookPurity,
-    baseline_validation: baselineValidation
+    baseline_validation: baselineValidation,
+    honest_metrics: honest,
   }
 };
 
@@ -783,19 +988,28 @@ const md = generateMarkdownReport(report);
 fs.writeFileSync(mdPath, md, 'utf8');
 
 // Print summary
-console.log(`\nOverall Quality Score: ${overallScore}/100\n`);
-console.log('Metric Scores:');
-console.log(`  Entity Completeness:       ${entityCompleteness.score}%`);
-console.log(`  Entity Quantity:           ${entityQuantity.score}%`);
-console.log(`  Relationship Completeness: ${relationships.completeness}%`);
-console.log(`  Relationship Accuracy:     ${relationships.accuracy}%`);
-console.log(`  Description Accuracy:      ${descriptionAccuracy.score}%`);
-console.log(`  Event Coverage:            ${eventCoverage.score}%`);
-console.log(`  Dialogue Authenticity:     ${dialogueQuality.authenticity}%`);
-console.log(`  Dialogue Character Fit:    ${dialogueQuality.characterFit}%`);
-console.log(`  Dialogue Represent.:       ${dialogueQuality.representativeness}%`);
-console.log(`  Cross-Book Purity:         ${crossBookPurity.score}%`);
-console.log(`  Baseline Validation:       ${baselineValidation.score}%`);
+console.log(`\nBaseline mode: ${baselineAudit.mode}`);
+console.log(`Gold Overall Score: ${overallScore == null ? 'N/A' : overallScore + '/100'}`);
+console.log(`Honest Overall Score: ${honestOverall}/100`);
+console.log(`Completion gate: ${completionOk ? 'PASS' : 'FAIL'}\n`);
+console.log('Metric Scores (null = no_gold / skipped):');
+const fmt = (v) => (v == null ? 'N/A' : `${v}%`);
+console.log(`  Entity Completeness:       ${fmt(entityCompleteness.score)}`);
+console.log(`  Entity Quantity:           ${fmt(entityQuantity.score)}`);
+console.log(`  Relationship Completeness: ${fmt(relationships.completeness)}`);
+console.log(`  Relationship Accuracy:     ${fmt(relationships.accuracy)}`);
+console.log(`  Description Accuracy:      ${fmt(descriptionAccuracy.score)}`);
+console.log(`  Event Coverage:            ${fmt(eventCoverage.score)}`);
+console.log(`  Dialogue Authenticity:     ${fmt(dialogueQuality.authenticity)} (quote-in-source)`);
+console.log(`  Dialogue Chapter Coverage: ${fmt(dialogueQuality.chapterCoverage)}`);
+console.log(`  Cross-Book Purity:         ${fmt(crossBookPurity.score)}`);
+console.log(`  Baseline Validation:       ${fmt(baselineValidation.score)}`);
+console.log(`  Honest Entity Grounded:    ${fmt(honest.entity_grounded_ratio)}`);
+console.log(`  Honest Summary Quality:    ${fmt(honest.summary_quality_proxy)}`);
+
+if (baselineAudit.mode === 'invalid_self_ref') {
+  console.log('\n❌ baseline 自指（从当前 KB 复制），金标综合分无效。请独立生成 baseline.json（含 relationships + events）。');
+}
 
 if (baselineValidation.hallucinations && baselineValidation.hallucinations.length > 0) {
   console.log(`\n⚠️  Baseline Hallucinations (${baselineValidation.hallucinations.length}):`);
@@ -814,29 +1028,35 @@ if (baselineValidation.duplicates && baselineValidation.duplicates.length > 0) {
   }
 }
 
-// Check minimum thresholds for individual metrics
-const thresholds = {
-  'Entity Completeness': { score: entityCompleteness.score, min: 95 },
-  'Relationship Completeness': { score: relationships.completeness, min: 95 },
-  'Relationship Accuracy': { score: relationships.accuracy, min: 90 },
-  'Description Accuracy': { score: descriptionAccuracy.score, min: 70 },
-  'Event Coverage': { score: eventCoverage.score, min: 95 },
-  'Dialogue Authenticity': { score: dialogueQuality.authenticity, min: 70 },
-  'Cross-Book Purity': { score: crossBookPurity.score, min: 85 }
-};
+// Thresholds: only enforce gold metrics when available; always enforce honest gates
+const thresholds = {};
+if (entityCompleteness.score != null) thresholds['Entity Completeness'] = { score: entityCompleteness.score, min: 95 };
+if (relationships.completeness != null) thresholds['Relationship Completeness'] = { score: relationships.completeness, min: 95 };
+if (relationships.accuracy != null) thresholds['Relationship Accuracy'] = { score: relationships.accuracy, min: 90 };
+if (descriptionAccuracy.score != null) thresholds['Description Accuracy'] = { score: descriptionAccuracy.score, min: 70 };
+if (eventCoverage.score != null) thresholds['Event Coverage'] = { score: eventCoverage.score, min: 95 };
+if (dialogueQuality.authenticity != null) thresholds['Dialogue Authenticity'] = { score: dialogueQuality.authenticity, min: 95 };
+if (crossBookPurity.score != null) thresholds['Cross-Book Purity'] = { score: crossBookPurity.score, min: 85 };
+thresholds['Honest Entity Grounded'] = { score: honest.entity_grounded_ratio ?? 0, min: 85 };
+thresholds['Entity Quantity'] = { score: entityQuantity.score, min: 80 };
+thresholds['Honest Overall'] = { score: honestOverall, min: 85 };
 
 const failedMetrics = Object.entries(thresholds)
-  .filter(([_, v]) => v.score < v.min)
+  .filter(([_, v]) => v.score == null || v.score < v.min)
   .map(([name, v]) => ({ name, score: v.score, min: v.min }));
 
-if (failedMetrics.length > 0) {
-  console.log(`\n❌ 未达标指标 (${failedMetrics.length}):`);
+if (baselineAudit.mode === 'invalid_self_ref') {
+  failedMetrics.unshift({ name: 'Baseline Independence', score: 0, min: 1 });
+}
+
+if (failedMetrics.length > 0 || !completionOk) {
+  console.log(`\n❌ 未达标 / 门禁未过 (${failedMetrics.length} metrics, gate=${completionOk ? 'PASS' : 'FAIL'}):`);
   for (const m of failedMetrics) {
-    console.log(`  - ${m.name}: ${m.score}% (最低要求 ${m.min}%)`);
+    console.log(`  - ${m.name}: ${m.score == null ? 'N/A' : m.score + '%'} (最低要求 ${m.min}%)`);
   }
-  console.log('\n⚠️  综合分数可能达标，但单项指标未达标，必须修复后重跑！');
+  console.log('\n⚠️  不得以自指 baseline 的满分宣称完成；以 honest_overall_score 与 completion_gate 为准。');
 } else {
-  console.log('\n✅ 所有单项指标均达标');
+  console.log('\n✅ 诚实门槛与可用金标指标均达标；completion_gate PASS');
 }
 
 console.log(`\nReports written to:`);
@@ -850,22 +1070,39 @@ function generateMarkdownReport(report) {
   const lines = [];
   lines.push(`# Quality Report — ${report.novel}`);
   lines.push(`\nGenerated: ${report.generated_at}`);
-  lines.push(`\n## Overall Score: ${report.overall_score}/100\n`);
+  lines.push(`\n**Baseline mode:** \`${report.baseline_mode}\``);
+  lines.push(`\n## Gold Overall: ${report.overall_score == null ? 'N/A' : report.overall_score + '/100'}`);
+  lines.push(`\n## Honest Overall: ${report.honest_overall_score}/100`);
+  lines.push(`\n## Completion gate: ${report.completion_gate_passed ? 'PASS' : 'FAIL'}\n`);
+  if (report.baseline_audit_reasons?.length) {
+    lines.push('### Baseline audit\n');
+    for (const r of report.baseline_audit_reasons) lines.push(`- ${r}`);
+    lines.push('');
+  }
 
   lines.push('## Metric Scores\n');
   lines.push('| Metric | Score | Weight | Status |');
   lines.push('|--------|-------|--------|--------|');
-  lines.push(`| Entity Completeness | ${report.metrics.entity_completeness.score}% | 0.25 | ${statusIcon(report.metrics.entity_completeness.score)} |`);
-  lines.push(`| Relationship Completeness | ${report.metrics.relationship_completeness.score}% | 0.15 | ${statusIcon(report.metrics.relationship_completeness.score)} |`);
-  lines.push(`| Relationship Accuracy | ${report.metrics.relationship_completeness.accuracy}% | 0.10 | ${statusIcon(report.metrics.relationship_completeness.accuracy)} |`);
-  lines.push(`| Description Accuracy | ${report.metrics.description_accuracy.score}% | 0.15 | ${statusIcon(report.metrics.description_accuracy.score)} |`);
-  lines.push(`| Event Coverage | ${report.metrics.event_coverage.score}% | 0.10 | ${statusIcon(report.metrics.event_coverage.score)} |`);
-  lines.push(`| Dialogue Authenticity | ${report.metrics.dialogue_quality.authenticity}% | 0.10 | ${statusIcon(report.metrics.dialogue_quality.authenticity)} |`);
-  lines.push(`| Dialogue Representativeness | ${report.metrics.dialogue_quality.representativeness}% | 0.05 | ${statusIcon(report.metrics.dialogue_quality.representativeness)} |`);
-  lines.push(`| Cross-Book Purity | ${report.metrics.cross_book_purity.score}% | 0.10 | ${statusIcon(report.metrics.cross_book_purity.score)} |`);
+  const row = (name, score, w) => `| ${name} | ${score == null ? 'N/A' : score + '%'} | ${w} | ${statusIcon(score)} |`;
+  lines.push(row('Entity Completeness', report.metrics.entity_completeness.score, '0.25'));
+  lines.push(row('Relationship Completeness', report.metrics.relationship_completeness.score, '0.15'));
+  lines.push(row('Relationship Accuracy', report.metrics.relationship_completeness.accuracy, '0.10'));
+  lines.push(row('Description Accuracy', report.metrics.description_accuracy.score, '0.15'));
+  lines.push(row('Event Coverage', report.metrics.event_coverage.score, '0.10'));
+  lines.push(row('Dialogue Authenticity', report.metrics.dialogue_quality.authenticity, '0.10'));
+  lines.push(row('Dialogue Representativeness', report.metrics.dialogue_quality.representativeness, '0.05'));
+  lines.push(row('Cross-Book Purity', report.metrics.cross_book_purity.score, '0.10'));
 
-  // Entity Quantity Details (informational only)
-  lines.push('\n## Entity Quantity (参考建议，不计入综合分数)\n');
+  lines.push('\n## Honest Metrics（不依赖金标，始终可信）\n');
+  const hm = report.metrics.honest_metrics || {};
+  lines.push(`- Entity grounded: ${hm.entity_grounded_ratio ?? 'N/A'}%`);
+  lines.push(`- Dialogue count: ${hm.dialogue_count}`);
+  lines.push(`- Dialogue chapter coverage: ${hm.dialogue_chapter_coverage ?? 'N/A'}%`);
+  lines.push(`- Summary quality proxy: ${hm.summary_quality_proxy ?? 'N/A'}%`);
+  lines.push(`- Entity quantity: ${report.metrics.entity_quantity.score}%`);
+
+  // Entity Quantity Details
+  lines.push('\n## Entity Quantity\n');
   const eq = report.metrics.entity_quantity;
   lines.push(`Chapter Count: ${eq.chapterCount}\n`);
   lines.push('| Type | Actual | Minimum | Status |');
@@ -877,12 +1114,13 @@ function generateMarkdownReport(report) {
   // Entity Completeness Details
   lines.push('\n## Entity Completeness\n');
   const ec = report.metrics.entity_completeness;
+  lines.push(`Status: ${ec.status || 'ok'}\n`);
   lines.push('| Importance | Expected | Actual | Coverage |');
   lines.push('|------------|----------|--------|----------|');
-  for (const [key, val] of Object.entries(ec.details)) {
+  for (const [key, val] of Object.entries(ec.details || {})) {
     lines.push(`| ${importanceLabel(key)} | ${val.expected} | ${val.actual} | ${val.coverage}% |`);
   }
-  if (ec.missing.length > 0) {
+  if (ec.missing && ec.missing.length > 0) {
     lines.push(`\n### Missing Entities (${ec.missing.length})\n`);
     lines.push('| ID | Name | Importance | Reason |');
     lines.push('|-----|------|------------|--------|');
@@ -894,83 +1132,33 @@ function generateMarkdownReport(report) {
   // Relationship Details
   lines.push('\n## Relationship Completeness\n');
   const rc = report.metrics.relationship_completeness;
+  lines.push(`Status: ${rc.status || 'ok'}\n`);
   lines.push('| Importance | Expected | Actual | Coverage |');
   lines.push('|------------|----------|--------|----------|');
-  for (const [key, val] of Object.entries(rc.details)) {
-    const coverage = val.expected > 0 ? Math.round((val.actual / val.expected) * 100) : 100;
-    lines.push(`| ${importanceLabel(key)} | ${val.expected} | ${val.actual} | ${coverage}% |`);
-  }
-  if (rc.missing.length > 0) {
-    lines.push(`\n### Missing Relationships (${rc.missing.length})\n`);
-    lines.push('| Source | Target | Type | Importance |');
-    lines.push('|--------|--------|------|------------|');
-    for (const m of rc.missing) {
-      lines.push(`| ${m.source} | ${m.target} | ${m.type} | ${m.importance || 'secondary'} |`);
-    }
-  }
-  if (rc.incorrect && rc.incorrect.length > 0) {
-    lines.push(`\n### Incorrect Relationship Types (${rc.incorrect.length})\n`);
-    lines.push('| Source | Target | Expected | Actual |');
-    lines.push('|--------|--------|----------|--------|');
-    for (const i of rc.incorrect) {
-      lines.push(`| ${i.source} | ${i.target} | ${i.expected} | ${i.actual} |`);
-    }
+  for (const [key, val] of Object.entries(rc.details || {})) {
+    const coverage = val.expected > 0 ? Math.round((val.actual / val.expected) * 100) : 'N/A';
+    lines.push(`| ${importanceLabel(key)} | ${val.expected} | ${val.actual} | ${coverage}${coverage === 'N/A' ? '' : '%'} |`);
   }
 
   // Event Coverage Details
   lines.push('\n## Event Coverage\n');
   const ev = report.metrics.event_coverage;
-  lines.push('| Type | Expected | Actual | Coverage |');
-  lines.push('|------|----------|--------|----------|');
-  for (const [key, val] of Object.entries(ev.details)) {
-    const coverage = val.expected > 0 ? Math.round((val.actual / val.expected) * 100) : 100;
-    lines.push(`| ${key} | ${val.expected} | ${val.actual} | ${coverage}% |`);
-  }
-  if (ev.missing.length > 0) {
-    lines.push(`\n### Missing Events (${ev.missing.length})\n`);
-    lines.push('| Chapter | Event | Importance |');
-    lines.push('|---------|-------|------------|');
-    for (const m of ev.missing) {
-      lines.push(`| ${m.chapter} | ${m.event} | ${m.importance} |`);
-    }
-  }
+  lines.push(`Status: ${ev.status || 'ok'}\n`);
 
   // Dialogue Quality Details
   lines.push('\n## Dialogue Quality\n');
   const dq = report.metrics.dialogue_quality;
   lines.push(`- Total dialogues: ${dq.details.total}`);
+  lines.push(`- Quote authenticity: ${dq.quoteAuthenticity ?? dq.authenticity ?? 'N/A'}%`);
+  lines.push(`- Chapter coverage: ${dq.chapterCoverage ?? 'N/A'}%`);
   lines.push(`- With speaker: ${dq.details.withSpeaker}`);
-  lines.push(`- With listener: ${dq.details.withListener}`);
   lines.push(`- Baseline checked: ${dq.details.baselineChecked}`);
-  lines.push(`- Baseline matched: ${dq.details.baselineMatched}`);
-  if (dq.issues.length > 0) {
-    lines.push(`\n### Dialogue Issues (${dq.issues.length})\n`);
-    lines.push('| Index | Chapter | Speaker | Issue |');
-    lines.push('|-------|---------|---------|-------|');
-    for (const i of dq.issues) {
-      lines.push(`| ${i.index} | ${i.chapter} | ${i.speaker} | ${i.issue} |`);
-    }
-  }
 
-  // Cross-Book Purity Details
-  lines.push('\n## Cross-Book Purity\n');
-  const cb = report.metrics.cross_book_purity;
-  lines.push(`- Total entities: ${cb.totalEntities}`);
-  lines.push(`- Pure entities: ${cb.pureEntities}`);
-  lines.push(`- Suspicious: ${cb.suspicious.length}`);
-  if (cb.suspicious.length > 0) {
-    lines.push(`\n### Suspicious Entities (${cb.suspicious.length})\n`);
-    lines.push('| ID | Name | Type |');
-    lines.push('|-----|------|------|');
-    for (const s of cb.suspicious) {
-      lines.push(`| ${s.id} | ${s.name} | ${s.type} |`);
-    }
-  }
-
-  // Baseline Validation Details
+  // Baseline Validation
   lines.push('\n## Baseline Validation\n');
   const bv = report.metrics.baseline_validation;
   lines.push(`- Score: ${bv.score}%`);
+  lines.push(`- Mode: ${bv.baseline_mode || report.baseline_mode}`);
   lines.push(`- Hallucinations: ${(bv.hallucinations || []).length}`);
   lines.push(`- Duplicates: ${(bv.duplicates || []).length}`);
   if (bv.hallucinations && bv.hallucinations.length > 0) {
@@ -981,20 +1169,14 @@ function generateMarkdownReport(report) {
       lines.push(`| ${h.entity_type} | ${h.id} | ${h.name} | ${h.message} |`);
     }
   }
-  if (bv.duplicates && bv.duplicates.length > 0) {
-    lines.push(`\n### Duplicate Entities (${bv.duplicates.length})\n`);
-    lines.push('| Name | Count |');
-    lines.push('|------|-------|');
-    for (const d of bv.duplicates) {
-      lines.push(`| ${d.name} | ${d.count} |`);
-    }
-  }
 
   return lines.join('\n');
 }
 
 function statusIcon(score) {
+  if (score == null) return 'N/A';
   if (score >= 90) return '✅';
   if (score >= 75) return '⚠️';
   return '❌';
 }
+

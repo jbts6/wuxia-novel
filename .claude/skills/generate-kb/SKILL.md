@@ -34,18 +34,23 @@ Don't ask the user about something memory may already record.
 
 - 仅当 `<小说目录>/<小说名>.txt` 存在时才可运行
 - 每个实体必须附 `source_refs: [{chapter, anchor, event_type}]`，由 `locate.js` 自动回填
-- 核心质量指标：**综合质量分数 ≥ 95%**
-- **单项指标最低门槛**（任一不达标需修复后重跑）：
-  - Entity Completeness = 100%（outline.json 锁定清单后必须全部覆盖）
-  - Relationship Completeness = 100%（遍历所有角色对补全关系）
-  - Relationship Accuracy = 100%（关系类型明确无歧义）
-  - Description Accuracy ≥ 70%（描述主观难以量化）
-  - Event Coverage = 100%（chapter_summaries 覆盖所有章节）
-  - Dialogue Authenticity = 100%（用原文提取不做改写）
-  - Cross-Book Purity = 100%（baseline 包含所有应有实体）
+- **禁止自指 baseline**：不得从 `data/*.json` 生成 `build/baseline.json`；须含 `relationships` + `events`
+- 核心质量：**honest_overall_score ≥ 85** 且 `completion_gate_passed`；金标 overall 仅在独立 baseline 时有效，目标 ≥ 95%
+- **单项（诚实门槛，始终强制）**：
+  - Honest Entity Grounded ≥ 85%（verify）
+  - Dialogue quote 原文命中 ≥ 95%
+  - Entity Quantity ≥ 80%
+  - baseline 非 `invalid_self_ref`
+- **单项（金标可用时）**：
+  - Entity Completeness = 100%
+  - Relationship Completeness / Accuracy = 100%
+  - Event Coverage = 100%
+  - Description Accuracy ≥ 70%
+  - Cross-Book Purity = 100%
+- `expected=0` 的金标指标记 **N/A**，不得记 100
 - ID、schema、枚举以 `schemas.md` / `constants.md` 为准
 - 生成阶段必须使用长上下文模型（≥ 1M tokens）
-- **dialogues 必须用"LLM 读原文 + 事件锚定"方案提取**，禁止凭记忆生成
+- **dialogues 必须用"LLM 读原文 + 事件锚定"或可验证正则抽取**，禁止凭记忆编 quote
 - **items.json 必须包含 `tags` 字段**
 - **实体审核采用"广撒网 → 精挑选"策略**，详见 `review.md`
 
@@ -54,23 +59,25 @@ Don't ask the user about something memory may already record.
 0. 前置检查：原文存在
 1. Phase 1：split + compact-mention（生成 ch_split/、build/manifest.json、build/mention_index.jsonl、build/mention_summary.json）
 2. **Phase 1.2：LLM 生成 build/keywords.json**（基于原文和 mention_summary，提取本书专属的角色名、门派名、地名、功法名、关键事件、重要物品等）
-3. Phase 1.6：生成专属 prompt
-4. Phase 1.6.5：校验 prompt
-5. Phase 1.5（可选）：生成 outline.json
-6. Phase 2 Pass 1：生成 5 个实体 JSON
-7. **刷新 build/keywords.json**：重跑 `extract-keywords.js`，将实体名加入关键词字典
-8. Phase 3：locate + verify + cross-validate + check-skill-items
-9. 如 locate 率 < 95% 或有 errors，调整 prompt 后重跑
-10. Phase 2 Pass 2：生成 items + dialogues + chapter_summaries
-11. **Phase 2.6：实体审核**（详见 `review.md`）
-12. Phase 2.2：交叉验证 chapter_summaries
-13. Phase 2.5：提取 dialogues
-14. **定位 dialogues 行号**：`locate-dialogues.js` 精确行号 + 删除幻觉条目
-15. Phase 3：完整校验 + check-skill-items（可疑条目交 LLM 审核）
-16. Phase 3.5：对抗校验（详见 `review.md`）
-17. Phase 3.6：质量评估（≥85%）
-18. Phase 3.7：生成 summary.md
-19. 最终验证：8 JSON 可解析、schema 合法、errors = 0
+3. Phase 1.5：生成 outline.json
+4. **Phase 1.7：独立 baseline**（relationships + events + 经典 quote；禁止从 data 拷贝）
+5. Phase 1.6：生成专属 prompt
+6. Phase 1.6.5：校验 prompt
+7. Phase 2 Pass 1：生成 5 个实体 JSON
+8. **fix-relationships.js** 补反向关系
+9. **刷新 build/keywords.json**：`extract-keywords.js`
+10. Phase 3：locate + verify + cross-validate + check-skill-items
+11. 如 locate 率 < 95% 或有 errors，调整后重跑
+12. Phase 2 Pass 2：items + chapter_summaries（按章读原文，禁纯标题模板）
+13. Phase 2.6：实体审核（`review.md`）
+14. Phase 2.2：交叉验证 chapter_summaries
+15. Phase 2.5：提取 dialogues
+16. **locate-dialogues.js** + 删幻觉
+17. Phase 3 完整校验
+18. Phase 3.5：对抗校验
+19. Phase 3.6：`assess-quality.js`（金标 + honest 双轨；以 completion_gate 为准）
+20. Phase 3.7：summary.md
+21. 最终：8 JSON 可解析、errors=0、**completion_gate PASS**
 
 **各 Phase 详细步骤**见 `pipeline.md`。
 

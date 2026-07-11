@@ -65,7 +65,7 @@ node <skill>/scripts/compact-mention.js <novelDir>
 
 **重要**：`build/keywords.json` 是 locate.js 的核心依赖。关键词越精准，locate 率越高。
 
-## Phase 1.5：outline（可选）
+## Phase 1.5：outline
 
 读取专属 `outline.md`，生成 `outline.json`（characters/factions/locations/skills 骨架清单）。
 
@@ -173,34 +173,72 @@ node <skill>/scripts/review-dialogues.js <novelDir>
 
 审阅范围详见 `review.md` 的"Phase 3.5 对抗校验审核不通过条件"。
 
-## Phase 3.6：质量评估
+## Phase 1.7：独立 baseline（金标，Pass1 前）
+
+**禁止**从 `data/*.json` 生成 baseline。baseline 必须独立于当前 KB。
 
 ```bash
 node <skill>/scripts/generate-baseline-prompt.js <novelDir>
-# 用 subagent 生成 baseline.json
+# 用 LLM/人工写入 build/baseline.json，必须包含：
+# - characters（core/important/secondary/minor）
+# - relationships（≥15 条，source/target/type）
+# - events（≥20 个主线事件，章号+关键词）
+# - dialogues（≥10 条经典 quote，须能在原文命中）
+# - factions / skills / expected_entity_counts（可选但推荐）
+```
+
+门禁：`assess-quality.js` 会检测自指 baseline；`baseline_mode=invalid_self_ref` 时金标 overall 为 **N/A**。
+
+## Phase 3.6：质量评估
+
+```bash
+node <skill>/scripts/locate.js <novelDir>
+node <skill>/scripts/verify.js <novelDir>
+node <skill>/scripts/report.js <novelDir>
 node <skill>/scripts/assess-quality.js <novelDir>
 ```
 
-### 质量标准
+### 双轨分数
 
-**综合质量分数 ≥ 95%**，且**所有单项指标必须达标**：
+| 轨道 | 字段 | 何时有效 |
+|------|------|----------|
+| 金标 | `overall_score` | 独立 baseline 且含 relationships+events |
+| 诚实 | `honest_overall_score` | **始终**（locate/verify/quantity/对话原文命中） |
 
-| 指标 | 最低门槛 | 权重 | 说明 |
-|------|----------|------|------|
-| Entity Completeness | **100%** | 0.25 | 实体覆盖率，outline.json 锁定清单后必须全部覆盖 |
-| Relationship Completeness | **100%** | 0.15 | 关系覆盖率，遍历所有角色对补全关系 |
-| Relationship Accuracy | **100%** | 0.10 | 关系准确率，关系类型明确无歧义 |
-| Description Accuracy | ≥ 70% | 0.15 | 描述准确率，描述主观难以量化 |
-| Event Coverage | **100%** | 0.10 | 事件覆盖率，chapter_summaries 覆盖所有章节 |
-| Dialogue Authenticity | **100%** | 0.10 | **对话真实率**，用原文提取不做改写 |
-| Cross-Book Purity | **100%** | 0.10 | 跨书纯净度，baseline 包含所有应有实体 |
+**完成定义**：`completion_gate_passed === true`，即：
+- honest_overall ≥ 85
+- 非对话 entity grounded ≥ 85%
+- 对话 quote 原文命中 ≥ 95%
+- entity_quantity ≥ 80
+- baseline 非 `invalid_self_ref`
 
-**注意**：综合分数可能达标（如95%），但个别指标可能很低（如 Description Accuracy 只有70%）。这种情况必须修复后重跑，不能放过。
+### 规则（防假满分）
 
-**常见问题及修复方法**：
-- **Dialogue Authenticity 低**：baseline.dialogues 缺少实际对话文本，需要更新 baseline.json 添加正确的 quote 字段
-- **Cross-Book Purity 低**：baseline 缺少本书的真实实体，需要更新 baseline.json 添加所有应有实体
-- **Description Accuracy 低**：baseline 中的角色描述与 KB 不一致，需要更新 baseline 的 expected_identity 和 expected_traits
+1. **expected=0 → score=null（no_gold）**，不得记 100。
+2. **禁止自指 baseline**（character ids 从 data 拷贝且无 relationships/events）。
+3. **对话真实性**优先测 quote 是否在原文，不是「章+speaker 存在」。
+4. **Entity Quantity 计入 honest 分**。
+
+### 质量标准（金标可用时）
+
+**金标综合 ≥ 95%** 且单项达标；**无论金标如何，honest 门槛必须过**。
+
+| 指标 | 最低门槛 | 说明 |
+|------|----------|------|
+| Entity Completeness | 100% | 对照**独立** baseline / outline |
+| Relationship Completeness | 100% | baseline.relationships |
+| Relationship Accuracy | 100% | 类型一致 |
+| Description Accuracy | ≥ 70% | expected_identity/traits |
+| Event Coverage | 100% | baseline.events |
+| Dialogue Authenticity | ≥ 95% | **quote 原文命中** |
+| Cross-Book Purity | 100% | 非自指 baseline |
+| Honest Entity Grounded | ≥ 85% | verify.js |
+| Entity Quantity | ≥ 80% | 按章数门槛 |
+
+**常见问题**：
+- 假 100 分：baseline 自指 → 删 build/baseline.json，按 1.7 重写
+- Dialogue 低：quote 非原文 → locate-dialogues 删除幻觉
+- Quantity 低：skills/locations 不足 → 从原文补实体
 
 ## Phase 3.7：生成总览
 
@@ -208,4 +246,5 @@ node <skill>/scripts/assess-quality.js <novelDir>
 node <skill>/scripts/generate-summary.js <novelDir>
 ```
 
-输出 `summary.md`，包含实体统计、质量指标、核心角色、重要事件、文件清单。
+输出 `summary.md`，包含实体统计、**honest 与金标双轨**、核心角色、文件清单。
+

@@ -20,7 +20,9 @@ if (args.length < 1) {
 
 const novelDir = path.resolve(args[0]);
 const splitDir = path.join(novelDir, 'ch_split');
-const mentionPath = path.join(novelDir, 'mention_index.jsonl');
+const mentionPath = path.join(novelDir, 'build', 'mention_index.jsonl');
+const mentionPathAlt = path.join(novelDir, 'mention_index.jsonl');
+const mentionFile = fs.existsSync(mentionPath) ? mentionPath : mentionPathAlt;
 
 if (!fs.existsSync(splitDir)) {
   console.error(`ch_split/ not found; run split-chapters.js first`);
@@ -29,8 +31,8 @@ if (!fs.existsSync(splitDir)) {
 
 // 1. 从 mention_index.jsonl 加载高频词
 const mentionTerms = new Set();
-if (fs.existsSync(mentionPath)) {
-  for (const raw of fs.readFileSync(mentionPath, 'utf8').split(/\r?\n/)) {
+if (fs.existsSync(mentionFile)) {
+  for (const raw of fs.readFileSync(mentionFile, 'utf8').split(/\r?\n/)) {
     if (!raw) continue;
     try {
       const obj = JSON.parse(raw);

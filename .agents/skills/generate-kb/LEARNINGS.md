@@ -101,6 +101,39 @@ node fix-relationships.js <novelDir> [--dry-run]
 
 ### 改进后的流程
 
-1. **Phase 2.5 后**：运行 `fix-relationships.js` 自动补全反向关系
-2. **Phase 3**：运行 `cross-validate.js` 检测重复实体和相似名称
-3. **Phase 3.6**：运行 `assess-quality.js` 验证 baseline 和跨书纯净度
+1. **Phase 1.7**：独立 baseline（含 relationships + events），禁止从 data 拷贝
+2. **Phase 2.5 后**：`fix-relationships.js` 补反向关系
+3. **Phase 3**：`cross-validate.js` 重复实体/相似名
+4. **Phase 3.6**：`assess-quality.js` 双轨（金标 + honest）；自指 baseline → overall N/A
+
+## 绝代双骄：自指 baseline 导致假 100 分（2026-07-11）
+
+### 现象
+
+`assess-quality.js` 报 Overall 100/100、单项全绿，但同时：
+- Entity Quantity 60%（skills/locations 不足）
+- baseline 缺 relationships/events
+- 「江家」等原文不存在实体
+- chapter_summaries 模板化
+
+### 根因
+
+1. baseline 从当前 `data/*.json` 生成 → Entity Completeness / Cross-Book Purity 恒 100
+2. `expected=0` 时 completeness/event 默认 **100**
+3. 对话「真实性」只查章+speaker，不查 quote 原文
+4. Entity Quantity / baseline_validation **不进** overall
+
+### 修复（已实现于 assess-quality.js）
+
+- `detectSelfReferentialBaseline()` → `baseline_mode: invalid_self_ref | incomplete_gold | ok`
+- expected=0 → `score: null` / `no_gold`
+- 对话优先 **quote 原文命中**
+- 输出 `honest_overall_score` + `completion_gate_passed`
+- 金标 overall 在自指时为 **N/A**
+
+### 流程约束
+
+- Phase 1.7 独立 baseline 门禁
+- 完成定义 = completion_gate，不是自指 100
+- `.agents` 与 `.claude` 两份 skill **必须同步**
+

@@ -22,8 +22,8 @@ if (!fs.existsSync(novelDir)) {
 function loadConfig() {
   // Default configuration
   const defaultConfig = {
-    chapterPattern: '^第[零一二三四五六七八九十百千\\d]{1,8}[回章]\\s*.*$',
-    numberPattern: '^第([零一二三四五六七八九十百千\\d]{1,8})[回章]',
+    chapterPattern: '^第[零〇○一二三四五六七八九十百千\\d]{1,8}[回章]\\s*.*$',
+    numberPattern: '^第([零〇○一二三四五六七八九十百千\\d]{1,8})[回章]',
     seedPatterns: []
   };
 
@@ -106,10 +106,21 @@ for (const [title, indices] of titleCountMap) {
 // ============================================================
 // Chinese number conversion
 // ============================================================
-const cnDigitMap = { '零': 0, '一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9, '十': 10, '百': 100, '千': 1000 };
+const cnDigitMap = { '零': 0, '〇': 0, '○': 0, '一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9, '十': 10, '百': 100, '千': 1000 };
 
 function cnToNum(s) {
+  if (!s) return 0;
+  s = String(s).replace(/[〇○]/g, '零');
   if (/^\d+$/.test(s)) return parseInt(s, 10);
+  // 纯数位串（无一十百千单位）：一零八→108，一二五→125，一零一→101
+  const hasUnit = [...s].some(ch => (cnDigitMap[ch] || 0) >= 10);
+  if (!hasUnit) {
+    let digits = '';
+    for (const ch of s) {
+      if (cnDigitMap[ch] !== undefined) digits += String(cnDigitMap[ch]);
+    }
+    return digits ? parseInt(digits, 10) : 0;
+  }
   let result = 0;
   let current = 0;
   let lastWasUnit = false;
