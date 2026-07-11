@@ -1,16 +1,27 @@
 # Baseline Generation Prompt
 
-你是一个武侠小说知识库质量评估专家。你的任务是基于对小说的认知，生成一个**基准数据**（baseline），用于评估知识库的完整性。
+基于对本书的认知，生成**独立金标** `build/baseline.json`，用于评估 KB 完整性。  
+**禁止**从 `data/*.json` 拷贝全量实体。
 
 ## 输入
 
 - 小说名称：`{{novel_name}}`
 - 作者：`{{author}}`
-- 原文路径：`{{novel_path}}`（可选，用于参考）
+- 原文路径：`{{novel_path}}`（应用原文核对 quote / 专名）
 
-## 输出格式
+## 契约（硬性）
 
-输出一个 JSON 文件，结构如下：
+| 项 | 要求 |
+|----|------|
+| 角色规模 | **15–25** 人短名单（core+important+secondary 为主；minor 少） |
+| 与未来 KB | 金标是「应有的核心集合」，不是 data 镜像；id 可与后续 KB 对齐，但勿等 KB 写完再反抄 |
+| relationships | ≥15；`importance` **仅英文**：`core` \| `important` \| `secondary` |
+| events | ≥20；按章号为 key；`importance` **仅英文**：`main` \| `branch` \| `detail` |
+| dialogues | ≥10；必须含可在原文命中的 `quote`；勿复制 data/dialogues |
+| 实体名 | 须能在原文出现（无幻觉） |
+| items 名 | 用具名（如「飞刀」），避免单字「剑」「刀」 |
+
+## 输出结构
 
 ```json
 {
@@ -22,178 +33,74 @@
       {
         "id": "char_xxx",
         "name": "角色名",
-        "importance": "核心",
-        "reason": "为什么是核心角色",
-        "expected_identity": "预期身份定位",
-        "expected_traits": ["性格特征1", "性格特征2"]
+        "importance": "core",
+        "reason": "为何核心",
+        "expected_identity": "身份",
+        "expected_traits": ["特征1", "特征2"]
       }
     ],
-    "important": [...],
-    "secondary": [...],
-    "minor": [...]
+    "important": [],
+    "secondary": [],
+    "minor": []
   },
   "factions": [
-    {
-      "id": "fac_xxx",
-      "name": "门派名",
-      "importance": "核心",
-      "reason": "为什么重要"
-    }
+    { "id": "faction_xxx", "name": "门派", "importance": "core", "reason": "..." }
   ],
   "relationships": [
     {
       "source": "char_xxx",
       "target": "char_yyy",
       "type": "恋人",
-      "importance": "核心",
-      "reason": "为什么这个关系重要"
+      "importance": "core",
+      "reason": "..."
     }
   ],
   "events": {
     "1": [
-      {
-        "event": "事件描述",
-        "importance": "主线",
-        "characters": ["char_xxx"]
-      }
+      { "event": "可在章摘要中匹配的关键词事件", "importance": "main", "characters": ["char_xxx"] }
     ]
   },
   "skills": [
-    {
-      "id": "skill_xxx",
-      "name": "武功名",
-      "importance": "核心",
-      "reason": "为什么重要"
-    }
+    { "id": "skill_xxx", "name": "武功名", "importance": "core", "reason": "..." }
   ],
   "items": [
-    {
-      "id": "item_xxx",
-      "name": "物品名",
-      "importance": "重要",
-      "reason": "为什么重要"
-    }
+    { "id": "item_xxx", "name": "物品名", "importance": "important", "reason": "..." }
   ],
   "dialogues": [
     {
       "chapter": 1,
       "speaker": "角色名",
+      "quote": "必须是原文子串",
       "expected_style": "说话风格",
-      "reason": "为什么这段对话代表性"
+      "reason": "为何经典"
     }
   ]
 }
 ```
 
-## 角色分级标准
+## 分级（写入 JSON 时用英文 importance）
 
-- **核心**：小说的绝对主角，故事围绕他们展开（通常 1-3 人）
-- **重要**：对剧情有重大影响的配角，有完整的人物弧线（通常 5-15 人）
-- **次要**：有一定戏份但不是主线关键的配角（通常 10-30 人）
-- **龙套**：出场次数少但有名字的角色（通常 20-50 人）
-- **背景**：仅被提及但未正面出场的角色
+**角色 / 关系**
 
-## 关系分级标准
+- `core`：绝对主角或主角间关系  
+- `important`：主线关键配角 / 主角–配角关系  
+- `secondary`：有戏份配角 / 配角间关系  
 
-- **核心**：主角之间的关系（如段誉↔王语嫣）
-- **重要**：主角与重要配角之间的关系
-- **次要**：配角之间的关系
+**事件**
 
-## 事件分级标准
+- `main`：主线转折  
+- `branch`：重要支线  
+- `detail`：细节（少用）  
 
-- **主线**：推动故事核心发展的事件（如主角登场、重大转折）
-- **支线**：重要但非核心的事件（如配角的故事线）
-- **细节**：丰富世界观的事件（如日常互动、背景交代）
+中文说明仅用于思考，**JSON 字段值必须是英文 key**。
 
-## 指导原则
+## 原则
 
-1. **基于对书籍的认知**：利用你对这本书的了解来生成基准
-2. **ID 规则**：使用 `char_`、`fac_`、`skill_`、`item_` 前缀，拼音逐字拆分
-3. **完整性**：尽量覆盖所有重要实体，宁多勿少
-4. **准确性**：确保角色分级、关系类型、事件描述准确
-5. **可验证性**：每个实体都要说明为什么重要
+1. 先验 + 原文可验证，宁缺毋滥（角色勿「宁多勿少」灌龙套）  
+2. ID：`char_` / `faction_` / `skill_` / `item_` + 拼音逐字  
+3. relationship.type 用 constants 枚举（挚友/恋人/师徒/宿敌/对手/主仆/合作者/亲属）  
+4. events 的 `event` 字符串应能与 chapter_summaries.key_events 或回目关键词匹配  
 
-## 示例（天龙八部部分）
+## 输出
 
-```json
-{
-  "novel": "天龙八部",
-  "author": "金庸",
-  "characters": {
-    "core": [
-      {
-        "id": "char_duan_yu",
-        "name": "段誉",
-        "importance": "核心",
-        "reason": "三大主角之一，大理段氏世子",
-        "expected_identity": "大理段氏世子，后为大理皇帝",
-        "expected_traits": ["善良", "书生气", "痴情", "幽默", "不谙世事"]
-      },
-      {
-        "id": "char_xiao_feng",
-        "name": "萧峰",
-        "importance": "核心",
-        "reason": "三大主角之一，丐帮帮主",
-        "expected_identity": "丐帮帮主，契丹人",
-        "expected_traits": ["豪迈", "义薄云天", "悲情", "武功盖世", "正直"]
-      },
-      {
-        "id": "char_xu_zhu",
-        "name": "虚竹",
-        "importance": "核心",
-        "reason": "三大主角之一，少林弟子",
-        "expected_identity": "少林弟子，后为灵鹫宫主",
-        "expected_traits": ["老实", "善良", "迂腐", "运气好", "痴情"]
-      }
-    ],
-    "important": [
-      {
-        "id": "char_wang_yu_yan",
-        "name": "王语嫣",
-        "importance": "重要",
-        "reason": "段誉的恋人，知晓天下武功"
-      }
-    ]
-  },
-  "relationships": [
-    {
-      "source": "char_duan_yu",
-      "target": "char_wang_yu_yan",
-      "type": "恋人",
-      "importance": "核心",
-      "reason": "段誉痴恋王语嫣，最终相守"
-    },
-    {
-      "source": "char_xiao_feng",
-      "target": "char_a_zhu",
-      "type": "恋人",
-      "importance": "核心",
-      "reason": "萧峰与阿朱的爱情悲剧"
-    }
-  ],
-  "events": {
-    "1": [
-      {
-        "event": "段誉初入无量山",
-        "importance": "主线",
-        "characters": ["char_duan_yu"]
-      }
-    ],
-    "19": [
-      {
-        "event": "聚贤庄血战",
-        "importance": "主线",
-        "characters": ["char_xiao_feng"]
-      }
-    ]
-  }
-}
-```
-
-## 输出要求
-
-1. 输出完整的 JSON，不要省略
-2. 确保 JSON 格式正确，可以直接 parse
-3. 角色 ID 必须与知识库中的 ID 一致
-4. 事件按章节组织
-5. 关系包含 source、target、type、importance
+完整可 parse 的 JSON，直接写入 `build/baseline.json`。

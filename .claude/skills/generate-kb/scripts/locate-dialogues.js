@@ -56,12 +56,15 @@ let hallucinated = 0;
 const kept = [];
 
 for (const d of dialogues) {
-  if (!d.text || d.text.length < 5) {
+  const raw = (d.text || d.quote || '').trim();
+  if (!raw || raw.length < 5) {
     hallucinated++;
     continue;
   }
 
-  const cleanText = d.text.trim();
+  // Normalize legacy `quote` field to schema `text`
+  if (!d.text && d.quote) d.text = d.quote;
+  const cleanText = raw;
   let found = false;
 
   // Step 1: search in the specified chapter
