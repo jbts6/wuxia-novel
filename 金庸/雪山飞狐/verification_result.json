@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-07-10T00:41:07.786Z",
+  "generated_at": "2026-07-10T13:05:58.654Z",
   "results": {
     "characters.json": {
-      "total": 22,
-      "grounded": 32,
+      "total": 21,
+      "grounded": 35,
       "weak": 3,
-      "unverified": 3,
-      "alt_grounded": 47,
+      "unverified": 0,
+      "alt_grounded": 41,
       "alt_weak": 17,
       "alt_unverified": 0,
-      "alt_total": 64,
+      "alt_total": 58,
       "perEntity": [
         {
           "id": "char_hu_fei",
@@ -28,26 +28,15 @@
           "id": "char_miao_ren_feng",
           "name": "苗人凤",
           "total_refs": 4,
-          "grounded": 2,
+          "grounded": 3,
           "weak": 1,
-          "unverified": 1,
-          "grounded_ratio": 0.5,
+          "unverified": 0,
+          "grounded_ratio": 0.75,
           "alt_total": 10,
           "alt_grounded": 6,
           "alt_weak": 4,
           "alt_unverified": 0,
           "issues": [
-            {
-              "ref": {
-                "chapter": 2,
-                "anchor": "金面佛三字首次出现",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            },
             {
               "ref": {
                 "chapter": 4,
@@ -158,27 +147,14 @@
           "id": "char_hu_fu_ren",
           "name": "胡夫人",
           "total_refs": 2,
-          "grounded": 1,
+          "grounded": 2,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0.5,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 0,
           "alt_grounded": 0,
           "alt_weak": 0,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 5,
-                "anchor": "胡夫人横刀自刎",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         },
         {
           "id": "char_cao_yun_qi",
@@ -477,7 +453,7 @@
                 "anchors_total": 2,
                 "locate_score": 200,
                 "locate_method": "window",
-                "hint_chapter": 10,
+                "hint_chapter": 7,
                 "event_type": "background"
               },
               "status": "weak",
@@ -490,27 +466,14 @@
           "id": "char_ping_a_si",
           "name": "平阿四",
           "total_refs": 2,
-          "grounded": 1,
+          "grounded": 2,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0.5,
-          "alt_total": 4,
-          "alt_grounded": 4,
+          "unverified": 0,
+          "grounded_ratio": 1,
+          "alt_total": 0,
+          "alt_grounded": 0,
           "alt_weak": 0,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 5,
-                "anchor": "独臂仆人首次登场讲述真相",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         },
         {
           "id": "char_du_xi_meng",
@@ -520,8 +483,8 @@
           "weak": 0,
           "unverified": 0,
           "grounded_ratio": 1,
-          "alt_total": 2,
-          "alt_grounded": 2,
+          "alt_total": 0,
+          "alt_grounded": 0,
           "alt_weak": 0,
           "alt_unverified": 0
         },
@@ -550,31 +513,18 @@
           "alt_grounded": 2,
           "alt_weak": 1,
           "alt_unverified": 0
-        },
-        {
-          "id": "char_shang_bao_zhen",
-          "name": "商宝震",
-          "total_refs": 0,
-          "grounded": 0,
-          "weak": 0,
-          "unverified": 0,
-          "grounded_ratio": 0,
-          "alt_total": 0,
-          "alt_grounded": 0,
-          "alt_weak": 0,
-          "alt_unverified": 0
         }
       ]
     },
     "factions.json": {
       "total": 8,
-      "grounded": 10,
+      "grounded": 11,
       "weak": 3,
-      "unverified": 1,
-      "alt_grounded": 13,
+      "unverified": 0,
+      "alt_grounded": 11,
       "alt_weak": 17,
       "alt_unverified": 0,
-      "alt_total": 30,
+      "alt_total": 28,
       "perEntity": [
         {
           "id": "faction_tian_long_men",
@@ -593,27 +543,14 @@
           "id": "faction_miao_jia",
           "name": "苗家",
           "total_refs": 2,
-          "grounded": 1,
+          "grounded": 2,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0.5,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 4,
           "alt_grounded": 2,
           "alt_weak": 2,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 4,
-                "anchor": "苗范田三家争夺闯王军刀",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         },
         {
           "id": "faction_hu_jia",
@@ -645,7 +582,7 @@
               "ref": {
                 "chapter": 7,
                 "anchor": "田归农是苗人凤的义弟",
-                "locate_status": "located_different_chapter",
+                "locate_status": "located",
                 "locate_reason": "no anchor terms recognized",
                 "alternatives": [
                   {
@@ -707,7 +644,7 @@
                 "anchors_total": 2,
                 "locate_score": 200,
                 "locate_method": "window",
-                "hint_chapter": 3,
+                "hint_chapter": 7,
                 "event_type": "background"
               },
               "status": "weak",
@@ -780,7 +717,7 @@
                 "anchors_total": 2,
                 "locate_score": 200,
                 "locate_method": "window",
-                "hint_chapter": 10,
+                "hint_chapter": 7,
                 "event_type": "background"
               },
               "status": "weak",
@@ -797,8 +734,8 @@
           "weak": 1,
           "unverified": 0,
           "grounded_ratio": 0.5,
-          "alt_total": 4,
-          "alt_grounded": 2,
+          "alt_total": 2,
+          "alt_grounded": 0,
           "alt_weak": 2,
           "alt_unverified": 0,
           "issues": [
@@ -844,7 +781,7 @@
                 "anchors_total": 2,
                 "locate_score": 200,
                 "locate_method": "window",
-                "hint_chapter": 9,
+                "hint_chapter": 10,
                 "event_type": "background"
               },
               "status": "weak",
@@ -896,13 +833,13 @@
     },
     "locations.json": {
       "total": 10,
-      "grounded": 9,
+      "grounded": 10,
       "weak": 1,
-      "unverified": 1,
-      "alt_grounded": 10,
+      "unverified": 0,
+      "alt_grounded": 8,
       "alt_weak": 7,
       "alt_unverified": 0,
-      "alt_total": 17,
+      "alt_total": 15,
       "perEntity": [
         {
           "id": "loc_yu_bi_feng",
@@ -912,8 +849,8 @@
           "weak": 0,
           "unverified": 0,
           "grounded_ratio": 1,
-          "alt_total": 4,
-          "alt_grounded": 2,
+          "alt_total": 2,
+          "alt_grounded": 0,
           "alt_weak": 2,
           "alt_unverified": 0
         },
@@ -986,27 +923,14 @@
           "id": "loc_ning_gu_ta",
           "name": "宁古塔",
           "total_refs": 1,
-          "grounded": 0,
+          "grounded": 1,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 0,
           "alt_grounded": 0,
           "alt_weak": 0,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 2,
-                "anchor": "杜希孟去宁古塔请金面佛",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         },
         {
           "id": "loc_wu_lan_shan",
@@ -1212,7 +1136,7 @@
                 "anchors_total": 4,
                 "locate_score": 398,
                 "locate_method": "window",
-                "hint_chapter": 4,
+                "hint_chapter": 5,
                 "event_type": "background"
               },
               "status": "weak",
@@ -1303,39 +1227,26 @@
     },
     "techniques.json": {
       "total": 4,
-      "grounded": 1,
+      "grounded": 4,
       "weak": 0,
-      "unverified": 3,
-      "alt_grounded": 4,
+      "unverified": 0,
+      "alt_grounded": 0,
       "alt_weak": 0,
       "alt_unverified": 0,
-      "alt_total": 4,
+      "alt_total": 0,
       "perEntity": [
         {
           "id": "tech_ba_fang_cang_dao",
           "name": "八方藏刀式",
           "total_refs": 1,
-          "grounded": 0,
+          "grounded": 1,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 0,
           "alt_grounded": 0,
           "alt_weak": 0,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 5,
-                "anchor": "胡伯伯立使八方藏刀式，将我爹爹制住",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         },
         {
           "id": "tech_sha_ou_lue_bo",
@@ -1345,8 +1256,8 @@
           "weak": 0,
           "unverified": 0,
           "grounded_ratio": 1,
-          "alt_total": 4,
-          "alt_grounded": 4,
+          "alt_total": 0,
+          "alt_grounded": 0,
           "alt_weak": 0,
           "alt_unverified": 0
         },
@@ -1354,61 +1265,35 @@
           "id": "tech_ti_liao_jian_bai_he_shu_chi",
           "name": "提撩剑白鹤舒翅",
           "total_refs": 1,
-          "grounded": 0,
+          "grounded": 1,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 0,
           "alt_grounded": 0,
           "alt_weak": 0,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 5,
-                "anchor": "使提撩剑白鹤舒翅这一招之前，背上微微一耸",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         },
         {
           "id": "tech_bi_men_tie_shan_dao",
           "name": "闭门铁扇刀",
           "total_refs": 1,
-          "grounded": 0,
+          "grounded": 1,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 0,
           "alt_grounded": 0,
           "alt_weak": 0,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 5,
-                "anchor": "你这招闭门铁扇刀，还是使得太快了些",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         }
       ]
     },
     "items.json": {
       "total": 6,
-      "grounded": 3,
+      "grounded": 7,
       "weak": 0,
-      "unverified": 4,
+      "unverified": 0,
       "alt_grounded": 2,
       "alt_weak": 2,
       "alt_unverified": 0,
@@ -1418,53 +1303,27 @@
           "id": "item_hu_jia_dao",
           "name": "胡家刀",
           "total_refs": 1,
-          "grounded": 0,
+          "grounded": 1,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 0,
           "alt_grounded": 0,
           "alt_weak": 0,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 5,
-                "anchor": "胡伯母拿起那柄单刀细看，刀口上喂了剧毒",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         },
         {
           "id": "item_feng_tou_zhu_chai",
           "name": "凤头珠钗",
           "total_refs": 2,
-          "grounded": 1,
+          "grounded": 2,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0.5,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 4,
           "alt_grounded": 2,
           "alt_weak": 2,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 10,
-                "anchor": "凤头珠钗内藏藏宝图",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         },
         {
           "id": "item_huang_jin_xiao_bi",
@@ -1483,27 +1342,14 @@
           "id": "item_chuang_wang_jun_dao",
           "name": "闯王军刀",
           "total_refs": 1,
-          "grounded": 0,
+          "grounded": 1,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 0,
           "alt_grounded": 0,
           "alt_weak": 0,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 3,
-                "anchor": "苗范田三家争夺掌管闯王的军刀",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         },
         {
           "id": "item_hua_tong_huo_jian",
@@ -1522,51 +1368,23 @@
           "id": "item_zhu_lan",
           "name": "竹篮",
           "total_refs": 1,
-          "grounded": 0,
+          "grounded": 1,
           "weak": 0,
-          "unverified": 1,
-          "grounded_ratio": 0,
+          "unverified": 0,
+          "grounded_ratio": 1,
           "alt_total": 0,
           "alt_grounded": 0,
           "alt_weak": 0,
-          "alt_unverified": 0,
-          "issues": [
-            {
-              "ref": {
-                "chapter": 2,
-                "anchor": "峰顶放下极大竹篮接客",
-                "locate_status": "not_located",
-                "locate_reason": "no anchor terms recognized",
-                "alternatives": []
-              },
-              "status": "unverified",
-              "reason": "missing fields"
-            }
-          ]
+          "alt_unverified": 0
         }
       ]
     },
     "dialogues.json": {
       "total": 20,
-      "grounded": 19,
-      "weak": 1,
+      "grounded": 20,
+      "weak": 0,
       "unverified": 0,
-      "sample_issues": [
-        {
-          "dialogue": {
-            "speaker": "char_miao_ruo_lan",
-            "speaker_name": "苗若兰",
-            "listener": "char_hu_fei",
-            "text": "我爹爹因有伤心之事，是以感触特深，请您不要见怪。",
-            "tone": "陈述",
-            "chapter": 10,
-            "line_start": 12,
-            "line_end": 12
-          },
-          "status": "weak",
-          "reason": "found in wider context of cited lines"
-        }
-      ]
+      "sample_issues": []
     }
   },
   "coverage": null
