@@ -1,0 +1,2111 @@
+[
+  {
+    "alias": [
+      "李少爷"
+    ],
+    "identity": "浪子、小李飞刀传人",
+    "faction": "faction_li_jia",
+    "role": "核心",
+    "archetype": "assassin",
+    "power_rank": "登峰造极",
+    "importance": "核心",
+    "one_line": "小李飞刀传人，浪子身世，卷入李薛恩怨与生死之局",
+    "biography": "自幼在山城历经噩梦般童年后浪迹江湖，又回到山城。身世与李家、小李探花传说相连，与月神相爱却因两家尊荣对立。铁银衣、韩峻、公孙太夫人等人环绕其命运，最终走向正月十五的生死悲剧。",
+    "personality": {
+      "traits": [
+        "浪荡",
+        "聪明",
+        "重情",
+        "敢赌命",
+        "温柔而残酷",
+        "孤独"
+      ],
+      "speech_style": "温和中带刺",
+      "temperament": "玩世而深情"
+    },
+    "relationships": [
+      {
+        "target": "char_yue_shen",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "相爱却因李薛尊荣对立走向生死"
+      },
+      {
+        "target": "char_tie_yin_yi",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "被银衣卷入权势棋局又得其护持"
+      },
+      {
+        "target": "char_han_jun",
+        "type": "挚友",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "冷峻同伴多次周旋相助"
+      },
+      {
+        "target": "char_ke_ke",
+        "type": "恋人",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "边城情感纠葛，非全书最终归宿"
+      },
+      {
+        "target": "char_li_man_qing",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "李家一脉与身世真相的关键长辈"
+      },
+      {
+        "target": "char_lao_zhang",
+        "type": "挚友",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "童年馒头铺的温情记忆"
+      },
+      {
+        "target": "char_gong_sun_tai_fu_ren",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "保证其日出前不死"
+      },
+      {
+        "target": "char_xiao_li_tan_hua",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "血脉传说"
+      }
+    ],
+    "known_skills": [
+      "skill_xiao_li_fei_dao",
+      "skill_fei_dao"
+    ],
+    "related_skills": [
+      "skill_yi_jian_fei_xue"
+    ],
+    "rag_refs": [
+      2,
+      6,
+      7,
+      8,
+      12,
+      16,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "anchor": "李坏回到山城馒头铺见老张",
+        "event_type": "first_mention",
+        "line_start": 2,
+        "line_end": 14,
+        "text": "\n　　山城。\n\n　　这个小城在远山，远山在千里外。\n\n　　李坏又回去了，回到了这座城。\n\n　　这里的风沙黄土和这里的人，他都久已熟悉。\n\n　　因为他是在这里长大的，他是个浪子，他没有根，他的童年也只不过是一连串噩梦而已，可是在他的噩梦中最不能忘怀的还是这个地方。\n\n　　馒头铺并不一定只卖馒头，老张被人叫做老张的时候也并不老。\n",
+        "anchors_hit": [
+          "山城",
+          "李坏",
+          "馒头铺",
+          "老张"
+        ],
+        "anchors_total": 4,
+        "locate_status": "located",
+        "locate_score": 443,
+        "locate_method": "window",
+        "hint_chapter": 2,
+        "alternatives": []
+      },
+      {
+        "chapter": 6,
+        "anchor": "第五回银衣与李坏",
+        "event_type": "climax",
+        "line_start": 1,
+        "line_end": 4,
+        "text": "　　第五回　银衣\n\n　　李坏这一次可真坏得连自己都有点莫名其妙了，他从来也没有想到过他也有一天会落到这么糟这么坏的情况中。\n",
+        "anchors_hit": [
+          "银衣",
+          "李坏"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 6,
+        "alternatives": [
+          {
+            "chapter": 9,
+            "line_start": 34,
+            "line_end": 36,
+            "text": "\n　　最后到达的当然是铁银衣和李坏\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "银衣"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 28,
+            "line_end": 32,
+            "text": "\n　　铁银衣站起来，态度严肃诚恳地道：“在下说的只不过是实情而已。”\n\n　　“那么我也可以向阁下保证，阁下说的一点都没有错。”这位可亲又可敬的妇人也裣衽为礼，“我可以保证李坏先生在今晨日出之前绝不会死。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "银衣",
+              "李坏"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 54,
+            "line_end": 56,
+            "text": "\n　　李坏和铁银衣也在这里。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "银衣"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 13,
+            "line_start": 82,
+            "line_end": 88,
+            "text": "\n　　这本来是李坏的秘密。\n\n　　可是在这种异乎寻常的情况下，在黑暗中，那个人的独处中，他居然把这个秘密说了出来。\n\n　　多年前铁银衣经过多年地毯式地搜寻之后，终于找到了李坏，把李坏从那个小城的泥泞中带了回去。让他见到了他的父亲，也让他传得了天下无双的飞刀秘技。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "银衣"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 7,
+        "anchor": "李坏的家",
+        "event_type": "climax",
+        "line_start": 1,
+        "line_end": 2,
+        "text": "　　第六回　李坏的家\n",
+        "anchors_hit": [
+          "李坏的家",
+          "李坏"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 7,
+        "alternatives": []
+      },
+      {
+        "chapter": 8,
+        "anchor": "骨血回目李坏",
+        "line_start": 24,
+        "line_end": 27,
+        "text": "\n　　于是李坏回家了，那是他第一次回家，那是在九年之前。\n\n　　现在李坏又回家了。",
+        "anchors_hit": [
+          "李坏"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 8,
+        "alternatives": []
+      },
+      {
+        "chapter": 12,
+        "anchor": "一剑飞雪李坏",
+        "event_type": "climax",
+        "line_start": 194,
+        "line_end": 200,
+        "text": "\n　　二十年前，“一剑飞雪”薛青碧挟连胜三十一场之余威，再胜雁荡三鸟，再胜饱宝之鹰，再胜刚刚接任点苍掌门的白燕道人于七招间，声誉之隆，天下无人能与之比肩。\n\n　　但是后来的那一战，他却败给曼青先生了，败后三月，郁郁而终。\n\n　　这件事，这个人，李坏当然是知道的。\n",
+        "anchors_hit": [
+          "一剑飞雪",
+          "李坏"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 12,
+        "alternatives": []
+      },
+      {
+        "chapter": 16,
+        "anchor": "月神说李坏是李家后代",
+        "event_type": "climax",
+        "line_start": 12,
+        "line_end": 18,
+        "text": "\n　　“他不怕死，可是他怕败。”月神说，“他是小李探花的后代，他不能败。”\n\n　　小星忽然沉默，一张嫣红的脸忽然变得苍白。过了很久，才轻轻地问：\n\n　　“小姐，李坏李少爷难道真的是他们李家的后代？”\n",
+        "anchors_hit": [
+          "月神",
+          "李坏",
+          "李家"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 300,
+        "locate_method": "window",
+        "hint_chapter": 16,
+        "alternatives": [
+          {
+            "chapter": 13,
+            "line_start": 86,
+            "line_end": 90,
+            "text": "\n　　多年前铁银衣经过多年地毯式地搜寻之后，终于找到了李坏，把李坏从那个小城的泥泞中带了回去。让他见到了他的父亲，也让他传得了天下无双的飞刀秘技。\n\n　　可是李坏却还是没法子待下去，甚至连一个月都没法子待下去。因为他一直觉得自己不是李家的人，不是属于这个世界。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "李家"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 17,
+            "line_start": 10,
+            "line_end": 14,
+            "text": "\n　　无论李坏是生是死，是胜是败，对李坏来说都是一个悲剧。\n\n　　无论月神是生是死，是胜是败，对月神来说，也同样是一个悲剧。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "月神"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 2,
+            "line_start": 162,
+            "line_end": 168,
+            "text": "\n　　就在这时候，这个小姑娘手里的马鞭子忽然一抖，像是一条蛇样，缠住了李坏的脖子。\n\n　　她另外一只手已经“啪、啪”在李坏脸上打了两个大巴掌，下面还有一个扫堂腿。\n\n　　于是我们这位刚发了财回来的李家大少爷，就好像一只大狗熊一样，四脚朝天，摔倒在黄沙滚滚的道路上，嘴里还被人塞了个大馒头。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "李家"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 3,
+            "line_start": 604,
+            "line_end": 610,
+            "text": "\n　　“你是不是认为李坏也跟叶圣康一样，也是个右心人？”　\n\n　　“是的。”韩峻也一个字一个字地说，“因为除此以外，别无解释。”\n\n　　“就因为李坏是个右心人，所以并没有死在月神的刀下，因为月神的刀虽然刺人他的心脏，可是他的心并没有长在那个地方。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "月神"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 17,
+        "anchor": "尾声李坏胜败皆悲",
+        "line_start": 6,
+        "line_end": 9,
+        "text": "\n　　李坏胜了又如何？败了又如何？\n\n　　生死存亡是一刹那间的事，可是他们的情感却是永恒的。",
+        "anchors_hit": [
+          "李坏"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 17,
+        "alternatives": []
+      }
+    ],
+    "id": "char_li_huai",
+    "name": "李坏"
+  },
+  {
+    "alias": [],
+    "identity": "薛家后人、刀客",
+    "faction": "faction_xue_jia",
+    "role": "核心",
+    "archetype": "assassin",
+    "power_rank": "登峰造极",
+    "importance": "核心",
+    "one_line": "薛家后人，风神如月，与李坏相爱却注定对立",
+    "biography": "风神如月的女子，背负薛家尊荣。明知对手将是李坏，仍不能退让；小星随侍其侧。与李曼青、李家的旧怨把她推向正月十五的刀下对决。",
+    "personality": {
+      "traits": [
+        "清冷",
+        "坚毅",
+        "深情",
+        "宿命感",
+        "克制",
+        "骄傲"
+      ],
+      "speech_style": "淡淡而决绝",
+      "temperament": "月华般冷艳"
+    },
+    "relationships": [
+      {
+        "target": "char_li_huai",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "相爱却必须在尊荣面前刀剑相向"
+      },
+      {
+        "target": "char_xiao_xing",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "侍女忠诚追随"
+      },
+      {
+        "target": "char_li_man_qing",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "薛李旧怨，小星盼其死于小姐刀下"
+      },
+      {
+        "target": "char_xue_qing_bi",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "薛家一脉关联"
+      }
+    ],
+    "known_skills": [
+      "skill_dao_fa",
+      "skill_fei_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      14,
+      16,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "anchor": "第二回月神的刀",
+        "line_start": 1,
+        "line_end": 3,
+        "text": "　　第二回　月神的刀\n\n　　这个世界上无疑有很多种不同的人，也有很多相同的人，同型、同类，他们虽然各在天之一方，连面都没有见过，可是在某些地方他们却比亲生兄弟更相像。",
+        "anchors_hit": [
+          "月神"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3,
+        "alternatives": []
+      },
+      {
+        "chapter": 14,
+        "anchor": "小楼与月神",
+        "event_type": "climax",
+        "line_start": 84,
+        "line_end": 90,
+        "text": "\n　　“不错，我是想接月神。因为在某一些古老的传说中，月的意思就是死。”她说，“太阳是生，月是死。”\n\n　　窗外五月。\n\n　　可是在不远处，又仿佛很遥远处的一座小楼上，仿佛仍然有灯光在闪铄。\n",
+        "anchors_hit": [
+          "月神",
+          "小楼"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 14,
+        "alternatives": [
+          {
+            "chapter": 16,
+            "line_start": 2,
+            "line_end": 14,
+            "text": "\n　　小星也在遥望着对面小楼上的灯光，用一种很坚决的态度说：\n\n　　“小姐，正月十五那天，我一定也要陪你过去。因为我要看看那个李曼青究竟是个什么样的人，当年为什么要把老爹逼得那么惨。”小星又说：“我娘告诉我这件事的时候，我就一直在盼望着有一天能亲眼看到这个李曼青死在小姐你的刀下。”\n\n　　风神如月的小姐，淡淡地笑了笑。\n\n　　“李曼青不会死在我刀下的。”她说，“因为正月十五那天，他根本不会应战。”\n\n　　“为什么？”小星问，“难道李曼青是个贪生怕死的人？”\n\n　　“他不怕死，可是他怕败。”月神说，“他是小李探花的后代，他不能败。”\n",
+            "score": 198,
+            "anchors_hit": [
+              "小楼",
+              "月神"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 16,
+        "anchor": "月神与李坏正月十五对决",
+        "event_type": "climax",
+        "line_start": 8,
+        "line_end": 18,
+        "text": "\n　　“李曼青不会死在我刀下的。”她说，“因为正月十五那天，他根本不会应战。”\n\n　　“为什么？”小星问，“难道李曼青是个贪生怕死的人？”\n\n　　“他不怕死，可是他怕败。”月神说，“他是小李探花的后代，他不能败。”\n\n　　小星忽然沉默，一张嫣红的脸忽然变得苍白。过了很久，才轻轻地问：\n\n　　“小姐，李坏李少爷难道真的是他们李家的后代？”\n",
+        "anchors_hit": [
+          "正月十五",
+          "月神",
+          "李坏"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 299,
+        "locate_method": "window",
+        "hint_chapter": 16,
+        "alternatives": [
+          {
+            "chapter": 17,
+            "line_start": 10,
+            "line_end": 14,
+            "text": "\n　　无论李坏是生是死，是胜是败，对李坏来说都是一个悲剧。\n\n　　无论月神是生是死，是胜是败，对月神来说，也同样是一个悲剧。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "月神"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 3,
+            "line_start": 604,
+            "line_end": 610,
+            "text": "\n　　“你是不是认为李坏也跟叶圣康一样，也是个右心人？”　\n\n　　“是的。”韩峻也一个字一个字地说，“因为除此以外，别无解释。”\n\n　　“就因为李坏是个右心人，所以并没有死在月神的刀下，因为月神的刀虽然刺人他的心脏，可是他的心并没有长在那个地方。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "月神"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 4,
+            "line_start": 86,
+            "line_end": 88,
+            "text": "\n　　“我怎么不知道。”李坏说，“月光如刀，刀如月光。我已经差一点在她刀下把我这条命送掉了，我怎么会不知道月神的刀几乎已经和昔年的‘小李飞刀’一样例不虚发，我又怎么不知道要月神出一次手是什么代价。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "月神"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 9,
+            "line_start": 218,
+            "line_end": 222,
+            "text": "\n　　李坏忽然也不说话了。\n\n　　因为他忽然想起了月神，又想起了可可。\n",
+            "score": 200,
+            "anchors_hit": [
+              "李坏",
+              "月神"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 17,
+        "anchor": "尾声月神悲剧",
+        "line_start": 12,
+        "line_end": 15,
+        "text": "\n　　无论月神是生是死，是胜是败，对月神来说，也同样是一个悲剧。\n\n　　生老病死，本都是悲。这个世界上的悲剧已经有这么多这么多这么多了，一个只喜欢笑，不喜欢哭的人，为什么还要写一些让人流泪的悲剧。",
+        "anchors_hit": [
+          "月神"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 17,
+        "alternatives": []
+      }
+    ],
+    "id": "char_yue_shen",
+    "name": "月神"
+  },
+  {
+    "alias": [
+      "银衣"
+    ],
+    "identity": "银衣客、权势棋手",
+    "faction": null,
+    "role": "核心",
+    "archetype": "scholar",
+    "power_rank": "出神入化",
+    "importance": "核心",
+    "one_line": "银衣客，权势与财富惊人，操纵局势亦重情重义",
+    "biography": "一身银衣，赤手空拳挣到亿万身价的传闻环绕。请李坏喝酒、布置高地帐篷夜宴，与公孙太夫人周旋，既是棋手也是护局者。",
+    "personality": {
+      "traits": [
+        "城府",
+        "阔绰",
+        "冷静",
+        "重诺",
+        "强势",
+        "世故"
+      ],
+      "speech_style": "客气中带锋芒",
+      "temperament": "银冷贵气"
+    },
+    "relationships": [
+      {
+        "target": "char_li_huai",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "拉李坏入局又多次护持"
+      },
+      {
+        "target": "char_gong_sun_tai_fu_ren",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "夜宴上权势与话术交锋"
+      },
+      {
+        "target": "char_han_jun",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "同一棋局中的干员"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6,
+      9,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "anchor": "第五回银衣铁银衣出场",
+        "event_type": "first_mention",
+        "line_start": 156,
+        "line_end": 158,
+        "text": "\n　　“你是谁？你就是二十年前那个杀人如麻的铁如银——铁银衣？”\n",
+        "anchors_hit": [
+          "铁银衣",
+          "银衣"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 233,
+        "locate_method": "window",
+        "hint_chapter": 6,
+        "alternatives": [
+          {
+            "chapter": 9,
+            "line_start": 8,
+            "line_end": 10,
+            "text": "\n　　“好，我请你喝酒。”铁银衣说：“我一定让你痛痛快快地喝一顿。”\n",
+            "score": 224,
+            "anchors_hit": [
+              "铁银衣",
+              "银衣"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 22,
+            "line_end": 24,
+            "text": "\n　　那个丰满高大艳丽服饰华丽，虽然已经徐娘半老，可是风韵仍然可以让大多数男人心跳的女人，就在这种不可思议的琴声中，离开了他身边那个拉胡琴的瞽目老者，用一种异常温柔娴静的姿态，慢慢地从角落走了出来，走到铁银衣面前。\n",
+            "score": 221,
+            "anchors_hit": [
+              "铁银衣",
+              "银衣"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 54,
+            "line_end": 56,
+            "text": "\n　　李坏和铁银衣也在这里。\n",
+            "score": 215,
+            "anchors_hit": [
+              "铁银衣",
+              "银衣"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 13,
+            "line_start": 86,
+            "line_end": 88,
+            "text": "\n　　多年前铁银衣经过多年地毯式地搜寻之后，终于找到了李坏，把李坏从那个小城的泥泞中带了回去。让他见到了他的父亲，也让他传得了天下无双的飞刀秘技。\n",
+            "score": 212,
+            "anchors_hit": [
+              "铁银衣",
+              "银衣"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 6,
+        "anchor": "铁银衣请李坏喝酒高地帐篷",
+        "event_type": "climax",
+        "line_start": 174,
+        "line_end": 180,
+        "text": "\n　　铁银衣沉默了很久，才一个字一个字地说：“因为那位李老庄主是他的父亲。”\n\n　　“是他的父亲？”可可狂笑，“他的父亲替他做过什么事？从小就不要他，不管他，现在有什么资格要你带他回去？”\n\n　　可可的笑声中已经有了哭声，用力拉住了李坏的衣袖。\n",
+        "anchors_hit": [
+          "铁银衣",
+          "银衣",
+          "李坏"
+        ],
+        "anchors_total": 4,
+        "locate_status": "located",
+        "locate_score": 300,
+        "locate_method": "window",
+        "hint_chapter": 6,
+        "alternatives": [
+          {
+            "chapter": 9,
+            "line_start": 34,
+            "line_end": 36,
+            "text": "\n　　最后到达的当然是铁银衣和李坏\n",
+            "score": 300,
+            "anchors_hit": [
+              "铁银衣",
+              "李坏",
+              "银衣"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 28,
+            "line_end": 32,
+            "text": "\n　　铁银衣站起来，态度严肃诚恳地道：“在下说的只不过是实情而已。”\n\n　　“那么我也可以向阁下保证，阁下说的一点都没有错。”这位可亲又可敬的妇人也裣衽为礼，“我可以保证李坏先生在今晨日出之前绝不会死。”\n",
+            "score": 300,
+            "anchors_hit": [
+              "铁银衣",
+              "银衣",
+              "李坏"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 54,
+            "line_end": 56,
+            "text": "\n　　李坏和铁银衣也在这里。\n",
+            "score": 300,
+            "anchors_hit": [
+              "铁银衣",
+              "李坏",
+              "银衣"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 13,
+            "line_start": 82,
+            "line_end": 88,
+            "text": "\n　　这本来是李坏的秘密。\n\n　　可是在这种异乎寻常的情况下，在黑暗中，那个人的独处中，他居然把这个秘密说了出来。\n\n　　多年前铁银衣经过多年地毯式地搜寻之后，终于找到了李坏，把李坏从那个小城的泥泞中带了回去。让他见到了他的父亲，也让他传得了天下无双的飞刀秘技。\n",
+            "score": 300,
+            "anchors_hit": [
+              "李坏",
+              "铁银衣",
+              "银衣"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 9,
+        "anchor": "铁银衣与公孙太夫人对话",
+        "event_type": "climax",
+        "line_start": 374,
+        "line_end": 380,
+        "text": "\n　　他的声音中充满自信，无论谁都知道铁银衣绝不是一个愚蠢无知的人，他能说出这种话绝不是没有理由的，所以紫藤花已经开始觉得有些奇怪了。\n\n　　“为什么？为什么他能例外？”\n\n　　“因为公孙太夫人。”\n",
+        "anchors_hit": [
+          "铁银衣",
+          "银衣",
+          "公孙太夫人",
+          "太夫人",
+          "公孙"
+        ],
+        "anchors_total": 5,
+        "locate_status": "located",
+        "locate_score": 500,
+        "locate_method": "window",
+        "hint_chapter": 9,
+        "alternatives": [
+          {
+            "chapter": 10,
+            "line_start": 36,
+            "line_end": 42,
+            "text": "\n　　“我相信。”铁银衣说，“太夫人说的话，在下绝对相信。”\n\n　　紫藤花好像忍不住要笑，却又故意忍住笑。问铁银衣：\n\n　　“这位女士真的就是公孙太夫人？”\n",
+            "score": 500,
+            "anchors_hit": [
+              "太夫人",
+              "铁银衣",
+              "银衣",
+              "公孙太夫人",
+              "公孙"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ],
+    "id": "char_tie_yin_yi",
+    "name": "铁银衣"
+  },
+  {
+    "alias": [],
+    "identity": "李坏身边干员",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "李坏身边关键人物，冷峻干练，多次出手相助或周旋",
+    "biography": "在李坏归来与山城诸事中多次出现，语气冷静，能办能杀，是主线中的行动者。",
+    "personality": {
+      "traits": [
+        "冷峻",
+        "干练",
+        "忠诚",
+        "果决",
+        "少言"
+      ],
+      "speech_style": "简短直接",
+      "temperament": "冷硬"
+    },
+    "relationships": [
+      {
+        "target": "char_li_huai",
+        "type": "挚友",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "多次周旋相助"
+      },
+      {
+        "target": "char_tie_yin_yi",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "同一棋局中的干员"
+      }
+    ],
+    "known_skills": [
+      "skill_dao_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      2,
+      4,
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "anchor": "韩峻与李坏相关",
+        "event_type": "first_mention",
+        "line_start": 168,
+        "line_end": 174,
+        "text": "\n　　“铁火判官韩峻，天下谁人不知。”\n\n　　韩峻的眼睛射出了光芒，大家这才发现他的眼睛居然是青蓝色的，像万载寒冰一样的青蓝色，和他烈火般的红袍形成了一种极有趣又极诡秘的可怕对比。\n\n　　他盯着李坏看了很久，才一个字一个字地说：\n",
+        "anchors_hit": [
+          "韩峻",
+          "李坏"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 242,
+        "locate_method": "window",
+        "hint_chapter": 3,
+        "alternatives": [
+          {
+            "chapter": 4,
+            "line_start": 20,
+            "line_end": 22,
+            "text": "\n　　“把李坏找出来。”韩峻发下命令，“他一定还在附近，我们不惜任何代价，都要把他找出来。”\n",
+            "score": 239,
+            "anchors_hit": [
+              "韩峻",
+              "李坏"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 6,
+            "line_start": 34,
+            "line_end": 36,
+            "text": "\n　　李坏这一次自己也知道这条命快要被送掉了，因为他已经看到方大老板和韩峻从外面走了进来。\n",
+            "score": 233,
+            "anchors_hit": [
+              "韩峻",
+              "李坏"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 13,
+            "line_start": 26,
+            "line_end": 30,
+            "text": "\n　　李坏醒了。\n\n　　他醒来后，所面对的第一件事，就是韩峻那一张无情无义而且全无表情的脸。\n",
+            "score": 212,
+            "anchors_hit": [
+              "李坏",
+              "韩峻"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 4,
+        "anchor": "韩峻回答有一个人会",
+        "line_start": 20,
+        "line_end": 23,
+        "text": "\n　　“把李坏找出来。”韩峻发下命令，“他一定还在附近，我们不惜任何代价，都要把他找出来。”\n\n　　他们没找到。",
+        "anchors_hit": [
+          "韩峻"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 4,
+        "alternatives": []
+      }
+    ],
+    "id": "char_han_jun",
+    "name": "韩峻"
+  },
+  {
+    "alias": [
+      "太夫人"
+    ],
+    "identity": "公孙氏主事",
+    "faction": "faction_gong_sun_shi",
+    "role": "重要",
+    "archetype": "scholar",
+    "power_rank": "出神入化",
+    "importance": "重要",
+    "one_line": "公孙一脉女主事，雍容狠厉，夜宴中的关键操盘者",
+    "biography": "雍容华贵的妇人，高地帐篷夜宴的灵魂人物。能以琴声压倒喧嚣，以一诺保证李坏日出前不死，权术与风度并重。",
+    "personality": {
+      "traits": [
+        "雍容",
+        "狠厉",
+        "聪明",
+        "从容",
+        "掌控欲"
+      ],
+      "speech_style": "文雅而有威",
+      "temperament": "华贵冷峻"
+    },
+    "relationships": [
+      {
+        "target": "char_tie_yin_yi",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "夜宴上互相试探"
+      },
+      {
+        "target": "char_li_huai",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "保证其日出前不死"
+      },
+      {
+        "target": "char_gong_sun_wu_sheng",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "公孙一脉"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      9,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "anchor": "第八回公孙太夫人",
+        "event_type": "first_mention",
+        "line_start": 1,
+        "line_end": 2,
+        "text": "　　第八回　公孙太夫人\n",
+        "anchors_hit": [
+          "公孙太夫人",
+          "太夫人",
+          "公孙"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 324,
+        "locate_method": "window",
+        "hint_chapter": 9,
+        "alternatives": [
+          {
+            "chapter": 10,
+            "line_start": 36,
+            "line_end": 42,
+            "text": "\n　　“我相信。”铁银衣说，“太夫人说的话，在下绝对相信。”\n\n　　紫藤花好像忍不住要笑，却又故意忍住笑。问铁银衣：\n\n　　“这位女士真的就是公孙太夫人？”\n",
+            "score": 321,
+            "anchors_hit": [
+              "太夫人",
+              "公孙太夫人",
+              "公孙"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 9,
+        "anchor": "公孙太夫人保证李坏不死",
+        "event_type": "climax",
+        "line_start": 404,
+        "line_end": 410,
+        "text": "\n　　“没有。”铁银衣说，“她也像阁下和公孙太夫人一样，都是很难见得到的人。”\n\n　　紫藤花的媚笑如水，“可是你今天已经见到了我。”\n\n　　铁银衣道：“那只不过是因为你认为李坏已死，只要你和你的饱州六妖一到，我们这些看到过你的人，也都必死无救。”\n",
+        "anchors_hit": [
+          "公孙太夫人",
+          "太夫人",
+          "公孙",
+          "李坏"
+        ],
+        "anchors_total": 4,
+        "locate_status": "located",
+        "locate_score": 400,
+        "locate_method": "window",
+        "hint_chapter": 9,
+        "alternatives": [
+          {
+            "chapter": 10,
+            "line_start": 90,
+            "line_end": 96,
+            "text": "\n　　“让人看不懂的招式，总是让人不能不佩服的。”紫藤花说，“所以等太夫人魂归九天之后，每年今天我一定以香花祭酒，来纪念太夫人的忌辰。”\n\n　　“不敢当。”\n\n　　公孙太夫人还是文文雅雅地说：“只可惜明年今日好像我还没有死，就好像李坏先生还没有死一样。”\n",
+            "score": 400,
+            "anchors_hit": [
+              "太夫人",
+              "公孙太夫人",
+              "公孙",
+              "李坏"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ],
+    "id": "char_gong_sun_tai_fu_ren",
+    "name": "公孙太夫人"
+  },
+  {
+    "alias": [
+      "方大老板"
+    ],
+    "identity": "边陲强豪",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "边陲强豪，外门硬功，爱权势名声与独女可可",
+    "biography": "与段八方同型的外门硬功人物，在边陲举足轻重。爱权势、名声与女儿可可，对铁银衣一系极为忌惮客气。",
+    "personality": {
+      "traits": [
+        "强横",
+        "护女",
+        "势利",
+        "暴躁",
+        "务实"
+      ],
+      "speech_style": "沙哑发号施令",
+      "temperament": "霸道"
+    },
+    "relationships": [
+      {
+        "target": "char_ke_ke",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "独生女，最在乎的人"
+      },
+      {
+        "target": "char_wu_xin_liu",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "亲信小吴"
+      },
+      {
+        "target": "char_duan_ba_fang",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "同类外门强人，名声不及"
+      }
+    ],
+    "known_skills": [
+      "skill_wai_men_ying_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "anchor": "方天豪大厅吩咐吴心柳",
+        "event_type": "first_mention",
+        "line_start": 20,
+        "line_end": 22,
+        "text": "\n　　“咱们为什么不能对人家客气，你以为你吴心柳是什么东西？你以为我方天豪是什么东西？咱们两个人加起来，也许还比不上人家的一根汗毛。”\n",
+        "anchors_hit": [
+          "方天豪",
+          "吴心柳"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 242,
+        "locate_method": "window",
+        "hint_chapter": 3,
+        "alternatives": []
+      },
+      {
+        "chapter": 3,
+        "anchor": "方天豪爱权势名声与可可",
+        "event_type": "background",
+        "line_start": 6,
+        "line_end": 12,
+        "text": "\n　　方天豪几乎和段八方同样强壮高大，练的同样是外门硬功，在江湖中虽然名声地位比不上段八方，可是在这边陲一带，却绝对可以算是个举足轻重的首脑人物。\n\n　　他平生最喜欢的只有三件事：\n\n　　权势、名声和他的独生女儿可可。\n",
+        "anchors_hit": [
+          "方天豪",
+          "可可"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 3,
+        "alternatives": [
+          {
+            "chapter": 4,
+            "line_start": 152,
+            "line_end": 160,
+            "text": "\n　　这一种卑鄙下流无耻的话，居然从李坏嘴里说出来，可可简直不敢相信自己的耳朵。\n\n　　非但她不相信，别人更不相信。\n\n　　方大老板的脸在这一刹那间就已经变成了猪肝色。\n\n　　“你这个小王八蛋，你是不是人，你怎么能做出这种事来。”方天豪怒吼，“我女儿这么样对你，你怎么能这么样对她？”\n",
+            "score": 199,
+            "anchors_hit": [
+              "可可",
+              "方天豪"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 6,
+            "line_start": 142,
+            "line_end": 156,
+            "text": "\n　　方天豪和韩峻几乎不能相信自己的眼睛，这种事怎么可能会在这个世界上发生呢？\n\n　　更令他们不能相信的是自己的耳朵，因为这位满身银衣灿烂威猛如天神的老人，现在居然用一种谦卑如奴仆的声调对李坏说：\n\n　　“二少爷，小人奉庄主之命，特地到这里来请二少爷回去。”\n\n　　回去？\n\n　　一个没有根的浪子，一个从小就没有家、没有亲人、没有饭吃的坏孩子，能回到哪里去？\n\n　　长亭复短亭，何处是归程？\n\n　　可可忽然出现在门口，阻住了这个没有人敢阻止的银发老人。\n",
+            "score": 198,
+            "anchors_hit": [
+              "方天豪",
+              "可可"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ],
+    "id": "char_fang_tian_hao",
+    "name": "方天豪"
+  },
+  {
+    "alias": [],
+    "identity": "方天豪之女",
+    "faction": null,
+    "role": "重要",
+    "archetype": "scholar",
+    "power_rank": "略有小成",
+    "importance": "重要",
+    "one_line": "方天豪之女，与李坏有情感纠葛的边城少女",
+    "biography": "方天豪最珍视的独女，在边城权势与外来人物之间成为情感与冲突的交点之一。",
+    "personality": {
+      "traits": [
+        "任性",
+        "真情",
+        "敏感",
+        "柔弱中带刚"
+      ],
+      "speech_style": "少女口吻",
+      "temperament": "娇俏"
+    },
+    "relationships": [
+      {
+        "target": "char_fang_tian_hao",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_li_huai",
+        "type": "恋人",
+        "intensity": 55,
+        "bond_level": 2,
+        "dynamic": "边城情感纠葛"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3,
+      4
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "anchor": "方天豪独生女儿可可",
+        "event_type": "first_mention",
+        "line_start": 6,
+        "line_end": 12,
+        "text": "\n　　方天豪几乎和段八方同样强壮高大，练的同样是外门硬功，在江湖中虽然名声地位比不上段八方，可是在这边陲一带，却绝对可以算是个举足轻重的首脑人物。\n\n　　他平生最喜欢的只有三件事：\n\n　　权势、名声和他的独生女儿可可。\n",
+        "anchors_hit": [
+          "方天豪",
+          "可可"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 242,
+        "locate_method": "window",
+        "hint_chapter": 3,
+        "alternatives": [
+          {
+            "chapter": 4,
+            "line_start": 152,
+            "line_end": 160,
+            "text": "\n　　这一种卑鄙下流无耻的话，居然从李坏嘴里说出来，可可简直不敢相信自己的耳朵。\n\n　　非但她不相信，别人更不相信。\n\n　　方大老板的脸在这一刹那间就已经变成了猪肝色。\n\n　　“你这个小王八蛋，你是不是人，你怎么能做出这种事来。”方天豪怒吼，“我女儿这么样对你，你怎么能这么样对她？”\n",
+            "score": 238,
+            "anchors_hit": [
+              "可可",
+              "方天豪"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 6,
+            "line_start": 142,
+            "line_end": 156,
+            "text": "\n　　方天豪和韩峻几乎不能相信自己的眼睛，这种事怎么可能会在这个世界上发生呢？\n\n　　更令他们不能相信的是自己的耳朵，因为这位满身银衣灿烂威猛如天神的老人，现在居然用一种谦卑如奴仆的声调对李坏说：\n\n　　“二少爷，小人奉庄主之命，特地到这里来请二少爷回去。”\n\n　　回去？\n\n　　一个没有根的浪子，一个从小就没有家、没有亲人、没有饭吃的坏孩子，能回到哪里去？\n\n　　长亭复短亭，何处是归程？\n\n　　可可忽然出现在门口，阻住了这个没有人敢阻止的银发老人。\n",
+            "score": 231,
+            "anchors_hit": [
+              "方天豪",
+              "可可"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ],
+    "id": "char_ke_ke",
+    "name": "可可"
+  },
+  {
+    "alias": [],
+    "identity": "北方武林总领",
+    "faction": "faction_qi_da_men_pai",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "出神入化",
+    "importance": "重要",
+    "one_line": "长江以北七大门派总领，被画刀信吓死又现双重死谜",
+    "biography": "身高七尺九寸，十三太保横练，统领七大门派四十二寨并遥领齐豫四大镖局。除夕前被画刀白纸吓至自刃，却又有大年初一仍活着的怪事，揭开全书飞刀阴影。",
+    "personality": {
+      "traits": [
+        "威严",
+        "豪迈",
+        "重义",
+        "外刚",
+        "恐惧飞刀阴影"
+      ],
+      "speech_style": "江湖领袖口吻",
+      "temperament": "雄霸"
+    },
+    "relationships": [
+      {
+        "target": "char_tu_er_ye",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "淮阳调停相关"
+      },
+      {
+        "target": "char_fang_tian_hao",
+        "type": "对手",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "同型外门强人"
+      }
+    ],
+    "known_skills": [
+      "skill_shi_san_tai_bao_heng_lian",
+      "skill_wai_men_ying_gong",
+      "skill_dao_fa"
+    ],
+    "related_skills": [
+      "skill_fei_dao"
+    ],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "段八方十三太保横练",
+        "event_type": "first_mention",
+        "line_start": 2,
+        "line_end": 4,
+        "text": "\n　　段八方身高七尺九寸，一身钢筋铁骨十三太保横练，外门功夫之强，天下无人能及。\n",
+        "anchors_hit": [
+          "十三太保横练",
+          "十三太保",
+          "段八方",
+          "横练"
+        ],
+        "anchors_total": 4,
+        "locate_status": "located",
+        "locate_score": 448,
+        "locate_method": "window",
+        "hint_chapter": 1,
+        "alternatives": []
+      },
+      {
+        "chapter": 1,
+        "anchor": "画刀信吓死段八方自刃",
+        "event_type": "climax",
+        "line_start": 105,
+        "line_end": 109,
+        "text": "　　灵堂总是这样子的，总是白得这么惨。\n\n　　卅六条大汉把棺材抬入灵堂里，摆在一个个面色惨白的孤儿寡妇面前，然后也开始向后退，一步步用碎步向后退。\n\n　　他们没有退出门口。",
+        "anchors_hit": [
+          "段八方"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located_chapter_level",
+        "locate_score": 50,
+        "locate_method": "chapter_score",
+        "hint_chapter": 1,
+        "alternatives": []
+      },
+      {
+        "chapter": 1,
+        "anchor": "大年初一棺材运回八方庄",
+        "line_start": 76,
+        "line_end": 79,
+        "text": "\n　　大年初一是多么多姿多彩的一天，可是八方庄院得到的却是一口棺材。\n\n　　这口棺材虽然价值一千八百两白银，可是棺材毕竟是棺材。",
+        "anchors_hit": [
+          "八方庄"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 1,
+        "alternatives": []
+      }
+    ],
+    "id": "char_duan_ba_fang",
+    "name": "段八方"
+  },
+  {
+    "alias": [
+      "曼青老人"
+    ],
+    "identity": "李家关键长辈",
+    "faction": "faction_li_jia",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "重要",
+    "one_line": "曼青老人，小李探花一脉，李坏身世与李家尊荣的关键",
+    "biography": "第十四回曼青老人，与李家小楼、正月十五挑战相关。月神称其怕败因是小李探花后代，李坏的血脉与尊荣系于此人。",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "骄傲",
+        "护家",
+        "老辣",
+        "怕败"
+      ],
+      "speech_style": "老人沉声",
+      "temperament": "苍劲"
+    },
+    "relationships": [
+      {
+        "target": "char_li_huai",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "李家一脉"
+      },
+      {
+        "target": "char_yue_shen",
+        "type": "宿敌",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "薛李旧怨"
+      },
+      {
+        "target": "char_xiao_li_tan_hua",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "一脉"
+      }
+    ],
+    "known_skills": [
+      "skill_xiao_li_fei_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      15,
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "anchor": "第十四回曼青老人",
+        "event_type": "first_mention",
+        "line_start": 1,
+        "line_end": 2,
+        "text": "　　第十四回　曼青老人\n",
+        "anchors_hit": [
+          "曼青老人",
+          "曼青"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 206,
+        "locate_method": "window",
+        "hint_chapter": 15,
+        "alternatives": []
+      },
+      {
+        "chapter": 16,
+        "anchor": "月神论李曼青怕败",
+        "event_type": "climax",
+        "line_start": 8,
+        "line_end": 14,
+        "text": "\n　　“李曼青不会死在我刀下的。”她说，“因为正月十五那天，他根本不会应战。”\n\n　　“为什么？”小星问，“难道李曼青是个贪生怕死的人？”\n\n　　“他不怕死，可是他怕败。”月神说，“他是小李探花的后代，他不能败。”\n",
+        "anchors_hit": [
+          "李曼青",
+          "曼青",
+          "月神"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 300,
+        "locate_method": "window",
+        "hint_chapter": 16,
+        "alternatives": [
+          {
+            "chapter": 10,
+            "line_start": 448,
+            "line_end": 450,
+            "text": "\n　　“昔年天下第一名侠小李探花的嫡系子孙李曼青先生，虽然已有二十年未曾出手，甚至没有人能够见得到他一面，可是李家嫡传的飞刀，江湖中大概也没有人敢去轻易尝试。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "李曼青",
+              "曼青"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 34,
+            "line_end": 36,
+            "text": "\n　　“只可惜李家已经后继无人了，这一代的老庄主李曼青先生虽然有仁有义，而且力图振作，可是小李飞刀的威望，已经不可能在他身上重现了。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "李曼青",
+              "曼青"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 14,
+            "line_start": 32,
+            "line_end": 82,
+            "text": "\n　　久居在这里的人，大多都知道这座小楼就是昔年小李探花的读书处。小李探花离家后，这座小楼就变成了他早日恋人林诗音的闺房。而现在，却是李家第三代主人曼青老先生养病的地方。\n\n　　这里本来是一条陋巷，因为小李探花的盛名所致，好奇的人纷纷赶来瞻仰，所以才渐渐热闹了起来。\n\n　　飞刀去，人亦去，名仍在。　\n\n　　所以这地方也渐渐一天比一天热闹，只不过近年来已渐渐有了疲态。\n\n　　所以这家绸缎庄才会倒闭。\n\n　　在这么样一个地区，在一家已经倒闭了的绸缎庄的小楼上，为什么忽然会有一家人特地搬来？而且把这个小楼上的三间小屋，布置得像一个用冰雪造成的小小宫殿一样？\n\n　　屋子里一片雪白，雪白的墙，雪白的顶，用洁白如雪的纯丝所织成的床帐，地上铺满了雪白色的银狐皮毛，甚至连妆台上的梳具都是银白色的。\n\n　　每当雪白的纱罩中灯光亮起时，这屋子里的光色就会柔和如月光。\n\n　　此刻窗外无月，只有一个穿一身雪白柔丝…",
+            "score": 191,
+            "anchors_hit": [
+              "曼青",
+              "月神"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ],
+    "id": "char_li_man_qing",
+    "name": "李曼青"
+  },
+  {
+    "alias": [],
+    "identity": "月神侍女",
+    "faction": "faction_xue_jia",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "初窥门径",
+    "importance": "次要",
+    "one_line": "月神身边侍女，忠诚刚烈",
+    "biography": "追随月神，盼见李曼青死在小姐刀下，关心李坏是否李家后代。",
+    "personality": {
+      "traits": [
+        "忠诚",
+        "刚烈",
+        "直率",
+        "护主"
+      ],
+      "speech_style": "急切真诚",
+      "temperament": "热辣"
+    },
+    "relationships": [
+      {
+        "target": "char_yue_shen",
+        "type": "主仆",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "侍女追随"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "anchor": "小星要陪小姐看李曼青",
+        "event_type": "first_mention",
+        "line_start": 2,
+        "line_end": 6,
+        "text": "\n　　小星也在遥望着对面小楼上的灯光，用一种很坚决的态度说：\n\n　　“小姐，正月十五那天，我一定也要陪你过去。因为我要看看那个李曼青究竟是个什么样的人，当年为什么要把老爹逼得那么惨。”小星又说：“我娘告诉我这件事的时候，我就一直在盼望着有一天能亲眼看到这个李曼青死在小姐你的刀下。”\n",
+        "anchors_hit": [
+          "小星",
+          "李曼青",
+          "曼青"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 303,
+        "locate_method": "window",
+        "hint_chapter": 16,
+        "alternatives": [
+          {
+            "chapter": 10,
+            "line_start": 448,
+            "line_end": 450,
+            "text": "\n　　“昔年天下第一名侠小李探花的嫡系子孙李曼青先生，虽然已有二十年未曾出手，甚至没有人能够见得到他一面，可是李家嫡传的飞刀，江湖中大概也没有人敢去轻易尝试。”\n",
+            "score": 221,
+            "anchors_hit": [
+              "李曼青",
+              "曼青"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 34,
+            "line_end": 36,
+            "text": "\n　　“只可惜李家已经后继无人了，这一代的老庄主李曼青先生虽然有仁有义，而且力图振作，可是小李飞刀的威望，已经不可能在他身上重现了。”\n",
+            "score": 215,
+            "anchors_hit": [
+              "李曼青",
+              "曼青"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 14,
+            "line_start": 32,
+            "line_end": 76,
+            "text": "\n　　久居在这里的人，大多都知道这座小楼就是昔年小李探花的读书处。小李探花离家后，这座小楼就变成了他早日恋人林诗音的闺房。而现在，却是李家第三代主人曼青老先生养病的地方。\n\n　　这里本来是一条陋巷，因为小李探花的盛名所致，好奇的人纷纷赶来瞻仰，所以才渐渐热闹了起来。\n\n　　飞刀去，人亦去，名仍在。　\n\n　　所以这地方也渐渐一天比一天热闹，只不过近年来已渐渐有了疲态。\n\n　　所以这家绸缎庄才会倒闭。\n\n　　在这么样一个地区，在一家已经倒闭了的绸缎庄的小楼上，为什么忽然会有一家人特地搬来？而且把这个小楼上的三间小屋，布置得像一个用冰雪造成的小小宫殿一样？\n\n　　屋子里一片雪白，雪白的墙，雪白的顶，用洁白如雪的纯丝所织成的床帐，地上铺满了雪白色的银狐皮毛，甚至连妆台上的梳具都是银白色的。\n\n　　每当雪白的纱罩中灯光亮起时，这屋子里的光色就会柔和如月光。\n\n　　此刻窗外无月，只有一个穿一身雪白柔丝…",
+            "score": 201,
+            "anchors_hit": [
+              "曼青",
+              "小星"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ],
+    "id": "char_xiao_xing",
+    "name": "小星"
+  },
+  {
+    "alias": [],
+    "identity": "夜宴风情女子",
+    "faction": null,
+    "role": "次要",
+    "archetype": "scholar",
+    "power_rank": "平平无奇",
+    "importance": "次要",
+    "one_line": "夜迷蒙场景中的风情女子",
+    "biography": "第九回夜迷蒙中出现，与公孙宴乐、琴声场景交织。",
+    "personality": {
+      "traits": [
+        "风情",
+        "机敏",
+        "善笑",
+        "懂场"
+      ],
+      "speech_style": "轻俏",
+      "temperament": "冶艳"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "anchor": "紫藤花在帐篷夜宴",
+        "line_start": 38,
+        "line_end": 41,
+        "text": "\n　　紫藤花好像忍不住要笑，却又故意忍住笑。问铁银衣：\n\n　　“这位女士真的就是公孙太夫人？”",
+        "anchors_hit": [
+          "紫藤花"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 10,
+        "alternatives": []
+      }
+    ],
+    "id": "char_zi_teng_hua",
+    "name": "紫藤花"
+  },
+  {
+    "alias": [],
+    "identity": "公孙一脉高手",
+    "faction": "faction_gong_sun_shi",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "次要",
+    "one_line": "公孙一脉高手，参与击杀与对峙",
+    "biography": "公孙氏中的出手人物，参与击杀与对峙场面。",
+    "personality": {
+      "traits": [
+        "凶狠",
+        "服从",
+        "勇悍"
+      ],
+      "speech_style": "简短",
+      "temperament": "悍"
+    },
+    "relationships": [
+      {
+        "target": "char_gong_sun_tai_fu_ren",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "公孙一脉"
+      }
+    ],
+    "known_skills": [
+      "skill_dao_fa"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      9,
+      10
+    ],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "anchor": "公孙无胜与公孙太夫人",
+        "event_type": "first_mention",
+        "line_start": 236,
+        "line_end": 240,
+        "text": "\n　　又过了很久，公孙太夫人才一个字一个字地说：“他的名字叫无胜。”\n\n　　“公孙无胜？”\n",
+        "anchors_hit": [
+          "公孙太夫人",
+          "太夫人",
+          "公孙",
+          "公孙无胜"
+        ],
+        "anchors_total": 4,
+        "locate_status": "located",
+        "locate_score": 421,
+        "locate_method": "window",
+        "hint_chapter": 10,
+        "alternatives": [
+          {
+            "chapter": 9,
+            "line_start": 1,
+            "line_end": 2,
+            "text": "　　第八回　公孙太夫人\n",
+            "score": 324,
+            "anchors_hit": [
+              "公孙太夫人",
+              "太夫人",
+              "公孙"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ],
+    "id": "char_gong_sun_wu_sheng",
+    "name": "公孙无胜"
+  },
+  {
+    "alias": [
+      "薛先生"
+    ],
+    "identity": "薛家人物",
+    "faction": "faction_xue_jia",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "次要",
+    "one_line": "薛家相关人物，牵动薛李旧怨",
+    "biography": "薛家一脉，与挑战、尊荣相关的名字在正文中出现。",
+    "personality": {
+      "traits": [
+        "执念",
+        "冷硬",
+        "护家"
+      ],
+      "speech_style": "冷",
+      "temperament": "肃"
+    },
+    "relationships": [
+      {
+        "target": "char_yue_shen",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "薛家"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "anchor": "薛青碧与薛家",
+        "event_type": "first_mention",
+        "line_start": 276,
+        "line_end": 284,
+        "text": "\n　　“因为这封信就和我二十年前写给薛青碧先生的那封信完全一样，除了挑战人的姓名不同之外，别的字句都完全一样。”\n\n　　老人说：“这封信，就是薛先生的后人，要来替他父亲复仇，所下的战书。也就是我要付出的代价。”\n\n　　李坏冷笑。\n\n　　“代价？什么代价？薛家的人凭什么用飞刀来对我们李家的飞刀？”\n",
+        "anchors_hit": [
+          "薛青碧",
+          "薛家"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 214,
+        "locate_method": "window",
+        "hint_chapter": 12,
+        "alternatives": []
+      }
+    ],
+    "id": "char_xue_qing_bi",
+    "name": "薛青碧"
+  },
+  {
+    "alias": [
+      "张老头"
+    ],
+    "identity": "山城馒头铺主人",
+    "faction": null,
+    "role": "次要",
+    "archetype": "healer",
+    "power_rank": "平平无奇",
+    "importance": "次要",
+    "one_line": "山城馒头铺老人，李坏归来时的童年见证",
+    "biography": "卖馒头包子卤菜的老人，李坏以玩笑与真情认他，是归来篇章的温情支点。",
+    "personality": {
+      "traits": [
+        "善良",
+        "迟钝",
+        "念旧",
+        "热情"
+      ],
+      "speech_style": "市井",
+      "temperament": "憨厚"
+    },
+    "relationships": [
+      {
+        "target": "char_li_huai",
+        "type": "挚友",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "童年与归来的见证"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "anchor": "老张馒头铺见李坏",
+        "event_type": "first_mention",
+        "line_start": 6,
+        "line_end": 14,
+        "text": "\n　　李坏又回去了，回到了这座城。\n\n　　这里的风沙黄土和这里的人，他都久已熟悉。\n\n　　因为他是在这里长大的，他是个浪子，他没有根，他的童年也只不过是一连串噩梦而已，可是在他的噩梦中最不能忘怀的还是这个地方。\n\n　　馒头铺并不一定只卖馒头，老张被人叫做老张的时候也并不老。\n",
+        "anchors_hit": [
+          "李坏",
+          "馒头铺",
+          "老张"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 344,
+        "locate_method": "window",
+        "hint_chapter": 2,
+        "alternatives": []
+      }
+    ],
+    "id": "char_lao_zhang",
+    "name": "老张"
+  },
+  {
+    "alias": [
+      "小吴"
+    ],
+    "identity": "方天豪亲信",
+    "faction": null,
+    "role": "龙套",
+    "archetype": "scholar",
+    "power_rank": "平平无奇",
+    "importance": "龙套",
+    "one_line": "方天豪亲信小吴，势利而多嘴",
+    "biography": "在方天豪厅中听差写帖，势利多问，被老板训斥。",
+    "personality": {
+      "traits": [
+        "势利",
+        "多嘴",
+        "顺从"
+      ],
+      "speech_style": "奉承",
+      "temperament": "小"
+    },
+    "relationships": [
+      {
+        "target": "char_fang_tian_hao",
+        "type": "主仆",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "亲信"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      3
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "anchor": "方天豪吩咐小吴吴心柳",
+        "event_type": "first_mention",
+        "line_start": 16,
+        "line_end": 22,
+        "text": "\n　　“写给谁？”小吴好像有点不太服气，“咱们为什么要对人这么客气？”\n\n　　方大老板忽然发了脾气。\n\n　　“咱们为什么不能对人家客气，你以为你吴心柳是什么东西？你以为我方天豪是什么东西？咱们两个人加起来，也许还比不上人家的一根汗毛。”\n",
+        "anchors_hit": [
+          "小吴",
+          "方天豪",
+          "吴心柳"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 342,
+        "locate_method": "window",
+        "hint_chapter": 3,
+        "alternatives": []
+      }
+    ],
+    "id": "char_wu_xin_liu",
+    "name": "吴心柳"
+  },
+  {
+    "alias": [],
+    "identity": "淮阳三义",
+    "faction": "faction_huai_yang_shi_san",
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "龙套",
+    "one_line": "淮阳三义之一，段八方横死时首先发声",
+    "biography": "以镇静机智著名，段八方自刃后第一个开口叫人找大夫。",
+    "personality": {
+      "traits": [
+        "镇静",
+        "机智",
+        "义气"
+      ],
+      "speech_style": "急促务实",
+      "temperament": "稳"
+    },
+    "relationships": [
+      {
+        "target": "char_duan_ba_fang",
+        "type": "合作者",
+        "intensity": 40,
+        "bond_level": 2,
+        "dynamic": "淮阳相关"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "屠二爷叫快去找大夫",
+        "line_start": 60,
+        "line_end": 63,
+        "text": "\n　　第一个能开口的是淮阳三义中以镇静和机智著名的屠二爷。\n\n　　“快，快去找大夫来！”他说。",
+        "anchors_hit": [
+          "屠二爷"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 1,
+        "alternatives": []
+      }
+    ],
+    "id": "char_tu_er_ye",
+    "name": "屠二爷"
+  },
+  {
+    "alias": [],
+    "identity": "江湖名号人物",
+    "faction": null,
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "龙套",
+    "one_line": "江湖名号人物，铁字一系相关",
+    "biography": "正文中以铁火判官名号出现的江湖人物。",
+    "personality": {
+      "traits": [
+        "威猛",
+        "刚烈"
+      ],
+      "speech_style": "厉",
+      "temperament": "烈"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "anchor": "铁火判官",
+        "line_start": 168,
+        "line_end": 171,
+        "text": "\n　　“铁火判官韩峻，天下谁人不知。”\n\n　　韩峻的眼睛射出了光芒，大家这才发现他的眼睛居然是青蓝色的，像万载寒冰一样的青蓝色，和他烈火般的红袍形成了一种极有趣又极诡秘的可怕对比。",
+        "anchors_hit": [
+          "铁火判官"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 3,
+        "alternatives": []
+      }
+    ],
+    "id": "char_tie_huo_pan_guan",
+    "name": "铁火判官"
+  },
+  {
+    "alias": [
+      "李探花"
+    ],
+    "identity": "李家先祖式传奇",
+    "faction": "faction_li_jia",
+    "role": "背景",
+    "archetype": "assassin",
+    "power_rank": "返璞归真",
+    "importance": "背景",
+    "one_line": "李家先祖式传奇，小李飞刀与探花尊荣的源头",
+    "biography": "作为传说与尊荣源头被反复提及，李曼青、李坏皆在其阴影与荣光下行动。",
+    "personality": {
+      "traits": [
+        "传说",
+        "超绝",
+        "寂寞"
+      ],
+      "speech_style": "未直接出场",
+      "temperament": "神话"
+    },
+    "relationships": [
+      {
+        "target": "char_li_huai",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "血脉传说"
+      },
+      {
+        "target": "char_li_man_qing",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "一脉"
+      }
+    ],
+    "known_skills": [
+      "skill_xiao_li_fei_dao"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "anchor": "小李探花的后代",
+        "event_type": "first_mention",
+        "line_start": 542,
+        "line_end": 544,
+        "text": "\n　　“可是他岂非已经死了？”方天豪问，“你岂非说过，月神之刀，就好像昔年小李探花的飞刀一样，例不虚发。”\n",
+        "anchors_hit": [
+          "小李探花",
+          "李探花"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 242,
+        "locate_method": "window",
+        "hint_chapter": 3,
+        "alternatives": [
+          {
+            "chapter": 4,
+            "line_start": 90,
+            "line_end": 92,
+            "text": "\n　　“最重要的一点是，我也知道月神和昔年的‘小李探花’一样，杀人只杀一次，一次失手，绝不再发。”\n",
+            "score": 239,
+            "anchors_hit": [
+              "小李探花",
+              "李探花"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 448,
+            "line_end": 450,
+            "text": "\n　　“昔年天下第一名侠小李探花的嫡系子孙李曼青先生，虽然已有二十年未曾出手，甚至没有人能够见得到他一面，可是李家嫡传的飞刀，江湖中大概也没有人敢去轻易尝试。”\n",
+            "score": 221,
+            "anchors_hit": [
+              "小李探花",
+              "李探花"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 12,
+            "line_start": 12,
+            "line_end": 14,
+            "text": "\n　　“这里真的就是小李探花的探花府？”\n",
+            "score": 215,
+            "anchors_hit": [
+              "小李探花",
+              "李探花"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 13,
+            "line_start": 110,
+            "line_end": 112,
+            "text": "\n　　小册中记载的就是昔年小李探花，天下无双的飞刀绝技。\n",
+            "score": 212,
+            "anchors_hit": [
+              "小李探花",
+              "李探花"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ],
+    "id": "char_xiao_li_tan_hua",
+    "name": "小李探花"
+  },
+  {
+    "alias": [],
+    "identity": "系列关联人物",
+    "faction": null,
+    "role": "背景",
+    "archetype": "scholar",
+    "power_rank": "平平无奇",
+    "importance": "背景",
+    "one_line": "小李飞刀系列关联人物，本书仅轻触提及",
+    "biography": "系列背景人物，本书仅轻触提及，不作主线展开。",
+    "personality": {
+      "traits": [
+        "深情",
+        "隐忍"
+      ],
+      "speech_style": "未展开",
+      "temperament": "柔"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "anchor": "林诗音轻触提及",
+        "line_start": 32,
+        "line_end": 35,
+        "text": "\n　　久居在这里的人，大多都知道这座小楼就是昔年小李探花的读书处。小李探花离家后，这座小楼就变成了他早日恋人林诗音的闺房。而现在，却是李家第三代主人曼青老先生养病的地方。\n\n　　这里本来是一条陋巷，因为小李探花的盛名所致，好奇的人纷纷赶来瞻仰，所以才渐渐热闹了起来。",
+        "anchors_hit": [
+          "林诗音"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 14,
+        "alternatives": []
+      }
+    ],
+    "id": "char_lin_shi_yin",
+    "name": "林诗音"
+  }
+]
