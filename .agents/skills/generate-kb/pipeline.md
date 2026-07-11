@@ -1,14 +1,13 @@
 # 流水线详细步骤
 
-## Phase 1：split + keywords（纯代码）
+## Phase 1：split + compact-mention（纯代码）
 
 ```bash
 node <skill>/scripts/split-chapters.js <novelDir>
 node <skill>/scripts/compact-mention.js <novelDir>
-node <skill>/scripts/extract-keywords.js <novelDir>
 ```
 
-输出：`ch_split/`、`build/manifest.json`、`mention_summary.json`、`keywords.json`
+输出：`ch_split/`、`build/manifest.json`、`build/mention_index.jsonl`、`build/mention_summary.json`
 
 **配置文件**：`split-chapters.js` 支持通过 `split-config.json` 配置章节格式和关键词模式。
 
@@ -31,7 +30,40 @@ node <skill>/scripts/extract-keywords.js <novelDir>
 }
 ```
 
-**重要**：`keywords.json` 是 locate.js 的核心依赖。如果 locate 率低，首先检查 `keywords.json` 是否包含足够的关键词。
+## Phase 1.2：LLM 生成 build/keywords.json
+
+**目的**：为每本书生成专属的关键词列表，用于 locate.js 精确匹配。
+
+**输入**：
+- `build/manifest.json`：章节清单
+- `build/mention_summary.json`：高频实体提及汇总
+- 原文采样（前3章 + 中间2章 + 最后2章）
+
+**输出**：`build/keywords.json`
+
+**关键词类型**（必须覆盖）：
+1. **角色名**：主要角色、次要角色、重要龙套
+2. **门派名**：帮派、武林门派、家族、军队、部族
+3. **地名**：城市、山脉、建筑、景点
+4. **功法名**：内功、剑法、拳法、掌法、轻功、暗器
+5. **物品名**：兵器、秘籍、信物、丹药
+6. **事件词**：关键事件、情节转折点
+
+**格式**：JSON 数组，按长度降序排列（长词优先匹配）
+
+**示例**（书剑恩仇录）：
+```json
+[
+  "陈家洛", "乾隆", "霍青桐", "香香公主", "文泰来", "骆冰", "余鱼同",
+  "红花会", "武当派", "少林派", "天山派", "镇远镖局", "回部",
+  "杭州", "北京", "海宁", "天山", "回疆", "铁胆庄", "六和塔",
+  "百花错拳", "柔云剑术", "三分剑术", "庖丁解牛功", "芙蓉金针",
+  "凝碧剑", "白龙剑", "金笛", "可兰经", "温玉",
+  "千里接龙头", "六和塔对峙", "香香公主自尽"
+]
+```
+
+**重要**：`build/keywords.json` 是 locate.js 的核心依赖。关键词越精准，locate 率越高。
 
 ## Phase 1.5：outline（可选）
 
@@ -39,7 +71,7 @@ node <skill>/scripts/extract-keywords.js <novelDir>
 
 ## Phase 1.6：prompt-craft（LLM 生成书籍专属 prompt）
 
-读取 `prompts/prompt-craft.md`（meta-prompt），输入 manifest.json + mention_summary.json + 原文采样，输出 `<novelDir>/prompts/` 下 4 个文件：
+读取 `prompts/prompt-craft.md`（meta-prompt），输入 build/manifest.json + build/mention_summary.json + 原文采样，输出 `<novelDir>/prompts/` 下 4 个文件：
 - `outline.md`、`pass1-entities.md`、`pass2-details.md`、`review-all.md`
 
 ## Phase 1.6.5：prompt 校验
@@ -49,7 +81,7 @@ node <skill>/scripts/extract-keywords.js <novelDir>
 ## Phase 2：generate（2 个 pass）
 
 **Pass 1 — 实体骨架**
-- 输入：manifest.json + mention_summary.json + outline.json（可选）
+- 输入：build/manifest.json + build/mention_summary.json + outline.json（可选）
 - 输出：`characters.json`、`factions.json`、`locations.json`、`skills.json`、`techniques.json`
 
 **Pass 2 — 细节**
@@ -57,11 +89,11 @@ node <skill>/scripts/extract-keywords.js <novelDir>
 - 输出：`items.json`、`dialogues.json`、`chapter_summaries.json`
 - **items.json 必须为每个物品分配 `rarity_tier`**（凡品/良品/珍品/神品），不能全部设为"未知"
 
-**Pass 2 后必做：刷新 keywords.json**
+**Pass 2 后必做：刷新 build/keywords.json**
 ```bash
 node <skill>/scripts/extract-keywords.js <novelDir>
 ```
-Phase 1 生成的 keywords.json 不含角色名。Pass 2 生成实体 JSON 后，必须重跑 extract-keywords.js，它会自动从 characters.json/factions.json 等中提取实体名加入关键词字典。否则 locate.js 无法匹配含角色名的 anchor。
+Phase 1.2 生成的 build/keywords.json 不含实体名。Pass 2 生成实体 JSON 后，必须重跑 extract-keywords.js，它会自动从 characters.json/factions.json 等中提取实体名加入关键词字典。否则 locate.js 无法匹配含角色名的 anchor。
 
 ## Phase 2.2：chapter_summaries 交叉验证
 

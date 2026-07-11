@@ -538,7 +538,7 @@ const report = {
   issues: issues
 };
 
-const reportPath = path.join(novelDir, 'cross_validation_report.json');
+const reportPath = path.join(novelDir, 'reports', 'cross_validation_report.json');
 fs.writeFileSync(reportPath, JSON.stringify(report, null, 2), 'utf8');
 console.log(`\nFull report written to ${reportPath}`);
 

@@ -154,7 +154,7 @@ const report = {
   low_freq_gaps: lowFreq
 };
 
-const reportPath = path.join(novelDir, 'coverage_gap_report.json');
+const reportPath = path.join(novelDir, 'reports', 'coverage_gap_report.json');
 fs.writeFileSync(reportPath, JSON.stringify(report, null, 2), 'utf8');
 console.log(`\nFull report written to ${reportPath}`);
 
@@ -169,7 +169,7 @@ if (highFreq.length > 0) {
     }))
   };
   
-  const patchPath = path.join(novelDir, 'pass3_patch_input.json');
+  const patchPath = path.join(novelDir, 'reports', 'pass3_patch_input.json');
   fs.writeFileSync(patchPath, JSON.stringify(patchInput, null, 2), 'utf8');
   console.log(`Pass 3 patch input written to ${patchPath}`);
 }
