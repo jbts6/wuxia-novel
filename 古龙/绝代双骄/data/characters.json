@@ -1,0 +1,4485 @@
+[
+  {
+    "id": "char_xiao_yu_er",
+    "name": "小鱼儿",
+    "alias": [
+      "江小鱼"
+    ],
+    "identity": "双骄之一，恶人谷长大",
+    "faction": "faction_e_ren_gu",
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "出神入化",
+    "importance": "核心",
+    "one_line": "江枫与花月奴之子，恶人谷长大，机智多谋的双骄之一",
+    "biography": "本名江小鱼，与花无缺为双胞胎。自幼在恶人谷由十大恶人抚养，习得诸般阴损机谋与武功。出谷后闯荡江湖，与铁心兰、苏樱等结缘，与花无缺既对立又相认，终揭江家与移花宫之局。",
+    "personality": {
+      "traits": [
+        "机智狡黠",
+        "重情重义",
+        "油滑善辩",
+        "嫉恶如仇",
+        "玩世不恭",
+        "心软"
+      ],
+      "speech_style": "玩笑机锋，反将一军",
+      "temperament": "外嬉皮内重情"
+    },
+    "relationships": [
+      {
+        "target": "char_hua_wu_que",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "双胞胎，先敌后亲"
+      },
+      {
+        "target": "char_tie_xin_lan",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "挚爱，历经磨难"
+      },
+      {
+        "target": "char_su_ying",
+        "type": "恋人",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "结为夫妇"
+      },
+      {
+        "target": "char_yan_nan_tian",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "受其守护与信任"
+      },
+      {
+        "target": "char_jiang_bie_he",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 2,
+        "dynamic": "揭穿伪善"
+      },
+      {
+        "target": "char_yao_yue",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "移花宫控制与反抗"
+      },
+      {
+        "target": "char_tu_jiao_jiao",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "恶人谷情谊复杂"
+      },
+      {
+        "target": "char_jiang_feng",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_hua_yue_nu",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "母子"
+      },
+      {
+        "target": "char_jiang_yu_lang",
+        "type": "宿敌",
+        "intensity": 75,
+        "bond_level": 2,
+        "dynamic": "对立"
+      },
+      {
+        "target": "char_li_da_zui",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "谷中情谊"
+      },
+      {
+        "target": "char_ha_ha_er",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "恶人谷复杂"
+      },
+      {
+        "target": "char_bai_kai_xin",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "谷中相处"
+      },
+      {
+        "target": "char_xuan_yuan_san_guang",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "谷中及后日"
+      },
+      {
+        "target": "char_du_sha",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "恶人谷"
+      },
+      {
+        "target": "char_hei_zhi_zhu",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "恶人谷"
+      },
+      {
+        "target": "char_yin_jiu_you",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "恶人谷"
+      },
+      {
+        "target": "char_wei_wu_ya",
+        "type": "宿敌",
+        "intensity": 75,
+        "bond_level": 2,
+        "dynamic": "对立"
+      },
+      {
+        "target": "char_mu_rong_jiu",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "情节纠葛"
+      },
+      {
+        "target": "char_tie_zhan",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "对决"
+      },
+      {
+        "target": "char_gui_tong",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "对决"
+      }
+    ],
+    "known_skills": [
+      "skill_dian_xue",
+      "skill_qing_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      10,
+      64,
+      100,
+      127
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "anchor": "小鱼儿恶人谷十大恶人",
+        "event_type": "first_mention",
+        "line_start": 143,
+        "line_end": 189,
+        "text": "\n　　司马烟笑道：“但以小弟看来，那五位也未必能比这五位恶多少，尤其是那位‘狂狮’铁战，严格说来，根本就不能名列‘十大恶人’之一。\n\n　　屠娇娇道：“狂狮若是狂起来，当真是六亲不认，见人就打，就连他的儿子，都被逼得非和他打一场不可，但真被打死，却没有半个，何况，他还有不狂的时候。”\n\n　　哈哈儿笑道：“狂狮不行，那‘迷死人不赔命’萧咪咪又如何，我瞧就算‘二十四孝’中的孝子若是被她迷上，也会把老子老娘全都卖了的。”\n\n　　屠娇娇道：“萧咪咪的迷汤功夫虽到家，但真被她迷上的，也不过都是些十七十八二十来岁的毛头小伙子，她若遇见李大嘴，还不是一口将她吃了。”\n\n　　李大嘴冷冷道：“半男半女的人，她自然是迷不上的。”\n\n　　哈哈儿赶紧道：“这也不是，那也不是，天下最凶最毒最恶的人，究竟是谁，难道是大庙里的老和尚不成？”\n\n　　屠娇娇笑道：“咱们这些人，论凶、论毒、论恶，大家都差不多，准也别想强过谁，…",
+        "anchors_hit": [
+          "十大恶人",
+          "恶人谷",
+          "小鱼儿"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 652,
+        "locate_method": "window",
+        "hint_chapter": 7,
+        "alternatives": [
+          {
+            "chapter": 14,
+            "line_start": 283,
+            "line_end": 289,
+            "text": "\n　　小鱼儿道：“莫非是十大恶人中的‘狂狮’铁战？”\n\n　　铁心男霍然抬头，失声道：“你认得他？他果真在那里？”\n\n　　小鱼儿笑道：“幸好你遇着我，否则你就要白走一趟了，是什么人告诉你‘狂狮’铁战在恶人谷的？你真该打那人的屁股。”\n",
+            "score": 639,
+            "anchors_hit": [
+              "十大恶人",
+              "小鱼儿",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 26,
+            "line_start": 309,
+            "line_end": 315,
+            "text": "\n　　沈轻虹道：　“昔年‘十大恶人’中，武功最高的‘血手’杜杀与‘狂狮’铁战，只怕也有这么样的手段。”\n\n　　小鱼儿道：“这两人也不可能。”\n\n　　沈轻虹道：“不错，这两人一个已多年不知下落，据闻早已投入‘恶人谷’，至于‘狂狮’铁战么……唉！这些人若是被他杀的，连兵刃都早已要被折成一段段的了，又怎会有此刻这般完整。”\n",
+            "score": 603,
+            "anchors_hit": [
+              "十大恶人",
+              "小鱼儿",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 29,
+            "line_start": 79,
+            "line_end": 99,
+            "text": "\n　　小鱼儿道：“十大恶人若也有一个朋友，那就是我，江小鱼。”\n\n　　萧咪咪道：“你……你竟敢自称‘十大恶人’的朋友？”\n\n　　小鱼儿笑道：“你难道以为我是好人不成？”\n\n　　萧咪咪嫣然道：“你自然不是好人，但你还太小，小得还不能做恶人。我瞧你……你只怕是那老妖怪派来的，是么？否则你又怎么知道我。”\n\n　　小鱼儿道：“老妖怪我的确认得好几个。”\n\n　　萧咪咪道：“好几个？”\n\n　　小鱼儿眨了眨眼睛，突然大笑道：“哈哈，小僧从来不近妖孽，阿弥陀佛……近妖者杀……你杀时小心些，若让血流得太多，肉就不鲜了……九幽门下，饿鬼日多，肉纵不鲜，也有鬼食……你呀，你就是个缺德鬼。”\n\n　　他说了五句活，正活脱脱是哈哈儿、“血手”杜杀、“不吃人头”李大嘴、“半人半鬼”阴九幽、“不男不女”屠娇娇这五人的口气，不但声音相同，语气也相同，正是惟妙惟肖，活灵活现。\n\n　　萧咪咪眼睛已睁大了，娇笑道：“你这小鬼，你…",
+            "score": 591,
+            "anchors_hit": [
+              "十大恶人",
+              "小鱼儿",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 8,
+            "line_start": 313,
+            "line_end": 317,
+            "text": "\n　　杜杀住的地方，在“恶人谷”的边缘，他屋后便是荒山——他屋子里其实也和荒山相差无几。\n\n　　就连他的卧室里，都绝无陈设，可说是“恶人谷”中最最简陋的屋子。小鱼儿每次从屠娇娇的屋子里，走到他屋子里总觉得特别不舒服，更何况他屋子里总有个吃人的野兽在等着，但小鱼儿不来却又不行。\n",
+            "score": 557,
+            "anchors_hit": [
+              "恶人谷",
+              "小鱼儿"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 56,
+        "anchor": "小鱼儿花无缺神掌挫敌",
+        "event_type": "climax",
+        "line_start": 107,
+        "line_end": 111,
+        "text": "\n　　小鱼儿这一惊才是非同小可，几乎要从藏身之处跳了出来。慕容九妹怎会不在那里，莫非是他们找错了地方？\n\n　　秦剑道：“我等方才也见过了那花无缺公子和铁心兰姑娘，都说九妹早已失踪，绝不会和江大侠有关。”\n",
+        "anchors_hit": [
+          "小鱼儿",
+          "花无缺"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 56,
+        "alternatives": [
+          {
+            "chapter": 58,
+            "line_start": 147,
+            "line_end": 151,
+            "text": "\n　　小鱼儿道：“这我倒猜不透了。”\n\n　　黑蜘蛛道：“他竟要我将信去送给花无缺。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 59,
+            "line_start": 7,
+            "line_end": 9,
+            "text": "\n　　小鱼儿眼珠子一转，道：“莫非是花无缺和慕容家的姑爷们？”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 23,
+            "line_start": 245,
+            "line_end": 251,
+            "text": "\n　　此间本已是个不死不休的杀伐之场，这花无缺公子来了才三言两语，却已化戾气为祥和，化杀气为和气。\n\n　　柳玉如眼波转动，始终不离他面目，铁心兰瞧着他，嘴角不知不觉间泛起了一丝钦佩的笑意。\n\n　　小鱼儿突然“哼”了一声，向地道外大步奔出，铁心兰怔了怔，微微迟疑，终于也快步跟了出去。\n",
+            "score": 200,
+            "anchors_hit": [
+              "花无缺",
+              "小鱼儿"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 24,
+            "line_start": 61,
+            "line_end": 65,
+            "text": "\n　　小鱼儿心里也不知已气成什么样子，但面上却只是笑了笑，仍然抓着慕容九妹的手，笑眯眯地道：“你是说我杀不得她？”\n\n　　花无缺和声道：“一个男人，对女孩子总该客气些，就算她有什么对不起你的事，你也该瞧在她是个女人份上，让她一些。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "花无缺"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 84,
+        "anchor": "双骄再聚小鱼儿花无缺",
+        "event_type": "climax",
+        "line_start": 237,
+        "line_end": 241,
+        "text": "\n　　小鱼儿瞪眼道：“好什么？”苏樱含笑垂下了头，不再说话。\n\n　　小鱼儿自然不懂得她的心意，更不知道花无缺眼见就快死了，瞪着眼瞧了她半晌，才接着道：“我也知道他要我坐下，本来是想以诡计害我的，我只怕和他斗力，不怕和他斗智，所以也就立刻坐了下来。”\n",
+        "anchors_hit": [
+          "小鱼儿",
+          "花无缺"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 87,
+        "alternatives": [
+          {
+            "chapter": 87,
+            "line_start": 205,
+            "line_end": 211,
+            "text": "\n　　小鱼儿伸了个懒腰，笑道：“只苦了我，害得我在树上多吊了半个时辰。”\n\n　　屠娇娇瞧了他半晌，忽然道：“那姓苏的丫头明明已要说出‘移花接玉’的秘密了，你为何反而要拦住她？”\n\n　　白开心道：“是呀，你为何要拦住她，你不是要和花无缺拼命了么？若能知道‘移花接玉’的秘密，岂非就能稳操胜券？”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 88,
+            "line_start": 159,
+            "line_end": 163,
+            "text": "\n　　小鱼儿的一颗心开始往下沉，嗄声道：“你……你……你是说……\n\n　　花无缺？”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 90,
+            "line_start": 125,
+            "line_end": 129,
+            "text": "\n　　小鱼儿虽然天不怕，地不怕，但刚吃了魏无牙一个大亏，余悸犹在，还是不敢往西面去。\n\n　　他坐在溪旁的石头上，出了半晌神，正不知自己该往哪里去找花无缺，突见溪水上游，有样红红的东西随波流了下来。\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 23,
+            "line_start": 245,
+            "line_end": 251,
+            "text": "\n　　此间本已是个不死不休的杀伐之场，这花无缺公子来了才三言两语，却已化戾气为祥和，化杀气为和气。\n\n　　柳玉如眼波转动，始终不离他面目，铁心兰瞧着他，嘴角不知不觉间泛起了一丝钦佩的笑意。\n\n　　小鱼儿突然“哼”了一声，向地道外大步奔出，铁心兰怔了怔，微微迟疑，终于也快步跟了出去。\n",
+            "score": 200,
+            "anchors_hit": [
+              "花无缺",
+              "小鱼儿"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 127,
+        "anchor": "小鱼儿真相大白苏樱",
+        "event_type": "resolution",
+        "line_start": 87,
+        "line_end": 89,
+        "text": "\n　　苏樱早已来了，她来的时候，正是小鱼儿“复活”的时候，但直到这时她才擦干眼泪，走了过去。小鱼儿忽然发现了她，又惊又喜，道：“你也来了，我知道你一定会回来的。”\n",
+        "anchors_hit": [
+          "小鱼儿",
+          "苏樱"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 581,
+        "locate_method": "window",
+        "hint_chapter": 127,
+        "alternatives": [
+          {
+            "chapter": 126,
+            "line_start": 3,
+            "line_end": 5,
+            "text": "\n　　苏樱倒在树下，痴痴地望着这飘渺的白云，眼泪早已流尽了。因为她的生命和灵魂，她的情人和夫婿，此刻正在这飘渺的白云间，在和别人作生死的决斗。她却连这次决斗的结果都不知道。小鱼儿现在究竟是胜？是负？是生？还是死？……\n",
+            "score": 578,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 124,
+            "line_start": 7,
+            "line_end": 13,
+            "text": "\n　　这也令小鱼儿觉得很开心。有情人终成眷属，本是人生的最大快意事。\n\n　　小鱼儿面带着微笑，喃喃道：“无论如何，我还是想不通这俩人怎会要好的，这实在是件怪事。”\n\n　　苏樱柔声道：“这一点也不奇怪。他们是在患难中相识的，人的情感，在患难中最易滋生。何况，他们又都是伤心人，同病相怜，也最易生情。”她嫣然一笑，垂着头道：“我和你，岂非也是在患难中才要好的么？”\n",
+            "score": 572,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 123,
+            "line_start": 1,
+            "line_end": 7,
+            "text": "\n　　李大嘴听了小鱼儿的话，长叹了一声，喃喃道：“恩情，恩情……‘十大恶人’养大的孩子，居然口口声声不忘记恩情，看来‘十大恶人’早就该改行做别人的保姆才是。”\n\n　　只听一人娇笑道：“不错，我们将来若有孩子，一定要请你来做奶妈。”\n\n　　原来苏樱也跟在后面来了，只不过一直没有说话。\n",
+            "score": 569,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 109,
+            "line_start": 15,
+            "line_end": 19,
+            "text": "\n　　小鱼儿道：“你不妨再考虑考虑吧，你什么时候说出来，我就什么时候放你，反正我听了这秘密后，也活不长的。”\n\n　　邀月宫主没有说话——她至少已不再拒绝了。一直伴在小鱼儿身旁的苏樱却叹息了一声，道：“到了这种时候，你为什么一定要逼她说出那秘密来呢？她说出来之后，于你又有什么好处，那只不过使你更添些烦恼而已。”\n",
+            "score": 527,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 10,
+        "anchor": "小鱼儿谷外风光",
+        "line_start": 3,
+        "line_end": 6,
+        "text": "\n　　万春流又恢复成那冷漠而不动情感的“神医”，小鱼儿恢复成那精灵古怪的顽皮小孩。\n\n　　屠娇娇斜倚着门，娇笑道：“你们一老一小在干什么？”",
+        "anchors_hit": [
+          "小鱼儿"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 10,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_hua_wu_que",
+    "name": "花无缺",
+    "alias": [],
+    "identity": "双骄之一，移花宫抚养",
+    "faction": "faction_yi_hua_gong",
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "出神入化",
+    "importance": "核心",
+    "one_line": "移花宫抚养长大的双骄之一，玉面郎君，仁义君子",
+    "biography": "与小鱼儿为双胞胎，由移花宫主邀月抚养，修炼明玉功，温文尔雅。奉宫命行走江湖，与小鱼儿多次交锋后相认，挣脱移花宫与江家布局。",
+    "personality": {
+      "traits": [
+        "仁义",
+        "克制",
+        "温文",
+        "重诺",
+        "内心挣扎",
+        "自尊"
+      ],
+      "speech_style": "温文有礼，正气",
+      "temperament": "君子之风"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "亲属",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "双胞胎相认"
+      },
+      {
+        "target": "char_yao_yue",
+        "type": "师徒",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "抚养与控制并存"
+      },
+      {
+        "target": "char_lian_xing",
+        "type": "师徒",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "移花宫副宫主关照"
+      },
+      {
+        "target": "char_yan_nan_tian",
+        "type": "挚友",
+        "intensity": 75,
+        "bond_level": 4,
+        "dynamic": "侠义相惜"
+      },
+      {
+        "target": "char_jiang_yu_lang",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "外貌相似立场相反"
+      },
+      {
+        "target": "char_jiang_feng",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_hua_yue_nu",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "母子"
+      }
+    ],
+    "known_skills": [
+      "skill_ming_yu_gong",
+      "skill_yi_hua_jie_yu",
+      "skill_shen_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      60,
+      64,
+      100
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "anchor": "花无缺移花宫邀月抚养",
+        "event_type": "first_mention",
+        "line_start": 455,
+        "line_end": 461,
+        "text": "\n　　邀月宫主道：“哼！废话！”\n\n　　怜星宫主道：“那自称天下第一剑客的燕南天，本是江枫的平生知交，他本已约好要在这条路上接江枫，否则江枫也不会走这条路了……”\n\n　　怜星宫主微微一笑继续说道：“我们若将这两个孩子带走一个，留下一个在这里，燕南天来了，必定将留下的这孩子带走，必定会将自己一身绝技传授给这孩子，也必定会要这孩子长大了为父母复仇，是吗？我们只要在江枫身上留下个掌印，他们就必定会知道这是移花宫主下的手，那孩子长大了，复仇的对象就是移花宫，是么？”\n",
+        "anchors_hit": [
+          "邀月",
+          "移花宫"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 575,
+        "locate_method": "window",
+        "hint_chapter": 2,
+        "alternatives": [
+          {
+            "chapter": 9,
+            "line_start": 347,
+            "line_end": 357,
+            "text": "\n　　万春流叹道：“她是女的，可是就更难猜了，江湖中女子除了邀月、怜星两人外，我简直再也想不出有一人能在‘恶人谷’中来去自如。”\n\n　　小鱼儿道：“但总是有个人的，第一，这人认得我爹爹，也认得燕伯伯，第二，这人对我爹爹死的原因知道得很清楚。”\n\n　　万春流道：“想必如此！”\n\n　　小鱼儿道：“第三，这人不但知道我家的仇恨，而且，还很关心。\n\n　　第四，这人的武功很高。第五，这人必定和‘移花宫’有些过不去。第六，这人的眼睛又大又亮，和别人的眼睛简直完全不同……”\n",
+            "score": 553,
+            "anchors_hit": [
+              "邀月",
+              "移花宫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 23,
+            "line_start": 223,
+            "line_end": 227,
+            "text": "\n　　神锡道长虽是满心惊怒，此刻竟也似被这种迷人的风度所慑，竟也不觉抱拳还礼，道：“足下莫非亦是来自绣玉谷，移花宫？”\n\n　　白衣少年道：“弟子花无缺，正是来自移花宫，本宫中人已有多年未在江湖走动，礼数多已生疏，若有失礼之处，还请各位包涵才是。”\n",
+            "score": 512,
+            "anchors_hit": [
+              "移花宫",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 24,
+            "line_start": 249,
+            "line_end": 255,
+            "text": "\n　　花无缺呆在那里，简直不会动了。他实在想不到小鱼儿竟会有这一着。\n\n　　若论武功，花无缺自是强胜许多，但若论临事应变，他又怎能比得上精灵古怪，诡计多端的小鱼儿。\n\n　　这自然是因为两人生长的环境截然不同——高高在上的“移花宫”\n",
+            "score": 509,
+            "anchors_hit": [
+              "花无缺",
+              "移花宫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 40,
+            "line_start": 261,
+            "line_end": 263,
+            "text": "\n　　江别鹤抚摸着那玉瓶，皱眉道：“仙子香，素女丹……想不到那花无缺竟是‘移花宫’的弟子，此人出现江湖，我倒要留意些才是。”\n",
+            "score": 461,
+            "anchors_hit": [
+              "移花宫",
+              "花无缺"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 56,
+        "anchor": "花无缺小鱼儿神掌",
+        "event_type": "climax",
+        "line_start": 107,
+        "line_end": 111,
+        "text": "\n　　小鱼儿这一惊才是非同小可，几乎要从藏身之处跳了出来。慕容九妹怎会不在那里，莫非是他们找错了地方？\n\n　　秦剑道：“我等方才也见过了那花无缺公子和铁心兰姑娘，都说九妹早已失踪，绝不会和江大侠有关。”\n",
+        "anchors_hit": [
+          "小鱼儿",
+          "花无缺"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 56,
+        "alternatives": [
+          {
+            "chapter": 58,
+            "line_start": 147,
+            "line_end": 151,
+            "text": "\n　　小鱼儿道：“这我倒猜不透了。”\n\n　　黑蜘蛛道：“他竟要我将信去送给花无缺。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 59,
+            "line_start": 7,
+            "line_end": 9,
+            "text": "\n　　小鱼儿眼珠子一转，道：“莫非是花无缺和慕容家的姑爷们？”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 23,
+            "line_start": 245,
+            "line_end": 251,
+            "text": "\n　　此间本已是个不死不休的杀伐之场，这花无缺公子来了才三言两语，却已化戾气为祥和，化杀气为和气。\n\n　　柳玉如眼波转动，始终不离他面目，铁心兰瞧着他，嘴角不知不觉间泛起了一丝钦佩的笑意。\n\n　　小鱼儿突然“哼”了一声，向地道外大步奔出，铁心兰怔了怔，微微迟疑，终于也快步跟了出去。\n",
+            "score": 200,
+            "anchors_hit": [
+              "花无缺",
+              "小鱼儿"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 24,
+            "line_start": 61,
+            "line_end": 65,
+            "text": "\n　　小鱼儿心里也不知已气成什么样子，但面上却只是笑了笑，仍然抓着慕容九妹的手，笑眯眯地道：“你是说我杀不得她？”\n\n　　花无缺和声道：“一个男人，对女孩子总该客气些，就算她有什么对不起你的事，你也该瞧在她是个女人份上，让她一些。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "花无缺"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 100,
+        "anchor": "双骄再聚花无缺",
+        "line_start": 33,
+        "line_end": 36,
+        "text": "\n　　苏樱这才回头一笑，道：“你以为移花宫主立刻就能将花无缺找来么？”\n\n　　小鱼儿瞪直眼瞧了半晌，忽然跳到她面前，道：“你知道江玉郎是在骗我，那么你一定见过了花无缺，对不对？”",
+        "anchors_hit": [
+          "花无缺"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 100,
+        "alternatives": []
+      },
+      {
+        "chapter": 127,
+        "anchor": "花无缺真相大白",
+        "line_start": 5,
+        "line_end": 8,
+        "text": "\n　　万春流根本不理她，还是凝注着花无缺，柔声道：“我并不是阻止你，只不过劝你再多等片刻，也许还不到半个时辰，过了半个时辰后，你若还是要死，我保证绝没有任何人来阻止你。”\n\n　　他望着手里的剑，接着又道：“到了那时，无论任何人想死，我非但绝不阻止，而且还会将这柄剑亲自交到她手上。”",
+        "anchors_hit": [
+          "花无缺"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 127,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_yan_nan_tian",
+    "name": "燕南天",
+    "alias": [
+      "第一神剑"
+    ],
+    "identity": "第一神剑",
+    "faction": null,
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "返璞归真",
+    "importance": "核心",
+    "one_line": "第一神剑，江枫挚友，守护双骄的大侠",
+    "biography": "江湖第一神剑，与江枫为挚友。江枫夫妇遇难后誓护双骄，贯穿全书行侠仗义，剑气冲霄。",
+    "personality": {
+      "traits": [
+        "侠义",
+        "沉稳",
+        "少言",
+        "重诺",
+        "刚烈",
+        "护幼"
+      ],
+      "speech_style": "沉稳简短",
+      "temperament": "大侠风骨"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_feng",
+        "type": "挚友",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "生死之交"
+      },
+      {
+        "target": "char_xiao_yu_er",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "守护双骄"
+      },
+      {
+        "target": "char_hua_wu_que",
+        "type": "挚友",
+        "intensity": 80,
+        "bond_level": 4,
+        "dynamic": "守护双骄"
+      }
+    ],
+    "known_skills": [
+      "skill_shen_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      3,
+      63,
+      75
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "燕南天玉郎江枫神剑",
+        "event_type": "first_mention",
+        "line_start": 1,
+        "line_end": 3,
+        "text": "\n　　江湖中有耳朵的人，绝无一人没有听见过“玉郎”江枫和燕南天这两人的名字；江湖中有眼睛的人，也绝无一人不想瞧瞧江枫的绝世风采和燕南天的绝代神剑；只因为任何人都知道，世上绝没有一个少女能抵挡江枫的微微一笑，也绝没有一个英雄能抵挡燕南天的轻轻一剑！任何人都相信，燕南天的剑，非但能在百万军中取主帅之首级，也能将一根头发分成两根；而江枫的笑，却可令少女的心粉碎。\n",
+        "anchors_hit": [
+          "燕南天",
+          "江枫",
+          "神剑",
+          "玉郎"
+        ],
+        "anchors_total": 4,
+        "locate_status": "located",
+        "locate_score": 778,
+        "locate_method": "window",
+        "hint_chapter": 1,
+        "alternatives": [
+          {
+            "chapter": 2,
+            "line_start": 17,
+            "line_end": 87,
+            "text": "\n　　她凄然地笑着，流着泪呼道：“玉郎，你走吧……快走吧，不要管我们，只要我死了，宫主姊妹仍然不会对你不好的……”\n\n　　江枫狂吼道：“妹子，你死不得！”\n\n　　他再次冲过去，刀、爪、啄雨点般击下，他也不管，他身中刀削、爪抓，他血肉横飞。\n\n　　只是他还未冲到他妻子面前，便已跌地倒下。\n\n　　那少妇惨呼一声，挣扎着爬过去，他也挣扎着爬过去，他们已别无所求，只要死在一起。\n\n　　他们的手终于握住了对方的手，但黑面君却一脚踩了下去，把两只手骨全都踩碎了！\n\n　　那少妇嘶声道：“你……你好狠！”\n\n　　黑面君狞笑道：“你现在才知道我狠么！”\n\n　　江枫狂吼道：“我什么都给你……都给你，只求你能让我们死在一起！”\n\n　　黑面君大笑道：“你此刻再说这话，已太迟了……嘿嘿，你们方才骗我、打我时，想必开心得很，此刻我就让你们慢慢地死，让你们死也不能死在一起！”\n\n　　那少妇道：“为什么？……为什么？………",
+            "score": 662,
+            "anchors_hit": [
+              "玉郎",
+              "江枫",
+              "燕南天"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 3,
+            "line_start": 69,
+            "line_end": 71,
+            "text": "\n　　钱二道：“燕大侠，燕南天，燕神剑，……哈哈，朋友你若真的是练剑的，听到这名字，就总该服气了吧！”\n",
+            "score": 572,
+            "anchors_hit": [
+              "燕南天",
+              "神剑"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 4,
+            "line_start": 225,
+            "line_end": 231,
+            "text": "\n　　燕南天喝道：“你还要某家动手不成？！”\n\n　　金猿星道：“你……你为什么……”\n\n　　燕南天怒吼道：“为什么？你可知道江枫是某家的什么人？”\n",
+            "score": 569,
+            "anchors_hit": [
+              "燕南天",
+              "江枫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 6,
+            "line_start": 1,
+            "line_end": 7,
+            "text": "\n　　一盏灯，灯光照着燕南天的脸。燕南天只觉得这盏灯似乎在他眼前不停地旋转，他想伸手掩住眼睛，但手脚却丝毫不能动弹。他头疼欲裂，喉咙里更似被火烧一般，他咬一咬牙用力瞪眼，瞧着这盏灯。——灯哪里在转？\n\n　　于是他瞧见灯光后的那张笑脸。\n\n　　哈哈儿大笑道：“好，好，燕大侠果然醒来了，这里有几位朋友，都在等着瞧瞧天下第一神剑的风采。”\n",
+            "score": 563,
+            "anchors_hit": [
+              "燕南天",
+              "神剑"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 3,
+        "anchor": "燕南天第一神剑",
+        "event_type": "climax",
+        "line_start": 205,
+        "line_end": 207,
+        "text": "\n　　沈总镖头一字字缓缓道：“他便是当今江湖第一神剑，燕南天，也就是我此番专程来拜见的人。”\n",
+        "anchors_hit": [
+          "第一神剑",
+          "燕南天",
+          "神剑"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 300,
+        "locate_method": "window",
+        "hint_chapter": 3,
+        "alternatives": [
+          {
+            "chapter": 6,
+            "line_start": 1,
+            "line_end": 7,
+            "text": "\n　　一盏灯，灯光照着燕南天的脸。燕南天只觉得这盏灯似乎在他眼前不停地旋转，他想伸手掩住眼睛，但手脚却丝毫不能动弹。他头疼欲裂，喉咙里更似被火烧一般，他咬一咬牙用力瞪眼，瞧着这盏灯。——灯哪里在转？\n\n　　于是他瞧见灯光后的那张笑脸。\n\n　　哈哈儿大笑道：“好，好，燕大侠果然醒来了，这里有几位朋友，都在等着瞧瞧天下第一神剑的风采。”\n",
+            "score": 300,
+            "anchors_hit": [
+              "燕南天",
+              "第一神剑",
+              "神剑"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 1,
+            "line_start": 1,
+            "line_end": 3,
+            "text": "\n　　江湖中有耳朵的人，绝无一人没有听见过“玉郎”江枫和燕南天这两人的名字；江湖中有眼睛的人，也绝无一人不想瞧瞧江枫的绝世风采和燕南天的绝代神剑；只因为任何人都知道，世上绝没有一个少女能抵挡江枫的微微一笑，也绝没有一个英雄能抵挡燕南天的轻轻一剑！任何人都相信，燕南天的剑，非但能在百万军中取主帅之首级，也能将一根头发分成两根；而江枫的笑，却可令少女的心粉碎。\n",
+            "score": 200,
+            "anchors_hit": [
+              "燕南天",
+              "神剑"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 104,
+            "line_start": 129,
+            "line_end": 135,
+            "text": "\n　　小鱼儿怔了许久，忽又大笑起来，道：“燕南天若来过，你怎么还能活在世上害人？”\n\n　　魏无牙冷笑道：“你以为他武功比我高？”\n\n　　小鱼儿面色又变了变，但瞬即展颜笑道：“他若真的来过，甬道上的脚印就是他留下来的，石椅自然也就是被他神剑所劈开，这一剑之威，足以惊动天地，就凭你这身本事，只怕还难伤得了他一根毫发……\n",
+            "score": 200,
+            "anchors_hit": [
+              "燕南天",
+              "神剑"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 63,
+        "anchor": "燕南天剑气冲霄",
+        "line_start": 129,
+        "line_end": 135,
+        "text": "\n　　只见漫天剑气中，一条人影兔起鹘落，飞旋盘舞，另一条人影却稳如泰山磐石，动也不动。\n\n　　此刻花无缺身法仍极轻灵，剑气仍盛，似乎并无败象，但江别鹤又是何等眼力，一眼便瞧出花无缺剑式虽极尽曼妙，其实根本攻不进一招。那击剑破风声，更是一强一弱，相距悬殊。\n\n　　江别鹤面色更是惨变，喃喃道：“燕南天！这必定是燕南天！”\n",
+        "anchors_hit": [
+          "剑气",
+          "燕南天"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 63,
+        "alternatives": [
+          {
+            "chapter": 66,
+            "line_start": 205,
+            "line_end": 209,
+            "text": "\n　　花无缺到达花林时，锦绣般的繁花，已被昨日的剑气摧残得甚是萧索，阴霾掩去了日色，风中已有凉意。\n\n　　花无缺想到自己又要和燕南天相对，嘴角的笑容竟瞧不见了，但他纵然明知此行必有凶险，也是非来不可。\n",
+            "score": 200,
+            "anchors_hit": [
+              "剑气",
+              "燕南天"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 62,
+            "line_start": 189,
+            "line_end": 249,
+            "text": "\n　　只听“啪”的一声，花无缺虽然避开了这一剑，束发的玉冠，却已被剑气震断，满头头发，都被激得根根立起！这一剑之威，竟至如此，实是不可思议！\n\n　　铁心兰失色惊呼道：“前辈快请住手，他不肯答应只是为了我，我心里才真是不肯答应的，前辈你要杀，就杀了我吧！”\n\n　　她惊骇之下，不禁吐了真言，花无缺只觉心里一阵刺痛，出手三掌，竟不顾一切，抢入剑光反扑过去。\n\n　　谁知那穷汉反而收住剑势，哈哈大笑道：“姓江的果然都是牛一般的脾气，只是你却比你爹爹还呆。试想她若真的不肯答应你，真的不喜欢你，又怎肯为你死？”\n\n　　花无缺怔了一怔，铁心兰也跟着怔住了，道：“他自然不姓江，他叫花无缺。”\n\n　　那穷汉摸了摸头，满面惊讶之色，喃喃道：“你不姓江？这倒真的是件怪事，你简直彻头彻尾像个姓江的，你简直和他长得一模一样。”\n\n　　花无缺也忘了出手，只觉这人简直有些毛病。\n\n　　那穷汉叹了口气，苦笑道：“你既然不姓…",
+            "score": 189,
+            "anchors_hit": [
+              "剑气",
+              "燕南天"
+            ],
+            "method": "window"
+          }
+        ],
+        "event_type": "background"
+      },
+      {
+        "chapter": 75,
+        "anchor": "南天大侠燕南天",
+        "line_start": 5,
+        "line_end": 8,
+        "text": "\n　　“冀人燕南天！”这五个字就像流星，能照亮整个大地。\n\n　　只听燕南天喝道：“你是魏无牙的什么人？他现在哪里？”",
+        "anchors_hit": [
+          "燕南天"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 75,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_feng",
+    "name": "江枫",
+    "alias": [
+      "玉郎"
+    ],
+    "identity": "玉郎，双骄之父",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "重要",
+    "one_line": "玉郎，双骄之父，风流剑客，开篇殉难",
+    "biography": "号玉郎，与花月奴相爱，生下双胞胎。遭十二星相追杀，托孤燕南天，开篇殉难，成为全书身世线起点。",
+    "personality": {
+      "traits": [
+        "风流",
+        "重情",
+        "机敏",
+        "刚烈",
+        "护妻"
+      ],
+      "speech_style": "文雅急切",
+      "temperament": "风流而悲壮"
+    },
+    "relationships": [
+      {
+        "target": "char_hua_yue_nu",
+        "type": "恋人",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "生死相随"
+      },
+      {
+        "target": "char_yan_nan_tian",
+        "type": "挚友",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "托孤挚友"
+      },
+      {
+        "target": "char_xiao_yu_er",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_hua_wu_que",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_bi_she_shen_jun",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 1,
+        "dynamic": "追杀"
+      }
+    ],
+    "known_skills": [
+      "skill_shen_jian"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "玉郎江枫燕南天马车",
+        "event_type": "first_mention",
+        "line_start": 1,
+        "line_end": 5,
+        "text": "\n　　江湖中有耳朵的人，绝无一人没有听见过“玉郎”江枫和燕南天这两人的名字；江湖中有眼睛的人，也绝无一人不想瞧瞧江枫的绝世风采和燕南天的绝代神剑；只因为任何人都知道，世上绝没有一个少女能抵挡江枫的微微一笑，也绝没有一个英雄能抵挡燕南天的轻轻一剑！任何人都相信，燕南天的剑，非但能在百万军中取主帅之首级，也能将一根头发分成两根；而江枫的笑，却可令少女的心粉碎。\n\n　　但此刻，这出生豪富世家的天下第一美男子，却穿着件粗俗的衣衫，赶着辆破旧的马车，匆匆行驶在一条久已荒废的旧道上。此刻若有人见到他，谁也不会相信他便是那倚马斜桥，一掷千金的风流公子。\n",
+        "anchors_hit": [
+          "燕南天",
+          "江枫",
+          "玉郎",
+          "马车"
+        ],
+        "anchors_total": 4,
+        "locate_status": "located",
+        "locate_score": 778,
+        "locate_method": "window",
+        "hint_chapter": 1,
+        "alternatives": [
+          {
+            "chapter": 4,
+            "line_start": 401,
+            "line_end": 421,
+            "text": "\n　　那酒保见了鬼似的，转身就跑，燕南天喝下第二十八碗酒时，他已乖乖的将棺材运了回来。\n\n　　燕南天红着眼睛，自车厢中将江枫和月奴尸身捧出来，捧入棺材里，每件事他都是亲手做的。他不许别人再碰他二弟一根手指。\n\n　　然后，以赤手钉起了棺盖。他将一枚枚铁钉钉入木头里，就像是钉入豆腐里似的。\n\n　　那酒保眼睛更发直了，也不知今天撞见的是神是鬼？\n\n　　面对棺木，燕南天又连尽七碗。他没有流泪，但那神情，却比流泪还要悲哀。手里端着最后一碗酒，他呆呆的站着，直过了几乎有半个时辰，然后，燕南天终于缓缓道：“二弟，我要你陪着我，我要你亲眼瞧着我将你的仇人一个个杀死！”\n\n　　夕阳满天，照着太原大街上最大的一面招牌，招牌上三个大金字，闪闪发着光，这三个字是：“千里香”。\n\n　　“千里香”可真是金字招牌，山西人个个都知道。“千里香”卖出来的香料，那是绝不会有半分掺假的。\n\n　　黄昏后，“千里香”铺子里十来个伙…",
+            "score": 666,
+            "anchors_hit": [
+              "燕南天",
+              "江枫",
+              "马车"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 2,
+            "line_start": 17,
+            "line_end": 87,
+            "text": "\n　　她凄然地笑着，流着泪呼道：“玉郎，你走吧……快走吧，不要管我们，只要我死了，宫主姊妹仍然不会对你不好的……”\n\n　　江枫狂吼道：“妹子，你死不得！”\n\n　　他再次冲过去，刀、爪、啄雨点般击下，他也不管，他身中刀削、爪抓，他血肉横飞。\n\n　　只是他还未冲到他妻子面前，便已跌地倒下。\n\n　　那少妇惨呼一声，挣扎着爬过去，他也挣扎着爬过去，他们已别无所求，只要死在一起。\n\n　　他们的手终于握住了对方的手，但黑面君却一脚踩了下去，把两只手骨全都踩碎了！\n\n　　那少妇嘶声道：“你……你好狠！”\n\n　　黑面君狞笑道：“你现在才知道我狠么！”\n\n　　江枫狂吼道：“我什么都给你……都给你，只求你能让我们死在一起！”\n\n　　黑面君大笑道：“你此刻再说这话，已太迟了……嘿嘿，你们方才骗我、打我时，想必开心得很，此刻我就让你们慢慢地死，让你们死也不能死在一起！”\n\n　　那少妇道：“为什么？……为什么？………",
+            "score": 662,
+            "anchors_hit": [
+              "玉郎",
+              "江枫",
+              "燕南天"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 6,
+            "line_start": 253,
+            "line_end": 257,
+            "text": "\n　　司马烟道：“那孩子便在屋里，但望燕大侠抱出了孩子后，立刻原路退回，燕大侠乘来的马车，已在谷口相候。”\n\n　　燕南天情急如火，不等他话说完，就箭步蹿了进去！\n",
+            "score": 563,
+            "anchors_hit": [
+              "马车",
+              "燕南天"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 63,
+            "line_start": 171,
+            "line_end": 257,
+            "text": "\n　　但他突又瞧见那紧闭着的马车门，门缝里在向外流着鲜血——江别鹤莫非已死了？否则这又会是谁的血？\n\n　　小鱼儿又是兴奋，又是好奇，忍不住想去瞧瞧。\n\n　　他一拉开车门，就发现段贵那张狰狞扭曲的脸。接着，就瞧见那双满含恐惧，满含惊惶的眼睛。而江别鹤却已不见了。\n\n　　小鱼儿本也不禁一惊，怔住，但随即恍然而悟——江别鹤用心之狠毒，没有人比小鱼儿更清楚。\n\n　　他也立刻就发现花无缺此刻情况之危急，铁心兰为花无缺焦急担心的神态，又不禁令他心里一阵刺痛。\n\n　　突然一声长啸，直冲云霄。一道剑光，冲天飞起，花无缺踉跄后退，终于跌倒。\n\n　　燕南天竟以至钝至刚之剑，将花无缺掌中至利至柔之剑震得脱手飞去。花无缺但觉气血反逆，终于不支跌倒。\n\n　　但在这刹那之间，也不知为了什么，小鱼儿但觉热血冲上头顶，竟忘了他与花无缺之间的恩恩怨怨，情仇纠缠……\n\n　　他竟突然忘了一切，不顾一切，竟突然飞扑过去。\n\n　　…",
+            "score": 476,
+            "anchors_hit": [
+              "马车",
+              "燕南天",
+              "江枫"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 1,
+        "anchor": "江枫刀下遗孤十二星相",
+        "event_type": "climax",
+        "line_start": 35,
+        "line_end": 39,
+        "text": "\n　　江枫失声道：“你早已知道了？”\n\n　　“我方才听见那声鸡啼，便已猜出必定是‘十二星相’中人找上咱们了，你怕我担心，所以才瞒着我，是么？”\n",
+        "anchors_hit": [
+          "江枫",
+          "十二星相"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 1,
+        "alternatives": [
+          {
+            "chapter": 4,
+            "line_start": 249,
+            "line_end": 255,
+            "text": "\n　　燕南天道：“为何不该杀你？我二弟江枫……”\n\n　　金猿星再次大声截道：“这就对了，你若为别的事杀我，那我无话可说，但你若为江枫杀我，你便是不明是非，不辨恩仇。”\n\n　　燕南天怒道：“你‘十二星相’难道未曾对我二弟江枫出手？”\n",
+            "score": 200,
+            "anchors_hit": [
+              "江枫",
+              "十二星相"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 104,
+            "line_start": 173,
+            "line_end": 179,
+            "text": "\n　　魏无牙龇牙一笑，悠然接着道：“这俩人虽然已爱得发晕，不顾一切，但也知道移花宫主是绝不会放过他们的，所以俩人一逃回来，江枫就将家财送的送，卖的卖，自己只带着些随身细软准备亡命天涯，隐居避祸。”\n\n　　小鱼儿怒道：“所以你们这些臭强盗就红了眼睛。”\n\n　　魏无牙道：“不错，江枫的计划，是要江琴先轻骑去找燕南天，他自己再带着你母亲穿过一条久已废置的古道，赶去和燕南天会合。这计划本来不错，他走的路本来也很秘密，只可惜江琴还没有去找燕南天时，就先找到咱们‘十二星相’了。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "江枫",
+              "十二星相"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_hua_yue_nu",
+    "name": "花月奴",
+    "alias": [],
+    "identity": "移花宫主之妹，双骄之母",
+    "faction": "faction_yi_hua_gong",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "移花宫主之妹，双骄之母，为爱私奔",
+    "biography": "移花宫相关，与江枫私奔生下双骄，遭追杀，命运悲壮，开启移花宫恩怨。",
+    "personality": {
+      "traits": [
+        "深情",
+        "刚烈",
+        "叛逆",
+        "柔中带刚",
+        "护子"
+      ],
+      "speech_style": "温柔而决绝",
+      "temperament": "深情悲壮"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_feng",
+        "type": "恋人",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "生死相随"
+      },
+      {
+        "target": "char_yao_yue",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "姐妹与门派恩怨"
+      },
+      {
+        "target": "char_xiao_yu_er",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "母子"
+      },
+      {
+        "target": "char_hua_wu_que",
+        "type": "亲属",
+        "intensity": 100,
+        "bond_level": 5,
+        "dynamic": "母子"
+      }
+    ],
+    "known_skills": [
+      "skill_ming_yu_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      2
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "花月奴江枫马车",
+        "event_type": "first_mention",
+        "line_start": 1,
+        "line_end": 5,
+        "text": "\n　　江湖中有耳朵的人，绝无一人没有听见过“玉郎”江枫和燕南天这两人的名字；江湖中有眼睛的人，也绝无一人不想瞧瞧江枫的绝世风采和燕南天的绝代神剑；只因为任何人都知道，世上绝没有一个少女能抵挡江枫的微微一笑，也绝没有一个英雄能抵挡燕南天的轻轻一剑！任何人都相信，燕南天的剑，非但能在百万军中取主帅之首级，也能将一根头发分成两根；而江枫的笑，却可令少女的心粉碎。\n\n　　但此刻，这出生豪富世家的天下第一美男子，却穿着件粗俗的衣衫，赶着辆破旧的马车，匆匆行驶在一条久已荒废的旧道上。此刻若有人见到他，谁也不会相信他便是那倚马斜桥，一掷千金的风流公子。\n",
+        "anchors_hit": [
+          "江枫",
+          "马车"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 578,
+        "locate_method": "window",
+        "hint_chapter": 1,
+        "alternatives": [
+          {
+            "chapter": 2,
+            "line_start": 123,
+            "line_end": 129,
+            "text": "\n　　怜星宫主嫣然笑道：“说笑？你伤了我的宫女花月奴，我若让你痛痛快快地死，已是太便宜了，谁会跟你们这样的人说笑？”\n\n　　黑面君失声道：“但……但这是邀月宫主……”\n\n　　话未说完，只听“劈劈啪啪”一阵响，他脸上已着了十几掌，情况正和他方才被江枫夫人所掴时一样，但却重得多了，十几掌掴过，他已满嘴是血，哪里还能再说得一个字来。\n",
+            "score": 575,
+            "anchors_hit": [
+              "花月奴",
+              "江枫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 4,
+            "line_start": 403,
+            "line_end": 421,
+            "text": "\n　　燕南天红着眼睛，自车厢中将江枫和月奴尸身捧出来，捧入棺材里，每件事他都是亲手做的。他不许别人再碰他二弟一根手指。\n\n　　然后，以赤手钉起了棺盖。他将一枚枚铁钉钉入木头里，就像是钉入豆腐里似的。\n\n　　那酒保眼睛更发直了，也不知今天撞见的是神是鬼？\n\n　　面对棺木，燕南天又连尽七碗。他没有流泪，但那神情，却比流泪还要悲哀。手里端着最后一碗酒，他呆呆的站着，直过了几乎有半个时辰，然后，燕南天终于缓缓道：“二弟，我要你陪着我，我要你亲眼瞧着我将你的仇人一个个杀死！”\n\n　　夕阳满天，照着太原大街上最大的一面招牌，招牌上三个大金字，闪闪发着光，这三个字是：“千里香”。\n\n　　“千里香”可真是金字招牌，山西人个个都知道。“千里香”卖出来的香料，那是绝不会有半分掺假的。\n\n　　黄昏后，“千里香”铺子里十来个伙计，正吃着饭，大街上行人熙来攘往，正是最热闹的时候。突然一辆大车直驰而来，驶过长街，赶车…",
+            "score": 566,
+            "anchors_hit": [
+              "江枫",
+              "马车"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 63,
+            "line_start": 171,
+            "line_end": 257,
+            "text": "\n　　但他突又瞧见那紧闭着的马车门，门缝里在向外流着鲜血——江别鹤莫非已死了？否则这又会是谁的血？\n\n　　小鱼儿又是兴奋，又是好奇，忍不住想去瞧瞧。\n\n　　他一拉开车门，就发现段贵那张狰狞扭曲的脸。接着，就瞧见那双满含恐惧，满含惊惶的眼睛。而江别鹤却已不见了。\n\n　　小鱼儿本也不禁一惊，怔住，但随即恍然而悟——江别鹤用心之狠毒，没有人比小鱼儿更清楚。\n\n　　他也立刻就发现花无缺此刻情况之危急，铁心兰为花无缺焦急担心的神态，又不禁令他心里一阵刺痛。\n\n　　突然一声长啸，直冲云霄。一道剑光，冲天飞起，花无缺踉跄后退，终于跌倒。\n\n　　燕南天竟以至钝至刚之剑，将花无缺掌中至利至柔之剑震得脱手飞去。花无缺但觉气血反逆，终于不支跌倒。\n\n　　但在这刹那之间，也不知为了什么，小鱼儿但觉热血冲上头顶，竟忘了他与花无缺之间的恩恩怨怨，情仇纠缠……\n\n　　他竟突然忘了一切，不顾一切，竟突然飞扑过去。\n\n　　…",
+            "score": 376,
+            "anchors_hit": [
+              "马车",
+              "江枫"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 2,
+        "anchor": "花月奴江枫追杀遗孤",
+        "event_type": "climax",
+        "line_start": 123,
+        "line_end": 129,
+        "text": "\n　　怜星宫主嫣然笑道：“说笑？你伤了我的宫女花月奴，我若让你痛痛快快地死，已是太便宜了，谁会跟你们这样的人说笑？”\n\n　　黑面君失声道：“但……但这是邀月宫主……”\n\n　　话未说完，只听“劈劈啪啪”一阵响，他脸上已着了十几掌，情况正和他方才被江枫夫人所掴时一样，但却重得多了，十几掌掴过，他已满嘴是血，哪里还能再说得一个字来。\n",
+        "anchors_hit": [
+          "花月奴",
+          "江枫"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 2,
+        "alternatives": [
+          {
+            "chapter": 98,
+            "line_start": 143,
+            "line_end": 145,
+            "text": "\n　　邀月宫主身子忽然剧烈地颤抖起来，只因她又想起了江枫和花月奴临死的情况，花月奴临死前说的话，正也好像铁萍姑现在说的一样。她却不知道铁萍姑说这些话，只不过是为了要激怒于她，铁萍姑自然知道移花宫对叛徒的处置多么残酷。自从花月奴的事件发生后，邀月宫主的心肠已变得比任何人都残酷、毒辣。铁萍姑现在所求的，只不过是速死而已。更令邀月宫主愤怒的是，小鱼儿竟已死在别人手里，她十多年来所费的心血竟完全白费了。只因这二十年来，花月奴临死前所说的话、江枫临死的表情，仍都像烈火般鲜明，时时刻刻都在燃烧着她的灵魂。\n",
+            "score": 200,
+            "anchors_hit": [
+              "花月奴",
+              "江枫"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_yao_yue",
+    "name": "邀月",
+    "alias": [
+      "移花宫主"
+    ],
+    "identity": "移花宫主",
+    "faction": "faction_yi_hua_gong",
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "核心",
+    "one_line": "移花宫主，抚养花无缺，冷酷多谋",
+    "biography": "移花宫主，与妹怜星共掌移花宫。抚养花无缺，以宫规与明玉功塑造其，对江湖布局深远。",
+    "personality": {
+      "traits": [
+        "冷酷",
+        "多谋",
+        "控制欲",
+        "深情扭曲",
+        "威严",
+        "决断"
+      ],
+      "speech_style": "命令式，冷厉",
+      "temperament": "宫主威仪"
+    },
+    "relationships": [
+      {
+        "target": "char_lian_xing",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "姐妹共掌移花宫"
+      },
+      {
+        "target": "char_hua_wu_que",
+        "type": "师徒",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "抚养与控制"
+      },
+      {
+        "target": "char_hua_yue_nu",
+        "type": "亲属",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "姐妹恩怨"
+      },
+      {
+        "target": "char_xiao_yu_er",
+        "type": "对手",
+        "intensity": 75,
+        "bond_level": 2,
+        "dynamic": "对立与利用"
+      }
+    ],
+    "known_skills": [
+      "skill_ming_yu_gong",
+      "skill_yi_hua_jie_yu"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      60
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "anchor": "邀月移花宫主花无缺",
+        "event_type": "first_mention",
+        "line_start": 455,
+        "line_end": 461,
+        "text": "\n　　邀月宫主道：“哼！废话！”\n\n　　怜星宫主道：“那自称天下第一剑客的燕南天，本是江枫的平生知交，他本已约好要在这条路上接江枫，否则江枫也不会走这条路了……”\n\n　　怜星宫主微微一笑继续说道：“我们若将这两个孩子带走一个，留下一个在这里，燕南天来了，必定将留下的这孩子带走，必定会将自己一身绝技传授给这孩子，也必定会要这孩子长大了为父母复仇，是吗？我们只要在江枫身上留下个掌印，他们就必定会知道这是移花宫主下的手，那孩子长大了，复仇的对象就是移花宫，是么？”\n",
+        "anchors_hit": [
+          "邀月",
+          "移花宫主",
+          "移花宫"
+        ],
+        "anchors_total": 4,
+        "locate_status": "located",
+        "locate_score": 675,
+        "locate_method": "window",
+        "hint_chapter": 2,
+        "alternatives": [
+          {
+            "chapter": 9,
+            "line_start": 347,
+            "line_end": 357,
+            "text": "\n　　万春流叹道：“她是女的，可是就更难猜了，江湖中女子除了邀月、怜星两人外，我简直再也想不出有一人能在‘恶人谷’中来去自如。”\n\n　　小鱼儿道：“但总是有个人的，第一，这人认得我爹爹，也认得燕伯伯，第二，这人对我爹爹死的原因知道得很清楚。”\n\n　　万春流道：“想必如此！”\n\n　　小鱼儿道：“第三，这人不但知道我家的仇恨，而且，还很关心。\n\n　　第四，这人的武功很高。第五，这人必定和‘移花宫’有些过不去。第六，这人的眼睛又大又亮，和别人的眼睛简直完全不同……”\n",
+            "score": 553,
+            "anchors_hit": [
+              "邀月",
+              "移花宫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 23,
+            "line_start": 223,
+            "line_end": 227,
+            "text": "\n　　神锡道长虽是满心惊怒，此刻竟也似被这种迷人的风度所慑，竟也不觉抱拳还礼，道：“足下莫非亦是来自绣玉谷，移花宫？”\n\n　　白衣少年道：“弟子花无缺，正是来自移花宫，本宫中人已有多年未在江湖走动，礼数多已生疏，若有失礼之处，还请各位包涵才是。”\n",
+            "score": 512,
+            "anchors_hit": [
+              "移花宫",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 24,
+            "line_start": 249,
+            "line_end": 255,
+            "text": "\n　　花无缺呆在那里，简直不会动了。他实在想不到小鱼儿竟会有这一着。\n\n　　若论武功，花无缺自是强胜许多，但若论临事应变，他又怎能比得上精灵古怪，诡计多端的小鱼儿。\n\n　　这自然是因为两人生长的环境截然不同——高高在上的“移花宫”\n",
+            "score": 509,
+            "anchors_hit": [
+              "花无缺",
+              "移花宫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 58,
+            "line_start": 177,
+            "line_end": 183,
+            "text": "\n　　黑蜘蛛道：“花无缺说了这番话后，我正想问他：‘这位前辈是谁？’谁知他已先问我：‘你已瞧见了这位前辈，真是福气，却不知他老人家长得是何模样，脸上是不是真的戴着青铜面具？’”\n\n　　小鱼儿道：“花无缺既然没有见过他，又怎会听他的话？”\n\n　　黑蜘蛛道：“我本来也觉奇怪，但花无缺却说道，移花宫主已嘱咐他，要他日后若遇见了一位‘铜先生’，就万万不能违抗这人的话，无论这‘铜先生’说什么，他都必须听从。”\n",
+            "score": 507,
+            "anchors_hit": [
+              "花无缺",
+              "移花宫主",
+              "移花宫"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 2,
+        "anchor": "邀月移花宫号令",
+        "event_type": "climax",
+        "line_start": 455,
+        "line_end": 461,
+        "text": "\n　　邀月宫主道：“哼！废话！”\n\n　　怜星宫主道：“那自称天下第一剑客的燕南天，本是江枫的平生知交，他本已约好要在这条路上接江枫，否则江枫也不会走这条路了……”\n\n　　怜星宫主微微一笑继续说道：“我们若将这两个孩子带走一个，留下一个在这里，燕南天来了，必定将留下的这孩子带走，必定会将自己一身绝技传授给这孩子，也必定会要这孩子长大了为父母复仇，是吗？我们只要在江枫身上留下个掌印，他们就必定会知道这是移花宫主下的手，那孩子长大了，复仇的对象就是移花宫，是么？”\n",
+        "anchors_hit": [
+          "邀月",
+          "移花宫"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 2,
+        "alternatives": [
+          {
+            "chapter": 98,
+            "line_start": 139,
+            "line_end": 145,
+            "text": "\n　　邀月宫主怒喝道：“你再说他一个字，我就立刻杀了你！”\n\n　　铁萍姑道：“你可以封住我的嘴，不让我说话，但却没法子让我不想他。他现在已死了，你若杀了我，我反而立刻就可以去会见他，这也是你阻拦不住的。”\n\n　　邀月宫主身子忽然剧烈地颤抖起来，只因她又想起了江枫和花月奴临死的情况，花月奴临死前说的话，正也好像铁萍姑现在说的一样。她却不知道铁萍姑说这些话，只不过是为了要激怒于她，铁萍姑自然知道移花宫对叛徒的处置多么残酷。自从花月奴的事件发生后，邀月宫主的心肠已变得比任何人都残酷、毒辣。铁萍姑现在所求的，只不过是速死而已。更令邀月宫主愤怒的是，小鱼儿竟已死在别人手里，她十多年来所费的心血竟完全白费了。只因这二十年来，花月奴临死前所说的话、江枫临死的表情，仍都像烈火般鲜明，时时刻刻都在燃烧着她的灵魂。\n",
+            "score": 200,
+            "anchors_hit": [
+              "邀月",
+              "移花宫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 99,
+            "line_start": 1,
+            "line_end": 5,
+            "text": "\n　　“想不到小鱼儿竞有这么大的本事，他死了后，竟连移花宫主都会为他伤心。”\n\n　　笑声自四面八方一起响起，就连邀月宫主都辨不出他的人在哪里。\n",
+            "score": 200,
+            "anchors_hit": [
+              "移花宫",
+              "邀月"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 100,
+            "line_start": 149,
+            "line_end": 155,
+            "text": "\n　　邀月宫主脸上并没有什么表情，花无缺却吃惊地抬起头来，他实在想不到世上居然有人敢对邀月宫主这样说话。\n\n　　邀月宫主道：“现在我再给你三个时辰，你在三个时辰内，不妨调息运气，养精蓄锐，但却不准离开这里！”\n\n　　小鱼儿拍手笑道：“移花宫主果然不愧为移花宫主，丝毫不肯占人便宜，知道我累了，就让我先休息休息。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "邀月",
+              "移花宫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 101,
+            "line_start": 15,
+            "line_end": 21,
+            "text": "\n　　小鱼儿笑了笑，道：“看你这样子，移花宫主莫非已杀死了魏无牙么？”\n\n　　苏樱还没有回答这句话，风中忽然飘来了一条人影。\n\n　　她也和邀月宫主同样冷漠，同样美丽，只不过她那双明如秋水的眼睛，还多少有些柔和之意。\n",
+            "score": 200,
+            "anchors_hit": [
+              "移花宫",
+              "邀月"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_lian_xing",
+    "name": "怜星",
+    "alias": [],
+    "identity": "移花宫副宫主",
+    "faction": "faction_yi_hua_gong",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登峰造极",
+    "importance": "重要",
+    "one_line": "移花宫副宫主，邀月之妹，性情相对温和",
+    "biography": "与姐邀月共掌移花宫，对花无缺亦有关照，性情相对邀月温和，仍深陷宫门权谋。",
+    "personality": {
+      "traits": [
+        "相对温和",
+        "聪慧",
+        "矛盾",
+        "重情",
+        "宫规束缚"
+      ],
+      "speech_style": "柔中带刚",
+      "temperament": "阴柔"
+    },
+    "relationships": [
+      {
+        "target": "char_yao_yue",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "姐妹宫主"
+      },
+      {
+        "target": "char_hua_wu_que",
+        "type": "师徒",
+        "intensity": 75,
+        "bond_level": 3,
+        "dynamic": "抚养关照"
+      }
+    ],
+    "known_skills": [
+      "skill_ming_yu_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      8,
+      60
+    ],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "anchor": "怜星移花宫花无缺",
+        "event_type": "first_mention",
+        "line_start": 105,
+        "line_end": 111,
+        "text": "\n　　黑面君瞧清了她，目中虽现出敬畏之色，但面上的惊惶，反而不如先前之甚，躬身问道：“来的可是移花宫的二宫主？”\n\n　　宫装丽人笑道：“你认得我？”\n\n　　“怜星宫主的大名，天下谁不知道？”\n",
+        "anchors_hit": [
+          "移花宫",
+          "怜星"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 575,
+        "locate_method": "window",
+        "hint_chapter": 2,
+        "alternatives": [
+          {
+            "chapter": 9,
+            "line_start": 347,
+            "line_end": 357,
+            "text": "\n　　万春流叹道：“她是女的，可是就更难猜了，江湖中女子除了邀月、怜星两人外，我简直再也想不出有一人能在‘恶人谷’中来去自如。”\n\n　　小鱼儿道：“但总是有个人的，第一，这人认得我爹爹，也认得燕伯伯，第二，这人对我爹爹死的原因知道得很清楚。”\n\n　　万春流道：“想必如此！”\n\n　　小鱼儿道：“第三，这人不但知道我家的仇恨，而且，还很关心。\n\n　　第四，这人的武功很高。第五，这人必定和‘移花宫’有些过不去。第六，这人的眼睛又大又亮，和别人的眼睛简直完全不同……”\n",
+            "score": 553,
+            "anchors_hit": [
+              "怜星",
+              "移花宫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 23,
+            "line_start": 223,
+            "line_end": 227,
+            "text": "\n　　神锡道长虽是满心惊怒，此刻竟也似被这种迷人的风度所慑，竟也不觉抱拳还礼，道：“足下莫非亦是来自绣玉谷，移花宫？”\n\n　　白衣少年道：“弟子花无缺，正是来自移花宫，本宫中人已有多年未在江湖走动，礼数多已生疏，若有失礼之处，还请各位包涵才是。”\n",
+            "score": 512,
+            "anchors_hit": [
+              "移花宫",
+              "花无缺"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 24,
+            "line_start": 249,
+            "line_end": 255,
+            "text": "\n　　花无缺呆在那里，简直不会动了。他实在想不到小鱼儿竟会有这一着。\n\n　　若论武功，花无缺自是强胜许多，但若论临事应变，他又怎能比得上精灵古怪，诡计多端的小鱼儿。\n\n　　这自然是因为两人生长的环境截然不同——高高在上的“移花宫”\n",
+            "score": 509,
+            "anchors_hit": [
+              "花无缺",
+              "移花宫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 40,
+            "line_start": 261,
+            "line_end": 263,
+            "text": "\n　　江别鹤抚摸着那玉瓶，皱眉道：“仙子香，素女丹……想不到那花无缺竟是‘移花宫’的弟子，此人出现江湖，我倒要留意些才是。”\n",
+            "score": 461,
+            "anchors_hit": [
+              "移花宫",
+              "花无缺"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_tie_xin_lan",
+    "name": "铁心兰",
+    "alias": [],
+    "identity": "小鱼儿挚爱",
+    "faction": null,
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "核心",
+    "one_line": "小鱼儿挚爱，江玉郎之女，温柔坚韧",
+    "biography": "江玉郎之女，与小鱼儿相爱，历经江家阴谋与江湖磨难，性格温柔而坚韧。",
+    "personality": {
+      "traits": [
+        "温柔",
+        "坚韧",
+        "重情",
+        "善良",
+        "隐忍"
+      ],
+      "speech_style": "柔和恳切",
+      "temperament": "外柔内刚"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "恋人",
+        "intensity": 95,
+        "bond_level": 5,
+        "dynamic": "挚爱"
+      },
+      {
+        "target": "char_jiang_yu_lang",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "父女，立场撕裂"
+      },
+      {
+        "target": "char_jiang_bie_he",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "祖孙与伪善冲突"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      30,
+      50,
+      100
+    ],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "anchor": "铁心兰小鱼儿",
+        "event_type": "first_mention",
+        "line_start": 321,
+        "line_end": 327,
+        "text": "\n　　铁心男瞪着小鱼儿，好像是从来都没有见过他似的——这孩子简直不是人，是妖怪，是人中的精灵。\n\n　　她呆了半晌，终于又道：“你……你还知道什么？”\n\n　　小鱼儿道：“我还知道你的名字并不是男人的‘男’，而是兰花的‘兰’——铁心兰……这才像是你的名字，是么？”\n",
+        "anchors_hit": [
+          "小鱼儿",
+          "铁心兰"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 539,
+        "locate_method": "window",
+        "hint_chapter": 14,
+        "alternatives": [
+          {
+            "chapter": 15,
+            "line_start": 3,
+            "line_end": 7,
+            "text": "\n　　小鱼儿一笑道：“我知道你现在心里很彷徨，也不知要到哪里去，也不知该怎么办，所以，我不说话，让你静静想一想。”\n\n　　铁心兰苦笑道：“你究竟有多少岁？……我有时真害怕，不知道你究竟是个真正的孩子，还是个……是个……”\n",
+            "score": 536,
+            "anchors_hit": [
+              "小鱼儿",
+              "铁心兰"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 16,
+            "line_start": 3,
+            "line_end": 5,
+            "text": "\n　　铁心兰哭声立刻顿住，小鱼儿身子虽也一震，但却绝不回头去瞧一眼，口中立刻叹息道：“孩子的妈，你哭什么，又死不了的，快去找大夫吧，再迟人家只怕就要关起门来睡大觉了。”\n",
+            "score": 533,
+            "anchors_hit": [
+              "小鱼儿",
+              "铁心兰"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 17,
+            "line_start": 1,
+            "line_end": 7,
+            "text": "\n　　小鱼儿笑道：“大哥？……你个子比我还小，该叫我大哥才是。”\n\n　　黑蜘蛛眼睛一瞪，怒道：“江湖中人求我要叫我一声大哥的人也不知有多少，但却被我一个个踢回去了，我要你叫我，你还不愿意？”\n\n　　铁心兰已站了起来，不住地向小鱼儿使眼色。\n",
+            "score": 530,
+            "anchors_hit": [
+              "小鱼儿",
+              "铁心兰"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 18,
+            "line_start": 29,
+            "line_end": 33,
+            "text": "\n　　就连小鱼儿都不禁为之动容，但这绿衣少女“九姑娘’’却仍是那么淡漠，只是轻轻挥了挥手，道：“好，你现在可以走了。”话未说完，碧蛇神君竟飞也似地逃走。\n\n　　突听铁心兰振声大呼道：“你不能放他走……不能放他走。”她不知何时已醒来，此刻挣扎着要站起，却又跌倒。\n",
+            "score": 527,
+            "anchors_hit": [
+              "小鱼儿",
+              "铁心兰"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 30,
+        "anchor": "铁心兰江玉郎",
+        "event_type": "climax",
+        "line_start": 93,
+        "line_end": 99,
+        "text": "\n　　江玉郎怔住了，道：“你……你自己有过一张？”\n\n　　“我非但自己有过一张，而且还去过那藏宝之处。”\n\n　　原来江玉郎的这张纸，就和铁心兰交给小鱼儿的那张一模一样，就是那骗死各种人不赔命的藏宝秘图。\n",
+        "anchors_hit": [
+          "江玉郎",
+          "玉郎",
+          "铁心兰"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 300,
+        "locate_method": "window",
+        "hint_chapter": 30,
+        "alternatives": [
+          {
+            "chapter": 41,
+            "line_start": 231,
+            "line_end": 233,
+            "text": "\n　　这欢乐的一群，正有着小鱼儿最不愿见到的人，那正是花无缺、铁心兰、慕容九妹和江玉郎。\n",
+            "score": 300,
+            "anchors_hit": [
+              "铁心兰",
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 78,
+            "line_start": 167,
+            "line_end": 171,
+            "text": "\n　　但铁心兰瞧见了这个男人，却比瞧见什么恶魔都要吃惊。\n\n　　她失声而呼，道：“江玉郎，是你！”\n",
+            "score": 300,
+            "anchors_hit": [
+              "铁心兰",
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 79,
+            "line_start": 1,
+            "line_end": 7,
+            "text": "\n　　江玉郎吐了吐舌头，笑道：“你真是会多心，有了你这么漂亮的老婆，我还会打别人的主意么？”他搂起铁萍姑的脖子，在她面颊上亲了亲。\n\n　　她垂下头，眼睛似已有些湿湿的，轻轻接着道：“你知道，你不但是我平生第一个男人，也是平生第一个对我如此亲切的人，无论你这么做是真是假，只要你永远这样对待我，我就已心满意足了，你就算做别的坏事，我……我也……”她咬着嘴唇，竟再也说不出话来。\n\n　　铁心兰瞧着她，听到她的话，心里不禁暗暗叹道：“这是个多么寂寞的女人，又是个多么可怜的女人，她甚至已明知江玉郎对她是假的，假的她竟也接受，她难道已再也不能忍受孤独……”\n",
+            "score": 300,
+            "anchors_hit": [
+              "江玉郎",
+              "玉郎",
+              "铁心兰"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 80,
+            "line_start": 21,
+            "line_end": 23,
+            "text": "\n　　江玉郎已狂笑着走了出去。铁心兰听着他得意的笑声，手脚俱已冰冷。\n",
+            "score": 300,
+            "anchors_hit": [
+              "铁心兰",
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 100,
+        "anchor": "铁心兰双骄",
+        "line_start": 49,
+        "line_end": 52,
+        "text": "\n　　苏樱嫣然一笑，道：“好，我告诉你。花无缺现在去找铁心兰去了。”\n\n　　小鱼儿失声道：“他去找铁心兰去了？他怎会知道铁心兰在哪里？”",
+        "anchors_hit": [
+          "铁心兰"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 100,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_su_ying",
+    "name": "苏樱",
+    "alias": [],
+    "identity": "小鱼儿妻子之一",
+    "faction": null,
+    "role": "核心",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "核心",
+    "one_line": "小鱼儿妻子之一，聪慧妩媚，后期重要女角",
+    "biography": "后期与小鱼儿结为夫妇，聪慧妩媚，收束卷有猴儿酒等欢乐场面。",
+    "personality": {
+      "traits": [
+        "聪慧",
+        "妩媚",
+        "娇俏",
+        "重情",
+        "机敏"
+      ],
+      "speech_style": "娇嗔机智",
+      "temperament": "娇媚灵动"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "恋人",
+        "intensity": 90,
+        "bond_level": 5,
+        "dynamic": "结为夫妇"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      110,
+      126,
+      127
+    ],
+    "source_refs": [
+      {
+        "chapter": 84,
+        "anchor": "苏樱小鱼儿",
+        "event_type": "first_mention",
+        "line_start": 87,
+        "line_end": 91,
+        "text": "\n　　这人不是那令人割不断，抛不下，朝思夜想，又爱又恨的小鱼儿是谁？\n\n　　苏樱瞧见小鱼儿转过身，她眼睛里电发着光，柔声笑道：“你既然要我来陪你喝酒，为什么不把酒杯拿来？”\n",
+        "anchors_hit": [
+          "小鱼儿",
+          "苏樱"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 329,
+        "locate_method": "window",
+        "hint_chapter": 84,
+        "alternatives": [
+          {
+            "chapter": 85,
+            "line_start": 1,
+            "line_end": 5,
+            "text": "\n　　苏樱“噗哧”一笑，过了半晌，悠悠道：“但你若非遇见我，你这天下第一的聪明人，还是一样活不了，你……你该怎么样感激我才是？”\n\n　　谁知小鱼儿却冷笑道：“你纵然不救我，也还是会有人来救我的。”\n",
+            "score": 326,
+            "anchors_hit": [
+              "苏樱",
+              "小鱼儿"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 86,
+            "line_start": 27,
+            "line_end": 31,
+            "text": "\n　　小鱼儿忍不住怒骂道：“疯子，疯子……我怎地总是撞见些疯子。”\n\n　　苏樱听见小鱼儿的怒骂声，亦是又惊又喜，无论如何，小鱼儿总算还在这山谷里，她正想追过去。\n",
+            "score": 323,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 87,
+            "line_start": 1,
+            "line_end": 3,
+            "text": "\n　　魏麻衣听小鱼儿要他放屁，心中一想，这倒也有理，只好放了个屁，要知内功高明的人，本可随意控制自己身体里的气脉，放个屁并非难事。苏樱早已掩住鼻子，转过身去，肩头不停地在动，像是忍不住要笑，小鱼儿却仍是一本正经，道：“这个屁要脱下裤子来放才算的。”\n",
+            "score": 320,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 88,
+            "line_start": 35,
+            "line_end": 41,
+            "text": "\n　　屠娇娇咯咯笑道：“幸好我还有一半是女人，否则……”瞟了小鱼儿一眼，娇笑着掠上树梢一闪不见。\n\n　　阴九幽阴森森笑道：“姑娘若做人做腻了，不妨来找我。做鬼有些时比做人有趣得多。这年头漂亮的女鬼，更吃香得很。”\n\n　　苏樱抿嘴笑道：“多谢指教，但我现在却活得还蛮有趣哩。”\n",
+            "score": 317,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 127,
+        "anchor": "苏樱小鱼儿猴儿酒",
+        "event_type": "climax",
+        "line_start": 199,
+        "line_end": 205,
+        "text": "\n　　这时小鱼儿正在远处的一个山洞里哧哧地笑着，道：“我打赌，他们就算想一万年，也绝对想不出酒是从哪里来的，是什么酒？”\n\n　　苏樱像只猫似的蜷伏在小鱼儿怀里，媚眼如丝，似乎根本懒得说话。只是懒洋洋地问着道：“那究竟是什么酒？”\n\n　　小鱼儿道：“那就叫猴儿酒，就是猴子自己酿出来的。”\n",
+        "anchors_hit": [
+          "小鱼儿",
+          "苏樱",
+          "猴儿酒"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 300,
+        "locate_method": "window",
+        "hint_chapter": 127,
+        "alternatives": [
+          {
+            "chapter": 124,
+            "line_start": 7,
+            "line_end": 13,
+            "text": "\n　　这也令小鱼儿觉得很开心。有情人终成眷属，本是人生的最大快意事。\n\n　　小鱼儿面带着微笑，喃喃道：“无论如何，我还是想不通这俩人怎会要好的，这实在是件怪事。”\n\n　　苏樱柔声道：“这一点也不奇怪。他们是在患难中相识的，人的情感，在患难中最易滋生。何况，他们又都是伤心人，同病相怜，也最易生情。”她嫣然一笑，垂着头道：“我和你，岂非也是在患难中才要好的么？”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 126,
+            "line_start": 3,
+            "line_end": 5,
+            "text": "\n　　苏樱倒在树下，痴痴地望着这飘渺的白云，眼泪早已流尽了。因为她的生命和灵魂，她的情人和夫婿，此刻正在这飘渺的白云间，在和别人作生死的决斗。她却连这次决斗的结果都不知道。小鱼儿现在究竟是胜？是负？是生？还是死？……\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 84,
+            "line_start": 87,
+            "line_end": 91,
+            "text": "\n　　这人不是那令人割不断，抛不下，朝思夜想，又爱又恨的小鱼儿是谁？\n\n　　苏樱瞧见小鱼儿转过身，她眼睛里电发着光，柔声笑道：“你既然要我来陪你喝酒，为什么不把酒杯拿来？”\n",
+            "score": 200,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 85,
+            "line_start": 1,
+            "line_end": 5,
+            "text": "\n　　苏樱“噗哧”一笑，过了半晌，悠悠道：“但你若非遇见我，你这天下第一的聪明人，还是一样活不了，你……你该怎么样感激我才是？”\n\n　　谁知小鱼儿却冷笑道：“你纵然不救我，也还是会有人来救我的。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "苏樱",
+              "小鱼儿"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 127,
+        "anchor": "苏樱小鱼儿真相大白",
+        "event_type": "resolution",
+        "line_start": 87,
+        "line_end": 89,
+        "text": "\n　　苏樱早已来了，她来的时候，正是小鱼儿“复活”的时候，但直到这时她才擦干眼泪，走了过去。小鱼儿忽然发现了她，又惊又喜，道：“你也来了，我知道你一定会回来的。”\n",
+        "anchors_hit": [
+          "小鱼儿",
+          "苏樱"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 581,
+        "locate_method": "window",
+        "hint_chapter": 127,
+        "alternatives": [
+          {
+            "chapter": 126,
+            "line_start": 3,
+            "line_end": 5,
+            "text": "\n　　苏樱倒在树下，痴痴地望着这飘渺的白云，眼泪早已流尽了。因为她的生命和灵魂，她的情人和夫婿，此刻正在这飘渺的白云间，在和别人作生死的决斗。她却连这次决斗的结果都不知道。小鱼儿现在究竟是胜？是负？是生？还是死？……\n",
+            "score": 578,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 124,
+            "line_start": 7,
+            "line_end": 13,
+            "text": "\n　　这也令小鱼儿觉得很开心。有情人终成眷属，本是人生的最大快意事。\n\n　　小鱼儿面带着微笑，喃喃道：“无论如何，我还是想不通这俩人怎会要好的，这实在是件怪事。”\n\n　　苏樱柔声道：“这一点也不奇怪。他们是在患难中相识的，人的情感，在患难中最易滋生。何况，他们又都是伤心人，同病相怜，也最易生情。”她嫣然一笑，垂着头道：“我和你，岂非也是在患难中才要好的么？”\n",
+            "score": 572,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 123,
+            "line_start": 1,
+            "line_end": 7,
+            "text": "\n　　李大嘴听了小鱼儿的话，长叹了一声，喃喃道：“恩情，恩情……‘十大恶人’养大的孩子，居然口口声声不忘记恩情，看来‘十大恶人’早就该改行做别人的保姆才是。”\n\n　　只听一人娇笑道：“不错，我们将来若有孩子，一定要请你来做奶妈。”\n\n　　原来苏樱也跟在后面来了，只不过一直没有说话。\n",
+            "score": 569,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 109,
+            "line_start": 15,
+            "line_end": 19,
+            "text": "\n　　小鱼儿道：“你不妨再考虑考虑吧，你什么时候说出来，我就什么时候放你，反正我听了这秘密后，也活不长的。”\n\n　　邀月宫主没有说话——她至少已不再拒绝了。一直伴在小鱼儿身旁的苏樱却叹息了一声，道：“到了这种时候，你为什么一定要逼她说出那秘密来呢？她说出来之后，于你又有什么好处，那只不过使你更添些烦恼而已。”\n",
+            "score": 527,
+            "anchors_hit": [
+              "小鱼儿",
+              "苏樱"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_bie_he",
+    "name": "江别鹤",
+    "alias": [],
+    "identity": "江玉郎之父，伪君子",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "江玉郎之父，伪君子，武林败类",
+    "biography": "江家核心，外示仁义内藏奸诈，与无牙门等勾结，终被揭穿。",
+    "personality": {
+      "traits": [
+        "伪善",
+        "阴险",
+        "贪婪",
+        "体面",
+        "狠毒"
+      ],
+      "speech_style": "冠冕堂皇",
+      "temperament": "伪君子"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_yu_lang",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "父子同谋"
+      },
+      {
+        "target": "char_xiao_yu_er",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 2,
+        "dynamic": "被揭穿"
+      },
+      {
+        "target": "char_wei_wu_ya",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "阴谋勾结"
+      },
+      {
+        "target": "char_tie_xin_lan",
+        "type": "亲属",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "祖孙与伪善冲突"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      40,
+      48,
+      99
+    ],
+    "source_refs": [
+      {
+        "chapter": 38,
+        "anchor": "江别鹤伪善江家",
+        "line_start": 169,
+        "line_end": 172,
+        "text": "\n　　这人微笑一揖，道：“在下江别鹤。”\n\n　　轩辕三光目光闪动，厉声道：“江湖传言，江南一带，出了个了不起的英雄，乃是燕南天之后第一个当得起‘大侠’两字的人物，莫非就是你？”",
+        "anchors_hit": [
+          "江别鹤"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 38,
+        "alternatives": []
+      },
+      {
+        "chapter": 48,
+        "anchor": "江别鹤揭发奸谋",
+        "line_start": 11,
+        "line_end": 14,
+        "text": "\n　　赵香灵叹道：“事已至此，在下只望能将大事化小，小事化无，等到江别鹤来了，将此事好生解释，只要他不再追究，在下便将段合肥放回去也罢了。”\n\n　　罗九忽然冷笑道：“事已至此，庄主还想将大事化小事么？”",
+        "anchors_hit": [
+          "江别鹤"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 48,
+        "alternatives": []
+      },
+      {
+        "chapter": 122,
+        "anchor": "江别鹤水落石出",
+        "line_start": 191,
+        "line_end": 194,
+        "text": "\n　　小鱼儿道：“我……我已瞒着你老人家，叫人来将江别鹤父子放了。”\n\n　　燕南天似也怔了怔，厉声道：“你为什么要这样做？难道你已忘了那血海深仇么？”",
+        "anchors_hit": [
+          "江别鹤"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 122,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_yu_lang",
+    "name": "江玉郎",
+    "alias": [],
+    "identity": "铁心兰之父",
+    "faction": null,
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "铁心兰之父，江别鹤之子，外貌俊美内心阴险",
+    "biography": "江别鹤之子，外貌俊美常与花无缺对照，参与江家阴谋，父女情与恶行撕裂。",
+    "personality": {
+      "traits": [
+        "阴险",
+        "自负",
+        "伪善",
+        "好色",
+        "心机"
+      ],
+      "speech_style": "油滑体面",
+      "temperament": "金玉其外"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_bie_he",
+        "type": "亲属",
+        "intensity": 90,
+        "bond_level": 4,
+        "dynamic": "父子"
+      },
+      {
+        "target": "char_tie_xin_lan",
+        "type": "亲属",
+        "intensity": 80,
+        "bond_level": 3,
+        "dynamic": "父女"
+      },
+      {
+        "target": "char_hua_wu_que",
+        "type": "对手",
+        "intensity": 70,
+        "bond_level": 2,
+        "dynamic": "外貌对照"
+      },
+      {
+        "target": "char_xiao_yu_er",
+        "type": "宿敌",
+        "intensity": 75,
+        "bond_level": 2,
+        "dynamic": "对立"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      40,
+      45,
+      99
+    ],
+    "source_refs": [
+      {
+        "chapter": 38,
+        "anchor": "江玉郎江别鹤",
+        "event_type": "first_mention",
+        "line_start": 165,
+        "line_end": 171,
+        "text": "\n　　萧子春等人见到他来了，都不禁在暗中长长松了口气，喜动颜色，江玉郎更是欢喜得几乎要跳了起来。\n\n　　轩辕三光目光闪电般在他身上一转，也不禁为之动容道：　“你是谁？”\n\n　　这人微笑一揖，道：“在下江别鹤。”\n",
+        "anchors_hit": [
+          "江玉郎",
+          "玉郎",
+          "江别鹤"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 567,
+        "locate_method": "window",
+        "hint_chapter": 38,
+        "alternatives": [
+          {
+            "chapter": 39,
+            "line_start": 83,
+            "line_end": 89,
+            "text": "\n　　江别鹤微笑道：“你也许并不十分温文风雅，但你的确有他那种无法形容的魅力。尤其是你笑的时候，我不相信世上有任何少女能抗拒你微笑时瞧着她的眼睛。”\n\n　　小鱼儿大笑道：“我但愿能有你说的这么好，也但愿能就是你说的那人的儿子。只可惜我爹爹也和我一样，纵然是个聪明人，但绝不是什么美男子，而且他现在也正活得好好的，也许正在他那张逍遥椅上抽着旱烟哩。”\n\n　　他大笑着站了起来，走了出去。江玉郎也只有跟着他。\n",
+            "score": 564,
+            "anchors_hit": [
+              "江别鹤",
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 40,
+            "line_start": 135,
+            "line_end": 141,
+            "text": "\n　　江别鹤暗中几乎气破了肚子，面上却微笑道：“花公子当真要令在下为难么？”\n\n　　花无缺沉声道：“阁下但请三思。”\n\n　　突然间，江玉郎捂着肚子冲进来，面色苍白得可怕，身子也不住颤抖，指着小鱼儿道：“他……他送来的酒中有毒！”\n",
+            "score": 561,
+            "anchors_hit": [
+              "江别鹤",
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 42,
+            "line_start": 235,
+            "line_end": 241,
+            "text": "\n　　小鱼儿还是伏在地上，就好像真死了似的动也不动，只是他的心念，却一直在转个不停。这黑衣人的语声，竟和江玉郎有八分相似！\n\n　　此人若真的是江玉郎，那么，铁无双的弟子，又和江玉郎有什么关系？他们进行的究竟是什么阴谋？\n\n　　小鱼儿心念一转，又想到那日在江别鹤的秘室中，所瞧见的那装着一瓶瓶珍贵毒药的“书匣”。\n",
+            "score": 555,
+            "anchors_hit": [
+              "江玉郎",
+              "玉郎",
+              "江别鹤"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 48,
+            "line_start": 211,
+            "line_end": 217,
+            "text": "\n　　烛火飘摇中，只见他目光尽赤，须发皆张。一种悲愤之气，不禁令人胆寒，江别鹤竟不觉向后退了半步。\n\n　　那“轿夫”却一步蹿了出来，大喝道：“多行不义，人人得而诛之，普天之下，谁都可以取你性命，别人若不忍动手，就由我来动手吧！”\n\n　　突听一人道：“江玉郎，你真的敢动手么？”\n",
+            "score": 537,
+            "anchors_hit": [
+              "江别鹤",
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 30,
+        "anchor": "江玉郎玉楼东铁心兰",
+        "event_type": "background",
+        "line_start": 93,
+        "line_end": 99,
+        "text": "\n　　江玉郎怔住了，道：“你……你自己有过一张？”\n\n　　“我非但自己有过一张，而且还去过那藏宝之处。”\n\n　　原来江玉郎的这张纸，就和铁心兰交给小鱼儿的那张一模一样，就是那骗死各种人不赔命的藏宝秘图。\n",
+        "anchors_hit": [
+          "江玉郎",
+          "玉郎",
+          "铁心兰"
+        ],
+        "anchors_total": 4,
+        "locate_status": "located",
+        "locate_score": 300,
+        "locate_method": "window",
+        "hint_chapter": 30,
+        "alternatives": [
+          {
+            "chapter": 37,
+            "line_start": 265,
+            "line_end": 269,
+            "text": "\n　　江玉郎道：“你总算明白了。”\n\n　　只听孙小妹在门外娇笑道：“江玉郎，你淹死在澡盆里了么，还不快些出来，我等你吃饭哩！今天花惜香在‘玉楼东’为你洗尘接风。”\n",
+            "score": 300,
+            "anchors_hit": [
+              "江玉郎",
+              "玉郎",
+              "玉楼东"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 41,
+            "line_start": 231,
+            "line_end": 233,
+            "text": "\n　　这欢乐的一群，正有着小鱼儿最不愿见到的人，那正是花无缺、铁心兰、慕容九妹和江玉郎。\n",
+            "score": 300,
+            "anchors_hit": [
+              "铁心兰",
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 78,
+            "line_start": 167,
+            "line_end": 171,
+            "text": "\n　　但铁心兰瞧见了这个男人，却比瞧见什么恶魔都要吃惊。\n\n　　她失声而呼，道：“江玉郎，是你！”\n",
+            "score": 300,
+            "anchors_hit": [
+              "铁心兰",
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 79,
+            "line_start": 1,
+            "line_end": 7,
+            "text": "\n　　江玉郎吐了吐舌头，笑道：“你真是会多心，有了你这么漂亮的老婆，我还会打别人的主意么？”他搂起铁萍姑的脖子，在她面颊上亲了亲。\n\n　　她垂下头，眼睛似已有些湿湿的，轻轻接着道：“你知道，你不但是我平生第一个男人，也是平生第一个对我如此亲切的人，无论你这么做是真是假，只要你永远这样对待我，我就已心满意足了，你就算做别的坏事，我……我也……”她咬着嘴唇，竟再也说不出话来。\n\n　　铁心兰瞧着她，听到她的话，心里不禁暗暗叹道：“这是个多么寂寞的女人，又是个多么可怜的女人，她甚至已明知江玉郎对她是假的，假的她竟也接受，她难道已再也不能忍受孤独……”\n",
+            "score": 300,
+            "anchors_hit": [
+              "江玉郎",
+              "玉郎",
+              "铁心兰"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 88,
+        "anchor": "江玉郎水落石出",
+        "event_type": "climax",
+        "line_start": 197,
+        "line_end": 199,
+        "text": "\n　　这时马车里却传出了江玉郎的呻吟声。\n",
+        "anchors_hit": [
+          "江玉郎",
+          "玉郎"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 88,
+        "alternatives": [
+          {
+            "chapter": 89,
+            "line_start": 13,
+            "line_end": 15,
+            "text": "\n　　她将铁萍姑抱出去，轻轻放到江玉郎身旁，笑道：“还是你们小两口子亲亲热热吧。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 90,
+            "line_start": 51,
+            "line_end": 53,
+            "text": "\n　　江玉郎和铁萍姑走进来时，外面正在讨论她那一双玉腿，听得这猥亵的笑声，铁萍姑眼泪不禁又快落了下来。\n",
+            "score": 200,
+            "anchors_hit": [
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 91,
+            "line_start": 1,
+            "line_end": 3,
+            "text": "\n　　一提起江玉郎，铁萍姑的心立刻就沉了下去，她虽不愿小鱼儿上当，但却更不忍让江玉郎死，铁萍姑再也不敢开口。\n",
+            "score": 200,
+            "anchors_hit": [
+              "江玉郎",
+              "玉郎"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 29,
+            "line_start": 175,
+            "line_end": 181,
+            "text": "\n　　那孩子道：“玉郎。”\n\n　　小鱼儿皱了皱眉，眼珠子四面一转，突又笑道：“奇怪，这里已是地下，这许多人的大便小便，都流到哪里去了？这地下的地下难道还有通道？”\n\n　　江玉郎道：“下面没有通道，是坟墓。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "玉郎",
+              "江玉郎"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_tu_jiao_jiao",
+    "name": "屠娇娇",
+    "alias": [
+      "人屠"
+    ],
+    "identity": "十大恶人",
+    "faction": "faction_shi_da_e_ren",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "十大恶人，人屠，半男半女，对小鱼儿有情",
+    "biography": "恶人谷十大恶人之一，人称人屠，身份气质暧昧，对小鱼儿感情复杂。",
+    "personality": {
+      "traits": [
+        "狠厉",
+        "痴情",
+        "矛盾",
+        "残忍",
+        "护短"
+      ],
+      "speech_style": "阴柔狠话",
+      "temperament": "半男半女"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "抚养与情愫"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "anchor": "屠娇娇恶人谷小鱼儿",
+        "event_type": "first_mention",
+        "line_start": 181,
+        "line_end": 189,
+        "text": "\n　　屠娇娇缓缓道：“正是要搞得天下大乱，咱们被人逼到这里，谁没有一肚子气，一这孩子正是天赐给咱们，要他来为咱们出气的。”\n\n　　听到这里，就连阴九幽面上也不禁泛起一丝笑容，点着头道：“好主意。”\n\n　　哈哈儿更是笑得前仰后合，不禁拍掌道：“哈哈！除了小屠外，还有谁能想出这么好的主意。”\n\n　　于是“恶人谷”中就多了个小孩子。每个人都将他唤作：　“小鱼儿！”\n",
+        "anchors_hit": [
+          "屠娇娇",
+          "恶人谷",
+          "小鱼儿"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 659,
+        "locate_method": "window",
+        "hint_chapter": 7,
+        "alternatives": [
+          {
+            "chapter": 8,
+            "line_start": 313,
+            "line_end": 317,
+            "text": "\n　　杜杀住的地方，在“恶人谷”的边缘，他屋后便是荒山——他屋子里其实也和荒山相差无几。\n\n　　就连他的卧室里，都绝无陈设，可说是“恶人谷”中最最简陋的屋子。小鱼儿每次从屠娇娇的屋子里，走到他屋子里总觉得特别不舒服，更何况他屋子里总有个吃人的野兽在等着，但小鱼儿不来却又不行。\n",
+            "score": 657,
+            "anchors_hit": [
+              "恶人谷",
+              "屠娇娇",
+              "小鱼儿"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 9,
+            "line_start": 321,
+            "line_end": 325,
+            "text": "\n　　小鱼儿道：“绝不是，谷中无论是谁的眼睛，都没有这双眼睛那么亮，屠娇娇的眼睛虽也亮，但和他一比，简直就是睁眼瞎子。”\n\n　　万春流叹道：“此人竟能在‘恶人谷’中来去自如，而又知道这许多秘密，唉！他究竟是谁，实在叫人猜不透。”\n",
+            "score": 654,
+            "anchors_hit": [
+              "屠娇娇",
+              "小鱼儿",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 115,
+            "line_end": 161,
+            "text": "\n　　小鱼儿叹了口气，道：“你们既将它说得这么好……好吧，我就马马虎虎收下来也罢，但除了这些还有什么？”\n\n　　屠娇娇道：“哎哟，小鬼，你还想要？你的心倒是真黑，你也不想想，我们的好东西，这些年来早已被你刮光了，哪里还有什么！”\n\n　　小鱼儿歪着头，想了想，提起包袱，站起来就走。\n\n　　李大嘴道：“喂喂，你干什么？”\n\n　　小鱼儿道：“干什么？……走呀。”\n\n　　李大嘴道：“你说走就走？”\n\n　　小鱼儿道：“还等什么？酒也不准喝了，东西也没有了……”\n\n　　李大嘴道：“你要到哪里去？”\n\n　　小鱼儿道：“出了谷，我就一直往东南走，走到哪里算哪里。”\n\n　　李大嘴道：“你想干什么？”\n\n　　小鱼儿道：“什么也不干，遇见顺眼的，我就跟他喝两杯，遇见不顺眼的，我就害他一害，让他哭笑不得。”\n\n　　杜杀突然道：“你……还回不回来？”\n\n　　小鱼儿嘻嘻笑道：“我将外面的人都害光了，就快回来了，回来再…",
+            "score": 643,
+            "anchors_hit": [
+              "小鱼儿",
+              "屠娇娇",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 29,
+            "line_start": 93,
+            "line_end": 99,
+            "text": "\n　　他说了五句活，正活脱脱是哈哈儿、“血手”杜杀、“不吃人头”李大嘴、“半人半鬼”阴九幽、“不男不女”屠娇娇这五人的口气，不但声音相同，语气也相同，正是惟妙惟肖，活灵活现。\n\n　　萧咪咪眼睛已睁大了，娇笑道：“你这小鬼，你认得他们？”\n\n　　小鱼儿道：“我从小就是在恶人谷长大的。”\n",
+            "score": 594,
+            "anchors_hit": [
+              "屠娇娇",
+              "恶人谷",
+              "小鱼儿"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 7,
+        "anchor": "屠娇娇十大恶人",
+        "event_type": "background",
+        "line_start": 139,
+        "line_end": 143,
+        "text": "\n　　司马烟微微笑道：“小弟在江湖中虽也薄有恶名，但在‘十大恶人’面前，小弟却是麻绳穿豆腐，提也提不起的。”\n\n　　屠娇娇道：“是呀，‘十大恶人’中，还有五个呢？”\n",
+        "anchors_hit": [
+          "十大恶人",
+          "屠娇娇"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 200,
+        "locate_method": "window",
+        "hint_chapter": 7,
+        "alternatives": [
+          {
+            "chapter": 57,
+            "line_start": 241,
+            "line_end": 247,
+            "text": "\n　　屠娇娇道：“我此番出谷，除了找你之外，还一心要找两个人。”\n\n　　小鱼儿道：“你要找的，就是他们？”\n\n　　屠娇娇也不回答只是缓缓接着道：“二十年前‘十大恶人’中，有五个被逼入恶人谷，那时情形十分危急，他们走得十分仓促，所以有许多重要的东西，都来不及带走。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "屠娇娇",
+              "十大恶人"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 61,
+            "line_start": 115,
+            "line_end": 121,
+            "text": "\n　　小鱼儿听得又惊又喜，李大嘴、哈哈儿、白开心、屠娇娇，脸上全都变了颜色，尤其是屠娇娇，一步冲过去，道：“他……他是往哪里去的？”\n\n　　阴九幽道：“我怎知他要到哪里去？说不定是往这里来的。”\n\n　　这句话说出来，名震天下的“十大恶人”们竟连坐都坐不住了，李大嘴首先站了起来，道：“这里的确不是久留之地，咱们走吧。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "屠娇娇",
+              "十大恶人"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 71,
+            "line_start": 151,
+            "line_end": 157,
+            "text": "\n　　铁萍姑动容道：“恶赌鬼？莫非是十大恶人中的？……”铁萍姑沉默了半晌，忽又问道：“你可知道这‘十大恶人’究竟是些什么人？”\n\n　　小鱼儿笑道：“你这话可算真问对人了，世上比我更知道十大恶人的，还真不多。”\n\n　　他扳着手指，道：“十大恶人就是‘血手’杜杀、‘笑里藏刀’哈哈儿、‘不男不女’屠娇娇、‘半人半鬼’阴九幽、‘不吃人头’李大嘴。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "十大恶人",
+              "屠娇娇"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 96,
+            "line_start": 157,
+            "line_end": 159,
+            "text": "\n　　屠娇娇道：“你也许不知道，自从欧阳兄弟两人死了后，‘十大恶人’其实剩下九个了。”\n",
+            "score": 200,
+            "anchors_hit": [
+              "十大恶人",
+              "屠娇娇"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_li_da_zui",
+    "name": "李大嘴",
+    "alias": [
+      "食人魔"
+    ],
+    "identity": "十大恶人",
+    "faction": "faction_shi_da_e_ren",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "重要",
+    "one_line": "十大恶人，食人魔，贪吃重义",
+    "biography": "恶人谷十大恶人，大嘴贪吃，对小鱼儿有粗豪义气。",
+    "personality": {
+      "traits": [
+        "贪吃",
+        "粗豪",
+        "重义",
+        "莽撞",
+        "直率"
+      ],
+      "speech_style": "粗声大气",
+      "temperament": "莽汉"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "合作者",
+        "intensity": 65,
+        "bond_level": 3,
+        "dynamic": "谷中情谊"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "anchor": "李大嘴恶人谷小鱼儿",
+        "event_type": "first_mention",
+        "line_start": 171,
+        "line_end": 189,
+        "text": "\n　　李大嘴道：“哼！又是废话！”\n\n　　屠娇娇道：“他从小跟着咱们，眼睛瞧见的，都是咱们做的事，耳朵听见的，都是咱们说的话，他长大了不但是大坏蛋，而且是世上最大的坏蛋。你们不妨想想，他若将这‘恶人谷’中每个人的坏花样全学会了，世上还有谁能比他更凶、更毒、更恶？”\n\n　　哈哈儿笑道：“这样的人，只怕连鬼见了都要害怕。”\n\n　　屠娇娇道：“这就对了，连鬼见了都怕的人，若是到了江湖中去，又当如何？”\n\n　　哈哈儿拍掌大笑道：“哈哈！那不搞得天下大乱才怪。”\n\n　　屠娇娇缓缓道：“正是要搞得天下大乱，咱们被人逼到这里，谁没有一肚子气，一这孩子正是天赐给咱们，要他来为咱们出气的。”\n\n　　听到这里，就连阴九幽面上也不禁泛起一丝笑容，点着头道：“好主意。”\n\n　　哈哈儿更是笑得前仰后合，不禁拍掌道：“哈哈！除了小屠外，还有谁能想出这么好的主意。”\n\n　　于是“恶人谷”中就多了个小孩子。每个人都将他唤…",
+        "anchors_hit": [
+          "李大嘴",
+          "恶人谷",
+          "小鱼儿"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 657,
+        "locate_method": "window",
+        "hint_chapter": 7,
+        "alternatives": [
+          {
+            "chapter": 9,
+            "line_start": 205,
+            "line_end": 211,
+            "text": "\n　　李大嘴以手加额，笑道：“这小鬼一走，我老李一个月不吃人肉。”\n\n　　黄昏后，“恶人谷”才渐渐有了生气。\n\n　　小鱼儿左逛逛，右逛逛，终于逛到万春流那儿。\n",
+            "score": 654,
+            "anchors_hit": [
+              "李大嘴",
+              "恶人谷",
+              "小鱼儿"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 8,
+            "line_start": 313,
+            "line_end": 339,
+            "text": "\n　　杜杀住的地方，在“恶人谷”的边缘，他屋后便是荒山——他屋子里其实也和荒山相差无几。\n\n　　就连他的卧室里，都绝无陈设，可说是“恶人谷”中最最简陋的屋子。小鱼儿每次从屠娇娇的屋子里，走到他屋子里总觉得特别不舒服，更何况他屋子里总有个吃人的野兽在等着，但小鱼儿不来却又不行。\n\n　　这一天，小鱼儿又摇摇摆摆地来了。杜杀笔直地坐在屋角，动也不动，他那一身雪白的衣衫，在阴暗的屋子里看来，就好像是雪堆成的。\n\n　　小鱼儿每次来，都瞧见杜杀这样坐着，姿势从来未曾改变过，小鱼儿每次走到他面前，都不敢说话。\n\n　　杜杀冷冷瞧着他，瞧了半晌，突然问道：　“听说你有个小小的箱子？”\n\n　　小鱼儿低着头，道：“嗯。”\n\n　　杜杀道：“听说你箱子里有不少好东西？”\n\n　　小鱼儿道：“嗯。”\n\n　　杜杀道：“听说你箱子里的东西已越来越多了？”\n\n　　小鱼儿道：“嗯。”\n\n　　杜杀道：“有什么东西，说出来！”\n\n…",
+            "score": 653,
+            "anchors_hit": [
+              "恶人谷",
+              "小鱼儿",
+              "李大嘴"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 131,
+            "line_end": 161,
+            "text": "\n　　小鱼儿道：“出了谷，我就一直往东南走，走到哪里算哪里。”\n\n　　李大嘴道：“你想干什么？”\n\n　　小鱼儿道：“什么也不干，遇见顺眼的，我就跟他喝两杯，遇见不顺眼的，我就害他一害，让他哭笑不得。”\n\n　　杜杀突然道：“你……还回不回来？”\n\n　　小鱼儿嘻嘻笑道：“我将外面的人都害光了，就快回来了，回来再害你们。”\n\n　　哈哈儿道：“哈哈，妙极妙极，你若真的将外面的人都害得痛哭流涕，咱们欢迎你回来，情愿被你害也没关系。”\n\n　　小鱼儿摆了摆手，道：“再见，我很快就会回来的。”\n\n　　竟真的走了，头也不回地走了。\n\n　　小鱼儿穿着新衣，提着包袱，走过那条街，新皮靴在地上走得“喀喀”作响，在深夜里传得分外远。\n\n　　他一路大叫大嚷道：“各位，小鱼儿这就走了，各位从此可以安心睡觉了。”\n\n　　两边的屋子，有的开了窗，有的开了门，一个个脑袋伸了出来，眼睛都睁得圆圆的瞧着小鱼儿。\n\n　　小鱼儿道：…",
+            "score": 646,
+            "anchors_hit": [
+              "小鱼儿",
+              "李大嘴",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 29,
+            "line_start": 93,
+            "line_end": 99,
+            "text": "\n　　他说了五句活，正活脱脱是哈哈儿、“血手”杜杀、“不吃人头”李大嘴、“半人半鬼”阴九幽、“不男不女”屠娇娇这五人的口气，不但声音相同，语气也相同，正是惟妙惟肖，活灵活现。\n\n　　萧咪咪眼睛已睁大了，娇笑道：“你这小鬼，你认得他们？”\n\n　　小鱼儿道：“我从小就是在恶人谷长大的。”\n",
+            "score": 594,
+            "anchors_hit": [
+              "李大嘴",
+              "恶人谷",
+              "小鱼儿"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_ha_ha_er",
+    "name": "哈哈儿",
+    "alias": [
+      "笑面虎"
+    ],
+    "identity": "十大恶人",
+    "faction": "faction_shi_da_e_ren",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "重要",
+    "one_line": "十大恶人，笑面虎，笑里藏刀",
+    "biography": "十大恶人，常笑，实则阴险，笑里藏刀。",
+    "personality": {
+      "traits": [
+        "阴险",
+        "假笑",
+        "多疑",
+        "狠毒",
+        "圆滑"
+      ],
+      "speech_style": "呵呵假笑",
+      "temperament": "笑面虎"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "恶人谷复杂"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      12
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "anchor": "哈哈儿恶人谷笑里藏刀",
+        "event_type": "first_mention",
+        "line_start": 89,
+        "line_end": 101,
+        "text": "\n　　‘恶人谷’恶人云集，古往今来，只怕从未有过那许多恶人聚在一起，更从未有一人敢孤身去面对那许多恶人，燕大侠……还望三思。”\n\n　　燕南天目光火炬一般，遥注云雾凄迷的山谷，沉声道：\n\n　　“男儿汉生于世，若能做几桩别人不敢做的事，死亦何憾！”\n\n　　昆仑四子对望一眼，面上已有愧色。\n\n　　杨平道：“但……据在下所知，这二十年来，在江湖中凶名最著的十大魔头，最少有四人确实已投奔谷中……”\n\n　　海长波道：“只怕还不止四个……‘血手’杜杀，‘笑里藏刀’，‘笑弥陀’哈哈儿，‘不男不女’屠娇娇，‘不吃人头’李大嘴……”\n",
+        "anchors_hit": [
+          "恶人谷",
+          "哈哈儿"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 564,
+        "locate_method": "window",
+        "hint_chapter": 5,
+        "alternatives": [
+          {
+            "chapter": 6,
+            "line_start": 87,
+            "line_end": 89,
+            "text": "\n　　哈哈儿道：“哈哈，恶人谷中可没有这样的无名小卒。”\n",
+            "score": 563,
+            "anchors_hit": [
+              "恶人谷",
+              "哈哈儿"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 7,
+            "line_start": 69,
+            "line_end": 73,
+            "text": "\n　　“恶人谷”的确是少不了万春流的。\n\n　　哈哈儿立刻笑道：“万神医法眼审定，自是不会错的，既是如此，你我就算不分，大家一起动手将燕南天杀了也罢。”\n",
+            "score": 560,
+            "anchors_hit": [
+              "恶人谷",
+              "哈哈儿"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 9,
+            "line_start": 169,
+            "line_end": 175,
+            "text": "\n　　屠娇娇笑道：“哈哈儿居然也会叹息，想来是真的受不了啦。”\n\n　　李大嘴苦着脸道：“谁受得了谁是孙子。”\n\n　　哈哈儿道：“如今这位小太爷，要来就来，要走就走，要吃就吃，要喝就喝，谁也不敢惹他，惹了他就倒楣，‘恶人谷’可真受够了他了，这几个月来，至少有三十个人向我诉苦，每人至少诉过八次。”\n",
+            "score": 554,
+            "anchors_hit": [
+              "哈哈儿",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 141,
+            "line_end": 161,
+            "text": "\n　　哈哈儿道：“哈哈，妙极妙极，你若真的将外面的人都害得痛哭流涕，咱们欢迎你回来，情愿被你害也没关系。”\n\n　　小鱼儿摆了摆手，道：“再见，我很快就会回来的。”\n\n　　竟真的走了，头也不回地走了。\n\n　　小鱼儿穿着新衣，提着包袱，走过那条街，新皮靴在地上走得“喀喀”作响，在深夜里传得分外远。\n\n　　他一路大叫大嚷道：“各位，小鱼儿这就走了，各位从此可以安心睡觉了。”\n\n　　两边的屋子，有的开了窗，有的开了门，一个个脑袋伸了出来，眼睛都睁得圆圆的瞧着小鱼儿。\n\n　　小鱼儿道：“我做了这么大的好事，你们还不赶紧拍掌欢送我……\n\n　　你们若不拍掌，我可就留下来不走了。”\n\n　　他话未说完，大家已一起鼓起掌来。小鱼儿哈哈大笑，只有在走过万春流门口时，他笑声顿了顿，瞧了万春流一眼……只瞧了一眼，没有说话。万春流也没有说话，有些事是用不着说出来的。\n\n　　小鱼儿终于走出了“恶人谷”！\n",
+            "score": 548,
+            "anchors_hit": [
+              "哈哈儿",
+              "恶人谷"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_bai_kai_xin",
+    "name": "白开心",
+    "alias": [],
+    "identity": "十大恶人",
+    "faction": "faction_shi_da_e_ren",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "重要",
+    "one_line": "十大恶人，白衣人，伪善狡诈",
+    "biography": "十大恶人之一，白衣形象，伪善狡诈。",
+    "personality": {
+      "traits": [
+        "伪善",
+        "狡诈",
+        "刻薄",
+        "自利",
+        "阴柔"
+      ],
+      "speech_style": "假意关心",
+      "temperament": "白衣伪善"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "谷中相处"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "anchor": "白开心恶人谷小鱼儿",
+        "event_type": "first_mention",
+        "line_start": 187,
+        "line_end": 189,
+        "text": "\n　　于是“恶人谷”中就多了个小孩子。每个人都将他唤作：　“小鱼儿！”\n",
+        "anchors_hit": [
+          "恶人谷",
+          "小鱼儿"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 560,
+        "locate_method": "window",
+        "hint_chapter": 7,
+        "alternatives": [
+          {
+            "chapter": 8,
+            "line_start": 313,
+            "line_end": 317,
+            "text": "\n　　杜杀住的地方，在“恶人谷”的边缘，他屋后便是荒山——他屋子里其实也和荒山相差无几。\n\n　　就连他的卧室里，都绝无陈设，可说是“恶人谷”中最最简陋的屋子。小鱼儿每次从屠娇娇的屋子里，走到他屋子里总觉得特别不舒服，更何况他屋子里总有个吃人的野兽在等着，但小鱼儿不来却又不行。\n",
+            "score": 557,
+            "anchors_hit": [
+              "恶人谷",
+              "小鱼儿"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 9,
+            "line_start": 1,
+            "line_end": 7,
+            "text": "\n　　小鱼儿望了巴蜀东一眼道：“这也算坏事吗？……嘿，这种坏事简直只有赶骡车的粗汉才会做的。”\n\n　　巴蜀东怒道：“不错，这本算不得什么，但那沈轻虹昔年虽然丢了镖银，自己虽也失踪，但江湖中人对他的寡妻和妹妹却尊敬得很，所以……”\n\n　　小鱼儿摇头笑道：“无论你怎样说，假如你做的只是这种见不得人的坏事，你还不够资格进‘恶人谷’，除非……”\n",
+            "score": 554,
+            "anchors_hit": [
+              "小鱼儿",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 157,
+            "line_end": 161,
+            "text": "\n　　他话未说完，大家已一起鼓起掌来。小鱼儿哈哈大笑，只有在走过万春流门口时，他笑声顿了顿，瞧了万春流一眼……只瞧了一眼，没有说话。万春流也没有说话，有些事是用不着说出来的。\n\n　　小鱼儿终于走出了“恶人谷”！\n",
+            "score": 551,
+            "anchors_hit": [
+              "小鱼儿",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 13,
+            "line_start": 227,
+            "line_end": 231,
+            "text": "\n　　小鱼儿拍掌道：“呀，这名字我听过……”\n\n　　他突然想起自己出谷那天下午，逃入“恶人谷”的那“杀虎太岁”\n",
+            "score": 542,
+            "anchors_hit": [
+              "小鱼儿",
+              "恶人谷"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_xuan_yuan_san_guang",
+    "name": "轩辕三光",
+    "alias": [],
+    "identity": "十大恶人",
+    "faction": "faction_shi_da_e_ren",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "重要",
+    "one_line": "十大恶人，嗜赌如命，常输光",
+    "biography": "十大恶人，赌徒，钱财常输光，后期仍出场。",
+    "personality": {
+      "traits": [
+        "嗜赌",
+        "懊丧",
+        "义气",
+        "口无遮拦",
+        "好面子"
+      ],
+      "speech_style": "赌徒口吻",
+      "temperament": "赌徒"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "合作者",
+        "intensity": 55,
+        "bond_level": 3,
+        "dynamic": "谷中及后日"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      126
+    ],
+    "source_refs": [
+      {
+        "chapter": 57,
+        "anchor": "轩辕三光恶人谷赌博",
+        "event_type": "first_mention",
+        "line_start": 245,
+        "line_end": 257,
+        "text": "\n　　屠娇娇也不回答只是缓缓接着道：“二十年前‘十大恶人’中，有五个被逼入恶人谷，那时情形十分危急，他们走得十分仓促，所以有许多重要的东西，都来不及带走。”\n\n　　小鱼儿点头道：“不错，你和李叔叔、杜叔叔等人，纵横江湖多年，自然不会是身无长物，而能被你们瞧得上眼的东西，自然也必定珍贵得很。”\n\n　　屠娇娇道：“你知道，我们在江湖中根本没有朋友，只有‘十大恶人’中另外那五个人，勉强可以算是和我们臭味相投。”\n\n　　小鱼儿微笑道：“这点我当然清楚得很。”\n\n　　屠娇娇道：“所以，我们只有将东西交给他们。但那‘狂狮’铁战总是疯疯癫癫，发起疯来时，连自己的命都可以不要，何况是别人交给他的东西，那‘损人不利己’白开心非但靠不住，而且又和李大嘴是对头。”\n\n　　小鱼儿笑道：“若是交给‘恶赌鬼’轩辕三光，又怕他输光。”\n",
+        "anchors_hit": [
+          "恶人谷",
+          "轩辕三光"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 408,
+        "locate_method": "window",
+        "hint_chapter": 57,
+        "alternatives": []
+      },
+      {
+        "chapter": 127,
+        "anchor": "轩辕三光猴儿酒赌钱",
+        "line_start": 197,
+        "line_end": 205,
+        "text": "\n　　轩辕三光叹了口气，苦笑着喃喃道：“猴子有时的确比人还聪明些，至少它们不会去赌钱……”\n\n　　这时小鱼儿正在远处的一个山洞里哧哧地笑着，道：“我打赌，他们就算想一万年，也绝对想不出酒是从哪里来的，是什么酒？”\n\n　　苏樱像只猫似的蜷伏在小鱼儿怀里，媚眼如丝，似乎根本懒得说话。只是懒洋洋地问着道：“那究竟是什么酒？”\n\n　　小鱼儿道：“那就叫猴儿酒，就是猴子自己酿出来的。”\n",
+        "anchors_hit": [
+          "轩辕三光",
+          "猴儿酒"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 199,
+        "locate_method": "window",
+        "hint_chapter": 127,
+        "alternatives": [],
+        "event_type": "background"
+      }
+    ]
+  },
+  {
+    "id": "char_du_sha",
+    "name": "杜杀",
+    "alias": [
+      "血手"
+    ],
+    "identity": "十大恶人",
+    "faction": "faction_shi_da_e_ren",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "十大恶人，血手杜杀，好杀",
+    "biography": "十大恶人，血手，杀性重。",
+    "personality": {
+      "traits": [
+        "嗜杀",
+        "冷酷",
+        "直接",
+        "危险",
+        "寡言"
+      ],
+      "speech_style": "短促凶狠",
+      "temperament": "杀神"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "恶人谷"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "anchor": "杜杀血手恶人谷",
+        "event_type": "first_mention",
+        "line_start": 89,
+        "line_end": 101,
+        "text": "\n　　‘恶人谷’恶人云集，古往今来，只怕从未有过那许多恶人聚在一起，更从未有一人敢孤身去面对那许多恶人，燕大侠……还望三思。”\n\n　　燕南天目光火炬一般，遥注云雾凄迷的山谷，沉声道：\n\n　　“男儿汉生于世，若能做几桩别人不敢做的事，死亦何憾！”\n\n　　昆仑四子对望一眼，面上已有愧色。\n\n　　杨平道：“但……据在下所知，这二十年来，在江湖中凶名最著的十大魔头，最少有四人确实已投奔谷中……”\n\n　　海长波道：“只怕还不止四个……‘血手’杜杀，‘笑里藏刀’，‘笑弥陀’哈哈儿，‘不男不女’屠娇娇，‘不吃人头’李大嘴……”\n",
+        "anchors_hit": [
+          "恶人谷",
+          "杜杀",
+          "血手"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 664,
+        "locate_method": "window",
+        "hint_chapter": 5,
+        "alternatives": [
+          {
+            "chapter": 6,
+            "line_start": 73,
+            "line_end": 89,
+            "text": "\n　　“血手”杜杀突然道：“且慢，我还有话问他！”\n\n　　屠娇娇笑道：“问呀，又没有人拦着你。”\n\n　　杜杀道：“燕南天，你此番可是为着杜某才到这里来的？’’\n\n　　燕南天道：“你还不配！”\n\n　　杜杀居然也不动气，冷冷道：“杜某不配，谁配？”\n\n　　“江琴。”\n\n　　“江琴？谁听说过这名字？”\n\n　　哈哈儿道：“哈哈，恶人谷中可没有这样的无名小卒。”\n",
+            "score": 661,
+            "anchors_hit": [
+              "杜杀",
+              "血手",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 8,
+            "line_start": 447,
+            "line_end": 469,
+            "text": "\n　　巴蜀东愣在那里，简直哭笑不得，若非这里就是“恶人谷”，这小鱼儿若非在“恶人谷”中，他早已砍下他的脑袋。\n\n　　小鱼儿道：“瞧你这样害怕，你得罪的人，必定来头不小，武功不弱，那厮竟是些什么人？你也说来听听。”\n\n　　巴蜀东沉吟半晌，终于道：　“我得罪的人可不只一个，那其中有‘江南双剑’丁家兄弟、‘病虎’常风、‘江北一条龙’田八……”\n\n　　小鱼儿笑道：“我当是谁呢，原来是这些人……这些人的名字我倒也都听过，但却都也没有什么太了不起……”\n\n　　巴蜀东咬了咬牙，道：“这些人纵然没什么了不起，但其中还有一人，却当真可说是人人见了，人人头疼。”\n\n　　小鱼儿道：“那莫非是大头鬼么？”\n\n　　巴蜀东不理他，自言接道：“提起此人，在今日江湖中当真是大大有名。”\n\n　　小鱼儿道：“他叫什么？”\n\n　　巴蜀东道：“小仙女张菁。”\n\n　　小鱼儿笑道：“小仙女？……听这名字，她该是个小美人儿才是，别人见…",
+            "score": 653,
+            "anchors_hit": [
+              "恶人谷",
+              "杜杀",
+              "血手"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 26,
+            "line_start": 309,
+            "line_end": 315,
+            "text": "\n　　沈轻虹道：　“昔年‘十大恶人’中，武功最高的‘血手’杜杀与‘狂狮’铁战，只怕也有这么样的手段。”\n\n　　小鱼儿道：“这两人也不可能。”\n\n　　沈轻虹道：“不错，这两人一个已多年不知下落，据闻早已投入‘恶人谷’，至于‘狂狮’铁战么……唉！这些人若是被他杀的，连兵刃都早已要被折成一段段的了，又怎会有此刻这般完整。”\n",
+            "score": 603,
+            "anchors_hit": [
+              "杜杀",
+              "血手",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 29,
+            "line_start": 93,
+            "line_end": 99,
+            "text": "\n　　他说了五句活，正活脱脱是哈哈儿、“血手”杜杀、“不吃人头”李大嘴、“半人半鬼”阴九幽、“不男不女”屠娇娇这五人的口气，不但声音相同，语气也相同，正是惟妙惟肖，活灵活现。\n\n　　萧咪咪眼睛已睁大了，娇笑道：“你这小鬼，你认得他们？”\n\n　　小鱼儿道：“我从小就是在恶人谷长大的。”\n",
+            "score": 594,
+            "anchors_hit": [
+              "杜杀",
+              "血手",
+              "恶人谷"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_hei_zhi_zhu",
+    "name": "黑蜘蛛",
+    "alias": [],
+    "identity": "十大恶人",
+    "faction": "faction_shi_da_e_ren",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "十大恶人，黑蜘蛛，轻功与暗器高手",
+    "biography": "十大恶人，擅轻功暗器，身法如蛛。",
+    "personality": {
+      "traits": [
+        "阴诡",
+        "敏捷",
+        "多疑",
+        "残忍",
+        "沉默"
+      ],
+      "speech_style": "阴声细语",
+      "temperament": "阴毒"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "合作者",
+        "intensity": 50,
+        "bond_level": 2,
+        "dynamic": "恶人谷"
+      }
+    ],
+    "known_skills": [
+      "skill_qing_gong",
+      "skill_qing_gong"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      15
+    ],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "anchor": "黑蜘蛛恶人谷暗器",
+        "event_type": "first_mention",
+        "line_start": 249,
+        "line_end": 265,
+        "text": "\n　　两人一先一后，走了出去，夜色正静静地笼罩着这“恶人谷”，月光下的“恶人谷”，看来更是平和，安静。司马烟走在洒满银光的街道上，脚步更轻得没有一丝声音，他脚步不停，走到长街尽头一栋孤立的小屋。\n\n　　屋门半掩，有灯光透出。\n\n　　司马烟道：“那孩子便在屋里，但望燕大侠抱出了孩子后，立刻原路退回，燕大侠乘来的马车，已在谷口相候。”\n\n　　燕南天情急如火，不等他话说完，就箭步蹿了进去！\n\n　　屋子的中央，有张圆桌，那孩子果然就在圆桌上。\n\n　　燕南天热血如沸，一步蹿过去，抱起孩子，惨然道：“孩子，你吃苦了！”\n\n　　一句话未说完，突然将那孩子重重摔在地上，狂吼道：“好恶贼！”\n\n　　孩子，这哪里是什么孩子，这只是个木偶！但燕南天发觉时已太迟了，满屋风声骤响，数百点银光乌芒，已四面八方，暴雨般向他射了过来！暗器风声，又尖锐，又迅急，又强劲，显然这数百点暗器，无一不是高手所发，正是必欲将燕南天置…",
+        "anchors_hit": [
+          "恶人谷",
+          "暗器"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 561,
+        "locate_method": "window",
+        "hint_chapter": 6,
+        "alternatives": [
+          {
+            "chapter": 5,
+            "line_start": 25,
+            "line_end": 63,
+            "text": "\n　　他身子也已冲天而起，只听“哧，哧，哧”，风声不绝，数十点暗器，俱都自他足底扫过。\n\n　　应变若有丝毫之差，自己纵不负伤，那婴儿也难免丧命，婴儿纵不丧命，大车也难免要被那匹马带得自他身上碾过。\n\n　　健马倒地，燕南天身形犹在空中。\n\n　　只见银光乍起，七八道剑光，有如天际长虹般，自暗影中斜飞而出，上下左右，纵横交错。哪知他身在空中，力道竟仍未消竭，双臂一振，身子突然又向上蹿起了七尺，剑光又自他脚底擦过。\n\n　　但闻“叮当”龙吟之声不绝，七八柄剑收势不及，俱都撞在一起，剑光一合便分，七八个人都远远落到一边。暮色中虽瞧不清楚，但朦胧望去，这七八人中，竟有四个是出家的道人。\n\n　　燕南天双足一蹬，方自掠到车顶，竟又箭也似地蹿了出去，双掌如风，当头向一个蓝衫道人击下！他眼见这几个人话也不说，便下如此毒手，此刻下手自也不肯留情，这双掌击下，力道何止千钧！\n\n　　那道人本待举剑迎上，但心念一转，面…",
+            "score": 559,
+            "anchors_hit": [
+              "暗器",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 16,
+            "line_start": 249,
+            "line_end": 277,
+            "text": "\n　　铁心兰叹道：“你已找不着他，任何人都找不着他，江湖传言，十几年前，他不知为了什么，闯入‘恶人谷’，从此就没有再出来，他虽然剑法无敌，但遇着那许多恶人，只怕……还是难逃毒手。”\n\n　　小鱼儿默然半晌，道：“噢……”\n\n　　铁心兰道：“这藏宝图，据说就是他入谷之前留下的，他似乎也自知入谷之后必死，所以便将他生前搜集的古玩珍宝，以及他无敌天下的剑谱，全都藏在一个隐密之处，若没有这藏宝图，谁也找不到。”\n\n　　小鱼儿缓缓点头道：“珍宝虽不足令人动心，但这剑谱却的确令人眼红，谁得了这剑谱，谁就可无敌于天下，那就难怪有这许多人要来抢了。”\n\n　　铁心兰道：“但小仙女却非为这剑谱，而是为了要安慰她的母亲……”\n\n　　她方待回头，但眼光溜过地上，整个身子突然一震，失声道：“你……你瞧，这……这是……”\n\n　　小鱼儿笑道：“我早就瞧见了，地上的影子，已多了一个。”\n\n　　地上的影子，竟赫然真的多了一个…",
+            "score": 528,
+            "anchors_hit": [
+              "恶人谷",
+              "黑蜘蛛"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 58,
+            "line_start": 47,
+            "line_end": 75,
+            "text": "\n　　小鱼儿心念一动，道：“莫非‘恶人谷’里，竟发生了什么令人想不到的变故不成？”\n\n　　屠娇娇长叹道：“的确严重得很。”\n\n　　小鱼儿着急道：“究竟是什么，你快说呀？”\n\n　　屠娇娇缓缓道：“你可知道……”\n\n　　突听“嘶”的一声轻响，一条人影，自树梢飞来，大声道：“你们原来在这里，却找得我好苦。”\n\n　　来的这人，正是黑蜘蛛。\n\n　　黑蜘蛛长叹道：“我险些连你们的人都瞧不见了。”\n\n　　小鱼儿这才发现他那一身比缎子还亮的黑衣，此刻竟满是泥污，头发也凌乱不堪，不禁失声道：“你怎会变得如此模样？”\n\n　　黑蜘蛛道：“我去送那信时，只见南宫柳屋里一个人也没有，于是我就悄悄进去，将信放在桌上……”\n\n　　他话未说完，小鱼儿已顿足道：“你为何要走进屋，将那封信抛下去不就成了么？他们的贴身丫头都被人宰来吃了，对自己的居处又怎会不分外警戒。”\n\n　　黑蜘蛛苦笑道：“我正是太大意了些，刚将信放在桌上，…",
+            "score": 502,
+            "anchors_hit": [
+              "恶人谷",
+              "黑蜘蛛",
+              "暗器"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 26,
+            "line_start": 291,
+            "line_end": 315,
+            "text": "\n　　这时已有微光照入洞窟，光线虽不强，但以沈轻虹等人的目力，已足以瞧清落在地上的兵刃是何模样。只见地上除了吴钩剑、五毒珠、九环刀之外，还有两柄剑、一根链子银枪、一对虎头钩、三枚铁胆、两只暗器囊。\n\n　　沈轻虹拾起一柄剑，这柄剑又轻又巧，刃薄如纸，沈轻虹道：“这是‘龙凤双飞鸳鸯剑’中的雌剑‘飞凤’，那雄剑‘神龙’哪里去了？莫非已被人拆散……唉！‘龙凤剑客’一世英雄，江湖人常言‘龙凤比翼，翱翔九天’，谁知到头来还是要龙拆凤散遭人毒手！”\n\n　　他叹息着放下了这柄“飞凤”剑，目光黯然自链子枪、虎头钩等兵刃上一一望了过去，叹息更是沉重，喃喃道：“这些人竟会俱都死在这一役之中，当真令我梦想不到，看来这一役战况之惨烈，只怕已是百年仅有的了。”\n\n　　小鱼儿道：“这些人不但死了，而且显然是同时死的，能同时杀死这许多成名高手的人，可真是了不起。你能猜得出他是谁么？”\n\n　　沈轻虹道：“当今天下能使这许多…",
+            "score": 499,
+            "anchors_hit": [
+              "暗器",
+              "恶人谷"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_yin_jiu_you",
+    "name": "阴九幽",
+    "alias": [],
+    "identity": "十大恶人",
+    "faction": "faction_shi_da_e_ren",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "十大恶人，阴损毒辣",
+    "biography": "十大恶人，行事阴损毒辣。",
+    "personality": {
+      "traits": [
+        "阴损",
+        "毒辣",
+        "算计",
+        "狠毒",
+        "阴沉"
+      ],
+      "speech_style": "阴损嘲讽",
+      "temperament": "阴毒"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "合作者",
+        "intensity": 45,
+        "bond_level": 2,
+        "dynamic": "恶人谷"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      5,
+      16
+    ],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "anchor": "阴九幽恶人谷",
+        "event_type": "first_mention",
+        "line_start": 107,
+        "line_end": 121,
+        "text": "\n　　海长波道：“除了这四人外，那自命轻身功夫天下无双，从来不肯与人正面对敌，专门在暗中下毒手的阴九幽，据说也逃奔入谷。”\n\n　　燕南天动容道：“哦！‘半人半鬼’阴九幽也在谷中么？他暗算少林俗家弟子李大元后，不是已被少林护法长老们下手除去了么？”\n\n　　海长波道：“不错，江湖中是有此一传说，但据深悉内幕之人言道，少林护法虽已将这‘半人半鬼’的恶魔困在‘阴冥谷’底，但还是被他逃了出去，此事自然有损少林派声威，是以少林弟子从来绝口不提。“\n\n　　燕南天长叹道：“昔日领袖武林的少林派，如今日渐没落，只怕就正是因为少林弟子一个个委实太爱面子。”\n\n　　藏翼子慨然道：“要保持一派的声名不坠谈何容易？”他这话自然是有感而发——昆仑派又何尝不是日渐凋零？\n\n　　杨平又道：“这几个无一不是极难对付的人，尤其是那‘不男不女’屠娇娇，不但诡计多端，而且易容之术已臻化境，明明是你身边最亲近的人，但说不定突然就变…",
+        "anchors_hit": [
+          "阴九幽",
+          "恶人谷"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 564,
+        "locate_method": "window",
+        "hint_chapter": 5,
+        "alternatives": [
+          {
+            "chapter": 6,
+            "line_start": 71,
+            "line_end": 89,
+            "text": "\n　　阴九幽冷冷笑道：“你来动手也未尝不可，只是要快些。”\n\n　　“血手”杜杀突然道：“且慢，我还有话问他！”\n\n　　屠娇娇笑道：“问呀，又没有人拦着你。”\n\n　　杜杀道：“燕南天，你此番可是为着杜某才到这里来的？’’\n\n　　燕南天道：“你还不配！”\n\n　　杜杀居然也不动气，冷冷道：“杜某不配，谁配？”\n\n　　“江琴。”\n\n　　“江琴？谁听说过这名字？”\n\n　　哈哈儿道：“哈哈，恶人谷中可没有这样的无名小卒。”\n",
+            "score": 560,
+            "anchors_hit": [
+              "阴九幽",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 7,
+            "line_start": 67,
+            "line_end": 71,
+            "text": "\n　　阴九幽目中虽已射出怒火，但口中却说不出话来，他逃来此地，确是已伤重垂危，确是万春流救了他的性命。\n\n　　“恶人谷”的确是少不了万春流的。\n",
+            "score": 560,
+            "anchors_hit": [
+              "阴九幽",
+              "恶人谷"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 9,
+            "line_start": 195,
+            "line_end": 201,
+            "text": "\n　　屠娇娇叹了口气，道：“好了，现在好了，‘恶人谷’都已受不了他，何况别人，现在只怕已是请他出去的时候……”\n\n　　李大嘴赶紧截口道：“是极是极，他害咱们已害够了，正该让他去害害别人了，现在幸好咱们联手还能制他，等到一日，若是咱们加起来也制不住他时，就完蛋了。”\n\n　　阴九幽道：“要送他走越快越好。”\n",
+            "score": 554,
+            "anchors_hit": [
+              "恶人谷",
+              "阴九幽"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 10,
+            "line_start": 65,
+            "line_end": 161,
+            "text": "\n　　他说得得意，就想喝酒，但才端起酒杯，“叮”的，整只酒杯突然粉碎，阴九幽冷冷道：“酒是不能再喝了！”\n\n　　李大嘴怒道：“为什么？你凭什么打碎我的酒杯？”\n\n　　阴九幽道：“再喝，小鱼儿就走不成了。”\n\n　　李大嘴狠狠瞪着他，瞪了半晌，突然飞起一脚，将酒坛踢得飞了出去，咬着牙道：“总有一天，我要灌几坛酒到你肚子里，让你做鬼也得做个醉鬼。”\n\n　　小鱼儿笑嘻嘻地望着他们，笑嘻嘻道：“各位叔叔们这么急着要赶我走，为什么？”\n\n　　屠娇娇道：“小鬼，疑心病，谁急着要赶你走？”\n\n　　小鱼儿笑道：“你们不说，我也知道的。”\n\n　　屠娇娇道：“你知道？好，你说来听听。”\n\n　　小鱼儿道：“因为小鱼儿越变越坏了，已坏得令各位叔叔伯伯都头痛了，都吃不消了，所以赶紧要送瘟神似的把我送走，好去害别人。”\n\n　　屠娇娇咯咯笑道：“无论如何，你最后一句话总是说对了。”\n\n　　小鱼儿道：“你们要我走可以，要我…",
+            "score": 533,
+            "anchors_hit": [
+              "阴九幽",
+              "恶人谷"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_wei_wu_ya",
+    "name": "魏无牙",
+    "alias": [],
+    "identity": "无牙门主",
+    "faction": "faction_wu_ya_men",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "重要",
+    "one_line": "无牙门主，阴谋家，与江家勾结",
+    "biography": "无牙门主，江湖阴谋家，与江别鹤等勾结。",
+    "personality": {
+      "traits": [
+        "阴谋",
+        "阴狠",
+        "野心",
+        "冷静",
+        "毒辣"
+      ],
+      "speech_style": "阴冷算计",
+      "temperament": "阴谋家"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_bie_he",
+        "type": "合作者",
+        "intensity": 70,
+        "bond_level": 3,
+        "dynamic": "阴谋同盟"
+      },
+      {
+        "target": "char_xiao_yu_er",
+        "type": "宿敌",
+        "intensity": 75,
+        "bond_level": 2,
+        "dynamic": "对立"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      76
+    ],
+    "source_refs": [
+      {
+        "chapter": 75,
+        "anchor": "魏无牙无牙门下",
+        "event_type": "first_mention",
+        "line_start": 3,
+        "line_end": 9,
+        "text": "\n　　那无牙门下似也被他气势所慑，倒退三步，厉声道：“是谁敢对无牙门下如此无礼？”\n\n　　“冀人燕南天！”这五个字就像流星，能照亮整个大地。\n\n　　只听燕南天喝道：“你是魏无牙的什么人？他现在哪里？”\n",
+        "anchors_hit": [
+          "无牙门",
+          "魏无牙"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 356,
+        "locate_method": "window",
+        "hint_chapter": 75,
+        "alternatives": [
+          {
+            "chapter": 76,
+            "line_start": 115,
+            "line_end": 117,
+            "text": "\n　　花无缺一步蹿了出去，变色喝道：“来的可是魏无牙门下？”\n",
+            "score": 353,
+            "anchors_hit": [
+              "无牙门",
+              "魏无牙"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 77,
+            "line_start": 53,
+            "line_end": 55,
+            "text": "\n　　花无缺叹道：“无牙门下的弟子，已如此厉害，何况魏无牙自己？江小鱼呀江小鱼，我实在难免要替你担心。”\n",
+            "score": 350,
+            "anchors_hit": [
+              "无牙门",
+              "魏无牙"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 86,
+            "line_start": 101,
+            "line_end": 103,
+            "text": "\n　　苏樱道：“他就是魏无牙门下，武功最高的弟子。江湖中人提起‘无常紊命’魏麻衣来，谁不心惊胆战，否则怎会连你都上他的当。”\n",
+            "score": 323,
+            "anchors_hit": [
+              "无牙门",
+              "魏无牙"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 87,
+            "line_start": 91,
+            "line_end": 97,
+            "text": "\n　　忽然间，又听得一人怒喝道：“无牙门下，岂是临阵脱逃的人，不管他们是人是鬼，你怕什么？”\n\n　　只见这人身形瘦小如童子，一张也说不出有多难看的脸上，却生着一副很好看的胡子，长须飘飘，几乎已飘到地上。\n\n　　他头戴金冠，长袍上碧光闪闪，看来又是可笑又是可怕，树林里那吃人的鬼惊呼一声，道：“魏无牙来了！鬼也害怕，还是溜吧！”\n",
+            "score": 320,
+            "anchors_hit": [
+              "无牙门",
+              "魏无牙"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_mu_rong_jiu",
+    "name": "慕容九",
+    "alias": [
+      "慕容九妹"
+    ],
+    "identity": "慕容家女",
+    "faction": "faction_mu_rong_jia",
+    "role": "重要",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "重要",
+    "one_line": "慕容九妹，神智曾失常，后为关键女角",
+    "biography": "慕容家女，曾神智失常，与小鱼儿等有重要情节纠葛。",
+    "personality": {
+      "traits": [
+        "敏感",
+        "脆弱",
+        "重情",
+        "执拗",
+        "清丽"
+      ],
+      "speech_style": "时而失常时而清澈",
+      "temperament": "清丽悲苦"
+    },
+    "relationships": [
+      {
+        "target": "char_mu_rong_shuang",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "兄妹"
+      },
+      {
+        "target": "char_xiao_yu_er",
+        "type": "合作者",
+        "intensity": 60,
+        "bond_level": 3,
+        "dynamic": "情节纠葛"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18,
+      19
+    ],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "anchor": "慕容九妹慕容九",
+        "event_type": "first_mention",
+        "line_start": 113,
+        "line_end": 119,
+        "text": "\n　　哪知慕容九姑娘突然走了进来，冷笑道：“这本是舅妈的意思，你本不愿来这里受气的，是么？”\n\n　　顾人玉简直恨不得找个地缝钻下去，吃吃道：“我……我不是这意思。”\n\n　　慕容九妹冷冷道：“顾少爷，这里可没有人请你来，也没有人留着你，舅母虽当你是宝贝，别人可不稀罕你。”\n",
+        "anchors_hit": [
+          "慕容九",
+          "慕容九妹"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 527,
+        "locate_method": "window",
+        "hint_chapter": 18,
+        "alternatives": [
+          {
+            "chapter": 19,
+            "line_start": 1,
+            "line_end": 3,
+            "text": "\n　　小鱼儿随着慕容九妹向一间间房子走过去，走完第八间，慕容九妹神情又大见温和，甚至连眼波都温柔起来，她觉得这“小鬼”实在并不如自己以前想像中那么可憎可厌，谈谈说说，不知不觉已到了第九间。\n",
+            "score": 524,
+            "anchors_hit": [
+              "慕容九妹",
+              "慕容九"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 20,
+            "line_start": 3,
+            "line_end": 5,
+            "text": "\n　　他终究不是神仙，肚子终于饿了，饿得连用功都不能，一饿更冷，他自知死期已不远了。他再也想不到自己这么聪明的人竟也会被人困死，尤其想不到的是，自己竟会死在女人的手上。这才知道女人并不是自己所想像得那么简单，那么无用，他忽而自责自骂，忽而自悔自怨，不住喃喃道：“看来好人真是千万做不得的，我若早将小仙女和慕容九妹杀了，又怎会有今日之事……”\n",
+            "score": 521,
+            "anchors_hit": [
+              "慕容九妹",
+              "慕容九"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 21,
+            "line_start": 213,
+            "line_end": 215,
+            "text": "\n　　小鱼儿苦笑道：“我现在模样想必好看得很，耳朵上挂着两条蛇，脖子上绕着两条蛇，手腕上盘着两条蛇，还有条蛇塞在鼻孔里，耳环、项链、手镯，都全了，他日若有机会，我倒要将这副首饰送给慕容九妹。”\n",
+            "score": 518,
+            "anchors_hit": [
+              "慕容九妹",
+              "慕容九"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 23,
+            "line_start": 399,
+            "line_end": 401,
+            "text": "\n　　小鱼儿道：“还有慕容九妹！”\n",
+            "score": 512,
+            "anchors_hit": [
+              "慕容九妹",
+              "慕容九"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 19,
+        "anchor": "慕容九爱恨情仇",
+        "line_start": 1,
+        "line_end": 4,
+        "text": "\n　　小鱼儿随着慕容九妹向一间间房子走过去，走完第八间，慕容九妹神情又大见温和，甚至连眼波都温柔起来，她觉得这“小鬼”实在并不如自己以前想像中那么可憎可厌，谈谈说说，不知不觉已到了第九间。\n\n　　这问房子什么都是浅碧色的，最精致，最华丽，房子每件东西，都是人间罕睹的珍贵之物。",
+        "anchors_hit": [
+          "慕容九"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 19,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_mu_rong_shuang",
+    "name": "慕容双",
+    "alias": [],
+    "identity": "慕容九之兄",
+    "faction": "faction_mu_rong_jia",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "次要",
+    "one_line": "慕容九之兄，慕容家传人",
+    "biography": "慕容九之兄，慕容家传人，参与家事与江湖纠葛。",
+    "personality": {
+      "traits": [
+        "沉重",
+        "护妹",
+        "传统",
+        "矛盾",
+        "刚毅"
+      ],
+      "speech_style": "沉重感慨",
+      "temperament": "世家子弟"
+    },
+    "relationships": [
+      {
+        "target": "char_mu_rong_jiu",
+        "type": "亲属",
+        "intensity": 85,
+        "bond_level": 4,
+        "dynamic": "兄妹"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      18,
+      125
+    ],
+    "source_refs": [
+      {
+        "chapter": 55,
+        "anchor": "慕容双慕容九",
+        "event_type": "first_mention",
+        "line_start": 377,
+        "line_end": 389,
+        "text": "\n　　慕容双冷笑道：“堂堂的江南大侠，竟也做出这样的事来，倒真是令人想不到的。”\n\n　　黑衣人还未答话，只听又是“哗啦啦”一阵响，一个香炉盖从梁上滚了下来，又带下条白布。\n\n　　白布上还是写着海碗那么大的字：“江别鹤，你藏的人已被寻着了，你还有什么话说。”\n\n　　这些布条，自然是小鱼儿方才早已准备好的，他将布条一端钉在梁上，用香炉包着布条的另一端，又在香炉下系着条又长又细的线，从屋梁上绕到他藏身之地，只要线一拉，香炉滚下来，布条自然也就随着落了下来。　\n\n　　方才他听得慕容珊珊越说越不对了，再说下去，他这妙计便要被揭穿，所以赶紧将线一拉。\n\n　　他算定秦剑等人此刻必定已在江别鹤屋里寻着了慕容九妹，等到他们将慕容九妹带来，江别鹤纵有一百张嘴，也休想辩说得清了，这计划原是万无一失，他做梦也想不到其中竟会出了差错。\n",
+        "anchors_hit": [
+          "慕容双",
+          "慕容九"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 414,
+        "locate_method": "window",
+        "hint_chapter": 55,
+        "alternatives": [
+          {
+            "chapter": 56,
+            "line_start": 107,
+            "line_end": 113,
+            "text": "\n　　小鱼儿这一惊才是非同小可，几乎要从藏身之处跳了出来。慕容九妹怎会不在那里，莫非是他们找错了地方？\n\n　　秦剑道：“我等方才也见过了那花无缺公子和铁心兰姑娘，都说九妹早已失踪，绝不会和江大侠有关。”\n\n　　慕容双怔在那里，剑已不觉垂下。\n",
+            "score": 413,
+            "anchors_hit": [
+              "慕容九",
+              "慕容双"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 57,
+            "line_start": 103,
+            "line_end": 115,
+            "text": "\n　　他危急之中，不及细想，只有飞起一脚，去踢慕容珊珊握剑的手腕。慕容珊珊剑虽退去，但慕容双“唰”的一剑刺来，正恰巧刺在他“碧泉”穴上，小鱼儿穿着皮靴，这一剑伤的虽不重，但他却已不觉冷汗涔涔而落。\n\n　　南宫柳悠然道：“神堂、心俞……委中、阴谷……缺宣！”\n\n　　这一次小鱼儿更加注意，全神贯注，防护着“缺宣”穴，谁知后背一凉，“会阳”穴旁已中了一剑。\n\n　　而南宫柳正恰巧在此时道：“会阳！”\n\n　　小鱼儿不禁暗叹一声：“罢了……”\n\n　　哪知就在这时，远处突然传来慕容九妹的惨呼声：“救命呀……江别鹤……你这恶贼……三姐……二姐……救命……”\n",
+            "score": 408,
+            "anchors_hit": [
+              "慕容双",
+              "慕容九"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 59,
+            "line_start": 141,
+            "line_end": 145,
+            "text": "\n　　这三人正是慕容双、慕容珊珊和“小仙女”张菁。三个人今天都是宫鬓华服，刻意修饰过，就像是高贵人家出来作客的大小姐少奶奶似的，哪里像是要来与人争杀搏斗的女中豪杰，江湖高手？\n\n　　在山坡上等着瞧热闹的江湖朋友，大多久闻慕容九妹姐妹的声名，但见过她们真面目的，却少之又少，此刻但觉眼睛一亮，十个人中，倒有九个瞧得呆住了。就连小鱼儿都几乎瞧不出那文文静静地走在最后面的大姑娘，便是昔日跃马草原，瞪眼杀人的小仙女！\n",
+            "score": 404,
+            "anchors_hit": [
+              "慕容双",
+              "慕容九"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 58,
+            "line_start": 3,
+            "line_end": 73,
+            "text": "\n　　屠娇娇笑道：“我一瞧是你，就知道你必定又在弄鬼，所以时时刻刻都要留意着你，今天早上，你和那黑蜘蛛来叫慕容九妹写信，我就听到了。”\n\n　　她娇笑着接道：“若不是我在外面为你们把风，只怕今天早上你们就被那欧阳兄弟撞破了。”\n\n　　小鱼儿心里吃了一惊，面上却笑道：“就算被他们撞破，也没什么关系。”\n\n　　屠娇娇笑道：“你倒真是死不领情。”\n\n　　小鱼儿道：“你就是听到了那封信，所以才知道我们晚上会到那祠堂里去……”\n\n　　屠娇娇道：“除此之外，我还遇见了一个人。”\n\n　　小鱼儿失声道：“白开心？”\n\n　　屠娇娇笑道：“你在手上搓泥丸子时，我已瞧见了。”\n\n　　小鱼儿喃喃道：“奇怪，你就在附近，我怎会听不见？”\n\n　　屠娇娇笑道：“以你现在的能耐，本来是应该听得见的，只不过那时白开心正面对着我，我早已和他悄悄打了个手势，叫他故意大叫大喊，分散你的注意力，何况你那时心里正在得意，又怎会留意别的…",
+            "score": 394,
+            "anchors_hit": [
+              "慕容九",
+              "慕容双"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_tie_zhan",
+    "name": "铁战",
+    "alias": [
+      "狂狮"
+    ],
+    "identity": "狂狮铁战",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "次要",
+    "one_line": "狂狮铁战，勇猛武者",
+    "biography": "号狂狮，勇猛好斗，后期重要对手型角色。",
+    "personality": {
+      "traits": [
+        "勇猛",
+        "好斗",
+        "直率",
+        "暴躁",
+        "重面子"
+      ],
+      "speech_style": "暴烈",
+      "temperament": "狂狮"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "对手",
+        "intensity": 60,
+        "bond_level": 2,
+        "dynamic": "对决"
+      }
+    ],
+    "known_skills": [
+      "skill_shen_zhang"
+    ],
+    "related_skills": [],
+    "rag_refs": [
+      117
+    ],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "anchor": "狂狮铁战",
+        "event_type": "first_mention",
+        "line_start": 143,
+        "line_end": 145,
+        "text": "\n　　司马烟笑道：“但以小弟看来，那五位也未必能比这五位恶多少，尤其是那位‘狂狮’铁战，严格说来，根本就不能名列‘十大恶人’之一。\n",
+        "anchors_hit": [
+          "铁战",
+          "狂狮"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 560,
+        "locate_method": "window",
+        "hint_chapter": 7,
+        "alternatives": [
+          {
+            "chapter": 14,
+            "line_start": 283,
+            "line_end": 285,
+            "text": "\n　　小鱼儿道：“莫非是十大恶人中的‘狂狮’铁战？”\n",
+            "score": 539,
+            "anchors_hit": [
+              "铁战",
+              "狂狮"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 21,
+            "line_start": 7,
+            "line_end": 9,
+            "text": "\n　　黄牛道：“你和‘狂狮’铁战的女儿走在一起，自然和‘十大恶人’有关系，我随意说了‘十大恶人’中一个名字，你果然打蛇随棍上，自己往坑里跳。”\n",
+            "score": 518,
+            "anchors_hit": [
+              "铁战",
+              "狂狮"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 26,
+            "line_start": 309,
+            "line_end": 311,
+            "text": "\n　　沈轻虹道：　“昔年‘十大恶人’中，武功最高的‘血手’杜杀与‘狂狮’铁战，只怕也有这么样的手段。”\n",
+            "score": 503,
+            "anchors_hit": [
+              "铁战",
+              "狂狮"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 40,
+            "line_start": 61,
+            "line_end": 63,
+            "text": "\n　　铁心兰大声道：“我姓铁，我爹爹便是‘狂狮’铁战！”\n",
+            "score": 461,
+            "anchors_hit": [
+              "铁战",
+              "狂狮"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_wan_chun_liu",
+    "name": "万春流",
+    "alias": [],
+    "identity": "医者",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "医道高手，关键情节中的医者",
+    "biography": "医道中人，出现于关键疗伤与终局相关情节。",
+    "personality": {
+      "traits": [
+        "冷静",
+        "仁心",
+        "无奈",
+        "专业",
+        "超然"
+      ],
+      "speech_style": "医者口吻",
+      "temperament": "医者"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      127
+    ],
+    "source_refs": [
+      {
+        "chapter": 127,
+        "anchor": "万春流夺剑",
+        "line_start": 1,
+        "line_end": 4,
+        "text": "\n　　夺剑的人竟是万春流。他叹息了一声，缓缓道：“一个人若是要死，那是谁也拦不住的。”\n\n　　邀月宫主厉声道：“你既然知道，为什么还要来多事？”",
+        "anchors_hit": [
+          "万春流"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 127,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_hai_hong_zhu",
+    "name": "海红珠",
+    "alias": [],
+    "identity": "配角女性",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "初窥门径",
+    "importance": "次要",
+    "one_line": "江枫相关情节中的女性角色",
+    "biography": "出现于江枫相关或中段情节的女性角色。",
+    "personality": {
+      "traits": [
+        "柔弱",
+        "多情",
+        "敏感",
+        "被动",
+        "清丽"
+      ],
+      "speech_style": "柔弱",
+      "temperament": "柔弱"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      20
+    ],
+    "source_refs": [
+      {
+        "chapter": 41,
+        "anchor": "海红珠",
+        "line_start": 189,
+        "line_end": 192,
+        "text": "\n　　他现在已知道这班子里的人差不多都是海四爹的子侄儿女，野犊子是他的六儿子，也是功夫最好的一个。那穿红衣裳的小姑娘，却是这班子的台柱，她叫海红珠，是海四爹在五十大寿那天生的小女儿。\n\n　　除此之外，他知道的就不多了。",
+        "anchors_hit": [
+          "海红珠"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 41,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_bi_she_shen_jun",
+    "name": "碧蛇神君",
+    "alias": [],
+    "identity": "十二星相",
+    "faction": "faction_shi_er_xing_xiang",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "炉火纯青",
+    "importance": "次要",
+    "one_line": "十二星相中人，开篇追杀江枫",
+    "biography": "十二星相之一，开篇追杀江枫花月奴。",
+    "personality": {
+      "traits": [
+        "狠厉",
+        "神秘",
+        "冷酷",
+        "执行",
+        "危险"
+      ],
+      "speech_style": "冷厉",
+      "temperament": "杀手"
+    },
+    "relationships": [
+      {
+        "target": "char_jiang_feng",
+        "type": "宿敌",
+        "intensity": 90,
+        "bond_level": 1,
+        "dynamic": "追杀"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      1,
+      17
+    ],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "anchor": "十二星相碧蛇神君江枫",
+        "event_type": "first_mention",
+        "line_start": 35,
+        "line_end": 39,
+        "text": "\n　　江枫失声道：“你早已知道了？”\n\n　　“我方才听见那声鸡啼，便已猜出必定是‘十二星相’中人找上咱们了，你怕我担心，所以才瞒着我，是么？”\n",
+        "anchors_hit": [
+          "江枫",
+          "十二星相"
+        ],
+        "anchors_total": 3,
+        "locate_status": "located",
+        "locate_score": 578,
+        "locate_method": "window",
+        "hint_chapter": 1,
+        "alternatives": [
+          {
+            "chapter": 4,
+            "line_start": 249,
+            "line_end": 255,
+            "text": "\n　　燕南天道：“为何不该杀你？我二弟江枫……”\n\n　　金猿星再次大声截道：“这就对了，你若为别的事杀我，那我无话可说，但你若为江枫杀我，你便是不明是非，不辨恩仇。”\n\n　　燕南天怒道：“你‘十二星相’难道未曾对我二弟江枫出手？”\n",
+            "score": 569,
+            "anchors_hit": [
+              "江枫",
+              "十二星相"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 22,
+            "line_start": 207,
+            "line_end": 209,
+            "text": "\n　　小鱼儿道：“十二星相中的碧蛇神君你不认得？”\n",
+            "score": 515,
+            "anchors_hit": [
+              "十二星相",
+              "碧蛇神君"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 17,
+            "line_start": 145,
+            "line_end": 247,
+            "text": "\n　　铁心兰失声惊呼，道：“蛇……十二星相！”\n\n　　小鱼儿已飞身冲进了厨房，铁心兰接着冲进去，只见方才那老汉仰天倒在地上，一张脸已变成黑的。\n\n　　还有个老婆子倒在案旁，脸也是又黑又青，但头发却也是黑的，看得出不是方才送饭进去的那老太婆。\n\n　　那白发苍苍的老婆子已不见了。\n\n　　铁心兰颤声道：“好狠……好毒……唉，好险。”\n\n　　小鱼儿咬着牙，恨声道：“这些人看来竟比我还坏十倍，竟连这老人家都不肯放过。”\n\n　　铁心兰道：“我……我早就知道咱们跑不了的。”\n\n　　小鱼儿取出块金子，抛在地上，又用块焦柴，在墙上写了十个大字：“厚殓两人，否则必追你命！”突听门外马嘶，小鱼儿立刻冲出去，一条小蛇已沿着马腿在往上爬，小鱼儿撕下条衣襟，将蛇掸在地上，踩得稀烂，摸着马鬃道：“小白菜，莫要怕，这些恶人害不死你的，也休想害得死我。”拉着铁心兰上马，打马飞奔而去。\n\n　　那白马似也知道凶险，跑得更是卖力…",
+            "score": 510,
+            "anchors_hit": [
+              "十二星相",
+              "碧蛇神君"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 21,
+            "line_start": 81,
+            "line_end": 145,
+            "text": "\n　　过了半晌，小鱼儿果然已能站起，拍了拍衣服上的土，笑道：“‘十二星相’的解药果然都灵得很。”\n\n　　黄牛干笑道：“你老人家的解药想必更灵。”\n\n　　小鱼儿道：“什么解药？”\n\n　　白羊、黄牛好像被人在肚子踢了一脚，失声道：“你……你……”\n\n　　小鱼儿大笑道：“莫要着急，我是骗着你们玩的。”\n\n　　他笑嘻嘻自怀中摸出个小瓶子，道：“解药其实在我身上，你们方才为什么不来搜搜……唉，人有时的确不该太相信别人的话。”\n\n　　白羊、黄牛又气又恨，恨不得一手把这小鬼捏死，但还是救命要紧，黄牛抢过解药，一下子就倒进嘴一大半。\n\n　　白羊变色道：“你……你为何吃这么多？”\n\n　　黄牛笑嘻嘻道：“我块头大些，理当多吃些。”\n\n　　白羊恨恨夺过瓶子，将瓶里的药全吃了下去，然后两人瞧着小鱼儿，心里却在想：小杂种，瞧你再往哪里跑！\n\n　　小鱼儿也瞧着他们，道：“再摸摸那里还疼不疼？”\n\n　　两人一摸，果然不…",
+            "score": 506,
+            "anchors_hit": [
+              "十二星相",
+              "碧蛇神君"
+            ],
+            "method": "window"
+          }
+        ]
+      },
+      {
+        "chapter": 17,
+        "anchor": "碧蛇神君",
+        "line_start": 245,
+        "line_end": 248,
+        "text": "\n　　那碧蛇神君阴森森笑道：“你若趁早双手奉上，本座只怕还会救你的命。”\n\n　　小鱼儿大笑道：“是，是，我很相信……”",
+        "anchors_hit": [
+          "碧蛇神君"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 17,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_mi_shi_ba",
+    "name": "祢十八",
+    "alias": [],
+    "identity": "配角",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "次要",
+    "one_line": "后期酒友型配角",
+    "biography": "后期与众人饮酒笑谈的配角。",
+    "personality": {
+      "traits": [
+        "豪爽",
+        "贪杯",
+        "随和",
+        "乐天",
+        "义气"
+      ],
+      "speech_style": "豪爽",
+      "temperament": "酒友"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      126
+    ],
+    "source_refs": [
+      {
+        "chapter": 127,
+        "anchor": "祢十八猴儿酒",
+        "line_start": 195,
+        "line_end": 205,
+        "text": "\n　　祢十八赶上去一看，这些瓶瓶罐罐里竟装满了美酒。他忍不住大笑道：“人没将酒买回来，猴子却将酒送来了，看来猴子比我们这些人还强得多。”\n\n　　轩辕三光叹了口气，苦笑着喃喃道：“猴子有时的确比人还聪明些，至少它们不会去赌钱……”\n\n　　这时小鱼儿正在远处的一个山洞里哧哧地笑着，道：“我打赌，他们就算想一万年，也绝对想不出酒是从哪里来的，是什么酒？”\n\n　　苏樱像只猫似的蜷伏在小鱼儿怀里，媚眼如丝，似乎根本懒得说话。只是懒洋洋地问着道：“那究竟是什么酒？”\n\n　　小鱼儿道：“那就叫猴儿酒，就是猴子自己酿出来的。”\n",
+        "anchors_hit": [
+          "祢十八",
+          "猴儿酒"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 199,
+        "locate_method": "window",
+        "hint_chapter": 127,
+        "alternatives": [],
+        "event_type": "background"
+      }
+    ]
+  },
+  {
+    "id": "char_gui_tong",
+    "name": "鬼童",
+    "alias": [],
+    "identity": "对手",
+    "faction": null,
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "登堂入室",
+    "importance": "次要",
+    "one_line": "鬼童，阴邪少年型对手",
+    "biography": "阴邪少年型对手，复出制造冲突。",
+    "personality": {
+      "traits": [
+        "阴邪",
+        "狡黠",
+        "残忍",
+        "稚嫩可怕",
+        "难测"
+      ],
+      "speech_style": "阴声",
+      "temperament": "鬼气"
+    },
+    "relationships": [
+      {
+        "target": "char_xiao_yu_er",
+        "type": "对手",
+        "intensity": 65,
+        "bond_level": 2,
+        "dynamic": "对决"
+      }
+    ],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      116
+    ],
+    "source_refs": [
+      {
+        "chapter": 116,
+        "anchor": "鬼童复出",
+        "line_start": 231,
+        "line_end": 234,
+        "text": "\n　　那人哈哈笑道：“姑娘用不着避讳，只管将‘鬼童子’这名号叫出来就是，我早已听得很习惯了，非但不会生气，而且还觉得这名字蛮不错的哩！”\n\n　　“鬼童子”这三字说出来，陈凤超、南宫柳等人也不觉都为之耸然失色，他们小时候也曾听人说起过，此人不但轻功绝高，而且据说还是东瀛扶桑岛伊贺谷，秘宗“忍术”的惟一传人。",
+        "anchors_hit": [
+          "鬼童"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 116,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_xiao_xian_nv",
+    "name": "小仙女",
+    "alias": [],
+    "identity": "移花宫相关",
+    "faction": "faction_yi_hua_gong",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "移花宫相关少女，常与九姑娘并提",
+    "biography": "移花宫相关少女角色，出现于宫中生活情节。",
+    "personality": {
+      "traits": [
+        "娇憨",
+        "活泼",
+        "顺从",
+        "好奇",
+        "单纯"
+      ],
+      "speech_style": "娇声",
+      "temperament": "娇憨"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 23,
+        "anchor": "小仙女移花宫",
+        "event_type": "first_mention",
+        "line_start": 309,
+        "line_end": 399,
+        "text": "\n　　铁心兰笑道：“绣玉谷，移花宫可说是当今天下武林的圣地，他身为移花宫惟一的传人，就算神气，也怪不得他。”\n\n　　小鱼儿道：“哼……哼哼……哼哼哼。”\n\n　　铁心兰嫣然一笑，轻轻摸了摸他的手，瞧见他腕上的毒蛇，又赶紧缩了回来，眨着眼睛笑道：“你有没有发觉，他的眉毛眼睛，可真是像你，简直和你一模一样，不知道的人，还要以为你们是兄弟哩！”\n\n　　小鱼儿道：“我若生得像他那副娘娘腔的模样，我宁可死了算了。”\n\n　　铁心兰含笑瞟了他一眼，不再说话。\n\n　　小鱼儿歪起了头，冷笑着又道：“奇怪的是，这种装模作样，娘娘腔的男人，偏偏有人喜欢他。”\n\n　　铁心兰道：“哦，谁喜欢他？”\n\n　　小鱼儿道：“你。”\n\n　　铁心兰呆了呆，失笑道：“我喜欢他？你疯了！”\n\n　　小鱼儿道：“你若不喜欢他，怎会瞧他瞧得眼睛都直了……你若不喜欢他，又怎会处处都帮着他说话。”\n\n　　铁心兰脸都气红了，咬牙道：“好，就算我…",
+        "anchors_hit": [
+          "移花宫",
+          "小仙女"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 495,
+        "locate_method": "window",
+        "hint_chapter": 23,
+        "alternatives": [
+          {
+            "chapter": 53,
+            "line_start": 3,
+            "line_end": 7,
+            "text": "\n　　只见他左手一分，右手竟沿着小仙女的剑脊轻轻一抹，小仙女只觉眼前一花，掌中剑被一股大力吸引，本是刺向小鱼儿的一剑，此刻竟向顾人玉刺了过去。顾人玉大骇变招，嗤的，衣袂已被划破。\n\n　　这一招普普通通的“移花接木”，到了小鱼儿手中，竟已化腐朽为神奇，看来竟已和“移花宫”威震天下的“移花接玉”有异曲同工之妙，这只因武功进人某一阶段后，便有些地方大同小异。\n",
+            "score": 422,
+            "anchors_hit": [
+              "小仙女",
+              "移花宫"
+            ],
+            "method": "window"
+          },
+          {
+            "chapter": 59,
+            "line_start": 87,
+            "line_end": 143,
+            "text": "\n　　只听人声纷纷议论着道：　“那看来斯斯文文的弱书生，难道就是‘移花宫’的传人么？我真瞧不出他能有多么高的武功。”\n\n　　“据说当今江湖上，武功没有人能比得上他，甚至连江大侠都对他佩服得很，这话不知是真是假？”\n\n　　有人叹道：“他年纪轻轻，武功既是天下第一高手，人又生得那么漂亮，普天之下，只怕谁也比不上他了！”\n\n　　议论纷纷间，尽是一片赞美羡慕之声，小鱼儿却听得一肚子闷气。\n\n　　屠娇娇瞧着他微微笑道：“你听了这话，心里可是有些不舒服？”\n\n　　小鱼儿瞪眼道：“谁说我不舒服？我舒服极了！”\n\n　　屠娇娇大笑道：“他虽是天之骄子，但咱们的小鱼儿却也不比他差，未来的江湖中，只怕就是你两人的天下了。”\n\n　　小鱼儿突然推开了门，道：“我可要去瞧热闹了，你呢？”\n\n　　屠娇娇道：“你去吧，我就在这里等着，不过……你却要为我做件事。”\n\n　　小鱼儿道：“什么事？”\n\n　　屠娇娇道：“设法去把那…",
+            "score": 394,
+            "anchors_hit": [
+              "移花宫",
+              "小仙女"
+            ],
+            "method": "window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "char_jiu_gu_niang",
+    "name": "九姑娘",
+    "alias": [],
+    "identity": "移花宫管事",
+    "faction": "faction_yi_hua_gong",
+    "role": "次要",
+    "archetype": "warrior",
+    "power_rank": "略有小成",
+    "importance": "次要",
+    "one_line": "移花宫相关，管事型角色",
+    "biography": "移花宫中管事型女性角色。",
+    "personality": {
+      "traits": [
+        "严厉",
+        "尽职",
+        "刻板",
+        "谨慎",
+        "势利"
+      ],
+      "speech_style": "管事口吻",
+      "temperament": "管事"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      13
+    ],
+    "source_refs": [
+      {
+        "chapter": 53,
+        "anchor": "九姑娘移花宫",
+        "event_type": "first_mention",
+        "line_start": 153,
+        "line_end": 227,
+        "text": "\n　　小鱼儿缓缓道：“我现在告诉你，她就是慕容家的九姑娘！”\n\n　　黑蜘蛛眼睛立刻圆了，失声道：“她就是慕容九妹？”\n\n　　小鱼儿道：“不错，如今南宫柳、秦剑、小仙女都在急着找她，他们若发现有人将她藏了起来，少不得要找那人干一场。”\n\n　　黑蜘蛛的眼睛也发了亮，道：“所以，你就想将这件事栽在江别鹤身上。”\n\n　　小鱼儿拊掌大笑道：“我正是也想叫他尝尝被人栽赃的滋味。”\n\n　　黑蜘蛛道：“但那江别鹤老谋深算，又怎会上你的当？”\n\n　　小鱼儿笑道：“那江别鹤虽然狡如狐狸，只要你帮忙，我也有法子要他上当。”\n\n　　他一跃而起，拉起黑蜘蛛，道：“时候已不多，咱们快去办事吧。”\n\n　　两人飞掠入城。\n\n　　一路上，黑蜘蛛不住喃喃自语道：“我到现在为止还不懂，那‘胡说’宰食了慕容家的人又害了我，却对他自己有何好处？”\n\n　　这时他自己猜出，那“宛儿”必定与慕容家有关，八成就是慕容姑娘陪嫁的贴身侍女。\n…",
+        "anchors_hit": [
+          "九姑娘",
+          "移花宫"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 408,
+        "locate_method": "window",
+        "hint_chapter": 53,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_luo_jiu",
+    "name": "罗九",
+    "alias": [],
+    "identity": "龙套",
+    "faction": null,
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "龙套",
+    "one_line": "中段情节中的市井江湖人物",
+    "biography": "中段市井/江湖场景人物。",
+    "personality": {
+      "traits": [
+        "圆滑",
+        "市井",
+        "势利",
+        "健谈",
+        "胆小"
+      ],
+      "speech_style": "市井",
+      "temperament": "市井"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      50
+    ],
+    "source_refs": [
+      {
+        "chapter": 50,
+        "anchor": "罗九阁楼",
+        "line_start": 5,
+        "line_end": 8,
+        "text": "\n　　罗九笑道：“兄台看这屋子如何？”\n\n　　小鱼儿道：“这究竟是谁的屋子，你就随意闯了进来。”",
+        "anchors_hit": [
+          "罗九"
+        ],
+        "anchors_total": 1,
+        "locate_status": "partial",
+        "locate_score": 100,
+        "locate_method": "partial",
+        "hint_chapter": 50,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_san",
+    "name": "张三",
+    "alias": [],
+    "identity": "龙套",
+    "faction": "faction_e_ren_gu",
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "龙套",
+    "one_line": "恶人谷相关龙套",
+    "biography": "恶人谷相关龙套人物。",
+    "personality": {
+      "traits": [
+        "服从",
+        "粗陋",
+        "胆小",
+        "势利",
+        "少言"
+      ],
+      "speech_style": "粗简",
+      "temperament": "龙套"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "anchor": "张三恶人谷",
+        "event_type": "first_mention",
+        "line_start": 219,
+        "line_end": 251,
+        "text": "\n　　铁心兰咬着嘴唇，道：“只可惜你迟生了几年，她现在已经老了，但江湖中老一辈的人听到‘玉娘子’张三娘的名字，心还会直跳。”\n\n　　小鱼儿笑道：“你为什么不说只可惜她早生了几年，见不着我……\n\n　　那么，小仙女的父亲又是个何许人物？”\n\n　　铁心兰道：“这……这我却不清楚。”\n\n　　小鱼儿大笑道：“不错，有名美人的子女，的确有许多是找不到父亲的，只因为可能是她父亲的人太多了。”\n\n　　铁心兰噗哧一笑，道：“你少缺德，那‘玉娘子’虽然美得如玉．但也冷得如冰，江湖中追求她的男人虽不知有多少，但她瞧得上的却只有一个。”\n\n　　小鱼儿眨了眨眼睛，道：“谁有如此艳福？”\n\n　　铁心兰道：“就是那藏珍的主人，名叫燕南天！”\n\n　　小鱼儿身子微微一震，失声道：“燕南天！”\n\n　　铁心兰道：“你也听过这名字？”\n\n　　小鱼儿道：“我……我好像听见过，却已记不清了。”\n\n　　铁心兰道：“你若听到过这名字，就…",
+        "anchors_hit": [
+          "张三",
+          "恶人谷"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located",
+        "locate_score": 527,
+        "locate_method": "window",
+        "hint_chapter": 16,
+        "alternatives": []
+      }
+    ]
+  },
+  {
+    "id": "char_li_si",
+    "name": "李四",
+    "alias": [],
+    "identity": "龙套",
+    "faction": "faction_e_ren_gu",
+    "role": "龙套",
+    "archetype": "warrior",
+    "power_rank": "平平无奇",
+    "importance": "龙套",
+    "one_line": "恶人谷相关龙套",
+    "biography": "恶人谷相关龙套人物。",
+    "personality": {
+      "traits": [
+        "服从",
+        "粗陋",
+        "胆小",
+        "势利",
+        "少言"
+      ],
+      "speech_style": "粗简",
+      "temperament": "龙套"
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "rag_refs": [
+      6
+    ],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "anchor": "李四恶人谷",
+        "event_type": "first_mention",
+        "line_start": 226,
+        "line_end": 230,
+        "text": "　　沈轻虹全身汗毛都一根根竖了起来，那金猿星虽是杀人如草芥的党徒，此刻却也被这股杀气惊得呆了。\n\n　　燕南天喝道：“你还要某家动手不成？！”\n\n　　金猿星道：“你……你为什么……”",
+        "anchors_hit": [
+          "恶人谷"
+        ],
+        "anchors_total": 2,
+        "locate_status": "located_chapter_level",
+        "locate_score": 419,
+        "locate_method": "chapter_score",
+        "hint_chapter": 4,
+        "alternatives": [
+          {
+            "chapter": 5,
+            "line_start": 144,
+            "line_end": 148,
+            "text": "　　鬼火般的火照耀下，山石上竟刻着两行字！\n\n　　“入谷如登天，\n\n　　来人走这边。”",
+            "score": 416,
+            "anchors_hit": [
+              "恶人谷"
+            ],
+            "method": "chapter_score"
+          }
+        ]
+      }
+    ]
+  }
+]
