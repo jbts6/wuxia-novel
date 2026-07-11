@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T09:36:17.430Z",
+  "generated_at": "2026-07-11T10:25:44.542Z",
   "summary": {
-    "total": 72,
-    "errors": 28,
-    "warnings": 34,
+    "total": 69,
+    "errors": 30,
+    "warnings": 29,
     "info": 10
   },
   "issues": [
@@ -377,16 +377,56 @@
     },
     {
       "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[69]",
-      "field": "speaker",
-      "ref": "char_he_tie_shou",
-      "message": "Dialogue speaker \"char_he_tie_shou\" not found in characters.json"
+      "severity": "error",
+      "source": "item_jin_she_mi_ji",
+      "field": "related_skills",
+      "ref": "skill_jin_she_zhui",
+      "message": "金蛇秘笈.related_skills references non-existent skill_jin_she_zhui"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_jin_she_zhui",
+      "field": "related_skills",
+      "ref": "skill_jin_she_zhui",
+      "message": "金蛇锥.related_skills references non-existent skill_jin_she_zhui"
     },
     {
       "type": "dangling_reference",
       "severity": "warning",
-      "source": "dialogue[70]",
+      "source": "dialogue[45]",
+      "field": "speaker",
+      "ref": "char_huang_tai_ji",
+      "message": "Dialogue speaker \"char_huang_tai_ji\" not found in characters.json"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "warning",
+      "source": "dialogue[46]",
+      "field": "listener",
+      "ref": "char_huang_tai_ji",
+      "message": "Dialogue listener \"char_huang_tai_ji\" not found in characters.json"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "warning",
+      "source": "dialogue[47]",
+      "field": "speaker",
+      "ref": "char_zu_da_shou",
+      "message": "Dialogue speaker \"char_zu_da_shou\" not found in characters.json"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "warning",
+      "source": "dialogue[48]",
+      "field": "speaker",
+      "ref": "char_zu_da_shou",
+      "message": "Dialogue speaker \"char_zu_da_shou\" not found in characters.json"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "warning",
+      "source": "dialogue[49]",
       "field": "listener",
       "ref": "char_he_tie_shou",
       "message": "Dialogue listener \"char_he_tie_shou\" not found in characters.json"
@@ -394,7 +434,7 @@
     {
       "type": "dangling_reference",
       "severity": "warning",
-      "source": "dialogue[72]",
+      "source": "dialogue[51]",
       "field": "speaker",
       "ref": "char_he_tie_shou",
       "message": "Dialogue speaker \"char_he_tie_shou\" not found in characters.json"
@@ -402,7 +442,7 @@
     {
       "type": "dangling_reference",
       "severity": "warning",
-      "source": "dialogue[73]",
+      "source": "dialogue[52]",
       "field": "speaker",
       "ref": "char_he_tie_shou",
       "message": "Dialogue speaker \"char_he_tie_shou\" not found in characters.json"
@@ -418,90 +458,24 @@
     {
       "type": "dangling_reference",
       "severity": "warning",
-      "source": "dialogue[76]",
-      "field": "speaker",
-      "ref": "char_shui_yun",
-      "message": "Dialogue speaker \"char_shui_yun\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[80]",
-      "field": "speaker",
-      "ref": "char_huang_tai_ji",
-      "message": "Dialogue speaker \"char_huang_tai_ji\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[83]",
-      "field": "speaker",
-      "ref": "char_huang_tai_ji",
-      "message": "Dialogue speaker \"char_huang_tai_ji\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[84]",
-      "field": "listener",
-      "ref": "char_huang_tai_ji",
-      "message": "Dialogue listener \"char_huang_tai_ji\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[85]",
-      "field": "speaker",
-      "ref": "char_zu_da_shou",
-      "message": "Dialogue speaker \"char_zu_da_shou\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[86]",
-      "field": "speaker",
-      "ref": "char_zu_da_shou",
-      "message": "Dialogue speaker \"char_zu_da_shou\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[87]",
-      "field": "speaker",
-      "ref": "char_zu_da_shou",
-      "message": "Dialogue speaker \"char_zu_da_shou\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[88]",
-      "field": "speaker",
-      "ref": "char_zu_da_shou",
-      "message": "Dialogue speaker \"char_zu_da_shou\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[106]",
-      "field": "speaker",
-      "ref": "char_liu_zong_min",
-      "message": "Dialogue speaker \"char_liu_zong_min\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[121]",
+      "source": "dialogue[75]",
       "field": "speaker",
       "ref": "char_he_tie_shou",
       "message": "Dialogue speaker \"char_he_tie_shou\" not found in characters.json"
     },
     {
-      "type": "dangling_reference",
+      "type": "possible_hallucination",
       "severity": "warning",
-      "source": "dialogue[122]",
-      "field": "speaker",
-      "ref": "char_he_tie_shou",
-      "message": "Dialogue speaker \"char_he_tie_shou\" not found in characters.json"
+      "source": "item_wu_jin_bei_xin",
+      "name": "乌金丝背心",
+      "message": "Item \"乌金丝背心\" not found in original text - likely hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_xue_zhao",
+      "name": "崇祯血诏",
+      "message": "Item \"崇祯血诏\" not found in original text - likely hallucination"
     },
     {
       "type": "possible_hallucination",

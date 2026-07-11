@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T09:36:20.331Z",
+  "generated_at": "2026-07-11T10:25:46.079Z",
   "summary": {
-    "total": 127,
-    "errors": 64,
-    "warnings": 60,
+    "total": 138,
+    "errors": 72,
+    "warnings": 63,
     "info": 3
   },
   "issues": [
@@ -969,6 +969,70 @@
     },
     {
       "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_qian_kun_da_nuo_yi_xin_fa",
+      "field": "related_characters",
+      "ref": "char_yang_ding_tian",
+      "message": "乾坤大挪移心法.related_characters references non-existent char_yang_ding_tian"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_jiu_yin_bai_gu_zhua",
+      "field": "related_characters",
+      "ref": "char_huang_shan_nv",
+      "message": "九阴真经.related_characters references non-existent char_huang_shan_nv"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_jiu_yin_bai_gu_zhua",
+      "field": "related_skills",
+      "ref": "skill_jiu_yin_bai_gu_zhua",
+      "message": "九阴真经.related_skills references non-existent skill_jiu_yin_bai_gu_zhua"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_jiang_mo_zhang",
+      "field": "related_characters",
+      "ref": "char_du_e",
+      "message": "金刚伏魔圈.related_characters references non-existent char_du_e"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_jiang_mo_zhang",
+      "field": "related_characters",
+      "ref": "char_du_jie",
+      "message": "金刚伏魔圈.related_characters references non-existent char_du_jie"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_jiang_mo_zhang",
+      "field": "related_characters",
+      "ref": "char_du_nan",
+      "message": "金刚伏魔圈.related_characters references non-existent char_du_nan"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_bai_gui_shou",
+      "field": "owner",
+      "ref": "char_bai_gui_shou",
+      "message": "白龟寿的判官笔.owner references non-existent char_bai_gui_shou"
+    },
+    {
+      "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_bai_gui_shou",
+      "field": "related_characters",
+      "ref": "char_bai_gui_shou",
+      "message": "白龟寿的判官笔.related_characters references non-existent char_bai_gui_shou"
+    },
+    {
+      "type": "dangling_reference",
       "severity": "warning",
       "source": "tech_yun_shou",
       "field": "source_skill",
@@ -1007,6 +1071,27 @@
       "char_rank": "登堂入室",
       "skill_rank": "登峰造极",
       "message": "陈友谅(登堂入室) has 打狗棒法(登峰造极) - rank gap > 2"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_han_yu_chuang",
+      "name": "寒玉床",
+      "message": "Item \"寒玉床\" not found in original text - likely hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_bai_gui_shou",
+      "name": "白龟寿的判官笔",
+      "message": "Item \"白龟寿的判官笔\" not found in original text - likely hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_shan_hu_zhang",
+      "name": "珊瑚杖",
+      "message": "Item \"珊瑚杖\" not found in original text - likely hallucination"
     },
     {
       "type": "possible_hallucination",

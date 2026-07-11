@@ -89,6 +89,16 @@
   - **区分标准**：
     - items.json 应包含：鸳鸯刀、铁鞭、峨嵋刺、流星锤、弹弓等**武器/道具**
     - skills.json 应包含：混元气、震天三十掌、呼延十八鞭等**武学体系**
+- **地点错放**：是否有地点被误列为物品？
+  - **区分标准**：
+    - items.json 应包含：可携带、可转移的**实体物品**
+    - locations.json 应包含：固定的**地点/场所/建筑物**
+  - **常见错误**：将"琅嬛福地"（地点）、"还施水阁"（地点）、"无量玉壁"（地点）、"珍珑棋局"（机关/地点）列为 item
+- **功法错放**：是否有功法名称被误列为物品？
+  - **区分标准**：
+    - items.json 应包含：有实体形态的**秘籍/图谱/经书**
+    - skills.json 应包含：口传心授的**武功/功法**
+  - **常见错误**：将"一阳指"、"火焰刀"、"降龙十八掌"等功法名称列为 item（除非原文明确提到有实体秘籍）
 - **类型正确**：type 是否为合法的 item.type 枚举值？
 - **稀有度合理**：rarity_tier 是否符合物品在本书中的地位？
 - **owner 存在**：owner 是否在 characters.json 或 factions.json 中存在？
@@ -181,8 +191,10 @@
 
 1. **跨书混淆**：其他作品的角色/功法/地点混入（severity: high）
 2. **skills.json 混入武器**：铁鞭、峨嵋刺、流星锤等应为 item 而非 skill（severity: high）
-3. **ID 引用缺失**：引用了其他 JSON 中不存在的 ID（severity: high）
-4. **数量完整性**：对照原文检查是否有重大遗漏
+3. **items.json 混入地点**：琅嬛福地、还施水阁、无量玉壁等地点应为 location 而非 item（severity: high）
+4. **items.json 混入功法名称**：一阳指、火焰刀等功法名称（无实体秘籍）应为 skill 而非 item（severity: high）
+5. **ID 引用缺失**：引用了其他 JSON 中不存在的 ID（severity: high）
+6. **数量完整性**：对照原文检查是否有重大遗漏
    - 重要角色遗漏（如推动剧情的关键人物）
    - 核心功法遗漏（如主要武学体系）
    - 关键物品遗漏（如核心道具）
@@ -195,7 +207,7 @@
 
 ## 数据
 
-### characters.json (51 条)
+### characters.json (52 条)
 [
   {
     "id": "char_yang_guo",
@@ -227,7 +239,7 @@
     "id": "char_guo_jing",
     "name": "郭靖",
     "role": "核心",
-    "identity": "襄阳守将，丐帮帮主之婿",
+    "identity": "丐帮前帮主，襄阳守城大侠，新五绝之北侠",
     "faction": "faction_gai_bang",
     "personality": [
       "正直忠厚",
@@ -253,7 +265,7 @@
     "id": "char_guo_fu",
     "name": "郭芙",
     "role": "重要",
-    "identity": "郭靖长女",
+    "identity": "郭靖黄蓉长女，耶律齐之妻",
     "faction": "faction_gai_bang",
     "personality": [
       "骄纵任性",
@@ -266,12 +278,12 @@
     "id": "char_guo_xiang",
     "name": "郭襄",
     "role": "重要",
-    "identity": "郭靖次女，后创峨嵋派",
+    "identity": "郭靖黄蓉次女，峨嵋派创始人",
     "faction": "faction_gai_bang",
     "personality": [
-      "豪爽仗义",
-      "天真烂漫",
-      "不拘小节"
+      "豪爽洒脱",
+      "聪慧可爱",
+      "痴情不悔"
     ],
     "one_line": "豪爽仗义的郭家二小姐，一生仰慕神雕大侠"
   },
@@ -279,7 +291,7 @@
     "id": "char_li_mo_chou",
     "name": "李莫愁",
     "role": "重要",
-    "identity": "古墓派叛徒，江湖女魔头",
+    "identity": "古墓派大弟子，小龙女师姐，赤练仙子",
     "faction": null,
     "personality": [
       "心狠手辣",
@@ -295,9 +307,9 @@
     "identity": "蒙古国师，密宗高手",
     "faction": "faction_meng_gu",
     "personality": [
-      "武功高强",
-      "争强好胜",
-      "刚愎自用"
+      "武功盖世",
+      "心机深沉",
+      "蒙古第一高手"
     ],
     "one_line": "蒙古第一高手，与中原群侠多次交锋的大反派"
   },
@@ -318,7 +330,7 @@
     "id": "char_yi_deng_da_shi",
     "name": "一灯大师",
     "role": "重要",
-    "identity": "原大理皇帝，后出家为僧",
+    "identity": "大理段氏皇帝出家，新五绝之南僧",
     "faction": "faction_da_li_duan_shi",
     "personality": [
       "慈悲为怀",
@@ -373,9 +385,9 @@
     "identity": "丐帮帮主，郭芙之夫",
     "faction": "faction_gai_bang",
     "personality": [
-      "稳重沉着",
-      "忠厚老实",
-      "有勇有谋"
+      "沉稳干练",
+      "武功不俗",
+      "侠义心肠"
     ],
     "one_line": "稳重有才干的丐帮帮主，郭靖女婿"
   },
@@ -482,19 +494,6 @@
       "武功高强"
     ],
     "one_line": "昔日铁掌帮主改邪归正出家为僧，终被金轮法王击毙"
-  },
-  {
-    "id": "char_ying_gu",
-    "name": "瑛姑",
-    "role": "次要",
-    "identity": "周伯通旧情人，段智兴妃子",
-    "faction": null,
-    "personality": [
-      "痴情执着",
-      "怨恨难消",
-      "聪明机敏"
-    ],
-    "one_line": "痴等周伯通数十年的苦命女子，精通奇门术数"
   },
   {
     "id": "char_huo_du",
@@ -843,196 +842,216 @@
       "刚烈"
     ],
     "one_line": "原裘千仞改邪归正出家为僧，忏悔挣扎终得解脱"
+  },
+  {
+    "id": "char_sun_po_po",
+    "name": "孙婆婆",
+    "role": "龙套",
+    "identity": "古墓派侍女",
+    "faction": "faction_gu_mu_pai",
+    "personality": [
+      "慈祥",
+      "护主",
+      "善良"
+    ],
+    "one_line": "小龙女侍女，收留杨过后被全真教郝大通所杀"
+  },
+  {
+    "id": "char_ma_yu",
+    "name": "马钰",
+    "role": "龙套",
+    "identity": "全真教掌教",
+    "faction": "faction_quan_zhen_jiao",
+    "personality": [
+      "稳重",
+      "仁厚",
+      "谦逊"
+    ],
+    "one_line": "全真教掌教，王重阳弟子"
   }
 ]
 
 ### factions.json (10 条)
 [
   {
-    "id": "faction_quan_zhen_jiao",
-    "name": "全真教",
-    "type": "武林门派",
-    "location": "loc_zhong_nan_shan",
-    "one_line": "王重阳所创道教门派，天下武学正宗"
-  },
-  {
     "id": "faction_gu_mu_pai",
     "name": "古墓派",
     "type": "武林门派",
     "location": "loc_gu_mu",
-    "one_line": "林朝英所创，居活死人墓，与全真教对门而居"
+    "one_line": "林朝英所创，居于活死人墓，以玉女心经和玉女剑法名震江湖"
+  },
+  {
+    "id": "faction_quan_zhen_jiao",
+    "name": "全真教",
+    "type": "武林门派",
+    "location": "loc_zhong_nan_shan",
+    "one_line": "王重阳所创道教门派，居于终南山重阳宫，天下武学正宗"
   },
   {
     "id": "faction_gai_bang",
     "name": "丐帮",
     "type": "帮派",
-    "location": "loc_xiang_yang",
-    "one_line": "天下第一大帮，帮主传降龙十八掌与打狗棒法"
+    "location": null,
+    "one_line": "天下第一大帮，黄蓉为帮主，耶律齐后继任帮主"
   },
   {
     "id": "faction_da_li_duan_shi",
     "name": "大理段氏",
-    "type": "王族",
-    "location": "loc_da_li",
-    "one_line": "大理皇室，以一阳指闻名天下"
+    "type": "家族",
+    "location": null,
+    "one_line": "大理皇室段氏，一灯大师出家前为大理国君，以一阳指闻名"
   },
   {
     "id": "faction_shao_lin_si",
     "name": "少林寺",
     "type": "寺院",
-    "location": "loc_shao_shi_shan",
-    "one_line": "武林泰斗，千年古刹，武学渊薮"
+    "location": "loc_shao_lin_si",
+    "one_line": "武林泰斗，藏经阁藏有天下武学典籍，觉远为藏经阁僧人"
   },
   {
     "id": "faction_jue_qing_gu",
     "name": "绝情谷",
     "type": "武林门派",
     "location": "loc_jue_qing_gu",
-    "one_line": "公孙止所据幽谷，遍植情花，谷规断情绝爱"
+    "one_line": "公孙止所据隐秘山谷，以情花毒和断肠草闻名，小龙女曾居谷底十六年"
   },
   {
     "id": "faction_tao_hua_dao",
     "name": "桃花岛",
     "type": "家族",
     "location": "loc_tao_hua_dao",
-    "one_line": "东海奇岛，黄药师隐居之所，精通奇门遁甲"
+    "one_line": "黄药师所据东海之岛，桃花阵为天然屏障，郭靖黄蓉曾隐居于此"
   },
   {
     "id": "faction_bai_tuo_shan",
     "name": "白驼山",
     "type": "武林门派",
-    "location": "loc_bai_tuo_shan",
-    "one_line": "西域欧阳锋所据，以蛤蟆功闻名"
+    "location": null,
+    "one_line": "欧阳锋所据西域门派，以蛤蟆功和逆练九阴真经闻名"
+  },
+  {
+    "id": "faction_e_mei_pai",
+    "name": "峨嵋派",
+    "type": "武林门派",
+    "location": null,
+    "one_line": "郭襄后来所创门派，本书为伏笔"
   },
   {
     "id": "faction_meng_gu",
-    "name": "蒙古",
-    "type": "部族",
-    "location": "loc_xiang_yang",
-    "one_line": "蒙古大军南侵，金轮法王等高手效力"
-  },
-  {
-    "id": "faction_wan_shou_shan_zhuang",
-    "name": "万兽山庄",
-    "type": "家族",
-    "location": "loc_wan_shou_shan_zhuang",
-    "one_line": "史氏兄弟所据，驯养猛兽，义薄云天"
+    "name": "蒙古阵营",
+    "type": "军队",
+    "location": null,
+    "one_line": "蒙古大军南侵大宋，金轮法王等高手为其效力，蒙哥汗被杨过飞石击毙"
   }
 ]
 
-### locations.json (18 条)
+### locations.json (17 条)
 [
   {
     "id": "loc_xiang_yang",
     "name": "襄阳",
     "region": "中原",
-    "one_line": "南宋抗蒙前线重镇，郭靖黄蓉守城之地"
+    "one_line": "南宋抗蒙前线重镇，郭靖黄蓉守城之地，襄阳大战为全书高潮"
   },
   {
     "id": "loc_jue_qing_gu",
     "name": "绝情谷",
     "region": "中原",
-    "one_line": "幽深山谷遍植情花，公孙止据谷为王"
+    "one_line": "隐秘山谷，情花毒和断肠草生长之地，杨过中毒处"
   },
   {
     "id": "loc_gu_mu",
     "name": "古墓",
-    "region": "终南山",
-    "one_line": "活死人墓，古墓派所在，杨过小龙女修炼之地"
-  },
-  {
-    "id": "loc_tao_hua_dao",
-    "name": "桃花岛",
-    "region": "东海",
-    "one_line": "东海奇岛，黄药师隐居之所"
+    "region": "中原",
+    "one_line": "活死人墓，古墓派所在，杨过与小龙女学艺之地"
   },
   {
     "id": "loc_hua_shan",
     "name": "华山",
     "region": "中原",
-    "one_line": "五岳之西岳，武林论剑论武之地"
+    "one_line": "论剑之地，五绝称号诞生处，第三次华山论剑在此举行"
   },
   {
     "id": "loc_zhong_nan_shan",
     "name": "终南山",
     "region": "中原",
-    "one_line": "道教名山，全真教总坛所在"
+    "one_line": "全真教所在，重阳宫位于此山，杨过曾在此学艺"
+  },
+  {
+    "id": "loc_tao_hua_dao",
+    "name": "桃花岛",
+    "region": "东海",
+    "one_line": "黄药师所据东海之岛，郭靖黄蓉曾隐居于此"
   },
   {
     "id": "loc_feng_ling_du",
     "name": "风陵渡",
     "region": "中原",
-    "one_line": "黄河渡口，郭襄初闻杨过神雕侠事迹"
+    "one_line": "郭襄初闻杨过神雕大侠事迹之地"
   },
   {
-    "id": "loc_jia_xing_lu_jia_zhuang",
-    "name": "嘉兴陆家庄",
+    "id": "loc_jia_xing",
+    "name": "嘉兴",
     "region": "江南",
-    "one_line": "陆展元何沅君故居，故事开端之地"
+    "one_line": "故事起点，杨过幼年流落之地，陆家庄所在"
+  },
+  {
+    "id": "loc_lu_jia_zhuang",
+    "name": "陆家庄",
+    "region": "江南",
+    "one_line": "陆展元陆立鼎之家，李莫愁复仇之地"
   },
   {
     "id": "loc_da_sheng_guan",
     "name": "大胜关",
     "region": "中原",
-    "one_line": "英雄大会举办之地，群雄汇聚"
+    "one_line": "英雄大会之地，杨过初显身手击败霍都"
+  },
+  {
+    "id": "loc_duan_chang_ya",
+    "name": "断肠崖",
+    "region": "中原",
+    "one_line": "杨过与小龙女分别之地，小龙女跳崖处"
   },
   {
     "id": "loc_jue_qing_gu_di",
     "name": "绝情谷底",
-    "region": "绝情谷深处",
-    "one_line": "深潭之下别有洞天，小龙女十六年独居之所"
+    "region": "中原",
+    "one_line": "小龙女十六年居所，寒潭白鱼疗伤"
+  },
+  {
+    "id": "loc_shao_lin_si",
+    "name": "少林寺",
+    "region": "中原",
+    "one_line": "武林泰斗，藏经阁藏有天下武学典籍"
   },
   {
     "id": "loc_chong_yang_gong",
     "name": "重阳宫",
-    "region": "终南山",
-    "one_line": "全真教主殿，王重阳开创基业之地"
-  },
-  {
-    "id": "loc_xiang_yang_cheng",
-    "name": "襄阳城",
     "region": "中原",
-    "one_line": "南宋军事重镇，郭靖黄蓉誓死守卫之城"
+    "one_line": "全真教主殿，位于终南山"
   },
   {
-    "id": "loc_shen_diao_gu",
-    "name": "神雕谷",
-    "region": "山谷",
-    "one_line": "独孤求败埋剑隐居之谷，神雕栖息之地"
-  },
-  {
-    "id": "loc_wan_shou_shan_zhuang",
-    "name": "万兽山庄",
+    "id": "loc_hua_shan_yu_nv_feng",
+    "name": "华山玉女峰",
     "region": "中原",
-    "one_line": "史氏兄弟所据山庄，驯养百兽"
+    "one_line": "华山论剑之地，杨过小龙女曾游历此峰"
   },
   {
-    "id": "loc_jia_xing_nan_hu",
-    "name": "嘉兴南湖",
+    "id": "loc_tie_qiang_miao",
+    "name": "铁枪庙",
     "region": "江南",
-    "one_line": "江南水乡，故事开篇之地"
+    "one_line": "杨康惨死之地，穆念慈骨灰葬于此"
   },
   {
-    "id": "loc_bai_tuo_shan",
-    "name": "白驼山",
-    "region": "西域",
-    "one_line": "西域欧阳锋据点，蛤蟆功发源地"
-  },
-  {
-    "id": "loc_da_li",
-    "name": "大理",
-    "region": "西南",
-    "one_line": "西南古国，段氏皇室故国"
-  },
-  {
-    "id": "loc_shao_shi_shan",
-    "name": "少室山",
+    "id": "loc_hei_long_tan",
+    "name": "黑龙潭",
     "region": "中原",
-    "one_line": "嵩山之西峰，少林寺所在"
+    "one_line": "瑛姑隐居之地，周伯通与瑛姑团聚处"
   }
 ]
 
-### skills.json (20 条)
+### skills.json (26 条)
 [
   {
     "id": "skill_an_ran_xiao_hun_zhang",
@@ -1040,7 +1059,23 @@
     "type": "掌法",
     "mastery_rank": "登峰造极",
     "practitioners": [],
-    "one_line": "杨过自创掌法，思念小龙女黯然神伤时威力最大"
+    "one_line": "杨过自创掌法，思念小龙女黯然神伤时威力最大，共十七式"
+  },
+  {
+    "id": "skill_yu_nv_xin_jing",
+    "name": "玉女心经",
+    "type": "内功",
+    "mastery_rank": "出神入化",
+    "practitioners": [],
+    "one_line": "古墓派内功心法，需男女合练，杨过与小龙女双修"
+  },
+  {
+    "id": "skill_ha_ma_gong",
+    "name": "蛤蟆功",
+    "type": "内功",
+    "mastery_rank": "返璞归真",
+    "practitioners": [],
+    "one_line": "欧阳锋独门内功，蓄劲于丹田，发力时如蛤蟆鼓气，杨过曾习入门"
   },
   {
     "id": "skill_xuan_tie_jian_fa",
@@ -1048,143 +1083,55 @@
     "type": "剑法",
     "mastery_rank": "登峰造极",
     "practitioners": [],
-    "one_line": "独孤求败所创，重剑无锋大巧不工，以拙胜巧"
+    "one_line": "杨过以玄铁重剑施展的剑法，重剑无锋大巧不工"
   },
   {
-    "id": "skill_yu_nv_xin_jing",
-    "name": "玉女心经",
-    "type": "内功",
-    "mastery_rank": "登峰造极",
+    "id": "skill_yu_nv_jian_fa",
+    "name": "玉女剑法",
+    "type": "剑法",
+    "mastery_rank": "炉火纯青",
     "practitioners": [],
-    "one_line": "古墓派至高内功，需男女双修，阴阳互济"
+    "one_line": "古墓派剑法，轻灵飘逸，招式优美"
   },
   {
-    "id": "skill_jiu_yin_zhen_jing",
-    "name": "九阴真经",
-    "type": "内功",
-    "mastery_rank": "返璞归真",
-    "practitioners": [],
-    "one_line": "天下武学总纲，载录天下武功精要"
-  },
-  {
-    "id": "skill_jiang_long_shi_ba_zhang",
+    "id": "skill_xiang_long_shi_ba_zhang",
     "name": "降龙十八掌",
     "type": "掌法",
-    "mastery_rank": "登峰造极",
+    "mastery_rank": "返璞归真",
     "practitioners": [],
-    "one_line": "丐帮镇帮绝学，掌力刚猛天下第一"
+    "one_line": "丐帮镇帮绝学，郭靖所擅，刚猛无俦"
   },
   {
-    "id": "skill_yi_yang_zhi",
-    "name": "一阳指",
-    "type": "指法",
-    "mastery_rank": "登峰造极",
+    "id": "skill_zuo_you_hu_bo_shu",
+    "name": "左右互搏术",
+    "type": "奇门",
+    "mastery_rank": "出神入化",
     "practitioners": [],
-    "one_line": "大理段氏绝学，内力聚于指尖，可攻可疗伤"
-  },
-  {
-    "id": "skill_ha_ma_gong",
-    "name": "蛤蟆功",
-    "type": "内功",
-    "mastery_rank": "登峰造极",
-    "practitioners": [],
-    "one_line": "欧阳锋独门绝学，蓄力如蛤蟆，一击必杀"
+    "one_line": "周伯通独门绝技，一心二用双手分使不同武功"
   },
   {
     "id": "skill_tan_zhi_shen_tong",
     "name": "弹指神通",
     "type": "指法",
-    "mastery_rank": "登峰造极",
-    "practitioners": [],
-    "one_line": "黄药师绝学，以指弹物伤人于无形"
-  },
-  {
-    "id": "skill_zuo_you_hu_bo_shu",
-    "name": "左右互搏术",
-    "type": "奇门兵器",
     "mastery_rank": "出神入化",
     "practitioners": [],
-    "one_line": "周伯通自创奇术，双手各使不同武功，一心二用"
+    "one_line": "黄药师独门指法，以指力弹射暗器或石子"
   },
   {
-    "id": "skill_yu_nv_su_xin_jian_fa",
-    "name": "玉女素心剑法",
-    "type": "剑法",
-    "mastery_rank": "登峰造极",
+    "id": "skill_yi_yang_zhi",
+    "name": "一阳指",
+    "type": "指法",
+    "mastery_rank": "返璞归真",
     "practitioners": [],
-    "one_line": "古墓派剑法，需男女双人合使，阴阳互补威力无穷"
-  },
-  {
-    "id": "skill_quan_zhen_jian_fa",
-    "name": "全真剑法",
-    "type": "剑法",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "全真教基础剑法，剑招端正大气，中正平和"
-  },
-  {
-    "id": "skill_tie_zhang_gong",
-    "name": "铁掌功",
-    "type": "掌法",
-    "mastery_rank": "登峰造极",
-    "practitioners": [],
-    "one_line": "裘千仞绝学，掌力刚猛仅次于降龙十八掌"
-  },
-  {
-    "id": "skill_long_xiang_ban_re_gong",
-    "name": "龙象般若功",
-    "type": "内功",
-    "mastery_rank": "登峰造极",
-    "practitioners": [],
-    "one_line": "密宗至高无上内功，共十三层，每层增一龙一象之力"
-  },
-  {
-    "id": "skill_tian_luo_di_wang_shi",
-    "name": "天罗地网势",
-    "type": "轻功",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "古墓派轻功身法，方寸间腾挪闪避如天罗地网"
-  },
-  {
-    "id": "skill_yin_bian_fa",
-    "name": "银鞭法",
-    "type": "奇门兵器",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "李莫愁武功，以银鞭为兵器，招式狠辣"
-  },
-  {
-    "id": "skill_wu_du_shen_zhang",
-    "name": "五毒神掌",
-    "type": "掌法",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "李莫愁毒功掌法，掌中蕴含五种剧毒"
-  },
-  {
-    "id": "skill_bing_po_yin_zhen",
-    "name": "冰魄银针",
-    "type": "暗器",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "李莫愁暗器，银针蕴含剧毒，见血封喉"
+    "one_line": "大理段氏绝学，一灯大师所擅，指力可点穴亦可伤敌"
   },
   {
     "id": "skill_da_gou_bang_fa",
     "name": "打狗棒法",
-    "type": "棒法",
-    "mastery_rank": "登峰造极",
-    "practitioners": [],
-    "one_line": "丐帮帮主绝学，招式精妙变化多端"
-  },
-  {
-    "id": "skill_fu_mo_zhang_fa",
-    "name": "伏魔杖法",
     "type": "杖法",
-    "mastery_rank": "炉火纯青",
+    "mastery_rank": "出神入化",
     "practitioners": [],
-    "one_line": "柯镇恶杖法武功，杖法刚猛有力"
+    "one_line": "丐帮帮主绝学，黄蓉所擅，招式精妙变化多端"
   },
   {
     "id": "skill_xian_tian_gong",
@@ -1192,12 +1139,144 @@
     "type": "内功",
     "mastery_rank": "返璞归真",
     "practitioners": [],
-    "one_line": "王重阳绝学内功，纯阳无极，先天之气"
+    "one_line": "全真教内功，王重阳所传，纯阳内力"
+  },
+  {
+    "id": "skill_kong_ming_quan",
+    "name": "空明拳",
+    "type": "拳法",
+    "mastery_rank": "出神入化",
+    "practitioners": [],
+    "one_line": "周伯通所创拳法，以空制实，虚虚实实"
+  },
+  {
+    "id": "skill_jiu_yin_zhen_jing",
+    "name": "九阴真经",
+    "type": "内功",
+    "mastery_rank": "返璞归真",
+    "practitioners": [],
+    "one_line": "天下武学总纲，郭靖黄蓉所学，记载诸般上乘武功"
+  },
+  {
+    "id": "skill_mei_nv_quan_fa",
+    "name": "美女拳法",
+    "type": "拳法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "古墓派拳法，招式模仿美女姿态，优美而实用"
+  },
+  {
+    "id": "skill_wu_du_shen_zhang",
+    "name": "五毒神掌",
+    "type": "掌法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "李莫愁独门掌法，掌中带毒，触之即伤"
+  },
+  {
+    "id": "skill_jin_lun_gong",
+    "name": "金轮功",
+    "type": "奇门",
+    "mastery_rank": "出神入化",
+    "practitioners": [],
+    "one_line": "金轮法王以金轮为武器的武功，轮法精奇"
+  },
+  {
+    "id": "skill_long_xiang_ban_ruo_gong",
+    "name": "龙象般若功",
+    "type": "内功",
+    "mastery_rank": "登峰造极",
+    "practitioners": [],
+    "one_line": "密宗内功，金轮法王所修，练至十层有十龙十象之力"
+  },
+  {
+    "id": "skill_chi_lian_shen_zhang",
+    "name": "赤练神掌",
+    "type": "掌法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "李莫愁独门掌法，掌力带毒，中者必伤"
+  },
+  {
+    "id": "skill_wu_du_mi_chuan",
+    "name": "五毒秘传",
+    "type": "毒功",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "李莫愁所修毒功，善用各种毒物毒药"
+  },
+  {
+    "id": "skill_dai_dao_yu_wang_zhen",
+    "name": "带刀渔网阵",
+    "type": "阵法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "绝情谷弟子布阵，网上缀满尖刀，困敌于阵中"
+  },
+  {
+    "id": "skill_quan_zhen_jian_fa",
+    "name": "全真剑法",
+    "type": "剑法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "全真教剑法，中正平和，为武林正宗"
+  },
+  {
+    "id": "skill_yu_nv_su_xin_jian_fa",
+    "name": "玉女素心剑法",
+    "type": "剑法",
+    "mastery_rank": "出神入化",
+    "practitioners": [],
+    "one_line": "古墓派双剑合璧剑法，需男女二人配合施展"
+  },
+  {
+    "id": "skill_yin_yang_dao_luan_ren_fa",
+    "name": "阴阳倒乱刃法",
+    "type": "刀法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "公孙止家传刀剑双绝武学，一手刀一手剑，阴阳互济"
+  },
+  {
+    "id": "skill_yu_xiao_jian_fa",
+    "name": "玉箫剑法",
+    "type": "剑法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "黄药师所传剑法，杨过曾习得，剑招飘逸出尘"
+  },
+  {
+    "id": "skill_zao_he_ding",
+    "name": "枣核钉",
+    "type": "暗器",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "裘千尺口中喷射枣核为暗器的独门绝技"
+  },
+  {
+    "id": "skill_bing_po_yin_zhen",
+    "name": "冰魄银针",
+    "type": "暗器",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "李莫愁独门暗器，银针带剧毒，触之即伤"
   }
 ]
 
-### techniques.json (33 条)
+### techniques.json (6 条)
 [
+  {
+    "id": "tech_kang_long_you_hui",
+    "name": "亢龙有悔",
+    "type": "attack",
+    "source_skill": "skill_xiang_long_shi_ba_zhang"
+  },
+  {
+    "id": "tech_tian_xia_wu_gou",
+    "name": "天下无狗",
+    "type": "attack",
+    "source_skill": "skill_da_gou_bang_fa"
+  },
   {
     "id": "tech_xin_jing_rou_tiao",
     "name": "心惊肉跳",
@@ -1207,30 +1286,6 @@
   {
     "id": "tech_qi_ren_you_tian",
     "name": "杞人忧天",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_wu_zhong_sheng_you",
-    "name": "无中生有",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_tuo_ni_dai_shui",
-    "name": "拖泥带水",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_pai_huai_kong_gu",
-    "name": "徘徊空谷",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_li_bu_cong_xin",
-    "name": "力不从心",
     "type": "attack",
     "source_skill": "skill_an_ran_xiao_hun_zhang"
   },
@@ -1245,160 +1300,10 @@
     "name": "倒行逆施",
     "type": "attack",
     "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_fei_qin_wang_shi",
-    "name": "废寝忘食",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_gu_xing_zhi_ying",
-    "name": "孤形只影",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_yin_hen_tun_sheng",
-    "name": "饮恨吞声",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_liu_shen_bu_an",
-    "name": "六神不安",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_qiong_tu_mo_lu",
-    "name": "穷途末路",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_mian_wu_ren_se",
-    "name": "面无人色",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_xiang_ru_fei_fei",
-    "name": "想入非非",
-    "type": "attack",
-    "source_skill": "skill_an_ran_xiao_hun_zhang"
-  },
-  {
-    "id": "tech_kang_long_you_hui",
-    "name": "亢龙有悔",
-    "type": "attack",
-    "source_skill": "skill_jiang_long_shi_ba_zhang"
-  },
-  {
-    "id": "tech_fei_long_zai_tian",
-    "name": "飞龙在天",
-    "type": "attack",
-    "source_skill": "skill_jiang_long_shi_ba_zhang"
-  },
-  {
-    "id": "tech_jian_long_zai_tian",
-    "name": "见龙在田",
-    "type": "defense",
-    "source_skill": "skill_jiang_long_shi_ba_zhang"
-  },
-  {
-    "id": "tech_hong_jian_yu_lu",
-    "name": "鸿渐于陆",
-    "type": "attack",
-    "source_skill": "skill_jiang_long_shi_ba_zhang"
-  },
-  {
-    "id": "tech_qian_long_wu_yong",
-    "name": "潜龙勿用",
-    "type": "attack",
-    "source_skill": "skill_jiang_long_shi_ba_zhang"
-  },
-  {
-    "id": "tech_li_she_da_chuan",
-    "name": "利涉大川",
-    "type": "attack",
-    "source_skill": "skill_jiang_long_shi_ba_zhang"
-  },
-  {
-    "id": "tech_tu_ru_qi_lai",
-    "name": "突如其来",
-    "type": "attack",
-    "source_skill": "skill_jiang_long_shi_ba_zhang"
-  },
-  {
-    "id": "tech_zhen_jing_bai_li",
-    "name": "震惊百里",
-    "type": "attack",
-    "source_skill": "skill_jiang_long_shi_ba_zhang"
-  },
-  {
-    "id": "tech_bang_da_shuang_quan",
-    "name": "棒打双犬",
-    "type": "attack",
-    "source_skill": "skill_da_gou_bang_fa"
-  },
-  {
-    "id": "tech_bang_da_gou_tou",
-    "name": "棒打狗头",
-    "type": "attack",
-    "source_skill": "skill_da_gou_bang_fa"
-  },
-  {
-    "id": "tech_fan_jie_gou_tun",
-    "name": "反截狗臀",
-    "type": "attack",
-    "source_skill": "skill_da_gou_bang_fa"
-  },
-  {
-    "id": "tech_jie_gou_wei",
-    "name": "截狗尾",
-    "type": "attack",
-    "source_skill": "skill_da_gou_bang_fa"
-  },
-  {
-    "id": "tech_ya_jian_gou_bei",
-    "name": "压肩狗背",
-    "type": "attack",
-    "source_skill": "skill_da_gou_bang_fa"
-  },
-  {
-    "id": "tech_bo_gou_chao_tian",
-    "name": "拨狗朝天",
-    "type": "attack",
-    "source_skill": "skill_da_gou_bang_fa"
-  },
-  {
-    "id": "tech_tian_xia_wu_gou",
-    "name": "天下无狗",
-    "type": "attack",
-    "source_skill": "skill_da_gou_bang_fa"
-  },
-  {
-    "id": "tech_yi_yang_zhi_li",
-    "name": "一阳指力",
-    "type": "attack",
-    "source_skill": "skill_yi_yang_zhi"
-  },
-  {
-    "id": "tech_yu_nv_jian_fa",
-    "name": "玉女剑法",
-    "type": "attack",
-    "source_skill": "skill_yu_nv_su_xin_jian_fa"
-  },
-  {
-    "id": "tech_su_xin_jian_fa",
-    "name": "素心剑法",
-    "type": "attack",
-    "source_skill": "skill_yu_nv_su_xin_jian_fa"
   }
 ]
 
-### items.json (22 条)
+### items.json (21 条)
 [
   {
     "id": "item_xuan_tie_chong_jian",
@@ -1493,14 +1398,14 @@
   },
   {
     "id": "item_yu_nv_xin_jing_mi_ji",
-    "name": "玉女心经秘籍",
+    "name": "玉女心经",
     "type": "秘籍",
     "owner": "char_xiao_long_nyu",
     "rarity_tier": "稀世珍品",
     "related_skills": [
       "skill_yu_nv_xin_jing"
     ],
-    "one_line": "古墓派内功秘籍，需男女合练"
+    "one_line": "古墓派内功秘籍，林朝英所创"
   },
   {
     "id": "item_jue_qing_dan",
@@ -1588,15 +1493,6 @@
     "one_line": "古墓派传承宝剑，轻灵飘逸"
   },
   {
-    "id": "item_xuan_tie_zhi_huan",
-    "name": "玄铁指环",
-    "type": "饰品",
-    "owner": "char_yang_guo",
-    "rarity_tier": "寻常凡品",
-    "related_skills": [],
-    "one_line": "杨过佩戴的玄铁指环"
-  },
-  {
     "id": "item_yu_feng_jiang",
     "name": "玉蜂浆",
     "type": "食物",
@@ -1616,7 +1512,7 @@
   }
 ]
 
-### dialogues.json (前 50 条 / 共 254 条)
+### dialogues.json (前 50 条 / 共 225 条)
 [
   {
     "index": 0,
@@ -1813,8 +1709,8 @@
     "text": "芙儿怎能许配给这小子。",
     "tone": "疑问",
     "chapter": 3,
-    "line_start": 6,
-    "line_end": 6
+    "line_start": 7,
+    "line_end": 7
   },
   {
     "index": 18,
@@ -1867,7 +1763,7 @@
     "listener": "char_guo_jing",
     "text": "臭道士，贼头狗脑的山羊胡子牛鼻子，既不教我半点武功，又这般打我，怎么还配做我师父？",
     "tone": "愤怒",
-    "chapter": 4,
+    "chapter": 5,
     "line_start": 69,
     "line_end": 69
   },
@@ -1912,8 +1808,8 @@
     "text": "我不回去，我死也不回去。",
     "tone": "愤怒",
     "chapter": 5,
-    "line_start": 28,
-    "line_end": 28
+    "line_start": 29,
+    "line_end": 29
   },
   {
     "index": 27,

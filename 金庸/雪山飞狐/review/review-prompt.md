@@ -207,85 +207,98 @@
 
 ## 数据
 
-### characters.json (21 条)
+### characters.json (28 条)
 [
   {
     "id": "char_hu_fei",
     "name": "胡斐",
     "role": "核心",
-    "identity": "胡一刀之子，武林新秀",
-    "faction": null,
+    "identity": "胡一刀之子，雪山飞狐",
+    "faction": "faction_hu_jia",
     "personality": [
       "重情重义",
       "机智聪明",
       "嫉恶如仇"
     ],
-    "one_line": "胡一刀之子，自幼孤苦，武功高强，追寻父仇与真爱"
-  },
-  {
-    "id": "char_miao_ren_feng",
-    "name": "苗人凤",
-    "role": "核心",
-    "identity": "武林前辈，苗家剑法传人",
-    "faction": "faction_miao_jia",
-    "personality": [
-      "嫉恶如仇",
-      "沉稳威严",
-      "重义轻生"
-    ],
-    "one_line": "号称打遍天下无敌手，苗家剑法传人，与胡一刀比武结下深仇"
+    "one_line": "胡一刀之子，自幼由平阿四抚养，武功高强，追寻父仇，与苗若兰相爱"
   },
   {
     "id": "char_miao_ruo_lan",
     "name": "苗若兰",
     "role": "核心",
-    "identity": "苗人凤之女，温雅少女",
+    "identity": "苗人凤之女，大家闺秀",
     "faction": "faction_miao_jia",
     "personality": [
-      "温雅有礼",
-      "矜持深情",
-      "知书达理"
+      "温雅聪慧",
+      "善良仁慈",
+      "勇敢坚定"
     ],
-    "one_line": "苗人凤之女，温雅有礼，与胡斐一见钟情"
+    "one_line": "苗人凤之女，温雅聪慧，不会武功，与胡斐相爱"
+  },
+  {
+    "id": "char_miao_ren_feng",
+    "name": "苗人凤",
+    "role": "核心",
+    "identity": "打遍天下无敌手，一代大侠",
+    "faction": "faction_miao_jia",
+    "personality": [
+      "嫉恶如仇",
+      "光明磊落",
+      "重情重义"
+    ],
+    "one_line": "金面佛，号称打遍天下无敌手，嫉恶如仇，与胡一刀亦敌亦友"
   },
   {
     "id": "char_hu_yi_dao",
     "name": "胡一刀",
     "role": "核心",
-    "identity": "胡斐之父，闯王卫士后人",
+    "identity": "辽东大侠，胡斐之父",
     "faction": "faction_hu_jia",
     "personality": [
-      "豪爽大方",
+      "豪迈磊落",
       "重情重义",
-      "聪明机智"
+      "爱妻怜子"
     ],
-    "one_line": "胡家刀法传人，与苗人凤比武中毒身亡"
+    "one_line": "辽东大侠，与苗人凤比武时被毒刀所害，其子胡斐承其遗志"
   },
   {
-    "id": "char_hu_fu_ren",
-    "name": "胡夫人",
-    "role": "重要",
-    "identity": "胡一刀之妻，杜希孟表妹",
-    "faction": "faction_hu_jia",
+    "id": "char_bao_shu",
+    "name": "宝树",
+    "role": "核心",
+    "identity": "原跌打医生，现为和尚",
+    "faction": null,
     "personality": [
-      "英风飒爽",
-      "情深义重",
-      "眼光独到"
+      "贪财好利",
+      "阴险狡诈",
+      "贪生怕死"
     ],
-    "one_line": "胡一刀之妻，英风飒爽，随夫就义"
+    "one_line": "原名阎基，跌打医生出身的和尚，在胡一刀剑上涂毒导致其身亡"
+  },
+  {
+    "id": "char_ping_a_si",
+    "name": "平阿四",
+    "role": "重要",
+    "identity": "独臂仆人，胡斐救命恩人",
+    "faction": null,
+    "personality": [
+      "忠心耿耿",
+      "舍生忘死",
+      "知恩图报"
+    ],
+    "one_line": "独臂仆人，胡斐的救命恩人，原为客店烧火小厮，冒死救出胡斐遗孤"
   },
   {
     "id": "char_cao_yun_qi",
     "name": "曹云奇",
     "role": "重要",
-    "identity": "天龙门北宗新任掌门人",
+    "identity": "天龙门北宗掌门",
     "faction": "faction_tian_long_men",
     "personality": [
-      "性格急躁",
-      "争强好胜",
-      "痴情"
+      "暴躁易怒",
+      "痴情执着",
+      "嫉妒心重"
     ],
-    "one_line": "天龙门北宗掌门，性格急躁，对田青文痴情"
+    "one_line": "天龙门北宗掌门，腾龙剑，性格暴躁，暗恋田青文"
   },
   {
     "id": "char_ruan_shi_zhong",
@@ -294,76 +307,76 @@
     "identity": "天龙门北宗师叔",
     "faction": "faction_tian_long_men",
     "personality": [
-      "老练沉稳",
-      "武功高强",
-      "处事圆滑"
+      "老谋深算",
+      "心狠手辣",
+      "武功高强"
     ],
-    "one_line": "天龙门北宗第一高手，绰号七星手"
+    "one_line": "天龙门北宗师叔，七星手，武功高强，暗中排挤曹云奇"
   },
   {
     "id": "char_yin_ji",
     "name": "殷吉",
     "role": "重要",
-    "identity": "天龙门南宗掌门人",
+    "identity": "天龙门南宗掌门",
     "faction": "faction_tian_long_men",
     "personality": [
-      "城府深沉",
-      "武功高强",
-      "富商气派"
+      "谨慎稳重",
+      "涵养功夫好",
+      "轻功高强"
     ],
-    "one_line": "天龙门南宗掌门，富商气派，武功不弱"
-  },
-  {
-    "id": "char_bao_shu",
-    "name": "宝树",
-    "role": "重要",
-    "identity": "神秘老僧，叙事者之一",
-    "faction": null,
-    "personality": [
-      "神秘莫测",
-      "话中有话",
-      "立场暧昧"
-    ],
-    "one_line": "神秘老僧，讲述胡一刀故事的第一个版本"
-  },
-  {
-    "id": "char_tao_bai_sui",
-    "name": "陶百岁",
-    "role": "重要",
-    "identity": "饮马川山寨寨主",
-    "faction": "faction_yin_ma_chuan",
-    "personality": [
-      "豪爽直率",
-      "重义轻生",
-      "脾气暴躁"
-    ],
-    "one_line": "饮马川山寨寨主，陶子安之父"
-  },
-  {
-    "id": "char_tao_zi_an",
-    "name": "陶子安",
-    "role": "重要",
-    "identity": "陶百岁之子，田青文未婚夫",
-    "faction": "faction_yin_ma_chuan",
-    "personality": [
-      "年轻英俊",
-      "重情重义",
-      "处境尴尬"
-    ],
-    "one_line": "陶百岁之子，田青文的未婚夫，被众人追击"
+    "one_line": "天龙门南宗掌门，威震天南，轻功了得，富商气派"
   },
   {
     "id": "char_tian_qing_wen",
     "name": "田青文",
     "role": "重要",
-    "identity": "田归农之女",
-    "faction": "faction_tian_jia",
+    "identity": "田归农之女，天龙门弟子",
+    "faction": "faction_tian_long_men",
     "personality": [
       "容貌美丽",
-      "性又机伶",
-      "处境尴尬"
+      "机伶聪慧",
+      "心狠手辣"
     ],
-    "one_line": "田归农之女，外号锦毛貂，处境复杂"
+    "one_line": "田归农之女，锦毛貂，容貌美丽，与陶子安有婚约却与曹云奇有私情"
+  },
+  {
+    "id": "char_tao_zi_an",
+    "name": "陶子安",
+    "role": "重要",
+    "identity": "饮马川少寨主",
+    "faction": "faction_yin_ma_chuan",
+    "personality": [
+      "英俊潇洒",
+      "武功精妙",
+      "深沉多智"
+    ],
+    "one_line": "饮马川少寨主，田青文的未婚夫，武功精妙，性格深沉"
+  },
+  {
+    "id": "char_tao_bai_sui",
+    "name": "陶百岁",
+    "role": "重要",
+    "identity": "饮马川大寨主",
+    "faction": "faction_yin_ma_chuan",
+    "personality": [
+      "粗豪直率",
+      "膂力惊人",
+      "护子心切"
+    ],
+    "one_line": "饮马川大寨主，镇关东，膂力惊人，声若雷震"
+  },
+  {
+    "id": "char_liu_yuan_he",
+    "name": "刘元鹤",
+    "role": "重要",
+    "identity": "御前一等侍卫",
+    "faction": "faction_yu_qian_shi_wei",
+    "personality": [
+      "精明能干",
+      "奉旨行事",
+      "善于隐忍"
+    ],
+    "one_line": "御前侍卫，武功高强，奉旨行事，揭露田归农之死真相"
   },
   {
     "id": "char_zhou_yun_yang",
@@ -372,242 +385,369 @@
     "identity": "天龙门北宗弟子",
     "faction": "faction_tian_long_men",
     "personality": [
-      "年轻",
-      "武功一般",
-      "忠于师门"
+      "沉默寡言",
+      "心思缜密",
+      "善于隐藏"
     ],
-    "one_line": "天龙门北宗弟子，曹云奇师弟"
-  },
-  {
-    "id": "char_fan_bang_zhu",
-    "name": "范帮主",
-    "role": "重要",
-    "identity": "丐帮帮主",
-    "faction": "faction_gai_bang",
-    "personality": [
-      "重义轻生",
-      "侠肝义胆",
-      "处境危险"
-    ],
-    "one_line": "丐帮帮主，与苗人凤交好，被官府捉拿"
-  },
-  {
-    "id": "char_liu_yuan_he",
-    "name": "刘元鹤",
-    "role": "重要",
-    "identity": "御前侍卫",
-    "faction": null,
-    "personality": [
-      "心机深沉",
-      "武功不弱",
-      "善于察言观色"
-    ],
-    "one_line": "御前侍卫，参与围捕苗人凤"
+    "one_line": "天龙门北宗弟子，回龙剑，曹云奇师弟，暗藏秘密"
   },
   {
     "id": "char_xiong_yuan_xian",
     "name": "熊元献",
     "role": "次要",
-    "identity": "北京平通镖局总镖头",
+    "identity": "平通镖局总镖头",
     "faction": "faction_ping_tong_biao_ju",
     "personality": [
-      "精明",
-      "武功不弱",
-      "善于察言观色"
+      "胆小谨慎",
+      "细声细气",
+      "稳重保守"
     ],
-    "one_line": "北京平通镖局总镖头，精熟地堂刀"
+    "one_line": "平通镖局总镖头，精熟地堂刀功夫，胆小谨慎"
+  },
+  {
+    "id": "char_zheng_san_niang",
+    "name": "郑三娘",
+    "role": "次要",
+    "identity": "平通镖局镖头之妻",
+    "faction": "faction_ping_tong_biao_ju",
+    "personality": [
+      "报仇心切",
+      "武功平平",
+      "善于守御"
+    ],
+    "one_line": "平通镖局镖头之妻，双刀功夫，为夫报仇"
   },
   {
     "id": "char_tian_gui_nong",
     "name": "田归农",
-    "role": "重要",
-    "identity": "天龙门人物，苗人凤义弟",
-    "faction": "faction_tian_jia",
+    "role": "次要",
+    "identity": "天龙门北宗前任掌门",
+    "faction": "faction_tian_long_men",
     "personality": [
+      "精明能干",
       "阴险狡诈",
-      "善于伪装",
-      "心机深沉"
+      "贪图富贵"
     ],
-    "one_line": "阴险狡诈，觊觎闯王宝藏，诱走苗人凤之妻"
+    "one_line": "天龙门北宗前任掌门，田青文之父，诱走苗人凤之妻，图谋宝藏"
   },
   {
-    "id": "char_ping_a_si",
-    "name": "平阿四",
-    "role": "重要",
-    "identity": "胡斐的养父，独臂仆人",
-    "faction": null,
+    "id": "char_fan_bang_zhu",
+    "name": "范帮主",
+    "role": "次要",
+    "identity": "兴汉丐帮帮主",
+    "faction": "faction_xing_han_gai_bang",
     "personality": [
-      "忠诚",
-      "重情重义",
-      "忍辱负重"
+      "武功高强",
+      "重义气",
+      "被擒后屈服"
     ],
-    "one_line": "胡斐的养父，独臂仆人，讲述胡一刀真相"
+    "one_line": "兴汉丐帮帮主，龙爪擒拿手绝技，后被赛总管擒拿"
   },
   {
     "id": "char_du_xi_meng",
     "name": "杜希孟",
-    "role": "重要",
-    "identity": "玉笔峰庄主",
-    "faction": "faction_du_jia",
+    "role": "次要",
+    "identity": "玉笔山庄庄主",
+    "faction": "faction_yu_bi_shan_zhuang",
     "personality": [
-      "假仁假义",
-      "贪婪",
-      "阴险"
+      "自视甚高",
+      "觊觎宝藏",
+      "善于经营"
     ],
-    "one_line": "玉笔峰庄主，觊觎胡家武学秘本，与胡家有亲戚关系"
+    "one_line": "玉笔山庄庄主，胡斐之母的表兄，觊觎宝藏"
   },
   {
     "id": "char_sai_zong_guan",
     "name": "赛总管",
-    "role": "重要",
+    "role": "次要",
     "identity": "御前侍卫总管",
+    "faction": "faction_yu_qian_shi_wei",
+    "personality": [
+      "老谋深算",
+      "忠于朝廷",
+      "武功高强"
+    ],
+    "one_line": "御前侍卫总管，满洲第一高手，设计擒拿苗人凤与范帮主"
+  },
+  {
+    "id": "char_yu_guan_jia",
+    "name": "于管家",
+    "role": "次要",
+    "identity": "玉笔山庄管家",
+    "faction": "faction_yu_bi_shan_zhuang",
+    "personality": [
+      "忠心护主",
+      "精明干练",
+      "武功不弱"
+    ],
+    "one_line": "玉笔山庄管家，忠心护主，江湖老手"
+  },
+  {
+    "id": "char_qin_er",
+    "name": "琴儿",
+    "role": "次要",
+    "identity": "苗若兰的丫鬟",
     "faction": null,
     "personality": [
-      "凶奸狡诈",
-      "武功高强",
-      "深谋远虑"
+      "活泼伶俐",
+      "快嘴快舌",
+      "忠心护主"
     ],
-    "one_line": "满洲第一高手，乾隆皇帝手下第一亲信卫士"
+    "one_line": "苗若兰的丫鬟，活泼伶俐，快嘴快舌，忠心护主"
   },
   {
     "id": "char_shang_jian_ming",
     "name": "商剑鸣",
     "role": "次要",
-    "identity": "山东武定县人，八卦门中好手",
+    "identity": "八卦门好手",
+    "faction": "faction_ba_gua_men",
+    "personality": [
+      "狂妄自大",
+      "武功高强",
+      "心狠手辣"
+    ],
+    "one_line": "八卦门好手，王维扬弟子，杀害苗家四人，被胡一刀所杀"
+  },
+  {
+    "id": "char_jing_zhi",
+    "name": "静智",
+    "role": "次要",
+    "identity": "山东百会寺和尚",
     "faction": null,
     "personality": [
-      "武功不弱",
-      "自视甚高"
+      "莽撞粗鲁",
+      "武功平平",
+      "出口成脏"
     ],
-    "one_line": "八卦门中好手，被胡一刀杀死"
+    "one_line": "山东百会寺和尚，被陶子安铁盒暗箭射死"
+  },
+  {
+    "id": "char_xuan_ming_zi",
+    "name": "玄冥子",
+    "role": "龙套",
+    "identity": "青藏派大师",
+    "faction": "faction_qing_zang_pai",
+    "personality": [],
+    "one_line": "青藏派大师，受杜希孟之邀上玉笔峰助拳"
+  },
+  {
+    "id": "char_ling_qing_dao_ren",
+    "name": "灵清道人",
+    "role": "龙套",
+    "identity": "昆仑山道人",
+    "faction": "faction_kun_lun_pai",
+    "personality": [],
+    "one_line": "昆仑山道人，受杜希孟之邀上玉笔峰助拳"
+  },
+  {
+    "id": "char_jiang_lao_quan_shi",
+    "name": "姜老拳师",
+    "role": "龙套",
+    "identity": "河南无极门拳师",
+    "faction": "faction_wu_ji_men",
+    "personality": [],
+    "one_line": "河南无极门拳师，受杜希孟之邀上玉笔峰助拳"
+  },
+  {
+    "id": "char_fei_tian_hu_li",
+    "name": "飞天狐狸",
+    "role": "次要",
+    "identity": "闯王第一卫士",
+    "faction": "faction_hu_jia",
+    "personality": [
+      "忠心耿耿",
+      "忍辱负重",
+      "智勇双全"
+    ],
+    "one_line": "闯王第一卫士，姓胡，胡家先祖，忍辱负重救闯王"
   }
 ]
 
-### factions.json (8 条)
+### factions.json (14 条)
 [
   {
     "id": "faction_tian_long_men",
     "name": "天龙门",
     "type": "武林门派",
-    "location": null,
-    "one_line": "关外第一大武学门派，分南北两宗，掌剑双绝"
-  },
-  {
-    "id": "faction_miao_jia",
-    "name": "苗家",
-    "type": "家族",
-    "location": null,
-    "one_line": "苗人凤家族，武林世家，以苗家剑法闻名"
-  },
-  {
-    "id": "faction_hu_jia",
-    "name": "胡家",
-    "type": "家族",
-    "location": null,
-    "one_line": "胡一刀家族，闯王卫士后人，以胡家刀法传世"
-  },
-  {
-    "id": "faction_tian_jia",
-    "name": "田家",
-    "type": "家族",
-    "location": null,
-    "one_line": "田归农家族，觊觎闯王宝藏，与苗家有姻亲关系"
-  },
-  {
-    "id": "faction_du_jia",
-    "name": "杜家",
-    "type": "家族",
-    "location": "loc_yu_bi_feng",
-    "one_line": "玉笔峰庄主杜希孟家族，与胡家有亲戚关系"
-  },
-  {
-    "id": "faction_gai_bang",
-    "name": "丐帮",
-    "type": "帮派",
-    "location": null,
-    "one_line": "天下第一大帮，范帮主与苗人凤交好"
-  },
-  {
-    "id": "faction_ping_tong_biao_ju",
-    "name": "平通镖局",
-    "type": "帮派",
-    "location": null,
-    "one_line": "北京平通镖局，熊元献为总镖头"
+    "location": "loc_liao_dong",
+    "one_line": "田家所创，分南北两宗，掌管闯王军刀，掌剑双绝"
   },
   {
     "id": "faction_yin_ma_chuan",
     "name": "饮马川山寨",
     "type": "帮派",
+    "location": "loc_yin_ma_chuan",
+    "one_line": "陶百岁父子的山寨，绿林势力，与天龙门结为亲家"
+  },
+  {
+    "id": "faction_ping_tong_biao_ju",
+    "name": "平通镖局",
+    "type": "帮派",
+    "location": "loc_bei_jing",
+    "one_line": "北京镖局，熊元献任总镖头，曾被饮马川劫镖结怨"
+  },
+  {
+    "id": "faction_xing_han_gai_bang",
+    "name": "兴汉丐帮",
+    "type": "帮派",
+    "location": "loc_luo_yang",
+    "one_line": "范帮主统领的丐帮，有反清之意，后被赛总管设计擒拿"
+  },
+  {
+    "id": "faction_hu_jia",
+    "name": "胡家",
+    "type": "家族",
+    "location": "loc_liao_dong",
+    "one_line": "闯王卫士飞天狐狸之后，胡一刀、胡斐所属，家传胡家刀法"
+  },
+  {
+    "id": "faction_miao_jia",
+    "name": "苗家",
+    "type": "家族",
+    "location": "loc_liao_dong",
+    "one_line": "闯王卫士之后，苗人凤所属，家传苗家剑法，至苗人凤而绝"
+  },
+  {
+    "id": "faction_fan_jia",
+    "name": "范家",
+    "type": "家族",
+    "location": "loc_luo_yang",
+    "one_line": "闯王卫士之后，丐帮范帮主所属，家传龙爪擒拿手"
+  },
+  {
+    "id": "faction_tian_jia",
+    "name": "田家",
+    "type": "家族",
+    "location": "loc_liao_dong",
+    "one_line": "闯王卫士之后，天龙门田归农所属，后人创立天龙门"
+  },
+  {
+    "id": "faction_yu_bi_shan_zhuang",
+    "name": "玉笔山庄",
+    "type": "山庄",
+    "location": "loc_yu_bi_feng",
+    "one_line": "杜希孟的山庄，位于玉笔峰顶，觊觎闯王宝藏"
+  },
+  {
+    "id": "faction_yu_qian_shi_wei",
+    "name": "御前侍卫",
+    "type": "官署",
+    "location": "loc_bei_jing",
+    "one_line": "乾隆皇帝的侍卫，赛总管统领，设计擒拿苗人凤与范帮主"
+  },
+  {
+    "id": "faction_qing_zang_pai",
+    "name": "青藏派",
+    "type": "武林门派",
     "location": null,
-    "one_line": "关外山寨，陶百岁为寨主，曾劫过平通镖局大镖"
+    "one_line": "玄冥子所属门派，受杜希孟之邀上玉笔峰助拳"
+  },
+  {
+    "id": "faction_kun_lun_pai",
+    "name": "昆仑派",
+    "type": "武林门派",
+    "location": null,
+    "one_line": "灵清道人所属门派，受杜希孟之邀上玉笔峰助拳"
+  },
+  {
+    "id": "faction_wu_ji_men",
+    "name": "无极门",
+    "type": "武林门派",
+    "location": null,
+    "one_line": "姜老拳师所属门派，受杜希孟之邀上玉笔峰助拳"
+  },
+  {
+    "id": "faction_ba_gua_men",
+    "name": "八卦门",
+    "type": "武林门派",
+    "location": null,
+    "one_line": "商剑鸣所属门派，八卦掌八卦刀闻名，王维扬为掌门"
   }
 ]
 
-### locations.json (10 条)
+### locations.json (13 条)
 [
   {
     "id": "loc_yu_bi_feng",
     "name": "玉笔峰",
     "region": "辽东",
-    "one_line": "长白山中陡削雪峰，杜希孟庄园所在，全书主要场景"
+    "one_line": "乌兰山上的陡削雪峰，杜希孟山庄所在，全书主要场景"
   },
   {
     "id": "loc_chang_bai_shan",
     "name": "长白山",
-    "region": "辽东",
-    "one_line": "关外名山，雪山飞狐故事发生地"
-  },
-  {
-    "id": "loc_beijing",
-    "name": "北京",
-    "region": "中原",
-    "one_line": "清朝都城，御前侍卫所在地"
-  },
-  {
-    "id": "loc_guan_wai",
-    "name": "关外",
-    "region": "辽东",
-    "one_line": "山海关以外地区，天龙门势力范围"
+    "region": "关外",
+    "one_line": "故事发生地，关外苦寒之地，积雪初融"
   },
   {
     "id": "loc_liao_dong",
     "name": "辽东",
-    "region": "辽东",
-    "one_line": "东北地区，胡家、天龙门所在地"
+    "region": "关外",
+    "one_line": "天龙门、胡家所在地，闯王宝藏藏于乌兰山"
   },
   {
-    "id": "loc_ling_nan",
-    "name": "岭南",
-    "region": "南方",
-    "one_line": "苗人凤曾去岭南办事"
+    "id": "loc_bei_jing",
+    "name": "北京",
+    "region": "中原",
+    "one_line": "清朝都城，平通镖局所在地，苗人凤被诱入天牢"
+  },
+  {
+    "id": "loc_cang_zhou",
+    "name": "沧州",
+    "region": "直隶",
+    "one_line": "胡一刀与苗人凤比武之处，宝树当年行医之地"
+  },
+  {
+    "id": "loc_jiu_gong_shan",
+    "name": "九宫山",
+    "region": "湖北",
+    "one_line": "闯王兵败之处，四卫士结仇之地"
+  },
+  {
+    "id": "loc_shi_men_xian",
+    "name": "石门县",
+    "region": "湖南",
+    "one_line": "闯王出家为僧的夹山普慈寺所在地"
+  },
+  {
+    "id": "loc_kun_ming",
+    "name": "昆明",
+    "region": "云南",
+    "one_line": "吴三桂藩地，飞天狐狸在此做官，四卫士行刺之处"
+  },
+  {
+    "id": "loc_dian_chi",
+    "name": "滇池",
+    "region": "云南",
+    "one_line": "飞天狐狸与三义弟饮宴诀别之处"
+  },
+  {
+    "id": "loc_yin_ma_chuan",
+    "name": "饮马川",
+    "region": "关外",
+    "one_line": "陶百岁父子的山寨所在地"
   },
   {
     "id": "loc_ning_gu_ta",
     "name": "宁古塔",
-    "region": "辽东",
-    "one_line": "关外重镇，杜希孟曾去请苗人凤"
+    "region": "关外",
+    "one_line": "杜希孟前往邀请苗人凤之地"
   },
   {
     "id": "loc_wu_lan_shan",
     "name": "乌兰山",
     "region": "辽东",
-    "one_line": "玉笔峰所在山脉"
+    "one_line": "玉笔峰所在的山脉，闯王宝藏藏于此"
   },
   {
-    "id": "loc_cang_zhou",
-    "name": "沧州",
-    "region": "中原",
-    "one_line": "胡一刀来到中原，苗人凤在此拦住他比武"
-  },
-  {
-    "id": "loc_shan_dong",
-    "name": "山东",
-    "region": "中原",
-    "one_line": "商剑鸣所在地"
+    "id": "loc_luo_yang",
+    "name": "洛阳",
+    "region": "河南",
+    "one_line": "雍正初年英雄聚会结盟之地，闯王军刀由天龙门掌管"
   }
 ]
 
-### skills.json (7 条)
+### skills.json (16 条)
 [
   {
     "id": "skill_hu_jia_dao_fa",
@@ -623,39 +763,63 @@
     "type": "剑法",
     "mastery_rank": "登峰造极",
     "practitioners": [],
-    "one_line": "苗家祖传剑法，精妙绝伦，反覆数千招无半点破绽"
-  },
-  {
-    "id": "skill_ba_gua_dao",
-    "name": "八卦刀",
-    "type": "刀法",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "八卦门武功，商剑鸣所使，被胡一刀用苗家剑法打败"
-  },
-  {
-    "id": "skill_ba_gua_zhang",
-    "name": "八卦掌",
-    "type": "掌法",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "八卦门掌法，商剑鸣的另一绝技"
+    "one_line": "苗家祖传剑法，天下无双，苗人凤所擅，至苗人凤而绝"
   },
   {
     "id": "skill_tian_long_jian_fa",
     "name": "天龙剑法",
     "type": "剑法",
-    "mastery_rank": "登堂入室",
+    "mastery_rank": "炉火纯青",
     "practitioners": [],
-    "one_line": "天龙门剑法，掌剑双绝"
+    "one_line": "天龙门镇派剑法，掌剑双绝，阮士中施展威力最大"
   },
   {
-    "id": "skill_qi_xing_shou",
-    "name": "七星手",
-    "type": "掌法",
+    "id": "skill_long_zha_qin_na_shou",
+    "name": "龙爪擒拿手",
+    "type": "擒拿",
     "mastery_rank": "出神入化",
     "practitioners": [],
-    "one_line": "阮士中的成名绝技，天龙北宗第一高手"
+    "one_line": "范帮主家传绝技，沾身即被拿住，曾赤手抓死两头猛虎"
+  },
+  {
+    "id": "skill_fei_tian_shen_xing",
+    "name": "飞天神行",
+    "type": "轻功",
+    "mastery_rank": "出神入化",
+    "practitioners": [],
+    "one_line": "胡家家传轻功绝技，身法极快，倏忽来去如鬼魅"
+  },
+  {
+    "id": "skill_chun_can_zhang_fa",
+    "name": "春蚕掌法",
+    "type": "掌法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "纯守势掌法，招招守势，密不透风"
+  },
+  {
+    "id": "skill_zhui_ming_du_long_zhui",
+    "name": "追命毒龙锥",
+    "type": "暗器",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "天龙门独门暗器，准快且毒，三时辰毙命"
+  },
+  {
+    "id": "skill_tie_men_shuan_dao_fa",
+    "name": "铁门闩刀法",
+    "type": "刀法",
+    "mastery_rank": "略有小成",
+    "practitioners": [],
+    "one_line": "郑三娘所擅守御刀法，三十六招内难以取胜"
+  },
+  {
+    "id": "skill_liu_he_bian_fa",
+    "name": "六合鞭法",
+    "type": "鞭法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "陶百岁所擅鞭法，威猛刚烈，膂力惊人"
   },
   {
     "id": "skill_di_tang_dao",
@@ -663,11 +827,59 @@
     "type": "刀法",
     "mastery_rank": "登堂入室",
     "practitioners": [],
-    "one_line": "熊元献精熟的地面功夫"
+    "one_line": "熊元献精熟的功夫，专攻下盘"
+  },
+  {
+    "id": "skill_ba_gua_dao",
+    "name": "八卦刀",
+    "type": "刀法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "八卦门刀法，商剑鸣所擅，被胡一刀以苗家剑法所破"
+  },
+  {
+    "id": "skill_ba_gua_zhang",
+    "name": "八卦掌",
+    "type": "掌法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "八卦门掌法，商剑鸣所擅，与八卦刀齐名"
+  },
+  {
+    "id": "skill_wu_hu_dao",
+    "name": "五虎刀",
+    "type": "刀法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "范帮主九九八十一路刀法"
+  },
+  {
+    "id": "skill_bi_hu_you_qiang_gong",
+    "name": "壁虎游墙功",
+    "type": "轻功",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "贴壁滑行的轻功，苗人凤与胡斐均会"
+  },
+  {
+    "id": "skill_qian_jin_zhui",
+    "name": "千斤坠",
+    "type": "内功",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "稳固下盘的内功，定身不移"
+  },
+  {
+    "id": "skill_tie_ban_qiao",
+    "name": "铁板桥",
+    "type": "身法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "闪避暗器的救命绝招，身子后仰斜倚"
   }
 ]
 
-### techniques.json (4 条)
+### techniques.json (3 条)
 [
   {
     "id": "tech_ba_fang_cang_dao",
@@ -676,46 +888,61 @@
     "source_skill": "skill_hu_jia_dao_fa"
   },
   {
-    "id": "tech_sha_ou_lue_bo",
-    "name": "沙鸥掠波",
-    "type": "attack",
-    "source_skill": "skill_miao_jia_jian_fa"
-  },
-  {
     "id": "tech_ti_liao_jian_bai_he_shu_chi",
     "name": "提撩剑白鹤舒翅",
     "type": "attack",
     "source_skill": "skill_miao_jia_jian_fa"
   },
   {
-    "id": "tech_bi_men_tie_shan_dao",
-    "name": "闭门铁扇刀",
+    "id": "tech_chong_tian_zhang_su_qin_beijian",
+    "name": "冲天掌苏秦背剑",
     "type": "attack",
-    "source_skill": "skill_hu_jia_dao_fa"
+    "source_skill": "skill_miao_jia_jian_fa"
   }
 ]
 
-### items.json (6 条)
+### items.json (9 条)
 [
   {
-    "id": "item_hu_jia_dao",
-    "name": "胡家刀",
+    "id": "item_chuang_wang_jun_dao",
+    "name": "闯王军刀",
     "type": "兵器",
-    "owner": "char_hu_fei",
-    "rarity_tier": "珍品",
-    "related_skills": [
-      "skill_hu_jia_dao_fa"
-    ],
-    "one_line": "胡家祖传单刀，生满铁锈，刀口喂有剧毒"
+    "owner": "faction_tian_long_men",
+    "rarity_tier": "神品",
+    "related_skills": [],
+    "one_line": "李自成遗下的军刀，刀鞘刻有十四字军令与藏宝线索"
   },
   {
     "id": "item_feng_tou_zhu_chai",
     "name": "凤头珠钗",
     "type": "信物",
-    "owner": "char_miao_ren_feng",
-    "rarity_tier": "珍品",
+    "owner": "char_miao_ruo_lan",
+    "rarity_tier": "神品",
     "related_skills": [],
-    "one_line": "苗人凤妻子遗物，内藏藏宝图"
+    "one_line": "苗家家传信物，钗身中空藏有闯王宝藏地图"
+  },
+  {
+    "id": "item_tie_he",
+    "name": "铁盒",
+    "type": "工具",
+    "owner": null,
+    "rarity_tier": "珍品",
+    "related_skills": [
+      "skill_hu_jia_dao_fa"
+    ],
+    "one_line": "胡一刀遗下的铁盒，内藏珍珠宝物与胡家拳经刀谱"
+  },
+  {
+    "id": "item_hu_jia_juan_jing_dao_pu",
+    "name": "胡家拳经刀谱",
+    "type": "秘籍",
+    "owner": "char_hu_fei",
+    "rarity_tier": "神品",
+    "related_skills": [
+      "skill_hu_jia_dao_fa",
+      "skill_fei_tian_shen_xing"
+    ],
+    "one_line": "飞天狐狸亲手所书的胡家武功秘本，传子不传女"
   },
   {
     "id": "item_huang_jin_xiao_bi",
@@ -724,34 +951,45 @@
     "owner": "char_hu_fei",
     "rarity_tier": "良品",
     "related_skills": [],
-    "one_line": "胡斐送给田青文的黄金铸成小笔"
+    "one_line": "田安豹所用暗器，笔管中空可藏纸卷，胡斐用以传递信息"
   },
   {
-    "id": "item_chuang_wang_jun_dao",
-    "name": "闯王军刀",
-    "type": "剧情关键",
+    "id": "item_chuang_wang_bao_zang",
+    "name": "闯王宝藏",
+    "type": "奇门",
     "owner": null,
     "rarity_tier": "神品",
     "related_skills": [],
-    "one_line": "李闯王军刀，藏有宝藏秘密"
+    "one_line": "李自成在北京搜刮的金银珠宝，藏于乌兰山玉笔峰地下"
   },
   {
-    "id": "item_hua_tong_huo_jian",
-    "name": "花筒火箭",
-    "type": "工具",
-    "owner": "char_bao_shu",
-    "rarity_tier": "凡品",
-    "related_skills": [],
-    "one_line": "江湖上传递信息的讯号火箭"
+    "id": "item_zhui_ming_du_long_zhui_wan_ji",
+    "name": "追命毒龙锥毒药",
+    "type": "毒药",
+    "owner": null,
+    "rarity_tier": "珍品",
+    "related_skills": [
+      "skill_zhui_ming_du_long_zhui"
+    ],
+    "one_line": "天龙门秘制毒药，见血封喉，阎基涂于刀剑上害死胡一刀"
   },
   {
-    "id": "item_zhu_lan",
-    "name": "竹篮",
-    "type": "工具",
-    "owner": "char_du_xi_meng",
-    "rarity_tier": "凡品",
+    "id": "item_yu_ma",
+    "name": "玉马",
+    "type": "饰品",
+    "owner": null,
+    "rarity_tier": "良品",
     "related_skills": [],
-    "one_line": "玉笔峰上下接客用的大竹篮"
+    "one_line": "苗若兰赠给胡斐双童的玉马，晶莹刻工精致"
+  },
+  {
+    "id": "item_hu_fei_yi_wu",
+    "name": "胡斐母亲遗物",
+    "type": "信物",
+    "owner": "char_hu_fei",
+    "rarity_tier": "良品",
+    "related_skills": [],
+    "one_line": "胡斐之母留给他的遗物包裹，内有婴儿衣鞋与黄布包袱"
   }
 ]
 
@@ -908,8 +1146,8 @@
     "text": "我爹爹因有伤心之事，是以感触特深，请您不要见怪。",
     "tone": "陈述",
     "chapter": 10,
-    "line_start": 12,
-    "line_end": 12
+    "line_start": 13,
+    "line_end": 13
   },
   {
     "index": 14,

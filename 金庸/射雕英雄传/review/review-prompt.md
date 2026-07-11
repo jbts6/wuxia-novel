@@ -207,7 +207,7 @@
 
 ## 数据
 
-### characters.json (50 条)
+### characters.json (67 条)
 [
   {
     "id": "char_guo_jing",
@@ -858,6 +858,227 @@
       "善于伪装"
     ],
     "one_line": "裘千仞孪生兄长，冒充弟弟名号招摇撞骗"
+  },
+  {
+    "id": "char_zhe_bie",
+    "name": "哲别",
+    "role": "次要",
+    "identity": "蒙古第一神箭手",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "箭术通神",
+      "勇猛善战",
+      "忠于铁木真"
+    ],
+    "one_line": "蒙古第一神箭手，郭靖箭术师父"
+  },
+  {
+    "id": "char_yin_zhi_ping",
+    "name": "尹志平",
+    "role": "龙套",
+    "identity": "全真教丘处机弟子",
+    "faction": "faction_quan_zhen_jiao",
+    "personality": [
+      "循规蹈矩",
+      "武功平平",
+      "尊师重道"
+    ],
+    "one_line": "全真教三代弟子，丘处机门下"
+  },
+  {
+    "id": "char_li_sheng",
+    "name": "黎生",
+    "role": "龙套",
+    "identity": "丐帮长老",
+    "faction": "faction_gai_bang",
+    "personality": [
+      "忠厚老实",
+      "侠义心肠",
+      "武功扎实"
+    ],
+    "one_line": "丐帮长老，忠于帮主"
+  },
+  {
+    "id": "char_lu_cheng_feng",
+    "name": "陆乘风",
+    "role": "次要",
+    "identity": "归云庄庄主，黄药师弟子",
+    "faction": "faction_tao_hua_dao",
+    "personality": [
+      "才华横溢",
+      "忠于师门",
+      "文武全才"
+    ],
+    "one_line": "桃花岛弟子，归云庄庄主，被逐出师门"
+  },
+  {
+    "id": "char_mu_hua_li",
+    "name": "木华黎",
+    "role": "龙套",
+    "identity": "铁木真四杰之一，蒙古大将",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "勇猛善战",
+      "忠于铁木真",
+      "沉稳老练"
+    ],
+    "one_line": "铁木真四杰之一，蒙古开国名将"
+  },
+  {
+    "id": "char_bo_er_shu",
+    "name": "博尔术",
+    "role": "龙套",
+    "identity": "铁木真四杰之一",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "勇猛善战",
+      "忠于铁木真",
+      "骁勇剽悍"
+    ],
+    "one_line": "铁木真四杰之一，蒙古开国功臣"
+  },
+  {
+    "id": "char_bo_er_hu",
+    "name": "博尔忽",
+    "role": "龙套",
+    "identity": "铁木真四杰之一",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "勇猛善战",
+      "忠于铁木真",
+      "身先士卒"
+    ],
+    "one_line": "铁木真四杰之一，蒙古开国功臣"
+  },
+  {
+    "id": "char_chi_lao_wen",
+    "name": "赤老温",
+    "role": "龙套",
+    "identity": "铁木真四杰之一",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "勇猛善战",
+      "忠于铁木真",
+      "性如烈火"
+    ],
+    "one_line": "铁木真四杰之一，蒙古开国功臣"
+  },
+  {
+    "id": "char_shu_bu_tai",
+    "name": "速不台",
+    "role": "龙套",
+    "identity": "蒙古大将",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "勇猛善战",
+      "忠于铁木真",
+      "骁勇剽悍"
+    ],
+    "one_line": "蒙古大将，随成吉思汗征战四方"
+  },
+  {
+    "id": "char_zha_mu_he",
+    "name": "札木合",
+    "role": "龙套",
+    "identity": "铁木真义弟，后反目成仇",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "野心勃勃",
+      "反复无常",
+      "能屈能伸"
+    ],
+    "one_line": "铁木真义弟，后反目兵败被杀"
+  },
+  {
+    "id": "char_sang_kun",
+    "name": "桑昆",
+    "role": "龙套",
+    "identity": "王罕之子",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "骄横跋扈",
+      "目光短浅",
+      "心胸狭隘"
+    ],
+    "one_line": "王罕之子，与铁木真为敌"
+  },
+  {
+    "id": "char_wang_han",
+    "name": "王罕",
+    "role": "龙套",
+    "identity": "蒙古部落首领，铁木真义父",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "老谋深算",
+      "贪图享乐",
+      "耳根子软"
+    ],
+    "one_line": "蒙古部落首领，铁木真义父，后反目"
+  },
+  {
+    "id": "char_du_shi",
+    "name": "都史",
+    "role": "龙套",
+    "identity": "桑昆之子",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "骄横跋扈",
+      "恃强凌弱",
+      "胆小怕事"
+    ],
+    "one_line": "桑昆之子，骄横跋扈的蒙古少年"
+  },
+  {
+    "id": "char_shu_chi",
+    "name": "术赤",
+    "role": "龙套",
+    "identity": "铁木真长子",
+    "faction": "faction_meng_gu_bu_zu",
+    "personality": [
+      "勇猛善战",
+      "忠于父汗",
+      "性情刚烈"
+    ],
+    "one_line": "铁木真长子，随父征战"
+  },
+  {
+    "id": "char_wan_yan_kang",
+    "name": "完颜康",
+    "role": "龙套",
+    "identity": "杨康的王府名字",
+    "faction": "faction_jin_guo_wang_fu",
+    "personality": [
+      "聪明机警",
+      "贪图富贵",
+      "心狠手辣"
+    ],
+    "one_line": "杨康在金国王府的身份名"
+  },
+  {
+    "id": "char_li_quan",
+    "name": "李全",
+    "role": "龙套",
+    "identity": "忠义军首领",
+    "faction": "faction_nan_song_chao_ting",
+    "personality": [
+      "忠义报国",
+      "骁勇善战",
+      "豪爽直率"
+    ],
+    "one_line": "忠义军首领，抗金义军领袖"
+  },
+  {
+    "id": "char_yang_miao_zhen",
+    "name": "杨妙真",
+    "role": "龙套",
+    "identity": "李全之妻",
+    "faction": "faction_nan_song_chao_ting",
+    "personality": [
+      "巾帼不让须眉",
+      "武艺高强",
+      "忠义报国"
+    ],
+    "one_line": "李全之妻，巾帼英雄"
   }
 ]
 
@@ -1278,8 +1499,21 @@
 ### techniques.json (0 条)
 []
 
-### items.json (18 条)
+### items.json (10 条)
 [
+  {
+    "id": "item_jiu_yin_zhen_jing",
+    "name": "九阴真经",
+    "type": "秘籍",
+    "owner": null,
+    "rarity_tier": "神品",
+    "related_skills": [
+      "skill_jiu_yin_zhen_jing",
+      "skill_jiu_yin_bai_gu_zhua",
+      "skill_cui_xin_zhang"
+    ],
+    "one_line": "天下武学总纲，引发华山论剑与全书纷争的核心经书"
+  },
   {
     "id": "item_da_gou_bang",
     "name": "打狗棒",
@@ -1289,65 +1523,7 @@
     "related_skills": [
       "skill_da_gou_bang_fa"
     ],
-    "one_line": "丐帮帮主世代相传的碧绿竹杖，棒法精妙"
-  },
-  {
-    "id": "item_she_zhang",
-    "name": "蛇杖",
-    "type": "兵器",
-    "owner": "char_ou_yang_feng",
-    "rarity_tier": "珍品",
-    "related_skills": [],
-    "one_line": "欧阳锋的弯形铁杖，杖头铸有人头怪蛇"
-  },
-  {
-    "id": "item_jiu_yin_zhen_jing_shang",
-    "name": "九阴真经（上卷）",
-    "type": "秘籍",
-    "owner": null,
-    "rarity_tier": "神品",
-    "related_skills": [
-      "skill_jiu_yin_zhen_jing"
-    ],
-    "one_line": "道家至高武学典籍上卷，载内功心法总旨"
-  },
-  {
-    "id": "item_jiu_yin_zhen_jing_xia",
-    "name": "九阴真经（下卷）",
-    "type": "秘籍",
-    "owner": null,
-    "rarity_tier": "神品",
-    "related_skills": [
-      "skill_jiu_yin_zhen_jing"
-    ],
-    "one_line": "九阴真经下卷，载诸般武功招式及破解之法"
-  },
-  {
-    "id": "item_wu_mu_yi_shu",
-    "name": "武穆遗书",
-    "type": "秘籍",
-    "owner": "char_guo_jing",
-    "rarity_tier": "神品",
-    "related_skills": [],
-    "one_line": "岳飞所遗兵法韬略，铁掌帮中藏于铁掌峰"
-  },
-  {
-    "id": "item_xiao_hong_ma",
-    "name": "小红马",
-    "type": "坐骑",
-    "owner": "char_guo_jing",
-    "rarity_tier": "珍品",
-    "related_skills": [],
-    "one_line": "郭靖的汗血宝马，日行千里，神骏非凡"
-  },
-  {
-    "id": "item_shuang_diao",
-    "name": "双雕",
-    "type": "异兽",
-    "owner": "char_hua_zheng",
-    "rarity_tier": "珍品",
-    "related_skills": [],
-    "one_line": "华筝所养的两只大雕，曾救郭靖性命"
+    "one_line": "丐帮帮主信物，碧绿竹棒，打狗棒法之载体"
   },
   {
     "id": "item_ruan_wei_jia",
@@ -1356,651 +1532,329 @@
     "owner": "char_huang_rong",
     "rarity_tier": "珍品",
     "related_skills": [],
-    "one_line": "桃花岛镇岛之宝，刀枪不入的刺猬软甲"
+    "one_line": "桃花岛宝甲，满布倒刺刀枪不入，黄蓉贴身穿戴"
   },
   {
-    "id": "item_bi_shou",
-    "name": "匕首",
+    "id": "item_jin_dao",
+    "name": "金刀",
     "type": "兵器",
     "owner": "char_guo_jing",
-    "rarity_tier": "凡品",
+    "rarity_tier": "良品",
     "related_skills": [],
-    "one_line": "郭靖随身携带的短匕，幼年救命之物"
+    "one_line": "郭靖随身金刀，郭啸天遗物，后为斩杀完颜洪烈之器"
+  },
+  {
+    "id": "item_she_zhang",
+    "name": "蛇杖",
+    "type": "兵器",
+    "owner": "char_ou_yang_feng",
+    "rarity_tier": "珍品",
+    "related_skills": [
+      "skill_ha_ma_gong"
+    ],
+    "one_line": "欧阳锋的蛇形铁杖，杖头铸有人头，藏有毒蛇"
   },
   {
     "id": "item_tong_xi_di_long_wan",
     "name": "通犀地龙丸",
     "type": "丹药",
-    "owner": "char_ou_yang_feng",
+    "owner": null,
     "rarity_tier": "珍品",
     "related_skills": [],
-    "one_line": "欧阳锋的避毒圣药，服之百毒不侵"
+    "one_line": "欧阳锋的珍贵丹药，能解百毒，作为求亲之礼"
   },
   {
-    "id": "item_she_xue",
-    "name": "朱红蟒蛇药血",
-    "type": "丹药",
+    "id": "item_duansjian",
+    "name": "短剑",
+    "type": "兵器",
+    "owner": "char_mu_nian_ci",
+    "rarity_tier": "良品",
+    "related_skills": [],
+    "one_line": "郭杨两家订亲信物，剑柄刻郭靖二字，后归穆念慈"
+  },
+  {
+    "id": "item_jin_diao",
+    "name": "白雕",
+    "type": "异兽",
+    "owner": "char_guo_jing",
+    "rarity_tier": "良品",
+    "related_skills": [],
+    "one_line": "郭靖华筝所养的两头白雕，忠勇善战的灵禽"
+  },
+  {
+    "id": "item_han_xue_bao_ma",
+    "name": "汗血宝马",
+    "type": "坐骑",
     "owner": "char_guo_jing",
     "rarity_tier": "珍品",
     "related_skills": [],
-    "one_line": "梁子翁养的药蟒之血，郭靖误饮后百毒不侵"
+    "one_line": "西域大宛天马，肩汗如血，日行千里，郭靖坐骑"
   },
   {
-    "id": "item_fei_cui_xiao_xie",
-    "name": "翡翠小鞋",
-    "type": "饰品",
-    "owner": "char_ying_gu",
-    "rarity_tier": "良品",
-    "related_skills": [],
-    "one_line": "瑛姑珍藏的翡翠小鞋，承载与周伯通旧情"
-  },
-  {
-    "id": "item_suan_chou",
-    "name": "算筹",
-    "type": "奇门",
-    "owner": "char_ying_gu",
-    "rarity_tier": "良品",
-    "related_skills": [],
-    "one_line": "瑛姑精通术数的算筹，暗藏奇门变化"
-  },
-  {
-    "id": "item_fu_she",
-    "name": "蝮蛇",
-    "type": "异兽",
-    "owner": "char_ou_yang_feng",
-    "rarity_tier": "良品",
-    "related_skills": [],
-    "one_line": "欧阳锋蛇杖中驯养的剧毒怪蛇"
-  },
-  {
-    "id": "item_zhe_shan",
-    "name": "折扇",
+    "id": "item_yu_xiao",
+    "name": "玉箫",
     "type": "兵器",
-    "owner": "char_ou_yang_ke",
-    "rarity_tier": "良品",
-    "related_skills": [],
-    "one_line": "欧阳克随身折扇，潇洒风流的标志"
-  },
-  {
-    "id": "item_jin_long_bian",
-    "name": "金龙鞭",
-    "type": "兵器",
-    "owner": "char_han_bao_jv",
-    "rarity_tier": "良品",
-    "related_skills": [],
-    "one_line": "韩宝驹的金龙鞭，马上功夫的利器"
-  },
-  {
-    "id": "item_tie_jiang",
-    "name": "铁桨",
-    "type": "兵器",
-    "owner": "char_mei_chao_feng",
-    "rarity_tier": "良品",
-    "related_skills": [],
-    "one_line": "梅超风的铁桨，配合九阴白骨爪使用"
-  },
-  {
-    "id": "item_xiu_hua_xie",
-    "name": "绣花鞋",
-    "type": "信物",
-    "owner": "char_huang_rong",
-    "rarity_tier": "凡品",
-    "related_skills": [],
-    "one_line": "黄蓉的绣花鞋，郭靖追寻她的线索"
+    "owner": "char_huang_yao_shi",
+    "rarity_tier": "珍品",
+    "related_skills": [
+      "skill_yu_xiao_jian_fa",
+      "skill_bi_hai_chao_sheng_qu"
+    ],
+    "one_line": "黄药师的碧玉箫，可吹奏碧海潮生曲以内力伤人"
   }
 ]
 
-### dialogues.json (前 50 条 / 共 192 条)
+### dialogues.json (前 50 条 / 共 78 条)
 [
   {
     "index": 0,
     "speaker": "char_zhang_shi_wu",
-    "speaker_name": "张十五",
-    "listener": null,
-    "text": "这首七言诗，说的是兵火过后，原来的家家户户，都变成了断墙残瓦的破败之地。",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 6,
-    "line_end": 12
+    "chapter": 1
   },
   {
     "index": 1,
     "speaker": "char_guo_xiao_tian",
-    "speaker_name": "郭啸天",
-    "listener": "char_zhang_shi_wu",
-    "text": "张先生，你可是从北方来吗？",
-    "tone": "疑问",
-    "chapter": 1,
-    "line_start": 32,
-    "line_end": 32
+    "chapter": 1
   },
   {
     "index": 2,
-    "speaker": "char_zhang_shi_wu",
-    "speaker_name": "张十五",
-    "listener": "char_guo_xiao_tian",
-    "text": "我中国百姓，比女真人多上一百倍也还不止。只要朝廷肯用忠臣良将，咱们一百个打他一个，金兵如何能够抵挡？",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 44,
-    "line_end": 44
+    "speaker": "char_qiu_chu_ji",
+    "chapter": 1
   },
   {
     "index": 3,
-    "speaker": "char_guo_xiao_tian",
-    "speaker_name": "郭啸天",
-    "listener": null,
-    "text": "正是！",
-    "tone": "激动",
-    "chapter": 1,
-    "line_start": 46,
-    "line_end": 46
+    "speaker": "char_yang_tie_xin",
+    "chapter": 1
   },
   {
     "index": 4,
-    "speaker": "char_zhang_shi_wu",
-    "speaker_name": "张十五",
-    "listener": "char_guo_xiao_tian",
-    "text": "岳爷爷有两句诗道：'壮志饥餐胡虏肉，笑谈渴饮匈奴血。'这两句诗当真说出了中国全国百姓的心里话。",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 52,
-    "line_end": 52
+    "speaker": "char_qiu_chu_ji",
+    "chapter": 1
   },
   {
     "index": 5,
-    "speaker": "char_qu_ling_feng",
-    "speaker_name": "曲三",
-    "listener": "char_yang_tie_xin",
-    "text": "骂得好，骂得对，有什么不对？不过我曾听得人说，想要杀岳爷爷议和的，罪魁祸首却不是秦桧。",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 56,
-    "line_end": 56
+    "speaker": "char_ke_zhen_e",
+    "chapter": 2
   },
   {
     "index": 6,
-    "speaker": "char_qu_ling_feng",
-    "speaker_name": "曲三",
-    "listener": null,
-    "text": "秦桧做的是宰相，议和也好，不议和也好，他都做他的宰相。可是岳爷爷一心一意要灭了金国，迎接徽钦二帝回来。这两个皇帝一回来，高宗皇帝他又做什么呀？",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 56,
-    "line_end": 56
+    "speaker": "char_qiu_chu_ji",
+    "chapter": 2
   },
   {
     "index": 7,
-    "speaker": "char_guo_xiao_tian",
-    "speaker_name": "郭啸天",
-    "listener": null,
-    "text": "不要脸，不要脸！这鸟皇帝算是那一门子的皇帝！",
-    "tone": "愤怒",
-    "chapter": 1,
-    "line_start": 66,
-    "line_end": 66
+    "speaker": "char_zhu_cong",
+    "chapter": 2
   },
   {
     "index": 8,
-    "speaker": "char_qu_ling_feng",
-    "speaker_name": "曲三",
-    "listener": "char_guo_xiao_tian",
-    "text": "郭兄，就算你有双戟在手，你们两位合力，斗得过我吗？",
-    "tone": "冷酷",
-    "chapter": 1,
-    "line_start": 100,
-    "line_end": 100
+    "speaker": "char_qiu_chu_ji",
+    "chapter": 2
   },
   {
     "index": 9,
-    "speaker": "char_guo_xiao_tian",
-    "speaker_name": "郭啸天",
-    "listener": "char_qu_ling_feng",
-    "text": "斗不过！我兄弟俩有眼无珠，跟你老兄在牛家村同住了一年有余，全没瞧出你老兄是位身怀绝技的高手。",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 100,
-    "line_end": 100
+    "speaker": "char_jiao_mu",
+    "chapter": 2
   },
   {
     "index": 10,
-    "speaker": "char_qu_ling_feng",
-    "speaker_name": "曲三",
-    "listener": null,
-    "text": "资质寻常的，当然是这样，可是天下尽有聪明绝顶之人，文才武功，琴棋书画，算数韬略，以至医卜星相，奇门五行，无一不会，无一不精！只不过你们见不着罢了。",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 124,
-    "line_end": 124
+    "speaker": "char_ke_zhen_e",
+    "chapter": 2
   },
   {
     "index": 11,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": "char_yang_tie_xin",
-    "text": "叫我留步，是何居心？爽爽快快说出来罢！",
-    "tone": "冷酷",
-    "chapter": 1,
-    "line_start": 148,
-    "line_end": 148
+    "speaker": "char_tie_mu_zhen",
+    "chapter": 3
   },
   {
     "index": 12,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": null,
-    "text": "好好好，喝酒就喝酒！",
-    "tone": "激动",
-    "chapter": 1,
-    "line_start": 152,
-    "line_end": 152
+    "speaker": "char_zhe_bie",
+    "chapter": 3
   },
   {
     "index": 13,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": null,
-    "text": "无耻鼠辈，道爷今日大开杀戒了！",
-    "tone": "愤怒",
-    "chapter": 1,
-    "line_start": 170,
-    "line_end": 170
+    "speaker": "char_tie_mu_zhen",
+    "chapter": 3
   },
   {
     "index": 14,
-    "speaker": "char_yang_tie_xin",
-    "speaker_name": "杨铁心",
-    "listener": "char_qiu_chu_ji",
-    "text": "来来来，教你知道杨家枪法的厉害。",
-    "tone": "愤怒",
-    "chapter": 1,
-    "line_start": 172,
-    "line_end": 172
+    "speaker": "char_guo_jing",
+    "chapter": 3
   },
   {
     "index": 15,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": "char_yang_tie_xin",
-    "text": "凭你这公门鼠辈，也配使杨家枪！",
-    "tone": "嘲讽",
-    "chapter": 1,
-    "line_start": 174,
-    "line_end": 174
+    "speaker": "char_ke_zhen_e",
+    "chapter": 4
   },
   {
     "index": 16,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": null,
-    "text": "贫道姓丘名处机⋯⋯",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 196,
-    "line_end": 196
+    "speaker": "char_guo_jing",
+    "chapter": 4
   },
   {
     "index": 17,
-    "speaker": "char_guo_xiao_tian",
-    "speaker_name": "郭啸天",
-    "listener": null,
-    "text": "遮莫不是长春子么？",
-    "tone": "激动",
-    "chapter": 1,
-    "line_start": 196,
-    "line_end": 196
+    "speaker": "char_bao_xi_ru",
+    "chapter": 5
   },
   {
     "index": 18,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": null,
-    "text": "出家人本来不可滥杀，可是一见了害民奸贼、敌国仇寇，贫道便不能手下留情。",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 230,
-    "line_end": 230
+    "speaker": "char_wan_yan_hong_lie",
+    "chapter": 5
   },
   {
     "index": 19,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": null,
-    "text": "这对短剑是我无意之中得来的，虽然锋锐，但剑刃短了，贫道不合使，将来孩子们倒可用来杀敌防身。",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 246,
-    "line_end": 246
+    "speaker": "char_mu_nian_ci",
+    "chapter": 6
   },
   {
     "index": 20,
-    "speaker": "char_yang_tie_xin",
-    "speaker_name": "杨铁心",
-    "listener": "char_guo_xiao_tian",
-    "text": "要是咱们的孩子都是男儿，那么让他们结为兄弟，倘若都是女儿，就结为姊妹⋯⋯",
-    "tone": "欣喜",
-    "chapter": 1,
-    "line_start": 250,
-    "line_end": 250
+    "speaker": "char_huang_rong",
+    "chapter": 7
   },
   {
     "index": 21,
-    "speaker": "char_guo_xiao_tian",
-    "speaker_name": "郭啸天",
-    "listener": "char_yang_tie_xin",
-    "text": "若是一男一女，那就结为夫妻。",
-    "tone": "欣喜",
-    "chapter": 1,
-    "line_start": 250,
-    "line_end": 250
+    "speaker": "char_guo_jing",
+    "chapter": 7
   },
   {
     "index": 22,
-    "speaker": "char_han_xiao_ying",
-    "speaker_name": "韩小莹",
-    "listener": "char_qiu_chu_ji",
-    "text": "丘道长能干英明，天下皆知，我们七兄弟也不是初走江湖之人，这次大家竟胡里胡涂的栽在这无名之辈手里，流传出去，定教江湖上好汉耻笑。这事如何善后，还得请道长示下。",
-    "tone": "陈述",
-    "chapter": 3,
-    "line_start": 888,
-    "line_end": 888
+    "speaker": "char_huang_rong",
+    "chapter": 7
   },
   {
     "index": 23,
-    "speaker": "char_ke_zhen_e",
-    "speaker_name": "柯镇恶",
-    "listener": "char_qiu_chu_ji",
-    "text": "丘道长仗剑横行天下，怎把别人瞧在眼里？这事又何必再问我们兄弟？",
-    "tone": "嘲讽",
-    "chapter": 3,
-    "line_start": 892,
-    "line_end": 892
+    "speaker": "char_han_bao_jv",
+    "chapter": 7
   },
   {
     "index": 24,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": "char_ke_zhen_e",
-    "text": "贫道无状，行事胡涂，得罪了各位，确是贫道的不是，这里向各位谢过，尚请原宥！",
-    "tone": "恳求",
-    "chapter": 3,
-    "line_start": 894,
-    "line_end": 894
+    "speaker": "char_wan_yan_kang",
+    "chapter": 8
   },
   {
     "index": 25,
-    "speaker": "char_ke_zhen_e",
-    "speaker_name": "柯镇恶",
-    "listener": "char_qiu_chu_ji",
-    "text": "江湖上的事，我兄弟再也没面目理会啦。我们在这里打鱼的打鱼，砍柴的砍柴，只要道长放我们一马，不再前来寻事，我们总可安安稳稳的过这下半辈子。",
-    "tone": "嘲讽",
-    "chapter": 3,
-    "line_start": 896,
-    "line_end": 896
+    "speaker": "char_sha_tong_tian",
+    "chapter": 8
   },
   {
     "index": 26,
-    "speaker": "char_ke_zhen_e",
-    "speaker_name": "柯镇恶",
-    "listener": "char_qiu_chu_ji",
-    "text": "你把我们兄弟个个打得重伤，单凭这么一句话，就算了事么？",
-    "tone": "愤怒",
-    "chapter": 3,
-    "line_start": 900,
-    "line_end": 900
+    "speaker": "char_huang_rong",
+    "chapter": 9
   },
   {
     "index": 27,
-    "speaker": "char_ke_zhen_e",
-    "speaker_name": "柯镇恶",
-    "listener": "char_qiu_chu_ji",
-    "text": "这口气我们咽不下去，还求道长再予赐教。",
-    "tone": "愤怒",
-    "chapter": 3,
-    "line_start": 902,
-    "line_end": 902
+    "speaker": "char_huang_rong",
+    "chapter": 10
   },
   {
     "index": 28,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": null,
-    "text": "各位既要与贫道再决胜负，也无不可，但办法却要由贫道规定。",
-    "tone": "陈述",
-    "chapter": 3,
-    "line_start": 910,
-    "line_end": 910
+    "speaker": "char_hong_qi_gong",
+    "chapter": 11
   },
   {
     "index": 29,
-    "speaker": "char_han_bao_jv",
-    "speaker_name": "韩宝驹",
-    "listener": null,
-    "text": "怎样？",
-    "tone": "疑问",
-    "chapter": 3,
-    "line_start": 934,
-    "line_end": 934
+    "speaker": "char_hong_qi_gong",
+    "chapter": 12
   },
   {
     "index": 30,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": null,
-    "text": "过得一十八年，孩子们都十八岁了，咱们再在嘉兴府醉仙楼头相会，大邀江湖上的英雄好汉，欢宴一场。酒醉饭饱之余，让两个孩子比试武艺，瞧是贫道的徒弟高明呢，还是七侠的徒弟了得？",
-    "tone": "陈述",
-    "chapter": 3,
-    "line_start": 934,
-    "line_end": 934
+    "speaker": "char_hong_qi_gong",
+    "chapter": 12
   },
   {
     "index": 31,
-    "speaker": "char_ke_zhen_e",
-    "speaker_name": "柯镇恶",
-    "listener": null,
-    "text": "好，咱们赌了。",
-    "tone": "激动",
-    "chapter": 3,
-    "line_start": 938,
-    "line_end": 938
+    "speaker": "char_hong_qi_gong",
+    "chapter": 12
   },
   {
     "index": 32,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": null,
-    "text": "古来大英雄真侠士，跟人结交是为朋友卖命，所谓'不爱其躯，赴士之厄困'，只要是义所当为，就是把性命交给了他，又算得什么？",
-    "tone": "陈述",
-    "chapter": 3,
-    "line_start": 948,
-    "line_end": 948
+    "speaker": "char_huang_rong",
+    "chapter": 12
   },
   {
     "index": 33,
-    "speaker": "char_zhu_cong",
-    "speaker_name": "朱聪",
-    "listener": "char_qiu_chu_ji",
-    "text": "道长指点得不错，兄弟知罪了。我们七怪担当这件事就是。",
-    "tone": "陈述",
-    "chapter": 3,
-    "line_start": 948,
-    "line_end": 948
+    "speaker": "char_hong_qi_gong",
+    "chapter": 12
   },
   {
     "index": 34,
-    "speaker": "char_qiu_chu_ji",
-    "speaker_name": "丘处机",
-    "listener": null,
-    "text": "今日是三月廿四，十八年后的今日正午，大伙儿在醉仙楼相会，让普天下英雄见见，谁是真正的好汉子！",
-    "tone": "激动",
-    "chapter": 3,
-    "line_start": 950,
-    "line_end": 950
+    "speaker": "char_huang_rong",
+    "chapter": 13
   },
   {
     "index": 35,
-    "speaker": "char_tie_mu_zhen",
-    "speaker_name": "铁木真",
-    "listener": null,
-    "text": "敌兵还没有疲！",
-    "tone": "冷酷",
-    "chapter": 5,
-    "line_start": 1028,
-    "line_end": 1028
+    "speaker": "char_huang_yao_shi",
+    "chapter": 14
   },
   {
     "index": 36,
-    "speaker": "char_tie_mu_zhen",
-    "speaker_name": "铁木真",
-    "listener": null,
-    "text": "好箭法！",
-    "tone": "欣喜",
-    "chapter": 5,
-    "line_start": 1034,
-    "line_end": 1034
+    "speaker": "char_mei_chao_feng",
+    "chapter": 14
   },
   {
     "index": 37,
-    "speaker": "char_tie_mu_zhen",
-    "speaker_name": "铁木真",
-    "listener": null,
-    "text": "好兄弟，真有你的！",
-    "tone": "欣喜",
-    "chapter": 5,
-    "line_start": 1038,
-    "line_end": 1038
+    "speaker": "char_huang_yao_shi",
+    "chapter": 14
   },
   {
     "index": 38,
-    "speaker": null,
-    "speaker_name": "忽都虎",
-    "listener": "char_tie_mu_zhen",
-    "text": "可以举纛吹号了么？",
-    "tone": "焦急",
-    "chapter": 5,
-    "line_start": 1040,
-    "line_end": 1040
+    "speaker": "char_huang_rong",
+    "chapter": 14
   },
   {
     "index": 39,
-    "speaker": "char_tie_mu_zhen",
-    "speaker_name": "铁木真",
-    "listener": null,
-    "text": "敌军还没疲，再支持一会。",
-    "tone": "冷酷",
-    "chapter": 5,
-    "line_start": 1040,
-    "line_end": 1040
+    "speaker": "char_hong_qi_gong",
+    "chapter": 15
   },
   {
     "index": 40,
-    "speaker": null,
-    "speaker_name": "哲别",
-    "listener": null,
-    "text": "水，水⋯⋯给我水？",
-    "tone": "焦急",
-    "chapter": 5,
-    "line_start": 1062,
-    "line_end": 1062
+    "speaker": "char_zhou_bo_tong",
+    "chapter": 16
   },
   {
     "index": 41,
-    "speaker": null,
-    "speaker_name": "哲别",
-    "listener": "char_guo_jing",
-    "text": "好兄弟，多谢你！",
-    "tone": "欣喜",
-    "chapter": 5,
-    "line_start": 1068,
-    "line_end": 1068
+    "speaker": "char_zhou_bo_tong",
+    "chapter": 16
   },
   {
     "index": 42,
-    "speaker": "char_guo_jing",
-    "speaker_name": "郭靖",
-    "listener": null,
-    "text": "妈妈说的，应当接待客人，不可要客人东西。",
-    "tone": "陈述",
-    "chapter": 5,
-    "line_start": 1068,
-    "line_end": 1068
+    "speaker": "char_zhou_bo_tong",
+    "chapter": 16
   },
   {
     "index": 43,
-    "speaker": null,
-    "speaker_name": "哲别",
-    "listener": null,
-    "text": "要是我在战场之上，给胜过我的好汉杀了，那是死得心甘情愿。现今却是大鹰落在地下，为蚂蚁咬死！",
-    "tone": "悲伤",
-    "chapter": 5,
-    "line_start": 1112,
-    "line_end": 1112
+    "speaker": "char_zhou_bo_tong",
+    "chapter": 16
   },
   {
     "index": 44,
-    "speaker": "char_tie_mu_zhen",
-    "speaker_name": "铁木真",
-    "listener": null,
-    "text": "你还不投降吗？",
-    "tone": "冷酷",
-    "chapter": 5,
-    "line_start": 1168,
-    "line_end": 1168
+    "speaker": "char_zhou_bo_tong",
+    "chapter": 17
   },
   {
     "index": 45,
-    "speaker": null,
-    "speaker_name": "哲别",
-    "listener": null,
-    "text": "大汗饶我一命，以后赴汤蹈火，我也愿意。横断黑水，粉碎岩石，扶保大汗。征讨外敌，挖取人心！叫我到那里，我就到那里。为大汗冲锋陷阵，奔驰万里，日夜不停！",
-    "tone": "激动",
-    "chapter": 5,
-    "line_start": 1170,
-    "line_end": 1170
+    "speaker": "char_huang_rong",
+    "chapter": 18
   },
   {
     "index": 46,
-    "speaker": "char_tie_mu_zhen",
-    "speaker_name": "铁木真",
-    "listener": null,
-    "text": "好好，以后你跟着我罢！",
-    "tone": "欣喜",
-    "chapter": 5,
-    "line_start": 1168,
-    "line_end": 1168
+    "speaker": "char_huang_yao_shi",
+    "chapter": 18
   },
   {
     "index": 47,
-    "speaker": "char_tie_mu_zhen",
-    "speaker_name": "铁木真",
-    "listener": "char_guo_jing",
-    "text": "好孩儿！",
-    "tone": "欣喜",
-    "chapter": 5,
-    "line_start": 1174,
-    "line_end": 1174
+    "speaker": "char_hong_qi_gong",
+    "chapter": 18
   },
   {
     "index": 48,
-    "speaker": "char_tuo_lei",
-    "speaker_name": "拖雷",
-    "listener": "char_guo_jing",
-    "text": "哈，你躲在这里。你不敢去帮拖雷打架，没用的东西！",
-    "tone": "调侃",
-    "chapter": 5,
-    "line_start": 1708,
-    "line_end": 1708
+    "speaker": "char_huang_rong",
+    "chapter": 19
   },
   {
     "index": 49,
-    "speaker": "char_han_xiao_ying",
-    "speaker_name": "韩小莹",
-    "listener": "char_guo_jing",
-    "text": "你若赶去，连你也一起吃了，你难道不怕豹子？",
-    "tone": "疑问",
-    "chapter": 5,
-    "line_start": 1714,
-    "line_end": 1714
+    "speaker": "char_ou_yang_feng",
+    "chapter": 20
   }
 ]
 
@@ -2029,7 +1883,7 @@
     "title": "第二回",
     "key_events": [
       "牛家村遭官兵围攻",
-      "郭啸天战死沙场",
+      "郭啸天家中遇害",
       "李萍被段天德掳走",
       "丘处机与七怪打赌",
       "七怪北上大漠寻人"
@@ -2051,7 +1905,7 @@
       "郭靖蒙古草原长大",
       "七怪大漠寻到母子",
       "七怪定居大漠教武",
-      "铁木真收留七怪"
+      "七怪定居大漠教武"
     ],
     "key_characters": [
       "char_li_ping",

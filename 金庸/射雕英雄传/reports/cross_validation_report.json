@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T09:36:20.696Z",
+  "generated_at": "2026-07-11T10:25:46.324Z",
   "summary": {
-    "total": 29,
+    "total": 30,
     "errors": 0,
-    "warnings": 21,
+    "warnings": 22,
     "info": 8
   },
   "issues": [
@@ -198,6 +198,13 @@
         "char_chi_lao_wen"
       ],
       "message": "Alias \"蒙古四杰之一\" appears in multiple characters: 木华黎, 博尔术, 博尔忽, 赤老温"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_jin_guo_wang_yin",
+      "name": "金国王爷印信",
+      "message": "Item \"金国王爷印信\" not found in original text - likely hallucination"
     },
     {
       "type": "possible_hallucination",

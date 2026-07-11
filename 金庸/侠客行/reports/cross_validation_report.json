@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T09:36:17.057Z",
+  "generated_at": "2026-07-11T10:25:44.355Z",
   "summary": {
-    "total": 14,
+    "total": 12,
     "errors": 0,
-    "warnings": 10,
+    "warnings": 8,
     "info": 4
   },
   "issues": [
@@ -66,25 +66,10 @@
     {
       "type": "dangling_reference",
       "severity": "warning",
-      "source": "dialogue[14]",
+      "source": "dialogue[30]",
       "field": "speaker",
-      "ref": "char_hua_wan_zi",
-      "message": "Dialogue speaker \"char_hua_wan_zi\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[31]",
-      "field": "speaker",
-      "ref": "char_mi_heng_ye",
-      "message": "Dialogue speaker \"char_mi_heng_ye\" not found in characters.json"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "warning",
-      "source": "item_xia_ke_dao_mu_bei",
-      "name": "侠客岛墓碑",
-      "message": "Item \"侠客岛墓碑\" not found in original text - likely hallucination"
+      "ref": "char_zhan_fei",
+      "message": "Dialogue speaker \"char_zhan_fei\" not found in characters.json"
     },
     {
       "type": "possible_hallucination",

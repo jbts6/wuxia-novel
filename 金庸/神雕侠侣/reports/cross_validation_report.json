@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T09:36:18.632Z",
+  "generated_at": "2026-07-11T10:25:45.197Z",
   "summary": {
-    "total": 15,
+    "total": 18,
     "errors": 8,
-    "warnings": 1,
+    "warnings": 4,
     "info": 6
   },
   "issues": [
@@ -80,6 +80,27 @@
         "char_ci_en"
       ],
       "message": "Alias \"铁掌水上漂\" appears in multiple characters: 裘千仞, 慈恩"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_yu_nv_xin_jing_mi_ji",
+      "name": "玉女心经秘籍",
+      "message": "Item \"玉女心经秘籍\" not found in original text - likely hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_tu_long_dao",
+      "name": "屠龙刀",
+      "message": "Item \"屠龙刀\" not found in original text - likely hallucination"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_yi_tian_jian",
+      "name": "倚天剑",
+      "message": "Item \"倚天剑\" not found in original text - likely hallucination"
     },
     {
       "type": "possible_hallucination",

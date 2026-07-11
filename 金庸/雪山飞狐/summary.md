@@ -132,10 +132,10 @@
 | skills.json | - | 16 个武功/技能 |
 | techniques.json | - | 3 个招式 |
 | items.json | - | 9 个物品 |
-| dialogues.json | - | 0 条对话 |
+| dialogues.json | - | 37 条对话 |
 | chapter_summaries.json | - | 10 章摘要 |
 | baseline.json | - | 基准数据 |
 | quality_report.json | - | 质量报告（JSON） |
 | quality_report.md | - | 质量报告（可读） |
 | verification_report.md | - | 验证报告 |
-| summary.md | 3.9K | 本文件 |
+| summary.md | 4.6K | 本文件 |

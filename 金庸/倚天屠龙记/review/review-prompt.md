@@ -207,7 +207,7 @@
 
 ## 数据
 
-### characters.json (63 条)
+### characters.json (66 条)
 [
   {
     "id": "char_zhang_wu_ji",
@@ -265,14 +265,14 @@
     "id": "char_zhou_zhi_ruo",
     "name": "周芷若",
     "role": "核心",
-    "identity": "峨眉派掌门",
+    "identity": "峨嵋派掌门",
     "faction": "faction_e_mei_pai",
     "personality": [
       "外柔内刚",
       "心机深沉",
       "执念极深"
     ],
-    "one_line": "峨眉派掌门，从温婉少女变为心机深沉的掌门人"
+    "one_line": "峨嵋派掌门，从温婉少女变为心机深沉的掌门人"
   },
   {
     "id": "char_yin_su_su",
@@ -317,14 +317,14 @@
     "id": "char_mie_jue_shi_tai",
     "name": "灭绝师太",
     "role": "重要",
-    "identity": "峨眉派掌门",
+    "identity": "峨嵋派掌门",
     "faction": "faction_e_mei_pai",
     "personality": [
       "刚烈果决",
       "嫉恶如仇",
       "心狠手辣"
     ],
-    "one_line": "峨眉派掌门，手持倚天剑，性格刚烈，痛恨明教"
+    "one_line": "峨嵋派掌门，手持倚天剑，性格刚烈，痛恨明教"
   },
   {
     "id": "char_wei_yi_xiao",
@@ -416,6 +416,19 @@
       "重情重义"
     ],
     "one_line": "武当七侠之首，张三丰大弟子，武功稳重扎实"
+  },
+  {
+    "id": "char_song_qing_shu",
+    "name": "宋青书",
+    "role": "重要",
+    "identity": "宋远桥之子，武当派弟子，后叛变投靠峨嵋派周芷若",
+    "faction": "faction_wu_dang_pai",
+    "personality": [
+      "聪明机智",
+      "过目不忘",
+      "俊美潇洒"
+    ],
+    "one_line": "武当七侠之首宋远桥独子，因迷恋周芷若而叛变投敌，杀害莫声谷，最终被父亲亲手击毙"
   },
   {
     "id": "char_huang_shan_nv_zi",
@@ -629,40 +642,40 @@
     "id": "char_ding_min_jun",
     "name": "丁敏君",
     "role": "次要",
-    "identity": "峨眉派弟子",
+    "identity": "峨嵋派弟子",
     "faction": "faction_e_mei_pai",
     "personality": [
       "尖酸刻薄",
       "嫉妒心强",
       "武功平平"
     ],
-    "one_line": "峨眉派弟子，性格刻薄，嫉妒周芷若"
+    "one_line": "峨嵋派弟子，性格刻薄，嫉妒周芷若"
   },
   {
     "id": "char_ji_xiao_fu",
     "name": "纪晓芙",
     "role": "次要",
-    "identity": "峨眉派弟子",
+    "identity": "峨嵋派弟子",
     "faction": "faction_e_mei_pai",
     "personality": [
       "外柔内刚",
       "重情重义",
       "敢爱敢恨"
     ],
-    "one_line": "峨眉派弟子，与杨逍相爱生下杨不悔，被灭绝师太处死"
+    "one_line": "峨嵋派弟子，与杨逍相爱生下杨不悔，被灭绝师太处死"
   },
   {
     "id": "char_jing_xuan",
     "name": "静玄",
     "role": "次要",
-    "identity": "峨眉派大弟子",
+    "identity": "峨嵋派大弟子",
     "faction": "faction_e_mei_pai",
     "personality": [
       "武功扎实",
       "性格刚毅",
       "重情重义"
     ],
-    "one_line": "峨眉派大弟子，武功在峨眉弟子中最强"
+    "one_line": "峨嵋派大弟子，武功在峨嵋弟子中最强"
   },
   {
     "id": "char_chen_you_liang",
@@ -887,7 +900,7 @@
   },
   {
     "id": "char_wei_bi",
-    "name": "卫壁",
+    "name": "卫璧",
     "role": "龙套",
     "identity": "江湖人士",
     "faction": null,
@@ -914,19 +927,6 @@
   {
     "id": "char_lao_tou_zi",
     "name": "老头子",
-    "role": "龙套",
-    "identity": "江湖游侠",
-    "faction": null,
-    "personality": [
-      "重情重义",
-      "豪爽直率",
-      "武功扎实"
-    ],
-    "one_line": "江湖游侠，曾短暂帮助张无忌"
-  },
-  {
-    "id": "char_zu_zhong_shu",
-    "name": "祖仲舒",
     "role": "龙套",
     "identity": "江湖游侠",
     "faction": null,
@@ -974,7 +974,7 @@
       "重情重义",
       "豪爽直率"
     ],
-    "one_line": "郭靖黄蓉之女，上少林寺寻杨过未果，后创立峨眉派"
+    "one_line": "郭靖黄蓉之女，上少林寺寻杨过未果，后创立峨嵋派"
   },
   {
     "id": "char_yang_guo",
@@ -1027,101 +1027,133 @@
       "重情重义"
     ],
     "one_line": "射雕英雄传主角，郭靖之妻，郭襄之母"
+  },
+  {
+    "id": "char_dai_qi_si",
+    "name": "黛绮丝",
+    "role": "重要",
+    "identity": "明教四大护教法王之一，紫衫龙王",
+    "faction": "faction_ming_jiao",
+    "personality": [
+      "武功高强",
+      "心机深沉",
+      "爱憎分明"
+    ],
+    "one_line": "明教紫衫龙王，金花婆婆，与谢逊有旧怨"
+  },
+  {
+    "id": "char_he_zu_dao",
+    "name": "何足道",
+    "role": "次要",
+    "identity": "昆仑派高手，昆仑三圣之一",
+    "faction": "faction_kun_lun_pai",
+    "personality": [
+      "武功高强",
+      "孤高自傲",
+      "重情重义"
+    ],
+    "one_line": "昆仑三圣，挑战少林寺，后传经书下落"
+  },
+  {
+    "id": "char_tian_ming",
+    "name": "天鸣禅师",
+    "role": "次要",
+    "identity": "少林寺方丈",
+    "faction": "faction_shao_lin_si",
+    "personality": [
+      "老成持重",
+      "顾全大局",
+      "慈悲为怀"
+    ],
+    "one_line": "少林寺方丈，老成持重，在英雄大会上被成昆毒死"
   }
 ]
 
-### factions.json (13 条)
+### factions.json (12 条)
 [
   {
-    "id": "faction_wu_dang_pai",
+    "id": "faction_wu_dang",
     "name": "武当派",
     "type": "武林门派",
     "location": "loc_wu_dang_shan",
-    "one_line": "张三丰所创道家门派，以太极剑法和武当七侠闻名天下"
+    "one_line": "张三丰所创，与少林齐名，以太极拳剑闻名天下，门下七侠各有所长"
   },
   {
-    "id": "faction_shao_lin_si",
-    "name": "少林寺",
-    "type": "寺院",
-    "location": "loc_shao_lin_si",
-    "one_line": "天下武学正宗，七十二绝技威震武林"
-  },
-  {
-    "id": "faction_e_mei_pai",
+    "id": "faction_e_mei",
     "name": "峨眉派",
     "type": "武林门派",
     "location": "loc_e_mei_shan",
-    "one_line": "灭绝师太统领的峨眉剑派，以灭绝剑法和倚天剑闻名"
+    "one_line": "郭襄所创，女子为主，掌门持倚天剑，灭绝师太、周芷若相继执掌"
+  },
+  {
+    "id": "faction_shao_lin",
+    "name": "少林派",
+    "type": "武林门派",
+    "location": "loc_shao_lin_si",
+    "one_line": "天下武学之源，四大神僧坐镇，少林寺英雄大会为全书高潮"
+  },
+  {
+    "id": "faction_kun_lun",
+    "name": "昆仑派",
+    "type": "武林门派",
+    "location": "loc_kun_lun_shan",
+    "one_line": "西域大派，掌门何太冲与妻班淑娴齐名，参与六派围攻光明顶"
+  },
+  {
+    "id": "faction_kong_tong",
+    "name": "崆峒派",
+    "type": "武林门派",
+    "location": null,
+    "one_line": "以七伤拳闻名，参与六派围攻光明顶，派中高手实力不俗"
+  },
+  {
+    "id": "faction_hua_shan",
+    "name": "华山派",
+    "type": "武林门派",
+    "location": null,
+    "one_line": "五岳之一，高矮二老参与六派围攻光明顶，鲜于通为掌门"
   },
   {
     "id": "faction_ming_jiao",
     "name": "明教",
-    "type": "帮派",
+    "type": "宗教组织",
     "location": "loc_guang_ming_ding",
-    "one_line": "源自波斯的拜火教分支，以光明顶为总坛，教众遍布天下"
+    "one_line": "又称摩尼教，源于波斯，以驱除胡虏为志，教主之下设光明使者、四大法王"
+  },
+  {
+    "id": "faction_tian_ying",
+    "name": "天鹰教",
+    "type": "帮派",
+    "location": "loc_tian_ying_dao",
+    "one_line": "殷天正所创，与明教同源，后并入明教，以天鹰旗为号"
   },
   {
     "id": "faction_gai_bang",
     "name": "丐帮",
     "type": "帮派",
     "location": null,
-    "one_line": "天下第一大帮，以降龙十八掌和打狗棒法镇帮"
-  },
-  {
-    "id": "faction_kong_tong_pai",
-    "name": "崆峒派",
-    "type": "武林门派",
-    "location": "loc_kong_tong_shan",
-    "one_line": "崆峒五老统领的门派，以七伤拳威震西北"
-  },
-  {
-    "id": "faction_kun_lun_pai",
-    "name": "昆仑派",
-    "type": "武林门派",
-    "location": "loc_kun_lun_shan",
-    "one_line": "昆仑山上昆仑派，掌门何太冲夫妇以正反两仪刀法著称"
-  },
-  {
-    "id": "faction_hua_shan_pai",
-    "name": "华山派",
-    "type": "武林门派",
-    "location": "loc_hua_shan",
-    "one_line": "华山门派，以剑法闻名，参与六大派围攻光明顶"
-  },
-  {
-    "id": "faction_tian_ying_jiao",
-    "name": "天鹰教",
-    "type": "帮派",
-    "location": null,
-    "one_line": "殷天正创立的教派，与明教有渊源，后归附明教"
-  },
-  {
-    "id": "faction_yuan_chao",
-    "name": "元朝",
-    "type": "王族",
-    "location": null,
-    "one_line": "蒙古人建立的王朝，统治中原，与武林各派矛盾尖锐"
+    "one_line": "天下第一大帮，帮众遍布天下，陈友谅混入其中兴风作浪"
   },
   {
     "id": "faction_ru_yang_wang_fu",
     "name": "汝阳王府",
     "type": "官署",
+    "location": "loc_da_du",
+    "one_line": "元朝汝阳王执掌兵马，赵敏父兄所在，玄冥二老等高手效力"
+  },
+  {
+    "id": "faction_gu_mu",
+    "name": "古墓派",
+    "type": "武林门派",
     "location": null,
-    "one_line": "汝阳王察罕特穆尔的府邸，赵敏父女策划消灭武林门派"
+    "one_line": "小龙女所传，黄衫女为后人，开篇提及与杨过渊源"
   },
   {
     "id": "faction_bo_si_ming_jiao",
-    "name": "波斯明教总坛",
-    "type": "帮派",
-    "location": null,
-    "one_line": "明教的波斯总坛，与中土明教有派系之争"
-  },
-  {
-    "id": "faction_wu_dang_qi_xia",
-    "name": "武当七侠",
-    "type": "武林门派",
-    "location": "loc_wu_dang_shan",
-    "one_line": "张三丰座下七大弟子，合称武当七侠，武功卓绝"
+    "name": "波斯明教",
+    "type": "宗教组织",
+    "location": "loc_bo_si",
+    "one_line": "明教总教，遣使迎回圣火令与小昭，三使武功诡异"
   }
 ]
 
@@ -1225,247 +1257,167 @@
   }
 ]
 
-### skills.json (30 条)
+### skills.json (20 条)
 [
   {
     "id": "skill_jiu_yang_shen_gong",
     "name": "九阳神功",
     "type": "内功",
-    "mastery_rank": "登峰造极",
+    "mastery_rank": "返璞归真",
     "practitioners": [],
-    "one_line": "觉远大师所传无上内功心法，张无忌以此为根基修炼乾坤大挪移"
+    "one_line": "觉远默诵、张无忌在山谷中练成，内力浑厚无比，为诸般武功根基"
   },
   {
     "id": "skill_qian_kun_da_nuo_yi",
     "name": "乾坤大挪移",
-    "type": "奇门",
+    "type": "内功",
     "mastery_rank": "出神入化",
     "practitioners": [],
-    "one_line": "明教镇教神功，能转移对手劲力，张无忌凭九阳神功根基修炼至第七层"
+    "one_line": "明教镇教神功，张无忌于光明顶密道中练至第七层"
+  },
+  {
+    "id": "skill_tai_ji_quan",
+    "name": "太极拳",
+    "type": "拳法",
+    "mastery_rank": "登峰造极",
+    "practitioners": [],
+    "one_line": "张三丰晚年所创，以柔克刚、以静制动，武当镇派绝学"
   },
   {
     "id": "skill_tai_ji_jian",
-    "name": "太极剑法",
+    "name": "太极剑",
     "type": "剑法",
-    "mastery_rank": "返璞归真",
-    "practitioners": [],
-    "one_line": "张三丰所创剑法，以意驭剑，圆转如意，无招胜有招"
-  },
-  {
-    "id": "skill_tai_ji_juan",
-    "name": "太极拳",
-    "type": "拳法",
-    "mastery_rank": "返璞归真",
-    "practitioners": [],
-    "one_line": "张三丰融合毕生武学所创拳法，以柔克刚，四两拨千斤"
-  },
-  {
-    "id": "skill_wu_dang_chang_quan",
-    "name": "武当长拳",
-    "type": "拳法",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "武当派基础拳法，七十二路长拳攻守兼备"
-  },
-  {
-    "id": "skill_kong_ming_quan",
-    "name": "空明拳",
-    "type": "拳法",
     "mastery_rank": "登峰造极",
     "practitioners": [],
-    "one_line": "周伯通所创拳法，以虚击实，七十二路空明拳空灵飘逸"
-  },
-  {
-    "id": "skill_kong_jian_jin_gang_zhi",
-    "name": "大力金刚指",
-    "type": "指法",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "少林绝技之一，以指力碎金裂石，空见神僧以此成名"
-  },
-  {
-    "id": "skill_jin_gang_fu_mo_zhen",
-    "name": "金刚伏魔圈",
-    "type": "阵法",
-    "mastery_rank": "登峰造极",
-    "practitioners": [],
-    "one_line": "少林三大神僧联手布阵，三大渡劫高僧合力所向披靡"
-  },
-  {
-    "id": "skill_jin_bu_tie_shen",
-    "name": "金钟罩",
-    "type": "内功",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "少林硬气功，以金钟罩体抵御刀剑拳掌"
-  },
-  {
-    "id": "skill_jin_gang_jin_gang_quan",
-    "name": "少林长拳",
-    "type": "拳法",
-    "mastery_rank": "登堂入室",
-    "practitioners": [],
-    "one_line": "少林入门拳法，刚猛朴实，为修炼高深武学打基础"
-  },
-  {
-    "id": "skill_mie_jue_jian_fa",
-    "name": "灭绝剑法",
-    "type": "剑法",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "灭绝师太所使峨眉剑法，以倚天剑施展威力绝伦"
-  },
-  {
-    "id": "skill_e_mei_jiu_yang_gong",
-    "name": "峨眉九阳功",
-    "type": "内功",
-    "mastery_rank": "登堂入室",
-    "practitioners": [],
-    "one_line": "峨眉派内功心法，源自九阳真经残卷"
-  },
-  {
-    "id": "skill_sheng_huo_ling_wu_gong",
-    "name": "圣火令武功",
-    "type": "奇门",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "明教至高武功，刻于圣火令之上，招式诡异莫测"
-  },
-  {
-    "id": "skill_da_gou_bang_fa",
-    "name": "打狗棒法",
-    "type": "棒法",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "丐帮镇帮之宝，帮主代代相传，以轻灵飘逸著称"
+    "one_line": "张三丰所创剑法，与太极拳相辅相成，剑意绵绵不绝"
   },
   {
     "id": "skill_qi_shang_quan",
     "name": "七伤拳",
     "type": "拳法",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "崆峒派绝学，一拳之中蕴含七股不同劲力，伤人伤己"
-  },
-  {
-    "id": "skill_liang_yi_jian_fa",
-    "name": "两仪剑法",
-    "type": "剑法",
     "mastery_rank": "炉火纯青",
     "practitioners": [],
-    "one_line": "昆仑派剑法，何太冲夫妇联手施展，攻守配合精妙"
+    "one_line": "崆峒派绝学，一拳之中蕴含七股不同劲力，伤人先伤己"
   },
   {
-    "id": "skill_zheng_fan_liang_yi_dao",
-    "name": "正反两仪刀法",
-    "type": "刀法",
+    "id": "skill_ti_yun_zong",
+    "name": "梯云纵",
+    "type": "轻功",
     "mastery_rank": "炉火纯青",
     "practitioners": [],
-    "one_line": "昆仑派刀法，正反两路配合，变化莫测"
+    "one_line": "武当派轻功绝技，凌空换步，轻灵飘逸"
   },
   {
-    "id": "skill_tian_ying_zhua_gong",
-    "name": "天鹰爪功",
-    "type": "指法",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "天鹰教绝学，以鹰爪擒拿为主，刚猛凌厉"
-  },
-  {
-    "id": "skill_qin_na_shu",
-    "name": "擒拿术",
-    "type": "奇门",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "通用武学，以巧劲制敌，各大门派均有涉猎"
-  },
-  {
-    "id": "skill_hu_yan_shi_ba_bian",
-    "name": "呼延十八鞭",
-    "type": "奇门",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "鞭法绝学，十八路鞭法刚猛无匹"
-  },
-  {
-    "id": "skill_bo_si_wu_gong",
-    "name": "波斯武功",
-    "type": "奇门",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "波斯明教总坛武功，与中土武学风格迥异"
-  },
-  {
-    "id": "skill_jin_gang_jin_gang_quan_fa",
-    "name": "金刚拳",
-    "type": "拳法",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "少林绝技之一，拳劲刚猛如金刚下凡"
-  },
-  {
-    "id": "skill_sheng_huo_ling",
-    "name": "圣火令",
-    "type": "奇门",
-    "mastery_rank": "登峰造极",
-    "practitioners": [],
-    "one_line": "明教至宝，刻有武功秘籍，同时也是教主信物"
-  },
-  {
-    "id": "skill_tie_zhang_gong",
-    "name": "铁掌功",
-    "type": "掌法",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "刚猛掌法，以铁掌击碎万物"
-  },
-  {
-    "id": "skill_liu_mai_shen_jian",
-    "name": "六脉神剑",
-    "type": "指法",
-    "mastery_rank": "返璞归真",
-    "practitioners": [],
-    "one_line": "大理段氏绝学，以无形剑气伤人，当世几乎失传"
-  },
-  {
-    "id": "skill_jiang_long_shi_ba_zhang",
+    "id": "skill_xiang_long_shi_ba_zhang",
     "name": "降龙十八掌",
     "type": "掌法",
+    "mastery_rank": "返璞归真",
+    "practitioners": [],
+    "one_line": "丐帮镇帮绝学，刚猛无俦，书中仅提及"
+  },
+  {
+    "id": "skill_da_gou_bang_fa",
+    "name": "打狗棒法",
+    "type": "棒法",
     "mastery_rank": "登峰造极",
     "practitioners": [],
-    "one_line": "丐帮镇帮绝学，以刚猛掌力闻名天下"
+    "one_line": "丐帮镇帮神技，非帮主不传，郭襄偷学一招半式"
   },
   {
-    "id": "skill_da_li_fu_mo_quan",
-    "name": "大力伏魔拳",
-    "type": "拳法",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "少林伏魔拳法，以刚猛拳力降伏妖邪"
-  },
-  {
-    "id": "skill_qing_gong",
-    "name": "轻功",
-    "type": "轻功",
-    "mastery_rank": "出神入化",
-    "practitioners": [],
-    "one_line": "武林通用轻功，各家各派均有独到之处"
-  },
-  {
-    "id": "skill_liu_he_ba_fa",
-    "name": "六合八法",
-    "type": "奇门",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "融合六合八方之理的武学体系，攻守兼备"
-  },
-  {
-    "id": "skill_kong_jian_zhang_fa",
-    "name": "空明掌",
+    "id": "skill_xuan_ming_shen_zhang",
+    "name": "玄冥神掌",
     "type": "掌法",
     "mastery_rank": "出神入化",
     "practitioners": [],
-    "one_line": "武当掌法，以虚击实，掌力空灵"
+    "one_line": "玄冥二老所擅，阴寒毒辣，幼年张无忌曾受此掌之伤"
+  },
+  {
+    "id": "skill_yi_yang_zhi",
+    "name": "一阳指",
+    "type": "指法",
+    "mastery_rank": "出神入化",
+    "practitioners": [],
+    "one_line": "大理段氏绝学，书中开篇提及"
+  },
+  {
+    "id": "skill_ying_zhao_qin_na_shou",
+    "name": "鹰爪擒拿手",
+    "type": "爪法",
+    "mastery_rank": "出神入化",
+    "practitioners": [],
+    "one_line": "天鹰教殷天正所擅擒拿功夫，爪力凌厉"
+  },
+  {
+    "id": "skill_jiu_yin_bai_gu_zhao",
+    "name": "九阴白骨爪",
+    "type": "爪法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "阴毒爪功，周芷若倚天剑中习得"
+  },
+  {
+    "id": "skill_luo_ying_jian_fa",
+    "name": "落英剑法",
+    "type": "剑法",
+    "mastery_rank": "登堂入室",
+    "practitioners": [],
+    "one_line": "桃花岛黄药师所创剑法，郭襄家传"
+  },
+  {
+    "id": "skill_yu_nv_jian_fa",
+    "name": "玉女剑法",
+    "type": "剑法",
+    "mastery_rank": "登堂入室",
+    "practitioners": [],
+    "one_line": "古墓派林朝英所创，讲究丰神脱俗，郭襄开篇使用"
+  },
+  {
+    "id": "skill_qian_zhu_wan_du_shou",
+    "name": "千蛛万毒手",
+    "type": "毒功",
+    "mastery_rank": "略有小成",
+    "practitioners": [],
+    "one_line": "殷离所练毒功，以毒蛛喂养，伤敌伤己"
+  },
+  {
+    "id": "skill_sheng_huo_ling_wu_gong",
+    "name": "圣火令武功",
+    "type": "奇门",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "刻于圣火令上的波斯武功，招式诡异，张无忌习得"
+  },
+  {
+    "id": "skill_long_zhao_shou",
+    "name": "龙爪手",
+    "type": "爪法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "少林七十二绝技之一，空智擅使"
+  },
+  {
+    "id": "skill_jin_gang_bu_huai_ti",
+    "name": "金刚不坏体神功",
+    "type": "内功",
+    "mastery_rank": "出神入化",
+    "practitioners": [],
+    "one_line": "少林绝顶内功，空见神僧以此功抵御谢逊七伤拳"
+  },
+  {
+    "id": "skill_hun_yuan_pi_li_shou",
+    "name": "混元霹雳手",
+    "type": "掌法",
+    "mastery_rank": "出神入化",
+    "practitioners": [],
+    "one_line": "成昆成名绝技，刚猛霸道"
+  },
+  {
+    "id": "skill_jiu_yin_zhen_jing",
+    "name": "九阴真经",
+    "type": "内功",
+    "mastery_rank": "登峰造极",
+    "practitioners": [],
+    "one_line": "武林至高秘籍，刻于倚天剑中，周芷若习得部分内容"
   }
 ]
 
@@ -1509,7 +1461,7 @@
   }
 ]
 
-### items.json (18 条)
+### items.json (13 条)
 [
   {
     "id": "item_yi_tian_jian",
@@ -1517,10 +1469,8 @@
     "type": "兵器",
     "owner": "char_mie_jue_shi_tai",
     "rarity_tier": "神品",
-    "related_skills": [
-      "skill_mie_jue_jian_fa"
-    ],
-    "one_line": "峨眉派镇派之宝，与屠龙刀齐名的神兵利器"
+    "related_skills": [],
+    "one_line": "峨眉派镇派宝剑，与屠龙刀齐名，内藏武穆遗书与九阴真经"
   },
   {
     "id": "item_tu_long_dao",
@@ -1529,7 +1479,7 @@
     "owner": "char_xie_xun",
     "rarity_tier": "神品",
     "related_skills": [],
-    "one_line": "武林至尊宝刀屠龙，号令天下莫敢不从"
+    "one_line": "武林至尊宝刀，号令天下莫敢不从，内藏武穆遗书"
   },
   {
     "id": "item_sheng_huo_ling",
@@ -1537,10 +1487,8 @@
     "type": "信物",
     "owner": "char_zhang_wu_ji",
     "rarity_tier": "神品",
-    "related_skills": [
-      "skill_sheng_huo_ling_wu_gong"
-    ],
-    "one_line": "明教教主信物，共十二枚，刻有明教武功与教规"
+    "related_skills": [],
+    "one_line": "明教教主信物，令到如教主亲临，持令者号令全教"
   },
   {
     "id": "item_jiu_yang_zhen_jing",
@@ -1551,7 +1499,7 @@
     "related_skills": [
       "skill_jiu_yang_shen_gong"
     ],
-    "one_line": "觉远大师所传无上内功心法，藏于白猿腹中"
+    "one_line": "与九阴真经齐名的内功至高心法，写于楞伽经夹缝中"
   },
   {
     "id": "item_qian_kun_da_nuo_yi_xin_fa",
@@ -1562,16 +1510,16 @@
     "related_skills": [
       "skill_qian_kun_da_nuo_yi"
     ],
-    "one_line": "明教镇教神功，刻于羊皮之上，共七层"
+    "one_line": "明教镇教神功心法，共七层，刻于光明顶密道石壁"
   },
   {
     "id": "item_tie_luo_han",
     "name": "铁罗汉",
     "type": "信物",
     "owner": "char_zhang_san_feng",
-    "rarity_tier": "良品",
+    "rarity_tier": "珍品",
     "related_skills": [],
-    "one_line": "无色禅师赠予郭襄的礼物，内藏罗汉拳招式"
+    "one_line": "郭襄赠张君宝的铁铸罗汉，内藏少林拳法机括"
   },
   {
     "id": "item_zhu_hua",
@@ -1580,16 +1528,34 @@
     "owner": "char_zhao_min",
     "rarity_tier": "良品",
     "related_skills": [],
-    "one_line": "赵敏赠予张无忌的珠花，二人的定情之物"
+    "one_line": "赵敏赠张无忌的珠花，为二人情感信物"
   },
   {
     "id": "item_jin_hua",
     "name": "金花",
-    "type": "暗器",
+    "type": "信物",
     "owner": "char_dai_qi_si",
+    "rarity_tier": "良品",
+    "related_skills": [],
+    "one_line": "金花婆婆的标志信物与暗器，武林中人见金花即知其来"
+  },
+  {
+    "id": "item_qian_kun_yi_qi_dai",
+    "name": "乾坤一气袋",
+    "type": "工具",
+    "owner": "char_shuo_bu_de",
     "rarity_tier": "珍品",
     "related_skills": [],
-    "one_line": "金花婆婆的标志性暗器，杀人于无形"
+    "one_line": "说不得的布袋法宝，可装人于其中，张无忌曾被困袋中"
+  },
+  {
+    "id": "item_shi_xiang_ruan_jin_san",
+    "name": "十香软筋散",
+    "type": "毒药",
+    "owner": null,
+    "rarity_tier": "珍品",
+    "related_skills": [],
+    "one_line": "无色无味奇毒，中者筋骨酸软无力，赵敏与周芷若均曾使用"
   },
   {
     "id": "item_hei_yu_duan_xu_gao",
@@ -1598,92 +1564,29 @@
     "owner": null,
     "rarity_tier": "珍品",
     "related_skills": [],
-    "one_line": "西域金刚门秘传膏药，可续接断骨"
+    "one_line": "西域灵药，可续接断骨，为治疗俞岱岩殷梨亭的关键药物"
   },
   {
-    "id": "item_shi_xiang_ruan_jin_san",
-    "name": "十香软筋散",
-    "type": "毒药",
-    "owner": "char_zhao_min",
-    "rarity_tier": "珍品",
-    "related_skills": [],
-    "one_line": "赵敏用来囚禁六大派高手的奇毒"
-  },
-  {
-    "id": "item_zui_xian_ling_fu",
-    "name": "醉仙灵芙",
+    "id": "item_tian_xin_jie_du_dan",
+    "name": "天心解毒丹",
     "type": "丹药",
-    "owner": "char_zhao_min",
-    "rarity_tier": "珍品",
-    "related_skills": [],
-    "one_line": "绿柳山庄中的奇异花卉，与奇鲮香木合则成剧毒"
-  },
-  {
-    "id": "item_qi_ling_xiang_mu",
-    "name": "奇鲮香木",
-    "type": "工具",
-    "owner": "char_zhao_min",
-    "rarity_tier": "珍品",
-    "related_skills": [],
-    "one_line": "海底珍贵香木，与醉仙灵芙混合则成剧毒"
-  },
-  {
-    "id": "item_mu_lv",
-    "name": "青驴",
-    "type": "坐骑",
-    "owner": "char_guo_xiang",
-    "rarity_tier": "凡品",
-    "related_skills": [],
-    "one_line": "郭襄的坐骑，随她游历江湖"
-  },
-  {
-    "id": "item_tie_lian",
-    "name": "铁链",
-    "type": "工具",
-    "owner": "char_xiao_zhao",
-    "rarity_tier": "凡品",
-    "related_skills": [],
-    "one_line": "小昭所戴的铁链，象征其囚禁身份"
-  },
-  {
-    "id": "item_huang_jin_xiang_quan",
-    "name": "黄金项圈",
-    "type": "饰品",
-    "owner": "char_ji_xiao_fu",
-    "rarity_tier": "良品",
-    "related_skills": [],
-    "one_line": "纪晓芙欲赠予张无忌的黄金项圈"
-  },
-  {
-    "id": "item_wen_xu_zhen",
-    "name": "蚊须针",
-    "type": "暗器",
-    "owner": "char_yin_su_su",
-    "rarity_tier": "良品",
-    "related_skills": [],
-    "one_line": "殷素素的暗器，曾以此伤及俞岱岩"
-  },
-  {
-    "id": "item_huo_yao",
-    "name": "火药",
-    "type": "工具",
     "owner": null,
-    "rarity_tier": "凡品",
+    "rarity_tier": "良品",
     "related_skills": [],
-    "one_line": "秘道中使用的火药，用于炸开石门"
+    "one_line": "武当派解毒丹药，可暂缓毒性发作"
   },
   {
-    "id": "item_tuo_tian_bao_chong",
-    "name": "乾坤一气袋",
+    "id": "item_xuan_ming_shen_zhang",
+    "name": "玄冥神掌",
     "type": "奇门",
-    "owner": "char_shuo_bu_de",
+    "owner": null,
     "rarity_tier": "珍品",
     "related_skills": [],
-    "one_line": "说不得的奇门兵器，曾将张无忌装入袋中"
+    "one_line": "玄冥二老的阴毒掌法，中者寒毒入体，张无忌幼年深受其害"
   }
 ]
 
-### dialogues.json (前 50 条 / 共 71 条)
+### dialogues.json (前 50 条 / 共 59 条)
 [
   {
     "index": 0,
@@ -1726,12 +1629,12 @@
     "text": "天下还有不许人说话的规矩么？我识得这位大师，我自跟他说话，干你们何事？",
     "tone": "愤怒",
     "chapter": 1,
-    "line_start": 48,
-    "line_end": 48
+    "line_start": 49,
+    "line_end": 49
   },
   {
     "index": 4,
-    "speaker": "char_wu_se",
+    "speaker": "char_wu_se_chan_shi",
     "speaker_name": "无色",
     "listener": "char_guo_xiang",
     "text": "小姑娘接我十招，瞧老和尚眼力如何，能不能说出你的门派？",
@@ -1744,7 +1647,7 @@
     "index": 5,
     "speaker": "char_guo_xiang",
     "speaker_name": "郭襄",
-    "listener": "char_wu_se",
+    "listener": "char_wu_se_chan_shi",
     "text": "十招中瞧不出，那便如何？",
     "tone": "疑问",
     "chapter": 1,
@@ -1830,17 +1733,6 @@
   },
   {
     "index": 13,
-    "speaker": "char_he_zu_dao",
-    "speaker_name": "何足道",
-    "listener": "char_jue_yuan",
-    "text": "觉远大师，那人叫我转告一句话，说道：'经书是在油中。'",
-    "tone": "陈述",
-    "chapter": 2,
-    "line_start": 109,
-    "line_end": 109
-  },
-  {
-    "index": 14,
     "speaker": "char_yu_dai_yan",
     "speaker_name": "俞岱岩",
     "listener": null,
@@ -1851,18 +1743,7 @@
     "line_end": 87
   },
   {
-    "index": 15,
-    "speaker": null,
-    "speaker_name": "德成",
-    "listener": "char_yu_dai_yan",
-    "text": "'武林至尊，宝刀屠龙。号令天下，莫敢不从。'这话你听见过么？",
-    "tone": "疑问",
-    "chapter": 3,
-    "line_start": 107,
-    "line_end": 107
-  },
-  {
-    "index": 16,
+    "index": 14,
     "speaker": "char_yu_dai_yan",
     "speaker_name": "俞岱岩",
     "listener": null,
@@ -1873,7 +1754,7 @@
     "line_end": 105
   },
   {
-    "index": 17,
+    "index": 15,
     "speaker": null,
     "speaker_name": "都大锦",
     "listener": null,
@@ -1884,7 +1765,7 @@
     "line_end": 241
   },
   {
-    "index": 18,
+    "index": 16,
     "speaker": "char_yu_dai_yan",
     "speaker_name": "俞岱岩",
     "listener": "char_zhang_cui_shan",
@@ -1895,7 +1776,7 @@
     "line_end": 27
   },
   {
-    "index": 19,
+    "index": 17,
     "speaker": "char_zhang_san_feng",
     "speaker_name": "张三丰",
     "listener": "char_zhang_cui_shan",
@@ -1906,7 +1787,7 @@
     "line_end": 17
   },
   {
-    "index": 20,
+    "index": 18,
     "speaker": "char_zhang_cui_shan",
     "speaker_name": "张翠山",
     "listener": null,
@@ -1917,7 +1798,7 @@
     "line_end": 35
   },
   {
-    "index": 21,
+    "index": 19,
     "speaker": "char_zhang_cui_shan",
     "speaker_name": "张翠山",
     "listener": null,
@@ -1928,7 +1809,7 @@
     "line_end": 47
   },
   {
-    "index": 22,
+    "index": 20,
     "speaker": "char_zhang_cui_shan",
     "speaker_name": "张翠山",
     "listener": null,
@@ -1939,18 +1820,18 @@
     "line_end": 85
   },
   {
-    "index": 23,
+    "index": 21,
     "speaker": "char_yin_su_su",
     "speaker_name": "殷素素",
     "listener": "char_zhang_cui_shan",
     "text": "昨晚乌云蔽天，未见月色，今宵云散天青，可好得多了。",
     "tone": "陈述",
     "chapter": 5,
-    "line_start": 6,
-    "line_end": 6
+    "line_start": 7,
+    "line_end": 7
   },
   {
-    "index": 24,
+    "index": 22,
     "speaker": "char_yin_su_su",
     "speaker_name": "殷素素",
     "listener": "char_zhang_cui_shan",
@@ -1961,7 +1842,7 @@
     "line_end": 23
   },
   {
-    "index": 25,
+    "index": 23,
     "speaker": "char_yin_su_su",
     "speaker_name": "殷素素",
     "listener": "char_zhang_cui_shan",
@@ -1972,7 +1853,7 @@
     "line_end": 37
   },
   {
-    "index": 26,
+    "index": 24,
     "speaker": "char_zhang_cui_shan",
     "speaker_name": "张翠山",
     "listener": "char_yin_su_su",
@@ -1983,7 +1864,7 @@
     "line_end": 41
   },
   {
-    "index": 27,
+    "index": 25,
     "speaker": "char_yin_su_su",
     "speaker_name": "殷素素",
     "listener": "char_zhang_cui_shan",
@@ -1994,7 +1875,7 @@
     "line_end": 167
   },
   {
-    "index": 28,
+    "index": 26,
     "speaker": "char_zhang_cui_shan",
     "speaker_name": "张翠山",
     "listener": "char_yin_su_su",
@@ -2005,7 +1886,7 @@
     "line_end": 71
   },
   {
-    "index": 29,
+    "index": 27,
     "speaker": "char_yin_su_su",
     "speaker_name": "殷素素",
     "listener": "char_zhang_cui_shan",
@@ -2016,18 +1897,7 @@
     "line_end": 125
   },
   {
-    "index": 30,
-    "speaker": "char_yin_su_su",
-    "speaker_name": "殷素素",
-    "listener": "char_zhang_cui_shan",
-    "text": "喜欢你，我好开心。",
-    "tone": "欣喜",
-    "chapter": 6,
-    "line_start": 119,
-    "line_end": 119
-  },
-  {
-    "index": 31,
+    "index": 28,
     "speaker": "char_zhang_cui_shan",
     "speaker_name": "张翠山",
     "listener": "char_yin_su_su",
@@ -2038,7 +1908,7 @@
     "line_end": 175
   },
   {
-    "index": 32,
+    "index": 29,
     "speaker": "char_xie_xun",
     "speaker_name": "谢逊",
     "listener": "char_zhang_cui_shan",
@@ -2049,29 +1919,18 @@
     "line_end": 17
   },
   {
-    "index": 33,
+    "index": 30,
     "speaker": "char_xie_xun",
     "speaker_name": "谢逊",
     "listener": null,
     "text": "在那一年上，我生平最崇仰、最敬爱的一个人欺辱了我，害得我家破人亡，父母妻儿，一夕之间尽数死去。因此我断指立誓，姓谢的有生之日，决不再相信任何一人。",
     "tone": "悲伤",
     "chapter": 6,
-    "line_start": 98,
+    "line_start": 99,
     "line_end": 99
   },
   {
-    "index": 34,
-    "speaker": "char_xie_xun",
-    "speaker_name": "谢逊",
-    "listener": "char_zhang_cui_shan",
-    "text": "张五侠，你的深仇大恨，想来已经报复了？⋯⋯没有。害我的人武功极高，我打他不过。",
-    "tone": "悲伤",
-    "chapter": 6,
-    "line_start": 101,
-    "line_end": 103
-  },
-  {
-    "index": 35,
+    "index": 31,
     "speaker": "char_zhang_cui_shan",
     "speaker_name": "张翠山",
     "listener": "char_xie_xun",
@@ -2082,7 +1941,7 @@
     "line_end": 93
   },
   {
-    "index": 36,
+    "index": 32,
     "speaker": "char_xie_xun",
     "speaker_name": "谢逊",
     "listener": null,
@@ -2093,7 +1952,7 @@
     "line_end": 47
   },
   {
-    "index": 37,
+    "index": 33,
     "speaker": "char_yin_su_su",
     "speaker_name": "殷素素",
     "listener": "char_xie_xun",
@@ -2104,51 +1963,29 @@
     "line_end": 57
   },
   {
-    "index": 38,
-    "speaker": "char_xie_xun",
-    "speaker_name": "谢逊",
-    "listener": "char_zhang_cui_shan",
-    "text": "五弟，这'武林至尊，宝刀屠龙'八个字，看来终是虚妄。",
-    "tone": "悲伤",
-    "chapter": 7,
-    "line_start": 235,
-    "line_end": 235
-  },
-  {
-    "index": 39,
+    "index": 34,
     "speaker": "char_xie_xun",
     "speaker_name": "谢逊",
     "listener": "char_zhang_cui_shan",
     "text": "空见这人固执得很，他竟然只挨我打，始终不肯还手，我打了他一十三拳，终于将他打死了。",
     "tone": "悲伤",
-    "chapter": 8,
-    "line_start": 39,
-    "line_end": 39
+    "chapter": 7,
+    "line_start": 239,
+    "line_end": 239
   },
   {
-    "index": 40,
-    "speaker": "char_xie_xun",
-    "speaker_name": "谢逊",
-    "listener": "char_zhang_wu_ji",
-    "text": "孩子，不久你就要回归中土⋯⋯要是咱们的大木排在海中沉了，或是飘得无影无踪，那也罢了，一切休提。但若真的能回中土，我跟你说，世上人心险恶，谁都不要相信。除了父母之外，谁都会存着害你的心思。",
-    "tone": "严肃",
-    "chapter": 8,
-    "line_start": 253,
-    "line_end": 255
-  },
-  {
-    "index": 41,
+    "index": 35,
     "speaker": "char_zhang_wu_ji",
     "speaker_name": "无忌",
     "listener": "char_xie_xun",
     "text": "义父也决不会害我！",
     "tone": "激动",
-    "chapter": 8,
+    "chapter": 7,
     "line_start": 255,
     "line_end": 255
   },
   {
-    "index": 42,
+    "index": 36,
     "speaker": "char_xie_xun",
     "speaker_name": "谢逊",
     "listener": null,
@@ -2159,7 +1996,7 @@
     "line_end": 139
   },
   {
-    "index": 43,
+    "index": 37,
     "speaker": "char_zhang_cui_shan",
     "speaker_name": "张翠山",
     "listener": "char_xie_xun",
@@ -2170,7 +2007,7 @@
     "line_end": 143
   },
   {
-    "index": 44,
+    "index": 38,
     "speaker": "char_xie_xun",
     "speaker_name": "谢逊",
     "listener": "char_zhang_cui_shan",
@@ -2181,7 +2018,7 @@
     "line_end": 145
   },
   {
-    "index": 45,
+    "index": 39,
     "speaker": "char_zhang_wu_ji",
     "speaker_name": "无忌",
     "listener": "char_xie_xun",
@@ -2192,40 +2029,7 @@
     "line_end": 171
   },
   {
-    "index": 46,
-    "speaker": "char_xie_xun",
-    "speaker_name": "谢逊",
-    "listener": "char_zhang_wu_ji",
-    "text": "无忌，你回归中土之后，须得自称张无忌，这'谢无忌'三字，只可放在心中，万万不能出口。",
-    "tone": "严肃",
-    "chapter": 8,
-    "line_start": 173,
-    "line_end": 173
-  },
-  {
-    "index": 47,
-    "speaker": "char_zhang_cui_shan",
-    "speaker_name": "张翠山",
-    "listener": "char_yu_lian_zhou",
-    "text": "二哥！",
-    "tone": "激动",
-    "chapter": 8,
-    "line_start": 219,
-    "line_end": 219
-  },
-  {
-    "index": 48,
-    "speaker": "char_yu_lian_zhou",
-    "speaker_name": "俞莲舟",
-    "listener": "char_zhang_cui_shan",
-    "text": "五弟！",
-    "tone": "激动",
-    "chapter": 8,
-    "line_start": 221,
-    "line_end": 221
-  },
-  {
-    "index": 49,
+    "index": 40,
     "speaker": "char_yin_su_su",
     "speaker_name": "殷素素",
     "listener": null,
@@ -2234,6 +2038,105 @@
     "chapter": 8,
     "line_start": 273,
     "line_end": 273
+  },
+  {
+    "index": 41,
+    "speaker": "char_zhang_wu_ji",
+    "speaker_name": "无忌",
+    "listener": null,
+    "text": "义父不是恶贼，义父他没死，他没有死。",
+    "tone": "悲伤",
+    "chapter": 8,
+    "line_start": 285,
+    "line_end": 285
+  },
+  {
+    "index": 42,
+    "speaker": "char_xie_xun",
+    "speaker_name": "谢逊",
+    "listener": null,
+    "text": "五弟，五妹，无忌！一路顺风，盼你们平平安安，早归中土！",
+    "tone": "激动",
+    "chapter": 8,
+    "line_start": 173,
+    "line_end": 173
+  },
+  {
+    "index": 43,
+    "speaker": "char_yin_su_su",
+    "speaker_name": "殷素素",
+    "listener": "char_zhang_wu_ji",
+    "text": "张五哥，我俩若能不死，我要永远跟着你在一起。",
+    "tone": "欣喜",
+    "chapter": 6,
+    "line_start": 175,
+    "line_end": 175
+  },
+  {
+    "index": 44,
+    "speaker": "char_zhang_cui_shan",
+    "speaker_name": "张翠山",
+    "listener": "char_yin_su_su",
+    "text": "以后你改过迁善，多积功德，常言道：知过能改，善莫大焉。",
+    "tone": "陈述",
+    "chapter": 6,
+    "line_start": 193,
+    "line_end": 193
+  },
+  {
+    "index": 45,
+    "speaker": "char_yin_su_su",
+    "speaker_name": "殷素素",
+    "listener": "char_xie_xun",
+    "text": "我先叫你大哥，咱们是拜把子的兄妹。他若再叫你前辈，我也成了他的前辈啦！",
+    "tone": "欣喜",
+    "chapter": 7,
+    "line_start": 217,
+    "line_end": 217
+  },
+  {
+    "index": 46,
+    "speaker": "char_zhang_cui_shan",
+    "speaker_name": "张翠山",
+    "listener": "char_xie_xun",
+    "text": "大哥既决意如此，小弟便此拜别。",
+    "tone": "悲伤",
+    "chapter": 8,
+    "line_start": 171,
+    "line_end": 171
+  },
+  {
+    "index": 47,
+    "speaker": "char_yin_su_su",
+    "speaker_name": "殷素素",
+    "listener": "char_zhang_wu_ji",
+    "text": "你长大了之后，要提防女人骗你，越是好看的女人，越会骗人。",
+    "tone": "悲伤",
+    "chapter": 10,
+    "line_start": 357,
+    "line_end": 357
+  },
+  {
+    "index": 48,
+    "speaker": "char_yin_su_su",
+    "speaker_name": "殷素素",
+    "listener": null,
+    "text": "龙门镖局那七十几条性命明明不是张五侠杀的，你们冤枉于他，那便是颠倒是非，混淆黑白！",
+    "tone": "愤怒",
+    "chapter": 10,
+    "line_start": 279,
+    "line_end": 279
+  },
+  {
+    "index": 49,
+    "speaker": "char_zhang_cui_shan",
+    "speaker_name": "张翠山",
+    "listener": null,
+    "text": "我妻子杀了不少少林弟子，那时她可还不识得我，但我夫妇一体，所有罪孽，当由张翠山一人承当！我和金毛狮王义结金兰，你们觊觎屠龙宝刀，想逼我对不起义兄，武当弟子岂是这等卑鄙无义之徒！",
+    "tone": "愤怒",
+    "chapter": 10,
+    "line_start": 325,
+    "line_end": 325
   }
 ]
 
@@ -2455,7 +2358,7 @@
       }
     ],
     "key_characters": [
-      "char_yin_lian_zhou",
+      "char_yu_lian_zhou",
       "char_zhang_cui_shan",
       "char_mie_jue_shi_tai"
     ]

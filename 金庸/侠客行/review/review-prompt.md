@@ -207,46 +207,46 @@
 
 ## 数据
 
-### characters.json (48 条)
+### characters.json (41 条)
 [
   {
     "id": "char_shi_po_tian",
     "name": "石破天",
     "role": "核心",
-    "identity": "不识字的少年",
+    "identity": "身世不明的少年",
     "faction": null,
     "personality": [
       "善良纯朴",
       "不识字",
-      "武功高强"
+      "重情重义"
     ],
-    "one_line": "不识字的少年，被误认为长乐帮帮主，最终在石壁上领悟太玄经"
+    "one_line": "不识字的少年，被误认为长乐帮帮主，最终在侠客岛石壁上领悟太玄经"
   },
   {
     "id": "char_ding_dang",
     "name": "丁珰",
-    "role": "重要",
-    "identity": "丁不三孙女",
-    "faction": "faction_ding_jia",
+    "role": "核心",
+    "identity": "丁不三的孙女",
+    "faction": null,
     "personality": [
       "活泼刁蛮",
-      "善于使毒",
+      "机智聪慧",
       "重感情"
     ],
-    "one_line": "丁不三孙女，石破天恋人，性格活泼刁蛮"
+    "one_line": "丁不三的孙女，误认石破天为石中玉，性格活泼刁蛮"
   },
   {
     "id": "char_xie_yan_ke",
     "name": "谢烟客",
-    "role": "重要",
+    "role": "核心",
     "identity": "玄铁令主人",
     "faction": null,
     "personality": [
-      "孤傲",
-      "信守承诺",
-      "武功高强"
+      "孤傲自负",
+      "言出必践",
+      "忽正忽邪"
     ],
-    "one_line": "玄铁令主人，武功极高，性格孤傲，受三枚玄铁令约束"
+    "one_line": "玄铁令主人，武功极高性格孤傲，传授石破天内功"
   },
   {
     "id": "char_bei_hai_shi",
@@ -255,37 +255,37 @@
     "identity": "长乐帮军师",
     "faction": "faction_chang_le_bang",
     "personality": [
-      "心机深沉",
+      "智谋过人",
       "医术高明",
-      "善于权谋"
+      "善于操纵"
     ],
-    "one_line": "长乐帮军师，外号着手成春，医术高明心机深沉"
+    "one_line": "长乐帮军师，医术高明智谋过人，拥立石破天为帮主"
   },
   {
     "id": "char_ding_bu_san",
     "name": "丁不三",
     "role": "重要",
-    "identity": "丁家家主",
-    "faction": "faction_ding_jia",
+    "identity": "丁珰的祖父",
+    "faction": null,
     "personality": [
       "凶残嗜杀",
-      "武功高强",
+      "喜怒无常",
       "疼爱孙女"
     ],
-    "one_line": "丁珰祖父，外号一日不过三，性格凶残嗜杀"
+    "one_line": "丁珰的祖父，外号一日不过三，性格凶残喜怒无常"
   },
   {
     "id": "char_ding_bu_si",
     "name": "丁不四",
     "role": "重要",
-    "identity": "丁不三之弟",
-    "faction": "faction_ding_jia",
+    "identity": "丁不三的弟弟",
+    "faction": null,
     "personality": [
       "性格古怪",
-      "痴情",
+      "痴情执着",
       "武功高强"
     ],
-    "one_line": "丁不三之弟，性格古怪，与史小翠有旧情"
+    "one_line": "丁不三的弟弟，性格古怪武功高强，苦恋史小翠"
   },
   {
     "id": "char_bai_zi_zai",
@@ -296,22 +296,61 @@
     "personality": [
       "自大狂妄",
       "武功高强",
-      "护短"
+      "脾气暴躁"
     ],
     "one_line": "雪山派掌门，自大狂妄，后在侠客岛领悟武学真谛"
+  },
+  {
+    "id": "char_zhang_san",
+    "name": "张三",
+    "role": "重要",
+    "identity": "侠客岛赏善罚恶使者",
+    "faction": "faction_xia_ke_dao",
+    "personality": [
+      "豪爽大方",
+      "武功高强",
+      "重义气"
+    ],
+    "one_line": "侠客岛赏善罚恶使者，与李四结伴出巡，与石破天结拜"
   },
   {
     "id": "char_shi_zhong_yu",
     "name": "石中玉",
     "role": "重要",
-    "identity": "石破天孪生兄弟",
-    "faction": null,
+    "identity": "石清闵柔之子",
+    "faction": "faction_xue_shan_pai",
     "personality": [
       "品行不端",
       "油嘴滑舌",
-      "好色"
+      "胆大妄为"
     ],
-    "one_line": "石破天孪生兄弟，品行不端，到处惹祸逃亡"
+    "one_line": "石破天的孪生兄弟，品行不端，在凌霄城犯下大错"
+  },
+  {
+    "id": "char_li_si",
+    "name": "李四",
+    "role": "重要",
+    "identity": "侠客岛赏善罚恶使者",
+    "faction": "faction_xia_ke_dao",
+    "personality": [
+      "沉稳冷静",
+      "武功高强",
+      "重义气"
+    ],
+    "one_line": "侠客岛赏善罚恶使者，与张三结伴出巡"
+  },
+  {
+    "id": "char_long_dao_zhu",
+    "name": "龙岛主",
+    "role": "重要",
+    "identity": "侠客岛岛主",
+    "faction": "faction_xia_ke_dao",
+    "personality": [
+      "武功极高",
+      "执着追求武学",
+      "待客有礼"
+    ],
+    "one_line": "侠客岛岛主，与木岛主共掌侠客岛，主持腊八粥宴"
   },
   {
     "id": "char_shi_qing",
@@ -320,11 +359,11 @@
     "identity": "玄素庄庄主",
     "faction": "faction_xuan_su_zhuang",
     "personality": [
-      "正派侠义",
+      "侠义仁厚",
       "武功高强",
-      "爱子情深"
+      "沉稳老练"
     ],
-    "one_line": "玄素庄庄主，石破天与石中玉之父，正派侠士"
+    "one_line": "玄素庄庄主，侠义仁厚，黑白双剑名扬天下"
   },
   {
     "id": "char_min_rou",
@@ -334,101 +373,199 @@
     "faction": "faction_xuan_su_zhuang",
     "personality": [
       "温柔贤淑",
-      "爱子情深",
-      "武功不弱"
+      "母爱深切",
+      "武功高强"
     ],
-    "one_line": "石清之妻，温柔贤淑，苦寻失散之子"
+    "one_line": "石清之妻，人称观音娘娘，母爱深切，与丈夫双剑合璧"
   },
   {
-    "id": "char_zhang_san",
-    "name": "张三",
+    "id": "char_bai_wan_jian",
+    "name": "白万剑",
     "role": "重要",
-    "identity": "侠客岛使者",
-    "faction": "faction_xia_ke_dao",
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
     "personality": [
       "武功高强",
-      "性格开朗",
-      "待人和气"
+      "性格刚烈",
+      "重情重义"
     ],
-    "one_line": "侠客岛赏善罚恶使者，胖使者，邀人赴岛"
-  },
-  {
-    "id": "char_li_si",
-    "name": "李四",
-    "role": "重要",
-    "identity": "侠客岛使者",
-    "faction": "faction_xia_ke_dao",
-    "personality": [
-      "武功高强",
-      "沉默寡言",
-      "行事果断"
-    ],
-    "one_line": "侠客岛赏善罚恶使者，瘦使者，与张三同行"
-  },
-  {
-    "id": "char_long_dao_zhu",
-    "name": "龙岛主",
-    "role": "重要",
-    "identity": "侠客岛岛主",
-    "faction": "faction_xia_ke_dao",
-    "personality": [
-      "武功高强",
-      "深谋远虑",
-      "求贤若渴"
-    ],
-    "one_line": "侠客岛岛主之一，邀天下高手参详太玄经"
-  },
-  {
-    "id": "char_mu_dao_zhu",
-    "name": "木岛主",
-    "role": "重要",
-    "identity": "侠客岛岛主",
-    "faction": "faction_xia_ke_dao",
-    "personality": [
-      "武功高强",
-      "深谋远虑",
-      "求贤若渴"
-    ],
-    "one_line": "侠客岛岛主之一，与龙岛主共主岛务"
-  },
-  {
-    "id": "char_shi_xiao_cui",
-    "name": "史小翠",
-    "role": "重要",
-    "identity": "金乌派创始人",
-    "faction": "faction_jin_wu_pai",
-    "personality": [
-      "刚烈",
-      "武功高强",
-      "有创见"
-    ],
-    "one_line": "白自在之妻，创金乌刀法克制雪山剑法"
+    "one_line": "雪山派弟子，白自在之子，追捕石中玉"
   },
   {
     "id": "char_a_xiu",
     "name": "阿绣",
     "role": "重要",
-    "identity": "白自在孙女",
+    "identity": "白自在的孙女",
     "faction": "faction_xue_shan_pai",
     "personality": [
       "温柔善良",
-      "纯真",
-      "武功不高"
+      "天真纯洁",
+      "坚韧勇敢"
     ],
-    "one_line": "白自在孙女，石破天真心相爱之人"
+    "one_line": "白自在的孙女，石破天的挚爱，后成为其妻子"
   },
   {
-    "id": "char_hua_wan_zi",
-    "name": "花万紫",
+    "id": "char_shi_xiao_cui",
+    "name": "史小翠",
+    "role": "重要",
+    "identity": "白自在之妻",
+    "faction": "faction_jin_wu_pai",
+    "personality": [
+      "性格倔强",
+      "武功高强",
+      "嫉恶如仇"
+    ],
+    "one_line": "白自在之妻，创建金乌派，金乌刀法专门克制雪山剑法"
+  },
+  {
+    "id": "char_mu_dao_zhu",
+    "name": "木岛主",
     "role": "次要",
-    "identity": "雪山派女弟子",
-    "faction": "faction_xue_shan_pai",
+    "identity": "侠客岛岛主",
+    "faction": "faction_xia_ke_dao",
+    "personality": [
+      "武功极高",
+      "执着追求武学",
+      "沉默寡言"
+    ],
+    "one_line": "侠客岛岛主，与龙岛主共掌侠客岛"
+  },
+  {
+    "id": "char_gao_san_niang_zi",
+    "name": "高三娘子",
+    "role": "次要",
+    "identity": "辽东女侠",
+    "faction": null,
+    "personality": [
+      "侠义心肠",
+      "豪爽大方",
+      "武功不弱"
+    ],
+    "one_line": "辽东女侠，侠义心肠，与范一飞等人同行赴侠客岛"
+  },
+  {
+    "id": "char_fan_yi_fei",
+    "name": "范一飞",
+    "role": "次要",
+    "identity": "辽东武林人物",
+    "faction": null,
+    "personality": [
+      "豪爽",
+      "重义气"
+    ],
+    "one_line": "辽东武林人物，被侠客岛邀去喝腊八粥"
+  },
+  {
+    "id": "char_lv_zheng_ping",
+    "name": "吕正平",
+    "role": "次要",
+    "identity": "辽东武林人物",
+    "faction": null,
+    "personality": [
+      "豪爽",
+      "重义气"
+    ],
+    "one_line": "辽东武林人物，与范一飞同行赴侠客岛"
+  },
+  {
+    "id": "char_feng_liang",
+    "name": "风良",
+    "role": "次要",
+    "identity": "辽东武林人物",
+    "faction": null,
+    "personality": [
+      "豪爽",
+      "重义气"
+    ],
+    "one_line": "辽东武林人物，与范一飞等人同行赴侠客岛"
+  },
+  {
+    "id": "char_shi_jian",
+    "name": "侍剑",
+    "role": "次要",
+    "identity": "石破天的贴身侍女",
+    "faction": "faction_chang_le_bang",
+    "personality": [
+      "忠心耿耿",
+      "温柔体贴",
+      "机灵聪慧"
+    ],
+    "one_line": "石破天的贴身侍女，忠心耿耿"
+  },
+  {
+    "id": "char_wu_dao_tong",
+    "name": "吴道通",
+    "role": "次要",
+    "identity": "玄铁令持有者",
+    "faction": null,
+    "personality": [
+      "隐忍",
+      "机智",
+      "武功不弱"
+    ],
+    "one_line": "卖烧饼的老者，玄铁令的持有者，死于金刀寨追杀"
+  },
+  {
+    "id": "char_an_feng_ri",
+    "name": "安奉日",
+    "role": "次要",
+    "identity": "金刀寨寨主",
+    "faction": "faction_jin_dao_zhai",
+    "personality": [
+      "豪爽",
+      "重义气",
+      "武功不弱"
+    ],
+    "one_line": "金刀寨寨主，劫富济贫的绿林好汉"
+  },
+  {
+    "id": "char_zhou_mu",
+    "name": "周牧",
+    "role": "次要",
+    "identity": "金刀寨头领",
+    "faction": "faction_jin_dao_zhai",
+    "personality": [
+      "老练",
+      "武功不弱",
+      "贪心"
+    ],
+    "one_line": "金刀寨头领，武功高强，追杀吴道通"
+  },
+  {
+    "id": "char_you_de_sheng",
+    "name": "尤得胜",
+    "role": "次要",
+    "identity": "铁叉会总舵主",
+    "faction": "faction_tie_cha_hui",
+    "personality": [
+      "武功不弱",
+      "刚愎自用"
+    ],
+    "one_line": "铁叉会总舵主，双短叉神功独步江湖，死于张三李四之手"
+  },
+  {
+    "id": "char_mei_wen_xin",
+    "name": "梅文馨",
+    "role": "次要",
+    "identity": "丁不四的旧情人",
+    "faction": null,
     "personality": [
       "痴情",
-      "软弱",
-      "被利用"
+      "刚烈"
     ],
-    "one_line": "雪山派女弟子，与石中玉有私情"
+    "one_line": "丁不四的旧情人，梅芳姑之母"
+  },
+  {
+    "id": "char_mei_fang_gu",
+    "name": "梅芳姑",
+    "role": "次要",
+    "identity": "丁不四的私生女",
+    "faction": null,
+    "personality": [
+      "孤僻",
+      "武功平平"
+    ],
+    "one_line": "丁不四与梅文馨的私生女，掳走石中玉"
   },
   {
     "id": "char_feng_wan_li",
@@ -437,49 +574,24 @@
     "identity": "雪山派大弟子",
     "faction": "faction_xue_shan_pai",
     "personality": [
-      "忠厚老实",
-      "武功不弱",
-      "稳重"
+      "武功高强",
+      "刚猛",
+      "忠于师门"
     ],
-    "one_line": "雪山派大弟子，忠厚老实"
+    "one_line": "雪山派大弟子，石中玉的师父，被白自在斩断臂膀"
   },
   {
-    "id": "char_wang_wan_ren",
-    "name": "王万仞",
+    "id": "char_tian_xu_dao_ren",
+    "name": "天虚道人",
     "role": "次要",
-    "identity": "雪山派弟子",
-    "faction": "faction_xue_shan_pai",
+    "identity": "上清观掌门",
+    "faction": "faction_shang_qing_guan",
     "personality": [
-      "鲁莽",
-      "口无遮拦",
-      "直率"
+      "武功高强",
+      "忧心武林",
+      "道行高深"
     ],
-    "one_line": "雪山派弟子，性格鲁莽"
-  },
-  {
-    "id": "char_geng_wan_zhong",
-    "name": "耿万钟",
-    "role": "次要",
-    "identity": "雪山派弟子",
-    "faction": "faction_xue_shan_pai",
-    "personality": [
-      "稳重",
-      "有责任心",
-      "武功不弱"
-    ],
-    "one_line": "雪山派弟子，奉命追捕石中玉"
-  },
-  {
-    "id": "char_ke_wan_jun",
-    "name": "柯万钧",
-    "role": "次要",
-    "identity": "雪山派弟子",
-    "faction": "faction_xue_shan_pai",
-    "personality": [
-      "稳重",
-      "武功不弱"
-    ],
-    "one_line": "雪山派弟子，与耿万钟同行"
+    "one_line": "上清观掌门，石清闵柔的师兄"
   },
   {
     "id": "char_cheng_zi_xue",
@@ -488,10 +600,10 @@
     "identity": "雪山派长老",
     "faction": "faction_xue_shan_pai",
     "personality": [
-      "有野心",
-      "武功不弱"
+      "野心勃勃",
+      "阴险狡诈"
     ],
-    "one_line": "雪山派长老，参与门派内争"
+    "one_line": "雪山派长老，觊觎掌门之位"
   },
   {
     "id": "char_qi_zi_mian",
@@ -500,22 +612,9 @@
     "identity": "雪山派长老",
     "faction": "faction_xue_shan_pai",
     "personality": [
-      "有野心",
-      "武功不弱"
+      "野心勃勃"
     ],
-    "one_line": "雪山派长老，与成自学对立"
-  },
-  {
-    "id": "char_liao_zi_li",
-    "name": "廖自砺",
-    "role": "次要",
-    "identity": "雪山派长老",
-    "faction": "faction_xue_shan_pai",
-    "personality": [
-      "有野心",
-      "武功不弱"
-    ],
-    "one_line": "雪山派长老，卷入掌门之争"
+    "one_line": "雪山派长老，与成自学等人同谋"
   },
   {
     "id": "char_liang_zi_jin",
@@ -524,276 +623,106 @@
     "identity": "雪山派长老",
     "faction": "faction_xue_shan_pai",
     "personality": [
-      "忠心",
-      "武功不弱"
+      "野心勃勃"
     ],
-    "one_line": "雪山派长老，支持白自在"
-  },
-  {
-    "id": "char_an_feng_ri",
-    "name": "安奉日",
-    "role": "次要",
-    "identity": "长乐帮香主",
-    "faction": "faction_chang_le_bang",
-    "personality": [
-      "忠心",
-      "武功不弱"
-    ],
-    "one_line": "长乐帮香主，忠于帮主"
-  },
-  {
-    "id": "char_zhan_fei",
-    "name": "展飞",
-    "role": "次要",
-    "identity": "长乐帮香主",
-    "faction": "faction_chang_le_bang",
-    "personality": [
-      "武功不弱",
-      "稳重"
-    ],
-    "one_line": "长乐帮香主，武功不弱"
-  },
-  {
-    "id": "char_mi_heng_ye",
-    "name": "米横野",
-    "role": "次要",
-    "identity": "长乐帮香主",
-    "faction": "faction_chang_le_bang",
-    "personality": [
-      "沉稳",
-      "武功不弱"
-    ],
-    "one_line": "长乐帮香主，性格沉稳"
-  },
-  {
-    "id": "char_qiu_shan_feng",
-    "name": "邱山风",
-    "role": "次要",
-    "identity": "长乐帮香主",
-    "faction": "faction_chang_le_bang",
-    "personality": [
-      "武功不弱"
-    ],
-    "one_line": "长乐帮香主"
-  },
-  {
-    "id": "char_chen_chong_zhi",
-    "name": "陈冲之",
-    "role": "次要",
-    "identity": "长乐帮香主",
-    "faction": "faction_chang_le_bang",
-    "personality": [
-      "武功不弱"
-    ],
-    "one_line": "长乐帮香主"
-  },
-  {
-    "id": "char_yun_xiang_zhu",
-    "name": "云香主",
-    "role": "次要",
-    "identity": "长乐帮香主",
-    "faction": "faction_chang_le_bang",
-    "personality": [
-      "武功不弱"
-    ],
-    "one_line": "长乐帮香主"
-  },
-  {
-    "id": "char_yuan_cheng_dao_ren",
-    "name": "元澄道人",
-    "role": "次要",
-    "identity": "上清观道士",
-    "faction": "faction_shang_qing_guan",
-    "personality": [
-      "武功不弱",
-      "正直"
-    ],
-    "one_line": "上清观道士，被长乐帮所迫"
-  },
-  {
-    "id": "char_miao_di",
-    "name": "妙谛",
-    "role": "次要",
-    "identity": "少林高僧",
-    "faction": "faction_shao_lin_pai",
-    "personality": [
-      "武功高强",
-      "德高望重"
-    ],
-    "one_line": "少林高僧，受邀赴侠客岛"
-  },
-  {
-    "id": "char_yu_cha",
-    "name": "愚茶",
-    "role": "次要",
-    "identity": "武当高道",
-    "faction": "faction_wu_dang_pai",
-    "personality": [
-      "武功高强",
-      "德高望重"
-    ],
-    "one_line": "武当高道，受邀赴侠客岛"
-  },
-  {
-    "id": "char_tian_xu",
-    "name": "天虚",
-    "role": "龙套",
-    "identity": "武林名宿",
-    "faction": null,
-    "personality": [
-      "武功不弱"
-    ],
-    "one_line": "武林名宿，被邀赴侠客岛"
-  },
-  {
-    "id": "char_zhou_mu",
-    "name": "周牧",
-    "role": "龙套",
-    "identity": "马贼首领",
-    "faction": null,
-    "personality": [
-      "凶悍"
-    ],
-    "one_line": "黄河岸边马贼首领"
+    "one_line": "雪山派长老，与成自学等人同谋"
   },
   {
     "id": "char_wen_ren_hou",
     "name": "温仁厚",
     "role": "龙套",
-    "identity": "关东四大门派掌门",
-    "faction": "faction_guan_dong_si_da_men_pai",
-    "personality": [
-      "武功不弱"
-    ],
-    "one_line": "关东四大门派掌门之一"
-  },
-  {
-    "id": "char_fan_yi_fei",
-    "name": "范一飞",
-    "role": "龙套",
-    "identity": "关东四大门派掌门",
-    "faction": "faction_guan_dong_si_da_men_pai",
-    "personality": [
-      "武功不弱"
-    ],
-    "one_line": "关东四大门派掌门之一"
-  },
-  {
-    "id": "char_lv_zheng_ping",
-    "name": "吕正平",
-    "role": "龙套",
-    "identity": "关东四大门派掌门",
-    "faction": "faction_guan_dong_si_da_men_pai",
-    "personality": [
-      "武功不弱"
-    ],
-    "one_line": "关东四大门派掌门之一"
-  },
-  {
-    "id": "char_gao_san_niang_zi",
-    "name": "高三娘子",
-    "role": "龙套",
-    "identity": "关东四大门派掌门",
-    "faction": "faction_guan_dong_si_da_men_pai",
-    "personality": [
-      "豪爽",
-      "武功不弱"
-    ],
-    "one_line": "关东四大门派掌门之一，女中豪杰"
-  },
-  {
-    "id": "char_feng_liang",
-    "name": "风良",
-    "role": "龙套",
-    "identity": "武林人物",
+    "identity": "山东八仙剑掌门",
     "faction": null,
     "personality": [
+      "武功不弱",
+      "与白自在交好"
+    ],
+    "one_line": "山东八仙剑掌门，被侠客岛邀去研习武学"
+  },
+  {
+    "id": "char_kang_kun",
+    "name": "康昆",
+    "role": "龙套",
+    "identity": "果毅门掌门",
+    "faction": "faction_guo_yi_men",
+    "personality": [
+      "西域胡人",
       "武功不弱"
     ],
-    "one_line": "武林人物，被邀赴侠客岛"
+    "one_line": "凉州果毅门掌门，西域胡人"
   },
   {
-    "id": "char_ni_bu_da",
-    "name": "倪不大",
+    "id": "char_mi_xiang_zhu",
+    "name": "米香主",
     "role": "龙套",
-    "identity": "武林人物",
-    "faction": null,
-    "personality": [
-      "身材矮小"
-    ],
-    "one_line": "身材矮小的武林人物"
-  },
-  {
-    "id": "char_ni_bu_xiao",
-    "name": "倪不小",
-    "role": "龙套",
-    "identity": "武林人物",
-    "faction": null,
-    "personality": [
-      "身材高大"
-    ],
-    "one_line": "身材高大的武林人物，倪不大之伴"
-  },
-  {
-    "id": "char_li_da_yuan",
-    "name": "李大元",
-    "role": "龙套",
-    "identity": "铁叉会首领",
-    "faction": "faction_tie_cha_hui",
-    "personality": [
-      "凶悍"
-    ],
-    "one_line": "铁叉会首领"
-  },
-  {
-    "id": "char_si_tu_heng",
-    "name": "司徒横",
-    "role": "龙套",
-    "identity": "长乐帮前任帮主",
+    "identity": "长乐帮香主",
     "faction": "faction_chang_le_bang",
     "personality": [
-      "被架空"
+      "武功平平"
     ],
-    "one_line": "长乐帮前任帮主，被贝海石架空"
+    "one_line": "长乐帮香主，被谢烟客擒住"
   },
   {
-    "id": "char_mei_wen_xin",
-    "name": "梅文馨",
+    "id": "char_yun_xiang_zhu",
+    "name": "云香主",
     "role": "龙套",
-    "identity": "丁不四旧情人",
+    "identity": "长乐帮香主",
+    "faction": "faction_chang_le_bang",
+    "personality": [
+      "武功平平"
+    ],
+    "one_line": "长乐帮香主，使烂银短戟"
+  },
+  {
+    "id": "char_da_bei_lao_ren",
+    "name": "大悲老人",
+    "role": "龙套",
+    "identity": "武林前辈",
     "faction": null,
     "personality": [
-      "痴情"
+      "武功不弱",
+      "侠义心肠"
     ],
-    "one_line": "丁不四的旧情人，梅芳姑之母"
+    "one_line": "武林前辈，被长乐帮围杀，临死前赠石破天十八泥偶"
   },
   {
-    "id": "char_mei_fang_gu",
-    "name": "梅芳姑",
+    "id": "char_geng_wan_zhong",
+    "name": "耿万钟",
     "role": "龙套",
-    "identity": "暗恋石清的女子",
-    "faction": null,
-    "personality": [
-      "偏激",
-      "痴情"
-    ],
-    "one_line": "暗恋石清的女子，性情偏激"
-  },
-  {
-    "id": "char_bai_wan_jian",
-    "name": "白万剑",
-    "role": "次要",
-    "identity": "雪山派少主",
+    "identity": "雪山派弟子",
     "faction": "faction_xue_shan_pai",
     "personality": [
       "武功不弱",
-      "有担当"
+      "忠于师门"
     ],
-    "one_line": "白自在之子，雪山派少主"
+    "one_line": "雪山派弟子，追查石中玉"
+  },
+  {
+    "id": "char_wang_wan_ren",
+    "name": "王万仞",
+    "role": "龙套",
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "personality": [
+      "性情急躁",
+      "口无遮拦"
+    ],
+    "one_line": "雪山派弟子，性情急躁"
+  },
+  {
+    "id": "char_ke_wan_jun",
+    "name": "柯万钧",
+    "role": "龙套",
+    "identity": "雪山派弟子",
+    "faction": "faction_xue_shan_pai",
+    "personality": [
+      "武功平平"
+    ],
+    "one_line": "雪山派弟子，与耿万钟同行"
   }
 ]
 
-### factions.json (12 条)
+### factions.json (11 条)
 [
   {
     "id": "faction_xue_shan_pai",
@@ -806,88 +735,81 @@
     "id": "faction_chang_le_bang",
     "name": "长乐帮",
     "type": "帮派",
-    "location": "loc_chang_le_bang_zong_duo",
-    "one_line": "江南大帮会，石破天被误认为帮主，贝海石掌实权"
+    "location": "loc_zhen_jiang",
+    "one_line": "江南大帮会，石破天被贝海石等人误认为帮主"
   },
   {
     "id": "faction_xia_ke_dao",
     "name": "侠客岛",
-    "type": "帮派",
+    "type": "武林门派",
     "location": "loc_xia_ke_dao",
-    "one_line": "神秘海外岛屿势力，每十年派赏善罚恶使者邀武林高手赴岛"
-  },
-  {
-    "id": "faction_ding_jia",
-    "name": "丁家",
-    "type": "家族",
-    "location": null,
-    "one_line": "丁不三、丁不四兄弟及其后人组成的武林家族"
-  },
-  {
-    "id": "faction_xuan_su_zhuang",
-    "name": "玄素庄",
-    "type": "家族",
-    "location": "loc_xuan_su_zhuang",
-    "one_line": "石清闵柔夫妇的庄园，江南武林世家"
-  },
-  {
-    "id": "faction_shao_lin_pai",
-    "name": "少林派",
-    "type": "武林门派",
-    "location": null,
-    "one_line": "武林第一大派，千年古刹，武学博大精深"
-  },
-  {
-    "id": "faction_wu_dang_pai",
-    "name": "武当派",
-    "type": "武林门派",
-    "location": null,
-    "one_line": "道家名门，内家武学正宗，两仪剑法闻名天下"
-  },
-  {
-    "id": "faction_shang_qing_guan",
-    "name": "上清观",
-    "type": "寺院",
-    "location": "loc_shang_qing_guan",
-    "one_line": "道观门派，元澄道人所属，擅长上清剑法"
+    "one_line": "神秘海外岛屿，龙木二岛主共掌，每十年邀武林高手赴岛研习武学"
   },
   {
     "id": "faction_tie_cha_hui",
     "name": "铁叉会",
     "type": "帮派",
     "location": null,
-    "one_line": "江湖小帮派，以铁叉为标志，李大元为首领"
+    "one_line": "江湖帮会，以铁叉为标志，被张三李四剿灭"
+  },
+  {
+    "id": "faction_xuan_su_zhuang",
+    "name": "玄素庄",
+    "type": "家族",
+    "location": "loc_xuan_su_zhuang",
+    "one_line": "石清闵柔夫妇的庄园，江南武林世家，黑白双剑名扬天下"
   },
   {
     "id": "faction_jin_wu_pai",
     "name": "金乌派",
     "type": "武林门派",
     "location": null,
-    "one_line": "史小翠创立的门派，金乌刀法专克雪山剑法"
+    "one_line": "史小翠所创门派，金乌刀法专克雪山剑法"
   },
   {
-    "id": "faction_guan_dong_si_da_men_pai",
-    "name": "关东四大门派",
+    "id": "faction_jin_dao_zhai",
+    "name": "金刀寨",
     "type": "帮派",
     "location": null,
-    "one_line": "关东武林联盟，温仁厚、范一飞、吕正平、高三娘子四大掌门并称"
+    "one_line": "绿林山寨，安奉日为寨主，劫富济贫追查玄铁令"
+  },
+  {
+    "id": "faction_shang_qing_guan",
+    "name": "上清观",
+    "type": "武林门派",
+    "location": "loc_shang_qing_guan",
+    "one_line": "道家门派，天虚道人为掌门，石清闵柔少年时在此学艺"
   },
   {
     "id": "faction_fei_yu_bang",
     "name": "飞鱼帮",
     "type": "帮派",
     "location": null,
-    "one_line": "水上帮派，与长乐帮有往来"
+    "one_line": "水上帮派，被赏善罚恶使者剿灭，石破天在死尸船上首次听闻侠客岛"
+  },
+  {
+    "id": "faction_guo_yi_men",
+    "name": "果毅门",
+    "type": "武林门派",
+    "location": "loc_liang_zhou",
+    "one_line": "凉州武林门派，掌门康昆为西域胡人"
+  },
+  {
+    "id": "faction_fu_hu_men",
+    "name": "伏虎门",
+    "type": "武林门派",
+    "location": null,
+    "one_line": "山西武林门派，尤得胜为唯一传人，擅双短叉"
   }
 ]
 
-### locations.json (19 条)
+### locations.json (12 条)
 [
   {
     "id": "loc_xia_ke_dao",
     "name": "侠客岛",
     "region": "南海",
-    "one_line": "神秘海外岛屿，藏有太玄经石壁，每十年邀武林高手赴岛"
+    "one_line": "神秘海外岛屿，藏有太玄经石壁，每十年邀武林高手赴岛研习武学"
   },
   {
     "id": "loc_ling_xiao_cheng",
@@ -896,28 +818,22 @@
     "one_line": "雪山派总舵，位于西域雪山之中，地势险峻"
   },
   {
+    "id": "loc_mo_tian_ya",
+    "name": "摩天崖",
+    "region": "中原",
+    "one_line": "谢烟客隐居之地，地势险峻高耸入云"
+  },
+  {
     "id": "loc_xuan_su_zhuang",
     "name": "玄素庄",
     "region": "江南",
     "one_line": "石清闵柔夫妇的庄园，江南武林世家"
   },
   {
-    "id": "loc_mo_tian_ya",
-    "name": "摩天崖",
+    "id": "loc_hou_jian_ji",
+    "name": "侯监集",
     "region": "中原",
-    "one_line": "谢烟客隐居之地，地势险峻，高耸入云"
-  },
-  {
-    "id": "loc_hou_ling",
-    "name": "猴岭",
-    "region": "中原",
-    "one_line": "石破天幼年生长之地，荒僻山村"
-  },
-  {
-    "id": "loc_hu_lao_guan",
-    "name": "虎牢关",
-    "region": "中原",
-    "one_line": "中原要塞，交通要道，兵家必争之地"
+    "one_line": "开封东门小镇，玄铁令争夺之地，石破天在此初遇谢烟客"
   },
   {
     "id": "loc_kai_feng",
@@ -929,25 +845,13 @@
     "id": "loc_zhen_jiang",
     "name": "镇江",
     "region": "江南",
-    "one_line": "江南重镇，长江要津，繁华之地"
-  },
-  {
-    "id": "loc_nan_jing",
-    "name": "南京",
-    "region": "江南",
-    "one_line": "六朝古都，繁华之地，江南重镇"
-  },
-  {
-    "id": "loc_hou_jian_ji",
-    "name": "侯监集",
-    "region": "中原",
-    "one_line": "石破天初遇谢烟客之处，小镇集市"
+    "one_line": "江南重镇，长乐帮总舵所在地"
   },
   {
     "id": "loc_shang_qing_guan",
     "name": "上清观",
     "region": "中原",
-    "one_line": "道观所在，元澄道人修行之地"
+    "one_line": "道家门派所在，石清闵柔少年时在此学艺"
   },
   {
     "id": "loc_bi_luo_dao",
@@ -959,43 +863,19 @@
     "id": "loc_zi_yan_dao",
     "name": "紫烟岛",
     "region": "东海",
-    "one_line": "丁不三的居所，东海小岛"
+    "one_line": "长江中的小岛，史婆婆阿绣流落之处，石破天在此学得金乌刀法"
   },
   {
     "id": "loc_xiong_er_shan",
-    "name": "熊耳山",
+    "name": "熊耳山枯草岭",
     "region": "中原",
-    "one_line": "武林人物聚集之地，山势险峻"
+    "one_line": "梅芳姑隐居之处"
   },
   {
-    "id": "loc_tian_ning_si",
-    "name": "天宁寺",
-    "region": "中原",
-    "one_line": "少林下院，石破天曾至此"
-  },
-  {
-    "id": "loc_bai_jing_dao",
-    "name": "白鲸岛",
-    "region": "东海",
-    "one_line": "白鲸岛主的据点，东海岛屿"
-  },
-  {
-    "id": "loc_chang_le_bang_zong_duo",
-    "name": "长乐帮总舵",
-    "region": "江南",
-    "one_line": "长乐帮的总部所在，江南大帮会之地"
-  },
-  {
-    "id": "loc_huang_he",
-    "name": "黄河",
-    "region": "中原",
-    "one_line": "中原大河，多处情节发生地"
-  },
-  {
-    "id": "loc_chang_jiang",
-    "name": "长江",
-    "region": "江南",
-    "one_line": "江南大河，水路交通要道"
+    "id": "loc_liang_zhou",
+    "name": "凉州",
+    "region": "西域",
+    "one_line": "果毅门所在地，西域胡人聚居之地"
   }
 ]
 
@@ -1010,20 +890,20 @@
     "one_line": "侠客岛石壁最高武学，融合诸般武学精髓，非识字者可悟"
   },
   {
-    "id": "skill_xue_shan_jian_fa",
-    "name": "雪山剑法",
-    "type": "剑法",
-    "mastery_rank": "炉火纯青",
+    "id": "skill_luo_han_fu_mo_shen_gong",
+    "name": "罗汉伏魔神功",
+    "type": "内功",
+    "mastery_rank": "登峰造极",
     "practitioners": [],
-    "one_line": "雪山派镇派剑法，精妙凌厉，招式繁复"
+    "one_line": "少林至高内功，石破天通过十八泥偶修炼，内力大增"
   },
   {
-    "id": "skill_jin_wu_dao_fa",
-    "name": "金乌刀法",
-    "type": "刀法",
-    "mastery_rank": "炉火纯青",
+    "id": "skill_xia_ke_xing_bi_wu_gong",
+    "name": "侠客行石壁武学",
+    "type": "内功",
+    "mastery_rank": "返璞归真",
     "practitioners": [],
-    "one_line": "史小翠所创刀法，招招克制雪山剑法"
+    "one_line": "侠客岛上李白诗篇的武学图解，太玄经为其总纲"
   },
   {
     "id": "skill_bi_zhen_qing_zhang",
@@ -1031,63 +911,79 @@
     "type": "掌法",
     "mastery_rank": "出神入化",
     "practitioners": [],
-    "one_line": "谢烟客成名掌法，以松针练就，掌力绵长"
+    "one_line": "谢烟客成名掌法，以松针练就，掌力阴柔绵长"
   },
   {
-    "id": "skill_luo_han_fu_mo_shen_gong",
-    "name": "罗汉伏魔神功",
-    "type": "内功",
-    "mastery_rank": "登峰造极",
-    "practitioners": [],
-    "one_line": "少林至高内功，修炼极难，需坐枯禅"
-  },
-  {
-    "id": "skill_ding_jia_quan",
-    "name": "丁家拳",
-    "type": "拳法",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "丁不三、丁不四兄弟的家传拳法，刚猛霸道"
-  },
-  {
-    "id": "skill_ding_jia_qin_na_shou",
-    "name": "丁家擒拿手",
-    "type": "指法",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "丁家的擒拿绝技，锁拿敌人关节要害"
-  },
-  {
-    "id": "skill_ban_ruo_zhang",
-    "name": "般若掌",
+    "id": "skill_wu_xing_liu_he_zhang",
+    "name": "五行六合掌",
     "type": "掌法",
     "mastery_rank": "炉火纯青",
     "practitioners": [],
-    "one_line": "少林七十二绝技之一，掌力浑厚"
+    "one_line": "贝海石的成名绝技，着手成春之名由此而来"
   },
   {
-    "id": "skill_jiang_mo_zhang",
-    "name": "降魔掌",
-    "type": "掌法",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "少林七十二绝技之一，专克邪魔外道"
-  },
-  {
-    "id": "skill_nian_hua_zhi",
-    "name": "拈花指",
-    "type": "指法",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "少林七十二绝技之一，指力阴柔"
-  },
-  {
-    "id": "skill_liang_yi_jian_fa",
-    "name": "两仪剑法",
+    "id": "skill_xue_shan_jian_fa",
+    "name": "雪山剑法",
     "type": "剑法",
     "mastery_rank": "炉火纯青",
     "practitioners": [],
-    "one_line": "武当派的阴阳合璧剑法，需双人同使"
+    "one_line": "雪山派镇派剑法，精妙凌厉，以轻灵迅捷见长"
+  },
+  {
+    "id": "skill_jin_wu_dao_fa",
+    "name": "金乌刀法",
+    "type": "刀法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "史小翠所创刀法，招招克制雪山剑法，共七十二路"
+  },
+  {
+    "id": "skill_shen_dao_gui_die_san_lian_huan",
+    "name": "神倒鬼跌三连环",
+    "type": "掌法",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "丁不四的独门武功，连环三招诡异多变"
+  },
+  {
+    "id": "skill_yi_wei_du_jiang",
+    "name": "一苇渡江",
+    "type": "轻功",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "轻功绝技，可踏水而行"
+  },
+  {
+    "id": "skill_tie_xiu_gong",
+    "name": "铁袖功",
+    "type": "掌法",
+    "mastery_rank": "登堂入室",
+    "practitioners": [],
+    "one_line": "以衣袖施展的武功，刚柔并济"
+  },
+  {
+    "id": "skill_shuang_duan_cha_shen_gong",
+    "name": "双短叉神功",
+    "type": "奇门",
+    "mastery_rank": "登堂入室",
+    "practitioners": [],
+    "one_line": "山西伏虎门绝学，铁叉会总舵主尤得胜独擅双短叉"
+  },
+  {
+    "id": "skill_wu_xing_quan",
+    "name": "五行拳",
+    "type": "拳法",
+    "mastery_rank": "初窥门径",
+    "practitioners": [],
+    "one_line": "武林常见基础拳法"
+  },
+  {
+    "id": "skill_tan_zhi_shen_tong",
+    "name": "弹指神通",
+    "type": "指法",
+    "mastery_rank": "登峰造极",
+    "practitioners": [],
+    "one_line": "谢烟客绝技，以指力弹物伤人，曾弹剑夺人兵刃"
   },
   {
     "id": "skill_shang_qing_jian_fa",
@@ -1095,7 +991,7 @@
     "type": "剑法",
     "mastery_rank": "登堂入室",
     "practitioners": [],
-    "one_line": "上清观的道家剑法，飘逸出尘"
+    "one_line": "上清观的道家剑法，飘逸出尘，石清闵柔少年时所学"
   },
   {
     "id": "skill_wu_wang_shen_gong",
@@ -1106,22 +1002,6 @@
     "one_line": "史小翠与阿绣修炼的内功，走火入魔风险极大"
   },
   {
-    "id": "skill_shen_xing_bai_bian",
-    "name": "神行百变",
-    "type": "轻功",
-    "mastery_rank": "炉火纯青",
-    "practitioners": [],
-    "one_line": "丁家的轻功绝技，身法变幻莫测"
-  },
-  {
-    "id": "skill_bi_hu_you_qiang_gong",
-    "name": "壁虎游墙功",
-    "type": "轻功",
-    "mastery_rank": "略有小成",
-    "practitioners": [],
-    "one_line": "可附于墙面行走的轻功，攀爬利器"
-  },
-  {
     "id": "skill_kong_he_gong",
     "name": "控鹤功",
     "type": "内功",
@@ -1130,60 +1010,60 @@
     "one_line": "可隔空取物的内功，以内力操控外物"
   },
   {
-    "id": "skill_fen_jin_cuo_gu_shou",
-    "name": "分筋错骨手",
+    "id": "skill_yan_yan_gong",
+    "name": "炎炎功",
+    "type": "内功",
+    "mastery_rank": "登堂入室",
+    "practitioners": [],
+    "one_line": "谢烟客故意颠倒阴阳次序传授石破天的内功，意在害其性命"
+  },
+  {
+    "id": "skill_jin_long_bian_fa",
+    "name": "金龙鞭法",
+    "type": "奇门",
+    "mastery_rank": "炉火纯青",
+    "practitioners": [],
+    "one_line": "丁不四的成名鞭法，以九节软鞭施展，刚猛凌厉"
+  },
+  {
+    "id": "skill_ding_jia_qin_na_shou",
+    "name": "丁家擒拿手",
     "type": "指法",
     "mastery_rank": "登堂入室",
     "practitioners": [],
-    "one_line": "伤人筋骨的擒拿手法，分筋错骨"
+    "one_line": "丁家祖传一十八路擒拿手，丁珰在长江船上教授石破天"
   },
   {
-    "id": "skill_zhui_hun_duo_ming_jian",
-    "name": "追魂夺命剑",
-    "type": "剑法",
+    "id": "skill_pai_gua_dao",
+    "name": "劈卦刀",
+    "type": "刀法",
     "mastery_rank": "登堂入室",
     "practitioners": [],
-    "one_line": "凌厉狠辣的剑法，招招夺命"
+    "one_line": "安奉日的拿手绝技，七十二路刀法变化多端"
   },
   {
-    "id": "skill_liu_he_dao_fa",
-    "name": "六合刀法",
+    "id": "skill_kuai_ma_shen_dao",
+    "name": "快马神刀",
     "type": "刀法",
     "mastery_rank": "略有小成",
     "practitioners": [],
-    "one_line": "江湖常见的刀法，朴实无华"
+    "one_line": "长乐帮前帮主司徒横的成名绝技，弯刀快马称雄辽东"
   },
   {
-    "id": "skill_an_qi_shou_fa",
-    "name": "暗器手法",
-    "type": "暗器",
+    "id": "skill_mei_hua_quan",
+    "name": "梅花拳",
+    "type": "拳法",
     "mastery_rank": "略有小成",
     "practitioners": [],
-    "one_line": "各派暗器发射技艺，暗中伤人"
+    "one_line": "梅芳姑家传武功，天下只此一家"
   },
   {
-    "id": "skill_xia_ke_xing_bi_wu_gong",
-    "name": "侠客行石壁武功",
-    "type": "内功",
-    "mastery_rank": "返璞归真",
-    "practitioners": [],
-    "one_line": "二十四间石室中的武学图谱，包含天下各派武功"
-  },
-  {
-    "id": "skill_xuan_tie_ling_wu_gong",
-    "name": "玄铁令武功",
-    "type": "内功",
+    "id": "skill_ba_xian_jian",
+    "name": "八仙剑",
+    "type": "剑法",
     "mastery_rank": "登堂入室",
     "practitioners": [],
-    "one_line": "谢烟客以玄铁令为凭传授的武功"
-  },
-  {
-    "id": "skill_bai_mang_bian_fa",
-    "name": "白蟒鞭法",
-    "type": "奇门",
-    "mastery_rank": "登堂入室",
-    "practitioners": [],
-    "one_line": "以长鞭为兵器的鞭法，鞭影如蟒"
+    "one_line": "山东八仙剑掌门温仁厚的家传剑法"
   },
   {
     "id": "skill_tie_cha_gong",
@@ -1198,7 +1078,7 @@
 ### techniques.json (0 条)
 []
 
-### items.json (9 条)
+### items.json (10 条)
 [
   {
     "id": "item_xuan_tie_ling",
@@ -1217,17 +1097,6 @@
     "rarity_tier": "神品",
     "related_skills": [],
     "one_line": "侠客岛派出的铜牌信令，接令门派须赴岛饮腊八粥"
-  },
-  {
-    "id": "item_tai_xuan_jing_shi_bi",
-    "name": "太玄经石壁",
-    "type": "秘籍",
-    "owner": "faction_xia_ke_dao",
-    "rarity_tier": "神品",
-    "related_skills": [
-      "skill_tai_xuan_jing"
-    ],
-    "one_line": "侠客岛石壁上的武学图谱，藏有太玄经至高武学"
   },
   {
     "id": "item_la_ba_zhou",
@@ -1250,17 +1119,6 @@
     "one_line": "金乌派配刀，刀法专克雪山剑法"
   },
   {
-    "id": "item_ni_ren_shiba_ge",
-    "name": "十八泥人",
-    "type": "秘籍",
-    "owner": "char_shi_po_tian",
-    "rarity_tier": "珍品",
-    "related_skills": [
-      "skill_luo_han_fu_mo_shen_gong"
-    ],
-    "one_line": "大悲老人遗留的泥人，身上绘有罗汉伏魔神功图谱"
-  },
-  {
     "id": "item_xuan_bing_bi_huo_jiu",
     "name": "玄冰碧火酒",
     "type": "丹药",
@@ -1270,17 +1128,6 @@
     "one_line": "丁不三珍藏的奇酒，半冰半火，饮后体质异变"
   },
   {
-    "id": "item_bai_zi_zai_pei_jian",
-    "name": "白自在佩剑",
-    "type": "兵器",
-    "owner": "char_bai_zi_zai",
-    "rarity_tier": "良品",
-    "related_skills": [
-      "skill_xue_shan_jian_fa"
-    ],
-    "one_line": "雪山派掌门白自在的佩剑，威震西域的成名兵刃"
-  },
-  {
     "id": "item_xia_ke_dao_mu_bei",
     "name": "侠客岛墓碑",
     "type": "奇门",
@@ -1288,6 +1135,46 @@
     "rarity_tier": "凡品",
     "related_skills": [],
     "one_line": "龙岛主、木岛主的墓碑，揭示侠客岛之谜的最终真相"
+  },
+  {
+    "id": "item_hei_bai_shuang_jian",
+    "name": "黑白双剑",
+    "type": "兵器",
+    "owner": "char_shi_qing",
+    "rarity_tier": "珍品",
+    "related_skills": [
+      "skill_shang_qing_jian_fa"
+    ],
+    "one_line": "石清闵柔夫妇的配剑，白剑如冰黑剑似墨，武林罕见神兵"
+  },
+  {
+    "id": "item_liu_ye_dao",
+    "name": "柳叶刀",
+    "type": "兵器",
+    "owner": "char_ding_dang",
+    "rarity_tier": "良品",
+    "related_skills": [],
+    "one_line": "丁珰的随身兵刃，形似柳叶，轻巧锋利"
+  },
+  {
+    "id": "item_zi_jin_dao",
+    "name": "紫金刀",
+    "type": "兵器",
+    "owner": "char_lv_zheng_ping",
+    "rarity_tier": "良品",
+    "related_skills": [],
+    "one_line": "快刀门掌门吕正平的配刀，刀身紫金，厚背薄刃"
+  },
+  {
+    "id": "item_jiu_jie_ruan_bian",
+    "name": "九节软鞭",
+    "type": "兵器",
+    "owner": "char_ding_bu_si",
+    "rarity_tier": "珍品",
+    "related_skills": [
+      "skill_jin_long_bian_fa"
+    ],
+    "one_line": "丁不四的黄金九节软鞭，鞭首龙头镶嵌宝石，华丽威猛"
   }
 ]
 

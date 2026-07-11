@@ -89,6 +89,16 @@
   - **区分标准**：
     - items.json 应包含：鸳鸯刀、铁鞭、峨嵋刺、流星锤、弹弓等**武器/道具**
     - skills.json 应包含：混元气、震天三十掌、呼延十八鞭等**武学体系**
+- **地点错放**：是否有地点被误列为物品？
+  - **区分标准**：
+    - items.json 应包含：可携带、可转移的**实体物品**
+    - locations.json 应包含：固定的**地点/场所/建筑物**
+  - **常见错误**：将"琅嬛福地"（地点）、"还施水阁"（地点）、"无量玉壁"（地点）、"珍珑棋局"（机关/地点）列为 item
+- **功法错放**：是否有功法名称被误列为物品？
+  - **区分标准**：
+    - items.json 应包含：有实体形态的**秘籍/图谱/经书**
+    - skills.json 应包含：口传心授的**武功/功法**
+  - **常见错误**：将"一阳指"、"火焰刀"、"降龙十八掌"等功法名称列为 item（除非原文明确提到有实体秘籍）
 - **类型正确**：type 是否为合法的 item.type 枚举值？
 - **稀有度合理**：rarity_tier 是否符合物品在本书中的地位？
 - **owner 存在**：owner 是否在 characters.json 或 factions.json 中存在？
@@ -181,8 +191,10 @@
 
 1. **跨书混淆**：其他作品的角色/功法/地点混入（severity: high）
 2. **skills.json 混入武器**：铁鞭、峨嵋刺、流星锤等应为 item 而非 skill（severity: high）
-3. **ID 引用缺失**：引用了其他 JSON 中不存在的 ID（severity: high）
-4. **数量完整性**：对照原文检查是否有重大遗漏
+3. **items.json 混入地点**：琅嬛福地、还施水阁、无量玉壁等地点应为 location 而非 item（severity: high）
+4. **items.json 混入功法名称**：一阳指、火焰刀等功法名称（无实体秘籍）应为 skill 而非 item（severity: high）
+5. **ID 引用缺失**：引用了其他 JSON 中不存在的 ID（severity: high）
+6. **数量完整性**：对照原文检查是否有重大遗漏
    - 重要角色遗漏（如推动剧情的关键人物）
    - 核心功法遗漏（如主要武学体系）
    - 关键物品遗漏（如核心道具）
@@ -195,150 +207,201 @@
 
 ## 数据
 
-### characters.json (16 条)
+### characters.json (17 条)
 [
   {
     "id": "char_xiao_ban_he",
     "name": "萧半和",
     "role": "核心",
-    "identity": "晋阳大侠，实为清廷太监卧底十六年",
-    "faction": null,
+    "identity": "晋阳大侠，实为净身太监，卧薪尝胆十六年图谋刺杀清帝",
+    "faction": "faction_xiao_fu",
     "personality": [
       "义薄云天",
       "深谋远虑",
       "幽默豁达"
     ],
-    "one_line": "晋阳大侠实为太监萧义，十六年卧薪尝胆，为救袁杨二夫人后隐姓埋名"
+    "one_line": "晋阳大侠实为太监萧义，十六年卧薪尝胆，救袁杨二夫人后隐姓埋名"
+  },
+  {
+    "id": "char_yuan_guan_nan",
+    "name": "袁冠南",
+    "role": "核心",
+    "identity": "袁夫人之子，少年书生，武功高强",
+    "faction": "faction_xiao_fu",
+    "personality": [
+      "倜傥自喜",
+      "机智过人",
+      "侠义心肠"
+    ],
+    "one_line": "游学寻母的少年书生，以笔墨为武器，与萧中慧相爱终成眷属"
+  },
+  {
+    "id": "char_xiao_zhong_hui",
+    "name": "萧中慧",
+    "role": "核心",
+    "identity": "杨伯冲之女，萧半和养女",
+    "faction": "faction_xiao_fu",
+    "personality": [
+      "侠义心肠",
+      "活泼开朗",
+      "倔强好胜"
+    ],
+    "one_line": "侠义心肠的少女，使双刀，与袁冠南相爱后得知非亲兄妹"
   },
   {
     "id": "char_zhou_wei_xin",
     "name": "周威信",
-    "role": "重要",
+    "role": "核心",
     "identity": "威信镖局总镖头，护送鸳鸯刀进京",
     "faction": "faction_wei_xin_biao_ju",
     "personality": [
-      "谨慎多疑",
-      "老谋深算",
-      "贪生怕死"
+      "胆小谨慎",
+      "好面子",
+      "圆滑世故"
     ],
     "one_line": "威信镖局总镖头，受命暗中护送鸳鸯刀进京，胆小谨慎又好面子"
   },
   {
     "id": "char_zhuo_tian_xiong",
     "name": "卓天雄",
-    "role": "重要",
-    "identity": "清廷大内七大高手之首，假扮瞎子追踪鸳鸯刀",
-    "faction": null,
+    "role": "核心",
+    "identity": "清宫侍卫，大内七大高手之首",
+    "faction": "faction_qing_gong_shi_wei",
     "personality": [
-      "城府极深",
-      "武功卓绝",
+      "阴险狡诈",
+      "武功高强",
       "老奸巨猾"
     ],
-    "one_line": "清廷第一高手，精通震天三十掌与呼延十八鞭，假扮盲人追踪鸳鸯刀"
-  },
-  {
-    "id": "char_xiao_yao_zi",
-    "name": "逍遥子",
-    "role": "次要",
-    "identity": "太岳四侠之首，烟霞神龙",
-    "faction": "faction_tai_yue_si_xia",
-    "personality": [
-      "自命不凡",
-      "虚张声势",
-      "讲义气"
-    ],
-    "one_line": "太岳四侠排行老大，手持旱烟管点穴，武功平平却自视甚高"
-  },
-  {
-    "id": "char_chang_chang_feng",
-    "name": "常长风",
-    "role": "次要",
-    "identity": "太岳四侠排行老二，力大无穷",
-    "faction": "faction_tai_yue_si_xia",
-    "personality": [
-      "力大无穷",
-      "鲁莽直率",
-      "讲义气"
-    ],
-    "one_line": "太岳四侠老二，力大无穷以墓碑为兵器，性格鲁莽直率"
-  },
-  {
-    "id": "char_hua_jian_ying",
-    "name": "花剑影",
-    "role": "次要",
-    "identity": "太岳四侠排行老三，擅长流星锤",
-    "faction": "faction_tai_yue_si_xia",
-    "personality": [
-      "好面子",
-      "好奇心重",
-      "讲义气"
-    ],
-    "one_line": "太岳四侠老三，使一对流星锤，白净脸皮牙齿外凸"
-  },
-  {
-    "id": "char_gai_yi_ming",
-    "name": "盖一鸣",
-    "role": "次要",
-    "identity": "太岳四侠排行老四，外号最长",
-    "faction": "faction_tai_yue_si_xia",
-    "personality": [
-      "话多嘴碎",
-      "虚张声势",
-      "讲义气"
-    ],
-    "one_line": "太岳四侠老四，短小精悍使一对峨嵋刺，外号极长却武功平平"
-  },
-  {
-    "id": "char_xiao_zhong_hui",
-    "name": "萧中慧",
-    "role": "核心",
-    "identity": "萧半和养女，三湘大侠杨伯冲之女",
-    "faction": null,
-    "personality": [
-      "聪明伶俐",
-      "侠义心肠",
-      "勇敢冲动"
-    ],
-    "one_line": "晋阳大侠之女，与袁冠南互生情愫后发现实为同母异父兄妹"
-  },
-  {
-    "id": "char_yuan_guan_nan",
-    "name": "袁冠南",
-    "role": "核心",
-    "identity": "少年书生，袁夫人失散十六年的儿子",
-    "faction": null,
-    "personality": [
-      "风流倜傥",
-      "足智多谋",
-      "侠义心肠"
-    ],
-    "one_line": "文武双全的少年书生，用毛笔墨盒作兵器，与萧中慧互生情愫"
+    "one_line": "大内七大高手之首，假扮瞎子追踪鸳鸯刀，武功深不可测"
   },
   {
     "id": "char_lin_yu_long",
     "name": "林玉龙",
-    "role": "次要",
-    "identity": "使单刀的江湖汉子，任飞燕之夫",
+    "role": "重要",
+    "identity": "任飞燕丈夫，使单刀",
     "faction": null,
     "personality": [
-      "暴躁鲁莽",
-      "嗓门大",
-      "重情重义"
+      "暴躁易怒",
+      "卤莽冲动",
+      "侠义心肠"
     ],
-    "one_line": "性格暴躁的江湖汉子，与妻子任飞燕终日吵闹却恩爱如初"
+    "one_line": "脾气暴躁的丈夫，与妻子争吵不断却深爱对方，传授夫妻刀法"
   },
   {
     "id": "char_ren_fei_yan",
     "name": "任飞燕",
-    "role": "次要",
-    "identity": "林玉龙之妻，擅长弹弓",
+    "role": "重要",
+    "identity": "林玉龙之妻，擅弹弓和单刀",
     "faction": null,
     "personality": [
-      "泼辣直爽",
-      "弹弓了得",
-      "刀法狡谲"
+      "泼辣能干",
+      "心直口快",
+      "侠义心肠"
     ],
-    "one_line": "林玉龙之妻，弹弓百发百中，刀法狡谲与丈夫争吵不休"
+    "one_line": "泼辣能干的妻子，弹弓百发百中，与丈夫争吵不断却深爱对方"
+  },
+  {
+    "id": "char_xiao_yao_zi",
+    "name": "逍遥子",
+    "role": "重要",
+    "identity": "太岳四侠之首",
+    "faction": "faction_tai_yue_si_xia",
+    "personality": [
+      "自命不凡",
+      "义气深重",
+      "好吹牛"
+    ],
+    "one_line": "太岳四侠老大，自称烟霞神龙，实则武功平平但义气深重"
+  },
+  {
+    "id": "char_chang_chang_feng",
+    "name": "常长风",
+    "role": "重要",
+    "identity": "太岳四侠之二，以墓碑为兵器",
+    "faction": "faction_tai_yue_si_xia",
+    "personality": [
+      "力大无穷",
+      "卤莽冲动",
+      "义气深重"
+    ],
+    "one_line": "太岳四侠老二，力大无穷以墓碑为兵器，号称双掌开碑"
+  },
+  {
+    "id": "char_hua_jian_ying",
+    "name": "花剑影",
+    "role": "重要",
+    "identity": "太岳四侠之三，使流星锤",
+    "faction": "faction_tai_yue_si_xia",
+    "personality": [
+      "好吹牛",
+      "义气深重",
+      "爱惜门牙"
+    ],
+    "one_line": "太岳四侠老三，使流星锤，号称流星赶月"
+  },
+  {
+    "id": "char_gai_yi_ming",
+    "name": "盖一鸣",
+    "role": "重要",
+    "identity": "太岳四侠之四，使峨嵋刺",
+    "faction": "faction_tai_yue_si_xia",
+    "personality": [
+      "好吹牛",
+      "义气深重",
+      "口若悬河"
+    ],
+    "one_line": "太岳四侠老四，外号最长却武功最差，义气深重"
+  },
+  {
+    "id": "char_yuan_fu_ren",
+    "name": "袁夫人",
+    "role": "次要",
+    "identity": "袁冠南母亲，萧半和大夫人",
+    "faction": "faction_xiao_fu",
+    "personality": [
+      "慈祥和蔼",
+      "深明大义",
+      "坚韧不拔"
+    ],
+    "one_line": "袁冠南亲生母亲，十六年前被萧半和从天牢救出"
+  },
+  {
+    "id": "char_yang_fu_ren",
+    "name": "杨夫人",
+    "role": "次要",
+    "identity": "萧中慧母亲，萧半和二夫人",
+    "faction": "faction_xiao_fu",
+    "personality": [
+      "慈爱",
+      "温和",
+      "深明大义"
+    ],
+    "one_line": "萧中慧亲生母亲，三湘大侠杨伯冲之妻"
+  },
+  {
+    "id": "char_liu_yu_yi",
+    "name": "刘于义",
+    "role": "龙套",
+    "identity": "川陕总督，奉旨护送鸳鸯刀",
+    "faction": "faction_chuan_shan_dong_du_fu",
+    "personality": [
+      "狡猾多智",
+      "老谋深算",
+      "贪生怕死"
+    ],
+    "one_line": "川陕总督，奉旨护送鸳鸯刀进京，狡猾多智"
+  },
+  {
+    "id": "char_wang_de_rong",
+    "name": "汪德荣",
+    "role": "龙套",
+    "identity": "西安府大盐商，托保十万两银子",
+    "faction": null,
+    "personality": [
+      "胆小怕事",
+      "贪生怕死"
+    ],
+    "one_line": "大盐商，托保十万两银子，屁股中了周威信一箭"
   },
   {
     "id": "char_zhang_biao_shi",
@@ -347,137 +410,118 @@
     "identity": "威信镖局镖师",
     "faction": "faction_wei_xin_biao_ju",
     "personality": [
-      "鲁莽冲动",
-      "爱吹嘘",
+      "好喝酒",
+      "大嘴巴",
       "自以为是"
     ],
-    "one_line": "威信镖局镖师，性格鲁莽爱吹嘘"
+    "one_line": "威信镖局镖师，好喝酒，泄露鸳鸯刀秘密"
   },
   {
-    "id": "char_yuan_fu_ren",
-    "name": "袁夫人",
-    "role": "次要",
-    "identity": "袁冠南之母，原为钦犯",
-    "faction": null,
-    "personality": [
-      "慈爱",
-      "坚韧",
-      "端庄"
-    ],
-    "one_line": "袁冠南失散十六年的母亲，小指生有支指为相认凭证"
-  },
-  {
-    "id": "char_yang_fu_ren",
-    "name": "杨夫人",
-    "role": "次要",
-    "identity": "萧中慧亲生母亲，三湘大侠杨伯冲之妻",
-    "faction": null,
-    "personality": [
-      "慈爱",
-      "温柔",
-      "持重"
-    ],
-    "one_line": "萧中慧亲生母亲，三湘大侠杨伯冲之妻"
-  },
-  {
-    "id": "char_liu_yu_yi",
-    "name": "刘于义",
-    "role": "重要",
-    "identity": "川陕总督，奉皇帝密旨追查鸳鸯刀",
-    "faction": null,
-    "personality": [
-      "狡猾多智",
-      "老谋深算",
-      "心狠手辣"
-    ],
-    "one_line": "川陕总督，得到鸳鸯刀后派周威信护送进京"
-  },
-  {
-    "id": "char_wang_de_rong",
-    "name": "汪德荣",
+    "id": "char_yu_biao_shi",
+    "name": "詹镖师",
     "role": "龙套",
-    "identity": "西安府大盐商，托保十万两镖银",
-    "faction": null,
+    "identity": "威信镖局镖师",
+    "faction": "faction_wei_xin_biao_ju",
     "personality": [
-      "胆小怕事",
-      "贪生怕死",
-      "有钱无势"
+      "忠诚",
+      "勇敢"
     ],
-    "one_line": "西安大盐商，托保镖银后随队押运，被误伤"
+    "one_line": "威信镖局镖师，与张镖师一起护送鸳鸯刀"
   }
 ]
 
-### factions.json (2 条)
+### factions.json (5 条)
 [
-  {
-    "id": "faction_tai_yue_si_xia",
-    "name": "太岳四侠",
-    "type": "帮派",
-    "location": "晋州一带",
-    "one_line": "四名自封侠客的江湖散人，劫富济贫却常闹笑话"
-  },
   {
     "id": "faction_wei_xin_biao_ju",
     "name": "威信镖局",
     "type": "帮派",
-    "location": "陕西西安府",
-    "one_line": "西安府知名镖局，总镖头周威信号称铁鞭镇八方"
+    "location": "loc_xi_an_fu",
+    "one_line": "西安府镖局，总镖头周威信受命护送鸳鸯刀进京"
+  },
+  {
+    "id": "faction_tai_yue_si_xia",
+    "name": "太岳四侠",
+    "type": "帮派",
+    "location": null,
+    "one_line": "四个自称侠客的乌合之众，义气深重却武功平平"
+  },
+  {
+    "id": "faction_xiao_fu",
+    "name": "萧府",
+    "type": "家族",
+    "location": "loc_jin_yang",
+    "one_line": "晋阳萧半和府邸，实为反清义士据点"
+  },
+  {
+    "id": "faction_qing_gong_shi_wei",
+    "name": "清宫侍卫",
+    "type": "官署",
+    "location": null,
+    "one_line": "清廷皇宫侍卫，大内七大高手为其翘楚，卓天雄为其之首"
+  },
+  {
+    "id": "faction_chuan_shan_dong_du_fu",
+    "name": "川陕总督府",
+    "type": "官署",
+    "location": "loc_xi_an_fu",
+    "one_line": "川陕总督刘于义的官署"
   }
 ]
 
 ### locations.json (8 条)
 [
   {
-    "id": "loc_xi_an",
+    "id": "loc_xi_an_fu",
     "name": "西安府",
     "region": "陕西",
-    "one_line": "威信镖局所在地，镖队从此出发护送鸳鸯刀进京"
-  },
-  {
-    "id": "loc_zao_xiang_lin",
-    "name": "枣香林",
-    "region": "晋州",
-    "one_line": "太岳四侠拦截镖队的松林，激战发生之地"
+    "one_line": "威信镖局所在地，鸳鸯刀护送起点"
   },
   {
     "id": "loc_guan_shui_zhen",
     "name": "官水镇",
     "region": "晋州西南",
-    "one_line": "汾酒产地小镇，镖队在此歇脚"
+    "one_line": "汾酒产地，萧中慧偷听鸳鸯刀秘密之处"
   },
   {
     "id": "loc_fen_an_ke_dian",
     "name": "汾安客店",
     "region": "官水镇",
-    "one_line": "镖队投宿的客店，多方势力交汇之地"
+    "one_line": "官水镇客店，萧中慧偷听镖师谈话之处"
   },
   {
-    "id": "loc_mu_di",
-    "name": "荒凉墓地",
+    "id": "loc_zao_xiang_lin",
+    "name": "枣香林",
     "region": "晋州",
-    "one_line": "林玉龙夫妇追逐至此，萧中慧误入战场"
+    "one_line": "林玉龙任飞燕夫妇追打之处"
   },
   {
     "id": "loc_zi_zhu_an",
     "name": "紫竹庵",
-    "region": "晋州西北荒山",
-    "one_line": "尼姑庵，众人躲避卓天雄追杀的藏身之处"
+    "region": "荒山",
+    "one_line": "荒山尼庵，袁冠南萧中慧学习夫妻刀法击退卓天雄之处"
+  },
+  {
+    "id": "loc_jin_yang",
+    "name": "晋阳",
+    "region": "山西",
+    "one_line": "萧半和府邸所在地，五十寿诞举办之处"
   },
   {
     "id": "loc_xiao_fu",
     "name": "萧府",
     "region": "晋阳",
-    "one_line": "萧半和的宅邸，五十寿诞与鸳鸯刀决战之地"
+    "one_line": "萧半和府邸，寿诞举办之处，官兵围剿之处"
   },
   {
-    "id": "loc_tiao_shan",
+    "id": "loc_zhong_tiao_shan",
     "name": "中条山",
-    "region": "晋南",
-    "one_line": "萧半和率众人退守的大山"
+    "region": "山西",
+    "one_line": "萧半和等人退守之处，太岳四侠擒获卓天雄之处"
   }
 ]
 
-### skills.json (4 条)
+### skills.json (5 条)
 [
   {
     "id": "skill_hun_yuan_qi",
@@ -498,7 +542,7 @@
   {
     "id": "skill_hu_yan_shi_ba_bian",
     "name": "呼延十八鞭",
-    "type": "奇门兵器",
+    "type": "奇门",
     "mastery_rank": "出神入化",
     "practitioners": [],
     "one_line": "北宋呼延赞所传鞭法，传世仅十七招，最后一招一鞭断十枪"
@@ -510,6 +554,14 @@
     "mastery_rank": "略有小成",
     "practitioners": [],
     "one_line": "古代恩爱夫妻所创的合璧刀法，双人配合方有威力"
+  },
+  {
+    "id": "skill_tan_gong_shu",
+    "name": "弹弓术",
+    "type": "暗器",
+    "mastery_rank": "登堂入室",
+    "practitioners": [],
+    "one_line": "任飞燕成名绝技，连珠弹百发百中，更有回马弹高明手法"
   }
 ]
 
@@ -518,30 +570,12 @@
   {
     "id": "tech_tao_yuan_duo_shuo",
     "name": "桃园夺槊",
-    "type": "defense",
-    "source_skill": "skill_hu_yan_shi_ba_bian"
-  },
-  {
-    "id": "tech_ye_chuan_san_zhai",
-    "name": "夜闯三寨",
-    "type": "defense",
-    "source_skill": "skill_hu_yan_shi_ba_bian"
-  },
-  {
-    "id": "tech_hui_ma_dan",
-    "name": "回马弹",
     "type": "attack",
     "source_skill": null
   },
   {
-    "id": "tech_heng_sao_qian_jun",
-    "name": "横扫千军",
-    "type": "attack",
-    "source_skill": "skill_hu_yan_shi_ba_bian"
-  },
-  {
-    "id": "tech_tou_tian_huan_ri",
-    "name": "偷天换日",
+    "id": "tech_ye_chuang_san_zhai",
+    "name": "夜闯三寨",
     "type": "defense",
     "source_skill": null
   },
@@ -562,17 +596,35 @@
     "name": "夜叉探海",
     "type": "attack",
     "source_skill": null
+  },
+  {
+    "id": "tech_tou_tian_huan_ri",
+    "name": "偷天换日",
+    "type": "defense",
+    "source_skill": "skill_hu_yan_shi_ba_bian"
+  },
+  {
+    "id": "tech_hui_ma_dan",
+    "name": "回马弹",
+    "type": "attack",
+    "source_skill": null
+  },
+  {
+    "id": "tech_lian_zhu_dan",
+    "name": "连珠弹",
+    "type": "attack",
+    "source_skill": null
   }
 ]
 
-### items.json (9 条)
+### items.json (11 条)
 [
   {
     "id": "item_yuan_yang_dao",
     "name": "鸳鸯刀",
     "type": "兵器",
     "owner": null,
-    "rarity_tier": "绝世神兵",
+    "rarity_tier": "神品",
     "related_skills": [],
     "one_line": "一短一长两把宝刀，刀中藏仁者无敌的大秘密"
   },
@@ -581,7 +633,7 @@
     "name": "铁鞭",
     "type": "兵器",
     "owner": "char_zhou_wei_xin",
-    "rarity_tier": "上乘佳品",
+    "rarity_tier": "良品",
     "related_skills": [
       "skill_hu_yan_shi_ba_bian"
     ],
@@ -592,7 +644,7 @@
     "name": "峨嵋刺",
     "type": "兵器",
     "owner": "char_gai_yi_ming",
-    "rarity_tier": "寻常凡品",
+    "rarity_tier": "凡品",
     "related_skills": [],
     "one_line": "盖一鸣的兵器，一对峨嵋钢刺"
   },
@@ -601,7 +653,7 @@
     "name": "流星锤",
     "type": "兵器",
     "owner": "char_hua_jian_ying",
-    "rarity_tier": "寻常凡品",
+    "rarity_tier": "凡品",
     "related_skills": [],
     "one_line": "花剑影的兵器，一对流星锤"
   },
@@ -610,7 +662,7 @@
     "name": "墓碑",
     "type": "兵器",
     "owner": "char_chang_chang_feng",
-    "rarity_tier": "寻常凡品",
+    "rarity_tier": "凡品",
     "related_skills": [],
     "one_line": "常长风的奇门兵器，顺手牵碑的大石碑"
   },
@@ -618,19 +670,17 @@
     "id": "item_han_yan_guan",
     "name": "旱烟管",
     "type": "兵器",
-    "owner": "char_zhuo_tian_xiong",
-    "rarity_tier": "上乘佳品",
-    "related_skills": [
-      "skill_zhen_tian_san_shi_zhang"
-    ],
-    "one_line": "卓天雄假扮逍遥子时使用的精铁烟管，可作点穴兵器"
+    "owner": "char_xiao_yao_zi",
+    "rarity_tier": "良品",
+    "related_skills": [],
+    "one_line": "逍遥子使用的精铁烟管，可作点穴兵器"
   },
   {
     "id": "item_dan_gong",
     "name": "弹弓",
     "type": "暗器",
     "owner": "char_ren_fei_yan",
-    "rarity_tier": "上乘佳品",
+    "rarity_tier": "良品",
     "related_skills": [],
     "one_line": "任飞燕的武器，连珠弹百发百中"
   },
@@ -639,7 +689,7 @@
     "name": "甩手箭",
     "type": "暗器",
     "owner": "char_zhou_wei_xin",
-    "rarity_tier": "寻常凡品",
+    "rarity_tier": "凡品",
     "related_skills": [],
     "one_line": "周威信使用的暗器，一枝甩手箭"
   },
@@ -648,53 +698,71 @@
     "name": "金钗",
     "type": "饰品",
     "owner": "char_xiao_zhong_hui",
-    "rarity_tier": "稀世珍品",
+    "rarity_tier": "珍品",
     "related_skills": [],
     "one_line": "萧中慧头上金钗，明珠价值连城，后作为寿礼送回"
+  },
+  {
+    "id": "item_fei_cu_shou_gao",
+    "name": "腐骨穿心膏",
+    "type": "毒药",
+    "owner": null,
+    "rarity_tier": "凡品",
+    "related_skills": [],
+    "one_line": "袁冠南虚构的假毒药，吓退卓天雄"
+  },
+  {
+    "id": "item_yu_shi_zi",
+    "name": "翡翠狮子",
+    "type": "信物",
+    "owner": "char_yuan_guan_nan",
+    "rarity_tier": "珍品",
+    "related_skills": [],
+    "one_line": "袁冠南佩戴的翡翠狮子，母子相认的信物"
   }
 ]
 
-### dialogues.json (前 17 条 / 共 17 条)
+### dialogues.json (前 15 条 / 共 15 条)
 [
   {
     "index": 0,
-    "speaker": "char_zhou_wei_xin",
-    "speaker_name": "周威信",
+    "speaker": "char_gai_yi_ming",
+    "speaker_name": "盖一鸣",
     "listener": null,
-    "text": "江湖上有言道：'小心天下去得，莽撞寸步难行。'",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 26,
-    "line_end": 26
-  },
-  {
-    "index": 1,
-    "speaker": "char_gai_yi_ming",
-    "speaker_name": "盖一鸣",
-    "listener": "char_zhou_wei_xin",
-    "text": "我大哥给你改了个匪号，叫作'铁鞭拜八方'！我大哥料事如神，言之有理。",
-    "tone": "嘲讽",
-    "chapter": 1,
-    "line_start": 30,
-    "line_end": 30
-  },
-  {
-    "index": 2,
-    "speaker": "char_gai_yi_ming",
-    "speaker_name": "盖一鸣",
-    "listener": "char_zhou_wei_xin",
     "text": "咱大哥是烟霞神龙逍遥子，二哥是双掌开碑常长风，三哥是流星赶月花剑影，区区在下是八步赶蟾、赛专诸、踏雪无痕、独脚水上飞、双刺盖七省盖一鸣！",
-    "tone": "调侃",
+    "tone": "激动",
     "chapter": 1,
     "line_start": 32,
     "line_end": 32
   },
   {
-    "index": 3,
+    "index": 1,
     "speaker": "char_xiao_yao_zi",
     "speaker_name": "逍遥子",
-    "listener": null,
-    "text": "我们不欺侮你，只欺侮你的坐骑。一头畜牲，算得什么？",
+    "listener": "char_gai_yi_ming",
+    "text": "没事，没事！咱们好汉敌不过人多，算不了什么。",
+    "tone": "陈述",
+    "chapter": 1,
+    "line_start": 60,
+    "line_end": 60
+  },
+  {
+    "index": 2,
+    "speaker": "char_gai_yi_ming",
+    "speaker_name": "盖一鸣",
+    "listener": "char_xiao_yao_zi",
+    "text": "大哥料事如神，言之有理。",
+    "tone": "欣喜",
+    "chapter": 1,
+    "line_start": 30,
+    "line_end": 30
+  },
+  {
+    "index": 3,
+    "speaker": "char_xiao_zhong_hui",
+    "speaker_name": "萧中慧",
+    "listener": "char_gai_yi_ming",
+    "text": "你们要留下我马儿，还不是欺侮我吗？",
     "tone": "调侃",
     "chapter": 1,
     "line_start": 102,
@@ -704,48 +772,15 @@
     "index": 4,
     "speaker": "char_xiao_zhong_hui",
     "speaker_name": "萧中慧",
-    "listener": "char_gai_yi_ming",
-    "text": "你都瞧了我七八眼啦，还说一眼也不多瞧呢？",
-    "tone": "调侃",
-    "chapter": 1,
-    "line_start": 100,
-    "line_end": 100
-  },
-  {
-    "index": 5,
-    "speaker": "char_xiao_zhong_hui",
-    "speaker_name": "萧中慧",
-    "listener": "char_gai_yi_ming",
-    "text": "咱们既然互不相识，若有得罪，爹爹便不能怪我。呔！好大胆的毛贼，四个儿一齐上吧！",
+    "listener": "char_xiao_yao_zi",
+    "text": "呔！好大胆的毛贼，四个儿一齐上吧！",
     "tone": "愤怒",
     "chapter": 1,
     "line_start": 106,
     "line_end": 106
   },
   {
-    "index": 6,
-    "speaker": "char_xiao_yao_zi",
-    "speaker_name": "逍遥子",
-    "listener": "char_xiao_zhong_hui",
-    "text": "这是'中渎穴'，点之腿膝麻痹，四肢软瘫，还不给我束手待缚？",
-    "tone": "陈述",
-    "chapter": 1,
-    "line_start": 112,
-    "line_end": 112
-  },
-  {
-    "index": 7,
-    "speaker": "char_xiao_zhong_hui",
-    "speaker_name": "萧中慧",
-    "listener": "char_xiao_yao_zi",
-    "text": "痨病鬼，你点的是什么穴？中渎穴不在这里，偏左了两寸。",
-    "tone": "嘲讽",
-    "chapter": 1,
-    "line_start": 112,
-    "line_end": 112
-  },
-  {
-    "index": 8,
+    "index": 5,
     "speaker": "char_gai_yi_ming",
     "speaker_name": "盖一鸣",
     "listener": "char_xiao_zhong_hui",
@@ -756,73 +791,84 @@
     "line_end": 120
   },
   {
-    "index": 9,
-    "speaker": "char_zhang_biao_shi",
-    "speaker_name": "张镖师",
-    "listener": "char_zhou_wei_xin",
-    "text": "每天晚上你睡着了，便尽说梦话，翻来覆去总是说：'鸳鸯刀，鸳鸯刀！这一次送去北京，可不能出半点岔子，得了鸳鸯刀，无敌于天下⋯⋯'",
-    "tone": "调侃",
+    "index": 6,
+    "speaker": "char_yuan_guan_nan",
+    "speaker_name": "袁冠南",
+    "listener": null,
+    "text": "小可姓袁名冠南，区区小事，何足挂齿？",
+    "tone": "陈述",
     "chapter": 1,
-    "line_start": 138,
-    "line_end": 138
+    "line_start": 172,
+    "line_end": 172
   },
   {
-    "index": 10,
+    "index": 7,
+    "speaker": "char_zhuo_tian_xiong",
+    "speaker_name": "卓天雄",
+    "listener": null,
+    "text": "我瞎子的贱名，叫做卓天雄。",
+    "tone": "陈述",
+    "chapter": 1,
+    "line_start": 172,
+    "line_end": 172
+  },
+  {
+    "index": 8,
     "speaker": "char_ren_fei_yan",
     "speaker_name": "任飞燕",
     "listener": "char_xiao_zhong_hui",
-    "text": "等你嫁了男人，就明白啦。夫妻不打架，那还叫什么夫妻？有道是床头打架床尾和，你见过不吵嘴不打架的夫妻没有？",
+    "text": "哈哈，大姑娘，等你嫁了男人，就明白啦。夫妻不打架，那还叫什么夫妻？",
     "tone": "调侃",
     "chapter": 1,
     "line_start": 196,
     "line_end": 196
   },
   {
-    "index": 11,
+    "index": 9,
     "speaker": "char_lin_yu_long",
     "speaker_name": "林玉龙",
-    "listener": "char_xiao_zhong_hui",
-    "text": "他妈的，不动刀子不拌嘴，算是什么夫妻？",
+    "listener": "char_ren_fei_yan",
+    "text": "他妈的，这算什么夫妻？定然路道不正！",
     "tone": "愤怒",
     "chapter": 1,
     "line_start": 196,
     "line_end": 196
   },
   {
-    "index": 12,
-    "speaker": "char_yuan_guan_nan",
-    "speaker_name": "袁冠南",
-    "listener": "char_xiao_zhong_hui",
-    "text": "小可见姑娘如此豪阔，意欲告贷几两盘缠之资！",
-    "tone": "调侃",
+    "index": 10,
+    "speaker": "char_zhuo_tian_xiong",
+    "speaker_name": "卓天雄",
+    "listener": "char_zhou_wei_xin",
+    "text": "呼延十八鞭最后一招，你没学会吧？",
+    "tone": "嘲讽",
     "chapter": 1,
-    "line_start": 176,
-    "line_end": 176
+    "line_start": 250,
+    "line_end": 250
   },
   {
-    "index": 13,
+    "index": 11,
     "speaker": "char_zhuo_tian_xiong",
     "speaker_name": "卓天雄",
     "listener": "char_yuan_guan_nan",
-    "text": "姓袁的，这对刀便在这里，有本事不妨来拿去。你装腔作势，瞒得过别人，可乘早别在卓天雄眼前现世。",
-    "tone": "冷酷",
-    "chapter": 1,
-    "line_start": 264,
-    "line_end": 266
-  },
-  {
-    "index": 14,
-    "speaker": "char_yuan_guan_nan",
-    "speaker_name": "袁冠南",
-    "listener": "char_zhuo_tian_xiong",
-    "text": "好啊！小爷有好生之德，不愿用这'腐骨穿心膏'。你既无礼，说不得，只好叫你尝尝滋味。",
-    "tone": "冷酷",
+    "text": "五毒圣姑是你何人？",
+    "tone": "恐惧",
     "chapter": 1,
     "line_start": 284,
     "line_end": 284
   },
   {
-    "index": 15,
+    "index": 12,
+    "speaker": "char_yuan_guan_nan",
+    "speaker_name": "袁冠南",
+    "listener": "char_zhuo_tian_xiong",
+    "text": "五毒圣姑是我姑母，你问她怎的？",
+    "tone": "冷酷",
+    "chapter": 1,
+    "line_start": 286,
+    "line_end": 286
+  },
+  {
+    "index": 13,
     "speaker": "char_xiao_ban_he",
     "speaker_name": "萧半和",
     "listener": null,
@@ -833,15 +879,15 @@
     "line_end": 444
   },
   {
-    "index": 16,
-    "speaker": "char_yuan_fu_ren",
-    "speaker_name": "袁夫人",
+    "index": 14,
+    "speaker": "char_xiao_ban_he",
+    "speaker_name": "萧半和",
     "listener": null,
-    "text": "满清皇帝听说这双刀之中，有一个能无敌于天下的大秘密，这果然不错，可是他便知道了这秘密，又能依着行么？各位请看！",
-    "tone": "陈述",
+    "text": "我细细思量，要练到父亲和这七位伯叔一样的功夫，便竭一生之力也未必能够，便算练成了，也未必能报得了血海深仇，于是我甘心净身，去做一个低三下四、为人人瞧不起的太监。",
+    "tone": "悲伤",
     "chapter": 1,
-    "line_start": 466,
-    "line_end": 466
+    "line_start": 448,
+    "line_end": 448
   }
 ]
 

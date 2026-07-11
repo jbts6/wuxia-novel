@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T09:36:19.923Z",
+  "generated_at": "2026-07-11T10:25:45.791Z",
   "summary": {
     "total": 7,
-    "errors": 5,
-    "warnings": 0,
+    "errors": 4,
+    "warnings": 1,
     "info": 2
   },
   "issues": [
@@ -40,14 +40,6 @@
       "message": "阿凡提.faction \"faction_hui_bu\" not found in factions.json"
     },
     {
-      "type": "dangling_reference",
-      "severity": "error",
-      "source": "item_ke_lan_jing",
-      "field": "owner",
-      "ref": "faction_hui_bu",
-      "message": "可兰经.owner references non-existent faction_hui_bu"
-    },
-    {
       "type": "rank_inconsistency",
       "severity": "info",
       "source": "char_li_yuan_zhi",
@@ -55,6 +47,13 @@
       "char_rank": "略有小成",
       "skill_rank": "出神入化",
       "message": "李沅芷(略有小成) has 柔云剑术(出神入化) - rank gap > 2"
+    },
+    {
+      "type": "possible_hallucination",
+      "severity": "warning",
+      "source": "item_hua_gong",
+      "name": "画弓",
+      "message": "Item \"画弓\" not found in original text - likely hallucination"
     },
     {
       "type": "possible_hallucination",
