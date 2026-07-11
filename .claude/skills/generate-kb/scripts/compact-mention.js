@@ -47,7 +47,7 @@ const compact = {
     .sort((a, b) => b.total - a.total),
 };
 
-const outPath = path.join(novelDir, 'mention_summary.json');
+const outPath = path.join(novelDir, 'build', 'mention_summary.json');
 fs.writeFileSync(outPath, JSON.stringify(compact, null, 2), 'utf8');
 console.log(`Wrote ${outPath} (${(fs.statSync(outPath).size / 1024).toFixed(1)} KB)`);
 console.log(`unique terms: ${compact.unique_terms}`);

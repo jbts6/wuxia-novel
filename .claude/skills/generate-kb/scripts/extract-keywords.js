@@ -46,66 +46,36 @@ console.log(`From mention_index: ${mentionTerms.size} terms`);
 const chapterFiles = fs.readdirSync(splitDir).filter(f => f.startsWith('ch_') && f.endsWith('.txt'));
 const allText = chapterFiles.map(f => fs.readFileSync(path.join(splitDir, f), 'utf8')).join('\n');
 
-// 3. 常见武侠关键词库（通用，适用于所有武侠小说）
-const wuxiaKeywords = {
-  // 门派
-  'sects': [
-    '华山派', '武当派', '少林派', '峨嵋派', '昆仑派', '崆峒派', '点苍派',
-    '丐帮', '明教', '全真教', '古墓派', '桃花岛', '白驼山', '星宿派',
-    '五岳剑派', '青城派', '峨嵋', '昆仑', '崆峒', '点苍', '恒山派', '泰山派',
-    '嵩山派', '衡山派', '日月神教', '灵鹫宫', '天山派', '逍遥派',
-    '五毒教', '神龙教', '天地会', '红花会',
-  ],
-  // 地点
-  'locations': [
-    '华山', '泰山', '嵩山', '衡山', '恒山', '黄山', '峨眉山', '昆仑山',
-    '大理', '洛阳', '开封', '北京', '南京', '杭州', '苏州', '扬州', '成都',
-    '长安', '太原', '济南', '青岛', '福州', '广州', '云南', '四川', '陕西',
-    '山东', '山西', '河南', '河北', '江南', '塞外', '关外', '辽东',
-    '少林寺', '武当山', '峨嵋山', '昆仑山', '崆峒山',
-  ],
-  // 功法类型
+// 3. 武侠关键词类型提示（仅用于分类，具体关键词从mention和实体JSON中提取）
+const wuxiaKeywordTypes = {
   'skill_types': [
     '剑法', '掌法', '拳法', '刀法', '鞭法', '枪法', '棍法', '杖法',
     '暗器', '轻功', '内功', '点穴', '擒拿', '指法', '腿法', '爪法',
-    '吸星大法', '北冥神功', '九阳神功', '九阴真经', '葵花宝典', '独孤九剑',
-    '降龙十八掌', '打狗棒法', '一阳指', '六脉神剑', '乾坤大挪移', '太极剑',
-    '紫霞神功', '混元功', '易筋经', '洗髓经',
   ],
-  // 常见事件
-  'events': [
-    '比武', '报仇', '结拜', '定情', '自尽', '传授', '拜见', '激斗', '对峙',
-    '大战', '决战', '血战', '独战', '群战', '围攻', '伏击', '暗杀',
-    '重逢', '相会', '离别', '出家', '归隐', '登基', '继位', '称帝',
-    '夺宝', '寻仇', '报仇', '雪恨', '冤枉', '平反', '昭雪',
-    '中毒', '受伤', '疗伤', '解毒', '走火入魔',
-    '结盟', '反目', '背叛', '投降', '归降',
+  'event_types': [
+    '比武', '报仇', '结拜', '定情', '自尽', '传授', '激斗', '对峙',
+    '大战', '决战', '血战', '围攻', '伏击',
+    '重逢', '相会', '离别', '归隐',
+    '中毒', '受伤', '疗伤', '解毒',
   ],
-  // 常见物品
-  'items': [
+  'item_types': [
     '剑', '刀', '枪', '棍', '鞭', '针', '镖', '暗器',
     '秘籍', '宝剑', '宝刀', '神兵', '利器',
-    '丹药', '解药', '毒药', '迷药',
-    '玉佩', '金钗', '戒指', '手镯', '项链',
+    '丹药', '解药', '毒药',
   ],
 };
 
-// 4. 从原文中提取实际出现的关键词
-const foundKeywords = {
-  sects: [],
-  locations: [],
-  skill_types: [],
-  events: [],
-  items: [],
-};
-
-for (const [category, keywords] of Object.entries(wuxiaKeywords)) {
+// 4. 从原文中提取实际出现的武侠类型词（用于分类，不直接加入关键词）
+const foundTypeKeywords = {};
+for (const [category, keywords] of Object.entries(wuxiaKeywordTypes)) {
+  foundTypeKeywords[category] = [];
   for (const kw of keywords) {
     if (allText.includes(kw)) {
-      foundKeywords[category].push(kw);
+      foundTypeKeywords[category].push(kw);
     }
   }
 }
+console.log(`From type hints: ${Object.values(foundTypeKeywords).flat().length} type keywords found`);
 
 // 4.5 从已生成的实体 JSON 中提取实体名（Phase 2 产物）
 const entityNames = new Set();
@@ -131,24 +101,24 @@ if (fs.existsSync(dataDir)) {
   console.log(`From entity JSONs: ${entityNames.size} names`);
 }
 
-// 5. 合并所有关键词
+// 5. 合并所有关键词（主要来源：mention高频词 + 实体名）
 const allKeywords = new Set();
 
-// 添加 mention 中的高频词
+// 添加 mention 中的高频词（主要来源）
 for (const term of mentionTerms) {
   allKeywords.add(term);
 }
 
-// 添加找到的武侠关键词
-for (const keywords of Object.values(foundKeywords)) {
+// 添加实体名（主要来源）
+for (const name of entityNames) {
+  allKeywords.add(name);
+}
+
+// 添加武侠类型词（辅助来源，用于通用匹配）
+for (const keywords of Object.values(foundTypeKeywords)) {
   for (const kw of keywords) {
     allKeywords.add(kw);
   }
-}
-
-// 添加实体名
-for (const name of entityNames) {
-  allKeywords.add(name);
 }
 
 // 6. 过滤停用词
@@ -167,11 +137,11 @@ const finalKeywords = [...allKeywords]
 
 console.log(`Total keywords: ${finalKeywords.length}`);
 console.log('By category:');
-for (const [category, keywords] of Object.entries(foundKeywords)) {
+for (const [category, keywords] of Object.entries(foundTypeKeywords)) {
   console.log(`  ${category}: ${keywords.length}`);
 }
 
 // 7. 写入 keywords.json
-const outputPath = path.join(novelDir, 'keywords.json');
+const outputPath = path.join(novelDir, 'build', 'keywords.json');
 fs.writeFileSync(outputPath, JSON.stringify(finalKeywords, null, 2));
 console.log(`\nWrote ${outputPath}`);

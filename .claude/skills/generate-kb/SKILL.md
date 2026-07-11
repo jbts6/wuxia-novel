@@ -52,24 +52,25 @@ Don't ask the user about something memory may already record.
 ## 执行顺序
 
 0. 前置检查：原文存在
-1. Phase 1：split + compact-mention + keywords
-2. Phase 1.6：生成专属 prompt
-3. Phase 1.6.5：校验 prompt
-4. Phase 1.5（可选）：生成 outline.json
-5. Phase 2 Pass 1：生成 5 个实体 JSON
-6. **刷新 keywords.json**：重跑 `extract-keywords.js`，将实体名加入关键词字典
-7. Phase 3：locate + verify + cross-validate + check-skill-items
-8. 如 locate 率 < 95% 或有 errors，调整 prompt 后重跑
-9. Phase 2 Pass 2：生成 items + dialogues + chapter_summaries
-10. **Phase 2.6：实体审核**（详见 `review.md`）
-11. Phase 2.2：交叉验证 chapter_summaries
-12. Phase 2.5：提取 dialogues
-13. **定位 dialogues 行号**：`locate-dialogues.js` 精确行号 + 删除幻觉条目
-14. Phase 3：完整校验 + check-skill-items（可疑条目交 LLM 审核）
-15. Phase 3.5：对抗校验（详见 `review.md`）
-16. Phase 3.6：质量评估（≥85%）
-17. Phase 3.7：生成 summary.md
-18. 最终验证：8 JSON 可解析、schema 合法、errors = 0
+1. Phase 1：split + compact-mention（生成 ch_split/、build/manifest.json、build/mention_index.jsonl、build/mention_summary.json）
+2. **Phase 1.2：LLM 生成 build/keywords.json**（基于原文和 mention_summary，提取本书专属的角色名、门派名、地名、功法名、关键事件、重要物品等）
+3. Phase 1.6：生成专属 prompt
+4. Phase 1.6.5：校验 prompt
+5. Phase 1.5（可选）：生成 outline.json
+6. Phase 2 Pass 1：生成 5 个实体 JSON
+7. **刷新 build/keywords.json**：重跑 `extract-keywords.js`，将实体名加入关键词字典
+8. Phase 3：locate + verify + cross-validate + check-skill-items
+9. 如 locate 率 < 95% 或有 errors，调整 prompt 后重跑
+10. Phase 2 Pass 2：生成 items + dialogues + chapter_summaries
+11. **Phase 2.6：实体审核**（详见 `review.md`）
+12. Phase 2.2：交叉验证 chapter_summaries
+13. Phase 2.5：提取 dialogues
+14. **定位 dialogues 行号**：`locate-dialogues.js` 精确行号 + 删除幻觉条目
+15. Phase 3：完整校验 + check-skill-items（可疑条目交 LLM 审核）
+16. Phase 3.5：对抗校验（详见 `review.md`）
+17. Phase 3.6：质量评估（≥85%）
+18. Phase 3.7：生成 summary.md
+19. 最终验证：8 JSON 可解析、schema 合法、errors = 0
 
 **各 Phase 详细步骤**见 `pipeline.md`。
 
@@ -87,7 +88,7 @@ Don't ask the user about something memory may already record.
 │   ├── dialogues.json
 │   └── chapter_summaries.json
 ├── reports/                   # 报告文件
-├── build/                     # 构建中间产物
+├── build/                     # 构建中间产物（manifest.json, mention_index.jsonl, mention_summary.json, keywords.json, baseline.json）
 ├── ch_split/                  # 章节拆分
 ├── prompts/                   # Prompt 模板
 ├── review/                    # 审阅结果

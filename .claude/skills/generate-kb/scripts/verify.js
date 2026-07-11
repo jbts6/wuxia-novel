@@ -332,7 +332,7 @@ const out = {
   results,
   coverage,
 };
-fs.writeFileSync(path.join(novelDir, 'verification_result.json'), JSON.stringify(out, null, 2), 'utf8');
+fs.writeFileSync(path.join(novelDir, 'reports', 'verification_result.json'), JSON.stringify(out, null, 2), 'utf8');
 
 console.log('=== verify summary ===');
 for (const [file, r] of Object.entries(results)) {
