@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-11T09:36:18.091Z",
+  "generated_at": "2026-07-11T10:25:44.959Z",
   "summary": {
-    "total": 41,
-    "errors": 0,
-    "warnings": 40,
+    "total": 27,
+    "errors": 1,
+    "warnings": 25,
     "info": 1
   },
   "issues": [
@@ -153,139 +153,27 @@
     },
     {
       "type": "dangling_reference",
+      "severity": "error",
+      "source": "item_bing_can",
+      "field": "related_skills",
+      "ref": "skill_bing_can_du_zhang",
+      "message": "冰蚕.related_skills references non-existent skill_bing_can_du_zhang"
+    },
+    {
+      "type": "dangling_reference",
       "severity": "warning",
       "source": "dialogue[1]",
       "field": "listener",
-      "ref": "char_gong_guang_jie",
-      "message": "Dialogue listener \"char_gong_guang_jie\" not found in characters.json"
+      "ref": "char_yue_lao_san",
+      "message": "Dialogue listener \"char_yue_lao_san\" not found in characters.json"
     },
     {
       "type": "dangling_reference",
       "severity": "warning",
-      "source": "dialogue[4]",
-      "field": "speaker",
-      "ref": "char_bao_qian_ling",
-      "message": "Dialogue speaker \"char_bao_qian_ling\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[11]",
-      "field": "speaker",
-      "ref": "char_bao_bu_tong",
-      "message": "Dialogue speaker \"char_bao_bu_tong\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[11]",
+      "source": "dialogue[33]",
       "field": "listener",
-      "ref": "char_xiang_wang_hai",
-      "message": "Dialogue listener \"char_xiang_wang_hai\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[12]",
-      "field": "speaker",
-      "ref": "char_bao_bu_tong",
-      "message": "Dialogue speaker \"char_bao_bu_tong\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[16]",
-      "field": "speaker",
-      "ref": "char_tan_gong",
-      "message": "Dialogue speaker \"char_tan_gong\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[17]",
-      "field": "speaker",
-      "ref": "char_tan_gong",
-      "message": "Dialogue speaker \"char_tan_gong\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[17]",
-      "field": "listener",
-      "ref": "char_tan_po",
-      "message": "Dialogue listener \"char_tan_po\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[18]",
-      "field": "speaker",
-      "ref": "char_tan_gong",
-      "message": "Dialogue speaker \"char_tan_gong\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[18]",
-      "field": "listener",
-      "ref": "char_tan_po",
-      "message": "Dialogue listener \"char_tan_po\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[19]",
-      "field": "listener",
-      "ref": "char_wu_zhang_lao",
-      "message": "Dialogue listener \"char_wu_zhang_lao\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[26]",
-      "field": "listener",
-      "ref": "char_hui_yi_seng",
-      "message": "Dialogue listener \"char_hui_yi_seng\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[30]",
-      "field": "listener",
-      "ref": "char_yu_po_po",
-      "message": "Dialogue listener \"char_yu_po_po\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[31]",
-      "field": "listener",
-      "ref": "char_hui_yi_seng",
-      "message": "Dialogue listener \"char_hui_yi_seng\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[32]",
-      "field": "speaker",
-      "ref": "char_yun_zhong_he",
-      "message": "Dialogue speaker \"char_yun_zhong_he\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[39]",
-      "field": "listener",
-      "ref": "char_he_lian_tie_shu",
-      "message": "Dialogue listener \"char_he_lian_tie_shu\" not found in characters.json"
-    },
-    {
-      "type": "dangling_reference",
-      "severity": "warning",
-      "source": "dialogue[40]",
-      "field": "listener",
-      "ref": "char_nan_hai_e_shen",
-      "message": "Dialogue listener \"char_nan_hai_e_shen\" not found in characters.json"
+      "ref": "char_ye_er_niang",
+      "message": "Dialogue listener \"char_ye_er_niang\" not found in characters.json"
     },
     {
       "type": "rank_inconsistency",
@@ -320,16 +208,16 @@
     {
       "type": "possible_hallucination",
       "severity": "warning",
-      "source": "item_shao_lin_jue_ji_shu",
-      "name": "少林七十二绝技手抄本",
-      "message": "Item \"少林七十二绝技手抄本\" not found in original text - likely hallucination"
+      "source": "item_wu_liang_yu_bi_bao_jian",
+      "name": "无量玉壁宝石剑",
+      "message": "Item \"无量玉壁宝石剑\" not found in original text - likely hallucination"
     },
     {
       "type": "possible_hallucination",
       "severity": "warning",
-      "source": "item_wu_liang_yu_bi_bao_jian",
-      "name": "无量玉壁宝石剑",
-      "message": "Item \"无量玉壁宝石剑\" not found in original text - likely hallucination"
+      "source": "item_shao_lin_jue_ji_shu",
+      "name": "少林七十二绝技手抄本",
+      "message": "Item \"少林七十二绝技手抄本\" not found in original text - likely hallucination"
     }
   ]
 }

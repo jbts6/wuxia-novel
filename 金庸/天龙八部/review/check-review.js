@@ -13,44 +13,36 @@ if (!fs.existsSync(resultPath)) {
 }
 
 const result = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
-const reviewResult = result.review_result || result;
 
 console.log('=== Review Results ===');
-console.log('Total items:', reviewResult.length);
-
-// Extract suspicious items (those with issues)
-const suspiciousItems = reviewResult.filter(r => r.suspicious === true);
-console.log('Total suspicious items:', suspiciousItems.length);
+console.log('Total suspicious items:', result.length);
 
 const bySeverity = {
-  high: [],
-  medium: [],
-  low: []
+  high: result.filter(r => r.severity === 'high'),
+  medium: result.filter(r => r.severity === 'medium'),
+  low: result.filter(r => r.severity === 'low')
 };
-
-for (const item of suspiciousItems) {
-  if (item.issues) {
-    for (const issue of item.issues) {
-      if (issue.severity === 'high') bySeverity.high.push({...item, issue});
-      else if (issue.severity === 'medium') bySeverity.medium.push({...item, issue});
-      else if (issue.severity === 'low') bySeverity.low.push({...item, issue});
-    }
-  }
-}
 
 console.log('\nBy severity:');
 console.log('  High:', bySeverity.high.length);
 console.log('  Medium:', bySeverity.medium.length);
 console.log('  Low:', bySeverity.low.length);
 
+const byJson = {};
+for (const r of result) {
+  if (!byJson[r.json_file]) byJson[r.json_file] = 0;
+  byJson[r.json_file]++;
+}
+
+console.log('\nBy JSON file:');
+for (const [file, count] of Object.entries(byJson)) {
+  console.log('  ' + file + ':', count);
+}
+
 const byType = {};
-for (const item of suspiciousItems) {
-  if (item.issues) {
-    for (const issue of item.issues) {
-      if (!byType[issue.type]) byType[issue.type] = 0;
-      byType[issue.type]++;
-    }
-  }
+for (const r of result) {
+  if (!byType[r.issue_type]) byType[r.issue_type] = 0;
+  byType[r.issue_type]++;
 }
 
 console.log('\nBy issue type:');
@@ -59,19 +51,21 @@ for (const [type, count] of Object.entries(byType)) {
 }
 
 console.log('\n=== High Severity Issues ===');
-for (const item of bySeverity.high) {
-  console.log('\n#' + item.index + ' ch' + item.chapter + ' [' + item.issue.type + '] ' + item.speaker);
-  console.log('Text:', item.text.substring(0, 80) + '...');
-  console.log('Description:', item.issue.description);
+for (const r of bySeverity.high) {
+  console.log('\n[' + r.json_file + '#' + r.index + '] ' + (r.id || r.name || ''));
+  console.log('Issue:', r.issue_type);
+  console.log('Reason:', r.reason);
+  console.log('Suggestion:', r.suggestion);
 }
 
-// Extract indices of suspicious dialogues for selective re-read
-const suspiciousIndices = suspiciousItems.map(r => r.index);
+// Extract indices of suspicious items for selective review
+const suspiciousIndices = result
+  .filter(r => r.severity === 'high' || r.severity === 'medium')
+  .map(r => ({ json_file: r.json_file, index: r.index, id: r.id }));
 
-console.log('\n=== Suspicious dialogue indices for re-read ===');
-console.log(JSON.stringify(suspiciousIndices));
+console.log('\n=== Suspicious items for review ===');
+console.log(JSON.stringify(suspiciousIndices, null, 2));
 
 // Save indices to file
 const indicesPath = path.join(novelDir, 'review', 'suspicious-indices.json');
-fs.writeFileSync(indicesPath, JSON.stringify(suspiciousIndices, null, 2), 'utf8');
-console.log('\nSuspicious indices saved to:', indicesPath);
+fs.writeFileSync(indicesPath, JSON.stringify(suspiciousIndices, null, 2), '\nSuspicious indices saved to:', indicesPath);
