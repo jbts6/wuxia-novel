@@ -7,6 +7,7 @@ import type {
 } from '../types/library';
 import type { Character, Faction, Item, Location, NovelData, Skill, SourceRef } from '../types/novel';
 import { buildLibraryKey } from '../utils/libraryKeys';
+import { displayTaxonomyValue } from './displayText';
 
 export const LIBRARY_KIND_LABELS: Record<LibraryEntityKind, string> = {
   character: '人物',
@@ -92,7 +93,7 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       'character',
       entity,
       entity.one_line || entity.identity || entity.bio || '暂无简介',
-      entity.role || entity.archetype || '未分类',
+      displayTaxonomyValue(entity.role || entity.archetype, '未分类'),
       [entity.alias, entity.identity, entity.archetype, entity.power_rank, entity.faction, entity.personality.traits],
       [...(entity.bio_source_refs ?? []), ...(entity.source_refs ?? [])],
     ),
@@ -103,7 +104,7 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       'skill',
       entity,
       entity.one_line || entity.description || '暂无简介',
-      entity.type || '未分类',
+      displayTaxonomyValue(entity.type, '未分类'),
       [entity.faction, entity.mastery_rank, entity.moves, entity.holders],
       [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
     ),
@@ -114,7 +115,7 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       'item',
       entity,
       entity.one_line || entity.description || '暂无简介',
-      entity.type || '未分类',
+      displayTaxonomyValue(entity.type, '未分类'),
       [entity.tags, entity.rarity_tier, entity.importance, entity.owner, entity.related_characters, entity.related_skills],
       [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
     ),
@@ -125,7 +126,7 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       'faction',
       entity,
       entity.one_line || entity.description || '暂无简介',
-      entity.type || '未分类',
+      displayTaxonomyValue(entity.type, '未分类'),
       [entity.location, entity.leader, entity.members, entity.sub_organizations, entity.sub_divisions],
       [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
     ),
@@ -136,7 +137,7 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       'location',
       entity,
       entity.one_line || entity.description || '暂无简介',
-      entity.region || '未分类',
+      displayTaxonomyValue(entity.region, '未分类'),
       [entity.factions, entity.characters],
       [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
     ),

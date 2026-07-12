@@ -2,6 +2,9 @@ import { expect, test } from '@playwright/test';
 
 test.use({ viewport: { width: 1440, height: 1000 } });
 
+const INTERNAL_ENTITY_ID = /\b(?:char(?:acter)?|skill|item|faction|location)[_:-][a-z0-9_-]+\b/i;
+const ENGLISH_SCHEMA_VALUE = /\b(?:assassin|civilian|healer|leader|master|mentor|monk|official|ruler|schemer|scholar|tragic|warrior)\b/i;
+
 test('searches the global library and restores state after opening a book entity', async ({ page }) => {
   const pageErrors: string[] = [];
   page.on('pageerror', (error) => pageErrors.push(error.message));
@@ -15,6 +18,17 @@ test('searches the global library and restores state after opening a book entity
   expect(firstPageCount).toBeGreaterThan(0);
   expect(firstPageCount).toBeLessThanOrEqual(50);
   await expect(page.getByText(/1-50 \/ .* 条记录/)).toBeVisible();
+
+  const searchInput = page.getByRole('textbox', { name: '搜索全库知识' });
+  const firstResultName = (await resultRows.first().locator('td').first().innerText()).trim();
+  await searchInput.fill(firstResultName);
+  await expect(page).not.toHaveURL(/[?&]q=/);
+  await page.getByRole('button', { name: '搜索' }).click();
+  await expect(page).toHaveURL(/[?&]q=/);
+  await expect(resultRows.first()).toContainText(firstResultName);
+  await page.getByRole('button', { name: '清空筛选' }).click();
+  await expect(page).not.toHaveURL(/[?&]q=/);
+  await expect(resultRows).toHaveCount(50);
 
   const nextPage = page.getByRole('button', { name: '下一页' });
   await expect(nextPage).toBeEnabled();
@@ -36,11 +50,15 @@ test('searches the global library and restores state after opening a book entity
   expect(dialogBox?.width).toBeGreaterThanOrEqual(540);
   await expect(dialog.getByText(targetName, { exact: true })).toBeVisible();
   await expect(dialog.getByText('原文证据')).toBeVisible();
+  await expect(dialog).not.toContainText(INTERNAL_ENTITY_ID);
+  await expect(dialog).not.toContainText(ENGLISH_SCHEMA_VALUE);
   await page.screenshot({ path: 'test-results/global-library-detail.png', fullPage: true });
 
   await dialog.getByRole('link', { name: /打开单书详情/ }).click();
   await page.waitForURL(/\/(characters|skills|items|factions|locations)\?detail=/);
   await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page.getByRole('dialog')).not.toContainText(INTERNAL_ENTITY_ID);
+  await expect(page.getByRole('dialog')).not.toContainText(ENGLISH_SCHEMA_VALUE);
   await page.getByRole('dialog').getByRole('button', { name: 'Close' }).click();
   await expect(page.getByRole('link', { name: '返回全库搜索' })).toBeVisible();
 

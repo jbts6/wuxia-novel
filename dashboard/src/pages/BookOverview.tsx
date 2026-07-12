@@ -5,6 +5,7 @@ import { PageHeader } from '../components/layout/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Users, Swords, Gem, Building2, MapPin, BookMarked, MessageSquare } from 'lucide-react';
 import { resolveId } from '../lib/resolveId';
+import { displayTaxonomyValue } from '../lib/displayText';
 
 export default function BookOverview() {
   const currentBookPath = useLibraryStore((state) => state.currentBook);
@@ -50,12 +51,12 @@ export default function BookOverview() {
                     <span className="font-medium">{char.name}</span>
                     {char.faction && (
                       <span className="ml-2 text-sm text-muted-foreground">
-                        {resolveId(char.faction, factionMap)}
+                        {resolveId(char.faction, factionMap, '未注明势力')}
                       </span>
                     )}
                   </div>
                   {char.power_rank && (
-                    <span className="text-sm text-accent">{char.power_rank}</span>
+                    <span className="text-sm text-accent">{displayTaxonomyValue(char.power_rank)}</span>
                   )}
                 </div>
               ))}
@@ -77,12 +78,12 @@ export default function BookOverview() {
                   <div>
                     <span className="font-medium">{faction.name}</span>
                     <span className="ml-2 text-sm text-muted-foreground">
-                      {faction.type}
+                      {displayTaxonomyValue(faction.type)}
                     </span>
                   </div>
                   {faction.location && (
                     <span className="text-sm text-muted-foreground">
-                      {resolveId(faction.location, locationMap)}
+                      {resolveId(faction.location, locationMap, '未注明地点')}
                     </span>
                   )}
                 </div>

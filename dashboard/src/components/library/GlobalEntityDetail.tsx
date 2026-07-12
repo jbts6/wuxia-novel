@@ -1,7 +1,11 @@
+import { useMemo } from 'react';
 import { ArrowUpRight, BookOpenText, Quote } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { AnyLibraryRecord } from '../../types/library';
+import type { NovelData } from '../../types/novel';
 import { LIBRARY_KIND_LABELS, LIBRARY_KIND_ROUTES } from '../../lib/globalLibrary';
+import { buildIdMaps, resolveId, resolveIds } from '../../lib/resolveId';
+import { displayChineseValues, displayTaxonomyValue } from '../../lib/displayText';
 import { buttonVariants } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Separator } from '../ui/separator';
@@ -10,61 +14,89 @@ import { cn } from '../../lib/utils';
 
 interface GlobalEntityDetailProps {
   record: AnyLibraryRecord;
+  data?: NovelData;
   returnTo: string;
   onNavigate: () => void;
 }
 
-function detailRows(record: AnyLibraryRecord): Array<{ label: string; value: string }> {
+type IdMaps = ReturnType<typeof buildIdMaps>;
+
+const EMPTY_RELATION_DATA = { characters: [], factions: [], locations: [], skills: [], items: [] };
+
+function detailRows(record: AnyLibraryRecord, maps: IdMaps): Array<{ label: string; value: string }> {
   switch (record.kind) {
     case 'character':
       return [
-        { label: '身份', value: record.entity.identity || record.entity.role || '-' },
-        { label: '势力', value: record.entity.faction || '-' },
-        { label: '境界', value: record.entity.power_rank || '-' },
-        { label: '类型', value: record.entity.archetype || '-' },
+        { label: '身份', value: record.entity.identity || displayTaxonomyValue(record.entity.role) },
+        { label: '势力', value: resolveId(record.entity.faction, maps.factionMap, '未注明势力') },
+        { label: '境界', value: displayTaxonomyValue(record.entity.power_rank) },
+        { label: '类型', value: displayTaxonomyValue(record.entity.archetype) },
       ];
     case 'skill':
       return [
-        { label: '类型', value: record.entity.type || '-' },
-        { label: '势力', value: record.entity.faction || '-' },
-        { label: '境界', value: record.entity.mastery_rank || record.entity.rank || '-' },
+        { label: '类型', value: displayTaxonomyValue(record.entity.type) },
+        { label: '势力', value: resolveId(record.entity.faction, maps.factionMap, '未注明势力') },
+        { label: '境界', value: displayTaxonomyValue(record.entity.mastery_rank || record.entity.rank) },
       ];
     case 'item':
       return [
-        { label: '类型', value: record.entity.type || '-' },
-        { label: '稀有度', value: record.entity.rarity_tier || record.entity.rarity || '-' },
-        { label: '持有者', value: record.entity.owner || '-' },
-        { label: '重要性', value: record.entity.importance || '-' },
+        { label: '类型', value: displayTaxonomyValue(record.entity.type) },
+        { label: '稀有度', value: displayTaxonomyValue(record.entity.rarity_tier || record.entity.rarity) },
+        { label: '持有者', value: resolveId(record.entity.owner, maps.characterMap, '未注明持有者') },
+        { label: '重要性', value: displayTaxonomyValue(record.entity.importance) },
       ];
     case 'faction':
       return [
-        { label: '类型', value: record.entity.type || '-' },
-        { label: '地点', value: record.entity.location || '-' },
-        { label: '领袖', value: record.entity.leader || '-' },
+        { label: '类型', value: displayTaxonomyValue(record.entity.type) },
+        { label: '地点', value: resolveId(record.entity.location, maps.locationMap, '未注明地点') },
+        { label: '领袖', value: resolveId(record.entity.leader, maps.characterMap, '未注明领袖') },
       ];
     case 'location':
-      return [{ label: '区域', value: record.entity.region || '-' }];
+      return [{ label: '区域', value: displayTaxonomyValue(record.entity.region) }];
   }
 }
 
-function relatedValues(record: AnyLibraryRecord): string[] {
+function visibleChineseValues(values: string[] | null | undefined): string[] {
+  return displayChineseValues(values);
+}
+
+function relatedValues(record: AnyLibraryRecord, maps: IdMaps): string[] {
   switch (record.kind) {
     case 'character':
-      return [...record.entity.alias, ...(record.entity.skills ?? []), ...(record.entity.items ?? [])];
+      return [
+        ...visibleChineseValues(record.entity.alias),
+        ...resolveIds(record.entity.skills, maps.skillMap),
+        ...resolveIds(record.entity.items, maps.itemMap),
+      ];
     case 'skill':
-      return [...(record.entity.moves ?? []), ...(record.entity.holders ?? [])];
+      return [
+        ...visibleChineseValues(record.entity.moves),
+        ...resolveIds(record.entity.holders, maps.characterMap),
+      ];
     case 'item':
-      return [...(record.entity.tags ?? []), ...(record.entity.related_characters ?? []), ...(record.entity.related_skills ?? [])];
+      return [
+        ...visibleChineseValues(record.entity.tags),
+        ...resolveIds(record.entity.related_characters, maps.characterMap),
+        ...resolveIds(record.entity.related_skills, maps.skillMap),
+      ];
     case 'faction':
-      return [...(record.entity.members ?? []), ...(record.entity.sub_organizations ?? []), ...(record.entity.sub_divisions ?? [])];
+      return [
+        ...resolveIds(record.entity.members, maps.characterMap),
+        ...visibleChineseValues(record.entity.sub_organizations),
+        ...visibleChineseValues(record.entity.sub_divisions),
+      ];
     case 'location':
-      return [...(record.entity.factions ?? []), ...(record.entity.characters ?? [])];
+      return [
+        ...resolveIds(record.entity.factions, maps.factionMap),
+        ...resolveIds(record.entity.characters, maps.characterMap),
+      ];
   }
 }
 
-export function GlobalEntityDetail({ record, returnTo, onNavigate }: GlobalEntityDetailProps) {
+export function GlobalEntityDetail({ record, data, returnTo, onNavigate }: GlobalEntityDetailProps) {
   const route = `/${encodeURIComponent(record.source.author)}/${encodeURIComponent(record.source.bookName)}/${LIBRARY_KIND_ROUTES[record.kind]}?detail=${encodeURIComponent(record.entity.id)}`;
-  const related = [...new Set(relatedValues(record).filter(Boolean))].slice(0, 24);
+  const maps = useMemo(() => buildIdMaps(data ?? EMPTY_RELATION_DATA), [data]);
+  const related = [...new Set(relatedValues(record, maps))].slice(0, 24);
 
   return (
     <SheetContent className="!w-[560px] !max-w-none overflow-y-auto p-0">
@@ -80,7 +112,7 @@ export function GlobalEntityDetail({ record, returnTo, onNavigate }: GlobalEntit
         <section>
           <h3 className="text-sm font-medium text-foreground">基础信息</h3>
           <div className="mt-3 grid grid-cols-2 gap-x-5 gap-y-3 rounded-md border bg-muted/20 p-4">
-            {detailRows(record).map((row) => (
+            {detailRows(record, maps).map((row) => (
               <div key={row.label} className="min-w-0">
                 <div className="text-xs text-muted-foreground">{row.label}</div>
                 <div className="mt-1 break-words text-sm text-foreground">{row.value}</div>

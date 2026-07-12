@@ -1,5 +1,7 @@
 import type { Character, Faction, Location, Skill, Item } from '../types/novel';
 
+const CHINESE_TEXT_PATTERN = /[\u3400-\u9fff\uf900-\ufaff]/u;
+
 export function buildIdMaps(data: {
   characters: Character[];
   factions: Faction[];
@@ -16,7 +18,35 @@ export function buildIdMaps(data: {
   return { characterMap, factionMap, locationMap, skillMap, itemMap };
 }
 
-export function resolveId(id: string | null | undefined, map: Map<string, string>): string {
-  if (!id) return '-';
-  return map.get(id) || id;
+export function toChineseDisplayText(value: string | null | undefined): string | null {
+  const text = value?.trim();
+  if (!text || !CHINESE_TEXT_PATTERN.test(text)) return null;
+  return text;
+}
+
+export function resolveEntityName(
+  id: string | null | undefined,
+  map: Map<string, string>,
+): string | null {
+  if (!id) return null;
+  return toChineseDisplayText(map.get(id)) ?? toChineseDisplayText(id);
+}
+
+export function resolveId(
+  id: string | null | undefined,
+  map: Map<string, string>,
+  fallback = '未注明',
+): string {
+  return resolveEntityName(id, map) ?? fallback;
+}
+
+export function resolveIds(
+  ids: string[] | null | undefined,
+  map: Map<string, string>,
+): string[] {
+  if (!ids) return [];
+  return [...new Set(ids.flatMap((id) => {
+    const name = resolveEntityName(id, map);
+    return name ? [name] : [];
+  }))];
 }

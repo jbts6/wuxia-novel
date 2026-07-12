@@ -6,7 +6,8 @@ import { MultiSearchableSelect } from '../components/ui/multi-searchable-select'
 import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
-import { resolveId } from '../lib/resolveId';
+import { resolveEntityName, resolveId } from '../lib/resolveId';
+import { displayChineseValues, displayTaxonomyValue } from '../lib/displayText';
 import { useEntityDetailParam } from '../hooks/useEntityDetailParam';
 
 export default function Characters() {
@@ -17,21 +18,21 @@ export default function Characters() {
   const [rankFilter, setRankFilter] = useState<string[]>([]);
   useEntityDetailParam('character', characters);
 
-  const roleOptions = useMemo(() => [
-    { value: '核心', label: '核心' },
-    { value: '重要', label: '重要' },
-    { value: '次要', label: '次要' },
-    { value: '龙套', label: '龙套' },
-  ], []);
+  const roleOptions = useMemo(() => [...new Set(characters.map((character) => character.role).filter(Boolean))]
+    .map((value) => ({ value, label: displayTaxonomyValue(value) }))
+    .sort((left, right) => left.label.localeCompare(right.label, 'zh-CN')), [characters]);
 
   const factionOptions = useMemo(() => {
     const set = new Set(characters.map((c) => c.faction).filter(Boolean));
-    return Array.from(set).sort().map((id) => ({ value: id!, label: factionMap.get(id!) || id! }));
+    return Array.from(set).flatMap((id) => {
+      const label = resolveEntityName(id, factionMap);
+      return label ? [{ value: id!, label }] : [];
+    }).sort((left, right) => left.label.localeCompare(right.label, 'zh-CN'));
   }, [characters, factionMap]);
 
   const rankOptions = useMemo(() => {
     const set = new Set(characters.map((c) => c.power_rank).filter(Boolean));
-    return Array.from(set).sort().map((r) => ({ value: r!, label: r! }));
+    return Array.from(set).sort().map((r) => ({ value: r!, label: displayTaxonomyValue(r!) }));
   }, [characters]);
 
   const filtered = useMemo(() => {
@@ -54,8 +55,11 @@ export default function Characters() {
     }
     return null;
   }, [characters, detailPanel]);
-  const personalityTraits = selectedCharacter?.personality?.traits ?? [];
-  const relationships = selectedCharacter?.relationships ?? [];
+  const personalityTraits = displayChineseValues(selectedCharacter?.personality?.traits);
+  const relationships = useMemo(() => (selectedCharacter?.relationships ?? []).flatMap((relationship) => {
+    const targetName = resolveEntityName(relationship.target, characterMap);
+    return targetName ? [{ ...relationship, targetName }] : [];
+  }), [characterMap, selectedCharacter]);
 
   return (
     <div>
@@ -121,10 +125,10 @@ export default function Characters() {
                   {char.alias?.join(', ') || '-'}
                 </td>
                 <td className="p-3">
-                  <Badge variant="outline">{char.role}</Badge>
+                  <Badge variant="outline">{displayTaxonomyValue(char.role)}</Badge>
                 </td>
-                <td className="p-3 text-sm">{resolveId(char.faction, factionMap)}</td>
-                <td className="p-3 text-sm text-accent">{char.power_rank || '-'}</td>
+                <td className="p-3 text-sm">{resolveId(char.faction, factionMap, '未注明势力')}</td>
+                <td className="p-3 text-sm text-accent">{displayTaxonomyValue(char.power_rank)}</td>
                 <td className="p-3 text-sm text-muted-foreground max-w-xs truncate">
                   {char.one_line || char.identity || char.bio?.slice(0, 50) || '-'}
                 </td>
@@ -146,9 +150,9 @@ export default function Characters() {
                   <h4 className="mb-2 font-medium">基本信息</h4>
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div>身份：{selectedCharacter.identity || '-'}</div>
-                    <div>门派：{resolveId(selectedCharacter.faction, factionMap)}</div>
-                    <div>境界：{selectedCharacter.power_rank || '-'}</div>
-                    <div>类型：{selectedCharacter.archetype || '-'}</div>
+                    <div>门派：{resolveId(selectedCharacter.faction, factionMap, '未注明势力')}</div>
+                    <div>境界：{displayTaxonomyValue(selectedCharacter.power_rank)}</div>
+                    <div>类型：{displayTaxonomyValue(selectedCharacter.archetype)}</div>
                   </div>
                 </div>
                 <Separator />
@@ -182,8 +186,8 @@ export default function Characters() {
                       <div className="space-y-2">
                         {relationships.map((r, i) => (
                           <div key={i} className="flex items-center justify-between text-sm">
-                            <span>{resolveId(r.target, characterMap)}</span>
-                            <Badge variant="outline">{r.type}</Badge>
+                            <span>{r.targetName}</span>
+                            <Badge variant="outline">{displayTaxonomyValue(r.type)}</Badge>
                           </div>
                         ))}
                       </div>

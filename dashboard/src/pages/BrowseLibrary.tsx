@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { AlertCircle, Building2, Gem, LoaderCircle, MapPin, Search, Swords, Users, X } from 'lucide-react';
 import { PaginationControls } from '../components/common/PaginationControls';
@@ -45,6 +45,43 @@ function parsePage(value: string | null): number {
   return Number.isInteger(parsed) && parsed > 0 ? parsed : 1;
 }
 
+function GlobalSearchForm({ initialValue, onSubmit }: { initialValue: string; onSubmit: (value: string) => void }) {
+  const [draft, setDraft] = useState(initialValue);
+  const composition = useRef(false);
+
+  return (
+    <form
+      role="search"
+      aria-label="全库知识搜索"
+      className="flex items-center gap-2"
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (composition.current) return;
+        const value = draft.trim();
+        setDraft(value);
+        onSubmit(value);
+      }}
+    >
+      <div className="relative w-[420px]">
+        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <Input
+          value={draft}
+          onChange={(event) => setDraft(event.target.value)}
+          onCompositionStart={() => { composition.current = true; }}
+          onCompositionEnd={() => { composition.current = false; }}
+          placeholder="搜索名称、别名、简介或原文证据"
+          aria-label="搜索全库知识"
+          className="pl-9"
+        />
+      </div>
+      <Button type="submit">
+        <Search className="h-4 w-4" />
+        搜索
+      </Button>
+    </form>
+  );
+}
+
 export default function BrowseLibrary() {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -52,6 +89,7 @@ export default function BrowseLibrary() {
     status,
     books,
     statusLoading,
+    bookCache,
     globalRecords,
     globalLoading,
     globalError,
@@ -61,6 +99,7 @@ export default function BrowseLibrary() {
   } = useLibraryStore();
   const initialScrollKey = useRef(`${SCROLL_KEY_PREFIX}${location.search}`);
   const restoredScroll = useRef(false);
+  const [searchResetVersion, setSearchResetVersion] = useState(0);
 
   const keyword = searchParams.get('q') ?? '';
   const author = searchParams.get('author') ?? 'all';
@@ -146,7 +185,10 @@ export default function BrowseLibrary() {
     setSearchParams(next, { replace: true });
   };
 
-  const clearFilters = () => setSearchParams({}, { replace: true });
+  const clearFilters = () => {
+    setSearchResetVersion((version) => version + 1);
+    setSearchParams({}, { replace: true });
+  };
   const hasFilters = Boolean(keyword || author !== 'all' || bookPath !== 'all' || kind !== 'all' || facet !== 'all');
   const returnParams = new URLSearchParams(searchParams);
   returnParams.delete('detail');
@@ -209,16 +251,11 @@ export default function BrowseLibrary() {
         <section className="mt-5">
           <div className="border-b pb-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-[420px]">
-                <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input
-                  value={keyword}
-                  onChange={(event) => setParam('q', event.target.value)}
-                  placeholder="搜索名称、别名、简介或原文证据"
-                  aria-label="搜索全库知识"
-                  className="pl-9"
-                />
-              </div>
+              <GlobalSearchForm
+                key={`${keyword}:${searchResetVersion}`}
+                initialValue={keyword}
+                onSubmit={(value) => setParam('q', value)}
+              />
               <NativeSelect
                 value={author}
                 onChange={(event) => setParam('author', event.target.value)}
@@ -359,7 +396,14 @@ export default function BrowseLibrary() {
       </main>
 
       <Sheet open={selectedRecord !== null} onOpenChange={(open) => !open && setParam('detail', '', false)}>
-        {selectedRecord && <GlobalEntityDetail record={selectedRecord} returnTo={returnTo} onNavigate={saveCurrentScroll} />}
+        {selectedRecord && (
+          <GlobalEntityDetail
+            record={selectedRecord}
+            data={bookCache[selectedRecord.source.bookPath]}
+            returnTo={returnTo}
+            onNavigate={saveCurrentScroll}
+          />
+        )}
       </Sheet>
     </div>
   );

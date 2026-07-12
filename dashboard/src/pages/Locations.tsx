@@ -5,7 +5,8 @@ import { Input } from '../components/ui/input';
 import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
-import { resolveId } from '../lib/resolveId';
+import { resolveIds } from '../lib/resolveId';
+import { displayTaxonomyValue } from '../lib/displayText';
 import { useEntityDetailParam } from '../hooks/useEntityDetailParam';
 
 export default function Locations() {
@@ -23,6 +24,8 @@ export default function Locations() {
     }
     return null;
   }, [locations, detailPanel]);
+  const relatedFactionNames = useMemo(() => resolveIds(selected?.factions, factionMap), [factionMap, selected]);
+  const relatedCharacterNames = useMemo(() => resolveIds(selected?.characters, characterMap), [characterMap, selected]);
 
   return (
     <div>
@@ -53,11 +56,11 @@ export default function Locations() {
                 onClick={() => showDetail('location', location.id)}
               >
                 <td className="p-3 font-medium">{location.name}</td>
-                <td className="p-3 text-sm">{location.region || '-'}</td>
+                <td className="p-3 text-sm">{displayTaxonomyValue(location.region)}</td>
                 <td className="p-3">
                   <div className="flex flex-wrap gap-1">
-                    {location.factions?.slice(0, 2).map((f) => (
-                      <Badge key={f} variant="secondary" className="text-xs">{resolveId(f, factionMap)}</Badge>
+                    {resolveIds(location.factions, factionMap).slice(0, 2).map((name) => (
+                      <Badge key={name} variant="secondary" className="text-xs">{name}</Badge>
                     ))}
                   </div>
                 </td>
@@ -79,34 +82,34 @@ export default function Locations() {
               </SheetHeader>
               <div className="mt-6 space-y-4">
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div>区域：{selected.region || '-'}</div>
+                  <div>区域：{displayTaxonomyValue(selected.region)}</div>
                 </div>
                 <Separator />
                 <div>
                   <h4 className="mb-2 font-medium">简介</h4>
                   <p className="text-sm text-muted-foreground">{selected.one_line || selected.description || '暂无简介'}</p>
                 </div>
-                {selected.factions && selected.factions.length > 0 && (
+                {relatedFactionNames.length > 0 && (
                   <>
                     <Separator />
                     <div>
                       <h4 className="mb-2 font-medium">关联势力</h4>
                       <div className="flex flex-wrap gap-1">
-                        {selected.factions.map((f) => (
-                          <Badge key={f} variant="outline">{resolveId(f, factionMap)}</Badge>
+                        {relatedFactionNames.map((name) => (
+                          <Badge key={name} variant="outline">{name}</Badge>
                         ))}
                       </div>
                     </div>
                   </>
                 )}
-                {selected.characters && selected.characters.length > 0 && (
+                {relatedCharacterNames.length > 0 && (
                   <>
                     <Separator />
                     <div>
                       <h4 className="mb-2 font-medium">关联人物</h4>
                       <div className="flex flex-wrap gap-1">
-                        {selected.characters.map((c) => (
-                          <Badge key={c} variant="secondary">{resolveId(c, characterMap)}</Badge>
+                        {relatedCharacterNames.map((name) => (
+                          <Badge key={name} variant="secondary">{name}</Badge>
                         ))}
                       </div>
                     </div>

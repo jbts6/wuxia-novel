@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, useLocation } from 'react-router-dom';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { TooltipProvider } from '../components/ui/tooltip';
 import { buildGlobalLibraryRecords } from '../lib/globalLibrary';
@@ -68,11 +68,17 @@ const status: LibraryStatusResponse = {
   warnings: [],
 };
 
+function LocationProbe() {
+  const location = useLocation();
+  return <output data-testid="location">{`${location.pathname}${location.search}`}</output>;
+}
+
 function renderPage(entry = '/browse') {
   return render(
     <TooltipProvider>
       <MemoryRouter initialEntries={[entry]}>
         <BrowseLibrary />
+        <LocationProbe />
       </MemoryRouter>
     </TooltipProvider>,
   );
@@ -120,5 +126,79 @@ describe('global library browser', () => {
     expect(within(dialog).getByText('第 55 条原文证据')).toBeInTheDocument();
     const link = screen.getByRole('link', { name: /打开单书详情/ });
     expect(link).toHaveAttribute('href', '/%E9%87%91%E5%BA%B8/%E6%B5%8B%E8%AF%95%E4%B9%A6/characters?detail=character-55');
+  });
+
+  it('keeps typing local until the user submits the search', () => {
+    renderPage('/browse?author=%E9%87%91%E5%BA%B8');
+
+    const input = screen.getByRole('textbox', { name: '搜索全库知识' });
+    fireEvent.change(input, { target: { value: '关键别名' } });
+
+    expect(screen.getAllByRole('row', { name: /查看人物/ })).toHaveLength(50);
+    expect(new URLSearchParams(screen.getByTestId('location').textContent?.split('?')[1]).get('q')).toBeNull();
+
+    fireEvent.click(screen.getByRole('button', { name: '搜索' }));
+
+    expect(screen.getAllByRole('row', { name: /查看人物/ })).toHaveLength(1);
+    expect(new URLSearchParams(screen.getByTestId('location').textContent?.split('?')[1]).get('q')).toBe('关键别名');
+  });
+
+  it('does not submit while an IME composition is active', () => {
+    renderPage();
+
+    const input = screen.getByRole('textbox', { name: '搜索全库知识' });
+    const form = screen.getByRole('search', { name: '全库知识搜索' });
+    fireEvent.compositionStart(input);
+    fireEvent.change(input, { target: { value: '关键别名' } });
+    fireEvent.submit(form);
+
+    expect(new URLSearchParams(screen.getByTestId('location').textContent?.split('?')[1]).get('q')).toBeNull();
+
+    fireEvent.compositionEnd(input);
+    fireEvent.submit(form);
+
+    expect(new URLSearchParams(screen.getByTestId('location').textContent?.split('?')[1]).get('q')).toBe('关键别名');
+  });
+
+  it('resolves relation IDs to Chinese names in global details without leaking unknown IDs', async () => {
+    const relationData: NovelData = {
+      characters: [{
+        id: 'char_duan_yu',
+        name: '段誉',
+        alias: [],
+        role: '核心',
+        faction: 'faction_dali',
+        personality: { traits: [], speech_style: '' },
+        relationships: [],
+      }],
+      skills: [{
+        id: 'skill_lingbo',
+        name: '凌波微步',
+        type: '轻功',
+        faction: 'faction_unknown',
+        description: '逍遥派轻功。',
+        holders: ['char_duan_yu', 'char_unknown'],
+      }],
+      items: [],
+      factions: [{ id: 'faction_dali', name: '大理段氏', type: '世家', description: '大理皇族。' }],
+      locations: [],
+      dialogues: [],
+      techniques: [],
+      chapter_summaries: [],
+    };
+    useLibraryStore.setState({
+      bookCache: { [book.path]: relationData },
+      globalRecords: buildGlobalLibraryRecords(book, relationData),
+    });
+    renderPage('/browse?q=%E5%87%8C%E6%B3%A2%E5%BE%AE%E6%AD%A5');
+
+    fireEvent.click(screen.getByRole('row', { name: '查看武功“凌波微步”详情' }));
+
+    const dialog = await screen.findByRole('dialog');
+    expect(within(dialog).getByText('段誉')).toBeInTheDocument();
+    expect(within(dialog).getByText('未注明势力')).toBeInTheDocument();
+    expect(within(dialog).queryByText('char_duan_yu')).not.toBeInTheDocument();
+    expect(within(dialog).queryByText('char_unknown')).not.toBeInTheDocument();
+    expect(within(dialog).queryByText('faction_unknown')).not.toBeInTheDocument();
   });
 });

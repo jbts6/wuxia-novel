@@ -38,4 +38,38 @@ describe('dialogue pagination', () => {
     expect(container.querySelectorAll('[data-dialogue-row]')).toHaveLength(100);
     expect(screen.getByText('101-200 / 5001 条对话')).toBeInTheDocument();
   });
+
+  it('只显示解析后的中文说话者名称', () => {
+    useNovelStore.getState().loadData({
+      characters: [{
+        id: 'char_duan_yu',
+        name: '段誉',
+        alias: [],
+        role: '核心',
+        personality: { traits: [], speech_style: '' },
+        relationships: [],
+      }],
+      skills: [],
+      items: [],
+      factions: [],
+      locations: [],
+      techniques: [],
+      chapter_summaries: [],
+      dialogues: [
+        { id: 'dialogue-1', speaker: 'char_duan_yu', chapter: 1, text: '在下段誉。' },
+        { id: 'dialogue-2', speaker: 'char_unknown', chapter: 1, text: '来者何人？' },
+      ],
+    });
+
+    render(
+      <MemoryRouter>
+        <Dialogues />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByText('段誉')).toBeInTheDocument();
+    expect(screen.getByText('未知人物')).toBeInTheDocument();
+    expect(screen.queryByText('char_duan_yu')).not.toBeInTheDocument();
+    expect(screen.queryByText('char_unknown')).not.toBeInTheDocument();
+  });
 });

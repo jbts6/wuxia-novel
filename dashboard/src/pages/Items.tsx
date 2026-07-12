@@ -6,7 +6,8 @@ import { MultiSearchableSelect } from '../components/ui/multi-searchable-select'
 import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
-import { resolveId } from '../lib/resolveId';
+import { resolveIds } from '../lib/resolveId';
+import { displayChineseValues, displayTaxonomyValue } from '../lib/displayText';
 import { useEntityDetailParam } from '../hooks/useEntityDetailParam';
 
 export default function Items() {
@@ -19,17 +20,17 @@ export default function Items() {
 
   const typeOptions = useMemo(() => {
     const set = new Set(items.map((i) => i.type).filter(Boolean));
-    return Array.from(set).sort().map((t) => ({ value: t, label: t }));
+    return Array.from(set).sort().map((t) => ({ value: t, label: displayTaxonomyValue(t) }));
   }, [items]);
 
   const tagOptions = useMemo(() => {
     const set = new Set(items.flatMap((i) => i.tags || []).filter(Boolean));
-    return Array.from(set).sort().map((t) => ({ value: t, label: t }));
+    return displayChineseValues(Array.from(set).sort()).map((value) => ({ value, label: value }));
   }, [items]);
 
   const rarityOptions = useMemo(() => {
     const set = new Set(items.map((i) => i.rarity_tier).filter(Boolean));
-    return Array.from(set).sort().map((r) => ({ value: r!, label: r! }));
+    return Array.from(set).sort().map((r) => ({ value: r!, label: displayTaxonomyValue(r!) }));
   }, [items]);
 
   const filtered = useMemo(() => {
@@ -48,6 +49,11 @@ export default function Items() {
     }
     return null;
   }, [items, detailPanel]);
+  const relatedCharacterNames = useMemo(
+    () => resolveIds(selected?.related_characters, characterMap),
+    [characterMap, selected],
+  );
+  const selectedTags = displayChineseValues(selected?.tags);
 
   return (
     <div>
@@ -109,16 +115,16 @@ export default function Items() {
               >
                 <td className="p-3 font-medium">{item.name}</td>
                 <td className="p-3">
-                  <Badge variant="outline">{item.type}</Badge>
+                  <Badge variant="outline">{displayTaxonomyValue(item.type)}</Badge>
                 </td>
                 <td className="p-3">
                   <div className="flex flex-wrap gap-1">
-                    {item.tags?.slice(0, 2).map((t) => (
+                    {displayChineseValues(item.tags).slice(0, 2).map((t) => (
                       <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
                     ))}
                   </div>
                 </td>
-                <td className="p-3 text-sm text-accent">{item.rarity_tier || '-'}</td>
+                <td className="p-3 text-sm text-accent">{displayTaxonomyValue(item.rarity_tier)}</td>
                 <td className="p-3 text-sm text-muted-foreground max-w-xs truncate">
                   {item.one_line || item.description?.slice(0, 50) || '-'}
                 </td>
@@ -137,13 +143,13 @@ export default function Items() {
               </SheetHeader>
               <div className="mt-6 space-y-4">
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div>类型：{selected.type}</div>
-                  <div>稀有度：{selected.rarity_tier || '-'}</div>
-                  <div>重要性：{selected.importance || '-'}</div>
+                  <div>类型：{displayTaxonomyValue(selected.type)}</div>
+                  <div>稀有度：{displayTaxonomyValue(selected.rarity_tier)}</div>
+                  <div>重要性：{displayTaxonomyValue(selected.importance)}</div>
                 </div>
-                {selected.tags && selected.tags.length > 0 && (
+                {selectedTags.length > 0 && (
                   <div className="flex flex-wrap gap-1">
-                    {selected.tags.map((t) => (
+                    {selectedTags.map((t) => (
                       <Badge key={t} variant="secondary">{t}</Badge>
                     ))}
                   </div>
@@ -166,14 +172,14 @@ export default function Items() {
                     </div>
                   </>
                 )}
-                {selected.related_characters && selected.related_characters.length > 0 && (
+                {relatedCharacterNames.length > 0 && (
                   <>
                     <Separator />
                     <div>
                       <h4 className="mb-2 font-medium">关联人物</h4>
                       <div className="flex flex-wrap gap-1">
-                        {selected.related_characters.map((c) => (
-                          <Badge key={c} variant="outline">{resolveId(c, characterMap)}</Badge>
+                        {relatedCharacterNames.map((name) => (
+                          <Badge key={name} variant="outline">{name}</Badge>
                         ))}
                       </div>
                     </div>

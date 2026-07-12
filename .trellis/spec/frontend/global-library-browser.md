@@ -45,6 +45,9 @@ Supported entity kinds are `character`, `skill`, `item`, `faction`, and `locatio
 - The default client-side load limit is four books at a time. A failed book returns a warning and does not discard records loaded from other books.
 - Every `AnyLibraryRecord` includes a stable key, discriminated entity kind, author/book/path source, name, summary, entity-specific facet, normalized search text, and deduplicated source evidence.
 - Search text may include entity names, aliases, descriptions, entity-specific fields, related IDs/names, and source-ref text. Rendering code must not rebuild this contract.
+- Entity IDs remain valid only for keys, routes, deep links, search indexing, and relationship lookup. Visible text in both global and single-book browsing must resolve relationships through the current book's entity maps.
+- `resolveEntityName(id, map)` may return a mapped Chinese name or a legacy value that already contains Chinese text. It must return `null` for an unresolved technical ID. Required fields use a Chinese fallback such as `未注明势力`; optional relationship lists omit unresolved entries.
+- English schema enums remain unchanged in JSON but pass through `displayTaxonomyValue` before rendering. Known values use explicit Chinese labels; unknown pure-English structured values use a Chinese fallback instead of appearing verbatim.
 - `/browse` renders at most 50 records per page. The single-book dialogue page renders at most 100 dialogues per page.
 - Query, filters, sorting, page, and selected global detail are URL state. Scroll position is stored in `sessionStorage` under the current `/browse` query and restored after returning from a book route.
 - A global detail deep link uses the entity page plus `?detail=<entity-id>`. The five entity pages consume that parameter through `useEntityDetailParam` and open the existing detail sheet after book data loads.
@@ -62,6 +65,8 @@ Supported entity kinds are `character`, `skill`, `item`, `faction`, and `locatio
 | Requested page exceeds filtered page count | URL is replaced with the last valid page |
 | `detail` key is unknown | Detail sheet remains closed |
 | Single-book `detail` ID is unknown | Entity page remains usable; no sheet opens |
+| Relationship ID is unknown | Raw ID is never rendered; required fields show a Chinese fallback and optional lists omit the entry |
+| Structured field contains an English enum | Render its mapped Chinese label; unknown values render the field's Chinese fallback |
 | More than 5,000 dialogues match | Only the current 100-dialogue page creates content nodes |
 | Base UI sheet width conflicts with defaults | Global detail must retain at least 540px width in desktop E2E |
 
@@ -77,6 +82,9 @@ Supported entity kinds are `character`, `skill`, `item`, `faction`, and `locatio
 - Unit: loader concurrency never exceeds the configured bound and one rejected book becomes a warning.
 - Component: 60 global records create 50 rows on page one and 10 on page two.
 - Component: alias search opens evidence and creates the exact single-book `?detail=` link.
+- Unit: `char_duan_yu` resolves to `段誉`; an unknown `char_*` value never appears in rendered text.
+- Unit: known enums such as `assassin` render as `刺客`; unknown English enums render a Chinese fallback.
+- Component: global detail and dialogue speaker rendering use Chinese entity names and hide unresolved IDs.
 - Component: 5,001 dialogues create only 100 dialogue nodes per page.
 - Desktop E2E: real repository index loads, each page has no more than 50 rows, detail width is at least 540px, entity deep link opens, and returning restores URL state and scroll position.
 - Regression E2E: the Phase 1 workbench flow remains green in the same canonical suite.
@@ -98,6 +106,10 @@ const { records, warnings } = await loadGlobalLibraryRecords(books, loadBookData
   concurrency: 4,
 });
 const visible = filterGlobalLibraryRecords(records, filters).slice(pageStart, pageStart + 50);
+
+const holderNames = resolveIds(skill.holders, characterMap);
+const factionName = resolveId(character.faction, factionMap, '未注明势力');
 ```
 
 The bounded loader protects the local Vite server, per-book warnings preserve partial success, and pagination caps DOM growth independently of total record count.
+The shared resolver keeps technical identifiers available for navigation and indexing without exposing them as novel content.

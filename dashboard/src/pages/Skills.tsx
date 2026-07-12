@@ -6,7 +6,8 @@ import { MultiSearchableSelect } from '../components/ui/multi-searchable-select'
 import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
-import { resolveId } from '../lib/resolveId';
+import { resolveId, resolveIds } from '../lib/resolveId';
+import { displayChineseValues, displayTaxonomyValue } from '../lib/displayText';
 import { useEntityDetailParam } from '../hooks/useEntityDetailParam';
 
 export default function Skills() {
@@ -17,7 +18,7 @@ export default function Skills() {
 
   const typeOptions = useMemo(() => {
     const set = new Set(skills.map((s) => s.type).filter(Boolean));
-    return Array.from(set).sort().map((t) => ({ value: t, label: t }));
+    return Array.from(set).sort().map((t) => ({ value: t, label: displayTaxonomyValue(t) }));
   }, [skills]);
 
   const filtered = useMemo(() => {
@@ -34,6 +35,8 @@ export default function Skills() {
     }
     return null;
   }, [skills, detailPanel]);
+  const holderNames = useMemo(() => resolveIds(selected?.holders, characterMap), [characterMap, selected]);
+  const moveNames = displayChineseValues(selected?.moves);
 
   return (
     <div>
@@ -77,10 +80,10 @@ export default function Skills() {
               >
                 <td className="p-3 font-medium">{skill.name}</td>
                 <td className="p-3">
-                  <Badge variant="outline">{skill.type}</Badge>
+                  <Badge variant="outline">{displayTaxonomyValue(skill.type)}</Badge>
                 </td>
-                <td className="p-3 text-sm">{resolveId(skill.faction, factionMap)}</td>
-                <td className="p-3 text-sm text-accent">{skill.mastery_rank || '-'}</td>
+                <td className="p-3 text-sm">{resolveId(skill.faction, factionMap, '未注明势力')}</td>
+                <td className="p-3 text-sm text-accent">{displayTaxonomyValue(skill.mastery_rank)}</td>
                 <td className="p-3 text-sm text-muted-foreground max-w-xs truncate">
                   {skill.one_line || skill.description?.slice(0, 50) || '-'}
                 </td>
@@ -99,36 +102,36 @@ export default function Skills() {
               </SheetHeader>
               <div className="mt-6 space-y-4">
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div>类型：{selected.type}</div>
-                  <div>门派：{resolveId(selected.faction, factionMap)}</div>
-                  <div>境界：{selected.mastery_rank || '-'}</div>
+                  <div>类型：{displayTaxonomyValue(selected.type)}</div>
+                  <div>门派：{resolveId(selected.faction, factionMap, '未注明势力')}</div>
+                  <div>境界：{displayTaxonomyValue(selected.mastery_rank)}</div>
                 </div>
                 <Separator />
                 <div>
                   <h4 className="mb-2 font-medium">简介</h4>
                   <p className="text-sm text-muted-foreground">{selected.one_line || selected.description || '暂无简介'}</p>
                 </div>
-                {selected.moves && selected.moves.length > 0 && (
+                {moveNames.length > 0 && (
                   <>
                     <Separator />
                     <div>
                       <h4 className="mb-2 font-medium">招式</h4>
                       <div className="flex flex-wrap gap-1">
-                        {selected.moves.map((m) => (
+                        {moveNames.map((m) => (
                           <Badge key={m} variant="secondary">{m}</Badge>
                         ))}
                       </div>
                     </div>
                   </>
                 )}
-                {selected.holders && selected.holders.length > 0 && (
+                {holderNames.length > 0 && (
                   <>
                     <Separator />
                     <div>
                       <h4 className="mb-2 font-medium">掌握人物</h4>
                       <div className="flex flex-wrap gap-1">
-                        {selected.holders.map((h) => (
-                          <Badge key={h} variant="outline">{resolveId(h, characterMap)}</Badge>
+                        {holderNames.map((name) => (
+                          <Badge key={name} variant="outline">{name}</Badge>
                         ))}
                       </div>
                     </div>

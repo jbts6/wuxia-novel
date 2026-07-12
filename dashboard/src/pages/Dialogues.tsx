@@ -7,11 +7,20 @@ import { Badge } from '../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Separator } from '../components/ui/separator';
 import { PaginationControls } from '../components/common/PaginationControls';
+import { resolveEntityName } from '../lib/resolveId';
+import type { Dialogue } from '../types/novel';
+import { displayTaxonomyValue } from '../lib/displayText';
 
 const PAGE_SIZE = 100;
 
+function resolveSpeakerName(dialogue: Dialogue, characterMap: Map<string, string>): string {
+  return resolveEntityName(dialogue.speaker_name, characterMap)
+    ?? resolveEntityName(dialogue.speaker, characterMap)
+    ?? '未知人物';
+}
+
 export default function Dialogues() {
-  const { dialogues } = useNovelStore();
+  const { dialogues, characterMap } = useNovelStore();
   const [search, setSearch] = useState('');
   const [chapterFilter, setChapterFilter] = useState<string[]>([]);
   const [toneFilter, setToneFilter] = useState<string[]>([]);
@@ -24,12 +33,12 @@ export default function Dialogues() {
 
   const toneOptions = useMemo(() => {
     const set = new Set(dialogues.map((d) => d.tone).filter(Boolean));
-    return Array.from(set).sort().map((t) => ({ value: t!, label: t! }));
+    return Array.from(set).sort().map((t) => ({ value: t!, label: displayTaxonomyValue(t!) }));
   }, [dialogues]);
 
   const filteredDialogues = useMemo(() => {
     return dialogues.filter((d) => {
-      const speakerName = d.speaker_name || d.speaker;
+      const speakerName = resolveSpeakerName(d, characterMap);
       const matchSearch =
         !search ||
         speakerName.includes(search) ||
@@ -40,7 +49,7 @@ export default function Dialogues() {
         toneFilter.length === 0 || (d.tone && toneFilter.includes(d.tone));
       return matchSearch && matchChapter && matchTone;
     });
-  }, [dialogues, search, chapterFilter, toneFilter]);
+  }, [characterMap, dialogues, search, chapterFilter, toneFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filteredDialogues.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);
@@ -114,10 +123,10 @@ export default function Dialogues() {
                     {index > 0 && <Separator className="mb-3" />}
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="font-medium">{dialogue.speaker_name || dialogue.speaker}</span>
+                        <span className="font-medium">{resolveSpeakerName(dialogue, characterMap)}</span>
                         {dialogue.tone && (
                           <Badge variant="outline" className="text-xs">
-                            {dialogue.tone}
+                            {displayTaxonomyValue(dialogue.tone)}
                           </Badge>
                         )}
                       </div>
