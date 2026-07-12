@@ -21,22 +21,29 @@ test('validates the read-only library workbench flow', async ({ page }) => {
   await page.goto('/');
   const statusResponse = await statusResponsePromise;
   const libraryStatus = await statusResponse.json() as {
-    summary: { total: number; notStarted: number; browseable: number; completed: number };
+    summary: { total: number; notStarted: number; browseable: number; contentIncomplete: number; completed: number };
     books: Array<{
       author: string;
       name: string;
       browseable: boolean;
+      contentCoverage: { state: 'empty' | 'index-only' | 'partial' | 'complete'; detailed: number; total: number };
       suggestedAction: { command: string | null } | null;
     }>;
   };
   const testBook = libraryStatus.books.find((book) => book.browseable && book.suggestedAction?.command);
+  const contentIncompleteBook = libraryStatus.books.find(
+    (book) => book.browseable && (book.contentCoverage.state === 'index-only' || book.contentCoverage.state === 'partial'),
+  );
   expect(testBook).toBeDefined();
+  expect(contentIncompleteBook).toBeDefined();
 
   await expect(page.getByRole('heading', { name: '全库生成状态总览' })).toBeVisible();
   await expect(page.getByText(`发现 ${libraryStatus.summary.total} 本原文书籍`)).toBeVisible();
   await expect(page.getByRole('button', { name: new RegExp(`${libraryStatus.summary.browseable} 可浏览`) })).toBeVisible();
+  await expect(page.getByRole('button', { name: new RegExp(`${libraryStatus.summary.contentIncomplete} 内容待补全`) })).toBeVisible();
   await expect(page.getByRole('button', { name: new RegExp(`${libraryStatus.summary.completed} 已完成`) })).toBeVisible();
   await expect(page.getByRole('columnheader', { name: '知识条目' })).toBeVisible();
+  await expect(page.getByRole('columnheader', { name: '内容' })).toBeVisible();
 
   const entitySummary = page.locator('tbody td:nth-child(3) span[title^="角色 "]').first();
   const entityLayout = await entitySummary.evaluate((element) => {
@@ -55,6 +62,10 @@ test('validates the read-only library workbench flow', async ({ page }) => {
 
   await page.getByRole('button', { name: new RegExp(`${libraryStatus.summary.notStarted} 未生成`) }).click();
   await expect(page.getByText(`显示 ${libraryStatus.summary.notStarted} 本`)).toBeVisible();
+
+  await page.getByRole('button', { name: new RegExp(`${libraryStatus.summary.contentIncomplete} 内容待补全`) }).click();
+  await expect(page.getByText(`显示 ${libraryStatus.summary.contentIncomplete} 本`)).toBeVisible();
+  await expect(page.getByText(contentIncompleteBook!.name)).toBeVisible();
 
   await page.getByRole('button', { name: new RegExp(`${libraryStatus.summary.total} 全部书目`) }).click();
   const firstBookBeforeSort = await page.locator('tbody tr').first().innerText();

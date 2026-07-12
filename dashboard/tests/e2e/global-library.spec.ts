@@ -69,5 +69,17 @@ test('searches the global library and restores state after opening a book entity
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThanOrEqual(Math.max(0, scrollBefore - 80));
   await page.screenshot({ path: 'test-results/global-library-overview.png', fullPage: true });
 
+  await page.getByRole('textbox', { name: '搜索全库知识' }).fill('生死符');
+  await page.getByRole('button', { name: '搜索' }).click();
+  await page.getByRole('row', { name: '查看物品“生死符”详情' }).click();
+  const indexOnlyDialog = page.getByRole('dialog');
+  await expect(indexOnlyDialog.getByText('仅有索引记录')).toBeVisible();
+  await expect(indexOnlyDialog.getByText('原文证据')).toBeVisible();
+  await expect(indexOnlyDialog.locator('p').filter({ hasText: '生死符' }).first()).toBeVisible();
+  await expect(indexOnlyDialog.getByRole('heading', { name: '基础信息', exact: true })).toHaveCount(0);
+  await expect(indexOnlyDialog.getByRole('heading', { name: '简介', exact: true })).toHaveCount(0);
+  await expect(indexOnlyDialog).not.toContainText('未分类');
+  await page.screenshot({ path: 'test-results/global-library-index-only.png', fullPage: true });
+
   expect(pageErrors).toEqual([]);
 });

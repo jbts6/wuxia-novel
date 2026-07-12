@@ -6,6 +6,7 @@ import {
   SCAN_PASS_NAMES,
   type ArtifactState,
   type DataFileKey,
+  type ContentCoverage,
   type GenerationStage,
   type LibraryBookStatus,
   type LibraryStatusResponse,
@@ -16,6 +17,12 @@ import {
   type SuggestedAction,
   type ValidationStatus,
 } from '../src/types/library';
+import {
+  createEmptyContentCoverage,
+  hasEntityContent,
+  isContentEntityKey,
+  summarizeContentCoverage,
+} from '../src/lib/entityContent';
 
 const EXCLUDED_ROOT_DIRECTORIES = new Set([
   '.agents',
@@ -59,6 +66,7 @@ interface DataInspection {
   present: number;
   valid: number;
   entityCounts: KnowledgeEntityCounts;
+  contentCoverage: ContentCoverage;
   allFilesPresent: boolean;
   browseable: boolean;
   missing: string[];
@@ -149,6 +157,7 @@ function inspectDataDirectory(bookDirectory: string): DataInspection {
   let present = 0;
   let valid = 0;
   const entityCounts = Object.fromEntries(KNOWLEDGE_ENTITY_KEYS.map((key) => [key, null])) as KnowledgeEntityCounts;
+  const contentCoverage = createEmptyContentCoverage();
 
   for (const [key, filename] of REQUIRED_DATA_ENTRIES) {
     const target = path.join(dataDirectory, filename);
@@ -163,6 +172,15 @@ function inspectDataDirectory(bookDirectory: string): DataInspection {
       if (validateDataFile(key, value)) {
         valid += 1;
         if (key !== 'chapter_summaries') entityCounts[key] = (value as unknown[]).length;
+        if (isContentEntityKey(key)) {
+          const records = value as unknown[];
+          const detailed = records.filter((record) => hasEntityContent(key, record)).length;
+          contentCoverage.byEntity[key] = {
+            total: records.length,
+            detailed,
+            indexOnly: records.length - detailed,
+          };
+        }
       } else {
         errors.push(`data/${filename} 不满足最低数据契约`);
       }
@@ -175,6 +193,7 @@ function inspectDataDirectory(bookDirectory: string): DataInspection {
     present,
     valid,
     entityCounts,
+    contentCoverage: summarizeContentCoverage(contentCoverage.byEntity),
     allFilesPresent: present === REQUIRED_DATA_ENTRIES.length,
     browseable: valid === REQUIRED_DATA_ENTRIES.length,
     missing,
@@ -296,6 +315,7 @@ function suggestedActionFor(
   stage: GenerationStage,
   validationStatus: ValidationStatus,
   artifacts: ArtifactState,
+  contentCoverage: ContentCoverage,
 ): SuggestedAction | null {
   const novel = shellQuote(bookPath);
   const script = (name: string) => shellQuote(`${PIPELINE_SCRIPT_ROOT}/${name}`);
@@ -329,6 +349,14 @@ function suggestedActionFor(
       label: '检查独立查漏',
       reason: 'named-inventory 与 event-dialogue 已完成，仍需完成独立 gap audit。',
       command: `node ${script('audit-recall.js')} ${novel} --dry-run`,
+    };
+  }
+
+  if (contentCoverage.state === 'index-only' || contentCoverage.state === 'partial') {
+    return {
+      label: '补全实体内容',
+      reason: `实体文件已经存在，但只有 ${contentCoverage.detailed}/${contentCoverage.total} 条包含结构化详情，其余记录目前只有名称和原文定位。`,
+      command: null,
     };
   }
 
@@ -426,7 +454,9 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
   const manifest = parseManifest(path.join(buildDirectory, 'scan-manifest.json'), errors);
   const quality = parseQualityReport(reportPath, errors);
   const generationStage = deriveGenerationStage(artifacts, dataInspection, manifest.progress);
-  const completed = dataInspection.browseable && quality.status === 'passed';
+  const completed = dataInspection.browseable
+    && dataInspection.contentCoverage.state === 'complete'
+    && quality.status === 'passed';
 
   const missingArtifacts = [...dataInspection.missing];
   if (!artifacts.chapterSplit) missingArtifacts.push('ch_split/');
@@ -451,11 +481,18 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
       valid: dataInspection.valid,
       required: REQUIRED_DATA_ENTRIES.length,
     },
+    contentCoverage: dataInspection.contentCoverage,
     entityCounts: dataInspection.entityCounts,
     missingArtifacts,
     errors,
     gateFailures: quality.gateFailures,
-    suggestedAction: suggestedActionFor(book.path, generationStage, quality.status, artifacts),
+    suggestedAction: suggestedActionFor(
+      book.path,
+      generationStage,
+      quality.status,
+      artifacts,
+      dataInspection.contentCoverage,
+    ),
   };
 }
 
@@ -470,6 +507,9 @@ export function scanLibrary(rootDirectory: string): LibraryStatusResponse {
       notStarted: books.filter((book) => book.generationStage === 'not-started').length,
       inProgress: books.filter((book) => inProgressStages.has(book.generationStage)).length,
       browseable: books.filter((book) => book.browseable).length,
+      contentIncomplete: books.filter(
+        (book) => book.browseable && (book.contentCoverage.state === 'index-only' || book.contentCoverage.state === 'partial'),
+      ).length,
       completed: books.filter((book) => book.completed).length,
     },
     books,

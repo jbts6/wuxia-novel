@@ -25,6 +25,28 @@ export const KNOWLEDGE_ENTITY_KEYS = [
 export type KnowledgeEntityKey = (typeof KNOWLEDGE_ENTITY_KEYS)[number];
 export type KnowledgeEntityCounts = Record<KnowledgeEntityKey, number | null>;
 
+export const CONTENT_ENTITY_KEYS = [
+  'characters',
+  'factions',
+  'locations',
+  'skills',
+  'techniques',
+  'items',
+] as const;
+export type ContentEntityKey = (typeof CONTENT_ENTITY_KEYS)[number];
+export type EntityContentState = 'empty' | 'index-only' | 'partial' | 'complete';
+
+export interface EntityContentCount {
+  total: number;
+  detailed: number;
+  indexOnly: number;
+}
+
+export interface ContentCoverage extends EntityContentCount {
+  state: EntityContentState;
+  byEntity: Record<ContentEntityKey, EntityContentCount>;
+}
+
 export const SCAN_PASS_NAMES = ['named-inventory', 'event-dialogue', 'gap-audit'] as const;
 export type ScanPassName = (typeof SCAN_PASS_NAMES)[number];
 
@@ -78,6 +100,7 @@ export interface LibraryBookStatus {
   scanProgress: Record<ScanPassName, ScanPassProgress>;
   artifacts: ArtifactState;
   dataCompleteness: DataCompleteness;
+  contentCoverage: ContentCoverage;
   entityCounts: KnowledgeEntityCounts;
   missingArtifacts: string[];
   errors: string[];
@@ -97,6 +120,7 @@ export interface LibraryStatusResponse {
     notStarted: number;
     inProgress: number;
     browseable: number;
+    contentIncomplete: number;
     completed: number;
   };
   books: LibraryBookStatus[];

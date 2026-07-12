@@ -8,6 +8,21 @@ import Library from './Library';
 
 const copyCommand = vi.fn().mockResolvedValue(undefined);
 
+const emptyContentCoverage: LibraryBookStatus['contentCoverage'] = {
+  state: 'empty',
+  total: 0,
+  detailed: 0,
+  indexOnly: 0,
+  byEntity: {
+    characters: { total: 0, detailed: 0, indexOnly: 0 },
+    factions: { total: 0, detailed: 0, indexOnly: 0 },
+    locations: { total: 0, detailed: 0, indexOnly: 0 },
+    skills: { total: 0, detailed: 0, indexOnly: 0 },
+    techniques: { total: 0, detailed: 0, indexOnly: 0 },
+    items: { total: 0, detailed: 0, indexOnly: 0 },
+  },
+};
+
 function createBook(overrides: Partial<LibraryBookStatus>): LibraryBookStatus {
   return {
     path: '金庸/测试书',
@@ -34,6 +49,7 @@ function createBook(overrides: Partial<LibraryBookStatus>): LibraryBookStatus {
       qualityReport: false,
     },
     dataCompleteness: { present: 0, valid: 0, required: 8 },
+    contentCoverage: emptyContentCoverage,
     entityCounts: {
       characters: null,
       factions: null,
@@ -72,6 +88,20 @@ const completedBook = createBook({
     'gap-audit': { completed: 10, total: 10 },
   },
   dataCompleteness: { present: 8, valid: 8, required: 8 },
+  contentCoverage: {
+    state: 'complete',
+    total: 41,
+    detailed: 41,
+    indexOnly: 0,
+    byEntity: {
+      characters: { total: 12, detailed: 12, indexOnly: 0 },
+      factions: { total: 3, detailed: 3, indexOnly: 0 },
+      locations: { total: 7, detailed: 7, indexOnly: 0 },
+      skills: { total: 5, detailed: 5, indexOnly: 0 },
+      techniques: { total: 8, detailed: 8, indexOnly: 0 },
+      items: { total: 6, detailed: 6, indexOnly: 0 },
+    },
+  },
   entityCounts: {
     characters: 12,
     factions: 3,
@@ -87,7 +117,7 @@ const completedBook = createBook({
 
 const status: LibraryStatusResponse = {
   scannedAt: '2026-07-12T09:00:00.000Z',
-  summary: { total: 2, notStarted: 1, inProgress: 0, browseable: 1, completed: 1 },
+  summary: { total: 2, notStarted: 1, inProgress: 0, browseable: 1, contentIncomplete: 0, completed: 1 },
   books: [pendingBook, completedBook],
   warnings: [],
 };
@@ -125,13 +155,51 @@ describe('Library workbench', () => {
     renderLibrary();
 
     expect(screen.getByRole('columnheader', { name: '知识条目' })).toBeInTheDocument();
+    expect(screen.getByRole('columnheader', { name: '内容' })).toBeInTheDocument();
     expect(screen.getByText('角色 12 · 武功 5 · 物品 6')).toBeInTheDocument();
+    expect(screen.getByText('内容完整')).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: /未生成/ }));
 
     expect(screen.getByText('待生成书')).toBeInTheDocument();
     expect(screen.queryByText('已完成书')).not.toBeInTheDocument();
     expect(screen.getByText('显示 1 本')).toBeInTheDocument();
+  });
+
+  it('filters books whose entity files contain only index records', () => {
+    const indexOnlyBook = createBook({
+      name: '仅索引书',
+      path: '金庸/仅索引书',
+      generationStage: 'data-produced',
+      browseable: true,
+      contentCoverage: {
+        state: 'index-only',
+        total: 5,
+        detailed: 0,
+        indexOnly: 5,
+        byEntity: {
+          characters: { total: 1, detailed: 0, indexOnly: 1 },
+          factions: { total: 1, detailed: 0, indexOnly: 1 },
+          locations: { total: 1, detailed: 0, indexOnly: 1 },
+          skills: { total: 1, detailed: 0, indexOnly: 1 },
+          techniques: { total: 0, detailed: 0, indexOnly: 0 },
+          items: { total: 1, detailed: 0, indexOnly: 1 },
+        },
+      },
+    });
+    const indexStatus: LibraryStatusResponse = {
+      ...status,
+      summary: { ...status.summary, total: 3, browseable: 2, contentIncomplete: 1 },
+      books: [...status.books, indexOnlyBook],
+    };
+    useLibraryStore.setState({ status: indexStatus, books: indexStatus.books });
+
+    renderLibrary();
+    fireEvent.click(screen.getByRole('button', { name: /内容待补全/ }));
+
+    expect(screen.getByText('仅索引书')).toBeInTheDocument();
+    expect(screen.queryByText('已完成书')).not.toBeInTheDocument();
+    expect(screen.getByText('仅有索引')).toBeInTheDocument();
   });
 
   it('opens the selected book status in the detail sheet', async () => {

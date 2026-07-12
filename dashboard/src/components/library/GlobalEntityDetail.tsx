@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
-import { ArrowUpRight, BookOpenText, Quote } from 'lucide-react';
+import { ArrowUpRight, BookOpenText, FileQuestion, Quote } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { AnyLibraryRecord } from '../../types/library';
 import type { NovelData } from '../../types/novel';
 import { LIBRARY_KIND_LABELS, LIBRARY_KIND_ROUTES } from '../../lib/globalLibrary';
 import { buildIdMaps, resolveId, resolveIds } from '../../lib/resolveId';
 import { displayChineseValues, displayTaxonomyValue } from '../../lib/displayText';
+import { hasLibraryEntityContent } from '../../lib/entityContent';
 import { buttonVariants } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Separator } from '../ui/separator';
@@ -97,6 +98,8 @@ export function GlobalEntityDetail({ record, data, returnTo, onNavigate }: Globa
   const route = `/${encodeURIComponent(record.source.author)}/${encodeURIComponent(record.source.bookName)}/${LIBRARY_KIND_ROUTES[record.kind]}?detail=${encodeURIComponent(record.entity.id)}`;
   const maps = useMemo(() => buildIdMaps(data ?? EMPTY_RELATION_DATA), [data]);
   const related = [...new Set(relatedValues(record, maps))].slice(0, 24);
+  const hasContent = hasLibraryEntityContent(record.kind, record.entity);
+  const hasSummary = record.summary.trim().length > 0 && record.summary !== '暂无简介';
 
   return (
     <SheetContent className="!w-[560px] !max-w-none overflow-y-auto p-0">
@@ -109,22 +112,38 @@ export function GlobalEntityDetail({ record, data, returnTo, onNavigate }: Globa
       </SheetHeader>
 
       <div className="space-y-6 px-6 py-5">
-        <section>
-          <h3 className="text-sm font-medium text-foreground">基础信息</h3>
-          <div className="mt-3 grid grid-cols-2 gap-x-5 gap-y-3 rounded-md border bg-muted/20 p-4">
-            {detailRows(record, maps).map((row) => (
-              <div key={row.label} className="min-w-0">
-                <div className="text-xs text-muted-foreground">{row.label}</div>
-                <div className="mt-1 break-words text-sm text-foreground">{row.value}</div>
-              </div>
-            ))}
-          </div>
-        </section>
+        {!hasContent && (
+          <section className="border-l-2 border-amber-500 bg-amber-50/70 px-4 py-3 text-amber-950">
+            <div className="flex items-center gap-2 text-sm font-medium">
+              <FileQuestion className="h-4 w-4" />
+              仅有索引记录
+            </div>
+            <p className="mt-1 text-sm leading-6 text-amber-900/80">
+              当前产物只包含名称和原文定位，分类、简介与关系等结构化内容尚未生成。
+            </p>
+          </section>
+        )}
 
-        <section>
-          <h3 className="text-sm font-medium text-foreground">简介</h3>
-          <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-muted-foreground">{record.summary}</p>
-        </section>
+        {hasContent && (
+          <section>
+            <h3 className="text-sm font-medium text-foreground">基础信息</h3>
+            <div className="mt-3 grid grid-cols-2 gap-x-5 gap-y-3 rounded-md border bg-muted/20 p-4">
+              {detailRows(record, maps).map((row) => (
+                <div key={row.label} className="min-w-0">
+                  <div className="text-xs text-muted-foreground">{row.label}</div>
+                  <div className="mt-1 break-words text-sm text-foreground">{row.value}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {hasSummary && (
+          <section>
+            <h3 className="text-sm font-medium text-foreground">简介</h3>
+            <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-muted-foreground">{record.summary}</p>
+          </section>
+        )}
 
         {related.length > 0 && (
           <section>
@@ -163,7 +182,7 @@ export function GlobalEntityDetail({ record, data, returnTo, onNavigate }: Globa
       <div className="sticky bottom-0 mt-auto flex items-center justify-between border-t bg-popover px-6 py-4">
         <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
           <BookOpenText className="h-4 w-4" />
-          可在单书视图查看关系与完整字段
+          {hasContent ? '可在单书视图查看关系与完整字段' : '可在单书视图核对原文定位'}
         </span>
         <Link
           to={route}

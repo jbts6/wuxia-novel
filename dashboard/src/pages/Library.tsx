@@ -17,6 +17,7 @@ import {
   Clock3,
   Database,
   FileQuestion,
+  FileWarning,
   LoaderCircle,
   RefreshCw,
   Search,
@@ -43,15 +44,16 @@ import {
 } from '../lib/libraryStatusPresentation';
 import { cn } from '../lib/utils';
 import { useLibraryStore } from '../stores/useLibraryStore';
-import type { LibraryBookStatus } from '../types/library';
+import type { ContentEntityKey, LibraryBookStatus } from '../types/library';
 
-type StatusFilter = 'all' | 'not-started' | 'in-progress' | 'browseable' | 'completed';
+type StatusFilter = 'all' | 'not-started' | 'in-progress' | 'browseable' | 'content-incomplete' | 'completed';
 
 const statusOptions = [
   { value: 'all', label: '全部状态' },
   { value: 'not-started', label: '未生成' },
   { value: 'in-progress', label: '生成中' },
   { value: 'browseable', label: '可浏览' },
+  { value: 'content-incomplete', label: '内容待补全' },
   { value: 'completed', label: '已完成' },
 ];
 
@@ -68,6 +70,14 @@ function validationBadge(book: LibraryBookStatus) {
   return <Badge variant="outline">未校验</Badge>;
 }
 
+function contentCoverageBadge(book: LibraryBookStatus) {
+  const coverage = book.contentCoverage;
+  if (coverage.state === 'complete') return <Badge className="bg-emerald-600 text-white">内容完整</Badge>;
+  if (coverage.state === 'index-only') return <Badge className="bg-amber-100 text-amber-900">仅有索引</Badge>;
+  if (coverage.state === 'partial') return <Badge variant="secondary">{coverage.detailed}/{coverage.total}</Badge>;
+  return <Badge variant="outline">无实体</Badge>;
+}
+
 function formatEntityCount(value: number | null): string {
   return value === null ? '-' : String(value);
 }
@@ -81,6 +91,9 @@ const entityCountItems = [
   { key: 'items' as const, label: '物品' },
   { key: 'dialogues' as const, label: '对话' },
 ];
+
+const contentCoverageItems: Array<{ key: ContentEntityKey; label: string }> = entityCountItems
+  .filter((item): item is { key: ContentEntityKey; label: string } => item.key !== 'dialogues');
 
 function SortHeader({ label, onClick }: { label: string; onClick: () => void }) {
   return (
@@ -115,6 +128,9 @@ export default function Library() {
         (statusFilter === 'not-started' && book.generationStage === 'not-started') ||
         (statusFilter === 'in-progress' && isGenerationInProgress(book)) ||
         (statusFilter === 'browseable' && book.browseable) ||
+        (statusFilter === 'content-incomplete'
+          && book.browseable
+          && (book.contentCoverage.state === 'index-only' || book.contentCoverage.state === 'partial')) ||
         (statusFilter === 'completed' && book.completed);
       const authorMatch = authorFilter === 'all' || book.author === authorFilter;
       const keywordMatch = !keyword || `${book.author} ${book.name}`.toLocaleLowerCase('zh-CN').includes(keyword);
@@ -167,12 +183,19 @@ export default function Library() {
         id: 'dataCompleteness',
         size: 88,
         accessorFn: (book) => book.dataCompleteness.valid,
-        header: ({ column }) => <SortHeader label="数据" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
+        header: ({ column }) => <SortHeader label="文件" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
         cell: ({ row }) => (
           <span className={cn('font-mono text-xs tabular-nums', row.original.browseable ? 'text-emerald-700' : 'text-muted-foreground')}>
             {row.original.dataCompleteness.valid}/{row.original.dataCompleteness.required}
           </span>
         ),
+      },
+      {
+        id: 'contentCoverage',
+        size: 120,
+        accessorFn: (book) => book.contentCoverage.detailed,
+        header: ({ column }) => <SortHeader label="内容" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
+        cell: ({ row }) => contentCoverageBadge(row.original),
       },
       {
         accessorKey: 'validationStatus',
@@ -233,6 +256,7 @@ export default function Library() {
     { key: 'not-started' as const, label: '未生成', value: status?.summary.notStarted ?? 0, icon: FileQuestion },
     { key: 'in-progress' as const, label: '生成中', value: status?.summary.inProgress ?? 0, icon: Clock3 },
     { key: 'browseable' as const, label: '可浏览', value: status?.summary.browseable ?? 0, icon: CheckCircle2 },
+    { key: 'content-incomplete' as const, label: '内容待补全', value: status?.summary.contentIncomplete ?? 0, icon: FileWarning },
     { key: 'completed' as const, label: '已完成', value: status?.summary.completed ?? 0, icon: Check },
   ];
 
@@ -267,7 +291,7 @@ export default function Library() {
         <div className="flex items-end justify-between">
           <div>
             <h1 className="font-serif text-2xl font-semibold text-foreground">全库生成状态总览</h1>
-            <p className="mt-1 text-sm text-muted-foreground">根据本地产物判断书目阶段、扫描覆盖、校验结果和可浏览状态。</p>
+            <p className="mt-1 text-sm text-muted-foreground">根据本地产物判断书目阶段、文件完整度、实体内容覆盖和校验结果。</p>
           </div>
           <div className="text-right text-xs text-muted-foreground">
             <div>发现 {status?.summary.total ?? 0} 本原文书籍</div>
@@ -275,7 +299,7 @@ export default function Library() {
           </div>
         </div>
 
-        <section className="mt-6 grid grid-cols-5 overflow-hidden rounded-lg border bg-card" aria-label="书籍状态统计">
+        <section className="mt-6 grid grid-cols-6 overflow-hidden rounded-lg border bg-card" aria-label="书籍状态统计">
           {summaryItems.map((item, index) => {
             const Icon = item.icon;
             const active = statusFilter === item.key;
@@ -421,8 +445,12 @@ export default function Library() {
                     <div className="mt-1">{validationBadge(selectedBook)}</div>
                   </div>
                   <div>
-                    <div className="text-xs text-muted-foreground">数据完整度</div>
+                    <div className="text-xs text-muted-foreground">文件完整度</div>
                     <div className="mt-1 font-mono text-sm">{selectedBook.dataCompleteness.valid}/{selectedBook.dataCompleteness.required}</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground">实体内容</div>
+                    <div className="mt-1">{contentCoverageBadge(selectedBook)}</div>
                   </div>
                   <div>
                     <div className="text-xs text-muted-foreground">Schema</div>
@@ -441,6 +469,31 @@ export default function Library() {
                         </dd>
                       </div>
                     ))}
+                  </dl>
+                </section>
+
+                <section className="border-t pt-5">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-sm font-semibold">内容覆盖</h3>
+                    <span className="font-mono text-xs tabular-nums text-muted-foreground">
+                      {selectedBook.contentCoverage.detailed}/{selectedBook.contentCoverage.total} 条有详情
+                    </span>
+                  </div>
+                  <dl className="mt-3 grid grid-cols-3 gap-x-5 gap-y-4">
+                    {contentCoverageItems.map((item) => {
+                      const coverage = selectedBook.contentCoverage.byEntity[item.key];
+                      return (
+                        <div key={item.key}>
+                          <dt className="text-xs text-muted-foreground">{item.label}</dt>
+                          <dd className={cn(
+                            'mt-1 font-mono text-sm font-medium tabular-nums',
+                            coverage.total > 0 && coverage.detailed === 0 ? 'text-amber-800' : 'text-foreground',
+                          )}>
+                            {coverage.detailed}/{coverage.total}
+                          </dd>
+                        </div>
+                      );
+                    })}
                   </dl>
                 </section>
 

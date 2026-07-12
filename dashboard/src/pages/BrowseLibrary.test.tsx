@@ -33,6 +33,20 @@ const book: LibraryBookStatus = {
     qualityReport: true,
   },
   dataCompleteness: { present: 8, valid: 8, required: 8 },
+  contentCoverage: {
+    state: 'complete',
+    total: 60,
+    detailed: 60,
+    indexOnly: 0,
+    byEntity: {
+      characters: { total: 60, detailed: 60, indexOnly: 0 },
+      factions: { total: 0, detailed: 0, indexOnly: 0 },
+      locations: { total: 0, detailed: 0, indexOnly: 0 },
+      skills: { total: 0, detailed: 0, indexOnly: 0 },
+      techniques: { total: 0, detailed: 0, indexOnly: 0 },
+      items: { total: 0, detailed: 0, indexOnly: 0 },
+    },
+  },
   entityCounts: { characters: 60, factions: 0, locations: 0, skills: 0, techniques: 0, items: 0, dialogues: 0 },
   missingArtifacts: [],
   errors: [],
@@ -63,7 +77,7 @@ const data: NovelData = {
 const records = buildGlobalLibraryRecords(book, data);
 const status: LibraryStatusResponse = {
   scannedAt: '2026-07-12T10:00:00.000Z',
-  summary: { total: 1, notStarted: 0, inProgress: 0, browseable: 1, completed: 1 },
+  summary: { total: 1, notStarted: 0, inProgress: 0, browseable: 1, contentIncomplete: 0, completed: 1 },
   books: [book],
   warnings: [],
 };
@@ -200,5 +214,38 @@ describe('global library browser', () => {
     expect(within(dialog).queryByText('char_duan_yu')).not.toBeInTheDocument();
     expect(within(dialog).queryByText('char_unknown')).not.toBeInTheDocument();
     expect(within(dialog).queryByText('faction_unknown')).not.toBeInTheDocument();
+  });
+
+  it('labels index-only entities and shows evidence instead of empty metadata', async () => {
+    const indexOnlyData: NovelData = {
+      characters: [],
+      skills: [],
+      items: [{
+        id: 'auto_item_生死符',
+        name: '生死符',
+        type: '未分类',
+        description: '',
+        source_refs: [{ chapter: 1, line_start: 12, line_end: 12, text: '司空玄身上给种下了生死符。' }],
+      }],
+      factions: [],
+      locations: [],
+      dialogues: [],
+      techniques: [],
+      chapter_summaries: [],
+    };
+    useLibraryStore.setState({
+      bookCache: { [book.path]: indexOnlyData },
+      globalRecords: buildGlobalLibraryRecords(book, indexOnlyData),
+    });
+    renderPage('/browse?q=%E7%94%9F%E6%AD%BB%E7%AC%A6');
+
+    fireEvent.click(screen.getByRole('row', { name: '查看物品“生死符”详情' }));
+
+    const dialog = await screen.findByRole('dialog');
+    expect(within(dialog).getByText('仅有索引记录')).toBeInTheDocument();
+    expect(within(dialog).getByText('司空玄身上给种下了生死符。')).toBeInTheDocument();
+    expect(within(dialog).queryByText('基础信息')).not.toBeInTheDocument();
+    expect(within(dialog).queryByText('简介')).not.toBeInTheDocument();
+    expect(within(dialog).queryByText('未分类')).not.toBeInTheDocument();
   });
 });

@@ -40,18 +40,34 @@ function writeManifest(directory: string, total: number, progress: Partial<Recor
 
 function writeCompleteData(directory: string): void {
   const values: Record<keyof typeof DATA_FILE_NAMES, unknown[]> = {
-    characters: [{ id: 'c1', name: '人物' }],
-    factions: [{ id: 'f1', name: '势力' }],
-    locations: [{ id: 'l1', name: '地点' }],
-    skills: [{ id: 's1', name: '武功' }],
+    characters: [{ id: 'c1', name: '人物', role: '核心', one_line: '人物简介' }],
+    factions: [{ id: 'f1', name: '势力', type: '门派', one_line: '势力简介' }],
+    locations: [{ id: 'l1', name: '地点', region: '中原', one_line: '地点简介' }],
+    skills: [{ id: 's1', name: '武功', type: '掌法', one_line: '武功简介' }],
     techniques: [],
-    items: [{ id: 'i1', name: '物品' }],
+    items: [{ id: 'i1', name: '物品', type: '兵器', one_line: '物品简介' }],
     dialogues: [{ id: 'd1', name: '人物：对白', source_refs: [{ text: '原文对白' }] }],
     chapter_summaries: [{ chapter: 1, summary: '章节摘要' }],
   };
 
   for (const [key, filename] of Object.entries(DATA_FILE_NAMES)) {
     writeJson(path.join(directory, 'data', filename), values[key as keyof typeof values]);
+  }
+}
+
+function writeIndexOnlyData(directory: string): void {
+  writeCompleteData(directory);
+  const records = {
+    characters: [{ id: 'c1', name: '人物', source_refs: [{ chapter: 1, text: '人物原文' }] }],
+    factions: [{ id: 'f1', name: '势力', source_refs: [{ chapter: 1, text: '势力原文' }] }],
+    locations: [{ id: 'l1', name: '地点', source_refs: [{ chapter: 1, text: '地点原文' }] }],
+    skills: [{ id: 's1', name: '武功', source_refs: [{ chapter: 1, text: '武功原文' }] }],
+    techniques: [],
+    items: [{ id: 'i1', name: '物品', source_refs: [{ chapter: 1, text: '物品原文' }] }],
+  };
+
+  for (const [key, value] of Object.entries(records)) {
+    writeJson(path.join(directory, 'data', DATA_FILE_NAMES[key as keyof typeof records]), value);
   }
 }
 
@@ -122,6 +138,7 @@ describe('scanLibrary', () => {
       },
     });
     expect(result.summary.browseable).toBe(1);
+    expect(book?.contentCoverage).toMatchObject({ state: 'complete', detailed: 5, total: 5 });
     expect(result.summary.completed).toBe(0);
   });
 
@@ -150,6 +167,28 @@ describe('scanLibrary', () => {
     const [book] = scanLibrary(root).books;
 
     expect(book).toMatchObject({ validationStatus: 'passed', browseable: true, completed: true });
+  });
+
+  it('keeps index-only entity files browseable but excludes them from completed books', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeIndexOnlyData(directory);
+    writeJson(path.join(directory, 'reports', 'quality_report.json'), {
+      completion_gate_passed: true,
+      gates: Object.fromEntries(['G1', 'G2', 'G3', 'G4', 'G5'].map((gate) => [gate, { passed: true, reasons: [] }])),
+    });
+
+    const result = scanLibrary(root);
+    const [book] = result.books;
+
+    expect(book).toMatchObject({
+      browseable: true,
+      completed: false,
+      contentCoverage: { state: 'index-only', detailed: 0, total: 5, indexOnly: 5 },
+    });
+    expect(book?.suggestedAction).toMatchObject({ label: '补全实体内容', command: null });
+    expect(result.summary.contentIncomplete).toBe(1);
+    expect(result.summary.completed).toBe(0);
   });
 
   it('summarizes long gate failure lists for the workbench detail panel', () => {
