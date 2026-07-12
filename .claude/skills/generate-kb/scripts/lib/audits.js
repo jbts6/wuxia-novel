@@ -3,22 +3,17 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const {
+  FINAL_DATA_FILES,
+  evidenceFieldsFor,
+  hasContent,
+  validateFinalData
+} = require('./final-data-contract');
 const { discoverChapterFiles, matchCompleteCitation, splitLines } = require('./source');
 
-const ENTITY_FILES = [
-  'characters.json', 'factions.json', 'locations.json',
-  'skills.json', 'techniques.json', 'items.json'
-];
-const DESCRIPTION_FIELDS = {
-  'characters.json': ['one_line', 'personality', 'appearance', 'biography'],
-  'factions.json': ['one_line', 'description', 'history'],
-  'locations.json': ['one_line', 'description', 'significance'],
-  'skills.json': ['description', 'effects', 'mechanism'],
-  'techniques.json': ['description', 'effects'],
-  'items.json': ['description', 'function', 'significance'],
-  'events.json': ['description', 'consequences'],
-  'chapter_summaries.json': ['summary', 'key_events']
-};
+const ENTITY_FILES = FINAL_DATA_FILES.filter(filename =>
+  !['dialogues.json', 'chapter_summaries.json'].includes(filename)
+);
 
 function loadJson(filename, fallback = null) {
   return fs.existsSync(filename) ? JSON.parse(fs.readFileSync(filename, 'utf8')) : fallback;
@@ -46,18 +41,14 @@ function refIsGrounded(chapters, ref, fallbackChapter = null) {
 
 function collectEvidenceIntegrity(novelDir) {
   const chapters = loadChapterLines(novelDir);
+  const finalData = validateFinalData(novelDir);
   const entitiesWithoutGroundedRefs = [];
   let entityTotal = 0;
   let entityGrounded = 0;
   const descriptionsWithoutRefs = [];
 
   function checkDescriptionRefs(record, id, filename, fallbackChapter = null) {
-    for (const field of DESCRIPTION_FIELDS[filename] ?? []) {
-      const value = record[field];
-      const present = Array.isArray(value) ? value.length > 0
-        : value && typeof value === 'object' ? Object.keys(value).length > 0
-          : String(value ?? '').trim().length > 0;
-      if (!present) continue;
+    for (const field of evidenceFieldsFor(filename, record)) {
       const configured = record.field_source_refs?.[field];
       const refs = Array.isArray(configured) ? configured : configured ? [configured] : [];
       if (!refs.some(ref => refIsGrounded(chapters, ref, fallbackChapter))) {
@@ -67,7 +58,7 @@ function collectEvidenceIntegrity(novelDir) {
   }
 
   for (const filename of ENTITY_FILES) {
-    for (const [index, entity] of loadJson(path.join(novelDir, 'data', filename), []).entries()) {
+    for (const [index, entity] of (finalData.records_by_file[filename] ?? []).entries()) {
       entityTotal += 1;
       const id = entity.id ?? `${filename}#${index}`;
       const refs = Array.isArray(entity.source_refs) ? entity.source_refs : [];
@@ -82,10 +73,16 @@ function collectEvidenceIntegrity(novelDir) {
     const refs = Array.isArray(event.source_refs) ? event.source_refs : [];
     if (refs.some(ref => refIsGrounded(chapters, ref))) entityGrounded += 1;
     else entitiesWithoutGroundedRefs.push(id);
-    checkDescriptionRefs(event, id, 'events.json');
+    for (const field of ['description', 'consequences'].filter(name => hasContent(event?.[name]))) {
+      const configured = event.field_source_refs?.[field];
+      const fieldRefs = Array.isArray(configured) ? configured : configured ? [configured] : [];
+      if (!fieldRefs.some(ref => refIsGrounded(chapters, ref))) {
+        descriptionsWithoutRefs.push(`${id}.${field}`);
+      }
+    }
   }
-  for (const [index, summary] of loadJson(
-    path.join(novelDir, 'data', 'chapter_summaries.json'), []
+  for (const [index, summary] of (
+    finalData.records_by_file['chapter_summaries.json'] ?? []
   ).entries()) {
     entityTotal += 1;
     const id = summary.id ?? `chapter_summary:${summary.chapter ?? index}`;
@@ -95,7 +92,7 @@ function collectEvidenceIntegrity(novelDir) {
     checkDescriptionRefs(summary, id, 'chapter_summaries.json', summary.chapter);
   }
 
-  const dialogues = loadJson(path.join(novelDir, 'data', 'dialogues.json'), []);
+  const dialogues = finalData.records_by_file['dialogues.json'] ?? [];
   let dialogueGrounded = 0;
   const ungroundedDialogues = [];
   dialogues.forEach((dialogue, index) => {
@@ -121,6 +118,10 @@ function collectEvidenceIntegrity(novelDir) {
 
   const verification = loadJson(path.join(novelDir, 'reports', 'verification_report.json'));
   return {
+    missing_data_files: finalData.missing_data_files,
+    invalid_data_files: finalData.invalid_data_files,
+    schema_errors: finalData.schema_errors,
+    enrichment_errors: finalData.enrichment_errors,
     entities_without_grounded_refs: entitiesWithoutGroundedRefs,
     descriptions_without_refs: descriptionsWithoutRefs,
     ungrounded_dialogues: ungroundedDialogues,
@@ -128,6 +129,13 @@ function collectEvidenceIntegrity(novelDir) {
     entity_grounded: entityGrounded,
     dialogue_total: dialogues.length,
     dialogue_grounded: dialogueGrounded,
+    final_data_hash: finalData.final_data_hash,
+    verification_data_hash_valid: Boolean(
+      finalData.final_data_hash && verification?.final_data_hash === finalData.final_data_hash
+    ),
+    verification_file_errors: Array.isArray(verification?.file_errors)
+      ? verification.file_errors
+      : verification ? [] : ['verification report is missing'],
     verification_weak: Number.isInteger(verification?.grand_total?.weak)
       ? verification.grand_total.weak
       : null,
@@ -148,15 +156,19 @@ function exemptionIds(exemptions, key) {
 }
 
 function collectSemanticCoverage(novelDir) {
+  const finalData = validateFinalData(novelDir);
   const eventsPath = path.join(novelDir, 'build', 'events.json');
   const events = loadJson(eventsPath, []);
-  const dialogues = loadJson(path.join(novelDir, 'data', 'dialogues.json'), []);
-  const characters = loadJson(path.join(novelDir, 'data', 'characters.json'), []);
+  const dialogues = finalData.records_by_file['dialogues.json'] ?? [];
+  const characters = finalData.records_by_file['characters.json'] ?? [];
   const exemptions = loadJson(path.join(novelDir, 'build', 'semantic-exemptions.json'), {});
   const eventExemptions = exemptionIds(exemptions, 'main_events');
   const personaExemptions = exemptionIds(exemptions, 'personas');
   const dialogueIds = new Set(dialogues.map((dialogue, index) => dialogue.id ?? `dialogue#${index}`));
-  const blockingSchemaErrors = [];
+  const blockingSchemaErrors = [
+    ...finalData.schema_errors.filter(error => error.startsWith('dialogues.json/')),
+    ...finalData.enrichment_errors.filter(error => error.startsWith('dialogues.json/'))
+  ];
 
   dialogues.forEach((dialogue, index) => {
     const id = String(dialogue?.id ?? '').trim();
@@ -205,6 +217,9 @@ function collectSemanticCoverage(novelDir) {
   const important = characters.filter(character =>
     ['core', 'important', '核心', '重要'].includes(character.importance)
   );
+  const semanticNonVacuityErrors = important.length === 0
+    ? ['no core or important characters classified']
+    : [];
   const personasMissingDialogue = important.filter(character => {
     if (personaExemptions.has(character.id)) return false;
     return !dialogues.some(dialogue => {
@@ -223,7 +238,11 @@ function collectSemanticCoverage(novelDir) {
     main_events_missing_dialogue: mainEventsMissingDialogue,
     personas_missing_dialogue: personasMissingDialogue,
     cross_validation_errors: Number.isInteger(cross?.summary?.errors) ? cross.summary.errors : null,
+    cross_validation_data_hash_valid: Boolean(
+      finalData.final_data_hash && cross?.final_data_hash === finalData.final_data_hash
+    ),
     blocking_schema_errors: blockingSchemaErrors,
+    semantic_non_vacuity_errors: semanticNonVacuityErrors,
     counts: {
       main_events: mainEvents.length,
       important_characters: important.length,

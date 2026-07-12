@@ -29,8 +29,14 @@ function passingInput() {
     },
     ledger_closure: { passed: true, errors: [], unresolved_candidate_ids: [] },
     evidence_integrity: {
+      missing_data_files: [],
+      invalid_data_files: [],
+      schema_errors: [],
+      enrichment_errors: [],
       entities_without_grounded_refs: [],
       descriptions_without_refs: [],
+      verification_file_errors: [],
+      verification_data_hash_valid: true,
       dialogue_total: 12,
       dialogue_grounded: 12,
       verification_weak: 0,
@@ -46,7 +52,9 @@ function passingInput() {
     semantic_coverage: {
       main_events_missing_dialogue: [],
       personas_missing_dialogue: [],
+      semantic_non_vacuity_errors: [],
       cross_validation_errors: 0,
+      cross_validation_data_hash_valid: true,
       blocking_schema_errors: []
     }
   };
@@ -70,6 +78,28 @@ describe('G1-G5 hard quality gates', () => {
     assert.equal(report.gates.G3.passed, false);
     assert.ok(report.gates.G3.reasons.some(reason => reason.includes('weak')));
     assert.equal(report.gates.G1.passed, true);
+  });
+
+  it('fails G3 for missing enrichment and stale verification evidence', () => {
+    const input = passingInput();
+    input.evidence_integrity.enrichment_errors = ['skills.json/skill_x.one_line: required enrichment field is missing'];
+    input.evidence_integrity.verification_data_hash_valid = false;
+    const report = evaluateHardGates(input);
+
+    assert.equal(report.gates.G3.passed, false);
+    assert.ok(report.gates.G3.reasons.some(reason => reason.includes('skill_x.one_line')));
+    assert.ok(report.gates.G3.reasons.some(reason => reason.includes('stale')));
+  });
+
+  it('fails G5 when semantic coverage or cross-validation is vacuous', () => {
+    const input = passingInput();
+    input.semantic_coverage.semantic_non_vacuity_errors = ['no core or important characters classified'];
+    input.semantic_coverage.cross_validation_data_hash_valid = false;
+    const report = evaluateHardGates(input);
+
+    assert.equal(report.gates.G5.passed, false);
+    assert.ok(report.gates.G5.reasons.some(reason => reason.includes('no core')));
+    assert.ok(report.gates.G5.reasons.some(reason => reason.includes('stale')));
   });
 
   it('fails G1 when detailed source validation reports an alignment error', () => {

@@ -2,6 +2,8 @@
 
 ## 写入规则
 
+- 八类文件和记录的可执行契约由 `scripts/lib/final-data-contract.js` 统一维护。写完后必须运行 `node scripts/validate-final-data.js "$NOVEL"`；文档示例不能替代该校验。
+- 所有示例中的字段键均必须存在。允许为空的字段仍要保留正确类型；只有下文明确的条件规则允许空内容。
 - 只能用 `JSON.stringify(data, null, 2)` 写 JSON；禁止手拼 JSON 字符串。
 - 写入后立刻 `JSON.parse` 验证。
 - `source_refs` 采用 **event anchor + 多候选** 格式。LLM 写 `{ chapter, anchor }`（事件描述），由 `locate.js` 自动回填：
@@ -55,6 +57,7 @@
 - 同一对 `(id, target)` 在 `relationships` 里只能出现一条。综合全书给出最具代表性的关系。
 - `alias` 只收原文真正出现过的称呼。禁止泛称（"青衫年轻男子"、"白衣女子"除非这是唯一称呼）。
 - `one_line` 必须反映人物全书定位（如"大理段氏世子，后为帝，一生追寻王语嫣与身世之谜"），不能是某章情节（如"在第3章被蜂麻倒"）。
+- 核心/重要/次要角色的 `biography` 必须非空，`personality.traits` 至少 5 项，`speech_style` 与 `temperament` 必须非空。龙套/背景允许空 biography 和空 personality 内容，但字段及其数组/字符串类型必须存在。
 
 ## skills
 
@@ -85,12 +88,15 @@
 **硬性约束**：
 - `techniques` 仅当原文有明确招式名时才填入，不要凑数。内功/身法类（北冥神功、凌波微步）通常 `techniques: []`。
 - 禁止模板化 description："降龙十八掌的代表性变化：亢龙有悔" 是错的。"洪七公传授的第一招，劲力刚猛，蓄而后发，留有余力" 是对的。
+- `type`、`mastery_rank`、`one_line`、`combat_style` 必须非空且符合枚举；`faction`、`progression`、`techniques`、`effects`、`rag_refs` 可以按原文为空，但字段必须存在且类型正确。
 
 ## techniques
 
 所有原文明确定名且可定位的招式都必须作为独立条目写入 `techniques.json`。`skills.techniques` 可同时引用它们，但不能替代独立条目。冷门、低频或威力弱只影响 `importance`，不得删除。
 
 必填：`id`、`name`、`type`、`description`、`source_skill`（可为 null）、`source_refs`。
+
+`description` 必须非空；`source_skill` 无法归属时写 null，不能省略字段。
 
 ## factions
 
@@ -109,9 +115,11 @@
 
 必填：`id`、`name`、`type`、`location`、`leader`、`sub_divisions`、`one_line`、`source_refs`。
 
+`type` 与 `one_line` 必须非空；`location`、`leader` 可为 null，`sub_divisions` 可为空数组，但字段不能缺失。
+
 ## locations
 
-必填：`id`、`name`、`region`、`one_line`、`source_refs`。
+必填：`id`、`name`、`region`、`one_line`、`source_refs`，且 `region`、`one_line` 必须非空。
 
 ## items
 
@@ -135,6 +143,8 @@
 ```
 
 **硬性约束**：只收真正重要的物品（推动剧情/体现人物/武学相关），不要凑数。**必须为每个物品分配 `rarity_tier`**（凡品/良品/珍品/神品），不能全部设为"未知"。
+
+所有示例字段必须存在；`tags` 至少一项，`one_line`、`description`、`origin` 必须非空。`owner` 可为 null，`effects`、关联实体与 `rag_refs` 可为空数组。
 
 **tags 字段**：标签数组，用于更灵活的分类。一个物品可以有多个标签。
 - 大类：兵器、秘籍、丹药、剧情关键
@@ -187,6 +197,8 @@
 
 **硬性约束**：每个主要事件至少一条关键对话或结构化豁免；每个核心/重要角色至少一条人物特征对话或结构化豁免。必须是完整原文，不重写，不用固定的“每章 N 条”代替语义覆盖。
 
+对话示例字段均必须存在；`speaker`、`listener` 可为 null，但 `speaker` 与 `speaker_name` 至少一个非空。`tone` 必须使用固定枚举；`event|both` 必须有 `event_id`，`persona|both` 必须有非空 `trait_tags`。
+
 ## chapter_summaries
 
 ```json
@@ -220,6 +232,8 @@
 ```
 
 `field_source_refs` 是新增可选字段，旧消费者可忽略；但生成了受检描述字段却没有可命中的对应证据时，G3 失败。
+
+受检字段由最终数据契约单点声明：characters 的 `identity/one_line/biography/personality/relationships`，factions 的 `one_line`，locations 的 `region/one_line`，skills 的 `one_line/techniques/progression/effects/combat_style`，techniques 的 `description`，items 的 `one_line/description/effects/origin`，chapter summaries 的 `summary/key_events`。字段非空时必须有独立、可命中的 `field_source_refs`。
 
 ## 中间产物契约
 
@@ -295,6 +309,8 @@
 
 允许 decision：`keep|merge|redirect|reject`。reject reason 仅可为 `duplicate|generic_unnamed|not_an_entity|not_source_grounded|trivial|non_major`。命名武功/招式不得用 `trivial` 或 `non_major` 删除。
 
+非 reject decision 必须同时提供非空的 `canonical_name`、`importance`、`reason`、`final_category` 和 `final_id`，证明归并、分类与 enrich 意图已经记录；不能只写 final ID。
+
 `ai_review` 可选，只在 AI 二次复核高风险决定时写入。其 `status` 必须为：
 
 - `confirmed`：确认原 decision。
@@ -325,6 +341,8 @@
 ## 质量报告与审核包
 
 `reports/quality_report.json` 保留 `completion_gate_passed` 与 G1-G5，并新增独立的 `review_readiness`。不得把低召回报警写成新的 G1-G5，也不得用数量覆盖硬门禁结果。
+
+`reports/final_data_validation.json` 记录八类文件的 `final_data_hash`、数量、缺失/无效文件、schema errors 和 enrichment errors。`verification_report.json` 与 `cross_validation_report.json` 必须携带相同的当前 `final_data_hash`；缺 hash 或 hash 陈旧时 G3/G5 失败。
 
 `reports/review_packet.json` 至少包含：
 

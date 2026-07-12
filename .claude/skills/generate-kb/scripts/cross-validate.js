@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { computeFinalDataHash } = require('./lib/final-data-contract');
 
 const args = process.argv.slice(2);
 if (args.length < 1) {
@@ -490,6 +491,15 @@ for (let i = 0; i < charNames.length; i++) {
   }
 }
 
+const finalDataHash = computeFinalDataHash(novelDir);
+if (!finalDataHash) {
+  issues.push({
+    type: 'final_data_incomplete',
+    severity: 'error',
+    message: 'All eight data/*.json files must exist and be readable before cross-validation'
+  });
+}
+
 // Generate report
 console.log('\n=== Cross Validation Report ===\n');
 
@@ -529,6 +539,7 @@ if (infos.length > 0) {
 // Write full report to file
 const report = {
   generated_at: new Date().toISOString(),
+  final_data_hash: finalDataHash,
   summary: {
     total: issues.length,
     errors: errors.length,

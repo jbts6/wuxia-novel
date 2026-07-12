@@ -247,6 +247,19 @@ describe('candidate and decision ledger', () => {
     assert.deepEqual(errors, []);
   });
 
+  it('requires retained decisions to record reconciliation and enrichment intent', () => {
+    const errors = validateDecision({
+      candidate_ids: ['cand_ch001_w001_0001'],
+      decision: 'keep',
+      final_category: 'skill',
+      final_id: 'skill_tang_shi_jian_fa'
+    });
+
+    assert.ok(errors.some(error => error.includes('canonical_name')));
+    assert.ok(errors.some(error => error.includes('importance')));
+    assert.ok(errors.some(error => error.includes('reason')));
+  });
+
   it('rejects an unknown AI review status', () => {
     const errors = validateDecision({
       candidate_ids: ['cand_ch001_w001_0002'],

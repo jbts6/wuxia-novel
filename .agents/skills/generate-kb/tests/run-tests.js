@@ -208,6 +208,12 @@ describe('verify.js', () => {
         ]
       }
     ]));
+    for (const file of [
+      'factions.json', 'locations.json', 'skills.json', 'techniques.json',
+      'items.json', 'dialogues.json', 'chapter_summaries.json'
+    ]) {
+      fs.writeFileSync(path.join(testDir, 'data', file), '[]');
+    }
   });
   
   after(() => {
@@ -224,6 +230,11 @@ describe('verify.js', () => {
     
     const data = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
     assert.ok(data.results['characters.json'], 'Should have characters.json results');
+    const report = JSON.parse(fs.readFileSync(
+      path.join(testDir, 'reports', 'verification_report.json'), 'utf8'
+    ));
+    assert.equal(report.final_data_hash.length, 64);
+    assert.deepEqual(report.file_errors, []);
   });
 });
 
@@ -354,7 +365,10 @@ describe('cross-validate.js', () => {
       }
     ]));
     
-    for (const file of ['factions.json', 'locations.json', 'skills.json', 'techniques.json', 'items.json', 'dialogues.json']) {
+    for (const file of [
+      'factions.json', 'locations.json', 'skills.json', 'techniques.json',
+      'items.json', 'dialogues.json', 'chapter_summaries.json'
+    ]) {
       fs.writeFileSync(path.join(testDir, 'data', file), '[]');
     }
   });
@@ -369,6 +383,8 @@ describe('cross-validate.js', () => {
     
     const reportPath = path.join(testDir, 'cross_validation_report.json');
     assert.ok(fs.existsSync(reportPath), 'cross_validation_report.json should exist');
+    const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+    assert.equal(report.final_data_hash.length, 64);
   });
 });
 

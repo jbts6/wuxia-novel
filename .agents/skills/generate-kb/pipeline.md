@@ -57,6 +57,14 @@ node "$SKILL/scripts/validate-inventory.js" "$NOVEL"
 4. 将事件归入 `build/events.json`，主要事件标记 `importance: main`。
 5. 只用候选证据窗口补充最终八类 JSON 的复杂字段。
 
+第 5 步不是可选润色。完成归并后必须运行：
+
+```bash
+node "$SKILL/scripts/validate-final-data.js" "$NOVEL"
+```
+
+只有 `reports/final_data_validation.json` 的 `passed: true` 才算完成 Stage 3。仅写入 `id`、`name`、`source_refs` 的骨架记录必须失败；缺失文件、字段、枚举、嵌套结构或条件 enrich 也必须失败。龙套/背景等允许低细节的情况按 schema 条件规则保留空值，不得为过门编造原文没有的信息。
+
 武功/招式禁止因 `non_major` 或 `trivial` reject。类别错误用 redirect；同名重复用 merge/duplicate；原文证据不足用 not_source_grounded。
 
 对话最终记录必须包含 `id`、`selection_type`、`selection_reason`、`context` 及其章节内起止行号。`event|both` 必须关联 `event_id`，`persona|both` 必须包含 `trait_tags`。无法找到事件或人物特征原话时，将有证据的原因写入 `build/semantic-exemptions.json`，不得静默跳过。
@@ -77,6 +85,7 @@ node "$SKILL/scripts/validate-inventory.js" "$NOVEL"
 
 ```bash
 node "$SKILL/scripts/validate-inventory.js" "$NOVEL"
+node "$SKILL/scripts/validate-final-data.js" "$NOVEL"
 node "$SKILL/scripts/verify.js" "$NOVEL"
 node "$SKILL/scripts/cross-validate.js" "$NOVEL"
 node "$SKILL/scripts/audit-recall.js" "$NOVEL"
@@ -88,9 +97,9 @@ node "$SKILL/scripts/generate-summary.js" "$NOVEL"
 
 - G1 Source Coverage：当前 source hash、三类窗口 100% 覆盖、每章恰好一个结构完整的 summary。
 - G2 Ledger Closure：所有候选闭环，保留项可追到 final ID，reject 合法。
-- G3 Evidence Integrity：正式实体与章节摘要有 grounded ref，描述字段有独立证据，对话及上下文全文 100% 命中，grand weak/unverified 为 0。
+- G3 Evidence Integrity：八类文件和记录满足最终数据契约，条件 enrich 完成；正式实体与章节摘要有 grounded ref，描述字段有独立证据，对话及上下文全文 100% 命中，verification 无文件错误、hash 对应当前数据且 grand weak/unverified 为 0。
 - G4 Recall Evidence：最终 gap round 无有效新增，词法信号有解释，命名武学闭环，可选人工 gold 命中。
-- G5 Semantic Coverage：主要事件和核心/重要角色对话覆盖，cross-reference/schema 无阻塞错误。
+- G5 Semantic Coverage：至少有一名核心/重要角色，主要事件和核心/重要角色对话覆盖，cross-reference/schema 无阻塞错误，cross-validation hash 对应当前数据。
 
 ### AI 自筛与审核就绪
 

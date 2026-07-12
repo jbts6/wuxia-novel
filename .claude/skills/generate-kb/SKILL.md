@@ -17,6 +17,7 @@ description: Build or audit a source-grounded knowledge base for a wuxia novel. 
 6. 不使用可补偿总分。只有 G1-G5 全部通过，才可声明完成。
 7. G1-G5 与人工审核就绪状态分离。数量只能触发低召回报警，不能证明完整；异常必须先由 AI 返工，不能把整本候选账本交给人工兜底。
 8. 默认每本书独立运行和产出审核包。人工可以逐本立即审核，也可以积累五六本后集中审核；批审不改变单本状态和证据链。
+9. Stage 3 的 enrich 是硬步骤。最终记录不能只含 `id/name/source_refs`；必须通过代码级最终数据契约后才能进入 gap audit 和完成门禁。
 
 ## 执行
 
@@ -46,6 +47,7 @@ description: Build or audit a source-grounded knowledge base for a wuxia novel. 
 
 ```bash
 node scripts/validate-inventory.js "$NOVEL"
+node scripts/validate-final-data.js "$NOVEL"
 node scripts/verify.js "$NOVEL"
 node scripts/cross-validate.js "$NOVEL"
 node scripts/audit-recall.js "$NOVEL"
@@ -53,7 +55,7 @@ node scripts/generate-review-packet.js "$NOVEL"
 node scripts/generate-summary.js "$NOVEL"
 ```
 
-`reports/quality_report.json` 必须满足 `completion_gate_passed: true`，且 G1-G5 各自为 PASS。缺少 source index、扫描覆盖、ledger、最终 gap round、grand verification、事件对话或人物特征对话时，均不得完成。
+`reports/quality_report.json` 必须满足 `completion_gate_passed: true`，且 G1-G5 各自为 PASS。缺少 source index、扫描覆盖、ledger、最终数据字段/enrich、最终 gap round、当前数据对应的 grand verification、事件对话或人物特征对话时，均不得完成。`validate-final-data.js` 必须先 PASS；缺失八类文件、骨架记录、非法枚举或条件丰富字段为空时不得进入人工审核。
 
 完成门禁通过后，`reports/review_packet.json` 的 `review_readiness.status` 还必须为 `ready_for_human_review`，才能交给人工做短审核。状态为 `blocked` 时先修 G1-G5；状态为 `needs_ai_rerun` 时按自动异常扩大召回、复审 reject 或压缩高风险队列。人工只审核最多 10 个高风险裁决和两侧确定性样本，不逐条重做全书抽取。
 

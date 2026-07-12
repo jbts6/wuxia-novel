@@ -45,7 +45,7 @@ function validateCandidate(candidate) {
   if (!CATEGORIES.has(candidate.category_hint)) {
     errors.push(`invalid category_hint: ${candidate.category_hint}`);
   }
-  if (!candidate.name || typeof candidate.name !== 'string') errors.push('name is required');
+  if (typeof candidate.name !== 'string' || !candidate.name.trim()) errors.push('name is required');
   if (!Number.isInteger(candidate.chapter) || candidate.chapter < 1) {
     errors.push('chapter must be a positive integer');
   }
@@ -112,6 +112,15 @@ function validateDecision(decision) {
   if (decision.decision === 'reject') {
     if (!REJECT_REASONS.has(decision.reason)) errors.push(`invalid reject reason: ${decision.reason}`);
   } else {
+    if (typeof decision.canonical_name !== 'string' || !decision.canonical_name.trim()) {
+      errors.push(`${decision.decision} decision requires canonical_name`);
+    }
+    if (typeof decision.importance !== 'string' || !decision.importance.trim()) {
+      errors.push(`${decision.decision} decision requires importance`);
+    }
+    if (typeof decision.reason !== 'string' || !decision.reason.trim()) {
+      errors.push(`${decision.decision} decision requires reason`);
+    }
     if (!decision.final_id || typeof decision.final_id !== 'string') {
       errors.push(`${decision.decision} decision requires final_id`);
     }

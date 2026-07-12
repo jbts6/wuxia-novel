@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { computeFinalDataHash } = require('./lib/final-data-contract');
 const { matchCompleteCitation, splitLines } = require('./lib/source');
 
 const args = process.argv.slice(2);
@@ -199,6 +200,11 @@ fs.writeFileSync(path.join(novelDir, 'verification_result.json'), JSON.stringify
 
 const grandTotal = { entities: 0, refs: 0, grounded: 0, weak: 0, unverified: 0 };
 const altTotal = { total: 0, grounded: 0, weak: 0, unverified: 0 };
+const fileErrors = Object.entries(results).flatMap(([filename, result]) =>
+  result?.error ? [`${filename}: ${result.error}`] : []
+);
+const finalDataHash = computeFinalDataHash(novelDir);
+if (!finalDataHash) fileErrors.push('final data files are incomplete or unreadable');
 let noRefCount = 0;
 for (const file of FILES) {
   const result = results[file];
@@ -216,6 +222,8 @@ for (const file of FILES) {
 }
 const verificationReport = {
   generated_at: out.generated_at,
+  final_data_hash: finalDataHash,
+  file_errors: fileErrors,
   grand_total: grandTotal,
   grand_grounded_ratio: grandTotal.refs ? grandTotal.grounded / grandTotal.refs : 0,
   alt_total: altTotal,
@@ -223,7 +231,7 @@ const verificationReport = {
   cross_chapter_count: 0,
   low_confidence_count: grandTotal.weak + grandTotal.unverified,
   no_ref_count: noRefCount,
-  needs_patch: grandTotal.weak + grandTotal.unverified + noRefCount > 0,
+  needs_patch: fileErrors.length + grandTotal.weak + grandTotal.unverified + noRefCount > 0,
   coverage_summary: coverage
 };
 fs.writeFileSync(
@@ -247,3 +255,4 @@ if (coverage) {
   }
 }
 console.log(`\nFull result written to verification_result.json`);
+if (verificationReport.needs_patch) process.exitCode = 1;

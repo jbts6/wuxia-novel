@@ -9,6 +9,8 @@ const path = require('node:path');
 
 const { prepareSource } = require('../scripts/prepare-source');
 const { assessQuality } = require('../scripts/assess-quality');
+const { computeFinalDataHash } = require('../scripts/lib/final-data-contract');
+const { buildCompleteData } = require('./helpers/final-data-fixture');
 
 function writeJson(filename, value) {
   fs.mkdirSync(path.dirname(filename), { recursive: true });
@@ -33,57 +35,14 @@ it('passes an end-to-end source-grounded minimal knowledge base', () => {
     scanManifest.chapter_summary_chapters = [1];
     writeJson(path.join(novelDir, 'build', 'scan-manifest.json'), scanManifest);
 
-    const character = {
-      id: 'char_main',
-      name: '主角',
-      importance: '核心',
-      source_refs: [{ chapter: 1, line_start: 1, line_end: 1, text: '主角' }]
-    };
-    const skill = {
-      id: 'skill_bei_ming',
-      name: '北冥神功',
-      importance: '核心',
-      description: '主角所修习的武功。',
-      source_refs: [{ chapter: 1, line_start: 1, line_end: 1, text: '北冥神功' }],
-      field_source_refs: {
-        description: [{ chapter: 1, line_start: 1, line_end: 1, text: sourceText }]
-      }
-    };
-    const dialogue = {
-      id: 'dialogue_1',
-      speaker: 'char_main',
-      speaker_name: '主角',
-      text: '我练的是北冥神功。',
-      chapter: 1,
-      line_start: 1,
-      line_end: 1,
-      event_id: 'event_training',
-      selection_type: 'both',
-      selection_reason: '推动事件并体现人物自信',
-      trait_tags: ['自信'],
-      context: sourceText,
-      context_line_start: 1,
-      context_line_end: 1
-    };
-    writeJson(path.join(novelDir, 'data', 'characters.json'), [character]);
-    writeJson(path.join(novelDir, 'data', 'skills.json'), [skill]);
-    writeJson(path.join(novelDir, 'data', 'dialogues.json'), [dialogue]);
-    const chapterSummary = {
-      chapter: 1,
-      title: '第一章',
-      summary: '主角说明自己修习北冥神功。',
-      key_events: ['主角说明所学'],
-      key_characters: ['char_main'],
-      source_refs: [{ chapter: 1, line_start: 1, line_end: 1, text: sourceText }],
-      field_source_refs: {
-        summary: [{ chapter: 1, line_start: 1, line_end: 1, text: sourceText }],
-        key_events: [{ chapter: 1, line_start: 1, line_end: 1, text: sourceText }]
-      }
-    };
-    writeJson(path.join(novelDir, 'data', 'chapter_summaries.json'), [chapterSummary]);
-    for (const filename of ['factions.json', 'locations.json', 'techniques.json', 'items.json']) {
-      writeJson(path.join(novelDir, 'data', filename), []);
+    const completeData = buildCompleteData(sourceText);
+    for (const [filename, records] of Object.entries(completeData)) {
+      writeJson(path.join(novelDir, 'data', filename), records);
     }
+    const character = completeData['characters.json'][0];
+    const skill = completeData['skills.json'][0];
+    const dialogue = completeData['dialogues.json'][0];
+    const chapterSummary = completeData['chapter_summaries.json'][0];
     writeJson(path.join(novelDir, 'build', 'events.json'), [{
       id: 'event_training',
       name: '主角说明所学',
@@ -129,11 +88,15 @@ it('passes an end-to-end source-grounded minimal knowledge base', () => {
         final_id: candidate.final_id
       })).join('\n')}\n`
     );
+    const finalDataHash = computeFinalDataHash(novelDir);
     writeJson(path.join(novelDir, 'reports', 'verification_report.json'), {
+      final_data_hash: finalDataHash,
+      file_errors: [],
       grand_total: { entities: 2, refs: 2, grounded: 2, weak: 0, unverified: 0 },
       grand_grounded_ratio: 1
     });
     writeJson(path.join(novelDir, 'reports', 'cross_validation_report.json'), {
+      final_data_hash: finalDataHash,
       summary: { total: 0, errors: 0, warnings: 0, info: 0 },
       issues: []
     });
@@ -188,12 +151,23 @@ it('passes an end-to-end source-grounded minimal knowledge base', () => {
     chapterSummary.field_source_refs = chapterSummaryFieldRefs;
     writeJson(path.join(novelDir, 'data', 'chapter_summaries.json'), [chapterSummary]);
 
+    const originalOneLine = skill.one_line;
+    skill.one_line = '数据改动后旧报告必须失效。';
+    writeJson(path.join(novelDir, 'data', 'skills.json'), [skill]);
+    const staleVerification = assessQuality(novelDir);
+    assert.equal(staleVerification.gates.G3.passed, false);
+    assert.equal(staleVerification.gates.G5.passed, false);
+    assert.ok(staleVerification.gates.G3.reasons.some(reason => reason.includes('stale')));
+    assert.ok(staleVerification.gates.G5.reasons.some(reason => reason.includes('stale')));
+    skill.one_line = originalOneLine;
+    writeJson(path.join(novelDir, 'data', 'skills.json'), [skill]);
+
     delete skill.field_source_refs;
     writeJson(path.join(novelDir, 'data', 'skills.json'), [skill]);
     const missingDescriptionEvidence = assessQuality(novelDir);
     assert.equal(missingDescriptionEvidence.gates.G3.passed, false);
     assert.ok(missingDescriptionEvidence.gates.G3.reasons.some(reason =>
-      reason.includes('skill_bei_ming.description')
+      reason.includes('skill_bei_ming.one_line')
     ));
   } finally {
     fs.rmSync(novelDir, { recursive: true, force: true });

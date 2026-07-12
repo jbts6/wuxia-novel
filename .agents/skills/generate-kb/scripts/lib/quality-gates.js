@@ -38,8 +38,16 @@ function evaluateHardGates(input = {}) {
       value => list(value.unresolved_candidate_ids).map(id => `unresolved candidate: ${id}`)
     ]) : missingGate('ledger closure'),
     G3: evidence ? gate(evidence, [
+      value => list(value.missing_data_files).map(filename => `final data file is missing: ${filename}`),
+      value => list(value.invalid_data_files).map(error => `invalid final data file: ${error}`),
+      value => list(value.schema_errors).map(error => `final schema: ${error}`),
+      value => list(value.enrichment_errors).map(error => `enrichment: ${error}`),
       value => list(value.entities_without_grounded_refs).map(id => `entity lacks grounded source ref: ${id}`),
       value => list(value.descriptions_without_refs).map(id => `description lacks source ref: ${id}`),
+      value => list(value.verification_file_errors).map(error => `verification file error: ${error}`),
+      value => value.verification_data_hash_valid === true
+        ? []
+        : ['verification report is missing or stale for current final data'],
       value => Number.isInteger(value.dialogue_total) && Number.isInteger(value.dialogue_grounded)
         ? value.dialogue_total === value.dialogue_grounded
           ? []
@@ -66,9 +74,13 @@ function evaluateHardGates(input = {}) {
     G5: semantic ? gate(semantic, [
       value => list(value.main_events_missing_dialogue).map(id => `main event lacks dialogue or exemption: ${id}`),
       value => list(value.personas_missing_dialogue).map(id => `character persona lacks dialogue or exemption: ${id}`),
+      value => list(value.semantic_non_vacuity_errors).map(error => `semantic coverage: ${error}`),
       value => Number.isInteger(value.cross_validation_errors)
         ? value.cross_validation_errors === 0 ? [] : [`cross validation has ${value.cross_validation_errors} errors`]
         : ['cross validation result is missing'],
+      value => value.cross_validation_data_hash_valid === true
+        ? []
+        : ['cross validation report is missing or stale for current final data'],
       value => list(value.blocking_schema_errors).map(error => `schema: ${error}`),
       value => list(value.regression_failures).map(item => `semantic regression: ${item}`)
     ]) : missingGate('semantic coverage')
@@ -93,8 +105,14 @@ function regressionInputFromLegacySnapshot(snapshot) {
     },
     ledger_closure: { passed: true, errors: [], unresolved_candidate_ids: [] },
     evidence_integrity: {
+      missing_data_files: [],
+      invalid_data_files: [],
+      schema_errors: [],
+      enrichment_errors: [],
       entities_without_grounded_refs: [],
       descriptions_without_refs: [],
+      verification_file_errors: [],
+      verification_data_hash_valid: true,
       dialogue_total: 0,
       dialogue_grounded: 0,
       verification_weak: 0,
@@ -112,7 +130,9 @@ function regressionInputFromLegacySnapshot(snapshot) {
     semantic_coverage: {
       main_events_missing_dialogue: [],
       personas_missing_dialogue: [],
+      semantic_non_vacuity_errors: [],
       cross_validation_errors: Number(snapshot.cross_validation_errors ?? 0),
+      cross_validation_data_hash_valid: true,
       blocking_schema_errors: [],
       regression_failures: []
     }

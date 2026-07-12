@@ -1,0 +1,29 @@
+{
+  "id": "generate-mandarin-ducks-kb",
+  "name": "generate-mandarin-ducks-kb",
+  "title": "修复 generate-kb 完整性门禁",
+  "description": "系统修复最终数据骨架、缺失字段、空集校验和陈旧报告仍可通过 G1-G5 的问题；本次不生成鸳鸯刀知识库。",
+  "status": "in_progress",
+  "dev_type": null,
+  "scope": ".agents/skills/generate-kb,.claude/skills/generate-kb",
+  "package": null,
+  "priority": "P2",
+  "creator": "jbts6",
+  "assignee": "jbts6",
+  "createdAt": "2026-07-12",
+  "completedAt": null,
+  "branch": null,
+  "base_branch": "main",
+  "worktree_path": null,
+  "commit": null,
+  "pr_url": null,
+  "subtasks": [],
+  "children": [],
+  "parent": null,
+  "relatedFiles": [
+    ".agents/skills/generate-kb",
+    ".claude/skills/generate-kb"
+  ],
+  "notes": "任务由生成鸳鸯刀知识库改为优先修复 generate-kb 流程；鸳鸯刀数据不在本次修改范围内。",
+  "meta": {}
+}
