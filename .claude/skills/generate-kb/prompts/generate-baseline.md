@@ -1,5 +1,7 @@
 # Baseline Generation Prompt
 
+> Legacy：LLM baseline 不再参与召回率或完成门禁，仅可作为旧数据诊断线索。
+
 基于对本书的认知，生成**独立金标** `build/baseline.json`，用于评估 KB 完整性。  
 **禁止**从 `data/*.json` 拷贝全量实体。
 

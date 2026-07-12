@@ -1,105 +1,58 @@
 ---
 name: generate-kb
-description: Use when the user wants to build a high-quality knowledge base for a well-known wuxia novel by leveraging the LLM's prior knowledge. Covers the "four great wuxia masters" — Jin Yong, Gu Long, Liang Yusheng, Huang Yi — and similar canonical authors. Replaces the deconstruct + distill pipeline for novels the LLM already knows.
+description: Build or audit a source-grounded knowledge base for a wuxia novel. Use when extracting characters, factions, locations, named martial arts, named techniques, plot-relevant items, chapter events, and representative original dialogue from a novel text, or when an existing wuxia knowledge base has suspiciously low recall or weak source evidence.
 ---
 
 # generate-kb
 
-用 LLM 先验生成武侠知识库，再以原文 locate/verify。适用于金庸、古龙、梁羽生、黄易及同类名家。
+以小说原文为唯一事实来源，生成兼容的八类知识库 JSON，并用可追踪候选账本证明扫描覆盖、归并决策和查漏结果。
 
-**不适用**：训练数据中无的小众/网文/原创 → 用 `deconstruct-novel`。
+## 核心规则
 
-## 防循环
+1. 先建立原文证据，再做归一化、分类、重要性和丰富描述。模型先验只能提出检索词，不能直接成为知识库事实。
+2. 将召回与丰富分开。扫描窗口时只提名称、类别提示、原文位置和短引文。
+3. 原文明确定名且可定位的武功与招式全部保留；`importance` 只分级，不参与删除。
+4. 角色、地点、势力和物品按剧情作用筛选，但每个候选都必须有 keep/merge/redirect/reject decision。
+5. 对话必须覆盖主要事件和核心/重要角色的人物特征。必须保存完整原话、选择理由及可定位的原文上下文。
+6. 不使用可补偿总分。只有 G1-G5 全部通过，才可声明完成。
 
-1. 每 Phase 做完立刻 gate，不重复已通过检查  
-2. 用 task 跟踪 Phase；同一步最多重试 3 次  
-3. 主 agent 协调，大块生成可派 subagent  
+## 执行
 
-## 必守规则
+开始生成或重做时，读取 [pipeline.md](pipeline.md) 并严格执行四阶段：
 
-| 项 | 要求 |
-|----|------|
-| 原文 | 仅当 `<小说目录>/<小说名>.txt` 存在 |
-| source_refs | `{chapter, anchor, event_type}`，行号由 `locate.js` 回填 |
-| baseline | **独立** `build/baseline.json`：含 relationships + events；**禁止**从 `data/*` 拷全量 |
-| dialogues | 字段名 **`text`**（原文句）；禁止凭记忆编 quote |
-| items | 必有 `tags`、`rarity_tier` |
-| ID/枚举 | `schemas.md` + `constants.md` |
-| 生成模型 | 长上下文 ≥1M tokens |
-| 审核 | 广撒网 → 精挑选（`review.md`） |
+1. Prepare Source
+2. Inventory From Source
+3. Reconcile And Enrich
+4. Independent Gap Audit And Gate
 
-### 完成门禁（`assess-quality.js`）
+处理字段、枚举或中间产物时读取 [schemas.md](schemas.md) 与 [constants.md](constants.md)。人工归并和对话审核时读取 [review.md](review.md)。
 
-**始终强制（honest）**
+最终保持以下消费接口：
 
-- `completion_gate_passed` 且 `honest_overall_score ≥ 85`
-- Honest Entity Grounded ≥ 85%
-- Dialogue quote 原文命中 ≥ 95%
-- Entity Quantity ≥ 80%
-- baseline 非 `invalid_self_ref`
+- `data/characters.json`
+- `data/factions.json`
+- `data/locations.json`
+- `data/skills.json`
+- `data/techniques.json`
+- `data/items.json`
+- `data/dialogues.json`
+- `data/chapter_summaries.json`
 
-**金标可用时**（独立 baseline + rel + events）
+## 完成条件
 
-- overall 目标 ≥ 95%（或分项达标）
-- Completeness / Relationship / Event / Cross-Book Purity 按报告阈值
-- `expected=0` → **N/A**，不得记 100
+运行：
 
-### 独立 baseline 契约（Phase 1.7）
-
-| 规则 | 值 |
-|------|-----|
-| 角色金标规模 | 约 15–25（短名单，非 KB 全量） |
-| bl∩kb / kb（id） | **0.50–0.84**（≥0.85 会记 copy 警告） |
-| relationships | ≥15；`importance` ∈ `core\|important\|secondary`（**英文**） |
-| events | ≥20；`importance` ∈ `main\|branch\|detail`（**英文**） |
-| dialogues | ≥10 条原文 quote；与 data 重叠率应 &lt;90% |
-| 实体名 | 必须能在原文命中 |
-| Purity | 靠 KB 不灌水 + 金标覆盖核心势力/功法/物品；**禁止**为刷 100% 把龙套全写入 baseline |
-
-## 执行顺序
-
-0. 前置：原文存在  
-1. Phase 1：`split-chapters` + `compact-mention`  
-2. Phase 1.2：LLM → `build/keywords.json`  
-3. Phase 1.5：`outline.json`  
-4. **Phase 1.7：独立 baseline**（Pass1 前）  
-5. Phase 1.6 / 1.6.5：专属 prompt + 校验  
-6. Phase 2 Pass1：五实体 JSON → `fix-relationships` → `extract-keywords`  
-7. Phase 3 初轮：locate + verify + cross-validate + check-skill-items  
-8. Phase 2 Pass2：items + chapter_summaries（读原文）  
-9. Phase 2.6：实体审核  
-10. Phase 2.2：chapter_summaries 交叉验证  
-11. Phase 2.5：dialogues（`text`）→ `locate-dialogues` 删幻觉  
-12. Phase 3 完整 + 3.5 对抗审阅  
-13. Phase 3.6：`assess-quality`  
-14. Phase 3.7：`summary.md`  
-
-细节与命令：`pipeline.md`。
-
-## 目录
-
-```
-<小说目录>/
-├── data/          # 8 核心 JSON
-├── build/         # manifest, mention_*, keywords, baseline
-├── ch_split/
-├── prompts/       # 本书专属
-├── reports/
-├── review/
-├── summary.md
-└── <小说名>.txt
+```bash
+node scripts/validate-inventory.js "$NOVEL"
+node scripts/verify.js "$NOVEL"
+node scripts/cross-validate.js "$NOVEL"
+node scripts/audit-recall.js "$NOVEL"
+node scripts/assess-quality.js "$NOVEL"
+node scripts/generate-summary.js "$NOVEL"
 ```
 
-## 文档与脚本
+`reports/quality_report.json` 必须满足 `completion_gate_passed: true`，且 G1-G5 各自为 PASS。缺少 source index、扫描覆盖、ledger、最终 gap round、grand verification、事件对话或人物特征对话时，均不得完成。
 
-| 路径 | 用途 |
-|------|------|
-| `pipeline.md` | 分 Phase 命令与 gate |
-| `schemas.md` | 8 JSON 结构 |
-| `constants.md` | ID、rank、枚举 |
-| `review.md` | 审核与 3.5 不通过条件 |
-| `LEARNINGS.md` | 实跑坑点（精简） |
-| `scripts/*` | 拆分 / locate / verify / assess 等 |
-| `prompts/*` | 通用 prompt 模板 |
+## Legacy
 
-Base: `.agents/skills/generate-kb/`（相对路径均相对此目录）。
+`generate-baseline-prompt.js`、`compact-mention.js`、`extract-keywords.js`、`coverage-gap.js` 及旧版多 Phase prompt 暂时保留，用于旧知识库诊断和迁移。新生成流程不得把它们的 baseline 或数量分当作完整性证明。

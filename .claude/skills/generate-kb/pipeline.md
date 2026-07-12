@@ -1,158 +1,104 @@
-# 流水线详细步骤
+# 原文先行的四阶段流水线
 
-`NOVEL=<小说目录>` · `SKILL=.agents/skills/generate-kb`
+设 `$SKILL=.agents/skills/generate-kb`，`$NOVEL=<作者>/<小说名>`。所有生成事实只来自 `$NOVEL/<小说名>.txt` 与它切分出的 `ch_split/`。
 
-## Phase 1：split + compact-mention
+## 1. Prepare Source
+
+若尚无 `ch_split/`，先运行既有章节切分：
 
 ```bash
-node $SKILL/scripts/split-chapters.js "$NOVEL"
-node $SKILL/scripts/compact-mention.js "$NOVEL"
+node "$SKILL/scripts/split-chapters.js" "$NOVEL"
 ```
 
-产出：`ch_split/`、`build/manifest.json`、`build/mention_index.jsonl`、`build/mention_summary.json`
+生成稳定章节内行号、source SHA-256 和重叠窗口：
 
-**split-config.json**（可选，优先级：novel 根 → build/ → prompts/）
+```bash
+node "$SKILL/scripts/prepare-source.js" "$NOVEL"
+```
+
+产物：
+
+- `build/source-index.json`
+- `build/scan-manifest.json`
+
+原文或 `ch_split/` 改变后必须重跑。不得沿用旧 hash 下的 candidates、decisions 或人工 gold。
+
+## 2. Inventory From Source
+
+对 `source-index.json` 的每个 window 分别运行两次低负担扫描：
+
+1. 读取 `prompts/named-inventory.md`，提取命名实体。
+2. 读取 `prompts/event-dialogue.md`，提取事件和代表性原话。
+
+每次只给模型当前 window 和章节内起止行号，不提供现有 `data/*.json`、baseline、百科或其他窗口的总结。将结果逐行追加到 `build/candidates.jsonl`，并在 `scan-manifest.json` 对应 pass 的 `completed_window_ids` 中登记窗口。
+
+扫描原则：
+
+- 命名武功与招式全部进入候选，不做重要性截断。
+- 物品重点关注秘笈/图谱、信物、兵器、药物、钥匙和推动事件的普通物品。
+- 对话必须带 `selection_type_hint`、选择理由与可定位的上下文原文；不要按每章固定数量凑数。
+- 每章只生成一个 `chapter_summaries` 候选或最终记录。
+
+完成两类扫描后运行：
+
+```bash
+node "$SKILL/scripts/validate-inventory.js" "$NOVEL"
+```
+
+此时 G2/G4 尚未完成可以失败，但 named-inventory 和 event-dialogue 不得再有漏扫窗口。
+
+## 3. Reconcile And Enrich
+
+读取 candidates 及其关联的原文窗口，先归并后丰富：
+
+1. 统一名称与别名。
+2. 区分 skill（体系/功法）与 technique（明确的一招一式）。
+3. 为每个候选写 `build/decisions.jsonl`：keep、merge、redirect 或 reject。
+4. 将事件归入 `build/events.json`，主要事件标记 `importance: main`。
+5. 只用候选证据窗口补充最终八类 JSON 的复杂字段。
+
+武功/招式禁止因 `non_major` 或 `trivial` reject。类别错误用 redirect；同名重复用 merge/duplicate；原文证据不足用 not_source_grounded。
+
+对话最终记录必须包含 `id`、`selection_type`、`selection_reason`、`context` 及其章节内起止行号。`event|both` 必须关联 `event_id`，`persona|both` 必须包含 `trait_tags`。无法找到事件或人物特征原话时，将有证据的原因写入 `build/semantic-exemptions.json`，不得静默跳过。
+
+## 4. Independent Gap Audit And Gate
+
+再次逐窗口读取原文，使用 `prompts/gap-audit.md`。该轮不能看到已有 candidates 或最终 JSON。新候选仍追加到 `candidates.jsonl`，`discovery_pass` 固定为 `gap-audit`。
+
+每轮写入：
 
 ```json
-{
-  "chapterPattern": "^第[零〇○一二三四五六七八九十百千\\d]{1,8}[回章]\\s*.*$",
-  "numberPattern": "^第([零〇○一二三四五六七八九十百千\\d]{1,8})[回章]",
-  "seedPatterns": ["角色A|角色B", "门派", "地名", "武功"]
-}
+{"rounds":[{"round":1,"completed_window_ids":["ch001_w001"],"new_candidate_ids":["cand_..."]}]}
 ```
 
-**Gate**：章数合理，manifest 与 ch_split 一致。
+若发现有效新候选，回到 Stage 3 归并，再做一轮独立 gap audit。最多两轮；最后一轮必须没有 keep/merge/redirect 的新候选。
 
-## Phase 1.2：keywords
-
-输入：manifest、mention_summary、原文采样（前3+中2+末2）。  
-输出：`build/keywords.json`（字符串数组，长词优先，≥50）。  
-模板：`prompts/generate-keywords.md`。
-
-**Gate**：含本书核心专名。
-
-## Phase 1.5：outline
-
-`data/outline.json`：characters / factions / locations / skills 骨架。模板：`prompts/outline.md`。
-
-## Phase 1.7：独立 baseline（Pass1 前）
+依次运行：
 
 ```bash
-node $SKILL/scripts/generate-baseline-prompt.js "$NOVEL"
-# LLM 写入 build/baseline.json
+node "$SKILL/scripts/validate-inventory.js" "$NOVEL"
+node "$SKILL/scripts/verify.js" "$NOVEL"
+node "$SKILL/scripts/cross-validate.js" "$NOVEL"
+node "$SKILL/scripts/audit-recall.js" "$NOVEL"
+node "$SKILL/scripts/assess-quality.js" "$NOVEL"
+node "$SKILL/scripts/generate-summary.js" "$NOVEL"
 ```
 
-**必须**
+### G1-G5
 
-- 角色分档 core/important/secondary/minor（**短名单 15–25**，勿抄 data 全量）
-- `relationships` ≥15，`importance` 英文：`core|important|secondary`
-- `events` ≥20（按章号 key），`importance` 英文：`main|branch|detail`
-- `dialogues` ≥10，quote 能在原文命中；勿整表复制 data/dialogues
-- 可选：factions、skills、items、expected_entity_counts
+- G1 Source Coverage：当前 source hash、三类窗口 100% 覆盖、每章恰好一个结构完整的 summary。
+- G2 Ledger Closure：所有候选闭环，保留项可追到 final ID，reject 合法。
+- G3 Evidence Integrity：正式实体与章节摘要有 grounded ref，描述字段有独立证据，对话及上下文全文 100% 命中，grand weak/unverified 为 0。
+- G4 Recall Evidence：最终 gap round 无有效新增，词法信号有解释，命名武学闭环，可选人工 gold 命中。
+- G5 Semantic Coverage：主要事件和核心/重要角色对话覆盖，cross-reference/schema 无阻塞错误。
 
-**禁止**：从 `data/*.json` 生成 baseline。  
-**比例**：`|bl_ids ∩ kb_ids| / |kb_ids|` 宜在 **0.50–0.84**（≥0.85 记 copy 警告）。
+## 旧知识库迁移
 
-门禁：`baseline_mode=invalid_self_ref` 时金标 overall = N/A。
-
-## Phase 1.6 / 1.6.5：prompt-craft + 校验
-
-读 `prompts/prompt-craft.md` + manifest/mention/采样 → 写出 `$NOVEL/prompts/`：  
-`outline.md`、`pass1-entities.md`、`pass2-details.md`、`review-all.md`。
-
-**1.6.5**：校验章节号、事件分配、角色列表；修张冠李戴后再 Pass1。
-
-## Phase 2 Pass1：五实体
-
-输出：`characters|factions|locations|skills|techniques.json`  
-然后：
+只读诊断：
 
 ```bash
-node $SKILL/scripts/fix-relationships.js "$NOVEL"
-node $SKILL/scripts/extract-keywords.js "$NOVEL"
+node "$SKILL/scripts/audit-recall.js" "$NOVEL" --legacy --dry-run
+node "$SKILL/scripts/assess-quality.js" "$NOVEL" --report-only --dry-run
 ```
 
-（Pass2 后必须再跑 extract-keywords，否则 locate 难匹配角色名 anchor。）
-
-## Phase 3 初轮
-
-LLM 的 source_refs 章节常错。locate 前：对 `not_located` 在全文搜实体名并修正 chapter（可用脚本或批处理；**无**独立 `fix-chapter-refs.js` 时手动/临时代码即可）。
-
-```bash
-node $SKILL/scripts/locate.js "$NOVEL"
-node $SKILL/scripts/verify.js "$NOVEL"
-node $SKILL/scripts/report.js "$NOVEL"
-node $SKILL/scripts/cross-validate.js "$NOVEL"
-node $SKILL/scripts/check-skill-items.js "$NOVEL"
-```
-
-**Gate**：尽量 locate≥95%；errors 清零（≤3 次修复循环）。
-
-## Phase 2 Pass2：items + chapter_summaries
-
-- 按章读 `ch_split`；禁纯标题模板  
-- items：`tags` + `rarity_tier`（勿全「未知」）  
-- summaries：`key_events` 须能在该章命中关键词  
-
-## Phase 2.6：实体审核
-
-见 `review.md`（广撒网 → 精挑选；skills vs items）。
-
-## Phase 2.2：chapter_summaries 交叉验证
-
-`key_events` 与原文错位则修正后再抽对话。
-
-## Phase 2.5：dialogues
-
-1. LLM 读原文 + 事件锚定批量提取  
-2. 输出字段：**`text`**（原文）、`speaker`（id）、`speaker_name`、`tone`、`chapter`  
-3. `verify_dialogues.js`（可选）  
-4. **必做**：
-
-```bash
-node $SKILL/scripts/locate-dialogues.js "$NOVEL"
-```
-
-兼容遗留字段 `quote`（会规范为 `text`）；全文找不到的条目删除。
-
-**Gate**：quote 原文命中 ≥95%。
-
-## Phase 3 完整 + 3.5
-
-重跑 locate/verify/report/cross-validate/check-skill-items。
-
-```bash
-node $SKILL/scripts/review-dialogues.js "$NOVEL"
-# + LLM reviewer → review/review-result.json
-```
-
-不通过条件：`review.md`。
-
-## Phase 3.6：质量评估
-
-```bash
-node $SKILL/scripts/assess-quality.js "$NOVEL"
-```
-
-| 轨道 | 字段 | 条件 |
-|------|------|------|
-| 金标 | `overall_score` | 独立 baseline + rel + events |
-| 诚实 | `honest_overall_score` | 始终 |
-
-**完成**：`completion_gate_passed === true`。
-
-注意：`namesMatch` 对 1–2 字泛称（剑/刀/毒…）不做子串匹配，避免假 purity。
-
-## Phase 3.7：总览
-
-```bash
-node $SKILL/scripts/generate-summary.js "$NOVEL"
-```
-
-## 最终检查
-
-- [ ] 8 JSON 可解析  
-- [ ] verify/cross-validate 无阻塞 error  
-- [ ] completion_gate PASS，honest≥85  
-- [ ] baseline 非 invalid_self_ref  
-- [ ] summary.md 存在  
+旧数据缺少新证据时应失败，这是“尚未证明完整”，不是自动判定数据错误。不要为通过门禁直接修改现有小说数据；先补 source/ledger/gap 产物，再按原文决定是否重生成。

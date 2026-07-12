@@ -238,22 +238,8 @@ describe('assess-quality.js', () => {
     fs.mkdirSync(path.join(testDir, 'data'), { recursive: true });
     fs.mkdirSync(path.join(testDir, 'reports'), { recursive: true });
     fs.mkdirSync(path.join(testDir, 'build'), { recursive: true });
-    
-    // Create baseline.json
-    fs.writeFileSync(path.join(testDir, 'build', 'baseline.json'), JSON.stringify({
-      novel: '测试小说',
-      author: '测试作者',
-      characters: {
-        core: [{ id: 'char_1', name: '主角', importance: '核心' }],
-        important: [],
-        secondary: [],
-        minor: []
-      },
-      factions: [],
-      skills: [],
-      items: [],
-      events: {}
-    }));
+    fs.mkdirSync(path.join(testDir, 'ch_split'), { recursive: true });
+    fs.writeFileSync(path.join(testDir, 'ch_split', 'ch_001.txt'), '主角出场。');
     
     // Create characters.json
     fs.writeFileSync(path.join(testDir, 'data', 'characters.json'), JSON.stringify([
@@ -261,7 +247,7 @@ describe('assess-quality.js', () => {
     ]));
     
     // Create empty arrays for other files
-    for (const file of ['factions.json', 'locations.json', 'skills.json', 'techniques.json', 'items.json', 'dialogues.json']) {
+    for (const file of ['factions.json', 'locations.json', 'skills.json', 'techniques.json', 'items.json', 'dialogues.json', 'chapter_summaries.json']) {
       fs.writeFileSync(path.join(testDir, 'data', file), '[]');
     }
   });
@@ -271,15 +257,19 @@ describe('assess-quality.js', () => {
   });
   
   it('should assess quality and generate reports', () => {
-    const result = runScript('assess-quality.js', [testDir]);
+    const result = runScript('assess-quality.js', [testDir, '--report-only']);
     assert.ok(result.success, `Script failed: ${result.error}`);
-    assert.ok(result.output.includes('Overall Quality Score'), 'Should output quality score');
+    assert.ok(result.output.includes('Completion gate: FAIL'), 'Should output hard-gate status');
     
     // Check reports directory
     const jsonReport = path.join(testDir, 'reports', 'quality_report.json');
     const mdReport = path.join(testDir, 'reports', 'quality_report.md');
     assert.ok(fs.existsSync(jsonReport), 'quality_report.json should exist');
     assert.ok(fs.existsSync(mdReport), 'quality_report.md should exist');
+    const report = JSON.parse(fs.readFileSync(jsonReport, 'utf8'));
+    assert.equal(report.completion_gate_passed, false);
+    assert.ok(report.gates.G1 && report.gates.G5);
+    assert.equal('overall_score' in report, false);
   });
 });
 
@@ -295,16 +285,17 @@ describe('generate-summary.js', () => {
     fs.mkdirSync(path.join(testDir, 'reports'), { recursive: true });
     fs.mkdirSync(path.join(testDir, 'build'), { recursive: true });
     
-    // Create baseline.json
-    fs.writeFileSync(path.join(testDir, 'build', 'baseline.json'), JSON.stringify({
+    // Create source metadata
+    fs.writeFileSync(path.join(testDir, 'build', 'source-index.json'), JSON.stringify({
       novel: '测试小说',
       author: '测试作者'
     }));
     
     // Create quality_report.json
     fs.writeFileSync(path.join(testDir, 'reports', 'quality_report.json'), JSON.stringify({
-      overall_score: 100,
-      metrics: {}
+      completion_gate_passed: false,
+      baseline_mode: 'no_gold',
+      gates: {}
     }));
     
     // Create minimal data files

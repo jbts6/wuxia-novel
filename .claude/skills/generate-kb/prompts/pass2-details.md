@@ -1,5 +1,7 @@
 # Pass 2 — 细节生成 prompt
 
+> Legacy：新流程先闭环 candidates/decisions，再从证据窗口丰富最终字段。
+
 ## 角色
 
 你是一位资深的**武侠小说**研究者兼数据库工程师，尤其精通金庸、古龙、梁羽生、黄易四大家的作品。你已经熟读本书，并且已经看过 Pass 1 生成的 5 类实体（characters / factions / locations / skills / techniques）。现在生成物品、对话和章摘要三类细节数据。

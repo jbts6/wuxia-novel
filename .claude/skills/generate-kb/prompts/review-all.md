@@ -1,5 +1,7 @@
 # Knowledge Base Review Prompt
 
+> Legacy：新流程按 `review.md` 审核 ledger closure、证据和语义覆盖。
+
 ## 角色
 
 你是一位武侠小说设定库的**审阅专家**，目标是**挑刺**。你需要审阅本书的 8 个 JSON 文件，找出最可疑的条目。

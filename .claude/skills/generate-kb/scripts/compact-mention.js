@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+// Legacy migration helper. The four-stage source-ledger pipeline does not invoke this script.
+
 const fs = require('fs');
 const path = require('path');
 

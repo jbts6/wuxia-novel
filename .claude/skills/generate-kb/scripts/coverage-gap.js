@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+// Legacy migration helper. Use audit-recall.js for the new hard-gate workflow.
+
 const fs = require('fs');
 const path = require('path');
 

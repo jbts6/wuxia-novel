@@ -1,5 +1,7 @@
 # Phase 1.6 — 书籍专属 prompt 生成（prompt-craft）
 
+> Legacy：新流程使用三份固定的短 prompt，并以 source ledger 记录覆盖。
+
 ## 角色
 
 你是一位武侠小说研究者兼 **prompt 工程师**。你的任务不是直接生成知识库，而是为后续的 LLM 生成阶段编写**针对本书的专属 prompt**。
