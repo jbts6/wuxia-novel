@@ -1,6 +1,8 @@
 import type { Character, Faction, Location, Skill, Item } from '../types/novel';
 
 const CHINESE_TEXT_PATTERN = /[\u3400-\u9fff\uf900-\ufaff]/u;
+const TECHNICAL_ID_PATTERN = /[A-Za-z_]/u;
+const PREFIXED_CHINESE_NAME_PATTERN = /^(?:char|character|faction|location|loc|skill|technique|tech|item|dialogue|dlg)_([\u3400-\u9fff\uf900-\ufaff][\u3400-\u9fff\uf900-\ufaff0-9·・（）()《》—-]*)$/iu;
 
 export function buildIdMaps(data: {
   characters: Character[];
@@ -21,6 +23,9 @@ export function buildIdMaps(data: {
 export function toChineseDisplayText(value: string | null | undefined): string | null {
   const text = value?.trim();
   if (!text || !CHINESE_TEXT_PATTERN.test(text)) return null;
+  const prefixedName = text.match(PREFIXED_CHINESE_NAME_PATTERN)?.[1];
+  if (prefixedName) return prefixedName;
+  if (TECHNICAL_ID_PATTERN.test(text)) return null;
   return text;
 }
 

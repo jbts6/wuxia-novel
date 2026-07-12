@@ -22,4 +22,10 @@ describe('中文实体名称解析', () => {
     expect(resolveEntityName('段誉', characterMap)).toBe('段誉');
     expect(toChineseDisplayText('char_duan_yu')).toBeNull();
   });
+
+  it('去掉混合实体 ID 的技术前缀', () => {
+    expect(resolveEntityName('char_左子穆', characterMap)).toBe('左子穆');
+    expect(resolveIds(['char_左子穆', 'char_unknown'], characterMap)).toEqual(['左子穆']);
+    expect(toChineseDisplayText('unknown_段誉')).toBeNull();
+  });
 });
