@@ -6,6 +6,7 @@ const path = require('node:path');
 const { auditRecall } = require('./audit-recall');
 const { collectEvidenceIntegrity, collectSemanticCoverage } = require('./lib/audits');
 const { evaluateHardGates } = require('./lib/quality-gates');
+const { buildReviewPacket } = require('./lib/review-readiness');
 const { validateInventory } = require('./validate-inventory');
 
 const DATA_FILES = [
@@ -39,7 +40,7 @@ function assessQuality(novelDir) {
     semantic_coverage: semantic
   });
 
-  return {
+  const report = {
     generated_at: gateReport.generated_at,
     novel: path.basename(novelDir),
     baseline_mode: recall.gold_status,
@@ -47,6 +48,9 @@ function assessQuality(novelDir) {
     gates: gateReport.gates,
     raw_counts: collectRawCounts(novelDir)
   };
+  const packet = buildReviewPacket(novelDir, { qualityReport: report });
+  report.review_readiness = packet.review_readiness;
+  return report;
 }
 
 function reportMarkdown(report) {
@@ -55,6 +59,14 @@ function reportMarkdown(report) {
     '',
     `Completion gate: **${report.completion_gate_passed ? 'PASS' : 'FAIL'}**`,
     `Gold status: \`${report.baseline_mode}\``,
+    `Review readiness: **${report.review_readiness?.status ?? 'blocked'}**`,
+    '',
+    '## Review Readiness',
+    '',
+    `- ${report.review_readiness?.message ?? 'Review readiness was not calculated.'}`,
+    `- Blocking alerts: ${report.review_readiness?.blocking_alert_count ?? 0}`,
+    `- Warnings: ${report.review_readiness?.warning_count ?? 0}`,
+    `- High-risk decisions: ${report.review_readiness?.high_risk_total ?? 0}`,
     '',
     '## Hard Gates',
     ''

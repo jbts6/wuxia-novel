@@ -15,6 +15,8 @@ description: Build or audit a source-grounded knowledge base for a wuxia novel. 
 4. 角色、地点、势力和物品按剧情作用筛选，但每个候选都必须有 keep/merge/redirect/reject decision。
 5. 对话必须覆盖主要事件和核心/重要角色的人物特征。必须保存完整原话、选择理由及可定位的原文上下文。
 6. 不使用可补偿总分。只有 G1-G5 全部通过，才可声明完成。
+7. G1-G5 与人工审核就绪状态分离。数量只能触发低召回报警，不能证明完整；异常必须先由 AI 返工，不能把整本候选账本交给人工兜底。
+8. 默认每本书独立运行和产出审核包。人工可以逐本立即审核，也可以积累五六本后集中审核；批审不改变单本状态和证据链。
 
 ## 执行
 
@@ -25,7 +27,7 @@ description: Build or audit a source-grounded knowledge base for a wuxia novel. 
 3. Reconcile And Enrich
 4. Independent Gap Audit And Gate
 
-处理字段、枚举或中间产物时读取 [schemas.md](schemas.md) 与 [constants.md](constants.md)。人工归并和对话审核时读取 [review.md](review.md)。
+处理字段、枚举或中间产物时读取 [schemas.md](schemas.md) 与 [constants.md](constants.md)。AI 自审、人工审核包和人工动作读取 [review.md](review.md)。
 
 最终保持以下消费接口：
 
@@ -47,11 +49,13 @@ node scripts/validate-inventory.js "$NOVEL"
 node scripts/verify.js "$NOVEL"
 node scripts/cross-validate.js "$NOVEL"
 node scripts/audit-recall.js "$NOVEL"
-node scripts/assess-quality.js "$NOVEL"
+node scripts/generate-review-packet.js "$NOVEL"
 node scripts/generate-summary.js "$NOVEL"
 ```
 
 `reports/quality_report.json` 必须满足 `completion_gate_passed: true`，且 G1-G5 各自为 PASS。缺少 source index、扫描覆盖、ledger、最终 gap round、grand verification、事件对话或人物特征对话时，均不得完成。
+
+完成门禁通过后，`reports/review_packet.json` 的 `review_readiness.status` 还必须为 `ready_for_human_review`，才能交给人工做短审核。状态为 `blocked` 时先修 G1-G5；状态为 `needs_ai_rerun` 时按自动异常扩大召回、复审 reject 或压缩高风险队列。人工只审核最多 10 个高风险裁决和两侧确定性样本，不逐条重做全书抽取。
 
 ## Legacy
 

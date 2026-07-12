@@ -140,6 +140,7 @@ it('passes an end-to-end source-grounded minimal knowledge base', () => {
 
     const report = assessQuality(novelDir);
     assert.equal(report.completion_gate_passed, true);
+    assert.equal(report.review_readiness.status, 'ready_for_human_review');
     assert.ok(Object.values(report.gates).every(gate => gate.passed));
     assert.equal(report.gates.G4.details.category_decisions.skill.kept.length, 1);
 

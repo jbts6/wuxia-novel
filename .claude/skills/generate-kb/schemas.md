@@ -285,11 +285,21 @@
   "final_category": "skill",
   "importance": "important",
   "reason": "原文明确定名的剑法",
-  "final_id": "skill_tang_shi_jian_fa"
+  "final_id": "skill_tang_shi_jian_fa",
+  "ai_review": {
+    "status": "confirmed",
+    "note": "复核原文窗口与同名候选后确认"
+  }
 }
 ```
 
 允许 decision：`keep|merge|redirect|reject`。reject reason 仅可为 `duplicate|generic_unnamed|not_an_entity|not_source_grounded|trivial|non_major`。命名武功/招式不得用 `trivial` 或 `non_major` 删除。
+
+`ai_review` 可选，只在 AI 二次复核高风险决定时写入。其 `status` 必须为：
+
+- `confirmed`：确认原 decision。
+- `revised`：已修改 decision、类别、归并或最终记录。
+- `needs_human`：仍需人工处理的边界争议。
 
 ### events.json 与 semantic-exemptions.json
 
@@ -311,6 +321,20 @@
 ```
 
 最后一轮不得仍有 keep/merge/redirect 的新候选。
+
+## 质量报告与审核包
+
+`reports/quality_report.json` 保留 `completion_gate_passed` 与 G1-G5，并新增独立的 `review_readiness`。不得把低召回报警写成新的 G1-G5，也不得用数量覆盖硬门禁结果。
+
+`reports/review_packet.json` 至少包含：
+
+- `review_readiness.status`：`blocked|needs_ai_rerun|ready_for_human_review`。
+- `source_scale`：章节数、行数、窗口数和 short/medium/long。
+- `category_stats`：各类别候选、保留、拒绝、未决、最终数量和保留率。
+- `plausibility_alerts`：blocking/warning、证据和 AI 下一步。
+- `high_risk_decisions`：最多 10 项；超过上限时状态必须为 `needs_ai_rerun`。
+- `deterministic_samples.retained|rejected`：两侧各最多 3 项，且不得混入未展示的高风险项。
+- `actions`：`accept|rerun_recall|rerun_precision|manual_investigation`。
 
 ## 可选人工金标
 

@@ -17,6 +17,7 @@ const {
   deduplicateCandidateOccurrences,
   parseJsonl,
   validateCandidate,
+  validateDecision,
   validateLedgerClosure
 } = require('../scripts/lib/ledger');
 const { verifyDialogues } = require('../scripts/verify_dialogues');
@@ -233,6 +234,28 @@ describe('candidate and decision ledger', () => {
 
     assert.equal(result.passed, false);
     assert.ok(result.errors.some(error => error.includes('skill_missing')));
+  });
+
+  it('accepts structured AI review status on a decision', () => {
+    const errors = validateDecision({
+      candidate_ids: ['cand_ch001_w001_0002'],
+      decision: 'reject',
+      reason: 'trivial',
+      ai_review: { status: 'confirmed' }
+    });
+
+    assert.deepEqual(errors, []);
+  });
+
+  it('rejects an unknown AI review status', () => {
+    const errors = validateDecision({
+      candidate_ids: ['cand_ch001_w001_0002'],
+      decision: 'reject',
+      reason: 'trivial',
+      ai_review: { status: 'maybe' }
+    });
+
+    assert.ok(errors.some(error => error.includes('ai_review.status')));
   });
 });
 

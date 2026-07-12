@@ -15,6 +15,7 @@ const REJECT_REASONS = new Set([
 ]);
 const MARTIAL_CATEGORIES = new Set(['skill', 'technique']);
 const MARTIAL_IMPORTANCE_REJECTIONS = new Set(['trivial', 'non_major']);
+const AI_REVIEW_STATUSES = new Set(['confirmed', 'revised', 'needs_human']);
 
 function parseJsonl(content, label = 'JSONL') {
   return String(content ?? '').split(/\r?\n/).flatMap((line, index) => {
@@ -118,6 +119,14 @@ function validateDecision(decision) {
       errors.push(`invalid final_category: ${decision.final_category}`);
     }
   }
+  if (decision.ai_review !== undefined) {
+    if (!decision.ai_review || typeof decision.ai_review !== 'object' ||
+        Array.isArray(decision.ai_review)) {
+      errors.push('ai_review must be an object when provided');
+    } else if (!AI_REVIEW_STATUSES.has(decision.ai_review.status)) {
+      errors.push(`invalid ai_review.status: ${decision.ai_review.status}`);
+    }
+  }
   return errors;
 }
 
@@ -170,6 +179,7 @@ function validateLedgerClosure(candidates, decisions, options = {}) {
 }
 
 module.exports = {
+  AI_REVIEW_STATUSES,
   CATEGORIES,
   DECISIONS,
   DISCOVERY_PASSES,

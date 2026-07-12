@@ -268,6 +268,7 @@ describe('assess-quality.js', () => {
     assert.ok(fs.existsSync(mdReport), 'quality_report.md should exist');
     const report = JSON.parse(fs.readFileSync(jsonReport, 'utf8'));
     assert.equal(report.completion_gate_passed, false);
+    assert.equal(report.review_readiness.status, 'blocked');
     assert.ok(report.gates.G1 && report.gates.G5);
     assert.equal('overall_score' in report, false);
   });

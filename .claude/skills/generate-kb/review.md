@@ -2,7 +2,7 @@
 
 ## 候选审核
 
-逐条检查 `build/candidates.jsonl`，不得只抽样：
+AI 在归并和自审阶段逐条检查 `build/candidates.jsonl`，不得只抽样：
 
 - source_ref 的完整引文是否在声明章节和行范围命中。
 - 名称是否为原文明确定名，而非模型概括。
@@ -45,3 +45,35 @@
 - 人工 gold 只有 `human_curated`、source hash 一致且每项有完整原文证据时有效。
 
 旧 baseline、overall score、类别最低数量只能作为线索，不是完整性证明。
+
+## AI 自审
+
+G1-G5 通过后运行 `generate-review-packet.js`。若状态为 `needs_ai_rerun`，AI 必须自行处理，不得直接扩大人工任务：
+
+- 规模过低：回到原文窗口扩大 named-inventory 或 gap-audit 召回。
+- 保留率低于 10%：重点复审 skill、technique、item 的 reject；类别错误改为 redirect，重复项改为 merge。
+- 正式库噪音偏高：收紧 precision，但不能用重要性删除具名武学。
+- 高风险项超过 10：逐项复核并在 decision 增加 `ai_review.status`：
+  - `confirmed`：再次核对证据后确认原 decision。
+  - `revised`：已经修改 decision、类别、归并或最终记录。
+  - `needs_human`：AI 无法消除的真实边界争议。
+
+每次返工后重新生成质量报告和审核包。只有状态变为 `ready_for_human_review` 才通知人工。
+
+## 紧凑人工审核
+
+人工不阅读全量 candidates 或 decisions，只审核 `reports/review_packet.md`：
+
+- 各类别候选数、最终数和保留率。
+- 自动异常及 AI 已采取的返工方向。
+- 最多 10 个高风险裁决。
+- 保留侧 3 个、拒绝侧 3 个确定性样本。
+
+人工选择：
+
+- `accept`：本书通过。
+- `rerun_recall`：明显漏项，要求扩大召回。
+- `rerun_precision`：杂物、泛称或非实体过多，要求收紧筛选。
+- `manual_investigation`：只定点检查少量分类、归并或证据争议。
+
+可以每完成一本立即审核，也可以积累五六本后集中审核。每本审核包独立，不能用一书的通过状态替代另一书。

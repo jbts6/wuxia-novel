@@ -80,7 +80,7 @@ node "$SKILL/scripts/validate-inventory.js" "$NOVEL"
 node "$SKILL/scripts/verify.js" "$NOVEL"
 node "$SKILL/scripts/cross-validate.js" "$NOVEL"
 node "$SKILL/scripts/audit-recall.js" "$NOVEL"
-node "$SKILL/scripts/assess-quality.js" "$NOVEL"
+node "$SKILL/scripts/generate-review-packet.js" "$NOVEL"
 node "$SKILL/scripts/generate-summary.js" "$NOVEL"
 ```
 
@@ -91,6 +91,27 @@ node "$SKILL/scripts/generate-summary.js" "$NOVEL"
 - G3 Evidence Integrity：正式实体与章节摘要有 grounded ref，描述字段有独立证据，对话及上下文全文 100% 命中，grand weak/unverified 为 0。
 - G4 Recall Evidence：最终 gap round 无有效新增，词法信号有解释，命名武学闭环，可选人工 gold 命中。
 - G5 Semantic Coverage：主要事件和核心/重要角色对话覆盖，cross-reference/schema 无阻塞错误。
+
+### AI 自筛与审核就绪
+
+`generate-review-packet.js` 同时更新 `quality_report.json`、`review_packet.json` 和 `review_packet.md`。G1-G5 的 `completion_gate_passed` 语义保持不变，人工审核就绪另用三态表示：
+
+- `blocked`：G1-G5 至少一项失败，先修硬门禁。
+- `needs_ai_rerun`：G1-G5 已通过，但数量合理性、候选保留率或高风险队列异常，AI 必须先返工。
+- `ready_for_human_review`：AI 自筛结束，可以交付紧凑人工审核包。
+
+长篇定义为章节数不少于 30，或原文不少于 12000 行。以下是返工报警，不是完整性证明：
+
+- 最终 skill + technique 少于 10：阻止人工终审，扩大武学召回；10-19 给 warning。
+- 最终 item 少于 5：阻止人工终审，重扫剧情物品；5-7 给 warning。
+- skill + technique 或 item 候选不少于 20，但保留率低于 10%：阻止人工终审，复审 reject，防止过度删除。
+- 高风险裁决超过 10 个：先由 AI 逐条复核，在 decision 的 `ai_review.status` 写 `confirmed|revised|needs_human`，直到人工队列压缩到 10 个以内。
+
+AI 根据异常类型自动回到 Stage 2 或 Stage 3，重跑校验和审核包。不得为了越过阈值凭空补实体；所有新增仍需原文候选、decision 和证据闭环。
+
+### 单本执行与集中批审
+
+每本书独立保存 source hash、质量报告和审核包，不建立跨书共享完成状态。AI 可以连续跑五六本；人工有空时只需依次查看各书 `review_packet.md` 并选择 `accept`、`rerun_recall`、`rerun_precision` 或 `manual_investigation`。任何一本要求重跑，不影响同批其他书。
 
 ## 旧知识库迁移
 
