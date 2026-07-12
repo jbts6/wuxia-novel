@@ -73,3 +73,36 @@
 ### Next Steps
 
 - None - task complete
+
+
+## Session 3: 重构原文驱动的武侠知识库流水线
+
+**Date**: 2026-07-12
+**Task**: 重构原文驱动的武侠知识库流水线
+**Branch**: `main`
+
+### Summary
+
+实现 source-first 候选账本、完整原文证据校验、独立 G1-G5 门禁和历史低召回回归测试；旧脚本全部保留为 legacy。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `f3e29da` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
