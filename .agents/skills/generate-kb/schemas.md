@@ -88,9 +88,7 @@
 
 ## techniques
 
-独立的招式条目，与 `skills.techniques` 互补：
-- 若某招式只出现在某 skill 下，写到 `skills.techniques` 即可，不必单独列。
-- 若某招式跨多个 skill 或被多人使用，单独列在 techniques.json。
+所有原文明确定名且可定位的招式都必须作为独立条目写入 `techniques.json`。`skills.techniques` 可同时引用它们，但不能替代独立条目。冷门、低频或威力弱只影响 `importance`，不得删除。
 
 必填：`id`、`name`、`type`、`description`、`source_skill`（可为 null）、`source_refs`。
 
@@ -168,6 +166,7 @@
 
 ```json
 {
+  "id": "dialogue_<id>",
   "speaker": "char_<pinyin> 或 null",
   "speaker_name": "中文名或称呼",
   "listener": "char_<pinyin> 或 null",
@@ -175,11 +174,18 @@
   "tone": "<dialogue_tone>",
   "chapter": 1,
   "line_start": 42,
-  "line_end": 45
+  "line_end": 45,
+  "event_id": "event_<id>（event/both 必填）",
+  "selection_type": "event|persona|both",
+  "selection_reason": "为何是关键事件/人物特征对话",
+  "trait_tags": ["朴直", "机敏"],
+  "context": "对话发生时的完整原文语境",
+  "context_line_start": 40,
+  "context_line_end": 47
 }
 ```
 
-**硬性约束**：每章挑 5-15 条最能体现角色性格/关系转折的代表性台词。必须原文，不重写。
+**硬性约束**：每个主要事件至少一条关键对话或结构化豁免；每个核心/重要角色至少一条人物特征对话或结构化豁免。必须是完整原文，不重写，不用固定的“每章 N 条”代替语义覆盖。
 
 ## chapter_summaries
 
@@ -189,6 +195,129 @@
   "title": "第X回 标题",
   "summary": "150-250字，覆盖主要情节推进、人物变化、关系转折",
   "key_events": ["事件1", "事件2"],
-  "key_characters": ["char_<pinyin>"]
+  "key_characters": ["char_<pinyin>"],
+  "source_refs": [{"chapter": 1, "line_start": 1, "line_end": 80, "text": "完整原文证据"}],
+  "field_source_refs": {
+    "summary": [{"chapter": 1, "line_start": 1, "line_end": 80, "text": "完整原文证据"}],
+    "key_events": [{"chapter": 1, "line_start": 1, "line_end": 80, "text": "完整原文证据"}]
+  }
 }
 ```
+
+## 描述字段证据
+
+最终实体保持原有 `source_refs` 字段。只要写入 personality、description、effects、mechanism、function、significance 等解释性字段，还必须增加兼容的可选 `field_source_refs` 映射：
+
+```json
+{
+  "description": "根据原文归纳的描述",
+  "field_source_refs": {
+    "description": [
+      {"chapter": 1, "line_start": 42, "line_end": 45, "text": "支持该描述的完整原文"}
+    ]
+  }
+}
+```
+
+`field_source_refs` 是新增可选字段，旧消费者可忽略；但生成了受检描述字段却没有可命中的对应证据时，G3 失败。
+
+## 中间产物契约
+
+中间产物全部位于 `build/`。它们用于证明来源覆盖与候选闭环，不改变上面八个最终 JSON 的消费接口。
+
+### source-index.json
+
+必填：`schema_version`、`novel`、`source_hash`、`chapter_corpus_hash`、`source_alignment_valid`、`window_lines`、`overlap_lines`、`chapters`、`windows`。
+
+每个 window：
+
+```json
+{
+  "id": "ch001_w003",
+  "chapter": 1,
+  "line_start": 201,
+  "line_end": 320,
+  "text": "带稳定章节内行号的原文窗口"
+}
+```
+
+### scan-manifest.json
+
+```json
+{
+  "source_hash": "sha256",
+  "chapter_corpus_hash": "sha256",
+  "required_window_ids": ["ch001_w001"],
+  "passes": {
+    "named-inventory": {"completed_window_ids": []},
+    "event-dialogue": {"completed_window_ids": []},
+    "gap-audit": {"completed_window_ids": []}
+  },
+  "chapter_summary_chapters": []
+}
+```
+
+### candidates.jsonl
+
+每行一个对象：
+
+```json
+{
+  "candidate_id": "cand_ch001_w003_0001",
+  "category_hint": "skill",
+  "name": "躺尸剑法",
+  "chapter": 1,
+  "source_ref": {"line_start": 120, "line_end": 123, "text": "原文完整节选"},
+  "discovery_pass": "named-inventory",
+  "window_id": "ch001_w003"
+}
+```
+
+允许类别：`character|faction|location|skill|technique|item|event|dialogue|chapter_summary`。
+
+### decisions.jsonl
+
+```json
+{
+  "candidate_ids": ["cand_ch001_w003_0001"],
+  "decision": "keep",
+  "canonical_name": "躺尸剑法",
+  "final_category": "skill",
+  "importance": "important",
+  "reason": "原文明确定名的剑法",
+  "final_id": "skill_tang_shi_jian_fa"
+}
+```
+
+允许 decision：`keep|merge|redirect|reject`。reject reason 仅可为 `duplicate|generic_unnamed|not_an_entity|not_source_grounded|trivial|non_major`。命名武功/招式不得用 `trivial` 或 `non_major` 删除。
+
+### events.json 与 semantic-exemptions.json
+
+主要事件作为中间表保存在 `build/events.json`，至少包含 `id`、`name`、`importance`、`source_refs`、参与角色，以及 `dialogue_ids` 或结构化豁免。它不新增最终知识库消费接口。
+
+无法找到合适原话时，`build/semantic-exemptions.json` 可记录：
+
+```json
+{
+  "main_events": [{"id": "event_x", "reason": "原文无直接对话"}],
+  "personas": [{"id": "char_x", "reason": "该角色无直接发言"}]
+}
+```
+
+### gap-audit.json
+
+```json
+{"rounds":[{"round":1,"completed_window_ids":["ch001_w001"],"new_candidate_ids":[]}]}
+```
+
+最后一轮不得仍有 keep/merge/redirect 的新候选。
+
+## 可选人工金标
+
+仅识别 `audit/gold.json`，且必须同时满足：
+
+- `provenance` 为 `human_curated`。
+- `source_hash` 与当前原文 SHA-256 一致。
+- `must_include` / `must_exclude` 每项均有完整、可命中的原文证据位置。
+
+LLM 自动生成的 baseline 不参与召回率或完成门禁。

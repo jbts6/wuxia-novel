@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+// Legacy migration helper. LLM-generated baselines do not participate in completion gates.
+
 const fs = require('fs');
 const path = require('path');
 

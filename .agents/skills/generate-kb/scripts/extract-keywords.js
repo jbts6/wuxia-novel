@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+// Legacy migration helper. New candidates must be discovered from source windows.
+
 /**
  * extract-keywords.js
  * 为每本小说提取专属关键词字典，供 locate.js 使用

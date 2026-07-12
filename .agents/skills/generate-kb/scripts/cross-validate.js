@@ -539,7 +539,9 @@ const report = {
 };
 
 const reportPath = path.join(novelDir, 'reports', 'cross_validation_report.json');
+fs.mkdirSync(path.dirname(reportPath), { recursive: true });
 fs.writeFileSync(reportPath, JSON.stringify(report, null, 2), 'utf8');
+fs.writeFileSync(path.join(novelDir, 'cross_validation_report.json'), JSON.stringify(report, null, 2), 'utf8');
 console.log(`\nFull report written to ${reportPath}`);
 
 // Exit with error if there are errors

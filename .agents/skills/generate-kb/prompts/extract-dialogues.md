@@ -1,5 +1,7 @@
 # Dialogue Extraction Prompt
 
+> Legacy：仅用于旧知识库迁移。新流程使用 `event-dialogue.md`，不得用固定每章条数作为完成门禁。
+
 你是一个武侠小说对话提取专家。你的任务是从原文中提取所有对话，并通过上下文推断说话者。
 
 ## 输入
