@@ -37,4 +37,5 @@ window.getComputedStyle = (element: Element) => originalGetComputedStyle(element
 afterEach(() => {
   cleanup();
   localStorage.clear();
+  sessionStorage.clear();
 });

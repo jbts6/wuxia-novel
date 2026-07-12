@@ -7,6 +7,7 @@ import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
 import { resolveId } from '../lib/resolveId';
+import { useEntityDetailParam } from '../hooks/useEntityDetailParam';
 
 export default function Characters() {
   const { characters, factionMap, characterMap, detailPanel, showDetail, hideDetail } = useNovelStore();
@@ -14,6 +15,7 @@ export default function Characters() {
   const [roleFilter, setRoleFilter] = useState<string[]>([]);
   const [factionFilter, setFactionFilter] = useState<string[]>([]);
   const [rankFilter, setRankFilter] = useState<string[]>([]);
+  useEntityDetailParam('character', characters);
 
   const roleOptions = useMemo(() => [
     { value: '核心', label: '核心' },

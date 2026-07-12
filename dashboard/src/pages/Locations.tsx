@@ -6,10 +6,12 @@ import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
 import { resolveId } from '../lib/resolveId';
+import { useEntityDetailParam } from '../hooks/useEntityDetailParam';
 
 export default function Locations() {
   const { locations, factionMap, characterMap, detailPanel, showDetail, hideDetail } = useNovelStore();
   const [search, setSearch] = useState('');
+  useEntityDetailParam('location', locations);
 
   const filtered = useMemo(() => {
     return locations.filter((l) => !search || l.name.includes(search));

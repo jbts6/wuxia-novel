@@ -1,4 +1,11 @@
-import type { AnnotatedLibraryRecord, LibraryAnnotation, LibraryAnnotationMap, LibraryRecord } from '../types/library';
+import type {
+  AnnotatedLibraryRecord,
+  LibraryAnnotation,
+  LibraryAnnotationMap,
+  LibraryEntity,
+  LibraryEntityKind,
+  LibraryRecord,
+} from '../types/library';
 
 export const LIBRARY_ANNOTATIONS_STORAGE_KEY = 'novel-dashboard-library-annotations';
 
@@ -35,10 +42,10 @@ export function updateLibraryAnnotation(
   };
 }
 
-export function annotateRecords<T>(
-  records: LibraryRecord<T>[],
+export function annotateRecords<T extends LibraryEntity, K extends LibraryEntityKind>(
+  records: LibraryRecord<T, K>[],
   annotations: LibraryAnnotationMap,
-): AnnotatedLibraryRecord<T>[] {
+): AnnotatedLibraryRecord<T, K>[] {
   return records.map((record) => ({
     ...record,
     annotation: annotations[record.key] ?? null,

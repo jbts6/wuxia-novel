@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { fetchLibraryStatus, fetchRawBookData } from '../lib/libraryApi';
+import { loadGlobalLibraryRecords } from '../lib/globalLibrary';
 import { normalizeNovelData } from '../lib/normalizeNovelData';
-import type { LibraryBookStatus, LibraryStatusResponse } from '../types/library';
+import type { AnyLibraryRecord, LibraryBookStatus, LibraryLoadWarning, LibraryStatusResponse } from '../types/library';
 import type { NovelData } from '../types/novel';
 
 interface LibraryStore {
@@ -13,14 +14,22 @@ interface LibraryStore {
   bookCache: Record<string, NovelData>;
   bookLoading: Record<string, boolean>;
   bookErrors: Record<string, string | null>;
+  globalRecords: AnyLibraryRecord[];
+  globalLoading: boolean;
+  globalError: string | null;
+  globalWarnings: LibraryLoadWarning[];
+  globalLoadProgress: { completed: number; total: number };
+  globalLoadedBookPaths: string[];
   refreshStatus: () => Promise<LibraryStatusResponse>;
   ensureStatus: () => Promise<LibraryStatusResponse>;
   loadBookData: (bookPath: string) => Promise<NovelData>;
+  loadGlobalLibrary: () => Promise<AnyLibraryRecord[]>;
   setCurrentBook: (bookPath: string | null) => void;
 }
 
 let statusRequest: Promise<LibraryStatusResponse> | null = null;
 const bookRequests = new Map<string, Promise<NovelData>>();
+let globalLibraryRequest: Promise<AnyLibraryRecord[]> | null = null;
 
 function messageFrom(error: unknown): string {
   return error instanceof Error ? error.message : String(error);
@@ -35,6 +44,12 @@ export const useLibraryStore = create<LibraryStore>((set, get) => ({
   bookCache: {},
   bookLoading: {},
   bookErrors: {},
+  globalRecords: [],
+  globalLoading: false,
+  globalError: null,
+  globalWarnings: [],
+  globalLoadProgress: { completed: 0, total: 0 },
+  globalLoadedBookPaths: [],
 
   refreshStatus: async () => {
     if (statusRequest) return statusRequest;
@@ -92,6 +107,49 @@ export const useLibraryStore = create<LibraryStore>((set, get) => ({
 
     bookRequests.set(bookPath, request);
     return request;
+  },
+
+  loadGlobalLibrary: async () => {
+    if (globalLibraryRequest) return globalLibraryRequest;
+
+    globalLibraryRequest = (async () => {
+      const status = await get().ensureStatus();
+      const browseableBooks = status.books.filter((book) => book.browseable);
+      const expectedPaths = browseableBooks.map((book) => book.path).sort();
+      const loadedPaths = [...get().globalLoadedBookPaths].sort();
+      if (expectedPaths.length === loadedPaths.length && expectedPaths.every((path, index) => path === loadedPaths[index])) {
+        return get().globalRecords;
+      }
+
+      set({
+        globalLoading: true,
+        globalError: null,
+        globalWarnings: [],
+        globalLoadProgress: { completed: 0, total: browseableBooks.length },
+      });
+
+      const result = await loadGlobalLibraryRecords(browseableBooks, get().loadBookData, {
+        concurrency: 4,
+        onProgress: (completed, total) => set({ globalLoadProgress: { completed, total } }),
+      });
+
+      set({
+        globalRecords: result.records,
+        globalLoading: false,
+        globalWarnings: result.warnings,
+        globalLoadedBookPaths: result.loadedBookPaths,
+      });
+      return result.records;
+    })()
+      .catch((error: unknown) => {
+        set({ globalLoading: false, globalError: messageFrom(error) });
+        throw error;
+      })
+      .finally(() => {
+        globalLibraryRequest = null;
+      });
+
+    return globalLibraryRequest;
   },
 
   setCurrentBook: (bookPath) => set({ currentBook: bookPath }),

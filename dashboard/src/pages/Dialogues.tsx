@@ -6,12 +6,16 @@ import { MultiSearchableSelect } from '../components/ui/multi-searchable-select'
 import { Badge } from '../components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Separator } from '../components/ui/separator';
+import { PaginationControls } from '../components/common/PaginationControls';
+
+const PAGE_SIZE = 100;
 
 export default function Dialogues() {
   const { dialogues } = useNovelStore();
   const [search, setSearch] = useState('');
   const [chapterFilter, setChapterFilter] = useState<string[]>([]);
   const [toneFilter, setToneFilter] = useState<string[]>([]);
+  const [page, setPage] = useState(1);
 
   const chapterOptions = useMemo(() => {
     const set = new Set(dialogues.map((d) => d.chapter));
@@ -38,31 +42,41 @@ export default function Dialogues() {
     });
   }, [dialogues, search, chapterFilter, toneFilter]);
 
+  const totalPages = Math.max(1, Math.ceil(filteredDialogues.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const visibleDialogues = filteredDialogues.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
   const chapterGroups = useMemo(() => {
-    const groups = new Map<number, typeof filteredDialogues>();
-    for (const d of filteredDialogues) {
+    const groups = new Map<number, typeof visibleDialogues>();
+    for (const d of visibleDialogues) {
       const existing = groups.get(d.chapter) || [];
       existing.push(d);
       groups.set(d.chapter, existing);
     }
     return Array.from(groups.entries()).sort(([a], [b]) => a - b);
-  }, [filteredDialogues]);
+  }, [visibleDialogues]);
 
   return (
     <div>
-      <PageHeader title="对话集" description={`共 ${filteredDialogues.length} 条对话，${chapterGroups.length} 章`}>
+      <PageHeader title="对话集" description={`共 ${filteredDialogues.length} 条对话，当前第 ${currentPage}/${totalPages} 页`}>
         <div className="flex gap-2">
           <Input
             placeholder="搜索说话者/内容..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setPage(1);
+            }}
             className="w-48"
           />
           <MultiSearchableSelect
             className="w-48"
             options={chapterOptions}
             value={chapterFilter}
-            onChange={setChapterFilter}
+            onChange={(value) => {
+              setChapterFilter(value);
+              setPage(1);
+            }}
             placeholder="章节"
             searchPlaceholder="搜索章节..."
             maxDisplay={2}
@@ -71,7 +85,10 @@ export default function Dialogues() {
             className="w-48"
             options={toneOptions}
             value={toneFilter}
-            onChange={setToneFilter}
+            onChange={(value) => {
+              setToneFilter(value);
+              setPage(1);
+            }}
             placeholder="语气"
             searchPlaceholder="搜索语气..."
             maxDisplay={2}
@@ -93,7 +110,7 @@ export default function Dialogues() {
             <CardContent className="pt-0">
               <div className="space-y-3">
                 {dialogues.map((dialogue, index) => (
-                  <div key={`${dialogue.line_start}-${index}`}>
+                  <div key={`${dialogue.line_start}-${index}`} data-dialogue-row>
                     {index > 0 && <Separator className="mb-3" />}
                     <div>
                       <div className="flex items-center gap-2 mb-1">
@@ -117,6 +134,16 @@ export default function Dialogues() {
             </CardContent>
           </Card>
         ))}
+      </div>
+
+      <div className="mt-4 overflow-hidden rounded-md border bg-card">
+        <PaginationControls
+          page={currentPage}
+          pageSize={PAGE_SIZE}
+          totalItems={filteredDialogues.length}
+          itemLabel="条对话"
+          onPageChange={setPage}
+        />
       </div>
     </div>
   );

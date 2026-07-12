@@ -38,8 +38,8 @@ test('validates the read-only library workbench flow', async ({ page }) => {
   await expect(page.getByRole('button', { name: new RegExp(`${libraryStatus.summary.completed} 已完成`) })).toBeVisible();
   await expect(page.getByRole('columnheader', { name: '知识条目' })).toBeVisible();
 
-  const firstRowCells = page.locator('tbody tr').first().locator('td');
-  const entityLayout = await firstRowCells.nth(2).locator('span').evaluate((element) => {
+  const entitySummary = page.locator('tbody td:nth-child(3) span[title^="角色 "]').first();
+  const entityLayout = await entitySummary.evaluate((element) => {
     const entityRect = element.getBoundingClientRect();
     const dataCellRect = element.closest('td')?.nextElementSibling?.getBoundingClientRect();
     return {

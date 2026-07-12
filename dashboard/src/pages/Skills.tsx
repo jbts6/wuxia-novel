@@ -7,11 +7,13 @@ import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
 import { resolveId } from '../lib/resolveId';
+import { useEntityDetailParam } from '../hooks/useEntityDetailParam';
 
 export default function Skills() {
   const { skills, factionMap, characterMap, detailPanel, showDetail, hideDetail } = useNovelStore();
   const [search, setSearch] = useState('');
   const [typeFilter, setTypeFilter] = useState<string[]>([]);
+  useEntityDetailParam('skill', skills);
 
   const typeOptions = useMemo(() => {
     const set = new Set(skills.map((s) => s.type).filter(Boolean));

@@ -1,13 +1,19 @@
-import { Link } from 'react-router-dom';
-import { BookOpenText, LibraryBig } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { ArrowLeft, BookOpenText, LibraryBig } from 'lucide-react';
 import { useLibraryStore } from '../../stores/useLibraryStore';
 import { ThemeToggle } from '../common/ThemeToggle';
 
 export function TopNav() {
+  const location = useLocation();
   const currentBookPath = useLibraryStore((state) => state.currentBook);
   const currentBook = useLibraryStore((state) =>
     state.books.find((book) => book.path === currentBookPath),
   );
+  const libraryReturnTo =
+    typeof location.state === 'object' && location.state !== null && 'libraryReturnTo' in location.state && typeof location.state.libraryReturnTo === 'string'
+      ? location.state.libraryReturnTo
+      : '/browse';
+  const returningToSearch = libraryReturnTo !== '/browse';
 
   return (
     <header className="flex h-14 items-center justify-between border-b bg-card px-6">
@@ -19,9 +25,9 @@ export function TopNav() {
           <LibraryBig className="h-4 w-4" />
           知识管理
         </Link>
-        <Link to="/browse" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
-          <BookOpenText className="h-4 w-4" />
-          知识浏览
+        <Link to={libraryReturnTo} className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+          {returningToSearch ? <ArrowLeft className="h-4 w-4" /> : <BookOpenText className="h-4 w-4" />}
+          {returningToSearch ? '返回全库搜索' : '知识浏览'}
         </Link>
         {currentBook && (
           <>

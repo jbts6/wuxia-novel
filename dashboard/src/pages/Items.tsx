@@ -7,6 +7,7 @@ import { Badge } from '../components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../components/ui/sheet';
 import { Separator } from '../components/ui/separator';
 import { resolveId } from '../lib/resolveId';
+import { useEntityDetailParam } from '../hooks/useEntityDetailParam';
 
 export default function Items() {
   const { items, characterMap, detailPanel, showDetail, hideDetail } = useNovelStore();
@@ -14,6 +15,7 @@ export default function Items() {
   const [typeFilter, setTypeFilter] = useState<string[]>([]);
   const [tagFilter, setTagFilter] = useState<string[]>([]);
   const [rarityFilter, setRarityFilter] = useState<string[]>([]);
+  useEntityDetailParam('item', items);
 
   const typeOptions = useMemo(() => {
     const set = new Set(items.map((i) => i.type).filter(Boolean));

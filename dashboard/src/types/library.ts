@@ -1,3 +1,5 @@
+import type { Character, Faction, Item, Location, Skill, SourceRef } from './novel';
+
 export const DATA_FILE_NAMES = {
   characters: 'characters.json',
   factions: 'factions.json',
@@ -103,8 +105,10 @@ export interface LibraryStatusResponse {
 
 export type RawNovelData = Record<DataFileKey, unknown[]>;
 
-export type LibraryEntityKind = 'skill' | 'character' | 'faction' | 'item';
+export const LIBRARY_ENTITY_KINDS = ['character', 'skill', 'item', 'faction', 'location'] as const;
+export type LibraryEntityKind = (typeof LIBRARY_ENTITY_KINDS)[number];
 export type LibraryMaterialType = 'all' | LibraryEntityKind;
+export type LibraryEntity = Character | Skill | Item | Faction | Location;
 
 export interface LibrarySource {
   author: string;
@@ -112,23 +116,39 @@ export interface LibrarySource {
   bookPath: string;
 }
 
-export interface LibraryRecord<T> {
+export interface LibraryRecord<
+  T extends LibraryEntity = LibraryEntity,
+  K extends LibraryEntityKind = LibraryEntityKind,
+> {
   key: string;
-  kind: LibraryEntityKind;
+  kind: K;
   source: LibrarySource;
   entity: T;
+  name: string;
+  summary: string;
+  facet: string;
+  searchText: string;
+  evidence: SourceRef[];
 }
 
-export type LibrarySkillRecord = LibraryRecord<Skill>;
-export type LibraryCharacterRecord = LibraryRecord<Character>;
-export type LibraryFactionRecord = LibraryRecord<Faction>;
-export type LibraryItemRecord = LibraryRecord<Item>;
+export type LibrarySkillRecord = LibraryRecord<Skill, 'skill'>;
+export type LibraryCharacterRecord = LibraryRecord<Character, 'character'>;
+export type LibraryFactionRecord = LibraryRecord<Faction, 'faction'>;
+export type LibraryItemRecord = LibraryRecord<Item, 'item'>;
+export type LibraryLocationRecord = LibraryRecord<Location, 'location'>;
+export type AnyLibraryRecord =
+  | LibrarySkillRecord
+  | LibraryCharacterRecord
+  | LibraryFactionRecord
+  | LibraryItemRecord
+  | LibraryLocationRecord;
 
 export interface LibraryCollections {
   skills: LibrarySkillRecord[];
   characters: LibraryCharacterRecord[];
   factions: LibraryFactionRecord[];
   items: LibraryItemRecord[];
+  locations: LibraryLocationRecord[];
 }
 
 export interface LibraryLoadWarning {
@@ -170,11 +190,14 @@ export interface LibraryAnnotation {
 
 export type LibraryAnnotationMap = Record<string, LibraryAnnotation>;
 
-export interface AnnotatedLibraryRecord<T> extends LibraryRecord<T> {
+export interface AnnotatedLibraryRecord<
+  T extends LibraryEntity,
+  K extends LibraryEntityKind = LibraryEntityKind,
+> extends LibraryRecord<T, K> {
   annotation: LibraryAnnotation | null;
 }
 
-export type LibrarySection = 'overview' | 'skills' | 'characters' | 'factions' | 'items';
+export type LibrarySection = 'overview' | 'skills' | 'characters' | 'factions' | 'items' | 'locations';
 
 export interface CharacterAppearance {
   source: LibrarySource;
@@ -198,4 +221,3 @@ export interface MergedCharacterRecord {
   appearances: CharacterAppearance[];
   primary: CharacterAppearance;
 }
-import type { Character, Faction, Item, Skill } from './novel';
