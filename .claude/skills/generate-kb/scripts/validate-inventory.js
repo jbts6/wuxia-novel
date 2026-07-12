@@ -9,12 +9,23 @@ const {
   matchCompleteCitation,
   splitLines
 } = require('./lib/source');
+const { expectedIdFormat, isValidId } = require('./lib/id-contract');
 const { readJsonl, validateLedgerClosure } = require('./lib/ledger');
 
 const FINAL_FILES = [
   'characters.json', 'factions.json', 'locations.json', 'skills.json',
   'techniques.json', 'items.json', 'dialogues.json', 'chapter_summaries.json'
 ];
+
+const FINAL_FILE_CATEGORIES = {
+  'characters.json': 'character',
+  'factions.json': 'faction',
+  'locations.json': 'location',
+  'skills.json': 'skill',
+  'techniques.json': 'technique',
+  'items.json': 'item',
+  'dialogues.json': 'dialogue'
+};
 
 function loadJson(filename, fallback = null) {
   return fs.existsSync(filename) ? JSON.parse(fs.readFileSync(filename, 'utf8')) : fallback;
@@ -24,12 +35,188 @@ function collectFinalIds(novelDir) {
   const ids = new Set();
   for (const filename of FINAL_FILES) {
     const records = loadJson(path.join(novelDir, 'data', filename), []);
-    for (const record of records) if (record?.id) ids.add(record.id);
+    const category = FINAL_FILE_CATEGORIES[filename];
+    if (!category || !Array.isArray(records)) continue;
+    for (const record of records) {
+      if (isValidId(record?.id, category)) ids.add(record.id);
+    }
   }
-  for (const event of loadJson(path.join(novelDir, 'build', 'events.json'), [])) {
-    if (event?.id) ids.add(event.id);
+  const events = loadJson(path.join(novelDir, 'build', 'events.json'), []);
+  for (const event of Array.isArray(events) ? events : []) {
+    if (isValidId(event?.id, 'event')) ids.add(event.id);
   }
   return ids;
+}
+
+function validateId(value, category, label, errors) {
+  if (!isValidId(value, category)) {
+    errors.push(
+      `${label}: invalid ${category} ID ${JSON.stringify(value)}; ` +
+      `expected ${expectedIdFormat(category)}`
+    );
+    return false;
+  }
+  return true;
+}
+
+function validateSourceRefs(record, label, errors) {
+  if (!Array.isArray(record?.source_refs) || record.source_refs.length === 0) {
+    errors.push(`${label}.source_refs must be a non-empty array`);
+    return;
+  }
+  for (const [index, ref] of record.source_refs.entries()) {
+    const refLabel = `${label}.source_refs[${index}]`;
+    if (!ref || typeof ref !== 'object' || Array.isArray(ref)) {
+      errors.push(`${refLabel} must be an object`);
+      continue;
+    }
+    if (!Number.isInteger(ref.chapter) || ref.chapter < 1 ||
+        !Number.isInteger(ref.line_start) || ref.line_start < 1 ||
+        !Number.isInteger(ref.line_end) || ref.line_end < ref.line_start ||
+        !String(ref.text ?? '').trim()) {
+      errors.push(`${refLabel} requires valid chapter, line_start, line_end, and text`);
+    }
+  }
+}
+
+function validateEventGraph(novelDir) {
+  const errors = [];
+  const eventsPath = path.join(novelDir, 'build', 'events.json');
+  const exemptionsPath = path.join(novelDir, 'build', 'semantic-exemptions.json');
+  const rawEvents = loadJson(eventsPath, null);
+  const events = Array.isArray(rawEvents) ? rawEvents : [];
+  if (rawEvents === null) errors.push('missing build/events.json');
+  else if (!Array.isArray(rawEvents)) errors.push('build/events.json must contain an array');
+
+  const characters = loadJson(path.join(novelDir, 'data', 'characters.json'), []);
+  const dialogues = loadJson(path.join(novelDir, 'data', 'dialogues.json'), []);
+  const characterIds = new Set((Array.isArray(characters) ? characters : [])
+    .map(record => record?.id)
+    .filter(id => isValidId(id, 'character')));
+  const dialogueIds = new Set((Array.isArray(dialogues) ? dialogues : [])
+    .map(record => record?.id)
+    .filter(id => isValidId(id, 'dialogue')));
+  const dialogueById = new Map((Array.isArray(dialogues) ? dialogues : [])
+    .filter(record => isValidId(record?.id, 'dialogue'))
+    .map(record => [record.id, record]));
+  const eventIds = new Set();
+
+  for (const [index, event] of events.entries()) {
+    const label = `events.json/${event?.id ?? `#${index}`}`;
+    if (!event || typeof event !== 'object' || Array.isArray(event)) {
+      errors.push(`${label}: event must be an object`);
+      continue;
+    }
+    if (validateId(event.id, 'event', `${label}.id`, errors)) {
+      if (eventIds.has(event.id)) errors.push(`${label}.id: duplicate ID`);
+      eventIds.add(event.id);
+    }
+    if (!String(event.name ?? '').trim()) errors.push(`${label}.name must be non-empty`);
+    if (!String(event.importance ?? '').trim()) errors.push(`${label}.importance must be non-empty`);
+    validateSourceRefs(event, label, errors);
+
+    if (!Array.isArray(event.participants) || event.participants.length === 0) {
+      errors.push(`${label}.participants must be a non-empty array`);
+    } else {
+      for (const [participantIndex, participantId] of event.participants.entries()) {
+        const participantLabel = `${label}.participants[${participantIndex}]`;
+        if (validateId(participantId, 'character', participantLabel, errors) &&
+            !characterIds.has(participantId)) {
+          errors.push(`${participantLabel}: references unknown character ID ${JSON.stringify(participantId)}`);
+        }
+      }
+    }
+
+    if (event.dialogue_ids !== undefined && !Array.isArray(event.dialogue_ids)) {
+      errors.push(`${label}.dialogue_ids must be an array when provided`);
+    }
+    const linkedDialogueIds = Array.isArray(event.dialogue_ids) ? event.dialogue_ids : [];
+    for (const [dialogueIndex, dialogueId] of linkedDialogueIds.entries()) {
+      const dialogueLabel = `${label}.dialogue_ids[${dialogueIndex}]`;
+      if (validateId(dialogueId, 'dialogue', dialogueLabel, errors) &&
+          !dialogueIds.has(dialogueId)) {
+        errors.push(`${dialogueLabel}: references unknown dialogue ID ${JSON.stringify(dialogueId)}`);
+      }
+    }
+  }
+
+  for (const [index, dialogue] of (Array.isArray(dialogues) ? dialogues : []).entries()) {
+    if (!['event', 'both'].includes(dialogue?.selection_type)) continue;
+    const label = `dialogues.json/${dialogue?.id ?? `#${index}`}.event_id`;
+    if (validateId(dialogue?.event_id, 'event', label, errors) &&
+        !eventIds.has(dialogue.event_id)) {
+      errors.push(`${label}: references unknown event ID ${JSON.stringify(dialogue.event_id)}`);
+    }
+  }
+
+  for (const [index, event] of events.entries()) {
+    if (!event || typeof event !== 'object' || Array.isArray(event)) continue;
+    const label = `events.json/${event.id ?? `#${index}`}`;
+    const linkedDialogueIds = Array.isArray(event.dialogue_ids) ? event.dialogue_ids : [];
+    for (const [dialogueIndex, dialogueId] of linkedDialogueIds.entries()) {
+      const dialogue = dialogueById.get(dialogueId);
+      if (dialogue && dialogue.event_id && dialogue.event_id !== event.id) {
+        errors.push(
+          `${label}.dialogue_ids[${dialogueIndex}]: ${JSON.stringify(dialogueId)} ` +
+          `points to ${JSON.stringify(dialogue.event_id)} instead of ${JSON.stringify(event.id)}`
+        );
+      }
+    }
+  }
+
+  const rawExemptions = loadJson(exemptionsPath, {});
+  if (!rawExemptions || typeof rawExemptions !== 'object' || Array.isArray(rawExemptions)) {
+    errors.push('build/semantic-exemptions.json must contain an object');
+  }
+  const exemptions = rawExemptions && typeof rawExemptions === 'object' && !Array.isArray(rawExemptions)
+    ? rawExemptions
+    : {};
+  const mainEventExemptions = new Set();
+  for (const [group, category, knownIds] of [
+    ['main_events', 'event', eventIds],
+    ['personas', 'character', characterIds]
+  ]) {
+    const entries = exemptions[group] ?? [];
+    if (!Array.isArray(entries)) {
+      errors.push(`semantic-exemptions.json.${group} must be an array`);
+      continue;
+    }
+    for (const [index, entry] of entries.entries()) {
+      const label = `semantic-exemptions.json.${group}[${index}]`;
+      if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+        errors.push(`${label} must be an object`);
+        continue;
+      }
+      if (validateId(entry.id, category, `${label}.id`, errors)) {
+        if (!knownIds.has(entry.id)) {
+          errors.push(`${label}.id: references unknown ${category} ID ${JSON.stringify(entry.id)}`);
+        }
+        if (group === 'main_events') mainEventExemptions.add(entry.id);
+      }
+      if (!String(entry.reason ?? '').trim()) errors.push(`${label}.reason must be non-empty`);
+    }
+  }
+
+  for (const [index, event] of events.entries()) {
+    if (event?.importance !== 'main' || !isValidId(event.id, 'event')) continue;
+    const linkedDialogueIds = Array.isArray(event.dialogue_ids) ? event.dialogue_ids : [];
+    const hasDialogue = linkedDialogueIds.some(id => dialogueIds.has(id)) ||
+      (Array.isArray(dialogues) ? dialogues : []).some(dialogue => dialogue?.event_id === event.id);
+    if (!hasDialogue && !mainEventExemptions.has(event.id)) {
+      errors.push(
+        `events.json/${event.id}: main event requires a linked dialogue or semantic exemption`
+      );
+    }
+  }
+
+  return {
+    passed: errors.length === 0,
+    event_count: events.length,
+    exemption_count: [...mainEventExemptions].length + (Array.isArray(exemptions.personas)
+      ? exemptions.personas.length
+      : 0),
+    errors
+  };
 }
 
 function validateCandidateSourceRefs(candidates, sourceIndex, chapterLines) {
@@ -171,10 +358,14 @@ function validateInventory(novelDir) {
   ledger.passed = ledger.errors.length === 0;
   errors.push(...ledger.errors);
 
+  const eventGraph = validateEventGraph(novelDir);
+  errors.push(...eventGraph.errors);
+
   return {
     passed: errors.length === 0,
     source,
     ledger,
+    event_graph: eventGraph,
     errors
   };
 }
@@ -205,5 +396,6 @@ module.exports = {
   FINAL_FILES,
   collectFinalIds,
   validateCandidateSourceRefs,
+  validateEventGraph,
   validateInventory
 };

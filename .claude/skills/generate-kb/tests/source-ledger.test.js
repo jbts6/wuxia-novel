@@ -23,7 +23,10 @@ const {
 const { verifyDialogues } = require('../scripts/verify_dialogues');
 const { extractLexicalSignals } = require('../scripts/audit-recall');
 const { prepareSource } = require('../scripts/prepare-source');
-const { validateCandidateSourceRefs } = require('../scripts/validate-inventory');
+const {
+  validateCandidateSourceRefs,
+  validateEventGraph
+} = require('../scripts/validate-inventory');
 
 function withNovel(chapters, callback) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'generate-kb-source-'));
@@ -236,6 +239,25 @@ describe('candidate and decision ledger', () => {
     assert.ok(result.errors.some(error => error.includes('skill_missing')));
   });
 
+  it('requires final IDs to match their declared category and pinyin format', () => {
+    const base = {
+      candidate_ids: ['cand_ch001_w001_0001'],
+      decision: 'keep',
+      canonical_name: '左子穆',
+      final_category: 'character',
+      importance: 'important',
+      reason: '原文明确定名'
+    };
+
+    assert.ok(validateDecision({ ...base, final_id: 'char_左子穆' }).some(error =>
+      error.includes('does not match final_category')
+    ));
+    assert.ok(validateDecision({ ...base, final_id: 'skill_zuo_zi_mu' }).some(error =>
+      error.includes('does not match final_category')
+    ));
+    assert.deepEqual(validateDecision({ ...base, final_id: 'char_zuo_zi_mu' }), []);
+  });
+
   it('accepts structured AI review status on a decision', () => {
     const errors = validateDecision({
       candidate_ids: ['cand_ch001_w001_0002'],
@@ -245,6 +267,39 @@ describe('candidate and decision ledger', () => {
     });
 
     assert.deepEqual(errors, []);
+  });
+
+  it('validates event, dialogue, participant, and exemption IDs as one graph', () => {
+    withNovel(['左子穆说道：“住手。”'], root => {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'build'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'data', 'characters.json'), JSON.stringify([
+        { id: 'char_zuo_zi_mu' }
+      ]));
+      fs.writeFileSync(path.join(root, 'data', 'dialogues.json'), JSON.stringify([{
+        id: 'dialogue_zuo_zi_mu_he_zhi',
+        selection_type: 'event',
+        event_id: 'event_zuo_zi_mu_he_zhi'
+      }]));
+      fs.writeFileSync(path.join(root, 'build', 'events.json'), JSON.stringify([{
+        id: 'event_zuo_zi_mu_he_zhi',
+        name: '左子穆喝止众人',
+        importance: 'main',
+        source_refs: [{ chapter: 1, line_start: 1, line_end: 1, text: '左子穆说道：“住手。”' }],
+        participants: ['char_左子穆'],
+        dialogue_ids: ['dialogue_1']
+      }]));
+      fs.writeFileSync(path.join(root, 'build', 'semantic-exemptions.json'), JSON.stringify({
+        main_events: [],
+        personas: [{ id: 'char_左子穆', reason: '测试非法 ID' }]
+      }));
+
+      const result = validateEventGraph(root);
+      assert.equal(result.passed, false);
+      assert.ok(result.errors.some(error => error.includes('participants[0]') && error.includes('invalid character ID')));
+      assert.ok(result.errors.some(error => error.includes('dialogue_ids[0]') && error.includes('invalid dialogue ID')));
+      assert.ok(result.errors.some(error => error.includes('personas[0].id') && error.includes('invalid character ID')));
+    });
   });
 
   it('requires retained decisions to record reconciliation and enrichment intent', () => {

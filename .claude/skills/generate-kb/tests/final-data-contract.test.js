@@ -57,6 +57,48 @@ describe('final data contract', () => {
     assert.ok(result.enrichment_errors.some(error => error.includes('characters.json/char_main.one_line')));
   }));
 
+  it('rejects Chinese IDs and accepts the canonical lowercase pinyin form', () => withNovel(novelDir => {
+    const charactersPath = path.join(novelDir, 'data', 'characters.json');
+    const dialoguesPath = path.join(novelDir, 'data', 'dialogues.json');
+    const summariesPath = path.join(novelDir, 'data', 'chapter_summaries.json');
+    const characters = JSON.parse(fs.readFileSync(charactersPath, 'utf8'));
+    const dialogues = JSON.parse(fs.readFileSync(dialoguesPath, 'utf8'));
+    const summaries = JSON.parse(fs.readFileSync(summariesPath, 'utf8'));
+
+    characters[0].id = 'char_左子穆';
+    fs.writeFileSync(charactersPath, `${JSON.stringify(characters, null, 2)}\n`);
+    const invalid = validateFinalData(novelDir);
+    assert.ok(invalid.schema_errors.some(error =>
+      error.includes('invalid character ID') && error.includes('char_左子穆')
+    ));
+
+    characters[0].id = 'char_zuo_zi_mu';
+    dialogues[0].speaker = 'char_zuo_zi_mu';
+    summaries[0].key_characters = ['char_zuo_zi_mu'];
+    fs.writeFileSync(charactersPath, `${JSON.stringify(characters, null, 2)}\n`);
+    fs.writeFileSync(dialoguesPath, `${JSON.stringify(dialogues, null, 2)}\n`);
+    fs.writeFileSync(summariesPath, `${JSON.stringify(summaries, null, 2)}\n`);
+
+    const valid = validateFinalData(novelDir);
+    assert.deepEqual(valid.schema_errors, []);
+  }));
+
+  it('rejects wrong-prefix and dangling ID references', () => withNovel(novelDir => {
+    const charactersPath = path.join(novelDir, 'data', 'characters.json');
+    const characters = JSON.parse(fs.readFileSync(charactersPath, 'utf8'));
+    characters[0].known_skills = ['char_main'];
+    characters[0].related_skills = ['skill_bu_cun_zai'];
+    fs.writeFileSync(charactersPath, `${JSON.stringify(characters, null, 2)}\n`);
+
+    const result = validateFinalData(novelDir);
+    assert.ok(result.schema_errors.some(error =>
+      error.includes('known_skills[0]') && error.includes('invalid skill ID')
+    ));
+    assert.ok(result.schema_errors.some(error =>
+      error.includes('related_skills[0]') && error.includes('unknown skill ID')
+    ));
+  }));
+
   it('rejects missing files, invalid enums, and empty required enrichment', () => withNovel(novelDir => {
     fs.unlinkSync(path.join(novelDir, 'data', 'items.json'));
     fs.writeFileSync(path.join(novelDir, 'data', 'locations.json'), '{}\n');

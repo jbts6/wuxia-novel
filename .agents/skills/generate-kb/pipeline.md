@@ -37,7 +37,7 @@ node "$SKILL/scripts/prepare-source.js" "$NOVEL"
 - 命名武功与招式全部进入候选，不做重要性截断。
 - 物品重点关注秘笈/图谱、信物、兵器、药物、钥匙和推动事件的普通物品。
 - 对话必须带 `selection_type_hint`、选择理由与可定位的上下文原文；不要按每章固定数量凑数。
-- 每章只生成一个 `chapter_summaries` 候选或最终记录。
+- 每章只生成一个 `chapter_summaries` 最终记录，以正整数 `chapter` 为主键；章节摘要不进入候选/decision 账本。
 
 完成两类扫描后运行：
 
@@ -57,13 +57,15 @@ node "$SKILL/scripts/validate-inventory.js" "$NOVEL"
 4. 将事件归入 `build/events.json`，主要事件标记 `importance: main`。
 5. 只用候选证据窗口补充最终八类 JSON 的复杂字段。
 
+写 decision 和最终 JSON 前，必须按 `constants.md` 为每个保留对象确定「中文名 -> 逐字无声调拼音 -> 正式 ID」。`final_category`、`final_id`、正式记录 `id` 及所有引用必须使用同一值。禁止写入 `char_左子穆`、`dialogue_1` 或错误类别前缀；校验器不会自动改写非法 ID。
+
 第 5 步不是可选润色。完成归并后必须运行：
 
 ```bash
 node "$SKILL/scripts/validate-final-data.js" "$NOVEL"
 ```
 
-只有 `reports/final_data_validation.json` 的 `passed: true` 才算完成 Stage 3。仅写入 `id`、`name`、`source_refs` 的骨架记录必须失败；缺失文件、字段、枚举、嵌套结构或条件 enrich 也必须失败。龙套/背景等允许低细节的情况按 schema 条件规则保留空值，不得为过门编造原文没有的信息。
+只有 `reports/final_data_validation.json` 的 `passed: true` 才算完成 Stage 3。仅写入 `id`、`name`、`source_refs` 的骨架记录必须失败；缺失文件、字段、枚举、嵌套结构、ID 格式、跨记录引用或条件 enrich 也必须失败。龙套/背景等允许低细节的情况按 schema 条件规则保留空值，不得为过门编造原文没有的信息。
 
 武功/招式禁止因 `non_major` 或 `trivial` reject。类别错误用 redirect；同名重复用 merge/duplicate；原文证据不足用 not_source_grounded。
 

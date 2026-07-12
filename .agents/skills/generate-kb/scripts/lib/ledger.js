@@ -2,10 +2,16 @@
 'use strict';
 
 const fs = require('node:fs');
+const {
+  CANDIDATE_ID_PATTERN,
+  WINDOW_ID_PATTERN,
+  expectedIdFormat,
+  isValidId
+} = require('./id-contract');
 
 const CATEGORIES = new Set([
   'character', 'faction', 'location', 'skill', 'technique', 'item',
-  'event', 'dialogue', 'chapter_summary'
+  'event', 'dialogue'
 ]);
 const DISCOVERY_PASSES = new Set(['named-inventory', 'event-dialogue', 'gap-audit']);
 const DECISIONS = new Set(['keep', 'merge', 'redirect', 'reject']);
@@ -39,7 +45,7 @@ function readJsonl(filename, options = {}) {
 function validateCandidate(candidate) {
   const errors = [];
   if (!candidate || typeof candidate !== 'object') return ['candidate must be an object'];
-  if (!/^cand_ch\d+_w\d+_\d+$/i.test(candidate.candidate_id ?? '')) {
+  if (!CANDIDATE_ID_PATTERN.test(candidate.candidate_id ?? '')) {
     errors.push('candidate_id must match cand_chNNN_wNNN_NNNN');
   }
   if (!CATEGORIES.has(candidate.category_hint)) {
@@ -49,8 +55,8 @@ function validateCandidate(candidate) {
   if (!Number.isInteger(candidate.chapter) || candidate.chapter < 1) {
     errors.push('chapter must be a positive integer');
   }
-  if (!candidate.window_id || typeof candidate.window_id !== 'string') {
-    errors.push('window_id is required');
+  if (!WINDOW_ID_PATTERN.test(candidate.window_id ?? '')) {
+    errors.push('window_id must match chNNN_wNNN');
   }
   if (!DISCOVERY_PASSES.has(candidate.discovery_pass)) {
     errors.push(`invalid discovery_pass: ${candidate.discovery_pass}`);
@@ -105,8 +111,8 @@ function validateDecision(decision) {
   const errors = [];
   if (!decision || typeof decision !== 'object') return ['decision must be an object'];
   if (!Array.isArray(decision.candidate_ids) || decision.candidate_ids.length === 0 ||
-      decision.candidate_ids.some(id => typeof id !== 'string' || !id)) {
-    errors.push('candidate_ids must be a non-empty string array');
+      decision.candidate_ids.some(id => !CANDIDATE_ID_PATTERN.test(id))) {
+    errors.push('candidate_ids must be a non-empty array of cand_chNNN_wNNN_NNNN IDs');
   }
   if (!DECISIONS.has(decision.decision)) errors.push(`invalid decision: ${decision.decision}`);
   if (decision.decision === 'reject') {
@@ -121,11 +127,17 @@ function validateDecision(decision) {
     if (typeof decision.reason !== 'string' || !decision.reason.trim()) {
       errors.push(`${decision.decision} decision requires reason`);
     }
-    if (!decision.final_id || typeof decision.final_id !== 'string') {
+    if (!decision.final_id || typeof decision.final_id !== 'string' || !decision.final_id.trim()) {
       errors.push(`${decision.decision} decision requires final_id`);
     }
     if (!CATEGORIES.has(decision.final_category)) {
       errors.push(`invalid final_category: ${decision.final_category}`);
+    } else if (typeof decision.final_id === 'string' && decision.final_id.trim() &&
+        !isValidId(decision.final_id, decision.final_category)) {
+      errors.push(
+        `final_id ${JSON.stringify(decision.final_id)} does not match final_category ` +
+        `${decision.final_category}; expected ${expectedIdFormat(decision.final_category)}`
+      );
     }
   }
   if (decision.ai_review !== undefined) {

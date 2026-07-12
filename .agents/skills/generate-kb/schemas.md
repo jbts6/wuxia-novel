@@ -3,6 +3,7 @@
 ## 写入规则
 
 - 八类文件和记录的可执行契约由 `scripts/lib/final-data-contract.js` 统一维护。写完后必须运行 `node scripts/validate-final-data.js "$NOVEL"`；文档示例不能替代该校验。
+- 所有正式 ID 和 ID 引用统一由 `scripts/lib/id-contract.js` 校验。格式必须符合 `constants.md`；禁止中文 ID、数字后缀和错误类别前缀，校验器不会自动转拼音。
 - 所有示例中的字段键均必须存在。允许为空的字段仍要保留正确类型；只有下文明确的条件规则允许空内容。
 - 只能用 `JSON.stringify(data, null, 2)` 写 JSON；禁止手拼 JSON 字符串。
 - 写入后立刻 `JSON.parse` 验证。
@@ -129,7 +130,7 @@
   "name": "物品名",
   "type": "<item.type>",
   "tags": ["<tag1>", "<tag2>"],
-  "owner": "char_<pinyin> 或 null",
+  "owner": "char_<pinyin>、faction_<pinyin> 或 null",
   "one_line": "≤40字",
   "description": "≥20字",
   "effects": [{ "type": "<effect.type>", "description": "..." }],
@@ -176,7 +177,7 @@
 
 ```json
 {
-  "id": "dialogue_<id>",
+  "id": "dialogue_<pinyin>",
   "speaker": "char_<pinyin> 或 null",
   "speaker_name": "中文名或称呼",
   "listener": "char_<pinyin> 或 null",
@@ -185,7 +186,7 @@
   "chapter": 1,
   "line_start": 42,
   "line_end": 45,
-  "event_id": "event_<id>（event/both 必填）",
+  "event_id": "event_<pinyin>（event/both 必填）",
   "selection_type": "event|persona|both",
   "selection_reason": "为何是关键事件/人物特征对话",
   "trait_tags": ["朴直", "机敏"],
@@ -287,7 +288,7 @@
 }
 ```
 
-允许类别：`character|faction|location|skill|technique|item|event|dialogue|chapter_summary`。
+允许类别：`character|faction|location|skill|technique|item|event|dialogue`。章节摘要不进入候选账本；它以正整数 `chapter` 为唯一主键直接写入 `chapter_summaries.json`。
 
 ### decisions.jsonl
 
@@ -325,8 +326,8 @@
 
 ```json
 {
-  "main_events": [{"id": "event_x", "reason": "原文无直接对话"}],
-  "personas": [{"id": "char_x", "reason": "该角色无直接发言"}]
+  "main_events": [{"id": "event_zhu_xian_jie_dian", "reason": "原文无直接对话"}],
+  "personas": [{"id": "char_zuo_zi_mu", "reason": "该角色无直接发言"}]
 }
 ```
 

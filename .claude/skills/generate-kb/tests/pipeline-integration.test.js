@@ -44,12 +44,12 @@ it('passes an end-to-end source-grounded minimal knowledge base', () => {
     const dialogue = completeData['dialogues.json'][0];
     const chapterSummary = completeData['chapter_summaries.json'][0];
     writeJson(path.join(novelDir, 'build', 'events.json'), [{
-      id: 'event_training',
+      id: 'event_zhu_jue_shuo_ming_suo_xue',
       name: '主角说明所学',
       importance: 'main',
       source_refs: [{ chapter: 1, line_start: 1, line_end: 1, text: sourceText }],
       participants: ['char_main'],
-      dialogue_ids: ['dialogue_1']
+      dialogue_ids: ['dialogue_zhu_jue_shuo_ming_suo_xue']
     }]);
     writeJson(path.join(novelDir, 'build', 'gap-audit.json'), {
       rounds: [{ round: 1, completed_window_ids: windowIds, new_candidate_ids: [] }]
@@ -58,8 +58,8 @@ it('passes an end-to-end source-grounded minimal knowledge base', () => {
     const candidates = [
       ['cand_ch001_w001_0001', 'character', '主角', 'char_main'],
       ['cand_ch001_w001_0002', 'skill', '北冥神功', 'skill_bei_ming'],
-      ['cand_ch001_w001_0003', 'event', '主角说明所学', 'event_training'],
-      ['cand_ch001_w001_0004', 'dialogue', '主角：我练的是北冥神功', 'dialogue_1']
+      ['cand_ch001_w001_0003', 'event', '主角说明所学', 'event_zhu_jue_shuo_ming_suo_xue'],
+      ['cand_ch001_w001_0004', 'dialogue', '主角：我练的是北冥神功', 'dialogue_zhu_jue_shuo_ming_suo_xue']
     ].map(([candidate_id, category_hint, name, final_id]) => ({
       candidate_id,
       category_hint,
@@ -127,7 +127,7 @@ it('passes an end-to-end source-grounded minimal knowledge base', () => {
     const fabricatedDialogueContext = assessQuality(novelDir);
     assert.equal(fabricatedDialogueContext.gates.G3.passed, false);
     assert.ok(fabricatedDialogueContext.gates.G3.reasons.some(reason =>
-      reason.includes('dialogue_1.context')
+      reason.includes('dialogue_zhu_jue_shuo_ming_suo_xue.context')
     ));
     dialogue.context = sourceText;
     writeJson(path.join(novelDir, 'data', 'dialogues.json'), [dialogue]);

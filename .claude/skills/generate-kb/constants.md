@@ -2,10 +2,13 @@
 
 ## ID 规则
 
-- 前缀固定：`char_`、`faction_`、`loc_`、`skill_`、`item_`、`tech_`。
+- 前缀固定：`char_`、`faction_`、`loc_`、`skill_`、`tech_`、`item_`、`event_`、`dialogue_`。
 - 拼音必须按汉字逐字拆分音节：`萧秋水 -> char_xiao_qiu_shui`，不能写成 `xiao_qiushui`。
-- ID 只能包含 ASCII 小写字母和下划线；禁止中文、数字、大小写混用。
+- 正式 ID 必须匹配 `<prefix>[a-z]+(?:_[a-z]+)*`：只能包含 ASCII 小写字母，并用单个下划线分隔拼音音节；禁止中文、数字、大写、连字符、连续下划线和首尾多余下划线。
 - 生成 ID 前先写出「中文名 -> 拼音音节 -> 最终 ID」，再写入 JSON。
+- `final_category` 必须与 `final_id` 前缀一致；所有引用字段必须复用同一个正式 ID，不能局部改写。
+- 校验器只拒绝非法 ID，不自动转拼音或修复引用。多音字必须由生成阶段结合名称和原文确定。
+- 章节摘要没有字符串 ID，以正整数 `chapter` 作为唯一主键，不进入候选 decision 账本。
 - 未命名角色也要建 ID：如 `老丐 -> char_lao_gai`。真名揭晓时更新 `name`，旧称呼放入 `alias`。
 - 每个实体必须有 `source_refs`：`[{ "chapter": 1, "line_start": 42, "line_end": 45, "text": "原文片段" }]`。
 - `rag_refs` 只放章节号数组。

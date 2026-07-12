@@ -46,13 +46,28 @@ function candidate(category, index, name, discoveryPass = 'named-inventory') {
   };
 }
 
+function alphaToken(index) {
+  let value = index;
+  let token = '';
+  while (value > 0) {
+    value -= 1;
+    token = String.fromCharCode(97 + (value % 26)) + token;
+    value = Math.floor(value / 26);
+  }
+  return token;
+}
+
+function categoryPrefix(category) {
+  return { skill: 'skill_', technique: 'tech_', item: 'item_' }[category] ?? `${category}_`;
+}
+
 function keep(candidateRecord, index) {
   return {
     candidate_ids: [candidateRecord.candidate_id],
     decision: 'keep',
     canonical_name: candidateRecord.name,
     final_category: candidateRecord.category_hint,
-    final_id: candidateRecord.category_hint + '_' + index
+    final_id: `${categoryPrefix(candidateRecord.category_hint)}test_${alphaToken(index)}`
   };
 }
 
@@ -66,10 +81,10 @@ function writeJsonl(filename, rows) {
   fs.writeFileSync(filename, rows.map(row => JSON.stringify(row)).join('\n') + '\n');
 }
 
-function records(prefix, count) {
+function records(category, count) {
   return Array.from({ length: count }, (_, index) => ({
-    id: prefix + '_' + (index + 1),
-    name: prefix + '_' + (index + 1)
+    id: `${categoryPrefix(category)}test_${alphaToken(index + 1)}`,
+    name: `${category}_${index + 1}`
   }));
 }
 
@@ -211,7 +226,7 @@ describe('review packet generation', () => {
         decision: 'redirect',
         canonical_name: record.name,
         final_category: 'skill',
-        final_id: 'skill_redirect_' + index,
+        final_id: `skill_redirect_${alphaToken(index)}`,
         ai_review: { status: 'needs_human' }
       });
     }

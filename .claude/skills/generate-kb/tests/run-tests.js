@@ -254,7 +254,7 @@ describe('assess-quality.js', () => {
     
     // Create characters.json
     fs.writeFileSync(path.join(testDir, 'data', 'characters.json'), JSON.stringify([
-      { id: 'char_1', name: '主角', importance: '核心' }
+      { id: 'char_zhu_jue', name: '主角', importance: '核心' }
     ]));
     
     // Create empty arrays for other files
@@ -312,7 +312,7 @@ describe('generate-summary.js', () => {
     
     // Create minimal data files
     fs.writeFileSync(path.join(testDir, 'data', 'characters.json'), JSON.stringify([
-      { id: 'char_1', name: '主角', importance: '核心' }
+      { id: 'char_zhu_jue', name: '主角', importance: '核心' }
     ]));
     
     for (const file of ['factions.json', 'locations.json', 'skills.json', 'techniques.json', 'items.json', 'dialogues.json', 'chapter_summaries.json']) {
@@ -350,17 +350,17 @@ describe('cross-validate.js', () => {
     // Create characters with relationships
     fs.writeFileSync(path.join(testDir, 'data', 'characters.json'), JSON.stringify([
       {
-        id: 'char_1',
+        id: 'char_jia',
         name: '角色1',
         relationships: [
-          { target: 'char_2', type: '朋友' }
+          { target: 'char_yi', type: '朋友' }
         ]
       },
       {
-        id: 'char_2',
+        id: 'char_yi',
         name: '角色2',
         relationships: [
-          { target: 'char_1', type: '朋友' }
+          { target: 'char_jia', type: '朋友' }
         ]
       }
     ]));

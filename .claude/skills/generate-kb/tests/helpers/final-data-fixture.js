@@ -53,7 +53,7 @@ function buildCompleteData(sourceText = '主角说道：“我练的是北冥神
     ])
   };
   const dialogue = {
-    id: 'dialogue_1',
+    id: 'dialogue_zhu_jue_shuo_ming_suo_xue',
     speaker: 'char_main',
     speaker_name: '主角',
     listener: null,
@@ -62,7 +62,7 @@ function buildCompleteData(sourceText = '主角说道：“我练的是北冥神
     chapter: 1,
     line_start: 1,
     line_end: 1,
-    event_id: 'event_training',
+    event_id: 'event_zhu_jue_shuo_ming_suo_xue',
     selection_type: 'both',
     selection_reason: '推动事件并体现人物坦率自信',
     trait_tags: ['坦率', '自信'],
