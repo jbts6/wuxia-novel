@@ -7,7 +7,8 @@ describe('cn', () => {
   });
 
   it('处理条件类名', () => {
-    expect(cn('foo', false && 'bar', 'baz')).toBe('foo baz');
+    const includeBar = false;
+    expect(cn('foo', includeBar && 'bar', 'baz')).toBe('foo baz');
   });
 
   it('合并 Tailwind 类名', () => {

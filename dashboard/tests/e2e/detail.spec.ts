@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 
 test('详情面板截图', async ({ page }) => {
   await page.goto('/金庸/天龙八部/characters');

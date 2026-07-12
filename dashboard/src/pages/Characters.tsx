@@ -52,6 +52,8 @@ export default function Characters() {
     }
     return null;
   }, [characters, detailPanel]);
+  const personalityTraits = selectedCharacter?.personality?.traits ?? [];
+  const relationships = selectedCharacter?.relationships ?? [];
 
   return (
     <div>
@@ -151,11 +153,15 @@ export default function Characters() {
                 <div>
                   <h4 className="mb-2 font-medium">性格特征</h4>
                   <div className="flex flex-wrap gap-1">
-                    {selectedCharacter.personality.traits.map((t) => (
-                      <Badge key={t} variant="secondary">{t}</Badge>
-                    ))}
+                    {personalityTraits.length > 0 ? (
+                      personalityTraits.map((trait) => (
+                        <Badge key={trait} variant="secondary">{trait}</Badge>
+                      ))
+                    ) : (
+                      <span className="text-sm text-muted-foreground">暂无性格标注</span>
+                    )}
                   </div>
-                  {selectedCharacter.personality.temperament && (
+                  {selectedCharacter.personality?.temperament && (
                     <p className="mt-2 text-sm text-muted-foreground">
                       气质：{selectedCharacter.personality.temperament}
                     </p>
@@ -166,13 +172,13 @@ export default function Characters() {
                   <h4 className="mb-2 font-medium">简介</h4>
                   <p className="text-sm text-muted-foreground">{selectedCharacter.one_line || selectedCharacter.bio || '暂无简介'}</p>
                 </div>
-                {selectedCharacter.relationships.length > 0 && (
+                {relationships.length > 0 && (
                   <>
                     <Separator />
                     <div>
                       <h4 className="mb-2 font-medium">人物关系</h4>
                       <div className="space-y-2">
-                        {selectedCharacter.relationships.map((r, i) => (
+                        {relationships.map((r, i) => (
                           <div key={i} className="flex items-center justify-between text-sm">
                             <span>{resolveId(r.target, characterMap)}</span>
                             <Badge variant="outline">{r.type}</Badge>

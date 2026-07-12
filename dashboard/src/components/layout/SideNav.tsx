@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { cn } from '../../lib/utils';
 import {
   Users,
@@ -10,7 +10,6 @@ import {
   BookMarked,
   LayoutDashboard,
 } from 'lucide-react';
-import { useBookData } from '../../hooks/useBookData';
 
 const navItems = [
   { path: 'overview', label: '概览', icon: LayoutDashboard },
@@ -24,7 +23,7 @@ const navItems = [
 ];
 
 export function SideNav() {
-  const { authorName, bookName } = useBookData();
+  const { authorName, bookName } = useParams<{ authorName: string; bookName: string }>();
   const location = useLocation();
 
   if (!authorName || !bookName) return null;

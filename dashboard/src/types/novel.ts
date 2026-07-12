@@ -138,21 +138,23 @@ export interface ChapterSummary {
   key_characters: string[];
 }
 
-// 书籍元数据
+export interface NovelData {
+  characters: Character[];
+  skills: Skill[];
+  items: Item[];
+  factions: Faction[];
+  locations: Location[];
+  dialogues: Dialogue[];
+  techniques: Technique[];
+  chapter_summaries: ChapterSummary[];
+}
+
+// 兼容仍需要携带完整数据的调用方
 export interface BookMeta {
   path: string;
   name: string;
   author: string;
-  data: {
-    characters: Character[];
-    skills: Skill[];
-    items: Item[];
-    factions: Faction[];
-    locations: Location[];
-    dialogues: Dialogue[];
-    techniques: Technique[];
-    chapter_summaries: ChapterSummary[];
-  };
+  data: NovelData;
 }
 
 // 详情面板状态

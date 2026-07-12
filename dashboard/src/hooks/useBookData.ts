@@ -5,34 +5,37 @@ import { useNovelStore } from '../stores/useNovelStore';
 
 export function useBookData() {
   const { authorName, bookName } = useParams<{ authorName: string; bookName: string }>();
-  const { books, setCurrentBook } = useLibraryStore();
-  const { loadData } = useNovelStore();
+  const { status, books, statusLoading, setCurrentBook, loadBookData, bookLoading, bookErrors } = useLibraryStore();
+  const { loadData, clearData } = useNovelStore();
 
-  const bookPath = authorName && bookName 
-    ? `${decodeURIComponent(authorName)}/${decodeURIComponent(bookName)}`
-    : null;
+  const decodedAuthor = authorName ? decodeURIComponent(authorName) : null;
+  const decodedBook = bookName ? decodeURIComponent(bookName) : null;
+  const bookPath = decodedAuthor && decodedBook ? `${decodedAuthor}/${decodedBook}` : null;
 
   useEffect(() => {
-    if (bookPath) {
-      setCurrentBook(bookPath);
-
-      const book = books.find((b) => b.path === bookPath);
-      if (book) {
-        loadData(book.data);
-      }
-    }
-
+    if (!bookPath) return;
+    let active = true;
+    setCurrentBook(bookPath);
+    clearData();
+    void loadBookData(bookPath).then((data) => {
+      if (active) loadData(data);
+    }).catch(() => {
+      if (active) clearData();
+    });
     return () => {
-      setCurrentBook(null);
+      active = false;
+      if (useLibraryStore.getState().currentBook === bookPath) {
+        setCurrentBook(null);
+      }
     };
-  }, [bookPath, books, setCurrentBook, loadData]);
-
-  const currentBook = books.find((b) => b.path === bookPath);
+  }, [bookPath, clearData, loadBookData, loadData, setCurrentBook]);
 
   return {
-    currentBook,
+    currentBook: books.find((book) => book.path === bookPath) ?? null,
     bookPath,
-    authorName: authorName ? decodeURIComponent(authorName) : null,
-    bookName: bookName ? decodeURIComponent(bookName) : null,
+    authorName: decodedAuthor,
+    bookName: decodedBook,
+    isLoading: Boolean(bookPath) && (!status || statusLoading || bookLoading[bookPath!] === true),
+    error: bookPath ? bookErrors[bookPath] ?? null : null,
   };
 }

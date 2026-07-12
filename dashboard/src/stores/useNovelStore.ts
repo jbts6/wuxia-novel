@@ -32,6 +32,7 @@ interface NovelStore {
   detailPanel: DetailPanelState;
   showDetail: (type: CardType, id: string) => void;
   hideDetail: () => void;
+  clearData: () => void;
 
   loadData: (data: {
     characters: Character[];
@@ -66,6 +67,23 @@ export const useNovelStore = create<NovelStore>((set) => ({
     set({ detailPanel: { open: true, type, id } }),
   hideDetail: () =>
     set({ detailPanel: { open: false, type: null, id: null } }),
+  clearData: () =>
+    set({
+      characters: [],
+      skills: [],
+      items: [],
+      factions: [],
+      locations: [],
+      dialogues: [],
+      techniques: [],
+      chapterSummaries: [],
+      characterMap: new Map(),
+      factionMap: new Map(),
+      locationMap: new Map(),
+      skillMap: new Map(),
+      itemMap: new Map(),
+      detailPanel: { open: false, type: null, id: null },
+    }),
 
   loadData: (data) => {
     const maps = buildIdMaps(data);

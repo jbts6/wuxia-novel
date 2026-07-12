@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { TooltipProvider } from './components/ui/tooltip';
 import { AppLayout } from './components/layout/AppLayout';
 import Library from './pages/Library';
+import BrowseLibrary from './pages/BrowseLibrary';
 import AuthorBooks from './pages/AuthorBooks';
 import BookOverview from './pages/BookOverview';
 import Characters from './pages/Characters';
@@ -18,6 +19,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Library />} />
+          <Route path="/browse" element={<BrowseLibrary />} />
           <Route path="/:authorName" element={<AuthorBooks />} />
           <Route path="/:authorName/:bookName" element={<AppLayout />}>
             <Route index element={<Navigate to="overview" replace />} />

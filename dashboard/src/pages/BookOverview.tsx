@@ -1,4 +1,4 @@
-import { useBookData } from '../hooks/useBookData';
+import { useLibraryStore } from '../stores/useLibraryStore';
 import { useNovelStore } from '../stores/useNovelStore';
 import { StatCard } from '../components/common/StatCard';
 import { PageHeader } from '../components/layout/PageHeader';
@@ -7,7 +7,10 @@ import { Users, Swords, Gem, Building2, MapPin, BookMarked, MessageSquare } from
 import { resolveId } from '../lib/resolveId';
 
 export default function BookOverview() {
-  const { currentBook } = useBookData();
+  const currentBookPath = useLibraryStore((state) => state.currentBook);
+  const currentBook = useLibraryStore((state) =>
+    state.books.find((book) => book.path === currentBookPath),
+  );
   const { characters, skills, items, factions, locations, chapterSummaries, dialogues, factionMap, locationMap } =
     useNovelStore();
 

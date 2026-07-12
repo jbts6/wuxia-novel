@@ -17,6 +17,7 @@ This directory contains guidelines for backend development. Fill in each file wi
 | [Directory Structure](./directory-structure.md) | Module organization and file layout | To fill |
 | [Database Guidelines](./database-guidelines.md) | ORM patterns, queries, migrations | To fill |
 | [Error Handling](./error-handling.md) | Error types, handling strategies | To fill |
+| [Library Status API](./library-status-api.md) | Read-only knowledge-base scanning and status contracts | Active |
 | [Quality Guidelines](./quality-guidelines.md) | Source-grounded evidence and hard-gate standards | Active |
 | [Logging Guidelines](./logging-guidelines.md) | Structured logging, log levels | To fill |
 

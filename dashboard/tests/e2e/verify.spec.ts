@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 
 test('验证导航高亮', async ({ page }) => {
   await page.goto('/');

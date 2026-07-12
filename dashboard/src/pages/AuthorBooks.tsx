@@ -1,75 +1,52 @@
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, BookOpenText, LoaderCircle } from 'lucide-react';
+import { Badge } from '../components/ui/badge';
 import { useLibraryStore } from '../stores/useLibraryStore';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import { BookOpen, Users, Swords, Gem, Building2, MapPin, ArrowLeft } from 'lucide-react';
+import { VALIDATION_STATUS_LABELS } from '../lib/libraryStatusPresentation';
 
 export default function AuthorBooks() {
   const { authorName } = useParams<{ authorName: string }>();
-  const { books } = useLibraryStore();
-
+  const { status, books, statusLoading, ensureStatus } = useLibraryStore();
   const decodedAuthor = authorName ? decodeURIComponent(authorName) : '';
-  const authorBooks = books.filter((b) => b.author === decodedAuthor);
+
+  useEffect(() => {
+    if (!status && !statusLoading) void ensureStatus();
+  }, [ensureStatus, status, statusLoading]);
+
+  const authorBooks = books.filter((book) => book.author === decodedAuthor && book.browseable);
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4">
-            <ArrowLeft className="h-4 w-4" />
-            返回书库
-          </Link>
-          <h1 className="font-serif text-3xl font-bold text-foreground">{decodedAuthor}</h1>
-          <p className="mt-2 text-muted-foreground">共 {authorBooks.length} 部作品</p>
-        </div>
+    <div className="min-h-screen min-w-[1180px] bg-background px-8 py-7">
+      <div className="mx-auto max-w-[1200px]">
+        <Link to="/browse" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+          <ArrowLeft className="h-4 w-4" />
+          返回知识浏览
+        </Link>
+        <h1 className="mt-5 font-serif text-2xl font-semibold">{decodedAuthor}</h1>
+        <p className="mt-1 text-sm text-muted-foreground">{authorBooks.length} 本可浏览知识库</p>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {authorBooks.map((book) => {
-            const stats = {
-              characters: book.data.characters.length,
-              skills: book.data.skills.length,
-              items: book.data.items.length,
-              factions: book.data.factions.length,
-              locations: book.data.locations.length,
-            };
-
-            return (
-              <Link key={book.path} to={`/${book.path}/overview`}>
-                <Card className="transition-shadow hover:shadow-lg">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 font-serif">
-                      <BookOpen className="h-5 w-5 text-accent" />
-                      {book.name}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-3 gap-2 text-sm">
-                      <div className="flex items-center gap-1">
-                        <Users className="h-3 w-3 text-muted-foreground" />
-                        <span>{stats.characters}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Swords className="h-3 w-3 text-muted-foreground" />
-                        <span>{stats.skills}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Gem className="h-3 w-3 text-muted-foreground" />
-                        <span>{stats.items}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Building2 className="h-3 w-3 text-muted-foreground" />
-                        <span>{stats.factions}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MapPin className="h-3 w-3 text-muted-foreground" />
-                        <span>{stats.locations}</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+        {statusLoading && !status ? (
+          <div className="flex h-64 items-center justify-center gap-2 text-sm text-muted-foreground">
+            <LoaderCircle className="h-5 w-5 animate-spin" />
+            正在读取书目
+          </div>
+        ) : (
+          <div className="mt-6 divide-y overflow-hidden rounded-lg border bg-card">
+            {authorBooks.map((book) => (
+              <Link
+                key={book.path}
+                to={`/${encodeURIComponent(book.author)}/${encodeURIComponent(book.name)}/overview`}
+                className="flex h-20 items-center px-5 transition-colors hover:bg-muted/50"
+              >
+                <BookOpenText className="mr-4 h-5 w-5 text-muted-foreground" />
+                <span className="flex-1 font-medium">{book.name}</span>
+                <Badge variant="outline" className="mr-5">{VALIDATION_STATUS_LABELS[book.validationStatus]}</Badge>
+                <ArrowRight className="h-4 w-4 text-muted-foreground" />
               </Link>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
