@@ -8,7 +8,7 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 5
+- **Total Sessions**: 6
 - **Last Active**: 2026-07-12
 <!-- @@@/auto:current-status -->
 
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~387 | Active |
+| `journal-1.md` | ~420 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 6 | 2026-07-12 | 修复 generate-kb 完整性门禁 | `dde3023f` | `main` |
 | 5 | 2026-07-12 | 鸳鸯刀校准与知识库审核优化 | `0695dae` | `main` |
 | 4 | 2026-07-12 | 完成知识库 Dashboard 工作台两阶段优化 | `48c43eda`, `96bca82c` | `main` |
 | 3 | 2026-07-12 | 重构原文驱动的武侠知识库流水线 | `f3e29da` | `main` |

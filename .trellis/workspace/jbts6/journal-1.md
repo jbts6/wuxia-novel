@@ -385,3 +385,36 @@ Next: Start event-dialogue pass (450 windows remaining)
 ### Next Steps
 
 - None - task complete
+
+
+## Session 6: 修复 generate-kb 完整性门禁
+
+**Date**: 2026-07-12
+**Task**: 修复 generate-kb 完整性门禁
+**Branch**: `main`
+
+### Summary
+
+新增八类最终数据契约、enrich CLI 硬步骤、验证报告 hash 新鲜度与非空语义门禁；同步两份 skill，补齐回归测试，并确认天龙八部旧骨架库会失败。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `dde3023f` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
