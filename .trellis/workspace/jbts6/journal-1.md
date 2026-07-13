@@ -418,3 +418,36 @@ Next: Start event-dialogue pass (450 windows remaining)
 ### Next Steps
 
 - None - task complete
+
+
+## Session 7: Complete staged generate-kb pipeline
+
+**Date**: 2026-07-14
+**Task**: Complete staged generate-kb pipeline
+**Branch**: `main`
+
+### Summary
+
+Implemented and verified the six-stage managed generate-kb pipeline, including full E2E promote and rollback coverage.
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `aa99bd85` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
