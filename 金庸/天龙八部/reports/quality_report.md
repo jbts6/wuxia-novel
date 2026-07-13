@@ -2,6 +2,14 @@
 
 Completion gate: **PASS**
 Gold status: `no_gold`
+Review readiness: **ready_for_human_review**
+
+## Review Readiness
+
+- AI 自筛和自动检查已完成，可以进行短人工审核。
+- Blocking alerts: 0
+- Warnings: 0
+- High-risk decisions: 4
 
 ## Hard Gates
 
@@ -22,12 +30,12 @@ Gold status: `no_gold`
 
 ## Raw Counts
 
-- characters: 179
-- factions: 36
-- locations: 65
-- skills: 39
-- techniques: 59
-- items: 79
-- dialogues: 150
+- characters: 105
+- factions: 28
+- locations: 61
+- skills: 29
+- techniques: 57
+- items: 63
+- dialogues: 151
 - chapter_summaries: 50
 

@@ -1,194 +1,134 @@
 {
-  "generated_at": "2026-07-12T10:07:48.507Z",
+  "generated_at": "2026-07-13T04:35:54.559Z",
+  "final_data_hash": "9255891ebdcc5978c58a0b8794c7e886403e60408a0526a973d963d92fec98cf",
   "summary": {
-    "total": 24,
+    "total": 15,
     "errors": 0,
-    "warnings": 21,
-    "info": 3
+    "warnings": 15,
+    "info": 0
   },
   "issues": [
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_character_俏药叉甘宝宝",
-      "name": "俏药叉甘宝宝",
-      "message": "Character \"俏药叉甘宝宝\" not found in original text - likely hallucination"
+      "source": "char_ding_chun_qiu",
+      "target": "char_wu_ya_zi",
+      "rel_type": "师徒",
+      "message": "丁春秋(char_ding_chun_qiu) -> char_wu_ya_zi (师徒) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_character_唐光雄",
-      "name": "唐光雄",
-      "message": "Character \"唐光雄\" not found in original text - likely hallucination"
+      "source": "char_ding_chun_qiu",
+      "target": "char_nan_hai_e_shen",
+      "rel_type": "宿敌",
+      "message": "丁春秋(char_ding_chun_qiu) -> char_nan_hai_e_shen (宿敌) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_character_杜姓老者",
-      "name": "杜姓老者",
-      "message": "Character \"杜姓老者\" not found in original text - likely hallucination"
+      "source": "char_qiao_feng",
+      "target": "char_a_bi",
+      "rel_type": "挚友",
+      "message": "乔峰(char_qiao_feng) -> char_a_bi (挚友) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_蛇胆瓜子",
-      "name": "蛇胆瓜子",
-      "message": "Item \"蛇胆瓜子\" not found in original text - likely hallucination"
+      "source": "char_qiao_feng",
+      "target": "char_duan_yu",
+      "rel_type": "挚友",
+      "message": "乔峰(char_qiao_feng) -> char_duan_yu (挚友) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_钟灵花鞋",
-      "name": "钟灵花鞋",
-      "message": "Item \"钟灵花鞋\" not found in original text - likely hallucination"
+      "source": "char_dao_bai_feng",
+      "target": "char_duan_yu",
+      "rel_type": "亲属",
+      "message": "刀白凤(char_dao_bai_feng) -> char_duan_yu (亲属) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_北冥神功帛卷",
-      "name": "北冥神功帛卷",
-      "message": "Item \"北冥神功帛卷\" not found in original text - likely hallucination"
+      "source": "char_bao_bu_tong",
+      "target": "char_mu_rong_fu",
+      "rel_type": "主仆",
+      "message": "包不同(char_bao_bu_tong) -> char_mu_rong_fu (主仆) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_黑鹫纹锦缎",
-      "name": "黑鹫纹锦缎",
-      "message": "Item \"黑鹫纹锦缎\" not found in original text - likely hallucination"
+      "source": "char_nan_hai_e_shen",
+      "target": "char_duan_yu",
+      "rel_type": "师徒",
+      "message": "南海鳄神(char_nan_hai_e_shen) -> char_duan_yu (师徒) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_钟灵年庚小金盒",
-      "name": "钟灵年庚小金盒",
-      "message": "Item \"钟灵年庚小金盒\" not found in original text - likely hallucination"
+      "source": "char_tian_shan_tong_lao",
+      "target": "char_wu_ya_zi",
+      "rel_type": "师徒",
+      "message": "天山童姥(char_tian_shan_tong_lao) -> char_wu_ya_zi (师徒) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_胭脂金创药",
-      "name": "胭脂金创药",
-      "message": "Item \"胭脂金创药\" not found in original text - likely hallucination"
+      "source": "char_mu_rong_fu",
+      "target": "char_duan_yan_qing",
+      "rel_type": "亲属",
+      "message": "慕容复(char_mu_rong_fu) -> char_duan_yan_qing (亲属) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_北冥神功卷轴",
-      "name": "北冥神功卷轴",
-      "message": "Item \"北冥神功卷轴\" not found in original text - likely hallucination"
+      "source": "char_li_qiu_shui",
+      "target": "char_wu_ya_zi",
+      "rel_type": "师徒",
+      "message": "李秋水(char_li_qiu_shui) -> char_wu_ya_zi (师徒) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_步法卷轴",
-      "name": "步法卷轴",
-      "message": "Item \"步法卷轴\" not found in original text - likely hallucination"
+      "source": "char_duan_yan_qing",
+      "target": "char_ye_er_niang",
+      "rel_type": "合作者",
+      "message": "段延庆(char_duan_yan_qing) -> char_ye_er_niang (合作者) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_黄色粉末解药",
-      "name": "黄色粉末解药",
-      "message": "Item \"黄色粉末解药\" not found in original text - likely hallucination"
+      "source": "char_duan_yan_qing",
+      "target": "char_yun_zhong_he",
+      "rel_type": "合作者",
+      "message": "段延庆(char_duan_yan_qing) -> char_yun_zhong_he (合作者) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_燕字小旗",
-      "name": "燕字小旗",
-      "message": "Item \"燕字小旗\" not found in original text - likely hallucination"
+      "source": "char_a_zhu",
+      "target": "char_a_bi",
+      "rel_type": "亲属",
+      "message": "阿朱(char_a_zhu) -> char_a_bi (亲属) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "relationship_asymmetric",
       "severity": "warning",
-      "source": "auto_item_黄金信笺",
-      "name": "黄金信笺",
-      "message": "Item \"黄金信笺\" not found in original text - likely hallucination"
+      "source": "char_jiu_mo_zhi",
+      "target": "char_ku_rong",
+      "rel_type": "宿敌",
+      "message": "鸠摩智(char_jiu_mo_zhi) -> char_ku_rong (宿敌) exists, but reverse not found"
     },
     {
-      "type": "possible_hallucination",
+      "type": "alias_duplicate",
       "severity": "warning",
-      "source": "auto_item_六脉神剑图谱",
-      "name": "六脉神剑图谱",
-      "message": "Item \"六脉神剑图谱\" not found in original text - likely hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "warning",
-      "source": "auto_item_少林七十二绝技秘笈",
-      "name": "少林七十二绝技秘笈",
-      "message": "Item \"少林七十二绝技秘笈\" not found in original text - likely hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "info",
-      "source": "auto_skill_以彼之道还施彼身",
-      "name": "以彼之道还施彼身",
-      "message": "Skill \"以彼之道还施彼身\" not found in original text - likely hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "info",
-      "source": "auto_faction_无量剑北宗",
-      "name": "无量剑北宗",
-      "message": "Faction \"无量剑北宗\" not found in original text - likely hallucination"
-    },
-    {
-      "type": "possible_hallucination",
-      "severity": "info",
-      "source": "auto_faction_苏州王氏",
-      "name": "苏州王氏",
-      "message": "Faction \"苏州王氏\" not found in original text - likely hallucination"
-    },
-    {
-      "type": "similar_entity",
-      "severity": "warning",
-      "entity_type": "character",
-      "name1": "甘宝宝",
-      "name2": "俏药叉甘宝宝",
-      "id1": "auto_character_甘宝宝",
-      "id2": "auto_character_俏药叉甘宝宝",
-      "message": "Similar character names: \"甘宝宝\" (auto_character_甘宝宝) and \"俏药叉甘宝宝\" (auto_character_俏药叉甘宝宝)"
-    },
-    {
-      "type": "similar_entity",
-      "severity": "warning",
-      "entity_type": "character",
-      "name1": "秦红棉",
-      "name2": "修罗刀秦红棉",
-      "id1": "auto_character_秦红棉",
-      "id2": "auto_character_修罗刀秦红棉",
-      "message": "Similar character names: \"秦红棉\" (auto_character_秦红棉) and \"修罗刀秦红棉\" (auto_character_修罗刀秦红棉)"
-    },
-    {
-      "type": "similar_entity",
-      "severity": "warning",
-      "entity_type": "character",
-      "name1": "俏药叉甘宝宝",
-      "name2": "俏药叉",
-      "id1": "auto_character_俏药叉甘宝宝",
-      "id2": "auto_character_俏药叉",
-      "message": "Similar character names: \"俏药叉甘宝宝\" (auto_character_俏药叉甘宝宝) and \"俏药叉\" (auto_character_俏药叉)"
-    },
-    {
-      "type": "similar_entity",
-      "severity": "warning",
-      "entity_type": "character",
-      "name1": "慕容博",
-      "name2": "慕容",
-      "id1": "auto_character_慕容博",
-      "id2": "auto_character_慕容",
-      "message": "Similar character names: \"慕容博\" (auto_character_慕容博) and \"慕容\" (auto_character_慕容)"
-    },
-    {
-      "type": "similar_entity",
-      "severity": "warning",
-      "entity_type": "character",
-      "name1": "慕容复",
-      "name2": "慕容",
-      "id1": "auto_character_慕容复",
-      "id2": "auto_character_慕容",
-      "message": "Similar character names: \"慕容复\" (auto_character_慕容复) and \"慕容\" (auto_character_慕容)"
+      "alias": "段正明",
+      "characters": [
+        "char_bao_ding_di",
+        "char_duan_zheng_ming"
+      ],
+      "message": "Alias \"段正明\" appears in multiple characters: 保定帝, 段正明"
     }
   ]
 }
