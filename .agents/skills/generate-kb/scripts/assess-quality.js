@@ -5,7 +5,14 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { auditRecall } = require('./audit-recall');
 const { collectEvidenceIntegrity, collectSemanticCoverage } = require('./lib/audits');
+const { computeFinalDataHash } = require('./lib/final-data-contract');
 const { evaluateHardGates } = require('./lib/quality-gates');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
+const {
+  assertExpectedFinalDataHash,
+  parseArtifactArgs,
+  resolveArtifactRoots
+} = require('./lib/report-context');
 const { buildReviewPacket } = require('./lib/review-readiness');
 const { validateInventory } = require('./validate-inventory');
 
@@ -20,18 +27,22 @@ function loadArray(filename) {
   return Array.isArray(value) ? value : [];
 }
 
-function collectRawCounts(novelDir) {
+function collectRawCounts(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
   return Object.fromEntries(DATA_FILES.map(filename => [
     filename.replace('.json', ''),
-    loadArray(path.join(novelDir, 'data', filename)).length
+    loadArray(path.join(roots.dataRoot, filename)).length
   ]));
 }
 
-function assessQuality(novelDir) {
-  const inventory = validateInventory(novelDir);
-  const evidence = collectEvidenceIntegrity(novelDir);
-  const recall = auditRecall(novelDir);
-  const semantic = collectSemanticCoverage(novelDir);
+function assessQuality(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
+  const finalDataHash = computeFinalDataHash(novelDir, { dataRoot: roots.dataRoot });
+  assertExpectedFinalDataHash(finalDataHash, roots.expectedFinalDataHash);
+  const inventory = validateInventory(novelDir, roots);
+  const evidence = collectEvidenceIntegrity(novelDir, roots);
+  const recall = auditRecall(novelDir, roots);
+  const semantic = collectSemanticCoverage(novelDir, roots);
   const gateReport = evaluateHardGates({
     source_coverage: inventory.source,
     ledger_closure: inventory.ledger,
@@ -44,11 +55,12 @@ function assessQuality(novelDir) {
     generated_at: gateReport.generated_at,
     novel: path.basename(novelDir),
     baseline_mode: recall.gold_status,
+    final_data_hash: finalDataHash,
     completion_gate_passed: gateReport.completion_gate_passed,
     gates: gateReport.gates,
-    raw_counts: collectRawCounts(novelDir)
+    raw_counts: collectRawCounts(novelDir, roots)
   };
-  const packet = buildReviewPacket(novelDir, { qualityReport: report });
+  const packet = buildReviewPacket(novelDir, { ...roots, qualityReport: report });
   report.review_readiness = packet.review_readiness;
   return report;
 }
@@ -85,26 +97,24 @@ function reportMarkdown(report) {
   return lines.join('\n');
 }
 
-function writeReports(novelDir, report) {
-  const reportsDir = path.join(novelDir, 'reports');
+function writeReports(novelDir, report, options = {}) {
+  assertLegacyWriteAllowed(novelDir, { operation: 'assess-quality reports' });
+  const reportsDir = resolveArtifactRoots(novelDir, options).reportsRoot;
   fs.mkdirSync(reportsDir, { recursive: true });
   fs.writeFileSync(path.join(reportsDir, 'quality_report.json'), `${JSON.stringify(report, null, 2)}\n`);
   fs.writeFileSync(path.join(reportsDir, 'quality_report.md'), `${reportMarkdown(report)}\n`);
 }
 
 if (require.main === module) {
-  const args = process.argv.slice(2);
-  const reportOnly = args.includes('--report-only');
-  const dryRun = args.includes('--dry-run');
-  const positional = args.filter(arg => !arg.startsWith('--'));
-  if (positional.length !== 1) {
-    console.error('Usage: node assess-quality.js <novel-dir> [--report-only] [--dry-run]');
-    process.exit(1);
-  }
   try {
-    const novelDir = path.resolve(positional[0]);
-    const report = assessQuality(novelDir);
-    if (!dryRun) writeReports(novelDir, report);
+    const context = parseArtifactArgs(process.argv.slice(2), {
+      booleanFlags: ['--report-only', '--dry-run'],
+      usage: 'Usage: node assess-quality.js <novel-dir> [--bundle-root DIR | --data-root DIR --reports-root DIR] [--build-root DIR] [--expected-final-data-hash HASH] [--report-only] [--dry-run]'
+    });
+    const reportOnly = context.flags.has('--report-only');
+    const dryRun = context.flags.has('--dry-run');
+    const report = assessQuality(context.novelDir, context);
+    if (!dryRun) writeReports(context.novelDir, report, context);
     console.log(`Completion gate: ${report.completion_gate_passed ? 'PASS' : 'FAIL'}`);
     for (const [id, gate] of Object.entries(report.gates)) {
       console.log(`${id}: ${gate.passed ? 'PASS' : `FAIL (${gate.reasons.length})`}`);

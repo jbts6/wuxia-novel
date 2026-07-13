@@ -42,6 +42,7 @@ function evaluateHardGates(input = {}) {
       value => list(value.invalid_data_files).map(error => `invalid final data file: ${error}`),
       value => list(value.schema_errors).map(error => `final schema: ${error}`),
       value => list(value.enrichment_errors).map(error => `enrichment: ${error}`),
+      value => list(value.evidence_non_vacuity_errors).map(error => `evidence integrity: ${error}`),
       value => list(value.entities_without_grounded_refs).map(id => `entity lacks grounded source ref: ${id}`),
       value => list(value.descriptions_without_refs).map(id => `description lacks source ref: ${id}`),
       value => list(value.verification_file_errors).map(error => `verification file error: ${error}`),

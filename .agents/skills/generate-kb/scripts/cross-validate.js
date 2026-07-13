@@ -4,18 +4,45 @@
 const fs = require('fs');
 const path = require('path');
 const { computeFinalDataHash } = require('./lib/final-data-contract');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
+const {
+  assertExpectedFinalDataHash,
+  parseArtifactArgs
+} = require('./lib/report-context');
 
 const args = process.argv.slice(2);
-if (args.length < 1) {
-  console.error('Usage: cross-validate.js <novelDir>');
+let context;
+try {
+  context = parseArtifactArgs(args, {
+    booleanFlags: ['--dry-run', '--json'],
+    usage: 'Usage: cross-validate.js <novelDir> [--bundle-root DIR | --data-root DIR --reports-root DIR] [--expected-final-data-hash HASH] [--dry-run] [--json]'
+  });
+} catch (error) {
+  console.error(`${error.code ?? 'CLI_USAGE'}: ${error.message}`);
   process.exit(1);
 }
 
-const novelDir = path.resolve(args[0]);
+const {
+  novelDir,
+  dataRoot,
+  reportsRoot,
+  buildRoot,
+  expectedFinalDataHash,
+  explicitDataRoot,
+  explicitReportsRoot,
+  flags
+} = context;
+const dryRun = flags.has('--dry-run');
+const jsonOutput = flags.has('--json');
+if (jsonOutput) console.log = () => {};
 
 // Load JSON file helper with subdirectory support
 function loadJson(filename, subdir) {
-  const dirs = subdir ? [path.join(novelDir, subdir), novelDir] : [novelDir];
+  const dirs = subdir === 'data'
+    ? [dataRoot, ...(!explicitDataRoot ? [novelDir] : [])]
+    : subdir === 'build'
+      ? [buildRoot, novelDir]
+      : [novelDir];
   for (const dir of dirs) {
     const fp = path.join(dir, filename);
     if (fs.existsSync(fp)) {
@@ -491,7 +518,13 @@ for (let i = 0; i < charNames.length; i++) {
   }
 }
 
-const finalDataHash = computeFinalDataHash(novelDir);
+const finalDataHash = computeFinalDataHash(novelDir, { dataRoot });
+try {
+  assertExpectedFinalDataHash(finalDataHash, expectedFinalDataHash);
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
+  process.exit(1);
+}
 if (!finalDataHash) {
   issues.push({
     type: 'final_data_incomplete',
@@ -549,11 +582,17 @@ const report = {
   issues: issues
 };
 
-const reportPath = path.join(novelDir, 'reports', 'cross_validation_report.json');
-fs.mkdirSync(path.dirname(reportPath), { recursive: true });
-fs.writeFileSync(reportPath, JSON.stringify(report, null, 2), 'utf8');
-fs.writeFileSync(path.join(novelDir, 'cross_validation_report.json'), JSON.stringify(report, null, 2), 'utf8');
-console.log(`\nFull report written to ${reportPath}`);
+const reportPath = path.join(reportsRoot, 'cross_validation_report.json');
+if (!dryRun) {
+  assertLegacyWriteAllowed(novelDir, { operation: 'cross-validate report' });
+  fs.mkdirSync(path.dirname(reportPath), { recursive: true });
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2), 'utf8');
+  if (!explicitReportsRoot) {
+    fs.writeFileSync(path.join(novelDir, 'cross_validation_report.json'), JSON.stringify(report, null, 2), 'utf8');
+  }
+}
+console.log(dryRun ? '\nDry run: cross-validation report was not written' : `\nFull report written to ${reportPath}`);
+if (jsonOutput) process.stdout.write(`${JSON.stringify(report)}\n`);
 
 // Exit with error if there are errors
 if (errors.length > 0) {

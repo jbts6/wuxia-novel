@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 'use strict';
 
-// Legacy migration helper. The four-stage source-ledger pipeline does not invoke this script.
+// Legacy migration helper. The managed six-stage pipeline does not invoke this script.
 
 const fs = require('fs');
 const path = require('path');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 
 const args = process.argv.slice(2);
 if (args.length < 1) {
@@ -13,6 +14,7 @@ if (args.length < 1) {
 }
 
 const novelDir = path.resolve(args[0]);
+assertLegacyWriteAllowed(novelDir, { operation: 'compact-mention' });
 const jsonlPath = path.join(novelDir, 'build', 'mention_index.jsonl');
 if (!fs.existsSync(jsonlPath)) {
   console.error(`mention_index.jsonl not found; run split-chapters.js first`);

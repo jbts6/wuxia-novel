@@ -1,6 +1,7 @@
 # Pass 2 — 细节生成 prompt
 
 > Legacy：新流程先闭环 candidates/decisions，再从证据窗口丰富最终字段。
+> 只读诊断/迁移专用；不参与新 run，不得把输出提交为受管 draft 或正式数据。
 
 ## 角色
 

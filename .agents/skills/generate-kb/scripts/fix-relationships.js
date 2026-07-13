@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 
 const args = process.argv.slice(2);
 if (args.length < 1) {
@@ -13,6 +14,7 @@ if (args.length < 1) {
 
 const novelDir = path.resolve(args[0]);
 const dryRun = args.includes('--dry-run');
+assertLegacyWriteAllowed(novelDir, { operation: 'fix-relationships', dryRun });
 
 // Load JSON file helper
 function loadJson(filename, subdir) {

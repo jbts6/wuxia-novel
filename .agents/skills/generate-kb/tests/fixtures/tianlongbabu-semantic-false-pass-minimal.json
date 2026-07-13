@@ -1,0 +1,140 @@
+{
+  "fixture": "tianlongbabu-semantic-false-pass-minimal",
+  "purpose": "Historical false-pass modes reduced to synthetic provisional records; this is not production novel data.",
+  "semantic_input": {
+    "records_by_category": {
+      "character": [
+        {
+          "provisional_key": "entity_character_duan_yu_fixture",
+          "name": "段誉",
+          "importance": "核心"
+        }
+      ],
+      "faction": [],
+      "location": [],
+      "skill": [
+        { "provisional_key": "entity_skill_ren_mai_fixture", "name": "任脉" },
+        { "provisional_key": "entity_skill_yi_jin_jing_fixture", "name": "易筋经" }
+      ],
+      "technique": [
+        { "provisional_key": "entity_technique_yi_yang_zhi_fixture", "name": "一阳指" },
+        { "provisional_key": "entity_technique_tan_zhong_xue_fixture", "name": "膻中穴" }
+      ],
+      "item": [
+        {
+          "provisional_key": "entity_item_shi_ba_xue_shi_fixture",
+          "name": "十八学士",
+          "type": "兵器"
+        }
+      ],
+      "dialogue": [
+        {
+          "provisional_key": "dialogue_unknown_fixture",
+          "selection_type": "persona",
+          "speaker": null,
+          "speaker_name": "未知"
+        }
+      ],
+      "chapter_summary": []
+    },
+    "events": [],
+    "exemptions": {
+      "personas": [
+        {
+          "provisional_key": "entity_character_duan_yu_fixture",
+          "reason": "没有关联对白",
+          "search_scope": ["第一章"],
+          "source_refs": [
+            {
+              "chapter": 1,
+              "line_start": 1,
+              "line_end": 1,
+              "text": "段誉说道：我去便是。"
+            }
+          ]
+        }
+      ],
+      "event_participants": []
+    },
+    "dialogue_signals": [
+      {
+        "speaker_name": "段誉",
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 1,
+            "line_end": 1,
+            "text": "段誉说道：我去便是。"
+          }
+        ]
+      }
+    ],
+    "field_evidence_claims": [
+      {
+        "provisional_key": "entity_character_duan_yu_fixture",
+        "field_evidence_claims": {
+          "biography": {
+            "claim": "这段原文只支持人物在此处作出回应。",
+            "source_refs": [
+              {
+                "chapter": 1,
+                "line_start": 1,
+                "line_end": 1,
+                "text": "段誉说道：我去便是。"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "evidence_audit_verdicts": [
+      {
+        "provisional_key": "entity_character_duan_yu_fixture",
+        "field": "biography",
+        "supported": true,
+        "reason": "原文直接记录人物在该处作出回应这一经历。"
+      }
+    ],
+    "shared_evidence_justifications": [
+      {
+        "provisional_key": "entity_character_duan_yu_fixture",
+        "fields": ["identity", "biography", "personality"],
+        "source_refs": [
+          {
+            "chapter": 1,
+            "line_start": 1,
+            "line_end": 1,
+            "text": "段誉说道：我去便是。"
+          }
+        ],
+        "field_facts": {
+          "identity": "原文支持 identity",
+          "biography": "原文支持 biography",
+          "personality": "原文支持 personality"
+        }
+      }
+    ]
+  },
+  "placeholder_case": {
+    "category": "skill",
+    "provisional_key": "entity_skill_bei_ming_fixture",
+    "overrides": {
+      "name": "北冥神功",
+      "one_line": "北冥神功。",
+      "combat_style": "北冥神功的招式。",
+      "progression": "北冥神功的来历不明。"
+    },
+    "expected_fields": ["one_line", "combat_style", "progression"]
+  },
+  "expected": {
+    "required_error_codes": [
+      "DIALOGUE_SPEAKER_INVALID",
+      "PERSONA_EXEMPTION_INVALID",
+      "PERSONA_EXEMPTION_CONTRADICTED",
+      "SHARED_EVIDENCE_JUSTIFICATION_INVALID",
+      "CLASSIFICATION_ERROR"
+    ],
+    "classification_error_names": ["一阳指", "膻中穴", "任脉", "十八学士"],
+    "classification_control_names": ["易筋经"]
+  }
+}

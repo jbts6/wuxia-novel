@@ -1,136 +1,106 @@
-# 原文先行的四阶段流水线
+# generate-kb 六阶段流水线
 
-设 `$SKILL=.agents/skills/generate-kb`，`$NOVEL=<作者>/<小说名>`。所有生成事实只来自 `$NOVEL/<小说名>.txt` 与它切分出的 `ch_split/`。
+设 `$SKILL=.agents/skills/generate-kb`，`$NOVEL=<作者>/<小说名>`，`$CLI=$SKILL/scripts/pipeline.js`。新 run 的唯一写入入口是 `scripts/pipeline.js`；下列命令都通过该控制器执行。
 
-## 1. Prepare Source
+## 恢复原则
 
-若尚无 `ch_split/`，先运行既有章节切分：
-
-```bash
-node "$SKILL/scripts/split-chapters.js" "$NOVEL"
-```
-
-生成稳定章节内行号、source SHA-256 和重叠窗口：
+任何会话先读取机器状态：
 
 ```bash
-node "$SKILL/scripts/prepare-source.js" "$NOVEL"
+node "$CLI" status "$NOVEL" --json
 ```
 
-产物：
+只执行返回的 `next_action`，完成后再次读取状态。不得凭聊天记录猜测进度，不得一次串行执行整本书，也不得直接调用旧脚本推进状态。原文或上游 output hash 改变时，下游 PASS、lease、draft 和人工 receipt 自动失效。
 
-- `build/source-index.json`
-- `build/scan-manifest.json`
+## 六个有序阶段
 
-原文或 `ch_split/` 改变后必须重跑。不得沿用旧 hash 下的 candidates、decisions 或人工 gold。
+| 阶段 | 允许输入 | 受管输出 | 硬门禁 |
+|---|---|---|---|
+| `prepare` | 小说原文、章节切分配置 | source index、scan plan、source hash | 章节对齐、窗口覆盖、hash 一致 |
+| `inventory` | 当前 hash 的 source packets | candidates、事件/对白候选、章节摘要草稿、窗口 receipts | 每个窗口有实际输出或结构化零产出原因 |
+| `reconcile` | 当前 candidates、source packets | decisions、provisional entities/events、gap-audit rounds | 候选闭环、主要人物召回、类别规则、最终 blind gap round 无有效新增 |
+| `enrich` | 已通过 reconcile 的 provisional records、证据 packets | 无正式 ID 的八类丰富草稿、字段级证据 | 完整字段、无占位内容、共享证据说明有效 |
+| `semantic-audit` | 当前 enrich 与 reconcile outputs、原文证据 | 独立语义审计报告、可执行失败清单 | speaker、豁免、事件参与者、类别、召回和字段证据全部通过 |
+| `publish` | 已通过 semantic audit 的同一组 hashes | ID plan、staging bundle、manifest、版本 receipt | 正式数据、引用、报告 hash、bundle 完整性与并发保护全部通过 |
 
-## 2. Inventory From Source
+从 `prepare` 到 `semantic-audit` 不得写 `data/*.json` 或任何正式数据，也不得生成正式 ID。正式 ID 只在 `publish` 一次生成，并由同一 ID plan 投影到记录和全部引用。
 
-对 `source-index.json` 的每个 window 分别运行两次低负担扫描：
+## 单一命令面
 
-1. 读取 `prompts/named-inventory.md`，提取命名实体。
-2. 读取 `prompts/event-dialogue.md`，提取事件和代表性原话。
-
-每次只给模型当前 window 和章节内起止行号，不提供现有 `data/*.json`、baseline、百科或其他窗口的总结。将结果逐行追加到 `build/candidates.jsonl`，并在 `scan-manifest.json` 对应 pass 的 `completed_window_ids` 中登记窗口。
-
-扫描原则：
-
-- 命名武功与招式全部进入候选，不做重要性截断。
-- 物品重点关注秘笈/图谱、信物、兵器、药物、钥匙和推动事件的普通物品。
-- 对话必须带 `selection_type_hint`、选择理由与可定位的上下文原文；不要按每章固定数量凑数。
-- 每章只生成一个 `chapter_summaries` 最终记录，以正整数 `chapter` 为主键；章节摘要不进入候选/decision 账本。
-
-完成两类扫描后运行：
-
-```bash
-node "$SKILL/scripts/validate-inventory.js" "$NOVEL"
+```text
+pipeline.js init <novel-dir> [--concurrency 1..4] [--risk-limit 1..15]
+pipeline.js status <novel-dir> [--json]
+pipeline.js run <novel-dir>
+pipeline.js claim <novel-dir> --worker <worker-id>
+pipeline.js submit <novel-dir> --worker <worker-id> --item <id> --draft <path>
+pipeline.js check <novel-dir>
+pipeline.js advance <novel-dir>
+pipeline.js review-packet <novel-dir>
+pipeline.js record-review <novel-dir> --input <receipt-draft>
+pipeline.js build-publish <novel-dir> --draft <publish-draft>
+pipeline.js promote <novel-dir> --bundle <bundle-hash> --expected-current <hash-or-none>
+pipeline.js rollback <novel-dir> --bundle <bundle-hash> --expected-current <hash>
 ```
 
-此时 G2/G4 尚未完成可以失败，但 named-inventory 和 event-dialogue 不得再有漏扫窗口。
+- `run` 最多执行当前阶段的一个确定性控制器动作。
+- `advance` 只在当前门禁 PASS 后切换阶段，不执行下一阶段工作。
+- 所有失败必须非零退出，并保留当前阶段、稳定 error code 和修正建议。
+- `status --json` 是跨会话恢复的唯一机器接口。
 
-## 3. Reconcile And Enrich
+## Work Item 协议
 
-读取 candidates 及其关联的原文窗口，先归并后丰富：
+`inventory`、`reconcile` 和 `enrich` 强制分批。每批严格使用 `claim -> draft -> submit`：
 
-1. 统一名称与别名。
-2. 区分 skill（体系/功法）与 technique（明确的一招一式）。
-3. 为每个候选写 `build/decisions.jsonl`：keep、merge、redirect 或 reject。
-4. 将事件归入 `build/events.json`，主要事件标记 `importance: main`。
-5. 只用候选证据窗口补充最终八类 JSON 的复杂字段。
+1. `claim` 只领取状态机确定的下一 work item，并生成只读任务包；任务包必须同时绑定 stage、work item ID 和 input hash。
+2. AI 只读取任务包列出的 source/provisional 输入，只写任务包指定的非受管 draft 路径。
+3. draft 必须回显 packet binding。实际没有候选时提交结构化 `empty_output_reason`，不能用空文件、占位对象或只登记 completed ID 代替。
+4. `submit` 校验 stage、work item ID、input hash、lease、schema、证据和阶段规则；全部通过后才原子合并到受管产物并生成 receipt。
+5. 提交失败不部分写入；修正同一个 draft 后重交。陈旧、重复、越阶段或非当前 work item 一律拒绝。
 
-写 decision 和最终 JSON 前，必须按 `constants.md` 为每个保留对象确定「中文名 -> 逐字无声调拼音 -> 正式 ID」。`final_category`、`final_id`、正式记录 `id` 及所有引用必须使用同一值。禁止写入 `char_左子穆`、`dialogue_1` 或错误类别前缀；校验器不会自动改写非法 ID。
+AI 不得直接编辑 `events.jsonl`、`state.json`、work item 状态、candidate/decision ledger、`materialized/`、`.kb/`、`data/` 或 `reports/`。
 
-第 5 步不是可选润色。完成归并后必须运行：
+默认并发为 1，最多配置为 4。只有不重叠的 `inventory` 窗口和 `enrich` 实体批次可并发 claim；其他阶段及 review、promote、rollback 独占。合并顺序按稳定 work item ID，不按提交先后。
 
-```bash
-node "$SKILL/scripts/validate-final-data.js" "$NOVEL"
-```
+## 阶段执行与停止条件
 
-只有 `reports/final_data_validation.json` 的 `passed: true` 才算完成 Stage 3。仅写入 `id`、`name`、`source_refs` 的骨架记录必须失败；缺失文件、字段、枚举、嵌套结构、ID 格式、跨记录引用或条件 enrich 也必须失败。龙套/背景等允许低细节的情况按 schema 条件规则保留空值，不得为过门编造原文没有的信息。
+### `prepare`
 
-武功/招式禁止因 `non_major` 或 `trivial` reject。类别错误用 redirect；同名重复用 merge/duplicate；原文证据不足用 not_source_grounded。
+`run` 建立 source index 与 scan plan。新 run 只读取原文和章节，不读取旧 `data/*.json`、baseline 或百科。source/chapter 不一致时停止在 `prepare`。
 
-对话最终记录必须包含 `id`、`selection_type`、`selection_reason`、`context` 及其章节内起止行号。`event|both` 必须关联 `event_id`，`persona|both` 必须包含 `trait_tags`。无法找到事件或人物特征原话时，将有证据的原因写入 `build/semantic-exemptions.json`，不得静默跳过。
+### `inventory`
 
-## 4. Independent Gap Audit And Gate
+每个窗口分别按 `prompts/named-inventory.md` 与 `prompts/event-dialogue.md` 生成 draft。窗口 receipt 记录 candidate count、chapter-summary count、empty reason 和 output hash；缺少任一项即不能通过。
 
-再次逐窗口读取原文，使用 `prompts/gap-audit.md`。该轮不能看到已有 candidates 或最终 JSON。新候选仍追加到 `candidates.jsonl`，`discovery_pass` 固定为 `gap-audit`。
+### `reconcile`
 
-每轮写入：
+按稳定候选簇归并 canonical name、`final_category`、importance 与 keep/merge/redirect/reject decision。此阶段只产生 provisional key。blind gap audit 使用 `prompts/gap-audit.md`，看不到已有 candidates、decisions 或最终数据；发现有效新增时继续当前阶段，不得提前 enrich。
 
-```json
-{"rounds":[{"round":1,"completed_window_ids":["ch001_w001"],"new_candidate_ids":["cand_..."]}]}
-```
+长篇小说通过自动门禁后必须停止并生成 recall review packet。packet 只展示主要角色/事件/武学、章节异常、疑似漏项和高风险裁决，不展示全量账本。
 
-若发现有效新候选，回到 Stage 3 归并，再做一轮独立 gap audit。最多两轮；最后一轮必须没有 keep/merge/redirect 的新候选。
+### Recall Review
 
-依次运行：
+高风险裁决上限默认最多 15 项；用户可把上限降至 10 项或更低。超过当前上限时不得截断或丢弃未展示项，必须由 AI 继续复核、修正或确定化后重新生成 packet。
 
-```bash
-node "$SKILL/scripts/validate-inventory.js" "$NOVEL"
-node "$SKILL/scripts/validate-final-data.js" "$NOVEL"
-node "$SKILL/scripts/verify.js" "$NOVEL"
-node "$SKILL/scripts/cross-validate.js" "$NOVEL"
-node "$SKILL/scripts/audit-recall.js" "$NOVEL"
-node "$SKILL/scripts/generate-review-packet.js" "$NOVEL"
-node "$SKILL/scripts/generate-summary.js" "$NOVEL"
-```
+人工使用 `record-review` 提交 `accept_recall`、`rerun_recall` 和逐项结论。receipt 绑定 source hash、reconcile output hash、decision ID 与 reviewer；绑定对象变化即失效。没有有效的长篇 recall receipt 时，不能 claim `enrich`。
 
-### G1-G5
+### `enrich`
 
-- G1 Source Coverage：当前 source hash、三类窗口 100% 覆盖、每章恰好一个结构完整的 summary。
-- G2 Ledger Closure：所有候选闭环，保留项可追到 final ID，reject 合法。
-- G3 Evidence Integrity：八类文件和记录满足最终数据契约，条件 enrich 完成；正式实体与章节摘要有 grounded ref，描述字段有独立证据，对话及上下文全文 100% 命中，verification 无文件错误、hash 对应当前数据且 grand weak/unverified 为 0。
-- G4 Recall Evidence：最终 gap round 无有效新增，词法信号有解释，命名武学闭环，可选人工 gold 命中。
-- G5 Semantic Coverage：至少有一名核心/重要角色，主要事件和核心/重要角色对话覆盖，cross-reference/schema 无阻塞错误，cross-validation hash 对应当前数据。
+按类别和稳定实体批次补全复杂字段及 `field_source_refs`。骨架记录、同义反复、`X。`、`X的招式。`、`来历不明` 等占位句直接失败。三个或以上语义不同字段复用同一证据组默认报 `evidence_padding`；合法共享必须逐字段提交 `shared_evidence_justification`，留待下一阶段独立复核。
 
-### AI 自筛与审核就绪
+### `semantic-audit`
 
-`generate-review-packet.js` 同时更新 `quality_report.json`、`review_packet.json` 和 `review_packet.md`。G1-G5 的 `completion_gate_passed` 语义保持不变，人工审核就绪另用三态表示：
+独立检查主要角色、事件参与者、skill/technique/item 分类、字段证据、共享证据说明、persona/both speaker 与语义豁免。发现上游问题时生成明确 remediation transition，使相关下游状态失效；不得在审计报告中直接补数据。
 
-- `blocked`：G1-G5 至少一项失败，先修硬门禁。
-- `needs_ai_rerun`：G1-G5 已通过，但数量合理性、候选保留率或高风险队列异常，AI 必须先返工。
-- `ready_for_human_review`：AI 自筛结束，可以交付紧凑人工审核包。
+### `publish`
 
-长篇定义为章节数不少于 30，或原文不少于 12000 行。以下是返工报警，不是完整性证明：
+`build-publish` 从当前 run 的 `materialized/reconcile`、`materialized/enrich`、`materialized/semantic-audit`、source index 和 recall packet 读取受管输入并重算 hash；不接受外部预制 bundle。`--draft` 指向受管目录之外的 publish draft，只携带绑定当前 `run_id`/`semantic_audit_hash` 的 token plan，出现 `report_inputs` 立即拒绝。控制器验证 draft 和全部上游产物后，在隔离 staging 目录生成 ID plan 和八类 JSON，再对这些 staging data 实际运行 verification、cross-validation，并根据当前 source、final-data、recall、semantic 结果确定性生成 G1-G5 quality report，最后生成 manifest。bundle 必须先在目录内自验证；失败时删除未通过的 staging bundle，当前 `data/`、`reports/` 和 `.kb/current` 逐字节不变。
 
-- 最终 skill + technique 少于 10：阻止人工终审，扩大武学召回；10-19 给 warning。
-- 最终 item 少于 5：阻止人工终审，重扫剧情物品；5-7 给 warning。
-- skill + technique 或 item 候选不少于 20，但保留率低于 10%：阻止人工终审，复审 reject，防止过度删除。
-- 高风险裁决超过 10 个：先由 AI 逐条复核，在 decision 的 `ai_review.status` 写 `confirmed|revised|needs_human`，直到人工队列压缩到 10 个以内。
+`promote` 复验 bundle，并比较 `expected-current`。通过后将完整 bundle 放入 `.kb/versions/<bundle-hash>/`，再原子替换唯一指针 `.kb/current`；逻辑 `data/` 与 `reports/` 始终解析到同一版本。`rollback` 同样先复验目标 manifest，再切换指针并生成 receipt。
 
-AI 根据异常类型自动回到 Stage 2 或 Stage 3，重跑校验和审核包。不得为了越过阈值凭空补实体；所有新增仍需原文候选、decision 和证据闭环。
+## 完成门禁
 
-### 单本执行与集中批审
+完成必须由 `status --json` 与 `check` 共同证明：六阶段均 PASS、publish 已 promote、G1-G5 和所有报告绑定当前 final data hash、无未提交 work item/陈旧 lease/失效 receipt/未处理高风险项。任何条件失败都停在状态机指定位置，不得靠数量、总分、人工口头确认或直接编辑 JSON 放行。
 
-每本书独立保存 source hash、质量报告和审核包，不建立跨书共享完成状态。AI 可以连续跑五六本；人工有空时只需依次查看各书 `review_packet.md` 并选择 `accept`、`rerun_recall`、`rerun_precision` 或 `manual_investigation`。任何一本要求重跑，不影响同批其他书。
+## Legacy 诊断
 
-## 旧知识库迁移
-
-只读诊断：
-
-```bash
-node "$SKILL/scripts/audit-recall.js" "$NOVEL" --legacy --dry-run
-node "$SKILL/scripts/assess-quality.js" "$NOVEL" --report-only --dry-run
-```
-
-旧数据缺少新证据时应失败，这是“尚未证明完整”，不是自动判定数据错误。不要为通过门禁直接修改现有小说数据；先补 source/ledger/gap 产物，再按原文决定是否重生成。
+旧 baseline、旧多 pass prompts 以及直接写 `build/`/`data/` 的命令只允许在非 managed run 中做明确的只读诊断或迁移。它们不参与新 run；输出不能合并为受管产物，也不能证明阶段完成。

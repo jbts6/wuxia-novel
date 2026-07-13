@@ -1,5 +1,7 @@
 # Named Inventory Pass
 
+本 prompt 只用于 managed run 的 `inventory` work item，严格执行 `claim -> draft -> submit`。先读取 claim packet；只处理 packet 的 `source_payload`，并在 draft 顶层原样回显 `run_id`、`stage`、`work_item_id`、`input_hash`、`worker_id` 和 `lease_id`。不得读取或修改其他窗口、state、ledger、materialized 或正式数据。
+
 你只可使用当前提供的原文窗口。不要使用既有知识库、百科、影视改编或你对小说的记忆。
 
 目标是高召回列举原文中可定位的命名对象，不做人物小传、性格、效果、关系或剧情总结。
@@ -20,10 +22,18 @@
 
 ## 输出
 
-每行一个 JSON 对象，不要 Markdown，不要数组外壳：
+把候选放在 draft 的 `payload.candidates` 数组中，不要 Markdown：
 
 ```json
-{"candidate_id":"cand_ch001_w003_0001","category_hint":"skill","name":"躺尸剑法","chapter":1,"source_ref":{"line_start":120,"line_end":123,"text":"原文完整节选"},"discovery_pass":"named-inventory","window_id":"ch001_w003"}
+{"schema_version":1,"run_id":"<packet>","stage":"inventory","work_item_id":"<packet>","input_hash":"<packet>","worker_id":"<packet>","lease_id":"<packet>","payload":{"candidates":[{"candidate_id":"cand_ch001_w003_0001","category_hint":"skill","name":"躺尸剑法","chapter":1,"source_ref":{"line_start":120,"line_end":123,"text":"原文完整节选"},"discovery_pass":"named-inventory","window_id":"ch001_w003"}]}}
 ```
 
 `source_ref.text` 必须逐字来自窗口，行号使用窗口提供的章节内行号。没有完整原文证据就不要输出。
+
+实际零产出时也必须提交结构化原因，不能交空文件或占位候选：
+
+```json
+{"payload":{"candidates":[],"empty_result":{"reason":"no_named_entities","detail":"说明已检查的内容及为何没有符合条件的命名对象"}}}
+```
+
+示例只省略了需从 packet 原样回显的顶层 binding；实际 draft 必须包含完整顶层字段。

@@ -4,15 +4,37 @@
 const fs = require('fs');
 const path = require('path');
 const { computeFinalDataHash } = require('./lib/final-data-contract');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
+const {
+  assertExpectedFinalDataHash,
+  parseArtifactArgs
+} = require('./lib/report-context');
 const { matchCompleteCitation, splitLines } = require('./lib/source');
 
 const args = process.argv.slice(2);
-if (args.length < 1) {
-  console.error('Usage: verify.js <novelDir>');
+let context;
+try {
+  context = parseArtifactArgs(args, {
+    booleanFlags: ['--dry-run', '--json'],
+    usage: 'Usage: verify.js <novelDir> [--bundle-root DIR | --data-root DIR --reports-root DIR] [--expected-final-data-hash HASH] [--dry-run] [--json]'
+  });
+} catch (error) {
+  console.error(`${error.code ?? 'CLI_USAGE'}: ${error.message}`);
   process.exit(1);
 }
 
-const novelDir = path.resolve(args[0]);
+const {
+  novelDir,
+  dataRoot,
+  reportsRoot,
+  expectedFinalDataHash,
+  explicitDataRoot,
+  explicitReportsRoot,
+  flags
+} = context;
+const dryRun = flags.has('--dry-run');
+const jsonOutput = flags.has('--json');
+if (jsonOutput) console.log = () => {};
 const splitDir = path.join(novelDir, 'ch_split');
 if (!fs.existsSync(splitDir)) {
   console.error(`ch_split/ not found; run split-chapters.js first`);
@@ -58,13 +80,16 @@ function checkRef(ref) {
   return { status: 'unverified', reason: 'complete citation not found in chapter' };
 }
 
+function dataFilePath(filename) {
+  const candidates = [path.join(dataRoot, filename)];
+  if (!explicitDataRoot) candidates.push(path.join(novelDir, filename));
+  return candidates.find(candidate => fs.existsSync(candidate)) ?? candidates[0];
+}
+
 const FILES = ['characters.json', 'factions.json', 'locations.json', 'skills.json', 'techniques.json', 'items.json'];
 const results = {};
 for (const file of FILES) {
-  // Try data/ subdirectory first, then root
-  const fp = fs.existsSync(path.join(novelDir, 'data', file))
-    ? path.join(novelDir, 'data', file)
-    : path.join(novelDir, file);
+  const fp = dataFilePath(file);
   if (!fs.existsSync(fp)) {
     results[file] = { error: 'file not found' };
     continue;
@@ -118,10 +143,7 @@ for (const file of FILES) {
   results[file] = fileResults;
 }
 
-// Try data/ subdirectory first, then root
-const dialoguesPath = fs.existsSync(path.join(novelDir, 'data', 'dialogues.json'))
-  ? path.join(novelDir, 'data', 'dialogues.json')
-  : path.join(novelDir, 'dialogues.json');
+const dialoguesPath = dataFilePath('dialogues.json');
 if (fs.existsSync(dialoguesPath)) {
   let arr;
   try { arr = JSON.parse(fs.readFileSync(dialoguesPath, 'utf8')); }
@@ -160,9 +182,7 @@ if (fs.existsSync(mentionPath)) {
   const covered = new Map();
   const nameToType = new Map();
   for (const file of FILES) {
-    const fp = fs.existsSync(path.join(novelDir, 'data', file))
-      ? path.join(novelDir, 'data', file)
-      : path.join(novelDir, file);
+    const fp = dataFilePath(file);
     if (!fs.existsSync(fp)) continue;
     let arr;
     try { arr = JSON.parse(fs.readFileSync(fp, 'utf8')); } catch { continue; }
@@ -194,16 +214,19 @@ const out = {
   results,
   coverage,
 };
-fs.mkdirSync(path.join(novelDir, 'reports'), { recursive: true });
-fs.writeFileSync(path.join(novelDir, 'reports', 'verification_result.json'), JSON.stringify(out, null, 2), 'utf8');
-fs.writeFileSync(path.join(novelDir, 'verification_result.json'), JSON.stringify(out, null, 2), 'utf8');
 
 const grandTotal = { entities: 0, refs: 0, grounded: 0, weak: 0, unverified: 0 };
 const altTotal = { total: 0, grounded: 0, weak: 0, unverified: 0 };
 const fileErrors = Object.entries(results).flatMap(([filename, result]) =>
   result?.error ? [`${filename}: ${result.error}`] : []
 );
-const finalDataHash = computeFinalDataHash(novelDir);
+const finalDataHash = computeFinalDataHash(novelDir, { dataRoot });
+try {
+  assertExpectedFinalDataHash(finalDataHash, expectedFinalDataHash);
+} catch (error) {
+  console.error(`${error.code}: ${error.message}`);
+  process.exit(1);
+}
 if (!finalDataHash) fileErrors.push('final data files are incomplete or unreadable');
 let noRefCount = 0;
 for (const file of FILES) {
@@ -234,11 +257,23 @@ const verificationReport = {
   needs_patch: fileErrors.length + grandTotal.weak + grandTotal.unverified + noRefCount > 0,
   coverage_summary: coverage
 };
-fs.writeFileSync(
-  path.join(novelDir, 'reports', 'verification_report.json'),
-  JSON.stringify(verificationReport, null, 2),
-  'utf8'
-);
+if (!dryRun) {
+  assertLegacyWriteAllowed(novelDir, { operation: 'verify reports' });
+  fs.mkdirSync(reportsRoot, { recursive: true });
+  fs.writeFileSync(
+    path.join(reportsRoot, 'verification_result.json'),
+    JSON.stringify(out, null, 2),
+    'utf8'
+  );
+  if (!explicitReportsRoot) {
+    fs.writeFileSync(path.join(novelDir, 'verification_result.json'), JSON.stringify(out, null, 2), 'utf8');
+  }
+  fs.writeFileSync(
+    path.join(reportsRoot, 'verification_report.json'),
+    JSON.stringify(verificationReport, null, 2),
+    'utf8'
+  );
+}
 
 console.log('=== verify summary ===');
 for (const [file, r] of Object.entries(results)) {
@@ -254,5 +289,6 @@ if (coverage) {
     console.log(`  ${u.term}\t${u.count}`);
   }
 }
-console.log(`\nFull result written to verification_result.json`);
+console.log(dryRun ? '\nDry run: verification reports were not written' : '\nFull result written to verification_result.json');
+if (jsonOutput) process.stdout.write(`${JSON.stringify(verificationReport)}\n`);
 if (verificationReport.needs_patch) process.exitCode = 1;

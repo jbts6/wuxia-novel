@@ -3,7 +3,25 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 const { buildSourceIndex } = require('./lib/source');
+
+function computeSourceArtifacts(novelDir, options = {}) {
+  const sourceIndex = buildSourceIndex(novelDir, options);
+  return {
+    sourceIndex,
+    scanPlan: {
+      schema_version: 2,
+      source_hash: sourceIndex.source_hash,
+      chapter_corpus_hash: sourceIndex.chapter_corpus_hash,
+      source_alignment_valid: sourceIndex.source_alignment_valid,
+      window_lines: sourceIndex.window_lines,
+      overlap_lines: sourceIndex.overlap_lines,
+      required_window_ids: sourceIndex.windows.map(window => window.id),
+      required_chapters: sourceIndex.chapters.map(chapter => chapter.chapter)
+    }
+  };
+}
 
 function parseArgs(argv) {
   const positional = [];
@@ -11,16 +29,18 @@ function parseArgs(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     if (argv[index] === '--window-lines') options.windowLines = Number(argv[++index]);
     else if (argv[index] === '--overlap-lines') options.overlapLines = Number(argv[++index]);
+    else if (argv[index] === '--dry-run') options.dryRun = true;
     else positional.push(argv[index]);
   }
   if (positional.length !== 1) {
-    throw new Error('Usage: node prepare-source.js <novel-dir> [--window-lines N] [--overlap-lines N]');
+    throw new Error('Usage: node prepare-source.js <novel-dir> [--window-lines N] [--overlap-lines N] [--dry-run]');
   }
   return { novelDir: path.resolve(positional[0]), options };
 }
 
 function prepareSource(novelDir, options = {}) {
-  const sourceIndex = buildSourceIndex(novelDir, options);
+  assertLegacyWriteAllowed(novelDir, { operation: 'prepare-source' });
+  const { sourceIndex } = computeSourceArtifacts(novelDir, options);
   const buildDir = path.join(novelDir, 'build');
   const indexPath = path.join(buildDir, 'source-index.json');
   const manifestPath = path.join(buildDir, 'scan-manifest.json');
@@ -66,13 +86,15 @@ function prepareSource(novelDir, options = {}) {
 if (require.main === module) {
   try {
     const { novelDir, options } = parseArgs(process.argv.slice(2));
-    const { sourceIndex } = prepareSource(novelDir, options);
+    const { sourceIndex } = options.dryRun
+      ? computeSourceArtifacts(novelDir, options)
+      : prepareSource(novelDir, options);
     console.log(`Prepared ${sourceIndex.chapters.length} chapters and ${sourceIndex.windows.length} source windows.`);
     console.log(`Source SHA-256: ${sourceIndex.source_hash}`);
   } catch (error) {
-    console.error(error.message);
+    console.error(`${error.code ? `${error.code}: ` : ''}${error.message}`);
     process.exitCode = 1;
   }
 }
 
-module.exports = { parseArgs, prepareSource };
+module.exports = { computeSourceArtifacts, parseArgs, prepareSource };

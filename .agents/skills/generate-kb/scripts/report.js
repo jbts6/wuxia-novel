@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 
 const args = process.argv.slice(2);
 if (args.length < 1) {
@@ -11,6 +12,7 @@ if (args.length < 1) {
 }
 
 const novelDir = path.resolve(args[0]);
+assertLegacyWriteAllowed(novelDir, { operation: 'report' });
 // Try reports/ subdirectory first, then root
 const resultPath = fs.existsSync(path.join(novelDir, 'reports', 'verification_result.json'))
   ? path.join(novelDir, 'reports', 'verification_result.json')

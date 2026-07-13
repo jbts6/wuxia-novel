@@ -3,6 +3,13 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const { computeFinalDataHash } = require('./lib/final-data-contract');
+const {
+  assertExpectedFinalDataHash,
+  parseArtifactArgs,
+  resolveArtifactRoots
+} = require('./lib/report-context');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 
 const DATA_FILES = {
   characters: 'characters.json',
@@ -28,13 +35,19 @@ function names(records, limit = 40) {
   return values.length ? values.join('、') : '无';
 }
 
-function generateSummary(novelDir) {
+function generateSummary(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
+  const finalDataHash = computeFinalDataHash(novelDir, { dataRoot: roots.dataRoot });
+  assertExpectedFinalDataHash(finalDataHash, roots.expectedFinalDataHash);
   const data = Object.fromEntries(Object.entries(DATA_FILES).map(([key, filename]) => [
     key,
-    loadJson(path.join(novelDir, 'data', filename), [])
+    loadJson(path.join(roots.dataRoot, filename), [])
   ]));
-  const sourceIndex = loadJson(path.join(novelDir, 'build', 'source-index.json'), {});
-  const quality = loadJson(path.join(novelDir, 'reports', 'quality_report.json'), {});
+  const sourceIndex = loadJson(path.join(roots.buildRoot, 'source-index.json'), {});
+  const quality = loadJson(path.join(roots.reportsRoot, 'quality_report.json'), {});
+  if (quality.final_data_hash && quality.final_data_hash !== finalDataHash) {
+    throw new Error('quality_report.json final_data_hash does not match the selected data root');
+  }
   const novel = sourceIndex.novel || path.basename(novelDir);
   const author = sourceIndex.author || path.basename(path.dirname(novelDir));
   const dialogueChapters = new Set(data.dialogues.map(dialogue => dialogue.chapter).filter(Number.isInteger));
@@ -84,14 +97,14 @@ function generateSummary(novelDir) {
 }
 
 if (require.main === module) {
-  if (process.argv.length !== 3) {
-    console.error('Usage: node generate-summary.js <novel-dir>');
-    process.exit(1);
-  }
   try {
-    const novelDir = path.resolve(process.argv[2]);
-    fs.writeFileSync(path.join(novelDir, 'summary.md'), generateSummary(novelDir));
-    console.log(`Summary written to ${path.join(novelDir, 'summary.md')}`);
+    const context = parseArtifactArgs(process.argv.slice(2), {
+      usage: 'Usage: node generate-summary.js <novel-dir> [--bundle-root DIR | --data-root DIR --reports-root DIR] [--build-root DIR] [--expected-final-data-hash HASH]'
+    });
+    const outputPath = path.join(context.novelDir, 'summary.md');
+    assertLegacyWriteAllowed(context.novelDir, { operation: 'generate-summary' });
+    fs.writeFileSync(outputPath, generateSummary(context.novelDir, context));
+    console.log(`Summary written to ${outputPath}`);
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;

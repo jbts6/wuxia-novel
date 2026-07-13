@@ -5,6 +5,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { buildSourceIndex, discoverChapterFiles, matchCompleteCitation, splitLines } = require('./lib/source');
 const { readJsonl } = require('./lib/ledger');
+const { resolveArtifactRoots } = require('./lib/report-context');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 
 const MARTIAL_SUFFIXES = [
   '神功', '剑法', '刀法', '掌法', '拳法', '指法', '心法', '内功', '轻功',
@@ -32,14 +34,15 @@ function loadJson(filename, fallback = null) {
   return fs.existsSync(filename) ? JSON.parse(fs.readFileSync(filename, 'utf8')) : fallback;
 }
 
-function collectFinalRecords(novelDir) {
+function collectFinalRecords(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
   const records = [];
   for (const [category, filename] of Object.entries(FINAL_CATEGORY_FILES)) {
-    for (const record of loadJson(path.join(novelDir, 'data', filename), [])) {
+    for (const record of loadJson(path.join(roots.dataRoot, filename), [])) {
       records.push({ category, ...record });
     }
   }
-  for (const event of loadJson(path.join(novelDir, 'build', 'events.json'), [])) {
+  for (const event of loadJson(path.join(roots.buildRoot, 'events.json'), [])) {
     records.push({ category: 'event', ...event });
   }
   return records;
@@ -182,8 +185,9 @@ function validateGold(novelDir, sourceIndex, finalRecords) {
   };
 }
 
-function auditRecall(novelDir) {
-  const buildDir = path.join(novelDir, 'build');
+function auditRecall(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
+  const buildDir = roots.buildRoot;
   const savedIndex = loadJson(path.join(buildDir, 'source-index.json'));
   const sourceIndex = buildSourceIndex(novelDir, {
     windowLines: savedIndex?.window_lines,
@@ -197,7 +201,7 @@ function auditRecall(novelDir) {
   for (const decision of decisions) {
     for (const id of decision.candidate_ids ?? []) decisionByCandidate.set(id, decision);
   }
-  const finalRecords = collectFinalRecords(novelDir);
+  const finalRecords = collectFinalRecords(novelDir, options);
   const explainNames = [
     ...candidates.filter(candidate => decisionByCandidate.has(candidate.candidate_id)).map(candidate => candidate.name),
     ...finalRecords.map(record => record.name)
@@ -270,6 +274,7 @@ if (require.main === module) {
     const { novelDir, dryRun } = parseArgs(process.argv.slice(2));
     const report = auditRecall(novelDir);
     if (!dryRun) {
+      assertLegacyWriteAllowed(novelDir, { operation: 'audit-recall report' });
       const reportsDir = path.join(novelDir, 'reports');
       fs.mkdirSync(reportsDir, { recursive: true });
       fs.writeFileSync(path.join(reportsDir, 'recall_audit.json'), `${JSON.stringify(report, null, 2)}\n`);

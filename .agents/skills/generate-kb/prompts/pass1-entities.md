@@ -1,6 +1,7 @@
 # Pass 1 — 实体骨架生成 prompt
 
 > Legacy：新流程使用 `named-inventory.md` 逐原文窗口扫描。
+> 只读诊断/迁移专用；不参与新 run，不得把输出提交为受管 draft 或正式数据。
 
 ## 角色
 

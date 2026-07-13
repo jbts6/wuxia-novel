@@ -66,6 +66,28 @@ const EVIDENCE_FIELDS = {
   'chapter_summaries.json': ['summary', 'key_events']
 };
 
+const PROVISIONAL_RECORD_FILES = Object.freeze({
+  character: 'characters.json',
+  faction: 'factions.json',
+  location: 'locations.json',
+  skill: 'skills.json',
+  technique: 'techniques.json',
+  item: 'items.json',
+  dialogue: 'dialogues.json',
+  chapter_summary: 'chapter_summaries.json'
+});
+
+const VALIDATION_IDS = Object.freeze({
+  character: 'char_provisional',
+  faction: 'faction_provisional',
+  location: 'loc_provisional',
+  skill: 'skill_provisional',
+  technique: 'tech_provisional',
+  item: 'item_provisional',
+  dialogue: 'dialogue_provisional',
+  event: 'event_provisional'
+});
+
 function isPlainObject(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
@@ -75,6 +97,18 @@ function hasContent(value) {
   if (Array.isArray(value)) return value.length > 0;
   if (isPlainObject(value)) return Object.keys(value).length > 0;
   return value !== null && value !== undefined;
+}
+
+function semanticLength(value) {
+  return Array.from(String(value).replace(/[\s，。！？；：、,.!?;:'"“”‘’（）()《》〈〉【】\[\]]/g, '')).length;
+}
+
+function isPlaceholderText(value, recordName = '') {
+  const normalized = String(value).trim().replace(/[。！？!?]+$/g, '');
+  const name = String(recordName).trim();
+  if (name && [name, `${name}的招式`, `${name}的来历不明`].includes(normalized)) return true;
+  return /^(?:未知|不详|不明|暂无|待补充|有待补充|资料不足|原文未说明|来历不明)$/.test(normalized)
+    || /^(?:该|此)?(?:人物|门派|地点|武功|招式|物品)(?:信息|详情|来历)?(?:未知|不详|不明)$/.test(normalized);
 }
 
 function recordLabel(filename, record, index) {
@@ -111,6 +145,16 @@ function requireString(record, field, label, schemaErrors, enrichmentErrors, opt
   if (options.nonEmpty && !trimmed) {
     const target = options.enrichment ? enrichmentErrors : schemaErrors;
     target.push(`${label}.${field}: must not be empty`);
+  }
+  if (options.enrichment && trimmed) {
+    if (options.minLength && semanticLength(trimmed) < options.minLength) {
+      enrichmentErrors.push(
+        `${label}.${field}: enrichment text must contain at least ${options.minLength} meaningful characters`
+      );
+    }
+    if (isPlaceholderText(trimmed, options.recordName)) {
+      enrichmentErrors.push(`${label}.${field}: placeholder enrichment text is not allowed`);
+    }
   }
   if (options.enum && trimmed && !options.enum.includes(value)) {
     schemaErrors.push(`${label}.${field}: invalid value ${JSON.stringify(value)}`);
@@ -264,7 +308,8 @@ function validateEffect(effect, label, schemaErrors, enrichmentErrors) {
   });
   requireString(effect, 'description', label, schemaErrors, enrichmentErrors, {
     nonEmpty: true,
-    enrichment: true
+    enrichment: true,
+    minLength: 6
   });
 }
 
@@ -285,7 +330,8 @@ function validateRelationship(relationship, label, schemaErrors, enrichmentError
   requireNumber(relationship, 'bond_level', label, schemaErrors, { integer: true, min: 1, max: 5 });
   requireString(relationship, 'dynamic', label, schemaErrors, enrichmentErrors, {
     nonEmpty: true,
-    enrichment: true
+    enrichment: true,
+    minLength: 6
   });
 }
 
@@ -305,7 +351,9 @@ function validateNestedTechnique(technique, label, schemaErrors, enrichmentError
   });
   requireString(technique, 'description', label, schemaErrors, enrichmentErrors, {
     nonEmpty: true,
-    enrichment: true
+    enrichment: true,
+    minLength: 8,
+    recordName: technique.name
   });
 }
 
@@ -319,7 +367,7 @@ function validateCharacter(record, label, schemaErrors, enrichmentErrors) {
     itemType: 'string', itemNonEmpty: true
   });
   requireString(record, 'identity', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 4, recordName: record.name
   });
   requireString(record, 'faction', label, schemaErrors, enrichmentErrors);
   requireString(record, 'role', label, schemaErrors, enrichmentErrors, {
@@ -335,9 +383,11 @@ function validateCharacter(record, label, schemaErrors, enrichmentErrors) {
     nonEmpty: true, enum: ENUMS.importance
   });
   requireString(record, 'one_line', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 8, recordName: record.name
   });
-  requireString(record, 'biography', label, schemaErrors, enrichmentErrors);
+  requireString(record, 'biography', label, schemaErrors, enrichmentErrors, {
+    enrichment: true, minLength: 12, recordName: record.name
+  });
 
   const detailed = ['核心', '重要', '次要'].includes(record.importance);
   if (detailed && typeof record.biography === 'string' && !record.biography.trim()) {
@@ -398,7 +448,7 @@ function validateFaction(record, label, schemaErrors, enrichmentErrors) {
     itemType: 'string', itemNonEmpty: true
   });
   requireString(record, 'one_line', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 8, recordName: record.name
   });
   validateSourceRefs(record, label, schemaErrors, enrichmentErrors);
   validateFieldSourceRefs(record, label, schemaErrors);
@@ -410,10 +460,10 @@ function validateLocation(record, label, schemaErrors, enrichmentErrors) {
   });
   requireString(record, 'name', label, schemaErrors, enrichmentErrors, { nonEmpty: true });
   requireString(record, 'region', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 2, recordName: record.name
   });
   requireString(record, 'one_line', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 8, recordName: record.name
   });
   validateSourceRefs(record, label, schemaErrors, enrichmentErrors);
   validateFieldSourceRefs(record, label, schemaErrors);
@@ -432,17 +482,19 @@ function validateSkill(record, label, schemaErrors, enrichmentErrors) {
     nonEmpty: true, enum: ENUMS.rank
   });
   requireString(record, 'one_line', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 8, recordName: record.name
   });
   requireArray(record, 'techniques', label, schemaErrors, enrichmentErrors, {
     itemValidator: validateNestedTechnique
   });
-  requireString(record, 'progression', label, schemaErrors, enrichmentErrors);
+  requireString(record, 'progression', label, schemaErrors, enrichmentErrors, {
+    nonEmpty: true, enrichment: true, minLength: 8, recordName: record.name
+  });
   requireArray(record, 'effects', label, schemaErrors, enrichmentErrors, {
     itemValidator: validateEffect
   });
   requireString(record, 'combat_style', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 8, recordName: record.name
   });
   requireArray(record, 'rag_refs', label, schemaErrors, enrichmentErrors, {
     itemType: 'positiveInteger'
@@ -460,7 +512,7 @@ function validateTechnique(record, label, schemaErrors, enrichmentErrors) {
     nonEmpty: true, enum: ENUMS.techniqueType
   });
   requireString(record, 'description', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 8, recordName: record.name
   });
   requireString(record, 'source_skill', label, schemaErrors, enrichmentErrors, {
     nullable: true, idCategory: 'skill'
@@ -484,16 +536,16 @@ function validateItem(record, label, schemaErrors, enrichmentErrors) {
     nullable: true, idCategories: ['character', 'faction']
   });
   requireString(record, 'one_line', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 8, recordName: record.name
   });
   requireString(record, 'description', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 10, recordName: record.name
   });
   requireArray(record, 'effects', label, schemaErrors, enrichmentErrors, {
     itemValidator: validateEffect
   });
   requireString(record, 'origin', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 8, recordName: record.name
   });
   requireArray(record, 'related_characters', label, schemaErrors, enrichmentErrors, {
     itemType: 'string', itemNonEmpty: true, itemIdCategory: 'character'
@@ -533,12 +585,14 @@ function validateDialogue(record, label, schemaErrors, enrichmentErrors) {
     nonEmpty: true, enum: ENUMS.selectionType
   });
   requireString(record, 'selection_reason', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 8
   });
   const traits = requireArray(record, 'trait_tags', label, schemaErrors, enrichmentErrors, {
     itemType: 'string', itemNonEmpty: true
   });
-  requireString(record, 'context', label, schemaErrors, enrichmentErrors, { nonEmpty: true });
+  requireString(record, 'context', label, schemaErrors, enrichmentErrors, {
+    nonEmpty: true, enrichment: true, minLength: 8
+  });
   requireNumber(record, 'context_line_start', label, schemaErrors, { integer: true, min: 1 });
   requireNumber(record, 'context_line_end', label, schemaErrors, { integer: true, min: 1 });
 
@@ -567,7 +621,7 @@ function validateChapterSummary(record, label, schemaErrors, enrichmentErrors) {
   requireNumber(record, 'chapter', label, schemaErrors, { integer: true, min: 1 });
   requireString(record, 'title', label, schemaErrors, enrichmentErrors, { nonEmpty: true });
   requireString(record, 'summary', label, schemaErrors, enrichmentErrors, {
-    nonEmpty: true, enrichment: true
+    nonEmpty: true, enrichment: true, minLength: 20
   });
   requireArray(record, 'key_events', label, schemaErrors, enrichmentErrors, {
     nonEmpty: true, enrichment: true, itemType: 'string', itemNonEmpty: true
@@ -590,6 +644,115 @@ const VALIDATORS = {
   'dialogues.json': validateDialogue,
   'chapter_summaries.json': validateChapterSummary
 };
+
+function provisionalCategory(value) {
+  const key = String(value ?? '');
+  const entity = key.match(/^entity_(character|faction|location|skill|technique|item)_([a-f0-9]{16})$/);
+  if (entity) return entity[1];
+  if (/^dialogue_key_[a-f0-9]{16}$/.test(key)) return 'dialogue';
+  if (/^event_key_[a-f0-9]{16}$/.test(key)) return 'event';
+  return null;
+}
+
+function validateProvisionalRecord(category, record) {
+  const filename = PROVISIONAL_RECORD_FILES[category];
+  const schemaErrors = [];
+  const enrichmentErrors = [];
+  if (!filename) {
+    return {
+      schema_errors: [`unsupported provisional record category: ${JSON.stringify(category)}`],
+      enrichment_errors: []
+    };
+  }
+  if (!isPlainObject(record)) {
+    return {
+      schema_errors: [`${filename}/#0: record must be an object`],
+      enrichment_errors: []
+    };
+  }
+
+  const labelKey = category === 'chapter_summary'
+    ? `chapter:${record.chapter ?? '?'}`
+    : String(record.provisional_key ?? '').trim();
+  const label = `${filename}/${labelKey || '#0'}`;
+  if (category !== 'chapter_summary' && provisionalCategory(labelKey) !== category) {
+    schemaErrors.push(`${label}.provisional_key: invalid ${category} provisional key`);
+  }
+
+  const projected = JSON.parse(JSON.stringify(record));
+  if (category !== 'chapter_summary') projected.id = VALIDATION_IDS[category];
+
+  function projectReference(value, categories, fieldLabel) {
+    if (value === null || value === undefined || value === '') return value;
+    const referenceCategory = provisionalCategory(value);
+    if (!referenceCategory || !categories.includes(referenceCategory)) {
+      schemaErrors.push(
+        `${fieldLabel}: expected provisional ${categories.join(' or ')} key, got ${JSON.stringify(value)}`
+      );
+      return value;
+    }
+    return VALIDATION_IDS[referenceCategory];
+  }
+
+  if (category === 'character') {
+    projected.relationships = (projected.relationships ?? []).map((relationship, index) => ({
+      ...relationship,
+      target: projectReference(
+        relationship?.target,
+        ['character'],
+        `${label}.relationships[${index}].target`
+      )
+    }));
+    for (const field of ['known_skills', 'related_skills']) {
+      projected[field] = (projected[field] ?? []).map((value, index) => projectReference(
+        value,
+        ['skill'],
+        `${label}.${field}[${index}]`
+      ));
+    }
+  } else if (category === 'faction') {
+    projected.location = projectReference(projected.location, ['location'], `${label}.location`);
+    projected.leader = projectReference(projected.leader, ['character'], `${label}.leader`);
+  } else if (category === 'skill') {
+    projected.techniques = (projected.techniques ?? []).map((technique, index) => ({
+      ...technique,
+      id: projectReference(technique?.id, ['technique'], `${label}.techniques[${index}].id`)
+    }));
+  } else if (category === 'technique') {
+    projected.source_skill = projectReference(
+      projected.source_skill,
+      ['skill'],
+      `${label}.source_skill`
+    );
+  } else if (category === 'item') {
+    projected.owner = projectReference(projected.owner, ['character', 'faction'], `${label}.owner`);
+    for (const [field, categories] of [
+      ['related_characters', ['character']],
+      ['related_skills', ['skill']]
+    ]) {
+      projected[field] = (projected[field] ?? []).map((value, index) => projectReference(
+        value,
+        categories,
+        `${label}.${field}[${index}]`
+      ));
+    }
+  } else if (category === 'dialogue') {
+    projected.speaker = projectReference(projected.speaker, ['character'], `${label}.speaker`);
+    projected.listener = projectReference(projected.listener, ['character'], `${label}.listener`);
+    if (['event', 'both'].includes(projected.selection_type)) {
+      projected.event_id = projectReference(projected.event_id, ['event'], `${label}.event_id`);
+    }
+  } else if (category === 'chapter_summary') {
+    projected.key_characters = (projected.key_characters ?? []).map((value, index) => projectReference(
+      value,
+      ['character'],
+      `${label}.key_characters[${index}]`
+    ));
+  }
+
+  VALIDATORS[filename](projected, label, schemaErrors, enrichmentErrors);
+  return { schema_errors: schemaErrors, enrichment_errors: enrichmentErrors };
+}
 
 const RECORD_CATEGORY_BY_FILE = {
   'characters.json': 'character',
@@ -679,8 +842,12 @@ function validateCrossReferences(recordsByFile, schemaErrors) {
   }
 }
 
-function computeFinalDataHash(novelDir) {
-  const dataDir = path.join(novelDir, 'data');
+function finalDataRoot(novelDir, options = {}) {
+  return options.dataRoot ? path.resolve(options.dataRoot) : path.join(novelDir, 'data');
+}
+
+function computeFinalDataHash(novelDir, options = {}) {
+  const dataDir = finalDataRoot(novelDir, options);
   const hash = crypto.createHash('sha256');
   for (const filename of FINAL_DATA_FILES) {
     const filePath = path.join(dataDir, filename);
@@ -697,8 +864,8 @@ function computeFinalDataHash(novelDir) {
   return hash.digest('hex');
 }
 
-function validateFinalData(novelDir) {
-  const dataDir = path.join(novelDir, 'data');
+function validateFinalData(novelDir, options = {}) {
+  const dataDir = finalDataRoot(novelDir, options);
   const missingDataFiles = [];
   const invalidDataFiles = [];
   const schemaErrors = [];
@@ -756,7 +923,7 @@ function validateFinalData(novelDir) {
     enrichment_errors: enrichmentErrors,
     final_data_hash: missingDataFiles.length || invalidDataFiles.length
       ? null
-      : computeFinalDataHash(novelDir),
+      : computeFinalDataHash(novelDir, { dataRoot: dataDir }),
     records_by_file: recordsByFile,
     counts: Object.fromEntries(FINAL_DATA_FILES.map(filename => [
       filename.replace('.json', ''),
@@ -777,5 +944,6 @@ module.exports = {
   evidenceFieldsFor,
   hasContent,
   validateCrossReferences,
-  validateFinalData
+  validateFinalData,
+  validateProvisionalRecord
 };

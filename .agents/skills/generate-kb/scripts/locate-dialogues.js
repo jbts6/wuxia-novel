@@ -15,6 +15,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 
 const args = process.argv.slice(2);
 if (args.length < 1) {
@@ -23,6 +24,7 @@ if (args.length < 1) {
 }
 
 const novelDir = path.resolve(args[0]);
+assertLegacyWriteAllowed(novelDir, { operation: 'locate-dialogues' });
 const splitDir = path.join(novelDir, 'ch_split');
 const dPath = path.join(novelDir, 'data', 'dialogues.json');
 

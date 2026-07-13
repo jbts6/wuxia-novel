@@ -4,6 +4,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { validateFinalData } = require('./lib/final-data-contract');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 
 function buildReport(novelDir) {
   const result = validateFinalData(novelDir);
@@ -51,6 +52,7 @@ if (require.main === module) {
     process.exit(1);
   }
   const novelDir = path.resolve(positional[0]);
+  assertLegacyWriteAllowed(novelDir, { operation: 'validate-final-data', dryRun });
   const report = buildReport(novelDir);
   if (!dryRun) {
     const reportsDir = path.join(novelDir, 'reports');

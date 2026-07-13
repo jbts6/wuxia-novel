@@ -214,7 +214,7 @@ describe('review packet generation', () => {
     });
   });
 
-  it('caps high-risk review at 10 and keeps omitted risks out of certainty samples', () => {
+  it('uses the configured high-risk limit and keeps omitted risks out of certainty samples', () => {
     const candidates = [];
     const decisions = [];
 
@@ -247,7 +247,7 @@ describe('review packet generation', () => {
       skillCount: 10,
       itemCount: 5
     }, root => {
-      const packet = buildReviewPacket(root, { qualityReport: passingQuality() });
+      const packet = buildReviewPacket(root, { qualityReport: passingQuality(), riskLimit: 10 });
       assert.equal(packet.review_readiness.status, 'needs_ai_rerun');
       assert.equal(packet.review_readiness.high_risk_total, 12);
       assert.equal(packet.high_risk_decisions.length, 10);
@@ -260,6 +260,33 @@ describe('review packet generation', () => {
         packet.deterministic_samples.rejected.map(row => row.canonical_name),
         ['确定拒绝样本']
       );
+    });
+  });
+
+  it('defaults the high-risk review limit to 15', () => {
+    const candidates = [];
+    const decisions = [];
+
+    for (let index = 1; index <= 16; index += 1) {
+      const record = candidate('item', index, '默认上限物品' + index, 'gap-audit');
+      candidates.push(record);
+      decisions.push({
+        candidate_ids: [record.candidate_id],
+        decision: 'redirect',
+        canonical_name: record.name,
+        final_category: 'skill',
+        final_id: `skill_default_${alphaToken(index)}`,
+        ai_review: { status: 'needs_human' }
+      });
+    }
+
+    withNovel({ candidates, decisions, skillCount: 10, itemCount: 5 }, root => {
+      const packet = buildReviewPacket(root, { qualityReport: passingQuality() });
+      assert.equal(packet.review_readiness.status, 'needs_ai_rerun');
+      assert.equal(packet.review_readiness.high_risk_total, 16);
+      assert.equal(packet.review_readiness.high_risk_limit, 15);
+      assert.equal(packet.high_risk_decisions.length, 15);
+      assert.equal(packet.high_risk_omitted, 1);
     });
   });
 });

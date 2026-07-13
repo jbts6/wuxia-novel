@@ -11,7 +11,8 @@ const { spawnSync } = require('node:child_process');
 const {
   FINAL_DATA_FILES,
   computeFinalDataHash,
-  validateFinalData
+  validateFinalData,
+  validateProvisionalRecord
 } = require('../scripts/lib/final-data-contract');
 const { buildCompleteData } = require('./helpers/final-data-fixture');
 const validateFinalDataScript = path.join(__dirname, '..', 'scripts', 'validate-final-data.js');
@@ -56,6 +57,39 @@ describe('final data contract', () => {
     assert.ok(result.schema_errors.some(error => error.includes('characters.json/char_main.importance')));
     assert.ok(result.enrichment_errors.some(error => error.includes('characters.json/char_main.one_line')));
   }));
+
+  it('rejects name-only and stock placeholder enrichment text', () => withNovel(novelDir => {
+    const skillsPath = path.join(novelDir, 'data', 'skills.json');
+    const skills = JSON.parse(fs.readFileSync(skillsPath, 'utf8'));
+    skills[0].one_line = '北冥神功。';
+    skills[0].combat_style = '北冥神功的招式。';
+    fs.writeFileSync(skillsPath, `${JSON.stringify(skills, null, 2)}\n`);
+
+    const result = validateFinalData(novelDir);
+    assert.ok(result.enrichment_errors.some(error =>
+      error.includes('skills.json/skill_bei_ming.one_line') && error.includes('placeholder')
+    ));
+    assert.ok(result.enrichment_errors.some(error =>
+      error.includes('skills.json/skill_bei_ming.combat_style') && error.includes('placeholder')
+    ));
+  }));
+
+  it('validates a provisional enrich record without minting a formal ID', () => {
+    assert.equal(typeof validateProvisionalRecord, 'function');
+    const character = buildCompleteData()['characters.json'][0];
+    const provisional = {
+      ...character,
+      provisional_key: 'entity_character_0123456789abcdef',
+      known_skills: ['entity_skill_1111111111111111'],
+      related_skills: ['entity_skill_1111111111111111']
+    };
+    delete provisional.id;
+
+    const result = validateProvisionalRecord('character', provisional);
+    assert.deepEqual(result.schema_errors, []);
+    assert.deepEqual(result.enrichment_errors, []);
+    assert.equal(Object.hasOwn(provisional, 'id'), false);
+  });
 
   it('rejects Chinese IDs and accepts the canonical lowercase pinyin form', () => withNovel(novelDir => {
     const charactersPath = path.join(novelDir, 'data', 'characters.json');
@@ -174,6 +208,25 @@ describe('final data contract', () => {
     const after = computeFinalDataHash(novelDir);
     assert.notEqual(after, before);
   }));
+
+  it('validates and hashes an explicit staging data root without reading current data', () => {
+    const novelDir = fs.mkdtempSync(path.join(os.tmpdir(), 'generate-kb-staging-root-'));
+    try {
+      const dataRoot = path.join(novelDir, 'publish', 'staging', 'bundle', 'data');
+      fs.mkdirSync(dataRoot, { recursive: true });
+      for (const [filename, records] of Object.entries(buildCompleteData())) {
+        fs.writeFileSync(path.join(dataRoot, filename), `${JSON.stringify(records, null, 2)}\n`);
+      }
+
+      const result = validateFinalData(novelDir, { dataRoot });
+      assert.deepEqual(result.missing_data_files, []);
+      assert.deepEqual(result.schema_errors, []);
+      assert.equal(result.final_data_hash, computeFinalDataHash(novelDir, { dataRoot }));
+      assert.equal(fs.existsSync(path.join(novelDir, 'data')), false);
+    } finally {
+      fs.rmSync(novelDir, { recursive: true, force: true });
+    }
+  });
 
   it('exposes the contract as a failing CLI stage without writing in dry-run mode', () => withNovel(novelDir => {
     const valid = spawnSync(process.execPath, [validateFinalDataScript, novelDir, '--dry-run'], {

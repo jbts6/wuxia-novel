@@ -1,6 +1,7 @@
 # Phase 1.6 — 书籍专属 prompt 生成（prompt-craft）
 
 > Legacy：新流程使用三份固定的短 prompt，并以 source ledger 记录覆盖。
+> 只读诊断/迁移专用；不参与新 run，不得把输出提交为受管 draft 或正式数据。
 
 ## 角色
 

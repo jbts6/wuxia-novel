@@ -9,8 +9,14 @@ const {
   matchCompleteCitation,
   splitLines
 } = require('./lib/source');
+const { PipelineError, writeJsonAtomic } = require('./lib/atomic-json');
 const { expectedIdFormat, isValidId } = require('./lib/id-contract');
 const { readJsonl, validateLedgerClosure } = require('./lib/ledger');
+const { getPipelinePaths } = require('./lib/pipeline-paths');
+const { loadActiveRun } = require('./lib/pipeline-state');
+const { resolveArtifactRoots } = require('./lib/report-context');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
+const { validateInventoryStage } = require('./lib/staged-inventory');
 
 const FINAL_FILES = [
   'characters.json', 'factions.json', 'locations.json', 'skills.json',
@@ -31,17 +37,18 @@ function loadJson(filename, fallback = null) {
   return fs.existsSync(filename) ? JSON.parse(fs.readFileSync(filename, 'utf8')) : fallback;
 }
 
-function collectFinalIds(novelDir) {
+function collectFinalIds(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
   const ids = new Set();
   for (const filename of FINAL_FILES) {
-    const records = loadJson(path.join(novelDir, 'data', filename), []);
+    const records = loadJson(path.join(roots.dataRoot, filename), []);
     const category = FINAL_FILE_CATEGORIES[filename];
     if (!category || !Array.isArray(records)) continue;
     for (const record of records) {
       if (isValidId(record?.id, category)) ids.add(record.id);
     }
   }
-  const events = loadJson(path.join(novelDir, 'build', 'events.json'), []);
+  const events = loadJson(path.join(roots.buildRoot, 'events.json'), []);
   for (const event of Array.isArray(events) ? events : []) {
     if (isValidId(event?.id, 'event')) ids.add(event.id);
   }
@@ -79,17 +86,18 @@ function validateSourceRefs(record, label, errors) {
   }
 }
 
-function validateEventGraph(novelDir) {
+function validateEventGraph(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
   const errors = [];
-  const eventsPath = path.join(novelDir, 'build', 'events.json');
-  const exemptionsPath = path.join(novelDir, 'build', 'semantic-exemptions.json');
+  const eventsPath = path.join(roots.buildRoot, 'events.json');
+  const exemptionsPath = path.join(roots.buildRoot, 'semantic-exemptions.json');
   const rawEvents = loadJson(eventsPath, null);
   const events = Array.isArray(rawEvents) ? rawEvents : [];
   if (rawEvents === null) errors.push('missing build/events.json');
   else if (!Array.isArray(rawEvents)) errors.push('build/events.json must contain an array');
 
-  const characters = loadJson(path.join(novelDir, 'data', 'characters.json'), []);
-  const dialogues = loadJson(path.join(novelDir, 'data', 'dialogues.json'), []);
+  const characters = loadJson(path.join(roots.dataRoot, 'characters.json'), []);
+  const dialogues = loadJson(path.join(roots.dataRoot, 'dialogues.json'), []);
   const characterIds = new Set((Array.isArray(characters) ? characters : [])
     .map(record => record?.id)
     .filter(id => isValidId(id, 'character')));
@@ -248,8 +256,9 @@ function validateCandidateSourceRefs(candidates, sourceIndex, chapterLines) {
   return errors;
 }
 
-function validateInventory(novelDir) {
-  const buildDir = path.join(novelDir, 'build');
+function validateInventory(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
+  const buildDir = roots.buildRoot;
   const sourceIndex = loadJson(path.join(buildDir, 'source-index.json'));
   const manifest = loadJson(path.join(buildDir, 'scan-manifest.json'));
   const errors = [];
@@ -297,7 +306,7 @@ function validateInventory(novelDir) {
       if (unknown.length) sourceErrors.push(`${pass} contains ${unknown.length} unknown source windows`);
     }
 
-    const summaries = loadJson(path.join(novelDir, 'data', 'chapter_summaries.json'), []);
+    const summaries = loadJson(path.join(roots.dataRoot, 'chapter_summaries.json'), []);
     const summaryCounts = new Map();
     const chapterSummaryIssues = [];
     for (const [index, summary] of summaries.entries()) {
@@ -345,7 +354,9 @@ function validateInventory(novelDir) {
   const decisionPath = path.join(buildDir, 'decisions.jsonl');
   const candidates = readJsonl(candidatePath, { optional: true });
   const decisions = readJsonl(decisionPath, { optional: true });
-  const ledger = validateLedgerClosure(candidates, decisions, { finalIds: collectFinalIds(novelDir) });
+  const ledger = validateLedgerClosure(candidates, decisions, {
+    finalIds: collectFinalIds(novelDir, options)
+  });
   if (!fs.existsSync(candidatePath)) ledger.errors.unshift('missing build/candidates.jsonl');
   if (!fs.existsSync(decisionPath)) ledger.errors.unshift('missing build/decisions.jsonl');
   if (sourceIndex) {
@@ -358,7 +369,7 @@ function validateInventory(novelDir) {
   ledger.passed = ledger.errors.length === 0;
   errors.push(...ledger.errors);
 
-  const eventGraph = validateEventGraph(novelDir);
+  const eventGraph = validateEventGraph(novelDir, options);
   errors.push(...eventGraph.errors);
 
   return {
@@ -370,32 +381,130 @@ function validateInventory(novelDir) {
   };
 }
 
-if (require.main === module) {
-  if (process.argv.length !== 3) {
-    console.error('Usage: node validate-inventory.js <novel-dir>');
-    process.exit(1);
+function parseCliArguments(argv) {
+  const positional = [];
+  const options = {
+    dryRun: false,
+    json: false,
+    legacy: false,
+    runId: null
+  };
+  for (let index = 0; index < argv.length; index += 1) {
+    const value = argv[index];
+    if (!value.startsWith('--')) {
+      positional.push(value);
+      continue;
+    }
+    if (value === '--dry-run') options.dryRun = true;
+    else if (value === '--json') options.json = true;
+    else if (value === '--legacy') options.legacy = true;
+    else if (value === '--run-id') {
+      if (!argv[index + 1] || argv[index + 1].startsWith('--')) {
+        throw new PipelineError('INVALID_ARGUMENT', '--run-id requires a value');
+      }
+      options.runId = argv[index + 1];
+      index += 1;
+    } else {
+      throw new PipelineError('INVALID_ARGUMENT', `Unknown option: ${value}`);
+    }
   }
-  const novelDir = path.resolve(process.argv[2]);
-  try {
-    const result = validateInventory(novelDir);
-    const reportsDir = path.join(novelDir, 'reports');
-    fs.mkdirSync(reportsDir, { recursive: true });
-    fs.writeFileSync(
-      path.join(reportsDir, 'inventory_validation.json'),
-      `${JSON.stringify(result, null, 2)}\n`
+  if (positional.length !== 1) {
+    throw new PipelineError(
+      'INVALID_ARGUMENT',
+      'Usage: node validate-inventory.js <novel-dir> [--run-id ID] [--legacy] [--dry-run] [--json]'
     );
-    console.log(result.passed ? 'Inventory validation passed.' : `Inventory validation failed (${result.errors.length} errors).`);
-    if (!result.passed) process.exitCode = 1;
-  } catch (error) {
-    console.error(error.message);
-    process.exitCode = 1;
   }
+  if (options.legacy && options.runId) {
+    throw new PipelineError('INVALID_ARGUMENT', '--legacy cannot be combined with --run-id');
+  }
+  return { novelDir: path.resolve(positional[0]), ...options };
+}
+
+function resolveValidationMode(novelDir, options = {}) {
+  if (options.legacy) return { mode: 'legacy', runId: null };
+  if (options.runId) return { mode: 'staged', runId: options.runId };
+  try {
+    return { mode: 'staged', runId: loadActiveRun(novelDir).run_id };
+  } catch (error) {
+    if (error instanceof PipelineError && error.code === 'RUN_NOT_FOUND') {
+      return { mode: 'legacy', runId: null };
+    }
+    throw error;
+  }
+}
+
+function validateSelectedInventory(novelDir, options = {}) {
+  const selected = resolveValidationMode(novelDir, options);
+  if (selected.mode === 'legacy') {
+    return {
+      mode: 'legacy',
+      run_id: null,
+      validation: validateInventory(novelDir)
+    };
+  }
+  return {
+    mode: 'staged',
+    run_id: selected.runId,
+    validation: validateInventoryStage(novelDir, selected.runId)
+  };
+}
+
+function validationReportPath(novelDir, result) {
+  if (result.mode === 'legacy') {
+    return path.join(novelDir, 'reports', 'inventory_validation.json');
+  }
+  const paths = getPipelinePaths(novelDir, result.run_id);
+  return path.join(paths.materialized, 'inventory', 'validation.json');
+}
+
+function main(argv = process.argv.slice(2)) {
+  let options = null;
+  try {
+    options = parseCliArguments(argv);
+    const result = validateSelectedInventory(options.novelDir, options);
+    if (!options.dryRun) {
+      assertLegacyWriteAllowed(options.novelDir, { operation: 'validate-inventory report' });
+      const report = result.mode === 'legacy' ? result.validation : result;
+      writeJsonAtomic(validationReportPath(options.novelDir, result), report);
+    }
+    if (options.json) {
+      process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+    } else {
+      const label = result.mode === 'staged' ? `staged run ${result.run_id}` : 'legacy artifacts';
+      process.stdout.write(result.validation.passed
+        ? `Inventory validation passed (${label}).\n`
+        : `Inventory validation failed (${label}; ${result.validation.errors.length} errors).\n`);
+    }
+    return result.validation.passed ? 0 : 1;
+  } catch (error) {
+    if (options?.json || argv.includes('--json')) {
+      process.stderr.write(`${JSON.stringify({
+        error: {
+          code: error instanceof PipelineError ? error.code : 'INTERNAL_ERROR',
+          message: error.message,
+          details: error.details || null
+        }
+      }, null, 2)}\n`);
+    } else {
+      process.stderr.write(`${error.message}\n`);
+    }
+    return 1;
+  }
+}
+
+if (require.main === module) {
+  process.exitCode = main();
 }
 
 module.exports = {
   FINAL_FILES,
   collectFinalIds,
+  main,
+  parseCliArguments,
+  resolveValidationMode,
   validateCandidateSourceRefs,
   validateEventGraph,
-  validateInventory
+  validateInventory,
+  validateSelectedInventory,
+  validationReportPath
 };

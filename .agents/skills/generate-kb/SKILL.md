@@ -1,65 +1,65 @@
 ---
 name: generate-kb
-description: Build or audit a source-grounded knowledge base for a wuxia novel. Use when extracting characters, factions, locations, named martial arts, named techniques, plot-relevant items, chapter events, and representative original dialogue from a novel text, or when an existing wuxia knowledge base has suspiciously low recall or weak source evidence.
+description: Use when building, rebuilding, or auditing a source-grounded wuxia novel knowledge base, especially when extraction recall, evidence quality, resumability, or existing final JSON is unreliable.
 ---
 
 # generate-kb
 
-以小说原文为唯一事实来源，生成兼容的八类知识库 JSON，并用可追踪候选账本证明扫描覆盖、归并决策和查漏结果。
+以小说原文为唯一事实来源，通过可暂停、可恢复的六阶段状态机生成八类知识库 JSON。AI 只生产当前 work item 的 draft；状态、受管产物、正式 ID、正式数据和报告由控制器校验后写入。
 
-## 核心规则
+## 不可变规则
 
-1. 先建立原文证据，再做归一化、分类、重要性和丰富描述。模型先验只能提出检索词，不能直接成为知识库事实。
-2. 将召回与丰富分开。扫描窗口时只提名称、类别提示、原文位置和短引文。
-3. 原文明确定名且可定位的武功与招式全部保留；`importance` 只分级，不参与删除。
-4. 角色、地点、势力和物品按剧情作用筛选，但每个候选都必须有 keep/merge/redirect/reject decision。
-5. 对话必须覆盖主要事件和核心/重要角色的人物特征。必须保存完整原话、选择理由及可定位的原文上下文。
-6. 不使用可补偿总分。只有 G1-G5 全部通过，才可声明完成。
-7. G1-G5 与人工审核就绪状态分离。数量只能触发低召回报警，不能证明完整；异常必须先由 AI 返工，不能把整本候选账本交给人工兜底。
-8. 默认每本书独立运行和产出审核包。人工可以逐本立即审核，也可以积累五六本后集中审核；批审不改变单本状态和证据链。
-9. Stage 3 的 enrich 是硬步骤。最终记录不能只含 `id/name/source_refs`；必须通过代码级最终数据契约后才能进入 gap audit 和完成门禁。
-10. 正式 ID 使用固定类别前缀和逐字无声调拼音，只允许 ASCII 小写字母与单下划线分隔。`final_category`、正式记录及全部引用必须一致；非法 ID 由校验器阻断，不自动修复。
+1. `.agents/skills/generate-kb` 是唯一真实实现；`.claude/skills/generate-kb` 只是兼容软链接。
+2. `scripts/pipeline.js` 是新 run 的唯一写入入口。旧脚本只可由控制器调用或用于明确的只读诊断/迁移。
+3. 每次开始或恢复都先运行 `status --json`，只执行 `next_action`；一次调用最多推进一个控制器动作或处理一个 work item。
+4. 固定执行六个有序阶段：`prepare`、`inventory`、`reconcile`、`enrich`、`semantic-audit`、`publish`。
+5. `prepare` 到 `semantic-audit` 只使用 provisional key；正式 ID 仅在 `publish` 生成。此前不得写正式 `data/*.json`、`reports/*.json` 或修改 `.kb/current`。
+6. 新 run 不读取旧正式 JSON、旧 baseline、百科、影视改编或模型记忆。模型先验只能提出原文检索锚点，不能成为事实。
+7. 所有大阶段使用 `claim -> draft -> submit`。AI 只能写 claim 返回的非受管 draft 路径，不能直接修改 state、events、ledger、materialized、正式数据或报告。
+8. 任一门禁失败立即停止。数量、总分、人工确认或其他阶段 PASS 均不能补偿失败。
 
-## 执行
+## 六阶段
 
-开始生成或重做时，读取 [pipeline.md](pipeline.md) 并严格执行四阶段：
+1. `prepare`：建立原文、章节、窗口和 source hash。
+2. `inventory`：逐窗口提取候选和章节摘要草稿；实际零产出必须提交结构化原因。
+3. `reconcile`：归并候选，确定 canonical name、类别和重要性；不生成正式 ID。
+4. `enrich`：按稳定实体批次生成丰富草稿和字段级证据；禁止骨架、占位句和机械证据复用。
+5. `semantic-audit`：独立检查召回、分类、事件参与者、对白 speaker、豁免和字段证据。
+6. `publish`：为已通过审计的 provisional records 一次生成正式 ID，统一投影引用，验证 staging bundle，再原子 promote。
 
-1. Prepare Source
-2. Inventory From Source
-3. Reconcile And Enrich
-4. Independent Gap Audit And Gate
+开始前完整读取 [pipeline.md](pipeline.md)。字段和中间产物读取 [schemas.md](schemas.md) 与 [constants.md](constants.md)；召回检查点和人工 receipt 读取 [review.md](review.md)。
 
-处理字段、枚举或中间产物时读取 [schemas.md](schemas.md) 与 [constants.md](constants.md)。AI 自审、人工审核包和人工动作读取 [review.md](review.md)。
+## 执行入口
 
-最终保持以下消费接口：
+```bash
+node "$SKILL/scripts/pipeline.js" status "$NOVEL" --json
+```
 
-- `data/characters.json`
-- `data/factions.json`
-- `data/locations.json`
-- `data/skills.json`
-- `data/techniques.json`
-- `data/items.json`
-- `data/dialogues.json`
-- `data/chapter_summaries.json`
+根据返回的 `next_action.command` 执行且只执行一项：
+
+```bash
+node "$SKILL/scripts/pipeline.js" run "$NOVEL"
+node "$SKILL/scripts/pipeline.js" claim "$NOVEL" --worker "$WORKER"
+node "$SKILL/scripts/pipeline.js" submit "$NOVEL" --worker "$WORKER" --item "$ITEM" --draft "$DRAFT"
+node "$SKILL/scripts/pipeline.js" check "$NOVEL"
+node "$SKILL/scripts/pipeline.js" advance "$NOVEL"
+```
+
+长篇小说在 `reconcile` 后必须停在 recall review checkpoint。高风险裁决默认最多 15 项，用户可按精力把上限降到 10 项或更低；超过上限时由 AI 继续复核，不得截断未展示项。人工动作必须通过 `record-review` 写入绑定当前 hash 的 receipt，聊天确认不改变状态。
+
+`publish` 使用 `build-publish "$NOVEL" --draft <publish-draft>`、`promote` 和 `rollback`。publish draft 位于受管 run 目录之外，只提供绑定当前 semantic audit hash 的 token plan；不得提交 `report_inputs`。控制器从当前 run 的 materialized 产物构建 staging bundle，并在投影后的 staging data 上实际生成 verification、cross-validation 和 G1-G5 quality 报告，不接受外部预制 bundle 或 PASS 报告。只有 staging bundle 内全部验证通过，且 `expected-current` 未变化，才允许原子切换 `.kb/current`。逻辑消费接口保持为 `data/*.json` 与 `reports/*.json`。
 
 ## 完成条件
 
-运行：
+只有同时满足以下条件才可声明完成：
 
-```bash
-node scripts/validate-inventory.js "$NOVEL"
-node scripts/validate-final-data.js "$NOVEL"
-node scripts/verify.js "$NOVEL"
-node scripts/cross-validate.js "$NOVEL"
-node scripts/audit-recall.js "$NOVEL"
-node scripts/generate-review-packet.js "$NOVEL"
-node scripts/generate-summary.js "$NOVEL"
-```
+- `status --json` 显示 `publish` 已通过并已 promote，且没有允许的后续生成动作。
+- staging manifest、八类正式 JSON、G1-G5、semantic audit、verification 和 cross-validation 绑定同一个当前 hash。
+- `pipeline.js check` 成功；没有未提交 work item、陈旧 lease、失效 receipt 或未处理高风险项。
+- 当前版本可通过 manifest 完整性复验和 rollback 目标校验。
 
-`reports/quality_report.json` 必须满足 `completion_gate_passed: true`，且 G1-G5 各自为 PASS。缺少 source index、扫描覆盖、ledger、最终数据字段/enrich、最终 gap round、当前数据对应的 grand verification、事件对话或人物特征对话时，均不得完成。`validate-final-data.js` 必须先 PASS；缺失八类文件、骨架记录、非法 ID/引用、非法枚举或条件丰富字段为空时不得进入人工审核。
-
-完成门禁通过后，`reports/review_packet.json` 的 `review_readiness.status` 还必须为 `ready_for_human_review`，才能交给人工做短审核。状态为 `blocked` 时先修 G1-G5；状态为 `needs_ai_rerun` 时按自动异常扩大召回、复审 reject 或压缩高风险队列。人工只审核最多 10 个高风险裁决和两侧确定性样本，不逐条重做全书抽取。
+不得用直接运行旧 validators、直接编辑 JSON 或聊天中的“已核对”制造完成状态。
 
 ## Legacy
 
-`generate-baseline-prompt.js`、`compact-mention.js`、`extract-keywords.js`、`coverage-gap.js` 及旧版多 Phase prompt 暂时保留，用于旧知识库诊断和迁移。新生成流程不得把它们的 baseline 或数量分当作完整性证明。
+旧 baseline、多 pass prompts 和直接写 `build/`/`data/` 的流程只用于旧知识库的只读诊断与迁移。它们不参与新 run，不得作为新草稿模板、完整性证明或受管写入入口。

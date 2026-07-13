@@ -1,6 +1,7 @@
 # Knowledge Base Review Prompt
 
 > Legacy：新流程按 `review.md` 审核 ledger closure、证据和语义覆盖。
+> 只读诊断/迁移专用；不参与新 run，不得把输出提交为受管 draft 或正式数据。
 
 ## 角色
 

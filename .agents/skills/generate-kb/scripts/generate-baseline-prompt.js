@@ -5,6 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 
 const args = process.argv.slice(2);
 if (args.length < 1) {
@@ -13,6 +14,7 @@ if (args.length < 1) {
 }
 
 const novelDir = path.resolve(args[0]);
+assertLegacyWriteAllowed(novelDir, { operation: 'generate-baseline-prompt' });
 
 // Load manifest for novel info (from build/)
 const manifestPath = path.join(novelDir, 'build', 'manifest.json');

@@ -4,7 +4,13 @@
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
+const { computeFinalDataHash } = require('./final-data-contract');
 const { readJsonl } = require('./ledger');
+const {
+  assertExpectedFinalDataHash,
+  resolveArtifactRoots
+} = require('./report-context');
+const { assertLegacyWriteAllowed } = require('./managed-write');
 
 const FINAL_FILES = {
   character: 'characters.json',
@@ -53,13 +59,14 @@ function ratio(numerator, denominator) {
   return denominator > 0 ? Number((numerator / denominator).toFixed(4)) : null;
 }
 
-function finalCounts(novelDir) {
+function finalCounts(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
   const result = {};
   for (const [category, filename] of Object.entries(FINAL_FILES)) {
-    const value = loadJson(path.join(novelDir, 'data', filename), []);
+    const value = loadJson(path.join(roots.dataRoot, filename), []);
     result[category] = Array.isArray(value) ? value.length : 0;
   }
-  const events = loadJson(path.join(novelDir, 'build', 'events.json'), []);
+  const events = loadJson(path.join(roots.buildRoot, 'events.json'), []);
   result.event = Array.isArray(events) ? events.length : 0;
   return result;
 }
@@ -323,20 +330,30 @@ function hardGateFailures(qualityReport) {
 }
 
 function buildReviewPacket(novelDir, options = {}) {
-  const buildDir = path.join(novelDir, 'build');
+  const riskLimit = options.riskLimit ?? options.risk_limit ?? 15;
+  if (!Number.isInteger(riskLimit) || riskLimit < 1 || riskLimit > 15) {
+    throw new Error('riskLimit must be an integer from 1 to 15');
+  }
+  const roots = resolveArtifactRoots(novelDir, options);
+  const finalDataHash = computeFinalDataHash(novelDir, { dataRoot: roots.dataRoot });
+  assertExpectedFinalDataHash(finalDataHash, roots.expectedFinalDataHash);
+  const buildDir = roots.buildRoot;
   const sourceIndex = loadJson(path.join(buildDir, 'source-index.json'), {});
   const candidates = readJsonl(path.join(buildDir, 'candidates.jsonl'), { optional: true });
   const decisions = readJsonl(path.join(buildDir, 'decisions.jsonl'), { optional: true });
   const qualityReport = options.qualityReport ??
-    loadJson(path.join(novelDir, 'reports', 'quality_report.json'), {});
+    loadJson(path.join(roots.reportsRoot, 'quality_report.json'), {});
+  if (qualityReport.final_data_hash && qualityReport.final_data_hash !== finalDataHash) {
+    throw new Error('quality_report.json final_data_hash does not match the selected data root');
+  }
   const scale = sourceScale(sourceIndex);
-  const stats = buildCategoryStats(candidates, decisions, finalCounts(novelDir));
+  const stats = buildCategoryStats(candidates, decisions, finalCounts(novelDir, options));
   const alerts = plausibilityAlerts(scale, stats);
   const rows = decisionRows(candidates, decisions);
   const allHighRisk = rows
     .filter(row => row.risk_score >= 5)
     .sort((left, right) => right.risk_score - left.risk_score || left.id.localeCompare(right.id));
-  const highRisk = allHighRisk.slice(0, 10);
+  const highRisk = allHighRisk.slice(0, riskLimit);
 
   if (allHighRisk.length > highRisk.length) {
     addAlert(
@@ -344,8 +361,8 @@ function buildReviewPacket(novelDir, options = {}) {
       'human_review_queue_too_large',
       'blocking',
       'review',
-      '待人工裁决的高风险项超过 10 个，AI 尚未把问题压缩到适合人工审核的规模。',
-      { high_risk_total: allHighRisk.length, packet_limit: highRisk.length },
+      `待人工裁决的高风险项超过当前上限 ${riskLimit} 个，AI 尚未把问题压缩到适合人工审核的规模。`,
+      { high_risk_total: allHighRisk.length, packet_limit: riskLimit },
       '先执行一次 AI 高风险自审，并在 decisions.jsonl 写入结构化 ai_review 结果。'
     );
   }
@@ -368,6 +385,7 @@ function buildReviewPacket(novelDir, options = {}) {
     generated_at: new Date().toISOString(),
     novel,
     source_hash: sourceHash,
+    final_data_hash: finalDataHash,
     review_id: novel + ':' + String(sourceHash ?? 'no-source').slice(0, 12),
     review_readiness: {
       status,
@@ -376,6 +394,7 @@ function buildReviewPacket(novelDir, options = {}) {
       blocking_alert_count: blockingAlerts.length,
       warning_count: alerts.filter(alert => alert.severity === 'warning').length,
       high_risk_total: allHighRisk.length,
+      high_risk_limit: riskLimit,
       message: status === 'ready_for_human_review'
         ? 'AI 自筛和自动检查已完成，可以进行短人工审核。'
         : status === 'needs_ai_rerun'
@@ -461,8 +480,10 @@ function renderReviewPacketMarkdown(packet) {
   return lines.join('\n');
 }
 
-function writeReviewPacket(novelDir, packet) {
-  const reportsDir = path.join(novelDir, 'reports');
+function writeReviewPacket(novelDir, packet, options = {}) {
+  assertLegacyWriteAllowed(novelDir, { operation: 'generate-review-packet reports' });
+  const roots = resolveArtifactRoots(novelDir, options);
+  const reportsDir = roots.reportsRoot;
   fs.mkdirSync(reportsDir, { recursive: true });
   fs.writeFileSync(
     path.join(reportsDir, 'review_packet.json'),

@@ -1,6 +1,7 @@
 # Phase 1.2 — LLM 生成 build/keywords.json
 
 > Legacy：新流程从 source windows 建立候选账本，不用先验关键词清单证明完整性。
+> 只读诊断/迁移专用；不参与新 run，不得把输出提交为受管 draft 或正式数据。
 
 ## 角色
 

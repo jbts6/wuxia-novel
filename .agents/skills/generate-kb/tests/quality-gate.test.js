@@ -33,6 +33,7 @@ function passingInput() {
       invalid_data_files: [],
       schema_errors: [],
       enrichment_errors: [],
+      evidence_non_vacuity_errors: [],
       entities_without_grounded_refs: [],
       descriptions_without_refs: [],
       verification_file_errors: [],
@@ -89,6 +90,17 @@ describe('G1-G5 hard quality gates', () => {
     assert.equal(report.gates.G3.passed, false);
     assert.ok(report.gates.G3.reasons.some(reason => reason.includes('skill_x.one_line')));
     assert.ok(report.gates.G3.reasons.some(reason => reason.includes('stale')));
+  });
+
+  it('fails G3 when the evidence audit had no subjects to check', () => {
+    const input = passingInput();
+    input.evidence_integrity.evidence_non_vacuity_errors = [
+      'no entities, events, chapter summaries, or dialogues were available for evidence checks'
+    ];
+    const report = evaluateHardGates(input);
+
+    assert.equal(report.gates.G3.passed, false);
+    assert.ok(report.gates.G3.reasons.some(reason => reason.includes('no entities')));
   });
 
   it('fails G5 when semantic coverage or cross-validation is vacuous', () => {

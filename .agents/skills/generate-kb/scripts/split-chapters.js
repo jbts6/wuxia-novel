@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
 
 const args = process.argv.slice(2);
 if (args.length < 1) {
@@ -11,6 +12,7 @@ if (args.length < 1) {
 }
 
 const novelDir = path.resolve(args[0]);
+assertLegacyWriteAllowed(novelDir, { operation: 'split-chapters' });
 if (!fs.existsSync(novelDir)) {
   console.error(`Not found: ${novelDir}`);
   process.exit(1);

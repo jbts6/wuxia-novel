@@ -9,6 +9,8 @@ const {
   hasContent,
   validateFinalData
 } = require('./final-data-contract');
+const { exemptionHasSpecificEvidence } = require('./semantic-gates');
+const { resolveArtifactRoots } = require('./report-context');
 const { discoverChapterFiles, matchCompleteCitation, splitLines } = require('./source');
 
 const ENTITY_FILES = FINAL_DATA_FILES.filter(filename =>
@@ -39,9 +41,7 @@ function refIsGrounded(chapters, ref, fallbackChapter = null) {
   }).matched;
 }
 
-function collectEvidenceIntegrity(novelDir) {
-  const chapters = loadChapterLines(novelDir);
-  const finalData = validateFinalData(novelDir);
+function evaluateEvidenceIntegrity({ chapters, finalData, events = [], verification = null }) {
   const entitiesWithoutGroundedRefs = [];
   let entityTotal = 0;
   let entityGrounded = 0;
@@ -67,7 +67,7 @@ function collectEvidenceIntegrity(novelDir) {
       checkDescriptionRefs(entity, id, filename);
     }
   }
-  for (const [index, event] of loadJson(path.join(novelDir, 'build', 'events.json'), []).entries()) {
+  for (const [index, event] of events.entries()) {
     entityTotal += 1;
     const id = event.id ?? `events.json#${index}`;
     const refs = Array.isArray(event.source_refs) ? event.source_refs : [];
@@ -116,12 +116,14 @@ function collectEvidenceIntegrity(novelDir) {
     if (!contextGrounded) descriptionsWithoutRefs.push(`${id}.context`);
   });
 
-  const verification = loadJson(path.join(novelDir, 'reports', 'verification_report.json'));
   return {
     missing_data_files: finalData.missing_data_files,
     invalid_data_files: finalData.invalid_data_files,
     schema_errors: finalData.schema_errors,
     enrichment_errors: finalData.enrichment_errors,
+    evidence_non_vacuity_errors: entityTotal === 0 && dialogues.length === 0
+      ? ['no entities, events, chapter summaries, or dialogues were available for evidence checks']
+      : [],
     entities_without_grounded_refs: entitiesWithoutGroundedRefs,
     descriptions_without_refs: descriptionsWithoutRefs,
     ungrounded_dialogues: ungroundedDialogues,
@@ -148,27 +150,57 @@ function collectEvidenceIntegrity(novelDir) {
   };
 }
 
-function exemptionIds(exemptions, key) {
-  return new Set((exemptions?.[key] ?? []).flatMap(item => {
-    if (typeof item === 'string') return [item];
-    return item?.id && String(item.reason ?? '').trim() ? [item.id] : [];
-  }));
+function collectEvidenceIntegrity(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
+  return evaluateEvidenceIntegrity({
+    chapters: loadChapterLines(novelDir),
+    finalData: validateFinalData(novelDir, { dataRoot: roots.dataRoot }),
+    events: loadJson(path.join(roots.buildRoot, 'events.json'), []),
+    verification: loadJson(path.join(roots.reportsRoot, 'verification_report.json'))
+  });
 }
 
-function collectSemanticCoverage(novelDir) {
-  const finalData = validateFinalData(novelDir);
-  const eventsPath = path.join(novelDir, 'build', 'events.json');
-  const events = loadJson(eventsPath, []);
+function validExemptionIds(exemptions, key, label, blockingSchemaErrors) {
+  const valid = new Set();
+  for (const item of exemptions?.[key] ?? []) {
+    const id = typeof item === 'string' ? item : String(item?.id ?? '').trim();
+    if (id && typeof item === 'object' && exemptionHasSpecificEvidence(item)) {
+      valid.add(id);
+    } else {
+      blockingSchemaErrors.push(
+        `${label} exemption ${id || '<missing id>'} requires specific evidence, search scope, and source refs`
+      );
+    }
+  }
+  return valid;
+}
+
+function evaluateSemanticCoverage({
+  finalData,
+  events = [],
+  eventsPresent = true,
+  exemptions = {},
+  crossValidation = null
+}) {
   const dialogues = finalData.records_by_file['dialogues.json'] ?? [];
   const characters = finalData.records_by_file['characters.json'] ?? [];
-  const exemptions = loadJson(path.join(novelDir, 'build', 'semantic-exemptions.json'), {});
-  const eventExemptions = exemptionIds(exemptions, 'main_events');
-  const personaExemptions = exemptionIds(exemptions, 'personas');
   const dialogueIds = new Set(dialogues.map((dialogue, index) => dialogue.id ?? `dialogue#${index}`));
   const blockingSchemaErrors = [
     ...finalData.schema_errors.filter(error => error.startsWith('dialogues.json/')),
     ...finalData.enrichment_errors.filter(error => error.startsWith('dialogues.json/'))
   ];
+  const eventExemptions = validExemptionIds(
+    exemptions,
+    'main_events',
+    'main event',
+    blockingSchemaErrors
+  );
+  const personaExemptions = validExemptionIds(
+    exemptions,
+    'personas',
+    'persona',
+    blockingSchemaErrors
+  );
 
   dialogues.forEach((dialogue, index) => {
     const id = String(dialogue?.id ?? '').trim();
@@ -207,11 +239,15 @@ function collectSemanticCoverage(novelDir) {
   );
   const mainEventsMissingDialogue = mainEvents.filter(event => {
     if (eventExemptions.has(event.id)) return false;
-    if (String(event.no_suitable_dialogue ?? '').trim()) return false;
+    if (String(event.no_suitable_dialogue ?? '').trim()) {
+      blockingSchemaErrors.push(
+        `main event ${event.id ?? event.name} no_suitable_dialogue is not a structured evidence-backed exemption`
+      );
+    }
     if (dialogues.some(dialogue => dialogue.event_id === event.id)) return false;
     return !(event.dialogue_ids ?? []).some(id => dialogueIds.has(id));
   }).map(event => event.id ?? event.name);
-  if (!fs.existsSync(eventsPath)) mainEventsMissingDialogue.push('event inventory missing');
+  if (!eventsPresent) mainEventsMissingDialogue.push('event inventory missing');
   else if (mainEvents.length === 0) mainEventsMissingDialogue.push('no main events classified');
 
   const important = characters.filter(character =>
@@ -233,13 +269,14 @@ function collectSemanticCoverage(novelDir) {
     });
   }).map(character => character.id ?? character.name);
 
-  const cross = loadJson(path.join(novelDir, 'reports', 'cross_validation_report.json'));
   return {
     main_events_missing_dialogue: mainEventsMissingDialogue,
     personas_missing_dialogue: personasMissingDialogue,
-    cross_validation_errors: Number.isInteger(cross?.summary?.errors) ? cross.summary.errors : null,
+    cross_validation_errors: Number.isInteger(crossValidation?.summary?.errors)
+      ? crossValidation.summary.errors
+      : null,
     cross_validation_data_hash_valid: Boolean(
-      finalData.final_data_hash && cross?.final_data_hash === finalData.final_data_hash
+      finalData.final_data_hash && crossValidation?.final_data_hash === finalData.final_data_hash
     ),
     blocking_schema_errors: blockingSchemaErrors,
     semantic_non_vacuity_errors: semanticNonVacuityErrors,
@@ -251,9 +288,23 @@ function collectSemanticCoverage(novelDir) {
   };
 }
 
+function collectSemanticCoverage(novelDir, options = {}) {
+  const roots = resolveArtifactRoots(novelDir, options);
+  const eventsPath = path.join(roots.buildRoot, 'events.json');
+  return evaluateSemanticCoverage({
+    finalData: validateFinalData(novelDir, { dataRoot: roots.dataRoot }),
+    events: loadJson(eventsPath, []),
+    eventsPresent: fs.existsSync(eventsPath),
+    exemptions: loadJson(path.join(roots.buildRoot, 'semantic-exemptions.json'), {}),
+    crossValidation: loadJson(path.join(roots.reportsRoot, 'cross_validation_report.json'))
+  });
+}
+
 module.exports = {
   collectEvidenceIntegrity,
   collectSemanticCoverage,
+  evaluateEvidenceIntegrity,
+  evaluateSemanticCoverage,
   loadChapterLines,
   refIsGrounded
 };

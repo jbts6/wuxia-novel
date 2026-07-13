@@ -1,37 +1,37 @@
 #!/usr/bin/env node
 'use strict';
 
-const path = require('node:path');
 const { assessQuality, writeReports } = require('./assess-quality');
+const { assertLegacyWriteAllowed } = require('./lib/managed-write');
+const { parseArtifactArgs } = require('./lib/report-context');
 const {
   buildReviewPacket,
   writeReviewPacket
 } = require('./lib/review-readiness');
 
 function parseArgs(argv) {
-  const flags = new Set(argv.filter(arg => arg.startsWith('--')));
-  const positional = argv.filter(arg => !arg.startsWith('--'));
-  if (positional.length !== 1) {
-    throw new Error(
-      'Usage: node generate-review-packet.js <novel-dir> [--report-only] [--dry-run]'
-    );
-  }
+  const context = parseArtifactArgs(argv, {
+    booleanFlags: ['--report-only', '--dry-run'],
+    usage: 'Usage: node generate-review-packet.js <novel-dir> [--bundle-root DIR | --data-root DIR --reports-root DIR] [--build-root DIR] [--expected-final-data-hash HASH] [--report-only] [--dry-run]'
+  });
   return {
-    novelDir: path.resolve(positional[0]),
-    reportOnly: flags.has('--report-only'),
-    dryRun: flags.has('--dry-run')
+    ...context,
+    reportOnly: context.flags.has('--report-only'),
+    dryRun: context.flags.has('--dry-run')
   };
 }
 
 if (require.main === module) {
   try {
-    const { novelDir, reportOnly, dryRun } = parseArgs(process.argv.slice(2));
-    const quality = assessQuality(novelDir);
-    const packet = buildReviewPacket(novelDir, { qualityReport: quality });
+    const options = parseArgs(process.argv.slice(2));
+    const { novelDir, reportOnly, dryRun } = options;
+    assertLegacyWriteAllowed(novelDir, { operation: 'generate-review-packet', dryRun });
+    const quality = assessQuality(novelDir, options);
+    const packet = buildReviewPacket(novelDir, { ...options, qualityReport: quality });
 
     if (!dryRun) {
-      writeReports(novelDir, quality);
-      writeReviewPacket(novelDir, packet);
+      writeReports(novelDir, quality, options);
+      writeReviewPacket(novelDir, packet, options);
     }
 
     console.log('Review readiness: ' + packet.review_readiness.status);
@@ -45,10 +45,9 @@ if (require.main === module) {
       process.exitCode = 1;
     }
   } catch (error) {
-    console.error(error.stack || error.message);
+    console.error(`${error.code ? `${error.code}: ` : ''}${error.stack || error.message}`);
     process.exitCode = 1;
   }
 }
 
 module.exports = { parseArgs };
-
