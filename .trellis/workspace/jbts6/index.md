@@ -8,7 +8,7 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 7
+- **Total Sessions**: 8
 - **Last Active**: 2026-07-14
 <!-- @@@/auto:current-status -->
 
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~453 | Active |
+| `journal-1.md` | ~486 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 8 | 2026-07-14 | 统一书籍归档目录 | `df667a69` | `main` |
 | 7 | 2026-07-14 | Complete staged generate-kb pipeline | `aa99bd85` | `main` |
 | 6 | 2026-07-12 | 修复 generate-kb 完整性门禁 | `dde3023f` | `main` |
 | 5 | 2026-07-12 | 鸳鸯刀校准与知识库审核优化 | `0695dae` | `main` |

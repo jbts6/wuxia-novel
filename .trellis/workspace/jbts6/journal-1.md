@@ -451,3 +451,36 @@ Implemented and verified the six-stage managed generate-kb pipeline, including f
 ### Next Steps
 
 - None - task complete
+
+
+## Session 8: 统一书籍归档目录
+
+**Date**: 2026-07-14
+**Task**: 统一书籍归档目录
+**Branch**: `main`
+
+### Summary
+
+将金庸作者级归档迁移到对应书籍的 _archive 目录；保留同名冲突双方并为来源批次加后缀。验证 69 个已跟踪文件为纯 rename、hash 与内容不变，未跟踪的 2026-07-13 归档和其他知识库修改未进入提交。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `df667a69` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
