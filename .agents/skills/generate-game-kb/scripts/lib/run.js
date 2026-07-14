@@ -39,6 +39,20 @@ function readRunMetadata(runDir) {
   }
 }
 
+function ensureRunDirectories(paths) {
+  for (const directory of [
+    paths.staging,
+    paths.mergeWork,
+    paths.cleanWork,
+    paths.mergeDecisions,
+    paths.cleanDecisions,
+    paths.mergeCategories,
+    paths.cleanCategories
+  ]) {
+    fs.mkdirSync(directory, { recursive: true });
+  }
+}
+
 function createOrResumeRun(novelDir, options = {}) {
   const novel = path.resolve(novelDir);
   const { sourceFile, sourceHash } = sourceState(novel);
@@ -58,12 +72,12 @@ function createOrResumeRun(novelDir, options = {}) {
         source_hash: sourceHash
       });
     }
-    fs.mkdirSync(paths.staging, { recursive: true });
+    ensureRunDirectories(paths);
     ensureWorkerPool(paths);
     return { run_id: runId, run_dir: paths.run, source_file: sourceFile, source_hash: sourceHash, resumed: true };
   }
   fs.mkdirSync(paths.run, { recursive: true });
-  fs.mkdirSync(paths.staging, { recursive: true });
+  ensureRunDirectories(paths);
   const metadata = {
     schema_version: 1,
     run_id: runId,

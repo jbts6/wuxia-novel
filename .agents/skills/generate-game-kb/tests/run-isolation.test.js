@@ -27,7 +27,11 @@ test('run metadata and artifact paths are scoped below the explicit run id', () 
 
   const firstPaths = pathsFor(novel, 'run-a');
   const secondPaths = pathsFor(novel, 'run-b');
-  for (const key of ['manifest', 'progress', 'manualReview', 'sourceChapters', 'drafts', 'chapters', 'merged', 'cleaned', 'finalData']) {
+  for (const key of [
+    'manifest', 'progress', 'manualReview', 'sourceChapters', 'drafts', 'chapters',
+    'mergeWork', 'cleanWork', 'mergeDecisions', 'cleanDecisions', 'mergeCategories',
+    'cleanCategories', 'cleanObligations', 'merged', 'cleaned', 'finalData'
+  ]) {
     assert.equal(firstPaths[key].startsWith(first.run_dir), true, `${key} escaped run-a`);
     assert.equal(secondPaths[key].startsWith(second.run_dir), true, `${key} escaped run-b`);
   }
@@ -40,11 +44,23 @@ test('creating or resuming a run provides a durable run-scoped staging directory
 
   assert.equal(paths.staging, path.join(first.run_dir, 'staging'));
   assert.equal(fs.statSync(paths.staging).isDirectory(), true);
+  for (const directory of [
+    paths.mergeWork,
+    paths.cleanWork,
+    paths.mergeDecisions,
+    paths.cleanDecisions,
+    paths.mergeCategories,
+    paths.cleanCategories
+  ]) {
+    assert.equal(fs.statSync(directory).isDirectory(), true, `${directory} is not durable`);
+  }
 
   fs.rmSync(paths.staging, { recursive: true });
+  fs.rmSync(paths.mergeWork, { recursive: true });
   const resumed = createOrResumeRun(novel, { runId: 'run-a' });
   assert.equal(resumed.resumed, true);
   assert.equal(fs.statSync(paths.staging).isDirectory(), true);
+  assert.equal(fs.statSync(paths.mergeWork).isDirectory(), true);
 });
 
 test('implicit run resolution rejects multiple eligible runs', () => {
