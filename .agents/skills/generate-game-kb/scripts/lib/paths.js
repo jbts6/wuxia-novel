@@ -20,7 +20,11 @@ function pathsFor(novelDir) {
     finalRoot: path.join(work, 'final'),
     finalIdPlan: path.join(work, 'final', 'id_plan.json'),
     finalData: path.join(work, 'final', 'data'),
-    finalReports: path.join(work, 'final', 'reports')
+    finalReports: path.join(work, 'final', 'reports'),
+    gameMaterials: path.join(work, 'final', 'reports', 'game_materials.json'),
+    quantityReport: path.join(work, 'final', 'reports', 'quantity_report.json'),
+    qualitySample: path.join(work, 'final', 'reports', 'quality_sample.json'),
+    qualityReport: path.join(work, 'final', 'reports', 'quality_report.json')
   };
 }
 

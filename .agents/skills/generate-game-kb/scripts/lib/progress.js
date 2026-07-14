@@ -115,6 +115,23 @@ function setDeterministicUnit(current, unitName, inputHash, errors) {
   return progress;
 }
 
+function forceManualReview(current, unitName, errors, stopReason) {
+  const progress = cloneProgress(current);
+  const unit = progress.units[unitName];
+  if (!unit) throw new GameKbError('UNIT_UNKNOWN', 'Cannot stop an unknown unit', { unit: unitName });
+  const normalizedErrors = normalizeErrors(errors);
+  const fingerprint = normalizeErrorFingerprint(normalizedErrors);
+  unit.status = 'manual_review';
+  unit.last_errors = normalizedErrors;
+  unit.error_fingerprints = fingerprint
+    ? [...unit.error_fingerprints, fingerprint].slice(-3)
+    : unit.error_fingerprints;
+  unit.stop_reason = stopReason;
+  unit.updated_at = now();
+  progress.updated_at = unit.updated_at;
+  return progress;
+}
+
 function manualIssues(progress) {
   return Object.entries(progress.units)
     .filter(([, unit]) => unit.status === 'manual_review')
@@ -208,6 +225,7 @@ function statusReport(paths, manifest, progress) {
 module.exports = {
   freshProgress,
   freshUnit,
+  forceManualReview,
   loadProgress,
   manualIssues,
   normalizeErrorFingerprint,

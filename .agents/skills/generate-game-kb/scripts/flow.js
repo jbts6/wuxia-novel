@@ -6,7 +6,8 @@ const fs = require('node:fs');
 const { GameKbError } = require('./lib/errors');
 const { acceptDraft, currentUnitInputHash, stableHash } = require('./lib/accept');
 const { buildFinalData, writeFinalData } = require('./lib/finalize');
-const { readJson } = require('./lib/io');
+const { buildGameMaterials } = require('./lib/game-materials');
+const { atomicWriteJson, readJson } = require('./lib/io');
 const { pathsFor } = require('./lib/paths');
 const {
   loadProgress,
@@ -15,7 +16,9 @@ const {
   setDeterministicUnit,
   statusReport
 } = require('./lib/progress');
+const { buildQuantityReport } = require('./lib/quantity');
 const { prepareNovel } = require('./lib/source');
+const { ensureQualitySample, verifyFinal } = require('./lib/verify');
 
 function flagValue(args, flag) {
   const index = args.indexOf(flag);
@@ -54,25 +57,46 @@ function buildFinal(novelDir) {
 
   const cleaned = readJson(paths.cleaned);
   const result = buildFinalData(cleaned, manifest);
+  const materials = buildGameMaterials(result.data, cleaned.game_material_candidates);
+  const finalIssues = [...result.issues, ...materials.issues];
   const finalInputHash = stableHash({
     clean_input_hash: cleanState.input_hash,
     cleaned,
     chapters: manifest.chapters.map(chapter => ({ number: chapter.number, input_hash: chapter.input_hash }))
   });
-  progress = setDeterministicUnit(progress, 'finalize:references', finalInputHash, result.issues);
+  progress = setDeterministicUnit(progress, 'finalize:references', finalInputHash, finalIssues);
   saveProgress(paths, progress);
-  if (result.issues.length > 0) {
+  if (finalIssues.length > 0) {
     fs.rmSync(paths.finalData, { recursive: true, force: true });
+    fs.rmSync(paths.finalReports, { recursive: true, force: true });
     throw new GameKbError('FINAL_PROJECTION_FAILED', 'Final IDs or references could not be projected uniquely', {
-      issues: result.issues
+      issues: finalIssues
     });
   }
   writeFinalData(paths, result);
+  atomicWriteJson(paths.gameMaterials, { schema_version: 1, entries: materials.entries });
+  const quantity = buildQuantityReport(cleaned, manifest.source_char_count, manifest.chapters.length);
+  atomicWriteJson(paths.quantityReport, {
+    ...quantity,
+    review_consumed: true,
+    explanations: [...cleaned.quantity_review.explanations]
+  });
   return {
     file_count: Object.keys(result.data).length,
     data_dir: paths.finalData,
     id_plan: paths.finalIdPlan
   };
+}
+
+function verifyWorkspace(novelDir) {
+  const paths = pathsFor(novelDir);
+  const manifest = readJson(paths.manifest);
+  ensureQualitySample(paths, manifest);
+  const result = verifyFinal(paths);
+  if (!result.passed) {
+    throw new GameKbError('FINAL_VERIFICATION_FAILED', 'Final workspace did not pass verification', result);
+  }
+  return result;
 }
 
 function main(argv = process.argv.slice(2)) {
@@ -127,6 +151,14 @@ function main(argv = process.argv.slice(2)) {
     if (command === 'build-final') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'build-final requires <novel>');
       process.stdout.write(`${JSON.stringify(buildFinal(novelDir), null, json ? 0 : 2)}\n`);
+      return;
+    }
+    if (command === 'verify') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'verify requires <novel>');
+      if (args.includes('--installed')) {
+        throw new GameKbError('INSTALLED_VERIFY_UNAVAILABLE', 'Installed verification is not available at this stage');
+      }
+      process.stdout.write(`${JSON.stringify(verifyWorkspace(novelDir), null, json ? 0 : 2)}\n`);
       return;
     }
     throw new GameKbError('COMMAND_UNKNOWN', `Unknown command: ${command || '<missing>'}`);

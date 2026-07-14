@@ -7,9 +7,11 @@ const { validateCleanedBook, validateMergedBook } = require('./book-contract');
 const { validateChapterDraft } = require('./chapter-contract');
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
-const { loadProgress, recordSubmission, saveProgress } = require('./progress');
+const { forceManualReview, loadProgress, recordSubmission, saveProgress } = require('./progress');
 const { buildQuantityReport } = require('./quantity');
+const { validateQualityReview } = require('./quality');
 const { sha256 } = require('./source');
+const { hashFinalData, loadData } = require('./verify');
 
 function isWithin(parent, candidate) {
   const relative = path.relative(path.resolve(parent), path.resolve(candidate));
@@ -134,6 +136,28 @@ function unitContext(paths, manifest, progress, unit) {
       validate: draft => validateCleanedBook(draft, manifest)
     };
   }
+  if (unit === 'quality:sample') {
+    if (!fs.existsSync(paths.qualitySample)) {
+      throw new GameKbError('QUALITY_SAMPLE_REQUIRED', 'Run verify to persist the fixed quality sample first');
+    }
+    const loaded = loadData(paths.finalData);
+    if (loaded.errors.length > 0) {
+      throw new GameKbError('FINAL_DATA_INVALID', 'Final data must be complete before quality review', {
+        errors: loaded.errors
+      });
+    }
+    const sample = readJson(paths.qualitySample);
+    const finalDataHash = hashFinalData(loaded.data);
+    if (sample.final_data_hash !== finalDataHash || !Array.isArray(sample.items)) {
+      throw new GameKbError('QUALITY_SAMPLE_STALE', 'Quality sample does not match current final data');
+    }
+    return {
+      inputHash: stableHash({ final_data: loaded.data, sample }),
+      acceptedFile: paths.qualityReport,
+      assess: draft => validateQualityReview(draft, sample.items),
+      normalize: (draft, assessment) => ({ ...assessment.report, final_data_hash: finalDataHash })
+    };
+  }
   throw new GameKbError('UNIT_UNSUPPORTED', 'Unsupported accept unit', { unit });
 }
 
@@ -150,14 +174,30 @@ function acceptDraft({ paths, unit, draftPath }) {
   const outputHash = sha256(raw);
   let draft;
   let errors;
+  let assessment = null;
   try {
     draft = JSON.parse(raw.replace(/^\uFEFF/, ''));
-    errors = context.validate(draft);
+    if (context.assess) {
+      assessment = context.assess(draft);
+      errors = assessment.errors;
+    } else {
+      errors = context.validate(draft);
+    }
   } catch (error) {
     errors = [{ code: 'DRAFT_JSON_INVALID', path: '$', target: error.message }];
   }
 
-  const updated = recordSubmission(progress, unit, context.inputHash, outputHash, errors);
+  let updated = recordSubmission(progress, unit, context.inputHash, outputHash, errors);
+  const terminalErrors = assessment && errors.length === 0 && !assessment.passed
+    ? [{
+        code: 'QUALITY_SAMPLE_FAILED',
+        path: 'results',
+        target: `${assessment.pass_count}/${assessment.sample_size}; threshold=${assessment.threshold}`
+      }]
+    : [];
+  if (terminalErrors.length > 0) {
+    updated = forceManualReview(updated, unit, terminalErrors, 'QUALITY_SAMPLE_FAILED');
+  }
   const state = updated.units[unit];
   const archiveDir = path.join(paths.drafts, unit.replaceAll(':', '_'));
   const archive = path.join(
@@ -169,7 +209,7 @@ function acceptDraft({ paths, unit, draftPath }) {
   let acceptedFile = null;
   if (errors.length === 0) {
     acceptedFile = context.acceptedFile;
-    atomicWriteJson(acceptedFile, draft);
+    atomicWriteJson(acceptedFile, context.normalize ? context.normalize(draft, assessment) : draft);
     if (context.afterAccept) context.afterAccept(draft);
   }
   saveProgress(paths, updated);
@@ -178,8 +218,8 @@ function acceptDraft({ paths, unit, draftPath }) {
     unit,
     status: state.status,
     attempts: state.attempts,
-    remaining_attempts: Math.max(0, 3 - state.attempts),
-    errors,
+    remaining_attempts: state.status === 'manual_review' ? 0 : Math.max(0, 3 - state.attempts),
+    errors: terminalErrors.length > 0 ? terminalErrors : errors,
     draft_archive: archive,
     accepted_file: acceptedFile,
     quantity_report: unit === 'merge:book' && errors.length === 0 ? paths.preCleanQuantity : null,
@@ -187,6 +227,9 @@ function acceptDraft({ paths, unit, draftPath }) {
   };
   if (errors.length > 0) {
     throw new GameKbError('DRAFT_REJECTED', 'Draft failed validation', result);
+  }
+  if (terminalErrors.length > 0) {
+    throw new GameKbError('QUALITY_SAMPLE_FAILED', 'Fixed quality sample did not reach the 95% threshold', result);
   }
   return result;
 }
