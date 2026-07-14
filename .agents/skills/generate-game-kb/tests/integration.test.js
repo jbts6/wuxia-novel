@@ -2,7 +2,6 @@
 
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
-const os = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
 
@@ -10,13 +9,16 @@ const { validateCleanedBook, validateMergedBook } = require('../scripts/lib/book
 const { validateChapterDraft } = require('../scripts/lib/chapter-contract');
 const { buildFinalData } = require('../scripts/lib/finalize');
 const { buildGameMaterials } = require('../scripts/lib/game-materials');
-const { validateQualityReview } = require('../scripts/lib/quality');
+const { atomicWriteJson } = require('../scripts/lib/io');
+const { pathsFor } = require('../scripts/lib/paths');
+const { buildQualitySample, validateQualityReview } = require('../scripts/lib/quality');
 
 const {
   makeNovel,
   readJson,
   runFlow,
   sourceRef,
+  writeStagingDraft,
   validChapterDraft,
   validCleanedBook,
   validMergedBook
@@ -30,9 +32,7 @@ const TARGET_FILES = [
 ];
 
 function acceptJsonDraft(novel, unit, draft) {
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-integration-draft-'));
-  const file = path.join(directory, `${unit.replace(':', '_')}.json`);
-  fs.writeFileSync(file, JSON.stringify(draft), 'utf8');
+  const file = writeStagingDraft(novel, unit, draft);
   return runFlow(['accept', novel, '--unit', unit, '--draft', file, '--json']);
 }
 
@@ -70,7 +70,10 @@ test('Skill documents the bounded fast workflow without template placeholders', 
     assert.match(skill, new RegExp(`\\b${command.replace('-', '\\-')}\\b`));
   }
   assert.match(skill, /--installed/);
-  assert.match(skill, /2[–-]3\s*章/);
+  assert.match(skill, /原生子代理/);
+  assert.match(skill, /每个子代理只处理一个章节/);
+  assert.match(skill, /run-id.*unit.*attempt/);
+  assert.match(skill, /串行执行 `accept`/);
   assert.match(skill, /manual_review/);
   assert.match(skill, /最多\s*3\s*次/);
   assert.match(skill, /不得自动.*reset-unit|不得.*自动重置/);
@@ -158,7 +161,8 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   const novel = makeNovel('三章游戏书', source);
   const prepared = assertFlowPassed(runFlow(['prepare', novel, '--json']), 'prepare');
   assert.equal(prepared.chapter_count, 3);
-  const manifest = readJson(path.join(novel, '.game-kb-work', 'manifest.json'));
+  const paths = pathsFor(novel, prepared.run_id);
+  const manifest = readJson(paths.manifest);
 
   for (const chapter of manifest.chapters) {
     const number = chapter.number;
@@ -172,7 +176,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
         { local_key: 'character:乙', name: '乙', level: '次要', source_refs: [sourceRef(number, '甲在无名山谷遇见乙')] }
       ] : [],
       events: first ? [{
-        local_key: 'event:山谷相逢', name: '山谷相逢', importance: '重要',
+        local_key: 'event:山谷相逢', name: '山谷相逢', importance: '重要', quote_status: 'quotable',
         source_refs: [sourceRef(number, '甲在无名山谷遇见乙')]
       }] : [],
       items: first ? [
@@ -231,7 +235,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   const event = {
     local_key: 'event:山谷相逢', canonical_name: '山谷相逢', cause: '甲追查旧事',
     process: '甲乙相逢并同行', result: '二人查明真相', participant_names: ['甲', '乙'],
-    location_names: ['无名山谷'], importance: '重要',
+    location_names: ['无名山谷'], importance: '重要', quote_status: 'quotable',
     source_refs: [sourceRef(1, '甲在无名山谷遇见乙'), sourceRef(3, '山谷相逢一事至此结束')]
   };
   const importantItem = {
@@ -266,6 +270,12 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
       chapter: 1, text: '你终于来了。', source_refs: [sourceRef(1, '甲在无名山谷遇见乙')]
     }],
     chapter_summaries: summaries,
+    candidate_resolutions: ['characters', 'events', 'items', 'skills', 'techniques', 'factions', 'locations', 'dialogues']
+      .flatMap(category => readJson(path.join(paths.chapters, 'ch_001.json'))[category].map(candidate => ({
+        candidate_key: candidate.candidate_key,
+        resolution: 'merged_to',
+        merged_to: candidate.local_key
+      }))),
     ambiguities: []
   };
 
@@ -274,6 +284,14 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
 
   const cleaned = validCleanedBook({
     ...common,
+    candidate_resolutions: common.candidate_resolutions.map(decision => decision.merged_to === 'item:小匕首'
+      ? {
+          candidate_key: decision.candidate_key,
+          resolution: 'rejected',
+          reason: 'ordinary_item',
+          detail: '普通随身物，无特殊能力且不推动剧情。'
+        }
+      : decision),
     items: [importantItem],
     quantity_review: { consumed: true, explanations: ['普通小匕首无特殊能力且不推动剧情，已删除；未按数量凑条目。'] },
     game_material_candidates: [
@@ -287,7 +305,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   assertFlowPassed(acceptJsonDraft(novel, 'clean:book', cleaned), 'accept clean');
   assertFlowPassed(runFlow(['build-final', novel, '--json']), 'build final');
 
-  const sampleFile = path.join(novel, '.game-kb-work', 'final', 'reports', 'quality_sample.json');
+  const sampleFile = paths.qualitySample;
   const pending = runFlow(['verify', novel, '--json']);
   assert.notEqual(pending.status, 0);
   assert.equal(fs.existsSync(sampleFile), true);
@@ -321,7 +339,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   assert.deepEqual(finalEvent.source_refs.map(ref => ref.chapter), [1, 3]);
   const eventIds = new Set(finalData['events.json'].map(record => record.id));
   assert.ok(finalData['dialogues.json'].every(record => eventIds.has(record.event_id)));
-  assert.deepEqual(readJson(path.join(novel, '.game-kb-work', 'manual_review.json')), []);
+  assert.deepEqual(readJson(paths.manualReview), []);
 
   const materials = readJson(path.join(novel, 'reports', 'game_materials.json'));
   assert.deepEqual(new Set(materials.entries.map(entry => entry.material_type)), new Set([
@@ -330,4 +348,108 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   const receipt = readJson(path.join(novel, 'reports', 'generate_game_kb_install.json'));
   assert.equal(receipt.installer, 'generate-game-kb');
   assert.equal(receipt.manual_review_count, 0);
+});
+
+test('seven item candidates disappearing at merge open only supplement:items', () => {
+  const novel = makeNovel('物品归零书', '第一章 起始\n甲发现七件异物。\n');
+  const prepared = assertFlowPassed(runFlow(['prepare', novel, '--json']), 'prepare item regression');
+  const paths = pathsFor(novel, prepared.run_id);
+  const manifest = readJson(paths.manifest);
+  const chapter = manifest.chapters[0];
+  const itemDrafts = Array.from({ length: 7 }, (_, index) => ({
+    local_key: `item:异物${index + 1}`,
+    name: `异物${index + 1}`,
+    source_refs: [sourceRef(1, '七件异物')]
+  }));
+  const chapterDraft = validChapterDraft({
+    chapter: 1,
+    title: chapter.title,
+    source_hash: chapter.input_hash,
+    characters: [],
+    events: [],
+    items: itemDrafts,
+    skills: [],
+    techniques: [],
+    factions: [],
+    locations: [],
+    dialogues: [],
+    summary: {
+      title: chapter.title,
+      summary: '甲发现七件异物。',
+      key_events: [],
+      key_characters: [],
+      source_refs: [sourceRef(1, '七件异物')]
+    }
+  });
+  assertFlowPassed(acceptJsonDraft(novel, 'chapter:001', chapterDraft), 'accept item chapter');
+  const acceptedItems = readJson(path.join(paths.chapters, 'ch_001.json')).items;
+  const merged = validMergedBook({
+    events: [],
+    dialogues: [],
+    items: [],
+    chapter_summaries: [{
+      chapter: 1,
+      title: chapter.title,
+      summary: '甲发现七件异物。',
+      key_events: [],
+      key_characters: [],
+      source_refs: [sourceRef(1, '七件异物')]
+    }],
+    candidate_resolutions: acceptedItems.map(item => ({
+      candidate_key: item.candidate_key,
+      resolution: 'ambiguous',
+      detail: '尚未确认七件异物是否应合并为重要物品。'
+    }))
+  });
+  assertFlowPassed(acceptJsonDraft(novel, 'merge:book', merged), 'accept ambiguous item merge');
+  assertFlowPassed(runFlow(['check-coverage', novel, '--json']), 'check item coverage');
+
+  assert.deepEqual(readJson(paths.coverage).recall_units, ['supplement:items']);
+  const units = readJson(paths.progress).units;
+  assert.equal(units['supplement:items'].status, 'pending');
+  assert.equal(units['merge:book'].attempts, 1);
+  assert.equal(Object.keys(units).includes('book:full-retry'), false);
+});
+
+test('sparse dialogue coverage opens only recall:dialogues without a book retry', () => {
+  const novel = makeNovel('对白稀疏书', '第一章 起始\n群雄议事。\n');
+  const prepared = assertFlowPassed(runFlow(['prepare', novel, '--json']), 'prepare dialogue regression');
+  const paths = pathsFor(novel, prepared.run_id);
+  fs.mkdirSync(paths.chapters, { recursive: true });
+  atomicWriteJson(path.join(paths.chapters, 'ch_001.json'), {
+    chapter: 1,
+    events: Array.from({ length: 10 }, (_, index) => ({
+      local_key: `event:议事${index + 1}`,
+      importance: '重要',
+      quote_status: 'quotable'
+    })),
+    items: [],
+    dialogues: [1, 2].map(index => ({ event_local_key: `event:议事${index}` }))
+  });
+  assertFlowPassed(runFlow(['check-coverage', novel, '--json']), 'check dialogue coverage');
+
+  assert.deepEqual(readJson(paths.coverage).recall_units, ['recall:dialogues']);
+  const units = readJson(paths.progress).units;
+  assert.equal(units['recall:dialogues'].status, 'pending');
+  assert.equal(Object.keys(units).includes('book:full-retry'), false);
+});
+
+test('fixed quality quotas never replace missing item or dialogue checks with martial records', () => {
+  const records = prefix => Array.from({ length: 30 }, (_, index) => ({ id: `${prefix}_${index}` }));
+  const sample = buildQualitySample({
+    'skills.json': records('skill'),
+    'techniques.json': records('tech'),
+    'events.json': records('event'),
+    'characters.json': records('char'),
+    'items.json': [],
+    'dialogues.json': [],
+    'factions.json': records('faction'),
+    'locations.json': records('loc'),
+    'chapter_summaries.json': [{ chapter: 1 }, { chapter: 2 }]
+  }, { seed: 'integration-fixed' });
+
+  assert.equal(sample.categories.items.kind, 'empty-review-required');
+  assert.equal(sample.categories.dialogues.kind, 'empty-review-required');
+  assert.equal(sample.items.filter(item => item.group === 'skills_techniques').length, 12);
+  assert.equal(sample.total_checks, 40);
 });

@@ -7,6 +7,7 @@ const { sourceRef, validCleanedBook, validMergedBook } = require('./helpers');
 const {
   groupCandidates,
   normalizeName,
+  validateCandidateResolutions,
   validateCleanedBook,
   validateMergedBook
 } = require('../scripts/lib/book-contract');
@@ -37,6 +38,82 @@ test('merged book keeps one event across non-contiguous source chapters', () => 
 
   assert.deepEqual(errors, []);
   assert.deepEqual(book.events[0].source_refs.map(ref => ref.chapter), [1, 3]);
+});
+
+test('merge candidate resolutions use one finite destination per candidate', () => {
+  const chapters = [{
+    chapter: 1,
+    items: [{
+      candidate_key: 'ch001:items:item:回生丹',
+      local_key: 'item:回生丹',
+      name: '回生丹',
+      source_refs: [sourceRef(1)]
+    }]
+  }];
+  const book = validMergedBook({
+    candidate_resolutions: [{
+      candidate_key: 'ch001:items:item:回生丹',
+      resolution: 'merged_to',
+      merged_to: 'item:灵丹'
+    }]
+  });
+
+  assert.deepEqual(validateCandidateResolutions(book, chapters), []);
+
+  book.candidate_resolutions[0] = {
+    candidate_key: 'ch001:items:item:回生丹',
+    resolution: 'rejected',
+    reason: '随便删掉',
+    detail: '自由文本不能替代有限原因。'
+  };
+  assert.ok(validateCandidateResolutions(book, chapters)
+    .some(error => error.code === 'CANDIDATE_RESOLUTION_INVALID'));
+});
+
+test('merge candidate resolutions reject missing and duplicate decisions', () => {
+  const chapters = [{
+    chapter: 1,
+    items: [{
+      candidate_key: 'ch001:items:item:回生丹',
+      local_key: 'item:回生丹',
+      name: '回生丹',
+      source_refs: [sourceRef(1)]
+    }]
+  }];
+  const missing = validMergedBook({ candidate_resolutions: [] });
+  assert.ok(validateCandidateResolutions(missing, chapters)
+    .some(error => error.code === 'CANDIDATE_RESOLUTION_MISSING'));
+
+  const decision = {
+    candidate_key: 'ch001:items:item:回生丹',
+    resolution: 'merged_to',
+    merged_to: 'item:灵丹'
+  };
+  const duplicate = validMergedBook({ candidate_resolutions: [decision, { ...decision }] });
+  assert.ok(validateCandidateResolutions(duplicate, chapters)
+    .some(error => error.code === 'CANDIDATE_RESOLUTION_DUPLICATE'));
+});
+
+test('cleaned books cannot finish with an unresolved ambiguous candidate', () => {
+  const chapters = [{
+    chapter: 1,
+    items: [{
+      candidate_key: 'ch001:items:item:回生丹',
+      local_key: 'item:回生丹',
+      name: '回生丹',
+      source_refs: [sourceRef(1)]
+    }]
+  }];
+  const book = validCleanedBook({
+    candidate_resolutions: [{
+      candidate_key: 'ch001:items:item:回生丹',
+      resolution: 'ambiguous',
+      detail: '同名对象仍无法裁决。'
+    }]
+  });
+
+  assert.ok(validateCleanedBook(book, manifest, chapters)
+    .some(error => error.code === 'CANDIDATE_RESOLUTION_AMBIGUOUS'));
 });
 
 test('merged ambiguities are explicit and cleaned books must resolve them', () => {

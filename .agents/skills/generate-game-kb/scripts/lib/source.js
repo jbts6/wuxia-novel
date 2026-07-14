@@ -68,11 +68,15 @@ function discoverSource(novelDir) {
   return candidates[0];
 }
 
-function prepareNovel(novelDir) {
-  const paths = pathsFor(novelDir);
+function prepareNovel(novelDir, options = {}) {
+  const run = options.runId
+    ? { run_id: options.runId }
+    : require('./run').createOrResumeRun(novelDir, options);
+  const paths = pathsFor(novelDir, run.run_id);
   const sourceFile = discoverSource(paths.novel);
   const source = normalizeSource(fs.readFileSync(sourceFile, 'utf8'));
   const chapters = splitChapters(source, path.basename(paths.novel));
+  writeFileIfChanged(paths.sourceOriginal, source);
   const manifestChapters = chapters.map(chapter => {
     const file = path.join(paths.sourceChapters, `ch_${String(chapter.number).padStart(3, '0')}.txt`);
     writeFileIfChanged(file, chapter.content);
@@ -86,8 +90,10 @@ function prepareNovel(novelDir) {
 
   const manifest = {
     schema_version: 1,
+    run_id: run.run_id,
     novel_dir: paths.novel,
     source_file: sourceFile,
+    source_snapshot: paths.sourceOriginal,
     source_hash: sha256(source),
     source_char_count: (source.match(/[\u3400-\u9fff\uf900-\ufaff]/g) || []).length,
     chapters: manifestChapters,

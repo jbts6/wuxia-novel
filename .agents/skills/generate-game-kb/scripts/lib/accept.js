@@ -4,36 +4,62 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { validateCleanedBook, validateMergedBook } = require('./book-contract');
-const { validateChapterDraft } = require('./chapter-contract');
+const {
+  acceptedArtifactHash,
+  assertAcceptedArtifacts,
+  recordAcceptedArtifact
+} = require('./candidate-ledger');
+const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contract');
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
-const { forceManualReview, loadProgress, recordSubmission, saveProgress } = require('./progress');
+const {
+  forceManualReview,
+  loadProgress,
+  recordSubmission,
+  recordTargetedSubmission,
+  saveProgress
+} = require('./progress');
 const { buildQuantityReport } = require('./quantity');
 const { validateQualityReview } = require('./quality');
 const { sha256 } = require('./source');
 const { hashFinalData, loadData } = require('./verify');
+const { applyRecall, applySupplement } = require('./supplements');
 
 function isWithin(parent, candidate) {
   const relative = path.relative(path.resolve(parent), path.resolve(candidate));
   return relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative));
 }
 
-function assertDraftPath(paths, draftPath) {
+function stagingFileName(unit, attempt) {
+  return `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}.json`;
+}
+
+function nextAttempt(progress, unit, inputHash) {
+  const state = progress.units[unit];
+  return !state || state.input_hash !== inputHash ? 1 : state.attempts + 1;
+}
+
+function assertDraftPath(paths, draftPath, unit, attempt) {
   const resolved = path.resolve(draftPath);
-  const forbidden = [
-    paths.drafts,
-    paths.chapters,
-    path.dirname(paths.merged),
-    path.dirname(paths.cleaned),
-    paths.finalRoot
-  ];
-  if (forbidden.some(root => isWithin(root, resolved))) {
-    throw new GameKbError('DRAFT_PATH_FORBIDDEN', 'Draft must not reuse an accepted or archived artifact path', {
-      draft: resolved
+  const expected = path.resolve(paths.staging, stagingFileName(unit, attempt));
+  if (resolved !== expected) {
+    throw new GameKbError('DRAFT_STAGING_MISMATCH', 'Draft must use the next unsubmitted run-scoped staging path', {
+      unit,
+      attempt,
+      draft: resolved,
+      expected
     });
   }
   if (!fs.existsSync(resolved) || !fs.statSync(resolved).isFile()) {
     throw new GameKbError('DRAFT_MISSING', 'Draft file does not exist', { draft: resolved });
+  }
+  const realStaging = fs.realpathSync(paths.staging);
+  const realDraft = fs.realpathSync(resolved);
+  if (!isWithin(realStaging, realDraft)) {
+    throw new GameKbError('DRAFT_STAGING_ESCAPE', 'Draft staging path must not escape the selected run', {
+      unit,
+      draft: resolved
+    });
   }
   return resolved;
 }
@@ -77,9 +103,13 @@ function requireAcceptedChapters(paths, manifest, progress) {
 
 function mergeInput(paths, manifest, progress) {
   const chapters = requireAcceptedChapters(paths, manifest, progress);
+  const acceptedHashes = manifest.chapters.map(chapter => ({
+    number: chapter.number,
+    content_hash: acceptedArtifactHash(paths, acceptedChapterFile(paths, chapter.number))
+  }));
   const inputHash = stableHash({
     manifest: manifest.chapters.map(chapter => ({ number: chapter.number, input_hash: chapter.input_hash })),
-    chapters
+    accepted_hashes: acceptedHashes
   });
   return { chapters, inputHash };
 }
@@ -100,6 +130,20 @@ function preCleanQuantity(paths, manifest, merged) {
   return report;
 }
 
+function validateTargetedDraft(draft, category) {
+  if (!draft || typeof draft !== 'object' || Array.isArray(draft)) {
+    return [{ code: 'TARGETED_DRAFT_INVALID', path: '$', target: category }];
+  }
+  if (!Array.isArray(draft[category])) {
+    return [{ code: 'TARGETED_CATEGORY_REQUIRED', path: category, target: category }];
+  }
+  return draft[category].flatMap((record, index) => (
+    record && typeof record === 'object' && !Array.isArray(record)
+      ? []
+      : [{ code: 'TARGETED_RECORD_INVALID', path: `${category}[${index}]`, target: category }]
+  ));
+}
+
 function unitContext(paths, manifest, progress, unit) {
   const number = chapterNumber(unit);
   if (number !== null) {
@@ -112,15 +156,16 @@ function unitContext(paths, manifest, progress, unit) {
         number: chapter.number,
         title: chapter.title,
         inputHash: chapter.input_hash
-      })
+      }),
+      normalize: draft => normalizeChapterDraft(draft)
     };
   }
   if (unit === 'merge:book') {
-    const { inputHash } = mergeInput(paths, manifest, progress);
+    const { chapters, inputHash } = mergeInput(paths, manifest, progress);
     return {
       inputHash,
       acceptedFile: paths.merged,
-      validate: draft => validateMergedBook(draft, manifest),
+      validate: draft => validateMergedBook(draft, manifest, chapters),
       afterAccept: draft => atomicWriteJson(
         paths.preCleanQuantity,
         buildQuantityReport(draft, manifest.source_char_count, manifest.chapters.length)
@@ -129,11 +174,15 @@ function unitContext(paths, manifest, progress, unit) {
   }
   if (unit === 'clean:book') {
     const merged = requireCurrentMerge(paths, manifest, progress);
+    const chapters = requireAcceptedChapters(paths, manifest, progress);
     const quantity = preCleanQuantity(paths, manifest, merged);
     return {
-      inputHash: stableHash({ merged, pre_clean_quantity: quantity }),
+      inputHash: stableHash({
+        merged_content_hash: acceptedArtifactHash(paths, paths.merged),
+        pre_clean_quantity: quantity
+      }),
       acceptedFile: paths.cleaned,
-      validate: draft => validateCleanedBook(draft, manifest)
+      validate: draft => validateCleanedBook(draft, manifest, chapters)
     };
   }
   if (unit === 'quality:sample') {
@@ -158,18 +207,48 @@ function unitContext(paths, manifest, progress, unit) {
       normalize: (draft, assessment) => ({ ...assessment.report, final_data_hash: finalDataHash })
     };
   }
+  const targeted = /^(recall|supplement):([a-z][a-z_]*)$/.exec(unit);
+  if (targeted) {
+    const [, kind, category] = targeted;
+    const acceptedFile = kind === 'recall'
+      ? path.join(paths.recalls, `${category}.json`)
+      : path.join(paths.supplements, `${category}.json`);
+    if (kind === 'supplement' && !fs.existsSync(paths.merged)) {
+      throw new GameKbError('CLEAN_MERGE_REQUIRED', 'An accepted merge is required before a supplement');
+    }
+    return {
+      inputHash: stableHash({
+        kind,
+        category,
+        manifest: manifest.source_hash,
+        coverage: fs.existsSync(paths.coverage) ? readJson(paths.coverage) : null,
+        merged: kind === 'supplement' && fs.existsSync(paths.merged)
+          ? acceptedArtifactHash(paths, paths.merged)
+          : null
+      }),
+      acceptedFile,
+      targeted: true,
+      validate: draft => validateTargetedDraft(draft, category),
+      afterAccept: draft => kind === 'recall'
+        ? applyRecall(paths, category, draft)
+        : applySupplement(paths, category, draft)
+    };
+  }
   throw new GameKbError('UNIT_UNSUPPORTED', 'Unsupported accept unit', { unit });
 }
 
 function currentUnitInputHash(paths, manifest, progress, unit) {
+  assertAcceptedArtifacts(paths);
   return unitContext(paths, manifest, progress, unit).inputHash;
 }
 
 function acceptDraft({ paths, unit, draftPath }) {
+  assertAcceptedArtifacts(paths);
   const manifest = readJson(paths.manifest);
   const progress = loadProgress(paths, manifest);
   const context = unitContext(paths, manifest, progress, unit);
-  const resolvedDraft = assertDraftPath(paths, draftPath);
+  const attempt = nextAttempt(progress, unit, context.inputHash);
+  const resolvedDraft = assertDraftPath(paths, draftPath, unit, attempt);
   const raw = fs.readFileSync(resolvedDraft, 'utf8');
   const outputHash = sha256(raw);
   let draft;
@@ -187,7 +266,9 @@ function acceptDraft({ paths, unit, draftPath }) {
     errors = [{ code: 'DRAFT_JSON_INVALID', path: '$', target: error.message }];
   }
 
-  let updated = recordSubmission(progress, unit, context.inputHash, outputHash, errors);
+  let updated = context.targeted
+    ? recordTargetedSubmission(progress, unit, context.inputHash, outputHash, draft, errors)
+    : recordSubmission(progress, unit, context.inputHash, outputHash, errors);
   const terminalErrors = assessment && errors.length === 0 && !assessment.passed
     ? [{
         code: 'QUALITY_SAMPLE_FAILED',
@@ -207,18 +288,30 @@ function acceptDraft({ paths, unit, draftPath }) {
   atomicWriteFile(archive, raw);
 
   let acceptedFile = null;
-  if (errors.length === 0) {
+  if (errors.length === 0 && terminalErrors.length === 0) {
     acceptedFile = context.acceptedFile;
-    atomicWriteJson(acceptedFile, context.normalize ? context.normalize(draft, assessment) : draft);
+    const acceptedValue = context.normalize ? context.normalize(draft, assessment) : draft;
+    recordAcceptedArtifact(paths, acceptedFile, context.inputHash, acceptedValue);
     if (context.afterAccept) context.afterAccept(draft);
   }
   saveProgress(paths, updated);
+  try {
+    fs.rmSync(resolvedDraft);
+  } catch (error) {
+    throw new GameKbError('DRAFT_STAGING_CONSUME_FAILED', 'Submitted staging draft could not be removed safely', {
+      unit,
+      draft: resolvedDraft,
+      cause: error.message
+    });
+  }
 
   const result = {
     unit,
     status: state.status,
     attempts: state.attempts,
-    remaining_attempts: state.status === 'manual_review' ? 0 : Math.max(0, 3 - state.attempts),
+    remaining_attempts: state.status === 'manual_review'
+      ? 0
+      : Math.max(0, (context.targeted ? 2 : 3) - state.attempts),
     errors: terminalErrors.length > 0 ? terminalErrors : errors,
     draft_archive: archive,
     accepted_file: acceptedFile,

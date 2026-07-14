@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const test = require('node:test');
 
 const { sourceRef, validChapterDraft } = require('./helpers');
-const { validateChapterDraft } = require('../scripts/lib/chapter-contract');
+const { normalizeChapterDraft, validateChapterDraft } = require('../scripts/lib/chapter-contract');
 
 const expected = { number: 1, title: '第一章 起始', inputHash: 'sha256:chapter' };
 
@@ -56,7 +56,7 @@ test('rejects a dialogue without event_local_key', () => {
   assert.ok(codes(draft).includes('DIALOGUE_EVENT_REQUIRED'));
 });
 
-test('rejects two dialogues for the same event_local_key', () => {
+test('allows multiple chapter dialogue candidates for the same event_local_key', () => {
   const dialogue = { event_local_key: 'event:相逢', speaker_name: '甲', text: '话。', source_refs: [sourceRef()] };
   const draft = validChapterDraft({
     dialogues: [
@@ -65,7 +65,47 @@ test('rejects two dialogues for the same event_local_key', () => {
     ]
   });
 
-  assert.ok(codes(draft).includes('DIALOGUE_EVENT_DUPLICATE'));
+  assert.deepEqual(validateChapterDraft(draft, expected), []);
+});
+
+test('rejects duplicate dialogue local keys even when event candidates differ', () => {
+  const draft = validChapterDraft({
+    dialogues: [
+      { local_key: 'dialogue:同键', event_local_key: 'event:相逢', speaker_name: '甲', text: '话一。', source_refs: [sourceRef()] },
+      { local_key: 'dialogue:同键', event_local_key: 'event:相逢', speaker_name: '甲', text: '话二。', source_refs: [sourceRef()] }
+    ]
+  });
+
+  assert.ok(codes(draft).includes('LOCAL_KEY_DUPLICATE'));
+});
+
+test('requires a dialogue candidate for a quotable important event', () => {
+  const draft = validChapterDraft({ dialogues: [] });
+
+  assert.ok(codes(draft).includes('QUOTABLE_EVENT_DIALOGUE_MISSING'));
+});
+
+test('requires a reason when an important event is not quotable', () => {
+  const draft = validChapterDraft({
+    events: [{
+      local_key: 'event:相逢', name: '山中相逢', importance: '重要', quote_status: 'not_quotable',
+      source_refs: [sourceRef()]
+    }],
+    dialogues: []
+  });
+
+  assert.ok(codes(draft).includes('NOT_QUOTABLE_REASON_REQUIRED'));
+});
+
+test('normalizes stable candidate keys and deterministic chapter coverage', () => {
+  const accepted = normalizeChapterDraft(validChapterDraft());
+
+  assert.equal(accepted.items.length, 0);
+  assert.equal(accepted.events[0].candidate_key, 'ch001:events:event:相逢');
+  assert.equal(accepted.dialogues[0].candidate_key, 'ch001:dialogues:dialogue:相逢');
+  assert.equal(accepted.coverage.categories.events.candidate_count, 1);
+  assert.equal(accepted.coverage.events.quotable_count, 1);
+  assert.equal(accepted.coverage.dialogues.quotable_event_count_with_candidates, 1);
 });
 
 test('rejects formal ID fields in AI chapter drafts', () => {

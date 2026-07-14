@@ -24,12 +24,74 @@ function freshUnit(inputHash, status = 'pending') {
     input_hash: inputHash,
     status,
     attempts: 0,
+    semantic_attempts: 0,
+    semantic_hash: null,
+    format_attempts: 0,
     output_hashes: [],
     error_fingerprints: [],
     last_errors: [],
     stop_reason: null,
     updated_at: now()
   };
+}
+
+function stableValue(value) {
+  if (Array.isArray(value)) return value.map(stableValue);
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(Object.keys(value).sort().map(key => [key, stableValue(value[key])]));
+}
+
+function semanticContentHash(draft) {
+  return `sha256:${crypto.createHash('sha256').update(JSON.stringify(stableValue(draft))).digest('hex')}`;
+}
+
+// Recall and supplement units have one semantic generation plus one format-only correction.
+function assertRecallAttempt(current, unitName, draft, inputHash = '') {
+  const progress = cloneProgress(current);
+  let unit = progress.units[unitName];
+  if (!unit) {
+    unit = rotateUnit(progress, unitName, inputHash, 'pending');
+  }
+  if (unit.status === 'done') {
+    throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be resubmitted', { unit: unitName });
+  }
+  if (unit.status === 'manual_review') {
+    throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit: unitName });
+  }
+  unit.semantic_attempts = Number.isInteger(unit.semantic_attempts) ? unit.semantic_attempts : 0;
+  unit.format_attempts = Number.isInteger(unit.format_attempts) ? unit.format_attempts : 0;
+  unit.semantic_hash = unit.semantic_hash || null;
+  const hash = semanticContentHash(draft);
+  if (unit.semantic_attempts === 0) {
+    unit.semantic_attempts = 1;
+    unit.semantic_hash = hash;
+    unit.attempts = Math.max(1, unit.attempts + 1);
+  } else if (unit.semantic_hash === hash && unit.format_attempts === 0) {
+    unit.format_attempts = 1;
+    unit.attempts += 1;
+  } else {
+    throw new GameKbError('NO_PROGRESS', `Recall unit ${unitName} exceeded its semantic budget`, {
+      unit: unitName,
+      semantic_attempts: unit.semantic_attempts,
+      semantic_hash: unit.semantic_hash
+    });
+  }
+  unit.updated_at = now();
+  progress.updated_at = unit.updated_at;
+  return progress;
+}
+
+function recordTargetedSubmission(current, unitName, inputHash, outputHash, draft, errors = []) {
+  const progress = assertRecallAttempt(current, unitName, draft, inputHash);
+  const unit = progress.units[unitName];
+  const normalizedErrors = normalizeErrors(errors);
+  unit.output_hashes = [...(Array.isArray(unit.output_hashes) ? unit.output_hashes : []), String(outputHash)].slice(-3);
+  unit.last_errors = normalizedErrors;
+  unit.status = normalizedErrors.length === 0 ? 'done' : 'pending';
+  unit.stop_reason = null;
+  unit.updated_at = now();
+  progress.updated_at = unit.updated_at;
+  return progress;
 }
 
 function normalizeErrors(errors) {
@@ -208,7 +270,13 @@ function statusReport(paths, manifest, progress) {
   const units = unitNames.map(name => {
     const unit = progress.units[name];
     counts[unit.status] += 1;
-    return { unit: name, status: unit.status, attempts: unit.attempts, input_hash: unit.input_hash };
+    return {
+      unit: name,
+      status: unit.status,
+      attempts: unit.attempts,
+      semantic_attempts: unit.semantic_attempts ?? 0,
+      input_hash: unit.input_hash
+    };
   });
   return {
     schema_version: 1,
@@ -229,6 +297,9 @@ module.exports = {
   loadProgress,
   manualIssues,
   normalizeErrorFingerprint,
+  assertRecallAttempt,
+  recordTargetedSubmission,
+  semanticContentHash,
   recordSubmission,
   resetUnit,
   saveProgress,

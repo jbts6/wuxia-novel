@@ -6,10 +6,12 @@ const os = require('node:os');
 const path = require('node:path');
 
 const { GameKbError } = require('./errors');
+const { assertAcceptedArtifacts } = require('./candidate-ledger');
 const { CATEGORY_FILES } = require('./finalize');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { pathsFor } = require('./paths');
-const { selectQualitySample } = require('./quality');
+const { buildQualitySample, selectQualitySample } = require('./quality');
+const { resolveRun } = require('./run');
 const { hashFinalData, loadData, verifyFinal } = require('./verify');
 
 const DATA_FILES = Object.freeze(Object.values(CATEGORY_FILES).sort());
@@ -165,11 +167,14 @@ function verifyInstalledWithReceipt(novelDir, receipt) {
     const chapters = Array.isArray(receipt.chapters) ? receipt.chapters : [];
     atomicWriteJson(manifestFile, { schema_version: 1, source_hash: sourceHash, chapters });
     atomicWriteJson(manualFile, []);
+    const qualitySample = receipt.quality_sample_format === 'fixed-v2'
+      ? buildQualitySample(loaded.data, {}, { seed: sourceHash })
+      : { items: selectQualitySample(loaded.data, sourceHash) };
     atomicWriteJson(sampleFile, {
       schema_version: 1,
       final_data_hash: installedHash,
       seed: sourceHash,
-      items: selectQualitySample(loaded.data, sourceHash)
+      ...qualitySample
     });
 
     const result = verifyFinal({
@@ -255,6 +260,19 @@ function originalDataState(data) {
   return fs.readdirSync(data).length === 0 ? 'empty' : 'nonempty';
 }
 
+function assertCleanInstallBaseline(paths) {
+  if (!fs.existsSync(paths.data) || !fs.statSync(paths.data).isDirectory()) return;
+  const entries = fs.readdirSync(paths.data);
+  const archivedBaseline = fs.existsSync(path.join(paths.novel, 'ch_split'))
+    && fs.existsSync(path.join(paths.novel, '_archive'));
+  const unexpected = archivedBaseline ? entries : entries.filter(name => name === 'unknown.json');
+  if (unexpected.length > 0) {
+    throw new GameKbError('DIRTY_INSTALL_BASELINE', 'Install baseline contains unbound data entries', {
+      entries: unexpected
+    });
+  }
+}
+
 function copyUnknownEntries(data, nextData) {
   const preserved = [];
   const removed = [];
@@ -306,7 +324,21 @@ function restoreReports(previous, reportsDir) {
 function installVerifiedData(novelDir, options = {}) {
   const installed = installPaths(novelDir);
   recoverInterruptedInstall(novelDir);
-  const workPaths = pathsFor(novelDir);
+  assertCleanInstallBaseline(installed);
+  const runId = options.runId || resolveRun(novelDir).run_id;
+  const workPaths = pathsFor(novelDir, runId);
+  assertAcceptedArtifacts(workPaths);
+  if (fs.existsSync(workPaths.progress)) {
+    const progress = readJson(workPaths.progress);
+    const unresolved = Object.entries(progress.units || {})
+      .filter(([unit, state]) => /^(recall|supplement):/.test(unit) && state?.status !== 'done')
+      .map(([unit]) => unit);
+    if (unresolved.length > 0) {
+      throw new GameKbError('GAP_UNITS_BLOCK_INSTALL', 'Bounded recall or supplement units must be resolved before install', {
+        units: unresolved
+      });
+    }
+  }
   const workspace = verifyFinal(workPaths);
   if (!workspace.passed) {
     throw new GameKbError('INSTALL_VERIFICATION_FAILED', 'Final workspace did not pass installation verification', workspace);
@@ -331,6 +363,8 @@ function installVerifiedData(novelDir, options = {}) {
   let dataPromoted = false;
   let reportsWritten = false;
   let receiptWritten = false;
+  let runMetadataWritten = false;
+  const previousRunMetadata = fs.readFileSync(workPaths.runJson, 'utf8');
   const previousReports = new Map(REPORT_FILES.map(filename => {
     const file = path.join(installed.reports, filename);
     return [filename, fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null];
@@ -408,6 +442,7 @@ function installVerifiedData(novelDir, options = {}) {
       report_hashes: reportHashes,
       chapters: manifest.chapters.map(chapter => ({ number: chapter.number, title: chapter.title })),
       manual_review_count: 0,
+      quality_sample_format: readJson(workPaths.qualitySample).quotas ? 'fixed-v2' : 'legacy',
       archive_root: archiveRoot,
       archive_data: state === 'nonempty' ? archiveData : null,
       backup_path: state === 'nonempty' ? archiveData : null,
@@ -427,6 +462,15 @@ function installVerifiedData(novelDir, options = {}) {
     if (!finalCheck.passed) {
       throw new GameKbError('INSTALLED_VERIFICATION_FAILED', 'Installed artifacts failed final verification', finalCheck);
     }
+    const runMetadata = readJson(workPaths.runJson);
+    atomicWriteJson(workPaths.runJson, {
+      ...runMetadata,
+      status: 'installed',
+      installed_at: receipt.installed_at,
+      final_data_hash: workspace.final_data_hash,
+      report_hashes: receipt.report_hashes
+    });
+    runMetadataWritten = true;
     fs.rmSync(installed.pending, { force: true });
     return receipt;
   } catch (error) {
@@ -450,6 +494,7 @@ function installVerifiedData(novelDir, options = {}) {
         if (previousReceiptText === null) fs.rmSync(installed.receipt, { force: true });
         else atomicWriteFile(installed.receipt, previousReceiptText);
       }
+      if (runMetadataWritten) atomicWriteFile(workPaths.runJson, previousRunMetadata);
       fs.rmSync(nextData, { recursive: true, force: true });
       fs.rmSync(installed.pending, { force: true });
       if (archiveRoot) fs.rmSync(archiveRoot, { recursive: true, force: true });
@@ -479,6 +524,7 @@ function installVerifiedData(novelDir, options = {}) {
 
 module.exports = {
   DATA_FILES,
+  assertCleanInstallBaseline,
   INSTALL_RECEIPT,
   PENDING_RECEIPT,
   installVerifiedData,

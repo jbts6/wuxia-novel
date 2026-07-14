@@ -10,6 +10,7 @@ const { pathsFor } = require('../scripts/lib/paths');
 const {
   freshProgress,
   freshUnit,
+  assertRecallAttempt,
   loadProgress,
   normalizeErrorFingerprint,
   recordSubmission,
@@ -92,7 +93,7 @@ test('A-B-A error history stops on the third submission', () => {
 test('reload keeps attempts when input hash is unchanged', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   const manifest = prepareNovel(novel);
-  const paths = pathsFor(novel);
+  const paths = pathsFor(novel, manifest.run_id);
   let progress = loadProgress(paths, manifest);
   const inputHash = manifest.chapters[0].input_hash;
   progress = recordSubmission(progress, 'chapter:001', inputHash, 'sha256:a', [{ code: 'E1', path: 'x' }]);
@@ -101,20 +102,20 @@ test('reload keeps attempts when input hash is unchanged', () => {
   assert.equal(loadProgress(paths, manifest).units['chapter:001'].attempts, 1);
 });
 
-test('changed chapter hash archives stale state with a fresh budget', () => {
+test('changed source requires the old run to be archived before a fresh budget', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   const firstManifest = prepareNovel(novel);
-  const paths = pathsFor(novel);
+  const paths = pathsFor(novel, firstManifest.run_id);
   let progress = loadProgress(paths, firstManifest);
   progress = recordSubmission(progress, 'chapter:001', firstManifest.chapters[0].input_hash, 'sha256:a', [{ code: 'E1', path: 'x' }]);
   saveProgress(paths, progress);
   fs.writeFileSync(path.join(novel, '试书.txt'), '第一章 起始\n乙。\n', 'utf8');
 
-  const secondManifest = prepareNovel(novel);
-  const reloaded = loadProgress(paths, secondManifest);
-  assert.equal(reloaded.units['chapter:001'].status, 'stale');
-  assert.equal(reloaded.units['chapter:001'].attempts, 0);
-  assert.equal(reloaded.history.length, 1);
+  assert.throws(() => prepareNovel(novel), { code: 'RUN_SOURCE_CHANGED' });
+  const reloaded = loadProgress(paths, firstManifest);
+  assert.equal(reloaded.units['chapter:001'].status, 'pending');
+  assert.equal(reloaded.units['chapter:001'].attempts, 1);
+  assert.equal(reloaded.history.length, 0);
 });
 
 test('reset requires confirmation and affects only one unit', () => {
@@ -143,9 +144,32 @@ test('done unchanged unit rejects resubmission without consuming attempts', () =
 test('corrupt progress fails closed', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   const manifest = prepareNovel(novel);
-  const paths = pathsFor(novel);
+  const paths = pathsFor(novel, manifest.run_id);
   fs.writeFileSync(paths.progress, '{broken', 'utf8');
 
   assert.throws(() => loadProgress(paths, manifest), { code: 'PROGRESS_CORRUPT' });
   assert.equal(readJson(paths.manualReview).length, 0);
+});
+
+test('recall semantic budget survives reload and permits one format correction', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
+  const manifest = prepareNovel(novel);
+  const paths = pathsFor(novel, manifest.run_id);
+  let progress = loadProgress(paths, manifest);
+  const draft = { items: [{ name: '回生丹', source_refs: [{ chapter: 1, text: '回生丹' }] }] };
+
+  progress = assertRecallAttempt(progress, 'recall:items', draft, 'sha256:recall-input');
+  saveProgress(paths, progress);
+  progress = loadProgress(paths, manifest);
+  assert.equal(progress.units['recall:items'].semantic_attempts, 1);
+  assert.equal(progress.units['recall:items'].attempts, 1);
+
+  progress = assertRecallAttempt(progress, 'recall:items', draft, 'sha256:recall-input');
+  assert.equal(progress.units['recall:items'].semantic_attempts, 1);
+  assert.equal(progress.units['recall:items'].format_attempts, 1);
+  assert.equal(progress.units['recall:items'].attempts, 2);
+  assert.throws(
+    () => assertRecallAttempt(progress, 'recall:items', { items: [{ name: '另一物' }] }),
+    { code: 'NO_PROGRESS' }
+  );
 });

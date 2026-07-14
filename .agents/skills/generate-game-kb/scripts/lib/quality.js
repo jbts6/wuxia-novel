@@ -15,6 +15,25 @@ const FILE_GROUPS = Object.freeze({
   'dialogues.json': 'other'
 });
 
+const FIXED_QUOTAS = Object.freeze({
+  skills_techniques: 12,
+  events: 8,
+  characters: 5,
+  items: 5,
+  dialogues: 4,
+  factions_locations: 4,
+  chapter_summaries: 2
+});
+const FIXED_GROUP_FILES = Object.freeze({
+  skills_techniques: ['skills.json', 'techniques.json'],
+  events: ['events.json'],
+  characters: ['characters.json'],
+  items: ['items.json'],
+  dialogues: ['dialogues.json'],
+  factions_locations: ['factions.json', 'locations.json'],
+  chapter_summaries: ['chapter_summaries.json']
+});
+
 function categoryForFile(filename) {
   return filename.replace(/\.json$/, '');
 }
@@ -53,6 +72,49 @@ function selectQualitySample(finalData, seed) {
     selectedCount += taken.length;
   }
   return GROUP_ORDER.flatMap(group => selected[group].map(({ rank: ignored, ...item }) => item));
+}
+
+function buildQualitySample(finalData, reviews = {}, options = {}) {
+  const seed = options.seed || reviews.seed || 'fixed';
+  const categories = {};
+  const items = [];
+  for (const [group, quota] of Object.entries(FIXED_QUOTAS)) {
+    const pool = [];
+    for (const filename of FIXED_GROUP_FILES[group]) {
+      for (const record of Array.isArray(finalData?.[filename]) ? finalData[filename] : []) {
+        const recordId = filename === 'chapter_summaries.json'
+          ? `chapter_summary_${String(record?.chapter ?? '').padStart(3, '0')}`
+          : record?.id;
+        if (typeof recordId !== 'string' || recordId === '') continue;
+        const category = categoryForFile(filename);
+        pool.push({
+          id: recordId,
+          category,
+          file: filename,
+          group,
+          rank: rank(seed, category, recordId)
+        });
+      }
+    }
+    pool.sort((left, right) => `${left.rank}\0${left.id}`.localeCompare(`${right.rank}\0${right.id}`));
+    const selected = pool.slice(0, quota).map(({ rank: ignored, ...item }) => item);
+    const review = reviews?.[group] || reviews?.[group.split('_')[0]] || null;
+    categories[group] = {
+      quota,
+      count: selected.length,
+      kind: pool.length === 0 ? 'empty-review-required' : 'records',
+      review
+    };
+    items.push(...selected);
+  }
+  return {
+    schema_version: 1,
+    seed,
+    quotas: { ...FIXED_QUOTAS },
+    categories,
+    items,
+    total_checks: Object.values(FIXED_QUOTAS).reduce((sum, quota) => sum + quota, 0)
+  };
 }
 
 function qualityThreshold(size) {
@@ -122,8 +184,10 @@ function validateQualityReview(review, sample) {
 
 module.exports = {
   FILE_GROUPS,
+  FIXED_QUOTAS,
   GROUP_ORDER,
   QUOTAS,
+  buildQualitySample,
   qualityThreshold,
   selectQualitySample,
   validateQualityReview

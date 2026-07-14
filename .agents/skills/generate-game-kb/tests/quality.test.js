@@ -10,7 +10,8 @@ const { buildFinalData } = require('../scripts/lib/finalize');
 const { buildGameMaterials } = require('../scripts/lib/game-materials');
 const { atomicWriteJson } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
-const { selectQualitySample, validateQualityReview } = require('../scripts/lib/quality');
+const { createOrResumeRun } = require('../scripts/lib/run');
+const { buildQualitySample, selectQualitySample, validateQualityReview } = require('../scripts/lib/quality');
 const { ensureQualitySample, hashFinalData, verifyFinal } = require('../scripts/lib/verify');
 
 function makeRecords(prefix, count) {
@@ -76,6 +77,25 @@ test('sample uses fixed category quotas and stable seed ordering', () => {
   assert.deepEqual(counts, { martial: 15, events: 10, characters: 5, items: 5, other: 5 });
 });
 
+test('non-reallocating quality sample keeps every category quota fixed', () => {
+  const data = sampleData({ skills: 30, techniques: 30, events: 30, characters: 30, items: 0, dialogues: 0, factions: 30, locations: 30 });
+  const sample = buildQualitySample(data, { seed: 'fixed' });
+  assert.deepEqual(sample.quotas, {
+    skills_techniques: 12,
+    events: 8,
+    characters: 5,
+    items: 5,
+    dialogues: 4,
+    factions_locations: 4,
+    chapter_summaries: 2
+  });
+  assert.equal(sample.categories.items.kind, 'empty-review-required');
+  assert.equal(sample.categories.dialogues.kind, 'empty-review-required');
+  assert.equal(sample.categories.items.count, 0);
+  assert.equal(sample.total_checks, 40);
+  assert.equal(sample.items.some(item => item.group === 'items'), false);
+});
+
 test('short category quota is redistributed deterministically', () => {
   const sample = selectQualitySample(sampleData({ skills: 1, techniques: 1, events: 30 }), 'fixed-seed');
   const counts = sample.reduce((result, item) => ({ ...result, [item.group]: (result[item.group] || 0) + 1 }), {});
@@ -117,7 +137,8 @@ test('quality review rejects missing duplicate or inconsistent sample rows', () 
 
 function writeVerifiedFixture() {
   const novel = makeNovel('验收书', '第一章 起始\n甲。\n第二章 转折\n乙。\n第三章 收束\n丙。\n');
-  const paths = pathsFor(novel);
+  const run = createOrResumeRun(novel, { runId: 'run-quality-test' });
+  const paths = pathsFor(novel, run.run_id);
   const manifest = {
     schema_version: 1,
     source_hash: 'sha256:source',

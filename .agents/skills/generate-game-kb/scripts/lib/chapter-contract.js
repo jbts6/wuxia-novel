@@ -1,5 +1,7 @@
 'use strict';
 
+const { buildChapterCoverage } = require('./coverage');
+
 const CANDIDATE_ARRAYS = Object.freeze([
   'characters',
   'events',
@@ -10,6 +12,8 @@ const CANDIDATE_ARRAYS = Object.freeze([
   'locations',
   'dialogues'
 ]);
+const IMPORTANT_EVENT_LEVELS = new Set(['核心', '重要', 'core', 'important']);
+const QUOTE_STATUSES = new Set(['quotable', 'not_quotable']);
 
 function issue(code, path, target = '') {
   return { code, path, target };
@@ -80,9 +84,16 @@ function validateChapterDraft(draft, expected) {
   if (errors.some(error => error.code === 'CATEGORY_ARRAY_REQUIRED')) return errors;
 
   for (const category of CANDIDATE_ARRAYS.filter(value => value !== 'dialogues')) {
+    const localKeys = new Set();
     draft[category].forEach((record, index) => {
       const label = `${category}[${index}]`;
       validateNamedCandidate(record, label, expected.number, errors);
+      if (typeof record?.local_key === 'string' && record.local_key.trim() !== '') {
+        if (localKeys.has(record.local_key)) {
+          errors.push(issue('LOCAL_KEY_DUPLICATE', `${label}.local_key`, record.local_key));
+        }
+        localKeys.add(record.local_key);
+      }
       if (category === 'techniques' && record?.named_in_source !== true) {
         errors.push(issue('TECHNIQUE_NOT_NAMED', `${label}.named_in_source`, record?.name));
       }
@@ -91,6 +102,7 @@ function validateChapterDraft(draft, expected) {
 
   const eventKeys = new Set(draft.events.map(event => event?.local_key).filter(Boolean));
   const dialogueEvents = new Set();
+  const dialogueKeys = new Set();
   draft.dialogues.forEach((dialogue, index) => {
     const label = `dialogues[${index}]`;
     if (!dialogue || typeof dialogue !== 'object' || Array.isArray(dialogue)) {
@@ -99,15 +111,16 @@ function validateChapterDraft(draft, expected) {
     }
     if (typeof dialogue.local_key !== 'string' || dialogue.local_key.trim() === '') {
       errors.push(issue('LOCAL_KEY_REQUIRED', `${label}.local_key`));
+    } else if (dialogueKeys.has(dialogue.local_key)) {
+      errors.push(issue('LOCAL_KEY_DUPLICATE', `${label}.local_key`, dialogue.local_key));
+    } else {
+      dialogueKeys.add(dialogue.local_key);
     }
     if (typeof dialogue.event_local_key !== 'string' || dialogue.event_local_key.trim() === '') {
       errors.push(issue('DIALOGUE_EVENT_REQUIRED', `${label}.event_local_key`));
     } else {
       if (!eventKeys.has(dialogue.event_local_key)) {
         errors.push(issue('DIALOGUE_EVENT_UNKNOWN', `${label}.event_local_key`, dialogue.event_local_key));
-      }
-      if (dialogueEvents.has(dialogue.event_local_key)) {
-        errors.push(issue('DIALOGUE_EVENT_DUPLICATE', `${label}.event_local_key`, dialogue.event_local_key));
       }
       dialogueEvents.add(dialogue.event_local_key);
     }
@@ -118,6 +131,22 @@ function validateChapterDraft(draft, expected) {
       errors.push(issue('DIALOGUE_TEXT_REQUIRED', `${label}.text`));
     }
     validateSourceRefs(dialogue, label, expected.number, errors);
+  });
+
+  draft.events.forEach((event, index) => {
+    if (!IMPORTANT_EVENT_LEVELS.has(event?.importance)) return;
+    const label = `events[${index}]`;
+    if (!QUOTE_STATUSES.has(event.quote_status)) {
+      errors.push(issue('EVENT_QUOTE_STATUS_REQUIRED', `${label}.quote_status`, event.quote_status));
+      return;
+    }
+    if (event.quote_status === 'quotable' && !dialogueEvents.has(event.local_key)) {
+      errors.push(issue('QUOTABLE_EVENT_DIALOGUE_MISSING', `${label}.local_key`, event.local_key));
+    }
+    if (event.quote_status === 'not_quotable'
+      && (typeof event.quote_reason !== 'string' || event.quote_reason.trim() === '')) {
+      errors.push(issue('NOT_QUOTABLE_REASON_REQUIRED', `${label}.quote_reason`, event.local_key));
+    }
   });
 
   if (!draft.summary || typeof draft.summary !== 'object' || Array.isArray(draft.summary)) {
@@ -135,4 +164,20 @@ function validateChapterDraft(draft, expected) {
   return errors;
 }
 
-module.exports = { CANDIDATE_ARRAYS, validateChapterDraft };
+function candidateKey(chapter, category, localKey) {
+  return `ch${String(chapter).padStart(3, '0')}:${category}:${localKey}`;
+}
+
+function normalizeChapterDraft(draft) {
+  const normalized = { ...draft };
+  for (const category of CANDIDATE_ARRAYS) {
+    normalized[category] = (Array.isArray(draft?.[category]) ? draft[category] : []).map(candidate => ({
+      ...candidate,
+      candidate_key: candidateKey(draft.chapter, category, candidate.local_key)
+    }));
+  }
+  normalized.coverage = buildChapterCoverage([normalized]);
+  return normalized;
+}
+
+module.exports = { CANDIDATE_ARRAYS, candidateKey, normalizeChapterDraft, validateChapterDraft };

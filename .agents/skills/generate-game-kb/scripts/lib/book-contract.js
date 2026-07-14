@@ -1,5 +1,7 @@
 'use strict';
 
+const { buildCandidateLedger, REJECTION_REASONS, RESOLUTIONS } = require('./candidate-ledger');
+
 const ENTITY_CATEGORIES = Object.freeze([
   'characters',
   'events',
@@ -122,10 +124,68 @@ function validateAmbiguities(ambiguities, errors) {
   });
 }
 
-function validateBook(book, manifest, expectedStage) {
+function validateCandidateResolutions(book, chapters) {
+  if (!Array.isArray(book?.candidate_resolutions)) {
+    return [issue('CANDIDATE_RESOLUTIONS_ARRAY_REQUIRED', 'candidate_resolutions')];
+  }
+  const errors = [];
+  const counts = new Map();
+  const knownKeys = new Set();
+  for (const chapter of Array.isArray(chapters) ? chapters : []) {
+    for (const category of ENTITY_CATEGORIES) {
+      for (const candidate of Array.isArray(chapter?.[category]) ? chapter[category] : []) {
+        if (typeof candidate?.candidate_key === 'string') knownKeys.add(candidate.candidate_key);
+      }
+    }
+  }
+  book.candidate_resolutions.forEach((decision, index) => {
+    const label = `candidate_resolutions[${index}]`;
+    if (!isObject(decision) || typeof decision.candidate_key !== 'string') {
+      errors.push(issue('CANDIDATE_RESOLUTION_INVALID', label));
+      return;
+    }
+    counts.set(decision.candidate_key, (counts.get(decision.candidate_key) || 0) + 1);
+    if (knownKeys.size > 0 && !knownKeys.has(decision.candidate_key)) {
+      errors.push(issue('CANDIDATE_RESOLUTION_UNKNOWN', `${label}.candidate_key`, decision.candidate_key));
+    }
+    if (!RESOLUTIONS.has(decision.resolution)) {
+      errors.push(issue('CANDIDATE_RESOLUTION_INVALID', `${label}.resolution`, decision.resolution));
+      return;
+    }
+    if (decision.resolution === 'merged_to'
+      && (typeof decision.merged_to !== 'string' || decision.merged_to.trim() === '')) {
+      errors.push(issue('CANDIDATE_RESOLUTION_INVALID', `${label}.merged_to`, decision.merged_to));
+    }
+    if (decision.resolution === 'rejected'
+      && (!REJECTION_REASONS.has(decision.reason)
+        || typeof decision.detail !== 'string'
+        || decision.detail.trim() === '')) {
+      errors.push(issue('CANDIDATE_RESOLUTION_INVALID', label, decision.candidate_key));
+    }
+    if (decision.resolution === 'ambiguous'
+      && (typeof decision.detail !== 'string' || decision.detail.trim() === '')) {
+      errors.push(issue('CANDIDATE_RESOLUTION_INVALID', `${label}.detail`, decision.candidate_key));
+    }
+  });
+  for (const [candidateKey, count] of counts) {
+    if (count > 1) errors.push(issue('CANDIDATE_RESOLUTION_DUPLICATE', 'candidate_resolutions', candidateKey));
+  }
+  const ledger = buildCandidateLedger(chapters, book);
+  for (const row of ledger.missing_resolution) {
+    const code = row.reason === 'MISSING_DECISION'
+      ? 'CANDIDATE_RESOLUTION_MISSING'
+      : row.reason === 'MULTIPLE_DECISIONS'
+        ? 'CANDIDATE_RESOLUTION_DUPLICATE'
+        : 'CANDIDATE_RESOLUTION_INVALID';
+    errors.push(issue(code, 'candidate_resolutions', row.candidate_key));
+  }
+  return errors;
+}
+
+function validateBook(book, manifest, expectedStage, chapters) {
   if (!isObject(book)) return [issue('BOOK_DRAFT_INVALID', '$')];
   const errors = [];
-  const allowed = new Set(['schema_version', 'stage', ...BOOK_CATEGORIES, 'ambiguities']);
+  const allowed = new Set(['schema_version', 'stage', ...BOOK_CATEGORIES, 'ambiguities', 'candidate_resolutions']);
   if (expectedStage === 'cleaned') {
     allowed.add('quantity_review');
     allowed.add('game_material_candidates');
@@ -139,6 +199,7 @@ function validateBook(book, manifest, expectedStage) {
   for (const category of BOOK_CATEGORIES) {
     if (!Array.isArray(book[category])) errors.push(issue('CATEGORY_ARRAY_REQUIRED', category));
   }
+  errors.push(...validateCandidateResolutions(book, chapters));
   validateAmbiguities(book.ambiguities, errors);
   findFormalIds(book, '', errors);
   if (errors.some(error => error.code === 'CATEGORY_ARRAY_REQUIRED')) return errors;
@@ -232,13 +293,18 @@ function validateBook(book, manifest, expectedStage) {
   return errors;
 }
 
-function validateMergedBook(book, manifest) {
-  return validateBook(book, manifest, 'merged');
+function validateMergedBook(book, manifest, chapters) {
+  return validateBook(book, manifest, 'merged', chapters);
 }
 
-function validateCleanedBook(book, manifest) {
-  const errors = validateBook(book, manifest, 'cleaned');
+function validateCleanedBook(book, manifest, chapters) {
+  const errors = validateBook(book, manifest, 'cleaned', chapters);
   if (!isObject(book)) return errors;
+  for (const [index, decision] of (Array.isArray(book.candidate_resolutions) ? book.candidate_resolutions : []).entries()) {
+    if (decision?.resolution === 'ambiguous') {
+      errors.push(issue('CANDIDATE_RESOLUTION_AMBIGUOUS', `candidate_resolutions[${index}]`, decision.candidate_key));
+    }
+  }
   if (Array.isArray(book.ambiguities)) {
     book.ambiguities.forEach((ambiguity, index) => {
       errors.push(issue('AMBIGUITY_UNRESOLVED', `ambiguities[${index}]`, ambiguity?.name));
@@ -296,6 +362,7 @@ module.exports = {
   SUMMARY_CHARACTER_LEVELS,
   groupCandidates,
   normalizeName,
+  validateCandidateResolutions,
   validateCleanedBook,
   validateMergedBook
 };

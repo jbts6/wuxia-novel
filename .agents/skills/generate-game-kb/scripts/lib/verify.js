@@ -7,7 +7,7 @@ const path = require('node:path');
 const { CATEGORY_FILES } = require('./finalize');
 const { MATERIAL_TYPES } = require('./game-materials');
 const { atomicWriteJson, readJson } = require('./io');
-const { selectQualitySample, validateQualityReview } = require('./quality');
+const { buildQualitySample, selectQualitySample, validateQualityReview } = require('./quality');
 
 const ID_PATTERN = /^(char|event|item|skill|tech|faction|loc|dialogue)_[a-z]+(?:_[a-z]+)*$/;
 const FILE_PREFIX = Object.freeze({
@@ -60,6 +60,7 @@ function loadData(dataRoot) {
 }
 
 function readReport(file, missingCode, invalidCode, blockingErrors) {
+  if (file && typeof file === 'object') return file;
   if (!fs.existsSync(file)) {
     blockingErrors.push({ code: missingCode, path: file, target: '' });
     return null;
@@ -88,6 +89,25 @@ function verifyFinal(paths) {
   blockingErrors.push(...loaded.errors);
   const finalData = loaded.data;
   const finalDataHash = hashFinalData(finalData);
+
+  if (paths.candidateResolution && typeof paths.candidateResolution === 'object') {
+    if (paths.candidateResolution.passed !== true) {
+      blockingErrors.push({ code: 'CANDIDATE_RESOLUTION_INCOMPLETE', path: 'candidate-resolution.json', target: '' });
+    }
+  } else if (typeof paths.candidateResolution === 'string' && fs.existsSync(paths.candidateResolution)) {
+    const resolution = readReport(
+      paths.candidateResolution,
+      'CANDIDATE_RESOLUTION_MISSING',
+      'CANDIDATE_RESOLUTION_INVALID',
+      blockingErrors
+    );
+    if (resolution && resolution.passed !== true) {
+      blockingErrors.push({ code: 'CANDIDATE_RESOLUTION_INCOMPLETE', path: paths.candidateResolution, target: '' });
+    }
+  }
+  if (paths.acceptedHashes && typeof paths.acceptedHashes === 'object' && paths.acceptedHashes.stale === true) {
+    blockingErrors.push({ code: 'ACCEPTED_ARTIFACT_MUTATED', path: 'artifact-manifest.json', target: '' });
+  }
   const ids = new Map();
   let approximateLines = 0;
 
@@ -290,9 +310,21 @@ function verifyFinal(paths) {
     blockingErrors.push({ code: 'QUALITY_SAMPLE_STALE', path: 'quality_sample.final_data_hash', target: sample.final_data_hash });
   }
   if (sample && Array.isArray(sample.items)) {
-    const expectedSample = selectQualitySample(finalData, manifest.source_hash);
+    const expectedSample = sample?.quotas
+      ? buildQualitySample(finalData, {}, { seed: manifest.source_hash }).items
+      : selectQualitySample(finalData, manifest.source_hash);
     if (JSON.stringify(sample.items) !== JSON.stringify(expectedSample)) {
       blockingErrors.push({ code: 'QUALITY_SAMPLE_INVALID_SELECTION', path: 'quality_sample.items', target: '' });
+    }
+    if (sample.categories && typeof sample.categories === 'object') {
+      for (const [category, details] of Object.entries(sample.categories)) {
+        if (details?.kind !== 'empty-review-required') continue;
+        const review = details.review;
+        const valid = review?.status === 'none_found' || review?.conclusion === 'none_found';
+        if (!valid) {
+          blockingErrors.push({ code: 'EMPTY_CATEGORY_REVIEW_REQUIRED', path: `quality_sample.categories.${category}`, target: category });
+        }
+      }
     }
   }
   const quality = readReport(
@@ -314,7 +346,7 @@ function verifyFinal(paths) {
 
   const manual = readReport(paths.manualReview, 'MANUAL_REVIEW_MISSING', 'MANUAL_REVIEW_INVALID', blockingErrors);
   if (manual && (!Array.isArray(manual) || manual.length > 0)) {
-    blockingErrors.push({ code: 'MANUAL_REVIEW_REQUIRED', path: paths.manualReview, target: Array.isArray(manual) ? manual.length : '' });
+    blockingErrors.push({ code: 'MANUAL_REVIEW_BLOCKS_FINAL', path: paths.manualReview, target: Array.isArray(manual) ? manual.length : '' });
   }
   if (approximateLines > 0) warnings.push({ code: 'SOURCE_LINE_APPROXIMATE', count: approximateLines });
 
@@ -331,24 +363,38 @@ function ensureQualitySample(paths, manifest) {
   const loaded = loadData(paths.finalData);
   if (loaded.errors.length > 0) return null;
   const finalDataHash = hashFinalData(loaded.data);
-  const expectedItems = selectQualitySample(loaded.data, manifest.source_hash);
+  let expectedSample = null;
+  const reviews = {};
+  const itemReview = path.join(paths.recalls || '', 'items.json');
+  if (paths.recalls && fs.existsSync(itemReview)) {
+    try {
+      const review = readJson(itemReview);
+      reviews.items = review.none_found || review;
+    } catch {
+      // Invalid category review remains a verification error on the generated sample.
+    }
+  }
   if (fs.existsSync(paths.qualitySample)) {
     try {
       const existing = readJson(paths.qualitySample);
+      expectedSample = existing?.quotas
+        ? buildQualitySample(loaded.data, existing.categories || reviews, { seed: manifest.source_hash })
+        : { items: selectQualitySample(loaded.data, manifest.source_hash) };
       if (existing.final_data_hash === finalDataHash
         && existing.seed === manifest.source_hash
-        && JSON.stringify(existing.items) === JSON.stringify(expectedItems)) {
+        && JSON.stringify(existing.items) === JSON.stringify(expectedSample.items)) {
         return existing;
       }
     } catch {
       // A malformed sample is replaced from deterministic final data.
     }
   }
+  expectedSample ||= buildQualitySample(loaded.data, reviews, { seed: manifest.source_hash });
   const sample = {
     schema_version: 1,
     final_data_hash: finalDataHash,
     seed: manifest.source_hash,
-    items: expectedItems
+    ...(expectedSample.quotas ? expectedSample : { items: expectedSample.items })
   };
   atomicWriteJson(paths.qualitySample, sample);
   fs.rmSync(paths.qualityReport, { force: true });

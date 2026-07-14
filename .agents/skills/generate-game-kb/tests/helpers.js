@@ -5,6 +5,9 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
+const { pathsFor } = require('../scripts/lib/paths');
+const { resolveRun } = require('../scripts/lib/run');
+
 const SKILL_ROOT = path.resolve(__dirname, '..');
 const FLOW = path.join(SKILL_ROOT, 'scripts', 'flow.js');
 
@@ -30,6 +33,19 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
+function writeStagingDraft(novel, unit, value, attempt) {
+  const run = resolveRun(novel);
+  const paths = pathsFor(novel, run.run_id);
+  const progress = readJson(paths.progress);
+  const number = attempt ?? ((progress.units[unit]?.attempts ?? 0) + 1);
+  const file = path.join(
+    paths.staging,
+    `${unit.replaceAll(':', '_')}_attempt_${String(number).padStart(2, '0')}.json`
+  );
+  fs.writeFileSync(file, JSON.stringify(value), 'utf8');
+  return file;
+}
+
 function runFlow(args, options = {}) {
   return spawnSync(process.execPath, [FLOW, ...args], {
     cwd: options.cwd || SKILL_ROOT,
@@ -48,7 +64,10 @@ function validChapterDraft(overrides = {}) {
     title: '第一章 起始',
     source_hash: 'sha256:chapter',
     characters: [{ local_key: 'character:甲', name: '甲', level: '核心', source_refs: [sourceRef()] }],
-    events: [{ local_key: 'event:相逢', name: '山中相逢', importance: '重要', source_refs: [sourceRef()] }],
+    events: [{
+      local_key: 'event:相逢', name: '山中相逢', importance: '重要', quote_status: 'quotable',
+      source_refs: [sourceRef()]
+    }],
     items: [],
     skills: [{ local_key: 'skill:内功', name: '玄门内功', source_refs: [sourceRef()] }],
     techniques: [{ local_key: 'technique:飞掌', name: '飞云掌', named_in_source: true, source_refs: [sourceRef()] }],
@@ -61,7 +80,8 @@ function validChapterDraft(overrides = {}) {
       key_events: ['event:相逢'],
       key_characters: ['甲'],
       source_refs: [sourceRef()]
-    }
+    },
+    coverage: {}
   };
   return { ...draft, ...overrides };
 }
@@ -109,6 +129,7 @@ function validMergedBook(overrides = {}) {
       key_characters: ['甲'],
       source_refs: [sourceRef(chapter)]
     })),
+    candidate_resolutions: [],
     ambiguities: [],
     ...overrides
   };
@@ -132,6 +153,7 @@ module.exports = {
   readJson,
   runFlow,
   sourceRef,
+  writeStagingDraft,
   validChapterDraft,
   validCleanedBook,
   validMergedBook

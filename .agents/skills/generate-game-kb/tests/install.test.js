@@ -16,6 +16,7 @@ const {
 } = require('../scripts/lib/install');
 const { atomicWriteJson } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
+const { createOrResumeRun } = require('../scripts/lib/run');
 const { selectQualitySample, validateQualityReview } = require('../scripts/lib/quality');
 const { hashFinalData } = require('../scripts/lib/verify');
 
@@ -33,7 +34,8 @@ const TARGET_FILES = [
 
 function writeVerifiedFixture(name = '安装验收书') {
   const novel = makeNovel(name, '第一章 起始\n甲。\n第二章 转折\n乙。\n第三章 收束\n丙。\n');
-  const paths = pathsFor(novel);
+  const run = createOrResumeRun(novel, { runId: 'run-install-test' });
+  const paths = pathsFor(novel, run.run_id);
   const manifest = {
     schema_version: 1,
     source_hash: 'sha256:source',
@@ -144,6 +146,17 @@ test('install preserves unknown non-target data files and directories', () => {
   assert.equal(fs.readFileSync(path.join(novel, 'data', 'notes.txt'), 'utf8'), '旧资料\n');
   assert.equal(fs.readFileSync(path.join(novel, 'data', 'legacy', 'meta.json'), 'utf8'), '{"old":true}\n');
   assert.deepEqual(receipt.preserved_entries, ['legacy', 'notes.txt']);
+});
+
+test('install refuses an explicitly unbound dirty baseline without changing it', () => {
+  const { novel } = writeVerifiedFixture();
+  const data = path.join(novel, 'data');
+  fs.mkdirSync(data, { recursive: true });
+  fs.writeFileSync(path.join(data, 'unknown.json'), '{"keep":true}\n', 'utf8');
+  const before = directoryDigest(data);
+
+  assert.throws(() => installVerifiedData(novel), { code: 'DIRTY_INSTALL_BASELINE' });
+  assert.deepEqual(directoryDigest(data), before);
 });
 
 test('install records but removes REBUILD_REQUIRED.md after success', () => {
