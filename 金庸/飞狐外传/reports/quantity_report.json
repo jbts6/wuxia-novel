@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "size_band": "medium",
+  "source_char_count": 382100,
+  "chapter_count": 20,
+  "review_consumed": true,
+  "categories": {
+    "characters": {
+      "actual": 40,
+      "target_range": [
+        25,
+        75
+      ],
+      "per_chapter_density": 2,
+      "outside_range": false
+    },
+    "events": {
+      "actual": 20,
+      "target_range": [
+        60,
+        220
+      ],
+      "per_chapter_density": 1,
+      "outside_range": true
+    },
+    "items": {
+      "actual": 11,
+      "target_range": [
+        6,
+        20
+      ],
+      "per_chapter_density": 0.55,
+      "outside_range": false
+    },
+    "skills": {
+      "actual": 24,
+      "target_range": [
+        10,
+        35
+      ],
+      "per_chapter_density": 1.2,
+      "outside_range": false
+    },
+    "techniques": {
+      "actual": 55,
+      "target_range": [
+        5,
+        45
+      ],
+      "per_chapter_density": 2.75,
+      "outside_range": true
+    },
+    "factions": {
+      "actual": 12,
+      "target_range": [
+        5,
+        25
+      ],
+      "per_chapter_density": 0.6,
+      "outside_range": false
+    },
+    "locations": {
+      "actual": 12,
+      "target_range": [
+        10,
+        50
+      ],
+      "per_chapter_density": 0.6,
+      "outside_range": false
+    },
+    "dialogues": {
+      "actual": 9,
+      "target_range": [
+        20,
+        60
+      ],
+      "per_chapter_density": 0.45,
+      "outside_range": true
+    },
+    "chapter_summaries": {
+      "actual": 20,
+      "target_range": [
+        20,
+        20
+      ],
+      "per_chapter_density": 1,
+      "outside_range": false
+    }
+  },
+  "warnings": [
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "events",
+      "actual": 20,
+      "target_range": [
+        60,
+        220
+      ]
+    },
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "techniques",
+      "actual": 55,
+      "target_range": [
+        5,
+        45
+      ]
+    },
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "dialogues",
+      "actual": 9,
+      "target_range": [
+        20,
+        60
+      ]
+    }
+  ],
+  "explanations": [
+    "数量复核只执行本次；不为达到建议区间新增缺乏游戏素材价值的实体。",
+    "事件按每章一个主要桥段保留，避免把同一过程拆成近义小事件。",
+    "对白仅作事件附属资料，低于中篇建议区间也不补普通台词。",
+    "普通随身物品和无专名动作已排除；原文明确定名的功法与招式保留。"
+  ]
+}
