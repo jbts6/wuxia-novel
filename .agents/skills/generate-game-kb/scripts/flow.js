@@ -7,6 +7,7 @@ const { GameKbError } = require('./lib/errors');
 const { acceptDraft, currentUnitInputHash, stableHash } = require('./lib/accept');
 const { buildFinalData, writeFinalData } = require('./lib/finalize');
 const { buildGameMaterials } = require('./lib/game-materials');
+const { installVerifiedData, verifyInstalled } = require('./lib/install');
 const { atomicWriteJson, readJson } = require('./lib/io');
 const { pathsFor } = require('./lib/paths');
 const {
@@ -153,10 +154,20 @@ function main(argv = process.argv.slice(2)) {
       process.stdout.write(`${JSON.stringify(buildFinal(novelDir), null, json ? 0 : 2)}\n`);
       return;
     }
+    if (command === 'install') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'install requires <novel>');
+      process.stdout.write(`${JSON.stringify(installVerifiedData(novelDir), null, json ? 0 : 2)}\n`);
+      return;
+    }
     if (command === 'verify') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'verify requires <novel>');
       if (args.includes('--installed')) {
-        throw new GameKbError('INSTALLED_VERIFY_UNAVAILABLE', 'Installed verification is not available at this stage');
+        const result = verifyInstalled(novelDir);
+        if (!result.passed) {
+          throw new GameKbError('INSTALLED_VERIFICATION_FAILED', 'Installed data did not pass verification', result);
+        }
+        process.stdout.write(`${JSON.stringify(result, null, json ? 0 : 2)}\n`);
+        return;
       }
       process.stdout.write(`${JSON.stringify(verifyWorkspace(novelDir), null, json ? 0 : 2)}\n`);
       return;
