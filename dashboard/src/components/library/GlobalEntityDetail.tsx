@@ -22,7 +22,7 @@ interface GlobalEntityDetailProps {
 
 type IdMaps = ReturnType<typeof buildIdMaps>;
 
-const EMPTY_RELATION_DATA = { characters: [], factions: [], locations: [], skills: [], items: [] };
+const EMPTY_RELATION_DATA = { characters: [], factions: [], locations: [], skills: [], techniques: [], items: [] };
 
 function detailRows(record: AnyLibraryRecord, maps: IdMaps): Array<{ label: string; value: string }> {
   switch (record.kind) {

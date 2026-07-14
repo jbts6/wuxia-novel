@@ -9,6 +9,7 @@ Use this contract when changing the Dashboard's local knowledge-base discovery, 
 ```http
 GET /api/library/status
 GET /api/library/book-data?path=<author>/<book>
+GET /api/library/book-extras?path=<author>/<book>
 ```
 
 ```ts
@@ -22,6 +23,16 @@ type KnowledgeEntityKey =
   | 'dialogues';
 
 type KnowledgeEntityCounts = Record<KnowledgeEntityKey, number | null>;
+
+type OptionalResourceResult<T> =
+  | { status: 'available'; data: T }
+  | { status: 'missing'; data: null }
+  | { status: 'invalid'; data: null; error: string };
+
+interface RawBookExtrasResponse {
+  events: OptionalResourceResult<unknown[]>;
+  gameMaterials: OptionalResourceResult<unknown>;
+}
 ```
 
 Both Vite development and preview servers must install the same `libraryApiPlugin` middleware.
@@ -46,6 +57,10 @@ Window coverage and entity counts are different measurements:
 
 `GET /api/library/book-data` accepts only a discovered `author/book` path whose eight consumer files are browseable. Successful data is normalized by the frontend before page components consume it.
 
+`GET /api/library/book-extras` applies the same discovered-path and browseability checks, but reads only `data/events.json` and `reports/game_materials.json`. Each optional file has an independent `available`, `missing`, or `invalid` result. An optional-file failure must not change `dataCompleteness.required === 8`, `browseable`, the seven entity counts, or the `/book-data` payload.
+
+`scanLibrary()` must not read or count the optional files. This keeps status scans and the global `/browse` index on the eight-file core contract.
+
 ## 4. Validation & Error Matrix
 
 | Condition | Result |
@@ -58,6 +73,10 @@ Window coverage and entity counts are different measurements:
 | Malformed or invalid entity file | Corresponding count `null`, error recorded, book not browseable |
 | Valid empty entity array | Count `0` |
 | One book fails inspection | Other books remain in the status response |
+| Both optional files missing | `/book-extras` returns `200`; both resources are `missing` |
+| One optional file is malformed or has an invalid minimum shape | `/book-extras` returns `200`; that resource is `invalid` with a file-specific error and the other resource is preserved |
+| Optional file contains a valid empty array/report | Resource is `available` with empty data, not `missing` |
+| Extras request targets an unsafe, undiscovered, or non-browseable book | `422`; core status and book-data behavior remain unchanged |
 
 Legacy dialogues without an `id` are valid only when they contain speaker, chapter, and text fields needed by the Dashboard normalizer.
 
@@ -66,12 +85,18 @@ Legacy dialogues without an `id` are valid only when they contain speaker, chapt
 - Good: all eight files are valid, seven real counts are returned, and the book is browseable.
 - Base: only source text exists; every entity count is `null`, and the book remains visible as not generated.
 - Bad: `characters.json` cannot parse; `characters` is `null`, an error names the file, and the failure does not abort the library scan.
+- Optional good: both extension files are valid and returned without adding keys to `/book-data`.
+- Optional base: an eight-file legacy book has no extension files; it stays browseable and both extension resources are `missing`.
+- Optional bad: `events.json` is malformed while `game_materials.json` is valid; events are `invalid`, game materials remain `available`, and the core book still opens.
 
 ## 6. Tests Required
 
 - Scanner unit test: valid fixtures return exact seven-file record counts, including a valid zero count.
 - Scanner unit test: malformed files produce `null` for that category and keep other books scannable.
 - API test: status requests return the projection and reject non-GET methods.
+- Scanner/API test: optional files do not change the eight-file completeness gate or seven entity counts.
+- API test: `/book-data` remains exactly the eight `DATA_FILE_NAMES`; `/book-extras` distinguishes missing, valid empty, invalid, and available resources.
+- API test: a malformed optional file does not suppress the other optional resource and does not block a core data request.
 - Component test: the table shows only character, skill, and item counts; the detail sheet shows all seven categories.
 - Desktop E2E: status is loaded from the real API, table cells do not overflow, and the detail sheet remains keyboard-accessible.
 
@@ -91,6 +116,12 @@ const value = readJson('data/characters.json');
 const characterCount = validateDataFile('characters', value)
   ? value.length
   : null;
+
+const extras = {
+  events: readOptionalResource('data/events.json', validateEvents),
+  gameMaterials: readOptionalResource('reports/game_materials.json', validateGameMaterials),
+};
 ```
 
 The table may summarize character, skill, and item counts for density. The detail sheet is the authoritative seven-category count view; window coverage belongs in a separate production-evidence section.
+Optional resources belong to `/book-extras`; adding them to `DATA_FILE_NAMES`, `/book-data`, or `scanLibrary()` would silently turn an optional game-design projection into a core browseability gate.

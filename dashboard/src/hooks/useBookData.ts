@@ -5,7 +5,8 @@ import { useNovelStore } from '../stores/useNovelStore';
 
 export function useBookData() {
   const { authorName, bookName } = useParams<{ authorName: string; bookName: string }>();
-  const { status, books, statusLoading, setCurrentBook, loadBookData, bookLoading, bookErrors } = useLibraryStore();
+  const { status, books, statusLoading, setCurrentBook, loadBookData, loadBookExtras, bookLoading, bookErrors } =
+    useLibraryStore();
   const { loadData, clearData } = useNovelStore();
 
   const decodedAuthor = authorName ? decodeURIComponent(authorName) : null;
@@ -17,6 +18,9 @@ export function useBookData() {
     let active = true;
     setCurrentBook(bookPath);
     clearData();
+    void loadBookExtras(bookPath).catch(() => {
+      // Optional extras expose their own error state and never block core book data.
+    });
     void loadBookData(bookPath).then((data) => {
       if (active) loadData(data);
     }).catch(() => {
@@ -28,7 +32,7 @@ export function useBookData() {
         setCurrentBook(null);
       }
     };
-  }, [bookPath, clearData, loadBookData, loadData, setCurrentBook]);
+  }, [bookPath, clearData, loadBookData, loadBookExtras, loadData, setCurrentBook]);
 
   return {
     currentBook: books.find((book) => book.path === bookPath) ?? null,

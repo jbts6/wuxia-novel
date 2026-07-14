@@ -129,6 +129,16 @@ export interface LibraryStatusResponse {
 
 export type RawNovelData = Record<DataFileKey, unknown[]>;
 
+export type OptionalResourceResult<T> =
+  | { status: 'available'; data: T }
+  | { status: 'missing'; data: null }
+  | { status: 'invalid'; data: null; error: string };
+
+export interface RawBookExtrasResponse {
+  events: OptionalResourceResult<unknown[]>;
+  gameMaterials: OptionalResourceResult<unknown>;
+}
+
 export const LIBRARY_ENTITY_KINDS = ['character', 'skill', 'item', 'faction', 'location'] as const;
 export type LibraryEntityKind = (typeof LIBRARY_ENTITY_KINDS)[number];
 export type LibraryMaterialType = 'all' | LibraryEntityKind;

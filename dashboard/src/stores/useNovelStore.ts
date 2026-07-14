@@ -27,6 +27,7 @@ interface NovelStore {
   factionMap: Map<string, string>;
   locationMap: Map<string, string>;
   skillMap: Map<string, string>;
+  techniqueMap: Map<string, string>;
   itemMap: Map<string, string>;
 
   detailPanel: DetailPanelState;
@@ -60,6 +61,7 @@ export const useNovelStore = create<NovelStore>((set) => ({
   factionMap: new Map(),
   locationMap: new Map(),
   skillMap: new Map(),
+  techniqueMap: new Map(),
   itemMap: new Map(),
 
   detailPanel: { open: false, type: null, id: null },
@@ -81,6 +83,7 @@ export const useNovelStore = create<NovelStore>((set) => ({
       factionMap: new Map(),
       locationMap: new Map(),
       skillMap: new Map(),
+      techniqueMap: new Map(),
       itemMap: new Map(),
       detailPanel: { open: false, type: null, id: null },
     }),

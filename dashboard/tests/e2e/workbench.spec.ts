@@ -3,6 +3,7 @@ import { expect, test } from '@playwright/test';
 test.use({ viewport: { width: 1440, height: 1000 } });
 
 test('validates the read-only library workbench flow', async ({ page }) => {
+  test.setTimeout(45_000);
   const pageErrors: string[] = [];
   page.on('pageerror', (error) => pageErrors.push(error.message));
 

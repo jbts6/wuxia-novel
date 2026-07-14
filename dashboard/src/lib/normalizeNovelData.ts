@@ -11,19 +11,19 @@ import type {
   Technique,
 } from '../types/novel';
 
-function isRecord(value: unknown): value is Record<string, unknown> {
+export function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
-function asRecord(value: unknown): Record<string, unknown> {
+export function asRecord(value: unknown): Record<string, unknown> {
   return isRecord(value) ? value : {};
 }
 
-function asArray(value: unknown): unknown[] {
+export function asArray(value: unknown): unknown[] {
   return Array.isArray(value) ? value : [];
 }
 
-function asString(value: unknown, fallback = ''): string {
+export function asString(value: unknown, fallback = ''): string {
   return typeof value === 'string' ? value : fallback;
 }
 
@@ -36,7 +36,7 @@ function asNullableString(value: unknown): string | null | undefined {
   return asOptionalString(value);
 }
 
-function asStringArray(value: unknown): string[] {
+export function asStringArray(value: unknown): string[] {
   return asArray(value).filter((entry): entry is string => typeof entry === 'string');
 }
 
@@ -72,7 +72,7 @@ function normalizeSourceRef(value: unknown): SourceRef | null {
   };
 }
 
-function normalizeSourceRefs(value: unknown): SourceRef[] {
+export function normalizeSourceRefs(value: unknown): SourceRef[] {
   return asArray(value)
     .map(normalizeSourceRef)
     .filter((entry): entry is SourceRef => entry !== null);

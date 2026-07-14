@@ -2,9 +2,16 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests/e2e',
-  testMatch: ['workbench.spec.ts', 'global-library.spec.ts'],
+  testMatch: [
+    'workbench.spec.ts',
+    'global-library.spec.ts',
+    'nav.spec.ts',
+    'routing.spec.ts',
+    'game-materials.spec.ts',
+  ],
   timeout: 30000,
   workers: 1,
+  outputDir: './test-results/playwright-artifacts',
   use: {
     baseURL: 'http://127.0.0.1:5173',
     headless: true,

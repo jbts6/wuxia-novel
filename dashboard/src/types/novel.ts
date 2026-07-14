@@ -13,6 +13,51 @@ export interface SourceRef {
   alternatives?: SourceRef[];
 }
 
+export const GAME_MATERIAL_TYPES = [
+  '战斗系统原型',
+  '经典剧情桥段',
+  '角色原型/彩蛋',
+  '标志性物品',
+  '门派与世界观素材',
+] as const;
+
+export type GameMaterialType = (typeof GAME_MATERIAL_TYPES)[number];
+
+export interface Event {
+  id: string;
+  name: string;
+  importance: string;
+  cause: string;
+  process: string;
+  result: string;
+  participants: string[];
+  locations: string[];
+  source_refs: SourceRef[];
+}
+
+export interface GameMaterial {
+  material_type: GameMaterialType;
+  source_id: string;
+  relevance: string;
+  suggested_use: string;
+  reason: string;
+}
+
+export interface GameMaterialsReport {
+  schema_version: string | number;
+  entries: GameMaterial[];
+}
+
+export type BookExtraResource<T> =
+  | { status: 'available'; data: T }
+  | { status: 'missing'; data: null }
+  | { status: 'invalid'; data: null; error: string };
+
+export interface BookExtrasData {
+  events: BookExtraResource<Event[]>;
+  gameMaterials: BookExtraResource<GameMaterialsReport>;
+}
+
 export interface Character {
   id: string;
   name: string;
@@ -158,7 +203,7 @@ export interface BookMeta {
 }
 
 // 详情面板状态
-export type CardType = 'character' | 'skill' | 'item' | 'faction' | 'location';
+export type CardType = 'character' | 'skill' | 'technique' | 'item' | 'faction' | 'location' | 'event';
 
 export interface DetailPanelState {
   open: boolean;

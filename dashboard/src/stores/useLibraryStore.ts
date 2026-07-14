@@ -1,9 +1,10 @@
 import { create } from 'zustand';
-import { fetchLibraryStatus, fetchRawBookData } from '../lib/libraryApi';
+import { fetchLibraryStatus, fetchRawBookData, fetchRawBookExtras } from '../lib/libraryApi';
 import { loadGlobalLibraryRecords } from '../lib/globalLibrary';
+import { normalizeBookExtras } from '../lib/normalizeBookExtras';
 import { normalizeNovelData } from '../lib/normalizeNovelData';
 import type { AnyLibraryRecord, LibraryBookStatus, LibraryLoadWarning, LibraryStatusResponse } from '../types/library';
-import type { NovelData } from '../types/novel';
+import type { BookExtrasData, NovelData } from '../types/novel';
 
 interface LibraryStore {
   status: LibraryStatusResponse | null;
@@ -14,6 +15,9 @@ interface LibraryStore {
   bookCache: Record<string, NovelData>;
   bookLoading: Record<string, boolean>;
   bookErrors: Record<string, string | null>;
+  extrasCache: Record<string, BookExtrasData>;
+  extrasLoading: Record<string, boolean>;
+  extrasErrors: Record<string, string | null>;
   globalRecords: AnyLibraryRecord[];
   globalLoading: boolean;
   globalError: string | null;
@@ -23,12 +27,14 @@ interface LibraryStore {
   refreshStatus: () => Promise<LibraryStatusResponse>;
   ensureStatus: () => Promise<LibraryStatusResponse>;
   loadBookData: (bookPath: string) => Promise<NovelData>;
+  loadBookExtras: (bookPath: string) => Promise<BookExtrasData>;
   loadGlobalLibrary: () => Promise<AnyLibraryRecord[]>;
   setCurrentBook: (bookPath: string | null) => void;
 }
 
 let statusRequest: Promise<LibraryStatusResponse> | null = null;
 const bookRequests = new Map<string, Promise<NovelData>>();
+const bookExtrasRequests = new Map<string, Promise<BookExtrasData>>();
 let globalLibraryRequest: Promise<AnyLibraryRecord[]> | null = null;
 
 function messageFrom(error: unknown): string {
@@ -44,6 +50,9 @@ export const useLibraryStore = create<LibraryStore>((set, get) => ({
   bookCache: {},
   bookLoading: {},
   bookErrors: {},
+  extrasCache: {},
+  extrasLoading: {},
+  extrasErrors: {},
   globalRecords: [],
   globalLoading: false,
   globalError: null,
@@ -106,6 +115,44 @@ export const useLibraryStore = create<LibraryStore>((set, get) => ({
       });
 
     bookRequests.set(bookPath, request);
+    return request;
+  },
+
+  loadBookExtras: async (bookPath) => {
+    const cached = get().extrasCache[bookPath];
+    if (cached) return cached;
+    const existingRequest = bookExtrasRequests.get(bookPath);
+    if (existingRequest) return existingRequest;
+
+    const request = (async () => {
+      await get().ensureStatus();
+      const book = get().books.find((entry) => entry.path === bookPath);
+      if (!book) throw new Error('书籍未出现在知识库目录中');
+      if (!book.browseable) throw new Error('该书知识库尚不可浏览');
+
+      set((state) => ({
+        extrasLoading: { ...state.extrasLoading, [bookPath]: true },
+        extrasErrors: { ...state.extrasErrors, [bookPath]: null },
+      }));
+      const data = normalizeBookExtras(await fetchRawBookExtras(bookPath));
+      set((state) => ({
+        extrasCache: { ...state.extrasCache, [bookPath]: data },
+        extrasLoading: { ...state.extrasLoading, [bookPath]: false },
+      }));
+      return data;
+    })()
+      .catch((error: unknown) => {
+        set((state) => ({
+          extrasLoading: { ...state.extrasLoading, [bookPath]: false },
+          extrasErrors: { ...state.extrasErrors, [bookPath]: messageFrom(error) },
+        }));
+        throw error;
+      })
+      .finally(() => {
+        bookExtrasRequests.delete(bookPath);
+      });
+
+    bookExtrasRequests.set(bookPath, request);
     return request;
   },
 

@@ -1,4 +1,4 @@
-import type { Character, Faction, Location, Skill, Item } from '../types/novel';
+import type { Character, Faction, Location, Skill, Item, Technique } from '../types/novel';
 
 const CHINESE_TEXT_PATTERN = /[\u3400-\u9fff\uf900-\ufaff]/u;
 const TECHNICAL_ID_PATTERN = /[A-Za-z_]/u;
@@ -9,15 +9,17 @@ export function buildIdMaps(data: {
   factions: Faction[];
   locations: Location[];
   skills: Skill[];
+  techniques: Technique[];
   items: Item[];
 }) {
   const characterMap = new Map(data.characters.map((c) => [c.id, c.name]));
   const factionMap = new Map(data.factions.map((f) => [f.id, f.name]));
   const locationMap = new Map(data.locations.map((l) => [l.id, l.name]));
   const skillMap = new Map(data.skills.map((s) => [s.id, s.name]));
+  const techniqueMap = new Map(data.techniques.map((technique) => [technique.id, technique.name]));
   const itemMap = new Map(data.items.map((i) => [i.id, i.name]));
 
-  return { characterMap, factionMap, locationMap, skillMap, itemMap };
+  return { characterMap, factionMap, locationMap, skillMap, techniqueMap, itemMap };
 }
 
 export function toChineseDisplayText(value: string | null | undefined): string | null {

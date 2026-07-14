@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveEntityName, resolveId, resolveIds, toChineseDisplayText } from './resolveId';
+import { buildIdMaps, resolveEntityName, resolveId, resolveIds, toChineseDisplayText } from './resolveId';
 
 describe('中文实体名称解析', () => {
   const characterMap = new Map([
@@ -27,5 +27,18 @@ describe('中文实体名称解析', () => {
     expect(resolveEntityName('char_左子穆', characterMap)).toBe('左子穆');
     expect(resolveIds(['char_左子穆', 'char_unknown'], characterMap)).toEqual(['左子穆']);
     expect(toChineseDisplayText('unknown_段誉')).toBeNull();
+  });
+
+  it('为招式建立独立名称映射', () => {
+    const maps = buildIdMaps({
+      characters: [],
+      factions: [],
+      locations: [],
+      skills: [],
+      techniques: [{ id: 'tech_1', name: '八方藏锋', skill: 'skill_1', description: '测试招式。' }],
+      items: [],
+    });
+
+    expect(maps.techniqueMap.get('tech_1')).toBe('八方藏锋');
   });
 });

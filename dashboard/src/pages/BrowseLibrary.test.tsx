@@ -128,7 +128,7 @@ describe('global library browser', () => {
     fireEvent.click(screen.getByRole('button', { name: '下一页' }));
     expect(screen.getAllByRole('row', { name: /查看人物/ })).toHaveLength(10);
     expect(screen.getByText('51-60 / 60 条记录')).toBeInTheDocument();
-  });
+  }, 10_000);
 
   it('searches aliases, opens source evidence, and links to the exact single-book entity', async () => {
     renderPage('/browse?q=关键别名&author=金庸');

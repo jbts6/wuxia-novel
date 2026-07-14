@@ -3,7 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { DATA_FILE_NAMES, SCAN_PASS_NAMES } from '../src/types/library';
-import { readBookData, scanLibrary } from './libraryScanner';
+import { readBookData, readBookExtras, scanLibrary } from './libraryScanner';
 
 const temporaryDirectories: string[] = [];
 
@@ -155,6 +155,63 @@ describe('scanLibrary', () => {
     expect(book).toMatchObject({ browseable: true, dataCompleteness: { valid: 8, required: 8 } });
   });
 
+  it('keeps optional extras outside the eight-file browseability gate', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory);
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({ browseable: true, dataCompleteness: { valid: 8, required: 8 } });
+    expect(readBookExtras(root, '金庸/测试书')).toEqual({
+      events: { status: 'missing', data: null },
+      gameMaterials: { status: 'missing', data: null },
+    });
+  });
+
+  it('distinguishes valid empty extras from missing files', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory);
+    writeJson(path.join(directory, 'data', 'events.json'), []);
+    writeJson(path.join(directory, 'reports', 'game_materials.json'), { schema_version: 1, entries: [] });
+
+    expect(readBookExtras(root, '金庸/测试书')).toEqual({
+      events: { status: 'available', data: [] },
+      gameMaterials: { status: 'available', data: { schema_version: 1, entries: [] } },
+    });
+  });
+
+  it('returns valid extras and isolates a malformed optional resource', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory);
+    fs.mkdirSync(path.join(directory, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(directory, 'data', 'events.json'), '{invalid');
+    writeJson(path.join(directory, 'reports', 'game_materials.json'), {
+      schema_version: 1,
+      entries: [
+        {
+          material_type: '战斗系统原型',
+          source_id: 's1',
+          relevance: '高',
+          suggested_use: '武学原型',
+          reason: '具有代表性',
+        },
+      ],
+    });
+
+    const extras = readBookExtras(root, '金庸/测试书');
+
+    expect(extras.events).toMatchObject({ status: 'invalid', data: null });
+    expect(extras.events).toHaveProperty('error');
+    expect(extras.gameMaterials).toMatchObject({
+      status: 'available',
+      data: { schema_version: 1, entries: [{ source_id: 's1' }] },
+    });
+    expect(scanLibrary(root).books[0]).toMatchObject({ browseable: true, dataCompleteness: { required: 8 } });
+  });
+
   it('requires completion_gate_passed and every G1-G5 gate for completion', () => {
     const root = createRoot();
     const directory = createBook(root);
@@ -229,5 +286,6 @@ describe('scanLibrary', () => {
     expect(book?.entityCounts.characters).toBeNull();
     expect(book?.errors.join(' ')).toContain('characters.json');
     expect(() => readBookData(root, '../dashboard')).toThrow('路径不合法');
+    expect(() => readBookExtras(root, '../dashboard')).toThrow('路径不合法');
   });
 });

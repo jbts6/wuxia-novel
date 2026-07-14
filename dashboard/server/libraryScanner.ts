@@ -11,6 +11,8 @@ import {
   type LibraryBookStatus,
   type LibraryStatusResponse,
   type KnowledgeEntityCounts,
+  type OptionalResourceResult,
+  type RawBookExtrasResponse,
   type RawNovelData,
   type ScanPassName,
   type ScanPassProgress,
@@ -23,6 +25,7 @@ import {
   isContentEntityKey,
   summarizeContentCoverage,
 } from '../src/lib/entityContent';
+import { GAME_MATERIAL_TYPES } from '../src/types/novel';
 
 const EXCLUDED_ROOT_DIRECTORIES = new Set([
   '.agents',
@@ -148,6 +151,50 @@ function validateDataFile(key: DataFileKey, value: unknown): boolean {
   if (key === 'dialogues') return validateDialogues(value);
   if (key === 'chapter_summaries') return validateChapterSummaries(value);
   return validateNamedRecords(value);
+}
+
+const GAME_MATERIAL_TYPE_SET = new Set<string>(GAME_MATERIAL_TYPES);
+
+function isNonEmptyString(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
+function validateEvents(value: unknown): value is unknown[] {
+  return Array.isArray(value) && value.every((entry) => isRecord(entry) && isNonEmptyString(entry.id) && isNonEmptyString(entry.name));
+}
+
+function validateGameMaterials(value: unknown): value is Record<string, unknown> {
+  return (
+    isRecord(value) &&
+    Object.hasOwn(value, 'schema_version') &&
+    Array.isArray(value.entries) &&
+    value.entries.every(
+      (entry) =>
+        isRecord(entry) &&
+        isNonEmptyString(entry.material_type) &&
+        GAME_MATERIAL_TYPE_SET.has(entry.material_type) &&
+        isNonEmptyString(entry.source_id) &&
+        isNonEmptyString(entry.relevance) &&
+        isNonEmptyString(entry.suggested_use) &&
+        isNonEmptyString(entry.reason),
+    )
+  );
+}
+
+function readOptionalResource<T>(
+  target: string,
+  label: string,
+  validate: (value: unknown) => value is T,
+): OptionalResourceResult<T> {
+  if (!pathExists(target)) return { status: 'missing', data: null };
+
+  try {
+    const value = readJson(target);
+    if (!validate(value)) return { status: 'invalid', data: null, error: `${label} 数据结构无效` };
+    return { status: 'available', data: value };
+  } catch {
+    return { status: 'invalid', data: null, error: `${label} 无法解析` };
+  }
 }
 
 function inspectDataDirectory(bookDirectory: string): DataInspection {
@@ -529,4 +576,21 @@ export function readBookData(rootDirectory: string, bookPath: string): RawNovelD
     result[key] = readJson(path.join(book.directory, 'data', filename)) as unknown[];
   }
   return result;
+}
+
+export function readBookExtras(rootDirectory: string, bookPath: string): RawBookExtrasResponse {
+  const book = discoverBooks(rootDirectory).find((entry) => entry.path === bookPath);
+  if (!book) throw new Error('书籍不存在或路径不合法');
+
+  const status = scanBook(book);
+  if (!status.browseable) throw new Error('书籍数据不满足 Dashboard 可浏览契约');
+
+  return {
+    events: readOptionalResource(path.join(book.directory, 'data', 'events.json'), 'events.json', validateEvents),
+    gameMaterials: readOptionalResource(
+      path.join(book.directory, 'reports', 'game_materials.json'),
+      'game_materials.json',
+      validateGameMaterials,
+    ),
+  };
 }

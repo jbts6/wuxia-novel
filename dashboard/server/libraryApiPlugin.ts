@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import type { Connect, Plugin } from 'vite';
-import { readBookData, scanLibrary } from './libraryScanner';
+import { readBookData, readBookExtras, scanLibrary } from './libraryScanner';
 
 interface ApiResult {
   status: number;
@@ -36,6 +36,12 @@ export function handleLibraryApiRequest(
       const bookPath = url.searchParams.get('path');
       if (!bookPath) return { status: 400, body: { error: '缺少书籍 path 参数' } };
       return { status: 200, body: readBookData(rootDirectory, bookPath) };
+    }
+
+    if (url.pathname === '/api/library/book-extras') {
+      const bookPath = url.searchParams.get('path');
+      if (!bookPath) return { status: 400, body: { error: '缺少书籍 path 参数' } };
+      return { status: 200, body: readBookExtras(rootDirectory, bookPath) };
     }
 
     return { status: 404, body: { error: '接口不存在' } };
