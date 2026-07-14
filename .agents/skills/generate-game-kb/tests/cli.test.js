@@ -32,3 +32,24 @@ test('unknown command is rejected without a stack trace', () => {
   assert.match(result.stderr, /COMMAND_UNKNOWN/);
   assert.doesNotMatch(result.stderr, /\n\s+at /);
 });
+
+test('status is observational and never returns an executable next action', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
+  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
+  const result = runFlow(['status', novel, '--json']);
+
+  assert.equal(result.status, 0, result.stderr);
+  const output = JSON.parse(result.stdout);
+  assert.deepEqual(output.counts, { pending: 1, done: 0, stale: 0, manual_review: 0 });
+  assert.equal('next_action' in output, false);
+  assert.equal('command' in output, false);
+});
+
+test('reset-unit requires explicit confirmation', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
+  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
+  const result = runFlow(['reset-unit', novel, '--unit', 'chapter:001', '--json']);
+
+  assert.notEqual(result.status, 0);
+  assert.equal(JSON.parse(result.stderr).code, 'RESET_CONFIRM_REQUIRED');
+});

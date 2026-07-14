@@ -7,6 +7,7 @@ const path = require('node:path');
 const { GameKbError } = require('./errors');
 const { atomicWriteJson, writeFileIfChanged } = require('./io');
 const { pathsFor } = require('./paths');
+const { loadProgress } = require('./progress');
 
 const CHAPTER_HEADING = /^第[零〇一二三四五六七八九十百千两\d]+(?:章|回|节|卷)(?:\s+.*|[^\s]*)?$/;
 
@@ -93,6 +94,7 @@ function prepareNovel(novelDir) {
     prepared_at: new Date().toISOString()
   };
   atomicWriteJson(paths.manifest, manifest);
+  loadProgress(paths, manifest);
   return manifest;
 }
 
