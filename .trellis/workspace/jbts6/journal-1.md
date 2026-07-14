@@ -550,3 +550,39 @@ Implemented and verified the six-stage managed generate-kb pipeline, including f
 ### Next Steps
 
 - None - task complete
+
+
+## Session 11: 收尾快速知识库第一阶段并拆分确定性组装任务
+
+**Date**: 2026-07-15
+**Task**: 收尾快速知识库第一阶段并拆分确定性组装任务
+**Branch**: `main`
+
+### Summary
+
+验证 generate-game-kb v1 的 128 项测试、24 个脚本及两本书安装结果；记录 v1 对照证据，补齐 fast-profile spec，把类别语义决策与确定性整书组装迁移到 07-15 新任务，并归档旧任务。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `36bdaca3` | (see git log) |
+| `0a24b1d5` | (see git log) |
+| `cb437028` | (see git log) |
+| `de5d8ed3` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
