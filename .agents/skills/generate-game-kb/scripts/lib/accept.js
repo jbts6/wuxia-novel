@@ -3,7 +3,11 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { validateCleanedBook, validateMergedBook } = require('./book-contract');
+const {
+  validateCleanDecisionDraft,
+  validateMaterialDecisionDraft,
+  validateMergeDecisionDraft
+} = require('./category-contract');
 const {
   acceptedArtifactHash,
   assertAcceptedArtifacts,
@@ -11,7 +15,7 @@ const {
 } = require('./candidate-ledger');
 const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contract');
 const { GameKbError } = require('./errors');
-const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
+const { atomicWriteFile, readJson } = require('./io');
 const {
   forceManualReview,
   loadProgress,
@@ -19,11 +23,15 @@ const {
   recordTargetedSubmission,
   saveProgress
 } = require('./progress');
-const { buildQuantityReport } = require('./quantity');
 const { validateQualityReview } = require('./quality');
 const { sha256 } = require('./source');
 const { hashFinalData, loadData } = require('./verify');
 const { applyRecall, applySupplement } = require('./supplements');
+const { readWorkItem, readWorkPlan } = require('./semantic-work');
+
+const MERGE_DECISION_UNIT = /^merge:(characters|events|items|skills|techniques|factions|locations|dialogues):(\d{3}|consolidate)$/;
+const CLEAN_DECISION_UNIT = /^clean:(characters|events|items|skills|techniques|factions|locations|dialogues):\d{3}$/;
+const MATERIAL_DECISION_UNIT = /^clean:materials:001$/;
 
 function isWithin(parent, candidate) {
   const relative = path.relative(path.resolve(parent), path.resolve(candidate));
@@ -83,53 +91,6 @@ function acceptedChapterFile(paths, number) {
   return path.join(paths.chapters, `ch_${String(number).padStart(3, '0')}.json`);
 }
 
-function requireAcceptedChapters(paths, manifest, progress) {
-  const missing = [];
-  const chapters = [];
-  for (const chapter of manifest.chapters) {
-    const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
-    const file = acceptedChapterFile(paths, chapter.number);
-    if (progress.units[unit]?.status !== 'done' || !fs.existsSync(file)) {
-      missing.push(unit);
-    } else {
-      chapters.push(readJson(file));
-    }
-  }
-  if (missing.length > 0) {
-    throw new GameKbError('MERGE_CHAPTERS_INCOMPLETE', 'Every chapter must be accepted before merge', { missing });
-  }
-  return chapters;
-}
-
-function mergeInput(paths, manifest, progress) {
-  const chapters = requireAcceptedChapters(paths, manifest, progress);
-  const acceptedHashes = manifest.chapters.map(chapter => ({
-    number: chapter.number,
-    content_hash: acceptedArtifactHash(paths, acceptedChapterFile(paths, chapter.number))
-  }));
-  const inputHash = stableHash({
-    manifest: manifest.chapters.map(chapter => ({ number: chapter.number, input_hash: chapter.input_hash })),
-    accepted_hashes: acceptedHashes
-  });
-  return { chapters, inputHash };
-}
-
-function requireCurrentMerge(paths, manifest, progress) {
-  const current = mergeInput(paths, manifest, progress);
-  const unit = progress.units['merge:book'];
-  if (unit?.status !== 'done' || unit.input_hash !== current.inputHash || !fs.existsSync(paths.merged)) {
-    throw new GameKbError('CLEAN_MERGE_REQUIRED', 'A current accepted merge is required before cleanup');
-  }
-  return readJson(paths.merged);
-}
-
-function preCleanQuantity(paths, manifest, merged) {
-  if (fs.existsSync(paths.preCleanQuantity)) return readJson(paths.preCleanQuantity);
-  const report = buildQuantityReport(merged, manifest.source_char_count, manifest.chapters.length);
-  atomicWriteJson(paths.preCleanQuantity, report);
-  return report;
-}
-
 function validateTargetedDraft(draft, category) {
   if (!draft || typeof draft !== 'object' || Array.isArray(draft)) {
     return [{ code: 'TARGETED_DRAFT_INVALID', path: '$', target: category }];
@@ -142,6 +103,33 @@ function validateTargetedDraft(draft, category) {
       ? []
       : [{ code: 'TARGETED_RECORD_INVALID', path: `${category}[${index}]`, target: category }]
   ));
+}
+
+function semanticDecisionFile(paths, unit) {
+  const root = unit.startsWith('merge:') ? paths.mergeDecisions : paths.cleanDecisions;
+  return path.join(root, `${unit.replaceAll(':', '_')}.json`);
+}
+
+function semanticAggregateInputHash(paths, stage) {
+  const plan = readWorkPlan(paths, stage);
+  const inputs = [...plan.inputs];
+  if (stage === 'merge') {
+    for (const descriptor of plan.consolidations) {
+      inputs.push(readWorkItem(paths, descriptor.unit).input);
+    }
+  } else {
+    inputs.push(readWorkItem(paths, 'clean:materials:001').input);
+  }
+  const decisions = Object.fromEntries(inputs
+    .map(input => [input.unit, acceptedArtifactHash(paths, semanticDecisionFile(paths, input.unit))])
+    .sort(([left], [right]) => left.localeCompare(right)));
+  return stableHash({
+    semantic_contract_version: 2,
+    stage: `${stage}_aggregate`,
+    upstream_hashes: plan.upstream_hashes,
+    units: inputs.map(input => ({ unit: input.unit, input_hash: input.input_hash })),
+    decisions
+  });
 }
 
 function unitContext(paths, manifest, progress, unit) {
@@ -160,29 +148,35 @@ function unitContext(paths, manifest, progress, unit) {
       normalize: draft => normalizeChapterDraft(draft)
     };
   }
-  if (unit === 'merge:book') {
-    const { chapters, inputHash } = mergeInput(paths, manifest, progress);
+  if (unit === 'merge:book' || unit === 'clean:book') {
+    throw new GameKbError(
+      'WHOLE_BOOK_AI_UNIT_FORBIDDEN',
+      'Whole-book merge and cleanup are deterministic aggregate units',
+      { unit }
+    );
+  }
+  if (MERGE_DECISION_UNIT.test(unit)) {
+    const work = readWorkItem(paths, unit);
     return {
-      inputHash,
-      acceptedFile: paths.merged,
-      validate: draft => validateMergedBook(draft, manifest, chapters),
-      afterAccept: draft => atomicWriteJson(
-        paths.preCleanQuantity,
-        buildQuantityReport(draft, manifest.source_char_count, manifest.chapters.length)
-      )
+      inputHash: work.input.input_hash,
+      acceptedFile: semanticDecisionFile(paths, unit),
+      validate: draft => validateMergeDecisionDraft(draft, work.input)
     };
   }
-  if (unit === 'clean:book') {
-    const merged = requireCurrentMerge(paths, manifest, progress);
-    const chapters = requireAcceptedChapters(paths, manifest, progress);
-    const quantity = preCleanQuantity(paths, manifest, merged);
+  if (CLEAN_DECISION_UNIT.test(unit)) {
+    const work = readWorkItem(paths, unit);
     return {
-      inputHash: stableHash({
-        merged_content_hash: acceptedArtifactHash(paths, paths.merged),
-        pre_clean_quantity: quantity
-      }),
-      acceptedFile: paths.cleaned,
-      validate: draft => validateCleanedBook(draft, manifest, chapters)
+      inputHash: work.input.input_hash,
+      acceptedFile: semanticDecisionFile(paths, unit),
+      validate: draft => validateCleanDecisionDraft(draft, work.input)
+    };
+  }
+  if (MATERIAL_DECISION_UNIT.test(unit)) {
+    const work = readWorkItem(paths, unit);
+    return {
+      inputHash: work.input.input_hash,
+      acceptedFile: semanticDecisionFile(paths, unit),
+      validate: draft => validateMaterialDecisionDraft(draft, work.input)
     };
   }
   if (unit === 'quality:sample') {
@@ -239,6 +233,8 @@ function unitContext(paths, manifest, progress, unit) {
 
 function currentUnitInputHash(paths, manifest, progress, unit) {
   assertAcceptedArtifacts(paths);
+  if (unit === 'merge:book') return semanticAggregateInputHash(paths, 'merge');
+  if (unit === 'clean:book') return semanticAggregateInputHash(paths, 'clean');
   return unitContext(paths, manifest, progress, unit).inputHash;
 }
 

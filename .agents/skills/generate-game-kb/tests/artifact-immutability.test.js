@@ -7,15 +7,14 @@ const test = require('node:test');
 
 const { assertAcceptedArtifacts } = require('../scripts/lib/candidate-ledger');
 const { pathsFor } = require('../scripts/lib/paths');
+const { readWorkItem } = require('../scripts/lib/semantic-work');
 const {
   makeNovel,
   readJson,
   runFlow,
   sourceRef,
   writeStagingDraft,
-  validChapterDraft,
-  validCleanedBook,
-  validMergedBook
+  validChapterDraft
 } = require('./helpers');
 
 function flowJson(args) {
@@ -77,16 +76,21 @@ function prepareAcceptedChapters() {
   return { novel, paths, manifest };
 }
 
-function mergedDraft(paths) {
-  const firstChapter = readJson(path.join(paths.chapters, 'ch_001.json'));
-  const candidateResolutions = [
-    'characters', 'events', 'items', 'skills', 'techniques', 'factions', 'locations', 'dialogues'
-  ].flatMap(category => firstChapter[category].map(candidate => ({
-    candidate_key: candidate.candidate_key,
-    resolution: 'merged_to',
-    merged_to: candidate.local_key
-  })));
-  return validMergedBook({ candidate_resolutions: candidateResolutions });
+function mergeDecision(input) {
+  return {
+    schema_version: 1,
+    stage: 'merge_decision',
+    unit: input.unit,
+    decisions: [{
+      entity_ref: 'e001',
+      member_refs: input.candidates.map(candidate => candidate.candidate_ref),
+      action: 'merge',
+      canonical_name: input.candidates[0].name,
+      aliases: [],
+      fields: {}
+    }],
+    ambiguities: []
+  };
 }
 
 test('accepted artifact mutation is rejected instead of refreshing the expected hash', () => {
@@ -115,35 +119,28 @@ test('chapter acceptance persists deterministic candidate keys and an artifact m
   assert.match(entry.accepted_at, /^\d{4}-\d{2}-\d{2}T/);
 });
 
-test('mutating accepted chapter, merge, or clean artifacts blocks the next dependent command', () => {
+test('mutating an accepted chapter or category decision blocks deterministic planning', () => {
   const { novel, paths } = prepareAcceptedChapters();
-  const merge = mergedDraft(paths);
-  const mergeDraftFile = writeStagingDraft(novel, 'merge:book', merge);
 
   const chapterFile = path.join(paths.chapters, 'ch_001.json');
   const chapterRaw = fs.readFileSync(chapterFile, 'utf8');
   fs.writeFileSync(chapterFile, `${chapterRaw} `, 'utf8');
   assertMutation(
-    flowJson(['accept', novel, '--unit', 'merge:book', '--draft', mergeDraftFile]),
+    flowJson(['prepare-merge', novel]),
     'accepted/chapters/ch_001.json'
   );
   fs.writeFileSync(chapterFile, chapterRaw, 'utf8');
 
-  assertPassed(flowJson(['accept', novel, '--unit', 'merge:book', '--draft', mergeDraftFile]), 'accept merge');
-  const cleanDraftFile = writeStagingDraft(novel, 'clean:book', validCleanedBook({
-    candidate_resolutions: merge.candidate_resolutions
-  }));
-
-  const mergeRaw = fs.readFileSync(paths.merged, 'utf8');
-  fs.writeFileSync(paths.merged, `${mergeRaw} `, 'utf8');
-  assertMutation(
-    flowJson(['accept', novel, '--unit', 'clean:book', '--draft', cleanDraftFile]),
-    'accepted/merged/book.json'
-  );
-  fs.writeFileSync(paths.merged, mergeRaw, 'utf8');
-
-  assertPassed(flowJson(['accept', novel, '--unit', 'clean:book', '--draft', cleanDraftFile]), 'accept clean');
-  const cleanRaw = fs.readFileSync(paths.cleaned, 'utf8');
-  fs.writeFileSync(paths.cleaned, `${cleanRaw} `, 'utf8');
-  assertMutation(flowJson(['build-final', novel]), 'accepted/cleaned/book.json');
+  const prepared = assertPassed(flowJson(['prepare-merge', novel]), 'prepare merge');
+  const unit = prepared.units[0];
+  const input = readWorkItem(paths, unit).input;
+  const accepted = assertPassed(flowJson([
+    'accept', novel,
+    '--unit', unit,
+    '--draft', writeStagingDraft(novel, unit, mergeDecision(input))
+  ]), 'accept merge category');
+  const relativePath = path.relative(paths.run, accepted.accepted_file).split(path.sep).join('/');
+  const raw = fs.readFileSync(accepted.accepted_file, 'utf8');
+  fs.writeFileSync(accepted.accepted_file, `${raw} `, 'utf8');
+  assertMutation(flowJson(['prepare-merge', novel]), relativePath);
 });

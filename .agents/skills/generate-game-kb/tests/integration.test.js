@@ -12,6 +12,7 @@ const { buildGameMaterials } = require('../scripts/lib/game-materials');
 const { atomicWriteJson } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
 const { buildQualitySample, validateQualityReview } = require('../scripts/lib/quality');
+const { readWorkItem, readWorkPlan } = require('../scripts/lib/semantic-work');
 
 const {
   makeNovel,
@@ -39,6 +40,80 @@ function acceptJsonDraft(novel, unit, draft) {
 function assertFlowPassed(result, label) {
   assert.equal(result.status, 0, `${label}: ${result.stderr}`);
   return JSON.parse(result.stdout);
+}
+
+const MERGE_FIELD_NAMES = Object.freeze({
+  characters: ['level', 'identity', 'biography', 'personality', 'relationship_names', 'skill_names', 'item_names'],
+  events: ['cause', 'process', 'result', 'participant_names', 'location_names', 'importance'],
+  items: ['inclusion_reason', 'type', 'description'],
+  skills: ['type', 'description', 'holder_names', 'technique_names'],
+  techniques: ['named_in_source', 'source_skill_name', 'description'],
+  factions: ['type', 'description'],
+  locations: ['region', 'description'],
+  dialogues: ['event_ref', 'speaker_name', 'chapter', 'text']
+});
+
+function pickedFields(record, names) {
+  return Object.fromEntries(names
+    .filter(name => record?.[name] !== undefined)
+    .map(name => [name, record[name]]));
+}
+
+function mergeDecisionFromBook(input, book) {
+  const groups = new Map();
+  for (const candidate of input.candidates) {
+    const key = candidate.name || candidate.facts?.text || candidate.candidate_ref;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(candidate);
+  }
+  const decisions = [...groups.entries()].map(([name, candidates], index) => {
+    const record = input.category === 'dialogues'
+      ? book.dialogues.find(value => value.text === candidates[0].facts?.text)
+      : book[input.category].find(value => value.canonical_name === name);
+    assert.ok(record, `missing merge blueprint for ${input.category}:${name}`);
+    const fields = pickedFields(record, MERGE_FIELD_NAMES[input.category]);
+    if (input.category === 'dialogues') fields.event_ref = candidates[0].facts.event_ref;
+    const decision = {
+      entity_ref: `e${String(index + 1).padStart(3, '0')}`,
+      member_refs: candidates.map(candidate => candidate.candidate_ref),
+      action: 'merge',
+      aliases: [],
+      fields
+    };
+    if (input.category !== 'dialogues') decision.canonical_name = record.canonical_name;
+    return decision;
+  });
+  return {
+    schema_version: 1,
+    stage: 'merge_decision',
+    unit: input.unit,
+    decisions,
+    ambiguities: []
+  };
+}
+
+function cleanDecision(input) {
+  return {
+    schema_version: 1,
+    stage: 'clean_decision',
+    unit: input.unit,
+    decisions: input.entities.map(entity => entity.canonical_name === '普通小匕首'
+      ? {
+          entity_ref: entity.entity_ref,
+          action: 'drop',
+          reason: 'ordinary_item',
+          detail: '普通随身物，无特殊能力且不推动剧情。',
+          resolves: entity.obligation_refs
+        }
+      : {
+          entity_ref: entity.entity_ref,
+          action: 'keep',
+          resolves: []
+        }),
+    quantity_explanation: input.category === 'items'
+      ? '普通小匕首无特殊能力且不推动剧情，已删除；未按数量凑条目。'
+      : null
+  };
 }
 
 function jsonExample(markdown, heading) {
@@ -175,9 +250,11 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
         { local_key: 'character:甲', name: '甲', level: '核心', source_refs: [sourceRef(number, '甲在无名山谷遇见乙')] },
         { local_key: 'character:乙', name: '乙', level: '次要', source_refs: [sourceRef(number, '甲在无名山谷遇见乙')] }
       ] : [],
-      events: first ? [{
-        local_key: 'event:山谷相逢', name: '山谷相逢', importance: '重要', quote_status: 'quotable',
-        source_refs: [sourceRef(number, '甲在无名山谷遇见乙')]
+      events: [1, 3].includes(number) ? [{
+        local_key: 'event:山谷相逢', name: '山谷相逢', importance: '重要',
+        quote_status: first ? 'quotable' : 'not_quotable',
+        ...(first ? {} : { quote_reason: '本章仅为事件收束叙述。' }),
+        source_refs: [sourceRef(number, first ? '甲在无名山谷遇见乙' : '山谷相逢一事至此结束')]
       }] : [],
       items: first ? [
         { local_key: 'item:回生丹', name: '回生丹', source_refs: [sourceRef(number, '乙取出回生丹')] },
@@ -280,7 +357,15 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   };
 
   const merged = validMergedBook({ ...common, items: [importantItem, ordinaryItem] });
-  assertFlowPassed(acceptJsonDraft(novel, 'merge:book', merged), 'accept merge');
+  const mergePrepared = assertFlowPassed(runFlow(['prepare-merge', novel, '--json']), 'prepare merge');
+  assert.ok(mergePrepared.units.length > 0);
+  const mergePlan = readWorkPlan(paths, 'merge');
+  for (const input of mergePlan.inputs) {
+    assertFlowPassed(acceptJsonDraft(novel, input.unit, mergeDecisionFromBook(input, merged)), `accept ${input.unit}`);
+  }
+  assertFlowPassed(runFlow(['assemble-merge', novel, '--json']), 'assemble merge');
+  assert.equal(readJson(paths.progress).units['merge:book'].attempts, 0);
+  assert.equal(fs.existsSync(path.join(paths.drafts, 'merge_book')), false);
 
   const cleaned = validCleanedBook({
     ...common,
@@ -302,7 +387,42 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
       { material_type: '门派与世界观素材', source_category: 'factions', source_name: '玄门', relevance: '高', suggested_use: '门派原型', reason: '原著势力。' }
     ]
   });
-  assertFlowPassed(acceptJsonDraft(novel, 'clean:book', cleaned), 'accept clean');
+  const cleanPrepared = assertFlowPassed(runFlow(['prepare-clean', novel, '--json']), 'prepare clean');
+  assert.ok(cleanPrepared.units.every(unit => unit.startsWith('clean:') && unit !== 'clean:materials:001'));
+  const cleanPlan = readWorkPlan(paths, 'clean');
+  for (const input of cleanPlan.inputs) {
+    assertFlowPassed(acceptJsonDraft(novel, input.unit, cleanDecision(input)), `accept ${input.unit}`);
+  }
+  const materialPrepared = assertFlowPassed(runFlow(['prepare-clean', novel, '--json']), 'prepare materials');
+  assert.ok(materialPrepared.units.includes('clean:materials:001'));
+  const materialInput = readWorkItem(paths, 'clean:materials:001').input;
+  const materialSelections = [
+    ['战斗系统原型', 'skills', '玄门内功', '高', '内功原型', '原著明确命名。'],
+    ['经典剧情桥段', 'events', '山谷相逢', '高', '相逢桥段', '事件跨章收束。'],
+    ['角色原型/彩蛋', 'characters', '乙', '中', '同行者彩蛋', '次要人物行为鲜明。'],
+    ['标志性物品', 'items', '回生丹', '高', '丹药彩蛋', '重要丹药。'],
+    ['门派与世界观素材', 'factions', '玄门', '高', '门派原型', '原著势力。']
+  ];
+  const materialDraft = {
+    schema_version: 1,
+    stage: 'material_decision',
+    unit: 'clean:materials:001',
+    materials: materialSelections.map(([materialType, category, name, relevance, suggestedUse, reason]) => {
+      const source = materialInput.catalog.find(entry => entry.category === category && entry.name === name);
+      assert.ok(source, `missing material catalog entry ${category}:${name}`);
+      return {
+        material_type: materialType,
+        source_ref: source.entity_ref,
+        relevance,
+        suggested_use: suggestedUse,
+        reason
+      };
+    })
+  };
+  assertFlowPassed(acceptJsonDraft(novel, 'clean:materials:001', materialDraft), 'accept materials');
+  assertFlowPassed(runFlow(['assemble-clean', novel, '--json']), 'assemble clean');
+  assert.equal(readJson(paths.progress).units['clean:book'].attempts, 0);
+  assert.equal(fs.existsSync(path.join(paths.drafts, 'clean_book')), false);
   assertFlowPassed(runFlow(['build-final', novel, '--json']), 'build final');
 
   const sampleFile = paths.qualitySample;
@@ -350,7 +470,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   assert.equal(receipt.manual_review_count, 0);
 });
 
-test('seven item candidates disappearing at merge open only supplement:items', () => {
+test('seven explicitly rejected item candidates close the ledger without a whole-book retry', () => {
   const novel = makeNovel('物品归零书', '第一章 起始\n甲发现七件异物。\n');
   const prepared = assertFlowPassed(runFlow(['prepare', novel, '--json']), 'prepare item regression');
   const paths = pathsFor(novel, prepared.run_id);
@@ -382,33 +502,32 @@ test('seven item candidates disappearing at merge open only supplement:items', (
     }
   });
   assertFlowPassed(acceptJsonDraft(novel, 'chapter:001', chapterDraft), 'accept item chapter');
-  const acceptedItems = readJson(path.join(paths.chapters, 'ch_001.json')).items;
-  const merged = validMergedBook({
-    events: [],
-    dialogues: [],
-    items: [],
-    chapter_summaries: [{
-      chapter: 1,
-      title: chapter.title,
-      summary: '甲发现七件异物。',
-      key_events: [],
-      key_characters: [],
-      source_refs: [sourceRef(1, '七件异物')]
-    }],
-    candidate_resolutions: acceptedItems.map(item => ({
-      candidate_key: item.candidate_key,
-      resolution: 'ambiguous',
-      detail: '尚未确认七件异物是否应合并为重要物品。'
-    }))
-  });
-  assertFlowPassed(acceptJsonDraft(novel, 'merge:book', merged), 'accept ambiguous item merge');
+  assertFlowPassed(runFlow(['prepare-merge', novel, '--json']), 'prepare item merge');
+  const itemInput = readWorkPlan(paths, 'merge').inputs[0];
+  const itemDecision = {
+    schema_version: 1,
+    stage: 'merge_decision',
+    unit: itemInput.unit,
+    decisions: itemInput.candidates.map(candidate => ({
+      member_refs: [candidate.candidate_ref],
+      action: 'reject',
+      reason: 'ordinary_item',
+      detail: '尚无证据证明该物品具有特殊性或剧情关键作用。'
+    })),
+    ambiguities: []
+  };
+  assertFlowPassed(acceptJsonDraft(novel, itemInput.unit, itemDecision), 'accept item merge decision');
+  assertFlowPassed(runFlow(['assemble-merge', novel, '--json']), 'assemble item merge');
   assertFlowPassed(runFlow(['check-coverage', novel, '--json']), 'check item coverage');
 
-  assert.deepEqual(readJson(paths.coverage).recall_units, ['supplement:items']);
+  assert.deepEqual(readJson(paths.coverage).recall_units, []);
   const units = readJson(paths.progress).units;
-  assert.equal(units['supplement:items'].status, 'pending');
-  assert.equal(units['merge:book'].attempts, 1);
+  assert.equal(units['supplement:items'], undefined);
+  assert.equal(units['merge:book'].attempts, 0);
   assert.equal(Object.keys(units).includes('book:full-retry'), false);
+  const resolutions = readJson(paths.merged).candidate_resolutions;
+  assert.equal(resolutions.length, 7);
+  assert.ok(resolutions.every(row => row.resolution === 'rejected' && row.reason === 'ordinary_item'));
 });
 
 test('sparse dialogue coverage opens only recall:dialogues without a book retry', () => {

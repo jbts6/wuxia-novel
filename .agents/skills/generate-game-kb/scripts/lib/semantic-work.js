@@ -190,10 +190,30 @@ function createMergeWorkPlan({ chapters, accepted_hashes: acceptedHashes } = {})
         candidate_ref: candidateRef,
         candidate_key: member.candidate.candidate_key,
         category: member.category,
-        chapter: member.chapter
+        chapter: member.chapter,
+        ...(member.category === 'events' ? { source_local_key: member.candidate.local_key } : {}),
+        ...(member.category === 'dialogues' ? { event_local_key: member.candidate.event_local_key } : {})
       }
     };
   });
+
+  const eventRefByChapterKey = new Map(planned
+    .filter(member => member.category === 'events')
+    .map(member => [
+      `${member.binding.chapter}\0${member.binding.source_local_key}`,
+      member.binding.candidate_ref
+    ]));
+  for (const member of planned.filter(value => value.category === 'dialogues')) {
+    const eventRef = eventRefByChapterKey.get(`${member.binding.chapter}\0${member.binding.event_local_key}`);
+    if (!eventRef) {
+      throw workItemError('WORK_PLAN_INPUT_INVALID', 'Dialogue candidate event cannot be bound to a chapter event', {
+        candidate_key: member.binding.candidate_key,
+        chapter: member.binding.chapter
+      });
+    }
+    member.visible.facts.event_ref = eventRef;
+    member.binding.event_ref = eventRef;
+  }
 
   const inputs = [];
   const bindings = [];
@@ -385,6 +405,72 @@ function createCleanWorkPlan({ merged, merged_hash: mergedHash, obligations = []
   };
 }
 
+function materialSignals(category, record) {
+  const fields = {
+    characters: ['level', 'identity'],
+    events: ['importance'],
+    items: ['inclusion_reason', 'type'],
+    skills: ['type'],
+    techniques: ['named_in_source', 'source_skill_name'],
+    factions: ['type'],
+    locations: ['region'],
+    dialogues: ['speaker_name', 'chapter']
+  }[category] || [];
+  return cloneAiValue(Object.fromEntries(fields
+    .filter(field => record?.[field] !== undefined)
+    .map(field => [field, record[field]])));
+}
+
+function createMaterialWorkItem({ cleaned, upstream_hashes: upstreamHashes = {} } = {}) {
+  const records = ENTITY_CATEGORIES.flatMap(category => (Array.isArray(cleaned?.[category])
+    ? cleaned[category].map(record => ({ category, record }))
+    : []));
+  records.sort((left, right) =>
+    ENTITY_CATEGORIES.indexOf(left.category) - ENTITY_CATEGORIES.indexOf(right.category)
+    || compareText(left.record.canonical_name || left.record.text, right.record.canonical_name || right.record.text)
+    || compareText(left.record.local_key, right.record.local_key));
+  const bindings = records.map((entry, index) => ({
+    unit: 'clean:materials:001',
+    entity_ref: shortRef('m', index),
+    source_category: entry.category,
+    source_name: entry.record.canonical_name || entry.record.text,
+    local_key: entry.record.local_key
+  }));
+  const provisional = {
+    schema_version: 1,
+    semantic_contract_version: WORK_CONTRACT_VERSION,
+    stage: 'material_decision',
+    unit: 'clean:materials:001',
+    input_hash: HASH_PLACEHOLDER,
+    catalog: bindings.map((binding, index) => ({
+      entity_ref: binding.entity_ref,
+      category: binding.source_category,
+      name: binding.source_name,
+      signals: materialSignals(records[index].category, records[index].record)
+    }))
+  };
+  const inputHash = sha256(JSON.stringify({
+    semantic_contract_version: WORK_CONTRACT_VERSION,
+    stage: 'material_decision',
+    unit: provisional.unit,
+    upstream_hashes: sortedHashMap(upstreamHashes),
+    ai_input: provisional,
+    bindings
+  }));
+  const input = { ...provisional, input_hash: inputHash };
+  assertFits(input, input.unit);
+  return {
+    input,
+    bindings: {
+      schema_version: 1,
+      semantic_contract_version: WORK_CONTRACT_VERSION,
+      unit: input.unit,
+      input_hash: inputHash,
+      bindings: bindings.map(binding => ({ ...binding, input_hash: inputHash }))
+    }
+  };
+}
+
 function workRoot(paths, stage) {
   if (stage === 'merge') return paths.mergeWork;
   if (stage === 'clean') return paths.cleanWork;
@@ -393,7 +479,8 @@ function workRoot(paths, stage) {
 
 function unitDirectory(root, unit) {
   if (typeof unit !== 'string'
-    || !/^(merge|clean):(characters|events|items|skills|techniques|factions|locations|dialogues):(\d{3}|consolidate)$/.test(unit)) {
+    || !(/^(merge|clean):(characters|events|items|skills|techniques|factions|locations|dialogues):(\d{3}|consolidate)$/.test(unit)
+      || unit === 'clean:materials:001')) {
     throw workItemError('WORK_UNIT_INVALID', 'Semantic work unit is invalid', { unit });
   }
   return path.join(root, unit.replaceAll(':', '_'));
@@ -456,6 +543,27 @@ function writeWorkPlan(paths, plan) {
   return { written, plan: path.join(root, 'plan.json') };
 }
 
+function writeWorkItem(paths, stage, input, bindingsDocument) {
+  const root = workRoot(paths, stage);
+  const directory = unitDirectory(root, input?.unit);
+  const files = [
+    { file: path.join(directory, 'input.json'), content: jsonBytes(input) },
+    { file: path.join(directory, 'bindings.json'), content: jsonBytes(bindingsDocument) }
+  ];
+  for (const entry of files) {
+    if (fs.existsSync(entry.file) && fs.readFileSync(entry.file, 'utf8') !== entry.content) {
+      throw workItemError('WORK_ITEM_STALE', 'Existing semantic work bytes differ', { file: entry.file });
+    }
+  }
+  let written = false;
+  for (const entry of files) {
+    if (fs.existsSync(entry.file)) continue;
+    atomicWriteFile(entry.file, entry.content);
+    written = true;
+  }
+  return { written, input: files[0].file, bindings: files[1].file };
+}
+
 function readWorkItem(paths, unit) {
   const stage = unit.startsWith('merge:') ? 'merge' : unit.startsWith('clean:') ? 'clean' : null;
   const directory = unitDirectory(workRoot(paths, stage), unit);
@@ -472,14 +580,46 @@ function readWorkItem(paths, unit) {
   return { input, bindings, input_file: inputFile, bindings_file: bindingsFile };
 }
 
+function readWorkPlan(paths, stage) {
+  const root = workRoot(paths, stage);
+  const file = path.join(root, 'plan.json');
+  if (!fs.existsSync(file)) {
+    throw workItemError('WORK_PLAN_MISSING', 'Semantic work plan is missing', { stage });
+  }
+  const document = readJson(file);
+  if (document?.stage !== stage || !Array.isArray(document.units)) {
+    throw workItemError('WORK_PLAN_INVALID', 'Semantic work plan is invalid', { stage });
+  }
+  const workItems = document.units.map(descriptor => readWorkItem(paths, descriptor.unit));
+  for (let index = 0; index < workItems.length; index += 1) {
+    if (workItems[index].input.input_hash !== document.units[index].input_hash) {
+      throw workItemError('WORK_ITEM_STALE', 'Work item differs from its plan descriptor', {
+        unit: document.units[index].unit
+      });
+    }
+  }
+  return {
+    schema_version: document.schema_version,
+    semantic_contract_version: document.semantic_contract_version,
+    stage,
+    upstream_hashes: document.upstream_hashes,
+    inputs: workItems.map(work => work.input),
+    bindings: workItems.flatMap(work => work.bindings.bindings || []),
+    consolidations: document.consolidations || []
+  };
+}
+
 module.exports = {
   MAX_WORK_ITEM_BYTES,
   MAX_WORK_ITEM_CANDIDATES,
   WORK_CONTRACT_VERSION,
   createCleanWorkPlan,
+  createMaterialWorkItem,
   createMergeWorkPlan,
+  readWorkPlan,
   readWorkItem,
   serializedInputBytes,
   shortRef,
+  writeWorkItem,
   writeWorkPlan
 };

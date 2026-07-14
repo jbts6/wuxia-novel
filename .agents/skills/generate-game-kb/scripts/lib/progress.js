@@ -177,6 +177,28 @@ function setDeterministicUnit(current, unitName, inputHash, errors) {
   return progress;
 }
 
+function syncPlannedUnits(current, descriptors) {
+  const progress = cloneProgress(current);
+  let changed = false;
+  for (const descriptor of Array.isArray(descriptors) ? descriptors : []) {
+    const unitName = descriptor?.unit;
+    const inputHash = descriptor?.input_hash;
+    if (typeof unitName !== 'string' || typeof inputHash !== 'string') {
+      throw new GameKbError('WORK_PLAN_INVALID', 'Planned units require unit and input_hash');
+    }
+    const existing = progress.units[unitName];
+    if (!existing) {
+      progress.units[unitName] = freshUnit(inputHash);
+      changed = true;
+    } else if (existing.input_hash !== inputHash) {
+      rotateUnit(progress, unitName, inputHash, 'stale');
+      changed = true;
+    }
+  }
+  if (changed) progress.updated_at = now();
+  return progress;
+}
+
 function forceManualReview(current, unitName, errors, stopReason) {
   const progress = cloneProgress(current);
   const unit = progress.units[unitName];
@@ -304,5 +326,6 @@ module.exports = {
   resetUnit,
   saveProgress,
   setDeterministicUnit,
+  syncPlannedUnits,
   statusReport
 };

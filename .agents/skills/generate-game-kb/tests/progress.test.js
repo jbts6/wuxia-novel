@@ -15,7 +15,8 @@ const {
   normalizeErrorFingerprint,
   recordSubmission,
   resetUnit,
-  saveProgress
+  saveProgress,
+  syncPlannedUnits
 } = require('../scripts/lib/progress');
 const { prepareNovel } = require('../scripts/lib/source');
 
@@ -128,6 +129,34 @@ test('reset requires confirmation and affects only one unit', () => {
   assert.equal(reset.units['chapter:001'].status, 'pending');
   assert.equal(reset.units['chapter:001'].attempts, 0);
   assert.equal(reset.units['chapter:002'].status, 'done');
+});
+
+test('syncing dynamic category units preserves unchanged done siblings and rotates only stale inputs', () => {
+  const progress = freshProgress();
+  progress.units['merge:characters:001'] = {
+    ...freshUnit('sha256:characters'),
+    status: 'done',
+    attempts: 1
+  };
+  progress.units['merge:items:001'] = {
+    ...freshUnit('sha256:items-old'),
+    status: 'pending',
+    attempts: 1
+  };
+
+  const updated = syncPlannedUnits(progress, [
+    { unit: 'merge:characters:001', input_hash: 'sha256:characters' },
+    { unit: 'merge:items:001', input_hash: 'sha256:items-new' },
+    { unit: 'merge:events:001', input_hash: 'sha256:events' }
+  ]);
+
+  assert.equal(updated.units['merge:characters:001'].status, 'done');
+  assert.equal(updated.units['merge:characters:001'].attempts, 1);
+  assert.equal(updated.units['merge:items:001'].status, 'stale');
+  assert.equal(updated.units['merge:items:001'].attempts, 0);
+  assert.equal(updated.units['merge:events:001'].status, 'pending');
+  assert.equal(updated.history.length, 1);
+  assert.equal(updated.history[0].unit, 'merge:items:001');
 });
 
 test('done unchanged unit rejects resubmission without consuming attempts', () => {

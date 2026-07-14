@@ -407,10 +407,18 @@ function assembleMergedBook({
   }
   assertResolutionClosure(plan, finalResolutions);
   const localKeyByProvisional = assignLocalKeys(finalEntities);
+  const resolutionByCandidate = new Map(finalResolutions.map(row => [row.candidate_key, row]));
+  const resolvedEventRefMap = { ...eventRefMap };
+  for (const binding of (plan?.bindings || []).filter(value => value.category === 'events')) {
+    const resolution = resolutionByCandidate.get(binding.candidate_key);
+    if (resolution?.resolution !== 'merged_to') continue;
+    const localKey = localKeyByProvisional.get(resolution.provisional_key);
+    if (localKey) resolvedEventRefMap[binding.candidate_ref] = localKey;
+  }
   const categories = Object.fromEntries(ENTITY_CATEGORIES.map(category => [category, []]));
   for (const entity of finalEntities) {
     const localKey = localKeyByProvisional.get(entity.provisional_key);
-    categories[entity.category].push(materializeEntity(entity, localKey, eventRefMap));
+    categories[entity.category].push(materializeEntity(entity, localKey, resolvedEventRefMap));
   }
   for (const category of ENTITY_CATEGORIES) {
     categories[category].sort((left, right) => compareText(left.local_key, right.local_key));

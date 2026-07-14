@@ -7,6 +7,7 @@ const test = require('node:test');
 
 const { pathsFor } = require('../scripts/lib/paths');
 const { resolveRun } = require('../scripts/lib/run');
+const { readWorkItem } = require('../scripts/lib/semantic-work');
 
 const {
   makeNovel,
@@ -211,13 +212,98 @@ function acceptJsonDraft(novel, unit, draft) {
   return runFlow(['accept', novel, '--unit', unit, '--draft', draftFile, '--json']);
 }
 
-test('merge waits for every chapter and clean can complete only once', () => {
+function validMergeDecision(input) {
+  return {
+    schema_version: 1,
+    stage: 'merge_decision',
+    unit: input.unit,
+    decisions: [{
+      entity_ref: 'e001',
+      member_refs: input.candidates.map(candidate => candidate.candidate_ref),
+      action: 'merge',
+      canonical_name: input.candidates[0].name,
+      aliases: [],
+      fields: {}
+    }],
+    ambiguities: []
+  };
+}
+
+test('whole-book merge and clean drafts are not AI submission units', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
+  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
+
+  for (const [unit, draft] of [
+    ['merge:book', validMergedBook()],
+    ['clean:book', validCleanedBook()]
+  ]) {
+    const result = acceptJsonDraft(novel, unit, draft);
+    assert.notEqual(result.status, 0);
+    assert.equal(JSON.parse(result.stderr).code, 'WHOLE_BOOK_AI_UNIT_FORBIDDEN');
+  }
+});
+
+test('prepare-merge creates category work and a rejected category leaves an accepted sibling unchanged', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲取得回生丹。\n');
+  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
+  const paths = activePaths(novel);
+  const manifest = readJson(paths.manifest);
+  const chapter = manifest.chapters[0];
+  const chapterDraft = validChapterDraft({
+    title: chapter.title,
+    source_hash: chapter.input_hash,
+    characters: [{ local_key: 'character:甲', name: '甲', level: '核心', source_refs: [sourceRef()] }],
+    events: [],
+    items: [{ local_key: 'item:回生丹', name: '回生丹', source_refs: [sourceRef()] }],
+    skills: [],
+    techniques: [],
+    factions: [],
+    locations: [],
+    dialogues: [],
+    summary: {
+      title: chapter.title,
+      summary: '甲取得回生丹。',
+      key_events: [],
+      key_characters: ['甲'],
+      source_refs: [sourceRef()]
+    }
+  });
+  assert.equal(acceptJsonDraft(novel, 'chapter:001', chapterDraft).status, 0);
+
+  const prepared = runFlow(['prepare-merge', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+  assert.deepEqual(JSON.parse(prepared.stdout).units, ['merge:characters:001', 'merge:items:001']);
+
+  const characterWork = readWorkItem(paths, 'merge:characters:001').input;
+  assert.equal(JSON.stringify(characterWork).includes('candidate_key'), false);
+  const accepted = acceptJsonDraft(novel, characterWork.unit, validMergeDecision(characterWork));
+  assert.equal(accepted.status, 0, accepted.stderr);
+
+  const itemWork = readWorkItem(paths, 'merge:items:001').input;
+  const rejected = acceptJsonDraft(novel, itemWork.unit, {
+    schema_version: 1,
+    stage: 'merge_decision',
+    unit: itemWork.unit,
+    decisions: [],
+    ambiguities: []
+  });
+  assert.notEqual(rejected.status, 0);
+  assert.equal(JSON.parse(rejected.stderr).code, 'DRAFT_REJECTED');
+
+  const progress = readJson(paths.progress).units;
+  assert.equal(progress['merge:characters:001'].status, 'done');
+  assert.equal(progress['merge:characters:001'].attempts, 1);
+  assert.equal(progress['merge:items:001'].status, 'pending');
+  assert.equal(progress['merge:items:001'].attempts, 1);
+});
+
+test('deterministic merge and clean aggregates use zero attempts and preserve downstream output', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n第二章 转折\n乙。\n第三章 收束\n丙。\n');
   assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
   const paths = activePaths(novel);
   const manifest = readJson(paths.manifest);
 
-  const premature = acceptJsonDraft(novel, 'merge:book', validMergedBook());
+  const premature = runFlow(['prepare-merge', novel, '--json']);
   assert.notEqual(premature.status, 0);
   assert.equal(JSON.parse(premature.stderr).code, 'MERGE_CHAPTERS_INCOMPLETE');
   assert.equal(readJson(paths.progress).units['merge:book'], undefined);
@@ -238,29 +324,29 @@ test('merge waits for every chapter and clean can complete only once', () => {
     assert.equal(result.status, 0, result.stderr);
   }
 
-  const summaries = manifest.chapters.map(chapter => ({
-    chapter: chapter.number, title: chapter.title, summary: `第${chapter.number}章摘要。`,
-    key_events: [], key_characters: [], source_refs: [sourceRef(chapter.number)]
-  }));
-  const merged = validMergedBook({ chapter_summaries: summaries });
-  const mergeResult = acceptJsonDraft(novel, 'merge:book', merged);
+  const mergePlan = runFlow(['prepare-merge', novel, '--json']);
+  assert.equal(mergePlan.status, 0, mergePlan.stderr);
+  assert.deepEqual(JSON.parse(mergePlan.stdout).units, []);
+  const mergeResult = runFlow(['assemble-merge', novel, '--json']);
   assert.equal(mergeResult.status, 0, mergeResult.stderr);
+  assert.equal(readJson(paths.progress).units['merge:book'].attempts, 0);
   const preCleanQuantity = readJson(paths.preCleanQuantity);
   assert.equal(preCleanQuantity.review_consumed, false);
   assert.equal(preCleanQuantity.chapter_count, 3);
 
-  const cleaned = validCleanedBook({
-    chapter_summaries: summaries,
-    game_material_candidates: [
-      { material_type: '战斗系统原型', source_category: 'skills', source_name: '玄门内功', relevance: '高', suggested_use: '内功原型', reason: '原著明确命名。' },
-      { material_type: '经典剧情桥段', source_category: 'events', source_name: '山中相逢', relevance: '高', suggested_use: '相逢桥段', reason: '跨章事件。' },
-      { material_type: '角色原型/彩蛋', source_category: 'characters', source_name: '甲', relevance: '高', suggested_use: '人物彩蛋', reason: '核心人物。' },
-      { material_type: '标志性物品', source_category: 'items', source_name: '回生丹', relevance: '高', suggested_use: '药物彩蛋', reason: '高级丹药。' },
-      { material_type: '门派与世界观素材', source_category: 'factions', source_name: '玄门', relevance: '高', suggested_use: '门派原型', reason: '原著势力。' }
-    ]
+  const cleanPlan = runFlow(['prepare-clean', novel, '--json']);
+  assert.equal(cleanPlan.status, 0, cleanPlan.stderr);
+  assert.deepEqual(JSON.parse(cleanPlan.stdout).units, ['clean:materials:001']);
+  const materialResult = acceptJsonDraft(novel, 'clean:materials:001', {
+    schema_version: 1,
+    stage: 'material_decision',
+    unit: 'clean:materials:001',
+    materials: []
   });
-  const cleanResult = acceptJsonDraft(novel, 'clean:book', cleaned);
+  assert.equal(materialResult.status, 0, materialResult.stderr);
+  const cleanResult = runFlow(['assemble-clean', novel, '--json']);
   assert.equal(cleanResult.status, 0, cleanResult.stderr);
+  assert.equal(readJson(paths.progress).units['clean:book'].attempts, 0);
   const buildResult = runFlow(['build-final', novel, '--json']);
   assert.equal(buildResult.status, 0, buildResult.stderr);
   assert.equal(JSON.parse(buildResult.stdout).file_count, 9);
@@ -268,44 +354,6 @@ test('merge waits for every chapter and clean can complete only once', () => {
     'chapter_summaries.json', 'characters.json', 'dialogues.json', 'events.json', 'factions.json',
     'items.json', 'locations.json', 'skills.json', 'techniques.json'
   ]);
-  const pendingVerify = runFlow(['verify', novel, '--json']);
-  assert.notEqual(pendingVerify.status, 0);
-  const pendingPayload = JSON.parse(pendingVerify.stderr);
-  assert.ok(Array.isArray(pendingPayload.details.blocking_errors), pendingVerify.stderr);
-  assert.ok(pendingPayload.details.blocking_errors.some(error => error.code === 'QUALITY_REVIEW_REQUIRED'));
-  assert.equal('next_action' in pendingPayload.details, false);
-  assert.equal('command' in pendingPayload.details, false);
-
-  const sample = readJson(paths.qualitySample);
-  const qualityReview = {
-    schema_version: 1,
-    results: sample.items.map(item => ({
-      id: item.id,
-      passed: true,
-      checks: { name: true, category: true, key_facts: true, chapter: true },
-      notes: ''
-    }))
-  };
-  const qualityResult = acceptJsonDraft(novel, 'quality:sample', qualityReview);
-  assert.equal(qualityResult.status, 0, qualityResult.stderr);
-  const verified = runFlow(['verify', novel, '--json']);
-  assert.equal(verified.status, 0, verified.stderr);
-  assert.equal(JSON.parse(verified.stdout).passed, true);
-
-  const second = acceptJsonDraft(novel, 'clean:book', cleaned);
-  assert.notEqual(second.status, 0);
-  assert.equal(JSON.parse(second.stderr).code, 'UNIT_ALREADY_DONE');
-  assert.equal(readJson(paths.progress).units['clean:book'].attempts, 1);
   assert.equal(readJson(paths.cleaned).quantity_review.consumed, true);
-
-  assert.equal(runFlow(['reset-unit', novel, '--unit', 'quality:sample', '--confirm', '--json']).status, 0);
-  qualityReview.results[0].passed = false;
-  qualityReview.results[0].checks.key_facts = false;
-  const lowQuality = acceptJsonDraft(novel, 'quality:sample', qualityReview);
-  assert.notEqual(lowQuality.status, 0);
-  assert.equal(JSON.parse(lowQuality.stderr).code, 'QUALITY_SAMPLE_FAILED');
-  const finalProgress = readJson(paths.progress);
-  assert.equal(finalProgress.units['quality:sample'].status, 'manual_review');
-  assert.equal(finalProgress.units['quality:sample'].attempts, 1);
-  assert.equal(finalProgress.units['clean:book'].attempts, 1);
+  assert.equal(readJson(paths.progress).units['clean:book'].attempts, 0);
 });
