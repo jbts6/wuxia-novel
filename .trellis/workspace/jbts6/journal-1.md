@@ -517,3 +517,36 @@ Implemented and verified the six-stage managed generate-kb pipeline, including f
 ### Next Steps
 
 - None - task complete
+
+
+## Session 10: Dashboard 游戏素材与事件接入
+
+**Date**: 2026-07-14
+**Task**: Dashboard 游戏素材与事件接入
+**Branch**: `main`
+
+### Summary
+
+接入独立书籍扩展接口、游戏素材与关键事件浏览，保持八类核心契约，并将素材来源名称设为卡片主标题。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `85910e33` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
