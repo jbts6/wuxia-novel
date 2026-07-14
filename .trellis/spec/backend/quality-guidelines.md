@@ -22,7 +22,7 @@ Generated knowledge bases are evidence pipelines. Quality must be demonstrated b
 ## Required Patterns
 
 - The managed generate-kb run is a fixed six-stage state machine: `prepare`, `inventory`, `reconcile`, `enrich`, `semantic-audit`, and `publish`. A session must read `status --json` and execute only the returned next action.
-- `scripts/pipeline.js` is the only supported write entry. AI output uses `claim -> draft -> submit`; packet bindings include stage, work-item ID, input hash, worker, and lease. Stale, duplicate, cross-stage, or non-current submissions must be rejected atomically.
+- For audit-grade managed runs under `.agents/skills/generate-kb`, `scripts/pipeline.js` is the only supported write entry. AI output uses `claim -> draft -> submit`; packet bindings include stage, work-item ID, input hash, worker, and lease. Stale, duplicate, cross-stage, or non-current submissions must be rejected atomically.
 - Before `publish`, records use provisional keys and no formal `data/*.json`, `reports/*.json`, or `.kb/current` writes are allowed. Formal IDs, reference projection, reports, and final hashes are created once inside a verified staging bundle.
 - Build the candidate ledger from each source window before reconciliation, classification, or enrichment.
 - Every candidate must have exactly one keep/merge/redirect/reject decision; retained candidates point to stable provisional keys until publish projects one formal ID plan.
@@ -178,3 +178,75 @@ Ask the model for a memory-based inventory, then use prefix matches and an overa
 #### Correct
 
 Record candidates and complete citations from each source window, close every decision, enrich all retained records, run `validate-final-data.js`, regenerate hash-bound verification reports, then let non-compensating G1-G5 gates determine completion independently.
+
+## Scenario: Fast Game-Material Knowledge Base Profile
+
+### 1. Scope / Trigger
+
+- Trigger: generating a game-design-oriented wuxia knowledge base quickly with `.agents/skills/generate-game-kb` when chapter-level source accuracy and a fixed 95% quality sample are sufficient.
+- This is a separate profile. The audit-grade `.agents/skills/generate-kb` six-stage state machine, `.kb/current`, managed write guards, and independent G1–G5 gates remain unchanged.
+- The fast profile cannot claim G1–G5 completion, recall completeness, exact evidence, or audit-grade coverage.
+
+### 2. Signatures
+
+```text
+node .agents/skills/generate-game-kb/scripts/flow.js prepare <novel-dir>
+node .agents/skills/generate-game-kb/scripts/flow.js status <novel-dir> --json
+node .agents/skills/generate-game-kb/scripts/flow.js accept <novel-dir> --unit <unit> --draft <json>
+node .agents/skills/generate-game-kb/scripts/flow.js build-final <novel-dir>
+node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir>
+node .agents/skills/generate-game-kb/scripts/flow.js install <novel-dir>
+node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir> --installed
+```
+
+AI units are `chapter:NNN`, `merge:book`, `clean:book`, and `quality:sample`. `status` is observational and never returns an executable next action.
+
+### 3. Contracts
+
+- Request: one source novel under `<novel-dir>`; `prepare` derives ordered chapter files and a hash-bound manifest. Resuming skips unchanged completed chapters.
+- Intermediate AI drafts use local keys and name-based references. AI never creates final IDs or rewrites final references.
+- Every AI unit has at most three total attempts across restarts. Repeated output, repeated normalized error, or `A -> B -> A` output/error oscillation must stop earlier in `manual_review`.
+- Semantic work is exactly one chapter extraction per chapter, one book merge, one cleanup, one advisory quantity review, and one fixed quality-sample review. Quantity is advisory and cannot become a completion gate.
+- Evidence requires a correct chapter and a non-empty source anchor. Exact evidence, line numbers, and paragraph offsets are optional; a cross-chapter event may retain multiple non-contiguous chapter references.
+- Named martial skills and named techniques remain high recall. Ordinary actions remain excluded from techniques and do not create a tenth action category.
+- Final output is nine top-level-array files: `characters.json`, `events.json`, `items.json`, `skills.json`, `techniques.json`, `factions.json`, `locations.json`, `dialogues.json`, and `chapter_summaries.json`.
+- `reports/game_materials.json` is an ID-resolving index over those files, not another entity category. The Dashboard's existing eight browseability files remain unchanged; `events.json` is an additional compatible ninth file.
+- Direct `data/` installation is allowed only after workspace verification and only through the fast profile's complete backup-and-swap installer. The installer preserves unknown non-target entries, records a receipt, restores the old directory after a failed swap, and requires `verify --installed` before completion.
+
+### 4. Validation & Error Matrix
+
+- Chapter, merge, cleanup, or quality draft violates its contract -> reject the submission and consume one persisted attempt.
+- Same output, same normalized error, or `A -> B -> A` oscillation -> `manual_review` before another automatic retry.
+- Third failed submission -> `ATTEMPTS_EXHAUSTED` and `manual_review`; automatic `reset-unit` is forbidden.
+- Unresolved or ambiguous deterministic reference -> `finalize:references` enters `manual_review`; do not ask AI to rotate between ID plans.
+- Any unresolved `manual_review` item -> `build-final` or `install` fails closed, while unrelated chapter extraction may continue.
+- Quantity outside its suggested range -> report the actual count and one explanation, then continue; count alone is non-blocking.
+- Fixed sample below 38/40, or below `ceil(n * 0.95)` for a smaller work -> `quality:sample` enters `manual_review`; do not return to merge or cleanup.
+- Workspace verification missing or failing -> installation refused. Installed hashes, named reports, or receipt missing/stale -> `verify --installed` fails without falling back to work files.
+
+### 5. Good/Base/Bad Cases
+
+- Good: every chapter is accepted, one merge and cleanup are accepted, named martial material is retained, ordinary actions and trivial items are absent, the fixed sample passes, backup-and-swap installation succeeds, and installed data re-verifies.
+- Base: category counts remain outside guidance after the single review, with a source-grounded explanation; verification continues because quantity is advisory.
+- Base: line or paragraph placement is approximate while every cited chapter is correct; the record remains valid for this profile but is not exact-evidence output.
+- Bad: claiming G1–G5 or recall completeness from the 95% sample, adding entries to reach a quantity band, repeatedly polling `status`, automatically resetting attempts, or editing final IDs with AI.
+- Bad: writing nine files directly over `data/` without a complete backup, atomic directory swap, install receipt, and installed re-verification.
+
+### 6. Tests Required
+
+- Unit: persisted three-attempt budget, identical output/error, output/error oscillation, explicit reset confirmation, and manual-review blocking.
+- Contract: chapter-local evidence, named-technique requirement, five character levels, important-item reasons, one dialogue per event, one summary per chapter, and forbidden intermediate IDs.
+- Projection: deterministic pinyin IDs, collision stability, one-shot reference rewrite, nine arrays, cross-chapter events, and unresolved-reference fail-closed behavior.
+- Quality: fixed category quotas, 95% threshold, quantity-only warnings, game-material source resolution, and no whole-book retry after sample failure.
+- Installation: full backup, unknown-entry preservation, pre/post-move fault recovery, idempotence, receipt hashes, and installed-only verification.
+- Integration: a three-chapter source executes `prepare -> accept -> merge -> clean -> build-final -> verify -> quality -> verify -> install -> verify --installed` and proves ordinary actions/items are absent.
+
+### 7. Wrong vs Correct
+
+#### Wrong
+
+Run the fast sample, treat its score as recall proof, ask AI to repair final IDs until verification passes, then copy files directly into `data/`.
+
+#### Correct
+
+Use chapter-grounded drafts with persisted bounded attempts, let scripts project IDs once, stop unresolved work in `manual_review`, treat quantity as advisory, pass the fixed sample, then install through backup-and-swap and reverify only the installed artifacts.

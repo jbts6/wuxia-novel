@@ -23,6 +23,7 @@ const {
 } = require('./helpers');
 
 const SKILL_ROOT = path.resolve(__dirname, '..');
+const PROJECT_ROOT = path.resolve(SKILL_ROOT, '..', '..', '..');
 const TARGET_FILES = [
   'chapter_summaries.json', 'characters.json', 'dialogues.json', 'events.json', 'factions.json',
   'items.json', 'locations.json', 'skills.json', 'techniques.json'
@@ -123,6 +124,26 @@ test('Skill documents the bounded fast workflow without template placeholders', 
   assert.deepEqual(Object.keys(manual).sort(), [
     'attempts', 'errors', 'input_hash', 'stop_reason', 'suggested_action', 'unit'
   ]);
+});
+
+test('project quality spec keeps the fast profile separate from managed G1-G5 runs', () => {
+  const spec = fs.readFileSync(
+    path.join(PROJECT_ROOT, '.trellis', 'spec', 'backend', 'quality-guidelines.md'),
+    'utf8'
+  );
+
+  assert.match(spec, /## Scenario: Fast Game-Material Knowledge Base Profile/);
+  assert.match(spec, /\.agents\/skills\/generate-kb.*scripts\/pipeline\.js|scripts\/pipeline\.js.*\.agents\/skills\/generate-kb/s);
+  assert.doesNotMatch(spec, /^- `scripts\/pipeline\.js` is the only supported write entry\./m);
+  assert.match(spec, /chapter-level.*95%|95%.*chapter-level/i);
+  assert.match(spec, /cannot claim G1–G5|must not claim G1–G5/i);
+  assert.match(spec, /recall completeness/);
+  assert.match(spec, /exact evidence/);
+  assert.match(spec, /three.*attempt|3.*attempt/i);
+  assert.match(spec, /quantity.*advisory/i);
+  assert.match(spec, /ordinary actions.*excluded/i);
+  assert.match(spec, /backup.*swap|swap.*backup/i);
+  assert.match(spec, /eight.*browseability.*events\.json|events\.json.*eight.*browseability/is);
 });
 
 test('three-chapter workflow installs nine game-oriented arrays and passing evidence', () => {
