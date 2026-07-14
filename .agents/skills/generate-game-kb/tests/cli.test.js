@@ -6,7 +6,16 @@ const os = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
 
-const { makeNovel, makeNovelDirectory, readJson, runFlow, validChapterDraft } = require('./helpers');
+const {
+  makeNovel,
+  makeNovelDirectory,
+  readJson,
+  runFlow,
+  sourceRef,
+  validChapterDraft,
+  validCleanedBook,
+  validMergedBook
+} = require('./helpers');
 
 test('prepare command creates a manifest and returns JSON', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
@@ -88,4 +97,63 @@ test('accept chapter writes normalized accepted data and marks the unit done', (
   assert.equal(JSON.parse(result.stdout).status, 'done');
   const accepted = readJson(path.join(novel, '.game-kb-work', 'chapters', 'ch_001.json'));
   assert.equal(accepted.chapter, 1);
+});
+
+function acceptJsonDraft(novel, unit, draft) {
+  const draftFile = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-draft-')), `${unit.replace(':', '_')}.json`);
+  fs.writeFileSync(draftFile, JSON.stringify(draft), 'utf8');
+  return runFlow(['accept', novel, '--unit', unit, '--draft', draftFile, '--json']);
+}
+
+test('merge waits for every chapter and clean can complete only once', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n第二章 转折\n乙。\n');
+  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
+  const manifest = readJson(path.join(novel, '.game-kb-work', 'manifest.json'));
+
+  const premature = acceptJsonDraft(novel, 'merge:book', validMergedBook());
+  assert.notEqual(premature.status, 0);
+  assert.equal(JSON.parse(premature.stderr).code, 'MERGE_CHAPTERS_INCOMPLETE');
+  assert.equal(readJson(path.join(novel, '.game-kb-work', 'progress.json')).units['merge:book'], undefined);
+
+  for (const chapter of manifest.chapters) {
+    const emptyDraft = validChapterDraft({
+      chapter: chapter.number,
+      title: chapter.title,
+      source_hash: chapter.input_hash,
+      characters: [], events: [], items: [], skills: [], techniques: [], factions: [], locations: [], dialogues: [],
+      summary: {
+        title: chapter.title,
+        summary: `第${chapter.number}章摘要。`,
+        key_events: [], key_characters: [], source_refs: [sourceRef(chapter.number)]
+      }
+    });
+    const result = acceptJsonDraft(novel, `chapter:${String(chapter.number).padStart(3, '0')}`, emptyDraft);
+    assert.equal(result.status, 0, result.stderr);
+  }
+
+  const summaries = manifest.chapters.map(chapter => ({
+    chapter: chapter.number, title: chapter.title, summary: `第${chapter.number}章摘要。`,
+    key_events: [], key_characters: [], source_refs: [sourceRef(chapter.number)]
+  }));
+  const merged = validMergedBook({
+    characters: [], events: [], items: [], skills: [], techniques: [], factions: [], locations: [], dialogues: [],
+    chapter_summaries: summaries
+  });
+  const mergeResult = acceptJsonDraft(novel, 'merge:book', merged);
+  assert.equal(mergeResult.status, 0, mergeResult.stderr);
+  const preCleanQuantity = readJson(path.join(novel, '.game-kb-work', 'merged', 'pre_clean_quantity.json'));
+  assert.equal(preCleanQuantity.review_consumed, false);
+  assert.equal(preCleanQuantity.chapter_count, 2);
+
+  const cleaned = validCleanedBook({
+    characters: [], events: [], items: [], skills: [], techniques: [], factions: [], locations: [], dialogues: [],
+    chapter_summaries: summaries, game_material_candidates: []
+  });
+  const cleanResult = acceptJsonDraft(novel, 'clean:book', cleaned);
+  assert.equal(cleanResult.status, 0, cleanResult.stderr);
+  const second = acceptJsonDraft(novel, 'clean:book', cleaned);
+  assert.notEqual(second.status, 0);
+  assert.equal(JSON.parse(second.stderr).code, 'UNIT_ALREADY_DONE');
+  assert.equal(readJson(path.join(novel, '.game-kb-work', 'progress.json')).units['clean:book'].attempts, 1);
+  assert.equal(readJson(path.join(novel, '.game-kb-work', 'cleaned', 'book.json')).quantity_review.consumed, true);
 });

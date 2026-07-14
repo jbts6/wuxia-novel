@@ -66,6 +66,65 @@ function validChapterDraft(overrides = {}) {
   return { ...draft, ...overrides };
 }
 
+function validMergedBook(overrides = {}) {
+  return {
+    schema_version: 1,
+    stage: 'merged',
+    characters: [{
+      local_key: 'character:甲', canonical_name: '甲', aliases: [], level: '核心', identity: '侠客',
+      biography: '甲在江湖中追查旧事。', personality: { traits: ['坚毅'], speech_style: '简练' },
+      relationship_names: [], skill_names: ['玄门内功'], item_names: [], source_refs: [sourceRef(1)]
+    }],
+    events: [{
+      local_key: 'event:相逢', canonical_name: '山中相逢', cause: '追查线索', process: '山谷会面', result: '交换消息',
+      participant_names: ['甲'], location_names: ['无名山谷'], importance: '重要', source_refs: [sourceRef(1), sourceRef(3)]
+    }],
+    items: [{
+      local_key: 'item:灵丹', canonical_name: '回生丹', inclusion_reason: '高级药毒', type: '丹药',
+      description: '用于救治重伤。', source_refs: [sourceRef(2)]
+    }],
+    skills: [{
+      local_key: 'skill:内功', canonical_name: '玄门内功', type: '内功', description: '调息养气。',
+      holder_names: ['甲'], technique_names: ['飞云掌'], source_refs: [sourceRef(1)]
+    }],
+    techniques: [{
+      local_key: 'technique:飞掌', canonical_name: '飞云掌', named_in_source: true,
+      source_skill_name: '玄门内功', description: '掌势迅疾。', source_refs: [sourceRef(1)]
+    }],
+    factions: [{
+      local_key: 'faction:玄门', canonical_name: '玄门', type: '门派', description: '隐居山中。', source_refs: [sourceRef(1)]
+    }],
+    locations: [{
+      local_key: 'location:山谷', canonical_name: '无名山谷', region: '北地', description: '群山环抱。', source_refs: [sourceRef(1)]
+    }],
+    dialogues: [{
+      local_key: 'dialogue:相逢', event_key: 'event:相逢', speaker_name: '甲', chapter: 1,
+      text: '你终于来了。', source_refs: [sourceRef(1)]
+    }],
+    chapter_summaries: [1, 2, 3].map(chapter => ({
+      chapter,
+      title: `第${chapter}章`,
+      summary: `第${chapter}章摘要。`,
+      key_events: chapter === 1 ? ['山中相逢'] : [],
+      key_characters: ['甲'],
+      source_refs: [sourceRef(chapter)]
+    })),
+    ambiguities: [],
+    ...overrides
+  };
+}
+
+function validCleanedBook(overrides = {}) {
+  return validMergedBook({
+    stage: 'cleaned',
+    quantity_review: { consumed: true, explanations: ['数量只作一次提醒，未为凑数新增条目。'] },
+    game_material_candidates: [
+      { material_type: '战斗系统原型', source_category: 'skills', source_name: '玄门内功', relevance: '高', suggested_use: '内功原型', reason: '原著明确命名。' }
+    ],
+    ...overrides
+  });
+}
+
 module.exports = {
   FLOW,
   makeNovel,
@@ -73,5 +132,7 @@ module.exports = {
   readJson,
   runFlow,
   sourceRef,
-  validChapterDraft
+  validChapterDraft,
+  validCleanedBook,
+  validMergedBook
 };

@@ -15,6 +15,7 @@ function pathsFor(novelDir) {
     drafts: path.join(work, 'drafts'),
     chapters: path.join(work, 'chapters'),
     merged: path.join(work, 'merged', 'book.json'),
+    preCleanQuantity: path.join(work, 'merged', 'pre_clean_quantity.json'),
     cleaned: path.join(work, 'cleaned', 'book.json'),
     finalRoot: path.join(work, 'final'),
     finalData: path.join(work, 'final', 'data'),
