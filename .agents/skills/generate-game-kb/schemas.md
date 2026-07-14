@@ -6,8 +6,10 @@
 
 - [通用规则](#通用规则)
 - [章节草稿示例](#章节草稿示例)
-- [合并草稿示例](#合并草稿示例)
-- [清理草稿示例](#清理草稿示例)
+- [类别合并决策草稿示例](#类别合并决策草稿示例)
+- [类别清理决策草稿示例](#类别清理决策草稿示例)
+- [游戏素材选择草稿示例](#游戏素材选择草稿示例)
+- [确定性组装产物](#确定性合并产物示例)
 - [最终文件](#最终文件)
 - [游戏素材索引示例](#游戏素材索引示例)
 - [固定质量复核示例](#固定质量复核示例)
@@ -15,7 +17,8 @@
 
 ## 通用规则
 
-- AI 产生的章节、合并、清理草稿只用名称型引用：local_key、event_key、event_local_key、*_name、*_names。禁止出现最终 id、*_id、*_ids。
+- AI 章节草稿使用章内 `local_key`、`event_local_key` 与名称型引用；类别合并/清理/素材草稿只使用脚本提供的 `candidate_ref`、`member_refs`、`entity_ref`、`event_ref`、`obligation_ref`、`source_ref` 等短引用。
+- 类别语义草稿禁止出现 `candidate_key`、`local_key`、最终 `id`、`*_id`、`*_ids`。私有 bindings、全书 local key、候选 ledger、source refs 并集、最终 ID 与引用重写全部由脚本生成。
 - source_refs 至少一条；chapter 与非空 text 必填，line_start、line_end 可省略。章节草稿只能引用当前章；合并与清理可保留跨章、不连续引用。
 - 人物 level 只允许：核心、重要、次要、龙套、背景。核心和重要保留详细 biography/personality；后三档 biography 不超过 200 个字符且 traits 最多 2 项。
 - 物品 inclusion_reason 只允许：秘籍、剧情关键、高级药毒、神兵利器、其他稀有特殊。
@@ -156,7 +159,40 @@
 
 章节对象固定含八类候选数组、一个 summary 和 coverage。候选至少含 local_key、name、source_refs；可按类别增加示例中的语义字段。source_hash 必须逐字复制 manifest 对应章节的 input_hash。coverage 由脚本接受时确定性重算。
 
-## 合并草稿示例
+## 类别合并决策草稿示例
+
+普通 shard 的 AI 草稿只裁决一个类别工作项：
+
+```json
+{
+  "schema_version": 1,
+  "stage": "merge_decision",
+  "unit": "merge:characters:001",
+  "decisions": [
+    {
+      "entity_ref": "e0001",
+      "member_refs": [
+        "c0001",
+        "c0002"
+      ],
+      "action": "merge",
+      "canonical_name": "甲",
+      "aliases": [
+        "甲别名"
+      ],
+      "fields": {
+        "level": "核心",
+        "biography": "甲在江湖中追查旧事。"
+      }
+    }
+  ],
+  "ambiguities": []
+}
+```
+
+每个输入短引用必须在 `decisions` 与 `ambiguities` 的 `member_refs` 中恰好出现一次。action 只允许 `merge`、`reject`、`ambiguous`。`reject` 使用有限拒绝 reason；`ambiguous` 必须有 detail 并阻断组装。`merge:<category>:consolidate` 使用同一输出形状，但 member_refs 来自初步实体的 `entity_ref`。对白 merge 的 `fields` 使用脚本提供的 `event_ref`，不生成事件 local key。
+
+## 确定性合并产物示例
 
 ```json
 {
@@ -362,9 +398,60 @@
 }
 ```
 
-合并对象固定为 stage=merged，八类实体改用 canonical_name，可带 aliases，并把章内键归并为全书唯一 local_key。candidate_resolutions 必须闭合所有逐章候选，且每项只有 merged_to、rejected、ambiguous 之一。chapter_summaries 必须覆盖 manifest 每一章且每章恰好一条。ambiguities 只记录尚不能唯一裁决的问题。
+`assemble-merge` 根据已接受类别决定与私有 bindings 生成 stage=merged 对象。八类实体使用脚本生成的全书唯一 local_key；candidate_resolutions 闭合所有逐章候选，且每项只有 merged_to、rejected、ambiguous 之一。chapter_summaries 按 manifest 从已接受章节机械投影。AI 不复制或编辑本对象。
 
-## 清理草稿示例
+## 类别清理决策草稿示例
+
+```json
+{
+  "schema_version": 1,
+  "stage": "clean_decision",
+  "unit": "clean:characters:001",
+  "decisions": [
+    {
+      "entity_ref": "e0001",
+      "action": "edit",
+      "patch": {
+        "biography": "甲在江湖中追查旧事。"
+      },
+      "resolves": [
+        "o0001"
+      ]
+    },
+    {
+      "entity_ref": "e0002",
+      "action": "keep",
+      "resolves": []
+    }
+  ],
+  "quantity_explanation": null
+}
+```
+
+每个输入 `entity_ref` 必须恰好裁决一次。action 只允许 `keep`、`edit`、`merge_into`、`drop`；所有决定都含 `resolves`。patch 只含当前类别允许的语义字段。`merge_into` 的 target_ref 必须属于同一工作项，reason 固定为 duplicate；drop 使用有限拒绝 reason。命名功法/招式与核心/重要人物禁止直接 drop。声称解决 obligation 但组装后义务仍存在会被拒绝。
+
+## 游戏素材选择草稿示例
+
+```json
+{
+  "schema_version": 1,
+  "stage": "material_decision",
+  "unit": "clean:materials:001",
+  "materials": [
+    {
+      "material_type": "战斗系统原型",
+      "source_ref": "m0001",
+      "relevance": "高",
+      "suggested_use": "内功系统原型",
+      "reason": "原著明确命名。"
+    }
+  ]
+}
+```
+
+素材 AI 只读取所有实体清理完成后生成的紧凑 catalog，并引用其中的 source_ref。脚本用私有 bindings 展开 source_category、source_name 和最终 source_id；草稿不得嵌入事实记录。
+
+## 确定性清理产物示例
 
 ```json
 {
@@ -618,7 +705,7 @@
 }
 ```
 
-清理对象固定为 stage=cleaned，且 ambiguities 必须为空。candidate_resolutions 必须反映清理删除的候选及其有限拒绝理由。quantity_review.consumed 必须为 true；explanations 记录一次数量复核的保留、删除或不调整理由。game_material_candidates 只能引用已保留实体的 source_category 与 source_name，不能嵌入实体副本。
+`assemble-clean` 根据类别决定、材料短引用决定与私有 bindings 生成 stage=cleaned 对象，且 ambiguities 必须为空。脚本机械迁移 candidate_resolutions；quantity_review 汇总各类别说明；game_material_candidates 只指向已保留实体。AI 不复制或编辑本对象。
 
 ## 最终文件
 

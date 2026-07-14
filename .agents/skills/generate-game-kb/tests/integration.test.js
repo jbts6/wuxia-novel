@@ -162,12 +162,12 @@ test('Skill documents the bounded fast workflow without template placeholders', 
   assert.deepEqual(validateChapterDraft(chapter, { number: chapter.chapter, inputHash: chapter.source_hash }), []);
   assertNoFormalIds(chapter);
 
-  const merged = jsonExample(schemas, '合并草稿示例');
+  const merged = jsonExample(schemas, '确定性合并产物示例');
   const manifest = { chapters: merged.chapter_summaries.map(summary => ({ number: summary.chapter })) };
   assert.deepEqual(validateMergedBook(merged, manifest), []);
   assertNoFormalIds(merged);
 
-  const cleaned = jsonExample(schemas, '清理草稿示例');
+  const cleaned = jsonExample(schemas, '确定性清理产物示例');
   assert.deepEqual(validateCleanedBook(cleaned, manifest), []);
   assertNoFormalIds(cleaned);
 
