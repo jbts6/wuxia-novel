@@ -1,219 +1,450 @@
 {
-  "generated_at": "2026-07-11T02:18:33.870Z",
-  "novel": "笑傲江湖",
-  "author": "金庸",
-  "overall_score": 100,
-  "metrics": {
-    "entity_completeness": {
-      "score": 100,
-      "details": {
-        "core": {
-          "expected": 3,
-          "actual": 3,
-          "coverage": 100
-        },
-        "important": {
-          "expected": 12,
-          "actual": 12,
-          "coverage": 100
-        },
-        "secondary": {
-          "expected": 15,
-          "actual": 15,
-          "coverage": 100
-        },
-        "minor": {
-          "expected": 26,
-          "actual": 26,
-          "coverage": 100
-        }
+  "schema_version": 1,
+  "sample_size": 40,
+  "pass_count": 40,
+  "threshold": 38,
+  "passed": true,
+  "results": [
+    {
+      "id": "chapter_summary_019",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
       },
-      "missing": []
+      "notes": ""
     },
-    "entity_quantity": {
-      "score": 100,
-      "details": {
-        "characters": {
-          "actual": 56,
-          "minimum": 20,
-          "passed": true
-        },
-        "factions": {
-          "actual": 14,
-          "minimum": 5,
-          "passed": true
-        },
-        "skills": {
-          "actual": 24,
-          "minimum": 10,
-          "passed": true
-        },
-        "items": {
-          "actual": 14,
-          "minimum": 8,
-          "passed": true
-        },
-        "locations": {
-          "actual": 20,
-          "minimum": 10,
-          "passed": true
-        }
+    {
+      "id": "chapter_summary_028",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
       },
-      "chapterCount": 40
+      "notes": ""
     },
-    "relationship_completeness": {
-      "score": 100,
-      "accuracy": 100,
-      "details": {
-        "core": {
-          "expected": 0,
-          "actual": 0
-        },
-        "important": {
-          "expected": 0,
-          "actual": 0
-        },
-        "secondary": {
-          "expected": 0,
-          "actual": 0
-        }
+    {
+      "id": "char_fei_bin",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
       },
-      "missing": [],
-      "incorrect": []
+      "notes": ""
     },
-    "description_accuracy": {
-      "score": 100,
-      "totalChecked": 15,
-      "accurate": 15,
-      "issues": []
-    },
-    "event_coverage": {
-      "score": 100,
-      "details": {
-        "main": {
-          "expected": 0,
-          "actual": 0
-        },
-        "branch": {
-          "expected": 0,
-          "actual": 0
-        },
-        "detail": {
-          "expected": 0,
-          "actual": 0
-        }
+    {
+      "id": "char_lao_tou_zi",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
       },
-      "missing": []
+      "notes": ""
     },
-    "dialogue_quality": {
-      "authenticity": 100,
-      "representativeness": 100,
-      "characterFit": 10,
-      "details": {
-        "total": 90,
-        "withSpeaker": 90,
-        "withListener": 45,
-        "baselineChecked": 10,
-        "baselineMatched": 10
+    {
+      "id": "char_lu_bai",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
       },
-      "issues": [
-        {
-          "index": 26,
-          "chapter": 10,
-          "speaker": "风清扬",
-          "issue": "Speech style mismatch: expected \"淡泊名利，传授剑道真谛\", got \"淡泊名利，不问世事\""
-        },
-        {
-          "index": 26,
-          "chapter": 10,
-          "speaker": "风清扬",
-          "issue": "Speech style mismatch: expected \"指点剑术\", got \"淡泊名利，不问世事\""
-        },
-        {
-          "index": 16,
-          "chapter": 5,
-          "speaker": "令狐冲",
-          "issue": "Speech style mismatch: expected \"幽默诙谐，调侃应对\", got \"幽默诙谐，口无遮拦，常以俏皮话化解危机\""
-        },
-        {
-          "index": 56,
-          "chapter": 39,
-          "speaker": "令狐冲",
-          "issue": "Speech style mismatch: expected \"豪放不羁，拒绝谀词\", got \"幽默诙谐，口无遮拦，常以俏皮话化解危机\""
-        },
-        {
-          "index": 23,
-          "chapter": 7,
-          "speaker": "令狐冲",
-          "issue": "Speech style mismatch: expected \"调侃幽默\", got \"幽默诙谐，口无遮拦，常以俏皮话化解危机\""
-        },
-        {
-          "index": 48,
-          "chapter": 34,
-          "speaker": "岳不群",
-          "issue": "Speech style mismatch: expected \"伪善谦虚\", got \"表面温文尔雅，实则口蜜腹剑\""
-        },
-        {
-          "index": 50,
-          "chapter": 35,
-          "speaker": "林平之",
-          "issue": "Speech style mismatch: expected \"愤怒偏执\", got \"初期温文尔雅，后期阴沉偏执\""
-        },
-        {
-          "index": 57,
-          "chapter": 40,
-          "speaker": "方证大师",
-          "issue": "Speech style mismatch: expected \"慈悲智慧\", got \"慈祥温和，充满智慧\""
-        },
-        {
-          "index": 80,
-          "chapter": 37,
-          "speaker": "任我行",
-          "issue": "Speech style mismatch: expected \"霸道威胁\", got \"霸气十足，唯我独尊\""
-        }
-      ]
+      "notes": ""
     },
-    "cross_book_purity": {
-      "score": 100,
-      "totalEntities": 108,
-      "pureEntities": 108,
-      "suspicious": []
+    {
+      "id": "char_qu_yang",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
     },
-    "baseline_validation": {
-      "score": 80,
-      "issues": [
-        {
-          "type": "hallucination",
-          "entity_type": "item",
-          "id": "item_xiao_ao_jiang_hu_qu_pu",
-          "name": "笑傲江湖曲谱",
-          "message": "Item \"笑傲江湖曲谱\" not found in original text"
-        },
-        {
-          "type": "hallucination",
-          "entity_type": "item",
-          "id": "item_guang_ling_san_qin_pu",
-          "name": "广陵散琴谱",
-          "message": "Item \"广陵散琴谱\" not found in original text"
-        }
-      ],
-      "hallucinations": [
-        {
-          "type": "hallucination",
-          "entity_type": "item",
-          "id": "item_xiao_ao_jiang_hu_qu_pu",
-          "name": "笑傲江湖曲谱",
-          "message": "Item \"笑傲江湖曲谱\" not found in original text"
-        },
-        {
-          "type": "hallucination",
-          "entity_type": "item",
-          "id": "item_guang_ling_san_qin_pu",
-          "name": "广陵散琴谱",
-          "message": "Item \"广陵散琴谱\" not found in original text"
-        }
-      ],
-      "duplicates": []
+    {
+      "id": "char_tian_bo_guang",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "dialogue_xodlameec_elplakji",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "dialogue_xodlameec_kakloack",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "dialogue_xodlameec_noilmoca",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "dialogue_xodlameec_pkablghb",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "event_lin_ping_zhi_mao_chong_mu_gao_feng_zhi_sun",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "event_lin_ping_zhi_wu_sha_yu_ren_yan",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "event_ling_hu_chong_dai_ling_heng_shan_pai_qu_long_quan",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "event_ling_hu_chong_ji_bai_feng_bu_ping",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "event_ling_hu_chong_zai_jin_dao_wang_jia_shou_ru",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "event_ling_hu_chong_zuo_dou_zhi_sheng_tian_bo_guang",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "event_yue_bu_qun_ci_xia_zuo_leng_chan_cheng_wei_wu_yue_pai_zhang_men",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "event_yue_bu_qun_shou_lin_ping_zhi_wei_tu",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "faction_heng_shan_pai_eejlgbpi",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "faction_hua_shan_pai",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "item_bi_shui_jian",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "item_bi_xie_jian_pu",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "item_kui_hua_bao_dian",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "item_qing_xin_pu_shan_zhou",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "item_zhang_xu_lu_yi_tie",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "loc_fu_zhou_fu",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "loc_long_quan_zhu_jian_gu",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "skill_cui_xin_zhang",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "skill_du_gu_jiu_jian",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "skill_fan_tian_zhang",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "skill_hua_shan_jian_fa",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "skill_hui_feng_luo_yan_jian",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "skill_yi_jin_jing",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "skill_zi_xia_gong",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "tech_cang_song_ying_ke",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "tech_jiang_shang_nong_di",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "tech_liu_xing_fei_duo",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "tech_qun_xie_pi_yi",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "tech_zi_qi_dong_lai",
+      "passed": true,
+      "checks": {
+        "name": true,
+        "category": true,
+        "key_facts": true,
+        "chapter": true
+      },
+      "notes": ""
     }
-  }
+  ],
+  "final_data_hash": "sha256:db402f90360db8b2e37b832e0ba2aaf6b208d690d0f4941f26a973c457357173"
 }
