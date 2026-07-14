@@ -67,6 +67,15 @@ test('category orchestration preserves dependency order and durable recovery', (
   assert.match(skill, /done.*不.*重做|done.*不.*重读/);
 });
 
+test('semantic contract v2 treats unversioned runs as read-only evidence', () => {
+  assert.match(skill, /semantic_contract_version.*2/);
+  assert.match(skill, /LEGACY_SEMANTIC_CONTRACT/);
+  assert.match(skill, /旧 run.*status|legacy.*status/i);
+  assert.match(skill, /archive-abandoned.*--confirm/);
+  assert.match(skill, /旧 run.*不得.*install|legacy.*不得.*install/i);
+  assert.match(skill, /不得.*静默.*升级|不能.*原地.*升级/);
+});
+
 test('chapter semantics use isolated native workers while the main model owns acceptance', () => {
   assert.match(skill, /原生子代理/);
   assert.match(skill, /每个子代理.*一个章节/);

@@ -27,8 +27,9 @@ NOVEL=<作者>/<小说名>
 
 | 状态 | 当前主模型的动作 |
 |---|---|
-| 没有活动 run | 执行 `archive-existing`，确认根目录只剩唯一原文、`ch_split/`、`_archive/`，再执行 `prepare` 创建 run |
-| 恰有一个活动 run | 不再归档；执行一次 `prepare` 恢复，再执行一次 `status --json` 读取进度 |
+| 没有活动 run | 执行 `archive-existing`，确认根目录只剩唯一原文、`ch_split/`、`_archive/`，再执行 `prepare` 创建带 `semantic_contract_version: 2` 的新 run |
+| 恰有一个活动 run（v2） | 不再归档；执行一次 `prepare` 恢复，再执行一次 `status --json` 读取进度 |
+| 恰有一个活动 run（legacy） | 不执行 `prepare`；只执行一次 `status --json` 保存只读取证，并以 `LEGACY_SEMANTIC_CONTRACT` 停止写流程 |
 | 多个活动 run | 停止并报告各 run-id；不能猜测、合并或选择其中一个 |
 
 以下命令是当前主模型的内部执行步骤，不是交给用户的操作说明。正常顺序为：`archive-existing`（仅新 run）→ `prepare` → 逐章 `chapter:*` → `check-coverage` 与必要的 `recall:*` → `prepare-merge` → 类别 merge 与必要的 consolidate → `assemble-merge` → `check-resolution` 与必要的 `supplement:*` → `prepare-clean` → 类别 clean → 再次 `prepare-clean` 生成 `clean:materials:001` → `assemble-clean` → `build-final` → `verify` 与 `quality:sample` → `install` → `verify --installed` → `archive-run`。`merge:book` 和 `clean:book` 只是 attempts 为 0 的确定性聚合状态，不是 AI 提交单元。每个阶段完成后直接进入下一个可执行阶段，直到归档成功或遇到明确停点。
@@ -40,16 +41,26 @@ node "$CLI" archive-existing "$NOVEL"
 node "$CLI" prepare "$NOVEL" --run <run-id>
 ```
 
-恢复已有 run 时不要再次归档，只运行一次：
+`prepare` 创建的新 run 必须由脚本在 `run.json` 中持久化 `semantic_contract_version: 2`；主模型不得手工补写、伪造或覆盖这个版本。
+
+恢复已有且 `semantic_contract_version: 2` 的 run 时不要再次归档，只运行一次：
 
 ```bash
 node "$CLI" prepare "$NOVEL"
 node "$CLI" status "$NOVEL" --json
 ```
 
+缺少 `semantic_contract_version: 2` 的 run 是 legacy 只读取证，不是可恢复的 v2 run。主模型只允许对它运行一次 `status --json`；不得静默升级或原地升级，不得执行 `prepare`、`reset-unit`、`accept`、coverage/resolution、merge/clean、`build-final`、工作区 `verify`、`install` 或 `archive-run`。旧 run 尤其不得 install，也不得计入新版正向验收。只有用户在看过 run-id 和影响后明确确认放弃，主模型才可执行：
+
+```bash
+node "$CLI" archive-abandoned "$NOVEL" --run <run-id> --confirm
+```
+
+`archive-abandoned` 只移动完整 legacy run 并写入 `abandonment.json`，必须保留 drafts、进度和证据；它不把旧 run 标记为通过，也不把旧产物转换为 v2。没有明确确认时，报告 `LEGACY_SEMANTIC_CONTRACT` 后停止该书的写流程。
+
 `prepare` 会保留输入哈希未变化的已完成章节。`status` 只用于观察文件清单，不返回命令，也不得循环调用来等待进展；读完一次状态后，选择一个尚未完成且未进入 `manual_review` 的单元处理。
 
-发生自动或手动上下文压缩后，按唯一活动 run 的恢复流程重新读取本 Skill、`schemas.md` 和当前阶段提示词，再各执行一次 `prepare` 与 `status --json`；压缩摘要和未落盘记忆都不是恢复输入。恢复只以 status、work item、accepted artifact 和 staging 文件为准，状态为 `done` 且输入哈希未变化的章节或类别单元不重读、不重做。待处理且非 `manual_review` 单元的下一个 attempt 固定为持久化 `attempts + 1`；只有这个 attempt 的精确 staging 文件存在时，主模型才直接串行 `accept` 让校验器裁决。attempt 编号小于 `attempts + 1` 的 staging 文件已经被提交或属于崩溃残留，不得再次 `accept`；下一个章节 staging 不存在时启动新章节子代理从头完整读原文，下一个类别 staging 不存在时启动新类别 worker 只读该 work item。
+发生自动或手动上下文压缩后，按唯一活动 run 的恢复流程重新读取本 Skill、`schemas.md` 和当前阶段提示词。先辨认合同版本：v2 run 再各执行一次 `prepare` 与 `status --json`；legacy run 只执行一次 `status --json` 取证并按 `LEGACY_SEMANTIC_CONTRACT` 停止。压缩摘要和未落盘记忆都不是恢复输入。恢复只以 status、work item、accepted artifact 和 staging 文件为准，状态为 `done` 且输入哈希未变化的章节或类别单元不重读、不重做。待处理且非 `manual_review` 单元的下一个 attempt 固定为持久化 `attempts + 1`；只有这个 attempt 的精确 staging 文件存在时，主模型才直接串行 `accept` 让校验器裁决。attempt 编号小于 `attempts + 1` 的 staging 文件已经被提交或属于崩溃残留，不得再次 `accept`；下一个章节 staging 不存在时启动新章节子代理从头完整读原文，下一个类别 staging 不存在时启动新类别 worker 只读该 work item。
 
 ## 1. 逐章提取
 
@@ -199,5 +210,6 @@ node "$CLI" archive-run "$NOVEL" --run <run-id>
 | `install` | 旧数据已备份、目录已替换、回执已写 |
 | `verify --installed` | 只用已安装 data/报告/回执复验通过 |
 | `archive-run` | 已安装结果复验通过，完整 run 移入 `_archive/generate-game-kb/` |
+| `archive-abandoned --run <run-id> --confirm` | 仅在用户明确确认后，把 legacy run 连同 drafts 和失败证据完整移入 abandoned 归档；不产生通过状态 |
 
 约 20 章中篇以 60 分钟为试跑基准，约 50 章长篇以 90 分钟为基准。耗时是性能证据，不是正确性门禁；超时不废弃已验证数据，也不能放宽上述停止条件。

@@ -64,6 +64,37 @@ function installedFixture() {
   return { novel, paths, runId: run.run_id };
 }
 
+function abandonedLegacyFixture() {
+  const novel = makeNovel('旧约归档书', '第一章 起始\n甲。\n');
+  const run = createOrResumeRun(novel, { runId: 'run-legacy' });
+  const paths = pathsFor(novel, run.run_id);
+  const metadata = readJson(paths.runJson);
+  delete metadata.semantic_contract_version;
+  atomicWriteJson(paths.runJson, metadata);
+  fs.mkdirSync(paths.drafts, { recursive: true });
+  fs.writeFileSync(path.join(paths.drafts, 'failed-merge.json'), '{"failed":true}\n', 'utf8');
+  return { novel, paths, runId: run.run_id };
+}
+
+test('legacy evidence archival requires confirmation and preserves the complete run', () => {
+  const { novel, paths, runId } = abandonedLegacyFixture();
+  const denied = runFlow(['archive-abandoned', novel, '--run', runId, '--json']);
+  assert.equal(denied.status, 1);
+  assert.equal(JSON.parse(denied.stderr).code, 'ABANDON_CONFIRM_REQUIRED');
+  assert.equal(fs.existsSync(paths.run), true);
+
+  const confirmed = runFlow(['archive-abandoned', novel, '--run', runId, '--confirm', '--json']);
+  assert.equal(confirmed.status, 0, confirmed.stderr);
+  const receipt = JSON.parse(confirmed.stdout);
+  assert.equal(receipt.status, 'abandoned');
+  assert.equal(fs.existsSync(paths.run), false);
+  assert.equal(fs.existsSync(path.join(receipt.archive_dir, 'drafts', 'failed-merge.json')), true);
+  const abandonment = readJson(path.join(receipt.archive_dir, 'abandonment.json'));
+  assert.equal(abandonment.run_id, runId);
+  assert.equal(abandonment.semantic_contract_version, null);
+  assert.match(abandonment.artifact_manifest_hash, /^sha256:/);
+});
+
 test('archive-run moves the complete verified run and keeps installed consumers', () => {
   const { novel, paths, runId } = installedFixture();
   const receipt = archiveRun(novel, runId);

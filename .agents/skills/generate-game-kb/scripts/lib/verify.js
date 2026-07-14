@@ -8,6 +8,7 @@ const { CATEGORY_FILES } = require('./finalize');
 const { MATERIAL_TYPES } = require('./game-materials');
 const { atomicWriteJson, readJson } = require('./io');
 const { buildQualitySample, selectQualitySample, validateQualityReview } = require('./quality');
+const { SEMANTIC_CONTRACT_VERSION } = require('./run');
 
 const ID_PATTERN = /^(char|event|item|skill|tech|faction|loc|dialogue)_[a-z]+(?:_[a-z]+)*$/;
 const FILE_PREFIX = Object.freeze({
@@ -76,6 +77,21 @@ function readReport(file, missingCode, invalidCode, blockingErrors) {
 function verifyFinal(paths) {
   const blockingErrors = [];
   const warnings = [];
+  let semanticContractVersion = null;
+  if (typeof paths.runJson === 'string' && fs.existsSync(paths.runJson)) {
+    try {
+      semanticContractVersion = readJson(paths.runJson).semantic_contract_version ?? null;
+      if (semanticContractVersion !== SEMANTIC_CONTRACT_VERSION) {
+        blockingErrors.push({
+          code: 'LEGACY_SEMANTIC_CONTRACT',
+          path: paths.runJson,
+          target: semanticContractVersion
+        });
+      }
+    } catch (error) {
+      blockingErrors.push({ code: 'RUN_METADATA_INVALID', path: paths.runJson, target: error.message });
+    }
+  }
   let manifest;
   try {
     manifest = readJson(paths.manifest);
@@ -352,6 +368,7 @@ function verifyFinal(paths) {
 
   return {
     passed: blockingErrors.length === 0,
+    semantic_contract_version: semanticContractVersion,
     final_data_hash: finalDataHash,
     counts: Object.fromEntries(Object.entries(finalData).map(([filename, records]) => [filename, records.length])),
     blocking_errors: blockingErrors,

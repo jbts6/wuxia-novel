@@ -5,10 +5,21 @@ const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 
-const { makeNovel, readJson } = require('./helpers');
+const { makeNovel, readJson, runFlow } = require('./helpers');
 const { pathsFor } = require('../scripts/lib/paths');
 const { createOrResumeRun, resolveRun } = require('../scripts/lib/run');
 const { prepareNovel } = require('../scripts/lib/source');
+
+function legacyRun() {
+  const novel = makeNovel('旧约试书', '第一章 起始\n正文。\n');
+  const run = createOrResumeRun(novel, { runId: 'run-legacy' });
+  prepareNovel(novel, { runId: run.run_id });
+  const paths = pathsFor(novel, run.run_id);
+  const metadata = readJson(paths.runJson);
+  delete metadata.semantic_contract_version;
+  fs.writeFileSync(paths.runJson, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8');
+  return { novel, paths, runId: run.run_id };
+}
 
 test('run metadata and artifact paths are scoped below the explicit run id', () => {
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
@@ -23,6 +34,7 @@ test('run metadata and artifact paths are scoped below the explicit run id', () 
   assert.notEqual(first.run_dir, second.run_dir);
   assert.match(first.source_hash, /^sha256:[a-f0-9]{64}$/);
   assert.equal(readJson(path.join(first.run_dir, 'run.json')).run_id, 'run-a');
+  assert.equal(readJson(path.join(first.run_dir, 'run.json')).semantic_contract_version, 2);
   assert.match(readJson(path.join(first.run_dir, 'run.json')).started_at, /^\d{4}-\d{2}-\d{2}T/);
 
   const firstPaths = pathsFor(novel, 'run-a');
@@ -34,6 +46,32 @@ test('run metadata and artifact paths are scoped below the explicit run id', () 
   ]) {
     assert.equal(firstPaths[key].startsWith(first.run_dir), true, `${key} escaped run-a`);
     assert.equal(secondPaths[key].startsWith(second.run_dir), true, `${key} escaped run-b`);
+  }
+});
+
+test('an unversioned run is observational only and cannot enter writable v2 stages', () => {
+  const { novel, runId } = legacyRun();
+  const status = runFlow(['status', novel, '--run', runId, '--json']);
+  assert.equal(status.status, 0, status.stderr);
+  assert.equal(JSON.parse(status.stdout).semantic_contract_version, null);
+
+  const commands = [
+    ['prepare', novel, '--run', runId],
+    ['check-coverage', novel, '--run', runId],
+    ['prepare-merge', novel, '--run', runId],
+    ['assemble-merge', novel, '--run', runId],
+    ['prepare-clean', novel, '--run', runId],
+    ['assemble-clean', novel, '--run', runId],
+    ['check-resolution', novel, '--run', runId],
+    ['accept', novel, '--run', runId, '--unit', 'chapter:001', '--draft', 'unused.json'],
+    ['build-final', novel, '--run', runId],
+    ['install', novel, '--run', runId],
+    ['verify', novel, '--run', runId]
+  ];
+  for (const args of commands) {
+    const result = runFlow([...args, '--json']);
+    assert.equal(result.status, 1, `${args[0]} unexpectedly succeeded`);
+    assert.equal(JSON.parse(result.stderr).code, 'LEGACY_SEMANTIC_CONTRACT', args[0]);
   }
 });
 

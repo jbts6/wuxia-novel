@@ -10,6 +10,8 @@ const { discoverSource, normalizeSource, sha256 } = require('./source');
 const { pathsFor } = require('./paths');
 const { ensureWorkerPool } = require('./worker-pool');
 
+const SEMANTIC_CONTRACT_VERSION = 2;
+
 function generatedRunId() {
   return `run-${new Date().toISOString().replace(/[:.]/g, '-')}-${process.pid}-${Math.random().toString(16).slice(2, 10)}`;
 }
@@ -39,6 +41,39 @@ function readRunMetadata(runDir) {
   }
 }
 
+function assertSemanticContract(metadata, action = 'continue') {
+  if (metadata?.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION) {
+    throw new GameKbError(
+      'LEGACY_SEMANTIC_CONTRACT',
+      'This run is read-only under the current semantic contract',
+      {
+        run_id: metadata?.run_id ?? null,
+        semantic_contract_version: metadata?.semantic_contract_version ?? null,
+        required_version: SEMANTIC_CONTRACT_VERSION,
+        action
+      }
+    );
+  }
+  return metadata;
+}
+
+function assertArchiveExistingAllowed(novelDir) {
+  const legacy = runDirectories(novelDir)
+    .map(readRunMetadata)
+    .filter(metadata => metadata.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION)
+    .map(metadata => ({
+      run_id: metadata.run_id,
+      semantic_contract_version: metadata.semantic_contract_version ?? null
+    }));
+  if (legacy.length > 0) {
+    throw new GameKbError(
+      'LEGACY_SEMANTIC_CONTRACT',
+      'Archive legacy runs explicitly with archive-abandoned --confirm',
+      { action: 'archive-existing', runs: legacy }
+    );
+  }
+}
+
 function ensureRunDirectories(paths) {
   for (const directory of [
     paths.staging,
@@ -65,6 +100,7 @@ function createOrResumeRun(novelDir, options = {}) {
   const paths = pathsFor(novel, runId);
   if (fs.existsSync(paths.runJson)) {
     const metadata = readRunMetadata(paths.run);
+    assertSemanticContract(metadata, 'prepare');
     if (metadata.source_hash !== sourceHash) {
       throw new GameKbError('RUN_SOURCE_CHANGED', 'Source changed; archive the old run before resuming it', {
         run_id: runId,
@@ -74,12 +110,20 @@ function createOrResumeRun(novelDir, options = {}) {
     }
     ensureRunDirectories(paths);
     ensureWorkerPool(paths);
-    return { run_id: runId, run_dir: paths.run, source_file: sourceFile, source_hash: sourceHash, resumed: true };
+    return {
+      run_id: runId,
+      run_dir: paths.run,
+      source_file: sourceFile,
+      source_hash: sourceHash,
+      semantic_contract_version: metadata.semantic_contract_version,
+      resumed: true
+    };
   }
   fs.mkdirSync(paths.run, { recursive: true });
   ensureRunDirectories(paths);
   const metadata = {
     schema_version: 1,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     run_id: runId,
     source_file: sourceFile,
     source_hash: sourceHash,
@@ -98,7 +142,14 @@ function createOrResumeRun(novelDir, options = {}) {
   atomicWriteJson(paths.runJson, metadata);
   initializeArtifactManifest(paths);
   ensureWorkerPool(paths);
-  return { run_id: runId, run_dir: paths.run, source_file: sourceFile, source_hash: sourceHash, resumed: false };
+  return {
+    run_id: runId,
+    run_dir: paths.run,
+    source_file: sourceFile,
+    source_hash: sourceHash,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    resumed: false
+  };
 }
 
 function resolveRun(novelDir, runId) {
@@ -114,4 +165,16 @@ function resolveRun(novelDir, runId) {
   return { ...readRunMetadata(runDir), run_dir: runDir };
 }
 
-module.exports = { createOrResumeRun, resolveRun, sourceState };
+function resolveWritableRun(novelDir, runId, action = 'continue') {
+  return assertSemanticContract(resolveRun(novelDir, runId), action);
+}
+
+module.exports = {
+  SEMANTIC_CONTRACT_VERSION,
+  assertArchiveExistingAllowed,
+  assertSemanticContract,
+  createOrResumeRun,
+  resolveRun,
+  resolveWritableRun,
+  sourceState
+};

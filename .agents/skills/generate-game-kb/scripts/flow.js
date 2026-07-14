@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { GameKbError } = require('./lib/errors');
-const { archiveExisting, archiveRun } = require('./lib/archive');
+const { archiveAbandoned, archiveExisting, archiveRun } = require('./lib/archive');
 const { acceptDraft, currentUnitInputHash, stableHash } = require('./lib/accept');
 const {
   acceptedArtifactHash,
@@ -38,7 +38,12 @@ const {
 const { buildChapterCoverage } = require('./lib/coverage');
 const { buildQuantityReport } = require('./lib/quantity');
 const { prepareNovel } = require('./lib/source');
-const { createOrResumeRun, resolveRun } = require('./lib/run');
+const {
+  assertArchiveExistingAllowed,
+  createOrResumeRun,
+  resolveRun,
+  resolveWritableRun
+} = require('./lib/run');
 const { recordScriptDuration } = require('./lib/timing');
 const { ensureQualitySample, verifyFinal } = require('./lib/verify');
 const { readWorkerPool, recordWorkerBackoff } = require('./lib/worker-pool');
@@ -472,6 +477,7 @@ function main(argv = process.argv.slice(2)) {
   try {
     if (command === 'archive-existing') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-existing requires <novel>');
+      assertArchiveExistingAllowed(novelDir);
       const result = archiveExisting(novelDir, {
         archiveId: flagValue(args, '--archive-id') || (requestedRun ? `before-${requestedRun}` : undefined)
       });
@@ -480,7 +486,10 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'prepare') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'prepare requires <novel>');
-      if (!requestedRun) archiveExisting(novelDir);
+      if (!requestedRun) {
+        assertArchiveExistingAllowed(novelDir);
+        archiveExisting(novelDir);
+      }
       const run = createOrResumeRun(novelDir, { runId: requestedRun });
       const manifest = prepareNovel(novelDir, { runId: run.run_id });
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
@@ -500,7 +509,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'check-coverage') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'check-coverage requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const manifest = readJson(paths.manifest);
@@ -509,7 +518,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'prepare-merge') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'prepare-merge requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit(prepareMerge(paths, readJson(paths.manifest)));
@@ -517,7 +526,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'assemble-merge') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'assemble-merge requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit(assembleMerge(paths, readJson(paths.manifest)));
@@ -525,7 +534,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'prepare-clean') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'prepare-clean requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit(prepareClean(paths, readJson(paths.manifest)));
@@ -533,7 +542,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'assemble-clean') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'assemble-clean requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit(assembleClean(paths, readJson(paths.manifest)));
@@ -541,7 +550,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'worker-backoff') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'worker-backoff requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit({
@@ -555,7 +564,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'check-resolution') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'check-resolution requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const manifest = readJson(paths.manifest);
@@ -570,6 +579,7 @@ function main(argv = process.argv.slice(2)) {
       const manifest = readJson(paths.manifest);
       const progress = loadProgress(paths, manifest);
       emit({
+        semantic_contract_version: run.semantic_contract_version ?? null,
         ...statusReport(paths, manifest, progress),
         worker_pool: readWorkerPool(paths)
       });
@@ -579,7 +589,7 @@ function main(argv = process.argv.slice(2)) {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'reset-unit requires <novel>');
       const unit = flagValue(args, '--unit');
       if (!unit) throw new GameKbError('UNIT_REQUIRED', 'reset-unit requires --unit <id>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const manifest = readJson(paths.manifest);
@@ -595,7 +605,7 @@ function main(argv = process.argv.slice(2)) {
       const draft = flagValue(args, '--draft');
       if (!unit) throw new GameKbError('UNIT_REQUIRED', 'accept requires --unit <id>');
       if (!draft) throw new GameKbError('DRAFT_REQUIRED', 'accept requires --draft <path>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const result = acceptDraft({ paths, unit, draftPath: draft });
@@ -604,14 +614,14 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'build-final') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'build-final requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
       emit(buildFinal(novelDir, run.run_id));
       return;
     }
     if (command === 'install') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'install requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       assertAcceptedArtifacts(paths);
@@ -620,10 +630,19 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'archive-run') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-run requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       const result = archiveRun(novelDir, run.run_id);
       timingRunJson = path.join(result.archive_dir, 'run.json');
       emit(result);
+      return;
+    }
+    if (command === 'archive-abandoned') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-abandoned requires <novel>');
+      const run = resolveRun(novelDir, requestedRun);
+      emit(archiveAbandoned(novelDir, run.run_id, {
+        confirm: args.includes('--confirm'),
+        reason: flagValue(args, '--reason')
+      }));
       return;
     }
     if (command === 'verify') {
@@ -636,7 +655,7 @@ function main(argv = process.argv.slice(2)) {
         emit(result);
         return;
       }
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveWritableRun(novelDir, requestedRun, command);
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
       emit(verifyWorkspace(novelDir, run.run_id));
       return;

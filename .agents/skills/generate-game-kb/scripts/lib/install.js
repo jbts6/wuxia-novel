@@ -11,7 +11,7 @@ const { CATEGORY_FILES } = require('./finalize');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { pathsFor } = require('./paths');
 const { buildQualitySample, selectQualitySample } = require('./quality');
-const { resolveRun } = require('./run');
+const { SEMANTIC_CONTRACT_VERSION, resolveWritableRun } = require('./run');
 const { hashFinalData, loadData, verifyFinal } = require('./verify');
 
 const DATA_FILES = Object.freeze(Object.values(CATEGORY_FILES).sort());
@@ -146,6 +146,13 @@ function verifyInstalledWithReceipt(novelDir, receipt) {
   if (receipt.schema_version !== 1 || receipt.installer !== 'generate-game-kb') {
     receiptErrors.push({ code: 'INSTALL_RECEIPT_INVALID', path: paths.receipt, target: receipt.schema_version });
   }
+  if (receipt.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION) {
+    receiptErrors.push({
+      code: 'LEGACY_SEMANTIC_CONTRACT',
+      path: 'receipt.semantic_contract_version',
+      target: receipt.semantic_contract_version ?? null
+    });
+  }
   if (typeof receipt.source_hash !== 'string' || receipt.source_hash === '') {
     receiptErrors.push({ code: 'INSTALL_SOURCE_HASH_MISSING', path: 'receipt.source_hash', target: '' });
   }
@@ -186,6 +193,7 @@ function verifyInstalledWithReceipt(novelDir, receipt) {
       qualitySample: sampleFile,
       qualityReport: path.join(paths.reports, 'quality_report.json')
     });
+    result.semantic_contract_version = receipt.semantic_contract_version ?? null;
     result.blocking_errors.push(...receiptErrors);
     if (receipt.final_data_hash !== result.final_data_hash) {
       result.blocking_errors.push({
@@ -322,10 +330,11 @@ function restoreReports(previous, reportsDir) {
 }
 
 function installVerifiedData(novelDir, options = {}) {
+  const run = resolveWritableRun(novelDir, options.runId, 'install');
+  const runId = run.run_id;
   const installed = installPaths(novelDir);
   recoverInterruptedInstall(novelDir);
   assertCleanInstallBaseline(installed);
-  const runId = options.runId || resolveRun(novelDir).run_id;
   const workPaths = pathsFor(novelDir, runId);
   assertAcceptedArtifacts(workPaths);
   if (fs.existsSync(workPaths.progress)) {
@@ -435,6 +444,7 @@ function installVerifiedData(novelDir, options = {}) {
     ]));
     const receipt = {
       schema_version: 1,
+      semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
       installer: 'generate-game-kb',
       source_hash: manifest.source_hash,
       final_data_hash: workspace.final_data_hash,

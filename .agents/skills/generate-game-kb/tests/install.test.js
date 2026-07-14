@@ -124,6 +124,19 @@ test('install refuses blocking verification failures', () => {
   assert.equal(fs.existsSync(path.join(novel, 'data')), false);
 });
 
+test('install refuses an unversioned legacy run before examining final artifacts', () => {
+  const { novel, paths } = writeVerifiedFixture('旧约安装书');
+  const metadata = JSON.parse(fs.readFileSync(paths.runJson, 'utf8'));
+  delete metadata.semantic_contract_version;
+  atomicWriteJson(paths.runJson, metadata);
+
+  assert.throws(
+    () => installVerifiedData(novel, { runId: 'run-install-test' }),
+    { code: 'LEGACY_SEMANTIC_CONTRACT' }
+  );
+  assert.equal(fs.existsSync(path.join(novel, 'data')), false);
+});
+
 test('install refuses unresolved manual-review issues', () => {
   const { novel, paths } = writeVerifiedFixture();
   atomicWriteJson(paths.manualReview, [{ code: 'REFERENCE_UNRESOLVED', target: '甲' }]);

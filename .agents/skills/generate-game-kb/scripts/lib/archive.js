@@ -9,6 +9,7 @@ const { atomicWriteJson, readJson } = require('./io');
 const { pathsFor } = require('./paths');
 const { assertAcceptedArtifacts, readArtifactManifest } = require('./candidate-ledger');
 const { derivePhaseDurations } = require('./timing');
+const { SEMANTIC_CONTRACT_VERSION, assertSemanticContract } = require('./run');
 
 const ARCHIVE_ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/;
 
@@ -203,6 +204,8 @@ function archiveRun(novelDir, runId) {
   if (!fs.existsSync(paths.runJson)) {
     throw new GameKbError('RUN_MISSING', 'Requested run does not exist', { run_id: runId });
   }
+  const metadata = readJson(paths.runJson);
+  assertSemanticContract(metadata, 'archive-run');
   const archiveDir = path.join(novel, '_archive', 'generate-game-kb', runId);
   if (fs.existsSync(archiveDir)) {
     throw new GameKbError('ARCHIVE_PATH_COLLISION', 'Run archive destination already exists', { archive_dir: archiveDir });
@@ -214,7 +217,6 @@ function archiveRun(novelDir, runId) {
   }
   assertAcceptedArtifacts(paths);
   const artifactManifest = verifyRunArtifacts(paths);
-  const metadata = readJson(paths.runJson);
   const archivedAt = new Date().toISOString();
   const progress = fs.existsSync(paths.progress) ? readJson(paths.progress) : { units: {} };
   const durations = derivePhaseDurations(metadata, progress, archivedAt);
@@ -232,6 +234,7 @@ function archiveRun(novelDir, runId) {
     verifyRunArtifacts({ ...paths, run: archiveDir, artifactManifest: archivedManifest });
     const receipt = {
       schema_version: 1,
+      semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
       status: 'archived',
       run_id: runId,
       archive_dir: archiveDir,
@@ -253,7 +256,81 @@ function archiveRun(novelDir, runId) {
   }
 }
 
+function archiveAbandoned(novelDir, runId, options = {}) {
+  const novel = assertNovelDirectory(novelDir);
+  if (typeof runId !== 'string' || !ARCHIVE_ID_PATTERN.test(runId)) {
+    throw new GameKbError('RUN_REQUIRED', 'archive-abandoned requires a safe run id', { run_id: runId });
+  }
+  const paths = pathsFor(novel, runId);
+  if (!fs.existsSync(paths.runJson)) {
+    throw new GameKbError('RUN_MISSING', 'Requested run does not exist', { run_id: runId });
+  }
+  if (options.confirm !== true) {
+    throw new GameKbError(
+      'ABANDON_CONFIRM_REQUIRED',
+      'archive-abandoned requires --confirm',
+      { run_id: runId }
+    );
+  }
+  const metadata = readJson(paths.runJson);
+  if (metadata.semantic_contract_version === SEMANTIC_CONTRACT_VERSION) {
+    throw new GameKbError(
+      'ABANDON_NOT_LEGACY',
+      'archive-abandoned is reserved for legacy semantic runs',
+      { run_id: runId, semantic_contract_version: metadata.semantic_contract_version }
+    );
+  }
+  const archiveDir = path.join(novel, '_archive', 'generate-game-kb', 'abandoned', runId);
+  if (fs.existsSync(archiveDir)) {
+    throw new GameKbError('ARCHIVE_PATH_COLLISION', 'Abandoned archive destination already exists', {
+      archive_dir: archiveDir
+    });
+  }
+  const progress = fs.existsSync(paths.progress) ? readJson(paths.progress) : { units: {} };
+  const artifactManifestHash = fs.existsSync(paths.artifactManifest)
+    ? sha256File(paths.artifactManifest)
+    : null;
+  const abandonedAt = new Date().toISOString();
+  const abandonment = {
+    schema_version: 1,
+    status: 'abandoned',
+    run_id: runId,
+    semantic_contract_version: metadata.semantic_contract_version ?? null,
+    reason: options.reason || 'legacy_semantic_contract',
+    unit_states: progress.units || {},
+    artifact_manifest_hash: artifactManifestHash,
+    abandoned_at: abandonedAt
+  };
+  const previousRunJson = fs.readFileSync(paths.runJson);
+  const abandonmentFile = path.join(paths.run, 'abandonment.json');
+  atomicWriteJson(abandonmentFile, abandonment);
+  atomicWriteJson(paths.runJson, {
+    ...metadata,
+    status: 'abandoned',
+    abandoned_at: abandonedAt
+  });
+  fs.mkdirSync(path.dirname(archiveDir), { recursive: true });
+  try {
+    fs.renameSync(paths.run, archiveDir);
+    const runsDir = path.dirname(paths.run);
+    if (fs.existsSync(runsDir) && fs.readdirSync(runsDir).length === 0) fs.rmdirSync(runsDir);
+    const workDir = path.dirname(runsDir);
+    if (fs.existsSync(workDir) && fs.readdirSync(workDir).length === 0) fs.rmdirSync(workDir);
+    return { ...abandonment, archive_dir: archiveDir };
+  } catch (error) {
+    if (!fs.existsSync(paths.run) && fs.existsSync(archiveDir)) fs.renameSync(archiveDir, paths.run);
+    if (fs.existsSync(paths.run)) {
+      atomicWriteJson(paths.runJson, JSON.parse(previousRunJson.toString('utf8')));
+      fs.rmSync(abandonmentFile, { force: true });
+    }
+    throw new GameKbError('ARCHIVE_MOVE_FAILED', 'Abandoned run archive failed and was rolled back', {
+      cause: error.message
+    });
+  }
+}
+
 module.exports = {
+  archiveAbandoned,
   archiveExisting,
   archiveRun,
   assertCleanNovelRoot,
