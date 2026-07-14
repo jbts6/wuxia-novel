@@ -37,10 +37,41 @@ function runFlow(args, options = {}) {
   });
 }
 
+function sourceRef(chapter = 1, text = '原文锚点') {
+  return { chapter, text };
+}
+
+function validChapterDraft(overrides = {}) {
+  const draft = {
+    schema_version: 1,
+    chapter: 1,
+    title: '第一章 起始',
+    source_hash: 'sha256:chapter',
+    characters: [{ local_key: 'character:甲', name: '甲', level: '核心', source_refs: [sourceRef()] }],
+    events: [{ local_key: 'event:相逢', name: '山中相逢', importance: '重要', source_refs: [sourceRef()] }],
+    items: [],
+    skills: [{ local_key: 'skill:内功', name: '玄门内功', source_refs: [sourceRef()] }],
+    techniques: [{ local_key: 'technique:飞掌', name: '飞云掌', named_in_source: true, source_refs: [sourceRef()] }],
+    factions: [],
+    locations: [{ local_key: 'location:山谷', name: '无名山谷', source_refs: [sourceRef()] }],
+    dialogues: [{ local_key: 'dialogue:相逢', event_local_key: 'event:相逢', speaker_name: '甲', text: '你来了。', source_refs: [sourceRef()] }],
+    summary: {
+      title: '第一章 起始',
+      summary: '甲在山谷中与故人相逢。',
+      key_events: ['event:相逢'],
+      key_characters: ['甲'],
+      source_refs: [sourceRef()]
+    }
+  };
+  return { ...draft, ...overrides };
+}
+
 module.exports = {
   FLOW,
   makeNovel,
   makeNovelDirectory,
   readJson,
-  runFlow
+  runFlow,
+  sourceRef,
+  validChapterDraft
 };

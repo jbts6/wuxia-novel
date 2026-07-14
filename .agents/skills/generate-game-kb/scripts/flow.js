@@ -2,6 +2,7 @@
 'use strict';
 
 const { GameKbError } = require('./lib/errors');
+const { acceptDraft } = require('./lib/accept');
 const { readJson } = require('./lib/io');
 const { pathsFor } = require('./lib/paths');
 const { loadProgress, resetUnit, saveProgress, statusReport } = require('./lib/progress');
@@ -58,6 +59,16 @@ function main(argv = process.argv.slice(2)) {
       const reset = resetUnit(progress, unit, args.includes('--confirm'));
       saveProgress(paths, reset);
       process.stdout.write(`${JSON.stringify({ reset: unit })}\n`);
+      return;
+    }
+    if (command === 'accept') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'accept requires <novel>');
+      const unit = flagValue(args, '--unit');
+      const draft = flagValue(args, '--draft');
+      if (!unit) throw new GameKbError('UNIT_REQUIRED', 'accept requires --unit <id>');
+      if (!draft) throw new GameKbError('DRAFT_REQUIRED', 'accept requires --draft <path>');
+      const result = acceptDraft({ paths: pathsFor(novelDir), unit, draftPath: draft });
+      process.stdout.write(`${JSON.stringify(result, null, json ? 0 : 2)}\n`);
       return;
     }
     throw new GameKbError('COMMAND_UNKNOWN', `Unknown command: ${command || '<missing>'}`);
