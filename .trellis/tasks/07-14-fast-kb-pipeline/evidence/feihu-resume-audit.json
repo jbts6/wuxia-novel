@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "evidence_type": "generate-game-kb-forward-run-read-only-audit",
+  "observed_at": "2026-07-14T16:56:30.585Z",
+  "novel_dir": "金庸/飞狐外传",
+  "observer": "codex",
+  "run_mutated_by_observer": false,
+  "run": {
+    "run_id": "run-2026-07-14T16-06-12-666Z-99848-dacb8590",
+    "status": "active",
+    "started_at": "2026-07-14T16:06:12.667Z",
+    "installed_at": null,
+    "archived_at": null,
+    "progress_mtime": "2026-07-14T16:52:36.783Z",
+    "phase_durations": {
+      "chapter_extraction_ms": 0,
+      "merge_ms": 0,
+      "clean_ms": 0,
+      "targeted_recall_ms": 0,
+      "script_ms": 3219,
+      "human_wait_ms": 0,
+      "total_ms": 0
+    }
+  },
+  "worker_pool": {
+    "state_file_exists": false,
+    "forward_concurrency_contract_observed": false,
+    "reason": "The active run has not been resumed through the worker-pool-aware prepare contract."
+  },
+  "staging": {
+    "entries": [],
+    "stale_attempt_present": false,
+    "next_merge_attempt_present": false
+  },
+  "chapters": {
+    "total": 20,
+    "done": 20,
+    "attempt_distribution": {
+      "1": 14,
+      "2": 6
+    },
+    "chapter_002": {
+      "status": "done",
+      "attempts": 2,
+      "accepted_file_exists": true,
+      "archived_drafts": [
+        "attempt_01_24de13b9961f.json",
+        "attempt_02_24de13b9961f.json",
+        "attempt_02_8dc224414272.json"
+      ],
+      "archived_manual_review_reason": "REPEATED_OUTPUT,REPEATED_ERROR"
+    }
+  },
+  "manual_review_policy": {
+    "current_issue_count": 0,
+    "archived_terminal_units_now_done": [
+      "chapter:001",
+      "chapter:002"
+    ],
+    "reset_authorization_receipt_found": false,
+    "policy_violation_observed": true,
+    "reason": "Archived progress history records both chapters in manual_review, but current progress records them as done and the run contains no reset authorization receipt."
+  },
+  "merge": {
+    "status": "pending",
+    "attempts": 2,
+    "last_error_count": 4085,
+    "last_error_codes": {
+      "CANDIDATE_RESOLUTION_DUPLICATE": 82,
+      "CANDIDATE_RESOLUTION_INVALID": 1089,
+      "CANDIDATE_RESOLUTION_MISSING": 1089,
+      "CANDIDATE_RESOLUTION_UNKNOWN": 1089,
+      "CANONICAL_NAME_REQUIRED": 654,
+      "DIALOGUE_EVENT_DUPLICATE": 82
+    },
+    "archived_drafts": [
+      "attempt_01_af5e25659bce.json",
+      "attempt_02_b9ccb4e503fe.json"
+    ]
+  },
+  "completion": {
+    "final_exists": false,
+    "installed_data_exists": false,
+    "installed_reports_exists": false,
+    "run_archived": false,
+    "complete": false,
+    "conclusion": "This run is stable enough for failure auditing but does not satisfy the end-to-end, worker-pool, installation, or archive acceptance criteria."
+  }
+}

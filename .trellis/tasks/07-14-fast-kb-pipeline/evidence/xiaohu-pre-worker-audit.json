@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "novel": "金庸/笑傲江湖",
+  "run_id": "2026-07-14T14-20-46",
+  "run_archive": "金庸/笑傲江湖/_archive/generate-game-kb/2026-07-14T14-20-46",
+  "profile_contract": "pre-task-18-single-main-context",
+  "accepted_for_task_16": false,
+  "started_at": "2026-07-14T14:20:49.302Z",
+  "installed_at": "2026-07-14T15:20:38.429Z",
+  "archived_at": "2026-07-14T15:20:41.897Z",
+  "total_duration_ms": 3592595,
+  "phase_durations": {
+    "chapter_extraction_ms": 0,
+    "merge_ms": 0,
+    "clean_ms": 0,
+    "targeted_recall_ms": 0,
+    "script_ms": 0,
+    "human_wait_ms": 0,
+    "total_ms": 3592595
+  },
+  "counts": {
+    "chapters": 40,
+    "chapter_item_candidates": 19,
+    "final_items": 16,
+    "chapter_dialogue_candidates": 62,
+    "final_dialogues": 55,
+    "final_events": 84,
+    "final_characters": 65,
+    "final_skills": 22,
+    "final_techniques": 23
+  },
+  "candidate_resolution": {
+    "total": 458,
+    "merged_to": 457,
+    "rejected": 1,
+    "ambiguous": 0,
+    "passed": true
+  },
+  "dialogue_gate": {
+    "quotable_chapter_events": 51,
+    "quotable_events_with_candidate_dialogue": 51,
+    "not_quotable_events_with_reason": 42,
+    "recall_unit_opened": false
+  },
+  "quality_sample": {
+    "sample_size": 40,
+    "pass_count": 40,
+    "threshold": 38,
+    "items_quota": 5,
+    "dialogues_quota": 4,
+    "passed": true
+  },
+  "installed_verification": {
+    "passed": true,
+    "final_data_hash": "sha256:db402f90360db8b2e37b832e0ba2aaf6b208d690d0f4941f26a973c457357173"
+  },
+  "audit_findings": [
+    {
+      "code": "OLD_EXECUTION_CONTRACT",
+      "detail": "The run began before the Task 18 isolated chapter-worker contract and processed chapters in one main context, so it cannot prove worker isolation, path-only returns, or run-scoped staging."
+    },
+    {
+      "code": "LATE_CHAPTER_EXTRACTION_COLLAPSE",
+      "chapters": [25, 26, 27, 28, 29, 32, 37, 38],
+      "detail": "These accepted chapters contain characters/events but no item, skill, technique, faction, location, or dialogue candidates."
+    },
+    {
+      "code": "NAMED_MARTIAL_RECALL_MISS",
+      "examples": [
+        {
+          "name": "太极剑法",
+          "source_occurrences": 7,
+          "source_chapters": [26, 27, 29]
+        },
+        {
+          "name": "寒冰真气",
+          "source_occurrences": 9,
+          "source_chapters": [27, 28, 29, 39]
+        }
+      ],
+      "detail": "Both are explicitly named in the source but absent from final skills and techniques. Existing-record sampling cannot detect missing records."
+    },
+    {
+      "code": "PHASE_TIMING_PLACEHOLDERS",
+      "detail": "Only total_ms was populated. The generic implementation now derives phase durations from persisted unit timestamps and records successful CLI script time, but this historical run was not rewritten."
+    }
+  ]
+}

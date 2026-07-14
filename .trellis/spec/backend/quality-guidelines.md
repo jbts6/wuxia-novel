@@ -190,35 +190,61 @@ Record candidates and complete citations from each source window, close every de
 ### 2. Signatures
 
 ```text
+node .agents/skills/generate-game-kb/scripts/flow.js archive-existing <novel-dir>
 node .agents/skills/generate-game-kb/scripts/flow.js prepare <novel-dir>
 node .agents/skills/generate-game-kb/scripts/flow.js status <novel-dir> --json
+node .agents/skills/generate-game-kb/scripts/flow.js worker-backoff <novel-dir> --run <run-id> --batch <batch-id> --reason 429
+node .agents/skills/generate-game-kb/scripts/flow.js check-coverage <novel-dir> --run <run-id>
 node .agents/skills/generate-game-kb/scripts/flow.js accept <novel-dir> --unit <unit> --draft <json>
+node .agents/skills/generate-game-kb/scripts/flow.js check-resolution <novel-dir> --run <run-id>
 node .agents/skills/generate-game-kb/scripts/flow.js build-final <novel-dir>
 node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir>
 node .agents/skills/generate-game-kb/scripts/flow.js install <novel-dir>
 node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir> --installed
+node .agents/skills/generate-game-kb/scripts/flow.js archive-run <novel-dir> --run <run-id>
 ```
 
-AI units are `chapter:NNN`, `merge:book`, `clean:book`, and `quality:sample`. `status` is observational and never returns an executable next action.
+AI units are `chapter:NNN`, `merge:book`, `clean:book`, `quality:sample`, `recall:<category>`, and `supplement:<category>`. `status` is observational and never returns an executable next action.
 
 ### 3. Contracts
 
-- Request: one source novel under `<novel-dir>`; `prepare` derives ordered chapter files and a hash-bound manifest. Resuming skips unchanged completed chapters.
+- Request: one source novel under `<novel-dir>`; `archive-existing` first leaves only that source, `ch_split/`, and `_archive/`. Each run lives under `.game-kb-work/runs/<run-id>/`; `prepare` derives ordered chapter files and a hash-bound manifest, creates or restores `<run-dir>/staging/`, and resuming skips unchanged completed chapters.
+- Invocation: the user supplies the novel directory and invokes `generate-game-kb`; the current main model owns zero/one/multiple-run routing and every subsequent normal stage. Internal command ordering is a Skill contract, not user input. Zero active runs archive and prepare, one resumes, and multiple active runs stop for explicit selection.
+- Semantic boundary: one isolated host-native chapter worker directly reads each complete chapter source file and writes only its assigned run-scoped staging draft. The current main model orchestrates workers, serializes `accept`, and performs merge, cleanup, targeted recall, and fixed-sample review. CTX/context-mode, search summaries, heuristic extraction, and external model CLIs are not semantic inputs or substitute executors; deterministic scripts own only archive, state, hash, validation, projection, installation, and reports.
+- Worker-pool state: every prepared run owns `<run-dir>/worker-pool.json` with `schema_version`, `initial_limit`, `concurrency_limit`, `halted`, `incidents`, and `updated_at`. A new run starts at 10; explicit resume preserves the file, and observational `status --json` returns it as `worker_pool` without changing it.
+- Dispatch: one chapter batch contains at most `min(worker_pool.concurrency_limit, host-native available slots, pending chapter count)` workers. One or more explicit 429 results from the same batch call `worker-backoff` once with the same batch ID, producing `10 -> 5 -> 2 -> 1`; duplicate batch IDs are idempotent. The limit never auto-increases within a run.
+- Transport failures: `worker-backoff` modifies only `worker-pool.json`; `progress.json` remains byte-for-byte unchanged, no `accept` call occurs, and chapter `attempts` / `semantic_attempts` stay unchanged. A retried chapter uses a fresh worker and rereads the complete source chapter.
+- Staging submissions: `accept` permits only `<run-dir>/staging/<unit>_attempt_<attempts+1>.json` for the current input hash. Once a submission is recorded, the CLI archives its raw bytes and consumes the staging file on both success and validation rejection. Replaying a lower attempt fails before changing progress.
 - Intermediate AI drafts use local keys and name-based references. AI never creates final IDs or rewrites final references.
 - Every AI unit has at most three total attempts across restarts. Repeated output, repeated normalized error, or `A -> B -> A` output/error oscillation must stop earlier in `manual_review`.
-- Semantic work is exactly one chapter extraction per chapter, one book merge, one cleanup, one advisory quantity review, and one fixed quality-sample review. Quantity is advisory and cannot become a completion gate.
+- Semantic work is exactly one chapter extraction per chapter, one book merge, one cleanup, one advisory quantity review, and one fixed quality-sample review. Deterministic coverage or resolution gaps may open only one bounded `recall:<category>` or `supplement:<category>` semantic generation plus one format-only correction; they never create a full-book retry. Quantity is advisory and cannot become a completion gate.
+- Every chapter candidate has a stable candidate key and exactly one ledger destination: `merged_to`, finite-reason `rejected`, or `ambiguous`. Accepted artifacts are immutable and hash-bound in `artifact-manifest.json`; any later change is `ACCEPTED_ARTIFACT_MUTATED`.
+- `check-coverage` opens `recall:items` only for a large/event-rich unexplained empty category, and `recall:dialogues` only for deterministic quotable-event or chapter-distribution gaps. `check-resolution` opens a bounded supplement only for unresolved candidates or zero/multi-match references.
 - Evidence requires a correct chapter and a non-empty source anchor. Exact evidence, line numbers, and paragraph offsets are optional; a cross-chapter event may retain multiple non-contiguous chapter references.
 - Named martial skills and named techniques remain high recall. Ordinary actions remain excluded from techniques and do not create a tenth action category.
 - Final output is nine top-level-array files: `characters.json`, `events.json`, `items.json`, `skills.json`, `techniques.json`, `factions.json`, `locations.json`, `dialogues.json`, and `chapter_summaries.json`.
 - `reports/game_materials.json` is an ID-resolving index over those files, not another entity category. The Dashboard's existing eight browseability files remain unchanged; `events.json` is an additional compatible ninth file.
-- Direct `data/` installation is allowed only after workspace verification and only through the fast profile's complete backup-and-swap installer. The installer preserves unknown non-target entries, records a receipt, restores the old directory after a failed swap, and requires `verify --installed` before completion.
+- Direct `data/` installation is allowed only after workspace verification and only through the fast profile's clean-baseline swap installer. An archived clean baseline must not contain unbound `data/`, `reports/`, or activity artifacts. The installer records hashes and `installed_at`, restores the prior directory after a failed swap, and requires `verify --installed` before `archive-run` moves the complete run to `_archive/generate-game-kb/<run-id>/`.
+- Fixed quality quotas never reallocate: skills/techniques 12, events 8, characters 5, items 5, dialogues 4, factions/locations 4, and chapter summaries 2. Legitimately empty categories require a persisted `none_found` review.
 
 ### 4. Validation & Error Matrix
 
+- A Skill invocation asks the user to choose or sequence ordinary internal commands -> autonomous invocation contract failure; fix the Skill routing instead of documenting manual instructions.
+- A chapter draft is generated from CTX/search summaries, heuristic extraction, an external model subprocess, or a worker that did not directly read its one complete source chapter -> source-input contract failure; reject the evidence and regenerate through an isolated native chapter worker without consuming another accepted-artifact path.
+- A chapter worker selects an arbitrary `/tmp` path, returns chapter text or JSON through the parent context, calls `accept`, or edits shared run state -> worker-boundary failure; discard that staging output and keep the main model as the only state writer.
+- A draft path is outside the selected run, names an attempt other than persisted `attempts + 1`, or resolves through a symlink outside staging -> `DRAFT_STAGING_MISMATCH` or `DRAFT_STAGING_ESCAPE`; do not change the attempt budget.
+- Missing or unsafe `--batch` -> `WORKER_BATCH_REQUIRED`; a reason other than the literal `429` -> `WORKER_BACKOFF_REASON_INVALID`, with no concurrency change.
+- A repeated batch ID -> return the current `worker_pool` with `duplicate: true` and do not append another incident or halve again.
+- A fresh 429 while `concurrency_limit === 1` -> persist `halted: true`, append one `halted` incident, and return `WORKER_RATE_LIMITED`; the Skill stops instead of retrying indefinitely.
+- Missing, malformed, out-of-range, or wrong-version worker-pool state -> `WORKER_POOL_CORRUPT`; never silently reset a resumed run to 10.
+- Multiple active runs -> stop for explicit run selection; never choose latest, merge state, or archive one implicitly.
 - Chapter, merge, cleanup, or quality draft violates its contract -> reject the submission and consume one persisted attempt.
 - Same output, same normalized error, or `A -> B -> A` oscillation -> `manual_review` before another automatic retry.
 - Third failed submission -> `ATTEMPTS_EXHAUSTED` and `manual_review`; automatic `reset-unit` is forbidden.
 - Unresolved or ambiguous deterministic reference -> `finalize:references` enters `manual_review`; do not ask AI to rotate between ID plans.
+- Accepted hash mismatch -> `ACCEPTED_ARTIFACT_MUTATED`; coverage/resolution or final projection stops without refreshing the expected hash.
+- Candidate ledger incomplete -> `CANDIDATE_RESOLUTION_INCOMPLETE`; an unresolved `recall:*` or `supplement:*` unit blocks build and install.
+- Archived clean baseline contains unbound install entries -> `DIRTY_INSTALL_BASELINE`; existing bytes remain unchanged.
 - Any unresolved `manual_review` item -> `build-final` or `install` fails closed, while unrelated chapter extraction may continue.
 - Quantity outside its suggested range -> report the actual count and one explanation, then continue; count alone is non-blocking.
 - Fixed sample below 38/40, or below `ceil(n * 0.95)` for a smaller work -> `quality:sample` enters `manual_review`; do not return to merge or cleanup.
@@ -226,27 +252,43 @@ AI units are `chapter:NNN`, `merge:book`, `clean:book`, and `quality:sample`. `s
 
 ### 5. Good/Base/Bad Cases
 
-- Good: every chapter is accepted, one merge and cleanup are accepted, named martial material is retained, ordinary actions and trivial items are absent, the fixed sample passes, backup-and-swap installation succeeds, and installed data re-verifies.
+- Good: invoking the Skill with only a novel directory makes the current main model inspect persisted state, select the unique valid route, dispatch one isolated native worker per chapter, serially accept run-scoped staging drafts, and continue through installed verification and `archive-run` without user-authored command sequencing.
+- Good: a new run reports concurrency 10; a batch with several 429 worker results records one incident and resumes at 5 without changing chapter attempts. Later distinct incidents reduce to 2 and 1, and context recovery observes the same limit.
+- Good: a rejected staging draft is archived and removed once; after recovery, recreating or replaying that lower attempt is rejected without changing progress, while a fresh worker writes the next attempt.
+- Base: the host exposes fewer than 10 native slots or fewer pending chapters; dispatch uses the smaller available count without treating that capacity limit as an error or rewriting the persisted upper bound.
+- Good: every chapter is accepted, candidate destinations and accepted hashes verify, any deterministic category gap is resolved once, one merge and cleanup are accepted, named martial material is retained, ordinary actions and trivial items are absent, fixed non-reallocating quotas pass, clean installation succeeds, installed data re-verifies, and the complete run archives.
 - Base: category counts remain outside guidance after the single review, with a source-grounded explanation; verification continues because quantity is advisory.
 - Base: line or paragraph placement is approximate while every cited chapter is correct; the record remains valid for this profile but is not exact-evidence output.
 - Bad: claiming G1–G5 or recall completeness from the 95% sample, adding entries to reach a quantity band, repeatedly polling `status`, automatically resetting attempts, or editing final IDs with AI.
 - Bad: writing nine files directly over `data/` without a complete backup, atomic directory swap, install receipt, and installed re-verification.
+- Bad: treating an empty item/dialogue quota as permission to sample more skills, reopening a whole-book generation after a category gap, mutating an accepted file, or installing over an unarchived dirty baseline.
+- Bad: giving the user a command checklist to operate manually, using a helper script or external model CLI instead of host-native chapter workers, or allowing workers to mutate shared progress while claiming the Skill itself completed the flow.
+- Bad: launching 10 workers after the persisted limit reached 5, calling backoff once per failed worker in a shared batch, consuming an `accept` attempt for 429, resetting to 10 after context compaction, or looping after `WORKER_RATE_LIMITED`.
 
 ### 6. Tests Required
 
+- Skill contract: assert zero/one/multiple-run autonomous routing, the full normal-stage order, one direct complete source read per isolated native chapter worker, run/unit/attempt staging paths, main-model-only serial acceptance, and exclusion of CTX, summaries, heuristics, external model CLIs, arbitrary `/tmp` drafts, and book-specific branches.
+- Run isolation: assert both run creation and resume provide `<run-dir>/staging/`, and every generated staging path remains below the selected run.
+- Staging lifecycle: assert exact next-attempt binding, realpath containment, consumption after success and rejection, non-consuming stale replay rejection, and continuation through the next attempt.
+- Worker-pool unit/CLI: assert initial 10, one incident per batch, `10 -> 5 -> 2 -> 1`, duplicate-batch idempotence, explicit-429 validation, persistence across prepare/status recovery, reset only on a new run, and `WORKER_RATE_LIMITED` at one.
+- Worker-pool attempt isolation: hash or compare `progress.json` before and after `worker-backoff`; assert byte equality and zero changes to chapter `attempts` and `semantic_attempts`.
 - Unit: persisted three-attempt budget, identical output/error, output/error oscillation, explicit reset confirmation, and manual-review blocking.
 - Contract: chapter-local evidence, named-technique requirement, five character levels, important-item reasons, one dialogue per event, one summary per chapter, and forbidden intermediate IDs.
 - Projection: deterministic pinyin IDs, collision stability, one-shot reference rewrite, nine arrays, cross-chapter events, and unresolved-reference fail-closed behavior.
-- Quality: fixed category quotas, 95% threshold, quantity-only warnings, game-material source resolution, and no whole-book retry after sample failure.
-- Installation: full backup, unknown-entry preservation, pre/post-move fault recovery, idempotence, receipt hashes, and installed-only verification.
-- Integration: a three-chapter source executes `prepare -> accept -> merge -> clean -> build-final -> verify -> quality -> verify -> install -> verify --installed` and proves ordinary actions/items are absent.
+- Quality: fixed non-reallocating category quotas, empty-category receipts, 95% threshold, quantity-only warnings, game-material source resolution, and no whole-book retry after sample failure.
+- Installation: clean-baseline rejection, pre/post-move fault recovery, idempotence, receipt hashes, installed-only verification, and full run archival.
+- Integration: a three-chapter source executes `archive-existing -> prepare -> accept -> check-coverage -> conditional recall -> merge -> check-resolution -> clean -> build-final -> verify -> quality -> verify -> install -> verify --installed -> archive-run`, including item-candidate loss and sparse-dialogue regressions.
 
 ### 7. Wrong vs Correct
 
 #### Wrong
 
-Run the fast sample, treat its score as recall proof, ask AI to repair final IDs until verification passes, then copy files directly into `data/`.
+Give the user a list of internal commands, launch a separate model CLI to read chapters, treat the fast sample as recall proof, then copy files directly into `data/`.
+
+On one batch with three 429 worker results, call `worker-backoff` three times with three IDs, reduce 10 directly to 1, and count each transport failure as a chapter attempt.
 
 #### Correct
 
-Use chapter-grounded drafts with persisted bounded attempts, let scripts project IDs once, stop unresolved work in `manual_review`, treat quantity as advisory, pass the fixed sample, then install through backup-and-swap and reverify only the installed artifacts.
+Invoke the Skill with a novel directory, let the current main model route from persisted state and dispatch isolated native workers that each directly read one complete chapter, serially accept their run-scoped drafts, let scripts project IDs once, stop unresolved work in `manual_review`, pass the fixed sample, then install through backup-and-swap and reverify only the installed artifacts.
+
+Use one stable ID for the entire dispatch batch, record its explicit 429 once, persist the single halving step, and retry affected chapters in fresh full-source workers while leaving `progress.json` unchanged.

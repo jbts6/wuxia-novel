@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "evidence_type": "generate-game-kb-v1-two-book-comparison-baseline",
+  "recorded_at": "2026-07-15T00:00:00+08:00",
+  "semantic_contract_version": null,
+  "contract": "legacy-whole-book-merge-clean",
+  "purpose": "Stable v1 comparison baseline for the follow-up deterministic category-assembly task; not positive evidence for semantic contract v2.",
+  "implementation_commit": "36bdaca3",
+  "related_commits": {
+    "fly_fox_data_and_skill": "36bdaca3",
+    "laughing_in_the_wind_data": "0a24b1d5",
+    "fly_fox_root_cleanup": "cb437028"
+  },
+  "books": [
+    {
+      "novel_dir": "金庸/飞狐外传",
+      "run_id": "run-2026-07-14T16-06-12-666Z-99848-dacb8590",
+      "started_at": "2026-07-14T16:06:12.667Z",
+      "installed_at": "2026-07-14T17:23:06.346Z",
+      "archived_at": "2026-07-14T17:23:17.667Z",
+      "install_elapsed_ms": 4613679,
+      "archive_elapsed_ms": 4625000,
+      "installed_verify_passed": true,
+      "final_data_hash": "sha256:7812ffb675316d4c35efccf5e460444faac672568f234f195f47f1f140beaac9",
+      "quality": {
+        "sample_size": 40,
+        "pass_count": 40,
+        "threshold": 38,
+        "passed": true
+      },
+      "counts": {
+        "characters": 121,
+        "events": 214,
+        "items": 72,
+        "skills": 47,
+        "techniques": 115,
+        "factions": 36,
+        "locations": 49,
+        "dialogues": 130,
+        "chapter_summaries": 20,
+        "game_material_entries": 5
+      }
+    },
+    {
+      "novel_dir": "金庸/笑傲江湖",
+      "run_id": "2026-07-14T14-20-46",
+      "started_at": "2026-07-14T14:20:49.302Z",
+      "installed_at": "2026-07-14T15:20:38.429Z",
+      "archived_at": "2026-07-14T15:20:41.897Z",
+      "install_elapsed_ms": 3589127,
+      "archive_elapsed_ms": 3592595,
+      "installed_verify_passed": true,
+      "final_data_hash": "sha256:db402f90360db8b2e37b832e0ba2aaf6b208d690d0f4941f26a973c457357173",
+      "quality": {
+        "sample_size": 40,
+        "pass_count": 40,
+        "threshold": 38,
+        "passed": true
+      },
+      "counts": {
+        "characters": 65,
+        "events": 84,
+        "items": 16,
+        "skills": 22,
+        "techniques": 23,
+        "factions": 13,
+        "locations": 31,
+        "dialogues": 55,
+        "chapter_summaries": 40,
+        "game_material_entries": 15
+      }
+    }
+  ],
+  "known_limitations": [
+    "Both runs used AI-authored whole-book merge and clean payloads.",
+    "The Fly Fox point-in-time failure audit records merge contract amplification and unauthorized reset history before eventual completion.",
+    "A passing v1 structural and sampled-quality report does not prove that cleanup obligations were semantically discharged.",
+    "Only fresh semantic_contract_version 2 runs may satisfy the follow-up task's positive acceptance criteria."
+  ],
+  "related_evidence": [
+    ".trellis/tasks/07-14-fast-kb-pipeline/evidence/feihu-resume-audit.json",
+    ".trellis/tasks/07-14-fast-kb-pipeline/evidence/xiaohu-pre-worker-audit.json"
+  ]
+}
