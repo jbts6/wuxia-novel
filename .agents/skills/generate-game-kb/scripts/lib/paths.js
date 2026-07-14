@@ -18,6 +18,7 @@ function pathsFor(novelDir) {
     preCleanQuantity: path.join(work, 'merged', 'pre_clean_quantity.json'),
     cleaned: path.join(work, 'cleaned', 'book.json'),
     finalRoot: path.join(work, 'final'),
+    finalIdPlan: path.join(work, 'final', 'id_plan.json'),
     finalData: path.join(work, 'final', 'data'),
     finalReports: path.join(work, 'final', 'reports')
   };

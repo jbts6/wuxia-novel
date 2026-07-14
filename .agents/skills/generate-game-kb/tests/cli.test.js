@@ -151,6 +151,13 @@ test('merge waits for every chapter and clean can complete only once', () => {
   });
   const cleanResult = acceptJsonDraft(novel, 'clean:book', cleaned);
   assert.equal(cleanResult.status, 0, cleanResult.stderr);
+  const buildResult = runFlow(['build-final', novel, '--json']);
+  assert.equal(buildResult.status, 0, buildResult.stderr);
+  assert.equal(JSON.parse(buildResult.stdout).file_count, 9);
+  assert.deepEqual(fs.readdirSync(path.join(novel, '.game-kb-work', 'final', 'data')).sort(), [
+    'chapter_summaries.json', 'characters.json', 'dialogues.json', 'events.json', 'factions.json',
+    'items.json', 'locations.json', 'skills.json', 'techniques.json'
+  ]);
   const second = acceptJsonDraft(novel, 'clean:book', cleaned);
   assert.notEqual(second.status, 0);
   assert.equal(JSON.parse(second.stderr).code, 'UNIT_ALREADY_DONE');

@@ -98,6 +98,23 @@ function recordSubmission(current, unitName, inputHash, outputHash, errors) {
   return progress;
 }
 
+function setDeterministicUnit(current, unitName, inputHash, errors) {
+  const progress = cloneProgress(current);
+  let unit = progress.units[unitName];
+  if (!unit || unit.input_hash !== inputHash) unit = rotateUnit(progress, unitName, inputHash, 'pending');
+  const normalizedErrors = normalizeErrors(errors);
+  const fingerprint = normalizeErrorFingerprint(normalizedErrors);
+  unit.status = normalizedErrors.length > 0 ? 'manual_review' : 'done';
+  unit.attempts = 0;
+  unit.output_hashes = [];
+  unit.error_fingerprints = fingerprint ? [fingerprint] : [];
+  unit.last_errors = normalizedErrors;
+  unit.stop_reason = normalizedErrors.length > 0 ? 'DETERMINISTIC_VALIDATION_FAILED' : null;
+  unit.updated_at = now();
+  progress.updated_at = unit.updated_at;
+  return progress;
+}
+
 function manualIssues(progress) {
   return Object.entries(progress.units)
     .filter(([, unit]) => unit.status === 'manual_review')
@@ -197,5 +214,6 @@ module.exports = {
   recordSubmission,
   resetUnit,
   saveProgress,
+  setDeterministicUnit,
   statusReport
 };

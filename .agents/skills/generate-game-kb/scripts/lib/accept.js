@@ -137,6 +137,10 @@ function unitContext(paths, manifest, progress, unit) {
   throw new GameKbError('UNIT_UNSUPPORTED', 'Unsupported accept unit', { unit });
 }
 
+function currentUnitInputHash(paths, manifest, progress, unit) {
+  return unitContext(paths, manifest, progress, unit).inputHash;
+}
+
 function acceptDraft({ paths, unit, draftPath }) {
   const manifest = readJson(paths.manifest);
   const progress = loadProgress(paths, manifest);
@@ -187,4 +191,4 @@ function acceptDraft({ paths, unit, draftPath }) {
   return result;
 }
 
-module.exports = { acceptDraft, assertDraftPath };
+module.exports = { acceptDraft, assertDraftPath, currentUnitInputHash, stableHash };
