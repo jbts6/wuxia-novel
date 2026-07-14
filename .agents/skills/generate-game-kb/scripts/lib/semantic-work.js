@@ -331,7 +331,8 @@ function createCleanWorkPlan({ merged, merged_hash: mergedHash, obligations = []
         entity_ref: entityRef,
         local_key: entry.record.local_key,
         category: entry.category,
-        candidate_keys: candidateKeys
+        candidate_keys: candidateKeys,
+        source_entity: structuredClone(entry.record)
       }
     };
   });

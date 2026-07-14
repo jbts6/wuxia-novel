@@ -6,11 +6,16 @@ const test = require('node:test');
 const { validateMergedBook } = require('../scripts/lib/book-contract');
 const {
   applyMergeDecision,
+  applyCleanDecision,
+  assembleCleanedBook,
   assembleMergedBook,
-  createMergeConsolidationWorkItem
+  createMergeConsolidationWorkItem,
+  validateCleanClosure
 } = require('../scripts/lib/book-assembly');
-const { createMergeWorkPlan } = require('../scripts/lib/semantic-work');
+const { buildCleanObligations } = require('../scripts/lib/clean-obligations');
+const { createCleanWorkPlan, createMergeWorkPlan } = require('../scripts/lib/semantic-work');
 const { scaleCandidates } = require('./fixtures/merge-clean-scale');
+const { validCleanedBook, validMergedBook } = require('./helpers');
 
 function manifest20() {
   return {
@@ -194,4 +199,141 @@ test('an accepted ambiguity blocks deterministic merge assembly', () => {
   };
 
   assert.throws(() => assembleMergedBook(input), { code: 'MERGE_AMBIGUITY_UNRESOLVED' });
+});
+
+function manifest3() {
+  return {
+    chapters: [1, 2, 3].map(number => ({ number, title: `第${number}章` }))
+  };
+}
+
+function cleanAssembly(merged, decide) {
+  const manifest = manifest3();
+  const chapters = [];
+  const obligations = buildCleanObligations(merged, manifest, chapters);
+  const plan = createCleanWorkPlan({
+    merged,
+    merged_hash: `sha256:${'a'.repeat(64)}`,
+    obligations
+  });
+  const decisions = {};
+  for (const input of plan.inputs) {
+    const bindings = plan.bindings.filter(binding => binding.unit === input.unit);
+    decisions[input.unit] = {
+      schema_version: 1,
+      stage: 'clean_decision',
+      unit: input.unit,
+      decisions: input.entities.map(entity => {
+        const binding = bindings.find(row => row.entity_ref === entity.entity_ref);
+        return decide?.(binding, entity, input) || { entity_ref: entity.entity_ref, action: 'keep', resolves: [] };
+      }),
+      quantity_explanation: null
+    };
+  }
+  return {
+    merged,
+    plan,
+    decisions,
+    obligations,
+    manifest,
+    chapters,
+    materials: validCleanedBook().game_material_candidates
+  };
+}
+
+test('one entity drop migrates 420 mapped candidates with one legal reason', () => {
+  const merged = validMergedBook({
+    candidate_resolutions: Array.from({ length: 420 }, (_, index) => ({
+      candidate_key: `ch001:items:candidate:${String(index).padStart(4, '0')}`,
+      resolution: 'merged_to',
+      merged_to: 'item:灵丹'
+    }))
+  });
+  const input = cleanAssembly(merged, binding => binding.local_key === 'item:灵丹'
+    ? {
+        entity_ref: binding.entity_ref,
+        action: 'drop',
+        reason: 'misclassified',
+        detail: '同一错类实体',
+        resolves: []
+      }
+    : null);
+  const cleaned = assembleCleanedBook(input);
+  const rows = cleaned.candidate_resolutions.filter(row => row.resolution === 'rejected');
+
+  assert.equal(rows.length, 420);
+  assert.ok(rows.every(row => row.reason === 'misclassified'));
+  assert.ok(rows.every(row => row.detail === '同一错类实体'));
+});
+
+test('keep-all cannot bypass an unresolved detailed-character obligation', () => {
+  const merged = validMergedBook();
+  delete merged.characters[0].biography;
+  const input = cleanAssembly(merged, (binding, entity, workItem) => ({
+    entity_ref: entity.entity_ref,
+    action: 'keep',
+    resolves: workItem.obligations
+      .filter(obligation => obligation.entity_ref === entity.entity_ref)
+      .map(obligation => obligation.obligation_ref)
+  }));
+
+  assert.throws(() => assembleCleanedBook(input), { code: 'CLEAN_OBLIGATION_UNRESOLVED' });
+  const closure = validateCleanClosure({
+    original_obligations: input.obligations,
+    claimed_obligation_refs: input.obligations.map(row => row.obligation_ref),
+    cleaned: validCleanedBook({ characters: merged.characters }),
+    manifest: input.manifest,
+    chapters: input.chapters
+  });
+  assert.ok(closure.errors.some(error => error.code === 'CLEAN_OBLIGATION_UNRESOLVED'));
+});
+
+function protectedDropError(localKey) {
+  const input = cleanAssembly(validMergedBook());
+  const workItem = input.plan.inputs.find(item =>
+    input.plan.bindings.some(binding => binding.unit === item.unit && binding.local_key === localKey));
+  const bindings = input.plan.bindings.filter(binding => binding.unit === workItem.unit);
+  const draft = input.decisions[workItem.unit];
+  draft.decisions = draft.decisions.map(decision => {
+    const binding = bindings.find(row => row.entity_ref === decision.entity_ref);
+    return binding.local_key === localKey
+      ? { entity_ref: decision.entity_ref, action: 'drop', reason: 'not_game_relevant', detail: '删除', resolves: [] }
+      : decision;
+  });
+  try {
+    applyCleanDecision(workItem, bindings, draft);
+    return null;
+  } catch (error) {
+    return error.code;
+  }
+}
+
+test('a named technique and an important character cannot be dropped', () => {
+  assert.equal(protectedDropError('technique:飞掌'), 'PROTECTED_ENTITY_REMOVAL');
+  assert.equal(protectedDropError('character:甲'), 'PROTECTED_ENTITY_REMOVAL');
+});
+
+test('clean obligations are stable and include duplicate-dialogue and item rules', () => {
+  const merged = validMergedBook({
+    items: [{ ...validMergedBook().items[0], inclusion_reason: '普通用品' }],
+    dialogues: [
+      validMergedBook().dialogues[0],
+      { ...validMergedBook().dialogues[0], local_key: 'dialogue:又一句', text: '另一句。' }
+    ]
+  });
+  const first = buildCleanObligations(merged, manifest3(), []);
+  const second = buildCleanObligations(merged, manifest3(), []);
+
+  assert.deepEqual(first, second);
+  assert.ok(first.some(row => row.code === 'ITEM_NOT_IMPORTANT'));
+  assert.ok(first.some(row => row.code === 'DIALOGUE_EVENT_DUPLICATE'));
+  assert.deepEqual(first.map(row => row.obligation_ref), first.map((_, index) => `o${String(index + 1).padStart(4, '0')}`));
+});
+
+test('an obligation-free explicit keep-all cleanup is legal', () => {
+  const cleaned = assembleCleanedBook(cleanAssembly(validMergedBook()));
+
+  assert.equal(cleaned.characters.length, 1);
+  assert.equal(cleaned.techniques.length, 1);
+  assert.deepEqual(buildCleanObligations(cleaned, manifest3(), []), []);
 });

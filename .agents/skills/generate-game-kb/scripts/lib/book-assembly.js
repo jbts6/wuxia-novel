@@ -2,8 +2,9 @@
 
 const crypto = require('node:crypto');
 
-const { ENTITY_CATEGORIES, validateMergedBook } = require('./book-contract');
-const { validateMergeDecisionDraft } = require('./category-contract');
+const { ENTITY_CATEGORIES, validateCleanedBook, validateMergedBook } = require('./book-contract');
+const { validateCleanDecisionDraft, validateMergeDecisionDraft } = require('./category-contract');
+const { buildCleanObligations, obligationKey } = require('./clean-obligations');
 const { GameKbError } = require('./errors');
 const { MAX_WORK_ITEM_BYTES, WORK_CONTRACT_VERSION } = require('./semantic-work');
 const { sha256 } = require('./source');
@@ -439,11 +440,272 @@ function assembleMergedBook({
   return book;
 }
 
+function isProtectedRemoval(binding) {
+  const entity = binding?.source_entity || {};
+  if (binding?.category === 'skills') return true;
+  if (binding?.category === 'techniques' && entity.named_in_source === true) return true;
+  return binding?.category === 'characters' && ['核心', '重要'].includes(entity.level);
+}
+
+function patchedEntity(source, patch, eventRefMap) {
+  const result = structuredClone(source);
+  for (const [key, value] of Object.entries(patch || {})) {
+    if (key === 'event_ref') {
+      result.event_key = eventRefMap?.[value];
+    } else {
+      result[key] = structuredClone(value);
+    }
+  }
+  return result;
+}
+
+function applyCleanDecision(workItem, bindings, draft, options = {}) {
+  const issues = validateCleanDecisionDraft(draft, workItem);
+  if (issues.length > 0) {
+    throw assemblyError('SEMANTIC_DECISION_INVALID', 'Clean decision draft failed its category contract', {
+      unit: workItem?.unit,
+      issues
+    });
+  }
+  const rows = bindingRows(bindings);
+  const byRef = new Map(rows.map(binding => [binding.entity_ref, binding]));
+  const records = [];
+  const transitions = [];
+  const resolvedObligations = [];
+  for (const decision of draft.decisions) {
+    const binding = byRef.get(decision.entity_ref);
+    if (!binding?.source_entity) {
+      throw assemblyError('BOOK_ASSEMBLY_INCOMPLETE', 'A clean entity has no private source binding', {
+        unit: workItem.unit,
+        entity_ref: decision.entity_ref
+      });
+    }
+    if (decision.action === 'drop' && isProtectedRemoval(binding)) {
+      throw assemblyError('PROTECTED_ENTITY_REMOVAL', 'A named martial entity or detailed character cannot be dropped', {
+        unit: workItem.unit,
+        entity_ref: decision.entity_ref,
+        local_key: binding.local_key
+      });
+    }
+    resolvedObligations.push(...decision.resolves);
+    if (decision.action === 'keep') {
+      records.push(structuredClone(binding.source_entity));
+      transitions.push({ action: 'keep', source_key: binding.local_key, target_key: binding.local_key });
+    } else if (decision.action === 'edit') {
+      records.push(patchedEntity(binding.source_entity, decision.patch, options.event_ref_map || {}));
+      transitions.push({ action: 'edit', source_key: binding.local_key, target_key: binding.local_key });
+    } else if (decision.action === 'merge_into') {
+      const target = byRef.get(decision.target_ref);
+      if (!target) {
+        throw assemblyError('BOOK_ASSEMBLY_INCOMPLETE', 'A clean merge target has no private binding', {
+          unit: workItem.unit,
+          target_ref: decision.target_ref
+        });
+      }
+      transitions.push({
+        action: 'merge_into',
+        source_key: binding.local_key,
+        target_key: target.local_key,
+        source_entity: structuredClone(binding.source_entity)
+      });
+    } else {
+      transitions.push({
+        action: 'drop',
+        source_key: binding.local_key,
+        reason: decision.reason,
+        detail: decision.detail
+      });
+    }
+  }
+  return {
+    category: workItem.category,
+    unit: workItem.unit,
+    records,
+    transitions,
+    resolved_obligations: uniqueSorted(resolvedObligations),
+    quantity_explanation: draft.quantity_explanation
+  };
+}
+
+function resolveTransitionTarget(sourceKey, transitions, visiting = new Set()) {
+  if (visiting.has(sourceKey)) {
+    throw assemblyError('BOOK_ASSEMBLY_INCOMPLETE', 'Clean merge transitions contain a cycle', { source_key: sourceKey });
+  }
+  const transition = transitions.get(sourceKey);
+  if (!transition) {
+    throw assemblyError('BOOK_ASSEMBLY_INCOMPLETE', 'Merged entity has no clean transition', { source_key: sourceKey });
+  }
+  if (transition.action === 'drop') return null;
+  if (transition.action !== 'merge_into') return transition.target_key;
+  const nextVisiting = new Set(visiting);
+  nextVisiting.add(sourceKey);
+  return resolveTransitionTarget(transition.target_key, transitions, nextVisiting);
+}
+
+function mergeRecordMetadata(target, source, category) {
+  target.source_refs = unionSourceRefs([target, source]);
+  if (category !== 'dialogues') {
+    target.aliases = uniqueSorted([
+      ...(target.aliases || []),
+      ...(source.aliases || []),
+      source.canonical_name
+    ]).filter(alias => alias !== target.canonical_name);
+  }
+}
+
+function migrateCleanResolution(row, transitions) {
+  if (row.resolution === 'rejected') return structuredClone(row);
+  if (row.resolution !== 'merged_to') {
+    return { ...structuredClone(row), resolution: 'ambiguous' };
+  }
+  const transition = transitions.get(row.merged_to);
+  if (!transition) {
+    throw assemblyError('BOOK_ASSEMBLY_INCOMPLETE', 'Candidate target has no clean transition', {
+      candidate_key: row.candidate_key,
+      merged_to: row.merged_to
+    });
+  }
+  const targetKey = resolveTransitionTarget(row.merged_to, transitions);
+  if (targetKey) return { candidate_key: row.candidate_key, resolution: 'merged_to', merged_to: targetKey };
+  return {
+    candidate_key: row.candidate_key,
+    resolution: 'rejected',
+    reason: transition.reason,
+    detail: transition.detail
+  };
+}
+
+function validateCleanClosure({
+  original_obligations: originalObligations = [],
+  claimed_obligation_refs: claimedObligationRefs = [],
+  cleaned,
+  manifest,
+  chapters
+} = {}) {
+  const claimed = new Set(claimedObligationRefs);
+  const remaining = buildCleanObligations(cleaned, manifest, chapters);
+  const remainingKeys = new Set(remaining.map(obligationKey));
+  const originalKeys = new Set(originalObligations.map(obligationKey));
+  const errors = [];
+  for (const obligation of originalObligations) {
+    if (!claimed.has(obligation.obligation_ref) || remainingKeys.has(obligationKey(obligation))) {
+      errors.push({
+        code: 'CLEAN_OBLIGATION_UNRESOLVED',
+        path: obligation.obligation_ref,
+        target: obligation.code
+      });
+    }
+  }
+  for (const obligation of remaining) {
+    if (!originalKeys.has(obligationKey(obligation))) {
+      errors.push({
+        code: 'CLEAN_OBLIGATION_UNRESOLVED',
+        path: obligation.path,
+        target: obligation.code
+      });
+    }
+  }
+  return { errors, remaining_obligations: remaining };
+}
+
+function assembleCleanedBook({
+  merged,
+  plan,
+  decisions = {},
+  obligations = [],
+  manifest,
+  chapters,
+  materials = [],
+  event_ref_map: eventRefMap = {}
+} = {}) {
+  const projections = [];
+  for (const input of Array.isArray(plan?.inputs) ? plan.inputs : []) {
+    const draft = decisions[input.unit];
+    if (!draft) {
+      throw assemblyError('BOOK_ASSEMBLY_INCOMPLETE', 'A clean category decision is missing', { unit: input.unit });
+    }
+    const bindings = (plan.bindings || []).filter(binding => binding.unit === input.unit);
+    projections.push(applyCleanDecision(input, bindings, draft, { event_ref_map: eventRefMap }));
+  }
+
+  const transitions = new Map();
+  const recordByKey = new Map();
+  for (const projection of projections) {
+    for (const transition of projection.transitions) {
+      if (transitions.has(transition.source_key)) {
+        throw assemblyError('BOOK_ASSEMBLY_INCOMPLETE', 'An entity has multiple clean transitions', {
+          source_key: transition.source_key
+        });
+      }
+      transitions.set(transition.source_key, transition);
+    }
+    for (const record of projection.records) recordByKey.set(record.local_key, record);
+  }
+
+  for (const transition of transitions.values()) {
+    if (transition.action !== 'merge_into') continue;
+    const targetKey = resolveTransitionTarget(transition.source_key, transitions);
+    const target = recordByKey.get(targetKey);
+    if (!target) {
+      throw assemblyError('BOOK_ASSEMBLY_INCOMPLETE', 'A clean merge target does not survive', {
+        source_key: transition.source_key,
+        target_key: targetKey
+      });
+    }
+    mergeRecordMetadata(target, transition.source_entity, transition.source_entity?.local_key?.split(':')[0] === 'dialogue'
+      ? 'dialogues'
+      : transition.source_entity?.category);
+  }
+
+  const categories = Object.fromEntries(ENTITY_CATEGORIES.map(category => [category, []]));
+  for (const [localKey, record] of recordByKey) {
+    const binding = (plan.bindings || []).find(value => value.local_key === localKey);
+    if (!binding) throw assemblyError('BOOK_ASSEMBLY_INCOMPLETE', 'A surviving clean record lost its category binding', { local_key: localKey });
+    categories[binding.category].push(record);
+  }
+  for (const category of ENTITY_CATEGORIES) {
+    categories[category].sort((left, right) => compareText(left.local_key, right.local_key));
+  }
+
+  const candidateResolutions = (Array.isArray(merged?.candidate_resolutions) ? merged.candidate_resolutions : [])
+    .map(row => migrateCleanResolution(row, transitions))
+    .sort((left, right) => compareText(left.candidate_key, right.candidate_key));
+  const explanations = projections.map(value => value.quantity_explanation).filter(value => typeof value === 'string' && value.trim() !== '');
+  const cleaned = {
+    schema_version: 1,
+    stage: 'cleaned',
+    ...categories,
+    chapter_summaries: structuredClone(merged?.chapter_summaries || []),
+    candidate_resolutions: candidateResolutions,
+    ambiguities: [],
+    quantity_review: { consumed: true, explanations },
+    game_material_candidates: structuredClone(materials)
+  };
+  const closure = validateCleanClosure({
+    original_obligations: obligations,
+    claimed_obligation_refs: projections.flatMap(value => value.resolved_obligations),
+    cleaned,
+    manifest,
+    chapters
+  });
+  if (closure.errors.length > 0) {
+    throw assemblyError('CLEAN_OBLIGATION_UNRESOLVED', 'Cleanup obligations remain after explicit decisions', closure);
+  }
+  const errors = validateCleanedBook(cleaned, manifest, chapters);
+  if (errors.length > 0) {
+    throw assemblyError('BOOK_ASSEMBLY_INVALID', 'Deterministically assembled cleaned book is invalid', { errors });
+  }
+  return cleaned;
+}
+
 module.exports = {
   CATEGORY_PREFIX,
+  applyCleanDecision,
   applyMergeDecision,
+  assembleCleanedBook,
   assembleMergedBook,
   assignLocalKeys,
   createMergeConsolidationWorkItem,
-  unionSourceRefs
+  unionSourceRefs,
+  validateCleanClosure
 };
