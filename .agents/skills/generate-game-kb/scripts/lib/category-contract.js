@@ -145,14 +145,16 @@ function validateMergeEntry(decision, category, path, issues) {
 
   if (decision.action === 'merge') {
     const required = category === 'dialogues'
-      ? new Set(['entity_ref', 'member_refs', 'action', 'aliases', 'fields'])
+      ? new Set(['entity_ref', 'member_refs', 'action', 'fields'])
       : new Set(['entity_ref', 'member_refs', 'action', 'canonical_name', 'aliases', 'fields']);
     exactFields(decision, required, path, issues);
     if (!nonempty(decision.entity_ref)) issues.push(issue('SEMANTIC_DECISION_INVALID', `${path}.entity_ref`));
     if (category !== 'dialogues' && !nonempty(decision.canonical_name)) {
       issues.push(issue('SEMANTIC_DECISION_INVALID', `${path}.canonical_name`));
     }
-    validateStringArray(decision.aliases, `${path}.aliases`, issues);
+    if (category !== 'dialogues') {
+      validateStringArray(decision.aliases, `${path}.aliases`, issues);
+    }
     validateSemanticFields(decision.fields, category, CATEGORY_FIELDS, `${path}.fields`, issues);
   } else if (decision.action === 'reject') {
     exactFields(decision, new Set(['member_refs', 'action', 'reason', 'detail']), path, issues);

@@ -486,11 +486,17 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'prepare') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'prepare requires <novel>');
-      if (!requestedRun) {
-        assertArchiveExistingAllowed(novelDir);
-        archiveExisting(novelDir);
+      let selectedRun = requestedRun;
+      if (!selectedRun) {
+        try {
+          selectedRun = resolveRun(novelDir).run_id;
+        } catch (error) {
+          if (!(error instanceof GameKbError) || error.code !== 'RUN_REQUIRED') throw error;
+          assertArchiveExistingAllowed(novelDir);
+          archiveExisting(novelDir);
+        }
       }
-      const run = createOrResumeRun(novelDir, { runId: requestedRun });
+      const run = createOrResumeRun(novelDir, { runId: selectedRun });
       const manifest = prepareNovel(novelDir, { runId: run.run_id });
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
       const payload = {

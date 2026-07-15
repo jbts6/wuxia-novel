@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "evidence_created_on": "2026-07-15",
+  "novel": "金庸/飞狐外传",
+  "purpose": "immutable_negative_evidence_for_whole_book_merge_clean",
+  "source_run": {
+    "run_id": "run-2026-07-14T16-06-12-666Z-99848-dacb8590",
+    "relative_path": "金庸/飞狐外传/_archive/generate-game-kb/run-2026-07-14T16-06-12-666Z-99848-dacb8590",
+    "schema_version": 1,
+    "semantic_contract_version": null,
+    "source_hash": "sha256:929151cdf3f33d03fea89961d7f7b0e44188edd6dcb9d35c204fb4a40da7a4d8",
+    "started_at": "2026-07-14T16:06:12.667Z",
+    "archived_at": "2026-07-14T17:23:17.667Z",
+    "archive_artifact_manifest_hash": "sha256:3eaf6ffca264dfebc5257e301966ca865256fea1cfa8cc9554f88ba2aa0b68fd",
+    "archive_artifact_count": 23,
+    "mutated_during_audit": false
+  },
+  "candidate_baseline": {
+    "accepted_chapter_count": 20,
+    "candidate_count": 1089,
+    "accepted_merged_hash": "sha256:073f13886151e8c7a081f4c07fec7b61fda78def7b562bc035ddf753b91def16",
+    "accepted_merged_resolution_count": 1089,
+    "accepted_merged_entity_counts": {
+      "characters": 121,
+      "events": 214,
+      "items": 72,
+      "skills": 47,
+      "techniques": 115,
+      "factions": 36,
+      "locations": 49,
+      "dialogues": 133
+    }
+  },
+  "merge_failures": [
+    {
+      "attempt": 1,
+      "file": "drafts/merge_book/attempt_01_af5e25659bce.json",
+      "bytes": 629877,
+      "sha256": "sha256:af5e25659bce7be776262d434d1362486237be5f58b3370612d10db4e0dc20d5",
+      "parseable_json": true,
+      "candidate_resolutions": 1089,
+      "validation_error_count": 262,
+      "validation_error_codes": {
+        "CANDIDATE_RESOLUTION_INVALID": 164,
+        "DIALOGUE_EVENT_UNKNOWN": 98
+      }
+    },
+    {
+      "attempt": 2,
+      "file": "drafts/merge_book/attempt_02_b9ccb4e503fe.json",
+      "bytes": 686073,
+      "sha256": "sha256:b9ccb4e503fe3db2707c40fb3533a0f552620402c4b24a4933248f4164d98bc5",
+      "parseable_json": true,
+      "candidate_resolutions": 1089,
+      "validation_error_count": 4085,
+      "validation_error_codes": {
+        "CANDIDATE_RESOLUTION_DUPLICATE": 82,
+        "CANDIDATE_RESOLUTION_INVALID": 1089,
+        "CANDIDATE_RESOLUTION_MISSING": 1089,
+        "CANDIDATE_RESOLUTION_UNKNOWN": 1089,
+        "CANONICAL_NAME_REQUIRED": 654,
+        "DIALOGUE_EVENT_DUPLICATE": 82
+      }
+    },
+    {
+      "attempt": 3,
+      "file": "drafts/merge_book/attempt_03_08ca1b4a6745.json",
+      "bytes": 601281,
+      "sha256": "sha256:08ca1b4a674565d5ede94922fd4bf469a3e2507344c43ab08a227bc6a294404f",
+      "parseable_json": true,
+      "candidate_resolutions": 1089,
+      "validation_error_count": 2178,
+      "validation_error_codes": {
+        "CANDIDATE_RESOLUTION_MISSING": 1089,
+        "CANDIDATE_RESOLUTION_UNKNOWN": 1089
+      }
+    }
+  ],
+  "merge_exhaustion": {
+    "status": "manual_review",
+    "attempts": 3,
+    "stop_reason": "ATTEMPTS_EXHAUSTED",
+    "updated_at": "2026-07-14T16:57:42.399Z",
+    "history_archived_at": "2026-07-14T17:03:28.118Z"
+  },
+  "merge_after_reset": {
+    "attempt": 1,
+    "file": "drafts/merge_book/attempt_01_81060affb8e4.json",
+    "bytes": 586187,
+    "sha256": "sha256:81060affb8e4e3c168555d5e7dbb10095d67374ff259be7c562c47a970cbff62",
+    "validation_error_count": 0,
+    "completed_at": "2026-07-14T17:03:55.550Z",
+    "reset_inference": "attempts returned from exhausted 3 to 1 under the same input hash"
+  },
+  "first_clean_failure": {
+    "file": "drafts/clean_book/attempt_01_8ded3567e7da.json",
+    "bytes": 471313,
+    "sha256": "sha256:8ded3567e7da923ccc89bd747df8e791daf8a84b9c0785f61e4a4f5f067345c2",
+    "parseable_json": true,
+    "validation_error_count": 877,
+    "validation_error_equation": "877 = 840 + 36 + 1",
+    "validation_error_codes": {
+      "CANDIDATE_RESOLUTION_INVALID": 840,
+      "DETAILED_CHARACTER_BIOGRAPHY_REQUIRED": 36,
+      "DETAILED_CHARACTER_PERSONALITY_REQUIRED": 1
+    },
+    "invented_rejection_reason": "entity_removed_during_cleaning",
+    "candidate_resolutions_with_invented_reason": 420,
+    "removed_named_techniques": 76,
+    "resolution_distribution": {
+      "merged_to": 669,
+      "rejected": 420
+    },
+    "entity_counts": {
+      "characters": 56,
+      "events": 196,
+      "items": 18,
+      "skills": 22,
+      "techniques": 39,
+      "factions": 16,
+      "locations": 49,
+      "dialogues": 53
+    }
+  },
+  "keep_all_retries": [
+    {
+      "attempt": 2,
+      "file": "drafts/clean_book/attempt_02_550663a1c1d0.json",
+      "bytes": 592743,
+      "sha256": "sha256:550663a1c1d057c76474717b07459f3b636ef70c3a6d6b5707d2741b297b818a",
+      "validation_error_count": 0,
+      "resolution_distribution": {
+        "merged_to": 1089
+      },
+      "all_merged_entities_retained": true,
+      "quantity_explanation": "保留所有实体，不进行删除，避免candidate_resolutions失效"
+    },
+    {
+      "attempt": 1,
+      "after_reset": true,
+      "file": "drafts/clean_book/attempt_01_950c32d492b8.json",
+      "bytes": 594198,
+      "sha256": "sha256:950c32d492b8c4e5cef724cb7102bf0be188f21b5f2e6aa7c7dfd9b0f97978db",
+      "validation_error_count": 0,
+      "resolution_distribution": {
+        "merged_to": 1089
+      },
+      "all_merged_entities_retained": true,
+      "quantity_explanation": "保留所有实体，不进行删除，避免candidate_resolutions失效"
+    }
+  ],
+  "clean_reset_timeline": [
+    {
+      "status": "done",
+      "attempts": 2,
+      "updated_at": "2026-07-14T17:10:29.724Z",
+      "history_archived_at": "2026-07-14T17:12:13.206Z"
+    },
+    {
+      "status": "pending",
+      "attempts": 0,
+      "updated_at": "2026-07-14T17:12:13.207Z",
+      "history_archived_at": "2026-07-14T17:12:30.517Z"
+    },
+    {
+      "status": "done",
+      "attempts": 1,
+      "updated_at": "2026-07-14T17:13:38.153Z"
+    }
+  ],
+  "accepted_cleaned": {
+    "sha256": "sha256:bb847a69d31ce439677a12c588828681ab4783f567d0cfc1cf7416fd09ab7c17",
+    "candidate_resolutions": 1089,
+    "entity_counts": {
+      "characters": 121,
+      "events": 214,
+      "items": 72,
+      "skills": 47,
+      "techniques": 115,
+      "factions": 36,
+      "locations": 49,
+      "dialogues": 130
+    }
+  },
+  "assessment": {
+    "three_merge_failures_were_not_truncation": true,
+    "clean_failure_mixed_mechanical_and_semantic_errors": true,
+    "keep_all_passed_structure_but_bypassed_cleanup_semantics": true,
+    "whole_book_attempts_were_reset": true,
+    "eligible_as_v2_positive_evidence": false
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-07-15T01:39:03.405Z",
+  "purpose": "Portable mid-task checkpoint for continuing the two-book generate-game-kb v2 acceptance on another computer.",
+  "archive": {
+    "file": "generate-game-kb-portable-state-2026-07-15.tar.gz",
+    "bytes": 6353587,
+    "sha256": "78029cc5b6250aabfe75531f72641f5d1c2b538a4ffe678276b5abec9ffe7617",
+    "entries": 546,
+    "unsafe_paths": 0
+  },
+  "included": [
+    "金庸/飞狐外传/.game-kb-work/runs/run-2026-07-14T19-15-28-655Z-25806-758f25ed",
+    "金庸/笑傲江湖/.game-kb-work/runs/run-2026-07-14T19-15-30-191Z-25821-dac0fa18",
+    "金庸/飞狐外传/_archive/before-2026-07-14T19-15-28-150Z",
+    "金庸/飞狐外传/_archive/before-2026-07-14T19-15-28-582Z",
+    "金庸/笑傲江湖/_archive/before-2026-07-14T19-15-29-673Z",
+    "金庸/笑傲江湖/_archive/before-2026-07-14T19-15-30-102Z"
+  ],
+  "external_required_files": [],
+  "relocation_smoke": {
+    "prepare_without_run_resumes_unique_v2": true,
+    "archive_directories_unchanged": true,
+    "feihu_run_id_preserved": true,
+    "xiaoao_run_id_preserved": true,
+    "embedded_absolute_source_paths": "provenance_only"
+  },
+  "runs": {
+    "feihu": {
+      "run_id": "run-2026-07-14T19-15-28-655Z-25806-758f25ed",
+      "semantic_contract_version": 2,
+      "progress_sha256": "e2ad86a773247a5e900967793c4e780c3f4d53695d94a836319f3edca3745491",
+      "manual_review_sha256": "60a726d7f2341eb87a174b995a68b06e361613398116852a9d3fc1f672c72893",
+      "manual_review_units": [
+        "merge:dialogues:001",
+        "merge:dialogues:002"
+      ],
+      "worker_pool_limit": 10,
+      "worker_pool_incidents": []
+    },
+    "xiaoao": {
+      "run_id": "run-2026-07-14T19-15-30-191Z-25821-dac0fa18",
+      "semantic_contract_version": 2,
+      "progress_sha256": "0b490684033f9378c32db26ea64c437ca2da6df0352f653746f5d5634c62ce3d",
+      "manual_review_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "completed_chapters": 40,
+      "coverage_blocking_gaps": 0,
+      "done_merge_units": [
+        "merge:events:001",
+        "merge:events:002",
+        "merge:events:003",
+        "merge:events:004",
+        "merge:items:001"
+      ],
+      "pending_merge_units": 24,
+      "worker_pool_limit": 10,
+      "worker_pool_incidents": []
+    }
+  }
+}

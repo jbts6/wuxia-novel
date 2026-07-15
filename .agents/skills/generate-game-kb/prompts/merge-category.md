@@ -26,7 +26,16 @@
 ```
 
 - 输入 `candidates[*].candidate_ref`，或 consolidation 输入 `entities[*].entity_ref`，必须在 `decisions` 与 `ambiguities` 的 `member_refs` 中恰好出现一次；不得遗漏、重复、跨工作项引用。
-- `merge` 生成当前草稿内唯一的 `entity_ref`，合并同一实体的短引用，并填写原著规范名称、别名和本类别允许的 `fields`。对白类别不写 `canonical_name`，把 `event_ref`、说话人、章节和原文短句放入 `fields`。
+- `merge` 生成当前草稿内唯一的 `entity_ref`，合并同一实体的短引用，并填写原著规范名称、别名和本类别允许的 `fields`。
+- `fields` 只能使用当前类别对应行列出的键；没有依据的可选键省略，不得增加其他键：
+  - `characters`: `level`, `identity`, `biography`, `personality`, `relationship_names`, `skill_names`, `item_names`
+  - `events`: `cause`, `process`, `result`, `participant_names`, `location_names`, `importance`
+  - `items`: `inclusion_reason`, `type`, `description`
+  - `skills`: `type`, `description`, `holder_names`, `technique_names`
+  - `techniques`: `named_in_source`, `source_skill_name`, `description`
+  - `factions`: `type`, `description`
+  - `locations`: `region`, `description`
+  - `dialogues`: `event_ref`, `speaker_name`, `chapter`, `text`；对白决定不写 `canonical_name` 和 `aliases`
 - `reject` 只含 `member_refs`、`action`、有限 `reason` 和有依据的非空 `detail`。有限 reason 为 `ordinary_item`、`duplicate`、`misclassified`、`no_evidence`、`not_game_relevant`。
 - 无法唯一判断时把该组写入 `ambiguities`，使用 `action: "ambiguous"`、`member_refs` 和非空 `detail`；不能猜测。
 - consolidation 只合并脚本提供的初步实体摘要，不回读逐章候选或其他 shard 草稿。

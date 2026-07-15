@@ -57,6 +57,20 @@ test('category prompts expose only short semantic references', () => {
   }
 });
 
+test('merge prompt gives workers the exact fields allowed for every category', () => {
+  const merge = readPrompt('merge-category.md');
+
+  assert.match(merge, /characters[^\n]*level[^\n]*identity[^\n]*biography[^\n]*personality[^\n]*relationship_names[^\n]*skill_names[^\n]*item_names/);
+  assert.match(merge, /events[^\n]*cause[^\n]*process[^\n]*result[^\n]*participant_names[^\n]*location_names[^\n]*importance/);
+  assert.match(merge, /items[^\n]*inclusion_reason[^\n]*type[^\n]*description/);
+  assert.match(merge, /skills[^\n]*type[^\n]*description[^\n]*holder_names[^\n]*technique_names/);
+  assert.match(merge, /techniques[^\n]*named_in_source[^\n]*source_skill_name[^\n]*description/);
+  assert.match(merge, /factions[^\n]*type[^\n]*description/);
+  assert.match(merge, /locations[^\n]*region[^\n]*description/);
+  assert.match(merge, /dialogues[^\n]*event_ref[^\n]*speaker_name[^\n]*chapter[^\n]*text/);
+  assert.match(merge, /dialogues[^\n]*(不写|不得写)[^\n]*canonical_name[^\n]*aliases/);
+});
+
 test('category orchestration preserves dependency order and durable recovery', () => {
   assert.match(skill, /events.*dialogues|事件.*对白/);
   assert.match(skill, /所有实体.*clean.*materials|实体.*清理.*clean:materials:001/);

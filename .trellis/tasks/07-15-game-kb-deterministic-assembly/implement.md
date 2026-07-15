@@ -551,3 +551,13 @@ Run the plan-writing placeholder scan, then check contradictory unit names, mism
 - [ ] Legacy runs fail closed without losing observational evidence.
 - [ ] Only fresh v2 runs provide the two-book quality, install, archive, timing, context-isolation, and worker-pool evidence.
 - [ ] Plan/spec placeholder and interface-consistency scans pass.
+
+## Mid-task portable checkpoint — 2026-07-15
+
+- [x] 《笑傲江湖》40/40 章节由隔离原生 worker 完整读原文并接受；本轮第 19–40 回均为首次提交通过。
+- [x] 《笑傲江湖》coverage 无 blocking gap；`merge:events:001` 至 `004` 和 `merge:items:001` 已接受。
+- [ ] 《笑傲江湖》剩余 merge、consolidation、clean、quality、install 与 archive-run 尚未完成。
+- [ ] 《飞狐外传》`merge:dialogues:001`、`merge:dialogues:002` 仍是未经 reset 授权的 `manual_review` 人工门禁。
+- [x] 被 Git 忽略的两个 active run 和四个 archive-existing 目录已打包到 `evidence/handoff/generate-game-kb-portable-state-2026-07-15.tar.gz`；哈希和精确续跑点见同目录 `manifest.json` 与 `README.md`。
+- [x] 换机异路径冒烟发现并修复 `prepare` 未带 `--run` 时误归档唯一 v2 run 的恢复缺陷；CLI 回归与双书快照恢复均证明 run-id、进度和归档目录保持不变。
+- [x] 打包时两书 staging 均为空、worker pool 均为 10、无 429 incident；任务继续保持 `in_progress`。

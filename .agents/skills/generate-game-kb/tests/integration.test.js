@@ -77,10 +77,12 @@ function mergeDecisionFromBook(input, book) {
       entity_ref: `e${String(index + 1).padStart(3, '0')}`,
       member_refs: candidates.map(candidate => candidate.candidate_ref),
       action: 'merge',
-      aliases: [],
       fields
     };
-    if (input.category !== 'dialogues') decision.canonical_name = record.canonical_name;
+    if (input.category !== 'dialogues') {
+      decision.canonical_name = record.canonical_name;
+      decision.aliases = [];
+    }
     return decision;
   });
   return {
@@ -234,10 +236,22 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
     '甲与乙在无名山谷查明真相，山谷相逢一事至此结束。'
   ].join('\n') + '\n';
   const novel = makeNovel('三章游戏书', source);
+  fs.mkdirSync(path.join(novel, 'data'), { recursive: true });
+  fs.mkdirSync(path.join(novel, 'build'), { recursive: true });
+  fs.mkdirSync(path.join(novel, 'reports'), { recursive: true });
+  fs.writeFileSync(path.join(novel, 'data', 'characters.json'), '[]\n', 'utf8');
+  fs.writeFileSync(path.join(novel, 'build', 'old-report.json'), '{}\n', 'utf8');
+  fs.writeFileSync(path.join(novel, 'reports', 'old-quality.json'), '{}\n', 'utf8');
+  const archivedBaseline = assertFlowPassed(runFlow(['archive-existing', novel, '--json']), 'archive existing');
+  assert.equal(archivedBaseline.status, 'archived');
+  assert.equal(fs.existsSync(path.join(novel, 'data')), false);
+  assert.equal(fs.existsSync(path.join(novel, 'build')), false);
+  assert.equal(fs.existsSync(path.join(novel, 'reports')), false);
   const prepared = assertFlowPassed(runFlow(['prepare', novel, '--json']), 'prepare');
   assert.equal(prepared.chapter_count, 3);
   const paths = pathsFor(novel, prepared.run_id);
   const manifest = readJson(paths.manifest);
+  assert.equal(readJson(paths.runJson).semantic_contract_version, 2);
 
   for (const chapter of manifest.chapters) {
     const number = chapter.number;
@@ -286,6 +300,9 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
       `accept chapter ${number}`
     );
   }
+
+  const coverage = assertFlowPassed(runFlow(['check-coverage', novel, '--json']), 'check coverage');
+  assert.deepEqual(coverage.recall_units, []);
 
   const summaries = manifest.chapters.map(chapter => ({
     chapter: chapter.number,
@@ -366,6 +383,8 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   assertFlowPassed(runFlow(['assemble-merge', novel, '--json']), 'assemble merge');
   assert.equal(readJson(paths.progress).units['merge:book'].attempts, 0);
   assert.equal(fs.existsSync(path.join(paths.drafts, 'merge_book')), false);
+  const resolution = assertFlowPassed(runFlow(['check-resolution', novel, '--json']), 'check resolution');
+  assert.deepEqual(resolution.supplement_units, []);
 
   const cleaned = validCleanedBook({
     ...common,
@@ -468,6 +487,16 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   const receipt = readJson(path.join(novel, 'reports', 'generate_game_kb_install.json'));
   assert.equal(receipt.installer, 'generate-game-kb');
   assert.equal(receipt.manual_review_count, 0);
+  assert.equal(receipt.semantic_contract_version, 2);
+
+  const archivedRun = assertFlowPassed(
+    runFlow(['archive-run', novel, '--run', prepared.run_id, '--json']),
+    'archive run'
+  );
+  assert.equal(archivedRun.status, 'archived');
+  assert.equal(fs.existsSync(paths.run), false);
+  assert.equal(fs.existsSync(path.join(archivedRun.archive_dir, 'progress.json')), true);
+  assert.match(archivedRun.artifact_manifest_hash, /^sha256:/);
 });
 
 test('seven explicitly rejected item candidates close the ledger without a whole-book retry', () => {

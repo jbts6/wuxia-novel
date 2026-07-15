@@ -182,6 +182,33 @@ test('strict top-level contracts reject extra transport fields', () => {
   assert.ok(codes(issues).includes('SEMANTIC_DECISION_INVALID'));
 });
 
+test('dialogue merge decisions do not require canonical names or aliases', () => {
+  const workItem = mergeWorkItem({
+    unit: 'merge:dialogues:001',
+    category: 'dialogues',
+    candidates: [{ candidate_ref: 'c0001', chapter: 1, facts: { text: '你来了。' } }]
+  });
+  const draft = {
+    schema_version: 1,
+    stage: 'merge_decision',
+    unit: 'merge:dialogues:001',
+    decisions: [{
+      entity_ref: 'e0001',
+      member_refs: ['c0001'],
+      action: 'merge',
+      fields: {
+        event_ref: 'event:e0001',
+        speaker_name: '甲',
+        chapter: 1,
+        text: '你来了。'
+      }
+    }],
+    ambiguities: []
+  };
+
+  assert.deepEqual(validateMergeDecisionDraft(draft, workItem), []);
+});
+
 test('material decisions use only known compact-catalog refs', () => {
   const valid = {
     schema_version: 1,

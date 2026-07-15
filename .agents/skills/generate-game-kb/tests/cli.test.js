@@ -36,6 +36,24 @@ test('prepare command creates a manifest and returns JSON', () => {
   assert.equal(readJson(activePaths(novel).manifest).chapters.length, 1);
 });
 
+test('prepare without --run resumes the unique v2 run instead of archiving it', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
+  const first = runFlow(['prepare', novel, '--json']);
+  assert.equal(first.status, 0, first.stderr);
+  const firstOutput = JSON.parse(first.stdout);
+  const firstPaths = activePaths(novel);
+  const archivesBefore = fs.readdirSync(path.join(novel, '_archive')).sort();
+
+  const second = runFlow(['prepare', novel, '--json']);
+
+  assert.equal(second.status, 0, second.stderr);
+  const secondOutput = JSON.parse(second.stdout);
+  assert.equal(secondOutput.run_id, firstOutput.run_id);
+  assert.equal(secondOutput.resumed, true);
+  assert.equal(fs.existsSync(firstPaths.runJson), true);
+  assert.deepEqual(fs.readdirSync(path.join(novel, '_archive')).sort(), archivesBefore);
+});
+
 test('prepare command reports a stable error code and nonzero exit', () => {
   const novel = makeNovelDirectory({ '甲.txt': '甲', '乙.txt': '乙' });
   const result = runFlow(['prepare', novel, '--json']);

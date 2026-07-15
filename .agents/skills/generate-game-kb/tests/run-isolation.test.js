@@ -55,6 +55,11 @@ test('an unversioned run is observational only and cannot enter writable v2 stag
   assert.equal(status.status, 0, status.stderr);
   assert.equal(JSON.parse(status.stdout).semantic_contract_version, null);
 
+  const implicitPrepare = runFlow(['prepare', novel, '--json']);
+  assert.equal(implicitPrepare.status, 1, 'implicit prepare unexpectedly replaced the legacy run');
+  assert.equal(JSON.parse(implicitPrepare.stderr).code, 'LEGACY_SEMANTIC_CONTRACT');
+  assert.equal(fs.existsSync(pathsFor(novel, runId).runJson), true);
+
   const commands = [
     ['prepare', novel, '--run', runId],
     ['check-coverage', novel, '--run', runId],

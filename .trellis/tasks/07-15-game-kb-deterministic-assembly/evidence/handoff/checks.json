@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-07-15T02:07:09.645Z",
+  "checkpoint_only": true,
+  "task_complete": false,
+  "checks": {
+    "node_tests": {
+      "total": 168,
+      "passed": 168,
+      "failed": 0,
+      "duration_ms": 44192.042471
+    },
+    "node_syntax": {
+      "files": 28,
+      "failed": 0
+    },
+    "git_diff_check": "pass",
+    "audit_grade_generate_kb_diff": "clean",
+    "portable_archive": {
+      "hash_match": true,
+      "size_match": true,
+      "entry_count_match": true,
+      "unsafe_paths": 0
+    },
+    "relocation_smoke": {
+      "prepare_without_run_resumes_unique_v2": true,
+      "feihu_run_id_preserved": true,
+      "xiaoao_run_id_preserved": true,
+      "archives_unchanged": true
+    },
+    "staging_empty": {
+      "飞狐外传": true,
+      "笑傲江湖": true
+    }
+  }
+}
