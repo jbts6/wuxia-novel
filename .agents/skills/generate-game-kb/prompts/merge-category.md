@@ -39,6 +39,7 @@
 - `reject` 只含 `member_refs`、`action`、有限 `reason` 和有依据的非空 `detail`。有限 reason 为 `ordinary_item`、`duplicate`、`misclassified`、`no_evidence`、`not_game_relevant`。
 - 无法唯一判断时把该组写入 `ambiguities`，使用 `action: "ambiguous"`、`member_refs` 和非空 `detail`；不能猜测。
 - consolidation 只合并脚本提供的初步实体摘要，不回读逐章候选或其他 shard 草稿。
+- 对白类别中同一个 `event_ref` 最多只能有一个 `merge` 结果；有多条候选时选择最具代表性且证据完整的一条，其余用 `reject` + `reason: "duplicate"` 明确裁决，不能把同一事件的多条对白分别保留。
 - 不输出章节摘要、全量实体数组、`candidate_resolutions`、数量复核或游戏素材。
 
 把 JSON 写到主模型指定的 staging 路径。不要调用 `accept`；结束时只返回草稿路径和简短状态。

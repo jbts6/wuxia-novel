@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "completed_at": "2026-07-15T09:31:43Z",
+  "books": {
+    "飞狐外传": {
+      "run_id": "run-2026-07-14T19-15-28-655Z-25806-758f25ed",
+      "semantic_contract_version": 2,
+      "quality_sample": { "passed": 40, "total": 40 },
+      "final_data_hash": "sha256:20e4938c8cac7c1c65e118b6eaf66ea5940966be175951314a51b20e1f5c665d",
+      "artifact_manifest_hash": "sha256:cd7ea5655ad0d7194b762a4f2cccf6b36d7cf7b25d7b8fe9b829033c086fc3a0",
+      "artifact_count": 61,
+      "reference_projection_warnings": 129,
+      "counts": {
+        "characters.json": 151,
+        "events.json": 133,
+        "items.json": 83,
+        "skills.json": 80,
+        "techniques.json": 204,
+        "factions.json": 67,
+        "locations.json": 101,
+        "dialogues.json": 121,
+        "chapter_summaries.json": 20
+      },
+      "workspace_verify": true,
+      "installed_verify": true,
+      "archived": true
+    },
+    "笑傲江湖": {
+      "run_id": "run-2026-07-14T19-15-30-191Z-25821-dac0fa18",
+      "semantic_contract_version": 2,
+      "quality_sample": { "passed": 40, "total": 40 },
+      "final_data_hash": "sha256:98e63ea1abdc1b7a2b78e6195d74af65974333c6cd39cc752234d2b7847d8a70",
+      "artifact_manifest_hash": "sha256:c968638fd4f85246b068f8db0bd313bee35952685d677b9bf9d9b01c354f0878",
+      "artifact_count": 101,
+      "reference_projection_warnings": 206,
+      "counts": {
+        "characters.json": 226,
+        "events.json": 280,
+        "items.json": 83,
+        "skills.json": 67,
+        "techniques.json": 96,
+        "factions.json": 47,
+        "locations.json": 184,
+        "dialogues.json": 261,
+        "chapter_summaries.json": 40
+      },
+      "workspace_verify": true,
+      "installed_verify": true,
+      "archived": true
+    }
+  },
+  "code_verification": {
+    "targeted_finalize_tests": "pass",
+    "syntax_checks": "pass",
+    "git_diff_check": "pass",
+    "forbidden_generate_kb_diff_files": 0,
+    "full_suite": { "passed": 160, "failed": 5, "skipped": 1 },
+    "full_suite_note": "Remaining failures are existing Windows/path, symlink privilege, install move-test exit-9, and schema example ordering failures outside the edited projection/material files."
+  }
+}

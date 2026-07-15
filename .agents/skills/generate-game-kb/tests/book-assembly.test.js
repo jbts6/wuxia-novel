@@ -9,6 +9,7 @@ const {
   applyCleanDecision,
   assembleCleanedBook,
   assembleMergedBook,
+  canonicalEventRefAliases,
   createMergeConsolidationWorkItem,
   validateCleanClosure
 } = require('../scripts/lib/book-assembly');
@@ -119,6 +120,110 @@ function buildScaleAssembly(count = 1089) {
     manifest: manifest20()
   };
 }
+
+test('dialogue consolidation exposes compact facts that distinguish separate quotes', () => {
+  const work = createMergeConsolidationWorkItem([{
+    category: 'dialogues',
+    entities: [{
+      provisional_key: 'merge:dialogues:001:e0001',
+      category: 'dialogues',
+      canonical_name: '在⋯⋯在这里了。',
+      aliases: [],
+      fields: {
+        speaker_name: '卜沉',
+        text: '在⋯⋯在这里了。',
+        tone: '狂喜',
+        context: '白发老者接住从佛堂屋顶飘下的字袈裟。',
+        event_ref: 'c1065',
+        chapter: 24
+      },
+      source_refs: [{ chapter: 24, text: '在⋯⋯在这里了。' }],
+      candidate_keys: ['ch024:dialogues:dialogue:剑谱现世']
+    }, {
+      provisional_key: 'merge:dialogues:003:e0001',
+      category: 'dialogues',
+      canonical_name: '在这里了！',
+      aliases: [],
+      fields: {
+        speaker_name: '田伯光',
+        text: '在这里了！',
+        event_ref: 'c1181',
+        chapter: 39
+      },
+      source_refs: [{ chapter: 39, text: '在这里了！' }],
+      candidate_keys: ['ch039:dialogues:dialogue:田伯光发现地洞']
+    }]
+  }], {
+    unit: 'merge:dialogues:consolidate',
+    category: 'dialogues',
+    dependency_units: ['merge:dialogues:001', 'merge:dialogues:003']
+  });
+  const byName = new Map(work.input.entities.map(entity => [entity.canonical_name, entity]));
+
+  assert.deepEqual(byName.get('在⋯⋯在这里了。').fields, {
+    event_ref: 'c1065',
+    speaker_name: '卜沉',
+    chapter: 24,
+    text: '在⋯⋯在这里了。'
+  });
+  assert.deepEqual(byName.get('在这里了！').fields, {
+    event_ref: 'c1181',
+    speaker_name: '田伯光',
+    chapter: 39,
+    text: '在这里了！'
+  });
+  assert.deepEqual(work.input.constraints, { max_entities_per_event_ref: 1 });
+  assert.equal(JSON.stringify(work.input).includes('candidate_key'), false);
+  assert.equal(JSON.stringify(work.input).includes('tone'), false);
+  assert.equal(JSON.stringify(work.input).includes('context'), false);
+});
+
+test('dialogue consolidation canonicalizes refs for events merged across shards', () => {
+  const aliases = canonicalEventRefAliases([{
+    candidate_key: 'ch001:events:event:相遇',
+    resolution: 'merged_to',
+    provisional_key: 'merge:events:consolidate:e0001'
+  }, {
+    candidate_key: 'ch002:events:event:重逢',
+    resolution: 'merged_to',
+    provisional_key: 'merge:events:consolidate:e0001'
+  }], [{
+    category: 'events',
+    candidate_ref: 'c0100',
+    candidate_key: 'ch001:events:event:相遇'
+  }, {
+    category: 'events',
+    candidate_ref: 'c0200',
+    candidate_key: 'ch002:events:event:重逢'
+  }]);
+  const work = createMergeConsolidationWorkItem([{
+    category: 'dialogues',
+    entities: [{
+      provisional_key: 'merge:dialogues:001:e0001',
+      category: 'dialogues',
+      canonical_name: '甲对白。',
+      aliases: [],
+      fields: { event_ref: 'c0100', speaker_name: '甲', chapter: 1, text: '甲对白。' },
+      source_refs: [{ chapter: 1, text: '甲对白。' }],
+      candidate_keys: ['ch001:dialogues:dialogue:甲']
+    }, {
+      provisional_key: 'merge:dialogues:002:e0001',
+      category: 'dialogues',
+      canonical_name: '乙对白。',
+      aliases: [],
+      fields: { event_ref: 'c0200', speaker_name: '乙', chapter: 2, text: '乙对白。' },
+      source_refs: [{ chapter: 2, text: '乙对白。' }],
+      candidate_keys: ['ch002:dialogues:dialogue:乙']
+    }]
+  }], {
+    unit: 'merge:dialogues:consolidate',
+    category: 'dialogues',
+    dependency_units: ['merge:dialogues:001', 'merge:dialogues:002']
+  }, {}, { event_ref_aliases: aliases });
+
+  assert.deepEqual(aliases, { c0100: 'c0100', c0200: 'c0100' });
+  assert.deepEqual(work.input.entities.map(entity => entity.fields.event_ref), ['c0100', 'c0100']);
+});
 
 test('short refs expand to all 1,089 exact candidate keys once', () => {
   const input = buildScaleAssembly();

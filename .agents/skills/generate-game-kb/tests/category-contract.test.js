@@ -209,6 +209,42 @@ test('dialogue merge decisions do not require canonical names or aliases', () =>
   assert.deepEqual(validateMergeDecisionDraft(draft, workItem), []);
 });
 
+test('dialogue consolidation rejects multiple surviving quotes for one event', () => {
+  const workItem = mergeWorkItem({
+    unit: 'merge:dialogues:consolidate',
+    category: 'dialogues',
+    candidates: undefined,
+    constraints: { max_entities_per_event_ref: 1 },
+    entities: [{
+      entity_ref: 'e0001',
+      fields: { event_ref: 'c0100', speaker_name: '甲', chapter: 1, text: '甲对白。' }
+    }, {
+      entity_ref: 'e0002',
+      fields: { event_ref: 'c0100', speaker_name: '乙', chapter: 1, text: '乙对白。' }
+    }]
+  });
+  const draft = {
+    schema_version: 1,
+    stage: 'merge_decision',
+    unit: 'merge:dialogues:consolidate',
+    decisions: [{
+      entity_ref: 'e0001',
+      member_refs: ['e0001'],
+      action: 'merge',
+      fields: { event_ref: 'c0100', speaker_name: '甲', chapter: 1, text: '甲对白。' }
+    }, {
+      entity_ref: 'e0002',
+      member_refs: ['e0002'],
+      action: 'merge',
+      fields: { event_ref: 'c0100', speaker_name: '乙', chapter: 1, text: '乙对白。' }
+    }],
+    ambiguities: []
+  };
+
+  assert.ok(codes(validateMergeDecisionDraft(draft, workItem))
+    .includes('DIALOGUE_EVENT_DUPLICATE'));
+});
+
 test('material decisions use only known compact-catalog refs', () => {
   const valid = {
     schema_version: 1,

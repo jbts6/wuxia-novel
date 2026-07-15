@@ -11,6 +11,7 @@ const {
 const {
   acceptedArtifactHash,
   assertAcceptedArtifacts,
+  readArtifactManifest,
   recordAcceptedArtifact
 } = require('./candidate-ledger');
 const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contract');
@@ -105,9 +106,23 @@ function validateTargetedDraft(draft, category) {
   ));
 }
 
-function semanticDecisionFile(paths, unit) {
+function semanticDecisionFile(paths, unit, inputHash) {
   const root = unit.startsWith('merge:') ? paths.mergeDecisions : paths.cleanDecisions;
-  return path.join(root, `${unit.replaceAll(':', '_')}.json`);
+  const base = unit.replaceAll(':', '_');
+  const canonical = path.join(root, `${base}.json`);
+  if (!inputHash || !fs.existsSync(canonical)) return canonical;
+  const canonicalRelative = path.relative(paths.run, canonical).split(path.sep).join('/');
+  const canonicalEntry = readArtifactManifest(paths).entries
+    .find(entry => entry.relative_path === canonicalRelative);
+  if (canonicalEntry?.input_hash === inputHash) return canonical;
+  const match = /^sha256:([a-f0-9]{64})$/.exec(inputHash);
+  if (!match) {
+    throw new GameKbError('WORK_ITEM_STALE', 'Semantic decision requires a valid input hash', {
+      unit,
+      input_hash: inputHash
+    });
+  }
+  return path.join(root, base, `${match[1]}.json`);
 }
 
 function semanticAggregateInputHash(paths, stage) {
@@ -121,7 +136,10 @@ function semanticAggregateInputHash(paths, stage) {
     inputs.push(readWorkItem(paths, 'clean:materials:001').input);
   }
   const decisions = Object.fromEntries(inputs
-    .map(input => [input.unit, acceptedArtifactHash(paths, semanticDecisionFile(paths, input.unit))])
+    .map(input => [
+      input.unit,
+      acceptedArtifactHash(paths, semanticDecisionFile(paths, input.unit, input.input_hash))
+    ])
     .sort(([left], [right]) => left.localeCompare(right)));
   return stableHash({
     semantic_contract_version: 2,
@@ -159,7 +177,7 @@ function unitContext(paths, manifest, progress, unit) {
     const work = readWorkItem(paths, unit);
     return {
       inputHash: work.input.input_hash,
-      acceptedFile: semanticDecisionFile(paths, unit),
+      acceptedFile: semanticDecisionFile(paths, unit, work.input.input_hash),
       validate: draft => validateMergeDecisionDraft(draft, work.input)
     };
   }
@@ -167,7 +185,7 @@ function unitContext(paths, manifest, progress, unit) {
     const work = readWorkItem(paths, unit);
     return {
       inputHash: work.input.input_hash,
-      acceptedFile: semanticDecisionFile(paths, unit),
+      acceptedFile: semanticDecisionFile(paths, unit, work.input.input_hash),
       validate: draft => validateCleanDecisionDraft(draft, work.input)
     };
   }
@@ -175,7 +193,7 @@ function unitContext(paths, manifest, progress, unit) {
     const work = readWorkItem(paths, unit);
     return {
       inputHash: work.input.input_hash,
-      acceptedFile: semanticDecisionFile(paths, unit),
+      acceptedFile: semanticDecisionFile(paths, unit, work.input.input_hash),
       validate: draft => validateMaterialDecisionDraft(draft, work.input)
     };
   }
@@ -323,4 +341,4 @@ function acceptDraft({ paths, unit, draftPath }) {
   return result;
 }
 
-module.exports = { acceptDraft, assertDraftPath, currentUnitInputHash, stableHash };
+module.exports = { acceptDraft, assertDraftPath, currentUnitInputHash, semanticDecisionFile, stableHash };

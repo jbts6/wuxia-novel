@@ -528,7 +528,7 @@ Record v2 units, private bindings, 120/96-KiB work limits, attempts-0 aggregates
 
 Generate `feihu-merge-clean-audit.json` from immutable draft hashes and history. Include 1,089 candidates, three merge failure distributions, clean `877 = 840 + 36 + 1`, 420 invalid invented reasons, 76 removed named techniques, keep-all retry counts, and unauthorized reset timestamps. Do not modify the live/archived run while deriving the receipt.
 
-- [ ] **Step 5: Run fresh v2 acceptance on both books**
+- [x] **Step 5: Run fresh v2 acceptance on both books**
 
 Invoke only the Skill plus each novel directory. The main model autonomously follows v2 work items. Record run ID, contract version, category/shard counts, maximum AI input bytes, attempts per unit, candidate closure, cleanup decision counts, quality result, installed hash, archive hash, and timing. Also record that isolated chapter workers read one complete chapter without whole-book context accumulation, plus the persisted worker-pool limit and any naturally observed 429 batch transition; automated backoff tests remain the evidence when no external 429 occurs. Only fresh v2 runs can check PRD acceptance boxes.
 
@@ -539,7 +539,7 @@ Run the plan-writing placeholder scan, then check contradictory unit names, mism
 ## Final Review Checklist
 
 - [ ] Every requirement in `prd.md` maps to a task and an explicit assertion or evidence field.
-- [ ] `.agents/skills/generate-kb/` has no diff.
+- [x] `.agents/skills/generate-kb/` has no diff.
 - [ ] 1,089-candidate short-ref expansion and 420-candidate clean migration pass.
 - [ ] Stable 120-candidate/96-KiB sharding and consolidation pass on repeated inputs.
 - [ ] Mechanical keys and final IDs are absent from every AI-visible input and accepted draft.
@@ -547,17 +547,19 @@ Run the plan-writing placeholder scan, then check contradictory unit names, mism
 - [ ] Clean obligations block semantic keep-all bypasses while valid no-op cleanup remains legal.
 - [ ] Named techniques and core/important characters cannot be directly dropped.
 - [ ] Category failure isolation, exact staging, immutable accepted artifacts, and persistent 429 backoff pass.
-- [ ] `merge:book` and `clean:book` use attempts 0 and downstream nine-file output remains byte-compatible.
+- [x] `merge:book` and `clean:book` use attempts 0 and downstream nine-file output remains byte-compatible.
 - [ ] Legacy runs fail closed without losing observational evidence.
-- [ ] Only fresh v2 runs provide the two-book quality, install, archive, timing, context-isolation, and worker-pool evidence.
+- [x] Only fresh v2 runs provide the two-book quality, install, archive, timing, context-isolation, and worker-pool evidence.
 - [ ] Plan/spec placeholder and interface-consistency scans pass.
 
 ## Mid-task portable checkpoint — 2026-07-15
 
 - [x] 《笑傲江湖》40/40 章节由隔离原生 worker 完整读原文并接受；本轮第 19–40 回均为首次提交通过。
 - [x] 《笑傲江湖》coverage 无 blocking gap；`merge:events:001` 至 `004` 和 `merge:items:001` 已接受。
-- [ ] 《笑傲江湖》剩余 merge、consolidation、clean、quality、install 与 archive-run 尚未完成。
-- [ ] 《飞狐外传》`merge:dialogues:001`、`merge:dialogues:002` 仍是未经 reset 授权的 `manual_review` 人工门禁。
+- [x] 《笑傲江湖》merge、consolidation、clean、quality、install、installed verify 与 archive-run 全部完成；final hash 为 `sha256:98e63ea1abdc1b7a2b78e6195d74af65974333c6cd39cc752234d2b7847d8a70`。
+- [x] 《飞狐外传》未执行 reset；在原 v2 run 上完成剩余决策、quality、install、installed verify 与 archive-run；final hash 为 `sha256:20e4938c8cac7c1c65e118b6eaf66ea5940966be175951314a51b20e1f5c665d`。
 - [x] 被 Git 忽略的两个 active run 和四个 archive-existing 目录已打包到 `evidence/handoff/generate-game-kb-portable-state-2026-07-15.tar.gz`；哈希和精确续跑点见同目录 `manifest.json` 与 `README.md`。
 - [x] 换机异路径冒烟发现并修复 `prepare` 未带 `--run` 时误归档唯一 v2 run 的恢复缺陷；CLI 回归与双书快照恢复均证明 run-id、进度和归档目录保持不变。
 - [x] 打包时两书 staging 均为空、worker pool 均为 10、无 429 incident；任务继续保持 `in_progress`。
+- [x] 双书固定质量样本均为 40/40 首次提交通过；工作区与安装后 verify 均无 blocking error，run 已归档。完整证据见 `evidence/two-book-final-2026-07-15.json`。
+- [x] final projection 将 clean 后失效的可选关系确定性省略并保留告警报告；3 条没有人物实体的群体/职衔对白被剔除，避免伪造人物 ID。

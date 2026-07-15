@@ -118,6 +118,39 @@ function mergeInputRefs(workItem) {
     .filter(nonempty);
 }
 
+function dialogueEventRefs(workItem) {
+  const candidates = Array.isArray(workItem?.candidates) ? workItem.candidates : [];
+  const entities = Array.isArray(workItem?.entities) ? workItem.entities : [];
+  return new Map([
+    ...candidates.map(candidate => [candidate?.candidate_ref, candidate?.facts?.event_ref]),
+    ...entities.map(entity => [entity?.entity_ref, entity?.fields?.event_ref])
+  ].filter(([ref, eventRef]) => nonempty(ref) && nonempty(eventRef)));
+}
+
+function validateDialogueEventLimits(draft, workItem, issues) {
+  if (workItem?.category !== 'dialogues') return;
+  const eventByMemberRef = dialogueEventRefs(workItem);
+  const survivingEvents = new Set();
+  for (const [index, decision] of (Array.isArray(draft?.decisions) ? draft.decisions : []).entries()) {
+    if (decision?.action !== 'merge') continue;
+    const path = `decisions[${index}].fields.event_ref`;
+    const memberEvents = new Set((Array.isArray(decision.member_refs) ? decision.member_refs : [])
+      .map(ref => eventByMemberRef.get(ref))
+      .filter(nonempty));
+    const eventRef = decision?.fields?.event_ref;
+    if (!nonempty(eventRef)
+      || memberEvents.size > 1
+      || (memberEvents.size === 1 && !memberEvents.has(eventRef))) {
+      issues.push(issue('DIALOGUE_EVENT_MISMATCH', path, eventRef));
+      continue;
+    }
+    if (survivingEvents.has(eventRef)) {
+      issues.push(issue('DIALOGUE_EVENT_DUPLICATE', path, eventRef));
+    }
+    survivingEvents.add(eventRef);
+  }
+}
+
 function validateRefCoverage(expectedRefs, seenRefs, path, issues) {
   const expected = new Set(expectedRefs);
   const counts = new Map();
@@ -197,6 +230,7 @@ function validateMergeDecisionDraft(draft, workItem) {
     }
   }
   validateRefCoverage(mergeInputRefs(workItem), seenRefs, 'decisions.member_refs', issues);
+  validateDialogueEventLimits(draft, workItem, issues);
   return dedupe(issues);
 }
 

@@ -188,7 +188,7 @@ test('resume cannot resubmit a consumed staging attempt or spend its budget twic
   assert.equal(readJson(paths.progress).units['chapter:001'].status, 'done');
 });
 
-test('accept rejects a staging symlink that escapes the selected run', () => {
+test('accept rejects a staging symlink that escapes the selected run', t => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
   const paths = activePaths(novel);
@@ -197,7 +197,15 @@ test('accept rejects a staging symlink that escapes the selected run', () => {
   const outside = path.join(novel, 'outside-draft.json');
   const staging = path.join(paths.staging, 'chapter_001_attempt_01.json');
   fs.writeFileSync(outside, JSON.stringify(draft), 'utf8');
-  fs.symlinkSync(outside, staging);
+  try {
+    fs.symlinkSync(outside, staging, 'file');
+  } catch (error) {
+    if (process.platform === 'win32' && error.code === 'EPERM') {
+      t.skip('Windows file symlinks require Developer Mode or elevated privileges');
+      return;
+    }
+    throw error;
+  }
 
   const result = runFlow([
     'accept', novel, '--unit', 'chapter:001', '--draft', staging, '--json'
@@ -243,6 +251,37 @@ function validMergeDecision(input) {
       aliases: [],
       fields: {}
     }],
+    ambiguities: []
+  };
+}
+
+function mergeEachMember(input) {
+  const members = input.candidates || input.entities || [];
+  return {
+    schema_version: 1,
+    stage: 'merge_decision',
+    unit: input.unit,
+    decisions: members.map((member, index) => {
+      const decision = {
+        entity_ref: `e${String(index + 1).padStart(4, '0')}`,
+        member_refs: [member.candidate_ref || member.entity_ref],
+        action: 'merge'
+      };
+      if (input.category === 'dialogues') {
+        const facts = member.facts || member.fields || {};
+        decision.fields = {
+          event_ref: facts.event_ref,
+          speaker_name: facts.speaker_name,
+          chapter: facts.chapter ?? member.chapter,
+          text: facts.text
+        };
+      } else {
+        decision.canonical_name = member.name || member.canonical_name;
+        decision.aliases = member.aliases || [];
+        decision.fields = {};
+      }
+      return decision;
+    }),
     ambiguities: []
   };
 }
@@ -313,6 +352,90 @@ test('prepare-merge creates category work and a rejected category leaves an acce
   assert.equal(progress['merge:characters:001'].attempts, 1);
   assert.equal(progress['merge:items:001'].status, 'pending');
   assert.equal(progress['merge:items:001'].attempts, 1);
+});
+
+test('prepare-merge durably defers dialogue consolidation until event consolidation is accepted', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲连续讲述往事。\n');
+  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
+  const paths = activePaths(novel);
+  const chapter = readJson(paths.manifest).chapters[0];
+  const events = Array.from({ length: 121 }, (_, index) => ({
+    local_key: `event:事件${index}`,
+    name: `事件${index}`,
+    importance: '次要',
+    quote_status: 'quotable',
+    source_refs: [sourceRef(1, `事件${index}`)]
+  }));
+  const dialogues = events.map((event, index) => ({
+    local_key: `dialogue:对白${index}`,
+    event_local_key: event.local_key,
+    speaker_name: '甲',
+    text: `对白${index}`,
+    source_refs: [sourceRef(1, `对白${index}`)]
+  }));
+  const chapterDraft = validChapterDraft({
+    title: chapter.title,
+    source_hash: chapter.input_hash,
+    characters: [],
+    events,
+    items: [],
+    skills: [],
+    techniques: [],
+    factions: [],
+    locations: [],
+    dialogues,
+    summary: {
+      title: chapter.title,
+      summary: '甲连续讲述往事。',
+      key_events: [],
+      key_characters: ['甲'],
+      source_refs: [sourceRef()]
+    }
+  });
+  const chapterAccepted = acceptJsonDraft(novel, 'chapter:001', chapterDraft);
+  assert.equal(chapterAccepted.status, 0, chapterAccepted.stderr);
+
+  const initial = runFlow(['prepare-merge', novel, '--json']);
+  assert.equal(initial.status, 0, initial.stderr);
+  const rawUnits = JSON.parse(initial.stdout).units
+    .filter(unit => /^merge:(events|dialogues):\d{3}$/.test(unit));
+  assert.deepEqual(rawUnits, [
+    'merge:events:001',
+    'merge:events:002',
+    'merge:dialogues:001',
+    'merge:dialogues:002'
+  ]);
+  for (const unit of rawUnits) {
+    const work = readWorkItem(paths, unit).input;
+    const accepted = acceptJsonDraft(novel, unit, mergeEachMember(work));
+    assert.equal(accepted.status, 0, `${unit}: ${accepted.stderr}`);
+  }
+
+  const firstReady = runFlow(['prepare-merge', novel, '--json']);
+  assert.equal(firstReady.status, 0, firstReady.stderr);
+  const eventWorkPath = path.join(paths.mergeWork, 'merge_events_consolidate', 'input.json');
+  const dialogueWorkPath = path.join(paths.mergeWork, 'merge_dialogues_consolidate', 'input.json');
+  assert.equal(fs.existsSync(eventWorkPath), true);
+  assert.equal(fs.existsSync(dialogueWorkPath), false);
+  assert.equal(readJson(paths.progress).units['merge:events:consolidate'].status, 'pending');
+  assert.equal(readJson(paths.progress).units['merge:dialogues:consolidate'], undefined);
+  const eventWorkBytes = fs.readFileSync(eventWorkPath);
+
+  const eventWork = readWorkItem(paths, 'merge:events:consolidate').input;
+  const eventAccepted = acceptJsonDraft(novel, eventWork.unit, mergeEachMember(eventWork));
+  assert.equal(eventAccepted.status, 0, eventAccepted.stderr);
+  const eventAcceptedPath = JSON.parse(eventAccepted.stdout).accepted_file;
+  const eventAcceptedBytes = fs.readFileSync(eventAcceptedPath);
+
+  const secondReady = runFlow(['prepare-merge', novel, '--json']);
+  assert.equal(secondReady.status, 0, secondReady.stderr);
+  assert.deepEqual(JSON.parse(secondReady.stdout).rotations, []);
+  assert.deepEqual(fs.readFileSync(eventWorkPath), eventWorkBytes);
+  assert.deepEqual(fs.readFileSync(eventAcceptedPath), eventAcceptedBytes);
+  assert.equal(fs.existsSync(dialogueWorkPath), true);
+  assert.equal(readJson(paths.progress).units['merge:dialogues:consolidate'].status, 'pending');
+  const dialogueInput = readWorkItem(paths, 'merge:dialogues:consolidate').input;
+  assert.doesNotMatch(JSON.stringify(dialogueInput), /candidate_key|local_key|provisional_key|\"id\"/);
 });
 
 test('deterministic merge and clean aggregates use zero attempts and preserve downstream output', () => {

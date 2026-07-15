@@ -421,14 +421,64 @@ function materialSignals(category, record) {
     .map(field => [field, record[field]])));
 }
 
-function createMaterialWorkItem({ cleaned, upstream_hashes: upstreamHashes = {} } = {}) {
-  const records = ENTITY_CATEGORIES.flatMap(category => (Array.isArray(cleaned?.[category])
-    ? cleaned[category].map(record => ({ category, record }))
-    : []));
-  records.sort((left, right) =>
-    ENTITY_CATEGORIES.indexOf(left.category) - ENTITY_CATEGORIES.indexOf(right.category)
+const MATERIAL_POOL_ORDER = ['battle', 'events', 'characters', 'items', 'world'];
+const MATERIAL_POOL_BY_CATEGORY = {
+  skills: 'battle',
+  techniques: 'battle',
+  events: 'events',
+  characters: 'characters',
+  items: 'items',
+  factions: 'world',
+  locations: 'world'
+};
+const MATERIAL_IMPORTANCE_ORDER = new Map([
+  ['核心', 0],
+  ['重要', 1],
+  ['次要', 2],
+  ['龙套', 3],
+  ['背景', 4]
+]);
+
+function compareMaterialCandidates(left, right) {
+  const leftImportance = MATERIAL_IMPORTANCE_ORDER.get(left.record.level || left.record.importance) ?? 5;
+  const rightImportance = MATERIAL_IMPORTANCE_ORDER.get(right.record.level || right.record.importance) ?? 5;
+  return leftImportance - rightImportance
+    || (right.record.source_refs?.length || 0) - (left.record.source_refs?.length || 0)
+    || ENTITY_CATEGORIES.indexOf(left.category) - ENTITY_CATEGORIES.indexOf(right.category)
     || compareText(left.record.canonical_name || left.record.text, right.record.canonical_name || right.record.text)
-    || compareText(left.record.local_key, right.record.local_key));
+    || compareText(left.record.local_key, right.record.local_key);
+}
+
+function boundedMaterialRecords(records) {
+  const pools = new Map(MATERIAL_POOL_ORDER.map(pool => [pool, []]));
+  for (const entry of records) {
+    const pool = MATERIAL_POOL_BY_CATEGORY[entry.category];
+    if (pool) pools.get(pool).push(entry);
+  }
+  for (const pool of pools.values()) pool.sort(compareMaterialCandidates);
+
+  const selected = [];
+  const cursors = new Map(MATERIAL_POOL_ORDER.map(pool => [pool, 0]));
+  while (selected.length < MAX_WORK_ITEM_CANDIDATES) {
+    let added = false;
+    for (const pool of MATERIAL_POOL_ORDER) {
+      const cursor = cursors.get(pool);
+      const candidates = pools.get(pool);
+      if (cursor >= candidates.length) continue;
+      selected.push(candidates[cursor]);
+      cursors.set(pool, cursor + 1);
+      added = true;
+      if (selected.length >= MAX_WORK_ITEM_CANDIDATES) break;
+    }
+    if (!added) break;
+  }
+  return selected;
+}
+
+function createMaterialWorkItem({ cleaned, upstream_hashes: upstreamHashes = {} } = {}) {
+  const records = boundedMaterialRecords(ENTITY_CATEGORIES.flatMap(category => (Array.isArray(cleaned?.[category])
+    ? cleaned[category].map(record => ({ category, record }))
+    : [])));
   const bindings = records.map((entry, index) => ({
     unit: 'clean:materials:001',
     entity_ref: shortRef('m', index),
@@ -543,25 +593,73 @@ function writeWorkPlan(paths, plan) {
   return { written, plan: path.join(root, 'plan.json') };
 }
 
-function writeWorkItem(paths, stage, input, bindingsDocument) {
+function writeWorkItem(paths, stage, input, bindingsDocument, options = {}) {
   const root = workRoot(paths, stage);
   const directory = unitDirectory(root, input?.unit);
   const files = [
     { file: path.join(directory, 'input.json'), content: jsonBytes(input) },
     { file: path.join(directory, 'bindings.json'), content: jsonBytes(bindingsDocument) }
   ];
-  for (const entry of files) {
-    if (fs.existsSync(entry.file) && fs.readFileSync(entry.file, 'utf8') !== entry.content) {
-      throw workItemError('WORK_ITEM_STALE', 'Existing semantic work bytes differ', { file: entry.file });
+  const stale = files.find(entry => fs.existsSync(entry.file) && fs.readFileSync(entry.file, 'utf8') !== entry.content);
+  let rotated = null;
+  if (stale) {
+    if (options.rotateStale !== true) {
+      throw workItemError('WORK_ITEM_STALE', 'Existing semantic work bytes differ', { file: stale.file });
     }
+    const inputFile = path.join(directory, 'input.json');
+    const bindingsFile = path.join(directory, 'bindings.json');
+    if (!fs.existsSync(inputFile) || !fs.existsSync(bindingsFile)) {
+      throw workItemError('WORK_ITEM_STALE', 'Existing semantic work item is incomplete', { unit: input?.unit });
+    }
+    const previousInput = readJson(inputFile);
+    const previousBindings = readJson(bindingsFile);
+    const oldInputHash = previousInput?.input_hash;
+    if (previousInput?.unit !== input?.unit
+      || previousBindings?.unit !== input?.unit
+      || previousBindings?.input_hash !== oldInputHash
+      || !/^sha256:[a-f0-9]{64}$/.test(oldInputHash || '')
+      || input?.input_hash !== bindingsDocument?.input_hash
+      || input?.input_hash === oldInputHash) {
+      throw workItemError('WORK_ITEM_STALE', 'Existing semantic work item cannot be rotated safely', {
+        unit: input?.unit
+      });
+    }
+    const archiveDirectory = path.join(
+      root,
+      '_stale',
+      input.unit.replaceAll(':', '_'),
+      oldInputHash.slice('sha256:'.length)
+    );
+    if (fs.existsSync(archiveDirectory)) {
+      throw workItemError('WORK_ITEM_STALE', 'Stale semantic work archive already exists', {
+        unit: input.unit,
+        archive_dir: archiveDirectory
+      });
+    }
+    fs.mkdirSync(path.dirname(archiveDirectory), { recursive: true });
+    fs.renameSync(directory, archiveDirectory);
+    rotated = {
+      unit: input.unit,
+      old_input_hash: oldInputHash,
+      new_input_hash: input.input_hash,
+      archive_dir: archiveDirectory
+    };
   }
-  let written = false;
-  for (const entry of files) {
-    if (fs.existsSync(entry.file)) continue;
-    atomicWriteFile(entry.file, entry.content);
-    written = true;
+  try {
+    let written = false;
+    for (const entry of files) {
+      if (fs.existsSync(entry.file)) continue;
+      atomicWriteFile(entry.file, entry.content);
+      written = true;
+    }
+    return { written, input: files[0].file, bindings: files[1].file, rotated };
+  } catch (error) {
+    if (rotated) {
+      fs.rmSync(directory, { recursive: true, force: true });
+      fs.renameSync(rotated.archive_dir, directory);
+    }
+    throw error;
   }
-  return { written, input: files[0].file, bindings: files[1].file };
 }
 
 function readWorkItem(paths, unit) {

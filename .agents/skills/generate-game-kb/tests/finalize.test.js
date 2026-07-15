@@ -73,6 +73,36 @@ test('zero-match and multi-match links create structured issues', () => {
     issue.code === 'REFERENCE_AMBIGUOUS' && issue.target === '甲'));
 });
 
+test('stale optional links are omitted and retained as projection warnings', () => {
+  const book = validCleanedBook();
+  book.chapter_summaries[0].key_events = ['event:已被清理的事件'];
+  book.events[0].participant_names = ['未建模群体'];
+  book.techniques[0].source_skill_name = '未建模武学';
+
+  const result = buildFinalData(book, manifest);
+
+  assert.deepEqual(result.issues, []);
+  assert.deepEqual(result.data['chapter_summaries.json'][0].key_events, []);
+  assert.deepEqual(result.data['events.json'][0].participants, []);
+  assert.equal(result.data['techniques.json'][0].source_skill, null);
+  assert.deepEqual(result.warnings.map(warning => [warning.path, warning.target]), [
+    ['chapter_summaries[0].key_events[0]', 'event:已被清理的事件'],
+    ['events[0].participant_names[0]', '未建模群体'],
+    ['techniques[0].source_skill_name', '未建模武学']
+  ]);
+});
+
+test('generic dialogue speakers are omitted while singular missing speakers fail closed', () => {
+  const generic = validCleanedBook();
+  generic.dialogues[0].speaker_name = '日月神教教众';
+  const projected = buildFinalData(generic, manifest);
+
+  assert.deepEqual(projected.issues, []);
+  assert.deepEqual(projected.data['dialogues.json'], []);
+  assert.ok(projected.warnings.some(warning =>
+    warning.path === 'dialogues[0].speaker_name' && warning.target === '日月神教教众'));
+});
+
 test('build emits exactly nine arrays and is byte-stable across input ordering', () => {
   const first = validCleanedBook();
   const second = structuredClone(first);

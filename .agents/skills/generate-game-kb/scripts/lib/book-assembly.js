@@ -186,25 +186,69 @@ function applyMergeDecision(workItem, bindings, draft) {
   return { category: workItem.category, unit: workItem.unit, entities, resolutions, ambiguities };
 }
 
-function createMergeConsolidationWorkItem(projections, descriptor, upstreamHashes = {}) {
+function canonicalEventRefAliases(resolutions = [], bindings = []) {
+  const refByCandidateKey = new Map(bindings
+    .filter(binding => binding?.category === 'events')
+    .map(binding => [binding.candidate_key, binding.candidate_ref]));
+  const refsByProvisionalKey = new Map();
+  for (const resolution of resolutions) {
+    if (resolution?.resolution !== 'merged_to' || !resolution.provisional_key) continue;
+    const eventRef = refByCandidateKey.get(resolution.candidate_key);
+    if (!eventRef) continue;
+    if (!refsByProvisionalKey.has(resolution.provisional_key)) {
+      refsByProvisionalKey.set(resolution.provisional_key, []);
+    }
+    refsByProvisionalKey.get(resolution.provisional_key).push(eventRef);
+  }
+  const aliases = [];
+  for (const refs of refsByProvisionalKey.values()) {
+    const canonicalRef = uniqueSorted(refs)[0];
+    aliases.push(...uniqueSorted(refs).map(eventRef => [eventRef, canonicalRef]));
+  }
+  return Object.fromEntries(aliases.sort((left, right) => compareText(left[0], right[0])));
+}
+
+function createMergeConsolidationWorkItem(
+  projections,
+  descriptor,
+  upstreamHashes = {},
+  { event_ref_aliases: eventRefAliases = {} } = {}
+) {
   const sourceEntities = projections
     .filter(projection => projection?.category === descriptor?.category)
     .flatMap(projection => projection.entities || [])
     .sort((left, right) =>
       compareText(left.canonical_name, right.canonical_name)
       || compareText(left.provisional_key, right.provisional_key));
-  const bindings = sourceEntities.map((entity, index) => ({
-    unit: descriptor.unit,
-    entity_ref: `e${String(index + 1).padStart(4, '0')}`,
-    category: descriptor.category,
-    candidate_keys: [...entity.candidate_keys],
-    source_entity: structuredClone(entity)
-  }));
-  const visibleEntities = bindings.map(binding => ({
-    entity_ref: binding.entity_ref,
-    canonical_name: binding.source_entity.canonical_name,
-    aliases: binding.source_entity.aliases
-  }));
+  const bindings = sourceEntities.map((entity, index) => {
+    const sourceEntity = structuredClone(entity);
+    if (descriptor.category === 'dialogues') {
+      const eventRef = sourceEntity.fields?.event_ref;
+      if (eventRefAliases[eventRef]) sourceEntity.fields.event_ref = eventRefAliases[eventRef];
+    }
+    return {
+      unit: descriptor.unit,
+      entity_ref: `e${String(index + 1).padStart(4, '0')}`,
+      category: descriptor.category,
+      candidate_keys: [...entity.candidate_keys],
+      source_entity: sourceEntity
+    };
+  });
+  const visibleEntities = bindings.map(binding => {
+    const visible = {
+      entity_ref: binding.entity_ref,
+      canonical_name: binding.source_entity.canonical_name,
+      aliases: binding.source_entity.aliases
+    };
+    if (descriptor.category === 'dialogues') {
+      visible.fields = Object.fromEntries(
+        ['event_ref', 'speaker_name', 'chapter', 'text']
+          .filter(field => binding.source_entity.fields?.[field] !== undefined)
+          .map(field => [field, binding.source_entity.fields[field]])
+      );
+    }
+    return visible;
+  });
   const provisional = {
     schema_version: 1,
     semantic_contract_version: WORK_CONTRACT_VERSION,
@@ -212,6 +256,9 @@ function createMergeConsolidationWorkItem(projections, descriptor, upstreamHashe
     unit: descriptor.unit,
     category: descriptor.category,
     input_hash: `sha256:${'0'.repeat(64)}`,
+    ...(descriptor.category === 'dialogues'
+      ? { constraints: { max_entities_per_event_ref: 1 } }
+      : {}),
     entities: visibleEntities
   };
   const inputHash = sha256(JSON.stringify({
@@ -713,6 +760,7 @@ module.exports = {
   assembleCleanedBook,
   assembleMergedBook,
   assignLocalKeys,
+  canonicalEventRefAliases,
   createMergeConsolidationWorkItem,
   unionSourceRefs,
   validateCleanClosure

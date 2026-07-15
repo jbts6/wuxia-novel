@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "size_band": "medium",
+  "source_char_count": 382100,
+  "chapter_count": 20,
+  "review_consumed": true,
+  "categories": {
+    "characters": {
+      "actual": 151,
+      "target_range": [
+        25,
+        75
+      ],
+      "per_chapter_density": 7.55,
+      "outside_range": true
+    },
+    "events": {
+      "actual": 133,
+      "target_range": [
+        60,
+        220
+      ],
+      "per_chapter_density": 6.65,
+      "outside_range": false
+    },
+    "items": {
+      "actual": 83,
+      "target_range": [
+        6,
+        20
+      ],
+      "per_chapter_density": 4.15,
+      "outside_range": true
+    },
+    "skills": {
+      "actual": 80,
+      "target_range": [
+        10,
+        35
+      ],
+      "per_chapter_density": 4,
+      "outside_range": true
+    },
+    "techniques": {
+      "actual": 204,
+      "target_range": [
+        5,
+        45
+      ],
+      "per_chapter_density": 10.2,
+      "outside_range": true
+    },
+    "factions": {
+      "actual": 67,
+      "target_range": [
+        5,
+        25
+      ],
+      "per_chapter_density": 3.35,
+      "outside_range": true
+    },
+    "locations": {
+      "actual": 101,
+      "target_range": [
+        10,
+        50
+      ],
+      "per_chapter_density": 5.05,
+      "outside_range": true
+    },
+    "dialogues": {
+      "actual": 123,
+      "target_range": [
+        20,
+        60
+      ],
+      "per_chapter_density": 6.15,
+      "outside_range": true
+    },
+    "chapter_summaries": {
+      "actual": 20,
+      "target_range": [
+        20,
+        20
+      ],
+      "per_chapter_density": 1,
+      "outside_range": false
+    }
+  },
+  "warnings": [
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "characters",
+      "actual": 151,
+      "target_range": [
+        25,
+        75
+      ]
+    },
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "items",
+      "actual": 83,
+      "target_range": [
+        6,
+        20
+      ]
+    },
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "skills",
+      "actual": 80,
+      "target_range": [
+        10,
+        35
+      ]
+    },
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "techniques",
+      "actual": 204,
+      "target_range": [
+        5,
+        45
+      ]
+    },
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "factions",
+      "actual": 67,
+      "target_range": [
+        5,
+        25
+      ]
+    },
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "locations",
+      "actual": 101,
+      "target_range": [
+        10,
+        50
+      ]
+    },
+    {
+      "code": "QUANTITY_OUTSIDE_GUIDANCE",
+      "category": "dialogues",
+      "actual": 123,
+      "target_range": [
+        20,
+        60
+      ]
+    }
+  ],
+  "explanations": [
+    "合并两组同一人物的重复称谓记录；其余人物各有独立身份或剧情作用，予以保留。",
+    "合并两组有直接情节证据的同人匿名阶段记录；其余人物均有原文章节依据，且当前无清理义务，不以数量门槛作猜测性删减。"
+  ]
+}

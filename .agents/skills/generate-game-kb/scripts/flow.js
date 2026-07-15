@@ -6,7 +6,7 @@ const path = require('node:path');
 
 const { GameKbError } = require('./lib/errors');
 const { archiveAbandoned, archiveExisting, archiveRun } = require('./lib/archive');
-const { acceptDraft, currentUnitInputHash, stableHash } = require('./lib/accept');
+const { acceptDraft, currentUnitInputHash, semanticDecisionFile, stableHash } = require('./lib/accept');
 const {
   acceptedArtifactHash,
   assertAcceptedArtifacts,
@@ -17,6 +17,7 @@ const {
   applyMergeDecision,
   assembleCleanedBook,
   assembleMergedBook,
+  canonicalEventRefAliases,
   createMergeConsolidationWorkItem
 } = require('./lib/book-assembly');
 const { buildCleanObligations } = require('./lib/clean-obligations');
@@ -79,11 +80,6 @@ function acceptedChapters(paths) {
     .map(name => readJson(`${paths.chapters}/${name}`));
 }
 
-function semanticDecisionFile(paths, unit) {
-  const root = unit.startsWith('merge:') ? paths.mergeDecisions : paths.cleanDecisions;
-  return path.join(root, `${unit.replaceAll(':', '_')}.json`);
-}
-
 function assertUnitsDone(progress, units, code = 'BOOK_ASSEMBLY_INCOMPLETE') {
   const incomplete = units.filter(unit => progress.units[unit]?.status !== 'done');
   if (incomplete.length > 0) {
@@ -95,14 +91,18 @@ function assertUnitsDone(progress, units, code = 'BOOK_ASSEMBLY_INCOMPLETE') {
 
 function readDecisions(paths, units) {
   return Object.fromEntries(units.map(unit => {
-    const file = semanticDecisionFile(paths, unit);
+    const inputHash = readWorkItem(paths, unit).input.input_hash;
+    const file = semanticDecisionFile(paths, unit, inputHash);
     acceptedArtifactHash(paths, file);
     return [unit, readJson(file)];
   }));
 }
 
 function decisionHashes(paths, units) {
-  return Object.fromEntries(units.map(unit => [unit, acceptedArtifactHash(paths, semanticDecisionFile(paths, unit))]));
+  return Object.fromEntries(units.map(unit => {
+    const inputHash = readWorkItem(paths, unit).input.input_hash;
+    return [unit, acceptedArtifactHash(paths, semanticDecisionFile(paths, unit, inputHash))];
+  }));
 }
 
 function writeStableJson(file, value) {
@@ -115,6 +115,32 @@ function writeStableJson(file, value) {
   }
   atomicWriteJson(file, value);
   return true;
+}
+
+function acceptedEventReferenceState(paths, plan, progress) {
+  const eventInputs = (plan.inputs || []).filter(input => input.category === 'events');
+  const descriptor = (plan.consolidations || []).find(value => value.category === 'events');
+  const dependencyUnits = [
+    ...eventInputs.map(input => input.unit),
+    ...(descriptor ? [descriptor.unit] : [])
+  ];
+  if (dependencyUnits.some(unit => progress.units[unit]?.status !== 'done')) return null;
+  assertUnitsDone(progress, dependencyUnits, 'MERGE_EVENTS_REQUIRED');
+  const decisions = readDecisions(paths, dependencyUnits);
+  const shardProjections = eventInputs.map(input => {
+    const bindings = (plan.bindings || []).filter(binding => binding.unit === input.unit);
+    return applyMergeDecision(input, bindings, decisions[input.unit]);
+  });
+  const finalProjection = descriptor
+    ? (() => {
+        const work = readWorkItem(paths, descriptor.unit);
+        return applyMergeDecision(work.input, work.bindings, decisions[descriptor.unit]);
+      })()
+    : { resolutions: shardProjections.flatMap(projection => projection.resolutions || []) };
+  return {
+    aliases: canonicalEventRefAliases(finalProjection.resolutions, plan.bindings),
+    dependency_units: dependencyUnits
+  };
 }
 
 function prepareMerge(paths, manifest) {
@@ -136,22 +162,36 @@ function prepareMerge(paths, manifest) {
   }));
   const plan = createMergeWorkPlan({ chapters, accepted_hashes: acceptedHashes });
   const written = writeWorkPlan(paths, plan);
+  const rotations = [];
   progress = syncPlannedUnits(progress, plan.inputs);
   for (const descriptor of plan.consolidations) {
     const ready = descriptor.dependency_units.every(unit => progress.units[unit]?.status === 'done');
     if (!ready) continue;
+    const eventReferences = descriptor.category === 'dialogues'
+      ? acceptedEventReferenceState(paths, plan, progress)
+      : { aliases: {}, dependency_units: [] };
+    if (!eventReferences) continue;
     const projections = descriptor.dependency_units.map(unit => {
       const work = readWorkItem(paths, unit);
-      const draft = readJson(semanticDecisionFile(paths, unit));
-      acceptedArtifactHash(paths, semanticDecisionFile(paths, unit));
+      const decisionFile = semanticDecisionFile(paths, unit, work.input.input_hash);
+      const draft = readJson(decisionFile);
+      acceptedArtifactHash(paths, decisionFile);
       return applyMergeDecision(work.input, work.bindings, draft);
     });
     const consolidation = createMergeConsolidationWorkItem(
       projections,
       descriptor,
-      decisionHashes(paths, descriptor.dependency_units)
+      decisionHashes(paths, [...descriptor.dependency_units, ...eventReferences.dependency_units]),
+      { event_ref_aliases: eventReferences.aliases }
     );
-    writeWorkItem(paths, 'merge', consolidation.input, consolidation.bindings);
+    const workWrite = writeWorkItem(
+      paths,
+      'merge',
+      consolidation.input,
+      consolidation.bindings,
+      { rotateStale: true }
+    );
+    if (workWrite.rotated) rotations.push(workWrite.rotated);
     progress = syncPlannedUnits(progress, [consolidation.input]);
   }
   saveProgress(paths, progress);
@@ -162,6 +202,7 @@ function prepareMerge(paths, manifest) {
     stage: 'merge',
     units: [...plan.inputs.map(input => input.unit), ...consolidationUnits],
     consolidations: plan.consolidations,
+    rotations,
     plan: written.plan,
     written: written.written
   };
@@ -436,6 +477,10 @@ function buildFinal(novelDir, runId) {
     });
   }
   writeFinalData(paths, result);
+  atomicWriteJson(path.join(paths.finalReports, 'reference_projection_report.json'), {
+    schema_version: 1,
+    warnings: result.warnings
+  });
   atomicWriteJson(paths.gameMaterials, { schema_version: 1, entries: materials.entries });
   const quantity = buildQuantityReport(cleaned, manifest.source_char_count, manifest.chapters.length);
   atomicWriteJson(paths.quantityReport, {
