@@ -32,7 +32,7 @@ data/
 
 | 类型 | 字段 |
 |------|------|
-| characters | id, name, aliases, identity, role, rank, biography, faction, skills, items |
+| characters | id, name, aliases, identity, level, rank, biography, faction, skills, items |
 | skills | id, name, type, faction, rank, description, techniques |
 | items | id, name, type, tags, description |
 | factions | id, name, type, description |

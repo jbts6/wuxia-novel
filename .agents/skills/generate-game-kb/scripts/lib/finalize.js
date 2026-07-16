@@ -133,7 +133,7 @@ function resolveReferences(recordsByCategory, idPlan) {
       name: record.canonical_name,
       aliases,
       identity: String(record.identity || ''),
-      role: record.level,
+      level: record.level,
       rank: String(record.power_rank || ''),
       biography: String(record.biography || ''),
       faction,

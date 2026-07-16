@@ -86,7 +86,7 @@ action 只允许 `keep`、`merge`、`reject`、`pending`。
   name: "甲"
   aliases: []
   identity: "侠客"
-  role: "核心"
+  level: "核心"
   rank: "登堂入室"
   biography: "甲在江湖中追查旧事。"
   faction: "faction_qing_cheng"
