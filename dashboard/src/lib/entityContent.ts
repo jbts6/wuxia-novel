@@ -60,8 +60,7 @@ const CONTENT_FIELDS: Record<ContentEntityKey, readonly string[]> = {
     'alias',
     'type',
     'faction',
-    'mastery_rank',
-    'rank',
+    'power_rank',
     'description',
     'one_line',
     'moves',
@@ -87,8 +86,6 @@ const CONTENT_FIELDS: Record<ContentEntityKey, readonly string[]> = {
   ],
   items: [
     'type',
-    'rarity_tier',
-    'rarity',
     'tags',
     'importance',
     'owner',

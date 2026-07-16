@@ -193,7 +193,7 @@ export default function Skills() {
                     <Badge variant="outline">{displayTaxonomyValue(skill.type)}</Badge>
                   </td>
                   <td className="p-3 text-sm">{resolveId(skill.faction, factionMap, '未注明势力')}</td>
-                  <td className="p-3 text-sm text-accent">{displayTaxonomyValue(skill.mastery_rank)}</td>
+                  <td className="p-3 text-sm text-accent">{displayTaxonomyValue(skill.power_rank)}</td>
                   <td className="max-w-xs truncate p-3 text-sm text-muted-foreground">
                     {skill.one_line || skill.description?.slice(0, 50) || '-'}
                   </td>
@@ -215,7 +215,7 @@ export default function Skills() {
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div>类型：{displayTaxonomyValue(selected.type)}</div>
                   <div>门派：{resolveId(selected.faction, factionMap, '未注明势力')}</div>
-                  <div>境界：{displayTaxonomyValue(selected.mastery_rank)}</div>
+                  <div>境界：{displayTaxonomyValue(selected.power_rank)}</div>
                 </div>
                 <Separator />
                 <div>

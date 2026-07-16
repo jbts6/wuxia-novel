@@ -15,7 +15,6 @@ export default function Items() {
   const [search, setSearch] = useState('');
   const [typeFilter, setTypeFilter] = useState<string[]>([]);
   const [tagFilter, setTagFilter] = useState<string[]>([]);
-  const [rarityFilter, setRarityFilter] = useState<string[]>([]);
   useEntityDetailParam('item', items);
 
   const typeOptions = useMemo(() => {
@@ -28,20 +27,14 @@ export default function Items() {
     return displayChineseValues(Array.from(set).sort()).map((value) => ({ value, label: value }));
   }, [items]);
 
-  const rarityOptions = useMemo(() => {
-    const set = new Set(items.map((i) => i.rarity_tier).filter(Boolean));
-    return Array.from(set).sort().map((r) => ({ value: r!, label: displayTaxonomyValue(r!) }));
-  }, [items]);
-
   const filtered = useMemo(() => {
     return items.filter((i) => {
       const matchSearch = !search || i.name.includes(search);
       const matchType = typeFilter.length === 0 || typeFilter.includes(i.type);
       const matchTag = tagFilter.length === 0 || i.tags?.some((t) => tagFilter.includes(t));
-      const matchRarity = rarityFilter.length === 0 || (i.rarity_tier && rarityFilter.includes(i.rarity_tier));
-      return matchSearch && matchType && matchTag && matchRarity;
+      return matchSearch && matchType && matchTag;
     });
-  }, [items, search, typeFilter, tagFilter, rarityFilter]);
+  }, [items, search, typeFilter, tagFilter]);
 
   const selected = useMemo(() => {
     if (detailPanel.type === 'item' && detailPanel.id) {
@@ -83,15 +76,6 @@ export default function Items() {
             searchPlaceholder="搜索标签..."
             maxDisplay={2}
           />
-          <MultiSearchableSelect
-            className="w-48"
-            options={rarityOptions}
-            value={rarityFilter}
-            onChange={setRarityFilter}
-            placeholder="稀有度"
-            searchPlaceholder="搜索稀有度..."
-            maxDisplay={2}
-          />
         </div>
       </PageHeader>
 
@@ -102,7 +86,6 @@ export default function Items() {
               <th className="p-3 text-left font-medium">名称</th>
               <th className="p-3 text-left font-medium">类型</th>
               <th className="p-3 text-left font-medium">标签</th>
-              <th className="p-3 text-left font-medium">稀有度</th>
               <th className="p-3 text-left font-medium">简介</th>
             </tr>
           </thead>
@@ -124,7 +107,6 @@ export default function Items() {
                     ))}
                   </div>
                 </td>
-                <td className="p-3 text-sm text-accent">{displayTaxonomyValue(item.rarity_tier)}</td>
                 <td className="p-3 text-sm text-muted-foreground max-w-xs truncate">
                   {item.one_line || item.description?.slice(0, 50) || '-'}
                 </td>
@@ -144,7 +126,6 @@ export default function Items() {
               <div className="mt-6 space-y-4">
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div>类型：{displayTaxonomyValue(selected.type)}</div>
-                  <div>稀有度：{displayTaxonomyValue(selected.rarity_tier)}</div>
                   <div>重要性：{displayTaxonomyValue(selected.importance)}</div>
                 </div>
                 {selectedTags.length > 0 && (

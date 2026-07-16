@@ -95,8 +95,7 @@ export interface Skill {
   name: string;
   type: string;
   faction?: string | null;
-  mastery_rank?: string;
-  rank?: string;  // 兼容
+  power_rank?: string;
   description: string;
   one_line?: string;
   description_source_refs?: SourceRef[];
@@ -111,8 +110,6 @@ export interface Item {
   id: string;
   name: string;
   type: string;
-  rarity_tier?: string;
-  rarity?: string;  // 兼容
   tags?: string[];
   importance?: string;
   owner?: string;

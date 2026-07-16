@@ -27,7 +27,7 @@ beforeEach(() => {
         id: 'skill_1',
         name: '胡家刀法',
         type: '刀法',
-        mastery_rank: '绝学',
+        power_rank: '登堂入室',
         description: '胡家世传刀法。',
       },
     ],
@@ -55,6 +55,7 @@ describe('武功阁双视图', () => {
 
     await waitFor(() => expect(screen.getByRole('dialog')).toBeInTheDocument());
     expect(within(screen.getByRole('dialog')).getByText('胡家刀法')).toBeInTheDocument();
+    expect(within(screen.getByRole('dialog')).getByText('境界：登堂入室')).toBeInTheDocument();
     expect(screen.getByTestId('location-search')).toHaveTextContent('?detail=skill_1');
   });
 

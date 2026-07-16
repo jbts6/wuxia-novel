@@ -49,4 +49,29 @@ describe('normalizeNovelData', () => {
       text: '旧版对话正文',
     });
   });
+
+  it('normalizes legacy skill ranks into canonical power_rank only', () => {
+    const data = normalizeNovelData({
+      skills: [
+        { id: 's1', name: '胡家刀法', mastery_rank: '登堂入室' },
+        { id: 's2', name: '苗家剑法', rank: '炉火纯青' },
+      ],
+    });
+
+    expect(data.skills).toMatchObject([
+      { id: 's1', power_rank: '登堂入室' },
+      { id: 's2', power_rank: '炉火纯青' },
+    ]);
+    expect(data.skills[0]).not.toHaveProperty('mastery_rank');
+    expect(data.skills[1]).not.toHaveProperty('rank');
+  });
+
+  it('drops legacy item rarity fields at the raw data boundary', () => {
+    const data = normalizeNovelData({
+      items: [{ id: 'i1', name: '冷月宝刀', rarity_tier: '珍稀', rarity: 'rare' }],
+    });
+
+    expect(data.items[0]).not.toHaveProperty('rarity_tier');
+    expect(data.items[0]).not.toHaveProperty('rarity');
+  });
 });

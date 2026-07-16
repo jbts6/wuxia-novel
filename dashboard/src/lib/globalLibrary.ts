@@ -105,7 +105,7 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       entity,
       entity.one_line || entity.description || '暂无简介',
       displayTaxonomyValue(entity.type, '未分类'),
-      [entity.faction, entity.mastery_rank, entity.moves, entity.holders],
+      [entity.faction, entity.power_rank, entity.moves, entity.holders],
       [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
     ),
   );
@@ -116,7 +116,7 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       entity,
       entity.one_line || entity.description || '暂无简介',
       displayTaxonomyValue(entity.type, '未分类'),
-      [entity.tags, entity.rarity_tier, entity.importance, entity.owner, entity.related_characters, entity.related_skills],
+      [entity.tags, entity.importance, entity.owner, entity.related_characters, entity.related_skills],
       [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
     ),
   );

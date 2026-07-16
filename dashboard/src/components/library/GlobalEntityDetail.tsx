@@ -37,12 +37,11 @@ function detailRows(record: AnyLibraryRecord, maps: IdMaps): Array<{ label: stri
       return [
         { label: '类型', value: displayTaxonomyValue(record.entity.type) },
         { label: '势力', value: resolveId(record.entity.faction, maps.factionMap, '未注明势力') },
-        { label: '境界', value: displayTaxonomyValue(record.entity.mastery_rank || record.entity.rank) },
+        { label: '境界', value: displayTaxonomyValue(record.entity.power_rank) },
       ];
     case 'item':
       return [
         { label: '类型', value: displayTaxonomyValue(record.entity.type) },
-        { label: '稀有度', value: displayTaxonomyValue(record.entity.rarity_tier || record.entity.rarity) },
         { label: '持有者', value: resolveId(record.entity.owner, maps.characterMap, '未注明持有者') },
         { label: '重要性', value: displayTaxonomyValue(record.entity.importance) },
       ];
