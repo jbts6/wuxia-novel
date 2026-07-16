@@ -17,7 +17,7 @@ const {
 const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contract');
 const { normalizeDomainDecisionDraft, validateDomainDecisionDraft } = require('./domain-contract');
 const { GameKbError } = require('./errors');
-const { atomicWriteFile, readJson } = require('./io');
+const { atomicWriteFile, readJson, readYaml } = require('./io');
 const {
   forceManualReview,
   loadProgress,
@@ -43,7 +43,7 @@ function isWithin(parent, candidate) {
 }
 
 function stagingFileName(unit, attempt) {
-  return `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}.json`;
+  return `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}.yaml`;
 }
 
 function nextAttempt(progress, unit, inputHash) {
@@ -92,7 +92,7 @@ function stableHash(value) {
 }
 
 function acceptedChapterFile(paths, number) {
-  return path.join(paths.chapters, `ch_${String(number).padStart(3, '0')}.json`);
+  return path.join(paths.chapters, `ch_${String(number).padStart(3, '0')}.yaml`);
 }
 
 function validateTargetedDraft(draft, category) {
@@ -122,7 +122,7 @@ function semanticDecisionFile(paths, unit, inputHash) {
     ? paths.domainDecisions
     : unit.startsWith('merge:') ? paths.mergeDecisions : paths.cleanDecisions;
   const base = unit.replaceAll(':', '_');
-  const canonical = path.join(root, `${base}.json`);
+  const canonical = path.join(root, `${base}.yaml`);
   if (!inputHash || !fs.existsSync(canonical)) return canonical;
   const canonicalRelative = path.relative(paths.run, canonical).split(path.sep).join('/');
   const canonicalEntry = readArtifactManifest(paths).entries
@@ -135,7 +135,7 @@ function semanticDecisionFile(paths, unit, inputHash) {
       input_hash: inputHash
     });
   }
-  return path.join(root, base, `${match[1]}.json`);
+  return path.join(root, base, `${match[1]}.yaml`);
 }
 
 function semanticAggregateInputHash(paths, stage) {
@@ -247,8 +247,8 @@ function unitContext(paths, manifest, progress, unit) {
   if (targeted) {
     const [, kind, category] = targeted;
     const acceptedFile = kind === 'recall'
-      ? path.join(paths.recalls, `${category}.json`)
-      : path.join(paths.supplements, `${category}.json`);
+      ? path.join(paths.recalls, `${category}.yaml`)
+      : path.join(paths.supplements, `${category}.yaml`);
     if (kind === 'supplement' && !fs.existsSync(paths.merged)) {
       throw new GameKbError('CLEAN_MERGE_REQUIRED', 'An accepted merge is required before a supplement');
     }
@@ -293,7 +293,7 @@ function acceptDraft({ paths, unit, draftPath }) {
   let errors;
   let assessment = null;
   try {
-    draft = JSON.parse(raw.replace(/^\uFEFF/, ''));
+    draft = readYaml(resolvedDraft);
     if (context.assess) {
       assessment = context.assess(draft);
       errors = assessment.errors;
@@ -301,7 +301,7 @@ function acceptDraft({ paths, unit, draftPath }) {
       errors = context.validate(draft);
     }
   } catch (error) {
-    errors = [{ code: 'DRAFT_JSON_INVALID', path: '$', target: error.message }];
+    errors = [{ code: 'DRAFT_YAML_INVALID', path: '$', target: error.message }];
   }
 
   let updated = context.targeted
@@ -321,7 +321,7 @@ function acceptDraft({ paths, unit, draftPath }) {
   const archiveDir = path.join(paths.drafts, unit.replaceAll(':', '_'));
   const archive = path.join(
     archiveDir,
-    `attempt_${String(state.attempts).padStart(2, '0')}_${outputHash.slice(7, 19)}.json`
+    `attempt_${String(state.attempts).padStart(2, '0')}_${outputHash.slice(7, 19)}.yaml`
   );
   atomicWriteFile(archive, raw);
 

@@ -2,6 +2,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const yaml = require('js-yaml');
 
 function temporaryPath(file) {
   const nonce = `${process.pid}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -30,8 +31,16 @@ function atomicWriteJson(file, value) {
   atomicWriteFile(file, `${JSON.stringify(value, null, 2)}\n`);
 }
 
+function atomicWriteYaml(file, value) {
+  atomicWriteFile(file, yaml.dump(value, { lineWidth: -1, noRefs: true }));
+}
+
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8').replace(/^\uFEFF/, ''));
+}
+
+function readYaml(file) {
+  return yaml.load(fs.readFileSync(file, 'utf8'));
 }
 
 function writeFileIfChanged(file, content) {
@@ -43,6 +52,8 @@ function writeFileIfChanged(file, content) {
 module.exports = {
   atomicWriteFile,
   atomicWriteJson,
+  atomicWriteYaml,
   readJson,
+  readYaml,
   writeFileIfChanged
 };
