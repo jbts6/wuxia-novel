@@ -6,7 +6,8 @@ const { isPowerRank } = require('./semantic-contract');
 const ENTITY_CATEGORIES = Object.freeze([
   'characters',
   'skills',
-  'items'
+  'items',
+  'factions'
 ]);
 const BOOK_CATEGORIES = Object.freeze([...ENTITY_CATEGORIES, 'chapter_summaries']);
 const CHARACTER_LEVELS = new Set(['核心', '重要', '次要', '龙套', '背景']);

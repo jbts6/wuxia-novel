@@ -95,8 +95,8 @@ function resolutionFunction(byRegistry, bindingByRef) {
 }
 
 function registryEntries(registry) {
-  // 只处理 characters, skills, items
-  const categories = ['characters', 'skills', 'items'];
+  // 处理 characters, skills, items, factions
+  const categories = ['characters', 'skills', 'items', 'factions'];
   return categories.flatMap(category => Array.isArray(registry?.categories?.[category])
     ? registry.categories[category]
     : []);
@@ -185,8 +185,8 @@ function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: wor
     const entity = root ? entities.find(value => value.provisional_key === root) : null;
     return [entry.registry_key, entity?.canonical_name ?? null];
   }));
-  // 只处理 characters, skills, items
-  const newCategories = ['characters', 'skills', 'items'];
+  // 处理 characters, skills, items, factions
+  const newCategories = ['characters', 'skills', 'items', 'factions'];
   const categories = Object.fromEntries(newCategories.map(category => [category, []]));
   for (const entity of entities) {
     const fields = structuredClone(entity.fields);

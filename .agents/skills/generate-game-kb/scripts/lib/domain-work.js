@@ -11,7 +11,8 @@ const {
 const DOMAIN_DEFINITIONS = Object.freeze({
   characters: Object.freeze(['characters']),
   skills: Object.freeze(['skills']),
-  items: Object.freeze(['items'])
+  items: Object.freeze(['items']),
+  factions: Object.freeze(['factions'])
 });
 const MAX_DOMAIN_WORK_ITEM_BYTES = 512 * 1024;
 
@@ -27,6 +28,9 @@ const DOMAIN_PATCH_FIELDS = Object.freeze({
   items: Object.freeze([
     'canonical_name', 'aliases', 'type', 'description', 'inclusion_reason',
     'holder_names', 'owner_name'
+  ]),
+  factions: Object.freeze([
+    'canonical_name', 'aliases', 'type', 'description', 'member_names'
   ])
 });
 

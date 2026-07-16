@@ -207,3 +207,25 @@ export interface DetailPanelState {
   type: CardType | null;
   id: string | null;
 }
+
+// 审核相关类型
+export interface ReviewEntity {
+  id: string;
+  name: string;
+  type: 'character' | 'skill' | 'item';
+  summary: string; // one_line 或 identity 或 description
+  marked: boolean; // 是否标记为删除
+  data: Record<string, unknown>; // 原始数据
+}
+
+export interface ReviewFilter {
+  type: 'all' | 'character' | 'skill' | 'item';
+  status: 'all' | 'unmarked' | 'marked';
+  search: string;
+}
+
+export interface ReviewFile {
+  name: string;
+  path: string;
+  type: string;
+}

@@ -12,11 +12,12 @@ const { buildQualitySample, selectQualitySample, validateQualityReview } = requi
 const { isHighPriorityQualityItem } = require('./priority');
 const { SEMANTIC_CONTRACT_VERSION, isPowerRank } = require('./semantic-contract');
 
-const ID_PATTERN = /^(char|item|skill)_[a-z]+(?:_[a-z]+)*$/;
+const ID_PATTERN = /^(char|item|skill|faction)_[a-z]+(?:_[a-z]+)*$/;
 const FILE_PREFIX = Object.freeze({
   'characters.yaml': 'char_',
   'skills.yaml': 'skill_',
-  'items.yaml': 'item_'
+  'items.yaml': 'item_',
+  'factions.yaml': 'faction_'
 });
 const ITEM_INCLUSION_REASONS = new Set(['秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊']);
 const TECHNIQUE_TYPES = new Set(['招式', '招法', '招数', '式']);
@@ -184,49 +185,29 @@ function verifyFinal(paths) {
     values.forEach((target, index) => reference(filename, target, `${refPath}[${index}]`));
   }
 
-  finalData['characters.json'].forEach((record, index) => {
-    if (typeof record.power_rank !== 'string' || record.power_rank === '') {
-      blockingErrors.push({ code: 'POWER_RANK_REQUIRED', path: `characters[${index}].power_rank`, target: record.id });
-    } else if (!isPowerRank(record.power_rank)) {
-      blockingErrors.push({ code: 'POWER_RANK_INVALID', path: `characters[${index}].power_rank`, target: record.power_rank });
+  finalData['characters.yaml'].forEach((record, index) => {
+    if (typeof record.rank !== 'string' || record.rank === '') {
+      blockingErrors.push({ code: 'RANK_REQUIRED', path: `characters[${index}].rank`, target: record.id });
+    } else if (!isPowerRank(record.rank)) {
+      blockingErrors.push({ code: 'RANK_INVALID', path: `characters[${index}].rank`, target: record.rank });
     }
-    for (const [relationIndex, relation] of (record.relationships || []).entries()) {
-      reference('characters.json', relation?.target, `characters[${index}].relationships[${relationIndex}].target`);
-    }
-    references('skills.json', record.known_skills || record.skills, `characters[${index}].known_skills`);
-    references('items.json', record.items, `characters[${index}].items`);
+    references('skills.yaml', record.skills, `characters[${index}].skills`);
+    references('items.yaml', record.items, `characters[${index}].items`);
+    reference('factions.yaml', record.faction, `characters[${index}].faction`, true);
   });
-  finalData['items.json'].forEach((record, index) => {
-    if (Object.hasOwn(record, 'rarity_tier') || Object.hasOwn(record, 'rarity')) {
-      blockingErrors.push({ code: 'ITEM_RARITY_FORBIDDEN', path: `items[${index}]`, target: record.id });
-    }
-    if (!ITEM_INCLUSION_REASONS.has(record.inclusion_reason)) {
-      blockingErrors.push({
-        code: 'ITEM_INCLUSION_REASON_INVALID',
-        path: `items[${index}].inclusion_reason`,
-        target: record.inclusion_reason
-      });
-    }
-    if (record.owner) {
-      const valid = idSets['characters.json'].has(record.owner);
-      if (!valid) blockingErrors.push({ code: 'REFERENCE_UNRESOLVED', path: `items[${index}].owner`, target: record.owner });
-    }
-    references('characters.json', record.related_characters, `items[${index}].related_characters`);
-    references('skills.json', record.related_skills, `items[${index}].related_skills`);
+  finalData['items.yaml'].forEach((record, index) => {
+    // 精简字段，无需额外验证
   });
-  finalData['skills.json'].forEach((record, index) => {
-    if (typeof record.power_rank !== 'string' || record.power_rank === '') {
-      blockingErrors.push({ code: 'POWER_RANK_REQUIRED', path: `skills[${index}].power_rank`, target: record.id });
-    } else if (!isPowerRank(record.power_rank)) {
-      blockingErrors.push({ code: 'POWER_RANK_INVALID', path: `skills[${index}].power_rank`, target: record.power_rank });
-    }
-    if (Object.hasOwn(record, 'mastery_rank') || Object.hasOwn(record, 'rank')) {
-      blockingErrors.push({ code: 'LEGACY_SKILL_RANK_FORBIDDEN', path: `skills[${index}]`, target: record.id });
+  finalData['skills.yaml'].forEach((record, index) => {
+    if (typeof record.rank !== 'string' || record.rank === '') {
+      blockingErrors.push({ code: 'RANK_REQUIRED', path: `skills[${index}].rank`, target: record.id });
+    } else if (!isPowerRank(record.rank)) {
+      blockingErrors.push({ code: 'RANK_INVALID', path: `skills[${index}].rank`, target: record.rank });
     }
     if (TECHNIQUE_TYPES.has(String(record.type || '').trim())) {
       blockingErrors.push({ code: 'MARTIAL_CATEGORY_CONFUSION', path: `skills[${index}].type`, target: record.type });
     }
-    references('characters.json', record.holders, `skills[${index}].holders`);
+    reference('factions.yaml', record.faction, `skills[${index}].faction`, true);
     // techniques 是嵌套数组，验证每个 technique 有 name
     if (Array.isArray(record.techniques)) {
       record.techniques.forEach((tech, techIndex) => {
@@ -236,8 +217,11 @@ function verifyFinal(paths) {
       });
     }
   });
+  finalData['factions.yaml'].forEach((record, index) => {
+    // 精简字段，无需额外验证
+  });
 
-  const summaries = finalData['chapter_summaries.json'];
+  const summaries = finalData['chapter_summaries.yaml'];
   const summaryChapters = new Set();
   summaries.forEach((summary, index) => {
     const label = `chapter_summaries[${index}]`;
@@ -255,9 +239,8 @@ function verifyFinal(paths) {
     if (typeof summary.summary !== 'string' || summary.summary.trim() === '') {
       blockingErrors.push({ code: 'SUMMARY_TEXT_REQUIRED', path: `${label}.summary`, target: summary.chapter });
     }
-    references('characters.json', summary.key_characters, `${label}.key_characters`);
-    references('skills.json', summary.key_skills, `${label}.key_skills`);
-    validateSourceRefs(summary, label);
+    references('characters.yaml', summary.key_characters, `${label}.key_characters`);
+    references('skills.yaml', summary.key_skills, `${label}.key_skills`);
   });
   for (const chapter of chapterNumbers) {
     if (!summaryChapters.has(chapter)) {

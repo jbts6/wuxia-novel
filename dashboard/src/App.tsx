@@ -13,6 +13,7 @@ import Locations from './pages/Locations';
 import ChapterSummaries from './pages/ChapterSummaries';
 import Dialogues from './pages/Dialogues';
 import GameMaterials from './pages/GameMaterials';
+import ReviewPage from './pages/ReviewPage';
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="chapter-summaries" element={<ChapterSummaries />} />
             <Route path="dialogues" element={<Dialogues />} />
             <Route path="game-materials" element={<GameMaterials />} />
+            <Route path="review" element={<ReviewPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -10,6 +10,7 @@ import {
   BookMarked,
   LayoutDashboard,
   Gamepad2,
+  CheckSquare,
 } from 'lucide-react';
 
 const navSections = [
@@ -24,6 +25,12 @@ const navSections = [
       { path: 'locations', label: '地点志', icon: MapPin },
       { path: 'chapter-summaries', label: '章回录', icon: BookMarked },
       { path: 'dialogues', label: '对话集', icon: MessageSquare },
+    ],
+  },
+  {
+    label: '数据管理',
+    items: [
+      { path: 'review', label: '数据审核', icon: CheckSquare },
     ],
   },
   {

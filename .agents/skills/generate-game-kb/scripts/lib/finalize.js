@@ -12,6 +12,7 @@ const CATEGORY_FILES = Object.freeze({
   characters: 'characters.yaml',
   skills: 'skills.yaml',
   items: 'items.yaml',
+  factions: 'factions.yaml',
   chapter_summaries: 'chapter_summaries.yaml'
 });
 
@@ -116,7 +117,7 @@ function resolveReferences(recordsByCategory, idPlan) {
   const resolver = makeResolver(idPlan, issues, warnings);
   const data = emptyData();
 
-  data['characters.json'] = (recordsByCategory.characters || []).map((record, index) => {
+  data['characters.yaml'] = (recordsByCategory.characters || []).map((record, index) => {
     const aliases = Array.isArray(record.aliases) ? [...record.aliases] : [];
     const skills = resolver.resolveMany(
       'skills', record.skill_names, `characters[${index}].skill_names`, { required: false }
@@ -124,80 +125,58 @@ function resolveReferences(recordsByCategory, idPlan) {
     const items = resolver.resolveMany(
       'items', record.item_names, `characters[${index}].item_names`, { required: false }
     );
+    const faction = resolver.resolve(
+      'factions', record.faction_name ?? record.faction, `characters[${index}].faction`, { required: false }
+    );
     return {
       id: record.id,
       name: record.canonical_name,
-      alias: aliases,
       aliases,
       identity: String(record.identity || ''),
       role: record.level,
-      archetype: String(record.archetype || ''),
-      power_rank: String(record.power_rank || ''),
-      importance: record.level,
-      one_line: String(record.one_line || record.biography || record.identity || record.canonical_name),
-      bio: String(record.biography || ''),
+      rank: String(record.power_rank || ''),
       biography: String(record.biography || ''),
-      personality: {
-        traits: Array.isArray(record.personality?.traits) ? [...record.personality.traits] : [],
-        speech_style: String(record.personality?.speech_style || ''),
-        temperament: String(record.personality?.temperament || '')
-      },
-      relationships: projectRelationships(record, index, resolver),
-      known_skills: skills,
-      related_skills: skills,
+      faction,
       skills,
-      items,
-      source_refs: copySourceRefs(record)
+      items
     };
   }).sort((left, right) => left.id.localeCompare(right.id));
 
-  data['items.json'] = (recordsByCategory.items || []).map((record, index) => ({
+  data['items.yaml'] = (recordsByCategory.items || []).map((record, index) => ({
     id: record.id,
     name: record.canonical_name,
     type: String(record.type || ''),
     tags: Array.isArray(record.tags) ? [...record.tags] : [],
-    importance: record.inclusion_reason,
-    inclusion_reason: record.inclusion_reason,
-    owner: resolver.resolve(
-      'characters', record.owner_name ?? record.holder_name,
-      `items[${index}].owner_name`,
-      { required: false }
-    ),
-    description: String(record.description || ''),
-    one_line: String(record.one_line || record.description || record.canonical_name),
-    effects: Array.isArray(record.effects) ? structuredClone(record.effects) : [],
-    related_characters: resolver.resolveMany(
-      'characters', record.related_character_names, `items[${index}].related_character_names`, { required: false }
-    ),
-    related_skills: resolver.resolveMany(
-      'skills', record.related_skill_names, `items[${index}].related_skill_names`, { required: false }
-    ),
-    source_refs: copySourceRefs(record)
+    description: String(record.description || '')
   })).sort((left, right) => left.id.localeCompare(right.id));
 
-  data['skills.json'] = (recordsByCategory.skills || []).map((record, index) => ({
+  data['skills.yaml'] = (recordsByCategory.skills || []).map((record, index) => {
+    const faction = resolver.resolve(
+      'factions', record.faction_name, `skills[${index}].faction_name`, { required: false }
+    );
+    return {
+      id: record.id,
+      name: record.canonical_name,
+      type: String(record.type || ''),
+      faction,
+      rank: String(record.power_rank || ''),
+      description: String(record.description || ''),
+      techniques: Array.isArray(record.techniques) ? record.techniques.map(tech => ({
+        name: tech.canonical_name || tech.name,
+        type: String(tech.type || '招式'),
+        description: String(tech.description || '')
+      })) : []
+    };
+  }).sort((left, right) => left.id.localeCompare(right.id));
+
+  data['factions.yaml'] = (recordsByCategory.factions || []).map((record, index) => ({
     id: record.id,
     name: record.canonical_name,
     type: String(record.type || ''),
-    power_rank: String(record.power_rank || ''),
-    description: String(record.description || ''),
-    one_line: String(record.one_line || record.description || record.canonical_name),
-    holders: resolver.resolveMany(
-      'characters', record.holder_names, `skills[${index}].holder_names`, { required: false }
-    ),
-    // techniques 是嵌套数组，直接使用
-    techniques: Array.isArray(record.techniques) ? record.techniques.map(tech => ({
-      name: tech.canonical_name || tech.name,
-      type: String(tech.type || '招式'),
-      description: String(tech.description || '')
-    })) : [],
-    progression: String(record.progression || ''),
-    effects: Array.isArray(record.effects) ? structuredClone(record.effects) : [],
-    combat_style: record.combat_style ?? '',
-    source_refs: copySourceRefs(record)
+    description: String(record.description || '')
   })).sort((left, right) => left.id.localeCompare(right.id));
 
-  data['chapter_summaries.json'] = (recordsByCategory.chapter_summaries || []).map((record, index) => ({
+  data['chapter_summaries.yaml'] = (recordsByCategory.chapter_summaries || []).map((record, index) => ({
     chapter: record.chapter,
     title: record.title,
     summary: record.summary,
@@ -206,8 +185,7 @@ function resolveReferences(recordsByCategory, idPlan) {
     ),
     key_skills: resolver.resolveMany(
       'skills', record.key_skills, `chapter_summaries[${index}].key_skills`, { required: false }
-    ),
-    source_refs: copySourceRefs(record)
+    )
   })).sort((left, right) => left.chapter - right.chapter);
 
   const deduplicatedIssues = [...new Map(issues.map(issue => [JSON.stringify(issue), issue])).values()]
