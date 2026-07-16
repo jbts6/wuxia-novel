@@ -239,8 +239,6 @@ function verifyFinal(paths) {
     if (typeof summary.summary !== 'string' || summary.summary.trim() === '') {
       blockingErrors.push({ code: 'SUMMARY_TEXT_REQUIRED', path: `${label}.summary`, target: summary.chapter });
     }
-    references('characters.yaml', summary.key_characters, `${label}.key_characters`);
-    references('skills.yaml', summary.key_skills, `${label}.key_skills`);
   });
   for (const chapter of chapterNumbers) {
     if (!summaryChapters.has(chapter)) {

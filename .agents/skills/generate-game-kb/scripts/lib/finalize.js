@@ -179,13 +179,7 @@ function resolveReferences(recordsByCategory, idPlan) {
   data['chapter_summaries.yaml'] = (recordsByCategory.chapter_summaries || []).map((record, index) => ({
     chapter: record.chapter,
     title: record.title,
-    summary: record.summary,
-    key_characters: resolver.resolveMany(
-      'characters', record.key_characters, `chapter_summaries[${index}].key_characters`, { required: false }
-    ),
-    key_skills: resolver.resolveMany(
-      'skills', record.key_skills, `chapter_summaries[${index}].key_skills`, { required: false }
-    )
+    summary: record.summary
   })).sort((left, right) => left.chapter - right.chapter);
 
   const deduplicatedIssues = [...new Map(issues.map(issue => [JSON.stringify(issue), issue])).values()]
