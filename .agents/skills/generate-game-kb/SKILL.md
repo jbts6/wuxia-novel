@@ -57,10 +57,10 @@ prepare
 
 ```
 <书籍目录>/.game-kb-work/runs/<run-id>/
-├── staging/<unit>_attempt_<NN>.json    # 草稿
-├── accepted/<category>/<unit>.json     # 已接受
-├── final/data/*.json                   # 最终数据
-└── progress.json                       # 进度
+├── staging/<unit>_attempt_<NN>.yaml    # 草稿（AI生成，YAML格式）
+├── accepted/<category>/<unit>.yaml     # 已接受
+├── final/data/*.yaml                   # 最终数据
+└── progress.json                       # 进度（脚本生成，JSON格式）
 ```
 
 **禁止**：子代理不得在书籍目录外写文件，不得生成 .js/.py 等脚本文件。
