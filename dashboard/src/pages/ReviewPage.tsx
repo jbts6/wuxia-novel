@@ -59,6 +59,8 @@ export default function ReviewPage() {
   const handleDelete = async () => {
     await deleteMarked();
     setShowDeleteDialog(false);
+    setSuccessMessage(`成功删除 ${markedCount} 条数据`);
+    setTimeout(() => setSuccessMessage(null), 3000);
   };
 
   const handleTypeChange = (type: string) => {
@@ -170,6 +172,12 @@ export default function ReviewPage() {
 
       {error && (
         <div className="text-center py-8 text-destructive">{error}</div>
+      )}
+
+      {successMessage && (
+        <div className="text-center py-4 text-green-600 bg-green-50 rounded-md mb-4">
+          {successMessage}
+        </div>
       )}
 
       {!isLoading && !error && filter.type === 'all' && (

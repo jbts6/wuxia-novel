@@ -20,13 +20,23 @@ data/
 
 ## 核心规则
 
-1. **AI 输出 YAML**：避免 JSON 格式错误，用脚本转换为 JSON
-2. **人物 power_rank**：八级固定为 `平平无奇`→`初窥门径`→`略有小成`→`登堂入室`→`炉火纯青`→`出神入化`→`登峰造极`→`返璞归真`
-3. **武功+招式统一**：招式作为 `skills[].techniques[]` 字段，不再单独输出 techniques.json
+1. **AI 输出 YAML**：避免 JSON 格式错误
+2. **人物 rank**：八级固定为 `平平无奇`→`初窥门径`→`略有小成`→`登堂入室`→`炉火纯青`→`出神入化`→`登峰造极`→`返璞归真`
+3. **武功+招式统一**：招式作为 `skills[].techniques[]` 字段
 4. **物品筛选**：只保留秘籍、剧情关键、高级药毒、神兵利器、其他稀有特殊
 5. **章节摘要**：机械生成，AI 尝试数为 0
-6. **不提取对话**：dialogues 字段固定为空数组
-7. **不提取事件**：events 分离为独立流程
+6. **不提取对话和事件**：分离为独立流程
+7. **source_refs 必须保留**：草稿中每个实体必须有 source_refs，避免 AI 编造
+
+## 最终输出字段
+
+| 类型 | 字段 |
+|------|------|
+| characters | id, name, aliases, identity, role, rank, biography, faction, skills, items |
+| skills | id, name, type, faction, rank, description, techniques |
+| items | id, name, type, tags, description |
+| factions | id, name, type, description |
+| chapter_summaries | chapter, title, summary |
 
 ## 流程路径
 
