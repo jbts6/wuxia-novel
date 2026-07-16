@@ -9,13 +9,8 @@ const { assignStableIds } = require('./ids');
 
 const CATEGORY_FILES = Object.freeze({
   characters: 'characters.json',
-  events: 'events.json',
-  items: 'items.json',
   skills: 'skills.json',
-  techniques: 'techniques.json',
-  factions: 'factions.json',
-  locations: 'locations.json',
-  dialogues: 'dialogues.json',
+  items: 'items.json',
   chapter_summaries: 'chapter_summaries.json'
 });
 
@@ -128,9 +123,6 @@ function resolveReferences(recordsByCategory, idPlan) {
     const items = resolver.resolveMany(
       'items', record.item_names, `characters[${index}].item_names`, { required: false }
     );
-    const faction = resolver.resolve(
-      'factions', record.faction_name ?? record.faction, `characters[${index}].faction`, { required: false }
-    );
     return {
       id: record.id,
       name: record.canonical_name,
@@ -140,7 +132,6 @@ function resolveReferences(recordsByCategory, idPlan) {
       role: record.level,
       archetype: String(record.archetype || ''),
       power_rank: String(record.power_rank || ''),
-      faction,
       importance: record.level,
       one_line: String(record.one_line || record.biography || record.identity || record.canonical_name),
       bio: String(record.biography || ''),
@@ -159,22 +150,6 @@ function resolveReferences(recordsByCategory, idPlan) {
     };
   }).sort((left, right) => left.id.localeCompare(right.id));
 
-  data['events.json'] = (recordsByCategory.events || []).map((record, index) => ({
-    id: record.id,
-    name: record.canonical_name,
-    cause: String(record.cause || ''),
-    process: String(record.process || ''),
-    result: String(record.result || ''),
-    participants: resolver.resolveMany(
-      'characters', record.participant_names, `events[${index}].participant_names`, { required: false }
-    ),
-    locations: resolver.resolveMany(
-      'locations', record.location_names, `events[${index}].location_names`, { required: false }
-    ),
-    importance: String(record.importance || ''),
-    source_refs: copySourceRefs(record)
-  })).sort((left, right) => left.id.localeCompare(right.id));
-
   data['items.json'] = (recordsByCategory.items || []).map((record, index) => ({
     id: record.id,
     name: record.canonical_name,
@@ -182,9 +157,8 @@ function resolveReferences(recordsByCategory, idPlan) {
     tags: Array.isArray(record.tags) ? [...record.tags] : [],
     importance: record.inclusion_reason,
     inclusion_reason: record.inclusion_reason,
-    owner: resolver.resolveAny(
-      ['characters', 'factions'],
-      record.owner_name ?? record.holder_name,
+    owner: resolver.resolve(
+      'characters', record.owner_name ?? record.holder_name,
       `items[${index}].owner_name`,
       { required: false }
     ),
@@ -204,105 +178,33 @@ function resolveReferences(recordsByCategory, idPlan) {
     id: record.id,
     name: record.canonical_name,
     type: String(record.type || ''),
-    faction: resolver.resolve(
-      'factions', record.faction_name, `skills[${index}].faction_name`, { required: false }
-    ),
     power_rank: String(record.power_rank || ''),
     description: String(record.description || ''),
     one_line: String(record.one_line || record.description || record.canonical_name),
     holders: resolver.resolveMany(
       'characters', record.holder_names, `skills[${index}].holder_names`, { required: false }
     ),
-    techniques: resolver.resolveMany(
-      'techniques', record.technique_names, `skills[${index}].technique_names`, { required: false }
-    ),
+    // techniques 是嵌套数组，直接使用
+    techniques: Array.isArray(record.techniques) ? record.techniques.map(tech => ({
+      name: tech.canonical_name || tech.name,
+      type: String(tech.type || '招式'),
+      description: String(tech.description || '')
+    })) : [],
     progression: String(record.progression || ''),
     effects: Array.isArray(record.effects) ? structuredClone(record.effects) : [],
     combat_style: record.combat_style ?? '',
     source_refs: copySourceRefs(record)
   })).sort((left, right) => left.id.localeCompare(right.id));
 
-  data['techniques.json'] = (recordsByCategory.techniques || []).map((record, index) => {
-    const sourceSkill = resolver.resolve(
-      'skills', record.source_skill_name, `techniques[${index}].source_skill_name`, { required: false }
-    );
-    return {
-      id: record.id,
-      name: record.canonical_name,
-      skill: sourceSkill,
-      source_skill: sourceSkill,
-      type: String(record.type || ''),
-      named_in_source: record.named_in_source === true,
-      description: String(record.description || ''),
-      source_refs: copySourceRefs(record)
-    };
-  }).sort((left, right) => left.id.localeCompare(right.id));
-
-  data['factions.json'] = (recordsByCategory.factions || []).map((record, index) => ({
-    id: record.id,
-    name: record.canonical_name,
-    type: String(record.type || ''),
-    location: resolver.resolve(
-      'locations', record.location_name, `factions[${index}].location_name`, { required: false }
-    ),
-    leader: resolver.resolve(
-      'characters', record.leader_name, `factions[${index}].leader_name`, { required: false }
-    ),
-    description: String(record.description || ''),
-    one_line: String(record.one_line || record.description || record.canonical_name),
-    members: resolver.resolveMany(
-      'characters', record.member_names, `factions[${index}].member_names`, { required: false }
-    ),
-    sub_organizations: Array.isArray(record.sub_organizations) ? [...record.sub_organizations] : [],
-    sub_divisions: Array.isArray(record.sub_divisions) ? [...record.sub_divisions] : [],
-    source_refs: copySourceRefs(record)
-  })).sort((left, right) => left.id.localeCompare(right.id));
-
-  data['locations.json'] = (recordsByCategory.locations || []).map((record, index) => ({
-    id: record.id,
-    name: record.canonical_name,
-    region: String(record.region || ''),
-    description: String(record.description || ''),
-    one_line: String(record.one_line || record.description || record.canonical_name),
-    factions: resolver.resolveMany(
-      'factions', record.faction_names, `locations[${index}].faction_names`, { required: false }
-    ),
-    characters: resolver.resolveMany(
-      'characters', record.character_names, `locations[${index}].character_names`, { required: false }
-    ),
-    source_refs: copySourceRefs(record)
-  })).sort((left, right) => left.id.localeCompare(right.id));
-
-  data['dialogues.json'] = (recordsByCategory.dialogues || []).map((record, index) => ({
-    id: record.id,
-    event_id: resolver.resolve('events', record.event_key, `dialogues[${index}].event_key`),
-    speaker: resolver.resolve(
-      'characters', record.speaker_name, `dialogues[${index}].speaker_name`,
-      { required: !isGenericSpeakerReference(record.speaker_name) }
-    ),
-    speaker_name: record.speaker_name,
-    listener: resolver.resolve(
-      'characters', record.listener_name, `dialogues[${index}].listener_name`, { required: false }
-    ),
-    chapter: record.chapter,
-    line_start: record.line_start ?? record.source_refs?.[0]?.line_start,
-    line_end: record.line_end ?? record.source_refs?.[0]?.line_end,
-    text: record.text,
-    tone: String(record.tone || ''),
-    context: String(record.context || ''),
-    source_refs: copySourceRefs(record)
-  })).filter(dialogue => dialogue.event_id && dialogue.speaker)
-    .sort((left, right) => left.id.localeCompare(right.id));
-
   data['chapter_summaries.json'] = (recordsByCategory.chapter_summaries || []).map((record, index) => ({
     chapter: record.chapter,
     title: record.title,
     summary: record.summary,
-    key_events: resolver.resolveMany(
-      'events', record.key_events, `chapter_summaries[${index}].key_events`, { required: false }
-    ),
     key_characters: resolver.resolveMany(
       'characters', record.key_characters, `chapter_summaries[${index}].key_characters`, { required: false }
+    ),
+    key_skills: resolver.resolveMany(
+      'skills', record.key_skills, `chapter_summaries[${index}].key_skills`, { required: false }
     ),
     source_refs: copySourceRefs(record)
   })).sort((left, right) => left.chapter - right.chapter);

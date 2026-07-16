@@ -5,13 +5,8 @@ const { isPowerRank } = require('./semantic-contract');
 
 const ENTITY_CATEGORIES = Object.freeze([
   'characters',
-  'events',
-  'items',
   'skills',
-  'techniques',
-  'factions',
-  'locations',
-  'dialogues'
+  'items'
 ]);
 const BOOK_CATEGORIES = Object.freeze([...ENTITY_CATEGORIES, 'chapter_summaries']);
 const CHARACTER_LEVELS = new Set(['核心', '重要', '次要', '龙套', '背景']);
@@ -215,7 +210,7 @@ function validateBook(book, manifest, expectedStage, chapters) {
 
   const chapterNumbers = new Set((Array.isArray(manifest?.chapters) ? manifest.chapters : [])
     .map(chapter => chapter.number));
-  for (const category of ENTITY_CATEGORIES.filter(category => category !== 'dialogues')) {
+  for (const category of ENTITY_CATEGORIES) {
     const localKeys = new Set();
     book[category].forEach((record, index) => {
       const label = `${category}[${index}]`;
@@ -239,44 +234,13 @@ function validateBook(book, manifest, expectedStage, chapters) {
       if (category === 'characters' || category === 'skills') {
         validatePowerRank(record, label, errors);
       }
+      // skills 必须有 techniques 数组
+      if (category === 'skills' && !Array.isArray(record.techniques)) {
+        errors.push(issue('TECHNIQUES_ARRAY_REQUIRED', `${label}.techniques`));
+      }
       validateSourceRefs(record, label, chapterNumbers, errors);
     });
   }
-
-  const eventKeys = new Set(book.events.map(event => event?.local_key).filter(Boolean));
-  const dialogueEvents = new Set();
-  const dialogueKeys = new Set();
-  book.dialogues.forEach((dialogue, index) => {
-    const label = `dialogues[${index}]`;
-    if (!isObject(dialogue)) {
-      errors.push(issue('DIALOGUE_INVALID', label));
-      return;
-    }
-    if (typeof dialogue.local_key !== 'string' || dialogue.local_key.trim() === '') {
-      errors.push(issue('LOCAL_KEY_REQUIRED', `${label}.local_key`));
-    } else if (dialogueKeys.has(dialogue.local_key)) {
-      errors.push(issue('LOCAL_KEY_DUPLICATE', `${label}.local_key`, dialogue.local_key));
-    } else {
-      dialogueKeys.add(dialogue.local_key);
-    }
-    if (typeof dialogue.event_key !== 'string' || !eventKeys.has(dialogue.event_key)) {
-      errors.push(issue('DIALOGUE_EVENT_UNKNOWN', `${label}.event_key`, dialogue.event_key));
-    } else if (dialogueEvents.has(dialogue.event_key)) {
-      errors.push(issue('DIALOGUE_EVENT_DUPLICATE', `${label}.event_key`, dialogue.event_key));
-    } else {
-      dialogueEvents.add(dialogue.event_key);
-    }
-    if (typeof dialogue.speaker_name !== 'string' || dialogue.speaker_name.trim() === '') {
-      errors.push(issue('DIALOGUE_SPEAKER_REQUIRED', `${label}.speaker_name`));
-    }
-    if (typeof dialogue.text !== 'string' || dialogue.text.trim() === '') {
-      errors.push(issue('DIALOGUE_TEXT_REQUIRED', `${label}.text`));
-    }
-    if (!chapterNumbers.has(dialogue.chapter)) {
-      errors.push(issue('DIALOGUE_CHAPTER_UNKNOWN', `${label}.chapter`, dialogue.chapter));
-    }
-    validateSourceRefs(dialogue, label, chapterNumbers, errors, dialogue.chapter);
-  });
 
   const summariesByChapter = new Map();
   book.chapter_summaries.forEach((summary, index) => {
@@ -295,8 +259,8 @@ function validateBook(book, manifest, expectedStage, chapters) {
     if (typeof summary.summary !== 'string' || summary.summary.trim() === '') {
       errors.push(issue('SUMMARY_TEXT_REQUIRED', `${label}.summary`));
     }
-    if (!Array.isArray(summary.key_events)) errors.push(issue('SUMMARY_EVENTS_REQUIRED', `${label}.key_events`));
     if (!Array.isArray(summary.key_characters)) errors.push(issue('SUMMARY_CHARACTERS_REQUIRED', `${label}.key_characters`));
+    if (!Array.isArray(summary.key_skills)) errors.push(issue('SUMMARY_SKILLS_REQUIRED', `${label}.key_skills`));
     validateSourceRefs(summary, label, chapterNumbers, errors, summary.chapter);
   });
   for (const chapter of chapterNumbers) {
@@ -356,11 +320,6 @@ function validateCleanedBook(book, manifest, chapters) {
   for (const [index, item] of (Array.isArray(book.items) ? book.items : []).entries()) {
     if (!ITEM_REASONS.has(item?.inclusion_reason)) {
       errors.push(issue('ITEM_NOT_IMPORTANT', `items[${index}].inclusion_reason`, item?.canonical_name));
-    }
-  }
-  for (const [index, technique] of (Array.isArray(book.techniques) ? book.techniques : []).entries()) {
-    if (technique?.named_in_source !== true || normalizeName(technique?.canonical_name) === '') {
-      errors.push(issue('TECHNIQUE_NOT_NAMED', `techniques[${index}].named_in_source`, technique?.canonical_name));
     }
   }
   return errors;

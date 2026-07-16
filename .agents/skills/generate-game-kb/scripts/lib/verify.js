@@ -11,18 +11,12 @@ const { buildQualitySample, selectQualitySample, validateQualityReview } = requi
 const { isHighPriorityQualityItem } = require('./priority');
 const { SEMANTIC_CONTRACT_VERSION, isPowerRank } = require('./semantic-contract');
 
-const ID_PATTERN = /^(char|event|item|skill|tech|faction|loc|dialogue)_[a-z]+(?:_[a-z]+)*$/;
+const ID_PATTERN = /^(char|item|skill)_[a-z]+(?:_[a-z]+)*$/;
 const FILE_PREFIX = Object.freeze({
   'characters.json': 'char_',
-  'events.json': 'event_',
-  'items.json': 'item_',
   'skills.json': 'skill_',
-  'techniques.json': 'tech_',
-  'factions.json': 'faction_',
-  'locations.json': 'loc_',
-  'dialogues.json': 'dialogue_'
+  'items.json': 'item_'
 });
-const KEY_EVENT_LEVELS = new Set(['核心', '重要', 'core', 'important']);
 const ITEM_INCLUSION_REASONS = new Set(['秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊']);
 const TECHNIQUE_TYPES = new Set(['招式', '招法', '招数', '式']);
 
@@ -166,11 +160,8 @@ function verifyFinal(paths) {
       } else {
         ids.set(record.id, filename);
       }
-      if (filename !== 'dialogues.json' && (typeof record.name !== 'string' || record.name.trim() === '')) {
+      if (typeof record.name !== 'string' || record.name.trim() === '') {
         blockingErrors.push({ code: 'FINAL_NAME_REQUIRED', path: `${label}.name`, target: record.id });
-      }
-      if (filename === 'dialogues.json' && (typeof record.text !== 'string' || record.text.trim() === '')) {
-        blockingErrors.push({ code: 'DIALOGUE_TEXT_REQUIRED', path: `${label}.text`, target: record.id });
       }
       validateSourceRefs(record, label);
     });
@@ -197,22 +188,11 @@ function verifyFinal(paths) {
     } else if (!isPowerRank(record.power_rank)) {
       blockingErrors.push({ code: 'POWER_RANK_INVALID', path: `characters[${index}].power_rank`, target: record.power_rank });
     }
-    reference('factions.json', record.faction, `characters[${index}].faction`, true);
     for (const [relationIndex, relation] of (record.relationships || []).entries()) {
       reference('characters.json', relation?.target, `characters[${index}].relationships[${relationIndex}].target`);
     }
     references('skills.json', record.known_skills || record.skills, `characters[${index}].known_skills`);
     references('items.json', record.items, `characters[${index}].items`);
-  });
-  finalData['events.json'].forEach((record, index) => {
-    references('characters.json', record.participants, `events[${index}].participants`);
-    references('locations.json', record.locations, `events[${index}].locations`);
-    if (KEY_EVENT_LEVELS.has(record.importance) && (!Array.isArray(record.participants) || record.participants.length === 0)) {
-      blockingErrors.push({ code: 'KEY_EVENT_PARTICIPANTS_REQUIRED', path: `events[${index}].participants`, target: record.id });
-    }
-    if (KEY_EVENT_LEVELS.has(record.importance) && (typeof record.result !== 'string' || record.result.trim() === '')) {
-      blockingErrors.push({ code: 'KEY_EVENT_RESULT_REQUIRED', path: `events[${index}].result`, target: record.id });
-    }
   });
   finalData['items.json'].forEach((record, index) => {
     if (Object.hasOwn(record, 'rarity_tier') || Object.hasOwn(record, 'rarity')) {
@@ -226,7 +206,7 @@ function verifyFinal(paths) {
       });
     }
     if (record.owner) {
-      const valid = idSets['characters.json'].has(record.owner) || idSets['factions.json'].has(record.owner);
+      const valid = idSets['characters.json'].has(record.owner);
       if (!valid) blockingErrors.push({ code: 'REFERENCE_UNRESOLVED', path: `items[${index}].owner`, target: record.owner });
     }
     references('characters.json', record.related_characters, `items[${index}].related_characters`);
@@ -244,49 +224,13 @@ function verifyFinal(paths) {
     if (TECHNIQUE_TYPES.has(String(record.type || '').trim())) {
       blockingErrors.push({ code: 'MARTIAL_CATEGORY_CONFUSION', path: `skills[${index}].type`, target: record.type });
     }
-    reference('factions.json', record.faction, `skills[${index}].faction`, true);
     references('characters.json', record.holders, `skills[${index}].holders`);
-    references('techniques.json', record.techniques, `skills[${index}].techniques`);
-  });
-  finalData['techniques.json'].forEach((record, index) => {
-    if (record.named_in_source !== true) {
-      blockingErrors.push({ code: 'TECHNIQUE_NOT_NAMED', path: `techniques[${index}].named_in_source`, target: record.id });
-    }
-    reference('skills.json', record.source_skill || record.skill, `techniques[${index}].source_skill`, true);
-  });
-  finalData['factions.json'].forEach((record, index) => {
-    reference('locations.json', record.location, `factions[${index}].location`, true);
-    reference('characters.json', record.leader, `factions[${index}].leader`, true);
-    references('characters.json', record.members, `factions[${index}].members`);
-  });
-  finalData['locations.json'].forEach((record, index) => {
-    references('factions.json', record.factions, `locations[${index}].factions`);
-    references('characters.json', record.characters, `locations[${index}].characters`);
-  });
-  const dialogueEvents = new Set();
-  finalData['dialogues.json'].forEach((record, index) => {
-    reference('events.json', record.event_id, `dialogues[${index}].event_id`);
-    if (typeof record.event_id === 'string') {
-      if (dialogueEvents.has(record.event_id)) {
-        blockingErrors.push({
-          code: 'DIALOGUE_EVENT_DUPLICATE',
-          path: `dialogues[${index}].event_id`,
-          target: record.event_id
-        });
-      }
-      dialogueEvents.add(record.event_id);
-    }
-    reference('characters.json', record.speaker, `dialogues[${index}].speaker`);
-    reference('characters.json', record.listener, `dialogues[${index}].listener`, true);
-    if (!chapterNumbers.has(record.chapter)) {
-      blockingErrors.push({ code: 'DIALOGUE_CHAPTER_UNKNOWN', path: `dialogues[${index}].chapter`, target: record.chapter });
-    }
-    if (Array.isArray(record.source_refs)
-      && !record.source_refs.some(ref => ref?.chapter === record.chapter)) {
-      blockingErrors.push({
-        code: 'DIALOGUE_SOURCE_CHAPTER_MISMATCH',
-        path: `dialogues[${index}].source_refs`,
-        target: record.chapter
+    // techniques 是嵌套数组，验证每个 technique 有 name
+    if (Array.isArray(record.techniques)) {
+      record.techniques.forEach((tech, techIndex) => {
+        if (!tech.name || typeof tech.name !== 'string' || tech.name.trim() === '') {
+          blockingErrors.push({ code: 'TECHNIQUE_NAME_REQUIRED', path: `skills[${index}].techniques[${techIndex}].name`, target: record.id });
+        }
       });
     }
   });
@@ -309,8 +253,8 @@ function verifyFinal(paths) {
     if (typeof summary.summary !== 'string' || summary.summary.trim() === '') {
       blockingErrors.push({ code: 'SUMMARY_TEXT_REQUIRED', path: `${label}.summary`, target: summary.chapter });
     }
-    references('events.json', summary.key_events, `${label}.key_events`);
     references('characters.json', summary.key_characters, `${label}.key_characters`);
+    references('skills.json', summary.key_skills, `${label}.key_skills`);
     validateSourceRefs(summary, label);
   });
   for (const chapter of chapterNumbers) {

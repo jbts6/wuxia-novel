@@ -9,29 +9,24 @@ const {
 } = require('./semantic-work');
 
 const DOMAIN_DEFINITIONS = Object.freeze({
-  plot: Object.freeze(['characters', 'events', 'dialogues']),
-  martial: Object.freeze(['skills', 'techniques']),
-  items: Object.freeze(['items']),
-  world: Object.freeze(['factions', 'locations'])
+  characters: Object.freeze(['characters']),
+  skills: Object.freeze(['skills']),
+  items: Object.freeze(['items'])
 });
 const MAX_DOMAIN_WORK_ITEM_BYTES = 512 * 1024;
 
 const DOMAIN_PATCH_FIELDS = Object.freeze({
-  plot: Object.freeze([
+  characters: Object.freeze([
     'canonical_name', 'aliases', 'level', 'identity', 'power_rank', 'biography', 'personality',
-    'cause', 'process', 'result', 'importance', 'participant_names', 'location_names',
-    'speaker_name', 'text', 'event_ref'
+    'faction', 'relationships'
   ]),
-  martial: Object.freeze([
+  skills: Object.freeze([
     'canonical_name', 'aliases', 'type', 'power_rank', 'description', 'holder_names',
-    'technique_names', 'source_skill_ref'
+    'techniques'
   ]),
   items: Object.freeze([
     'canonical_name', 'aliases', 'type', 'description', 'inclusion_reason',
-    'holder_names', 'event_names'
-  ]),
-  world: Object.freeze([
-    'canonical_name', 'aliases', 'type', 'description', 'region', 'member_names'
+    'holder_names', 'owner_name'
   ])
 });
 
@@ -128,7 +123,7 @@ function createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes = {} }
       unit,
       domain,
       categories: [...categories],
-      quality_tier: domain === 'world' ? 'soft' : 'hard',
+      quality_tier: 'hard',
       allowed_patch_fields: [...DOMAIN_PATCH_FIELDS[domain]],
       entries: visibleEntries,
       pending: pendingForDomain(registry, domain, refs),

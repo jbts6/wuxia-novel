@@ -95,7 +95,9 @@ function resolutionFunction(byRegistry, bindingByRef) {
 }
 
 function registryEntries(registry) {
-  return ENTITY_CATEGORIES.flatMap(category => Array.isArray(registry?.categories?.[category])
+  // 只处理 characters, skills, items
+  const categories = ['characters', 'skills', 'items'];
+  return categories.flatMap(category => Array.isArray(registry?.categories?.[category])
     ? registry.categories[category]
     : []);
 }
@@ -105,27 +107,25 @@ function entityRecord(entry, decision, registryByRef) {
   return { ...structuredClone(entry.record || {}), ...patch };
 }
 
-function projectChapterSummaries(manifest, chapters, events) {
+function projectChapterSummaries(manifest, chapters) {
   const chaptersByNumber = new Map((chapters || []).map(chapter => [chapter.chapter, chapter]));
   return [...(manifest?.chapters || [])].sort((left, right) => left.number - right.number).map(item => {
-    const chapterEvents = events.filter(event => (event.source_refs || []).some(ref => ref.chapter === item.number));
-    const keyEvents = chapterEvents.map(event => event.canonical_name).filter(Boolean);
-    const keyCharacters = uniqueValues(chapterEvents.flatMap(event => event.participant_names || []));
-    const refs = uniqueValues(chapterEvents.flatMap(event => (event.source_refs || [])
-      .filter(ref => ref.chapter === item.number)));
     const chapter = chaptersByNumber.get(item.number);
-    const sourceRefs = refs.length > 0 ? refs : uniqueValues(chapter?.summary?.source_refs || []);
-    const summary = chapterEvents.length === 0
-      ? '本章未提取到关键事件。'
-      : chapterEvents.map(event => event.result
-        ? `${event.canonical_name}：${event.result}`
-        : event.canonical_name).join('；');
+    // 从章节中提取人物和武功信息
+    const keyCharacters = uniqueValues(
+      (chapter?.characters || []).map(c => c.canonical_name || c.name).filter(Boolean)
+    );
+    const keySkills = uniqueValues(
+      (chapter?.skills || []).map(s => s.canonical_name || s.name).filter(Boolean)
+    );
+    const sourceRefs = uniqueValues(chapter?.summary?.source_refs || []);
+    const summary = chapter?.summary?.text || '本章摘要待补充。';
     return {
       chapter: item.number,
       title: item.title,
       summary,
-      key_events: keyEvents,
       key_characters: keyCharacters,
+      key_skills: keySkills,
       source_refs: sourceRefs
     };
   });
@@ -185,43 +185,25 @@ function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: wor
     const entity = root ? entities.find(value => value.provisional_key === root) : null;
     return [entry.registry_key, entity?.canonical_name ?? null];
   }));
-  const categories = Object.fromEntries(ENTITY_CATEGORIES.map(category => [category, []]));
+  // 只处理 characters, skills, items
+  const newCategories = ['characters', 'skills', 'items'];
+  const categories = Object.fromEntries(newCategories.map(category => [category, []]));
   for (const entity of entities) {
     const fields = structuredClone(entity.fields);
-    let record;
-    if (entity.category === 'dialogues') {
-      const eventRegistryKey = fields.event_registry_key;
-      const eventKey = localKeyByRegistry.get(eventRegistryKey);
-      if (!eventKey) fail('A dialogue event reference is unresolved', { registry_key: entity.provisional_key, event_registry_key: eventRegistryKey });
-      delete fields.event_registry_key;
-      record = {
-        local_key: localKeyByRoot.get(entity.provisional_key),
-        event_key: eventKey,
-        ...fields,
-        chapter: fields.chapter || entity.source_refs[0]?.chapter,
-        source_refs: entity.source_refs
-      };
-    } else {
-      if (entity.category === 'techniques' && fields.source_skill_registry_key) {
-        const skillName = canonicalNameByRegistry.get(fields.source_skill_registry_key);
-        if (!skillName) fail('A technique skill reference is unresolved', {
-          registry_key: entity.provisional_key,
-          source_skill_registry_key: fields.source_skill_registry_key
-        });
-        fields.source_skill_name = skillName;
-        delete fields.source_skill_registry_key;
-      }
-      record = {
-        local_key: localKeyByRoot.get(entity.provisional_key),
-        canonical_name: entity.canonical_name,
-        aliases: entity.aliases,
-        ...fields,
-        source_refs: entity.source_refs
-      };
+    const record = {
+      local_key: localKeyByRoot.get(entity.provisional_key),
+      canonical_name: entity.canonical_name,
+      aliases: entity.aliases,
+      ...fields,
+      source_refs: entity.source_refs
+    };
+    // 确保 skills 有 techniques 数组
+    if (entity.category === 'skills' && !Array.isArray(record.techniques)) {
+      record.techniques = [];
     }
     categories[entity.category].push(record);
   }
-  for (const category of ENTITY_CATEGORIES) categories[category].sort((left, right) => compareText(left.local_key, right.local_key));
+  for (const category of newCategories) categories[category].sort((left, right) => compareText(left.local_key, right.local_key));
 
   const candidateResolutions = [];
   for (const entry of entries) {
@@ -238,7 +220,7 @@ function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: wor
     schema_version: 1,
     stage: 'merged',
     ...categories,
-    chapter_summaries: projectChapterSummaries(manifest, chapters, categories.events),
+    chapter_summaries: projectChapterSummaries(manifest, chapters),
     candidate_resolutions: candidateResolutions,
     ambiguities: []
   };
@@ -268,25 +250,35 @@ function assembleDomainCleanedBook(merged) {
     }
     return normalized;
   });
-  const materialCategories = new Set(['characters', 'events', 'items', 'skills', 'techniques']);
-  const gameMaterials = ENTITY_CATEGORIES.filter(category => materialCategories.has(category))
+
+  // 确保 skills 有 techniques 数组
+  const skills = (merged?.skills || []).map(record => {
+    const normalized = structuredClone(record);
+    if (!Array.isArray(normalized.techniques)) {
+      normalized.techniques = [];
+    }
+    return normalized;
+  });
+
+  const materialCategories = new Set(['characters', 'items', 'skills']);
+  const newCategories = ['characters', 'skills', 'items'];
+  const gameMaterials = newCategories.filter(category => materialCategories.has(category))
     .flatMap(category => (merged?.[category] || []).map(record => ({
       material_type: category === 'characters'
         ? '角色原型/彩蛋'
-        : category === 'events'
-          ? '经典剧情桥段'
-          : category === 'items'
-            ? '标志性物品'
-            : '战斗系统原型',
+        : category === 'items'
+          ? '标志性物品'
+          : '战斗系统原型',
       source_category: category,
-      source_name: record.canonical_name || record.text,
+      source_name: record.canonical_name,
       relevance: '高',
-      suggested_use: `${record.canonical_name || record.text}游戏化原型`,
-      reason: '来自 fast-domain 重点类别的原文证据记录。'
+      suggested_use: `${record.canonical_name}游戏化原型`,
+      reason: '来自重点类别的原文证据记录。'
     })));
   return {
     ...structuredClone(merged),
     characters,
+    skills,
     stage: 'cleaned',
     quantity_review: {
       consumed: true,

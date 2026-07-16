@@ -125,32 +125,6 @@ function writeStableJson(file, value) {
   return true;
 }
 
-function acceptedEventReferenceState(paths, plan, progress) {
-  const eventInputs = (plan.inputs || []).filter(input => input.category === 'events');
-  const descriptor = (plan.consolidations || []).find(value => value.category === 'events');
-  const dependencyUnits = [
-    ...eventInputs.map(input => input.unit),
-    ...(descriptor ? [descriptor.unit] : [])
-  ];
-  if (dependencyUnits.some(unit => progress.units[unit]?.status !== 'done')) return null;
-  assertUnitsDone(progress, dependencyUnits, 'MERGE_EVENTS_REQUIRED');
-  const decisions = readDecisions(paths, dependencyUnits);
-  const shardProjections = eventInputs.map(input => {
-    const bindings = (plan.bindings || []).filter(binding => binding.unit === input.unit);
-    return applyMergeDecision(input, bindings, decisions[input.unit]);
-  });
-  const finalProjection = descriptor
-    ? (() => {
-        const work = readWorkItem(paths, descriptor.unit);
-        return applyMergeDecision(work.input, work.bindings, decisions[descriptor.unit]);
-      })()
-    : { resolutions: shardProjections.flatMap(projection => projection.resolutions || []) };
-  return {
-    aliases: canonicalEventRefAliases(finalProjection.resolutions, plan.bindings),
-    dependency_units: dependencyUnits
-  };
-}
-
 function prepareMerge(paths, manifest) {
   assertAcceptedArtifacts(paths);
   let progress = loadProgress(paths, manifest);
@@ -354,15 +328,6 @@ function coverageInput(paths, manifest) {
   const coverage = buildChapterCoverage(chapters);
   const merged = fs.existsSync(paths.merged) ? readJson(paths.merged) : null;
   const ledger = merged ? buildCandidateLedger(chapters, merged) : null;
-  const importantLevels = new Set(['核心', '重要', 'core', 'important']);
-  const quotableEventChapters = new Set();
-  for (const chapter of chapters) {
-    for (const event of Array.isArray(chapter.events) ? chapter.events : []) {
-      if (importantLevels.has(event.importance) && event.quote_status === 'quotable') {
-        quotableEventChapters.add(chapter.chapter);
-      }
-    }
-  }
   const itemRows = ledger ? ledger.rows.filter(row => row.category === 'items') : [];
   const noneFoundFile = `${paths.recalls}/items.json`;
   const noneFound = fs.existsSync(noneFoundFile) ? readJson(noneFoundFile).none_found : null;
@@ -371,11 +336,6 @@ function coverageInput(paths, manifest) {
     item_candidates: coverage.categories.items.candidate_count,
     merged_items: Array.isArray(merged?.items) ? merged.items.length : 0,
     item_resolutions_incomplete: Boolean(merged) && itemRows.some(row => row.resolution === 'ambiguous'),
-    important_event_count: coverage.events.important_count,
-    quotable_event_count: coverage.events.quotable_count,
-    dialogue_covered: coverage.dialogues.quotable_event_count_with_candidates,
-    quotable_event_chapters: [...quotableEventChapters].sort((a, b) => a - b),
-    dialogue_chapters: [...coverage.dialogues.chapters],
     none_found: noneFound,
     chapter_coverage: coverage
   };
@@ -387,8 +347,7 @@ function checkCoverageForRun(paths, manifest) {
   const report = {
     schema_version: 1,
     ...result,
-    items: { recall_units: result.recall_units.filter(unit => unit.endsWith(':items')) },
-    dialogue: { recall_units: result.recall_units.filter(unit => unit.endsWith(':dialogues')) }
+    items: { recall_units: result.recall_units.filter(unit => unit.endsWith(':items')) }
   };
   atomicWriteJson(paths.coverage, report);
   ensureBoundedUnits(paths, manifest, result.recall_units, stableHash(report));
