@@ -29,7 +29,7 @@ These archives remain useful as local evidence while the knowledge-base quality 
 - No `_archive/` path remains in `git ls-files` after the index update.
 - No `_archive/` path remains in `git rev-list --all --objects` after the history rewrite.
 - Existing local `_archive/` directories and files still exist after the index update.
-- Tracked `data/` and `ch_split/` counts do not decrease.
+- Tracked non-archive `data/` and `ch_split/` counts do not decrease; validation excludes any same-named directory nested below `_archive/`.
 - `git diff --check` passes.
 
 ## Scope

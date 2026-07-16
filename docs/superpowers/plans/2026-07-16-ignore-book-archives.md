@@ -103,7 +103,7 @@ Expected: `rtk git filter-repo --version` exits successfully. Uninstall it after
 - [ ] **Step 2: Rewrite all local refs**
 
 ```powershell
-rtk git filter-repo --force --path-regex "(^|.*/)_archive(/|$)" --invert-paths
+rtk python -m git_filter_repo --force --path-regex "(^|.*/)_archive(/|$)" --invert-paths
 ```
 
 Expected: all local branches and tags are rewritten; `origin` may be removed by the tool as a safety measure.
@@ -117,10 +117,10 @@ Expected: `git remote get-url origin` matches the saved URL and no remote-tracki
 - [ ] **Step 4: Restore local archives**
 
 ```powershell
-rtk tar -xf "$env:TEMP/wuxia-novel-local-archives-20260716.tar" -C "C:/git/wuxia-novel"
+rtk python -c "import os, tarfile; p=os.path.join(os.environ['TEMP'],'wuxia-novel-local-archives-20260716.tar'); tarfile.open(p,'r').extractall(r'C:\git\wuxia-novel', filter='data')"
 ```
 
-Expected: all 322 files return to their original paths and are ignored by Git.
+Expected: all 322 UTF-8 path files return to their original paths and are ignored by Git. Python's standard-library extractor is required because the installed Windows `tar.exe` creates the directory tree but does not restore these Chinese-path files correctly.
 
 - [ ] **Step 5: Verify the rewritten repository**
 
@@ -129,7 +129,7 @@ Run checks that prove:
 - `git ls-files` contains zero `_archive/` paths.
 - `git rev-list --all --objects` contains zero `_archive/` paths.
 - local `_archive/` file count remains 322.
-- tracked `data/` remains 305 files and tracked `ch_split/` remains 680 files.
+- tracked non-archive `data/` remains 219 files and tracked non-archive `ch_split/` remains 679 files; the pre-rewrite broad counts were larger only because they included 86 archived `data/` files and one archived `ch_split/` file.
 - `git status --porcelain` is clean.
 - `git diff --check` exits successfully.
 - the current design and plan files still exist.
