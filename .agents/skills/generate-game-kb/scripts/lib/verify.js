@@ -3,6 +3,7 @@
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
+const yaml = require('js-yaml');
 
 const { CATEGORY_FILES } = require('./finalize');
 const { MATERIAL_TYPES } = require('./game-materials');
@@ -13,9 +14,9 @@ const { SEMANTIC_CONTRACT_VERSION, isPowerRank } = require('./semantic-contract'
 
 const ID_PATTERN = /^(char|item|skill)_[a-z]+(?:_[a-z]+)*$/;
 const FILE_PREFIX = Object.freeze({
-  'characters.json': 'char_',
-  'skills.json': 'skill_',
-  'items.json': 'item_'
+  'characters.yaml': 'char_',
+  'skills.yaml': 'skill_',
+  'items.yaml': 'item_'
 });
 const ITEM_INCLUSION_REASONS = new Set(['秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊']);
 const TECHNIQUE_TYPES = new Set(['招式', '招法', '招数', '式']);
@@ -43,7 +44,8 @@ function loadData(dataRoot) {
       continue;
     }
     try {
-      const records = readJson(file);
+      const content = fs.readFileSync(file, 'utf8');
+      const records = yaml.load(content);
       if (!Array.isArray(records)) {
         errors.push({ code: 'FINAL_FILE_NOT_ARRAY', path: filename, target: '' });
         data[filename] = [];
@@ -51,7 +53,7 @@ function loadData(dataRoot) {
         data[filename] = records;
       }
     } catch (error) {
-      errors.push({ code: 'FINAL_FILE_JSON_INVALID', path: filename, target: error.message });
+      errors.push({ code: 'FINAL_FILE_YAML_INVALID', path: filename, target: error.message });
       data[filename] = [];
     }
   }

@@ -2,16 +2,17 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const yaml = require('js-yaml');
 
 const { ENTITY_CATEGORIES, normalizeName, validateCleanedBook } = require('./book-contract');
 const { atomicWriteJson } = require('./io');
 const { assignStableIds } = require('./ids');
 
 const CATEGORY_FILES = Object.freeze({
-  characters: 'characters.json',
-  skills: 'skills.json',
-  items: 'items.json',
-  chapter_summaries: 'chapter_summaries.json'
+  characters: 'characters.yaml',
+  skills: 'skills.yaml',
+  items: 'items.yaml',
+  chapter_summaries: 'chapter_summaries.yaml'
 });
 
 function emptyData() {
@@ -239,7 +240,8 @@ function writeFinalData(paths, result) {
   fs.rmSync(paths.finalData, { recursive: true, force: true });
   fs.mkdirSync(paths.finalData, { recursive: true });
   for (const [filename, records] of Object.entries(result.data)) {
-    atomicWriteJson(path.join(paths.finalData, filename), records);
+    const yamlContent = yaml.dump(records, { lineWidth: -1, noRefs: true });
+    fs.writeFileSync(path.join(paths.finalData, filename), yamlContent, 'utf8');
   }
   atomicWriteJson(paths.finalIdPlan, result.id_plan);
 }
