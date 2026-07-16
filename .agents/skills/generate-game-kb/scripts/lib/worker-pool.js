@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson } = require('./io');
 
-const INITIAL_CONCURRENCY_LIMIT = 10;
+const INITIAL_CONCURRENCY_LIMIT = 3;
 
 function now() {
   return new Date().toISOString();

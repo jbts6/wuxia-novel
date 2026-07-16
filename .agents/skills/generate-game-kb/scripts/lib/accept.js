@@ -15,6 +15,7 @@ const {
   recordAcceptedArtifact
 } = require('./candidate-ledger');
 const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contract');
+const { normalizeDomainDecisionDraft, validateDomainDecisionDraft } = require('./domain-contract');
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, readJson } = require('./io');
 const {
@@ -33,6 +34,7 @@ const { readWorkItem, readWorkPlan } = require('./semantic-work');
 const MERGE_DECISION_UNIT = /^merge:(characters|events|items|skills|techniques|factions|locations|dialogues):(\d{3}|consolidate)$/;
 const CLEAN_DECISION_UNIT = /^clean:(characters|events|items|skills|techniques|factions|locations|dialogues):\d{3}$/;
 const MATERIAL_DECISION_UNIT = /^clean:materials:001$/;
+const DOMAIN_DECISION_UNIT = /^distill:(plot|martial|items|world)$/;
 
 function isWithin(parent, candidate) {
   const relative = path.relative(path.resolve(parent), path.resolve(candidate));
@@ -107,7 +109,9 @@ function validateTargetedDraft(draft, category) {
 }
 
 function semanticDecisionFile(paths, unit, inputHash) {
-  const root = unit.startsWith('merge:') ? paths.mergeDecisions : paths.cleanDecisions;
+  const root = unit.startsWith('distill:')
+    ? paths.domainDecisions
+    : unit.startsWith('merge:') ? paths.mergeDecisions : paths.cleanDecisions;
   const base = unit.replaceAll(':', '_');
   const canonical = path.join(root, `${base}.json`);
   if (!inputHash || !fs.existsSync(canonical)) return canonical;
@@ -126,15 +130,16 @@ function semanticDecisionFile(paths, unit, inputHash) {
 }
 
 function semanticAggregateInputHash(paths, stage) {
-  const plan = readWorkPlan(paths, stage);
-  const inputs = [...plan.inputs];
-  if (stage === 'merge') {
-    for (const descriptor of plan.consolidations) {
-      inputs.push(readWorkItem(paths, descriptor.unit).input);
-    }
-  } else {
-    inputs.push(readWorkItem(paths, 'clean:materials:001').input);
+  if (stage === 'clean') {
+    return stableHash({
+      semantic_contract_version: 2,
+      semantic_profile: 'domain-distill-v1',
+      stage: 'clean_aggregate',
+      merged: acceptedArtifactHash(paths, paths.merged)
+    });
   }
+  const plan = readWorkPlan(paths, 'domain');
+  const inputs = [...plan.inputs];
   const decisions = Object.fromEntries(inputs
     .map(input => [
       input.unit,
@@ -143,6 +148,7 @@ function semanticAggregateInputHash(paths, stage) {
     .sort(([left], [right]) => left.localeCompare(right)));
   return stableHash({
     semantic_contract_version: 2,
+    semantic_profile: 'domain-distill-v1',
     stage: `${stage}_aggregate`,
     upstream_hashes: plan.upstream_hashes,
     units: inputs.map(input => ({ unit: input.unit, input_hash: input.input_hash })),
@@ -172,6 +178,15 @@ function unitContext(paths, manifest, progress, unit) {
       'Whole-book merge and cleanup are deterministic aggregate units',
       { unit }
     );
+  }
+  if (DOMAIN_DECISION_UNIT.test(unit)) {
+    const work = readWorkItem(paths, unit);
+    return {
+      inputHash: work.input.input_hash,
+      acceptedFile: semanticDecisionFile(paths, unit, work.input.input_hash),
+      validate: draft => validateDomainDecisionDraft(draft, work.input),
+      normalize: draft => normalizeDomainDecisionDraft(draft, work.input)
+    };
   }
   if (MERGE_DECISION_UNIT.test(unit)) {
     const work = readWorkItem(paths, unit);
@@ -333,7 +348,12 @@ function acceptDraft({ paths, unit, draftPath }) {
     quantity_review_consumed: unit === 'clean:book' && errors.length === 0
   };
   if (errors.length > 0) {
-    throw new GameKbError('DRAFT_REJECTED', 'Draft failed validation', result);
+    const pending = errors.some(error => error.code === 'DOMAIN_PENDING_UNRESOLVED');
+    throw new GameKbError(
+      pending ? 'DOMAIN_PENDING_UNRESOLVED' : 'DRAFT_REJECTED',
+      pending ? 'Domain draft contains unresolved pending decisions' : 'Draft failed validation',
+      result
+    );
   }
   if (terminalErrors.length > 0) {
     throw new GameKbError('QUALITY_SAMPLE_FAILED', 'Fixed quality sample did not reach the 95% threshold', result);

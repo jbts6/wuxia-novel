@@ -522,6 +522,7 @@ function createMaterialWorkItem({ cleaned, upstream_hashes: upstreamHashes = {} 
 }
 
 function workRoot(paths, stage) {
+  if (stage === 'domain') return paths.domainWork;
   if (stage === 'merge') return paths.mergeWork;
   if (stage === 'clean') return paths.cleanWork;
   throw workItemError('WORK_PLAN_INVALID', 'Unknown semantic work-plan stage', { stage });
@@ -529,7 +530,8 @@ function workRoot(paths, stage) {
 
 function unitDirectory(root, unit) {
   if (typeof unit !== 'string'
-    || !(/^(merge|clean):(characters|events|items|skills|techniques|factions|locations|dialogues):(\d{3}|consolidate)$/.test(unit)
+    || !(/^distill:(plot|martial|items|world)$/.test(unit)
+      || /^(merge|clean):(characters|events|items|skills|techniques|factions|locations|dialogues):(\d{3}|consolidate)$/.test(unit)
       || unit === 'clean:materials:001')) {
     throw workItemError('WORK_UNIT_INVALID', 'Semantic work unit is invalid', { unit });
   }
@@ -663,7 +665,11 @@ function writeWorkItem(paths, stage, input, bindingsDocument, options = {}) {
 }
 
 function readWorkItem(paths, unit) {
-  const stage = unit.startsWith('merge:') ? 'merge' : unit.startsWith('clean:') ? 'clean' : null;
+  const stage = unit.startsWith('distill:')
+    ? 'domain'
+    : unit.startsWith('merge:')
+      ? 'merge'
+      : unit.startsWith('clean:') ? 'clean' : null;
   const directory = unitDirectory(workRoot(paths, stage), unit);
   const inputFile = path.join(directory, 'input.json');
   const bindingsFile = path.join(directory, 'bindings.json');

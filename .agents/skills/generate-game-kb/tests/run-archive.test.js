@@ -13,6 +13,7 @@ const { atomicWriteJson, readJson } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
 const { selectQualitySample, validateQualityReview } = require('../scripts/lib/quality');
 const { createOrResumeRun } = require('../scripts/lib/run');
+const { derivePhaseDurations } = require('../scripts/lib/timing');
 const { hashFinalData } = require('../scripts/lib/verify');
 const { makeNovel, runFlow, validCleanedBook } = require('./helpers');
 
@@ -122,6 +123,8 @@ test('archive-run derives phase durations from persisted unit timestamps', () =>
       'chapter:001': { status: 'done', updated_at: '2026-01-01T00:10:00.000Z' },
       'chapter:002': { status: 'done', updated_at: '2026-01-01T00:20:00.000Z' },
       'recall:dialogues': { status: 'done', updated_at: '2026-01-01T00:23:00.000Z' },
+      'distill:plot': { status: 'done', updated_at: '2026-01-01T00:28:00.000Z' },
+      'distill:martial': { status: 'done', updated_at: '2026-01-01T00:30:00.000Z' },
       'merge:book': { status: 'done', updated_at: '2026-01-01T00:30:00.000Z' },
       'supplement:items': { status: 'done', updated_at: '2026-01-01T00:32:00.000Z' },
       'clean:book': { status: 'done', updated_at: '2026-01-01T00:40:00.000Z' },
@@ -136,9 +139,78 @@ test('archive-run derives phase durations from persisted unit timestamps', () =>
 
   assert.equal(archived.phase_durations.chapter_extraction_ms, 20 * 60 * 1000);
   assert.equal(archived.phase_durations.targeted_recall_ms, 5 * 60 * 1000);
+  assert.equal(archived.phase_durations.domain_distill_ms, 7 * 60 * 1000);
+  assert.equal(archived.phase_durations.quality_ms, 5 * 60 * 1000);
   assert.equal(archived.phase_durations.merge_ms, 7 * 60 * 1000);
   assert.equal(archived.phase_durations.clean_ms, 8 * 60 * 1000);
   assert.ok(archived.phase_durations.total_ms >= 45 * 60 * 1000);
+});
+
+test('missing phases remain zero instead of receiving fabricated wall time', () => {
+  const durations = derivePhaseDurations({
+    started_at: '2026-01-01T00:00:00.000Z',
+    phase_durations: { script_ms: 250 }
+  }, { units: {} }, '2026-01-01T00:01:00.000Z');
+
+  assert.equal(durations.prepare_ms, 0);
+  assert.equal(durations.chapter_extraction_ms, 0);
+  assert.equal(durations.registry_ms, 0);
+  assert.equal(durations.domain_distill_ms, 0);
+  assert.equal(durations.targeted_recall_ms, 0);
+  assert.equal(durations.quality_ms, 0);
+  assert.equal(durations.install_ms, 0);
+  assert.equal(durations.archive_ms, 0);
+  assert.equal(durations.total_ms, 60_000);
+  assert.equal(durations.human_wait_ms, 59_750);
+});
+
+test('archive writes deterministic AI workload and candidate metrics bound by receipt hash', () => {
+  const { novel, paths, runId } = installedFixture();
+  atomicWriteJson(paths.candidateRegistry, {
+    schema_version: 1,
+    categories: {},
+    stats: { input_candidates: 12, registered_entries: 10, exact_merges: 2, pending_groups: 1 }
+  });
+  atomicWriteJson(paths.domainBook, {
+    characters: [{ local_key: 'character:a' }],
+    events: [{ local_key: 'event:a' }],
+    items: [{ local_key: 'item:a' }],
+    skills: [{ local_key: 'skill:a' }],
+    techniques: [{ local_key: 'technique:a' }],
+    factions: [], locations: [], dialogues: []
+  });
+  fs.mkdirSync(path.join(paths.domainWork, 'plot'), { recursive: true });
+  fs.writeFileSync(path.join(paths.domainWork, 'plot', 'input.json'), JSON.stringify({ payload: 'x'.repeat(2048) }));
+  atomicWriteJson(paths.progress, {
+    schema_version: 1,
+    units: {
+      'chapter:001': { status: 'done', attempts: 1, updated_at: '2026-01-01T00:10:00.000Z' },
+      'distill:plot': { status: 'done', attempts: 2, semantic_remedies: 1, updated_at: '2026-01-01T00:20:00.000Z' },
+      'distill:martial': { status: 'done', attempts: 2, format_repairs: 1, updated_at: '2026-01-01T00:21:00.000Z' },
+      'quality:sample': { status: 'done', attempts: 1, updated_at: '2026-01-01T00:25:00.000Z' },
+      'merge:book': { status: 'done', attempts: 0, updated_at: '2026-01-01T00:22:00.000Z' },
+      'clean:book': { status: 'done', attempts: 0, updated_at: '2026-01-01T00:23:00.000Z' }
+    },
+    history: []
+  });
+
+  const receipt = archiveRun(novel, runId);
+  const metricsFile = path.join(receipt.archive_dir, 'reports', 'run-metrics.json');
+  const metrics = readJson(metricsFile);
+
+  assert.equal(metrics.ai_units.total.planned, 4);
+  assert.equal(metrics.ai_units.total.done, 4);
+  assert.equal(metrics.ai_units.total.attempts, 6);
+  assert.equal(metrics.ai_units.total.format_repairs, 1);
+  assert.equal(metrics.ai_units.total.semantic_remedies, 1);
+  assert.ok(metrics.max_ai_input_bytes >= 2048);
+  assert.deepEqual(metrics.candidate_counts, {
+    chapter_candidates: 12,
+    registered_entries: 10,
+    domain_records: 5,
+    final_records: 8
+  });
+  assert.match(receipt.metrics_hash, /^sha256:/);
 });
 
 test('archive-run CLI records its own script duration in the archived run', () => {
@@ -154,6 +226,7 @@ test('archive-run CLI records its own script duration in the archived run', () =
   const receipt = JSON.parse(result.stdout);
   const archived = readJson(path.join(receipt.archive_dir, 'run.json'));
   assert.ok(archived.phase_durations.script_ms > 0);
+  assert.ok(archived.phase_durations.archive_ms > 0);
 
   const installed = runFlow(['verify', novel, '--installed', '--json']);
   assert.equal(installed.status, 0, installed.stderr);

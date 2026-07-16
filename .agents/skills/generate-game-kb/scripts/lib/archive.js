@@ -8,7 +8,7 @@ const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson } = require('./io');
 const { pathsFor } = require('./paths');
 const { assertAcceptedArtifacts, readArtifactManifest } = require('./candidate-ledger');
-const { derivePhaseDurations } = require('./timing');
+const { buildRunMetrics, derivePhaseDurations } = require('./timing');
 const { SEMANTIC_CONTRACT_VERSION, assertSemanticContract } = require('./run');
 
 const ARCHIVE_ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/;
@@ -49,6 +49,7 @@ function archiveId(options = {}) {
 
 function inspectEntry(root, sourcePath, archiveDir, relativePath, entries) {
   const target = path.join(root, relativePath);
+  const manifestPath = relativePath.split(path.sep).join('/');
   const stat = fs.lstatSync(target);
   if (stat.isSymbolicLink()) {
     const resolved = fs.realpathSync(target);
@@ -63,7 +64,7 @@ function inspectEntry(root, sourcePath, archiveDir, relativePath, entries) {
   }
   const archivePath = path.join(archiveDir, relativePath);
   if (stat.isDirectory()) {
-    entries.push({ relative_path: relativePath, source_path: target, archive_path: archivePath, kind: 'directory' });
+    entries.push({ relative_path: manifestPath, source_path: target, archive_path: archivePath, kind: 'directory' });
     for (const child of fs.readdirSync(target).sort()) {
       inspectEntry(root, sourcePath, archiveDir, path.join(relativePath, child), entries);
     }
@@ -73,7 +74,7 @@ function inspectEntry(root, sourcePath, archiveDir, relativePath, entries) {
     throw new GameKbError('ARCHIVE_ENTRY_UNSUPPORTED', 'Archive input contains an unsupported filesystem entry', { path: target });
   }
   entries.push({
-    relative_path: relativePath,
+    relative_path: manifestPath,
     source_path: target,
     archive_path: archivePath,
     kind: 'file',
@@ -220,6 +221,8 @@ function archiveRun(novelDir, runId) {
   const archivedAt = new Date().toISOString();
   const progress = fs.existsSync(paths.progress) ? readJson(paths.progress) : { units: {} };
   const durations = derivePhaseDurations(metadata, progress, archivedAt);
+  const metrics = buildRunMetrics(paths, metadata, progress, archivedAt);
+  atomicWriteJson(paths.runMetrics, { ...metrics, phase_durations: durations });
   atomicWriteJson(paths.runJson, {
     ...metadata,
     status: 'archived',
@@ -240,7 +243,8 @@ function archiveRun(novelDir, runId) {
       archive_dir: archiveDir,
       archived_at: archivedAt,
       artifact_manifest_hash: sha256File(archivedManifest),
-      artifact_count: artifactManifest.entries.length
+      artifact_count: artifactManifest.entries.length,
+      metrics_hash: sha256File(path.join(archiveDir, 'reports', 'run-metrics.json'))
     };
     atomicWriteJson(path.join(archiveDir, 'archive-receipt.json'), receipt);
     const runsDir = path.dirname(paths.run);

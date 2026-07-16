@@ -58,7 +58,7 @@ function prepareAcceptedChapters() {
       techniques: first ? validChapterDraft().techniques : [],
       factions: [],
       locations: first ? validChapterDraft().locations : [],
-      dialogues: first ? validChapterDraft().dialogues : [],
+      dialogues: [],
       summary: {
         title: chapter.title,
         summary: `第${chapter.number}章摘要。`,
@@ -76,20 +76,18 @@ function prepareAcceptedChapters() {
   return { novel, paths, manifest };
 }
 
-function mergeDecision(input) {
+function domainDecision(input) {
   return {
     schema_version: 1,
-    stage: 'merge_decision',
+    semantic_contract_version: 2,
     unit: input.unit,
-    decisions: [{
-      entity_ref: 'e001',
-      member_refs: input.candidates.map(candidate => candidate.candidate_ref),
-      action: 'merge',
-      canonical_name: input.candidates[0].name,
-      aliases: [],
-      fields: {}
-    }],
-    ambiguities: []
+    input_hash: input.input_hash,
+    decisions: input.entries.map(entry => ({
+      entry_ref: entry.entry_ref,
+      action: 'keep',
+      patch: { canonical_name: entry.canonical_name }
+    })),
+    notes: []
   };
 }
 
@@ -119,7 +117,7 @@ test('chapter acceptance persists deterministic candidate keys and an artifact m
   assert.match(entry.accepted_at, /^\d{4}-\d{2}-\d{2}T/);
 });
 
-test('mutating an accepted chapter or category decision blocks deterministic planning', () => {
+test('mutating an accepted chapter or domain decision blocks deterministic planning', () => {
   const { novel, paths } = prepareAcceptedChapters();
 
   const chapterFile = path.join(paths.chapters, 'ch_001.json');
@@ -137,8 +135,8 @@ test('mutating an accepted chapter or category decision blocks deterministic pla
   const accepted = assertPassed(flowJson([
     'accept', novel,
     '--unit', unit,
-    '--draft', writeStagingDraft(novel, unit, mergeDecision(input))
-  ]), 'accept merge category');
+    '--draft', writeStagingDraft(novel, unit, domainDecision(input))
+  ]), 'accept domain decision');
   const relativePath = path.relative(paths.run, accepted.accepted_file).split(path.sep).join('/');
   const raw = fs.readFileSync(accepted.accepted_file, 'utf8');
   fs.writeFileSync(accepted.accepted_file, `${raw} `, 'utf8');

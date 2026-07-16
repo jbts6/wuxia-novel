@@ -155,7 +155,7 @@ test('Skill documents the bounded fast workflow without template placeholders', 
   assert.match(skill, /最多\s*3\s*次/);
   assert.match(skill, /不得自动.*reset-unit|不得.*自动重置/);
   assert.match(skill, /不得.*循环.*status|status.*不得.*循环/);
-  assert.match(skill, /60.*90.*基准/);
+  assert.match(skill, /45.*目标.*60.*硬上限/);
   for (const heading of ['人物', '事件', '物品', '功法', '招式', '门派', '地点', '对白', '章节摘要', '游戏素材索引']) {
     assert.match(schemas, new RegExp(`##+ .*${heading}`));
   }
@@ -283,10 +283,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
       }] : [],
       factions: first ? [{ local_key: 'faction:玄门', name: '玄门', source_refs: [sourceRef(number, '玄门内功')] }] : [],
       locations: first ? [{ local_key: 'location:无名山谷', name: '无名山谷', source_refs: [sourceRef(number, '无名山谷')] }] : [],
-      dialogues: first ? [{
-        local_key: 'dialogue:山谷相逢', event_local_key: 'event:山谷相逢', speaker_name: '甲',
-        text: '你终于来了。', source_refs: [sourceRef(number, '甲在无名山谷遇见乙')]
-      }] : [],
+      dialogues: [],
       summary: {
         title: chapter.title,
         summary: number === 1 ? '甲与乙在山谷相逢。' : number === 2 ? '二人同行追查旧事。' : '二人查明真相。',
@@ -359,10 +356,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
       local_key: 'location:无名山谷', canonical_name: '无名山谷', region: '北地', description: '相逢之地。',
       faction_names: ['玄门'], character_names: ['甲', '乙'], source_refs: [sourceRef(1, '无名山谷')]
     }],
-    dialogues: [{
-      local_key: 'dialogue:山谷相逢', event_key: 'event:山谷相逢', speaker_name: '甲', listener_name: '乙',
-      chapter: 1, text: '你终于来了。', source_refs: [sourceRef(1, '甲在无名山谷遇见乙')]
-    }],
+    dialogues: [],
     chapter_summaries: summaries,
     candidate_resolutions: ['characters', 'events', 'items', 'skills', 'techniques', 'factions', 'locations', 'dialogues']
       .flatMap(category => readJson(path.join(paths.chapters, 'ch_001.json'))[category].map(candidate => ({
@@ -374,71 +368,45 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   };
 
   const merged = validMergedBook({ ...common, items: [importantItem, ordinaryItem] });
-  const mergePrepared = assertFlowPassed(runFlow(['prepare-merge', novel, '--json']), 'prepare merge');
-  assert.ok(mergePrepared.units.length > 0);
-  const mergePlan = readWorkPlan(paths, 'merge');
-  for (const input of mergePlan.inputs) {
-    assertFlowPassed(acceptJsonDraft(novel, input.unit, mergeDecisionFromBook(input, merged)), `accept ${input.unit}`);
+  const mergePrepared = assertFlowPassed(runFlow(['prepare-merge', novel, '--json']), 'prepare domains');
+  assert.deepEqual(mergePrepared.units, ['distill:plot', 'distill:martial', 'distill:items', 'distill:world']);
+  const domainPlan = readWorkPlan(paths, 'domain');
+  for (const input of domainPlan.inputs) {
+    const decisions = input.entries.map(entry => {
+      if (entry.category === 'items' && entry.canonical_name === '普通小匕首') {
+        return {
+          entry_ref: entry.entry_ref,
+          action: 'reject',
+          reason: 'ordinary_item',
+          detail: '普通随身物，无特殊能力且不推动剧情。'
+        };
+      }
+      const source = (merged[entry.category] || []).find(record => entry.category === 'dialogues'
+        ? record.text === entry.facts?.text
+        : record.canonical_name === entry.canonical_name) || {};
+      const patch = { canonical_name: entry.canonical_name };
+      for (const field of input.allowed_patch_fields) {
+        if (field !== 'canonical_name' && source[field] !== undefined) patch[field] = source[field];
+      }
+      return { entry_ref: entry.entry_ref, action: 'keep', patch };
+    });
+    const draft = {
+      schema_version: 1,
+      semantic_contract_version: 2,
+      unit: input.unit,
+      input_hash: input.input_hash,
+      decisions,
+      notes: []
+    };
+    assertFlowPassed(acceptJsonDraft(novel, input.unit, draft), `accept ${input.unit}`);
   }
   assertFlowPassed(runFlow(['assemble-merge', novel, '--json']), 'assemble merge');
   assert.equal(readJson(paths.progress).units['merge:book'].attempts, 0);
   assert.equal(fs.existsSync(path.join(paths.drafts, 'merge_book')), false);
   const resolution = assertFlowPassed(runFlow(['check-resolution', novel, '--json']), 'check resolution');
   assert.deepEqual(resolution.supplement_units, []);
-
-  const cleaned = validCleanedBook({
-    ...common,
-    candidate_resolutions: common.candidate_resolutions.map(decision => decision.merged_to === 'item:小匕首'
-      ? {
-          candidate_key: decision.candidate_key,
-          resolution: 'rejected',
-          reason: 'ordinary_item',
-          detail: '普通随身物，无特殊能力且不推动剧情。'
-        }
-      : decision),
-    items: [importantItem],
-    quantity_review: { consumed: true, explanations: ['普通小匕首无特殊能力且不推动剧情，已删除；未按数量凑条目。'] },
-    game_material_candidates: [
-      { material_type: '战斗系统原型', source_category: 'skills', source_name: '玄门内功', relevance: '高', suggested_use: '内功原型', reason: '原著明确命名。' },
-      { material_type: '经典剧情桥段', source_category: 'events', source_name: '山谷相逢', relevance: '高', suggested_use: '相逢桥段', reason: '事件跨章收束。' },
-      { material_type: '角色原型/彩蛋', source_category: 'characters', source_name: '乙', relevance: '中', suggested_use: '同行者彩蛋', reason: '次要人物行为鲜明。' },
-      { material_type: '标志性物品', source_category: 'items', source_name: '回生丹', relevance: '高', suggested_use: '丹药彩蛋', reason: '重要丹药。' },
-      { material_type: '门派与世界观素材', source_category: 'factions', source_name: '玄门', relevance: '高', suggested_use: '门派原型', reason: '原著势力。' }
-    ]
-  });
   const cleanPrepared = assertFlowPassed(runFlow(['prepare-clean', novel, '--json']), 'prepare clean');
-  assert.ok(cleanPrepared.units.every(unit => unit.startsWith('clean:') && unit !== 'clean:materials:001'));
-  const cleanPlan = readWorkPlan(paths, 'clean');
-  for (const input of cleanPlan.inputs) {
-    assertFlowPassed(acceptJsonDraft(novel, input.unit, cleanDecision(input)), `accept ${input.unit}`);
-  }
-  const materialPrepared = assertFlowPassed(runFlow(['prepare-clean', novel, '--json']), 'prepare materials');
-  assert.ok(materialPrepared.units.includes('clean:materials:001'));
-  const materialInput = readWorkItem(paths, 'clean:materials:001').input;
-  const materialSelections = [
-    ['战斗系统原型', 'skills', '玄门内功', '高', '内功原型', '原著明确命名。'],
-    ['经典剧情桥段', 'events', '山谷相逢', '高', '相逢桥段', '事件跨章收束。'],
-    ['角色原型/彩蛋', 'characters', '乙', '中', '同行者彩蛋', '次要人物行为鲜明。'],
-    ['标志性物品', 'items', '回生丹', '高', '丹药彩蛋', '重要丹药。'],
-    ['门派与世界观素材', 'factions', '玄门', '高', '门派原型', '原著势力。']
-  ];
-  const materialDraft = {
-    schema_version: 1,
-    stage: 'material_decision',
-    unit: 'clean:materials:001',
-    materials: materialSelections.map(([materialType, category, name, relevance, suggestedUse, reason]) => {
-      const source = materialInput.catalog.find(entry => entry.category === category && entry.name === name);
-      assert.ok(source, `missing material catalog entry ${category}:${name}`);
-      return {
-        material_type: materialType,
-        source_ref: source.entity_ref,
-        relevance,
-        suggested_use: suggestedUse,
-        reason
-      };
-    })
-  };
-  assertFlowPassed(acceptJsonDraft(novel, 'clean:materials:001', materialDraft), 'accept materials');
+  assert.deepEqual(cleanPrepared.units, []);
   assertFlowPassed(runFlow(['assemble-clean', novel, '--json']), 'assemble clean');
   assert.equal(readJson(paths.progress).units['clean:book'].attempts, 0);
   assert.equal(fs.existsSync(path.join(paths.drafts, 'clean_book')), false);
@@ -476,13 +444,12 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   assert.ok(minor.personality.traits.length <= 2);
   const finalEvent = finalData['events.json'][0];
   assert.deepEqual(finalEvent.source_refs.map(ref => ref.chapter), [1, 3]);
-  const eventIds = new Set(finalData['events.json'].map(record => record.id));
-  assert.ok(finalData['dialogues.json'].every(record => eventIds.has(record.event_id)));
+  assert.deepEqual(finalData['dialogues.json'], []);
   assert.deepEqual(readJson(paths.manualReview), []);
 
   const materials = readJson(path.join(novel, 'reports', 'game_materials.json'));
   assert.deepEqual(new Set(materials.entries.map(entry => entry.material_type)), new Set([
-    '战斗系统原型', '经典剧情桥段', '角色原型/彩蛋', '标志性物品', '门派与世界观素材'
+    '角色原型/彩蛋', '经典剧情桥段', '标志性物品', '战斗系统原型'
   ]));
   const receipt = readJson(path.join(novel, 'reports', 'generate_game_kb_install.json'));
   assert.equal(receipt.installer, 'generate-game-kb');
@@ -531,21 +498,24 @@ test('seven explicitly rejected item candidates close the ledger without a whole
     }
   });
   assertFlowPassed(acceptJsonDraft(novel, 'chapter:001', chapterDraft), 'accept item chapter');
-  assertFlowPassed(runFlow(['prepare-merge', novel, '--json']), 'prepare item merge');
-  const itemInput = readWorkPlan(paths, 'merge').inputs[0];
-  const itemDecision = {
-    schema_version: 1,
-    stage: 'merge_decision',
-    unit: itemInput.unit,
-    decisions: itemInput.candidates.map(candidate => ({
-      member_refs: [candidate.candidate_ref],
-      action: 'reject',
-      reason: 'ordinary_item',
-      detail: '尚无证据证明该物品具有特殊性或剧情关键作用。'
-    })),
-    ambiguities: []
-  };
-  assertFlowPassed(acceptJsonDraft(novel, itemInput.unit, itemDecision), 'accept item merge decision');
+  assertFlowPassed(runFlow(['prepare-merge', novel, '--json']), 'prepare item domains');
+  const domainPlan = readWorkPlan(paths, 'domain');
+  for (const input of domainPlan.inputs) {
+    const itemDecision = {
+      schema_version: 1,
+      semantic_contract_version: 2,
+      unit: input.unit,
+      input_hash: input.input_hash,
+      decisions: input.entries.map(entry => ({
+        entry_ref: entry.entry_ref,
+        action: 'reject',
+        reason: 'ordinary_item',
+        detail: '尚无证据证明该物品具有特殊性或剧情关键作用。'
+      })),
+      notes: []
+    };
+    assertFlowPassed(acceptJsonDraft(novel, input.unit, itemDecision), `accept ${input.unit}`);
+  }
   assertFlowPassed(runFlow(['assemble-merge', novel, '--json']), 'assemble item merge');
   assertFlowPassed(runFlow(['check-coverage', novel, '--json']), 'check item coverage');
 
@@ -559,7 +529,7 @@ test('seven explicitly rejected item candidates close the ledger without a whole
   assert.ok(resolutions.every(row => row.resolution === 'rejected' && row.reason === 'ordinary_item'));
 });
 
-test('sparse dialogue coverage opens only recall:dialogues without a book retry', () => {
+test('sparse dialogue coverage warns without opening recall or a book retry', () => {
   const novel = makeNovel('对白稀疏书', '第一章 起始\n群雄议事。\n');
   const prepared = assertFlowPassed(runFlow(['prepare', novel, '--json']), 'prepare dialogue regression');
   const paths = pathsFor(novel, prepared.run_id);
@@ -576,9 +546,11 @@ test('sparse dialogue coverage opens only recall:dialogues without a book retry'
   });
   assertFlowPassed(runFlow(['check-coverage', novel, '--json']), 'check dialogue coverage');
 
-  assert.deepEqual(readJson(paths.coverage).recall_units, ['recall:dialogues']);
+  const coverage = readJson(paths.coverage);
+  assert.deepEqual(coverage.recall_units, []);
+  assert.ok(coverage.warnings.some(issue => issue.category === 'dialogues'));
   const units = readJson(paths.progress).units;
-  assert.equal(units['recall:dialogues'].status, 'pending');
+  assert.equal(units['recall:dialogues'], undefined);
   assert.equal(Object.keys(units).includes('book:full-retry'), false);
 });
 

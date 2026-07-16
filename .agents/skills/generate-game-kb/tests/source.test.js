@@ -48,6 +48,41 @@ test('split attaches source preamble to the first numbered chapter', () => {
   assert.match(chapters[0].content, /^书名\n作者\n第一章 起始/);
 });
 
+test('split recognizes a sequential series of bare Chinese numeral chapter headings', () => {
+  const chapters = splitChapters('一\n甲。\n二\n乙。\n三\n丙。\n', '试书');
+
+  assert.equal(chapters.length, 3);
+  assert.deepEqual(chapters.map(chapter => chapter.title), ['一', '二', '三']);
+  assert.equal(chapters[1].content, '二\n乙。\n');
+});
+
+test('prepare refreshes an unattempted pending chapter instead of marking it stale', () => {
+  const novel = makeNovel('试书', '尚未识别章节。\n');
+  const first = prepareNovel(novel);
+  fs.writeFileSync(path.join(novel, '试书.txt'), '一\n甲。\n二\n乙。\n', 'utf8');
+
+  const second = prepareNovel(novel, { runId: first.run_id });
+  const progress = JSON.parse(fs.readFileSync(path.join(
+    novel, '.game-kb-work', 'runs', first.run_id, 'progress.json'
+  ), 'utf8'));
+
+  assert.equal(second.chapters.length, 2);
+  assert.equal(progress.units['chapter:001'].status, 'pending');
+  assert.equal(progress.units['chapter:001'].attempts, 0);
+  assert.equal(progress.units['chapter:001'].input_hash, second.chapters[0].input_hash);
+  assert.equal(progress.units['chapter:002'].status, 'pending');
+
+  progress.units['chapter:001'].status = 'stale';
+  fs.writeFileSync(path.join(
+    novel, '.game-kb-work', 'runs', first.run_id, 'progress.json'
+  ), `${JSON.stringify(progress)}\n`, 'utf8');
+  prepareNovel(novel, { runId: first.run_id });
+  const refreshed = JSON.parse(fs.readFileSync(path.join(
+    novel, '.game-kb-work', 'runs', first.run_id, 'progress.json'
+  ), 'utf8'));
+  assert.equal(refreshed.units['chapter:001'].status, 'pending');
+});
+
 test('prepare does not rewrite unchanged chapter files', async () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   const first = prepareNovel(novel);

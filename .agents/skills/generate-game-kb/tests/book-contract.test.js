@@ -94,6 +94,28 @@ test('merge candidate resolutions reject missing and duplicate decisions', () =>
     .some(error => error.code === 'CANDIDATE_RESOLUTION_DUPLICATE'));
 });
 
+test('merge candidate resolutions accept finite domain-specific rejection reasons', () => {
+  const chapters = [{
+    chapter: 1,
+    locations: [{
+      candidate_key: 'ch001:locations:location:凉亭',
+      local_key: 'location:凉亭',
+      name: '凉亭',
+      source_refs: [sourceRef(1)]
+    }]
+  }];
+  const book = validMergedBook({
+    candidate_resolutions: [{
+      candidate_key: 'ch001:locations:location:凉亭',
+      resolution: 'rejected',
+      reason: 'incidental_location',
+      detail: '只是一处偶然经过的布景。'
+    }]
+  });
+
+  assert.deepEqual(validateCandidateResolutions(book, chapters), []);
+});
+
 test('cleaned books cannot finish with an unresolved ambiguous candidate', () => {
   const chapters = [{
     chapter: 1,

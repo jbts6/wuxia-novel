@@ -233,6 +233,7 @@ function resolveReferences(recordsByCategory, idPlan) {
       skill: sourceSkill,
       source_skill: sourceSkill,
       type: String(record.type || ''),
+      named_in_source: record.named_in_source === true,
       description: String(record.description || ''),
       source_refs: copySourceRefs(record)
     };

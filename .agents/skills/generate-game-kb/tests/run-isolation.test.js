@@ -16,7 +16,7 @@ function legacyRun() {
   prepareNovel(novel, { runId: run.run_id });
   const paths = pathsFor(novel, run.run_id);
   const metadata = readJson(paths.runJson);
-  delete metadata.semantic_contract_version;
+  delete metadata.semantic_profile;
   fs.writeFileSync(paths.runJson, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8');
   return { novel, paths, runId: run.run_id };
 }
@@ -35,6 +35,7 @@ test('run metadata and artifact paths are scoped below the explicit run id', () 
   assert.match(first.source_hash, /^sha256:[a-f0-9]{64}$/);
   assert.equal(readJson(path.join(first.run_dir, 'run.json')).run_id, 'run-a');
   assert.equal(readJson(path.join(first.run_dir, 'run.json')).semantic_contract_version, 2);
+  assert.equal(readJson(path.join(first.run_dir, 'run.json')).semantic_profile, 'domain-distill-v1');
   assert.match(readJson(path.join(first.run_dir, 'run.json')).started_at, /^\d{4}-\d{2}-\d{2}T/);
 
   const firstPaths = pathsFor(novel, 'run-a');
@@ -49,11 +50,12 @@ test('run metadata and artifact paths are scoped below the explicit run id', () 
   }
 });
 
-test('an unversioned run is observational only and cannot enter writable v2 stages', () => {
+test('a v2 run without the domain profile is observational only and cannot enter writable stages', () => {
   const { novel, runId } = legacyRun();
   const status = runFlow(['status', novel, '--run', runId, '--json']);
   assert.equal(status.status, 0, status.stderr);
-  assert.equal(JSON.parse(status.stdout).semantic_contract_version, null);
+  assert.equal(JSON.parse(status.stdout).semantic_contract_version, 2);
+  assert.equal(JSON.parse(status.stdout).semantic_profile, null);
 
   const implicitPrepare = runFlow(['prepare', novel, '--json']);
   assert.equal(implicitPrepare.status, 1, 'implicit prepare unexpectedly replaced the legacy run');

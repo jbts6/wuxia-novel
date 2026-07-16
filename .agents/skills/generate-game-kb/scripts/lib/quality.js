@@ -2,6 +2,8 @@
 
 const crypto = require('node:crypto');
 
+const { isHighPriorityQualityItem } = require('./priority');
+
 const QUOTAS = Object.freeze({ martial: 15, events: 10, characters: 5, items: 5, other: 5 });
 const GROUP_ORDER = Object.freeze(Object.keys(QUOTAS));
 const FILE_GROUPS = Object.freeze({
@@ -53,6 +55,7 @@ function selectQualitySample(finalData, seed) {
         category,
         file: filename,
         group,
+        priority: isHighPriorityQualityItem({ category, group }) ? 'hard' : 'soft',
         rank: rank(seed, category, record.id)
       });
     }
@@ -92,6 +95,7 @@ function buildQualitySample(finalData, reviews = {}, options = {}) {
           category,
           file: filename,
           group,
+          priority: isHighPriorityQualityItem({ category, group }) ? 'hard' : 'soft',
           rank: rank(seed, category, recordId)
         });
       }
@@ -103,6 +107,7 @@ function buildQualitySample(finalData, reviews = {}, options = {}) {
       quota,
       count: selected.length,
       kind: pool.length === 0 ? 'empty-review-required' : 'records',
+      priority: isHighPriorityQualityItem({ group }) ? 'hard' : 'soft',
       review
     };
     items.push(...selected);
@@ -163,20 +168,47 @@ function validateQualityReview(review, sample) {
     if (!seen.has(id)) errors.push({ code: 'QUALITY_RESULT_MISSING', path: 'results', target: id });
   }
   const passCount = normalized.filter(result => result.passed).length;
-  const threshold = qualityThreshold(expected.size);
-  const passed = errors.length === 0 && passCount >= threshold;
+  const hardIds = new Set([...expected.entries()]
+    .filter(([, item]) => isHighPriorityQualityItem(item))
+    .map(([id]) => id));
+  const hardResults = normalized.filter(result => hardIds.has(result.id));
+  const softResults = normalized.filter(result => expected.has(result.id) && !hardIds.has(result.id));
+  const hardPassCount = hardResults.filter(result => result.passed).length;
+  const softPassCount = softResults.filter(result => result.passed).length;
+  const hardThreshold = qualityThreshold(hardIds.size);
+  const warnings = [];
+  if (softPassCount < softResults.length) {
+    warnings.push({
+      code: 'QUALITY_SOFT_SAMPLE_FAILED',
+      failed: softResults.length - softPassCount,
+      sample_size: softResults.length
+    });
+  }
+  const passed = errors.length === 0 && hardPassCount >= hardThreshold;
   return {
     errors,
+    warnings,
     passed,
     pass_count: passCount,
     sample_size: expected.size,
-    threshold,
+    threshold: hardThreshold,
+    hard_pass_count: hardPassCount,
+    hard_sample_size: hardIds.size,
+    hard_threshold: hardThreshold,
+    soft_pass_count: softPassCount,
+    soft_sample_size: softResults.length,
     report: {
       schema_version: 1,
       sample_size: expected.size,
       pass_count: passCount,
-      threshold,
+      threshold: hardThreshold,
+      hard_sample_size: hardIds.size,
+      hard_pass_count: hardPassCount,
+      hard_threshold: hardThreshold,
+      soft_sample_size: softResults.length,
+      soft_pass_count: softPassCount,
       passed,
+      warnings,
       results: normalized.sort((left, right) => left.id.localeCompare(right.id))
     }
   };

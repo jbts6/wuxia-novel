@@ -35,6 +35,14 @@ function freshUnit(inputHash, status = 'pending') {
   };
 }
 
+function isUnattemptedPending(unit) {
+  return ['pending', 'stale'].includes(unit?.status)
+    && (unit?.attempts ?? 0) === 0
+    && (unit?.semantic_attempts ?? 0) === 0
+    && (unit?.format_attempts ?? 0) === 0
+    && (unit?.output_hashes || []).length === 0;
+}
+
 function stableValue(value) {
   if (Array.isArray(value)) return value.map(stableValue);
   if (!value || typeof value !== 'object') return value;
@@ -191,7 +199,11 @@ function syncPlannedUnits(current, descriptors) {
       progress.units[unitName] = freshUnit(inputHash);
       changed = true;
     } else if (existing.input_hash !== inputHash) {
-      rotateUnit(progress, unitName, inputHash, 'stale');
+      if (isUnattemptedPending(existing)) progress.units[unitName] = freshUnit(inputHash);
+      else rotateUnit(progress, unitName, inputHash, 'stale');
+      changed = true;
+    } else if (existing.status === 'stale' && isUnattemptedPending(existing)) {
+      progress.units[unitName] = freshUnit(inputHash);
       changed = true;
     }
   }
@@ -211,6 +223,23 @@ function forceManualReview(current, unitName, errors, stopReason) {
     ? [...unit.error_fingerprints, fingerprint].slice(-3)
     : unit.error_fingerprints;
   unit.stop_reason = stopReason;
+  unit.updated_at = now();
+  progress.updated_at = unit.updated_at;
+  return progress;
+}
+
+function reopenAcceptedDomainUnit(current, unitName, error) {
+  const progress = cloneProgress(current);
+  const unit = progress.units[unitName];
+  if (!unit || !unitName.startsWith('distill:') || !['done', 'pending'].includes(unit.status)) {
+    throw new GameKbError('DOMAIN_RECOVERY_INVALID', 'Only an accepted domain unit can be reopened', {
+      unit: unitName,
+      status: unit?.status ?? null
+    });
+  }
+  unit.status = 'pending';
+  unit.last_errors = normalizeErrors([error]);
+  unit.stop_reason = null;
   unit.updated_at = now();
   progress.updated_at = unit.updated_at;
   return progress;
@@ -263,7 +292,11 @@ function loadProgress(paths, manifest) {
       progress.units[unitName] = freshUnit(chapter.input_hash);
       changed = true;
     } else if (existing.input_hash !== chapter.input_hash) {
-      rotateUnit(progress, unitName, chapter.input_hash, 'stale');
+      if (isUnattemptedPending(existing)) progress.units[unitName] = freshUnit(chapter.input_hash);
+      else rotateUnit(progress, unitName, chapter.input_hash, 'stale');
+      changed = true;
+    } else if (existing.status === 'stale' && isUnattemptedPending(existing)) {
+      progress.units[unitName] = freshUnit(chapter.input_hash);
       changed = true;
     }
   }
@@ -323,6 +356,7 @@ module.exports = {
   recordTargetedSubmission,
   semanticContentHash,
   recordSubmission,
+  reopenAcceptedDomainUnit,
   resetUnit,
   saveProgress,
   setDeterministicUnit,

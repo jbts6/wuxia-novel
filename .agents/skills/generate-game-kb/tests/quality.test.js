@@ -105,21 +105,27 @@ test('short category quota is redistributed deterministically', () => {
   assert.equal(counts.events, 23);
 });
 
-test('standard sample passes at 38 of 40 and fails at 37', () => {
+test('high-priority sample keeps an independent 95 percent hard gate', () => {
   const sample = selectQualitySample(sampleData(), 'fixed-seed');
-  assert.equal(validateQualityReview(reviewFor(sample, 38), sample).passed, true);
-  const failed = validateQualityReview(reviewFor(sample, 37), sample);
+  const passed = validateQualityReview(reviewFor(sample, 34), sample);
+  assert.equal(passed.passed, true);
+  assert.equal(passed.hard_sample_size, 35);
+  assert.equal(passed.hard_threshold, 34);
+  assert.ok(passed.warnings.some(issue => issue.code === 'QUALITY_SOFT_SAMPLE_FAILED'));
+
+  const failed = validateQualityReview(reviewFor(sample, 33), sample);
   assert.equal(failed.passed, false);
-  assert.equal(failed.threshold, 38);
+  assert.equal(failed.hard_threshold, 34);
 });
 
-test('small sample requires ceil(n * 0.95) passes', () => {
+test('small sample requires ceil(n * 0.95) passes within high-priority records', () => {
   const sample = selectQualitySample(sampleData({
     characters: 2, events: 1, items: 1, skills: 1, techniques: 1, factions: 1
   }), 'small-seed');
   assert.equal(sample.length, 7);
   assert.equal(validateQualityReview(reviewFor(sample, 7), sample).passed, true);
-  assert.equal(validateQualityReview(reviewFor(sample, 6), sample).passed, false);
+  assert.equal(validateQualityReview(reviewFor(sample, 6), sample).passed, true);
+  assert.equal(validateQualityReview(reviewFor(sample, 5), sample).passed, false);
 });
 
 test('quality review rejects missing duplicate or inconsistent sample rows', () => {
@@ -133,6 +139,23 @@ test('quality review rejects missing duplicate or inconsistent sample rows', () 
   const result = validateQualityReview(review, sample);
   assert.ok(result.errors.some(issue => issue.code === 'QUALITY_RESULT_DUPLICATE'));
   assert.ok(result.errors.some(issue => issue.code === 'QUALITY_PASS_INCONSISTENT'));
+});
+
+test('soft-category sample failures warn without lowering the hard-category result', () => {
+  const sample = [
+    { id: 'skill_named', category: 'skills', group: 'skills_techniques' },
+    { id: 'dialogue_flavor', category: 'dialogues', group: 'dialogues' },
+    { id: 'loc_minor', category: 'locations', group: 'factions_locations' }
+  ];
+  const review = reviewFor(sample, 1);
+  const result = validateQualityReview(review, sample);
+
+  assert.equal(result.passed, true);
+  assert.equal(result.hard_sample_size, 1);
+  assert.equal(result.hard_pass_count, 1);
+  assert.equal(result.soft_sample_size, 2);
+  assert.equal(result.soft_pass_count, 0);
+  assert.ok(result.warnings.some(issue => issue.code === 'QUALITY_SOFT_SAMPLE_FAILED'));
 });
 
 function writeVerifiedFixture() {
@@ -207,4 +230,54 @@ test('verify rejects missing arrays IDs refs summaries and dialogue event links'
   assert.ok(result.blocking_errors.some(issue => issue.code === 'DIALOGUE_SOURCE_CHAPTER_MISMATCH'));
   assert.ok(result.blocking_errors.some(issue => issue.code === 'MATERIAL_EMBEDDED_ENTITY_FORBIDDEN'));
   assert.ok(result.blocking_errors.some(issue => issue.code === 'QUALITY_REPORT_STALE'));
+});
+
+test('verify blocks martial confusion ordinary items and incomplete key events', () => {
+  const { paths } = writeVerifiedFixture();
+  const skillFile = path.join(paths.finalData, 'skills.json');
+  const techniqueFile = path.join(paths.finalData, 'techniques.json');
+  const itemFile = path.join(paths.finalData, 'items.json');
+  const eventFile = path.join(paths.finalData, 'events.json');
+  const skills = JSON.parse(fs.readFileSync(skillFile, 'utf8'));
+  const techniques = JSON.parse(fs.readFileSync(techniqueFile, 'utf8'));
+  const items = JSON.parse(fs.readFileSync(itemFile, 'utf8'));
+  const events = JSON.parse(fs.readFileSync(eventFile, 'utf8'));
+
+  skills[0].type = '招式';
+  techniques[0].named_in_source = false;
+  techniques[0].source_skill = 'skill_missing';
+  techniques[0].skill = 'skill_missing';
+  items[0].inclusion_reason = '普通物品';
+  items[0].importance = '普通物品';
+  events[0].participants = [];
+  events[0].result = '';
+  atomicWriteJson(skillFile, skills);
+  atomicWriteJson(techniqueFile, techniques);
+  atomicWriteJson(itemFile, items);
+  atomicWriteJson(eventFile, events);
+
+  const result = verifyFinal(paths);
+  const codes = new Set(result.blocking_errors.map(issue => issue.code));
+  assert.equal(result.passed, false);
+  assert.equal(codes.has('MARTIAL_CATEGORY_CONFUSION'), true);
+  assert.equal(codes.has('TECHNIQUE_NOT_NAMED'), true);
+  assert.equal(codes.has('REFERENCE_UNRESOLVED'), true);
+  assert.equal(codes.has('ITEM_INCLUSION_REASON_INVALID'), true);
+  assert.equal(codes.has('KEY_EVENT_PARTICIPANTS_REQUIRED'), true);
+  assert.equal(codes.has('KEY_EVENT_RESULT_REQUIRED'), true);
+});
+
+test('verify permits a named standalone technique when the source states no parent skill', () => {
+  const { paths } = writeVerifiedFixture();
+  const techniqueFile = path.join(paths.finalData, 'techniques.json');
+  const techniques = JSON.parse(fs.readFileSync(techniqueFile, 'utf8'));
+  techniques[0].named_in_source = true;
+  techniques[0].source_skill = null;
+  techniques[0].skill = null;
+  atomicWriteJson(techniqueFile, techniques);
+
+  const result = verifyFinal(paths);
+  assert.equal(result.blocking_errors.some(issue =>
+    issue.code === 'REFERENCE_UNRESOLVED' && issue.path === 'techniques[0].source_skill'
+  ), false);
 });

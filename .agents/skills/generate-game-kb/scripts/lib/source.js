@@ -10,6 +10,27 @@ const { pathsFor } = require('./paths');
 const { loadProgress } = require('./progress');
 
 const CHAPTER_HEADING = /^第[零〇一二三四五六七八九十百千两\d]+(?:章|回|节|卷)(?:\s+.*|[^\s]*)?$/;
+const BARE_CHAPTER_HEADING = /^(?:[一二三四五六七八九十]{1,3}|\d{1,3})$/;
+const CHINESE_DIGITS = Object.freeze({ 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9 });
+
+function bareChapterNumber(value) {
+  if (!BARE_CHAPTER_HEADING.test(value)) return null;
+  if (/^\d+$/.test(value)) return Number(value);
+  if (value === '十') return 10;
+  const ten = value.indexOf('十');
+  if (ten < 0) return CHINESE_DIGITS[value] ?? null;
+  const tens = ten === 0 ? 1 : CHINESE_DIGITS[value.slice(0, ten)];
+  const ones = ten === value.length - 1 ? 0 : CHINESE_DIGITS[value.slice(ten + 1)];
+  return tens && ones !== undefined ? (tens * 10) + ones : null;
+}
+
+function sequentialBareChapterStarts(lines) {
+  const candidates = lines.map((line, index) => ({ index, number: bareChapterNumber(line.trim()) }))
+    .filter(entry => entry.number !== null);
+  if (candidates.length < 2) return [];
+  if (!candidates.every((entry, index) => entry.number === index + 1)) return [];
+  return candidates.map(entry => entry.index);
+}
 
 function normalizeSource(value) {
   const normalized = String(value).replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n');
@@ -27,6 +48,7 @@ function splitChapters(sourceText, fallbackTitle = '第一章') {
   for (let index = 0; index < lines.length; index += 1) {
     if (CHAPTER_HEADING.test(lines[index].trim())) starts.push(index);
   }
+  if (starts.length === 0) starts.push(...sequentialBareChapterStarts(lines));
 
   if (starts.length === 0) {
     return [{ number: 1, title: fallbackTitle, content: source }];

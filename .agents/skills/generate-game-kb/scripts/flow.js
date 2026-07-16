@@ -11,8 +11,12 @@ const {
   acceptedArtifactHash,
   assertAcceptedArtifacts,
   buildCandidateLedger,
-  recordAcceptedArtifact
+  recordAcceptedArtifact,
+  releaseAcceptedDomainDecision,
+  replaceInvalidDeterministicClean
 } = require('./lib/candidate-ledger');
+const { validateCleanedBook } = require('./lib/book-contract');
+const { buildCandidateRegistry } = require('./lib/candidate-registry');
 const {
   applyMergeDecision,
   assembleCleanedBook,
@@ -20,6 +24,8 @@ const {
   canonicalEventRefAliases,
   createMergeConsolidationWorkItem
 } = require('./lib/book-assembly');
+const { assembleDomainCleanedBook, assembleDomainMergedBook } = require('./lib/domain-assembly');
+const { createDomainWorkPlan } = require('./lib/domain-work');
 const { buildCleanObligations } = require('./lib/clean-obligations');
 const { buildFinalData, writeFinalData } = require('./lib/finalize');
 const { buildGameMaterials } = require('./lib/game-materials');
@@ -30,6 +36,7 @@ const { pathsFor } = require('./lib/paths');
 const {
   loadProgress,
   freshUnit,
+  reopenAcceptedDomainUnit,
   resetUnit,
   saveProgress,
   setDeterministicUnit,
@@ -160,49 +167,28 @@ function prepareMerge(paths, manifest) {
     const file = path.join(paths.chapters, `ch_${String(chapter.number).padStart(3, '0')}.json`);
     return [unit, acceptedArtifactHash(paths, file)];
   }));
-  const plan = createMergeWorkPlan({ chapters, accepted_hashes: acceptedHashes });
-  const written = writeWorkPlan(paths, plan);
-  const rotations = [];
-  progress = syncPlannedUnits(progress, plan.inputs);
-  for (const descriptor of plan.consolidations) {
-    const ready = descriptor.dependency_units.every(unit => progress.units[unit]?.status === 'done');
-    if (!ready) continue;
-    const eventReferences = descriptor.category === 'dialogues'
-      ? acceptedEventReferenceState(paths, plan, progress)
-      : { aliases: {}, dependency_units: [] };
-    if (!eventReferences) continue;
-    const projections = descriptor.dependency_units.map(unit => {
-      const work = readWorkItem(paths, unit);
-      const decisionFile = semanticDecisionFile(paths, unit, work.input.input_hash);
-      const draft = readJson(decisionFile);
-      acceptedArtifactHash(paths, decisionFile);
-      return applyMergeDecision(work.input, work.bindings, draft);
-    });
-    const consolidation = createMergeConsolidationWorkItem(
-      projections,
-      descriptor,
-      decisionHashes(paths, [...descriptor.dependency_units, ...eventReferences.dependency_units]),
-      { event_ref_aliases: eventReferences.aliases }
-    );
-    const workWrite = writeWorkItem(
-      paths,
-      'merge',
-      consolidation.input,
-      consolidation.bindings,
-      { rotateStale: true }
-    );
-    if (workWrite.rotated) rotations.push(workWrite.rotated);
-    progress = syncPlannedUnits(progress, [consolidation.input]);
+  const registry = buildCandidateRegistry(chapters);
+  const registryInputHash = stableHash({
+    semantic_profile: 'domain-distill-v1',
+    accepted_hashes: acceptedHashes
+  });
+  if (fs.existsSync(paths.candidateRegistry)) {
+    acceptedArtifactHash(paths, paths.candidateRegistry);
+    if (stableHash(readJson(paths.candidateRegistry)) !== stableHash(registry)) {
+      throw new GameKbError('CANDIDATE_REGISTRY_STALE', 'Existing candidate registry differs from current chapters');
+    }
+  } else {
+    recordAcceptedArtifact(paths, paths.candidateRegistry, registryInputHash, registry);
   }
+  const plan = createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes });
+  const written = writeWorkPlan(paths, plan);
+  progress = syncPlannedUnits(progress, plan.inputs);
   saveProgress(paths, progress);
-  const consolidationUnits = plan.consolidations
-    .map(descriptor => descriptor.unit)
-    .filter(unit => fs.existsSync(readWorkItemPath(paths, unit)));
   return {
-    stage: 'merge',
-    units: [...plan.inputs.map(input => input.unit), ...consolidationUnits],
-    consolidations: plan.consolidations,
-    rotations,
+    stage: 'domain',
+    units: plan.inputs.map(input => input.unit),
+    registry: paths.candidateRegistry,
+    registry_stats: registry.stats,
     plan: written.plan,
     written: written.written
   };
@@ -215,20 +201,41 @@ function readWorkItemPath(paths, unit) {
 function assembleMerge(paths, manifest) {
   assertAcceptedArtifacts(paths);
   let progress = loadProgress(paths, manifest);
-  const plan = readWorkPlan(paths, 'merge');
-  const shardUnits = plan.inputs.map(input => input.unit);
-  const consolidationUnits = plan.consolidations.map(descriptor => descriptor.unit);
-  assertUnitsDone(progress, [...shardUnits, ...consolidationUnits]);
-  const decisions = readDecisions(paths, [...shardUnits, ...consolidationUnits]);
-  const consolidationWorkItems = Object.fromEntries(consolidationUnits.map(unit => {
-    const work = readWorkItem(paths, unit);
-    return [unit, { input: work.input, bindings: work.bindings }];
-  }));
+  const plan = readWorkPlan(paths, 'domain');
+  const units = plan.inputs.map(input => input.unit);
+  const pending = [];
+  for (const input of plan.inputs) {
+    const file = semanticDecisionFile(paths, input.unit, input.input_hash);
+    if (!fs.existsSync(file)) continue;
+    acceptedArtifactHash(paths, file);
+    const entries = (readJson(file).decisions || []).filter(decision => decision.action === 'pending');
+    if (entries.length > 0) pending.push({ input, file, entries });
+  }
+  if (pending.length > 0) {
+    for (const recovery of pending) {
+      progress = reopenAcceptedDomainUnit(progress, recovery.input.unit, {
+        code: 'DOMAIN_PENDING_UNRESOLVED',
+        path: 'decisions',
+        target: recovery.entries.map(entry => entry.entry_ref).join(',')
+      });
+      releaseAcceptedDomainDecision(paths, recovery.file, recovery.input.input_hash);
+    }
+    saveProgress(paths, progress);
+    throw new GameKbError('DOMAIN_PENDING_UNRESOLVED', 'Accepted domain decisions were reopened for semantic repair', {
+      units: pending.map(recovery => ({
+        unit: recovery.input.unit,
+        entry_refs: recovery.entries.map(entry => entry.entry_ref)
+      }))
+    });
+  }
+  assertUnitsDone(progress, units);
+  const decisions = Object.values(readDecisions(paths, units));
   const chapters = acceptedChapters(paths);
-  const book = assembleMergedBook({
-    plan,
+  acceptedArtifactHash(paths, paths.candidateRegistry);
+  const book = assembleDomainMergedBook({
+    work_plan: plan,
     decisions,
-    consolidation_work_items: consolidationWorkItems,
+    registry: readJson(paths.candidateRegistry),
     chapters,
     manifest
   });
@@ -259,50 +266,13 @@ function prepareClean(paths, manifest) {
   if (mergeState.input_hash !== currentMergeHash) {
     throw new GameKbError('CLEAN_MERGE_REQUIRED', 'The deterministic merged book is stale');
   }
-  const merged = readJson(paths.merged);
-  const chapters = acceptedChapters(paths);
-  const obligations = buildCleanObligations(merged, manifest, chapters);
-  writeStableJson(paths.cleanObligations, obligations);
-  const plan = createCleanWorkPlan({
-    merged,
-    merged_hash: acceptedArtifactHash(paths, paths.merged),
-    obligations
-  });
-  const written = writeWorkPlan(paths, plan);
-  progress = syncPlannedUnits(progress, plan.inputs);
-  const categoryUnits = plan.inputs.map(input => input.unit);
-  const categoriesDone = categoryUnits.every(unit => progress.units[unit]?.status === 'done');
-  let materialUnit = null;
-  if (categoriesDone) {
-    const state = cleanDecisionState(paths, plan);
-    const preview = assembleCleanedBook({
-      merged,
-      plan,
-      decisions: state.decisions,
-      obligations,
-      manifest,
-      chapters,
-      materials: []
-    });
-    const material = createMaterialWorkItem({
-      cleaned: preview,
-      upstream_hashes: {
-        merged: acceptedArtifactHash(paths, paths.merged),
-        obligations: stableHash(obligations),
-        ...state.hashes
-      }
-    });
-    writeWorkItem(paths, 'clean', material.input, material.bindings);
-    progress = syncPlannedUnits(progress, [material.input]);
-    materialUnit = material.input.unit;
-  }
+  acceptedArtifactHash(paths, paths.merged);
   saveProgress(paths, progress);
   return {
     stage: 'clean',
-    units: [...categoryUnits, ...(materialUnit ? [materialUnit] : [])],
-    obligations: obligations.length,
-    plan: written.plan,
-    written: written.written
+    units: [],
+    deterministic: true,
+    written: false
   };
 }
 
@@ -330,25 +300,35 @@ function materialCandidates(paths, draft) {
 function assembleClean(paths, manifest) {
   assertAcceptedArtifacts(paths);
   let progress = loadProgress(paths, manifest);
-  const plan = readWorkPlan(paths, 'clean');
-  const categoryUnits = plan.inputs.map(input => input.unit);
-  assertUnitsDone(progress, [...categoryUnits, 'clean:materials:001']);
-  const decisions = readDecisions(paths, categoryUnits);
-  const materialDraft = readDecisions(paths, ['clean:materials:001'])['clean:materials:001'];
-  const book = assembleCleanedBook({
-    merged: readJson(paths.merged),
-    plan,
-    decisions,
-    obligations: readJson(paths.cleanObligations),
-    manifest,
-    chapters: acceptedChapters(paths),
-    materials: materialCandidates(paths, materialDraft)
-  });
+  const book = assembleDomainCleanedBook(readJson(paths.merged));
+  const chapters = acceptedChapters(paths);
+  const errors = validateCleanedBook(book, manifest, chapters);
+  if (errors.length > 0) {
+    throw new GameKbError('DOMAIN_CLEAN_ASSEMBLY_INVALID', 'Deterministic domain clean violates the cleaned book contract', {
+      errors
+    });
+  }
   const inputHash = currentUnitInputHash(paths, manifest, progress, 'clean:book');
-  recordAcceptedArtifact(paths, paths.cleaned, inputHash, book);
+  let repaired = false;
+  if (fs.existsSync(paths.cleaned)) {
+    acceptedArtifactHash(paths, paths.cleaned);
+    const existing = readJson(paths.cleaned);
+    if (stableHash(existing) !== stableHash(book)) {
+      const existingErrors = validateCleanedBook(existing, manifest, chapters);
+      if (existingErrors.length === 0) {
+        throw new GameKbError('ACCEPTED_ARTIFACT_EXISTS', 'A valid cleaned artifact cannot be replaced', {
+          accepted_file: paths.cleaned
+        });
+      }
+      replaceInvalidDeterministicClean(paths, inputHash, book);
+      repaired = true;
+    }
+  } else {
+    recordAcceptedArtifact(paths, paths.cleaned, inputHash, book);
+  }
   progress = setDeterministicUnit(progress, 'clean:book', inputHash, []);
   saveProgress(paths, progress);
-  return { unit: 'clean:book', status: 'done', attempts: 0, accepted_file: paths.cleaned };
+  return { unit: 'clean:book', status: 'done', attempts: 0, repaired, accepted_file: paths.cleaned };
 }
 
 function ensureBoundedUnits(paths, manifest, units, inputHash) {
@@ -510,14 +490,18 @@ function verifyWorkspace(novelDir, runId) {
 function main(argv = process.argv.slice(2)) {
   const commandStartedAt = process.hrtime.bigint();
   let timingRunJson = null;
+  let timingUnit = '';
   const json = argv.includes('--json');
   const args = argv.filter(value => value !== '--json');
   const [command, novelDir] = args;
   const requestedRun = flagValue(args, '--run');
   const emit = result => {
     const elapsedMs = Number(process.hrtime.bigint() - commandStartedAt) / 1e6;
-    recordScriptDuration(timingRunJson, elapsedMs);
-    process.stdout.write(`${JSON.stringify(result, null, json ? 0 : 2)}\n`);
+    const timing = recordScriptDuration(timingRunJson, elapsedMs, command, timingUnit);
+    const output = timing?.metrics_hash && result?.status === 'archived'
+      ? { ...result, metrics_hash: timing.metrics_hash }
+      : result;
+    process.stdout.write(`${JSON.stringify(output, null, json ? 0 : 2)}\n`);
   };
   try {
     if (command === 'archive-existing') {
@@ -631,6 +615,7 @@ function main(argv = process.argv.slice(2)) {
       const progress = loadProgress(paths, manifest);
       emit({
         semantic_contract_version: run.semantic_contract_version ?? null,
+        semantic_profile: run.semantic_profile ?? null,
         ...statusReport(paths, manifest, progress),
         worker_pool: readWorkerPool(paths)
       });
@@ -643,6 +628,7 @@ function main(argv = process.argv.slice(2)) {
       const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
+      timingUnit = unit;
       const manifest = readJson(paths.manifest);
       const progress = loadProgress(paths, manifest);
       const reset = resetUnit(progress, unit, args.includes('--confirm'));

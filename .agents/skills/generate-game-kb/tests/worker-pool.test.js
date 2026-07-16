@@ -25,7 +25,7 @@ function backoff(novel, runId, batchId) {
   ]);
 }
 
-test('a new run persists a default chapter-worker concurrency limit of ten', () => {
+test('a new run persists a default chapter-worker concurrency limit of three', () => {
   const { paths } = prepareRun();
   const workerPoolFile = path.join(paths.run, 'worker-pool.json');
 
@@ -33,8 +33,8 @@ test('a new run persists a default chapter-worker concurrency limit of ten', () 
   assert.equal(paths.workerPool, workerPoolFile);
   assert.deepEqual(readJson(workerPoolFile), {
     schema_version: 1,
-    initial_limit: 10,
-    concurrency_limit: 10,
+    initial_limit: 3,
+    concurrency_limit: 3,
     halted: false,
     incidents: [],
     updated_at: readJson(workerPoolFile).updated_at
@@ -47,44 +47,40 @@ test('one or more 429 responses in the same dispatch batch halve the limit once'
 
   const first = backoff(novel, paths.runId, 'batch-001');
   assert.equal(first.status, 0, first.stderr);
-  assert.equal(JSON.parse(first.stdout).worker_pool.concurrency_limit, 5);
+  assert.equal(JSON.parse(first.stdout).worker_pool.concurrency_limit, 1);
 
   const duplicate = backoff(novel, paths.runId, 'batch-001');
   assert.equal(duplicate.status, 0, duplicate.stderr);
   assert.equal(JSON.parse(duplicate.stdout).duplicate, true);
 
   const persisted = readJson(paths.workerPool);
-  assert.equal(persisted.concurrency_limit, 5);
+  assert.equal(persisted.concurrency_limit, 1);
   assert.equal(persisted.incidents.length, 1);
   assert.deepEqual(persisted.incidents[0], {
     batch_id: 'batch-001',
     reason: '429',
-    previous_limit: 10,
-    next_limit: 5,
+    previous_limit: 3,
+    next_limit: 1,
     action: 'reduced',
     recorded_at: persisted.incidents[0].recorded_at
   });
 });
 
-test('distinct 429 batches reduce ten to five to two to one', () => {
+test('a 429 batch reduces three to one without halting until another batch fails', () => {
   const { novel, paths } = prepareRun();
 
-  for (const [batchId, expected] of [['batch-001', 5], ['batch-002', 2], ['batch-003', 1]]) {
-    const result = backoff(novel, paths.runId, batchId);
-    assert.equal(result.status, 0, result.stderr);
-    assert.equal(JSON.parse(result.stdout).worker_pool.concurrency_limit, expected);
-  }
+  const result = backoff(novel, paths.runId, 'batch-001');
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(JSON.parse(result.stdout).worker_pool.concurrency_limit, 1);
 
   assert.equal(readJson(paths.workerPool).halted, false);
 });
 
 test('a fresh 429 at concurrency one persists a halt and reports external rate limiting', () => {
   const { novel, paths } = prepareRun();
-  for (const batchId of ['batch-001', 'batch-002', 'batch-003']) {
-    assert.equal(backoff(novel, paths.runId, batchId).status, 0);
-  }
+  assert.equal(backoff(novel, paths.runId, 'batch-001').status, 0);
 
-  const halted = backoff(novel, paths.runId, 'batch-004');
+  const halted = backoff(novel, paths.runId, 'batch-002');
   assert.equal(halted.status, 1);
   assert.equal(JSON.parse(halted.stderr).code, 'WORKER_RATE_LIMITED');
 
@@ -104,17 +100,17 @@ test('prepare resume and status preserve the reduced worker limit', () => {
 
   const status = runFlow(['status', novel, '--run', paths.runId, '--json']);
   assert.equal(status.status, 0, status.stderr);
-  assert.equal(JSON.parse(status.stdout).worker_pool.concurrency_limit, 5);
-  assert.equal(readJson(paths.workerPool).concurrency_limit, 5);
+  assert.equal(JSON.parse(status.stdout).worker_pool.concurrency_limit, 1);
+  assert.equal(readJson(paths.workerPool).concurrency_limit, 1);
 });
 
-test('a new run resets worker concurrency to ten', () => {
+test('a new run resets worker concurrency to three', () => {
   const { novel, paths } = prepareRun('run-first');
   assert.equal(backoff(novel, paths.runId, 'batch-001').status, 0);
 
   const second = runFlow(['prepare', novel, '--run', 'run-second', '--json']);
   assert.equal(second.status, 0, second.stderr);
-  assert.equal(readJson(pathsFor(novel, 'run-second').workerPool).concurrency_limit, 10);
+  assert.equal(readJson(pathsFor(novel, 'run-second').workerPool).concurrency_limit, 3);
 });
 
 test('429 worker backoff does not consume chapter semantic or submission attempts', () => {
@@ -143,5 +139,5 @@ test('worker-backoff rejects incidents that are not explicit 429 responses', () 
 
   assert.equal(result.status, 1);
   assert.equal(JSON.parse(result.stderr).code, 'WORKER_BACKOFF_REASON_INVALID');
-  assert.equal(readJson(paths.workerPool).concurrency_limit, 10);
+  assert.equal(readJson(paths.workerPool).concurrency_limit, 3);
 });

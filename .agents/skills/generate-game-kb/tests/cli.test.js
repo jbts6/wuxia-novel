@@ -134,7 +134,7 @@ test('accept chapter records an invalid attempt and preserves its draft', () => 
   const paths = activePaths(novel);
   const manifest = readJson(paths.manifest);
   const draft = validChapterDraft({ source_hash: manifest.chapters[0].input_hash, techniques: [] });
-  draft.dialogues[0].event_local_key = 'event:missing';
+  draft.chapter = 2;
   const draftFile = writeStagingDraft(novel, 'chapter:001', draft);
 
   const result = runFlow(['accept', novel, '--unit', 'chapter:001', '--draft', draftFile, '--json']);
@@ -153,7 +153,7 @@ test('resume cannot resubmit a consumed staging attempt or spend its budget twic
   const paths = activePaths(novel);
   const manifest = readJson(paths.manifest);
   const invalid = validChapterDraft({ source_hash: manifest.chapters[0].input_hash, techniques: [] });
-  invalid.dialogues[0].event_local_key = 'event:missing';
+  invalid.chapter = 2;
   const firstAttempt = path.join(paths.staging, 'chapter_001_attempt_01.json');
   fs.writeFileSync(firstAttempt, JSON.stringify(invalid), 'utf8');
 
@@ -238,51 +238,23 @@ function acceptJsonDraft(novel, unit, draft) {
   return runFlow(['accept', novel, '--unit', unit, '--draft', draftFile, '--json']);
 }
 
-function validMergeDecision(input) {
+function validDomainDecision(input) {
   return {
     schema_version: 1,
-    stage: 'merge_decision',
+    semantic_contract_version: 2,
     unit: input.unit,
-    decisions: [{
-      entity_ref: 'e001',
-      member_refs: input.candidates.map(candidate => candidate.candidate_ref),
-      action: 'merge',
-      canonical_name: input.candidates[0].name,
-      aliases: [],
-      fields: {}
-    }],
-    ambiguities: []
-  };
-}
-
-function mergeEachMember(input) {
-  const members = input.candidates || input.entities || [];
-  return {
-    schema_version: 1,
-    stage: 'merge_decision',
-    unit: input.unit,
-    decisions: members.map((member, index) => {
-      const decision = {
-        entity_ref: `e${String(index + 1).padStart(4, '0')}`,
-        member_refs: [member.candidate_ref || member.entity_ref],
-        action: 'merge'
-      };
-      if (input.category === 'dialogues') {
-        const facts = member.facts || member.fields || {};
-        decision.fields = {
-          event_ref: facts.event_ref,
-          speaker_name: facts.speaker_name,
-          chapter: facts.chapter ?? member.chapter,
-          text: facts.text
-        };
-      } else {
-        decision.canonical_name = member.name || member.canonical_name;
-        decision.aliases = member.aliases || [];
-        decision.fields = {};
+    input_hash: input.input_hash,
+    decisions: input.entries.map(entry => ({
+      entry_ref: entry.entry_ref,
+      action: 'keep',
+      patch: {
+        canonical_name: entry.canonical_name,
+        ...(entry.category === 'items' && !entry.facts?.inclusion_reason
+          ? { inclusion_reason: '剧情关键' }
+          : {})
       }
-      return decision;
-    }),
-    ambiguities: []
+    })),
+    notes: []
   };
 }
 
@@ -300,7 +272,7 @@ test('whole-book merge and clean drafts are not AI submission units', () => {
   }
 });
 
-test('prepare-merge creates category work and a rejected category leaves an accepted sibling unchanged', () => {
+test('prepare-merge creates four domain units and a rejected domain leaves an accepted sibling unchanged', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲取得回生丹。\n');
   assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
   const paths = activePaths(novel);
@@ -329,49 +301,45 @@ test('prepare-merge creates category work and a rejected category leaves an acce
 
   const prepared = runFlow(['prepare-merge', novel, '--json']);
   assert.equal(prepared.status, 0, prepared.stderr);
-  assert.deepEqual(JSON.parse(prepared.stdout).units, ['merge:characters:001', 'merge:items:001']);
+  assert.deepEqual(JSON.parse(prepared.stdout).units, [
+    'distill:plot', 'distill:martial', 'distill:items', 'distill:world'
+  ]);
 
-  const characterWork = readWorkItem(paths, 'merge:characters:001').input;
+  const characterWork = readWorkItem(paths, 'distill:plot').input;
   assert.equal(JSON.stringify(characterWork).includes('candidate_key'), false);
-  const accepted = acceptJsonDraft(novel, characterWork.unit, validMergeDecision(characterWork));
+  const accepted = acceptJsonDraft(novel, characterWork.unit, validDomainDecision(characterWork));
   assert.equal(accepted.status, 0, accepted.stderr);
 
-  const itemWork = readWorkItem(paths, 'merge:items:001').input;
+  const itemWork = readWorkItem(paths, 'distill:items').input;
   const rejected = acceptJsonDraft(novel, itemWork.unit, {
     schema_version: 1,
-    stage: 'merge_decision',
+    semantic_contract_version: 2,
     unit: itemWork.unit,
+    input_hash: itemWork.input_hash,
     decisions: [],
-    ambiguities: []
+    notes: []
   });
   assert.notEqual(rejected.status, 0);
   assert.equal(JSON.parse(rejected.stderr).code, 'DRAFT_REJECTED');
 
   const progress = readJson(paths.progress).units;
-  assert.equal(progress['merge:characters:001'].status, 'done');
-  assert.equal(progress['merge:characters:001'].attempts, 1);
-  assert.equal(progress['merge:items:001'].status, 'pending');
-  assert.equal(progress['merge:items:001'].attempts, 1);
+  assert.equal(progress['distill:plot'].status, 'done');
+  assert.equal(progress['distill:plot'].attempts, 1);
+  assert.equal(progress['distill:items'].status, 'pending');
+  assert.equal(progress['distill:items'].attempts, 1);
 });
 
-test('prepare-merge durably defers dialogue consolidation until event consolidation is accepted', () => {
+test('prepare-merge stops without truncation when a plot domain input exceeds the controller bound', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲连续讲述往事。\n');
   assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
   const paths = activePaths(novel);
   const chapter = readJson(paths.manifest).chapters[0];
-  const events = Array.from({ length: 121 }, (_, index) => ({
+  const events = Array.from({ length: 1000 }, (_, index) => ({
     local_key: `event:事件${index}`,
     name: `事件${index}`,
     importance: '次要',
     quote_status: 'quotable',
     source_refs: [sourceRef(1, `事件${index}`)]
-  }));
-  const dialogues = events.map((event, index) => ({
-    local_key: `dialogue:对白${index}`,
-    event_local_key: event.local_key,
-    speaker_name: '甲',
-    text: `对白${index}`,
-    source_refs: [sourceRef(1, `对白${index}`)]
   }));
   const chapterDraft = validChapterDraft({
     title: chapter.title,
@@ -383,7 +351,7 @@ test('prepare-merge durably defers dialogue consolidation until event consolidat
     techniques: [],
     factions: [],
     locations: [],
-    dialogues,
+    dialogues: [],
     summary: {
       title: chapter.title,
       summary: '甲连续讲述往事。',
@@ -396,46 +364,12 @@ test('prepare-merge durably defers dialogue consolidation until event consolidat
   assert.equal(chapterAccepted.status, 0, chapterAccepted.stderr);
 
   const initial = runFlow(['prepare-merge', novel, '--json']);
-  assert.equal(initial.status, 0, initial.stderr);
-  const rawUnits = JSON.parse(initial.stdout).units
-    .filter(unit => /^merge:(events|dialogues):\d{3}$/.test(unit));
-  assert.deepEqual(rawUnits, [
-    'merge:events:001',
-    'merge:events:002',
-    'merge:dialogues:001',
-    'merge:dialogues:002'
-  ]);
-  for (const unit of rawUnits) {
-    const work = readWorkItem(paths, unit).input;
-    const accepted = acceptJsonDraft(novel, unit, mergeEachMember(work));
-    assert.equal(accepted.status, 0, `${unit}: ${accepted.stderr}`);
-  }
-
-  const firstReady = runFlow(['prepare-merge', novel, '--json']);
-  assert.equal(firstReady.status, 0, firstReady.stderr);
-  const eventWorkPath = path.join(paths.mergeWork, 'merge_events_consolidate', 'input.json');
-  const dialogueWorkPath = path.join(paths.mergeWork, 'merge_dialogues_consolidate', 'input.json');
-  assert.equal(fs.existsSync(eventWorkPath), true);
-  assert.equal(fs.existsSync(dialogueWorkPath), false);
-  assert.equal(readJson(paths.progress).units['merge:events:consolidate'].status, 'pending');
-  assert.equal(readJson(paths.progress).units['merge:dialogues:consolidate'], undefined);
-  const eventWorkBytes = fs.readFileSync(eventWorkPath);
-
-  const eventWork = readWorkItem(paths, 'merge:events:consolidate').input;
-  const eventAccepted = acceptJsonDraft(novel, eventWork.unit, mergeEachMember(eventWork));
-  assert.equal(eventAccepted.status, 0, eventAccepted.stderr);
-  const eventAcceptedPath = JSON.parse(eventAccepted.stdout).accepted_file;
-  const eventAcceptedBytes = fs.readFileSync(eventAcceptedPath);
-
-  const secondReady = runFlow(['prepare-merge', novel, '--json']);
-  assert.equal(secondReady.status, 0, secondReady.stderr);
-  assert.deepEqual(JSON.parse(secondReady.stdout).rotations, []);
-  assert.deepEqual(fs.readFileSync(eventWorkPath), eventWorkBytes);
-  assert.deepEqual(fs.readFileSync(eventAcceptedPath), eventAcceptedBytes);
-  assert.equal(fs.existsSync(dialogueWorkPath), true);
-  assert.equal(readJson(paths.progress).units['merge:dialogues:consolidate'].status, 'pending');
-  const dialogueInput = readWorkItem(paths, 'merge:dialogues:consolidate').input;
-  assert.doesNotMatch(JSON.stringify(dialogueInput), /candidate_key|local_key|provisional_key|\"id\"/);
+  assert.notEqual(initial.status, 0);
+  const error = JSON.parse(initial.stderr);
+  assert.equal(error.code, 'DOMAIN_INPUT_TOO_LARGE');
+  assert.equal(error.details.unit, 'distill:plot');
+  assert.ok(error.details.input_bytes > error.details.max_bytes);
+  assert.equal(readJson(paths.progress).units['distill:plot'], undefined);
 });
 
 test('deterministic merge and clean aggregates use zero attempts and preserve downstream output', () => {
@@ -467,7 +401,14 @@ test('deterministic merge and clean aggregates use zero attempts and preserve do
 
   const mergePlan = runFlow(['prepare-merge', novel, '--json']);
   assert.equal(mergePlan.status, 0, mergePlan.stderr);
-  assert.deepEqual(JSON.parse(mergePlan.stdout).units, []);
+  assert.deepEqual(JSON.parse(mergePlan.stdout).units, [
+    'distill:plot', 'distill:martial', 'distill:items', 'distill:world'
+  ]);
+  for (const unit of JSON.parse(mergePlan.stdout).units) {
+    const input = readWorkItem(paths, unit).input;
+    const accepted = acceptJsonDraft(novel, unit, validDomainDecision(input));
+    assert.equal(accepted.status, 0, `${unit}: ${accepted.stderr}`);
+  }
   const mergeResult = runFlow(['assemble-merge', novel, '--json']);
   assert.equal(mergeResult.status, 0, mergeResult.stderr);
   assert.equal(readJson(paths.progress).units['merge:book'].attempts, 0);
@@ -477,14 +418,7 @@ test('deterministic merge and clean aggregates use zero attempts and preserve do
 
   const cleanPlan = runFlow(['prepare-clean', novel, '--json']);
   assert.equal(cleanPlan.status, 0, cleanPlan.stderr);
-  assert.deepEqual(JSON.parse(cleanPlan.stdout).units, ['clean:materials:001']);
-  const materialResult = acceptJsonDraft(novel, 'clean:materials:001', {
-    schema_version: 1,
-    stage: 'material_decision',
-    unit: 'clean:materials:001',
-    materials: []
-  });
-  assert.equal(materialResult.status, 0, materialResult.stderr);
+  assert.deepEqual(JSON.parse(cleanPlan.stdout).units, []);
   const cleanResult = runFlow(['assemble-clean', novel, '--json']);
   assert.equal(cleanResult.status, 0, cleanResult.stderr);
   assert.equal(readJson(paths.progress).units['clean:book'].attempts, 0);

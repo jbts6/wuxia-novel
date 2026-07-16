@@ -8,6 +8,7 @@ const { CATEGORY_FILES } = require('./finalize');
 const { MATERIAL_TYPES } = require('./game-materials');
 const { atomicWriteJson, readJson } = require('./io');
 const { buildQualitySample, selectQualitySample, validateQualityReview } = require('./quality');
+const { isHighPriorityQualityItem } = require('./priority');
 const { SEMANTIC_CONTRACT_VERSION } = require('./run');
 
 const ID_PATTERN = /^(char|event|item|skill|tech|faction|loc|dialogue)_[a-z]+(?:_[a-z]+)*$/;
@@ -21,6 +22,9 @@ const FILE_PREFIX = Object.freeze({
   'locations.json': 'loc_',
   'dialogues.json': 'dialogue_'
 });
+const KEY_EVENT_LEVELS = new Set(['核心', '重要', 'core', 'important']);
+const ITEM_INCLUSION_REASONS = new Set(['秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊']);
+const TECHNIQUE_TYPES = new Set(['招式', '招法', '招数', '式']);
 
 function stableValue(value) {
   if (Array.isArray(value)) return value.map(stableValue);
@@ -198,8 +202,21 @@ function verifyFinal(paths) {
   finalData['events.json'].forEach((record, index) => {
     references('characters.json', record.participants, `events[${index}].participants`);
     references('locations.json', record.locations, `events[${index}].locations`);
+    if (KEY_EVENT_LEVELS.has(record.importance) && (!Array.isArray(record.participants) || record.participants.length === 0)) {
+      blockingErrors.push({ code: 'KEY_EVENT_PARTICIPANTS_REQUIRED', path: `events[${index}].participants`, target: record.id });
+    }
+    if (KEY_EVENT_LEVELS.has(record.importance) && (typeof record.result !== 'string' || record.result.trim() === '')) {
+      blockingErrors.push({ code: 'KEY_EVENT_RESULT_REQUIRED', path: `events[${index}].result`, target: record.id });
+    }
   });
   finalData['items.json'].forEach((record, index) => {
+    if (!ITEM_INCLUSION_REASONS.has(record.inclusion_reason)) {
+      blockingErrors.push({
+        code: 'ITEM_INCLUSION_REASON_INVALID',
+        path: `items[${index}].inclusion_reason`,
+        target: record.inclusion_reason
+      });
+    }
     if (record.owner) {
       const valid = idSets['characters.json'].has(record.owner) || idSets['factions.json'].has(record.owner);
       if (!valid) blockingErrors.push({ code: 'REFERENCE_UNRESOLVED', path: `items[${index}].owner`, target: record.owner });
@@ -208,11 +225,17 @@ function verifyFinal(paths) {
     references('skills.json', record.related_skills, `items[${index}].related_skills`);
   });
   finalData['skills.json'].forEach((record, index) => {
+    if (TECHNIQUE_TYPES.has(String(record.type || '').trim())) {
+      blockingErrors.push({ code: 'MARTIAL_CATEGORY_CONFUSION', path: `skills[${index}].type`, target: record.type });
+    }
     reference('factions.json', record.faction, `skills[${index}].faction`, true);
     references('characters.json', record.holders, `skills[${index}].holders`);
     references('techniques.json', record.techniques, `skills[${index}].techniques`);
   });
   finalData['techniques.json'].forEach((record, index) => {
+    if (record.named_in_source !== true) {
+      blockingErrors.push({ code: 'TECHNIQUE_NOT_NAMED', path: `techniques[${index}].named_in_source`, target: record.id });
+    }
     reference('skills.json', record.source_skill || record.skill, `techniques[${index}].source_skill`, true);
   });
   finalData['factions.json'].forEach((record, index) => {
@@ -338,7 +361,9 @@ function verifyFinal(paths) {
         const review = details.review;
         const valid = review?.status === 'none_found' || review?.conclusion === 'none_found';
         if (!valid) {
-          blockingErrors.push({ code: 'EMPTY_CATEGORY_REVIEW_REQUIRED', path: `quality_sample.categories.${category}`, target: category });
+          const issue = { code: 'EMPTY_CATEGORY_REVIEW_REQUIRED', path: `quality_sample.categories.${category}`, target: category };
+          if (details?.priority === 'soft' || !isHighPriorityQualityItem({ group: category })) warnings.push(issue);
+          else blockingErrors.push(issue);
         }
       }
     }
@@ -352,6 +377,7 @@ function verifyFinal(paths) {
     }
     if (sample && Array.isArray(sample.items)) {
       const assessment = validateQualityReview({ schema_version: 1, results: quality.results }, sample.items);
+      warnings.push(...assessment.warnings);
       if (assessment.errors.length > 0) {
         blockingErrors.push({ code: 'QUALITY_REPORT_INVALID', path: paths.qualityReport, target: assessment.errors });
       } else if (!assessment.passed || quality.passed !== true) {

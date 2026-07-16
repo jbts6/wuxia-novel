@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { CANDIDATE_CATEGORIES } = require('./coverage');
+const { REJECTION_REASONS: DOMAIN_REJECTION_REASONS } = require('./domain-contract');
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { sha256 } = require('./source');
@@ -14,7 +15,8 @@ const REJECTION_REASONS = new Set([
   'duplicate',
   'misclassified',
   'no_evidence',
-  'not_game_relevant'
+  'not_game_relevant',
+  ...Object.values(DOMAIN_REJECTION_REASONS).flat()
 ]);
 
 function nonempty(value) {
@@ -205,6 +207,69 @@ function recordAcceptedArtifact(paths, file, inputHash, value) {
   return entry;
 }
 
+function releaseAcceptedDomainDecision(paths, file, inputHash) {
+  assertAcceptedArtifacts(paths);
+  const relativeDomainPath = path.relative(path.resolve(paths.domainDecisions), path.resolve(file));
+  if (relativeDomainPath === '' || relativeDomainPath.startsWith('..') || path.isAbsolute(relativeDomainPath)) {
+    throw new GameKbError('DOMAIN_RECOVERY_INVALID', 'Only a domain decision can be released for recovery', {
+      file: path.resolve(file)
+    });
+  }
+  const manifest = readArtifactManifest(paths);
+  const relativePath = artifactRelativePath(paths, file);
+  const entry = manifest.entries.find(value => value.relative_path === relativePath);
+  if (!entry || entry.input_hash !== inputHash) {
+    throw new GameKbError('DOMAIN_RECOVERY_INVALID', 'Domain decision input hash does not match recovery target', {
+      relative_path: relativePath,
+      input_hash: inputHash
+    });
+  }
+  const content = fs.readFileSync(file);
+  fs.rmSync(file);
+  try {
+    atomicWriteJson(paths.artifactManifest, {
+      ...manifest,
+      entries: manifest.entries.filter(value => value.relative_path !== relativePath)
+    });
+  } catch (error) {
+    atomicWriteFile(file, content);
+    throw error;
+  }
+  return entry;
+}
+
+function replaceInvalidDeterministicClean(paths, inputHash, value) {
+  assertAcceptedArtifacts(paths);
+  const file = path.resolve(paths.cleaned);
+  const relativePath = artifactRelativePath(paths, file);
+  const manifest = readArtifactManifest(paths);
+  const entry = manifest.entries.find(candidate => candidate.relative_path === relativePath);
+  if (!entry || entry.input_hash !== inputHash || !fs.existsSync(file)) {
+    throw new GameKbError('DETERMINISTIC_CLEAN_REPAIR_INVALID', 'Cleaned artifact does not match the repair target', {
+      relative_path: relativePath,
+      input_hash: inputHash
+    });
+  }
+  const previousContent = fs.readFileSync(file);
+  const content = `${JSON.stringify(value, null, 2)}\n`;
+  const replacement = {
+    ...entry,
+    content_hash: sha256(content),
+    replaced_at: new Date().toISOString()
+  };
+  atomicWriteFile(file, content);
+  try {
+    atomicWriteJson(paths.artifactManifest, {
+      ...manifest,
+      entries: manifest.entries.map(candidate => candidate.relative_path === relativePath ? replacement : candidate)
+    });
+  } catch (error) {
+    atomicWriteFile(file, previousContent);
+    throw error;
+  }
+  return replacement;
+}
+
 module.exports = {
   REJECTION_REASONS,
   RESOLUTIONS,
@@ -213,5 +278,7 @@ module.exports = {
   buildCandidateLedger,
   initializeArtifactManifest,
   readArtifactManifest,
-  recordAcceptedArtifact
+  recordAcceptedArtifact,
+  releaseAcceptedDomainDecision,
+  replaceInvalidDeterministicClean
 };

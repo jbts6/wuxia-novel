@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const { buildCandidateLedger } = require('./candidate-ledger');
 const { buildChapterCoverage } = require('./coverage');
 const { readJson } = require('./io');
+const { isHighPriorityCategory } = require('./priority');
 
 function asNumber(value) {
   return Number.isFinite(Number(value)) ? Number(value) : 0;
@@ -83,8 +84,17 @@ function pushGap(gaps, gap) {
 
 function checkCoverage(input) {
   const value = readCoverageInput(input);
-  const blockingGaps = Array.isArray(value.blocking_gaps) ? [...value.blocking_gaps] : [];
+  const blockingGaps = [];
+  const warnings = [];
   const recallUnits = [];
+  for (const gap of (Array.isArray(value.blocking_gaps) ? value.blocking_gaps : [])) {
+    if (isHighPriorityCategory(gap?.category)) {
+      blockingGaps.push(gap);
+      recallUnits.push(`recall:${gap.category}`);
+    } else {
+      warnings.push(gap);
+    }
+  }
   const noneFound = validNoneFound(value.none_found) ? value.none_found : null;
   const emptyCategoryReview = value.none_found
     ? (noneFound
@@ -125,14 +135,13 @@ function checkCoverage(input) {
   const quotableCount = asNumber(value.quotable_event_count ?? value.events?.quotable_count);
   const dialogueCovered = asNumber(value.dialogue_covered ?? value.dialogues?.quotable_event_count_with_candidates);
   if (quotableCount > 0 && dialogueCovered / quotableCount < 0.7) {
-    recallUnits.push('recall:dialogues');
-    pushGap(blockingGaps, {
+    pushGap(warnings, {
       category: 'dialogues',
       rule: 'quotable_event_coverage_below_70_percent',
       quotable_event_count: quotableCount,
       dialogue_covered: dialogueCovered,
       expected_evidence: '可引用核心/重要事件的对白或 not_quotable 理由',
-      allowed_unit: 'recall:dialogues'
+      severity: 'warning'
     });
   }
 
@@ -143,21 +152,21 @@ function checkCoverage(input) {
     ? value.dialogue_chapters
     : (Array.isArray(value.dialogues?.chapters) ? value.dialogues.chapters : []);
   if (eventChapters.length >= 8 && dialogueChapters.length / eventChapters.length < 0.3) {
-    recallUnits.push('recall:dialogues');
-    pushGap(blockingGaps, {
+    pushGap(warnings, {
       category: 'dialogues',
       rule: 'dialogue_chapter_coverage_below_30_percent',
       quotable_event_chapters: [...eventChapters],
       dialogue_chapters: [...dialogueChapters],
       expected_evidence: '覆盖分布异常章节中的可引用对白',
-      allowed_unit: 'recall:dialogues'
+      severity: 'warning'
     });
   }
 
   return {
     blocking_gaps: blockingGaps,
     recall_units: [...new Set(recallUnits)],
-    empty_category_review: emptyCategoryReview
+    empty_category_review: emptyCategoryReview,
+    warnings
   };
 }
 
@@ -238,7 +247,7 @@ function checkResolution(input) {
     const category = row?.category || String(row?.candidate_key || '').split(':')[0] || 'unknown';
     const gap = { category, candidate_key: row?.candidate_key, reason, ...extra };
     if (!gaps.some(existing => existing.candidate_key === gap.candidate_key && existing.reason === reason)) gaps.push(gap);
-    if (category !== 'unknown') units.add(`supplement:${category}`);
+    if (isHighPriorityCategory(category)) units.add(`supplement:${category}`);
   };
 
   for (const row of candidates) {

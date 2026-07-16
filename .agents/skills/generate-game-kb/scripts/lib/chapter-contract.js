@@ -100,38 +100,9 @@ function validateChapterDraft(draft, expected) {
     });
   }
 
-  const eventKeys = new Set(draft.events.map(event => event?.local_key).filter(Boolean));
-  const dialogueEvents = new Set();
-  const dialogueKeys = new Set();
-  draft.dialogues.forEach((dialogue, index) => {
-    const label = `dialogues[${index}]`;
-    if (!dialogue || typeof dialogue !== 'object' || Array.isArray(dialogue)) {
-      errors.push(issue('DIALOGUE_INVALID', label));
-      return;
-    }
-    if (typeof dialogue.local_key !== 'string' || dialogue.local_key.trim() === '') {
-      errors.push(issue('LOCAL_KEY_REQUIRED', `${label}.local_key`));
-    } else if (dialogueKeys.has(dialogue.local_key)) {
-      errors.push(issue('LOCAL_KEY_DUPLICATE', `${label}.local_key`, dialogue.local_key));
-    } else {
-      dialogueKeys.add(dialogue.local_key);
-    }
-    if (typeof dialogue.event_local_key !== 'string' || dialogue.event_local_key.trim() === '') {
-      errors.push(issue('DIALOGUE_EVENT_REQUIRED', `${label}.event_local_key`));
-    } else {
-      if (!eventKeys.has(dialogue.event_local_key)) {
-        errors.push(issue('DIALOGUE_EVENT_UNKNOWN', `${label}.event_local_key`, dialogue.event_local_key));
-      }
-      dialogueEvents.add(dialogue.event_local_key);
-    }
-    if (typeof dialogue.speaker_name !== 'string' || dialogue.speaker_name.trim() === '') {
-      errors.push(issue('DIALOGUE_SPEAKER_REQUIRED', `${label}.speaker_name`));
-    }
-    if (typeof dialogue.text !== 'string' || dialogue.text.trim() === '') {
-      errors.push(issue('DIALOGUE_TEXT_REQUIRED', `${label}.text`));
-    }
-    validateSourceRefs(dialogue, label, expected.number, errors);
-  });
+  if (draft.dialogues.length > 0) {
+    errors.push(issue('DIALOGUE_EXTRACTION_DISABLED', 'dialogues', draft.dialogues.length));
+  }
 
   draft.events.forEach((event, index) => {
     if (!IMPORTANT_EVENT_LEVELS.has(event?.importance)) return;
@@ -139,9 +110,6 @@ function validateChapterDraft(draft, expected) {
     if (!QUOTE_STATUSES.has(event.quote_status)) {
       errors.push(issue('EVENT_QUOTE_STATUS_REQUIRED', `${label}.quote_status`, event.quote_status));
       return;
-    }
-    if (event.quote_status === 'quotable' && !dialogueEvents.has(event.local_key)) {
-      errors.push(issue('QUOTABLE_EVENT_DIALOGUE_MISSING', `${label}.local_key`, event.local_key));
     }
     if (event.quote_status === 'not_quotable'
       && (typeof event.quote_reason !== 'string' || event.quote_reason.trim() === '')) {

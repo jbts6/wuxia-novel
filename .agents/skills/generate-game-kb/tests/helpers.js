@@ -73,7 +73,7 @@ function validChapterDraft(overrides = {}) {
     techniques: [{ local_key: 'technique:飞掌', name: '飞云掌', named_in_source: true, source_refs: [sourceRef()] }],
     factions: [],
     locations: [{ local_key: 'location:山谷', name: '无名山谷', source_refs: [sourceRef()] }],
-    dialogues: [{ local_key: 'dialogue:相逢', event_local_key: 'event:相逢', speaker_name: '甲', text: '你来了。', source_refs: [sourceRef()] }],
+    dialogues: [],
     summary: {
       title: '第一章 起始',
       summary: '甲在山谷中与故人相逢。',

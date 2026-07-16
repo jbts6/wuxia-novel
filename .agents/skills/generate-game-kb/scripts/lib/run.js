@@ -8,9 +8,11 @@ const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson } = require('./io');
 const { discoverSource, normalizeSource, sha256 } = require('./source');
 const { pathsFor } = require('./paths');
+const { EMPTY_DURATIONS } = require('./timing');
 const { ensureWorkerPool } = require('./worker-pool');
 
 const SEMANTIC_CONTRACT_VERSION = 2;
+const SEMANTIC_PROFILE = 'domain-distill-v1';
 
 function generatedRunId() {
   return `run-${new Date().toISOString().replace(/[:.]/g, '-')}-${process.pid}-${Math.random().toString(16).slice(2, 10)}`;
@@ -42,7 +44,8 @@ function readRunMetadata(runDir) {
 }
 
 function assertSemanticContract(metadata, action = 'continue') {
-  if (metadata?.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION) {
+  if (metadata?.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION
+    || metadata?.semantic_profile !== SEMANTIC_PROFILE) {
     throw new GameKbError(
       'LEGACY_SEMANTIC_CONTRACT',
       'This run is read-only under the current semantic contract',
@@ -50,6 +53,8 @@ function assertSemanticContract(metadata, action = 'continue') {
         run_id: metadata?.run_id ?? null,
         semantic_contract_version: metadata?.semantic_contract_version ?? null,
         required_version: SEMANTIC_CONTRACT_VERSION,
+        semantic_profile: metadata?.semantic_profile ?? null,
+        required_profile: SEMANTIC_PROFILE,
         action
       }
     );
@@ -60,10 +65,12 @@ function assertSemanticContract(metadata, action = 'continue') {
 function assertArchiveExistingAllowed(novelDir) {
   const legacy = runDirectories(novelDir)
     .map(readRunMetadata)
-    .filter(metadata => metadata.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION)
+    .filter(metadata => metadata.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION
+      || metadata.semantic_profile !== SEMANTIC_PROFILE)
     .map(metadata => ({
       run_id: metadata.run_id,
-      semantic_contract_version: metadata.semantic_contract_version ?? null
+      semantic_contract_version: metadata.semantic_contract_version ?? null,
+      semantic_profile: metadata.semantic_profile ?? null
     }));
   if (legacy.length > 0) {
     throw new GameKbError(
@@ -77,6 +84,8 @@ function assertArchiveExistingAllowed(novelDir) {
 function ensureRunDirectories(paths) {
   for (const directory of [
     paths.staging,
+    paths.domainWork,
+    paths.domainDecisions,
     paths.mergeWork,
     paths.cleanWork,
     paths.mergeDecisions,
@@ -116,6 +125,7 @@ function createOrResumeRun(novelDir, options = {}) {
       source_file: sourceFile,
       source_hash: sourceHash,
       semantic_contract_version: metadata.semantic_contract_version,
+      semantic_profile: metadata.semantic_profile,
       resumed: true
     };
   }
@@ -124,20 +134,13 @@ function createOrResumeRun(novelDir, options = {}) {
   const metadata = {
     schema_version: 1,
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    semantic_profile: SEMANTIC_PROFILE,
     run_id: runId,
     source_file: sourceFile,
     source_hash: sourceHash,
     status: 'active',
     started_at: new Date().toISOString(),
-    phase_durations: {
-      chapter_extraction_ms: 0,
-      merge_ms: 0,
-      clean_ms: 0,
-      targeted_recall_ms: 0,
-      script_ms: 0,
-      human_wait_ms: 0,
-      total_ms: 0
-    }
+    phase_durations: { ...EMPTY_DURATIONS }
   };
   atomicWriteJson(paths.runJson, metadata);
   initializeArtifactManifest(paths);
@@ -148,6 +151,7 @@ function createOrResumeRun(novelDir, options = {}) {
     source_file: sourceFile,
     source_hash: sourceHash,
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    semantic_profile: SEMANTIC_PROFILE,
     resumed: false
   };
 }
@@ -171,6 +175,7 @@ function resolveWritableRun(novelDir, runId, action = 'continue') {
 
 module.exports = {
   SEMANTIC_CONTRACT_VERSION,
+  SEMANTIC_PROFILE,
   assertArchiveExistingAllowed,
   assertSemanticContract,
   createOrResumeRun,

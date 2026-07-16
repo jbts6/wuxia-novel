@@ -302,16 +302,28 @@ function copyUnknownEntries(data, nextData) {
         entry: entry.name
       });
     }
-    fs.cpSync(source, destination, {
-      recursive: true,
-      force: false,
-      errorOnExist: true,
-      dereference: false,
-      verbatimSymlinks: true
-    });
+    copyPreservedEntry(source, destination);
     preserved.push(entry.name);
   }
   return { preserved, removed };
+}
+
+function copyPreservedEntry(source, destination) {
+  const stat = fs.lstatSync(source);
+  if (stat.isSymbolicLink()) {
+    throw new GameKbError('INSTALL_SYMLINK_UNSUPPORTED', 'Preserved data cannot contain a symlink', { path: source });
+  }
+  if (stat.isDirectory()) {
+    fs.mkdirSync(destination);
+    for (const child of fs.readdirSync(source).sort()) {
+      copyPreservedEntry(path.join(source, child), path.join(destination, child));
+    }
+    return;
+  }
+  if (!stat.isFile()) {
+    throw new GameKbError('INSTALL_ENTRY_UNSUPPORTED', 'Preserved data contains an unsupported entry', { path: source });
+  }
+  fs.copyFileSync(source, destination, fs.constants.COPYFILE_EXCL);
 }
 
 function maybeFault(options, point) {

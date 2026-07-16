@@ -19,13 +19,37 @@ test('coverage opens only the affected bounded unit', () => {
   const cases = [
     [{ item_candidates: 7, merged_items: 0, item_resolutions_incomplete: true }, ['supplement:items']],
     [{ item_candidates: 0, merged_items: 0, source_char_count: 150000 }, ['recall:items']],
-    [{ quotable_event_count: 10, dialogue_covered: 6 }, ['recall:dialogues']],
-    [{ quotable_event_chapters: [1, 2, 3, 4, 5, 6, 7, 8], dialogue_chapters: [1, 2] }, ['recall:dialogues']],
+    [{ quotable_event_count: 10, dialogue_covered: 6 }, []],
+    [{ quotable_event_chapters: [1, 2, 3, 4, 5, 6, 7, 8], dialogue_chapters: [1, 2] }, []],
     [{ quantity_out_of_range: true }, []]
   ];
   for (const [input, expected] of cases) {
     assert.deepEqual(checkCoverage(input).recall_units, expected);
   }
+});
+
+test('coverage routes only high-priority semantic gaps to bounded recall', () => {
+  const result = checkCoverage({
+    blocking_gaps: [
+      { category: 'characters', rule: 'important_character_evidence_missing' },
+      { category: 'skills', rule: 'named_skill_missing' },
+      { category: 'techniques', rule: 'named_technique_missing' },
+      { category: 'events', rule: 'important_event_missing' },
+      { category: 'locations', rule: 'minor_location_coverage_low' },
+      { category: 'factions', rule: 'peripheral_faction_coverage_low' }
+    ]
+  });
+
+  assert.deepEqual(result.recall_units, [
+    'recall:characters',
+    'recall:skills',
+    'recall:techniques',
+    'recall:events'
+  ]);
+  assert.deepEqual(result.blocking_gaps.map(gap => gap.category), [
+    'characters', 'skills', 'techniques', 'events'
+  ]);
+  assert.deepEqual(result.warnings.map(gap => gap.category), ['locations', 'factions']);
 });
 
 test('grounded none_found closes a legitimate empty item category', () => {
@@ -63,6 +87,20 @@ test('resolution reports missing, duplicate, and dangling candidate references',
   assert.equal(result.blocking_gaps.some(gap => gap.reason === 'MISSING_DECISION'), true);
 });
 
+test('resolution keeps structural gaps blocking but opens supplements only for high-priority categories', () => {
+  const result = checkResolution({
+    candidate_rows: [
+      { candidate_key: 'items:key', category: 'items' },
+      { candidate_key: 'locations:world', category: 'locations' },
+      { candidate_key: 'dialogues:line', category: 'dialogues' }
+    ]
+  });
+
+  assert.equal(result.passed, false);
+  assert.deepEqual(result.supplement_units, ['supplement:items']);
+  assert.equal(result.blocking_gaps.length, 3);
+});
+
 test('recall and supplement projections leave accepted artifacts unchanged', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'generate-game-kb-recall-'));
   const paths = pathsFor(root, 'run-1');
@@ -88,4 +126,3 @@ test('recall and supplement projections leave accepted artifacts unchanged', () 
   assert.deepEqual({ merged: hash(paths.merged), supplement: hash(supplementFile) }, before);
   assert.equal(JSON.parse(fs.readFileSync(projectionPath, 'utf8')).items.length, 2);
 });
-
