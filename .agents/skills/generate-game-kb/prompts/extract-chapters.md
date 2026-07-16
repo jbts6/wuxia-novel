@@ -60,7 +60,6 @@ items:
   - local_key: "item:回生丹"
     name: 回生丹
     type: 丹药
-    tags: ["稀有", "剧情关键"]
     inclusion_reason: 高级药毒
     source_refs:
       - chapter: 1
@@ -78,7 +77,6 @@ chapter_summary:
 - **level**：核心/重要/次要/龙套/背景
 - **named_in_source**：招式必须为 true
 - **type**：武器/防具/秘籍/丹药/暗器/其他
-- **tags**：稀有/剧情关键/可交易/不可丢弃/套装/唯一（可多选）
 - **inclusion_reason**：秘籍/剧情关键/高级药毒/神兵利器/其他稀有特殊
 - **faction**：引用势力的 local_key，如 `"faction:青城派"`
 - **techniques**：嵌套在 skills 内，每个 technique 必须有 name 和 named_in_source

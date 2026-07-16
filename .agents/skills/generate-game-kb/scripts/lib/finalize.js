@@ -146,7 +146,6 @@ function resolveReferences(recordsByCategory, idPlan) {
     id: record.id,
     name: record.canonical_name,
     type: String(record.type || ''),
-    tags: Array.isArray(record.tags) ? [...record.tags] : [],
     description: String(record.description || '')
   })).sort((left, right) => left.id.localeCompare(right.id));
 
