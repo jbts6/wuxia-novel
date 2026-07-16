@@ -116,9 +116,13 @@ action 只允许 `keep`、`merge`、`reject`、`pending`。
 - id: "item_hui_sheng_dan"
   name: "回生丹"
   type: "丹药"
-  tags: []
+  tags: ["稀有", "剧情关键"]
   description: "用于救治重伤。"
 ```
+
+**type 预设值**：武器、防具、秘籍、丹药、暗器、其他
+
+**tags 预设值**：稀有、剧情关键、可交易、不可丢弃、套装、唯一
 
 ### factions.yaml
 
