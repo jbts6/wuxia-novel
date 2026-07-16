@@ -35,8 +35,7 @@ const COMMAND_PHASES = Object.freeze({
   'archive-run': 'archive_ms'
 });
 const FINAL_ENTITY_FILES = Object.freeze([
-  'characters.json', 'events.json', 'items.json', 'skills.json',
-  'techniques.json', 'factions.json', 'locations.json', 'dialogues.json'
+  'characters.yaml', 'items.yaml', 'skills.yaml', 'factions.yaml'
 ]);
 
 function timestamp(value) {

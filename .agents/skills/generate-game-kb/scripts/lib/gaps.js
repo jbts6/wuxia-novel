@@ -65,9 +65,7 @@ function readCoverageInput(input) {
       item_resolutions_incomplete: Boolean(merged) && itemRows.some(row => row.resolution === 'ambiguous'),
       important_event_count: chapterCoverage.events.important_count,
       quotable_event_count: chapterCoverage.events.quotable_count,
-      dialogue_covered: chapterCoverage.dialogues.quotable_event_count_with_candidates,
       quotable_event_chapters: [...quotableEventChapters].sort((a, b) => a - b),
-      dialogue_chapters: [...chapterCoverage.dialogues.chapters],
       none_found,
       chapter_coverage: chapterCoverage,
       ...input
@@ -133,10 +131,8 @@ function checkCoverage(input) {
   }
 
   const quotableCount = asNumber(value.quotable_event_count ?? value.events?.quotable_count);
-  const dialogueCovered = asNumber(value.dialogue_covered ?? value.dialogues?.quotable_event_count_with_candidates);
   if (quotableCount > 0 && dialogueCovered / quotableCount < 0.7) {
     pushGap(warnings, {
-      category: 'dialogues',
       rule: 'quotable_event_coverage_below_70_percent',
       quotable_event_count: quotableCount,
       dialogue_covered: dialogueCovered,
@@ -150,10 +146,8 @@ function checkCoverage(input) {
     : (Array.isArray(value.events?.quotable_chapters) ? value.events.quotable_chapters : []);
   const dialogueChapters = Array.isArray(value.dialogue_chapters)
     ? value.dialogue_chapters
-    : (Array.isArray(value.dialogues?.chapters) ? value.dialogues.chapters : []);
   if (eventChapters.length >= 8 && dialogueChapters.length / eventChapters.length < 0.3) {
     pushGap(warnings, {
-      category: 'dialogues',
       rule: 'dialogue_chapter_coverage_below_30_percent',
       quotable_event_chapters: [...eventChapters],
       dialogue_chapters: [...dialogueChapters],

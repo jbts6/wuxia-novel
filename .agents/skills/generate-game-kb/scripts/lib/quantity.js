@@ -3,15 +3,12 @@
 const RANGES = Object.freeze({
   short: Object.freeze({
     characters: [10, 35], events: [20, 80], items: [3, 12], skills: [5, 20],
-    techniques: [0, 20], factions: [2, 12], locations: [5, 25], dialogues: [5, 25]
   }),
   medium: Object.freeze({
     characters: [25, 75], events: [60, 220], items: [6, 20], skills: [10, 35],
-    techniques: [5, 45], factions: [5, 25], locations: [10, 50], dialogues: [20, 60]
   }),
   long: Object.freeze({
     characters: [45, 120], events: [150, 400], items: [10, 30], skills: [15, 50],
-    techniques: [10, 80], factions: [10, 40], locations: [20, 80], dialogues: [40, 100]
   })
 });
 

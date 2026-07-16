@@ -193,7 +193,6 @@ function createMergeWorkPlan({ chapters, accepted_hashes: acceptedHashes } = {})
         category: member.category,
         chapter: member.chapter,
         ...(member.category === 'events' ? { source_local_key: member.candidate.local_key } : {}),
-        ...(member.category === 'dialogues' ? { event_local_key: member.candidate.event_local_key } : {})
       }
     };
   });
@@ -204,7 +203,6 @@ function createMergeWorkPlan({ chapters, accepted_hashes: acceptedHashes } = {})
       `${member.binding.chapter}\0${member.binding.source_local_key}`,
       member.binding.candidate_ref
     ]));
-  for (const member of planned.filter(value => value.category === 'dialogues')) {
     const eventRef = eventRefByChapterKey.get(`${member.binding.chapter}\0${member.binding.event_local_key}`);
     if (!eventRef) {
       throw workItemError('WORK_PLAN_INPUT_INVALID', 'Dialogue candidate event cannot be bound to a chapter event', {
@@ -414,8 +412,6 @@ function materialSignals(category, record) {
     skills: ['type'],
     techniques: ['named_in_source', 'source_skill_name'],
     factions: ['type'],
-    locations: ['region'],
-    dialogues: ['speaker_name', 'chapter']
   }[category] || [];
   return cloneAiValue(Object.fromEntries(fields
     .filter(field => record?.[field] !== undefined)
@@ -430,7 +426,6 @@ const MATERIAL_POOL_BY_CATEGORY = {
   characters: 'characters',
   items: 'items',
   factions: 'world',
-  locations: 'world'
 };
 const MATERIAL_IMPORTANCE_ORDER = new Map([
   ['核心', 0],
@@ -532,7 +527,6 @@ function workRoot(paths, stage) {
 function unitDirectory(root, unit) {
   if (typeof unit !== 'string'
     || !(/^distill:(plot|martial|items|world)$/.test(unit)
-      || /^(merge|clean):(characters|events|items|skills|techniques|factions|locations|dialogues):(\d{3}|consolidate)$/.test(unit)
       || unit === 'clean:materials:001')) {
     throw workItemError('WORK_UNIT_INVALID', 'Semantic work unit is invalid', { unit });
   }

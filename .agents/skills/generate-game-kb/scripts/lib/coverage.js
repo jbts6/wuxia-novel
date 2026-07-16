@@ -2,13 +2,12 @@
 
 const CANDIDATE_CATEGORIES = Object.freeze([
   'characters',
-  'events',
+  
   'items',
   'skills',
-  'techniques',
+  
   'factions',
-  'locations',
-  'dialogues'
+  
 ]);
 const IMPORTANT_EVENT_LEVELS = new Set(['核心', '重要', 'core', 'important']);
 
@@ -47,7 +46,6 @@ function buildChapterCoverage(chapters) {
         quotableEvents.push(event);
       }
     }
-    for (const dialogue of records(chapter, 'dialogues')) {
       if (typeof dialogue?.event_local_key === 'string') eventKeysWithDialogues.add(dialogue.event_local_key);
     }
   }
@@ -59,9 +57,6 @@ function buildChapterCoverage(chapters) {
       important_count: importantEvents.length,
       quotable_count: quotableEvents.length
     },
-    dialogues: {
-      candidate_count: categories.dialogues.candidate_count,
-      chapters: categories.dialogues.chapters,
       quotable_event_count_with_candidates: quotableEvents
         .filter(event => eventKeysWithDialogues.has(event?.local_key))
         .length

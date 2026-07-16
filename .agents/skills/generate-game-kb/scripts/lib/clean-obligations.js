@@ -23,7 +23,6 @@ function cleanedAsMerged(book) {
 }
 
 function locationForPath(book, path) {
-  const match = /^(characters|events|items|skills|techniques|factions|locations|dialogues)\[(\d+)\]/.exec(path || '');
   if (!match) return { category: '', entity_key: '' };
   const category = match[1];
   const record = Array.isArray(book?.[category]) ? book[category][Number(match[2])] : null;
@@ -135,13 +134,10 @@ function buildCleanObligations(book, manifest, chapters) {
 
   const eventKeys = new Set((Array.isArray(book?.events) ? book.events : []).map(event => event?.local_key));
   const dialogueByEvent = new Map();
-  for (const [index, dialogue] of (Array.isArray(book?.dialogues) ? book.dialogues : []).entries()) {
     if (!eventKeys.has(dialogue?.event_key)) {
       obligations.push(rawObligation(
         'DIALOGUE_EVENT_UNKNOWN',
-        'dialogues',
         dialogue?.local_key,
-        `dialogues[${index}].event_key`,
         dialogue?.event_key
       ));
     }
@@ -153,9 +149,7 @@ function buildCleanObligations(book, manifest, chapters) {
       if (ref?.chapter !== dialogue.chapter) {
         obligations.push(rawObligation(
           'SOURCE_CHAPTER_MISMATCH',
-          'dialogues',
           dialogue?.local_key,
-          `dialogues[${index}].source_refs[${refIndex}].chapter`,
           ref?.chapter
         ));
       }
@@ -166,9 +160,7 @@ function buildCleanObligations(book, manifest, chapters) {
     for (const { dialogue, index } of entries.slice(1)) {
       obligations.push(rawObligation(
         'DIALOGUE_EVENT_DUPLICATE',
-        'dialogues',
         dialogue?.local_key,
-        `dialogues[${index}].event_key`,
         eventKey
       ));
     }

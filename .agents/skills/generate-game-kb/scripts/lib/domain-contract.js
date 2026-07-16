@@ -9,13 +9,9 @@ const CONTROLLER_FIELDS = new Set([
 const COMMON_REJECTIONS = Object.freeze(['duplicate', 'not_source_grounded']);
 const REJECTION_REASONS = Object.freeze({
   characters: Object.freeze([...COMMON_REJECTIONS, 'duplicate_identity', 'not_character', 'background_only']),
-  events: Object.freeze([...COMMON_REJECTIONS, 'duplicate_event', 'trivial_event', 'not_event']),
-  dialogues: Object.freeze([...COMMON_REJECTIONS, 'duplicate_dialogue', 'ordinary_dialogue', 'not_dialogue']),
   skills: Object.freeze([...COMMON_REJECTIONS, 'duplicate_skill', 'unnamed_action', 'not_martial']),
-  techniques: Object.freeze([...COMMON_REJECTIONS, 'duplicate_technique', 'ordinary_action', 'unnamed_action', 'not_technique']),
   items: Object.freeze([...COMMON_REJECTIONS, 'duplicate_item', 'ordinary_item', 'not_item']),
-  factions: Object.freeze([...COMMON_REJECTIONS, 'duplicate_faction', 'incidental_group', 'not_faction']),
-  locations: Object.freeze([...COMMON_REJECTIONS, 'duplicate_location', 'incidental_location', 'not_location'])
+  factions: Object.freeze([...COMMON_REJECTIONS, 'duplicate_faction', 'incidental_group', 'not_faction'])
 });
 
 function issue(code, path, target = '') {

@@ -10,7 +10,6 @@ const SINGLE_REFERENCE_FIELDS = Object.freeze({
   owner_local_key: ['characters', 'owner_registry_key'],
   item_local_key: ['items', 'item_registry_key'],
   faction_local_key: ['factions', 'faction_registry_key'],
-  location_local_key: ['locations', 'location_registry_key']
 });
 
 const ARRAY_REFERENCE_FIELDS = Object.freeze({
@@ -20,7 +19,6 @@ const ARRAY_REFERENCE_FIELDS = Object.freeze({
   technique_local_keys: ['techniques', 'technique_registry_keys'],
   item_local_keys: ['items', 'item_registry_keys'],
   faction_local_keys: ['factions', 'faction_registry_keys'],
-  location_local_keys: ['locations', 'location_registry_keys'],
   event_local_keys: ['events', 'event_registry_keys']
 });
 
@@ -58,7 +56,6 @@ function normalizeRegistryName(value) {
 }
 
 function candidateName(category, candidate) {
-  if (category === 'dialogues') {
     const speaker = normalizeRegistryName(candidate?.speaker_name);
     const text = normalizeRegistryName(candidate?.text);
     return [speaker, text].filter(Boolean).join('：') || normalizeRegistryName(candidate?.local_key);
@@ -255,7 +252,6 @@ function buildCandidateRegistry(chapters) {
   }
 
   const namesAcrossCategories = new Map();
-  for (const category of CANDIDATE_ARRAYS.filter(value => value !== 'dialogues')) {
     for (const entry of categories[category]) {
       const list = namesAcrossCategories.get(entry.normalized_name) || [];
       list.push(entry);

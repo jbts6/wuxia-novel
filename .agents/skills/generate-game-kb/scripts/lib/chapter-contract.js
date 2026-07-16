@@ -5,13 +5,12 @@ const { isPowerRank } = require('./semantic-contract');
 
 const CANDIDATE_ARRAYS = Object.freeze([
   'characters',
-  'events',
+  
   'items',
   'skills',
-  'techniques',
+  
   'factions',
-  'locations',
-  'dialogues'
+  
 ]);
 const IMPORTANT_EVENT_LEVELS = new Set(['核心', '重要', 'core', 'important']);
 const QUOTE_STATUSES = new Set(['quotable', 'not_quotable']);
@@ -92,7 +91,6 @@ function validateChapterDraft(draft, expected) {
   }
   if (errors.some(error => error.code === 'CATEGORY_ARRAY_REQUIRED')) return errors;
 
-  for (const category of CANDIDATE_ARRAYS.filter(value => value !== 'dialogues')) {
     const localKeys = new Set();
     draft[category].forEach((record, index) => {
       const label = `${category}[${index}]`;
@@ -112,8 +110,6 @@ function validateChapterDraft(draft, expected) {
     });
   }
 
-  if (draft.dialogues.length > 0) {
-    errors.push(issue('DIALOGUE_EXTRACTION_DISABLED', 'dialogues', draft.dialogues.length));
   }
 
   draft.events.forEach((event, index) => {

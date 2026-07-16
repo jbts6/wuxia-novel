@@ -8,9 +8,7 @@ const HIGH_PRIORITY_CATEGORIES = Object.freeze([
   'techniques'
 ]);
 const LOW_PRIORITY_CATEGORIES = Object.freeze([
-  'dialogues',
   'factions',
-  'locations',
   'chapter_summaries'
 ]);
 const HIGH_PRIORITY_SET = new Set(HIGH_PRIORITY_CATEGORIES);

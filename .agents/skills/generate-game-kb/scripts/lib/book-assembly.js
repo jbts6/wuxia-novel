@@ -11,13 +11,9 @@ const { sha256 } = require('./source');
 
 const CATEGORY_PREFIX = Object.freeze({
   characters: 'character',
-  events: 'event',
   items: 'item',
   skills: 'skill',
-  techniques: 'technique',
-  factions: 'faction',
-  locations: 'location',
-  dialogues: 'dialogue'
+  factions: 'faction'
 });
 
 function assemblyError(code, message, details = {}) {
@@ -222,7 +218,6 @@ function createMergeConsolidationWorkItem(
       || compareText(left.provisional_key, right.provisional_key));
   const bindings = sourceEntities.map((entity, index) => {
     const sourceEntity = structuredClone(entity);
-    if (descriptor.category === 'dialogues') {
       const eventRef = sourceEntity.fields?.event_ref;
       if (eventRefAliases[eventRef]) sourceEntity.fields.event_ref = eventRefAliases[eventRef];
     }
@@ -240,7 +235,6 @@ function createMergeConsolidationWorkItem(
       canonical_name: binding.source_entity.canonical_name,
       aliases: binding.source_entity.aliases
     };
-    if (descriptor.category === 'dialogues') {
       visible.fields = Object.fromEntries(
         ['event_ref', 'speaker_name', 'chapter', 'text']
           .filter(field => binding.source_entity.fields?.[field] !== undefined)
@@ -256,7 +250,6 @@ function createMergeConsolidationWorkItem(
     unit: descriptor.unit,
     category: descriptor.category,
     input_hash: `sha256:${'0'.repeat(64)}`,
-    ...(descriptor.category === 'dialogues'
       ? { constraints: { max_entities_per_event_ref: 1 } }
       : {}),
     entities: visibleEntities
@@ -330,7 +323,6 @@ function assignLocalKeys(entities) {
 }
 
 function materializeEntity(entity, localKey, eventRefMap = {}) {
-  if (entity.category === 'dialogues') {
     const fields = { ...entity.fields };
     const eventRef = fields.event_ref;
     delete fields.event_ref;
@@ -599,7 +591,6 @@ function resolveTransitionTarget(sourceKey, transitions, visiting = new Set()) {
 
 function mergeRecordMetadata(target, source, category) {
   target.source_refs = unionSourceRefs([target, source]);
-  if (category !== 'dialogues') {
     target.aliases = uniqueSorted([
       ...(target.aliases || []),
       ...(source.aliases || []),
@@ -708,7 +699,6 @@ function assembleCleanedBook({
       });
     }
     mergeRecordMetadata(target, transition.source_entity, transition.source_entity?.local_key?.split(':')[0] === 'dialogue'
-      ? 'dialogues'
       : transition.source_entity?.category);
   }
 

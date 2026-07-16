@@ -32,8 +32,8 @@ const { hashFinalData, loadData } = require('./verify');
 const { applyRecall, applySupplement } = require('./supplements');
 const { readWorkItem, readWorkPlan } = require('./semantic-work');
 
-const MERGE_DECISION_UNIT = /^merge:(characters|events|items|skills|techniques|factions|locations|dialogues):(\d{3}|consolidate)$/;
-const CLEAN_DECISION_UNIT = /^clean:(characters|events|items|skills|techniques|factions|locations|dialogues):\d{3}$/;
+const MERGE_DECISION_UNIT = /^merge:(characters|items|skills|factions):(\d{3}|consolidate)$/;
+const CLEAN_DECISION_UNIT = /^clean:(characters|items|skills|factions):\d{3}$/;
 const MATERIAL_DECISION_UNIT = /^clean:materials:001$/;
 const DOMAIN_DECISION_UNIT = /^distill:(plot|martial|items|world)$/;
 

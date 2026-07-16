@@ -10,8 +10,6 @@ const PREFIX = Object.freeze({
   skills: 'skill',
   techniques: 'tech',
   factions: 'faction',
-  locations: 'loc',
-  dialogues: 'dialogue'
 });
 const HEX_LETTERS = 'abcdefghijklmnop';
 

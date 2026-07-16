@@ -12,15 +12,9 @@ const CATEGORY_FIELDS = Object.freeze({
     'level', 'identity', 'biography', 'personality', 'relationship_names',
     'skill_names', 'item_names', 'rank'
   ]),
-  events: new Set([
-    'cause', 'process', 'result', 'participant_names', 'location_names', 'importance'
-  ]),
   items: new Set(['inclusion_reason', 'type', 'description']),
   skills: new Set(['type', 'description', 'holder_names', 'technique_names', 'rank']),
-  techniques: new Set(['named_in_source', 'source_skill_name', 'description']),
-  factions: new Set(['type', 'description']),
-  locations: new Set(['region', 'description']),
-  dialogues: new Set(['event_ref', 'speaker_name', 'chapter', 'text'])
+  factions: new Set(['type', 'description'])
 });
 
 const CLEAN_PATCH_FIELDS = Object.freeze(Object.fromEntries(
@@ -127,30 +121,6 @@ function dialogueEventRefs(workItem) {
   ].filter(([ref, eventRef]) => nonempty(ref) && nonempty(eventRef)));
 }
 
-function validateDialogueEventLimits(draft, workItem, issues) {
-  if (workItem?.category !== 'dialogues') return;
-  const eventByMemberRef = dialogueEventRefs(workItem);
-  const survivingEvents = new Set();
-  for (const [index, decision] of (Array.isArray(draft?.decisions) ? draft.decisions : []).entries()) {
-    if (decision?.action !== 'merge') continue;
-    const path = `decisions[${index}].fields.event_ref`;
-    const memberEvents = new Set((Array.isArray(decision.member_refs) ? decision.member_refs : [])
-      .map(ref => eventByMemberRef.get(ref))
-      .filter(nonempty));
-    const eventRef = decision?.fields?.event_ref;
-    if (!nonempty(eventRef)
-      || memberEvents.size > 1
-      || (memberEvents.size === 1 && !memberEvents.has(eventRef))) {
-      issues.push(issue('DIALOGUE_EVENT_MISMATCH', path, eventRef));
-      continue;
-    }
-    if (survivingEvents.has(eventRef)) {
-      issues.push(issue('DIALOGUE_EVENT_DUPLICATE', path, eventRef));
-    }
-    survivingEvents.add(eventRef);
-  }
-}
-
 function validateRefCoverage(expectedRefs, seenRefs, path, issues) {
   const expected = new Set(expectedRefs);
   const counts = new Map();
@@ -177,17 +147,13 @@ function validateMergeEntry(decision, category, path, issues) {
   }
 
   if (decision.action === 'merge') {
-    const required = category === 'dialogues'
-      ? new Set(['entity_ref', 'member_refs', 'action', 'fields'])
-      : new Set(['entity_ref', 'member_refs', 'action', 'canonical_name', 'aliases', 'fields']);
+    const required = new Set(['entity_ref', 'member_refs', 'action', 'canonical_name', 'aliases', 'fields']);
     exactFields(decision, required, path, issues);
     if (!nonempty(decision.entity_ref)) issues.push(issue('SEMANTIC_DECISION_INVALID', `${path}.entity_ref`));
-    if (category !== 'dialogues' && !nonempty(decision.canonical_name)) {
+    if (!nonempty(decision.canonical_name)) {
       issues.push(issue('SEMANTIC_DECISION_INVALID', `${path}.canonical_name`));
     }
-    if (category !== 'dialogues') {
-      validateStringArray(decision.aliases, `${path}.aliases`, issues);
-    }
+    validateStringArray(decision.aliases, `${path}.aliases`, issues);
     validateSemanticFields(decision.fields, category, CATEGORY_FIELDS, `${path}.fields`, issues);
   } else if (decision.action === 'reject') {
     exactFields(decision, new Set(['member_refs', 'action', 'reason', 'detail']), path, issues);

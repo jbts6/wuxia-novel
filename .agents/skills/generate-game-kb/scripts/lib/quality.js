@@ -13,8 +13,6 @@ const FILE_GROUPS = Object.freeze({
   'characters.json': 'characters',
   'items.json': 'items',
   'factions.json': 'other',
-  'locations.json': 'other',
-  'dialogues.json': 'other'
 });
 
 const FIXED_QUOTAS = Object.freeze({
@@ -22,8 +20,6 @@ const FIXED_QUOTAS = Object.freeze({
   events: 8,
   characters: 5,
   items: 5,
-  dialogues: 4,
-  factions_locations: 4,
   chapter_summaries: 2
 });
 const FIXED_GROUP_FILES = Object.freeze({
@@ -31,8 +27,6 @@ const FIXED_GROUP_FILES = Object.freeze({
   events: ['events.json'],
   characters: ['characters.json'],
   items: ['items.json'],
-  dialogues: ['dialogues.json'],
-  factions_locations: ['factions.json', 'locations.json'],
   chapter_summaries: ['chapter_summaries.json']
 });
 

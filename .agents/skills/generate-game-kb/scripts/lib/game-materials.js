@@ -16,8 +16,6 @@ const CATEGORY_FILES = Object.freeze({
   skills: 'skills.json',
   techniques: 'techniques.json',
   factions: 'factions.json',
-  locations: 'locations.json',
-  dialogues: 'dialogues.json'
 });
 
 function buildGameMaterials(finalData, candidates) {
