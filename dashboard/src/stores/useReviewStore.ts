@@ -131,9 +131,11 @@ export const useReviewStore = create<ReviewStore>((set, get) => ({
 
         if (!readResponse.ok) throw new Error('读取文件失败');
 
-        // 备份文件
+        // 备份文件到 backups 目录
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const backupPath = filePath.replace(/(\.(yaml|yml|json))$/, `.backup.${timestamp}$1`);
+        const fileName = filePath.split('/').pop() || '';
+        const backupFileName = fileName.replace(/(\.(yaml|yml|json))$/, `.backup.${timestamp}$1`);
+        const backupPath = `${bookPath}/data/backups/${backupFileName}`;
         await fetch('/api/review/backup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

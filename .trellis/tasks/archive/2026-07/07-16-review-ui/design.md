@@ -118,16 +118,34 @@ async function saveYamlFile(filePath: string, data: any[]): Promise<void> {
 
 ### 5.3 备份文件
 
+备份文件存放在 `data/backups/` 目录下，与原文件分离，便于管理和清理。
+
 ```typescript
-async function backupFile(filePath: string): Promise<void> {
+async function backupFile(filePath: string, bookPath: string): Promise<void> {
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const backupPath = filePath.replace('.yaml', `.backup.${timestamp}.yaml`);
+  const fileName = filePath.split('/').pop() || '';
+  const backupFileName = fileName.replace(/(\.(yaml|yml|json))$/, `.backup.${timestamp}$1`);
+  const backupPath = `${bookPath}/data/backups/${backupFileName}`;
   await fetch('/api/review/backup', {
     method: 'POST',
     body: JSON.stringify({ source: filePath, target: backupPath }),
   });
 }
 ```
+
+**备份目录结构**：
+```
+金庸/书剑恩仇录/data/
+├── characters.json
+├── skills.json
+├── items.json
+└── backups/
+    ├── characters.backup.2026-07-16T10-30-00-000Z.json
+    ├── skills.backup.2026-07-16T10-30-00-000Z.json
+    └── ...
+```
+
+**注意**：`backups/` 目录已在 `.gitignore` 中忽略，不会提交到版本控制。
 
 ## 6. API 端点
 
