@@ -654,3 +654,37 @@ Implemented the four-domain fast game-KB flow, disabled fresh chapter dialogue e
 ### Next Steps
 
 - None - task complete
+
+
+## Session 14: 统一 game-kb 境界字段契约
+
+**Date**: 2026-07-16
+**Task**: 统一 game-kb 境界字段契约
+**Branch**: `main`
+
+### Summary
+
+完成 generate-game-kb v3 与 Dashboard 的 power_rank 统一：人物和武功使用八级巅峰境界，武功移除旧 rank 字段，物品移除稀有度字段；补齐生成器校验、规范、提示词、测试和 Dashboard 归一化/展示。新鲜验证中 Dashboard 25 个测试文件 92/92、lint 0 错误、build 和 diff-check 通过；生成器 204 个测试 202 通过、1 跳过，唯一失败为 Windows fs.symlinkSync EPERM 环境例外。保留用户未提交的 dashboard/package-lock.json。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `7fa88e55` | (see git log) |
+| `a0e595f5` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
