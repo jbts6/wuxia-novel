@@ -28,6 +28,7 @@ export default function ReviewPage() {
   } = useReviewStore();
 
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   useEffect(() => {
     loadFiles(bookPath);

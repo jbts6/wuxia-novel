@@ -39,6 +39,7 @@ export function handleReviewApiRequest(
   rootDirectory: string,
   method: string | undefined,
   requestUrl: string | undefined,
+  requestBody?: string,
 ): Promise<ApiResult> | ApiResult | null {
   const url = new URL(requestUrl ?? '/', 'http://localhost');
   if (!url.pathname.startsWith('/api/review/')) return null;
@@ -60,47 +61,47 @@ export function handleReviewApiRequest(
 
     // POST /api/review/write
     if (method === 'POST' && url.pathname === '/api/review/write') {
-      return readRequestBody(request).then((body) => {
-        const { path: filePath, content } = JSON.parse(body);
-        if (!filePath || content === undefined) {
-          return { status: 400, body: { error: '缺少 path 或 content 参数' } };
-        }
+      if (!requestBody) return { status: 400, body: { error: '缺少请求体' } };
 
-        const fullPath = validateFilePath(rootDirectory, filePath);
-        if (!fullPath) return { status: 400, body: { error: '无效的文件路径' } };
+      const { path: filePath, content } = JSON.parse(requestBody);
+      if (!filePath || content === undefined) {
+        return { status: 400, body: { error: '缺少 path 或 content 参数' } };
+      }
 
-        fs.writeFileSync(fullPath, content, 'utf-8');
-        return { status: 200, body: { success: true } };
-      });
+      const fullPath = validateFilePath(rootDirectory, filePath);
+      if (!fullPath) return { status: 400, body: { error: '无效的文件路径' } };
+
+      fs.writeFileSync(fullPath, content, 'utf-8');
+      return { status: 200, body: { success: true } };
     }
 
     // POST /api/review/backup
     if (method === 'POST' && url.pathname === '/api/review/backup') {
-      return readRequestBody(request).then((body) => {
-        const { source, target } = JSON.parse(body);
-        if (!source || !target) {
-          return { status: 400, body: { error: '缺少 source 或 target 参数' } };
-        }
+      if (!requestBody) return { status: 400, body: { error: '缺少请求体' } };
 
-        const fullSource = validateFilePath(rootDirectory, source);
-        const fullTarget = validateFilePath(rootDirectory, target);
-        if (!fullSource || !fullTarget) {
-          return { status: 400, body: { error: '无效的文件路径' } };
-        }
+      const { source, target } = JSON.parse(requestBody);
+      if (!source || !target) {
+        return { status: 400, body: { error: '缺少 source 或 target 参数' } };
+      }
 
-        if (!fs.existsSync(fullSource)) {
-          return { status: 404, body: { error: '源文件不存在' } };
-        }
+      const fullSource = validateFilePath(rootDirectory, source);
+      const fullTarget = validateFilePath(rootDirectory, target);
+      if (!fullSource || !fullTarget) {
+        return { status: 400, body: { error: '无效的文件路径' } };
+      }
 
-        // 确保目标目录存在
-        const targetDir = path.dirname(fullTarget);
-        if (!fs.existsSync(targetDir)) {
-          fs.mkdirSync(targetDir, { recursive: true });
-        }
+      if (!fs.existsSync(fullSource)) {
+        return { status: 404, body: { error: '源文件不存在' } };
+      }
 
-        fs.copyFileSync(fullSource, fullTarget);
-        return { status: 200, body: { success: true, backupPath: target } };
-      });
+      // 确保目标目录存在
+      const targetDir = path.dirname(fullTarget);
+      if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir, { recursive: true });
+      }
+
+      fs.copyFileSync(fullSource, fullTarget);
+      return { status: 200, body: { success: true, backupPath: target } };
     }
 
     // GET /api/review/list?bookPath=<path>
@@ -142,7 +143,11 @@ function sendJson(response: ServerResponse, result: ApiResult): void {
 
 function createMiddleware(rootDirectory: string): Connect.NextHandleFunction {
   return async (request: IncomingMessage, response: ServerResponse, next: Connect.NextFunction) => {
-    const result = await handleReviewApiRequest(rootDirectory, request.method, request.url);
+    let requestBody: string | undefined;
+    if (request.method === 'POST') {
+      requestBody = await readRequestBody(request);
+    }
+    const result = await handleReviewApiRequest(rootDirectory, request.method, request.url, requestBody);
     if (!result) {
       next();
       return;
