@@ -1,2583 +1,1053 @@
 [
   {
-    "id": "char_chen_jia_luo",
-    "name": "陈家洛",
-    "alias": [
-      "总舵主",
-      "陈公子"
-    ],
-    "identity": "红花会总舵主",
-    "faction": "faction_hong_hua_hui",
-    "role": "核心",
-    "archetype": "warrior",
-    "power_rank": "登峰造极",
-    "importance": "核心",
-    "one_line": "红花会总舵主，乾隆皇帝的亲弟弟，为反清复明奋斗",
-    "biography": "海宁陈家之子，幼时被于万亭带出抚养，拜袁士霄为师。接任红花会总舵主后领导反清大业。与乾隆相认后试图劝其反满兴汉，最终失败。与霍青桐、香香公主姐妹产生感情纠葛。",
+    "id": "char_a_fan_ti",
+    "name": "阿凡提",
+    "alias": [],
+    "aliases": [],
+    "identity": "神秘智者",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "出神入化",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "维吾尔族智者，以智慧和幽默著称，擅长用故事点化他人，武功深不可测。",
+    "bio": "维吾尔族智者，以智慧和幽默著称，擅长用故事点化他人，武功深不可测。",
+    "biography": "维吾尔族智者，以智慧和幽默著称，擅长用故事点化他人，武功深不可测。",
     "personality": {
       "traits": [
-        "重情重义",
-        "文武双全",
-        "理想主义",
-        "优柔寡断",
-        "书生意气",
-        "顾全大局"
+        "睿智",
+        "幽默"
       ],
-      "speech_style": "文雅有礼，引经据典",
-      "temperament": "儒雅温文"
+      "speech_style": "诙谐",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_qian_long",
-        "type": "亲属",
-        "intensity": 80,
-        "bond_level": 4,
-        "dynamic": "亲兄弟，立场对立"
-      },
-      {
-        "target": "char_huo_qing_tong",
-        "type": "恋人",
-        "intensity": 70,
-        "bond_level": 3,
-        "dynamic": "互有情意却未能表白"
-      },
-      {
-        "target": "char_xiang_xiang_gong_zhu",
-        "type": "恋人",
-        "intensity": 90,
-        "bond_level": 4,
-        "dynamic": "深爱却不得不割舍"
-      },
-      {
-        "target": "char_yuan_shi_xiao",
-        "type": "师徒",
-        "intensity": 90,
-        "bond_level": 5,
-        "dynamic": "师徒情深"
-      },
-      {
-        "target": "char_wen_tai_lai",
-        "type": "合作者",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "红花会兄弟"
-      },
-      {
-        "target": "char_zhang_zhao_zhong",
-        "type": "宿敌",
-        "intensity": 60,
-        "bond_level": 2,
-        "dynamic": "多次交手"
-      },
-      {
-        "target": "char_xu_tian_hong",
-        "type": "合作者",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "红花会兄弟"
-      },
-      {
-        "target": "char_zhou_zhong_ying",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "化敌为友"
-      },
-      {
-        "target": "char_zhao_ban_shan",
-        "type": "合作者",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "红花会兄弟"
-      },
-      {
-        "target": "char_wei_chun_hua",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "红花会兄弟"
-      },
-      {
-        "target": "char_zhang_jin",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "红花会兄弟"
-      },
-      {
-        "target": "char_a_fan_ti",
-        "type": "合作者",
-        "intensity": 40,
-        "bond_level": 2,
-        "dynamic": "帮助红花会"
-      },
-      {
-        "target": "char_wu_dun_dao_zhang",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "红花会兄弟"
-      }
-    ],
-    "known_skills": [
-      "skill_bai_hua_cuo_quan",
-      "skill_pao_ding_jie_niu_gong"
-    ],
+    "relationships": [],
+    "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20
-    ],
+    "skills": [],
+    "items": [],
     "source_refs": [
       {
-        "chapter": 2,
-        "line_start": 278,
-        "line_end": 284,
-        "text": "\n这驼子姓章名进，最是直性子。他天生残疾，可是神力惊人，练就了一身外家的硬功夫。他身有缺陷，最恼别人取笑他的驼背，他和人说话时自称“章驼子”，那是好端端地，然而别人若是在他面前提到个“驼”字，甚至冲着他的驼背一笑，这人算是惹上了祸啦。笑他之人如是常人也还罢了，如会武艺，往往就被他结结实实的打上一顿。他在红花会中最听骆冰的话，因他脾气古怪，旁人都忌他三分，骆冰却怜他残废，衣着饮食，时加细心照料，当他是小兄弟一般。他听到文泰来夫妇遇难，热血沸腾，一股劲就奔去赴援。章进在红花会中排行第十，刚才被他拉去的是坐第七把交椅的徐天宏。其人身材矮小，足智多谋，算是红花会的军师，武功也颇不弱，江湖上送他一个外号，叫做“武诸葛”。\n\n赵半山把这两人的情形大略一说，红花会众当家陆续出来厮会，全是武林中成名的英雄好汉，陆菲青在途中大半也都见过。赵半山一一引见，各人心急如焚，连客套话也都省了。陆菲青把文泰来的事择要…",
-        "anchors_hit": [
-          "文泰来",
-          "陆菲青",
-          "赵半山",
-          "暗器"
-        ],
-        "anchors_total": 4,
-        "locate_status": "located",
-        "locate_score": 400,
-        "locate_method": "window",
-        "hint_chapter": 2,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 5,
-            "line_start": 350,
-            "line_end": 356,
-            "text": "\n陈家洛揪住那将官的辫子，在清兵喊叫声中奔向水边，与无尘、赵半山、周仲英都纵到了筏上。蒋四根拔起铁桨，与骆冰双桨摇动，将筏子划向河心。\n\n河水正自大涨，水势汹涌，两只羊皮大筏向下游如飞般流去。眼见铁甲军人马愈来愈小，再过一会，惟见远处火光闪动，水声轰隆，大军人马的喧哗声却渐渐听不到了。\n\n群雄定下心来，照料伤者。卫春华神智渐清，身上倒没受伤。赵半山是暗器能手，医治箭创素所擅长，于是替杨成协和章进裹了伤口。章进伤势较重，但也无大碍。心砚中了数枚金针，痛得叫个不停，原来张召重手劲特重，金针入肉着骨。赵半山从药囊中取出一块吸铁石，将金针一枚一枚的吸出，再为他敷药裹伤。骆冰掌住了舵，一言不发。这一役文泰来没救出，反而失陷了徐天宏、周绮、陆菲青师徒四人，余鱼同也不知落在何方。\n",
-            "score": 400,
-            "anchors_hit": [
-              "赵半山",
-              "文泰来",
-              "陆菲青",
-              "暗器"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 12,
-            "line_start": 132,
-            "line_end": 138,
-            "text": "\n众人先到文泰来房中，房中烛光明亮，文泰来和赵半山正在下象棋，对屋外吵嚷似乎充耳不闻。众人又到余鱼同房去。陆菲青坐在石阶上，仰头看天上星斗，见众人过来，站起身来，说道：“这里没什么动静。”这一群英雄好汉连皇帝也捉到了，今晚居然抓不到一个毛贼，都是又气恼，又奇怪。\n\n徐天宏忽见窗孔中一点细微的火星一爆而隐，显是房中刚吹熄蜡烛，心头起疑，说道：“咱们去瞧瞧十四弟吧。”陆菲青道：“他睡熟了，因此我守在外面。”骆冰道：“咱们快到别的地方搜去。”徐天宏道：“不，还是先瞧瞧十四弟。”他右手拿着火把，左手一推，房门应手而开，却是虚掩着的，见床上的人一动，似乎翻了个身。\n\n徐天宏用火把去点燃蜡烛，一时竟点不着，移近火把看时，却是烛芯已给打烂，陷入烛里，显然烛火是用暗器打灭的。他吃了一惊，生怕余鱼同遭逢不测，快步走到床前，叫道：“十四弟，你没事么？”\n",
-            "score": 400,
-            "anchors_hit": [
-              "文泰来",
-              "陆菲青",
-              "赵半山",
-              "暗器"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 20,
-            "line_start": 124,
-            "line_end": 130,
-            "text": "\n陈家洛道：“待会雍和宫赴宴，长兵器带不进去，各人预备短兵刃和暗器。酒肉饭菜之中，只怕下有毒物迷药，决不可有丝毫沾唇。”群雄应了。陈家洛道：“今晚不杀皇帝，解不了心头之恨，但要先筹划退路。”陈正德道：“中原是不能再住的了，大伙儿去回部。”群雄久在江南，离开故乡实在有点难舍，但皇帝奸恶凶险，人人恨之切齿，都决意扑杀此獠，远走异域，却也顾不得了。\n\n陈家洛命文泰来率领杨成协、卫春华、石双英、蒋四根在德胜门、阜成门一带埋伏，到时杀了城门守军，接应大伙出城西去，命心砚率领红花会头目，预备马匹，带同弓箭等物在雍和宫外接应；又命余鱼同立即通知红花会在北京的头目，遍告各省红花会会众，总舵迁往回部，各地会众立即隐伏避匿，以防官兵收捕。\n\n他分派已毕，向天山双鹰与陆菲青道：“如何诛杀元凶首恶，请三位老前辈出个主意。”陈正德道：“那还不容易？我上去抓住他脖子一扭，瞧他完不完蛋？”陆菲青笑道：“他既存心害咱们，…",
-            "score": 400,
-            "anchors_hit": [
-              "暗器",
-              "文泰来",
-              "陆菲青",
-              "赵半山"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 4,
-            "line_start": 264,
-            "line_end": 274,
-            "text": "\n常氏双侠从东返回，西边又奔来八骑，正是周仲英和陆菲青一干人。两拨人还未驰近大车，骆冰已从车内揪出一个人来，摔在地下，喝问：“文大爷⋯⋯在那里？”话未问毕，两行泪珠流了下来。\n\n众人见这人苍老黄瘦，公差打扮，右手吊在颈下。骆冰认得他是北京捕头胡国栋，在客店中曾给文泰来打断了右臂的，踢了他一脚，又待要问，一口气别住了说不出话。\n\n卫春华单钩指住他右眼，喝道：“文爷在那里？你不说，先废了这只招子？”胡国栋恨恨的道：“张召重这小子早押着文⋯⋯文爷走得远啦。这小子叫我坐在车里。我还道他好心让我养伤，那知他是使金蝉脱壳之计，要我认命，给他顶缸，他自己却到北京领功去了。他妈的，瞧这狼心狗肺的东西有没好死。”他破口大骂张召重，一面也为自己开脱。\n\n陈家洛对常氏双侠道：“五哥、六哥，最怕张召重这奸贼带了四哥去得不知去向。由凉州东归中原，乌鞘岭是必经要道，请你们两位连夜赶在前头，扼守要道。要是真拦不住，也好…",
-            "score": 399,
-            "anchors_hit": [
-              "陆菲青",
-              "文泰来",
-              "赵半山",
-              "暗器"
-            ],
-            "method": "window"
-          }
-        ]
+        "chapter": 19,
+        "text": "阿凡提道：「不错，不错。后来我一想，成啦！我拉这笨驴转了个身，磨坊在东，我让驴子朝着西边，然后使劲的赶，它仍是一步一步的倒退，退呀退的，这可到了磨坊啦。」"
+      },
+      {
+        "chapter": 21,
+        "text": "阿凡提一抹胡子，森然说道"
       }
     ]
   },
   {
-    "id": "char_qian_long",
-    "name": "乾隆",
-    "alias": [
-      "弘历",
-      "东方老爷",
-      "皇上"
-    ],
-    "identity": "清朝皇帝",
-    "faction": "faction_qing_ting",
-    "role": "核心",
-    "archetype": "scholar",
-    "power_rank": "初窥门径",
-    "importance": "核心",
-    "one_line": "清朝皇帝，实为汉人，陈家洛的亲哥哥",
-    "biography": "本是陈世倌之子，被雍正换入宫中。六岁能诵《爱莲说》，深得康熙宠爱。继位后得知身世，内心矛盾。与陈家洛相认后曾有意反满兴汉，最终在太后压力下背盟。",
+    "id": "char_a_li",
+    "name": "阿里",
+    "alias": [],
+    "aliases": [],
+    "identity": "回部勇士",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "回部勇士，从汉人竹片书中领悟武功道理。",
+    "bio": "回部勇士，从汉人竹片书中领悟武功道理。",
+    "biography": "回部勇士，从汉人竹片书中领悟武功道理。",
     "personality": {
-      "traits": [
-        "好大喜功",
-        "阴险狡诈",
-        "贪恋美色",
-        "内心矛盾",
-        "帝王心术",
-        "背信弃义"
-      ],
-      "speech_style": "威严中带狡诈，帝王口气",
-      "temperament": "阴沉多疑"
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_chen_jia_luo",
-        "type": "亲属",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "亲兄弟，又爱又忌"
-      },
-      {
-        "target": "char_xiang_xiang_gong_zhu",
-        "type": "恋人",
-        "intensity": 80,
-        "bond_level": 2,
-        "dynamic": "贪恋美色而不得"
-      },
-      {
-        "target": "char_fu_kang_an",
-        "type": "主仆",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "宠信福康安"
-      },
-      {
-        "target": "char_li_ke_xiu",
-        "type": "主仆",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "君臣"
-      },
-      {
-        "target": "char_tai_hou",
-        "type": "亲属",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "养母子"
-      },
-      {
-        "target": "char_bai_zhen",
-        "type": "主仆",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "君臣"
-      }
-    ],
+    "relationships": [],
     "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      1,
-      2,
-      4,
-      7,
-      8,
-      9,
-      10,
-      11,
-      13,
-      14,
-      15,
-      19,
-      20
-    ],
+    "skills": [],
+    "items": [],
     "source_refs": [
       {
-        "chapter": 1,
-        "line_start": 2,
-        "line_end": 5,
-        "text": "古道腾驹惊白发 危峦击剑识青翎\n 清乾隆十八年六月，陕西扶风延绥镇总兵衙门内院，一个十四岁的女孩儿跳跳蹦蹦的走向教书先生书房。上午老师讲完了《资治通鉴》上“赤壁之战”的一段书，随口讲了些诸葛亮、周瑜的故事。午后本来没功课，那女孩儿却兴犹未尽，要老师再讲三国故事。这日炎阳盛暑，四下里静悄悄地，更没一丝凉风。那女孩儿来到书房之外，怕老师午睡未醒，进去不便，于是轻手轻脚绕到窗外，拔下头上金钗，在窗纸上刺了个小孔，凑眼过去张望。\n\n只见老师盘膝坐在椅上，脸露微笑，右手向空中微微一扬，轻轻吧的一声，好似什么东西在板壁上一碰。她向声音来处望去，只见对面板壁上伏着几十只苍蝇，一动不动。她甚觉奇怪，凝神注视，却见每只苍蝇背上都插着一根细如头发的金针。这针极细，隔了这样远原是难以辨认，只因时交未刻，日光微斜，射进窗户，金针在阳光下生出了反光。",
-        "anchors_hit": [
-          "乾隆"
-        ],
-        "anchors_total": 1,
-        "locate_status": "partial",
-        "locate_score": 100,
-        "locate_method": "partial",
-        "hint_chapter": 1,
-        "alternatives": []
+        "chapter": 18,
+        "text": "阿里来到我们帐里，和我哥哥商量攻打迷城。他得到了一部汉人写的竹片书，他想了一年，想出了武功的道理，就算空手没有刀剑，也能把桑拉巴的武士们打死。"
+      }
+    ]
+  },
+  {
+    "id": "char_an_jian_gang",
+    "name": "安健刚",
+    "alias": [],
+    "aliases": [],
+    "identity": "铁胆庄弟子",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "铁胆庄周仲英弟子，参与多次战斗。",
+    "bio": "铁胆庄周仲英弟子，参与多次战斗。",
+    "biography": "铁胆庄周仲英弟子，参与多次战斗。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "安健刚在背后二弟子忙挥刀挡格"
+      },
+      {
+        "chapter": 4,
+        "text": "独角虎安健刚"
+      },
+      {
+        "chapter": 5,
+        "text": "孟健雄和安健刚奔上接应"
+      },
+      {
+        "chapter": 8,
+        "text": "义父带同孟大哥、安大哥从南墙攻进去"
       },
       {
         "chapter": 11,
-        "line_start": 2,
-        "line_end": 4,
-        "text": "高塔入云盟九鼎 快招如电显双鹰\n 乾隆在六和塔顶饿了两日两夜，又受了两日两夜的惊吓气恼，心力交瘁，甚是委顿。第三天早晨，忽见一个小书僮入室走近，说道：“少爷请东方老爷过去谈谈。”乾隆认得他是陈家洛的书僮心砚，心头一喜，忙随着他走到下一层来。\n",
-        "anchors_hit": [
-          "东方老爷",
-          "陈家洛",
-          "六和塔",
-          "乾隆"
-        ],
-        "anchors_total": 4,
-        "locate_status": "located",
-        "locate_score": 400,
-        "locate_method": "window",
-        "hint_chapter": 11,
-        "alternatives": [
-          {
-            "chapter": 10,
-            "line_start": 212,
-            "line_end": 306,
-            "text": "\n进门是个院子，扑鼻一阵花香，庭中树影婆娑，种着两株桂花，桂花开得正盛。乾隆随着玉如意走入一间小厢房，红烛高烧，陈设倒也颇为雅致。白振在厢房中巡视一周，细查床底床后都无奸人潜伏，背脊在墙上一靠，反手伸指几弹，察知并无复壁暗门，这才放心退出。女仆上来摆下酒肴。乾隆见八个碟子中盛着肴肉、醉鸡、皮蛋、酱瓜等消夜小菜，比之宫中大鱼大肉，另有一番清雅风味。这时白振等都在屋外巡视，房中只有和珅侍候，乾隆将手一摆，命他出房。\n\n女仆筛了两杯酒，乃是陈年女贞绍酒，稠稠的醇香异常。玉如意先喝了一杯，媚笑道：“东方老爷，今儿怎么谢你才好？”乾隆也举杯饮尽，笑道：“你先唱个曲儿吧，怎么谢法，待会儿咱们慢慢商量。”\n\n玉如意取过琵琶，轻拢慢捻，弹了起来，一开口“并刀如水，吴盐胜雪”，唱的是周美成的一曲《少年游》。\n\n乾隆一听大悦，心想当年宋徽宗道君皇帝夜幸名妓李师师，两人吃了徽宗带来的橙子，李师师留他过夜，悄悄道…",
-            "score": 382,
-            "anchors_hit": [
-              "乾隆",
-              "东方老爷",
-              "六和塔",
-              "陈家洛"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 7,
-            "line_start": 160,
-            "line_end": 166,
-            "text": "\n心砚上来斟了酒，陈家洛怕乾隆疑虑，自己先干了一杯，夹菜而食。乾隆只拣陈家洛吃过的菜下了几筷，就停箸不食了。只听得邻船箫管声起，吹的是一曲《迎嘉宾》。乾隆笑道：“兄台真是雅人，仓卒之间，安排得如此周到。”\n\n陈家洛逊谢，说道：“有酒不可无歌，闻道玉如意歌喉是钱塘一绝，请召来为仁兄佐酒如何？”乾隆鼓掌称好，转头问李可秀道：“玉如意是什么人？”李可秀道：“那是杭州名妓，听说她生就一副骄傲脾气，要是不中她意的，就是黄金十两，也休想见她一面，更别说唱曲陪酒了。”乾隆笑道：“你见过她没有？”李可秀十分惶恐，道：“小⋯⋯小人不敢。”乾隆笑道：“今天让你开开眼界。”\n\n说话之间，卫春华已从那边船上陪着玉如意过来。乾隆见这女子脸色白腻，娇小玲珑，相貌也非出众美丽，只一双眼灵活异常，一顾盼间，便和人人打了个亲热的招呼，风姿楚楚，妩媚动人。她向陈家洛道个万福，莺莺呖呖的说道：“陆公子今朝好兴致啊。”声音娇柔异…",
-            "score": 300,
-            "anchors_hit": [
-              "陈家洛",
-              "乾隆",
-              "东方老爷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 19,
-            "line_start": 296,
-            "line_end": 298,
-            "text": "\n六人随着王青进去，见乾隆居中而坐，陈家洛坐在一旁。陈家洛一使眼色，站了起来。陆菲青等无奈，只得向乾隆跪倒磕头。无尘肚里暗暗咒骂：“臭皇帝！那日在六和塔上，吓得你魂不附体，今日却摆这臭架子。老道若不是瞧着总舵主的面子，一剑在你身上刺三个透明窟窿。”\n",
-            "score": 300,
-            "anchors_hit": [
-              "陈家洛",
-              "六和塔",
-              "乾隆"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 20,
-            "line_start": 260,
-            "line_end": 262,
-            "text": "\n陈家洛手执短剑，指着乾隆道：“且不说六和塔中盟言如何，我们在海宁塘上曾击掌为誓，决不互相加害，你却用毒酒暗算于我，今日还有什么话说？”说着走上两步，短剑剑尖寒光闪闪，对准他的心口，凛然说道：“你认贼作父，残害百姓，乃是天下仁人义士的公敌！你我兄弟之义，手足之情，再也休提。今日我要饮你之血，给所有死在你手里的人报仇。”乾隆吓得脸无人色，全身发抖。\n",
-            "score": 300,
-            "anchors_hit": [
-              "陈家洛",
-              "六和塔",
-              "乾隆"
-            ],
-            "method": "window"
-          }
-        ],
-        "event_type": "background"
+        "text": "孟健雄和安健刚师兄弟来接班"
+      },
+      {
+        "chapter": 12,
+        "text": "塔里便抛出一个人来，仰天跌在地下，动也不动，却是安健刚"
+      },
+      {
+        "chapter": 13,
+        "text": "叫安健刚扶他到内房休息"
       }
     ]
   },
   {
-    "id": "char_huo_qing_tong",
-    "name": "霍青桐",
-    "alias": [
-      "翠羽黄衫"
-    ],
-    "identity": "回部女侠",
-    "faction": "faction_hui_bu",
-    "role": "核心",
-    "archetype": "warrior",
+    "id": "char_ba_zong",
+    "name": "把总",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军军官",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军小军官，被徐天宏斩杀。",
+    "bio": "清军小军官，被徐天宏斩杀。",
+    "biography": "清军小军官，被徐天宏斩杀。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "text": "那把总走到近处，见两兵死在当地，大吃一惊，正待叫人，徐天宏一个箭步，已窜了上去，挥刀斜劈。那把总手中未拿兵器，举起马鞭一挡，连鞭带头，给砍下马来"
+      }
+    ]
+  },
+  {
+    "id": "char_bai_zhen",
+    "name": "白振",
+    "alias": [],
+    "aliases": [],
+    "identity": "清宫高手",
+    "role": "重要",
+    "archetype": "",
     "power_rank": "炉火纯青",
-    "importance": "核心",
-    "one_line": "回部女侠，天山双鹰弟子，陈家洛的初恋",
-    "biography": "回部首领木卓伦之女，师从天山双鹰。英武聪慧，率领族人反抗清廷。与陈家洛互有情意，因妹妹香香公主介入而黯然退出。",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "清宫大内侍卫高手，奉命追捕红花会群雄，武艺高强。",
+    "bio": "清宫大内侍卫高手，奉命追捕红花会群雄，武艺高强。",
+    "biography": "清宫大内侍卫高手，奉命追捕红花会群雄，武艺高强。",
     "personality": {
       "traits": [
-        "英武聪慧",
-        "深明大义",
-        "刚强坚韧",
-        "顾全大局",
-        "心细如发",
-        "外柔内刚"
+        "勇猛",
+        "忠诚"
       ],
-      "speech_style": "爽朗直接，有英气",
-      "temperament": "英姿飒爽"
+      "speech_style": "威严",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_chen_jia_luo",
-        "type": "恋人",
-        "intensity": 80,
-        "bond_level": 3,
-        "dynamic": "互有情意却未能表白"
-      },
-      {
-        "target": "char_xiang_xiang_gong_zhu",
-        "type": "亲属",
-        "intensity": 90,
-        "bond_level": 5,
-        "dynamic": "亲姐妹，为妹让爱"
-      },
-      {
-        "target": "char_chen_zheng_de",
-        "type": "师徒",
-        "intensity": 80,
-        "bond_level": 4,
-        "dynamic": "师公"
-      },
-      {
-        "target": "char_guan_ming_mei",
-        "type": "师徒",
-        "intensity": 80,
-        "bond_level": 4,
-        "dynamic": "师父"
-      }
-    ],
-    "known_skills": [
-      "skill_san_fen_jian_shu"
-    ],
+    "relationships": [],
+    "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      1,
-      2,
-      4,
-      5,
-      6,
-      8,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20
-    ],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "text": "白振武艺比褚圆高明得多，左手两根手指搭着剑锋，右手一掌向无尘打去"
+      },
+      {
+        "chapter": 8,
+        "text": "白振凝神提气，施展轻功，沿着海塘石级向上攀越"
+      },
+      {
+        "chapter": 8,
+        "text": "白振头下脚上，突向塘底扑去，左手在塘石上一按，右手已拾起摺扇"
+      },
+      {
+        "chapter": 11,
+        "text": "白振一惊，暗叫：'不好！'左手一招'降龙伏虎'，右手一招'擒狮搏象'"
+      },
+      {
+        "chapter": 12,
+        "text": "金钩铁掌白振"
+      },
+      {
+        "chapter": 20,
+        "text": "白振奉旨监视两人，那知他们骑的白马奔驰如飞"
+      },
+      {
+        "chapter": 20,
+        "text": "领头的正是金爪铁钩白振"
+      },
+      {
+        "chapter": 21,
+        "text": "白振禀道：陈公子已送娘娘回宫"
+      }
+    ]
+  },
+  {
+    "id": "char_bei_ren_long",
+    "name": "贝人龙",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东六魔之一",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "关东六魔之一，参与追杀行动。",
+    "bio": "关东六魔之一，参与追杀行动。",
+    "biography": "关东六魔之一，参与追杀行动。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
     "source_refs": [
       {
         "chapter": 1,
-        "line_start": 212,
-        "line_end": 220,
-        "text": "那少女和她年事相仿大约也是十八九岁",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
+        "text": "这是两湖豪杰玉判官贝二爷贝人龙"
       }
     ]
   },
   {
-    "id": "char_xiang_xiang_gong_zhu",
-    "name": "香香公主",
-    "alias": [
-      "喀丝丽"
-    ],
-    "identity": "回部圣女",
-    "faction": "faction_hui_bu",
-    "role": "核心",
-    "archetype": "healer",
+    "id": "char_cao_neng",
+    "name": "曹能",
+    "alias": [],
+    "aliases": [],
+    "identity": "官兵",
+    "role": "龙套",
+    "archetype": "",
     "power_rank": "平平无奇",
-    "importance": "核心",
-    "one_line": "回部绝世美女，陈家洛挚爱，最终自尽殉情",
-    "biography": "木卓伦幼女，霍青桐之妹，美貌绝伦。被乾隆看中掳入宫中，宁死不屈。为向陈家洛示警，在清真寺自尽身亡。",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "普通官兵，参与乌鞘岭拦截。",
+    "bio": "普通官兵，参与乌鞘岭拦截。",
+    "biography": "普通官兵，参与乌鞘岭拦截。",
     "personality": {
-      "traits": [
-        "天真纯朴",
-        "忠贞不渝",
-        "外柔内刚",
-        "虔诚善良",
-        "为爱牺牲",
-        "宁死不屈"
-      ],
-      "speech_style": "天真稚嫩，温柔可人",
-      "temperament": "温柔纯真"
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_chen_jia_luo",
-        "type": "恋人",
-        "intensity": 100,
-        "bond_level": 5,
-        "dynamic": "深爱至死不渝"
-      },
-      {
-        "target": "char_huo_qing_tong",
-        "type": "亲属",
-        "intensity": 90,
-        "bond_level": 5,
-        "dynamic": "亲姐妹"
-      },
-      {
-        "target": "char_qian_long",
-        "type": "对手",
-        "intensity": 30,
-        "bond_level": 1,
-        "dynamic": "被乾隆觊觎"
-      }
-    ],
+    "relationships": [],
     "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20
-    ],
+    "skills": [],
+    "items": [],
     "source_refs": [
+      {
+        "chapter": 5,
+        "text": "派副将曹能、参将平旺先两人领兵押送"
+      }
+    ]
+  },
+  {
+    "id": "char_ceng_tu_nan",
+    "name": "曾图南",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军将领",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军将领，多次参与围剿红花会行动。",
+    "bio": "清军将领，多次参与围剿红花会行动。",
+    "biography": "清军将领，多次参与围剿红花会行动。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "参将名叫曾图南，年纪四旬开外"
+      },
+      {
+        "chapter": 4,
+        "text": "那将官正是护送李可秀家眷的曾图南"
+      },
+      {
+        "chapter": 8,
+        "text": "派参将曾图南出去查看"
+      },
+      {
+        "chapter": 9,
+        "text": "曾图南道：我奉李军门差遣，想见贵会陈总舵主商量一件要事。"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_bo_zhi",
+    "name": "常伯志",
+    "alias": [],
+    "aliases": [],
+    "identity": "常氏双侠之一",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "常氏双侠之一，回部武师。",
+    "bio": "常氏双侠之一，回部武师。",
+    "biography": "常氏双侠之一，回部武师。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "那定是西川双侠，江湖上人称黑无常、白无常的常家兄弟"
+      },
+      {
+        "chapter": 4,
+        "text": "常伯志道：镇远镖局那批龟儿子和鹰爪孙混在一起"
+      },
+      {
+        "chapter": 5,
+        "text": "常伯志回身一拱手，说道：火手判官武艺高强，佩服佩服"
+      },
+      {
+        "chapter": 8,
+        "text": "常伯志飞抓出手"
+      },
+      {
+        "chapter": 9,
+        "text": "常伯志已撇下飞抓，欺近身来，呼的一声，黑沙掌浪搏江礁，迎面劈到。"
+      },
+      {
+        "chapter": 11,
+        "text": "常氏双侠形貌可怖，有如活鬼"
+      },
+      {
+        "chapter": 12,
+        "text": "常氏双侠原是瘦长条子"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_he_zhi",
+    "name": "常赫志",
+    "alias": [],
+    "aliases": [],
+    "identity": "常氏双侠之一",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "常氏双侠之一，回部武师。",
+    "bio": "常氏双侠之一，回部武师。",
+    "biography": "常氏双侠之一，回部武师。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "那定是西川双侠，江湖上人称黑无常、白无常的常家兄弟"
+      },
+      {
+        "chapter": 4,
+        "text": "常赫志道：昨晚我们兄弟在双井追上了押着四哥的鹰爪孙"
+      },
+      {
+        "chapter": 5,
+        "text": "常赫志身子临空，心神不乱，在空中双脚急缩，打了个筋斗"
+      },
+      {
+        "chapter": 5,
+        "text": "这是慧侣道人的徒弟，人称黑无常、白无常的常氏兄弟"
+      },
+      {
+        "chapter": 8,
+        "text": "常伯志早料到敌人退路，那人向后一退，刚被常赫志左掌反手一扫，扫中肩头"
+      },
+      {
+        "chapter": 9,
+        "text": "常赫志飞抓盘打，张召重身子一矮，向右让开。"
+      },
+      {
+        "chapter": 11,
+        "text": "换班来的是常氏双侠"
+      },
+      {
+        "chapter": 12,
+        "text": "常氏双侠原是瘦长条子"
+      }
+    ]
+  },
+  {
+    "id": "char_chang_shi_shuang_xia",
+    "name": "常氏双侠",
+    "alias": [],
+    "aliases": [],
+    "identity": "回部武师",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "常伯志、常赫志兄弟合称常氏双侠，武艺精湛，在乌鞘岭等地多次拦截清兵。",
+    "bio": "常伯志、常赫志兄弟合称常氏双侠，武艺精湛，在乌鞘岭等地多次拦截清兵。",
+    "biography": "常伯志、常赫志兄弟合称常氏双侠，武艺精湛，在乌鞘岭等地多次拦截清兵。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "text": "常家兄弟一副怪相，江湖上有谁笑话咱们？十四弟也未免太想不开了"
+      },
+      {
+        "chapter": 20,
+        "text": "常氏双侠均想：\"那一个龟儿子如此无礼？\""
+      },
+      {
+        "chapter": 20,
+        "text": "常氏兄弟微微一笑，放开了手"
+      },
+      {
+        "chapter": 21,
+        "text": "常氏双侠已纵到迟武二人背后"
+      }
+    ]
+  },
+  {
+    "id": "char_chen_jia_luo",
+    "name": "陈家洛",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会总舵主",
+    "role": "核心",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "核心",
+    "one_line": "红花会总舵主，乾隆之弟，身世坎坷，武功以百花错拳闻名，贯穿全书主线。",
+    "bio": "红花会总舵主，乾隆之弟，身世坎坷，武功以百花错拳闻名，贯穿全书主线。",
+    "biography": "红花会总舵主，乾隆之弟，身世坎坷，武功以百花错拳闻名，贯穿全书主线。",
+    "personality": {
+      "traits": [
+        "坚毅",
+        "仁义"
+      ],
+      "speech_style": "温文",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "陈家洛拳法层出不穷，俱各纳罕"
+      },
+      {
+        "chapter": 3,
+        "text": "陈家洛这一下出手快得出奇，众人都没看清楚他使的是什么手法"
+      },
+      {
+        "chapter": 4,
+        "text": "红花会总舵主陈家洛，率领九命锦豹子卫春华、书僮心砚"
+      },
+      {
+        "chapter": 5,
+        "text": "陈家洛手托短剑，呆呆的出神"
+      },
+      {
+        "chapter": 5,
+        "text": "总舵主的兵器很厉害，左手盾牌，盾上有尖刺倒钩。右手是五条绳索"
+      },
+      {
+        "chapter": 7,
+        "text": "陈家洛弹奏一曲《平沙落雁》，与东方耳（乾隆）西湖赏月对谈"
+      },
+      {
+        "chapter": 8,
+        "text": "陈家洛不动声色，缓步走到一名御林军军士身边，伸手去接他握在手里的马缰"
+      },
+      {
+        "chapter": 8,
+        "text": "陈家洛从怀里取出一朵红花，佩在襟上"
+      },
+      {
+        "chapter": 8,
+        "text": "红花会总舵主到了，大家快来参见"
+      },
+      {
+        "chapter": 9,
+        "text": "陈家洛道：各位哥哥，咱们只好先退出杭州。眼下四哥尚未救出，跟清兵接硬仗没好处。"
+      },
+      {
+        "chapter": 9,
+        "text": "陈家洛披上黑色大氅，领子翻起，一顶风帽低低垂下，与卫春华两人迳投提督府来。"
+      },
+      {
+        "chapter": 10,
+        "text": "陈家洛询问原委，忽伦大虎说：“兆大将军怪我们帮你，要杀我们四人的头。”"
+      },
+      {
+        "chapter": 12,
+        "text": "陈家洛笑容满脸的迎出"
+      },
+      {
+        "chapter": 13,
+        "text": "陈家洛道：'这次咱们的事情办得十分痛快，不过以后还有更难的事。眼下我分派一下。'"
+      },
       {
         "chapter": 14,
-        "line_start": 4559,
-        "line_end": 4570,
-        "text": "那白衣少女已站起身来",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
+        "text": "陈家洛心想此言甚是，皱眉不语"
+      },
+      {
+        "chapter": 14,
+        "text": "他丹田中一股内息提在胸腹之间"
+      },
+      {
+        "chapter": 15,
+        "text": "陈家洛暗暗叫苦，双腿一夹，那白马如箭离弦，飞驰出去"
+      },
+      {
+        "chapter": 15,
+        "text": "陈家洛取出点穴珠索，上马迎敌，却觉手臂酸软"
+      },
+      {
+        "chapter": 16,
+        "text": "百花错拳虽然精妙"
+      },
+      {
+        "chapter": 17,
+        "text": "陈家洛使的却是八卦游身掌身法，在杭州狮子峰上，曾打得张召重一时难以招架"
+      },
+      {
+        "chapter": 17,
+        "text": "陈家洛使的却是八卦游身掌身法，在狼群中东一晃，西一转"
+      },
+      {
+        "chapter": 17,
+        "text": "陈家洛也见到了他们，忙催马过来，下马施礼"
+      },
+      {
+        "chapter": 19,
+        "text": "陈家洛笑道：「咱们若在玉宫里带了几柄玉刀玉剑出来，倒可送给他们作贺礼。」"
+      },
+      {
+        "chapter": 20,
+        "text": "陈家洛道：\"国事为重，私情为轻，我可劝她从你。\""
+      },
+      {
+        "chapter": 20,
+        "text": "陈家洛的\"百花错拳\"变招迭出，张召重又在强敌环伺之下，不免气馁"
+      },
+      {
+        "chapter": 20,
+        "text": "陈家洛忽地转身，左手已牵住张召重的辫尾"
+      },
+      {
+        "chapter": 20,
+        "text": "陈家洛来到第三殿，眼前一片光亮，只见殿中两侧点满了香烛"
+      },
+      {
+        "chapter": 21,
+        "text": "总舵主"
       }
     ]
   },
   {
-    "id": "char_wen_tai_lai",
-    "name": "文泰来",
-    "alias": [
-      "四哥",
-      "奔雷手"
-    ],
-    "identity": "红花会四当家",
-    "faction": "faction_hong_hua_hui",
+    "id": "char_chen_shi_guan",
+    "name": "陈世倌",
+    "alias": [],
+    "aliases": [],
+    "identity": "陈家洛之父",
     "role": "重要",
-    "archetype": "warrior",
-    "power_rank": "炉火纯青",
-    "importance": "重要",
-    "one_line": "红花会四当家，豪迈直爽，骆冰之夫",
-    "biography": "红花会四当家，绰号奔雷手。因知晓乾隆身世秘密而被捕，后被群雄救出。武功高强，为人豪迈。",
-    "personality": {
-      "traits": [
-        "豪迈直爽",
-        "宁死不屈",
-        "重情重义",
-        "刚正不阿",
-        "侠肝义胆"
-      ],
-      "speech_style": "豪迈直爽，掷地有声",
-      "temperament": "刚烈豪迈"
-    },
-    "relationships": [
-      {
-        "target": "char_luo_bing",
-        "type": "恋人",
-        "intensity": 90,
-        "bond_level": 5,
-        "dynamic": "夫妻情深"
-      },
-      {
-        "target": "char_chen_jia_luo",
-        "type": "合作者",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "红花会兄弟"
-      },
-      {
-        "target": "char_yu_yu_tong",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "红花会兄弟"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      9,
-      10,
-      12,
-      13,
-      14,
-      15,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 1,
-        "line_start": 312,
-        "line_end": 320,
-        "text": "少妇问道喂尊驾怎知道我们名字",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
-      }
-    ]
-  },
-  {
-    "id": "char_luo_bing",
-    "name": "骆冰",
-    "alias": [
-      "十一娘"
-    ],
-    "identity": "红花会十一当家",
-    "faction": "faction_hong_hua_hui",
-    "role": "重要",
-    "archetype": "warrior",
-    "power_rank": "略有小成",
-    "importance": "重要",
-    "one_line": "红花会十一当家，文泰来之妻，善使飞刀",
-    "biography": "红花会十一当家，文泰来之妻。善使飞刀和双刀。丈夫被捕后四处求援，后随群雄救出丈夫。",
-    "personality": {
-      "traits": [
-        "忠贞不渝",
-        "外柔内刚",
-        "心细如发",
-        "重情重义",
-        "坚忍不拔"
-      ],
-      "speech_style": "温柔中带刚强",
-      "temperament": "柔中带刚"
-    },
-    "relationships": [
-      {
-        "target": "char_wen_tai_lai",
-        "type": "恋人",
-        "intensity": 90,
-        "bond_level": 5,
-        "dynamic": "夫妻情深"
-      },
-      {
-        "target": "char_yu_yu_tong",
-        "type": "合作者",
-        "intensity": 50,
-        "bond_level": 3,
-        "dynamic": "红花会兄弟"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      12,
-      13,
-      14,
-      15,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 1,
-        "line_start": 312,
-        "line_end": 320,
-        "text": "少妇问道喂尊驾怎知道我们名字",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
-      }
-    ]
-  },
-  {
-    "id": "char_yu_yu_tong",
-    "name": "余鱼同",
-    "alias": [
-      "金笛秀才",
-      "十四弟"
-    ],
-    "identity": "红花会十四当家",
-    "faction": "faction_hong_hua_hui",
-    "role": "重要",
-    "archetype": "scholar",
-    "power_rank": "略有小成",
-    "importance": "重要",
-    "one_line": "红花会十四当家，文武双全，暗恋骆冰",
-    "biography": "红花会十四当家，绰号金笛秀才。文武双全，善使金笛。暗恋师兄文泰来之妻骆冰，后与李沅芷结缘。",
-    "personality": {
-      "traits": [
-        "文采斐然",
-        "风流倜傥",
-        "重情重义",
-        "知错能改",
-        "略带酸气"
-      ],
-      "speech_style": "文采斐然，略带酸气",
-      "temperament": "风流儒雅"
-    },
-    "relationships": [
-      {
-        "target": "char_luo_bing",
-        "type": "恋人",
-        "intensity": 70,
-        "bond_level": 2,
-        "dynamic": "暗恋骆冰"
-      },
-      {
-        "target": "char_wen_tai_lai",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "红花会兄弟"
-      },
-      {
-        "target": "char_li_yuan_zhi",
-        "type": "恋人",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "最终结缘"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      2,
-      3,
-      4,
-      5,
-      6,
-      9,
-      10,
-      12,
-      13,
-      14,
-      15,
-      17,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 98,
-        "line_end": 104,
-        "text": "\n胡国栋是北京名捕头，手下所破大案、所杀大盗不计其数，自知积下怨家太多，几年前已然告老。那使软鞭的是他师侄冯辉，这次奉命协同大内侍卫捉拿红花会的要犯，自知本领不济，千恳万求，请了他来相助一臂。使鬼头刀的蒋天寿，使怀杖的韩春霖，都是兰州的捕快。捕快武功虽然不高，追寻犯人的本领却胜过了御前侍卫。\n\n当下余鱼同施展金笛，和三名公差斗在一起。他的金笛有时当铁鞭使，有时当判官笔用，有时招数中更夹杂着剑法，胡国栋等三人一时竟闹了个手忙足乱。陆菲青和李沅芷只看得几招之后，不由得面面相觑。李沅芷道：“是柔云剑法。”陆菲青点点头，暗想：“柔云剑是本门独得之秘，他既是红花会中人，那么是大师兄的徒弟了。”\n\n陆菲青师兄弟三人，他居中老二，大师兄马真，师弟张召重便是昨晚李沅芷与之动手过招的“张大人”。这张召重天份甚高，用功又勤，师兄弟中倒以他武功最强，只是热中功名利禄，投身朝廷，此人办事卖力，这些年来青云直上，已…",
-        "anchors_hit": [
-          "北京",
-          "余鱼同",
-          "陆菲青",
-          "李沅芷",
-          "金笛",
-          "剑法",
-          "张召重",
-          "张大人"
-        ],
-        "anchors_total": 8,
-        "locate_status": "located",
-        "locate_score": 800,
-        "locate_method": "window",
-        "hint_chapter": 2,
-        "alternatives": [
-          {
-            "chapter": 9,
-            "line_start": 330,
-            "line_end": 390,
-            "text": "\n无尘纵过去正待按住，张召重倏地跳起，劈面一拳，无尘挥剑待削，忽想：“这一剑将他一只手削了下来，他再难和总舵主比武，这样的对手十分难找，未免扫了总舵主的兴致。”要知武艺高强之人，旗鼓相当的对手可遇而不可求。无尘爱武成癖，心想陈家洛也是一般，长剑已然削下，忽又凝招不发。张召重情急拚命，乘他稍一迟疑，左掌在右肘一托，右拳弯处，已向他左腰打到。无尘只有一臂，左边防御不周，加之拳法较弱，见敌拳打到，疾忙侧身闪避，拳力虽消，却也没能避开，一拳给打在腰间，剧痛之下，退出数步。张召重头也不回，拔足飞奔。\n\n无尘大怒，随后赶来，眼见他已奔到下峰山道，无尘剑法精绝，素来不用暗器，见他便要逃下山去，心想今日若给此人逃脱，红花会威名扫地，再也顾不得他的死活，平剑一挺，便要使出“五鬼投叉”绝招，长剑正要脱手，忽然山边滚出一个人来，迅疾如风，抱住张召重双足。两人搂作一团，跌倒在地。\n\n无尘疾忙收剑，看清楚抱住张召重…",
-            "score": 789,
-            "anchors_hit": [
-              "张召重",
-              "剑法",
-              "余鱼同",
-              "陆菲青",
-              "金笛",
-              "张大人",
-              "李沅芷",
-              "北京"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 4,
-            "line_start": 222,
-            "line_end": 268,
-            "text": "\n余鱼同纵身而前，金笛在两般兵刃间一隔，叫道：“住手！”那少女和蒋四根各退一步。这时曾图南另取了一杆枪，又跃马过来助战，众清兵站得远远的呐喊助威。那少女挥手叫曾图南退下。余鱼同道：“请问姑娘高姓大名，尊师是那一位？”那少女笑道：“你问我呀，我不爱说。我却知你是金笛秀才余鱼同。余者，人未之余。鱼者，混水摸鱼之鱼也。同者，君子和而不同之同，非破铜烂铁之铜也。你在红花会中，坐的是第十四把交椅。”余鱼同和蒋四根吃了一惊，面面相觑，尽是诧色。曾图南见她忽然对那江洋大盗笑语盈盈，更是错愕异常。\n\n三个惊奇的男人望着一个笑嘻嘻的女郎，正不知说什么话好，忽听得蹄声急促，清兵纷纷让道，六骑马从西赶来。当先一人神色清臞，满头白发，正是武当名宿陆菲青。余鱼同和那少女不约而同的迎了上去，一个叫“师叔”，一个叫“师父”，都跳下马来行礼。那少女正是陆菲青的女弟子李沅芷。\n\n在陆菲青之后的是周仲英、周绮、徐天宏、孟健雄…",
-            "score": 692,
-            "anchors_hit": [
-              "余鱼同",
-              "金笛",
-              "陆菲青",
-              "李沅芷",
-              "剑法",
-              "张召重",
-              "北京"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 20,
-            "line_start": 78,
-            "line_end": 110,
-            "text": "\n红花会群雄这日在厅上议事，蒋四根刚从广东回来，正与众人谈论南方各地英豪近况，忽报白振来拜，陈家洛单独接见。白振传达皇上旨意，说当晚在雍和宫赐宴，命红花会众位香主一齐赴宴，皇上亲自与会，因怕太后和满洲亲贵疑虑，是以特地在宫外相会。陈家洛领旨谢恩，心想喀丝丽定是勉为其难，从了皇帝，是以他对兴汉大业加倍热心起来，心中说不出的又喜又悲，送别白振后与群雄说了。众人听得皇帝信守盟约，行将建立不世奇功，都是兴奋无比。无尘、陆菲青、赵半山、文泰来、常氏双侠等人吃过满清官员不少苦头，对乾隆的话本来疑多信少，这时见大事顺利，都说究竟皇帝是汉人，又是总舵主的亲兄弟，果然大不相同。只是陈家洛为了兴复大业，割舍对香香公主的深情，都为他难过。\n\n陈家洛怕自己一人心中伤痛，冷了大家的豪兴，当下强打精神，和群雄纵论世事，后来谈到了武艺。无尘说道：“总舵主，你这次在回部学到了精妙武功，露几手给大家瞧瞧怎样？”陈家洛道：“…",
-            "score": 594,
-            "anchors_hit": [
-              "陆菲青",
-              "余鱼同",
-              "李沅芷",
-              "金笛",
-              "张召重",
-              "北京"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 18,
-            "line_start": 224,
-            "line_end": 270,
-            "text": "\n骆冰叫道：“好，好，李家妹妹答应了。十四弟，你拿什么东西下定。”余鱼同身上一摸，除了银两之外，什么也没带，正感为难，忽然触手一凉，却是他金笛被张召重所削断的那一段，捡起来想日后再要金匠焊上去的，当下摸了出来。说道：“师叔，小侄身边没什么贵重物事。这段笛子倒是纯金的。”陆菲青笑道：“这再好也没有，等将来你们大喜之日，再把两段金笛镶在一起。”群雄纷纷向两人道贺。李沅芷不肯接，骆冰硬把半截金笛塞在她手里，笑问：“你拿什么回给他呀？”\n\n李沅芷这时满心欢畅，容光焕发，笑道：“我什么也没有。”陆菲青笑道：“沅儿，你使的暗器不也是纯金的。”骆冰拍手笑道：“不错。”将她暗器囊抢了过来，捡了十枚芙蓉金针，交给余鱼同收起。陈家洛笑道：“这可称之为‘针笛奇缘’了！”\n\n香香公主见大家兴高采烈，问陈家洛做什么。陈家洛说了，香香公主大喜，一手挽了他手臂，一手挽了姊姊，走上前去，除下手上的白玉戒指，套在李沅芷手指…",
-            "score": 592,
-            "anchors_hit": [
-              "余鱼同",
-              "张召重",
-              "陆菲青",
-              "李沅芷",
-              "金笛",
-              "剑法"
-            ],
-            "method": "window"
-          }
-        ],
-        "event_type": "background"
-      }
-    ]
-  },
-  {
-    "id": "char_xu_tian_hong",
-    "name": "徐天宏",
-    "alias": [
-      "七哥",
-      "武诸葛"
-    ],
-    "identity": "红花会七当家",
-    "faction": "faction_hong_hua_hui",
-    "role": "重要",
-    "archetype": "scholar",
-    "power_rank": "炉火纯青",
-    "importance": "重要",
-    "one_line": "红花会七当家，足智多谋，周绮之夫",
-    "biography": "红花会七当家，绰号武诸葛。足智多谋，善使单刀铁拐。后与周绮结为夫妻。",
-    "personality": {
-      "traits": [
-        "足智多谋",
-        "沉着冷静",
-        "机敏过人",
-        "重情重义",
-        "顾全大局"
-      ],
-      "speech_style": "冷静分析，条理分明",
-      "temperament": "沉稳睿智"
-    },
-    "relationships": [
-      {
-        "target": "char_zhou_qi",
-        "type": "恋人",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "夫妻"
-      },
-      {
-        "target": "char_chen_jia_luo",
-        "type": "合作者",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "红花会兄弟"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 595,
-        "line_end": 600,
-        "text": "这驼子姓章名进最是直性子",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
-      }
-    ]
-  },
-  {
-    "id": "char_zhang_zhao_zhong",
-    "name": "张召重",
-    "alias": [
-      "张大人"
-    ],
-    "identity": "武当派叛徒",
-    "faction": "faction_qing_ting",
-    "role": "重要",
-    "archetype": "assassin",
-    "power_rank": "炉火纯青",
-    "importance": "重要",
-    "one_line": "武当派叛徒，清廷鹰犬，最终被群狼吞噬",
-    "biography": "武当派弟子，陆菲青的师弟。武功高强却贪图富贵，投靠清廷成为鹰犬。多次与红花会为敌，最终在沙城被群狼吞噬。",
-    "personality": {
-      "traits": [
-        "阴险狡诈",
-        "贪图富贵",
-        "武功高强",
-        "心狠手辣",
-        "忘恩负义"
-      ],
-      "speech_style": "阴沉傲慢",
-      "temperament": "阴险毒辣"
-    },
-    "relationships": [
-      {
-        "target": "char_lu_fei_qing",
-        "type": "师徒",
-        "intensity": 40,
-        "bond_level": 2,
-        "dynamic": "同门师兄弟，反目成仇"
-      },
-      {
-        "target": "char_chen_jia_luo",
-        "type": "宿敌",
-        "intensity": 60,
-        "bond_level": 2,
-        "dynamic": "多次交手"
-      }
-    ],
-    "known_skills": [
-      "skill_rou_yun_jian_shu"
-    ],
-    "related_skills": [],
-    "rag_refs": [
-      2,
-      3,
-      4,
-      5,
-      8,
-      9,
-      10,
-      11,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 98,
-        "line_end": 104,
-        "text": "\n胡国栋是北京名捕头，手下所破大案、所杀大盗不计其数，自知积下怨家太多，几年前已然告老。那使软鞭的是他师侄冯辉，这次奉命协同大内侍卫捉拿红花会的要犯，自知本领不济，千恳万求，请了他来相助一臂。使鬼头刀的蒋天寿，使怀杖的韩春霖，都是兰州的捕快。捕快武功虽然不高，追寻犯人的本领却胜过了御前侍卫。\n\n当下余鱼同施展金笛，和三名公差斗在一起。他的金笛有时当铁鞭使，有时当判官笔用，有时招数中更夹杂着剑法，胡国栋等三人一时竟闹了个手忙足乱。陆菲青和李沅芷只看得几招之后，不由得面面相觑。李沅芷道：“是柔云剑法。”陆菲青点点头，暗想：“柔云剑是本门独得之秘，他既是红花会中人，那么是大师兄的徒弟了。”\n\n陆菲青师兄弟三人，他居中老二，大师兄马真，师弟张召重便是昨晚李沅芷与之动手过招的“张大人”。这张召重天份甚高，用功又勤，师兄弟中倒以他武功最强，只是热中功名利禄，投身朝廷，此人办事卖力，这些年来青云直上，已…",
-        "anchors_hit": [
-          "北京",
-          "余鱼同",
-          "陆菲青",
-          "李沅芷",
-          "金笛",
-          "剑法",
-          "张召重",
-          "张大人"
-        ],
-        "anchors_total": 8,
-        "locate_status": "located",
-        "locate_score": 800,
-        "locate_method": "window",
-        "hint_chapter": 2,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 9,
-            "line_start": 330,
-            "line_end": 390,
-            "text": "\n无尘纵过去正待按住，张召重倏地跳起，劈面一拳，无尘挥剑待削，忽想：“这一剑将他一只手削了下来，他再难和总舵主比武，这样的对手十分难找，未免扫了总舵主的兴致。”要知武艺高强之人，旗鼓相当的对手可遇而不可求。无尘爱武成癖，心想陈家洛也是一般，长剑已然削下，忽又凝招不发。张召重情急拚命，乘他稍一迟疑，左掌在右肘一托，右拳弯处，已向他左腰打到。无尘只有一臂，左边防御不周，加之拳法较弱，见敌拳打到，疾忙侧身闪避，拳力虽消，却也没能避开，一拳给打在腰间，剧痛之下，退出数步。张召重头也不回，拔足飞奔。\n\n无尘大怒，随后赶来，眼见他已奔到下峰山道，无尘剑法精绝，素来不用暗器，见他便要逃下山去，心想今日若给此人逃脱，红花会威名扫地，再也顾不得他的死活，平剑一挺，便要使出“五鬼投叉”绝招，长剑正要脱手，忽然山边滚出一个人来，迅疾如风，抱住张召重双足。两人搂作一团，跌倒在地。\n\n无尘疾忙收剑，看清楚抱住张召重…",
-            "score": 789,
-            "anchors_hit": [
-              "张召重",
-              "剑法",
-              "余鱼同",
-              "陆菲青",
-              "金笛",
-              "张大人",
-              "李沅芷",
-              "北京"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 4,
-            "line_start": 222,
-            "line_end": 268,
-            "text": "\n余鱼同纵身而前，金笛在两般兵刃间一隔，叫道：“住手！”那少女和蒋四根各退一步。这时曾图南另取了一杆枪，又跃马过来助战，众清兵站得远远的呐喊助威。那少女挥手叫曾图南退下。余鱼同道：“请问姑娘高姓大名，尊师是那一位？”那少女笑道：“你问我呀，我不爱说。我却知你是金笛秀才余鱼同。余者，人未之余。鱼者，混水摸鱼之鱼也。同者，君子和而不同之同，非破铜烂铁之铜也。你在红花会中，坐的是第十四把交椅。”余鱼同和蒋四根吃了一惊，面面相觑，尽是诧色。曾图南见她忽然对那江洋大盗笑语盈盈，更是错愕异常。\n\n三个惊奇的男人望着一个笑嘻嘻的女郎，正不知说什么话好，忽听得蹄声急促，清兵纷纷让道，六骑马从西赶来。当先一人神色清臞，满头白发，正是武当名宿陆菲青。余鱼同和那少女不约而同的迎了上去，一个叫“师叔”，一个叫“师父”，都跳下马来行礼。那少女正是陆菲青的女弟子李沅芷。\n\n在陆菲青之后的是周仲英、周绮、徐天宏、孟健雄…",
-            "score": 692,
-            "anchors_hit": [
-              "余鱼同",
-              "金笛",
-              "陆菲青",
-              "李沅芷",
-              "剑法",
-              "张召重",
-              "北京"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 20,
-            "line_start": 78,
-            "line_end": 110,
-            "text": "\n红花会群雄这日在厅上议事，蒋四根刚从广东回来，正与众人谈论南方各地英豪近况，忽报白振来拜，陈家洛单独接见。白振传达皇上旨意，说当晚在雍和宫赐宴，命红花会众位香主一齐赴宴，皇上亲自与会，因怕太后和满洲亲贵疑虑，是以特地在宫外相会。陈家洛领旨谢恩，心想喀丝丽定是勉为其难，从了皇帝，是以他对兴汉大业加倍热心起来，心中说不出的又喜又悲，送别白振后与群雄说了。众人听得皇帝信守盟约，行将建立不世奇功，都是兴奋无比。无尘、陆菲青、赵半山、文泰来、常氏双侠等人吃过满清官员不少苦头，对乾隆的话本来疑多信少，这时见大事顺利，都说究竟皇帝是汉人，又是总舵主的亲兄弟，果然大不相同。只是陈家洛为了兴复大业，割舍对香香公主的深情，都为他难过。\n\n陈家洛怕自己一人心中伤痛，冷了大家的豪兴，当下强打精神，和群雄纵论世事，后来谈到了武艺。无尘说道：“总舵主，你这次在回部学到了精妙武功，露几手给大家瞧瞧怎样？”陈家洛道：“…",
-            "score": 594,
-            "anchors_hit": [
-              "陆菲青",
-              "余鱼同",
-              "李沅芷",
-              "金笛",
-              "张召重",
-              "北京"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 18,
-            "line_start": 224,
-            "line_end": 270,
-            "text": "\n骆冰叫道：“好，好，李家妹妹答应了。十四弟，你拿什么东西下定。”余鱼同身上一摸，除了银两之外，什么也没带，正感为难，忽然触手一凉，却是他金笛被张召重所削断的那一段，捡起来想日后再要金匠焊上去的，当下摸了出来。说道：“师叔，小侄身边没什么贵重物事。这段笛子倒是纯金的。”陆菲青笑道：“这再好也没有，等将来你们大喜之日，再把两段金笛镶在一起。”群雄纷纷向两人道贺。李沅芷不肯接，骆冰硬把半截金笛塞在她手里，笑问：“你拿什么回给他呀？”\n\n李沅芷这时满心欢畅，容光焕发，笑道：“我什么也没有。”陆菲青笑道：“沅儿，你使的暗器不也是纯金的。”骆冰拍手笑道：“不错。”将她暗器囊抢了过来，捡了十枚芙蓉金针，交给余鱼同收起。陈家洛笑道：“这可称之为‘针笛奇缘’了！”\n\n香香公主见大家兴高采烈，问陈家洛做什么。陈家洛说了，香香公主大喜，一手挽了他手臂，一手挽了姊姊，走上前去，除下手上的白玉戒指，套在李沅芷手指…",
-            "score": 592,
-            "anchors_hit": [
-              "余鱼同",
-              "张召重",
-              "陆菲青",
-              "李沅芷",
-              "金笛",
-              "剑法"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "char_lu_fei_qing",
-    "name": "陆菲青",
-    "alias": [
-      "陆高止",
-      "绵里针"
-    ],
-    "identity": "武当派大侠",
-    "faction": "faction_wu_dang_pai",
-    "role": "重要",
-    "archetype": "warrior",
-    "power_rank": "登峰造极",
-    "importance": "重要",
-    "one_line": "武当派大侠，李沅芷师父，最终殉义而死",
-    "biography": "武当派大侠，屠龙帮成员。为避祸隐居李可秀府中教书。收李沅芷为徒。后参与红花会活动。在沙城为救张召重而被群狼吞噬。",
-    "personality": {
-      "traits": [
-        "沉稳睿智",
-        "重情重义",
-        "武功高强",
-        "忍辱负重",
-        "侠肝义胆"
-      ],
-      "speech_style": "沉稳有礼，谆谆教导",
-      "temperament": "沉稳内敛"
-    },
-    "relationships": [
-      {
-        "target": "char_zhang_zhao_zhong",
-        "type": "师徒",
-        "intensity": 40,
-        "bond_level": 2,
-        "dynamic": "同门师兄弟，反目成仇"
-      },
-      {
-        "target": "char_li_yuan_zhi",
-        "type": "师徒",
-        "intensity": 80,
-        "bond_level": 4,
-        "dynamic": "师徒情深"
-      }
-    ],
-    "known_skills": [
-      "skill_rou_yun_jian_shu",
-      "skill_wu_ji_xuan_gong_quan",
-      "skill_fu_rong_jin_zhen"
-    ],
-    "related_skills": [],
-    "rag_refs": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 1,
-        "line_start": 22,
-        "line_end": 28,
-        "text": "\n陆高止缓了一口气，说道：“沅芷，你我师生三年，总算相处不错。我本以为缘份已尽，那知还要碰头。我这件事性命攸关，你能守口如瓶，一句不漏吗？”说罢双目炯炯，直望着她。李沅芷道：“老师，我听你吩咐。”陆高止道：“你对令尊说，我病了，要休息半个月。”李沅芷答应了。陆高止又道：“你要令尊不用请大夫，我自己会调理。”隔了半晌，道：“你去吧！”\n\n陆高止待李沅芷走后，挣扎着取出刀伤药敷上左肩，用布缠好，不想这一费劲，眼前一黑，竟“哇”地吐了一大口血。\n\n原来这位教书先生陆高止真名陆菲青，是武当派的大侠，壮年时在大江南北行侠仗义，名震江湖，原是屠龙帮中一位响当当人物。屠龙帮是反清的秘帮，在雍正初年声势甚是浩大，后来雍正、乾隆两朝厉行镇压，到乾隆七八年时，屠龙帮终于落得瓦解冰消。陆菲青远走边疆。当时清廷曾四下派人追拿，他为人机警，兼之武功高强，得脱大难，但清廷继续严加查缉。陆菲青想到“大隐隐于朝、中隐隐于…",
-        "anchors_hit": [
-          "陆高止",
-          "李沅芷",
-          "陆菲青",
-          "乾隆"
-        ],
-        "anchors_total": 4,
-        "locate_status": "located",
-        "locate_score": 400,
-        "locate_method": "window",
-        "hint_chapter": 1,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 7,
-            "line_start": 154,
-            "line_end": 160,
-            "text": "\n两船靠近，乾隆、李可秀、白振、以及几名职位较高的侍卫踏跳板过去。只见船中只陈家洛和书僮两人，白振等人都放下了心。\n\n那艘花艇船舱宽敞，画壁雕栏，甚是精雅，艇中桌上摆了酒杯碗筷，水果酒菜满桌都是。陈家洛道：“仁兄惠然肯来，幸何如之！”乾隆道：“兄台相招，岂能不来？”两人携手大笑，相对坐下。李可秀和白振等都站在乾隆之后。\n\n陈家洛向白振微微一笑，也不说话，一瞥之间，忽见李可秀身后站着一个美貌少年，却不是陆菲青的徒弟是谁？怎么和朝廷官员混在一起，这倒奇了，心感诧异，不免多看了一眼。李沅芷向他嫣然一笑，眼睛一霎，要他不可相认。\n",
-            "score": 300,
-            "anchors_hit": [
-              "乾隆",
-              "陆菲青",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 8,
-            "line_start": 32,
-            "line_end": 34,
-            "text": "\n陈家洛见那人风姿翩翩，便是陆菲青那徒弟，刚才站在乾隆身后，不知他一人重回又有何事，忙一拭眼泪，抱拳回礼，道：“李大哥，找我有什么事？”李沅芷轻轻纵起，落在陈家洛船头，笑道：“你那金笛秀才兄弟的消息，可想知道吗？”\n",
-            "score": 300,
-            "anchors_hit": [
-              "陆菲青",
-              "李沅芷",
-              "乾隆"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 20,
-            "line_start": 78,
-            "line_end": 84,
-            "text": "\n红花会群雄这日在厅上议事，蒋四根刚从广东回来，正与众人谈论南方各地英豪近况，忽报白振来拜，陈家洛单独接见。白振传达皇上旨意，说当晚在雍和宫赐宴，命红花会众位香主一齐赴宴，皇上亲自与会，因怕太后和满洲亲贵疑虑，是以特地在宫外相会。陈家洛领旨谢恩，心想喀丝丽定是勉为其难，从了皇帝，是以他对兴汉大业加倍热心起来，心中说不出的又喜又悲，送别白振后与群雄说了。众人听得皇帝信守盟约，行将建立不世奇功，都是兴奋无比。无尘、陆菲青、赵半山、文泰来、常氏双侠等人吃过满清官员不少苦头，对乾隆的话本来疑多信少，这时见大事顺利，都说究竟皇帝是汉人，又是总舵主的亲兄弟，果然大不相同。只是陈家洛为了兴复大业，割舍对香香公主的深情，都为他难过。\n\n陈家洛怕自己一人心中伤痛，冷了大家的豪兴，当下强打精神，和群雄纵论世事，后来谈到了武艺。无尘说道：“总舵主，你这次在回部学到了精妙武功，露几手给大家瞧瞧怎样？”陈家洛道：“…",
-            "score": 300,
-            "anchors_hit": [
-              "陆菲青",
-              "乾隆",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 2,
-            "line_start": 148,
-            "line_end": 168,
-            "text": "\n李沅芷道：“昨晚抢我包袱的就是他，师父认得他吗？”陆菲青“唔”了一声，心下计算已定，低声道：“快去把他引开，越远越好。回来如不见我，明天你们自管上路，我随后赶来。”李沅芷还待要问，陆菲青道：“快去，迟了怕来不及，可得千万小心。”他知这徒儿诡计多端，师弟武艺虽强，但论聪明机变，却远远不及，料想她不会吃亏。而且她父亲是现任提督，万一被张召重捉到，也不敢难为于她。又知张召重心高气傲，不屑和妇女动手，要紧关头之时，李沅芷如露出女子面目，张召重必定一笑退开。不出所算，张召重果然上当，但其时张召重如发暗器，或施杀手，李沅芷也早受伤，只因以为她是大师兄马真之徒，手下留了情，这倒非陆菲青始料之所及。\n\n陆菲青见张召重追出店门，微一凝思，提笔匆匆写了封短柬，放在怀内，走到文泰来店房门外，在门上轻敲两下。房里一个女人声音问道：“谁呀？”陆菲青道：“我是骆元通骆五爷的好朋友，有要事奉告。”里面并不答话，也不开…",
-            "score": 297,
-            "anchors_hit": [
-              "陆菲青",
-              "李沅芷",
-              "乾隆"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "char_zhou_zhong_ying",
-    "name": "周仲英",
-    "alias": [
-      "周老英雄"
-    ],
-    "identity": "铁胆庄庄主",
+    "archetype": "",
+    "power_rank": "平平无奇",
     "faction": null,
-    "role": "重要",
-    "archetype": "warrior",
-    "power_rank": "炉火纯青",
     "importance": "重要",
-    "one_line": "铁胆庄庄主，西北武林首脑",
-    "biography": "铁胆庄庄主，西北武林首脑人物。因儿子周英杰泄露文泰来藏身之处而失手打死儿子。后与红花会化敌为友。",
+    "one_line": "陈家洛生父，曾任阁老，雍正换子事件的核心人物。",
+    "bio": "陈家洛生父，曾任阁老，雍正换子事件的核心人物。",
+    "biography": "陈家洛生父，曾任阁老，雍正换子事件的核心人物。",
     "personality": {
-      "traits": [
-        "老成持重",
-        "侠义为怀",
-        "刚正不阿",
-        "重情重义",
-        "爱子情深"
-      ],
-      "speech_style": "老成持重，掷地有声",
-      "temperament": "威严稳重"
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_zhou_qi",
-        "type": "亲属",
-        "intensity": 80,
-        "bond_level": 5,
-        "dynamic": "父女"
-      },
-      {
-        "target": "char_chen_jia_luo",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "化敌为友"
-      }
-    ],
+    "relationships": [],
     "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      15,
-      16,
-      19,
-      20
-    ],
+    "skills": [],
+    "items": [],
     "source_refs": [
       {
-        "chapter": 1,
-        "line_start": 310,
-        "line_end": 314,
-        "text": "\n少妇问道：“喂，尊驾怎知道我们名字？”钱正伦道：“凭您这对鸳鸯刀跟这手飞刀，江湖上谁不知道？再说，不是文四当家的，谁还有这手点穴功夫？你们两位又在一起，那自然是奔雷手文泰来文四爷和文四奶奶鸳鸯刀骆冰啦！”少妇微微一笑。钱正伦捧了她又捧她丈夫，她听来自然乐意。\n\n这一番话，陆菲青都听在耳里，寻思：“早听得奔雷手文泰来是江南武林中一条响当当的好汉子，原来阿冰这小妞儿嫁了给他，那倒也不枉了。再加上赵三弟跟西川双侠，多半这红花会是我们一条线上的兄弟，跟屠龙帮差不离。这件事今日教我撞上了，陆菲青若是袖手不理，图个他妈的什么明哲保身，‘绵里针’还算是人不是？”\n",
-        "anchors_hit": [
-          "文泰来",
-          "奔雷手",
-          "鸳鸯刀",
-          "骆冰",
-          "点穴",
-          "陆菲青",
-          "绵里针"
-        ],
-        "anchors_total": 7,
-        "locate_status": "located",
-        "locate_score": 700,
-        "locate_method": "window",
-        "hint_chapter": 1,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 4,
-            "line_start": 44,
-            "line_end": 102,
-            "text": "\n第一拨：当先哨路金笛秀才余鱼同，和西川双侠常赫志、常伯志兄弟取得联络，探明文泰来行踪，赶回禀报。第二拨：千臂如来赵半山，率领石敢当章进、鬼见愁石双英。第三拨：追魂夺命剑无尘道人，率领铁塔杨成协、铜头鳄鱼蒋四根。第四拨：红花会总舵主陈家洛，率领九命锦豹子卫春华、书僮心砚。第五拨：绵里针陆菲青，率领神弹子孟健雄、独角虎安健刚。第六拨：铁胆周仲英，率领俏李逵周绮、武诸葛徐天宏、鸳鸯刀骆冰。\n\n陈家洛分拨已定，说道：“十四弟，请你立即动身。其余各位就地休息安眠，天明起程，分拨进嘉峪关后会集。关上鹰爪孙谅必盘查严紧，不可大意。”众人齐声答应。\n\n余鱼同向众人躬身抱拳，上马动身，驰出数步，回头偷眼向骆冰望去，见她正自低头沉思，对他离去浑没在意。他叹了口气，策马狂奔而去。\n\n众人各自找了干净地方睡下。陈家洛悄悄对徐天宏道：“七哥，周老英雄已让咱们累得家破人亡，这次又仗义去救四哥。你多费点心，别让官面上…",
-            "score": 589,
-            "anchors_hit": [
-              "文泰来",
-              "陆菲青",
-              "绵里针",
-              "鸳鸯刀",
-              "骆冰",
-              "奔雷手"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 2,
-            "line_start": 90,
-            "line_end": 154,
-            "text": "\n这一来，几个行家全知他身怀绝技，是有意跟这几个公人为难了。李沅芷本来在为书生担忧，怕他受公差欺侮，待见他竟会点穴，还在装腔作势，只看得眉飞色舞，好不有兴。\n\n使软鞭的公差惊叫：“师叔，这点子怕也是红花会的！”使剑和使鬼头刀的连忙退出几步。那使怀杖的公差韩春霖软倒在地，动弹不得，使软鞭的将他拉在一边。使剑的公差向书生道：“你是红花会的？”言语中颇有忌惮之意。\n\n那书生哈哈一笑，道：“做公差的耳目真灵，这碗饭倒也不是白吃的，知道红花会中有区区在下这号人物。常言道：光棍眼，赛夹剪。果然是有点道理。在下行不改姓，坐不改名，姓余名鱼同。余者，人未之余。鱼者，混水摸鱼之鱼也。同者，君子和而不同之同，非破铜烂铁之铜也。在下是红花会中一个小脚色，坐的是第十四把交椅。”他把笛子扬了一扬，道：“你们不识得这家伙么？”使剑的道：“啊，你是金笛秀才！”\n\n那书生道：“不敢，正是区区。阁下手持宝剑，青光闪闪，獐头…",
-            "score": 588,
-            "anchors_hit": [
-              "点穴",
-              "陆菲青",
-              "文泰来",
-              "骆冰",
-              "奔雷手",
-              "绵里针"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 19,
-            "line_start": 106,
-            "line_end": 160,
-            "text": "\n当下陈家洛发令，众人来到德化县衙之外。余鱼同正要进去探问讯息，忽听得马蹄声响，十余骑从衙门中疾驰而出，领先数人顶戴中有红蓝领子，乃是高位武官，文泰来认得其中一人正是成璜，不由得目眦欲裂。眼见一行人往东而去，群雄纷纷上马，出德化城东门疾追。奔了三四十里，在一家饭铺中打尖，询问饭铺伙计，知道成璜等过去不久。文泰来道：“我这马脚力快，冲上去拦住五个狗贼。”骆冰道：“他们有五个，别落了单。谅他们也逃不了。”文泰来知道妻子自从他身遭危难，对他照顾特别周到，也不忍让她耽心，于是与众人一齐追赶。\n\n当晚群雄在仙游歇夜，次日赶到郊尾，听乡人说五个武官已转而向北。陈家洛笑道：“他们逃的路程真好，这里向北正往莆田少林寺，咱们虽然赶人，可没走冤枉路。”驰了数十里，天色将黑，离少林寺已近，群雄在望海镇上找一家客店歇了。陆菲青、文泰来、卫春华、徐天宏、心砚等五人出去分头打听众侍卫的下落。\n\n文泰来查不到成璜等踪迹…",
-            "score": 490,
-            "anchors_hit": [
-              "文泰来",
-              "骆冰",
-              "陆菲青",
-              "奔雷手",
-              "绵里针"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 3,
-            "line_start": 270,
-            "line_end": 340,
-            "text": "\n陈家洛见周仲英脸现诧异之色，不住的打量自己，强抑满怀怒气，冷然说道：“敝会四当家奔雷手文泰来遇到鹰爪子围攻，身受重伤，避难宝庄，承周老前辈念在武林一脉，仗义援手，敝会众兄弟全都感激不尽，兄弟这里当面谢过。”说罢站起身来深深一揖。\n\n周仲英连忙还礼，心下万分尴尬，暗道：“瞧不出他公子哥儿般似的，居然有这么一手，竟拿场面话来挤兑我。”陈家洛这番话一说，无尘、徐天宏、卫春华、余鱼同等都暗暗佩服。章进却没懂陈家洛的用意，大叫起来：“总舵主你不知道，这老匹夫已把咱们四哥害了。”卫春华坐在他身边，忙拉了他一把，叫他别嚷。\n\n陈家洛便似没听见他说话，仍然客客气气的对周仲英道：“众兄弟夤夜造访宝庄，礼貌不周，还请周老前辈海涵。只因听得文四哥有难，大家如箭攻心，未免卤莽。不知文四哥伤势如何，周老前辈想已延医给他诊治，就请引我们相见。”说着站起身来，红花会群雄跟着站起。周仲英口讷，一时不知如何回答。骆冰哽咽…",
-            "score": 487,
-            "anchors_hit": [
-              "文泰来",
-              "奔雷手",
-              "骆冰",
-              "点穴",
-              "陆菲青"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "char_zhou_qi",
-    "name": "周绮",
-    "alias": [
-      "周姑娘"
-    ],
-    "identity": "周仲英之女",
-    "faction": null,
-    "role": "重要",
-    "archetype": "warrior",
-    "power_rank": "略有小成",
-    "importance": "重要",
-    "one_line": "周仲英之女，性格鲁莽，后嫁徐天宏",
-    "biography": "周仲英之女，性格鲁莽直率。后与徐天宏结为夫妻。",
-    "personality": {
-      "traits": [
-        "鲁莽直率",
-        "心直口快",
-        "敢爱敢恨",
-        "侠义心肠",
-        "天真烂漫"
-      ],
-      "speech_style": "心直口快，口无遮拦",
-      "temperament": "活泼开朗"
-    },
-    "relationships": [
-      {
-        "target": "char_zhou_zhong_ying",
-        "type": "亲属",
-        "intensity": 80,
-        "bond_level": 5,
-        "dynamic": "父女"
-      },
-      {
-        "target": "char_xu_tian_hong",
-        "type": "恋人",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "夫妻"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      14,
-      15,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 100,
-        "line_end": 106,
-        "text": "\n当下余鱼同施展金笛，和三名公差斗在一起。他的金笛有时当铁鞭使，有时当判官笔用，有时招数中更夹杂着剑法，胡国栋等三人一时竟闹了个手忙足乱。陆菲青和李沅芷只看得几招之后，不由得面面相觑。李沅芷道：“是柔云剑法。”陆菲青点点头，暗想：“柔云剑是本门独得之秘，他既是红花会中人，那么是大师兄的徒弟了。”\n\n陆菲青师兄弟三人，他居中老二，大师兄马真，师弟张召重便是昨晚李沅芷与之动手过招的“张大人”。这张召重天份甚高，用功又勤，师兄弟中倒以他武功最强，只是热中功名利禄，投身朝廷，此人办事卖力，这些年来青云直上，已升到御林军骁骑营佐领之职。陆菲青当年早与他划地绝交，昨晚见了他的招式，别来十余年，此人百尺竿头，又进一步，实是非同小可。这一晚回思昔日师门学艺的往事，感慨万千，不意今日又见了一个技出同传的后进少年。\n\n他猜想余鱼同是师兄马真之徒，果然所料不错。余鱼同乃江南望族子弟，中过秀才。他父亲因和一家豪门…",
-        "anchors_hit": [
-          "余鱼同",
-          "陆菲青",
-          "张召重",
-          "文泰来",
-          "骆冰"
-        ],
-        "anchors_total": 5,
-        "locate_status": "located",
-        "locate_score": 500,
-        "locate_method": "window",
-        "hint_chapter": 2,
-        "alternatives": [
-          {
-            "chapter": 5,
-            "line_start": 350,
-            "line_end": 356,
-            "text": "\n陈家洛揪住那将官的辫子，在清兵喊叫声中奔向水边，与无尘、赵半山、周仲英都纵到了筏上。蒋四根拔起铁桨，与骆冰双桨摇动，将筏子划向河心。\n\n河水正自大涨，水势汹涌，两只羊皮大筏向下游如飞般流去。眼见铁甲军人马愈来愈小，再过一会，惟见远处火光闪动，水声轰隆，大军人马的喧哗声却渐渐听不到了。\n\n群雄定下心来，照料伤者。卫春华神智渐清，身上倒没受伤。赵半山是暗器能手，医治箭创素所擅长，于是替杨成协和章进裹了伤口。章进伤势较重，但也无大碍。心砚中了数枚金针，痛得叫个不停，原来张召重手劲特重，金针入肉着骨。赵半山从药囊中取出一块吸铁石，将金针一枚一枚的吸出，再为他敷药裹伤。骆冰掌住了舵，一言不发。这一役文泰来没救出，反而失陷了徐天宏、周绮、陆菲青师徒四人，余鱼同也不知落在何方。\n",
-            "score": 500,
-            "anchors_hit": [
-              "骆冰",
-              "文泰来",
-              "余鱼同",
-              "张召重",
-              "陆菲青"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 18,
-            "line_start": 80,
-            "line_end": 86,
-            "text": "\n李沅芷寻思：“余师哥最想得到的，是什么东西？刚才他见到我师父，哭成这个样子，那么对他最要紧的，莫过于杀张召重给马师伯报仇了。这么说来，得想法子去杀张召重。”转念一想：“张召重武艺高强，我又怎杀得了他？就算杀了，他也只是感激我而已，不会像驴子追胡萝卜，一路追个不停。”又想：“我小时候见到佣人的儿子玩泥娃娃，哭着要，他不肯给，我偏偏要，他死也不给。胡子叔叔说得对，我越是对他好，他越是避开我。以后倒不如冷冷淡淡的，等他觉得我好时，再让他来尝尝苦苦求人的滋味。驱赶倔脾气的笨驴，就得用大胡子叔叔的法子。”打算已定，真的对余鱼同不理不睬起来。骆冰与徐天宏冷眼旁观，都觉奇怪。阿凡提只是拉着大胡子微笑。\n\n阿凡提换了脚力，行得快了数倍，一行人蹄踏黄沙，途随白马，来到白玉峰前。那白马对狼群犹有余怖，到了进入古城的歧道处，就停步不前了。骆冰一再驱赶，白马说什么也不肯前行一步。袁士霄道：“狼群大队曾聚在这里，…",
-            "score": 500,
-            "anchors_hit": [
-              "余鱼同",
-              "张召重",
-              "骆冰",
-              "文泰来",
-              "陆菲青"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 19,
-            "line_start": 40,
-            "line_end": 46,
-            "text": "\n张召重左手拉扯，右手回举，已将陆菲青遮在自己身上，突然间认出了他，叫道：“师哥，是你啊！你一直待我很好，像我亲哥哥一般⋯⋯”急速翻身，遮在陆菲青身上，挡住凶狼爪牙，两只狼猛咬他背心。众人惊呼声中，文泰来与余鱼同双双跃下。文泰来单刀连挥，劈死数狼。群狼退开数丈。余鱼同握着从徐天宏手里接来的钢刀，跳落时因城墙过高，立足不稳，翻了个筋斗方才站起，刀尖看准张召重肩头戳将下去。张召重长声惨叫，抱着陆菲青的双臂登时松了。这时群雄已将长绳挂下，先将陆菲青与余鱼同缒上，随即又缒上文泰来。看下面时，群狼已扑在张召重身上乱嚼乱咬。\n\n众人心头怦怦乱跳，一时都说不出话来，想到刚才的凶险，无不心有余悸。\n\n隔了良久，骆冰道：“陆伯伯，你的白龙剑没能拿上来，真可惜。”袁士霄道：“再过一两个月，恶狼都死光了，就可拿回来。”陆菲青垂泪不语。\n",
-            "score": 500,
-            "anchors_hit": [
-              "文泰来",
-              "余鱼同",
-              "张召重",
-              "陆菲青",
-              "骆冰"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 4,
-            "line_start": 264,
-            "line_end": 274,
-            "text": "\n常氏双侠从东返回，西边又奔来八骑，正是周仲英和陆菲青一干人。两拨人还未驰近大车，骆冰已从车内揪出一个人来，摔在地下，喝问：“文大爷⋯⋯在那里？”话未问毕，两行泪珠流了下来。\n\n众人见这人苍老黄瘦，公差打扮，右手吊在颈下。骆冰认得他是北京捕头胡国栋，在客店中曾给文泰来打断了右臂的，踢了他一脚，又待要问，一口气别住了说不出话。\n\n卫春华单钩指住他右眼，喝道：“文爷在那里？你不说，先废了这只招子？”胡国栋恨恨的道：“张召重这小子早押着文⋯⋯文爷走得远啦。这小子叫我坐在车里。我还道他好心让我养伤，那知他是使金蝉脱壳之计，要我认命，给他顶缸，他自己却到北京领功去了。他妈的，瞧这狼心狗肺的东西有没好死。”他破口大骂张召重，一面也为自己开脱。\n\n陈家洛对常氏双侠道：“五哥、六哥，最怕张召重这奸贼带了四哥去得不知去向。由凉州东归中原，乌鞘岭是必经要道，请你们两位连夜赶在前头，扼守要道。要是真拦不住，也好…",
-            "score": 499,
-            "anchors_hit": [
-              "陆菲青",
-              "骆冰",
-              "文泰来",
-              "张召重",
-              "余鱼同"
-            ],
-            "method": "window"
-          }
-        ],
-        "event_type": "background"
-      }
-    ]
-  },
-  {
-    "id": "char_zhao_ban_shan",
-    "name": "赵半山",
-    "alias": [
-      "三哥",
-      "千臂如来"
-    ],
-    "identity": "红花会三当家",
-    "faction": "faction_hong_hua_hui",
-    "role": "重要",
-    "archetype": "warrior",
-    "power_rank": "炉火纯青",
-    "importance": "重要",
-    "one_line": "红花会三当家，温州王氏太极门传人",
-    "biography": "红花会三当家，温州王氏太极门掌门大弟子。善使暗器，绰号千臂如来。",
-    "personality": {
-      "traits": [
-        "重情重义",
-        "武功高强",
-        "老成持重",
-        "侠肝义胆"
-      ],
-      "speech_style": "沉稳有礼",
-      "temperament": "温和稳重"
-    },
-    "relationships": [
-      {
-        "target": "char_chen_jia_luo",
-        "type": "合作者",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "红花会兄弟"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      7,
-      8,
-      10,
-      11,
-      12,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 1,
-        "line_start": 124,
-        "line_end": 128,
-        "text": "\n李沅芷和母亲住着上房。陆菲青住了间小房，用过饭，店伙掌上灯，正待休息，夜阑人静，犬吠声中，隐隐听得远处一片马蹄之声。陆菲青暗想：“这时候还紧自赶路，到底有什么急事？”追思路上接连遇到的四人，暗忖这事有些古怪。蹄声得得，越行越近，直奔到店前，马蹄声一停，敲门声便起。只听得店伙开门，说道：“你老辛苦。茶水酒饭都预备好啦，请进来用吧！”一人粗声说道：“赶紧给喂马，吃了饭还得赶路。”店伙连声答应。脚步声进店，听来共是两人。\n\n陆菲青心下思量：这伙人一批批奔向安西，看他们马上身法都是身负武功之人，在塞外这多年，这样的事儿倒还真少见。他轻轻出了房门，穿过三合院，绕至客店后面，只听得刚才粗声说话那人道：“三哥，你说少舵主年纪轻轻，这伙兄弟他镇得住么？”陆菲青循声走到窗下，他倒不是存心窃听别人阴私，只是这伙人路道奇特，自己身上负着重案，不得不处处小心提防。只听屋里另一人道：“镇不住也得镇住。这是老当家遗…",
-        "anchors_hit": [
-          "陆菲青",
-          "李沅芷",
-          "三哥",
-          "安西"
-        ],
-        "anchors_total": 4,
-        "locate_status": "located",
-        "locate_score": 400,
-        "locate_method": "window",
-        "hint_chapter": 1,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 2,
-            "line_start": 260,
-            "line_end": 276,
-            "text": "\n陆菲青纵马疾驰，前面镇上又遇到了回人，他取出铁莲子，立时又换到了一匹养足了力气的好马。这次更加来得容易，因回人马匹后腿上烙有部族印记，他拿去换的即是他们本族马匹，对方自然更无怀疑。\n\n陆菲青一路换马，在马上吃点干粮，一日一夜赶了六百多里，第二日傍晚到达安西。他武功精湛，武当派讲究的又是内力修为，但毕竟年岁已高，这一日一夜不眠不休的奔驰下来，也已十分疲累。进得城来，取出文泰来所给红花，插在襟头。走不上几步，迎面就有两名短装汉子过来，抱拳行礼，邀他赴酒楼用饭，陆菲青也不推辞。上了酒楼，一名汉子陪他饮酒，另一个说声“失陪”就走了。相陪的汉子执礼甚恭，一句话不问，只是叫菜劝酒。\n\n三杯酒落肚，门外匆匆进来一人，上前作揖。陆菲青忙起身还礼，见那人穿一件青布长衫，三十左右年纪，双目炯炯，英气逼人。那人请教姓名，陆菲青说了。那人道：“原来是武当派陆老前辈，常听赵半山三哥说起您老大名，在下好生仰慕，今日…",
-            "score": 398,
-            "anchors_hit": [
-              "陆菲青",
-              "安西",
-              "三哥",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 5,
-            "line_start": 298,
-            "line_end": 300,
-            "text": "\n陈家洛高声叫道：“九哥、十三哥、孟大哥、安大哥去冲散了鹰爪！”卫春华等挺起兵刃，朝清兵队里杀去。陆菲青背后闪出一个少年，说道：“我也去！”跟着冲去。陈家洛见此人是陆菲青的徒儿李沅芷，不禁眉头微微一皱。\n",
-            "score": 300,
-            "anchors_hit": [
-              "陆菲青",
-              "李沅芷",
-              "三哥"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 10,
-            "line_start": 54,
-            "line_end": 60,
-            "text": "\n群雄退离楼房，聚在墙角。陈家洛道：“常家哥哥、八哥、九哥、十哥，你们打头阵，去赶散鞑子。七哥，你想法弄断药线。道长、三哥，等他们一得手，咱们冲去抢救四哥。”常氏兄弟与徐天宏等应声而去。\n\n李可秀正要命人去看守文泰来，忽见常氏兄弟等又杀了上来，忙分兵御敌。御前侍卫范中恩、朱祖荫、褚圆、瑞大林等上来挡住。\n\n陆菲青先看明了退路。一弯腰，如一枝箭般突向李可秀冲去。众亲兵齐声呐喊，纷举刀枪拦阻。陆菲青并不对敌，左一避，右一闪，疾似飞鸟，滑如游鱼，刹那间已绕过七八名亲兵，欺到李可秀之前。李沅芷穿了男装，站在父亲身旁，忽见一个蒙面怪客来袭，娇叱一声：“什么东西！”一剑“春云乍展”，平胸刺出。\n",
-            "score": 300,
-            "anchors_hit": [
-              "三哥",
-              "陆菲青",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 4,
-            "line_start": 228,
-            "line_end": 238,
-            "text": "\n陆菲青道：“沅芷，你怎么和余师兄、蒋大哥在一起？”李沅芷笑道：“余师哥非要人家听他吹笛不可，说有十套大曲，又是龙吟，又是凤鸣什么的。我不爱听嘛，他就拦着不许走。师父你倒评评这个理看。”\n\n余鱼同听李沅芷向陆菲青如此告状，不由得脸上一阵发烧，心道：“我拦住人听笛子是有的，可那里是拦住你这大姑娘啊？”周绮听了李沅芷这番话，狠狠白了徐天宏一眼，心道：“你们红花会里有几个好人？”陆菲青对李沅芷道：“前面事情凶险，你们留在这里别走，莫惊吓了太太。我事情了结之后，自会前来找你。”李沅芷听说前面有热闹可瞧，可是师父偏不让她去，撅起了嘴不答应。陆菲青也不理她，招呼众人上马，向东追去。\n\n陈家洛率领群雄，疾追官差，奔出四五里地，隐隐已望见平野漠漠，人马排成一线而行。无尘一马当先，拔剑大叫：“追啊！”再奔得一里多路，前面人形越来越大。斜刺里骆冰骑白马直冲上去，一晃眼便追上了敌人。她双刀在手，预备赶过敌人前头…",
-            "score": 299,
-            "anchors_hit": [
-              "陆菲青",
-              "李沅芷",
-              "三哥"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "char_wei_chun_hua",
-    "name": "卫春华",
-    "alias": [
-      "九哥"
-    ],
-    "identity": "红花会九当家",
-    "faction": "faction_hong_hua_hui",
-    "role": "次要",
-    "archetype": "warrior",
-    "power_rank": "炉火纯青",
-    "importance": "次要",
-    "one_line": "红花会九当家，善使双钩",
-    "biography": "红花会九当家，善使双钩。多次参与红花会行动。",
-    "personality": {
-      "traits": [
-        "勇猛善战",
-        "忠心耿耿",
-        "直率豪爽"
-      ],
-      "speech_style": "直率豪爽",
-      "temperament": "勇猛刚烈"
-    },
-    "relationships": [
-      {
-        "target": "char_chen_jia_luo",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "红花会兄弟"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      14,
-      15,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 581,
-        "line_end": 590,
-        "text": "三杯酒落肚门外匆匆进来一人上前作揖",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
-      }
-    ]
-  },
-  {
-    "id": "char_zhang_jin",
-    "name": "章进",
-    "alias": [
-      "十哥",
-      "章驼子"
-    ],
-    "identity": "红花会十当家",
-    "faction": "faction_hong_hua_hui",
-    "role": "次要",
-    "archetype": "warrior",
-    "power_rank": "炉火纯青",
-    "importance": "次要",
-    "one_line": "红花会十当家，驼背神力惊人",
-    "biography": "红花会十当家，天生驼背但神力惊人。性子最直，最恼别人取笑他的驼背。",
-    "personality": {
-      "traits": [
-        "神力惊人",
-        "性子直率",
-        "嫉恶如仇",
-        "忠心耿耿"
-      ],
-      "speech_style": "直率粗犷",
-      "temperament": "刚烈直率"
-    },
-    "relationships": [
-      {
-        "target": "char_chen_jia_luo",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "红花会兄弟"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      12,
-      13,
-      14,
-      15,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 595,
-        "line_end": 600,
-        "text": "这驼子姓章名进最是直性子",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
+        "chapter": 8,
+        "text": "皇清太子太傅文渊阁大学士工部尚书陈文勤公讳世倌之墓"
       }
     ]
   },
   {
     "id": "char_chen_zheng_de",
     "name": "陈正德",
-    "alias": [
-      "秃鹫"
-    ],
-    "identity": "天山双鹰之一",
-    "faction": "faction_tian_shan_pai",
-    "role": "次要",
-    "archetype": "warrior",
-    "power_rank": "登峰造极",
-    "importance": "次要",
-    "one_line": "天山双鹰之秃鹫，醋心极重的老前辈",
-    "biography": "天山双鹰之一，绰号秃鹫。与妻子关明梅常年争吵，醋心极重。霍青桐的师公。",
-    "personality": {
-      "traits": [
-        "醋心极重",
-        "武功高强",
-        "老当益壮",
-        "性情暴躁"
-      ],
-      "speech_style": "暴躁直率",
-      "temperament": "暴躁易怒"
-    },
-    "relationships": [
-      {
-        "target": "char_guan_ming_mei",
-        "type": "恋人",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "夫妻，常年争吵"
-      },
-      {
-        "target": "char_huo_qing_tong",
-        "type": "师徒",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "师公"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      2,
-      4,
-      11,
-      12,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 32,
-        "line_end": 38,
-        "text": "\n陆菲青捋了一下胡须，笑道：“两个都是小孩脾气。算了，算了。这是我徒弟李沅芷，你去告诉你师父师公，我‘绵里针’⋯⋯”他骤然住口，心想李沅芷一直没知道他真姓名，“⋯⋯就说武当派‘绵里针’姓陆的，恭喜他们二位收了个好徒弟。”霍青桐恨恨地道：“还说好徒弟哩，给人家这般欺侮，丢师父师公的脸。”\n\n陆菲青正色道：“姑娘你别以为败在我手下是丢脸，能似你这般跟我拆上几十招的人，武林中可还真不多。我知天山双鹰向来不收徒弟，但日间见你剑法全是双鹰嫡传，心中犯了疑，因此上来试你一试。适才见你使出‘海市蜃楼’绝招，才知你确是得了双鹰的真传。你师公还在跟你师父喝醋吵嘴吗？”说着哈哈一笑。\n\n原来秃鹫陈正德醋心极重，夫妻俩都已年逾花甲，却还是疑心夫人雪雕关明梅移情别向，数十年来口角纷争，没一日安宁。霍青桐见他连师父师公的私事都知道，信他确是前辈，可是仍不服气，道：“你既是我师父朋友，怎地叫你徒弟跟我们作对？害得我们…",
-        "anchors_hit": [
-          "霍青桐",
-          "陆菲青",
-          "绵里针",
-          "李沅芷",
-          "天山",
-          "剑法",
-          "陈正德",
-          "关明梅",
-          "秃鹫",
-          "雪雕"
-        ],
-        "anchors_total": 10,
-        "locate_status": "located",
-        "locate_score": 1000,
-        "locate_method": "window",
-        "hint_chapter": 2,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 4,
-            "line_start": 280,
-            "line_end": 316,
-            "text": "\n陈家洛向人圈中看去，但见剑气纵横，轮影飞舞，一个黄衫女郎与一个矫健汉子斗得正紧。陆菲青走到陈家洛身旁，说道：“这穿黄衫的姑娘名叫霍青桐，是天山双鹰的弟子。那使五行轮的是关东六魔中的阎世章。”\n\n陈家洛心中一动，他知道天山双鹰秃鹫陈正德、雪雕关明梅是回疆武林前辈，和他师父天池怪侠素有嫌隙，虽不成仇，但尽量避不见面，久闻天山派“三分剑术”自成一家，倒要留心一观。凝神望去，见那黄衫女郎剑光霍霍，攻势凌厉，然而阎世章双轮展开，也尽自抵敌得住。众回人呐喊助威，有数人渐渐逼近，似欲加入战团。\n\n阎世章双轮“指天划地”左挡右攻，待霍青桐长剑收转，退开两步，叫道：“且慢，我有话说。”众回人逼上前去，兵刃耀眼，眼见就要将他乱刀分尸。阎世章倏地双轮交于左手，右手回扯，将背上的红布包袱拿在手中，双轮高举，叫道：“你们要倚多取胜，我先将这包裹剁烂了。”那五行轮轮口白光闪烁，锋利之极，双轮这一斫下去，包袱不免立时…",
-            "score": 894,
-            "anchors_hit": [
-              "霍青桐",
-              "陆菲青",
-              "天山",
-              "陈正德",
-              "关明梅",
-              "秃鹫",
-              "雪雕",
-              "剑法",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 11,
-            "line_start": 148,
-            "line_end": 188,
-            "text": "\n周仲英道：“这位是雪雕关老师父吧，在下久仰得很。”\n\n那老妇正是雪雕关明梅，是秃头老者陈正德的妻子，两人一高一矮，一个秃头，一个白发，江湖上人称秃鹫雪雕，合称天山双鹰。\n\n关明梅听了周仲英的话，微微点头。陈家洛道：“这位是铁胆庄周老英雄。”关明梅道：“嗯，我也听到过你的名头。”说到这里，忽然张口大叫：“当家的，快下来，你在干什么呀？”她正说得好好的，突如其来的一声大喊，把众人都吓了一跳。\n\n周仲英道：“陈老师父在跟无尘道长斗剑，咱们快去把事情说清楚。”\n\n陈家洛向常氏双侠使个眼色。双侠会意，走到乾隆身旁监守。陈家洛和关明梅等奔上梯级，走到第十三层来，在梯级上却不闻刀剑之声，群雄都有点担忧，心想这两人武功卓绝，出手快速，两虎相争，难免一伤，如那一个失手疏虞，都是终身恨事。关明梅却漫不在意，知道丈夫平生罕遇敌手，决不致有甚失闪。\n\n众人刚到室门，祇见白刃耀眼，满室剑光，两个人影在斗室中盘旋飞…",
-            "score": 893,
-            "anchors_hit": [
-              "雪雕",
-              "陈正德",
-              "关明梅",
-              "秃鹫",
-              "天山",
-              "剑法",
-              "陆菲青",
-              "绵里针",
-              "霍青桐"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 18,
-            "line_start": 230,
-            "line_end": 270,
-            "text": "\n袁士霄和天山双鹰已向霍青桐问明了三人自狼群脱险、同入玉宫的经过，又见三人相互间神情亲密，看来陈家洛并非喜新弃旧，忘义负心，姊妹俩十分和睦，霍青桐对他和妹子亦无怨恨之意，三老都感欣慰。天山双鹰均想：“幸亏当日没鲁莽杀了这二人，否则袁大哥固然不依，连我们徒儿也要⋯⋯”也要如何，却是难以设想了。\n\n文定道贺已毕，众人分别借故走开。余鱼同见四周已无旁人，说道：“师妹，张召重那奸贼在哪里呀？”李沅芷见他全无温存之态、缠绵之意，第一句话就问张召重，心中老大不快，愠道：“我怎知道呀？”\n\n余鱼同脸色惨白，忽地跪下，咚咚咚的向她磕了三个响头，哭道：“我当年家破人亡，不能自立，幸蒙恩师见怜收留，授我武艺。我未能报答恩师一点半滴恩情，他就惨遭张召重害死。师妹，求求你指点一条明路。”这一下大出李沅芷意料之外，见他又磕下头去，不觉狼狈失措，忙伸手拉起，摸出手帕丢给他，柔声道：“快擦干眼泪，我带你去就是。”\n\n突…",
-            "score": 693,
-            "anchors_hit": [
-              "霍青桐",
-              "天山",
-              "李沅芷",
-              "陆菲青",
-              "陈正德",
-              "关明梅",
-              "剑法"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 20,
-            "line_start": 324,
-            "line_end": 375,
-            "text": "\n李沅芷和余鱼同双双下马，走到李可秀跟前，跪了下去。李可秀一阵心酸，知道此后永无再见之日，低声道：“孩子，自己保重！”伸手抚摸她头发，兜转马头，回宫去了。李沅芷伏地哭泣，余鱼同扶她上马。\n\n群雄驰到城门，与杨成协、卫春华等会合。福康安叫开城门。\n\n钟楼上巨钟镗镗，响彻全城，正交四更。\n\n众人出得城来，只见水边一片芦苇，残月下飞絮乱舞，再走一程，眼前尽是乱坟。\n\n忽听一群人在边唱边哭，唱的却是回人悼歌。陈家洛和霍青桐都是一惊，纵马上前，问道：“你们悲悼谁啊？”一个老年回人抬起头来，脸上泪水纵横，说道：“香香公主！”\n\n陈家洛惊问：“香香公主葬在这里么？”那回人指着一座黄土未干的新坟，道：“就在这里。”霍青桐流下泪来，道：“咱们不能让妹子葬在这里。”陈家洛道：“不错，她最爱那神峰里面的翡翠池，常说：‘我能永远住在那里就高兴了！’咱们把她遗体运去葬在池边。”霍青桐含泪道：“正是。”\n\n那老年回人…",
-            "score": 691,
-            "anchors_hit": [
-              "李沅芷",
-              "霍青桐",
-              "陈正德",
-              "秃鹫",
-              "雪雕",
-              "天山",
-              "陆菲青"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "char_guan_ming_mei",
-    "name": "关明梅",
-    "alias": [
-      "雪雕"
-    ],
-    "identity": "天山双鹰之一",
-    "faction": "faction_tian_shan_pai",
-    "role": "次要",
-    "archetype": "warrior",
-    "power_rank": "登峰造极",
-    "importance": "次要",
-    "one_line": "天山双鹰之雪雕，霍青桐的师父",
-    "biography": "天山双鹰之一，绰号雪雕。与丈夫陈正德常年争吵。霍青桐的师父。",
-    "personality": {
-      "traits": [
-        "武功高强",
-        "性情刚烈",
-        "爱护弟子",
-        "外柔内刚"
-      ],
-      "speech_style": "刚烈果断",
-      "temperament": "刚烈果断"
-    },
-    "relationships": [
-      {
-        "target": "char_chen_zheng_de",
-        "type": "恋人",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "夫妻，常年争吵"
-      },
-      {
-        "target": "char_huo_qing_tong",
-        "type": "师徒",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "师徒情深"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      2,
-      4,
-      11,
-      15,
-      16,
-      17,
-      18,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 2,
-        "line_start": 32,
-        "line_end": 38,
-        "text": "\n陆菲青捋了一下胡须，笑道：“两个都是小孩脾气。算了，算了。这是我徒弟李沅芷，你去告诉你师父师公，我‘绵里针’⋯⋯”他骤然住口，心想李沅芷一直没知道他真姓名，“⋯⋯就说武当派‘绵里针’姓陆的，恭喜他们二位收了个好徒弟。”霍青桐恨恨地道：“还说好徒弟哩，给人家这般欺侮，丢师父师公的脸。”\n\n陆菲青正色道：“姑娘你别以为败在我手下是丢脸，能似你这般跟我拆上几十招的人，武林中可还真不多。我知天山双鹰向来不收徒弟，但日间见你剑法全是双鹰嫡传，心中犯了疑，因此上来试你一试。适才见你使出‘海市蜃楼’绝招，才知你确是得了双鹰的真传。你师公还在跟你师父喝醋吵嘴吗？”说着哈哈一笑。\n\n原来秃鹫陈正德醋心极重，夫妻俩都已年逾花甲，却还是疑心夫人雪雕关明梅移情别向，数十年来口角纷争，没一日安宁。霍青桐见他连师父师公的私事都知道，信他确是前辈，可是仍不服气，道：“你既是我师父朋友，怎地叫你徒弟跟我们作对？害得我们…",
-        "anchors_hit": [
-          "霍青桐",
-          "陆菲青",
-          "绵里针",
-          "李沅芷",
-          "天山",
-          "剑法",
-          "陈正德",
-          "关明梅",
-          "秃鹫",
-          "雪雕"
-        ],
-        "anchors_total": 10,
-        "locate_status": "located",
-        "locate_score": 1000,
-        "locate_method": "window",
-        "hint_chapter": 2,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 4,
-            "line_start": 280,
-            "line_end": 316,
-            "text": "\n陈家洛向人圈中看去，但见剑气纵横，轮影飞舞，一个黄衫女郎与一个矫健汉子斗得正紧。陆菲青走到陈家洛身旁，说道：“这穿黄衫的姑娘名叫霍青桐，是天山双鹰的弟子。那使五行轮的是关东六魔中的阎世章。”\n\n陈家洛心中一动，他知道天山双鹰秃鹫陈正德、雪雕关明梅是回疆武林前辈，和他师父天池怪侠素有嫌隙，虽不成仇，但尽量避不见面，久闻天山派“三分剑术”自成一家，倒要留心一观。凝神望去，见那黄衫女郎剑光霍霍，攻势凌厉，然而阎世章双轮展开，也尽自抵敌得住。众回人呐喊助威，有数人渐渐逼近，似欲加入战团。\n\n阎世章双轮“指天划地”左挡右攻，待霍青桐长剑收转，退开两步，叫道：“且慢，我有话说。”众回人逼上前去，兵刃耀眼，眼见就要将他乱刀分尸。阎世章倏地双轮交于左手，右手回扯，将背上的红布包袱拿在手中，双轮高举，叫道：“你们要倚多取胜，我先将这包裹剁烂了。”那五行轮轮口白光闪烁，锋利之极，双轮这一斫下去，包袱不免立时…",
-            "score": 894,
-            "anchors_hit": [
-              "霍青桐",
-              "陆菲青",
-              "天山",
-              "陈正德",
-              "关明梅",
-              "秃鹫",
-              "雪雕",
-              "剑法",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 11,
-            "line_start": 148,
-            "line_end": 188,
-            "text": "\n周仲英道：“这位是雪雕关老师父吧，在下久仰得很。”\n\n那老妇正是雪雕关明梅，是秃头老者陈正德的妻子，两人一高一矮，一个秃头，一个白发，江湖上人称秃鹫雪雕，合称天山双鹰。\n\n关明梅听了周仲英的话，微微点头。陈家洛道：“这位是铁胆庄周老英雄。”关明梅道：“嗯，我也听到过你的名头。”说到这里，忽然张口大叫：“当家的，快下来，你在干什么呀？”她正说得好好的，突如其来的一声大喊，把众人都吓了一跳。\n\n周仲英道：“陈老师父在跟无尘道长斗剑，咱们快去把事情说清楚。”\n\n陈家洛向常氏双侠使个眼色。双侠会意，走到乾隆身旁监守。陈家洛和关明梅等奔上梯级，走到第十三层来，在梯级上却不闻刀剑之声，群雄都有点担忧，心想这两人武功卓绝，出手快速，两虎相争，难免一伤，如那一个失手疏虞，都是终身恨事。关明梅却漫不在意，知道丈夫平生罕遇敌手，决不致有甚失闪。\n\n众人刚到室门，祇见白刃耀眼，满室剑光，两个人影在斗室中盘旋飞…",
-            "score": 893,
-            "anchors_hit": [
-              "雪雕",
-              "陈正德",
-              "关明梅",
-              "秃鹫",
-              "天山",
-              "剑法",
-              "陆菲青",
-              "绵里针",
-              "霍青桐"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 18,
-            "line_start": 230,
-            "line_end": 270,
-            "text": "\n袁士霄和天山双鹰已向霍青桐问明了三人自狼群脱险、同入玉宫的经过，又见三人相互间神情亲密，看来陈家洛并非喜新弃旧，忘义负心，姊妹俩十分和睦，霍青桐对他和妹子亦无怨恨之意，三老都感欣慰。天山双鹰均想：“幸亏当日没鲁莽杀了这二人，否则袁大哥固然不依，连我们徒儿也要⋯⋯”也要如何，却是难以设想了。\n\n文定道贺已毕，众人分别借故走开。余鱼同见四周已无旁人，说道：“师妹，张召重那奸贼在哪里呀？”李沅芷见他全无温存之态、缠绵之意，第一句话就问张召重，心中老大不快，愠道：“我怎知道呀？”\n\n余鱼同脸色惨白，忽地跪下，咚咚咚的向她磕了三个响头，哭道：“我当年家破人亡，不能自立，幸蒙恩师见怜收留，授我武艺。我未能报答恩师一点半滴恩情，他就惨遭张召重害死。师妹，求求你指点一条明路。”这一下大出李沅芷意料之外，见他又磕下头去，不觉狼狈失措，忙伸手拉起，摸出手帕丢给他，柔声道：“快擦干眼泪，我带你去就是。”\n\n突…",
-            "score": 693,
-            "anchors_hit": [
-              "霍青桐",
-              "天山",
-              "李沅芷",
-              "陆菲青",
-              "陈正德",
-              "关明梅",
-              "剑法"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 20,
-            "line_start": 324,
-            "line_end": 375,
-            "text": "\n李沅芷和余鱼同双双下马，走到李可秀跟前，跪了下去。李可秀一阵心酸，知道此后永无再见之日，低声道：“孩子，自己保重！”伸手抚摸她头发，兜转马头，回宫去了。李沅芷伏地哭泣，余鱼同扶她上马。\n\n群雄驰到城门，与杨成协、卫春华等会合。福康安叫开城门。\n\n钟楼上巨钟镗镗，响彻全城，正交四更。\n\n众人出得城来，只见水边一片芦苇，残月下飞絮乱舞，再走一程，眼前尽是乱坟。\n\n忽听一群人在边唱边哭，唱的却是回人悼歌。陈家洛和霍青桐都是一惊，纵马上前，问道：“你们悲悼谁啊？”一个老年回人抬起头来，脸上泪水纵横，说道：“香香公主！”\n\n陈家洛惊问：“香香公主葬在这里么？”那回人指着一座黄土未干的新坟，道：“就在这里。”霍青桐流下泪来，道：“咱们不能让妹子葬在这里。”陈家洛道：“不错，她最爱那神峰里面的翡翠池，常说：‘我能永远住在那里就高兴了！’咱们把她遗体运去葬在池边。”霍青桐含泪道：“正是。”\n\n那老年回人…",
-            "score": 691,
-            "anchors_hit": [
-              "李沅芷",
-              "霍青桐",
-              "陈正德",
-              "秃鹫",
-              "雪雕",
-              "天山",
-              "陆菲青"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "char_yuan_shi_xiao",
-    "name": "袁士霄",
-    "alias": [
-      "天池怪侠"
-    ],
-    "identity": "陈家洛的师父",
-    "faction": null,
-    "role": "次要",
-    "archetype": "warrior",
-    "power_rank": "返璞归真",
-    "importance": "次要",
-    "one_line": "天池怪侠，百花错拳创始人，陈家洛的师父",
-    "biography": "天池怪侠，百花错拳创始人。陈家洛的师父，武功盖世。与于万亭是知交。",
-    "personality": {
-      "traits": [
-        "武功盖世",
-        "性情古怪",
-        "不拘小节",
-        "爱护弟子",
-        "见识广博"
-      ],
-      "speech_style": "随性洒脱",
-      "temperament": "超然物外"
-    },
-    "relationships": [
-      {
-        "target": "char_chen_jia_luo",
-        "type": "师徒",
-        "intensity": 80,
-        "bond_level": 5,
-        "dynamic": "师徒情深"
-      }
-    ],
-    "known_skills": [
-      "skill_bai_hua_cuo_quan"
-    ],
-    "related_skills": [],
-    "rag_refs": [
-      3,
-      7,
-      11,
-      15,
-      16,
-      17,
-      18,
-      19
-    ],
-    "source_refs": [
-      {
-        "chapter": 3,
-        "line_start": 334,
-        "line_end": 336,
-        "text": "\n众人均不识得这是天池怪侠袁士霄所创的独门拳术“百花错拳”。袁士霄少年时钻研武学，所学本已极博，后来遇到一件大失意事，性情激变，发愿做前人所未做之事，打前人所未打之拳，于是遍访海内名家，或学师，或偷拳，或挑斗踢场以观其招，或明抢暗夺而取其谱，将各家拳术几乎学了个遍，中年后隐居天池，别走蹊径，创出了这路“百花错拳”。这拳法包蕴百家，其妙处尤在于一个“错”字，每一招均和各派正宗手法相似而实非，一出手对方以为定是某招，举手迎敌，才知打来的方位手法完全不同，其精微要旨在于“似是而非，出其不意”八字。旁人只道拳脚全打错了，岂知正因为全部打错，对方才防不胜防。凡武学高手，见闻必博，所学必精，于诸派武技胸中早有定见，不免“百花”易敌，“错”字难当。袁士霄创此拳术，志在让他情敌栽个大筋斗，败得狼狈不堪，丢脸之极，但生怕狂怒中失手打死情敌，于理不合，是以自行克制，不与对方动手过招，因此这套拳术从未用过，他弟…",
-        "anchors_hit": [
-          "天池怪侠",
-          "百花错拳",
-          "袁士霄",
-          "拳法"
-        ],
-        "anchors_total": 4,
-        "locate_status": "located",
-        "locate_score": 400,
-        "locate_method": "window",
-        "hint_chapter": 3,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 19,
-            "line_start": 2,
-            "line_end": 16,
-            "text": "心伤殿隅星初落 魂断城头日已昏\n 这时张召重和陈家洛翻翻滚滚，已拆了一百余招。初时陈家洛的“百花错拳”变招迭出，张召重又在强敌环伺之下，不免气馁，手中虽有兵刃，却也不敢莽进，既要解拆对方古怪繁复、不成章法的拳术，又要找寻空隙，想一举将他擒住，再见陆菲青、骆冰、霍青桐等人手中似都扣着暗器，于是更加严守门户，不敢露出丝毫空隙，以防旁人暗袭，这样一分神，双方打成了平手。再拆数招，张召重心想：“再耗下去，是何了局？就算胜了对手，他们和我车轮大战，打不死我，也把我拖得累死。”这时对“百花错拳”的格局已大致摸熟，即使对方突使怪招，也可应付得了，胆子既壮，剑法忽变。\n\n他柔云快剑施展开来，记记都是进手招数，倏地一招“耿耿银河”，凝碧剑疾挥横削，千头万绪般乱点下来，真若天上繁星一般。陈家洛忽地跳出圈子，要避开他这番招招相连的攻势，再行回击。卫春华和章进齐向张召重扑去。\n\n凝碧剑“耿耿银河”招术尚未使完，张…",
-            "score": 298,
-            "anchors_hit": [
-              "百花错拳",
-              "袁士霄",
-              "拳法"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 11,
-            "line_start": 124,
-            "line_end": 204,
-            "text": "\n陈家洛虽然站在乾隆身旁，但这剑实在来得太快，也已不及抵挡，立即左手双指骈拢，向老妇胁下要穴点去，这是攻敌之不得不救。老妇剑尖将及乾隆胸口，突见陈家洛手指袭到，左掌“金龙探爪”，自下向上一撩，随即反手抓出，这是三十六路大擒拿法中的厉害招数，和点穴有异曲同工之妙，陈家洛只要腕脉被抓，立时就得全身瘫软。就这样，她右手剑的势道缓得一缓，陈家洛右手已拔出短剑，向上急架，铮的一声，火星飞溅，左手跟着反击敌人面门。这一招之后，紧着下面还有一腿，叫作“上下交征”。那老妇拳术娴熟，见他左手击来，又伸左掌抓拿，下盘向右闪避，手中剑刺向对方咽喉。不料陈家洛的“百花错拳”每一招均与众不同，老妇向右闪避，他一脚偏从右方踢来，好在她长剑亦已刺出，陈家洛腿力尚未使足，随即收势。\n\n两人均起疑心，危势既解，各退两步。陈家洛把乾隆往身后一拉，挡在他面前，拱手道：“请教老太太高姓？”这时那老妇也在喝问。两人语声混杂，都听不…",
-            "score": 285,
-            "anchors_hit": [
-              "百花错拳",
-              "天池怪侠",
-              "袁士霄"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "char_li_yuan_zhi",
-    "name": "李沅芷",
     "alias": [],
-    "identity": "陆菲青的弟子",
+    "aliases": [],
+    "identity": "天山双鹰之一",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "出神入化",
     "faction": null,
-    "role": "次要",
-    "archetype": "warrior",
-    "power_rank": "略有小成",
-    "importance": "次要",
-    "one_line": "陆菲青弟子，将门之女，暗恋余鱼同",
-    "biography": "李可秀之女，陆菲青的弟子。性格活泼调皮，女扮男装行走江湖。暗恋余鱼同，后与之结缘。",
+    "importance": "重要",
+    "one_line": "天山双鹰之一，与妻子关明梅合称天山双鹰，武功出神入化，为刺杀乾隆殉难。",
+    "bio": "天山双鹰之一，与妻子关明梅合称天山双鹰，武功出神入化，为刺杀乾隆殉难。",
+    "biography": "天山双鹰之一，与妻子关明梅合称天山双鹰，武功出神入化，为刺杀乾隆殉难。",
     "personality": {
       "traits": [
-        "活泼调皮",
-        "聪明伶俐",
-        "敢爱敢恨",
-        "女扮男装",
-        "初生之犊不畏虎"
+        "刚烈",
+        "重义"
       ],
-      "speech_style": "活泼俏皮",
-      "temperament": "活泼开朗"
+      "speech_style": "豪迈",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_lu_fei_qing",
-        "type": "师徒",
-        "intensity": 80,
-        "bond_level": 4,
-        "dynamic": "师徒情深"
-      },
-      {
-        "target": "char_yu_yu_tong",
-        "type": "恋人",
-        "intensity": 70,
-        "bond_level": 3,
-        "dynamic": "暗恋余鱼同"
-      },
-      {
-        "target": "char_li_ke_xiu",
-        "type": "亲属",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "父女"
-      }
-    ],
-    "known_skills": [
-      "skill_wu_ji_xuan_gong_quan",
-      "skill_fu_rong_jin_zhen",
-      "skill_rou_yun_jian_shu"
-    ],
-    "related_skills": [],
-    "rag_refs": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
-      {
-        "chapter": 1,
-        "line_start": 8,
-        "line_end": 10,
-        "text": "\n这女孩儿李沅芷是总兵李可秀的独生女儿，是他在湘西做参将任内所生，给女儿取这名字，是纪念生地之意。\n",
-        "anchors_hit": [
-          "李沅芷",
-          "李可秀"
-        ],
-        "anchors_total": 2,
-        "locate_status": "located",
-        "locate_score": 200,
-        "locate_method": "window",
-        "hint_chapter": 1,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 7,
-            "line_start": 154,
-            "line_end": 160,
-            "text": "\n两船靠近，乾隆、李可秀、白振、以及几名职位较高的侍卫踏跳板过去。只见船中只陈家洛和书僮两人，白振等人都放下了心。\n\n那艘花艇船舱宽敞，画壁雕栏，甚是精雅，艇中桌上摆了酒杯碗筷，水果酒菜满桌都是。陈家洛道：“仁兄惠然肯来，幸何如之！”乾隆道：“兄台相招，岂能不来？”两人携手大笑，相对坐下。李可秀和白振等都站在乾隆之后。\n\n陈家洛向白振微微一笑，也不说话，一瞥之间，忽见李可秀身后站着一个美貌少年，却不是陆菲青的徒弟是谁？怎么和朝廷官员混在一起，这倒奇了，心感诧异，不免多看了一眼。李沅芷向他嫣然一笑，眼睛一霎，要他不可相认。\n",
-            "score": 200,
-            "anchors_hit": [
-              "李可秀",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 8,
-            "line_start": 286,
-            "line_end": 288,
-            "text": "\n李可秀正惶急间，忽见一名少年从外挺剑奔进，拉住他手便走，叫道：“爹爹快走！”正是穿了男装的李沅芷。\n",
-            "score": 200,
-            "anchors_hit": [
-              "李沅芷",
-              "李可秀"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 9,
-            "line_start": 134,
-            "line_end": 138,
-            "text": "\n两人轻轻走了出来，过了闸门，穿过甬道，从石级上来，突然眼前大亮，只见满园中都是火把，数十名兵士手执长矛，亮晃晃的矛头对准地牢出口。远处又有数百名兵士弯弓搭箭，向着地牢口瞄准。李可秀右手高举，双目凝视，祗要他右手向下一挥，矛箭齐发，陈家洛与文泰来武艺再高，却也无法逃得性命。\n\n陈家洛退后一步，低声问文泰来道：“你伤势怎样？能冲出去吗？”文泰来微微苦笑道：“不成，我腿上不灵便。总舵主你一人走吧，别管我。”陈家洛道：“那么你冒充一下张召重试试看。”文泰来把帽子拉低，压在眉檐，大模大样的走了出去。李可秀见张召重和陈家洛一齐出来，心中暗暗叫苦，只道张召重已将陈家洛擒住，转头对李沅芷道：“你去把剑还给张召重，和他东拉西扯说几句话，让红花会的总舵主逃走。”\n",
-            "score": 200,
-            "anchors_hit": [
-              "李可秀",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 10,
-            "line_start": 56,
-            "line_end": 60,
-            "text": "\n李可秀正要命人去看守文泰来，忽见常氏兄弟等又杀了上来，忙分兵御敌。御前侍卫范中恩、朱祖荫、褚圆、瑞大林等上来挡住。\n\n陆菲青先看明了退路。一弯腰，如一枝箭般突向李可秀冲去。众亲兵齐声呐喊，纷举刀枪拦阻。陆菲青并不对敌，左一避，右一闪，疾似飞鸟，滑如游鱼，刹那间已绕过七八名亲兵，欺到李可秀之前。李沅芷穿了男装，站在父亲身旁，忽见一个蒙面怪客来袭，娇叱一声：“什么东西！”一剑“春云乍展”，平胸刺出。\n",
-            "score": 200,
-            "anchors_hit": [
-              "李可秀",
-              "李沅芷"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "char_li_ke_xiu",
-    "name": "李可秀",
-    "alias": [
-      "李军门"
-    ],
-    "identity": "浙江水陆提督",
-    "faction": "faction_qing_ting",
-    "role": "次要",
-    "archetype": "warrior",
-    "power_rank": "初窥门径",
-    "importance": "次要",
-    "one_line": "浙江水陆提督，李沅芷之父",
-    "biography": "浙江水陆提督，李沅芷之父。精明强干，官运亨通。",
-    "personality": {
-      "traits": [
-        "精明强干",
-        "官运亨通",
-        "爱护女儿",
-        "忠于朝廷"
-      ],
-      "speech_style": "官腔十足",
-      "temperament": "精明干练"
-    },
-    "relationships": [
-      {
-        "target": "char_li_yuan_zhi",
-        "type": "亲属",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "父女"
-      },
-      {
-        "target": "char_qian_long",
-        "type": "主仆",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "君臣"
-      }
-    ],
+    "relationships": [],
     "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      1,
-      4,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      20
-    ],
+    "skills": [],
+    "items": [],
     "source_refs": [
       {
-        "chapter": 1,
-        "line_start": 8,
-        "line_end": 10,
-        "text": "\n这女孩儿李沅芷是总兵李可秀的独生女儿，是他在湘西做参将任内所生，给女儿取这名字，是纪念生地之意。\n",
-        "anchors_hit": [
-          "李沅芷",
-          "李可秀"
-        ],
-        "anchors_total": 2,
-        "locate_status": "located",
-        "locate_score": 200,
-        "locate_method": "window",
-        "hint_chapter": 1,
-        "event_type": "background",
-        "alternatives": [
-          {
-            "chapter": 7,
-            "line_start": 154,
-            "line_end": 160,
-            "text": "\n两船靠近，乾隆、李可秀、白振、以及几名职位较高的侍卫踏跳板过去。只见船中只陈家洛和书僮两人，白振等人都放下了心。\n\n那艘花艇船舱宽敞，画壁雕栏，甚是精雅，艇中桌上摆了酒杯碗筷，水果酒菜满桌都是。陈家洛道：“仁兄惠然肯来，幸何如之！”乾隆道：“兄台相招，岂能不来？”两人携手大笑，相对坐下。李可秀和白振等都站在乾隆之后。\n\n陈家洛向白振微微一笑，也不说话，一瞥之间，忽见李可秀身后站着一个美貌少年，却不是陆菲青的徒弟是谁？怎么和朝廷官员混在一起，这倒奇了，心感诧异，不免多看了一眼。李沅芷向他嫣然一笑，眼睛一霎，要他不可相认。\n",
-            "score": 200,
-            "anchors_hit": [
-              "李可秀",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 8,
-            "line_start": 286,
-            "line_end": 288,
-            "text": "\n李可秀正惶急间，忽见一名少年从外挺剑奔进，拉住他手便走，叫道：“爹爹快走！”正是穿了男装的李沅芷。\n",
-            "score": 200,
-            "anchors_hit": [
-              "李沅芷",
-              "李可秀"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 9,
-            "line_start": 134,
-            "line_end": 138,
-            "text": "\n两人轻轻走了出来，过了闸门，穿过甬道，从石级上来，突然眼前大亮，只见满园中都是火把，数十名兵士手执长矛，亮晃晃的矛头对准地牢出口。远处又有数百名兵士弯弓搭箭，向着地牢口瞄准。李可秀右手高举，双目凝视，祗要他右手向下一挥，矛箭齐发，陈家洛与文泰来武艺再高，却也无法逃得性命。\n\n陈家洛退后一步，低声问文泰来道：“你伤势怎样？能冲出去吗？”文泰来微微苦笑道：“不成，我腿上不灵便。总舵主你一人走吧，别管我。”陈家洛道：“那么你冒充一下张召重试试看。”文泰来把帽子拉低，压在眉檐，大模大样的走了出去。李可秀见张召重和陈家洛一齐出来，心中暗暗叫苦，只道张召重已将陈家洛擒住，转头对李沅芷道：“你去把剑还给张召重，和他东拉西扯说几句话，让红花会的总舵主逃走。”\n",
-            "score": 200,
-            "anchors_hit": [
-              "李可秀",
-              "李沅芷"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 10,
-            "line_start": 56,
-            "line_end": 60,
-            "text": "\n李可秀正要命人去看守文泰来，忽见常氏兄弟等又杀了上来，忙分兵御敌。御前侍卫范中恩、朱祖荫、褚圆、瑞大林等上来挡住。\n\n陆菲青先看明了退路。一弯腰，如一枝箭般突向李可秀冲去。众亲兵齐声呐喊，纷举刀枪拦阻。陆菲青并不对敌，左一避，右一闪，疾似飞鸟，滑如游鱼，刹那间已绕过七八名亲兵，欺到李可秀之前。李沅芷穿了男装，站在父亲身旁，忽见一个蒙面怪客来袭，娇叱一声：“什么东西！”一剑“春云乍展”，平胸刺出。\n",
-            "score": 200,
-            "anchors_hit": [
-              "李可秀",
-              "李沅芷"
-            ],
-            "method": "window"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "char_a_fan_ti",
-    "name": "阿凡提",
-    "alias": [],
-    "identity": "回疆智者",
-    "faction": "faction_hui_bu",
-    "role": "龙套",
-    "archetype": "scholar",
-    "power_rank": "炉火纯青",
-    "importance": "龙套",
-    "one_line": "回疆智者，幽默风趣，助红花会一臂之力",
-    "biography": "回疆智者，幽默风趣。熟悉大漠道路，帮助红花会群雄。",
-    "personality": {
-      "traits": [
-        "幽默风趣",
-        "智慧过人",
-        "古道热肠",
-        "不拘小节"
-      ],
-      "speech_style": "幽默诙谐",
-      "temperament": "幽默洒脱"
-    },
-    "relationships": [
+        "chapter": 12,
+        "text": "秃鹫雪雕，合称天山双鹰"
+      },
       {
-        "target": "char_chen_jia_luo",
-        "type": "合作者",
-        "intensity": 40,
-        "bond_level": 2,
-        "dynamic": "帮助红花会"
-      }
-    ],
-    "known_skills": [],
-    "related_skills": [],
-    "rag_refs": [
-      18,
-      19,
-      20
-    ],
-    "source_refs": [
+        "chapter": 16,
+        "text": "陈正德听到妻子呼喝"
+      },
+      {
+        "chapter": 17,
+        "text": "陈正德冷冷的道：就是不吃这药，也死不了"
+      },
+      {
+        "chapter": 17,
+        "text": "天山双鹰生平杀人不眨眼"
+      },
       {
         "chapter": 18,
-        "line_start": 5957,
-        "line_end": 5965,
-        "text": "那人熟识大漠中道路",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
+        "text": "天山双鹰那天清晨舍下陈家洛与香香公主后，想起霍青桐病体未痊，急着赶回看望，走了两天，只见袁士霄赶着大群驼羊而来。"
+      },
+      {
+        "chapter": 19,
+        "text": "只听身旁呼呼两响，两人已掠过身边，挡在前面，正是袁士霄和陈正德"
+      },
+      {
+        "chapter": 21,
+        "text": "陈正德一拍桌子，大声道"
       }
     ]
   },
   {
-    "id": "char_wu_dun_dao_zhang",
-    "name": "无尘道长",
-    "alias": [
-      "二哥"
-    ],
-    "identity": "红花会二当家",
-    "faction": "faction_hong_hua_hui",
-    "role": "次要",
-    "archetype": "warrior",
-    "power_rank": "炉火纯青",
-    "importance": "次要",
-    "one_line": "红花会二当家，断臂道人",
-    "biography": "红花会二当家，断臂道人。武功高强，善使长剑。",
+    "id": "char_cheng_huang",
+    "name": "成璜",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军参将",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军参将，参与赤套渡等战斗。",
+    "bio": "清军参将，参与赤套渡等战斗。",
+    "biography": "清军参将，参与赤套渡等战斗。",
     "personality": {
-      "traits": [
-        "武功高强",
-        "沉不住气",
-        "侠肝义胆"
-      ],
-      "speech_style": "直率豪爽",
-      "temperament": "刚烈直率"
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_chen_jia_luo",
-        "type": "合作者",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "红花会兄弟"
-      }
-    ],
-    "known_skills": [
-      "skill_zhui_hun_duo_ming_jian"
-    ],
+    "relationships": [],
+    "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      2,
-      4,
-      5,
-      11,
-      15,
-      20
-    ],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "text": "成璜手持齐眉棍，抢过来拦阻"
+      },
+      {
+        "chapter": 21,
+        "text": "成璜忽地窜出，举起齐眉棍当头猛砸下来"
+      }
+    ]
+  },
+  {
+    "id": "char_chi_xuan",
+    "name": "迟玄",
+    "alias": [],
+    "aliases": [],
+    "identity": "少林僧人",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "少林寺僧人，参与少林五殿之争。",
+    "bio": "少林寺僧人，参与少林五殿之争。",
+    "biography": "少林寺僧人，参与少林五殿之争。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "text": "迟玄学的是六合拳，武铭夫专精通臂拳"
+      },
+      {
+        "chapter": 21,
+        "text": "迟玄托着一个盘子上前跪下"
+      }
+    ]
+  },
+  {
+    "id": "char_chu_yuan",
+    "name": "褚圆",
+    "alias": [],
+    "aliases": [],
+    "identity": "清宫侍卫",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "清宫侍卫，被无尘戏弄。",
+    "bio": "清宫侍卫，被无尘戏弄。",
+    "biography": "清宫侍卫，被无尘戏弄。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "text": "褚圆在大内众侍卫中已算一等高手，与无尘较量被耍猴儿般玩弄"
+      },
+      {
+        "chapter": 8,
+        "text": "白振、褚圆等首领侍卫更是栗栗危惧"
+      },
+      {
+        "chapter": 11,
+        "text": "褚圆竟找到一辆车来"
+      }
+    ]
+  },
+  {
+    "id": "char_da_chi",
+    "name": "大痴",
+    "alias": [],
+    "aliases": [],
+    "identity": "少林高僧",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "炉火纯青",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "少林寺高僧，武功炉火纯青。",
+    "bio": "少林寺高僧，武功炉火纯青。",
+    "biography": "少林寺高僧，武功炉火纯青。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "text": "藏经阁主座大痴大师笑容可掬，说道：\"陈当家的，你我来比划一下暗器。\""
+      }
+    ]
+  },
+  {
+    "id": "char_da_dian",
+    "name": "大颠",
+    "alias": [],
+    "aliases": [],
+    "identity": "少林高僧",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "炉火纯青",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "少林寺高僧，武功炉火纯青。",
+    "bio": "少林寺高僧，武功炉火纯青。",
+    "biography": "少林寺高僧，武功炉火纯青。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "text": "大颠尤其天生神武，只见他\"翻身劈山\"、\"夜叉探海\"、\"雷针轰木\""
+      },
+      {
+        "chapter": 20,
+        "text": "戒持院首座大颠大师坐在正中"
+      }
+    ]
+  },
+  {
+    "id": "char_da_ku",
+    "name": "大苦",
+    "alias": [],
+    "aliases": [],
+    "identity": "少林高僧",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "炉火纯青",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "少林寺高僧，武功炉火纯青。",
+    "bio": "少林寺高僧，武功炉火纯青。",
+    "biography": "少林寺高僧，武功炉火纯青。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "text": "大苦左手握拳，翻转挽一大圜，右掌上托"
+      },
+      {
+        "chapter": 20,
+        "text": "一僧坐在蒲团之上，正是监寺大苦大师"
+      }
+    ]
+  },
+  {
+    "id": "char_de_e",
+    "name": "德鄂",
+    "alias": [],
+    "aliases": [],
+    "identity": "回部将领",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "回部将领，参与英奇盘山雪崩歼灭战。",
+    "bio": "回部将领，参与英奇盘山雪崩歼灭战。",
+    "biography": "回部将领，参与英奇盘山雪崩歼灭战。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "text": "德鄂亲率精兵上前迎敌"
+      }
+    ]
+  },
+  {
+    "id": "char_fang_you_de",
+    "name": "方有德",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军官员",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "清军官员，参与少林寺相关事件。",
+    "bio": "清军官员，参与少林寺相关事件。",
+    "biography": "清军官员，参与少林寺相关事件。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "text": "这方藩台名叫方有德"
+      },
+      {
+        "chapter": 20,
+        "text": "这方藩台左脸上有老大一块黑记，正是害死我全家的奸贼"
+      },
+      {
+        "chapter": 21,
+        "text": "这老人便是原任福建藩台的方有德"
+      }
+    ]
+  },
+  {
+    "id": "char_feng_hui",
+    "name": "冯辉",
+    "alias": [],
+    "aliases": [],
+    "identity": "随从",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "背景人物，短暂出场。",
+    "bio": "背景人物，短暂出场。",
+    "biography": "背景人物，短暂出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
     "source_refs": [
       {
         "chapter": 2,
-        "line_start": 501,
-        "line_end": 510,
-        "text": "无尘身后一条大汉站了出来厉声说道",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
+        "text": "脸朝外的人则是北京捕头冯辉"
+      }
+    ]
+  },
+  {
+    "id": "char_fu_de",
+    "name": "富德",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军将领",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "清军将领，率援军被回部拦截。",
+    "bio": "清军将领，率援军被回部拦截。",
+    "biography": "清军将领，率援军被回部拦截。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "text": "原来这是兆惠副手富德带来的援兵，途中与兆惠及张召重相遇。"
       }
     ]
   },
@@ -2585,240 +1055,4366 @@
     "id": "char_fu_kang_an",
     "name": "福康安",
     "alias": [],
-    "identity": "乾隆宠臣",
-    "faction": "faction_qing_ting",
-    "role": "龙套",
-    "archetype": "scholar",
-    "power_rank": "初窥门径",
-    "importance": "龙套",
-    "one_line": "乾隆宠臣，负责围剿红花会",
-    "biography": "乾隆宠臣，负责围剿红花会。在雍和宫埋伏。",
+    "aliases": [],
+    "identity": "清朝权贵",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "清朝权贵，乾隆宠臣，被红花会擒获后以之为质脱围。",
+    "bio": "清朝权贵，乾隆宠臣，被红花会擒获后以之为质脱围。",
+    "biography": "清朝权贵，乾隆宠臣，被红花会擒获后以之为质脱围。",
     "personality": {
       "traits": [
-        "忠于皇帝",
-        "精明干练",
-        "阴险狡诈"
+        "怕死",
+        "圆滑"
       ],
-      "speech_style": "恭敬谨慎",
-      "temperament": "阴沉干练"
+      "speech_style": "官腔",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_qian_long",
-        "type": "主仆",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "君臣"
-      }
-    ],
+    "relationships": [],
     "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      8,
-      10,
-      20
-    ],
+    "skills": [],
+    "items": [],
     "source_refs": [
       {
         "chapter": 8,
-        "line_start": 2695,
-        "line_end": 2700,
-        "text": "数十名官兵拥着一位青年大官走来",
-        "locate_status": "not_located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": []
+        "text": "那大官道：福大人，这是镇远镖局的总镖头王维扬"
+      },
+      {
+        "chapter": 8,
+        "text": "王维扬道：这福大人内功深湛，一位贵胄公子能有这般功力，真不容易"
+      },
+      {
+        "chapter": 11,
+        "text": "御林军统领福康安和浙江巡抚都接到密报赶到"
+      },
+      {
+        "chapter": 21,
+        "text": "统率御林军兜捕红花会的，正是乾隆第一亲信的福康安"
+      }
+    ]
+  },
+  {
+    "id": "char_gu_jin_biao",
+    "name": "顾金标",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东三魔之一",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "关东三魔之一，与陈家洛赤手空拳赌命杀狼，后追杀霍青桐。",
+    "bio": "关东三魔之一，与陈家洛赤手空拳赌命杀狼，后追杀霍青桐。",
+    "biography": "关东三魔之一，与陈家洛赤手空拳赌命杀狼，后追杀霍青桐。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "text": "二魔顾金标是著名马贼"
+      },
+      {
+        "chapter": 14,
+        "text": "顾金标大怒，伸手便要打人"
+      },
+      {
+        "chapter": 14,
+        "text": "顾金标挺叉上前，正要加入战团"
+      },
+      {
+        "chapter": 16,
+        "text": "顾金标拿起钢叉"
+      },
+      {
+        "chapter": 17,
+        "text": "顾金标虎叉呛啷啷一抖，喝道：别走近来"
+      },
+      {
+        "chapter": 17,
+        "text": "顾金标自见霍青桐后，全神贯注，执迷不悟"
+      },
+      {
+        "chapter": 18,
+        "text": "滕一雷和顾金标见状，也勒马绕开。"
+      },
+      {
+        "chapter": 19,
+        "text": "章进与心砚押着顾金标与哈合台，远远坐在地下"
+      }
+    ]
+  },
+  {
+    "id": "char_guan_ming_mei",
+    "name": "关明梅",
+    "alias": [],
+    "aliases": [],
+    "identity": "天山双鹰之一",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "出神入化",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "天山双鹰之一，与丈夫陈正德合称天山双鹰，武功出神入化，为刺杀乾隆殉难。",
+    "bio": "天山双鹰之一，与丈夫陈正德合称天山双鹰，武功出神入化，为刺杀乾隆殉难。",
+    "biography": "天山双鹰之一，与丈夫陈正德合称天山双鹰，武功出神入化，为刺杀乾隆殉难。",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "深情"
+      ],
+      "speech_style": "刚毅",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 12,
+        "text": "雪雕关明梅，是秃头老者陈正德的妻子"
+      },
+      {
+        "chapter": 16,
+        "text": "关明梅飞身下马抢近"
+      },
+      {
+        "chapter": 17,
+        "text": "关明梅抱着霍青桐下树，叫她先吞服一颗雪参丸"
+      },
+      {
+        "chapter": 17,
+        "text": "天山双鹰生平杀人不眨眼"
+      },
+      {
+        "chapter": 18,
+        "text": "陈正德为了讨好爱妻，过去着实亲热。袁士霄见他忽然改性，关明梅则在一旁微笑，很感奇怪。"
+      },
+      {
+        "chapter": 19,
+        "text": "袁士霄、陈正德、关明梅等在后，将他夹在中间，走了出来"
+      },
+      {
+        "chapter": 21,
+        "text": "关明梅双眉竖起，喝道"
+      }
+    ]
+  },
+  {
+    "id": "char_ha_he_tai",
+    "name": "哈合台",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东三魔之一",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "关东三魔之一，追杀霍青桐时被袁士霄救下。",
+    "bio": "关东三魔之一，追杀霍青桐时被袁士霄救下。",
+    "biography": "关东三魔之一，追杀霍青桐时被袁士霄救下。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "text": "哈合台擅于蒙古人摔跤之技"
+      },
+      {
+        "chapter": 13,
+        "text": "四魔哈合台本是蒙古牧人，流落关东，也做了盗贼"
+      },
+      {
+        "chapter": 14,
+        "text": "穿着牛皮背心"
+      },
+      {
+        "chapter": 14,
+        "text": "哈合台矮身让开了这掌，反手勾拿敌腕"
+      },
+      {
+        "chapter": 16,
+        "text": "哈合台用蒙古话说了一遍"
+      },
+      {
+        "chapter": 17,
+        "text": "哈合台道：要请陈当家的指教"
+      },
+      {
+        "chapter": 17,
+        "text": "哈合台为人最为正派，先前顾金标擒住了她要横施侮辱，哈合台曾力加阻拦"
+      },
+      {
+        "chapter": 18,
+        "text": "哈合台眼中如要滴血，狂叫吆喝，催赶驼马，他是牧人出身，熟悉驼马性子，好几匹驼马要离队奔逃，都被他或用口叫，或以鞭打，尽数驱赶归队，竟没走散一头。"
+      },
+      {
+        "chapter": 19,
+        "text": "章进与心砚押着顾金标与哈合台，远远坐在地下"
+      }
+    ]
+  },
+  {
+    "id": "char_han_chun_lin",
+    "name": "韩春霖",
+    "alias": [],
+    "aliases": [],
+    "identity": "随从",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "背景人物，短暂出场。",
+    "bio": "背景人物，短暂出场。",
+    "biography": "背景人物，短暂出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "text": "那人脸上毫无血色，两眼突出，竟是兰州府捕快韩春霖"
+      }
+    ]
+  },
+  {
+    "id": "char_han_wen_chong",
+    "name": "韩文冲",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东六魔之一",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "关东六魔之一，后被红花会释嫌收服。",
+    "bio": "关东六魔之一，后被红花会释嫌收服。",
+    "biography": "关东六魔之一，后被红花会释嫌收服。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "text": "你是洛阳韩家门的？"
+      },
+      {
+        "chapter": 5,
+        "text": "我是镇远镖局的，那不错"
+      },
+      {
+        "chapter": 8,
+        "text": "韩文冲又疼又气，又是欢喜，急跃而出，伸手便拉马缰"
+      },
+      {
+        "chapter": 9,
+        "text": "韩文冲站在门口，说道：王总镖头此去，还请加意小心。"
+      },
+      {
+        "chapter": 9,
+        "text": "只见一人手执奇形兵器，站在红日之下，树丛之侧，正是铁琵琶手韩文冲。"
+      },
+      {
+        "chapter": 14,
+        "text": "韩文冲叹了一口气，向文泰来拱手道"
+      },
+      {
+        "chapter": 14,
+        "text": "那背负铁琵琶之人便是韩文冲"
+      }
+    ]
+  },
+  {
+    "id": "char_he_er_da",
+    "name": "和尔大",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军侍卫",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军侍卫，参与多次围剿行动。",
+    "bio": "清军侍卫，参与多次围剿行动。",
+    "biography": "清军侍卫，参与多次围剿行动。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "text": "和尔大虽然空手，拚了命还是追赶不上。"
+      },
+      {
+        "chapter": 16,
+        "text": "和尔大施展轻功"
+      },
+      {
+        "chapter": 17,
+        "text": "和尔大为群狼咬死"
+      }
+    ]
+  },
+  {
+    "id": "char_he_shen",
+    "name": "和珅",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝权臣",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "清朝权臣，参与六和塔相关事件。",
+    "bio": "清朝权臣，参与六和塔相关事件。",
+    "biography": "清朝权臣，参与六和塔相关事件。",
+    "personality": {
+      "traits": [
+        "奸诈",
+        "贪婪"
+      ],
+      "speech_style": "官腔",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "text": "对和珅道：'你去叫这妞儿过来。'"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_guo_dong",
+    "name": "胡国栋",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军士兵",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军士兵，被文泰来断臂。",
+    "bio": "清军士兵，被文泰来断臂。",
+    "biography": "清军士兵，被文泰来断臂。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "text": "骆冰认得他是北京捕头胡国栋，在客店中曾给文泰来打断了右臂的"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_lun_da_hu",
+    "name": "忽伦大虎",
+    "alias": [],
+    "aliases": [],
+    "identity": "忽伦兄弟之一",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "忽伦四兄弟之一，后获释。",
+    "bio": "忽伦四兄弟之一，后获释。",
+    "biography": "忽伦四兄弟之一，后获释。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "text": "忽伦大虎说：“兆大将军怪我们帮你，要杀我们四人的头，说等打了胜仗再杀。”"
+      }
+    ]
+  },
+  {
+    "id": "char_hu_yin_ke",
+    "name": "呼音克",
+    "alias": [],
+    "aliases": [],
+    "identity": "回部武士",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "回部武士，武艺登堂入室。",
+    "bio": "回部武士，武艺登堂入室。",
+    "biography": "回部武士，武艺登堂入室。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "text": "呼音克大吃一惊，磕头道"
+      }
+    ]
+  },
+  {
+    "id": "char_huo_a_yi",
+    "name": "霍阿伊",
+    "alias": [],
+    "aliases": [],
+    "identity": "回部将领",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "回部将领，霍青桐之兄，参与多次战役。",
+    "bio": "回部将领，霍青桐之兄，参与多次战役。",
+    "biography": "回部将领，霍青桐之兄，参与多次战役。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 4,
+        "text": "霍阿伊方面大耳，满脸浓须"
+      },
+      {
+        "chapter": 10,
+        "text": "到得傍晚，霍阿伊又带领了回人援兵数千到达，在长壕之前再堆土堤。"
+      },
+      {
+        "chapter": 16,
+        "text": "霍阿伊见正白旗清兵攻到"
+      }
+    ]
+  },
+  {
+    "id": "char_huo_qing_tong",
+    "name": "霍青桐",
+    "alias": [],
+    "aliases": [],
+    "identity": "回部女将",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "回部女将，翠羽黄衫，智勇双全，多次率军击败清兵，与陈家洛有情感纠葛。",
+    "bio": "回部女将，翠羽黄衫，智勇双全，多次率军击败清兵，与陈家洛有情感纠葛。",
+    "biography": "回部女将，翠羽黄衫，智勇双全，多次率军击败清兵，与陈家洛有情感纠葛。",
+    "personality": {
+      "traits": [
+        "刚强",
+        "智勇"
+      ],
+      "speech_style": "干练",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "黄衫女郎是他的女儿，名叫霍青桐"
+      },
+      {
+        "chapter": 2,
+        "text": "我是回部霍青桐。喂，我问你，咱们河水不犯井水，干么你硬给镖局子撑腰，坏我们的事？"
+      },
+      {
+        "chapter": 4,
+        "text": "那穿黄衫的姑娘名叫霍青桐，是天山双鹰的弟子"
+      },
+      {
+        "chapter": 10,
+        "text": "霍青桐在远处山头望见，叫道：“有人要逃，快去截拦。”"
+      },
+      {
+        "chapter": 15,
+        "text": "霍青桐道：兆惠想让咱们做狼，妹子就是那块羊肉了"
+      },
+      {
+        "chapter": 15,
+        "text": "这一仗由霍青桐姑娘发施号令"
+      },
+      {
+        "chapter": 16,
+        "text": "翠羽黄衫霍青桐"
+      },
+      {
+        "chapter": 17,
+        "text": "霍青桐对师父最为敬爱，不再隐瞒"
+      },
+      {
+        "chapter": 17,
+        "text": "霍青桐扶病追赶师父师公，不久就遇到关东三魔"
+      },
+      {
+        "chapter": 19,
+        "text": "当下陆菲青、陈家洛、文泰来、霍青桐等在前"
+      },
+      {
+        "chapter": 20,
+        "text": "霍青桐大喜，对香香公主道：\"你瞧，这就是他在山洞里学的武功。\""
+      },
+      {
+        "chapter": 20,
+        "text": "霍青桐远送出一程，自也柔肠百结，黯然神伤"
+      },
+      {
+        "chapter": 21,
+        "text": "翠羽黄衫霍青桐"
+      }
+    ]
+  },
+  {
+    "id": "char_ji_xiao_lan",
+    "name": "纪晓岚",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝文官",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "清朝文官，背景人物。",
+    "bio": "清朝文官，背景人物。",
+    "biography": "清朝文官，背景人物。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "text": "一是滑稽诙谐的纪晓岚"
+      }
+    ]
+  },
+  {
+    "id": "char_jiang_si_gen",
+    "name": "蒋四根",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会成员",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "红花会成员，参与多次战斗行动。",
+    "bio": "红花会成员，参与多次战斗行动。",
+    "biography": "红花会成员，参与多次战斗行动。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "这人和石双英同来，乃红花会中排名第十三的'铜头鳄鱼'蒋四根"
+      },
+      {
+        "chapter": 4,
+        "text": "蒋四根铁桨拨草寻蛇，在当先那名清兵脚上轻轻挑起"
+      },
+      {
+        "chapter": 5,
+        "text": "蒋四根手舞铁桨，直冲入官兵队里"
+      },
+      {
+        "chapter": 5,
+        "text": "前面的是铜头鳄鱼蒋四根"
+      },
+      {
+        "chapter": 8,
+        "text": "杨成协、卫春华、章进、蒋四根等都已喝得半醉"
+      },
+      {
+        "chapter": 11,
+        "text": "蒋四根在旁却不住抚摸肚子，猛打饱嗝"
+      },
+      {
+        "chapter": 12,
+        "text": "一条大汉手舞大铁桨，将四条獒犬打出塔来"
+      },
+      {
+        "chapter": 13,
+        "text": "蒋四根躲在徐天宏背后，双手拇指相对，屈指交拜，说道：'今天诸葛亮招亲，他要作傻女婿啦。'"
+      },
+      {
+        "chapter": 21,
+        "text": "蒋四根刚从广东回来"
+      }
+    ]
+  },
+  {
+    "id": "char_jiao_wen_qi",
+    "name": "焦文期",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东六魔之一",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "关东六魔之一，被陆菲青击杀。",
+    "bio": "关东六魔之一，被陆菲青击杀。",
+    "biography": "关东六魔之一，被陆菲青击杀。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "原来焦文期是关东六魔中的第三魔"
+      }
+    ]
+  },
+  {
+    "id": "char_kai_bie_xing",
+    "name": "凯别兴",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军军官",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "清军军官，短暂出场。",
+    "bio": "清军军官，短暂出场。",
+    "biography": "清军军官，短暂出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "text": "下使凯别兴。不知官人是何称呼"
+      }
+    ]
+  },
+  {
+    "id": "char_ku_shou_lao_zhe",
+    "name": "枯瘦老者",
+    "alias": [],
+    "aliases": [],
+    "identity": "神秘高手",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "炉火纯青",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "西湖边神秘老者，武功炉火纯青。",
+    "bio": "西湖边神秘老者，武功炉火纯青。",
+    "biography": "西湖边神秘老者，武功炉火纯青。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "text": "枯瘦老者施展大力鹰爪功，五指有如钢爪铁钩向心砚抓去"
+      }
+    ]
+  },
+  {
+    "id": "char_li_e",
+    "name": "厉鹗",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝官员",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "清朝官员，背景人物。",
+    "bio": "清朝官员，背景人物。",
+    "biography": "清朝官员，背景人物。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "text": "袁枚称他为'樊榭先生'的那人名叫厉鹗"
+      }
+    ]
+  },
+  {
+    "id": "char_li_ke_xiu",
+    "name": "李可秀",
+    "alias": [],
+    "aliases": [],
+    "identity": "浙江提督",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "浙江提督，李沅芷之父，与陈家洛三约换福康安。",
+    "bio": "浙江提督，李沅芷之父，与陈家洛三约换福康安。",
+    "biography": "浙江提督，李沅芷之父，与陈家洛三约换福康安。",
+    "personality": {
+      "traits": [
+        "狡猾",
+        "老练"
+      ],
+      "speech_style": "官腔",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "总兵李可秀精明强干，官运亨通"
+      },
+      {
+        "chapter": 7,
+        "text": "李可秀一旁伺候乾隆，摸出胡笳调集兵士"
+      },
+      {
+        "chapter": 8,
+        "text": "李可秀骑上了马，指挥兵马"
+      },
+      {
+        "chapter": 8,
+        "text": "李可秀先跳上岸，伸双手扶掖乾隆上岸"
+      },
+      {
+        "chapter": 9,
+        "text": "李可秀大叫：你再不住手，要放箭了。"
+      },
+      {
+        "chapter": 9,
+        "text": "李可秀忙跪下叩见。"
+      },
+      {
+        "chapter": 11,
+        "text": "浙江水陆提督李可秀统率兵丁赶到"
+      },
+      {
+        "chapter": 12,
+        "text": "知是李可秀带兵前来救驾了"
+      },
+      {
+        "chapter": 21,
+        "text": "却是前任浙江水陆提督李可秀"
+      }
+    ]
+  },
+  {
+    "id": "char_li_yuan_zhi",
+    "name": "李沅芷",
+    "alias": [],
+    "aliases": [],
+    "identity": "提督之女",
+    "role": "核心",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "核心",
+    "one_line": "李可秀之女，拜陆菲青为师学艺，深爱余鱼同，贯穿全书情感线。",
+    "bio": "李可秀之女，拜陆菲青为师学艺，深爱余鱼同，贯穿全书情感线。",
+    "biography": "李可秀之女，拜陆菲青为师学艺，深爱余鱼同，贯穿全书情感线。",
+    "personality": {
+      "traits": [
+        "天真",
+        "执着"
+      ],
+      "speech_style": "娇俏",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "这女孩儿李沅芷是总兵李可秀的独生女儿"
+      },
+      {
+        "chapter": 2,
+        "text": "李沅芷见钱正伦等扶着童兆和出来，回归店房，心想点穴功夫真好"
+      },
+      {
+        "chapter": 4,
+        "text": "那少女正是陆菲青的女弟子李沅芷"
+      },
+      {
+        "chapter": 5,
+        "text": "陆菲青背后闪出一个少年，说道：我也去"
+      },
+      {
+        "chapter": 8,
+        "text": "李沅芷等他一站起身，立即挺剑当胸平刺"
+      },
+      {
+        "chapter": 8,
+        "text": "李沅芷轻轻纵起，落在陈家洛船头"
+      },
+      {
+        "chapter": 8,
+        "text": "陆菲青那徒弟，刚才站在乾隆身后"
+      },
+      {
+        "chapter": 9,
+        "text": "李沅芷在火光下看得清楚，失声惊叫：文泰来，你想逃！双手回缩，右手握住剑柄，拔剑出鞘，向他当胸刺到。"
+      },
+      {
+        "chapter": 13,
+        "text": "床上那人揭开棉被，跳下床来……正是李可秀的女儿、陆菲青的女徒弟李沅芷"
+      },
+      {
+        "chapter": 13,
+        "text": "情深意真，岂在丑俊？千山万水，苦随君行"
+      },
+      {
+        "chapter": 14,
+        "text": "李沅芷换了女装，笑吟吟的走出房外"
+      },
+      {
+        "chapter": 14,
+        "text": "那人其实是李沅芷，她披了余鱼同的长衫，要引开敌人"
+      },
+      {
+        "chapter": 16,
+        "text": "原来那人正是穿男装的李沅芷"
+      },
+      {
+        "chapter": 19,
+        "text": "李沅芷大惊，扑上抱住，但张召重这一掼劲力奇大，带得她也向山石上撞去"
+      },
+      {
+        "chapter": 20,
+        "text": "李沅芷的伤势却已大好了"
+      },
+      {
+        "chapter": 20,
+        "text": "余鱼同转头看李沅芷时，见她昏迷未醒"
+      },
+      {
+        "chapter": 21,
+        "text": "李沅芷笑吟吟的奔进内室"
+      }
+    ]
+  },
+  {
+    "id": "char_long_jun",
+    "name": "龙骏",
+    "alias": [],
+    "aliases": [],
+    "identity": "清宫侍卫",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "清宫侍卫，被赵半山击败，伤心于心砚之事。",
+    "bio": "清宫侍卫，被赵半山击败，伤心于心砚之事。",
+    "biography": "清宫侍卫，被赵半山击败，伤心于心砚之事。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "text": "龙骏暗器功夫厉害，以毒蒺藜打伤心砚，被赵半山擒获逼出解药"
+      }
+    ]
+  },
+  {
+    "id": "char_lu_fei_qing",
+    "name": "陆菲青",
+    "alias": [],
+    "aliases": [],
+    "identity": "武当派高手",
+    "role": "核心",
+    "archetype": "",
+    "power_rank": "炉火纯青",
+    "faction": null,
+    "importance": "核心",
+    "one_line": "武当派高手，武功炉火纯青，是李沅芷的师父，多次在关键时刻出手相助。",
+    "bio": "武当派高手，武功炉火纯青，是李沅芷的师父，多次在关键时刻出手相助。",
+    "biography": "武当派高手，武功炉火纯青，是李沅芷的师父，多次在关键时刻出手相助。",
+    "personality": {
+      "traits": [
+        "沉稳",
+        "侠义"
+      ],
+      "speech_style": "淡然",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "原来这位教书先生陆高止真名陆菲青，是武当派的大侠"
+      },
+      {
+        "chapter": 2,
+        "text": "陆菲青举起白龙剑挡住霍青桐剑招"
+      },
+      {
+        "chapter": 4,
+        "text": "绵里针陆菲青，率领神弹子孟健雄、独角虎安健刚"
+      },
+      {
+        "chapter": 5,
+        "text": "焦文期是我所杀。我不是红花会的，这事可跟红花会全无干系"
+      },
+      {
+        "chapter": 5,
+        "text": "武当派内功非同小可，口中说话，双手已将铁板卷成个铁筒"
+      },
+      {
+        "chapter": 9,
+        "text": "陆菲青将王维扬身上所中金针用吸铁石吸出，敷上金创药。"
+      },
+      {
+        "chapter": 9,
+        "text": "众人认出穿黑袍的是绵里针陆菲青，欢呼上前相迎。"
+      },
+      {
+        "chapter": 11,
+        "text": "陆菲青坐在他身旁，伸出筷子，潜用内力，轻轻一折，把乾隆的筷齐齐折断了一橛"
+      },
+      {
+        "chapter": 12,
+        "text": "绵里针陆菲青"
+      },
+      {
+        "chapter": 13,
+        "text": "陆菲青道：'余师侄，你烧坏脸，是为了救文四爷和救我，天下豪杰知道这事的，那一个不肃然起敬？'"
+      },
+      {
+        "chapter": 19,
+        "text": "突觉背心有人双掌轻挡，推得她和余鱼同一齐摔在地下，虽然跌得狼狈，却未受伤，两人双双跃起，才知是陆菲青出掌相救"
+      },
+      {
+        "chapter": 20,
+        "text": "陆菲青将李沅芷断臂上的骨骼对正了，用布条紧紧缚住"
+      },
+      {
+        "chapter": 20,
+        "text": "陆菲青脑海中突然涌现了四十余年前旧事"
+      },
+      {
+        "chapter": 20,
+        "text": "陆菲青使招\"沾衣十八跌\"，赵半山使了半招\"单鞭\"，当即把来势化解了"
+      },
+      {
+        "chapter": 21,
+        "text": "陆菲青道：总舵主，你领大伙退到墙边"
+      }
+    ]
+  },
+  {
+    "id": "char_luo_bing",
+    "name": "骆冰",
+    "alias": [],
+    "aliases": [],
+    "identity": "文泰来之妻",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "文泰来之妻，红花会成员，多次参与营救文泰来行动。",
+    "bio": "文泰来之妻，红花会成员，多次参与营救文泰来行动。",
+    "biography": "文泰来之妻，红花会成员，多次参与营救文泰来行动。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "那自然是奔雷手文泰来文四爷和文四奶奶鸳鸯刀骆冰啦"
+      },
+      {
+        "chapter": 2,
+        "text": "骆冰飞刀出手"
+      },
+      {
+        "chapter": 3,
+        "text": "骆冰秀眉顿蹙，叫道：'红花会四大戒条是什么？'"
+      },
+      {
+        "chapter": 3,
+        "text": "骆冰以长刀撑着石级，一步一步走上来"
+      },
+      {
+        "chapter": 4,
+        "text": "骆冰笑道：绮妹妹，咱们一起去。为什么女人就不能上酒楼喝酒？"
+      },
+      {
+        "chapter": 5,
+        "text": "骆冰笑道：你是韩文冲韩大爷，是吗？"
+      },
+      {
+        "chapter": 5,
+        "text": "她这套刀法相传是从宋时韩世忠传落"
+      },
+      {
+        "chapter": 7,
+        "text": "骆冰两把飞刀射出，当当两声飞刀和两枚毒蒺藜坠入湖中"
+      },
+      {
+        "chapter": 8,
+        "text": "骆冰看得明白，床上睡着的正是她日思夜想的丈夫"
+      },
+      {
+        "chapter": 8,
+        "text": "骆冰三把飞刀朝张召重飞去"
+      },
+      {
+        "chapter": 9,
+        "text": "骆冰恨恨不已，叫道：李可秀关住大哥，咱们先杀了他小老婆。"
+      },
+      {
+        "chapter": 9,
+        "text": "骆冰走到陈家洛面前，施下礼去，说道：总舵主你这番情意，我们夫妻粉身碎骨也难以报答。"
+      },
+      {
+        "chapter": 13,
+        "text": "骆冰笑道：'偷盗是斗智不斗力的玩意，我虽打不过人家，也未必就盗不出来。'"
+      },
+      {
+        "chapter": 13,
+        "text": "骆冰笑吟吟的打开盒子，一阵宝光耀眼，原来便是回部送来向皇帝求和的那对羊脂白玉瓶"
+      },
+      {
+        "chapter": 14,
+        "text": "骆冰道：十四弟机警得很，打不过人家定会逃走"
+      },
+      {
+        "chapter": 14,
+        "text": "骆冰已穿好衣服，带了兵刃，正要出外寻他"
+      },
+      {
+        "chapter": 15,
+        "text": "骆冰对香香公主道：妹妹，你先躲进去"
+      },
+      {
+        "chapter": 15,
+        "text": "骆冰见她居然已能审察敌我情势，不再一味蛮打"
+      },
+      {
+        "chapter": 16,
+        "text": "骆冰右手刀向张召重砍去"
+      },
+      {
+        "chapter": 19,
+        "text": "骆冰从山后拍手跳了出来，唱道：「小秀才，不怕丑，怕老婆，忙磕头！」"
+      },
+      {
+        "chapter": 20,
+        "text": "骆冰道：\"陆伯伯，你的白龙剑没能拿上来，真可惜。\""
+      },
+      {
+        "chapter": 20,
+        "text": "骆冰和心砚分别给他们包扎"
+      },
+      {
+        "chapter": 21,
+        "text": "骆冰伏尸大哭"
+      }
+    ]
+  },
+  {
+    "id": "char_luo_xin",
+    "name": "罗信",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东六魔之一",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "关东六魔之一。",
+    "bio": "关东六魔之一。",
+    "biography": "关东六魔之一。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "这是我盟弟罗信，人称铁臂罗汉"
+      }
+    ]
+  },
+  {
+    "id": "char_ma_da_ting",
+    "name": "马大挺",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会成员",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "红花会成员，参与多次行动。",
+    "bio": "红花会成员，参与多次行动。",
+    "biography": "红花会成员，参与多次行动。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "text": "马善均、马大挺父子取出火炮流星"
+      },
+      {
+        "chapter": 12,
+        "text": "塔内的马善均、马大挺父子哨声大作"
+      }
+    ]
+  },
+  {
+    "id": "char_ma_jing_xia",
+    "name": "马敬侠",
+    "alias": [],
+    "aliases": [],
+    "identity": "马真门下",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "马真门下弟子。",
+    "bio": "马真门下弟子。",
+    "biography": "马真门下弟子。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "text": "马敬侠见长剑疾飞而至"
+      }
+    ]
+  },
+  {
+    "id": "char_ma_mi_er",
+    "name": "玛米儿",
+    "alias": [],
+    "aliases": [],
+    "identity": "古城少女",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "古城中少女，留下遗书揭示古城秘密。",
+    "bio": "古城中少女，留下遗书揭示古城秘密。",
+    "biography": "古城中少女，留下遗书揭示古城秘密。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 18,
+        "text": "霍青桐翻几页看了，一指床上的骸骨，说道：是这女子临死前用血写的，她叫玛米儿。"
+      }
+    ]
+  },
+  {
+    "id": "char_ma_shan_jun",
+    "name": "马善均",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会成员",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "红花会成员，武艺登堂入室。",
+    "bio": "红花会成员，武艺登堂入室。",
+    "biography": "红花会成员，武艺登堂入室。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "text": "马善均禀报西湖边布满清兵，可召集两千左右兄弟"
+      },
+      {
+        "chapter": 8,
+        "text": "马善均、马大挺父子取出火炮流星"
+      },
+      {
+        "chapter": 8,
+        "text": "马善均点头称是，喝了一杯酒，先行告退，带了儿子即去部署"
+      },
+      {
+        "chapter": 12,
+        "text": "塔内的马善均、马大挺父子哨声大作"
+      }
+    ]
+  },
+  {
+    "id": "char_ma_zhen",
+    "name": "马真",
+    "alias": [
+      "马真道长"
+    ],
+    "aliases": [
+      "马真道长"
+    ],
+    "identity": "武当派掌门",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "出神入化",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "武当派掌门，武功出神入化，清理门户带走张召重。",
+    "bio": "武当派掌门，武功出神入化，清理门户带走张召重。",
+    "biography": "武当派掌门，武功出神入化，清理门户带走张召重。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 9,
+        "text": "马真心中激荡，哽哽咽咽的道：各位师兄贤弟，我这个不成才的张师弟，所作所为，实在是天所不容。"
+      },
+      {
+        "chapter": 9,
+        "text": "马真毅然道：贫道此后定当严加管束，要他痛改前非。若他再要作恶，除非他先把我杀了，否则我第一个容他不得！"
+      },
+      {
+        "chapter": 15,
+        "text": "马道长说要带他去武当山好好管教"
+      },
+      {
+        "chapter": 15,
+        "text": "马道长这腿扫去，刚好踢到剑上，一只左脚登时切了下来"
+      },
+      {
+        "chapter": 18,
+        "text": "当年我在湖北，曾和马真道长印证过武功。"
+      }
+    ]
+  },
+  {
+    "id": "char_meng_jian_xiong",
+    "name": "孟健雄",
+    "alias": [],
+    "aliases": [],
+    "identity": "铁胆庄弟子",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "铁胆庄周仲英大弟子。",
+    "bio": "铁胆庄周仲英大弟子。",
+    "biography": "铁胆庄周仲英大弟子。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "孟健雄听得庄丁禀告，料知这批人定为文泰来而来"
+      },
+      {
+        "chapter": 4,
+        "text": "神弹子孟健雄"
+      },
+      {
+        "chapter": 5,
+        "text": "孟健雄和安健刚奔上接应"
+      },
+      {
+        "chapter": 8,
+        "text": "义父带同孟大哥、安大哥从南墙攻进去"
+      },
+      {
+        "chapter": 11,
+        "text": "孟健雄和安健刚师兄弟来接班"
+      },
+      {
+        "chapter": 12,
+        "text": "孟健雄手挟弹弓追出"
+      },
+      {
+        "chapter": 13,
+        "text": "孟大哥，请你到山下去筹备酒席"
+      },
+      {
+        "chapter": 21,
+        "text": "只见孟健雄与徐天宏扶着周绮跃上屋顶"
+      }
+    ]
+  },
+  {
+    "id": "char_mu_zhuo_lun",
+    "name": "木卓伦",
+    "alias": [],
+    "aliases": [],
+    "identity": "回部首领",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "回部首领，霍青桐、霍阿伊之父，后全军覆没。",
+    "bio": "回部首领，霍青桐、霍阿伊之父，后全军覆没。",
+    "biography": "回部首领，霍青桐、霍阿伊之父，后全军覆没。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "那高身材的人叫木卓伦，是这部族的首领"
+      },
+      {
+        "chapter": 4,
+        "text": "那浓髯回人走到跟前，连赞：好孩子！霍青桐双手奉上包袱，微微一笑，叫了声：爹。"
+      },
+      {
+        "chapter": 10,
+        "text": "木卓伦道：“正该如此。”"
+      },
+      {
+        "chapter": 15,
+        "text": "木卓伦大叫：依你说，你妹子和那些朋友是死定了"
+      },
+      {
+        "chapter": 15,
+        "text": "木卓伦向众战士叫道：咱们今日要和满洲兵决一死战"
+      },
+      {
+        "chapter": 16,
+        "text": "木卓伦手舞长刀，一马当先冲到"
+      },
+      {
+        "chapter": 20,
+        "text": "木卓伦老英雄和他儿子力战而死"
+      },
+      {
+        "chapter": 20,
+        "text": "木卓伦老英雄全军覆没"
+      }
+    ]
+  },
+  {
+    "id": "char_na_shao_nu",
+    "name": "那少女",
+    "alias": [],
+    "aliases": [],
+    "identity": "回部公主",
+    "role": "核心",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "核心",
+    "one_line": "大漠中神秘少女，实为回部公主喀丝丽，心地善良，歌声动人心魄。",
+    "bio": "大漠中神秘少女，实为回部公主喀丝丽，心地善良，歌声动人心魄。",
+    "biography": "大漠中神秘少女，实为回部公主喀丝丽，心地善良，歌声动人心魄。",
+    "personality": {
+      "traits": [
+        "纯真",
+        "善良"
+      ],
+      "speech_style": "温柔",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 14,
+        "text": "那少女向他嫣然一笑，招手要他走近"
+      },
+      {
+        "chapter": 14,
+        "text": "只见湖水中微微起了一点漪涟，一只洁白如玉的手臂从湖中伸了上来"
+      }
+    ]
+  },
+  {
+    "id": "char_peng_san_chun",
+    "name": "彭三春",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军士兵",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军士兵，短暂出场。",
+    "bio": "清军士兵，短暂出场。",
+    "biography": "清军士兵，短暂出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "text": "言伯干的师弟名叫彭三春，是湖南邵阳人"
+      },
+      {
+        "chapter": 14,
+        "text": "彭三春和宋天保、覃天丞上前夹攻"
+      },
+      {
+        "chapter": 14,
+        "text": "彭三春三节棍着地横扫"
+      }
+    ]
+  },
+  {
+    "id": "char_ping_wang_xian",
+    "name": "平旺先",
+    "alias": [],
+    "aliases": [],
+    "identity": "官兵",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "普通官兵。",
+    "bio": "普通官兵。",
+    "biography": "普通官兵。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "text": "平旺先带了十多名士兵，下马冲上"
+      }
+    ]
+  },
+  {
+    "id": "char_qian_long",
+    "name": "乾隆",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝皇帝",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "清朝皇帝，陈家洛之兄，身世秘密贯穿全书，设宴伏杀红花会。",
+    "bio": "清朝皇帝，陈家洛之兄，身世秘密贯穿全书，设宴伏杀红花会。",
+    "biography": "清朝皇帝，陈家洛之兄，身世秘密贯穿全书，设宴伏杀红花会。",
+    "personality": {
+      "traits": [
+        "多疑",
+        "无情"
+      ],
+      "speech_style": "帝王腔",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "清乾隆十八年六月"
+      },
+      {
+        "chapter": 7,
+        "text": "乾隆化名东方耳，与陈家洛西湖赏月，略懂武艺，身手平庸"
+      },
+      {
+        "chapter": 8,
+        "text": "乾隆帝弘历自幼受父亲雍正训诲，文才武略，在满清皇族中可说是一等一的人才"
+      },
+      {
+        "chapter": 8,
+        "text": "原来在他父母坟前哭拜的，竟是当今满清乾隆皇帝弘历"
+      },
+      {
+        "chapter": 9,
+        "text": "乾隆道：你预备一间密室，我要亲审文泰来。"
+      },
+      {
+        "chapter": 9,
+        "text": "乾隆急问：什么信？"
+      },
+      {
+        "chapter": 11,
+        "text": "乾隆正要回去，忽听玉如意在船中又唱起曲来"
+      },
+      {
+        "chapter": 12,
+        "text": "乾隆在六和塔顶饿了两日两夜"
+      },
+      {
+        "chapter": 20,
+        "text": "乾隆妒意顿起，问道：\"你说是谁给你的，我就还你。\""
+      },
+      {
+        "chapter": 20,
+        "text": "乾隆笑道：\"你来啦，很好。坐吧。\""
+      },
+      {
+        "chapter": 20,
+        "text": "雍正将我大哥抱了去，抱回来的却是个女孩。这女孩就是我大姊"
+      },
+      {
+        "chapter": 21,
+        "text": "乾隆自陈家洛带了香香公主去后，心中怔忡不宁"
+      }
+    ]
+  },
+  {
+    "id": "char_qian_zheng_lun",
+    "name": "钱正伦",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东六魔之一",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "关东六魔之一，背景人物。",
+    "bio": "关东六魔之一，背景人物。",
+    "biography": "关东六魔之一，背景人物。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "text": "李沅芷见钱正伦等扶着童兆和出来"
+      },
+      {
+        "chapter": 4,
+        "text": "指着双手抱头而坐的钱正伦"
+      }
+    ]
+  },
+  {
+    "id": "char_qin_tian_cheng",
+    "name": "覃天丞",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军士兵",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军士兵，短暂出场。",
+    "bio": "清军士兵，短暂出场。",
+    "biography": "清军士兵，短暂出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "text": "原来是言伯干的两个徒弟宋天保、覃天丞赶到"
+      },
+      {
+        "chapter": 14,
+        "text": "覃天丞抢到前面，拉开殿门"
+      },
+      {
+        "chapter": 14,
+        "text": "又把本已受伤的覃天丞左臂刺伤"
+      }
+    ]
+  },
+  {
+    "id": "char_qing_hua",
+    "name": "晴画",
+    "alias": [],
+    "aliases": [],
+    "identity": "侍女",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "侍女，短暂出场。",
+    "bio": "侍女，短暂出场。",
+    "biography": "侍女，短暂出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "text": "晴画、雨诗两个呢？你去叫来给我见见"
+      },
+      {
+        "chapter": 8,
+        "text": "晴画已先奔上楼来"
+      }
+    ]
+  },
+  {
+    "id": "char_rui_da_lin",
+    "name": "瑞大林",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军侍卫",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军侍卫，参与赤套渡等战斗。",
+    "bio": "清军侍卫，参与赤套渡等战斗。",
+    "biography": "清军侍卫，参与赤套渡等战斗。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "text": "瑞大哥，你们这番拿到点子，真是奇功一件"
+      },
+      {
+        "chapter": 11,
+        "text": "瑞大林施展轻功，'七步追魂'、'八步赶蟾'"
+      },
+      {
+        "chapter": 21,
+        "text": "瑞大林挺着锯齿刀来拦"
+      }
+    ]
+  },
+  {
+    "id": "char_rui_fang",
+    "name": "瑞芳",
+    "alias": [],
+    "aliases": [],
+    "identity": "侍女",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "侍女，短暂出场。",
+    "bio": "侍女，短暂出场。",
+    "biography": "侍女，短暂出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "text": "进来的是个老妈妈。他一见背影，忍不住就要呼叫出声，原来那是他母亲的赠嫁丫环瑞芳"
+      }
+    ]
+  },
+  {
+    "id": "char_shang_guan_yi_shan",
+    "name": "上官毅山",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军将领",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军将领，短暂出场。",
+    "bio": "清军将领，短暂出场。",
+    "biography": "清军将领，短暂出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "text": "潼关一带占码头的帮会是龙门帮……上官毅山听得徐天宏来访，知他是红花会七当家"
+      },
+      {
+        "chapter": 14,
+        "text": "上官毅山把当地龙门帮得力的弟兄都派了出去"
+      },
+      {
+        "chapter": 14,
+        "text": "上官毅山道：文四奶奶说得对，咱们马上回去"
+      }
+    ]
+  },
+  {
+    "id": "char_shen_de_qian",
+    "name": "沈德潜",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝文官",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "清朝文官，背景人物。",
+    "bio": "清朝文官，背景人物。",
+    "biography": "清朝文官，背景人物。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "text": "他称为'沈年兄'的沈德潜"
+      }
+    ]
+  },
+  {
+    "id": "char_shi_shuang_ying",
+    "name": "石双英",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会成员",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "红花会成员，参与多次行动，武艺略有小成。",
+    "bio": "红花会成员，参与多次行动，武艺略有小成。",
+    "biography": "红花会成员，参与多次行动，武艺略有小成。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "那人正是红花会执掌刑堂的鬼见愁十二郎石双英"
+      },
+      {
+        "chapter": 3,
+        "text": "石双英以静制动，以柔克刚，不数招已将周绮一柄刀裹住"
+      },
+      {
+        "chapter": 4,
+        "text": "石双英道：这等人作恶多端，烧死了也不冤"
+      },
+      {
+        "chapter": 5,
+        "text": "石双英手持单刀，飞身上马"
+      },
+      {
+        "chapter": 8,
+        "text": "石双英忙过来行礼，说道：我在京里探知皇帝已来江南"
+      },
+      {
+        "chapter": 9,
+        "text": "石双英冷冷的道：王总镖头是武林领袖。武林中出了败类，不管和他有没有牵连，他都得伸手管上一管。"
+      },
+      {
+        "chapter": 9,
+        "text": "石双英施展太极拳中的揽雀尾，将他这一拳黏至外门。"
+      },
+      {
+        "chapter": 11,
+        "text": "这人是鬼见愁十二郎石双英，一副神情，无人不怕"
+      },
+      {
+        "chapter": 12,
+        "text": "杨成协、石双英等也从下层赶了上来"
+      },
+      {
+        "chapter": 13,
+        "text": "蒋四根听得说到鬼向着石双英咧嘴一笑。石双英绰号鬼见愁"
+      },
+      {
+        "chapter": 20,
+        "text": "刑堂香主石双英从北京赶到"
+      },
+      {
+        "chapter": 21,
+        "text": "石双英"
+      }
+    ]
+  },
+  {
+    "id": "char_song_shan_peng",
+    "name": "宋善朋",
+    "alias": [],
+    "aliases": [],
+    "identity": "铁胆庄弟子",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "铁胆庄弟子。",
+    "bio": "铁胆庄弟子。",
+    "biography": "铁胆庄弟子。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "宋善朋道：'我们都是安份良民，周老庄主是河西大绅士'"
+      },
+      {
+        "chapter": 4,
+        "text": "宋善朋早已出去督率庄丁，协力救火"
+      }
+    ]
+  },
+  {
+    "id": "char_song_tian_bao",
+    "name": "宋天保",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军士兵",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军士兵，短暂出场。",
+    "bio": "清军士兵，短暂出场。",
+    "biography": "清军士兵，短暂出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "text": "原来是言伯干的两个徒弟宋天保、覃天丞赶到"
+      },
+      {
+        "chapter": 14,
+        "text": "宋天保追上去伸手抓他后心"
+      },
+      {
+        "chapter": 14,
+        "text": "已被木鱼槌重重戳了一记"
       }
     ]
   },
   {
     "id": "char_tai_hou",
     "name": "太后",
-    "alias": [
-      "皇太后"
-    ],
-    "identity": "皇太后",
-    "faction": "faction_qing_ting",
-    "role": "龙套",
-    "archetype": "scholar",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝太后",
+    "role": "重要",
+    "archetype": "",
     "power_rank": "平平无奇",
-    "importance": "龙套",
-    "one_line": "乾隆的养母，清朝太后",
-    "biography": "清朝太后，乾隆的养母。得知乾隆身世后，逼其交出兵权。",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "清朝太后，雍和宫逼宫夺权，试图废黜乾隆。",
+    "bio": "清朝太后，雍和宫逼宫夺权，试图废黜乾隆。",
+    "biography": "清朝太后，雍和宫逼宫夺权，试图废黜乾隆。",
     "personality": {
       "traits": [
-        "威严",
-        "精明",
-        "维护满洲利益",
-        "手段狠辣"
+        "强势",
+        "阴狠"
       ],
-      "speech_style": "威严质问",
-      "temperament": "威严阴沉"
+      "speech_style": "威严",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_qian_long",
-        "type": "亲属",
-        "intensity": 70,
-        "bond_level": 4,
-        "dynamic": "养母子"
-      }
-    ],
+    "relationships": [],
     "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      20
-    ],
+    "skills": [],
+    "items": [],
     "source_refs": [
       {
-        "chapter": 19,
-        "line_start": 318,
-        "line_end": 324,
-        "text": "\n乾隆望着几上玉瓶出了一会神，对小太监道：“传那人上来。”小太监下楼半晌，回上来跪禀：“奴才该死，娘娘不肯上来。”乾隆一笑，接着又微微叹了口气，向几上的玉瓶一指，起身下楼。两名小太监抱了玉瓶跟来。\n\n走到下面一层，站在门外的宫女挑起门帘，乾隆走进房去，满楼全是鲜花，进了内室，两名宫女从太监手里接过玉瓶，轻轻放在桌上。\n\n室内一名白衣少女本来向外而坐，听得脚步声，倏地转身面壁。乾隆一挥手，众宫女退了出去，正要开口说话，门帘掀开，迟玄与武铭夫两名太监走了进来，垂手站在门边。乾隆怒道：“你们来干什么？快出去。”迟玄道：“奴才奉太后懿旨，保护皇上。”乾隆道：“我好好的，保护什么？”迟玄道：“皇太后知道她⋯⋯娘娘性子不⋯⋯性子刚强，怕再伤了皇上万金之体。”乾隆望了望自己受伤的左手，喝道：“不用！快出去！”迟武二人只是磕头，却不退出。乾隆知道他们既奉太后之命，无论如何是不肯出去的了，便不再理会，转头对…",
-        "locate_status": "located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": [
-          {
-            "chapter": 20,
-            "line_start": 2,
-            "line_end": 8,
-            "text": "忍见红颜堕火窟 空余碧血葬香魂\n 乾隆自陈家洛带了香香公主去后，心中怔忡不宁，渐渐天色大明，又眼见太阳从东方升到头顶，太监开上御膳来，虽是山珍海味，却食不下咽。这天他也不朝见百官，整日坐起又睡倒，睡倒又坐起，派了好几批侍卫出去打探消息，直到天色全黑，月亮从宫墙上升起，还是没一个侍卫回报。\n\n他在宝月楼上十分焦急，只得尽往好处去想，向着壁上的“汉宫春晓图”呆呆的凝望，突然想到：“这妮子既然喜欢他，定也喜欢汉装。待会他们回宫，他定已劝服她从我。我何不穿上汉装，叫她惊喜一番？”于是命太监取明人的衣冠。可是深宫之中，那里来的明人衣冠？还是一名小太监聪明，奔到戏班子里去拿了一套戏服来，服侍他穿了。乾隆大喜，对镜一照，自觉十分风流潇洒，忽见鬓旁有几茎白发，急令小太监拿小镊子来镊去。\n\n正低了头让小太监镊发，忽听背后轻轻的脚步之声，一名太监低声喝道：“皇太后慈驾到！”乾隆吃了一惊，抬起头来，镜中果然现出…",
-            "score": 300,
-            "anchors_hit": [
-              "乾隆",
-              "皇太后",
-              "太后"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 9,
-            "line_start": 68,
-            "line_end": 74,
-            "text": "\n乾隆道：“那次你与你们姓于的首领来见我，咱们本要计议大事，那知他回去之后竟一病不起，可惜，可惜。”文泰来道：“要是于老当家不死，恐怕他今日也给锁在这里了。”乾隆哈哈大笑，道：“你们江湖汉子，性子耿直，肚里有什么话就说什么。我问你一句话，你老实答了，我马上放你回去。”文泰来说：“你放我？哈哈，你当我是三岁小孩？我知道你不杀我，天天吃不下饭、睡不着觉，到今天还不下手，就是想问问我。”\n\n乾隆笑道：“那你也未免太多疑了。”站起身来，走近两步，问道：“你那姓于的首领后来和我说的话，都跟你说了么？”文泰来问道：“什么话？”乾隆瞪眼望他，文泰来双目回视，毫不退避。过了半晌，乾隆转开了头，低声道：“关于我身世的事。”\n\n文泰来心中盘算，自己既落入他手，总是有死无生，不过红花会大伙已到杭州，如能拖延一些时候，他们可以设法劫牢相救，便道：“他没说。你是皇帝，是前朝皇帝和皇太后的儿子。你的身世谁人不知，有什…",
-            "score": 300,
-            "anchors_hit": [
-              "乾隆",
-              "皇太后",
-              "太后"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 10,
-            "line_start": 306,
-            "line_end": 312,
-            "text": "\n乾隆整整挨了两天饿，杭州官场却已闹得天翻地覆。皇上失踪的消息虽没张扬出去，全城却已几乎抄了个遍。杭州通往外县的各处水陆口子都由重兵把守，不许一人进出。城里城外，两天内捕捉了几千名“疑匪”，各处监狱都塞满了。地方官府固是十分惶急，一面又乘机把富商大贾捉了不少，关在狱里，勒索重金，料来这是“忠君爱国”的大事，日后谁都不会追究。\n\n皇帝希奇古怪的失踪，福康安、李可秀、白振以及一些得知消息的护驾大臣，这两日中真如热锅上蚂蚁，不知如何是好。他们料想必是红花会犯驾，出事后立时大举在各处搜查，那知城中和军营的红花会人众早已隐匿的隐匿，出城的出城，一个也没抓到。\n\n第三天清晨，福康安又召集众人在抚署会商。人人愁眉苦脸，束手无策，计议要不要急报皇太后。这等大事势在无可隐瞒，可是这一报上去，后果之糟，谁都不敢设想。\n",
-            "score": 300,
-            "anchors_hit": [
-              "乾隆",
-              "皇太后",
-              "太后"
-            ],
-            "method": "window"
-          },
-          {
-            "chapter": 11,
-            "line_start": 52,
-            "line_end": 58,
-            "text": "\n乾隆一听此言，已明白他意思，道：“你要我把他们赶出关外？”陈家洛道：“不错，你一样做皇帝，与其认贼作父，为后世唾骂，何不奋发鹰扬，建立万代不易之基？”乾隆本是好大喜功之人，听了这几句话，不由得怦然心动。陈家洛鉴貌辨色，知道自己说词已经见效，续道：“你现今做皇帝，不过是承袭祖宗余荫，有什么希奇？你看看这人。”\n\n乾隆走到窗边，顺着他手指向下望去，见一个农夫在远处田边挥锄耕作。陈家洛道：“要是这人生在雍亲王府中，而你生在农家，那么他就是皇帝，你却须得在田间锄地了。”乾隆一向自以为天纵神武，迥非常人可比，此刻细细琢磨陈家洛的话，不禁爽然若失。陈家洛又道：“大丈夫生在世间，百年之期，倏忽而过，如不建功立业，转眼与草木同朽，历来帝皇，如汉高祖、唐太宗、明太祖，那才是真英雄真豪杰。元人如成吉思汗，清人如太祖努尔哈赤、太宗皇太极，也算得一代雄主。如汉献帝、宋徽宗、明崇祯这种人，纵使不是亡国之君，因人碌…",
-            "score": 200,
-            "anchors_hit": [
-              "乾隆",
-              "太后"
-            ],
-            "method": "window"
-          }
-        ],
-        "anchors_hit": [
-          "乾隆",
-          "皇太后",
-          "太后"
-        ],
-        "anchors_total": 3,
-        "locate_score": 300,
-        "locate_method": "window",
-        "hint_chapter": 20,
-        "event_type": "background"
+        "chapter": 21,
+        "text": "太后抬起了头，好半天不作声"
       }
     ]
   },
   {
-    "id": "char_bai_zhen",
-    "name": "白振",
-    "alias": [
-      "金钩铁掌"
-    ],
-    "identity": "御前侍卫",
-    "faction": "faction_qing_ting",
-    "role": "龙套",
-    "archetype": "warrior",
-    "power_rank": "炉火纯青",
-    "importance": "龙套",
-    "one_line": "御前侍卫总管，金钩铁掌",
-    "biography": "御前侍卫总管，绰号金钩铁掌。奉乾隆之命行事。",
+    "id": "char_teng_yi_lei",
+    "name": "滕一雷",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东三魔之一",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "关东三魔之一，追杀霍青桐，后在沙漠被袁士霄救下。",
+    "bio": "关东三魔之一，追杀霍青桐，后在沙漠被袁士霄救下。",
+    "biography": "关东三魔之一，追杀霍青桐，后在沙漠被袁士霄救下。",
     "personality": {
-      "traits": [
-        "忠于皇帝",
-        "武功高强",
-        "谨慎小心"
-      ],
-      "speech_style": "恭敬谨慎",
-      "temperament": "沉稳干练"
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
     },
-    "relationships": [
-      {
-        "target": "char_qian_long",
-        "type": "主仆",
-        "intensity": 60,
-        "bond_level": 3,
-        "dynamic": "君臣"
-      }
-    ],
+    "relationships": [],
     "known_skills": [],
     "related_skills": [],
-    "rag_refs": [
-      20
-    ],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "text": "滕一雷兵刃笨重，但因膂力奇大，使用之际仍十分灵活"
+      },
+      {
+        "chapter": 13,
+        "text": "原来关东六魔中大魔滕一雷是辽东大豪，家资累万"
+      },
+      {
+        "chapter": 14,
+        "text": "滕一雷脚步最快，转眼间已扑到那人身后"
+      },
+      {
+        "chapter": 14,
+        "text": "滕一雷提起独脚铜人猛力砸开，砰的一声大响，石香炉碎成数块"
+      },
+      {
+        "chapter": 16,
+        "text": "滕一雷抄起铜人"
+      },
+      {
+        "chapter": 17,
+        "text": "滕一雷抢上两步，挡在顾金标身前，冷冷打量对面三人"
+      },
+      {
+        "chapter": 18,
+        "text": "滕一雷和顾金标见状，也勒马绕开。"
+      }
+    ]
+  },
+  {
+    "id": "char_tian_hong",
+    "name": "天虹",
+    "alias": [],
+    "aliases": [],
+    "identity": "少林方丈",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "登峰造极",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "少林寺方丈，武功登峰造极，少林五殿之争的核心人物。",
+    "bio": "少林寺方丈，武功登峰造极，少林五殿之争的核心人物。",
+    "biography": "少林寺方丈，武功登峰造极，少林五殿之争的核心人物。",
+    "personality": {
+      "traits": [
+        "深沉",
+        "威严"
+      ],
+      "speech_style": "庄重",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
     "source_refs": [
       {
         "chapter": 20,
-        "line_start": 30,
-        "line_end": 36,
-        "text": "\n太后布置已毕，这才安心，打了个呵欠，叹道：“这万世的基业，可得要好好看着啊！”\n\n乾隆送太后出殿，忙召侍卫询问。白振禀道：“陈公子已送娘娘回宫，娘娘在宝月楼候驾。”乾隆大喜，急速出殿，走到门口，回头问道：“路上有什么事吗？”白振道：“奴才等曾遇见红花会的许多头脑，幸亏陈公子拦阻，没出什么事。”\n\n乾隆到了宝月楼上，果见香香公主面壁而坐，喜道：“长城好玩么？”香香公主不理。乾隆心想：“待我安排大事之后再来问你。”走到邻室，命召福康安进宫。\n",
-        "locate_status": "located",
-        "locate_reason": "no anchor terms recognized",
-        "alternatives": [
-          {
-            "chapter": 19,
-            "line_start": 270,
-            "line_end": 312,
-            "text": "\n陈家洛道：“赵三哥，请你带同心砚去见侍卫总管。你把皇帝给我的‘来凤’琴和四嫂盗来的玉瓶送了去，要总管转呈，皇帝就知咱们来了。”赵半山与心砚遵嘱而去，过了半日，回来覆命。心砚道：“我和赵三爷⋯⋯”赵半山笑道：“怎么还是爷不爷的？”心砚道：“是了。我和赵三⋯⋯赵三哥去见皇帝的侍卫总管，这总管名叫王青，说他本是副总管，总管白振奉旨出京办事去了。他得白总管嘱咐，要对总舵主及红花会众兄弟善加结纳，拉着我们到前门外喝了好一阵子酒，才放我们回来，着实亲热。”陈家洛点点头，心知白振是感念自己在钱塘江边救他一命，是以嘱咐副手善待红花会众人。\n\n次日一早，王青过来回拜，与赵半山寒暄了一阵，然后求见陈家洛。陈家洛见王青五十来岁年纪，显得精明能干，武功当亦不弱。王青神态甚是恭谨，悄声道：“皇上命我领陈公子进宫。”陈家洛道：“好，请王总管稍待片刻。”入内与陆菲青等商议。众人都说该当严加戒备，以防不测。当下陆菲青、…",
-            "score": 592,
-            "anchors_hit": [
-              "白振",
-              "陈公子",
-              "宝月楼",
-              "乾隆",
-              "香香公主",
-              "太后"
-            ],
-            "method": "window"
-          }
-        ],
-        "anchors_hit": [
-          "太后",
-          "陈公子",
-          "宝月楼",
-          "乾隆",
-          "白振",
-          "香香公主",
-          "福康安"
-        ],
-        "anchors_total": 7,
-        "locate_score": 700,
-        "locate_method": "window",
-        "hint_chapter": 20,
-        "event_type": "background"
+        "text": "少林寺方丈天虹禅师端坐禅床"
+      },
+      {
+        "chapter": 20,
+        "text": "天虹禅师沉吟了一会，道：\"从前有一人善于牧羊...\""
+      }
+    ]
+  },
+  {
+    "id": "char_tian_jing",
+    "name": "天镜",
+    "alias": [
+      "天镜禅师"
+    ],
+    "aliases": [
+      "天镜禅师"
+    ],
+    "identity": "少林高僧",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "出神入化",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "少林寺高僧，武功出神入化，与天虹同为少林顶尖高手。",
+    "bio": "少林寺高僧，武功出神入化，与天虹同为少林顶尖高手。",
+    "biography": "少林寺高僧，武功出神入化，与天虹同为少林顶尖高手。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "text": "达摩院首座天镜禅师盘膝坐在左侧蒲团上"
+      },
+      {
+        "chapter": 20,
+        "text": "天镜的掌力刚猛无俦，\"分手\"竟然黏他不动"
+      },
+      {
+        "chapter": 21,
+        "text": "天镜禅师率着大苦、大颠、大痴、元痛、元悲、元伤等少林僧人"
+      }
+    ]
+  },
+  {
+    "id": "char_tong_zhao_he",
+    "name": "童兆和",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军士兵",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军士兵，参与搜查铁胆庄。",
+    "bio": "清军士兵，参与搜查铁胆庄。",
+    "biography": "清军士兵，参与搜查铁胆庄。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "一个阴阳怪气的声音插嘴道：就只怕小喜宝已经跟了人"
+      },
+      {
+        "chapter": 3,
+        "text": "镇远镖局镖头童兆和兴高采烈的带路"
+      },
+      {
+        "chapter": 4,
+        "text": "骆冰将童兆和的事说了。孟健雄也说了他如何三入铁胆庄"
+      }
+    ]
+  },
+  {
+    "id": "char_wan_qing_lan",
+    "name": "万庆澜",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军密探",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "清军密探，被陈家洛点穴逼供，持信勒索周仲英。",
+    "bio": "清军密探，被陈家洛点穴逼供，持信勒索周仲英。",
+    "biography": "清军密探，被陈家洛点穴逼供，持信勒索周仲英。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "万庆澜在这对镔铁穿上下过二十年苦功"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_hao_tian",
+    "name": "汪浩天",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会成员",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "红花会成员。",
+    "bio": "红花会成员。",
+    "biography": "红花会成员。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "text": "汪浩天道：喂，总爷，这是皇宫的宝物哪，可不能动"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_qing",
+    "name": "王青",
+    "alias": [],
+    "aliases": [],
+    "identity": "少林僧人",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "少林寺僧人。",
+    "bio": "少林寺僧人。",
+    "biography": "少林寺僧人。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "text": "这位是迟玄迟公公，这位是武铭夫武公公"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_sheng",
+    "name": "王升",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军士兵",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军士兵。",
+    "bio": "清军士兵。",
+    "biography": "清军士兵。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "text": "一名把总高声吆喝：张得标、王升，四边瞧瞧，还有尸首没有？"
+      }
+    ]
+  },
+  {
+    "id": "char_wang_wei_yang",
+    "name": "王维扬",
+    "alias": [],
+    "aliases": [],
+    "identity": "武林名宿",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "炉火纯青",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "武林名宿，武功炉火纯青，在狮子峰与张召重比武。",
+    "bio": "武林名宿，武功炉火纯青，在狮子峰与张召重比武。",
+    "biography": "武林名宿，武功炉火纯青，在狮子峰与张召重比武。",
+    "personality": {
+      "traits": [
+        "刚毅",
+        "正直"
+      ],
+      "speech_style": "老成",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "text": "威震河朔王维扬今年六十九岁，自三十岁起出来闯道走镖，以一把八卦刀、一对八卦掌打遍江北绿林无敌手"
+      },
+      {
+        "chapter": 9,
+        "text": "王维扬心想：我跟他并无深仇大怨，何必在兵刃上伤他？用八卦掌一挫他的骄气，教他知道我老头子并非浪得虚名，也就是了。"
+      },
+      {
+        "chapter": 9,
+        "text": "王维扬在齐鲁燕赵之地纵横四十年，无往而不利。"
+      }
+    ]
+  },
+  {
+    "id": "char_wei_chun_hua",
+    "name": "卫春华",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会成员",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "红花会成员，参与多次战斗行动，贯穿全书。",
+    "bio": "红花会成员，参与多次战斗行动，贯穿全书。",
+    "biography": "红花会成员，参与多次战斗行动，贯穿全书。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "面目英俊的是排行第九的'九命锦豹子'卫春华"
+      },
+      {
+        "chapter": 3,
+        "text": "卫春华那顾前面是刀山箭林，一阵风的冲将过来"
+      },
+      {
+        "chapter": 4,
+        "text": "卫春华单钩指住他右眼，喝道：文爷在那里？"
+      },
+      {
+        "chapter": 5,
+        "text": "当先一人正是九命锦豹子卫春华"
+      },
+      {
+        "chapter": 7,
+        "text": "卫春华在船头恭请东方先生到湖中赏月"
+      },
+      {
+        "chapter": 8,
+        "text": "卫春华督率水龙队，将热油倒入水龙，向墙头射去"
+      },
+      {
+        "chapter": 9,
+        "text": "卫春华道：陈总当家跟文四当家见面，那张召重倘若在旁，这件事自然瞒不住了，于李军门只怕大大的不便。"
+      },
+      {
+        "chapter": 9,
+        "text": "卫春华道：这个好办，我想我们陈当家无有不允。"
+      },
+      {
+        "chapter": 10,
+        "text": "卫春华道：“四哥，咱们冲进去捉这奸贼。”"
+      },
+      {
+        "chapter": 11,
+        "text": "赵半山和卫春华来接班"
+      },
+      {
+        "chapter": 12,
+        "text": "九命锦豹子卫春华"
+      },
+      {
+        "chapter": 13,
+        "text": "卫春华笑道：'十弟，快拉住她，别让新娘子逃走了。'"
+      },
+      {
+        "chapter": 15,
+        "text": "那人生龙活虎般勇不可当，不是九命锦豹子卫春华是谁"
+      },
+      {
+        "chapter": 15,
+        "text": "卫春华捡起章进抛下的弓箭，连珠箭射倒六名清兵"
+      },
+      {
+        "chapter": 16,
+        "text": "卫春华挺双钩也已扑上"
+      },
+      {
+        "chapter": 19,
+        "text": "卫春华和章进齐向张召重扑去"
+      },
+      {
+        "chapter": 20,
+        "text": "卫春华和章进齐向张召重扑去"
+      },
+      {
+        "chapter": 21,
+        "text": "卫春华"
+      }
+    ]
+  },
+  {
+    "id": "char_wen_tai_lai",
+    "name": "文泰来",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会四当家",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "红花会四当家，武功登堂入室，掌握乾隆身世秘密，多次被囚又多次脱困。",
+    "bio": "红花会四当家，武功登堂入室，掌握乾隆身世秘密，多次被囚又多次脱困。",
+    "biography": "红花会四当家，武功登堂入室，掌握乾隆身世秘密，多次被囚又多次脱困。",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "忠诚"
+      ],
+      "speech_style": "豪爽",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "早听得奔雷手文泰来是江南武林中一条响当当的好汉子"
+      },
+      {
+        "chapter": 2,
+        "text": "文泰来睡在炕上，见他在自己头顶窜过，坐起身来，左掌挥出，喀喇一响，胡国栋右臂立断"
+      },
+      {
+        "chapter": 3,
+        "text": "文泰来双足一着地，左手力扯，成璜绳索脱手，文泰来大喝一声，犹如半空打了个响雷"
+      },
+      {
+        "chapter": 5,
+        "text": "文泰来双手被缚，动弹不得，急怒交作"
+      },
+      {
+        "chapter": 5,
+        "text": "文泰来双手脱绑，精神大振，左手反背出掌，正中那人右胁，喀喇一声，已断了二根肋骨"
+      },
+      {
+        "chapter": 8,
+        "text": "床上睡着的正是她日思夜想的丈夫"
+      },
+      {
+        "chapter": 9,
+        "text": "文泰来此时外伤未愈，神智却极清醒，躺着对谁也不加理会。"
+      },
+      {
+        "chapter": 9,
+        "text": "文泰来一惊，睁眼一看，竟是总舵主陈家洛。"
+      },
+      {
+        "chapter": 10,
+        "text": "文泰来施展神力，啪的一声，一张铁胎弓登时拉断。"
+      },
+      {
+        "chapter": 13,
+        "text": "众人先去看文泰来。他正躺在藤榻上发闷，见众人进来，大喜过望，起身迎接"
+      },
+      {
+        "chapter": 14,
+        "text": "奔雷手大展神威，顷刻间连毙三敌"
+      },
+      {
+        "chapter": 14,
+        "text": "文泰来这路'霹雳掌'的掌风喝声之中，隐隐蓄有风雷之势"
+      },
+      {
+        "chapter": 15,
+        "text": "文泰来豪迈如昔，大声道：咱们这里连总舵主和那位回人姑娘，不过十个人"
+      },
+      {
+        "chapter": 15,
+        "text": "文泰来一箭射出，在一名领队的把总胸口对穿而过，箭枝带血，又飞出数丈"
+      },
+      {
+        "chapter": 16,
+        "text": "奔雷手文泰来"
+      },
+      {
+        "chapter": 19,
+        "text": "文泰来猛喝一声，挺刀正要纵前"
+      },
+      {
+        "chapter": 20,
+        "text": "文泰来猛喝一声，挺刀正要纵前"
+      },
+      {
+        "chapter": 20,
+        "text": "文泰来有如不见，叫道：\"店家，拿酒来。\""
+      },
+      {
+        "chapter": 20,
+        "text": "文泰来右手提起长凳，桩在他胸口，发力推出"
+      },
+      {
+        "chapter": 21,
+        "text": "文泰来刀砍掌劈，杀开了一条血弄堂"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_chen",
+    "name": "无尘",
+    "alias": [
+      "无尘道人"
+    ],
+    "aliases": [
+      "无尘道人"
+    ],
+    "identity": "红花会二当家",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "出神入化",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "红花会二当家，武功出神入化，道号无尘，多次参与红花会核心行动。",
+    "bio": "红花会二当家，武功出神入化，道号无尘，多次参与红花会核心行动。",
+    "biography": "红花会二当家，武功出神入化，道号无尘，多次参与红花会核心行动。",
+    "personality": {
+      "traits": [
+        "豪放",
+        "侠义"
+      ],
+      "speech_style": "爽朗",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "无尘向周仲英道：'出事之时，老庄主或者真不在家。'"
+      },
+      {
+        "chapter": 3,
+        "text": "一个独臂道人，背负长剑"
+      },
+      {
+        "chapter": 4,
+        "text": "追魂夺命剑无尘道人，率领铁塔杨成协、铜头鳄鱼蒋四根"
+      },
+      {
+        "chapter": 5,
+        "text": "道长成名以来，从未遇过敌手"
+      },
+      {
+        "chapter": 5,
+        "text": "道长施展追魂夺命剑中的大五鬼剑法，快极啦"
+      },
+      {
+        "chapter": 7,
+        "text": "无尘剑法海内无对，以仙人指路逼褚圆使回头是岸，将褚圆全身衣服割碎、辫发剃光"
+      },
+      {
+        "chapter": 8,
+        "text": "无尘、赵半山、周仲英都知张召重武功高强"
+      },
+      {
+        "chapter": 8,
+        "text": "无尘大喜，剑走中宫，当胸直刺"
+      },
+      {
+        "chapter": 9,
+        "text": "无尘猜到他用意，竟走险招，和身下扑，既避金针，又挺剑直刺，点向他右脚，这一记是罕用之招，称为怨魂缠足。"
+      },
+      {
+        "chapter": 9,
+        "text": "无尘叫道：今日就决生死存亡，这口气再也憋不住啦。"
+      },
+      {
+        "chapter": 11,
+        "text": "无尘道人道：'我们总舵主说他和皇上一见如故'"
+      },
+      {
+        "chapter": 12,
+        "text": "无尘举剑一封，退后一步"
+      },
+      {
+        "chapter": 13,
+        "text": "无尘道：'男子汉大丈夫行侠江湖，讲究的是义气血性。容貌好恶，只没出息的人才去看重。'"
+      },
+      {
+        "chapter": 20,
+        "text": "无尘肚里暗暗咒骂：\"臭皇帝！那日在六和塔上，吓得你魂不附体\""
+      },
+      {
+        "chapter": 21,
+        "text": "无尘收剑跃开"
+      }
+    ]
+  },
+  {
+    "id": "char_wu_ming_fu",
+    "name": "武铭夫",
+    "alias": [],
+    "aliases": [],
+    "identity": "少林僧人",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "少林寺僧人，参与少林五殿之争。",
+    "bio": "少林寺僧人，参与少林五殿之争。",
+    "biography": "少林寺僧人，参与少林五殿之争。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "text": "迟玄学的是六合拳，武铭夫专精通臂拳"
+      },
+      {
+        "chapter": 21,
+        "text": "武铭夫喝道"
+      }
+    ]
+  },
+  {
+    "id": "char_xiang_xiang_gong_zhu",
+    "name": "香香公主",
+    "alias": [],
+    "aliases": [],
+    "identity": "回部公主",
+    "role": "核心",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "核心",
+    "one_line": "回部公主喀丝丽，美貌绝伦，歌声动人心魄，与陈家洛相恋，最终清真寺自尽示警。",
+    "bio": "回部公主喀丝丽，美貌绝伦，歌声动人心魄，与陈家洛相恋，最终清真寺自尽示警。",
+    "biography": "回部公主喀丝丽，美貌绝伦，歌声动人心魄，与陈家洛相恋，最终清真寺自尽示警。",
+    "personality": {
+      "traits": [
+        "纯真",
+        "坚贞"
+      ],
+      "speech_style": "温柔",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 15,
+        "text": "她妹子喀丝丽虽只十八岁"
+      },
+      {
+        "chapter": 15,
+        "text": "众人听说她是霍青桐的妹妹，见她容颜绝丽，温雅和蔼"
+      },
+      {
+        "chapter": 16,
+        "text": "喀丝丽，你们在那里"
+      },
+      {
+        "chapter": 17,
+        "text": "香香公主道：我常听姊姊说起两位"
+      },
+      {
+        "chapter": 17,
+        "text": "只见一个极美的少女纵马来到跟前"
+      },
+      {
+        "chapter": 19,
+        "text": "香香公主大喜，一手挽了他手臂，一手挽了姊姊，走上前去，除下手上的白玉戒指，套在李沅芷手指上"
+      },
+      {
+        "chapter": 20,
+        "text": "香香公主道：\"我一定还要见你。就算要死，也是见了你再死。\""
+      },
+      {
+        "chapter": 20,
+        "text": "香香公主含泪道：\"你一定要回来！\""
+      },
+      {
+        "chapter": 20,
+        "text": "香香公主拍手笑道：\"这模样真好看。\""
+      },
+      {
+        "chapter": 21,
+        "text": "香香公主倚在窗边望月"
+      }
+    ]
+  },
+  {
+    "id": "char_xin_yan",
+    "name": "心砚",
+    "alias": [],
+    "aliases": [],
+    "identity": "陈家洛书童",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "陈家洛书童，后被收为红花会十五弟。",
+    "bio": "陈家洛书童，后被收为红花会十五弟。",
+    "biography": "陈家洛书童，后被收为红花会十五弟。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "心砚从包裹中取出一条绳索，将万庆澜双手反背牢牢缚住"
+      },
+      {
+        "chapter": 3,
+        "text": "这人是陈家洛的书僮心砚，瞧不出他年纪轻轻，轻功竟也如此不凡"
+      },
+      {
+        "chapter": 4,
+        "text": "心砚忽地叫了起来：啊哟，那鹰爪孙还在里面！"
+      },
+      {
+        "chapter": 5,
+        "text": "心砚见到陈家洛，远远下了马"
+      },
+      {
+        "chapter": 7,
+        "text": "心砚被龙骏毒蒺藜打中左肩，中剧毒"
+      },
+      {
+        "chapter": 12,
+        "text": "心砚献上茶来"
+      },
+      {
+        "chapter": 13,
+        "text": "心砚把余鱼同扶出来坐在椅上"
+      },
+      {
+        "chapter": 15,
+        "text": "心砚跟着跳出，在射死的清兵身旁捡了七八张弓，捧了一大捆箭回来"
+      },
+      {
+        "chapter": 15,
+        "text": "心砚扑地跪下，不住向霍青桐磕头"
+      },
+      {
+        "chapter": 16,
+        "text": "心砚都跳了上去"
+      },
+      {
+        "chapter": 19,
+        "text": "章进与心砚押着顾金标与哈合台，远远坐在地下"
+      },
+      {
+        "chapter": 20,
+        "text": "骆冰和心砚分别给他们包扎"
+      },
+      {
+        "chapter": 21,
+        "text": "心砚久在大漠，知是回人所唱悼歌"
+      }
+    ]
+  },
+  {
+    "id": "char_xiu_jian_zhuang_han",
+    "name": "袖箭壮汉",
+    "alias": [],
+    "aliases": [],
+    "identity": "西湖壮汉",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "西湖边使用袖箭的壮汉，背景人物。",
+    "bio": "西湖边使用袖箭的壮汉，背景人物。",
+    "biography": "西湖边使用袖箭的壮汉，背景人物。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "text": "壮汉手一挥袖箭射树上喜鹊，被心砚用泥块碰歪"
+      }
+    ]
+  },
+  {
+    "id": "char_xu_shi",
+    "name": "徐氏",
+    "alias": [],
+    "aliases": [],
+    "identity": "陈家洛乳母",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "陈家洛乳母徐氏，知晓陈家洛身世。",
+    "bio": "陈家洛乳母徐氏，知晓陈家洛身世。",
+    "biography": "陈家洛乳母徐氏，知晓陈家洛身世。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 8,
+        "text": "原来次日八月十八是他生母徐氏的生辰"
+      }
+    ]
+  },
+  {
+    "id": "char_xu_tian_hong",
+    "name": "徐天宏",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会七当家",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "红花会七当家，智谋过人，与周绮成婚，参与多次营救行动。",
+    "bio": "红花会七当家，智谋过人，与周绮成婚，参与多次营救行动。",
+    "biography": "红花会七当家，智谋过人，与周绮成婚，参与多次营救行动。",
+    "personality": {
+      "traits": [
+        "机智",
+        "忠诚"
+      ],
+      "speech_style": "沉稳",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "施展'五虎断门刀'刀法，仍是着着进攻"
+      },
+      {
+        "chapter": 3,
+        "text": "徐天宏生性谨慎持重"
+      },
+      {
+        "chapter": 4,
+        "text": "我们这位七哥外号叫武诸葛，最是足智多谋"
+      },
+      {
+        "chapter": 5,
+        "text": "周绮、章进、徐天宏、常氏双侠各挺兵刃，四面围攻"
+      },
+      {
+        "chapter": 6,
+        "text": "徐天宏奔不得几十步，左肩上被金针射中处愈来愈痛，难以忍受，一阵昏迷，跌倒在地"
+      },
+      {
+        "chapter": 6,
+        "text": "徐天宏一个箭步，已窜了上去，挥刀斜劈"
+      },
+      {
+        "chapter": 7,
+        "text": "徐天宏将毒蒺藜在龙骏胸口连戳三下，灌下三杯酒逼其交出解药"
+      },
+      {
+        "chapter": 8,
+        "text": "徐天宏把陈家洛拉在一旁，说道：咱们今天这一闹，说不定皇帝心慌，提早害了四哥"
+      },
+      {
+        "chapter": 8,
+        "text": "徐天宏对马善均道：马大哥，皇帝老儿今日吃了亏回去，定然不肯就此罢休"
+      },
+      {
+        "chapter": 8,
+        "text": "徐天宏手一挥，马善均、马大挺父子取出火炮流星"
+      },
+      {
+        "chapter": 9,
+        "text": "徐天宏道：我盘算得一条计策，总舵主你瞧成不成？当下把计谋说了出来。"
+      },
+      {
+        "chapter": 9,
+        "text": "徐天宏突然惊道：啊哟，不好了！韩大哥，我弄错啦，刚才那杯酒里有毒。"
+      },
+      {
+        "chapter": 10,
+        "text": "徐天宏道：“这奸贼原来在此，只怕太远，射他不到。”"
+      },
+      {
+        "chapter": 11,
+        "text": "徐天宏接过酒壶，给各人筛了酒"
+      },
+      {
+        "chapter": 12,
+        "text": "正是徐天宏。他刚跃出窗口"
+      },
+      {
+        "chapter": 13,
+        "text": "陈家洛笑嘻嘻的走到周绮跟前……陈家洛道：'刚才周老爷子说，今儿要给七哥和周大姑娘完婚'"
+      },
+      {
+        "chapter": 14,
+        "text": "我看十四弟凡心未断，未必能做一辈子和尚"
+      },
+      {
+        "chapter": 14,
+        "text": "徐天宏道：四哥，你不吃饭，不睡觉，要是须得立即出去相救十四弟"
+      },
+      {
+        "chapter": 15,
+        "text": "文、徐、余三人箭无虚发"
+      },
+      {
+        "chapter": 15,
+        "text": "徐天宏道：咱们快做掩蔽，守到夜里再走"
+      },
+      {
+        "chapter": 16,
+        "text": "徐天宏已上去助战"
+      },
+      {
+        "chapter": 19,
+        "text": "徐天宏猜到他心思，叫道：「擒拿你这奸贼，若要总舵主亲自出手，要我们红花会众兄弟何用？」"
+      },
+      {
+        "chapter": 20,
+        "text": "徐天宏和心砚上去按住缚了"
+      },
+      {
+        "chapter": 20,
+        "text": "徐天宏向陈家洛道：\"总舵主，求你准许我报仇雪恨。\""
+      },
+      {
+        "chapter": 21,
+        "text": "徐天宏跑在陈家洛身旁"
+      }
+    ]
+  },
+  {
+    "id": "char_yan_bo_gan",
+    "name": "言伯干",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东六魔之一",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "关东六魔之一，死于宝相寺大战。",
+    "bio": "关东六魔之一，死于宝相寺大战。",
+    "biography": "关东六魔之一，死于宝相寺大战。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "text": "那人非别，乃辰州言家拳掌门人言伯干是也"
+      },
+      {
+        "chapter": 13,
+        "text": "原来这人便是曾去铁胆庄捉拿文泰来的言伯干。他给余鱼同的短箭射瞎了一只眼睛后"
+      },
+      {
+        "chapter": 14,
+        "text": "言伯干忽然右目上翻，双臂平举，僵直了身子"
+      },
+      {
+        "chapter": 14,
+        "text": "言伯干应手而倒，摸他身子，早已气绝多时了"
+      }
+    ]
+  },
+  {
+    "id": "char_yan_shi_kui",
+    "name": "阎世魁",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东六魔之一",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "关东六魔之一。",
+    "bio": "关东六魔之一。",
+    "biography": "关东六魔之一。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "果然是关东六魔中的第五魔阎世魁"
+      }
+    ]
+  },
+  {
+    "id": "char_yan_shi_zhang",
+    "name": "阎世章",
+    "alias": [],
+    "aliases": [],
+    "identity": "关东六魔之一",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "关东六魔之一，被霍青桐对战夺回经书。",
+    "bio": "关东六魔之一，被霍青桐对战夺回经书。",
+    "biography": "关东六魔之一，被霍青桐对战夺回经书。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "他弟弟阎世章闻声赶来"
+      },
+      {
+        "chapter": 4,
+        "text": "那使五行轮的是关东六魔中的阎世章"
+      }
+    ]
+  },
+  {
+    "id": "char_yang_cheng_xie",
+    "name": "杨成协",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会成员",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "红花会成员，武艺登堂入室，参与多次行动。",
+    "bio": "红花会成员，武艺登堂入室，参与多次行动。",
+    "biography": "红花会成员，武艺登堂入室，参与多次行动。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "那胖子是红花会排名第八的'铁塔'杨成协"
+      },
+      {
+        "chapter": 3,
+        "text": "杨成协身裁高大，气度威猛，钢鞭打出，虎虎生风"
+      },
+      {
+        "chapter": 4,
+        "text": "杨成协抓住棺材两边，一使劲，将棺材提了起来"
+      },
+      {
+        "chapter": 5,
+        "text": "铁塔杨成协本是青旗帮帮主，入红花会后坐了第八把交椅"
+      },
+      {
+        "chapter": 7,
+        "text": "杨成协和章进已将举起的小船放回水面"
+      },
+      {
+        "chapter": 8,
+        "text": "杨成协双手托住那重达千斤的铁闸，已是满头大汗"
+      },
+      {
+        "chapter": 11,
+        "text": "这人是铁塔杨成协，这话倒非威吓，实是出自肺腑之言"
+      },
+      {
+        "chapter": 12,
+        "text": "杨成协、石双英等也从下层赶了上来"
+      },
+      {
+        "chapter": 13,
+        "text": "杨成协笑道：'此刻咱们大伙儿都在这里了，有鬼上门，那是再好不过。'"
+      },
+      {
+        "chapter": 20,
+        "text": "无尘、常氏双侠、赵半山、杨成协五人已先在宅中相候"
+      },
+      {
+        "chapter": 21,
+        "text": "陈家洛命文泰来率领杨成协"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_ru_yi",
+    "name": "玉如意",
+    "alias": [],
+    "aliases": [],
+    "identity": "名妓",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "杭州名妓，乾隆追逐的对象，其院中有地道。",
+    "bio": "杭州名妓，乾隆追逐的对象，其院中有地道。",
+    "biography": "杭州名妓，乾隆追逐的对象，其院中有地道。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 7,
+        "text": "玉如意替乾隆和陈家洛斟酒，弹琵琶唱曲"
+      },
+      {
+        "chapter": 11,
+        "text": "袁子才大声宣布：'检点采品已毕，状元玉如意'"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_wan_ting",
+    "name": "于万亭",
+    "alias": [],
+    "aliases": [],
+    "identity": "少林俗家弟子",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "炉火纯青",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "少林俗家弟子，武功炉火纯青，少林供词揭秘陈家洛身世。",
+    "bio": "少林俗家弟子，武功炉火纯青，少林供词揭秘陈家洛身世。",
+    "biography": "少林俗家弟子，武功炉火纯青，少林供词揭秘陈家洛身世。",
+    "personality": {
+      "traits": [
+        "深沉",
+        "忠义"
+      ],
+      "speech_style": "沉稳",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 20,
+        "text": "陈家洛读到：\"福建莆田少林寺下院门下第二十一代天字辈俗家弟子于万亭带罪敬白\""
+      },
+      {
+        "chapter": 20,
+        "text": "弟子以名门弟子，大胆妄为，若为人知，不免贻羞师门"
+      }
+    ]
+  },
+  {
+    "id": "char_yu_yu_tong",
+    "name": "余鱼同",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会十四当家",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "红花会十四当家，文武双全但武功初窥门径，深爱李沅芷，后出家为僧。",
+    "bio": "红花会十四当家，文武双全但武功初窥门径，深爱李沅芷，后出家为僧。",
+    "biography": "红花会十四当家，文武双全但武功初窥门径，深爱李沅芷，后出家为僧。",
+    "personality": {
+      "traits": [
+        "多情",
+        "纠结"
+      ],
+      "speech_style": "文雅",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 2,
+        "text": "余鱼同站在门口，斯斯文文的问道：是那一位前辈？"
+      },
+      {
+        "chapter": 3,
+        "text": "余鱼同施展金笛，和总兵成璜打在一起"
+      },
+      {
+        "chapter": 3,
+        "text": "余鱼同使一招'白云苍狗'，待成璜闪开避让，突然纵入地窖"
+      },
+      {
+        "chapter": 4,
+        "text": "金笛秀才余鱼同，和西川双侠常赫志、常伯志兄弟取得联络"
+      },
+      {
+        "chapter": 5,
+        "text": "今日舍了这条命把四哥救出，也好让四嫂知道，我余鱼同并非无义小人"
+      },
+      {
+        "chapter": 5,
+        "text": "余鱼同奉命侦查文泰来的踪迹，沿路暗访"
+      },
+      {
+        "chapter": 13,
+        "text": "余鱼同取出金笛，吹了一套〈凤求凰〉"
+      },
+      {
+        "chapter": 13,
+        "text": "余鱼同展开柔云剑术，想打倒了他逃命"
+      },
+      {
+        "chapter": 14,
+        "text": "次日早晨只得集合僧众，在佛前为他剃度了，授以戒律，法名空色"
+      },
+      {
+        "chapter": 14,
+        "text": "余鱼同展开柔云剑术，三四招一攻"
+      },
+      {
+        "chapter": 15,
+        "text": "陈家洛见那人灰衣蒙面，光头僧袍，手持金笛"
+      },
+      {
+        "chapter": 15,
+        "text": "余鱼同于是把自己如何对骆冰痴心、如何在铁胆庄外调戏她的事，原原本本的说了"
+      },
+      {
+        "chapter": 16,
+        "text": "余鱼同想起恩师惨死，目眦欲裂"
+      },
+      {
+        "chapter": 19,
+        "text": "那人从他掌下穿过，右手断笛疾戳，左手两指前伸，直扑到他怀里"
+      },
+      {
+        "chapter": 20,
+        "text": "余鱼同握着从徐天宏手里接来的钢刀，跳落时因城墙过高，立足不稳"
+      },
+      {
+        "chapter": 20,
+        "text": "余鱼同转头看李沅芷时，见她昏迷未醒，甚是着急"
+      },
+      {
+        "chapter": 21,
+        "text": "余鱼同吹着笛子"
+      }
+    ]
+  },
+  {
+    "id": "char_yuan_mei",
+    "name": "袁枚",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝文人",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "清朝文人，背景人物。",
+    "bio": "清朝文人，背景人物。",
+    "biography": "清朝文人，背景人物。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "text": "袁枚和众人都是一惊"
+      }
+    ]
+  },
+  {
+    "id": "char_yuan_shi_xiao",
+    "name": "袁士霄",
+    "alias": [],
+    "aliases": [],
+    "identity": "武林隐士",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "返璞归真",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "武林隐士，武功返璞归真为全书最高，在大漠救关东三魔，设计灭狼。",
+    "bio": "武林隐士，武功返璞归真为全书最高，在大漠救关东三魔，设计灭狼。",
+    "biography": "武林隐士，武功返璞归真为全书最高，在大漠救关东三魔，设计灭狼。",
+    "personality": {
+      "traits": [
+        "超然",
+        "智慧"
+      ],
+      "speech_style": "淡泊",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 16,
+        "text": "天池怪侠袁士霄"
+      },
+      {
+        "chapter": 17,
+        "text": "如不是袁士霄突然归来，他们原可终身快乐"
+      },
+      {
+        "chapter": 18,
+        "text": "关东三魔已牵了马过来，见了那灰衣老者立即恭敬施礼，说道：又见着你老人家啦。你老人家好？那老者哼了一声，道：也没什么不好。原来就是天池怪侠袁士霄。"
+      },
+      {
+        "chapter": 19,
+        "text": "只听身旁呼呼两响，两人已掠过身边，挡在前面，正是袁士霄和陈正德"
+      },
+      {
+        "chapter": 20,
+        "text": "袁士霄沉吟不语，心中大惑不解，陈家洛这套功夫非但不是他所授"
+      },
+      {
+        "chapter": 20,
+        "text": "袁士霄喜道：\"这真是可遇不可求的奇缘。\""
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_de_biao",
+    "name": "张得标",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军士兵",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军士兵。",
+    "bio": "清军士兵。",
+    "biography": "清军士兵。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 6,
+        "text": "一名把总高声吆喝：张得标、王升，四边瞧瞧，还有尸首没有？"
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_jin",
+    "name": "章进",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会成员",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "红花会成员，混战中伤重身亡。",
+    "bio": "红花会成员，混战中伤重身亡。",
+    "biography": "红花会成员，混战中伤重身亡。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "那人矮着身躯，手舞一根短柄狼牙棒"
+      },
+      {
+        "chapter": 3,
+        "text": "章进双战孟健雄和周绮，早已打得难解难分"
+      },
+      {
+        "chapter": 4,
+        "text": "章进最是直性人，抢上两步，向周仲英磕了个响头"
+      },
+      {
+        "chapter": 5,
+        "text": "十爷才用狼牙棒将他柴刀砸飞"
+      },
+      {
+        "chapter": 7,
+        "text": "章进和杨成协将举起的小船放回水面"
+      },
+      {
+        "chapter": 8,
+        "text": "章进弓身奔到闸下，说道：我来顶住！挺驼背驼住千斤闸"
+      },
+      {
+        "chapter": 8,
+        "text": "章进挥动狼牙棒，横扫直砸"
+      },
+      {
+        "chapter": 9,
+        "text": "忽然山边滚出一个人来，迅疾如风，抱住张召重双足。两人搂作一团，跌倒在地。"
+      },
+      {
+        "chapter": 13,
+        "text": "章进听得总舵主又派他在天目山闲居，闷闷不乐"
+      },
+      {
+        "chapter": 14,
+        "text": "章进第一个忍不住，跳起身来"
+      },
+      {
+        "chapter": 14,
+        "text": "章进怒道：出什么屁家？"
+      },
+      {
+        "chapter": 15,
+        "text": "舞动狼牙棒，跃上坑边"
+      },
+      {
+        "chapter": 15,
+        "text": "章进弓箭却不擅长，连射七八箭没一箭射中，怒火冲天，抛下弓箭，提了狼牙棒要上去厮杀"
+      },
+      {
+        "chapter": 16,
+        "text": "章进挥狼牙棒当当乱打"
+      },
+      {
+        "chapter": 19,
+        "text": "卫春华和章进齐向张召重扑去"
+      },
+      {
+        "chapter": 20,
+        "text": "章进口中咒骂，想奔上去给他一棒"
+      },
+      {
+        "chapter": 21,
+        "text": "章进全身血污，杀得如痴如狂"
+      }
+    ]
+  },
+  {
+    "id": "char_zhang_zhao_zhong",
+    "name": "张召重",
+    "alias": [],
+    "aliases": [],
+    "identity": "武当派叛徒",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "武当派叛徒，武功登堂入室，多次与红花会为敌，最终殒命狼城。",
+    "bio": "武当派叛徒，武功登堂入室，多次与红花会为敌，最终殒命狼城。",
+    "biography": "武当派叛徒，武功登堂入室，多次与红花会为敌，最终殒命狼城。",
+    "personality": {
+      "traits": [
+        "狠辣",
+        "阴险"
+      ],
+      "speech_style": "阴沉",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "一张三百来斤的石桌竟让他单手平平端起"
+      },
+      {
+        "chapter": 3,
+        "text": "张召重心想周仲英名声极大，是西北武林首脑人物，可得罪不得"
+      },
+      {
+        "chapter": 4,
+        "text": "陆菲青陆老前辈说他师弟张召重武功了得，咱们在江湖上也久闻火手判官的大名"
+      },
+      {
+        "chapter": 5,
+        "text": "张召重居中而坐，两旁都是侍卫和公差"
+      },
+      {
+        "chapter": 5,
+        "text": "张召重凝碧剑施展柔云剑术，剑招绵绵"
+      },
+      {
+        "chapter": 8,
+        "text": "仇人相见，分外眼明，正是火手判官张召重"
+      },
+      {
+        "chapter": 8,
+        "text": "张召重武艺再高，怎抵得住这四人合力进攻"
+      },
+      {
+        "chapter": 9,
+        "text": "张召重存心在兵刃上挽回面子，凝碧剑出手，连绵不断，俱是进手招数，攻势凌厉已极。"
+      },
+      {
+        "chapter": 9,
+        "text": "张召重走进室来，地牢内一灯如豆，朦胧中见文泰来上半身跌在地上，似乎已死，大吃一惊。"
+      },
+      {
+        "chapter": 10,
+        "text": "张召重一言不发，提劲疾上。他一手挽了兆惠，在这冰雪冻得滑溜异常的山上仍是步履如飞。"
+      },
+      {
+        "chapter": 15,
+        "text": "十二弟被奸贼的金针打中"
+      },
+      {
+        "chapter": 15,
+        "text": "张召重当真了得，我只和他相持片刻，现下仍是双臂酸软"
+      },
+      {
+        "chapter": 16,
+        "text": "张召重愤怒异常"
+      },
+      {
+        "chapter": 17,
+        "text": "火手判官剑术拳法，是武林中数一数二人物"
+      },
+      {
+        "chapter": 17,
+        "text": "正是死对头火手判官张召重"
+      },
+      {
+        "chapter": 18,
+        "text": "张召重道：在下姓张名召重。不敢请教三位。陈正德道：啊，原来是火手判官。袁大哥，他是马真道长的师弟。"
+      },
+      {
+        "chapter": 19,
+        "text": "张召重眼见强敌齐至，转身要逃，只听身旁呼呼两响，两人已掠过身边，挡在前面"
+      },
+      {
+        "chapter": 20,
+        "text": "他柔云快剑施展开来，记记都是进手招数，倏地一招\"耿耿银河\""
+      },
+      {
+        "chapter": 20,
+        "text": "张召重大声急叫，右腕已被敌指点中，宝剑脱手"
+      },
+      {
+        "chapter": 20,
+        "text": "张召重又走了几步，终于站立不稳，扑地倒了"
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_ban_shan",
+    "name": "赵半山",
+    "alias": [],
+    "aliases": [],
+    "identity": "红花会三当家",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "登堂入室",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "红花会三当家，千臂如来，武艺登堂入室，接箭救人。",
+    "bio": "红花会三当家，千臂如来，武艺登堂入室，接箭救人。",
+    "biography": "红花会三当家，千臂如来，武艺登堂入室，接箭救人。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 1,
+        "text": "那是从前在屠龙帮时的好友赵半山"
+      },
+      {
+        "chapter": 4,
+        "text": "千臂如来赵半山，率领石敢当章进、鬼见愁石双英"
+      },
+      {
+        "chapter": 5,
+        "text": "赵半山是浙江温州人，对暗器一道特别擅长"
+      },
+      {
+        "chapter": 5,
+        "text": "赵半山首先窜出，手一扬，两枝袖箭钉入拖着大车的骡子双眼"
+      },
+      {
+        "chapter": 7,
+        "text": "赵半山施展暗器与龙骏比试，三个起伏纵到陈家洛和乾隆眼前"
+      },
+      {
+        "chapter": 8,
+        "text": "赵半山与周仲英在铁闸机关上又揿又拉"
+      },
+      {
+        "chapter": 11,
+        "text": "赵半山和卫春华来接班。乾隆见这两人一个脸色慈和"
+      },
+      {
+        "chapter": 12,
+        "text": "千手如来赵半山"
+      },
+      {
+        "chapter": 13,
+        "text": "赵半山笑道：'四弟妹也真是的，这么大了，还像孩子般的爱闹'"
+      },
+      {
+        "chapter": 20,
+        "text": "赵半山使了半招\"单鞭\"，当即把来势化解了"
+      },
+      {
+        "chapter": 21,
+        "text": "赵半山从暗器囊里摸出当日龙骏所发的三枚毒蒺藜来"
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_hui",
+    "name": "兆惠",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军统帅",
+    "role": "重要",
+    "archetype": "",
+    "power_rank": "略有小成",
+    "faction": null,
+    "importance": "重要",
+    "one_line": "清军统帅，多次与回部交战，黑水营被围四月。",
+    "bio": "清军统帅，多次与回部交战，黑水营被围四月。",
+    "biography": "清军统帅，多次与回部交战，黑水营被围四月。",
+    "personality": {
+      "traits": [
+        "刚愎",
+        "勇猛"
+      ],
+      "speech_style": "威严",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 10,
+        "text": "兆惠暗暗叫苦，心想今日兵败之余，还不免被擒受辱。"
+      },
+      {
+        "chapter": 15,
+        "text": "陈家洛见兆惠点了大军追赶他们两人，未免小题大做"
+      },
+      {
+        "chapter": 15,
+        "text": "兆惠想让咱们做狼，妹子就是那块羊肉了"
+      },
+      {
+        "chapter": 16,
+        "text": "兆惠出来喝开"
+      }
+    ]
+  },
+  {
+    "id": "char_zhao_yi",
+    "name": "赵翼",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝文人",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "清朝文人，背景人物。",
+    "bio": "清朝文人，背景人物。",
+    "biography": "清朝文人，背景人物。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "text": "杭州诗人赵翼心急"
+      }
+    ]
+  },
+  {
+    "id": "char_zheng_ban_qiao",
+    "name": "郑板桥",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝文人",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "清朝文人，背景人物。",
+    "bio": "清朝文人，背景人物。",
+    "biography": "清朝文人，背景人物。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 11,
+        "text": "一是诗画三绝的郑板桥"
+      }
+    ]
+  },
+  {
+    "id": "char_zhou_da_nai_nai",
+    "name": "周大奶奶",
+    "alias": [],
+    "aliases": [],
+    "identity": "周仲英之妻",
+    "role": "背景",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "背景",
+    "one_line": "周仲英之妻，背景人物。",
+    "bio": "周仲英之妻，背景人物。",
+    "biography": "周仲英之妻，背景人物。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 13,
+        "text": "周大奶奶笑着尽摇头，连声叹道：'这宝贝姑娘，那里像新媳妇儿。'"
+      }
+    ]
+  },
+  {
+    "id": "char_zhou_qi",
+    "name": "周绮",
+    "alias": [],
+    "aliases": [],
+    "identity": "周仲英之女",
+    "role": "次要",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "次要",
+    "one_line": "周仲英之女，性格泼辣，与徐天宏成婚，携猫试毒戏弄乾隆。",
+    "bio": "周仲英之女，性格泼辣，与徐天宏成婚，携猫试毒戏弄乾隆。",
+    "biography": "周仲英之女，性格泼辣，与徐天宏成婚，携猫试毒戏弄乾隆。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "这少女正是铁胆庄的大小姐周绮。她性格豪迈，颇有乃父之风，爱管闲事，好打不平，外号叫作'俏李逵'"
+      },
+      {
+        "chapter": 4,
+        "text": "周绮骂道：你叫人放火，还假惺惺装好人"
+      },
+      {
+        "chapter": 5,
+        "text": "周绮举刀当头砍下，张召重左手伸出，已拿住她手腕"
+      },
+      {
+        "chapter": 6,
+        "text": "她一个二十岁不到的姑娘，孤零零坐在荒林之中"
+      },
+      {
+        "chapter": 6,
+        "text": "周绮在乱军之中与众人失散，满眼望去，全是清兵，随手砍翻了冲到身边的几名"
+      },
+      {
+        "chapter": 8,
+        "text": "周绮忍不住插嘴道：那天饶了他们不杀，这几个家伙还在背地里骂人"
+      },
+      {
+        "chapter": 8,
+        "text": "周绮已用木杓舀起一杓滚油，向他脸上浇去"
+      },
+      {
+        "chapter": 9,
+        "text": "周绮第三刀使的是一招达摩面壁，当头直劈下来，刀势劲急。"
+      },
+      {
+        "chapter": 9,
+        "text": "周绮叫道：太不光明正大，我不喜欢。"
+      },
+      {
+        "chapter": 11,
+        "text": "正是周绮。那猫在她手中挣了几挣"
+      },
+      {
+        "chapter": 12,
+        "text": "周绮和心砚正在对付獒犬"
+      },
+      {
+        "chapter": 13,
+        "text": "周绮笑道：'十四哥，男子汉烧坏了脸有什么打紧？难道怕娶不到老婆吗？'"
+      },
+      {
+        "chapter": 15,
+        "text": "周绮怒道：哼！她怎知道"
+      },
+      {
+        "chapter": 15,
+        "text": "周绮一把抓住他手臂，骂道：去送死吗"
+      },
+      {
+        "chapter": 16,
+        "text": "周绮披散了头发，满脸血污"
+      },
+      {
+        "chapter": 20,
+        "text": "周绮忽然脸色苍白，险些晕倒"
+      },
+      {
+        "chapter": 20,
+        "text": "周绮忍不住问道：\"喂，他们犯了什么王法啦？\""
+      },
+      {
+        "chapter": 21,
+        "text": "只见她头发散乱，脸如白纸"
+      }
+    ]
+  },
+  {
+    "id": "char_zhou_ying_jie",
+    "name": "周英杰",
+    "alias": [],
+    "aliases": [],
+    "identity": "周仲英幼子",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "周仲英幼子，被激将泄露文泰来藏身之处，周仲英失手打死。",
+    "bio": "周仲英幼子，被激将泄露文泰来藏身之处，周仲英失手打死。",
+    "biography": "周仲英幼子，被激将泄露文泰来藏身之处，周仲英失手打死。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "周英杰果然着恼，说道：'我怎么不知道？'"
+      },
+      {
+        "chapter": 3,
+        "text": "周英杰忍无可忍，大声道：'我知道，他们就在这花园里，就在这亭子里！'"
+      }
+    ]
+  },
+  {
+    "id": "char_zhou_zhong_ying",
+    "name": "周仲英",
+    "alias": [],
+    "aliases": [],
+    "identity": "铁胆庄庄主",
+    "role": "核心",
+    "archetype": "",
+    "power_rank": "炉火纯青",
+    "faction": null,
+    "importance": "核心",
+    "one_line": "铁胆庄庄主，武功炉火纯青，百花错拳与陈家洛对决，失手打死幼子后悲痛欲绝。",
+    "bio": "铁胆庄庄主，武功炉火纯青，百花错拳与陈家洛对决，失手打死幼子后悲痛欲绝。",
+    "biography": "铁胆庄庄主，武功炉火纯青，百花错拳与陈家洛对决，失手打死幼子后悲痛欲绝。",
+    "personality": {
+      "traits": [
+        "刚烈",
+        "重义"
+      ],
+      "speech_style": "豪迈",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 3,
+        "text": "周仲英名声极大，是西北武林首脑人物"
+      },
+      {
+        "chapter": 3,
+        "text": "周仲英在少林拳上浸淫数十年，功力已臻炉火纯青之境"
+      },
+      {
+        "chapter": 4,
+        "text": "周仲英击毙爱子后，因女儿外出未归，是以未将周英杰成殓"
+      },
+      {
+        "chapter": 5,
+        "text": "你这小子到铁胆庄拿人，不把老夫放在眼里，这笔帐咱们今日来算算"
+      },
+      {
+        "chapter": 5,
+        "text": "周仲英大惊，两枚铁胆向张召重后心打去"
+      },
+      {
+        "chapter": 8,
+        "text": "周仲英、陈家洛与赵半山也同时攻到"
+      },
+      {
+        "chapter": 8,
+        "text": "周仲英抛去大刀，挤过身去，蹲下用力向上托住"
+      },
+      {
+        "chapter": 9,
+        "text": "周仲英昂然说道：论他烧庄害子之仇，周某只要有一口气在，决不能善罢甘休。"
+      },
+      {
+        "chapter": 9,
+        "text": "周仲英大刀挥动，阻住张召重退路，安健刚也挺刀上前，四人已成夹击之势。"
+      },
+      {
+        "chapter": 11,
+        "text": "周仲英把铁胆弄得当啷啷直响"
+      },
+      {
+        "chapter": 12,
+        "text": "周仲英守在第十层上"
+      },
+      {
+        "chapter": 13,
+        "text": "周仲英把陈家洛拉在一边，道：'总舵主，现下四爷出来啦，你和皇上又骨肉相逢，实是喜事重重。我想再加一桩喜事，你瞧怎样？'"
+      },
+      {
+        "chapter": 20,
+        "text": "那人正是铁胆周仲英"
+      },
+      {
+        "chapter": 20,
+        "text": "周仲英皱起眉头，面露忧色"
+      },
+      {
+        "chapter": 21,
+        "text": "正是铁胆周仲英"
+      }
+    ]
+  },
+  {
+    "id": "char_zhu_zu_yin",
+    "name": "朱祖荫",
+    "alias": [],
+    "aliases": [],
+    "identity": "清军士兵",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "初窥门径",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清军士兵，赤套渡夜战中出场。",
+    "bio": "清军士兵，赤套渡夜战中出场。",
+    "biography": "清军士兵，赤套渡夜战中出场。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 5,
+        "text": "朱祖荫抢上前去，喝道：大胆狂奴，竟敢冒犯钦差"
+      }
+    ]
+  },
+  {
+    "id": "char_zhuang_qin_wang_yun_lu",
+    "name": "庄亲王允禄",
+    "alias": [],
+    "aliases": [],
+    "identity": "清朝亲王",
+    "role": "龙套",
+    "archetype": "",
+    "power_rank": "平平无奇",
+    "faction": null,
+    "importance": "龙套",
+    "one_line": "清朝亲王，参与雍和宫事件。",
+    "bio": "清朝亲王，参与雍和宫事件。",
+    "biography": "清朝亲王，参与雍和宫事件。",
+    "personality": {
+      "traits": [],
+      "speech_style": "",
+      "temperament": ""
+    },
+    "relationships": [],
+    "known_skills": [],
+    "related_skills": [],
+    "skills": [],
+    "items": [],
+    "source_refs": [
+      {
+        "chapter": 21,
+        "text": "为首的是庄亲王允禄"
       }
     ]
   }
