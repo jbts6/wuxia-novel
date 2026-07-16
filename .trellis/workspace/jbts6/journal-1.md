@@ -688,3 +688,40 @@ Implemented the four-domain fast game-KB flow, disabled fresh chapter dialogue e
 ### Next Steps
 
 - None - task complete
+
+
+## Session 15: 重构 generate-game-kb 支持4类知识库
+
+**Date**: 2026-07-16
+**Task**: 重构 generate-game-kb 支持4类知识库
+**Branch**: `main`
+
+### Summary
+
+重构 generate-game-kb skill 支持4类知识库结构（characters, skills, items, factions），精简字段，移除 locations/dialogues/events，改为 YAML 格式输出
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `5d306d92` | (see git log) |
+| `bb9405ea` | (see git log) |
+| `f2c14227` | (see git log) |
+| `5c80c364` | (see git log) |
+| `63b2925f` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete

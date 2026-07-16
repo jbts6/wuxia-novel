@@ -8,7 +8,7 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 14
+- **Total Sessions**: 15
 - **Last Active**: 2026-07-16
 <!-- @@@/auto:current-status -->
 
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~690 | Active |
+| `journal-1.md` | ~727 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 15 | 2026-07-16 | 重构 generate-game-kb 支持4类知识库 | `5d306d92`, `bb9405ea`, `f2c14227`, `5c80c364`, `63b2925f` | `main` |
 | 14 | 2026-07-16 | 统一 game-kb 境界字段契约 | `7fa88e55`, `a0e595f5` | `main` |
 | 13 | 2026-07-16 | 归档 Game KB 确定性组装任务 | `167b4260` | `main` |
 | 12 | 2026-07-16 | Fast game KB domain flow and Xueshan acceptance | `12eabf7f`, `fb20e51b`, `8402c188` | `main` |
