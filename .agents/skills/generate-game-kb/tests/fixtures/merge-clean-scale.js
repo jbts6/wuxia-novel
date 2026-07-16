@@ -10,6 +10,7 @@ function scaleCandidates(count = 1089, category = 'characters') {
     candidate_key: candidateKey(index, category),
     local_key: `candidate:${index}`,
     name: `候选${index}`,
+    ...(category === 'characters' || category === 'skills' ? { power_rank: '平平无奇' } : {}),
     source_refs: [{ chapter: (index % 20) + 1, text: `证据${index}` }]
   }));
 }

@@ -1,6 +1,7 @@
 'use strict';
 
 const { buildChapterCoverage } = require('./coverage');
+const { isPowerRank } = require('./semantic-contract');
 
 const CANDIDATE_ARRAYS = Object.freeze([
   'characters',
@@ -69,6 +70,14 @@ function validateNamedCandidate(record, label, chapter, errors) {
   validateSourceRefs(record, label, chapter, errors);
 }
 
+function validatePowerRank(record, label, errors) {
+  if (typeof record?.power_rank !== 'string' || record.power_rank === '') {
+    errors.push(issue('POWER_RANK_REQUIRED', `${label}.power_rank`));
+  } else if (!isPowerRank(record.power_rank)) {
+    errors.push(issue('POWER_RANK_INVALID', `${label}.power_rank`, record.power_rank));
+  }
+}
+
 function validateChapterDraft(draft, expected) {
   const errors = [];
   if (!draft || typeof draft !== 'object' || Array.isArray(draft)) {
@@ -88,6 +97,9 @@ function validateChapterDraft(draft, expected) {
     draft[category].forEach((record, index) => {
       const label = `${category}[${index}]`;
       validateNamedCandidate(record, label, expected.number, errors);
+      if (category === 'characters' || category === 'skills') {
+        validatePowerRank(record, label, errors);
+      }
       if (typeof record?.local_key === 'string' && record.local_key.trim() !== '') {
         if (localKeys.has(record.local_key)) {
           errors.push(issue('LOCAL_KEY_DUPLICATE', `${label}.local_key`, record.local_key));

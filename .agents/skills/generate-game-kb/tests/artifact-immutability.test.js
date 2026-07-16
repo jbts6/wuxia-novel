@@ -7,6 +7,7 @@ const test = require('node:test');
 
 const { assertAcceptedArtifacts } = require('../scripts/lib/candidate-ledger');
 const { pathsFor } = require('../scripts/lib/paths');
+const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 const { readWorkItem } = require('../scripts/lib/semantic-work');
 const {
   makeNovel,
@@ -79,13 +80,18 @@ function prepareAcceptedChapters() {
 function domainDecision(input) {
   return {
     schema_version: 1,
-    semantic_contract_version: 2,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     unit: input.unit,
     input_hash: input.input_hash,
     decisions: input.entries.map(entry => ({
       entry_ref: entry.entry_ref,
       action: 'keep',
-      patch: { canonical_name: entry.canonical_name }
+      patch: {
+        canonical_name: entry.canonical_name,
+        ...(['characters', 'skills'].includes(entry.category)
+          ? { power_rank: '平平无奇' }
+          : {})
+      }
     })),
     notes: []
   };

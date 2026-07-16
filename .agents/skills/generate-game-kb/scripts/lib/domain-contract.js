@@ -1,5 +1,7 @@
 'use strict';
 
+const { isPowerRank } = require('./semantic-contract');
+
 const ACTIONS = new Set(['keep', 'merge', 'reject', 'pending']);
 const CONTROLLER_FIELDS = new Set([
   'candidate_key', 'local_key', 'registry_key', 'member_refs', 'formal_id', 'final_id'
@@ -62,6 +64,14 @@ function validatePatch(patch, input, entry, label, entriesByRef, errors) {
   }
 }
 
+function validatePowerRankPatch(patch, label, errors) {
+  if (typeof patch?.power_rank !== 'string' || patch.power_rank === '') {
+    errors.push(issue('POWER_RANK_REQUIRED', `${label}.patch.power_rank`));
+  } else if (!isPowerRank(patch.power_rank)) {
+    errors.push(issue('POWER_RANK_INVALID', `${label}.patch.power_rank`, patch.power_rank));
+  }
+}
+
 function validateDomainDecisionDraft(draft, input) {
   const errors = [];
   if (!draft || typeof draft !== 'object' || Array.isArray(draft)) return [issue('DOMAIN_DRAFT_INVALID', '$')];
@@ -103,6 +113,10 @@ function validateDomainDecisionDraft(draft, input) {
     }
     if (decision.action === 'keep') {
       validatePatch(decision.patch, input, entry, label, entriesByRef, errors);
+      if ((entry.category === 'characters' || entry.category === 'skills')
+        && decision.patch && typeof decision.patch === 'object' && !Array.isArray(decision.patch)) {
+        validatePowerRankPatch(decision.patch, label, errors);
+      }
       if (entry.category === 'techniques'
         && entry.facts?.named_in_source !== true) {
         errors.push(issue('TECHNIQUE_NOT_NAMED', `${label}.patch.named_in_source`, entry.entry_ref));

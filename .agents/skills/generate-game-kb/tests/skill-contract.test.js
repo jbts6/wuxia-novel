@@ -111,13 +111,42 @@ test('priority gates, targeted recall, bounded remedies and metrics are explicit
   assert.match(backendSpec, /低优先级|low-priority/i);
 });
 
-test('semantic contract v2 treats old profiles as read-only evidence', () => {
-  assert.match(skill, /semantic_contract_version.*2/);
+test('semantic contract v3 treats old profiles as read-only evidence', () => {
+  for (const [name, text] of [
+    ['SKILL.md', skill],
+    ['schemas.md', schemas],
+    ['distill-domain.md', domainPrompt],
+    ['quality-guidelines.md', backendSpec]
+  ]) {
+    assert.match(text, /semantic_contract_version.*3/, name);
+  }
   assert.match(skill, /LEGACY_SEMANTIC_CONTRACT/);
   assert.match(skill, /semantic_profile[\s\S]*LEGACY_SEMANTIC_CONTRACT|LEGACY_SEMANTIC_CONTRACT[\s\S]*semantic_profile/);
   assert.match(skill, /archive-abandoned.*--confirm/);
   assert.match(skill, /不得.*静默.*升级|不能.*原地.*升级/);
   assert.match(skill, /旧 run.*不得.*install|legacy.*不得.*install/i);
+});
+
+test('the v3 contract gives characters and skills the same eight-level power_rank', () => {
+  const ranks = [
+    '平平无奇', '初窥门径', '略有小成', '登堂入室',
+    '炉火纯青', '出神入化', '登峰造极', '返璞归真'
+  ];
+  for (const [name, text] of [
+    ['SKILL.md', skill],
+    ['schemas.md', schemas],
+    ['extract-chapters.md', extraction],
+    ['distill-domain.md', domainPrompt]
+  ]) {
+    for (const rank of ranks) assert.match(text, new RegExp(rank), `${name}: ${rank}`);
+  }
+  assert.match(schemas, /characters[\s\S]*power_rank/);
+  assert.match(schemas, /skills[\s\S]*power_rank/);
+  assert.match(extraction, /人物.*power_rank|power_rank.*人物/);
+  assert.match(extraction, /武功.*power_rank|power_rank.*武功/);
+  assert.match(domainPrompt, /人物.*power_rank|power_rank.*人物/);
+  assert.match(domainPrompt, /武功.*power_rank|power_rank.*武功/);
+  assert.doesNotMatch(schemas, /mastery_rank|rarity_tier/);
 });
 
 test('the reusable Skill and extraction prompt contain no book-specific branch', () => {

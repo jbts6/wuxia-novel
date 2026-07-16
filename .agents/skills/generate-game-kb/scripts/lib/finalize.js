@@ -197,7 +197,6 @@ function resolveReferences(recordsByCategory, idPlan) {
     related_skills: resolver.resolveMany(
       'skills', record.related_skill_names, `items[${index}].related_skill_names`, { required: false }
     ),
-    rarity_tier: String(record.rarity_tier || '未知'),
     source_refs: copySourceRefs(record)
   })).sort((left, right) => left.id.localeCompare(right.id));
 
@@ -208,7 +207,7 @@ function resolveReferences(recordsByCategory, idPlan) {
     faction: resolver.resolve(
       'factions', record.faction_name, `skills[${index}].faction_name`, { required: false }
     ),
-    mastery_rank: String(record.mastery_rank || ''),
+    power_rank: String(record.power_rank || ''),
     description: String(record.description || ''),
     one_line: String(record.one_line || record.description || record.canonical_name),
     holders: resolver.resolveMany(

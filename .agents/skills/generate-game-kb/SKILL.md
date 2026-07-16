@@ -5,7 +5,9 @@ description: Use when generating or regenerating a source-grounded wuxia novel k
 
 # generate-game-kb
 
-以小说原文为唯一事实来源，生成面向武侠游戏素材的九类知识库。使用 `semantic_contract_version: 2` 与 `semantic_profile: domain-distill-v1`；这是独立的快速实用流程，不能宣称通过审计级 `generate-kb` 的 G1–G5。
+以小说原文为唯一事实来源，生成面向武侠游戏素材的九类知识库。使用 `semantic_contract_version: 3` 与 `semantic_profile: domain-distill-v1`；这是独立的快速实用流程，不能宣称通过审计级 `generate-kb` 的 G1–G5。
+
+人物和武功统一使用 `power_rank`，记录全书证据支持的巅峰状态。八级从低到高固定为：`平平无奇`、`初窥门径`、`略有小成`、`登堂入室`、`炉火纯青`、`出神入化`、`登峰造极`、`返璞归真`。新武功不再输出 `mastery_rank` 或旧 `rank`，物品不再输出 `rarity_tier` 或 `rarity`。
 
 逐章对白提取默认关闭：新章节草稿固定写 `dialogues: []`，最终仍生成兼容的 `dialogues.json`，默认内容为空数组。
 
@@ -24,11 +26,11 @@ NOVEL=<作者>/<小说名>
 | 可观察状态 | 动作 |
 |---|---|
 | 没有活动 run | 只执行一次 `archive-existing`，再 `prepare --run <run-id>` |
-| 恰有一个活动 run，且是 `domain-distill-v1` v2 | 不再归档；各执行一次 `prepare` 与 `status --json` 后续做 |
+| 恰有一个活动 run，且是 `domain-distill-v1` v3 | 不再归档；各执行一次 `prepare` 与 `status --json` 后续做 |
 | 恰有一个旧版本或无 profile run | 只执行一次 `status --json` 取证，以 `LEGACY_SEMANTIC_CONTRACT` 停止写流程 |
 | 多个活动 run | 报告 run-id 并停止；不得猜测、合并或自动选择 |
 
-旧 v2 无 `semantic_profile: domain-distill-v1` 也属于只读旧 run。不得静默升级或原地升级，不得 install。只有用户看过影响并明确确认后，才执行：
+所有 v2 run，以及缺少 `semantic_profile: domain-distill-v1` 的 run，都属于只读旧 run。不得静默升级或原地升级，不得 install。只有用户看过影响并明确确认后，才执行：
 
 ```bash
 node "$CLI" archive-abandoned "$NOVEL" --run <run-id> --confirm
@@ -59,7 +61,7 @@ archive-existing（仅 fresh run）
 
 读取 [prompts/extract-chapters.md](prompts/extract-chapters.md)。使用原生子代理；每个子代理只处理一个章节并直接完整读取对应章节原文；CTX/context-mode、检索摘要、关键词启发式和外部模型 CLI 都不能代替原文读取。
 
-Worker 不摘录对白，也不为 `quotable` 事件生成对白候选；`dialogues` 字段必须为空数组。对白关闭不降低角色、武功、招式、关键物品和事件的提取标准。
+Worker 不摘录对白，也不为 `quotable` 事件生成对白候选；`dialogues` 字段必须为空数组。对白关闭不降低角色、武功、招式、关键物品和事件的提取标准。每个人物和武功候选都必须根据本章证据给出暂定 `power_rank`。
 
 章节与领域阶段共享持久化 Worker 池：主线程之外最多 3 个 Worker。实际批次取并发上限、宿主可用槽位和待处理单元数的最小值。新 run 从 3 开始；同一批次一个或多个明确 429 只记录一次并按 `3 → 1` 退避，429 不消耗语义 attempt。并发为 1 时再次出现新的 429，停止并报告外部限流；恢复或上下文压缩不重置并发。
 
@@ -79,14 +81,14 @@ Worker 不摘录对白，也不为 `quotable` 事件生成对白候选；`dialog
 
 | 单元 | 类别 | 标准 |
 |---|---|---|
-| `distill:plot` | characters、events、dialogues | 角色与事件硬门；dialogues 仅作兼容，new run 默认为空 |
-| `distill:martial` | skills、techniques | 明确定名高召回；只在原文明示时关联招式所属武功 |
+| `distill:plot` | characters、events、dialogues | 角色与事件硬门；人物 keep 必须给全书巅峰 `power_rank`；dialogues 仅作兼容 |
+| `distill:martial` | skills、techniques | 武功 keep 必须给全书巅峰 `power_rank`；只在原文明示时关联招式所属武功 |
 | `distill:items` | items | 只保留秘籍、剧情关键、高级药毒、神兵利器、其他稀有特殊 |
 | `distill:world` | factions、locations | 身份、证据和引用正确；完整度采用软门 |
 
 每域正常只生成一个草稿；互不依赖的领域可在 3 Worker 上并发生成，但主模型始终串行 `accept`。输入超过控制器上限时以 `DOMAIN_INPUT_TOO_LARGE` 停止，不静默截断，也不退回逐类别循环。
 
-AI 只输出 keep/merge/reject/pending 决策和允许字段补丁。`candidate_key`、`local_key`、私有 bindings、完整 ledger 与最终 ID 归脚本所有。领域接受后，`assemble-merge` 确定性闭合迁移链并组装八类实体；`prepare-clean` 返回 0 个 AI 单元，`assemble-clean` 只生成兼容 cleaned book。
+AI 只输出 keep/merge/reject/pending 决策和允许字段补丁。人物和武功的 keep 补丁必须包含合法 `power_rank`，该全书判断覆盖逐章暂定值，不增加 AI 单元。`candidate_key`、`local_key`、私有 bindings、完整 ledger 与最终 ID 归脚本所有。领域接受后，`assemble-merge` 确定性闭合迁移链并组装八类实体；`prepare-clean` 返回 0 个 AI 单元，`assemble-clean` 只生成兼容 cleaned book。
 
 ## 重点 recall 与质量门
 

@@ -40,6 +40,31 @@ test('merged book keeps one event across non-contiguous source chapters', () => 
   assert.deepEqual(book.events[0].source_refs.map(ref => ref.chapter), [1, 3]);
 });
 
+test('merged and cleaned books require valid character and skill power ranks', () => {
+  for (const [validate, makeBook] of [
+    [validateMergedBook, validMergedBook],
+    [validateCleanedBook, validCleanedBook]
+  ]) {
+    const missing = makeBook();
+    delete missing.characters[0].power_rank;
+    delete missing.skills[0].power_rank;
+    const missingErrors = validate(missing, manifest);
+    assert.ok(missingErrors.some(error =>
+      error.code === 'POWER_RANK_REQUIRED' && error.path === 'characters[0].power_rank'));
+    assert.ok(missingErrors.some(error =>
+      error.code === 'POWER_RANK_REQUIRED' && error.path === 'skills[0].power_rank'));
+
+    const invalid = makeBook();
+    invalid.characters[0].power_rank = '绝顶';
+    invalid.skills[0].power_rank = '绝学';
+    const invalidErrors = validate(invalid, manifest);
+    assert.ok(invalidErrors.some(error =>
+      error.code === 'POWER_RANK_INVALID' && error.path === 'characters[0].power_rank'));
+    assert.ok(invalidErrors.some(error =>
+      error.code === 'POWER_RANK_INVALID' && error.path === 'skills[0].power_rank'));
+  }
+});
+
 test('merge candidate resolutions use one finite destination per candidate', () => {
   const chapters = [{
     chapter: 1,
@@ -149,6 +174,7 @@ test('merged ambiguities are explicit and cleaned books must resolve them', () =
 test('cleaned book keeps detailed fields only for core and important characters', () => {
   const minor = {
     local_key: 'character:乙', canonical_name: '乙', aliases: [], level: '次要', identity: '店主',
+    power_rank: '平平无奇',
     biography: '简短定位。', personality: { traits: ['谨慎'], speech_style: '' },
     relationship_names: [], skill_names: [], item_names: [], source_refs: [sourceRef(2)]
   };

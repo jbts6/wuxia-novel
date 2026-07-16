@@ -120,6 +120,20 @@ test('build emits exactly nine arrays and is byte-stable across input ordering',
   assert.equal(JSON.stringify(left.data), JSON.stringify(right.data));
 });
 
+test('final characters and skills use only power_rank while items omit rarity fields', () => {
+  const result = buildFinalData(validCleanedBook(), manifest);
+  const character = result.data['characters.json'][0];
+  const skill = result.data['skills.json'][0];
+  const item = result.data['items.json'][0];
+
+  assert.equal(character.power_rank, '初窥门径');
+  assert.equal(skill.power_rank, '初窥门径');
+  assert.equal(Object.hasOwn(skill, 'mastery_rank'), false);
+  assert.equal(Object.hasOwn(skill, 'rank'), false);
+  assert.equal(Object.hasOwn(item, 'rarity_tier'), false);
+  assert.equal(Object.hasOwn(item, 'rarity'), false);
+});
+
 test('source refs reject unknown chapters but allow omitted line numbers', () => {
   const valid = buildFinalData(validCleanedBook(), manifest);
   assert.equal(valid.issues.some(issue => issue.code === 'SOURCE_CHAPTER_UNKNOWN'), false);

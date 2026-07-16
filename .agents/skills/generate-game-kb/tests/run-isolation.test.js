@@ -16,6 +16,7 @@ function legacyRun() {
   prepareNovel(novel, { runId: run.run_id });
   const paths = pathsFor(novel, run.run_id);
   const metadata = readJson(paths.runJson);
+  metadata.semantic_contract_version = 2;
   delete metadata.semantic_profile;
   fs.writeFileSync(paths.runJson, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8');
   return { novel, paths, runId: run.run_id };
@@ -34,7 +35,7 @@ test('run metadata and artifact paths are scoped below the explicit run id', () 
   assert.notEqual(first.run_dir, second.run_dir);
   assert.match(first.source_hash, /^sha256:[a-f0-9]{64}$/);
   assert.equal(readJson(path.join(first.run_dir, 'run.json')).run_id, 'run-a');
-  assert.equal(readJson(path.join(first.run_dir, 'run.json')).semantic_contract_version, 2);
+  assert.equal(readJson(path.join(first.run_dir, 'run.json')).semantic_contract_version, 3);
   assert.equal(readJson(path.join(first.run_dir, 'run.json')).semantic_profile, 'domain-distill-v1');
   assert.match(readJson(path.join(first.run_dir, 'run.json')).started_at, /^\d{4}-\d{2}-\d{2}T/);
 

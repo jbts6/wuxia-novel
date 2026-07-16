@@ -12,6 +12,7 @@ const { buildGameMaterials } = require('../scripts/lib/game-materials');
 const { atomicWriteJson } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
 const { buildQualitySample, validateQualityReview } = require('../scripts/lib/quality');
+const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 const { readWorkItem, readWorkPlan } = require('../scripts/lib/semantic-work');
 
 const {
@@ -43,10 +44,10 @@ function assertFlowPassed(result, label) {
 }
 
 const MERGE_FIELD_NAMES = Object.freeze({
-  characters: ['level', 'identity', 'biography', 'personality', 'relationship_names', 'skill_names', 'item_names'],
+  characters: ['level', 'identity', 'biography', 'personality', 'relationship_names', 'skill_names', 'item_names', 'power_rank'],
   events: ['cause', 'process', 'result', 'participant_names', 'location_names', 'importance'],
   items: ['inclusion_reason', 'type', 'description'],
-  skills: ['type', 'description', 'holder_names', 'technique_names'],
+  skills: ['type', 'description', 'holder_names', 'technique_names', 'power_rank'],
   techniques: ['named_in_source', 'source_skill_name', 'description'],
   factions: ['type', 'description'],
   locations: ['region', 'description'],
@@ -251,7 +252,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   assert.equal(prepared.chapter_count, 3);
   const paths = pathsFor(novel, prepared.run_id);
   const manifest = readJson(paths.manifest);
-  assert.equal(readJson(paths.runJson).semantic_contract_version, 2);
+  assert.equal(readJson(paths.runJson).semantic_contract_version, SEMANTIC_CONTRACT_VERSION);
 
   for (const chapter of manifest.chapters) {
     const number = chapter.number;
@@ -261,8 +262,8 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
       title: chapter.title,
       source_hash: chapter.input_hash,
       characters: first ? [
-        { local_key: 'character:甲', name: '甲', level: '核心', source_refs: [sourceRef(number, '甲在无名山谷遇见乙')] },
-        { local_key: 'character:乙', name: '乙', level: '次要', source_refs: [sourceRef(number, '甲在无名山谷遇见乙')] }
+        { local_key: 'character:甲', name: '甲', level: '核心', power_rank: '登堂入室', source_refs: [sourceRef(number, '甲在无名山谷遇见乙')] },
+        { local_key: 'character:乙', name: '乙', level: '次要', power_rank: '初窥门径', source_refs: [sourceRef(number, '甲在无名山谷遇见乙')] }
       ] : [],
       events: [1, 3].includes(number) ? [{
         local_key: 'event:山谷相逢', name: '山谷相逢', importance: '重要',
@@ -275,7 +276,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
         { local_key: 'item:小匕首', name: '普通小匕首', source_refs: [sourceRef(number, '一把普通小匕首')] }
       ] : [],
       skills: first ? [{
-        local_key: 'skill:玄门内功', name: '玄门内功', source_refs: [sourceRef(number, '玄门内功')]
+        local_key: 'skill:玄门内功', name: '玄门内功', power_rank: '登堂入室', source_refs: [sourceRef(number, '玄门内功')]
       }] : [],
       techniques: first ? [{
         local_key: 'technique:飞云掌', name: '飞云掌', named_in_source: true,
@@ -312,12 +313,14 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   const characters = [
     {
       local_key: 'character:甲', canonical_name: '甲', aliases: [], level: '核心', identity: '侠客',
+      power_rank: '登堂入室',
       biography: '甲追查旧事并与乙查明真相。', personality: { traits: ['坚毅'], speech_style: '简练' },
       relationship_names: [{ target: '乙', type: '同伴' }], skill_names: ['玄门内功'], item_names: [],
       source_refs: [sourceRef(1, '甲在无名山谷遇见乙'), sourceRef(3, '甲与乙在无名山谷查明真相')]
     },
     {
       local_key: 'character:乙', canonical_name: '乙', aliases: [], level: '次要', identity: '同行者',
+      power_rank: '初窥门径',
       biography: '携回生丹同行。', personality: { traits: ['机敏'], speech_style: '' },
       relationship_names: [{ target: '甲', type: '同伴' }], skill_names: [], item_names: ['回生丹'],
       source_refs: [sourceRef(1, '乙取出回生丹')]
@@ -342,6 +345,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
     events: [event],
     skills: [{
       local_key: 'skill:玄门内功', canonical_name: '玄门内功', type: '内功', description: '调息运气。',
+      power_rank: '登堂入室',
       holder_names: ['甲'], technique_names: ['飞云掌'], source_refs: [sourceRef(1, '玄门内功')]
     }],
     techniques: [{
@@ -392,7 +396,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
     });
     const draft = {
       schema_version: 1,
-      semantic_contract_version: 2,
+      semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
       unit: input.unit,
       input_hash: input.input_hash,
       decisions,
@@ -454,7 +458,7 @@ test('three-chapter workflow installs nine game-oriented arrays and passing evid
   const receipt = readJson(path.join(novel, 'reports', 'generate_game_kb_install.json'));
   assert.equal(receipt.installer, 'generate-game-kb');
   assert.equal(receipt.manual_review_count, 0);
-  assert.equal(receipt.semantic_contract_version, 2);
+  assert.equal(receipt.semantic_contract_version, SEMANTIC_CONTRACT_VERSION);
 
   const archivedRun = assertFlowPassed(
     runFlow(['archive-run', novel, '--run', prepared.run_id, '--json']),
@@ -503,7 +507,7 @@ test('seven explicitly rejected item candidates close the ledger without a whole
   for (const input of domainPlan.inputs) {
     const itemDecision = {
       schema_version: 1,
-      semantic_contract_version: 2,
+      semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
       unit: input.unit,
       input_hash: input.input_hash,
       decisions: input.entries.map(entry => ({

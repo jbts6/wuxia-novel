@@ -7,6 +7,7 @@ const test = require('node:test');
 
 const { pathsFor } = require('../scripts/lib/paths');
 const { resolveRun } = require('../scripts/lib/run');
+const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 const { readWorkItem } = require('../scripts/lib/semantic-work');
 
 const {
@@ -241,7 +242,7 @@ function acceptJsonDraft(novel, unit, draft) {
 function validDomainDecision(input) {
   return {
     schema_version: 1,
-    semantic_contract_version: 2,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     unit: input.unit,
     input_hash: input.input_hash,
     decisions: input.entries.map(entry => ({
@@ -249,6 +250,9 @@ function validDomainDecision(input) {
       action: 'keep',
       patch: {
         canonical_name: entry.canonical_name,
+        ...(['characters', 'skills'].includes(entry.category)
+          ? { power_rank: '平平无奇' }
+          : {}),
         ...(entry.category === 'items' && !entry.facts?.inclusion_reason
           ? { inclusion_reason: '剧情关键' }
           : {})
@@ -281,7 +285,10 @@ test('prepare-merge creates four domain units and a rejected domain leaves an ac
   const chapterDraft = validChapterDraft({
     title: chapter.title,
     source_hash: chapter.input_hash,
-    characters: [{ local_key: 'character:甲', name: '甲', level: '核心', source_refs: [sourceRef()] }],
+    characters: [{
+      local_key: 'character:甲', name: '甲', level: '核心', power_rank: '平平无奇',
+      source_refs: [sourceRef()]
+    }],
     events: [],
     items: [{ local_key: 'item:回生丹', name: '回生丹', source_refs: [sourceRef()] }],
     skills: [],
@@ -313,7 +320,7 @@ test('prepare-merge creates four domain units and a rejected domain leaves an ac
   const itemWork = readWorkItem(paths, 'distill:items').input;
   const rejected = acceptJsonDraft(novel, itemWork.unit, {
     schema_version: 1,
-    semantic_contract_version: 2,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     unit: itemWork.unit,
     input_hash: itemWork.input_hash,
     decisions: [],

@@ -73,7 +73,7 @@ function mergeDraft(input, options = {}) {
       action: 'merge',
       canonical_name: candidate.name,
       aliases: [],
-      fields: { level: options.level || '背景' }
+      fields: { level: options.level || '背景', power_rank: '平平无奇' }
     })),
     ambiguities: []
   };
@@ -254,7 +254,7 @@ test('local keys are controller generated and stable for same-name people', () =
       action: 'merge',
       canonical_name: '同名客',
       aliases: [],
-      fields: { level: '背景', identity: candidate.facts.identity }
+      fields: { level: '背景', identity: candidate.facts.identity, power_rank: '平平无奇' }
     })),
     ambiguities: []
   };

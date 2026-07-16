@@ -9,7 +9,7 @@ const { MATERIAL_TYPES } = require('./game-materials');
 const { atomicWriteJson, readJson } = require('./io');
 const { buildQualitySample, selectQualitySample, validateQualityReview } = require('./quality');
 const { isHighPriorityQualityItem } = require('./priority');
-const { SEMANTIC_CONTRACT_VERSION } = require('./run');
+const { SEMANTIC_CONTRACT_VERSION, isPowerRank } = require('./semantic-contract');
 
 const ID_PATTERN = /^(char|event|item|skill|tech|faction|loc|dialogue)_[a-z]+(?:_[a-z]+)*$/;
 const FILE_PREFIX = Object.freeze({
@@ -192,6 +192,11 @@ function verifyFinal(paths) {
   }
 
   finalData['characters.json'].forEach((record, index) => {
+    if (typeof record.power_rank !== 'string' || record.power_rank === '') {
+      blockingErrors.push({ code: 'POWER_RANK_REQUIRED', path: `characters[${index}].power_rank`, target: record.id });
+    } else if (!isPowerRank(record.power_rank)) {
+      blockingErrors.push({ code: 'POWER_RANK_INVALID', path: `characters[${index}].power_rank`, target: record.power_rank });
+    }
     reference('factions.json', record.faction, `characters[${index}].faction`, true);
     for (const [relationIndex, relation] of (record.relationships || []).entries()) {
       reference('characters.json', relation?.target, `characters[${index}].relationships[${relationIndex}].target`);
@@ -210,6 +215,9 @@ function verifyFinal(paths) {
     }
   });
   finalData['items.json'].forEach((record, index) => {
+    if (Object.hasOwn(record, 'rarity_tier') || Object.hasOwn(record, 'rarity')) {
+      blockingErrors.push({ code: 'ITEM_RARITY_FORBIDDEN', path: `items[${index}]`, target: record.id });
+    }
     if (!ITEM_INCLUSION_REASONS.has(record.inclusion_reason)) {
       blockingErrors.push({
         code: 'ITEM_INCLUSION_REASON_INVALID',
@@ -225,6 +233,14 @@ function verifyFinal(paths) {
     references('skills.json', record.related_skills, `items[${index}].related_skills`);
   });
   finalData['skills.json'].forEach((record, index) => {
+    if (typeof record.power_rank !== 'string' || record.power_rank === '') {
+      blockingErrors.push({ code: 'POWER_RANK_REQUIRED', path: `skills[${index}].power_rank`, target: record.id });
+    } else if (!isPowerRank(record.power_rank)) {
+      blockingErrors.push({ code: 'POWER_RANK_INVALID', path: `skills[${index}].power_rank`, target: record.power_rank });
+    }
+    if (Object.hasOwn(record, 'mastery_rank') || Object.hasOwn(record, 'rank')) {
+      blockingErrors.push({ code: 'LEGACY_SKILL_RANK_FORBIDDEN', path: `skills[${index}]`, target: record.id });
+    }
     if (TECHNIQUE_TYPES.has(String(record.type || '').trim())) {
       blockingErrors.push({ code: 'MARTIAL_CATEGORY_CONFUSION', path: `skills[${index}].type`, target: record.type });
     }

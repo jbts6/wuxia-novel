@@ -8,6 +8,7 @@ const { normalizeChapterDraft } = require('../scripts/lib/chapter-contract');
 const { validateCleanedBook, validateMergedBook } = require('../scripts/lib/book-contract');
 const { assembleDomainCleanedBook, assembleDomainMergedBook } = require('../scripts/lib/domain-assembly');
 const { createDomainWorkPlan } = require('../scripts/lib/domain-work');
+const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 const { sourceRef, validChapterDraft } = require('./helpers');
 
 function fixture() {
@@ -15,11 +16,13 @@ function fixture() {
     characters: [
       {
         local_key: 'character:hu-a', name: '胡斐', identity: '胡家后人', level: '核心',
+        power_rank: '登堂入室',
         biography: '胡斐追查父仇。', personality: { traits: ['侠义'], speech_style: '直率' },
         relationship_names: [], skill_names: ['胡家刀法'], item_names: [], source_refs: [sourceRef(1, '胡斐')]
       },
       {
         local_key: 'character:hu-b', name: '胡斐', identity: '飞狐传人', level: '核心',
+        power_rank: '登堂入室',
         biography: '江湖人称雪山飞狐。', personality: { traits: ['果断'], speech_style: '简练' },
         relationship_names: [], skill_names: ['胡家刀法'], item_names: [], source_refs: [sourceRef(1, '雪山飞狐')]
       }
@@ -35,6 +38,7 @@ function fixture() {
     }],
     skills: [{
       local_key: 'skill:hu-dao', name: '胡家刀法', type: '刀法', description: '胡家家传刀法。',
+      power_rank: '登堂入室',
       holder_names: ['胡斐'], technique_names: ['八方藏刀式'], source_refs: [sourceRef(1, '胡家刀法')]
     }],
     techniques: [{
@@ -59,13 +63,18 @@ function fixture() {
   const plan = createDomainWorkPlan({ registry, accepted_hashes: {} });
   const decisions = plan.inputs.map(input => ({
     schema_version: 1,
-    semantic_contract_version: 2,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     unit: input.unit,
     input_hash: input.input_hash,
     decisions: input.entries.map(entry => ({
       entry_ref: entry.entry_ref,
       action: 'keep',
-      patch: { canonical_name: entry.canonical_name }
+      patch: {
+        canonical_name: entry.canonical_name,
+        ...(['characters', 'skills'].includes(entry.category)
+          ? { power_rank: '登堂入室' }
+          : {})
+      }
     })),
     notes: []
   }));

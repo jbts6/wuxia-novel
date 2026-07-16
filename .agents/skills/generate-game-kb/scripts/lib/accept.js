@@ -26,6 +26,7 @@ const {
   saveProgress
 } = require('./progress');
 const { validateQualityReview } = require('./quality');
+const { SEMANTIC_CONTRACT_VERSION, SEMANTIC_PROFILE, isPowerRank } = require('./semantic-contract');
 const { sha256 } = require('./source');
 const { hashFinalData, loadData } = require('./verify');
 const { applyRecall, applySupplement } = require('./supplements');
@@ -101,11 +102,19 @@ function validateTargetedDraft(draft, category) {
   if (!Array.isArray(draft[category])) {
     return [{ code: 'TARGETED_CATEGORY_REQUIRED', path: category, target: category }];
   }
-  return draft[category].flatMap((record, index) => (
-    record && typeof record === 'object' && !Array.isArray(record)
+  return draft[category].flatMap((record, index) => {
+    if (!record || typeof record !== 'object' || Array.isArray(record)) {
+      return [{ code: 'TARGETED_RECORD_INVALID', path: `${category}[${index}]`, target: category }];
+    }
+    if (category !== 'characters' && category !== 'skills') return [];
+    const rankPath = `${category}[${index}].power_rank`;
+    if (typeof record.power_rank !== 'string' || record.power_rank === '') {
+      return [{ code: 'POWER_RANK_REQUIRED', path: rankPath, target: category }];
+    }
+    return isPowerRank(record.power_rank)
       ? []
-      : [{ code: 'TARGETED_RECORD_INVALID', path: `${category}[${index}]`, target: category }]
-  ));
+      : [{ code: 'POWER_RANK_INVALID', path: rankPath, target: record.power_rank }];
+  });
 }
 
 function semanticDecisionFile(paths, unit, inputHash) {
@@ -132,8 +141,8 @@ function semanticDecisionFile(paths, unit, inputHash) {
 function semanticAggregateInputHash(paths, stage) {
   if (stage === 'clean') {
     return stableHash({
-      semantic_contract_version: 2,
-      semantic_profile: 'domain-distill-v1',
+      semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+      semantic_profile: SEMANTIC_PROFILE,
       stage: 'clean_aggregate',
       merged: acceptedArtifactHash(paths, paths.merged)
     });
@@ -147,8 +156,8 @@ function semanticAggregateInputHash(paths, stage) {
     ])
     .sort(([left], [right]) => left.localeCompare(right)));
   return stableHash({
-    semantic_contract_version: 2,
-    semantic_profile: 'domain-distill-v1',
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    semantic_profile: SEMANTIC_PROFILE,
     stage: `${stage}_aggregate`,
     upstream_hashes: plan.upstream_hashes,
     units: inputs.map(input => ({ unit: input.unit, input_hash: input.input_hash })),

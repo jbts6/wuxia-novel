@@ -46,6 +46,7 @@ const {
 const { buildChapterCoverage } = require('./lib/coverage');
 const { buildQuantityReport } = require('./lib/quantity');
 const { prepareNovel } = require('./lib/source');
+const { SEMANTIC_PROFILE } = require('./lib/semantic-contract');
 const {
   assertArchiveExistingAllowed,
   createOrResumeRun,
@@ -169,7 +170,7 @@ function prepareMerge(paths, manifest) {
   }));
   const registry = buildCandidateRegistry(chapters);
   const registryInputHash = stableHash({
-    semantic_profile: 'domain-distill-v1',
+    semantic_profile: SEMANTIC_PROFILE,
     accepted_hashes: acceptedHashes
   });
   if (fs.existsSync(paths.candidateRegistry)) {

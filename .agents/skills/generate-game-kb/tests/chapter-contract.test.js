@@ -16,6 +16,28 @@ test('accepts one chapter containing all candidate arrays and one summary', () =
   assert.deepEqual(validateChapterDraft(validChapterDraft({ dialogues: [] }), expected), []);
 });
 
+test('requires a valid power_rank for every character and skill candidate', () => {
+  const missing = validChapterDraft();
+  delete missing.characters[0].power_rank;
+  delete missing.skills[0].power_rank;
+  const missingErrors = validateChapterDraft(missing, expected);
+
+  assert.ok(missingErrors.some(error =>
+    error.code === 'POWER_RANK_REQUIRED' && error.path === 'characters[0].power_rank'));
+  assert.ok(missingErrors.some(error =>
+    error.code === 'POWER_RANK_REQUIRED' && error.path === 'skills[0].power_rank'));
+
+  const invalid = validChapterDraft();
+  invalid.characters[0].power_rank = '绝世高手';
+  invalid.skills[0].power_rank = '绝世神功';
+  const invalidErrors = validateChapterDraft(invalid, expected);
+
+  assert.ok(invalidErrors.some(error =>
+    error.code === 'POWER_RANK_INVALID' && error.path === 'characters[0].power_rank'));
+  assert.ok(invalidErrors.some(error =>
+    error.code === 'POWER_RANK_INVALID' && error.path === 'skills[0].power_rank'));
+});
+
 test('rejects wrong chapter number or source hash', () => {
   const errors = validateChapterDraft(validChapterDraft({
     chapter: 2,

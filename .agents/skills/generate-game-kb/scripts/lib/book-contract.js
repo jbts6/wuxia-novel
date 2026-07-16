@@ -1,6 +1,7 @@
 'use strict';
 
 const { buildCandidateLedger, REJECTION_REASONS, RESOLUTIONS } = require('./candidate-ledger');
+const { isPowerRank } = require('./semantic-contract');
 
 const ENTITY_CATEGORIES = Object.freeze([
   'characters',
@@ -104,6 +105,14 @@ function findFormalIds(value, label, errors) {
       errors.push(issue('FORMAL_ID_FORBIDDEN', path, entry));
     }
     findFormalIds(entry, path, errors);
+  }
+}
+
+function validatePowerRank(record, label, errors) {
+  if (typeof record?.power_rank !== 'string' || record.power_rank === '') {
+    errors.push(issue('POWER_RANK_REQUIRED', `${label}.power_rank`));
+  } else if (!isPowerRank(record.power_rank)) {
+    errors.push(issue('POWER_RANK_INVALID', `${label}.power_rank`, record.power_rank));
   }
 }
 
@@ -226,6 +235,9 @@ function validateBook(book, manifest, expectedStage, chapters) {
       }
       if (record.aliases !== undefined && !Array.isArray(record.aliases)) {
         errors.push(issue('ALIASES_ARRAY_REQUIRED', `${label}.aliases`));
+      }
+      if (category === 'characters' || category === 'skills') {
+        validatePowerRank(record, label, errors);
       }
       validateSourceRefs(record, label, chapterNumbers, errors);
     });

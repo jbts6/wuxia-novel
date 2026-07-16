@@ -63,13 +63,18 @@ function validChapterDraft(overrides = {}) {
     chapter: 1,
     title: '第一章 起始',
     source_hash: 'sha256:chapter',
-    characters: [{ local_key: 'character:甲', name: '甲', level: '核心', source_refs: [sourceRef()] }],
+    characters: [{
+      local_key: 'character:甲', name: '甲', level: '核心', power_rank: '初窥门径',
+      source_refs: [sourceRef()]
+    }],
     events: [{
       local_key: 'event:相逢', name: '山中相逢', importance: '重要', quote_status: 'quotable',
       source_refs: [sourceRef()]
     }],
     items: [],
-    skills: [{ local_key: 'skill:内功', name: '玄门内功', source_refs: [sourceRef()] }],
+    skills: [{
+      local_key: 'skill:内功', name: '玄门内功', power_rank: '初窥门径', source_refs: [sourceRef()]
+    }],
     techniques: [{ local_key: 'technique:飞掌', name: '飞云掌', named_in_source: true, source_refs: [sourceRef()] }],
     factions: [],
     locations: [{ local_key: 'location:山谷', name: '无名山谷', source_refs: [sourceRef()] }],
@@ -92,6 +97,7 @@ function validMergedBook(overrides = {}) {
     stage: 'merged',
     characters: [{
       local_key: 'character:甲', canonical_name: '甲', aliases: [], level: '核心', identity: '侠客',
+      power_rank: '初窥门径',
       biography: '甲在江湖中追查旧事。', personality: { traits: ['坚毅'], speech_style: '简练' },
       relationship_names: [], skill_names: ['玄门内功'], item_names: [], source_refs: [sourceRef(1)]
     }],
@@ -104,7 +110,8 @@ function validMergedBook(overrides = {}) {
       description: '用于救治重伤。', source_refs: [sourceRef(2)]
     }],
     skills: [{
-      local_key: 'skill:内功', canonical_name: '玄门内功', type: '内功', description: '调息养气。',
+      local_key: 'skill:内功', canonical_name: '玄门内功', type: '内功', power_rank: '初窥门径',
+      description: '调息养气。',
       holder_names: ['甲'], technique_names: ['飞云掌'], source_refs: [sourceRef(1)]
     }],
     techniques: [{

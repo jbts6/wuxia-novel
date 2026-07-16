@@ -8,6 +8,7 @@ const test = require('node:test');
 const { semanticDecisionFile } = require('../scripts/lib/accept');
 const { readWorkPlan } = require('../scripts/lib/semantic-work');
 const { pathsFor } = require('../scripts/lib/paths');
+const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 const { sha256 } = require('../scripts/lib/source');
 const {
   makeNovel,
@@ -26,14 +27,23 @@ function pass(result, label) {
 function domainDraft(input, actionForEntry = () => 'keep') {
   return {
     schema_version: 1,
-    semantic_contract_version: 2,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     unit: input.unit,
     input_hash: input.input_hash,
     decisions: input.entries.map(entry => {
       const action = actionForEntry(entry);
       return action === 'pending'
         ? { entry_ref: entry.entry_ref, action, detail: '原文未说明所属武功。' }
-        : { entry_ref: entry.entry_ref, action, patch: { canonical_name: entry.canonical_name } };
+        : {
+          entry_ref: entry.entry_ref,
+          action,
+          patch: {
+            canonical_name: entry.canonical_name,
+            ...(['characters', 'skills'].includes(entry.category)
+              ? { power_rank: '登堂入室' }
+              : {})
+          }
+        };
     }),
     notes: []
   };
@@ -50,6 +60,7 @@ function prepareMartialDomainFixture(name, runId) {
     source_hash: manifest.chapters[0].input_hash,
     skills: [{
       local_key: 'skill:hu-dao', name: '胡家刀法', type: '刀法', description: '胡家家传刀法。',
+      power_rank: '登堂入室',
       holder_names: ['胡斐'], technique_names: ['八方藏刀式'], source_refs: [sourceRef(1, '胡家刀法')]
     }],
     techniques: [{
@@ -91,6 +102,7 @@ test('CLI routes accepted chapters through four domain decisions and zero AI cle
     source_hash: manifest.chapters[0].input_hash,
     characters: [{
       local_key: 'character:hu', name: '胡斐', identity: '胡家后人', level: '核心',
+      power_rank: '登堂入室',
       biography: '胡斐追查父仇。', personality: { traits: ['侠义'], speech_style: '直率' },
       relationship_names: [], skill_names: ['胡家刀法'], item_names: [], source_refs: [sourceRef(1, '胡斐')]
     }],
@@ -105,6 +117,7 @@ test('CLI routes accepted chapters through four domain decisions and zero AI cle
     }],
     skills: [{
       local_key: 'skill:hu-dao', name: '胡家刀法', type: '刀法', description: '胡家家传刀法。',
+      power_rank: '登堂入室',
       holder_names: ['胡斐'], technique_names: ['八方藏刀式'], source_refs: [sourceRef(1, '胡家刀法')]
     }],
     techniques: [{

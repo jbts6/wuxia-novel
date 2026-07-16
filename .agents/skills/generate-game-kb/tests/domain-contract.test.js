@@ -6,7 +6,18 @@ const test = require('node:test');
 const { validateDomainDecisionDraft } = require('../scripts/lib/domain-contract');
 
 function input(domain = 'martial') {
-  const entries = domain === 'martial'
+  const entries = domain === 'plot'
+    ? [
+        {
+          entry_ref: 'r000004', category: 'characters', canonical_name: '胡斐', aliases: [],
+          source_chapters: [1], source_refs: [{ chapter: 1, text: '胡斐' }], facts: {}
+        },
+        {
+          entry_ref: 'r000005', category: 'events', canonical_name: '雪山相逢', aliases: [],
+          source_chapters: [1], source_refs: [{ chapter: 1, text: '雪山相逢' }], facts: {}
+        }
+      ]
+    : domain === 'martial'
     ? [
         {
           entry_ref: 'r000001', category: 'skills', canonical_name: '胡家刀法', aliases: [],
@@ -24,15 +35,19 @@ function input(domain = 'martial') {
       }];
   return {
     schema_version: 1,
-    semantic_contract_version: 2,
+    semantic_contract_version: 3,
     semantic_profile: 'domain-distill-v1',
     stage: 'domain_distill',
     unit: `distill:${domain}`,
     domain,
-    categories: domain === 'martial' ? ['skills', 'techniques'] : ['items'],
+    categories: domain === 'plot'
+      ? ['characters', 'events', 'dialogues']
+      : domain === 'martial' ? ['skills', 'techniques'] : ['items'],
     quality_tier: 'hard',
-    allowed_patch_fields: domain === 'martial'
-      ? ['canonical_name', 'aliases', 'type', 'description', 'source_skill_ref', 'named_in_source']
+    allowed_patch_fields: domain === 'plot'
+      ? ['canonical_name', 'aliases', 'level', 'identity', 'power_rank', 'description']
+      : domain === 'martial'
+      ? ['canonical_name', 'aliases', 'type', 'power_rank', 'description', 'source_skill_ref', 'named_in_source']
       : ['canonical_name', 'aliases', 'type', 'description', 'inclusion_reason'],
     entries,
     pending: [],
@@ -48,19 +63,41 @@ function input(domain = 'martial') {
 function validDraft(work = input()) {
   return {
     schema_version: 1,
-    semantic_contract_version: 2,
+    semantic_contract_version: 3,
     unit: work.unit,
     input_hash: work.input_hash,
     decisions: work.entries.map(entry => ({
       entry_ref: entry.entry_ref,
       action: 'keep',
-      patch: entry.category === 'techniques'
+      patch: entry.category === 'characters' || entry.category === 'skills'
+        ? { canonical_name: entry.canonical_name, power_rank: '初窥门径' }
+        : entry.category === 'techniques'
         ? { canonical_name: entry.canonical_name, named_in_source: true, source_skill_ref: 'r000001' }
         : { canonical_name: entry.canonical_name }
     })),
     notes: []
   };
 }
+
+test('character and skill keep decisions require a valid final power_rank patch', () => {
+  for (const domain of ['plot', 'martial']) {
+    const work = input(domain);
+    const category = domain === 'plot' ? 'characters' : 'skills';
+    const index = work.entries.findIndex(entry => entry.category === category);
+
+    const missing = validDraft(work);
+    delete missing.decisions[index].patch.power_rank;
+    assert.ok(validateDomainDecisionDraft(missing, work).some(error =>
+      error.code === 'POWER_RANK_REQUIRED'
+      && error.path === `decisions[${index}].patch.power_rank`));
+
+    const invalid = validDraft(work);
+    invalid.decisions[index].patch.power_rank = '天下无敌';
+    assert.ok(validateDomainDecisionDraft(invalid, work).some(error =>
+      error.code === 'POWER_RANK_INVALID'
+      && error.path === `decisions[${index}].patch.power_rank`));
+  }
+});
 
 test('a domain decision covers every visible entry exactly once', () => {
   const work = input();

@@ -1,6 +1,7 @@
 'use strict';
 
 const { GameKbError } = require('./errors');
+const { SEMANTIC_PROFILE } = require('./semantic-contract');
 const { sha256 } = require('./source');
 const {
   WORK_CONTRACT_VERSION,
@@ -17,12 +18,12 @@ const MAX_DOMAIN_WORK_ITEM_BYTES = 512 * 1024;
 
 const DOMAIN_PATCH_FIELDS = Object.freeze({
   plot: Object.freeze([
-    'canonical_name', 'aliases', 'level', 'identity', 'biography', 'personality',
+    'canonical_name', 'aliases', 'level', 'identity', 'power_rank', 'biography', 'personality',
     'cause', 'process', 'result', 'importance', 'participant_names', 'location_names',
     'speaker_name', 'text', 'event_ref'
   ]),
   martial: Object.freeze([
-    'canonical_name', 'aliases', 'type', 'description', 'holder_names',
+    'canonical_name', 'aliases', 'type', 'power_rank', 'description', 'holder_names',
     'technique_names', 'source_skill_ref'
   ]),
   items: Object.freeze([
@@ -72,7 +73,7 @@ function domainForCategory(category) {
 function domainInputHash(input, bindings, acceptedHashes) {
   return sha256(JSON.stringify({
     semantic_contract_version: WORK_CONTRACT_VERSION,
-    semantic_profile: 'domain-distill-v1',
+    semantic_profile: SEMANTIC_PROFILE,
     stage: 'domain_distill',
     unit: input.unit,
     accepted_hashes: sortedHashMap(acceptedHashes),
@@ -122,7 +123,7 @@ function createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes = {} }
     const provisional = {
       schema_version: 1,
       semantic_contract_version: WORK_CONTRACT_VERSION,
-      semantic_profile: 'domain-distill-v1',
+      semantic_profile: SEMANTIC_PROFILE,
       stage: 'domain_distill',
       unit,
       domain,

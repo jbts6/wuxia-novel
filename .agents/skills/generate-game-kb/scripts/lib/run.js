@@ -8,11 +8,9 @@ const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson } = require('./io');
 const { discoverSource, normalizeSource, sha256 } = require('./source');
 const { pathsFor } = require('./paths');
+const { SEMANTIC_CONTRACT_VERSION, SEMANTIC_PROFILE } = require('./semantic-contract');
 const { EMPTY_DURATIONS } = require('./timing');
 const { ensureWorkerPool } = require('./worker-pool');
-
-const SEMANTIC_CONTRACT_VERSION = 2;
-const SEMANTIC_PROFILE = 'domain-distill-v1';
 
 function generatedRunId() {
   return `run-${new Date().toISOString().replace(/[:.]/g, '-')}-${process.pid}-${Math.random().toString(16).slice(2, 10)}`;

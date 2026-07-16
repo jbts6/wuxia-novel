@@ -6,9 +6,10 @@ const path = require('node:path');
 const { ENTITY_CATEGORIES, normalizeName } = require('./book-contract');
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, readJson } = require('./io');
+const { SEMANTIC_CONTRACT_VERSION } = require('./semantic-contract');
 const { sha256 } = require('./source');
 
-const WORK_CONTRACT_VERSION = 2;
+const WORK_CONTRACT_VERSION = SEMANTIC_CONTRACT_VERSION;
 const MAX_WORK_ITEM_CANDIDATES = 120;
 const MAX_WORK_ITEM_BYTES = 96 * 1024;
 const HASH_PLACEHOLDER = `sha256:${'0'.repeat(64)}`;

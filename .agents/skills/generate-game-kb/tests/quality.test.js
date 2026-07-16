@@ -200,6 +200,33 @@ test('line precision and quantity warnings never block chapter-valid data', () =
   assert.ok(result.warnings.some(issue => issue.code === 'QUANTITY_OUTSIDE_GUIDANCE'));
 });
 
+test('verify enforces canonical power ranks and rejects legacy rank or rarity fields', () => {
+  const { paths } = writeVerifiedFixture();
+  const characterFile = path.join(paths.finalData, 'characters.json');
+  const skillFile = path.join(paths.finalData, 'skills.json');
+  const itemFile = path.join(paths.finalData, 'items.json');
+  const characters = JSON.parse(fs.readFileSync(characterFile, 'utf8'));
+  const skills = JSON.parse(fs.readFileSync(skillFile, 'utf8'));
+  const items = JSON.parse(fs.readFileSync(itemFile, 'utf8'));
+
+  characters[0].power_rank = '绝顶高手';
+  delete skills[0].power_rank;
+  skills[0].mastery_rank = '绝学';
+  skills[0].rank = '天级';
+  items[0].rarity_tier = '珍稀';
+  items[0].rarity = 'rare';
+  atomicWriteJson(characterFile, characters);
+  atomicWriteJson(skillFile, skills);
+  atomicWriteJson(itemFile, items);
+
+  const result = verifyFinal(paths);
+  const codes = new Set(result.blocking_errors.map(issue => issue.code));
+  assert.equal(codes.has('POWER_RANK_INVALID'), true);
+  assert.equal(codes.has('POWER_RANK_REQUIRED'), true);
+  assert.equal(codes.has('LEGACY_SKILL_RANK_FORBIDDEN'), true);
+  assert.equal(codes.has('ITEM_RARITY_FORBIDDEN'), true);
+});
+
 test('verify regenerates a manipulated fixed sample and invalidates its old review', () => {
   const { paths } = writeVerifiedFixture();
   const manifest = JSON.parse(fs.readFileSync(paths.manifest, 'utf8'));
