@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "novel": "雪山飞狐",
+  "run_id": "xueshan-domain-v1-20260715",
+  "semantic_contract_version": 2,
+  "semantic_profile": "domain-distill-v1",
+  "run_status": "archived",
+  "source": {
+    "chapter_count": 10,
+    "source_hash": "sha256:bebe7cd169f4cead700c5c7a0e03054730385b29870d91b0d8ed7c44b81f405b"
+  },
+  "workflow_acceptance": {
+    "workspace_verify_passed": true,
+    "installed_verify_passed": true,
+    "coverage_blocking_gaps": 0,
+    "candidate_resolution_passed": true,
+    "installed": true,
+    "archived": true
+  },
+  "speed_validation": {
+    "status": "deferred_by_user",
+    "gate_result": null,
+    "accepted_as_speed_benchmark": false,
+    "future_validation": "The user will run a separate benchmark with an efficient model.",
+    "confounders": [
+      "the model used for this run was slow",
+      "this run extracted chapter dialogues before that feature was disabled",
+      "the model service was unavailable for several hours"
+    ]
+  },
+  "recorded_phase_durations_ms": {
+    "prepare": 233,
+    "chapter_extraction": 2911806,
+    "registry": 149,
+    "domain_distill": 36031697,
+    "quality": 1829818,
+    "install": 191,
+    "archive": 105,
+    "script": 1916,
+    "human_wait": 41396225,
+    "total": 41398141
+  },
+  "ai_units": {
+    "planned": 15,
+    "done": 15,
+    "attempts": 18,
+    "format_repairs": 0,
+    "semantic_remedies": 3,
+    "chapter": {
+      "planned": 10,
+      "done": 10,
+      "attempts": 10
+    },
+    "domain": {
+      "planned": 4,
+      "done": 4,
+      "attempts": 7
+    },
+    "targeted_recall": {
+      "planned": 0,
+      "done": 0,
+      "attempts": 0
+    },
+    "quality": {
+      "planned": 1,
+      "done": 1,
+      "attempts": 1
+    }
+  },
+  "max_ai_input_bytes": 427059,
+  "candidate_counts": {
+    "chapter_candidates": 603,
+    "registered_entries": 547,
+    "final_records": 343
+  },
+  "final_counts": {
+    "characters": 46,
+    "events": 81,
+    "items": 35,
+    "skills": 23,
+    "techniques": 35,
+    "factions": 22,
+    "locations": 40,
+    "dialogues": 61,
+    "chapter_summaries": 10
+  },
+  "dialogue_policy": {
+    "this_run_retained_dialogues": 61,
+    "this_run_predates_disabled_extraction": true,
+    "fresh_run_chapter_dialogues_required": 0
+  },
+  "hashes": {
+    "final_data": "sha256:336340bb3332e6dc8513216356346d8fb90aec0005194fbc1d71c7849991311d",
+    "archive_artifact_manifest": "sha256:ee0dcf478f2f6256931dbcaed0f1cbd44144fdb2cedf15eb6d498c23050427ff",
+    "archive_metrics": "sha256:f14ee5058a5d2cbd83d798f853cf2af33ad8bb3cf59bc9f1e59c41bf129fa1a2"
+  },
+  "archive": {
+    "artifact_count": 18,
+    "archived_at": "2026-07-16T01:06:59.663Z"
+  }
+}

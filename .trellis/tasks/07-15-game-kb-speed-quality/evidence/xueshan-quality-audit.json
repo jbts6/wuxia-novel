@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "novel": "雪山飞狐",
+  "run_id": "xueshan-domain-v1-20260715",
+  "final_data_hash": "sha256:336340bb3332e6dc8513216356346d8fb90aec0005194fbc1d71c7849991311d",
+  "passed": true,
+  "overall": {
+    "sampled": 40,
+    "passed": 39,
+    "failed": 1
+  },
+  "hard_priority": {
+    "sampled": 30,
+    "passed": 30,
+    "failed": 0,
+    "threshold": 29
+  },
+  "soft_priority": {
+    "sampled": 10,
+    "passed": 9,
+    "failed": 1
+  },
+  "groups": {
+    "skills_techniques": {
+      "priority": "hard",
+      "sampled": 12,
+      "passed": 12
+    },
+    "events": {
+      "priority": "hard",
+      "sampled": 8,
+      "passed": 8
+    },
+    "characters": {
+      "priority": "hard",
+      "sampled": 5,
+      "passed": 5
+    },
+    "items": {
+      "priority": "hard",
+      "sampled": 5,
+      "passed": 5
+    },
+    "dialogues": {
+      "priority": "soft",
+      "sampled": 4,
+      "passed": 4
+    },
+    "factions_locations": {
+      "priority": "soft",
+      "sampled": 4,
+      "passed": 3
+    },
+    "chapter_summaries": {
+      "priority": "soft",
+      "sampled": 2,
+      "passed": 2
+    }
+  },
+  "warnings": [
+    {
+      "code": "QUALITY_SOFT_SAMPLE_FAILED",
+      "record_id": "loc_jiu_gong_shan",
+      "failed_check": "key_facts",
+      "notes": "原文明确李自成在九宫山并未身死；记录误写为身死之地。",
+      "blocking": false
+    }
+  ],
+  "coverage": {
+    "blocking_gaps": 0,
+    "recall_units": 0,
+    "supplement_units": 0
+  }
+}
