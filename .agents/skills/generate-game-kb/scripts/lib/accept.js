@@ -107,13 +107,13 @@ function validateTargetedDraft(draft, category) {
       return [{ code: 'TARGETED_RECORD_INVALID', path: `${category}[${index}]`, target: category }];
     }
     if (category !== 'characters' && category !== 'skills') return [];
-    const rankPath = `${category}[${index}].power_rank`;
-    if (typeof record.power_rank !== 'string' || record.power_rank === '') {
+    const rankPath = `${category}[${index}].rank`;
+    if (typeof record.rank !== 'string' || record.rank === '') {
       return [{ code: 'POWER_RANK_REQUIRED', path: rankPath, target: category }];
     }
-    return isPowerRank(record.power_rank)
+    return isPowerRank(record.rank)
       ? []
-      : [{ code: 'POWER_RANK_INVALID', path: rankPath, target: record.power_rank }];
+      : [{ code: 'POWER_RANK_INVALID', path: rankPath, target: record.rank }];
   });
 }
 

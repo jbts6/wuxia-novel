@@ -65,10 +65,10 @@ function validatePatch(patch, input, entry, label, entriesByRef, errors) {
 }
 
 function validatePowerRankPatch(patch, label, errors) {
-  if (typeof patch?.power_rank !== 'string' || patch.power_rank === '') {
-    errors.push(issue('POWER_RANK_REQUIRED', `${label}.patch.power_rank`));
-  } else if (!isPowerRank(patch.power_rank)) {
-    errors.push(issue('POWER_RANK_INVALID', `${label}.patch.power_rank`, patch.power_rank));
+  if (typeof patch?.rank !== 'string' || patch.rank === '') {
+    errors.push(issue('POWER_RANK_REQUIRED', `${label}.patch.rank`));
+  } else if (!isPowerRank(patch.rank)) {
+    errors.push(issue('POWER_RANK_INVALID', `${label}.patch.rank`, patch.rank));
   }
 }
 

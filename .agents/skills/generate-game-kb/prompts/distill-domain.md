@@ -11,8 +11,8 @@
 | 单元 | 处理类别 | 重点 | 顺序 |
 |---|---|---|---|
 | `distill:factions` | factions | 合并同名势力，统一 ID | **先执行** |
-| `distill:characters` | characters | 人物 keep 必须给全书巅峰 power_rank | 后续并行 |
-| `distill:skills` | skills | 武功 keep 必须给全书巅峰 power_rank；招式必须 named_in_source | 后续并行 |
+| `distill:characters` | characters | 人物 keep 必须给全书巅峰 rank | 后续并行 |
+| `distill:skills` | skills | 武功 keep 必须给全书巅峰 rank；招式必须 named_in_source | 后续并行 |
 | `distill:items` | items | 只保留秘籍、剧情关键、高级药毒、神兵利器 | 后续并行 |
 
 **重要**：factions 必须先完成，因为 characters 和 skills 都引用 faction。
@@ -60,13 +60,13 @@ notes: []
 - type 可选：门派、帮会、组织、朝廷、其他
 
 ### distill:characters
-- keep 补丁必须写 level 和全书巅峰 power_rank
+- keep 补丁必须写 level 和全书巅峰 rank
 - 核心/重要人物可补充 biography
 - 后三档 biography 不超过 200 字
 - **faction 引用已蒸馏的 faction entry_ref**
 
 ### distill:skills
-- keep 补丁必须写 type 和全书巅峰 power_rank
+- keep 补丁必须写 type 和全书巅峰 rank
 - 招式必须 named_in_source: true
 - **faction 引用已蒸馏的 faction entry_ref**
 

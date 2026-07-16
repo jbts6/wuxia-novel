@@ -71,10 +71,10 @@ function validateNamedCandidate(record, label, chapter, errors) {
 }
 
 function validatePowerRank(record, label, errors) {
-  if (typeof record?.power_rank !== 'string' || record.power_rank === '') {
-    errors.push(issue('POWER_RANK_REQUIRED', `${label}.power_rank`));
-  } else if (!isPowerRank(record.power_rank)) {
-    errors.push(issue('POWER_RANK_INVALID', `${label}.power_rank`, record.power_rank));
+  if (typeof record?.rank !== 'string' || record.rank === '') {
+    errors.push(issue('POWER_RANK_REQUIRED', `${label}.rank`));
+  } else if (!isPowerRank(record.rank)) {
+    errors.push(issue('POWER_RANK_INVALID', `${label}.rank`, record.rank));
   }
 }
 

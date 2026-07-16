@@ -10,13 +10,13 @@ const FORBIDDEN_KEYS = /^(candidate_key|local_key|id|.*_id|.*_ids)$/;
 const CATEGORY_FIELDS = Object.freeze({
   characters: new Set([
     'level', 'identity', 'biography', 'personality', 'relationship_names',
-    'skill_names', 'item_names', 'power_rank'
+    'skill_names', 'item_names', 'rank'
   ]),
   events: new Set([
     'cause', 'process', 'result', 'participant_names', 'location_names', 'importance'
   ]),
   items: new Set(['inclusion_reason', 'type', 'description']),
-  skills: new Set(['type', 'description', 'holder_names', 'technique_names', 'power_rank']),
+  skills: new Set(['type', 'description', 'holder_names', 'technique_names', 'rank']),
   techniques: new Set(['named_in_source', 'source_skill_name', 'description']),
   factions: new Set(['type', 'description']),
   locations: new Set(['region', 'description']),

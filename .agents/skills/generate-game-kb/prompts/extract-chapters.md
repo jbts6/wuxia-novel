@@ -37,7 +37,7 @@ characters:
   - local_key: "character:甲"
     name: 甲
     level: 核心
-    power_rank: 登堂入室
+    rank: 登堂入室
     faction: "faction:青城派"
     source_refs:
       - chapter: 1
@@ -47,7 +47,7 @@ skills:
   - local_key: "skill:内功"
     name: 玄门内功
     type: 内功
-    power_rank: 炉火纯青
+    rank: 炉火纯青
     faction: "faction:青城派"
     techniques:
       - name: 飞云掌
@@ -73,7 +73,7 @@ chapter_summary:
 ## 字段规则
 
 - **local_key**：`category:名称` 格式
-- **power_rank**：八级固定值之一
+- **rank**：八级固定值之一
 - **level**：核心/重要/次要/龙套/背景
 - **named_in_source**：招式必须为 true
 - **inclusion_reason**：秘籍/剧情关键/高级药毒/神兵利器/其他稀有特殊

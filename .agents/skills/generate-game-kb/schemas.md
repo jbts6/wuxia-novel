@@ -8,7 +8,7 @@
 - 域蒸馏草稿禁止输出 `candidate_key`、`local_key`、最终 ID。
 - **source_refs 必须保留**：每个实体至少一条 source_refs，避免 AI 编造。
 - 人物 level 只允许：核心、重要、次要、龙套、背景。
-- 人物和武功都必须写 `power_rank`，八级固定。
+- 人物和武功都必须写 `rank`，八级固定。
 - 招式必须有原著专名且 `named_in_source: true`。
 - 不提取对话、事件、地点。
 
@@ -23,7 +23,7 @@ characters:
   - local_key: "character:甲"
     name: "甲"
     level: "核心"
-    power_rank: "初窥门径"
+    rank: "初窥门径"
     faction: "势力:青城派"
     source_refs:
       - chapter: 1
@@ -32,7 +32,7 @@ skills:
   - local_key: "skill:内功"
     name: "玄门内功"
     type: "内功"
-    power_rank: "炉火纯青"
+    rank: "炉火纯青"
     techniques:
       - name: "飞云掌"
         named_in_source: true
@@ -139,7 +139,7 @@ action 只允许 `keep`、`merge`、`reject`、`pending`。
 
 ## 验证规则
 
-- 人物/武功必须有 rank（power_rank）
+- 人物/武功必须有 rank（rank）
 - 招式必须 named_in_source: true
 - 普通物品不得进入 items
 - 稳定 ID、引用闭包必须完整

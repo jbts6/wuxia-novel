@@ -18,11 +18,11 @@ const MAX_DOMAIN_WORK_ITEM_BYTES = 512 * 1024;
 
 const DOMAIN_PATCH_FIELDS = Object.freeze({
   characters: Object.freeze([
-    'canonical_name', 'aliases', 'level', 'identity', 'power_rank', 'biography', 'personality',
+    'canonical_name', 'aliases', 'level', 'identity', 'rank', 'biography', 'personality',
     'faction', 'relationships'
   ]),
   skills: Object.freeze([
-    'canonical_name', 'aliases', 'type', 'power_rank', 'description', 'holder_names',
+    'canonical_name', 'aliases', 'type', 'rank', 'description', 'holder_names',
     'techniques'
   ]),
   items: Object.freeze([
