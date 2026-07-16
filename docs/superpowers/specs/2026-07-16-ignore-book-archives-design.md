@@ -21,17 +21,18 @@ These archives remain useful as local evidence while the knowledge-base quality 
 - Before rewriting history, export the current tracked `_archive/` tree to a temporary archive outside the repository.
 - Rewrite every local branch and tag with the path regex `(^|.*/)_archive(/|$)`, then expire the replaced objects through `git-filter-repo`.
 - Restore the exported files to their original paths after rewriting; the new ignore rule keeps them local and untracked.
-- Preserve the `origin` URL but do not fetch, force-push, or otherwise mutate the remote repository in this change.
+- Record the original `origin` URL and remote-main object ID, but leave `origin` unconfigured after filtering so background fetch cannot reintroduce the old objects. Re-add it only when the rewritten branch is ready to be force-pushed.
 
 ## Validation
 
 - `git check-ignore -v` identifies representative `_archive/` files through the new rule.
 - No `_archive/` path remains in `git ls-files` after the index update.
 - No `_archive/` path remains in `git rev-list --all --objects` after the history rewrite.
+- No remote-tracking ref remains that can retain or automatically fetch the old history.
 - Existing local `_archive/` directories and files still exist after the index update.
 - Tracked non-archive `data/` and `ch_split/` counts do not decrease; validation excludes any same-named directory nested below `_archive/`.
 - `git diff --check` passes.
 
 ## Scope
 
-This change controls Git tracking and rewrites local Git history. It does not clean local disk space, prune archives by age, change the `generate-game-kb` completion contract, or push rewritten history to the remote repository.
+This change controls Git tracking and rewrites local Git history. It does not clean local disk space, prune archives by age, change the `generate-game-kb` completion contract, or push rewritten history to the remote repository. The saved remote URL is `https://github.com/jbts6/wuxia-novel.git`; the pre-rewrite `origin/main` object ID is `357f723aa97be156931c15ae0d3f926f9ce37535`.

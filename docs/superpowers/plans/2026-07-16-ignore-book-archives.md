@@ -4,7 +4,7 @@
 
 **Goal:** Keep every book's `_archive/` evidence locally while removing it from the current index and all local Git history.
 
-**Architecture:** Git continues to track `data/` and `ch_split/`, while a repository-level ignore rule excludes every `_archive/` segment. A temporary external tar preserves the current local archive tree across a `git-filter-repo` rewrite; the remote is retained as configuration but is not fetched or pushed.
+**Architecture:** Git continues to track `data/` and `ch_split/`, while a repository-level ignore rule excludes every `_archive/` segment. A temporary external tar preserves the current local archive tree across a `git-filter-repo` rewrite. The remote URL and old object ID are recorded, but the remote stays unconfigured until the rewritten branch is deliberately force-pushed.
 
 **Tech Stack:** Git, git-filter-repo, repository `.gitignore`, PowerShell/Windows filesystem
 
@@ -90,7 +90,7 @@ Expected: the policy is committed; `_archive/` remains tracked until history fil
 
 **Interfaces:**
 - Consumes: external tar backup, saved `origin` URL, committed ignore rule
-- Produces: rewritten local history with zero `_archive/` paths and restored local evidence
+- Produces: rewritten local history with zero `_archive/` paths, no old remote-tracking refs, and restored local evidence
 
 - [ ] **Step 1: Install the standard rewrite tool temporarily**
 
@@ -108,11 +108,11 @@ rtk python -m git_filter_repo --force --path-regex "(^|.*/)_archive(/|$)" --inve
 
 Expected: all local branches and tags are rewritten; `origin` may be removed by the tool as a safety measure.
 
-- [ ] **Step 3: Restore remote configuration without network access**
+- [ ] **Step 3: Keep old remote history detached**
 
-If `origin` was removed, re-add the exact URL recorded in Task 1. Do not fetch.
+Keep `origin` removed after filtering. Record its URL and the pre-rewrite `origin/main` object ID in the design and final report so a later force-push can use an explicit lease without fetching first.
 
-Expected: `git remote get-url origin` matches the saved URL and no remote-tracking ref reintroduces old history.
+Expected: `git remote` and `refs/remotes` are empty; background tools cannot reintroduce the old history.
 
 - [ ] **Step 4: Restore local archives**
 
@@ -133,6 +133,7 @@ Run checks that prove:
 - `git status --porcelain` is clean.
 - `git diff --check` exits successfully.
 - the current design and plan files still exist.
+- no Git remote or remote-tracking ref remains until the user deliberately reconnects the rewritten branch.
 
 - [ ] **Step 6: Remove temporary tooling and backup**
 
