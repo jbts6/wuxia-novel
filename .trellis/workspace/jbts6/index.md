@@ -8,8 +8,8 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 11
-- **Last Active**: 2026-07-15
+- **Total Sessions**: 12
+- **Last Active**: 2026-07-16
 <!-- @@@/auto:current-status -->
 
 ---
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~588 | Active |
+| `journal-1.md` | ~623 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 12 | 2026-07-16 | Fast game KB domain flow and Xueshan acceptance | `12eabf7f`, `fb20e51b`, `8402c188` | `main` |
 | 11 | 2026-07-15 | 收尾快速知识库第一阶段并拆分确定性组装任务 | `36bdaca3`, `0a24b1d5`, `cb437028`, `de5d8ed3` | `main` |
 | 10 | 2026-07-14 | Dashboard 游戏素材与事件接入 | `85910e33` | `main` |
 | 9 | 2026-07-14 | 完成 generate-kb 安全审计并归档 | `7f6beca0` | `main` |

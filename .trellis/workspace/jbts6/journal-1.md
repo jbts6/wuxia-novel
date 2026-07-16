@@ -586,3 +586,38 @@ Implemented and verified the six-stage managed generate-kb pipeline, including f
 ### Next Steps
 
 - None - task complete
+
+
+## Session 12: Fast game KB domain flow and Xueshan acceptance
+
+**Date**: 2026-07-16
+**Task**: Fast game KB domain flow and Xueshan acceptance
+**Branch**: `main`
+
+### Summary
+
+Implemented the four-domain fast game-KB flow, disabled fresh chapter dialogue extraction, and verified/archived Xueshan with a 30/30 hard-priority sample. The speed benchmark is deferred to the user's efficient-model run.
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `12eabf7f` | (see git log) |
+| `fb20e51b` | (see git log) |
+| `8402c188` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
