@@ -38,9 +38,9 @@ test('AI drafts, accepted artifacts, and final data are YAML while controller st
   assert.doesNotMatch(skill, /staging\/[^\r\n]*\.json|accepted\/[^\r\n]*\.json|final\/data\/[^\r\n]*\.json/);
 });
 
-test('all documentation uses only the shared four domain units in stable order', () => {
+test('legacy domain documentation retains the shared four domain units in stable order', () => {
   const units = ['distill:factions', 'distill:characters', 'distill:skills', 'distill:items'];
-  for (const [name, text] of [['SKILL.md', skill], ['distill-domain.md', domainPrompt], ['schemas.md', schemas]]) {
+  for (const [name, text] of [['distill-domain.md', domainPrompt], ['schemas.md', schemas]]) {
     let previous = -1;
     for (const unit of units) {
       const index = text.indexOf(unit);
@@ -76,13 +76,12 @@ test('final documentation names five YAML files and only simplified top-level fi
   }
 });
 
-test('the normal path is one four-domain assemble and verification flow', () => {
-  const normalPath = /archive-existing[\s\S]*prepare[\s\S]*chapter[^\r\n]*accept[\s\S]*plan-domains[\s\S]*distill[^\r\n]*accept[\s\S]*assemble[\s\S]*verify[\s\S]*install[\s\S]*verify[^\r\n]*--installed[\s\S]*archive-run/i;
-  for (const [name, text] of [['SKILL.md', skill], ['fast profile spec', fastProfile]]) {
-    assert.match(text, normalPath, name);
-    assert.doesNotMatch(text, /\b(?:prepare-merge|assemble-merge|prepare-clean|assemble-clean|build-final|check-coverage|check-resolution)\b/, name);
-    assert.doesNotMatch(text, /quality:sample|fixed 95%|fixed quality|game_materials\.json|nine (?:files|arrays)|九个?(?:文件|数组)/i, name);
-  }
+test('the normal Skill path assembles accepted chapters without domain stages', () => {
+  const normalPath = /archive-existing[\s\S]*prepare[\s\S]*chapter[^\r\n]*accept[\s\S]*assemble[\s\S]*verify[\s\S]*install[\s\S]*verify[^\r\n]*--installed[\s\S]*archive-run/i;
+  assert.match(skill, normalPath);
+  assert.doesNotMatch(skill, /\bplan-domains\b|distill:[^\s`]+[\s\S]*accept/i);
+  assert.doesNotMatch(skill, /\b(?:prepare-merge|assemble-merge|prepare-clean|assemble-clean|build-final|check-coverage|check-resolution)\b/);
+  assert.doesNotMatch(skill, /quality:sample|fixed 95%|fixed quality|game_materials\.json|nine (?:files|arrays)|九个?(?:文件|数组)/i);
 });
 
 test('workspace and installed verification are bound to five YAML files and controller receipts', () => {
@@ -96,15 +95,13 @@ test('workspace and installed verification are bound to five YAML files and cont
   assert.doesNotMatch(fastProfile, /top-level[^\r\n]*(?:events|locations|dialogues|techniques)|顶层[^\r\n]*(?:events|locations|dialogues|techniques)/i);
 });
 
-test('the writable profile is semantic contract version 4 and old runs stay fail-closed', () => {
-  for (const [name, text] of [['SKILL.md', skill], ['schemas.md', schemas], ['quality-guidelines.md', backendSpec]]) {
-    assert.match(text, /semantic_contract_version[^\r\n]*4/, name);
-  }
+test('the writable Skill is semantic contract version 5 and old runs stay fail-closed', () => {
+  assert.match(skill, /semantic_contract_version[^\r\n]*5/);
   assert.match(skill, /LEGACY_SEMANTIC_CONTRACT/);
   assert.match(skill, /不得.*原地.*升级|不.*原地.*升级/);
 });
 
-test('authoritative domain YAML examples declare semantic contract version 4', () => {
+test('legacy domain YAML examples remain readable as semantic contract version 4', () => {
   for (const [name, text, heading] of [
     ['distill-domain.md', domainPrompt, '## YAML 模板'],
     ['schemas.md', schemas, '## 域蒸馏草稿示例']
@@ -125,12 +122,10 @@ test('source grounding, bounded concurrency, and main-model-only acceptance rema
   assert.match(skill, /(?:第二|再次|持续).*429[^\r\n]*(?:停止|停机|halt)/i);
 });
 
-test('all four domain inputs are independent and canonical order is presentation only', () => {
+test('legacy domain inputs remain independent and canonical order is presentation only', () => {
   for (const [name, text] of [
-    ['SKILL.md', skill],
     ['distill-domain.md', domainPrompt],
-    ['schemas.md', schemas],
-    ['fast profile spec', fastProfile]
+    ['schemas.md', schemas]
   ]) {
     assert.match(text, /(?:四个域|four domains?)[^\r\n]*(?:彼此独立|independent)[^\r\n]*(?:并发|concurrent)/i, name);
     assert.match(text, /(?:固定|canonical)[^\r\n]*(?:顺序|order)[^\r\n]*(?:展示|报告|presentation|report)/i, name);

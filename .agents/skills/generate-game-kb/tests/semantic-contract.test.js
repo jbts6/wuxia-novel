@@ -14,8 +14,8 @@ const {
   SEMANTIC_PROFILE
 } = require('../scripts/lib/semantic-contract');
 
-test('declares the incompatible four-domain YAML contract', () => {
-  assert.equal(SEMANTIC_CONTRACT_VERSION, 4);
+test('declares the fast-path YAML contract and retains legacy domain unit names', () => {
+  assert.equal(SEMANTIC_CONTRACT_VERSION, 5);
   assert.equal(SEMANTIC_PROFILE, 'domain-distill-v1');
   assert.deepEqual(DOMAIN_UNITS, [
     'distill:factions',

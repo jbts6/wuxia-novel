@@ -1,6 +1,6 @@
 'use strict';
 
-const SEMANTIC_CONTRACT_VERSION = 4;
+const SEMANTIC_CONTRACT_VERSION = 5;
 const SEMANTIC_PROFILE = 'domain-distill-v1';
 const DOMAIN_UNITS = Object.freeze([
   'distill:factions',
