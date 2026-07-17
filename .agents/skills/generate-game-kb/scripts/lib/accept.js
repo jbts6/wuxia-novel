@@ -2,6 +2,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const yaml = require('js-yaml');
 
 const {
   assertAcceptedArtifacts,
@@ -12,7 +13,7 @@ const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contr
 const { normalizeDomainDecisionDraft, validateDomainDecisionDraft } = require('./domain-contract');
 const { GameKbError } = require('./errors');
 const { isGroundingError } = require('./grounding');
-const { atomicWriteFile, readJson, readYaml } = require('./io');
+const { atomicWriteFile, readJson } = require('./io');
 const {
   loadProgress,
   recordSubmission,
@@ -198,14 +199,16 @@ function acceptDraft({ paths, unit, draftPath }) {
   let errors;
   let quarantineFiles = [];
   try {
-    draft = readYaml(resolvedDraft);
+    draft = yaml.load(raw);
+  } catch (error) {
+    errors = [{ code: 'DRAFT_YAML_INVALID', path: '$', target: error.message }];
+  }
+  if (errors === undefined) {
     errors = context.validate(draft);
     const prepared = prepareGroundedChapter(paths, context, unit, draft, errors);
     draft = prepared.draft;
     errors = prepared.errors;
     quarantineFiles = prepared.quarantineFiles;
-  } catch (error) {
-    errors = [{ code: 'DRAFT_YAML_INVALID', path: '$', target: error.message }];
   }
 
   let updated = recordSubmission(progress, unit, context.inputHash, outputHash, errors);

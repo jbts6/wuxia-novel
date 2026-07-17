@@ -20,7 +20,7 @@ function safeSegment(value, fallback) {
     .replace(/[^\p{Letter}\p{Number}._-]+/gu, '_')
     .replace(/^_+|_+$/g, '')
     .slice(0, 80);
-  return segment || fallback;
+  return !segment || /^\.+$/.test(segment) ? fallback : segment;
 }
 
 function quarantineRecord(paths, { unit, category, record, errors, inputHash }) {
@@ -39,7 +39,18 @@ function quarantineRecord(paths, { unit, category, record, errors, inputHash }) 
     safeSegment(unit, 'unit'),
     safeSegment(category, 'records')
   );
-  const file = path.join(directory, `${safeSegment(record?.local_key || record?.name, 'record')}_${fingerprint}.yaml`);
+  const file = path.resolve(
+    directory,
+    `${safeSegment(record?.local_key || record?.name, 'record')}_${fingerprint}.yaml`
+  );
+  const quarantineRoot = path.resolve(paths.quarantine);
+  const relative = path.relative(quarantineRoot, file);
+  if (relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+    throw new GameKbError('QUARANTINE_PATH_ESCAPE', 'Quarantine record path must stay within the selected run', {
+      quarantine: quarantineRoot,
+      file
+    });
+  }
   if (fs.existsSync(file)) {
     if (fs.readFileSync(file, 'utf8') !== content) {
       throw new GameKbError('QUARANTINE_CONFLICT', 'Immutable quarantine record has conflicting bytes', {

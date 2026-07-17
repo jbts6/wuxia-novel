@@ -57,6 +57,30 @@ test('rejects an incomplete source line range', () => {
   assert.deepEqual(result.errors.map(error => error.code), ['SOURCE_LINE_RANGE_INVALID']);
 });
 
+test('rejects zero, reversed, and beyond-EOF source line ranges', () => {
+  const ranges = [
+    { line_start: 0, line_end: 1 },
+    { line_start: 2, line_end: 1 },
+    { line_start: 2, line_end: 3 }
+  ];
+
+  for (const range of ranges) {
+    const result = validate(record({
+      source_refs: [{ chapter: 3, text: '甲拔剑。', ...range }]
+    }));
+
+    assert.deepEqual(result.errors.map(error => error.code), ['SOURCE_LINE_RANGE_INVALID']);
+  }
+});
+
+test('rejects a source quote that exists only outside the declared line span', () => {
+  const result = validate(record({
+    source_refs: [{ chapter: 3, text: '甲拔剑。', line_start: 2, line_end: 2 }]
+  }), '第三章\n乙旁观。\n甲拔剑。');
+
+  assert.deepEqual(result.errors.map(error => error.code), ['SOURCE_QUOTE_NOT_FOUND']);
+});
+
 test('candidate name must occur in located evidence', () => {
   const result = validate(record({ name: '乙' }));
 

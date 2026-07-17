@@ -45,6 +45,30 @@ test('writes immutable run-scoped YAML quarantine records', () => {
   assert.deepEqual(value.errors, input.errors);
 });
 
+test('normalizes dot-only quarantine segments without escaping the run root', () => {
+  const novel = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-quarantine-segments-'));
+  const paths = pathsFor(novel, 'run-grounded');
+  const cases = [
+    { unit: '.', category: 'characters', expected: ['unit', 'characters'] },
+    { unit: 'chapter:003', category: '..', expected: ['chapter_003', 'records'] },
+    { unit: '.', category: '..', expected: ['unit', 'records'] }
+  ];
+
+  cases.forEach(({ unit, category, expected }, index) => {
+    const file = quarantineRecord(paths, {
+      unit,
+      category,
+      record: { local_key: `record:${index}`, name: `记录${index}` },
+      errors: [{ code: 'TEST_ERROR', path: '$', target: '' }],
+      inputHash: 'sha256:chapter-three'
+    });
+    const relative = path.relative(path.resolve(paths.quarantine), path.resolve(file));
+
+    assert.equal(relative.startsWith('..') || path.isAbsolute(relative), false);
+    assert.deepEqual(relative.split(path.sep).slice(0, 2), expected);
+  });
+});
+
 test('accepts valid chapter records while quarantining ungrounded siblings', () => {
   const novel = makeNovel('证据试书', '第一章 起始\n甲拔剑。\n');
   assert.equal(runFlow(['prepare', novel, '--run', 'run-grounded', '--json']).status, 0);
@@ -89,6 +113,48 @@ test('accepts valid chapter records while quarantining ungrounded siblings', () 
   assert.equal(quarantine.record.name, '乙');
   assert.deepEqual(quarantine.errors.map(error => error.code), ['SOURCE_NAME_NOT_FOUND']);
   assert.equal(readJson(paths.progress).units['chapter:001'].attempts, 1);
+});
+
+test('quarantine conflicts propagate without consuming a chapter submission', () => {
+  const novel = makeNovel('隔离冲突试书', '第一章 起始\n甲拔剑。\n');
+  assert.equal(runFlow(['prepare', novel, '--run', 'run-conflict', '--json']).status, 0);
+  const paths = pathsFor(novel, 'run-conflict');
+  const chapter = readJson(paths.manifest).chapters[0];
+  const invalidRecord = {
+    local_key: 'character:乙', name: '乙', level: '次要', rank: '平平无奇',
+    source_refs: [sourceRef(1, '甲拔剑。')]
+  };
+  const groundingErrors = [
+    { code: 'SOURCE_NAME_NOT_FOUND', path: 'characters[0].name', target: '乙' }
+  ];
+  const conflictFile = quarantineRecord(paths, {
+    unit: 'chapter:001',
+    category: 'characters',
+    record: invalidRecord,
+    errors: groundingErrors,
+    inputHash: chapter.input_hash
+  });
+  fs.writeFileSync(conflictFile, 'conflicting bytes\n', 'utf8');
+  const draft = validChapterDraft({
+    title: chapter.title,
+    source_hash: chapter.input_hash,
+    characters: [invalidRecord],
+    items: [], skills: [], factions: [],
+    chapter_summary: {
+      title: chapter.title, summary: '甲在本章拔剑。', source_refs: [sourceRef(1, '甲拔剑。')]
+    }
+  });
+  const draftFile = writeStagingDraft(novel, 'chapter:001', draft);
+
+  const result = runFlow([
+    'accept', novel, '--run', 'run-conflict', '--unit', 'chapter:001', '--draft', draftFile, '--json'
+  ]);
+
+  assert.notEqual(result.status, 0);
+  assert.equal(parseJsonLine(result.stderr).code, 'QUARANTINE_CONFLICT');
+  assert.doesNotMatch(result.stderr, /DRAFT_YAML_INVALID/);
+  assert.equal(readJson(paths.progress).units['chapter:001'].attempts, 0);
+  assert.equal(fs.existsSync(draftFile), true);
 });
 
 test('document-level chapter identity errors do not create quarantine files', () => {
