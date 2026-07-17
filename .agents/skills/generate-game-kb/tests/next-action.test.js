@@ -29,8 +29,22 @@ function writeJson(file, value) {
 const CURRENT_MANIFEST = {
   source_hash: 'sha256:source',
   chapters: [
-    { number: 10, input_hash: 'sha256:chapter-010' },
-    { number: 2, input_hash: 'sha256:chapter-002' }
+    {
+      number: 10,
+      title: '第10章',
+      file: '/source/ch_010.txt',
+      input_hash: 'sha256:chapter-010',
+      source_char_count: 1000,
+      staging_paths: ['/staging/chapter_010_attempt_01.yaml', '/staging/chapter_010_attempt_02.yaml']
+    },
+    {
+      number: 2,
+      title: '第2章',
+      file: '/source/ch_002.txt',
+      input_hash: 'sha256:chapter-002',
+      source_char_count: 1000,
+      staging_paths: ['/staging/chapter_002_attempt_01.yaml', '/staging/chapter_002_attempt_02.yaml']
+    }
   ]
 };
 
@@ -138,9 +152,74 @@ const CURRENT_INSTALL = {
 };
 
 test('returns accept-chapters with numerically sorted unfinished chapters', () => {
-  assertAction(lifecycleInput({
+  const input = lifecycleInput({
     chapterStatuses: { 2: 'pending', 10: 'pending' }
-  }), 'accept-chapters', ['chapter:002', 'chapter:010']);
+  });
+  assert.deepEqual(resolveNextAction(input), {
+    next_action: 'accept-chapters',
+    next_units: ['chapter:002', 'chapter:010'],
+    chapter_jobs: [
+      {
+        batch_id: 'chapter-batch-002',
+        chapters: [{
+          unit: 'chapter:002',
+          number: 2,
+          title: '第2章',
+          source_file: '/source/ch_002.txt',
+          input_hash: 'sha256:chapter-002',
+          source_char_count: 1000,
+          staging_paths: ['/staging/chapter_002_attempt_01.yaml', '/staging/chapter_002_attempt_02.yaml']
+        }]
+      },
+      {
+        batch_id: 'chapter-batch-010',
+        chapters: [{
+          unit: 'chapter:010',
+          number: 10,
+          title: '第10章',
+          source_file: '/source/ch_010.txt',
+          input_hash: 'sha256:chapter-010',
+          source_char_count: 1000,
+          staging_paths: ['/staging/chapter_010_attempt_01.yaml', '/staging/chapter_010_attempt_02.yaml']
+        }]
+      }
+    ]
+  });
+});
+
+test('chapter jobs include only current unfinished units and ignore progress insertion order', () => {
+  const chapters = [1, 2, 3, 4].map(number => ({
+    number,
+    title: `第${number}章`,
+    file: `/source/ch_${String(number).padStart(3, '0')}.txt`,
+    input_hash: `sha256:chapter-${number}`,
+    source_char_count: 1000,
+    staging_paths: [
+      `/staging/chapter_${String(number).padStart(3, '0')}_attempt_01.yaml`,
+      `/staging/chapter_${String(number).padStart(3, '0')}_attempt_02.yaml`
+    ]
+  }));
+  const progress = freshProgress();
+  for (const number of [4, 2, 1, 3]) {
+    progress.units[`chapter:${String(number).padStart(3, '0')}`] = {
+      ...freshUnit(`sha256:chapter-${number}`),
+      status: number === 2 || number === 3 ? 'pending' : 'done'
+    };
+  }
+
+  const result = resolveNextAction({ paths: {}, manifest: { chapters }, progress, installed: null });
+  assert.deepEqual(result.next_units, ['chapter:002', 'chapter:003']);
+  assert.deepEqual(result.chapter_jobs.map(job => job.chapters.map(chapter => chapter.unit)), [
+    ['chapter:002', 'chapter:003']
+  ]);
+});
+
+test('a failed chapter descriptor is rescheduled without completed siblings', () => {
+  const input = lifecycleInput({ chapterStatuses: { 2: 'pending', 10: 'done' } });
+  const result = resolveNextAction(input);
+
+  assert.deepEqual(result.next_units, ['chapter:002']);
+  assert.deepEqual(result.chapter_jobs.map(job => job.chapters.map(chapter => chapter.unit)), [['chapter:002']]);
 });
 
 test('returns plan-domains only after all chapter accepts complete', () => {

@@ -7,6 +7,10 @@ const test = require('node:test');
 
 const { makeNovel, parseJsonLine, readJson, runFlow } = require('./helpers');
 const { pathsFor } = require('../scripts/lib/paths');
+const {
+  MAX_CHAPTERS_PER_JOB,
+  MAX_CJK_CHARS_PER_JOB
+} = require('../scripts/lib/worker-pool');
 
 function prepareRun(runId = 'run-worker-pool') {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n第二章 转折\n乙。\n');
@@ -24,6 +28,11 @@ function backoff(novel, runId, batchId) {
     '--json'
   ]);
 }
+
+test('chapter worker jobs expose the fixed two-chapter and 36k CJK limits', () => {
+  assert.equal(MAX_CHAPTERS_PER_JOB, 2);
+  assert.equal(MAX_CJK_CHARS_PER_JOB, 36000);
+});
 
 test('a new run and status persist a default chapter-worker concurrency limit of five', () => {
   const { novel, paths } = prepareRun();

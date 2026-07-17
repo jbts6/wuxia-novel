@@ -3,6 +3,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
+const { packChapterJobs } = require('./chapter-batching');
 const { inspectWorkspaceFinal } = require('./verify');
 
 const DOMAIN_UNITS = Object.freeze([
@@ -111,10 +112,13 @@ function resolveNextAction({ paths, manifest, progress, installed }) {
 
   const unfinishedChapters = [...manifest.chapters]
     .sort((left, right) => left.number - right.number)
-    .map(chapter => chapterUnit(chapter.number))
-    .filter(unit => units[unit]?.status !== 'done');
+    .filter(chapter => units[chapterUnit(chapter.number)]?.status !== 'done');
   if (unfinishedChapters.length > 0) {
-    return { next_action: 'accept-chapters', next_units: unfinishedChapters };
+    return {
+      next_action: 'accept-chapters',
+      next_units: unfinishedChapters.map(chapter => chapterUnit(chapter.number)),
+      chapter_jobs: packChapterJobs({ ...manifest, chapters: unfinishedChapters })
+    };
   }
 
   const domainPlan = currentDomainPlan(paths, manifest);
