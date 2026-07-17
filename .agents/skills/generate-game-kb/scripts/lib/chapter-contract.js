@@ -81,17 +81,15 @@ function validateNamedCandidate(record, label, expected, errors) {
 }
 
 function validatePowerRank(record, label, errors) {
-  if (typeof record?.rank !== 'string' || record.rank === '') {
-    errors.push(issue('POWER_RANK_REQUIRED', `${label}.rank`));
-  } else if (!isPowerRank(record.rank)) {
+  if (!Object.hasOwn(record || {}, 'rank') || record.rank === null) return;
+  if (!isPowerRank(record.rank)) {
     errors.push(issue('POWER_RANK_INVALID', `${label}.rank`, record.rank));
   }
 }
 
 function validateCharacterLevel(record, label, errors) {
-  if (typeof record?.level !== 'string' || record.level === '') {
-    errors.push(issue('CHARACTER_LEVEL_REQUIRED', `${label}.level`));
-  } else if (!CHARACTER_LEVEL_SET.has(record.level)) {
+  if (!Object.hasOwn(record || {}, 'level') || record.level === null) return;
+  if (!CHARACTER_LEVEL_SET.has(record.level)) {
     errors.push(issue('CHARACTER_LEVEL_INVALID', `${label}.level`, record.level));
   }
 }

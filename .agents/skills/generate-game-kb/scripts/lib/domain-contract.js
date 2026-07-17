@@ -1,6 +1,10 @@
 'use strict';
 
-const { DOMAIN_UNITS, isPowerRank } = require('./semantic-contract');
+const {
+  DOMAIN_UNITS,
+  isPowerRank,
+  requiredDomainUnitsForContract
+} = require('./semantic-contract');
 
 const ACTIONS = new Set(['keep', 'merge', 'reject', 'pending']);
 const DOMAIN_UNIT_SET = new Set(DOMAIN_UNITS);
@@ -85,16 +89,20 @@ function validatePatch(patch, input, entry, label, entriesByRef, errors) {
   }
 }
 
-function validatePowerRankPatch(patch, label, errors) {
-  if (typeof patch?.rank !== 'string' || patch.rank === '') {
-    errors.push(issue('POWER_RANK_REQUIRED', `${label}.patch.rank`));
-  } else if (!isPowerRank(patch.rank)) {
+function validatePowerRankPatch(patch, label, required, errors) {
+  if (patch?.rank === undefined || patch.rank === null || patch.rank === '') {
+    if (required) errors.push(issue('POWER_RANK_REQUIRED', `${label}.patch.rank`));
+    else if (patch?.rank === '') errors.push(issue('POWER_RANK_INVALID', `${label}.patch.rank`, patch.rank));
+    return;
+  }
+  if (!isPowerRank(patch.rank)) {
     errors.push(issue('POWER_RANK_INVALID', `${label}.patch.rank`, patch.rank));
   }
 }
 
 function validateDomainDecisionDraft(draft, input) {
   const errors = [];
+  const requiresLegacyBackfill = requiredDomainUnitsForContract(input?.semantic_contract_version).length > 0;
   if (!draft || typeof draft !== 'object' || Array.isArray(draft)) return [issue('DOMAIN_DRAFT_INVALID', '$')];
   for (const path of controllerFieldPaths(draft)) errors.push(issue('CONTROLLER_FIELD_FORBIDDEN', path));
   if (draft.schema_version !== 1) errors.push(issue('SCHEMA_VERSION_INVALID', 'schema_version', draft.schema_version));
@@ -138,9 +146,10 @@ function validateDomainDecisionDraft(draft, input) {
       validatePatch(decision.patch, input, entry, label, entriesByRef, errors);
       if ((entry.category === 'characters' || entry.category === 'skills')
         && decision.patch && typeof decision.patch === 'object' && !Array.isArray(decision.patch)) {
-        validatePowerRankPatch(decision.patch, label, errors);
+        validatePowerRankPatch(decision.patch, label, requiresLegacyBackfill, errors);
       }
-      if (entry.category === 'items'
+      if (requiresLegacyBackfill
+        && entry.category === 'items'
         && !nonempty(decision.patch?.inclusion_reason)
         && !nonempty(entry.facts?.inclusion_reason)
         && !['关键', '稀有', '重要'].includes(entry.facts?.importance)) {

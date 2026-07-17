@@ -30,6 +30,7 @@ factions:
   - local_key: "faction:青城派"
     name: 青城派
     type: 门派
+    description: null
     source_refs:
       - chapter: 1
         text: 原文锚点
@@ -37,9 +38,10 @@ factions:
 characters:
   - local_key: "character:甲"
     name: 甲
-    level: 核心
-    rank: 登堂入室
-    faction: "faction:青城派"
+    level: null
+    rank: null
+    faction: null
+    biography: null
     source_refs:
       - chapter: 1
         text: 原文锚点
@@ -48,8 +50,9 @@ skills:
   - local_key: "skill:内功"
     name: 玄门内功
     type: 内功
-    rank: 炉火纯青
-    faction: "faction:青城派"
+    rank: null
+    faction: null
+    description: null
     techniques:
       - name: 飞云掌
         named_in_source: true
@@ -61,7 +64,8 @@ items:
   - local_key: "item:回生丹"
     name: 回生丹
     type: 丹药
-    inclusion_reason: 高级药毒
+    description: null
+    inclusion_reason: null
     source_refs:
       - chapter: 1
         text: 原文锚点
@@ -77,20 +81,23 @@ chapter_summary:
 ## 字段规则
 
 - **local_key**：`category:名称` 格式
-- **rank**：八级固定值之一
-- **level**：核心/重要/次要/龙套/背景
+- **rank**：原文足以可靠判断时写八级固定值之一，否则写 null 或省略
+- **level**：原文足以可靠判断时写核心/重要/次要/龙套/背景，否则写 null 或省略
 - **named_in_source**：招式必须为 true
 - **type**：武器/防具/秘籍/丹药/暗器/其他
-- **inclusion_reason**：秘籍/剧情关键/高级药毒/神兵利器/其他稀有特殊
-- **faction**：引用势力的 local_key，如 `"faction:青城派"`
+- **inclusion_reason**：能由本章证据确认时写秘籍/剧情关键/高级药毒/神兵利器/其他稀有特殊，否则写 null 或省略
+- **faction**：关系在本章明确时引用势力的 local_key，如 `"faction:青城派"`；不明确时写 null 或省略
+- **biography / description**：只写本章证据直接支持的内容；不确定时写 null 或省略
 - **techniques**：嵌套在 skills 内，每个 technique 必须有 name 和 named_in_source
 
 ## 注意事项
 
 1. 输出 YAML，不是 JSON
 2. **source_refs 必须保留**：每个实体必须有 source_refs，避免编造
-3. **禁止跨章节证据**：每个 YAML 只能包含对应章节的实体与 source_refs，不得从同一作业的另一章节复制实体、引文或摘要
-4. 只写各章节描述符指定的 staging 路径，不调用 accept
-5. 不修改其他文件
-6. 不在书籍目录外写文件
-7. 返回时逐章报告 YAML 路径和成功/失败状态
+3. **禁止补写不确定信息**：不得为了通过校验而猜测 rank、level、faction、biography、description 或 inclusion_reason；缺失信息必须保持 null 或省略
+4. **name/local_key/source_refs/章节号/原文引文不可为空或省略**，结构和证据字段仍按硬约束处理
+5. **禁止跨章节证据**：每个 YAML 只能包含对应章节的实体与 source_refs，不得从同一作业的另一章节复制实体、引文或摘要
+6. 只写各章节描述符指定的 staging 路径，不调用 accept
+7. 不修改其他文件
+8. 不在书籍目录外写文件
+9. 返回时逐章报告 YAML 路径和成功/失败状态

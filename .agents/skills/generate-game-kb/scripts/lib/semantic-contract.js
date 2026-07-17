@@ -2,12 +2,14 @@
 
 const SEMANTIC_CONTRACT_VERSION = 5;
 const SEMANTIC_PROFILE = 'domain-distill-v1';
+const LEGACY_DOMAIN_CONTRACT_VERSION = 4;
 const DOMAIN_UNITS = Object.freeze([
   'distill:factions',
   'distill:characters',
   'distill:skills',
   'distill:items'
 ]);
+const NO_DOMAIN_UNITS = Object.freeze([]);
 const FINAL_FILES = Object.freeze({
   characters: 'characters.yaml',
   skills: 'skills.yaml',
@@ -42,6 +44,10 @@ function isPowerRank(value) {
   return typeof value === 'string' && POWER_RANK_SET.has(value);
 }
 
+function requiredDomainUnitsForContract(version) {
+  return version === LEGACY_DOMAIN_CONTRACT_VERSION ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
+}
+
 module.exports = {
   CHARACTER_LEVELS,
   DOMAIN_UNITS,
@@ -51,5 +57,6 @@ module.exports = {
   POWER_RANKS,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
-  isPowerRank
+  isPowerRank,
+  requiredDomainUnitsForContract
 };

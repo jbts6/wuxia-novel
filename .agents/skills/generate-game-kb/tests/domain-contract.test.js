@@ -5,7 +5,11 @@ const test = require('node:test');
 
 const { validateDomainDecisionDraft } = require('../scripts/lib/domain-contract');
 const { DOMAIN_PATCH_FIELDS } = require('../scripts/lib/domain-work');
-const { DOMAIN_UNITS, SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
+const {
+  DOMAIN_UNITS,
+  SEMANTIC_CONTRACT_VERSION,
+  requiredDomainUnitsForContract
+} = require('../scripts/lib/semantic-contract');
 
 test('domain validation accepts only the shared four domain units', () => {
   const baseInput = {
@@ -33,7 +37,13 @@ test('domain validation accepts only the shared four domain units', () => {
   }
 });
 
-function input(domain = 'skills') {
+test('the active contract requires no domain decision units while v4 retains all four', () => {
+  assert.equal(typeof requiredDomainUnitsForContract, 'function');
+  assert.deepEqual(requiredDomainUnitsForContract(SEMANTIC_CONTRACT_VERSION), []);
+  assert.deepEqual(requiredDomainUnitsForContract(4), DOMAIN_UNITS);
+});
+
+function input(domain = 'skills', semanticContractVersion = SEMANTIC_CONTRACT_VERSION) {
   const entries = {
     characters: [{
       entry_ref: 'r000001', category: 'characters', canonical_name: '胡斐', aliases: [],
@@ -55,7 +65,7 @@ function input(domain = 'skills') {
   }[domain];
   return {
     schema_version: 1,
-    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    semantic_contract_version: semanticContractVersion,
     semantic_profile: 'domain-distill-v1',
     stage: 'domain_distill',
     unit: `distill:${domain}`,
@@ -78,7 +88,7 @@ function input(domain = 'skills') {
 function validDraft(work = input()) {
   return {
     schema_version: 1,
-    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    semantic_contract_version: work.semantic_contract_version,
     unit: work.unit,
     input_hash: work.input_hash,
     decisions: work.entries.map(entry => ({
@@ -100,7 +110,7 @@ function validDraft(work = input()) {
   };
 }
 
-test('character and skill keep decisions require a valid final rank patch', () => {
+test('v5 character and skill keep decisions accept unresolved rank but reject invalid values', () => {
   for (const domain of ['characters', 'skills']) {
     const work = input(domain);
     const category = domain;
@@ -108,15 +118,41 @@ test('character and skill keep decisions require a valid final rank patch', () =
 
     const missing = validDraft(work);
     delete missing.decisions[index].patch.rank;
-    assert.ok(validateDomainDecisionDraft(missing, work).some(error =>
-      error.code === 'POWER_RANK_REQUIRED'
-      && error.path === `decisions[${index}].patch.rank`));
+    assert.deepEqual(validateDomainDecisionDraft(missing, work), []);
+
+    const unresolved = validDraft(work);
+    unresolved.decisions[index].patch.rank = null;
+    assert.deepEqual(validateDomainDecisionDraft(unresolved, work), []);
 
     const invalid = validDraft(work);
     invalid.decisions[index].patch.rank = '天下无敌';
     assert.ok(validateDomainDecisionDraft(invalid, work).some(error =>
       error.code === 'POWER_RANK_INVALID'
       && error.path === `decisions[${index}].patch.rank`));
+  }
+});
+
+test('legacy v4 character and skill keep decisions still require a valid final rank patch', () => {
+  for (const domain of ['characters', 'skills']) {
+    const work = input(domain, 4);
+
+    const missing = validDraft(work);
+    delete missing.decisions[0].patch.rank;
+    assert.ok(validateDomainDecisionDraft(missing, work).some(error =>
+      error.code === 'POWER_RANK_REQUIRED'
+      && error.path === 'decisions[0].patch.rank'));
+
+    const unresolved = validDraft(work);
+    unresolved.decisions[0].patch.rank = null;
+    assert.ok(validateDomainDecisionDraft(unresolved, work).some(error =>
+      error.code === 'POWER_RANK_REQUIRED'
+      && error.path === 'decisions[0].patch.rank'));
+
+    const invalid = validDraft(work);
+    invalid.decisions[0].patch.rank = '天下无敌';
+    assert.ok(validateDomainDecisionDraft(invalid, work).some(error =>
+      error.code === 'POWER_RANK_INVALID'
+      && error.path === 'decisions[0].patch.rank'));
   }
 });
 
@@ -189,7 +225,7 @@ test('skill and item semantics enforce named nested techniques and finite noise 
   keptAction.decisions[0].patch.techniques[0].name = '';
   assert.equal(validateDomainDecisionDraft(keptAction, skills).some(error => error.code === 'TECHNIQUE_NAME_REQUIRED'), true);
 
-  const items = input('items');
+  const items = input('items', 4);
   const keepOrdinary = validDraft(items);
   delete keepOrdinary.decisions[0].patch.inclusion_reason;
   assert.equal(validateDomainDecisionDraft(keepOrdinary, items).some(error => error.code === 'ITEM_INCLUSION_REASON_REQUIRED'), true);
@@ -202,6 +238,20 @@ test('skill and item semantics enforce named nested techniques and finite noise 
 
   rejectOrdinary.decisions[0].reason = 'whatever';
   assert.equal(validateDomainDecisionDraft(rejectOrdinary, items).some(error => error.code === 'DOMAIN_REJECTION_REASON_INVALID'), true);
+});
+
+test('v5 item decisions accept an unresolved inclusion reason while v4 stays strict', () => {
+  const active = input('items');
+  const unresolved = validDraft(active);
+  delete unresolved.decisions[0].patch.inclusion_reason;
+  assert.deepEqual(validateDomainDecisionDraft(unresolved, active), []);
+
+  const legacy = input('items', 4);
+  const missing = validDraft(legacy);
+  delete missing.decisions[0].patch.inclusion_reason;
+  assert.ok(validateDomainDecisionDraft(missing, legacy).some(error =>
+    error.code === 'ITEM_INCLUSION_REASON_REQUIRED'
+    && error.path === 'decisions[0].patch.inclusion_reason'));
 });
 
 test('pending decisions require evidence-bearing detail and never masquerade as accepted output', () => {
