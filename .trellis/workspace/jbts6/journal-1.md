@@ -725,3 +725,172 @@ Implemented the four-domain fast game-KB flow, disabled fresh chapter dialogue e
 ### Next Steps
 
 - None - task complete
+
+
+## Session 16: Restore YAML contract baseline
+
+**Date**: 2026-07-17
+**Task**: `07-17-game-kb-yaml-baseline`
+**Branch**: `feat/game-kb-yaml-flow`
+
+### Summary
+
+完成 generate-game-kb v4 baseline 质量门：统一四个 domain、五个最终 YAML 文件、YAML staging/accepted 路径、精简字段、`rank`/`level` 与嵌套 techniques，并修复七个生产 JavaScript 语法错误。未恢复 locations、dialogues、events，未加入旧域别名或 JSON/YAML 双读兼容。
+
+### Verification
+
+- 生产 JavaScript 语法检查：35/35 通过，0 失败。
+- Baseline 聚焦测试：42/42 通过，0 失败（7 个测试文件）。
+- `git diff --check HEAD`：通过。
+- `CLAUDE.md`：无改动。
+- 完整旧测试集：205 个测试，134 通过、70 失败、1 跳过。失败分类为已删除实体、旧九个 JSON 输出、旧 `distill:plot|martial|world`、`power_rank`、旧 merge/clean/recall/quality 流程及 1 个 Windows symlink `EPERM`；这些迁移/删除工作属于后续 `game-kb-assemble-verify` 与 `game-kb-cleanup-performance`，不回滚 v4 baseline。
+
+### Scope Notes
+
+- fast-profile spec 后半段仍有旧 recall/quality/events/dialogues 描述，保留给 `07-17-game-kb-cleanup-performance` 整体收敛。
+- 当前子任务未提交、未合并、未推送；按用户要求继续在隔离 worktree 中累积后续子任务。
+
+### Status
+
+[OK] **Baseline quality gate passed; proceeding to assemble/verify child**
+
+
+## Session 17: 完成 Game KB v4 单次组装与验证门
+
+**Date**: 2026-07-17
+**Task**: `07-17-game-kb-assemble-verify`
+**Branch**: `feat/game-kb-yaml-flow`
+
+### Summary
+
+完成 generate-game-kb v4 的单次 `assemble`、workspace `verify`、五文件原子安装和 `verify --installed`。正常路径只生成 `characters.yaml`、`skills.yaml`、`items.yaml`、`factions.yaml`、`chapter_summaries.yaml`，证据保留在 controller JSON 报告与 receipt 中；`prepare-merge` 仅作为待 cleanup 子任务删除的临时兼容入口。
+
+### Requirement Review
+
+- 四个 domain decision set 必须完整且终态；缺失决策、pending、merge cycle、accepted chapter 篡改和未解析最终引用均有 v4 装配回归。
+- 章节摘要最终结构固定为 `{ chapter, title, summary }`，accepted chapter YAML 继续承担摘要证据。
+- Workspace 验证覆盖五文件/字段、YAML、ID/枚举、summary、嵌套 technique、引用闭合、accepted immutability、candidate closure、普通物品和 assembly report hash。
+- 安装仅复制五个 YAML 文件，receipt 绑定 verification report 与 final data hash；移动前、移动后失败均恢复旧 data，installed verify 不回退 workspace。
+- 三章正常路径不调用 merge/clean/build、recall/supplement、quality sample 或 game-material projection。
+
+### Verification
+
+- Skill validation：`quick_validate.py` 通过，输出 `Skill is valid!`。
+- 生产 JavaScript 语法检查：37/37 通过，0 失败。
+- `assemble.test.js`：6/6 通过，0 失败。
+- v4 聚焦测试：42/42 通过，0 失败（7 个测试文件）。
+- 完整 generate-game-kb 测试：227 个测试，154 通过、72 失败、1 跳过；v4 聚焦失败为 0。其余失败中 71 个是旧九类/merge-clean/recall/quality/game-material/旧安装契约，归属 `07-17-game-kb-cleanup-performance`；1 个是 Windows 创建外部 symlink 的 `EPERM` 环境失败。
+- 新增 debug/TODO/risky bypass：0；潜在未使用 destructured import：0。
+- `rtk git diff --check HEAD`：通过。
+- `CLAUDE.md`：无改动。
+
+### Scope Notes
+
+- 本轮未提交、未合并、未推送，也未运行会自动提交的 Trellis task archive/add_session 命令。
+- 任务保持 `in_progress`，等待后续明确授权进入 Phase 3.4；隔离 worktree 保留。
+
+### Status
+
+[OK] **Assemble/verify quality gate passed; commit and archive intentionally deferred**
+
+
+## Session 18: Dashboard 迁移到五 YAML 数据边界
+
+**Date**: 2026-07-17
+**Task**: `07-17-game-kb-dashboard-yaml`
+**Branch**: `feat/game-kb-yaml-flow`
+
+### Summary
+
+Dashboard 核心存储统一读取 `characters.yaml`、`factions.yaml`、`skills.yaml`、`items.yaml`、`chapter_summaries.yaml`。Library 服务端用 `js-yaml` 解析并通过 JSON HTTP 响应返回结构化值；Review controller 继续用 JSON envelope 携带 YAML 文本，由 store 执行 `js-yaml` load/dump。可见路由、导航、概览和全局筛选不再暴露 locations、dialogues、events 或 game materials。
+
+### Verification
+
+- `dashboard/` 下 `rtk npm test`：退出码 0，28/28 个测试文件通过，116/116 个测试通过。
+- `dashboard/` 下 `rtk npm run lint`：退出码 0，0 errors、1 warning。warning 位于 `src/pages/Library.tsx:224` 的 TanStack `useReactTable`（`react-hooks/incompatible-library`）；该调用在 HEAD 基线已存在于第 228 行，本任务只删除前置旧分类使行号移动，未修改调用，也未增加 suppression。
+- `dashboard/` 下 `rtk npm run build`：退出码 0，2109 modules transformed，构建产物生成；现有单包约 `636.57 kB` 超过 Vite `500 kB` 提示阈值，未在本数据迁移任务中扩大为代码分包改造。
+- 根目录 `rtk node --test .agents/skills/generate-game-kb/tests/install-v4.test.js`：退出码 0，5/5 通过，0 失败。
+- `rtk git diff --check HEAD`：退出码 0，无 whitespace errors。
+- `rtk git diff --quiet HEAD -- CLAUDE.md`：退出码 0，`CLAUDE.md` 无改动。
+- 跨层审计：`data/*.yaml -> server yaml.load -> /api/library/book-data JSON -> normalizeNovelData -> 五个 Dashboard 内容面` 一致；Review 独立链路与规格一致；新增 debug/type bypass 0，核心 `.json`/`.yml` fallback marker 0。
+- 已知无关失败：0。已知无关噪声仅为上述 1 条 lint warning 和 1 条 Vite chunk-size warning。
+- 最终修复波次先以回归锁定 chapter summary 全删、备份/写入失败误报成功、V4 `level`/`rank`/`summary` 覆盖遗漏及错误诊断路径，再完成 GREEN；四类 chapter-summary 失败模式均有 scanner 回归。
+- 独立最终复审结论：Critical 0、Important 0、Minor 0，`Ready to merge: Yes`；报告见 `.superpowers/sdd/final-review-fix-report.md` 和 `.superpowers/sdd/dashboard-final-rereview.diff`。
+
+### Scope Notes
+
+- 本轮未提交、未合并、未推送，也未归档 Trellis task；用户要求的 no-commit blocker 仍然生效。
+- 广泛删除遗留 extras、`/book-extras` 和孤立旧模块归属后续 `07-17-game-kb-cleanup-performance` 子任务。
+
+### Status
+
+[OK] **Dashboard YAML quality gate and final branch review passed; commit and archive intentionally deferred**
+
+
+## Session 19: 完成 Game KB 清理与性能质量门
+
+**Date**: 2026-07-17
+**Task**: 完成 Game KB 清理与性能质量门
+**Branch**: `feat/game-kb-yaml-flow`
+
+### Summary
+
+完成 generate-game-kb v4 清理、性能证据与最终代码/规格质量门；按用户约束保持未提交未归档。
+
+### Main Changes
+
+### Summary
+
+完成 `generate-game-kb` v4 清理与性能质量门。唯一正常可写生命周期为 `prepare -> chapter accepts -> plan-domains -> four domain accepts -> assemble -> verify -> install -> verify --installed -> archive-run`。每个 AI unit 共用最多两次 validator-observed submission；状态恢复返回唯一 `next_action`，四个 domain 可并发处理但保持 canonical 展示顺序。旧 merge/clean/build、recall/supplement、quality sample、game-material projection 和 YAML conversion 入口及生产依赖已删除。
+
+保留并加强 accepted evidence immutability、candidate/reference closure、稳定 ID、run isolation、五 YAML 精确边界、原子安装回滚、installed verification 和 archive rollback。最终复审修复额外加入 hashed faction-only `allowed_faction_refs`、accept 前 unknown/unauthorized ref 拒绝，以及 archive 对当前 passing verification-report bytes/hash 的 pre-mutation 绑定和 receipt 绑定。
+
+### Fresh Task 6 verification
+
+- Production JavaScript syntax: 27 checked, 27 passed, 0 failed.
+- Complete suite with `NODE_OPTIONS=--trace-deprecation`: 28 test files; 195 tests, 195 pass, 0 fail, 0 cancelled, 0 skipped, 0 todo, 0 warnings; duration 43,433.4988ms.
+- `quick_validate.py`: exit 0, `Skill is valid!`, 0 warnings.
+- `install-v4.test.js`: 5/5 pass, 0 fail/cancelled/skipped/todo/warnings; duration 10,597.3411ms.
+- `cleanup-contract.test.js`: 9/9 pass, 0 fail/cancelled/skipped/todo/warnings; duration 3,148.4210ms.
+- `performance-budget.test.js`: 1/1 pass, 0 fail/cancelled/skipped/todo/warnings.
+- `rtk git diff --check HEAD`: exit 0, 0 diagnostics.
+- `rtk git diff --quiet HEAD -- CLAUDE.md`: exit 0; `CLAUDE.md` unchanged.
+
+### Representative timing evidence
+
+- Workload: 21 chapter units + 4 domain units = 25 planned/done units.
+- AI submissions: 30 total, 5 corrections, maximum raw unit attempts 2.
+- Total: 2,580,000ms / 43 minutes <= 2,700,000ms / 45 minutes.
+- Positive phases from the real `buildRunMetrics`: prepare 120,000ms; chapter extraction 1,440,000ms; domain distill 600,000ms; assemble 120,000ms; verify 120,000ms; install 60,000ms; archive 120,000ms.
+- AI aggregates: chapter 21 planned/done, 24 attempts, 3 corrections; domain 4 planned/done, 6 attempts, 2 corrections.
+
+### Spec and review
+
+- `.trellis/spec/backend/quality-guidelines.md` records the v4 five-YAML lifecycle, two submissions, four-domain parallelism, current workspace freshness, exact verification-report/archive receipt binding, complete archive integration, and the real-builder 45-minute performance contract.
+- Initial complete-package review: Critical 0, Important 3, Minor 2, `Ready to merge: With fixes`.
+- Single fix wave RED/GREEN combined gate: 12 suites, 97/97 pass, 0 fail/cancelled/skipped/todo/warnings; changed production syntax 5/5.
+- Rebuilt tracked-plus-untracked package review: Critical 0, Important 0, Minor 0, `Ready to merge: Yes`.
+- Final spec-only re-review: Critical 0, Important 0, Minor 0, `Ready to merge: Yes`.
+
+### Scope and state
+
+- No commit, merge, push, Trellis archive, `trellis-finish-work`, worktree cleanup, or `CLAUDE.md` edit was performed.
+- The Trellis task intentionally remains `in_progress` and the isolated `feat/game-kb-yaml-flow` worktree remains intact for later user authorization.
+- The PowerShell review-package helper is a temporary scratch artifact chosen for the current Windows worktree; no PS1 helper entered the production lifecycle. Per user convention, any new long-lived production workflow script must use Python.
+
+
+### Git Commits
+
+(No commits - planning session)
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete

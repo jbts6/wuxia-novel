@@ -8,8 +8,8 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 15
-- **Last Active**: 2026-07-16
+- **Total Sessions**: 19
+- **Last Active**: 2026-07-17
 <!-- @@@/auto:current-status -->
 
 ---
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~727 | Active |
+| `journal-1.md` | ~896 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,10 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 19 | 2026-07-17 | 完成 Game KB 清理与性能质量门 | - | `feat/game-kb-yaml-flow` |
+| 18 | 2026-07-17 | Dashboard 迁移到五 YAML 数据边界 | - | `feat/game-kb-yaml-flow` |
+| 17 | 2026-07-17 | 完成 Game KB v4 单次组装与验证门 | - | `feat/game-kb-yaml-flow` |
+| 16 | 2026-07-17 | Restore YAML contract baseline | - | `feat/game-kb-yaml-flow` |
 | 15 | 2026-07-16 | 重构 generate-game-kb 支持4类知识库 | `5d306d92`, `bb9405ea`, `f2c14227`, `5c80c364`, `63b2925f` | `main` |
 | 14 | 2026-07-16 | 统一 game-kb 境界字段契约 | `7fa88e55`, `a0e595f5` | `main` |
 | 13 | 2026-07-16 | 归档 Game KB 确定性组装任务 | `167b4260` | `main` |
