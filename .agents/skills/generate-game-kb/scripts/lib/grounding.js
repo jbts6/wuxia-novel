@@ -117,7 +117,6 @@ function validateGroundedRecord(record, { chapterNumber, chapterText, label }) {
       return;
     }
     evidence.push(normalizedText);
-    if (span !== null) evidence.push(span);
   });
 
   if (evidence.length === 0) return { errors, normalizedRefs };

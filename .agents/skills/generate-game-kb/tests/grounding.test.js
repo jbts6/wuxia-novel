@@ -88,6 +88,15 @@ test('candidate name must occur in located evidence', () => {
   assert.equal(result.errors[0].target, '乙');
 });
 
+test('candidate name must occur in the submitted quote, not only its declared line span', () => {
+  const result = validate(record({
+    source_refs: [{ chapter: 3, text: '拔剑。', line_start: 2, line_end: 2 }]
+  }));
+
+  assert.deepEqual(result.errors.map(error => error.code), ['SOURCE_NAME_NOT_FOUND']);
+  assert.equal(result.errors[0].target, '甲');
+});
+
 test('every technique name must occur in located evidence', () => {
   const skill = record({
     local_key: 'skill:玄门内功',
@@ -98,6 +107,24 @@ test('every technique name must occur in located evidence', () => {
   const result = validateGroundedRecord(skill, {
     chapterNumber: 3,
     chapterText: '第三章\n甲运转玄门内功。',
+    label: 'skills[0]'
+  });
+
+  assert.deepEqual(result.errors.map(error => error.code), ['SOURCE_NAME_NOT_FOUND']);
+  assert.equal(result.errors[0].path, 'skills[0].techniques[0].name');
+  assert.equal(result.errors[0].target, '飞云掌');
+});
+
+test('technique name must occur in the submitted quote, not only its declared line span', () => {
+  const skill = record({
+    local_key: 'skill:玄门内功',
+    name: '玄门内功',
+    source_refs: [{ chapter: 3, text: '玄门内功', line_start: 2, line_end: 2 }],
+    techniques: [{ name: '飞云掌', named_in_source: true }]
+  });
+  const result = validateGroundedRecord(skill, {
+    chapterNumber: 3,
+    chapterText: '第三章\n甲运转玄门内功，施展飞云掌。',
     label: 'skills[0]'
   });
 
