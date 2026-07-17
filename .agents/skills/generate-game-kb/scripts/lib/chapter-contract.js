@@ -1,6 +1,7 @@
 'use strict';
 
 const { CHARACTER_LEVELS, isPowerRank } = require('./semantic-contract');
+const { validateGroundedRecord } = require('./grounding');
 
 const CANDIDATE_ARRAYS = Object.freeze([
   'characters',
@@ -38,6 +39,18 @@ function validateSourceRefs(record, label, chapter, errors) {
   });
 }
 
+function validateEvidence(record, label, expected, errors) {
+  if (typeof expected.chapterText === 'string') {
+    errors.push(...validateGroundedRecord(record, {
+      chapterNumber: expected.number,
+      chapterText: expected.chapterText,
+      label
+    }).errors);
+    return;
+  }
+  validateSourceRefs(record, label, expected.number, errors);
+}
+
 function findFormalIds(value, path, errors) {
   if (!value || typeof value !== 'object') return;
   if (Array.isArray(value)) {
@@ -53,7 +66,7 @@ function findFormalIds(value, path, errors) {
   }
 }
 
-function validateNamedCandidate(record, label, chapter, errors) {
+function validateNamedCandidate(record, label, expected, errors) {
   if (!record || typeof record !== 'object' || Array.isArray(record)) {
     errors.push(issue('CANDIDATE_INVALID', label));
     return;
@@ -64,7 +77,7 @@ function validateNamedCandidate(record, label, chapter, errors) {
   if (typeof record.name !== 'string' || record.name.trim() === '') {
     errors.push(issue('NAME_REQUIRED', `${label}.name`));
   }
-  validateSourceRefs(record, label, chapter, errors);
+  validateEvidence(record, label, expected, errors);
 }
 
 function validatePowerRank(record, label, errors) {
@@ -124,7 +137,7 @@ function validateChapterDraft(draft, expected) {
     const localKeys = new Set();
     draft[category].forEach((record, index) => {
       const label = `${category}[${index}]`;
-      validateNamedCandidate(record, label, expected.number, errors);
+      validateNamedCandidate(record, label, expected, errors);
       if (category === 'characters' || category === 'skills') {
         validatePowerRank(record, label, errors);
       }
@@ -145,7 +158,7 @@ function validateChapterDraft(draft, expected) {
     if (typeof draft.chapter_summary.summary !== 'string' || draft.chapter_summary.summary.trim() === '') {
       errors.push(issue('SUMMARY_TEXT_REQUIRED', 'chapter_summary.summary'));
     }
-    validateSourceRefs(draft.chapter_summary, 'chapter_summary', expected.number, errors);
+    validateEvidence(draft.chapter_summary, 'chapter_summary', expected, errors);
   }
 
   findFormalIds(draft, '', errors);

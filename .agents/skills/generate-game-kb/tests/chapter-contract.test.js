@@ -64,6 +64,26 @@ test('rejects source refs to another chapter during chapter extraction', () => {
   assert.ok(codes(draft).includes('SOURCE_CHAPTER_MISMATCH'));
 });
 
+test('delegates exact source grounding when chapter text is available', () => {
+  const draft = validChapterDraft({
+    characters: [{
+      local_key: 'character:甲', name: '甲', level: '核心', rank: '初窥门径',
+      source_refs: [sourceRef(1, '甲拔剑。')]
+    }],
+    items: [], skills: [], factions: [],
+    chapter_summary: {
+      title: '第一章 起始', summary: '甲拔剑。', source_refs: [sourceRef(1, '甲拔剑。')]
+    }
+  });
+  const groundedExpected = { ...expected, chapterText: '第一章 起始\n甲拔剑。\n' };
+
+  assert.deepEqual(validateChapterDraft(draft, groundedExpected), []);
+
+  draft.characters[0].source_refs[0].text = '甲飞上云端。';
+  assert.ok(validateChapterDraft(draft, groundedExpected).some(error =>
+    error.code === 'SOURCE_QUOTE_NOT_FOUND' && error.path === 'characters[0].source_refs[0].text'));
+});
+
 test('rejects a nested technique unless named_in_source is true and name is nonempty', () => {
   const draft = validChapterDraft({
     skills: [{
