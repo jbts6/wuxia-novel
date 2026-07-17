@@ -122,15 +122,16 @@ test('archive rejects ambiguous source texts before moving anything', () => {
 
 test('archive rejects a symlink that resolves outside the novel root', () => {
   const novel = makeNovelDirectory({ '试书.txt': '正文。\n' });
-  const outside = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-outside-')), 'secret.txt');
-  fs.writeFileSync(outside, 'secret\n');
-  fs.symlinkSync(outside, path.join(novel, 'external-link'));
+  const outside = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-outside-'));
+  const secret = path.join(outside, 'secret.txt');
+  fs.writeFileSync(secret, 'secret\n');
+  fs.symlinkSync(outside, path.join(novel, 'external-link'), 'junction');
 
   assert.throws(
     () => buildArchivePlan(novel, { archiveId: 'symlink' }),
     error => error.code === 'ARCHIVE_SYMLINK_ESCAPE'
   );
-  assert.equal(fs.readFileSync(outside, 'utf8'), 'secret\n');
+  assert.equal(fs.readFileSync(secret, 'utf8'), 'secret\n');
 });
 
 test('archive rolls back prior moves after an injected mid-move failure', () => {

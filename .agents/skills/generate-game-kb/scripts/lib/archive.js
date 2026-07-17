@@ -5,11 +5,12 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { GameKbError } = require('./errors');
-const { atomicWriteJson, readJson } = require('./io');
+const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { pathsFor } = require('./paths');
 const { assertAcceptedArtifacts, readArtifactManifest } = require('./candidate-ledger');
 const { buildRunMetrics, derivePhaseDurations } = require('./timing');
 const { SEMANTIC_CONTRACT_VERSION, assertSemanticContract } = require('./run');
+const { inspectWorkspaceFinal } = require('./verify');
 
 const ARCHIVE_ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/;
 
@@ -196,7 +197,37 @@ function verifyRunArtifacts(paths) {
   return manifest;
 }
 
-function archiveRun(novelDir, runId) {
+function assertInstalledIdentity(metadata, installed, runId) {
+  const requested = {
+    semantic_contract_version: metadata.semantic_contract_version ?? null,
+    source_hash: metadata.source_hash ?? null,
+    final_data_hash: metadata.final_data_hash ?? null
+  };
+  const actual = {
+    semantic_contract_version: installed.semantic_contract_version ?? null,
+    source_hash: installed.source_hash ?? null,
+    final_data_hash: installed.final_data_hash ?? null
+  };
+  const mismatches = Object.keys(requested)
+    .filter(key => requested[key] !== actual[key])
+    .map(key => ({ field: key, requested: requested[key], installed: actual[key] }));
+  if (mismatches.length > 0) {
+    throw new GameKbError(
+      'ARCHIVE_INSTALLED_IDENTITY_MISMATCH',
+      'Requested run does not match the installed data identity',
+      { run_id: runId, requested, installed: actual, mismatches }
+    );
+  }
+}
+
+function maybeArchiveFault(options, point) {
+  if (typeof options.injectFault === 'function') options.injectFault(point);
+  if (options.faultAt === point) {
+    throw new GameKbError('ARCHIVE_FAULT_INJECTED', `Injected archive fault at ${point}`, { point });
+  }
+}
+
+function archiveRun(novelDir, runId, options = {}) {
   const novel = assertNovelDirectory(novelDir);
   if (typeof runId !== 'string' || !ARCHIVE_ID_PATTERN.test(runId)) {
     throw new GameKbError('RUN_REQUIRED', 'archive-run requires a safe run id', { run_id: runId });
@@ -216,25 +247,79 @@ function archiveRun(novelDir, runId) {
   if (!installed.passed) {
     throw new GameKbError('INSTALLED_VERIFICATION_REQUIRED', 'verify --installed must pass before archive-run', installed);
   }
+  assertInstalledIdentity(metadata, installed, runId);
+  const manifest = readJson(paths.manifest);
+  const assembly = readJson(paths.assemblyReport);
+  const verification = readJson(paths.verificationReport);
+  const verificationReportHash = sha256File(paths.verificationReport);
+  const expectedHash = assembly?.final_data_hash;
+  const workspace = inspectWorkspaceFinal(paths, {
+    chapters: manifest.chapters,
+    expectedHash
+  });
+  const blockingErrors = [...workspace.blocking_errors];
+  if (typeof expectedHash !== 'string' || expectedHash === '') {
+    blockingErrors.push({ code: 'ASSEMBLY_FINAL_HASH_MISSING', path: paths.assemblyReport, target: '' });
+  }
+  if (verification?.passed !== true) {
+    blockingErrors.push({ code: 'VERIFICATION_NOT_PASSED', path: paths.verificationReport, target: '' });
+  }
+  if (verification?.source_hash !== manifest.source_hash) {
+    blockingErrors.push({
+      code: 'VERIFICATION_SOURCE_HASH_STALE',
+      path: paths.verificationReport,
+      target: verification?.source_hash ?? ''
+    });
+  }
+  if (verification?.final_data_hash !== expectedHash) {
+    blockingErrors.push({
+      code: 'VERIFICATION_FINAL_HASH_STALE',
+      path: paths.verificationReport,
+      target: verification?.final_data_hash ?? ''
+    });
+  }
+  if (metadata.verification_report_hash !== verificationReportHash) {
+    blockingErrors.push({
+      code: 'VERIFICATION_REPORT_HASH_MISMATCH',
+      path: paths.verificationReport,
+      target: metadata.verification_report_hash ?? ''
+    });
+  }
+  if (blockingErrors.length > 0) {
+    throw new GameKbError(
+      'ARCHIVE_WORKSPACE_FINAL_INVALID',
+      'Current workspace final data must match assembly and verification evidence before archive-run',
+      {
+        run_id: runId,
+        expected_final_data_hash: expectedHash ?? null,
+        actual_final_data_hash: workspace.final_data_hash,
+        blocking_errors: blockingErrors
+      }
+    );
+  }
   assertAcceptedArtifacts(paths);
   const artifactManifest = verifyRunArtifacts(paths);
   const archivedAt = new Date().toISOString();
   const progress = fs.existsSync(paths.progress) ? readJson(paths.progress) : { units: {} };
   const durations = derivePhaseDurations(metadata, progress, archivedAt);
   const metrics = buildRunMetrics(paths, metadata, progress, archivedAt);
-  atomicWriteJson(paths.runMetrics, { ...metrics, phase_durations: durations });
-  atomicWriteJson(paths.runJson, {
-    ...metadata,
-    status: 'archived',
-    archived_at: archivedAt,
-    phase_durations: durations
-  });
-
+  const previousRunJson = fs.readFileSync(paths.runJson);
+  const previousMetrics = fs.existsSync(paths.runMetrics) ? fs.readFileSync(paths.runMetrics) : null;
   fs.mkdirSync(path.dirname(archiveDir), { recursive: true });
   try {
+    atomicWriteJson(paths.runMetrics, { ...metrics, phase_durations: durations });
+    atomicWriteJson(paths.runJson, {
+      ...metadata,
+      status: 'archived',
+      archived_at: archivedAt,
+      phase_durations: durations
+    });
+    maybeArchiveFault(options, 'after_metadata_write');
     fs.renameSync(paths.run, archiveDir);
+    maybeArchiveFault(options, 'after_move');
     const archivedManifest = path.join(archiveDir, 'artifact-manifest.json');
     verifyRunArtifacts({ ...paths, run: archiveDir, artifactManifest: archivedManifest });
+    maybeArchiveFault(options, 'after_archive_verification');
     const receipt = {
       schema_version: 1,
       semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
@@ -243,18 +328,37 @@ function archiveRun(novelDir, runId) {
       archive_dir: archiveDir,
       archived_at: archivedAt,
       artifact_manifest_hash: sha256File(archivedManifest),
+      verification_report_hash: verificationReportHash,
       artifact_count: artifactManifest.entries.length,
       metrics_hash: sha256File(path.join(archiveDir, 'reports', 'run-metrics.json'))
     };
     atomicWriteJson(path.join(archiveDir, 'archive-receipt.json'), receipt);
+    maybeArchiveFault(options, 'after_receipt_write');
     const runsDir = path.dirname(paths.run);
     if (fs.existsSync(runsDir) && fs.readdirSync(runsDir).length === 0) fs.rmdirSync(runsDir);
     const workDir = path.dirname(runsDir);
     if (fs.existsSync(workDir) && fs.readdirSync(workDir).length === 0) fs.rmdirSync(workDir);
     return receipt;
   } catch (error) {
-    if (!fs.existsSync(paths.run) && fs.existsSync(archiveDir)) {
-      fs.renameSync(archiveDir, paths.run);
+    let rollbackError = null;
+    try {
+      if (!fs.existsSync(paths.run) && fs.existsSync(archiveDir)) {
+        fs.renameSync(archiveDir, paths.run);
+      }
+      if (fs.existsSync(paths.run)) {
+        atomicWriteFile(paths.runJson, previousRunJson);
+        if (previousMetrics === null) fs.rmSync(paths.runMetrics, { force: true });
+        else atomicWriteFile(paths.runMetrics, previousMetrics);
+        fs.rmSync(path.join(paths.run, 'archive-receipt.json'), { force: true });
+      }
+    } catch (recoveryError) {
+      rollbackError = recoveryError;
+    }
+    if (rollbackError) {
+      throw new GameKbError('ARCHIVE_ROLLBACK_FAILED', 'Run archive failed and rollback was incomplete', {
+        cause: error.message,
+        rollback_cause: rollbackError.message
+      });
     }
     throw new GameKbError('ARCHIVE_MOVE_FAILED', 'Run archive failed and was rolled back', { cause: error.message });
   }

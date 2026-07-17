@@ -7,15 +7,16 @@ const test = require('node:test');
 
 const { assertAcceptedArtifacts } = require('../scripts/lib/candidate-ledger');
 const { pathsFor } = require('../scripts/lib/paths');
-const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
-const { readWorkItem } = require('../scripts/lib/semantic-work');
+const { readWorkPlan } = require('../scripts/lib/semantic-work');
 const {
   makeNovel,
+  parseJsonLine,
   readJson,
   runFlow,
   sourceRef,
   writeStagingDraft,
-  validChapterDraft
+  validChapterDraft,
+  validDomainDraft
 } = require('./helpers');
 
 function flowJson(args) {
@@ -29,7 +30,7 @@ function assertPassed(result, label) {
 
 function assertMutation(result, relativePath) {
   assert.equal(result.status, 1, result.stdout);
-  const error = JSON.parse(result.stderr);
+  const error = parseJsonLine(result.stderr);
   assert.equal(error.code, 'ACCEPTED_ARTIFACT_MUTATED');
   assert.equal(error.details.relative_path, relativePath);
 }
@@ -48,23 +49,18 @@ function prepareAcceptedChapters() {
   for (const chapter of manifest.chapters) {
     const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
     const first = chapter.number === 1;
+    const base = validChapterDraft();
     const draft = validChapterDraft({
       chapter: chapter.number,
       title: chapter.title,
       source_hash: chapter.input_hash,
-      characters: first ? validChapterDraft().characters : [],
-      events: first ? validChapterDraft().events : [],
+      characters: first ? base.characters : [],
       items: [],
-      skills: first ? validChapterDraft().skills : [],
-      techniques: first ? validChapterDraft().techniques : [],
+      skills: first ? base.skills : [],
       factions: [],
-      locations: first ? validChapterDraft().locations : [],
-      dialogues: [],
-      summary: {
+      chapter_summary: {
         title: chapter.title,
         summary: `第${chapter.number}章摘要。`,
-        key_events: first ? ['event:相逢'] : [],
-        key_characters: first ? ['甲'] : [],
         source_refs: [sourceRef(chapter.number)]
       }
     });
@@ -77,34 +73,14 @@ function prepareAcceptedChapters() {
   return { novel, paths, manifest };
 }
 
-function domainDecision(input) {
-  return {
-    schema_version: 1,
-    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
-    unit: input.unit,
-    input_hash: input.input_hash,
-    decisions: input.entries.map(entry => ({
-      entry_ref: entry.entry_ref,
-      action: 'keep',
-      patch: {
-        canonical_name: entry.canonical_name,
-        ...(['characters', 'skills'].includes(entry.category)
-          ? { power_rank: '平平无奇' }
-          : {})
-      }
-    })),
-    notes: []
-  };
-}
-
 test('accepted artifact mutation is rejected instead of refreshing the expected hash', () => {
-  const expected = { 'accepted/chapters/ch_001.json': 'sha256:original' };
-  const actual = { 'accepted/chapters/ch_001.json': 'sha256:changed' };
+  const expected = { 'accepted/chapters/ch_001.yaml': 'sha256:original' };
+  const actual = { 'accepted/chapters/ch_001.yaml': 'sha256:changed' };
 
   assert.throws(
     () => assertAcceptedArtifacts(actual, expected),
     error => error.code === 'ACCEPTED_ARTIFACT_MUTATED'
-      && error.details.relative_path === 'accepted/chapters/ch_001.json'
+      && error.details.relative_path === 'accepted/chapters/ch_001.yaml'
       && error.details.expected_hash === 'sha256:original'
       && error.details.actual_hash === 'sha256:changed'
   );
@@ -112,39 +88,51 @@ test('accepted artifact mutation is rejected instead of refreshing the expected 
 
 test('chapter acceptance persists deterministic candidate keys and an artifact manifest entry', () => {
   const { paths } = prepareAcceptedChapters();
-  const chapter = readJson(path.join(paths.chapters, 'ch_001.json'));
+  const chapter = readJson(path.join(paths.chapters, 'ch_001.yaml'));
   const artifactManifest = readJson(paths.artifactManifest);
-  const entry = artifactManifest.entries.find(value => value.relative_path === 'accepted/chapters/ch_001.json');
+  const entry = artifactManifest.entries.find(value => value.relative_path === 'accepted/chapters/ch_001.yaml');
 
-  assert.equal(chapter.events[0].candidate_key, 'ch001:events:event:相逢');
-  assert.equal(chapter.coverage.events.quotable_count, 1);
+  assert.equal(chapter.characters[0].candidate_key, 'ch001:characters:character:甲');
+  assert.equal(chapter.skills[0].candidate_key, 'ch001:skills:skill:内功');
   assert.match(entry.content_hash, /^sha256:[a-f0-9]{64}$/);
   assert.match(entry.input_hash, /^sha256:[a-f0-9]{64}$/);
   assert.match(entry.accepted_at, /^\d{4}-\d{2}-\d{2}T/);
 });
 
-test('mutating an accepted chapter or domain decision blocks deterministic planning', () => {
+test('mutating an accepted chapter or domain decision blocks planning and assembly', () => {
   const { novel, paths } = prepareAcceptedChapters();
 
-  const chapterFile = path.join(paths.chapters, 'ch_001.json');
+  const chapterFile = path.join(paths.chapters, 'ch_001.yaml');
   const chapterRaw = fs.readFileSync(chapterFile, 'utf8');
   fs.writeFileSync(chapterFile, `${chapterRaw} `, 'utf8');
   assertMutation(
-    flowJson(['prepare-merge', novel]),
-    'accepted/chapters/ch_001.json'
+    flowJson(['plan-domains', novel, '--run', paths.runId]),
+    'accepted/chapters/ch_001.yaml'
   );
   fs.writeFileSync(chapterFile, chapterRaw, 'utf8');
 
-  const prepared = assertPassed(flowJson(['prepare-merge', novel]), 'prepare merge');
-  const unit = prepared.units[0];
-  const input = readWorkItem(paths, unit).input;
-  const accepted = assertPassed(flowJson([
-    'accept', novel,
-    '--unit', unit,
-    '--draft', writeStagingDraft(novel, unit, domainDecision(input))
-  ]), 'accept domain decision');
-  const relativePath = path.relative(paths.run, accepted.accepted_file).split(path.sep).join('/');
-  const raw = fs.readFileSync(accepted.accepted_file, 'utf8');
-  fs.writeFileSync(accepted.accepted_file, `${raw} `, 'utf8');
-  assertMutation(flowJson(['prepare-merge', novel]), relativePath);
+  assertPassed(
+    flowJson(['plan-domains', novel, '--run', paths.runId]),
+    'plan domains'
+  );
+  const plan = readWorkPlan(paths, 'domain');
+  const acceptedFiles = [];
+  for (const input of plan.inputs) {
+    const accepted = assertPassed(flowJson([
+      'accept', novel,
+      '--run', paths.runId,
+      '--unit', input.unit,
+      '--draft', writeStagingDraft(novel, input.unit, validDomainDraft(input))
+    ]), `accept ${input.unit}`);
+    acceptedFiles.push(accepted.accepted_file);
+  }
+
+  const decisionFile = acceptedFiles[0];
+  const relativePath = path.relative(paths.run, decisionFile).split(path.sep).join('/');
+  const raw = fs.readFileSync(decisionFile, 'utf8');
+  fs.writeFileSync(decisionFile, `${raw} `, 'utf8');
+  assertMutation(
+    flowJson(['assemble', novel, '--run', paths.runId]),
+    relativePath
+  );
 });

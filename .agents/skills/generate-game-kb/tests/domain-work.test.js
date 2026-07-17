@@ -12,6 +12,7 @@ const {
 } = require('../scripts/lib/domain-work');
 const { pathsFor } = require('../scripts/lib/paths');
 const { createOrResumeRun } = require('../scripts/lib/run');
+const { DOMAIN_UNITS } = require('../scripts/lib/semantic-contract');
 const {
   readWorkPlan,
   serializedInputBytes,
@@ -27,24 +28,22 @@ function fullRegistry() {
   return buildCandidateRegistry([chapter]);
 }
 
-test('nine-file candidates route into exactly four stable domain work items', () => {
+test('four-domain candidates route through the shared stable domain units', () => {
   assert.deepEqual(DOMAIN_DEFINITIONS, {
-    plot: ['characters', 'events', 'dialogues'],
-    martial: ['skills', 'techniques'],
-    items: ['items'],
-    world: ['factions', 'locations']
+    factions: ['factions'],
+    characters: ['characters'],
+    skills: ['skills'],
+    items: ['items']
   });
   const registry = fullRegistry();
-  const acceptedHashes = { 'accepted/chapters/ch_001.json': 'sha256:chapter-one' };
+  const acceptedHashes = { 'accepted/chapters/ch_001.yaml': 'sha256:chapter-one' };
   const first = createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes });
   const second = createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes });
 
   assert.deepEqual(first, second);
   assert.equal(first.stage, 'domain');
-  assert.deepEqual(first.inputs.map(input => input.unit), [
-    'distill:plot', 'distill:martial', 'distill:items', 'distill:world'
-  ]);
-  assert.deepEqual(first.inputs.map(input => input.domain), ['plot', 'martial', 'items', 'world']);
+  assert.deepEqual(first.inputs.map(input => input.unit), DOMAIN_UNITS);
+  assert.deepEqual(first.inputs.map(input => input.domain), ['factions', 'characters', 'skills', 'items']);
   assert.equal(first.inputs.every(input => serializedInputBytes(input) <= MAX_DOMAIN_WORK_ITEM_BYTES), true);
   assert.equal(first.inputs.every(input => /^sha256:[a-f0-9]{64}$/.test(input.input_hash)), true);
   assert.equal(first.bindings.length, registry.stats.registered_entries);
@@ -54,10 +53,20 @@ test('nine-file candidates route into exactly four stable domain work items', ()
   assert.doesNotMatch(visible, /candidate_key|member_refs|local_key/);
   assert.match(JSON.stringify(first.bindings), /registry:/);
 
-  const plot = first.inputs.find(input => input.domain === 'plot');
-  const martial = first.inputs.find(input => input.domain === 'martial');
-  assert.deepEqual([...new Set(plot.entries.map(entry => entry.category))].sort(), ['characters', 'events']);
-  assert.deepEqual([...new Set(martial.entries.map(entry => entry.category))].sort(), ['skills', 'techniques']);
+  assert.deepEqual(first.inputs.map(input => input.categories), [
+    ['factions'], ['characters'], ['skills'], ['items']
+  ]);
+});
+
+test('character and skill work inputs expose the bounded faction refs they may patch', () => {
+  const plan = createDomainWorkPlan({ registry: fullRegistry(), accepted_hashes: {} });
+  const inputByUnit = new Map(plan.inputs.map(input => [input.unit, input]));
+  const factionRefs = inputByUnit.get('distill:factions').entries.map(entry => entry.entry_ref);
+
+  assert.deepEqual(inputByUnit.get('distill:characters').allowed_faction_refs, factionRefs);
+  assert.deepEqual(inputByUnit.get('distill:skills').allowed_faction_refs, factionRefs);
+  assert.equal('allowed_faction_refs' in inputByUnit.get('distill:factions'), false);
+  assert.equal('allowed_faction_refs' in inputByUnit.get('distill:items'), false);
 });
 
 test('domain work plans use the existing durable idempotent work-plan store', () => {
@@ -78,6 +87,6 @@ test('an oversized domain fails explicitly instead of truncating or returning ca
   assert.throws(
     () => createDomainWorkPlan({ registry, accepted_hashes: {} }),
     error => error.code === 'DOMAIN_INPUT_TOO_LARGE'
-      && error.details?.unit === 'distill:plot'
+      && error.details?.unit === 'distill:characters'
   );
 });

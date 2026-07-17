@@ -1,13 +1,55 @@
 'use strict';
 
-const { assignLocalKeys } = require('./book-assembly');
-const { ENTITY_CATEGORIES, validateMergedBook } = require('./book-contract');
+const crypto = require('node:crypto');
+
 const { mergeRegistryRecords } = require('./candidate-registry');
 const { validateDomainDecisionDraft } = require('./domain-contract');
 const { GameKbError } = require('./errors');
 
+const CATEGORY_PREFIX = Object.freeze({
+  characters: 'character',
+  items: 'item',
+  skills: 'skill',
+  factions: 'faction'
+});
+
 function compareText(left, right) {
   return String(left).localeCompare(String(right), 'zh-Hans-CN');
+}
+
+function collisionSuffix(candidateKeys) {
+  return crypto.createHash('sha256')
+    .update(JSON.stringify([...candidateKeys].sort(compareText)))
+    .digest('hex')
+    .slice(0, 8);
+}
+
+function entityBaseKey(entity) {
+  const prefix = CATEGORY_PREFIX[entity.category];
+  const name = entity.canonical_name || entity.fields?.text || entity.provisional_key;
+  return `${prefix}:${name}`;
+}
+
+function assignLocalKeys(entities) {
+  const byBase = new Map();
+  for (const entity of entities) {
+    const base = entityBaseKey(entity);
+    if (!byBase.has(base)) byBase.set(base, []);
+    byBase.get(base).push(entity);
+  }
+  const localKeyByProvisional = new Map();
+  for (const [base, values] of byBase) {
+    for (const entity of values) {
+      const localKey = values.length === 1
+        ? base
+        : `${base}#${collisionSuffix(entity.candidate_keys)}`;
+      localKeyByProvisional.set(entity.provisional_key, localKey);
+    }
+  }
+  if (new Set(localKeyByProvisional.values()).size !== localKeyByProvisional.size) {
+    throw new GameKbError('BOOK_ASSEMBLY_INCOMPLETE', 'Controller-generated local keys collided');
+  }
+  return localKeyByProvisional;
 }
 
 function uniqueValues(values) {
@@ -111,22 +153,10 @@ function projectChapterSummaries(manifest, chapters) {
   const chaptersByNumber = new Map((chapters || []).map(chapter => [chapter.chapter, chapter]));
   return [...(manifest?.chapters || [])].sort((left, right) => left.number - right.number).map(item => {
     const chapter = chaptersByNumber.get(item.number);
-    // 从章节中提取人物和武功信息
-    const keyCharacters = uniqueValues(
-      (chapter?.characters || []).map(c => c.canonical_name || c.name).filter(Boolean)
-    );
-    const keySkills = uniqueValues(
-      (chapter?.skills || []).map(s => s.canonical_name || s.name).filter(Boolean)
-    );
-    const sourceRefs = uniqueValues(chapter?.summary?.source_refs || []);
-    const summary = chapter?.summary?.text || '本章摘要待补充。';
     return {
       chapter: item.number,
       title: item.title,
-      summary,
-      key_characters: keyCharacters,
-      key_skills: keySkills,
-      source_refs: sourceRefs
+      summary: chapter?.chapter_summary?.summary || '本章摘要待补充。'
     };
   });
 }
@@ -224,68 +254,17 @@ function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: wor
     candidate_resolutions: candidateResolutions,
     ambiguities: []
   };
-  const errors = validateMergedBook(book, manifest, chapters);
-  if (errors.length > 0) fail('The assembled domain book violates the merged book contract', { errors });
+  const candidateKeys = candidateResolutions.map(value => value.candidate_key);
+  if (new Set(candidateKeys).size !== candidateKeys.length) {
+    fail('Domain assembly produced duplicate candidate resolutions');
+  }
+  const localKeys = new Set([...localKeyByRoot.values()]);
+  const invalidResolution = candidateResolutions.find(value => (
+    (value.resolution === 'merged_to' && !localKeys.has(value.merged_to))
+    || (value.resolution === 'rejected' && (!value.reason || !value.detail))
+  ));
+  if (invalidResolution) fail('Domain assembly produced an invalid candidate resolution', invalidResolution);
   return book;
 }
 
-function assembleDomainCleanedBook(merged) {
-  const characters = (merged?.characters || []).map(record => {
-    const normalized = structuredClone(record);
-    if (['核心', '重要'].includes(normalized.level)
-      && (!normalized.personality || typeof normalized.personality !== 'object' || Array.isArray(normalized.personality))) {
-      normalized.personality = { traits: [], speech_style: '' };
-    }
-    if (['核心', '重要'].includes(normalized.level)
-      && (typeof normalized.biography !== 'string' || normalized.biography.trim() === '')) {
-      normalized.biography = String(normalized.identity || normalized.canonical_name || '');
-    }
-    if (['次要', '龙套', '背景'].includes(normalized.level)) {
-      if (typeof normalized.biography === 'string') {
-        normalized.biography = [...normalized.biography].slice(0, 200).join('');
-      }
-      if (Array.isArray(normalized.personality?.traits)) {
-        normalized.personality.traits = normalized.personality.traits.slice(0, 2);
-      }
-    }
-    return normalized;
-  });
-
-  // 确保 skills 有 techniques 数组
-  const skills = (merged?.skills || []).map(record => {
-    const normalized = structuredClone(record);
-    if (!Array.isArray(normalized.techniques)) {
-      normalized.techniques = [];
-    }
-    return normalized;
-  });
-
-  const materialCategories = new Set(['characters', 'items', 'skills']);
-  const newCategories = ['characters', 'skills', 'items'];
-  const gameMaterials = newCategories.filter(category => materialCategories.has(category))
-    .flatMap(category => (merged?.[category] || []).map(record => ({
-      material_type: category === 'characters'
-        ? '角色原型/彩蛋'
-        : category === 'items'
-          ? '标志性物品'
-          : '战斗系统原型',
-      source_category: category,
-      source_name: record.canonical_name,
-      relevance: '高',
-      suggested_use: `${record.canonical_name}游戏化原型`,
-      reason: '来自重点类别的原文证据记录。'
-    })));
-  return {
-    ...structuredClone(merged),
-    characters,
-    skills,
-    stage: 'cleaned',
-    quantity_review: {
-      consumed: true,
-      explanations: ['数量只作一次确定性提醒，未为凑数新增条目。']
-    },
-    game_material_candidates: gameMaterials
-  };
-}
-
-module.exports = { assembleDomainCleanedBook, assembleDomainMergedBook };
+module.exports = { assembleDomainMergedBook };

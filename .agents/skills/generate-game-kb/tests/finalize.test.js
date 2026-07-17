@@ -1,11 +1,16 @@
 'use strict';
 
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
 const test = require('node:test');
+const yaml = require('js-yaml');
 
-const { validCleanedBook } = require('./helpers');
-const { buildFinalData } = require('../scripts/lib/finalize');
+const { validMergedBook } = require('./helpers');
+const { buildFinalData, writeFinalData } = require('../scripts/lib/finalize');
 const { assignStableIds, makeBaseId } = require('../scripts/lib/ids');
+const { FINAL_FIELDS, FINAL_FILES } = require('../scripts/lib/semantic-contract');
 
 const manifest = {
   chapters: [1, 2, 3].map(number => ({ number, title: `第${number}章`, input_hash: `sha256:${number}` }))
@@ -18,127 +23,101 @@ test('北冥神功 receives skill_bei_ming_shen_gong', () => {
 
 test('same-pinyin names receive stable alphabetic collision suffixes', () => {
   const records = {
-    locations: [
-      { local_key: 'location:陆路', canonical_name: '陆路' },
-      { local_key: 'location:鹿路', canonical_name: '鹿路' }
+    characters: [
+      { local_key: 'character:陆路', canonical_name: '陆路' },
+      { local_key: 'character:鹿路', canonical_name: '鹿路' }
     ]
   };
-  const forward = assignStableIds(records).locations;
-  const reverse = assignStableIds({ locations: [...records.locations].reverse() }).locations;
+  const forward = assignStableIds(records).characters;
+  const reverse = assignStableIds({ characters: [...records.characters].reverse() }).characters;
   const byName = values => Object.fromEntries(values.map(value => [value.canonical_name, value.id]));
 
   assert.deepEqual(byName(forward), byName(reverse));
   assert.notEqual(forward[0].id, forward[1].id);
-  for (const record of forward) assert.match(record.id, /^loc_lu_lu_[a-p]{8}$/);
+  for (const record of forward) assert.match(record.id, /^char_lu_lu_[a-p]{8}$/);
 });
 
-test('one projection rewrites all supported name links to stable IDs', () => {
-  const book = validCleanedBook();
-  book.characters[0].relationship_names = ['甲'];
-  book.items[0].related_character_names = ['甲'];
-  book.items[0].related_skill_names = ['玄门内功'];
-  book.factions[0].leader_name = '甲';
-  book.factions[0].location_name = '无名山谷';
-  book.locations[0].faction_names = ['玄门'];
-  const result = buildFinalData(book, manifest);
+test('one projection rewrites character and skill references to stable IDs', () => {
+  const result = buildFinalData(validMergedBook(), manifest);
 
   assert.deepEqual(result.issues, []);
-  const data = result.data;
-  assert.deepEqual(data['characters.json'][0].known_skills, ['skill_xuan_men_nei_gong']);
-  assert.deepEqual(data['characters.json'][0].relationships.map(value => value.target), ['char_jia']);
-  assert.deepEqual(data['events.json'][0].participants, ['char_jia']);
-  assert.deepEqual(data['events.json'][0].locations, ['loc_wu_ming_shan_gu']);
-  assert.deepEqual(data['skills.json'][0].holders, ['char_jia']);
-  assert.deepEqual(data['skills.json'][0].techniques, ['tech_fei_yun_zhang']);
-  assert.equal(data['techniques.json'][0].source_skill, 'skill_xuan_men_nei_gong');
-  assert.equal(data['dialogues.json'][0].event_id, 'event_shan_zhong_xiang_feng');
-  assert.equal(data['dialogues.json'][0].speaker, 'char_jia');
-  assert.deepEqual(data['chapter_summaries.json'][0].key_events, ['event_shan_zhong_xiang_feng']);
+  const character = result.data[FINAL_FILES.characters][0];
+  const skill = result.data[FINAL_FILES.skills][0];
+  assert.deepEqual(character.skills, ['skill_xuan_men_nei_gong']);
+  assert.deepEqual(character.items, ['item_hui_sheng_dan']);
+  assert.equal(character.faction, 'faction_xuan_men');
+  assert.equal(skill.faction, 'faction_xuan_men');
+  assert.deepEqual(skill.techniques, [{ name: '飞云掌', description: '掌势迅疾。' }]);
 });
 
-test('zero-match and multi-match links create structured issues', () => {
-  const missing = validCleanedBook();
-  missing.dialogues[0].speaker_name = '失踪者';
-  assert.ok(buildFinalData(missing, manifest).issues.some(issue =>
-    issue.code === 'REFERENCE_UNRESOLVED' && issue.path === 'dialogues[0].speaker_name'));
+test('non-empty unresolved or ambiguous links are omitted with blocking issues', () => {
+  const missing = validMergedBook();
+  missing.characters[0].skill_names = ['失踪武功'];
+  const missingResult = buildFinalData(missing, manifest);
+  assert.deepEqual(missingResult.data[FINAL_FILES.characters][0].skills, []);
+  assert.ok(missingResult.issues.some(issue =>
+    issue.code === 'REFERENCE_UNRESOLVED' && issue.target === '失踪武功'));
 
-  const ambiguous = validCleanedBook();
-  ambiguous.characters.push({
-    ...ambiguous.characters[0],
-    local_key: 'character:乙',
-    canonical_name: '乙',
-    aliases: ['甲']
+  const ambiguous = validMergedBook();
+  ambiguous.factions.push({
+    ...ambiguous.factions[0],
+    local_key: 'faction:玄门别院',
+    canonical_name: '玄门别院',
+    aliases: ['玄门']
   });
-  assert.ok(buildFinalData(ambiguous, manifest).issues.some(issue =>
-    issue.code === 'REFERENCE_AMBIGUOUS' && issue.target === '甲'));
+  const ambiguousResult = buildFinalData(ambiguous, manifest);
+  assert.equal(ambiguousResult.data[FINAL_FILES.characters][0].faction, null);
+  assert.ok(ambiguousResult.issues.some(issue =>
+    issue.code === 'REFERENCE_AMBIGUOUS' && issue.target === '玄门'));
 });
 
-test('stale optional links are omitted and retained as projection warnings', () => {
-  const book = validCleanedBook();
-  book.chapter_summaries[0].key_events = ['event:已被清理的事件'];
-  book.events[0].participant_names = ['未建模群体'];
-  book.techniques[0].source_skill_name = '未建模武学';
-
-  const result = buildFinalData(book, manifest);
-
-  assert.deepEqual(result.issues, []);
-  assert.deepEqual(result.data['chapter_summaries.json'][0].key_events, []);
-  assert.deepEqual(result.data['events.json'][0].participants, []);
-  assert.equal(result.data['techniques.json'][0].source_skill, null);
-  assert.deepEqual(result.warnings.map(warning => [warning.path, warning.target]), [
-    ['chapter_summaries[0].key_events[0]', 'event:已被清理的事件'],
-    ['events[0].participant_names[0]', '未建模群体'],
-    ['techniques[0].source_skill_name', '未建模武学']
-  ]);
-});
-
-test('generic dialogue speakers are omitted while singular missing speakers fail closed', () => {
-  const generic = validCleanedBook();
-  generic.dialogues[0].speaker_name = '日月神教教众';
-  const projected = buildFinalData(generic, manifest);
-
-  assert.deepEqual(projected.issues, []);
-  assert.deepEqual(projected.data['dialogues.json'], []);
-  assert.ok(projected.warnings.some(warning =>
-    warning.path === 'dialogues[0].speaker_name' && warning.target === '日月神教教众'));
-});
-
-test('build emits exactly nine arrays and is byte-stable across input ordering', () => {
-  const first = validCleanedBook();
+test('build emits exactly five stable YAML arrays', () => {
+  const first = validMergedBook();
   const second = structuredClone(first);
   second.characters.reverse();
-  second.events.reverse();
+  second.skills.reverse();
   const left = buildFinalData(first, manifest);
   const right = buildFinalData(second, manifest);
 
   assert.equal(left.issues.length, 0);
-  assert.deepEqual(Object.keys(left.data).sort(), [
-    'chapter_summaries.json', 'characters.json', 'dialogues.json', 'events.json', 'factions.json',
-    'items.json', 'locations.json', 'skills.json', 'techniques.json'
-  ]);
+  assert.deepEqual(Object.keys(left.data).sort(), Object.values(FINAL_FILES).sort());
   assert.ok(Object.values(left.data).every(Array.isArray));
   assert.equal(JSON.stringify(left.data), JSON.stringify(right.data));
 });
 
-test('final characters and skills use only power_rank while items omit rarity fields', () => {
-  const result = buildFinalData(validCleanedBook(), manifest);
-  const character = result.data['characters.json'][0];
-  const skill = result.data['skills.json'][0];
-  const item = result.data['items.json'][0];
+test('every final record uses only the shared simplified fields and rank names', () => {
+  const result = buildFinalData(validMergedBook(), manifest);
 
-  assert.equal(character.power_rank, '初窥门径');
-  assert.equal(skill.power_rank, '初窥门径');
-  assert.equal(Object.hasOwn(skill, 'mastery_rank'), false);
-  assert.equal(Object.hasOwn(skill, 'rank'), false);
-  assert.equal(Object.hasOwn(item, 'rarity_tier'), false);
-  assert.equal(Object.hasOwn(item, 'rarity'), false);
+  for (const [category, filename] of Object.entries(FINAL_FILES)) {
+    for (const record of result.data[filename]) {
+      assert.deepEqual(Object.keys(record), [...FINAL_FIELDS[category]]);
+    }
+  }
+  assert.equal(result.data[FINAL_FILES.characters][0].rank, '初窥门径');
+  assert.equal(result.data[FINAL_FILES.skills][0].rank, '初窥门径');
+  assert.equal(Object.hasOwn(result.data[FINAL_FILES.items][0], 'tags'), false);
+  assert.equal(Object.hasOwn(result.data[FINAL_FILES.characters][0], 'power_rank'), false);
 });
 
 test('source refs reject unknown chapters but allow omitted line numbers', () => {
-  const valid = buildFinalData(validCleanedBook(), manifest);
+  const valid = buildFinalData(validMergedBook(), manifest);
   assert.equal(valid.issues.some(issue => issue.code === 'SOURCE_CHAPTER_UNKNOWN'), false);
 
-  const invalid = validCleanedBook();
+  const invalid = validMergedBook();
   invalid.items[0].source_refs = [{ chapter: 99, text: '错误章节' }];
   assert.ok(buildFinalData(invalid, manifest).issues.some(issue => issue.code === 'SOURCE_CHAPTER_UNKNOWN'));
+});
+
+test('writeFinalData writes five YAML files while keeping the ID plan as controller JSON', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-final-'));
+  const paths = { finalData: path.join(root, 'data'), finalIdPlan: path.join(root, 'id-plan.json') };
+  const result = buildFinalData(validMergedBook(), manifest);
+
+  writeFinalData(paths, result);
+
+  assert.deepEqual(fs.readdirSync(paths.finalData).sort(), Object.values(FINAL_FILES).sort());
+  for (const filename of Object.values(FINAL_FILES)) {
+    assert.ok(Array.isArray(yaml.load(fs.readFileSync(path.join(paths.finalData, filename), 'utf8'))));
+  }
+  assert.doesNotThrow(() => JSON.parse(fs.readFileSync(paths.finalIdPlan, 'utf8')));
 });

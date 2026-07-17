@@ -1,16 +1,27 @@
 'use strict';
 
-const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 const yaml = require('js-yaml');
 
+const { ITEM_REASONS } = require('./book-contract');
+const { acceptedArtifactHash, assertAcceptedArtifacts } = require('./candidate-ledger');
+const { CANDIDATE_ARRAYS, validateChapterDraft } = require('./chapter-contract');
+const { assembleDomainMergedBook } = require('./domain-assembly');
+const { validateDomainDecisionDraft } = require('./domain-contract');
+const { hashFinalData, stableValue } = require('./final-data-hash');
 const { CATEGORY_FILES } = require('./finalize');
-const { MATERIAL_TYPES } = require('./game-materials');
-const { atomicWriteJson, readJson } = require('./io');
-const { buildQualitySample, selectQualitySample, validateQualityReview } = require('./quality');
-const { isHighPriorityQualityItem } = require('./priority');
-const { SEMANTIC_CONTRACT_VERSION, isPowerRank } = require('./semantic-contract');
+const { atomicWriteJson, readJson, readYaml } = require('./io');
+const {
+  CHARACTER_LEVELS,
+  DOMAIN_UNITS,
+  FINAL_FIELDS,
+  FINAL_FILES,
+  ITEM_TYPES,
+  SEMANTIC_CONTRACT_VERSION,
+  isPowerRank
+} = require('./semantic-contract');
+const { readWorkPlan } = require('./semantic-work');
 
 const ID_PATTERN = /^(char|item|skill|faction)_[a-z]+(?:_[a-z]+)*$/;
 const FILE_PREFIX = Object.freeze({
@@ -20,19 +31,6 @@ const FILE_PREFIX = Object.freeze({
   'factions.yaml': 'faction_'
 });
 const ITEM_INCLUSION_REASONS = new Set(['秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊']);
-const TECHNIQUE_TYPES = new Set(['招式', '招法', '招数', '式']);
-
-function stableValue(value) {
-  if (Array.isArray(value)) return value.map(stableValue);
-  if (!value || typeof value !== 'object') return value;
-  return Object.fromEntries(Object.keys(value).sort().map(key => [key, stableValue(value[key])]));
-}
-
-function hashFinalData(finalData) {
-  const ordered = Object.fromEntries(Object.values(CATEGORY_FILES).sort()
-    .map(filename => [filename, finalData[filename] || []]));
-  return `sha256:${crypto.createHash('sha256').update(JSON.stringify(stableValue(ordered))).digest('hex')}`;
-}
 
 function loadData(dataRoot) {
   const data = {};
@@ -61,330 +59,334 @@ function loadData(dataRoot) {
   return { data, errors };
 }
 
-function readReport(file, missingCode, invalidCode, blockingErrors) {
-  if (file && typeof file === 'object') return file;
-  if (!fs.existsSync(file)) {
-    blockingErrors.push({ code: missingCode, path: file, target: '' });
-    return null;
+function verifyDataRoot(dataRoot, { chapters = [], expectedHash } = {}) {
+  const loaded = loadData(dataRoot);
+  const finalDataHash = hashFinalData(loaded.data);
+  const blockingErrors = [...loaded.errors];
+  const expectedFiles = Object.values(FINAL_FILES).sort();
+  const actualFiles = fs.existsSync(dataRoot)
+    ? fs.readdirSync(dataRoot).sort()
+    : [];
+  if (JSON.stringify(actualFiles) !== JSON.stringify(expectedFiles)) {
+    blockingErrors.push({
+      code: 'FINAL_FILE_SET_INVALID',
+      path: dataRoot,
+      target: actualFiles.join(',')
+    });
   }
-  try {
-    return readJson(file);
-  } catch (error) {
-    blockingErrors.push({ code: invalidCode, path: file, target: error.message });
-    return null;
-  }
-}
-
-function verifyFinal(paths) {
-  const blockingErrors = [];
-  const warnings = [];
-  let semanticContractVersion = null;
-  if (typeof paths.runJson === 'string' && fs.existsSync(paths.runJson)) {
-    try {
-      semanticContractVersion = readJson(paths.runJson).semantic_contract_version ?? null;
-      if (semanticContractVersion !== SEMANTIC_CONTRACT_VERSION) {
+  for (const [category, filename] of Object.entries(FINAL_FILES)) {
+    const expectedFields = [...FINAL_FIELDS[category]].sort();
+    loaded.data[filename].forEach((record, index) => {
+      const actualFields = record && typeof record === 'object' && !Array.isArray(record)
+        ? Object.keys(record).sort()
+        : [];
+      if (JSON.stringify(actualFields) !== JSON.stringify(expectedFields)) {
         blockingErrors.push({
-          code: 'LEGACY_SEMANTIC_CONTRACT',
-          path: paths.runJson,
-          target: semanticContractVersion
+          code: 'FINAL_FIELDS_INVALID',
+          path: `${filename}[${index}]`,
+          target: actualFields.join(',')
         });
       }
-    } catch (error) {
-      blockingErrors.push({ code: 'RUN_METADATA_INVALID', path: paths.runJson, target: error.message });
-    }
-  }
-  let manifest;
-  try {
-    manifest = readJson(paths.manifest);
-  } catch (error) {
-    blockingErrors.push({ code: 'MANIFEST_INVALID', path: paths.manifest, target: error.message });
-    manifest = { chapters: [] };
-  }
-  const chapterNumbers = new Set((Array.isArray(manifest.chapters) ? manifest.chapters : [])
-    .map(chapter => chapter.number));
-  const loaded = loadData(paths.finalData);
-  blockingErrors.push(...loaded.errors);
-  const finalData = loaded.data;
-  const finalDataHash = hashFinalData(finalData);
-
-  if (paths.candidateResolution && typeof paths.candidateResolution === 'object') {
-    if (paths.candidateResolution.passed !== true) {
-      blockingErrors.push({ code: 'CANDIDATE_RESOLUTION_INCOMPLETE', path: 'candidate-resolution.json', target: '' });
-    }
-  } else if (typeof paths.candidateResolution === 'string' && fs.existsSync(paths.candidateResolution)) {
-    const resolution = readReport(
-      paths.candidateResolution,
-      'CANDIDATE_RESOLUTION_MISSING',
-      'CANDIDATE_RESOLUTION_INVALID',
-      blockingErrors
-    );
-    if (resolution && resolution.passed !== true) {
-      blockingErrors.push({ code: 'CANDIDATE_RESOLUTION_INCOMPLETE', path: paths.candidateResolution, target: '' });
-    }
-  }
-  if (paths.acceptedHashes && typeof paths.acceptedHashes === 'object' && paths.acceptedHashes.stale === true) {
-    blockingErrors.push({ code: 'ACCEPTED_ARTIFACT_MUTATED', path: 'artifact-manifest.json', target: '' });
-  }
-  const ids = new Map();
-  let approximateLines = 0;
-
-  function validateSourceRefs(record, label) {
-    if (!Array.isArray(record?.source_refs) || record.source_refs.length === 0) {
-      blockingErrors.push({ code: 'SOURCE_REFS_REQUIRED', path: `${label}.source_refs`, target: '' });
-      return;
-    }
-    record.source_refs.forEach((ref, index) => {
-      const refPath = `${label}.source_refs[${index}]`;
-      if (!ref || typeof ref !== 'object' || Array.isArray(ref)) {
-        blockingErrors.push({ code: 'SOURCE_REF_INVALID', path: refPath, target: '' });
-        return;
-      }
-      if (!chapterNumbers.has(ref.chapter)) {
-        blockingErrors.push({ code: 'SOURCE_CHAPTER_UNKNOWN', path: `${refPath}.chapter`, target: ref.chapter });
-      }
-      if (typeof ref.text !== 'string' || ref.text.trim() === '') {
-        blockingErrors.push({ code: 'SOURCE_TEXT_REQUIRED', path: `${refPath}.text`, target: '' });
-      }
-      if (!Number.isInteger(ref.line_start) || !Number.isInteger(ref.line_end)) approximateLines += 1;
     });
   }
-
-  for (const [filename, prefix] of Object.entries(FILE_PREFIX)) {
-    finalData[filename].forEach((record, index) => {
+  const idSets = {};
+  for (const [category, filename] of Object.entries(FINAL_FILES)) {
+    if (category === 'chapter_summaries') continue;
+    const ids = new Set();
+    idSets[category] = ids;
+    loaded.data[filename].forEach((record, index) => {
       const label = `${filename}[${index}]`;
-      if (!record || typeof record !== 'object' || Array.isArray(record)) {
-        blockingErrors.push({ code: 'FINAL_RECORD_INVALID', path: label, target: '' });
-        return;
-      }
-      if (typeof record.id !== 'string' || !ID_PATTERN.test(record.id) || !record.id.startsWith(prefix)) {
-        blockingErrors.push({ code: 'FINAL_ID_INVALID', path: `${label}.id`, target: record.id });
-      } else if (ids.has(record.id)) {
-        blockingErrors.push({ code: 'FINAL_ID_DUPLICATE', path: `${label}.id`, target: record.id });
+      const id = record?.id;
+      if (typeof id !== 'string' || !ID_PATTERN.test(id) || !id.startsWith(FILE_PREFIX[filename])) {
+        blockingErrors.push({ code: 'FINAL_ID_INVALID', path: `${label}.id`, target: id ?? '' });
+      } else if (ids.has(id)) {
+        blockingErrors.push({ code: 'FINAL_ID_DUPLICATE', path: `${label}.id`, target: id });
       } else {
-        ids.set(record.id, filename);
+        ids.add(id);
       }
-      if (typeof record.name !== 'string' || record.name.trim() === '') {
-        blockingErrors.push({ code: 'FINAL_NAME_REQUIRED', path: `${label}.name`, target: record.id });
+      if (category === 'characters') {
+        if (!CHARACTER_LEVELS.includes(record?.level)) {
+          blockingErrors.push({ code: 'CHARACTER_LEVEL_INVALID', path: `${label}.level`, target: record?.level ?? '' });
+        }
+        if (!isPowerRank(record?.rank)) {
+          blockingErrors.push({ code: 'POWER_RANK_INVALID', path: `${label}.rank`, target: record?.rank ?? '' });
+        }
       }
-      validateSourceRefs(record, label);
+      if (category === 'skills') {
+        if (!isPowerRank(record?.rank)) {
+          blockingErrors.push({ code: 'POWER_RANK_INVALID', path: `${label}.rank`, target: record?.rank ?? '' });
+        }
+        if (!Array.isArray(record?.techniques)) {
+          blockingErrors.push({ code: 'TECHNIQUES_ARRAY_REQUIRED', path: `${label}.techniques`, target: '' });
+        } else {
+          record.techniques.forEach((technique, techniqueIndex) => {
+            if (typeof technique?.name !== 'string' || technique.name.trim() === '') {
+              blockingErrors.push({
+                code: 'TECHNIQUE_NAME_REQUIRED',
+                path: `${label}.techniques[${techniqueIndex}].name`,
+                target: ''
+              });
+            }
+          });
+        }
+      }
+      if (category === 'items' && !ITEM_TYPES.includes(record?.type)) {
+        blockingErrors.push({ code: 'ITEM_TYPE_INVALID', path: `${label}.type`, target: record?.type ?? '' });
+      }
     });
   }
 
-  const idSets = Object.fromEntries(Object.keys(FILE_PREFIX).map(filename => [
-    filename,
-    new Set(finalData[filename].map(record => record?.id).filter(Boolean))
-  ]));
-  function reference(filename, target, refPath, optional = false) {
-    if ((target === null || target === undefined || target === '') && optional) return;
-    if (typeof target !== 'string' || !idSets[filename].has(target)) {
-      blockingErrors.push({ code: 'REFERENCE_UNRESOLVED', path: refPath, target });
+  const reference = (category, value, referencePath) => {
+    if (value === null || value === undefined || value === '') return;
+    if (typeof value !== 'string' || !idSets[category].has(value)) {
+      blockingErrors.push({ code: 'FINAL_REFERENCE_MISSING', path: referencePath, target: value ?? '' });
     }
-  }
-  function references(filename, values, refPath) {
-    if (!Array.isArray(values)) return;
-    values.forEach((target, index) => reference(filename, target, `${refPath}[${index}]`));
-  }
-
-  finalData['characters.yaml'].forEach((record, index) => {
-    if (typeof record.rank !== 'string' || record.rank === '') {
-      blockingErrors.push({ code: 'RANK_REQUIRED', path: `characters[${index}].rank`, target: record.id });
-    } else if (!isPowerRank(record.rank)) {
-      blockingErrors.push({ code: 'RANK_INVALID', path: `characters[${index}].rank`, target: record.rank });
+  };
+  loaded.data[FINAL_FILES.characters].forEach((record, index) => {
+    reference('factions', record?.faction, `characters.yaml[${index}].faction`);
+    if (!Array.isArray(record?.skills)) {
+      blockingErrors.push({ code: 'FINAL_REFERENCE_ARRAY_REQUIRED', path: `characters.yaml[${index}].skills`, target: '' });
+    } else {
+      record.skills.forEach((value, refIndex) => reference('skills', value, `characters.yaml[${index}].skills[${refIndex}]`));
     }
-    references('skills.yaml', record.skills, `characters[${index}].skills`);
-    references('items.yaml', record.items, `characters[${index}].items`);
-    reference('factions.yaml', record.faction, `characters[${index}].faction`, true);
-  });
-  finalData['items.yaml'].forEach((record, index) => {
-    // 精简字段，无需额外验证
-  });
-  finalData['skills.yaml'].forEach((record, index) => {
-    if (typeof record.rank !== 'string' || record.rank === '') {
-      blockingErrors.push({ code: 'RANK_REQUIRED', path: `skills[${index}].rank`, target: record.id });
-    } else if (!isPowerRank(record.rank)) {
-      blockingErrors.push({ code: 'RANK_INVALID', path: `skills[${index}].rank`, target: record.rank });
-    }
-    if (TECHNIQUE_TYPES.has(String(record.type || '').trim())) {
-      blockingErrors.push({ code: 'MARTIAL_CATEGORY_CONFUSION', path: `skills[${index}].type`, target: record.type });
-    }
-    reference('factions.yaml', record.faction, `skills[${index}].faction`, true);
-    // techniques 是嵌套数组，验证每个 technique 有 name
-    if (Array.isArray(record.techniques)) {
-      record.techniques.forEach((tech, techIndex) => {
-        if (!tech.name || typeof tech.name !== 'string' || tech.name.trim() === '') {
-          blockingErrors.push({ code: 'TECHNIQUE_NAME_REQUIRED', path: `skills[${index}].techniques[${techIndex}].name`, target: record.id });
-        }
-      });
+    if (!Array.isArray(record?.items)) {
+      blockingErrors.push({ code: 'FINAL_REFERENCE_ARRAY_REQUIRED', path: `characters.yaml[${index}].items`, target: '' });
+    } else {
+      record.items.forEach((value, refIndex) => reference('items', value, `characters.yaml[${index}].items[${refIndex}]`));
     }
   });
-  finalData['factions.yaml'].forEach((record, index) => {
-    // 精简字段，无需额外验证
+  loaded.data[FINAL_FILES.skills].forEach((record, index) => {
+    reference('factions', record?.faction, `skills.yaml[${index}].faction`);
   });
 
-  const summaries = finalData['chapter_summaries.yaml'];
+  const requiredChapters = new Set(chapters.map(chapter => (
+    Number.isInteger(chapter) ? chapter : chapter?.number
+  )).filter(Number.isInteger));
   const summaryChapters = new Set();
-  summaries.forEach((summary, index) => {
-    const label = `chapter_summaries[${index}]`;
-    if (!summary || typeof summary !== 'object' || Array.isArray(summary)) {
-      blockingErrors.push({ code: 'CHAPTER_SUMMARY_INVALID', path: label, target: '' });
-      return;
-    }
-    if (!chapterNumbers.has(summary.chapter)) {
-      blockingErrors.push({ code: 'SUMMARY_CHAPTER_UNKNOWN', path: `${label}.chapter`, target: summary.chapter });
+  loaded.data[FINAL_FILES.chapter_summaries].forEach((summary, index) => {
+    const label = `chapter_summaries.yaml[${index}]`;
+    if (!Number.isInteger(summary?.chapter) || summary.chapter < 1) {
+      blockingErrors.push({ code: 'SUMMARY_CHAPTER_INVALID', path: `${label}.chapter`, target: summary?.chapter ?? '' });
     } else if (summaryChapters.has(summary.chapter)) {
       blockingErrors.push({ code: 'SUMMARY_CHAPTER_DUPLICATE', path: `${label}.chapter`, target: summary.chapter });
     } else {
       summaryChapters.add(summary.chapter);
     }
-    if (typeof summary.summary !== 'string' || summary.summary.trim() === '') {
-      blockingErrors.push({ code: 'SUMMARY_TEXT_REQUIRED', path: `${label}.summary`, target: summary.chapter });
+    if (typeof summary?.title !== 'string' || summary.title.trim() === '') {
+      blockingErrors.push({ code: 'SUMMARY_TITLE_REQUIRED', path: `${label}.title`, target: '' });
+    }
+    if (typeof summary?.summary !== 'string' || summary.summary.trim() === '') {
+      blockingErrors.push({ code: 'SUMMARY_TEXT_REQUIRED', path: `${label}.summary`, target: '' });
     }
   });
-  for (const chapter of chapterNumbers) {
+  for (const chapter of requiredChapters) {
     if (!summaryChapters.has(chapter)) {
-      blockingErrors.push({ code: 'SUMMARY_CHAPTER_MISSING', path: 'chapter_summaries.json', target: chapter });
+      blockingErrors.push({ code: 'SUMMARY_CHAPTER_MISSING', path: 'chapter_summaries.yaml', target: chapter });
     }
   }
-
-  const materials = readReport(
-    paths.gameMaterials, 'GAME_MATERIALS_MISSING', 'GAME_MATERIALS_INVALID', blockingErrors
-  );
-  if (materials) {
-    if (!Array.isArray(materials.entries)) {
-      blockingErrors.push({ code: 'GAME_MATERIALS_ENTRIES_REQUIRED', path: paths.gameMaterials, target: '' });
-    } else {
-      materials.entries.forEach((entry, index) => {
-        const label = `game_materials.entries[${index}]`;
-        if (entry && typeof entry === 'object' && ('entity' in entry || 'record' in entry)) {
-          blockingErrors.push({
-            code: 'MATERIAL_EMBEDDED_ENTITY_FORBIDDEN',
-            path: label,
-            target: entry.source_id
-          });
-        }
-        if (!MATERIAL_TYPES.has(entry?.material_type)) {
-          blockingErrors.push({ code: 'MATERIAL_TYPE_INVALID', path: `${label}.material_type`, target: entry?.material_type });
-        }
-        if (!ids.has(entry?.source_id)) {
-          blockingErrors.push({ code: 'MATERIAL_SOURCE_UNRESOLVED', path: `${label}.source_id`, target: entry?.source_id });
-        }
-        for (const field of ['relevance', 'suggested_use', 'reason']) {
-          if (typeof entry?.[field] !== 'string' || entry[field].trim() === '') {
-            blockingErrors.push({ code: 'MATERIAL_FIELD_REQUIRED', path: `${label}.${field}`, target: entry?.source_id });
-          }
-        }
-      });
-    }
+  if (expectedHash && expectedHash !== finalDataHash) {
+    blockingErrors.push({
+      code: 'FINAL_DATA_HASH_MISMATCH',
+      path: dataRoot,
+      target: `${expectedHash} != ${finalDataHash}`
+    });
   }
-
-  const quantity = readReport(
-    paths.quantityReport, 'QUANTITY_REPORT_MISSING', 'QUANTITY_REPORT_INVALID', blockingErrors
-  );
-  if (quantity) {
-    if (quantity.review_consumed !== true) {
-      blockingErrors.push({ code: 'QUANTITY_REVIEW_NOT_CONSUMED', path: 'quantity_report.review_consumed', target: '' });
-    }
-    if (Array.isArray(quantity.warnings)) warnings.push(...quantity.warnings);
-  }
-
-  const sample = readReport(paths.qualitySample, 'QUALITY_SAMPLE_MISSING', 'QUALITY_SAMPLE_INVALID', blockingErrors);
-  if (sample && sample.final_data_hash !== finalDataHash) {
-    blockingErrors.push({ code: 'QUALITY_SAMPLE_STALE', path: 'quality_sample.final_data_hash', target: sample.final_data_hash });
-  }
-  if (sample && Array.isArray(sample.items)) {
-    const expectedSample = sample?.quotas
-      ? buildQualitySample(finalData, {}, { seed: manifest.source_hash }).items
-      : selectQualitySample(finalData, manifest.source_hash);
-    if (JSON.stringify(sample.items) !== JSON.stringify(expectedSample)) {
-      blockingErrors.push({ code: 'QUALITY_SAMPLE_INVALID_SELECTION', path: 'quality_sample.items', target: '' });
-    }
-    if (sample.categories && typeof sample.categories === 'object') {
-      for (const [category, details] of Object.entries(sample.categories)) {
-        if (details?.kind !== 'empty-review-required') continue;
-        const review = details.review;
-        const valid = review?.status === 'none_found' || review?.conclusion === 'none_found';
-        if (!valid) {
-          const issue = { code: 'EMPTY_CATEGORY_REVIEW_REQUIRED', path: `quality_sample.categories.${category}`, target: category };
-          if (details?.priority === 'soft' || !isHighPriorityQualityItem({ group: category })) warnings.push(issue);
-          else blockingErrors.push(issue);
-        }
-      }
-    }
-  }
-  const quality = readReport(
-    paths.qualityReport, 'QUALITY_REVIEW_REQUIRED', 'QUALITY_REPORT_INVALID', blockingErrors
-  );
-  if (quality) {
-    if (quality.final_data_hash !== finalDataHash) {
-      blockingErrors.push({ code: 'QUALITY_REPORT_STALE', path: 'quality_report.final_data_hash', target: quality.final_data_hash });
-    }
-    if (sample && Array.isArray(sample.items)) {
-      const assessment = validateQualityReview({ schema_version: 1, results: quality.results }, sample.items);
-      warnings.push(...assessment.warnings);
-      if (assessment.errors.length > 0) {
-        blockingErrors.push({ code: 'QUALITY_REPORT_INVALID', path: paths.qualityReport, target: assessment.errors });
-      } else if (!assessment.passed || quality.passed !== true) {
-        blockingErrors.push({ code: 'QUALITY_SAMPLE_FAILED', path: paths.qualityReport, target: quality.pass_count });
-      }
-    }
-  }
-
-  const manual = readReport(paths.manualReview, 'MANUAL_REVIEW_MISSING', 'MANUAL_REVIEW_INVALID', blockingErrors);
-  if (manual && (!Array.isArray(manual) || manual.length > 0)) {
-    blockingErrors.push({ code: 'MANUAL_REVIEW_BLOCKS_FINAL', path: paths.manualReview, target: Array.isArray(manual) ? manual.length : '' });
-  }
-  if (approximateLines > 0) warnings.push({ code: 'SOURCE_LINE_APPROXIMATE', count: approximateLines });
-
+  const counts = Object.fromEntries(Object.entries(FINAL_FILES)
+    .map(([category, filename]) => [category, loaded.data[filename].length]));
   return {
     passed: blockingErrors.length === 0,
-    semantic_contract_version: semanticContractVersion,
     final_data_hash: finalDataHash,
-    counts: Object.fromEntries(Object.entries(finalData).map(([filename, records]) => [filename, records.length])),
+    counts,
     blocking_errors: blockingErrors,
+    warnings: []
+  };
+}
+
+function inspectWorkspaceFinal(paths, { chapters = [], expectedHash } = {}) {
+  return verifyDataRoot(paths.finalData, { chapters, expectedHash });
+}
+
+function acceptedChapterDraft(chapter) {
+  const draft = structuredClone(chapter);
+  for (const category of CANDIDATE_ARRAYS) {
+    draft[category] = (draft[category] || []).map(record => {
+      const value = { ...record };
+      delete value.candidate_key;
+      return value;
+    });
+  }
+  return draft;
+}
+
+function verificationError(error, fallbackPath) {
+  return {
+    code: error?.code || 'WORKSPACE_EVIDENCE_INVALID',
+    path: fallbackPath,
+    target: error?.message || String(error)
+  };
+}
+
+function candidateTotal(registry) {
+  return Object.values(registry?.categories || {}).flatMap(entries => entries || [])
+    .reduce((total, entry) => total + (Array.isArray(entry.member_refs) ? entry.member_refs.length : 0), 0);
+}
+
+function verifyFinalV4(paths) {
+  const blockingErrors = [];
+  const warnings = [];
+  let manifest;
+  try {
+    manifest = readJson(paths.manifest);
+  } catch (error) {
+    return {
+      passed: false,
+      final_data_hash: null,
+      counts: {},
+      blocking_errors: [verificationError(error, paths.manifest)],
+      warnings
+    };
+  }
+
+  const portable = verifyDataRoot(paths.finalData, { chapters: manifest.chapters });
+  blockingErrors.push(...portable.blocking_errors);
+  warnings.push(...portable.warnings);
+
+  try {
+    assertAcceptedArtifacts(paths);
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.artifactManifest));
+  }
+
+  const acceptedHashes = {};
+  const chapters = [];
+  for (const chapter of manifest.chapters || []) {
+    const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
+    const file = path.join(paths.chapters, `ch_${String(chapter.number).padStart(3, '0')}.yaml`);
+    try {
+      acceptedHashes[unit] = acceptedArtifactHash(paths, file);
+      const accepted = readYaml(file);
+      chapters.push(accepted);
+      const issues = validateChapterDraft(acceptedChapterDraft(accepted), {
+        number: chapter.number,
+        inputHash: chapter.input_hash
+      });
+      blockingErrors.push(...issues.map(issue => ({
+        ...issue,
+        path: `${unit}.${issue.path}`
+      })));
+    } catch (error) {
+      blockingErrors.push(verificationError(error, file));
+    }
+  }
+
+  let plan = null;
+  let registry = null;
+  let assembledBook = null;
+  const decisionHashes = {};
+  try {
+    plan = readWorkPlan(paths, 'domain');
+    const units = (plan.inputs || []).map(input => input.unit);
+    if (JSON.stringify(units) !== JSON.stringify(DOMAIN_UNITS)) {
+      blockingErrors.push({ code: 'DOMAIN_PLAN_INVALID', path: paths.domainWork, target: units.join(',') });
+    }
+    const decisions = [];
+    for (const input of plan.inputs || []) {
+      const file = path.join(paths.domainDecisions, `${input.unit.replaceAll(':', '_')}.yaml`);
+      decisionHashes[input.unit] = acceptedArtifactHash(paths, file);
+      const decision = readYaml(file);
+      decisions.push(decision);
+      blockingErrors.push(...validateDomainDecisionDraft(decision, input).map(issue => ({
+        ...issue,
+        path: `${input.unit}.${issue.path}`
+      })));
+    }
+    acceptedArtifactHash(paths, paths.candidateRegistry);
+    registry = readJson(paths.candidateRegistry);
+    assembledBook = assembleDomainMergedBook({
+      manifest,
+      chapters,
+      registry,
+      work_plan: plan,
+      decisions
+    });
+    assembledBook.items.forEach((item, index) => {
+      if (!ITEM_REASONS.has(item.inclusion_reason)) {
+        blockingErrors.push({
+          code: 'ITEM_NOT_IMPORTANT',
+          path: `assembled.items[${index}].inclusion_reason`,
+          target: item.canonical_name
+        });
+      }
+    });
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.domainWork));
+  }
+
+  let assemblyReport = null;
+  try {
+    assemblyReport = readJson(paths.assemblyReport);
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.assemblyReport));
+  }
+  if (assemblyReport) {
+    const expectedCounts = Object.fromEntries(Object.entries(FINAL_FILES)
+      .map(([category, filename]) => [filename, portable.counts[category]]));
+    const checks = [
+      ['ASSEMBLY_CONTRACT_STALE', assemblyReport.semantic_contract_version, SEMANTIC_CONTRACT_VERSION],
+      ['ASSEMBLY_SOURCE_STALE', assemblyReport.source_hash, manifest.source_hash],
+      ['ASSEMBLY_ACCEPTED_HASH_STALE', stableValue(assemblyReport.accepted_hashes), stableValue(acceptedHashes)],
+      ['ASSEMBLY_DECISION_HASH_STALE', stableValue(assemblyReport.decision_hashes), stableValue(decisionHashes)],
+      ['ASSEMBLY_FINAL_HASH_STALE', assemblyReport.final_data_hash, portable.final_data_hash],
+      ['ASSEMBLY_COUNTS_STALE', stableValue(assemblyReport.counts), stableValue(expectedCounts)],
+      ['ASSEMBLY_CANDIDATE_COUNT_STALE', assemblyReport.candidate_count, registry ? candidateTotal(registry) : null],
+      [
+        'ASSEMBLY_RESOLUTION_COUNT_STALE',
+        assemblyReport.candidate_resolution_count,
+        assembledBook ? assembledBook.candidate_resolutions.length : null
+      ]
+    ];
+    for (const [code, actual, expected] of checks) {
+      if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+        blockingErrors.push({ code, path: paths.assemblyReport, target: '' });
+      }
+    }
+  }
+
+  try {
+    const manual = readJson(paths.manualReview);
+    if (!Array.isArray(manual) || manual.length > 0) {
+      blockingErrors.push({
+        code: 'MANUAL_REVIEW_BLOCKS_FINAL',
+        path: paths.manualReview,
+        target: Array.isArray(manual) ? manual.length : ''
+      });
+    }
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.manualReview));
+  }
+
+  const deduplicated = [...new Map(blockingErrors.map(issue => [JSON.stringify(issue), issue])).values()];
+  const result = {
+    passed: deduplicated.length === 0,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    source_hash: manifest.source_hash,
+    final_data_hash: portable.final_data_hash,
+    counts: portable.counts,
+    blocking_errors: deduplicated,
     warnings
   };
+  if (result.passed) {
+    fs.mkdirSync(paths.finalReports, { recursive: true });
+    atomicWriteJson(paths.verificationReport, result);
+  }
+  return result;
 }
 
-function ensureQualitySample(paths, manifest) {
-  const loaded = loadData(paths.finalData);
-  if (loaded.errors.length > 0) return null;
-  const finalDataHash = hashFinalData(loaded.data);
-  let expectedSample = null;
-  const reviews = {};
-  const itemReview = path.join(paths.recalls || '', 'items.json');
-  if (paths.recalls && fs.existsSync(itemReview)) {
-    try {
-      const review = readJson(itemReview);
-      reviews.items = review.none_found || review;
-    } catch {
-      // Invalid category review remains a verification error on the generated sample.
-    }
-  }
-  if (fs.existsSync(paths.qualitySample)) {
-    try {
-      const existing = readJson(paths.qualitySample);
-      expectedSample = existing?.quotas
-        ? buildQualitySample(loaded.data, existing.categories || reviews, { seed: manifest.source_hash })
-        : { items: selectQualitySample(loaded.data, manifest.source_hash) };
-      if (existing.final_data_hash === finalDataHash
-        && existing.seed === manifest.source_hash
-        && JSON.stringify(existing.items) === JSON.stringify(expectedSample.items)) {
-        return existing;
-      }
-    } catch {
-      // A malformed sample is replaced from deterministic final data.
-    }
-  }
-  expectedSample ||= buildQualitySample(loaded.data, reviews, { seed: manifest.source_hash });
-  const sample = {
-    schema_version: 1,
-    final_data_hash: finalDataHash,
-    seed: manifest.source_hash,
-    ...(expectedSample.quotas ? expectedSample : { items: expectedSample.items })
-  };
-  atomicWriteJson(paths.qualitySample, sample);
-  fs.rmSync(paths.qualityReport, { force: true });
-  return sample;
-}
-
-module.exports = { ID_PATTERN, ensureQualitySample, hashFinalData, loadData, verifyFinal };
+module.exports = {
+  ID_PATTERN,
+  hashFinalData,
+  inspectWorkspaceFinal,
+  loadData,
+  verifyDataRoot,
+  verifyFinal: verifyFinalV4
+};

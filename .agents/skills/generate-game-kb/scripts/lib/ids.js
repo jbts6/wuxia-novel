@@ -5,7 +5,6 @@ const { pinyin } = require('pinyin-pro');
 
 const PREFIX = Object.freeze({
   characters: 'char',
-  events: 'event',
   items: 'item',
   skills: 'skill',
   techniques: 'tech',

@@ -1,19 +1,17 @@
 'use strict';
 
 const { GameKbError } = require('./errors');
-const { SEMANTIC_PROFILE } = require('./semantic-contract');
+const { DOMAIN_UNITS, SEMANTIC_PROFILE } = require('./semantic-contract');
 const { sha256 } = require('./source');
 const {
   WORK_CONTRACT_VERSION,
   serializedInputBytes
 } = require('./semantic-work');
 
-const DOMAIN_DEFINITIONS = Object.freeze({
-  characters: Object.freeze(['characters']),
-  skills: Object.freeze(['skills']),
-  items: Object.freeze(['items']),
-  factions: Object.freeze(['factions'])
-});
+const DOMAIN_DEFINITIONS = Object.freeze(Object.fromEntries(DOMAIN_UNITS.map(unit => {
+  const domain = unit.slice('distill:'.length);
+  return [domain, Object.freeze([domain])];
+})));
 const MAX_DOMAIN_WORK_ITEM_BYTES = 512 * 1024;
 
 const DOMAIN_PATCH_FIELDS = Object.freeze({
@@ -22,7 +20,7 @@ const DOMAIN_PATCH_FIELDS = Object.freeze({
     'faction', 'relationships'
   ]),
   skills: Object.freeze([
-    'canonical_name', 'aliases', 'type', 'rank', 'description', 'holder_names',
+    'canonical_name', 'aliases', 'type', 'rank', 'description', 'faction', 'holder_names',
     'techniques'
   ]),
   items: Object.freeze([
@@ -93,7 +91,7 @@ function pendingForDomain(registry, domain, refs) {
   }).filter(Boolean);
 }
 
-function createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes = {} } = {}) {
+function createDomainWorkPlan({ registry, source_hash: sourceHash, accepted_hashes: acceptedHashes = {} } = {}) {
   if (!registry || typeof registry !== 'object' || !registry.categories || !registry.bindings) {
     throw new GameKbError('DOMAIN_REGISTRY_INVALID', 'Domain planning requires a candidate registry');
   }
@@ -104,6 +102,10 @@ function createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes = {} }
     }
   }
   const refs = new Map(orderedEntries.map((entry, index) => [entry.registry_key, entryRef(index)]));
+  const factionRefs = orderedEntries
+    .filter(entry => entry.category === 'factions')
+    .map(entry => refs.get(entry.registry_key))
+    .sort(compareText);
   const inputs = [];
   const bindings = [];
 
@@ -129,6 +131,7 @@ function createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes = {} }
       categories: [...categories],
       quality_tier: 'hard',
       allowed_patch_fields: [...DOMAIN_PATCH_FIELDS[domain]],
+      ...(['characters', 'skills'].includes(domain) ? { allowed_faction_refs: [...factionRefs] } : {}),
       entries: visibleEntries,
       pending: pendingForDomain(registry, domain, refs),
       decision_contract: {
@@ -162,6 +165,7 @@ function createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes = {} }
     schema_version: 1,
     semantic_contract_version: WORK_CONTRACT_VERSION,
     stage: 'domain',
+    source_hash: sourceHash,
     upstream_hashes: sortedHashMap(acceptedHashes),
     inputs,
     bindings,

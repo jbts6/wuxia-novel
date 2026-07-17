@@ -4,9 +4,13 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const yaml = require('js-yaml');
 
 const { pathsFor } = require('../scripts/lib/paths');
 const { resolveRun } = require('../scripts/lib/run');
+const { DOMAIN_UNITS, SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
+const { readWorkPlan } = require('../scripts/lib/semantic-work');
+const { sha256 } = require('../scripts/lib/source');
 
 const SKILL_ROOT = path.resolve(__dirname, '..');
 const FLOW = path.join(SKILL_ROOT, 'scripts', 'flow.js');
@@ -33,6 +37,11 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
+function parseJsonLine(text) {
+  const line = String(text).split(/\r?\n/).find(value => value.trim() !== '');
+  return JSON.parse(line);
+}
+
 function writeStagingDraft(novel, unit, value, attempt) {
   const run = resolveRun(novel);
   const paths = pathsFor(novel, run.run_id);
@@ -40,9 +49,9 @@ function writeStagingDraft(novel, unit, value, attempt) {
   const number = attempt ?? ((progress.units[unit]?.attempts ?? 0) + 1);
   const file = path.join(
     paths.staging,
-    `${unit.replaceAll(':', '_')}_attempt_${String(number).padStart(2, '0')}.json`
+    `${unit.replaceAll(':', '_')}_attempt_${String(number).padStart(2, '0')}.yaml`
   );
-  fs.writeFileSync(file, JSON.stringify(value), 'utf8');
+  fs.writeFileSync(file, yaml.dump(value, { noRefs: true, lineWidth: -1 }), 'utf8');
   return file;
 }
 
@@ -64,31 +73,118 @@ function validChapterDraft(overrides = {}) {
     title: '第一章 起始',
     source_hash: 'sha256:chapter',
     characters: [{
-      local_key: 'character:甲', name: '甲', level: '核心', power_rank: '初窥门径',
-      source_refs: [sourceRef()]
-    }],
-    events: [{
-      local_key: 'event:相逢', name: '山中相逢', importance: '重要', quote_status: 'quotable',
+      local_key: 'character:甲', name: '甲', level: '核心', rank: '初窥门径',
       source_refs: [sourceRef()]
     }],
     items: [],
     skills: [{
-      local_key: 'skill:内功', name: '玄门内功', power_rank: '初窥门径', source_refs: [sourceRef()]
+      local_key: 'skill:内功', name: '玄门内功', rank: '初窥门径',
+      techniques: [{ name: '飞云掌', named_in_source: true }], source_refs: [sourceRef()]
     }],
-    techniques: [{ local_key: 'technique:飞掌', name: '飞云掌', named_in_source: true, source_refs: [sourceRef()] }],
     factions: [],
-    locations: [{ local_key: 'location:山谷', name: '无名山谷', source_refs: [sourceRef()] }],
-    dialogues: [],
-    summary: {
+    chapter_summary: {
       title: '第一章 起始',
       summary: '甲在山谷中与故人相逢。',
-      key_events: ['event:相逢'],
-      key_characters: ['甲'],
       source_refs: [sourceRef()]
-    },
-    coverage: {}
+    }
   };
   return { ...draft, ...overrides };
+}
+
+function validDomainDraft(input, actionForEntry = () => 'keep') {
+  return {
+    schema_version: 1,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    unit: input.unit,
+    input_hash: input.input_hash,
+    decisions: input.entries.map(entry => {
+      const action = actionForEntry(entry);
+      return {
+        entry_ref: entry.entry_ref,
+        action,
+        ...(action === 'keep' ? {
+          patch: {
+            canonical_name: entry.canonical_name,
+            ...(['characters', 'skills'].includes(entry.category) ? { rank: '登堂入室' } : {}),
+            ...(entry.category === 'items' ? { inclusion_reason: '其他稀有特殊' } : {})
+          }
+        } : {})
+      };
+    }),
+    notes: []
+  };
+}
+
+function replaceAcceptedArtifact(paths, file, value) {
+  const content = file.endsWith('.yaml')
+    ? yaml.dump(value, { noRefs: true, lineWidth: -1 })
+    : `${JSON.stringify(value, null, 2)}\n`;
+  fs.writeFileSync(file, content, 'utf8');
+  const manifest = readJson(paths.artifactManifest);
+  const relativePath = path.relative(paths.run, file).split(path.sep).join('/');
+  const entry = manifest.entries.find(item => item.relative_path === relativePath);
+  if (!entry) throw new Error(`Accepted artifact is not registered: ${relativePath}`);
+  entry.content_hash = sha256(content);
+  fs.writeFileSync(paths.artifactManifest, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
+}
+
+function requireFlowSuccess(result, label) {
+  if (result.status !== 0) throw new Error(`${label}: ${result.stderr}`);
+  return result.stdout.trim() ? JSON.parse(result.stdout) : {};
+}
+
+function prepareAssembledRun({
+  name = '已组装试书',
+  runId = 'run-assembled',
+  source = '第一章 起始\n甲修习玄门内功。\n',
+  chapterOverrides = {},
+  domainDraftForInput = validDomainDraft,
+  beforeAssemble = null
+} = {}) {
+  const novel = makeNovel(name, source);
+  const commands = [];
+  const invoke = (args, label) => {
+    commands.push(args[0]);
+    return requireFlowSuccess(runFlow(args), label);
+  };
+  const prepared = invoke(['prepare', novel, '--run', runId, '--json'], 'prepare');
+  const paths = pathsFor(novel, prepared.run_id);
+  const manifest = readJson(paths.manifest);
+  for (const chapter of manifest.chapters) {
+    const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
+    const override = typeof chapterOverrides === 'function'
+      ? chapterOverrides(chapter)
+      : chapterOverrides;
+    const draft = validChapterDraft({
+      chapter: chapter.number,
+      title: chapter.title,
+      source_hash: chapter.input_hash,
+      chapter_summary: {
+        title: chapter.title,
+        summary: `第${chapter.number}章摘要。`,
+        source_refs: [sourceRef(chapter.number, `第${chapter.number}章原文锚点`)]
+      },
+      ...override
+    });
+    const file = writeStagingDraft(novel, unit, draft);
+    invoke([
+      'accept', novel, '--run', prepared.run_id, '--unit', unit, '--draft', file, '--json'
+    ], `accept ${unit}`);
+  }
+  invoke(['plan-domains', novel, '--run', prepared.run_id, '--json'], 'plan domains');
+  const plan = readWorkPlan(paths, 'domain');
+  if (JSON.stringify(plan.inputs.map(input => input.unit)) !== JSON.stringify(DOMAIN_UNITS)) {
+    throw new Error('Unexpected domain plan');
+  }
+  for (const input of plan.inputs) {
+    const file = writeStagingDraft(novel, input.unit, domainDraftForInput(input));
+    invoke([
+      'accept', novel, '--run', prepared.run_id, '--unit', input.unit, '--draft', file, '--json'
+    ], `accept ${input.unit}`);
+  }
+  if (beforeAssemble) beforeAssemble({ manifest, novel, paths, plan, prepared });
+  const assembled = invoke(['assemble', novel, '--run', prepared.run_id, '--json'], 'assemble');
+  return { assembled, commands, manifest, novel, paths, prepared };
 }
 
 function validMergedBook(overrides = {}) {
@@ -97,43 +193,29 @@ function validMergedBook(overrides = {}) {
     stage: 'merged',
     characters: [{
       local_key: 'character:甲', canonical_name: '甲', aliases: [], level: '核心', identity: '侠客',
-      power_rank: '初窥门径',
+      rank: '初窥门径', faction: '玄门',
       biography: '甲在江湖中追查旧事。', personality: { traits: ['坚毅'], speech_style: '简练' },
-      relationship_names: [], skill_names: ['玄门内功'], item_names: [], source_refs: [sourceRef(1)]
-    }],
-    events: [{
-      local_key: 'event:相逢', canonical_name: '山中相逢', cause: '追查线索', process: '山谷会面', result: '交换消息',
-      participant_names: ['甲'], location_names: ['无名山谷'], importance: '重要', source_refs: [sourceRef(1), sourceRef(3)]
+      relationship_names: [], skill_names: ['玄门内功'], item_names: ['回生丹'], source_refs: [sourceRef(1)]
     }],
     items: [{
       local_key: 'item:灵丹', canonical_name: '回生丹', inclusion_reason: '高级药毒', type: '丹药',
       description: '用于救治重伤。', source_refs: [sourceRef(2)]
     }],
     skills: [{
-      local_key: 'skill:内功', canonical_name: '玄门内功', type: '内功', power_rank: '初窥门径',
-      description: '调息养气。',
-      holder_names: ['甲'], technique_names: ['飞云掌'], source_refs: [sourceRef(1)]
-    }],
-    techniques: [{
-      local_key: 'technique:飞掌', canonical_name: '飞云掌', named_in_source: true,
-      source_skill_name: '玄门内功', description: '掌势迅疾。', source_refs: [sourceRef(1)]
+      local_key: 'skill:内功', canonical_name: '玄门内功', type: '内功', rank: '初窥门径',
+      faction: '玄门', description: '调息养气。',
+      techniques: [{ name: '飞云掌', named_in_source: true, description: '掌势迅疾。' }],
+      source_refs: [sourceRef(1)]
     }],
     factions: [{
       local_key: 'faction:玄门', canonical_name: '玄门', type: '门派', description: '隐居山中。', source_refs: [sourceRef(1)]
-    }],
-    locations: [{
-      local_key: 'location:山谷', canonical_name: '无名山谷', region: '北地', description: '群山环抱。', source_refs: [sourceRef(1)]
-    }],
-    dialogues: [{
-      local_key: 'dialogue:相逢', event_key: 'event:相逢', speaker_name: '甲', chapter: 1,
-      text: '你终于来了。', source_refs: [sourceRef(1)]
     }],
     chapter_summaries: [1, 2, 3].map(chapter => ({
       chapter,
       title: `第${chapter}章`,
       summary: `第${chapter}章摘要。`,
-      key_events: chapter === 1 ? ['山中相逢'] : [],
       key_characters: ['甲'],
+      key_skills: chapter === 1 ? ['玄门内功'] : [],
       source_refs: [sourceRef(chapter)]
     })),
     candidate_resolutions: [],
@@ -157,11 +239,15 @@ module.exports = {
   FLOW,
   makeNovel,
   makeNovelDirectory,
+  parseJsonLine,
+  prepareAssembledRun,
   readJson,
+  replaceAcceptedArtifact,
   runFlow,
   sourceRef,
   writeStagingDraft,
   validChapterDraft,
+  validDomainDraft,
   validCleanedBook,
   validMergedBook
 };

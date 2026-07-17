@@ -4,51 +4,66 @@ const assert = require('node:assert/strict');
 const test = require('node:test');
 
 const { validateDomainDecisionDraft } = require('../scripts/lib/domain-contract');
+const { DOMAIN_PATCH_FIELDS } = require('../scripts/lib/domain-work');
+const { DOMAIN_UNITS, SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 
-function input(domain = 'martial') {
-  const entries = domain === 'plot'
-    ? [
-        {
-          entry_ref: 'r000004', category: 'characters', canonical_name: '胡斐', aliases: [],
-          source_chapters: [1], source_refs: [{ chapter: 1, text: '胡斐' }], facts: {}
-        },
-        {
-          entry_ref: 'r000005', category: 'events', canonical_name: '雪山相逢', aliases: [],
-          source_chapters: [1], source_refs: [{ chapter: 1, text: '雪山相逢' }], facts: {}
-        }
-      ]
-    : domain === 'martial'
-    ? [
-        {
-          entry_ref: 'r000001', category: 'skills', canonical_name: '胡家刀法', aliases: [],
-          source_chapters: [1], source_refs: [{ chapter: 1, text: '胡家刀法' }], facts: {}
-        },
-        {
-          entry_ref: 'r000002', category: 'techniques', canonical_name: '八方藏刀式', aliases: [],
-          source_chapters: [1], source_refs: [{ chapter: 1, text: '八方藏刀式' }],
-          facts: { named_in_source: true, source_skill_ref: 'r000001' }
-        }
-      ]
-    : [{
-        entry_ref: 'r000003', category: 'items', canonical_name: '铁盒', aliases: [],
-        source_chapters: [1], source_refs: [{ chapter: 1, text: '铁盒' }], facts: {}
-      }];
+test('domain validation accepts only the shared four domain units', () => {
+  const baseInput = {
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    unit: 'distill:items',
+    allowed_patch_fields: ['canonical_name'],
+    entries: [{ entry_ref: 'r000001', category: 'items', canonical_name: '铁盒', facts: {} }]
+  };
+  const draftFor = unit => ({
+    schema_version: 1,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    unit,
+    input_hash: 'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    decisions: [{ entry_ref: 'r000001', action: 'reject', reason: 'ordinary_item', detail: '普通物品。' }],
+    notes: []
+  });
+
+  for (const unit of DOMAIN_UNITS) {
+    const errors = validateDomainDecisionDraft(draftFor(unit), { ...baseInput, unit });
+    assert.equal(errors.some(error => error.code === 'DOMAIN_UNIT_INVALID'), false);
+  }
+  for (const unit of ['distill:plot', 'distill:martial', 'distill:world']) {
+    const errors = validateDomainDecisionDraft(draftFor(unit), { ...baseInput, unit });
+    assert.equal(errors.some(error => error.code === 'DOMAIN_UNIT_INVALID'), true);
+  }
+});
+
+function input(domain = 'skills') {
+  const entries = {
+    characters: [{
+      entry_ref: 'r000001', category: 'characters', canonical_name: '胡斐', aliases: [],
+      source_chapters: [1], source_refs: [{ chapter: 1, text: '胡斐' }], facts: { level: '核心' }
+    }],
+    skills: [{
+      entry_ref: 'r000002', category: 'skills', canonical_name: '胡家刀法', aliases: [],
+      source_chapters: [1], source_refs: [{ chapter: 1, text: '胡家刀法' }],
+      facts: { techniques: [{ name: '八方藏刀式', named_in_source: true }] }
+    }],
+    items: [{
+      entry_ref: 'r000003', category: 'items', canonical_name: '铁盒', aliases: [],
+      source_chapters: [1], source_refs: [{ chapter: 1, text: '铁盒' }], facts: {}
+    }],
+    factions: [{
+      entry_ref: 'r000004', category: 'factions', canonical_name: '胡家', aliases: [],
+      source_chapters: [1], source_refs: [{ chapter: 1, text: '胡家' }], facts: {}
+    }]
+  }[domain];
   return {
     schema_version: 1,
-    semantic_contract_version: 3,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     semantic_profile: 'domain-distill-v1',
     stage: 'domain_distill',
     unit: `distill:${domain}`,
     domain,
-    categories: domain === 'plot'
-      ? ['characters', 'events', 'dialogues']
-      : domain === 'martial' ? ['skills', 'techniques'] : ['items'],
+    categories: [domain],
     quality_tier: 'hard',
-    allowed_patch_fields: domain === 'plot'
-      ? ['canonical_name', 'aliases', 'level', 'identity', 'power_rank', 'description']
-      : domain === 'martial'
-      ? ['canonical_name', 'aliases', 'type', 'power_rank', 'description', 'source_skill_ref', 'named_in_source']
-      : ['canonical_name', 'aliases', 'type', 'description', 'inclusion_reason'],
+    allowed_patch_fields: [...DOMAIN_PATCH_FIELDS[domain]],
+    ...(['characters', 'skills'].includes(domain) ? { allowed_faction_refs: ['r000004'] } : {}),
     entries,
     pending: [],
     decision_contract: {
@@ -63,39 +78,66 @@ function input(domain = 'martial') {
 function validDraft(work = input()) {
   return {
     schema_version: 1,
-    semantic_contract_version: 3,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     unit: work.unit,
     input_hash: work.input_hash,
     decisions: work.entries.map(entry => ({
       entry_ref: entry.entry_ref,
       action: 'keep',
-      patch: entry.category === 'characters' || entry.category === 'skills'
-        ? { canonical_name: entry.canonical_name, power_rank: '初窥门径' }
-        : entry.category === 'techniques'
-        ? { canonical_name: entry.canonical_name, named_in_source: true, source_skill_ref: 'r000001' }
-        : { canonical_name: entry.canonical_name }
+      patch: entry.category === 'characters'
+        ? { canonical_name: entry.canonical_name, level: '核心', rank: '初窥门径' }
+        : entry.category === 'skills'
+          ? {
+              canonical_name: entry.canonical_name,
+              rank: '初窥门径',
+              techniques: [{ name: '八方藏刀式', named_in_source: true }]
+            }
+          : entry.category === 'items'
+            ? { canonical_name: entry.canonical_name, inclusion_reason: '剧情关键' }
+            : { canonical_name: entry.canonical_name }
     })),
     notes: []
   };
 }
 
-test('character and skill keep decisions require a valid final power_rank patch', () => {
-  for (const domain of ['plot', 'martial']) {
+test('character and skill keep decisions require a valid final rank patch', () => {
+  for (const domain of ['characters', 'skills']) {
     const work = input(domain);
-    const category = domain === 'plot' ? 'characters' : 'skills';
+    const category = domain;
     const index = work.entries.findIndex(entry => entry.category === category);
 
     const missing = validDraft(work);
-    delete missing.decisions[index].patch.power_rank;
+    delete missing.decisions[index].patch.rank;
     assert.ok(validateDomainDecisionDraft(missing, work).some(error =>
       error.code === 'POWER_RANK_REQUIRED'
-      && error.path === `decisions[${index}].patch.power_rank`));
+      && error.path === `decisions[${index}].patch.rank`));
 
     const invalid = validDraft(work);
-    invalid.decisions[index].patch.power_rank = '天下无敌';
+    invalid.decisions[index].patch.rank = '天下无敌';
     assert.ok(validateDomainDecisionDraft(invalid, work).some(error =>
       error.code === 'POWER_RANK_INVALID'
-      && error.path === `decisions[${index}].patch.power_rank`));
+      && error.path === `decisions[${index}].patch.rank`));
+  }
+});
+
+test('character and skill faction patches accept only explicitly authorized refs', () => {
+  for (const domain of ['characters', 'skills']) {
+    const work = input(domain);
+    const allowed = validDraft(work);
+    allowed.decisions[0].patch.faction = 'r000004';
+    assert.deepEqual(validateDomainDecisionDraft(allowed, work), []);
+
+    const unknown = validDraft(work);
+    unknown.decisions[0].patch.faction = 'r999999';
+    assert.ok(validateDomainDecisionDraft(unknown, work).some(error =>
+      error.code === 'DOMAIN_REFERENCE_UNKNOWN'
+      && error.path === 'decisions[0].patch.faction'));
+
+    const existingButUnauthorized = validDraft(work);
+    existingButUnauthorized.decisions[0].patch.faction = work.entries[0].entry_ref;
+    assert.ok(validateDomainDecisionDraft(existingButUnauthorized, work).some(error =>
+      error.code === 'DOMAIN_REFERENCE_UNAUTHORIZED'
+      && error.path === 'decisions[0].patch.faction'));
   }
 });
 
@@ -118,6 +160,10 @@ test('a domain decision covers every visible entry exactly once', () => {
 
 test('controller fields, cross-category merges, and unknown patch fields fail closed', () => {
   const work = input();
+  work.entries.push({
+    entry_ref: 'r000003', category: 'items', canonical_name: '铁盒', aliases: [],
+    source_chapters: [1], source_refs: [{ chapter: 1, text: '铁盒' }], facts: {}
+  });
 
   const privateKey = validDraft(work);
   privateKey.decisions[0].patch.registry_key = 'registry:skills:0001';
@@ -125,7 +171,7 @@ test('controller fields, cross-category merges, and unknown patch fields fail cl
 
   const crossCategory = validDraft(work);
   crossCategory.decisions[0] = {
-    entry_ref: 'r000001', action: 'merge', target_ref: 'r000002', patch: {}
+    entry_ref: 'r000002', action: 'merge', target_ref: 'r000003', patch: {}
   };
   assert.equal(validateDomainDecisionDraft(crossCategory, work).some(error => error.code === 'DOMAIN_MERGE_CATEGORY_MISMATCH'), true);
 
@@ -134,20 +180,18 @@ test('controller fields, cross-category merges, and unknown patch fields fail cl
   assert.equal(validateDomainDecisionDraft(unknownPatch, work).some(error => error.code === 'DOMAIN_PATCH_FIELD_FORBIDDEN'), true);
 });
 
-test('martial and item semantics enforce named techniques and finite noise reasons', () => {
-  const martial = input();
-  martial.entries[1].facts.named_in_source = false;
-  const keptAction = validDraft(martial);
-  assert.equal(validateDomainDecisionDraft(keptAction, martial).some(error => error.code === 'TECHNIQUE_NOT_NAMED'), true);
+test('skill and item semantics enforce named nested techniques and finite noise reasons', () => {
+  const skills = input('skills');
+  const keptAction = validDraft(skills);
+  keptAction.decisions[0].patch.techniques[0].named_in_source = false;
+  assert.equal(validateDomainDecisionDraft(keptAction, skills).some(error => error.code === 'TECHNIQUE_NOT_NAMED'), true);
 
-  const rejectedAction = validDraft(martial);
-  rejectedAction.decisions[1] = {
-    entry_ref: 'r000002', action: 'reject', reason: 'ordinary_action', detail: '原文只有泛化动作。'
-  };
-  assert.deepEqual(validateDomainDecisionDraft(rejectedAction, martial), []);
+  keptAction.decisions[0].patch.techniques[0].name = '';
+  assert.equal(validateDomainDecisionDraft(keptAction, skills).some(error => error.code === 'TECHNIQUE_NAME_REQUIRED'), true);
 
   const items = input('items');
   const keepOrdinary = validDraft(items);
+  delete keepOrdinary.decisions[0].patch.inclusion_reason;
   assert.equal(validateDomainDecisionDraft(keepOrdinary, items).some(error => error.code === 'ITEM_INCLUSION_REASON_REQUIRED'), true);
 
   const rejectOrdinary = validDraft(items);
@@ -163,7 +207,7 @@ test('martial and item semantics enforce named techniques and finite noise reaso
 test('pending decisions require evidence-bearing detail and never masquerade as accepted output', () => {
   const work = input();
   const draft = validDraft(work);
-  draft.decisions[0] = { entry_ref: 'r000001', action: 'pending', detail: '' };
+  draft.decisions[0] = { entry_ref: work.entries[0].entry_ref, action: 'pending', detail: '' };
   assert.equal(validateDomainDecisionDraft(draft, work).some(error => error.code === 'DOMAIN_PENDING_DETAIL_REQUIRED'), true);
 
   draft.decisions[0].detail = '同名身份仍不能唯一判定。';

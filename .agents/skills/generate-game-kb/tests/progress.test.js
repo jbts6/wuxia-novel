@@ -5,45 +5,65 @@ const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 
-const { makeNovel, readJson } = require('./helpers');
+const { makeNovel, readJson, runFlow } = require('./helpers');
 const { pathsFor } = require('../scripts/lib/paths');
+const progressApi = require('../scripts/lib/progress');
 const {
   freshProgress,
   freshUnit,
-  assertRecallAttempt,
   loadProgress,
   normalizeErrorFingerprint,
   recordSubmission,
   resetUnit,
   saveProgress,
+  statusReport,
   syncPlannedUnits
-} = require('../scripts/lib/progress');
+} = progressApi;
+const { DOMAIN_UNITS } = require('../scripts/lib/semantic-contract');
 const { prepareNovel } = require('../scripts/lib/source');
 
 function submit(progress, output, errors) {
   return recordSubmission(progress, 'chapter:001', 'sha256:input', output, errors);
 }
 
-test('third invalid submission exhausts the unit', () => {
+test('legacy pre-charge APIs are absent and submissions cannot be double-charged', () => {
+  assert.equal(Object.hasOwn(progressApi, 'assertRecallAttempt'), false);
+  assert.equal(Object.hasOwn(progressApi, 'recordTargetedSubmission'), false);
+  assert.equal(Object.hasOwn(progressApi, 'semanticContentHash'), false);
+
   let progress = freshProgress();
   progress.units['chapter:001'] = freshUnit('sha256:input');
   progress = submit(progress, 'sha256:a', [{ code: 'E1', path: 'x' }]);
-  progress = submit(progress, 'sha256:b', [{ code: 'E2', path: 'y' }]);
-  progress = submit(progress, 'sha256:c', [{ code: 'E3', path: 'z' }]);
-
-  assert.equal(progress.units['chapter:001'].status, 'manual_review');
-  assert.equal(progress.units['chapter:001'].attempts, 3);
+  assert.equal(progress.units['chapter:001'].attempts, 1);
+  progress = submit(progress, 'sha256:b', []);
+  assert.equal(progress.units['chapter:001'].status, 'done');
+  assert.equal(progress.units['chapter:001'].attempts, 2);
 });
 
-test('a valid third submission completes instead of exhausting the unit', () => {
+test('one validator-guided correction completes within the two-submission budget', () => {
+  let progress = freshProgress();
+  progress.units['chapter:001'] = freshUnit('sha256:input');
+  progress = submit(progress, 'sha256:a', [{ code: 'E1', path: 'x' }]);
+  progress = submit(progress, 'sha256:b', []);
+
+  assert.equal(progress.units['chapter:001'].status, 'done');
+  assert.equal(progress.units['chapter:001'].attempts, 2);
+});
+
+test('a second validation failure requires manual review', () => {
   let progress = freshProgress();
   progress.units['chapter:001'] = freshUnit('sha256:input');
   progress = submit(progress, 'sha256:a', [{ code: 'E1', path: 'x' }]);
   progress = submit(progress, 'sha256:b', [{ code: 'E2', path: 'y' }]);
-  progress = submit(progress, 'sha256:c', []);
 
-  assert.equal(progress.units['chapter:001'].status, 'done');
-  assert.equal(progress.units['chapter:001'].attempts, 3);
+  assert.equal(progress.units['chapter:001'].status, 'manual_review');
+  assert.equal(progress.units['chapter:001'].attempts, 2);
+  assert.match(progress.units['chapter:001'].stop_reason, /ATTEMPTS_EXHAUSTED/);
+  assert.throws(
+    () => submit(progress, 'sha256:c', []),
+    { code: 'UNIT_MANUAL_REVIEW' }
+  );
+  assert.equal(progress.units['chapter:001'].attempts, 2);
 });
 
 test('identical output stops on the second invalid submission', () => {
@@ -53,6 +73,7 @@ test('identical output stops on the second invalid submission', () => {
   progress = submit(progress, 'sha256:a', [{ code: 'E2', path: 'y' }]);
 
   assert.equal(progress.units['chapter:001'].status, 'manual_review');
+  assert.equal(progress.units['chapter:001'].attempts, 2);
   assert.match(progress.units['chapter:001'].stop_reason, /REPEATED_OUTPUT/);
 });
 
@@ -66,29 +87,8 @@ test('identical normalized error stops on the second submission', () => {
 
   assert.equal(normalizeErrorFingerprint(first), normalizeErrorFingerprint(second));
   assert.equal(progress.units['chapter:001'].status, 'manual_review');
+  assert.equal(progress.units['chapter:001'].attempts, 2);
   assert.match(progress.units['chapter:001'].stop_reason, /REPEATED_ERROR/);
-});
-
-test('A-B-A output history stops on the third submission', () => {
-  let progress = freshProgress();
-  progress.units['chapter:001'] = freshUnit('sha256:input');
-  progress = submit(progress, 'sha256:a', [{ code: 'E1', path: 'x' }]);
-  progress = submit(progress, 'sha256:b', [{ code: 'E2', path: 'y' }]);
-  progress = submit(progress, 'sha256:a', [{ code: 'E3', path: 'z' }]);
-
-  assert.equal(progress.units['chapter:001'].status, 'manual_review');
-  assert.match(progress.units['chapter:001'].stop_reason, /OUTPUT_OSCILLATION/);
-});
-
-test('A-B-A error history stops on the third submission', () => {
-  let progress = freshProgress();
-  progress.units['chapter:001'] = freshUnit('sha256:input');
-  progress = submit(progress, 'sha256:a', [{ code: 'E1', path: 'x' }]);
-  progress = submit(progress, 'sha256:b', [{ code: 'E2', path: 'y' }]);
-  progress = submit(progress, 'sha256:c', [{ code: 'E1', path: 'x', message: 'noise' }]);
-
-  assert.equal(progress.units['chapter:001'].status, 'manual_review');
-  assert.match(progress.units['chapter:001'].stop_reason, /ERROR_OSCILLATION/);
 });
 
 test('reload keeps attempts when input hash is unchanged', () => {
@@ -100,7 +100,31 @@ test('reload keeps attempts when input hash is unchanged', () => {
   progress = recordSubmission(progress, 'chapter:001', inputHash, 'sha256:a', [{ code: 'E1', path: 'x' }]);
   saveProgress(paths, progress);
 
-  assert.equal(loadProgress(paths, manifest).units['chapter:001'].attempts, 1);
+  const reloaded = loadProgress(paths, manifest);
+  assert.equal(reloaded.units['chapter:001'].attempts, 1);
+  progress = recordSubmission(reloaded, 'chapter:001', inputHash, 'sha256:b', []);
+  assert.equal(progress.units['chapter:001'].status, 'done');
+  assert.equal(progress.units['chapter:001'].attempts, 2);
+});
+
+test('wrong staging paths are rejected before a submission consumes an attempt', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+  const runId = JSON.parse(prepared.stdout).run_id;
+  const paths = pathsFor(novel, runId);
+  const outside = path.join(novel, 'outside.yaml');
+  fs.writeFileSync(outside, 'schema_version: 1\n', 'utf8');
+  const before = fs.readFileSync(paths.progress);
+
+  const rejected = runFlow([
+    'accept', novel, '--run', runId, '--unit', 'chapter:001', '--draft', outside, '--json'
+  ]);
+
+  assert.notEqual(rejected.status, 0);
+  assert.equal(JSON.parse(rejected.stderr).code, 'DRAFT_STAGING_MISMATCH');
+  assert.deepEqual(fs.readFileSync(paths.progress), before);
+  assert.equal(readJson(paths.progress).units['chapter:001'].attempts, 0);
 });
 
 test('changed source requires the old run to be archived before a fresh budget', () => {
@@ -129,34 +153,52 @@ test('reset requires confirmation and affects only one unit', () => {
   assert.equal(reset.units['chapter:001'].status, 'pending');
   assert.equal(reset.units['chapter:001'].attempts, 0);
   assert.equal(reset.units['chapter:002'].status, 'done');
+  const resubmitted = recordSubmission(reset, 'chapter:001', 'sha256:a', 'sha256:replacement', []);
+  assert.equal(resubmitted.units['chapter:001'].status, 'done');
+  assert.equal(resubmitted.units['chapter:001'].attempts, 1);
 });
 
 test('syncing dynamic category units preserves unchanged done siblings and rotates only stale inputs', () => {
   const progress = freshProgress();
-  progress.units['merge:characters:001'] = {
+  progress.units['distill:characters'] = {
     ...freshUnit('sha256:characters'),
     status: 'done',
     attempts: 1
   };
-  progress.units['merge:items:001'] = {
+  progress.units['distill:items'] = {
     ...freshUnit('sha256:items-old'),
     status: 'pending',
     attempts: 1
   };
 
   const updated = syncPlannedUnits(progress, [
-    { unit: 'merge:characters:001', input_hash: 'sha256:characters' },
-    { unit: 'merge:items:001', input_hash: 'sha256:items-new' },
-    { unit: 'merge:events:001', input_hash: 'sha256:events' }
+    { unit: 'distill:characters', input_hash: 'sha256:characters' },
+    { unit: 'distill:items', input_hash: 'sha256:items-new' },
+    { unit: 'distill:factions', input_hash: 'sha256:factions' }
   ]);
 
-  assert.equal(updated.units['merge:characters:001'].status, 'done');
-  assert.equal(updated.units['merge:characters:001'].attempts, 1);
-  assert.equal(updated.units['merge:items:001'].status, 'stale');
-  assert.equal(updated.units['merge:items:001'].attempts, 0);
-  assert.equal(updated.units['merge:events:001'].status, 'pending');
+  assert.equal(updated.units['distill:characters'].status, 'done');
+  assert.equal(updated.units['distill:characters'].attempts, 1);
+  assert.equal(updated.units['distill:items'].status, 'stale');
+  assert.equal(updated.units['distill:items'].attempts, 0);
+  assert.equal(updated.units['distill:factions'].status, 'pending');
   assert.equal(updated.history.length, 1);
-  assert.equal(updated.history[0].unit, 'merge:items:001');
+  assert.equal(updated.history[0].unit, 'distill:items');
+});
+
+test('status reports domain units in the shared canonical order', () => {
+  const progress = freshProgress();
+  for (const unit of [...DOMAIN_UNITS].reverse()) {
+    progress.units[unit] = freshUnit(`sha256:${unit}`);
+  }
+
+  const report = statusReport(
+    { manifest: 'manifest.json', progress: 'progress.json', manualReview: 'manual-review.json' },
+    { chapters: [] },
+    progress
+  );
+
+  assert.deepEqual(report.units.map(unit => unit.unit), DOMAIN_UNITS);
 });
 
 test('done unchanged unit rejects resubmission without consuming attempts', () => {
@@ -178,27 +220,4 @@ test('corrupt progress fails closed', () => {
 
   assert.throws(() => loadProgress(paths, manifest), { code: 'PROGRESS_CORRUPT' });
   assert.equal(readJson(paths.manualReview).length, 0);
-});
-
-test('recall semantic budget survives reload and permits one format correction', () => {
-  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
-  const manifest = prepareNovel(novel);
-  const paths = pathsFor(novel, manifest.run_id);
-  let progress = loadProgress(paths, manifest);
-  const draft = { items: [{ name: '回生丹', source_refs: [{ chapter: 1, text: '回生丹' }] }] };
-
-  progress = assertRecallAttempt(progress, 'recall:items', draft, 'sha256:recall-input');
-  saveProgress(paths, progress);
-  progress = loadProgress(paths, manifest);
-  assert.equal(progress.units['recall:items'].semantic_attempts, 1);
-  assert.equal(progress.units['recall:items'].attempts, 1);
-
-  progress = assertRecallAttempt(progress, 'recall:items', draft, 'sha256:recall-input');
-  assert.equal(progress.units['recall:items'].semantic_attempts, 1);
-  assert.equal(progress.units['recall:items'].format_attempts, 1);
-  assert.equal(progress.units['recall:items'].attempts, 2);
-  assert.throws(
-    () => assertRecallAttempt(progress, 'recall:items', { items: [{ name: '另一物' }] }),
-    { code: 'NO_PROGRESS' }
-  );
 });

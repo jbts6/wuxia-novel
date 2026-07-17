@@ -5,48 +5,30 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { GameKbError } = require('./lib/errors');
+const { assembleRun } = require('./lib/assemble');
 const { archiveAbandoned, archiveExisting, archiveRun } = require('./lib/archive');
-const { acceptDraft, currentUnitInputHash, semanticDecisionFile, stableHash } = require('./lib/accept');
+const { acceptDraft, stableHash } = require('./lib/accept');
 const {
   acceptedArtifactHash,
   assertAcceptedArtifacts,
-  buildCandidateLedger,
-  recordAcceptedArtifact,
-  releaseAcceptedDomainDecision,
-  replaceInvalidDeterministicClean
+  recordAcceptedArtifact
 } = require('./lib/candidate-ledger');
-const { validateCleanedBook } = require('./lib/book-contract');
 const { buildCandidateRegistry } = require('./lib/candidate-registry');
-const {
-  applyMergeDecision,
-  assembleCleanedBook,
-  assembleMergedBook,
-  canonicalEventRefAliases,
-  createMergeConsolidationWorkItem
-} = require('./lib/book-assembly');
-const { assembleDomainCleanedBook, assembleDomainMergedBook } = require('./lib/domain-assembly');
 const { createDomainWorkPlan } = require('./lib/domain-work');
-const { buildCleanObligations } = require('./lib/clean-obligations');
-const { buildFinalData, writeFinalData } = require('./lib/finalize');
-const { buildGameMaterials } = require('./lib/game-materials');
-const { checkCoverage, checkResolution } = require('./lib/gaps');
 const { installVerifiedData, verifyInstalled } = require('./lib/install');
-const { atomicWriteJson, readJson } = require('./lib/io');
+const { readJson, readYaml } = require('./lib/io');
+const { resolveNextAction } = require('./lib/next-action');
 const { pathsFor } = require('./lib/paths');
 const {
   loadProgress,
-  freshUnit,
-  reopenAcceptedDomainUnit,
+  projectProgress,
   resetUnit,
   saveProgress,
-  setDeterministicUnit,
   statusReport,
   syncPlannedUnits
 } = require('./lib/progress');
-const { buildChapterCoverage } = require('./lib/coverage');
-const { buildQuantityReport } = require('./lib/quantity');
 const { prepareNovel } = require('./lib/source');
-const { SEMANTIC_PROFILE } = require('./lib/semantic-contract');
+const { DOMAIN_UNITS, SEMANTIC_PROFILE } = require('./lib/semantic-contract');
 const {
   assertArchiveExistingAllowed,
   createOrResumeRun,
@@ -54,17 +36,9 @@ const {
   resolveWritableRun
 } = require('./lib/run');
 const { recordScriptDuration } = require('./lib/timing');
-const { ensureQualitySample, verifyFinal } = require('./lib/verify');
+const { verifyFinal } = require('./lib/verify');
 const { readWorkerPool, recordWorkerBackoff } = require('./lib/worker-pool');
-const {
-  createCleanWorkPlan,
-  createMaterialWorkItem,
-  createMergeWorkPlan,
-  readWorkItem,
-  readWorkPlan,
-  writeWorkItem,
-  writeWorkPlan
-} = require('./lib/semantic-work');
+const { writeWorkPlan } = require('./lib/semantic-work');
 
 function flagValue(args, flag) {
   const index = args.indexOf(flag);
@@ -83,63 +57,41 @@ function fail(error, json) {
 function acceptedChapters(paths) {
   if (!fs.existsSync(paths.chapters)) return [];
   return fs.readdirSync(paths.chapters)
-    .filter(name => /^ch_\d+\.json$/.test(name))
+    .filter(name => /^ch_\d+\.yaml$/.test(name))
     .sort()
-    .map(name => readJson(`${paths.chapters}/${name}`));
+    .map(name => readYaml(path.join(paths.chapters, name)));
 }
 
-function assertUnitsDone(progress, units, code = 'BOOK_ASSEMBLY_INCOMPLETE') {
+function assertAssembleInputs(progress, manifest) {
+  const chapterUnits = (manifest.chapters || []).map(chapter => (
+    `chapter:${String(chapter.number).padStart(3, '0')}`
+  ));
+  const units = [...chapterUnits, ...DOMAIN_UNITS];
   const incomplete = units.filter(unit => progress.units[unit]?.status !== 'done');
   if (incomplete.length > 0) {
-    throw new GameKbError(code, 'All semantic dependencies must be accepted before deterministic assembly', {
-      units: incomplete
-    });
+    throw new GameKbError(
+      'BOOK_ASSEMBLY_INCOMPLETE',
+      'All accepted chapters and terminal domain decisions are required before assembly',
+      { units: incomplete }
+    );
   }
 }
 
-function readDecisions(paths, units) {
-  return Object.fromEntries(units.map(unit => {
-    const inputHash = readWorkItem(paths, unit).input.input_hash;
-    const file = semanticDecisionFile(paths, unit, inputHash);
-    acceptedArtifactHash(paths, file);
-    return [unit, readJson(file)];
-  }));
-}
-
-function decisionHashes(paths, units) {
-  return Object.fromEntries(units.map(unit => {
-    const inputHash = readWorkItem(paths, unit).input.input_hash;
-    return [unit, acceptedArtifactHash(paths, semanticDecisionFile(paths, unit, inputHash))];
-  }));
-}
-
-function writeStableJson(file, value) {
-  const content = `${JSON.stringify(value, null, 2)}\n`;
-  if (fs.existsSync(file)) {
-    if (fs.readFileSync(file, 'utf8') !== content) {
-      throw new GameKbError('WORK_ITEM_STALE', 'Existing deterministic work bytes differ', { file });
-    }
-    return false;
-  }
-  atomicWriteJson(file, value);
-  return true;
-}
-
-function prepareMerge(paths, manifest) {
+function planDomains(paths, manifest) {
   assertAcceptedArtifacts(paths);
   let progress = loadProgress(paths, manifest);
   const missing = manifest.chapters
     .map(chapter => `chapter:${String(chapter.number).padStart(3, '0')}`)
     .filter(unit => progress.units[unit]?.status !== 'done');
   if (missing.length > 0) {
-    throw new GameKbError('MERGE_CHAPTERS_INCOMPLETE', 'Every chapter must be accepted before merge planning', {
+    throw new GameKbError('DOMAIN_CHAPTERS_INCOMPLETE', 'Every chapter must be accepted before domain planning', {
       missing
     });
   }
   const chapters = acceptedChapters(paths);
   const acceptedHashes = Object.fromEntries(manifest.chapters.map(chapter => {
     const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
-    const file = path.join(paths.chapters, `ch_${String(chapter.number).padStart(3, '0')}.json`);
+    const file = path.join(paths.chapters, `ch_${String(chapter.number).padStart(3, '0')}.yaml`);
     return [unit, acceptedArtifactHash(paths, file)];
   }));
   const registry = buildCandidateRegistry(chapters);
@@ -155,7 +107,11 @@ function prepareMerge(paths, manifest) {
   } else {
     recordAcceptedArtifact(paths, paths.candidateRegistry, registryInputHash, registry);
   }
-  const plan = createDomainWorkPlan({ registry, accepted_hashes: acceptedHashes });
+  const plan = createDomainWorkPlan({
+    registry,
+    source_hash: manifest.source_hash,
+    accepted_hashes: acceptedHashes
+  });
   const written = writeWorkPlan(paths, plan);
   progress = syncPlannedUnits(progress, plan.inputs);
   saveProgress(paths, progress);
@@ -169,277 +125,8 @@ function prepareMerge(paths, manifest) {
   };
 }
 
-function readWorkItemPath(paths, unit) {
-  return path.join(paths.mergeWork, unit.replaceAll(':', '_'), 'input.json');
-}
-
-function assembleMerge(paths, manifest) {
-  assertAcceptedArtifacts(paths);
-  let progress = loadProgress(paths, manifest);
-  const plan = readWorkPlan(paths, 'domain');
-  const units = plan.inputs.map(input => input.unit);
-  const pending = [];
-  for (const input of plan.inputs) {
-    const file = semanticDecisionFile(paths, input.unit, input.input_hash);
-    if (!fs.existsSync(file)) continue;
-    acceptedArtifactHash(paths, file);
-    const entries = (readJson(file).decisions || []).filter(decision => decision.action === 'pending');
-    if (entries.length > 0) pending.push({ input, file, entries });
-  }
-  if (pending.length > 0) {
-    for (const recovery of pending) {
-      progress = reopenAcceptedDomainUnit(progress, recovery.input.unit, {
-        code: 'DOMAIN_PENDING_UNRESOLVED',
-        path: 'decisions',
-        target: recovery.entries.map(entry => entry.entry_ref).join(',')
-      });
-      releaseAcceptedDomainDecision(paths, recovery.file, recovery.input.input_hash);
-    }
-    saveProgress(paths, progress);
-    throw new GameKbError('DOMAIN_PENDING_UNRESOLVED', 'Accepted domain decisions were reopened for semantic repair', {
-      units: pending.map(recovery => ({
-        unit: recovery.input.unit,
-        entry_refs: recovery.entries.map(entry => entry.entry_ref)
-      }))
-    });
-  }
-  assertUnitsDone(progress, units);
-  const decisions = Object.values(readDecisions(paths, units));
-  const chapters = acceptedChapters(paths);
-  acceptedArtifactHash(paths, paths.candidateRegistry);
-  const book = assembleDomainMergedBook({
-    work_plan: plan,
-    decisions,
-    registry: readJson(paths.candidateRegistry),
-    chapters,
-    manifest
-  });
-  const inputHash = currentUnitInputHash(paths, manifest, progress, 'merge:book');
-  recordAcceptedArtifact(paths, paths.merged, inputHash, book);
-  atomicWriteJson(
-    paths.preCleanQuantity,
-    buildQuantityReport(book, manifest.source_char_count, manifest.chapters.length)
-  );
-  progress = setDeterministicUnit(progress, 'merge:book', inputHash, []);
-  saveProgress(paths, progress);
-  return { unit: 'merge:book', status: 'done', attempts: 0, accepted_file: paths.merged };
-}
-
-function cleanDecisionState(paths, plan) {
-  const units = plan.inputs.map(input => input.unit);
-  return { units, decisions: readDecisions(paths, units), hashes: decisionHashes(paths, units) };
-}
-
-function prepareClean(paths, manifest) {
-  assertAcceptedArtifacts(paths);
-  let progress = loadProgress(paths, manifest);
-  const mergeState = progress.units['merge:book'];
-  if (mergeState?.status !== 'done' || !fs.existsSync(paths.merged)) {
-    throw new GameKbError('CLEAN_MERGE_REQUIRED', 'A deterministic merged book is required before cleanup planning');
-  }
-  const currentMergeHash = currentUnitInputHash(paths, manifest, progress, 'merge:book');
-  if (mergeState.input_hash !== currentMergeHash) {
-    throw new GameKbError('CLEAN_MERGE_REQUIRED', 'The deterministic merged book is stale');
-  }
-  acceptedArtifactHash(paths, paths.merged);
-  saveProgress(paths, progress);
-  return {
-    stage: 'clean',
-    units: [],
-    deterministic: true,
-    written: false
-  };
-}
-
-function materialCandidates(paths, draft) {
-  const work = readWorkItem(paths, 'clean:materials:001');
-  const byRef = new Map((work.bindings.bindings || []).map(binding => [binding.entity_ref, binding]));
-  return draft.materials.map(material => {
-    const binding = byRef.get(material.source_ref);
-    if (!binding) {
-      throw new GameKbError('WORK_REF_INVALID', 'Material source ref has no private binding', {
-        source_ref: material.source_ref
-      });
-    }
-    return {
-      material_type: material.material_type,
-      source_category: binding.source_category,
-      source_name: binding.source_name,
-      relevance: material.relevance,
-      suggested_use: material.suggested_use,
-      reason: material.reason
-    };
-  });
-}
-
-function assembleClean(paths, manifest) {
-  assertAcceptedArtifacts(paths);
-  let progress = loadProgress(paths, manifest);
-  const book = assembleDomainCleanedBook(readJson(paths.merged));
-  const chapters = acceptedChapters(paths);
-  const errors = validateCleanedBook(book, manifest, chapters);
-  if (errors.length > 0) {
-    throw new GameKbError('DOMAIN_CLEAN_ASSEMBLY_INVALID', 'Deterministic domain clean violates the cleaned book contract', {
-      errors
-    });
-  }
-  const inputHash = currentUnitInputHash(paths, manifest, progress, 'clean:book');
-  let repaired = false;
-  if (fs.existsSync(paths.cleaned)) {
-    acceptedArtifactHash(paths, paths.cleaned);
-    const existing = readJson(paths.cleaned);
-    if (stableHash(existing) !== stableHash(book)) {
-      const existingErrors = validateCleanedBook(existing, manifest, chapters);
-      if (existingErrors.length === 0) {
-        throw new GameKbError('ACCEPTED_ARTIFACT_EXISTS', 'A valid cleaned artifact cannot be replaced', {
-          accepted_file: paths.cleaned
-        });
-      }
-      replaceInvalidDeterministicClean(paths, inputHash, book);
-      repaired = true;
-    }
-  } else {
-    recordAcceptedArtifact(paths, paths.cleaned, inputHash, book);
-  }
-  progress = setDeterministicUnit(progress, 'clean:book', inputHash, []);
-  saveProgress(paths, progress);
-  return { unit: 'clean:book', status: 'done', attempts: 0, repaired, accepted_file: paths.cleaned };
-}
-
-function ensureBoundedUnits(paths, manifest, units, inputHash) {
-  let progress = loadProgress(paths, manifest);
-  let changed = false;
-  for (const unit of units) {
-    const existing = progress.units[unit];
-    if (!existing) {
-      progress.units[unit] = freshUnit(inputHash);
-      changed = true;
-    } else if (existing.input_hash !== inputHash && existing.status !== 'done') {
-      progress.units[unit] = freshUnit(inputHash, 'stale');
-      changed = true;
-    }
-  }
-  if (changed) progress = saveProgress(paths, progress);
-  return progress;
-}
-
-function coverageInput(paths, manifest) {
-  const chapters = acceptedChapters(paths);
-  const coverage = buildChapterCoverage(chapters);
-  const merged = fs.existsSync(paths.merged) ? readJson(paths.merged) : null;
-  const ledger = merged ? buildCandidateLedger(chapters, merged) : null;
-  const itemRows = ledger ? ledger.rows.filter(row => row.category === 'items') : [];
-  const noneFoundFile = `${paths.recalls}/items.json`;
-  const noneFound = fs.existsSync(noneFoundFile) ? readJson(noneFoundFile).none_found : null;
-  return {
-    source_char_count: manifest.source_char_count,
-    item_candidates: coverage.categories.items.candidate_count,
-    merged_items: Array.isArray(merged?.items) ? merged.items.length : 0,
-    item_resolutions_incomplete: Boolean(merged) && itemRows.some(row => row.resolution === 'ambiguous'),
-    none_found: noneFound,
-    chapter_coverage: coverage
-  };
-}
-
-function checkCoverageForRun(paths, manifest) {
-  assertAcceptedArtifacts(paths);
-  const result = checkCoverage(coverageInput(paths, manifest));
-  const report = {
-    schema_version: 1,
-    ...result,
-    items: { recall_units: result.recall_units.filter(unit => unit.endsWith(':items')) }
-  };
-  atomicWriteJson(paths.coverage, report);
-  ensureBoundedUnits(paths, manifest, result.recall_units, stableHash(report));
-  return report;
-}
-
-function checkResolutionForRun(paths, manifest) {
-  assertAcceptedArtifacts(paths);
-  if (!fs.existsSync(paths.merged)) {
-    throw new GameKbError('MERGED_BOOK_REQUIRED', 'check-resolution requires an accepted merge');
-  }
-  const chapters = acceptedChapters(paths);
-  const merged = readJson(paths.merged);
-  const cleaned = fs.existsSync(paths.cleaned) ? readJson(paths.cleaned) : null;
-  const result = checkResolution({ chapters, merged, cleaned });
-  const report = { schema_version: 1, ...result };
-  atomicWriteJson(paths.candidateResolution, report);
-  ensureBoundedUnits(paths, manifest, result.supplement_units, stableHash(report));
-  return report;
-}
-
-function buildFinal(novelDir, runId) {
-  const paths = pathsFor(novelDir, runId);
-  const manifest = readJson(paths.manifest);
-  let progress = loadProgress(paths, manifest);
-  const blockingManual = Object.entries(progress.units)
-    .filter(([unit, state]) => unit !== 'finalize:references' && state.status === 'manual_review')
-    .map(([unit]) => unit);
-  if (blockingManual.length > 0) {
-    throw new GameKbError('MANUAL_REVIEW_BLOCKS_FINAL', 'Manual-review issues must be resolved before build-final', {
-      units: blockingManual
-    });
-  }
-  const unresolvedGaps = Object.entries(progress.units)
-    .filter(([unit, state]) => /^(recall|supplement):/.test(unit) && state.status !== 'done')
-    .map(([unit]) => unit);
-  if (unresolvedGaps.length > 0) {
-    throw new GameKbError('GAP_UNITS_BLOCK_FINAL', 'Bounded recall or supplement units must be resolved before build-final', {
-      units: unresolvedGaps
-    });
-  }
-  const cleanState = progress.units['clean:book'];
-  if (cleanState?.status !== 'done' || !fs.existsSync(paths.cleaned)) {
-    throw new GameKbError('CLEAN_BOOK_REQUIRED', 'A completed clean:book unit is required before build-final');
-  }
-  const currentCleanHash = currentUnitInputHash(paths, manifest, progress, 'clean:book');
-  if (cleanState.input_hash !== currentCleanHash) {
-    throw new GameKbError('CLEAN_BOOK_STALE', 'The accepted cleaned book does not match current upstream inputs');
-  }
-
-  const cleaned = readJson(paths.cleaned);
-  const result = buildFinalData(cleaned, manifest);
-  const materials = buildGameMaterials(result.data, cleaned.game_material_candidates);
-  const finalIssues = [...result.issues, ...materials.issues];
-  const finalInputHash = stableHash({
-    clean_input_hash: cleanState.input_hash,
-    cleaned,
-    chapters: manifest.chapters.map(chapter => ({ number: chapter.number, input_hash: chapter.input_hash }))
-  });
-  progress = setDeterministicUnit(progress, 'finalize:references', finalInputHash, finalIssues);
-  saveProgress(paths, progress);
-  if (finalIssues.length > 0) {
-    fs.rmSync(paths.finalData, { recursive: true, force: true });
-    fs.rmSync(paths.finalReports, { recursive: true, force: true });
-    throw new GameKbError('FINAL_PROJECTION_FAILED', 'Final IDs or references could not be projected uniquely', {
-      issues: finalIssues
-    });
-  }
-  writeFinalData(paths, result);
-  atomicWriteJson(path.join(paths.finalReports, 'reference_projection_report.json'), {
-    schema_version: 1,
-    warnings: result.warnings
-  });
-  atomicWriteJson(paths.gameMaterials, { schema_version: 1, entries: materials.entries });
-  const quantity = buildQuantityReport(cleaned, manifest.source_char_count, manifest.chapters.length);
-  atomicWriteJson(paths.quantityReport, {
-    ...quantity,
-    review_consumed: true,
-    explanations: [...cleaned.quantity_review.explanations]
-  });
-  return {
-    file_count: Object.keys(result.data).length,
-    data_dir: paths.finalData,
-    id_plan: paths.finalIdPlan
-  };
-}
-
 function verifyWorkspace(novelDir, runId) {
   const paths = pathsFor(novelDir, runId);
-  assertAcceptedArtifacts(paths);
-  const manifest = readJson(paths.manifest);
-  ensureQualitySample(paths, manifest);
   const result = verifyFinal(paths);
   if (!result.passed) {
     throw new GameKbError('FINAL_VERIFICATION_FAILED', 'Final workspace did not pass verification', result);
@@ -502,45 +189,12 @@ function main(argv = process.argv.slice(2)) {
       emit(payload);
       return;
     }
-    if (command === 'check-coverage') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'check-coverage requires <novel>');
+    if (command === 'plan-domains') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'plan-domains requires <novel>');
       const run = resolveWritableRun(novelDir, requestedRun, command);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
-      const manifest = readJson(paths.manifest);
-      emit(checkCoverageForRun(paths, manifest));
-      return;
-    }
-    if (command === 'prepare-merge') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'prepare-merge requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      emit(prepareMerge(paths, readJson(paths.manifest)));
-      return;
-    }
-    if (command === 'assemble-merge') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'assemble-merge requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      emit(assembleMerge(paths, readJson(paths.manifest)));
-      return;
-    }
-    if (command === 'prepare-clean') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'prepare-clean requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      emit(prepareClean(paths, readJson(paths.manifest)));
-      return;
-    }
-    if (command === 'assemble-clean') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'assemble-clean requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      emit(assembleClean(paths, readJson(paths.manifest)));
+      emit(planDomains(paths, readJson(paths.manifest)));
       return;
     }
     if (command === 'worker-backoff') {
@@ -557,26 +211,24 @@ function main(argv = process.argv.slice(2)) {
       });
       return;
     }
-    if (command === 'check-resolution') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'check-resolution requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      const manifest = readJson(paths.manifest);
-      emit(checkResolutionForRun(paths, manifest));
-      return;
-    }
     if (command === 'status') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'status requires <novel>');
       const run = resolveRun(novelDir, requestedRun);
       const paths = pathsFor(novelDir, run.run_id);
       assertAcceptedArtifacts(paths);
       const manifest = readJson(paths.manifest);
-      const progress = loadProgress(paths, manifest);
+      const progress = projectProgress(paths, manifest);
+      const next = resolveNextAction({
+        paths,
+        manifest,
+        progress,
+        installed: verifyInstalled(novelDir)
+      });
       emit({
         semantic_contract_version: run.semantic_contract_version ?? null,
         semantic_profile: run.semantic_profile ?? null,
         ...statusReport(paths, manifest, progress),
+        ...next,
         worker_pool: readWorkerPool(paths)
       });
       return;
@@ -609,11 +261,14 @@ function main(argv = process.argv.slice(2)) {
       emit(result);
       return;
     }
-    if (command === 'build-final') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'build-final requires <novel>');
+    if (command === 'assemble') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'assemble requires <novel>');
       const run = resolveWritableRun(novelDir, requestedRun, command);
-      timingRunJson = pathsFor(novelDir, run.run_id).runJson;
-      emit(buildFinal(novelDir, run.run_id));
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      const manifest = readJson(paths.manifest);
+      assertAssembleInputs(loadProgress(paths, manifest), manifest);
+      emit(assembleRun({ paths }));
       return;
     }
     if (command === 'install') {

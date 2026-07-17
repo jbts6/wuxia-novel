@@ -4,7 +4,6 @@ const { CANDIDATE_ARRAYS } = require('./chapter-contract');
 const { GameKbError } = require('./errors');
 
 const SINGLE_REFERENCE_FIELDS = Object.freeze({
-  event_local_key: ['events', 'event_registry_key'],
   source_skill_local_key: ['skills', 'source_skill_registry_key'],
   character_local_key: ['characters', 'character_registry_key'],
   owner_local_key: ['characters', 'owner_registry_key'],
@@ -18,8 +17,7 @@ const ARRAY_REFERENCE_FIELDS = Object.freeze({
   skill_local_keys: ['skills', 'skill_registry_keys'],
   technique_local_keys: ['techniques', 'technique_registry_keys'],
   item_local_keys: ['items', 'item_registry_keys'],
-  faction_local_keys: ['factions', 'faction_registry_keys'],
-  event_local_keys: ['events', 'event_registry_keys']
+  faction_local_keys: ['factions', 'faction_registry_keys']
 });
 
 function compareText(left, right) {
@@ -56,10 +54,6 @@ function normalizeRegistryName(value) {
 }
 
 function candidateName(category, candidate) {
-    const speaker = normalizeRegistryName(candidate?.speaker_name);
-    const text = normalizeRegistryName(candidate?.text);
-    return [speaker, text].filter(Boolean).join('：') || normalizeRegistryName(candidate?.local_key);
-  }
   return normalizeRegistryName(candidate?.name || candidate?.canonical_name || candidate?.local_key);
 }
 
@@ -252,6 +246,7 @@ function buildCandidateRegistry(chapters) {
   }
 
   const namesAcrossCategories = new Map();
+  for (const category of CANDIDATE_ARRAYS) {
     for (const entry of categories[category]) {
       const list = namesAcrossCategories.get(entry.normalized_name) || [];
       list.push(entry);

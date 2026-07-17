@@ -12,37 +12,42 @@ function codes(draft) {
   return validateChapterDraft(draft, expected).map(error => error.code);
 }
 
-test('accepts one chapter containing all candidate arrays and one summary', () => {
-  assert.deepEqual(validateChapterDraft(validChapterDraft({ dialogues: [] }), expected), []);
+test('accepts one chapter containing the four entity arrays and chapter_summary', () => {
+  assert.deepEqual(validateChapterDraft(validChapterDraft(), expected), []);
 });
 
-test('requires a valid power_rank for every character and skill candidate', () => {
+test('requires valid rank and level fields for character and skill candidates', () => {
   const missing = validChapterDraft();
-  delete missing.characters[0].power_rank;
-  delete missing.skills[0].power_rank;
+  delete missing.characters[0].rank;
+  delete missing.characters[0].level;
+  delete missing.skills[0].rank;
   const missingErrors = validateChapterDraft(missing, expected);
 
   assert.ok(missingErrors.some(error =>
-    error.code === 'POWER_RANK_REQUIRED' && error.path === 'characters[0].power_rank'));
+    error.code === 'POWER_RANK_REQUIRED' && error.path === 'characters[0].rank'));
   assert.ok(missingErrors.some(error =>
-    error.code === 'POWER_RANK_REQUIRED' && error.path === 'skills[0].power_rank'));
+    error.code === 'CHARACTER_LEVEL_REQUIRED' && error.path === 'characters[0].level'));
+  assert.ok(missingErrors.some(error =>
+    error.code === 'POWER_RANK_REQUIRED' && error.path === 'skills[0].rank'));
 
   const invalid = validChapterDraft();
-  invalid.characters[0].power_rank = '绝世高手';
-  invalid.skills[0].power_rank = '绝世神功';
+  invalid.characters[0].rank = '绝世高手';
+  invalid.characters[0].level = '主角';
+  invalid.skills[0].rank = '绝世神功';
   const invalidErrors = validateChapterDraft(invalid, expected);
 
   assert.ok(invalidErrors.some(error =>
-    error.code === 'POWER_RANK_INVALID' && error.path === 'characters[0].power_rank'));
+    error.code === 'POWER_RANK_INVALID' && error.path === 'characters[0].rank'));
   assert.ok(invalidErrors.some(error =>
-    error.code === 'POWER_RANK_INVALID' && error.path === 'skills[0].power_rank'));
+    error.code === 'CHARACTER_LEVEL_INVALID' && error.path === 'characters[0].level'));
+  assert.ok(invalidErrors.some(error =>
+    error.code === 'POWER_RANK_INVALID' && error.path === 'skills[0].rank'));
 });
 
 test('rejects wrong chapter number or source hash', () => {
   const errors = validateChapterDraft(validChapterDraft({
     chapter: 2,
-    source_hash: 'sha256:wrong',
-    dialogues: []
+    source_hash: 'sha256:wrong'
   }), expected);
 
   assert.deepEqual(errors.map(error => error.path), ['chapter', 'source_hash']);
@@ -50,64 +55,70 @@ test('rejects wrong chapter number or source hash', () => {
 
 test('rejects source refs to another chapter during chapter extraction', () => {
   const draft = validChapterDraft({
-    characters: [{ local_key: 'character:甲', name: '甲', source_refs: [sourceRef(2)] }],
-    dialogues: []
+    characters: [{
+      local_key: 'character:甲', name: '甲', level: '核心', rank: '初窥门径',
+      source_refs: [sourceRef(2)]
+    }]
   });
 
   assert.ok(codes(draft).includes('SOURCE_CHAPTER_MISMATCH'));
 });
 
-test('rejects a technique unless named_in_source is true and name is nonempty', () => {
+test('rejects a nested technique unless named_in_source is true and name is nonempty', () => {
   const draft = validChapterDraft({
-    techniques: [{ local_key: 'technique:x', name: '', named_in_source: false, source_refs: [sourceRef()] }],
-    dialogues: []
+    skills: [{
+      local_key: 'skill:内功', name: '玄门内功', rank: '初窥门径', source_refs: [sourceRef()],
+      techniques: [{ name: '', named_in_source: false }]
+    }]
   });
   const errors = validateChapterDraft(draft, expected);
 
-  assert.ok(errors.some(error => error.path === 'techniques[0].name'));
-  assert.ok(errors.some(error => error.path === 'techniques[0].named_in_source'));
+  assert.ok(errors.some(error => error.path === 'skills[0].techniques[0].name'));
+  assert.ok(errors.some(error => error.path === 'skills[0].techniques[0].named_in_source'));
 });
 
-test('rejects unnamed ordinary actions represented as techniques', () => {
+test('rejects unnamed ordinary actions represented as nested techniques', () => {
   const draft = validChapterDraft({
-    techniques: [{ local_key: 'technique:挥', name: '全力一挥', named_in_source: false, source_refs: [sourceRef()] }],
-    dialogues: []
+    skills: [{
+      local_key: 'skill:内功', name: '玄门内功', rank: '初窥门径', source_refs: [sourceRef()],
+      techniques: [{ name: '全力一挥', named_in_source: false }]
+    }]
   });
 
   assert.ok(codes(draft).includes('TECHNIQUE_NOT_NAMED'));
 });
 
-test('chapter extraction disables dialogue candidates and accepts an empty compatibility array', () => {
-  const withDialogue = validChapterDraft({
-    dialogues: [{
-      local_key: 'dialogue:相逢',
-      event_local_key: 'event:相逢',
-      speaker_name: '甲',
-      text: '你来了。',
-      source_refs: [sourceRef()]
-    }]
-  });
-  assert.ok(codes(withDialogue).includes('DIALOGUE_EXTRACTION_DISABLED'));
-
-  const draft = validChapterDraft({ dialogues: [] });
-  assert.deepEqual(validateChapterDraft(draft, expected), []);
+test('rejects removed top-level categories and the stale summary field', () => {
+  for (const field of ['events', 'locations', 'dialogues', 'techniques', 'summary']) {
+    const draft = validChapterDraft({ [field]: [] });
+    assert.ok(validateChapterDraft(draft, expected).some(error =>
+      error.code === 'CHAPTER_FIELD_FORBIDDEN' && error.path === field));
+  }
 });
 
-test('normalizes stable candidate keys and deterministic chapter coverage', () => {
-  const accepted = normalizeChapterDraft(validChapterDraft({ dialogues: [] }));
+test('normalizes stable candidate keys without the removed coverage projection', () => {
+  const accepted = normalizeChapterDraft(validChapterDraft());
 
   assert.equal(accepted.items.length, 0);
-  assert.equal(accepted.events[0].candidate_key, 'ch001:events:event:相逢');
-  assert.deepEqual(accepted.dialogues, []);
-  assert.equal(accepted.coverage.categories.events.candidate_count, 1);
-  assert.equal(accepted.coverage.events.quotable_count, 1);
-  assert.equal(accepted.coverage.dialogues.quotable_event_count_with_candidates, 0);
+  assert.equal(accepted.skills[0].candidate_key, 'ch001:skills:skill:内功');
+  assert.equal(Object.hasOwn(accepted, 'coverage'), false);
+});
+
+test('requires chapter_summary.summary and grounded source refs', () => {
+  const missing = validChapterDraft({ chapter_summary: { title: '第一章 起始', summary: '' } });
+  const errors = validateChapterDraft(missing, expected);
+  assert.ok(errors.some(error => error.code === 'SUMMARY_TEXT_REQUIRED'
+    && error.path === 'chapter_summary.summary'));
+  assert.ok(errors.some(error => error.code === 'SOURCE_REFS_REQUIRED'
+    && error.path === 'chapter_summary.source_refs'));
 });
 
 test('rejects formal ID fields in AI chapter drafts', () => {
   const draft = validChapterDraft({
-    skills: [{ id: 'skill_xuan_men', local_key: 'skill:内功', name: '玄门内功', source_refs: [sourceRef()] }],
-    dialogues: []
+    skills: [{
+      id: 'skill_xuan_men', local_key: 'skill:内功', name: '玄门内功', rank: '初窥门径',
+      techniques: [], source_refs: [sourceRef()]
+    }]
   });
 
   assert.ok(codes(draft).includes('FORMAL_ID_FORBIDDEN'));

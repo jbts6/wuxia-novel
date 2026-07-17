@@ -4,17 +4,16 @@ const fs = require('node:fs');
 const path = require('node:path');
 const yaml = require('js-yaml');
 
-const { ENTITY_CATEGORIES, normalizeName, validateCleanedBook } = require('./book-contract');
+const {
+  ENTITY_CATEGORIES,
+  normalizeName,
+  validateMergedBook
+} = require('./book-contract');
 const { atomicWriteJson } = require('./io');
 const { assignStableIds } = require('./ids');
+const { FINAL_FILES } = require('./semantic-contract');
 
-const CATEGORY_FILES = Object.freeze({
-  characters: 'characters.yaml',
-  skills: 'skills.yaml',
-  items: 'items.yaml',
-  factions: 'factions.yaml',
-  chapter_summaries: 'chapter_summaries.yaml'
-});
+const CATEGORY_FILES = FINAL_FILES;
 
 function emptyData() {
   return Object.fromEntries(Object.values(CATEGORY_FILES).map(filename => [filename, []]));
@@ -57,7 +56,7 @@ function makeResolver(idPlan, issues, warnings) {
       path,
       target
     };
-    (required ? issues : warnings).push(required ? issue : { ...issue, disposition: 'omitted' });
+    issues.push(issue);
     return null;
   }
 
@@ -81,7 +80,7 @@ function makeResolver(idPlan, issues, warnings) {
       path,
       target
     };
-    (required ? issues : warnings).push(required ? issue : { ...issue, disposition: 'omitted' });
+    issues.push(issue);
     return null;
   }
 
@@ -134,7 +133,7 @@ function resolveReferences(recordsByCategory, idPlan) {
       aliases,
       identity: String(record.identity || ''),
       level: record.level,
-      rank: String(record.power_rank || ''),
+      rank: String(record.rank || ''),
       biography: String(record.biography || ''),
       faction,
       skills,
@@ -151,18 +150,17 @@ function resolveReferences(recordsByCategory, idPlan) {
 
   data['skills.yaml'] = (recordsByCategory.skills || []).map((record, index) => {
     const faction = resolver.resolve(
-      'factions', record.faction_name, `skills[${index}].faction_name`, { required: false }
+      'factions', record.faction ?? record.faction_name, `skills[${index}].faction`, { required: false }
     );
     return {
       id: record.id,
       name: record.canonical_name,
       type: String(record.type || ''),
       faction,
-      rank: String(record.power_rank || ''),
+      rank: String(record.rank || ''),
       description: String(record.description || ''),
       techniques: Array.isArray(record.techniques) ? record.techniques.map(tech => ({
         name: tech.canonical_name || tech.name,
-        type: String(tech.type || '招式'),
         description: String(tech.description || '')
       })) : []
     };
@@ -188,12 +186,12 @@ function resolveReferences(recordsByCategory, idPlan) {
   return { data, issues: deduplicatedIssues, warnings: deduplicatedWarnings };
 }
 
-function buildFinalData(cleaned, manifest) {
-  const contractIssues = validateCleanedBook(cleaned, manifest);
+function buildFinalData(book, manifest) {
+  const contractIssues = validateMergedBook(book, manifest);
   if (contractIssues.length > 0) return { data: emptyData(), issues: contractIssues, warnings: [], id_plan: {} };
-  const source = Object.fromEntries(ENTITY_CATEGORIES.map(category => [category, cleaned[category] || []]));
+  const source = Object.fromEntries(ENTITY_CATEGORIES.map(category => [category, book[category] || []]));
   const idPlan = assignStableIds(source);
-  const projected = resolveReferences({ ...idPlan, chapter_summaries: cleaned.chapter_summaries }, idPlan);
+  const projected = resolveReferences({ ...idPlan, chapter_summaries: book.chapter_summaries }, idPlan);
   const serializablePlan = Object.fromEntries(ENTITY_CATEGORIES.map(category => [
     category,
     (idPlan[category] || []).map(record => ({
@@ -206,15 +204,51 @@ function buildFinalData(cleaned, manifest) {
   return { ...projected, id_plan: serializablePlan };
 }
 
-function writeFinalData(paths, result) {
-  if (result.issues.length > 0) throw new Error('Cannot write final data with unresolved issues');
-  fs.rmSync(paths.finalData, { recursive: true, force: true });
-  fs.mkdirSync(paths.finalData, { recursive: true });
-  for (const [filename, records] of Object.entries(result.data)) {
-    const yamlContent = yaml.dump(records, { lineWidth: -1, noRefs: true });
-    fs.writeFileSync(path.join(paths.finalData, filename), yamlContent, 'utf8');
+function validateWrittenData(dataRoot) {
+  const expected = Object.values(CATEGORY_FILES).sort();
+  const actual = fs.readdirSync(dataRoot).sort();
+  if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+    throw new Error(`Final data file set is invalid: ${actual.join(', ')}`);
   }
-  atomicWriteJson(paths.finalIdPlan, result.id_plan);
+  for (const filename of expected) {
+    const parsed = yaml.load(fs.readFileSync(path.join(dataRoot, filename), 'utf8'));
+    if (!Array.isArray(parsed)) throw new Error(`Final data file must contain an array: ${filename}`);
+  }
+}
+
+function writeFinalDataAtomic(paths, result) {
+  if (result.issues.length > 0) throw new Error('Cannot write final data with unresolved issues');
+  fs.mkdirSync(path.dirname(paths.finalData), { recursive: true });
+  const next = fs.mkdtempSync(path.join(path.dirname(paths.finalData), 'data.next-'));
+  const previous = `${paths.finalData}.previous-${process.pid}-${Date.now()}`;
+  let previousMoved = false;
+  let nextInstalled = false;
+  try {
+    for (const filename of Object.values(CATEGORY_FILES)) {
+      const records = result.data[filename];
+      const yamlContent = yaml.dump(records, { lineWidth: -1, noRefs: true });
+      fs.writeFileSync(path.join(next, filename), yamlContent, 'utf8');
+    }
+    validateWrittenData(next);
+    if (fs.existsSync(paths.finalData)) {
+      fs.renameSync(paths.finalData, previous);
+      previousMoved = true;
+    }
+    fs.renameSync(next, paths.finalData);
+    nextInstalled = true;
+    atomicWriteJson(paths.finalIdPlan, result.id_plan);
+    if (previousMoved) fs.rmSync(previous, { recursive: true, force: true });
+  } catch (error) {
+    fs.rmSync(next, { recursive: true, force: true });
+    if (nextInstalled) fs.rmSync(paths.finalData, { recursive: true, force: true });
+    if (previousMoved && fs.existsSync(previous)) fs.renameSync(previous, paths.finalData);
+    throw error;
+  }
+  return paths.finalData;
+}
+
+function writeFinalData(paths, result) {
+  return writeFinalDataAtomic(paths, result);
 }
 
 module.exports = {
@@ -222,5 +256,6 @@ module.exports = {
   buildFinalData,
   emptyData,
   resolveReferences,
-  writeFinalData
+  writeFinalData,
+  writeFinalDataAtomic
 };

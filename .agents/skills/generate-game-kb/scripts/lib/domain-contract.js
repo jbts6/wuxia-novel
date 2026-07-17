@@ -1,8 +1,9 @@
 'use strict';
 
-const { isPowerRank } = require('./semantic-contract');
+const { DOMAIN_UNITS, isPowerRank } = require('./semantic-contract');
 
 const ACTIONS = new Set(['keep', 'merge', 'reject', 'pending']);
+const DOMAIN_UNIT_SET = new Set(DOMAIN_UNITS);
 const CONTROLLER_FIELDS = new Set([
   'candidate_key', 'local_key', 'registry_key', 'member_refs', 'formal_id', 'final_id'
 ]);
@@ -46,16 +47,40 @@ function validatePatch(patch, input, entry, label, entriesByRef, errors) {
     if (!allowed.has(field)) errors.push(issue('DOMAIN_PATCH_FIELD_FORBIDDEN', `${label}.patch.${field}`, field));
   }
   for (const [field, value] of Object.entries(patch)) {
+    if (field === 'faction') {
+      if (value === null || value === '') continue;
+      const allowedFactionRefs = new Set(input.allowed_faction_refs || []);
+      if (allowedFactionRefs.has(value)) continue;
+      errors.push(issue(
+        entriesByRef.has(value) ? 'DOMAIN_REFERENCE_UNAUTHORIZED' : 'DOMAIN_REFERENCE_UNKNOWN',
+        `${label}.patch.${field}`,
+        value
+      ));
+      continue;
+    }
     if (!(field.endsWith('_ref') || field.endsWith('_refs'))) continue;
     const refs = Array.isArray(value) ? value : [value];
     for (const ref of refs) {
       if (!entriesByRef.has(ref)) errors.push(issue('DOMAIN_REFERENCE_UNKNOWN', `${label}.patch.${field}`, ref));
     }
   }
-  if (entry.category === 'techniques' && patch.source_skill_ref) {
-    const target = entriesByRef.get(patch.source_skill_ref);
-    if (target && target.category !== 'skills') {
-      errors.push(issue('TECHNIQUE_SKILL_CATEGORY_INVALID', `${label}.patch.source_skill_ref`, patch.source_skill_ref));
+  if (entry.category === 'skills' && patch.techniques !== undefined) {
+    if (!Array.isArray(patch.techniques)) {
+      errors.push(issue('TECHNIQUES_INVALID', `${label}.patch.techniques`));
+    } else {
+      patch.techniques.forEach((technique, index) => {
+        const techniquePath = `${label}.patch.techniques[${index}]`;
+        if (!technique || typeof technique !== 'object' || Array.isArray(technique)) {
+          errors.push(issue('TECHNIQUE_INVALID', techniquePath));
+          return;
+        }
+        if (!nonempty(technique.name)) {
+          errors.push(issue('TECHNIQUE_NAME_REQUIRED', `${techniquePath}.name`));
+        }
+        if (technique.named_in_source !== true) {
+          errors.push(issue('TECHNIQUE_NOT_NAMED', `${techniquePath}.named_in_source`, technique.name));
+        }
+      });
     }
   }
 }
@@ -73,6 +98,8 @@ function validateDomainDecisionDraft(draft, input) {
   if (!draft || typeof draft !== 'object' || Array.isArray(draft)) return [issue('DOMAIN_DRAFT_INVALID', '$')];
   for (const path of controllerFieldPaths(draft)) errors.push(issue('CONTROLLER_FIELD_FORBIDDEN', path));
   if (draft.schema_version !== 1) errors.push(issue('SCHEMA_VERSION_INVALID', 'schema_version', draft.schema_version));
+  if (!DOMAIN_UNIT_SET.has(input?.unit)) errors.push(issue('DOMAIN_UNIT_INVALID', 'input.unit', input?.unit));
+  if (!DOMAIN_UNIT_SET.has(draft.unit)) errors.push(issue('DOMAIN_UNIT_INVALID', 'unit', draft.unit));
   if (draft.semantic_contract_version !== input?.semantic_contract_version) {
     errors.push(issue('SEMANTIC_CONTRACT_MISMATCH', 'semantic_contract_version', draft.semantic_contract_version));
   }
@@ -112,10 +139,6 @@ function validateDomainDecisionDraft(draft, input) {
       if ((entry.category === 'characters' || entry.category === 'skills')
         && decision.patch && typeof decision.patch === 'object' && !Array.isArray(decision.patch)) {
         validatePowerRankPatch(decision.patch, label, errors);
-      }
-      if (entry.category === 'techniques'
-        && entry.facts?.named_in_source !== true) {
-        errors.push(issue('TECHNIQUE_NOT_NAMED', `${label}.patch.named_in_source`, entry.entry_ref));
       }
       if (entry.category === 'items'
         && !nonempty(decision.patch?.inclusion_reason)

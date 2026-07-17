@@ -1,6 +1,6 @@
 'use strict';
 
-const { buildCandidateLedger, REJECTION_REASONS, RESOLUTIONS } = require('./candidate-ledger');
+const { REJECTION_REASONS: DOMAIN_REJECTION_REASONS } = require('./domain-contract');
 const { isPowerRank } = require('./semantic-contract');
 
 const ENTITY_CATEGORIES = Object.freeze([
@@ -11,9 +11,9 @@ const ENTITY_CATEGORIES = Object.freeze([
 ]);
 const BOOK_CATEGORIES = Object.freeze([...ENTITY_CATEGORIES, 'chapter_summaries']);
 const CHARACTER_LEVELS = new Set(['核心', '重要', '次要', '龙套', '背景']);
-const DETAILED_CHARACTER_LEVELS = new Set(['核心', '重要']);
-const SUMMARY_CHARACTER_LEVELS = new Set(['次要', '龙套', '背景']);
 const ITEM_REASONS = new Set(['秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊']);
+const RESOLUTIONS = new Set(['merged_to', 'rejected']);
+const REJECTION_REASONS = new Set(Object.values(DOMAIN_REJECTION_REASONS).flat());
 
 function issue(code, path, target = '') {
   return { code, path, target };
@@ -175,14 +175,10 @@ function validateCandidateResolutions(book, chapters) {
   for (const [candidateKey, count] of counts) {
     if (count > 1) errors.push(issue('CANDIDATE_RESOLUTION_DUPLICATE', 'candidate_resolutions', candidateKey));
   }
-  const ledger = buildCandidateLedger(chapters, book);
-  for (const row of ledger.missing_resolution) {
-    const code = row.reason === 'MISSING_DECISION'
-      ? 'CANDIDATE_RESOLUTION_MISSING'
-      : row.reason === 'MULTIPLE_DECISIONS'
-        ? 'CANDIDATE_RESOLUTION_DUPLICATE'
-        : 'CANDIDATE_RESOLUTION_INVALID';
-    errors.push(issue(code, 'candidate_resolutions', row.candidate_key));
+  for (const candidateKey of knownKeys) {
+    if (!counts.has(candidateKey)) {
+      errors.push(issue('CANDIDATE_RESOLUTION_MISSING', 'candidate_resolutions', candidateKey));
+    }
   }
   return errors;
 }
@@ -191,10 +187,6 @@ function validateBook(book, manifest, expectedStage, chapters) {
   if (!isObject(book)) return [issue('BOOK_DRAFT_INVALID', '$')];
   const errors = [];
   const allowed = new Set(['schema_version', 'stage', ...BOOK_CATEGORIES, 'ambiguities', 'candidate_resolutions']);
-  if (expectedStage === 'cleaned') {
-    allowed.add('quantity_review');
-    allowed.add('game_material_candidates');
-  }
   for (const key of Object.keys(book)) {
     if (!allowed.has(key)) errors.push(issue('TOP_LEVEL_FIELD_UNKNOWN', key));
   }
@@ -260,9 +252,6 @@ function validateBook(book, manifest, expectedStage, chapters) {
     if (typeof summary.summary !== 'string' || summary.summary.trim() === '') {
       errors.push(issue('SUMMARY_TEXT_REQUIRED', `${label}.summary`));
     }
-    if (!Array.isArray(summary.key_characters)) errors.push(issue('SUMMARY_CHARACTERS_REQUIRED', `${label}.key_characters`));
-    if (!Array.isArray(summary.key_skills)) errors.push(issue('SUMMARY_SKILLS_REQUIRED', `${label}.key_skills`));
-    validateSourceRefs(summary, label, chapterNumbers, errors, summary.chapter);
   });
   for (const chapter of chapterNumbers) {
     if (!summariesByChapter.has(chapter)) errors.push(issue('SUMMARY_CHAPTER_MISSING', 'chapter_summaries', chapter));
@@ -274,67 +263,12 @@ function validateMergedBook(book, manifest, chapters) {
   return validateBook(book, manifest, 'merged', chapters);
 }
 
-function validateCleanedBook(book, manifest, chapters) {
-  const errors = validateBook(book, manifest, 'cleaned', chapters);
-  if (!isObject(book)) return errors;
-  for (const [index, decision] of (Array.isArray(book.candidate_resolutions) ? book.candidate_resolutions : []).entries()) {
-    if (decision?.resolution === 'ambiguous') {
-      errors.push(issue('CANDIDATE_RESOLUTION_AMBIGUOUS', `candidate_resolutions[${index}]`, decision.candidate_key));
-    }
-  }
-  if (Array.isArray(book.ambiguities)) {
-    book.ambiguities.forEach((ambiguity, index) => {
-      errors.push(issue('AMBIGUITY_UNRESOLVED', `ambiguities[${index}]`, ambiguity?.name));
-    });
-  }
-  if (!isObject(book.quantity_review) || book.quantity_review.consumed !== true) {
-    errors.push(issue('QUANTITY_REVIEW_REQUIRED', 'quantity_review.consumed'));
-  } else if (!Array.isArray(book.quantity_review.explanations)) {
-    errors.push(issue('QUANTITY_EXPLANATIONS_REQUIRED', 'quantity_review.explanations'));
-  }
-  if (!Array.isArray(book.game_material_candidates)) {
-    errors.push(issue('GAME_MATERIAL_CANDIDATES_REQUIRED', 'game_material_candidates'));
-  }
-
-  for (const [index, character] of (Array.isArray(book.characters) ? book.characters : []).entries()) {
-    const label = `characters[${index}]`;
-    if (!CHARACTER_LEVELS.has(character?.level)) {
-      errors.push(issue('CHARACTER_LEVEL_INVALID', `${label}.level`, character?.level));
-      continue;
-    }
-    if (DETAILED_CHARACTER_LEVELS.has(character.level)) {
-      if (typeof character.biography !== 'string' || character.biography.trim() === '') {
-        errors.push(issue('DETAILED_CHARACTER_BIOGRAPHY_REQUIRED', `${label}.biography`));
-      }
-      if (!isObject(character.personality)) {
-        errors.push(issue('DETAILED_CHARACTER_PERSONALITY_REQUIRED', `${label}.personality`));
-      }
-    }
-    if (SUMMARY_CHARACTER_LEVELS.has(character.level)) {
-      const biographyLength = typeof character.biography === 'string' ? [...character.biography].length : 0;
-      const traitCount = Array.isArray(character.personality?.traits) ? character.personality.traits.length : 0;
-      if (biographyLength > 200 || traitCount > 2) {
-        errors.push(issue('MINOR_CHARACTER_TOO_DETAILED', label, character.canonical_name));
-      }
-    }
-  }
-  for (const [index, item] of (Array.isArray(book.items) ? book.items : []).entries()) {
-    if (!ITEM_REASONS.has(item?.inclusion_reason)) {
-      errors.push(issue('ITEM_NOT_IMPORTANT', `items[${index}].inclusion_reason`, item?.canonical_name));
-    }
-  }
-  return errors;
-}
-
 module.exports = {
   BOOK_CATEGORIES,
-  DETAILED_CHARACTER_LEVELS,
   ENTITY_CATEGORIES,
   ITEM_REASONS,
-  SUMMARY_CHARACTER_LEVELS,
   groupCandidates,
   normalizeName,
   validateCandidateResolutions,
-  validateCleanedBook,
   validateMergedBook
 };

@@ -13,38 +13,31 @@ function chapter(number, overrides = {}) {
     source_hash: `sha256:chapter-${number}`,
     title: `第${number}章`,
     characters: [],
-    events: [],
     items: [],
     skills: [],
-    techniques: [],
     factions: [],
-    locations: [],
-    dialogues: [],
     ...overrides
   }));
 }
 
-test('exact normalized names merge evidence and migrate chapter-local references', () => {
-  const chapters = [
+test('exact normalized names merge evidence and migrate four-domain local references', () => {
+  const registry = buildCandidateRegistry([
     chapter(1, {
       characters: [{
         local_key: 'character:hu-fei', name: '胡斐', identity: '胡家后人',
+        skill_local_keys: ['skill:hu-dao'], faction_local_key: 'faction:hu-jia',
         source_refs: [sourceRef(1, '少年胡斐')]
       }],
-      events: [{
-        local_key: 'event:meet', name: '雪山相逢', importance: '重要', quote_status: 'quotable',
-        source_refs: [sourceRef(1, '雪山相逢')]
-      }],
-      dialogues: [{
-        local_key: 'dialogue:meet', event_local_key: 'event:meet', speaker_name: '胡斐', text: '且慢。',
-        source_refs: [sourceRef(1, '且慢')]
+      items: [{
+        local_key: 'item:tie-he', name: '铁盒', owner_local_key: 'character:hu-fei',
+        source_refs: [sourceRef(1, '胡斐收起铁盒')]
       }],
       skills: [{
-        local_key: 'skill:hu-dao', name: '胡家刀法', source_refs: [sourceRef(1, '胡家刀法')]
+        local_key: 'skill:hu-dao', name: '胡家刀法', faction_local_key: 'faction:hu-jia',
+        source_refs: [sourceRef(1, '胡家刀法')]
       }],
-      techniques: [{
-        local_key: 'technique:ba-fang', name: '八方藏刀式', named_in_source: true,
-        source_skill_local_key: 'skill:hu-dao', source_refs: [sourceRef(1, '八方藏刀式')]
+      factions: [{
+        local_key: 'faction:hu-jia', name: '胡家', source_refs: [sourceRef(1, '胡家传人')]
       }]
     }),
     chapter(2, {
@@ -53,24 +46,23 @@ test('exact normalized names merge evidence and migrate chapter-local references
         source_refs: [sourceRef(2, '胡斐赶到')]
       }]
     })
-  ];
+  ]);
 
-  const registry = buildCandidateRegistry(chapters);
+  assert.deepEqual(Object.keys(registry.categories), ['characters', 'items', 'skills', 'factions']);
+  assert.equal('events' in registry.categories, false);
   const character = registry.categories.characters[0];
+  const item = registry.categories.items[0];
+  const skill = registry.categories.skills[0];
+  const faction = registry.categories.factions[0];
   assert.equal(character.canonical_name, '胡斐');
   assert.equal(character.member_refs.length, 2);
   assert.deepEqual(character.record.source_refs, [sourceRef(1, '少年胡斐'), sourceRef(2, '胡斐赶到')]);
-  assert.equal(registry.stats.input_candidates, 6);
-  assert.equal(registry.stats.registered_entries, 5);
-
-  const event = registry.categories.events[0];
-  const dialogue = registry.categories.dialogues[0];
-  const skill = registry.categories.skills[0];
-  const technique = registry.categories.techniques[0];
-  assert.equal(dialogue.record.event_registry_key, event.registry_key);
-  assert.equal(technique.record.source_skill_registry_key, skill.registry_key);
-  assert.equal(registry.bindings['ch001:characters:character:hu-fei'], character.registry_key);
-  assert.equal(registry.bindings['ch002:characters:character:hu-fei'], character.registry_key);
+  assert.deepEqual(character.record.skill_registry_keys, [skill.registry_key]);
+  assert.equal(character.record.faction_registry_key, faction.registry_key);
+  assert.equal(item.record.owner_registry_key, character.registry_key);
+  assert.equal(skill.record.faction_registry_key, faction.registry_key);
+  assert.equal(registry.stats.input_candidates, 5);
+  assert.equal(registry.stats.registered_entries, 4);
 });
 
 test('identity conflicts, cross-category names, and near names remain explicit pending candidates', () => {
@@ -83,10 +75,7 @@ test('identity conflicts, cross-category names, and near names remain explicit p
         { local_key: 'character:xiao-hu', name: '小胡斐', source_refs: [sourceRef(1, '小胡斐')] }
       ],
       skills: [{ local_key: 'skill:fei-hu', name: '飞狐', source_refs: [sourceRef(1, '飞狐之技')] }],
-      techniques: [{
-        local_key: 'technique:fei-hu', name: '飞狐', named_in_source: true,
-        source_refs: [sourceRef(1, '飞狐一式')]
-      }]
+      factions: [{ local_key: 'faction:fei-hu', name: '飞狐', source_refs: [sourceRef(1, '飞狐一脉')] }]
     })
   ]);
 
@@ -98,10 +87,10 @@ test('identity conflicts, cross-category names, and near names remain explicit p
   assert.equal(Object.keys(registry.bindings).length, 6);
 });
 
-test('reference migration fails closed for missing and ambiguous chapter-local targets', () => {
+test('four-domain reference migration fails closed for missing and ambiguous chapter-local targets', () => {
   const missing = chapter(1, {
-    dialogues: [{
-      local_key: 'dialogue:missing', event_local_key: 'event:missing', speaker_name: '胡斐', text: '无人回应。',
+    characters: [{
+      local_key: 'character:missing', name: '无门客', skill_local_keys: ['skill:missing'],
       source_refs: [sourceRef(1)]
     }]
   });
@@ -111,14 +100,14 @@ test('reference migration fails closed for missing and ambiguous chapter-local t
   );
 
   const ambiguous = chapter(1, {
-    events: [
-      { local_key: 'event:same', name: '相逢甲', importance: '次要', quote_status: 'not_quotable', no_quote_reason: '无关键对白', source_refs: [sourceRef(1)] },
-      { local_key: 'event:same', name: '相逢乙', importance: '次要', quote_status: 'not_quotable', no_quote_reason: '无关键对白', source_refs: [sourceRef(1, '另一处')] }
-    ],
-    dialogues: [{
-      local_key: 'dialogue:same', event_local_key: 'event:same', speaker_name: '胡斐', text: '又见面了。',
+    characters: [{
+      local_key: 'character:holder', name: '持剑人', skill_local_keys: ['skill:same'],
       source_refs: [sourceRef(1)]
-    }]
+    }],
+    skills: [
+      { local_key: 'skill:same', name: '同名剑法甲', source_refs: [sourceRef(1)] },
+      { local_key: 'skill:same', name: '同名剑法乙', source_refs: [sourceRef(1, '另一处')] }
+    ]
   });
   assert.throws(
     () => buildCandidateRegistry([ambiguous]),

@@ -5,7 +5,8 @@ const fs = require('node:fs');
 const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson } = require('./io');
 
-const INITIAL_CONCURRENCY_LIMIT = 3;
+const INITIAL_CONCURRENCY_LIMIT = 5;
+const FALLBACK_CONCURRENCY_LIMIT = 3;
 
 function now() {
   return new Date().toISOString();
@@ -29,8 +30,7 @@ function validateWorkerPool(value, file) {
     && value.schema_version === 1
     && value.initial_limit === INITIAL_CONCURRENCY_LIMIT
     && Number.isInteger(value.concurrency_limit)
-    && value.concurrency_limit >= 1
-    && value.concurrency_limit <= INITIAL_CONCURRENCY_LIMIT
+    && [INITIAL_CONCURRENCY_LIMIT, FALLBACK_CONCURRENCY_LIMIT].includes(value.concurrency_limit)
     && typeof value.halted === 'boolean'
     && Array.isArray(value.incidents)
     && typeof value.updated_at === 'string';
@@ -85,8 +85,8 @@ function recordWorkerBackoff(paths, options = {}) {
   }
 
   const previousLimit = state.concurrency_limit;
-  const nextLimit = Math.max(1, Math.floor(previousLimit / 2));
-  const halted = previousLimit === 1;
+  const nextLimit = FALLBACK_CONCURRENCY_LIMIT;
+  const halted = previousLimit === FALLBACK_CONCURRENCY_LIMIT;
   const recordedAt = now();
   state.concurrency_limit = nextLimit;
   state.halted = halted;
@@ -102,7 +102,7 @@ function recordWorkerBackoff(paths, options = {}) {
   atomicWriteJson(paths.workerPool, state);
 
   if (halted) {
-    throw new GameKbError('WORKER_RATE_LIMITED', 'Concurrency one still received 429; stop and report external rate limiting', {
+    throw new GameKbError('WORKER_RATE_LIMITED', 'Fallback concurrency three still received 429; stop and report external rate limiting', {
       worker_pool: state
     });
   }
@@ -110,6 +110,7 @@ function recordWorkerBackoff(paths, options = {}) {
 }
 
 module.exports = {
+  FALLBACK_CONCURRENCY_LIMIT,
   INITIAL_CONCURRENCY_LIMIT,
   ensureWorkerPool,
   freshWorkerPool,

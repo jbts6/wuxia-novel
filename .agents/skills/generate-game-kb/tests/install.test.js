@@ -6,82 +6,23 @@ const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 
-const { makeNovel, runFlow, validCleanedBook } = require('./helpers');
-const { buildFinalData } = require('../scripts/lib/finalize');
-const { buildGameMaterials } = require('../scripts/lib/game-materials');
 const {
+  DATA_FILES,
+  PENDING_RECEIPT,
   installVerifiedData,
   recoverInterruptedInstall,
   verifyInstalled
 } = require('../scripts/lib/install');
 const { atomicWriteJson } = require('../scripts/lib/io');
-const { pathsFor } = require('../scripts/lib/paths');
-const { createOrResumeRun } = require('../scripts/lib/run');
-const { selectQualitySample, validateQualityReview } = require('../scripts/lib/quality');
-const { hashFinalData } = require('../scripts/lib/verify');
+const {
+  makeNovel,
+  parseJsonLine,
+  prepareAssembledRun,
+  runFlow
+} = require('./helpers');
 
-const TARGET_FILES = [
-  'chapter_summaries.json',
-  'characters.json',
-  'dialogues.json',
-  'events.json',
-  'factions.json',
-  'items.json',
-  'locations.json',
-  'skills.json',
-  'techniques.json'
-];
-
-function writeVerifiedFixture(name = '安装验收书') {
-  const novel = makeNovel(name, '第一章 起始\n甲。\n第二章 转折\n乙。\n第三章 收束\n丙。\n');
-  const run = createOrResumeRun(novel, { runId: 'run-install-test' });
-  const paths = pathsFor(novel, run.run_id);
-  const manifest = {
-    schema_version: 1,
-    source_hash: 'sha256:source',
-    source_char_count: 3,
-    chapters: [1, 2, 3].map(number => ({
-      number,
-      title: `第${number}章`,
-      input_hash: `sha256:${number}`
-    }))
-  };
-  atomicWriteJson(paths.manifest, manifest);
-  atomicWriteJson(paths.manualReview, []);
-
-  const cleaned = validCleanedBook();
-  const built = buildFinalData(cleaned, manifest);
-  fs.mkdirSync(paths.finalData, { recursive: true });
-  for (const [filename, records] of Object.entries(built.data)) {
-    atomicWriteJson(path.join(paths.finalData, filename), records);
-  }
-  const materials = buildGameMaterials(built.data, cleaned.game_material_candidates);
-  atomicWriteJson(paths.gameMaterials, { schema_version: 1, entries: materials.entries });
-  atomicWriteJson(paths.quantityReport, {
-    schema_version: 1,
-    review_consumed: true,
-    warnings: []
-  });
-  const sample = selectQualitySample(built.data, manifest.source_hash);
-  const finalDataHash = hashFinalData(built.data);
-  atomicWriteJson(paths.qualitySample, {
-    schema_version: 1,
-    final_data_hash: finalDataHash,
-    seed: manifest.source_hash,
-    items: sample
-  });
-  const review = {
-    schema_version: 1,
-    results: sample.map(item => ({
-      id: item.id,
-      passed: true,
-      checks: { name: true, category: true, key_facts: true, chapter: true },
-      notes: ''
-    }))
-  };
-  const assessment = validateQualityReview(review, sample);
-  atomicWriteJson(paths.qualityReport, { ...assessment.report, final_data_hash: finalDataHash });
-  return { novel, paths, finalDataHash };
+function fixture(name) {
+  return prepareAssembledRun({ name, runId: 'run-install-test' });
 }
 
 function writeOldData(novel) {
@@ -104,7 +45,8 @@ function directoryDigest(root) {
         rows.push(`dir:${childRelative}`);
         walk(child, childRelative);
       } else {
-        rows.push(`file:${childRelative}:${crypto.createHash('sha256').update(fs.readFileSync(child)).digest('hex')}`);
+        const hash = crypto.createHash('sha256').update(fs.readFileSync(child)).digest('hex');
+        rows.push(`file:${childRelative}:${hash}`);
       }
     }
   }
@@ -112,119 +54,31 @@ function directoryDigest(root) {
   return rows;
 }
 
-test('install refuses blocking verification failures', () => {
-  const { novel, paths } = writeVerifiedFixture();
-  atomicWriteJson(path.join(paths.finalData, 'characters.json'), {});
-
-  assert.throws(() => installVerifiedData(novel), error => {
-    assert.equal(error.code, 'INSTALL_VERIFICATION_FAILED');
-    assert.ok(error.details.blocking_errors.some(issue => issue.code === 'FINAL_FILE_NOT_ARRAY'));
-    return true;
-  });
-  assert.equal(fs.existsSync(path.join(novel, 'data')), false);
-});
-
-test('install refuses an unversioned legacy run before examining final artifacts', () => {
-  const { novel, paths } = writeVerifiedFixture('旧约安装书');
-  const metadata = JSON.parse(fs.readFileSync(paths.runJson, 'utf8'));
-  delete metadata.semantic_contract_version;
-  atomicWriteJson(paths.runJson, metadata);
+test('install refuses a blocking current verification failure', () => {
+  const current = fixture('安装阻断试书');
+  fs.writeFileSync(path.join(current.paths.finalData, 'characters.yaml'), '{}\n', 'utf8');
 
   assert.throws(
-    () => installVerifiedData(novel, { runId: 'run-install-test' }),
-    { code: 'LEGACY_SEMANTIC_CONTRACT' }
+    () => installVerifiedData(current.novel, { runId: current.prepared.run_id }),
+    error => error.code === 'INSTALL_VERIFICATION_FAILED'
+      && error.details.blocking_errors.some(issue => issue.code === 'FINAL_FILE_NOT_ARRAY')
   );
-  assert.equal(fs.existsSync(path.join(novel, 'data')), false);
+  assert.equal(fs.existsSync(path.join(current.novel, 'data')), false);
 });
 
-test('install refuses unresolved manual-review issues', () => {
-  const { novel, paths } = writeVerifiedFixture();
-  atomicWriteJson(paths.manualReview, [{ code: 'REFERENCE_UNRESOLVED', target: '甲' }]);
+test('install preserves unknown old entries in the whole-directory archive while live data stays exact', () => {
+  const current = fixture('未知旧文件安装试书');
+  writeOldData(current.novel);
 
-  assert.throws(() => installVerifiedData(novel), { code: 'INSTALL_VERIFICATION_FAILED' });
-  assert.equal(fs.existsSync(path.join(novel, 'data')), false);
+  const receipt = installVerifiedData(current.novel, { runId: current.prepared.run_id });
+
+  assert.deepEqual(fs.readdirSync(path.join(current.novel, 'data')).sort(), [...DATA_FILES].sort());
+  assert.equal(fs.readFileSync(path.join(receipt.archive_data, 'notes.txt'), 'utf8'), '旧资料\n');
+  assert.equal(fs.readFileSync(path.join(receipt.archive_data, 'legacy', 'meta.json'), 'utf8'), '{"old":true}\n');
 });
 
-test('install preserves unknown non-target data files and directories', () => {
-  const { novel } = writeVerifiedFixture();
-  writeOldData(novel);
-
-  const receipt = installVerifiedData(novel);
-
-  assert.deepEqual(fs.readdirSync(path.join(novel, 'data')).sort(), [
-    ...TARGET_FILES,
-    'legacy',
-    'notes.txt'
-  ].sort());
-  assert.equal(fs.readFileSync(path.join(novel, 'data', 'notes.txt'), 'utf8'), '旧资料\n');
-  assert.equal(fs.readFileSync(path.join(novel, 'data', 'legacy', 'meta.json'), 'utf8'), '{"old":true}\n');
-  assert.deepEqual(receipt.preserved_entries, ['legacy', 'notes.txt']);
-});
-
-test('install refuses an explicitly unbound dirty baseline without changing it', () => {
-  const { novel } = writeVerifiedFixture();
-  const data = path.join(novel, 'data');
-  fs.mkdirSync(data, { recursive: true });
-  fs.writeFileSync(path.join(data, 'unknown.json'), '{"keep":true}\n', 'utf8');
-  const before = directoryDigest(data);
-
-  assert.throws(() => installVerifiedData(novel), { code: 'DIRTY_INSTALL_BASELINE' });
-  assert.deepEqual(directoryDigest(data), before);
-});
-
-test('install records but removes REBUILD_REQUIRED.md after success', () => {
-  const { novel } = writeVerifiedFixture();
-  const data = writeOldData(novel);
-  fs.writeFileSync(path.join(data, 'REBUILD_REQUIRED.md'), '旧知识库需要重建\n', 'utf8');
-
-  const receipt = installVerifiedData(novel);
-
-  assert.equal(fs.existsSync(path.join(novel, 'data', 'REBUILD_REQUIRED.md')), false);
-  assert.deepEqual(receipt.removed_stale_markers, ['REBUILD_REQUIRED.md']);
-  assert.equal(fs.existsSync(path.join(receipt.archive_data, 'REBUILD_REQUIRED.md')), true);
-});
-
-test('install backs up the entire previous data directory', () => {
-  const { novel } = writeVerifiedFixture();
-  const oldData = writeOldData(novel);
-  const before = directoryDigest(oldData);
-
-  const receipt = installVerifiedData(novel);
-
-  assert.ok(receipt.archive_data);
-  assert.deepEqual(directoryDigest(receipt.archive_data), before);
-  assert.equal(fs.readFileSync(path.join(receipt.archive_data, 'characters.json'), 'utf8'), '[{"id":"old"}]\n');
-});
-
-test('failure before old-data move leaves data unchanged', () => {
-  const { novel } = writeVerifiedFixture();
-  const data = writeOldData(novel);
-  const before = directoryDigest(data);
-
-  assert.throws(() => installVerifiedData(novel, { faultAt: 'before-old-move' }), {
-    code: 'INSTALL_FAULT_INJECTED'
-  });
-
-  assert.deepEqual(directoryDigest(data), before);
-  assert.equal(fs.existsSync(path.join(novel, 'reports', 'generate_game_kb_install.json')), false);
-  assert.equal(fs.readdirSync(novel).some(name => name.startsWith('data.next-generate-game-kb-')), false);
-});
-
-test('failure after old-data move restores the archive automatically', () => {
-  const { novel } = writeVerifiedFixture();
-  const data = writeOldData(novel);
-  const before = directoryDigest(data);
-
-  assert.throws(() => installVerifiedData(novel, { faultAt: 'after-old-move' }), {
-    code: 'INSTALL_FAULT_INJECTED'
-  });
-
-  assert.deepEqual(directoryDigest(data), before);
-  assert.equal(fs.existsSync(path.join(novel, 'reports', 'generate_game_kb_install.json')), false);
-});
-
-test('recovery fails closed when pending data and archive both exist', () => {
-  const { novel } = writeVerifiedFixture();
+test('interrupted install refuses an ambiguous dirty recovery state without changing it', () => {
+  const novel = makeNovel('安装恢复试书', '第一章 起始\n正文。\n');
   const data = writeOldData(novel);
   const archiveData = path.join(novel, '_archive', 'pending-pre-generate-game-kb', 'data');
   fs.mkdirSync(archiveData, { recursive: true });
@@ -233,10 +87,11 @@ test('recovery fails closed when pending data and archive both exist', () => {
   fs.mkdirSync(nextData, { recursive: true });
   const reports = path.join(novel, 'reports');
   fs.mkdirSync(reports, { recursive: true });
-  atomicWriteJson(path.join(reports, 'generate_game_kb_install.pending.json'), {
+  atomicWriteJson(path.join(reports, PENDING_RECEIPT), {
     schema_version: 1,
     phase: 'old_moved',
     data_path: data,
+    archive_root: path.dirname(archiveData),
     archive_data: archiveData,
     next_data: nextData,
     original_data_state: 'nonempty'
@@ -245,37 +100,82 @@ test('recovery fails closed when pending data and archive both exist', () => {
   assert.throws(() => recoverInterruptedInstall(novel), { code: 'INSTALL_RECOVERY_AMBIGUOUS' });
   assert.equal(fs.existsSync(data), true);
   assert.equal(fs.existsSync(archiveData), true);
+  assert.equal(fs.existsSync(nextData), true);
 });
 
-test('reinstalling the same verified result is idempotent', () => {
-  const { novel } = writeVerifiedFixture();
-  writeOldData(novel);
-  const first = installVerifiedData(novel);
-  const receiptFile = path.join(novel, 'reports', 'generate_game_kb_install.json');
-  const receiptBefore = fs.readFileSync(receiptFile, 'utf8');
-  const archivesBefore = fs.readdirSync(path.join(novel, '_archive')).sort();
+test('install removes a rebuild marker from live data and preserves it in the backup', () => {
+  const current = fixture('重建标记安装试书');
+  const data = writeOldData(current.novel);
+  fs.writeFileSync(path.join(data, 'REBUILD_REQUIRED.md'), '旧知识库需要重建\n', 'utf8');
 
-  const second = installVerifiedData(novel);
+  const receipt = installVerifiedData(current.novel, { runId: current.prepared.run_id });
+
+  assert.equal(fs.existsSync(path.join(current.novel, 'data', 'REBUILD_REQUIRED.md')), false);
+  assert.equal(fs.existsSync(path.join(receipt.archive_data, 'REBUILD_REQUIRED.md')), true);
+  assert.deepEqual(fs.readdirSync(path.join(current.novel, 'data')).sort(), [...DATA_FILES].sort());
+});
+
+test('install backs up the entire previous data directory byte for byte', () => {
+  const current = fixture('全目录备份试书');
+  const oldData = writeOldData(current.novel);
+  const before = directoryDigest(oldData);
+
+  const receipt = installVerifiedData(current.novel, { runId: current.prepared.run_id });
+
+  assert.ok(receipt.archive_data);
+  assert.deepEqual(directoryDigest(receipt.archive_data), before);
+  assert.equal(fs.readFileSync(path.join(receipt.archive_data, 'characters.json'), 'utf8'), '[{"id":"old"}]\n');
+});
+
+for (const faultAt of ['before-old-move', 'after-old-move']) {
+  test(`install restores the previous whole data directory after ${faultAt}`, () => {
+    const current = fixture(`安装回滚${faultAt}`);
+    const data = writeOldData(current.novel);
+    const before = directoryDigest(data);
+
+    assert.throws(
+      () => installVerifiedData(current.novel, {
+        runId: current.prepared.run_id,
+        faultAt
+      }),
+      { code: 'INSTALL_FAULT_INJECTED' }
+    );
+
+    assert.deepEqual(directoryDigest(data), before);
+    assert.equal(fs.existsSync(path.join(current.novel, 'reports', 'generate_game_kb_install.json')), false);
+    assert.equal(fs.readdirSync(current.novel).some(name => name.startsWith('data.next-generate-game-kb-')), false);
+  });
+}
+
+test('reinstalling the same verified five-file result is idempotent', () => {
+  const current = fixture('幂等安装试书');
+  writeOldData(current.novel);
+  const first = installVerifiedData(current.novel, { runId: current.prepared.run_id });
+  const receiptFile = path.join(current.novel, 'reports', 'generate_game_kb_install.json');
+  const receiptBefore = fs.readFileSync(receiptFile, 'utf8');
+  const archivesBefore = fs.readdirSync(path.join(current.novel, '_archive')).sort();
+
+  const second = installVerifiedData(current.novel, { runId: current.prepared.run_id });
 
   assert.equal(second.idempotent, true);
   assert.equal(second.installed_at, first.installed_at);
   assert.equal(fs.readFileSync(receiptFile, 'utf8'), receiptBefore);
-  assert.deepEqual(fs.readdirSync(path.join(novel, '_archive')).sort(), archivesBefore);
+  assert.deepEqual(fs.readdirSync(path.join(current.novel, '_archive')).sort(), archivesBefore);
 });
 
 test('verify --installed never falls back to complete workspace final artifacts', () => {
-  const { novel, paths } = writeVerifiedFixture();
-  const installed = runFlow(['install', novel, '--json']);
+  const current = fixture('仅安装验证试书');
+  const installed = runFlow(['install', current.novel, '--run', current.prepared.run_id, '--json']);
   assert.equal(installed.status, 0, installed.stderr);
-  assert.equal(verifyInstalled(novel).passed, true);
+  assert.equal(verifyInstalled(current.novel).passed, true);
 
-  fs.rmSync(path.join(novel, 'data', 'characters.json'));
-  assert.equal(fs.existsSync(path.join(paths.finalData, 'characters.json')), true);
+  fs.rmSync(path.join(current.novel, 'data', 'characters.yaml'));
+  assert.equal(fs.existsSync(path.join(current.paths.finalData, 'characters.yaml')), true);
 
-  const result = verifyInstalled(novel);
+  const result = verifyInstalled(current.novel);
   assert.equal(result.passed, false);
   assert.ok(result.blocking_errors.some(issue => issue.code === 'FINAL_FILE_MISSING'));
-  const cli = runFlow(['verify', novel, '--installed', '--json']);
+  const cli = runFlow(['verify', current.novel, '--installed', '--json']);
   assert.notEqual(cli.status, 0);
-  assert.equal(JSON.parse(cli.stderr).code, 'INSTALLED_VERIFICATION_FAILED');
+  assert.equal(parseJsonLine(cli.stderr).code, 'INSTALLED_VERIFICATION_FAILED');
 });

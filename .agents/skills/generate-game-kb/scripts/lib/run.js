@@ -83,13 +83,7 @@ function ensureRunDirectories(paths) {
   for (const directory of [
     paths.staging,
     paths.domainWork,
-    paths.domainDecisions,
-    paths.mergeWork,
-    paths.cleanWork,
-    paths.mergeDecisions,
-    paths.cleanDecisions,
-    paths.mergeCategories,
-    paths.cleanCategories
+    paths.domainDecisions
   ]) {
     fs.mkdirSync(directory, { recursive: true });
   }

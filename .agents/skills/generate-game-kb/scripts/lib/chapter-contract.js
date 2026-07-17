@@ -1,19 +1,17 @@
 'use strict';
 
-const { buildChapterCoverage } = require('./coverage');
-const { isPowerRank } = require('./semantic-contract');
+const { CHARACTER_LEVELS, isPowerRank } = require('./semantic-contract');
 
 const CANDIDATE_ARRAYS = Object.freeze([
   'characters',
-  
   'items',
   'skills',
-  
-  'factions',
-  
+  'factions'
 ]);
-const IMPORTANT_EVENT_LEVELS = new Set(['核心', '重要', 'core', 'important']);
-const QUOTE_STATUSES = new Set(['quotable', 'not_quotable']);
+const CHAPTER_FIELDS = new Set([
+  'schema_version', 'chapter', 'title', 'source_hash', ...CANDIDATE_ARRAYS, 'chapter_summary'
+]);
+const CHARACTER_LEVEL_SET = new Set(CHARACTER_LEVELS);
 
 function issue(code, path, target = '') {
   return { code, path, target };
@@ -77,10 +75,41 @@ function validatePowerRank(record, label, errors) {
   }
 }
 
+function validateCharacterLevel(record, label, errors) {
+  if (typeof record?.level !== 'string' || record.level === '') {
+    errors.push(issue('CHARACTER_LEVEL_REQUIRED', `${label}.level`));
+  } else if (!CHARACTER_LEVEL_SET.has(record.level)) {
+    errors.push(issue('CHARACTER_LEVEL_INVALID', `${label}.level`, record.level));
+  }
+}
+
+function validateTechniques(record, label, errors) {
+  if (!Array.isArray(record?.techniques)) {
+    errors.push(issue('TECHNIQUES_REQUIRED', `${label}.techniques`));
+    return;
+  }
+  record.techniques.forEach((technique, index) => {
+    const techniquePath = `${label}.techniques[${index}]`;
+    if (!technique || typeof technique !== 'object' || Array.isArray(technique)) {
+      errors.push(issue('TECHNIQUE_INVALID', techniquePath));
+      return;
+    }
+    if (typeof technique.name !== 'string' || technique.name.trim() === '') {
+      errors.push(issue('TECHNIQUE_NAME_REQUIRED', `${techniquePath}.name`));
+    }
+    if (technique.named_in_source !== true) {
+      errors.push(issue('TECHNIQUE_NOT_NAMED', `${techniquePath}.named_in_source`, technique.name));
+    }
+  });
+}
+
 function validateChapterDraft(draft, expected) {
   const errors = [];
   if (!draft || typeof draft !== 'object' || Array.isArray(draft)) {
     return [issue('CHAPTER_DRAFT_INVALID', '$')];
+  }
+  for (const field of Object.keys(draft)) {
+    if (!CHAPTER_FIELDS.has(field)) errors.push(issue('CHAPTER_FIELD_FORBIDDEN', field, field));
   }
   if (draft.chapter !== expected.number) errors.push(issue('CHAPTER_MISMATCH', 'chapter', draft.chapter));
   if (draft.source_hash !== expected.inputHash) errors.push(issue('SOURCE_HASH_MISMATCH', 'source_hash', draft.source_hash));
@@ -91,6 +120,7 @@ function validateChapterDraft(draft, expected) {
   }
   if (errors.some(error => error.code === 'CATEGORY_ARRAY_REQUIRED')) return errors;
 
+  for (const category of CANDIDATE_ARRAYS) {
     const localKeys = new Set();
     draft[category].forEach((record, index) => {
       const label = `${category}[${index}]`;
@@ -98,42 +128,24 @@ function validateChapterDraft(draft, expected) {
       if (category === 'characters' || category === 'skills') {
         validatePowerRank(record, label, errors);
       }
+      if (category === 'characters') validateCharacterLevel(record, label, errors);
+      if (category === 'skills') validateTechniques(record, label, errors);
       if (typeof record?.local_key === 'string' && record.local_key.trim() !== '') {
         if (localKeys.has(record.local_key)) {
           errors.push(issue('LOCAL_KEY_DUPLICATE', `${label}.local_key`, record.local_key));
         }
         localKeys.add(record.local_key);
       }
-      if (category === 'techniques' && record?.named_in_source !== true) {
-        errors.push(issue('TECHNIQUE_NOT_NAMED', `${label}.named_in_source`, record?.name));
-      }
     });
   }
 
-  }
-
-  draft.events.forEach((event, index) => {
-    if (!IMPORTANT_EVENT_LEVELS.has(event?.importance)) return;
-    const label = `events[${index}]`;
-    if (!QUOTE_STATUSES.has(event.quote_status)) {
-      errors.push(issue('EVENT_QUOTE_STATUS_REQUIRED', `${label}.quote_status`, event.quote_status));
-      return;
-    }
-    if (event.quote_status === 'not_quotable'
-      && (typeof event.quote_reason !== 'string' || event.quote_reason.trim() === '')) {
-      errors.push(issue('NOT_QUOTABLE_REASON_REQUIRED', `${label}.quote_reason`, event.local_key));
-    }
-  });
-
-  if (!draft.summary || typeof draft.summary !== 'object' || Array.isArray(draft.summary)) {
-    errors.push(issue('SUMMARY_REQUIRED', 'summary'));
+  if (!draft.chapter_summary || typeof draft.chapter_summary !== 'object' || Array.isArray(draft.chapter_summary)) {
+    errors.push(issue('SUMMARY_REQUIRED', 'chapter_summary'));
   } else {
-    if (typeof draft.summary.summary !== 'string' || draft.summary.summary.trim() === '') {
-      errors.push(issue('SUMMARY_TEXT_REQUIRED', 'summary.summary'));
+    if (typeof draft.chapter_summary.summary !== 'string' || draft.chapter_summary.summary.trim() === '') {
+      errors.push(issue('SUMMARY_TEXT_REQUIRED', 'chapter_summary.summary'));
     }
-    if (!Array.isArray(draft.summary.key_events)) errors.push(issue('SUMMARY_EVENTS_REQUIRED', 'summary.key_events'));
-    if (!Array.isArray(draft.summary.key_characters)) errors.push(issue('SUMMARY_CHARACTERS_REQUIRED', 'summary.key_characters'));
-    validateSourceRefs(draft.summary, 'summary', expected.number, errors);
+    validateSourceRefs(draft.chapter_summary, 'chapter_summary', expected.number, errors);
   }
 
   findFormalIds(draft, '', errors);
@@ -152,7 +164,6 @@ function normalizeChapterDraft(draft) {
       candidate_key: candidateKey(draft.chapter, category, candidate.local_key)
     }));
   }
-  normalized.coverage = buildChapterCoverage([normalized]);
   return normalized;
 }
 

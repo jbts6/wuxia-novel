@@ -5,6 +5,7 @@ const fs = require('node:fs');
 
 const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson } = require('./io');
+const { DOMAIN_UNITS } = require('./semantic-contract');
 
 function now() {
   return new Date().toISOString();
@@ -24,9 +25,6 @@ function freshUnit(inputHash, status = 'pending') {
     input_hash: inputHash,
     status,
     attempts: 0,
-    semantic_attempts: 0,
-    semantic_hash: null,
-    format_attempts: 0,
     output_hashes: [],
     error_fingerprints: [],
     last_errors: [],
@@ -38,68 +36,7 @@ function freshUnit(inputHash, status = 'pending') {
 function isUnattemptedPending(unit) {
   return ['pending', 'stale'].includes(unit?.status)
     && (unit?.attempts ?? 0) === 0
-    && (unit?.semantic_attempts ?? 0) === 0
-    && (unit?.format_attempts ?? 0) === 0
     && (unit?.output_hashes || []).length === 0;
-}
-
-function stableValue(value) {
-  if (Array.isArray(value)) return value.map(stableValue);
-  if (!value || typeof value !== 'object') return value;
-  return Object.fromEntries(Object.keys(value).sort().map(key => [key, stableValue(value[key])]));
-}
-
-function semanticContentHash(draft) {
-  return `sha256:${crypto.createHash('sha256').update(JSON.stringify(stableValue(draft))).digest('hex')}`;
-}
-
-// Recall and supplement units have one semantic generation plus one format-only correction.
-function assertRecallAttempt(current, unitName, draft, inputHash = '') {
-  const progress = cloneProgress(current);
-  let unit = progress.units[unitName];
-  if (!unit) {
-    unit = rotateUnit(progress, unitName, inputHash, 'pending');
-  }
-  if (unit.status === 'done') {
-    throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be resubmitted', { unit: unitName });
-  }
-  if (unit.status === 'manual_review') {
-    throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit: unitName });
-  }
-  unit.semantic_attempts = Number.isInteger(unit.semantic_attempts) ? unit.semantic_attempts : 0;
-  unit.format_attempts = Number.isInteger(unit.format_attempts) ? unit.format_attempts : 0;
-  unit.semantic_hash = unit.semantic_hash || null;
-  const hash = semanticContentHash(draft);
-  if (unit.semantic_attempts === 0) {
-    unit.semantic_attempts = 1;
-    unit.semantic_hash = hash;
-    unit.attempts = Math.max(1, unit.attempts + 1);
-  } else if (unit.semantic_hash === hash && unit.format_attempts === 0) {
-    unit.format_attempts = 1;
-    unit.attempts += 1;
-  } else {
-    throw new GameKbError('NO_PROGRESS', `Recall unit ${unitName} exceeded its semantic budget`, {
-      unit: unitName,
-      semantic_attempts: unit.semantic_attempts,
-      semantic_hash: unit.semantic_hash
-    });
-  }
-  unit.updated_at = now();
-  progress.updated_at = unit.updated_at;
-  return progress;
-}
-
-function recordTargetedSubmission(current, unitName, inputHash, outputHash, draft, errors = []) {
-  const progress = assertRecallAttempt(current, unitName, draft, inputHash);
-  const unit = progress.units[unitName];
-  const normalizedErrors = normalizeErrors(errors);
-  unit.output_hashes = [...(Array.isArray(unit.output_hashes) ? unit.output_hashes : []), String(outputHash)].slice(-3);
-  unit.last_errors = normalizedErrors;
-  unit.status = normalizedErrors.length === 0 ? 'done' : 'pending';
-  unit.stop_reason = null;
-  unit.updated_at = now();
-  progress.updated_at = unit.updated_at;
-  return progress;
 }
 
 function normalizeErrors(errors) {
@@ -139,22 +76,26 @@ function recordSubmission(current, unitName, inputHash, outputHash, errors) {
   } else if (unit.status === 'manual_review') {
     throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit: unitName });
   }
+  if (unit.attempts >= 2) {
+    throw new GameKbError('UNIT_ATTEMPTS_EXHAUSTED', 'Unit has exhausted its two-submission budget', {
+      unit: unitName,
+      attempts: unit.attempts
+    });
+  }
 
   const normalizedErrors = normalizeErrors(errors);
   const fingerprint = normalizeErrorFingerprint(normalizedErrors);
-  const outputs = [...unit.output_hashes, String(outputHash)].slice(-3);
+  const outputs = [...unit.output_hashes, String(outputHash)].slice(-2);
   const fingerprints = fingerprint
-    ? [...unit.error_fingerprints, fingerprint].slice(-3)
-    : [...unit.error_fingerprints].slice(-3);
+    ? [...unit.error_fingerprints, fingerprint].slice(-2)
+    : [...unit.error_fingerprints].slice(-2);
   const attempts = unit.attempts + 1;
   const reasons = [];
 
   if (normalizedErrors.length > 0) {
     if (outputs.length >= 2 && outputs.at(-1) === outputs.at(-2)) reasons.push('REPEATED_OUTPUT');
     if (fingerprints.length >= 2 && fingerprints.at(-1) === fingerprints.at(-2)) reasons.push('REPEATED_ERROR');
-    if (outputs.length === 3 && outputs[0] === outputs[2]) reasons.push('OUTPUT_OSCILLATION');
-    if (fingerprints.length === 3 && fingerprints[0] === fingerprints[2]) reasons.push('ERROR_OSCILLATION');
-    if (attempts >= 3) reasons.push('ATTEMPTS_EXHAUSTED');
+    if (attempts >= 2) reasons.push('ATTEMPTS_EXHAUSTED');
   }
 
   unit.attempts = attempts;
@@ -220,7 +161,7 @@ function forceManualReview(current, unitName, errors, stopReason) {
   unit.status = 'manual_review';
   unit.last_errors = normalizedErrors;
   unit.error_fingerprints = fingerprint
-    ? [...unit.error_fingerprints, fingerprint].slice(-3)
+    ? [...unit.error_fingerprints, fingerprint].slice(-2)
     : unit.error_fingerprints;
   unit.stop_reason = stopReason;
   unit.updated_at = now();
@@ -282,7 +223,7 @@ function readProgress(file) {
   }
 }
 
-function loadProgress(paths, manifest) {
+function projectProgressState(paths, manifest) {
   const progress = fs.existsSync(paths.progress) ? readProgress(paths.progress) : freshProgress();
   let changed = !fs.existsSync(paths.progress);
   for (const chapter of manifest.chapters) {
@@ -300,6 +241,15 @@ function loadProgress(paths, manifest) {
       changed = true;
     }
   }
+  return { progress, changed };
+}
+
+function projectProgress(paths, manifest) {
+  return projectProgressState(paths, manifest).progress;
+}
+
+function loadProgress(paths, manifest) {
+  const { progress, changed } = projectProgressState(paths, manifest);
   if (changed || !fs.existsSync(paths.manualReview)) return saveProgress(paths, progress);
   return progress;
 }
@@ -317,9 +267,12 @@ function resetUnit(current, unitName, confirmed) {
 }
 
 function statusReport(paths, manifest, progress) {
+  const domainUnitSet = new Set(DOMAIN_UNITS);
+  const otherUnits = Object.keys(progress.units).filter(name => !name.startsWith('chapter:'));
   const unitNames = [
     ...manifest.chapters.map(chapter => `chapter:${String(chapter.number).padStart(3, '0')}`),
-    ...Object.keys(progress.units).filter(name => !name.startsWith('chapter:')).sort()
+    ...DOMAIN_UNITS.filter(name => Object.hasOwn(progress.units, name)),
+    ...otherUnits.filter(name => !domainUnitSet.has(name)).sort()
   ];
   const counts = { pending: 0, done: 0, stale: 0, manual_review: 0 };
   const units = unitNames.map(name => {
@@ -329,7 +282,6 @@ function statusReport(paths, manifest, progress) {
       unit: name,
       status: unit.status,
       attempts: unit.attempts,
-      semantic_attempts: unit.semantic_attempts ?? 0,
       input_hash: unit.input_hash
     };
   });
@@ -352,9 +304,7 @@ module.exports = {
   loadProgress,
   manualIssues,
   normalizeErrorFingerprint,
-  assertRecallAttempt,
-  recordTargetedSubmission,
-  semanticContentHash,
+  projectProgress,
   recordSubmission,
   reopenAcceptedDomainUnit,
   resetUnit,

@@ -3,15 +3,17 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
 
-const { sourceRef, validCleanedBook, validMergedBook } = require('./helpers');
+const { validateChapterDraft } = require('../scripts/lib/chapter-contract');
 const {
   groupCandidates,
   normalizeName,
   validateCandidateResolutions,
-  validateCleanedBook,
   validateMergedBook
 } = require('../scripts/lib/book-contract');
-const { buildQuantityReport } = require('../scripts/lib/quantity');
+const { validateDomainDecisionDraft } = require('../scripts/lib/domain-contract');
+const { buildFinalData } = require('../scripts/lib/finalize');
+const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
+const { sourceRef, validChapterDraft, validMergedBook } = require('./helpers');
 
 const manifest = {
   chapters: [1, 2, 3].map(number => ({ number, title: `第${number}章`, input_hash: `sha256:${number}` }))
@@ -32,37 +34,28 @@ test('groups exact normalized names but marks distinct identities ambiguous', ()
   assert.equal(groups[0].candidates.length, 2);
 });
 
-test('merged book keeps one event across non-contiguous source chapters', () => {
-  const book = validMergedBook();
-  const errors = validateMergedBook(book, manifest);
-
-  assert.deepEqual(errors, []);
-  assert.deepEqual(book.events[0].source_refs.map(ref => ref.chapter), [1, 3]);
+test('merged book validates the retained four entity categories and chapter summaries', () => {
+  assert.deepEqual(validateMergedBook(validMergedBook(), manifest), []);
 });
 
-test('merged and cleaned books require valid character and skill power ranks', () => {
-  for (const [validate, makeBook] of [
-    [validateMergedBook, validMergedBook],
-    [validateCleanedBook, validCleanedBook]
-  ]) {
-    const missing = makeBook();
-    delete missing.characters[0].power_rank;
-    delete missing.skills[0].power_rank;
-    const missingErrors = validate(missing, manifest);
-    assert.ok(missingErrors.some(error =>
-      error.code === 'POWER_RANK_REQUIRED' && error.path === 'characters[0].power_rank'));
-    assert.ok(missingErrors.some(error =>
-      error.code === 'POWER_RANK_REQUIRED' && error.path === 'skills[0].power_rank'));
+test('merged books require valid character and skill ranks', () => {
+  const missing = validMergedBook();
+  delete missing.characters[0].rank;
+  delete missing.skills[0].rank;
+  const missingErrors = validateMergedBook(missing, manifest);
+  assert.ok(missingErrors.some(error =>
+    error.code === 'POWER_RANK_REQUIRED' && error.path === 'characters[0].rank'));
+  assert.ok(missingErrors.some(error =>
+    error.code === 'POWER_RANK_REQUIRED' && error.path === 'skills[0].rank'));
 
-    const invalid = makeBook();
-    invalid.characters[0].power_rank = '绝顶';
-    invalid.skills[0].power_rank = '绝学';
-    const invalidErrors = validate(invalid, manifest);
-    assert.ok(invalidErrors.some(error =>
-      error.code === 'POWER_RANK_INVALID' && error.path === 'characters[0].power_rank'));
-    assert.ok(invalidErrors.some(error =>
-      error.code === 'POWER_RANK_INVALID' && error.path === 'skills[0].power_rank'));
-  }
+  const invalid = validMergedBook();
+  invalid.characters[0].rank = '绝顶';
+  invalid.skills[0].rank = '绝学';
+  const invalidErrors = validateMergedBook(invalid, manifest);
+  assert.ok(invalidErrors.some(error =>
+    error.code === 'POWER_RANK_INVALID' && error.path === 'characters[0].rank'));
+  assert.ok(invalidErrors.some(error =>
+    error.code === 'POWER_RANK_INVALID' && error.path === 'skills[0].rank'));
 });
 
 test('merge candidate resolutions use one finite destination per candidate', () => {
@@ -122,118 +115,101 @@ test('merge candidate resolutions reject missing and duplicate decisions', () =>
 test('merge candidate resolutions accept finite domain-specific rejection reasons', () => {
   const chapters = [{
     chapter: 1,
-    locations: [{
-      candidate_key: 'ch001:locations:location:凉亭',
-      local_key: 'location:凉亭',
-      name: '凉亭',
+    items: [{
+      candidate_key: 'ch001:items:item:随身匕首',
+      local_key: 'item:随身匕首',
+      name: '随身匕首',
       source_refs: [sourceRef(1)]
     }]
   }];
   const book = validMergedBook({
     candidate_resolutions: [{
-      candidate_key: 'ch001:locations:location:凉亭',
+      candidate_key: 'ch001:items:item:随身匕首',
       resolution: 'rejected',
-      reason: 'incidental_location',
-      detail: '只是一处偶然经过的布景。'
+      reason: 'ordinary_item',
+      detail: '普通随身物品不进入最终资料。'
     }]
   });
 
   assert.deepEqual(validateCandidateResolutions(book, chapters), []);
 });
 
-test('cleaned books cannot finish with an unresolved ambiguous candidate', () => {
-  const chapters = [{
-    chapter: 1,
-    items: [{
-      candidate_key: 'ch001:items:item:回生丹',
-      local_key: 'item:回生丹',
-      name: '回生丹',
-      source_refs: [sourceRef(1)]
-    }]
-  }];
-  const book = validCleanedBook({
-    candidate_resolutions: [{
-      candidate_key: 'ch001:items:item:回生丹',
-      resolution: 'ambiguous',
-      detail: '同名对象仍无法裁决。'
-    }]
-  });
-
-  assert.ok(validateCleanedBook(book, manifest, chapters)
-    .some(error => error.code === 'CANDIDATE_RESOLUTION_AMBIGUOUS'));
-});
-
-test('merged ambiguities are explicit and cleaned books must resolve them', () => {
+test('merged books retain explicit identity ambiguities for deterministic resolution', () => {
   const ambiguity = { category: 'characters', name: '平四', candidates: ['character:甲', 'character:乙'] };
 
   assert.deepEqual(validateMergedBook(validMergedBook({ ambiguities: [ambiguity] }), manifest), []);
-  assert.ok(validateCleanedBook(validCleanedBook({ ambiguities: [ambiguity] }), manifest)
-    .some(error => error.code === 'AMBIGUITY_UNRESOLVED'));
 });
 
-test('cleaned book keeps detailed fields only for core and important characters', () => {
-  const minor = {
-    local_key: 'character:乙', canonical_name: '乙', aliases: [], level: '次要', identity: '店主',
-    power_rank: '平平无奇',
-    biography: '简短定位。', personality: { traits: ['谨慎'], speech_style: '' },
-    relationship_names: [], skill_names: [], item_names: [], source_refs: [sourceRef(2)]
+test('ordinary items require an approved inclusion reason before a keep decision', () => {
+  const entryRef = 'registry:item:随身匕首';
+  const input = {
+    schema_version: 1,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    unit: 'distill:items',
+    input_hash: 'sha256:items',
+    allowed_patch_fields: ['canonical_name', 'inclusion_reason'],
+    entries: [{
+      entry_ref: entryRef,
+      category: 'items',
+      canonical_name: '随身匕首',
+      facts: { importance: '普通' }
+    }]
   };
-  assert.deepEqual(validateCleanedBook(validCleanedBook({ characters: [validCleanedBook().characters[0], minor] }), manifest), []);
+  const draft = {
+    schema_version: 1,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    unit: input.unit,
+    input_hash: input.input_hash,
+    decisions: [{
+      entry_ref: entryRef,
+      action: 'keep',
+      patch: { canonical_name: '随身匕首' }
+    }],
+    notes: []
+  };
 
-  minor.biography = '冗'.repeat(201);
-  assert.ok(validateCleanedBook(validCleanedBook({ characters: [minor] }), manifest)
-    .some(error => error.code === 'MINOR_CHARACTER_TOO_DETAILED'));
-});
-
-test('rejects ordinary items without an approved inclusion reason', () => {
-  const item = { ...validCleanedBook().items[0], canonical_name: '随身匕首', inclusion_reason: '普通随身物' };
-
-  assert.ok(validateCleanedBook(validCleanedBook({ items: [item] }), manifest)
-    .some(error => error.code === 'ITEM_NOT_IMPORTANT'));
+  assert.ok(validateDomainDecisionDraft(draft, input)
+    .some(error => error.code === 'ITEM_INCLUSION_REASON_REQUIRED'));
+  draft.decisions[0].patch.inclusion_reason = '剧情关键';
+  assert.deepEqual(validateDomainDecisionDraft(draft, input), []);
 });
 
 test('keeps named low-frequency techniques and rejects unnamed actions', () => {
-  const named = { ...validCleanedBook().techniques[0], importance: '低' };
-  assert.deepEqual(validateCleanedBook(validCleanedBook({ techniques: [named] }), manifest), []);
+  const expected = { number: 1, inputHash: 'sha256:chapter' };
+  const named = validChapterDraft();
+  assert.deepEqual(validateChapterDraft(named, expected), []);
 
-  const action = { ...named, canonical_name: '全力一挥', named_in_source: false };
-  assert.ok(validateCleanedBook(validCleanedBook({ techniques: [action] }), manifest)
+  const action = validChapterDraft();
+  action.skills[0].techniques = [{ name: '全力一挥', named_in_source: false }];
+  assert.ok(validateChapterDraft(action, expected)
     .some(error => error.code === 'TECHNIQUE_NOT_NAMED'));
 });
 
-test('allows at most one dialogue per merged event', () => {
-  const first = validCleanedBook().dialogues[0];
-  const duplicate = { ...first, local_key: 'dialogue:重复', text: '又一句。' };
+test('merged source evidence and projected references fail closed', () => {
+  const missingSource = validMergedBook();
+  missingSource.items[0].source_refs = [];
+  assert.ok(validateMergedBook(missingSource, manifest)
+    .some(error => error.code === 'SOURCE_REFS_REQUIRED'));
 
-  assert.ok(validateCleanedBook(validCleanedBook({ dialogues: [first, duplicate] }), manifest)
-    .some(error => error.code === 'DIALOGUE_EVENT_DUPLICATE'));
+  const unknownSource = validMergedBook();
+  unknownSource.factions[0].source_refs = [sourceRef(99)];
+  assert.ok(validateMergedBook(unknownSource, manifest)
+    .some(error => error.code === 'SOURCE_CHAPTER_UNKNOWN'));
+
+  const missingReference = validMergedBook();
+  missingReference.characters[0].skill_names = ['失踪武功'];
+  assert.ok(buildFinalData(missingReference, manifest).issues
+    .some(error => error.code === 'REFERENCE_UNRESOLVED' && error.target === '失踪武功'));
 });
 
-test('quantity report chooses short medium and long ranges by Han character count', () => {
-  const book = validCleanedBook();
-  const short = buildQuantityReport(book, 100_000, 10);
-  const medium = buildQuantityReport(book, 382_000, 20);
-  const long = buildQuantityReport(book, 800_000, 50);
-
-  assert.deepEqual(short.categories.characters.target_range, [10, 35]);
-  assert.deepEqual(medium.categories.events.target_range, [60, 220]);
-  assert.deepEqual(long.categories.dialogues.target_range, [40, 100]);
-  assert.equal(medium.review_consumed, false);
-  assert.equal(typeof medium.categories.skills.per_chapter_density, 'number');
-  assert.equal('passed' in medium, false);
-});
-
-test('cleaned book requires a consumed one-time quantity review', () => {
-  const book = validCleanedBook({ quantity_review: { consumed: false, explanations: [] } });
-
-  assert.ok(validateCleanedBook(book, manifest).some(error => error.code === 'QUANTITY_REVIEW_REQUIRED'));
-});
-
-test('book drafts reject final IDs and a tenth entity category', () => {
+test('book drafts reject final IDs and every removed top-level category', () => {
   const withId = validMergedBook();
   withId.characters[0].id = 'char_jia';
   assert.ok(validateMergedBook(withId, manifest).some(error => error.code === 'FORMAL_ID_FORBIDDEN'));
 
-  const withActions = validCleanedBook({ actions: [] });
-  assert.ok(validateCleanedBook(withActions, manifest).some(error => error.code === 'TOP_LEVEL_FIELD_UNKNOWN'));
+  for (const category of ['events', 'locations', 'techniques', 'dialogues']) {
+    const withRemoved = validMergedBook({ [category]: [] });
+    assert.ok(validateMergedBook(withRemoved, manifest)
+      .some(error => error.code === 'TOP_LEVEL_FIELD_UNKNOWN' && error.path === category));
+  }
 });
