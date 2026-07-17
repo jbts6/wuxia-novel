@@ -10,6 +10,7 @@ const yaml = require('js-yaml');
 const { hashFinalData } = require('../scripts/lib/final-data-hash');
 const { buildFinalData, writeFinalData } = require('../scripts/lib/finalize');
 const { resolveNextAction } = require('../scripts/lib/next-action');
+const { pathsFor } = require('../scripts/lib/paths');
 const { freshProgress, freshUnit } = require('../scripts/lib/progress');
 const { writeWorkPlan } = require('../scripts/lib/semantic-work');
 const { sourceRef, validMergedBook } = require('./helpers');
@@ -26,8 +27,22 @@ function writeJson(file, value) {
   fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
+const CURRENT_NOVEL = path.resolve('C:/next-action-novel');
+const CURRENT_RUN_ID = 'run-next-action';
+const CURRENT_PATHS = pathsFor(CURRENT_NOVEL, CURRENT_RUN_ID);
+
+function chapterStagingPaths(number) {
+  const padded = String(number).padStart(3, '0');
+  return [1, 2].map(attempt => path.join(
+    CURRENT_PATHS.staging,
+    `chapter_${padded}_attempt_${String(attempt).padStart(2, '0')}.yaml`
+  ));
+}
+
 const CURRENT_MANIFEST = {
   source_hash: 'sha256:source',
+  novel_dir: CURRENT_NOVEL,
+  run_id: CURRENT_RUN_ID,
   chapters: [
     {
       number: 10,
@@ -35,7 +50,7 @@ const CURRENT_MANIFEST = {
       file: '/source/ch_010.txt',
       input_hash: 'sha256:chapter-010',
       source_char_count: 1000,
-      staging_paths: ['/staging/chapter_010_attempt_01.yaml', '/staging/chapter_010_attempt_02.yaml']
+      staging_paths: chapterStagingPaths(10)
     },
     {
       number: 2,
@@ -43,7 +58,7 @@ const CURRENT_MANIFEST = {
       file: '/source/ch_002.txt',
       input_hash: 'sha256:chapter-002',
       source_char_count: 1000,
-      staging_paths: ['/staging/chapter_002_attempt_01.yaml', '/staging/chapter_002_attempt_02.yaml']
+      staging_paths: chapterStagingPaths(2)
     }
   ]
 };
@@ -168,7 +183,7 @@ test('returns accept-chapters with numerically sorted unfinished chapters', () =
           source_file: '/source/ch_002.txt',
           input_hash: 'sha256:chapter-002',
           source_char_count: 1000,
-          staging_paths: ['/staging/chapter_002_attempt_01.yaml', '/staging/chapter_002_attempt_02.yaml']
+          staging_paths: chapterStagingPaths(2)
         }]
       },
       {
@@ -180,7 +195,7 @@ test('returns accept-chapters with numerically sorted unfinished chapters', () =
           source_file: '/source/ch_010.txt',
           input_hash: 'sha256:chapter-010',
           source_char_count: 1000,
-          staging_paths: ['/staging/chapter_010_attempt_01.yaml', '/staging/chapter_010_attempt_02.yaml']
+          staging_paths: chapterStagingPaths(10)
         }]
       }
     ]
@@ -194,10 +209,7 @@ test('chapter jobs include only current unfinished units and ignore progress ins
     file: `/source/ch_${String(number).padStart(3, '0')}.txt`,
     input_hash: `sha256:chapter-${number}`,
     source_char_count: 1000,
-    staging_paths: [
-      `/staging/chapter_${String(number).padStart(3, '0')}_attempt_01.yaml`,
-      `/staging/chapter_${String(number).padStart(3, '0')}_attempt_02.yaml`
-    ]
+    staging_paths: chapterStagingPaths(number)
   }));
   const progress = freshProgress();
   for (const number of [4, 2, 1, 3]) {
@@ -207,7 +219,12 @@ test('chapter jobs include only current unfinished units and ignore progress ins
     };
   }
 
-  const result = resolveNextAction({ paths: {}, manifest: { chapters }, progress, installed: null });
+  const result = resolveNextAction({
+    paths: {},
+    manifest: { ...CURRENT_MANIFEST, chapters },
+    progress,
+    installed: null
+  });
   assert.deepEqual(result.next_units, ['chapter:002', 'chapter:003']);
   assert.deepEqual(result.chapter_jobs.map(job => job.chapters.map(chapter => chapter.unit)), [
     ['chapter:002', 'chapter:003']

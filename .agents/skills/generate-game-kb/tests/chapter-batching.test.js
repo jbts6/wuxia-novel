@@ -8,6 +8,10 @@ const test = require('node:test');
 const { makeNovel, readJson, runFlow } = require('./helpers');
 const { pathsFor } = require('../scripts/lib/paths');
 
+const TEST_NOVEL = path.resolve('C:/novel');
+const TEST_RUN_ID = 'run-chapter-jobs';
+const TEST_PATHS = pathsFor(TEST_NOVEL, TEST_RUN_ID);
+
 let batching = {};
 try {
   batching = require('../scripts/lib/chapter-batching');
@@ -30,18 +34,18 @@ function chapter(number, sourceCharCount) {
   return {
     number,
     title: `第${number}章`,
-    file: `/novel/source/chapters/ch_${padded}.txt`,
+    file: path.join(TEST_PATHS.sourceChapters, `ch_${padded}.txt`),
     input_hash: `sha256:chapter-${padded}`,
     source_char_count: sourceCharCount,
     staging_paths: [
-      `/novel/staging/chapter_${padded}_attempt_01.yaml`,
-      `/novel/staging/chapter_${padded}_attempt_02.yaml`
+      path.join(TEST_PATHS.staging, `chapter_${padded}_attempt_01.yaml`),
+      path.join(TEST_PATHS.staging, `chapter_${padded}_attempt_02.yaml`)
     ]
   };
 }
 
 function manifest(chapters) {
-  return { chapters };
+  return { novel_dir: TEST_NOVEL, run_id: TEST_RUN_ID, chapters };
 }
 
 test('prepare records chapter CJK counts and both canonical staging attempts', () => {
@@ -110,6 +114,20 @@ test('obeys both count and CJK limits without joining non-adjacent chapters', ()
   }
 });
 
+test('custom packing options may lower but never raise the absolute worker limits', () => {
+  const input = manifest([chapter(1, 14000), chapter(2, 14000), chapter(3, 13000)]);
+  const raised = pack(input, { maxChapters: 3, maxCjkChars: 100000 });
+  const lowered = pack(input, { maxChapters: 1, maxCjkChars: 20000 });
+
+  assert.deepEqual(raised.map(job => job.chapters.map(item => item.number)), [[1, 2], [3]]);
+  assert.equal(raised.every(job => job.chapters.length <= 2), true);
+  assert.equal(raised.every(job => (
+    job.chapters.length === 1
+    || job.chapters.reduce((sum, item) => sum + item.source_char_count, 0) <= 36000
+  )), true);
+  assert.deepEqual(lowered.map(job => job.chapters.map(item => item.number)), [[1], [2], [3]]);
+});
+
 test('packing is deterministic regardless of manifest chapter order', () => {
   const ordered = manifest([chapter(1, 1000), chapter(2, 1000), chapter(3, 1000), chapter(4, 1000)]);
   const shuffled = manifest([ordered.chapters[2], ordered.chapters[0], ordered.chapters[3], ordered.chapters[1]]);
@@ -140,6 +158,42 @@ test('job validation reports malformed chapter descriptors without throwing', ()
     path: 'chapters[0]',
     target: ''
   }]);
+});
+
+test('packing derives canonical staging paths instead of trusting manifest values', () => {
+  const input = manifest([chapter(1, 1000)]);
+  input.chapters[0].staging_paths = ['C:/outside/escape.yaml'];
+
+  const [job] = pack(input);
+  assert.deepEqual(job.chapters[0].staging_paths, [
+    path.join(TEST_PATHS.staging, 'chapter_001_attempt_01.yaml'),
+    path.join(TEST_PATHS.staging, 'chapter_001_attempt_02.yaml')
+  ]);
+});
+
+test('job validation rejects manifest-trusted staging path length, escape, filename, and order', () => {
+  const validManifest = manifest([chapter(1, 1000)]);
+  const canonical = validManifest.chapters[0].staging_paths;
+  const invalidPaths = [
+    [canonical[0]],
+    ['C:/outside/chapter_001_attempt_01.yaml', 'C:/outside/chapter_001_attempt_02.yaml'],
+    [
+      path.join(TEST_PATHS.staging, 'chapter_001_attempt_02.yaml'),
+      path.join(TEST_PATHS.staging, 'chapter_001_attempt_01.yaml')
+    ],
+    [
+      path.join(TEST_PATHS.staging, 'chapter_001_attempt_01-wrong.yaml'),
+      path.join(TEST_PATHS.staging, 'chapter_001_attempt_02-wrong.yaml')
+    ]
+  ];
+
+  for (const stagingPaths of invalidPaths) {
+    const input = structuredClone(validManifest);
+    const [job] = pack(validManifest);
+    input.chapters[0].staging_paths = stagingPaths;
+    job.chapters[0].staging_paths = stagingPaths;
+    assert.equal(validate(job, input).some(error => error.path === 'chapters[0].staging_paths'), true);
+  }
 });
 
 test('extraction prompt requires one YAML per chapter and forbids cross-chapter evidence', () => {

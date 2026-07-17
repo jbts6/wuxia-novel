@@ -1,9 +1,12 @@
 'use strict';
 
+const path = require('node:path');
+
 const {
   MAX_CHAPTERS_PER_JOB,
   MAX_CJK_CHARS_PER_JOB
 } = require('./worker-pool');
+const { pathsFor } = require('./paths');
 
 const DESCRIPTOR_FIELDS = Object.freeze([
   'unit',
@@ -30,7 +33,16 @@ function batchId(chapters) {
   return first === last ? `chapter-batch-${first}` : `chapter-batch-${first}-${last}`;
 }
 
-function descriptorFor(chapter) {
+function canonicalStagingPaths(manifest, number) {
+  const paths = pathsFor(manifest.novel_dir, manifest.run_id);
+  const unit = `chapter_${String(number).padStart(3, '0')}`;
+  return [1, 2].map(attempt => path.join(
+    paths.staging,
+    `${unit}_attempt_${String(attempt).padStart(2, '0')}.yaml`
+  ));
+}
+
+function descriptorFor(chapter, manifest) {
   return {
     unit: chapterUnit(chapter.number),
     number: chapter.number,
@@ -38,7 +50,7 @@ function descriptorFor(chapter) {
     source_file: chapter.file,
     input_hash: chapter.input_hash,
     source_char_count: chapter.source_char_count,
-    staging_paths: [...chapter.staging_paths]
+    staging_paths: canonicalStagingPaths(manifest, chapter.number)
   };
 }
 
@@ -53,11 +65,17 @@ function packChapterJobs(manifest, {
   maxChapters = MAX_CHAPTERS_PER_JOB,
   maxCjkChars = MAX_CJK_CHARS_PER_JOB
 } = {}) {
-  assertPositiveInteger(maxChapters, 'maxChapters');
-  assertPositiveInteger(maxCjkChars, 'maxCjkChars');
+  const effectiveMaxChapters = Math.min(
+    assertPositiveInteger(maxChapters, 'maxChapters'),
+    MAX_CHAPTERS_PER_JOB
+  );
+  const effectiveMaxCjkChars = Math.min(
+    assertPositiveInteger(maxCjkChars, 'maxCjkChars'),
+    MAX_CJK_CHARS_PER_JOB
+  );
   const chapters = [...(manifest?.chapters || [])]
     .sort((left, right) => left.number - right.number)
-    .map(descriptorFor);
+    .map(chapter => descriptorFor(chapter, manifest));
   const jobs = [];
   let current = [];
   let currentChars = 0;
@@ -72,8 +90,8 @@ function packChapterJobs(manifest, {
   for (const chapter of chapters) {
     const previous = current.at(-1);
     const adjacent = !previous || chapter.number === previous.number + 1;
-    const fitsCount = current.length < maxChapters;
-    const fitsChars = currentChars + chapter.source_char_count <= maxCjkChars;
+    const fitsCount = current.length < effectiveMaxChapters;
+    const fitsChars = currentChars + chapter.source_char_count <= effectiveMaxCjkChars;
     if (current.length > 0 && (!adjacent || !fitsCount || !fitsChars)) flush();
     current.push(chapter);
     currentChars += chapter.source_char_count;
@@ -128,7 +146,7 @@ function validateChapterJob(job, manifest) {
       errors.push(issue('CHAPTER_DESCRIPTOR_UNKNOWN', `${base}.number`, descriptor.number));
       return;
     }
-    const expected = descriptorFor(source);
+    const expected = descriptorFor(source, manifest);
     for (const field of DESCRIPTOR_FIELDS) {
       if (JSON.stringify(descriptor[field]) !== JSON.stringify(expected[field])) {
         errors.push(issue('CHAPTER_DESCRIPTOR_MISMATCH', `${base}.${field}`, descriptor[field]));
