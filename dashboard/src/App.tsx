@@ -9,10 +9,7 @@ import Characters from './pages/Characters';
 import Skills from './pages/Skills';
 import Items from './pages/Items';
 import Factions from './pages/Factions';
-import Locations from './pages/Locations';
 import ChapterSummaries from './pages/ChapterSummaries';
-import Dialogues from './pages/Dialogues';
-import GameMaterials from './pages/GameMaterials';
 import ReviewPage from './pages/ReviewPage';
 
 export default function App() {
@@ -30,10 +27,7 @@ export default function App() {
             <Route path="skills" element={<Skills />} />
             <Route path="items" element={<Items />} />
             <Route path="factions" element={<Factions />} />
-            <Route path="locations" element={<Locations />} />
             <Route path="chapter-summaries" element={<ChapterSummaries />} />
-            <Route path="dialogues" element={<Dialogues />} />
-            <Route path="game-materials" element={<GameMaterials />} />
             <Route path="review" element={<ReviewPage />} />
           </Route>
         </Routes>

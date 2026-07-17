@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { AlertCircle, Building2, Gem, LoaderCircle, MapPin, Search, Swords, Users, X } from 'lucide-react';
+import { AlertCircle, Building2, Gem, LoaderCircle, Search, Swords, Users, X } from 'lucide-react';
 import { PaginationControls } from '../components/common/PaginationControls';
 import { GlobalEntityDetail } from '../components/library/GlobalEntityDetail';
 import { WorkspaceHeader } from '../components/library/WorkspaceHeader';
@@ -23,7 +23,6 @@ const kindItems = [
   { kind: 'skill' as const, label: '武功', icon: Swords },
   { kind: 'item' as const, label: '物品', icon: Gem },
   { kind: 'faction' as const, label: '势力', icon: Building2 },
-  { kind: 'location' as const, label: '地点', icon: MapPin },
 ];
 
 function HighlightedText({ text, keyword }: { text: string; keyword: string }) {
@@ -171,7 +170,7 @@ export default function BrowseLibrary() {
     return kindItems.reduce<Record<LibraryEntityKind, number>>((counts, item) => {
       counts[item.kind] = globalRecords.filter((record) => record.kind === item.kind).length;
       return counts;
-    }, { character: 0, skill: 0, item: 0, faction: 0, location: 0 });
+    }, { character: 0, skill: 0, item: 0, faction: 0 });
   }, [globalRecords]);
 
   const setParam = (key: string, value: string, resetPage = true) => {
@@ -212,7 +211,7 @@ export default function BrowseLibrary() {
         <div className="flex items-end justify-between">
           <div>
             <h1 className="font-serif text-2xl font-semibold text-foreground">全库知识搜索</h1>
-            <p className="mt-1 text-sm text-muted-foreground">跨书检索人物、武功、物品、势力和地点，并查看来源证据。</p>
+            <p className="mt-1 text-sm text-muted-foreground">跨书检索人物、武功、物品和势力，并查看来源证据。</p>
           </div>
           <div className="text-right text-xs text-muted-foreground">
             <div>{globalRecords.length.toLocaleString('zh-CN')} 条知识记录</div>
@@ -220,7 +219,7 @@ export default function BrowseLibrary() {
           </div>
         </div>
 
-        <section className="mt-6 grid grid-cols-5 overflow-hidden rounded-lg border bg-card" aria-label="知识类型统计">
+        <section className="mt-6 grid grid-cols-4 overflow-hidden rounded-lg border bg-card" aria-label="知识类型统计">
           {kindItems.map((item, index) => {
             const Icon = item.icon;
             const active = kind === item.kind;

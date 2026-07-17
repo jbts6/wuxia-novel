@@ -16,9 +16,7 @@ const emptyContentCoverage: LibraryBookStatus['contentCoverage'] = {
   byEntity: {
     characters: { total: 0, detailed: 0, indexOnly: 0 },
     factions: { total: 0, detailed: 0, indexOnly: 0 },
-    locations: { total: 0, detailed: 0, indexOnly: 0 },
     skills: { total: 0, detailed: 0, indexOnly: 0 },
-    techniques: { total: 0, detailed: 0, indexOnly: 0 },
     items: { total: 0, detailed: 0, indexOnly: 0 },
   },
 };
@@ -53,11 +51,8 @@ function createBook(overrides: Partial<LibraryBookStatus>): LibraryBookStatus {
     entityCounts: {
       characters: null,
       factions: null,
-      locations: null,
       skills: null,
-      techniques: null,
       items: null,
-      dialogues: null,
     },
     missingArtifacts: ['data/characters.json'],
     errors: [],
@@ -90,26 +85,21 @@ const completedBook = createBook({
   dataCompleteness: { present: 8, valid: 8, required: 8 },
   contentCoverage: {
     state: 'complete',
-    total: 41,
-    detailed: 41,
+    total: 26,
+    detailed: 26,
     indexOnly: 0,
     byEntity: {
       characters: { total: 12, detailed: 12, indexOnly: 0 },
       factions: { total: 3, detailed: 3, indexOnly: 0 },
-      locations: { total: 7, detailed: 7, indexOnly: 0 },
       skills: { total: 5, detailed: 5, indexOnly: 0 },
-      techniques: { total: 8, detailed: 8, indexOnly: 0 },
       items: { total: 6, detailed: 6, indexOnly: 0 },
     },
   },
   entityCounts: {
     characters: 12,
     factions: 3,
-    locations: 7,
     skills: 5,
-    techniques: 8,
     items: 6,
-    dialogues: 20,
   },
   missingArtifacts: [],
   suggestedAction: null,
@@ -174,15 +164,13 @@ describe('Library workbench', () => {
       browseable: true,
       contentCoverage: {
         state: 'index-only',
-        total: 5,
+        total: 4,
         detailed: 0,
-        indexOnly: 5,
+        indexOnly: 4,
         byEntity: {
           characters: { total: 1, detailed: 0, indexOnly: 1 },
           factions: { total: 1, detailed: 0, indexOnly: 1 },
-          locations: { total: 1, detailed: 0, indexOnly: 1 },
           skills: { total: 1, detailed: 0, indexOnly: 1 },
-          techniques: { total: 0, detailed: 0, indexOnly: 0 },
           items: { total: 1, detailed: 0, indexOnly: 1 },
         },
       },
@@ -212,6 +200,22 @@ describe('Library workbench', () => {
     expect(screen.getByText('建议下一步')).toBeInTheDocument();
     expect(screen.getByText('data/characters.json')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: '知识库尚不可浏览' })).toBeDisabled();
+  });
+
+  it('shows only contracted entity count and scan rows in the detail sheet', async () => {
+    renderLibrary();
+
+    fireEvent.click(screen.getByRole('row', { name: '查看《已完成书》状态详情' }));
+
+    const dialog = await screen.findByRole('dialog');
+    expect(dialog).toHaveTextContent('人物');
+    expect(dialog).toHaveTextContent('势力');
+    expect(dialog).toHaveTextContent('武功');
+    expect(dialog).toHaveTextContent('物品');
+    expect(dialog).not.toHaveTextContent('地点');
+    expect(dialog).not.toHaveTextContent('招式');
+    expect(dialog).not.toHaveTextContent('对话');
+    expect(dialog).not.toHaveTextContent('事件');
   });
 
   it('copies the suggested command without executing it', async () => {

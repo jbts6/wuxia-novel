@@ -1,6 +1,6 @@
 import type { LibraryEntityKind } from '../types/library';
 
-const VALID_KINDS = new Set<LibraryEntityKind>(['skill', 'character', 'faction', 'item', 'location']);
+const VALID_KINDS = new Set<LibraryEntityKind>(['skill', 'character', 'faction', 'item']);
 
 export interface ParsedLibraryKey {
   kind: LibraryEntityKind;

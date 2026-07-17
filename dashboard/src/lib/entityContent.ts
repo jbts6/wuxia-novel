@@ -7,12 +7,16 @@ import {
   type LibraryEntityKind,
 } from '../types/library';
 
-const CONTENT_FIELDS: Record<ContentEntityKey, readonly string[]> = {
+type LibraryContentEntityKey = ContentEntityKey;
+
+const CONTENT_FIELDS: Record<LibraryContentEntityKey, readonly string[]> = {
   characters: [
     'alias',
     'aliases',
+    'level',
     'role',
     'archetype',
+    'rank',
     'power_rank',
     'faction',
     'identity',
@@ -21,6 +25,7 @@ const CONTENT_FIELDS: Record<ContentEntityKey, readonly string[]> = {
     'bio',
     'biography',
     'description',
+    'summary',
     'personality',
     'relationships',
     'skills',
@@ -45,21 +50,11 @@ const CONTENT_FIELDS: Record<ContentEntityKey, readonly string[]> = {
     'power_rank',
     'power_level',
   ],
-  locations: [
-    'type',
-    'region',
-    'description',
-    'one_line',
-    'significance',
-    'factions',
-    'related_factions',
-    'characters',
-    'related_characters',
-  ],
   skills: [
     'alias',
     'type',
     'faction',
+    'rank',
     'power_rank',
     'description',
     'one_line',
@@ -71,18 +66,6 @@ const CONTENT_FIELDS: Record<ContentEntityKey, readonly string[]> = {
     'effects',
     'mechanism',
     'progression',
-  ],
-  techniques: [
-    'type',
-    'skill',
-    'source_skill',
-    'parent_skill',
-    'description',
-    'one_line',
-    'effects',
-    'holders',
-    'used_by',
-    'practitioners',
   ],
   items: [
     'type',
@@ -111,12 +94,11 @@ const EMPTY_DISPLAY_VALUES = new Set([
   '暂无简介',
 ]);
 
-const LIBRARY_KIND_CONTENT_KEYS: Record<LibraryEntityKind, ContentEntityKey> = {
+const LIBRARY_KIND_CONTENT_KEYS: Record<LibraryEntityKind, LibraryContentEntityKey> = {
   character: 'characters',
   skill: 'skills',
   item: 'items',
   faction: 'factions',
-  location: 'locations',
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -139,7 +121,7 @@ export function isContentEntityKey(key: DataFileKey): key is ContentEntityKey {
   return (CONTENT_ENTITY_KEYS as readonly string[]).includes(key);
 }
 
-export function hasEntityContent(key: ContentEntityKey, value: unknown): boolean {
+export function hasEntityContent(key: LibraryContentEntityKey, value: unknown): boolean {
   if (!isRecord(value)) return false;
   return CONTENT_FIELDS[key].some((field) => hasMeaningfulValue(value[field]));
 }

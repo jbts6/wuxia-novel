@@ -66,6 +66,67 @@ describe('normalizeNovelData', () => {
     expect(data.skills[1]).not.toHaveProperty('rank');
   });
 
+  it('maps v4 character fields onto the existing display contract', () => {
+    const data = normalizeNovelData({
+      characters: [
+        {
+          id: 'c1',
+          name: '段誉',
+          level: '主角',
+          role: '配角',
+          rank: '绝顶',
+          power_rank: '一流',
+          summary: '大理镇南王世子，机缘深厚。',
+        },
+      ],
+    });
+
+    expect(data.characters[0]).toMatchObject({
+      role: '主角',
+      power_rank: '绝顶',
+      summary: '大理镇南王世子，机缘深厚。',
+    });
+    expect(data.characters[0]).not.toHaveProperty('level');
+    expect(data.characters[0]).not.toHaveProperty('rank');
+  });
+
+  it('projects legacy and v4 skill techniques to display names', () => {
+    const data = normalizeNovelData({
+      skills: [
+        {
+          id: 's1',
+          name: '逍遥派武学',
+          techniques: ['凌波微步', { name: '北冥神功' }],
+        },
+      ],
+    });
+
+    expect(data.skills[0].techniques).toEqual(['凌波微步', '北冥神功']);
+  });
+
+  it('drops invalid technique entries and deduplicates non-empty names', () => {
+    const data = normalizeNovelData({
+      skills: [
+        {
+          id: 's1',
+          name: '逍遥派武学',
+          techniques: [
+            '凌波微步',
+            { name: '凌波微步' },
+            '',
+            '   ',
+            { name: '' },
+            { name: '   ' },
+            { id: 'missing-name' },
+            null,
+          ],
+        },
+      ],
+    });
+
+    expect(data.skills[0].techniques).toEqual(['凌波微步']);
+  });
+
   it('drops legacy item rarity fields at the raw data boundary', () => {
     const data = normalizeNovelData({
       items: [{ id: 'i1', name: '冷月宝刀', rarity_tier: '珍稀', rarity: 'rare' }],

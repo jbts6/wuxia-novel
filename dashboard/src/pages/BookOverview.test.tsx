@@ -4,7 +4,6 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { useLibraryStore } from '../stores/useLibraryStore';
 import { useNovelStore } from '../stores/useNovelStore';
 import type { LibraryBookStatus } from '../types/library';
-import type { BookExtrasData, GameMaterial } from '../types/novel';
 import BookOverview from './BookOverview';
 
 const BOOK_PATH = '金庸/飞狐外传';
@@ -39,42 +38,19 @@ const book: LibraryBookStatus = {
     total: 0,
     detailed: 0,
     indexOnly: 0,
-    byEntity: Object.fromEntries(
-      ['characters', 'factions', 'locations', 'skills', 'techniques', 'items'].map((key) => [
-        key,
-        { total: 0, detailed: 0, indexOnly: 0 },
-      ]),
-    ) as LibraryBookStatus['contentCoverage']['byEntity'],
+    byEntity: {
+      characters: { total: 0, detailed: 0, indexOnly: 0 },
+      factions: { total: 0, detailed: 0, indexOnly: 0 },
+      skills: { total: 0, detailed: 0, indexOnly: 0 },
+      items: { total: 0, detailed: 0, indexOnly: 0 },
+    },
   },
-  entityCounts: { characters: 0, factions: 0, locations: 0, skills: 0, techniques: 0, items: 0, dialogues: 0 },
+  entityCounts: { characters: 0, factions: 0, skills: 0, items: 0 },
   missingArtifacts: [],
   errors: [],
   gateFailures: [],
   suggestedAction: null,
 };
-
-const materialTypes: GameMaterial['material_type'][] = [
-  '战斗系统原型',
-  '经典剧情桥段',
-  '角色原型/彩蛋',
-  '标志性物品',
-  '门派与世界观素材',
-];
-
-function setGameMaterials(resource: BookExtrasData['gameMaterials'], options: { loading?: boolean; error?: string | null } = {}) {
-  useLibraryStore.setState({
-    currentBook: BOOK_PATH,
-    books: [book],
-    extrasCache: {
-      [BOOK_PATH]: {
-        events: { status: 'missing', data: null },
-        gameMaterials: resource,
-      },
-    },
-    extrasLoading: { [BOOK_PATH]: options.loading === true },
-    extrasErrors: { [BOOK_PATH]: options.error ?? null },
-  });
-}
 
 function renderOverview() {
   return render(
@@ -85,67 +61,31 @@ function renderOverview() {
 }
 
 beforeEach(() => {
-  useNovelStore.getState().clearData();
-  setGameMaterials({
-    status: 'available',
-    data: {
-      schema_version: 1,
-      entries: materialTypes.map((material_type, index) => ({
-        material_type,
-        source_id: `source_${index}`,
-        relevance: '高',
-        suggested_use: '测试用途',
-        reason: '测试理由',
-      })),
-    },
+  useLibraryStore.setState({ currentBook: BOOK_PATH, books: [book] });
+  useNovelStore.setState({
+    characters: [{ id: 'char-1', name: '人物一', alias: [], role: '核心', personality: { traits: [], speech_style: '' }, relationships: [] }],
+    skills: [{ id: 'skill-1', name: '武功一', type: '内功', description: '武功简介' }],
+    items: [{ id: 'item-1', name: '物品一', type: '兵器', description: '物品简介' }],
+    factions: [{ id: 'faction-1', name: '势力一', type: '门派', description: '势力简介' }],
+    locations: [{ id: 'location-1', name: '旧地点', description: '不应显示' }],
+    dialogues: [{ id: 'dialogue-1', speaker: 'char-1', chapter: 1, text: '旧对话' }],
+    chapterSummaries: [{ chapter: 1, title: '第一章', summary: '章节摘要', key_events: [], key_characters: [] }],
+    factionMap: new Map([['faction-1', '势力一']]),
+    locationMap: new Map([['location-1', '旧地点']]),
   });
 });
 
-describe('书籍概览游戏素材摘要', () => {
-  it('显示素材总数、五类分布和查看全部入口', () => {
+describe('书籍概览实体摘要', () => {
+  it('显示四类实体和章节摘要，不显示已移除的可见分类', () => {
     renderOverview();
 
-    expect(screen.getByRole('heading', { name: '游戏素材' })).toBeInTheDocument();
-    expect(screen.getByText('5 条游戏素材')).toBeInTheDocument();
-    for (const type of materialTypes) {
-      expect(screen.getByText(type)).toBeInTheDocument();
-    }
-    expect(screen.getByRole('link', { name: '查看全部游戏素材' })).toHaveAttribute(
-      'href',
-      '/%E9%87%91%E5%BA%B8/%E9%A3%9E%E7%8B%90%E5%A4%96%E4%BC%A0/game-materials',
-    );
-  });
-
-  it('区分缺失、合法空报告和读取错误', () => {
-    setGameMaterials({ status: 'missing', data: null });
-    renderOverview();
-    expect(screen.getByText('本书尚未生成游戏素材')).toBeInTheDocument();
-  });
-
-  it('合法空报告显示 0 条游戏素材', () => {
-    setGameMaterials({ status: 'available', data: { schema_version: 1, entries: [] } });
-    renderOverview();
-    expect(screen.getByText('0 条游戏素材')).toBeInTheDocument();
-  });
-
-  it('损坏报告显示错误而不是 0 条', () => {
-    setGameMaterials({ status: 'invalid', data: null, error: '报告损坏' });
-    renderOverview();
-    expect(screen.getByText(/报告损坏/)).toBeInTheDocument();
-    expect(screen.queryByText('0 条游戏素材')).not.toBeInTheDocument();
-  });
-
-  it('扩展数据加载中时不把素材误判为缺失', () => {
-    setGameMaterials({ status: 'missing', data: null }, { loading: true });
-    renderOverview();
-    expect(screen.getByText('正在加载游戏素材')).toBeInTheDocument();
-    expect(screen.queryByText('本书尚未生成游戏素材')).not.toBeInTheDocument();
-  });
-
-  it('扩展接口不可用时显示独立错误而不是 0 条', () => {
-    setGameMaterials({ status: 'missing', data: null }, { error: '扩展接口暂时不可用' });
-    renderOverview();
-    expect(screen.getByText(/扩展接口暂时不可用/)).toBeInTheDocument();
-    expect(screen.queryByText('0 条游戏素材')).not.toBeInTheDocument();
+    expect(screen.getByText('人物')).toBeInTheDocument();
+    expect(screen.getByText('武功')).toBeInTheDocument();
+    expect(screen.getByText('物品')).toBeInTheDocument();
+    expect(screen.getByText('势力')).toBeInTheDocument();
+    expect(screen.getByText('章节')).toBeInTheDocument();
+    expect(screen.queryByText('地点')).not.toBeInTheDocument();
+    expect(screen.queryByText('对话')).not.toBeInTheDocument();
+    expect(screen.queryByText('游戏素材')).not.toBeInTheDocument();
   });
 });

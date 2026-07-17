@@ -31,19 +31,17 @@ function createBook(name: string, author = '金庸'): LibraryBookStatus {
     dataCompleteness: { present: 8, valid: 8, required: 8 },
     contentCoverage: {
       state: 'complete',
-      total: 5,
-      detailed: 5,
+      total: 4,
+      detailed: 4,
       indexOnly: 0,
       byEntity: {
         characters: { total: 1, detailed: 1, indexOnly: 0 },
         factions: { total: 1, detailed: 1, indexOnly: 0 },
-        locations: { total: 1, detailed: 1, indexOnly: 0 },
         skills: { total: 1, detailed: 1, indexOnly: 0 },
-        techniques: { total: 0, detailed: 0, indexOnly: 0 },
         items: { total: 1, detailed: 1, indexOnly: 0 },
       },
     },
-    entityCounts: { characters: 1, factions: 1, locations: 1, skills: 1, techniques: 0, items: 1, dialogues: 0 },
+    entityCounts: { characters: 1, factions: 1, skills: 1, items: 1 },
     missingArtifacts: [],
     errors: [],
     gateFailures: [],
@@ -74,10 +72,10 @@ function createData(seed: string): NovelData {
 }
 
 describe('global library index', () => {
-  it('builds five entity kinds with searchable source evidence', () => {
+  it('builds four entity kinds with searchable source evidence', () => {
     const records = buildGlobalLibraryRecords(createBook('测试书'), createData('青锋'));
 
-    expect(records.map((record) => record.kind)).toEqual(['character', 'skill', 'item', 'faction', 'location']);
+    expect(records.map((record) => record.kind)).toEqual(['character', 'skill', 'item', 'faction']);
     expect(records[0].source.bookPath).toBe('金庸/测试书');
     expect(records[0].evidence[0].text).toContain('风雪');
 
@@ -113,9 +111,13 @@ describe('global library index', () => {
 
     expect(maxActive).toBeLessThanOrEqual(2);
     expect(result.loadedBookPaths).toHaveLength(5);
-    expect(result.records).toHaveLength(25);
+    expect(result.records).toHaveLength(20);
     expect(result.warnings).toEqual([
-      expect.objectContaining({ bookName: '书3', message: '损坏的 JSON' }),
+      expect.objectContaining({
+        bookName: '书3',
+        file: '/api/library/book-data',
+        message: '损坏的 JSON',
+      }),
     ]);
   });
 });

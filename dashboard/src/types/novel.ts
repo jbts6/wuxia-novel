@@ -1,3 +1,5 @@
+import type { DataFileKey } from './library';
+
 // 基于 generate-kb 新 schema 的类型定义
 
 export interface SourceRef {
@@ -65,6 +67,7 @@ export interface Character {
   role: string;
   archetype?: string;
   power_rank?: string;
+  summary?: string;
   faction?: string | null;
   identity?: string;
   importance?: string;
@@ -209,17 +212,26 @@ export interface DetailPanelState {
 }
 
 // 审核相关类型
-export interface ReviewEntity {
+export type ReviewEntity = {
+  key: string;
   id: string;
   name: string;
-  type: 'character' | 'skill' | 'item';
+  type: Exclude<DataFileKey, 'chapter_summaries'>;
   summary: string; // one_line 或 identity 或 description
   marked: boolean; // 是否标记为删除
   data: Record<string, unknown>; // 原始数据
-}
+} | {
+  key: string;
+  chapter: number;
+  name: string;
+  type: 'chapter_summaries';
+  summary: string;
+  marked: boolean;
+  data: Record<string, unknown>;
+};
 
 export interface ReviewFilter {
-  type: 'all' | 'character' | 'skill' | 'item';
+  type: 'all' | DataFileKey;
   status: 'all' | 'unmarked' | 'marked';
   search: string;
 }
@@ -227,5 +239,5 @@ export interface ReviewFilter {
 export interface ReviewFile {
   name: string;
   path: string;
-  type: string;
+  type: DataFileKey;
 }

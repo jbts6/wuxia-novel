@@ -40,6 +40,16 @@ export function asStringArray(value: unknown): string[] {
   return asArray(value).filter((entry): entry is string => typeof entry === 'string');
 }
 
+function normalizeTechniqueNames(value: unknown): string[] {
+  const names = asArray(value).flatMap((entry) => {
+    if (typeof entry === 'string') return [entry];
+    const name = asRecord(entry).name;
+    return typeof name === 'string' ? [name] : [];
+  });
+
+  return [...new Set(names.map((name) => name.trim()).filter(Boolean))];
+}
+
 function asNumber(value: unknown, fallback = 0): number {
   if (typeof value === 'number' && Number.isFinite(value)) return value;
   if (typeof value === 'string' && value.trim() !== '') {
@@ -102,9 +112,10 @@ function normalizeCharacter(value: unknown): Character {
     id: asString(record.id),
     name: asString(record.name),
     alias: [...new Set(aliases)],
-    role: asString(record.role, '未标注'),
+    role: asString(record.level ?? record.role, '未标注'),
     archetype: asOptionalString(record.archetype),
-    power_rank: asOptionalString(record.power_rank),
+    power_rank: asOptionalString(record.rank ?? record.power_rank),
+    summary: asOptionalString(record.summary),
     faction: asNullableString(record.faction),
     identity: asOptionalString(record.identity),
     importance: asOptionalString(record.importance),
@@ -139,7 +150,7 @@ function normalizeSkill(value: unknown): Skill {
     moves: asStringArray(record.moves),
     combat_style: asStringArray(record.combat_style),
     holders: asStringArray(record.holders),
-    techniques: asStringArray(record.techniques),
+    techniques: normalizeTechniqueNames(record.techniques),
     source_refs: normalizeSourceRefs(record.source_refs),
   };
 }

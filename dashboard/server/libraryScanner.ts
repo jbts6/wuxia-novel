@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import yaml from 'js-yaml';
 import {
   DATA_FILE_NAMES,
   KNOWLEDGE_ENTITY_KEYS,
@@ -101,6 +102,10 @@ function readJson(target: string): unknown {
   return JSON.parse(fs.readFileSync(target, 'utf8')) as unknown;
 }
 
+function readYaml(target: string): unknown {
+  return yaml.load(fs.readFileSync(target, 'utf8'));
+}
+
 function toIsoTime(milliseconds: number): string | null {
   return milliseconds > 0 ? new Date(milliseconds).toISOString() : null;
 }
@@ -113,25 +118,6 @@ function validateNamedRecords(value: unknown): boolean {
   return (
     Array.isArray(value) &&
     value.every((entry) => isRecord(entry) && typeof entry.id === 'string' && typeof entry.name === 'string')
-  );
-}
-
-function validateDialogues(value: unknown): boolean {
-  return (
-    Array.isArray(value) &&
-    value.every((entry) => {
-      if (!isRecord(entry)) return false;
-      const hasText =
-        typeof entry.text === 'string' ||
-        typeof entry.name === 'string' ||
-        (Array.isArray(entry.source_refs) &&
-          entry.source_refs.some((sourceRef) => isRecord(sourceRef) && typeof sourceRef.text === 'string'));
-      if (!hasText) return false;
-      if (typeof entry.id === 'string' && entry.id.length > 0) return true;
-      const hasSpeaker = typeof entry.speaker === 'string' || typeof entry.speaker_name === 'string';
-      const hasChapter = typeof entry.chapter === 'number' || typeof entry.chapter === 'string';
-      return hasSpeaker && hasChapter;
-    })
   );
 }
 
@@ -148,7 +134,6 @@ function validateChapterSummaries(value: unknown): boolean {
 }
 
 function validateDataFile(key: DataFileKey, value: unknown): boolean {
-  if (key === 'dialogues') return validateDialogues(value);
   if (key === 'chapter_summaries') return validateChapterSummaries(value);
   return validateNamedRecords(value);
 }
@@ -215,7 +200,7 @@ function inspectDataDirectory(bookDirectory: string): DataInspection {
 
     present += 1;
     try {
-      const value = readJson(target);
+      const value = readYaml(target);
       if (validateDataFile(key, value)) {
         valid += 1;
         if (key !== 'chapter_summaries') entityCounts[key] = (value as unknown[]).length;
@@ -573,7 +558,7 @@ export function readBookData(rootDirectory: string, bookPath: string): RawNovelD
 
   const result = {} as RawNovelData;
   for (const [key, filename] of REQUIRED_DATA_ENTRIES) {
-    result[key] = readJson(path.join(book.directory, 'data', filename)) as unknown[];
+    result[key] = readYaml(path.join(book.directory, 'data', filename)) as unknown[];
   }
   return result;
 }

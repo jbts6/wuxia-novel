@@ -2,6 +2,8 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import type { Connect, Plugin } from 'vite';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { discoverBooks } from './libraryScanner';
+import { DATA_FILE_NAMES } from '../src/types/library';
 
 interface ApiResult {
   status: number;
@@ -27,12 +29,23 @@ function readRequestBody(request: IncomingMessage): Promise<string> {
   });
 }
 
-function validateFilePath(rootDirectory: string, filePath: string): string | null {
+function validateYamlDataPath(
+  rootDirectory: string,
+  filePath: string,
+  location: 'data-file' | 'backup-file',
+): string | null {
+  if (path.extname(filePath) !== '.yaml') return null;
+
   const resolved = path.resolve(rootDirectory, filePath);
-  if (!resolved.startsWith(path.resolve(rootDirectory))) {
-    return null; // 路径遍历攻击
+  for (const book of discoverBooks(rootDirectory)) {
+    const dataDirectory = path.resolve(book.directory, 'data');
+    const relative = path.relative(dataDirectory, resolved);
+    const expectedDirectory = location === 'backup-file' ? 'backups' : '.';
+    if (relative && !path.isAbsolute(relative) && path.dirname(relative) === expectedDirectory) {
+      return resolved;
+    }
   }
-  return resolved;
+  return null;
 }
 
 export function handleReviewApiRequest(
@@ -50,7 +63,7 @@ export function handleReviewApiRequest(
       const filePath = url.searchParams.get('path');
       if (!filePath) return { status: 400, body: { error: '缺少 path 参数' } };
 
-      const fullPath = validateFilePath(rootDirectory, filePath);
+      const fullPath = validateYamlDataPath(rootDirectory, filePath, 'data-file');
       if (!fullPath) return { status: 400, body: { error: '无效的文件路径' } };
 
       if (!fs.existsSync(fullPath)) return { status: 404, body: { error: '文件不存在' } };
@@ -68,7 +81,7 @@ export function handleReviewApiRequest(
         return { status: 400, body: { error: '缺少 path 或 content 参数' } };
       }
 
-      const fullPath = validateFilePath(rootDirectory, filePath);
+      const fullPath = validateYamlDataPath(rootDirectory, filePath, 'data-file');
       if (!fullPath) return { status: 400, body: { error: '无效的文件路径' } };
 
       fs.writeFileSync(fullPath, content, 'utf-8');
@@ -84,8 +97,8 @@ export function handleReviewApiRequest(
         return { status: 400, body: { error: '缺少 source 或 target 参数' } };
       }
 
-      const fullSource = validateFilePath(rootDirectory, source);
-      const fullTarget = validateFilePath(rootDirectory, target);
+      const fullSource = validateYamlDataPath(rootDirectory, source, 'data-file');
+      const fullTarget = validateYamlDataPath(rootDirectory, target, 'backup-file');
       if (!fullSource || !fullTarget) {
         return { status: 400, body: { error: '无效的文件路径' } };
       }
@@ -109,20 +122,20 @@ export function handleReviewApiRequest(
       const bookPath = url.searchParams.get('bookPath');
       if (!bookPath) return { status: 400, body: { error: '缺少 bookPath 参数' } };
 
-      const fullBookPath = validateFilePath(rootDirectory, bookPath);
-      if (!fullBookPath) return { status: 400, body: { error: '无效的书籍路径' } };
+      const book = discoverBooks(rootDirectory).find((entry) => entry.path === bookPath);
+      if (!book) return { status: 400, body: { error: '无效的书籍路径' } };
 
-      const dataDir = path.join(fullBookPath, 'data');
+      const dataDir = path.join(book.directory, 'data');
       if (!fs.existsSync(dataDir)) {
         return { status: 200, body: { files: [] } };
       }
 
-      const files = fs.readdirSync(dataDir)
-        .filter((file) => file.endsWith('.yaml') || file.endsWith('.yml') || file.endsWith('.json'))
-        .map((file) => ({
+      const files = Object.entries(DATA_FILE_NAMES)
+        .filter(([, file]) => fs.existsSync(path.join(dataDir, file)))
+        .map(([type, file]) => ({
           name: file,
           path: path.join(bookPath, 'data', file),
-          type: file.replace(/\.(yaml|yml|json)$/, ''),
+          type,
         }));
 
       return { status: 200, body: { files } };

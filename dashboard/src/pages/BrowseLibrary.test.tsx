@@ -41,13 +41,11 @@ const book: LibraryBookStatus = {
     byEntity: {
       characters: { total: 60, detailed: 60, indexOnly: 0 },
       factions: { total: 0, detailed: 0, indexOnly: 0 },
-      locations: { total: 0, detailed: 0, indexOnly: 0 },
       skills: { total: 0, detailed: 0, indexOnly: 0 },
-      techniques: { total: 0, detailed: 0, indexOnly: 0 },
       items: { total: 0, detailed: 0, indexOnly: 0 },
     },
   },
-  entityCounts: { characters: 60, factions: 0, locations: 0, skills: 0, techniques: 0, items: 0, dialogues: 0 },
+  entityCounts: { characters: 60, factions: 0, skills: 0, items: 0 },
   missingArtifacts: [],
   errors: [],
   gateFailures: [],
@@ -68,7 +66,7 @@ const data: NovelData = {
   skills: [],
   items: [],
   factions: [],
-  locations: [],
+  locations: [{ id: 'legacy-location', name: '旧地点', region: '中原', description: '不应进入全库索引' }],
   dialogues: [],
   techniques: [],
   chapter_summaries: [],
@@ -129,6 +127,15 @@ describe('global library browser', () => {
     expect(screen.getAllByRole('row', { name: /查看人物/ })).toHaveLength(10);
     expect(screen.getByText('51-60 / 60 条记录')).toBeInTheDocument();
   }, 10_000);
+
+  it('does not expose legacy locations in records or filters', () => {
+    renderPage();
+
+    expect(records.map((record) => record.kind)).not.toContain('location');
+    expect(screen.getByText('跨书检索人物、武功、物品和势力，并查看来源证据。')).toBeInTheDocument();
+    expect(screen.queryByText('地点')).not.toBeInTheDocument();
+    expect(within(screen.getByRole('combobox', { name: '按实体类型筛选' })).queryByRole('option', { name: '地点' })).not.toBeInTheDocument();
+  });
 
   it('searches aliases, opens source evidence, and links to the exact single-book entity', async () => {
     renderPage('/browse?q=关键别名&author=金庸');

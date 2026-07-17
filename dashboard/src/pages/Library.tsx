@@ -85,15 +85,11 @@ function formatEntityCount(value: number | null): string {
 const entityCountItems = [
   { key: 'characters' as const, label: '人物' },
   { key: 'factions' as const, label: '势力' },
-  { key: 'locations' as const, label: '地点' },
   { key: 'skills' as const, label: '武功' },
-  { key: 'techniques' as const, label: '招式' },
   { key: 'items' as const, label: '物品' },
-  { key: 'dialogues' as const, label: '对话' },
 ];
 
-const contentCoverageItems: Array<{ key: ContentEntityKey; label: string }> = entityCountItems
-  .filter((item): item is { key: ContentEntityKey; label: string } => item.key !== 'dialogues');
+const contentCoverageItems: Array<{ key: ContentEntityKey; label: string }> = entityCountItems;
 
 function SortHeader({ label, onClick }: { label: string; onClick: () => void }) {
   return (
@@ -500,9 +496,9 @@ export default function Library() {
                 <section className="border-t pt-5">
                   <h3 className="text-sm font-semibold">窗口覆盖</h3>
                   <div className="mt-3 space-y-2">
-                    {(['named-inventory', 'event-dialogue', 'gap-audit'] as const).map((passName) => {
+                    {(['named-inventory', 'gap-audit'] as const).map((passName) => {
                       const progress = selectedBook.scanProgress[passName];
-                      const labels = { 'named-inventory': '实体扫描', 'event-dialogue': '事件对话', 'gap-audit': '独立查漏' };
+                      const labels = { 'named-inventory': '实体扫描', 'gap-audit': '独立查漏' };
                       return (
                         <div key={passName} className="flex items-center justify-between border-b border-dashed py-2 text-sm">
                           <span className="text-muted-foreground">{labels[passName]}</span>

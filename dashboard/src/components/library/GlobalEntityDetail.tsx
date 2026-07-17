@@ -48,11 +48,8 @@ function detailRows(record: AnyLibraryRecord, maps: IdMaps): Array<{ label: stri
     case 'faction':
       return [
         { label: '类型', value: displayTaxonomyValue(record.entity.type) },
-        { label: '地点', value: resolveId(record.entity.location, maps.locationMap, '未注明地点') },
         { label: '领袖', value: resolveId(record.entity.leader, maps.characterMap, '未注明领袖') },
       ];
-    case 'location':
-      return [{ label: '区域', value: displayTaxonomyValue(record.entity.region) }];
   }
 }
 
@@ -84,11 +81,6 @@ function relatedValues(record: AnyLibraryRecord, maps: IdMaps): string[] {
         ...resolveIds(record.entity.members, maps.characterMap),
         ...visibleChineseValues(record.entity.sub_organizations),
         ...visibleChineseValues(record.entity.sub_divisions),
-      ];
-    case 'location':
-      return [
-        ...resolveIds(record.entity.factions, maps.factionMap),
-        ...resolveIds(record.entity.characters, maps.characterMap),
       ];
   }
 }

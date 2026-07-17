@@ -1,14 +1,11 @@
-import type { Character, Faction, Item, Location, Skill, SourceRef } from './novel';
+import type { Character, Faction, Item, Skill, SourceRef } from './novel';
 
 export const DATA_FILE_NAMES = {
-  characters: 'characters.json',
-  factions: 'factions.json',
-  locations: 'locations.json',
-  skills: 'skills.json',
-  techniques: 'techniques.json',
-  items: 'items.json',
-  dialogues: 'dialogues.json',
-  chapter_summaries: 'chapter_summaries.json',
+  characters: 'characters.yaml',
+  factions: 'factions.yaml',
+  skills: 'skills.yaml',
+  items: 'items.yaml',
+  chapter_summaries: 'chapter_summaries.yaml',
 } as const;
 
 export type DataFileKey = keyof typeof DATA_FILE_NAMES;
@@ -16,11 +13,8 @@ export type DataFileKey = keyof typeof DATA_FILE_NAMES;
 export const KNOWLEDGE_ENTITY_KEYS = [
   'characters',
   'factions',
-  'locations',
   'skills',
-  'techniques',
   'items',
-  'dialogues',
 ] as const;
 export type KnowledgeEntityKey = (typeof KNOWLEDGE_ENTITY_KEYS)[number];
 export type KnowledgeEntityCounts = Record<KnowledgeEntityKey, number | null>;
@@ -28,9 +22,7 @@ export type KnowledgeEntityCounts = Record<KnowledgeEntityKey, number | null>;
 export const CONTENT_ENTITY_KEYS = [
   'characters',
   'factions',
-  'locations',
   'skills',
-  'techniques',
   'items',
 ] as const;
 export type ContentEntityKey = (typeof CONTENT_ENTITY_KEYS)[number];
@@ -139,10 +131,10 @@ export interface RawBookExtrasResponse {
   gameMaterials: OptionalResourceResult<unknown>;
 }
 
-export const LIBRARY_ENTITY_KINDS = ['character', 'skill', 'item', 'faction', 'location'] as const;
+export const LIBRARY_ENTITY_KINDS = ['character', 'skill', 'item', 'faction'] as const;
 export type LibraryEntityKind = (typeof LIBRARY_ENTITY_KINDS)[number];
 export type LibraryMaterialType = 'all' | LibraryEntityKind;
-export type LibraryEntity = Character | Skill | Item | Faction | Location;
+export type LibraryEntity = Character | Skill | Item | Faction;
 
 export interface LibrarySource {
   author: string;
@@ -169,20 +161,17 @@ export type LibrarySkillRecord = LibraryRecord<Skill, 'skill'>;
 export type LibraryCharacterRecord = LibraryRecord<Character, 'character'>;
 export type LibraryFactionRecord = LibraryRecord<Faction, 'faction'>;
 export type LibraryItemRecord = LibraryRecord<Item, 'item'>;
-export type LibraryLocationRecord = LibraryRecord<Location, 'location'>;
 export type AnyLibraryRecord =
   | LibrarySkillRecord
   | LibraryCharacterRecord
   | LibraryFactionRecord
-  | LibraryItemRecord
-  | LibraryLocationRecord;
+  | LibraryItemRecord;
 
 export interface LibraryCollections {
   skills: LibrarySkillRecord[];
   characters: LibraryCharacterRecord[];
   factions: LibraryFactionRecord[];
   items: LibraryItemRecord[];
-  locations: LibraryLocationRecord[];
 }
 
 export interface LibraryLoadWarning {
@@ -231,7 +220,7 @@ export interface AnnotatedLibraryRecord<
   annotation: LibraryAnnotation | null;
 }
 
-export type LibrarySection = 'overview' | 'skills' | 'characters' | 'factions' | 'items' | 'locations';
+export type LibrarySection = 'overview' | 'skills' | 'characters' | 'factions' | 'items';
 
 export interface CharacterAppearance {
   source: LibrarySource;

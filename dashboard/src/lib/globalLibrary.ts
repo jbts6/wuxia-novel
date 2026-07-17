@@ -5,7 +5,7 @@ import type {
   LibraryLoadWarning,
   LibraryRecord,
 } from '../types/library';
-import type { Character, Faction, Item, Location, NovelData, Skill, SourceRef } from '../types/novel';
+import type { Character, Faction, Item, NovelData, Skill, SourceRef } from '../types/novel';
 import { buildLibraryKey } from '../utils/libraryKeys';
 import { displayTaxonomyValue } from './displayText';
 
@@ -14,7 +14,6 @@ export const LIBRARY_KIND_LABELS: Record<LibraryEntityKind, string> = {
   skill: '武功',
   item: '物品',
   faction: '势力',
-  location: '地点',
 };
 
 export const LIBRARY_KIND_ROUTES: Record<LibraryEntityKind, string> = {
@@ -22,7 +21,6 @@ export const LIBRARY_KIND_ROUTES: Record<LibraryEntityKind, string> = {
   skill: 'skills',
   item: 'items',
   faction: 'factions',
-  location: 'locations',
 };
 
 interface LibrarySearchFilters {
@@ -56,7 +54,7 @@ function uniqueSourceRefs(refs: SourceRef[]): SourceRef[] {
 }
 
 function createRecord<
-  T extends Character | Skill | Item | Faction | Location,
+  T extends Character | Skill | Item | Faction,
   K extends LibraryEntityKind,
 >(
   book: LibraryBookStatus,
@@ -131,19 +129,7 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
     ),
   );
-  const locations = data.locations.map((entity) =>
-    createRecord(
-      book,
-      'location',
-      entity,
-      entity.one_line || entity.description || '暂无简介',
-      displayTaxonomyValue(entity.region, '未分类'),
-      [entity.factions, entity.characters],
-      [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
-    ),
-  );
-
-  return [...characters, ...skills, ...items, ...factions, ...locations];
+  return [...characters, ...skills, ...items, ...factions];
 }
 
 function relevanceScore(record: AnyLibraryRecord, keyword: string): number {
@@ -211,7 +197,7 @@ export async function loadGlobalLibraryRecords(
         warnings.push({
           bookPath: book.path,
           bookName: book.name,
-          file: 'data/*.json',
+          file: '/api/library/book-data',
           message: error instanceof Error ? error.message : String(error),
         });
       } finally {

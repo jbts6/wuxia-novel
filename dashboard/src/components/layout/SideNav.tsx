@@ -5,11 +5,8 @@ import {
   Swords,
   Gem,
   Building2,
-  MapPin,
-  MessageSquare,
   BookMarked,
   LayoutDashboard,
-  Gamepad2,
   CheckSquare,
 } from 'lucide-react';
 
@@ -22,21 +19,13 @@ const navSections = [
       { path: 'skills', label: '武功阁', icon: Swords },
       { path: 'items', label: '百宝录', icon: Gem },
       { path: 'factions', label: '势力录', icon: Building2 },
-      { path: 'locations', label: '地点志', icon: MapPin },
       { path: 'chapter-summaries', label: '章回录', icon: BookMarked },
-      { path: 'dialogues', label: '对话集', icon: MessageSquare },
     ],
   },
   {
     label: '数据管理',
     items: [
       { path: 'review', label: '数据审核', icon: CheckSquare },
-    ],
-  },
-  {
-    label: '创作应用',
-    items: [
-      { path: 'game-materials', label: '游戏素材', icon: Gamepad2 },
     ],
   },
 ];

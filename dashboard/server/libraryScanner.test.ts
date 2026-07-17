@@ -1,11 +1,34 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import yaml from 'js-yaml';
 import { afterEach, describe, expect, it } from 'vitest';
-import { DATA_FILE_NAMES, SCAN_PASS_NAMES } from '../src/types/library';
+import {
+  CONTENT_ENTITY_KEYS,
+  DATA_FILE_NAMES,
+  KNOWLEDGE_ENTITY_KEYS,
+  SCAN_PASS_NAMES,
+} from '../src/types/library';
 import { readBookData, readBookExtras, scanLibrary } from './libraryScanner';
 
 const temporaryDirectories: string[] = [];
+const YAML_DATA_FILE_NAMES = {
+  characters: 'characters.yaml',
+  factions: 'factions.yaml',
+  skills: 'skills.yaml',
+  items: 'items.yaml',
+  chapter_summaries: 'chapter_summaries.yaml',
+} as const;
+
+type YamlDataKey = keyof typeof YAML_DATA_FILE_NAMES;
+
+const COMPLETE_YAML_DATA: Record<YamlDataKey, unknown[]> = {
+  characters: [{ id: 'c1', name: '人物', role: '核心', one_line: '人物简介' }],
+  factions: [{ id: 'f1', name: '势力', type: '门派', one_line: '势力简介' }],
+  skills: [{ id: 's1', name: '武功', type: '掌法', one_line: '武功简介' }],
+  items: [{ id: 'i1', name: '物品', type: '兵器', one_line: '物品简介' }],
+  chapter_summaries: [{ chapter: 1, summary: '章节摘要' }],
+};
 
 function createRoot(): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'wuxia-dashboard-'));
@@ -18,10 +41,15 @@ function writeJson(target: string, value: unknown): void {
   fs.writeFileSync(target, JSON.stringify(value));
 }
 
+function writeYaml(target: string, value: unknown): void {
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, yaml.dump(value, { lineWidth: -1, noRefs: true }));
+}
+
 function createBook(root: string, relativePath = '金庸/测试书'): string {
   const directory = path.join(root, relativePath);
   fs.mkdirSync(directory, { recursive: true });
-  fs.writeFileSync(path.join(directory, '测试书.txt'), '第一章\n正文');
+  fs.writeFileSync(path.join(directory, `${path.basename(directory)}.txt`), '第一章\n正文');
   return directory;
 }
 
@@ -38,20 +66,9 @@ function writeManifest(directory: string, total: number, progress: Partial<Recor
   });
 }
 
-function writeCompleteData(directory: string): void {
-  const values: Record<keyof typeof DATA_FILE_NAMES, unknown[]> = {
-    characters: [{ id: 'c1', name: '人物', role: '核心', one_line: '人物简介' }],
-    factions: [{ id: 'f1', name: '势力', type: '门派', one_line: '势力简介' }],
-    locations: [{ id: 'l1', name: '地点', region: '中原', one_line: '地点简介' }],
-    skills: [{ id: 's1', name: '武功', type: '掌法', one_line: '武功简介' }],
-    techniques: [],
-    items: [{ id: 'i1', name: '物品', type: '兵器', one_line: '物品简介' }],
-    dialogues: [{ id: 'd1', name: '人物：对白', source_refs: [{ text: '原文对白' }] }],
-    chapter_summaries: [{ chapter: 1, summary: '章节摘要' }],
-  };
-
-  for (const [key, filename] of Object.entries(DATA_FILE_NAMES)) {
-    writeJson(path.join(directory, 'data', filename), values[key as keyof typeof values]);
+function writeCompleteData(directory: string, overrides: Partial<Record<YamlDataKey, unknown>> = {}): void {
+  for (const [key, filename] of Object.entries(YAML_DATA_FILE_NAMES)) {
+    writeYaml(path.join(directory, 'data', filename), overrides[key as YamlDataKey] ?? COMPLETE_YAML_DATA[key as YamlDataKey]);
   }
 }
 
@@ -60,14 +77,12 @@ function writeIndexOnlyData(directory: string): void {
   const records = {
     characters: [{ id: 'c1', name: '人物', source_refs: [{ chapter: 1, text: '人物原文' }] }],
     factions: [{ id: 'f1', name: '势力', source_refs: [{ chapter: 1, text: '势力原文' }] }],
-    locations: [{ id: 'l1', name: '地点', source_refs: [{ chapter: 1, text: '地点原文' }] }],
     skills: [{ id: 's1', name: '武功', source_refs: [{ chapter: 1, text: '武功原文' }] }],
-    techniques: [],
     items: [{ id: 'i1', name: '物品', source_refs: [{ chapter: 1, text: '物品原文' }] }],
   };
 
   for (const [key, value] of Object.entries(records)) {
-    writeJson(path.join(directory, 'data', DATA_FILE_NAMES[key as keyof typeof records]), value);
+    writeYaml(path.join(directory, 'data', YAML_DATA_FILE_NAMES[key as keyof typeof records]), value);
   }
 }
 
@@ -113,56 +128,40 @@ describe('scanLibrary', () => {
     expect(book?.suggestedAction?.command).toContain('audit-recall.js');
   });
 
-  it('allows complete legacy data to be browsed without counting it as completed', () => {
+  it('uses exactly five YAML files and four entity collections', () => {
     const root = createRoot();
     const directory = createBook(root);
-    writeCompleteData(directory);
+    writeCompleteData(directory, { factions: [] });
     writeJson(path.join(directory, 'reports', 'quality_report.json'), { overall_score: 92 });
 
     const result = scanLibrary(root);
     const [book] = result.books;
 
+    expect(DATA_FILE_NAMES).toEqual(YAML_DATA_FILE_NAMES);
+    expect(KNOWLEDGE_ENTITY_KEYS).toEqual(['characters', 'factions', 'skills', 'items']);
+    expect(CONTENT_ENTITY_KEYS).toEqual(['characters', 'factions', 'skills', 'items']);
     expect(book).toMatchObject({
       generationStage: 'data-produced',
       validationStatus: 'legacy-unproven',
       browseable: true,
       completed: false,
-      entityCounts: {
-        characters: 1,
-        factions: 1,
-        locations: 1,
-        skills: 1,
-        techniques: 0,
-        items: 1,
-        dialogues: 1,
-      },
+      dataCompleteness: { present: 5, valid: 5, required: 5 },
     });
+    expect(book?.entityCounts).toEqual({ characters: 1, factions: 0, skills: 1, items: 1 });
     expect(result.summary.browseable).toBe(1);
-    expect(book?.contentCoverage).toMatchObject({ state: 'complete', detailed: 5, total: 5 });
+    expect(book?.contentCoverage).toMatchObject({ state: 'complete', detailed: 3, total: 3 });
     expect(result.summary.completed).toBe(0);
+    expect(readBookData(root, '金庸/测试书')).toEqual({ ...COMPLETE_YAML_DATA, factions: [] });
   });
 
-  it('accepts legacy dialogues without ids when their display fields are complete', () => {
-    const root = createRoot();
-    const directory = createBook(root);
-    writeCompleteData(directory);
-    writeJson(path.join(directory, 'data', 'dialogues.json'), [
-      { speaker: '袁承志', chapter: 1, line_start: 12, line_end: 12, text: '旧版对话正文' },
-    ]);
-
-    const [book] = scanLibrary(root).books;
-
-    expect(book).toMatchObject({ browseable: true, dataCompleteness: { valid: 8, required: 8 } });
-  });
-
-  it('keeps optional extras outside the eight-file browseability gate', () => {
+  it('keeps optional extras outside the five-file browseability gate', () => {
     const root = createRoot();
     const directory = createBook(root);
     writeCompleteData(directory);
 
     const [book] = scanLibrary(root).books;
 
-    expect(book).toMatchObject({ browseable: true, dataCompleteness: { valid: 8, required: 8 } });
+    expect(book).toMatchObject({ browseable: true, dataCompleteness: { valid: 5, required: 5 } });
     expect(readBookExtras(root, '金庸/测试书')).toEqual({
       events: { status: 'missing', data: null },
       gameMaterials: { status: 'missing', data: null },
@@ -209,7 +208,7 @@ describe('scanLibrary', () => {
       status: 'available',
       data: { schema_version: 1, entries: [{ source_id: 's1' }] },
     });
-    expect(scanLibrary(root).books[0]).toMatchObject({ browseable: true, dataCompleteness: { required: 8 } });
+    expect(scanLibrary(root).books[0]).toMatchObject({ browseable: true, dataCompleteness: { required: 5 } });
   });
 
   it('requires completion_gate_passed and every G1-G5 gate for completion', () => {
@@ -241,7 +240,7 @@ describe('scanLibrary', () => {
     expect(book).toMatchObject({
       browseable: true,
       completed: false,
-      contentCoverage: { state: 'index-only', detailed: 0, total: 5, indexOnly: 5 },
+      contentCoverage: { state: 'index-only', detailed: 0, total: 4, indexOnly: 4 },
     });
     expect(book?.suggestedAction).toMatchObject({ label: '补全实体内容', command: null });
     expect(result.summary.contentIncomplete).toBe(1);
@@ -274,17 +273,153 @@ describe('scanLibrary', () => {
     ]);
   });
 
-  it('isolates malformed book data and rejects unsafe book paths', () => {
+  it('reports malformed YAML even when a stale JSON file is valid', () => {
     const root = createRoot();
     const directory = createBook(root);
     writeCompleteData(directory);
-    fs.writeFileSync(path.join(directory, 'data', 'characters.json'), '{invalid');
+    fs.writeFileSync(path.join(directory, 'data', YAML_DATA_FILE_NAMES.characters), 'characters: [');
+    writeJson(path.join(directory, 'data', 'characters.json'), COMPLETE_YAML_DATA.characters);
 
     const [book] = scanLibrary(root).books;
 
     expect(book?.browseable).toBe(false);
     expect(book?.entityCounts.characters).toBeNull();
-    expect(book?.errors.join(' ')).toContain('characters.json');
+    expect(book?.errors.join(' ')).toContain('characters.yaml');
+    expect(book?.errors.join(' ')).not.toContain('characters.json');
+  });
+
+  it('rejects a YAML document whose top-level value is not an array', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory, { characters: { id: 'c1', name: '人物' } });
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({
+      browseable: false,
+      dataCompleteness: { present: 5, valid: 4, required: 5 },
+      entityCounts: { characters: null },
+    });
+    expect(book?.errors.join(' ')).toContain('characters.yaml 不满足最低数据契约');
+  });
+
+  it('rejects contract-invalid records from otherwise valid YAML', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory, { skills: [{ id: 's1' }] });
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({ browseable: false, entityCounts: { skills: null } });
+    expect(book?.errors.join(' ')).toContain('skills.yaml 不满足最低数据契约');
+  });
+
+  it.each([
+    {
+      name: 'missing',
+      damage: (directory: string) => fs.rmSync(
+        path.join(directory, 'data', YAML_DATA_FILE_NAMES.chapter_summaries),
+      ),
+    },
+    {
+      name: 'malformed',
+      damage: (directory: string) => fs.writeFileSync(
+        path.join(directory, 'data', YAML_DATA_FILE_NAMES.chapter_summaries),
+        'summaries: [',
+      ),
+    },
+    {
+      name: 'non-array',
+      damage: (directory: string) => writeYaml(
+        path.join(directory, 'data', YAML_DATA_FILE_NAMES.chapter_summaries),
+        { chapter: 1, summary: '不是数组' },
+      ),
+    },
+    {
+      name: 'contract-invalid',
+      damage: (directory: string) => writeYaml(
+        path.join(directory, 'data', YAML_DATA_FILE_NAMES.chapter_summaries),
+        [{ chapter: 1 }],
+      ),
+    },
+  ])('isolates a $name chapter_summaries.yaml failure without changing entity counts', ({ damage }) => {
+    const root = createRoot();
+    const validDirectory = createBook(root, '古龙/有效书');
+    const invalidDirectory = createBook(root, '金庸/摘要损坏书');
+    writeCompleteData(validDirectory);
+    writeCompleteData(invalidDirectory);
+    damage(invalidDirectory);
+
+    const result = scanLibrary(root);
+    const validBook = result.books.find((book) => book.path === '古龙/有效书');
+    const invalidBook = result.books.find((book) => book.path === '金庸/摘要损坏书');
+
+    expect(result.summary).toMatchObject({ total: 2, browseable: 1 });
+    expect(validBook).toMatchObject({ browseable: true, dataCompleteness: { valid: 5, required: 5 } });
+    expect(invalidBook).toMatchObject({
+      browseable: false,
+      completed: false,
+      dataCompleteness: { valid: 4, required: 5 },
+      entityCounts: { characters: 1, factions: 1, skills: 1, items: 1 },
+    });
+    expect([...(invalidBook?.missingArtifacts ?? []), ...(invalidBook?.errors ?? [])].join(' '))
+      .toContain('chapter_summaries.yaml');
+  });
+
+  it('keeps one malformed book isolated from a valid book', () => {
+    const root = createRoot();
+    const validDirectory = createBook(root, '古龙/有效书');
+    const invalidDirectory = createBook(root, '金庸/损坏书');
+    writeCompleteData(validDirectory);
+    writeCompleteData(invalidDirectory);
+    fs.writeFileSync(path.join(invalidDirectory, 'data', YAML_DATA_FILE_NAMES.items), 'items: [');
+
+    const result = scanLibrary(root);
+    const validBook = result.books.find((book) => book.path === '古龙/有效书');
+    const invalidBook = result.books.find((book) => book.path === '金庸/损坏书');
+
+    expect(result.summary).toMatchObject({ total: 2, browseable: 1 });
+    expect(validBook).toMatchObject({ browseable: true, dataCompleteness: { valid: 5, required: 5 } });
+    expect(invalidBook).toMatchObject({ browseable: false, entityCounts: { items: null } });
+    expect(invalidBook?.errors.join(' ')).toContain('items.yaml');
+  });
+
+  it('does not let stale JSON satisfy a missing YAML file', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory);
+    fs.rmSync(path.join(directory, 'data', YAML_DATA_FILE_NAMES.characters));
+    writeJson(path.join(directory, 'data', 'characters.json'), COMPLETE_YAML_DATA.characters);
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({
+      browseable: false,
+      dataCompleteness: { present: 4, valid: 4, required: 5 },
+      entityCounts: { characters: null },
+    });
+    expect(book?.missingArtifacts).toContain('data/characters.yaml');
+  });
+
+  it('does not let stale JSON replace a valid YAML payload', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory);
+    writeJson(path.join(directory, 'data', 'characters.json'), [
+      { id: 'stale-1', name: '旧人物一' },
+      { id: 'stale-2', name: '旧人物二' },
+    ]);
+
+    const [book] = scanLibrary(root).books;
+    const data = readBookData(root, '金庸/测试书');
+
+    expect(book?.entityCounts.characters).toBe(1);
+    expect(data.characters).toEqual(COMPLETE_YAML_DATA.characters);
+  });
+
+  it('rejects unsafe book paths', () => {
+    const root = createRoot();
+
     expect(() => readBookData(root, '../dashboard')).toThrow('路径不合法');
     expect(() => readBookExtras(root, '../dashboard')).toThrow('路径不合法');
   });

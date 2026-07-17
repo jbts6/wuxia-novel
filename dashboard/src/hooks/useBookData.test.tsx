@@ -36,13 +36,13 @@ const book: LibraryBookStatus = {
     detailed: 0,
     indexOnly: 0,
     byEntity: Object.fromEntries(
-      ['characters', 'factions', 'locations', 'skills', 'techniques', 'items'].map((key) => [
+      ['characters', 'factions', 'skills', 'items'].map((key) => [
         key,
         { total: 0, detailed: 0, indexOnly: 0 },
       ]),
     ) as LibraryBookStatus['contentCoverage']['byEntity'],
   },
-  entityCounts: { characters: 0, factions: 0, locations: 0, skills: 0, techniques: 0, items: 0, dialogues: 0 },
+  entityCounts: { characters: 0, factions: 0, skills: 0, items: 0 },
   missingArtifacts: [],
   errors: [],
   gateFailures: [],

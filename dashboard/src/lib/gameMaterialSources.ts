@@ -47,6 +47,7 @@ function sourceHref(authorName: string, bookName: string, kind: GameMaterialSour
   const detail = encodeURIComponent(id);
   if (kind === 'technique') return `${base}/skills?view=techniques&detail=${detail}`;
   if (kind === 'event') return `${base}/chapter-summaries?view=events&detail=${detail}`;
+  if (kind === 'location') return `${base}/locations?detail=${detail}`;
   return `${base}/${LIBRARY_KIND_ROUTES[kind]}?detail=${detail}`;
 }
 

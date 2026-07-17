@@ -1,11 +1,28 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import yaml from 'js-yaml';
 import { afterEach, describe, expect, it } from 'vitest';
-import { DATA_FILE_NAMES } from '../src/types/library';
 import { handleLibraryApiRequest } from './libraryApiPlugin';
 
 const temporaryDirectories: string[] = [];
+const YAML_DATA_FILE_NAMES = {
+  characters: 'characters.yaml',
+  factions: 'factions.yaml',
+  skills: 'skills.yaml',
+  items: 'items.yaml',
+  chapter_summaries: 'chapter_summaries.yaml',
+} as const;
+
+type YamlDataKey = keyof typeof YAML_DATA_FILE_NAMES;
+
+const BROWSEABLE_DATA: Record<YamlDataKey, unknown[]> = {
+  characters: [{ id: 'c1', name: '人物' }],
+  factions: [{ id: 'f1', name: '门派' }],
+  skills: [{ id: 's1', name: '武功' }],
+  items: [{ id: 'i1', name: '物品' }],
+  chapter_summaries: [{ chapter: 1, summary: '摘要' }],
+};
 
 function createRoot(): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'wuxia-api-'));
@@ -18,20 +35,12 @@ function createRoot(): string {
 
 function writeBrowseableData(root: string): void {
   const bookDirectory = path.join(root, '古龙', '测试书');
-  const values: Record<keyof typeof DATA_FILE_NAMES, unknown[]> = {
-    characters: [{ id: 'c1', name: '人物' }],
-    factions: [],
-    locations: [],
-    skills: [],
-    techniques: [],
-    items: [],
-    dialogues: [],
-    chapter_summaries: [{ chapter: 1, summary: '摘要' }],
-  };
-
   fs.mkdirSync(path.join(bookDirectory, 'data'), { recursive: true });
-  for (const [key, filename] of Object.entries(DATA_FILE_NAMES)) {
-    fs.writeFileSync(path.join(bookDirectory, 'data', filename), JSON.stringify(values[key as keyof typeof values]));
+  for (const [key, filename] of Object.entries(YAML_DATA_FILE_NAMES)) {
+    fs.writeFileSync(
+      path.join(bookDirectory, 'data', filename),
+      yaml.dump(BROWSEABLE_DATA[key as YamlDataKey], { lineWidth: -1, noRefs: true }),
+    );
   }
 }
 
@@ -61,6 +70,16 @@ describe('handleLibraryApiRequest', () => {
       body: { error: '只支持只读 GET 请求' },
     });
     expect(handleLibraryApiRequest(root, 'GET', '/api/library/book-data?path=../dashboard')).toMatchObject({ status: 422 });
+  });
+
+  it('returns exactly the five parsed YAML arrays from book-data', () => {
+    const root = createRoot();
+    writeBrowseableData(root);
+
+    expect(handleLibraryApiRequest(root, 'GET', '/api/library/book-data?path=古龙%2F测试书')).toEqual({
+      status: 200,
+      body: BROWSEABLE_DATA,
+    });
   });
 
   it('returns optional book extras without changing the core book-data endpoint', () => {

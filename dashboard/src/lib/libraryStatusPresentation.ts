@@ -30,10 +30,9 @@ export function formatDateTime(value: string | null): string {
 
 export function scanCoverageText(book: LibraryBookStatus): string {
   const named = book.scanProgress['named-inventory'];
-  const dialogue = book.scanProgress['event-dialogue'];
   const gap = book.scanProgress['gap-audit'];
-  if (named.total === 0 && dialogue.total === 0 && gap.total === 0) return '-';
-  return `实体 ${named.completed}/${named.total} · 对话 ${dialogue.completed}/${dialogue.total} · 查漏 ${gap.completed}/${gap.total}`;
+  if (named.total === 0 && gap.total === 0) return '-';
+  return `实体 ${named.completed}/${named.total} · 查漏 ${gap.completed}/${gap.total}`;
 }
 
 export function isGenerationInProgress(book: LibraryBookStatus): boolean {

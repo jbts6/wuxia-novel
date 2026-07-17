@@ -2,37 +2,34 @@
 
 ## 1. Scope / Trigger
 
-Use this contract when changing the Dashboard's local knowledge-base discovery, status derivation, entity counts, or book-data loading. The API is a read-only projection over repository files. It must never execute generation commands, write knowledge-base files, watch directories, or poll automatically.
+Use this contract when changing the Dashboard's local knowledge-base discovery, status derivation, entity counts, or book-data loading. The library status and book-data controller is a read-only projection over repository files: the server parses YAML into JavaScript values and sends those values in JSON HTTP responses. It must never execute generation commands, write knowledge-base files, watch directories, or poll automatically.
 
 ## 2. Signatures
 
 ```http
 GET /api/library/status
 GET /api/library/book-data?path=<author>/<book>
-GET /api/library/book-extras?path=<author>/<book>
 ```
 
 ```ts
 type KnowledgeEntityKey =
   | 'characters'
   | 'factions'
-  | 'locations'
   | 'skills'
-  | 'techniques'
-  | 'items'
-  | 'dialogues';
+  | 'items';
+
+type CoreDataFileKey = KnowledgeEntityKey | 'chapter_summaries';
+
+const DATA_FILE_NAMES: Record<CoreDataFileKey, string> = {
+  characters: 'characters.yaml',
+  factions: 'factions.yaml',
+  skills: 'skills.yaml',
+  items: 'items.yaml',
+  chapter_summaries: 'chapter_summaries.yaml',
+};
 
 type KnowledgeEntityCounts = Record<KnowledgeEntityKey, number | null>;
-
-type OptionalResourceResult<T> =
-  | { status: 'available'; data: T }
-  | { status: 'missing'; data: null }
-  | { status: 'invalid'; data: null; error: string };
-
-interface RawBookExtrasResponse {
-  events: OptionalResourceResult<unknown[]>;
-  gameMaterials: OptionalResourceResult<unknown>;
-}
+type BookData = Record<CoreDataFileKey, unknown[]>;
 ```
 
 Both Vite development and preview servers must install the same `libraryApiPlugin` middleware.
@@ -43,25 +40,37 @@ Both Vite development and preview servers must install the same `libraryApiPlugi
 
 Each `LibraryBookStatus` contains:
 
-- Generation stage and three manifest window-coverage counters.
-- Eight-file completeness and browseability state.
-- Seven `entityCounts` values. `chapter_summaries.json` is intentionally excluded.
-- Validation state, completion state, errors, missing artifacts, and a suggested read-only command string.
+- The existing generation stage and manifest window-coverage counters.
+- Five-file YAML completeness and browseability state.
+- Four `entityCounts` values: characters, factions, skills, and items.
+- Four-entity content coverage, validation state, completion state, errors, missing artifacts, and a suggested read-only command string.
 
-An entity count is the length of a parsed array only after that file satisfies its minimum Dashboard contract. Missing, malformed, or contract-invalid files return `null`, not `0`. A valid empty array returns `0`.
+`chapter_summaries.yaml` is required for completeness and `/book-data`, but chapter summaries are not an entity count or content-coverage category.
+
+The server reads each required file with `js-yaml`. `yaml.load()` produces `unknown`; the scanner requires a top-level array and applies the existing key-specific minimum record validation before deriving status or returning data. Every validation error identifies the YAML file that caused it.
+
+For the four entity YAML files only, a missing, malformed, non-array, or contract-invalid file produces `null` for that entity's count, not `0`; a valid empty entity array produces `0`. A missing, malformed, non-array, or contract-invalid `chapter_summaries.yaml` records a file-specific error and makes the book incomplete and non-browseable, but leaves all four entity counts unchanged.
+
+The core storage boundary is exactly the five files in `DATA_FILE_NAMES`. Core scanning and loading do not probe `.json` or `.yml` alternatives, and a stale JSON sibling is ignored even when its YAML counterpart is missing or invalid.
 
 Window coverage and entity counts are different measurements:
 
 - `scanProgress.*` counts processed source windows from `scan-manifest.json`.
-- `entityCounts.*` counts records in validated `data/*.json` arrays.
+- `entityCounts.*` counts records in validated YAML arrays for the four entity categories.
 
-`GET /api/library/book-data` accepts only a discovered `author/book` path whose eight consumer files are browseable. Successful data is normalized by the frontend before page components consume it.
+`GET /api/library/book-data` accepts only a discovered `author/book` path whose five required YAML files are browseable. It returns a structured object with exactly the five `CoreDataFileKey` values and `Content-Type: application/json`. JSON is the HTTP response encoding after server-side YAML parsing; the server does not create or read a JSON core-data mirror.
 
-`GET /api/library/book-extras` applies the same discovered-path and browseability checks, but reads only `data/events.json` and `reports/game_materials.json`. Each optional file has an independent `available`, `missing`, or `invalid` result. An optional-file failure must not change `dataCompleteness.required === 8`, `browseable`, the seven entity counts, or the `/book-data` payload.
+## 4. Review Path Contract (Separate Controller)
 
-`scanLibrary()` must not read or count the optional files. This keeps status scans and the global `/browse` index on the eight-file core contract.
+`/api/review/*` is a separate, write-capable review controller. It is not part of the read-only library status/book-data controller described above and does not change `/api/library/book-data` server-parse -> JSON-value semantics.
 
-## 4. Validation & Error Matrix
+- Review list, read, write, and backup operations accept `.yaml` data files only. Listings ignore `.json` and `.yml`; direct operations reject them, and no operation probes either extension as a fallback.
+- Review HTTP requests and responses still use JSON envelopes. A review read returns the stored YAML document as a JSON string field; a review write receives YAML document content in a JSON request body. The frontend/store parses and serializes that string with `js-yaml` load/dump operations; the review server does not replace this intentional raw-content editing boundary with server-side parse/dump.
+- Record deletion is a read -> YAML-preserving backup -> YAML write sequence. A failed backup or write must not be reported as a successful deletion.
+- Backup names preserve the source `.yaml` filename so the stored format remains explicit.
+- Existing path confinement remains mandatory for both data-file and backup targets; review operations cannot escape the allowed data and backup roots.
+
+## 5. Validation & Error Matrix
 
 | Condition | Result |
 |---|---|
@@ -69,38 +78,32 @@ Window coverage and entity counts are different measurements:
 | Missing `path` query | `400` |
 | Unknown API path | `404` |
 | Unsafe, undiscovered, or non-browseable book path | `422` |
-| Missing entity file | Corresponding count `null`, missing artifact recorded, book not browseable |
-| Malformed or invalid entity file | Corresponding count `null`, error recorded, book not browseable |
+| Missing entity YAML file | Corresponding entity count `null`, missing artifact recorded, book not browseable |
+| Malformed, non-array, or contract-invalid entity YAML file | Corresponding entity count `null`, file-specific error recorded, book not browseable |
+| Missing, malformed, non-array, or contract-invalid `chapter_summaries.yaml` | Filename-specific failure recorded, book incomplete and non-browseable, four entity counts unchanged |
 | Valid empty entity array | Count `0` |
 | One book fails inspection | Other books remain in the status response |
-| Both optional files missing | `/book-extras` returns `200`; both resources are `missing` |
-| One optional file is malformed or has an invalid minimum shape | `/book-extras` returns `200`; that resource is `invalid` with a file-specific error and the other resource is preserved |
-| Optional file contains a valid empty array/report | Resource is `available` with empty data, not `missing` |
-| Extras request targets an unsafe, undiscovered, or non-browseable book | `422`; core status and book-data behavior remain unchanged |
 
-Legacy dialogues without an `id` are valid only when they contain speaker, chapter, and text fields needed by the Dashboard normalizer.
+## 6. Good / Base / Bad Cases
 
-## 5. Good / Base / Bad Cases
-
-- Good: all eight files are valid, seven real counts are returned, and the book is browseable.
+- Good: all five YAML files are valid, four entity counts are returned, and the book is browseable.
 - Base: only source text exists; every entity count is `null`, and the book remains visible as not generated.
-- Bad: `characters.json` cannot parse; `characters` is `null`, an error names the file, and the failure does not abort the library scan.
-- Optional good: both extension files are valid and returned without adding keys to `/book-data`.
-- Optional base: an eight-file legacy book has no extension files; it stays browseable and both extension resources are `missing`.
-- Optional bad: `events.json` is malformed while `game_materials.json` is valid; events are `invalid`, game materials remain `available`, and the core book still opens.
+- Bad: `characters.yaml` cannot parse; `characters` is `null`, an error names the file, and the failure does not abort the library scan.
+- Bad summary: `chapter_summaries.yaml` cannot parse; the book is incomplete and non-browseable, an error names the file, and the four entity counts retain their independently validated values.
+- Stale sibling: `characters.json` is present alongside missing or invalid `characters.yaml`; the book remains non-browseable based on the YAML failure.
 
-## 6. Tests Required
+## 7. Tests Required
 
-- Scanner unit test: valid fixtures return exact seven-file record counts, including a valid zero count.
-- Scanner unit test: malformed files produce `null` for that category and keep other books scannable.
-- API test: status requests return the projection and reject non-GET methods.
-- Scanner/API test: optional files do not change the eight-file completeness gate or seven entity counts.
-- API test: `/book-data` remains exactly the eight `DATA_FILE_NAMES`; `/book-extras` distinguishes missing, valid empty, invalid, and available resources.
-- API test: a malformed optional file does not suppress the other optional resource and does not block a core data request.
-- Component test: the table shows only character, skill, and item counts; the detail sheet shows all seven categories.
-- Desktop E2E: status is loaded from the real API, table cells do not overflow, and the detail sheet remains keyboard-accessible.
+- Scanner unit test: valid fixtures return exact four-entity record counts, including a valid zero count, and require all five YAML files.
+- Scanner unit test: missing, malformed, non-array, and contract-invalid YAML each produce a file-specific failure while other books remain scannable.
+- Scanner unit test: missing, malformed, non-array, and contract-invalid `chapter_summaries.yaml` each make the book incomplete and non-browseable without changing the four independently derived entity counts; these assertions must be distinct from entity-file count-failure assertions.
+- Scanner unit test: a stale JSON sibling cannot satisfy completeness or shadow valid or invalid YAML.
+- API test: status requests return the projection, reject non-GET methods, and preserve per-book failure isolation.
+- API test: `/book-data` returns exactly the five parsed YAML arrays with an `application/json` response.
+- Component or API presentation test: chapter summaries are required data but are not included in the four entity counts or content-coverage categories.
+- Review focused tests: listing, raw-text read/write, parse/dump, backup naming, deletion sequencing, extension rejection/no-fallback behavior, and allowed-root confinement remain YAML-only.
 
-## 7. Wrong vs Correct
+## 8. Wrong vs Correct
 
 ### Wrong
 
@@ -112,16 +115,10 @@ const characterCount = book.scanProgress['named-inventory'].completed;
 ### Correct
 
 ```ts
-const value = readJson('data/characters.json');
+const value = readYaml('data/characters.yaml');
 const characterCount = validateDataFile('characters', value)
   ? value.length
   : null;
-
-const extras = {
-  events: readOptionalResource('data/events.json', validateEvents),
-  gameMaterials: readOptionalResource('reports/game_materials.json', validateGameMaterials),
-};
 ```
 
-The table may summarize character, skill, and item counts for density. The detail sheet is the authoritative seven-category count view; window coverage belongs in a separate production-evidence section.
-Optional resources belong to `/book-extras`; adding them to `DATA_FILE_NAMES`, `/book-data`, or `scanLibrary()` would silently turn an optional game-design projection into a core browseability gate.
+The table may summarize character, skill, and item counts for density. The detail sheet is the authoritative four-category count view; chapter summaries and window coverage belong to separate views.

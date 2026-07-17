@@ -8,6 +8,17 @@ import { Badge } from '../components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '../components/ui/dialog';
 import { CheckSquare, Trash2, RotateCcw, Filter } from 'lucide-react';
+import type { DataFileKey } from '../types/library';
+
+function reviewFileLabel(type: DataFileKey): string {
+  switch (type) {
+    case 'characters': return '人物';
+    case 'factions': return '势力';
+    case 'skills': return '武功';
+    case 'items': return '物品';
+    case 'chapter_summaries': return '章节摘要';
+  }
+}
 
 export default function ReviewPage() {
   const { authorName, bookName } = useParams<{ authorName: string; bookName: string }>();
@@ -57,16 +68,18 @@ export default function ReviewPage() {
   const markedCount = useMemo(() => entities.filter((e) => e.marked).length, [entities]);
 
   const handleDelete = async () => {
-    await deleteMarked();
+    const deleted = await deleteMarked();
+    if (!deleted) return;
     setShowDeleteDialog(false);
     setSuccessMessage(`成功删除 ${markedCount} 条数据`);
     setTimeout(() => setSuccessMessage(null), 3000);
   };
 
-  const handleTypeChange = (type: string) => {
-    setFilter({ type: type as typeof filter.type });
-    if (type !== 'all') {
-      loadEntities(bookPath, type);
+  const handleTypeChange = (type: typeof filter.type | null) => {
+    const nextType = type ?? 'all';
+    setFilter({ type: nextType });
+    if (nextType !== 'all') {
+      loadEntities(bookPath, nextType);
     }
   };
 
@@ -101,9 +114,7 @@ export default function ReviewPage() {
                 <SelectItem value="all">全部</SelectItem>
                 {files.map((file) => (
                   <SelectItem key={file.type} value={file.type}>
-                    {file.type === 'characters' ? '人物' :
-                     file.type === 'skills' ? '武功' :
-                     file.type === 'items' ? '物品' : file.type}
+                    {reviewFileLabel(file.type)}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -196,22 +207,20 @@ export default function ReviewPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredEntities.map((entity) => (
             <div
-              key={entity.id}
+            key={entity.key}
               className={`border rounded-lg p-4 cursor-pointer transition-all hover:shadow-md ${
                 entity.marked
                   ? 'border-destructive bg-destructive/5'
                   : 'border-border hover:border-primary/50'
               }`}
-              onClick={() => toggleMark(entity.id)}
+              onClick={() => toggleMark(entity.key)}
             >
               <div className="flex items-start justify-between mb-2">
                 <h3 className={`font-medium ${entity.marked ? 'line-through text-destructive' : ''}`}>
                   {entity.name}
                 </h3>
                 <Badge variant={entity.marked ? 'destructive' : 'secondary'} className="ml-2 shrink-0">
-                  {entity.type === 'character' ? '人物' :
-                   entity.type === 'skill' ? '武功' :
-                   entity.type === 'item' ? '物品' : entity.type}
+                  {reviewFileLabel(entity.type)}
                 </Badge>
               </div>
               <p className={`text-sm ${entity.marked ? 'line-through text-muted-foreground' : 'text-muted-foreground'}`}>
