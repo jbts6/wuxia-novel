@@ -37,4 +37,3 @@ Deep enrichment is intentionally outside this skill. Use the isolated
 [`generate-game-kb-deep-factions`](../generate-game-kb-deep-factions/SKILL.md)
 skills for hash-bound overlays. Those skills may enrich existing grounded
 records only and never mutate the v5 base artifact directly.
-

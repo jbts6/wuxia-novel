@@ -32,4 +32,3 @@ test('v5 extraction prompt keeps chapter evidence local and YAML-bound', () => {
   assert.match(extraction, /techniques/);
   assert.match(extraction, /one|each|每个/i);
 });
-

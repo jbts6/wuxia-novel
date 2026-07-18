@@ -35,4 +35,3 @@ chapter_summary:
     - chapter: 1
       text: "Exact source quote"
 ```
-
