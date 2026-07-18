@@ -1,12 +1,21 @@
 'use strict';
 
-const SEMANTIC_CONTRACT_VERSION = 4;
+const SEMANTIC_CONTRACT_VERSION = 5;
 const SEMANTIC_PROFILE = 'domain-distill-v1';
+const LEGACY_DOMAIN_CONTRACT_VERSION = 4;
+const PROFILE_V4 = 'v4';
+const PROFILE_V5 = 'v5';
+const SUPPORTED_PROFILES = new Set([PROFILE_V4, PROFILE_V5]);
 const DOMAIN_UNITS = Object.freeze([
   'distill:factions',
   'distill:characters',
   'distill:skills',
   'distill:items'
+]);
+const NO_DOMAIN_UNITS = Object.freeze([]);
+const SUPPORTED_SEMANTIC_CONTRACT_VERSIONS = new Set([
+  LEGACY_DOMAIN_CONTRACT_VERSION,
+  SEMANTIC_CONTRACT_VERSION
 ]);
 const FINAL_FILES = Object.freeze({
   characters: 'characters.yaml',
@@ -42,6 +51,16 @@ function isPowerRank(value) {
   return typeof value === 'string' && POWER_RANK_SET.has(value);
 }
 
+function requiredDomainUnitsForContract(version) {
+  if (!SUPPORTED_SEMANTIC_CONTRACT_VERSIONS.has(version)) {
+    const error = new RangeError(`Unsupported semantic contract version: ${String(version)}`);
+    error.code = 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED';
+    error.version = version;
+    throw error;
+  }
+  return version === LEGACY_DOMAIN_CONTRACT_VERSION ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
+}
+
 module.exports = {
   CHARACTER_LEVELS,
   DOMAIN_UNITS,
@@ -49,7 +68,11 @@ module.exports = {
   FINAL_FILES,
   ITEM_TYPES,
   POWER_RANKS,
+  PROFILE_V4,
+  PROFILE_V5,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
-  isPowerRank
+  SUPPORTED_PROFILES,
+  isPowerRank,
+  requiredDomainUnitsForContract
 };

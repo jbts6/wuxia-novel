@@ -12,10 +12,12 @@ const {
   freshProgress,
   freshUnit,
   loadProgress,
+  manualIssues,
   normalizeErrorFingerprint,
   recordSubmission,
   resetUnit,
   saveProgress,
+  setOptionalUnitState,
   statusReport,
   syncPlannedUnits
 } = progressApi;
@@ -199,6 +201,45 @@ test('status reports domain units in the shared canonical order', () => {
   );
 
   assert.deepEqual(report.units.map(unit => unit.unit), DOMAIN_UNITS);
+});
+
+test('failed optional basic-curate is visible without becoming a blocking manual issue', () => {
+  let progress = freshProgress();
+  progress = setOptionalUnitState(
+    progress,
+    'basic-curate',
+    'sha256:registry',
+    'failed',
+    [{ code: 'BASIC_CURATE_INVALID', path: 'decisions[0]' }]
+  );
+
+  const report = statusReport(
+    { manifest: 'manifest.json', progress: 'progress.json', manualReview: 'manual-review.json' },
+    { chapters: [] },
+    progress
+  );
+
+  assert.equal(report.counts.failed, 1);
+  assert.deepEqual(report.units.map(unit => ({ unit: unit.unit, status: unit.status })), [
+    { unit: 'basic-curate', status: 'failed' }
+  ]);
+  assert.deepEqual(manualIssues(progress), []);
+});
+
+test('skipped basic-curate remains a publishable non-blocking terminal state', () => {
+  let progress = freshProgress();
+  progress.units['chapter:001'] = { ...freshUnit('sha256:chapter'), status: 'done' };
+  progress = setOptionalUnitState(progress, 'basic-curate', 'sha256:registry', 'skipped');
+
+  const report = statusReport(
+    { manifest: 'manifest.json', progress: 'progress.json', manualReview: 'manual-review.json' },
+    { chapters: [{ number: 1 }] },
+    progress
+  );
+
+  assert.equal(report.counts.done, 1);
+  assert.equal(report.counts.skipped, 1);
+  assert.deepEqual(manualIssues(progress), []);
 });
 
 test('done unchanged unit rejects resubmission without consuming attempts', () => {

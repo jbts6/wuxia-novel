@@ -8,7 +8,12 @@ const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson } = require('./io');
 const { discoverSource, normalizeSource, sha256 } = require('./source');
 const { pathsFor } = require('./paths');
-const { SEMANTIC_CONTRACT_VERSION, SEMANTIC_PROFILE } = require('./semantic-contract');
+const {
+  PROFILE_V4,
+  SEMANTIC_CONTRACT_VERSION,
+  SEMANTIC_PROFILE,
+  SUPPORTED_PROFILES
+} = require('./semantic-contract');
 const { EMPTY_DURATIONS } = require('./timing');
 const { ensureWorkerPool } = require('./worker-pool');
 
@@ -41,7 +46,15 @@ function readRunMetadata(runDir) {
   }
 }
 
-function assertSemanticContract(metadata, action = 'continue') {
+function normalizeProfile(profile) {
+  if (profile === undefined || profile === null) return PROFILE_V4;
+  if (!SUPPORTED_PROFILES.has(profile)) {
+    throw new GameKbError('PROFILE_UNSUPPORTED', 'Unknown game-kb profile', { profile });
+  }
+  return profile;
+}
+
+function assertSemanticContract(metadata, action = 'continue', expectedProfile) {
   if (metadata?.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION
     || metadata?.semantic_profile !== SEMANTIC_PROFILE) {
     throw new GameKbError(
@@ -53,6 +66,19 @@ function assertSemanticContract(metadata, action = 'continue') {
         required_version: SEMANTIC_CONTRACT_VERSION,
         semantic_profile: metadata?.semantic_profile ?? null,
         required_profile: SEMANTIC_PROFILE,
+        action
+      }
+    );
+  }
+  const actualProfile = metadata.profile ?? PROFILE_V4;
+  if (expectedProfile !== undefined && actualProfile !== expectedProfile) {
+    throw new GameKbError(
+      'PROFILE_MISMATCH',
+      `Run profile ${actualProfile} cannot be written by profile ${expectedProfile}`,
+      {
+        run_id: metadata?.run_id ?? null,
+        profile: actualProfile,
+        required_profile: expectedProfile,
         action
       }
     );
@@ -92,6 +118,7 @@ function ensureRunDirectories(paths) {
 function createOrResumeRun(novelDir, options = {}) {
   const novel = path.resolve(novelDir);
   const { sourceFile, sourceHash } = sourceState(novel);
+  const profile = normalizeProfile(options.profile);
   const runs = runDirectories(novel);
   let runId = options.runId;
   if (!runId) {
@@ -101,7 +128,7 @@ function createOrResumeRun(novelDir, options = {}) {
   const paths = pathsFor(novel, runId);
   if (fs.existsSync(paths.runJson)) {
     const metadata = readRunMetadata(paths.run);
-    assertSemanticContract(metadata, 'prepare');
+    assertSemanticContract(metadata, 'prepare', profile);
     if (metadata.source_hash !== sourceHash) {
       throw new GameKbError('RUN_SOURCE_CHANGED', 'Source changed; archive the old run before resuming it', {
         run_id: runId,
@@ -118,6 +145,7 @@ function createOrResumeRun(novelDir, options = {}) {
       source_hash: sourceHash,
       semantic_contract_version: metadata.semantic_contract_version,
       semantic_profile: metadata.semantic_profile,
+      profile: metadata.profile ?? PROFILE_V4,
       resumed: true
     };
   }
@@ -127,6 +155,7 @@ function createOrResumeRun(novelDir, options = {}) {
     schema_version: 1,
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     semantic_profile: SEMANTIC_PROFILE,
+    profile,
     run_id: runId,
     source_file: sourceFile,
     source_hash: sourceHash,
@@ -144,25 +173,26 @@ function createOrResumeRun(novelDir, options = {}) {
     source_hash: sourceHash,
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     semantic_profile: SEMANTIC_PROFILE,
+    profile,
     resumed: false
   };
 }
 
-function resolveRun(novelDir, runId) {
+function resolveRun(novelDir, runId, expectedProfile) {
   const runs = runDirectories(novelDir);
   if (runId) {
     const paths = pathsFor(novelDir, runId);
     if (!fs.existsSync(paths.runJson)) throw new GameKbError('RUN_MISSING', 'Requested run does not exist', { run_id: runId });
-    return { ...readRunMetadata(paths.run), run_dir: paths.run };
+    return assertSemanticContract({ ...readRunMetadata(paths.run), run_dir: paths.run }, 'resolve', expectedProfile);
   }
   if (runs.length === 0) throw new GameKbError('RUN_REQUIRED', 'No eligible run exists; run prepare first');
   if (runs.length > 1) throw new GameKbError('RUN_AMBIGUOUS', 'Multiple eligible runs require --run <run-id>');
   const runDir = runs[0];
-  return { ...readRunMetadata(runDir), run_dir: runDir };
+  return assertSemanticContract({ ...readRunMetadata(runDir), run_dir: runDir }, 'resolve', expectedProfile);
 }
 
-function resolveWritableRun(novelDir, runId, action = 'continue') {
-  return assertSemanticContract(resolveRun(novelDir, runId), action);
+function resolveWritableRun(novelDir, runId, action = 'continue', expectedProfile) {
+  return assertSemanticContract(resolveRun(novelDir, runId), action, expectedProfile);
 }
 
 module.exports = {
@@ -171,6 +201,7 @@ module.exports = {
   assertArchiveExistingAllowed,
   assertSemanticContract,
   createOrResumeRun,
+  normalizeProfile,
   resolveRun,
   resolveWritableRun,
   sourceState

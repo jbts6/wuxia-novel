@@ -20,6 +20,12 @@ const ARRAY_REFERENCE_FIELDS = Object.freeze({
   faction_local_keys: ['factions', 'faction_registry_keys']
 });
 
+const GENERIC_ACTION_PATTERN = /^(?:挥手|反手|随手|抬手|翻手|回手|顺手|出手|连发)(?:一|两|三|四|五|六|七|八|九|十|数|几|数十|连)(?:击|掌|拳|刀|剑|指|爪|腿|脚)$/u;
+const CONFLICT_FIELDS = Object.freeze([
+  ['identity', candidate => candidate?.identity || candidate?.canonical_identity],
+  ['type', candidate => candidate?.type]
+]);
+
 function compareText(left, right) {
   return String(left).localeCompare(String(right), 'zh-Hans-CN');
 }
@@ -44,17 +50,51 @@ function uniqueValues(values) {
   return [...byMarker.entries()].sort(([left], [right]) => compareText(left, right)).map(([, value]) => value);
 }
 
-function normalizeRegistryName(value) {
+function normalizeCandidateName(value) {
   return String(value ?? '')
     .normalize('NFKC')
     .trim()
     .replace(/\s+/g, ' ')
+    .replace(/[·•∙⋅・]/g, '·')
+    .replace(/[‐‑‒–—―]/g, '-')
     .replace(/[“”]/g, '"')
-    .replace(/[‘’]/g, "'");
+    .replace(/[‘’]/g, "'")
+    .replace(/\s*([·-])\s*/g, '$1');
+}
+
+function isGenericActionDescription(name) {
+  return GENERIC_ACTION_PATTERN.test(normalizeCandidateName(name).replace(/\s+/g, ''));
+}
+
+function compareSourceRefs(left, right) {
+  return (Number(left?.chapter) - Number(right?.chapter))
+    || compareText(left?.text, right?.text)
+    || compareText(stableMarker(left), stableMarker(right));
+}
+
+function sortedSourceRefs(refs) {
+  return uniqueValues(refs).sort(compareSourceRefs);
 }
 
 function candidateName(category, candidate) {
-  return normalizeRegistryName(candidate?.name || candidate?.canonical_name || candidate?.local_key);
+  return normalizeCandidateName(candidate?.name || candidate?.canonical_name || candidate?.local_key);
+}
+
+function mergeTechniqueRecords(techniques) {
+  const groups = new Map();
+  for (const technique of techniques) {
+    const normalizedName = normalizeCandidateName(technique?.name);
+    const list = groups.get(normalizedName) || [];
+    list.push(technique);
+    groups.set(normalizedName, list);
+  }
+  return [...groups.entries()]
+    .sort(([left], [right]) => compareText(left, right))
+    .map(([normalizedName, records]) => {
+      const merged = mergeRecords(records);
+      if (!merged.name) merged.name = normalizedName;
+      return merged;
+    });
 }
 
 function mergeRecords(records) {
@@ -65,7 +105,10 @@ function mergeRecords(records) {
     const values = records.map(record => record?.[key]).filter(value => value !== undefined && value !== null && value !== '');
     if (values.length === 0) continue;
     if (values.some(Array.isArray)) {
-      output[key] = uniqueValues(values.flatMap(value => Array.isArray(value) ? value : [value]));
+      const flattened = values.flatMap(value => Array.isArray(value) ? value : [value]);
+      if (key === 'source_refs') output[key] = sortedSourceRefs(flattened);
+      else if (key === 'techniques') output[key] = mergeTechniqueRecords(flattened);
+      else output[key] = uniqueValues(flattened);
       continue;
     }
     if (values.every(value => value && typeof value === 'object')) {
@@ -78,10 +121,20 @@ function mergeRecords(records) {
 }
 
 function identityConflict(members) {
-  const identities = uniqueValues(members.map(member => normalizeRegistryName(
+  const identities = uniqueValues(members.map(member => normalizeCandidateName(
     member.candidate?.identity || member.candidate?.canonical_identity
   )).filter(Boolean));
   return identities.length > 1;
+}
+
+function conflictingFields(members) {
+  return CONFLICT_FIELDS.map(([field, project]) => {
+    const values = uniqueValues(members
+      .map(member => project(member.candidate))
+      .filter(value => value !== undefined && value !== null && value !== '')
+      .map(value => typeof value === 'string' ? normalizeCandidateName(value) : value));
+    return { field, values };
+  }).filter(item => item.values.length > 1);
 }
 
 function nearName(left, right) {
@@ -171,7 +224,7 @@ function buildCandidateRegistry(chapters) {
     const planned = [];
     for (const [normalizedName, members] of [...groups.entries()].sort(([left], [right]) => compareText(left, right))) {
       const sorted = [...members].sort((left, right) => compareText(left.candidate.candidate_key, right.candidate.candidate_key));
-      if (identityConflict(sorted)) {
+      if (conflictingFields(sorted).length > 0) {
         for (const member of sorted) planned.push({ normalizedName, members: [member], conflict: true });
       } else {
         planned.push({ normalizedName, members: sorted, conflict: false });
@@ -183,7 +236,7 @@ function buildCandidateRegistry(chapters) {
     ));
     planned.forEach((plan, index) => {
       const registryKey = `registry:${category}:${String(index + 1).padStart(4, '0')}`;
-      const names = uniqueValues(plan.members.map(member => normalizeRegistryName(
+      const names = uniqueValues(plan.members.map(member => normalizeCandidateName(
         member.candidate.name || member.candidate.canonical_name
       )).filter(Boolean));
       const entry = {
@@ -210,9 +263,10 @@ function buildCandidateRegistry(chapters) {
       }
     });
 
-    for (const group of [...groups.values()].filter(identityConflict)) {
+    for (const group of [...groups.values()].filter(members => conflictingFields(members).length > 0)) {
       const keys = group.map(member => bindings[member.candidate.candidate_key]);
-      pending.push(pendingRow('IDENTITY_CONFLICT', categories[category].filter(entry => keys.includes(entry.registry_key))));
+      const reason = identityConflict(group) ? 'IDENTITY_CONFLICT' : 'RECORD_CONFLICT';
+      pending.push(pendingRow(reason, categories[category].filter(entry => keys.includes(entry.registry_key))));
     }
   }
 
@@ -228,8 +282,7 @@ function buildCandidateRegistry(chapters) {
     for (const entry of categories[category]) {
       const records = internalMembers.get(entry.registry_key).map(member => migrateRecordReferences(member, localIndex));
       entry.record = mergeRecords(records);
-      entry.record.source_refs = uniqueValues(records.flatMap(record => record.source_refs || []))
-        .sort((left, right) => (Number(left.chapter) - Number(right.chapter)) || compareText(left.text, right.text));
+      entry.record.source_refs = sortedSourceRefs(records.flatMap(record => record.source_refs || []));
       entry.source_chapters = uniqueValues(entry.record.source_refs.map(ref => ref.chapter)).sort((a, b) => a - b);
     }
   }
@@ -280,10 +333,134 @@ function buildCandidateRegistry(chapters) {
   };
 }
 
+function quarantineGenericAction({ category, chapter, record, parent }) {
+  const ownSourceRefs = Array.isArray(record?.source_refs) ? record.source_refs : [];
+  const parentSourceRefs = Array.isArray(parent?.source_refs) ? parent.source_refs : [];
+  return {
+    reason: 'GENERIC_ACTION_DESCRIPTION',
+    category,
+    normalized_name: normalizeCandidateName(record?.name),
+    chapter,
+    ...(record?.candidate_key ? { candidate_key: record.candidate_key } : {}),
+    ...(parent?.candidate_key ? { parent_candidate_key: parent.candidate_key } : {}),
+    record: structuredClone(record),
+    source_refs: sortedSourceRefs(ownSourceRefs.length > 0 ? ownSourceRefs : parentSourceRefs)
+  };
+}
+
+function sanitizeBasicChapters(chapters, quarantine, warnings) {
+  return [...(Array.isArray(chapters) ? chapters : [])]
+    .filter(chapter => {
+      if (chapter && typeof chapter === 'object' && !Array.isArray(chapter)) return true;
+      warnings.push({
+        code: 'CHAPTER_MEMBER_INVALID',
+        received_type: chapter === null ? 'null' : (Array.isArray(chapter) ? 'array' : typeof chapter)
+      });
+      return false;
+    })
+    .sort((left, right) => Number(left?.chapter) - Number(right?.chapter))
+    .map(chapter => {
+      const sanitized = structuredClone(chapter);
+      for (const category of CANDIDATE_ARRAYS) {
+        const candidates = [];
+        for (const candidate of Array.isArray(chapter?.[category]) ? chapter[category] : []) {
+          if (category === 'skills' && isGenericActionDescription(candidate?.name)) {
+            quarantine.push(quarantineGenericAction({ category, chapter: chapter.chapter, record: candidate }));
+            continue;
+          }
+          const record = structuredClone(candidate);
+          if (category === 'skills') {
+            const techniques = [];
+            for (const technique of Array.isArray(candidate?.techniques) ? candidate.techniques : []) {
+              if (isGenericActionDescription(technique?.name)) {
+                quarantine.push(quarantineGenericAction({
+                  category: 'techniques',
+                  chapter: chapter.chapter,
+                  record: technique,
+                  parent: candidate
+                }));
+              } else {
+                techniques.push(technique);
+              }
+            }
+            record.techniques = mergeTechniqueRecords(techniques);
+          }
+          candidates.push(record);
+        }
+        sanitized[category] = candidates;
+      }
+      return sanitized;
+    });
+}
+
+function collectConflictWarnings(chapters) {
+  const warnings = [];
+  for (const category of CANDIDATE_ARRAYS) {
+    const groups = new Map();
+    for (const chapter of chapters) {
+      for (const candidate of Array.isArray(chapter?.[category]) ? chapter[category] : []) {
+        const normalizedName = candidateName(category, candidate);
+        const list = groups.get(normalizedName) || [];
+        list.push({ chapter: chapter.chapter, category, candidate });
+        groups.set(normalizedName, list);
+      }
+    }
+    for (const [normalizedName, members] of groups) {
+      const fields = conflictingFields(members);
+      if (fields.length === 0) continue;
+      warnings.push({
+        code: 'CANDIDATE_CONFLICT',
+        category,
+        normalized_name: normalizedName,
+        conflicting_fields: fields,
+        member_refs: members.map(member => member.candidate.candidate_key).sort(compareText),
+        source_refs: sortedSourceRefs(members.flatMap(member => member.candidate.source_refs || []))
+      });
+    }
+  }
+  return warnings.sort((left, right) => compareText(
+    `${left.category}\u0000${left.normalized_name}`,
+    `${right.category}\u0000${right.normalized_name}`
+  ));
+}
+
+function compareQuarantineEntries(left, right) {
+  const leftKey = `${left.normalized_name}\u0000${left.category}\u0000${left.chapter}\u0000${left.candidate_key || left.parent_candidate_key || ''}`;
+  const rightKey = `${right.normalized_name}\u0000${right.category}\u0000${right.chapter}\u0000${right.candidate_key || right.parent_candidate_key || ''}`;
+  return compareText(leftKey, rightKey)
+    || compareText(
+      stableMarker({ record: left.record, source_refs: left.source_refs }),
+      stableMarker({ record: right.record, source_refs: right.source_refs })
+    );
+}
+
+function compareWarnings(left, right) {
+  const leftKey = `${left.code}\u0000${left.category || ''}\u0000${left.normalized_name || ''}`;
+  const rightKey = `${right.code}\u0000${right.category || ''}\u0000${right.normalized_name || ''}`;
+  return compareText(leftKey, rightKey) || compareText(stableMarker(left), stableMarker(right));
+}
+
+function buildBasicCandidateRegistry(chapters) {
+  const quarantine = [];
+  const warnings = [];
+  const sanitizedChapters = sanitizeBasicChapters(chapters, quarantine, warnings);
+  const registry = buildCandidateRegistry(sanitizedChapters);
+  registry.pending = [];
+  registry.stats.pending_groups = 0;
+  return {
+    registry,
+    quarantine: quarantine.sort(compareQuarantineEntries),
+    warnings: [...warnings, ...collectConflictWarnings(sanitizedChapters)].sort(compareWarnings)
+  };
+}
+
 module.exports = {
   ARRAY_REFERENCE_FIELDS,
   SINGLE_REFERENCE_FIELDS,
+  buildBasicCandidateRegistry,
   buildCandidateRegistry,
+  isGenericActionDescription,
   mergeRegistryRecords: mergeRecords,
-  normalizeRegistryName
+  normalizeCandidateName,
+  normalizeRegistryName: normalizeCandidateName
 };

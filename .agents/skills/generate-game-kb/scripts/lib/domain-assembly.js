@@ -153,12 +153,88 @@ function projectChapterSummaries(manifest, chapters) {
   const chaptersByNumber = new Map((chapters || []).map(chapter => [chapter.chapter, chapter]));
   return [...(manifest?.chapters || [])].sort((left, right) => left.number - right.number).map(item => {
     const chapter = chaptersByNumber.get(item.number);
+    const summary = chapter?.chapter_summary?.summary;
+    if (typeof summary !== 'string' || summary.trim() === '') {
+      throw new GameKbError('CHAPTER_SUMMARY_MISSING', 'Every accepted chapter requires a non-empty summary', {
+        chapter: item.number
+      });
+    }
     return {
       chapter: item.number,
       title: item.title,
-      summary: chapter?.chapter_summary?.summary || '本章摘要待补充。'
+      summary
     };
   });
+}
+
+function groundedEntity(entry) {
+  const record = structuredClone(entry.record || {});
+  const canonicalName = entry.canonical_name || record.name;
+  const fields = structuredClone(record);
+  for (const field of ['candidate_key', 'local_key', 'name', 'canonical_name', 'aliases', 'source_refs']) {
+    delete fields[field];
+  }
+  return {
+    provisional_key: entry.registry_key,
+    category: entry.category,
+    canonical_name: canonicalName,
+    aliases: uniqueValues([...(entry.aliases || []), ...(record.aliases || [])])
+      .filter(alias => alias !== canonicalName),
+    fields,
+    source_refs: uniqueValues(record.source_refs || [])
+      .sort((left, right) => (Number(left.chapter) - Number(right.chapter)) || compareText(left.text, right.text)),
+    candidate_keys: uniqueValues(entry.member_refs || [])
+  };
+}
+
+function assembleGroundedBook({ manifest, chapters, registry, source_registry: sourceRegistry = registry } = {}) {
+  const entries = registryEntries(registry).sort((left, right) => compareText(left.registry_key, right.registry_key));
+  const entities = entries.map(groundedEntity);
+  const localKeyByRegistry = assignLocalKeys(entities);
+  const categories = Object.fromEntries(Object.keys(CATEGORY_PREFIX).map(category => [category, []]));
+  for (const entity of entities) {
+    const record = {
+      local_key: localKeyByRegistry.get(entity.provisional_key),
+      canonical_name: entity.canonical_name,
+      aliases: entity.aliases,
+      ...structuredClone(entity.fields),
+      source_refs: entity.source_refs
+    };
+    if (entity.category === 'skills' && !Array.isArray(record.techniques)) record.techniques = [];
+    categories[entity.category].push(record);
+  }
+  for (const values of Object.values(categories)) {
+    values.sort((left, right) => compareText(left.local_key, right.local_key));
+  }
+
+  const retainedBinding = new Map(Object.entries(registry?.bindings || {}));
+  const candidateResolutions = [];
+  for (const entry of registryEntries(sourceRegistry)) {
+    for (const candidateKey of entry.member_refs || []) {
+      const registryKey = retainedBinding.get(candidateKey);
+      const mergedTo = registryKey ? localKeyByRegistry.get(registryKey) : null;
+      candidateResolutions.push(mergedTo
+        ? { candidate_key: candidateKey, resolution: 'merged_to', merged_to: mergedTo }
+        : {
+            candidate_key: candidateKey,
+            resolution: 'rejected',
+            reason: 'basic-curate-drop',
+            detail: 'Candidate was dropped by accepted basic curation'
+          });
+    }
+  }
+  candidateResolutions.sort((left, right) => compareText(left.candidate_key, right.candidate_key));
+  if (new Set(candidateResolutions.map(value => value.candidate_key)).size !== candidateResolutions.length) {
+    throw new GameKbError('BOOK_ASSEMBLY_INCOMPLETE', 'Grounded assembly produced duplicate candidate resolutions');
+  }
+  return {
+    schema_version: 1,
+    stage: 'merged',
+    ...categories,
+    chapter_summaries: projectChapterSummaries(manifest, chapters),
+    candidate_resolutions: candidateResolutions,
+    ambiguities: []
+  };
 }
 
 function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: workPlan, decisions } = {}) {
@@ -267,4 +343,4 @@ function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: wor
   return book;
 }
 
-module.exports = { assembleDomainMergedBook };
+module.exports = { assembleDomainMergedBook, assembleGroundedBook };

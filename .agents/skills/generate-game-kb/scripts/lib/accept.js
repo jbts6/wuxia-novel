@@ -2,6 +2,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const yaml = require('js-yaml');
 
 const {
   assertAcceptedArtifacts,
@@ -11,13 +12,15 @@ const {
 const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contract');
 const { normalizeDomainDecisionDraft, validateDomainDecisionDraft } = require('./domain-contract');
 const { GameKbError } = require('./errors');
-const { atomicWriteFile, readJson, readYaml } = require('./io');
+const { isGroundingError } = require('./grounding');
+const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const {
   loadProgress,
   recordSubmission,
   saveProgress
 } = require('./progress');
 const { DOMAIN_UNITS } = require('./semantic-contract');
+const { quarantineRecord } = require('./quarantine');
 const { sha256 } = require('./source');
 const { readWorkItem } = require('./semantic-work');
 
@@ -37,9 +40,9 @@ function nextAttempt(progress, unit, inputHash) {
   return !state || state.input_hash !== inputHash ? 1 : state.attempts + 1;
 }
 
-function assertDraftPath(paths, draftPath, unit, attempt) {
+function assertDraftPath(paths, draftPath, unit, attempt, expectedPath = null) {
   const resolved = path.resolve(draftPath);
-  const expected = path.resolve(paths.staging, stagingFileName(unit, attempt));
+  const expected = path.resolve(expectedPath || path.join(paths.staging, stagingFileName(unit, attempt)));
   if (resolved !== expected) {
     throw new GameKbError('DRAFT_STAGING_MISMATCH', 'Draft must use the next unsubmitted run-scoped staging path', {
       unit,
@@ -109,12 +112,15 @@ function unitContext(paths, manifest, progress, unit) {
     const chapter = manifest.chapters.find(entry => entry.number === number);
     if (!chapter) throw new GameKbError('UNIT_UNKNOWN', 'Chapter unit is not present in the manifest', { unit });
     return {
+      kind: 'chapter',
       inputHash: chapter.input_hash,
       acceptedFile: acceptedChapterFile(paths, number),
+      stagingPath: attempt => chapter.staging_paths?.[attempt - 1],
       validate: draft => validateChapterDraft(draft, {
         number: chapter.number,
         title: chapter.title,
-        inputHash: chapter.input_hash
+        inputHash: chapter.input_hash,
+        chapterText: fs.readFileSync(chapter.file, 'utf8')
       }),
       normalize: draft => normalizeChapterDraft(draft)
     };
@@ -122,13 +128,70 @@ function unitContext(paths, manifest, progress, unit) {
   if (DOMAIN_DECISION_UNITS.has(unit)) {
     const work = readWorkItem(paths, unit);
     return {
+      kind: 'domain',
+      work,
       inputHash: work.input.input_hash,
       acceptedFile: semanticDecisionFile(paths, unit, work.input.input_hash),
+      stagingPath: attempt => {
+        if (work.input.attempt !== attempt) {
+          throw new GameKbError('WORK_ITEM_STALE', 'Worker input does not own the next submission attempt', {
+            unit,
+            attempt,
+            work_attempt: work.input.attempt
+          });
+        }
+        return work.input.staging_path;
+      },
       validate: draft => validateDomainDecisionDraft(draft, work.input),
       normalize: draft => normalizeDomainDecisionDraft(draft, work.input)
     };
   }
   throw new GameKbError('UNIT_UNSUPPORTED', 'Unsupported accept unit', { unit });
+}
+
+function groundingRecordLocation(error) {
+  if (!isGroundingError(error)) return null;
+  const match = /^(characters|items|skills|factions)\[(\d+)\](?:\.|$)/.exec(error.path);
+  return match ? { category: match[1], index: Number(match[2]) } : null;
+}
+
+function prepareGroundedChapter(paths, context, unit, draft, errors) {
+  if (context.kind !== 'chapter' || errors.length === 0) {
+    return { draft, errors, quarantineFiles: [] };
+  }
+  const groups = new Map();
+  for (const error of errors) {
+    const location = groundingRecordLocation(error);
+    if (!location) return { draft, errors, quarantineFiles: [] };
+    const key = `${location.category}:${location.index}`;
+    const current = groups.get(key) || { ...location, errors: [] };
+    current.errors.push(error);
+    groups.set(key, current);
+  }
+
+  const sanitized = structuredClone(draft);
+  const removals = new Map();
+  for (const group of groups.values()) {
+    const indexes = removals.get(group.category) || new Set();
+    indexes.add(group.index);
+    removals.set(group.category, indexes);
+  }
+  for (const [category, indexes] of removals) {
+    sanitized[category] = sanitized[category].filter((record, index) => !indexes.has(index));
+  }
+  const remainingErrors = context.validate(sanitized);
+  if (remainingErrors.length > 0) return { draft, errors, quarantineFiles: [] };
+
+  const quarantineFiles = [...groups.values()]
+    .sort((left, right) => left.category.localeCompare(right.category) || left.index - right.index)
+    .map(group => quarantineRecord(paths, {
+      unit,
+      category: group.category,
+      record: draft[group.category][group.index],
+      errors: group.errors,
+      inputHash: context.inputHash
+    }));
+  return { draft: sanitized, errors: [], quarantineFiles };
 }
 
 function currentUnitInputHash(paths, manifest, progress, unit) {
@@ -141,17 +204,31 @@ function acceptDraft({ paths, unit, draftPath }) {
   const manifest = readJson(paths.manifest);
   const progress = loadProgress(paths, manifest);
   const context = unitContext(paths, manifest, progress, unit);
+  const existing = progress.units[unit];
+  if (existing?.input_hash === context.inputHash && existing.status === 'done') {
+    throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be resubmitted', { unit });
+  }
+  if (existing?.input_hash === context.inputHash && existing.status === 'manual_review') {
+    throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit });
+  }
   const attempt = nextAttempt(progress, unit, context.inputHash);
-  const resolvedDraft = assertDraftPath(paths, draftPath, unit, attempt);
+  const resolvedDraft = assertDraftPath(paths, draftPath, unit, attempt, context.stagingPath(attempt));
   const raw = fs.readFileSync(resolvedDraft, 'utf8');
   const outputHash = sha256(raw);
   let draft;
   let errors;
+  let quarantineFiles = [];
   try {
-    draft = readYaml(resolvedDraft);
-    errors = context.validate(draft);
+    draft = yaml.load(raw);
   } catch (error) {
     errors = [{ code: 'DRAFT_YAML_INVALID', path: '$', target: error.message }];
+  }
+  if (errors === undefined) {
+    errors = context.validate(draft);
+    const prepared = prepareGroundedChapter(paths, context, unit, draft, errors);
+    draft = prepared.draft;
+    errors = prepared.errors;
+    quarantineFiles = prepared.quarantineFiles;
   }
 
   let updated = recordSubmission(progress, unit, context.inputHash, outputHash, errors);
@@ -161,6 +238,9 @@ function acceptDraft({ paths, unit, draftPath }) {
     archiveDir,
     `attempt_${String(state.attempts).padStart(2, '0')}_${outputHash.slice(7, 19)}.yaml`
   );
+  if (fs.existsSync(archive)) {
+    throw new GameKbError('DRAFT_ARCHIVE_EXISTS', 'Submission archive is immutable', { unit, archive });
+  }
   atomicWriteFile(archive, raw);
 
   let acceptedFile = null;
@@ -169,15 +249,38 @@ function acceptDraft({ paths, unit, draftPath }) {
     const acceptedValue = context.normalize ? context.normalize(draft) : draft;
     recordAcceptedArtifact(paths, acceptedFile, context.inputHash, acceptedValue);
   }
-  saveProgress(paths, updated);
-  try {
-    fs.rmSync(resolvedDraft);
-  } catch (error) {
-    throw new GameKbError('DRAFT_STAGING_CONSUME_FAILED', 'Submitted staging draft could not be removed safely', {
+  const submissionRecord = archive.replace(/\.yaml$/, '.json');
+  if (fs.existsSync(submissionRecord)) {
+    throw new GameKbError('DRAFT_ARCHIVE_EXISTS', 'Submission record is immutable', {
       unit,
-      draft: resolvedDraft,
-      cause: error.message
+      record: submissionRecord
     });
+  }
+  atomicWriteJson(submissionRecord, {
+    schema_version: 1,
+    unit,
+    input_hash: context.inputHash,
+    attempt: state.attempts,
+    status: errors.length === 0 ? 'accepted' : 'rejected',
+    staging_path: resolvedDraft,
+    output_hash: outputHash,
+    archive_path: archive,
+    archive_hash: outputHash,
+    accepted_file: acceptedFile,
+    consumed: errors.length === 0,
+    errors
+  });
+  saveProgress(paths, updated);
+  if (errors.length === 0) {
+    try {
+      fs.rmSync(resolvedDraft);
+    } catch (error) {
+      throw new GameKbError('DRAFT_STAGING_CONSUME_FAILED', 'Submitted staging draft could not be removed safely', {
+        unit,
+        draft: resolvedDraft,
+        cause: error.message
+      });
+    }
   }
 
   const result = {
@@ -188,7 +291,12 @@ function acceptDraft({ paths, unit, draftPath }) {
       ? 0
       : Math.max(0, 2 - state.attempts),
     errors,
+    quarantine_files: quarantineFiles,
     draft_archive: archive,
+    draft_archive_hash: outputHash,
+    submission_record: submissionRecord,
+    error_record: errors.length > 0 ? submissionRecord : null,
+    consumed_path: errors.length === 0 ? resolvedDraft : null,
     accepted_file: acceptedFile
   };
   if (errors.length > 0) {

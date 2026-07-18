@@ -5,9 +5,11 @@ const path = require('node:path');
 const yaml = require('js-yaml');
 
 const { ITEM_REASONS } = require('./book-contract');
+const { stableHash } = require('./accept');
+const { applyBasicCurate, validateBasicCurateDraft } = require('./basic-curate');
 const { acceptedArtifactHash, assertAcceptedArtifacts } = require('./candidate-ledger');
 const { CANDIDATE_ARRAYS, validateChapterDraft } = require('./chapter-contract');
-const { assembleDomainMergedBook } = require('./domain-assembly');
+const { assembleDomainMergedBook, assembleGroundedBook } = require('./domain-assembly');
 const { validateDomainDecisionDraft } = require('./domain-contract');
 const { hashFinalData, stableValue } = require('./final-data-hash');
 const { CATEGORY_FILES } = require('./finalize');
@@ -382,11 +384,142 @@ function verifyFinalV4(paths) {
   return result;
 }
 
+function verifyFinalV5(paths) {
+  const blockingErrors = [];
+  const warnings = [];
+  let manifest;
+  try {
+    manifest = readJson(paths.manifest);
+  } catch (error) {
+    return {
+      passed: false,
+      final_data_hash: null,
+      counts: {},
+      blocking_errors: [verificationError(error, paths.manifest)],
+      warnings
+    };
+  }
+
+  const portable = verifyDataRoot(paths.finalData, { chapters: manifest.chapters });
+  blockingErrors.push(...portable.blocking_errors);
+  try {
+    assertAcceptedArtifacts(paths);
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.artifactManifest));
+  }
+
+  const acceptedHashes = {};
+  const chapters = [];
+  for (const chapter of manifest.chapters || []) {
+    const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
+    const file = path.join(paths.chapters, `ch_${String(chapter.number).padStart(3, '0')}.yaml`);
+    try {
+      acceptedHashes[unit] = acceptedArtifactHash(paths, file);
+      const accepted = readYaml(file);
+      chapters.push(accepted);
+      blockingErrors.push(...validateChapterDraft(acceptedChapterDraft(accepted), {
+        number: chapter.number,
+        inputHash: chapter.input_hash
+      }).map(issue => ({ ...issue, path: `${unit}.${issue.path}` })));
+    } catch (error) {
+      blockingErrors.push(verificationError(error, file));
+    }
+  }
+
+  let registry = null;
+  let assembledBook = null;
+  let registryHash = null;
+  try {
+    registryHash = acceptedArtifactHash(paths, paths.candidateRegistry);
+    registry = readJson(paths.candidateRegistry);
+    let effectiveRegistry = registry;
+    const curatePath = path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
+    if (fs.existsSync(curatePath)) {
+      acceptedArtifactHash(paths, curatePath);
+      const curate = readJson(curatePath);
+      const curateIssues = validateBasicCurateDraft(curate, registry);
+      if (curateIssues.length > 0 || curate.input_hash !== stableHash(registry)) {
+        blockingErrors.push({ code: 'BASIC_CURATE_ACCEPTED_INVALID', path: curatePath, target: '' });
+      } else {
+        effectiveRegistry = applyBasicCurate(registry, curate.decisions);
+        if (curate.curated_registry_hash !== stableHash(effectiveRegistry)) {
+          blockingErrors.push({ code: 'BASIC_CURATE_ACCEPTED_INVALID', path: curatePath, target: '' });
+        }
+      }
+    }
+    assembledBook = assembleGroundedBook({
+      manifest,
+      chapters,
+      registry: effectiveRegistry,
+      source_registry: registry
+    });
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.candidateRegistry));
+  }
+
+  let assemblyReport = null;
+  try {
+    assemblyReport = readJson(paths.assemblyReport);
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.assemblyReport));
+  }
+  if (assemblyReport) {
+    const expectedCounts = Object.fromEntries(Object.entries(FINAL_FILES)
+      .map(([category, filename]) => [filename, portable.counts[category]]));
+    const checks = [
+      ['ASSEMBLY_CONTRACT_STALE', assemblyReport.semantic_contract_version, SEMANTIC_CONTRACT_VERSION],
+      ['ASSEMBLY_SOURCE_STALE', assemblyReport.source_hash, manifest.source_hash],
+      ['ASSEMBLY_ACCEPTED_HASH_STALE', stableValue(assemblyReport.accepted_hashes), stableValue(acceptedHashes)],
+      ['ASSEMBLY_REGISTRY_HASH_STALE', assemblyReport.registry_hash, registryHash],
+      ['ASSEMBLY_FINAL_HASH_STALE', assemblyReport.final_data_hash, portable.final_data_hash],
+      ['ASSEMBLY_COUNTS_STALE', stableValue(assemblyReport.counts), stableValue(expectedCounts)],
+      ['ASSEMBLY_CANDIDATE_COUNT_STALE', assemblyReport.candidate_count, registry ? candidateTotal(registry) : null],
+      ['ASSEMBLY_RESOLUTION_COUNT_STALE', assemblyReport.candidate_resolution_count,
+        assembledBook ? assembledBook.candidate_resolutions.length : null]
+    ];
+    for (const [code, actual, expected] of checks) {
+      if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+        blockingErrors.push({ code, path: paths.assemblyReport, target: '' });
+      }
+    }
+  }
+
+  try {
+    const manual = readJson(paths.manualReview);
+    if (!Array.isArray(manual) || manual.length > 0) {
+      blockingErrors.push({ code: 'MANUAL_REVIEW_BLOCKS_FINAL', path: paths.manualReview, target: '' });
+    }
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.manualReview));
+  }
+
+  const deduplicated = [...new Map(blockingErrors.map(issue => [JSON.stringify(issue), issue])).values()];
+  const result = {
+    passed: deduplicated.length === 0,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    source_hash: manifest.source_hash,
+    final_data_hash: portable.final_data_hash,
+    counts: portable.counts,
+    blocking_errors: deduplicated,
+    warnings
+  };
+  if (result.passed) {
+    fs.mkdirSync(paths.finalReports, { recursive: true });
+    atomicWriteJson(paths.verificationReport, result);
+  }
+  return result;
+}
+
+function verifyFinal(paths, options = {}) {
+  const profile = options.profile || readJson(paths.runJson).profile || 'v4';
+  return profile === 'v5' ? verifyFinalV5(paths) : verifyFinalV4(paths);
+}
+
 module.exports = {
   ID_PATTERN,
   hashFinalData,
   inspectWorkspaceFinal,
   loadData,
   verifyDataRoot,
-  verifyFinal: verifyFinalV4
+  verifyFinal
 };

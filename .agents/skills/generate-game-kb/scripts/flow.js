@@ -7,7 +7,12 @@ const path = require('node:path');
 const { GameKbError } = require('./lib/errors');
 const { assembleRun } = require('./lib/assemble');
 const { archiveAbandoned, archiveExisting, archiveRun } = require('./lib/archive');
-const { acceptDraft, stableHash } = require('./lib/accept');
+const { acceptDraft, assertDraftPath, stableHash } = require('./lib/accept');
+const {
+  applyBasicCurate,
+  canonicalizeBasicCurateDecisions,
+  validateBasicCurateDraft
+} = require('./lib/basic-curate');
 const {
   acceptedArtifactHash,
   assertAcceptedArtifacts,
@@ -15,6 +20,8 @@ const {
 } = require('./lib/candidate-ledger');
 const { buildCandidateRegistry } = require('./lib/candidate-registry');
 const { createDomainWorkPlan } = require('./lib/domain-work');
+const { addDeferredTask, runDeferredTask, loadState } = require('./lib/deferred-task');
+const { applyOverlay } = require('./lib/overlay');
 const { installVerifiedData, verifyInstalled } = require('./lib/install');
 const { readJson, readYaml } = require('./lib/io');
 const { resolveNextAction } = require('./lib/next-action');
@@ -24,13 +31,21 @@ const {
   projectProgress,
   resetUnit,
   saveProgress,
+  setOptionalUnitState,
   statusReport,
   syncPlannedUnits
 } = require('./lib/progress');
 const { prepareNovel } = require('./lib/source');
-const { DOMAIN_UNITS, SEMANTIC_PROFILE } = require('./lib/semantic-contract');
+const {
+  DOMAIN_UNITS,
+  PROFILE_V4,
+  PROFILE_V5,
+  SEMANTIC_PROFILE,
+  requiredDomainUnitsForContract
+} = require('./lib/semantic-contract');
 const {
   assertArchiveExistingAllowed,
+  assertSemanticContract,
   createOrResumeRun,
   resolveRun,
   resolveWritableRun
@@ -39,6 +54,21 @@ const { recordScriptDuration } = require('./lib/timing');
 const { verifyFinal } = require('./lib/verify');
 const { readWorkerPool, recordWorkerBackoff } = require('./lib/worker-pool');
 const { writeWorkPlan } = require('./lib/semantic-work');
+
+const PROFILE_COMMANDS = Object.freeze({
+  'v5-prepare': { command: 'prepare', profile: PROFILE_V5 },
+  'v5-accept': { command: 'accept', profile: PROFILE_V5 },
+  'v5-basic-curate': { command: 'basic-curate', profile: PROFILE_V5 },
+  'v5-publish': { command: 'publish', profile: PROFILE_V5 },
+  'v5-status': { command: 'status', profile: PROFILE_V5 }
+});
+
+function routeCommand(requestedCommand) {
+  return PROFILE_COMMANDS[requestedCommand] || {
+    command: requestedCommand,
+    profile: PROFILE_V4
+  };
+}
 
 function flagValue(args, flag) {
   const index = args.indexOf(flag);
@@ -62,16 +92,19 @@ function acceptedChapters(paths) {
     .map(name => readYaml(path.join(paths.chapters, name)));
 }
 
-function assertAssembleInputs(progress, manifest) {
+function assertAssembleInputs(progress, manifest, semanticContractVersion, profile = PROFILE_V4) {
   const chapterUnits = (manifest.chapters || []).map(chapter => (
     `chapter:${String(chapter.number).padStart(3, '0')}`
   ));
-  const units = [...chapterUnits, ...DOMAIN_UNITS];
+  const requiredDomains = profile === PROFILE_V5
+    ? []
+    : (semanticContractVersion === 5 ? DOMAIN_UNITS : requiredDomainUnitsForContract(semanticContractVersion));
+  const units = [...chapterUnits, ...requiredDomains];
   const incomplete = units.filter(unit => progress.units[unit]?.status !== 'done');
   if (incomplete.length > 0) {
     throw new GameKbError(
       'BOOK_ASSEMBLY_INCOMPLETE',
-      'All accepted chapters and terminal domain decisions are required before assembly',
+      'All accepted inputs required by this semantic contract must be complete before assembly',
       { units: incomplete }
     );
   }
@@ -125,9 +158,99 @@ function planDomains(paths, manifest) {
   };
 }
 
-function verifyWorkspace(novelDir, runId) {
+function runBasicCurate(paths, manifest, { draftPath, skip }) {
+  if (!fs.existsSync(paths.candidateRegistry)) {
+    throw new GameKbError('CANDIDATE_REGISTRY_MISSING', 'basic-curate requires a deterministic candidate registry');
+  }
+  assertAcceptedArtifacts(paths);
+  acceptedArtifactHash(paths, paths.candidateRegistry);
+  const registry = readJson(paths.candidateRegistry);
+  const inputHash = stableHash(registry);
+  const artifactPath = path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
+  let progress = loadProgress(paths, manifest);
+  if (fs.existsSync(artifactPath)) {
+    acceptedArtifactHash(paths, artifactPath);
+    const artifact = readJson(artifactPath);
+    const errors = validateBasicCurateDraft({
+      schema_version: artifact.schema_version,
+      decisions: artifact.decisions
+    }, registry);
+    const curatedHash = errors.length === 0
+      ? stableHash(applyBasicCurate(registry, artifact.decisions))
+      : null;
+    if (artifact.input_hash !== inputHash
+      || errors.length > 0
+      || artifact.curated_registry_hash !== curatedHash) {
+      throw new GameKbError(
+        'BASIC_CURATE_ACCEPTED_INVALID',
+        'Accepted basic curation is not bound to the current candidate registry',
+        { errors }
+      );
+    }
+    if (progress.units['basic-curate']?.input_hash !== inputHash
+      || progress.units['basic-curate'].status !== 'done') {
+      progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'done');
+      saveProgress(paths, progress);
+    }
+  }
+  if (progress.units['basic-curate']?.input_hash === inputHash
+    && progress.units['basic-curate'].status === 'done') {
+    throw new GameKbError('UNIT_ALREADY_DONE', 'Completed basic-curate cannot be resubmitted');
+  }
+
+  if (skip) {
+    progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'skipped');
+    saveProgress(paths, progress);
+    return { unit: 'basic-curate', status: 'skipped', registry: paths.candidateRegistry };
+  }
+
+  const resolvedDraft = assertDraftPath(paths, draftPath, 'basic-curate', 1);
+  let draft;
+  try {
+    draft = readYaml(resolvedDraft);
+  } catch (error) {
+    const errors = [{ code: 'BASIC_CURATE_DRAFT_INVALID', path: '', target: error.message }];
+    progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'failed', errors);
+    saveProgress(paths, progress);
+    throw new GameKbError('BASIC_CURATE_INVALID', 'Basic curation draft cannot be parsed', { errors });
+  }
+  const errors = validateBasicCurateDraft(draft, registry);
+  if (errors.length > 0) {
+    progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'failed', errors);
+    saveProgress(paths, progress);
+    throw new GameKbError('BASIC_CURATE_INVALID', 'Basic curation draft is invalid', { errors });
+  }
+
+  const decisions = canonicalizeBasicCurateDecisions(draft.decisions);
+  const curatedRegistry = applyBasicCurate(registry, decisions);
+  const artifact = {
+    schema_version: 1,
+    input_hash: inputHash,
+    decisions,
+    curated_registry_hash: stableHash(curatedRegistry)
+  };
+  if (fs.existsSync(artifactPath)) {
+    acceptedArtifactHash(paths, artifactPath);
+    if (stableHash(readJson(artifactPath)) !== stableHash(artifact)) {
+      throw new GameKbError('BASIC_CURATE_ALREADY_ACCEPTED', 'Accepted basic curation differs from this draft');
+    }
+  } else {
+    recordAcceptedArtifact(paths, artifactPath, inputHash, artifact);
+  }
+  progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'done');
+  saveProgress(paths, progress);
+  return {
+    unit: 'basic-curate',
+    status: 'done',
+    registry: paths.candidateRegistry,
+    decisions: artifactPath,
+    curated_registry_hash: artifact.curated_registry_hash
+  };
+}
+
+function verifyWorkspace(novelDir, runId, profile) {
   const paths = pathsFor(novelDir, runId);
-  const result = verifyFinal(paths);
+  const result = verifyFinal(paths, { profile });
   if (!result.passed) {
     throw new GameKbError('FINAL_VERIFICATION_FAILED', 'Final workspace did not pass verification', result);
   }
@@ -140,7 +263,10 @@ function main(argv = process.argv.slice(2)) {
   let timingUnit = '';
   const json = argv.includes('--json');
   const args = argv.filter(value => value !== '--json');
-  const [command, novelDir] = args;
+  const [requestedCommand, novelDir] = args;
+  const route = routeCommand(requestedCommand);
+  const command = route.command;
+  const profile = route.profile;
   const requestedRun = flagValue(args, '--run');
   const emit = result => {
     const elapsedMs = Number(process.hrtime.bigint() - commandStartedAt) / 1e6;
@@ -153,6 +279,13 @@ function main(argv = process.argv.slice(2)) {
   try {
     if (command === 'archive-existing') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-existing requires <novel>');
+      try {
+        const existing = resolveRun(novelDir, requestedRun);
+        assertSemanticContract(existing, command, profile);
+      } catch (error) {
+        if (!(error instanceof GameKbError)
+          || !['RUN_REQUIRED', 'LEGACY_SEMANTIC_CONTRACT'].includes(error.code)) throw error;
+      }
       assertArchiveExistingAllowed(novelDir);
       const result = archiveExisting(novelDir, {
         archiveId: flagValue(args, '--archive-id') || (requestedRun ? `before-${requestedRun}` : undefined)
@@ -165,19 +298,20 @@ function main(argv = process.argv.slice(2)) {
       let selectedRun = requestedRun;
       if (!selectedRun) {
         try {
-          selectedRun = resolveRun(novelDir).run_id;
+          selectedRun = resolveRun(novelDir, undefined, profile).run_id;
         } catch (error) {
           if (!(error instanceof GameKbError) || error.code !== 'RUN_REQUIRED') throw error;
           assertArchiveExistingAllowed(novelDir);
           archiveExisting(novelDir);
         }
       }
-      const run = createOrResumeRun(novelDir, { runId: selectedRun });
+      const run = createOrResumeRun(novelDir, { runId: selectedRun, profile });
       const manifest = prepareNovel(novelDir, { runId: run.run_id });
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
       const payload = {
         run_id: run.run_id,
         run_dir: run.run_dir,
+        profile: run.profile,
         resumed: run.resumed,
         novel_dir: manifest.novel_dir,
         source_file: manifest.source_file,
@@ -191,15 +325,29 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'plan-domains') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'plan-domains requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit(planDomains(paths, readJson(paths.manifest)));
       return;
     }
+    if (command === 'basic-curate') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'basic-curate requires <novel>');
+      const draft = flagValue(args, '--draft');
+      const skip = args.includes('--skip');
+      if (skip === Boolean(draft)) {
+        throw new GameKbError('BASIC_CURATE_MODE_REQUIRED', 'basic-curate requires exactly one of --draft <path> or --skip');
+      }
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      timingUnit = 'basic-curate';
+      emit(runBasicCurate(paths, readJson(paths.manifest), { draftPath: draft, skip }));
+      return;
+    }
     if (command === 'worker-backoff') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'worker-backoff requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit({
@@ -213,7 +361,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'status') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'status requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveRun(novelDir, requestedRun, profile);
       const paths = pathsFor(novelDir, run.run_id);
       assertAcceptedArtifacts(paths);
       const manifest = readJson(paths.manifest);
@@ -224,11 +372,15 @@ function main(argv = process.argv.slice(2)) {
         progress,
         installed: verifyInstalled(novelDir)
       });
+      const routedNext = profile === PROFILE_V5 && next.next_action === 'plan-domains'
+        ? { next_action: 'v5-publish', next_units: [] }
+        : next;
       emit({
         semantic_contract_version: run.semantic_contract_version ?? null,
         semantic_profile: run.semantic_profile ?? null,
+        profile: run.profile ?? profile,
         ...statusReport(paths, manifest, progress),
-        ...next,
+        ...routedNext,
         worker_pool: readWorkerPool(paths)
       });
       return;
@@ -237,7 +389,7 @@ function main(argv = process.argv.slice(2)) {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'reset-unit requires <novel>');
       const unit = flagValue(args, '--unit');
       if (!unit) throw new GameKbError('UNIT_REQUIRED', 'reset-unit requires --unit <id>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       timingUnit = unit;
@@ -254,7 +406,7 @@ function main(argv = process.argv.slice(2)) {
       const draft = flagValue(args, '--draft');
       if (!unit) throw new GameKbError('UNIT_REQUIRED', 'accept requires --unit <id>');
       if (!draft) throw new GameKbError('DRAFT_REQUIRED', 'accept requires --draft <path>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const result = acceptDraft({ paths, unit, draftPath: draft });
@@ -263,17 +415,31 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'assemble') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'assemble requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const manifest = readJson(paths.manifest);
-      assertAssembleInputs(loadProgress(paths, manifest), manifest);
-      emit(assembleRun({ paths }));
+      assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version, profile);
+      emit(assembleRun({ paths, profile }));
+      return;
+    }
+    if (command === 'publish') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'publish requires <novel>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      const manifest = readJson(paths.manifest);
+      assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version, profile);
+      const assembled = assembleRun({ paths, profile });
+      const verified = verifyWorkspace(novelDir, run.run_id, profile);
+      const installed = installVerifiedData(novelDir, { runId: run.run_id, profile });
+      const archived = archiveRun(novelDir, run.run_id);
+      emit({ profile: run.profile ?? profile, assembled, verified, installed, archived });
       return;
     }
     if (command === 'install') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'install requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       assertAcceptedArtifacts(paths);
@@ -282,7 +448,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'archive-run') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-run requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const result = archiveRun(novelDir, run.run_id);
       timingRunJson = path.join(result.archive_dir, 'run.json');
       emit(result);
@@ -290,7 +456,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'archive-abandoned') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-abandoned requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveRun(novelDir, requestedRun, profile);
       emit(archiveAbandoned(novelDir, run.run_id, {
         confirm: args.includes('--confirm'),
         reason: flagValue(args, '--reason')
@@ -307,9 +473,35 @@ function main(argv = process.argv.slice(2)) {
         emit(result);
         return;
       }
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
-      emit(verifyWorkspace(novelDir, run.run_id));
+      emit(verifyWorkspace(novelDir, run.run_id, profile));
+      return;
+    }
+    if (command === 'task-add') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-add requires <novel>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
+      const paths = pathsFor(novelDir, run.run_id);
+      emit(addDeferredTask({
+        paths,
+        type: flagValue(args, '--type'),
+        scope: flagValue(args, '--scope'),
+        requestedBy: flagValue(args, '--requested-by') || 'manual'
+      }));
+      return;
+    }
+    if (command === 'task-run') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-run requires <novel>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
+      const paths = pathsFor(novelDir, run.run_id);
+      emit(runDeferredTask({ paths, taskId: flagValue(args, '--task-id'), draftPath: flagValue(args, '--draft') }));
+      return;
+    }
+    if (command === 'task-apply') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-apply requires <novel>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
+      const paths = pathsFor(novelDir, run.run_id);
+      emit(applyOverlay({ paths, taskId: flagValue(args, '--task-id') }));
       return;
     }
     throw new GameKbError('COMMAND_UNKNOWN', `Unknown command: ${command || '<missing>'}`);

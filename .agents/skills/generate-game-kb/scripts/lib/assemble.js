@@ -3,17 +3,23 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { semanticDecisionFile } = require('./accept');
+const { semanticDecisionFile, stableHash } = require('./accept');
+const { applyBasicCurate, validateBasicCurateDraft } = require('./basic-curate');
 const {
   acceptedArtifactHash,
-  assertAcceptedArtifacts
+  assertAcceptedArtifacts,
+  readArtifactManifest
 } = require('./candidate-ledger');
-const { assembleDomainMergedBook } = require('./domain-assembly');
+const { assembleDomainMergedBook, assembleGroundedBook } = require('./domain-assembly');
 const { GameKbError } = require('./errors');
 const { hashFinalData } = require('./final-data-hash');
 const { buildFinalData, writeFinalDataAtomic } = require('./finalize');
 const { atomicWriteJson, readJson, readYaml } = require('./io');
-const { DOMAIN_UNITS, SEMANTIC_CONTRACT_VERSION } = require('./semantic-contract');
+const {
+  DOMAIN_UNITS,
+  SEMANTIC_CONTRACT_VERSION,
+  requiredDomainUnitsForContract
+} = require('./semantic-contract');
 const { readWorkPlan } = require('./semantic-work');
 
 function sameValues(left, right) {
@@ -64,10 +70,45 @@ function countsFor(data) {
   return Object.fromEntries(Object.entries(data).map(([filename, records]) => [filename, records.length]));
 }
 
-function assembleRun({ paths }) {
-  assertAcceptedArtifacts(paths);
-  const manifest = readJson(paths.manifest);
-  const { acceptedHashes, chapters } = loadAcceptedChapters(paths, manifest);
+function finalHashesFor(data) {
+  return Object.fromEntries(Object.entries(data).map(([filename, records]) => [filename, stableHash(records)]));
+}
+
+function registryLedgerEntry(paths) {
+  const relativePath = path.relative(paths.run, paths.candidateRegistry).split(path.sep).join('/');
+  return readArtifactManifest(paths).entries.find(entry => entry.relative_path === relativePath);
+}
+
+function finalizeAssembly({ paths, manifest, book, report }) {
+  const result = buildFinalData(book, manifest);
+  if (result.issues.length > 0) {
+    throw new GameKbError('FINAL_PROJECTION_FAILED', 'Assembled data contains unresolved final projection issues', {
+      issues: result.issues
+    });
+  }
+  const finalDataHash = hashFinalData(result.data);
+  const counts = countsFor(result.data);
+  const completeReport = {
+    ...report,
+    candidate_resolution_count: book.candidate_resolutions.length,
+    candidate_resolution_hash: stableHash(book.candidate_resolutions),
+    final_data_hash: finalDataHash,
+    final_hashes: finalHashesFor(result.data),
+    counts,
+    warnings: result.warnings
+  };
+  writeFinalDataAtomic(paths, result);
+  fs.mkdirSync(paths.finalReports, { recursive: true });
+  atomicWriteJson(paths.assemblyReport, completeReport);
+  return {
+    final_data_hash: finalDataHash,
+    counts,
+    data_dir: paths.finalData,
+    report: paths.assemblyReport
+  };
+}
+
+function assembleRunV4({ paths, manifest, acceptedHashes, chapters, semanticContractVersion }) {
   const { decisionHashes, decisions, plan } = loadDomainDecisions(paths);
   acceptedArtifactHash(paths, paths.candidateRegistry);
   const registry = readJson(paths.candidateRegistry);
@@ -78,35 +119,83 @@ function assembleRun({ paths }) {
     work_plan: plan,
     decisions
   });
-  const result = buildFinalData(book, manifest);
-  if (result.issues.length > 0) {
-    throw new GameKbError('FINAL_PROJECTION_FAILED', 'Assembled data contains unresolved final projection issues', {
-      issues: result.issues
-    });
-  }
-  const finalDataHash = hashFinalData(result.data);
-  const counts = countsFor(result.data);
-  const report = {
+  return finalizeAssembly({
+    paths,
+    manifest,
+    book,
+    report: {
     schema_version: 1,
-    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    semantic_contract_version: semanticContractVersion,
     source_hash: manifest.source_hash,
     accepted_hashes: acceptedHashes,
     decision_hashes: decisionHashes,
-    candidate_count: candidateCount(registry),
-    candidate_resolution_count: book.candidate_resolutions.length,
-    final_data_hash: finalDataHash,
-    counts,
-    warnings: result.warnings
-  };
-  writeFinalDataAtomic(paths, result);
-  fs.mkdirSync(paths.finalReports, { recursive: true });
-  atomicWriteJson(paths.assemblyReport, report);
-  return {
-    final_data_hash: finalDataHash,
-    counts,
-    data_dir: paths.finalData,
-    report: paths.assemblyReport
-  };
+    candidate_count: candidateCount(registry)
+    }
+  });
+}
+
+function assembleRunV5({ paths, manifest, acceptedHashes, chapters, semanticContractVersion }) {
+  const registryHash = acceptedArtifactHash(paths, paths.candidateRegistry);
+  const registry = readJson(paths.candidateRegistry);
+  const curatePath = path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
+  let curatedRegistry = registry;
+  let curateHash = null;
+  if (fs.existsSync(curatePath)) {
+    curateHash = acceptedArtifactHash(paths, curatePath);
+    const artifact = readJson(curatePath);
+    const errors = validateBasicCurateDraft({
+      schema_version: artifact?.schema_version,
+      decisions: artifact?.decisions
+    }, registry);
+    curatedRegistry = errors.length === 0 ? applyBasicCurate(registry, artifact.decisions) : null;
+    if (artifact?.input_hash !== stableHash(registry)
+      || errors.length > 0
+      || artifact?.curated_registry_hash !== stableHash(curatedRegistry)) {
+      throw new GameKbError('BASIC_CURATE_ACCEPTED_INVALID', 'Accepted basic curation is invalid or stale', { errors });
+    }
+  }
+  const book = assembleGroundedBook({
+    manifest,
+    chapters,
+    registry: curatedRegistry,
+    source_registry: registry
+  });
+  return finalizeAssembly({
+    paths,
+    manifest,
+    book,
+    report: {
+      schema_version: 1,
+      semantic_contract_version: semanticContractVersion,
+      source_hash: manifest.source_hash,
+      accepted_hashes: acceptedHashes,
+      registry_ledger: registryLedgerEntry(paths),
+      registry_hash: registryHash,
+      curate_hash: curateHash,
+      candidate_count: candidateCount(registry)
+    }
+  });
+}
+
+function assembleRun({ paths, profile }) {
+  assertAcceptedArtifacts(paths);
+  const run = readJson(paths.runJson);
+  const manifest = readJson(paths.manifest);
+  const { acceptedHashes, chapters } = loadAcceptedChapters(paths, manifest);
+  const selectedProfile = profile || run.profile || 'v4';
+  const requiredDomains = selectedProfile === 'v5'
+    ? []
+    : (run.semantic_contract_version === SEMANTIC_CONTRACT_VERSION
+      ? DOMAIN_UNITS
+      : requiredDomainUnitsForContract(run.semantic_contract_version));
+  if (requiredDomains.length > 0) {
+    return assembleRunV4({
+      paths, manifest, acceptedHashes, chapters, semanticContractVersion: run.semantic_contract_version
+    });
+  }
+  return assembleRunV5({
+    paths, manifest, acceptedHashes, chapters, semanticContractVersion: run.semantic_contract_version
+  });
 }
 
 module.exports = { assembleRun };

@@ -163,8 +163,8 @@ test('domain accept rejects pending decisions without writing an accepted artifa
   pass(runFlow([
     'plan-domains', fixture.novel, '--run', fixture.prepared.run_id, '--json'
   ]), 'plan domains');
-  const input = readWorkPlan(fixture.paths, 'domain').inputs.find(value => value.unit === 'distill:skills');
-  const pending = validDomainDraft(input, entry => entry.category === 'skills' ? 'pending' : 'keep');
+  const input = readWorkPlan(fixture.paths, 'domain').inputs.find(value => value.unit === 'distill:characters');
+  const pending = validDomainDraft(input, entry => entry.category === 'characters' ? 'pending' : 'keep');
   pending.decisions.filter(row => row.action === 'pending').forEach(row => {
     row.detail = '原文不足以完成确定性判断。';
   });
@@ -216,19 +216,36 @@ test('plan-domains preserves every accepted item without truncation', () => {
     type: '其他',
     description: `第${index + 1}件剧情物件。`,
     inclusion_reason: '剧情关键',
-    source_refs: [sourceRef(1, `剧情物件${index}`)]
+    source_refs: [sourceRef(1, `剧情物件${String(index).padStart(3, '0')}`)]
   }));
-  const fixture = prepareAcceptedChapter('四域无截断试书', 'run-domain-no-truncation', {
+  const source = `第一章 起始\n${items.map(item => item.name).join('、')}。\n`;
+  const novel = makeNovel('四域无截断试书', source);
+  const prepared = pass(runFlow(['prepare', novel, '--run', 'run-domain-no-truncation', '--json']), 'prepare');
+  const paths = pathsFor(novel, prepared.run_id);
+  const manifest = readJson(paths.manifest);
+  const chapter = validChapterDraft({
+    chapter: 1,
+    title: manifest.chapters[0].title,
+    source_hash: manifest.chapters[0].input_hash,
     characters: [],
     skills: [],
     factions: [],
-    items
+    items,
+    chapter_summary: {
+      title: manifest.chapters[0].title,
+      summary: '本章列出全部剧情物件。',
+      source_refs: [sourceRef(1, items[0].name)]
+    }
   });
+  const draft = writeStagingDraft(novel, 'chapter:001', chapter);
+  pass(runFlow([
+    'accept', novel, '--run', prepared.run_id, '--unit', 'chapter:001', '--draft', draft, '--json'
+  ]), 'accept chapter');
 
   pass(runFlow([
-    'plan-domains', fixture.novel, '--run', fixture.prepared.run_id, '--json'
+    'plan-domains', novel, '--run', prepared.run_id, '--json'
   ]), 'plan domains');
-  const input = readWorkPlan(fixture.paths, 'domain').inputs.find(value => value.unit === 'distill:items');
+  const input = readWorkPlan(paths, 'domain').inputs.find(value => value.unit === 'distill:items');
 
   assert.equal(input.entries.length, items.length);
   assert.equal(new Set(input.entries.map(entry => entry.entry_ref)).size, items.length);

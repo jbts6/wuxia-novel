@@ -7,6 +7,8 @@ const { atomicWriteJson, readJson } = require('./io');
 
 const INITIAL_CONCURRENCY_LIMIT = 5;
 const FALLBACK_CONCURRENCY_LIMIT = 3;
+const MAX_CHAPTERS_PER_JOB = 2;
+const MAX_CJK_CHARS_PER_JOB = 36000;
 
 function now() {
   return new Date().toISOString();
@@ -112,6 +114,8 @@ function recordWorkerBackoff(paths, options = {}) {
 module.exports = {
   FALLBACK_CONCURRENCY_LIMIT,
   INITIAL_CONCURRENCY_LIMIT,
+  MAX_CHAPTERS_PER_JOB,
+  MAX_CJK_CHARS_PER_JOB,
   ensureWorkerPool,
   freshWorkerPool,
   readWorkerPool,

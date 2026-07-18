@@ -62,7 +62,7 @@ function runFlow(args, options = {}) {
   });
 }
 
-function sourceRef(chapter = 1, text = '原文锚点') {
+function sourceRef(chapter = 1, text = '甲') {
   return { chapter, text };
 }
 
@@ -79,7 +79,8 @@ function validChapterDraft(overrides = {}) {
     items: [],
     skills: [{
       local_key: 'skill:内功', name: '玄门内功', rank: '初窥门径',
-      techniques: [{ name: '飞云掌', named_in_source: true }], source_refs: [sourceRef()]
+      techniques: [{ name: '飞云掌', named_in_source: true }],
+      source_refs: [sourceRef(1, '甲修习玄门内功并使出飞云掌。')]
     }],
     factions: [],
     chapter_summary: {
@@ -136,7 +137,7 @@ function requireFlowSuccess(result, label) {
 function prepareAssembledRun({
   name = '已组装试书',
   runId = 'run-assembled',
-  source = '第一章 起始\n甲修习玄门内功。\n',
+  source = '第一章 起始\n甲修习玄门内功并使出飞云掌。\n',
   chapterOverrides = {},
   domainDraftForInput = validDomainDraft,
   beforeAssemble = null
@@ -155,6 +156,9 @@ function prepareAssembledRun({
     const override = typeof chapterOverrides === 'function'
       ? chapterOverrides(chapter)
       : chapterOverrides;
+    const chapterText = fs.readFileSync(chapter.file, 'utf8');
+    const evidenceText = chapterText.split(/\r?\n/).slice(1).find(line => line.trim() !== '')
+      || chapter.title;
     const draft = validChapterDraft({
       chapter: chapter.number,
       title: chapter.title,
@@ -162,7 +166,7 @@ function prepareAssembledRun({
       chapter_summary: {
         title: chapter.title,
         summary: `第${chapter.number}章摘要。`,
-        source_refs: [sourceRef(chapter.number, `第${chapter.number}章原文锚点`)]
+        source_refs: [sourceRef(chapter.number, evidenceText)]
       },
       ...override
     });

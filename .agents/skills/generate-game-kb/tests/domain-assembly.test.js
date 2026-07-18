@@ -113,3 +113,16 @@ test('domain assembly bytes are stable when accepted decision documents arrive o
   assert.equal(JSON.stringify(first), JSON.stringify(repeated));
   assert.equal(JSON.stringify(first), JSON.stringify(reversed));
 });
+
+test('domain assembly preserves unquarantined generic techniques for review', () => {
+  const value = fixture();
+  value.registry.categories.skills[0].record.techniques.push({
+    name: '挥手一击',
+    named_in_source: true,
+    description: '尚未经过 basic registry quarantine 的动作记录。'
+  });
+
+  const merged = assemble(value);
+
+  assert.equal(merged.skills[0].techniques.some(technique => technique.name === '挥手一击'), true);
+});

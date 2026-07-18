@@ -106,7 +106,10 @@ test('accept records one invalid attempt and preserves its archived draft', () =
   const progress = readJson(paths.progress).units['chapter:001'];
   assert.equal(progress.attempts, 1);
   assert.equal(progress.status, 'pending');
-  assert.equal(fs.readdirSync(path.join(paths.drafts, 'chapter_001')).length, 1);
+  const archived = fs.readdirSync(path.join(paths.drafts, 'chapter_001'));
+  assert.equal(archived.filter(file => file.endsWith('.yaml')).length, 1);
+  assert.equal(archived.filter(file => file.endsWith('.json')).length, 1);
+  assert.equal(fs.existsSync(manifest.chapters[0].staging_paths[0]), true);
 });
 
 test('a consumed staging path is rejected before spending the remaining budget', () => {
@@ -195,13 +198,16 @@ test('plan-domains creates four current units and a rejected domain leaves its a
       local_key: 'item:铁盒',
       name: '铁盒',
       importance: '关键',
-      source_refs: [sourceRef()]
+      source_refs: [sourceRef(1, '甲取得铁盒并拜入胡家。')]
     }],
-    factions: [{ local_key: 'faction:胡家', name: '胡家', source_refs: [sourceRef()] }],
+    factions: [{
+      local_key: 'faction:胡家', name: '胡家',
+      source_refs: [sourceRef(1, '甲取得铁盒并拜入胡家。')]
+    }],
     chapter_summary: {
       title: chapter.title,
       summary: '甲取得铁盒并拜入胡家。',
-      source_refs: [sourceRef()]
+      source_refs: [sourceRef(1, '甲取得铁盒并拜入胡家。')]
     }
   });
   assert.equal(acceptDraft(novel, 'chapter:001', chapterDraft).status, 0);
@@ -248,11 +254,16 @@ test('plan-domains fails explicitly instead of truncating an oversized current d
   const chapterDraft = validChapterDraft({
     title: chapter.title,
     source_hash: chapter.input_hash,
-    characters: [{ ...base.characters[0], biography: '长'.repeat(MAX_DOMAIN_WORK_ITEM_BYTES) }],
+    characters: [{
+      ...base.characters[0],
+      biography: '长'.repeat(MAX_DOMAIN_WORK_ITEM_BYTES),
+      source_refs: [sourceRef(1, '甲连续讲述往事。')]
+    }],
+    skills: [],
     chapter_summary: {
       title: chapter.title,
       summary: '甲连续讲述往事。',
-      source_refs: [sourceRef()]
+      source_refs: [sourceRef(1, '甲连续讲述往事。')]
     }
   });
   const accepted = acceptDraft(novel, 'chapter:001', chapterDraft);

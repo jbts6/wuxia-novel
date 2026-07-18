@@ -53,9 +53,17 @@ test('domain work-plan writes are idempotent private and stale-safe', () => {
 
   assert.equal(writeWorkPlan(paths, plan).written, true);
   assert.equal(writeWorkPlan(paths, plan).written, false);
-  assert.deepEqual(readWorkPlan(paths, 'domain'), plan);
+  const expectedInputs = plan.inputs.map(input => ({
+    ...input,
+    staging_path: path.join(
+      paths.staging,
+      `${input.unit.replaceAll(':', '_')}_attempt_01.yaml`
+    ),
+    attempt: 1
+  }));
+  assert.deepEqual(readWorkPlan(paths, 'domain'), { ...plan, inputs: expectedInputs });
   const stored = readWorkItem(paths, 'distill:characters');
-  assert.deepEqual(stored.input, plan.inputs.find(input => input.unit === 'distill:characters'));
+  assert.deepEqual(stored.input, expectedInputs.find(input => input.unit === 'distill:characters'));
   assert.doesNotMatch(fs.readFileSync(path.join(paths.domainWork, 'plan.json'), 'utf8'), /registry:|candidate_key|local_key/);
 
   const changed = structuredClone(plan);
@@ -88,11 +96,25 @@ test('stale domain work rotates bytes without overwriting its accepted decision'
 
   assert.equal(result.rotated.old_input_hash, oldHash);
   assert.equal(result.rotated.new_input_hash, nextHash);
-  assert.deepEqual(readWorkItem(paths, unit).input, { ...oldInput, input_hash: nextHash });
+  assert.deepEqual(readWorkItem(paths, unit).input, {
+    ...oldInput,
+    input_hash: nextHash,
+    staging_path: path.join(paths.staging, 'distill_characters_attempt_01.yaml'),
+    attempt: 1
+  });
   assert.equal(fs.existsSync(path.join(result.rotated.archive_dir, 'input.json')), true);
   assert.equal(fs.readFileSync(acceptedFile, 'utf8'), acceptedBytes);
   assert.equal(semanticDecisionFile(paths, unit, oldHash), acceptedFile);
   assert.notEqual(semanticDecisionFile(paths, unit, nextHash), acceptedFile);
+});
+
+test('worker prompts require the controller-provided staging path and attempt', () => {
+  for (const prompt of ['distill-domain.md', 'extract-chapters.md']) {
+    const content = fs.readFileSync(path.join(__dirname, '..', 'prompts', prompt), 'utf8');
+    assert.match(content, /staging_path/);
+    assert.match(content, /attempt/);
+    assert.match(content, /不得自动|禁止自动/);
+  }
 });
 
 test('stale domain rotation refuses changed bytes that reuse the same input hash', () => {

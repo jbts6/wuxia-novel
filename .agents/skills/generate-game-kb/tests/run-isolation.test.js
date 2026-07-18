@@ -18,6 +18,11 @@ const RUN_SCOPED_PATHS = [
   'workerPool',
   'progress',
   'manualReview',
+  'quarantine',
+  'deferredTasks',
+  'tasks',
+  'overlays',
+  'revisions',
   'sourceOriginal',
   'sourceChapters',
   'semanticWork',
@@ -38,7 +43,13 @@ const RUN_SCOPED_PATHS = [
   'verificationReport'
 ];
 
-test('v4 metadata and artifact paths are scoped below the explicit run id', () => {
+function isWithin(parent, candidate) {
+  if (typeof candidate !== 'string') return false;
+  const relative = path.relative(path.resolve(parent), path.resolve(candidate));
+  return relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative));
+}
+
+test('fast-path metadata and artifact paths are scoped below the explicit run id', () => {
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
   const first = createOrResumeRun(novel, { runId: 'run-a' });
   const second = createOrResumeRun(novel, { runId: 'run-b' });
@@ -60,7 +71,16 @@ test('v4 metadata and artifact paths are scoped below the explicit run id', () =
   }
 });
 
-test('creating or resuming a v4 run restores only durable current work directories', () => {
+test('fast-path run paths stay inside the run directory', () => {
+  const novel = makeNovel('试书', '第一章 起始\n正文。\n');
+  const paths = pathsFor(novel, 'run-v5');
+
+  for (const key of ['quarantine', 'deferredTasks', 'tasks', 'overlays', 'revisions']) {
+    assert.equal(isWithin(paths.run, paths[key]), true, key);
+  }
+});
+
+test('creating or resuming a current run restores only durable current work directories', () => {
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
   createOrResumeRun(novel, { runId: 'run-a' });
   const paths = pathsFor(novel, 'run-a');
@@ -87,7 +107,7 @@ test('implicit resolution rejects adjacent eligible runs while explicit ids rema
   assert.equal(resolveRun(novel, 'run-b').run_id, 'run-b');
 });
 
-test('a single matching v4 run resumes without changing started_at', () => {
+test('a single matching current run resumes without changing started_at', () => {
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
   const first = createOrResumeRun(novel, { runId: 'run-a' });
   const firstMetadata = readJson(path.join(first.run_dir, 'run.json'));
@@ -100,7 +120,7 @@ test('a single matching v4 run resumes without changing started_at', () => {
   assert.equal(resumed.source_hash, first.source_hash);
 });
 
-test('changed source cannot resume an existing v4 run', () => {
+test('changed source cannot resume an existing current run', () => {
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
   createOrResumeRun(novel, { runId: 'run-a' });
   fs.appendFileSync(path.join(novel, '试书.txt'), '新增正文。\n');
@@ -111,7 +131,7 @@ test('changed source cannot resume an existing v4 run', () => {
   );
 });
 
-test('a v4 run snapshot ignores root artifacts and adjacent-run files', () => {
+test('a current run snapshot ignores root artifacts and adjacent-run files', () => {
   const novel = makeNovel('试书', '第一章 起始\n真实正文。\n');
   for (const directory of ['build', 'data', 'reports', 'review', 'prompts']) {
     fs.mkdirSync(path.join(novel, directory), { recursive: true });
@@ -127,4 +147,18 @@ test('a v4 run snapshot ignores root artifacts and adjacent-run files', () => {
   assert.match(chapter, /真实正文/);
   assert.doesNotMatch(chapter, /不应读取/);
   assert.equal(manifest.chapters[0].file.startsWith(first.run_dir), true);
+});
+
+test('a legacy v4 run rejects writes under the fast-path contract', () => {
+  const novel = makeNovel('试书', '第一章 起始\n正文。\n');
+  const created = createOrResumeRun(novel, { runId: 'run-v4' });
+  const runJson = path.join(created.run_dir, 'run.json');
+  const metadata = readJson(runJson);
+  metadata.semantic_contract_version = 4;
+  fs.writeFileSync(runJson, `${JSON.stringify(metadata, null, 2)}\n`);
+
+  assert.throws(
+    () => createOrResumeRun(novel, { runId: 'run-v4' }),
+    error => error.code === 'LEGACY_SEMANTIC_CONTRACT'
+  );
 });
