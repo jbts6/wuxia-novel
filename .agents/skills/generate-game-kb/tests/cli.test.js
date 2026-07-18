@@ -92,6 +92,15 @@ test('reset-unit requires explicit confirmation', () => {
   assert.equal(parseJsonLine(result.stderr).code, 'RESET_CONFIRM_REQUIRED');
 });
 
+test('retry-unit requires explicit confirmation', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
+  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
+  const result = runFlow(['retry-unit', novel, '--unit', 'chapter:001', '--json']);
+
+  assert.notEqual(result.status, 0);
+  assert.equal(parseJsonLine(result.stderr).code, 'RESET_CONFIRM_REQUIRED');
+});
+
 test('accept records one invalid attempt and preserves its archived draft', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   assert.equal(runFlow(['prepare', novel, '--json']).status, 0);

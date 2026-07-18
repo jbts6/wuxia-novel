@@ -160,6 +160,24 @@ test('reset requires confirmation and affects only one unit', () => {
   assert.equal(resubmitted.units['chapter:001'].attempts, 1);
 });
 
+test('manual issues advertise the explicit retry command', () => {
+  let progress = freshProgress();
+  progress.units['chapter:001'] = {
+    ...freshUnit('sha256:a'),
+    status: 'manual_review',
+    attempts: 2
+  };
+
+  assert.deepEqual(manualIssues(progress), [{
+    unit: 'chapter:001',
+    input_hash: 'sha256:a',
+    attempts: 2,
+    stop_reason: null,
+    errors: [],
+    suggested_action: 'Inspect chapter:001; retry with retry-unit --unit chapter:001 --confirm'
+  }]);
+});
+
 test('syncing dynamic category units preserves unchanged done siblings and rotates only stale inputs', () => {
   const progress = freshProgress();
   progress.units['distill:characters'] = {

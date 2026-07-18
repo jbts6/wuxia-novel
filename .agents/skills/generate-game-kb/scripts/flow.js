@@ -20,7 +20,11 @@ const {
 } = require('./lib/candidate-ledger');
 const { buildCandidateRegistry } = require('./lib/candidate-registry');
 const { createDomainWorkPlan } = require('./lib/domain-work');
-const { addDeferredTask, runDeferredTask, loadState } = require('./lib/deferred-task');
+const {
+  addDeferredTask,
+  resolvePublishedV5Paths,
+  runDeferredTask
+} = require('./lib/deferred-task');
 const { applyOverlay } = require('./lib/overlay');
 const { installVerifiedData, verifyInstalled } = require('./lib/install');
 const { readJson, readYaml } = require('./lib/io');
@@ -385,17 +389,17 @@ function main(argv = process.argv.slice(2)) {
       });
       return;
     }
-    if (command === 'reset-unit') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'reset-unit requires <novel>');
+    if (command === 'reset-unit' || command === 'retry-unit') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', `${command} requires <novel>`);
       const unit = flagValue(args, '--unit');
-      if (!unit) throw new GameKbError('UNIT_REQUIRED', 'reset-unit requires --unit <id>');
+      if (!unit) throw new GameKbError('UNIT_REQUIRED', `${command} requires --unit <id>`);
       const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       timingUnit = unit;
       const manifest = readJson(paths.manifest);
       const progress = loadProgress(paths, manifest);
-      const reset = resetUnit(progress, unit, args.includes('--confirm'));
+      const reset = resetUnit(progress, unit, args.includes('--confirm'), command);
       saveProgress(paths, reset);
       emit({ reset: unit });
       return;
@@ -480,8 +484,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'task-add') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-add requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
-      const paths = pathsFor(novelDir, run.run_id);
+      const paths = resolvePublishedV5Paths(novelDir, requestedRun);
       emit(addDeferredTask({
         paths,
         type: flagValue(args, '--type'),
@@ -492,15 +495,13 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'task-run') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-run requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
-      const paths = pathsFor(novelDir, run.run_id);
+      const paths = resolvePublishedV5Paths(novelDir, requestedRun);
       emit(runDeferredTask({ paths, taskId: flagValue(args, '--task-id'), draftPath: flagValue(args, '--draft') }));
       return;
     }
     if (command === 'task-apply') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-apply requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
-      const paths = pathsFor(novelDir, run.run_id);
+      const paths = resolvePublishedV5Paths(novelDir, requestedRun);
       emit(applyOverlay({ paths, taskId: flagValue(args, '--task-id') }));
       return;
     }

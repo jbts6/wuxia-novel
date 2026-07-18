@@ -80,12 +80,12 @@
 - Compatibility command: `reset-unit` continues to invoke the same controller reset primitive.
 - Produces a fresh attempt-one input/staging path for one unit and does not mutate accepted siblings.
 
-- [ ] **Step 1: Write RED CLI tests.** Require explicit confirmation, support both `chapter:001` and `distill:characters`, preserve sibling state, and reject an unknown unit/run without changing progress.
-- [ ] **Step 2: Write RED state-machine tests.** Verify two failed submissions end at `manual_review`, status does not schedule a third attempt, both failed drafts remain reviewable, and one explicit retry starts a fresh two-attempt cycle.
-- [ ] **Step 3: Run focused retry/progress/next-action tests.** Expected RED: `retry-unit` is an unknown command and recovery text still advertises `reset-unit`.
-- [ ] **Step 4: Route `retry-unit` through the existing reset primitive.** Keep `--confirm` mandatory, update user-facing suggested recovery to `retry-unit`, and keep `reset-unit` accepted for compatibility.
-- [ ] **Step 5: Re-run focused tests.** Expected: no automatic third attempt, one manual cycle reset, retained drafts, and compatibility all pass.
-- [ ] **Step 6: Commit the green stage.** Commit only Task 3 files with message `feat(game-kb): add bounded manual unit retry`.
+- [x] **Step 1: Write RED CLI tests.** Require explicit confirmation, support both `chapter:001` and `distill:characters`, preserve sibling state, and reject an unknown unit/run without changing progress.
+- [x] **Step 2: Write RED state-machine tests.** Verify two failed submissions end at `manual_review`, status does not schedule a third attempt, both failed drafts remain reviewable, and one explicit retry starts a fresh two-attempt cycle.
+- [x] **Step 3: Run focused retry/progress/next-action tests.** Expected RED: `retry-unit` is an unknown command and recovery text still advertises `reset-unit`.
+- [x] **Step 4: Route `retry-unit` through the existing reset primitive.** Keep `--confirm` mandatory, update user-facing suggested recovery to `retry-unit`, and keep `reset-unit` accepted for compatibility.
+- [x] **Step 5: Re-run focused tests.** Expected: no automatic third attempt, one manual cycle reset, retained drafts, and compatibility all pass (33/33).
+- [x] **Step 6: Commit the green stage.** Commit only Task 3 files with message `feat(game-kb): add bounded manual unit retry`.
 
 ### Task 4: Repair and test the complete V4 Skill contract
 

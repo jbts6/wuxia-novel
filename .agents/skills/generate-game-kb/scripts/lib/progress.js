@@ -225,7 +225,7 @@ function manualIssues(progress) {
       attempts: unit.attempts,
       stop_reason: unit.stop_reason,
       errors: unit.last_errors,
-      suggested_action: `Inspect ${unitName}; reset only with reset-unit --unit ${unitName} --confirm`
+      suggested_action: `Inspect ${unitName}; retry with retry-unit --unit ${unitName} --confirm`
     }));
 }
 
@@ -294,9 +294,9 @@ function loadProgress(paths, manifest) {
   return progress;
 }
 
-function resetUnit(current, unitName, confirmed) {
+function resetUnit(current, unitName, confirmed, command = 'reset-unit') {
   if (!confirmed) {
-    throw new GameKbError('RESET_CONFIRM_REQUIRED', 'reset-unit requires --confirm', { unit: unitName });
+    throw new GameKbError('RESET_CONFIRM_REQUIRED', `${command} requires --confirm`, { unit: unitName });
   }
   const progress = cloneProgress(current);
   const existing = progress.units[unitName];

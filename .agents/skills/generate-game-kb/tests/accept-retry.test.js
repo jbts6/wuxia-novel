@@ -146,7 +146,7 @@ test('accepted evidence records and consumes the controller-owned staging path',
   assert.equal(record.consumed, true);
 });
 
-test('reset-unit rewinds the controller work item before attempt one is resubmitted', () => {
+test('retry-unit starts a fresh bounded cycle before attempt one is resubmitted', () => {
   const fixture = domainFixture('重置工作项试书', 'run-reset-work-item');
   for (let attempt = 1; attempt <= 2; attempt += 1) {
     const input = readWorkItem(fixture.paths, fixture.unit).input;
@@ -162,11 +162,14 @@ test('reset-unit rewinds the controller work item before attempt one is resubmit
   assert.equal(readWorkItem(fixture.paths, fixture.unit).input.attempt, 2);
 
   const reset = runFlow([
-    'reset-unit', fixture.novel, '--run', fixture.paths.runId,
+    'retry-unit', fixture.novel, '--run', fixture.paths.runId,
     '--unit', fixture.unit, '--confirm', '--json'
   ]);
 
   assert.equal(reset.status, 0, reset.stderr);
+  assert.equal(readJson(fixture.paths.progress).units[fixture.unit].status, 'pending');
+  assert.equal(readJson(fixture.paths.progress).units[fixture.unit].attempts, 0);
+  assert.equal(readJson(fixture.paths.progress).history.length, 1);
   const resetInput = readWorkItem(fixture.paths, fixture.unit).input;
   assert.equal(resetInput.attempt, 1);
   assert.match(resetInput.staging_path, /distill_characters_attempt_01\.yaml$/);
