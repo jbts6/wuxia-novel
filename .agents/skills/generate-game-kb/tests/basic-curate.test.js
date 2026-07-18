@@ -6,7 +6,11 @@ const path = require('node:path');
 const test = require('node:test');
 
 const { makeNovel, readJson, runFlow } = require('./helpers');
-const { recordAcceptedArtifact } = require('../scripts/lib/candidate-ledger');
+const { stableHash } = require('../scripts/lib/accept');
+const {
+  acceptedArtifactHash,
+  recordAcceptedArtifact
+} = require('../scripts/lib/candidate-ledger');
 const { pathsFor } = require('../scripts/lib/paths');
 
 function loadBasicCurate() {
@@ -92,6 +96,16 @@ function validDraft() {
       { action: 'drop', registry_key: 'items:stone' }
     ]
   };
+}
+
+function writeBasicCurateDraft(paths, draft) {
+  const file = path.join(paths.staging, 'basic-curate_attempt_01.yaml');
+  fs.writeFileSync(file, `${JSON.stringify(draft, null, 2)}\n`, 'utf8');
+  return file;
+}
+
+function acceptedBasicCuratePath(paths) {
+  return path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
 }
 
 test('validates constrained keep, merge, and drop decisions', () => {
@@ -221,21 +235,81 @@ test('accepted basic-curate remains terminal after a later invalid submission', 
   const paths = pathsFor(novel, runId);
   const registry = registryFixture();
   recordAcceptedArtifact(paths, paths.candidateRegistry, 'sha256:registry-input', registry);
-  const draftPath = path.join(novel, 'basic-curate.json');
-  fs.writeFileSync(draftPath, `${JSON.stringify(validDraft(), null, 2)}\n`, 'utf8');
+  const draftPath = writeBasicCurateDraft(paths, validDraft());
 
   const accepted = runFlow(['basic-curate', novel, '--run', runId, '--draft', draftPath, '--json']);
   assert.equal(accepted.status, 0, accepted.stderr);
   assert.equal(readJson(paths.progress).units['basic-curate'].status, 'done');
 
-  const invalidPath = path.join(novel, 'basic-curate-invalid.json');
-  fs.writeFileSync(invalidPath, JSON.stringify({
+  const invalidPath = writeBasicCurateDraft(paths, {
     schema_version: 1,
     decisions: [{ action: 'drop', registry_key: 'items:invented' }]
-  }), 'utf8');
+  });
   const rejected = runFlow(['basic-curate', novel, '--run', runId, '--draft', invalidPath, '--json']);
 
   assert.notEqual(rejected.status, 0);
   assert.equal(readJson(paths.progress).units['basic-curate'].status, 'done');
   assert.deepEqual(readJson(paths.candidateRegistry), registry);
+});
+
+test('recovers a hash-valid accepted artifact before handling a later skip', () => {
+  const novel = makeNovel('恢复试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+  const runId = JSON.parse(prepared.stdout).run_id;
+  const paths = pathsFor(novel, runId);
+  const registry = registryFixture();
+  const inputHash = stableHash(registry);
+  const decisions = validDraft().decisions;
+  const curated = loadBasicCurate().applyBasicCurate(registry, decisions);
+  recordAcceptedArtifact(paths, paths.candidateRegistry, 'sha256:registry-input', registry);
+  recordAcceptedArtifact(paths, acceptedBasicCuratePath(paths), inputHash, {
+    schema_version: 1,
+    input_hash: inputHash,
+    decisions,
+    curated_registry_hash: stableHash(curated)
+  });
+
+  const result = runFlow(['basic-curate', novel, '--run', runId, '--skip', '--json']);
+
+  assert.notEqual(result.status, 0);
+  assert.equal(JSON.parse(result.stderr).code, 'UNIT_ALREADY_DONE');
+  assert.equal(readJson(paths.progress).units['basic-curate'].status, 'done');
+});
+
+test('canonicalizes accepted decisions so equivalent orderings have the same hash', () => {
+  const acceptDecisions = (name, decisions) => {
+    const novel = makeNovel(name, '第一章 起始\n甲。\n');
+    const prepared = runFlow(['prepare', novel, '--json']);
+    assert.equal(prepared.status, 0, prepared.stderr);
+    const runId = JSON.parse(prepared.stdout).run_id;
+    const paths = pathsFor(novel, runId);
+    recordAcceptedArtifact(paths, paths.candidateRegistry, 'sha256:registry-input', registryFixture());
+    const draftPath = writeBasicCurateDraft(paths, { schema_version: 1, decisions });
+    const result = runFlow(['basic-curate', novel, '--run', runId, '--draft', draftPath, '--json']);
+    assert.equal(result.status, 0, result.stderr);
+    return acceptedArtifactHash(paths, acceptedBasicCuratePath(paths));
+  };
+  const decisions = validDraft().decisions;
+
+  assert.equal(
+    acceptDecisions('正序决策试书', decisions),
+    acceptDecisions('逆序决策试书', [...decisions].reverse())
+  );
+});
+
+test('rejects basic-curate drafts outside the canonical run staging path', () => {
+  const novel = makeNovel('路径约束试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+  const runId = JSON.parse(prepared.stdout).run_id;
+  const paths = pathsFor(novel, runId);
+  recordAcceptedArtifact(paths, paths.candidateRegistry, 'sha256:registry-input', registryFixture());
+  const outside = path.join(novel, 'basic-curate.yaml');
+  fs.writeFileSync(outside, `${JSON.stringify(validDraft(), null, 2)}\n`, 'utf8');
+
+  const result = runFlow(['basic-curate', novel, '--run', runId, '--draft', outside, '--json']);
+
+  assert.notEqual(result.status, 0);
+  assert.equal(JSON.parse(result.stderr).code, 'DRAFT_STAGING_MISMATCH');
 });

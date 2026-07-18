@@ -7,8 +7,12 @@ const path = require('node:path');
 const { GameKbError } = require('./lib/errors');
 const { assembleRun } = require('./lib/assemble');
 const { archiveAbandoned, archiveExisting, archiveRun } = require('./lib/archive');
-const { acceptDraft, stableHash } = require('./lib/accept');
-const { applyBasicCurate, validateBasicCurateDraft } = require('./lib/basic-curate');
+const { acceptDraft, assertDraftPath, stableHash } = require('./lib/accept');
+const {
+  applyBasicCurate,
+  canonicalizeBasicCurateDecisions,
+  validateBasicCurateDraft
+} = require('./lib/basic-curate');
 const {
   acceptedArtifactHash,
   assertAcceptedArtifacts,
@@ -131,10 +135,37 @@ function runBasicCurate(paths, manifest, { draftPath, skip }) {
   if (!fs.existsSync(paths.candidateRegistry)) {
     throw new GameKbError('CANDIDATE_REGISTRY_MISSING', 'basic-curate requires a deterministic candidate registry');
   }
+  assertAcceptedArtifacts(paths);
   acceptedArtifactHash(paths, paths.candidateRegistry);
   const registry = readJson(paths.candidateRegistry);
   const inputHash = stableHash(registry);
+  const artifactPath = path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
   let progress = loadProgress(paths, manifest);
+  if (fs.existsSync(artifactPath)) {
+    acceptedArtifactHash(paths, artifactPath);
+    const artifact = readJson(artifactPath);
+    const errors = validateBasicCurateDraft({
+      schema_version: artifact.schema_version,
+      decisions: artifact.decisions
+    }, registry);
+    const curatedHash = errors.length === 0
+      ? stableHash(applyBasicCurate(registry, artifact.decisions))
+      : null;
+    if (artifact.input_hash !== inputHash
+      || errors.length > 0
+      || artifact.curated_registry_hash !== curatedHash) {
+      throw new GameKbError(
+        'BASIC_CURATE_ACCEPTED_INVALID',
+        'Accepted basic curation is not bound to the current candidate registry',
+        { errors }
+      );
+    }
+    if (progress.units['basic-curate']?.input_hash !== inputHash
+      || progress.units['basic-curate'].status !== 'done') {
+      progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'done');
+      saveProgress(paths, progress);
+    }
+  }
   if (progress.units['basic-curate']?.input_hash === inputHash
     && progress.units['basic-curate'].status === 'done') {
     throw new GameKbError('UNIT_ALREADY_DONE', 'Completed basic-curate cannot be resubmitted');
@@ -146,9 +177,10 @@ function runBasicCurate(paths, manifest, { draftPath, skip }) {
     return { unit: 'basic-curate', status: 'skipped', registry: paths.candidateRegistry };
   }
 
+  const resolvedDraft = assertDraftPath(paths, draftPath, 'basic-curate', 1);
   let draft;
   try {
-    draft = readYaml(draftPath);
+    draft = readYaml(resolvedDraft);
   } catch (error) {
     const errors = [{ code: 'BASIC_CURATE_DRAFT_INVALID', path: '', target: error.message }];
     progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'failed', errors);
@@ -162,14 +194,14 @@ function runBasicCurate(paths, manifest, { draftPath, skip }) {
     throw new GameKbError('BASIC_CURATE_INVALID', 'Basic curation draft is invalid', { errors });
   }
 
-  const curatedRegistry = applyBasicCurate(registry, draft.decisions);
+  const decisions = canonicalizeBasicCurateDecisions(draft.decisions);
+  const curatedRegistry = applyBasicCurate(registry, decisions);
   const artifact = {
     schema_version: 1,
     input_hash: inputHash,
-    decisions: draft.decisions,
+    decisions,
     curated_registry_hash: stableHash(curatedRegistry)
   };
-  const artifactPath = path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
   if (fs.existsSync(artifactPath)) {
     acceptedArtifactHash(paths, artifactPath);
     if (stableHash(readJson(artifactPath)) !== stableHash(artifact)) {

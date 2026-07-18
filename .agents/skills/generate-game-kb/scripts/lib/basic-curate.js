@@ -124,6 +124,21 @@ function uniqueSorted(values) {
   return [...new Set(values.filter(value => typeof value === 'string' && value))].sort(compareText);
 }
 
+function canonicalizeBasicCurateDecisions(decisions) {
+  return decisions.map(decision => (decision.action === 'merge'
+    ? {
+        action: decision.action,
+        registry_key: decision.registry_key,
+        target_registry_key: decision.target_registry_key
+      }
+    : { action: decision.action, registry_key: decision.registry_key }))
+    .sort((left, right) => (
+      compareText(left.registry_key, right.registry_key)
+      || compareText(left.action, right.action)
+      || compareText(left.target_registry_key || '', right.target_registry_key || '')
+    ));
+}
+
 function mergeEntries(target, sources) {
   const entries = [target, ...sources].sort((left, right) => compareText(left.registry_key, right.registry_key));
   return {
@@ -188,4 +203,8 @@ function applyBasicCurate(registry, decisions) {
   return output;
 }
 
-module.exports = { applyBasicCurate, validateBasicCurateDraft };
+module.exports = {
+  applyBasicCurate,
+  canonicalizeBasicCurateDecisions,
+  validateBasicCurateDraft
+};
