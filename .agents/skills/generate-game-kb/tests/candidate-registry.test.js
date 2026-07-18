@@ -114,3 +114,25 @@ test('four-domain reference migration fails closed for missing and ambiguous cha
     error => error.code === 'REGISTRY_REFERENCE_AMBIGUOUS'
   );
 });
+
+test('candidate registry output is deeply and byte deterministic across input order', () => {
+  const chapters = [
+    chapter(2, {
+      characters: [{
+        local_key: 'character:hu-2', name: '胡斐', identity: '胡家后人',
+        source_refs: [sourceRef(2, '胡斐赶到')]
+      }]
+    }),
+    chapter(1, {
+      characters: [{
+        local_key: 'character:hu-1', name: '胡斐', identity: '胡家后人',
+        source_refs: [sourceRef(1, '少年胡斐')]
+      }]
+    })
+  ];
+
+  const first = buildCandidateRegistry(chapters);
+  const second = buildCandidateRegistry([...chapters].reverse());
+  assert.deepEqual(first, second);
+  assert.equal(JSON.stringify(first), JSON.stringify(second));
+});
