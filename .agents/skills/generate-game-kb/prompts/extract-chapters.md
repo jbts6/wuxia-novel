@@ -8,6 +8,10 @@
 
 每个章节必须分别写一个 YAML 文件到该章节描述符指定的 staging 路径。两个章节的作业必须产生两个 YAML 文件，禁止合并成一个跨章草稿。
 
+主模型每次调度都会为每个章节描述符提供由 controller 决定的唯一 `staging_path`
+和当前 `attempt`。只能写该路径，不得从旧的路径列表自行选择下一次路径。提交被拒绝后
+不得自动重试，必须等待带有新 `staging_path` 和 `attempt` 的下一份描述符。
+
 ## 提取范围
 
 **只提取四类顶层实体：**
@@ -97,7 +101,7 @@ chapter_summary:
 3. **禁止补写不确定信息**：不得为了通过校验而猜测 rank、level、faction、biography、description 或 inclusion_reason；缺失信息必须保持 null 或省略
 4. **name/local_key/source_refs/章节号/原文引文不可为空或省略**，结构和证据字段仍按硬约束处理
 5. **禁止跨章节证据**：每个 YAML 只能包含对应章节的实体与 source_refs，不得从同一作业的另一章节复制实体、引文或摘要
-6. 只写各章节描述符指定的 staging 路径，不调用 accept
+6. 只写各章节描述符的 `staging_path`，不得修改 `attempt`，不调用 accept
 7. 不修改其他文件
 8. 不在书籍目录外写文件
 9. 返回时逐章报告 YAML 路径和成功/失败状态

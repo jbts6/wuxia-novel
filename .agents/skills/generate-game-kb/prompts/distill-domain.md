@@ -12,6 +12,10 @@
 
 四个域彼此独立，可并发生成草稿；主模型仍串行调用 `accept`。
 
+每个 `input.json` 都包含由 controller 写入的唯一 `staging_path` 和当前 `attempt`。
+只能把本次草稿写到该 `staging_path`；不得自行推导、改名或选择下一次路径。
+提交被拒绝后不得自动重试，必须等待 controller 提供下一份工作项。
+
 | 单元 | 处理类别 | 重点 | 固定展示顺序 |
 |---|---|---|---|
 | `distill:factions` | factions | 合并同名势力，统一 ID | 1 |
@@ -86,6 +90,6 @@ notes: []
 2. 只能依据工作项中保留的 `source_refs` 决策，不得补写或编造证据
 3. 不得为了通过校验而编造 rank、level、faction、biography、description 或 inclusion_reason；不确定字段必须保持 null 或省略
 4. entry_ref、unit、input_hash 以及输入中的 canonical_name/source_refs 绑定仍是硬约束，不得留空、改写或编造
-5. 只写 staging 路径，不调用 accept
+5. 只写输入中的 `staging_path`，不得修改 `attempt`，不调用 accept
 6. 不修改其他文件
 7. 不在书籍目录外写文件

@@ -34,6 +34,47 @@ function jsonBytes(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
 
+function stagingFileName(unit, attempt) {
+  return `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}.yaml`;
+}
+
+function workerInput(paths, input, attempt = 1) {
+  if (!Number.isInteger(attempt) || attempt < 1 || attempt > 2) {
+    throw workItemError('WORK_ITEM_INVALID', 'Worker attempt must use the bounded submission budget', {
+      unit: input?.unit,
+      attempt
+    });
+  }
+  return {
+    ...input,
+    staging_path: path.join(paths.staging, stagingFileName(input.unit, attempt)),
+    attempt
+  };
+}
+
+function inputWithoutWorkerMetadata(input) {
+  const { staging_path: stagingPath, attempt, ...semanticInput } = input || {};
+  return semanticInput;
+}
+
+function assertWorkerInput(paths, input) {
+  if (!Number.isInteger(input?.attempt) || input.attempt < 1 || input.attempt > 2) {
+    throw workItemError('WORK_ITEM_INVALID', 'Semantic work item is missing a valid attempt', {
+      unit: input?.unit,
+      attempt: input?.attempt ?? null
+    });
+  }
+  const expected = path.join(paths.staging, stagingFileName(input.unit, input.attempt));
+  if (path.resolve(input.staging_path || '') !== path.resolve(expected)) {
+    throw workItemError('WORK_ITEM_INVALID', 'Semantic work item has a non-canonical staging path', {
+      unit: input.unit,
+      staging_path: input.staging_path ?? null,
+      expected
+    });
+  }
+  return input;
+}
+
 function planDocument(plan) {
   return {
     schema_version: 1,
@@ -45,7 +86,9 @@ function planDocument(plan) {
       unit: input.unit,
       category: input.category,
       input_hash: input.input_hash,
-      input_bytes: serializedInputBytes(input)
+      input_bytes: serializedInputBytes(input),
+      staging_path: input.staging_path,
+      attempt: input.attempt
     })),
     consolidations: plan.consolidations || []
   };
@@ -53,8 +96,12 @@ function planDocument(plan) {
 
 function writeWorkPlan(paths, plan) {
   const root = workRoot(paths, plan?.stage);
-  const files = [{ file: path.join(root, 'plan.json'), content: jsonBytes(planDocument(plan)) }];
-  for (const input of plan.inputs || []) {
+  const inputs = (plan.inputs || []).map(input => workerInput(paths, input));
+  const files = [{
+    file: path.join(root, 'plan.json'),
+    content: jsonBytes(planDocument({ ...plan, inputs }))
+  }];
+  for (const input of inputs) {
     const directory = unitDirectory(root, input.unit);
     const unitBindings = (plan.bindings || []).filter(binding => binding.unit === input.unit);
     files.push(
@@ -88,19 +135,33 @@ function writeWorkPlan(paths, plan) {
 
 function writeWorkItem(paths, stage, input, bindingsDocument, options = {}) {
   const root = workRoot(paths, stage);
-  const directory = unitDirectory(root, input?.unit);
+  const storedInput = workerInput(paths, input, options.attempt ?? 1);
+  const directory = unitDirectory(root, storedInput?.unit);
   const files = [
-    { file: path.join(directory, 'input.json'), content: jsonBytes(input) },
+    { file: path.join(directory, 'input.json'), content: jsonBytes(storedInput) },
     { file: path.join(directory, 'bindings.json'), content: jsonBytes(bindingsDocument) }
   ];
   const stale = files.find(entry => fs.existsSync(entry.file) && fs.readFileSync(entry.file, 'utf8') !== entry.content);
   let rotated = null;
   if (stale) {
+    const inputFile = path.join(directory, 'input.json');
+    const bindingsFile = path.join(directory, 'bindings.json');
+    if (options.advanceAttempt === true && fs.existsSync(inputFile) && fs.existsSync(bindingsFile)) {
+      const previousInput = readJson(inputFile);
+      const sameSemanticInput = JSON.stringify(inputWithoutWorkerMetadata(previousInput))
+        === JSON.stringify(inputWithoutWorkerMetadata(storedInput));
+      const sameBindings = fs.readFileSync(bindingsFile, 'utf8') === files[1].content;
+      if (!sameSemanticInput || !sameBindings || storedInput.attempt !== previousInput.attempt + 1) {
+        throw workItemError('WORK_ITEM_STALE', 'Semantic retry cannot change worker input bytes', {
+          unit: storedInput.unit
+        });
+      }
+      atomicWriteFile(inputFile, files[0].content);
+      return { written: true, input: inputFile, bindings: bindingsFile, rotated: null };
+    }
     if (options.rotateStale !== true) {
       throw workItemError('WORK_ITEM_STALE', 'Existing semantic work bytes differ', { file: stale.file });
     }
-    const inputFile = path.join(directory, 'input.json');
-    const bindingsFile = path.join(directory, 'bindings.json');
     if (!fs.existsSync(inputFile) || !fs.existsSync(bindingsFile)) {
       throw workItemError('WORK_ITEM_STALE', 'Existing semantic work item is incomplete', { unit: input?.unit });
     }
@@ -167,6 +228,7 @@ function readWorkItem(paths, unit) {
   if (input?.unit !== unit || bindings?.unit !== unit || input?.input_hash !== bindings?.input_hash) {
     throw workItemError('WORK_ITEM_STALE', 'Semantic input and private bindings disagree', { unit });
   }
+  assertWorkerInput(paths, input);
   return { input, bindings, input_file: inputFile, bindings_file: bindingsFile };
 }
 

@@ -13,7 +13,7 @@ const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contr
 const { normalizeDomainDecisionDraft, validateDomainDecisionDraft } = require('./domain-contract');
 const { GameKbError } = require('./errors');
 const { isGroundingError } = require('./grounding');
-const { atomicWriteFile, readJson } = require('./io');
+const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const {
   loadProgress,
   recordSubmission,
@@ -22,7 +22,7 @@ const {
 const { DOMAIN_UNITS } = require('./semantic-contract');
 const { quarantineRecord } = require('./quarantine');
 const { sha256 } = require('./source');
-const { readWorkItem } = require('./semantic-work');
+const { readWorkItem, writeWorkItem } = require('./semantic-work');
 
 const DOMAIN_DECISION_UNITS = new Set(DOMAIN_UNITS);
 
@@ -40,9 +40,9 @@ function nextAttempt(progress, unit, inputHash) {
   return !state || state.input_hash !== inputHash ? 1 : state.attempts + 1;
 }
 
-function assertDraftPath(paths, draftPath, unit, attempt) {
+function assertDraftPath(paths, draftPath, unit, attempt, expectedPath = null) {
   const resolved = path.resolve(draftPath);
-  const expected = path.resolve(paths.staging, stagingFileName(unit, attempt));
+  const expected = path.resolve(expectedPath || path.join(paths.staging, stagingFileName(unit, attempt)));
   if (resolved !== expected) {
     throw new GameKbError('DRAFT_STAGING_MISMATCH', 'Draft must use the next unsubmitted run-scoped staging path', {
       unit,
@@ -115,6 +115,7 @@ function unitContext(paths, manifest, progress, unit) {
       kind: 'chapter',
       inputHash: chapter.input_hash,
       acceptedFile: acceptedChapterFile(paths, number),
+      stagingPath: attempt => chapter.staging_paths?.[attempt - 1],
       validate: draft => validateChapterDraft(draft, {
         number: chapter.number,
         title: chapter.title,
@@ -127,8 +128,20 @@ function unitContext(paths, manifest, progress, unit) {
   if (DOMAIN_DECISION_UNITS.has(unit)) {
     const work = readWorkItem(paths, unit);
     return {
+      kind: 'domain',
+      work,
       inputHash: work.input.input_hash,
       acceptedFile: semanticDecisionFile(paths, unit, work.input.input_hash),
+      stagingPath: attempt => {
+        if (work.input.attempt !== attempt) {
+          throw new GameKbError('WORK_ITEM_STALE', 'Worker input does not own the next submission attempt', {
+            unit,
+            attempt,
+            work_attempt: work.input.attempt
+          });
+        }
+        return work.input.staging_path;
+      },
       validate: draft => validateDomainDecisionDraft(draft, work.input),
       normalize: draft => normalizeDomainDecisionDraft(draft, work.input)
     };
@@ -191,8 +204,15 @@ function acceptDraft({ paths, unit, draftPath }) {
   const manifest = readJson(paths.manifest);
   const progress = loadProgress(paths, manifest);
   const context = unitContext(paths, manifest, progress, unit);
+  const existing = progress.units[unit];
+  if (existing?.input_hash === context.inputHash && existing.status === 'done') {
+    throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be resubmitted', { unit });
+  }
+  if (existing?.input_hash === context.inputHash && existing.status === 'manual_review') {
+    throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit });
+  }
   const attempt = nextAttempt(progress, unit, context.inputHash);
-  const resolvedDraft = assertDraftPath(paths, draftPath, unit, attempt);
+  const resolvedDraft = assertDraftPath(paths, draftPath, unit, attempt, context.stagingPath(attempt));
   const raw = fs.readFileSync(resolvedDraft, 'utf8');
   const outputHash = sha256(raw);
   let draft;
@@ -218,6 +238,9 @@ function acceptDraft({ paths, unit, draftPath }) {
     archiveDir,
     `attempt_${String(state.attempts).padStart(2, '0')}_${outputHash.slice(7, 19)}.yaml`
   );
+  if (fs.existsSync(archive)) {
+    throw new GameKbError('DRAFT_ARCHIVE_EXISTS', 'Submission archive is immutable', { unit, archive });
+  }
   atomicWriteFile(archive, raw);
 
   let acceptedFile = null;
@@ -226,15 +249,44 @@ function acceptDraft({ paths, unit, draftPath }) {
     const acceptedValue = context.normalize ? context.normalize(draft) : draft;
     recordAcceptedArtifact(paths, acceptedFile, context.inputHash, acceptedValue);
   }
-  saveProgress(paths, updated);
-  try {
-    fs.rmSync(resolvedDraft);
-  } catch (error) {
-    throw new GameKbError('DRAFT_STAGING_CONSUME_FAILED', 'Submitted staging draft could not be removed safely', {
+  const submissionRecord = archive.replace(/\.yaml$/, '.json');
+  if (fs.existsSync(submissionRecord)) {
+    throw new GameKbError('DRAFT_ARCHIVE_EXISTS', 'Submission record is immutable', {
       unit,
-      draft: resolvedDraft,
-      cause: error.message
+      record: submissionRecord
     });
+  }
+  atomicWriteJson(submissionRecord, {
+    schema_version: 1,
+    unit,
+    input_hash: context.inputHash,
+    attempt: state.attempts,
+    status: errors.length === 0 ? 'accepted' : 'rejected',
+    staging_path: resolvedDraft,
+    output_hash: outputHash,
+    archive_path: archive,
+    archive_hash: outputHash,
+    accepted_file: acceptedFile,
+    consumed: errors.length === 0,
+    errors
+  });
+  if (errors.length > 0 && state.status === 'pending' && context.kind === 'domain') {
+    writeWorkItem(paths, 'domain', context.work.input, context.work.bindings, {
+      advanceAttempt: true,
+      attempt: state.attempts + 1
+    });
+  }
+  saveProgress(paths, updated);
+  if (errors.length === 0) {
+    try {
+      fs.rmSync(resolvedDraft);
+    } catch (error) {
+      throw new GameKbError('DRAFT_STAGING_CONSUME_FAILED', 'Submitted staging draft could not be removed safely', {
+        unit,
+        draft: resolvedDraft,
+        cause: error.message
+      });
+    }
   }
 
   const result = {
@@ -247,6 +299,10 @@ function acceptDraft({ paths, unit, draftPath }) {
     errors,
     quarantine_files: quarantineFiles,
     draft_archive: archive,
+    draft_archive_hash: outputHash,
+    submission_record: submissionRecord,
+    error_record: errors.length > 0 ? submissionRecord : null,
+    consumed_path: errors.length === 0 ? resolvedDraft : null,
     accepted_file: acceptedFile
   };
   if (errors.length > 0) {
