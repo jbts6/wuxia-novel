@@ -501,12 +501,7 @@ function main(argv = process.argv.slice(2)) {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-apply requires <novel>');
       const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
       const paths = pathsFor(novelDir, run.run_id);
-      const state = loadState(paths);
-      const task = state.tasks.find(item => item.task_id === flagValue(args, '--task-id'));
-      if (!task || task.status !== 'ready') throw new GameKbError('DEFERRED_TASK_NOT_READY', 'Deferred task is not ready to apply');
-      const registry = readJson(paths.candidateRegistry);
-      emit(applyOverlay({ task, overlay: task.draft, baseRegistry: registry,
-        groundingContext: { base_manifest_hash: task.base_manifest_hash } }));
+      emit(applyOverlay({ paths, taskId: flagValue(args, '--task-id') }));
       return;
     }
     throw new GameKbError('COMMAND_UNKNOWN', `Unknown command: ${command || '<missing>'}`);
