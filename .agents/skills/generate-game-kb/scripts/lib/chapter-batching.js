@@ -15,7 +15,8 @@ const DESCRIPTOR_FIELDS = Object.freeze([
   'source_file',
   'input_hash',
   'source_char_count',
-  'staging_paths'
+  'attempt',
+  'staging_path'
 ]);
 const DESCRIPTOR_FIELD_SET = new Set(DESCRIPTOR_FIELDS);
 
@@ -33,16 +34,23 @@ function batchId(chapters) {
   return first === last ? `chapter-batch-${first}` : `chapter-batch-${first}-${last}`;
 }
 
-function canonicalStagingPaths(manifest, number) {
+function canonicalStagingPath(manifest, number, attempt) {
   const paths = pathsFor(manifest.novel_dir, manifest.run_id);
   const unit = `chapter_${String(number).padStart(3, '0')}`;
-  return [1, 2].map(attempt => path.join(
+  return path.join(
     paths.staging,
     `${unit}_attempt_${String(attempt).padStart(2, '0')}.yaml`
-  ));
+  );
 }
 
-function descriptorFor(chapter, manifest) {
+function currentAttempt(chapter, progress) {
+  const state = progress?.units?.[chapterUnit(chapter.number)];
+  if (!state || state.input_hash !== chapter.input_hash) return 1;
+  return Math.min(2, (state.attempts || 0) + 1);
+}
+
+function descriptorFor(chapter, manifest, progress) {
+  const attempt = currentAttempt(chapter, progress);
   return {
     unit: chapterUnit(chapter.number),
     number: chapter.number,
@@ -50,7 +58,8 @@ function descriptorFor(chapter, manifest) {
     source_file: chapter.file,
     input_hash: chapter.input_hash,
     source_char_count: chapter.source_char_count,
-    staging_paths: canonicalStagingPaths(manifest, chapter.number)
+    attempt,
+    staging_path: canonicalStagingPath(manifest, chapter.number, attempt)
   };
 }
 
@@ -63,7 +72,8 @@ function assertPositiveInteger(value, name) {
 
 function packChapterJobs(manifest, {
   maxChapters = MAX_CHAPTERS_PER_JOB,
-  maxCjkChars = MAX_CJK_CHARS_PER_JOB
+  maxCjkChars = MAX_CJK_CHARS_PER_JOB,
+  progress = null
 } = {}) {
   const effectiveMaxChapters = Math.min(
     assertPositiveInteger(maxChapters, 'maxChapters'),
@@ -75,7 +85,7 @@ function packChapterJobs(manifest, {
   );
   const chapters = [...(manifest?.chapters || [])]
     .sort((left, right) => left.number - right.number)
-    .map(chapter => descriptorFor(chapter, manifest));
+    .map(chapter => descriptorFor(chapter, manifest, progress));
   const jobs = [];
   let current = [];
   let currentChars = 0;
@@ -111,7 +121,7 @@ function compareIssues(left, right) {
     || stableTarget(left.target).localeCompare(stableTarget(right.target));
 }
 
-function validateChapterJob(job, manifest) {
+function validateChapterJob(job, manifest, progress = null) {
   if (!job || typeof job !== 'object' || Array.isArray(job)) {
     return [issue('CHAPTER_JOB_INVALID', '$')];
   }
@@ -146,7 +156,7 @@ function validateChapterJob(job, manifest) {
       errors.push(issue('CHAPTER_DESCRIPTOR_UNKNOWN', `${base}.number`, descriptor.number));
       return;
     }
-    const expected = descriptorFor(source, manifest);
+    const expected = descriptorFor(source, manifest, progress);
     for (const field of DESCRIPTOR_FIELDS) {
       if (JSON.stringify(descriptor[field]) !== JSON.stringify(expected[field])) {
         errors.push(issue('CHAPTER_DESCRIPTOR_MISMATCH', `${base}.${field}`, descriptor[field]));

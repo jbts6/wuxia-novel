@@ -100,6 +100,7 @@ function lifecycleInput({
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-next-action-'));
   const paths = {
     run: root,
+    staging: path.join(root, 'staging'),
     domainWork: path.join(root, 'work', 'domain'),
     finalData: path.join(root, 'final', 'data'),
     finalIdPlan: path.join(root, 'final', 'reports', 'id-plan.json'),
@@ -183,7 +184,8 @@ test('returns accept-chapters with numerically sorted unfinished chapters', () =
           source_file: '/source/ch_002.txt',
           input_hash: 'sha256:chapter-002',
           source_char_count: 1000,
-          staging_paths: chapterStagingPaths(2)
+          attempt: 1,
+          staging_path: chapterStagingPaths(2)[0]
         }]
       },
       {
@@ -195,7 +197,8 @@ test('returns accept-chapters with numerically sorted unfinished chapters', () =
           source_file: '/source/ch_010.txt',
           input_hash: 'sha256:chapter-010',
           source_char_count: 1000,
-          staging_paths: chapterStagingPaths(10)
+          attempt: 1,
+          staging_path: chapterStagingPaths(10)[0]
         }]
       }
     ]
@@ -233,10 +236,13 @@ test('chapter jobs include only current unfinished units and ignore progress ins
 
 test('a failed chapter descriptor is rescheduled without completed siblings', () => {
   const input = lifecycleInput({ chapterStatuses: { 2: 'pending', 10: 'done' } });
+  input.progress.units['chapter:002'].attempts = 1;
   const result = resolveNextAction(input);
 
   assert.deepEqual(result.next_units, ['chapter:002']);
   assert.deepEqual(result.chapter_jobs.map(job => job.chapters.map(chapter => chapter.unit)), [['chapter:002']]);
+  assert.equal(result.chapter_jobs[0].chapters[0].attempt, 2);
+  assert.equal(result.chapter_jobs[0].chapters[0].staging_path, chapterStagingPaths(2)[1]);
 });
 
 test('returns plan-domains only after all chapter accepts complete', () => {

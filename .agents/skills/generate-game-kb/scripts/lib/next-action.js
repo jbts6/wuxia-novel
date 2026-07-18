@@ -117,7 +117,7 @@ function resolveNextAction({ paths, manifest, progress, installed }) {
     return {
       next_action: 'accept-chapters',
       next_units: unfinishedChapters.map(chapter => chapterUnit(chapter.number)),
-      chapter_jobs: packChapterJobs({ ...manifest, chapters: unfinishedChapters })
+      chapter_jobs: packChapterJobs({ ...manifest, chapters: unfinishedChapters }, { progress })
     };
   }
 

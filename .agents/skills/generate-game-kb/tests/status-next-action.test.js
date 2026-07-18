@@ -57,7 +57,32 @@ test('status returns one lifecycle action without mutating the novel tree', () =
     { next_action: output.next_action, next_units: output.next_units },
     { next_action: 'accept-chapters', next_units: ['chapter:001'] }
   );
+  assert.equal(output.chapter_jobs[0].chapters[0].attempt, 1);
+  assert.equal(output.chapter_jobs[0].chapters[0].staging_path,
+    readJson(activePaths(novel).manifest).chapters[0].staging_paths[0]);
+  assert.equal('staging_paths' in output.chapter_jobs[0].chapters[0], false);
   assert.equal('next_actions' in output, false);
+});
+
+test('status issues only the second current staging path after one rejected chapter draft', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
+  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
+  const paths = activePaths(novel);
+  const manifest = readJson(paths.manifest);
+  fs.writeFileSync(manifest.chapters[0].staging_paths[0], 'chapter: [\n', 'utf8');
+
+  const rejected = runFlow([
+    'accept', novel, '--run', paths.runId,
+    '--unit', 'chapter:001', '--draft', manifest.chapters[0].staging_paths[0], '--json'
+  ]);
+  assert.equal(rejected.status, 1);
+
+  const result = runFlow(['status', novel, '--run', paths.runId, '--json']);
+  assert.equal(result.status, 0, result.stderr);
+  const descriptor = JSON.parse(result.stdout).chapter_jobs[0].chapters[0];
+  assert.equal(descriptor.attempt, 2);
+  assert.equal(descriptor.staging_path, manifest.chapters[0].staging_paths[1]);
+  assert.equal('staging_paths' in descriptor, false);
 });
 
 test('status projects stale progress without recreating missing controller files', () => {

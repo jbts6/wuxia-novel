@@ -57,12 +57,12 @@
 - Produces each job chapter as `{ unit, number, title, source_file, source_char_count, input_hash, attempt, staging_path }`.
 - The current path is derived by the controller from the unit's current progress attempt; no `staging_paths` array crosses the controller/agent boundary.
 
-- [ ] **Step 1: Write RED descriptor-shape tests.** Assert exact keys, `attempt: 1`, one `_attempt_01.yaml` path, path containment, and `accept` consumption of that exact issued path.
-- [ ] **Step 2: Add RED retry projection coverage.** After one rejected submission, `status` must issue `attempt: 2` and `_attempt_02.yaml`; accepted siblings remain absent from the next job list.
-- [ ] **Step 3: Run the focused descriptor/status tests.** Expected RED: current output contains `staging_paths` and lacks `attempt`/`staging_path`.
-- [ ] **Step 4: Change the descriptor builder to consume current progress state.** Preserve canonical path derivation and validation in one controller function; reject extra/mismatched descriptor fields deterministically.
-- [ ] **Step 5: Re-run focused tests.** Expected: exact descriptor contract and controller/main-agent/worker path equality pass.
-- [ ] **Step 6: Commit the green stage.** Commit only Task 2 files with message `fix(game-kb): issue one current chapter staging path`.
+- [x] **Step 1: Write RED descriptor-shape tests.** Assert exact keys, `attempt: 1`, one `_attempt_01.yaml` path, path containment, and `accept` consumption of that exact issued path.
+- [x] **Step 2: Add RED retry projection coverage.** After one rejected submission, `status` must issue `attempt: 2` and `_attempt_02.yaml`; accepted siblings remain absent from the next job list.
+- [x] **Step 3: Run the focused descriptor/status tests.** Expected RED: current output contains `staging_paths` and lacks `attempt`/`staging_path`.
+- [x] **Step 4: Change the descriptor builder to consume current progress state.** Preserve canonical path derivation and validation in one controller function; reject extra/mismatched descriptor fields deterministically.
+- [x] **Step 5: Re-run focused tests.** Expected: exact descriptor contract and controller/main-agent/worker path equality pass (30/30).
+- [x] **Step 6: Commit the green stage.** Commit only Task 2 files with message `fix(game-kb): issue one current chapter staging path`.
 
 ### Task 3: Add the explicit bounded `retry-unit` cycle
 

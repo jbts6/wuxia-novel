@@ -87,8 +87,11 @@ test('packs fifty short chapters into adjacent jobs of up to three chapters', ()
       'source_file',
       'input_hash',
       'source_char_count',
-      'staging_paths'
+      'attempt',
+      'staging_path'
     ]);
+    assert.equal(descriptor.attempt, 1);
+    assert.match(descriptor.staging_path, /_attempt_01\.yaml$/);
   }
 });
 
@@ -164,39 +167,52 @@ test('job validation reports malformed chapter descriptors without throwing', ()
   }]);
 });
 
-test('packing derives canonical staging paths instead of trusting manifest values', () => {
+test('packing derives one canonical current staging path instead of trusting manifest values', () => {
   const input = manifest([chapter(1, 1000)]);
   input.chapters[0].staging_paths = ['C:/outside/escape.yaml'];
 
   const [job] = pack(input);
-  assert.deepEqual(job.chapters[0].staging_paths, [
-    path.join(TEST_PATHS.staging, 'chapter_001_attempt_01.yaml'),
-    path.join(TEST_PATHS.staging, 'chapter_001_attempt_02.yaml')
-  ]);
+  assert.equal(job.chapters[0].attempt, 1);
+  assert.equal(job.chapters[0].staging_path,
+    path.join(TEST_PATHS.staging, 'chapter_001_attempt_01.yaml'));
 });
 
-test('job validation rejects manifest-trusted staging path length, escape, filename, and order', () => {
+test('packing projects the second current attempt from controller progress', () => {
+  const input = manifest([chapter(1, 1000)]);
+  const progress = {
+    units: {
+      'chapter:001': {
+        input_hash: input.chapters[0].input_hash,
+        status: 'pending',
+        attempts: 1
+      }
+    }
+  };
+
+  const [job] = pack(input, { progress });
+  assert.equal(job.chapters[0].attempt, 2);
+  assert.equal(job.chapters[0].staging_path,
+    path.join(TEST_PATHS.staging, 'chapter_001_attempt_02.yaml'));
+});
+
+test('job validation rejects escaped, mismatched, and path-list descriptors', () => {
   const validManifest = manifest([chapter(1, 1000)]);
-  const canonical = validManifest.chapters[0].staging_paths;
-  const invalidPaths = [
-    [canonical[0]],
-    ['C:/outside/chapter_001_attempt_01.yaml', 'C:/outside/chapter_001_attempt_02.yaml'],
-    [
-      path.join(TEST_PATHS.staging, 'chapter_001_attempt_02.yaml'),
-      path.join(TEST_PATHS.staging, 'chapter_001_attempt_01.yaml')
-    ],
-    [
-      path.join(TEST_PATHS.staging, 'chapter_001_attempt_01-wrong.yaml'),
-      path.join(TEST_PATHS.staging, 'chapter_001_attempt_02-wrong.yaml')
-    ]
+  const invalidDescriptors = [
+    { staging_path: 'C:/outside/chapter_001_attempt_01.yaml' },
+    { staging_path: path.join(TEST_PATHS.staging, 'chapter_001_attempt_02.yaml') },
+    { attempt: 2 },
+    { staging_paths: validManifest.chapters[0].staging_paths }
   ];
 
-  for (const stagingPaths of invalidPaths) {
-    const input = structuredClone(validManifest);
+  for (const replacement of invalidDescriptors) {
     const [job] = pack(validManifest);
-    input.chapters[0].staging_paths = stagingPaths;
-    job.chapters[0].staging_paths = stagingPaths;
-    assert.equal(validate(job, input).some(error => error.path === 'chapters[0].staging_paths'), true);
+    Object.assign(job.chapters[0], replacement);
+    const errors = validate(job, validManifest);
+    assert.equal(errors.some(error => (
+      error.path === 'chapters[0].staging_path'
+      || error.path === 'chapters[0].attempt'
+      || error.path === 'chapters[0].staging_paths'
+    )), true);
   }
 });
 
