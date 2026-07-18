@@ -244,6 +244,7 @@ test('job validation rejects escaped, mismatched, and path-list descriptors', ()
 
 test('extraction prompt requires one YAML per chapter and forbids cross-chapter evidence', () => {
   const prompt = fs.readFileSync(path.resolve(__dirname, '..', 'prompts', 'extract-chapters.md'), 'utf8');
-  assert.match(prompt, /每(?:一个|个)章节[^\n]*每章一个 YAML/);
+  assert.match(prompt, /每章一个文件/);
+  assert.match(prompt, /不能把多个章节包在同一个 YAML/);
   assert.match(prompt, /禁止[^\n]*跨章节[^\n]*证据/);
 });
