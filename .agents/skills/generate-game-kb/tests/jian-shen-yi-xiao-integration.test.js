@@ -6,6 +6,7 @@ const path = require('node:path');
 const test = require('node:test');
 
 const { pathsFor } = require('../scripts/lib/paths');
+const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 const { readJson, runFlow } = require('./helpers');
 
 const repoRoot = path.resolve(__dirname, '..', '..', '..', '..');
@@ -29,7 +30,7 @@ test('tracked Jian Shen Yi Xiao corpus follows the production V4 prepare and sta
   assert.equal(path.resolve(prepareOutput.source_file), path.resolve(source));
 
   const metadata = readJson(paths.runJson);
-  assert.equal(metadata.semantic_contract_version, 5);
+  assert.equal(metadata.semantic_contract_version, SEMANTIC_CONTRACT_VERSION);
   assert.equal(metadata.semantic_profile, 'domain-distill-v1');
   assert.equal(metadata.profile, 'v4');
 

@@ -146,7 +146,7 @@ function mergeEntries(target, sources) {
     aliases: uniqueSorted(entries.flatMap(entry => [entry.canonical_name, ...(entry.aliases || [])]))
       .filter(name => name !== target.canonical_name),
     member_refs: uniqueSorted(entries.flatMap(entry => entry.member_refs || [])),
-    record: mergeRegistryRecords(entries.map(entry => entry.record || {}))
+    record: mergeRegistryRecords(target.category, entries.map(entry => entry.record || {})).record
   };
 }
 

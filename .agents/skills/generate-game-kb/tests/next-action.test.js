@@ -75,8 +75,6 @@ function currentFinalData() {
     chapter: chapter.number,
     title: `第${chapter.number}章`,
     summary: `第${chapter.number}章摘要。`,
-    key_characters: ['甲'],
-    key_skills: chapter.number === 2 ? ['玄门内功'] : [],
     source_refs: [sourceRef(chapter.number, `第${chapter.number}章原文锚点`)]
   }));
   const result = buildFinalData(book, CURRENT_MANIFEST);

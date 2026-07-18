@@ -348,7 +348,7 @@ test('domain accept rejects unknown and unauthorized faction refs before writing
     const input = readWorkPlan(fixture.paths, 'domain').inputs
       .find(value => value.unit === 'distill:characters');
     const draftValue = validDomainDraft(input);
-    draftValue.decisions[0].patch.faction = factionRef || input.entries[0].entry_ref;
+    draftValue.decisions[0].patch.factions = [factionRef || input.entries[0].entry_ref];
     const draft = writeStagingDraft(fixture.novel, input.unit, draftValue);
 
     const result = runFlow([
@@ -370,7 +370,6 @@ test('plan-domains preserves every accepted item without truncation', () => {
     name: `剧情物件${String(index).padStart(3, '0')}`,
     type: '其他',
     description: `第${index + 1}件剧情物件。`,
-    inclusion_reason: '剧情关键',
     source_refs: [sourceRef(1, `剧情物件${String(index).padStart(3, '0')}`)]
   }));
   const source = `第一章 起始\n${items.map(item => item.name).join('、')}。\n`;

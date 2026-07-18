@@ -80,28 +80,31 @@ function registryLedgerEntry(paths) {
 }
 
 function finalizeAssembly({ paths, manifest, book, report }) {
-  const result = buildFinalData(book, manifest);
+  const priorIdPlan = fs.existsSync(paths.finalIdPlan) ? readJson(paths.finalIdPlan) : {};
+  const result = buildFinalData(book, manifest, priorIdPlan);
   if (result.issues.length > 0) {
     throw new GameKbError('FINAL_PROJECTION_FAILED', 'Assembled data contains unresolved final projection issues', {
       issues: result.issues
     });
   }
   const finalDataHash = hashFinalData(result.data);
+  const idPlanHash = stableHash(result.id_plan);
   const counts = countsFor(result.data);
   const completeReport = {
     ...report,
     candidate_resolution_count: book.candidate_resolutions.length,
     candidate_resolution_hash: stableHash(book.candidate_resolutions),
+    id_plan_hash: idPlanHash,
     final_data_hash: finalDataHash,
     final_hashes: finalHashesFor(result.data),
     counts,
     warnings: result.warnings
   };
+  result.assembly_report = completeReport;
   writeFinalDataAtomic(paths, result);
-  fs.mkdirSync(paths.finalReports, { recursive: true });
-  atomicWriteJson(paths.assemblyReport, completeReport);
   return {
     final_data_hash: finalDataHash,
+    id_plan_hash: idPlanHash,
     counts,
     data_dir: paths.finalData,
     report: paths.assemblyReport

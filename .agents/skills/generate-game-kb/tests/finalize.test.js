@@ -7,8 +7,8 @@ const path = require('node:path');
 const test = require('node:test');
 const yaml = require('js-yaml');
 
-const { validMergedBook } = require('./helpers');
-const { buildFinalData, writeFinalData } = require('../scripts/lib/finalize');
+const { sourceRef, validMergedBook } = require('./helpers');
+const { buildFinalData, writeFinalData, writeFinalDataAtomic } = require('../scripts/lib/finalize');
 const { assignStableIds, makeBaseId } = require('../scripts/lib/ids');
 const { FINAL_FIELDS, FINAL_FILES } = require('../scripts/lib/semantic-contract');
 
@@ -37,6 +37,47 @@ test('same-pinyin names receive stable alphabetic collision suffixes', () => {
   for (const record of forward) assert.match(record.id, /^char_lu_lu_[a-p]{8}$/);
 });
 
+test('persisted identity anchors keep IDs stable across rename, reorder, and collision removal', () => {
+  const initial = assignStableIds({ characters: [
+    { registry_key: 'registry:characters:a', local_key: 'character:a', name: '同名', aliases: [], source_refs: [sourceRef(1, '甲')] },
+    { registry_key: 'registry:characters:b', local_key: 'character:b', name: '同名', aliases: [], source_refs: [sourceRef(2, '乙')] }
+  ] });
+  const prior = { characters: initial.characters.map(record => ({
+    identity_anchor: record.identity_anchor,
+    disambiguator: record.disambiguator,
+    id: record.id,
+    registry_key: record.registry_key,
+    canonical_name: record.name,
+    aliases: record.aliases
+  })) };
+  const revised = assignStableIds({ characters: [
+    { registry_key: 'registry:characters:a', local_key: 'character:a', name: '真名', aliases: ['同名'], source_refs: [sourceRef(1, '甲')] }
+  ] }, prior);
+  assert.equal(revised.characters[0].id, initial.characters.find(row => row.registry_key.endsWith(':a')).id);
+  assert.match(revised.characters[0].disambiguator, /^[a-p]{8}$/);
+});
+
+test('distinct same-name registry entries sharing evidence receive different stable IDs', () => {
+  const records = { characters: [
+    { registry_key: 'registry:characters:a', local_key: 'character:a', name: '同名', aliases: [], source_refs: [sourceRef(1, '同一句证据')] },
+    { registry_key: 'registry:characters:b', local_key: 'character:b', name: '同名', aliases: [], source_refs: [sourceRef(1, '同一句证据')] }
+  ] };
+  const initial = assignStableIds(records).characters;
+  const reordered = assignStableIds({ characters: [...records.characters].reverse() }).characters;
+  const byRegistry = values => Object.fromEntries(values.map(value => [value.registry_key, value.id]));
+
+  assert.equal(new Set(initial.map(record => record.id)).size, 2);
+  assert.deepEqual(byRegistry(reordered), byRegistry(initial));
+  for (const record of initial) assert.match(record.id, /^char_tong_ming_[a-p]{8}$/);
+});
+
+test('controller rejects model-authored or numeric disambiguators', () => {
+  assert.throws(
+    () => assignStableIds({ characters: [{ local_key: 'character:a', name: '甲', disambiguator: '1' }] }),
+    error => error.code === 'ID_DISAMBIGUATOR_FORBIDDEN'
+  );
+});
+
 test('one projection rewrites character and skill references to stable IDs', () => {
   const result = buildFinalData(validMergedBook(), manifest);
 
@@ -44,31 +85,54 @@ test('one projection rewrites character and skill references to stable IDs', () 
   const character = result.data[FINAL_FILES.characters][0];
   const skill = result.data[FINAL_FILES.skills][0];
   assert.deepEqual(character.skills, ['skill_xuan_men_nei_gong']);
-  assert.deepEqual(character.items, ['item_hui_sheng_dan']);
-  assert.equal(character.faction, 'faction_xuan_men');
-  assert.equal(skill.faction, 'faction_xuan_men');
+  assert.deepEqual(character.factions, ['faction_xuan_men']);
+  assert.deepEqual(skill.factions, ['faction_xuan_men']);
   assert.deepEqual(skill.techniques, [{ name: '飞云掌', description: '掌势迅疾。' }]);
 });
 
-test('non-empty unresolved or ambiguous links are omitted with blocking issues', () => {
+test('final reference projection preserves first-confirmed order while deduplicating', () => {
+  const book = validMergedBook();
+  book.skills.push({
+    registry_key: 'registry:skills:0002',
+    local_key: 'skill:a-nan-dao-fa',
+    name: '阿难刀法',
+    aliases: [],
+    types: ['刀法'],
+    factions: [],
+    rank: null,
+    description: null,
+    techniques: [],
+    source_refs: [sourceRef(2, '阿难刀法')]
+  });
+  book.characters[0].skills = [
+    'registry:skills:0001',
+    'registry:skills:0002',
+    'registry:skills:0001'
+  ];
+
+  const result = buildFinalData(book, manifest);
+
+  assert.deepEqual(result.issues, []);
+  assert.deepEqual(result.data[FINAL_FILES.characters][0].skills, [
+    'skill_xuan_men_nei_gong',
+    'skill_a_nan_dao_fa'
+  ]);
+});
+
+test('non-empty unresolved or display-name links are omitted with blocking issues', () => {
   const missing = validMergedBook();
-  missing.characters[0].skill_names = ['失踪武功'];
+  missing.characters[0].skills = ['registry:skills:missing'];
   const missingResult = buildFinalData(missing, manifest);
   assert.deepEqual(missingResult.data[FINAL_FILES.characters][0].skills, []);
   assert.ok(missingResult.issues.some(issue =>
-    issue.code === 'REFERENCE_UNRESOLVED' && issue.target === '失踪武功'));
+    issue.code === 'REFERENCE_UNRESOLVED' && issue.target === 'registry:skills:missing'));
 
-  const ambiguous = validMergedBook();
-  ambiguous.factions.push({
-    ...ambiguous.factions[0],
-    local_key: 'faction:玄门别院',
-    canonical_name: '玄门别院',
-    aliases: ['玄门']
-  });
-  const ambiguousResult = buildFinalData(ambiguous, manifest);
-  assert.equal(ambiguousResult.data[FINAL_FILES.characters][0].faction, null);
-  assert.ok(ambiguousResult.issues.some(issue =>
-    issue.code === 'REFERENCE_AMBIGUOUS' && issue.target === '玄门'));
+  const displayName = validMergedBook();
+  displayName.characters[0].factions = ['玄门'];
+  const displayNameResult = buildFinalData(displayName, manifest);
+  assert.deepEqual(displayNameResult.data[FINAL_FILES.characters][0].factions, []);
+  assert.ok(displayNameResult.issues.some(issue =>
+    issue.code === 'REFERENCE_UNRESOLVED' && issue.target === '玄门'));
 });
 
 test('build emits exactly five stable YAML arrays', () => {
@@ -110,7 +174,14 @@ test('source refs reject unknown chapters but allow omitted line numbers', () =>
 
 test('writeFinalData writes five YAML files while keeping the ID plan as controller JSON', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-final-'));
-  const paths = { finalData: path.join(root, 'data'), finalIdPlan: path.join(root, 'id-plan.json') };
+  const finalRoot = path.join(root, 'final');
+  const paths = {
+    finalRoot,
+    finalData: path.join(finalRoot, 'data'),
+    finalIdPlan: path.join(finalRoot, 'id_plan.json'),
+    finalReports: path.join(finalRoot, 'reports'),
+    assemblyReport: path.join(finalRoot, 'reports', 'assembly-report.json')
+  };
   const result = buildFinalData(validMergedBook(), manifest);
 
   writeFinalData(paths, result);
@@ -120,4 +191,41 @@ test('writeFinalData writes five YAML files while keeping the ID plan as control
     assert.ok(Array.isArray(yaml.load(fs.readFileSync(path.join(paths.finalData, filename), 'utf8'))));
   }
   assert.doesNotThrow(() => JSON.parse(fs.readFileSync(paths.finalIdPlan, 'utf8')));
+});
+
+test('final publication rolls back data, ID plan, and report as one transaction', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-final-rollback-'));
+  const finalRoot = path.join(root, 'final');
+  const paths = {
+    finalRoot,
+    finalData: path.join(finalRoot, 'data'),
+    finalIdPlan: path.join(finalRoot, 'id_plan.json'),
+    finalReports: path.join(finalRoot, 'reports'),
+    assemblyReport: path.join(finalRoot, 'reports', 'assembly-report.json')
+  };
+  const first = buildFinalData(validMergedBook(), manifest);
+  first.assembly_report = { revision: 1 };
+  writeFinalDataAtomic(paths, first);
+  const before = {
+    data: Object.fromEntries(fs.readdirSync(paths.finalData).map(file => [
+      file, fs.readFileSync(path.join(paths.finalData, file), 'utf8')
+    ])),
+    idPlan: fs.readFileSync(paths.finalIdPlan, 'utf8'),
+    report: fs.readFileSync(paths.assemblyReport, 'utf8')
+  };
+
+  const secondBook = validMergedBook();
+  secondBook.characters[0].description = '新修订。';
+  const second = buildFinalData(secondBook, manifest, first.id_plan);
+  second.assembly_report = { revision: 2 };
+  assert.throws(
+    () => writeFinalDataAtomic(paths, second, { faultAt: 'after-new-promote' }),
+    error => error.code === 'FINAL_PUBLICATION_FAULT_INJECTED'
+  );
+
+  assert.deepEqual(Object.fromEntries(fs.readdirSync(paths.finalData).map(file => [
+    file, fs.readFileSync(path.join(paths.finalData, file), 'utf8')
+  ])), before.data);
+  assert.equal(fs.readFileSync(paths.finalIdPlan, 'utf8'), before.idPlan);
+  assert.equal(fs.readFileSync(paths.assemblyReport, 'utf8'), before.report);
 });

@@ -1,7 +1,10 @@
 'use strict';
 
+const crypto = require('node:crypto');
+
 const { CANDIDATE_ARRAYS } = require('./chapter-contract');
 const { GameKbError } = require('./errors');
+const { CHARACTER_LEVELS } = require('./semantic-contract');
 
 const SINGLE_REFERENCE_FIELDS = Object.freeze({
   source_skill_local_key: ['skills', 'source_skill_registry_key'],
@@ -20,11 +23,15 @@ const ARRAY_REFERENCE_FIELDS = Object.freeze({
   faction_local_keys: ['factions', 'faction_registry_keys']
 });
 
+const DIRECT_ARRAY_REFERENCE_FIELDS = Object.freeze({
+  characters: Object.freeze({ skills: 'skills', factions: 'factions' }),
+  skills: Object.freeze({ factions: 'factions' })
+});
+
 const GENERIC_ACTION_PATTERN = /^(?:挥手|反手|随手|抬手|翻手|回手|顺手|出手|连发)(?:一|两|三|四|五|六|七|八|九|十|数|几|数十|连)(?:击|掌|拳|刀|剑|指|爪|腿|脚)$/u;
-const CONFLICT_FIELDS = Object.freeze([
-  ['identities', candidate => candidate?.identities],
-  ['type', candidate => candidate?.type]
-]);
+const ORDERED_ARRAY_FIELDS = new Set(['aliases', 'identities', 'factions', 'skills', 'types']);
+const SEMANTIC_SCALAR_FIELDS = new Set(['rank', 'description']);
+const LEVEL_PRIORITY = new Map(CHARACTER_LEVELS.map((level, index) => [level, index]));
 
 function compareText(left, right) {
   return String(left).localeCompare(String(right), 'zh-Hans-CN');
@@ -48,6 +55,19 @@ function uniqueValues(values) {
     if (!byMarker.has(marker)) byMarker.set(marker, structuredClone(value));
   }
   return [...byMarker.entries()].sort(([left], [right]) => compareText(left, right)).map(([, value]) => value);
+}
+
+function uniqueInOrder(values) {
+  const seen = new Set();
+  const output = [];
+  for (const value of values) {
+    if (value === undefined || value === null || value === '') continue;
+    const marker = stableMarker(value);
+    if (seen.has(marker)) continue;
+    seen.add(marker);
+    output.push(structuredClone(value));
+  }
+  return output;
 }
 
 function normalizeCandidateName(value) {
@@ -80,61 +100,85 @@ function candidateName(category, candidate) {
   return normalizeCandidateName(candidate?.name || candidate?.canonical_name || candidate?.local_key);
 }
 
+function firstSourceRef(record) {
+  return sortedSourceRefs(record?.source_refs || [])[0] || { chapter: Number.MAX_SAFE_INTEGER, text: '' };
+}
+
+function orderedRecords(records) {
+  return [...records].sort((left, right) => (
+    compareSourceRefs(firstSourceRef(left), firstSourceRef(right))
+    || compareText(stableMarker(left), stableMarker(right))
+  ));
+}
+
+function conflict(field, values) {
+  return { field, values: uniqueInOrder(values) };
+}
+
 function mergeTechniqueRecords(techniques) {
   const groups = new Map();
-  for (const technique of techniques) {
+  for (const technique of orderedRecords(techniques)) {
     const normalizedName = normalizeCandidateName(technique?.name);
     const list = groups.get(normalizedName) || [];
     list.push(technique);
     groups.set(normalizedName, list);
   }
-  return [...groups.entries()]
-    .sort(([left], [right]) => compareText(left, right))
-    .map(([normalizedName, records]) => {
-      const merged = mergeRecords(records);
-      if (!merged.name) merged.name = normalizedName;
-      return merged;
+  const records = [];
+  const conflicts = [];
+  for (const [normalizedName, values] of groups) {
+    const descriptions = uniqueInOrder(values.map(value => value?.description));
+    records.push({
+      name: values.find(value => normalizeCandidateName(value?.name) === normalizedName)?.name || normalizedName,
+      description: descriptions.length <= 1 ? (descriptions[0] ?? null) : null
     });
+    if (descriptions.length > 1) {
+      conflicts.push(conflict('techniques', descriptions));
+    }
+  }
+  return { records, conflicts };
 }
 
-function mergeRecords(records) {
+function mergeRecords(category, records) {
+  if (!CANDIDATE_ARRAYS.includes(category)) throw new TypeError(`Unsupported merge category: ${category}`);
+  const ordered = orderedRecords(Array.isArray(records) ? records : []);
   const output = {};
-  const keys = uniqueValues(records.flatMap(record => Object.keys(record || {}))).sort(compareText);
+  const conflicts = [];
+  const keys = uniqueValues(ordered.flatMap(record => Object.keys(record || {}))).sort(compareText);
   for (const key of keys) {
     if (key === 'candidate_key') continue;
-    const values = records.map(record => record?.[key]).filter(value => value !== undefined && value !== null && value !== '');
+    const values = ordered.map(record => record?.[key]).filter(value => value !== undefined && value !== null && value !== '');
     if (values.length === 0) continue;
     if (values.some(Array.isArray)) {
       const flattened = values.flatMap(value => Array.isArray(value) ? value : [value]);
       if (key === 'source_refs') output[key] = sortedSourceRefs(flattened);
-      else if (key === 'techniques') output[key] = mergeTechniqueRecords(flattened);
-      else output[key] = uniqueValues(flattened);
+      else if (key === 'techniques') {
+        const merged = mergeTechniqueRecords(flattened);
+        output[key] = merged.records;
+        conflicts.push(...merged.conflicts);
+      } else if (ORDERED_ARRAY_FIELDS.has(key) || key.endsWith('_registry_keys')) {
+        output[key] = uniqueInOrder(flattened);
+      } else output[key] = uniqueValues(flattened);
       continue;
     }
-    if (values.every(value => value && typeof value === 'object')) {
-      output[key] = mergeRecords(values);
+    const distinct = uniqueInOrder(values);
+    if (category === 'characters' && key === 'level') {
+      output[key] = [...distinct].sort((left, right) => (
+        (LEVEL_PRIORITY.get(left) ?? Number.MAX_SAFE_INTEGER)
+        - (LEVEL_PRIORITY.get(right) ?? Number.MAX_SAFE_INTEGER)
+      ))[0];
       continue;
     }
-    output[key] = structuredClone(values[0]);
+    const semanticField = SEMANTIC_SCALAR_FIELDS.has(key);
+    const semanticConflict = semanticField && distinct.length > 1;
+    const classificationConflict = ['items', 'factions'].includes(category) && key === 'type' && distinct.length > 1;
+    if (semanticField || classificationConflict || distinct.some(value => value && typeof value === 'object')) {
+      output[key] = semanticConflict ? null : (distinct.length === 1 ? distinct[0] : null);
+      if (distinct.length > 1) conflicts.push(conflict(key, distinct));
+    } else {
+      output[key] = structuredClone(distinct[0]);
+    }
   }
-  return output;
-}
-
-function identityConflict(members) {
-  const identities = uniqueValues(members.flatMap(member => (
-    Array.isArray(member.candidate?.identities) ? member.candidate.identities : []
-  )).map(normalizeCandidateName).filter(Boolean));
-  return identities.length > 1;
-}
-
-function conflictingFields(members) {
-  return CONFLICT_FIELDS.map(([field, project]) => {
-    const values = uniqueValues(members
-      .map(member => project(member.candidate))
-      .filter(value => value !== undefined && value !== null && value !== '')
-      .map(value => typeof value === 'string' ? normalizeCandidateName(value) : value));
-    return { field, values };
-  }).filter(item => item.values.length > 1);
+  return { record: output, conflicts };
 }
 
 function nearName(left, right) {
@@ -168,6 +212,7 @@ function resolveReference(localIndex, member, field, category, localKey) {
 function migrateRecordReferences(member, localIndex) {
   const record = structuredClone(member.candidate);
   delete record.candidate_key;
+  delete record.local_key;
   for (const [field, [category, outputField]] of Object.entries(SINGLE_REFERENCE_FIELDS)) {
     if (record[field] === undefined || record[field] === null || record[field] === '') continue;
     record[outputField] = resolveReference(localIndex, member, field, category, record[field]);
@@ -180,6 +225,12 @@ function migrateRecordReferences(member, localIndex) {
     )));
     delete record[field];
   }
+  for (const [field, targetCategory] of Object.entries(DIRECT_ARRAY_REFERENCE_FIELDS[member.category] || {})) {
+    if (!Array.isArray(record[field])) continue;
+    record[field] = uniqueInOrder(record[field].map(localKey => (
+      resolveReference(localIndex, member, field, targetCategory, localKey)
+    )));
+  }
   return record;
 }
 
@@ -189,6 +240,20 @@ function pendingRow(reason, entries) {
     registry_keys: entries.map(entry => entry.registry_key).sort(compareText),
     member_refs: uniqueValues(entries.flatMap(entry => entry.member_refs))
   };
+}
+
+function registryKeyForPlan(category, plan) {
+  const candidateKeys = plan.members
+    .map(member => ({
+      candidate_key: member.candidate.candidate_key,
+      source_refs: sortedSourceRefs(member.candidate.source_refs || [])
+    }))
+    .sort((left, right) => compareText(stableMarker(left), stableMarker(right)));
+  const digest = crypto.createHash('sha256')
+    .update(`${category}\0${JSON.stringify(candidateKeys)}`)
+    .digest('hex')
+    .slice(0, 16);
+  return `registry:${category}:${digest}`;
 }
 
 function buildCandidateRegistry(chapters) {
@@ -224,18 +289,20 @@ function buildCandidateRegistry(chapters) {
     const planned = [];
     for (const [normalizedName, members] of [...groups.entries()].sort(([left], [right]) => compareText(left, right))) {
       const sorted = [...members].sort((left, right) => compareText(left.candidate.candidate_key, right.candidate.candidate_key));
-      if (conflictingFields(sorted).length > 0) {
-        for (const member of sorted) planned.push({ normalizedName, members: [member], conflict: true });
-      } else {
-        planned.push({ normalizedName, members: sorted, conflict: false });
-      }
+      for (const member of sorted) planned.push({ normalizedName, members: [member] });
     }
     planned.sort((left, right) => compareText(
       `${left.normalizedName}\u0000${left.members[0].candidate.candidate_key}`,
       `${right.normalizedName}\u0000${right.members[0].candidate.candidate_key}`
     ));
-    planned.forEach((plan, index) => {
-      const registryKey = `registry:${category}:${String(index + 1).padStart(4, '0')}`;
+    planned.forEach(plan => {
+      const registryKey = registryKeyForPlan(category, plan);
+      if (internalMembers.has(registryKey)) {
+        throw new GameKbError('REGISTRY_KEY_COLLISION', 'Controller-generated registry keys collided', {
+          category,
+          registry_key: registryKey
+        });
+      }
       const names = uniqueValues(plan.members.map(member => normalizeCandidateName(
         member.candidate.name || member.candidate.canonical_name
       )).filter(Boolean));
@@ -263,10 +330,9 @@ function buildCandidateRegistry(chapters) {
       }
     });
 
-    for (const group of [...groups.values()].filter(members => conflictingFields(members).length > 0)) {
+    for (const group of [...groups.values()].filter(members => members.length > 1)) {
       const keys = group.map(member => bindings[member.candidate.candidate_key]);
-      const reason = identityConflict(group) ? 'IDENTITY_CONFLICT' : 'RECORD_CONFLICT';
-      pending.push(pendingRow(reason, categories[category].filter(entry => keys.includes(entry.registry_key))));
+      pending.push(pendingRow('EXACT_NAME', categories[category].filter(entry => keys.includes(entry.registry_key))));
     }
   }
 
@@ -281,7 +347,7 @@ function buildCandidateRegistry(chapters) {
   for (const category of CANDIDATE_ARRAYS) {
     for (const entry of categories[category]) {
       const records = internalMembers.get(entry.registry_key).map(member => migrateRecordReferences(member, localIndex));
-      entry.record = mergeRecords(records);
+      entry.record = mergeRecords(category, records).record;
       entry.record.source_refs = sortedSourceRefs(records.flatMap(record => record.source_refs || []));
       entry.source_chapters = uniqueValues(entry.record.source_refs.map(ref => ref.chapter)).sort((a, b) => a - b);
     }
@@ -383,7 +449,7 @@ function sanitizeBasicChapters(chapters, quarantine, warnings) {
                 techniques.push(technique);
               }
             }
-            record.techniques = mergeTechniqueRecords(techniques);
+            record.techniques = mergeTechniqueRecords(techniques).records;
           }
           candidates.push(record);
         }
@@ -406,7 +472,7 @@ function collectConflictWarnings(chapters) {
       }
     }
     for (const [normalizedName, members] of groups) {
-      const fields = conflictingFields(members);
+      const fields = mergeRecords(category, members.map(member => member.candidate)).conflicts;
       if (fields.length === 0) continue;
       warnings.push({
         code: 'CANDIDATE_CONFLICT',

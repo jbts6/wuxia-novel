@@ -19,8 +19,8 @@ function emptyData() {
   return Object.fromEntries(Object.values(CATEGORY_FILES).map(filename => [filename, []]));
 }
 
-function uniqueSorted(values) {
-  return [...new Set(values.filter(Boolean))].sort((left, right) => left.localeCompare(right));
+function uniqueInOrder(values) {
+  return [...new Set(values.filter(Boolean))];
 }
 
 function copySourceRefs(record) {
@@ -34,6 +34,7 @@ function makeResolver(idPlan, issues, warnings) {
     const names = new Map();
     for (const record of idPlan[category] || []) {
       if (record.local_key) local.set(record.local_key, record.id);
+      if (record.registry_key) local.set(record.registry_key, record.id);
       for (const name of [record.canonical_name, ...(Array.isArray(record.aliases) ? record.aliases : [])]) {
         const normalized = normalizeName(name);
         if (!normalized) continue;
@@ -49,10 +50,8 @@ function makeResolver(idPlan, issues, warnings) {
     const index = indexes[category];
     const direct = index?.local.get(target);
     if (direct) return direct;
-    const matches = index?.names.get(normalizeName(target)) || new Set();
-    if (matches.size === 1) return [...matches][0];
     const issue = {
-      code: matches.size === 0 ? 'REFERENCE_UNRESOLVED' : 'REFERENCE_AMBIGUOUS',
+      code: 'REFERENCE_UNRESOLVED',
       path,
       target
     };
@@ -61,7 +60,7 @@ function makeResolver(idPlan, issues, warnings) {
   }
 
   function resolveMany(category, targets, path, options) {
-    return uniqueSorted((Array.isArray(targets) ? targets : [])
+    return uniqueInOrder((Array.isArray(targets) ? targets : [])
       .map((target, index) => resolve(category, target, `${path}[${index}]`, options)));
   }
 
@@ -119,58 +118,57 @@ function resolveReferences(recordsByCategory, idPlan) {
   data['characters.yaml'] = (recordsByCategory.characters || []).map((record, index) => {
     const aliases = Array.isArray(record.aliases) ? [...record.aliases] : [];
     const skills = resolver.resolveMany(
-      'skills', record.skill_names, `characters[${index}].skill_names`, { required: false }
+      'skills', record.skills, `characters[${index}].skills`, { required: false }
     );
-    const items = resolver.resolveMany(
-      'items', record.item_names, `characters[${index}].item_names`, { required: false }
-    );
-    const faction = resolver.resolve(
-      'factions', record.faction_name ?? record.faction, `characters[${index}].faction`, { required: false }
+    const factions = resolver.resolveMany(
+      'factions', record.factions, `characters[${index}].factions`, { required: false }
     );
     return {
       id: record.id,
-      name: record.canonical_name,
+      name: record.name,
       aliases,
-      identity: String(record.identity || ''),
-      level: record.level,
-      rank: String(record.rank || ''),
-      biography: String(record.biography || ''),
-      faction,
-      skills,
-      items
+      identities: Array.isArray(record.identities) ? [...record.identities] : [],
+      level: record.level ?? null,
+      rank: record.rank ?? null,
+      description: record.description ?? null,
+      factions,
+      skills
     };
   }).sort((left, right) => left.id.localeCompare(right.id));
 
   data['items.yaml'] = (recordsByCategory.items || []).map((record, index) => ({
     id: record.id,
-    name: record.canonical_name,
-    type: String(record.type || ''),
-    description: String(record.description || '')
+    name: record.name,
+    aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
+    type: record.type ?? null,
+    description: record.description ?? null
   })).sort((left, right) => left.id.localeCompare(right.id));
 
   data['skills.yaml'] = (recordsByCategory.skills || []).map((record, index) => {
-    const faction = resolver.resolve(
-      'factions', record.faction ?? record.faction_name, `skills[${index}].faction`, { required: false }
+    const factions = resolver.resolveMany(
+      'factions', record.factions, `skills[${index}].factions`, { required: false }
     );
     return {
       id: record.id,
-      name: record.canonical_name,
-      type: String(record.type || ''),
-      faction,
-      rank: String(record.rank || ''),
-      description: String(record.description || ''),
+      name: record.name,
+      aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
+      types: Array.isArray(record.types) ? [...record.types] : [],
+      factions,
+      rank: record.rank ?? null,
+      description: record.description ?? null,
       techniques: Array.isArray(record.techniques) ? record.techniques.map(tech => ({
-        name: tech.canonical_name || tech.name,
-        description: String(tech.description || '')
+        name: tech.name,
+        description: tech.description ?? null
       })) : []
     };
   }).sort((left, right) => left.id.localeCompare(right.id));
 
   data['factions.yaml'] = (recordsByCategory.factions || []).map((record, index) => ({
     id: record.id,
-    name: record.canonical_name,
-    type: String(record.type || ''),
-    description: String(record.description || '')
+    name: record.name,
+    aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
+    type: record.type ?? null,
+    description: record.description ?? null
   })).sort((left, right) => left.id.localeCompare(right.id));
 
   data['chapter_summaries.yaml'] = (recordsByCategory.chapter_summaries || []).map((record, index) => ({
@@ -186,11 +184,11 @@ function resolveReferences(recordsByCategory, idPlan) {
   return { data, issues: deduplicatedIssues, warnings: deduplicatedWarnings };
 }
 
-function buildFinalData(book, manifest) {
+function buildFinalData(book, manifest, priorRegistry = {}) {
   const contractIssues = validateMergedBook(book, manifest);
   if (contractIssues.length > 0) return { data: emptyData(), issues: contractIssues, warnings: [], id_plan: {} };
   const source = Object.fromEntries(ENTITY_CATEGORIES.map(category => [category, book[category] || []]));
-  const idPlan = assignStableIds(source);
+  const idPlan = assignStableIds(source, priorRegistry);
   const projected = resolveReferences({ ...idPlan, chapter_summaries: book.chapter_summaries }, idPlan);
   const serializablePlan = Object.fromEntries(ENTITY_CATEGORIES.map(category => [
     category,
@@ -198,7 +196,9 @@ function buildFinalData(book, manifest) {
       id: record.id,
       registry_key: record.registry_key,
       local_key: record.local_key,
-      canonical_name: record.canonical_name,
+      identity_anchor: record.identity_anchor,
+      disambiguator: record.disambiguator,
+      canonical_name: record.name,
       aliases: Array.isArray(record.aliases) ? [...record.aliases] : []
     }))
   ]));
@@ -217,32 +217,54 @@ function validateWrittenData(dataRoot) {
   }
 }
 
-function writeFinalDataAtomic(paths, result) {
+function writeFinalDataAtomic(paths, result, options = {}) {
   if (result.issues.length > 0) throw new Error('Cannot write final data with unresolved issues');
-  fs.mkdirSync(path.dirname(paths.finalData), { recursive: true });
-  const next = fs.mkdtempSync(path.join(path.dirname(paths.finalData), 'data.next-'));
-  const previous = `${paths.finalData}.previous-${process.pid}-${Date.now()}`;
+  const finalRoot = paths.finalRoot || path.dirname(paths.finalData);
+  const parent = path.dirname(finalRoot);
+  fs.mkdirSync(parent, { recursive: true });
+  const nextRoot = fs.mkdtempSync(path.join(parent, `${path.basename(finalRoot)}.next-`));
+  const nextData = path.join(nextRoot, path.relative(finalRoot, paths.finalData));
+  const nextIdPlan = path.join(nextRoot, path.relative(finalRoot, paths.finalIdPlan));
+  const nextAssemblyReport = paths.assemblyReport
+    ? path.join(nextRoot, path.relative(finalRoot, paths.assemblyReport))
+    : null;
+  const previous = `${finalRoot}.previous-${process.pid}-${Date.now()}`;
   let previousMoved = false;
   let nextInstalled = false;
+  const maybeFault = point => {
+    if (typeof options.injectFault === 'function') options.injectFault(point);
+    if (options.faultAt === point) {
+      const error = new Error(`Injected final publication fault at ${point}`);
+      error.code = 'FINAL_PUBLICATION_FAULT_INJECTED';
+      error.point = point;
+      throw error;
+    }
+  };
   try {
+    fs.mkdirSync(nextData, { recursive: true });
     for (const filename of Object.values(CATEGORY_FILES)) {
       const records = result.data[filename];
       const yamlContent = yaml.dump(records, { lineWidth: -1, noRefs: true });
-      fs.writeFileSync(path.join(next, filename), yamlContent, 'utf8');
+      fs.writeFileSync(path.join(nextData, filename), yamlContent, 'utf8');
     }
-    validateWrittenData(next);
-    if (fs.existsSync(paths.finalData)) {
-      fs.renameSync(paths.finalData, previous);
+    validateWrittenData(nextData);
+    atomicWriteJson(nextIdPlan, result.id_plan);
+    if (nextAssemblyReport && result.assembly_report !== undefined) {
+      atomicWriteJson(nextAssemblyReport, result.assembly_report);
+    }
+    maybeFault('before-old-move');
+    if (fs.existsSync(finalRoot)) {
+      fs.renameSync(finalRoot, previous);
       previousMoved = true;
     }
-    fs.renameSync(next, paths.finalData);
+    fs.renameSync(nextRoot, finalRoot);
     nextInstalled = true;
-    atomicWriteJson(paths.finalIdPlan, result.id_plan);
+    maybeFault('after-new-promote');
     if (previousMoved) fs.rmSync(previous, { recursive: true, force: true });
   } catch (error) {
-    fs.rmSync(next, { recursive: true, force: true });
-    if (nextInstalled) fs.rmSync(paths.finalData, { recursive: true, force: true });
-    if (previousMoved && fs.existsSync(previous)) fs.renameSync(previous, paths.finalData);
+    fs.rmSync(nextRoot, { recursive: true, force: true });
+    if (nextInstalled) fs.rmSync(finalRoot, { recursive: true, force: true });
+    if (previousMoved && fs.existsSync(previous)) fs.renameSync(previous, finalRoot);
     throw error;
   }
   return paths.finalData;

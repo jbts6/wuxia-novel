@@ -2,6 +2,7 @@
 
 const {
   DOMAIN_UNITS,
+  ITEM_INCLUSION_REASONS,
   isPowerRank,
   normalizeEntitySemantics,
   requiredDomainUnitsForContract,
@@ -10,6 +11,7 @@ const {
 
 const ACTIONS = new Set(['keep', 'merge', 'reject', 'pending']);
 const DOMAIN_UNIT_SET = new Set(DOMAIN_UNITS);
+const ITEM_INCLUSION_REASON_SET = new Set(ITEM_INCLUSION_REASONS);
 const CONTROLLER_FIELDS = new Set([
   'candidate_key', 'local_key', 'registry_key', 'member_refs', 'formal_id', 'final_id'
 ]);
@@ -140,7 +142,7 @@ function validateItemInclusionReason(patch, entry, label, errors) {
     }
     return;
   }
-  if (!nonempty(value)) {
+  if (!nonempty(value) || !ITEM_INCLUSION_REASON_SET.has(value)) {
     errors.push(issue('ITEM_INCLUSION_REASON_INVALID', `${label}.patch.inclusion_reason`, value));
   }
 }

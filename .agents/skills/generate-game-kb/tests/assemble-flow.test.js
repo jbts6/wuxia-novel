@@ -38,9 +38,20 @@ function mergedDomainDraft(input) {
         entry_ref: entry.entry_ref,
         action: 'keep',
         patch: {
-          canonical_name: entry.canonical_name,
-          ...(['characters', 'skills'].includes(entry.category) ? { rank: '登堂入室' } : {}),
-          ...(entry.category === 'items' ? { inclusion_reason: '神兵利器' } : {})
+          name: entry.canonical_name,
+          aliases: [],
+          ...(entry.category === 'characters' ? {
+            identities: ['胡家后人'], level: '核心', rank: '登堂入室', description: '胡家传人。',
+            factions: [], skills: []
+          } : {}),
+          ...(entry.category === 'skills' ? {
+            types: ['刀法'], factions: [], rank: '登堂入室', description: '胡家家传刀法。',
+            techniques: [{ name: '八方藏刀式', description: '刀势回护。' }]
+          } : {}),
+          ...(entry.category === 'items' ? {
+            type: '武器', description: '胡家宝刀。', inclusion_reason: '神兵利器'
+          } : {}),
+          ...(entry.category === 'factions' ? { type: '家族', description: '胡家传承。' } : {})
         }
       };
     }),
@@ -52,17 +63,17 @@ function chapterCandidates(chapter) {
   if (chapter.number === 1) {
     return {
       characters: [{
-        local_key: 'character:hu-fei', name: '胡斐', identity: '胡家后人', level: '核心', rank: '登堂入室',
-        faction_local_key: 'faction:fei-hu', skill_local_keys: ['skill:hu-dao'], item_local_keys: ['item:leng-yue'],
+        local_key: 'character:hu-fei', name: '胡斐', identities: ['胡家后人'], level: '核心', rank: '登堂入室',
+        factions: ['faction:fei-hu'], skills: ['skill:hu-dao'],
         source_refs: [sourceRef(1, '胡斐')]
       }],
       skills: [{
-        local_key: 'skill:hu-dao', name: '胡家刀法', type: '刀法', faction_local_key: 'faction:fei-hu', rank: '登堂入室',
-        description: '胡家家传刀法。', techniques: [{ name: '八方藏刀式', named_in_source: true, description: '刀势回护。' }],
+        local_key: 'skill:hu-dao', name: '胡家刀法', types: ['刀法'], factions: ['faction:fei-hu'], rank: '登堂入室',
+        description: '胡家家传刀法。', techniques: [{ name: '八方藏刀式', description: '刀势回护。' }],
         source_refs: [sourceRef(1, '胡斐使出八方藏刀式，胡家刀法与冷月宝刀传自飞狐一脉。')]
       }],
       items: [{
-        local_key: 'item:leng-yue', name: '冷月宝刀', type: '武器', inclusion_reason: '神兵利器',
+        local_key: 'item:leng-yue', name: '冷月宝刀', type: '武器',
         description: '胡家宝刀。', source_refs: [sourceRef(1, '冷月宝刀')]
       }],
       factions: [{
@@ -74,16 +85,16 @@ function chapterCandidates(chapter) {
   if (chapter.number === 2) {
     return {
       characters: [{
-        local_key: 'character:xue-shan', name: '雪山飞狐', identity: '胡斐', level: '核心', rank: '登堂入室',
-        faction_local_key: 'faction:hu-jia', skill_local_keys: ['skill:hu-shi'], item_local_keys: ['item:bao-dao'],
+        local_key: 'character:xue-shan', name: '雪山飞狐', identities: ['胡斐'], level: '核心', rank: '登堂入室',
+        factions: ['faction:hu-jia'], skills: ['skill:hu-shi'],
         source_refs: [sourceRef(2, '雪山飞狐')]
       }],
       skills: [{
-        local_key: 'skill:hu-shi', name: '胡氏刀法', type: '刀法', faction_local_key: 'faction:hu-jia', rank: '登堂入室',
+        local_key: 'skill:hu-shi', name: '胡氏刀法', types: ['刀法'], factions: ['faction:hu-jia'], rank: '登堂入室',
         description: '胡氏刀法别称。', techniques: [], source_refs: [sourceRef(2, '胡氏刀法')]
       }],
       items: [{
-        local_key: 'item:bao-dao', name: '宝刀', type: '武器', inclusion_reason: '神兵利器',
+        local_key: 'item:bao-dao', name: '宝刀', type: '武器',
         description: '冷月宝刀别称。', source_refs: [sourceRef(2, '宝刀')]
       }],
       factions: [{

@@ -4,7 +4,6 @@ const fs = require('node:fs');
 const path = require('node:path');
 const yaml = require('js-yaml');
 
-const { ITEM_REASONS } = require('./book-contract');
 const { stableHash } = require('./accept');
 const { applyBasicCurate, validateBasicCurateDraft } = require('./basic-curate');
 const { acceptedArtifactHash, assertAcceptedArtifacts } = require('./candidate-ledger');
@@ -21,7 +20,8 @@ const {
   FINAL_FILES,
   ITEM_TYPES,
   SEMANTIC_CONTRACT_VERSION,
-  isPowerRank
+  isPowerRank,
+  validateEntitySemantics
 } = require('./semantic-contract');
 const { readWorkPlan } = require('./semantic-work');
 
@@ -32,7 +32,6 @@ const FILE_PREFIX = Object.freeze({
   'items.yaml': 'item_',
   'factions.yaml': 'faction_'
 });
-const ITEM_INCLUSION_REASONS = new Set(['秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊']);
 
 function loadData(dataRoot) {
   const data = {};
@@ -99,6 +98,13 @@ function verifyDataRoot(dataRoot, { chapters = [], expectedHash } = {}) {
     loaded.data[filename].forEach((record, index) => {
       const label = `${filename}[${index}]`;
       const id = record?.id;
+      blockingErrors.push(...validateEntitySemantics(category, record, {
+        includeId: true,
+        label,
+        rejectDuplicates: true,
+        requireStrings: true,
+        requireTechniqueFields: true
+      }));
       if (typeof id !== 'string' || !ID_PATTERN.test(id) || !id.startsWith(FILE_PREFIX[filename])) {
         blockingErrors.push({ code: 'FINAL_ID_INVALID', path: `${label}.id`, target: id ?? '' });
       } else if (ids.has(id)) {
@@ -107,15 +113,15 @@ function verifyDataRoot(dataRoot, { chapters = [], expectedHash } = {}) {
         ids.add(id);
       }
       if (category === 'characters') {
-        if (!CHARACTER_LEVELS.includes(record?.level)) {
+        if (record?.level !== null && !CHARACTER_LEVELS.includes(record?.level)) {
           blockingErrors.push({ code: 'CHARACTER_LEVEL_INVALID', path: `${label}.level`, target: record?.level ?? '' });
         }
-        if (!isPowerRank(record?.rank)) {
+        if (record?.rank !== null && !isPowerRank(record?.rank)) {
           blockingErrors.push({ code: 'POWER_RANK_INVALID', path: `${label}.rank`, target: record?.rank ?? '' });
         }
       }
       if (category === 'skills') {
-        if (!isPowerRank(record?.rank)) {
+        if (record?.rank !== null && !isPowerRank(record?.rank)) {
           blockingErrors.push({ code: 'POWER_RANK_INVALID', path: `${label}.rank`, target: record?.rank ?? '' });
         }
         if (!Array.isArray(record?.techniques)) {
@@ -132,33 +138,30 @@ function verifyDataRoot(dataRoot, { chapters = [], expectedHash } = {}) {
           });
         }
       }
-      if (category === 'items' && !ITEM_TYPES.includes(record?.type)) {
+      if (category === 'items' && record?.type !== null && !ITEM_TYPES.includes(record?.type)) {
         blockingErrors.push({ code: 'ITEM_TYPE_INVALID', path: `${label}.type`, target: record?.type ?? '' });
       }
     });
   }
 
   const reference = (category, value, referencePath) => {
-    if (value === null || value === undefined || value === '') return;
     if (typeof value !== 'string' || !idSets[category].has(value)) {
       blockingErrors.push({ code: 'FINAL_REFERENCE_MISSING', path: referencePath, target: value ?? '' });
     }
   };
+  const referenceArray = (category, values, referencePath) => {
+    if (!Array.isArray(values)) {
+      blockingErrors.push({ code: 'FINAL_REFERENCE_ARRAY_REQUIRED', path: referencePath, target: '' });
+      return;
+    }
+    values.forEach((value, index) => reference(category, value, `${referencePath}[${index}]`));
+  };
   loaded.data[FINAL_FILES.characters].forEach((record, index) => {
-    reference('factions', record?.faction, `characters.yaml[${index}].faction`);
-    if (!Array.isArray(record?.skills)) {
-      blockingErrors.push({ code: 'FINAL_REFERENCE_ARRAY_REQUIRED', path: `characters.yaml[${index}].skills`, target: '' });
-    } else {
-      record.skills.forEach((value, refIndex) => reference('skills', value, `characters.yaml[${index}].skills[${refIndex}]`));
-    }
-    if (!Array.isArray(record?.items)) {
-      blockingErrors.push({ code: 'FINAL_REFERENCE_ARRAY_REQUIRED', path: `characters.yaml[${index}].items`, target: '' });
-    } else {
-      record.items.forEach((value, refIndex) => reference('items', value, `characters.yaml[${index}].items[${refIndex}]`));
-    }
+    referenceArray('factions', record?.factions, `characters.yaml[${index}].factions`);
+    referenceArray('skills', record?.skills, `characters.yaml[${index}].skills`);
   });
   loaded.data[FINAL_FILES.skills].forEach((record, index) => {
-    reference('factions', record?.faction, `skills.yaml[${index}].faction`);
+    referenceArray('factions', record?.factions, `skills.yaml[${index}].factions`);
   });
 
   const requiredChapters = new Set(chapters.map(chapter => (
@@ -311,24 +314,21 @@ function verifyFinalV4(paths) {
       work_plan: plan,
       decisions
     });
-    assembledBook.items.forEach((item, index) => {
-      if (!ITEM_REASONS.has(item.inclusion_reason)) {
-        blockingErrors.push({
-          code: 'ITEM_NOT_IMPORTANT',
-          path: `assembled.items[${index}].inclusion_reason`,
-          target: item.canonical_name
-        });
-      }
-    });
   } catch (error) {
     blockingErrors.push(verificationError(error, paths.domainWork));
   }
 
   let assemblyReport = null;
+  let idPlanHash = null;
   try {
     assemblyReport = readJson(paths.assemblyReport);
   } catch (error) {
     blockingErrors.push(verificationError(error, paths.assemblyReport));
+  }
+  try {
+    idPlanHash = stableHash(readJson(paths.finalIdPlan));
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.finalIdPlan));
   }
   if (assemblyReport) {
     const expectedCounts = Object.fromEntries(Object.entries(FINAL_FILES)
@@ -338,6 +338,7 @@ function verifyFinalV4(paths) {
       ['ASSEMBLY_SOURCE_STALE', assemblyReport.source_hash, manifest.source_hash],
       ['ASSEMBLY_ACCEPTED_HASH_STALE', stableValue(assemblyReport.accepted_hashes), stableValue(acceptedHashes)],
       ['ASSEMBLY_DECISION_HASH_STALE', stableValue(assemblyReport.decision_hashes), stableValue(decisionHashes)],
+      ['ASSEMBLY_ID_PLAN_HASH_STALE', assemblyReport.id_plan_hash, idPlanHash],
       ['ASSEMBLY_FINAL_HASH_STALE', assemblyReport.final_data_hash, portable.final_data_hash],
       ['ASSEMBLY_COUNTS_STALE', stableValue(assemblyReport.counts), stableValue(expectedCounts)],
       ['ASSEMBLY_CANDIDATE_COUNT_STALE', assemblyReport.candidate_count, registry ? candidateTotal(registry) : null],
@@ -372,6 +373,7 @@ function verifyFinalV4(paths) {
     passed: deduplicated.length === 0,
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     source_hash: manifest.source_hash,
+    id_plan_hash: idPlanHash,
     final_data_hash: portable.final_data_hash,
     counts: portable.counts,
     blocking_errors: deduplicated,

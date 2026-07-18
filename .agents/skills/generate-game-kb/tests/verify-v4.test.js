@@ -7,14 +7,11 @@ const path = require('node:path');
 const test = require('node:test');
 const yaml = require('js-yaml');
 
-const { readWorkPlan } = require('../scripts/lib/semantic-work');
 const { FINAL_FILES } = require('../scripts/lib/semantic-contract');
 const { verifyDataRoot, verifyFinal } = require('../scripts/lib/verify');
 const {
   prepareAssembledRun,
-  readJson,
-  replaceAcceptedArtifact,
-  sourceRef
+  readJson
 } = require('./helpers');
 
 function validFinalData() {
@@ -23,19 +20,19 @@ function validFinalData() {
       id: 'char_jia',
       name: '甲',
       aliases: [],
-      identity: '侠客',
+      identities: ['侠客'],
       level: '核心',
       rank: '登堂入室',
-      biography: '甲在江湖中追查旧事。',
-      faction: 'faction_xuan_men',
-      skills: ['skill_xuan_men_nei_gong'],
-      items: ['item_hui_sheng_dan']
+      description: '甲在江湖中追查旧事。',
+      factions: ['faction_xuan_men'],
+      skills: ['skill_xuan_men_nei_gong']
     }],
     'skills.yaml': [{
       id: 'skill_xuan_men_nei_gong',
       name: '玄门内功',
-      type: '内功',
-      faction: 'faction_xuan_men',
+      aliases: [],
+      types: ['内功'],
+      factions: ['faction_xuan_men'],
       rank: '登堂入室',
       description: '调息养气。',
       techniques: [{ name: '飞云掌', description: '掌势迅疾。' }]
@@ -43,12 +40,14 @@ function validFinalData() {
     'items.yaml': [{
       id: 'item_hui_sheng_dan',
       name: '回生丹',
+      aliases: [],
       type: '丹药',
       description: '用于救治重伤。'
     }],
     'factions.yaml': [{
       id: 'faction_xuan_men',
       name: '玄门',
+      aliases: [],
       type: '门派',
       description: '隐居山中。'
     }],
@@ -114,12 +113,30 @@ test('verifyDataRoot rejects invalid IDs, enums, and nested technique names', ()
   assert.equal(codes.has('TECHNIQUE_NAME_REQUIRED'), true);
 });
 
+test('verifyDataRoot rejects invalid v6 scalar, array, technique, and reference shapes', () => {
+  const data = validFinalData();
+  data['characters.yaml'][0].aliases = [7];
+  data['characters.yaml'][0].identities = ['侠客', ''];
+  data['characters.yaml'][0].description = { text: '非法' };
+  data['characters.yaml'][0].factions = [null];
+  data['characters.yaml'][0].skills = [''];
+  data['skills.yaml'][0].types = ['内功', '内功'];
+  data['skills.yaml'][0].techniques[0].extra = true;
+  data['skills.yaml'][0].techniques[0].description = 9;
+
+  const codes = new Set(verifyDataRoot(writeData(data)).blocking_errors.map(error => error.code));
+  assert.equal(codes.has('ENTITY_VALUE_EMPTY'), true);
+  assert.equal(codes.has('ENTITY_ARRAY_DUPLICATE'), true);
+  assert.equal(codes.has('TECHNIQUE_FIELDS_INVALID'), true);
+  assert.equal(codes.has('TECHNIQUE_DESCRIPTION_INVALID'), true);
+  assert.equal(codes.has('FINAL_REFERENCE_MISSING'), true);
+});
+
 test('verifyDataRoot rejects unresolved references and incomplete chapter summaries', () => {
   const data = validFinalData();
-  data['characters.yaml'][0].faction = 'faction_missing';
+  data['characters.yaml'][0].factions = ['faction_missing'];
   data['characters.yaml'][0].skills = ['skill_missing'];
-  data['characters.yaml'][0].items = ['item_missing'];
-  data['skills.yaml'][0].faction = 'faction_missing';
+  data['skills.yaml'][0].factions = ['faction_missing'];
 
   const result = verifyDataRoot(writeData(data), { chapters: [1, 2] });
   const codes = new Set(result.blocking_errors.map(error => error.code));
@@ -168,31 +185,13 @@ test('verifyFinal rejects stale assembly hashes and unresolved manual review', (
   );
 });
 
-test('verifyFinal rejects an ordinary item kept without an allowed inclusion reason', () => {
-  const { paths } = prepareAssembledRun({
-    name: '普通物品试书',
-    runId: 'run-ordinary-item',
-    source: '第一章 起始\n甲修习玄门内功并使出飞云掌。桌上放着一只普通茶杯。\n',
-    chapterOverrides: {
-      items: [{
-        local_key: 'item:tea-cup',
-        name: '茶杯',
-        type: '其他',
-        description: '普通茶杯。',
-        inclusion_reason: '其他稀有特殊',
-        source_refs: [sourceRef(1, '茶杯')]
-      }]
-    }
-  });
-  const plan = readWorkPlan(paths, 'domain');
-  const input = plan.inputs.find(item => item.unit === 'distill:items');
-  const file = path.join(paths.domainDecisions, 'distill_items.yaml');
-  const decision = yaml.load(fs.readFileSync(file, 'utf8'));
-  decision.decisions[0].patch.inclusion_reason = '普通物品';
-  replaceAcceptedArtifact(paths, file, decision);
+test('verifyFinal rejects a final ID plan changed after assembly', () => {
+  const fixture = prepareAssembledRun({ name: 'ID计划变更试书', runId: 'run-mutated-id-plan' });
+  const plan = readJson(fixture.paths.finalIdPlan);
+  plan.characters[0].id = 'char_tampered';
+  fs.writeFileSync(fixture.paths.finalIdPlan, `${JSON.stringify(plan, null, 2)}\n`);
 
-  const result = verifyFinal(paths);
+  const result = verifyFinal(fixture.paths);
   assert.equal(result.passed, false);
-  assert.equal(input.entries.length, 1);
-  assert.equal(result.blocking_errors.some(error => error.code === 'ITEM_NOT_IMPORTANT'), true);
+  assert.equal(result.blocking_errors.some(error => error.code === 'ASSEMBLY_ID_PLAN_HASH_STALE'), true);
 });

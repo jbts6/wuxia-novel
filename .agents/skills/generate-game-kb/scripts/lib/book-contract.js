@@ -1,7 +1,11 @@
 'use strict';
 
 const { REJECTION_REASONS: DOMAIN_REJECTION_REASONS } = require('./domain-contract');
-const { isPowerRank, validateEntitySemantics } = require('./semantic-contract');
+const {
+  ITEM_INCLUSION_REASONS,
+  isPowerRank,
+  validateEntitySemantics
+} = require('./semantic-contract');
 
 const ENTITY_CATEGORIES = Object.freeze([
   'characters',
@@ -11,7 +15,7 @@ const ENTITY_CATEGORIES = Object.freeze([
 ]);
 const BOOK_CATEGORIES = Object.freeze([...ENTITY_CATEGORIES, 'chapter_summaries']);
 const CHARACTER_LEVELS = new Set(['核心', '重要', '次要', '龙套', '背景']);
-const ITEM_REASONS = new Set(['秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊']);
+const ITEM_REASONS = new Set(ITEM_INCLUSION_REASONS);
 const RESOLUTIONS = new Set(['merged_to', 'rejected']);
 const REJECTION_REASONS = new Set(Object.values(DOMAIN_REJECTION_REASONS).flat());
 
@@ -247,7 +251,7 @@ function validateBook(book, manifest, expectedStage, chapters) {
       errors.push(...validateEntitySemantics(category, record, {
         label,
         requireStrings: true,
-        stageFields: ['local_key', 'source_refs']
+        stageFields: ['registry_key', 'local_key', 'source_refs']
       }));
       if (category === 'characters' || category === 'skills') {
         validatePowerRank(record, label, errors);

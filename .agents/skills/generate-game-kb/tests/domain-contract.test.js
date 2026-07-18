@@ -297,6 +297,12 @@ test('skill techniques use only name and description while items retain finite n
   delete keepOrdinary.decisions[0].patch.inclusion_reason;
   assert.equal(validateDomainDecisionDraft(keepOrdinary, items).some(error => error.code === 'ITEM_INCLUSION_REASON_REQUIRED'), true);
 
+  const invalidKeepReason = validDraft(items);
+  invalidKeepReason.decisions[0].patch.inclusion_reason = '普通物品';
+  assert.ok(validateDomainDecisionDraft(invalidKeepReason, items).some(error =>
+    error.code === 'ITEM_INCLUSION_REASON_INVALID'
+    && error.path === 'decisions[0].patch.inclusion_reason'));
+
   const rejectOrdinary = validDraft(items);
   rejectOrdinary.decisions[0] = {
     entry_ref: 'r000003', action: 'reject', reason: 'ordinary_item', detail: '普通容器，无稀有性或剧情作用。'

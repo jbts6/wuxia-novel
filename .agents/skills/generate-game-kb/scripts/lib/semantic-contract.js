@@ -45,6 +45,9 @@ const POWER_RANK_CONTRACT = Object.freeze({
 });
 const CHARACTER_LEVELS = Object.freeze(['核心', '重要', '次要', '龙套', '背景']);
 const ITEM_TYPES = Object.freeze(['武器', '防具', '秘籍', '丹药', '暗器', '其他']);
+const ITEM_INCLUSION_REASONS = Object.freeze([
+  '秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊'
+]);
 
 function entityFieldContract({ fields, arrays, nullable, requiredStrings, forbidden }) {
   return Object.freeze({
@@ -144,7 +147,47 @@ function validateEntitySemantics(category, record, options = {}) {
       errors.push(entityIssue('ENTITY_ARRAY_INVALID', `${label}.${field}`, value));
       continue;
     }
-    if (field === 'techniques') continue;
+    if (field === 'techniques') {
+      value.forEach((technique, index) => {
+        const techniquePath = `${label}.techniques[${index}]`;
+        if (!technique || typeof technique !== 'object' || Array.isArray(technique)) {
+          errors.push(entityIssue('TECHNIQUE_INVALID', techniquePath, technique));
+          return;
+        }
+        const actualFields = Object.keys(technique).sort();
+        const expectedFields = ['description', 'name'];
+        if (options.requireTechniqueFields === true
+          && JSON.stringify(actualFields) !== JSON.stringify(expectedFields)) {
+          errors.push(entityIssue('TECHNIQUE_FIELDS_INVALID', techniquePath, actualFields.join(',')));
+        }
+        if (typeof technique.name !== 'string' || technique.name.trim() === '') {
+          errors.push(entityIssue('TECHNIQUE_NAME_REQUIRED', `${techniquePath}.name`, technique.name));
+        } else if (isPlaceholderValue(technique.name, 'name')) {
+          errors.push(entityIssue('ENTITY_VALUE_PLACEHOLDER', `${techniquePath}.name`, technique.name));
+        }
+        if (technique.description !== undefined && technique.description !== null
+          && (typeof technique.description !== 'string' || technique.description.trim() === '')) {
+          errors.push(entityIssue(
+            'TECHNIQUE_DESCRIPTION_INVALID',
+            `${techniquePath}.description`,
+            technique.description
+          ));
+        } else if (isPlaceholderValue(technique.description, 'description')) {
+          errors.push(entityIssue(
+            'ENTITY_VALUE_PLACEHOLDER',
+            `${techniquePath}.description`,
+            technique.description
+          ));
+        }
+      });
+      if (options.rejectDuplicates === true) {
+        const names = value.map(technique => technique?.name).filter(name => typeof name === 'string');
+        if (new Set(names).size !== names.length) {
+          errors.push(entityIssue('ENTITY_ARRAY_DUPLICATE', `${label}.techniques`));
+        }
+      }
+      continue;
+    }
     value.forEach((entry, index) => {
       const path = `${label}.${field}[${index}]`;
       if (typeof entry !== 'string' || entry.trim() === '') {
@@ -153,6 +196,9 @@ function validateEntitySemantics(category, record, options = {}) {
         errors.push(entityIssue('ENTITY_VALUE_PLACEHOLDER', path, entry));
       }
     });
+    if (options.rejectDuplicates === true && new Set(value).size !== value.length) {
+      errors.push(entityIssue('ENTITY_ARRAY_DUPLICATE', `${label}.${field}`));
+    }
   }
 
   for (const field of contract.nullable) {
@@ -218,6 +264,7 @@ module.exports = {
   ENTITY_FIELD_CONTRACTS,
   FINAL_FIELDS,
   FINAL_FILES,
+  ITEM_INCLUSION_REASONS,
   ITEM_TYPES,
   POWER_RANK_CONTRACT,
   POWER_RANKS,

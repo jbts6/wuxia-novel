@@ -9,6 +9,7 @@ const {
   ENTITY_FIELD_CONTRACTS,
   FINAL_FIELDS,
   FINAL_FILES,
+  ITEM_INCLUSION_REASONS,
   ITEM_TYPES,
   POWER_RANK_CONTRACT,
   POWER_RANKS,
@@ -81,6 +82,10 @@ test('centralizes enums used by chapter and final records', () => {
   ]);
   assert.deepEqual(CHARACTER_LEVELS, ['核心', '重要', '次要', '龙套', '背景']);
   assert.deepEqual(ITEM_TYPES, ['武器', '防具', '秘籍', '丹药', '暗器', '其他']);
+  assert.deepEqual(ITEM_INCLUSION_REASONS, [
+    '秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊'
+  ]);
+  assert.equal(Object.isFrozen(ITEM_INCLUSION_REASONS), true);
 });
 
 test('centralizes the whole-book rank scale and evidence priority', () => {

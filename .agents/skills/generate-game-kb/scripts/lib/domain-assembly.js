@@ -62,6 +62,19 @@ function uniqueValues(values) {
   return [...byValue.entries()].sort(([left], [right]) => compareText(left, right)).map(([, value]) => value);
 }
 
+function uniqueInOrder(values) {
+  const seen = new Set();
+  const output = [];
+  for (const value of values) {
+    if (value === undefined || value === null || value === '') continue;
+    const marker = JSON.stringify(value);
+    if (seen.has(marker)) continue;
+    seen.add(marker);
+    output.push(structuredClone(value));
+  }
+  return output;
+}
+
 function fail(message, details = {}) {
   throw new GameKbError('DOMAIN_ASSEMBLY_INCOMPLETE', message, details);
 }
@@ -136,6 +149,22 @@ function resolutionFunction(byRegistry, bindingByRef) {
   return resolve;
 }
 
+function rewriteEntityReferences(category, fields, resolve) {
+  const referenceFields = category === 'characters'
+    ? ['factions', 'skills']
+    : (category === 'skills' ? ['factions'] : []);
+  for (const field of referenceFields) {
+    fields[field] = uniqueInOrder((Array.isArray(fields[field]) ? fields[field] : []).map(registryKey => {
+      const root = resolve(registryKey);
+      if (!root) fail('A retained entity references a rejected registry entry', {
+        category, field, registry_key: registryKey
+      });
+      return root;
+    }));
+  }
+  return fields;
+}
+
 function registryEntries(registry) {
   // 处理 characters, skills, items, factions
   const categories = ['characters', 'skills', 'items', 'factions'];
@@ -162,7 +191,8 @@ function projectChapterSummaries(manifest, chapters) {
     return {
       chapter: item.number,
       title: item.title,
-      summary
+      summary,
+      source_refs: structuredClone(chapter.chapter_summary.source_refs || [])
     };
   });
 }
@@ -196,7 +226,7 @@ function assembleGroundedBook({ manifest, chapters, registry, source_registry: s
     const record = {
       registry_key: entity.provisional_key,
       local_key: localKeyByRegistry.get(entity.provisional_key),
-      canonical_name: entity.canonical_name,
+      name: entity.canonical_name,
       aliases: entity.aliases,
       ...structuredClone(entity.fields),
       source_refs: entity.source_refs
@@ -263,14 +293,31 @@ function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: wor
     const ordered = [rootEntry, ...group.filter(entry => entry.registry_key !== rootKey)
       .sort((left, right) => compareText(left.registry_key, right.registry_key))];
     const records = ordered.map(entry => entityRecord(entry, byRegistry.get(entry.registry_key), registryByRef));
-    const record = mergeRegistryRecords(records);
-    const canonicalName = byRegistry.get(rootKey).patch?.canonical_name || rootEntry.canonical_name;
-    const aliases = uniqueValues(ordered.flatMap(entry => [entry.canonical_name, ...(entry.aliases || [])]))
+    const mergeResult = mergeRegistryRecords(rootEntry.category, records);
+    const rootPatch = restorePatch(byRegistry.get(rootKey).patch || {}, registryByRef);
+    const record = structuredClone(mergeResult.record);
+    const unresolved = mergeResult.conflicts.filter(item => {
+      if (!Object.hasOwn(rootPatch, item.field)) return true;
+      record[item.field] = structuredClone(rootPatch[item.field]);
+      return false;
+    });
+    if (unresolved.length > 0) fail('Full-book decisions did not close semantic conflicts', {
+      registry_key: rootKey,
+      conflicts: unresolved
+    });
+    const canonicalName = rootPatch.name || rootEntry.canonical_name;
+    const aliases = uniqueInOrder([
+      ...(Array.isArray(rootPatch.aliases) ? rootPatch.aliases : []),
+      ...ordered.flatMap(entry => [entry.canonical_name, ...(entry.aliases || [])])
+    ])
       .filter(alias => alias !== canonicalName);
     const sourceRefs = uniqueValues(ordered.flatMap(entry => entry.record?.source_refs || []))
       .sort((left, right) => (Number(left.chapter) - Number(right.chapter)) || compareText(left.text, right.text));
     const fields = structuredClone(record);
-    for (const field of ['candidate_key', 'local_key', 'name', 'canonical_name', 'aliases', 'source_refs']) delete fields[field];
+    for (const field of [
+      'candidate_key', 'local_key', 'name', 'canonical_name', 'aliases', 'source_refs', 'inclusion_reason'
+    ]) delete fields[field];
+    rewriteEntityReferences(rootEntry.category, fields, resolve);
     entities.push({
       provisional_key: rootKey,
       category: rootEntry.category,
@@ -300,7 +347,7 @@ function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: wor
     const record = {
       registry_key: entity.provisional_key,
       local_key: localKeyByRoot.get(entity.provisional_key),
-      canonical_name: entity.canonical_name,
+      name: entity.canonical_name,
       aliases: entity.aliases,
       ...fields,
       source_refs: entity.source_refs

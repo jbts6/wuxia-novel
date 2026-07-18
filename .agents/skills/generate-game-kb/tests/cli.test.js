@@ -206,7 +206,6 @@ test('plan-domains creates four current units and a rejected domain leaves its a
     items: [{
       local_key: 'item:铁盒',
       name: '铁盒',
-      importance: '关键',
       source_refs: [sourceRef(1, '甲取得铁盒并拜入胡家。')]
     }],
     factions: [{
@@ -265,7 +264,7 @@ test('plan-domains fails explicitly instead of truncating an oversized current d
     source_hash: chapter.input_hash,
     characters: [{
       ...base.characters[0],
-      biography: '长'.repeat(MAX_DOMAIN_WORK_ITEM_BYTES),
+      aliases: ['长'.repeat(MAX_DOMAIN_WORK_ITEM_BYTES)],
       source_refs: [sourceRef(1, '甲连续讲述往事。')]
     }],
     skills: [],

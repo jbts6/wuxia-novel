@@ -207,30 +207,28 @@ function validMergedBook(overrides = {}) {
     schema_version: 1,
     stage: 'merged',
     characters: [{
-      local_key: 'character:甲', canonical_name: '甲', aliases: [], level: '核心', identity: '侠客',
-      rank: '初窥门径', faction: '玄门',
-      biography: '甲在江湖中追查旧事。', personality: { traits: ['坚毅'], speech_style: '简练' },
-      relationship_names: [], skill_names: ['玄门内功'], item_names: ['回生丹'], source_refs: [sourceRef(1)]
+      registry_key: 'registry:characters:0001', local_key: 'character:甲', name: '甲', aliases: [],
+      identities: ['侠客'], level: '核心', rank: '初窥门径', description: '甲在江湖中追查旧事。',
+      factions: ['registry:factions:0001'], skills: ['registry:skills:0001'], source_refs: [sourceRef(1)]
     }],
     items: [{
-      local_key: 'item:灵丹', canonical_name: '回生丹', inclusion_reason: '高级药毒', type: '丹药',
+      registry_key: 'registry:items:0001', local_key: 'item:灵丹', name: '回生丹', aliases: [], type: '丹药',
       description: '用于救治重伤。', source_refs: [sourceRef(2)]
     }],
     skills: [{
-      local_key: 'skill:内功', canonical_name: '玄门内功', type: '内功', rank: '初窥门径',
-      faction: '玄门', description: '调息养气。',
-      techniques: [{ name: '飞云掌', named_in_source: true, description: '掌势迅疾。' }],
+      registry_key: 'registry:skills:0001', local_key: 'skill:内功', name: '玄门内功', aliases: [],
+      types: ['内功'], factions: ['registry:factions:0001'], rank: '初窥门径', description: '调息养气。',
+      techniques: [{ name: '飞云掌', description: '掌势迅疾。' }],
       source_refs: [sourceRef(1)]
     }],
     factions: [{
-      local_key: 'faction:玄门', canonical_name: '玄门', type: '门派', description: '隐居山中。', source_refs: [sourceRef(1)]
+      registry_key: 'registry:factions:0001', local_key: 'faction:玄门', name: '玄门', aliases: [],
+      type: '门派', description: '隐居山中。', source_refs: [sourceRef(1)]
     }],
     chapter_summaries: [1, 2, 3].map(chapter => ({
       chapter,
       title: `第${chapter}章`,
       summary: `第${chapter}章摘要。`,
-      key_characters: ['甲'],
-      key_skills: chapter === 1 ? ['玄门内功'] : [],
       source_refs: [sourceRef(chapter)]
     })),
     candidate_resolutions: [],

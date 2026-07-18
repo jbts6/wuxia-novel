@@ -46,10 +46,18 @@ function domainDraft(input) {
       entry_ref: entry.entry_ref,
       action: 'keep',
       patch: {
-        canonical_name: entry.canonical_name,
-        ...(['characters', 'skills'].includes(entry.category)
-          ? { rank: '登堂入室' }
-          : {})
+        name: entry.canonical_name,
+        aliases: [],
+        ...(entry.category === 'characters' ? {
+          identities: [], level: '核心', rank: '登堂入室', description: null, factions: [], skills: []
+        } : {}),
+        ...(entry.category === 'skills' ? {
+          types: [], factions: [], rank: '登堂入室', description: null, techniques: []
+        } : {}),
+        ...(entry.category === 'items' ? {
+          type: null, description: null, inclusion_reason: '其他稀有特殊'
+        } : {}),
+        ...(entry.category === 'factions' ? { type: null, description: null } : {})
       }
     })),
     notes: []
@@ -129,13 +137,15 @@ test('assemble projects exactly five deterministic YAML files from accepted chap
   const bytes = finalBytes(paths.finalData);
   const report = readJson(path.join(paths.finalReports, 'assembly-report.json'));
   assert.equal(report.final_data_hash, first.final_data_hash);
+  assert.equal(report.id_plan_hash, first.id_plan_hash);
+  assert.match(report.id_plan_hash, /^sha256:[a-f0-9]{64}$/);
 
   const second = pass(runFlow(['assemble', novel, '--run', prepared.run_id, '--json']), 'second assemble');
   assert.deepEqual(finalBytes(paths.finalData), bytes);
   assert.equal(second.final_data_hash, first.final_data_hash);
 });
 
-test('assemble fails closed when a non-empty final reference cannot be resolved', () => {
+test('assembly flow fails closed before publication when a local reference cannot be resolved', () => {
   assert.throws(() => prepareAssembledRun({
     name: '未解析引用试书',
     runId: 'run-unresolved-reference',
@@ -145,11 +155,11 @@ test('assemble fails closed when a non-empty final reference cannot be resolved'
         name: '甲',
         level: '核心',
         rank: '登堂入室',
-        skill_names: ['不存在的武功'],
+        skills: ['skill:missing'],
         source_refs: [sourceRef(1, '甲')]
       }]
     }
-  }), /FINAL_PROJECTION_FAILED/);
+  }), /REGISTRY_REFERENCE_MISSING/);
 });
 
 test('assemble rejects missing, pending, and cyclic domain decisions', () => {
@@ -234,7 +244,7 @@ test('the assembled intermediate keeps chapter summaries to consumer fields only
     decisions
   });
 
-  assert.deepEqual(Object.keys(book.chapter_summaries[0]).sort(), ['chapter', 'summary', 'title']);
+  assert.deepEqual(Object.keys(book.chapter_summaries[0]).sort(), ['chapter', 'source_refs', 'summary', 'title']);
 });
 
 test('assembly blocks a missing chapter summary instead of synthesizing placeholder text', () => {
