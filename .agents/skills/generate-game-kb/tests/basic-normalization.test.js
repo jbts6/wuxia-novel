@@ -108,6 +108,27 @@ test('same normalized name remains isolated across categories', () => {
   );
 });
 
+test('quarantine ordering is stable for identical generic technique keys', () => {
+  const techniques = [
+    { name: '挥手一击', named_in_source: true, description: '甲处动作' },
+    { name: '挥手一击', named_in_source: true, description: '乙处动作' }
+  ];
+  const makeResult = values => buildBasicCandidateRegistry([
+    chapter(1, {
+      skills: [{
+        local_key: 'skill:test', name: '试招刀法', techniques: values,
+        source_refs: [sourceRef(1, '试招刀法中有两处动作。')]
+      }]
+    })
+  ]);
+
+  const first = makeResult(techniques);
+  const reversed = makeResult([...techniques].reverse());
+  assert.deepEqual(first.quarantine.map(item => item.record.description), ['甲处动作', '乙处动作']);
+  assert.deepEqual(first, reversed);
+  assert.equal(JSON.stringify(first), JSON.stringify(reversed));
+});
+
 test('generic skill names are quarantined while named techniques containing verbs remain', () => {
   const result = buildBasicCandidateRegistry([
     chapter(1, {
@@ -192,4 +213,15 @@ test('same-name identity or type conflicts remain distinct and produce grounded 
       ]
     }
   ]);
+});
+
+test('malformed chapter members produce a deterministic warning instead of throwing', () => {
+  const result = buildBasicCandidateRegistry([null]);
+
+  assert.deepEqual(Object.values(result.registry.categories), [[], [], [], []]);
+  assert.deepEqual(result.quarantine, []);
+  assert.deepEqual(result.warnings, [{
+    code: 'CHAPTER_MEMBER_INVALID',
+    received_type: 'null'
+  }]);
 });

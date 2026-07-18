@@ -348,8 +348,16 @@ function quarantineGenericAction({ category, chapter, record, parent }) {
   };
 }
 
-function sanitizeBasicChapters(chapters, quarantine) {
+function sanitizeBasicChapters(chapters, quarantine, warnings) {
   return [...(Array.isArray(chapters) ? chapters : [])]
+    .filter(chapter => {
+      if (chapter && typeof chapter === 'object' && !Array.isArray(chapter)) return true;
+      warnings.push({
+        code: 'CHAPTER_MEMBER_INVALID',
+        received_type: chapter === null ? 'null' : (Array.isArray(chapter) ? 'array' : typeof chapter)
+      });
+      return false;
+    })
     .sort((left, right) => Number(left?.chapter) - Number(right?.chapter))
     .map(chapter => {
       const sanitized = structuredClone(chapter);
@@ -416,19 +424,33 @@ function collectConflictWarnings(chapters) {
   ));
 }
 
+function compareQuarantineEntries(left, right) {
+  const leftKey = `${left.normalized_name}\u0000${left.category}\u0000${left.chapter}\u0000${left.candidate_key || left.parent_candidate_key || ''}`;
+  const rightKey = `${right.normalized_name}\u0000${right.category}\u0000${right.chapter}\u0000${right.candidate_key || right.parent_candidate_key || ''}`;
+  return compareText(leftKey, rightKey)
+    || compareText(
+      stableMarker({ record: left.record, source_refs: left.source_refs }),
+      stableMarker({ record: right.record, source_refs: right.source_refs })
+    );
+}
+
+function compareWarnings(left, right) {
+  const leftKey = `${left.code}\u0000${left.category || ''}\u0000${left.normalized_name || ''}`;
+  const rightKey = `${right.code}\u0000${right.category || ''}\u0000${right.normalized_name || ''}`;
+  return compareText(leftKey, rightKey) || compareText(stableMarker(left), stableMarker(right));
+}
+
 function buildBasicCandidateRegistry(chapters) {
   const quarantine = [];
-  const sanitizedChapters = sanitizeBasicChapters(chapters, quarantine);
+  const warnings = [];
+  const sanitizedChapters = sanitizeBasicChapters(chapters, quarantine, warnings);
   const registry = buildCandidateRegistry(sanitizedChapters);
   registry.pending = [];
   registry.stats.pending_groups = 0;
   return {
     registry,
-    quarantine: quarantine.sort((left, right) => compareText(
-      `${left.normalized_name}\u0000${left.category}\u0000${left.chapter}\u0000${left.candidate_key || left.parent_candidate_key || ''}`,
-      `${right.normalized_name}\u0000${right.category}\u0000${right.chapter}\u0000${right.candidate_key || right.parent_candidate_key || ''}`
-    )),
-    warnings: collectConflictWarnings(sanitizedChapters)
+    quarantine: quarantine.sort(compareQuarantineEntries),
+    warnings: [...warnings, ...collectConflictWarnings(sanitizedChapters)].sort(compareWarnings)
   };
 }
 

@@ -2,7 +2,7 @@
 
 const crypto = require('node:crypto');
 
-const { isGenericActionDescription, mergeRegistryRecords } = require('./candidate-registry');
+const { mergeRegistryRecords } = require('./candidate-registry');
 const { validateDomainDecisionDraft } = require('./domain-contract');
 const { GameKbError } = require('./errors');
 
@@ -194,9 +194,6 @@ function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: wor
       .sort((left, right) => (Number(left.chapter) - Number(right.chapter)) || compareText(left.text, right.text));
     const fields = structuredClone(record);
     for (const field of ['candidate_key', 'local_key', 'name', 'canonical_name', 'aliases', 'source_refs']) delete fields[field];
-    if (Array.isArray(fields.techniques)) {
-      fields.techniques = fields.techniques.filter(technique => !isGenericActionDescription(technique?.name));
-    }
     entities.push({
       provisional_key: rootKey,
       category: rootEntry.category,
