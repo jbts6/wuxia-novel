@@ -189,11 +189,13 @@ function collisionAssemblyFixture() {
   const chapter = normalizeChapterDraft(validChapterDraft({
     characters: [
       {
-        local_key: 'character:north', name: '同名客', identity: '北地刀客', level: '次要', rank: '初窥门径',
+        local_key: 'character:north', name: '同名客', aliases: [], identities: ['北地刀客'],
+        level: '次要', rank: '初窥门径', description: null, factions: [], skills: [],
         source_refs: [{ chapter: 1, text: '北地刀客自报名号同名客。' }]
       },
       {
-        local_key: 'character:south', name: '同名客', identity: '南疆剑客', level: '次要', rank: '初窥门径',
+        local_key: 'character:south', name: '同名客', aliases: [], identities: ['南疆剑客'],
+        level: '次要', rank: '初窥门径', description: null, factions: [], skills: [],
         source_refs: [{ chapter: 1, text: '南疆剑客亦称同名客。' }]
       }
     ],

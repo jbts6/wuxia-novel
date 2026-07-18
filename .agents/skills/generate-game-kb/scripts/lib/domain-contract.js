@@ -3,7 +3,9 @@
 const {
   DOMAIN_UNITS,
   isPowerRank,
-  requiredDomainUnitsForContract
+  normalizeEntitySemantics,
+  requiredDomainUnitsForContract,
+  validateEntitySemantics
 } = require('./semantic-contract');
 
 const ACTIONS = new Set(['keep', 'merge', 'reject', 'pending']);
@@ -41,7 +43,7 @@ function controllerFieldPaths(value, prefix = '$', paths = []) {
   return paths;
 }
 
-function validatePatch(patch, input, entry, label, entriesByRef, errors) {
+function validatePatch(patch, input, entry, label, entriesByRef, errors, requireStrings = false) {
   if (!patch || typeof patch !== 'object' || Array.isArray(patch)) {
     errors.push(issue('DOMAIN_PATCH_INVALID', `${label}.patch`));
     return;
@@ -50,16 +52,36 @@ function validatePatch(patch, input, entry, label, entriesByRef, errors) {
   for (const field of Object.keys(patch)) {
     if (!allowed.has(field)) errors.push(issue('DOMAIN_PATCH_FIELD_FORBIDDEN', `${label}.patch.${field}`, field));
   }
+  errors.push(...validateEntitySemantics(entry.category, patch, {
+    label: `${label}.patch`,
+    requireStrings,
+    stageFields: entry.category === 'items' ? ['inclusion_reason'] : []
+  }));
   for (const [field, value] of Object.entries(patch)) {
-    if (field === 'faction') {
-      if (value === null || value === '') continue;
+    if (field === 'factions' && ['characters', 'skills'].includes(entry.category)) {
+      if (!Array.isArray(value)) continue;
       const allowedFactionRefs = new Set(input.allowed_faction_refs || []);
-      if (allowedFactionRefs.has(value)) continue;
-      errors.push(issue(
-        entriesByRef.has(value) ? 'DOMAIN_REFERENCE_UNAUTHORIZED' : 'DOMAIN_REFERENCE_UNKNOWN',
-        `${label}.patch.${field}`,
-        value
-      ));
+      value.forEach((ref, index) => {
+        if (allowedFactionRefs.has(ref)) return;
+        errors.push(issue(
+          entriesByRef.has(ref) ? 'DOMAIN_REFERENCE_UNAUTHORIZED' : 'DOMAIN_REFERENCE_UNKNOWN',
+          `${label}.patch.${field}[${index}]`,
+          ref
+        ));
+      });
+      continue;
+    }
+    if (field === 'skills' && entry.category === 'characters') {
+      if (!Array.isArray(value)) continue;
+      const allowedSkillRefs = new Set(input.allowed_skill_refs || []);
+      value.forEach((ref, index) => {
+        if (allowedSkillRefs.has(ref)) return;
+        errors.push(issue(
+          entriesByRef.has(ref) ? 'DOMAIN_REFERENCE_UNAUTHORIZED' : 'DOMAIN_REFERENCE_UNKNOWN',
+          `${label}.patch.${field}[${index}]`,
+          ref
+        ));
+      });
       continue;
     }
     if (!(field.endsWith('_ref') || field.endsWith('_refs'))) continue;
@@ -81,8 +103,17 @@ function validatePatch(patch, input, entry, label, entriesByRef, errors) {
         if (!nonempty(technique.name)) {
           errors.push(issue('TECHNIQUE_NAME_REQUIRED', `${techniquePath}.name`));
         }
-        if (technique.named_in_source !== true) {
-          errors.push(issue('TECHNIQUE_NOT_NAMED', `${techniquePath}.named_in_source`, technique.name));
+        for (const field of Object.keys(technique)) {
+          if (!['name', 'description'].includes(field)) {
+            errors.push(issue('ENTITY_FIELD_FORBIDDEN', `${techniquePath}.${field}`, field));
+          }
+        }
+        if (technique.description !== undefined && technique.description !== null
+          && !nonempty(technique.description)) {
+          errors.push(issue('ENTITY_VALUE_EMPTY', `${techniquePath}.description`, technique.description));
+        }
+        if (['未知', '其他', '暂无描述', '不详'].includes(technique.description?.trim())) {
+          errors.push(issue('ENTITY_VALUE_PLACEHOLDER', `${techniquePath}.description`, technique.description));
         }
       });
     }
@@ -90,10 +121,7 @@ function validatePatch(patch, input, entry, label, entriesByRef, errors) {
 }
 
 function validatePowerRankPatch(patch, label, errors) {
-  if (patch?.rank === undefined || patch.rank === null || patch.rank === '') {
-    errors.push(issue('POWER_RANK_REQUIRED', `${label}.patch.rank`));
-    return;
-  }
+  if (patch?.rank === undefined || patch.rank === null) return;
   if (!isPowerRank(patch.rank)) {
     errors.push(issue('POWER_RANK_INVALID', `${label}.patch.rank`, patch.rank));
   }
@@ -175,7 +203,7 @@ function validateDomainDecisionDraft(draft, input) {
       return;
     }
     if (decision.action === 'keep') {
-      validatePatch(decision.patch, input, entry, label, entriesByRef, errors);
+      validatePatch(decision.patch, input, entry, label, entriesByRef, errors, true);
       if ((entry.category === 'characters' || entry.category === 'skills')
         && decision.patch && typeof decision.patch === 'object' && !Array.isArray(decision.patch)) {
         validatePowerRankPatch(decision.patch, label, errors);
@@ -218,12 +246,23 @@ function validateDomainDecisionDraft(draft, input) {
 
 function normalizeDomainDecisionDraft(draft, input) {
   const order = new Map((input?.entries || []).map((entry, index) => [entry.entry_ref, index]));
+  const categories = new Map((input?.entries || []).map(entry => [entry.entry_ref, entry.category]));
+  const decisions = structuredClone(draft.decisions || []).map(decision => {
+    if (decision?.action !== 'keep' || !decision.patch || typeof decision.patch !== 'object'
+      || Array.isArray(decision.patch)) return decision;
+    const category = categories.get(decision.entry_ref);
+    if (!category) return decision;
+    const inclusionReason = decision.patch.inclusion_reason;
+    const patch = normalizeEntitySemantics(category, decision.patch);
+    if (inclusionReason !== undefined) patch.inclusion_reason = inclusionReason;
+    return { ...decision, patch };
+  });
   return {
     schema_version: 1,
     semantic_contract_version: input.semantic_contract_version,
     unit: input.unit,
     input_hash: input.input_hash,
-    decisions: structuredClone(draft.decisions || []).sort((left, right) => (
+    decisions: decisions.sort((left, right) => (
       (order.get(left.entry_ref) ?? Number.MAX_SAFE_INTEGER) - (order.get(right.entry_ref) ?? Number.MAX_SAFE_INTEGER)
     )),
     notes: structuredClone(draft.notes || [])

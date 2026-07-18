@@ -1,8 +1,7 @@
 'use strict';
 
-const SEMANTIC_CONTRACT_VERSION = 5;
+const SEMANTIC_CONTRACT_VERSION = 6;
 const SEMANTIC_PROFILE = 'domain-distill-v1';
-const LEGACY_DOMAIN_CONTRACT_VERSION = 4;
 const PROFILE_V4 = 'v4';
 const PROFILE_V5 = 'v5';
 const SUPPORTED_PROFILES = new Set([PROFILE_V4, PROFILE_V5]);
@@ -13,10 +12,7 @@ const DOMAIN_UNITS = Object.freeze([
   'distill:items'
 ]);
 const NO_DOMAIN_UNITS = Object.freeze([]);
-const SUPPORTED_SEMANTIC_CONTRACT_VERSIONS = new Set([
-  LEGACY_DOMAIN_CONTRACT_VERSION,
-  SEMANTIC_CONTRACT_VERSION
-]);
+const SUPPORTED_SEMANTIC_CONTRACT_VERSIONS = new Set([SEMANTIC_CONTRACT_VERSION]);
 const FINAL_FILES = Object.freeze({
   characters: 'characters.yaml',
   skills: 'skills.yaml',
@@ -49,16 +45,147 @@ const POWER_RANK_CONTRACT = Object.freeze({
 });
 const CHARACTER_LEVELS = Object.freeze(['核心', '重要', '次要', '龙套', '背景']);
 const ITEM_TYPES = Object.freeze(['武器', '防具', '秘籍', '丹药', '暗器', '其他']);
+
+function entityFieldContract({ fields, arrays, nullable, requiredStrings, forbidden }) {
+  return Object.freeze({
+    fields: Object.freeze(fields),
+    arrays: Object.freeze(arrays),
+    nullable: Object.freeze(nullable),
+    requiredStrings: Object.freeze(requiredStrings),
+    forbidden: Object.freeze(forbidden)
+  });
+}
+
+const ENTITY_FIELD_CONTRACTS = Object.freeze({
+  characters: entityFieldContract({
+    fields: ['id', 'name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills'],
+    arrays: ['aliases', 'identities', 'factions', 'skills'],
+    nullable: ['level', 'rank', 'description'],
+    requiredStrings: ['id', 'name'],
+    forbidden: [
+      'identity', 'biography', 'faction', 'items', 'personality', 'relationships',
+      'relationship_names', 'skill_names', 'item_names'
+    ]
+  }),
+  skills: entityFieldContract({
+    fields: ['id', 'name', 'aliases', 'types', 'factions', 'rank', 'description', 'techniques'],
+    arrays: ['aliases', 'types', 'factions', 'techniques'],
+    nullable: ['rank', 'description'],
+    requiredStrings: ['id', 'name'],
+    forbidden: ['type', 'faction', 'holders', 'users', 'holder_names', 'user_names']
+  }),
+  items: entityFieldContract({
+    fields: ['id', 'name', 'aliases', 'type', 'description'],
+    arrays: ['aliases'],
+    nullable: ['type', 'description'],
+    requiredStrings: ['id', 'name'],
+    forbidden: ['holder', 'holders', 'owner', 'owners', 'holder_names', 'owner_name']
+  }),
+  factions: entityFieldContract({
+    fields: ['id', 'name', 'aliases', 'type', 'description'],
+    arrays: ['aliases'],
+    nullable: ['type', 'description'],
+    requiredStrings: ['id', 'name'],
+    forbidden: ['member', 'members', 'member_names']
+  })
+});
 const FINAL_FIELDS = Object.freeze({
-  characters: Object.freeze([
-    'id', 'name', 'aliases', 'identity', 'level', 'rank', 'biography', 'faction', 'skills', 'items'
-  ]),
-  skills: Object.freeze(['id', 'name', 'type', 'faction', 'rank', 'description', 'techniques']),
-  items: Object.freeze(['id', 'name', 'type', 'description']),
-  factions: Object.freeze(['id', 'name', 'type', 'description']),
+  characters: ENTITY_FIELD_CONTRACTS.characters.fields,
+  skills: ENTITY_FIELD_CONTRACTS.skills.fields,
+  items: ENTITY_FIELD_CONTRACTS.items.fields,
+  factions: ENTITY_FIELD_CONTRACTS.factions.fields,
   chapter_summaries: Object.freeze(['chapter', 'title', 'summary'])
 });
 const POWER_RANK_SET = new Set(POWER_RANKS);
+const PLACEHOLDER_VALUES = new Set(['未知', '其他', '暂无描述', '不详', 'unknown', 'n/a', 'none']);
+
+function entityIssue(code, path, target = '') {
+  return { code, path, target };
+}
+
+function isPlaceholderValue(value, field) {
+  if (field === 'type') return false;
+  return typeof value === 'string' && PLACEHOLDER_VALUES.has(value.trim().toLowerCase());
+}
+
+function validateEntitySemantics(category, record, options = {}) {
+  const contract = ENTITY_FIELD_CONTRACTS[category];
+  if (!contract) throw new RangeError(`Unknown entity category: ${String(category)}`);
+  if (!record || typeof record !== 'object' || Array.isArray(record)) return [];
+
+  const label = options.label || category;
+  const allowed = new Set(contract.fields);
+  if (options.includeId !== true) allowed.delete('id');
+  for (const field of options.stageFields || []) allowed.add(field);
+
+  const errors = [];
+  for (const field of Object.keys(record)) {
+    if (!allowed.has(field)) {
+      errors.push(entityIssue('ENTITY_FIELD_FORBIDDEN', `${label}.${field}`, field));
+    }
+  }
+
+  for (const field of contract.requiredStrings) {
+    if (field === 'id' && options.includeId !== true) continue;
+    const value = record[field];
+    if (options.requireStrings === true && (typeof value !== 'string' || value.trim() === '')) {
+      errors.push(entityIssue('ENTITY_STRING_REQUIRED', `${label}.${field}`, value));
+    } else if (typeof value === 'string' && value.trim() === '') {
+      errors.push(entityIssue('ENTITY_VALUE_EMPTY', `${label}.${field}`, value));
+    } else if (isPlaceholderValue(value, field)) {
+      errors.push(entityIssue('ENTITY_VALUE_PLACEHOLDER', `${label}.${field}`, value));
+    }
+  }
+
+  for (const field of contract.arrays) {
+    const value = record[field];
+    if (value === undefined) continue;
+    if (!Array.isArray(value)) {
+      errors.push(entityIssue('ENTITY_ARRAY_INVALID', `${label}.${field}`, value));
+      continue;
+    }
+    if (field === 'techniques') continue;
+    value.forEach((entry, index) => {
+      const path = `${label}.${field}[${index}]`;
+      if (typeof entry !== 'string' || entry.trim() === '') {
+        errors.push(entityIssue('ENTITY_VALUE_EMPTY', path, entry));
+      } else if (isPlaceholderValue(entry, field)) {
+        errors.push(entityIssue('ENTITY_VALUE_PLACEHOLDER', path, entry));
+      }
+    });
+  }
+
+  for (const field of contract.nullable) {
+    const value = record[field];
+    if (value === undefined || value === null) continue;
+    if (typeof value !== 'string' || value.trim() === '') {
+      errors.push(entityIssue('ENTITY_VALUE_EMPTY', `${label}.${field}`, value));
+    } else if (isPlaceholderValue(value, field)) {
+      errors.push(entityIssue('ENTITY_VALUE_PLACEHOLDER', `${label}.${field}`, value));
+    }
+  }
+  return errors;
+}
+
+function normalizeEntitySemantics(category, record) {
+  const contract = ENTITY_FIELD_CONTRACTS[category];
+  if (!contract) throw new RangeError(`Unknown entity category: ${String(category)}`);
+  const normalized = { ...record };
+  for (const field of contract.arrays) {
+    if (normalized[field] === undefined) normalized[field] = [];
+  }
+  for (const field of contract.nullable) {
+    if (normalized[field] === undefined) normalized[field] = null;
+  }
+  if (category === 'skills' && Array.isArray(normalized.techniques)) {
+    normalized.techniques = normalized.techniques.map(technique => (
+      technique && typeof technique === 'object' && !Array.isArray(technique)
+        ? { ...technique, description: technique.description ?? null }
+        : technique
+    ));
+  }
+  return normalized;
+}
 
 function isPowerRank(value) {
   return typeof value === 'string' && POWER_RANK_SET.has(value);
@@ -71,7 +198,7 @@ function requiredDomainUnitsForContract(version) {
     error.version = version;
     throw error;
   }
-  return version === LEGACY_DOMAIN_CONTRACT_VERSION ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
+  return DOMAIN_UNITS;
 }
 
 function requiredDomainUnitsForProfile(profile, version) {
@@ -88,6 +215,7 @@ function requiredDomainUnitsForProfile(profile, version) {
 module.exports = {
   CHARACTER_LEVELS,
   DOMAIN_UNITS,
+  ENTITY_FIELD_CONTRACTS,
   FINAL_FIELDS,
   FINAL_FILES,
   ITEM_TYPES,
@@ -99,6 +227,8 @@ module.exports = {
   SEMANTIC_PROFILE,
   SUPPORTED_PROFILES,
   isPowerRank,
+  normalizeEntitySemantics,
   requiredDomainUnitsForContract,
-  requiredDomainUnitsForProfile
+  requiredDomainUnitsForProfile,
+  validateEntitySemantics
 };

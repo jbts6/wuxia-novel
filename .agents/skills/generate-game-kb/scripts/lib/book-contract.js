@@ -1,7 +1,7 @@
 'use strict';
 
 const { REJECTION_REASONS: DOMAIN_REJECTION_REASONS } = require('./domain-contract');
-const { isPowerRank } = require('./semantic-contract');
+const { isPowerRank, validateEntitySemantics } = require('./semantic-contract');
 
 const ENTITY_CATEGORIES = Object.freeze([
   'characters',
@@ -48,12 +48,9 @@ function groupCandidates(chapters) {
     grouped[category] = [...byName.entries()]
       .sort(([left], [right]) => left.localeCompare(right, 'zh-CN'))
       .map(([normalizedName, candidates]) => {
-        const identities = new Set(candidates
-          .map(candidate => normalizeName(candidate?.identity))
-          .filter(Boolean));
         return {
           normalized_name: normalizedName,
-          ambiguous: identities.size > 1,
+          ambiguous: candidates.length > 1,
           candidates
         };
       });
@@ -105,11 +102,40 @@ function findFormalIds(value, label, errors) {
 }
 
 function validatePowerRank(record, label, errors) {
-  if (typeof record?.rank !== 'string' || record.rank === '') {
-    errors.push(issue('POWER_RANK_REQUIRED', `${label}.rank`));
-  } else if (!isPowerRank(record.rank)) {
+  if (record?.rank === undefined || record.rank === null) return;
+  if (!isPowerRank(record.rank)) {
     errors.push(issue('POWER_RANK_INVALID', `${label}.rank`, record.rank));
   }
+}
+
+function validateTechniques(record, label, errors) {
+  if (record?.techniques === undefined) return;
+  if (!Array.isArray(record.techniques)) {
+    errors.push(issue('TECHNIQUES_ARRAY_REQUIRED', `${label}.techniques`));
+    return;
+  }
+  record.techniques.forEach((technique, index) => {
+    const techniquePath = `${label}.techniques[${index}]`;
+    if (!isObject(technique)) {
+      errors.push(issue('TECHNIQUE_INVALID', techniquePath));
+      return;
+    }
+    for (const field of Object.keys(technique)) {
+      if (!['name', 'description'].includes(field)) {
+        errors.push(issue('ENTITY_FIELD_FORBIDDEN', `${techniquePath}.${field}`, field));
+      }
+    }
+    if (typeof technique.name !== 'string' || technique.name.trim() === '') {
+      errors.push(issue('TECHNIQUE_NAME_REQUIRED', `${techniquePath}.name`));
+    }
+    if (technique.description !== undefined && technique.description !== null
+      && (typeof technique.description !== 'string' || technique.description.trim() === '')) {
+      errors.push(issue('ENTITY_VALUE_EMPTY', `${techniquePath}.description`, technique.description));
+    }
+    if (['未知', '其他', '暂无描述', '不详'].includes(technique.description?.trim())) {
+      errors.push(issue('ENTITY_VALUE_PLACEHOLDER', `${techniquePath}.description`, technique.description));
+    }
+  });
 }
 
 function validateAmbiguities(ambiguities, errors) {
@@ -218,19 +244,19 @@ function validateBook(book, manifest, expectedStage, chapters) {
       } else {
         localKeys.add(record.local_key);
       }
-      if (typeof record.canonical_name !== 'string' || record.canonical_name.trim() === '') {
-        errors.push(issue('CANONICAL_NAME_REQUIRED', `${label}.canonical_name`));
-      }
-      if (record.aliases !== undefined && !Array.isArray(record.aliases)) {
-        errors.push(issue('ALIASES_ARRAY_REQUIRED', `${label}.aliases`));
-      }
+      errors.push(...validateEntitySemantics(category, record, {
+        label,
+        requireStrings: true,
+        stageFields: ['local_key', 'source_refs']
+      }));
       if (category === 'characters' || category === 'skills') {
         validatePowerRank(record, label, errors);
       }
-      // skills 必须有 techniques 数组
-      if (category === 'skills' && !Array.isArray(record.techniques)) {
-        errors.push(issue('TECHNIQUES_ARRAY_REQUIRED', `${label}.techniques`));
+      if (category === 'characters' && record.level !== undefined && record.level !== null
+        && !CHARACTER_LEVELS.has(record.level)) {
+        errors.push(issue('CHARACTER_LEVEL_INVALID', `${label}.level`, record.level));
       }
+      if (category === 'skills') validateTechniques(record, label, errors);
       validateSourceRefs(record, label, chapterNumbers, errors);
     });
   }
@@ -242,6 +268,11 @@ function validateBook(book, manifest, expectedStage, chapters) {
       errors.push(issue('CHAPTER_SUMMARY_INVALID', label));
       return;
     }
+    for (const field of Object.keys(summary)) {
+      if (!['chapter', 'title', 'summary', 'source_refs'].includes(field)) {
+        errors.push(issue('SUMMARY_FIELD_FORBIDDEN', `${label}.${field}`, field));
+      }
+    }
     if (!chapterNumbers.has(summary.chapter)) {
       errors.push(issue('SUMMARY_CHAPTER_UNKNOWN', `${label}.chapter`, summary.chapter));
     } else if (summariesByChapter.has(summary.chapter)) {
@@ -252,6 +283,10 @@ function validateBook(book, manifest, expectedStage, chapters) {
     if (typeof summary.summary !== 'string' || summary.summary.trim() === '') {
       errors.push(issue('SUMMARY_TEXT_REQUIRED', `${label}.summary`));
     }
+    if (typeof summary.title !== 'string' || summary.title.trim() === '') {
+      errors.push(issue('SUMMARY_TITLE_REQUIRED', `${label}.title`));
+    }
+    validateSourceRefs(summary, label, chapterNumbers, errors, summary.chapter);
   });
   for (const chapter of chapterNumbers) {
     if (!summariesByChapter.has(chapter)) errors.push(issue('SUMMARY_CHAPTER_MISSING', 'chapter_summaries', chapter));

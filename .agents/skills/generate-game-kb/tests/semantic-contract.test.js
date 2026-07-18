@@ -6,6 +6,7 @@ const assert = require('node:assert/strict');
 const {
   CHARACTER_LEVELS,
   DOMAIN_UNITS,
+  ENTITY_FIELD_CONTRACTS,
   FINAL_FIELDS,
   FINAL_FILES,
   ITEM_TYPES,
@@ -19,8 +20,8 @@ const {
   requiredDomainUnitsForProfile
 } = require('../scripts/lib/semantic-contract');
 
-test('declares the fast-path YAML contract and retains legacy domain unit names', () => {
-  assert.equal(SEMANTIC_CONTRACT_VERSION, 5);
+test('declares the version-6 fast-path YAML contract and retains domain unit names', () => {
+  assert.equal(SEMANTIC_CONTRACT_VERSION, 6);
   assert.equal(SEMANTIC_PROFILE, 'domain-distill-v1');
   assert.deepEqual(DOMAIN_UNITS, [
     'distill:factions',
@@ -46,15 +47,14 @@ test('declares the fast-path YAML contract and retains legacy domain unit names'
 });
 
 test('required domain units reject unsupported or mistyped semantic versions', () => {
-  for (const version of ['4', 3, 6, null, undefined]) {
+  for (const version of ['6', 3, 4, 5, 7, null, undefined]) {
     assert.throws(
       () => requiredDomainUnitsForContract(version),
       error => error.code === 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED'
-        && error.version === version
+      && error.version === version
     );
   }
-  assert.deepEqual(requiredDomainUnitsForContract(4), DOMAIN_UNITS);
-  assert.deepEqual(requiredDomainUnitsForContract(5), []);
+  assert.deepEqual(requiredDomainUnitsForContract(6), DOMAIN_UNITS);
 });
 
 test('the active semantic contract selects domain units by run profile', () => {
@@ -94,12 +94,53 @@ test('centralizes the whole-book rank scale and evidence priority', () => {
   assert.match(POWER_RANK_CONTRACT.skill_rule, /可靠.*使用者|后文.*推翻/);
 });
 
-test('defines the simplified fields for all five final files', () => {
+test('defines one frozen version-6 entity field contract for all stages', () => {
+  assert.deepEqual(ENTITY_FIELD_CONTRACTS, {
+    characters: {
+      fields: ['id', 'name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills'],
+      arrays: ['aliases', 'identities', 'factions', 'skills'],
+      nullable: ['level', 'rank', 'description'],
+      requiredStrings: ['id', 'name'],
+      forbidden: [
+        'identity', 'biography', 'faction', 'items', 'personality', 'relationships',
+        'relationship_names', 'skill_names', 'item_names'
+      ]
+    },
+    skills: {
+      fields: ['id', 'name', 'aliases', 'types', 'factions', 'rank', 'description', 'techniques'],
+      arrays: ['aliases', 'types', 'factions', 'techniques'],
+      nullable: ['rank', 'description'],
+      requiredStrings: ['id', 'name'],
+      forbidden: ['type', 'faction', 'holders', 'users', 'holder_names', 'user_names']
+    },
+    items: {
+      fields: ['id', 'name', 'aliases', 'type', 'description'],
+      arrays: ['aliases'],
+      nullable: ['type', 'description'],
+      requiredStrings: ['id', 'name'],
+      forbidden: ['holder', 'holders', 'owner', 'owners', 'holder_names', 'owner_name']
+    },
+    factions: {
+      fields: ['id', 'name', 'aliases', 'type', 'description'],
+      arrays: ['aliases'],
+      nullable: ['type', 'description'],
+      requiredStrings: ['id', 'name'],
+      forbidden: ['member', 'members', 'member_names']
+    }
+  });
+  assert.equal(Object.isFrozen(ENTITY_FIELD_CONTRACTS), true);
+  for (const contract of Object.values(ENTITY_FIELD_CONTRACTS)) {
+    assert.equal(Object.isFrozen(contract), true);
+    for (const value of Object.values(contract)) assert.equal(Object.isFrozen(value), true);
+  }
+});
+
+test('derives the exact final fields from the shared entity contract', () => {
   assert.deepEqual(FINAL_FIELDS, {
-    characters: ['id', 'name', 'aliases', 'identity', 'level', 'rank', 'biography', 'faction', 'skills', 'items'],
-    skills: ['id', 'name', 'type', 'faction', 'rank', 'description', 'techniques'],
-    items: ['id', 'name', 'type', 'description'],
-    factions: ['id', 'name', 'type', 'description'],
+    characters: ['id', 'name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills'],
+    skills: ['id', 'name', 'aliases', 'types', 'factions', 'rank', 'description', 'techniques'],
+    items: ['id', 'name', 'aliases', 'type', 'description'],
+    factions: ['id', 'name', 'aliases', 'type', 'description'],
     chapter_summaries: ['chapter', 'title', 'summary']
   });
   assert.equal(FINAL_FIELDS.items.includes('tags'), false);

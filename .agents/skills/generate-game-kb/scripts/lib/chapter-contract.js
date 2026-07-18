@@ -1,6 +1,11 @@
 'use strict';
 
-const { CHARACTER_LEVELS, isPowerRank } = require('./semantic-contract');
+const {
+  CHARACTER_LEVELS,
+  isPowerRank,
+  normalizeEntitySemantics,
+  validateEntitySemantics
+} = require('./semantic-contract');
 const { validateGroundedRecord } = require('./grounding');
 
 const CANDIDATE_ARRAYS = Object.freeze([
@@ -66,7 +71,7 @@ function findFormalIds(value, path, errors) {
   }
 }
 
-function validateNamedCandidate(record, label, expected, errors) {
+function validateNamedCandidate(record, label, category, expected, errors) {
   if (!record || typeof record !== 'object' || Array.isArray(record)) {
     errors.push(issue('CANDIDATE_INVALID', label));
     return;
@@ -77,6 +82,10 @@ function validateNamedCandidate(record, label, expected, errors) {
   if (typeof record.name !== 'string' || record.name.trim() === '') {
     errors.push(issue('NAME_REQUIRED', `${label}.name`));
   }
+  errors.push(...validateEntitySemantics(category, record, {
+    label,
+    stageFields: ['local_key', 'source_refs']
+  }));
   validateEvidence(record, label, expected, errors);
 }
 
@@ -95,6 +104,7 @@ function validateCharacterLevel(record, label, errors) {
 }
 
 function validateTechniques(record, label, errors) {
+  if (record?.techniques === undefined) return;
   if (!Array.isArray(record?.techniques)) {
     errors.push(issue('TECHNIQUES_REQUIRED', `${label}.techniques`));
     return;
@@ -108,8 +118,17 @@ function validateTechniques(record, label, errors) {
     if (typeof technique.name !== 'string' || technique.name.trim() === '') {
       errors.push(issue('TECHNIQUE_NAME_REQUIRED', `${techniquePath}.name`));
     }
-    if (technique.named_in_source !== true) {
-      errors.push(issue('TECHNIQUE_NOT_NAMED', `${techniquePath}.named_in_source`, technique.name));
+    for (const field of Object.keys(technique)) {
+      if (!['name', 'description'].includes(field)) {
+        errors.push(issue('ENTITY_FIELD_FORBIDDEN', `${techniquePath}.${field}`, field));
+      }
+    }
+    if (technique.description !== undefined && technique.description !== null
+      && (typeof technique.description !== 'string' || technique.description.trim() === '')) {
+      errors.push(issue('ENTITY_VALUE_EMPTY', `${techniquePath}.description`, technique.description));
+    }
+    if (['未知', '其他', '暂无描述', '不详'].includes(technique.description?.trim())) {
+      errors.push(issue('ENTITY_VALUE_PLACEHOLDER', `${techniquePath}.description`, technique.description));
     }
   });
 }
@@ -135,7 +154,7 @@ function validateChapterDraft(draft, expected) {
     const localKeys = new Set();
     draft[category].forEach((record, index) => {
       const label = `${category}[${index}]`;
-      validateNamedCandidate(record, label, expected, errors);
+      validateNamedCandidate(record, label, category, expected, errors);
       if (category === 'characters' || category === 'skills') {
         validatePowerRank(record, label, errors);
       }
@@ -171,7 +190,7 @@ function normalizeChapterDraft(draft) {
   const normalized = { ...draft };
   for (const category of CANDIDATE_ARRAYS) {
     normalized[category] = (Array.isArray(draft?.[category]) ? draft[category] : []).map(candidate => ({
-      ...candidate,
+      ...normalizeEntitySemantics(category, candidate),
       candidate_key: candidateKey(draft.chapter, category, candidate.local_key)
     }));
   }

@@ -74,12 +74,14 @@ function validChapterDraft(overrides = {}) {
     source_hash: 'sha256:chapter',
     characters: [{
       local_key: 'character:甲', name: '甲', level: '核心', rank: '初窥门径',
+      aliases: [], identities: [], description: null, factions: [], skills: [],
       source_refs: [sourceRef()]
     }],
     items: [],
     skills: [{
       local_key: 'skill:内功', name: '玄门内功', rank: '初窥门径',
-      techniques: [{ name: '飞云掌', named_in_source: true }],
+      aliases: [], types: [], factions: [], description: null,
+      techniques: [{ name: '飞云掌', description: null }],
       source_refs: [sourceRef(1, '甲修习玄门内功并使出飞云掌。')]
     }],
     factions: [],
@@ -105,9 +107,18 @@ function validDomainDraft(input, actionForEntry = () => 'keep') {
         action,
         ...(action === 'keep' ? {
           patch: {
-            canonical_name: entry.canonical_name,
-            ...(['characters', 'skills'].includes(entry.category) ? { rank: '登堂入室' } : {}),
-            ...(entry.category === 'items' ? { inclusion_reason: '其他稀有特殊' } : {})
+            name: entry.canonical_name,
+            aliases: [],
+            ...(entry.category === 'characters' ? {
+              identities: [], level: null, rank: null, description: null, factions: [], skills: []
+            } : {}),
+            ...(entry.category === 'skills' ? {
+              types: [], factions: [], rank: null, description: null, techniques: []
+            } : {}),
+            ...(entry.category === 'items' ? {
+              type: null, description: null, inclusion_reason: '其他稀有特殊'
+            } : {}),
+            ...(entry.category === 'factions' ? { type: null, description: null } : {})
           }
         } : {})
       };

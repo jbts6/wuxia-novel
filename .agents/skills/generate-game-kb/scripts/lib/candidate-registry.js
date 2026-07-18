@@ -22,7 +22,7 @@ const ARRAY_REFERENCE_FIELDS = Object.freeze({
 
 const GENERIC_ACTION_PATTERN = /^(?:挥手|反手|随手|抬手|翻手|回手|顺手|出手|连发)(?:一|两|三|四|五|六|七|八|九|十|数|几|数十|连)(?:击|掌|拳|刀|剑|指|爪|腿|脚)$/u;
 const CONFLICT_FIELDS = Object.freeze([
-  ['identity', candidate => candidate?.identity || candidate?.canonical_identity],
+  ['identities', candidate => candidate?.identities],
   ['type', candidate => candidate?.type]
 ]);
 
@@ -121,9 +121,9 @@ function mergeRecords(records) {
 }
 
 function identityConflict(members) {
-  const identities = uniqueValues(members.map(member => normalizeCandidateName(
-    member.candidate?.identity || member.candidate?.canonical_identity
-  )).filter(Boolean));
+  const identities = uniqueValues(members.flatMap(member => (
+    Array.isArray(member.candidate?.identities) ? member.candidate.identities : []
+  )).map(normalizeCandidateName).filter(Boolean));
   return identities.length > 1;
 }
 

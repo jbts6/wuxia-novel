@@ -1,7 +1,12 @@
 'use strict';
 
 const { GameKbError } = require('./errors');
-const { DOMAIN_UNITS, POWER_RANK_CONTRACT, SEMANTIC_PROFILE } = require('./semantic-contract');
+const {
+  DOMAIN_UNITS,
+  ENTITY_FIELD_CONTRACTS,
+  POWER_RANK_CONTRACT,
+  SEMANTIC_PROFILE
+} = require('./semantic-contract');
 const {
   WORK_CONTRACT_VERSION,
   semanticInputHash,
@@ -14,23 +19,15 @@ const DOMAIN_DEFINITIONS = Object.freeze(Object.fromEntries(DOMAIN_UNITS.map(uni
 })));
 const MAX_DOMAIN_WORK_ITEM_BYTES = 512 * 1024;
 
-const DOMAIN_PATCH_FIELDS = Object.freeze({
-  characters: Object.freeze([
-    'canonical_name', 'aliases', 'level', 'identity', 'rank', 'biography', 'personality',
-    'faction', 'relationships'
-  ]),
-  skills: Object.freeze([
-    'canonical_name', 'aliases', 'type', 'rank', 'description', 'faction', 'holder_names',
-    'techniques'
-  ]),
-  items: Object.freeze([
-    'canonical_name', 'aliases', 'type', 'description', 'inclusion_reason',
-    'holder_names', 'owner_name'
-  ]),
-  factions: Object.freeze([
-    'canonical_name', 'aliases', 'type', 'description', 'member_names'
+const DOMAIN_PATCH_FIELDS = Object.freeze(Object.fromEntries(
+  Object.entries(ENTITY_FIELD_CONTRACTS).map(([category, contract]) => [
+    category,
+    Object.freeze([
+      ...contract.fields.filter(field => field !== 'id'),
+      ...(category === 'items' ? ['inclusion_reason'] : [])
+    ])
   ])
-});
+));
 
 function compareText(left, right) {
   return String(left).localeCompare(String(right), 'zh-Hans-CN');
@@ -109,6 +106,10 @@ function createDomainWorkPlan({
     .filter(entry => entry.category === 'factions')
     .map(entry => refs.get(entry.registry_key))
     .sort(compareText);
+  const skillRefs = orderedEntries
+    .filter(entry => entry.category === 'skills')
+    .map(entry => refs.get(entry.registry_key))
+    .sort(compareText);
   const inputs = [];
   const bindings = [];
 
@@ -135,6 +136,7 @@ function createDomainWorkPlan({
       quality_tier: 'hard',
       allowed_patch_fields: [...DOMAIN_PATCH_FIELDS[domain]],
       ...(['characters', 'skills'].includes(domain) ? { allowed_faction_refs: [...factionRefs] } : {}),
+      ...(domain === 'characters' ? { allowed_skill_refs: [...skillRefs] } : {}),
       ...(['characters', 'skills'].includes(domain) && sourceFiles.length > 0 ? {
         source_files: normalizeSourceFiles(sourceFiles),
         rank_contract: structuredClone(POWER_RANK_CONTRACT)

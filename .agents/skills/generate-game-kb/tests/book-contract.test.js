@@ -11,19 +11,52 @@ const {
   validateMergedBook
 } = require('../scripts/lib/book-contract');
 const { validateDomainDecisionDraft } = require('../scripts/lib/domain-contract');
-const { buildFinalData } = require('../scripts/lib/finalize');
 const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
-const { sourceRef, validChapterDraft, validMergedBook } = require('./helpers');
+const { sourceRef, validChapterDraft } = require('./helpers');
 
 const manifest = {
   chapters: [1, 2, 3].map(number => ({ number, title: `第${number}章`, input_hash: `sha256:${number}` }))
 };
 
+function validMergedBook(overrides = {}) {
+  return {
+    schema_version: 1,
+    stage: 'merged',
+    characters: [{
+      local_key: 'character:甲', name: '甲', aliases: [], identities: ['侠客'],
+      level: '核心', rank: null, description: '甲在江湖中追查旧事。',
+      factions: ['faction:玄门'], skills: ['skill:内功'], source_refs: [sourceRef(1)]
+    }],
+    skills: [{
+      local_key: 'skill:内功', name: '玄门内功', aliases: [], types: ['内功'],
+      factions: ['faction:玄门'], rank: null, description: '调息养气。',
+      techniques: [{ name: '飞云掌', description: '掌势迅疾。' }], source_refs: [sourceRef(1)]
+    }],
+    items: [{
+      local_key: 'item:灵丹', name: '回生丹', aliases: [], type: '丹药',
+      description: '用于救治重伤。', source_refs: [sourceRef(2)]
+    }],
+    factions: [{
+      local_key: 'faction:玄门', name: '玄门', aliases: [], type: '门派',
+      description: '隐居山中。', source_refs: [sourceRef(1)]
+    }],
+    chapter_summaries: [1, 2, 3].map(chapter => ({
+      chapter,
+      title: `第${chapter}章`,
+      summary: `第${chapter}章摘要。`,
+      source_refs: [sourceRef(chapter)]
+    })),
+    candidate_resolutions: [],
+    ambiguities: [],
+    ...overrides
+  };
+}
+
 test('groups exact normalized names but marks distinct identities ambiguous', () => {
   const chapters = [{
     characters: [
-      { local_key: 'a', name: ' 平四 ', identity: '商人', source_refs: [sourceRef(1)] },
-      { local_key: 'b', name: '平 四', identity: '镖师', source_refs: [sourceRef(2)] }
+      { local_key: 'a', name: ' 平四 ', identities: ['商人'], source_refs: [sourceRef(1)] },
+      { local_key: 'b', name: '平 四', identities: ['镖师'], source_refs: [sourceRef(2)] }
     ]
   }];
   const groups = groupCandidates(chapters).characters;
@@ -38,15 +71,18 @@ test('merged book validates the retained four entity categories and chapter summ
   assert.deepEqual(validateMergedBook(validMergedBook(), manifest), []);
 });
 
-test('merged books require valid character and skill ranks', () => {
+test('merged books preserve nullable character and skill ranks', () => {
   const missing = validMergedBook();
   delete missing.characters[0].rank;
   delete missing.skills[0].rank;
   const missingErrors = validateMergedBook(missing, manifest);
-  assert.ok(missingErrors.some(error =>
-    error.code === 'POWER_RANK_REQUIRED' && error.path === 'characters[0].rank'));
-  assert.ok(missingErrors.some(error =>
-    error.code === 'POWER_RANK_REQUIRED' && error.path === 'skills[0].rank'));
+  assert.equal(missingErrors.some(error => error.path === 'characters[0].rank'), false);
+  assert.equal(missingErrors.some(error => error.path === 'skills[0].rank'), false);
+
+  const unresolved = validMergedBook();
+  unresolved.characters[0].rank = null;
+  unresolved.skills[0].rank = null;
+  assert.deepEqual(validateMergedBook(unresolved, manifest), []);
 
   const invalid = validMergedBook();
   invalid.characters[0].rank = '绝顶';
@@ -56,6 +92,49 @@ test('merged books require valid character and skill ranks', () => {
     error.code === 'POWER_RANK_INVALID' && error.path === 'characters[0].rank'));
   assert.ok(invalidErrors.some(error =>
     error.code === 'POWER_RANK_INVALID' && error.path === 'skills[0].rank'));
+});
+
+test('merged books reject legacy, inverse, unknown, empty, and placeholder entity fields', () => {
+  const cases = [
+    ['characters', 'identity', '侠客'],
+    ['characters', 'biography', '旧传记'],
+    ['characters', 'faction', '玄门'],
+    ['characters', 'items', []],
+    ['skills', 'type', '内功'],
+    ['skills', 'holders', ['甲']],
+    ['items', 'owners', ['甲']],
+    ['factions', 'members', ['甲']],
+    ['characters', 'personality', { traits: ['坚毅'] }]
+  ];
+  for (const [category, field, value] of cases) {
+    const book = validMergedBook();
+    book[category][0][field] = value;
+    assert.ok(validateMergedBook(book, manifest).some(error =>
+      error.code === 'ENTITY_FIELD_FORBIDDEN'
+      && error.path === `${category}[0].${field}`));
+  }
+
+  for (const [field, value] of [['description', ''], ['description', '暂无描述'], ['name', '未知']]) {
+    const book = validMergedBook();
+    book.characters[0][field] = value;
+    assert.ok(validateMergedBook(book, manifest).some(error =>
+      ['ENTITY_VALUE_EMPTY', 'ENTITY_VALUE_PLACEHOLDER'].includes(error.code)
+      && error.path === `characters[0].${field}`));
+  }
+});
+
+test('merged techniques and summaries expose only their version-6 semantic fields', () => {
+  const technique = validMergedBook();
+  technique.skills[0].techniques[0].named_in_source = true;
+  assert.ok(validateMergedBook(technique, manifest).some(error =>
+    error.code === 'ENTITY_FIELD_FORBIDDEN'
+    && error.path === 'skills[0].techniques[0].named_in_source'));
+
+  const summary = validMergedBook();
+  summary.chapter_summaries[0].key_characters = ['甲'];
+  assert.ok(validateMergedBook(summary, manifest).some(error =>
+    error.code === 'SUMMARY_FIELD_FORBIDDEN'
+    && error.path === 'chapter_summaries[0].key_characters'));
 });
 
 test('merge candidate resolutions use one finite destination per candidate', () => {
@@ -147,7 +226,7 @@ test('ordinary items require an approved inclusion reason before a keep decision
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     unit: 'distill:items',
     input_hash: 'sha256:items',
-    allowed_patch_fields: ['canonical_name', 'inclusion_reason'],
+    allowed_patch_fields: ['name', 'aliases', 'type', 'description', 'inclusion_reason'],
     entries: [{
       entry_ref: entryRef,
       category: 'items',
@@ -170,22 +249,25 @@ test('ordinary items require an approved inclusion reason before a keep decision
 
   assert.ok(validateDomainDecisionDraft(draft, input)
     .some(error => error.code === 'ITEM_INCLUSION_REASON_REQUIRED'));
-  draft.decisions[0].patch.inclusion_reason = '剧情关键';
+  draft.decisions[0].patch = { name: '随身匕首', aliases: [], type: null, description: null,
+    inclusion_reason: '剧情关键' };
   assert.deepEqual(validateDomainDecisionDraft(draft, input), []);
 });
 
 test('keeps named low-frequency techniques and rejects unnamed actions', () => {
   const expected = { number: 1, inputHash: 'sha256:chapter' };
   const named = validChapterDraft();
+  delete named.skills[0].techniques[0].named_in_source;
+  named.skills[0].techniques[0].description = null;
   assert.deepEqual(validateChapterDraft(named, expected), []);
 
   const action = validChapterDraft();
-  action.skills[0].techniques = [{ name: '全力一挥', named_in_source: false }];
+  action.skills[0].techniques = [{ name: '全力一挥', description: null, named_in_source: false }];
   assert.ok(validateChapterDraft(action, expected)
-    .some(error => error.code === 'TECHNIQUE_NOT_NAMED'));
+    .some(error => error.code === 'ENTITY_FIELD_FORBIDDEN'));
 });
 
-test('merged source evidence and projected references fail closed', () => {
+test('merged source evidence fails closed', () => {
   const missingSource = validMergedBook();
   missingSource.items[0].source_refs = [];
   assert.ok(validateMergedBook(missingSource, manifest)
@@ -196,10 +278,6 @@ test('merged source evidence and projected references fail closed', () => {
   assert.ok(validateMergedBook(unknownSource, manifest)
     .some(error => error.code === 'SOURCE_CHAPTER_UNKNOWN'));
 
-  const missingReference = validMergedBook();
-  missingReference.characters[0].skill_names = ['失踪武功'];
-  assert.ok(buildFinalData(missingReference, manifest).issues
-    .some(error => error.code === 'REFERENCE_UNRESOLVED' && error.target === '失踪武功'));
 });
 
 test('book drafts reject final IDs and every removed top-level category', () => {

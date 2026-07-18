@@ -9,6 +9,7 @@ const { normalizeChapterDraft } = require('../scripts/lib/chapter-contract');
 const {
   createDomainWorkPlan,
   DOMAIN_DEFINITIONS,
+  DOMAIN_PATCH_FIELDS,
   MAX_DOMAIN_WORK_ITEM_BYTES
 } = require('../scripts/lib/domain-work');
 const { pathsFor } = require('../scripts/lib/paths');
@@ -23,8 +24,24 @@ const { makeNovel, sourceRef, validChapterDraft } = require('./helpers');
 
 function fullRegistry() {
   const chapter = normalizeChapterDraft(validChapterDraft({
-    items: [{ local_key: 'item:铁盒', name: '铁盒', importance: '关键', source_refs: [sourceRef()] }],
-    factions: [{ local_key: 'faction:胡家', name: '胡家', source_refs: [sourceRef()] }]
+    characters: [{
+      local_key: 'character:甲', name: '甲', aliases: [], identities: ['侠客'],
+      level: '核心', rank: null, description: null,
+      factions: ['faction:胡家'], skills: ['skill:内功'], source_refs: [sourceRef()]
+    }],
+    skills: [{
+      local_key: 'skill:内功', name: '玄门内功', aliases: [], types: ['内功'],
+      factions: ['faction:胡家'], rank: null, description: null,
+      techniques: [{ name: '飞云掌', description: null }], source_refs: [sourceRef()]
+    }],
+    items: [{
+      local_key: 'item:铁盒', name: '铁盒', aliases: [], type: null,
+      description: null, source_refs: [sourceRef()]
+    }],
+    factions: [{
+      local_key: 'faction:胡家', name: '胡家', aliases: [], type: null,
+      description: null, source_refs: [sourceRef()]
+    }]
   }));
   return buildCandidateRegistry([chapter]);
 }
@@ -59,15 +76,29 @@ test('four-domain candidates route through the shared stable domain units', () =
   ]);
 });
 
+test('domain patch allowlists expose exactly the version-6 semantic fields', () => {
+  assert.deepEqual(DOMAIN_PATCH_FIELDS, {
+    characters: ['name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills'],
+    skills: ['name', 'aliases', 'types', 'factions', 'rank', 'description', 'techniques'],
+    items: ['name', 'aliases', 'type', 'description', 'inclusion_reason'],
+    factions: ['name', 'aliases', 'type', 'description']
+  });
+  assert.doesNotMatch(JSON.stringify(DOMAIN_PATCH_FIELDS),
+    /canonical_name|identity|biography|holder|owner|member|personality|relationships/);
+});
+
 test('character and skill work inputs expose the bounded faction refs they may patch', () => {
   const plan = createDomainWorkPlan({ registry: fullRegistry(), accepted_hashes: {} });
   const inputByUnit = new Map(plan.inputs.map(input => [input.unit, input]));
   const factionRefs = inputByUnit.get('distill:factions').entries.map(entry => entry.entry_ref);
+  const skillRefs = inputByUnit.get('distill:skills').entries.map(entry => entry.entry_ref);
 
   assert.deepEqual(inputByUnit.get('distill:characters').allowed_faction_refs, factionRefs);
   assert.deepEqual(inputByUnit.get('distill:skills').allowed_faction_refs, factionRefs);
+  assert.deepEqual(inputByUnit.get('distill:characters').allowed_skill_refs, skillRefs);
   assert.equal('allowed_faction_refs' in inputByUnit.get('distill:factions'), false);
   assert.equal('allowed_faction_refs' in inputByUnit.get('distill:items'), false);
+  assert.equal('allowed_skill_refs' in inputByUnit.get('distill:skills'), false);
 });
 
 test('character and skill work inputs bind every ordered source chapter into their hashes', () => {
@@ -131,7 +162,7 @@ test('domain work plans use the existing durable idempotent work-plan store', ()
 
 test('an oversized domain fails explicitly instead of truncating or returning category shards', () => {
   const registry = fullRegistry();
-  registry.categories.characters[0].record.biography = '长'.repeat(MAX_DOMAIN_WORK_ITEM_BYTES);
+  registry.categories.characters[0].record.description = '长'.repeat(MAX_DOMAIN_WORK_ITEM_BYTES);
 
   assert.throws(
     () => createDomainWorkPlan({ registry, accepted_hashes: {} }),

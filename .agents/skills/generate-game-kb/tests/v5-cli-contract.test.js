@@ -9,6 +9,7 @@ const test = require('node:test');
 const { makeNovel, parseJsonLine, runFlow } = require('./helpers');
 const { pathsFor } = require('../scripts/lib/paths');
 const { createOrResumeRun } = require('../scripts/lib/run');
+const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 
 test('v5-prepare creates an explicitly profiled v5 run', () => {
   const novel = makeNovel('v5 路由试书', '第一章 起始\n甲。\n');
@@ -18,7 +19,7 @@ test('v5-prepare creates an explicitly profiled v5 run', () => {
   const output = JSON.parse(result.stdout);
   const metadata = JSON.parse(fs.readFileSync(pathsFor(novel, output.run_id).runJson, 'utf8'));
   assert.equal(metadata.profile, 'v5');
-  assert.equal(metadata.semantic_contract_version, 5);
+  assert.equal(metadata.semantic_contract_version, SEMANTIC_CONTRACT_VERSION);
   assert.equal(output.profile, 'v5');
 });
 
