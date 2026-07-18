@@ -29,8 +29,8 @@ function backoff(novel, runId, batchId) {
   ]);
 }
 
-test('chapter worker jobs expose the fixed two-chapter and 36k CJK limits', () => {
-  assert.equal(MAX_CHAPTERS_PER_JOB, 2);
+test('chapter worker jobs expose the three-chapter and 36k CJK limits', () => {
+  assert.equal(MAX_CHAPTERS_PER_JOB, 3);
   assert.equal(MAX_CJK_CHARS_PER_JOB, 36000);
 });
 

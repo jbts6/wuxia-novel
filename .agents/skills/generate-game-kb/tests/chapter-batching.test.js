@@ -67,13 +67,17 @@ test('prepare records chapter CJK counts and both canonical staging attempts', (
   }
 });
 
-test('packs fifty short chapters into twenty-five adjacent two-chapter jobs', () => {
+test('packs fifty short chapters into adjacent jobs of up to three chapters', () => {
   const input = manifest(Array.from({ length: 50 }, (_, index) => chapter(index + 1, 1000)));
   const jobs = pack(input);
 
-  assert.equal(jobs.length, 25);
-  assert.equal(jobs.every(job => job.chapters.length === 2), true);
-  assert.equal(jobs.every(job => job.chapters[1].number === job.chapters[0].number + 1), true);
+  assert.equal(jobs.length, 17);
+  assert.deepEqual(jobs.map(job => job.chapters.length), [
+    3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2
+  ]);
+  assert.equal(jobs.every(job => job.chapters.every((item, index) => (
+    index === 0 || item.number === job.chapters[index - 1].number + 1
+  ))), true);
   assert.equal(jobs.every(job => validate(job, input).length === 0), true);
   for (const descriptor of jobs.flatMap(job => job.chapters)) {
     assert.deepEqual(Object.keys(descriptor), [
@@ -109,18 +113,18 @@ test('obeys both count and CJK limits without joining non-adjacent chapters', ()
   assert.deepEqual(jobs.map(job => job.chapters.map(item => item.number)), [[1, 2], [4], [5, 6]]);
   for (const job of jobs) {
     const total = job.chapters.reduce((sum, item) => sum + item.source_char_count, 0);
-    assert.equal(job.chapters.length <= 2, true);
+    assert.equal(job.chapters.length <= 3, true);
     assert.equal(total <= 36000 || job.chapters.length === 1, true);
   }
 });
 
 test('custom packing options may lower but never raise the absolute worker limits', () => {
-  const input = manifest([chapter(1, 14000), chapter(2, 14000), chapter(3, 13000)]);
+  const input = manifest([chapter(1, 10000), chapter(2, 10000), chapter(3, 10000)]);
   const raised = pack(input, { maxChapters: 3, maxCjkChars: 100000 });
   const lowered = pack(input, { maxChapters: 1, maxCjkChars: 20000 });
 
-  assert.deepEqual(raised.map(job => job.chapters.map(item => item.number)), [[1, 2], [3]]);
-  assert.equal(raised.every(job => job.chapters.length <= 2), true);
+  assert.deepEqual(raised.map(job => job.chapters.map(item => item.number)), [[1, 2, 3]]);
+  assert.equal(raised.every(job => job.chapters.length <= 3), true);
   assert.equal(raised.every(job => (
     job.chapters.length === 1
     || job.chapters.reduce((sum, item) => sum + item.source_char_count, 0) <= 36000

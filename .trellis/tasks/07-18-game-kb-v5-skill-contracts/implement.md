@@ -34,13 +34,13 @@
 - Consumes: chapter descriptors with `number` and `source_char_count`.
 - Produces: `packChapterJobs(manifest, options)` jobs with `MAX_CHAPTERS_PER_JOB === 3` and `MAX_CJK_CHARS_PER_JOB === 36000`.
 
-- [ ] **Step 1: Write RED tests for the approved packing contract.** Replace two-chapter expectations with deterministic greedy three-chapter expectations; retain cases for an oversized singleton, a final singleton, adjacency, the CJK budget, and lower custom limits.
-- [ ] **Step 2: Run the two focused test files.**
+- [x] **Step 1: Write RED tests for the approved packing contract.** Replace two-chapter expectations with deterministic greedy three-chapter expectations; retain cases for an oversized singleton, a final singleton, adjacency, the CJK budget, and lower custom limits.
+- [x] **Step 2: Run the two focused test files.**
   - Run: `"C:/Program Files/nodejs/node.exe" --test .agents/skills/generate-game-kb/tests/chapter-batching.test.js .agents/skills/generate-game-kb/tests/worker-pool.test.js`
   - Expected RED: assertions report the current hard limit `2` and two-chapter job counts.
-- [ ] **Step 3: Implement the minimum constant and greedy-packing changes.** Keep `MAX_CHAPTERS_PER_JOB` in `worker-pool.js` as the single exported absolute count limit; keep the existing deterministic sort and validation path in `chapter-batching.js`.
-- [ ] **Step 4: Re-run the focused tests.** Expected: all chapter batching and worker-pool tests pass.
-- [ ] **Step 5: Commit the green stage.** Commit only Task 1 files with message `feat(game-kb): support dynamic three-chapter jobs`.
+- [x] **Step 3: Implement the minimum constant and greedy-packing changes.** Keep `MAX_CHAPTERS_PER_JOB` in `worker-pool.js` as the single exported absolute count limit; keep the existing deterministic sort and validation path in `chapter-batching.js`.
+- [x] **Step 4: Re-run the focused tests.** Expected: all chapter batching and worker-pool tests pass (20/20).
+- [x] **Step 5: Commit the green stage.** Commit only Task 1 files with message `feat(game-kb): support dynamic three-chapter jobs`.
 
 ### Task 2: Make chapter descriptors expose one controller-current path
 
