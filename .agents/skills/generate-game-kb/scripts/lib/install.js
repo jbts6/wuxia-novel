@@ -271,30 +271,18 @@ function restoreReports(previous, reportsDir) {
   }
 }
 
-function installVerifiedData(novelDir, options = {}) {
-  const run = resolveWritableRun(novelDir, options.runId, 'install', options.profile);
-  const runId = run.run_id;
+function promoteVerifiedData(novelDir, options) {
   const installed = installPaths(novelDir);
   recoverInterruptedInstall(novelDir);
-  const workPaths = pathsFor(novelDir, runId);
-  assertAcceptedArtifacts(workPaths);
-  const workspace = verifyFinal(workPaths, { profile: run.profile });
-  if (!workspace.passed) {
-    throw new GameKbError('INSTALL_VERIFICATION_FAILED', 'Final workspace did not pass installation verification', workspace);
-  }
-  const manifest = readJson(workPaths.manifest);
-  const expectedChapters = manifest.chapters.map(chapter => ({
-    number: chapter.number,
-    title: chapter.title,
-    input_hash: chapter.input_hash
-  }));
-  const previousReceipt = readReceipt(installed.receipt);
-  if (previousReceipt
-    && previousReceipt.source_hash === manifest.source_hash
-    && previousReceipt.final_data_hash === workspace.final_data_hash
-    && JSON.stringify(previousReceipt.chapters) === JSON.stringify(expectedChapters)) {
-    const current = verifyInstalled(novelDir);
-    if (current.passed) return { ...previousReceipt, idempotent: true };
+  const sourceData = path.resolve(options.sourceData);
+  const chapters = options.chapters;
+  const previousInstalled = options.expectedPreviousHash ? verifyInstalled(novelDir) : null;
+  if (options.expectedPreviousHash
+    && (!previousInstalled.passed || previousInstalled.final_data_hash !== options.expectedPreviousHash)) {
+    throw new GameKbError('DEFERRED_TASK_STALE', 'Installed data changed before promotion', {
+      expected_data_hash: options.expectedPreviousHash,
+      installed_data_hash: previousInstalled.final_data_hash
+    });
   }
 
   const now = typeof options.now === 'function' ? options.now() : new Date();
@@ -308,8 +296,7 @@ function installVerifiedData(novelDir, options = {}) {
   let dataPromoted = false;
   let reportsWritten = false;
   let receiptWritten = false;
-  let runMetadataWritten = false;
-  const previousRunMetadata = fs.readFileSync(workPaths.runJson, 'utf8');
+  let commitStarted = false;
   const previousReports = new Map(REPORT_FILES.map(filename => {
     const file = path.join(installed.reports, filename);
     return [filename, fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null];
@@ -321,18 +308,21 @@ function installVerifiedData(novelDir, options = {}) {
 
   try {
     for (const filename of DATA_FILES) {
-      fs.copyFileSync(path.join(workPaths.finalData, filename), path.join(nextData, filename));
+      fs.copyFileSync(path.join(sourceData, filename), path.join(nextData, filename));
     }
     const entries = { preserved: [], removed: [] };
     const staged = verifyDataRoot(nextData, {
-      chapters: manifest.chapters,
-      expectedHash: workspace.final_data_hash
+      chapters,
+      expectedHash: options.finalDataHash
     });
     if (!staged.passed) {
       throw new GameKbError('INSTALL_STAGING_VERIFICATION_FAILED', 'Staged data did not pass verification', staged);
     }
 
     state = originalDataState(installed.data);
+    if (options.expectedPreviousHash && state !== 'nonempty') {
+      throw new GameKbError('INSTALL_BACKUP_REQUIRED', 'Overlay promotion requires current installed data to back up');
+    }
     archiveRoot = uniqueArchiveRoot(installed, now);
     archiveData = path.join(archiveRoot, 'data');
     pending = {
@@ -355,6 +345,16 @@ function installVerifiedData(novelDir, options = {}) {
     atomicWriteJson(installed.pending, pending);
     maybeFault(options, 'after-old-move');
 
+    if (options.expectedPreviousHash) {
+      const backup = verifyDataRoot(archiveData, {
+        chapters: previousInstalled.chapters,
+        expectedHash: options.expectedPreviousHash
+      });
+      if (!backup.passed) {
+        throw new GameKbError('INSTALL_BACKUP_VERIFICATION_FAILED', 'Installed data backup failed verification', backup);
+      }
+    }
+
     try {
       fs.renameSync(nextData, installed.data);
     } catch (error) {
@@ -365,8 +365,8 @@ function installVerifiedData(novelDir, options = {}) {
     atomicWriteJson(installed.pending, pending);
 
     const postSwap = verifyDataRoot(installed.data, {
-      chapters: manifest.chapters,
-      expectedHash: workspace.final_data_hash
+      chapters,
+      expectedHash: options.finalDataHash
     });
     if (!postSwap.passed) {
       throw new GameKbError('INSTALL_POST_SWAP_VERIFICATION_FAILED', 'Installed data failed post-swap verification', postSwap);
@@ -374,26 +374,27 @@ function installVerifiedData(novelDir, options = {}) {
 
     fs.mkdirSync(installed.reports, { recursive: true });
     reportsWritten = true;
-    for (const filename of REPORT_FILES) {
-      atomicWriteFile(
-        path.join(installed.reports, filename),
-        fs.readFileSync(path.join(workPaths.finalReports, filename), 'utf8')
-      );
-    }
+    atomicWriteFile(
+      path.join(installed.reports, 'verification-report.json'),
+      options.verificationReportContent
+    );
     const verificationReportHash = fileHash(path.join(installed.reports, 'verification-report.json'));
     const receipt = {
+      ...(options.receiptExtras || {}),
       schema_version: 1,
       semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
-      profile: run.profile || 'v4',
+      profile: options.profile || 'v4',
       installer: 'generate-game-kb',
-      source_hash: manifest.source_hash,
-      final_data_hash: workspace.final_data_hash,
+      source_hash: options.sourceHash,
+      final_data_hash: options.finalDataHash,
       data_files: [...DATA_FILES],
       verification_report_hash: verificationReportHash,
-      chapters: expectedChapters,
+      chapters,
       archive_root: archiveRoot,
       archive_data: state === 'nonempty' ? archiveData : null,
       backup_path: state === 'nonempty' ? archiveData : null,
+      previous_final_data_hash: options.expectedPreviousHash || null,
+      backup_final_data_hash: options.expectedPreviousHash || null,
       original_data_state: state,
       preserved_entries: entries.preserved,
       removed_stale_markers: entries.removed,
@@ -410,15 +411,8 @@ function installVerifiedData(novelDir, options = {}) {
     if (!finalCheck.passed) {
       throw new GameKbError('INSTALLED_VERIFICATION_FAILED', 'Installed artifacts failed final verification', finalCheck);
     }
-    const runMetadata = readJson(workPaths.runJson);
-    atomicWriteJson(workPaths.runJson, {
-      ...runMetadata,
-      status: 'installed',
-      installed_at: receipt.installed_at,
-      final_data_hash: workspace.final_data_hash,
-      verification_report_hash: receipt.verification_report_hash
-    });
-    runMetadataWritten = true;
+    commitStarted = true;
+    if (typeof options.commit === 'function') options.commit(receipt);
     fs.rmSync(installed.pending, { force: true });
     return receipt;
   } catch (error) {
@@ -442,7 +436,7 @@ function installVerifiedData(novelDir, options = {}) {
         if (previousReceiptText === null) fs.rmSync(installed.receipt, { force: true });
         else atomicWriteFile(installed.receipt, previousReceiptText);
       }
-      if (runMetadataWritten) atomicWriteFile(workPaths.runJson, previousRunMetadata);
+      if (commitStarted && typeof options.rollbackCommit === 'function') options.rollbackCommit();
       fs.rmSync(nextData, { recursive: true, force: true });
       fs.rmSync(installed.pending, { force: true });
       if (archiveRoot) fs.rmSync(archiveRoot, { recursive: true, force: true });
@@ -470,11 +464,63 @@ function installVerifiedData(novelDir, options = {}) {
   }
 }
 
+function installVerifiedData(novelDir, options = {}) {
+  const run = resolveWritableRun(novelDir, options.runId, 'install', options.profile);
+  const workPaths = pathsFor(novelDir, run.run_id);
+  assertAcceptedArtifacts(workPaths);
+  const workspace = verifyFinal(workPaths, { profile: run.profile });
+  if (!workspace.passed) {
+    throw new GameKbError('INSTALL_VERIFICATION_FAILED', 'Final workspace did not pass installation verification', workspace);
+  }
+  const manifest = readJson(workPaths.manifest);
+  const chapters = manifest.chapters.map(chapter => ({
+    number: chapter.number,
+    title: chapter.title,
+    input_hash: chapter.input_hash
+  }));
+  const installed = installPaths(novelDir);
+  const previousReceipt = readReceipt(installed.receipt);
+  if (previousReceipt
+    && previousReceipt.source_hash === manifest.source_hash
+    && previousReceipt.final_data_hash === workspace.final_data_hash
+    && JSON.stringify(previousReceipt.chapters) === JSON.stringify(chapters)) {
+    const current = verifyInstalled(novelDir);
+    if (current.passed) return { ...previousReceipt, idempotent: true };
+  }
+  const previousRunMetadata = fs.readFileSync(workPaths.runJson, 'utf8');
+  return promoteVerifiedData(novelDir, {
+    ...options,
+    sourceData: workPaths.finalData,
+    sourceHash: manifest.source_hash,
+    finalDataHash: workspace.final_data_hash,
+    chapters,
+    profile: run.profile,
+    verificationReportContent: fs.readFileSync(
+      path.join(workPaths.finalReports, 'verification-report.json'),
+      'utf8'
+    ),
+    commit(receipt) {
+      const runMetadata = readJson(workPaths.runJson);
+      atomicWriteJson(workPaths.runJson, {
+        ...runMetadata,
+        status: 'installed',
+        installed_at: receipt.installed_at,
+        final_data_hash: workspace.final_data_hash,
+        verification_report_hash: receipt.verification_report_hash
+      });
+    },
+    rollbackCommit() {
+      atomicWriteFile(workPaths.runJson, previousRunMetadata);
+    }
+  });
+}
+
 module.exports = {
   DATA_FILES,
   INSTALL_RECEIPT,
   PENDING_RECEIPT,
   installVerifiedData,
+  promoteVerifiedData,
   recoverInterruptedInstall,
   verifyInstalled
 };
