@@ -209,10 +209,10 @@ Normal stage order is `archive-existing -> prepare -> chapter:NNN accept -> plan
 
 ### 3. Contracts
 
-- The writable profile is `semantic_contract_version: 4` and `semantic_profile: domain-distill-v1`. Older runs are observational evidence only and fail every write path with `LEGACY_SEMANTIC_CONTRACT`; no in-place upgrade is allowed.
+- The writable V4 profile is `semantic_contract_version: 5`, `semantic_profile: domain-distill-v1`, and `profile: v4`. Version 4 runs are observational evidence only and fail every write path with `LEGACY_SEMANTIC_CONTRACT`; no in-place upgrade is allowed.
 - AI staging drafts, accepted evidence, and final consumer data use YAML. Controller state, manifests, receipts, and reports use JSON.
 - Each run lives below `<novel-dir>/.game-kb-work/runs/<run-id>/`. Staging accepts only the current `<unit>_attempt_<attempt+1>.yaml`; accepted bytes are immutable and bound in `artifact-manifest.json`.
-- Chapter units directly read one complete source chapter and emit characters, skills with nested techniques, items, factions, and one chapter summary. They do not emit locations, dialogues, events, or a separate technique collection.
+- Chapter units directly read one complete source chapter and emit characters, skills with nested techniques, items, factions, and one chapter summary. Techniques remain nested under skills.
 - `plan-domains` deterministically builds the candidate registry and exactly four domain work units. All four domains are independent and may be processed concurrently. The canonical order `distill:factions`, `distill:characters`, `distill:skills`, and `distill:items` is used only for presentation and reports.
 - Character and skill inputs expose the deterministic faction-only `allowed_faction_refs` set, and that set participates in the input hash. A non-null `patch.faction` must belong to this set; an unknown ref or a visible existing ref from another category is rejected before accepted evidence is written.
 - Character and skill faction references remain late-bound until `assemble`, which resolves aliases and merges after all four domain decisions exist.

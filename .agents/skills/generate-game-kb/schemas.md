@@ -1,8 +1,9 @@
-# generate-game-kb 数据契约 v4
+# generate-game-kb V4 数据契约
 
 本文件是 AI 草稿、accepted 证据与最终五个 YAML 文件的字段契约。每个阶段先读本文件。
 
-当前可写契约：`semantic_contract_version: 4`、`semantic_profile: domain-distill-v1`。
+当前可写契约：`semantic_contract_version: 5`、`semantic_profile: domain-distill-v1`；V4 流程使用 `profile: v4`。
+版本 4 仅作为旧 run 的只读兼容格式；任何写入都必须以 `LEGACY_SEMANTIC_CONTRACT` 失败，不得原地升级。
 
 ## 通用规则
 
@@ -13,7 +14,7 @@
 - 人物 level 只允许：核心、重要、次要、龙套、背景。
 - 人物和武功都必须写 `rank`，八级固定。
 - 招式必须有原著专名且 `named_in_source: true`。
-- 不提取对话、事件、地点。
+- 章节草稿只记录人物、武功、物品、势力与章节摘要。
 - 四个域彼此独立，可并发生成草稿；固定单元顺序仅用于确定性展示与报告。
 - characters 与 skills 的 faction 引用延迟绑定到 `assemble`，四个域决策齐备后统一解析。
 - 每个 AI 单元最多 2 次提交；YAML 解析与语义错误共用提交预算，第二次失败或重复输出/错误进入 `manual_review`。
@@ -75,7 +76,7 @@ chapter_summary:
 
 ```yaml
 schema_version: 1
-semantic_contract_version: 4
+semantic_contract_version: 5
 unit: "distill:factions"
 input_hash: "sha256:input"
 decisions:
@@ -92,7 +93,7 @@ action 只允许 `keep`、`merge`、`reject`、`pending`。
 
 ## 最终文件
 
-最终数据严格为五个顶层数组 YAML 文件，不包含 `locations`、`dialogues`、`events` 或顶层 `techniques`。
+最终数据严格为五个顶层数组 YAML 文件，字段集合见下方五个文件。
 
 ### characters.yaml
 

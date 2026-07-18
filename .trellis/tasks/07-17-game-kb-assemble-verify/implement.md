@@ -68,7 +68,8 @@ assert.equal(second.final_data_hash, first.final_data_hash);
 ```js
 {
   schema_version: 1,
-  semantic_contract_version: 4,
+  semantic_contract_version: 5,
+  profile: 'v4',
   source_hash: manifest.source_hash,
   accepted_hashes,
   decision_hashes,

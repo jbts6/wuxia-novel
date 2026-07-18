@@ -58,18 +58,22 @@ function sourceFile(novel) {
 }
 
 function alternateChapterDraft(chapter) {
+  const evidenceText = fs.readFileSync(chapter.file, 'utf8')
+    .split(/\r?\n/)
+    .slice(1)
+    .find(line => line.trim() !== '') || chapter.title;
   return validChapterDraft({
     chapter: chapter.number,
     title: chapter.title,
     source_hash: chapter.input_hash,
     characters: [{
       local_key: 'character:乙', name: '乙', level: '核心', rank: '初窥门径',
-      source_refs: [sourceRef(chapter.number, '乙出现')]
+      source_refs: [sourceRef(chapter.number, evidenceText)]
     }],
     chapter_summary: {
       title: chapter.title,
       summary: `第${chapter.number}章乙出场。`,
-      source_refs: [sourceRef(chapter.number, '乙出现')]
+      source_refs: [sourceRef(chapter.number, evidenceText)]
     }
   });
 }
@@ -91,7 +95,8 @@ function runV4Lifecycle({ novel, runId, chapterDraft = null, install = true }) {
         chapter_summary: {
           title: chapter.title,
           summary: `第${chapter.number}章摘要。`,
-          source_refs: [sourceRef(chapter.number, `第${chapter.number}章原文锚点`)]
+          source_refs: [sourceRef(chapter.number, fs.readFileSync(chapter.file, 'utf8')
+            .split(/\r?\n/).slice(1).find(line => line.trim() !== '') || chapter.title)]
         }
       });
     const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
@@ -114,7 +119,7 @@ function runV4Lifecycle({ novel, runId, chapterDraft = null, install = true }) {
 }
 
 function installedV4Fixture(options = {}) {
-  const novel = makeNovel(options.name || '归档验收书', options.source || '第一章 起始\n甲修习玄门内功。\n');
+  const novel = makeNovel(options.name || '归档验收书', options.source || '第一章 起始\n甲修习玄门内功并使出飞云掌。\n');
   return runV4Lifecycle({ novel, runId: options.runId || 'run-a', chapterDraft: options.chapterDraft });
 }
 
