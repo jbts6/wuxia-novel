@@ -40,6 +40,15 @@ test('V4 Skill defines dynamic chapter jobs and one controller-current path', ()
   assert.match(extraction, /唯一的 `?staging_path/);
 });
 
+test('V4 chapter workers persist and report progress after each chapter', () => {
+  for (const contract of [skill, extraction]) {
+    assert.match(contract, /每完成一章[^\n]*(?:立即|马上)[^\n]*staging_path/);
+    assert.match(contract, /每完成一章[^\n]*(?:立即|马上)[^\n]*(?:汇报|报告)/);
+    assert.match(contract, /(?:未开始|原文已读|提取中|YAML已写)/);
+    assert.match(contract, /不得[^\n]*(?:progress|控制器状态)/);
+  }
+});
+
 test('V4 Skill documents bounded retry, manual review, and the complete YAML output', () => {
   assert.match(skill, /最多\s*1\s*次(?:自动)?重试/);
   assert.match(skill, /manual_review/);
