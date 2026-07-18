@@ -2,10 +2,12 @@
 
 const crypto = require('node:crypto');
 const fs = require('node:fs');
+const path = require('node:path');
 
 const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson } = require('./io');
 const { DOMAIN_UNITS } = require('./semantic-contract');
+const { syncWorkItemAttempt } = require('./semantic-work');
 
 function now() {
   return new Date().toISOString();
@@ -230,6 +232,16 @@ function manualIssues(progress) {
 function saveProgress(paths, progress) {
   const value = cloneProgress(progress);
   value.updated_at = now();
+  for (const unitName of DOMAIN_UNITS) {
+    const unit = value.units[unitName];
+    if (!unit || !['pending', 'stale', 'manual_review'].includes(unit.status)) continue;
+    const attempt = unit.status === 'manual_review'
+      ? Math.min(2, unit.attempts)
+      : Math.min(2, unit.attempts + 1);
+    if (attempt < 1) continue;
+    const inputFile = path.join(paths.domainWork, unitName.replaceAll(':', '_'), 'input.json');
+    if (fs.existsSync(inputFile)) syncWorkItemAttempt(paths, unitName, attempt);
+  }
   atomicWriteJson(paths.progress, value);
   atomicWriteJson(paths.manualReview, manualIssues(value));
   return value;

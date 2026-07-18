@@ -232,6 +232,14 @@ function readWorkItem(paths, unit) {
   return { input, bindings, input_file: inputFile, bindings_file: bindingsFile };
 }
 
+function syncWorkItemAttempt(paths, unit, attempt) {
+  const work = readWorkItem(paths, unit);
+  if (work.input.attempt === attempt) return { written: false, input: work.input_file };
+  const input = workerInput(paths, work.input, attempt);
+  atomicWriteFile(work.input_file, jsonBytes(input));
+  return { written: true, input: work.input_file };
+}
+
 function readWorkPlan(paths, stage) {
   const root = workRoot(paths, stage);
   const file = path.join(root, 'plan.json');
@@ -267,6 +275,7 @@ module.exports = {
   readWorkPlan,
   readWorkItem,
   serializedInputBytes,
+  syncWorkItemAttempt,
   writeWorkItem,
   writeWorkPlan
 };

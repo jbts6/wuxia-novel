@@ -106,7 +106,10 @@ test('accept records one invalid attempt and preserves its archived draft', () =
   const progress = readJson(paths.progress).units['chapter:001'];
   assert.equal(progress.attempts, 1);
   assert.equal(progress.status, 'pending');
-  assert.equal(fs.readdirSync(path.join(paths.drafts, 'chapter_001')).length, 1);
+  const archived = fs.readdirSync(path.join(paths.drafts, 'chapter_001'));
+  assert.equal(archived.filter(file => file.endsWith('.yaml')).length, 1);
+  assert.equal(archived.filter(file => file.endsWith('.json')).length, 1);
+  assert.equal(fs.existsSync(manifest.chapters[0].staging_paths[0]), true);
 });
 
 test('a consumed staging path is rejected before spending the remaining budget', () => {

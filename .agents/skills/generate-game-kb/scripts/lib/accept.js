@@ -22,7 +22,7 @@ const {
 const { DOMAIN_UNITS } = require('./semantic-contract');
 const { quarantineRecord } = require('./quarantine');
 const { sha256 } = require('./source');
-const { readWorkItem, writeWorkItem } = require('./semantic-work');
+const { readWorkItem } = require('./semantic-work');
 
 const DOMAIN_DECISION_UNITS = new Set(DOMAIN_UNITS);
 
@@ -270,12 +270,6 @@ function acceptDraft({ paths, unit, draftPath }) {
     consumed: errors.length === 0,
     errors
   });
-  if (errors.length > 0 && state.status === 'pending' && context.kind === 'domain') {
-    writeWorkItem(paths, 'domain', context.work.input, context.work.bindings, {
-      advanceAttempt: true,
-      attempt: state.attempts + 1
-    });
-  }
   saveProgress(paths, updated);
   if (errors.length === 0) {
     try {
