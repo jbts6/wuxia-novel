@@ -43,6 +43,25 @@ test('the active contract requires no domain decision units while v4 retains all
   assert.deepEqual(requiredDomainUnitsForContract(4), DOMAIN_UNITS);
 });
 
+test('domain validation rejects unsupported input and draft semantic versions deterministically', () => {
+  for (const version of ['4', 3, 6, null, undefined]) {
+    const unsupportedInput = input('items', version);
+    if (version === undefined) unsupportedInput.semantic_contract_version = undefined;
+    const inputErrors = validateDomainDecisionDraft(validDraft(unsupportedInput), unsupportedInput);
+    assert.ok(inputErrors.some(error =>
+      error.code === 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED'
+      && error.path === 'input.semantic_contract_version'));
+
+    const activeInput = input('items', 5);
+    const unsupportedDraft = validDraft(activeInput);
+    unsupportedDraft.semantic_contract_version = version;
+    const draftErrors = validateDomainDecisionDraft(unsupportedDraft, activeInput);
+    assert.ok(draftErrors.some(error =>
+      error.code === 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED'
+      && error.path === 'semantic_contract_version'));
+  }
+});
+
 function input(domain = 'skills', semanticContractVersion = SEMANTIC_CONTRACT_VERSION) {
   const entries = {
     characters: [{
@@ -240,18 +259,35 @@ test('skill and item semantics enforce named nested techniques and finite noise 
   assert.equal(validateDomainDecisionDraft(rejectOrdinary, items).some(error => error.code === 'DOMAIN_REJECTION_REASON_INVALID'), true);
 });
 
-test('v5 item decisions accept an unresolved inclusion reason while v4 stays strict', () => {
+test('v5 item decisions accept only omitted or null unresolved inclusion reasons', () => {
   const active = input('items');
+  const omitted = validDraft(active);
+  delete omitted.decisions[0].patch.inclusion_reason;
+  assert.deepEqual(validateDomainDecisionDraft(omitted, active), []);
+
   const unresolved = validDraft(active);
-  delete unresolved.decisions[0].patch.inclusion_reason;
+  unresolved.decisions[0].patch.inclusion_reason = null;
   assert.deepEqual(validateDomainDecisionDraft(unresolved, active), []);
 
+  for (const value of ['', '   ', false, [], {}]) {
+    const invalid = validDraft(active);
+    invalid.decisions[0].patch.inclusion_reason = value;
+    assert.ok(validateDomainDecisionDraft(invalid, active).some(error =>
+      error.code === 'ITEM_INCLUSION_REASON_INVALID'
+      && error.path === 'decisions[0].patch.inclusion_reason'));
+  }
+});
+
+test('v4 item decisions remain strict for omitted, null, and empty inclusion reasons', () => {
   const legacy = input('items', 4);
-  const missing = validDraft(legacy);
-  delete missing.decisions[0].patch.inclusion_reason;
-  assert.ok(validateDomainDecisionDraft(missing, legacy).some(error =>
-    error.code === 'ITEM_INCLUSION_REASON_REQUIRED'
-    && error.path === 'decisions[0].patch.inclusion_reason'));
+  for (const value of [undefined, null, '', '   ']) {
+    const invalid = validDraft(legacy);
+    if (value === undefined) delete invalid.decisions[0].patch.inclusion_reason;
+    else invalid.decisions[0].patch.inclusion_reason = value;
+    assert.ok(validateDomainDecisionDraft(invalid, legacy).some(error =>
+      error.code.startsWith('ITEM_INCLUSION_REASON_')
+      && error.path === 'decisions[0].patch.inclusion_reason'));
+  }
 });
 
 test('pending decisions require evidence-bearing detail and never masquerade as accepted output', () => {

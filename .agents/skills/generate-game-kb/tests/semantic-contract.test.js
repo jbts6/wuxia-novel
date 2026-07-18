@@ -11,7 +11,8 @@ const {
   ITEM_TYPES,
   POWER_RANKS,
   SEMANTIC_CONTRACT_VERSION,
-  SEMANTIC_PROFILE
+  SEMANTIC_PROFILE,
+  requiredDomainUnitsForContract
 } = require('../scripts/lib/semantic-contract');
 
 test('declares the fast-path YAML contract and retains legacy domain unit names', () => {
@@ -38,6 +39,18 @@ test('declares the fast-path YAML contract and retains legacy domain unit names'
     assert.match(filename, /\.yaml$/);
     assert.doesNotMatch(filename, /\.json$/);
   }
+});
+
+test('required domain units reject unsupported or mistyped semantic versions', () => {
+  for (const version of ['4', 3, 6, null, undefined]) {
+    assert.throws(
+      () => requiredDomainUnitsForContract(version),
+      error => error.code === 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED'
+        && error.version === version
+    );
+  }
+  assert.deepEqual(requiredDomainUnitsForContract(4), DOMAIN_UNITS);
+  assert.deepEqual(requiredDomainUnitsForContract(5), []);
 });
 
 test('centralizes enums used by chapter and final records', () => {

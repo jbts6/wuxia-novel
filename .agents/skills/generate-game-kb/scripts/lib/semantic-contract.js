@@ -10,6 +10,10 @@ const DOMAIN_UNITS = Object.freeze([
   'distill:items'
 ]);
 const NO_DOMAIN_UNITS = Object.freeze([]);
+const SUPPORTED_SEMANTIC_CONTRACT_VERSIONS = new Set([
+  LEGACY_DOMAIN_CONTRACT_VERSION,
+  SEMANTIC_CONTRACT_VERSION
+]);
 const FINAL_FILES = Object.freeze({
   characters: 'characters.yaml',
   skills: 'skills.yaml',
@@ -45,6 +49,12 @@ function isPowerRank(value) {
 }
 
 function requiredDomainUnitsForContract(version) {
+  if (!SUPPORTED_SEMANTIC_CONTRACT_VERSIONS.has(version)) {
+    const error = new RangeError(`Unsupported semantic contract version: ${String(version)}`);
+    error.code = 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED';
+    error.version = version;
+    throw error;
+  }
   return version === LEGACY_DOMAIN_CONTRACT_VERSION ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
 }
 
