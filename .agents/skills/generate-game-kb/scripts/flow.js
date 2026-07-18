@@ -20,6 +20,8 @@ const {
 } = require('./lib/candidate-ledger');
 const { buildCandidateRegistry } = require('./lib/candidate-registry');
 const { createDomainWorkPlan } = require('./lib/domain-work');
+const { addDeferredTask, runDeferredTask, loadState } = require('./lib/deferred-task');
+const { applyOverlay } = require('./lib/overlay');
 const { installVerifiedData, verifyInstalled } = require('./lib/install');
 const { readJson, readYaml } = require('./lib/io');
 const { resolveNextAction } = require('./lib/next-action');
@@ -474,6 +476,37 @@ function main(argv = process.argv.slice(2)) {
       const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
       emit(verifyWorkspace(novelDir, run.run_id, profile));
+      return;
+    }
+    if (command === 'task-add') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-add requires <novel>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
+      const paths = pathsFor(novelDir, run.run_id);
+      emit(addDeferredTask({
+        paths,
+        type: flagValue(args, '--type'),
+        scope: flagValue(args, '--scope'),
+        requestedBy: flagValue(args, '--requested-by') || 'manual'
+      }));
+      return;
+    }
+    if (command === 'task-run') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-run requires <novel>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
+      const paths = pathsFor(novelDir, run.run_id);
+      emit(runDeferredTask({ paths, taskId: flagValue(args, '--task-id'), draftPath: flagValue(args, '--draft') }));
+      return;
+    }
+    if (command === 'task-apply') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-apply requires <novel>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, PROFILE_V5);
+      const paths = pathsFor(novelDir, run.run_id);
+      const state = loadState(paths);
+      const task = state.tasks.find(item => item.task_id === flagValue(args, '--task-id'));
+      if (!task || task.status !== 'ready') throw new GameKbError('DEFERRED_TASK_NOT_READY', 'Deferred task is not ready to apply');
+      const registry = readJson(paths.candidateRegistry);
+      emit(applyOverlay({ task, overlay: task.draft, baseRegistry: registry,
+        groundingContext: { base_manifest_hash: task.base_manifest_hash } }));
       return;
     }
     throw new GameKbError('COMMAND_UNKNOWN', `Unknown command: ${command || '<missing>'}`);
