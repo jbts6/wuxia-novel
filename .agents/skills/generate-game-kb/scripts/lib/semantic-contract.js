@@ -3,6 +3,9 @@
 const SEMANTIC_CONTRACT_VERSION = 5;
 const SEMANTIC_PROFILE = 'domain-distill-v1';
 const LEGACY_DOMAIN_CONTRACT_VERSION = 4;
+const PROFILE_V4 = 'v4';
+const PROFILE_V5 = 'v5';
+const SUPPORTED_PROFILES = new Set([PROFILE_V4, PROFILE_V5]);
 const DOMAIN_UNITS = Object.freeze([
   'distill:factions',
   'distill:characters',
@@ -65,8 +68,11 @@ module.exports = {
   FINAL_FILES,
   ITEM_TYPES,
   POWER_RANKS,
+  PROFILE_V4,
+  PROFILE_V5,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
+  SUPPORTED_PROFILES,
   isPowerRank,
   requiredDomainUnitsForContract
 };

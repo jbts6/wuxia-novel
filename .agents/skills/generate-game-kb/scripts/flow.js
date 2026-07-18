@@ -34,9 +34,16 @@ const {
   syncPlannedUnits
 } = require('./lib/progress');
 const { prepareNovel } = require('./lib/source');
-const { DOMAIN_UNITS, SEMANTIC_PROFILE } = require('./lib/semantic-contract');
+const {
+  DOMAIN_UNITS,
+  PROFILE_V4,
+  PROFILE_V5,
+  SEMANTIC_PROFILE,
+  requiredDomainUnitsForContract
+} = require('./lib/semantic-contract');
 const {
   assertArchiveExistingAllowed,
+  assertSemanticContract,
   createOrResumeRun,
   resolveRun,
   resolveWritableRun
@@ -45,6 +52,21 @@ const { recordScriptDuration } = require('./lib/timing');
 const { verifyFinal } = require('./lib/verify');
 const { readWorkerPool, recordWorkerBackoff } = require('./lib/worker-pool');
 const { writeWorkPlan } = require('./lib/semantic-work');
+
+const PROFILE_COMMANDS = Object.freeze({
+  'v5-prepare': { command: 'prepare', profile: PROFILE_V5 },
+  'v5-accept': { command: 'accept', profile: PROFILE_V5 },
+  'v5-basic-curate': { command: 'basic-curate', profile: PROFILE_V5 },
+  'v5-publish': { command: 'publish', profile: PROFILE_V5 },
+  'v5-status': { command: 'status', profile: PROFILE_V5 }
+});
+
+function routeCommand(requestedCommand) {
+  return PROFILE_COMMANDS[requestedCommand] || {
+    command: requestedCommand,
+    profile: PROFILE_V4
+  };
+}
 
 function flagValue(args, flag) {
   const index = args.indexOf(flag);
@@ -68,16 +90,16 @@ function acceptedChapters(paths) {
     .map(name => readYaml(path.join(paths.chapters, name)));
 }
 
-function assertAssembleInputs(progress, manifest) {
+function assertAssembleInputs(progress, manifest, semanticContractVersion) {
   const chapterUnits = (manifest.chapters || []).map(chapter => (
     `chapter:${String(chapter.number).padStart(3, '0')}`
   ));
-  const units = [...chapterUnits, ...DOMAIN_UNITS];
+  const units = [...chapterUnits, ...requiredDomainUnitsForContract(semanticContractVersion)];
   const incomplete = units.filter(unit => progress.units[unit]?.status !== 'done');
   if (incomplete.length > 0) {
     throw new GameKbError(
       'BOOK_ASSEMBLY_INCOMPLETE',
-      'All accepted chapters and terminal domain decisions are required before assembly',
+      'All accepted inputs required by this semantic contract must be complete before assembly',
       { units: incomplete }
     );
   }
@@ -236,7 +258,10 @@ function main(argv = process.argv.slice(2)) {
   let timingUnit = '';
   const json = argv.includes('--json');
   const args = argv.filter(value => value !== '--json');
-  const [command, novelDir] = args;
+  const [requestedCommand, novelDir] = args;
+  const route = routeCommand(requestedCommand);
+  const command = route.command;
+  const profile = route.profile;
   const requestedRun = flagValue(args, '--run');
   const emit = result => {
     const elapsedMs = Number(process.hrtime.bigint() - commandStartedAt) / 1e6;
@@ -249,6 +274,13 @@ function main(argv = process.argv.slice(2)) {
   try {
     if (command === 'archive-existing') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-existing requires <novel>');
+      try {
+        const existing = resolveRun(novelDir, requestedRun);
+        assertSemanticContract(existing, command, profile);
+      } catch (error) {
+        if (!(error instanceof GameKbError)
+          || !['RUN_REQUIRED', 'LEGACY_SEMANTIC_CONTRACT'].includes(error.code)) throw error;
+      }
       assertArchiveExistingAllowed(novelDir);
       const result = archiveExisting(novelDir, {
         archiveId: flagValue(args, '--archive-id') || (requestedRun ? `before-${requestedRun}` : undefined)
@@ -261,19 +293,20 @@ function main(argv = process.argv.slice(2)) {
       let selectedRun = requestedRun;
       if (!selectedRun) {
         try {
-          selectedRun = resolveRun(novelDir).run_id;
+          selectedRun = resolveRun(novelDir, undefined, profile).run_id;
         } catch (error) {
           if (!(error instanceof GameKbError) || error.code !== 'RUN_REQUIRED') throw error;
           assertArchiveExistingAllowed(novelDir);
           archiveExisting(novelDir);
         }
       }
-      const run = createOrResumeRun(novelDir, { runId: selectedRun });
+      const run = createOrResumeRun(novelDir, { runId: selectedRun, profile });
       const manifest = prepareNovel(novelDir, { runId: run.run_id });
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
       const payload = {
         run_id: run.run_id,
         run_dir: run.run_dir,
+        profile: run.profile,
         resumed: run.resumed,
         novel_dir: manifest.novel_dir,
         source_file: manifest.source_file,
@@ -287,7 +320,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'plan-domains') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'plan-domains requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit(planDomains(paths, readJson(paths.manifest)));
@@ -300,7 +333,7 @@ function main(argv = process.argv.slice(2)) {
       if (skip === Boolean(draft)) {
         throw new GameKbError('BASIC_CURATE_MODE_REQUIRED', 'basic-curate requires exactly one of --draft <path> or --skip');
       }
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       timingUnit = 'basic-curate';
@@ -309,7 +342,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'worker-backoff') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'worker-backoff requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit({
@@ -323,7 +356,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'status') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'status requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveRun(novelDir, requestedRun, profile);
       const paths = pathsFor(novelDir, run.run_id);
       assertAcceptedArtifacts(paths);
       const manifest = readJson(paths.manifest);
@@ -334,11 +367,15 @@ function main(argv = process.argv.slice(2)) {
         progress,
         installed: verifyInstalled(novelDir)
       });
+      const routedNext = profile === PROFILE_V5 && next.next_action === 'plan-domains'
+        ? { next_action: 'v5-publish', next_units: [] }
+        : next;
       emit({
         semantic_contract_version: run.semantic_contract_version ?? null,
         semantic_profile: run.semantic_profile ?? null,
+        profile: run.profile ?? profile,
         ...statusReport(paths, manifest, progress),
-        ...next,
+        ...routedNext,
         worker_pool: readWorkerPool(paths)
       });
       return;
@@ -347,7 +384,7 @@ function main(argv = process.argv.slice(2)) {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'reset-unit requires <novel>');
       const unit = flagValue(args, '--unit');
       if (!unit) throw new GameKbError('UNIT_REQUIRED', 'reset-unit requires --unit <id>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       timingUnit = unit;
@@ -364,7 +401,7 @@ function main(argv = process.argv.slice(2)) {
       const draft = flagValue(args, '--draft');
       if (!unit) throw new GameKbError('UNIT_REQUIRED', 'accept requires --unit <id>');
       if (!draft) throw new GameKbError('DRAFT_REQUIRED', 'accept requires --draft <path>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const result = acceptDraft({ paths, unit, draftPath: draft });
@@ -373,17 +410,27 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'assemble') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'assemble requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const manifest = readJson(paths.manifest);
-      assertAssembleInputs(loadProgress(paths, manifest), manifest);
+      assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version);
       emit(assembleRun({ paths }));
+      return;
+    }
+    if (command === 'publish') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'publish requires <novel>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      const manifest = readJson(paths.manifest);
+      assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version);
+      emit({ profile: run.profile ?? profile, ...assembleRun({ paths }) });
       return;
     }
     if (command === 'install') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'install requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       assertAcceptedArtifacts(paths);
@@ -392,7 +439,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'archive-run') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-run requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const result = archiveRun(novelDir, run.run_id);
       timingRunJson = path.join(result.archive_dir, 'run.json');
       emit(result);
@@ -400,7 +447,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'archive-abandoned') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-abandoned requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
+      const run = resolveRun(novelDir, requestedRun, profile);
       emit(archiveAbandoned(novelDir, run.run_id, {
         confirm: args.includes('--confirm'),
         reason: flagValue(args, '--reason')
@@ -417,7 +464,7 @@ function main(argv = process.argv.slice(2)) {
         emit(result);
         return;
       }
-      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
       emit(verifyWorkspace(novelDir, run.run_id));
       return;
