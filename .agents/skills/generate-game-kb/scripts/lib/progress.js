@@ -126,6 +126,34 @@ function setDeterministicUnit(current, unitName, inputHash, errors) {
   return progress;
 }
 
+function setOptionalUnitState(current, unitName, inputHash, status, errors = []) {
+  if (unitName !== 'basic-curate') {
+    throw new GameKbError('OPTIONAL_UNIT_UNKNOWN', 'Unknown optional unit', { unit: unitName });
+  }
+  if (!['pending', 'done', 'failed', 'skipped'].includes(status)) {
+    throw new GameKbError('OPTIONAL_UNIT_STATUS_INVALID', 'Invalid optional unit status', {
+      unit: unitName,
+      status
+    });
+  }
+  const progress = cloneProgress(current);
+  let unit = progress.units[unitName];
+  if (!unit || unit.input_hash !== inputHash) unit = rotateUnit(progress, unitName, inputHash, 'pending');
+  const normalizedErrors = normalizeErrors(errors);
+  const fingerprint = normalizeErrorFingerprint(normalizedErrors);
+  unit.status = status;
+  unit.attempts = ['done', 'failed'].includes(status) ? 1 : 0;
+  unit.output_hashes = [];
+  unit.error_fingerprints = fingerprint ? [fingerprint] : [];
+  unit.last_errors = normalizedErrors;
+  unit.stop_reason = status === 'failed'
+    ? 'OPTIONAL_UNIT_FAILED'
+    : status === 'skipped' ? 'OPTIONAL_UNIT_SKIPPED' : null;
+  unit.updated_at = now();
+  progress.updated_at = unit.updated_at;
+  return progress;
+}
+
 function syncPlannedUnits(current, descriptors) {
   const progress = cloneProgress(current);
   let changed = false;
@@ -277,6 +305,7 @@ function statusReport(paths, manifest, progress) {
   const counts = { pending: 0, done: 0, stale: 0, manual_review: 0 };
   const units = unitNames.map(name => {
     const unit = progress.units[name];
+    if (!Object.hasOwn(counts, unit.status)) counts[unit.status] = 0;
     counts[unit.status] += 1;
     return {
       unit: name,
@@ -310,6 +339,7 @@ module.exports = {
   resetUnit,
   saveProgress,
   setDeterministicUnit,
+  setOptionalUnitState,
   syncPlannedUnits,
   statusReport
 };

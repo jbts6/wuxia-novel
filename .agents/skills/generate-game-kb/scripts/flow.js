@@ -8,6 +8,7 @@ const { GameKbError } = require('./lib/errors');
 const { assembleRun } = require('./lib/assemble');
 const { archiveAbandoned, archiveExisting, archiveRun } = require('./lib/archive');
 const { acceptDraft, stableHash } = require('./lib/accept');
+const { applyBasicCurate, validateBasicCurateDraft } = require('./lib/basic-curate');
 const {
   acceptedArtifactHash,
   assertAcceptedArtifacts,
@@ -24,6 +25,7 @@ const {
   projectProgress,
   resetUnit,
   saveProgress,
+  setOptionalUnitState,
   statusReport,
   syncPlannedUnits
 } = require('./lib/progress');
@@ -125,6 +127,68 @@ function planDomains(paths, manifest) {
   };
 }
 
+function runBasicCurate(paths, manifest, { draftPath, skip }) {
+  if (!fs.existsSync(paths.candidateRegistry)) {
+    throw new GameKbError('CANDIDATE_REGISTRY_MISSING', 'basic-curate requires a deterministic candidate registry');
+  }
+  acceptedArtifactHash(paths, paths.candidateRegistry);
+  const registry = readJson(paths.candidateRegistry);
+  const inputHash = stableHash(registry);
+  let progress = loadProgress(paths, manifest);
+  if (progress.units['basic-curate']?.input_hash === inputHash
+    && progress.units['basic-curate'].status === 'done') {
+    throw new GameKbError('UNIT_ALREADY_DONE', 'Completed basic-curate cannot be resubmitted');
+  }
+
+  if (skip) {
+    progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'skipped');
+    saveProgress(paths, progress);
+    return { unit: 'basic-curate', status: 'skipped', registry: paths.candidateRegistry };
+  }
+
+  let draft;
+  try {
+    draft = readYaml(draftPath);
+  } catch (error) {
+    const errors = [{ code: 'BASIC_CURATE_DRAFT_INVALID', path: '', target: error.message }];
+    progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'failed', errors);
+    saveProgress(paths, progress);
+    throw new GameKbError('BASIC_CURATE_INVALID', 'Basic curation draft cannot be parsed', { errors });
+  }
+  const errors = validateBasicCurateDraft(draft, registry);
+  if (errors.length > 0) {
+    progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'failed', errors);
+    saveProgress(paths, progress);
+    throw new GameKbError('BASIC_CURATE_INVALID', 'Basic curation draft is invalid', { errors });
+  }
+
+  const curatedRegistry = applyBasicCurate(registry, draft.decisions);
+  const artifact = {
+    schema_version: 1,
+    input_hash: inputHash,
+    decisions: draft.decisions,
+    curated_registry_hash: stableHash(curatedRegistry)
+  };
+  const artifactPath = path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
+  if (fs.existsSync(artifactPath)) {
+    acceptedArtifactHash(paths, artifactPath);
+    if (stableHash(readJson(artifactPath)) !== stableHash(artifact)) {
+      throw new GameKbError('BASIC_CURATE_ALREADY_ACCEPTED', 'Accepted basic curation differs from this draft');
+    }
+  } else {
+    recordAcceptedArtifact(paths, artifactPath, inputHash, artifact);
+  }
+  progress = setOptionalUnitState(progress, 'basic-curate', inputHash, 'done');
+  saveProgress(paths, progress);
+  return {
+    unit: 'basic-curate',
+    status: 'done',
+    registry: paths.candidateRegistry,
+    decisions: artifactPath,
+    curated_registry_hash: artifact.curated_registry_hash
+  };
+}
+
 function verifyWorkspace(novelDir, runId) {
   const paths = pathsFor(novelDir, runId);
   const result = verifyFinal(paths);
@@ -195,6 +259,20 @@ function main(argv = process.argv.slice(2)) {
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit(planDomains(paths, readJson(paths.manifest)));
+      return;
+    }
+    if (command === 'basic-curate') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'basic-curate requires <novel>');
+      const draft = flagValue(args, '--draft');
+      const skip = args.includes('--skip');
+      if (skip === Boolean(draft)) {
+        throw new GameKbError('BASIC_CURATE_MODE_REQUIRED', 'basic-curate requires exactly one of --draft <path> or --skip');
+      }
+      const run = resolveWritableRun(novelDir, requestedRun, command);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      timingUnit = 'basic-curate';
+      emit(runBasicCurate(paths, readJson(paths.manifest), { draftPath: draft, skip }));
       return;
     }
     if (command === 'worker-backoff') {
