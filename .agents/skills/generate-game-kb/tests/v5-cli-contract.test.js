@@ -2,6 +2,7 @@
 
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
 
@@ -19,6 +20,24 @@ test('v5-prepare creates an explicitly profiled v5 run', () => {
   assert.equal(metadata.profile, 'v5');
   assert.equal(metadata.semantic_contract_version, 5);
   assert.equal(output.profile, 'v5');
+});
+
+test('v5 accepts nested Chinese author and book directory names on Windows', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'generate-game-kb-unicode-'));
+  const novel = path.join(root, '金庸', '射雕英雄传');
+  fs.mkdirSync(novel, { recursive: true });
+  fs.writeFileSync(
+    path.join(novel, '射雕英雄传.txt'),
+    '第一章 风雪惊变\n郭啸天与杨铁心在牛家村饮酒。\n',
+    'utf8'
+  );
+
+  const result = runFlow(['v5-prepare', novel, '--run', 'run-unicode-path', '--json']);
+
+  assert.equal(result.status, 0, result.stderr);
+  const output = JSON.parse(result.stdout);
+  assert.equal(output.novel_dir, path.resolve(novel));
+  assert.equal(output.source_file, path.join(path.resolve(novel), '射雕英雄传.txt'));
 });
 
 test('v5-status reports the v5 profile without planning domains', () => {
@@ -46,6 +65,34 @@ test('v4 commands reject a run explicitly created for v5', () => {
   assert.equal(parseJsonLine(result.stderr).code, 'PROFILE_MISMATCH');
   const metadata = JSON.parse(fs.readFileSync(path.join(created.run_dir, 'run.json'), 'utf8'));
   assert.equal(metadata.profile, 'v5');
+});
+
+test('generic retry-unit auto-detects a v5 run profile', () => {
+  const novel = makeNovel('v5 重试试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['v5-prepare', novel, '--run', 'run-v5-retry', '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const result = runFlow([
+    'retry-unit', novel, '--run', 'run-v5-retry',
+    '--unit', 'chapter:001', '--confirm', '--json'
+  ]);
+
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(result.stdout), { reset: 'chapter:001' });
+});
+
+test('generic reset-unit remains compatible with a v5 run profile', () => {
+  const novel = makeNovel('v5 重置兼容试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['v5-prepare', novel, '--run', 'run-v5-reset', '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const result = runFlow([
+    'reset-unit', novel, '--run', 'run-v5-reset',
+    '--unit', 'chapter:001', '--confirm', '--json'
+  ]);
+
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(result.stdout), { reset: 'chapter:001' });
 });
 
 test('all v5 command aliases are dispatched by the controller', () => {
