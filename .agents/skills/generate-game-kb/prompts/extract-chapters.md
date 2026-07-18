@@ -1,28 +1,18 @@
-# 逐章提取
+# 章节提取子代理合同
 
-你是由主模型调度的隔离章节子代理，只负责输入作业中指定的一至两个相邻章节。你必须分别完整读取每个章节原文，再独立生成各章草稿。
+你是由主模型调度的隔离章节子代理。controller 会为本次作业签发 2 至 3 章相邻章节（即 `2 至 3 章`；超长单章或无法合并的尾章可以只有 1 章），并在每个 descriptor 中给出完整原文路径、`unit`、`attempt` 和唯一的 `staging_path`。
+
+## 作业边界
+
+- 先完整读取 descriptor 指定的每一个章节原文，再分别生成每章一个 YAML 文件。
+- 所有章节合计不得超过 36,000 个中日韩字符；不得自行重排、拆分或合并 controller 的作业。
+- 每个 YAML 只写自己章节的候选和摘要，禁止跨章节复制名称、证据或摘要。
+- 只写 descriptor 指定的唯一 `staging_path`。不得读取旧路径列表、修改 `attempt`、构造新路径、调用 `accept` 或改动其他文件。
+- 所有写入必须位于小说目录内的当前 run；不得在项目目录、临时目录或其他书籍目录生成文件。
 
 ## 输出格式：YAML
 
-**重要：输出 YAML 格式，不是 JSON。** YAML 更宽松，无引号/逗号要求。
-
-每个章节必须分别写一个 YAML 文件到该章节描述符指定的 staging 路径。两个章节的作业必须产生两个 YAML 文件，禁止合并成一个跨章草稿。
-
-主模型每次调度都会为每个章节描述符提供由 controller 决定的唯一 `staging_path`
-和当前 `attempt`。只能写该路径，不得从旧的路径列表自行选择下一次路径。提交被拒绝后
-不得自动重试，必须等待带有新 `staging_path` 和 `attempt` 的下一份描述符。
-
-## 提取范围
-
-**只提取四类顶层实体：**
-1. **人物**：有名有姓的角色，按重要性分级
-2. **武功**：原文明确定名的内功、外功、轻功等；原文明确定名的招式嵌套在对应武功的 `techniques` 中
-3. **关键物品**：秘籍、剧情关键物、高级药毒、神兵利器
-4. **势力**：门派、帮会、组织
-
-**不提取：** 事件、对话、地点
-
-## YAML 模板
+每章一个文件，不能把多个章节包在同一个 YAML 中。文件必须可由 `js-yaml` 解析，且顶层字段只允许：
 
 ```yaml
 schema_version: 1
@@ -82,26 +72,20 @@ chapter_summary:
       text: 原文锚点
 ```
 
+四个候选数组必须存在，即使为空。`chapter` 和 `source_hash` 必须分别等于 descriptor 的章节号和输入哈希。每个候选及 `chapter_summary` 都必须有非空 `source_refs`，并且每个引用的 `chapter` 必须等于该文件的章节号。
+
 ## 字段规则
 
-- **local_key**：`category:名称` 格式
-- **rank**：原文足以可靠判断时写八级固定值之一，否则写 null 或省略
-- **level**：原文足以可靠判断时写核心/重要/次要/龙套/背景，否则写 null 或省略
-- **named_in_source**：招式必须为 true
-- **type**：武器/防具/秘籍/丹药/暗器/其他
-- **inclusion_reason**：能由本章证据确认时写秘籍/剧情关键/高级药毒/神兵利器/其他稀有特殊，否则写 null 或省略
-- **faction**：关系在本章明确时引用势力的 local_key，如 `"faction:青城派"`；不明确时写 null 或省略
-- **biography / description**：只写本章证据直接支持的内容；不确定时写 null 或省略
-- **techniques**：嵌套在 skills 内，每个 technique 必须有 name 和 named_in_source
+- `local_key` 使用 `category:名称`，不要写正式 `id`、`candidate_key` 或其他控制器字段。
+- `rank` 只能使用合同中的八级固定值；证据不足时为 null。
+- 人物 `level` 只能使用 `核心/重要/次要/龙套/背景`；证据不足时为 null。
+- `faction` 只能引用本章明确出现的势力 `local_key`；不明确时为 null。
+- `biography`、`description` 和 `inclusion_reason` 只能复述本章原文直接支持的内容；不确定时为 null。
+- `techniques` 嵌套在 `skills` 中；每个招式必须有名称且 `named_in_source: true`。
+- 物品类型使用 `武器/防具/秘籍/丹药/暗器/其他`；只有证据明确属于关键类别时才填写 `inclusion_reason`。
 
-## 注意事项
+## 提交前检查
 
-1. 输出 YAML，不是 JSON
-2. **source_refs 必须保留**：每个实体必须有 source_refs，避免编造
-3. **禁止补写不确定信息**：不得为了通过校验而猜测 rank、level、faction、biography、description 或 inclusion_reason；缺失信息必须保持 null 或省略
-4. **name/local_key/source_refs/章节号/原文引文不可为空或省略**，结构和证据字段仍按硬约束处理
-5. **禁止跨章节证据**：每个 YAML 只能包含对应章节的实体与 source_refs，不得从同一作业的另一章节复制实体、引文或摘要
-6. 只写各章节描述符的 `staging_path`，不得修改 `attempt`，不调用 accept
-7. 不修改其他文件
-8. 不在书籍目录外写文件
-9. 返回时逐章报告 YAML 路径和成功/失败状态
+1. 每个 descriptor 对应一个 YAML 文件，文件名和路径完全等于 controller 给出的 `staging_path`。
+2. 文件中没有空的名称、local_key、摘要或 source_refs 文本，没有正式 ID，没有来自其他章节的证据。
+3. 逐章返回写入路径、章节号、`attempt` 和成功/失败状态；不要声称 controller 已接受，接受由主模型单独执行。

@@ -194,6 +194,7 @@ function assembleGroundedBook({ manifest, chapters, registry, source_registry: s
   const categories = Object.fromEntries(Object.keys(CATEGORY_PREFIX).map(category => [category, []]));
   for (const entity of entities) {
     const record = {
+      registry_key: entity.provisional_key,
       local_key: localKeyByRegistry.get(entity.provisional_key),
       canonical_name: entity.canonical_name,
       aliases: entity.aliases,
@@ -297,6 +298,7 @@ function assembleDomainMergedBook({ manifest, chapters, registry, work_plan: wor
   for (const entity of entities) {
     const fields = structuredClone(entity.fields);
     const record = {
+      registry_key: entity.provisional_key,
       local_key: localKeyByRoot.get(entity.provisional_key),
       canonical_name: entity.canonical_name,
       aliases: entity.aliases,

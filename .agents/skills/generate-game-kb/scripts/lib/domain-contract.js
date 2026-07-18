@@ -89,10 +89,9 @@ function validatePatch(patch, input, entry, label, entriesByRef, errors) {
   }
 }
 
-function validatePowerRankPatch(patch, label, required, errors) {
+function validatePowerRankPatch(patch, label, errors) {
   if (patch?.rank === undefined || patch.rank === null || patch.rank === '') {
-    if (required) errors.push(issue('POWER_RANK_REQUIRED', `${label}.patch.rank`));
-    else if (patch?.rank === '') errors.push(issue('POWER_RANK_INVALID', `${label}.patch.rank`, patch.rank));
+    errors.push(issue('POWER_RANK_REQUIRED', `${label}.patch.rank`));
     return;
   }
   if (!isPowerRank(patch.rank)) {
@@ -100,7 +99,7 @@ function validatePowerRankPatch(patch, label, required, errors) {
   }
 }
 
-function validateItemInclusionReason(patch, entry, label, required, errors) {
+function validateItemInclusionReason(patch, entry, label, errors) {
   const hasFallback = nonempty(entry.facts?.inclusion_reason)
     || ['关键', '稀有', '重要'].includes(entry.facts?.importance);
   const hasPatchValue = patch && typeof patch === 'object' && !Array.isArray(patch)
@@ -108,7 +107,7 @@ function validateItemInclusionReason(patch, entry, label, required, errors) {
   const value = patch?.inclusion_reason;
 
   if (!hasPatchValue || value === null) {
-    if (required && !hasFallback) {
+    if (!hasFallback) {
       errors.push(issue('ITEM_INCLUSION_REASON_REQUIRED', `${label}.patch.inclusion_reason`, entry.entry_ref));
     }
     return;
@@ -120,16 +119,14 @@ function validateItemInclusionReason(patch, entry, label, required, errors) {
 
 function validateDomainDecisionDraft(draft, input) {
   const errors = [];
-  let requiredDomainUnits;
   try {
-    requiredDomainUnits = requiredDomainUnitsForContract(input?.semantic_contract_version);
+    requiredDomainUnitsForContract(input?.semantic_contract_version);
   } catch (error) {
     if (error.code === 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED') {
       return [issue(error.code, 'input.semantic_contract_version', input?.semantic_contract_version)];
     }
     throw error;
   }
-  const requiresLegacyBackfill = requiredDomainUnits.length > 0;
   if (!draft || typeof draft !== 'object' || Array.isArray(draft)) return [issue('DOMAIN_DRAFT_INVALID', '$')];
   for (const path of controllerFieldPaths(draft)) errors.push(issue('CONTROLLER_FIELD_FORBIDDEN', path));
   if (draft.schema_version !== 1) errors.push(issue('SCHEMA_VERSION_INVALID', 'schema_version', draft.schema_version));
@@ -181,10 +178,10 @@ function validateDomainDecisionDraft(draft, input) {
       validatePatch(decision.patch, input, entry, label, entriesByRef, errors);
       if ((entry.category === 'characters' || entry.category === 'skills')
         && decision.patch && typeof decision.patch === 'object' && !Array.isArray(decision.patch)) {
-        validatePowerRankPatch(decision.patch, label, requiresLegacyBackfill, errors);
+        validatePowerRankPatch(decision.patch, label, errors);
       }
       if (entry.category === 'items') {
-        validateItemInclusionReason(decision.patch, entry, label, requiresLegacyBackfill, errors);
+        validateItemInclusionReason(decision.patch, entry, label, errors);
       }
     }
     if (decision.action === 'merge') {

@@ -53,13 +53,13 @@ function chapterCandidates(chapter) {
     return {
       characters: [{
         local_key: 'character:hu-fei', name: '胡斐', identity: '胡家后人', level: '核心', rank: '登堂入室',
-        faction: '飞狐一脉', skill_names: ['胡家刀法'], item_names: ['冷月宝刀'],
+        faction_local_key: 'faction:fei-hu', skill_local_keys: ['skill:hu-dao'], item_local_keys: ['item:leng-yue'],
         source_refs: [sourceRef(1, '胡斐')]
       }],
       skills: [{
-        local_key: 'skill:hu-dao', name: '胡家刀法', type: '刀法', faction: '飞狐一脉', rank: '登堂入室',
+        local_key: 'skill:hu-dao', name: '胡家刀法', type: '刀法', faction_local_key: 'faction:fei-hu', rank: '登堂入室',
         description: '胡家家传刀法。', techniques: [{ name: '八方藏刀式', named_in_source: true, description: '刀势回护。' }],
-        source_refs: [sourceRef(1, '胡家刀法')]
+        source_refs: [sourceRef(1, '胡斐使出八方藏刀式，胡家刀法与冷月宝刀传自飞狐一脉。')]
       }],
       items: [{
         local_key: 'item:leng-yue', name: '冷月宝刀', type: '武器', inclusion_reason: '神兵利器',
@@ -75,11 +75,11 @@ function chapterCandidates(chapter) {
     return {
       characters: [{
         local_key: 'character:xue-shan', name: '雪山飞狐', identity: '胡斐', level: '核心', rank: '登堂入室',
-        faction: '胡家一脉', skill_names: ['胡氏刀法'], item_names: ['宝刀'],
+        faction_local_key: 'faction:hu-jia', skill_local_keys: ['skill:hu-shi'], item_local_keys: ['item:bao-dao'],
         source_refs: [sourceRef(2, '雪山飞狐')]
       }],
       skills: [{
-        local_key: 'skill:hu-shi', name: '胡氏刀法', type: '刀法', faction: '胡家一脉', rank: '登堂入室',
+        local_key: 'skill:hu-shi', name: '胡氏刀法', type: '刀法', faction_local_key: 'faction:hu-jia', rank: '登堂入室',
         description: '胡氏刀法别称。', techniques: [], source_refs: [sourceRef(2, '胡氏刀法')]
       }],
       items: [{
@@ -107,7 +107,7 @@ test('three-chapter normal path assembles verifies installs and verifies only fi
   const fixture = prepareAssembledRun({
     name: '三章正常路径试书',
     runId: 'run-three-chapter-flow',
-    source: '第一章 雪山相逢\n胡斐使出八方藏刀式。\n第二章 宝刀重现\n雪山飞狐携宝刀而来。\n第三章 客栈收束\n桌上只有一只茶杯。\n',
+    source: '第一章 雪山相逢\n胡斐使出八方藏刀式，胡家刀法与冷月宝刀传自飞狐一脉。\n第二章 宝刀重现\n雪山飞狐施展胡氏刀法，携胡家一脉的宝刀而来。\n第三章 客栈收束\n桌上只有一只茶杯。\n',
     chapterOverrides: chapterCandidates,
     domainDraftForInput: mergedDomainDraft
   });

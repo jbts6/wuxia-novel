@@ -2,7 +2,7 @@
 
 你只处理输入工作项指定的一个领域。完整读取 `schemas.md`、本提示词和唯一 `input.json`。
 
-当前 v5 基础构建不要求四个域决策文件；本提示词仅用于显式提供的过渡期 v5 工作项和旧草稿只读检查。`semantic_contract_version: 4` 的旧 run 不得继续写入。
+当前 v4 完整构建通过本提示词处理四个域决策；新 run 使用 `semantic_contract_version: 5` 与 `profile: v4`。版本 4 的旧 run 不得继续写入。
 
 ## 输出格式：YAML
 

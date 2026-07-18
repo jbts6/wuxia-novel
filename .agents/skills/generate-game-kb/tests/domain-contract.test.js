@@ -129,25 +129,27 @@ function validDraft(work = input()) {
   };
 }
 
-test('v5 character and skill keep decisions accept unresolved rank but reject invalid values', () => {
+test('current V4 domain work requires final character and skill ranks', () => {
   for (const domain of ['characters', 'skills']) {
     const work = input(domain);
-    const category = domain;
-    const index = work.entries.findIndex(entry => entry.category === category);
 
     const missing = validDraft(work);
-    delete missing.decisions[index].patch.rank;
-    assert.deepEqual(validateDomainDecisionDraft(missing, work), []);
+    delete missing.decisions[0].patch.rank;
+    assert.ok(validateDomainDecisionDraft(missing, work).some(error =>
+      error.code === 'POWER_RANK_REQUIRED'
+      && error.path === 'decisions[0].patch.rank'));
 
     const unresolved = validDraft(work);
-    unresolved.decisions[index].patch.rank = null;
-    assert.deepEqual(validateDomainDecisionDraft(unresolved, work), []);
+    unresolved.decisions[0].patch.rank = null;
+    assert.ok(validateDomainDecisionDraft(unresolved, work).some(error =>
+      error.code === 'POWER_RANK_REQUIRED'
+      && error.path === 'decisions[0].patch.rank'));
 
     const invalid = validDraft(work);
-    invalid.decisions[index].patch.rank = '天下无敌';
+    invalid.decisions[0].patch.rank = '天下无敌';
     assert.ok(validateDomainDecisionDraft(invalid, work).some(error =>
       error.code === 'POWER_RANK_INVALID'
-      && error.path === `decisions[${index}].patch.rank`));
+      && error.path === 'decisions[0].patch.rank'));
   }
 });
 
@@ -259,21 +261,14 @@ test('skill and item semantics enforce named nested techniques and finite noise 
   assert.equal(validateDomainDecisionDraft(rejectOrdinary, items).some(error => error.code === 'DOMAIN_REJECTION_REASON_INVALID'), true);
 });
 
-test('v5 item decisions accept only omitted or null unresolved inclusion reasons', () => {
+test('current V4 item domain work requires a nonempty inclusion reason', () => {
   const active = input('items');
-  const omitted = validDraft(active);
-  delete omitted.decisions[0].patch.inclusion_reason;
-  assert.deepEqual(validateDomainDecisionDraft(omitted, active), []);
-
-  const unresolved = validDraft(active);
-  unresolved.decisions[0].patch.inclusion_reason = null;
-  assert.deepEqual(validateDomainDecisionDraft(unresolved, active), []);
-
-  for (const value of ['', '   ', false, [], {}]) {
+  for (const value of [undefined, null, '', '   ', false, [], {}]) {
     const invalid = validDraft(active);
-    invalid.decisions[0].patch.inclusion_reason = value;
+    if (value === undefined) delete invalid.decisions[0].patch.inclusion_reason;
+    else invalid.decisions[0].patch.inclusion_reason = value;
     assert.ok(validateDomainDecisionDraft(invalid, active).some(error =>
-      error.code === 'ITEM_INCLUSION_REASON_INVALID'
+      error.code.startsWith('ITEM_INCLUSION_REASON_')
       && error.path === 'decisions[0].patch.inclusion_reason'));
   }
 });

@@ -61,6 +61,17 @@ function requiredDomainUnitsForContract(version) {
   return version === LEGACY_DOMAIN_CONTRACT_VERSION ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
 }
 
+function requiredDomainUnitsForProfile(profile, version) {
+  requiredDomainUnitsForContract(version);
+  if (!SUPPORTED_PROFILES.has(profile)) {
+    const error = new RangeError(`Unsupported game-kb profile: ${String(profile)}`);
+    error.code = 'SEMANTIC_PROFILE_UNSUPPORTED';
+    error.profile = profile;
+    throw error;
+  }
+  return profile === PROFILE_V4 ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
+}
+
 module.exports = {
   CHARACTER_LEVELS,
   DOMAIN_UNITS,
@@ -74,5 +85,6 @@ module.exports = {
   SEMANTIC_PROFILE,
   SUPPORTED_PROFILES,
   isPowerRank,
-  requiredDomainUnitsForContract
+  requiredDomainUnitsForContract,
+  requiredDomainUnitsForProfile
 };

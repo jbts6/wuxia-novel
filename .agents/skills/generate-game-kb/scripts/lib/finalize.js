@@ -196,6 +196,7 @@ function buildFinalData(book, manifest) {
     category,
     (idPlan[category] || []).map(record => ({
       id: record.id,
+      registry_key: record.registry_key,
       local_key: record.local_key,
       canonical_name: record.canonical_name,
       aliases: Array.isArray(record.aliases) ? [...record.aliases] : []

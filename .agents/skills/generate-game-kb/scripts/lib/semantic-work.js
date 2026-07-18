@@ -5,6 +5,7 @@ const path = require('node:path');
 
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, readJson } = require('./io');
+const { stagingPathFor } = require('./paths');
 const { DOMAIN_UNITS, SEMANTIC_CONTRACT_VERSION } = require('./semantic-contract');
 
 const WORK_CONTRACT_VERSION = SEMANTIC_CONTRACT_VERSION;
@@ -34,10 +35,6 @@ function jsonBytes(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
 
-function stagingFileName(unit, attempt) {
-  return `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}.yaml`;
-}
-
 function workerInput(paths, input, attempt = 1) {
   if (!Number.isInteger(attempt) || attempt < 1 || attempt > 2) {
     throw workItemError('WORK_ITEM_INVALID', 'Worker attempt must use the bounded submission budget', {
@@ -47,7 +44,7 @@ function workerInput(paths, input, attempt = 1) {
   }
   return {
     ...input,
-    staging_path: path.join(paths.staging, stagingFileName(input.unit, attempt)),
+    staging_path: stagingPathFor(paths, input.unit, attempt),
     attempt
   };
 }
@@ -64,7 +61,7 @@ function assertWorkerInput(paths, input) {
       attempt: input?.attempt ?? null
     });
   }
-  const expected = path.join(paths.staging, stagingFileName(input.unit, input.attempt));
+  const expected = stagingPathFor(paths, input.unit, input.attempt);
   if (path.resolve(input.staging_path || '') !== path.resolve(expected)) {
     throw workItemError('WORK_ITEM_INVALID', 'Semantic work item has a non-canonical staging path', {
       unit: input.unit,

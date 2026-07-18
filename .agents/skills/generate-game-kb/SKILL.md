@@ -1,56 +1,52 @@
 ---
 name: generate-game-kb
-description: Use when quickly generating a source-grounded wuxia game knowledge base with characters, skills, items, factions, and chapter summaries in 30-45 minutes.
+description: Use when building the complete source-grounded v4 wuxia game knowledge base from a novel, including chapter extraction, domain distillation, verification, installation, and archival.
 ---
 
 # generate-game-kb v4
 
-以小说原文为唯一事实来源，生成四类实体和章节摘要。这是精简快速流程，事件和对话提取分离为独立 skill。
+这是完整的 v4 流程。小说原文是唯一事实来源；所有候选、证据和最终知识数据都使用 YAML，控制器状态和审计信息使用 JSON。流程必须由控制器签发的 run、unit、attempt 和 staging_path 驱动，不能凭文件名猜测状态。
 
-当前可写契约为 `semantic_contract_version: 4`、`semantic_profile: domain-distill-v1`。旧版本 run 只允许读取状态或显式归档；任何继续写入都必须报 `LEGACY_SEMANTIC_CONTRACT`，不得原地升级。
+## 语义合同
 
-## 输出文件
+- 可写 run 使用新的 `semantic_contract_version: 5`、`semantic_profile: domain-distill-v1` 和 `profile: v4`。版本 4 的旧 run 只能查询或显式归档。
+- 旧合同 run 只能查询状态或显式归档；任何继续写入都必须失败并报告 `LEGACY_SEMANTIC_CONTRACT`，不得原地升级。
+- 所有中间路径都位于小说目录内。中文作者目录、中文书名目录和空格不会改变路径合同；命令参数必须整体加引号。
 
-最终数据严格为五个 YAML 文件：
+## 最终产物
 
-```
+成功安装的 `<novel>/data/` 必须恰好包含以下五个 YAML 文件，供 Dashboard 读取：
+
+```text
 data/
-├── characters.yaml        # 人物
-├── skills.yaml            # 武功+招式（招式作为 techniques 字段）
-├── items.yaml             # 关键物品、武器装备
-├── factions.yaml          # 势力门派
-└── chapter_summaries.yaml # 章节摘要（机械生成）
+├── characters.yaml
+├── skills.yaml
+├── items.yaml
+├── factions.yaml
+└── chapter_summaries.yaml
 ```
 
-## 核心规则
+最终字段来自 `schemas.md`：人物包含 `id/name/aliases/identity/level/rank/biography/faction/skills/items`；武功包含 `id/name/type/faction/rank/description/techniques`；物品和势力包含 `id/name/type/description`；章节摘要包含 `chapter/title/summary`。最终文件不保留 source_refs，source_refs 必须存在于 YAML 草稿和 accepted 证据中。
 
-1. **YAML 语义产物**：AI 草稿、accepted 证据和最终数据统一使用 YAML
-2. **人物 rank**：八级固定为 `平平无奇`→`初窥门径`→`略有小成`→`登堂入室`→`炉火纯青`→`出神入化`→`登峰造极`→`返璞归真`
-3. **武功+招式统一**：招式作为 `skills[].techniques[]` 字段
-4. **物品筛选**：只保留秘籍、剧情关键、高级药毒、神兵利器、其他稀有特殊
-5. **章节摘要**：机械生成，AI 尝试数为 0
-6. **不提取对话和事件**：分离为独立流程
-7. **source_refs 必须保留**：草稿和 accepted 证据中每个实体必须有 source_refs；最终五文件只保留消费字段
-8. **JSON 控制器产物**：状态、清单、收据和报告由脚本写为 JSON
+run 内必须生成并通过以下控制器产物：
 
-## 最终输出字段
+- `final/reports/assembly-report.json`：五文件组装结果、输入闭包和 `final_data_hash`。
+- `final/reports/verification-report.json`：原文哈希、证据闭包、引用闭包、schema 和最终哈希验证结果。
+- `artifact-manifest.json`：accepted YAML 与控制器元数据的相对路径、输入哈希和内容哈希。
+- `<novel>/reports/generate_game_kb_install.json`（合同名称 `install-receipt.json`）：安装位置、五文件哈希、`source_hash`、`final_data_hash` 和 verification report 哈希。
+- `<novel>/_archive/generate-game-kb/<run-id>/archive-receipt.json`：归档目录、artifact-manifest 哈希和 verification report 哈希。
 
-| 类型 | 字段 |
-|------|------|
-| characters | id, name, aliases, identity, level, rank, biography, faction, skills, items |
-| skills | id, name, type, faction, rank, description, techniques |
-| items | id, name, type, description |
-| factions | id, name, type, description |
-| chapter_summaries | chapter, title, summary |
+只有 `verification-report.json` 通过、安装收据绑定五文件哈希、`verify --installed` 通过、再由 `archive-run` 写入归档收据，才算完成。任何哈希漂移、缺文件、引用悬空、证据缺失或 `manual_review` 都阻断完成。
 
-## 流程路径
+## 完整生命周期
 
 ```text
 archive-existing
 → prepare
-→ chapter:NNN（逐章提取，5 并发）→ 主模型串行 accept
+→ chapter:NNN 动态章节作业（2-3 个相邻章节）→ accept
+→ 可选 basic-curate
 → plan-domains
-→ distill:factions / distill:characters / distill:skills / distill:items（四域独立，可并发生成草稿）→ 主模型串行 accept
+→ 四个域作业（可并发生成，主模型串行 accept）
 → assemble
 → verify
 → install
@@ -58,91 +54,84 @@ archive-existing
 → archive-run
 ```
 
-## 路径管理（强制）
+每个阶段完成后先读取 `status --json`，只执行控制器返回的一个 `next_action` 和 `next_units`。`accept` 是唯一写入 accepted 的入口；子代理只能写 controller 当前 descriptor 指向的 YAML staging 文件。
 
-所有中间产物必须在书籍目录内，路径格式固定：
+## 动态章节作业
 
-```
-<书籍目录>/.game-kb-work/runs/<run-id>/
-├── staging/<unit>_attempt_<NN>.yaml    # 草稿（AI生成，YAML格式）
-├── accepted/<category>/<unit>.yaml     # 已接受
-├── final/data/*.yaml                   # 最终数据
-├── final/reports/assembly-report.json  # 组装收据（控制器 JSON）
-├── final/reports/verification-report.json # 验证收据（控制器 JSON）
-├── artifact-manifest.json              # accepted 哈希清单（控制器 JSON）
-└── progress.json                       # 控制器状态（脚本生成，JSON格式）
-```
+- 每个普通作业包含 2 至 3 章相邻章节（即 `2 至 3 章`），总长度不超过 36,000 个中日韩字符。
+- 单章超过上限时独立处理；最后无法与相邻章节合并的尾章也可独立处理。
+- 子代理必须完整读取作业中每个指定章节的原文，并为每章分别写一个 YAML 文件；不能合并成跨章文件，也不能从同一作业的其他章节复制证据。
+- `古龙/剑神一笑/剑神一笑.txt` 的 20 章集成测试应得到七个作业，章节数为 `[3, 3, 3, 3, 3, 3, 2]`。
+- 每个章节 descriptor 只包含 controller 当前签发的一个 `attempt` 和一个 `staging_path`。子代理和主代理都使用该绝对路径；不得读取或构造旧路径列表，不得自行递增 attempt。
 
-**禁止**：子代理不得在书籍目录外写文件，不得生成 .js/.py 等脚本文件。
+章节 YAML 顶层只能包含 `schema_version/chapter/title/source_hash/characters/skills/items/factions/chapter_summary`。四类候选和摘要都必须有可核验的 `source_refs`；不确定字段写 null 或省略。招式嵌套在 `skills[].techniques[]`，且 `named_in_source: true`。
 
-## 逐章提取
+并发池初始为 5；429 处理为 `5 → 3`，即同一 batch 首次明确 429 后降为 3；在 3 并发再次遇到不同 batch 的 429，停止 Worker 池并报告限流。传输失败不消耗提交次数。
 
-读取 [prompts/extract-chapters.md](prompts/extract-chapters.md)。
+## 四域蒸馏
 
-- 每个子代理处理一个章节，直接读取原文
-- 提取：人物、武功、关键物品、势力；招式嵌套在 `skills[].techniques[]`
-- **不提取**：事件、对话、地点
-- 每个人物/武功必须写暂定 `rank`，人物同时写 `level`
-- 章节摘要写入 `chapter_summary.summary`
-- staging 路径：`<run-dir>/staging/chapter_<NNN>_attempt_<NN>.yaml`
+`plan-domains` 生成且仅生成以下四个独立 unit：
 
-并发规则：
-- 最多 5 个 Worker 并发
-- 章节与领域 Worker 只写各自 staging 草稿；主模型串行调用 `accept`
-- 首个明确 429 batch 触发 `5 → 3` 退避；同一 batch 重复上报保持幂等
-- 第二个不同 batch 的 429 在并发 3 时停止 Worker 池并报告限流；传输失败不消耗 AI 提交次数
-- 相同输出或相同验证错误提前进入 manual_review
+`distill:factions`、`distill:characters`、`distill:skills`、`distill:items`。
 
-## 域蒸馏
+四域可以并发生成 draft，但主模型按固定展示顺序串行 `accept`。每域只能依据已 accepted 的章节 YAML 和原文证据：人物和武功保留全书最高可靠 rank，武功的 techniques 必须来自原文明确定名内容，物品只保留允许的关键类别，势力合并同名实体并保持稳定 ID。faction 引用延迟到 `assemble` 统一解析。领域 draft 仍是 YAML，禁止把 JSON 当知识数据提交。
 
-读取 [prompts/distill-domain.md](prompts/distill-domain.md)。
+## 有界失败与恢复
 
-四个域彼此独立，可并发生成草稿。固定单元顺序 `distill:factions` → `distill:characters` → `distill:skills` → `distill:items` 仅用于确定性展示与报告，主模型仍串行调用 `accept`。
+每个 unit 的一个周期包含首次提交和最多 1 次自动重试，等价于最多 2 次提交。YAML 解析错误与语义错误共用同一提交预算；第二次失败、重复输出或重复验证错误进入 `manual_review`，不得自动安排第三次。拒绝的 YAML 草稿、提交记录和错误记录必须保留在 run 的 drafts 目录。
 
-| 单元 | 类别 | 标准 | 固定展示顺序 |
-|---|---|---|---|
-| `distill:factions` | factions | 合并同名势力，统一 ID | 1 |
-| `distill:characters` | characters | 人物 keep 必须给全书巅峰 rank | 2 |
-| `distill:skills` | skills | 武功 keep 必须给全书巅峰 rank；招式必须 named_in_source | 3 |
-| `distill:items` | items | 只保留秘籍、剧情关键、高级药毒、神兵利器 | 4 |
+用户确认后可以开始新的有界周期；`retry-unit` 和兼容的 `reset-unit` 都必须带 `--confirm`。新的周期仍最多 1 次自动重试，且 controller 会签发新的 attempt/staging_path。
 
-- characters 与 skills 的 faction 引用延迟绑定到 `assemble`，由组装器在四个域决策齐备后统一解析
-- 每域生成一个草稿
-- staging 路径：`<run-dir>/staging/distill_<category>_attempt_<NN>.yaml`
-
-## 组装与验证
-
-```bash
-node "$CLI" plan-domains "$NOVEL"      # 生成恰好四个域工作单元
-node "$CLI" assemble "$NOVEL"          # 一次性投影严格五个 YAML
-node "$CLI" verify "$NOVEL"            # accepted 证据 + assembly-report 验证
-node "$CLI" install "$NOVEL"           # 收据绑定后原子安装到 data/
-node "$CLI" verify "$NOVEL" --installed # 只验证已安装数据与收据
-node "$CLI" archive-run "$NOVEL"       # 归档
+```text
+node .agents/skills/generate-game-kb/scripts/flow.js retry-unit "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit chapter:001 --confirm --json
 ```
 
-`assemble` 必须消费所有 accepted 章节和恰好四个 accepted 域决策，写入字节稳定的五文件数据及 `assembly-report.json`。`verify` 重新验证 accepted 证据、候选闭包、最终引用和组装收据，通过后才写 `verification-report.json`。安装收据绑定五文件哈希和验证报告哈希；`verify --installed` 不得回退读取 worktree 数据。
+`unit` 是通用工作单元，不只指章节；例如 `chapter:001` 是章节，`distill:characters` 是人物域。`manual_review.json` 的 suggested_action 使用同一命令格式。
 
-验证阻断项：
-- 人物/武功缺 rank
-- 招式未由原文明确定名
-- 普通物品进入关键物品库
-- 稳定 ID、引用闭包、证据章号不完整
+## 用户命令与真实示例
 
-## 有界失败
+以下示例中的路径、run、unit 和 draft 路径都是可直接替换为 controller 返回值的真实形状；不要让 AI 猜动态标识符。
 
-每个单元最多 2 次提交：初始草稿和一次 validator 指导的修正。YAML 解析错误与语义错误共用同一提交预算；第二次失败、重复输出或重复验证错误进入 `manual_review`。
+```text
+node .agents/skills/generate-game-kb/scripts/flow.js archive-existing "C:\git\wuxia-novel\古龙\剑神一笑" --archive-id before-run-jian-shen-yi-xiao --json
+node .agents/skills/generate-game-kb/scripts/flow.js prepare "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+node .agents/skills/generate-game-kb/scripts/flow.js status "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+node .agents/skills/generate-game-kb/scripts/flow.js accept "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit chapter:001 --draft "C:\git\wuxia-novel\古龙\剑神一笑\.game-kb-work\runs\run-jian-shen-yi-xiao\staging\chapter_001_attempt_01.yaml" --json
+node .agents/skills/generate-game-kb/scripts/flow.js retry-unit "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit chapter:001 --confirm --json
+node .agents/skills/generate-game-kb/scripts/flow.js basic-curate "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --skip --json
+node .agents/skills/generate-game-kb/scripts/flow.js plan-domains "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+node .agents/skills/generate-game-kb/scripts/flow.js accept "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit distill:characters --draft "C:\git\wuxia-novel\古龙\剑神一笑\.game-kb-work\runs\run-jian-shen-yi-xiao\staging\distill_characters_attempt_01.yaml" --json
+node .agents/skills/generate-game-kb/scripts/flow.js assemble "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+node .agents/skills/generate-game-kb/scripts/flow.js verify "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+node .agents/skills/generate-game-kb/scripts/flow.js install "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+node .agents/skills/generate-game-kb/scripts/flow.js verify "C:\git\wuxia-novel\古龙\剑神一笑" --installed --json
+node .agents/skills/generate-game-kb/scripts/flow.js archive-run "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+```
 
-`status --json` 始终只返回一个 `next_action`，需要处理 AI 单元时同时返回稳定排序的 `next_units`；manual_review 的优先级高于所有可执行动作。
+`status --json` 返回的章节 job 会再次给出每章的 `unit`, `attempt` 和唯一 `staging_path`；主代理必须原样转交这些值给子代理。`archive-run` 前不得手动复制、重命名或删除 `data/`、accepted 或 rejected draft。
 
-## 耗时目标
+## 路径与安全边界
 
-| 环节 | 目标耗时 |
-|------|---------|
-| 章节提取（21 章） | 15-20 min |
-| 域蒸馏 factions | 2-3 min |
-| 域蒸馏 characters/skills/items | 8-12 min |
-| 组装+验证 | 3-5 min |
-| **总计** | **28-40 min** |
+```text
+<novel>/.game-kb-work/runs/<run-id>/
+├── source/{original.txt,chapters/}
+├── staging/<unit>_attempt_<NN>.yaml
+├── drafts/<unit>/attempt_<NN>_<hash>.yaml
+├── accepted/chapters/ch_001.yaml
+├── accepted/domain-decisions/distill_characters.yaml
+├── final/data/characters.yaml
+├── final/data/skills.yaml
+├── final/data/items.yaml
+├── final/data/factions.yaml
+└── final/data/chapter_summaries.yaml
+├── final/reports/{assembly-report.json,verification-report.json}
+├── artifact-manifest.json
+├── progress.json
+└── manual_review.json
+```
 
-硬上限：45 分钟。超时不能放宽正确性门。
+子代理不得在小说目录外写文件，不得生成脚本文件，不得修改 `attempt`，不得调用 `accept`，不得删除旧 draft。控制器在成功接收后才消费对应 staging 文件；拒绝 draft 始终保留。
+
+## 阻断条件
+
+人物或武功缺可靠 rank、招式没有原文命名依据、普通物品进入物品库、source_refs 章节号不匹配、稳定 ID 或引用闭包不完整、输入或 accepted 哈希漂移、安装验证失败、连续失败进入 `manual_review`，都必须停在当前阶段并报告可执行恢复命令。

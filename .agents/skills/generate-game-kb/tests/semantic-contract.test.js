@@ -10,9 +10,12 @@ const {
   FINAL_FILES,
   ITEM_TYPES,
   POWER_RANKS,
+  PROFILE_V4,
+  PROFILE_V5,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
-  requiredDomainUnitsForContract
+  requiredDomainUnitsForContract,
+  requiredDomainUnitsForProfile
 } = require('../scripts/lib/semantic-contract');
 
 test('declares the fast-path YAML contract and retains legacy domain unit names', () => {
@@ -51,6 +54,17 @@ test('required domain units reject unsupported or mistyped semantic versions', (
   }
   assert.deepEqual(requiredDomainUnitsForContract(4), DOMAIN_UNITS);
   assert.deepEqual(requiredDomainUnitsForContract(5), []);
+});
+
+test('the active semantic contract selects domain units by run profile', () => {
+  assert.deepEqual(
+    requiredDomainUnitsForProfile(PROFILE_V4, SEMANTIC_CONTRACT_VERSION),
+    DOMAIN_UNITS
+  );
+  assert.deepEqual(
+    requiredDomainUnitsForProfile(PROFILE_V5, SEMANTIC_CONTRACT_VERSION),
+    []
+  );
 });
 
 test('centralizes enums used by chapter and final records', () => {

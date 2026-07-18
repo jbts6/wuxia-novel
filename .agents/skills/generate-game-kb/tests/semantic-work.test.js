@@ -113,7 +113,7 @@ test('worker prompts require the controller-provided staging path and attempt', 
     const content = fs.readFileSync(path.join(__dirname, '..', 'prompts', prompt), 'utf8');
     assert.match(content, /staging_path/);
     assert.match(content, /attempt/);
-    assert.match(content, /不得自动|禁止自动/);
+    assert.match(content, /不得[^\n]*(?:自行推导|修改)[^\n]*(?:attempt|路径)/);
   }
 });
 

@@ -172,6 +172,7 @@ test('verifyFinal rejects an ordinary item kept without an allowed inclusion rea
   const { paths } = prepareAssembledRun({
     name: '普通物品试书',
     runId: 'run-ordinary-item',
+    source: '第一章 起始\n甲修习玄门内功并使出飞云掌。桌上放着一只普通茶杯。\n',
     chapterOverrides: {
       items: [{
         local_key: 'item:tea-cup',

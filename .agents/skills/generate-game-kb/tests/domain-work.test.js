@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('node:assert/strict');
+const path = require('node:path');
 const test = require('node:test');
 
 const { buildCandidateRegistry } = require('../scripts/lib/candidate-registry');
@@ -74,10 +75,18 @@ test('domain work plans use the existing durable idempotent work-plan store', ()
   const run = createOrResumeRun(novel, { runId: 'run-domain' });
   const paths = pathsFor(novel, run.run_id);
   const plan = createDomainWorkPlan({ registry: fullRegistry(), accepted_hashes: {} });
+  const expectedInputs = plan.inputs.map(input => ({
+    ...input,
+    staging_path: path.join(
+      paths.staging,
+      `${input.unit.replaceAll(':', '_')}_attempt_01.yaml`
+    ),
+    attempt: 1
+  }));
 
   assert.equal(writeWorkPlan(paths, plan).written, true);
   assert.equal(writeWorkPlan(paths, plan).written, false);
-  assert.deepEqual(readWorkPlan(paths, 'domain'), plan);
+  assert.deepEqual(readWorkPlan(paths, 'domain'), { ...plan, inputs: expectedInputs });
 });
 
 test('an oversized domain fails explicitly instead of truncating or returning category shards', () => {

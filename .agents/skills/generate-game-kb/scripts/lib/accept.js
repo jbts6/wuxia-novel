@@ -14,6 +14,7 @@ const { normalizeDomainDecisionDraft, validateDomainDecisionDraft } = require('.
 const { GameKbError } = require('./errors');
 const { isGroundingError } = require('./grounding');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
+const { stagingPathFor } = require('./paths');
 const {
   loadProgress,
   recordSubmission,
@@ -31,10 +32,6 @@ function isWithin(parent, candidate) {
   return relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative));
 }
 
-function stagingFileName(unit, attempt) {
-  return `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}.yaml`;
-}
-
 function nextAttempt(progress, unit, inputHash) {
   const state = progress.units[unit];
   return !state || state.input_hash !== inputHash ? 1 : state.attempts + 1;
@@ -42,7 +39,7 @@ function nextAttempt(progress, unit, inputHash) {
 
 function assertDraftPath(paths, draftPath, unit, attempt, expectedPath = null) {
   const resolved = path.resolve(draftPath);
-  const expected = path.resolve(expectedPath || path.join(paths.staging, stagingFileName(unit, attempt)));
+  const expected = path.resolve(expectedPath || stagingPathFor(paths, unit, attempt));
   if (resolved !== expected) {
     throw new GameKbError('DRAFT_STAGING_MISMATCH', 'Draft must use the next unsubmitted run-scoped staging path', {
       unit,
@@ -115,7 +112,7 @@ function unitContext(paths, manifest, progress, unit) {
       kind: 'chapter',
       inputHash: chapter.input_hash,
       acceptedFile: acceptedChapterFile(paths, number),
-      stagingPath: attempt => chapter.staging_paths?.[attempt - 1],
+      stagingPath: attempt => stagingPathFor(paths, unit, attempt),
       validate: draft => validateChapterDraft(draft, {
         number: chapter.number,
         title: chapter.title,

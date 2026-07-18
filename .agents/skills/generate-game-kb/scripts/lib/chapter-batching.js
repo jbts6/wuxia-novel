@@ -1,12 +1,10 @@
 'use strict';
 
-const path = require('node:path');
-
 const {
   MAX_CHAPTERS_PER_JOB,
   MAX_CJK_CHARS_PER_JOB
 } = require('./worker-pool');
-const { pathsFor } = require('./paths');
+const { pathsFor, stagingPathFor } = require('./paths');
 
 const DESCRIPTOR_FIELDS = Object.freeze([
   'unit',
@@ -34,15 +32,6 @@ function batchId(chapters) {
   return first === last ? `chapter-batch-${first}` : `chapter-batch-${first}-${last}`;
 }
 
-function canonicalStagingPath(manifest, number, attempt) {
-  const paths = pathsFor(manifest.novel_dir, manifest.run_id);
-  const unit = `chapter_${String(number).padStart(3, '0')}`;
-  return path.join(
-    paths.staging,
-    `${unit}_attempt_${String(attempt).padStart(2, '0')}.yaml`
-  );
-}
-
 function currentAttempt(chapter, progress) {
   const state = progress?.units?.[chapterUnit(chapter.number)];
   if (!state || state.input_hash !== chapter.input_hash) return 1;
@@ -51,6 +40,7 @@ function currentAttempt(chapter, progress) {
 
 function descriptorFor(chapter, manifest, progress) {
   const attempt = currentAttempt(chapter, progress);
+  const paths = pathsFor(manifest.novel_dir, manifest.run_id);
   return {
     unit: chapterUnit(chapter.number),
     number: chapter.number,
@@ -59,7 +49,7 @@ function descriptorFor(chapter, manifest, progress) {
     input_hash: chapter.input_hash,
     source_char_count: chapter.source_char_count,
     attempt,
-    staging_path: canonicalStagingPath(manifest, chapter.number, attempt)
+    staging_path: stagingPathFor(paths, chapterUnit(chapter.number), attempt)
   };
 }
 

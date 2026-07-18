@@ -37,7 +37,7 @@ function assertMutation(result, relativePath) {
 
 function prepareAcceptedChapters() {
   const source = [
-    '第一章 起始', '甲在山中与故人相逢。',
+    '第一章 起始', '甲修习玄门内功并使出飞云掌。',
     '第二章 经过', '甲继续赶路。',
     '第三章 收束', '甲查明真相。'
   ].join('\n') + '\n';

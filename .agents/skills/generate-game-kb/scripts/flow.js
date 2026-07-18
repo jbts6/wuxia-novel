@@ -45,7 +45,7 @@ const {
   PROFILE_V4,
   PROFILE_V5,
   SEMANTIC_PROFILE,
-  requiredDomainUnitsForContract
+  requiredDomainUnitsForProfile
 } = require('./lib/semantic-contract');
 const {
   assertArchiveExistingAllowed,
@@ -60,6 +60,8 @@ const { readWorkerPool, recordWorkerBackoff } = require('./lib/worker-pool');
 const { writeWorkPlan } = require('./lib/semantic-work');
 
 const PROFILE_COMMANDS = Object.freeze({
+  'reset-unit': { command: 'reset-unit', profile: undefined },
+  'retry-unit': { command: 'retry-unit', profile: undefined },
   'v5-prepare': { command: 'prepare', profile: PROFILE_V5 },
   'v5-accept': { command: 'accept', profile: PROFILE_V5 },
   'v5-basic-curate': { command: 'basic-curate', profile: PROFILE_V5 },
@@ -100,9 +102,7 @@ function assertAssembleInputs(progress, manifest, semanticContractVersion, profi
   const chapterUnits = (manifest.chapters || []).map(chapter => (
     `chapter:${String(chapter.number).padStart(3, '0')}`
   ));
-  const requiredDomains = profile === PROFILE_V5
-    ? []
-    : (semanticContractVersion === 5 ? DOMAIN_UNITS : requiredDomainUnitsForContract(semanticContractVersion));
+  const requiredDomains = requiredDomainUnitsForProfile(profile, semanticContractVersion);
   const units = [...chapterUnits, ...requiredDomains];
   const incomplete = units.filter(unit => progress.units[unit]?.status !== 'done');
   if (incomplete.length > 0) {

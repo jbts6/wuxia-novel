@@ -4,8 +4,9 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
+const yaml = require('js-yaml');
 
-const { makeNovel, readJson, runFlow } = require('./helpers');
+const { makeNovel, readJson, runFlow, validChapterDraft } = require('./helpers');
 const { pathsFor } = require('../scripts/lib/paths');
 
 const TEST_NOVEL = path.resolve('C:/novel');
@@ -177,6 +178,31 @@ test('packing derives one canonical current staging path instead of trusting man
     path.join(TEST_PATHS.staging, 'chapter_001_attempt_01.yaml'));
 });
 
+test('accept uses the canonical descriptor path when manifest staging paths are stale', () => {
+  const novel = makeNovel('staging 路径试书', '第一章 起始\n甲。\n');
+  const runId = 'run-staging-source';
+  const prepared = runFlow(['prepare', novel, '--run', runId, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const paths = pathsFor(novel, runId);
+  const preparedManifest = readJson(paths.manifest);
+  preparedManifest.chapters[0].staging_paths = ['C:/outside/stale-attempt.yaml'];
+  fs.writeFileSync(paths.manifest, `${JSON.stringify(preparedManifest, null, 2)}\n`, 'utf8');
+  const [job] = pack(preparedManifest, { progress: readJson(paths.progress) });
+  const descriptor = job.chapters[0];
+  fs.writeFileSync(descriptor.staging_path, yaml.dump(validChapterDraft({
+    source_hash: descriptor.input_hash,
+    skills: []
+  }), { noRefs: true, lineWidth: -1 }), 'utf8');
+
+  const result = runFlow([
+    'accept', novel, '--run', runId, '--unit', descriptor.unit,
+    '--draft', descriptor.staging_path, '--json'
+  ]);
+
+  assert.equal(result.status, 0, result.stderr);
+});
+
 test('packing projects the second current attempt from controller progress', () => {
   const input = manifest([chapter(1, 1000)]);
   const progress = {
@@ -218,6 +244,6 @@ test('job validation rejects escaped, mismatched, and path-list descriptors', ()
 
 test('extraction prompt requires one YAML per chapter and forbids cross-chapter evidence', () => {
   const prompt = fs.readFileSync(path.resolve(__dirname, '..', 'prompts', 'extract-chapters.md'), 'utf8');
-  assert.match(prompt, /每个章节[^\n]*一个[^\n]*YAML/);
+  assert.match(prompt, /每(?:一个|个)章节[^\n]*每章一个 YAML/);
   assert.match(prompt, /禁止[^\n]*跨章节[^\n]*证据/);
 });

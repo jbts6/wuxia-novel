@@ -17,8 +17,8 @@ const { buildFinalData, writeFinalDataAtomic } = require('./finalize');
 const { atomicWriteJson, readJson, readYaml } = require('./io');
 const {
   DOMAIN_UNITS,
-  SEMANTIC_CONTRACT_VERSION,
-  requiredDomainUnitsForContract
+  PROFILE_V4,
+  requiredDomainUnitsForProfile
 } = require('./semantic-contract');
 const { readWorkPlan } = require('./semantic-work');
 
@@ -182,12 +182,8 @@ function assembleRun({ paths, profile }) {
   const run = readJson(paths.runJson);
   const manifest = readJson(paths.manifest);
   const { acceptedHashes, chapters } = loadAcceptedChapters(paths, manifest);
-  const selectedProfile = profile || run.profile || 'v4';
-  const requiredDomains = selectedProfile === 'v5'
-    ? []
-    : (run.semantic_contract_version === SEMANTIC_CONTRACT_VERSION
-      ? DOMAIN_UNITS
-      : requiredDomainUnitsForContract(run.semantic_contract_version));
+  const selectedProfile = profile || run.profile || PROFILE_V4;
+  const requiredDomains = requiredDomainUnitsForProfile(selectedProfile, run.semantic_contract_version);
   if (requiredDomains.length > 0) {
     return assembleRunV4({
       paths, manifest, acceptedHashes, chapters, semanticContractVersion: run.semantic_contract_version

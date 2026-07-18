@@ -55,4 +55,40 @@ function pathsFor(novelDir, runId) {
   };
 }
 
-module.exports = { pathsFor };
+function stagingPathFor(paths, unit, attempt) {
+  const file = `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}.yaml`;
+  return path.join(paths.staging, file);
+}
+
+function deferredPathsFor(novelDir, runId) {
+  const novel = path.resolve(novelDir);
+  const work = path.join(novel, '.game-kb-work');
+  const id = assertRunId(runId);
+  const run = path.join(novel, '_archive', 'generate-game-kb', id);
+  const deferredRoot = path.join(work, 'deferred', id);
+  return {
+    novel,
+    work,
+    runId: id,
+    run,
+    runJson: path.join(run, 'run.json'),
+    manifest: path.join(run, 'manifest.json'),
+    artifactManifest: path.join(run, 'artifact-manifest.json'),
+    archiveReceipt: path.join(run, 'archive-receipt.json'),
+    candidateRegistry: path.join(run, 'accepted', 'candidate-registry.json'),
+    sourceOriginal: path.join(run, 'source', 'original.txt'),
+    sourceChapters: path.join(run, 'source', 'chapters'),
+    chapters: path.join(run, 'accepted', 'chapters'),
+    finalIdPlan: path.join(run, 'final', 'id_plan.json'),
+    finalData: path.join(run, 'final', 'data'),
+    finalReports: path.join(run, 'final', 'reports'),
+    deferredRoot,
+    deferredTasks: path.join(deferredRoot, 'deferred-tasks.json'),
+    registryMap: path.join(deferredRoot, 'installed-registry-map.json'),
+    tasks: path.join(deferredRoot, 'tasks'),
+    overlays: path.join(deferredRoot, 'overlays'),
+    revisions: path.join(deferredRoot, 'revisions')
+  };
+}
+
+module.exports = { deferredPathsFor, pathsFor, stagingPathFor };

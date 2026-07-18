@@ -85,7 +85,7 @@ test('assemble is a real command and fails closed until accepted inputs are comp
 test('assemble projects exactly five deterministic YAML files from accepted chapters and four domains', () => {
   const novel = makeNovel(
     '确定性组装试书',
-    '第一章 起始\n甲修习玄门内功。\n第二章 续行\n甲离开山谷。\n第三章 终局\n甲返回故里。\n'
+    '第一章 起始\n甲修习玄门内功并使出飞云掌。\n第二章 续行\n甲离开山谷。\n第三章 终局\n甲返回故里。\n'
   );
   const prepared = pass(runFlow(['prepare', novel, '--run', 'run-assemble-green', '--json']), 'prepare');
   const paths = pathsFor(novel, prepared.run_id);
@@ -101,7 +101,14 @@ test('assemble projects exactly five deterministic YAML files from accepted chap
       chapter_summary: {
         title: chapter.title,
         summary: `第${number}章的确定性摘要。`,
-        source_refs: [{ chapter: number, text: `第${number}章原文锚点` }]
+        source_refs: [{
+          chapter: number,
+          text: {
+            1: '甲修习玄门内功并使出飞云掌。',
+            2: '甲离开山谷。',
+            3: '甲返回故里。'
+          }[number]
+        }]
       }
     });
     const unit = `chapter:${String(number).padStart(3, '0')}`;
@@ -150,19 +157,20 @@ test('assemble rejects missing, pending, and cyclic domain decisions', () => {
     assert.throws(() => prepareAssembledRun({
       name: `非法${mutation}决策试书`,
       runId: `run-invalid-${mutation}-decision`,
+      source: '第一章 起始\n甲修习玄门内功并使出飞云掌。\n乙在旁观战。\n',
       chapterOverrides: {
         characters: [{
           local_key: 'character:jia',
           name: '甲',
           level: '核心',
           rank: '初窥门径',
-          source_refs: [sourceRef(1, '甲修习玄门内功。')]
+          source_refs: [sourceRef(1, '甲修习玄门内功并使出飞云掌。')]
         }, {
           local_key: 'character:yi',
           name: '乙',
           level: '重要',
           rank: '初窥门径',
-          source_refs: [sourceRef(1, '甲修习玄门内功。')]
+          source_refs: [sourceRef(1, '乙在旁观战。')]
         }]
       },
       beforeAssemble: ({ paths, plan }) => {
