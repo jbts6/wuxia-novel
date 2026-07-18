@@ -90,11 +90,14 @@ function acceptedChapters(paths) {
     .map(name => readYaml(path.join(paths.chapters, name)));
 }
 
-function assertAssembleInputs(progress, manifest, semanticContractVersion) {
+function assertAssembleInputs(progress, manifest, semanticContractVersion, profile = PROFILE_V4) {
   const chapterUnits = (manifest.chapters || []).map(chapter => (
     `chapter:${String(chapter.number).padStart(3, '0')}`
   ));
-  const units = [...chapterUnits, ...requiredDomainUnitsForContract(semanticContractVersion)];
+  const requiredDomains = profile === PROFILE_V5
+    ? []
+    : (semanticContractVersion === 5 ? DOMAIN_UNITS : requiredDomainUnitsForContract(semanticContractVersion));
+  const units = [...chapterUnits, ...requiredDomains];
   const incomplete = units.filter(unit => progress.units[unit]?.status !== 'done');
   if (incomplete.length > 0) {
     throw new GameKbError(
@@ -243,9 +246,9 @@ function runBasicCurate(paths, manifest, { draftPath, skip }) {
   };
 }
 
-function verifyWorkspace(novelDir, runId) {
+function verifyWorkspace(novelDir, runId, profile) {
   const paths = pathsFor(novelDir, runId);
-  const result = verifyFinal(paths);
+  const result = verifyFinal(paths, { profile });
   if (!result.passed) {
     throw new GameKbError('FINAL_VERIFICATION_FAILED', 'Final workspace did not pass verification', result);
   }
@@ -414,8 +417,8 @@ function main(argv = process.argv.slice(2)) {
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const manifest = readJson(paths.manifest);
-      assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version);
-      emit(assembleRun({ paths }));
+      assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version, profile);
+      emit(assembleRun({ paths, profile }));
       return;
     }
     if (command === 'publish') {
@@ -424,8 +427,12 @@ function main(argv = process.argv.slice(2)) {
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       const manifest = readJson(paths.manifest);
-      assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version);
-      emit({ profile: run.profile ?? profile, ...assembleRun({ paths }) });
+      assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version, profile);
+      const assembled = assembleRun({ paths, profile });
+      const verified = verifyWorkspace(novelDir, run.run_id, profile);
+      const installed = installVerifiedData(novelDir, { runId: run.run_id, profile });
+      const archived = archiveRun(novelDir, run.run_id);
+      emit({ profile: run.profile ?? profile, assembled, verified, installed, archived });
       return;
     }
     if (command === 'install') {
@@ -466,7 +473,7 @@ function main(argv = process.argv.slice(2)) {
       }
       const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       timingRunJson = pathsFor(novelDir, run.run_id).runJson;
-      emit(verifyWorkspace(novelDir, run.run_id));
+      emit(verifyWorkspace(novelDir, run.run_id, profile));
       return;
     }
     throw new GameKbError('COMMAND_UNKNOWN', `Unknown command: ${command || '<missing>'}`);

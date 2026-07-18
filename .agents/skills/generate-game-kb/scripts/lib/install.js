@@ -272,13 +272,13 @@ function restoreReports(previous, reportsDir) {
 }
 
 function installVerifiedData(novelDir, options = {}) {
-  const run = resolveWritableRun(novelDir, options.runId, 'install');
+  const run = resolveWritableRun(novelDir, options.runId, 'install', options.profile);
   const runId = run.run_id;
   const installed = installPaths(novelDir);
   recoverInterruptedInstall(novelDir);
   const workPaths = pathsFor(novelDir, runId);
   assertAcceptedArtifacts(workPaths);
-  const workspace = verifyFinal(workPaths);
+  const workspace = verifyFinal(workPaths, { profile: run.profile });
   if (!workspace.passed) {
     throw new GameKbError('INSTALL_VERIFICATION_FAILED', 'Final workspace did not pass installation verification', workspace);
   }
@@ -384,6 +384,7 @@ function installVerifiedData(novelDir, options = {}) {
     const receipt = {
       schema_version: 1,
       semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+      profile: run.profile || 'v4',
       installer: 'generate-game-kb',
       source_hash: manifest.source_hash,
       final_data_hash: workspace.final_data_hash,

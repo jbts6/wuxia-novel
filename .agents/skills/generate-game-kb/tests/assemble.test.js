@@ -228,3 +228,26 @@ test('the assembled intermediate keeps chapter summaries to consumer fields only
 
   assert.deepEqual(Object.keys(book.chapter_summaries[0]).sort(), ['chapter', 'summary', 'title']);
 });
+
+test('assembly blocks a missing chapter summary instead of synthesizing placeholder text', () => {
+  const { manifest, paths } = prepareAssembledRun({
+    name: '缺失章节摘要试书',
+    runId: 'run-missing-summary'
+  });
+  const plan = readWorkPlan(paths, 'domain');
+  const chapters = manifest.chapters.map(chapter => readYaml(
+    path.join(paths.chapters, `ch_${String(chapter.number).padStart(3, '0')}.yaml`)
+  ));
+  delete chapters[0].chapter_summary;
+  const decisions = plan.inputs.map(input => readYaml(
+    semanticDecisionFile(paths, input.unit, input.input_hash)
+  ));
+
+  assert.throws(() => assembleDomainMergedBook({
+    manifest,
+    chapters,
+    registry: readJson(paths.candidateRegistry),
+    work_plan: plan,
+    decisions
+  }), { code: 'CHAPTER_SUMMARY_MISSING' });
+});
