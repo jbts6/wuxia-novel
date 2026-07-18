@@ -114,26 +114,71 @@
 - [ ] **Step 4: Add CLI routes** `task-add`, `task-run`, and `task-apply`; pending tasks must not alter v5 `next_action`.
 - [ ] **Step 5: Run focused overlay tests and commit** `feat: add hash-bound deferred overlays`.
 
-### Task 5: Create and validate independent deep skills
+### Task 5: Create and validate the deep characters skill
 
 **Files:**
 - Create: `.agents/skills/generate-game-kb-deep-characters/SKILL.md`
-- Create: `.agents/skills/generate-game-kb-deep-skills/SKILL.md`
-- Create: `.agents/skills/generate-game-kb-deep-items/SKILL.md`
-- Create: `.agents/skills/generate-game-kb-deep-factions/SKILL.md`
-- Add: `.agents/skills/generate-game-kb/tests/deep-skill-contract.test.js`
+- Add: `.agents/skills/generate-game-kb/tests/deep-characters-skill.test.js`
 
 **Interfaces:**
-- Each skill accepts a published v5 run and domain scope, then invokes the corresponding deferred task type.
-- Each skill produces an overlay draft only; it never writes `final/data`, accepted chapter evidence, or the base registry directly.
+- The skill accepts a published v5 run and character scope, then invokes the `characters-deep` deferred task type.
+- It produces overlay drafts only and never writes final YAML, accepted evidence, or the base registry.
 
-- [ ] **Step 1: Write RED contract tests** for all four skill directories, trigger descriptions, domain scope, overlay-only output, and no v4 command references.
-- [ ] **Step 2: Run the tests** and confirm the skill directories are absent.
-- [ ] **Step 3: Create each skill independently** with one domain-specific prompt, the shared overlay constraints, and a direct link to the v5 base contract.
-- [ ] **Step 4: Run `quick_validate.py` for each skill** and rerun the contract tests after every skill is added.
-- [ ] **Step 5: Commit** `feat: add independent deep extraction skills`.
+- [ ] **Step 1: Write RED contract tests** for the skill directory, trigger description, character scope, overlay-only output, and no v4 command references.
+- [ ] **Step 2: Run the tests** and confirm the skill is absent.
+- [ ] **Step 3: Create the skill** with its character prompt, shared overlay constraints, and direct link to the v5 base contract.
+- [ ] **Step 4: Run `quick_validate.py` and the focused contract test**; record the result before moving to the next skill.
+- [ ] **Step 5: Commit** `feat: add deep characters skill`.
 
-### Task 6: Align status, timing, prompts, and documentation
+### Task 6: Create and validate the deep skills skill
+
+**Files:**
+- Create: `.agents/skills/generate-game-kb-deep-skills/SKILL.md`
+- Add: `.agents/skills/generate-game-kb/tests/deep-skills-skill.test.js`
+
+**Interfaces:**
+- The skill accepts a published v5 run and skills scope, then invokes the `skills-deep` deferred task type.
+- It produces overlay drafts only and never writes final YAML, accepted evidence, or the base registry.
+
+- [ ] **Step 1: Write RED contract tests** for the skill directory, trigger description, skills scope, overlay-only output, and no v4 command references.
+- [ ] **Step 2: Run the tests** and confirm the skill is absent.
+- [ ] **Step 3: Create the skill** with its skills/techniques prompt, shared overlay constraints, and direct link to the v5 base contract.
+- [ ] **Step 4: Run `quick_validate.py` and the focused contract test**; record the result before moving to the next skill.
+- [ ] **Step 5: Commit** `feat: add deep skills skill`.
+
+### Task 7: Create and validate the deep items skill
+
+**Files:**
+- Create: `.agents/skills/generate-game-kb-deep-items/SKILL.md`
+- Add: `.agents/skills/generate-game-kb/tests/deep-items-skill.test.js`
+
+**Interfaces:**
+- The skill accepts a published v5 run and items scope, then invokes the `items-deep` deferred task type.
+- It produces overlay drafts only and never writes final YAML, accepted evidence, or the base registry.
+
+- [ ] **Step 1: Write RED contract tests** for the skill directory, trigger description, items scope, overlay-only output, and no v4 command references.
+- [ ] **Step 2: Run the tests** and confirm the skill is absent.
+- [ ] **Step 3: Create the skill** with its item-enrichment prompt, shared overlay constraints, and direct link to the v5 base contract.
+- [ ] **Step 4: Run `quick_validate.py` and the focused contract test**; record the result before moving to the next skill.
+- [ ] **Step 5: Commit** `feat: add deep items skill`.
+
+### Task 8: Create and validate the deep factions skill
+
+**Files:**
+- Create: `.agents/skills/generate-game-kb-deep-factions/SKILL.md`
+- Add: `.agents/skills/generate-game-kb/tests/deep-factions-skill.test.js`
+
+**Interfaces:**
+- The skill accepts a published v5 run and factions scope, then invokes the `factions-deep` deferred task type.
+- It produces overlay drafts only and never writes final YAML, accepted evidence, or the base registry.
+
+- [ ] **Step 1: Write RED contract tests** for the skill directory, trigger description, factions scope, overlay-only output, and no v4 command references.
+- [ ] **Step 2: Run the tests** and confirm the skill is absent.
+- [ ] **Step 3: Create the skill** with its faction-enrichment prompt, shared overlay constraints, and direct link to the v5 base contract.
+- [ ] **Step 4: Run `quick_validate.py` and the focused contract test**; record the result before the documentation task.
+- [ ] **Step 5: Commit** `feat: add deep factions skill`.
+
+### Task 9: Align status, timing, prompts, and documentation
 
 **Files:**
 - Modify: `.agents/skills/generate-game-kb/SKILL.md`
@@ -156,7 +201,7 @@
 - [ ] **Step 3: Update the two skill surfaces, prompts, status, and timing metrics** without changing validator semantics.
 - [ ] **Step 4: Run skill-contract, status, timing, and prompt tests; commit** `docs: separate v4 v5 and deep skill contracts`.
 
-### Task 7: Full regression, E2E, and performance gate
+### Task 10: Full regression, E2E, and performance gate
 
 **Files:**
 - Modify: `.superpowers/sdd/progress.md`
@@ -170,4 +215,3 @@
 - [ ] **Step 5: Run the v4 retry E2E flow** and assert rejected staging retention, exact attempt progression, and terminal manual review without a loop.
 - [ ] **Step 6: Run the representative 21/50-chapter packing and timing fixtures** and assert the v5 base remains within the 45-minute budget model.
 - [ ] **Step 7: Update progress and commit** `test: verify v4 v5 and deep skill split`.
-
