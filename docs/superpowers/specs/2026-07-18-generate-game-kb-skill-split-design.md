@@ -101,4 +101,3 @@ transaction boundaries.
   rejected, operations are deterministic, and failed tasks remain retryable.
 - Regression: v4 fixtures remain readable and verifiable; v5 fixtures never
   require v4 domain decisions.
-
