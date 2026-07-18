@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('node:fs');
+const crypto = require('node:crypto');
 const path = require('node:path');
 
 const { GameKbError } = require('./errors');
@@ -10,6 +11,7 @@ const { DOMAIN_UNITS, SEMANTIC_CONTRACT_VERSION } = require('./semantic-contract
 
 const WORK_CONTRACT_VERSION = SEMANTIC_CONTRACT_VERSION;
 const DOMAIN_UNIT_SET = new Set(DOMAIN_UNITS);
+const DOMAIN_INPUT_HASH_CONTRACT = 'domain-input-v1';
 
 function serializedInputBytes(value) {
   return Buffer.byteLength(JSON.stringify(value), 'utf8');
@@ -54,6 +56,65 @@ function inputWithoutWorkerMetadata(input) {
   return semanticInput;
 }
 
+function sortedObject(value) {
+  return Object.fromEntries(Object.entries(value || {}).sort(([left], [right]) => (
+    String(left).localeCompare(String(right), 'zh-Hans-CN')
+  )));
+}
+
+function semanticInputHash(input, bindings = [], upstreamHashes = {}) {
+  const { input_hash: inputHash, ...aiInput } = inputWithoutWorkerMetadata(input);
+  void inputHash;
+  const normalizedBindings = bindings.map(({ unit, input_hash: bindingHash, ...binding }) => {
+    void bindingHash;
+    return binding;
+  });
+  const bytes = JSON.stringify({
+    semantic_contract_version: WORK_CONTRACT_VERSION,
+    semantic_profile: aiInput.semantic_profile,
+    stage: aiInput.stage,
+    unit: aiInput.unit,
+    accepted_hashes: sortedObject(upstreamHashes),
+    ai_input: aiInput,
+    bindings: normalizedBindings
+  });
+  return `sha256:${crypto.createHash('sha256').update(bytes).digest('hex')}`;
+}
+
+function assertSourceFiles(paths, input) {
+  if (!Object.hasOwn(input, 'source_files')) return;
+  const manifest = readJson(paths.manifest);
+  const expected = (manifest.chapters || []).map(chapter => ({
+    chapter: chapter.number,
+    title: chapter.title,
+    source_file: chapter.file,
+    input_hash: chapter.input_hash
+  }));
+  if (JSON.stringify(input.source_files) !== JSON.stringify(expected)) {
+    throw workItemError('WORK_ITEM_STALE', 'Whole-book source descriptors differ from the run manifest', {
+      unit: input.unit
+    });
+  }
+  for (const descriptor of input.source_files) {
+    const sourceFile = path.resolve(descriptor.source_file);
+    if (!fs.existsSync(sourceFile)) {
+      throw workItemError('WORK_ITEM_STALE', 'A signed source chapter is missing', {
+        unit: input.unit,
+        source_file: descriptor.source_file
+      });
+    }
+    const normalized = fs.readFileSync(sourceFile, 'utf8').replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n');
+    const content = normalized.endsWith('\n') ? normalized : `${normalized}\n`;
+    const hash = `sha256:${crypto.createHash('sha256').update(content).digest('hex')}`;
+    if (hash !== descriptor.input_hash) {
+      throw workItemError('WORK_ITEM_STALE', 'A signed source chapter hash has changed', {
+        unit: input.unit,
+        source_file: descriptor.source_file
+      });
+    }
+  }
+}
+
 function assertWorkerInput(paths, input) {
   if (!Number.isInteger(input?.attempt) || input.attempt < 1 || input.attempt > 2) {
     throw workItemError('WORK_ITEM_INVALID', 'Semantic work item is missing a valid attempt', {
@@ -91,6 +152,29 @@ function planDocument(plan) {
   };
 }
 
+function planUnitDescriptor(input) {
+  return {
+    unit: input.unit,
+    category: input.category,
+    input_hash: input.input_hash,
+    input_bytes: serializedInputBytes(input),
+    staging_path: input.staging_path,
+    attempt: input.attempt
+  };
+}
+
+function bindingsDocument(plan, input) {
+  return {
+    schema_version: 1,
+    semantic_contract_version: WORK_CONTRACT_VERSION,
+    unit: input.unit,
+    input_hash: input.input_hash,
+    hash_contract: DOMAIN_INPUT_HASH_CONTRACT,
+    upstream_hashes: sortedObject(plan.upstream_hashes),
+    bindings: (plan.bindings || []).filter(binding => binding.unit === input.unit)
+  };
+}
+
 function writeWorkPlan(paths, plan) {
   const root = workRoot(paths, plan?.stage);
   const inputs = (plan.inputs || []).map(input => workerInput(paths, input));
@@ -100,18 +184,11 @@ function writeWorkPlan(paths, plan) {
   }];
   for (const input of inputs) {
     const directory = unitDirectory(root, input.unit);
-    const unitBindings = (plan.bindings || []).filter(binding => binding.unit === input.unit);
     files.push(
       { file: path.join(directory, 'input.json'), content: jsonBytes(input) },
       {
         file: path.join(directory, 'bindings.json'),
-        content: jsonBytes({
-          schema_version: 1,
-          semantic_contract_version: WORK_CONTRACT_VERSION,
-          unit: input.unit,
-          input_hash: input.input_hash,
-          bindings: unitBindings
-        })
+        content: jsonBytes(bindingsDocument(plan, input))
       }
     );
   }
@@ -225,8 +302,91 @@ function readWorkItem(paths, unit) {
   if (input?.unit !== unit || bindings?.unit !== unit || input?.input_hash !== bindings?.input_hash) {
     throw workItemError('WORK_ITEM_STALE', 'Semantic input and private bindings disagree', { unit });
   }
+  if (bindings.hash_contract !== DOMAIN_INPUT_HASH_CONTRACT) {
+    throw workItemError('WORK_ITEM_STALE', 'Semantic work item uses an unsupported hash contract', {
+      unit,
+      hash_contract: bindings.hash_contract ?? null
+    });
+  }
+  const actualHash = semanticInputHash(input, bindings.bindings || [], bindings.upstream_hashes || {});
+  if (actualHash !== input.input_hash) {
+    throw workItemError('WORK_ITEM_STALE', 'Semantic input hash does not match its signed bytes', { unit });
+  }
+  assertSourceFiles(paths, input);
   assertWorkerInput(paths, input);
   return { input, bindings, input_file: inputFile, bindings_file: bindingsFile };
+}
+
+function assertWorkMatchesDescriptor(work, descriptor) {
+  if (JSON.stringify(planUnitDescriptor(work.input)) !== JSON.stringify(descriptor)) {
+    throw workItemError('WORK_ITEM_STALE', 'Work item differs from its plan descriptor', {
+      unit: descriptor?.unit ?? work.input?.unit ?? null
+    });
+  }
+}
+
+function refreshWorkPlanUnit(paths, nextPlan, unit, options = {}) {
+  const root = workRoot(paths, nextPlan?.stage);
+  const planFile = path.join(root, 'plan.json');
+  if (!fs.existsSync(planFile)) {
+    throw workItemError('WORK_PLAN_MISSING', 'Semantic work plan is missing', { stage: nextPlan?.stage });
+  }
+  const document = readJson(planFile);
+  if (document?.stage !== nextPlan?.stage || !Array.isArray(document.units)) {
+    throw workItemError('WORK_PLAN_INVALID', 'Semantic work plan is invalid', { stage: nextPlan?.stage });
+  }
+  const oldDescriptor = (document.units || []).find(descriptor => descriptor.unit === unit);
+  const nextInput = (nextPlan.inputs || []).find(input => input.unit === unit);
+  if (!oldDescriptor || !nextInput) {
+    throw workItemError('WORK_UNIT_INVALID', 'Semantic work unit is not present in both plans', { unit });
+  }
+  const existingWork = readWorkItem(paths, unit);
+  assertWorkMatchesDescriptor(existingWork, oldDescriptor);
+  if (oldDescriptor.input_hash === nextInput.input_hash) {
+    return {
+      written: false,
+      unit,
+      old_input_hash: oldDescriptor.input_hash,
+      new_input_hash: nextInput.input_hash,
+      archive_dir: null
+    };
+  }
+
+  const storedInput = workerInput(paths, nextInput, 1);
+  const result = writeWorkItem(
+    paths,
+    nextPlan.stage,
+    nextInput,
+    bindingsDocument(nextPlan, storedInput),
+    { rotateStale: true }
+  );
+  if (typeof options.afterWorkWrite === 'function') options.afterWorkWrite(result);
+  const nextDocument = {
+    ...document,
+    source_hash: nextPlan.source_hash,
+    upstream_hashes: nextPlan.upstream_hashes,
+    units: document.units.map(descriptor => (
+      descriptor.unit === unit ? planUnitDescriptor(storedInput) : descriptor
+    ))
+  };
+  try {
+    atomicWriteFile(planFile, jsonBytes(nextDocument));
+    if (typeof options.afterPlanWrite === 'function') options.afterPlanWrite(nextDocument);
+  } catch (error) {
+    if (result.rotated) {
+      const directory = unitDirectory(root, unit);
+      fs.rmSync(directory, { recursive: true, force: true });
+      fs.renameSync(result.rotated.archive_dir, directory);
+    }
+    throw error;
+  }
+  return {
+    written: true,
+    unit,
+    old_input_hash: oldDescriptor.input_hash,
+    new_input_hash: nextInput.input_hash,
+    archive_dir: result.rotated?.archive_dir || null
+  };
 }
 
 function syncWorkItemAttempt(paths, unit, attempt) {
@@ -249,11 +409,7 @@ function readWorkPlan(paths, stage) {
   }
   const workItems = document.units.map(descriptor => readWorkItem(paths, descriptor.unit));
   for (let index = 0; index < workItems.length; index += 1) {
-    if (workItems[index].input.input_hash !== document.units[index].input_hash) {
-      throw workItemError('WORK_ITEM_STALE', 'Work item differs from its plan descriptor', {
-        unit: document.units[index].unit
-      });
-    }
+    assertWorkMatchesDescriptor(workItems[index], document.units[index]);
   }
   return {
     schema_version: document.schema_version,
@@ -272,6 +428,8 @@ module.exports = {
   readWorkPlan,
   readWorkItem,
   serializedInputBytes,
+  semanticInputHash,
+  refreshWorkPlanUnit,
   syncWorkItemAttempt,
   writeWorkItem,
   writeWorkPlan

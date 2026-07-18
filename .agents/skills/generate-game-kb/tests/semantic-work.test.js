@@ -16,9 +16,12 @@ const { createDomainWorkPlan } = require('../scripts/lib/domain-work');
 const { pathsFor } = require('../scripts/lib/paths');
 const { createOrResumeRun } = require('../scripts/lib/run');
 const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
+const { prepareNovel } = require('../scripts/lib/source');
 const {
   readWorkItem,
   readWorkPlan,
+  refreshWorkPlanUnit,
+  semanticInputHash,
   writeWorkItem,
   writeWorkPlan
 } = require('../scripts/lib/semantic-work');
@@ -72,14 +75,20 @@ test('domain work-plan writes are idempotent private and stale-safe', () => {
 });
 
 test('stale domain work rotates bytes without overwriting its accepted decision', () => {
-  const { paths } = workFixture();
+  const { paths, plan } = workFixture();
   initializeArtifactManifest(paths);
   const unit = 'distill:characters';
-  const oldHash = `sha256:${'a'.repeat(64)}`;
-  const nextHash = `sha256:${'b'.repeat(64)}`;
-  const oldInput = { schema_version: 1, semantic_contract_version: SEMANTIC_CONTRACT_VERSION, unit, input_hash: oldHash, entries: [] };
-  const oldBindings = { schema_version: 1, semantic_contract_version: SEMANTIC_CONTRACT_VERSION, unit, input_hash: oldHash, bindings: [] };
-  writeWorkItem(paths, 'domain', oldInput, oldBindings);
+  writeWorkPlan(paths, plan);
+  const oldWork = readWorkItem(paths, unit);
+  const oldInput = oldWork.input;
+  const oldBindings = oldWork.bindings;
+  const oldHash = oldInput.input_hash;
+  const nextEntries = oldInput.entries.map(entry => ({ ...entry, canonical_name: `${entry.canonical_name}新` }));
+  const nextHash = semanticInputHash(
+    { ...oldInput, entries: nextEntries },
+    oldBindings.bindings,
+    oldBindings.upstream_hashes
+  );
 
   const acceptedFile = semanticDecisionFile(paths, unit);
   const acceptedDecision = { schema_version: 1, semantic_contract_version: SEMANTIC_CONTRACT_VERSION, unit, input_hash: oldHash, decisions: [], notes: [] };
@@ -89,7 +98,7 @@ test('stale domain work rotates bytes without overwriting its accepted decision'
   const result = writeWorkItem(
     paths,
     'domain',
-    { ...oldInput, input_hash: nextHash },
+    { ...oldInput, input_hash: nextHash, entries: nextEntries },
     { ...oldBindings, input_hash: nextHash },
     { rotateStale: true }
   );
@@ -99,6 +108,7 @@ test('stale domain work rotates bytes without overwriting its accepted decision'
   assert.deepEqual(readWorkItem(paths, unit).input, {
     ...oldInput,
     input_hash: nextHash,
+    entries: nextEntries,
     staging_path: path.join(paths.staging, 'distill_characters_attempt_01.yaml'),
     attempt: 1
   });
@@ -135,4 +145,147 @@ test('stale domain rotation refuses changed bytes that reuse the same input hash
     ),
     { code: 'WORK_ITEM_STALE' }
   );
+});
+
+test('reading signed whole-book work rejects a tampered source path or chapter hash', () => {
+  const mutations = [
+    sourceFiles => { sourceFiles[0].source_file = path.join(path.dirname(sourceFiles[0].source_file), 'ch_999.txt'); },
+    sourceFiles => { sourceFiles[0].input_hash = `sha256:${'f'.repeat(64)}`; }
+  ];
+  for (const [index, mutate] of mutations.entries()) {
+    const novel = makeNovel('中文领域签名试书', '第一章 起始\n完整原文。\n');
+    const run = createOrResumeRun(novel, { runId: `run-domain-tamper-${index + 1}` });
+    const manifest = prepareNovel(novel, { runId: run.run_id });
+    const paths = pathsFor(novel, run.run_id);
+    const sourceFiles = manifest.chapters.map(chapter => ({
+      chapter: chapter.number,
+      title: chapter.title,
+      source_file: chapter.file,
+      input_hash: chapter.input_hash
+    }));
+    const plan = createDomainWorkPlan({
+      registry: registryFixture(),
+      accepted_hashes: { 'chapter:001': 'sha256:chapter-one' },
+      source_files: sourceFiles
+    });
+    writeWorkPlan(paths, plan);
+
+    const inputFile = path.join(paths.domainWork, 'distill_characters', 'input.json');
+    const stored = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
+    mutate(stored.source_files);
+    fs.writeFileSync(inputFile, `${JSON.stringify(stored, null, 2)}\n`, 'utf8');
+
+    assert.throws(() => readWorkItem(paths, 'distill:characters'), { code: 'WORK_ITEM_STALE' });
+  }
+});
+
+test('signed work rejects missing or unknown hash contracts', () => {
+  const mutations = [
+    bindings => { delete bindings.hash_contract; },
+    bindings => { bindings.hash_contract = 'domain-input-unknown'; }
+  ];
+  for (const mutate of mutations) {
+    const { paths, plan } = workFixture();
+    writeWorkPlan(paths, plan);
+    const bindingsFile = path.join(paths.domainWork, 'distill_characters', 'bindings.json');
+    const bindings = JSON.parse(fs.readFileSync(bindingsFile, 'utf8'));
+    mutate(bindings);
+    fs.writeFileSync(bindingsFile, `${JSON.stringify(bindings, null, 2)}\n`, 'utf8');
+
+    assert.throws(() => readWorkItem(paths, 'distill:characters'), { code: 'WORK_ITEM_STALE' });
+  }
+});
+
+test('equal-hash refresh validates the existing work item before returning', () => {
+  const mutations = [
+    {
+      expected: 'WORK_ITEM_MISSING',
+      apply: paths => fs.rmSync(path.join(paths.domainWork, 'distill_characters', 'input.json'))
+    },
+    {
+      expected: 'WORK_ITEM_MISSING',
+      apply: paths => fs.rmSync(path.join(paths.domainWork, 'distill_characters', 'bindings.json'))
+    },
+    {
+      expected: 'WORK_ITEM_STALE',
+      apply: paths => {
+        const inputFile = path.join(paths.domainWork, 'distill_characters', 'input.json');
+        const input = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
+        input.unit = 'distill:skills';
+        fs.writeFileSync(inputFile, `${JSON.stringify(input, null, 2)}\n`, 'utf8');
+      }
+    }
+  ];
+
+  for (const mutation of mutations) {
+    const { paths, plan } = workFixture();
+    writeWorkPlan(paths, plan);
+    mutation.apply(paths);
+    assert.throws(
+      () => refreshWorkPlanUnit(paths, plan, 'distill:characters'),
+      { code: mutation.expected }
+    );
+  }
+});
+
+test('changed-hash refresh requires the old work item to rotate', () => {
+  const novel = makeNovel('领域刷新缺失旧项试书', '第一章 起始\n完整原文。\n');
+  const run = createOrResumeRun(novel, { runId: 'run-domain-refresh-missing-old' });
+  const manifest = prepareNovel(novel, { runId: run.run_id });
+  const paths = pathsFor(novel, run.run_id);
+  const acceptedHashes = { 'chapter:001': 'sha256:chapter-one' };
+  const oldPlan = createDomainWorkPlan({ registry: registryFixture(), accepted_hashes: acceptedHashes });
+  const nextPlan = createDomainWorkPlan({
+    registry: registryFixture(),
+    accepted_hashes: acceptedHashes,
+    source_files: manifest.chapters.map(chapter => ({
+      chapter: chapter.number,
+      title: chapter.title,
+      source_file: chapter.file,
+      input_hash: chapter.input_hash
+    }))
+  });
+  writeWorkPlan(paths, oldPlan);
+  fs.rmSync(path.join(paths.domainWork, 'distill_characters'), { recursive: true });
+
+  assert.throws(
+    () => refreshWorkPlanUnit(paths, nextPlan, 'distill:characters'),
+    { code: 'WORK_ITEM_MISSING' }
+  );
+});
+
+test('refreshing one work-plan unit rotates only that signed input', () => {
+  const novel = makeNovel('领域计划刷新试书', '第一章 起始\n完整原文。\n');
+  const run = createOrResumeRun(novel, { runId: 'run-domain-plan-refresh' });
+  const manifest = prepareNovel(novel, { runId: run.run_id });
+  const paths = pathsFor(novel, run.run_id);
+  const acceptedHashes = { 'chapter:001': 'sha256:chapter-one' };
+  const oldPlan = createDomainWorkPlan({ registry: registryFixture(), accepted_hashes: acceptedHashes });
+  const sourceFiles = manifest.chapters.map(chapter => ({
+    chapter: chapter.number,
+    title: chapter.title,
+    source_file: chapter.file,
+    input_hash: chapter.input_hash
+  }));
+  const nextPlan = createDomainWorkPlan({
+    registry: registryFixture(),
+    accepted_hashes: acceptedHashes,
+    source_files: sourceFiles
+  });
+  writeWorkPlan(paths, oldPlan);
+
+  const before = readWorkPlan(paths, 'domain');
+  const result = refreshWorkPlanUnit(paths, nextPlan, 'distill:characters');
+  const after = readWorkPlan(paths, 'domain');
+  const beforeHashes = new Map(before.inputs.map(input => [input.unit, input.input_hash]));
+  const afterHashes = new Map(after.inputs.map(input => [input.unit, input.input_hash]));
+
+  assert.equal(result.written, true);
+  assert.equal(result.old_input_hash, beforeHashes.get('distill:characters'));
+  assert.equal(result.new_input_hash, afterHashes.get('distill:characters'));
+  assert.notEqual(result.old_input_hash, result.new_input_hash);
+  assert.equal(fs.existsSync(path.join(result.archive_dir, 'input.json')), true);
+  for (const unit of ['distill:factions', 'distill:skills', 'distill:items']) {
+    assert.equal(afterHashes.get(unit), beforeHashes.get(unit));
+  }
 });

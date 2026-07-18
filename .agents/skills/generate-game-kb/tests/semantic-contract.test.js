@@ -9,6 +9,7 @@ const {
   FINAL_FIELDS,
   FINAL_FILES,
   ITEM_TYPES,
+  POWER_RANK_CONTRACT,
   POWER_RANKS,
   PROFILE_V4,
   PROFILE_V5,
@@ -80,6 +81,17 @@ test('centralizes enums used by chapter and final records', () => {
   ]);
   assert.deepEqual(CHARACTER_LEVELS, ['核心', '重要', '次要', '龙套', '背景']);
   assert.deepEqual(ITEM_TYPES, ['武器', '防具', '秘籍', '丹药', '暗器', '其他']);
+});
+
+test('centralizes the whole-book rank scale and evidence priority', () => {
+  assert.deepEqual(POWER_RANK_CONTRACT.scale.map(entry => entry.rank), POWER_RANKS);
+  assert.equal(POWER_RANK_CONTRACT.scope, 'complete_book_timeline');
+  assert.equal(POWER_RANK_CONTRACT.aggregation, 'stable_judgment_not_chapter_maximum');
+  assert.match(POWER_RANK_CONTRACT.evidence_priority[0], /后期.*直接.*战果|直接.*战果.*后期/);
+  assert.match(POWER_RANK_CONTRACT.evidence_priority.join('\n'), /失败|反转|克制/);
+  assert.match(POWER_RANK_CONTRACT.evidence_priority.at(-1), /传闻|自述|身份/);
+  assert.match(POWER_RANK_CONTRACT.character_rule, /全书|完整.*时间线/);
+  assert.match(POWER_RANK_CONTRACT.skill_rule, /可靠.*使用者|后文.*推翻/);
 });
 
 test('defines the simplified fields for all five final files', () => {

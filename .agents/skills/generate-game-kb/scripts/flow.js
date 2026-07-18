@@ -27,7 +27,7 @@ const {
 } = require('./lib/deferred-task');
 const { applyOverlay } = require('./lib/overlay');
 const { installVerifiedData, verifyInstalled } = require('./lib/install');
-const { readJson, readYaml } = require('./lib/io');
+const { atomicWriteFile, readJson, readYaml } = require('./lib/io');
 const { resolveNextAction } = require('./lib/next-action');
 const { pathsFor } = require('./lib/paths');
 const {
@@ -57,7 +57,7 @@ const {
 const { recordScriptDuration } = require('./lib/timing');
 const { verifyFinal } = require('./lib/verify');
 const { readWorkerPool, recordWorkerBackoff } = require('./lib/worker-pool');
-const { writeWorkPlan } = require('./lib/semantic-work');
+const { readWorkPlan, refreshWorkPlanUnit, writeWorkPlan } = require('./lib/semantic-work');
 
 const PROFILE_COMMANDS = Object.freeze({
   'reset-unit': { command: 'reset-unit', profile: undefined },
@@ -147,7 +147,13 @@ function planDomains(paths, manifest) {
   const plan = createDomainWorkPlan({
     registry,
     source_hash: manifest.source_hash,
-    accepted_hashes: acceptedHashes
+    accepted_hashes: acceptedHashes,
+    source_files: manifest.chapters.map(chapter => ({
+      chapter: chapter.number,
+      title: chapter.title,
+      source_file: chapter.file,
+      input_hash: chapter.input_hash
+    }))
   });
   const written = writeWorkPlan(paths, plan);
   progress = syncPlannedUnits(progress, plan.inputs);
@@ -160,6 +166,168 @@ function planDomains(paths, manifest) {
     plan: written.plan,
     written: written.written
   };
+}
+
+function assertRefreshPath(paths, target) {
+  const runRoot = path.resolve(paths.run);
+  const resolved = path.resolve(target);
+  if (!resolved.startsWith(`${runRoot}${path.sep}`)) {
+    throw new GameKbError('DOMAIN_REFRESH_PATH_INVALID', 'Domain refresh path escapes the current run', {
+      path: resolved,
+      run: runRoot
+    });
+  }
+  return resolved;
+}
+
+function snapshotRefreshPath(paths, target) {
+  const resolved = assertRefreshPath(paths, target);
+  function capture(current) {
+    if (!fs.existsSync(current)) return { type: 'missing' };
+    const stat = fs.lstatSync(current);
+    if (stat.isSymbolicLink()) {
+      throw new GameKbError('DOMAIN_REFRESH_PATH_INVALID', 'Domain refresh cannot snapshot a symbolic link', {
+        path: current
+      });
+    }
+    if (stat.isFile()) return { type: 'file', bytes: fs.readFileSync(current) };
+    if (!stat.isDirectory()) {
+      throw new GameKbError('DOMAIN_REFRESH_PATH_INVALID', 'Domain refresh path has an unsupported type', {
+        path: current
+      });
+    }
+    return {
+      type: 'directory',
+      entries: fs.readdirSync(current).sort().map(name => ({
+        name,
+        snapshot: capture(path.join(current, name))
+      }))
+    };
+  }
+  return { path: resolved, snapshot: capture(resolved) };
+}
+
+function restoreRefreshPath(entry) {
+  fs.rmSync(entry.path, { recursive: true, force: true });
+  function restore(target, snapshot) {
+    if (snapshot.type === 'missing') return;
+    if (snapshot.type === 'file') {
+      atomicWriteFile(target, snapshot.bytes);
+      return;
+    }
+    fs.mkdirSync(target, { recursive: true });
+    for (const child of snapshot.entries) restore(path.join(target, child.name), child.snapshot);
+  }
+  restore(entry.path, entry.snapshot);
+}
+
+function maybeDomainRefreshFault(options, point) {
+  if (typeof options.injectFault === 'function') options.injectFault(point);
+  if (options.faultAt === point) {
+    throw new GameKbError(
+      'DOMAIN_REFRESH_FAULT_INJECTED',
+      `Injected domain refresh fault at ${point}`,
+      { point }
+    );
+  }
+}
+
+function refreshDomainWork(paths, manifest, unit, confirmed, options = {}) {
+  if (!confirmed) {
+    throw new GameKbError('DOMAIN_REFRESH_CONFIRM_REQUIRED', 'refresh-domain-work requires --confirm', { unit });
+  }
+  if (!['distill:characters', 'distill:skills'].includes(unit)) {
+    throw new GameKbError('DOMAIN_REFRESH_INVALID', 'Only character or skill work can be refreshed', { unit });
+  }
+  assertAcceptedArtifacts(paths);
+  const progress = loadProgress(paths, manifest);
+  const current = progress.units[unit];
+  if (!current || current.status !== 'pending' || current.attempts !== 0
+    || (current.output_hashes || []).length !== 0) {
+    throw new GameKbError(
+      'DOMAIN_REFRESH_INVALID',
+      'Domain refresh requires a pending zero-attempt work unit',
+      { unit, status: current?.status ?? null, attempts: current?.attempts ?? null }
+    );
+  }
+  const currentPlan = readWorkPlan(paths, 'domain');
+  const currentInput = currentPlan.inputs.find(input => input.unit === unit);
+  if (!currentInput || current.input_hash !== currentInput.input_hash) {
+    throw new GameKbError('WORK_ITEM_STALE', 'Domain progress differs from its work plan', {
+      unit,
+      progress_input_hash: current.input_hash,
+      plan_input_hash: currentInput?.input_hash ?? null
+    });
+  }
+
+  const acceptedHashes = Object.fromEntries(manifest.chapters.map(chapter => {
+    const chapterUnit = `chapter:${String(chapter.number).padStart(3, '0')}`;
+    const file = path.join(paths.chapters, `ch_${String(chapter.number).padStart(3, '0')}.yaml`);
+    return [chapterUnit, acceptedArtifactHash(paths, file)];
+  }));
+  const registry = readJson(paths.candidateRegistry);
+  const plan = createDomainWorkPlan({
+    registry,
+    source_hash: manifest.source_hash,
+    accepted_hashes: acceptedHashes,
+    source_files: manifest.chapters.map(chapter => ({
+      chapter: chapter.number,
+      title: chapter.title,
+      source_file: chapter.file,
+      input_hash: chapter.input_hash
+    }))
+  });
+  const nextInput = plan.inputs.find(input => input.unit === unit);
+  const unitName = unit.replaceAll(':', '_');
+  const unitDirectory = path.join(paths.domainWork, unitName);
+  const staleRoot = path.join(paths.domainWork, '_stale');
+  const staleRootExisted = fs.existsSync(staleRoot);
+  const snapshots = [
+    snapshotRefreshPath(paths, unitDirectory),
+    snapshotRefreshPath(paths, path.join(staleRoot, unitName)),
+    snapshotRefreshPath(paths, path.join(paths.domainWork, 'plan.json')),
+    snapshotRefreshPath(paths, paths.progress),
+    snapshotRefreshPath(paths, currentInput.staging_path)
+  ];
+  try {
+    const result = refreshWorkPlanUnit(paths, plan, unit, {
+      afterWorkWrite: () => maybeDomainRefreshFault(options, 'after-work-write'),
+      afterPlanWrite: () => maybeDomainRefreshFault(options, 'after-plan-write')
+    });
+    if (current.input_hash !== nextInput.input_hash) {
+      progress.units[unit] = {
+        ...current,
+        input_hash: nextInput.input_hash,
+        updated_at: new Date().toISOString()
+      };
+      maybeDomainRefreshFault(options, 'during-progress-save');
+      saveProgress(paths, progress);
+    }
+    return result;
+  } catch (error) {
+    let rollbackError = null;
+    for (const snapshot of [...snapshots].reverse()) {
+      try {
+        restoreRefreshPath(snapshot);
+      } catch (candidate) {
+        if (!rollbackError) rollbackError = candidate;
+      }
+    }
+    if (!staleRootExisted && fs.existsSync(staleRoot)) {
+      try {
+        if (fs.readdirSync(staleRoot).length === 0) fs.rmdirSync(staleRoot);
+      } catch (candidate) {
+        if (!rollbackError) rollbackError = candidate;
+      }
+    }
+    if (rollbackError) {
+      error.details = {
+        ...(error.details || {}),
+        rollback_error: rollbackError.message
+      };
+    }
+    throw error;
+  }
 }
 
 function runBasicCurate(paths, manifest, { draftPath, skip }) {
@@ -333,6 +501,17 @@ function main(argv = process.argv.slice(2)) {
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       emit(planDomains(paths, readJson(paths.manifest)));
+      return;
+    }
+    if (command === 'refresh-domain-work') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'refresh-domain-work requires <novel>');
+      const unit = flagValue(args, '--unit');
+      if (!unit) throw new GameKbError('UNIT_REQUIRED', 'refresh-domain-work requires --unit <id>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      timingUnit = unit;
+      emit(refreshDomainWork(paths, readJson(paths.manifest), unit, args.includes('--confirm')));
       return;
     }
     if (command === 'basic-curate') {
@@ -513,4 +692,4 @@ function main(argv = process.argv.slice(2)) {
 
 if (require.main === module) main();
 
-module.exports = { main };
+module.exports = { main, refreshDomainWork };

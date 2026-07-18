@@ -70,6 +70,46 @@ test('character and skill work inputs expose the bounded faction refs they may p
   assert.equal('allowed_faction_refs' in inputByUnit.get('distill:items'), false);
 });
 
+test('character and skill work inputs bind every ordered source chapter into their hashes', () => {
+  const sourceFiles = Array.from({ length: 20 }, (_, index) => ({
+    chapter: index + 1,
+    title: `第${index + 1}章`,
+    source_file: path.join('C:\\git\\wuxia-novel', '古龙', '剑神一笑', '.game-kb-work', 'runs', 'run-real', 'source', 'chapters', `ch_${String(index + 1).padStart(3, '0')}.txt`),
+    input_hash: `sha256:${String(index + 1).padStart(64, '0')}`
+  }));
+  const plan = createDomainWorkPlan({
+    registry: fullRegistry(),
+    accepted_hashes: { 'chapter:001': 'sha256:chapter-one' },
+    source_files: sourceFiles
+  });
+  const inputs = new Map(plan.inputs.map(input => [input.unit, input]));
+
+  for (const unit of ['distill:characters', 'distill:skills']) {
+    assert.deepEqual(inputs.get(unit).source_files, sourceFiles);
+    assert.equal(inputs.get(unit).source_files.every(file => path.isAbsolute(file.source_file)), true);
+    assert.equal(inputs.get(unit).source_files.every(file => file.source_file.includes(path.join('古龙', '剑神一笑'))), true);
+    assert.equal(inputs.get(unit).rank_contract.scope, 'complete_book_timeline');
+  }
+  assert.equal('source_files' in inputs.get('distill:factions'), false);
+  assert.equal('source_files' in inputs.get('distill:items'), false);
+
+  const changedSources = structuredClone(sourceFiles);
+  changedSources[19].input_hash = `sha256:${'f'.repeat(64)}`;
+  const changed = createDomainWorkPlan({
+    registry: fullRegistry(),
+    accepted_hashes: { 'chapter:001': 'sha256:chapter-one' },
+    source_files: changedSources
+  });
+  const changedInputs = new Map(changed.inputs.map(input => [input.unit, input]));
+  assert.notEqual(
+    inputs.get('distill:characters').input_hash,
+    changedInputs.get('distill:characters').input_hash
+  );
+  assert.notEqual(inputs.get('distill:skills').input_hash, changedInputs.get('distill:skills').input_hash);
+  assert.equal(inputs.get('distill:factions').input_hash, changedInputs.get('distill:factions').input_hash);
+  assert.equal(inputs.get('distill:items').input_hash, changedInputs.get('distill:items').input_hash);
+});
+
 test('domain work plans use the existing durable idempotent work-plan store', () => {
   const novel = makeNovel('领域工作试书', '第一章 起始\n正文。\n');
   const run = createOrResumeRun(novel, { runId: 'run-domain' });

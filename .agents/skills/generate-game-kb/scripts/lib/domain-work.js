@@ -1,10 +1,10 @@
 'use strict';
 
 const { GameKbError } = require('./errors');
-const { DOMAIN_UNITS, SEMANTIC_PROFILE } = require('./semantic-contract');
-const { sha256 } = require('./source');
+const { DOMAIN_UNITS, POWER_RANK_CONTRACT, SEMANTIC_PROFILE } = require('./semantic-contract');
 const {
   WORK_CONTRACT_VERSION,
+  semanticInputHash,
   serializedInputBytes
 } = require('./semantic-work');
 
@@ -67,15 +67,13 @@ function domainForCategory(category) {
   return Object.entries(DOMAIN_DEFINITIONS).find(([, categories]) => categories.includes(category))?.[0] ?? null;
 }
 
-function domainInputHash(input, bindings, acceptedHashes) {
-  return sha256(JSON.stringify({
-    semantic_contract_version: WORK_CONTRACT_VERSION,
-    semantic_profile: SEMANTIC_PROFILE,
-    stage: 'domain_distill',
-    unit: input.unit,
-    accepted_hashes: sortedHashMap(acceptedHashes),
-    ai_input: input,
-    bindings: bindings.map(({ unit, input_hash: inputHash, ...binding }) => binding)
+function normalizeSourceFiles(sourceFiles) {
+  if (!Array.isArray(sourceFiles)) return [];
+  return sourceFiles.map(descriptor => ({
+    chapter: descriptor.chapter,
+    title: descriptor.title,
+    source_file: descriptor.source_file,
+    input_hash: descriptor.input_hash
   }));
 }
 
@@ -91,7 +89,12 @@ function pendingForDomain(registry, domain, refs) {
   }).filter(Boolean);
 }
 
-function createDomainWorkPlan({ registry, source_hash: sourceHash, accepted_hashes: acceptedHashes = {} } = {}) {
+function createDomainWorkPlan({
+  registry,
+  source_hash: sourceHash,
+  accepted_hashes: acceptedHashes = {},
+  source_files: sourceFiles = []
+} = {}) {
   if (!registry || typeof registry !== 'object' || !registry.categories || !registry.bindings) {
     throw new GameKbError('DOMAIN_REGISTRY_INVALID', 'Domain planning requires a candidate registry');
   }
@@ -132,6 +135,10 @@ function createDomainWorkPlan({ registry, source_hash: sourceHash, accepted_hash
       quality_tier: 'hard',
       allowed_patch_fields: [...DOMAIN_PATCH_FIELDS[domain]],
       ...(['characters', 'skills'].includes(domain) ? { allowed_faction_refs: [...factionRefs] } : {}),
+      ...(['characters', 'skills'].includes(domain) && sourceFiles.length > 0 ? {
+        source_files: normalizeSourceFiles(sourceFiles),
+        rank_contract: structuredClone(POWER_RANK_CONTRACT)
+      } : {}),
       entries: visibleEntries,
       pending: pendingForDomain(registry, domain, refs),
       decision_contract: {
@@ -147,7 +154,7 @@ function createDomainWorkPlan({ registry, source_hash: sourceHash, accepted_hash
       category: entry.category,
       member_refs: structuredClone(entry.member_refs || [])
     }));
-    const inputHash = domainInputHash(provisional, unitBindings, acceptedHashes);
+    const inputHash = semanticInputHash(provisional, unitBindings, acceptedHashes);
     const input = { ...provisional, input_hash: inputHash };
     const inputBytes = serializedInputBytes(input);
     if (inputBytes > MAX_DOMAIN_WORK_ITEM_BYTES) {

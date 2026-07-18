@@ -5,7 +5,10 @@ const fs = require('node:fs');
 const test = require('node:test');
 
 const { semanticDecisionFile } = require('../scripts/lib/accept');
-const { readWorkPlan } = require('../scripts/lib/semantic-work');
+const { acceptedArtifactHash } = require('../scripts/lib/candidate-ledger');
+const { createDomainWorkPlan } = require('../scripts/lib/domain-work');
+const { refreshDomainWork } = require('../scripts/flow');
+const { readWorkPlan, writeWorkPlan } = require('../scripts/lib/semantic-work');
 const { pathsFor } = require('../scripts/lib/paths');
 const { DOMAIN_UNITS, FINAL_FILES } = require('../scripts/lib/semantic-contract');
 const {
@@ -47,6 +50,49 @@ function prepareAcceptedChapter(name, runId, overrides = {}) {
   return { manifest, novel, paths, prepared };
 }
 
+function snapshotTree(root) {
+  if (!fs.existsSync(root)) return null;
+  const entries = [];
+  function visit(directory, relative = '') {
+    entries.push({ path: relative, type: 'directory' });
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const childRelative = relative ? `${relative}/${entry.name}` : entry.name;
+      const child = `${directory}/${entry.name}`;
+      if (entry.isDirectory()) visit(child, childRelative);
+      else entries.push({ path: childRelative, type: 'file', bytes: fs.readFileSync(child) });
+    }
+  }
+  visit(root);
+  return entries;
+}
+
+function prepareChangedDomainRefresh(name, runId) {
+  const fixture = prepareAcceptedChapter(name, runId);
+  pass(runFlow([
+    'plan-domains', fixture.novel, '--run', fixture.prepared.run_id, '--json'
+  ]), 'plan domains');
+  const registry = readJson(fixture.paths.candidateRegistry);
+  const acceptedHashes = Object.fromEntries(fixture.manifest.chapters.map(chapter => {
+    const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
+    const file = `${fixture.paths.chapters}/ch_${String(chapter.number).padStart(3, '0')}.yaml`;
+    return [unit, acceptedArtifactHash(fixture.paths, file)];
+  }));
+  const oldPlan = createDomainWorkPlan({
+    registry,
+    source_hash: fixture.manifest.source_hash,
+    accepted_hashes: acceptedHashes
+  });
+  fs.rmSync(fixture.paths.domainWork, { recursive: true, force: true });
+  writeWorkPlan(fixture.paths, oldPlan);
+  const progress = readJson(fixture.paths.progress);
+  for (const input of oldPlan.inputs) progress.units[input.unit].input_hash = input.input_hash;
+  fs.writeFileSync(fixture.paths.progress, `${JSON.stringify(progress, null, 2)}\n`, 'utf8');
+  const characterInput = readWorkPlan(fixture.paths, 'domain').inputs
+    .find(input => input.unit === 'distill:characters');
+  fs.writeFileSync(characterInput.staging_path, 'draft-before-refresh\n', 'utf8');
+  return { ...fixture, characterInput };
+}
+
 test('plan-domains reads accepted chapter YAML and creates the exact four domain units', () => {
   const fixture = prepareAcceptedChapter('四域计划试书', 'run-four-domain-plan');
   const accepted = fs.readFileSync(`${fixture.paths.chapters}/ch_001.yaml`, 'utf8');
@@ -60,6 +106,115 @@ test('plan-domains reads accepted chapter YAML and creates the exact four domain
   assert.deepEqual(planned.units, DOMAIN_UNITS);
   assert.deepEqual(plan.inputs.map(input => input.unit), DOMAIN_UNITS);
   assert.deepEqual(plan.inputs.map(input => input.domain), ['factions', 'characters', 'skills', 'items']);
+  for (const unit of ['distill:characters', 'distill:skills']) {
+    const input = plan.inputs.find(candidate => candidate.unit === unit);
+    assert.deepEqual(input.source_files, fixture.manifest.chapters.map(chapter => ({
+      chapter: chapter.number,
+      title: chapter.title,
+      source_file: chapter.file,
+      input_hash: chapter.input_hash
+    })));
+  }
+});
+
+test('confirmed domain refresh rotates only an unattempted pending unit', () => {
+  const fixture = prepareAcceptedChapter('领域安全刷新试书', 'run-domain-refresh');
+  pass(runFlow([
+    'plan-domains', fixture.novel, '--run', fixture.prepared.run_id, '--json'
+  ]), 'plan domains');
+  const beforePlan = readWorkPlan(fixture.paths, 'domain');
+  const beforeInputs = new Map(beforePlan.inputs.map(input => [input.unit, input]));
+
+  const factionInput = beforeInputs.get('distill:factions');
+  const factionDraft = writeStagingDraft(fixture.novel, factionInput.unit, validDomainDraft(factionInput));
+  pass(runFlow([
+    'accept', fixture.novel, '--run', fixture.prepared.run_id,
+    '--unit', factionInput.unit, '--draft', factionDraft, '--json'
+  ]), 'accept faction');
+  const acceptedFaction = semanticDecisionFile(fixture.paths, factionInput.unit, factionInput.input_hash);
+  const acceptedFactionBytes = fs.readFileSync(acceptedFaction);
+
+  const itemInput = beforeInputs.get('distill:items');
+  const itemDraft = writeStagingDraft(fixture.novel, itemInput.unit, validDomainDraft(itemInput));
+  const itemDraftBytes = fs.readFileSync(itemDraft);
+
+  const unconfirmed = runFlow([
+    'refresh-domain-work', fixture.novel, '--run', fixture.prepared.run_id,
+    '--unit', 'distill:characters', '--json'
+  ]);
+  assert.notEqual(unconfirmed.status, 0);
+  assert.equal(parseJsonLine(unconfirmed.stderr).code, 'DOMAIN_REFRESH_CONFIRM_REQUIRED');
+
+  const refreshed = pass(runFlow([
+    'refresh-domain-work', fixture.novel, '--run', fixture.prepared.run_id,
+    '--unit', 'distill:characters', '--confirm', '--json'
+  ]), 'refresh character work');
+  const afterPlan = readWorkPlan(fixture.paths, 'domain');
+  const afterInputs = new Map(afterPlan.inputs.map(input => [input.unit, input]));
+
+  assert.equal(refreshed.unit, 'distill:characters');
+  assert.equal(refreshed.old_input_hash, beforeInputs.get('distill:characters').input_hash);
+  assert.equal(refreshed.new_input_hash, afterInputs.get('distill:characters').input_hash);
+  assert.equal(refreshed.old_input_hash, refreshed.new_input_hash);
+  assert.equal(refreshed.written, false);
+  assert.deepEqual(fs.readFileSync(acceptedFaction), acceptedFactionBytes);
+  assert.deepEqual(fs.readFileSync(itemDraft), itemDraftBytes);
+  assert.equal(afterInputs.get('distill:factions').input_hash, factionInput.input_hash);
+  assert.equal(afterInputs.get('distill:items').input_hash, itemInput.input_hash);
+
+  const acceptedDenied = runFlow([
+    'refresh-domain-work', fixture.novel, '--run', fixture.prepared.run_id,
+    '--unit', 'distill:factions', '--confirm', '--json'
+  ]);
+  assert.notEqual(acceptedDenied.status, 0);
+  assert.equal(parseJsonLine(acceptedDenied.stderr).code, 'DOMAIN_REFRESH_INVALID');
+});
+
+test('domain refresh rejects progress whose input hash differs from the work plan', () => {
+  const fixture = prepareAcceptedChapter('领域刷新进度错配试书', 'run-domain-refresh-progress-mismatch');
+  pass(runFlow([
+    'plan-domains', fixture.novel, '--run', fixture.prepared.run_id, '--json'
+  ]), 'plan domains');
+  const progress = readJson(fixture.paths.progress);
+  progress.units['distill:characters'].input_hash = `sha256:${'f'.repeat(64)}`;
+  fs.writeFileSync(fixture.paths.progress, `${JSON.stringify(progress, null, 2)}\n`, 'utf8');
+
+  const result = runFlow([
+    'refresh-domain-work', fixture.novel, '--run', fixture.prepared.run_id,
+    '--unit', 'distill:characters', '--confirm', '--json'
+  ]);
+
+  assert.notEqual(result.status, 0);
+  assert.equal(parseJsonLine(result.stderr).code, 'WORK_ITEM_STALE');
+});
+
+test('domain refresh restores every prior byte after an injected transaction failure', () => {
+  assert.equal(typeof refreshDomainWork, 'function');
+  for (const faultAt of ['after-work-write', 'after-plan-write', 'during-progress-save']) {
+    const fixture = prepareChangedDomainRefresh(
+      `领域刷新事务${faultAt}`,
+      `run-domain-refresh-${faultAt}`
+    );
+    const before = {
+      domainWork: snapshotTree(fixture.paths.domainWork),
+      progress: fs.readFileSync(fixture.paths.progress),
+      staging: snapshotTree(fixture.paths.staging)
+    };
+
+    assert.throws(
+      () => refreshDomainWork(
+        fixture.paths,
+        fixture.manifest,
+        'distill:characters',
+        true,
+        { faultAt }
+      ),
+      { code: 'DOMAIN_REFRESH_FAULT_INJECTED' }
+    );
+    assert.deepEqual(snapshotTree(fixture.paths.domainWork), before.domainWork, faultAt);
+    assert.deepEqual(fs.readFileSync(fixture.paths.progress), before.progress, faultAt);
+    assert.deepEqual(snapshotTree(fixture.paths.staging), before.staging, faultAt);
+  }
 });
 
 test('plan-domains, four accepts, and assemble preserve accepted decisions and use no legacy stage', () => {
