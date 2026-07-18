@@ -894,3 +894,40 @@ Dashboard 核心存储统一读取 `characters.yaml`、`factions.yaml`、`skills
 ### Next Steps
 
 - None - task complete
+
+
+## Session 20: V4-first V5 and deep Skill contract completion
+
+**Date**: 2026-07-18
+**Task**: V4-first V5 and deep Skill contract completion
+**Branch**: `main`
+
+### Summary
+
+Completed the V4-first workflow contract, derived lightweight YAML V5, implemented on-demand cumulative deep overlays with backup and atomic installation, and archived all five related Trellis tasks. Verification: 296/296 tests, 33/33 production JavaScript node --check, git diff --check, six Skill validators, deep contract tests 19/19, and no forbidden event/dialogue workflow wording.
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `841b4e21` | (see git log) |
+| `2ccd3588` | (see git log) |
+| `a7cd3281` | (see git log) |
+| `7416a38b` | (see git log) |
+| `848f51cc` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete

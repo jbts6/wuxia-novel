@@ -8,8 +8,8 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 19
-- **Last Active**: 2026-07-17
+- **Total Sessions**: 20
+- **Last Active**: 2026-07-18
 <!-- @@@/auto:current-status -->
 
 ---
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~896 | Active |
+| `journal-1.md` | ~933 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 20 | 2026-07-18 | V4-first V5 and deep Skill contract completion | `841b4e21`, `2ccd3588`, `a7cd3281`, `7416a38b`, `848f51cc` | `main` |
 | 19 | 2026-07-17 | 完成 Game KB 清理与性能质量门 | - | `feat/game-kb-yaml-flow` |
 | 18 | 2026-07-17 | Dashboard 迁移到五 YAML 数据边界 | - | `feat/game-kb-yaml-flow` |
 | 17 | 2026-07-17 | 完成 Game KB v4 单次组装与验证门 | - | `feat/game-kb-yaml-flow` |
