@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use `subagent-driven-development` for independent implementation/review tasks and `test-driven-development` for every behavior change. Chapter/domain workers may write only controller-issued staging paths; the main agent performs every accept and state transition.
 
-**Goal:** Complete and validate a source-grounded V4 semantic-contract version 6 on the tracked `古龙/剑神一笑` corpus, then derive V5/deep skills from that proven contract.
+**Goal:** Complete and validate a source-grounded V4 semantic-contract version 6 on the tracked `古龙/剑神一笑` corpus, then derive Lite/deep skills from that proven contract.
 
 **Architecture:** Carry the useful unfinished version-5 safety work forward, repair it first, and commit it separately. Introduce one executable v6 entity contract across chapter/domain/final stages, category-aware merge policies, persistent IDs, a fail-closed v5 chapter importer, and strict Dashboard consumers. Preserve exactly five installed YAML files; keep controller metadata and receipts outside Dashboard data.
 
@@ -17,7 +17,7 @@
 - Every AI unit gets an initial submission and at most one automatic retry per cycle. Only confirmed `retry-unit` begins another bounded cycle.
 - Final Dashboard data is exactly five YAML files. No ID-name map, inverse relation index, or controller registry is added to `data/`.
 - Every production change follows RED, observed failure, minimal GREEN, focused regression, and full relevant regression before commit.
-- V5/deep files remain untouched until the V4 real run passes installed verification and archive.
+- Lite/deep files remain untouched until the V4 real run passes installed verification and archive.
 
 ---
 
@@ -392,21 +392,21 @@
 
 ---
 
-### Task 8: Derive V5 And Deep Skills Only From The Proven V4 Contract
+### Task 8: Derive Lite And Deep Skills Only From The Proven V4 Contract
 
 **Files:**
-- Modify: `.agents/skills/generate-game-kb-v5/`
+- Modify: `.agents/skills/generate-game-kb-lite/`
 - Modify: `.agents/skills/generate-game-kb-deep-characters/`
 - Modify: `.agents/skills/generate-game-kb-deep-skills/`
 - Modify: `.agents/skills/generate-game-kb-deep-items/`
 - Modify: `.agents/skills/generate-game-kb-deep-factions/`
-- Modify: V5/deep CLI, skill, and overlay tests
+- Modify: Lite/deep CLI, skill, and overlay tests
 
 - [ ] **Step 1: Add RED contracts from the archived V4 v6 artifacts**
 
-  Assert V5 is YAML, omits expensive domain distill by default, exposes final product and commands, leaves nullable deep fields empty until requested, and never invokes unimplemented relation extraction. Assert each deep skill binds the archived base manifest and current installed hash.
+  Assert Lite is YAML, omits expensive domain distill by default, exposes final product and commands, leaves nullable deep fields empty until requested, and never invokes unimplemented relation extraction. Assert each deep skill binds the archived base manifest and current installed hash.
 
-- [ ] **Step 2: Implement the lightweight V5 projection**
+- [ ] **Step 2: Implement the lightweight Lite projection**
 
   Reuse V4 chapter/evidence, schema, publication, and retry owners. Separate only the expensive domain phases; do not fork the v6 field contract.
 
@@ -416,9 +416,9 @@
 
 - [ ] **Step 4: Forward-test each skill independently**
 
-  Test V5 first, then each deep skill with a fresh task-local subagent. Do not batch unverified skill edits. Run their validators and complete test suites after each skill.
+  Test Lite first, then each deep skill with a fresh task-local subagent. Do not batch unverified skill edits. Run their validators and complete test suites after each skill.
 
-- [ ] **Step 5: Commit V5/deep extraction**
+- [ ] **Step 5: Commit Lite/deep extraction**
 
-  Commit V5 and deep changes only after all V4 evidence remains green:
-  `feat(game-kb): derive v5 and deep skills from v6`
+  Commit Lite and deep changes only after all V4 evidence remains green:
+  `feat(game-kb): align deep overlays with lite v6`

@@ -7,7 +7,7 @@
 
 Separate the strict audit workflow from the fast high-recall workflow and from
 optional deep enrichment. The existing `generate-game-kb` skill remains the
-v4 audit workflow. A new `generate-game-kb-v5` skill owns the 30-45 minute
+v4 audit workflow. A new `generate-game-kb-lite` skill owns the 30-45 minute
 grounded base build. Deep enrichment is exposed as independent skills that
 produce hash-bound overlays and never block or mutate the base run.
 
@@ -15,16 +15,16 @@ produce hash-bound overlays and never block or mutate the base run.
 
 ### `generate-game-kb` (v4)
 
-- Preserve the semantic v4 contract and strict four-domain distillation.
+- Preserve semantic contract version 6 and strict four-domain distillation.
 - Preserve legacy domain verification and installed-data receipts.
 - Require every worker input to include a controller-allocated staging path.
 - Keep rejected drafts, validation errors, and attempt metadata reviewable.
 - Allow at most two submissions per unit; the second failure becomes
   `manual_review` without restarting a worker loop.
 
-### `generate-game-kb-v5`
+### `generate-game-kb-lite`
 
-- Use semantic contract v5 and a separate progress/work namespace.
+- Use semantic contract version 6 with the Lite run profile and progress units.
 - Run `prepare`, batched chapter extraction, grounded accept/quarantine,
   deterministic basic normalization, optional `basic-curate`, and publish.
 - Do not run `plan-domains` or four domain accepts.
@@ -35,7 +35,7 @@ produce hash-bound overlays and never block or mutate the base run.
 
 ### Deep Skills
 
-The following skills consume a published v5 base and create only deferred
+The following skills consume a published Lite base and create only deferred
 overlay tasks:
 
 - `generate-game-kb-deep-characters`
@@ -56,17 +56,18 @@ revision atomically.
 v4: prepare -> chapter extraction -> accept -> plan-domains -> domain accepts
     -> assemble -> verify -> install -> verify-installed -> archive
 
-v5: prepare -> batched chapter extraction -> grounded accept/quarantine
-    -> basic normalization -> optional basic-curate -> publish -> archive
+Lite: lite-prepare -> batched chapter extraction -> grounded accept/quarantine
+    -> basic normalization -> optional lite-basic-curate -> lite-publish -> archive
 
-deep skill: published v5 base -> task-add -> task-run -> validated overlay
+deep skill: published Lite base -> task-add -> task-run -> validated overlay
     -> task-apply -> new hash-bound revision (optional)
 ```
 
-The v4 and v5 flows use distinct semantic profiles, progress unit namespaces,
-work roots, manifests, and receipts. A verifier dispatches by the run or
-receipt contract version; a v4 artifact is never upgraded in place and a v5
-artifact is never sent through v4 domain verification.
+The v4 and Lite flows use distinct run profiles and progress unit namespaces,
+while sharing the semantic-contract version 6 entity schema, controller-owned
+work roots, manifests, publication receipts, and verification primitives. Lite
+skips the expensive four-domain distillation unless a user explicitly invokes
+a deep skill.
 
 ## Staging and Retry Contract
 
@@ -83,7 +84,7 @@ consume an attempt.
 
 ## Publication and Overlay Safety
 
-v5 publication is independent of deep tasks. Pending, failed, or skipped deep
+Lite publication is independent of deep tasks. Pending, failed, or skipped deep
 tasks do not change the base `next_action`. Every overlay records its input
 base manifest hash, validates all operations against grounded base records,
 and rejects stale bases. Base artifacts are immutable; revision materializing,
@@ -94,10 +95,10 @@ transaction boundaries.
 
 - v4: rejected staging is retained, retry paths are exact, two-attempt limits
   terminate, and no automatic distill restart loop is possible.
-- v5: three chapters with no domain artifacts publish successfully; quarantined
+- Lite: three chapters with no domain artifacts publish successfully; quarantined
   records remain reviewable; missing summaries, registry drift, receipt drift,
   and final hash drift block publication.
 - Deep skills: unknown entity/evidence creation is rejected, stale overlays are
   rejected, operations are deterministic, and failed tasks remain retryable.
-- Regression: v4 fixtures remain readable and verifiable; v5 fixtures never
+- Regression: v4 fixtures remain readable and verifiable; Lite fixtures never
   require v4 domain decisions.

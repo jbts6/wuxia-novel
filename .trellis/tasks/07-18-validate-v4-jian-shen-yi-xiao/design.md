@@ -162,5 +162,5 @@ placeholder.
    every chapter/domain/final example.
 6. Create the version-6 Jian Shen Yi Xiao run, import 20 chapters, regenerate all
    four domains, assemble, verify, install, verify installed data, and archive.
-7. Only after V4 passes, extract the lightweight V5 and deep-domain skills from
+7. Only after V4 passes, extract the lightweight Lite and deep-domain skills from
    the validated V4 contract.

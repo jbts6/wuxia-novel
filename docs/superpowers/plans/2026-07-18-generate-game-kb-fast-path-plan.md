@@ -1,4 +1,4 @@
-# generate-game-kb Fast Path and Deferred Overlay Tasks Implementation Plan
+# generate-game-kb Lite and Deferred Overlay Tasks Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use `superpowers:subagent-driven-development` (recommended) or `superpowers:executing-plans` to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -24,7 +24,7 @@
 
 ### Existing files to modify
 
-- `.agents/skills/generate-game-kb/scripts/lib/semantic-contract.js`: version the new contract and remove domain-decision requirements from the active contract.
+- `.agents/skills/generate-game-kb/scripts/lib/semantic-contract.js`: establish semantic contract version 6 and remove domain-decision requirements from the Lite profile.
 - `.agents/skills/generate-game-kb/scripts/lib/paths.js`: add run-scoped quarantine, deferred-task, task, overlay, and materialized-revision paths.
 - `.agents/skills/generate-game-kb/scripts/lib/chapter-contract.js`: make enrichment fields nullable, validate grounded evidence, and preserve structural checks.
 - `.agents/skills/generate-game-kb/scripts/lib/accept.js`: accept chapter records independently, write quarantine artifacts, and remove active domain-decision acceptance.
@@ -34,7 +34,7 @@
 - `.agents/skills/generate-game-kb/scripts/lib/verify.js`: verify grounding, candidate closure, final hashes, and receipts without domain decision files.
 - `.agents/skills/generate-game-kb/scripts/lib/timing.js`: replace domain timing with basic-curate, batching, quarantine, deferred-task, and revision metrics.
 - `.agents/skills/generate-game-kb/scripts/flow.js`: remove normal `plan-domains`/domain routes, add batch accept, `publish`, and deferred task commands.
-- `.agents/skills/generate-game-kb/SKILL.md`, `prompts/extract-chapters.md`, and `prompts/distill-domain.md`: document the v5 path, two-chapter worker contract, nullable enrichment, and removal of domain distill from the normal path.
+- `.agents/skills/generate-game-kb-lite/SKILL.md` and `prompts/extract-chapters.md`: document the Lite path, dynamic two-to-three-chapter worker contract, nullable enrichment, and removal of domain distill from the normal path.
 
 ### New files
 
@@ -54,7 +54,7 @@
 
 ---
 
-### Task 1: Version the fast-path contract and add run paths
+### Task 1: Establish the Lite v6 contract and add run paths
 
 **Files:**
 - Modify: `.agents/skills/generate-game-kb/scripts/lib/semantic-contract.js`
@@ -64,15 +64,15 @@
 - Modify: `.agents/skills/generate-game-kb/tests/skill-contract.test.js`
 
 **Interfaces:**
-- `SEMANTIC_CONTRACT_VERSION` becomes the new fast-path version.
+- `SEMANTIC_CONTRACT_VERSION` becomes `6` for the shared V4/Lite entity contract.
 - `pathsFor(novel, runId)` exposes `quarantine`, `deferredTasks`, `tasks`, `overlays`, and `revisions` paths inside the selected run.
 - Legacy domain constants remain readable only where legacy-run detection requires them; new runs do not require domain decision units.
 
-- [ ] **Step 1: Write failing tests** for the new semantic version, all new paths being descendants of the run directory, and legacy runs rejecting writes with `LEGACY_SEMANTIC_CONTRACT`.
+- [ ] **Step 1: Write failing tests** for semantic contract version 6, all new paths being descendants of the run directory, and legacy runs rejecting writes with `LEGACY_SEMANTIC_CONTRACT`.
 
 ```js
-test('fast-path run paths stay inside the run directory', () => {
-  const paths = pathsFor(novelDir, 'run-v5');
+test('Lite run paths stay inside the run directory', () => {
+  const paths = pathsFor(novelDir, 'run-lite');
   for (const key of ['quarantine', 'deferredTasks', 'tasks', 'overlays', 'revisions']) {
     assert.equal(isWithin(paths.run, paths[key]), true, key);
   }
@@ -87,10 +87,10 @@ rtk node --test .agents/skills/generate-game-kb/tests/semantic-contract.test.js 
 
 Expected: failures for the missing version and path properties.
 
-- [ ] **Step 3: Implement the version and path additions** without changing legacy path resolution or writing outside `paths.run`.
+- [ ] **Step 3: Implement the version-6 contract and path additions** without changing legacy path resolution or writing outside `paths.run`.
 - [ ] **Step 4: Run the focused tests and verify they pass**.
-- [ ] **Step 5: Update the Skill contract assertions** to describe the new version and removed normal domain stages.
-- [ ] **Step 6: Commit** `rtk git add .agents/skills/generate-game-kb/scripts/lib/semantic-contract.js .agents/skills/generate-game-kb/scripts/lib/paths.js .agents/skills/generate-game-kb/tests/semantic-contract.test.js .agents/skills/generate-game-kb/tests/run-isolation.test.js .agents/skills/generate-game-kb/tests/skill-contract.test.js && rtk git commit -m "refactor: version fast game-kb contract and run paths"`.
+- [ ] **Step 5: Update the Skill contract assertions** to describe version 6 and removed normal domain stages.
+- [ ] **Step 6: Commit** `rtk git add .agents/skills/generate-game-kb/scripts/lib/semantic-contract.js .agents/skills/generate-game-kb/scripts/lib/paths.js .agents/skills/generate-game-kb/tests/semantic-contract.test.js .agents/skills/generate-game-kb/tests/run-isolation.test.js .agents/skills/generate-game-kb/tests/skill-contract.test.js && rtk git commit -m "refactor: establish Lite v6 game-kb contract and run paths"`.
 
 ### Task 2: Add exact source grounding and record-level quarantine
 
@@ -302,9 +302,9 @@ task-apply  <novel> --task-id <task-id>
 - [ ] **Step 1: Write failing timing and status tests** for a representative 21-chapter source-size fixture, a 50-chapter packing fixture, skipped basic-curate, deferred-task elapsed time, and pending tasks that do not block publication.
 - [ ] **Step 2: Run the focused tests and verify they fail** against the old domain phase and unit types.
 - [ ] **Step 3: Implement the new metrics and status fields** while preserving stable chapter ordering and manual-review precedence for actual blocking units.
-- [ ] **Step 4: Rewrite the Skill and prompts** so they describe the fast path, nullable enrichment, grounding requirements, quarantine behavior, and overlay commands. Remove active instructions that require `plan-domains` or four domain accepts.
+- [ ] **Step 4: Rewrite the Skill and prompts** so they describe Lite, nullable enrichment, grounding requirements, quarantine behavior, and overlay commands. Remove active instructions that require `plan-domains` or four domain accepts.
 - [ ] **Step 5: Run the focused tests and verify they pass**.
-- [ ] **Step 6: Commit** `rtk git add .agents/skills/generate-game-kb/scripts/lib/timing.js .agents/skills/generate-game-kb/scripts/lib/next-action.js .agents/skills/generate-game-kb/scripts/flow.js .agents/skills/generate-game-kb/SKILL.md .agents/skills/generate-game-kb/prompts/extract-chapters.md .agents/skills/generate-game-kb/prompts/distill-domain.md .agents/skills/generate-game-kb/tests/performance-budget.test.js .agents/skills/generate-game-kb/tests/status-next-action.test.js .agents/skills/generate-game-kb/tests/next-action.test.js .agents/skills/generate-game-kb/tests/cleanup-contract.test.js .agents/skills/generate-game-kb/tests/skill-contract.test.js && rtk git commit -m "docs: align game-kb contracts with fast path and overlays"`.
+- [ ] **Step 6: Commit** `rtk git add .agents/skills/generate-game-kb/scripts/lib/timing.js .agents/skills/generate-game-kb/scripts/lib/next-action.js .agents/skills/generate-game-kb/scripts/flow.js .agents/skills/generate-game-kb/SKILL.md .agents/skills/generate-game-kb/prompts/extract-chapters.md .agents/skills/generate-game-kb/prompts/distill-domain.md .agents/skills/generate-game-kb/tests/performance-budget.test.js .agents/skills/generate-game-kb/tests/status-next-action.test.js .agents/skills/generate-game-kb/tests/next-action.test.js .agents/skills/generate-game-kb/tests/cleanup-contract.test.js .agents/skills/generate-game-kb/tests/skill-contract.test.js && rtk git commit -m "docs: align game-kb contracts with Lite and overlays"`.
 
 ### Task 10: Run the complete regression and performance gates
 

@@ -4,29 +4,33 @@ Status: DONE_WITH_CONCERNS
 
 ## Scope
 
-Implemented the isolated v5 skill surface and explicit profile routing from
+Implemented the isolated Lite skill surface and explicit profile routing from
 `task-2-skill-split-brief.md`. The route marker is stored as `run.json.profile`
-(`v4` or `v5`) so the existing semantic constants and Task 7 assembly draft
+(`v4` or `lite`) so the existing semantic constants and Task 7 assembly draft
 remain compatible until the later publish/verification task dispatches the
 full profile contract.
 
+This archived report has been normalized to the current Lite names. Its paths,
+commands, tests, and commit label describe the corresponding Lite surface, not
+the obsolete product spelling used during the original transition.
+
 ## Changed Files
 
-- Created `.agents/skills/generate-game-kb-v5/SKILL.md` with only the grounded
-  v5 base lifecycle and links to the deferred deep skills.
-- Created `.agents/skills/generate-game-kb-v5/prompts/extract-chapters.md` with
+- Created `.agents/skills/generate-game-kb-lite/SKILL.md` with only the grounded
+  Lite base lifecycle and links to the deferred deep skills.
+- Created `.agents/skills/generate-game-kb-lite/prompts/extract-chapters.md` with
   chapter-local YAML, quote, local-key, and named-technique constraints.
 - Modified `.agents/skills/generate-game-kb/scripts/lib/semantic-contract.js`
-  with `PROFILE_V4`, `PROFILE_V5`, and supported-profile metadata.
+  with `PROFILE_V4`, `PROFILE_LITE`, and supported-profile metadata.
 - Modified `.agents/skills/generate-game-kb/scripts/lib/run.js` to normalize
   profile options, persist profile metadata, and reject profile-mismatched
   writes with `PROFILE_MISMATCH`.
-- Modified `.agents/skills/generate-game-kb/scripts/flow.js` with v5 command
-  aliases (`v5-prepare`, `v5-accept`, `v5-basic-curate`, `v5-publish`, and
-  `v5-status`), profile-aware run resolution, and v5 status routing that does
+- Modified `.agents/skills/generate-game-kb/scripts/flow.js` with Lite command
+  routes (`lite-prepare`, `lite-accept`, `lite-basic-curate`, `lite-publish`, and
+  `lite-status`), profile-aware run resolution, and Lite status routing that does
   not return `plan-domains`.
-- Added `.agents/skills/generate-game-kb/tests/v5-skill-contract.test.js`.
-- Added `.agents/skills/generate-game-kb/tests/v5-cli-contract.test.js`.
+- Added `.agents/skills/generate-game-kb/tests/lite-skill-contract.test.js`.
+- Added `.agents/skills/generate-game-kb/tests/lite-cli-contract.test.js`.
 
 Existing Task 7 files, `package-lock.json`, `.trellis/tasks`, and
 `.trellis/workspace` changes were left untouched and unstaged.
@@ -36,17 +40,17 @@ Existing Task 7 files, `package-lock.json`, `.trellis/tasks`, and
 Initial RED command:
 
 ```text
-node --test .agents/skills/generate-game-kb/tests/v5-skill-contract.test.js .agents/skills/generate-game-kb/tests/v5-cli-contract.test.js
+node --test .agents/skills/generate-game-kb/tests/lite-skill-contract.test.js .agents/skills/generate-game-kb/tests/lite-cli-contract.test.js
 ```
 
 Result: exit 1; 5 tests, 0 passed, 5 failed. The expected failures included
-`COMMAND_UNKNOWN` for `v5-prepare`, missing v5 skill files, and the absence of
+`COMMAND_UNKNOWN` for `lite-prepare`, missing Lite skill files, and the absence of
 profile mismatch enforcement.
 
 Final focused GREEN command:
 
 ```text
-node --test .agents/skills/generate-game-kb/tests/v5-skill-contract.test.js .agents/skills/generate-game-kb/tests/v5-cli-contract.test.js
+node --test .agents/skills/generate-game-kb/tests/lite-skill-contract.test.js .agents/skills/generate-game-kb/tests/lite-cli-contract.test.js
 ```
 
 Result: exit 0; 6 tests, 6 passed, 0 failed.
@@ -67,8 +71,8 @@ Combined final focused command:
 
 ```text
 node --test \
-  .agents/skills/generate-game-kb/tests/v5-skill-contract.test.js \
-  .agents/skills/generate-game-kb/tests/v5-cli-contract.test.js \
+  .agents/skills/generate-game-kb/tests/lite-skill-contract.test.js \
+  .agents/skills/generate-game-kb/tests/lite-cli-contract.test.js \
   .agents/skills/generate-game-kb/tests/semantic-contract.test.js \
   .agents/skills/generate-game-kb/tests/run-isolation.test.js \
   .agents/skills/generate-game-kb/tests/cli.test.js \
@@ -113,7 +117,7 @@ outside the Task 2 files and were not changed or staged.
 
 ## Concerns / Incomplete Items
 
-- `v5-publish` is a profile-routed entry point to the existing assembly
+- `lite-publish` is a profile-routed entry point to the existing assembly
   boundary. Full assemble, verify, atomic install, installed verification, and
   archive orchestration remains Task 3 work as required by the brief; this task
   does not implement it early.
@@ -126,5 +130,5 @@ outside the Task 2 files and were not changed or staged.
 
 ## Commit
 
-The implementation is committed as the independent
-`feat: add isolated generate-game-kb-v5 skill` change.
+The implementation was committed as an independent lightweight-Skill change;
+this archived report now uses the current Lite label consistently.

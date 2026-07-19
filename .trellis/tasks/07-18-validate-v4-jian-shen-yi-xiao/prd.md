@@ -270,7 +270,7 @@ The previous task was archived after the generic Node suite passed, but the plan
 
 ## Out Of Scope
 
-- V5 generation or deep overlays.
+- Lite generation or deep overlays.
 - Replacing the V4 controller with a separate test-only pipeline.
 - Claiming audit-grade recall beyond the V4 source-grounded contract.
 - Editing the novel source to make preparation or extraction pass.

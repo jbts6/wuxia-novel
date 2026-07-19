@@ -1,10 +1,10 @@
-# V4-First Game KB and Lightweight V5 Skills Implementation Plan
+# V4-First Game KB and Lite Skills Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: use test-driven development and execute this plan in order. This task is configured for inline Codex execution; do not dispatch subagents. Track progress with the checkbox (`- [ ]`) steps below.
 
-**Goal:** Repair the canonical V4 controller and Skill contract first, prove it against the tracked Chinese novel `古龙/剑神一笑/剑神一笑.txt`, and only then derive the lightweight V5 and optional deep-skill contracts.
+**Goal:** Repair the canonical V4 controller and Skill contract first, prove it against the tracked Chinese novel `古龙/剑神一笑/剑神一笑.txt`, and only then derive the lightweight Lite and optional deep-skill contracts.
 
-**Architecture:** The controller remains the single owner of unit attempts, current source/staging paths, acceptance, retry state, final YAML data, installation, archival, deferred tasks, and revisions. V4 defines the complete lifecycle. V5 reuses that lifecycle while omitting automatic domain distill, and each deep Skill is an explicit post-publication adapter over the shared deferred-task/overlay implementation.
+**Architecture:** The controller remains the single owner of unit attempts, current source/staging paths, acceptance, retry state, final YAML data, installation, archival, deferred tasks, and revisions. V4 defines the complete lifecycle. Lite reuses that lifecycle while omitting automatic domain distill, and each deep Skill is an explicit post-publication adapter over the shared deferred-task/overlay implementation.
 
 **Tech Stack:** CommonJS Node.js, `node:test`, YAML drafts/data, Markdown Agent Skills, Python `quick_validate.py`, existing `flow.js` controller.
 
@@ -15,9 +15,9 @@
 - Each chapter descriptor exposes exactly one controller-current `attempt` and `staging_path`; agents never choose from a path list.
 - One bounded cycle permits the initial validated submission plus at most one automatic retry. A second rejection enters `manual_review` and preserves both rejected drafts.
 - `retry-unit` is explicit and requires `--confirm`. It starts a fresh bounded cycle for only the requested unit. `reset-unit` remains compatible but is not the public recovery command in Skill prose.
-- V4 and V5 knowledge drafts and the five consumer files are YAML. JSON is controller metadata, reports, state, manifests, and receipts only.
-- Remove all user-facing promises or workflow discussion about event or dialogue processing from V4, V5, and deep Skill prose.
-- Every user-facing command in the V4, V5, and deep Skill folders has a concrete example using `"C:\git\wuxia-novel\古龙\剑神一笑"`, `run-jian-shen-yi-xiao`, and a real unit/task identifier obtained from controller output.
+- V4 and Lite knowledge drafts and the five consumer files are YAML. JSON is controller metadata, reports, state, manifests, and receipts only.
+- Remove all user-facing promises or workflow discussion about event or dialogue processing from V4, Lite, and deep Skill prose.
+- Every user-facing command in the V4, Lite, and deep Skill folders has a concrete example using `"C:\git\wuxia-novel\古龙\剑神一笑"`, `run-jian-shen-yi-xiao`, and a real unit/task identifier obtained from controller output.
 - Preserve the current uncommitted overlay/deferred-task work and do not revert unrelated changes. Commit once after each completed stage, staging only that stage's files so every checkpoint remains independently reviewable and revertible.
 
 ---
@@ -122,28 +122,28 @@
 - [ ] **Step 4: Run the V4 focused gate:** chapter batching, worker pool, next action, status, progress, retry, CLI, domain flow, semantic work, and the real corpus test. Expected: zero failures.
 - [ ] **Step 5: Commit the green stage.** Commit only Task 5 files with message `test(game-kb): cover Jian Shen Yi Xiao corpus`.
 
-### Task 6: Derive the lightweight V5 Skill from verified V4
+### Task 6: Derive the lightweight Lite Skill from verified V4
 
 **Files:**
-- Modify: `.agents/skills/generate-game-kb/tests/v5-skill-contract.test.js`
-- Modify: `.agents/skills/generate-game-kb/tests/v5-cli-contract.test.js`
-- Modify: `.agents/skills/generate-game-kb-v5/SKILL.md`
-- Modify: `.agents/skills/generate-game-kb-v5/prompts/extract-chapters.md`
+- Modify: `.agents/skills/generate-game-kb/tests/lite-skill-contract.test.js`
+- Modify: `.agents/skills/generate-game-kb/tests/lite-cli-contract.test.js`
+- Modify: `.agents/skills/generate-game-kb-lite/SKILL.md`
+- Modify: `.agents/skills/generate-game-kb-lite/prompts/extract-chapters.md`
 
 **Interfaces:**
-- V5 reuses the V4 descriptor/retry/publication contract and omits only automatic `plan-domains` plus four domain accepts.
-- Lifecycle: `v5-prepare -> repeated v5-status/v5-accept -> v5-basic-curate -> v5-publish`.
+- Lite reuses the V4 descriptor/retry/publication contract and omits only automatic `plan-domains` plus four domain accepts.
+- Lifecycle: `lite-prepare -> repeated lite-status/lite-accept -> lite-basic-curate -> lite-publish`.
 
-- [ ] **Step 1: Extend V5 RED contract tests to compare inherited V4 clauses.** Require 2-3 chapter jobs, one current path, `retry-unit`, YAML-only knowledge data, exact five files, verification/install/archive evidence, and explicit omission of base domain distill.
-- [ ] **Step 2: Require concrete `剑神一笑` examples for every V5 command.** Generated run/path values must come from shown controller output.
-- [ ] **Step 3: Rewrite the V5 Skill and extraction adapter as a lightweight V4 specialization.** Keep discovery frontmatter valid and do not fork a second scheduling/retry contract.
-- [ ] **Step 4: Run V5 skill/CLI tests and the standard validator.** Expected: all pass after V4 gates are green.
-- [ ] **Step 5: Commit the green stage.** Commit only Task 6 files with message `docs(game-kb): derive lightweight v5 from v4`.
+- [ ] **Step 1: Extend Lite RED contract tests to compare inherited V4 clauses.** Require 2-3 chapter jobs, one current path, `retry-unit`, YAML-only knowledge data, exact five files, verification/install/archive evidence, and explicit omission of base domain distill.
+- [ ] **Step 2: Require concrete `剑神一笑` examples for every Lite command.** Generated run/path values must come from shown controller output.
+- [ ] **Step 3: Rewrite the Lite Skill and extraction adapter as a lightweight V4 specialization.** Keep discovery frontmatter valid and do not fork a second scheduling/retry contract.
+- [ ] **Step 4: Run Lite skill/CLI tests and the standard validator.** Expected: all pass after V4 gates are green.
+- [ ] **Step 5: Commit the green stage.** Commit only Task 6 files with message `docs(game-kb): derive lightweight lite from v4`.
 
 ### Task 7: Finish and verify all four on-demand deep Skills
 
 **Files:**
-- Modify: `.agents/skills/generate-game-kb/tests/v5-skill-contract.test.js`
+- Modify: `.agents/skills/generate-game-kb/tests/lite-skill-contract.test.js`
 - Modify: `.agents/skills/generate-game-kb/tests/deferred-task.test.js`
 - Modify: `.agents/skills/generate-game-kb/tests/overlay.test.js`
 - Modify: `.agents/skills/generate-game-kb-deep-characters/SKILL.md`
@@ -159,7 +159,7 @@
 - [ ] **Step 1: Extend deep-skill RED tests for concrete examples and generated-ID reuse.** Each skill must show `task-add` output before `task-run`/`task-apply`; no guessed `task-id` or overlay path.
 - [ ] **Step 2: Keep each deep Skill user-invoked, non-blocking, domain-specific, source-grounded, and valid Agent Skills YAML frontmatter.** Do not add event/dialogue workflow content.
 - [ ] **Step 3: Re-run deferred-task/overlay tests.** Require archived-base task creation, artifact/registry/current-data hash binding, cumulative revisions, distinct backups, atomic install, and stale-task rejection.
-- [ ] **Step 4: Run all four standard skill validators plus the V5/deep contract test.** Expected: zero failures.
+- [ ] **Step 4: Run all four standard skill validators plus the Lite/deep contract test.** Expected: zero failures.
 - [ ] **Step 5: Commit the green stage.** Commit only Task 7 files with message `feat(game-kb): complete on-demand deep overlays`.
 
 ### Task 8: Run final ordered verification and inspect the diff
@@ -168,18 +168,18 @@
 - Verify only; update task checklists with observed results.
 
 **Interfaces:**
-- Produces fresh evidence for V4, real-corpus, V5, deep overlay, Skill format, syntax, and repository hygiene.
+- Produces fresh evidence for V4, real-corpus, Lite, deep overlay, Skill format, syntax, and repository hygiene.
 
 - [ ] **Step 1: Run `node --check` for every changed JavaScript file.** Expected: exit 0 for all files.
 - [ ] **Step 2: Run the complete relevant `.agents/skills/generate-game-kb/tests/*.test.js` suite.** Report exact pass/fail counts and separate the known baseline `run-archive.test.js` fixture issue if it remains unrelated.
-- [ ] **Step 3: Run `quick_validate.py` for V4, V5, and all four deep Skill directories.** Expected: all six validators pass.
+- [ ] **Step 3: Run `quick_validate.py` for V4, Lite, and all four deep Skill directories.** Expected: all six validators pass.
 - [ ] **Step 4: Scan all six Skill trees for forbidden event/dialogue workflow wording, `staging_paths` in agent-facing descriptors, fixed two-chapter wording, and undocumented commands.** Expected: no contract residue.
 - [ ] **Step 5: Run `rtk git diff --check` and inspect `rtk git diff --stat` plus the scoped diff.** Expected: no whitespace errors and no unrelated files changed by this task.
 - [ ] **Step 6: Commit final verification artifacts.** If Task 8 changes only Trellis checklists or reports, commit those files with message `chore(game-kb): record v4-first verification`.
 
 ## Self-Review
 
-- Spec coverage: every approved V4 scheduling/retry/path decision, real Chinese corpus requirement, V5 inheritance rule, deep overlay lifecycle, and concrete command example is mapped to an ordered task.
+- Spec coverage: every approved V4 scheduling/retry/path decision, real Chinese corpus requirement, Lite inheritance rule, deep overlay lifecycle, and concrete command example is mapped to an ordered task.
 - Placeholder scan: no `TBD`, generic “add tests,” or undefined later work remains.
-- Type consistency: `unit` is used for V4/V5 controller work (`chapter:001`, `distill:characters`); deep work consistently uses controller-generated `task-id`.
-- Dependency check: V5 work cannot start until Tasks 1-5 provide a green V4 gate; deep verification follows V5; final verification runs last.
+- Type consistency: `unit` is used for V4/Lite controller work (`chapter:001`, `distill:characters`); deep work consistently uses controller-generated `task-id`.
+- Dependency check: Lite work cannot start until Tasks 1-5 provide a green V4 gate; deep verification follows Lite; final verification runs last.
