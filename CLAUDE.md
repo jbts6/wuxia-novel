@@ -1,5 +1,3 @@
-**全程用中文展示思考过程，用中文回复**
-
 @Karpathy.md
 
 # context-mode + RTK — MANDATORY routing rules
