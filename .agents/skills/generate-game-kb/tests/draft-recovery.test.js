@@ -50,12 +50,6 @@ function openGuardWithViolation(fixture, sourcePath) {
     paths: fixture.paths,
     job
   });
-  // Check guard AFTER source file exists to create violation report
-  workerGuard.checkWorkerGuard({
-    repositoryRoot,
-    paths: fixture.paths,
-    guardId: guardResult.guard_id
-  });
   return guardResult.guard_id;
 }
 
@@ -302,6 +296,126 @@ test('recoverChapterDraft calls acceptDraft and returns acceptance result', () =
   assert.equal(progress.units['chapter:001'].attempts, 1);
 });
 
+test('recoverChapterDraft resumes an accepted-written crash with one transaction time', () => {
+  const fixture = chapterFixture('恢复事务时间试书', 'run-recovery-transaction-time');
+  const misplacedPath = path.join(fixture.paths.novel, 'misplaced_transaction_time.yaml');
+  const guardId = openGuardWithViolation(fixture, misplacedPath);
+  writeYaml(misplacedPath, validDraft(fixture.chapter));
+  workerGuard.checkWorkerGuard({
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    guardId
+  });
+  const options = {
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    manifest: fixture.manifest,
+    unit: 'chapter:001',
+    sourcePath: misplacedPath,
+    confirmed: true,
+    guardId
+  };
+
+  assert.throws(
+    () => recovery.recoverChapterDraft({ ...options, faultAt: 'accepted-written' }),
+    error => error.code === 'RECOVERY_FAULT_INJECTED'
+      && error.details.phase === 'accepted-written'
+  );
+
+  const base = path.join(fixture.paths.draftRecoveries, 'chapter_001_attempt_01_recovery');
+  const bindingPath = `${base}-binding.json`;
+  const resultPath = `${base}-result.json`;
+  const receiptPath = `${base}.json`;
+  const binding = readJson(bindingPath);
+  const interruptedProgress = readJson(fixture.paths.progress);
+  assert.equal(interruptedProgress.units['chapter:001']?.attempts ?? 0, 0);
+  assert.equal(fs.existsSync(resultPath), false);
+  assert.equal(fs.existsSync(receiptPath), false);
+
+  const replay = recovery.recoverChapterDraft(options);
+  const submissionRecord = readJson(replay.acceptance.submission_record);
+  assert.equal(replay.acceptance.recorded_at, binding.recovered_at);
+  assert.equal(submissionRecord.recorded_at, binding.recovered_at);
+
+  const stableFiles = [
+    fixture.paths.progress,
+    replay.acceptance.draft_archive,
+    replay.acceptance.submission_record,
+    replay.acceptance.accepted_file,
+    resultPath,
+    receiptPath
+  ];
+  const beforeReplay = stableFiles.map(file => fs.readFileSync(file));
+  const secondReplay = recovery.recoverChapterDraft(options);
+  assert.deepEqual(secondReplay.acceptance, replay.acceptance);
+  stableFiles.forEach((file, index) => {
+    assert.deepEqual(fs.readFileSync(file), beforeReplay[index]);
+  });
+});
+
+test('recoverChapterDraft replay rejects a mutated archive', () => {
+  const fixture = chapterFixture('恢复归档篡改试书', 'run-recovery-mutated-archive');
+  const misplacedPath = path.join(fixture.paths.novel, 'misplaced_mutated_archive.yaml');
+  const guardId = openGuardWithViolation(fixture, misplacedPath);
+  writeYaml(misplacedPath, validDraft(fixture.chapter));
+  workerGuard.checkWorkerGuard({
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    guardId
+  });
+  const options = {
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    manifest: fixture.manifest,
+    unit: 'chapter:001',
+    sourcePath: misplacedPath,
+    confirmed: true,
+    guardId
+  };
+  const first = recovery.recoverChapterDraft(options);
+  const progressBefore = fs.readFileSync(fixture.paths.progress);
+  const receiptBefore = fs.readFileSync(first.receipt_path);
+  fs.writeFileSync(first.acceptance.draft_archive, 'tampered recovery archive\n', 'utf8');
+
+  assert.throws(
+    () => recovery.recoverChapterDraft(options),
+    error => error.code === 'DRAFT_ARCHIVE_EXISTS'
+  );
+  assert.deepEqual(fs.readFileSync(fixture.paths.progress), progressBefore);
+  assert.deepEqual(fs.readFileSync(first.receipt_path), receiptBefore);
+});
+
+test('recoverChapterDraft repairs a missing receipt after acceptance was saved', () => {
+  const fixture = chapterFixture('恢复收据丢失试书', 'run-recovery-missing-receipt');
+  const misplacedPath = path.join(fixture.paths.novel, 'misplaced_missing_receipt.yaml');
+  const guardId = openGuardWithViolation(fixture, misplacedPath);
+  writeYaml(misplacedPath, validDraft(fixture.chapter));
+  workerGuard.checkWorkerGuard({
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    guardId
+  });
+  const options = {
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    manifest: fixture.manifest,
+    unit: 'chapter:001',
+    sourcePath: misplacedPath,
+    confirmed: true,
+    guardId
+  };
+  const first = recovery.recoverChapterDraft(options);
+  const receiptBefore = fs.readFileSync(first.receipt_path);
+  const progressBefore = fs.readFileSync(fixture.paths.progress);
+  fs.rmSync(first.receipt_path);
+
+  const replay = recovery.recoverChapterDraft(options);
+  assert.equal(replay.attempt, first.attempt);
+  assert.deepEqual(replay.acceptance, first.acceptance);
+  assert.deepEqual(fs.readFileSync(replay.receipt_path), receiptBefore);
+  assert.deepEqual(fs.readFileSync(fixture.paths.progress), progressBefore);
+});
+
 test('recoverChapterDraft rejects source not discovered by guard', () => {
   const fixture = chapterFixture('恢复未发现试书', 'run-recovery-not-discovered');
   const misplacedPath = path.join(fixture.paths.novel, 'misplaced_not_discovered.yaml');
@@ -333,4 +447,43 @@ test('recoverChapterDraft rejects source not discovered by guard', () => {
   );
 
   fs.rmSync(otherPath, { force: true });
+});
+
+test('recoverChapterDraft rejects a conflicting receipt before changing acceptance state', () => {
+  const fixture = chapterFixture('恢复收据冲突试书', 'run-recovery-receipt-conflict');
+  const misplacedPath = path.join(fixture.paths.novel, 'misplaced_conflict.yaml');
+  const guardId = openGuardWithViolation(fixture, misplacedPath);
+  writeYaml(misplacedPath, validDraft(fixture.chapter));
+  workerGuard.checkWorkerGuard({
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    guardId
+  });
+
+  fs.mkdirSync(fixture.paths.draftRecoveries, { recursive: true });
+  const receiptPath = path.join(
+    fixture.paths.draftRecoveries,
+    'chapter_001_attempt_01_recovery.json'
+  );
+  fs.writeFileSync(receiptPath, '{"schema_version":1,"conflict":true}\n', 'utf8');
+  const progressBefore = fs.readFileSync(fixture.paths.progress);
+  const receiptBefore = fs.readFileSync(receiptPath);
+  const destinationPath = path.join(fixture.paths.staging, 'chapter_001_attempt_01.yaml');
+
+  assert.throws(
+    () => recovery.recoverChapterDraft({
+      repositoryRoot: fixture.paths.novel,
+      paths: fixture.paths,
+      manifest: fixture.manifest,
+      unit: 'chapter:001',
+      sourcePath: misplacedPath,
+      confirmed: true,
+      guardId
+    }),
+    error => error.code === 'RECOVERY_RECEIPT_CONFLICT'
+  );
+
+  assert.deepEqual(fs.readFileSync(fixture.paths.progress), progressBefore);
+  assert.deepEqual(fs.readFileSync(receiptPath), receiptBefore);
+  assert.equal(fs.existsSync(destinationPath), false);
 });

@@ -4,10 +4,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const yaml = require('js-yaml');
 
-const { acceptDraft } = require('./accept');
+const { commitSubmission } = require('./accept');
 const { validateChapterDraft } = require('./chapter-contract');
 const { GameKbError } = require('./errors');
-const { atomicWriteFile, serializeYaml, writeImmutableJson } = require('./io');
+const { atomicWriteFile, readJson, serializeYaml, writeImmutableJson } = require('./io');
 const { loadProgress } = require('./progress');
 const { stagingPathFor } = require('./paths');
 const { sha256 } = require('./source');
@@ -84,7 +84,37 @@ function nextAttempt(progress, unit, inputHash) {
   return !state || state.input_hash !== inputHash ? 1 : state.attempts + 1;
 }
 
-function recoverChapterDraft({ repositoryRoot, paths, manifest, unit, sourcePath, confirmed, guardId }) {
+function recoveryFiles(paths, unit, attempt) {
+  const base = `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}_recovery`;
+  return {
+    binding: path.join(paths.draftRecoveries, `${base}-binding.json`),
+    result: path.join(paths.draftRecoveries, `${base}-result.json`),
+    receipt: path.join(paths.draftRecoveries, `${base}.json`)
+  };
+}
+
+function openRecoveryBinding(file, candidate) {
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  if (fs.existsSync(file)) {
+    let existing;
+    try {
+      existing = readJson(file);
+    } catch (error) {
+      throw new GameKbError('RECOVERY_RECEIPT_CONFLICT', 'Recovery binding is not valid JSON', {
+        binding: file,
+        cause: error.message
+      });
+    }
+    const replayCandidate = { ...candidate, recovered_at: existing?.recovered_at };
+    writeImmutableJson(file, replayCandidate, 'RECOVERY_RECEIPT_CONFLICT');
+    return existing;
+  }
+  const binding = { ...candidate, recovered_at: new Date().toISOString() };
+  writeImmutableJson(file, binding, 'RECOVERY_RECEIPT_CONFLICT');
+  return binding;
+}
+
+function recoverChapterDraft({ repositoryRoot, paths, manifest, unit, sourcePath, confirmed, guardId, faultAt }) {
   if (!confirmed) {
     throw new GameKbError('RECOVERY_NOT_CONFIRMED', 'Recovery requires explicit confirmation', { unit });
   }
@@ -158,58 +188,104 @@ function recoverChapterDraft({ repositoryRoot, paths, manifest, unit, sourcePath
     });
   }
 
-  // Derive current attempt from progress
+  const canonicalYaml = serializeYaml(draft);
+  const sourceHash = sha256(raw);
+  const destinationHash = sha256(canonicalYaml);
+
+  // Derive current attempt from progress, while allowing one bound recovery to finish.
   const progress = loadProgress(paths, manifest);
   const existing = progress.units[unit];
-  if (existing?.input_hash === chapter.input_hash && existing.status === 'done') {
+  const completedAttempt = existing?.input_hash === chapter.input_hash && existing.status === 'done'
+    ? existing.attempts
+    : null;
+  const completedFiles = completedAttempt ? recoveryFiles(paths, unit, completedAttempt) : null;
+  const completedSubmissionId = completedAttempt
+    ? `submission:${unit}:attempt:${completedAttempt}:${chapter.input_hash}`
+    : null;
+  const completedReplay = Boolean(
+    completedFiles
+    && fs.existsSync(completedFiles.binding)
+    && existing.last_submission_id === completedSubmissionId
+  );
+  if (completedAttempt && !completedReplay) {
     throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be recovered', { unit });
   }
   if (existing?.input_hash === chapter.input_hash && existing.status === 'manual_review') {
     throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit });
   }
-  const currentAttempt = nextAttempt(progress, unit, chapter.input_hash);
-
-  // Determine destination (staging path for current attempt)
+  const currentAttempt = completedReplay ? completedAttempt : nextAttempt(progress, unit, chapter.input_hash);
+  const files = recoveryFiles(paths, unit, currentAttempt);
   const destinationPath = stagingPathFor(paths, unit, currentAttempt);
 
-  if (fs.existsSync(destinationPath)) {
-    throw new GameKbError('RECOVERY_DESTINATION_EXISTS', 'Destination staging path already exists', {
-      destination: destinationPath
+  if (fs.existsSync(files.receipt) && !fs.existsSync(files.binding)) {
+    throw new GameKbError('RECOVERY_RECEIPT_CONFLICT', 'Recovery receipt already exists for this attempt', {
+      receipt: files.receipt,
+      unit,
+      attempt: currentAttempt
     });
   }
 
-  // Write canonical YAML to destination
-  const canonicalYaml = serializeYaml(draft);
-  atomicWriteFile(destinationPath, canonicalYaml);
-
-  // Call acceptDraft with the destination path (before writing receipt)
-  const acceptance = acceptDraft({ paths, unit, draftPath: destinationPath });
-
-  // Create immutable receipt only after successful acceptance
-  const receiptDir = paths.draftRecoveries;
-  fs.mkdirSync(receiptDir, { recursive: true });
-  const receiptFile = path.join(receiptDir, `${unit.replaceAll(':', '_')}_attempt_${String(currentAttempt).padStart(2, '0')}_recovery.json`);
-
-  const receipt = {
+  const binding = openRecoveryBinding(files.binding, {
     schema_version: 1,
-    guard_id: guardId || null,
+    guard_id: guardId,
     unit,
     attempt: currentAttempt,
     source_path: resolvedSource,
     destination_path: destinationPath,
-    source_hash: sha256(raw),
-    destination_hash: sha256(canonicalYaml),
-    recovered_at: new Date().toISOString()
-  };
+    source_hash: sourceHash,
+    destination_hash: destinationHash
+  });
+  if (faultAt === 'binding') {
+    throw new GameKbError('RECOVERY_FAULT_INJECTED', 'Fault after recovery phase', { phase: faultAt });
+  }
 
-  writeImmutableJson(receiptFile, receipt, 'RECOVERY_RECEIPT_CONFLICT');
+  if (fs.existsSync(destinationPath)) {
+    const existingDestinationHash = sha256(fs.readFileSync(destinationPath));
+    if (existingDestinationHash !== destinationHash) {
+      throw new GameKbError('RECOVERY_DESTINATION_EXISTS', 'Destination staging path already exists with different content', {
+        destination: destinationPath,
+        existing_hash: existingDestinationHash,
+        expected_hash: destinationHash
+      });
+    }
+  } else if (!completedReplay) {
+    atomicWriteFile(destinationPath, canonicalYaml);
+  }
+  if (!completedReplay && faultAt === 'staging-written') {
+    throw new GameKbError('RECOVERY_FAULT_INJECTED', 'Fault after recovery phase', { phase: faultAt });
+  }
+
+  const submissionId = `submission:${unit}:attempt:${currentAttempt}:${chapter.input_hash}`;
+  const acceptance = commitSubmission({
+    paths,
+    unit,
+    attempt: currentAttempt,
+    inputHash: chapter.input_hash,
+    submissionId,
+    evidenceText: canonicalYaml,
+    evidenceExtension: '.yaml',
+    stagingPath: destinationPath,
+    draft,
+    prevalidationErrors: null,
+    recordedAt: binding.recovered_at,
+    checkpoint: phase => {
+      if (faultAt === phase) {
+        throw new GameKbError('RECOVERY_FAULT_INJECTED', 'Fault after recovery phase', { phase });
+      }
+    }
+  });
+  writeImmutableJson(files.result, acceptance, 'RECOVERY_RECEIPT_CONFLICT');
+  if (faultAt === 'result') {
+    throw new GameKbError('RECOVERY_FAULT_INJECTED', 'Fault after recovery phase', { phase: faultAt });
+  }
+  writeImmutableJson(files.receipt, binding, 'RECOVERY_RECEIPT_CONFLICT');
 
   return {
     unit,
     attempt: currentAttempt,
     source_path: resolvedSource,
     destination_path: destinationPath,
-    receipt_path: receiptFile,
+    receipt_path: files.receipt,
     acceptance
   };
 }
