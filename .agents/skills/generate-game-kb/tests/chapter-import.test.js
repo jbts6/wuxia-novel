@@ -32,8 +32,15 @@ function copyDirectory(source, target) {
 function copyLegacyNovel() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-import-'));
   const novel = path.join(root, '古龙', '剑神一笑');
-  fs.mkdirSync(path.dirname(novel), { recursive: true });
-  copyDirectory(SOURCE_NOVEL, novel);
+  fs.mkdirSync(novel, { recursive: true });
+  fs.copyFileSync(
+    path.join(SOURCE_NOVEL, '剑神一笑.txt'),
+    path.join(novel, '剑神一笑.txt')
+  );
+  copyDirectory(
+    pathsFor(SOURCE_NOVEL, SOURCE_RUN).run,
+    pathsFor(novel, SOURCE_RUN).run
+  );
   return novel;
 }
 
