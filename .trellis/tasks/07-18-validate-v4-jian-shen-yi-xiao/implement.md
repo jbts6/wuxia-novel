@@ -358,34 +358,34 @@
 
 **Run IDs:**
 - Read-only source: `run-jian-shen-yi-xiao-v4-real-20260718`
-- New target: `run-jian-shen-yi-xiao-v4-v6-20260718`
+- New target: `run-jian-shen-yi-xiao-v4-v6-final-20260719`
 
-- [ ] **Step 1: Run all deterministic gates**
+- [x] **Step 1: Run all deterministic gates**
 
   Run the complete V4 Node suite, JavaScript syntax checks, skill validator,
   `dashboard` test/lint/build, and `rtk git diff --check`. Stop on any failure.
 
-- [ ] **Step 2: Prepare the explicit v6 run**
+- [x] **Step 2: Prepare the explicit v6 run**
 
   Use production `prepare` with the target run ID and confirm semantic version 6,
   profile V4, Chinese paths, 20 chapters, and seven groups `[3,3,3,3,3,3,2]`.
 
-- [ ] **Step 3: Import the 20 accepted version-5 chapters**
+- [x] **Step 3: Import the 20 accepted version-5 chapters**
 
   Run the real `import-chapters` command with both run IDs and `--confirm`.
   Record the migration receipt and old/new hashes; verify the source run bytes are unchanged.
 
-- [ ] **Step 4: Generate and accept all four v6 domains**
+- [x] **Step 4: Generate and accept all four v6 domains**
 
   Dispatch only current controller descriptors. Workers read the complete ordered source/evidence timeline and write exact staging paths. The main agent accepts serially. Apply one automatic retry maximum; stop at manual review.
 
-- [ ] **Step 5: Assemble, verify, install, verify installed, and archive**
+- [x] **Step 5: Assemble, verify, install, verify installed, and archive**
 
   Record the five filenames, five raw file hashes, final-data hash, ID-registry
   hash, verification-report hash, backup path, install receipt, installed
   verification, archive manifest, and archive receipt.
 
-- [ ] **Step 6: Verify Dashboard data and commit evidence**
+- [x] **Step 6: Verify Dashboard data and commit evidence**
 
   Load the installed book through Dashboard tests or the local app, confirm name resolution/reverse indexes and no legacy fields, append exact evidence to the Trellis journal, rerun all gates, and commit:
   `test(game-kb): validate Jian Shen Yi Xiao v6 lifecycle`

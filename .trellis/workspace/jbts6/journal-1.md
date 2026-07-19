@@ -40,6 +40,56 @@
 - None - task complete
 
 
+## Session 22: 《剑神一笑》V4 semantic contract v6 真实生命周期验收
+
+**Date**: 2026-07-19
+**Task**: `07-18-validate-v4-jian-shen-yi-xiao`
+**Branch**: `main`
+
+### Summary
+
+完成 `古龙/剑神一笑` 的生产 V4 semantic-contract version 6 全生命周期，不再以通用单元测试替代真实语料验收。最终 run `run-jian-shen-yi-xiao-v4-v6-final-20260719` 经 `prepare -> import-chapters -> plan-domains -> four domain accepts -> assemble -> verify -> install -> verify --installed -> archive-run` 全部硬门，并在归档后再次通过 installed-only verification。
+
+### Real-corpus evidence
+
+- 小说目录和所有 controller/worker descriptor 全程保留中文绝对路径；原文哈希为 `sha256:e22d8017ed92b999a2da0f5fbb4ac063b318b13a55918d8a9f12f041e0d04c36`。
+- `prepare` 识别 20 章，动态相邻作业为七组 `[3, 3, 3, 3, 3, 3, 2]`。
+- 从只读 run `run-jian-shen-yi-xiao-v4-real-20260718` 受控导入 20 章；迁移收据 raw hash 为 `sha256:fb02e884996a39f6050bca01c6026a3c04687458960a32da898e4e002429d9ca`，新旧 candidate registry 均为 `sha256:949cd8a1bd873085e1ff698a2e6fdde4a362aa30e7c19aeaf83cf25e279616fb`。
+- 旧 V5 run 在归档前后均为 101 个文件，树哈希均为 `sha256:0f098e0ca3a5899f98e1e9bd5814819ba49e763fd106986f2961a6d852876309`，确认未修改。
+- 四域由主代理按固定顺序串行 accept，全部一次通过且无 manual review：factions `15 keep / 4 merge / 1 reject`；characters `47 keep / 132 merge`；skills `9 keep / 5 merge`；items `12 keep / 2 merge / 7 reject`。
+- Dashboard-facing 五文件实体/摘要计数：characters 47、factions 15、skills 9、items 12、chapter summaries 20。
+
+### Publication and receipt evidence
+
+- `final_data_hash`: `sha256:6410b0dfd2ad058023ec475b64fbc27c32ff19ed0c9c364647b1563c34fc49ff`。
+- 五文件 raw hashes：`chapter_summaries.yaml=sha256:8bc1f96bb543de89391355eb44fce1115f4179a34d343d1d82a7b846a0d24ae6`；`characters.yaml=sha256:80496df6855378dcf6ef120080296adf4870657de4b81f9e8a1075c9cd0f7dbb`；`factions.yaml=sha256:dd3b5e2439fbe5b02b7f3f95c25def3d0e31d5bff4afaf0deb186545c1fa0901`；`items.yaml=sha256:9422073a0477788179a3015eb8953a775af7765c50663943014af828b2a94136`；`skills.yaml=sha256:b997108fd7031521390ac74127211e2459a5245c23419af8400a3d8b038c4f75`。
+- Workspace verification passed with 0 errors；verification report raw hash 为 `sha256:e2538115ac2f186029433478bb401601f5dcdbbfab74c26b36cc8ffc23f3510a`。
+- 旧 `data/` 精确备份到 `_archive/2026-07-19T03-54-54-469Z-pre-generate-game-kb/data`；备份与安装前五文件树哈希均为 `sha256:8714172269ed8f5e7068f46231d77277e7d9d1a35b54fbc546c5a01c3e4f1d2d`。
+- 安装收据为 schema 2，`data_file_hashes` 与当前五个 YAML 原始字节逐项完全一致；安装前、归档前、归档后三次 installed-only verification 均通过且 0 errors。
+- `id_plan_hash` 为 controller 统一定义的排序键 JSON 语义哈希 `sha256:b58d36910ebb9e6a10d26f4aa8e7356d7a9f4ed6440db6467eba47b4acc74fa2`；归档收据分别绑定该语义哈希、迁移收据 raw hash、verification report raw hash 与 artifact manifest raw hash。
+- 最终归档位于 `_archive/generate-game-kb/run-jian-shen-yi-xiao-v4-v6-final-20260719`，80 个文件；artifact manifest 25/25 entries 重算匹配，manifest raw hash 为 `sha256:7fd0b168593c3d50aa298828b0ef678e084d6464613fe508944c1b10cabfba0d`。
+
+### Final quality gates
+
+- 完整 V4 suite：43 个 test files 新鲜运行两次均 exit 0；紧邻生命周期前的精确 TAP 汇总为 336/336 tests passed。
+- 生产 JavaScript syntax：34/34 passed。
+- V4 Skill validator：`Skill is valid!`。
+- Dashboard：30/30 test files、126/126 tests passed；lint 0 errors、1 个既有 TanStack incompatible-library warning；build passed，2089 modules transformed，仅保留既有 chunk-size warning。
+- Dashboard 生产 API 对当前安装目录返回 HTTP 200、`browseable: true`；83 个实体 ID 全局唯一，人物→势力 15 条、人物→武功 14 条、武功→势力 1 条，悬空引用与 legacy-field 均为 0。ID-name maps 为 47/9/12/15，反向索引 `skillUsers` 14 条、`factionMembers` 15 条，与正向引用完全一致。
+- Dashboard 的旧完成度状态仍为 `completed: false` / `not-validated`，原因是扫描器还检查历史 `ch_split` 和旧 build/report 文件；它不影响五 YAML 的 browseable 门或实际 `useNovelStore.loadData` 加载。
+- `verify --installed` 在 run 已移动到 archive 后仍通过，证明未回退 live workspace。
+
+### Scope and next step
+
+- 本阶段提交真实安装产物 `古龙/剑神一笑/data/`、两份 Dashboard 外报告、Trellis lifecycle checklist 与本 journal 证据。
+- 用户原有未跟踪 `.workbuddy/` 和 `docs/wuxia-kb-build-priority.md` 保持不动且不纳入提交。
+- V4 真实语料门已满足；下一阶段只能从此已验证合同提取 `generate-game-kb-lite` 和四个按需 deep skills，仍按阶段分别提交。
+
+### Status
+
+[OK] **V4 real-corpus lifecycle and publication gate passed; ready for the Lite extraction phase**
+
+
 ## Session 21: 《剑神一笑》V4 semantic-contract V6 真实生命周期验证
 
 **Date**: 2026-07-19
