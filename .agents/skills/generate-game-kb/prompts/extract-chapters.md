@@ -23,8 +23,9 @@ title: 第一章 xxx
 source_hash: "sha256:xxx"
 
 factions:
-  - local_key: "faction:青城派"
+  - local_key: "faction_青城派"
     name: 青城派
+    aliases: []
     type: 门派
     description: null
     source_refs:
@@ -34,10 +35,13 @@ factions:
 characters:
   - local_key: "character:甲"
     name: 甲
+    aliases: []
+    identities: []
     level: null
     rank: null
-    faction: null
-    biography: null
+    description: null
+    factions: []
+    skills: []
     source_refs:
       - chapter: 1
         text: 原文锚点
@@ -45,13 +49,14 @@ characters:
 skills:
   - local_key: "skill:内功"
     name: 玄门内功
-    type: 内功
+    aliases: []
+    types: [内功]
     rank: null
-    faction: null
     description: null
+    factions: []
     techniques:
       - name: 飞云掌
-        named_in_source: true
+        description: null
     source_refs:
       - chapter: 1
         text: 原文锚点
@@ -59,9 +64,9 @@ skills:
 items:
   - local_key: "item:回生丹"
     name: 回生丹
+    aliases: []
     type: 丹药
     description: null
-    inclusion_reason: null
     source_refs:
       - chapter: 1
         text: 原文锚点
@@ -81,10 +86,11 @@ chapter_summary:
 - `local_key` 使用 `category:名称`，不要写正式 `id`、`candidate_key` 或其他控制器字段。
 - `rank` 只能使用合同中的八级固定值；证据不足时为 null。
 - 人物 `level` 只能使用 `核心/重要/次要/龙套/背景`；证据不足时为 null。
-- `faction` 只能引用本章明确出现的势力 `local_key`；不明确时为 null。
-- `biography`、`description` 和 `inclusion_reason` 只能复述本章原文直接支持的内容；不确定时为 null。
-- `techniques` 嵌套在 `skills` 中；每个招式必须有名称且 `named_in_source: true`。
-- 物品类型使用 `武器/防具/秘籍/丹药/暗器/其他`；只有证据明确属于关键类别时才填写 `inclusion_reason`。
+- `factions` 只能引用本章明确出现的势力 `local_key` 数组；不明确时为空数组。
+- `description` 只能复述本章原文直接支持的内容；不确定时为 null。
+- `aliases`、`identities`、`types`、`factions` 和 `skills` 按原文首次确认顺序记录并去重。
+- `techniques` 嵌套在 `skills` 中；每个招式必须有原文明确名称，`description` 不确定时为 null。
+- 物品类型使用 `武器/防具/秘籍/丹药/暗器/其他`；只提取合同允许的关键物品。
 
 ## 提交前检查
 

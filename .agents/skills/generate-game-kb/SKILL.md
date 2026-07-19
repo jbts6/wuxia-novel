@@ -9,7 +9,7 @@ description: Use when building the complete source-grounded v4 wuxia game knowle
 
 ## 语义合同
 
-- 可写 run 使用新的 `semantic_contract_version: 5`、`semantic_profile: domain-distill-v1` 和 `profile: v4`。版本 4 的旧 run 只能查询或显式归档。
+- 可写 run 使用新的 `semantic_contract_version: 6`、`semantic_profile: domain-distill-v1` 和 `profile: v4`。版本 5 及更早的旧 run 只能查询、迁移或显式归档。
 - 旧合同 run 只能查询状态或显式归档；任何继续写入都必须失败并报告 `LEGACY_SEMANTIC_CONTRACT`，不得原地升级。
 - 所有中间路径都位于小说目录内。中文作者目录、中文书名目录和空格不会改变路径合同；命令参数必须整体加引号。
 
@@ -26,7 +26,7 @@ data/
 └── chapter_summaries.yaml
 ```
 
-最终字段来自 `schemas.md`：人物包含 `id/name/aliases/identity/level/rank/biography/faction/skills/items`；武功包含 `id/name/type/faction/rank/description/techniques`；物品和势力包含 `id/name/type/description`；章节摘要包含 `chapter/title/summary`。最终文件不保留 source_refs，source_refs 必须存在于 YAML 草稿和 accepted 证据中。
+最终字段来自 `schemas.md`：人物包含 `id/name/aliases/identities/level/rank/description/factions/skills`；武功包含 `id/name/aliases/types/factions/rank/description/techniques`；物品和势力包含 `id/name/aliases/type/description`；章节摘要包含 `chapter/title/summary`。最终文件不保留 source_refs，source_refs 必须存在于 YAML 草稿和 accepted 证据中。
 
 run 内必须生成并通过以下控制器产物：
 
@@ -34,9 +34,9 @@ run 内必须生成并通过以下控制器产物：
 - `final/reports/verification-report.json`：原文哈希、证据闭包、引用闭包、schema 和最终哈希验证结果。
 - `artifact-manifest.json`：accepted YAML 与控制器元数据的相对路径、输入哈希和内容哈希。
 - `<novel>/reports/generate_game_kb_install.json`（合同名称 `install-receipt.json`）：安装位置、五文件哈希、`source_hash`、`final_data_hash` 和 verification report 哈希。
-- `<novel>/_archive/generate-game-kb/<run-id>/archive-receipt.json`：归档目录、artifact-manifest 哈希和 verification report 哈希。
+- `<novel>/_archive/generate-game-kb/<run-id>/archive-receipt.json`：归档目录、artifact-manifest 哈希、verification report 哈希、final data 哈希、id plan 哈希和可选 `migration_receipt_hash`。
 
-只有 `verification-report.json` 通过、安装收据绑定五文件哈希、`verify --installed` 通过、再由 `archive-run` 写入归档收据，才算完成。任何哈希漂移、缺文件、引用悬空、证据缺失或 `manual_review` 都阻断完成。
+只有 `verification-report.json` 通过、安装收据绑定五文件哈希和 `final_data_hash/id_plan_hash/verification_report_hash`、`verify --installed` 通过、再由 `archive-run` 写入归档收据，才算完成。任何哈希漂移、缺文件、引用悬空或证据缺失都阻断完成；rank 证据不足时可以为 null，不因 null 自动进入 `manual_review`，只有不可调和的 rank 冲突才阻断。
 
 ## 完整生命周期
 
@@ -66,7 +66,7 @@ archive-existing
 - `古龙/剑神一笑/剑神一笑.txt` 的 20 章集成测试应得到七个作业，章节数为 `[3, 3, 3, 3, 3, 3, 2]`。
 - 每个章节 descriptor 只包含 controller 当前签发的一个 `attempt` 和一个 `staging_path`。子代理和主代理都使用该绝对路径；不得读取或构造旧路径列表，不得自行递增 attempt。
 
-章节 YAML 顶层只能包含 `schema_version/chapter/title/source_hash/characters/skills/items/factions/chapter_summary`。四类候选和摘要都必须有可核验的 `source_refs`；不确定字段写 null 或省略。招式嵌套在 `skills[].techniques[]`，且 `named_in_source: true`。
+章节 YAML 顶层只能包含 `schema_version/chapter/title/source_hash/characters/skills/items/factions/chapter_summary`。四类候选和摘要都必须有可核验的 `source_refs`；不确定字段写 null 或省略。人物的 `identities/factions/skills` 与武功的 `aliases/types/factions` 都是数组；招式嵌套在 `skills[].techniques[]`，每个招式只保留原文明确名称和可核验的 `description`。
 
 并发池初始为 5；429 处理为 `5 → 3`，即同一 batch 首次明确 429 后降为 3；在 3 并发再次遇到不同 batch 的 429，停止 Worker 池并报告限流。传输失败不消耗提交次数。
 
@@ -76,7 +76,13 @@ archive-existing
 
 `distill:factions`、`distill:characters`、`distill:skills`、`distill:items`。
 
-四域可以并发生成 draft，但主模型按固定展示顺序串行 `accept`。每域只能依据已 accepted 的章节 YAML 和原文证据：人物和武功保留全书最高可靠 rank，武功的 techniques 必须来自原文明确定名内容，物品只保留允许的关键类别，势力合并同名实体并保持稳定 ID。faction 引用延迟到 `assemble` 统一解析。领域 draft 仍是 YAML，禁止把 JSON 当知识数据提交。
+四域可以并发生成 draft，但主模型按固定展示顺序串行 `accept`。人物和武功工作项包含 controller 签发的全书 `source_files` 与 `rank_contract`；worker 必须按章节顺序完整读取全部原文后定级。章节层和域层 `rank` 都可以是 null 或省略；只有完整时间线证据足够时才填写八级 rank，证据不足不阻断 keep。
+
+最终 rank 是完整时间线上的稳定判断，不取某章最高描写。后期直接战果、真实失败、被克制和反转优先于早期吹捧；当场行动优先于旁观评价；传闻、自述和身份光环不能单独支持高 rank。人物 rank 表示全书结束时仍可支持的综合战力；武功 rank 表示可靠使用者实际展示且未被后文推翻的稳定上限。具体八级标尺以工作项内 controller 注入的 `rank_contract` 为准。
+
+武功的 techniques 必须来自原文明确定名内容，物品只保留允许的关键类别，势力合并同名实体并保持稳定 ID。人物和武功的 `factions` 引用延迟到 `assemble` 统一解析。领域 draft 仍是 YAML，禁止把 JSON 当知识数据提交。
+
+旧的 pending 人物/武功工作项若尚未提交、缺少全书输入，只能由主代理在用户确认后调用 `refresh-domain-work --confirm` 重新签发。该命令只接受 `attempts: 0` 的 `distill:characters` 或 `distill:skills`；不得手改 input、hash、plan 或 progress，也不得刷新已 accepted 的域。
 
 ## 有界失败与恢复
 
@@ -102,6 +108,7 @@ node .agents/skills/generate-game-kb/scripts/flow.js accept "C:\git\wuxia-novel\
 node .agents/skills/generate-game-kb/scripts/flow.js retry-unit "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit chapter:001 --confirm --json
 node .agents/skills/generate-game-kb/scripts/flow.js basic-curate "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --skip --json
 node .agents/skills/generate-game-kb/scripts/flow.js plan-domains "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+node .agents/skills/generate-game-kb/scripts/flow.js refresh-domain-work "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit distill:characters --confirm --json
 node .agents/skills/generate-game-kb/scripts/flow.js accept "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit distill:characters --draft "C:\git\wuxia-novel\古龙\剑神一笑\.game-kb-work\runs\run-jian-shen-yi-xiao\staging\distill_characters_attempt_01.yaml" --json
 node .agents/skills/generate-game-kb/scripts/flow.js assemble "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
 node .agents/skills/generate-game-kb/scripts/flow.js verify "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
@@ -136,4 +143,4 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-run "C:\git\wuxia-n
 
 ## 阻断条件
 
-人物或武功缺可靠 rank、招式没有原文命名依据、普通物品进入物品库、source_refs 章节号不匹配、稳定 ID 或引用闭包不完整、输入或 accepted 哈希漂移、安装验证失败、连续失败进入 `manual_review`，都必须停在当前阶段并报告可执行恢复命令。
+不可调和的 rank 冲突、招式没有原文命名依据、普通物品进入物品库、source_refs 章节号不匹配、稳定 ID 或引用闭包不完整、输入或 accepted 哈希漂移、安装验证失败、连续失败进入 `manual_review`，都必须停在当前阶段并报告可执行恢复命令；单纯缺少 rank 不属于阻断条件。

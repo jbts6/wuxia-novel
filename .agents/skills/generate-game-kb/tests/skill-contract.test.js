@@ -11,6 +11,9 @@ const skill = fs.readFileSync(path.join(skillRoot, 'SKILL.md'), 'utf8');
 const extraction = fs.readFileSync(path.join(skillRoot, 'prompts', 'extract-chapters.md'), 'utf8');
 const domainPrompt = fs.readFileSync(path.join(skillRoot, 'prompts', 'distill-domain.md'), 'utf8');
 const schemas = fs.readFileSync(path.join(skillRoot, 'schemas.md'), 'utf8');
+const examples = fs.existsSync(path.join(skillRoot, 'examples.md'))
+  ? fs.readFileSync(path.join(skillRoot, 'examples.md'), 'utf8')
+  : '';
 const backendSpec = fs.readFileSync(path.resolve(skillRoot, '../../../.trellis/spec/backend/quality-guidelines.md'), 'utf8');
 const fastProfile = backendSpec.slice(backendSpec.indexOf('## Scenario: Fast Game-Material Knowledge Base Profile'));
 
@@ -31,7 +34,7 @@ function yamlExampleAfter(text, heading) {
 
 test('AI drafts, accepted artifacts, and final data are YAML while controller state stays JSON', () => {
   for (const [name, text] of docs) assert.match(text, /YAML/i, name);
-  assert.match(skill, /staging\/[\s\S]*\.yaml/);
+  assert.match(`${skill}\n${examples}`, /staging\/[\s\S]*\.yaml/);
   assert.match(skill, /accepted\/[\s\S]*\.yaml/);
   assert.match(skill, /accepted\/[\s\S]*\.yaml/);
   assert.match(skill, /final\/data\/[\s\S]*\.yaml/);
@@ -52,17 +55,21 @@ test('legacy domain documentation retains the shared four domain units in stable
   }
 });
 
-test('chapter drafts have four entity arrays, nested techniques, and chapter_summary.summary', () => {
+test('chapter drafts have four v6 entity arrays, nested techniques, and chapter_summary.summary', () => {
   for (const text of [extraction, schemas]) {
     assert.match(text, /characters:/);
     assert.match(text, /skills:[\s\S]*techniques:/);
     assert.match(text, /items:/);
     assert.match(text, /factions:/);
     assert.match(text, /chapter_summary:[\s\S]*summary:/);
-    assert.match(text, /named_in_source:\s*true/);
     assert.match(text, /source_refs:/);
     assert.doesNotMatch(text, /^(?:events|locations|dialogues|techniques):/m);
+    assert.doesNotMatch(text, /\bbiography\b|\bholders?\b|\bowners?\b|\bmembers?\b|\busers?\b/i);
   }
+  assert.match(extraction, /identities:/);
+  assert.match(extraction, /factions:/);
+  assert.match(extraction, /types:/);
+  assert.match(extraction, /description:/);
 });
 
 test('final documentation names five YAML files and only simplified top-level fields', () => {
@@ -96,22 +103,22 @@ test('workspace and installed verification are bound to five YAML files and cont
   assert.doesNotMatch(fastProfile, /top-level[^\r\n]*(?:events|locations|dialogues|techniques)|顶层[^\r\n]*(?:events|locations|dialogues|techniques)/i);
 });
 
-test('the writable V4 Skill is semantic contract version 5 with a v4 profile and old runs stay fail-closed', () => {
-  assert.match(skill, /semantic_contract_version[^\r\n]*5/);
+test('the writable V4 Skill is semantic contract version 6 with a v4 profile and old runs stay fail-closed', () => {
+  assert.match(skill, /semantic_contract_version[^\r\n]*6/);
   assert.match(skill, /profile:\s*v4/);
   assert.match(skill, /LEGACY_SEMANTIC_CONTRACT/);
   assert.match(skill, /不得.*原地.*升级|不.*原地.*升级/);
-  assert.match(skill, /版本 4[^\r\n]*(?:查询|归档)/);
+  assert.match(skill, /版本 5[^\r\n]*(?:查询|归档|迁移)/);
 });
 
-test('current domain YAML examples use the writable semantic contract version 5', () => {
+test('current domain YAML examples use the writable semantic contract version 6', () => {
   for (const [name, text, heading] of [
     ['distill-domain.md', domainPrompt, '## YAML 模板'],
     ['schemas.md', schemas, '## 域蒸馏草稿示例']
   ]) {
     const example = yamlExampleAfter(text, heading);
     assert.equal(example.schema_version, 1, name);
-    assert.equal(example.semantic_contract_version, 5, name);
+    assert.equal(example.semantic_contract_version, 6, name);
     assert.match(example.unit, /^distill:/, name);
   }
 });
