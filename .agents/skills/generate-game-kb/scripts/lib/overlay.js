@@ -21,7 +21,7 @@ const { verifyDataRoot } = require('./verify');
 
 const ACTIONS = new Set(['keep', 'merge', 'drop', 'patch']);
 const PATCH_FIELDS = Object.freeze({
-  characters: new Set(['name', 'aliases', 'identity', 'level', 'rank', 'biography', 'faction', 'skills', 'items']),
+  characters: new Set(['name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills']),
   skills: new Set(['name', 'type', 'faction', 'rank', 'description', 'techniques']),
   items: new Set(['name', 'type', 'description']),
   factions: new Set(['name', 'type', 'description'])

@@ -135,7 +135,8 @@ function assertBytesEqual(file, expected) {
 
 test('archive-run moves the complete verified v4 run and keeps installed consumers', () => {
   const { commands, installed, novel, paths, runId } = installedV4Fixture();
-  const expectedVerificationReportHash = readJson(paths.runJson).verification_report_hash;
+  const installedMetadata = readJson(paths.runJson);
+  const expectedVerificationReportHash = installedMetadata.verification_report_hash;
   const receipt = archiveRun(novel, runId);
   const archive = path.join(novel, '_archive', 'generate-game-kb', runId);
 
@@ -146,7 +147,11 @@ test('archive-run moves the complete verified v4 run and keeps installed consume
   ]);
   assert.equal(receipt.status, 'archived');
   assert.equal(receipt.run_id, runId);
+  assert.match(receipt.artifact_manifest_hash, /^sha256:[a-f0-9]{64}$/);
   assert.equal(receipt.verification_report_hash, expectedVerificationReportHash);
+  assert.equal(receipt.final_data_hash, installed.final_data_hash);
+  assert.equal(receipt.id_plan_hash, installedMetadata.id_plan_hash);
+  assert.equal(receipt.migration_receipt_hash, null);
   assert.equal(
     readJson(path.join(archive, 'archive-receipt.json')).verification_report_hash,
     expectedVerificationReportHash

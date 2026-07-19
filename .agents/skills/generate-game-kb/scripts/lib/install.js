@@ -4,11 +4,12 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
+const { stableHash } = require('./accept');
 const { GameKbError } = require('./errors');
 const { assertAcceptedArtifacts } = require('./candidate-ledger');
 const { CATEGORY_FILES } = require('./finalize');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
-const { pathsFor } = require('./paths');
+const { deferredPathsFor, pathsFor } = require('./paths');
 const { SEMANTIC_CONTRACT_VERSION, resolveWritableRun } = require('./run');
 const { verifyDataRoot, verifyFinal } = require('./verify');
 
@@ -36,6 +37,21 @@ function installPaths(novelDir) {
 
 function fileHash(file) {
   return `sha256:${crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}`;
+}
+
+function jsonHash(file) {
+  return stableHash(readJson(file));
+}
+
+function publishedRunArtifact(novelDir, runId, field) {
+  if (typeof runId !== 'string' || runId === '') return null;
+  let candidates;
+  try {
+    candidates = [pathsFor(novelDir, runId), deferredPathsFor(novelDir, runId)];
+  } catch {
+    return null;
+  }
+  return candidates.map(candidate => candidate[field]).find(file => fs.existsSync(file)) || null;
 }
 
 function isInside(parent, child) {
@@ -164,6 +180,52 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
   if (JSON.stringify(receipt.data_files) !== JSON.stringify(DATA_FILES)) {
     receiptErrors.push({ code: 'INSTALL_DATA_FILES_INVALID', path: 'receipt.data_files', target: '' });
   }
+  if (typeof receipt.run_id !== 'string' || receipt.run_id === '') {
+    receiptErrors.push({ code: 'INSTALL_RUN_ID_MISSING', path: 'receipt.run_id', target: '' });
+  }
+  if (typeof receipt.id_plan_hash !== 'string' || receipt.id_plan_hash === '') {
+    receiptErrors.push({ code: 'INSTALL_ID_PLAN_HASH_MISSING', path: 'receipt.id_plan_hash', target: '' });
+  } else {
+    const idPlanFile = publishedRunArtifact(novelDir, receipt.run_id, 'finalIdPlan');
+    if (!idPlanFile) {
+      receiptErrors.push({ code: 'INSTALL_ID_PLAN_MISSING', path: 'receipt.id_plan_hash', target: receipt.run_id });
+    } else {
+      try {
+        if (jsonHash(idPlanFile) !== receipt.id_plan_hash) {
+          receiptErrors.push({
+            code: 'INSTALL_ID_PLAN_HASH_MISMATCH',
+            path: idPlanFile,
+            target: receipt.id_plan_hash
+          });
+        }
+      } catch (error) {
+        receiptErrors.push({ code: 'INSTALL_ID_PLAN_INVALID', path: idPlanFile, target: error.message });
+      }
+    }
+  }
+  if (receipt.migration_receipt_hash !== null
+    && (typeof receipt.migration_receipt_hash !== 'string' || receipt.migration_receipt_hash === '')) {
+    receiptErrors.push({
+      code: 'INSTALL_MIGRATION_RECEIPT_HASH_INVALID',
+      path: 'receipt.migration_receipt_hash',
+      target: receipt.migration_receipt_hash ?? ''
+    });
+  } else if (typeof receipt.migration_receipt_hash === 'string') {
+    const migrationFile = publishedRunArtifact(novelDir, receipt.run_id, 'chapterImportReceipt');
+    if (!migrationFile) {
+      receiptErrors.push({
+        code: 'INSTALL_MIGRATION_RECEIPT_MISSING',
+        path: 'receipt.migration_receipt_hash',
+        target: receipt.run_id
+      });
+    } else if (fileHash(migrationFile) !== receipt.migration_receipt_hash) {
+      receiptErrors.push({
+        code: 'INSTALL_MIGRATION_RECEIPT_HASH_MISMATCH',
+        path: migrationFile,
+        target: receipt.migration_receipt_hash
+      });
+    }
+  }
 
   const result = verifyDataRoot(paths.data, {
     chapters: Array.isArray(receipt.chapters) ? receipt.chapters : [],
@@ -195,7 +257,12 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
     }
   }
   result.semantic_contract_version = receipt.semantic_contract_version ?? null;
+  result.run_id = typeof receipt.run_id === 'string' ? receipt.run_id : null;
   result.source_hash = typeof receipt.source_hash === 'string' ? receipt.source_hash : null;
+  result.id_plan_hash = typeof receipt.id_plan_hash === 'string' ? receipt.id_plan_hash : null;
+  result.migration_receipt_hash = typeof receipt.migration_receipt_hash === 'string'
+    ? receipt.migration_receipt_hash
+    : null;
   result.chapters = Array.isArray(receipt.chapters) ? receipt.chapters : [];
   result.blocking_errors.push(...receiptErrors);
   result.passed = result.blocking_errors.length === 0;
@@ -274,6 +341,7 @@ function restoreReports(previous, reportsDir) {
 function promoteVerifiedData(novelDir, options) {
   const installed = installPaths(novelDir);
   recoverInterruptedInstall(novelDir);
+  const previousReceipt = readReceipt(installed.receipt);
   const sourceData = path.resolve(options.sourceData);
   const chapters = options.chapters;
   const previousInstalled = options.expectedPreviousHash ? verifyInstalled(novelDir) : null;
@@ -385,8 +453,13 @@ function promoteVerifiedData(novelDir, options) {
       semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
       profile: options.profile || 'v4',
       installer: 'generate-game-kb',
+      run_id: options.runId || previousReceipt?.run_id || options.receiptExtras?.base_run_id,
       source_hash: options.sourceHash,
       final_data_hash: options.finalDataHash,
+      id_plan_hash: options.idPlanHash ?? previousReceipt?.id_plan_hash ?? null,
+      migration_receipt_hash: options.migrationReceiptHash
+        ?? previousReceipt?.migration_receipt_hash
+        ?? null,
       data_files: [...DATA_FILES],
       verification_report_hash: verificationReportHash,
       chapters,
@@ -473,6 +546,16 @@ function installVerifiedData(novelDir, options = {}) {
     throw new GameKbError('INSTALL_VERIFICATION_FAILED', 'Final workspace did not pass installation verification', workspace);
   }
   const manifest = readJson(workPaths.manifest);
+  const idPlanHash = jsonHash(workPaths.finalIdPlan);
+  if (workspace.id_plan_hash && workspace.id_plan_hash !== idPlanHash) {
+    throw new GameKbError('INSTALL_ID_PLAN_HASH_MISMATCH', 'Final ID plan does not match workspace verification', {
+      expected: workspace.id_plan_hash,
+      actual: idPlanHash
+    });
+  }
+  const migrationReceiptHash = fs.existsSync(workPaths.chapterImportReceipt)
+    ? fileHash(workPaths.chapterImportReceipt)
+    : null;
   const chapters = manifest.chapters.map(chapter => ({
     number: chapter.number,
     title: chapter.title,
@@ -493,6 +576,8 @@ function installVerifiedData(novelDir, options = {}) {
     sourceData: workPaths.finalData,
     sourceHash: manifest.source_hash,
     finalDataHash: workspace.final_data_hash,
+    idPlanHash,
+    migrationReceiptHash,
     chapters,
     profile: run.profile,
     verificationReportContent: fs.readFileSync(
@@ -506,6 +591,8 @@ function installVerifiedData(novelDir, options = {}) {
         status: 'installed',
         installed_at: receipt.installed_at,
         final_data_hash: workspace.final_data_hash,
+        id_plan_hash: receipt.id_plan_hash,
+        migration_receipt_hash: receipt.migration_receipt_hash,
         verification_report_hash: receipt.verification_report_hash
       });
     },

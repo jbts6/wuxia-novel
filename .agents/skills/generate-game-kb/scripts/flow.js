@@ -19,6 +19,7 @@ const {
   recordAcceptedArtifact
 } = require('./lib/candidate-ledger');
 const { buildCandidateRegistry } = require('./lib/candidate-registry');
+const { importAcceptedChapters } = require('./lib/chapter-import');
 const { createDomainWorkPlan } = require('./lib/domain-work');
 const {
   addDeferredTask,
@@ -493,6 +494,27 @@ function main(argv = process.argv.slice(2)) {
         manifest: pathsFor(novelDir, run.run_id).manifest
       };
       emit(payload);
+      return;
+    }
+    if (command === 'import-chapters') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'import-chapters requires <novel>');
+      const sourceRunId = flagValue(args, '--from-run');
+      if (!sourceRunId) {
+        throw new GameKbError('SOURCE_RUN_REQUIRED', 'import-chapters requires --from-run <run-id>');
+      }
+      if (!requestedRun) {
+        throw new GameKbError('RUN_REQUIRED', 'import-chapters requires --run <run-id>');
+      }
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      emit(importAcceptedChapters({
+        novelDir,
+        sourceRunId,
+        targetRunId: run.run_id,
+        confirmed: args.includes('--confirm'),
+        faultAt: flagValue(args, '--fault-at')
+      }));
       return;
     }
     if (command === 'plan-domains') {

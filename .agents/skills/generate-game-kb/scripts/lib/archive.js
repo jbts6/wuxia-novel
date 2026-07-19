@@ -4,6 +4,7 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
+const { stableHash } = require('./accept');
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { pathsFor } = require('./paths');
@@ -252,6 +253,10 @@ function archiveRun(novelDir, runId, options = {}) {
   const assembly = readJson(paths.assemblyReport);
   const verification = readJson(paths.verificationReport);
   const verificationReportHash = sha256File(paths.verificationReport);
+  const idPlanHash = stableHash(readJson(paths.finalIdPlan));
+  const migrationReceiptHash = fs.existsSync(paths.chapterImportReceipt)
+    ? sha256File(paths.chapterImportReceipt)
+    : null;
   const expectedHash = assembly?.final_data_hash;
   const workspace = inspectWorkspaceFinal(paths, {
     chapters: manifest.chapters,
@@ -283,6 +288,20 @@ function archiveRun(novelDir, runId, options = {}) {
       code: 'VERIFICATION_REPORT_HASH_MISMATCH',
       path: paths.verificationReport,
       target: metadata.verification_report_hash ?? ''
+    });
+  }
+  if (metadata.id_plan_hash !== idPlanHash) {
+    blockingErrors.push({
+      code: 'ID_PLAN_HASH_MISMATCH',
+      path: paths.finalIdPlan,
+      target: metadata.id_plan_hash ?? ''
+    });
+  }
+  if ((metadata.migration_receipt_hash ?? null) !== migrationReceiptHash) {
+    blockingErrors.push({
+      code: 'MIGRATION_RECEIPT_HASH_MISMATCH',
+      path: paths.chapterImportReceipt,
+      target: metadata.migration_receipt_hash ?? ''
     });
   }
   if (blockingErrors.length > 0) {
@@ -329,6 +348,9 @@ function archiveRun(novelDir, runId, options = {}) {
       archived_at: archivedAt,
       artifact_manifest_hash: sha256File(archivedManifest),
       verification_report_hash: verificationReportHash,
+      final_data_hash: expectedHash,
+      id_plan_hash: idPlanHash,
+      migration_receipt_hash: migrationReceiptHash,
       artifact_count: artifactManifest.entries.length,
       metrics_hash: sha256File(path.join(archiveDir, 'reports', 'run-metrics.json'))
     };

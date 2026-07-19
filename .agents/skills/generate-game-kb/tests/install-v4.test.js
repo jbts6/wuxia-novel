@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
@@ -11,6 +12,7 @@ const {
   installVerifiedData,
   verifyInstalled
 } = require('../scripts/lib/install');
+const { pathsFor } = require('../scripts/lib/paths');
 const { prepareAssembledRun, readJson, runFlow } = require('./helpers');
 
 function pass(result, label) {
@@ -29,10 +31,42 @@ test('install stages exactly five YAML files and archives the previous whole dat
 
   const receipt = pass(runFlow(['install', novel, '--run', prepared.run_id, '--json']), 'install');
   assert.deepEqual(fs.readdirSync(oldData).sort(), [...DATA_FILES].sort());
+  assert.equal(receipt.run_id, prepared.run_id);
+  assert.equal(receipt.semantic_contract_version, readJson(pathsFor(novel, prepared.run_id).runJson).semantic_contract_version);
+  assert.match(receipt.final_data_hash, /^sha256:[a-f0-9]{64}$/);
+  assert.match(receipt.id_plan_hash, /^sha256:[a-f0-9]{64}$/);
+  assert.equal(receipt.migration_receipt_hash, null);
   assert.equal(typeof receipt.verification_report_hash, 'string');
   assert.equal(fs.existsSync(path.join(receipt.backup_path, 'legacy.json')), true);
   assert.equal(readJson(path.join(novel, 'reports', 'generate_game_kb_install.json')).final_data_hash, receipt.final_data_hash);
   assert.equal(verifyInstalled(novel).passed, true);
+});
+
+test('installed verification binds ID plan and optional chapter migration evidence', () => {
+  const idPlanFixture = prepareAssembledRun({ name: 'ID计划漂移试书', runId: 'run-id-plan-drift' });
+  pass(runFlow(['install', idPlanFixture.novel, '--run', idPlanFixture.prepared.run_id, '--json']), 'install ID plan');
+  const idPlan = readJson(idPlanFixture.paths.finalIdPlan);
+  fs.writeFileSync(idPlanFixture.paths.finalIdPlan, `${JSON.stringify({ ...idPlan, tampered: true }, null, 2)}\n`);
+  const idPlanResult = verifyInstalled(idPlanFixture.novel);
+  assert.equal(idPlanResult.passed, false);
+  assert.equal(idPlanResult.blocking_errors.some(error => error.code === 'INSTALL_ID_PLAN_HASH_MISMATCH'), true);
+
+  const migrationFixture = prepareAssembledRun({ name: '迁移凭据漂移试书', runId: 'run-migration-drift' });
+  fs.mkdirSync(path.dirname(migrationFixture.paths.chapterImportReceipt), { recursive: true });
+  fs.writeFileSync(migrationFixture.paths.chapterImportReceipt, '{"schema_version":1,"operation":"import-chapters"}\n');
+  const receipt = pass(runFlow([
+    'install', migrationFixture.novel, '--run', migrationFixture.prepared.run_id, '--json'
+  ]), 'install migration');
+  const expectedMigrationHash = `sha256:${crypto.createHash('sha256')
+    .update(fs.readFileSync(migrationFixture.paths.chapterImportReceipt)).digest('hex')}`;
+  assert.equal(receipt.migration_receipt_hash, expectedMigrationHash);
+  fs.appendFileSync(migrationFixture.paths.chapterImportReceipt, ' ');
+  const migrationResult = verifyInstalled(migrationFixture.novel);
+  assert.equal(migrationResult.passed, false);
+  assert.equal(
+    migrationResult.blocking_errors.some(error => error.code === 'INSTALL_MIGRATION_RECEIPT_HASH_MISMATCH'),
+    true
+  );
 });
 
 test('installed verification requires its receipt and detects data hash drift', () => {
@@ -43,7 +77,7 @@ test('installed verification requires its receipt and detects data hash drift', 
   pass(runFlow(['install', installed.novel, '--run', installed.prepared.run_id, '--json']), 'install drift fixture');
   const charactersFile = path.join(installed.novel, 'data', 'characters.yaml');
   const characters = yaml.load(fs.readFileSync(charactersFile, 'utf8'));
-  characters[0].biography = '被安装后修改。';
+  characters[0].description = '被安装后修改。';
   fs.writeFileSync(charactersFile, yaml.dump(characters, { noRefs: true, lineWidth: -1 }));
   const result = verifyInstalled(installed.novel);
   assert.equal(result.passed, false);

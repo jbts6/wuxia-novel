@@ -54,7 +54,7 @@ test('overlay applies keep merge drop and patch then promotes a verified Dashboa
   const keys = registryKeysByName(fixture.archivedRun);
   const task = addTask(fixture);
   const ready = readyTask(fixture, paths, task, [
-    { action: 'patch', registry_key: keys['甲'], patch: { biography: '甲遍历江湖后返乡。' } },
+    { action: 'patch', registry_key: keys['甲'], patch: { description: '甲遍历江湖后返乡。' } },
     { action: 'merge', registry_key: keys['乙'], target_registry_key: keys['甲'] },
     { action: 'drop', registry_key: keys['丙'] },
     { action: 'keep', registry_key: keys['丁'] }
@@ -75,7 +75,7 @@ test('overlay applies keep merge drop and patch then promotes a verified Dashboa
   const backup = readYaml(path.join(receipt.backup_path, 'characters.yaml'));
   const revision = readYaml(path.join(receipt.revision_dir, 'data', 'characters.yaml'));
   assert.deepEqual(active.map(record => record.name), ['丁', '甲']);
-  assert.equal(active.find(record => record.name === '甲').biography, '甲遍历江湖后返乡。');
+  assert.equal(active.find(record => record.name === '甲').description, '甲遍历江湖后返乡。');
   assert.deepEqual(revision, active);
   assert.equal(backup.length, 4);
   assert.equal(receipt.previous_final_data_hash, before.final_data_hash);
@@ -98,7 +98,7 @@ test('successive overlays are cumulative and a stale task cannot replace newer D
   const keys = registryKeysByName(fixture.archivedRun);
   const firstTask = addTask(fixture);
   readyTask(fixture, paths, firstTask, [
-    { action: 'patch', registry_key: keys['甲'], patch: { biography: '第一版传记。' } }
+    { action: 'patch', registry_key: keys['甲'], patch: { description: '第一版描述。' } }
   ]);
   const first = pass(runFlow([
     'task-apply', fixture.novel, '--run', fixture.prepared.run_id,
@@ -109,10 +109,10 @@ test('successive overlays are cumulative and a stale task cannot replace newer D
   const staleTask = addTask(fixture);
   assert.equal(secondTask.base_data_hash, first.final_data_hash);
   readyTask(fixture, paths, secondTask, [
-    { action: 'patch', registry_key: keys['甲'], patch: { biography: '第二版传记。' } }
+    { action: 'patch', registry_key: keys['甲'], patch: { description: '第二版描述。' } }
   ]);
   readyTask(fixture, paths, staleTask, [
-    { action: 'patch', registry_key: keys['甲'], patch: { biography: '陈旧传记。' } }
+    { action: 'patch', registry_key: keys['甲'], patch: { description: '陈旧描述。' } }
   ]);
   const second = pass(runFlow([
     'task-apply', fixture.novel, '--run', fixture.prepared.run_id,
@@ -121,8 +121,8 @@ test('successive overlays are cumulative and a stale task cannot replace newer D
 
   assert.notEqual(second.backup_path, first.backup_path);
   assert.equal(
-    readYaml(path.join(second.backup_path, 'characters.yaml')).find(record => record.name === '甲').biography,
-    '第一版传记。'
+    readYaml(path.join(second.backup_path, 'characters.yaml')).find(record => record.name === '甲').description,
+    '第一版描述。'
   );
   const stale = runFlow([
     'task-apply', fixture.novel, '--run', fixture.prepared.run_id,
@@ -131,8 +131,8 @@ test('successive overlays are cumulative and a stale task cannot replace newer D
   assert.notEqual(stale.status, 0);
   assert.equal(JSON.parse(stale.stderr).code, 'DEFERRED_TASK_STALE');
   assert.equal(
-    readYaml(path.join(fixture.novel, 'data', 'characters.yaml')).find(record => record.name === '甲').biography,
-    '第二版传记。'
+    readYaml(path.join(fixture.novel, 'data', 'characters.yaml')).find(record => record.name === '甲').description,
+    '第二版描述。'
   );
 });
 
@@ -142,7 +142,7 @@ test('a mutated installed registry map blocks the next deep task', () => {
   const keys = registryKeysByName(fixture.archivedRun);
   const task = addTask(fixture);
   readyTask(fixture, paths, task, [
-    { action: 'patch', registry_key: keys['甲'], patch: { biography: '已安装传记。' } }
+    { action: 'patch', registry_key: keys['甲'], patch: { description: '已安装描述。' } }
   ]);
   pass(runFlow([
     'task-apply', fixture.novel, '--run', fixture.prepared.run_id,
@@ -167,7 +167,7 @@ test('overlay install fault restores the previous active data and leaves no appl
   const keys = registryKeysByName(fixture.archivedRun);
   const task = addTask(fixture);
   readyTask(fixture, paths, task, [
-    { action: 'patch', registry_key: keys['甲'], patch: { biography: '不应安装。' } }
+    { action: 'patch', registry_key: keys['甲'], patch: { description: '不应安装。' } }
   ]);
   const before = fs.readFileSync(path.join(fixture.novel, 'data', 'characters.yaml'), 'utf8');
 
