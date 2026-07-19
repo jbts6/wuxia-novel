@@ -1,15 +1,19 @@
 ---
 name: generate-game-kb-deep-factions-cn
-description: Use when a Chinese reference is needed for explicit full-book faction enrichment after a published v5 base.
+description: Use when a Chinese reference is needed for explicit full-book faction enrichment after a published Lite base.
 ---
 
 # deep factions 中文参考
 
-这是用户主动触发、非阻塞的 V5 增强。V5 必须已发布、归档并通过安装验证；基础发布不会自动执行或等待它。已发布 run、当前安装数据、accepted 证据和 candidate registry 都是不可变输入。
+这是用户主动触发、非阻塞的 Lite 增强。Lite 必须已发布、归档并通过安装验证；基础发布不会自动执行或等待它。已发布 run、当前安装数据、accepted 证据和 candidate registry 都是不可变输入。
 
 ## 目标与边界
 
-完整读取 `input_path` 指向的任务输入、accepted 势力证据和当前 `factions.yaml`。合并势力别名和重复组织，仅用证据支持的层级与关联完善 `name/type/description`。只能操作已知势力 registry key；不得新增势力、关联、source_refs 或跨类别实体。
+完整读取 `input_path` 指向的任务输入、accepted 势力证据和当前 `factions.yaml`。合并势力别名和重复组织，仅用证据支持的层级与关联完善 `aliases/type/description`。只能操作已知势力 registry key；不得新增势力、关联、source_refs 或跨类别实体。
+
+## 合并策略
+
+`aliases` 按首次确认顺序并集去重。`type` 或 `description` 出现冲突时，在 accepted 证据裁定前保持 null 或当前值，不得猜测层级、拼接或任意覆盖。
 
 ## 控制器命令
 

@@ -1,25 +1,33 @@
 ---
 name: generate-game-kb-deep-characters
-description: Use when a user explicitly requests full-book character distillation after a source-grounded v5 game knowledge base has been published.
+description: Use when a user explicitly requests full-book character distillation after a source-grounded Lite game knowledge base has been published.
 ---
 
 # Deep characters
 
-This is a user-invoked, non-blocking enrichment of an archived v5 base. It is
-never part of `v5-publish` and never delays a successful base. The published
+This is a user-invoked, non-blocking enrichment of an archived Lite base. It is
+never part of `lite-publish` and never delays a successful base. The published
 run, installed data, accepted evidence, and candidate registry are immutable
 inputs.
 
 ## Prerequisites and objective
 
-Require a published, archived v5 run and a passing installed verification. The
+Require a published, archived Lite run and a passing installed verification. The
 controller must return the base `artifact-manifest` hash and current installed
 data hash before any draft is written. Read the accepted character evidence and
 the installed `characters.yaml`; resolve aliases and duplicates, then refine
-only `name`, `aliases`, `identity`, `level`, `rank`, `biography`, `faction`,
-`skills`, and `items`. Keep, merge, drop, or patch only known character
+only `aliases`, `identities`, `level`, `rank`, `description`, `factions`, and
+`skills`. Keep, merge, drop, or patch only known character
 registry keys. Every change must be supported by existing accepted evidence;
 never add a character, relationship, quote, source_refs, rank, or reference.
+
+## Merge policy
+
+Use ordered union for `aliases`, `identities`, `factions`, and `skills`. Use the
+highest supported `level`; use full-book evidence to make `rank` a stable
+judgment that accounts for later wins, losses, counters, and reversals. Treat a `description` conflict
+as unresolved until accepted evidence supports one coherent replacement; never
+concatenate contradictions.
 
 ## Controller commands
 
@@ -55,7 +63,7 @@ node .agents/skills/generate-game-kb/scripts/flow.js task-run "C:\git\wuxia-nove
 node .agents/skills/generate-game-kb/scripts/flow.js task-apply "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --task-id characters-deep-1763424000000-a1b2c3d4 --json
 ```
 
-`task-add` is allowed only after `v5-publish` archived `run-jian-shen-yi-xiao`
+`task-add` is allowed only after `lite-publish` archived `run-jian-shen-yi-xiao`
 and `<novel>/data/` passes `verify --installed`. It binds
 `base_manifest_hash` to the archived `artifact-manifest.json` and
 `base_data_hash` to the currently installed five-file data set. `task-run`
@@ -79,9 +87,12 @@ operations:
     action: patch
     patch:
       aliases: ["甲公子"]
+      identities: ["掌门"]
       level: 重要
       rank: 登堂入室
-      biography: "仅由 accepted character source_refs 支持的简介"
+      description: "仅由 accepted character source_refs 支持的简介"
+      factions: ["faction_qing_cheng_pai"]
+      skills: ["skill_xuan_men_nei_gong"]
 notes: []
 ```
 

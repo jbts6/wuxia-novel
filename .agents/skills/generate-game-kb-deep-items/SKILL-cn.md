@@ -1,15 +1,19 @@
 ---
 name: generate-game-kb-deep-items-cn
-description: Use when a Chinese reference is needed for explicit full-book item enrichment after a published v5 base.
+description: Use when a Chinese reference is needed for explicit full-book item enrichment after a published Lite base.
 ---
 
 # deep items 中文参考
 
-这是用户主动触发、非阻塞的 V5 增强。前提是 V5 已发布、归档并通过安装验证；基础发布不会自动执行或等待它。已发布 run、当前安装数据、accepted 证据和 candidate registry 都是不可变输入。
+这是用户主动触发、非阻塞的 Lite 增强。前提是 Lite 已发布、归档并通过安装验证；基础发布不会自动执行或等待它。已发布 run、当前安装数据、accepted 证据和 candidate registry 都是不可变输入。
 
 ## 目标与边界
 
-完整读取 `input_path` 指向的任务输入、accepted 物品证据和当前 `items.yaml`。只保留原文支持的秘籍、剧情关键武器或防具、药物、暗器及其他有名稀有物品，合并别名和重复项，仅完善 `name/type/description`。只能操作已知物品 registry key；不得把普通器具或景物升级为物品记录，也不得新增物品、source_refs 或跨类别引用。
+完整读取 `input_path` 指向的任务输入、accepted 物品证据和当前 `items.yaml`。只保留原文支持的秘籍、剧情关键武器或防具、药物、暗器及其他有名稀有物品，合并别名和重复项，仅完善 `aliases/type/description`。只能操作已知物品 registry key；不得把普通器具或景物升级为物品记录，也不得新增物品、source_refs 或跨类别引用。
+
+## 合并策略
+
+`aliases` 按首次确认顺序并集去重。`type` 或 `description` 出现冲突时，在 accepted 证据裁定前保持 null 或当前值，不得猜测、拼接或任意覆盖。
 
 ## 控制器命令
 

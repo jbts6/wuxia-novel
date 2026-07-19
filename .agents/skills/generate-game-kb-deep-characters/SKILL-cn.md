@@ -1,15 +1,19 @@
 ---
 name: generate-game-kb-deep-characters-cn
-description: Use when a Chinese reference is needed for explicit full-book character enrichment after a published v5 base.
+description: Use when a Chinese reference is needed for explicit full-book character enrichment after a published Lite base.
 ---
 
 # deep characters 中文参考
 
-这是用户主动触发、非阻塞的 V5 增强。前提是 V5 已发布、归档且当前安装验证通过；基础发布不会自动等待它。已发布 run、当前安装数据、accepted 证据和 candidate registry 都是不可变输入。
+这是用户主动触发、非阻塞的 Lite 增强。前提是 Lite 已发布、归档且当前安装验证通过；基础发布不会自动等待它。已发布 run、当前安装数据、accepted 证据和 candidate registry 都是不可变输入。
 
 ## 目标与边界
 
-完整读取 `input_path` 指向的任务输入、accepted 人物证据和当前 `characters.yaml`。只合并别名和重复人物，并仅完善 `name/aliases/identity/level/rank/biography/faction/skills/items`。只能操作已知人物 registry key；每项变化必须有已接受证据支持，不得新增人物、引用、rank、source_refs 或其他事实。
+完整读取 `input_path` 指向的任务输入、accepted 人物证据和当前 `characters.yaml`。只合并别名和重复人物，并仅完善 `aliases/identities/level/rank/description/factions/skills`。只能操作已知人物 registry key；每项变化必须有已接受证据支持，不得新增人物、引用、rank、source_refs 或其他事实。
+
+## 合并策略
+
+`aliases/identities/factions/skills` 按首次确认顺序并集去重，`level` 取证据支持的最高级。`rank` 必须结合全书后续胜负、克制和反转形成稳定判断，不能直接取单章最高描写。`description` 冲突时只写全书证据能支持的一致版本，不能拼接矛盾描述。
 
 ## 控制器命令
 

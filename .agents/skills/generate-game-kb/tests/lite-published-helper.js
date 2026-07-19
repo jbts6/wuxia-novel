@@ -38,6 +38,15 @@ function preparePublishedLiteRun(options = {}) {
   const prepared = pass(runFlow(['lite-prepare', novel, '--run', runId, '--json']), 'prepare');
   const paths = pathsFor(novel, prepared.run_id);
   const manifest = readJson(paths.manifest);
+  const firstChapter = options.firstChapter || {
+    characters: ['甲', '乙', '丙', '丁'].map((character, index) => ({
+      local_key: `character:${character}`,
+      name: character,
+      level: index === 0 ? '核心' : '重要',
+      rank: '初窥门径',
+      source_refs: [sourceRef(1, character)]
+    }))
+  };
 
   for (const chapter of manifest.chapters) {
     const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
@@ -47,15 +56,9 @@ function preparePublishedLiteRun(options = {}) {
       chapter: chapter.number,
       title: chapter.title,
       source_hash: chapter.input_hash,
-      ...(chapter.number === 1 ? {
-        characters: ['甲', '乙', '丙', '丁'].map((character, index) => ({
-          local_key: `character:${character}`,
-          name: character,
-          level: index === 0 ? '核心' : '重要',
-          rank: '初窥门径',
-          source_refs: [sourceRef(1, character)]
-        }))
-      } : { characters: [], skills: [], items: [], factions: [] }),
+      ...(chapter.number === 1
+        ? firstChapter
+        : { characters: [], skills: [], items: [], factions: [] }),
       chapter_summary: {
         title: chapter.title,
         summary: `第${chapter.number}章摘要。`,

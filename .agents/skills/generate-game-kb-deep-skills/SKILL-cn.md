@@ -1,15 +1,19 @@
 ---
 name: generate-game-kb-deep-skills-cn
-description: Use when a Chinese reference is needed for explicit full-book martial-skill enrichment after a published v5 base.
+description: Use when a Chinese reference is needed for explicit full-book martial-skill enrichment after a published Lite base.
 ---
 
 # deep skills 中文参考
 
-这是用户主动触发、非阻塞的 V5 增强。V5 必须已发布、归档并通过安装验证；基础发布不会自动执行或等待它。已发布 run、当前安装数据、accepted 证据和 candidate registry 都是不可变输入。
+这是用户主动触发、非阻塞的 Lite 增强。Lite 必须已发布、归档并通过安装验证；基础发布不会自动执行或等待它。已发布 run、当前安装数据、accepted 证据和 candidate registry 都是不可变输入。
 
 ## 目标与边界
 
-完整读取 `input_path` 指向的任务输入、accepted 武功证据和当前 `skills.yaml`。合并重复武功体系，区分原文明确定名的招式与普通动作，仅完善 `name/type/faction/rank/description/techniques`。只能操作已知武功 registry key；招式必须由原文明确定名，不得新增武功、招式、rank、source_refs 或跨类别引用。
+完整读取 `input_path` 指向的任务输入、accepted 武功证据和当前 `skills.yaml`。合并重复武功体系，区分原文明确定名的招式与普通动作，仅完善 `aliases/types/factions/rank/description/techniques`。只能操作已知武功 registry key；招式必须由原文明确定名，不得新增武功、招式、rank、source_refs 或跨类别引用。
+
+## 合并策略
+
+`aliases/types/factions` 按首次确认顺序并集去重；`techniques` 按原文明确定名的同名招式合并并保留首次确认顺序，说明冲突必须由 accepted 证据裁定，不能拼接。`rank` 必须结合全书后续胜负、克制与反转形成稳定判断。
 
 ## 控制器命令
 

@@ -22,10 +22,10 @@ const { verifyDataRoot } = require('./verify');
 
 const ACTIONS = new Set(['keep', 'merge', 'drop', 'patch']);
 const PATCH_FIELDS = Object.freeze({
-  characters: new Set(['name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills']),
-  skills: new Set(['name', 'type', 'faction', 'rank', 'description', 'techniques']),
-  items: new Set(['name', 'type', 'description']),
-  factions: new Set(['name', 'type', 'description'])
+  characters: new Set(['aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills']),
+  skills: new Set(['aliases', 'types', 'factions', 'rank', 'description', 'techniques']),
+  items: new Set(['aliases', 'type', 'description']),
+  factions: new Set(['aliases', 'type', 'description'])
 });
 
 function containsForbiddenEvidence(value) {
@@ -101,23 +101,25 @@ function validateOverlay(overlay, { baseRegistry, groundingContext = {} } = {}) 
   return errors;
 }
 
+function replaceReferenceArray(values, sourceId, targetId) {
+  return (Array.isArray(values) ? values : [])
+    .map(id => (id === sourceId ? targetId : id))
+    .filter((id, index, all) => id && all.indexOf(id) === index)
+    .sort();
+}
+
 function replaceReferences(data, scope, sourceId, targetId) {
   for (const character of data['characters.yaml']) {
-    if (scope === 'factions' && character.faction === sourceId) character.faction = targetId;
-    if (scope === 'skills') {
-      character.skills = character.skills.map(id => (id === sourceId ? targetId : id))
-        .filter((id, index, values) => id && values.indexOf(id) === index)
-        .sort();
+    if (scope === 'factions') {
+      character.factions = replaceReferenceArray(character.factions, sourceId, targetId);
     }
-    if (scope === 'items') {
-      character.items = character.items.map(id => (id === sourceId ? targetId : id))
-        .filter((id, index, values) => id && values.indexOf(id) === index)
-        .sort();
+    if (scope === 'skills') {
+      character.skills = replaceReferenceArray(character.skills, sourceId, targetId);
     }
   }
   if (scope === 'factions') {
     for (const skill of data['skills.yaml']) {
-      if (skill.faction === sourceId) skill.faction = targetId;
+      skill.factions = replaceReferenceArray(skill.factions, sourceId, targetId);
     }
   }
 }
