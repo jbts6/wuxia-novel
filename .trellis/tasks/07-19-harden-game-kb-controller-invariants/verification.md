@@ -6,9 +6,11 @@
 
 ## Fresh verification evidence
 
-- Focused controller safety suite: 109 tests, exit `0`, fail `0`.
-- Complete game-KB suite: 430 tests, exit `0`, fail `0`.
-- Legacy artifact immutability probe: 76 JSON-as-YAML accepted artifacts unchanged.
+- Focused controller safety suite: 143 tests across 11 files, exit `0`, fail `0`, duration `11536.9025 ms`.
+- Complete game-KB suite: 463 tests across 51 files, exit `0`, fail `0`, duration `64553.9209 ms`.
+- Legacy artifact immutability probe: 76 JSON-as-YAML accepted artifacts unchanged; aggregate SHA-256 before and after is `06625733587e5f880c595ed3f87549d18505fd4d693832a415b4b58f69b965e6`.
+- `git diff --check`: exit `0`; `node --check` passed for all 13 changed JavaScript files.
+- Added-line scan found no TODO/FIXME, skipped tests, debug logging, debugger statements, or warning/type suppressions.
 - No repository lint or type-check command applies at the root; the Node suite imports and executes the changed CommonJS modules.
 
 ## Blocker resolution
@@ -48,11 +50,11 @@
 
 ### 5. Recovery safety — RESOLVED
 
-**Tests:** `draft-preflight.test.js` — symlink rejection, cross-run rejection. `draft-recovery.test.js` — symlink rejection, current attempt derivation, acceptDraft routing, guard-discovery binding.
+**Tests:** `draft-preflight.test.js` — symlink rejection, cross-run rejection. `draft-recovery.test.js` — symlink rejection, current attempt derivation, shared-transaction routing, guard-discovery binding, accepted-written crash replay, immutable transaction time, and mutated-archive rejection.
 
 **Implementation:**
 - `draft-preflight.js` — `assertSafeSource()` with `lstatSync`/`realpathSync` checks.
-- `draft-recovery.js` — `assertSafeRecoverySource()`, current attempt from progress, `acceptDraft()` routing.
+- `draft-recovery.js` — `assertSafeRecoverySource()`, current attempt from progress, immutable recovery binding/result/receipt, and direct `commitSubmission()` replay with the binding timestamp.
 - `flow.js` — `recover-draft` requires `--guard-id` and `--confirm`.
 
 ## Additional improvements
@@ -72,6 +74,16 @@
 - Recovery receipt uses `writeImmutableJson()` and is only written after successful acceptance.
 - Recovery checks `UNIT_ALREADY_DONE` and `UNIT_MANUAL_REVIEW` before writing anything.
 - Fault injection covers all 4 phases: `binding`, `staging-written`, `submission-recorded`, `accepted-written`.
+- Worker-visible projection is fail closed; projection errors cannot return the controller-internal job.
+- Unresolved guard reports block status dispatch, assembly, publication, installation, and workspace verification.
+- Guard open receipts retain the complete submission identity list; immutable check receipts bind the open-receipt hash and real repository root.
+- Broker journal bindings persist the guard ID plus both immutable guard receipt hashes, and direct unguarded broker calls fail before mutation.
+- Guard open/check reads share one fail-closed decoder; malformed JSON, invalid receipt schema, orphan checks, and narrow non-Git-root proofs raise `GUARD_PROOF_MISMATCH`.
+- Journal status and replay share one decoder that validates binding schema, directory identity, durable phase order, cross-phase identity, and terminal results.
+- Existing journal phases, archives, and submission records are content-checked instead of skipped; a conflicting replay returns the immutable conflict error before later phases are created.
+- Recovery reuses the binding timestamp across accepted-written crashes and rejects a mutated archive before changing progress or receipt bytes.
+- Rejected submissions now persist an immutable terminal result and replay the same `GameKbError` without consuming another attempt.
+- `verify --installed` remains independent of active-run guard state because it is a read-only verification of already installed data and does not schedule, assemble, publish, install, or mutate a run.
 
 ## Self-review checklist
 

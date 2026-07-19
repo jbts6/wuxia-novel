@@ -250,3 +250,51 @@ Do not replace this rejected verdict until all of the following are true in one 
 - All 76 frozen accepted artifacts retain the same aggregate SHA-256.
 - `prd.md`, `design.md`, `repair-plan.md`, `verification.md`, and applicable backend specs describe the implementation and test evidence without contradiction.
 
+## Follow-up closure — 2026-07-19
+
+### Verdict
+
+**Accepted for the independent-review scope.** The original rejected verdict and its evidence above remain preserved as the historical review record. Every blocking finding and additional verification gap now has implementation coverage and fresh regression evidence.
+
+### Closure summary
+
+- Worker-visible status uses a fail-closed projection and exposes no staging or writable target.
+- Unresolved worker writes take precedence in status and block assembly, publication, installation, and workspace verification.
+- Recovery uses the real Git root, requires the exact path from the named unresolved guard, rejects conflicts before mutation, and preserves immutable binding/result/receipt files. Accepted-written crash replay uses the binding timestamp and re-enters the shared submission transaction, so archive and submission-record bytes are verified instead of reconstructed manually.
+- Guard open/check receipts are immutable and hash-bound; broker bindings retain both hashes and enforce the guard at the internal submission boundary.
+- Guard receipt parsing is fail closed: malformed JSON, schema-invalid paths, orphan checks, and proofs scoped below the real Git root return `GUARD_PROOF_MISMATCH`.
+- Submission journals use one schema decoder for status and replay, validate durable phase order and cross-phase identity, and reject corrupt terminal journals.
+- Both accepted and rejected same-content submissions reach an immutable terminal result. Replaying a rejected envelope restores the same controller error without consuming another attempt.
+- `verify --installed` is intentionally not gated by an active-run guard: it reads already installed data and has no active run mutation or publication path.
+- Backend quality guidance and task design/implementation artifacts describe the final broker, guard, journal, recovery, and worker-projection contracts.
+
+### Fresh re-verification evidence
+
+```text
+focused_files=11
+focused_tests=143
+focused_pass=143
+focused_fail=0
+focused_exit=0
+
+complete_files=51
+complete_tests=463
+complete_pass=463
+complete_fail=0
+complete_exit=0
+complete_duration_ms=64553.9209
+
+legacy_artifacts_before=76
+legacy_artifacts_after=76
+aggregate_sha256_before=06625733587e5f880c595ed3f87549d18505fd4d693832a415b4b58f69b965e6
+aggregate_sha256_after=06625733587e5f880c595ed3f87549d18505fd4d693832a415b4b58f69b965e6
+
+changed_js_node_check_failures=0
+suspicious_added_lines=0
+git_diff_check_exit=0
+```
+
+Additional TDD evidence after the first closure:
+
+- Restoring the old existing-phase early return made the immutable phase-conflict regression fail with exit `1`; restoring content comparison returned exit `0`.
+- Before the recovery refactor, both the accepted-written crash and mutated-archive regressions failed because no exception was raised; after routing recovery through `commitSubmission()`, `draft-recovery.test.js` passes `13/13`.

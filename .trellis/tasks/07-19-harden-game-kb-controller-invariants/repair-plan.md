@@ -225,7 +225,7 @@ For each phase below, create a fresh fixture, call once with `faultAt`, then rep
 
 ```js
 for (const faultAt of [
-  'receipt-created',
+  'binding',
   'staging-written',
   'submission-recorded',
   'accepted-written'
@@ -261,6 +261,8 @@ Use one directory per unit/attempt. `binding.json` contains exactly:
   input_hash: inputHash,
   raw_hash: rawHash,
   guard_id: guardId,
+  guard_open_receipt_hash: guardOpenReceiptHash,
+  guard_check_receipt_hash: guardCheckReceiptHash,
   created_at: recordedAt
 }
 ```
@@ -415,7 +417,7 @@ Before `statSync()` or `readFileSync()`:
 
 - [x] **Step 6: Implement current-attempt recovery and normal acceptance**
 
-Derive current attempt from shared controller context; never hard-code `1`. Write canonical YAML to that exact staging path, write one immutable recovery receipt containing guard ID, unit, attempt, source/destination paths and hashes, then call `acceptDraft()` with the destination.
+Derive current attempt from shared controller context; never hard-code `1`. Bind guard ID, unit, attempt, source/destination paths, hashes, and one immutable transaction timestamp before staging. Pass canonical YAML, the explicit attempt/submission identity, and that timestamp to `commitSubmission()`; after acceptance, write immutable result and receipt files. Replays verify existing archive/submission/accepted bytes and reuse the same transaction time.
 
 Return:
 
@@ -499,7 +501,7 @@ Run the Step 2 command. Expected: exit `0`; interrupted submissions are machine-
 Run:
 
 ```powershell
-rtk node --test .agents/skills/generate-game-kb/tests/accepted-serialization.test.js .agents/skills/generate-game-kb/tests/artifact-immutability.test.js .agents/skills/generate-game-kb/tests/accept-retry.test.js .agents/skills/generate-game-kb/tests/draft-submission.test.js .agents/skills/generate-game-kb/tests/worker-guard.test.js .agents/skills/generate-game-kb/tests/draft-preflight.test.js .agents/skills/generate-game-kb/tests/draft-recovery.test.js .agents/skills/generate-game-kb/tests/lite-cli-contract.test.js .agents/skills/generate-game-kb/tests/next-action.test.js .agents/skills/generate-game-kb/tests/status-next-action.test.js
+rtk node --test .agents/skills/generate-game-kb/tests/accepted-serialization.test.js .agents/skills/generate-game-kb/tests/artifact-immutability.test.js .agents/skills/generate-game-kb/tests/accept-retry.test.js .agents/skills/generate-game-kb/tests/draft-submission.test.js .agents/skills/generate-game-kb/tests/submission-journal.test.js .agents/skills/generate-game-kb/tests/worker-guard.test.js .agents/skills/generate-game-kb/tests/draft-preflight.test.js .agents/skills/generate-game-kb/tests/draft-recovery.test.js .agents/skills/generate-game-kb/tests/lite-cli-contract.test.js .agents/skills/generate-game-kb/tests/next-action.test.js .agents/skills/generate-game-kb/tests/status-next-action.test.js
 ```
 
 Expected: exit `0`, zero failures, no unexpected skips.

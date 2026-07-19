@@ -258,7 +258,7 @@ assert.equal(fs.readFileSync(result.accepted_file, 'utf8').trimStart().startsWit
 
 - [x] **Step 3: Write failing replay/fault-injection tests**
 
-Inject failure after `receipt-created`, `staging-written`, `submission-recorded`, and `accepted-written`. Re-run the identical raw payload and require one final result, one consumed attempt, stable hashes, and no duplicate archive. Re-run with a different raw hash for the same unit/attempt and require `SUBMISSION_REPLAY_CONFLICT` with byte-identical artifacts and progress.
+Inject failure after `binding`, `staging-written`, `submission-recorded`, and `accepted-written`. Re-run the identical raw payload and require one final result, one consumed attempt, stable hashes, and no duplicate archive. Re-run with a different raw hash for the same unit/attempt and require `SUBMISSION_REPLAY_CONFLICT` with byte-identical artifacts and progress.
 
 - [x] **Step 4: Run broker tests and confirm RED**
 
