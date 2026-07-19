@@ -51,12 +51,16 @@ controller 返回的 `--guard-id`。
 controller 签发的 attempt 2；第三次尝试禁止自动派发，第二次失败进入
 `manual_review`。只有用户明确运行 `retry-unit --confirm` 才能开启新周期。
 
+guard 只清点 Git 仓库根目录内的内容并报告边界内的精确绝对路径；仓库之外不在监控范围。
+
 ## 恢复与阻断
 
 `lite-guard-check` 报告错位但有效的 draft 可恢复时，先向用户展示 controller
 报告。用户明确确认后才可执行 `lite-recover-draft ... --guard-id <id> --confirm`；
 主代理不得手工复制、移动、改写或删除。恢复保留 source 字节且不消耗失败 attempt。
-恢复后重新执行 guard check；guard 无违规之前不得提交、调度、组装、发布、安装或验证。
+恢复后的 source 仍是证据：必须停止，等用户删除新增文件或还原被改路径，再刷新
+`lite-status` 并打开新的 guard。状态仍为 `worker-write-review` 时不得提交、调度、
+组装、发布、安装或验证。
 
 包含旧 JSON-as-YAML accepted 文件的 run 只读，禁止继续派发或接收章节；必须创建
 新的 V6 Lite run。

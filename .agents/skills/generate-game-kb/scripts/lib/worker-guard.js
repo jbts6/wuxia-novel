@@ -209,6 +209,21 @@ function snapshotEntry(root, target) {
   };
 }
 
+function violationStillUnresolved(repositoryRoot, violation) {
+  let current = null;
+  try {
+    current = snapshotEntry(repositoryRoot, violation.absolute_path);
+  } catch (error) {
+    if (error?.code !== 'ENOENT') return true;
+  }
+
+  if (violation.change_kind === 'added') return current !== null;
+  if (current === null) return true;
+  return current.type !== violation.entry_type
+    || current.size !== violation.before.size
+    || current.mtime_ns !== violation.before.mtime_ns;
+}
+
 function normalizeRelative(p) {
   return p.split(path.sep).join('/');
 }
@@ -454,12 +469,15 @@ function unresolvedWorkerGuardReports(paths) {
       expectedRepositoryRoot: repositoryRootFor(paths.novel)
     });
 
-    if (checkResult.violations.length > 0) {
+    const unresolvedViolations = checkResult.violations.filter(violation => (
+      violationStillUnresolved(openReceipt.repository_root, violation)
+    ));
+    if (unresolvedViolations.length > 0) {
       reports.push({
         guard_id: checkResult.guard_id,
         check_time: checkResult.check_time,
-        violation_count: checkResult.violation_count,
-        violations: checkResult.violations
+        violation_count: unresolvedViolations.length,
+        violations: unresolvedViolations
       });
     }
   }

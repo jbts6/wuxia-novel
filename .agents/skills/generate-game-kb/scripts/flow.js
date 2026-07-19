@@ -51,6 +51,7 @@ const {
   requiredDomainUnitsForProfile
 } = require('./lib/semantic-contract');
 const {
+  ACCEPTED_SERIALIZATION,
   assertArchiveExistingAllowed,
   assertSemanticContract,
   createOrResumeRun,
@@ -603,12 +604,15 @@ function main(argv = process.argv.slice(2)) {
       assertAcceptedArtifacts(paths);
       const manifest = readJson(paths.manifest);
       const progress = projectProgress(paths, manifest);
-      const next = resolveNextAction({
-        paths,
-        manifest,
-        progress,
-        installed: verifyInstalled(novelDir)
-      });
+      const acceptedSerialization = run.accepted_serialization ?? null;
+      const next = acceptedSerialization === ACCEPTED_SERIALIZATION
+        ? resolveNextAction({
+          paths,
+          manifest,
+          progress,
+          installed: verifyInstalled(novelDir)
+        })
+        : { next_action: 'start-new-run', next_units: [] };
       const routedNext = profile === PROFILE_LITE && next.next_action === 'plan-domains'
         ? { next_action: 'lite-publish', next_units: [] }
         : next;
@@ -620,6 +624,7 @@ function main(argv = process.argv.slice(2)) {
         semantic_contract_version: run.semantic_contract_version ?? null,
         semantic_profile: run.semantic_profile ?? null,
         profile: effectiveProfile,
+        accepted_serialization: acceptedSerialization,
         ...statusReport(paths, manifest, progress),
         ...routedNext,
         worker_pool: readWorkerPool(paths)

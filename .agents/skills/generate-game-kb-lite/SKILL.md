@@ -62,15 +62,19 @@ may advance only to controller-issued attempt 2. Attempt 3 is forbidden; a
 second rejection enters `manual_review` until the user explicitly runs
 `retry-unit --confirm` to start a new bounded cycle.
 
+The guard inventories the Git repository root only and reports exact absolute
+paths inside that boundary. Paths outside the repository are not monitored.
+
 ## Recovery and blocking state
 
 When `lite-guard-check` reports a misplaced but valid draft as recoverable, show
 the controller report to the user. Only after explicit confirmation may the main
 agent run `lite-recover-draft ... --guard-id <id> --confirm`. Do not copy, move,
 rewrite, or delete the file manually. Recovery preserves the source bytes and
-does not consume a failed attempt. Re-run `lite-guard-check`; do not submit,
-schedule another job, assemble, publish, install, or verify until the guard is
-clean.
+does not consume a failed attempt. The recovered source remains evidence: stop
+until the user removes the added file or restores the changed path, refresh
+`lite-status`, and open a new guard. Do not submit, schedule another job,
+assemble, publish, install, or verify while status reports `worker-write-review`.
 
 A run containing legacy JSON-serialized accepted artifacts is read-only. Do not
 dispatch or accept more chapter work in that run; create a fresh V6 Lite run.
