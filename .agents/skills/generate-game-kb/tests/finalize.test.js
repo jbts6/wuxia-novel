@@ -57,6 +57,41 @@ test('persisted identity anchors keep IDs stable across rename, reorder, and col
   assert.match(revised.characters[0].disambiguator, /^[a-p]{8}$/);
 });
 
+test('unrelated registry insertion and removal cannot steal or duplicate persisted IDs', () => {
+  const originalRecords = [
+    { registry_key: 'registry:characters:0001', local_key: 'character:alpha', name: '同名', aliases: [], source_refs: [sourceRef(1, '甲')] },
+    { registry_key: 'registry:characters:0002', local_key: 'character:beta', name: '同名', aliases: [], source_refs: [sourceRef(2, '乙')] }
+  ];
+  const original = assignStableIds({ characters: originalRecords }).characters;
+  const toPrior = records => ({ characters: records.map(record => ({
+    identity_anchor: record.identity_anchor,
+    disambiguator: record.disambiguator,
+    id: record.id,
+    registry_key: record.registry_key,
+    local_key: record.local_key,
+    canonical_name: record.name,
+    aliases: record.aliases
+  })) });
+  const idsByLocalKey = records => Object.fromEntries(records.map(record => [record.local_key, record.id]));
+  const originalIds = idsByLocalKey(original);
+
+  const inserted = assignStableIds({ characters: [
+    { registry_key: 'registry:characters:0001', local_key: 'character:inserted', name: '阿新', aliases: [], source_refs: [sourceRef(3, '新实体')] },
+    { ...originalRecords[0], registry_key: 'registry:characters:0002' },
+    { ...originalRecords[1], registry_key: 'registry:characters:0003' }
+  ] }, toPrior(original)).characters;
+  const insertedIds = idsByLocalKey(inserted);
+
+  assert.equal(insertedIds['character:alpha'], originalIds['character:alpha']);
+  assert.equal(insertedIds['character:beta'], originalIds['character:beta']);
+  assert.equal(new Set(inserted.map(record => record.id)).size, inserted.length);
+  assert.equal(new Set(original.map(record => record.id)).has(insertedIds['character:inserted']), false);
+
+  const removed = assignStableIds({ characters: originalRecords }, toPrior(inserted)).characters;
+  assert.deepEqual(idsByLocalKey(removed), originalIds);
+  assert.equal(new Set(removed.map(record => record.id)).size, removed.length);
+});
+
 test('distinct same-name registry entries sharing evidence receive different stable IDs', () => {
   const records = { characters: [
     { registry_key: 'registry:characters:a', local_key: 'character:a', name: '同名', aliases: [], source_refs: [sourceRef(1, '同一句证据')] },

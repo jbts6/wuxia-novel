@@ -55,7 +55,7 @@ function normalizedSourceRefs(record) {
 function identityAnchor(category, record) {
   const refs = normalizedSourceRefs(record);
   const identity = {
-    controller_key: record?.registry_key ?? record?.local_key ?? null,
+    controller_key: record?.local_key ?? record?.registry_key ?? null,
     evidence: refs
   };
   return alphabeticDigest(`${category}\0${JSON.stringify(identity)}`, 16);
@@ -66,7 +66,9 @@ function priorIndexes(priorRecords) {
   const byRegistry = new Map();
   for (const record of Array.isArray(priorRecords) ? priorRecords : []) {
     if (typeof record?.identity_anchor === 'string') byAnchor.set(record.identity_anchor, record);
-    if (typeof record?.registry_key === 'string') byRegistry.set(record.registry_key, record);
+    if (typeof record?.registry_key === 'string' && typeof record?.identity_anchor !== 'string') {
+      byRegistry.set(record.registry_key, record);
+    }
   }
   return { byAnchor, byRegistry };
 }
