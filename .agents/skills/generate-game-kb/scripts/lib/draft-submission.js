@@ -1,9 +1,5 @@
 'use strict';
 
-const crypto = require('node:crypto');
-const fs = require('node:fs');
-const path = require('node:path');
-
 const { commitSubmission } = require('./accept');
 const { assertAcceptedSerialization } = require('./run');
 const { GameKbError } = require('./errors');
@@ -11,12 +7,15 @@ const { readJson, serializeYaml } = require('./io');
 const {
   openSubmissionJournal,
   writeSubmissionPhase,
-  readSubmissionPhase,
+  readSubmissionJournal,
+  returnSubmissionResult,
+  terminalSubmissionRejection,
   submissionResult
 } = require('./submission-journal');
 const { stagingPathFor } = require('./paths');
 const { loadProgress } = require('./progress');
 const { sha256 } = require('./source');
+const { assertCleanGuardForSubmission } = require('./worker-guard');
 
 const MAX_INPUT_BYTES = 10 * 1024 * 1024; // 10 MiB
 
@@ -36,7 +35,7 @@ function validateInputBounds(rawInput) {
   }
 }
 
-function validateCliIdentity(paths, batchId, unit, attempt) {
+function validateCliIdentity(paths, batchId, unit, attempt, { allowJournalReplay = false } = {}) {
   const manifest = readJson(paths.manifest);
   if (!manifest) {
     throw new GameKbError('MANIFEST_MISSING', 'Run manifest not found', { run: paths.run });
@@ -66,7 +65,7 @@ function validateCliIdentity(paths, batchId, unit, attempt) {
   const state = progress.units?.[unit];
   const expectedAttempt = !state || state.input_hash !== chapter.input_hash ? 1 : (state.attempts || 0) + 1;
 
-  if (attempt !== expectedAttempt) {
+  if (!allowJournalReplay && attempt !== expectedAttempt) {
     throw new GameKbError('SUBMISSION_CLI_IDENTITY_MISMATCH', 'CLI attempt does not match current state', {
       attempt,
       expected_attempt: expectedAttempt,
@@ -74,11 +73,11 @@ function validateCliIdentity(paths, batchId, unit, attempt) {
     });
   }
 
-  if (state?.input_hash === chapter.input_hash && state.status === 'manual_review') {
+  if (!allowJournalReplay && state?.input_hash === chapter.input_hash && state.status === 'manual_review') {
     throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit });
   }
 
-  if (state?.input_hash === chapter.input_hash && state.status === 'done') {
+  if (!allowJournalReplay && state?.input_hash === chapter.input_hash && state.status === 'done') {
     throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be resubmitted', { unit });
   }
 
@@ -126,32 +125,31 @@ function verifyEnvelopeIdentity(envelope, batchId, unit, attempt, inputHash) {
   }
 }
 
+function commitSubmissionToJournal(journal, options) {
+  try {
+    const result = commitSubmission(options);
+    writeSubmissionPhase(journal, 'result', result);
+    return result;
+  } catch (error) {
+    const result = terminalSubmissionRejection(error);
+    if (!result) throw error;
+    writeSubmissionPhase(journal, 'result', result);
+    throw error;
+  }
+}
+
 function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInput, faultAt }) {
   // 1. Validate transport bounds (before any journal binding)
   validateInputBounds(rawInput);
+  if (!guardId) {
+    throw new GameKbError('GUARD_ID_REQUIRED', 'Submission broker requires a guard ID', {});
+  }
 
   // 2. Check for terminal journal result BEFORE CLI identity (replay support)
   const rawHash = sha256(rawInput);
-  const journalPaths = require('./submission-journal').submissionJournalPaths(paths, unit, attempt);
-  if (fs.existsSync(journalPaths.result)) {
-    // Check if raw hash matches before returning cached result
-    if (fs.existsSync(journalPaths.binding)) {
-      const existingBinding = readJson(journalPaths.binding);
-      if (existingBinding.raw_hash !== rawHash) {
-        throw new GameKbError('SUBMISSION_REPLAY_CONFLICT', 'Conflicting hash for same unit/attempt', {
-          unit,
-          attempt,
-          existing_hash: existingBinding.raw_hash,
-          incoming_hash: rawHash
-        });
-      }
-    }
-    const existingResult = readJson(journalPaths.result);
-    return existingResult;
-  }
-  // Check for binding conflict (different raw hash for same unit/attempt)
-  if (fs.existsSync(journalPaths.binding)) {
-    const existingBinding = readJson(journalPaths.binding);
+  const existingJournal = readSubmissionJournal(paths, unit, attempt);
+  if (existingJournal) {
+    const existingBinding = existingJournal.binding;
     if (existingBinding.raw_hash !== rawHash) {
       throw new GameKbError('SUBMISSION_REPLAY_CONFLICT', 'Conflicting hash for same unit/attempt', {
         unit,
@@ -160,20 +158,51 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
         incoming_hash: rawHash
       });
     }
-    // Same binding but no result yet — resume from last phase
+    const replayProof = assertCleanGuardForSubmission({
+      paths,
+      guardId,
+      batchId,
+      unit,
+      attempt,
+      inputHash: existingBinding.input_hash
+    });
+    if (existingBinding.guard_id !== replayProof.guard_id
+      || existingBinding.guard_open_receipt_hash !== replayProof.guard_open_receipt_hash
+      || existingBinding.guard_check_receipt_hash !== replayProof.guard_check_receipt_hash) {
+      throw new GameKbError('GUARD_PROOF_MISMATCH', 'Journal binding does not match the supplied guard proof', {
+        unit,
+        attempt,
+        guard_id: guardId
+      });
+    }
+    if (existingJournal.phases.result) {
+      return returnSubmissionResult(existingJournal.phases.result);
+    }
   }
 
   // 3. Validate CLI identity
-  const { manifest, progress, chapter, expectedAttempt } = validateCliIdentity(paths, batchId, unit, attempt);
+  const { chapter } = validateCliIdentity(paths, batchId, unit, attempt, {
+    allowJournalReplay: Boolean(existingJournal)
+  });
 
-  // 4. Check serialization
+  // 4. Validate the guard proof at the broker boundary before creating a journal.
+  const guardProof = assertCleanGuardForSubmission({
+    paths,
+    guardId,
+    batchId,
+    unit,
+    attempt,
+    inputHash: chapter.input_hash
+  });
+
+  // 5. Check serialization
   const runJson = readJson(paths.runJson);
   assertAcceptedSerialization(runJson, 'submit-draft');
 
-  // 5. Parse envelope
+  // 6. Parse envelope
   const { envelope, parseError } = parseEnvelope(rawInput);
 
-  // 5. If parseable, verify envelope identity before journal binding
+  // 7. If parseable, verify envelope identity before journal binding
   if (envelope && !parseError) {
     try {
       verifyEnvelopeIdentity(envelope, batchId, unit, attempt, chapter.input_hash);
@@ -183,8 +212,8 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
     }
   }
 
-  // 6. Open/bind journal (malformed JSON is bound because CLI identity is known)
-  const recordedAt = new Date().toISOString();
+  // 8. Open/bind journal (malformed JSON is bound because CLI identity is known)
+  const recordedAt = existingJournal?.binding.created_at || new Date().toISOString();
   const journal = openSubmissionJournal({
     paths,
     batchId,
@@ -193,17 +222,19 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
     inputHash: chapter.input_hash,
     rawHash,
     guardId,
+    guardOpenReceiptHash: guardProof.guard_open_receipt_hash,
+    guardCheckReceiptHash: guardProof.guard_check_receipt_hash,
     recordedAt
   });
 
   // Check for terminal result (replay)
   const existingResult = submissionResult(journal);
-  if (existingResult) return existingResult;
+  if (existingResult) return returnSubmissionResult(existingResult);
 
   // Fault injection: after binding (before content processing)
   if (faultAt === 'binding') throw new GameKbError('SUBMISSION_FAULT_INJECTED', 'Fault after binding', { phase: faultAt });
 
-  // 7. Handle malformed content
+  // 9. Handle malformed content
   if (parseError || !envelope) {
     const prevalidationErrors = [{
       code: 'SUBMISSION_ENVELOPE_INVALID',
@@ -216,7 +247,7 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
     // Fault injection: after binding
     if (faultAt === 'binding') throw new GameKbError('SUBMISSION_FAULT_INJECTED', 'Fault after binding', { phase: faultAt });
 
-    const result = commitSubmission({
+    return commitSubmissionToJournal(journal, {
       paths,
       unit,
       attempt,
@@ -227,17 +258,15 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
       stagingPath: null,
       draft: null,
       prevalidationErrors,
+      recordedAt,
       checkpoint: (phase, data) => {
         writeSubmissionPhase(journal, phase, data);
         if (faultAt === phase) throw new GameKbError('SUBMISSION_FAULT_INJECTED', 'Fault after phase', { phase });
       }
     });
-
-    writeSubmissionPhase(journal, 'result', result);
-    return result;
   }
 
-  // 8. Valid envelope — canonicalize draft
+  // 10. Valid envelope — canonicalize draft
   const canonicalYaml = serializeYaml(envelope.draft);
   const stagingPath = stagingPathFor(paths, unit, attempt);
   const { atomicWriteFile } = require('./io');
@@ -246,10 +275,10 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
   writeSubmissionPhase(journal, 'staging-written', { staging_path: stagingPath });
   if (faultAt === 'staging-written') throw new GameKbError('SUBMISSION_FAULT_INJECTED', 'Fault after staging-written', { phase: faultAt });
 
-  // 9. Call commitSubmission with checkpoint callbacks
+  // 11. Call commitSubmission with checkpoint callbacks
   const submissionId = `submission:${unit}:attempt:${attempt}:${chapter.input_hash}:${rawHash}`;
 
-  const result = commitSubmission({
+  return commitSubmissionToJournal(journal, {
     paths,
     unit,
     attempt,
@@ -260,14 +289,12 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
     stagingPath,
     draft: envelope.draft,
     prevalidationErrors: null,
+    recordedAt,
     checkpoint: (phase, data) => {
       writeSubmissionPhase(journal, phase, data);
       if (faultAt === phase) throw new GameKbError('SUBMISSION_FAULT_INJECTED', 'Fault after phase', { phase });
     }
   });
-
-  writeSubmissionPhase(journal, 'result', result);
-  return result;
 }
 
 module.exports = { submitChapterEnvelope };

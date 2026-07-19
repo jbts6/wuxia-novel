@@ -10,7 +10,9 @@ const { buildCandidateRegistry } = require('../scripts/lib/candidate-registry');
 const { normalizeChapterDraft, validateChapterDraft } = require('../scripts/lib/chapter-contract');
 const { pathsFor } = require('../scripts/lib/paths');
 const { createOrResumeRun } = require('../scripts/lib/run');
-const { prepareNovel } = require('../scripts/lib/source');
+const { prepareNovel, sha256 } = require('../scripts/lib/source');
+const { submissionJournalPaths } = require('../scripts/lib/submission-journal');
+const workerGuard = require('../scripts/lib/worker-guard');
 const {
   makeNovel,
   readJson,
@@ -25,6 +27,12 @@ try {
 } catch {
   // First TDD run exercises the missing module.
 }
+const directSubmitChapterEnvelope = submitDraft.submitChapterEnvelope;
+const fixtureGuardIds = new Map();
+submitDraft.submitChapterEnvelope = options => directSubmitChapterEnvelope({
+  guardId: fixtureGuardIds.get(options.paths),
+  ...options
+});
 
 function captureError(callback) {
   try {
@@ -43,7 +51,20 @@ function chapterFixture(name, runId) {
   fs.mkdirSync(paths.staging, { recursive: true });
   const manifest = readJson(paths.manifest);
   const chapter = manifest.chapters[0];
-  return { novel, paths, chapter, manifest };
+  const job = {
+    batch_id: `chapter-batch-${String(chapter.number).padStart(3, '0')}`,
+    unit: `chapter:${String(chapter.number).padStart(3, '0')}`,
+    attempt: 1,
+    input_hash: chapter.input_hash
+  };
+  const { guard_id: guardId } = workerGuard.openWorkerGuard({
+    repositoryRoot: novel,
+    paths,
+    job
+  });
+  workerGuard.checkWorkerGuard({ repositoryRoot: novel, paths, guardId });
+  fixtureGuardIds.set(paths, guardId);
+  return { novel, paths, chapter, manifest, guardId };
 }
 
 function validEnvelope(chapter, extra = {}) {
@@ -75,6 +96,7 @@ test('submitChapterEnvelope accepts a valid JSON envelope from stdin', () => {
 
   const result = submitDraft.submitChapterEnvelope({
     paths: fixture.paths,
+    guardId: fixture.guardId,
     batchId: envelope.batch_id,
     unit: envelope.unit,
     attempt: 1,
@@ -84,9 +106,79 @@ test('submitChapterEnvelope accepts a valid JSON envelope from stdin', () => {
   assert.equal(result.status, 'done');
   assert.equal(typeof result.accepted_file, 'string');
   assert.equal(fs.existsSync(result.accepted_file), true);
+  assert.equal(result.accepted_file_hash, sha256(fs.readFileSync(result.accepted_file)));
   // Accepted file must be YAML, not JSON
   const raw = fs.readFileSync(result.accepted_file, 'utf8');
   assert.equal(raw.trimStart().startsWith('{'), false);
+
+  const binding = readJson(submissionJournalPaths(fixture.paths, envelope.unit, 1).binding);
+  const openReceipt = path.join(fixture.paths.workerGuards, `${fixture.guardId}.json`);
+  const checkReceipt = path.join(fixture.paths.workerGuards, `${fixture.guardId}-check.json`);
+  assert.equal(binding.guard_id, fixture.guardId);
+  assert.equal(binding.guard_open_receipt_hash, sha256(fs.readFileSync(openReceipt)));
+  assert.equal(binding.guard_check_receipt_hash, sha256(fs.readFileSync(checkReceipt)));
+});
+
+test('submitChapterEnvelope rejects an unguarded direct broker call before creating a journal', () => {
+  const fixture = chapterFixture('无guard提交拒绝试书', 'run-unguarded-envelope');
+  const envelope = validEnvelope(fixture.chapter);
+
+  const error = captureError(() => directSubmitChapterEnvelope({
+    paths: fixture.paths,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput: JSON.stringify(envelope)
+  }));
+
+  assert.equal(error.code, 'GUARD_ID_REQUIRED');
+  assert.equal(fs.existsSync(fixture.paths.draftSubmissions), false);
+});
+
+test('submitChapterEnvelope rejects a tampered open receipt before creating a journal', () => {
+  const fixture = chapterFixture('guard证明篡改拒绝试书', 'run-tampered-guard-proof');
+  const envelope = validEnvelope(fixture.chapter);
+  const openReceipt = path.join(fixture.paths.workerGuards, `${fixture.guardId}.json`);
+  const tampered = readJson(openReceipt);
+  tampered.open_time = '2000-01-01T00:00:00.000Z';
+  fs.writeFileSync(openReceipt, `${JSON.stringify(tampered, null, 2)}\n`, 'utf8');
+
+  const error = captureError(() => submitDraft.submitChapterEnvelope({
+    paths: fixture.paths,
+    guardId: fixture.guardId,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput: JSON.stringify(envelope)
+  }));
+
+  assert.equal(error.code, 'GUARD_PROOF_MISMATCH');
+  assert.equal(fs.existsSync(fixture.paths.draftSubmissions), false);
+});
+
+test('submitChapterEnvelope replay rejects a corrupt journal through the shared decoder', () => {
+  const fixture = chapterFixture('损坏journal重放拒绝试书', 'run-corrupt-journal-replay');
+  const envelope = validEnvelope(fixture.chapter);
+  const rawInput = JSON.stringify(envelope);
+  const journal = submissionJournalPaths(fixture.paths, envelope.unit, 1);
+  fs.mkdirSync(journal.dir, { recursive: true });
+  fs.writeFileSync(journal.binding, `${JSON.stringify({
+    raw_hash: sha256(rawInput),
+    input_hash: fixture.chapter.input_hash
+  })}\n`, 'utf8');
+  const progressBefore = fs.readFileSync(fixture.paths.progress);
+
+  const error = captureError(() => submitDraft.submitChapterEnvelope({
+    paths: fixture.paths,
+    guardId: fixture.guardId,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput
+  }));
+
+  assert.equal(error.code, 'SUBMISSION_JOURNAL_CORRUPT');
+  assert.deepEqual(fs.readFileSync(fixture.paths.progress), progressBefore);
 });
 
 test('submitChapterEnvelope rejects empty input', () => {
@@ -169,6 +261,29 @@ test('submitChapterEnvelope rejects malformed JSON and consumes one attempt', ()
   // Malformed JSON consumes one attempt via commitSubmission
   assert.equal(error.code, 'DRAFT_REJECTED');
   assert.equal(error.details.attempts, 1);
+});
+
+test('submitChapterEnvelope replays an identical malformed rejection without consuming another attempt', () => {
+  const fixture = chapterFixture('畸形JSON幂等重放试书', 'run-malformed-json-replay');
+  const envelope = validEnvelope(fixture.chapter);
+  const options = {
+    paths: fixture.paths,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput: '{invalid json'
+  };
+
+  const first = captureError(() => submitDraft.submitChapterEnvelope(options));
+  const second = captureError(() => submitDraft.submitChapterEnvelope(options));
+
+  assert.equal(first.code, 'DRAFT_REJECTED');
+  assert.equal(second.code, 'DRAFT_REJECTED');
+  assert.deepEqual(second.details, first.details);
+  const progress = readJson(fixture.paths.progress);
+  assert.equal(progress.units[envelope.unit].attempts, 1);
+  const journal = submissionJournalPaths(fixture.paths, envelope.unit, 1);
+  assert.equal(fs.existsSync(journal.result), true);
 });
 
 test('submitChapterEnvelope rejects wrong schema version', () => {
@@ -298,6 +413,135 @@ test('submitChapterEnvelope replays identical input without consuming extra atte
   // Progress should show only 1 attempt
   const progress = readJson(fixture.paths.progress);
   assert.equal(progress.units[envelope.unit].attempts, 1);
+});
+
+test('submitChapterEnvelope repairs a missing terminal result after progress was saved', () => {
+  const fixture = chapterFixture('结果丢失重放试书', 'run-replay-after-progress');
+  const envelope = validEnvelope(fixture.chapter);
+  const rawInput = JSON.stringify(envelope);
+  const first = submitDraft.submitChapterEnvelope({
+    paths: fixture.paths,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput
+  });
+
+  const journal = submissionJournalPaths(fixture.paths, envelope.unit, 1);
+  const durablePhases = ['binding', 'staging-written', 'submission-recorded', 'accepted-written'];
+  const phaseBytes = new Map(durablePhases.map(phase => [phase, fs.readFileSync(journal[phase])]));
+  const progressBefore = fs.readFileSync(fixture.paths.progress);
+  const resultBefore = fs.readFileSync(journal.result);
+  fs.rmSync(journal.result);
+
+  const replay = submitDraft.submitChapterEnvelope({
+    paths: fixture.paths,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput
+  });
+
+  assert.deepEqual(replay, first);
+  for (const phase of durablePhases) {
+    assert.deepEqual(fs.readFileSync(journal[phase]), phaseBytes.get(phase));
+  }
+  assert.deepEqual(fs.readFileSync(fixture.paths.progress), progressBefore);
+  assert.deepEqual(fs.readFileSync(journal.result), resultBefore);
+});
+
+test('submitChapterEnvelope binds every recorded_at value to the journal transaction timestamp', () => {
+  const fixture = chapterFixture('时间绑定重放试书', 'run-replay-recorded-at');
+  const envelope = validEnvelope(fixture.chapter);
+  const rawInput = JSON.stringify(envelope);
+  const baseArgs = {
+    paths: fixture.paths,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput
+  };
+
+  const faultError = captureError(() => submitDraft.submitChapterEnvelope({ ...baseArgs, faultAt: 'submission-recorded' }));
+  assert.equal(faultError.code, 'SUBMISSION_FAULT_INJECTED');
+
+  const journal = submissionJournalPaths(fixture.paths, envelope.unit, 1);
+  const binding = readJson(journal.binding);
+  submitDraft.submitChapterEnvelope(baseArgs);
+
+  const submissionRecord = readJson(journal['submission-recorded']);
+  const acceptedRecord = readJson(journal['accepted-written']);
+  const result = readJson(journal.result);
+  const progress = readJson(fixture.paths.progress);
+  assert.equal(submissionRecord.recorded_at, binding.created_at);
+  assert.equal(acceptedRecord.recorded_at, binding.created_at);
+  assert.equal(result.recorded_at, binding.created_at);
+  assert.equal(progress.updated_at, binding.created_at);
+  assert.equal(progress.units[envelope.unit].updated_at, binding.created_at);
+});
+
+test('submitChapterEnvelope replay rejects a mutated archived draft', () => {
+  const fixture = chapterFixture('归档篡改重放试书', 'run-replay-mutated-archive');
+  const envelope = validEnvelope(fixture.chapter);
+  const rawInput = JSON.stringify(envelope);
+  const options = {
+    paths: fixture.paths,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput
+  };
+  const result = submitDraft.submitChapterEnvelope(options);
+  fs.writeFileSync(result.draft_archive, 'tampered archive\n', 'utf8');
+
+  const error = captureError(() => submitDraft.submitChapterEnvelope(options));
+  assert.equal(error.code, 'SUBMISSION_JOURNAL_CORRUPT');
+});
+
+test('submitChapterEnvelope replay rejects a mutated accepted artifact', () => {
+  const fixture = chapterFixture('accepted篡改重放试书', 'run-replay-mutated-accepted');
+  const envelope = validEnvelope(fixture.chapter);
+  const rawInput = JSON.stringify(envelope);
+  const options = {
+    paths: fixture.paths,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput
+  };
+  const result = submitDraft.submitChapterEnvelope(options);
+  fs.writeFileSync(result.accepted_file, 'tampered accepted artifact\n', 'utf8');
+
+  const error = captureError(() => submitDraft.submitChapterEnvelope(options));
+  assert.equal(error.code, 'SUBMISSION_JOURNAL_CORRUPT');
+});
+
+test('submitChapterEnvelope replay rejects an immutable phase content conflict', () => {
+  const fixture = chapterFixture('phase冲突重放试书', 'run-replay-phase-conflict');
+  const envelope = validEnvelope(fixture.chapter);
+  const rawInput = JSON.stringify(envelope);
+  const options = {
+    paths: fixture.paths,
+    batchId: envelope.batch_id,
+    unit: envelope.unit,
+    attempt: 1,
+    rawInput
+  };
+  const faultError = captureError(() => submitDraft.submitChapterEnvelope({
+    ...options,
+    faultAt: 'submission-recorded'
+  }));
+  assert.equal(faultError.code, 'SUBMISSION_FAULT_INJECTED');
+
+  const journal = submissionJournalPaths(fixture.paths, envelope.unit, 1);
+  const record = readJson(journal['submission-recorded']);
+  record.archive_path = `${record.archive_path}.conflict`;
+  fs.writeFileSync(journal['submission-recorded'], `${JSON.stringify(record, null, 2)}\n`, 'utf8');
+
+  const error = captureError(() => submitDraft.submitChapterEnvelope(options));
+  assert.equal(error.code, 'SUBMISSION_REPLAY_CONFLICT');
+  assert.equal(fs.existsSync(journal['accepted-written']), false);
+  assert.equal(fs.existsSync(journal.result), false);
 });
 
 test('submitChapterEnvelope rejects conflicting hash for same unit/attempt', () => {

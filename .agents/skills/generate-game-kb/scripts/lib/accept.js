@@ -208,6 +208,7 @@ function commitSubmission({
   stagingPath,
   draft,
   prevalidationErrors,
+  recordedAt = new Date().toISOString(),
   checkpoint = () => {}
 }) {
   assertAcceptedArtifacts(paths);
@@ -225,7 +226,12 @@ function commitSubmission({
   }
 
   // Skip attempt check for legacy callers (acceptDraft) that derive attempt internally
-  if (attempt !== undefined) {
+  const sameSubmissionReplay = Boolean(
+    submissionId
+    && progress.units?.[unit]?.input_hash === inputHash
+    && progress.units[unit].last_submission_id === submissionId
+  );
+  if (attempt !== undefined && !sameSubmissionReplay) {
     const expectedAttempt = nextAttempt(progress, unit, inputHash);
     if (attempt !== expectedAttempt) {
       throw new GameKbError('SUBMISSION_ATTEMPT_CONFLICT', 'Submission attempt is not the next controller attempt', {
@@ -251,8 +257,6 @@ function commitSubmission({
   }
 
   const outputHash = sha256(evidenceText);
-  const recordedAt = new Date().toISOString();
-
   // Record progress with explicit submission identity
   let updated = recordSubmission(progress, unit, inputHash, outputHash, errors, {
     attempt,
@@ -261,15 +265,13 @@ function commitSubmission({
   });
   const state = updated.units[unit];
 
-  // Write immutable evidence archive (skip if already exists — idempotent replay)
+  // Write or verify immutable evidence archive.
   const archiveDir = path.join(paths.drafts, unit.replaceAll(':', '_'));
   const archive = path.join(
     archiveDir,
     `attempt_${String(state.attempts).padStart(2, '0')}_${outputHash.slice(7, 19)}${evidenceExtension}`
   );
-  if (!fs.existsSync(archive)) {
-    writeImmutableFile(archive, evidenceText, 'DRAFT_ARCHIVE_EXISTS');
-  }
+  writeImmutableFile(archive, evidenceText, 'DRAFT_ARCHIVE_EXISTS');
 
   // Write immutable submission record (only if extension differs from archive)
   const submissionRecord = archive.replace(/\.[^.]+$/, '.json');
@@ -286,6 +288,7 @@ function commitSubmission({
     archive_path: archive,
     archive_hash: outputHash,
     accepted_file: null,
+    accepted_file_hash: null,
     consumed: errors.length === 0,
     errors
   };
@@ -294,24 +297,27 @@ function commitSubmission({
 
   // Reconcile accepted artifact for successful result
   let acceptedFile = null;
+  let acceptedFileHash = null;
   if (errors.length === 0 && draftValue !== null) {
     acceptedFile = context.acceptedFile;
     const acceptedValue = context.normalize ? context.normalize(draftValue) : draftValue;
-    ensureAcceptedArtifact(paths, acceptedFile, inputHash, acceptedValue, { acceptedAt: recordedAt });
+    const acceptedEntry = ensureAcceptedArtifact(paths, acceptedFile, inputHash, acceptedValue, { acceptedAt: recordedAt });
+    acceptedFileHash = acceptedEntry.content_hash;
     recordData.accepted_file = acceptedFile;
+    recordData.accepted_file_hash = acceptedFileHash;
   }
 
-  // Only write submission record if it's a different file from the archive
-  if (submissionRecord !== archive && !fs.existsSync(submissionRecord)) {
+  // JSON evidence already occupies this path for malformed-envelope submissions.
+  if (submissionRecord !== archive) {
     writeImmutableJson(submissionRecord, recordData, 'DRAFT_ARCHIVE_EXISTS');
   }
   checkpoint('accepted-written', recordData);
 
   // Save progress (idempotent replay already returned early in recordSubmission)
-  saveProgress(paths, updated);
+  saveProgress(paths, updated, { updatedAt: recordedAt });
 
   // Consume staging file only after successful accepted/progress reconciliation
-  if (errors.length === 0 && stagingPath) {
+  if (errors.length === 0 && stagingPath && fs.existsSync(stagingPath)) {
     try {
       fs.rmSync(stagingPath);
     } catch (error) {
@@ -321,6 +327,11 @@ function commitSubmission({
         cause: error.message
       });
     }
+  } else if (errors.length === 0 && stagingPath && !sameSubmissionReplay) {
+    throw new GameKbError('DRAFT_STAGING_CONSUME_FAILED', 'Submitted staging draft disappeared before it could be consumed', {
+      unit,
+      draft: stagingPath
+    });
   }
 
   const result = {
@@ -338,6 +349,7 @@ function commitSubmission({
     error_record: errors.length > 0 ? submissionRecord : null,
     consumed_path: errors.length === 0 ? stagingPath : null,
     accepted_file: acceptedFile,
+    accepted_file_hash: acceptedFileHash,
     submission_id: submissionId,
     recorded_at: recordedAt
   };

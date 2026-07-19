@@ -251,9 +251,9 @@ function manualIssues(progress) {
     }));
 }
 
-function saveProgress(paths, progress) {
+function saveProgress(paths, progress, { updatedAt } = {}) {
   const value = cloneProgress(progress);
-  value.updated_at = now();
+  value.updated_at = updatedAt || now();
   for (const unitName of DOMAIN_UNITS) {
     const unit = value.units[unitName];
     if (!unit || !['pending', 'stale', 'manual_review'].includes(unit.status)) continue;
