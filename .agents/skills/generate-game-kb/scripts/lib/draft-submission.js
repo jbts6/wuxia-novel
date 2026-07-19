@@ -52,15 +52,6 @@ function validateCliIdentity(paths, batchId, unit, attempt, { allowJournalReplay
     throw new GameKbError('UNIT_UNKNOWN', 'Chapter unit is not present in the manifest', { unit });
   }
 
-  const expectedBatchId = `chapter-batch-${String(chapterNumber).padStart(3, '0')}`;
-  if (batchId !== expectedBatchId) {
-    throw new GameKbError('SUBMISSION_CLI_IDENTITY_MISMATCH', 'CLI batch_id does not match unit', {
-      batch_id: batchId,
-      expected_batch_id: expectedBatchId,
-      unit
-    });
-  }
-
   const progress = loadProgress(paths, manifest);
   const state = progress.units?.[unit];
   const expectedAttempt = !state || state.input_hash !== chapter.input_hash ? 1 : (state.attempts || 0) + 1;

@@ -141,6 +141,9 @@ function validateChapterDraft(draft, expected) {
   for (const field of Object.keys(draft)) {
     if (!CHAPTER_FIELDS.has(field)) errors.push(issue('CHAPTER_FIELD_FORBIDDEN', field, field));
   }
+  if (draft.schema_version !== 1) {
+    errors.push(issue('SCHEMA_VERSION_INVALID', 'schema_version', draft.schema_version));
+  }
   if (draft.chapter !== expected.number) errors.push(issue('CHAPTER_MISMATCH', 'chapter', draft.chapter));
   if (draft.source_hash !== expected.inputHash) errors.push(issue('SOURCE_HASH_MISMATCH', 'source_hash', draft.source_hash));
   if (typeof draft.title !== 'string' || draft.title.trim() === '') errors.push(issue('TITLE_REQUIRED', 'title'));

@@ -85,6 +85,12 @@ const PROFILE_COMMANDS = Object.freeze({
   'lite-check-draft': { command: 'check-draft', profile: PROFILE_LITE },
   'lite-recover-draft': { command: 'recover-draft', profile: PROFILE_LITE }
 });
+const GUARD_WINDOW_COMMANDS = new Set([
+  'guard-open',
+  'guard-check',
+  'check-draft',
+  'recover-draft'
+]);
 
 function routeCommand(requestedCommand) {
   return PROFILE_COMMANDS[requestedCommand] || {
@@ -463,7 +469,11 @@ function main(argv = process.argv.slice(2)) {
   const requestedRun = flagValue(args, '--run');
   const emit = result => {
     const elapsedMs = Number(process.hrtime.bigint() - commandStartedAt) / 1e6;
-    const timing = recordScriptDuration(timingRunJson, elapsedMs, command, timingUnit);
+    // Guard snapshots include run.json, so controller timing writes during the
+    // guarded window would be indistinguishable from worker mutations.
+    const timing = GUARD_WINDOW_COMMANDS.has(command)
+      ? null
+      : recordScriptDuration(timingRunJson, elapsedMs, command, timingUnit);
     const output = timing?.metrics_hash && result?.status === 'archived'
       ? { ...result, metrics_hash: timing.metrics_hash }
       : result;
