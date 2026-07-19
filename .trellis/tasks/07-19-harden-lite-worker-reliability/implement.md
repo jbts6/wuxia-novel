@@ -32,7 +32,7 @@
 - Consumes: controller commands and status fields from the prerequisite task.
 - Produces: text-contract assertions that the Skill cannot regress to guessed paths or prose validation.
 
-- [ ] **Step 1: Add failing Skill assertions**
+- [x] **Step 1: Add failing Skill assertions**
 
 ```js
 assert.match(skill, /worker_write_paths[^\n]*\[\]/);
@@ -48,11 +48,11 @@ assert.match(skill, /controller[^\n]*status|控制器[^\n]*状态/);
 
 Also assert that worker-visible payloads contain no `staging_path` or output filename, the main agent must not write a temporary file, identity-matched invalid envelopes consume attempts, rogue files do not, and attempt 3 is forbidden.
 
-- [ ] **Step 2: Add failing CLI lifecycle fixture assertions**
+- [x] **Step 2: Add failing CLI lifecycle fixture assertions**
 
 Model the exact sequence `status -> guard-open -> worker message -> guard-check -> main-agent stdin submit -> status`; reject a fixture that skips guard, writes a worker/main-agent file, passes a draft path, mutates the envelope, or trusts worker prose.
 
-- [ ] **Step 3: Run tests and confirm RED**
+- [x] **Step 3: Run tests and confirm RED**
 
 Run: `rtk node --test .agents/skills/generate-game-kb/tests/lite-skill-contract.test.js .agents/skills/generate-game-kb/tests/lite-worker-lifecycle.test.js .agents/skills/generate-game-kb/tests/lite-cli-contract.test.js .agents/skills/generate-game-kb/tests/lite-residue-contract.test.js`
 
@@ -70,7 +70,7 @@ Expected: missing zero-write, envelope, broker, guard, and recovery language fai
 - Consumes: `chapter_jobs[].worker_write_paths`, submission identities, legacy serialization status, and guard/broker/recovery CLI results.
 - Produces: a concise main-agent lifecycle with no model-authored files or inferred state.
 
-- [ ] **Step 1: Replace the dispatch section with the exact lifecycle**
+- [x] **Step 1: Replace the dispatch section with the exact lifecycle**
 
 ```text
 lite-status
@@ -84,15 +84,15 @@ lite-status
 
 Document that an identity-matched invalid envelope is formally rejected by `lite-submit-draft`, while stale identity or any worker filesystem effect stops before attempt accounting.
 
-- [ ] **Step 2: Add the explicit recovery branch**
+- [x] **Step 2: Add the explicit recovery branch**
 
 Require user confirmation before `lite-recover-draft`; prohibit manual filesystem operations; require a clean guard re-check before continuing.
 
-- [ ] **Step 3: Keep the Skill concise**
+- [x] **Step 3: Keep the Skill concise**
 
 Keep core scheduling/zero-write/broker invariants in the Skill and link to the extraction prompt/schema for field detail. Remove any wording that tells workers or main agents to create YAML, permits inferred directories or generic `game-kb`, allows worker-owned acceptance, or derives status from file counts.
 
-- [ ] **Step 4: Run Skill contract tests**
+- [x] **Step 4: Run Skill contract tests**
 
 Run: `rtk node --test .agents/skills/generate-game-kb/tests/lite-skill-contract.test.js .agents/skills/generate-game-kb/tests/lite-residue-contract.test.js`
 
@@ -111,17 +111,17 @@ Expected: all Skill lifecycle assertions pass.
 **Interfaces:**
 - Produces: low-freedom worker instructions using an absolute read-only source path and one V6 JSON submission envelope per chapter.
 
-- [ ] **Step 1: Add failing prompt assertions**
+- [x] **Step 1: Add failing prompt assertions**
 
 Require phrases or structured fields covering: absolute read-only source path, zero filesystem writes, no controller/script invocation, exact envelope identity fields, one `draft` object per chapter, exact top-level draft fields, `local_key`, `source_refs`, exact source hash, exact quotes, and forbidden `book/author/summary/role`.
 
-- [ ] **Step 2: Run prompt tests and confirm RED**
+- [x] **Step 2: Run prompt tests and confirm RED**
 
 Run: `rtk node --test .agents/skills/generate-game-kb/tests/lite-skill-contract.test.js`
 
 Expected: the current Lite prompt lacks several required safety clauses.
 
-- [ ] **Step 3: Update the prompt without duplicating the full schema reference**
+- [x] **Step 3: Update the prompt without duplicating the full schema reference**
 
 Use an imperative block such as:
 
@@ -134,11 +134,11 @@ message. Do not call controller or submission commands and do not claim acceptan
 
 Replace the worker-authored YAML example with one valid JSON envelope whose `draft` object demonstrates the same explicit field/grounding rules. State that controller—not the worker—serializes the accepted `.yaml` bytes.
 
-- [ ] **Step 4: Update English and Chinese command examples**
+- [x] **Step 4: Update English and Chinese command examples**
 
 Show guard open/check, a worker message envelope, main-agent stdin `lite-submit-draft`, path-only recovery with `--confirm`, and status refresh. The normal submission example contains no output path or temporary file.
 
-- [ ] **Step 5: Run prompt and CLI contract tests**
+- [x] **Step 5: Run prompt and CLI contract tests**
 
 Run: `rtk node --test .agents/skills/generate-game-kb/tests/lite-skill-contract.test.js .agents/skills/generate-game-kb/tests/lite-cli-contract.test.js`
 
@@ -155,25 +155,25 @@ Expected: all prompt and lifecycle assertions pass.
 - Consumes: controller guard/submission/recovery commands.
 - Produces: disposable tests for every observed incident class without using the live run.
 
-- [ ] **Step 1: Create a temporary two-chapter novel fixture**
+- [x] **Step 1: Create a temporary two-chapter novel fixture**
 
 Use existing test helpers to create source, prepare a Lite run, read one status job, and assert `worker_write_paths` is empty while submission identities match the current chapters.
 
-- [ ] **Step 2: Add scripted rogue-write cases**
+- [x] **Step 2: Add scripted rogue-write cases**
 
 Create `game-kb/`, `.trellis/game-kb/`, `docs/game-kb/`, run `out/`, run `output/`, a changed novel source, and `chapter_001_attempt_03.yaml`. Assert each guard report blocks acceptance and leaves progress unchanged.
 
 Also create a runtime-random nested repository path that is absent from the worker report. Assert the controller delta report supplies the exact normalized absolute path without any filename guess, and assert the Skill describes repository-root coverage without promising whole-machine discovery.
 
-- [ ] **Step 3: Add content-validation cases**
+- [x] **Step 3: Add content-validation cases**
 
 Cover malformed JSON envelope, mismatched envelope identity, forbidden fields, missing `local_key/source_refs/title`, wrong hash, fabricated quote, and missing source name. Assert machine-readable error codes, controller-authored canonical YAML, and bounded attempts.
 
-- [ ] **Step 4: Add path-only valid recovery**
+- [x] **Step 4: Add path-only valid recovery**
 
 Write a fully valid draft to `game-kb/chapter.yaml`; assert it is recoverable, confirmation is mandatory, source remains, destination becomes canonical YAML, no failed attempt is consumed, and guard remains unresolved until the stray source is removed/restored.
 
-- [ ] **Step 5: Run the incident suite**
+- [x] **Step 5: Run the incident suite**
 
 Run: `rtk node --test .agents/skills/generate-game-kb/tests/lite-worker-safety.test.js .agents/skills/generate-game-kb/tests/lite-worker-lifecycle.test.js .agents/skills/generate-game-kb/tests/lite-cli-contract.test.js .agents/skills/generate-game-kb/tests/accept-retry.test.js`
 
@@ -186,28 +186,28 @@ Expected: all observed incident classes are deterministic and green.
 **Files:**
 - Verify only; fix only files owned by Tasks 1–4 when necessary.
 
-- [ ] **Step 1: Validate the project-local Skill structure**
+- [x] **Step 1: Validate the project-local Skill structure**
 
 Run: `rtk python C:/Users/fh345/.codex/skills/.system/skill-creator/scripts/quick_validate.py C:/git/wuxia-novel/.agents/skills/generate-game-kb-lite`
 
 Expected: validation succeeds with no frontmatter or naming errors.
 
-- [ ] **Step 2: Run focused Lite tests**
+- [x] **Step 2: Run focused Lite tests**
 
 Run: `rtk node --test .agents/skills/generate-game-kb/tests/lite-skill-contract.test.js .agents/skills/generate-game-kb/tests/lite-worker-lifecycle.test.js .agents/skills/generate-game-kb/tests/lite-cli-contract.test.js .agents/skills/generate-game-kb/tests/lite-residue-contract.test.js .agents/skills/generate-game-kb/tests/lite-worker-safety.test.js`
 
 Expected: zero failures.
 
-- [ ] **Step 3: Run the complete game-KB suite**
+- [x] **Step 3: Run the complete game-KB suite**
 
 Run: `rtk node --test .agents/skills/generate-game-kb/tests/*.test.js`
 
 Expected: zero failures.
 
-- [ ] **Step 4: Verify protected files and scope**
+- [x] **Step 4: Verify protected files and scope**
 
 Run `rtk git status --short` and compare protected artifact hashes. Expected: no changes to `.claude/skills/*`, `古龙/凤舞九天`, existing accepted artifacts, installed data, or parent migration implementation files beyond the already stabilized shared controller entrypoint.
 
-- [ ] **Step 5: Defer live forward-testing**
+- [x] **Step 5: Defer live forward-testing**
 
 Do not dispatch a real worker in inline mode. If the user later approves a disposable forward-test, run it only against a temporary fixture after opening the controller guard; never use a real novel.

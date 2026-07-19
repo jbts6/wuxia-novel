@@ -36,21 +36,21 @@ Make `generate-game-kb-lite` use chapter workers only for extraction, return str
 
 ## Acceptance Criteria
 
-- [ ] Dispatch construction uses only fields returned by `lite-status`; the worker payload contains an absolute read-only `source_file` but no output path or writable location.
-- [ ] Prompt-contract tests require zero filesystem writes, no controller/script invocation, one JSON envelope per chapter, exact identity fields, exact schema, source grounding, and bounded attempts.
-- [ ] The lifecycle is exactly `status -> guard-open -> worker message -> guard-check -> main-agent stdin submit -> status`; fixtures reject worker file writes, main-agent file writes, path arguments, or submission before a clean guard result.
-- [ ] A valid structured chapter fixture is converted by `lite-submit-draft` into canonical YAML and accepted without any model-authored file.
-- [ ] A wrong-path but fully valid fixture is reported as recoverable, remains byte-preserved at its original path, and can be copied to the issued absolute path only through explicit controller recovery without a failed attempt.
-- [ ] A correctly identified malformed JSON envelope or invalid `draft` is formally rejected, consumes exactly one attempt, and cannot be silently rewritten under the same attempt.
-- [ ] Forbidden fields, missing required fields, wrong source hash, fabricated quotes, and missing source names fail broker validation with machine-readable errors; YAML formatting and serialization are controller-owned rather than model-authored.
-- [ ] A simulated worker write to `game-kb/`, `.trellis/game-kb/`, `docs/game-kb/`, `out/`, `output/`, or an unissued staging filename is detected before acceptance and reported without deletion.
-- [ ] A simulated write to an unpredictable nested repository path is located from the controller's before/after inventory and reported with its exact absolute path even when worker prose does not disclose it; user-facing wording does not promise discovery outside the repository root.
-- [ ] A simulated third attempt cannot be dispatched without an explicit controller-issued retry cycle.
-- [ ] Attempt 1 rejection can dispatch only controller-issued attempt 2; attempt 2 rejection reports `manual_review` and dispatches nothing.
-- [ ] A pre-fix run with JSON-serialized accepted artifacts cannot dispatch or accept additional chapter work; a fresh run uses canonical YAML throughout.
-- [ ] Worker prose cannot mark a unit accepted; only controller status can do so.
-- [ ] Regression tests reproduce the incident classes without reading from or writing to the frozen `古龙/凤舞九天` run.
-- [ ] Skill validation and the relevant game-KB test suite pass while unrelated working-tree changes remain untouched.
+- [x] Dispatch construction uses only fields returned by `lite-status`; the worker payload contains an absolute read-only `source_file` but no output path or writable location.
+- [x] Prompt-contract tests require zero filesystem writes, no controller/script invocation, one JSON envelope per chapter, exact identity fields, exact schema, source grounding, and bounded attempts.
+- [x] The lifecycle is exactly `status -> guard-open -> worker message -> guard-check -> main-agent stdin submit -> status`; fixtures reject worker file writes, main-agent file writes, path arguments, or submission before a clean guard result.
+- [x] A valid structured chapter fixture is converted by `lite-submit-draft` into canonical YAML and accepted without any model-authored file.
+- [x] A wrong-path but fully valid fixture is reported as recoverable, remains byte-preserved at its original path, and can be copied to the issued absolute path only through explicit controller recovery without a failed attempt.
+- [x] A correctly identified malformed JSON envelope or invalid `draft` is formally rejected, consumes exactly one attempt, and cannot be silently rewritten under the same attempt.
+- [x] Forbidden fields, missing required fields, wrong source hash, fabricated quotes, and missing source names fail broker validation with machine-readable errors; YAML formatting and serialization are controller-owned rather than model-authored.
+- [x] A simulated worker write to `game-kb/`, `.trellis/game-kb/`, `docs/game-kb/`, `out/`, `output/`, or an unissued staging filename is detected before acceptance and reported without deletion.
+- [x] A simulated write to an unpredictable nested repository path is located from the controller's before/after inventory and reported with its exact absolute path even when worker prose does not disclose it; user-facing wording does not promise discovery outside the repository root.
+- [x] A simulated third attempt cannot be dispatched without an explicit controller-issued retry cycle.
+- [x] Attempt 1 rejection can dispatch only controller-issued attempt 2; attempt 2 rejection reports `manual_review` and dispatches nothing.
+- [x] A pre-fix run with JSON-serialized accepted artifacts cannot dispatch or accept additional chapter work; a fresh run uses canonical YAML throughout.
+- [x] Worker prose cannot mark a unit accepted; only controller status can do so.
+- [x] Regression tests reproduce the incident classes without reading from or writing to the frozen `古龙/凤舞九天` run.
+- [x] Skill validation and the relevant game-KB test suite pass while unrelated working-tree changes remain untouched.
 
 ## Dependencies and Boundaries
 
