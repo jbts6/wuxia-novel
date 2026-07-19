@@ -60,10 +60,12 @@ shape, or unchanged-tree-hash evidence.
   evidence.
 - `dashboard/package-lock.json` matches are integrity/hash substrings.
 - `Lv5` in the May pipeline design means level 5.
-- `.workbuddy/memory/2026-07-19.md`,
-  `docs/wuxia-kb-build-priority.md`, ignored SDD task briefs/reports, and review
-  diffs are
-  user-owned and were not modified.
+- `.workbuddy/memory/2026-07-19.md` and
+  `docs/wuxia-kb-build-priority.md` are user-owned untracked files. The final
+  sweep corrected only five stale product labels/commands and left both files
+  untracked and uncommitted.
+- Ignored SDD task briefs/reports and review diffs are historical snapshots and
+  were not modified.
 - Thirteen version-5 contract fields inside the real ignored Jian Shen Yi Xiao
   legacy run are immutable evidence and were not modified.
 

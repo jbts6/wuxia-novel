@@ -52,7 +52,7 @@
 - 两份 `lite-residue-audit*.md` 会引用已移除的旧名称，用于记录门禁和迁移边界。
 - `dashboard/package-lock.json` 的命中是 integrity/hash 子串。
 - `docs/superpowers/specs/2026-05-28-wuxia-data-pipeline-design.md:87` 的 `Lv5` 表示等级 5。
-- `.workbuddy/memory/2026-07-19.md` 与 `docs/wuxia-kb-build-priority.md` 是用户内容，未修改。
+- `.workbuddy/memory/2026-07-19.md` 与 `docs/wuxia-kb-build-priority.md` 是用户拥有的未跟踪内容；最终复扫只修正其中 5 行旧产品称呼/命令，并继续保持未跟踪、未提交。
 - `.superpowers/sdd/task-8-brief.md`、`task-8-report.md` 和两份 `review-*.diff` 是被 `.superpowers/sdd/.gitignore` 排除的临时派工/审查快照，允许保留历史旧名称，未修改。
 - 真实旧 run `古龙/剑神一笑/.game-kb-work/runs/run-jian-shen-yi-xiao-v4-real-20260718/` 中的 13 个 version-5 合同字段是不可变证据，未修改。
 
@@ -63,4 +63,4 @@
 1. 当前轻量产品、Skill、CLI、profile、测试和任务路径统一使用 Lite。
 2. `lite-residue-contract.test.js` 4/4 通过。
 3. 每个剩余 V5 命中均可归入旧版本证据、`LEGACY_PROFILE_V5` 兼容、负向断言、审计引用或明确误报。
-4. 用户文件保持不变。
+4. 两个未跟踪用户文件中的操作性 V5 残留已改为 Lite，除此之外内容保持不变。
