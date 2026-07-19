@@ -1,0 +1,142 @@
+schema_version: 1
+chapter: 11
+title: "第十一回　逃避追捕"
+source_hash: ""
+factions: []
+characters:
+  - local_key: "character:陆小凤"
+    name: "陆小凤"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "主角，具有兔子的精灵和速度、狐狸的狡猾、狗的忠勇，擅长丛林求生和制造陷阱"
+    factions: []
+    skills:
+      - "skill:陷阱制作"
+    source_refs:
+      - chapter: 11
+        text: "他不仅有兔子的精灵和速度，还有狐狸的狡猾、狗的忠勇。"
+      - chapter: 11
+        text: "在丛林沼泽中求生的技巧，他远比任何人懂得的都多。只要利用一段树枝，他就可以在片刻中制出一个杀人的陷阱。"
+      - chapter: 11
+        text: "判断正确的人，本就通常都会有好运气的。因为只有判断正确的人，才能把握住机会。"
+  - local_key: "character:沙曼"
+    name: "沙曼"
+    aliases:
+      - "曼姑娘"
+    identities: []
+    level: null
+    rank: null
+    description: "女性剑客，宫九的女人，后与陆小凤同行，被老实和尚称为当世第一位女剑客"
+    factions: []
+    skills:
+      - "skill:剑术"
+    source_refs:
+      - chapter: 11
+        text: "剑光一闪，一柄精光四射的长剑已架上了老实和尚的脖子。"
+      - chapter: 11
+        text: "老实和尚道：'其实姑娘用不着动手，和尚也知道姑娘是当世第一位女剑客了。'"
+      - chapter: 11
+        text: "只要能跟你在一起，就算只能再活一个时辰，我也心满意足！"
+  - local_key: "character:宫九"
+    name: "宫九"
+    aliases:
+      - "九少爷"
+    identities: []
+    level: null
+    rank: null
+    description: "反派，被描述为用九种东西做成的怪物，自负孤僻，喜欢照镜子，杀人已不必用剑"
+    factions: []
+    skills:
+      - "skill:无剑境界"
+    source_refs:
+      - chapter: 11
+        text: "毒蛇的液、狐狸的心、北海中的冰雪、天山上的岩石、狮子的勇猛、豺狼的狠辣、骆驼的忍耐、人的聪明，再加上一条来自十八层地狱下的鬼魂。"
+      - chapter: 11
+        text: "他杀人已不必用剑。"
+      - chapter: 11
+        text: "因为他惟一真正喜欢的人，就是他自己。"
+  - local_key: "character:老实和尚"
+    name: "老实和尚"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "和尚，躲藏在宫九床底下，善于拍马屁和说媒"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 11
+        text: "忽然听见床下有人在鼓掌。"
+      - chapter: 11
+        text: "替人说媒求亲，成媒作证，都是和尚的拿手本事。"
+  - local_key: "character:西门吹雪"
+    name: "西门吹雪"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "剑术高手，被提及已练到无剑境界"
+    factions: []
+    skills:
+      - "skill:无剑境界"
+    source_refs:
+      - chapter: 11
+        text: "我知道还有一个人，剑术也已练到'无剑'的境界。"
+skills:
+  - local_key: "skill:无剑境界"
+    name: "无剑境界"
+    aliases: []
+    types:
+      - "剑术"
+    factions: []
+    rank: null
+    description: "剑术的高深境界，不必用剑即可杀人"
+    techniques: []
+    source_refs:
+      - chapter: 11
+        text: "既然练的是剑，又何必执著于'无剑'二字？"
+      - chapter: 11
+        text: "他杀人已不必用剑。"
+  - local_key: "skill:陷阱制作"
+    name: "陷阱制作"
+    aliases: []
+    types:
+      - "求生"
+    factions: []
+    rank: null
+    description: "利用树枝等材料快速制作杀人陷阱的技巧"
+    techniques: []
+    source_refs:
+      - chapter: 11
+        text: "只要利用一段树枝，他就可以在片刻中制出一个杀人的陷阱。"
+items:
+  - local_key: "item:青铜镜"
+    name: "青铜镜"
+    aliases: []
+    type: "器具"
+    description: "宫九自己磨成的镜子，他自认为是天下第一明镜"
+    source_refs:
+      - chapter: 11
+        text: "这是他自己磨成的，他自认为这无疑已是天下第一明镜。"
+  - local_key: "item:宫九之剑"
+    name: "宫九之剑"
+    aliases: []
+    type: "武器"
+    description: "剑身狭长，形式古雅，悬于铜镜旁"
+    source_refs:
+      - chapter: 11
+        text: "镜旁悬着一柄剑，剑身狭长，形式古雅。"
+      - chapter: 11
+        text: "这就是他的剑。"
+chapter_summary:
+  title: "第十一回　逃避追捕"
+  summary: "陆小凤与沙曼逃避宫九追捕，陆小凤想出躲进宫九屋中的计策。沙曼拦截运送箱子的人，两人藏入箱中被送入宫九卧房。在屋中遇见面下躲藏的老实和尚。沙曼透露宫九十八个时辰后必须离开去杀人，届时他们便可脱身。"
+  source_refs:
+    - chapter: 11
+      text: "宫九既然要出来追捕他们，自己的屋里一定没有人。"
+    - chapter: 11
+      text: "十八个时辰后，他已经不在这里。"
+    - chapter: 11
+      text: "因为外面还有件事一定要等着他去做。"

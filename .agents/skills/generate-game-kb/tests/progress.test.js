@@ -280,3 +280,83 @@ test('corrupt progress fails closed', () => {
   assert.throws(() => loadProgress(paths, manifest), { code: 'PROGRESS_CORRUPT' });
   assert.equal(readJson(paths.manualReview).length, 0);
 });
+
+test('writeImmutableFile accepts identical replay and rejects different bytes', () => {
+  const os = require('node:os');
+  const { writeImmutableFile } = require('../scripts/lib/io');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-write-once-'));
+  const file = path.join(root, 'receipt.json');
+  try {
+    writeImmutableFile(file, 'same\n', 'SUBMISSION_REPLAY_CONFLICT');
+    assert.doesNotThrow(() => writeImmutableFile(file, 'same\n', 'SUBMISSION_REPLAY_CONFLICT'));
+    assert.throws(
+      () => writeImmutableFile(file, 'different\n', 'SUBMISSION_REPLAY_CONFLICT'),
+      error => error.code === 'SUBMISSION_REPLAY_CONFLICT'
+    );
+    assert.equal(fs.readFileSync(file, 'utf8'), 'same\n');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('writeImmutableJson accepts identical replay and rejects different values', () => {
+  const os = require('node:os');
+  const { writeImmutableJson } = require('../scripts/lib/io');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-write-once-json-'));
+  const file = path.join(root, 'data.json');
+  try {
+    writeImmutableJson(file, { a: 1 }, 'SUBMISSION_REPLAY_CONFLICT');
+    assert.doesNotThrow(() => writeImmutableJson(file, { a: 1 }, 'SUBMISSION_REPLAY_CONFLICT'));
+    assert.throws(
+      () => writeImmutableJson(file, { a: 2 }, 'SUBMISSION_REPLAY_CONFLICT'),
+      error => error.code === 'SUBMISSION_REPLAY_CONFLICT'
+    );
+    assert.deepEqual(readJson(file), { a: 1 });
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('recordSubmission is idempotent for one explicit submission id', () => {
+  const unit = 'chapter:001';
+  const inputHash = `sha256:${'1'.repeat(64)}`;
+  const outputHash = `sha256:${'2'.repeat(64)}`;
+  const errors = [{ code: 'SUBMISSION_ENVELOPE_INVALID', path: '$', target: 'invalid JSON' }];
+  const progress = freshProgress();
+  progress.units[unit] = freshUnit(inputHash);
+  const once = recordSubmission(progress, unit, inputHash, outputHash, errors, {
+    attempt: 1,
+    submissionId: 'submission:chapter:001:attempt:1:sha256:fixture',
+    recordedAt: '2026-07-19T00:00:00.000Z'
+  });
+  const replay = recordSubmission(once, unit, inputHash, outputHash, errors, {
+    attempt: 1,
+    submissionId: 'submission:chapter:001:attempt:1:sha256:fixture',
+    recordedAt: '2026-07-19T00:00:00.000Z'
+  });
+  assert.deepEqual(replay, once);
+  assert.equal(replay.units[unit].attempts, 1);
+});
+
+test('recordSubmission allows different submissionId for next attempt', () => {
+  const unit = 'chapter:001';
+  const inputHash = `sha256:${'1'.repeat(64)}`;
+  const outputHash = `sha256:${'2'.repeat(64)}`;
+  const errors = [{ code: 'TEST_ERROR', path: '$', target: 'test' }];
+  const progress = freshProgress();
+  progress.units[unit] = freshUnit(inputHash);
+  const once = recordSubmission(progress, unit, inputHash, outputHash, errors, {
+    attempt: 1,
+    submissionId: 'submission:chapter:001:attempt:1:sha256:first',
+    recordedAt: '2026-07-19T00:00:00.000Z'
+  });
+  assert.equal(once.units[unit].attempts, 1);
+  assert.equal(once.units[unit].status, 'pending');
+  // Different submissionId for the next attempt should succeed
+  const twice = recordSubmission(once, unit, inputHash, 'sha256:3'.padEnd(67, '0'), errors, {
+    attempt: 2,
+    submissionId: 'submission:chapter:001:attempt:2:sha256:second',
+    recordedAt: '2026-07-19T00:00:01.000Z'
+  });
+  assert.equal(twice.units[unit].attempts, 2);
+});

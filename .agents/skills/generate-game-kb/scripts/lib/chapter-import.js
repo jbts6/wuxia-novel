@@ -6,10 +6,17 @@ const path = require('node:path');
 const { GameKbError } = require('./errors');
 const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contract');
 const {
+  ACCEPTED_SERIALIZATION,
   assertAcceptedArtifacts,
   readArtifactManifest
 } = require('./candidate-ledger');
-const { atomicWriteFile, atomicWriteJson, readJson, readYaml } = require('./io');
+const {
+  atomicWriteFile,
+  atomicWriteJson,
+  readJson,
+  readYaml,
+  serializeYaml
+} = require('./io');
 const { pathsFor } = require('./paths');
 const { saveProgress, setDeterministicUnit } = require('./progress');
 const {
@@ -384,7 +391,7 @@ function importAcceptedChapters({ novelDir, sourceRunId, targetRunId, confirmed,
       relative_path: relativePath
     });
     const value = convertChapter(readYaml(sourceFile), sourceChapter, targetByNumber.get(sourceChapter.number));
-    const content = `${JSON.stringify(value, null, 2)}\n`;
+    const content = serializeYaml(value);
     return {
       chapter: sourceChapter.number,
       inputHash: sourceChapter.input_hash,
@@ -416,7 +423,8 @@ function importAcceptedChapters({ novelDir, sourceRunId, targetRunId, confirmed,
         relative_path: chapter.relativePath,
         input_hash: chapter.inputHash,
         content_hash: chapter.targetHash,
-        accepted_at: acceptedAt
+        accepted_at: acceptedAt,
+        serialization: ACCEPTED_SERIALIZATION
       }))
     };
     atomicWriteJson(targetPaths.artifactManifest, artifactManifest);

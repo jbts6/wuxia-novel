@@ -1068,3 +1068,105 @@ Completed the legacy lightweight-product naming migration to Lite, cleaned the f
 ### Next Steps
 
 - None - task complete
+
+---
+
+## 2026-07-19 Session: Harden Game KB Controller Invariants (Tasks 1-6)
+
+### What was done
+
+Implemented Tasks 1-6 of the controller invariants plan:
+
+**Task 1: Canonical accepted serialization** ✅ (pre-existing)
+- `serializeYaml()` in io.js, `assertAcceptedSerialization()` in run.js
+- Tests: 3/3 pass
+
+**Task 2: Zero-write worker job** ✅ (pre-existing + fix)
+- `worker_write_paths: []` and `submissions` fields in chapter-batching.js
+- Fixed test fixture to include new fields
+- Tests: 18/18 pass
+
+**Task 3: Repository delta guard** ✅ (new)
+- Created `worker-guard.js`: `openWorkerGuard`, `checkWorkerGuard`, `unresolvedWorkerGuardReports`
+- Snapshot-based detection of any repo changes during worker phase
+- Excludes `.git`, `node_modules`; normalizes Windows paths
+- Tests: 14/14 pass
+
+**Task 4: Crash-safe stdin submission broker** ✅ (new)
+- Created `draft-submission.js`: `submitChapterEnvelope`
+- Validates CLI identity before parsing, creates immutable receipts
+- Supports replay (same hash) and rejects conflicts
+- Tests: 14/14 pass
+
+**Task 5: Read-only preflight and recovery** ✅ (new)
+- Created `draft-preflight.js`: `preflightChapterDraft` (read-only validation)
+- Created `draft-recovery.js`: `recoverChapterDraft` (confirmed recovery with receipt)
+- Tests: 10/10 pass
+
+**Task 6: CLI integration** ✅ (new)
+- Added routes: `lite-guard-open`, `lite-guard-check`, `lite-submit-draft`, `lite-check-draft`, `lite-recover-draft`
+- CLI contract tests: 17/17 pass
+
+### Testing
+
+- Full suite: 399/399 pass
+- Safety suite (focused): 105/105 pass
+- No protected artifacts changed
+
+### Status
+
+[OK] **Tasks 1-6 complete; Task 7 (regression gate) verified**
+
+### Next Steps
+
+- Task 7 is verification-only (already done above)
+- Child task `07-19-harden-lite-worker-reliability` is still in planning status
+
+---
+
+## 2026-07-19 Session: Repair Plan Tasks 1-6 Complete
+
+### What was done
+
+Executed the full repair plan for game-kb controller invariants:
+
+**Task 1: Idempotent shared submission transaction** ✅
+- `writeImmutableFile()` / `writeImmutableJson()` in io.js
+- `recordSubmission()` idempotency with `submissionId`/`attempt`
+- `ensureAcceptedArtifact()` crash recovery in candidate-ledger.js
+- `commitSubmission()` extracted in accept.js
+
+**Task 2: Broker byte bounds, attempt accounting, crash replay** ✅
+- UTF-8 byte counting with `Buffer.byteLength`
+- `submission-journal.js` — append-only journal with phase files
+- `faultAt` parameter for crash injection
+- Malformed JSON consumes one attempt via `commitSubmission()`
+
+**Task 3: Guard binding at real repository root** ✅ (parallel agent)
+- `repositoryRootFor(novelDir)` in paths.js
+- `assertCleanGuardForSubmission()` in worker-guard.js
+- `--guard-id` required on submit-draft and recover-draft
+- Sibling rogue path detection tests
+
+**Task 4: Recovery safety** ✅ (parallel agent)
+- `assertSafeSource()` with symlink/junction rejection
+- Current attempt derivation from progress
+- `acceptDraft()` routing after recovery
+- Guard-discovery binding
+
+**Task 5: Expose resumable broker state** ✅
+- `pendingSubmissionJournals()` integration in next-action.js
+- `resume-draft-submission` next action
+
+**Task 6: Final verification gate** ✅
+- Focused suite: 109/109 pass
+- Complete suite: 429/429 pass
+- Protected artifacts unchanged
+- verification.md updated
+
+### Testing
+- 429/429 all pass
+- No protected artifacts changed
+
+### Status
+[OK] **Repair plan complete. Task ready for user review.**

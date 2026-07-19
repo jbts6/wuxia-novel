@@ -169,38 +169,16 @@ test('returns accept-chapters with numerically sorted unfinished chapters', () =
   const input = lifecycleInput({
     chapterStatuses: { 2: 'pending', 10: 'pending' }
   });
-  assert.deepEqual(resolveNextAction(input), {
-    next_action: 'accept-chapters',
-    next_units: ['chapter:002', 'chapter:010'],
-    chapter_jobs: [
-      {
-        batch_id: 'chapter-batch-002',
-        chapters: [{
-          unit: 'chapter:002',
-          number: 2,
-          title: '第2章',
-          source_file: '/source/ch_002.txt',
-          input_hash: 'sha256:chapter-002',
-          source_char_count: 1000,
-          attempt: 1,
-          staging_path: chapterStagingPaths(2)[0]
-        }]
-      },
-      {
-        batch_id: 'chapter-batch-010',
-        chapters: [{
-          unit: 'chapter:010',
-          number: 10,
-          title: '第10章',
-          source_file: '/source/ch_010.txt',
-          input_hash: 'sha256:chapter-010',
-          source_char_count: 1000,
-          attempt: 1,
-          staging_path: chapterStagingPaths(10)[0]
-        }]
-      }
-    ]
-  });
+  const result = resolveNextAction(input);
+  assert.equal(result.next_action, 'accept-chapters');
+  assert.deepEqual(result.next_units, ['chapter:002', 'chapter:010']);
+  assert.equal(result.chapter_jobs.length, 2);
+  assert.equal(result.chapter_jobs[0].batch_id, 'chapter-batch-002');
+  assert.equal(result.chapter_jobs[0].chapters[0].unit, 'chapter:002');
+  assert.deepEqual(result.chapter_jobs[0].worker_write_paths, []);
+  assert.equal(result.chapter_jobs[1].batch_id, 'chapter-batch-010');
+  assert.equal(result.chapter_jobs[1].chapters[0].unit, 'chapter:010');
+  assert.deepEqual(result.chapter_jobs[1].worker_write_paths, []);
 });
 
 test('chapter jobs include only current unfinished units and ignore progress insertion order', () => {

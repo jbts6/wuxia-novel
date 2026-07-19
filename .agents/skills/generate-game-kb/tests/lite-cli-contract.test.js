@@ -192,3 +192,103 @@ test('new runs cannot persist the legacy v5 profile', () => {
     error => error?.code === 'PROFILE_LEGACY'
   );
 });
+
+test('lite-guard-open succeeds with a prepared run and returns guard_id', () => {
+  const novel = makeNovel('guard-open 试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['lite-prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const result = runFlow(['lite-guard-open', novel, '--json']);
+  assert.equal(result.status, 0, result.stderr);
+  const output = JSON.parse(result.stdout);
+  assert.equal(typeof output.guard_id, 'string');
+  assert.equal(typeof output.boundary_message, 'string');
+});
+
+test('lite-guard-check requires --guard-id', () => {
+  const novel = makeNovel('guard-check 缺参数试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['lite-prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const result = runFlow(['lite-guard-check', novel, '--json']);
+  assert.notEqual(result.status, 0);
+  assert.equal(parseJsonLine(result.stderr).code, 'GUARD_ID_REQUIRED');
+});
+
+test('lite-submit-draft reads from stdin and requires --unit, --batch, --attempt', () => {
+  const novel = makeNovel('submit-draft 缺参数试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['lite-prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const missingUnit = runFlow(['lite-submit-draft', novel, '--batch', 'b', '--attempt', '1', '--json']);
+  assert.notEqual(missingUnit.status, 0);
+  assert.equal(parseJsonLine(missingUnit.stderr).code, 'UNIT_REQUIRED');
+
+  const missingBatch = runFlow(['lite-submit-draft', novel, '--unit', 'chapter:001', '--attempt', '1', '--json']);
+  assert.notEqual(missingBatch.status, 0);
+  assert.equal(parseJsonLine(missingBatch.stderr).code, 'BATCH_REQUIRED');
+
+  const missingAttempt = runFlow(['lite-submit-draft', novel, '--unit', 'chapter:001', '--batch', 'b', '--json']);
+  assert.notEqual(missingAttempt.status, 0);
+  assert.equal(parseJsonLine(missingAttempt.stderr).code, 'ATTEMPT_REQUIRED');
+});
+
+test('lite-check-draft requires --unit and --draft', () => {
+  const novel = makeNovel('check-draft 缺参数试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['lite-prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const missingUnit = runFlow(['lite-check-draft', novel, '--draft', 'x.yaml', '--json']);
+  assert.notEqual(missingUnit.status, 0);
+  assert.equal(parseJsonLine(missingUnit.stderr).code, 'UNIT_REQUIRED');
+
+  const missingDraft = runFlow(['lite-check-draft', novel, '--unit', 'chapter:001', '--json']);
+  assert.notEqual(missingDraft.status, 0);
+  assert.equal(parseJsonLine(missingDraft.stderr).code, 'DRAFT_REQUIRED');
+});
+
+test('lite-recover-draft requires --unit and --source', () => {
+  const novel = makeNovel('recover-draft 缺参数试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['lite-prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const missingUnit = runFlow(['lite-recover-draft', novel, '--source', 'x.yaml', '--json']);
+  assert.notEqual(missingUnit.status, 0);
+  assert.equal(parseJsonLine(missingUnit.stderr).code, 'UNIT_REQUIRED');
+
+  const missingSource = runFlow(['lite-recover-draft', novel, '--unit', 'chapter:001', '--json']);
+  assert.notEqual(missingSource.status, 0);
+  assert.equal(parseJsonLine(missingSource.stderr).code, 'SOURCE_REQUIRED');
+});
+
+test('lite-submit-draft requires --guard-id before reading stdin', () => {
+  const novel = makeNovel('submit-draft 缺guard试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['lite-prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const result = runFlow(
+    ['lite-submit-draft', novel, '--unit', 'chapter:001', '--batch', 'chapter-batch-001', '--attempt', '1', '--json'],
+    { input: '' }
+  );
+  assert.notEqual(result.status, 0);
+  assert.equal(parseJsonLine(result.stderr).code, 'GUARD_ID_REQUIRED');
+});
+
+test('all new lite guard and draft routes are dispatched', () => {
+  const novel = makeNovel('新路由试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['lite-prepare', novel, '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const cases = [
+    ['lite-guard-check', ['--json']],
+    ['lite-submit-draft', ['--json']],
+    ['lite-check-draft', ['--json']],
+    ['lite-recover-draft', ['--json']]
+  ];
+
+  for (const [command, flags] of cases) {
+    const result = runFlow([command, novel, ...flags]);
+    assert.notEqual(result.status, 0, command);
+    assert.notEqual(parseJsonLine(result.stderr).code, 'COMMAND_UNKNOWN', command);
+  }
+});

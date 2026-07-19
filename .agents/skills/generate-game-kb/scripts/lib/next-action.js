@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { packChapterJobs } = require('./chapter-batching');
+const { pendingSubmissionJournals } = require('./submission-journal');
 const { inspectWorkspaceFinal } = require('./verify');
 
 const DOMAIN_UNITS = Object.freeze([
@@ -108,6 +109,18 @@ function resolveNextAction({ paths, manifest, progress, installed }) {
     .sort(compareUnits);
   if (manualReview.length > 0) {
     return { next_action: 'manual-review', next_units: manualReview };
+  }
+
+  // Check for non-terminal submission journals (interrupted broker)
+  if (paths?.draftSubmissions) {
+    const pending = pendingSubmissionJournals(paths);
+    if (pending.length > 0) {
+      return {
+        next_action: 'resume-draft-submission',
+        next_units: pending.map(j => j.unit),
+        pending_submissions: pending
+      };
+    }
   }
 
   const unfinishedChapters = [...manifest.chapters]

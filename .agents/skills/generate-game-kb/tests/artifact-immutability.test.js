@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
+const yaml = require('js-yaml');
 
 const { assertAcceptedArtifacts } = require('../scripts/lib/candidate-ledger');
 const { pathsFor } = require('../scripts/lib/paths');
@@ -88,12 +89,13 @@ test('accepted artifact mutation is rejected instead of refreshing the expected 
 
 test('chapter acceptance persists deterministic candidate keys and an artifact manifest entry', () => {
   const { paths } = prepareAcceptedChapters();
-  const chapter = readJson(path.join(paths.chapters, 'ch_001.yaml'));
+  const chapter = yaml.load(fs.readFileSync(path.join(paths.chapters, 'ch_001.yaml'), 'utf8'));
   const artifactManifest = readJson(paths.artifactManifest);
   const entry = artifactManifest.entries.find(value => value.relative_path === 'accepted/chapters/ch_001.yaml');
 
   assert.equal(chapter.characters[0].candidate_key, 'ch001:characters:character:甲');
   assert.equal(chapter.skills[0].candidate_key, 'ch001:skills:skill:内功');
+  assert.equal(entry.serialization, 'yaml-v1');
   assert.match(entry.content_hash, /^sha256:[a-f0-9]{64}$/);
   assert.match(entry.input_hash, /^sha256:[a-f0-9]{64}$/);
   assert.match(entry.accepted_at, /^\d{4}-\d{2}-\d{2}T/);

@@ -30,6 +30,11 @@ function validate(job, manifest) {
   return batching.validateChapterJob(job, manifest);
 }
 
+function project(job) {
+  assert.equal(typeof batching.workerProjection, 'function');
+  return batching.workerProjection(job);
+}
+
 function chapter(number, sourceCharCount) {
   const padded = String(number).padStart(3, '0');
   return {
@@ -48,6 +53,19 @@ function chapter(number, sourceCharCount) {
 function manifest(chapters) {
   return { novel_dir: TEST_NOVEL, run_id: TEST_RUN_ID, chapters };
 }
+
+test('controller safety receipts stay inside the selected run work directory', () => {
+  assert.equal(TEST_PATHS.workerGuards, path.join(TEST_PATHS.semanticWork, 'worker-guards'));
+  assert.equal(TEST_PATHS.draftSubmissions, path.join(TEST_PATHS.semanticWork, 'draft-submissions'));
+  assert.equal(TEST_PATHS.draftRecoveries, path.join(TEST_PATHS.semanticWork, 'draft-recoveries'));
+  for (const target of [
+    TEST_PATHS.workerGuards,
+    TEST_PATHS.draftSubmissions,
+    TEST_PATHS.draftRecoveries
+  ]) {
+    assert.equal(path.relative(TEST_PATHS.run, target).startsWith('..'), false);
+  }
+});
 
 test('prepare records chapter CJK counts and both canonical staging attempts', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲乙。\n第二章 转折\n丙丁戊。\n');
@@ -80,6 +98,15 @@ test('packs fifty short chapters into adjacent jobs of up to three chapters', ()
     index === 0 || item.number === job.chapters[index - 1].number + 1
   ))), true);
   assert.equal(jobs.every(job => validate(job, input).length === 0), true);
+  assert.equal(jobs.every(job => Array.isArray(job.worker_write_paths)), true);
+  assert.equal(jobs.every(job => job.worker_write_paths.length === 0), true);
+  assert.deepEqual(jobs.flatMap(job => job.submissions), jobs.flatMap(job => (
+    job.chapters.map(({ unit, attempt, input_hash: inputHash }) => ({
+      unit,
+      attempt,
+      input_hash: inputHash
+    }))
+  )));
   for (const descriptor of jobs.flatMap(job => job.chapters)) {
     assert.deepEqual(Object.keys(descriptor), [
       'unit',
@@ -94,6 +121,84 @@ test('packs fifty short chapters into adjacent jobs of up to three chapters', ()
     assert.equal(descriptor.attempt, 1);
     assert.match(descriptor.staging_path, /_attempt_01\.yaml$/);
   }
+});
+
+test('worker projection exposes only read identity and an empty write set', () => {
+  const input = manifest([chapter(1, 1000), chapter(2, 1000)]);
+  const [job] = pack(input);
+
+  const worker = project(job);
+
+  assert.deepEqual(worker.worker_write_paths, []);
+  assert.deepEqual(worker.submissions, [
+    { unit: 'chapter:001', attempt: 1, input_hash: 'sha256:chapter-001' },
+    { unit: 'chapter:002', attempt: 1, input_hash: 'sha256:chapter-002' }
+  ]);
+  assert.equal(JSON.stringify(worker).includes('staging_path'), false);
+  assert.equal(JSON.stringify(worker).includes('staging_paths'), false);
+  assert.equal(JSON.stringify(worker).includes('output_path'), false);
+  assert.deepEqual(Object.keys(worker.chapters[0]), [
+    'unit',
+    'number',
+    'title',
+    'source_file',
+    'input_hash',
+    'source_char_count',
+    'attempt'
+  ]);
+  assert.equal(path.isAbsolute(worker.chapters[0].source_file), true);
+});
+
+test('job validation rejects worker writes and malformed submission identities', () => {
+  const input = manifest([chapter(1, 1000)]);
+  const mutations = [
+    job => { job.worker_write_paths = [job.chapters[0].staging_path]; },
+    job => { delete job.submissions[0].attempt; },
+    job => { job.submissions[0].staging_path = job.chapters[0].staging_path; },
+    job => { job.submissions[0].attempt = 2; },
+    job => { job.output_path = job.chapters[0].staging_path; }
+  ];
+
+  for (const mutate of mutations) {
+    const [job] = pack(input);
+    mutate(job);
+    assert.equal(validate(job, input).length > 0, true);
+  }
+});
+
+test('worker projection refuses a job carrying an output-path field', () => {
+  const input = manifest([chapter(1, 1000)]);
+  const [job] = pack(input);
+  job.chapters[0].output_path = job.chapters[0].staging_path;
+
+  assert.throws(() => project(job), error => error.code === 'CHAPTER_JOB_PROJECTION_INVALID');
+});
+
+test('controller staging identity rejects a junction that escapes the selected run', t => {
+  const root = fs.mkdtempSync(path.join(require('node:os').tmpdir(), 'game-kb-staging-junction-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const novel = path.join(root, '小说');
+  const runId = 'run-junction-escape';
+  const paths = pathsFor(novel, runId);
+  const outside = path.join(root, 'outside');
+  fs.mkdirSync(paths.run, { recursive: true });
+  fs.mkdirSync(outside, { recursive: true });
+  try {
+    fs.symlinkSync(outside, paths.staging, process.platform === 'win32' ? 'junction' : 'dir');
+  } catch (error) {
+    t.skip(`junction creation unavailable: ${error.code || error.message}`);
+    return;
+  }
+  const input = {
+    novel_dir: novel,
+    run_id: runId,
+    chapters: [{
+      ...chapter(1, 1000),
+      file: path.join(paths.sourceChapters, 'ch_001.txt')
+    }]
+  };
+
+  assert.throws(() => pack(input), error => error.code === 'STAGING_PATH_ESCAPE');
 });
 
 test('runs an oversized chapter alone without splitting it', () => {
@@ -159,7 +264,7 @@ test('job validation returns the same deterministic descriptor errors', () => {
 
 test('job validation reports malformed chapter descriptors without throwing', () => {
   const input = manifest([chapter(1, 1000)]);
-  const errors = validate({ batch_id: 'chapter-batch-001', chapters: [null] }, input);
+  const errors = validate({ batch_id: 'chapter-batch-001', chapters: [null], worker_write_paths: [], submissions: [{ unit: 'chapter:001', attempt: 1, input_hash: 'x' }] }, input);
 
   assert.deepEqual(errors, [{
     code: 'CHAPTER_DESCRIPTOR_INVALID',

@@ -1,0 +1,112 @@
+schema_version: 1
+chapter: 10
+title: "第十回　已知将死"
+source_hash: ""
+factions:
+  - local_key: "faction:蜜蜂"
+    name: "蜜蜂"
+    aliases:
+      - "宫主"
+    type: null
+    description: "小玉的主人，多次企图杀害小玉灭口，也欲取陆小凤性命"
+    source_refs:
+      - chapter: 10
+        text: "你那位宫主不但要杀我，还要将你也一起杀了灭口。"
+      - chapter: 10
+        text: "跟她那只蜜蜂在一起，要活下去的确不容易。"
+characters:
+  - local_key: "character:陆小凤"
+    name: "陆小凤"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "主角，被宫主追杀，与沙曼相爱"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 10
+        text: "你千万不能这么做！"
+      - chapter: 10
+        text: "我那间屋里还有个朋友在等着我，他肚子大大的，不但好玩极了，而且他从来不说谎话。"
+  - local_key: "character:小玉"
+    name: "小玉"
+    aliases:
+      - "小狐狸"
+      - "小混蛋"
+    identities: []
+    level: null
+    rank: null
+    description: "蜜蜂宫主的属下，聪明伶俐，多次被宫主灭口未遂，替宫主做事以求活命"
+    factions:
+      - "faction:蜜蜂"
+    skills: []
+    source_refs:
+      - chapter: 10
+        text: "因为我早就想尝尝被淹死是什么滋味的。"
+      - chapter: 10
+        text: "因为她每次要我做事，总是想把我也一起杀了灭口，只可惜每次我都没有死，每次她看到我活着回去，反而好像很高兴，因为她知道我以后又可以替她做事了。"
+  - local_key: "character:沙曼"
+    name: "沙曼"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "陆小凤的恋人，藏身于弥勒佛像中等候陆小凤，谎称成亲以试探其心意"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 10
+        text: "今天岂非是你成亲的日子？"
+      - chapter: 10
+        text: "我刚才岂非已告诉过你，我不但会咬人，还会说谎。"
+  - local_key: "character:牛肉汤"
+    name: "牛肉汤"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "宫九的妹妹，冷酷善妒，向陆小凤传达宫九追杀的消息"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 10
+        text: "好，好极了，你们的武功如果有你们刚才的动作一半好，一定没有人能受得了。"
+      - chapter: 10
+        text: "我打赌，用不着三个时辰，九哥就可以找到你。"
+  - local_key: "character:宫九"
+    name: "宫九"
+    aliases:
+      - "九少爷"
+      - "九哥"
+    identities: []
+    level: null
+    rank: null
+    description: "牛肉汤的九哥，武功极高，追杀陆小凤，据说半个时辰内可将岛上五千七百多个藏身处搜索殆尽"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 10
+        text: "他甚至还愿意先让你们半个时辰。"
+      - chapter: 10
+        text: "你们就算是两只蚂蚁，他也可以在半个时辰中把你们找出来捏死。"
+skills: []
+items:
+  - local_key: "item:黄蜡"
+    name: "黄蜡"
+    aliases: []
+    type: "工具"
+    description: "用来封堵船底漏洞的蜡块，小玉准备了十七八块以防宫主的暗害"
+    source_refs:
+      - chapter: 10
+        text: "她从船头下找出了一大块黄蜡，然后分成两半，用手揉软，将船底的两个洞塞了起来"
+      - chapter: 10
+        text: "这样的蜡我已准备了十七八块。"
+chapter_summary:
+  title: "第十回　已知将死"
+  summary: "陆小凤与小玉在船上发现船底被蜜蜂宫主动了手脚、即将沉没，小玉早有准备用黄蜡封堵漏洞。二人划小艇靠岸后，陆小凤带小玉回到草棚，发现沙曼藏身弥勒佛像中等候。沙曼谎称当日成亲以试探陆小凤心意，二人终于互诉真情。然而牛肉汤突然出现，嘲讽二人，宣布宫九将给予半个时辰逃跑时间后展开追杀，以岛上五千七百多个藏身处为赌注，声称宫九能在三个时辰内找到他们。"
+  source_refs:
+    - chapter: 10
+      text: "她在这小船底下打了两个洞，用蜡封住，被海水一泡，蜡就会溶，海水涌进来，这条船就要沉了。"
+    - chapter: 10
+      text: "我打赌，用不着三个时辰，九哥就可以找到你。"

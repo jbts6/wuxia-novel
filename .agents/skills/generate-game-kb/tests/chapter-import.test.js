@@ -95,7 +95,9 @@ test('import-chapters converts the real 20-chapter v5 run into a fresh v6 run', 
   )), true);
   assert.deepEqual(directoryHashes(sourcePaths.run), sourceBefore);
 
-  const chapterOne = yaml.load(fs.readFileSync(path.join(targetPaths.chapters, 'ch_001.yaml'), 'utf8'));
+  const chapterOneRaw = fs.readFileSync(path.join(targetPaths.chapters, 'ch_001.yaml'), 'utf8');
+  const chapterOne = yaml.load(chapterOneRaw);
+  assert.equal(chapterOneRaw.trimStart().startsWith('{'), false);
   assert.deepEqual(chapterOne.characters[0].aliases, []);
   assert.deepEqual(chapterOne.characters[0].identities, []);
   assert.deepEqual(chapterOne.characters[0].factions, []);
@@ -112,7 +114,9 @@ test('import-chapters converts the real 20-chapter v5 run into a fresh v6 run', 
   assert.deepEqual(chapterThree.items[0].aliases, []);
   const chapterThirteen = yaml.load(fs.readFileSync(path.join(targetPaths.chapters, 'ch_013.yaml'), 'utf8'));
   assert.deepEqual(chapterThirteen.skills[0].techniques, [{ name: '天外飞仙', description: null }]);
-  assert.equal(readJson(targetPaths.artifactManifest).entries.length, 20);
+  const artifactEntries = readJson(targetPaths.artifactManifest).entries;
+  assert.equal(artifactEntries.length, 20);
+  assert.equal(artifactEntries.every(entry => entry.serialization === 'yaml-v1'), true);
   assert.equal(fs.existsSync(targetPaths.candidateRegistry), false);
   assert.deepEqual(fs.readdirSync(targetPaths.domainDecisions), []);
   assert.equal(fs.existsSync(targetPaths.finalData), false);

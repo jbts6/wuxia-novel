@@ -31,6 +31,7 @@ function freshUnit(inputHash, status = 'pending') {
     error_fingerprints: [],
     last_errors: [],
     stop_reason: null,
+    last_submission_id: null,
     updated_at: now()
   };
 }
@@ -68,9 +69,16 @@ function rotateUnit(progress, unitName, inputHash, status) {
   return progress.units[unitName];
 }
 
-function recordSubmission(current, unitName, inputHash, outputHash, errors) {
+function recordSubmission(current, unitName, inputHash, outputHash, errors, options = {}) {
+  const { attempt, submissionId, recordedAt } = options;
   const progress = cloneProgress(current);
   let unit = progress.units[unitName];
+
+  // Idempotent replay: same submissionId returns identical state
+  if (submissionId && unit?.last_submission_id === submissionId) {
+    return progress;
+  }
+
   if (!unit || unit.input_hash !== inputHash) {
     unit = rotateUnit(progress, unitName, inputHash, unit ? 'stale' : 'pending');
   } else if (unit.status === 'done') {
@@ -78,6 +86,19 @@ function recordSubmission(current, unitName, inputHash, outputHash, errors) {
   } else if (unit.status === 'manual_review') {
     throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit: unitName });
   }
+
+  // When explicit attempt is provided, enforce ordering
+  if (attempt !== undefined && submissionId) {
+    const expectedAttempt = unit.attempts + 1;
+    if (attempt !== expectedAttempt) {
+      throw new GameKbError('SUBMISSION_ATTEMPT_CONFLICT', 'Submission attempt is not the next controller attempt', {
+        unit: unitName,
+        attempt,
+        expected_attempt: expectedAttempt
+      });
+    }
+  }
+
   if (unit.attempts >= 2) {
     throw new GameKbError('UNIT_ATTEMPTS_EXHAUSTED', 'Unit has exhausted its two-submission budget', {
       unit: unitName,
@@ -106,7 +127,8 @@ function recordSubmission(current, unitName, inputHash, outputHash, errors) {
   unit.last_errors = normalizedErrors;
   unit.status = normalizedErrors.length === 0 ? 'done' : reasons.length > 0 ? 'manual_review' : 'pending';
   unit.stop_reason = reasons.length > 0 ? reasons.join(',') : null;
-  unit.updated_at = now();
+  if (submissionId) unit.last_submission_id = submissionId;
+  unit.updated_at = recordedAt || now();
   progress.updated_at = unit.updated_at;
   return progress;
 }

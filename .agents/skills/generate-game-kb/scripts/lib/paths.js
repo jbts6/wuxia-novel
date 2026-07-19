@@ -1,6 +1,9 @@
 'use strict';
 
+const fs = require('node:fs');
 const path = require('node:path');
+
+const { GameKbError } = require('./errors');
 
 function assertRunId(runId) {
   if (typeof runId !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/.test(runId)) {
@@ -17,6 +20,7 @@ function pathsFor(novelDir, runId) {
   const runs = path.join(work, 'runs');
   const id = assertRunId(runId);
   const run = path.join(runs, id);
+  const semanticWork = path.join(run, 'work');
   return {
     novel,
     work,
@@ -36,8 +40,11 @@ function pathsFor(novelDir, runId) {
     revisions: path.join(run, 'revisions'),
     sourceOriginal: path.join(run, 'source', 'original.txt'),
     sourceChapters: path.join(run, 'source', 'chapters'),
-    semanticWork: path.join(run, 'work'),
-    domainWork: path.join(run, 'work', 'domain'),
+    semanticWork,
+    domainWork: path.join(semanticWork, 'domain'),
+    workerGuards: path.join(semanticWork, 'worker-guards'),
+    draftSubmissions: path.join(semanticWork, 'draft-submissions'),
+    draftRecoveries: path.join(semanticWork, 'draft-recoveries'),
     staging: path.join(run, 'staging'),
     drafts: path.join(run, 'drafts'),
     accepted: path.join(run, 'accepted'),
@@ -56,9 +63,42 @@ function pathsFor(novelDir, runId) {
   };
 }
 
+function comparisonPath(value) {
+  const resolved = path.resolve(value);
+  return process.platform === 'win32' ? resolved.toLowerCase() : resolved;
+}
+
+function isWithin(parent, candidate) {
+  const relative = path.relative(comparisonPath(parent), comparisonPath(candidate));
+  return relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative));
+}
+
+function assertStagingIdentity(paths, candidate) {
+  const resolved = path.resolve(candidate);
+  if (!isWithin(paths.staging, resolved)) {
+    throw new GameKbError('STAGING_PATH_ESCAPE', 'Controller staging identity escaped the selected run', {
+      run: path.resolve(paths.run),
+      staging: path.resolve(paths.staging),
+      candidate: resolved
+    });
+  }
+  if (fs.existsSync(paths.run) && fs.existsSync(paths.staging)) {
+    const realRun = fs.realpathSync(paths.run);
+    const realStaging = fs.realpathSync(paths.staging);
+    if (!isWithin(realRun, realStaging)) {
+      throw new GameKbError('STAGING_PATH_ESCAPE', 'Controller staging directory escaped through a junction', {
+        run: realRun,
+        staging: realStaging,
+        candidate: resolved
+      });
+    }
+  }
+  return resolved;
+}
+
 function stagingPathFor(paths, unit, attempt) {
   const file = `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}.yaml`;
-  return path.join(paths.staging, file);
+  return assertStagingIdentity(paths, path.join(paths.staging, file));
 }
 
 function deferredPathsFor(novelDir, runId) {
@@ -93,4 +133,17 @@ function deferredPathsFor(novelDir, runId) {
   };
 }
 
-module.exports = { deferredPathsFor, pathsFor, stagingPathFor };
+function repositoryRootFor(novelDir) {
+  let dir = path.resolve(novelDir);
+  const root = path.parse(dir).root;
+  while (dir !== root) {
+    if (fs.existsSync(path.join(dir, '.git'))) {
+      return dir;
+    }
+    dir = path.dirname(dir);
+  }
+  // Fallback to novelDir itself if no .git found
+  return path.resolve(novelDir);
+}
+
+module.exports = { assertStagingIdentity, deferredPathsFor, pathsFor, repositoryRootFor, stagingPathFor };

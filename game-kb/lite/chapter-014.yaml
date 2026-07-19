@@ -1,0 +1,165 @@
+schema_version: 1
+chapter: 14
+title: "第十四回　谈判顺利"
+source_hash: ""
+factions:
+  - local_key: "faction:宫家"
+    name: "宫家"
+    aliases: []
+    type: null
+    description: "宫九和宫主所在的家族势力，小玉自幼跟随其兄妹"
+    source_refs:
+      - chapter: 14
+        text: "从我七岁的时候，我是个孤儿，若不是老爷子救了我，我早就淹死在海里。"
+characters:
+  - local_key: "character:沙曼"
+    name: "沙曼"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "陆小凤的爱人，性格直率，自称很会吃醋，但对小玉表达真诚感激并邀请其同行"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 14
+        text: "我是个很会吃醋的女人，可是这次我说的是真心话。"
+      - chapter: 14
+        text: "所以我们这次都能活下去，我希望你能永远跟我们在一起。"
+  - local_key: "character:小玉"
+    name: "小玉"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "十六岁少女，七岁时被老爷子从海里救起的孤儿，对宫家忠心，帮助陆小凤和沙曼，行动出于自身原因"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 14
+        text: "从我七岁的时候，我是个孤儿，若不是老爷子救了我，我早就淹死在海里。"
+      - chapter: 14
+        text: "我今年已经十六岁了。"
+      - chapter: 14
+        text: "可是我这样做并不是为了他。"
+      - chapter: 14
+        text: "我是为了我自己。"
+  - local_key: "character:陆小凤"
+    name: "陆小凤"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "主角，前往宫九舱房谈判，无法忍受所爱之人被侮辱"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 14
+        text: "现在陆小凤去找他了，这一去很可能不会回来。"
+      - chapter: 14
+        text: "他一向痛恨这种以别人的痛苦为乐的狂人，他用力撞开门闯进去。"
+  - local_key: "character:宫九"
+    name: "宫九"
+    aliases:
+      - "九少爷"
+    identities: []
+    level: null
+    rank: null
+    description: "不平凡的超人，拥有常人无法想象的能力，有自虐倾向，用针刺自己身体，渴望被鞭打"
+    factions:
+      - "faction:宫家"
+    skills: []
+    source_refs:
+      - chapter: 14
+        text: "他是个不平凡的人，是个超人，他的能力，他所拥有的一切，绝不是任何人所能梦想得到。"
+      - chapter: 14
+        text: "一个头发散乱，脸色苍白的年轻人，正半裸着在地上挣扎翻滚。"
+      - chapter: 14
+        text: "他的躯体苍白而瘦弱，带着斑斑的血渍，却是他自己用针刺出来的。"
+  - local_key: "character:宫主"
+    name: "宫主"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "宫家之主，喜欢用鞭子抽人，宫九若死她也得死"
+    factions:
+      - "faction:宫家"
+    skills: []
+    source_refs:
+      - chapter: 14
+        text: "他一死，宫主也得死，我们就没有一个人能活"
+      - chapter: 14
+        text: "你是不是在等宫主？她喜欢用鞭子抽人，我不喜欢。"
+  - local_key: "character:老爷子"
+    name: "老爷子"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "救了小玉性命的恩人，宫家之人"
+    factions:
+      - "faction:宫家"
+    skills: []
+    source_refs:
+      - chapter: 14
+        text: "若不是老爷子救了我，我早就淹死在海里。"
+  - local_key: "character:老实和尚"
+    name: "老实和尚"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "本章开头提及已醒来"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 14
+        text: "老实和尚醒了，陆小风走了，牛肉汤已经装进箱子。"
+items:
+  - local_key: "item:箱子"
+    name: "箱子"
+    aliases: []
+    type: "容器"
+    description: "用来装牛肉汤的箱子"
+    source_refs:
+      - chapter: 14
+        text: "牛肉汤已经装进箱子。"
+  - local_key: "item:小艇"
+    name: "小艇"
+    aliases: []
+    type: "交通工具"
+    description: "沙曼等人计划使用的逃生工具"
+    source_refs:
+      - chapter: 14
+        text: "曼姑娘如果想跟我聊天，到了小艇上我们一定有很多时间可以聊。"
+  - local_key: "item:鞭子"
+    name: "鞭子"
+    aliases: []
+    type: "刑具"
+    description: "挂在宫九舱房床头木架上的鞭子，宫九渴望被鞭打"
+    source_refs:
+      - chapter: 14
+        text: "床头的木架上果然挂着条鞭子。"
+      - chapter: 14
+        text: "用鞭子抽我……用力抽我……"
+  - local_key: "item:针"
+    name: "针"
+    aliases: []
+    type: "自虐工具"
+    description: "宫九用来刺自己身体以获得满足的针"
+    source_refs:
+      - chapter: 14
+        text: "带着斑斑的血渍，却是他自己用针刺出来的。"
+      - chapter: 14
+        text: "他手里还有根针。"
+chapter_summary:
+  title: "第十四回　谈判顺利"
+  summary: "沙曼感激小玉的帮助并邀请她日后同行，小玉透露自己行动是出于自身原因但暂不说明。午夜时分，陆小凤独自前往宫九舱房，发现宫九有严重的自虐倾向——用针刺自己身体并渴望被鞭打。宫九为激怒陆小凤而侮辱沙曼，陆小凤愤怒拿起鞭子。"
+  source_refs:
+    - chapter: 14
+      text: "他是个不平凡的人，是个超人，他的能力，他所拥有的一切，绝不是任何人所能梦想得到。"
+    - chapter: 14
+      text: "他的躯体苍白而瘦弱，带着斑斑的血渍，却是他自己用针刺出来的。"
+    - chapter: 14
+      text: "陆小凤忽然冲过去，拿起了鞭子。别人侮辱他，他也许还不会如此愤怒，侮辱他所爱的人，却是他绝对无法忍受的！"

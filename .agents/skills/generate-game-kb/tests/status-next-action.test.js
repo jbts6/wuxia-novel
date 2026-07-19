@@ -58,6 +58,12 @@ test('status returns one lifecycle action without mutating the novel tree', () =
     { next_action: 'accept-chapters', next_units: ['chapter:001'] }
   );
   assert.equal(output.chapter_jobs[0].chapters[0].attempt, 1);
+  assert.deepEqual(output.chapter_jobs[0].worker_write_paths, []);
+  assert.deepEqual(output.chapter_jobs[0].submissions, [{
+    unit: 'chapter:001',
+    attempt: 1,
+    input_hash: readJson(activePaths(novel).manifest).chapters[0].input_hash
+  }]);
   assert.equal(output.chapter_jobs[0].chapters[0].staging_path,
     readJson(activePaths(novel).manifest).chapters[0].staging_paths[0]);
   assert.equal('staging_paths' in output.chapter_jobs[0].chapters[0], false);
@@ -80,7 +86,14 @@ test('status issues only the second current staging path after one rejected chap
   const result = runFlow(['status', novel, '--run', paths.runId, '--json']);
   assert.equal(result.status, 0, result.stderr);
   const descriptor = JSON.parse(result.stdout).chapter_jobs[0].chapters[0];
+  const job = JSON.parse(result.stdout).chapter_jobs[0];
   assert.equal(descriptor.attempt, 2);
+  assert.deepEqual(job.worker_write_paths, []);
+  assert.deepEqual(job.submissions, [{
+    unit: 'chapter:001',
+    attempt: 2,
+    input_hash: manifest.chapters[0].input_hash
+  }]);
   assert.equal(descriptor.staging_path, manifest.chapters[0].staging_paths[1]);
   assert.equal('staging_paths' in descriptor, false);
 });

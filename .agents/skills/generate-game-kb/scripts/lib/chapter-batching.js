@@ -4,6 +4,7 @@ const {
   MAX_CHAPTERS_PER_JOB,
   MAX_CJK_CHARS_PER_JOB
 } = require('./worker-pool');
+const { GameKbError } = require('./errors');
 const { pathsFor, stagingPathFor } = require('./paths');
 
 const DESCRIPTOR_FIELDS = Object.freeze([
@@ -17,6 +18,10 @@ const DESCRIPTOR_FIELDS = Object.freeze([
   'staging_path'
 ]);
 const DESCRIPTOR_FIELD_SET = new Set(DESCRIPTOR_FIELDS);
+const WORKER_DESCRIPTOR_FIELDS = Object.freeze(DESCRIPTOR_FIELDS.filter(field => field !== 'staging_path'));
+const SUBMISSION_FIELDS = Object.freeze(['unit', 'attempt', 'input_hash']);
+const JOB_FIELDS = Object.freeze(['batch_id', 'chapters', 'worker_write_paths', 'submissions']);
+const JOB_FIELD_SET = new Set(JOB_FIELDS);
 
 function issue(code, path, target = '') {
   return { code, path, target };
@@ -53,6 +58,23 @@ function descriptorFor(chapter, manifest, progress) {
   };
 }
 
+function submissionFor(descriptor) {
+  return {
+    unit: descriptor.unit,
+    attempt: descriptor.attempt,
+    input_hash: descriptor.input_hash
+  };
+}
+
+function jobFor(chapters) {
+  return {
+    batch_id: batchId(chapters),
+    chapters,
+    worker_write_paths: [],
+    submissions: chapters.map(submissionFor)
+  };
+}
+
 function assertPositiveInteger(value, name) {
   if (!Number.isInteger(value) || value < 1) {
     throw new TypeError(`${name} must be a positive integer`);
@@ -82,7 +104,7 @@ function packChapterJobs(manifest, {
 
   function flush() {
     if (current.length === 0) return;
-    jobs.push({ batch_id: batchId(current), chapters: current });
+    jobs.push(jobFor(current));
     current = [];
     currentChars = 0;
   }
@@ -98,6 +120,49 @@ function packChapterJobs(manifest, {
   }
   flush();
   return jobs;
+}
+
+function structuralJobIssues(job) {
+  if (!job || typeof job !== 'object' || Array.isArray(job)) {
+    return [issue('CHAPTER_JOB_INVALID', '$')];
+  }
+  const errors = [];
+  for (const field of Object.keys(job).filter(field => !JOB_FIELD_SET.has(field)).sort()) {
+    errors.push(issue('CHAPTER_JOB_FIELD_FORBIDDEN', field, field));
+  }
+  if (!Array.isArray(job.worker_write_paths) || job.worker_write_paths.length !== 0) {
+    errors.push(issue('CHAPTER_JOB_WORKER_WRITES_FORBIDDEN', 'worker_write_paths', job.worker_write_paths));
+  }
+
+  const chapters = Array.isArray(job.chapters) ? job.chapters : [];
+  const submissions = Array.isArray(job.submissions) ? job.submissions : [];
+  if (!Array.isArray(job.submissions) || submissions.length !== chapters.length) {
+    errors.push(issue('CHAPTER_JOB_SUBMISSIONS_MISMATCH', 'submissions.length', submissions.length));
+  }
+  submissions.forEach((submission, index) => {
+    const base = `submissions[${index}]`;
+    if (!submission || typeof submission !== 'object' || Array.isArray(submission)) {
+      errors.push(issue('CHAPTER_SUBMISSION_INVALID', base));
+      return;
+    }
+    for (const field of SUBMISSION_FIELDS) {
+      if (!Object.hasOwn(submission, field)) {
+        errors.push(issue('CHAPTER_SUBMISSION_FIELD_MISSING', `${base}.${field}`, field));
+      }
+    }
+    for (const field of Object.keys(submission).filter(field => !SUBMISSION_FIELDS.includes(field)).sort()) {
+      errors.push(issue('CHAPTER_SUBMISSION_FIELD_FORBIDDEN', `${base}.${field}`, field));
+    }
+    const descriptor = chapters[index];
+    if (!descriptor || typeof descriptor !== 'object' || Array.isArray(descriptor)) return;
+    const expected = submissionFor(descriptor);
+    for (const field of SUBMISSION_FIELDS) {
+      if (submission[field] !== expected[field]) {
+        errors.push(issue('CHAPTER_SUBMISSION_MISMATCH', `${base}.${field}`, submission[field]));
+      }
+    }
+  });
+  return errors;
 }
 
 function stableTarget(value) {
@@ -116,7 +181,7 @@ function validateChapterJob(job, manifest, progress = null) {
     return [issue('CHAPTER_JOB_INVALID', '$')];
   }
 
-  const errors = [];
+  const errors = structuralJobIssues(job);
   const chapters = Array.isArray(job.chapters) ? job.chapters : [];
   const descriptorsValid = chapters.every(descriptor => (
     descriptor && typeof descriptor === 'object' && !Array.isArray(descriptor)
@@ -169,8 +234,36 @@ function validateChapterJob(job, manifest, progress = null) {
   return errors.sort(compareIssues);
 }
 
+function workerProjection(job) {
+  const structuralErrors = structuralJobIssues(job);
+  const chapters = Array.isArray(job?.chapters) ? job.chapters : [];
+  chapters.forEach((descriptor, index) => {
+    if (!descriptor || typeof descriptor !== 'object' || Array.isArray(descriptor)) {
+      structuralErrors.push(issue('CHAPTER_DESCRIPTOR_INVALID', `chapters[${index}]`));
+      return;
+    }
+    for (const field of Object.keys(descriptor).filter(field => !DESCRIPTOR_FIELD_SET.has(field)).sort()) {
+      structuralErrors.push(issue('CHAPTER_DESCRIPTOR_FIELD_FORBIDDEN', `chapters[${index}].${field}`, field));
+    }
+  });
+  if (structuralErrors.length > 0) {
+    throw new GameKbError('CHAPTER_JOB_PROJECTION_INVALID', 'Worker projection requires a canonical zero-write job', {
+      errors: structuralErrors.sort(compareIssues)
+    });
+  }
+  return {
+    batch_id: job.batch_id,
+    worker_write_paths: [],
+    chapters: chapters.map(descriptor => Object.fromEntries(
+      WORKER_DESCRIPTOR_FIELDS.map(field => [field, descriptor[field]])
+    )),
+    submissions: job.submissions.map(submission => ({ ...submission }))
+  };
+}
+
 module.exports = {
   DESCRIPTOR_FIELDS,
   packChapterJobs,
-  validateChapterJob
+  validateChapterJob,
+  workerProjection
 };

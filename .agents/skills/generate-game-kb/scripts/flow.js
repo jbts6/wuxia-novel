@@ -30,7 +30,7 @@ const { applyOverlay } = require('./lib/overlay');
 const { installVerifiedData, verifyInstalled } = require('./lib/install');
 const { atomicWriteFile, readJson, readYaml } = require('./lib/io');
 const { resolveNextAction } = require('./lib/next-action');
-const { pathsFor } = require('./lib/paths');
+const { pathsFor, repositoryRootFor } = require('./lib/paths');
 const {
   loadProgress,
   projectProgress,
@@ -58,6 +58,10 @@ const {
 } = require('./lib/run');
 const { recordScriptDuration } = require('./lib/timing');
 const { verifyFinal } = require('./lib/verify');
+const { assertCleanGuardForSubmission, openWorkerGuard, checkWorkerGuard, unresolvedWorkerGuardReports } = require('./lib/worker-guard');
+const { submitChapterEnvelope } = require('./lib/draft-submission');
+const { preflightChapterDraft } = require('./lib/draft-preflight');
+const { recoverChapterDraft } = require('./lib/draft-recovery');
 const { readWorkerPool, recordWorkerBackoff } = require('./lib/worker-pool');
 const { readWorkPlan, refreshWorkPlanUnit, writeWorkPlan } = require('./lib/semantic-work');
 
@@ -68,7 +72,12 @@ const PROFILE_COMMANDS = Object.freeze({
   'lite-accept': { command: 'accept', profile: PROFILE_LITE },
   'lite-basic-curate': { command: 'basic-curate', profile: PROFILE_LITE },
   'lite-publish': { command: 'publish', profile: PROFILE_LITE },
-  'lite-status': { command: 'status', profile: PROFILE_LITE }
+  'lite-status': { command: 'status', profile: PROFILE_LITE },
+  'lite-guard-open': { command: 'guard-open', profile: PROFILE_LITE },
+  'lite-guard-check': { command: 'guard-check', profile: PROFILE_LITE },
+  'lite-submit-draft': { command: 'submit-draft', profile: PROFILE_LITE },
+  'lite-check-draft': { command: 'check-draft', profile: PROFILE_LITE },
+  'lite-recover-draft': { command: 'recover-draft', profile: PROFILE_LITE }
 });
 
 function routeCommand(requestedCommand) {
@@ -707,6 +716,116 @@ function main(argv = process.argv.slice(2)) {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-apply requires <novel>');
       const paths = resolvePublishedLitePaths(novelDir, requestedRun);
       emit(applyOverlay({ paths, taskId: flagValue(args, '--task-id') }));
+      return;
+    }
+    if (command === 'guard-open') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'guard-open requires <novel>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      const manifest = readJson(paths.manifest);
+      const progress = loadProgress(paths, manifest);
+      const next = resolveNextAction({ paths, manifest, progress, installed: null });
+      if (!next.chapter_jobs) {
+        throw new GameKbError('NO_CHAPTER_JOBS', 'No chapter jobs available for guard', {});
+      }
+      const repositoryRoot = repositoryRootFor(novelDir);
+      emit({
+        run_id: run.run_id,
+        ...openWorkerGuard({
+          repositoryRoot,
+          paths,
+          job: next.chapter_jobs[0]
+        })
+      });
+      return;
+    }
+    if (command === 'guard-check') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'guard-check requires <novel>');
+      const guardId = flagValue(args, '--guard-id');
+      if (!guardId) throw new GameKbError('GUARD_ID_REQUIRED', 'guard-check requires --guard-id <id>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      const repositoryRoot = repositoryRootFor(novelDir);
+      emit({
+        run_id: run.run_id,
+        ...checkWorkerGuard({ repositoryRoot, paths, guardId })
+      });
+      return;
+    }
+    if (command === 'submit-draft') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'submit-draft requires <novel>');
+      const unit = flagValue(args, '--unit');
+      const batchId = flagValue(args, '--batch');
+      const attempt = Number(flagValue(args, '--attempt'));
+      const guardId = flagValue(args, '--guard-id');
+      if (!unit) throw new GameKbError('UNIT_REQUIRED', 'submit-draft requires --unit <id>');
+      if (!batchId) throw new GameKbError('BATCH_REQUIRED', 'submit-draft requires --batch <id>');
+      if (!Number.isInteger(attempt) || attempt < 1) throw new GameKbError('ATTEMPT_REQUIRED', 'submit-draft requires --attempt <n>');
+      if (!guardId) throw new GameKbError('GUARD_ID_REQUIRED', 'submit-draft requires --guard-id <id>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      timingUnit = unit;
+      // Verify clean guard before accepting submission
+      const manifest = readJson(paths.manifest);
+      const chapterMatch = /^chapter:(\d{3})$/.exec(unit);
+      if (!chapterMatch) {
+        throw new GameKbError('UNIT_UNSUPPORTED', 'Only chapter units are supported by submit-draft', { unit });
+      }
+      const chapter = manifest.chapters.find(c => c.number === Number(chapterMatch[1]));
+      if (!chapter) {
+        throw new GameKbError('UNIT_UNKNOWN', 'Chapter unit is not present in the manifest', { unit });
+      }
+      assertCleanGuardForSubmission({
+        paths,
+        guardId,
+        batchId,
+        unit,
+        attempt,
+        inputHash: chapter.input_hash
+      });
+      // Read stdin synchronously
+      const rawInput = fs.readFileSync(0, 'utf8');
+      emit(submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInput }));
+      return;
+    }
+    if (command === 'check-draft') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'check-draft requires <novel>');
+      const unit = flagValue(args, '--unit');
+      const draftPath = flagValue(args, '--draft');
+      if (!unit) throw new GameKbError('UNIT_REQUIRED', 'check-draft requires --unit <id>');
+      if (!draftPath) throw new GameKbError('DRAFT_REQUIRED', 'check-draft requires --draft <path>');
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      const manifest = readJson(paths.manifest);
+      emit(preflightChapterDraft({ paths, manifest, unit, draftPath }));
+      return;
+    }
+    if (command === 'recover-draft') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'recover-draft requires <novel>');
+      const unit = flagValue(args, '--unit');
+      const sourcePath = flagValue(args, '--source');
+      const guardId = flagValue(args, '--guard-id');
+      if (!unit) throw new GameKbError('UNIT_REQUIRED', 'recover-draft requires --unit <id>');
+      if (!sourcePath) throw new GameKbError('SOURCE_REQUIRED', 'recover-draft requires --source <path>');
+      if (!guardId) throw new GameKbError('GUARD_ID_REQUIRED', 'recover-draft requires --guard-id <id>');
+      if (!args.includes('--confirm')) throw new GameKbError('CONFIRM_REQUIRED', 'recover-draft requires --confirm');
+      const run = resolveWritableRun(novelDir, requestedRun, command, profile);
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      const manifest = readJson(paths.manifest);
+      emit(recoverChapterDraft({
+        repositoryRoot: novelDir,
+        paths,
+        manifest,
+        unit,
+        sourcePath,
+        confirmed: true,
+        guardId
+      }));
       return;
     }
     throw new GameKbError('COMMAND_UNKNOWN', `Unknown command: ${command || '<missing>'}`);

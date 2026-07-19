@@ -3,7 +3,10 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { initializeArtifactManifest } = require('./candidate-ledger');
+const {
+  ACCEPTED_SERIALIZATION,
+  initializeArtifactManifest
+} = require('./candidate-ledger');
 const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson } = require('./io');
 const { discoverSource, normalizeSource, sha256 } = require('./source');
@@ -18,6 +21,24 @@ const {
 } = require('./semantic-contract');
 const { EMPTY_DURATIONS } = require('./timing');
 const { ensureWorkerPool } = require('./worker-pool');
+
+const ACCEPTED_SERIALIZATION_READ_COMMANDS = new Set(['status', 'verify', 'archive-run']);
+
+function assertAcceptedSerialization(metadata, command = 'continue') {
+  if (metadata?.accepted_serialization === ACCEPTED_SERIALIZATION) return;
+  if (ACCEPTED_SERIALIZATION_READ_COMMANDS.has(command)) return;
+  throw new GameKbError(
+    'LEGACY_ACCEPTED_SERIALIZATION',
+    'This run uses legacy accepted serialization; start a new run before writing',
+    {
+      run_id: metadata?.run_id ?? null,
+      accepted_serialization: metadata?.accepted_serialization ?? null,
+      required: ACCEPTED_SERIALIZATION,
+      command,
+      action: 'start-new-run'
+    }
+  );
+}
 
 function generatedRunId() {
   return `run-${new Date().toISOString().replace(/[:.]/g, '-')}-${process.pid}-${Math.random().toString(16).slice(2, 10)}`;
@@ -138,6 +159,7 @@ function createOrResumeRun(novelDir, options = {}) {
   if (fs.existsSync(paths.runJson)) {
     let metadata = readRunMetadata(paths.run);
     assertSemanticContract(metadata, 'prepare');
+    assertAcceptedSerialization(metadata, 'prepare');
     if (metadata.source_hash !== sourceHash) {
       throw new GameKbError('RUN_SOURCE_CHANGED', 'Source changed; archive the old run before resuming it', {
         run_id: runId,
@@ -171,6 +193,7 @@ function createOrResumeRun(novelDir, options = {}) {
     schema_version: 1,
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     semantic_profile: SEMANTIC_PROFILE,
+    accepted_serialization: ACCEPTED_SERIALIZATION,
     profile,
     run_id: runId,
     source_file: sourceFile,
@@ -216,12 +239,15 @@ function resolveWritableRun(novelDir, runId, action = 'continue', expectedProfil
       { run_id: metadata.run_id, profile: metadata.profile, action }
     );
   }
+  assertAcceptedSerialization(metadata, action);
   return assertSemanticContract(metadata, action, expectedProfile);
 }
 
 module.exports = {
+  ACCEPTED_SERIALIZATION,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
+  assertAcceptedSerialization,
   assertArchiveExistingAllowed,
   assertSemanticContract,
   createOrResumeRun,

@@ -1,0 +1,214 @@
+schema_version: 1
+chapter: 15
+title: "第十五回　仗义救人"
+source_hash: ""
+factions:
+  - local_key: "faction:十二连环坞"
+    name: "十二连环坞"
+    aliases: []
+    type: null
+    description: "江湖帮派，总瓢把子为鹰眼老七"
+    source_refs:
+      - chapter: 15
+        text: "鹰眼老七，十二连环坞的总瓢把子。"
+  - local_key: "faction:天龙南宗"
+    name: "天龙南宗"
+    aliases: []
+    type: null
+    description: "以轻功和暗器闻名的武学门派，大师兄净身入宫做太监，门下多为大内侍卫"
+    source_refs:
+      - chapter: 15
+        text: "天龙南宗的轻功身法很特别，刚才对付老狐狸的两个人，用的擒拿法也是天龙南宗的独门手法"
+      - chapter: 15
+        text: "天龙南宗的大师兄是个天阉，所以就索性净身入宫做了太监，近年来据说很有权，就将他的师弟们都引进宫去，所以天龙南宗的门下，十个中倒有九个是大内侍卫。"
+  - local_key: "faction:太平王府"
+    name: "太平王府"
+    aliases: []
+    type: null
+    description: "王府势力，派遣世子限期追查失窃珠宝案"
+    source_refs:
+      - chapter: 15
+        text: "那批人在当天晚上就离开，而且我们发现，他们都是太平王府的木匠"
+      - chapter: 15
+        text: "六月十五就是太平王的世子所给的限期了"
+characters:
+  - local_key: "character:陆小凤"
+    name: "陆小凤"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "主角，有四条眉毛，机智冷静，仗义救人"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 15
+        text: "陆小凤就是陆小凤，一个既不能算太好，也不能算太坏的人，有时很聪明，有时很笨，有时很冲动，有时很冷静。"
+      - chapter: 15
+        text: "看着有四条眉毛的陆小凤。"
+  - local_key: "character:老实和尚"
+    name: "老实和尚"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "和尚，怕水，不敢洗澡"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 15
+        text: "老实和尚擦着汗，叹着气，苦笑道：'看来这叫做天生的一物治一物。'"
+      - chapter: 15
+        text: "和尚看见澡盆里的水都害怕，连洗澡都不敢洗。"
+  - local_key: "character:小玉"
+    name: "小玉"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "年轻女子，与陆小凤等人同行"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 15
+        text: "小玉笑了，道：'原来……'"
+  - local_key: "character:老狐狸"
+    name: "老狐狸"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "精通航海的老人，在水中如鱼，拥有狐狸窝据点"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 15
+        text: "我在陆上是条老狐狸，到了水里，就是条鱼。"
+      - chapter: 15
+        text: "那条船并不比我们这条大。"
+  - local_key: "character:沙曼"
+    name: "沙曼"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "陆小凤的伴侣，能识别天龙南宗武功"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 15
+        text: "沙曼压低声音，道：'这个人一定是天龙南宗的弟子。'"
+  - local_key: "character:鹰眼老七"
+    name: "鹰眼老七"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "十二连环坞总瓢把子，钩鼻高颧，目光如鹰，负责追查珠宝失窃案"
+    factions:
+      - "faction:十二连环坞"
+    skills: []
+    source_refs:
+      - chapter: 15
+        text: "钩鼻高颧，目光如鹰。"
+      - chapter: 15
+        text: "鹰眼老七，十二连环坞的总瓢把子。"
+  - local_key: "character:宫九"
+    name: "宫九"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "被提及的人物，故意答应让陆小凤出海，知道海上会有风暴"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 15
+        text: "明白宫九为什么那么痛快就答应了你。"
+      - chapter: 15
+        text: "那小子一定早就算出了海上会有风暴，早就知道我们过不了这一关。"
+  - local_key: "character:葛通"
+    name: "葛通"
+    aliases: ["大力神鹰"]
+    identities: []
+    level: null
+    rank: null
+    description: "被藏在佛像中的武林高手，是失踪的一百零三人之一"
+    factions: []
+    skills: []
+    source_refs:
+      - chapter: 15
+        text: "住在佛像里的'大力神鹰'葛通。"
+  - local_key: "character:太平王世子"
+    name: "太平王世子"
+    aliases: []
+    identities: []
+    level: null
+    rank: null
+    description: "太平王之子，限期追查三千五百万两珠宝失窃案"
+    factions:
+      - "faction:太平王府"
+    skills: []
+    source_refs:
+      - chapter: 15
+        text: "六月十五就是太平王的世子所给的限期了"
+skills:
+  - local_key: "skill:天龙南宗轻功"
+    name: "天龙南宗轻功"
+    aliases: []
+    types: []
+    factions:
+      - "faction:天龙南宗"
+    rank: null
+    description: "天龙南宗独门轻功身法"
+    techniques: []
+    source_refs:
+      - chapter: 15
+        text: "天龙南宗的轻功身法很特别"
+  - local_key: "skill:天龙南宗擒拿手法"
+    name: "天龙南宗擒拿手法"
+    aliases: []
+    types: []
+    factions:
+      - "faction:天龙南宗"
+    rank: null
+    description: "天龙南宗独门擒拿手法"
+    techniques: []
+    source_refs:
+      - chapter: 15
+        text: "刚才对付老狐狸的两个人，用的擒拿法也是天龙南宗的独门手法"
+items:
+  - local_key: "item:木鱼"
+    name: "木鱼"
+    aliases: []
+    type: "容器"
+    description: "佛寺用具，内藏失窃珠宝"
+    source_refs:
+      - chapter: 15
+        text: "木鱼里的珠宝"
+  - local_key: "item:佛像"
+    name: "佛像"
+    aliases: []
+    type: "容器"
+    description: "木制佛像，内藏失踪的武林高手"
+    source_refs:
+      - chapter: 15
+        text: "住在佛像里的'大力神鹰'葛通。"
+  - local_key: "item:金珠珍宝"
+    name: "金珠珍宝"
+    aliases: []
+    type: "财宝"
+    description: "三千五百万两失窃珠宝，涉及十三家镖局存亡"
+    source_refs:
+      - chapter: 15
+        text: "这件事牵涉到三千五百万两的金珠珍宝。"
+chapter_summary:
+  title: "第十五回　仗义救人"
+  summary: "陆小凤等人乘小艇遭遇风暴，老狐狸暗中操舵脱险。众人登陆后发现老狐狸的狐狸窝被鹰眼老七占据，原来鹰眼老七受太平王世子之命追查三千五百万两失窃珠宝和一百零三名失踪武林高手。天龙南宗门下（大内侍卫）与伪装武官的神秘势力在狐狸窝激战。陆小凤仗义出手救人，最终识破珠宝藏于木鱼、高手藏于佛像的真相，承诺十五天内找回失物。"
+  source_refs:
+    - chapter: 15
+      text: "这件事牵涉到三千五百万两的金珠珍宝。"
+    - chapter: 15
+      text: "还有一百零三个精明干练的武林好手，都在一夜之间失踪了。"
+    - chapter: 15
+      text: "十五天之内，我一定给你找回来。"

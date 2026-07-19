@@ -6,6 +6,7 @@ const yaml = require('js-yaml');
 
 const {
   assertAcceptedArtifacts,
+  ensureAcceptedArtifact,
   readArtifactManifest,
   recordAcceptedArtifact
 } = require('./candidate-ledger');
@@ -13,7 +14,7 @@ const { normalizeChapterDraft, validateChapterDraft } = require('./chapter-contr
 const { normalizeDomainDecisionDraft, validateDomainDecisionDraft } = require('./domain-contract');
 const { GameKbError } = require('./errors');
 const { isGroundingError } = require('./grounding');
-const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
+const { atomicWriteFile, atomicWriteJson, readJson, writeImmutableFile, writeImmutableJson } = require('./io');
 const { stagingPathFor } = require('./paths');
 const {
   loadProgress,
@@ -196,85 +197,127 @@ function currentUnitInputHash(paths, manifest, progress, unit) {
   return unitContext(paths, manifest, progress, unit).inputHash;
 }
 
-function acceptDraft({ paths, unit, draftPath }) {
+function commitSubmission({
+  paths,
+  unit,
+  attempt,
+  inputHash,
+  submissionId,
+  evidenceText,
+  evidenceExtension = '.yaml',
+  stagingPath,
+  draft,
+  prevalidationErrors,
+  checkpoint = () => {}
+}) {
   assertAcceptedArtifacts(paths);
   const manifest = readJson(paths.manifest);
   const progress = loadProgress(paths, manifest);
   const context = unitContext(paths, manifest, progress, unit);
-  const existing = progress.units[unit];
-  if (existing?.input_hash === context.inputHash && existing.status === 'done') {
-    throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be resubmitted', { unit });
+
+  // Verify explicit attempt/inputHash against controller state
+  if (context.inputHash !== inputHash) {
+    throw new GameKbError('SUBMISSION_INPUT_HASH_MISMATCH', 'Input hash does not match current controller state', {
+      unit,
+      expected: context.inputHash,
+      actual: inputHash
+    });
   }
-  if (existing?.input_hash === context.inputHash && existing.status === 'manual_review') {
-    throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit });
+
+  // Skip attempt check for legacy callers (acceptDraft) that derive attempt internally
+  if (attempt !== undefined) {
+    const expectedAttempt = nextAttempt(progress, unit, inputHash);
+    if (attempt !== expectedAttempt) {
+      throw new GameKbError('SUBMISSION_ATTEMPT_CONFLICT', 'Submission attempt is not the next controller attempt', {
+        unit,
+        attempt,
+        expected_attempt: expectedAttempt
+      });
+    }
   }
-  const attempt = nextAttempt(progress, unit, context.inputHash);
-  const resolvedDraft = assertDraftPath(paths, draftPath, unit, attempt, context.stagingPath(attempt));
-  const raw = fs.readFileSync(resolvedDraft, 'utf8');
-  const outputHash = sha256(raw);
-  let draft;
-  let errors;
+
+  // Evaluate draft unless prevalidationErrors is supplied
+  let errors = prevalidationErrors || [];
+  let draftValue = draft;
   let quarantineFiles = [];
-  try {
-    draft = yaml.load(raw);
-  } catch (error) {
-    errors = [{ code: 'DRAFT_YAML_INVALID', path: '$', target: error.message }];
-  }
-  if (errors === undefined) {
-    errors = context.validate(draft);
-    const prepared = prepareGroundedChapter(paths, context, unit, draft, errors);
-    draft = prepared.draft;
+
+  if (!prevalidationErrors && draft !== null) {
+    draftValue = yaml.load(evidenceText);
+    errors = context.validate(draftValue);
+    const prepared = prepareGroundedChapter(paths, context, unit, draftValue, errors);
+    draftValue = prepared.draft;
     errors = prepared.errors;
     quarantineFiles = prepared.quarantineFiles;
   }
 
-  let updated = recordSubmission(progress, unit, context.inputHash, outputHash, errors);
+  const outputHash = sha256(evidenceText);
+  const recordedAt = new Date().toISOString();
+
+  // Record progress with explicit submission identity
+  let updated = recordSubmission(progress, unit, inputHash, outputHash, errors, {
+    attempt,
+    submissionId,
+    recordedAt
+  });
   const state = updated.units[unit];
+
+  // Write immutable evidence archive (skip if already exists — idempotent replay)
   const archiveDir = path.join(paths.drafts, unit.replaceAll(':', '_'));
   const archive = path.join(
     archiveDir,
-    `attempt_${String(state.attempts).padStart(2, '0')}_${outputHash.slice(7, 19)}.yaml`
+    `attempt_${String(state.attempts).padStart(2, '0')}_${outputHash.slice(7, 19)}${evidenceExtension}`
   );
-  if (fs.existsSync(archive)) {
-    throw new GameKbError('DRAFT_ARCHIVE_EXISTS', 'Submission archive is immutable', { unit, archive });
+  if (!fs.existsSync(archive)) {
+    writeImmutableFile(archive, evidenceText, 'DRAFT_ARCHIVE_EXISTS');
   }
-  atomicWriteFile(archive, raw);
 
-  let acceptedFile = null;
-  if (errors.length === 0) {
-    acceptedFile = context.acceptedFile;
-    const acceptedValue = context.normalize ? context.normalize(draft) : draft;
-    recordAcceptedArtifact(paths, acceptedFile, context.inputHash, acceptedValue);
-  }
-  const submissionRecord = archive.replace(/\.yaml$/, '.json');
-  if (fs.existsSync(submissionRecord)) {
-    throw new GameKbError('DRAFT_ARCHIVE_EXISTS', 'Submission record is immutable', {
-      unit,
-      record: submissionRecord
-    });
-  }
-  atomicWriteJson(submissionRecord, {
+  // Write immutable submission record (only if extension differs from archive)
+  const submissionRecord = archive.replace(/\.[^.]+$/, '.json');
+  const recordData = {
     schema_version: 1,
+    submission_id: submissionId,
     unit,
-    input_hash: context.inputHash,
+    input_hash: inputHash,
     attempt: state.attempts,
+    recorded_at: recordedAt,
     status: errors.length === 0 ? 'accepted' : 'rejected',
-    staging_path: resolvedDraft,
+    staging_path: stagingPath,
     output_hash: outputHash,
     archive_path: archive,
     archive_hash: outputHash,
-    accepted_file: acceptedFile,
+    accepted_file: null,
     consumed: errors.length === 0,
     errors
-  });
+  };
+
+  checkpoint('submission-recorded', recordData);
+
+  // Reconcile accepted artifact for successful result
+  let acceptedFile = null;
+  if (errors.length === 0 && draftValue !== null) {
+    acceptedFile = context.acceptedFile;
+    const acceptedValue = context.normalize ? context.normalize(draftValue) : draftValue;
+    ensureAcceptedArtifact(paths, acceptedFile, inputHash, acceptedValue, { acceptedAt: recordedAt });
+    recordData.accepted_file = acceptedFile;
+  }
+
+  // Only write submission record if it's a different file from the archive
+  if (submissionRecord !== archive && !fs.existsSync(submissionRecord)) {
+    writeImmutableJson(submissionRecord, recordData, 'DRAFT_ARCHIVE_EXISTS');
+  }
+  checkpoint('accepted-written', recordData);
+
+  // Save progress (idempotent replay already returned early in recordSubmission)
   saveProgress(paths, updated);
-  if (errors.length === 0) {
+
+  // Consume staging file only after successful accepted/progress reconciliation
+  if (errors.length === 0 && stagingPath) {
     try {
-      fs.rmSync(resolvedDraft);
+      fs.rmSync(stagingPath);
     } catch (error) {
       throw new GameKbError('DRAFT_STAGING_CONSUME_FAILED', 'Submitted staging draft could not be removed safely', {
         unit,
-        draft: resolvedDraft,
+        draft: stagingPath,
         cause: error.message
       });
     }
@@ -293,9 +336,12 @@ function acceptDraft({ paths, unit, draftPath }) {
     draft_archive_hash: outputHash,
     submission_record: submissionRecord,
     error_record: errors.length > 0 ? submissionRecord : null,
-    consumed_path: errors.length === 0 ? resolvedDraft : null,
-    accepted_file: acceptedFile
+    consumed_path: errors.length === 0 ? stagingPath : null,
+    accepted_file: acceptedFile,
+    submission_id: submissionId,
+    recorded_at: recordedAt
   };
+
   if (errors.length > 0) {
     const pending = errors.some(error => error.code === 'DOMAIN_PENDING_UNRESOLVED');
     throw new GameKbError(
@@ -307,4 +353,45 @@ function acceptDraft({ paths, unit, draftPath }) {
   return result;
 }
 
-module.exports = { acceptDraft, assertDraftPath, currentUnitInputHash, semanticDecisionFile, stableHash };
+function acceptDraft({ paths, unit, draftPath }) {
+  assertAcceptedArtifacts(paths);
+  const manifest = readJson(paths.manifest);
+  const progress = loadProgress(paths, manifest);
+  const context = unitContext(paths, manifest, progress, unit);
+  const existing = progress.units[unit];
+  if (existing?.input_hash === context.inputHash && existing.status === 'done') {
+    throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be resubmitted', { unit });
+  }
+  if (existing?.input_hash === context.inputHash && existing.status === 'manual_review') {
+    throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit });
+  }
+  const attempt = nextAttempt(progress, unit, context.inputHash);
+  const resolvedDraft = assertDraftPath(paths, draftPath, unit, attempt, context.stagingPath(attempt));
+  const raw = fs.readFileSync(resolvedDraft, 'utf8');
+
+  let draft;
+  let prevalidationErrors;
+  try {
+    draft = yaml.load(raw);
+  } catch (error) {
+    prevalidationErrors = [{ code: 'DRAFT_YAML_INVALID', path: '$', target: error.message }];
+    draft = null;
+  }
+
+  const submissionId = `submission:${unit}:attempt:${attempt}:${context.inputHash}`;
+
+  return commitSubmission({
+    paths,
+    unit,
+    attempt,
+    inputHash: context.inputHash,
+    submissionId,
+    evidenceText: raw,
+    evidenceExtension: '.yaml',
+    stagingPath: resolvedDraft,
+    draft,
+    prevalidationErrors
+  });
+}
+
+module.exports = { acceptDraft, assertDraftPath, commitSubmission, currentUnitInputHash, semanticDecisionFile, stableHash };
