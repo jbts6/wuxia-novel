@@ -59,7 +59,12 @@ const {
 } = require('./lib/run');
 const { recordScriptDuration } = require('./lib/timing');
 const { verifyFinal } = require('./lib/verify');
-const { assertCleanGuardForSubmission, openWorkerGuard, checkWorkerGuard, unresolvedWorkerGuardReports } = require('./lib/worker-guard');
+const {
+  assertNoUnresolvedWorkerGuards,
+  openWorkerGuard,
+  checkWorkerGuard,
+  unresolvedWorkerGuardReports
+} = require('./lib/worker-guard');
 const { submitChapterEnvelope } = require('./lib/draft-submission');
 const { preflightChapterDraft } = require('./lib/draft-preflight');
 const { recoverChapterDraft } = require('./lib/draft-recovery');
@@ -441,6 +446,10 @@ function verifyWorkspace(novelDir, runId, profile) {
   return result;
 }
 
+function projectWorkerJobs(chapterJobs) {
+  return chapterJobs.map(job => workerProjection(job));
+}
+
 function main(argv = process.argv.slice(2)) {
   const commandStartedAt = process.hrtime.bigint();
   let timingRunJson = null;
@@ -595,9 +604,7 @@ function main(argv = process.argv.slice(2)) {
         : next;
       // Apply worker projection to strip staging_path from chapter_jobs
       if (routedNext.chapter_jobs) {
-        routedNext.chapter_jobs = routedNext.chapter_jobs.map(job => {
-          try { return workerProjection(job); } catch { return job; }
-        });
+        routedNext.chapter_jobs = projectWorkerJobs(routedNext.chapter_jobs);
       }
       emit({
         semantic_contract_version: run.semantic_contract_version ?? null,
@@ -642,6 +649,7 @@ function main(argv = process.argv.slice(2)) {
       const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
+      assertNoUnresolvedWorkerGuards(paths);
       const manifest = readJson(paths.manifest);
       assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version, profile);
       emit(assembleRun({ paths, profile }));
@@ -652,6 +660,7 @@ function main(argv = process.argv.slice(2)) {
       const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
+      assertNoUnresolvedWorkerGuards(paths);
       const manifest = readJson(paths.manifest);
       assertAssembleInputs(loadProgress(paths, manifest), manifest, run.semantic_contract_version, profile);
       const assembled = assembleRun({ paths, profile });
@@ -666,6 +675,7 @@ function main(argv = process.argv.slice(2)) {
       const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
+      assertNoUnresolvedWorkerGuards(paths);
       assertAcceptedArtifacts(paths);
       emit(installVerifiedData(novelDir, { runId: run.run_id }));
       return;
@@ -698,7 +708,9 @@ function main(argv = process.argv.slice(2)) {
         return;
       }
       const run = resolveWritableRun(novelDir, requestedRun, command, profile);
-      timingRunJson = pathsFor(novelDir, run.run_id).runJson;
+      const paths = pathsFor(novelDir, run.run_id);
+      timingRunJson = paths.runJson;
+      assertNoUnresolvedWorkerGuards(paths);
       emit(verifyWorkspace(novelDir, run.run_id, profile));
       return;
     }
@@ -775,24 +787,6 @@ function main(argv = process.argv.slice(2)) {
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
       timingUnit = unit;
-      // Verify clean guard before accepting submission
-      const manifest = readJson(paths.manifest);
-      const chapterMatch = /^chapter:(\d{3})$/.exec(unit);
-      if (!chapterMatch) {
-        throw new GameKbError('UNIT_UNSUPPORTED', 'Only chapter units are supported by submit-draft', { unit });
-      }
-      const chapter = manifest.chapters.find(c => c.number === Number(chapterMatch[1]));
-      if (!chapter) {
-        throw new GameKbError('UNIT_UNKNOWN', 'Chapter unit is not present in the manifest', { unit });
-      }
-      assertCleanGuardForSubmission({
-        paths,
-        guardId,
-        batchId,
-        unit,
-        attempt,
-        inputHash: chapter.input_hash
-      });
       // Read stdin synchronously
       const rawInput = fs.readFileSync(0, 'utf8');
       emit(submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInput }));
@@ -825,7 +819,7 @@ function main(argv = process.argv.slice(2)) {
       timingRunJson = paths.runJson;
       const manifest = readJson(paths.manifest);
       emit(recoverChapterDraft({
-        repositoryRoot: novelDir,
+        repositoryRoot: repositoryRootFor(novelDir),
         paths,
         manifest,
         unit,
@@ -843,4 +837,4 @@ function main(argv = process.argv.slice(2)) {
 
 if (require.main === module) main();
 
-module.exports = { main, refreshDomainWork };
+module.exports = { main, projectWorkerJobs, refreshDomainWork };

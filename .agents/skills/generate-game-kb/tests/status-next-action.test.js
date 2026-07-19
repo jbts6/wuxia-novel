@@ -7,7 +7,8 @@ const test = require('node:test');
 
 const { pathsFor } = require('../scripts/lib/paths');
 const { resolveRun } = require('../scripts/lib/run');
-const { makeNovel, readJson, runFlow } = require('./helpers');
+const { projectWorkerJobs } = require('../scripts/flow');
+const { makeNovel, parseJsonLine, readJson, runFlow } = require('./helpers');
 
 function activePaths(novel) {
   const run = resolveRun(novel);
@@ -42,6 +43,22 @@ function snapshotNovel(root) {
   return snapshot;
 }
 
+test('worker status projection fails closed instead of returning an invalid raw job', () => {
+  const internalPath = path.resolve('controller-owned', 'chapter_001.yaml');
+  const invalidJob = {
+    batch_id: 'chapter-batch-001',
+    chapters: [],
+    worker_write_paths: [],
+    submissions: [],
+    internal_staging_path: internalPath
+  };
+
+  assert.throws(
+    () => projectWorkerJobs([invalidJob]),
+    error => error.code === 'CHAPTER_JOB_PROJECTION_INVALID'
+  );
+});
+
 test('status returns one lifecycle action without mutating the novel tree', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
@@ -68,6 +85,35 @@ test('status returns one lifecycle action without mutating the novel tree', () =
   assert.equal('staging_path' in output.chapter_jobs[0].chapters[0], false);
   assert.equal('staging_paths' in output.chapter_jobs[0].chapters[0], false);
   assert.equal('next_actions' in output, false);
+});
+
+test('unresolved worker guard blocks status scheduling and direct publish gates', () => {
+  const novel = makeNovel('guard 阻断试书', '第一章 起始\n甲。\n');
+  assert.equal(runFlow(['prepare', novel, '--run', 'run-guard-blocking', '--json']).status, 0);
+
+  const opened = runFlow(['guard-open', novel, '--run', 'run-guard-blocking', '--json']);
+  assert.equal(opened.status, 0, opened.stderr);
+  const guardId = JSON.parse(opened.stdout).guard_id;
+  fs.writeFileSync(path.join(novel, 'rogue-worker-output.yaml'), 'rogue: true\n', 'utf8');
+  const checked = runFlow([
+    'guard-check', novel, '--run', 'run-guard-blocking', '--guard-id', guardId, '--json'
+  ]);
+  assert.equal(checked.status, 0, checked.stderr);
+  assert.ok(JSON.parse(checked.stdout).violation_count > 0);
+
+  const status = runFlow(['status', novel, '--run', 'run-guard-blocking', '--json']);
+  assert.equal(status.status, 0, status.stderr);
+  const statusOutput = JSON.parse(status.stdout);
+  assert.equal(statusOutput.next_action, 'worker-write-review');
+  assert.deepEqual(statusOutput.next_units, []);
+  assert.equal('chapter_jobs' in statusOutput, false);
+  assert.equal(statusOutput.worker_guard_reports[0].guard_id, guardId);
+
+  for (const command of ['publish', 'install', 'verify']) {
+    const result = runFlow([command, novel, '--run', 'run-guard-blocking', '--json']);
+    assert.notEqual(result.status, 0, command);
+    assert.equal(parseJsonLine(result.stderr).code, 'GUARD_VIOLATIONS_UNRESOLVED', command);
+  }
 });
 
 test('status issues only the second current staging path after one rejected chapter draft', () => {

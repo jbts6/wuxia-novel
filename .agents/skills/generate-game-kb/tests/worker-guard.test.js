@@ -7,6 +7,7 @@ const test = require('node:test');
 const os = require('node:os');
 
 const { pathsFor } = require('../scripts/lib/paths');
+const { sha256 } = require('../scripts/lib/source');
 
 let workerGuard = {};
 try {
@@ -256,9 +257,12 @@ test('checkWorkerGuard results are deterministic regardless of worker report', (
     fs.writeFileSync(path.join(repo, 'src', 'rogue.yaml'), 'content');
 
     const result1 = workerGuard.checkWorkerGuard({ repositoryRoot: repo, paths, guardId: guard_id });
+    const checkReceipt = path.join(paths.workerGuards, `${guard_id}-check.json`);
+    const receiptBefore = fs.readFileSync(checkReceipt);
     const result2 = workerGuard.checkWorkerGuard({ repositoryRoot: repo, paths, guardId: guard_id });
 
     assert.deepEqual(result1.violations, result2.violations);
+    assert.deepEqual(fs.readFileSync(checkReceipt), receiptBefore);
   } finally {
     cleanup(repo);
   }
@@ -319,6 +323,30 @@ test('unresolvedWorkerGuardReports returns empty when guard has no violations', 
 
     const reports = workerGuard.unresolvedWorkerGuardReports(paths);
     assert.deepEqual(reports, []);
+  } finally {
+    cleanup(repo);
+  }
+});
+
+test('unresolvedWorkerGuardReports treats an open guard without a check as unresolved', () => {
+  const repo = makeTempRepo();
+  try {
+    const paths = makePaths(repo);
+    fs.mkdirSync(paths.run, { recursive: true });
+    const { guard_id } = workerGuard.openWorkerGuard({
+      repositoryRoot: repo,
+      paths,
+      job: { batch_id: 'chapter-batch-001', chapters: [], worker_write_paths: [], submissions: [] }
+    });
+
+    const reports = workerGuard.unresolvedWorkerGuardReports(paths);
+    assert.equal(reports.length, 1);
+    assert.equal(reports[0].guard_id, guard_id);
+    assert.equal(reports[0].status, 'check-pending');
+    assert.throws(
+      () => workerGuard.assertNoUnresolvedWorkerGuards(paths),
+      error => error.code === 'GUARD_VIOLATIONS_UNRESOLVED'
+    );
   } finally {
     cleanup(repo);
   }
@@ -597,6 +625,45 @@ test('assertCleanGuardForSubmission succeeds with exact clean check and matching
     assert.equal(typeof proof.check_time, 'string');
     assert.equal(typeof proof.open_time, 'string');
     assert.equal(proof.repository_root, path.resolve(root));
+    const openReceipt = path.join(paths.workerGuards, `${guard_id}.json`);
+    const checkReceipt = path.join(paths.workerGuards, `${guard_id}-check.json`);
+    const check = JSON.parse(fs.readFileSync(checkReceipt, 'utf8'));
+    assert.equal(check.open_receipt_hash, sha256(fs.readFileSync(openReceipt)));
+    assert.equal(check.repository_root, path.resolve(root));
+    assert.equal(proof.guard_open_receipt_hash, sha256(fs.readFileSync(openReceipt)));
+    assert.equal(proof.guard_check_receipt_hash, sha256(fs.readFileSync(checkReceipt)));
+  } finally {
+    cleanup(root);
+  }
+});
+
+test('assertCleanGuardForSubmission matches an identity in a batched job submission list', () => {
+  const { root } = makeSiblingRepo();
+  try {
+    const paths = makePaths(root);
+    fs.mkdirSync(paths.run, { recursive: true });
+    const job = {
+      batch_id: 'chapter-batch-001-002',
+      chapters: [],
+      worker_write_paths: [],
+      submissions: [
+        { unit: 'chapter:001', attempt: 1, input_hash: 'sha256:first' },
+        { unit: 'chapter:002', attempt: 2, input_hash: 'sha256:second' }
+      ]
+    };
+    const { guard_id } = workerGuard.openWorkerGuard({ repositoryRoot: root, paths, job });
+    workerGuard.checkWorkerGuard({ repositoryRoot: root, paths, guardId: guard_id });
+
+    const proof = workerGuard.assertCleanGuardForSubmission({
+      paths,
+      guardId: guard_id,
+      batchId: job.batch_id,
+      unit: 'chapter:002',
+      attempt: 2,
+      inputHash: 'sha256:second'
+    });
+
+    assert.equal(proof.guard_id, guard_id);
   } finally {
     cleanup(root);
   }
@@ -674,6 +741,181 @@ test('assertCleanGuardForSubmission rejects multiple field mismatches', () => {
     assert.ok(error.details.mismatches.includes('unit'));
     assert.ok(error.details.mismatches.includes('attempt'));
     assert.ok(error.details.mismatches.includes('input_hash'));
+  } finally {
+    cleanup(root);
+  }
+});
+
+test('checkWorkerGuard rejects an open receipt with an invalid open_time', () => {
+  const repo = makeSiblingRepo();
+  try {
+    const { root } = repo;
+    const paths = makePaths(root);
+    const job = { batch_id: 'chapter-batch-001', unit: 'chapter:001', attempt: 1, input_hash: 'sha256:abc123' };
+    const { guard_id } = workerGuard.openWorkerGuard({ repositoryRoot: root, paths, job });
+    const receiptFile = path.join(paths.workerGuards, `${guard_id}.json`);
+    const receipt = JSON.parse(fs.readFileSync(receiptFile, 'utf8'));
+    receipt.open_time = 42;
+    fs.writeFileSync(receiptFile, `${JSON.stringify(receipt, null, 2)}\n`, 'utf8');
+
+    assert.throws(
+      () => workerGuard.checkWorkerGuard({ repositoryRoot: root, paths, guardId: guard_id }),
+      error => error.code === 'GUARD_PROOF_MISMATCH'
+    );
+  } finally {
+    cleanup(repo.root);
+  }
+});
+
+test('checkWorkerGuard rejects an open receipt snapshot entry missing required fields', () => {
+  const repo = makeSiblingRepo();
+  try {
+    const { root } = repo;
+    const paths = makePaths(root);
+    const job = { batch_id: 'chapter-batch-001', unit: 'chapter:001', attempt: 1, input_hash: 'sha256:abc123' };
+    const { guard_id } = workerGuard.openWorkerGuard({ repositoryRoot: root, paths, job });
+    const receiptFile = path.join(paths.workerGuards, `${guard_id}.json`);
+    const receipt = JSON.parse(fs.readFileSync(receiptFile, 'utf8'));
+    delete receipt.entries[0].type;
+    fs.writeFileSync(receiptFile, `${JSON.stringify(receipt, null, 2)}\n`, 'utf8');
+
+    assert.throws(
+      () => workerGuard.checkWorkerGuard({ repositoryRoot: root, paths, guardId: guard_id }),
+      error => error.code === 'GUARD_PROOF_MISMATCH'
+    );
+  } finally {
+    cleanup(repo.root);
+  }
+});
+
+test('checkWorkerGuard rejects an open receipt snapshot path outside the repository', () => {
+  const repo = makeSiblingRepo();
+  try {
+    const { root } = repo;
+    const paths = makePaths(root);
+    const job = { batch_id: 'chapter-batch-001', unit: 'chapter:001', attempt: 1, input_hash: 'sha256:abc123' };
+    const { guard_id } = workerGuard.openWorkerGuard({ repositoryRoot: root, paths, job });
+    const receiptFile = path.join(paths.workerGuards, `${guard_id}.json`);
+    const receipt = JSON.parse(fs.readFileSync(receiptFile, 'utf8'));
+    receipt.entries[0].path = '../outside.txt';
+    fs.writeFileSync(receiptFile, `${JSON.stringify(receipt, null, 2)}\n`, 'utf8');
+
+    assert.throws(
+      () => workerGuard.checkWorkerGuard({ repositoryRoot: root, paths, guardId: guard_id }),
+      error => error.code === 'GUARD_PROOF_MISMATCH'
+    );
+  } finally {
+    cleanup(repo.root);
+  }
+});
+
+test('checkWorkerGuard normalizes malformed open receipt JSON', () => {
+  const { root } = makeSiblingRepo();
+  try {
+    const paths = makePaths(root);
+    fs.mkdirSync(paths.run, { recursive: true });
+    const job = { batch_id: 'chapter-batch-001', unit: 'chapter:001', attempt: 1, input_hash: 'sha256:abc123' };
+    const { guard_id } = workerGuard.openWorkerGuard({ repositoryRoot: root, paths, job });
+    fs.writeFileSync(path.join(paths.workerGuards, `${guard_id}.json`), '{');
+
+    const error = captureError(() => workerGuard.checkWorkerGuard({
+      repositoryRoot: root,
+      paths,
+      guardId: guard_id
+    }));
+
+    assert.equal(error.code, 'GUARD_PROOF_MISMATCH');
+  } finally {
+    cleanup(root);
+  }
+});
+
+test('checkWorkerGuard normalizes an open receipt with no repository root', () => {
+  const { root } = makeSiblingRepo();
+  try {
+    const paths = makePaths(root);
+    fs.mkdirSync(paths.run, { recursive: true });
+    const job = { batch_id: 'chapter-batch-001', unit: 'chapter:001', attempt: 1, input_hash: 'sha256:abc123' };
+    const { guard_id } = workerGuard.openWorkerGuard({ repositoryRoot: root, paths, job });
+    const receiptFile = path.join(paths.workerGuards, `${guard_id}.json`);
+    const receipt = JSON.parse(fs.readFileSync(receiptFile, 'utf8'));
+    delete receipt.repository_root;
+    fs.writeFileSync(receiptFile, JSON.stringify(receipt));
+
+    const error = captureError(() => workerGuard.checkWorkerGuard({
+      repositoryRoot: root,
+      paths,
+      guardId: guard_id
+    }));
+
+    assert.equal(error.code, 'GUARD_PROOF_MISMATCH');
+  } finally {
+    cleanup(root);
+  }
+});
+
+test('assertCleanGuardForSubmission normalizes malformed check receipt JSON', () => {
+  const { root } = makeSiblingRepo();
+  try {
+    const paths = makePaths(root);
+    fs.mkdirSync(paths.run, { recursive: true });
+    const job = { batch_id: 'chapter-batch-001', unit: 'chapter:001', attempt: 1, input_hash: 'sha256:abc123' };
+    const { guard_id } = workerGuard.openWorkerGuard({ repositoryRoot: root, paths, job });
+    workerGuard.checkWorkerGuard({ repositoryRoot: root, paths, guardId: guard_id });
+    fs.writeFileSync(path.join(paths.workerGuards, `${guard_id}-check.json`), '{');
+
+    const error = captureError(() => workerGuard.assertCleanGuardForSubmission({
+      paths,
+      guardId: guard_id,
+      batchId: job.batch_id,
+      unit: job.unit,
+      attempt: job.attempt,
+      inputHash: job.input_hash
+    }));
+
+    assert.equal(error.code, 'GUARD_PROOF_MISMATCH');
+  } finally {
+    cleanup(root);
+  }
+});
+
+test('unresolvedWorkerGuardReports normalizes malformed check receipt JSON', () => {
+  const { root } = makeSiblingRepo();
+  try {
+    const paths = makePaths(root);
+    fs.mkdirSync(paths.run, { recursive: true });
+    const job = { batch_id: 'chapter-batch-001', unit: 'chapter:001', attempt: 1, input_hash: 'sha256:abc123' };
+    const { guard_id } = workerGuard.openWorkerGuard({ repositoryRoot: root, paths, job });
+    workerGuard.checkWorkerGuard({ repositoryRoot: root, paths, guardId: guard_id });
+    fs.writeFileSync(path.join(paths.workerGuards, `${guard_id}-check.json`), '{');
+
+    const error = captureError(() => workerGuard.unresolvedWorkerGuardReports(paths));
+
+    assert.equal(error.code, 'GUARD_PROOF_MISMATCH');
+  } finally {
+    cleanup(root);
+  }
+});
+
+test('assertCleanGuardForSubmission rejects a guard scoped below the real Git root', () => {
+  const { root, novelDir } = makeSiblingRepo();
+  try {
+    const paths = pathsFor(novelDir, 'run-narrow-guard');
+    fs.mkdirSync(paths.run, { recursive: true });
+    const job = { batch_id: 'chapter-batch-001', unit: 'chapter:001', attempt: 1, input_hash: 'sha256:abc123' };
+    const { guard_id } = workerGuard.openWorkerGuard({ repositoryRoot: novelDir, paths, job });
+    workerGuard.checkWorkerGuard({ repositoryRoot: novelDir, paths, guardId: guard_id });
+
+    const error = captureError(() => workerGuard.assertCleanGuardForSubmission({
+      paths,
+      guardId: guard_id,
+      batchId: job.batch_id,
+      unit: job.unit,
+      attempt: job.attempt,
+      inputHash: job.input_hash
+    }));
+
+    assert.equal(error.code, 'GUARD_PROOF_MISMATCH');
   } finally {
     cleanup(root);
   }

@@ -261,6 +261,47 @@ test('lite-recover-draft requires --unit and --source', () => {
   assert.equal(parseJsonLine(missingSource.stderr).code, 'SOURCE_REQUIRED');
 });
 
+test('lite-recover-draft accepts a guard-discovered sibling file inside the repository root', () => {
+  const novel = makeNovel('recover-draft 仓库根试书', '第一章 起始\n甲。\n');
+  const repositoryRoot = path.dirname(novel);
+  fs.mkdirSync(path.join(repositoryRoot, '.git'));
+  const prepared = runFlow(['lite-prepare', novel, '--run', 'run-repository-root', '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+
+  const opened = runFlow(['lite-guard-open', novel, '--run', 'run-repository-root', '--json']);
+  assert.equal(opened.status, 0, opened.stderr);
+  const guardId = JSON.parse(opened.stdout).guard_id;
+  const paths = pathsFor(novel, 'run-repository-root');
+  const chapter = readJson(paths.manifest).chapters[0];
+  const misplacedPath = path.join(repositoryRoot, 'misplaced_sibling.json');
+  fs.writeFileSync(misplacedPath, JSON.stringify(validChapterDraft({
+    skills: [],
+    items: [],
+    factions: [],
+    source_hash: chapter.input_hash,
+    chapter_summary: {
+      title: chapter.title,
+      summary: '甲。',
+      source_refs: [sourceRef(chapter.number, '甲。')]
+    }
+  })), 'utf8');
+
+  const checked = runFlow([
+    'lite-guard-check', novel, '--run', 'run-repository-root', '--guard-id', guardId, '--json'
+  ]);
+  assert.equal(checked.status, 0, checked.stderr);
+  assert.ok(JSON.parse(checked.stdout).violation_count > 0);
+
+  const recovered = runFlow([
+    'lite-recover-draft', novel, '--run', 'run-repository-root',
+    '--unit', 'chapter:001', '--source', misplacedPath,
+    '--guard-id', guardId, '--confirm', '--json'
+  ]);
+
+  assert.equal(recovered.status, 0, recovered.stderr);
+  assert.equal(JSON.parse(recovered.stdout).acceptance.status, 'done');
+});
+
 test('lite-submit-draft requires --guard-id before reading stdin', () => {
   const novel = makeNovel('submit-draft 缺guard试书', '第一章 起始\n甲。\n');
   const prepared = runFlow(['lite-prepare', novel, '--json']);
