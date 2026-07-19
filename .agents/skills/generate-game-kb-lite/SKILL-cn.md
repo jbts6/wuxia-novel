@@ -8,21 +8,63 @@ description: Use when a Chinese reference is needed for the source-grounded ligh
 Lite 是 V4 的轻量版：保留逐章原文取证、动态分组、接收、有界重试、
 组装、验证、安装、安装后验证和归档；基础流程不自动运行耗时的全书域蒸馏。
 当前合同固定为 `semantic_contract_version: 6` 与 `profile: lite`；两者只属于
-controller JSON 元数据，不得写入章节草稿或最终数据 YAML。
+controller JSON 元数据，不得写入提交 envelope 或最终数据 YAML。章节 accepted
+YAML 只由 controller 序列化。
 
 ## 执行合同
 
-- 章节草稿和最终知识文件使用 YAML；controller 状态、报告、manifest 与收据使用 JSON。
-- 只执行 `lite-status` 返回的 `next_action` 与 `next_units`。
-- 主代理和子代理必须原样使用 controller 给出的 `run_id`、`unit`、`attempt`、
-  绝对 `source_file`、`input_hash` 和唯一绝对 `staging_path`。
+- controller 状态、报告、manifest 与收据使用 JSON；最终知识文件使用 YAML。
+- 只执行 `lite-status` 返回的 `next_action` 与 `chapter_jobs`；控制器状态是唯一
+  调度和接收依据，不得从文件数量或 worker 文本推断。
+- worker 可见 descriptor 只使用 controller 给出的 `run_id`、`batch_id`、`unit`、
+  `attempt`、`input_hash` 与 `source_file`。`source_file` 是绝对只读路径，
+  `worker_write_paths = []`；worker 可见 payload 不含 `staging_path`、输出目录、
+  输出文件名或任何可写位置。
 - 普通作业动态分配相邻 2 至 3 章，合计不超过 36,000 个中日韩字符；
-  每章完整读取原文，每章单独写一个 YAML，然后由主代理逐个接收。
-- 一个周期只有首次提交和最多一次自动重试；第二次失败进入 `manual_review`。
-  用户可明确运行 `retry-unit --confirm` 开启新的有界周期，系统不得自动第三次尝试。
+  每章完整读取原文，每个 descriptor 返回一个 JSON envelope。
+- worker 不得创建、修改、移动或删除任何文件或目录；worker 不得调用 controller
+  或脚本命令。worker message 只返回 envelope，worker 文本不能标记章节已接收。
 
 先读 [章节提取合同](prompts/extract-chapters.md)，再按
 [真实中文命令示例](examples-cn.md) 执行。英文命令说明见 [examples.md](examples.md)。
+
+## Guard 与 broker 生命周期
+
+每个 controller job 严格按以下顺序执行：
+
+```text
+lite-status
+-> lite-guard-open <novel>
+-> worker message
+-> lite-guard-check <novel> --guard-id <controller guard_id>
+-> lite-submit-draft <novel> ... --guard-id <controller guard_id> via stdin
+-> lite-status
+```
+
+主代理不得创建临时文件、手写 YAML、猜测路径或修改 envelope。只有取得干净的
+guard 结果之后，主代理才可把每个原样 JSON envelope 经标准输入交给
+`lite-submit-draft`，并使用 descriptor 的 `--unit`、`--batch`、`--attempt` 与
+controller 返回的 `--guard-id`。
+
+身份匹配但非法的 envelope 由 controller 正式拒绝并消耗恰好一次 attempt；过期
+身份或越界文件不消耗 attempt，必须停止并刷新状态。attempt 1 失败后只能派发
+controller 签发的 attempt 2；第三次尝试禁止自动派发，第二次失败进入
+`manual_review`。只有用户明确运行 `retry-unit --confirm` 才能开启新周期。
+
+## 恢复与阻断
+
+`lite-guard-check` 报告错位但有效的 draft 可恢复时，先向用户展示 controller
+报告。用户明确确认后才可执行 `lite-recover-draft ... --guard-id <id> --confirm`；
+主代理不得手工复制、移动、改写或删除。恢复保留 source 字节且不消耗失败 attempt。
+恢复后重新执行 guard check；guard 无违规之前不得提交、调度、组装、发布、安装或验证。
+
+包含旧 JSON-as-YAML accepted 文件的 run 只读，禁止继续派发或接收章节；必须创建
+新的 V6 Lite run。
+
+## 章节完成后的流程
+
+章节全部经 broker 接收后继续执行 `lite-status`。只有状态明确要求时才运行
+`lite-basic-curate` 或 `lite-publish`，不得绕过 controller gate。
 
 ## 最终产物
 

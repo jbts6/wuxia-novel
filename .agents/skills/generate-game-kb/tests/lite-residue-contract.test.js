@@ -37,6 +37,12 @@ function readRepoFile(file) {
   return fs.readFileSync(path.join(repoRoot, file), 'utf8');
 }
 
+function readLiteMarkdown() {
+  const liteRoot = path.join(repoRoot, '.agents', 'skills', 'generate-game-kb-lite');
+  const files = ['SKILL.md', 'SKILL-cn.md'].map(file => path.join(liteRoot, file));
+  return files.map(file => fs.readFileSync(file, 'utf8')).join('\n');
+}
+
 test('tracked product and test paths use Lite rather than V5', () => {
   const forbidden = worktreePaths().filter(file => (
     /(?:^|\/)generate-game-kb-v5(?:\/|$)/i.test(file)
@@ -60,6 +66,19 @@ test('Lite is the only current lightweight Skill directory', () => {
   const skillsRoot = path.resolve(skillRoot, '..');
   assert.equal(fs.existsSync(path.join(skillsRoot, 'generate-game-kb-lite', 'SKILL.md')), true);
   assert.equal(fs.existsSync(path.join(skillsRoot, 'generate-game-kb-v5')), false);
+});
+
+test('Lite workflow has no worker-authored YAML or writable-path residue', () => {
+  const markdown = readLiteMarkdown();
+  assert.doesNotMatch(
+    markdown,
+    /worker[^\r\n]*\bwrites?\b[^\r\n]*(?:YAML|staging_path)|子代理[^\r\n]*写[^\r\n]*(?:YAML|staging_path)/i
+  );
+  assert.doesNotMatch(
+    markdown,
+    /main agent[^\r\n]*accepts?[^\r\n]*(?:paths?|staging_path)|主代理[^\r\n]*接收[^\r\n]*(?:路径|staging_path)/i
+  );
+  assert.doesNotMatch(markdown, /每章单独写一个\s+YAML/i);
 });
 
 test('historical product narratives use Lite naming', () => {

@@ -74,10 +74,10 @@ Expected: missing zero-write, envelope, broker, guard, and recovery language fai
 
 ```text
 lite-status
--> lite-guard-open --batch <controller batch_id>
+-> lite-guard-open <novel>
 -> dispatch read-only descriptor with worker_write_paths = []
 -> receive one JSON envelope per chapter in the worker message
--> lite-guard-check --guard <controller guard_id>
+-> lite-guard-check <novel> --guard-id <controller guard_id>
 -> pipe each unchanged envelope to lite-submit-draft stdin
 -> lite-status
 ```
