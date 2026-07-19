@@ -7,7 +7,7 @@ const test = require('node:test');
 
 const skillRoots = [
   'generate-game-kb',
-  'generate-game-kb-v5',
+  'generate-game-kb-lite',
   'generate-game-kb-deep-characters',
   'generate-game-kb-deep-skills',
   'generate-game-kb-deep-items',
