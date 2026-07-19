@@ -8,8 +8,8 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 21
-- **Last Active**: 2026-07-19
+- **Total Sessions**: 22
+- **Last Active**: 2026-07-20
 <!-- @@@/auto:current-status -->
 
 ---
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~1070 | Active |
+| `journal-1.md` | ~1210 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 22 | 2026-07-20 | 完成并归档 Game KB controller invariants 加固 | `8ec1d644`, `d6944b7b`, `b09f2838`, `7cf04c53`, `5ef0f8fc`, `14b6c627` | `main` |
 | 21 | 2026-07-19 | Finish Lite naming migration and Jian Shen Yi Xiao validation | `085164af`, `6d96a474`, `669665b6`, `f0dc8e42`, `3bce9a43` | `main` |
 | 20 | 2026-07-18 | V4-first Lite and deep Skill contract completion | `841b4e21`, `2ccd3588`, `a7cd3281`, `7416a38b`, `848f51cc` | `main` |
 | 19 | 2026-07-17 | 完成 Game KB 清理与性能质量门 | - | `feat/game-kb-yaml-flow` |

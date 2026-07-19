@@ -1170,3 +1170,41 @@ Executed the full repair plan for game-kb controller invariants:
 
 ### Status
 [OK] **Repair plan complete. Task ready for user review.**
+
+
+## Session 22: 完成并归档 Game KB controller invariants 加固
+
+**Date**: 2026-07-20
+**Task**: 完成并归档 Game KB controller invariants 加固
+**Branch**: `main`
+
+### Summary
+
+完成 controller invariants 修复、回归验证、规范与审查证据更新，并归档子任务。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `8ec1d644` | (see git log) |
+| `d6944b7b` | (see git log) |
+| `b09f2838` | (see git log) |
+| `7cf04c53` | (see git log) |
+| `5ef0f8fc` | (see git log) |
+| `14b6c627` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
