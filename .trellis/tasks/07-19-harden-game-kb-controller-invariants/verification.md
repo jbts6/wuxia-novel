@@ -7,7 +7,7 @@
 ## Fresh verification evidence
 
 - Focused controller safety suite: 109 tests, exit `0`, fail `0`.
-- Complete game-KB suite: 429 tests, exit `0`, fail `0`.
+- Complete game-KB suite: 430 tests, exit `0`, fail `0`.
 - Legacy artifact immutability probe: 76 JSON-as-YAML accepted artifacts unchanged.
 - No repository lint or type-check command applies at the root; the Node suite imports and executes the changed CommonJS modules.
 
@@ -63,6 +63,16 @@
 - `next-action.js` — `resume-draft-submission` next action for interrupted journals.
 - `accept.js` — `commitSubmission()` extracted as reusable transaction, `acceptDraft()` preserved as wrapper.
 
+## Additional fixes from review
+
+- Worker-visible status now applies `workerProjection()` to strip `staging_path` from `chapter_jobs`.
+- `resolveNextAction()` checks `unresolvedWorkerGuardReports()` before manual-review, returning `worker-write-review` when violations exist.
+- Recovery requires a valid guard ID with unresolved violations containing the exact source path.
+- Recovery uses `repositoryRootFor(novelDir)` for the real Git root.
+- Recovery receipt uses `writeImmutableJson()` and is only written after successful acceptance.
+- Recovery checks `UNIT_ALREADY_DONE` and `UNIT_MANUAL_REVIEW` before writing anything.
+- Fault injection covers all 4 phases: `binding`, `staging-written`, `submission-recorded`, `accepted-written`.
+
 ## Self-review checklist
 
 - [x] No placeholder markers, disabled assertions, skipped regressions, debug logging, or test-only production bypass.
@@ -71,3 +81,6 @@
 - [x] Journal and recovery responses never expose raw model content.
 - [x] Same-content replay is byte-idempotent and conflicting replay is non-mutating.
 - [x] Lite worker planning remains separate and consumes these controller contracts.
+- [x] Unresolved worker-guard violations block scheduling.
+- [x] Recovery binds to guard-discovered source.
+- [x] All 4 crash phases have fault injection tests.

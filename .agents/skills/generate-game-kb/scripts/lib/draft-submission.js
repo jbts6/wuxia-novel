@@ -200,6 +200,9 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
   const existingResult = submissionResult(journal);
   if (existingResult) return existingResult;
 
+  // Fault injection: after binding (before content processing)
+  if (faultAt === 'binding') throw new GameKbError('SUBMISSION_FAULT_INJECTED', 'Fault after binding', { phase: faultAt });
+
   // 7. Handle malformed content
   if (parseError || !envelope) {
     const prevalidationErrors = [{

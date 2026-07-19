@@ -64,8 +64,8 @@ test('status returns one lifecycle action without mutating the novel tree', () =
     attempt: 1,
     input_hash: readJson(activePaths(novel).manifest).chapters[0].input_hash
   }]);
-  assert.equal(output.chapter_jobs[0].chapters[0].staging_path,
-    readJson(activePaths(novel).manifest).chapters[0].staging_paths[0]);
+  // Worker projection strips staging_path from visible status
+  assert.equal('staging_path' in output.chapter_jobs[0].chapters[0], false);
   assert.equal('staging_paths' in output.chapter_jobs[0].chapters[0], false);
   assert.equal('next_actions' in output, false);
 });
@@ -94,7 +94,8 @@ test('status issues only the second current staging path after one rejected chap
     attempt: 2,
     input_hash: manifest.chapters[0].input_hash
   }]);
-  assert.equal(descriptor.staging_path, manifest.chapters[0].staging_paths[1]);
+  // Worker projection strips staging_path from visible status
+  assert.equal('staging_path' in descriptor, false);
   assert.equal('staging_paths' in descriptor, false);
 });
 

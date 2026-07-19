@@ -57,6 +57,7 @@ test('tracked Jian Shen Yi Xiao corpus follows the production V4 prepare and sta
     assert.equal(job.chapters.length === 1 || cjkTotal <= 36_000, true);
   }
   for (const chapter of descriptors) {
+    // Worker projection strips staging_path from visible status
     assert.deepEqual(Object.keys(chapter), [
       'unit',
       'number',
@@ -64,16 +65,13 @@ test('tracked Jian Shen Yi Xiao corpus follows the production V4 prepare and sta
       'source_file',
       'input_hash',
       'source_char_count',
-      'attempt',
-      'staging_path'
+      'attempt'
     ]);
     assert.equal(chapter.attempt, 1);
     assert.equal(path.isAbsolute(chapter.source_file), true);
-    assert.equal(path.isAbsolute(chapter.staging_path), true);
     assert.equal(chapter.source_file.startsWith(paths.sourceChapters), true);
-    assert.equal(chapter.staging_path.startsWith(paths.staging), true);
     assert.equal(chapter.source_file.includes(path.join('古龙', '剑神一笑')), true);
-    assert.equal(chapter.staging_path.includes(path.join('古龙', '剑神一笑')), true);
+    assert.equal('staging_path' in chapter, false);
     assert.equal('staging_paths' in chapter, false);
   }
 });

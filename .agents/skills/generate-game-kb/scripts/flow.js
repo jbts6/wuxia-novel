@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { GameKbError } = require('./lib/errors');
+const { workerProjection } = require('./lib/chapter-batching');
 const { assembleRun } = require('./lib/assemble');
 const { archiveAbandoned, archiveExisting, archiveRun } = require('./lib/archive');
 const { acceptDraft, assertDraftPath, stableHash } = require('./lib/accept');
@@ -592,6 +593,12 @@ function main(argv = process.argv.slice(2)) {
       const routedNext = profile === PROFILE_LITE && next.next_action === 'plan-domains'
         ? { next_action: 'lite-publish', next_units: [] }
         : next;
+      // Apply worker projection to strip staging_path from chapter_jobs
+      if (routedNext.chapter_jobs) {
+        routedNext.chapter_jobs = routedNext.chapter_jobs.map(job => {
+          try { return workerProjection(job); } catch { return job; }
+        });
+      }
       emit({
         semantic_contract_version: run.semantic_contract_version ?? null,
         semantic_profile: run.semantic_profile ?? null,

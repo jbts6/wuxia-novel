@@ -17,8 +17,10 @@ const {
 } = require('./helpers');
 
 let recovery = {};
+let workerGuard = {};
 try {
   recovery = require('../scripts/lib/draft-recovery');
+  workerGuard = require('../scripts/lib/worker-guard');
 } catch {
   // First TDD run exercises the missing module.
 }
@@ -32,6 +34,29 @@ function chapterFixture(name, runId) {
   const manifest = readJson(paths.manifest);
   const chapter = manifest.chapters[0];
   return { novel, paths, chapter, manifest };
+}
+
+function openGuardWithViolation(fixture, sourcePath) {
+  const repositoryRoot = fixture.paths.novel;
+  const job = {
+    batch_id: `chapter-batch-${String(fixture.chapter.number).padStart(3, '0')}`,
+    chapters: [],
+    worker_write_paths: [],
+    submissions: []
+  };
+  // Open guard BEFORE creating the source file
+  const guardResult = workerGuard.openWorkerGuard({
+    repositoryRoot,
+    paths: fixture.paths,
+    job
+  });
+  // Check guard AFTER source file exists to create violation report
+  workerGuard.checkWorkerGuard({
+    repositoryRoot,
+    paths: fixture.paths,
+    guardId: guardResult.guard_id
+  });
+  return guardResult.guard_id;
 }
 
 function writeYaml(file, value) {
@@ -56,7 +81,16 @@ function validDraft(chapter) {
 test('recoverChapterDraft copies valid misplaced file to staging and creates receipt', () => {
   const fixture = chapterFixture('恢复有效试书', 'run-recovery-valid');
   const misplacedPath = path.join(fixture.paths.novel, 'misplaced_valid.yaml');
+  // Open guard BEFORE creating the source file
+  const guardId = openGuardWithViolation(fixture, misplacedPath);
+  // Now create the source file (guard will detect it as a new file)
   writeYaml(misplacedPath, validDraft(fixture.chapter));
+  // Check guard to register the violation
+  workerGuard.checkWorkerGuard({
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    guardId
+  });
 
   const result = recovery.recoverChapterDraft({
     repositoryRoot: fixture.paths.novel,
@@ -65,7 +99,7 @@ test('recoverChapterDraft copies valid misplaced file to staging and creates rec
     unit: 'chapter:001',
     sourcePath: misplacedPath,
     confirmed: true,
-    guardId: 'test-guard-id'
+    guardId
   });
 
   // Progress should be updated by acceptDraft
@@ -112,7 +146,13 @@ test('recoverChapterDraft rejects missing confirmation', () => {
 test('recoverChapterDraft rejects invalid content', () => {
   const fixture = chapterFixture('恢复无效内容试书', 'run-recovery-invalid');
   const misplacedPath = path.join(fixture.paths.novel, 'misplaced_invalid.yaml');
+  const guardId = openGuardWithViolation(fixture, misplacedPath);
   fs.writeFileSync(misplacedPath, 'decisions: [\n', 'utf8');
+  workerGuard.checkWorkerGuard({
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    guardId
+  });
 
   assert.throws(
     () => recovery.recoverChapterDraft({
@@ -122,7 +162,7 @@ test('recoverChapterDraft rejects invalid content', () => {
       unit: 'chapter:001',
       sourcePath: misplacedPath,
       confirmed: true,
-      guardId: 'test-guard-id'
+      guardId
     }),
     error => error.code === 'RECOVERY_INVALID_CONTENT'
   );
@@ -202,7 +242,13 @@ test('recoverChapterDraft rejects source in another run', () => {
 test('recoverChapterDraft uses current attempt from progress', () => {
   const fixture = chapterFixture('恢复当前尝试试书', 'run-recovery-attempt');
   const misplacedPath = path.join(fixture.paths.novel, 'misplaced_attempt.yaml');
+  const guardId = openGuardWithViolation(fixture, misplacedPath);
   writeYaml(misplacedPath, validDraft(fixture.chapter));
+  workerGuard.checkWorkerGuard({
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    guardId
+  });
 
   // First recovery should use attempt 1
   const result1 = recovery.recoverChapterDraft({
@@ -212,7 +258,7 @@ test('recoverChapterDraft uses current attempt from progress', () => {
     unit: 'chapter:001',
     sourcePath: misplacedPath,
     confirmed: true,
-    guardId: 'test-guard-id'
+    guardId
   });
 
   assert.match(result1.destination_path, /chapter_001_attempt_01\.yaml$/);
@@ -227,7 +273,13 @@ test('recoverChapterDraft uses current attempt from progress', () => {
 test('recoverChapterDraft calls acceptDraft and returns acceptance result', () => {
   const fixture = chapterFixture('恢复验收试书', 'run-recovery-acceptance');
   const misplacedPath = path.join(fixture.paths.novel, 'misplaced_accept.yaml');
+  const guardId = openGuardWithViolation(fixture, misplacedPath);
   writeYaml(misplacedPath, validDraft(fixture.chapter));
+  workerGuard.checkWorkerGuard({
+    repositoryRoot: fixture.paths.novel,
+    paths: fixture.paths,
+    guardId
+  });
 
   const result = recovery.recoverChapterDraft({
     repositoryRoot: fixture.paths.novel,
@@ -236,7 +288,7 @@ test('recoverChapterDraft calls acceptDraft and returns acceptance result', () =
     unit: 'chapter:001',
     sourcePath: misplacedPath,
     confirmed: true,
-    guardId: 'test-guard-id'
+    guardId
   });
 
   // Should return acceptance result
@@ -253,18 +305,32 @@ test('recoverChapterDraft calls acceptDraft and returns acceptance result', () =
 test('recoverChapterDraft rejects source not discovered by guard', () => {
   const fixture = chapterFixture('恢复未发现试书', 'run-recovery-not-discovered');
   const misplacedPath = path.join(fixture.paths.novel, 'misplaced_not_discovered.yaml');
-  writeYaml(misplacedPath, validDraft(fixture.chapter));
 
-  // Without guardId, should pass (guard check is optional)
-  const result = recovery.recoverChapterDraft({
+  // Open guard and create one discovered file
+  const guardId = openGuardWithViolation(fixture, misplacedPath);
+  writeYaml(misplacedPath, validDraft(fixture.chapter));
+  workerGuard.checkWorkerGuard({
     repositoryRoot: fixture.paths.novel,
     paths: fixture.paths,
-    manifest: fixture.manifest,
-    unit: 'chapter:001',
-    sourcePath: misplacedPath,
-    confirmed: true,
-    guardId: 'test-guard-id'
+    guardId
   });
 
-  assert.equal(typeof result.destination_path, 'string');
+  // Create a different file that is NOT in guard violations
+  const otherPath = path.join(fixture.paths.novel, 'other_misplaced.yaml');
+  writeYaml(otherPath, validDraft(fixture.chapter));
+
+  assert.throws(
+    () => recovery.recoverChapterDraft({
+      repositoryRoot: fixture.paths.novel,
+      paths: fixture.paths,
+      manifest: fixture.manifest,
+      unit: 'chapter:001',
+      sourcePath: otherPath,
+      confirmed: true,
+      guardId
+    }),
+    error => error.code === 'RECOVERY_SOURCE_NOT_GUARD_DISCOVERED'
+  );
+
+  fs.rmSync(otherPath, { force: true });
 });

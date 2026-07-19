@@ -7,10 +7,11 @@ const yaml = require('js-yaml');
 const { acceptDraft } = require('./accept');
 const { validateChapterDraft } = require('./chapter-contract');
 const { GameKbError } = require('./errors');
-const { atomicWriteFile, atomicWriteJson, serializeYaml } = require('./io');
+const { atomicWriteFile, serializeYaml, writeImmutableJson } = require('./io');
 const { loadProgress } = require('./progress');
 const { stagingPathFor } = require('./paths');
 const { sha256 } = require('./source');
+const { unresolvedWorkerGuardReports } = require('./worker-guard');
 
 function comparisonPath(value) {
   const resolved = path.resolve(value);
@@ -94,6 +95,32 @@ function recoverChapterDraft({ repositoryRoot, paths, manifest, unit, sourcePath
   // Security checks before reading content
   assertSafeRecoverySource(resolvedSource, resolvedRoot, paths);
 
+  // Verify guard-discovered source
+  if (!guardId) {
+    throw new GameKbError('RECOVERY_GUARD_REQUIRED', 'Recovery requires a guard ID', { unit });
+  }
+  const guardDir = paths.workerGuards;
+  const guardFile = path.join(guardDir, `${guardId}.json`);
+  if (!fs.existsSync(guardFile)) {
+    throw new GameKbError('RECOVERY_GUARD_NOT_FOUND', 'Guard not found', { guard_id: guardId });
+  }
+  const normalizedSource = resolvedSource.split(path.sep).join('/');
+  const reports = unresolvedWorkerGuardReports(paths);
+  const matchingReport = reports.find(r => r.guard_id === guardId);
+  if (!matchingReport) {
+    throw new GameKbError('RECOVERY_GUARD_NO_VIOLATIONS', 'Guard has no unresolved violations', { guard_id: guardId });
+  }
+  const discovered = matchingReport.violations.some(v => {
+    const violationPath = path.resolve(resolvedRoot, v.repository_relative).split(path.sep).join('/');
+    return violationPath === normalizedSource;
+  });
+  if (!discovered) {
+    throw new GameKbError('RECOVERY_SOURCE_NOT_GUARD_DISCOVERED', 'Source path not found in guard violations', {
+      source: normalizedSource,
+      guard_id: guardId
+    });
+  }
+
   const chapterMatch = /^chapter:(\d{3})$/.exec(unit);
   if (!chapterMatch) {
     throw new GameKbError('UNIT_UNSUPPORTED', 'Only chapter units are supported by recovery', { unit });
@@ -133,6 +160,13 @@ function recoverChapterDraft({ repositoryRoot, paths, manifest, unit, sourcePath
 
   // Derive current attempt from progress
   const progress = loadProgress(paths, manifest);
+  const existing = progress.units[unit];
+  if (existing?.input_hash === chapter.input_hash && existing.status === 'done') {
+    throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be recovered', { unit });
+  }
+  if (existing?.input_hash === chapter.input_hash && existing.status === 'manual_review') {
+    throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit });
+  }
   const currentAttempt = nextAttempt(progress, unit, chapter.input_hash);
 
   // Determine destination (staging path for current attempt)
@@ -148,10 +182,13 @@ function recoverChapterDraft({ repositoryRoot, paths, manifest, unit, sourcePath
   const canonicalYaml = serializeYaml(draft);
   atomicWriteFile(destinationPath, canonicalYaml);
 
-  // Create immutable receipt
+  // Call acceptDraft with the destination path (before writing receipt)
+  const acceptance = acceptDraft({ paths, unit, draftPath: destinationPath });
+
+  // Create immutable receipt only after successful acceptance
   const receiptDir = paths.draftRecoveries;
   fs.mkdirSync(receiptDir, { recursive: true });
-  const receiptFile = path.join(receiptDir, `${unit.replaceAll(':', '_')}_recovery.json`);
+  const receiptFile = path.join(receiptDir, `${unit.replaceAll(':', '_')}_attempt_${String(currentAttempt).padStart(2, '0')}_recovery.json`);
 
   const receipt = {
     schema_version: 1,
@@ -165,10 +202,7 @@ function recoverChapterDraft({ repositoryRoot, paths, manifest, unit, sourcePath
     recovered_at: new Date().toISOString()
   };
 
-  atomicWriteJson(receiptFile, receipt);
-
-  // Call acceptDraft with the destination path
-  const acceptance = acceptDraft({ paths, unit, draftPath: destinationPath });
+  writeImmutableJson(receiptFile, receipt, 'RECOVERY_RECEIPT_CONFLICT');
 
   return {
     unit,

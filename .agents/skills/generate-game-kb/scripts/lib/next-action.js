@@ -5,6 +5,7 @@ const path = require('node:path');
 
 const { packChapterJobs } = require('./chapter-batching');
 const { pendingSubmissionJournals } = require('./submission-journal');
+const { unresolvedWorkerGuardReports } = require('./worker-guard');
 const { inspectWorkspaceFinal } = require('./verify');
 
 const DOMAIN_UNITS = Object.freeze([
@@ -104,6 +105,19 @@ function installationMatches(installed, manifest, verification) {
 
 function resolveNextAction({ paths, manifest, progress, installed }) {
   const units = progress?.units || {};
+
+  // Check for unresolved worker-guard violations (highest priority)
+  if (paths?.workerGuards) {
+    const violations = unresolvedWorkerGuardReports(paths);
+    if (violations.length > 0) {
+      return {
+        next_action: 'worker-write-review',
+        next_units: [],
+        worker_guard_reports: violations
+      };
+    }
+  }
+
   const manualReview = Object.keys(units)
     .filter(unit => units[unit]?.status === 'manual_review')
     .sort(compareUnits);

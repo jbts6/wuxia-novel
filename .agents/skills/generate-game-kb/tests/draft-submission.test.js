@@ -360,7 +360,7 @@ test('submitChapterEnvelope rejects a legacy serialization run', () => {
   assert.equal(error.code, 'LEGACY_ACCEPTED_SERIALIZATION');
 });
 
-for (const faultAt of ['staging-written', 'submission-recorded', 'accepted-written']) {
+for (const faultAt of ['binding', 'staging-written', 'submission-recorded', 'accepted-written']) {
   test(`submitChapterEnvelope resumes after fault at ${faultAt}`, () => {
     const fixture = chapterFixture(`故障注入恢复试书 ${faultAt}`, `run-fault-${faultAt}`);
     const envelope = validEnvelope(fixture.chapter);
