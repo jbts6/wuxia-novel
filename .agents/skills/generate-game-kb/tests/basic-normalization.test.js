@@ -39,16 +39,16 @@ test('recognizes only the explicit strong generic-action family', () => {
   }
 });
 
-test('exact normalized duplicates merge within a category and union grounded evidence', () => {
+test('exact normalized names remain distinct and preserve grounded evidence independently', () => {
   const chapters = [
     chapter(2, {
       skills: [{
         local_key: 'skill:hu-dao-2',
         name: '胡家·刀法',
-        type: '刀法',
+        types: ['刀法'],
         techniques: [
-          { name: '飞沙走石', named_in_source: true, description: '刀势卷沙。' },
-          { name: '回风拂柳剑', named_in_source: true }
+          { name: '飞沙走石', description: '刀势卷沙。' },
+          { name: '回风拂柳剑' }
         ],
         source_refs: [sourceRef(2, '胡家刀法再现')]
       }]
@@ -57,10 +57,10 @@ test('exact normalized duplicates merge within a category and union grounded evi
       skills: [{
         local_key: 'skill:hu-dao-1',
         name: ' 胡家 ・ 刀法 ',
-        type: '刀法',
+        types: ['刀法'],
         techniques: [
-          { name: '飞沙走石', named_in_source: true },
-          { name: '挥手一击', named_in_source: true }
+          { name: '飞沙走石' },
+          { name: '挥手一击' }
         ],
         source_refs: [sourceRef(1, '胡家刀法初现')]
       }]
@@ -71,15 +71,19 @@ test('exact normalized duplicates merge within a category and union grounded evi
 
   assert.deepEqual(result, repeated);
   assert.equal(JSON.stringify(result), JSON.stringify(repeated));
-  assert.equal(result.registry.categories.skills.length, 1);
-  const skill = result.registry.categories.skills[0];
-  assert.equal(skill.normalized_name, '胡家·刀法');
-  assert.deepEqual(skill.record.source_refs, [
-    sourceRef(1, '胡家刀法初现'),
-    sourceRef(2, '胡家刀法再现')
-  ]);
-  assert.deepEqual(skill.record.techniques.map(item => item.name), ['飞沙走石', '回风拂柳剑']);
-  assert.equal(skill.record.techniques[0].description, '刀势卷沙。');
+  assert.equal(result.registry.categories.skills.length, 2);
+  const skills = result.registry.categories.skills;
+  assert.deepEqual(skills.map(skill => skill.normalized_name), ['胡家·刀法', '胡家·刀法']);
+  assert.equal(new Set(skills.map(skill => skill.registry_key)).size, 2);
+  const skillsByChapter = Object.fromEntries(skills.map(skill => [skill.source_chapters[0], skill]));
+  assert.deepEqual(skillsByChapter[1].record.source_refs, [sourceRef(1, '胡家刀法初现')]);
+  assert.deepEqual(skillsByChapter[2].record.source_refs, [sourceRef(2, '胡家刀法再现')]);
+  assert.deepEqual(skillsByChapter[1].record.techniques.map(item => item.name), ['飞沙走石']);
+  assert.deepEqual(
+    skillsByChapter[2].record.techniques.map(item => item.name),
+    ['飞沙走石', '回风拂柳剑']
+  );
+  assert.equal(skillsByChapter[2].record.techniques[0].description, '刀势卷沙。');
   assert.equal(result.quarantine.length, 1);
   assert.equal(result.quarantine[0].category, 'techniques');
   assert.equal(result.quarantine[0].normalized_name, '挥手一击');
@@ -110,8 +114,8 @@ test('same normalized name remains isolated across categories', () => {
 
 test('quarantine ordering is stable for identical generic technique keys', () => {
   const techniques = [
-    { name: '挥手一击', named_in_source: true, description: '甲处动作' },
-    { name: '挥手一击', named_in_source: true, description: '乙处动作' }
+    { name: '挥手一击', description: '甲处动作' },
+    { name: '挥手一击', description: '乙处动作' }
   ];
   const makeResult = values => buildBasicCandidateRegistry([
     chapter(1, {
@@ -140,9 +144,9 @@ test('generic skill names are quarantined while named techniques containing verb
         {
           local_key: 'skill:dagou', name: '打狗棒法',
           techniques: [
-            { name: '反手夺命剑', named_in_source: true },
-            { name: '挥袖清风', named_in_source: true },
-            { name: '连发数拳', named_in_source: true }
+            { name: '反手夺命剑' },
+            { name: '挥袖清风' },
+            { name: '连发数拳' }
           ],
           source_refs: [sourceRef(1, '使出打狗棒法、反手夺命剑与挥袖清风。')]
         }
@@ -159,27 +163,27 @@ test('generic skill names are quarantined while named techniques containing verb
   assert.deepEqual(result.quarantine[1].source_refs, [sourceRef(1, '他随手一刀劈开木门。')]);
 });
 
-test('same-name identity or type conflicts remain distinct and produce grounded warnings', () => {
+test('same-name array differences remain distinct without scalar-conflict warnings', () => {
   const result = buildBasicCandidateRegistry([
     chapter(2, {
       skills: [{
-        local_key: 'skill:xuan-2', name: '玄门功', type: '剑法', techniques: [],
+        local_key: 'skill:xuan-2', name: '玄门功', types: ['剑法'], techniques: [],
         source_refs: [sourceRef(2, '玄门功乃一路剑法。')]
       }]
     }),
     chapter(1, {
       characters: [
         {
-          local_key: 'character:miao-1', name: '苗若兰', identity: '苗人凤之女',
+          local_key: 'character:miao-1', name: '苗若兰', identities: ['苗人凤之女'],
           source_refs: [sourceRef(1, '苗若兰是苗人凤之女。')]
         },
         {
-          local_key: 'character:miao-2', name: '苗若兰', identity: '江湖化名',
+          local_key: 'character:miao-2', name: '苗若兰', identities: ['江湖化名'],
           source_refs: [sourceRef(1, '另有一人化名苗若兰。')]
         }
       ],
       skills: [{
-        local_key: 'skill:xuan-1', name: '玄门功', type: '内功', techniques: [],
+        local_key: 'skill:xuan-1', name: '玄门功', types: ['内功'], techniques: [],
         source_refs: [sourceRef(1, '玄门功是一门内功。')]
       }]
     })
@@ -188,31 +192,7 @@ test('same-name identity or type conflicts remain distinct and produce grounded 
   assert.equal(result.registry.categories.characters.length, 2);
   assert.equal(result.registry.categories.skills.length, 2);
   assert.equal(new Set(result.registry.categories.skills.map(entry => entry.registry_key)).size, 2);
-  assert.deepEqual(result.warnings.map(item => ({
-    category: item.category,
-    normalized_name: item.normalized_name,
-    fields: item.conflicting_fields.map(field => field.field),
-    source_refs: item.source_refs
-  })), [
-    {
-      category: 'characters',
-      normalized_name: '苗若兰',
-      fields: ['identity'],
-      source_refs: [
-        sourceRef(1, '另有一人化名苗若兰。'),
-        sourceRef(1, '苗若兰是苗人凤之女。')
-      ]
-    },
-    {
-      category: 'skills',
-      normalized_name: '玄门功',
-      fields: ['type'],
-      source_refs: [
-        sourceRef(1, '玄门功是一门内功。'),
-        sourceRef(2, '玄门功乃一路剑法。')
-      ]
-    }
-  ]);
+  assert.deepEqual(result.warnings, []);
 });
 
 test('malformed chapter members produce a deterministic warning instead of throwing', () => {
