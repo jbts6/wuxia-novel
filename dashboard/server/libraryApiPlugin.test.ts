@@ -17,11 +17,30 @@ const YAML_DATA_FILE_NAMES = {
 type YamlDataKey = keyof typeof YAML_DATA_FILE_NAMES;
 
 const BROWSEABLE_DATA: Record<YamlDataKey, unknown[]> = {
-  characters: [{ id: 'c1', name: '人物' }],
-  factions: [{ id: 'f1', name: '门派' }],
-  skills: [{ id: 's1', name: '武功' }],
-  items: [{ id: 'i1', name: '物品' }],
-  chapter_summaries: [{ chapter: 1, summary: '摘要' }],
+  characters: [{
+    id: 'c1',
+    name: '人物',
+    aliases: [],
+    identities: ['侠客'],
+    level: '核心',
+    rank: null,
+    description: '人物简介',
+    factions: ['f1'],
+    skills: ['s1'],
+  }],
+  factions: [{ id: 'f1', name: '门派', aliases: [], type: '门派', description: '势力简介' }],
+  skills: [{
+    id: 's1',
+    name: '武功',
+    aliases: [],
+    types: ['掌法'],
+    factions: ['f1'],
+    rank: null,
+    description: '武功简介',
+    techniques: [],
+  }],
+  items: [{ id: 'i1', name: '物品', aliases: [], type: '兵器', description: '物品简介' }],
+  chapter_summaries: [{ chapter: 1, title: '第一章', summary: '摘要' }],
 };
 
 function createRoot(): string {

@@ -1,59 +1,61 @@
-import type { Character, Faction, Location, Skill, Item, Technique } from '../types/novel';
+import type { NovelData } from '../types/novel';
+
+export class UnresolvedEntityError extends Error {
+  readonly id: string;
+
+  constructor(id: string) {
+    super(`UNRESOLVED_ENTITY_ID: ${id}`);
+    this.name = 'UnresolvedEntityError';
+    this.id = id;
+  }
+}
 
 const CHINESE_TEXT_PATTERN = /[\u3400-\u9fff\uf900-\ufaff]/u;
 const TECHNICAL_ID_PATTERN = /[A-Za-z_]/u;
-const PREFIXED_CHINESE_NAME_PATTERN = /^(?:char|character|faction|location|loc|skill|technique|tech|item|dialogue|dlg)_([\u3400-\u9fff\uf900-\ufaff][\u3400-\u9fff\uf900-\ufaff0-9·・（）()《》—-]*)$/iu;
-
-export function buildIdMaps(data: {
-  characters: Character[];
-  factions: Faction[];
-  locations: Location[];
-  skills: Skill[];
-  techniques: Technique[];
-  items: Item[];
-}) {
-  const characterMap = new Map(data.characters.map((c) => [c.id, c.name]));
-  const factionMap = new Map(data.factions.map((f) => [f.id, f.name]));
-  const locationMap = new Map(data.locations.map((l) => [l.id, l.name]));
-  const skillMap = new Map(data.skills.map((s) => [s.id, s.name]));
-  const techniqueMap = new Map(data.techniques.map((technique) => [technique.id, technique.name]));
-  const itemMap = new Map(data.items.map((i) => [i.id, i.name]));
-
-  return { characterMap, factionMap, locationMap, skillMap, techniqueMap, itemMap };
-}
 
 export function toChineseDisplayText(value: string | null | undefined): string | null {
   const text = value?.trim();
-  if (!text || !CHINESE_TEXT_PATTERN.test(text)) return null;
-  const prefixedName = text.match(PREFIXED_CHINESE_NAME_PATTERN)?.[1];
-  if (prefixedName) return prefixedName;
-  if (TECHNICAL_ID_PATTERN.test(text)) return null;
+  if (!text || !CHINESE_TEXT_PATTERN.test(text) || TECHNICAL_ID_PATTERN.test(text)) return null;
   return text;
+}
+
+function append(index: Map<string, string[]>, key: string, value: string): void {
+  const values = index.get(key) ?? [];
+  if (!values.includes(value)) index.set(key, [...values, value]);
+}
+
+export function buildIdMaps(data: Pick<NovelData, 'characters' | 'factions' | 'skills' | 'items'>) {
+  const characterMap = new Map(data.characters.map((entry) => [entry.id, entry.name]));
+  const factionMap = new Map(data.factions.map((entry) => [entry.id, entry.name]));
+  const skillMap = new Map(data.skills.map((entry) => [entry.id, entry.name]));
+  const itemMap = new Map(data.items.map((entry) => [entry.id, entry.name]));
+  const skillUsers = new Map<string, string[]>();
+  const factionMembers = new Map<string, string[]>();
+
+  for (const character of data.characters) {
+    character.skills.forEach((skillId) => append(skillUsers, skillId, character.id));
+    character.factions.forEach((factionId) => append(factionMembers, factionId, character.id));
+  }
+
+  return { characterMap, factionMap, skillMap, itemMap, skillUsers, factionMembers };
 }
 
 export function resolveEntityName(
   id: string | null | undefined,
   map: Map<string, string>,
 ): string | null {
-  if (!id) return null;
-  return toChineseDisplayText(map.get(id)) ?? toChineseDisplayText(id);
+  if (id === null || id === undefined) return null;
+  const name = map.get(id);
+  if (!name) throw new UnresolvedEntityError(id);
+  return name;
 }
 
-export function resolveId(
-  id: string | null | undefined,
-  map: Map<string, string>,
-  fallback = '未注明',
-): string {
-  return resolveEntityName(id, map) ?? fallback;
+export function resolveId(id: string, map: Map<string, string>): string {
+  const name = resolveEntityName(id, map);
+  if (name === null) throw new UnresolvedEntityError(id);
+  return name;
 }
 
-export function resolveIds(
-  ids: string[] | null | undefined,
-  map: Map<string, string>,
-): string[] {
-  if (!ids) return [];
-  return [...new Set(ids.flatMap((id) => {
-    const name = resolveEntityName(id, map);
-    return name ? [name] : [];
-  }))];
+export function resolveIds(ids: string[] | null | undefined, map: Map<string, string>): string[] {
+  return (ids ?? []).map((id) => resolveId(id, map));
 }

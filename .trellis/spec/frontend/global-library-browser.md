@@ -2,113 +2,119 @@
 
 ## 1. Scope / Trigger
 
-Use this contract when changing the Dashboard's `/browse` page, cross-book entity indexing, book-data concurrency, entity deep links, or large-list rendering. The browser remains a read-only consumer of the existing status and book-data APIs.
+Use this contract when changing Dashboard book-data scanning/loading, strict semantic-contract V6 normalization, entity ID resolution, reverse relationship indexes, the `/browse` cross-book index, entity pages, deep links, or large-list rendering. The Dashboard is a read-only consumer of exactly five installed YAML files.
 
 ## 2. Signatures
 
 ```ts
-buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelData): AnyLibraryRecord[]
+normalizeNovelData(value: unknown): NovelData
 
-filterGlobalLibraryRecords(
-  records: AnyLibraryRecord[],
-  filters: {
-    keyword: string;
-    author: string;
-    bookPath: string;
-    kind: 'all' | LibraryEntityKind;
-    facet: string;
-    sort: 'relevance' | 'name' | 'book' | 'type';
-  },
-): AnyLibraryRecord[]
+buildIdMaps(data: NovelData): {
+  characterMap: Map<string, string>;
+  skillMap: Map<string, string>;
+  itemMap: Map<string, string>;
+  factionMap: Map<string, string>;
+  skillUsers: Map<string, string[]>;
+  factionMembers: Map<string, string[]>;
+}
+
+useNovelStore.getState().loadData(value: unknown): void
+useNovelStore.getState().clearData(): void
+
+buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelData): AnyLibraryRecord[]
 
 loadGlobalLibraryRecords(
   books: LibraryBookStatus[],
   loadBook: (bookPath: string) => Promise<NovelData>,
   options?: { concurrency?: number; onProgress?: (completed: number, total: number) => void },
 ): Promise<GlobalLibraryLoadResult>
-
-useLibraryStore.getState().loadGlobalLibrary(): Promise<AnyLibraryRecord[]>
 ```
 
-The `/browse` URL owns these optional parameters:
+`GET /api/library/book-data?path=<author/book>` returns these arrays and no alternatives:
 
 ```text
-q, author, book, type, facet, sort, page, detail
+characters, skills, items, factions, chapter_summaries
 ```
 
-Supported global entity kinds are `character`, `faction`, `skill`, and `item`. Chapter summaries are the fifth visible Dashboard content surface and use the dedicated `/:author/:book/chapter-summaries` route; they are not a global entity kind, entity-count category, or content-coverage category.
+The `/browse` URL owns `q`, `author`, `book`, `type`, `facet`, `sort`, `page`, and `detail`. Global entity kinds are `character`, `skill`, `item`, and `faction`; chapter summaries use their dedicated route and are not a global entity kind.
 
 ## 3. Contracts
 
-- Only books with `LibraryBookStatus.browseable === true` enter the global index.
-- Global loading reuses `loadBookData`, its normalized `NovelData` cache, and `GET /api/library/book-data`; it does not add a bulk API or bundle core files into the client.
-- The client consumes the structured JSON response from the API after server-side YAML parsing. It must not probe or request `.json` or `.yml` core-data alternatives.
-- The default client-side load limit is four books at a time. A failed book returns a warning and does not discard records loaded from other books.
-- Every `AnyLibraryRecord` includes a stable key, discriminated entity kind, author/book/path source, name, summary, entity-specific facet, normalized search text, and deduplicated source evidence.
-- File completeness and entity content coverage are separate contracts. `dataCompleteness` reports the five required YAML files that exist and satisfy the minimum browsing shape; `contentCoverage` reports how many characters, factions, skills, and items contain meaningful structured fields beyond `id`, `name`, and `source_refs`.
-- A browseable book may be `index-only` or `partial`, but it cannot be marked completed until four-entity coverage is complete and the existing validation gate passes. Chapter-summary validation remains separate and does not inflate named-entity coverage.
-- Search text may include entity names, aliases, descriptions, entity-specific fields, related names, and source-ref text. Rendering code must not rebuild this contract.
-- Entity IDs remain valid only for keys, routes, deep links, search indexing, and relationship lookup. Visible text resolves relationships through the current book's entity maps; unresolved technical IDs do not appear as visible content.
-- English schema enums remain unchanged in the JSON payload but pass through `displayTaxonomyValue` before rendering. Known values use explicit Chinese labels; unknown pure-English structured values use a Chinese fallback instead of appearing verbatim.
-- Global details for an index-only entity show an explicit Chinese status notice and available source evidence. They must not render empty metadata sections or placeholder rows as if those values were real content.
-- `normalizeNovelData` maintains field-level compatibility only: character display fields use `level ?? role` and `rank ?? power_rank`, retain `summary`, and project nested skill-technique objects to their `name` while continuing to accept legacy string techniques. This is not storage-format fallback.
-- `/browse` renders at most 50 records per page.
-- Query, filters, sorting, page, and selected global detail are URL state. Scroll position is stored in `sessionStorage` under the current `/browse` query and restored after returning from a book route.
-- A global detail deep link uses the entity page plus `?detail=<entity-id>`. The four entity pages consume that parameter through `useEntityDetailParam` and open the existing detail sheet after book data loads.
-- Navigation to a book carries `libraryReturnTo` in router state so the top navigation can return to the exact global-search URL.
-- The fixed desktop layout is verified at 1440x1000. No mobile or responsive variant is required.
+- Server scanning parses the five YAML files and calls `normalizeNovelData` on the combined payload before setting `browseable: true`. A payload that the client would reject must never be advertised as browseable.
+- V6 entity records have exact fields:
+  - character: `id`, `name`, `aliases[]`, `identities[]`, `level`, `rank`, `description`, `factions[]`, `skills[]`;
+  - skill: `id`, `name`, `aliases[]`, `types[]`, `factions[]`, `rank`, `description`, `techniques[]` where each technique is exactly `{ name, description }`;
+  - item/faction: `id`, `name`, `aliases[]`, `type`, `description`;
+  - chapter summary: `chapter`, `title`, `summary`.
+- Arrays are always present and use `[]` for absence. Optional scalars use `null`. Empty strings and placeholder values such as `未知`, `未分类`, `未注明`, or `暂无描述` are invalid data, not display values.
+- Singular or legacy fields, inverse relationship fields, extra fields, duplicate IDs, display-name references, and dangling references are rejected. There is no field-level V4 compatibility fallback.
+- `buildIdMaps` derives name maps only from the currently loaded four entity arrays. `skillUsers` and `factionMembers` are derived only from character `skills[]` and `factions[]`; no holder/member field or separate mapping artifact exists.
+- Every `loadData` call rebuilds all maps and reverse indexes from scratch. This makes an overlay reload replace stale names and inverse relationships. `clearData` removes both entity data and all derived state.
+- Entity IDs are retained only for keys, routes, deep links, and relationship lookup. A non-null unresolved ID throws `UnresolvedEntityError`; renderers never show a raw ID or substitute fallback text.
+- Search projections consume normalized data. They include canonical names, aliases, identities/types, descriptions, nested technique names/descriptions, and resolved related names. Rendering code does not reparse raw payloads.
+- Plural filters match any member of the corresponding array. Nullable rows and empty sections are omitted rather than rendered with placeholders.
+- `AnyLibraryRecord` contains the entity, source book metadata, summary, facet, and normalized search text. Final V6 data has no `source_refs`, so the global record and UI do not expose an evidence field or evidence copy.
+- Only books with `browseable === true` enter the global index. Loading is bounded to four books by default; one rejected book becomes a warning without discarding successful books.
+- `/browse` renders at most 50 records per page. Query/filter/sort/page/detail are URL state, and the return URL plus scroll position survive navigation to a single-book entity.
+- Core browseability and entity coverage use exactly five YAML files and four entity categories. Optional extras are outside this contract and must not change core file completeness.
 
 ## 4. Validation & Error Matrix
 
 | Condition | Result |
 |---|---|
-| Status request fails | Global error state with retry action |
-| One browseable book fails to load | Warning names the book; other books remain searchable |
-| No records match filters | Empty result row and `0` count; no exception |
-| Requested page exceeds filtered page count | URL is replaced with the last valid page |
+| A required YAML file is missing, malformed, or not an array | Book is not browseable; API book-data reads return `422` |
+| Any entity or chapter record violates the exact V6 shape | Scanner reports the owning YAML file as failing the V6 contract; book is not browseable |
+| Legacy/singular/inverse/extra field is present | `DataContractError`; no fallback or silent field removal |
+| Duplicate ID or dangling/display-name reference is present | `DataContractError`; publication cannot be consumed |
+| A runtime relationship lookup receives an unknown non-null ID | `UnresolvedEntityError`; raw ID and placeholder text are not rendered |
+| One browseable book fails while building the global index | Warning names the book; other books remain searchable |
+| Optional scalar is `null` or an array is empty | Corresponding row/section is omitted |
+| Entity has only required V6 fields with `[]`/`null` content | Show `仅有索引记录`; do not invent metadata or evidence |
+| Overlay reload changes/removes entities or references | Maps and reverse indexes are rebuilt; no stale entry survives |
+| Requested page exceeds the filtered page count | URL is replaced with the last valid page |
 | `detail` key is unknown | Detail sheet remains closed |
-| Single-book `detail` ID is unknown | Entity page remains usable; no sheet opens |
-| Relationship ID is unknown | Raw ID is never rendered; required fields show a Chinese fallback and optional lists omit the entry |
-| Structured field contains an English enum | Render its mapped Chinese label; unknown values render the field's Chinese fallback |
-| Entity contains only `id`, `name`, and source evidence | Show `仅有索引记录`, omit empty metadata and summary, retain source evidence and navigation |
-| Required data files exist but named entities are index-only | Book remains browseable, appears under `内容待补全`, and is not counted as completed |
-| Base UI sheet width conflicts with defaults | Global detail retains at least 540px width in desktop E2E |
 
 ## 5. Good / Base / Bad Cases
 
-- Good: 16 browseable books load into one four-kind index, a keyword matches evidence text, and the user returns from the exact book entity to the same search and scroll position.
-- Base: no query or filters; records are sorted deterministically and only the first 50 render.
-- Bad: one book-data request fails; the page still shows every other result and exposes a failure summary instead of a blank screen.
-- Compatibility: a v4 character with `level`, `rank`, and `summary`, plus an object technique with a `name`, renders through the existing display shape; legacy field aliases and string techniques continue to work at that boundary only.
+- Good: a five-file V6 payload passes server scanning, loads into typed data, rebuilds maps/indexes, supports plural filtering and resolved-name search, and opens an exact deep link without exposing IDs.
+- Base: a valid V6 index-only entity uses required `[]` and `null` values; it remains browseable but incomplete and renders no placeholder rows.
+- Bad: a character uses singular `identity`, a skill uses `holders`, or a reference targets an absent ID. Scanning fails closed before the book enters the global index.
+- Overlay: the newly installed five-file revision is loaded after backup/promotion; old name maps and inverse relationships disappear on the same load.
 
 ## 6. Tests Required
 
-- Unit: all four global entity kinds are indexed with source metadata and evidence-search support.
-- Unit: loader concurrency never exceeds the configured bound and one rejected book becomes a warning.
-- Component: 60 global records create 50 rows on page one and 10 on page two.
-- Component: alias search opens evidence and creates the exact single-book `?detail=` link.
-- Unit: character `level`, `rank`, and `summary` and object or string skill techniques normalize to the expected display shape.
-- Server or component: the five YAML files determine completeness, while only four entity categories determine status counts and coverage.
-- Component: locations, dialogues, events, and game-material surfaces do not appear in routes, navigation, overview cards, chapter-summary views or details, workbench copy, or global filters.
-- Desktop E2E: real repository index loads, each page has no more than 50 rows, an entity deep link opens, and returning restores URL state and scroll position.
+- Unit: exact V6 fields, nullable values, empty arrays, and structured techniques normalize unchanged.
+- Unit: legacy/singular/inverse/extra fields, placeholders, duplicate IDs, and dangling references throw structured errors.
+- Server: the scanner rejects legacy-shaped YAML before setting `browseable`, while exact V6 index-only files remain browseable but incomplete.
+- Unit: current entity maps plus character-derived `skillUsers` and `factionMembers` rebuild on every load and clear completely.
+- Component: aliases, identities, plural types/factions, and nested technique descriptions are searchable/filterable.
+- Component: skill users and faction members render from reverse indexes; nullable metadata produces no placeholder row.
+- Component: unresolved IDs surface as data errors and neither raw IDs nor fallback labels appear.
+- Unit: all four global kinds are indexed without an evidence field; loader concurrency is bounded and one rejected book becomes a warning.
+- Component: 60 global records create 50 rows on page one and 10 on page two; entity deep links preserve the return URL.
+- Integration: API book-data returns exactly the five parsed V6 arrays and rejects a non-browseable book with `422`.
 
 ## 7. Wrong vs Correct
 
 ### Wrong
 
 ```ts
-// Loads every book without a bound and renders every match.
-const data = await Promise.all(books.map((book) => loadBookData(book.path)));
-return matches.map(renderRow);
+const identity = raw.identity ?? raw.identities?.[0] ?? '未注明';
+const users = raw.holders ?? [];
+const factionName = maps.factionMap.get(raw.faction) ?? raw.faction;
 ```
+
+This silently accepts an obsolete shape, invents display content, trusts inverse fields, and can leak a technical ID.
 
 ### Correct
 
 ```ts
-const { records, warnings } = await loadGlobalLibraryRecords(books, loadBookData, {
-  concurrency: 4,
-});
-const visible = filterGlobalLibraryRecords(records, filters).slice(pageStart, pageStart + 50);
+const data = normalizeNovelData(raw);
+const maps = buildIdMaps(data);
+
+const identities = data.characters[0].identities;
+const users = maps.skillUsers.get(skillId) ?? [];
+const factionNames = resolveIds(character.factions, maps.factionMap);
 ```
 
-The bounded loader protects the local Vite server, per-book warnings preserve partial success, and pagination caps DOM growth independently of total record count. The shared resolver keeps technical identifiers available for navigation and indexing without exposing them as novel content.
+The strict boundary owns parsing once, derived state comes only from current normalized entities, and unresolved non-null IDs fail explicitly.

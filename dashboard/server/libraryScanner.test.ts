@@ -23,11 +23,30 @@ const YAML_DATA_FILE_NAMES = {
 type YamlDataKey = keyof typeof YAML_DATA_FILE_NAMES;
 
 const COMPLETE_YAML_DATA: Record<YamlDataKey, unknown[]> = {
-  characters: [{ id: 'c1', name: '人物', role: '核心', one_line: '人物简介' }],
-  factions: [{ id: 'f1', name: '势力', type: '门派', one_line: '势力简介' }],
-  skills: [{ id: 's1', name: '武功', type: '掌法', one_line: '武功简介' }],
-  items: [{ id: 'i1', name: '物品', type: '兵器', one_line: '物品简介' }],
-  chapter_summaries: [{ chapter: 1, summary: '章节摘要' }],
+  characters: [{
+    id: 'c1',
+    name: '人物',
+    aliases: [],
+    identities: ['侠客'],
+    level: '核心',
+    rank: null,
+    description: '人物简介',
+    factions: ['f1'],
+    skills: ['s1'],
+  }],
+  factions: [{ id: 'f1', name: '势力', aliases: [], type: '门派', description: '势力简介' }],
+  skills: [{
+    id: 's1',
+    name: '武功',
+    aliases: [],
+    types: ['掌法'],
+    factions: ['f1'],
+    rank: null,
+    description: '武功简介',
+    techniques: [],
+  }],
+  items: [{ id: 'i1', name: '物品', aliases: [], type: '兵器', description: '物品简介' }],
+  chapter_summaries: [{ chapter: 1, title: '第一章', summary: '章节摘要' }],
 };
 
 function createRoot(): string {
@@ -75,10 +94,29 @@ function writeCompleteData(directory: string, overrides: Partial<Record<YamlData
 function writeIndexOnlyData(directory: string): void {
   writeCompleteData(directory);
   const records = {
-    characters: [{ id: 'c1', name: '人物', source_refs: [{ chapter: 1, text: '人物原文' }] }],
-    factions: [{ id: 'f1', name: '势力', source_refs: [{ chapter: 1, text: '势力原文' }] }],
-    skills: [{ id: 's1', name: '武功', source_refs: [{ chapter: 1, text: '武功原文' }] }],
-    items: [{ id: 'i1', name: '物品', source_refs: [{ chapter: 1, text: '物品原文' }] }],
+    characters: [{
+      id: 'c1',
+      name: '人物',
+      aliases: [],
+      identities: [],
+      level: null,
+      rank: null,
+      description: null,
+      factions: [],
+      skills: [],
+    }],
+    factions: [{ id: 'f1', name: '势力', aliases: [], type: null, description: null }],
+    skills: [{
+      id: 's1',
+      name: '武功',
+      aliases: [],
+      types: [],
+      factions: [],
+      rank: null,
+      description: null,
+      techniques: [],
+    }],
+    items: [{ id: 'i1', name: '物品', aliases: [], type: null, description: null }],
   };
 
   for (const [key, value] of Object.entries(records)) {
@@ -131,7 +169,7 @@ describe('scanLibrary', () => {
   it('uses exactly five YAML files and four entity collections', () => {
     const root = createRoot();
     const directory = createBook(root);
-    writeCompleteData(directory, { factions: [] });
+    writeCompleteData(directory);
     writeJson(path.join(directory, 'reports', 'quality_report.json'), { overall_score: 92 });
 
     const result = scanLibrary(root);
@@ -147,11 +185,11 @@ describe('scanLibrary', () => {
       completed: false,
       dataCompleteness: { present: 5, valid: 5, required: 5 },
     });
-    expect(book?.entityCounts).toEqual({ characters: 1, factions: 0, skills: 1, items: 1 });
+    expect(book?.entityCounts).toEqual({ characters: 1, factions: 1, skills: 1, items: 1 });
     expect(result.summary.browseable).toBe(1);
-    expect(book?.contentCoverage).toMatchObject({ state: 'complete', detailed: 3, total: 3 });
+    expect(book?.contentCoverage).toMatchObject({ state: 'complete', detailed: 4, total: 4 });
     expect(result.summary.completed).toBe(0);
-    expect(readBookData(root, '金庸/测试书')).toEqual({ ...COMPLETE_YAML_DATA, factions: [] });
+    expect(readBookData(root, '金庸/测试书')).toEqual(COMPLETE_YAML_DATA);
   });
 
   it('keeps optional extras outside the five-file browseability gate', () => {
@@ -312,6 +350,20 @@ describe('scanLibrary', () => {
 
     expect(book).toMatchObject({ browseable: false, entityCounts: { skills: null } });
     expect(book?.errors.join(' ')).toContain('skills.yaml 不满足最低数据契约');
+  });
+
+  it('rejects legacy entity fields before marking a book browseable', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory, {
+      characters: [{ id: 'c1', name: '旧人物', alias: ['旧别名'] }],
+    });
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({ browseable: false, dataCompleteness: { valid: 4, required: 5 } });
+    expect(book?.errors.join(' ')).toContain('characters.yaml 不满足 V6 数据契约');
+    expect(() => readBookData(root, '金庸/测试书')).toThrow('书籍数据不满足 Dashboard 可浏览契约');
   });
 
   it.each([

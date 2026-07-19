@@ -60,84 +60,60 @@ export interface BookExtrasData {
   gameMaterials: BookExtraResource<GameMaterialsReport>;
 }
 
+export type CharacterLevel = '核心' | '重要' | '次要' | '龙套' | '背景';
+
+export type PowerRank =
+  | '平平无奇'
+  | '初窥门径'
+  | '略有小成'
+  | '登堂入室'
+  | '炉火纯青'
+  | '出神入化'
+  | '登峰造极'
+  | '返璞归真';
+
+export interface SkillTechnique {
+  name: string;
+  description: string | null;
+}
+
 export interface Character {
   id: string;
   name: string;
-  alias: string[];  // JSON 中是 alias，不是 aliases
-  role: string;
-  archetype?: string;
-  power_rank?: string;
-  summary?: string;
-  faction?: string | null;
-  identity?: string;
-  importance?: string;
-  one_line?: string;  // JSON 中是 one_line，不是 bio
-  bio?: string;  // 兼容
-  bio_source_refs?: SourceRef[];
-  aliases?: string[];  // 兼容
-  personality: {
-    traits: string[];
-    speech_style: string;
-    temperament?: string;
-  };
-  relationships: {
-    target: string;
-    type: string;
-    intensity?: number;
-    bond_level?: number;
-    dynamic: string;
-  }[];
-  skills?: string[];
-  items?: string[];
-  classic_lines?: string[];
-  source_refs?: SourceRef[];
+  aliases: string[];
+  identities: string[];
+  level: CharacterLevel | null;
+  rank: PowerRank | null;
+  description: string | null;
+  factions: string[];
+  skills: string[];
 }
 
 export interface Skill {
   id: string;
   name: string;
-  type: string;
-  faction?: string | null;
-  power_rank?: string;
-  description: string;
-  one_line?: string;
-  description_source_refs?: SourceRef[];
-  moves?: string[];
-  combat_style?: string[];
-  holders?: string[];
-  techniques?: string[];
-  source_refs?: SourceRef[];
+  aliases: string[];
+  types: string[];
+  factions: string[];
+  rank: PowerRank | null;
+  description: string | null;
+  techniques: SkillTechnique[];
 }
 
 export interface Item {
   id: string;
   name: string;
-  type: string;
-  tags?: string[];
-  importance?: string;
-  owner?: string;
-  description: string;
-  one_line?: string;
-  description_source_refs?: SourceRef[];
-  effects?: (string | { type: string; description: string })[];
-  related_skills?: string[];
-  related_characters?: string[];
-  source_refs?: SourceRef[];
+  aliases: string[];
+  type: string | null;
+  description: string | null;
 }
 
 export interface Faction {
   id: string;
   name: string;
-  type: string;
-  location?: string;
-  leader?: string;
-  description: string;
-  one_line?: string;
-  description_source_refs?: SourceRef[];
-  members?: string[];
-  sub_organizations?: string[];
-  sub_divisions?: string[];  // 兼容
-  source_refs?: SourceRef[];
+  aliases: string[];
+  type: string | null;
+  description: string | null;
 }
 
 export interface Location {
@@ -179,8 +155,6 @@ export interface ChapterSummary {
   chapter: number;
   title: string;
   summary: string;
-  key_events: string[];
-  key_characters: string[];
 }
 
 export interface NovelData {
@@ -188,9 +162,6 @@ export interface NovelData {
   skills: Skill[];
   items: Item[];
   factions: Faction[];
-  locations: Location[];
-  dialogues: Dialogue[];
-  techniques: Technique[];
   chapter_summaries: ChapterSummary[];
 }
 

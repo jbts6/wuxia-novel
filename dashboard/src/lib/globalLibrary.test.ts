@@ -54,32 +54,39 @@ function createData(seed: string): NovelData {
     characters: [{
       id: `${seed}-character`,
       name: `${seed}人物`,
-      alias: ['大侠'],
-      role: '核心',
-      identity: '江湖侠客',
-      personality: { traits: ['沉稳'], speech_style: '' },
-      relationships: [],
-      source_refs: [{ chapter: 1, line_start: 10, text: '他在风雪中缓缓拔剑。' }],
+      aliases: ['大侠'],
+      identities: ['江湖侠客'],
+      level: '核心',
+      rank: null,
+      description: '他在风雪中缓缓拔剑。',
+      factions: [`${seed}-faction`],
+      skills: [`${seed}-skill`],
     }],
-    skills: [{ id: `${seed}-skill`, name: `${seed}剑法`, type: '剑法', description: '凌厉剑招', source_refs: [] }],
-    items: [{ id: `${seed}-item`, name: `${seed}宝剑`, type: '兵器', description: '随身佩剑', source_refs: [] }],
-    factions: [{ id: `${seed}-faction`, name: `${seed}门`, type: '门派', description: '江湖势力', source_refs: [] }],
-    locations: [{ id: `${seed}-location`, name: `${seed}山`, region: '中原', description: '群山深处', source_refs: [] }],
-    dialogues: [],
-    techniques: [],
+    skills: [{
+      id: `${seed}-skill`,
+      name: `${seed}剑法`,
+      aliases: [],
+      types: ['剑法'],
+      factions: [`${seed}-faction`],
+      rank: null,
+      description: '凌厉剑招',
+      techniques: [],
+    }],
+    items: [{ id: `${seed}-item`, name: `${seed}宝剑`, aliases: [], type: '兵器', description: '随身佩剑' }],
+    factions: [{ id: `${seed}-faction`, name: `${seed}门`, aliases: [], type: '门派', description: '江湖势力' }],
     chapter_summaries: [],
   };
 }
 
 describe('global library index', () => {
-  it('builds four entity kinds with searchable source evidence', () => {
+  it('builds four entity kinds with searchable v6 descriptions and relationships', () => {
     const records = buildGlobalLibraryRecords(createBook('测试书'), createData('青锋'));
 
     expect(records.map((record) => record.kind)).toEqual(['character', 'skill', 'item', 'faction']);
     expect(records[0].source.bookPath).toBe('金庸/测试书');
-    expect(records[0].evidence[0].text).toContain('风雪');
+    expect(records[0]).not.toHaveProperty('evidence');
 
-    const evidenceMatches = filterGlobalLibraryRecords(records, {
+    const descriptionMatches = filterGlobalLibraryRecords(records, {
       keyword: '风雪',
       author: 'all',
       bookPath: 'all',
@@ -87,8 +94,18 @@ describe('global library index', () => {
       facet: 'all',
       sort: 'relevance',
     });
-    expect(evidenceMatches).toHaveLength(1);
-    expect(evidenceMatches[0].name).toBe('青锋人物');
+    expect(descriptionMatches).toHaveLength(1);
+    expect(descriptionMatches[0].name).toBe('青锋人物');
+
+    const relationshipMatches = filterGlobalLibraryRecords(records, {
+      keyword: '青锋门',
+      author: 'all',
+      bookPath: 'all',
+      kind: 'character',
+      facet: 'all',
+      sort: 'relevance',
+    });
+    expect(relationshipMatches.map((record) => record.name)).toEqual(['青锋人物']);
   });
 
   it('loads books with bounded concurrency and isolates one book failure', async () => {

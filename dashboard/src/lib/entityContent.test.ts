@@ -14,21 +14,25 @@ describe('entity content coverage', () => {
     })).toBe(false);
   });
 
-  it('recognizes current and legacy descriptive fields', () => {
-    expect(hasEntityContent('characters', { id: 'c1', name: '段誉', biography: '大理世子。' })).toBe(true);
-    expect(hasEntityContent('factions', { id: 'f1', name: '少林派', headquarters: '少林寺' })).toBe(true);
-    expect(hasEntityContent('skills', { id: 's1', name: '降龙十八掌', effects: ['刚猛掌力'] })).toBe(true);
+  it('recognizes v6 descriptive fields and ignores legacy fields', () => {
+    expect(hasEntityContent('characters', { id: 'c1', name: '段誉', description: '大理世子。' })).toBe(true);
+    expect(hasEntityContent('factions', { id: 'f1', name: '少林派', aliases: ['少林'] })).toBe(true);
+    expect(hasEntityContent('skills', { id: 's1', name: '降龙十八掌', types: ['掌法'] })).toBe(true);
+    expect(hasEntityContent('characters', { id: 'c2', name: '旧人物', biography: '旧字段。' })).toBe(false);
+    expect(hasEntityContent('factions', { id: 'f2', name: '旧势力', headquarters: '旧字段' })).toBe(false);
+    expect(hasEntityContent('skills', { id: 's2', name: '旧武功', effects: ['旧字段'] })).toBe(false);
   });
 
-  it('recognizes v4 character level, rank, and summary as content', () => {
+  it('recognizes v6 character level, rank, and description as content', () => {
     expect(hasEntityContent('characters', { id: 'c1', name: '段誉', level: '核心' })).toBe(true);
     expect(hasEntityContent('characters', { id: 'c2', name: '萧峰', rank: '绝顶' })).toBe(true);
-    expect(hasEntityContent('characters', { id: 'c3', name: '虚竹', summary: '逍遥派掌门。' })).toBe(true);
+    expect(hasEntityContent('characters', { id: 'c3', name: '虚竹', description: '逍遥派掌门。' })).toBe(true);
+    expect(hasEntityContent('characters', { id: 'c4', name: '旧人物', summary: '旧字段。' })).toBe(false);
   });
 
-  it('recognizes a v4 skill rank while retaining power_rank compatibility', () => {
+  it('recognizes a v6 skill rank without power_rank compatibility', () => {
     expect(hasEntityContent('skills', { id: 's1', name: '六脉神剑', rank: '绝学' })).toBe(true);
-    expect(hasEntityContent('skills', { id: 's2', name: '降龙十八掌', power_rank: '绝学' })).toBe(true);
+    expect(hasEntityContent('skills', { id: 's2', name: '降龙十八掌', power_rank: '绝学' })).toBe(false);
   });
 
   it('summarizes index-only and partial books without counting source refs as content', () => {

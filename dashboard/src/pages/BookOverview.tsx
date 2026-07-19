@@ -4,7 +4,7 @@ import { StatCard } from '../components/common/StatCard';
 import { PageHeader } from '../components/layout/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Users, Swords, Gem, Building2, BookMarked } from 'lucide-react';
-import { resolveId } from '../lib/resolveId';
+import { resolveIds } from '../lib/resolveId';
 import { displayTaxonomyValue } from '../lib/displayText';
 
 export default function BookOverview() {
@@ -18,7 +18,7 @@ export default function BookOverview() {
     return <div>书籍未找到</div>;
   }
 
-  const topCharacters = characters.filter((c) => c.role === '核心').slice(0, 10);
+  const topCharacters = characters.filter((character) => character.level === '核心').slice(0, 10);
   return (
     <div>
       <PageHeader title={currentBook.name} description={currentBook.author} />
@@ -45,14 +45,14 @@ export default function BookOverview() {
                 >
                   <div>
                     <span className="font-medium">{char.name}</span>
-                    {char.faction && (
+                    {char.factions.length > 0 && (
                       <span className="ml-2 text-sm text-muted-foreground">
-                        {resolveId(char.faction, factionMap, '未注明势力')}
+                        {resolveIds(char.factions, factionMap).join('、')}
                       </span>
                     )}
                   </div>
-                  {char.power_rank && (
-                    <span className="text-sm text-accent">{displayTaxonomyValue(char.power_rank)}</span>
+                  {char.rank && (
+                    <span className="text-sm text-accent">{displayTaxonomyValue(char.rank)}</span>
                   )}
                 </div>
               ))}

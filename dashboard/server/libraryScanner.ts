@@ -26,6 +26,7 @@ import {
   isContentEntityKey,
   summarizeContentCoverage,
 } from '../src/lib/entityContent';
+import { DataContractError, normalizeNovelData } from '../src/lib/normalizeNovelData';
 import { GAME_MATERIAL_TYPES } from '../src/types/novel';
 
 const EXCLUDED_ROOT_DIRECTORIES = new Set([
@@ -138,6 +139,11 @@ function validateDataFile(key: DataFileKey, value: unknown): boolean {
   return validateNamedRecords(value);
 }
 
+function dataFileKeyFromContractPath(contractPath: string): DataFileKey | null {
+  return (Object.keys(DATA_FILE_NAMES) as DataFileKey[])
+    .find((key) => contractPath === `$.${key}` || contractPath.startsWith(`$.${key}[`)) ?? null;
+}
+
 const GAME_MATERIAL_TYPE_SET = new Set<string>(GAME_MATERIAL_TYPES);
 
 function isNonEmptyString(value: unknown): value is string {
@@ -188,6 +194,7 @@ function inspectDataDirectory(bookDirectory: string): DataInspection {
   const errors: string[] = [];
   let present = 0;
   let valid = 0;
+  const rawData = {} as RawNovelData;
   const entityCounts = Object.fromEntries(KNOWLEDGE_ENTITY_KEYS.map((key) => [key, null])) as KnowledgeEntityCounts;
   const contentCoverage = createEmptyContentCoverage();
 
@@ -202,6 +209,7 @@ function inspectDataDirectory(bookDirectory: string): DataInspection {
     try {
       const value = readYaml(target);
       if (validateDataFile(key, value)) {
+        rawData[key] = value as unknown[];
         valid += 1;
         if (key !== 'chapter_summaries') entityCounts[key] = (value as unknown[]).length;
         if (isContentEntityKey(key)) {
@@ -218,6 +226,21 @@ function inspectDataDirectory(bookDirectory: string): DataInspection {
       }
     } catch (error) {
       errors.push(`data/${filename} 无法解析：${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+
+  if (valid === REQUIRED_DATA_ENTRIES.length) {
+    try {
+      normalizeNovelData(rawData);
+    } catch (error) {
+      const key = error instanceof DataContractError ? dataFileKeyFromContractPath(error.path) : null;
+      const filename = key ? DATA_FILE_NAMES[key] : 'data';
+      valid -= 1;
+      if (key && isContentEntityKey(key)) {
+        entityCounts[key] = null;
+        contentCoverage.byEntity[key] = { total: 0, detailed: 0, indexOnly: 0 };
+      }
+      errors.push(`data/${filename} 不满足 V6 数据契约：${error instanceof Error ? error.message : String(error)}`);
     }
   }
 

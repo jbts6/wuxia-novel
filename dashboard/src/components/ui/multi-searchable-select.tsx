@@ -65,9 +65,17 @@ export function MultiSearchableSelect({
 
   return (
     <div ref={containerRef} className={cn('relative', className)}>
-      <button
-        type="button"
+      <div
+        role="button"
+        tabIndex={0}
+        aria-expanded={open}
         onClick={() => {
+          setOpen(!open);
+          if (!open) setSearch('');
+        }}
+        onKeyDown={(event) => {
+          if (event.target !== event.currentTarget || (event.key !== 'Enter' && event.key !== ' ')) return;
+          event.preventDefault();
           setOpen(!open);
           if (!open) setSearch('');
         }}
@@ -117,7 +125,7 @@ export function MultiSearchableSelect({
           )}
           <ChevronDownIcon className={cn('size-4 shrink-0 text-muted-foreground transition-transform', open && 'rotate-180')} />
         </div>
-      </button>
+      </div>
 
       {open && (
         <div className="absolute z-50 mt-1 w-full rounded-md border bg-popover shadow-md">

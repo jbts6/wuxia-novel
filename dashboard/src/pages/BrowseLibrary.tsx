@@ -68,7 +68,7 @@ function GlobalSearchForm({ initialValue, onSubmit }: { initialValue: string; on
           onChange={(event) => setDraft(event.target.value)}
           onCompositionStart={() => { composition.current = true; }}
           onCompositionEnd={() => { composition.current = false; }}
-          placeholder="搜索名称、别名、简介或原文证据"
+          placeholder="搜索名称、别名、身份、类型或简介"
           aria-label="搜索全库知识"
           className="pl-9"
         />
@@ -211,7 +211,7 @@ export default function BrowseLibrary() {
         <div className="flex items-end justify-between">
           <div>
             <h1 className="font-serif text-2xl font-semibold text-foreground">全库知识搜索</h1>
-            <p className="mt-1 text-sm text-muted-foreground">跨书检索人物、武功、物品和势力，并查看来源证据。</p>
+            <p className="mt-1 text-sm text-muted-foreground">跨书检索人物、武功、物品和势力。</p>
           </div>
           <div className="text-right text-xs text-muted-foreground">
             <div>{globalRecords.length.toLocaleString('zh-CN')} 条知识记录</div>
@@ -341,12 +341,12 @@ export default function BrowseLibrary() {
                     <TableHead className="w-[90px] px-3">类型</TableHead>
                     <TableHead className="w-[210px] px-3">来源</TableHead>
                     <TableHead className="w-[150px] px-3">分类</TableHead>
-                    <TableHead className="px-3">命中内容 / 证据</TableHead>
+                    <TableHead className="px-3">命中内容</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {visibleRecords.length > 0 ? visibleRecords.map((record) => {
-                    const excerpt = record.evidence.find((ref) => ref.text)?.text || record.summary;
+                    const excerpt = record.summary;
                     return (
                       <TableRow
                         key={record.key}

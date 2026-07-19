@@ -5,9 +5,10 @@ import type {
   LibraryLoadWarning,
   LibraryRecord,
 } from '../types/library';
-import type { Character, Faction, Item, NovelData, Skill, SourceRef } from '../types/novel';
+import type { Character, Faction, Item, NovelData, Skill } from '../types/novel';
 import { buildLibraryKey } from '../utils/libraryKeys';
 import { displayTaxonomyValue } from './displayText';
+import { buildIdMaps, resolveIds } from './resolveId';
 
 export const LIBRARY_KIND_LABELS: Record<LibraryEntityKind, string> = {
   character: '人物',
@@ -43,16 +44,6 @@ export interface GlobalLibraryLoadResult {
   loadedBookPaths: string[];
 }
 
-function uniqueSourceRefs(refs: SourceRef[]): SourceRef[] {
-  const seen = new Set<string>();
-  return refs.filter((ref) => {
-    const key = `${ref.chapter}:${ref.line_start ?? ''}:${ref.line_end ?? ''}:${ref.text ?? ''}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
-
 function createRecord<
   T extends Character | Skill | Item | Faction,
   K extends LibraryEntityKind,
@@ -63,11 +54,9 @@ function createRecord<
   summary: string,
   facet: string,
   fields: Array<string | null | undefined | string[]>,
-  refs: SourceRef[],
 ): LibraryRecord<T, K> {
   const flattenedFields = fields.flatMap((field) => (Array.isArray(field) ? field : [field])).filter(Boolean);
-  const evidence = uniqueSourceRefs(refs);
-  const searchText = [entity.name, summary, facet, ...flattenedFields, ...evidence.map((ref) => ref.text ?? '')]
+  const searchText = [entity.name, summary, facet, ...flattenedFields]
     .join('\n')
     .toLocaleLowerCase('zh-CN');
 
@@ -80,20 +69,19 @@ function createRecord<
     summary,
     facet,
     searchText,
-    evidence,
   };
 }
 
 export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelData): AnyLibraryRecord[] {
+  const maps = buildIdMaps(data);
   const characters = data.characters.map((entity) =>
     createRecord(
       book,
       'character',
       entity,
-      entity.one_line || entity.identity || entity.bio || '暂无简介',
-      displayTaxonomyValue(entity.role || entity.archetype, '未分类'),
-      [entity.alias, entity.identity, entity.archetype, entity.power_rank, entity.faction, entity.personality.traits],
-      [...(entity.bio_source_refs ?? []), ...(entity.source_refs ?? [])],
+      entity.description ?? '',
+      entity.level ? displayTaxonomyValue(entity.level) : '',
+      [entity.aliases, entity.identities, entity.rank, resolveIds(entity.factions, maps.factionMap), resolveIds(entity.skills, maps.skillMap)],
     ),
   );
   const skills = data.skills.map((entity) =>
@@ -101,10 +89,16 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       book,
       'skill',
       entity,
-      entity.one_line || entity.description || '暂无简介',
-      displayTaxonomyValue(entity.type, '未分类'),
-      [entity.faction, entity.power_rank, entity.moves, entity.holders],
-      [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
+      entity.description ?? '',
+      entity.types[0] ? displayTaxonomyValue(entity.types[0]) : '',
+      [
+        entity.aliases,
+        entity.types,
+        entity.rank,
+        resolveIds(entity.factions, maps.factionMap),
+        resolveIds(maps.skillUsers.get(entity.id), maps.characterMap),
+        entity.techniques.flatMap((technique) => [technique.name, technique.description ?? '']),
+      ],
     ),
   );
   const items = data.items.map((entity) =>
@@ -112,10 +106,9 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       book,
       'item',
       entity,
-      entity.one_line || entity.description || '暂无简介',
-      displayTaxonomyValue(entity.type, '未分类'),
-      [entity.tags, entity.importance, entity.owner, entity.related_characters, entity.related_skills],
-      [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
+      entity.description ?? '',
+      entity.type ? displayTaxonomyValue(entity.type) : '',
+      [entity.aliases, entity.type],
     ),
   );
   const factions = data.factions.map((entity) =>
@@ -123,10 +116,9 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       book,
       'faction',
       entity,
-      entity.one_line || entity.description || '暂无简介',
-      displayTaxonomyValue(entity.type, '未分类'),
-      [entity.location, entity.leader, entity.members, entity.sub_organizations, entity.sub_divisions],
-      [...(entity.description_source_refs ?? []), ...(entity.source_refs ?? [])],
+      entity.description ?? '',
+      entity.type ? displayTaxonomyValue(entity.type) : '',
+      [entity.aliases, entity.type, resolveIds(maps.factionMembers.get(entity.id), maps.characterMap)],
     ),
   );
   return [...characters, ...skills, ...items, ...factions];

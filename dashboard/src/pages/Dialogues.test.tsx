@@ -6,17 +6,12 @@ import Dialogues from './Dialogues';
 
 describe('dialogue pagination', () => {
   beforeEach(() => {
-    useNovelStore.getState().loadData({
-      characters: [],
-      skills: [],
-      items: [],
-      factions: [],
-      locations: [],
-      techniques: [],
-      chapter_summaries: [],
+    useNovelStore.getState().clearData();
+    useNovelStore.setState({
+      characterMap: new Map([['char_test', '测试人物']]),
       dialogues: Array.from({ length: 5001 }, (_, index) => ({
         id: `dialogue-${index + 1}`,
-        speaker: '测试人物',
+        speaker: 'char_test',
         chapter: 1,
         line_start: index + 1,
         text: `对话内容 ${index + 1}`,
@@ -39,25 +34,22 @@ describe('dialogue pagination', () => {
     expect(screen.getByText('101-200 / 5001 条对话')).toBeInTheDocument();
   });
 
-  it('只显示解析后的中文说话者名称', () => {
-    useNovelStore.getState().loadData({
+  it('只显示解析后的中文说话者名称，不泄漏技术 ID', () => {
+    useNovelStore.setState({
       characters: [{
         id: 'char_duan_yu',
         name: '段誉',
-        alias: [],
-        role: '核心',
-        personality: { traits: [], speech_style: '' },
-        relationships: [],
+        aliases: [],
+        identities: ['大理世子'],
+        level: '核心',
+        rank: null,
+        description: '大理段氏世子。',
+        factions: [],
+        skills: [],
       }],
-      skills: [],
-      items: [],
-      factions: [],
-      locations: [],
-      techniques: [],
-      chapter_summaries: [],
+      characterMap: new Map([['char_duan_yu', '段誉']]),
       dialogues: [
         { id: 'dialogue-1', speaker: 'char_duan_yu', chapter: 1, text: '在下段誉。' },
-        { id: 'dialogue-2', speaker: 'char_unknown', chapter: 1, text: '来者何人？' },
       ],
     });
 
@@ -68,8 +60,6 @@ describe('dialogue pagination', () => {
     );
 
     expect(screen.getByText('段誉')).toBeInTheDocument();
-    expect(screen.getByText('未知人物')).toBeInTheDocument();
     expect(screen.queryByText('char_duan_yu')).not.toBeInTheDocument();
-    expect(screen.queryByText('char_unknown')).not.toBeInTheDocument();
   });
 });

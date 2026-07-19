@@ -1,4 +1,4 @@
-import type { Character, Faction, Item, Skill, SourceRef } from './novel';
+import type { Character, Faction, Item, Skill } from './novel';
 
 export const DATA_FILE_NAMES = {
   characters: 'characters.yaml',
@@ -154,7 +154,6 @@ export interface LibraryRecord<
   summary: string;
   facet: string;
   searchText: string;
-  evidence: SourceRef[];
 }
 
 export type LibrarySkillRecord = LibraryRecord<Skill, 'skill'>;
@@ -221,26 +220,3 @@ export interface AnnotatedLibraryRecord<
 }
 
 export type LibrarySection = 'overview' | 'skills' | 'characters' | 'factions' | 'items';
-
-export interface CharacterAppearance {
-  source: LibrarySource;
-  role: string;
-  power_rank: string;
-  importance: string;
-  faction: string | null;
-  relationships: Character['relationships'];
-  known_skills: string[];
-}
-
-export interface MergedCharacterRecord {
-  key: string;
-  entityId: string;
-  name: string;
-  alias: string[];
-  identity: string;
-  one_line: string;
-  personality: Character['personality'];
-  archetype: string;
-  appearances: CharacterAppearance[];
-  primary: CharacterAppearance;
-}

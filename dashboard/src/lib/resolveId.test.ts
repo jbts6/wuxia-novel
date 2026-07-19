@@ -1,44 +1,32 @@
 import { describe, expect, it } from 'vitest';
-import { buildIdMaps, resolveEntityName, resolveId, resolveIds, toChineseDisplayText } from './resolveId';
+import { buildIdMaps, resolveEntityName, resolveIds, UnresolvedEntityError } from './resolveId';
 
-describe('中文实体名称解析', () => {
-  const characterMap = new Map([
-    ['char_duan_yu', '段誉'],
-    ['char_empty', ''],
-  ]);
+const data = {
+  characters: [
+    { id: 'char_jia', name: '甲', aliases: [], identities: [], level: null, rank: null, description: null, factions: ['faction_a'], skills: ['skill_a'] },
+    { id: 'char_yi', name: '乙', aliases: [], identities: [], level: null, rank: null, description: null, factions: ['faction_a'], skills: ['skill_a'] },
+  ],
+  skills: [{ id: 'skill_a', name: '甲功', aliases: [], types: [], factions: ['faction_a'], rank: null, description: null, techniques: [] }],
+  items: [{ id: 'item_a', name: '甲物', aliases: [], type: null, description: null }],
+  factions: [{ id: 'faction_a', name: '甲派', aliases: [], type: null, description: null }],
+};
 
-  it('把内部 ID 解析为中文名称', () => {
-    expect(resolveEntityName('char_duan_yu', characterMap)).toBe('段誉');
-    expect(resolveId('char_duan_yu', characterMap, '未知人物')).toBe('段誉');
+describe('v6 entity maps', () => {
+  it('builds current ID-name maps and reverse indexes from characters', () => {
+    const maps = buildIdMaps(data);
+    expect(maps.characterMap.get('char_jia')).toBe('甲');
+    expect(maps.skillMap.get('skill_a')).toBe('甲功');
+    expect(maps.skillUsers.get('skill_a')).toEqual(['char_jia', 'char_yi']);
+    expect(maps.factionMembers.get('faction_a')).toEqual(['char_jia', 'char_yi']);
   });
 
-  it('不把无法解析的英文 ID 暴露给页面', () => {
-    expect(resolveEntityName('char_unknown', characterMap)).toBeNull();
-    expect(resolveId('char_unknown', characterMap, '未知人物')).toBe('未知人物');
-    expect(resolveIds(['char_duan_yu', 'char_unknown'], characterMap)).toEqual(['段誉']);
+  it('throws a visible data error for an unresolved non-null ID', () => {
+    const maps = buildIdMaps(data);
+    expect(() => resolveEntityName('char_missing', maps.characterMap)).toThrowError(UnresolvedEntityError);
+    expect(() => resolveIds(['char_jia', 'char_missing'], maps.characterMap)).toThrowError(UnresolvedEntityError);
   });
 
-  it('兼容旧数据中直接保存的中文名称', () => {
-    expect(resolveEntityName('段誉', characterMap)).toBe('段誉');
-    expect(toChineseDisplayText('char_duan_yu')).toBeNull();
-  });
-
-  it('去掉混合实体 ID 的技术前缀', () => {
-    expect(resolveEntityName('char_左子穆', characterMap)).toBe('左子穆');
-    expect(resolveIds(['char_左子穆', 'char_unknown'], characterMap)).toEqual(['左子穆']);
-    expect(toChineseDisplayText('unknown_段誉')).toBeNull();
-  });
-
-  it('为招式建立独立名称映射', () => {
-    const maps = buildIdMaps({
-      characters: [],
-      factions: [],
-      locations: [],
-      skills: [],
-      techniques: [{ id: 'tech_1', name: '八方藏锋', skill: 'skill_1', description: '测试招式。' }],
-      items: [],
-    });
-
-    expect(maps.techniqueMap.get('tech_1')).toBe('八方藏锋');
+  it('returns null only for an absent optional reference', () => {
+    expect(resolveEntityName(null, new Map())).toBeNull();
   });
 });

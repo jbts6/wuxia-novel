@@ -13,14 +13,12 @@ beforeEach(() => {
       {
         id: 'item_1',
         name: '冷月宝刀',
+        aliases: [],
         type: '兵器',
         description: '锋锐异常的宝刀。',
       },
     ],
     factions: [],
-    locations: [],
-    dialogues: [],
-    techniques: [],
     chapter_summaries: [],
   });
 });

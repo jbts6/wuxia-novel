@@ -63,13 +63,32 @@ function renderOverview() {
 beforeEach(() => {
   useLibraryStore.setState({ currentBook: BOOK_PATH, books: [book] });
   useNovelStore.setState({
-    characters: [{ id: 'char-1', name: '人物一', alias: [], role: '核心', personality: { traits: [], speech_style: '' }, relationships: [] }],
-    skills: [{ id: 'skill-1', name: '武功一', type: '内功', description: '武功简介' }],
-    items: [{ id: 'item-1', name: '物品一', type: '兵器', description: '物品简介' }],
-    factions: [{ id: 'faction-1', name: '势力一', type: '门派', description: '势力简介' }],
+    characters: [{
+      id: 'char-1',
+      name: '人物一',
+      aliases: [],
+      identities: ['侠客'],
+      level: '核心',
+      rank: null,
+      description: '人物简介',
+      factions: ['faction-1'],
+      skills: ['skill-1'],
+    }],
+    skills: [{
+      id: 'skill-1',
+      name: '武功一',
+      aliases: [],
+      types: ['内功'],
+      factions: ['faction-1'],
+      rank: null,
+      description: '武功简介',
+      techniques: [],
+    }],
+    items: [{ id: 'item-1', name: '物品一', aliases: [], type: '兵器', description: '物品简介' }],
+    factions: [{ id: 'faction-1', name: '势力一', aliases: [], type: '门派', description: '势力简介' }],
     locations: [{ id: 'location-1', name: '旧地点', description: '不应显示' }],
     dialogues: [{ id: 'dialogue-1', speaker: 'char-1', chapter: 1, text: '旧对话' }],
-    chapterSummaries: [{ chapter: 1, title: '第一章', summary: '章节摘要', key_events: [], key_characters: [] }],
+    chapterSummaries: [{ chapter: 1, title: '第一章', summary: '章节摘要' }],
     factionMap: new Map([['faction-1', '势力一']]),
     locationMap: new Map([['location-1', '旧地点']]),
   });

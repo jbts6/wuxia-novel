@@ -1,15 +1,46 @@
 import type {
   ChapterSummary,
   Character,
-  Dialogue,
+  CharacterLevel,
   Faction,
   Item,
-  Location,
   NovelData,
+  PowerRank,
   Skill,
+  SkillTechnique,
   SourceRef,
-  Technique,
 } from '../types/novel';
+
+const TOP_LEVEL_FIELDS = ['characters', 'skills', 'items', 'factions', 'chapter_summaries'] as const;
+const CHARACTER_FIELDS = ['id', 'name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills'] as const;
+const SKILL_FIELDS = ['id', 'name', 'aliases', 'types', 'factions', 'rank', 'description', 'techniques'] as const;
+const ITEM_FIELDS = ['id', 'name', 'aliases', 'type', 'description'] as const;
+const FACTION_FIELDS = ['id', 'name', 'aliases', 'type', 'description'] as const;
+const TECHNIQUE_FIELDS = ['name', 'description'] as const;
+const SUMMARY_FIELDS = ['chapter', 'title', 'summary'] as const;
+
+const CHARACTER_LEVELS = new Set<CharacterLevel>(['核心', '重要', '次要', '龙套', '背景']);
+const POWER_RANKS = new Set<PowerRank>([
+  '平平无奇', '初窥门径', '略有小成', '登堂入室',
+  '炉火纯青', '出神入化', '登峰造极', '返璞归真',
+]);
+const PLACEHOLDERS = new Set(['', 'unknown', '未知', '未分类', '未标注', '未注明', '暂无', '暂无简介']);
+
+export class DataContractError extends Error {
+  readonly code: string;
+  readonly path: string;
+
+  constructor(
+    code: string,
+    path: string,
+    detail = '',
+  ) {
+    super(`${code} at ${path}${detail ? `: ${detail}` : ''}`);
+    this.name = 'DataContractError';
+    this.code = code;
+    this.path = path;
+  }
+}
 
 export function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -27,27 +58,8 @@ export function asString(value: unknown, fallback = ''): string {
   return typeof value === 'string' ? value : fallback;
 }
 
-function asOptionalString(value: unknown): string | undefined {
-  return typeof value === 'string' && value.length > 0 ? value : undefined;
-}
-
-function asNullableString(value: unknown): string | null | undefined {
-  if (value === null) return null;
-  return asOptionalString(value);
-}
-
 export function asStringArray(value: unknown): string[] {
   return asArray(value).filter((entry): entry is string => typeof entry === 'string');
-}
-
-function normalizeTechniqueNames(value: unknown): string[] {
-  const names = asArray(value).flatMap((entry) => {
-    if (typeof entry === 'string') return [entry];
-    const name = asRecord(entry).name;
-    return typeof name === 'string' ? [name] : [];
-  });
-
-  return [...new Set(names.map((name) => name.trim()).filter(Boolean))];
 }
 
 function asNumber(value: unknown, fallback = 0): number {
@@ -59,223 +71,212 @@ function asNumber(value: unknown, fallback = 0): number {
   return fallback;
 }
 
+function optionalString(value: unknown): string | undefined {
+  return typeof value === 'string' && value.length > 0 ? value : undefined;
+}
+
 function normalizeSourceRef(value: unknown): SourceRef | null {
   const record = asRecord(value);
   const chapter = asNumber(record.chapter, Number.NaN);
   if (!Number.isFinite(chapter)) return null;
-
-  const alternatives = asArray(record.alternatives)
-    .map(normalizeSourceRef)
-    .filter((entry): entry is SourceRef => entry !== null);
-
+  const alternatives = asArray(record.alternatives).map(normalizeSourceRef).filter((entry): entry is SourceRef => entry !== null);
   return {
     chapter,
-    anchor: asOptionalString(record.anchor),
-    event_type: asOptionalString(record.event_type),
+    anchor: optionalString(record.anchor),
+    event_type: optionalString(record.event_type),
     line_start: record.line_start === undefined ? undefined : asNumber(record.line_start),
     line_end: record.line_end === undefined ? undefined : asNumber(record.line_end),
-    text: asOptionalString(record.text),
+    text: optionalString(record.text),
     anchors_hit: asStringArray(record.anchors_hit),
-    locate_status: asOptionalString(record.locate_status),
+    locate_status: optionalString(record.locate_status),
     locate_score: record.locate_score === undefined ? undefined : asNumber(record.locate_score),
     alternatives: alternatives.length > 0 ? alternatives : undefined,
   };
 }
 
 export function normalizeSourceRefs(value: unknown): SourceRef[] {
-  return asArray(value)
-    .map(normalizeSourceRef)
-    .filter((entry): entry is SourceRef => entry !== null);
+  return asArray(value).map(normalizeSourceRef).filter((entry): entry is SourceRef => entry !== null);
 }
 
-function normalizeCharacter(value: unknown): Character {
-  const record = asRecord(value);
-  const personality = asRecord(record.personality);
-  const aliases = [...asStringArray(record.alias), ...asStringArray(record.aliases)];
-  const relationships = asArray(record.relationships).flatMap((relationship) => {
-    const item = asRecord(relationship);
-    const target = asString(item.target);
-    const type = asString(item.type);
-    if (!target || !type) return [];
-    return [
-      {
-        target,
-        type,
-        intensity: item.intensity === undefined ? undefined : asNumber(item.intensity),
-        bond_level: item.bond_level === undefined ? undefined : asNumber(item.bond_level),
-        dynamic: asString(item.dynamic),
-      },
-    ];
+function recordAt(value: unknown, path: string): Record<string, unknown> {
+  if (!isRecord(value)) throw new DataContractError('OBJECT_REQUIRED', path);
+  return value;
+}
+
+function exactFields(record: Record<string, unknown>, fields: readonly string[], path: string): void {
+  const allowed = new Set(fields);
+  for (const field of Object.keys(record)) {
+    if (!allowed.has(field)) throw new DataContractError('FIELD_FORBIDDEN', `${path}.${field}`);
+  }
+  for (const field of fields) {
+    if (!Object.hasOwn(record, field)) throw new DataContractError('FIELD_REQUIRED', `${path}.${field}`);
+  }
+}
+
+function arrayAt(value: unknown, path: string): unknown[] {
+  if (!Array.isArray(value)) throw new DataContractError('ARRAY_REQUIRED', path);
+  return value;
+}
+
+function stringAt(value: unknown, path: string): string {
+  if (typeof value !== 'string') throw new DataContractError('STRING_REQUIRED', path);
+  const normalized = value.trim();
+  if (PLACEHOLDERS.has(normalized.toLocaleLowerCase('en-US'))) {
+    throw new DataContractError('PLACEHOLDER_FORBIDDEN', path);
+  }
+  return normalized;
+}
+
+function nullableStringAt(value: unknown, path: string): string | null {
+  return value === null ? null : stringAt(value, path);
+}
+
+function stringArrayAt(value: unknown, path: string): string[] {
+  const result = arrayAt(value, path).map((entry, index) => stringAt(entry, `${path}[${index}]`));
+  if (new Set(result).size !== result.length) throw new DataContractError('ARRAY_DUPLICATE', path);
+  return result;
+}
+
+function nullableEnumAt<T extends string>(value: unknown, allowed: Set<T>, path: string): T | null {
+  if (value === null) return null;
+  const result = stringAt(value, path) as T;
+  if (!allowed.has(result)) throw new DataContractError('ENUM_INVALID', path, result);
+  return result;
+}
+
+function normalizeCharacter(value: unknown, index: number): Character {
+  const path = `$.characters[${index}]`;
+  const record = recordAt(value, path);
+  exactFields(record, CHARACTER_FIELDS, path);
+  const name = stringAt(record.name, `${path}.name`);
+  const aliases = stringArrayAt(record.aliases, `${path}.aliases`);
+  if (aliases.includes(name)) throw new DataContractError('ALIAS_EQUALS_NAME', `${path}.aliases`);
+  return {
+    id: stringAt(record.id, `${path}.id`),
+    name,
+    aliases,
+    identities: stringArrayAt(record.identities, `${path}.identities`),
+    level: nullableEnumAt(record.level, CHARACTER_LEVELS, `${path}.level`),
+    rank: nullableEnumAt(record.rank, POWER_RANKS, `${path}.rank`),
+    description: nullableStringAt(record.description, `${path}.description`),
+    factions: stringArrayAt(record.factions, `${path}.factions`),
+    skills: stringArrayAt(record.skills, `${path}.skills`),
+  };
+}
+
+function normalizeTechnique(value: unknown, path: string): SkillTechnique {
+  const record = recordAt(value, path);
+  exactFields(record, TECHNIQUE_FIELDS, path);
+  return {
+    name: stringAt(record.name, `${path}.name`),
+    description: nullableStringAt(record.description, `${path}.description`),
+  };
+}
+
+function normalizeSkill(value: unknown, index: number): Skill {
+  const path = `$.skills[${index}]`;
+  const record = recordAt(value, path);
+  exactFields(record, SKILL_FIELDS, path);
+  const name = stringAt(record.name, `${path}.name`);
+  const aliases = stringArrayAt(record.aliases, `${path}.aliases`);
+  if (aliases.includes(name)) throw new DataContractError('ALIAS_EQUALS_NAME', `${path}.aliases`);
+  const techniques = arrayAt(record.techniques, `${path}.techniques`)
+    .map((entry, techniqueIndex) => normalizeTechnique(entry, `${path}.techniques[${techniqueIndex}]`));
+  if (new Set(techniques.map((entry) => entry.name)).size !== techniques.length) {
+    throw new DataContractError('TECHNIQUE_DUPLICATE', `${path}.techniques`);
+  }
+  return {
+    id: stringAt(record.id, `${path}.id`),
+    name,
+    aliases,
+    types: stringArrayAt(record.types, `${path}.types`),
+    factions: stringArrayAt(record.factions, `${path}.factions`),
+    rank: nullableEnumAt(record.rank, POWER_RANKS, `${path}.rank`),
+    description: nullableStringAt(record.description, `${path}.description`),
+    techniques,
+  };
+}
+
+function normalizeItem(value: unknown, index: number): Item {
+  const path = `$.items[${index}]`;
+  const record = recordAt(value, path);
+  exactFields(record, ITEM_FIELDS, path);
+  const name = stringAt(record.name, `${path}.name`);
+  const aliases = stringArrayAt(record.aliases, `${path}.aliases`);
+  if (aliases.includes(name)) throw new DataContractError('ALIAS_EQUALS_NAME', `${path}.aliases`);
+  return {
+    id: stringAt(record.id, `${path}.id`),
+    name,
+    aliases,
+    type: nullableStringAt(record.type, `${path}.type`),
+    description: nullableStringAt(record.description, `${path}.description`),
+  };
+}
+
+function normalizeFaction(value: unknown, index: number): Faction {
+  const path = `$.factions[${index}]`;
+  const record = recordAt(value, path);
+  exactFields(record, FACTION_FIELDS, path);
+  const name = stringAt(record.name, `${path}.name`);
+  const aliases = stringArrayAt(record.aliases, `${path}.aliases`);
+  if (aliases.includes(name)) throw new DataContractError('ALIAS_EQUALS_NAME', `${path}.aliases`);
+  return {
+    id: stringAt(record.id, `${path}.id`),
+    name,
+    aliases,
+    type: nullableStringAt(record.type, `${path}.type`),
+    description: nullableStringAt(record.description, `${path}.description`),
+  };
+}
+
+function normalizeSummary(value: unknown, index: number): ChapterSummary {
+  const path = `$.chapter_summaries[${index}]`;
+  const record = recordAt(value, path);
+  exactFields(record, SUMMARY_FIELDS, path);
+  if (!Number.isInteger(record.chapter) || (record.chapter as number) < 1) {
+    throw new DataContractError('CHAPTER_INVALID', `${path}.chapter`);
+  }
+  return {
+    chapter: record.chapter as number,
+    title: stringAt(record.title, `${path}.title`),
+    summary: stringAt(record.summary, `${path}.summary`),
+  };
+}
+
+function assertUniqueIds(data: NovelData): void {
+  const seen = new Set<string>();
+  for (const category of ['characters', 'skills', 'items', 'factions'] as const) {
+    data[category].forEach((entry, index) => {
+      if (seen.has(entry.id)) throw new DataContractError('DUPLICATE_ID', `$.${category}[${index}].id`, entry.id);
+      seen.add(entry.id);
+    });
+  }
+}
+
+function assertReferences(data: NovelData): void {
+  const factionIds = new Set(data.factions.map((entry) => entry.id));
+  const skillIds = new Set(data.skills.map((entry) => entry.id));
+  const check = (ids: string[], allowed: Set<string>, path: string) => ids.forEach((id, index) => {
+    if (!allowed.has(id)) throw new DataContractError('DANGLING_REFERENCE', `${path}[${index}]`, id);
   });
-
-  return {
-    id: asString(record.id),
-    name: asString(record.name),
-    alias: [...new Set(aliases)],
-    role: asString(record.level ?? record.role, '未标注'),
-    archetype: asOptionalString(record.archetype),
-    power_rank: asOptionalString(record.rank ?? record.power_rank),
-    summary: asOptionalString(record.summary),
-    faction: asNullableString(record.faction),
-    identity: asOptionalString(record.identity),
-    importance: asOptionalString(record.importance),
-    one_line: asOptionalString(record.one_line),
-    bio: asOptionalString(record.bio ?? record.biography),
-    bio_source_refs: normalizeSourceRefs(record.bio_source_refs),
-    aliases: asStringArray(record.aliases),
-    personality: {
-      traits: asStringArray(personality.traits),
-      speech_style: asString(personality.speech_style),
-      temperament: asOptionalString(personality.temperament),
-    },
-    relationships,
-    skills: asStringArray(record.skills),
-    items: asStringArray(record.items),
-    classic_lines: asStringArray(record.classic_lines),
-    source_refs: normalizeSourceRefs(record.source_refs),
-  };
-}
-
-function normalizeSkill(value: unknown): Skill {
-  const record = asRecord(value);
-  return {
-    id: asString(record.id),
-    name: asString(record.name),
-    type: asString(record.type, '未分类'),
-    faction: asNullableString(record.faction),
-    power_rank: asOptionalString(record.power_rank ?? record.mastery_rank ?? record.rank),
-    description: asString(record.description ?? record.one_line),
-    one_line: asOptionalString(record.one_line),
-    description_source_refs: normalizeSourceRefs(record.description_source_refs),
-    moves: asStringArray(record.moves),
-    combat_style: asStringArray(record.combat_style),
-    holders: asStringArray(record.holders),
-    techniques: normalizeTechniqueNames(record.techniques),
-    source_refs: normalizeSourceRefs(record.source_refs),
-  };
-}
-
-function normalizeItem(value: unknown): Item {
-  const record = asRecord(value);
-  const effects = asArray(record.effects).reduce<NonNullable<Item['effects']>>((result, effect) => {
-    if (typeof effect === 'string') {
-      result.push(effect);
-      return result;
-    }
-    const item = asRecord(effect);
-    const description = asString(item.description);
-    if (description) result.push({ type: asString(item.type, 'effect'), description });
-    return result;
-  }, []);
-
-  return {
-    id: asString(record.id),
-    name: asString(record.name),
-    type: asString(record.type, '未分类'),
-    tags: asStringArray(record.tags),
-    importance: asOptionalString(record.importance),
-    owner: asOptionalString(record.owner),
-    description: asString(record.description ?? record.one_line),
-    one_line: asOptionalString(record.one_line),
-    description_source_refs: normalizeSourceRefs(record.description_source_refs),
-    effects,
-    related_skills: asStringArray(record.related_skills),
-    related_characters: asStringArray(record.related_characters),
-    source_refs: normalizeSourceRefs(record.source_refs),
-  };
-}
-
-function normalizeFaction(value: unknown): Faction {
-  const record = asRecord(value);
-  return {
-    id: asString(record.id),
-    name: asString(record.name),
-    type: asString(record.type, '未分类'),
-    location: asOptionalString(record.location),
-    leader: asOptionalString(record.leader),
-    description: asString(record.description ?? record.one_line),
-    one_line: asOptionalString(record.one_line),
-    description_source_refs: normalizeSourceRefs(record.description_source_refs),
-    members: asStringArray(record.members),
-    sub_organizations: asStringArray(record.sub_organizations),
-    sub_divisions: asStringArray(record.sub_divisions),
-    source_refs: normalizeSourceRefs(record.source_refs),
-  };
-}
-
-function normalizeLocation(value: unknown): Location {
-  const record = asRecord(value);
-  return {
-    id: asString(record.id),
-    name: asString(record.name),
-    region: asOptionalString(record.region),
-    description: asString(record.description ?? record.one_line),
-    one_line: asOptionalString(record.one_line),
-    description_source_refs: normalizeSourceRefs(record.description_source_refs),
-    factions: asStringArray(record.factions),
-    characters: asStringArray(record.characters),
-    source_refs: normalizeSourceRefs(record.source_refs),
-  };
-}
-
-function normalizeDialogue(value: unknown, index: number): Dialogue {
-  const record = asRecord(value);
-  const sourceRefs = normalizeSourceRefs(record.source_refs);
-  const legacyName = asString(record.name);
-  const separatorIndex = legacyName.search(/[：:]/);
-  const speakerFromName = separatorIndex > 0 ? legacyName.slice(0, separatorIndex) : '';
-  const textFromSource = sourceRefs.find((sourceRef) => sourceRef.text)?.text;
-  const chapter = asNumber(record.chapter, sourceRefs[0]?.chapter ?? 0);
-  const lineStart = record.line_start === undefined ? sourceRefs[0]?.line_start : asNumber(record.line_start);
-
-  return {
-    id: asOptionalString(record.id) ?? `dialogue-${chapter}-${lineStart ?? 'unknown'}-${index + 1}`,
-    speaker: asString(record.speaker ?? record.speaker_name, speakerFromName || '未标注'),
-    speaker_name: asOptionalString(record.speaker_name),
-    chapter,
-    line_start: lineStart,
-    line_end: record.line_end === undefined ? sourceRefs[0]?.line_end : asNumber(record.line_end),
-    text: asString(record.text, legacyName || textFromSource || ''),
-    tone: asOptionalString(record.tone),
-    context: asOptionalString(record.context),
-    source_refs: sourceRefs,
-  };
-}
-
-function normalizeTechnique(value: unknown): Technique {
-  const record = asRecord(value);
-  return {
-    id: asString(record.id),
-    name: asString(record.name),
-    skill: asString(record.skill ?? record.source_skill),
-    source_skill: asOptionalString(record.source_skill),
-    type: asOptionalString(record.type),
-    description: asString(record.description ?? record.one_line),
-    source_refs: normalizeSourceRefs(record.source_refs),
-  };
-}
-
-function normalizeChapterSummary(value: unknown): ChapterSummary {
-  const record = asRecord(value);
-  return {
-    chapter: asNumber(record.chapter),
-    title: asString(record.title, `第 ${asNumber(record.chapter)} 章`),
-    summary: asString(record.summary),
-    key_events: asStringArray(record.key_events),
-    key_characters: asStringArray(record.key_characters ?? record.characters),
-  };
+  data.characters.forEach((entry, index) => {
+    check(entry.factions, factionIds, `$.characters[${index}].factions`);
+    check(entry.skills, skillIds, `$.characters[${index}].skills`);
+  });
+  data.skills.forEach((entry, index) => check(entry.factions, factionIds, `$.skills[${index}].factions`));
 }
 
 export function normalizeNovelData(value: unknown): NovelData {
-  const record = asRecord(value);
-  return {
-    characters: asArray(record.characters).map(normalizeCharacter),
-    skills: asArray(record.skills).map(normalizeSkill),
-    items: asArray(record.items).map(normalizeItem),
-    factions: asArray(record.factions).map(normalizeFaction),
-    locations: asArray(record.locations).map(normalizeLocation),
-    dialogues: asArray(record.dialogues).map(normalizeDialogue),
-    techniques: asArray(record.techniques).map(normalizeTechnique),
-    chapter_summaries: asArray(record.chapter_summaries).map(normalizeChapterSummary),
+  const record = recordAt(value, '$');
+  exactFields(record, TOP_LEVEL_FIELDS, '$');
+  const data: NovelData = {
+    characters: arrayAt(record.characters, '$.characters').map(normalizeCharacter),
+    skills: arrayAt(record.skills, '$.skills').map(normalizeSkill),
+    items: arrayAt(record.items, '$.items').map(normalizeItem),
+    factions: arrayAt(record.factions, '$.factions').map(normalizeFaction),
+    chapter_summaries: arrayAt(record.chapter_summaries, '$.chapter_summaries').map(normalizeSummary),
   };
+  assertUniqueIds(data);
+  assertReferences(data);
+  return data;
 }

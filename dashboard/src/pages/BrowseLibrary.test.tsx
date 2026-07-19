@@ -3,6 +3,7 @@ import { MemoryRouter, useLocation } from 'react-router-dom';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { TooltipProvider } from '../components/ui/tooltip';
 import { buildGlobalLibraryRecords } from '../lib/globalLibrary';
+import { UnresolvedEntityError } from '../lib/resolveId';
 import { useLibraryStore } from '../stores/useLibraryStore';
 import type { LibraryBookStatus, LibraryStatusResponse } from '../types/library';
 import type { NovelData } from '../types/novel';
@@ -56,19 +57,17 @@ const data: NovelData = {
   characters: Array.from({ length: 60 }, (_, index) => ({
     id: `character-${index + 1}`,
     name: `人物-${index + 1}`,
-    alias: index === 54 ? ['关键别名'] : [],
-    role: index % 2 === 0 ? '核心' : '重要',
-    identity: '江湖人物',
-    personality: { traits: [], speech_style: '' },
-    relationships: [],
-    source_refs: [{ chapter: index + 1, text: `第 ${index + 1} 条原文证据` }],
+    aliases: index === 54 ? ['关键别名'] : [],
+    identities: ['江湖人物'],
+    level: index % 2 === 0 ? '核心' : '重要',
+    rank: null,
+    description: `第 ${index + 1} 条人物简介`,
+    factions: [],
+    skills: [],
   })),
   skills: [],
   items: [],
   factions: [],
-  locations: [{ id: 'legacy-location', name: '旧地点', region: '中原', description: '不应进入全库索引' }],
-  dialogues: [],
-  techniques: [],
   chapter_summaries: [],
 };
 
@@ -132,19 +131,20 @@ describe('global library browser', () => {
     renderPage();
 
     expect(records.map((record) => record.kind)).not.toContain('location');
-    expect(screen.getByText('跨书检索人物、武功、物品和势力，并查看来源证据。')).toBeInTheDocument();
+    expect(screen.getByText('跨书检索人物、武功、物品和势力。')).toBeInTheDocument();
     expect(screen.queryByText('地点')).not.toBeInTheDocument();
     expect(within(screen.getByRole('combobox', { name: '按实体类型筛选' })).queryByRole('option', { name: '地点' })).not.toBeInTheDocument();
   });
 
-  it('searches aliases, opens source evidence, and links to the exact single-book entity', async () => {
+  it('searches aliases and links to the exact single-book entity', async () => {
     renderPage('/browse?q=关键别名&author=金庸');
 
     const row = screen.getByRole('row', { name: '查看人物“人物-55”详情' });
     fireEvent.click(row);
 
     const dialog = await screen.findByRole('dialog');
-    expect(within(dialog).getByText('第 55 条原文证据')).toBeInTheDocument();
+    expect(within(dialog).getByText('第 55 条人物简介')).toBeInTheDocument();
+    expect(within(dialog).queryByText('原文证据')).not.toBeInTheDocument();
     const link = screen.getByRole('link', { name: /打开单书详情/ });
     expect(link).toHaveAttribute('href', '/%E9%87%91%E5%BA%B8/%E6%B5%8B%E8%AF%95%E4%B9%A6/characters?detail=character-55');
   });
@@ -181,63 +181,49 @@ describe('global library browser', () => {
     expect(new URLSearchParams(screen.getByTestId('location').textContent?.split('?')[1]).get('q')).toBe('关键别名');
   });
 
-  it('resolves relation IDs to Chinese names in global details without leaking unknown IDs', async () => {
+  it('rejects unresolved relation IDs instead of leaking IDs or placeholder text', () => {
     const relationData: NovelData = {
       characters: [{
         id: 'char_duan_yu',
         name: '段誉',
-        alias: [],
-        role: '核心',
-        faction: 'faction_dali',
-        personality: { traits: [], speech_style: '' },
-        relationships: [],
+        aliases: [],
+        identities: ['大理世子'],
+        level: '核心',
+        rank: null,
+        description: '大理段氏世子。',
+        factions: ['faction_dali'],
+        skills: ['skill_lingbo'],
       }],
       skills: [{
         id: 'skill_lingbo',
         name: '凌波微步',
-        type: '轻功',
-        faction: 'faction_unknown',
+        aliases: [],
+        types: ['轻功'],
+        factions: ['faction_unknown'],
+        rank: null,
         description: '逍遥派轻功。',
-        holders: ['char_duan_yu', 'char_unknown'],
+        techniques: [],
       }],
       items: [],
-      factions: [{ id: 'faction_dali', name: '大理段氏', type: '世家', description: '大理皇族。' }],
-      locations: [],
-      dialogues: [],
-      techniques: [],
+      factions: [{ id: 'faction_dali', name: '大理段氏', aliases: [], type: '世家', description: '大理皇族。' }],
       chapter_summaries: [],
     };
-    useLibraryStore.setState({
-      bookCache: { [book.path]: relationData },
-      globalRecords: buildGlobalLibraryRecords(book, relationData),
-    });
-    renderPage('/browse?q=%E5%87%8C%E6%B3%A2%E5%BE%AE%E6%AD%A5');
 
-    fireEvent.click(screen.getByRole('row', { name: '查看武功“凌波微步”详情' }));
-
-    const dialog = await screen.findByRole('dialog');
-    expect(within(dialog).getByText('段誉')).toBeInTheDocument();
-    expect(within(dialog).getByText('未注明势力')).toBeInTheDocument();
-    expect(within(dialog).queryByText('char_duan_yu')).not.toBeInTheDocument();
-    expect(within(dialog).queryByText('char_unknown')).not.toBeInTheDocument();
-    expect(within(dialog).queryByText('faction_unknown')).not.toBeInTheDocument();
+    expect(() => buildGlobalLibraryRecords(book, relationData)).toThrow(UnresolvedEntityError);
   });
 
-  it('labels index-only entities and shows evidence instead of empty metadata', async () => {
+  it('labels valid v6 index-only entities without inventing metadata', async () => {
     const indexOnlyData: NovelData = {
       characters: [],
       skills: [],
       items: [{
         id: 'auto_item_生死符',
         name: '生死符',
-        type: '未分类',
-        description: '',
-        source_refs: [{ chapter: 1, line_start: 12, line_end: 12, text: '司空玄身上给种下了生死符。' }],
+        aliases: [],
+        type: null,
+        description: null,
       }],
       factions: [],
-      locations: [],
-      dialogues: [],
-      techniques: [],
       chapter_summaries: [],
     };
     useLibraryStore.setState({
@@ -250,9 +236,8 @@ describe('global library browser', () => {
 
     const dialog = await screen.findByRole('dialog');
     expect(within(dialog).getByText('仅有索引记录')).toBeInTheDocument();
-    expect(within(dialog).getByText('司空玄身上给种下了生死符。')).toBeInTheDocument();
     expect(within(dialog).queryByText('基础信息')).not.toBeInTheDocument();
     expect(within(dialog).queryByText('简介')).not.toBeInTheDocument();
-    expect(within(dialog).queryByText('未分类')).not.toBeInTheDocument();
+    expect(within(dialog).queryByText('原文证据')).not.toBeInTheDocument();
   });
 });

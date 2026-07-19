@@ -10,6 +10,7 @@ import type {
   ChapterSummary,
   CardType,
   DetailPanelState,
+  NovelData,
 } from '../types/novel';
 import { buildIdMaps } from '../lib/resolveId';
 
@@ -29,22 +30,15 @@ interface NovelStore {
   skillMap: Map<string, string>;
   techniqueMap: Map<string, string>;
   itemMap: Map<string, string>;
+  skillUsers: Map<string, string[]>;
+  factionMembers: Map<string, string[]>;
 
   detailPanel: DetailPanelState;
   showDetail: (type: CardType, id: string) => void;
   hideDetail: () => void;
   clearData: () => void;
 
-  loadData: (data: {
-    characters: Character[];
-    skills: Skill[];
-    items: Item[];
-    factions: Faction[];
-    locations: Location[];
-    dialogues: Dialogue[];
-    techniques: Technique[];
-    chapter_summaries: ChapterSummary[];
-  }) => void;
+  loadData: (data: NovelData) => void;
 }
 
 export const useNovelStore = create<NovelStore>((set) => ({
@@ -63,6 +57,8 @@ export const useNovelStore = create<NovelStore>((set) => ({
   skillMap: new Map(),
   techniqueMap: new Map(),
   itemMap: new Map(),
+  skillUsers: new Map(),
+  factionMembers: new Map(),
 
   detailPanel: { open: false, type: null, id: null },
   showDetail: (type, id) =>
@@ -85,6 +81,8 @@ export const useNovelStore = create<NovelStore>((set) => ({
       skillMap: new Map(),
       techniqueMap: new Map(),
       itemMap: new Map(),
+      skillUsers: new Map(),
+      factionMembers: new Map(),
       detailPanel: { open: false, type: null, id: null },
     }),
 
@@ -95,9 +93,9 @@ export const useNovelStore = create<NovelStore>((set) => ({
       skills: data.skills,
       items: data.items,
       factions: data.factions,
-      locations: data.locations,
-      dialogues: data.dialogues,
-      techniques: data.techniques,
+      locations: [],
+      dialogues: [],
+      techniques: [],
       chapterSummaries: data.chapter_summaries,
       ...maps,
     });
