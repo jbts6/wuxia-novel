@@ -13,8 +13,9 @@ const {
   ITEM_TYPES,
   POWER_RANK_CONTRACT,
   POWER_RANKS,
+  LEGACY_PROFILE_V5,
+  PROFILE_LITE,
   PROFILE_V4,
-  PROFILE_V5,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
   requiredDomainUnitsForContract,
@@ -64,7 +65,13 @@ test('the active semantic contract selects domain units by run profile', () => {
     DOMAIN_UNITS
   );
   assert.deepEqual(
-    requiredDomainUnitsForProfile(PROFILE_V5, SEMANTIC_CONTRACT_VERSION),
+    requiredDomainUnitsForProfile(PROFILE_LITE, SEMANTIC_CONTRACT_VERSION),
+    []
+  );
+  assert.equal(PROFILE_LITE, 'lite');
+  assert.equal(LEGACY_PROFILE_V5, 'v5');
+  assert.deepEqual(
+    requiredDomainUnitsForProfile(LEGACY_PROFILE_V5, SEMANTIC_CONTRACT_VERSION),
     []
   );
 });

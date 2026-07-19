@@ -3,8 +3,9 @@
 const SEMANTIC_CONTRACT_VERSION = 6;
 const SEMANTIC_PROFILE = 'domain-distill-v1';
 const PROFILE_V4 = 'v4';
-const PROFILE_V5 = 'v5';
-const SUPPORTED_PROFILES = new Set([PROFILE_V4, PROFILE_V5]);
+const PROFILE_LITE = 'lite';
+const LEGACY_PROFILE_V5 = 'v5';
+const SUPPORTED_PROFILES = new Set([PROFILE_V4, PROFILE_LITE]);
 const DOMAIN_UNITS = Object.freeze([
   'distill:factions',
   'distill:characters',
@@ -249,13 +250,18 @@ function requiredDomainUnitsForContract(version) {
 
 function requiredDomainUnitsForProfile(profile, version) {
   requiredDomainUnitsForContract(version);
-  if (!SUPPORTED_PROFILES.has(profile)) {
+  if (!SUPPORTED_PROFILES.has(profile) && profile !== LEGACY_PROFILE_V5) {
     const error = new RangeError(`Unsupported game-kb profile: ${String(profile)}`);
     error.code = 'SEMANTIC_PROFILE_UNSUPPORTED';
     error.profile = profile;
     throw error;
   }
   return profile === PROFILE_V4 ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
+}
+
+function normalizeProfileForRead(profile) {
+  if (profile === undefined || profile === null) return PROFILE_V4;
+  return profile === LEGACY_PROFILE_V5 ? PROFILE_LITE : profile;
 }
 
 module.exports = {
@@ -268,12 +274,14 @@ module.exports = {
   ITEM_TYPES,
   POWER_RANK_CONTRACT,
   POWER_RANKS,
+  LEGACY_PROFILE_V5,
+  PROFILE_LITE,
   PROFILE_V4,
-  PROFILE_V5,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
   SUPPORTED_PROFILES,
   isPowerRank,
+  normalizeProfileForRead,
   normalizeEntitySemantics,
   requiredDomainUnitsForContract,
   requiredDomainUnitsForProfile,

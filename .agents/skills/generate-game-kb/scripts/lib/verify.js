@@ -19,6 +19,8 @@ const {
   FINAL_FIELDS,
   FINAL_FILES,
   ITEM_TYPES,
+  LEGACY_PROFILE_V5,
+  PROFILE_LITE,
   SEMANTIC_CONTRACT_VERSION,
   isPowerRank,
   validateEntitySemantics
@@ -386,7 +388,7 @@ function verifyFinalV4(paths) {
   return result;
 }
 
-function verifyFinalV5(paths) {
+function verifyFinalLite(paths) {
   const blockingErrors = [];
   const warnings = [];
   let manifest;
@@ -514,7 +516,9 @@ function verifyFinalV5(paths) {
 
 function verifyFinal(paths, options = {}) {
   const profile = options.profile || readJson(paths.runJson).profile || 'v4';
-  return profile === 'v5' ? verifyFinalV5(paths) : verifyFinalV4(paths);
+  return [PROFILE_LITE, LEGACY_PROFILE_V5].includes(profile)
+    ? verifyFinalLite(paths)
+    : verifyFinalV4(paths);
 }
 
 module.exports = {

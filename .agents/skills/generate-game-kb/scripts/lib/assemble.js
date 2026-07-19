@@ -137,7 +137,7 @@ function assembleRunV4({ paths, manifest, acceptedHashes, chapters, semanticCont
   });
 }
 
-function assembleRunV5({ paths, manifest, acceptedHashes, chapters, semanticContractVersion }) {
+function assembleRunLite({ paths, manifest, acceptedHashes, chapters, semanticContractVersion }) {
   const registryHash = acceptedArtifactHash(paths, paths.candidateRegistry);
   const registry = readJson(paths.candidateRegistry);
   const curatePath = path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
@@ -192,7 +192,7 @@ function assembleRun({ paths, profile }) {
       paths, manifest, acceptedHashes, chapters, semanticContractVersion: run.semantic_contract_version
     });
   }
-  return assembleRunV5({
+  return assembleRunLite({
     paths, manifest, acceptedHashes, chapters, semanticContractVersion: run.semantic_contract_version
   });
 }

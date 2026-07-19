@@ -23,7 +23,7 @@ const { importAcceptedChapters } = require('./lib/chapter-import');
 const { createDomainWorkPlan } = require('./lib/domain-work');
 const {
   addDeferredTask,
-  resolvePublishedV5Paths,
+  resolvePublishedLitePaths,
   runDeferredTask
 } = require('./lib/deferred-task');
 const { applyOverlay } = require('./lib/overlay');
@@ -43,9 +43,10 @@ const {
 const { prepareNovel } = require('./lib/source');
 const {
   DOMAIN_UNITS,
+  PROFILE_LITE,
   PROFILE_V4,
-  PROFILE_V5,
   SEMANTIC_PROFILE,
+  normalizeProfileForRead,
   requiredDomainUnitsForProfile
 } = require('./lib/semantic-contract');
 const {
@@ -63,11 +64,11 @@ const { readWorkPlan, refreshWorkPlanUnit, writeWorkPlan } = require('./lib/sema
 const PROFILE_COMMANDS = Object.freeze({
   'reset-unit': { command: 'reset-unit', profile: undefined },
   'retry-unit': { command: 'retry-unit', profile: undefined },
-  'v5-prepare': { command: 'prepare', profile: PROFILE_V5 },
-  'v5-accept': { command: 'accept', profile: PROFILE_V5 },
-  'v5-basic-curate': { command: 'basic-curate', profile: PROFILE_V5 },
-  'v5-publish': { command: 'publish', profile: PROFILE_V5 },
-  'v5-status': { command: 'status', profile: PROFILE_V5 }
+  'lite-prepare': { command: 'prepare', profile: PROFILE_LITE },
+  'lite-accept': { command: 'accept', profile: PROFILE_LITE },
+  'lite-basic-curate': { command: 'basic-curate', profile: PROFILE_LITE },
+  'lite-publish': { command: 'publish', profile: PROFILE_LITE },
+  'lite-status': { command: 'status', profile: PROFILE_LITE }
 });
 
 function routeCommand(requestedCommand) {
@@ -471,7 +472,7 @@ function main(argv = process.argv.slice(2)) {
       let selectedRun = requestedRun;
       if (!selectedRun) {
         try {
-          selectedRun = resolveRun(novelDir, undefined, profile).run_id;
+          selectedRun = resolveRun(novelDir).run_id;
         } catch (error) {
           if (!(error instanceof GameKbError) || error.code !== 'RUN_REQUIRED') throw error;
           assertArchiveExistingAllowed(novelDir);
@@ -566,7 +567,9 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'status') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'status requires <novel>');
-      const run = resolveRun(novelDir, requestedRun, profile);
+      const run = resolveRun(novelDir, requestedRun);
+      const effectiveProfile = normalizeProfileForRead(run.profile);
+      assertSemanticContract({ ...run, profile: effectiveProfile }, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       assertAcceptedArtifacts(paths);
       const manifest = readJson(paths.manifest);
@@ -577,13 +580,13 @@ function main(argv = process.argv.slice(2)) {
         progress,
         installed: verifyInstalled(novelDir)
       });
-      const routedNext = profile === PROFILE_V5 && next.next_action === 'plan-domains'
-        ? { next_action: 'v5-publish', next_units: [] }
+      const routedNext = profile === PROFILE_LITE && next.next_action === 'plan-domains'
+        ? { next_action: 'lite-publish', next_units: [] }
         : next;
       emit({
         semantic_contract_version: run.semantic_contract_version ?? null,
         semantic_profile: run.semantic_profile ?? null,
-        profile: run.profile ?? profile,
+        profile: effectiveProfile,
         ...statusReport(paths, manifest, progress),
         ...routedNext,
         worker_pool: readWorkerPool(paths)
@@ -685,7 +688,7 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'task-add') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-add requires <novel>');
-      const paths = resolvePublishedV5Paths(novelDir, requestedRun);
+      const paths = resolvePublishedLitePaths(novelDir, requestedRun);
       emit(addDeferredTask({
         paths,
         type: flagValue(args, '--type'),
@@ -696,13 +699,13 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'task-run') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-run requires <novel>');
-      const paths = resolvePublishedV5Paths(novelDir, requestedRun);
+      const paths = resolvePublishedLitePaths(novelDir, requestedRun);
       emit(runDeferredTask({ paths, taskId: flagValue(args, '--task-id'), draftPath: flagValue(args, '--draft') }));
       return;
     }
     if (command === 'task-apply') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'task-apply requires <novel>');
-      const paths = resolvePublishedV5Paths(novelDir, requestedRun);
+      const paths = resolvePublishedLitePaths(novelDir, requestedRun);
       emit(applyOverlay({ paths, taskId: flagValue(args, '--task-id') }));
       return;
     }

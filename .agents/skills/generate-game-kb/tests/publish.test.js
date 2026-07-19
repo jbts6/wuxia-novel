@@ -35,7 +35,7 @@ function prepareGroundedRun() {
       + '第二章 续行\n乙守在山口。\n'
       + '第三章 终局\n丙返回故里。\n'
   );
-  const prepared = pass(runFlow(['v5-prepare', novel, '--run', 'run-grounded-publish', '--json']), 'prepare');
+  const prepared = pass(runFlow(['lite-prepare', novel, '--run', 'run-grounded-publish', '--json']), 'prepare');
   const paths = pathsFor(novel, prepared.run_id);
   const manifest = readJson(paths.manifest);
   const chapterEvidence = new Map([
@@ -59,7 +59,7 @@ function prepareGroundedRun() {
       }
     });
     pass(runFlow([
-      'v5-accept', novel, '--run', prepared.run_id, '--unit', unit,
+      'lite-accept', novel, '--run', prepared.run_id, '--unit', unit,
       '--draft', writeStagingDraft(novel, unit, draft), '--json'
     ]), `accept ${unit}`);
   }
@@ -76,14 +76,14 @@ function prepareGroundedRun() {
     semantic_profile: SEMANTIC_PROFILE,
     accepted_hashes: acceptedHashes
   }), registry);
-  pass(runFlow(['v5-basic-curate', novel, '--run', prepared.run_id, '--skip', '--json']), 'skip curate');
+  pass(runFlow(['lite-basic-curate', novel, '--run', prepared.run_id, '--skip', '--json']), 'skip curate');
   return { novel, paths, prepared };
 }
 
 test('assembles three grounded chapters without domain artifacts when basic-curate is skipped', () => {
   const { novel, paths, prepared } = prepareGroundedRun();
 
-  const assembled = runFlow(['v5-publish', novel, '--run', prepared.run_id, '--json']);
+  const assembled = runFlow(['lite-publish', novel, '--run', prepared.run_id, '--json']);
 
   assert.equal(assembled.status, 0, assembled.stderr);
   assert.deepEqual(fs.readdirSync(path.join(novel, 'data')).sort(), Object.values(FINAL_FILES).sort());

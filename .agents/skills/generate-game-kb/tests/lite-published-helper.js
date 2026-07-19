@@ -26,16 +26,16 @@ function pass(result, label) {
   return result.stdout.trim() ? JSON.parse(result.stdout) : {};
 }
 
-function preparePublishedV5Run(options = {}) {
+function preparePublishedLiteRun(options = {}) {
   const name = options.name || '已发布轻量版试书';
-  const runId = options.runId || 'run-published-v5';
+  const runId = options.runId || 'run-published-lite';
   const source = options.source || (
     '第一章 起始\n甲乙丙丁同赴山门。甲修习玄门内功并使出飞云掌。\n'
     + '第二章 续行\n乙守在山口。\n'
     + '第三章 终局\n丙返回故里。\n'
   );
   const novel = makeNovel(name, source);
-  const prepared = pass(runFlow(['v5-prepare', novel, '--run', runId, '--json']), 'prepare');
+  const prepared = pass(runFlow(['lite-prepare', novel, '--run', runId, '--json']), 'prepare');
   const paths = pathsFor(novel, prepared.run_id);
   const manifest = readJson(paths.manifest);
 
@@ -63,7 +63,7 @@ function preparePublishedV5Run(options = {}) {
       }
     });
     pass(runFlow([
-      'v5-accept', novel, '--run', prepared.run_id, '--unit', unit,
+      'lite-accept', novel, '--run', prepared.run_id, '--unit', unit,
       '--draft', writeStagingDraft(novel, unit, draft), '--json'
     ]), `accept ${unit}`);
   }
@@ -80,8 +80,8 @@ function preparePublishedV5Run(options = {}) {
     semantic_profile: SEMANTIC_PROFILE,
     accepted_hashes: acceptedHashes
   }), registry);
-  pass(runFlow(['v5-basic-curate', novel, '--run', prepared.run_id, '--skip', '--json']), 'skip curate');
-  const published = pass(runFlow(['v5-publish', novel, '--run', prepared.run_id, '--json']), 'publish');
+  pass(runFlow(['lite-basic-curate', novel, '--run', prepared.run_id, '--skip', '--json']), 'skip curate');
+  const published = pass(runFlow(['lite-publish', novel, '--run', prepared.run_id, '--json']), 'publish');
   return {
     archivedRun: path.join(novel, '_archive', 'generate-game-kb', prepared.run_id),
     novel,
@@ -90,4 +90,4 @@ function preparePublishedV5Run(options = {}) {
   };
 }
 
-module.exports = { pass, preparePublishedV5Run };
+module.exports = { pass, preparePublishedLiteRun };

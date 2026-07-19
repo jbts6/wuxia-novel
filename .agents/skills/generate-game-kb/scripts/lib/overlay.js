@@ -17,6 +17,7 @@ const { GameKbError } = require('./errors');
 const { CATEGORY_FILES } = require('./finalize');
 const { promoteVerifiedData } = require('./install');
 const { atomicWriteFile, atomicWriteJson, readJson, readYaml } = require('./io');
+const { PROFILE_LITE } = require('./semantic-contract');
 const { verifyDataRoot } = require('./verify');
 
 const ACTIONS = new Set(['keep', 'merge', 'drop', 'patch']);
@@ -225,7 +226,7 @@ function applyOverlay({ paths, taskId, faultAt, injectFault }) {
   const verificationReport = {
     ...verification,
     source_hash: manifest.source_hash,
-    profile: 'v5',
+    profile: PROFILE_LITE,
     scope: 'revision',
     base_manifest_hash: task.base_manifest_hash,
     previous_final_data_hash: task.base_data_hash,
@@ -247,7 +248,7 @@ function applyOverlay({ paths, taskId, faultAt, injectFault }) {
         title: chapter.title,
         input_hash: chapter.input_hash
       })),
-      profile: 'v5',
+      profile: PROFILE_LITE,
       expectedPreviousHash: task.base_data_hash,
       faultAt,
       injectFault,

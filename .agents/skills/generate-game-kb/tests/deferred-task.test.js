@@ -8,14 +8,14 @@ const test = require('node:test');
 
 const { verifyInstalled } = require('../scripts/lib/install');
 const { readJson } = require('./helpers');
-const { preparePublishedV5Run } = require('./v5-published-helper');
+const { preparePublishedLiteRun } = require('./lite-published-helper');
 
 function hashFile(file) {
   return `sha256:${crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}`;
 }
 
-test('deep task can be created after v5 publication without modifying the archived base', () => {
-  const fixture = preparePublishedV5Run({ runId: 'run-post-publish-task' });
+test('deep task can be created after Lite publication without modifying the archived base', () => {
+  const fixture = preparePublishedLiteRun({ runId: 'run-post-publish-task' });
   const artifactManifest = path.join(fixture.archivedRun, 'artifact-manifest.json');
   const archivedHash = hashFile(artifactManifest);
   const installed = verifyInstalled(fixture.novel);
@@ -50,7 +50,7 @@ test('deep task can be created after v5 publication without modifying the archiv
 });
 
 test('deep task accepts an overlay only at its controller-issued staging path', () => {
-  const fixture = preparePublishedV5Run({ runId: 'run-controller-owned-overlay-path' });
+  const fixture = preparePublishedLiteRun({ runId: 'run-controller-owned-overlay-path' });
   const added = require('./helpers').runFlow([
     'task-add', fixture.novel, '--run', fixture.prepared.run_id,
     '--type', 'characters-deep', '--scope', 'characters', '--requested-by', 'user', '--json'

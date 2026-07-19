@@ -9,7 +9,11 @@ const { GameKbError } = require('./errors');
 const { CATEGORY_FILES } = require('./finalize');
 const { atomicWriteJson, atomicWriteYaml, readJson, readYaml } = require('./io');
 const { deferredPathsFor } = require('./paths');
-const { PROFILE_V5, SEMANTIC_CONTRACT_VERSION } = require('./semantic-contract');
+const {
+  LEGACY_PROFILE_V5,
+  PROFILE_LITE,
+  SEMANTIC_CONTRACT_VERSION
+} = require('./semantic-contract');
 
 const TASK_TYPES = Object.freeze({
   'characters-deep': 'characters',
@@ -22,12 +26,12 @@ function hashFile(file) {
   return `sha256:${crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}`;
 }
 
-function resolvePublishedV5Paths(novelDir, runId) {
+function resolvePublishedLitePaths(novelDir, runId) {
   if (!runId) throw new GameKbError('RUN_REQUIRED', 'Deferred tasks require --run <published-run-id>');
   const paths = deferredPathsFor(novelDir, runId);
   for (const file of [paths.runJson, paths.manifest, paths.artifactManifest, paths.archiveReceipt]) {
     if (!fs.existsSync(file)) {
-      throw new GameKbError('PUBLISHED_RUN_MISSING', 'Published v5 run does not exist', {
+      throw new GameKbError('PUBLISHED_RUN_MISSING', 'Published Lite run does not exist', {
         run_id: runId,
         missing: file
       });
@@ -38,12 +42,12 @@ function resolvePublishedV5Paths(novelDir, runId) {
   const manifestHash = hashFile(paths.artifactManifest);
   if (run.run_id !== runId
     || run.status !== 'archived'
-    || run.profile !== PROFILE_V5
+    || ![PROFILE_LITE, LEGACY_PROFILE_V5].includes(run.profile)
     || run.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION
     || receipt.run_id !== runId
     || receipt.status !== 'archived'
     || receipt.artifact_manifest_hash !== manifestHash) {
-    throw new GameKbError('PUBLISHED_RUN_INVALID', 'Published v5 run metadata is invalid or stale', {
+    throw new GameKbError('PUBLISHED_RUN_INVALID', 'Published Lite run metadata is invalid or stale', {
       run_id: runId
     });
   }
@@ -82,7 +86,7 @@ function installedIdentity(paths, baseManifestHash) {
   if (installed.final_data_hash !== run.final_data_hash) {
     const receipt = readJson(path.join(paths.novel, 'reports', 'generate_game_kb_install.json'));
     if (receipt.base_run_id !== paths.runId || receipt.base_manifest_hash !== baseManifestHash) {
-      throw new GameKbError('DEFERRED_INSTALLED_BASE_MISMATCH', 'Installed revision has no matching v5 lineage', {
+      throw new GameKbError('DEFERRED_INSTALLED_BASE_MISMATCH', 'Installed revision has no matching Lite lineage', {
         run_id: paths.runId,
         installed_final_data_hash: installed.final_data_hash
       });
@@ -312,7 +316,7 @@ module.exports = {
   hashFile,
   loadRegistryMap,
   loadState,
-  resolvePublishedV5Paths,
+  resolvePublishedLitePaths,
   runDeferredTask,
   saveState
 };

@@ -73,7 +73,7 @@ test('fast-path metadata and artifact paths are scoped below the explicit run id
 
 test('fast-path run paths stay inside the run directory', () => {
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
-  const paths = pathsFor(novel, 'run-v5');
+  const paths = pathsFor(novel, 'run-lite');
 
   for (const key of ['quarantine', 'deferredTasks', 'tasks', 'overlays', 'revisions']) {
     assert.equal(isWithin(paths.run, paths[key]), true, key);

@@ -10,7 +10,7 @@ const { applyOverlay } = require('../scripts/lib/overlay');
 const { deferredPathsFor } = require('../scripts/lib/paths');
 const { verifyInstalled } = require('../scripts/lib/install');
 const { readJson, runFlow } = require('./helpers');
-const { pass, preparePublishedV5Run } = require('./v5-published-helper');
+const { pass, preparePublishedLiteRun } = require('./lite-published-helper');
 
 function readYaml(file) {
   return yaml.load(fs.readFileSync(file, 'utf8'));
@@ -49,7 +49,7 @@ function readyTask(fixture, paths, task, operations) {
 }
 
 test('overlay applies keep merge drop and patch then promotes a verified Dashboard data revision', () => {
-  const fixture = preparePublishedV5Run({ runId: 'run-overlay-operations' });
+  const fixture = preparePublishedLiteRun({ runId: 'run-overlay-operations' });
   const paths = deferredPathsFor(fixture.novel, fixture.prepared.run_id);
   const keys = registryKeysByName(fixture.archivedRun);
   const task = addTask(fixture);
@@ -93,7 +93,7 @@ test('overlay applies keep merge drop and patch then promotes a verified Dashboa
 });
 
 test('successive overlays are cumulative and a stale task cannot replace newer Dashboard data', () => {
-  const fixture = preparePublishedV5Run({ runId: 'run-overlay-cumulative' });
+  const fixture = preparePublishedLiteRun({ runId: 'run-overlay-cumulative' });
   const paths = deferredPathsFor(fixture.novel, fixture.prepared.run_id);
   const keys = registryKeysByName(fixture.archivedRun);
   const firstTask = addTask(fixture);
@@ -137,7 +137,7 @@ test('successive overlays are cumulative and a stale task cannot replace newer D
 });
 
 test('a mutated installed registry map blocks the next deep task', () => {
-  const fixture = preparePublishedV5Run({ runId: 'run-overlay-registry-map' });
+  const fixture = preparePublishedLiteRun({ runId: 'run-overlay-registry-map' });
   const paths = deferredPathsFor(fixture.novel, fixture.prepared.run_id);
   const keys = registryKeysByName(fixture.archivedRun);
   const task = addTask(fixture);
@@ -162,7 +162,7 @@ test('a mutated installed registry map blocks the next deep task', () => {
 });
 
 test('overlay install fault restores the previous active data and leaves no applied revision', () => {
-  const fixture = preparePublishedV5Run({ runId: 'run-overlay-rollback' });
+  const fixture = preparePublishedLiteRun({ runId: 'run-overlay-rollback' });
   const paths = deferredPathsFor(fixture.novel, fixture.prepared.run_id);
   const keys = registryKeysByName(fixture.archivedRun);
   const task = addTask(fixture);

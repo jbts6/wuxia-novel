@@ -9,6 +9,8 @@ const { atomicWriteJson, readJson } = require('./io');
 const { discoverSource, normalizeSource, sha256 } = require('./source');
 const { pathsFor } = require('./paths');
 const {
+  LEGACY_PROFILE_V5,
+  PROFILE_LITE,
   PROFILE_V4,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
@@ -48,6 +50,13 @@ function readRunMetadata(runDir) {
 
 function normalizeProfile(profile) {
   if (profile === undefined || profile === null) return PROFILE_V4;
+  if (profile === LEGACY_PROFILE_V5) {
+    throw new GameKbError(
+      'PROFILE_LEGACY',
+      'The legacy v5 profile is read-only; resume it through Lite migration',
+      { profile, replacement: PROFILE_LITE }
+    );
+  }
   if (!SUPPORTED_PROFILES.has(profile)) {
     throw new GameKbError('PROFILE_UNSUPPORTED', 'Unknown game-kb profile', { profile });
   }
@@ -127,14 +136,21 @@ function createOrResumeRun(novelDir, options = {}) {
   }
   const paths = pathsFor(novel, runId);
   if (fs.existsSync(paths.runJson)) {
-    const metadata = readRunMetadata(paths.run);
-    assertSemanticContract(metadata, 'prepare', profile);
+    let metadata = readRunMetadata(paths.run);
+    assertSemanticContract(metadata, 'prepare');
     if (metadata.source_hash !== sourceHash) {
       throw new GameKbError('RUN_SOURCE_CHANGED', 'Source changed; archive the old run before resuming it', {
         run_id: runId,
         previous_source_hash: metadata.source_hash,
         source_hash: sourceHash
       });
+    }
+    const storedProfile = metadata.profile ?? PROFILE_V4;
+    if (storedProfile === LEGACY_PROFILE_V5 && profile === PROFILE_LITE) {
+      metadata = { ...metadata, profile: PROFILE_LITE };
+      atomicWriteJson(paths.runJson, metadata);
+    } else {
+      assertSemanticContract(metadata, 'prepare', profile);
     }
     ensureRunDirectories(paths);
     ensureWorkerPool(paths);
@@ -192,7 +208,15 @@ function resolveRun(novelDir, runId, expectedProfile) {
 }
 
 function resolveWritableRun(novelDir, runId, action = 'continue', expectedProfile) {
-  return assertSemanticContract(resolveRun(novelDir, runId), action, expectedProfile);
+  const metadata = resolveRun(novelDir, runId);
+  if (metadata.profile === LEGACY_PROFILE_V5) {
+    throw new GameKbError(
+      'PROFILE_LEGACY',
+      'The legacy v5 profile must be migrated with lite-prepare before writing',
+      { run_id: metadata.run_id, profile: metadata.profile, action }
+    );
+  }
+  return assertSemanticContract(metadata, action, expectedProfile);
 }
 
 module.exports = {
