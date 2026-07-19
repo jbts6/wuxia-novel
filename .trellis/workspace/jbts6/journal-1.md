@@ -1031,3 +1031,40 @@ Completed the V4-first workflow contract, derived the YAML Lite workflow, implem
 ### Next Steps
 
 - None - task complete
+
+
+## Session 21: Finish Lite naming migration and Jian Shen Yi Xiao validation
+
+**Date**: 2026-07-19
+**Task**: Finish Lite naming migration and Jian Shen Yi Xiao validation
+**Branch**: `main`
+
+### Summary
+
+Completed the legacy lightweight-product naming migration to Lite, cleaned the final five stale user-document references, preserved only read-only legacy and semantic-contract evidence, passed 346 Node tests and five Skill validators, and archived the validated V4/Lite/deep task.
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `085164af` | (see git log) |
+| `6d96a474` | (see git log) |
+| `669665b6` | (see git log) |
+| `f0dc8e42` | (see git log) |
+| `3bce9a43` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
