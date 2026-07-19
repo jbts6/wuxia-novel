@@ -20,6 +20,14 @@ function pass(result, label) {
   return result.stdout.trim() ? JSON.parse(result.stdout) : {};
 }
 
+function fileHash(file) {
+  return `sha256:${crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}`;
+}
+
+function installReceiptPath(novel) {
+  return path.join(novel, 'reports', 'generate_game_kb_install.json');
+}
+
 test('install stages exactly five YAML files and archives the previous whole data directory', () => {
   const { novel, prepared } = prepareAssembledRun({
     name: '五文件安装试书',
@@ -31,15 +39,63 @@ test('install stages exactly five YAML files and archives the previous whole dat
 
   const receipt = pass(runFlow(['install', novel, '--run', prepared.run_id, '--json']), 'install');
   assert.deepEqual(fs.readdirSync(oldData).sort(), [...DATA_FILES].sort());
+  assert.equal(receipt.schema_version, 2);
   assert.equal(receipt.run_id, prepared.run_id);
   assert.equal(receipt.semantic_contract_version, readJson(pathsFor(novel, prepared.run_id).runJson).semantic_contract_version);
   assert.match(receipt.final_data_hash, /^sha256:[a-f0-9]{64}$/);
   assert.match(receipt.id_plan_hash, /^sha256:[a-f0-9]{64}$/);
   assert.equal(receipt.migration_receipt_hash, null);
   assert.equal(typeof receipt.verification_report_hash, 'string');
+  assert.deepEqual(
+    receipt.data_file_hashes,
+    Object.fromEntries(DATA_FILES.map(filename => [filename, fileHash(path.join(oldData, filename))]))
+  );
   assert.equal(fs.existsSync(path.join(receipt.backup_path, 'legacy.json')), true);
-  assert.equal(readJson(path.join(novel, 'reports', 'generate_game_kb_install.json')).final_data_hash, receipt.final_data_hash);
+  assert.equal(readJson(installReceiptPath(novel)).final_data_hash, receipt.final_data_hash);
   assert.equal(verifyInstalled(novel).passed, true);
+});
+
+test('installed verification rejects a receipt without the complete five-file hash map', () => {
+  const fixture = prepareAssembledRun({ name: '安装文件哈希缺失试书', runId: 'run-install-file-hashes-missing' });
+  pass(runFlow(['install', fixture.novel, '--run', fixture.prepared.run_id, '--json']), 'install file hashes');
+  const receipt = readJson(installReceiptPath(fixture.novel));
+  delete receipt.data_file_hashes;
+  fs.writeFileSync(installReceiptPath(fixture.novel), `${JSON.stringify(receipt, null, 2)}\n`);
+
+  const result = verifyInstalled(fixture.novel);
+  assert.equal(result.passed, false);
+  assert.equal(
+    result.blocking_errors.some(error => error.code === 'INSTALL_DATA_FILE_HASHES_INVALID'),
+    true
+  );
+});
+
+test('installed verification rejects a receipt with a wrong data-file hash', () => {
+  const fixture = prepareAssembledRun({ name: '安装文件哈希错误试书', runId: 'run-install-file-hash-wrong' });
+  pass(runFlow(['install', fixture.novel, '--run', fixture.prepared.run_id, '--json']), 'install wrong file hash');
+  const receipt = readJson(installReceiptPath(fixture.novel));
+  receipt.data_file_hashes['characters.yaml'] = `sha256:${'0'.repeat(64)}`;
+  fs.writeFileSync(installReceiptPath(fixture.novel), `${JSON.stringify(receipt, null, 2)}\n`);
+
+  const result = verifyInstalled(fixture.novel);
+  assert.equal(result.passed, false);
+  assert.equal(
+    result.blocking_errors.some(error => error.code === 'INSTALL_DATA_FILE_HASH_MISMATCH'),
+    true
+  );
+});
+
+test('installed verification detects byte-only drift in an installed YAML file', () => {
+  const fixture = prepareAssembledRun({ name: '安装文件字节漂移试书', runId: 'run-install-file-byte-drift' });
+  pass(runFlow(['install', fixture.novel, '--run', fixture.prepared.run_id, '--json']), 'install byte drift');
+  fs.appendFileSync(path.join(fixture.novel, 'data', 'characters.yaml'), '\n');
+
+  const result = verifyInstalled(fixture.novel);
+  assert.equal(result.passed, false);
+  assert.equal(
+    result.blocking_errors.some(error => error.code === 'INSTALL_DATA_FILE_HASH_MISMATCH'),
+    true
+  );
 });
 
 test('installed verification binds ID plan and optional chapter migration evidence', () => {

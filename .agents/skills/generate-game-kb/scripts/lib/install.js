@@ -7,17 +7,18 @@ const path = require('node:path');
 const { stableHash } = require('./accept');
 const { GameKbError } = require('./errors');
 const { assertAcceptedArtifacts } = require('./candidate-ledger');
-const { CATEGORY_FILES } = require('./finalize');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { deferredPathsFor, pathsFor } = require('./paths');
 const { SEMANTIC_CONTRACT_VERSION, resolveWritableRun } = require('./run');
+const { FINAL_FILES } = require('./semantic-contract');
 const { verifyDataRoot, verifyFinal } = require('./verify');
 
-const DATA_FILES = Object.freeze(Object.values(CATEGORY_FILES).sort());
+const DATA_FILES = Object.freeze(Object.values(FINAL_FILES).sort());
 const REPORT_FILES = Object.freeze([
   'verification-report.json'
 ]);
 const INSTALL_RECEIPT = 'generate_game_kb_install.json';
+const INSTALL_RECEIPT_SCHEMA_VERSION = 2;
 const PENDING_RECEIPT = 'generate_game_kb_install.pending.json';
 const RECOVERY_REPORT = 'generate_game_kb_install_recovery.json';
 
@@ -37,6 +38,18 @@ function installPaths(novelDir) {
 
 function fileHash(file) {
   return `sha256:${crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}`;
+}
+
+function dataFileHashes(dataRoot) {
+  return Object.fromEntries(DATA_FILES.map(filename => [filename, fileHash(path.join(dataRoot, filename))]));
+}
+
+function validDataFileHashes(value) {
+  return value
+    && typeof value === 'object'
+    && !Array.isArray(value)
+    && JSON.stringify(Object.keys(value).sort()) === JSON.stringify(DATA_FILES)
+    && DATA_FILES.every(filename => /^sha256:[a-f0-9]{64}$/.test(value[filename]));
 }
 
 function jsonHash(file) {
@@ -156,7 +169,8 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
       scope: 'installed'
     };
   }
-  if (receipt.schema_version !== 1 || receipt.installer !== 'generate-game-kb') {
+  if (receipt.schema_version !== INSTALL_RECEIPT_SCHEMA_VERSION
+    || receipt.installer !== 'generate-game-kb') {
     receiptErrors.push({ code: 'INSTALL_RECEIPT_INVALID', path: paths.receipt, target: receipt.schema_version });
   }
   if (receipt.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION) {
@@ -179,6 +193,26 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
   }
   if (JSON.stringify(receipt.data_files) !== JSON.stringify(DATA_FILES)) {
     receiptErrors.push({ code: 'INSTALL_DATA_FILES_INVALID', path: 'receipt.data_files', target: '' });
+  }
+  if (!validDataFileHashes(receipt.data_file_hashes)) {
+    receiptErrors.push({
+      code: 'INSTALL_DATA_FILE_HASHES_INVALID',
+      path: 'receipt.data_file_hashes',
+      target: ''
+    });
+  } else {
+    for (const filename of DATA_FILES) {
+      const file = path.join(paths.data, filename);
+      const actualHash = fs.existsSync(file) ? fileHash(file) : null;
+      if (actualHash !== receipt.data_file_hashes[filename]) {
+        receiptErrors.push({
+          code: 'INSTALL_DATA_FILE_HASH_MISMATCH',
+          path: file,
+          target: receipt.data_file_hashes[filename],
+          actual_hash: actualHash
+        });
+      }
+    }
   }
   if (typeof receipt.run_id !== 'string' || receipt.run_id === '') {
     receiptErrors.push({ code: 'INSTALL_RUN_ID_MISSING', path: 'receipt.run_id', target: '' });
@@ -449,7 +483,7 @@ function promoteVerifiedData(novelDir, options) {
     const verificationReportHash = fileHash(path.join(installed.reports, 'verification-report.json'));
     const receipt = {
       ...(options.receiptExtras || {}),
-      schema_version: 1,
+      schema_version: INSTALL_RECEIPT_SCHEMA_VERSION,
       semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
       profile: options.profile || 'v4',
       installer: 'generate-game-kb',
@@ -461,6 +495,7 @@ function promoteVerifiedData(novelDir, options) {
         ?? previousReceipt?.migration_receipt_hash
         ?? null,
       data_files: [...DATA_FILES],
+      data_file_hashes: dataFileHashes(installed.data),
       verification_report_hash: verificationReportHash,
       chapters,
       archive_root: archiveRoot,

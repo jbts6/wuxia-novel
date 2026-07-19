@@ -132,8 +132,12 @@ Assembly produces exactly `characters.yaml`, `skills.yaml`, `items.yaml`,
 `factions.yaml`, and `chapter_summaries.yaml`. Workspace verification binds the
 version-6 schema, evidence closure, reference closure, ID registry, and final
 data hash. Installation backs up the previous `data/`, atomically installs the
-verified five files, writes bound receipts, and passes installed-only
-verification before archival.
+verified five files, writes an exact `data_file_hashes` filename-to-raw-SHA-256
+map in install receipt schema 2, and passes installed-only verification before
+archival. The aggregate parsed-data hash does not substitute for the per-file
+byte hashes because formatting-only drift must also be detected. Schema-1
+receipts fail closed and are regenerated through installation; there is no
+installed-only compatibility fallback.
 
 Every overlay first backs up the current installed `data/`, then merges into a
 new verified revision and makes that revision the active Dashboard data. It

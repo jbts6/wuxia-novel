@@ -192,15 +192,18 @@ Record candidates and complete citations from each source window, close every de
 
 ```text
 node .agents/skills/generate-game-kb/scripts/flow.js archive-existing <novel-dir>
-node .agents/skills/generate-game-kb/scripts/flow.js prepare <novel-dir>
-node .agents/skills/generate-game-kb/scripts/flow.js status <novel-dir> --json
+node .agents/skills/generate-game-kb/scripts/flow.js prepare <novel-dir> --run <run-id> --json
+node .agents/skills/generate-game-kb/scripts/flow.js import-chapters <novel-dir> --run <run-id> --from-run <legacy-run-id> --confirm --json
+node .agents/skills/generate-game-kb/scripts/flow.js status <novel-dir> --run <run-id> --json
 node .agents/skills/generate-game-kb/scripts/flow.js worker-backoff <novel-dir> --run <run-id> --batch <batch-id> --reason 429
-node .agents/skills/generate-game-kb/scripts/flow.js accept <novel-dir> --unit <unit> --draft <yaml>
+node .agents/skills/generate-game-kb/scripts/flow.js accept <novel-dir> --run <run-id> --unit <unit> --draft <yaml> --json
+node .agents/skills/generate-game-kb/scripts/flow.js retry-unit <novel-dir> --run <run-id> --unit <unit> --confirm --json
+node .agents/skills/generate-game-kb/scripts/flow.js refresh-domain-work <novel-dir> --run <run-id> --unit distill:characters|distill:skills --confirm --json
 node .agents/skills/generate-game-kb/scripts/flow.js plan-domains <novel-dir> --run <run-id>
 node .agents/skills/generate-game-kb/scripts/flow.js assemble <novel-dir> --run <run-id>
-node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir>
-node .agents/skills/generate-game-kb/scripts/flow.js install <novel-dir>
-node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir> --installed
+node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir> --run <run-id> --json
+node .agents/skills/generate-game-kb/scripts/flow.js install <novel-dir> --run <run-id> --json
+node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir> --installed --json
 node .agents/skills/generate-game-kb/scripts/flow.js archive-run <novel-dir> --run <run-id>
 node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-dir> --run <run-id> --confirm
 ```
@@ -209,11 +212,14 @@ Normal stage order is `archive-existing -> prepare -> chapter:NNN accept -> plan
 
 ### 3. Contracts
 
-- The writable V4 profile is `semantic_contract_version: 5`, `semantic_profile: domain-distill-v1`, and `profile: v4`. Version 4 runs are observational evidence only and fail every write path with `LEGACY_SEMANTIC_CONTRACT`; no in-place upgrade is allowed.
+- The writable V4 profile is `semantic_contract_version: 6`, `semantic_profile: domain-distill-v1`, and `profile: v4`. Version 5 and earlier runs are observational evidence only and fail every write path with `LEGACY_SEMANTIC_CONTRACT`; no in-place upgrade is allowed. A new V6 run may reuse legacy accepted chapters only through controller-owned `import-chapters`, which validates source paths, chapter numbers, source hashes, and accepted hashes without mutating the legacy run.
 - AI staging drafts, accepted evidence, and final consumer data use YAML. Controller state, manifests, receipts, and reports use JSON.
 - Each run lives below `<novel-dir>/.game-kb-work/runs/<run-id>/`. Staging accepts only the current `<unit>_attempt_<attempt+1>.yaml`; accepted bytes are immutable and bound in `artifact-manifest.json`.
-- Chapter units directly read one complete source chapter and emit characters, skills with nested techniques, items, factions, and one chapter summary. Techniques remain nested under skills.
+- The controller groups adjacent chapters into dynamic worker jobs of two or three chapters with at most 36,000 CJK characters. Oversized chapters and an unpairable tail may be single-chapter jobs. Every chapter remains an independent `chapter:NNN` unit with one controller-issued absolute `staging_path`; a worker reads and writes each chapter in descriptor order and reports progress after every YAML write. `古龙/剑神一笑` is the real-corpus fixture: 20 chapters and job sizes `[3, 3, 3, 3, 3, 3, 2]`.
+- Chapter units directly read one complete source chapter and emit characters, skills with nested techniques, items, factions, and one chapter summary. Character `identities/factions/skills` and skill `aliases/types/factions` are arrays. Characters never carry `items`; skills never carry users/holders; items never carry owners/holders; factions never carry members. Techniques remain nested under skills and require an explicitly named source move.
 - `plan-domains` deterministically builds the candidate registry and exactly four domain work units. All four domains are independent and may be processed concurrently. The canonical order `distill:factions`, `distill:characters`, `distill:skills`, and `distill:items` is used only for presentation and reports.
+- Character and skill work items bind all controller-issued full-book `source_files` and a rank contract. Rank is a complete-timeline stable judgment, not the highest single-chapter portrayal: later direct wins, losses, counters, and reversals override early praise; rumor and status alone cannot support a high rank. Evidence-insufficient records keep `rank: null` without entering manual review.
+- Exact display names and identical pinyin slugs never authorize automatic semantic merge. Full-book domain decisions decide keep/merge, while controller-owned identity anchors and persisted alphabetic digest suffixes disambiguate colliding IDs. Renames, aliases, input order, and unrelated additions must not change an existing entity ID.
 - Character and skill inputs expose the deterministic faction-only `allowed_faction_refs` set, and that set participates in the input hash. A non-null `patch.faction` must belong to this set; an unknown ref or a visible existing ref from another category is rejected before accepted evidence is written.
 - Character and skill faction references remain late-bound until `assemble`, which resolves aliases and merges after all four domain decisions exist.
 - Every domain entry receives exactly one keep, same-category merge, finite-reason reject, or pending decision. Pending, missing, duplicate, cross-category, cyclic, stale, or unresolved decisions block assembly.
@@ -223,10 +229,10 @@ Normal stage order is `archive-existing -> prepare -> chapter:NNN accept -> plan
 - `verifyDataRoot` validates any five-file dataset for exact filenames and fields, YAML arrays, IDs, enums, summary coverage, nested technique names, stable hash, and reference closure.
 - Workspace `verify` additionally proves chapter/domain evidence, accepted immutability, ordinary-item exclusion, candidate closure, report freshness, and zero unresolved manual review. It writes `verification-report.json` only after passing.
 - Normal verification has no recall/supplement stage, quantity gate, sampling gate, or secondary game-material projection.
-- Installation uses sibling staging and directory swap with rollback. The install receipt binds semantic version, source hash, verification-report hash, final-data hash, chapter list, and the five-file set.
+- Installation uses sibling staging and directory swap with rollback. Install receipt schema 2 binds semantic version, source hash, verification-report hash, final-data hash, chapter list, the exact five-file set, and `data_file_hashes`: an exact filename-to-raw-SHA-256 map for all five installed YAML files. Schema-1 receipts fail closed and must be regenerated by installation rather than read through a compatibility fallback.
 - Installed verification reads only installed data, the install receipt, and the installed verification report. It never falls back to workspace artifacts.
 - The worker pool starts at five, records one explicit 429 incident per batch, reduces `5 -> 3` on the first distinct 429 batch, and halts on a second distinct 429 batch while at fallback concurrency three. Transport failures never consume an AI submission.
-- Every AI unit has at most two validated submissions. YAML parse and semantic failures use a shared submission budget; a failed second submission, repeated output, or repeated validation error enters `manual_review`.
+- Every AI unit cycle has one initial validated submission and at most one automatic retry. YAML parse and semantic failures use the shared two-submission budget; a failed second submission, repeated output, or repeated validation error enters `manual_review`. Only a user-confirmed `retry-unit --confirm` may start a fresh bounded cycle; the controller then issues a new attempt and staging path.
 - `status --json` returns exactly one `next_action`; AI phases also return canonically ordered `next_units`, with manual review taking precedence over executable actions.
 - Recovery and archive inspect the current workspace `final/data` through the canonical read-only five-file validator. Changed, missing, extra, malformed, schema-invalid, reference-invalid, summary-incomplete, or hash-mismatched workspace YAML invalidates the current assembly boundary; status routes to `assemble` without writing.
 - Before any archive metadata write or run move, `archive-run` additionally requires the workspace verification report to have `passed: true`, the current source and final-data hashes, and a byte hash equal to `run.json.verification_report_hash`. Any mismatch raises `ARCHIVE_WORKSPACE_FINAL_INVALID`; a successful `archive-receipt.json` binds the same `verification_report_hash`.
@@ -236,24 +242,27 @@ Normal stage order is `archive-existing -> prepare -> chapter:NNN accept -> plan
 
 - Multiple active runs -> `RUN_AMBIGUOUS`; never select or archive one implicitly.
 - Missing or different semantic version on a write path -> `LEGACY_SEMANTIC_CONTRACT`; preserve all evidence.
+- Legacy import with changed source paths, chapter numbers, source hashes, accepted hashes, or a writable target mismatch -> fail closed and preserve both runs byte-for-byte.
 - A staging path outside the selected run, wrong next attempt, or symlink escape -> reject before changing the attempt budget.
 - Unknown `patch.faction` -> `DOMAIN_REFERENCE_UNKNOWN`; an existing but non-faction or otherwise unauthorized ref -> `DOMAIN_REFERENCE_UNAUTHORIZED`. Both block accepted-evidence creation.
 - Accepted hash mismatch -> `ACCEPTED_ARTIFACT_MUTATED`; assembly, verification, and installation stop.
 - Incomplete domain coverage or pending/cyclic/invalid decisions -> assembly failure; preserve the previous final directory.
 - Missing chapter summary, invalid source evidence, ordinary-item keep, unnamed technique, unresolved reference, stale assembly receipt, or unresolved manual review -> workspace verification failure.
 - Missing, extra, malformed, or schema-invalid final YAML -> five-file verification failure.
-- Missing or stale verification report/install receipt, file hash mismatch, or chapter-list mismatch -> installed verification failure without workspace fallback.
+- Missing or stale verification report/install receipt, an absent/malformed `data_file_hashes` map, any raw installed-file hash mismatch (including byte-only YAML drift), or chapter-list mismatch -> installed verification failure without workspace fallback.
 - Workspace final YAML drift, a non-passing/stale workspace verification report, or report bytes that do not match `run.json.verification_report_hash` -> direct `archive-run` raises `ARCHIVE_WORKSPACE_FINAL_INVALID` with canonical blocking errors before changing metadata or moving the live run.
 - Any failure before or after the installation move restores the previous installed directory.
 
 ### 5. Good/Base/Bad Cases
 
-- Good: the main model resumes the unique writable run, accepts chapter YAML serially, plans four domains, accepts four terminal decision sets, assembles byte-stable YAML, verifies evidence, installs atomically, verifies installed bytes, and archives the complete run.
+- Good: the main model resumes the selected writable V6 run, dynamically assigns adjacent 2-3 chapter jobs while each chapter writes its own controller staging path, accepts chapter YAML serially, plans four domains, accepts four terminal decision sets, assembles byte-stable YAML, verifies evidence, installs atomically, verifies installed bytes, and archives the complete run.
+- Good: a real `古龙/剑神一笑` migration imports 20 immutable V5 chapters into a new V6 run, produces `[3, 3, 3, 3, 3, 3, 2]` jobs, completes all four domains, and leaves the legacy run tree hash unchanged.
 - Good: rerunning `assemble` with unchanged accepted evidence produces byte-identical files and the same final-data hash.
 - Good: character/skill work exposes only faction refs in `allowed_faction_refs`; archive binds the exact passing workspace verification-report hash in both run metadata and the archive receipt.
 - Base: a source-grounded named technique has no source-stated parent skill; keep a null relation. Every non-empty relation must resolve.
 - Base: category arrays may be empty when the source contains no valid entity; completeness is proved by accepted chapter evidence and closed decisions, not by count.
 - Bad: asking AI to assign final IDs, mutating accepted YAML, accepting pending decisions, or repairing semantic data during verification.
+- Bad: automatically merging equal display names or equal pinyin slugs, treating a disguise label as proof of actor identity, or taking a single chapter's strongest claim as the final rank.
 - Bad: accepting a guessed globally visible ref as `patch.faction`, or archiving a parseable report merely because its final-data hash matches.
 - Bad: restoring removed categories, emitting an extra consumer file, installing without current receipts, or verifying installed data by reading the work run.
 - Bad: reopening semantic work merely because a count is low or adding records to satisfy a quota.
@@ -262,9 +271,11 @@ Normal stage order is `archive-existing -> prepare -> chapter:NNN accept -> plan
 
 - Skill contract: assert autonomous routing, YAML/JSON boundaries, the full normal-stage order, four stable domain units, exactly five final files, and exclusion of removed stages and projections.
 - Chapter/domain contract: assert source evidence, named-technique rules, ordinary-item reasons, exact decision coverage, legal merges, hashed faction-only `allowed_faction_refs`, unknown/unauthorized faction rejection before acceptance, and forbidden private/final IDs.
+- V6 semantic contract: assert array fields across chapter/domain/final schemas, uniform `description`, forbidden holder/member/user/item links, exact-name candidates remaining separate before full-book decisions, persistent ID disambiguators, and null rank when full-book evidence is insufficient.
+- Real corpus: read `古龙/剑神一笑/剑神一笑.txt` through production prepare/status, assert 20 chapters, adjacent job sizes `[3, 3, 3, 3, 3, 3, 2]`, Chinese absolute path preservation, one current staging path per descriptor, V5 chapter import immutability, four domain accepts, five-file assembly, workspace verify, install, installed verify, and archive receipt bindings.
 - Deterministic assembly: assert pending/missing/cyclic decisions fail, references close once, chapter summaries project to `{ chapter, title, summary }`, atomic rollback works, and repeated assembly is byte-stable.
 - Workspace verification: assert exact fields/files, YAML parsing, IDs/enums, summary coverage, nested techniques, reference closure, accepted immutability, candidate closure, evidence, ordinary-item exclusion, and fresh report hashes.
-- Installation: assert only five files are staged, the previous whole data directory is archived, receipts bind current hashes, pre/post-move failures roll back, reinstall is idempotent, and installed verification has no workspace fallback.
+- Installation: assert only five files are staged, the previous whole data directory is archived, receipts bind the exact raw SHA-256 of each current YAML file through `data_file_hashes`, missing/wrong maps and byte-only drift fail installed verification, pre/post-move failures roll back, reinstall is idempotent, and installed verification has no workspace fallback.
 - Recovery/archive freshness: change, remove, and add workspace final YAML after verification; status must route to `assemble`. Direct archive must reject non-passing, stale-source, stale-final, and byte-hash-mismatched workspace reports before metadata writes or the run move, preserve pre-call metadata/metrics/location, and bind the current verification-report hash in the success receipt.
 - Integration: run three chapters through the exact normal path `prepare -> chapter accepts -> plan-domains -> four domain accepts -> assemble -> verify -> install -> verify --installed -> archive-run`; assert the archived receipt and exactly five installed YAML files.
 - Performance: feed a checked 21-chapter/four-domain fixture through the real `buildRunMetrics`; require every raw unit at no more than two attempts, exact current-v4 AI aggregates, positive prepare/chapter/domain/assemble/verify/install/archive durations, and total time at or below `2,700,000ms`.
@@ -273,8 +284,8 @@ Normal stage order is `archive-existing -> prepare -> chapter:NNN accept -> plan
 
 #### Wrong
 
-Preserve the legacy merge/clean/build chain behind a new command name, then trust counts or model-authored reports as proof.
+Preserve the legacy merge/clean/build chain behind a new command name, trust counts or model-authored reports as proof, or list five filenames in an install receipt without binding each installed file's raw bytes.
 
 #### Correct
 
-Bound late faction refs in the hashed domain input, run the real three-chapter verify/install/installed-verify/archive path, require the exact passing verification-report hash before archive, and pair it with real-`buildRunMetrics` 21-chapter/four-domain timing evidence; do not substitute a hand-built aggregate or omit the source/evidence integration path.
+Bound late faction refs in the hashed domain input, run the real three-chapter verify/install/installed-verify/archive path, require the exact passing verification-report hash before archive, bind all five installed YAML byte hashes in `data_file_hashes`, and pair it with real-`buildRunMetrics` 21-chapter/four-domain timing evidence; do not substitute a hand-built aggregate or omit the source/evidence integration path.

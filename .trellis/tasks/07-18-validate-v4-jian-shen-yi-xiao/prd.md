@@ -154,6 +154,11 @@ The previous task was archived after the generic Node suite passed, but the plan
   units with zero submissions. Refreshing character or skill work must not
   change an accepted faction unit or an unsubmitted item draft.
 - Complete `assemble`, workspace `verify`, `install`, installed `verify`, and `archive-run` without bypassing a gate.
+- Bind the exact raw SHA-256 of each of the five installed YAML files in install
+  receipt schema 2. Installed verification must reject legacy receipt schema 1,
+  an absent or malformed
+  map, any wrong hash, and byte-only file drift even when parsed data and the
+  aggregate `final_data_hash` remain unchanged.
 - Preserve rejected drafts and stop on `manual_review`; use `retry-unit --confirm` only when an actual bounded retry cycle requires user-authorized recovery.
 - Do not modify production behavior unless the real-corpus test or run exposes a reproducible defect.
 
@@ -255,7 +260,9 @@ The previous task was archived after the generic Node suite passed, but the plan
   all read the same plural affiliation contract without a singular fallback.
 - [ ] Assembly produces exactly `characters.yaml`, `skills.yaml`, `items.yaml`, `factions.yaml`, and `chapter_summaries.yaml`.
 - [ ] Workspace verification passes with no unresolved manual review, stale evidence, missing source reference, ordinary-item violation, or open final reference.
-- [ ] Installation backs up any prior `data/` as required and the Dashboard-facing `data/` contains exactly the verified five-file revision.
+- [ ] Installation backs up any prior `data/` as required, the Dashboard-facing
+  `data/` contains exactly the verified five-file revision, and the install
+  receipt's `data_file_hashes` exactly matches the raw bytes of all five files.
 - [ ] `verify --installed` passes from installed artifacts without workspace fallback.
 - [ ] `archive-run` writes an archive receipt bound to the artifact manifest and passing verification report.
 - [ ] The complete V4 Node suite, production JavaScript syntax checks, Skill validator, and `git diff --check` pass after any required fix.

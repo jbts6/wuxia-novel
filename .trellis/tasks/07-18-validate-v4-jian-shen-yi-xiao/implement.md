@@ -216,7 +216,10 @@
 **Interfaces:**
 - `importAcceptedChapters({ paths, fromRunId, targetRunId, confirmed })` validates first, transforms an allowlisted v5 shape, writes atomically, and returns a receipt with source/accepted/target hashes.
 - CLI: `import-chapters <novel> --from-run <v5-run-id> --run <v6-run-id> --confirm`.
-- Install/overlay/archive receipts bind semantic version 6, ID-registry hash, five-file hash, verification hash, and migration-receipt hash when present.
+- Install receipt schema 2 and overlay/archive receipts bind semantic version 6, ID-registry hash,
+  aggregate final-data hash, the exact raw SHA-256 of each of the five YAML
+  files through `data_file_hashes`, verification hash, and migration-receipt
+  hash when present.
 
 - [ ] **Step 1: Write import RED tests**
 
@@ -235,7 +238,11 @@
 
 - [ ] **Step 4: Write publication/overlay receipt RED tests**
 
-  Prove installed-only verification is version-aware, the previous `data/` is backed up on every overlay, overlays merge cumulatively from current data into a verified temporary revision, active files are never patched in place, and registry/migration hashes survive install and archive.
+  Prove installed-only verification is version-aware, rejects missing/wrong
+  `data_file_hashes` and byte-only YAML drift, the previous `data/` is backed up
+  on every overlay, overlays merge cumulatively from current data into a
+  verified temporary revision, active files are never patched in place, and
+  registry/migration hashes survive install and archive.
 
 - [ ] **Step 5: Implement version-aware lifecycle binding**
 
@@ -374,7 +381,9 @@
 
 - [ ] **Step 5: Assemble, verify, install, verify installed, and archive**
 
-  Record the five filenames, final-data hash, ID-registry hash, verification-report hash, backup path, install receipt, installed verification, archive manifest, and archive receipt.
+  Record the five filenames, five raw file hashes, final-data hash, ID-registry
+  hash, verification-report hash, backup path, install receipt, installed
+  verification, archive manifest, and archive receipt.
 
 - [ ] **Step 6: Verify Dashboard data and commit evidence**
 

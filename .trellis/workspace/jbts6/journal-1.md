@@ -40,6 +40,56 @@
 - None - task complete
 
 
+## Session 21: 《剑神一笑》V4 semantic-contract V6 真实生命周期验证
+
+**Date**: 2026-07-19
+**Task**: `.trellis/tasks/07-18-validate-v4-jian-shen-yi-xiao`
+**Branch**: `main`
+
+### Real run
+
+- Novel: `C:\git\wuxia-novel\古龙\剑神一笑`
+- Writable run: `run-jian-shen-yi-xiao-v4-v6-20260718`
+- Imported legacy run: `run-jian-shen-yi-xiao-v4-real-20260718`
+- Contract: `semantic_contract_version: 6`, `semantic_profile: domain-distill-v1`, `profile: v4`
+- Source hash: `sha256:e22d8017ed92b999a2da0f5fbb4ac063b318b13a55918d8a9f12f041e0d04c36`
+- Production prepare/status resolved 20 chapters and seven adjacent jobs with sizes `[3, 3, 3, 3, 3, 3, 2]`; every descriptor preserved the Chinese absolute source/staging path.
+- `import-chapters` accepted all 20 immutable legacy chapters. Receipt: `reports/chapter-import-receipt.json`, hash `sha256:2abf0e90c066c33516cfd98dac24ac31ffc4447509adcc29b5bb5ee6ac07fa38`.
+- The legacy run remained 101 files with tree hash `2ca3f4bf3cf203f6c4e3418894834b3d54d0ac4dd5ee65e2c1800d0a2fd63d52` before import, after import, after install, and after archive.
+
+### Domain acceptance
+
+- `distill:factions`: keep 15 / merge 4 / reject 1; accepted on attempt 1; draft hash `sha256:eae56346a7c85fc8fbdc4d423b3a5e67cfc81dd3ed64e4479d91cc0563dacb16`.
+- `distill:characters`: 179/179 decisions, keep 47 / merge 132, rank 10 non-null / 37 null; accepted on attempt 1; draft hash `sha256:6a183b4a38025f4f9911d0bab21a9ab3ca7eaf26d5ddb82c4cb94baa4e74abe9`.
+- `distill:skills`: 14/14 decisions, keep 9 / merge 5, rank 4 non-null / 5 null; accepted on attempt 1; draft hash `sha256:aba0cb96c4e74558d5d7f263591587fb1e30b2ea04b7c63174a359d9589c90bf`.
+- `distill:items`: keep 12 / merge 2 / reject 7; accepted on attempt 1; draft hash `sha256:e49f3653b88aa3243e177ed2836b3b3a287f5da237a810f164cfafc5713cde98`.
+- Every production `validateDomainDecisionDraft` run returned zero errors; there were no missing/duplicate refs, merge cycles, forbidden fields, quarantine files, retries, stale units, or manual review.
+
+### Semantic findings
+
+- Full-book identity resolution corrected the apparent ch14-17 actor chain: the fake Ximen / surface Sikong entries `r000128-r000131` plus fake-Ximen surface entry `r000152` merge into `老实和尚`; `r000171-r000175` (`小老头`) merge into the real `司空摘星`. Equal surface names were not treated as actor identity.
+- Full-book rank audit read and hash-checked all 20 controller source files. All ten non-null character ranks were supported by stable direct evidence; deliberate captures and disguise deaths were not misread as genuine combat losses.
+- Item review corrected `狭长乌鞘` from weapon to `其他`, and downgraded `波斯宝刀` from unsupported `神兵利器` to `其他稀有特殊`. Same-name daggers/short knives remained separate without identity evidence.
+
+### Assembly, verification, install, and archive
+
+- Assembly produced exactly five YAML files with counts: characters 47, skills 9, items 12, factions 15, chapter summaries 20.
+- `final_data_hash`: `sha256:6410b0dfd2ad058023ec475b64fbc27c32ff19ed0c9c364647b1563c34fc49ff`.
+- `id_plan_hash`: `sha256:b58d36910ebb9e6a10d26f4aa8e7356d7a9f4ed6440db6467eba47b4acc74fa2`.
+- Workspace verification passed with zero blocking errors and zero warnings. Verification report hash: `sha256:e2538115ac2f186029433478bb401601f5dcdbbfab74c26b36cc8ffc23f3510a`.
+- Install receipt: `古龙/剑神一笑/reports/generate_game_kb_install.json`. The pre-install `data/` state was `missing`, so there was no previous data directory to back up; the installed directory contains exactly the five verified YAML files.
+- Post-run audit found that this receipt records only `data_files`, not a per-file raw SHA-256 map. `verify --installed` therefore passed the parsed aggregate `final_data_hash` without proving the exact bytes of each installed YAML file. This is a reproducible lifecycle-contract defect; the archived run is retained as audit evidence but does **not** satisfy final V4 acceptance.
+- The missing guard is covered by RED tests for an absent map, a wrong hash, and byte-only YAML drift that preserves the parsed aggregate. The repair introduces install receipt schema 2 with an exact `data_file_hashes` map; schema 1 and incomplete schema 2 fail closed before a fresh V6 run is accepted.
+- Archive: `古龙/剑神一笑/_archive/generate-game-kb/run-jian-shen-yi-xiao-v4-v6-20260718`.
+- Archive receipt hash: `sha256:c3126d75762ef93c28301a98ad50713e268f7bca6cf1ac9e22684cffff32f050`.
+- Artifact manifest hash: `sha256:7a43f178e5dea2b3fba997cbe068191b3378238f7b07e1bb2fa158dcec2da05f`.
+- Archive receipt binds the same verification/final/ID/migration hashes and reports 25 artifacts; metrics hash `sha256:f8175612e28aa44e8703b9ed0699de3688b452cfd2d801bd8d92641bc8097e5f`.
+
+### Quality gate
+
+- Pending final repository-wide Node suite, production JavaScript syntax checks, Skill validator, `git diff --check`, and staged artifact review before the phase commit.
+
+
 ## Session 2: generate-kb 多情剑客无情剑 + skill 精简
 
 **Date**: 2026-07-11
