@@ -112,7 +112,10 @@ export default function Library() {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
   const [authorFilter, setAuthorFilter] = useState('all');
   const [search, setSearch] = useState('');
-  const [sorting, setSorting] = useState<SortingState>([{ id: 'lastUpdatedAt', desc: true }]);
+  const [sorting, setSorting] = useState<SortingState>([
+    { id: 'validationStatus', desc: false },
+    { id: 'contentCoverage', desc: true },
+  ]);
   const [copied, setCopied] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
@@ -195,15 +198,22 @@ export default function Library() {
       {
         id: 'contentCoverage',
         size: 120,
-        accessorFn: (book: LibraryBookStatus) => book.contentCoverage.detailed,
+        accessorFn: (book: LibraryBookStatus) => {
+          const stateOrder = { complete: 0, partial: 1, 'index-only': 2, empty: 3 };
+          return stateOrder[book.contentCoverage.state] ?? 4;
+        },
         header: ({ column }: { column: Column<LibraryBookStatus, unknown> }) => <SortHeader label="内容" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
         cell: ({ row }: { row: Row<LibraryBookStatus> }) => contentCoverageBadge(row.original),
       },
       {
-        accessorKey: 'validationStatus',
+        id: 'validationStatus',
         size: 140,
-        header: '校验状态',
-        cell: ({ row }) => validationBadge(row.original),
+        accessorFn: (book: LibraryBookStatus) => {
+          const statusOrder = { passed: 0, 'legacy-unproven': 1, failed: 2, 'not-validated': 3 };
+          return statusOrder[book.validationStatus] ?? 4;
+        },
+        header: ({ column }: { column: Column<LibraryBookStatus, unknown> }) => <SortHeader label="校验状态" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
+        cell: ({ row }: { row: Row<LibraryBookStatus> }) => validationBadge(row.original),
       },
       {
         id: 'browseable',
