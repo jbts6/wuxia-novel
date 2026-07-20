@@ -61,6 +61,22 @@ test('Lite Skills expose executable bootstrap and resume commands without exampl
   }
 });
 
+test('Lite Skills expose controller-owned candidate planning before publication', () => {
+  for (const [label, contract] of [['English', read('SKILL.md')], ['Chinese', read('SKILL-cn.md')]]) {
+    assert.match(contract, /lite-plan-domains/iu, `${label}: lite planning command`);
+    assert.match(contract, /(?:candidate registry|候选注册表|candidate-registry)/iu, `${label}: registry ownership`);
+    assert.ok(
+      contract.indexOf('lite-plan-domains') < contract.indexOf('lite-publish'),
+      `${label}: planning must precede publication`,
+    );
+    assert.match(
+      contract,
+      /(?:does not|不得|不自动|不派发)[^\r\n]*(?:domain worker|域 Worker|full-book domain|全书域)/iu,
+      `${label}: Lite does not dispatch full-book domain workers`,
+    );
+  }
+});
+
 test('Lite Skills define a cross-batch rolling pool with a guarded serial broker barrier', () => {
   const english = read('SKILL.md');
   const chinese = read('SKILL-cn.md');

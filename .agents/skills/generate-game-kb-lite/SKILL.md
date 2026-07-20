@@ -147,7 +147,10 @@ dispatch or accept more chapter work in that run; create a fresh V6 Lite run.
 2. Run `lite-status` after each brokered batch.
 3. When requested, run `lite-basic-curate` with the controller-issued YAML or the
    explicit `--skip` choice.
-4. Run `lite-publish` only when status returns that `next_action`.
+4. Run `lite-plan-domains` only when status returns that `next_action`. This
+   controller command creates or validates the immutable `candidate-registry.json`
+   and domain plan; Lite does not dispatch full-book domain workers.
+5. Run `lite-publish` only when status returns that `next_action`.
 
 Never copy final files manually or bypass a failed controller gate.
 
