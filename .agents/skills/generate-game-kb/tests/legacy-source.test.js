@@ -132,6 +132,22 @@ test('discovers chapter inventories inside the generic archive root used by lega
   }
 });
 
+test('discovers the retained top-level ch_split inventory without re-extracting the novel', () => {
+  const novel = temporaryNovel();
+  try {
+    const root = path.join(novel, 'ch_split');
+    fs.mkdirSync(root, { recursive: true });
+    fs.writeFileSync(path.join(root, 'ch_001.txt'), '第一章\n现成章节切分。\n', 'utf8');
+
+    const inventory = loadExistingChapterInventory(novel);
+
+    assert.equal(inventory.root, root);
+    assert.deepEqual(inventory.chapters.map(chapter => chapter.number), [1]);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+  }
+});
+
 test('rejects complete retained finals that cannot bind the current chapter inventory', () => {
   const novel = temporaryNovel();
   try {

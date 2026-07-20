@@ -30,6 +30,7 @@ const {
 const { applyOverlay } = require('./lib/overlay');
 const { installVerifiedData, verifyInstalled } = require('./lib/install');
 const { atomicWriteFile, readJson, readYaml } = require('./lib/io');
+const { executeLegacyMigration, planLegacyMigration } = require('./lib/legacy-migration');
 const { resolveNextAction } = require('./lib/next-action');
 const { pathsFor, repositoryRootFor } = require('./lib/paths');
 const {
@@ -481,6 +482,22 @@ function main(argv = process.argv.slice(2)) {
     process.stdout.write(`${JSON.stringify(output, null, json ? 0 : 2)}\n`);
   };
   try {
+    if (command === 'migrate-legacy') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'migrate-legacy requires <novel>');
+      if (!requestedRun) throw new GameKbError('RUN_REQUIRED', 'migrate-legacy requires --run <run-id>');
+      const plan = planLegacyMigration(novelDir, {
+        explicitDataRoot: flagValue(args, '--from')
+      });
+      const result = args.includes('--confirm')
+        ? executeLegacyMigration(plan, {
+          confirm: true,
+          runId: requestedRun,
+          stagingRoot: flagValue(args, '--staging-root')
+        })
+        : plan;
+      emit(result);
+      return;
+    }
     if (command === 'archive-existing') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-existing requires <novel>');
       try {

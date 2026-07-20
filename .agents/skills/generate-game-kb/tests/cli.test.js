@@ -36,6 +36,50 @@ function acceptDraft(novel, unit, draft, attempt) {
   return runFlow(['accept', novel, '--unit', unit, '--draft', draftFile, '--json']);
 }
 
+function writeJson(file, value) {
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+}
+
+function legacyMigrationFixture() {
+  const novel = makeNovel('迁移试书', '第一章 旧事\n旧人物出场。\n');
+  const chapters = path.join(novel, '.game-kb-work', 'runs', 'legacy-source', 'source', 'chapters');
+  fs.mkdirSync(chapters, { recursive: true });
+  fs.writeFileSync(path.join(chapters, 'ch_001.txt'), '第一章 旧事\n旧人物出场。\n', 'utf8');
+  const data = path.join(novel, 'data');
+  writeJson(path.join(data, 'characters.json'), [{
+    id: 'char_legacy',
+    name: '旧人物',
+    source_refs: [{ chapter: 1, text: '旧人物出场。' }]
+  }]);
+  writeJson(path.join(data, 'skills.json'), []);
+  writeJson(path.join(data, 'items.json'), []);
+  writeJson(path.join(data, 'factions.json'), []);
+  writeJson(path.join(data, 'chapter_summaries.json'), [{
+    chapter: 1,
+    title: '第一章 旧事',
+    summary: '旧人物出场。',
+    source_refs: []
+  }]);
+  return { data, novel };
+}
+
+function snapshotTree(root) {
+  const rows = [];
+  const visit = directory => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })
+      .sort((left, right) => left.name < right.name ? -1 : left.name > right.name ? 1 : 0)) {
+      const file = path.join(directory, entry.name);
+      const relative = path.relative(root, file).split(path.sep).join('/');
+      rows.push([entry.isDirectory() ? 'directory' : 'file', relative,
+        entry.isDirectory() ? null : fs.readFileSync(file).toString('base64')]);
+      if (entry.isDirectory()) visit(file);
+    }
+  };
+  visit(root);
+  return rows;
+}
+
 test('prepare creates a current v4 manifest and returns JSON', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   const result = runFlow(['prepare', novel, '--json']);
@@ -301,4 +345,59 @@ test('assemble CLI projects the exact five deterministic YAML files', () => {
   ]);
   assert.match(fixture.assembled.final_data_hash, /^sha256:[a-f0-9]{64}$/);
   assert.deepEqual(fs.readdirSync(fixture.paths.finalData).sort(), [...DATA_FILES].sort());
+});
+
+test('migrate-legacy requires a run id and is read-only without --confirm', () => {
+  const fixture = legacyMigrationFixture();
+  const missingRun = runFlow([
+    'migrate-legacy', fixture.novel, '--from', fixture.data, '--json'
+  ]);
+  assert.notEqual(missingRun.status, 0);
+  assert.equal(parseJsonLine(missingRun.stderr).code, 'RUN_REQUIRED');
+
+  const before = snapshotTree(fixture.novel);
+  const planned = runFlow([
+    'migrate-legacy', fixture.novel,
+    '--run', 'migration-cli-dry-run',
+    '--from', fixture.data,
+    '--json'
+  ]);
+
+  assert.equal(planned.status, 0, planned.stderr);
+  const output = JSON.parse(planned.stdout);
+  assert.equal(output.operation, 'legacy-json-to-v6');
+  assert.equal(output.source.data_root, fixture.data);
+  assert.deepEqual(snapshotTree(fixture.novel), before);
+});
+
+test('migrate-legacy executes only with --confirm and an explicit staging root', () => {
+  const fixture = legacyMigrationFixture();
+  const missingStaging = runFlow([
+    'migrate-legacy', fixture.novel,
+    '--run', 'migration-cli-confirm',
+    '--from', fixture.data,
+    '--confirm',
+    '--json'
+  ]);
+  assert.notEqual(missingStaging.status, 0);
+  assert.equal(parseJsonLine(missingStaging.stderr).code, 'MIGRATION_STAGING_REQUIRED');
+
+  const stagingRoot = path.join(path.dirname(fixture.novel), 'migration-cli-staging');
+  try {
+    const migrated = runFlow([
+      'migrate-legacy', fixture.novel,
+      '--run', 'migration-cli-confirm',
+      '--from', fixture.data,
+      '--staging-root', stagingRoot,
+      '--confirm',
+      '--json'
+    ]);
+    assert.equal(migrated.status, 0, migrated.stderr);
+    assert.equal(JSON.parse(migrated.stdout).status, 'verified');
+    const verified = runFlow(['verify', fixture.novel, '--installed', '--json']);
+    assert.equal(verified.status, 0, verified.stderr);
+    assert.equal(JSON.parse(verified.stdout).passed, true);
+  } finally {
+    fs.rmSync(stagingRoot, { recursive: true, force: true });
+  }
 });

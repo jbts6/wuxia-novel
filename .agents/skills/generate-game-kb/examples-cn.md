@@ -23,3 +23,16 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-run "C:\git\wuxia-n
 ```
 
 `unit` 是通用工作单元：`chapter:001` 表示章节，`distill:characters` 表示全书人物域。每个 Worker envelope 提交前都必须打开并检查干净的 guard。`retry-unit` 需要用户确认，并且新的周期仍最多自动重试一次。
+
+## 旧 V6 审计与确定性迁移
+
+下面直接使用真实中文路径，无需给作者或书名改名。第一条迁移命令只生成只读 plan，第二条才执行 mutation。
+
+```text
+node .agents/skills/generate-game-kb/scripts/audit-v6.js "C:\git\wuxia-novel" --output ".trellis\tasks\07-19-audit-v6-knowledge-bases\reports"
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\金庸\书剑恩仇录" --run migration-shu-jian-en-chou-lu-v6 --from "C:\git\wuxia-novel\金庸\书剑恩仇录\data" --json
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\金庸\书剑恩仇录" --run migration-shu-jian-en-chou-lu-v6 --from "C:\git\wuxia-novel\金庸\书剑恩仇录\data" --staging-root "C:\git\wuxia-novel\.game-kb-migration-staging\金庸\书剑恩仇录" --confirm --json
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\金庸\书剑恩仇录" --run migration-shu-jian-en-chou-lu-v6 --from "C:\git\wuxia-novel\金庸\书剑恩仇录\_archive\migration-shu-jian-en-chou-lu-v6-legacy\data" --staging-root "C:\git\wuxia-novel\.game-kb-migration-staging\金庸\书剑恩仇录" --confirm --json
+```
+
+`migrate-legacy` 不是 Worker 工作单元，不接受 `--unit`。迁移失败后，旧生成数据只保留在 `_archive`，不得恢复为活动 `data`；实际重试优先原样执行 `migration-report.json` 输出的 `retry_command`。

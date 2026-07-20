@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
+const yaml = require('js-yaml');
 
 const { deferredPathsFor, pathsFor } = require('../scripts/lib/paths');
 const { verifyFinal } = require('../scripts/lib/verify');
@@ -153,6 +154,48 @@ test('builds and verifies a deterministic isolated V6 candidate from legacy JSON
   }
 });
 
+test('merges multi-chapter candidates from the same legacy record without guessing identity', () => {
+  const novel = writeNovelFixture();
+  const stagingRoot = path.join(novel, '..', `${path.basename(novel)}-duplicate-staging`);
+  try {
+    const chapterTwo = path.join(
+      novel, '.game-kb-work', 'runs', 'legacy-source', 'source', 'chapters', 'ch_002.txt'
+    );
+    fs.appendFileSync(chapterTwo, '阿飞再度拔剑。\n江湖会再度现身。\n', 'utf8');
+    const charactersFile = path.join(novel, 'data', 'characters.json');
+    const characters = JSON.parse(fs.readFileSync(charactersFile, 'utf8'));
+    characters[0].source_refs.push(sourceRef(2, '阿飞再度拔剑。'));
+    writeJson(charactersFile, characters);
+    const factionsFile = path.join(novel, 'data', 'factions.json');
+    const factions = JSON.parse(fs.readFileSync(factionsFile, 'utf8'));
+    factions[0].source_refs.push(sourceRef(2, '江湖会再度现身。'));
+    writeJson(factionsFile, factions);
+
+    const candidate = buildLegacyCandidate(planLegacyMigration(novel), {
+      stagingRoot,
+      runId: 'migration-duplicate-legacy-record'
+    });
+    const finalCharacters = yaml.load(fs.readFileSync(
+      path.join(candidate.paths.finalData, 'characters.yaml'), 'utf8'
+    ));
+    const finalFactions = yaml.load(fs.readFileSync(
+      path.join(candidate.paths.finalData, 'factions.yaml'), 'utf8'
+    ));
+    const aFei = finalCharacters.filter(record => record.name === '阿飞');
+    const jiangHu = finalFactions.filter(record => record.name === '江湖会');
+    const characterDecisions = yaml.load(fs.readFileSync(
+      path.join(candidate.paths.domainDecisions, 'distill_characters.yaml'), 'utf8'
+    ));
+
+    assert.equal(aFei.length, 1, JSON.stringify(characterDecisions.decisions));
+    assert.equal(jiangHu.length, 1);
+    assert.deepEqual(aFei[0].factions, [jiangHu[0].id]);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+    fs.rmSync(stagingRoot, { recursive: true, force: true });
+  }
+});
+
 test('requires explicit confirmation and leaves the legacy tree untouched in plan mode', () => {
   const novel = writeNovelFixture();
   try {
@@ -232,6 +275,37 @@ test('reports archive_failed and preserves legacy data when archive movement rol
     assert.equal(fs.existsSync(path.join(novel, 'data')), true);
     assert.equal(fs.existsSync(path.join(novel, '_archive', `${runId}-legacy`)), false);
     assert.equal(result.report.archive_manifest, null);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+    fs.rmSync(stagingRoot, { recursive: true, force: true });
+  }
+});
+
+test('retries from the preserved legacy archive with the same stable run id', () => {
+  const novel = writeNovelFixture();
+  const runId = 'migration-retry-stable';
+  const stagingRoot = path.join(novel, '..', `${path.basename(novel)}-retry-staging`);
+  try {
+    const failed = executeLegacyMigration(planLegacyMigration(novel), {
+      confirm: true,
+      faultAt: 'after-run-promote',
+      runId,
+      stagingRoot
+    });
+    assert.equal(failed.report.status, 'archived_after_migration_failure');
+    const archivedData = path.join(novel, '_archive', `${runId}-legacy`, 'data');
+
+    const retried = executeLegacyMigration(planLegacyMigration(novel, {
+      explicitDataRoot: archivedData
+    }), {
+      confirm: true,
+      runId,
+      stagingRoot
+    });
+
+    assert.equal(retried.report.status, 'verified');
+    assert.equal(verifyInstalled(novel).passed, true);
+    assert.equal(retried.report.archive_manifest, archiveManifest(novel, `${runId}-legacy`));
   } finally {
     fs.rmSync(novel, { recursive: true, force: true });
     fs.rmSync(stagingRoot, { recursive: true, force: true });

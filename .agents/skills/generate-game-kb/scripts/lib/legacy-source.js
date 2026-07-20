@@ -310,7 +310,7 @@ function loadLegacyFileSet(plan) {
 }
 
 function chapterRootCandidates(novel) {
-  const roots = [];
+  const roots = [path.join(novel, 'ch_split')];
   const runs = directoryChildren(path.join(novel, '.game-kb-work', 'runs'));
   for (const run of runs) roots.push(path.join(run, 'source', 'chapters'));
   const genericArchives = directoryChildren(path.join(novel, '_archive'));

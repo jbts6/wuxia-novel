@@ -14,6 +14,8 @@ const schemas = fs.readFileSync(path.join(skillRoot, 'schemas.md'), 'utf8');
 const examples = fs.existsSync(path.join(skillRoot, 'examples.md'))
   ? fs.readFileSync(path.join(skillRoot, 'examples.md'), 'utf8')
   : '';
+const skillCn = fs.readFileSync(path.join(skillRoot, 'SKILL-cn.md'), 'utf8');
+const examplesCn = fs.readFileSync(path.join(skillRoot, 'examples-cn.md'), 'utf8');
 const backendSpec = fs.readFileSync(path.resolve(skillRoot, '../../../.trellis/spec/backend/quality-guidelines.md'), 'utf8');
 const fastProfile = backendSpec.slice(backendSpec.indexOf('## Scenario: Fast Game-Material Knowledge Base Profile'));
 
@@ -52,6 +54,26 @@ test('workers return JSON envelopes while controller artifacts and final data st
   assert.match(skill, /progress\.json/);
   assert.match(skill, /(?:controller|控制器)[^\r\n]*(?:序列化|状态)/i);
   assert.doesNotMatch(skill, /staging\/[^\r\n]*\.json|accepted\/[^\r\n]*\.json|final\/data\/[^\r\n]*\.json/);
+});
+
+test('legacy audit and migration docs keep dry-run, confirmation, and retry contracts aligned', () => {
+  for (const [name, text] of [
+    ['SKILL.md', skill],
+    ['SKILL-cn.md', skillCn],
+    ['examples.md', examples],
+    ['examples-cn.md', examplesCn]
+  ]) {
+    assert.match(text, /audit-v6\.js/, name);
+    assert.match(text, /migrate-legacy/, name);
+    assert.match(text, /--from/, name);
+    assert.match(text, /--staging-root/, name);
+    assert.match(text, /--confirm/, name);
+    assert.match(text, /--unit/, name);
+    assert.match(text, /_archive/, name);
+    assert.match(text, /retry_command/, name);
+  }
+  assert.match(examples, /书剑恩仇录/);
+  assert.match(examplesCn, /书剑恩仇录/);
 });
 
 test('legacy domain documentation retains the shared four domain units in stable order', () => {

@@ -23,3 +23,16 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-run "C:\git\wuxia-n
 ```
 
 `unit` is a generic controller work unit. `chapter:001` is one chapter unit; `distill:characters` is one full-book domain unit. Open and check a clean guard before each worker envelope is submitted. `retry-unit` starts a new user-confirmed bounded cycle and still allows at most one automatic retry.
+
+## Legacy V6 audit and deterministic migration
+
+These commands use the real Chinese path without renaming it. The first migration command is a read-only plan; the second is the only mutating form.
+
+```text
+node .agents/skills/generate-game-kb/scripts/audit-v6.js "C:\git\wuxia-novel" --output ".trellis\tasks\07-19-audit-v6-knowledge-bases\reports"
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\金庸\书剑恩仇录" --run migration-shu-jian-en-chou-lu-v6 --from "C:\git\wuxia-novel\金庸\书剑恩仇录\data" --json
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\金庸\书剑恩仇录" --run migration-shu-jian-en-chou-lu-v6 --from "C:\git\wuxia-novel\金庸\书剑恩仇录\data" --staging-root "C:\git\wuxia-novel\.game-kb-migration-staging\金庸\书剑恩仇录" --confirm --json
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\金庸\书剑恩仇录" --run migration-shu-jian-en-chou-lu-v6 --from "C:\git\wuxia-novel\金庸\书剑恩仇录\_archive\migration-shu-jian-en-chou-lu-v6-legacy\data" --staging-root "C:\git\wuxia-novel\.game-kb-migration-staging\金庸\书剑恩仇录" --confirm --json
+```
+
+`migrate-legacy` has no Worker and does not accept `--unit`. After a failed migration, legacy generated data remains only under `_archive`; do not restore it as active `data`. Prefer the exact `retry_command` emitted by `migration-report.json` over reconstructing the final example manually.

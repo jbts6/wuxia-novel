@@ -20,7 +20,7 @@ const {
 const { createDomainWorkPlan } = require('./domain-work');
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, atomicWriteJson, readJson, writeImmutableFile } = require('./io');
-const { rebuildLegacyEvidence } = require('./legacy-evidence');
+const { collectLegacyGroups, rebuildLegacyEvidence } = require('./legacy-evidence');
 const { mapLegacyBook } = require('./legacy-map');
 const {
   loadExistingChapterInventory,
@@ -279,17 +279,37 @@ function domainPatch(input, entry) {
   return patch;
 }
 
-function acceptedDomainDecision(input) {
+function acceptedDomainDecision(input, { bindings = [], legacyGroups = [] } = {}) {
+  const memberToEntry = new Map();
+  for (const binding of bindings.filter(row => row.unit === input.unit)) {
+    for (const memberRef of binding.member_refs || []) memberToEntry.set(memberRef, binding.entry_ref);
+  }
+  const mergeTargets = new Map();
+  for (const group of legacyGroups) {
+    const anchor = memberToEntry.get(group.anchor_member_ref);
+    if (!anchor) continue;
+    for (const memberRef of group.member_refs) {
+      const entryRef = memberToEntry.get(memberRef);
+      if (entryRef && entryRef !== anchor) mergeTargets.set(entryRef, anchor);
+    }
+  }
   const draft = {
     schema_version: 1,
     semantic_contract_version: input.semantic_contract_version,
     unit: input.unit,
     input_hash: input.input_hash,
-    decisions: (input.entries || []).map(entry => ({
-      entry_ref: entry.entry_ref,
-      action: 'keep',
-      patch: domainPatch(input, entry)
-    })),
+    decisions: (input.entries || []).map(entry => mergeTargets.has(entry.entry_ref)
+      ? {
+        entry_ref: entry.entry_ref,
+        action: 'merge',
+        target_ref: mergeTargets.get(entry.entry_ref),
+        patch: {}
+      }
+      : {
+        entry_ref: entry.entry_ref,
+        action: 'keep',
+        patch: domainPatch(input, entry)
+      }),
     notes: []
   };
   const errors = validateDomainDecisionDraft(draft, input);
@@ -424,6 +444,7 @@ function buildLegacyCandidate(plan, {
     }
   }
   const chapters = drafts.map(normalizeChapterDraft);
+  const legacyGroups = collectLegacyGroups(chapters);
   const acceptedHashes = acceptedHashMap(paths, chapters);
   const registry = buildCandidateRegistry(chapters);
   const registryInputHash = stableHash({
@@ -445,7 +466,10 @@ function buildLegacyCandidate(plan, {
   });
   writeWorkPlan(paths, domainPlan);
   for (const input of domainPlan.inputs) {
-    const decision = acceptedDomainDecision(input);
+    const decision = acceptedDomainDecision(input, {
+      bindings: domainPlan.bindings,
+      legacyGroups
+    });
     recordAcceptedArtifact(
       paths,
       semanticDecisionFile(paths, input.unit),
@@ -544,6 +568,21 @@ function migrationArchiveId(runId) {
   return `${safe}-legacy`;
 }
 
+function reusableMigrationArchive(plan, archivePath) {
+  const manifestPath = path.join(archivePath, 'archive-manifest.json');
+  if (!fs.existsSync(manifestPath)) return null;
+  const source = path.resolve(plan?.source?.data_root || '');
+  if (!isWithin(archivePath, source)) return null;
+  const manifest = readJson(manifestPath);
+  if (manifest.status !== 'archived') {
+    throw migrationError('MIGRATION_ARCHIVE_INVALID', 'Existing migration archive is not reusable', {
+      archive_manifest: manifestPath,
+      status: manifest.status ?? null
+    });
+  }
+  return manifest;
+}
+
 function retryCommand(plan, runId, stagingRoot, archiveDir = null) {
   const original = path.resolve(plan.source.data_root);
   const source = archiveDir
@@ -615,11 +654,14 @@ function executeLegacyMigration(plan, {
     });
     stage = 'candidate_verified';
 
-    archiveAttempted = true;
-    archiveReceipt = archiveExisting(novel, {
-      archiveId,
-      ...(archiveFailAfterMoves === undefined ? {} : { failAfterMoves: archiveFailAfterMoves })
-    });
+    archiveReceipt = reusableMigrationArchive(plan, archivePath);
+    if (!archiveReceipt) {
+      archiveAttempted = true;
+      archiveReceipt = archiveExisting(novel, {
+        archiveId,
+        ...(archiveFailAfterMoves === undefined ? {} : { failAfterMoves: archiveFailAfterMoves })
+      });
+    }
     stage = 'legacy_archived';
     if (faultAt === 'after-archive') injectedMigrationFault(faultAt);
 

@@ -66,6 +66,18 @@ node .agents/skills/generate-game-kb/scripts/flow.js retry-unit "C:\git\wuxia-no
 
 `unit` 是通用工作单元，例如 `chapter:001` 或 `distill:characters`。每周期首次提交后最多自动重试一次；第二次失败进入 `manual_review`，不会自动开始第三次。用户确认后才能用上面的 `retry-unit` 开启新的有界周期。
 
+## 旧知识库审计与迁移
+
+旧 JSON 只能通过确定性 controller 迁移，不能重新提取小说或由模型补写缺失证据。中文路径直接使用，无需改名：
+
+```text
+node .agents/skills/generate-game-kb/scripts/audit-v6.js "C:\git\wuxia-novel" --output ".trellis\tasks\07-19-audit-v6-knowledge-bases\reports"
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\<作者>\<书名>" --run migration-<book>-v6 --from "C:\git\wuxia-novel\<作者>\<书名>\data" --json
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\<作者>\<书名>" --run migration-<book>-v6 --from "C:\git\wuxia-novel\<作者>\<书名>\data" --staging-root "C:\git\wuxia-novel\.game-kb-migration-staging\<作者>\<书名>" --confirm --json
+```
+
+第一条 `migrate-legacy` 是完全只读的 dry-run。真正执行必须有 `--run`、`--staging-root`、`--confirm`；`--unit` 不适用于仓库迁移。失败后旧数据只在 `_archive/<run>-legacy/`，禁止恢复到活动 `data`，应原样执行 `migration-report.json` 的 `retry_command`。
+
 ## 安全边界
 
 拒绝的 envelope、草稿和错误记录必须保留。`staging/` 是 controller 私有目录；不要手动复制、改名、删除 staging/accepted/final 文件，也不要凭文件存在判断完成。只有 controller 的验证、安装和归档收据可以证明完成。

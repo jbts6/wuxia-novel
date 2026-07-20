@@ -199,6 +199,38 @@ function pruneReferences(chapters, unresolved) {
   }
 }
 
+function collectLegacyGroups(chapters) {
+  const groups = [];
+  const byCategory = Object.fromEntries(ENTITY_CATEGORIES.map(category => [category, new Map()]));
+  for (const chapter of chapters) {
+    for (const category of ENTITY_CATEGORIES) {
+      for (const candidate of chapter[category] || []) {
+        const members = byCategory[category].get(candidate.local_key) || [];
+        members.push(candidate.candidate_key);
+        byCategory[category].set(candidate.local_key, members);
+      }
+    }
+  }
+  for (const category of ENTITY_CATEGORIES) {
+    for (const [localKey, memberRefs] of byCategory[category]) {
+      const ordered = [...new Set(memberRefs)].sort();
+      if (ordered.length > 1) {
+        groups.push({
+          category,
+          local_key: localKey,
+          anchor_member_ref: ordered[0],
+          member_refs: ordered
+        });
+      }
+    }
+  }
+
+  return groups.sort((left, right) => (
+    `${left.category}\u0000${left.local_key}` < `${right.category}\u0000${right.local_key}` ? -1
+      : `${left.category}\u0000${left.local_key}` > `${right.category}\u0000${right.local_key}` ? 1 : 0
+  ));
+}
+
 function rebuildLegacyEvidence(mapped, chaptersInput) {
   const chapters = normalizeChapters(chaptersInput);
   const chaptersByNumber = new Map(chapters.map(chapter => [chapter.number, chapter]));
@@ -206,6 +238,7 @@ function rebuildLegacyEvidence(mapped, chaptersInput) {
   const unresolved = [];
   const acceptedChapters = chapters.map(chapter => ({
     ...chapter,
+    chapter: chapter.number,
     characters: [],
     items: [],
     skills: [],
@@ -244,4 +277,4 @@ function rebuildLegacyEvidence(mapped, chaptersInput) {
   };
 }
 
-module.exports = { rebuildLegacyEvidence };
+module.exports = { collectLegacyGroups, rebuildLegacyEvidence };

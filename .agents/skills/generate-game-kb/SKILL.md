@@ -121,6 +121,18 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-run "C:\git\wuxia-n
 
 `status --json` 返回零写入的 `chapter_jobs` 或 `domain_jobs`。主代理只能把单个只读 descriptor/input 交给对应子代理，并原样转发返回的 envelope。`archive-run` 前不得手动复制、重命名或删除 `data/`、accepted 或 rejected draft。
 
+## 旧知识库审计与确定性迁移
+
+旧 JSON 升级只能使用 controller 的只读审计和确定性迁移，不得重新提取小说或让模型补写字段。中文作者、书名和路径可以直接传给 Node，无需改名。
+
+```text
+node .agents/skills/generate-game-kb/scripts/audit-v6.js "C:\git\wuxia-novel" --output ".trellis\tasks\07-19-audit-v6-knowledge-bases\reports"
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\<author>\<book>" --run migration-<book>-v6 --from "C:\git\wuxia-novel\<author>\<book>\data" --json
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy "C:\git\wuxia-novel\<author>\<book>" --run migration-<book>-v6 --from "C:\git\wuxia-novel\<author>\<book>\data" --staging-root "C:\git\wuxia-novel\.game-kb-migration-staging\<author>\<book>" --confirm --json
+```
+
+不带 `--confirm` 的 `migrate-legacy` 只返回 plan 且不得写入；mutation 模式必须同时提供 `--run`、`--staging-root` 和 `--confirm`。本命令不是 Worker 工作单元，`--unit` 不适用。若迁移失败，旧 payload 只保留在 `_archive/<run>-legacy/`，活动 `data` 不得恢复；直接执行报告中的 `retry_command`，它会用同一 run ID 和 archive 来源继续。
+
 ## 路径与安全边界
 
 ```text
