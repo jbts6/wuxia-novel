@@ -32,7 +32,7 @@ const { installVerifiedData, verifyInstalled } = require('./lib/install');
 const { atomicWriteFile, readJson, readYaml } = require('./lib/io');
 const { executeLegacyMigration, planLegacyMigration } = require('./lib/legacy-migration');
 const { resolveNextAction } = require('./lib/next-action');
-const { pathsFor, repositoryRootFor } = require('./lib/paths');
+const { pathsFor } = require('./lib/paths');
 const {
   loadProgress,
   projectProgress,
@@ -804,13 +804,14 @@ function main(argv = process.argv.slice(2)) {
           unit: requestedUnit || null
         });
       }
-      const repositoryRoot = repositoryRootFor(novelDir);
+      const repositoryRoot = path.resolve(novelDir);
       emit({
         run_id: run.run_id,
         ...openWorkerGuard({
           repositoryRoot,
           paths,
-          job
+          job,
+          novelDir
         })
       });
       return;
@@ -822,10 +823,10 @@ function main(argv = process.argv.slice(2)) {
       const run = resolveWritableRun(novelDir, requestedRun, command, profile);
       const paths = pathsFor(novelDir, run.run_id);
       timingRunJson = paths.runJson;
-      const repositoryRoot = repositoryRootFor(novelDir);
+      const repositoryRoot = path.resolve(novelDir);
       emit({
         run_id: run.run_id,
-        ...checkWorkerGuard({ repositoryRoot, paths, guardId })
+        ...checkWorkerGuard({ repositoryRoot, paths, guardId, novelDir })
       });
       return;
     }
@@ -875,7 +876,7 @@ function main(argv = process.argv.slice(2)) {
       timingRunJson = paths.runJson;
       const manifest = readJson(paths.manifest);
       emit(recoverChapterDraft({
-        repositoryRoot: repositoryRootFor(novelDir),
+        repositoryRoot: path.resolve(novelDir),
         paths,
         manifest,
         unit,

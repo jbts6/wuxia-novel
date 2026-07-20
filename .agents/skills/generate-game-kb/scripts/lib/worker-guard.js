@@ -6,17 +6,16 @@ const path = require('node:path');
 
 const { GameKbError } = require('./errors');
 const { writeImmutableJson } = require('./io');
-const { repositoryRootFor } = require('./paths');
 
 const EXCLUDED_DIRS = new Set(['.git', 'node_modules']);
 const SHA256_PATTERN = /^sha256:[0-9a-f]{64}$/;
 const OPEN_RECEIPT_FIELDS = Object.freeze([
-  'guard_id', 'repository_root', 'open_time', 'job_batch_id', 'job_unit',
+  'guard_id', 'repository_root', 'novel_dir', 'open_time', 'job_batch_id', 'job_unit',
   'job_attempt', 'job_input_hash', 'job_submissions', 'entry_count', 'entries',
   'boundary_message'
 ]);
 const CHECK_RECEIPT_FIELDS = Object.freeze([
-  'guard_id', 'open_receipt_hash', 'repository_root', 'check_time',
+  'guard_id', 'open_receipt_hash', 'repository_root', 'novel_dir', 'check_time',
   'violations', 'violation_count'
 ]);
 
@@ -122,6 +121,8 @@ function readGuardReceipt(receiptFile, guardId, receiptKind) {
         && submission.input_hash.length > 0);
     const uniqueEntryPaths = Array.isArray(receipt.entries)
       && new Set(receipt.entries.map(entry => entry?.path)).size === receipt.entries.length;
+    // Use novel_dir for entry validation if present, otherwise fall back to repository_root
+    const entryBaseDir = receipt.novel_dir || receipt.repository_root;
     if (!hasExactFields(receipt, OPEN_RECEIPT_FIELDS)
       || !path.isAbsolute(receipt.repository_root)
       || typeof receipt.open_time !== 'string'
@@ -136,7 +137,7 @@ function readGuardReceipt(receiptFile, guardId, receiptKind) {
       || receipt.entry_count < 0
       || receipt.entry_count !== receipt.entries.length
       || !uniqueEntryPaths
-      || receipt.entries.some(entry => !validSnapshotEntry(entry, receipt.repository_root))
+      || receipt.entries.some(entry => !validSnapshotEntry(entry, entryBaseDir))
       || typeof receipt.boundary_message !== 'string'
       || receipt.boundary_message.length === 0) {
       guardProofMismatch('Guard open receipt snapshot is invalid', {
@@ -257,8 +258,9 @@ function snapshotRepository(root, guardDir) {
   return entries;
 }
 
-function openWorkerGuard({ repositoryRoot, paths, job }) {
+function openWorkerGuard({ repositoryRoot, paths, job, novelDir }) {
   const resolvedRoot = path.resolve(repositoryRoot);
+  const resolvedNovelDir = novelDir ? path.resolve(novelDir) : resolvedRoot;
   const guardDir = paths.workerGuards;
 
   // Ensure parent directory exists
@@ -288,7 +290,8 @@ function openWorkerGuard({ repositoryRoot, paths, job }) {
   // Create guard directory before snapshot so it's part of the baseline
   fs.mkdirSync(guardDir, { recursive: true });
 
-  const snapshot = snapshotRepository(resolvedRoot, guardDir);
+  // Snapshot only the novel directory, not the entire repository root
+  const snapshot = snapshotRepository(resolvedNovelDir, guardDir);
   const submissions = Array.isArray(job?.submissions)
     ? job.submissions.map(submission => ({
       unit: submission?.unit ?? null,
@@ -301,6 +304,7 @@ function openWorkerGuard({ repositoryRoot, paths, job }) {
   const receipt = {
     guard_id: guardId,
     repository_root: resolvedRoot,
+    novel_dir: resolvedNovelDir,
     open_time: new Date().toISOString(),
     job_batch_id: job?.batch_id || null,
     job_unit: job?.unit || null,
@@ -309,7 +313,7 @@ function openWorkerGuard({ repositoryRoot, paths, job }) {
     job_submissions: submissions,
     entry_count: snapshot.length,
     entries: snapshot,
-    boundary_message: 'Guard covers repository-root contents only; paths outside the repository are not monitored.'
+    boundary_message: `Guard covers novel directory only: ${resolvedNovelDir}`
   };
 
   const guardFile = path.join(guardDir, `${guardId}.json`);
@@ -322,8 +326,9 @@ function openWorkerGuard({ repositoryRoot, paths, job }) {
   };
 }
 
-function checkWorkerGuard({ repositoryRoot, paths, guardId }) {
+function checkWorkerGuard({ repositoryRoot, paths, guardId, novelDir }) {
   const resolvedRoot = path.resolve(repositoryRoot);
+  const resolvedNovelDir = novelDir ? path.resolve(novelDir) : resolvedRoot;
   const guardDir = paths.workerGuards;
   const guardFile = path.join(guardDir, `${guardId}.json`);
   const checkFile = path.join(guardDir, `${guardId}-check.json`);
@@ -336,7 +341,9 @@ function checkWorkerGuard({ repositoryRoot, paths, guardId }) {
   }
 
   const { raw: openReceiptRaw, receipt } = readGuardReceipt(guardFile, guardId, 'open');
-  if (comparisonPath(receipt.repository_root) !== comparisonPath(resolvedRoot)) {
+  // Check novel_dir if present in receipt, otherwise fall back to repository_root
+  const receiptNovelDir = receipt.novel_dir || receipt.repository_root;
+  if (comparisonPath(receiptNovelDir) !== comparisonPath(resolvedNovelDir)) {
     throw new GameKbError('GUARD_PROOF_MISMATCH', 'Guard open receipt identity does not match the requested check', {
       guard_id: guardId
     });
@@ -354,16 +361,17 @@ function checkWorkerGuard({ repositoryRoot, paths, guardId }) {
     });
     return existing;
   }
-  const currentEntries = snapshotRepository(resolvedRoot, guardDir);
+  // Snapshot only the novel directory
+  const currentEntries = snapshotRepository(resolvedNovelDir, guardDir);
 
   const beforeMap = new Map();
   for (const entry of receipt.entries) {
-    beforeMap.set(comparisonPath(path.resolve(resolvedRoot, entry.path)), entry);
+    beforeMap.set(comparisonPath(path.resolve(resolvedNovelDir, entry.path)), entry);
   }
 
   const afterMap = new Map();
   for (const entry of currentEntries) {
-    afterMap.set(comparisonPath(path.resolve(resolvedRoot, entry.path)), entry);
+    afterMap.set(comparisonPath(path.resolve(resolvedNovelDir, entry.path)), entry);
   }
 
   const violations = [];
@@ -375,7 +383,7 @@ function checkWorkerGuard({ repositoryRoot, paths, guardId }) {
       violations.push({
         change_kind: 'added',
         repository_relative: normalizeRelative(after.path),
-        absolute_path: path.resolve(resolvedRoot, after.path),
+        absolute_path: path.resolve(resolvedNovelDir, after.path),
         entry_type: after.type,
         before: null,
         after: { size: after.size, mtime_ns: after.mtime_ns }
@@ -386,7 +394,7 @@ function checkWorkerGuard({ repositoryRoot, paths, guardId }) {
       violations.push({
         change_kind: 'modified',
         repository_relative: normalizeRelative(after.path),
-        absolute_path: path.resolve(resolvedRoot, after.path),
+        absolute_path: path.resolve(resolvedNovelDir, after.path),
         entry_type: after.type,
         before: { size: before.size, mtime_ns: before.mtime_ns },
         after: { size: after.size, mtime_ns: after.mtime_ns }
@@ -400,7 +408,7 @@ function checkWorkerGuard({ repositoryRoot, paths, guardId }) {
       violations.push({
         change_kind: 'deleted',
         repository_relative: normalizeRelative(before.path),
-        absolute_path: path.resolve(resolvedRoot, before.path),
+        absolute_path: path.resolve(resolvedNovelDir, before.path),
         entry_type: before.type,
         before: { size: before.size, mtime_ns: before.mtime_ns },
         after: null
@@ -415,6 +423,7 @@ function checkWorkerGuard({ repositoryRoot, paths, guardId }) {
     guard_id: guardId,
     open_receipt_hash: openReceiptHash,
     repository_root: resolvedRoot,
+    novel_dir: resolvedNovelDir,
     check_time: new Date().toISOString(),
     violations,
     violation_count: violations.length
@@ -471,7 +480,7 @@ function unresolvedWorkerGuardReports(paths) {
       openReceiptRaw,
       checkReceipt: checkResult,
       checkReceiptRaw,
-      expectedRepositoryRoot: repositoryRootFor(paths.novel)
+      expectedRepositoryRoot: paths.novel
     });
 
     const unresolvedViolations = checkResult.violations.filter(violation => (
