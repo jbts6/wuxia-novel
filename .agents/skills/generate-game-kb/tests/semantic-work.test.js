@@ -118,12 +118,14 @@ test('stale domain work rotates bytes without overwriting its accepted decision'
   assert.notEqual(semanticDecisionFile(paths, unit, nextHash), acceptedFile);
 });
 
-test('worker prompts require the controller-provided staging path and attempt', () => {
+test('worker prompts require controller identity while exposing no staging path', () => {
   for (const prompt of ['distill-domain.md', 'extract-chapters.md']) {
     const content = fs.readFileSync(path.join(__dirname, '..', 'prompts', prompt), 'utf8');
-    assert.match(content, /staging_path/);
+    assert.doesNotMatch(content, /staging_path/);
+    assert.match(content, /WORKER_WRITE_PATHS\s*=\s*\[\]/);
+    assert.match(content, /JSON envelope/);
     assert.match(content, /attempt/);
-    assert.match(content, /不得[^\n]*(?:自行推导|修改)[^\n]*(?:attempt|路径)/);
+    assert.match(content, /不得[^\n]*(?:推导|修改)[^\n]*(?:attempt|路径)/);
   }
 });
 

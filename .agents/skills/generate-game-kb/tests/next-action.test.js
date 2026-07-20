@@ -12,7 +12,7 @@ const { buildFinalData, writeFinalData } = require('../scripts/lib/finalize');
 const { resolveNextAction } = require('../scripts/lib/next-action');
 const { pathsFor } = require('../scripts/lib/paths');
 const { freshProgress, freshUnit } = require('../scripts/lib/progress');
-const { writeWorkPlan } = require('../scripts/lib/semantic-work');
+const { semanticInputHash, writeWorkPlan } = require('../scripts/lib/semantic-work');
 const { sourceRef, validMergedBook } = require('./helpers');
 
 const DOMAIN_UNITS = [
@@ -108,6 +108,11 @@ function lifecycleInput({
   const manifest = CURRENT_MANIFEST;
   writeFinalData(paths, CURRENT_FINAL_DATA);
   const progress = freshProgress();
+  const domainInputs = domainPlanned ? domainPlanOrder.map(unit => {
+    const input = { unit };
+    return { ...input, input_hash: semanticInputHash(input, [], {}) };
+  }) : [];
+  const domainHashes = new Map(domainInputs.map(input => [input.unit, input.input_hash]));
   for (const chapter of manifest.chapters) {
     const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
     progress.units[unit] = {
@@ -118,7 +123,7 @@ function lifecycleInput({
   for (const unit of domainProgressOrder) {
     if (!domainPlanned) continue;
     progress.units[unit] = {
-      ...freshUnit(`sha256:${unit}`),
+      ...freshUnit(domainHashes.get(unit)),
       status: domainStatuses[unit] || 'done'
     };
   }
@@ -126,13 +131,15 @@ function lifecycleInput({
     const written = writeWorkPlan(paths, {
       stage: 'domain',
       source_hash: manifest.source_hash,
-      inputs: domainPlanOrder.map(unit => ({ unit, input_hash: `sha256:${unit}` }))
+      upstream_hashes: {},
+      bindings: [],
+      inputs: domainInputs
     });
     const persistedPlan = JSON.parse(fs.readFileSync(written.plan, 'utf8'));
     assert.equal(Array.isArray(persistedPlan.units), true);
     assert.equal('inputs' in persistedPlan, false);
     assert.deepEqual(persistedPlan.units.map(({ unit, input_hash: inputHash }) => ({ unit, input_hash: inputHash })),
-      domainPlanOrder.map(unit => ({ unit, input_hash: `sha256:${unit}` })));
+      domainInputs.map(({ unit, input_hash: inputHash }) => ({ unit, input_hash: inputHash })));
   }
   if (assembly) writeJson(paths.assemblyReport, assembly);
   if (verification) writeJson(paths.verificationReport, verification);
@@ -141,7 +148,18 @@ function lifecycleInput({
 }
 
 function assertAction(input, next_action, next_units = []) {
-  assert.deepEqual(resolveNextAction(input), { next_action, next_units });
+  const result = resolveNextAction(input);
+  assert.equal(result.next_action, next_action);
+  assert.deepEqual(result.next_units, next_units);
+  if (next_action === 'accept-domains') {
+    assert.deepEqual(result.domain_jobs.map(job => job.unit), next_units);
+    assert.equal(result.domain_jobs.every(job => (
+      job.worker_write_paths.length === 0
+      && job.input_file.endsWith('worker-input.json')
+    )), true);
+  } else {
+    assert.equal('domain_jobs' in result, false);
+  }
 }
 
 const CURRENT_ASSEMBLY = {
