@@ -83,6 +83,38 @@ test('rebuilds grounded candidates and binds ref-less summaries to chapter hashe
   assert.equal(result.acceptedChapters[1].items[0].source_refs[0].anchor, '兵器');
 });
 
+test('binds legacy summaries by chapter hash when their optional source refs are invalid', () => {
+  const mapped = mappedBook({
+    characters: [],
+    skills: [],
+    items: [],
+    factions: [],
+    chapter_summaries: [
+      {
+        chapter: 1,
+        title: '第一章',
+        summary: '第一章摘要。',
+        source_refs: [{ chapter: 1, text: '概括性表述，不是原文引句。' }]
+      },
+      { chapter: 2, title: '第二章', summary: '第二章摘要。', source_refs: [] }
+    ]
+  });
+
+  const result = rebuildLegacyEvidence(mapped, [
+    chapter(1, '第一章', '第一章\n阿飞拔剑。\n'),
+    chapter(2, '第二章', '第二章\n铁剑在手。\n')
+  ]);
+
+  assert.equal(result.acceptedChapters[0].chapter_summary.summary, '第一章摘要。');
+  assert.deepEqual(result.acceptedChapters[0].chapter_summary.source_refs, [{
+    chapter: 1,
+    text: '第一章',
+    content_hash: 'sha256:chapter-1'
+  }]);
+  assert.equal(result.unresolved.some(item => item.code === 'SOURCE_QUOTE_NOT_FOUND'), true);
+  assert.equal(result.rejected.some(item => item.code === 'LEGACY_SUMMARY_COVERAGE_INVALID'), false);
+});
+
 test('rejects an entity whose evidence is entirely invalid without inventing evidence', () => {
   const mapped = mappedBook({
     characters: [{

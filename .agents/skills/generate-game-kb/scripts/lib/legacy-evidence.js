@@ -119,14 +119,13 @@ function bindChapterSummaries(mapped, chaptersByNumber, chapters, rejected, unre
     }
     const chapter = chaptersByNumber.get(number);
     const refs = Array.isArray(summary.source_refs) ? summary.source_refs : [];
-    let normalizedRefs = [];
-    if (refs.length === 0) {
-      normalizedRefs = [{
-        chapter: number,
-        text: chapter.title,
-        content_hash: chapter.hash
-      }];
-    } else {
+    const chapterHashRef = [{
+      chapter: number,
+      text: chapter.title,
+      content_hash: chapter.hash
+    }];
+    let normalizedRefs = chapterHashRef;
+    if (refs.length > 0) {
       const valid = validateRecordEvidence('chapter_summaries', {
         ...summary,
         name: '',
@@ -134,10 +133,7 @@ function bindChapterSummaries(mapped, chaptersByNumber, chapters, rejected, unre
       }, chaptersByNumber, unresolved);
       normalizedRefs = valid.get(number) || [];
       if (normalizedRefs.length === 0) {
-        const coverage = issue('LEGACY_SUMMARY_COVERAGE_INVALID', { chapter: number });
-        rejected.push(coverage);
-        unresolved.push(coverage);
-        continue;
+        normalizedRefs = chapterHashRef;
       }
     }
     byChapter.set(number, {

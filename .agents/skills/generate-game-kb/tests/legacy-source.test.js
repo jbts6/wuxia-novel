@@ -12,6 +12,7 @@ const {
   loadLegacyFileSet,
   resolveLegacySource
 } = require('../scripts/lib/legacy-source');
+const { normalizeSource, sha256 } = require('../scripts/lib/source');
 
 function temporaryNovel() {
   return fs.mkdtempSync(path.join(os.tmpdir(), 'legacy-source-'));
@@ -220,6 +221,23 @@ test('loads the bounded retained chapter inventory deterministically', () => {
     assert.deepEqual(inventory.chapters.map(chapter => chapter.number), [1, 2]);
     assert.match(inventory.chapters[0].hash, /^sha256:[0-9a-f]{64}$/);
     assert.equal(inventory.chapters[1].title, '第二章');
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+  }
+});
+
+test('normalizes retained chapter bytes before signing source hashes', () => {
+  const novel = temporaryNovel();
+  try {
+    const raw = '\uFEFF第一章\r\n阿飞拔剑。';
+    writeChapterInventory(path.join(novel, '.game-kb-work', 'runs', 'run-retained'), [
+      { number: 1, text: raw }
+    ]);
+
+    const inventory = loadExistingChapterInventory(novel);
+
+    assert.equal(inventory.chapters[0].text, normalizeSource(raw));
+    assert.equal(inventory.chapters[0].hash, sha256(normalizeSource(raw)));
   } finally {
     fs.rmSync(novel, { recursive: true, force: true });
   }

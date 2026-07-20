@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { GameKbError } = require('./errors');
+const { normalizeSource, sha256 } = require('./source');
 
 const LEGACY_FILE_NAMES = Object.freeze({
   characters: 'characters.json',
@@ -348,14 +349,14 @@ function readChapterRoot(novel, root) {
       });
     }
     const file = assertSafePath(novel, path.join(root, filename), 'LEGACY_SOURCE_OUTSIDE_NOVEL');
-    const text = fs.readFileSync(file, 'utf8');
+    const text = normalizeSource(fs.readFileSync(file, 'utf8'));
     const title = text.split(/\r?\n/u).find(line => line.trim() !== '')?.trim() || `第${number}章`;
     chapters.push({
       number,
       title,
       text,
       file,
-      hash: `sha256:${crypto.createHash('sha256').update(text).digest('hex')}`
+      hash: sha256(text)
     });
     seen.add(number);
   }
