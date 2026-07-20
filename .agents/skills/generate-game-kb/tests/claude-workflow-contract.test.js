@@ -137,6 +137,14 @@ test('Claude workflow enforces fallback three and rejects unsafe descriptors', a
   const unsafe = structuredClone(config);
   unsafe.descriptors[0].worker_write_paths = ['C:\\repo\\out.yaml'];
   await assert.rejects(executeWorkflow(unsafe, async () => null), /worker_write_paths/);
+
+  const leakedPath = structuredClone(config);
+  leakedPath.descriptors[0].chapters[0].staging_path = 'C:\\repo\\private\\chapter.yaml';
+  await assert.rejects(executeWorkflow(leakedPath, async () => null), /chapter field staging_path is forbidden/);
+
+  const shadowedRun = structuredClone(config);
+  shadowedRun.descriptors[0].run_id = 'run-shadowed';
+  await assert.rejects(executeWorkflow(shadowedRun, async () => null), /descriptor field run_id is forbidden/);
 });
 
 test('Claude chapter agent is Read-only and the workflow owns no controller operations', () => {
