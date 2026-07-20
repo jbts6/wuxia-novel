@@ -196,6 +196,101 @@ test('merges multi-chapter candidates from the same legacy record without guessi
   }
 });
 
+test('marks incomplete legacy chapter summaries non-migratable without fabricating content', () => {
+  const novel = writeNovelFixture();
+  const stagingRoot = path.join(novel, '..', `${path.basename(novel)}-incomplete-staging`);
+  try {
+    writeJson(path.join(novel, 'data', 'chapter_summaries.json'), [
+      { chapter: 1, title: '第一章 快剑', summary: '阿飞拔剑。', source_refs: [] }
+    ]);
+
+    const plan = planLegacyMigration(novel);
+
+    assert.equal(plan.eligibility.migratable, false);
+    assert.deepEqual(plan.eligibility.blocking_errors, [{
+      code: 'LEGACY_CHAPTER_SUMMARY_INCOMPLETE',
+      missing_chapters: [2]
+    }]);
+    assert.throws(
+      () => buildLegacyCandidate(plan, {
+        stagingRoot,
+        runId: 'migration-incomplete-summaries'
+      }),
+      error => error?.code === 'MIGRATION_PLAN_INELIGIBLE'
+    );
+    assert.equal(fs.existsSync(stagingRoot), false);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+    fs.rmSync(stagingRoot, { recursive: true, force: true });
+  }
+});
+
+test('falls back to a retained source when active legacy summaries are semantically incomplete', () => {
+  const novel = writeNovelFixture();
+  try {
+    const retained = path.join(novel, '.game-kb-work', 'runs', 'retained-complete', 'final', 'data');
+    fs.cpSync(path.join(novel, 'data'), retained, { recursive: true });
+    writeJson(path.join(novel, 'data', 'chapter_summaries.json'), [
+      { chapter: 1, title: '第一章 快剑', summary: '阿飞拔剑。', source_refs: [] }
+    ]);
+
+    const plan = planLegacyMigration(novel);
+
+    assert.equal(plan.source.kind, 'retained-run');
+    assert.equal(plan.source.data_root, retained);
+    assert.equal(plan.eligibility.migratable, true);
+    assert.deepEqual(plan.source.candidates, [
+      {
+        kind: 'active-data',
+        data_root: path.join(novel, 'data'),
+        run_id: null,
+        selected: false,
+        eligibility: {
+          migratable: false,
+          blocking_errors: [{
+            code: 'LEGACY_CHAPTER_SUMMARY_INCOMPLETE',
+            missing_chapters: [2]
+          }]
+        }
+      },
+      {
+        kind: 'retained-run',
+        data_root: retained,
+        run_id: 'retained-complete',
+        selected: true,
+        eligibility: {
+          migratable: true,
+          blocking_errors: []
+        }
+      }
+    ]);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+  }
+});
+
+test('does not replace an explicitly selected ineligible legacy source', () => {
+  const novel = writeNovelFixture();
+  try {
+    const retained = path.join(novel, '.game-kb-work', 'runs', 'retained-complete', 'final', 'data');
+    fs.cpSync(path.join(novel, 'data'), retained, { recursive: true });
+    writeJson(path.join(novel, 'data', 'chapter_summaries.json'), [
+      { chapter: 1, title: '第一章 快剑', summary: '阿飞拔剑。', source_refs: [] }
+    ]);
+
+    const plan = planLegacyMigration(novel, {
+      explicitDataRoot: path.join(novel, 'data')
+    });
+
+    assert.equal(plan.source.kind, 'explicit');
+    assert.equal(plan.source.data_root, path.join(novel, 'data'));
+    assert.equal(plan.eligibility.migratable, false);
+    assert.equal(plan.source.candidates, undefined);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+  }
+});
+
 test('requires explicit confirmation and leaves the legacy tree untouched in plan mode', () => {
   const novel = writeNovelFixture();
   try {

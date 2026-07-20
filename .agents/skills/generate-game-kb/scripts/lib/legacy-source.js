@@ -216,11 +216,14 @@ function resolveLegacySource(novelDir, options = {}) {
     };
   }
 
+  const excludedDataRoots = new Set((options.excludeDataRoots || []).map(dataRoot => (
+    path.resolve(dataRoot)
+  )));
   const candidates = [
     { kind: 'active-data', dataRoot: path.join(novel, 'data') },
     ...retainedCandidates(novel),
     ...archiveCandidates(novel)
-  ];
+  ].filter(candidate => !excludedDataRoots.has(path.resolve(candidate.dataRoot)));
   const rejections = [];
   const inspectedCandidates = [];
   const successful = [];

@@ -141,11 +141,7 @@ function unresolvedReferenceRows(mapped, evidence) {
     .filter(row => String(row?.code || '').startsWith('LEGACY_REFERENCE_')));
 }
 
-function inspectLegacy(novelDir, options = {}) {
-  const novel = path.resolve(novelDir);
-  const sourcePlan = resolveLegacySource(novel, {
-    explicitDataRoot: options.explicitDataRoot
-  });
+function inspectLegacySource(novel, sourcePlan) {
   const legacy = loadLegacyFileSet(sourcePlan);
   const inventory = loadExistingChapterInventory(novel);
   const snapshot = sourceSnapshot(inventory);
@@ -153,6 +149,12 @@ function inspectLegacy(novelDir, options = {}) {
   const evidence = rebuildLegacyEvidence(mapped, inventory);
   const rejected = rejectionRows(mapped, evidence);
   const unresolvedReferences = unresolvedReferenceRows(mapped, evidence);
+  const summaryChapters = new Set(evidence.acceptedChapters
+    .filter(chapter => chapter.chapter_summary)
+    .map(chapter => chapter.number));
+  const missingSummaryChapters = inventory.chapters
+    .map(chapter => chapter.number)
+    .filter(number => !summaryChapters.has(number));
   const chapterDescriptors = inventory.chapters.map(chapter => ({
     number: chapter.number,
     title: chapter.title,
@@ -189,6 +191,13 @@ function inspectLegacy(novelDir, options = {}) {
       source_hash: snapshot.source_hash,
       chapters: chapterDescriptors
     },
+    eligibility: {
+      migratable: missingSummaryChapters.length === 0,
+      blocking_errors: missingSummaryChapters.length === 0 ? [] : [{
+        code: 'LEGACY_CHAPTER_SUMMARY_INCOMPLETE',
+        missing_chapters: missingSummaryChapters
+      }]
+    },
     counts: {
       input: categoryCounts(legacy),
       retained: Object.fromEntries(RECEIPT_CATEGORIES.map(category => [
@@ -203,6 +212,52 @@ function inspectLegacy(novelDir, options = {}) {
     unresolved_references: unresolvedReferences
   };
   return { publicPlan, legacy, inventory, snapshot, mapped, evidence };
+}
+
+function sourceCandidate(prepared, selected) {
+  const source = prepared.publicPlan.source;
+  return {
+    kind: source.kind,
+    data_root: source.data_root,
+    run_id: source.run_id,
+    selected,
+    eligibility: prepared.publicPlan.eligibility
+  };
+}
+
+function inspectLegacy(novelDir, options = {}) {
+  const novel = path.resolve(novelDir);
+  if (options.explicitDataRoot !== undefined) {
+    return inspectLegacySource(novel, resolveLegacySource(novel, {
+      explicitDataRoot: options.explicitDataRoot
+    }));
+  }
+
+  const excludedDataRoots = [];
+  const attempts = [];
+  let preferred = null;
+  let usableSourceCount = null;
+  do {
+    const sourcePlan = resolveLegacySource(novel, { excludeDataRoots: excludedDataRoots });
+    if (usableSourceCount === null) {
+      usableSourceCount = sourcePlan.candidates.filter(candidate => !candidate.code).length;
+    }
+    const prepared = inspectLegacySource(novel, sourcePlan);
+    attempts.push(prepared);
+    preferred ||= prepared;
+    if (prepared.publicPlan.eligibility.migratable) {
+      prepared.publicPlan.source.candidates = attempts.map(attempt => (
+        sourceCandidate(attempt, attempt === prepared)
+      ));
+      return prepared;
+    }
+    excludedDataRoots.push(sourcePlan.dataRoot);
+  } while (attempts.length < usableSourceCount);
+
+  preferred.publicPlan.source.candidates = attempts.map(attempt => (
+    sourceCandidate(attempt, attempt === preferred)
+  ));
+  return preferred;
 }
 
 function planLegacyMigration(novelDir, options = {}) {
@@ -372,6 +427,11 @@ function buildLegacyCandidate(plan, {
   allowNovelWorkRoot = false
 } = {}) {
   const current = prepared ? assertPreparedPlan(plan, prepared) : assertCurrentPlan(plan);
+  if (current.publicPlan.eligibility?.migratable !== true) {
+    throw migrationError('MIGRATION_PLAN_INELIGIBLE', 'Legacy migration plan has blocking eligibility errors', {
+      blocking_errors: current.publicPlan.eligibility?.blocking_errors || []
+    });
+  }
   const workRoot = allowNovelWorkRoot
     ? path.resolve(stagingRoot)
     : assertStagingRoot(plan.novel_dir, stagingRoot);

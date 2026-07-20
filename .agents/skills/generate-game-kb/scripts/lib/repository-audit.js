@@ -1,12 +1,14 @@
 'use strict';
 
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
 const { GameKbError } = require('./errors');
-const { verifyInstalled } = require('./install');
+const { DATA_FILES, verifyInstalled } = require('./install');
 const { atomicWriteFile, atomicWriteJson } = require('./io');
 const { planLegacyMigration } = require('./legacy-migration');
+const { deferredPathsFor, pathsFor } = require('./paths');
 const { SEMANTIC_CONTRACT_VERSION } = require('./run');
 
 const INSTALL_RECEIPT = 'generate_game_kb_install.json';
@@ -63,6 +65,53 @@ function qualificationReasons(qualification) {
   }));
 }
 
+function fileHash(file) {
+  return `sha256:${crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}`;
+}
+
+function treeFileHashes(root) {
+  const files = {};
+  const visit = directory => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })
+      .sort((left, right) => compareText(left.name, right.name))) {
+      const file = path.join(directory, entry.name);
+      if (entry.isDirectory()) visit(file);
+      else if (entry.isFile()) files[path.relative(root, file).split(path.sep).join('/')] = fileHash(file);
+    }
+  };
+  visit(root);
+  return files;
+}
+
+function publishedRunRoot(novelDir, runId) {
+  if (typeof runId !== 'string' || runId === '') return null;
+  try {
+    return [pathsFor(novelDir, runId).run, deferredPathsFor(novelDir, runId).run]
+      .find(candidate => fs.existsSync(candidate)) || null;
+  } catch {
+    return null;
+  }
+}
+
+function protectionHashes(novelDir, qualification) {
+  const receipt = path.join(novelDir, 'reports', INSTALL_RECEIPT);
+  const runRoot = publishedRunRoot(novelDir, qualification.run_id);
+  if (!runRoot) {
+    throw new GameKbError('QUALIFIED_RUN_MISSING', 'Qualified installation has no published run to protect', {
+      novel_dir: novelDir,
+      run_id: qualification.run_id
+    });
+  }
+  return {
+    data_files: Object.fromEntries(DATA_FILES.map(filename => {
+      const file = path.join(novelDir, 'data', filename);
+      return [filename, { path: file, hash: fileHash(file) }];
+    })),
+    install_receipt: { path: receipt, hash: fileHash(receipt) },
+    published_run: { root: runRoot, files: treeFileHashes(runRoot) }
+  };
+}
+
 function auditBook(repo, author, book) {
   const novelDir = path.join(repo, author, book);
   if (!installedDataExists(novelDir)) {
@@ -72,6 +121,7 @@ function auditBook(repo, author, book) {
       novel_dir: novelDir,
       classification: 'not_knowledge_base',
       qualification: null,
+      protection_hashes: null,
       migration: { status: 'not_applicable', plan: null, error: null },
       reasons: []
     };
@@ -85,6 +135,7 @@ function auditBook(repo, author, book) {
       novel_dir: novelDir,
       classification: 'qualified',
       qualification,
+      protection_hashes: protectionHashes(novelDir, qualification),
       migration: { status: 'not_required', plan: null, error: null },
       reasons: []
     };
@@ -93,12 +144,30 @@ function auditBook(repo, author, book) {
   const reasons = qualificationReasons(qualification);
   try {
     const plan = planLegacyMigration(novelDir);
+    if (plan.eligibility?.migratable !== true) {
+      const migrationError = {
+        code: 'MIGRATION_PLAN_INELIGIBLE',
+        message: 'Legacy migration plan has blocking eligibility errors',
+        details: { blocking_errors: plan.eligibility?.blocking_errors || [] }
+      };
+      return {
+        author,
+        book,
+        novel_dir: novelDir,
+        classification: 'unqualified',
+        qualification,
+        protection_hashes: null,
+        migration: { status: 'non_migratable', plan, error: migrationError },
+        reasons: [...reasons, ...(plan.eligibility?.blocking_errors || []), migrationError]
+      };
+    }
     return {
       author,
       book,
       novel_dir: novelDir,
       classification: 'unqualified',
       qualification,
+      protection_hashes: null,
       migration: { status: 'migratable', plan, error: null },
       reasons
     };
@@ -110,6 +179,7 @@ function auditBook(repo, author, book) {
       novel_dir: novelDir,
       classification: 'unqualified',
       qualification,
+      protection_hashes: null,
       migration: { status: 'non_migratable', plan: null, error: migrationError },
       reasons: [...reasons, migrationError]
     };
@@ -191,6 +261,43 @@ function auditMarkdown(audit) {
   return `${lines.join('\n')}\n`;
 }
 
+function migrationPlanDocument(audit) {
+  const migrations = audit.books.filter(row => row.migration.status === 'migratable').map(row => {
+    const identity = `${row.author}/${row.book}`;
+    const token = crypto.createHash('sha256').update(identity).digest('hex').slice(0, 16);
+    const runId = `migration-v6-${token}`;
+    const stagingRoot = path.join(audit.repository_root, '.game-kb-migration-staging', row.author, row.book);
+    const flow = '.agents/skills/generate-game-kb/scripts/flow.js';
+    const prefix = [
+      'node', flow, 'migrate-legacy', JSON.stringify(row.novel_dir),
+      '--run', runId,
+      '--from', JSON.stringify(row.migration.plan.source.data_root)
+    ];
+    return {
+      author: row.author,
+      book: row.book,
+      novel_dir: row.novel_dir,
+      run_id: runId,
+      staging_root: stagingRoot,
+      dry_run_command: [...prefix, '--json'].join(' '),
+      confirm_command: [
+        ...prefix,
+        '--staging-root', JSON.stringify(stagingRoot),
+        '--confirm',
+        '--json'
+      ].join(' '),
+      plan: row.migration.plan
+    };
+  });
+  return {
+    schema_version: 1,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    repository_root: audit.repository_root,
+    counts: { migratable: migrations.length },
+    migrations
+  };
+}
+
 function writeAuditReports(audit, outputDir) {
   if (!audit || !Array.isArray(audit.books)) {
     throw new GameKbError('REPOSITORY_AUDIT_INVALID', 'Audit report payload is invalid');
@@ -202,8 +309,10 @@ function writeAuditReports(audit, outputDir) {
   fs.mkdirSync(output, { recursive: true });
   const jsonPath = path.join(output, 'initial-audit.json');
   const markdownPath = path.join(output, 'initial-audit.md');
+  const migrationPlanPath = path.join(output, 'migration-plan.json');
   atomicWriteJson(jsonPath, audit);
   atomicWriteFile(markdownPath, auditMarkdown(audit));
+  atomicWriteJson(migrationPlanPath, migrationPlanDocument(audit));
   return { jsonPath, markdownPath };
 }
 

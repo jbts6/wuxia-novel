@@ -148,6 +148,9 @@ test('classifies repository books deterministically without modifying the reposi
     assert.equal(byBook['合格书'].classification, 'qualified');
     assert.equal(byBook['合格书'].qualification.passed, true);
     assert.equal(byBook['合格书'].migration.status, 'not_required');
+    assert.deepEqual(Object.keys(byBook['合格书'].protection_hashes.data_files).sort(), [...DATA_FILES].sort());
+    assert.match(byBook['合格书'].protection_hashes.install_receipt.hash, /^sha256:[a-f0-9]{64}$/);
+    assert.ok(Object.keys(byBook['合格书'].protection_hashes.published_run.files).length > 0);
     assert.equal(byBook['旧版书'].classification, 'unqualified');
     assert.equal(byBook['旧版书'].migration.status, 'migratable');
     assert.equal(byBook['旧版书'].migration.plan.operation, 'legacy-json-to-v6');
@@ -169,15 +172,24 @@ test('writes stable JSON and Markdown audit reports with complete classification
     const written = writeAuditReports(audit, output);
     const firstJson = fs.readFileSync(written.jsonPath, 'utf8');
     const firstMarkdown = fs.readFileSync(written.markdownPath, 'utf8');
+    const migrationPlanPath = path.join(output, 'migration-plan.json');
+    const firstMigrationPlan = fs.readFileSync(migrationPlanPath, 'utf8');
 
     assert.equal(path.basename(written.jsonPath), 'initial-audit.json');
     assert.equal(path.basename(written.markdownPath), 'initial-audit.md');
     assert.deepEqual(JSON.parse(firstJson), audit);
+    const migrationPlan = JSON.parse(firstMigrationPlan);
+    assert.equal(migrationPlan.semantic_contract_version, 6);
+    assert.equal(migrationPlan.migrations.length, 1);
+    assert.equal(migrationPlan.migrations[0].book, '旧版书');
+    assert.equal(migrationPlan.migrations[0].plan.operation, 'legacy-json-to-v6');
+    assert.doesNotMatch(firstMigrationPlan, /extract-chapters|distill-domain|model-authored/);
     for (const book of ['合格书', '旧版书', '普通书', '损坏书']) assert.match(firstMarkdown, new RegExp(book));
 
     writeAuditReports(audit, output);
     assert.equal(fs.readFileSync(written.jsonPath, 'utf8'), firstJson);
     assert.equal(fs.readFileSync(written.markdownPath, 'utf8'), firstMarkdown);
+    assert.equal(fs.readFileSync(migrationPlanPath, 'utf8'), firstMigrationPlan);
   } finally {
     fs.rmSync(repo, { recursive: true, force: true });
     fs.rmSync(output, { recursive: true, force: true });
