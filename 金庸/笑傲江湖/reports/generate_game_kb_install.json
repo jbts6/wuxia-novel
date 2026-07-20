@@ -1,195 +1,238 @@
 {
-  "schema_version": 1,
-  "semantic_contract_version": 2,
+  "schema_version": 2,
+  "semantic_contract_version": 6,
+  "profile": "v4",
   "installer": "generate-game-kb",
-  "source_hash": "sha256:f891dddedac85d8a41ca554680d878f8f30efbe48784058cc50f3e4b336d3011",
-  "final_data_hash": "sha256:98e63ea1abdc1b7a2b78e6195d74af65974333c6cd39cc752234d2b7847d8a70",
+  "run_id": "migration-v6-9ab2ed21a745fab7",
+  "source_hash": "sha256:e3d211328c6e4005b1ba0ea4055ced514572272c6c5bbebb226cd34def17c368",
+  "final_data_hash": "sha256:9c1522cc6c586c930477745642d6991b3d4f686b07ec15d3d54cc3ba1d1bac11",
+  "id_plan_hash": "sha256:55cbdd09b005936f3f0d8f84f2ad75f035f6f2ce6adce0bcd89dd1b567528fc4",
+  "migration_receipt_hash": "sha256:daa873bd363b772cdc2e4bbdf4bb8b1dab2a077398b0470a230368fd32c8cb07",
   "data_files": [
-    "chapter_summaries.json",
-    "characters.json",
-    "dialogues.json",
-    "events.json",
-    "factions.json",
-    "items.json",
-    "locations.json",
-    "skills.json",
-    "techniques.json"
+    "chapter_summaries.yaml",
+    "characters.yaml",
+    "factions.yaml",
+    "items.yaml",
+    "skills.yaml"
   ],
-  "report_hashes": {
-    "game_materials.json": "sha256:e6f2311bc2bc34df2feb7e0e2ddb248e6a8aff50b6270cd256717ce06f95dae6",
-    "quantity_report.json": "sha256:675266ec9f92260b7bd55c5ae30a5155b59675898408505eaea97b9fbd279a67",
-    "quality_report.json": "sha256:5544d54c018055f8a2637134f4139ddcafc1a7fae4ac7210e4d4f178192dc62b"
+  "data_file_hashes": {
+    "chapter_summaries.yaml": "sha256:594f0608d67f1c83722d04d65e70f3ddb0a0382adcbb4d72cc79e364e7c6f30b",
+    "characters.yaml": "sha256:f93e4e1d18a46ef4a41475d3bb3e7abadcc0d57c466fa035fd7555d9cde6e2ea",
+    "factions.yaml": "sha256:3e1dc3088da5202692a9b9058f5e7206045a8aaea80c3b6981262ae7e74d6391",
+    "items.yaml": "sha256:2601a0bbf328512359e8502d571822045fb4024869e8b89195e382d13bee805b",
+    "skills.yaml": "sha256:6ca9ebaed8dbafe46541b90e24b5d63feba1f2367331d5a04ecc5c7ea98a76c2"
   },
+  "verification_report_hash": "sha256:482e98c248cc07752b762273e1ed0d3eafbcfb133b282e717165cf7b8905eb36",
   "chapters": [
     {
       "number": 1,
-      "title": "第一回"
+      "title": "灭门",
+      "input_hash": "sha256:38e8c68acefe1cb53b0447f8e2f4a0960f6f4164015130ff6842f63074f50d0b"
     },
     {
       "number": 2,
-      "title": "第二回"
+      "title": "聆秘",
+      "input_hash": "sha256:a2ce0d3effa4a13e8291e44473fe29b5d1148873d9899cf23aad3c0abf868ca5"
     },
     {
       "number": 3,
-      "title": "第三回"
+      "title": "救难",
+      "input_hash": "sha256:532bf8ff62cedb5edc6c20bae246015ef6ca302db800f9550266bb91ecc09b4d"
     },
     {
       "number": 4,
-      "title": "第四回"
+      "title": "坐斗",
+      "input_hash": "sha256:470393d72ef6dc0ec191646273666a81b069fd77ef8ae12dc0744448d0d39dbc"
     },
     {
       "number": 5,
-      "title": "第五回"
+      "title": "治伤",
+      "input_hash": "sha256:d27a0364b70f10c7d7138594a545916998ad0fb81d105153cf4214eebd741454"
     },
     {
       "number": 6,
-      "title": "第六回"
+      "title": "洗手",
+      "input_hash": "sha256:c5cf97e216bb2c14b4bd5a282c8752c201c3fb9df307ac0593d3d3703dcbdb0f"
     },
     {
       "number": 7,
-      "title": "第七回"
+      "title": "授谱",
+      "input_hash": "sha256:f0afe4fe28748b54d28ea7a234224a6f27a9e6cdcd2f1ba8cca9c0dc7778008d"
     },
     {
       "number": 8,
-      "title": "第八回"
+      "title": "面壁",
+      "input_hash": "sha256:166dc4becb25a26a6f1f08a672b11b97ff487f8f1cec837b783f092b9fe8567f"
     },
     {
       "number": 9,
-      "title": "第九回"
+      "title": "邀客",
+      "input_hash": "sha256:241fb2c1bf1b11ae56d4935cca6cb7c88b49f6f08e1d0d86cfe8f719250ba67a"
     },
     {
       "number": 10,
-      "title": "第十回"
+      "title": "传剑",
+      "input_hash": "sha256:25f73f341498865df9b7e7a2c543c4b0e79809a76ae84e0a0a3ea27280620ec3"
     },
     {
       "number": 11,
-      "title": "第十一回"
+      "title": "聚气",
+      "input_hash": "sha256:972c09c76b27b12c242dd63deb7fe58b187144b5e81397562c0dd35d1331135f"
     },
     {
       "number": 12,
-      "title": "第十二回"
+      "title": "围攻",
+      "input_hash": "sha256:6b8079b459c103184cadee4cd86b1ccc083a261ebf560ebcf37e5ad8b6a1b99f"
     },
     {
       "number": 13,
-      "title": "第十三回"
+      "title": "学琴",
+      "input_hash": "sha256:effebd2be4ece4464584b2517a2e3ac12cf870316fe2da187e69498eaa32f8a5"
     },
     {
       "number": 14,
-      "title": "第十四回"
+      "title": "论杯",
+      "input_hash": "sha256:0c2e502da329e58b83ec18ff04fe91e37c4738d791ebba8d77b1b69541d803fa"
     },
     {
       "number": 15,
-      "title": "第十五回"
+      "title": "灌药",
+      "input_hash": "sha256:93fbd7a5428686113b95d2c14d3fdd2e0af792915bde97afa81ccf751125af24"
     },
     {
       "number": 16,
-      "title": "第十六回"
+      "title": "注血",
+      "input_hash": "sha256:ec21ad1b1da8098f1e07bdc90e5b80cb6483ebb6cc0a6b7a0d19eac690871fa1"
     },
     {
       "number": 17,
-      "title": "第十七回"
+      "title": "倾心",
+      "input_hash": "sha256:6b6519d6a1b4d948bf412139d500067a85c9654f9a4a0c7481e6baa0edc2bc0a"
     },
     {
       "number": 18,
-      "title": "第十八回"
+      "title": "联手",
+      "input_hash": "sha256:f0327fd220911ec5b7f6ee93636c18ebc008a726afe8b645cbc1b1efd8cc9e7d"
     },
     {
       "number": 19,
-      "title": "第十九回"
+      "title": "打赌",
+      "input_hash": "sha256:ff8b3493ad040e80d08fa2b9eacc7b0f7d4c8f52a446ccb53dd1c20014838cec"
     },
     {
       "number": 20,
-      "title": "第二十回"
+      "title": "探狱",
+      "input_hash": "sha256:30d82508b48caa9b8cc66165e54467977be0126aa4cd0f05fafd43e2cd9ff684"
     },
     {
       "number": 21,
-      "title": "第二十一回"
+      "title": "囚居",
+      "input_hash": "sha256:8c302d9591f45b71705f125905843d4514a643a9af2e886530e3910a25401522"
     },
     {
       "number": 22,
-      "title": "第二十二回"
+      "title": "脱困",
+      "input_hash": "sha256:bd428169c0f2bf30eb7cf68847147bff88e49214b5aeabf5f23ceeb21874cb53"
     },
     {
       "number": 23,
-      "title": "第二十三回"
+      "title": "伏击",
+      "input_hash": "sha256:0026f991bde3119ee6c05cfd1b9c72bea833a4106a4aaa088bf06942ae306454"
     },
     {
       "number": 24,
-      "title": "第二十四回"
+      "title": "蒙冤",
+      "input_hash": "sha256:ae591ffa6dd6a93e7bcd43210df6d70d11d83d92b3f425505cc24e1325e98cc2"
     },
     {
       "number": 25,
-      "title": "第二十五回"
+      "title": "闻讯",
+      "input_hash": "sha256:ef1caeaa5b3fe1888869f7bc1ce94a69287c08d0f575b2d323e60fd35d982144"
     },
     {
       "number": 26,
-      "title": "第二十六回"
+      "title": "围寺",
+      "input_hash": "sha256:c484a20d80cf523a52393117b5ffce2c6e5903f2d7a23ee1fb7b519c4446ad55"
     },
     {
       "number": 27,
-      "title": "第二十七回"
+      "title": "三战",
+      "input_hash": "sha256:058251a6002957c634b081977afd9fa4b0c1d053e952c8d3b2feb9ddd6c8a888"
     },
     {
       "number": 28,
-      "title": "第二十八回"
+      "title": "积雪",
+      "input_hash": "sha256:3f68d58fbae4639e32057c0f7c99a65802d45d33698b6a95355c6cdab079b41f"
     },
     {
       "number": 29,
-      "title": "第二十九回"
+      "title": "掌门",
+      "input_hash": "sha256:9b3c9244674c663375984c367a7eba7220fd4b5b877f68848a7469e200bd1c3a"
     },
     {
       "number": 30,
-      "title": "第三十回"
+      "title": "密议",
+      "input_hash": "sha256:bfd62daebb7162a15ed9f532fadc000acdae92270b3c238c107c67788716ff39"
     },
     {
       "number": 31,
-      "title": "第三十一回"
+      "title": "绣花",
+      "input_hash": "sha256:79d3ed4b540083b40e657c2d1f6bcdf0a54e73e043f406e0a3357f21da070a1b"
     },
     {
       "number": 32,
-      "title": "第三十二回"
+      "title": "并派",
+      "input_hash": "sha256:94f47516c7f39cafc15ad5b2a9a36c5d918785896b546c2ca73d928ca56b078f"
     },
     {
       "number": 33,
-      "title": "第三十三回"
+      "title": "比剑",
+      "input_hash": "sha256:08986b12c0240d1b05409c79a90bbd9c11d788f005d00bdfc313703d074c3ec8"
     },
     {
       "number": 34,
-      "title": "第三十四回"
+      "title": "夺帅",
+      "input_hash": "sha256:4740128704bbabdb94a6ab9b974f732994e58d500d6b99f5915f028c8233bb89"
     },
     {
       "number": 35,
-      "title": "第三十五回"
+      "title": "复仇",
+      "input_hash": "sha256:6a5a376b51d89679443f35c59446eac13104d2b1e7f407bd076baceddbed9766"
     },
     {
       "number": 36,
-      "title": "第三十六回"
+      "title": "伤逝",
+      "input_hash": "sha256:c3b115477278c2838a9177c61609da992eeb619e31bba38cba5cb1fe22f98861"
     },
     {
       "number": 37,
-      "title": "第三十七回"
+      "title": "迫娶",
+      "input_hash": "sha256:cc92f9349c30f3d9ea062e73717e48e3021f24810b96deb2bdfcee963b89be20"
     },
     {
       "number": 38,
-      "title": "第三十八回"
+      "title": "聚歼",
+      "input_hash": "sha256:4ce4d9c679846dabb25aa7f97d4dc555fda10c0526fd61bf3df060abd90c7c75"
     },
     {
       "number": 39,
-      "title": "第三十九回"
+      "title": "拒盟",
+      "input_hash": "sha256:4599a923de54db1cc3f698864c54e366e28effba740a3fac0c06f2e04d959695"
     },
     {
       "number": 40,
-      "title": "第四十回"
+      "title": "曲谐",
+      "input_hash": "sha256:4904e645628da0daf5faa13a67b2b5b840a88e2b74b8030ef5eca65a4a59a258"
     }
   ],
-  "manual_review_count": 0,
-  "quality_sample_format": "fixed-v2",
-  "archive_root": "C:\\git\\wuxia-novel\\金庸\\笑傲江湖\\_archive\\2026-07-15T09-31-39-286Z-pre-generate-game-kb",
+  "archive_root": "C:\\git\\wuxia-novel\\金庸\\笑傲江湖\\_archive\\2026-07-20T04-27-00-322Z-pre-generate-game-kb",
   "archive_data": null,
   "backup_path": null,
+  "previous_final_data_hash": null,
+  "backup_final_data_hash": null,
   "original_data_state": "missing",
   "preserved_entries": [],
   "removed_stale_markers": [],
-  "started_at": "2026-07-15T09:31:39.286Z",
-  "installed_at": "2026-07-15T09:31:39.401Z"
+  "started_at": "2026-07-20T04:27:00.322Z",
+  "installed_at": "2026-07-20T04:27:00.361Z"
 }
