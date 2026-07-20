@@ -695,6 +695,12 @@ function executeLegacyMigration(plan, {
     });
   }
 
+  const legacyQualification = verifyInstalled(novel);
+  const archiveReason = {
+    code: 'LEGACY_INSTALLATION_UNQUALIFIED',
+    blocking_errors: legacyQualification.blocking_errors
+  };
+
   const archiveId = migrationArchiveId(runId);
   const archivePath = path.join(novel, '_archive', archiveId);
   const targetWorkRoot = path.join(novel, '.game-kb-work');
@@ -719,6 +725,7 @@ function executeLegacyMigration(plan, {
       archiveAttempted = true;
       archiveReceipt = archiveExisting(novel, {
         archiveId,
+        reason: archiveReason,
         ...(archiveFailAfterMoves === undefined ? {} : { failAfterMoves: archiveFailAfterMoves })
       });
     }
@@ -788,6 +795,7 @@ function executeLegacyMigration(plan, {
       try {
         archiveReceipt = archiveExisting(novel, {
           archiveId,
+          reason: archiveReason,
           ...(archiveFailAfterMoves === undefined ? {} : { failAfterMoves: archiveFailAfterMoves })
         });
         stage = 'legacy_archived';

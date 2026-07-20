@@ -349,6 +349,9 @@ test('installs and verifies a successful migration after archiving the legacy pa
     assert.equal(verifyInstalled(novel).passed, true);
     assert.equal(fs.existsSync(path.join(novel, 'data', 'characters.yaml')), true);
     assert.equal(fs.existsSync(archiveManifest(novel, `${runId}-legacy`)), true);
+    const manifest = JSON.parse(fs.readFileSync(archiveManifest(novel, `${runId}-legacy`), 'utf8'));
+    assert.equal(manifest.reason.code, 'LEGACY_INSTALLATION_UNQUALIFIED');
+    assert.equal(manifest.reason.blocking_errors.length > 0, true);
   } finally {
     fs.rmSync(novel, { recursive: true, force: true });
     fs.rmSync(stagingRoot, { recursive: true, force: true });

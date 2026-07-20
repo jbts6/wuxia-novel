@@ -97,15 +97,34 @@ test('archive writes a manifest and leaves only source, ch_split, and _archive',
     'reports/quality.json': '{}\n'
   });
 
-  const receipt = archiveExisting(novel, { archiveId: 'before-run-a' });
+  const reason = {
+    code: 'LEGACY_INSTALLATION_UNQUALIFIED',
+    blocking_errors: [{ code: 'INSTALL_RECEIPT_MISSING' }]
+  };
+  const receipt = archiveExisting(novel, { archiveId: 'before-run-a', reason });
 
   assert.equal(receipt.status, 'archived');
   assertCleanNovelRoot(novel);
   assert.deepEqual(fs.readdirSync(novel).sort(), ['_archive', 'ch_split', '试书.txt']);
   const manifest = readJson(path.join(receipt.archive_dir, 'archive-manifest.json'));
   assert.equal(manifest.status, 'archived');
+  assert.deepEqual(manifest.reason, reason);
   assert.ok(manifest.entries.some(entry => entry.relative_path === 'data/characters.json'));
   assert.equal(fs.readFileSync(path.join(receipt.archive_dir, 'summary.md'), 'utf8'), 'old summary\n');
+});
+
+test('archive rejects an invalid structured reason before moving anything', () => {
+  const novel = makeNovelDirectory({
+    '试书.txt': '正文。\n',
+    'summary.md': 'old\n'
+  });
+  const before = snapshotTree(novel);
+
+  assert.throws(
+    () => archiveExisting(novel, { archiveId: 'invalid-reason', reason: { code: ' ' } }),
+    error => error.code === 'ARCHIVE_REASON_INVALID'
+  );
+  assert.deepEqual(snapshotTree(novel), before);
 });
 
 test('archive rejects ambiguous source texts before moving anything', () => {

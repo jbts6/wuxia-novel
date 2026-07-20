@@ -49,6 +49,18 @@ function archiveId(options = {}) {
   return value;
 }
 
+function archiveReason(options = {}) {
+  if (options.reason === undefined) return undefined;
+  const reason = options.reason;
+  if (!reason || typeof reason !== 'object' || Array.isArray(reason)
+    || typeof reason.code !== 'string' || reason.code.trim() === '') {
+    throw new GameKbError('ARCHIVE_REASON_INVALID', 'Archive reason must contain a non-empty code', {
+      reason
+    });
+  }
+  return reason;
+}
+
 function inspectEntry(root, sourcePath, archiveDir, relativePath, entries) {
   const target = path.join(root, relativePath);
   const manifestPath = relativePath.split(path.sep).join('/');
@@ -86,6 +98,7 @@ function inspectEntry(root, sourcePath, archiveDir, relativePath, entries) {
 }
 
 function buildArchivePlan(novelDir, options = {}) {
+  const reason = archiveReason(options);
   const novel = assertNovelDirectory(novelDir);
   const sourceFile = sourceFileInRoot(novel);
   const sourceName = path.basename(sourceFile);
@@ -114,6 +127,7 @@ function buildArchivePlan(novelDir, options = {}) {
     archive_dir: archiveDir,
     moves,
     entries,
+    ...(reason === undefined ? {} : { reason }),
     status: 'planned'
   };
 }
