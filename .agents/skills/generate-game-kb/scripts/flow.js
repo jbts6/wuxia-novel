@@ -79,6 +79,7 @@ const PROFILE_COMMANDS = Object.freeze({
   'lite-prepare': { command: 'prepare', profile: PROFILE_LITE },
   'lite-accept': { command: 'accept', profile: PROFILE_LITE },
   'lite-basic-curate': { command: 'basic-curate', profile: PROFILE_LITE },
+  'lite-plan-domains': { command: 'plan-domains', profile: PROFILE_LITE },
   'lite-publish': { command: 'publish', profile: PROFILE_LITE },
   'lite-status': { command: 'status', profile: PROFILE_LITE },
   'lite-guard-open': { command: 'guard-open', profile: PROFILE_LITE },
@@ -622,16 +623,25 @@ function main(argv = process.argv.slice(2)) {
       const manifest = readJson(paths.manifest);
       const progress = projectProgress(paths, manifest);
       const acceptedSerialization = run.accepted_serialization ?? null;
+      const requiredDomainUnits = requiredDomainUnitsForProfile(
+        effectiveProfile,
+        run.semantic_contract_version
+      );
       const next = acceptedSerialization === ACCEPTED_SERIALIZATION
         ? resolveNextAction({
           paths,
           manifest,
           progress,
-          installed: verifyInstalled(novelDir)
+          installed: verifyInstalled(novelDir),
+          requiredDomainUnits
         })
         : { next_action: 'start-new-run', next_units: [] };
-      const routedNext = profile === PROFILE_LITE && next.next_action === 'plan-domains'
-        ? { next_action: 'lite-publish', next_units: [] }
+      const routedNext = effectiveProfile === PROFILE_LITE
+        ? next.next_action === 'plan-domains'
+          ? { next_action: 'lite-plan-domains', next_units: [] }
+          : next.next_action === 'assemble'
+            ? { next_action: 'lite-publish', next_units: [] }
+            : next
         : next;
       // Apply worker projection to strip staging_path from chapter_jobs
       if (routedNext.chapter_jobs) {

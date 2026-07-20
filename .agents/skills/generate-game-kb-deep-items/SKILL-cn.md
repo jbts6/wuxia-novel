@@ -9,7 +9,7 @@ description: Use when a Chinese reference is needed for explicit full-book item 
 
 ## 目标与边界
 
-完整读取 `input_path` 指向的任务输入、accepted 物品证据和当前 `items.yaml`。只保留原文支持的秘籍、剧情关键武器或防具、药物、暗器及其他有名稀有物品，合并别名和重复项，仅完善 `aliases/type/description`。只能操作已知物品 registry key；不得把普通器具或景物升级为物品记录，也不得新增物品、source_refs 或跨类别引用。
+完整读取 `input_path` 指向的任务输入、accepted 物品证据和当前 `items.yaml`。只保留原文支持且明确命名、稀有或剧情关键的物品；`type` 必须使用完整枚举 `武器/防具/秘籍/丹药/暗器/坐骑/异兽/饰品/其他`，覆盖秘籍、武器、防具、药物、暗器、坐骑、异兽、饰品及其他有名稀有物品。合并别名和重复项，仅完善 `aliases/type/description`。只能操作已知物品 registry key；不得把普通器具或景物升级为物品记录，也不得新增物品、source_refs 或跨类别引用。
 
 ## 合并策略
 

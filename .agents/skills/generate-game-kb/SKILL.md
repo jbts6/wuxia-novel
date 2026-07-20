@@ -70,6 +70,23 @@ archive-existing
 - 空或缺失 Worker 结果属于传输失败，不提交且不消耗 attempt；其他完整结果仍可在全部 guard 干净后提交。并发上限正常为 5、降级为 3；只有明确 429 才执行 `worker-backoff`，不得从空结果推断 429；第二个不同 batch 在 3 并发再次明确 429 时停止 Worker 池。
 - `古龙/剑神一笑/剑神一笑.txt` 的 20 章仍形成七个 controller 调度 batch，批次大小为 `[3, 3, 3, 3, 3, 3, 2]`，但 status 必须暴露 20 个单章 Worker assignment。
 
+### Claude Workflow hard gate
+
+Even when the window contains only one chapter, Claude Code must invoke
+`game-kb-chapter-extract`; generic Agent/Task is forbidden, never substitute it. The main
+agent/session must not read `source_file`, perform chapter extraction, or
+construct, repair, or normalize an envelope. If the Workflow is unavailable,
+times out, returns null, missing, malformed, or non-JSON output, fail closed:
+stop the window and do not repair, retry, submit, or create a run. Only when
+`status` returns `next_action: start-new-run` may the controller authorize a new
+run. Keep the Workflow result in memory only; never write an envelope to the
+repository, `%TEMP%`, `/tmp`, or any other filesystem path. The Workflow
+result memory is the only handoff and must go directly to stdin.
+
+After the guard is clean, pass the unchanged Workflow result directly through
+stdin to the controller's `submit-draft` command. `$WORKFLOW_ENVELOPE_JSON` is
+an in-memory value, not a path.
+
 ```text
 章节提取：game-kb-chapter-extract 滚动池，每个 agent 只处理一章
 领域蒸馏：四个只读领域 Worker 可以并发生成

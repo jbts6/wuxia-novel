@@ -1314,3 +1314,40 @@ Added a project-scoped Claude rolling chapter workflow, read-only single-chapter
 ### Next Steps
 
 - None - task complete
+
+
+## Session 25: Recover Lite worker guard and routing
+
+**Date**: 2026-07-20
+**Task**: Recover Lite worker guard and routing
+**Branch**: `feature/recover-lite-worker-guard`
+
+### Summary
+
+Recovered remediated worker guards, hardened Claude workflow handoff, restored controller-owned Lite candidate planning, extended canonical item types, and documented verification evidence.
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `880260c4` | (see git log) |
+| `85754b91` | (see git log) |
+| `93ad659c` | (see git log) |
+| `97c1e6c6` | (see git log) |
+| `7f9aa010` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete

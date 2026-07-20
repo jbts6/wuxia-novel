@@ -8,7 +8,15 @@ const test = require('node:test');
 const { pathsFor } = require('../scripts/lib/paths');
 const { resolveRun } = require('../scripts/lib/run');
 const { projectWorkerJobs } = require('../scripts/flow');
-const { makeNovel, parseJsonLine, readJson, runFlow } = require('./helpers');
+const {
+  makeNovel,
+  parseJsonLine,
+  readJson,
+  runFlow,
+  sourceRef,
+  validChapterDraft,
+  writeStagingDraft
+} = require('./helpers');
 
 function activePaths(novel) {
   const run = resolveRun(novel);
@@ -85,6 +93,45 @@ test('status returns one lifecycle action without mutating the novel tree', () =
   assert.equal('staging_path' in output.chapter_jobs[0].chapters[0], false);
   assert.equal('staging_paths' in output.chapter_jobs[0].chapters[0], false);
   assert.equal('next_actions' in output, false);
+});
+
+test('Lite status skips full-book domain workers after controller domain planning', () => {
+  const novel = makeNovel('Lite 域计划路由试书', '第一章 起始\n甲。\n');
+  const prepared = runFlow(['lite-prepare', novel, '--run', 'run-lite-domain-route', '--json']);
+  assert.equal(prepared.status, 0, prepared.stderr);
+  const runId = JSON.parse(prepared.stdout).run_id;
+  const paths = pathsFor(novel, runId);
+  const manifest = readJson(paths.manifest);
+  const draft = validChapterDraft({
+    source_hash: manifest.chapters[0].input_hash,
+    characters: [],
+    skills: [],
+    items: [],
+    factions: [],
+    chapter_summary: {
+      title: manifest.chapters[0].title,
+      summary: '甲在本章出现。',
+      source_refs: [sourceRef(1, '甲。')]
+    }
+  });
+  const accepted = runFlow([
+    'lite-accept', novel, '--run', runId, '--unit', 'chapter:001',
+    '--draft', writeStagingDraft(novel, 'chapter:001', draft), '--json'
+  ]);
+  assert.equal(accepted.status, 0, accepted.stderr);
+
+  const beforePlan = runFlow(['lite-status', novel, '--run', runId, '--json']);
+  assert.equal(beforePlan.status, 0, beforePlan.stderr);
+  assert.equal(JSON.parse(beforePlan.stdout).next_action, 'lite-plan-domains');
+
+  const planned = runFlow(['lite-plan-domains', novel, '--run', runId, '--json']);
+  assert.equal(planned.status, 0, planned.stderr);
+
+  const afterPlan = runFlow(['lite-status', novel, '--run', runId, '--json']);
+  assert.equal(afterPlan.status, 0, afterPlan.stderr);
+  const output = JSON.parse(afterPlan.stdout);
+  assert.equal(output.next_action, 'lite-publish');
+  assert.equal('domain_jobs' in output, false);
 });
 
 test('unresolved worker guard blocks status scheduling and direct publish gates', () => {

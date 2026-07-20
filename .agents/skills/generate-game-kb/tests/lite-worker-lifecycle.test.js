@@ -11,6 +11,10 @@ function read(relativePath) {
   return fs.readFileSync(path.join(skillRoot, relativePath), 'utf8');
 }
 
+function readSkill(relativePath) {
+  return fs.readFileSync(path.join(skillRoot, '..', relativePath), 'utf8');
+}
+
 function assertOrdered(text, markers, label) {
   let cursor = -1;
   for (const marker of markers) {
@@ -61,6 +65,39 @@ test('Lite Skills expose executable bootstrap and resume commands without exampl
   }
 });
 
+test('Lite Skills expose controller-owned candidate planning before publication', () => {
+  for (const [label, contract] of [['English', read('SKILL.md')], ['Chinese', read('SKILL-cn.md')]]) {
+    assert.match(contract, /lite-plan-domains/iu, `${label}: lite planning command`);
+    assert.match(contract, /(?:candidate registry|候选注册表|candidate-registry)/iu, `${label}: registry ownership`);
+    assert.ok(
+      contract.indexOf('lite-plan-domains') < contract.indexOf('lite-publish'),
+      `${label}: planning must precede publication`,
+    );
+    assert.match(
+      contract,
+      /(?:does not|不得|不自动|不派发)[^\r\n]*(?:domain worker|域 Worker|full-book domain|全书域)/iu,
+      `${label}: Lite does not dispatch full-book domain workers`,
+    );
+  }
+});
+
+test('chapter and deep-item contracts expose the complete item enum and inclusion boundary', () => {
+  const contracts = [
+    readSkill('generate-game-kb/prompts/extract-chapters.md'),
+    read('prompts/extract-chapters.md'),
+    readSkill('generate-game-kb-deep-items/SKILL.md'),
+    readSkill('generate-game-kb-deep-items/SKILL-cn.md')
+  ];
+  for (const contract of contracts) {
+    for (const type of ['武器', '防具', '秘籍', '丹药', '暗器', '坐骑', '异兽', '饰品', '其他']) {
+      assert.match(contract, new RegExp(type), `${type}: complete item enum`);
+    }
+    assert.match(contract, /(?:named|有名|名称明确|明确命名)/iu, 'named boundary');
+    assert.match(contract, /(?:rare|稀有)/iu, 'rare boundary');
+    assert.match(contract, /(?:plot[- ]relevant|剧情关键)/iu, 'plot boundary');
+  }
+});
+
 test('Lite Skills define a cross-batch rolling pool with a guarded serial broker barrier', () => {
   const english = read('SKILL.md');
   const chinese = read('SKILL-cn.md');
@@ -73,6 +110,49 @@ test('Lite Skills define a cross-batch rolling pool with a guarded serial broker
     assert.match(contract, /(?:serial|串行)[^\r\n]*(?:descriptor|描述符|chapter_jobs)[^\r\n]*(?:order|顺序)/iu, `${label}: serial order`);
     assert.match(contract, /(?:other platforms|其他平台)[^\r\n]*(?:native|原生)[^\r\n]*(?:pool|池)/iu, `${label}: fallback`);
     assert.doesNotMatch(contract, /(?:one|每个)[^\r\n]*(?:sub-agent|子代理)[^\r\n]*(?:2|2\s*(?:-|至|到)\s*3)[^\r\n]*(?:chapter|章)/iu);
+  }
+});
+
+test('Lite Skills fail closed around the mandatory Claude workflow and memory-only handoff', () => {
+  for (const [label, contract] of [['English', read('SKILL.md')], ['Chinese', read('SKILL-cn.md')]]) {
+    assert.match(
+      contract,
+      /(?:even (?:for|when|if)|即使)[\s\S]{0,200}(?:one|single|一)[\s\S]{0,200}(?:chapter|章)[\s\S]{0,200}game-kb-chapter-extract/iu,
+      `${label}: one chapter still requires the Workflow`,
+    );
+    assert.match(contract, /(?:generic|通用)[\s\S]{0,120}Agent\s*\/\s*Task[\s\S]{0,120}(?:forbidden|禁止|不得)/iu, `${label}: generic agent ban`);
+    assert.match(
+      contract,
+      /(?:main\s+(?:agent|session)|主(?:代理|会话))[\s\S]{0,200}(?:must not|不得)[\s\S]{0,200}(?:read|读取)[\s\S]{0,120}source_file/iu,
+      `${label}: main session cannot read chapter source`,
+    );
+    assert.match(
+      contract,
+      /(?:Workflow|工作流)[\s\S]{0,250}(?:unavailable|timeout|malformed|不可用|超时|格式错误|结构错误)[\s\S]{0,180}(?:fail closed|stop|停止|失败关闭)/iu,
+      `${label}: workflow failures stop`,
+    );
+    assert.match(
+      contract,
+      /(?:must not|不得)[\s\S]{0,160}(?:repair|normalize|construct|修补|规范化|构造)[\s\S]{0,160}(?:draft|envelope)/iu,
+      `${label}: main session cannot repair results`,
+    );
+    assert.match(
+      contract,
+      /(?:only|只有)[\s\S]{0,160}next_action[\s\S]{0,160}start-new-run[\s\S]{0,160}(?:new\s+run|新\s*run)/iu,
+      `${label}: controller-authorized replacement run`,
+    );
+    assert.match(contract, /%TEMP%/u, `${label}: Windows temp ban`);
+    assert.match(contract, /\/tmp/u, `${label}: Unix temp ban`);
+    assert.match(
+      contract,
+      /(?:Workflow\s+result\s+memory|Workflow 结果内存)[\s\S]{0,160}(?:stdin|标准输入)/iu,
+      `${label}: in-memory stdin handoff`,
+    );
+    assert.match(
+      contract,
+      /\$WORKFLOW_ENVELOPE_JSON\s*\|\s*node \.agents\/skills\/generate-game-kb\/scripts\/flow\.js lite-submit-draft "<novel>" --run <run-id> --batch <batch-id> --unit <unit> --attempt <attempt> --guard-id <guard-id> --json/iu,
+      `${label}: direct stdin-only submit recipe`,
+    );
   }
 });
 

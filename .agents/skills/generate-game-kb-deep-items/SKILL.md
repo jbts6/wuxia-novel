@@ -14,9 +14,11 @@ installed data, accepted evidence, and candidate registry remain immutable.
 Require an archived Lite run and passing installed verification. The controller
 must return the archived `artifact-manifest` hash and current installed data
 hash. Read accepted item evidence and the installed `items.yaml`; keep only
-source-grounded manuals, plot-relevant weapons or armor, medicines, hidden
-weapons, and other named rare objects. Resolve aliases and duplicates and
-refine only `aliases`, `type`, and `description`. Keep, merge, drop, or patch only
+source-grounded named, rare, or plot-relevant items whose type is in
+`武器/防具/秘籍/丹药/暗器/坐骑/异兽/饰品/其他` (manuals, weapons or armor,
+medicines, hidden weapons, mounts, exotic beasts, accessories, and other named
+rare objects). Resolve aliases and duplicates and refine only `aliases`, `type`,
+and `description`. Keep, merge, drop, or patch only
 known item registry keys. Never promote generic scenery or add an item, quote,
 source_refs, or cross-category reference.
 

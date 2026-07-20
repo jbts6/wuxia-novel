@@ -54,7 +54,7 @@ test('lite accepts nested Chinese author and book directory names on Windows', (
   assert.equal(output.source_file, path.join(path.resolve(novel), '射雕英雄传.txt'));
 });
 
-test('lite-status preserves chapter extraction then routes around domain planning', () => {
+test('lite-status exposes controller-owned domain planning before publication', () => {
   const novel = makeNovel('lite 状态试书', '第一章 起始\n甲。\n');
   const prepared = runFlow(['lite-prepare', novel, '--json']);
   assert.equal(prepared.status, 0, prepared.stderr);
@@ -67,6 +67,7 @@ test('lite-status preserves chapter extraction then routes around domain plannin
 
   const paths = pathsFor(novel, runId);
   const manifest = readJson(paths.manifest);
+  assert.equal(fs.existsSync(paths.candidateRegistry), false);
   const draft = validChapterDraft({
     source_hash: manifest.chapters[0].input_hash,
     characters: [],
@@ -90,9 +91,25 @@ test('lite-status preserves chapter extraction then routes around domain plannin
   assert.equal(result.status, 0, result.stderr);
   const output = JSON.parse(result.stdout);
   assert.equal(output.profile, PROFILE_LITE);
-  assert.notEqual(output.next_action, 'plan-domains');
-  assert.equal(output.next_action, 'lite-publish');
+  assert.equal(output.next_action, 'lite-plan-domains');
   assert.equal(output.next_units?.some(unit => String(unit).startsWith('distill:')), false);
+
+  const planned = runFlow(['lite-plan-domains', novel, '--run', runId, '--json']);
+  assert.equal(planned.status, 0, planned.stderr);
+  const plannedOutput = JSON.parse(planned.stdout);
+  assert.equal(plannedOutput.registry, paths.candidateRegistry);
+  assert.equal(fs.existsSync(paths.candidateRegistry), true);
+  const registryBytes = fs.readFileSync(paths.candidateRegistry);
+
+  const repeated = runFlow(['lite-plan-domains', novel, '--run', runId, '--json']);
+  assert.equal(repeated.status, 0, repeated.stderr);
+  assert.deepEqual(fs.readFileSync(paths.candidateRegistry), registryBytes);
+
+  const publishReady = runFlow(['lite-status', novel, '--run', runId, '--json']);
+  assert.equal(publishReady.status, 0, publishReady.stderr);
+  const publishOutput = JSON.parse(publishReady.stdout);
+  assert.equal(publishOutput.next_action, 'lite-publish');
+  assert.equal('domain_jobs' in publishOutput, false);
 });
 
 test('v4 commands reject a run explicitly created for lite', () => {
@@ -140,6 +157,7 @@ test('all lite command routes are dispatched by the controller', () => {
   const cases = [
     ['lite-accept', ['--json']],
     ['lite-basic-curate', ['--json']],
+    ['lite-plan-domains', ['--json']],
     ['lite-publish', ['--json']]
   ];
 

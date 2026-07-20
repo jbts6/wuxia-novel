@@ -88,7 +88,7 @@ test('centralizes enums used by chapter and final records', () => {
     '返璞归真'
   ]);
   assert.deepEqual(CHARACTER_LEVELS, ['核心', '重要', '次要', '龙套', '背景']);
-  assert.deepEqual(ITEM_TYPES, ['武器', '防具', '秘籍', '丹药', '暗器', '其他']);
+  assert.deepEqual(ITEM_TYPES, ['武器', '防具', '秘籍', '丹药', '暗器', '坐骑', '异兽', '饰品', '其他']);
   assert.deepEqual(ITEM_INCLUSION_REASONS, [
     '秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊'
   ]);

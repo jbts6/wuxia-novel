@@ -104,8 +104,9 @@ function installationMatches(installed, manifest, verification) {
     && chaptersMatch(installed, manifest);
 }
 
-function resolveNextAction({ paths, manifest, progress, installed }) {
+function resolveNextAction({ paths, manifest, progress, installed, requiredDomainUnits = DOMAIN_UNITS }) {
   const units = progress?.units || {};
+  const domainUnits = Array.isArray(requiredDomainUnits) ? requiredDomainUnits : DOMAIN_UNITS;
 
   // Check for unresolved worker-guard violations (highest priority)
   if (paths?.workerGuards) {
@@ -152,7 +153,7 @@ function resolveNextAction({ paths, manifest, progress, installed }) {
   const domainPlan = currentDomainPlan(paths, manifest);
   if (!domainPlan) return { next_action: 'plan-domains', next_units: [] };
 
-  const unfinishedDomains = DOMAIN_UNITS.filter(unit => (
+  const unfinishedDomains = domainUnits.filter(unit => (
     units[unit]?.status !== 'done' || units[unit]?.input_hash !== domainPlan.get(unit)
   ));
   if (unfinishedDomains.length > 0) {
