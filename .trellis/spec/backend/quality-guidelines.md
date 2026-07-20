@@ -308,3 +308,88 @@ Preserve the legacy merge/clean/build chain behind a new command name, trust cou
 #### Correct
 
 Keep all Workers zero-write: expand controller chapter batches into one-envelope-per-chapter assignments, issue one read-only input per domain, and let the controller validate and serialize every YAML artifact. Bound late faction refs in the hashed domain input, run the real three-chapter verify/install/installed-verify/archive path, require the exact passing verification-report hash before archive, bind all five installed YAML byte hashes in `data_file_hashes`, and pair it with real-`buildRunMetrics` 21-chapter/four-domain timing evidence; do not substitute a hand-built aggregate or omit the source/evidence integration path.
+
+## Scenario: Deterministic Legacy Knowledge-Base Migration
+
+### 1. Scope / Trigger
+
+Use this contract when auditing installed legacy JSON knowledge bases, converting compatible legacy data to semantic contract V6, archiving incompatible data, or retrying a migration after the legacy payload has already moved to `_archive`.
+
+### 2. Signatures
+
+```powershell
+node .agents/skills/generate-game-kb/scripts/audit-v6.js <repository> --output <report-dir>
+node .agents/skills/generate-game-kb/scripts/flow.js migrate-legacy <novel> --run <run-id> [--from <legacy-data>] --staging-root <outside-novel-dir> [--confirm] --json
+node .agents/skills/generate-game-kb/scripts/flow.js verify <novel> --installed --json
+archiveExisting(novelDir, { archiveId, reason: { code, blocking_errors } })
+```
+
+Without `--confirm`, `migrate-legacy` returns a read-only plan. With `--confirm`, it may build a candidate, archive the legacy payload, publish the run, install five YAML files, and verify the installation.
+
+### 3. Contracts
+
+- Repository audit derives qualification from `verifyInstalled()`, isolates per-book failures, protects every qualified book with hashes for five YAML files, its install receipt, and its published run, and emits a separate migration plan.
+- Automatic source selection tries complete active data, retained run finals, then archive finals in deterministic priority/mtime/path order. Each source receives the full semantic preflight; the first `eligibility.migratable === true` source wins. The plan records skipped attempts in `source.candidates` with blocking errors.
+- Explicit `--from` never switches to another source. An explicit source may produce an ineligible plan, but candidate construction must raise `MIGRATION_PLAN_INELIGIBLE` before creating staging output.
+- Chapter summary coverage is structural: every current chapter number appears exactly once and binds to the current chapter inventory. Summary text is reused unchanged. Invalid optional legacy summary quotes remain diagnostics, then the summary binds to `{ chapter, title, content_hash }`; invalid entity evidence still rejects the entity.
+- `readChapterRoot()` must apply the shared `normalizeSource()` contract before storing chapter text or signing `input_hash`. This keeps BOM removal, LF normalization, and terminal-newline insertion identical to semantic-work freshness checks.
+- Confirmed migration order is candidate verify -> legacy archive -> run promotion -> install -> installed verify. A failure after archive never restores legacy JSON as active `data`; it writes `archived_after_migration_failure` plus a same-run retry command whose `--from` points into the preserved archive.
+- Before candidate mutation or archival, the transaction captures the active legacy installation's `verifyInstalled()` result. Both normal and failure archival pass `{ code: 'LEGACY_INSTALLATION_UNQUALIFIED', blocking_errors }` to `archiveExisting()`. The archive plan validates a non-empty reason code before creating or moving anything, and the final manifest preserves the complete structured reason alongside every source/archive path and file hash.
+- A verified active installation contains exactly `chapter_summaries.yaml`, `characters.yaml`, `factions.yaml`, `items.yaml`, and `skills.yaml`. Rejected legacy records and invalid evidence remain enumerated in the migration receipt and unchanged in the archive.
+
+### 4. Validation & Error Matrix
+
+| Condition | Result |
+|---|---|
+| Legacy JSON file missing/malformed or source outside novel | Stable `LEGACY_SOURCE_*` / `LEGACY_JSON_INVALID` error; no mutation |
+| Automatic candidate fails semantic summary coverage | Record its eligibility errors and try the next usable source |
+| Explicit source or every automatic source lacks accepted summary coverage | `eligibility.migratable: false`; candidate build raises `MIGRATION_PLAN_INELIGIBLE` |
+| `--confirm` omitted for execution | Plan only; no staging, archive, run, or installed-file write |
+| Chapter bytes signed without canonical normalization | Semantic work detects `WORK_ITEM_STALE`; fix inventory normalization rather than weakening freshness checks |
+| Archive reason is present but missing a non-empty `code` | `ARCHIVE_REASON_INVALID`; reject before creating the archive directory or moving any entry |
+| Archive move fails | `archive_failed`; archive rollback preserves active legacy data |
+| Candidate/promotion/install/verify fails after archive | `archived_after_migration_failure`; no active legacy `data`, archive and retry command retained |
+| Installed files, receipt hashes, chapter list, or published verification drift | Installed verification fails; book is not qualified |
+
+### 5. Good/Base/Bad Cases
+
+- Good: active legacy data has incomplete accepted summaries, a retained final is complete, and the plan selects the retained run while recording why active data was skipped.
+- Good: a transient Windows rename failure occurs after archive; the same run ID retries from the manifest-backed archive and finishes verified without re-extraction.
+- Base: all legacy entities have invalid evidence but chapter summaries fully cover the inventory. Migrate five files with empty entity arrays and list every rejected record in the receipt.
+- Bad: silently changing an explicit `--from`, accepting missing/duplicate chapter summaries, hashing raw CRLF/BOM bytes, or asking a model to reconstruct rejected evidence.
+- Bad: restoring archived legacy JSON to active `data` after a post-archive failure or treating a successful workspace candidate as proof that installed verification passed.
+
+### 6. Tests Required
+
+- Source tests: active/retained/archive ordering, explicit-source confinement, semantic fallback, all-ineligible behavior, and deterministic candidate diagnostics.
+- Evidence tests: ref-less and invalid-ref summaries bind to chapter hashes without changing summary text; invalid entity refs still reject entities; missing/duplicate/out-of-range summary chapters remain coverage failures.
+- Freshness tests: BOM, CRLF, and missing terminal newline normalize to the same chapter bytes and SHA-256 consumed by semantic-work.
+- Candidate tests: real legacy fixtures build five deterministic YAML files, reject ineligible plans before staging, and pass canonical workspace verification.
+- Transaction tests: confirmation gate, archive rollback, structured legacy qualification reason in the manifest, each post-archive failure state, same-run retry from archive, installed verification, and no reactivation of legacy JSON.
+- Archive tests: a valid structured reason is preserved verbatim; an invalid reason fails with `ARCHIVE_REASON_INVALID` before any filesystem move.
+- Repository tests: per-book isolation, qualified protection hashes, `migratable` versus `non_migratable`, stable reports, and migration plans containing no extraction/domain/model-authored commands.
+
+### 7. Wrong vs Correct
+
+#### Wrong
+
+```js
+const text = fs.readFileSync(chapterFile, 'utf8');
+const inputHash = sha256(text); // disagrees with semantic-work on BOM/CRLF/no-final-newline files
+
+if (legacySummary.source_refs.every(ref => quoteIsInvalid(ref))) {
+  dropTheWholeSummary(); // turns optional bad quotes into fake chapter-coverage loss
+}
+```
+
+#### Correct
+
+```js
+const text = normalizeSource(fs.readFileSync(chapterFile, 'utf8'));
+const inputHash = sha256(text);
+
+const refs = validLegacyRefs.length > 0
+  ? validLegacyRefs
+  : [{ chapter: number, text: chapter.title, content_hash: chapter.hash }];
+// Keep quote-validation errors in the receipt; keep the unchanged legacy summary bound to its chapter.
+```

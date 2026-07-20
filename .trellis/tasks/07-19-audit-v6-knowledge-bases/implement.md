@@ -650,7 +650,7 @@ node --test .agents/skills/generate-game-kb/tests/*.test.js
 
 逐条把 initial audit、migration receipt、archive manifest、final audit 和测试证据映射回 `prd.md`；任何未满足项保持任务 in_progress。
 
-- [ ] **步骤 4：执行 Trellis 质量与规格流程**
+- [x] **步骤 4：执行 Trellis 质量与规格流程**
 
 加载 `trellis-check` 完成 inline quality check；若发现应长期保留的迁移合同，再加载 `trellis-update-spec`。不得在未验证时直接宣称完成。
 
