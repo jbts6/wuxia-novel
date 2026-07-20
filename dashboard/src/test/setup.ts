@@ -5,7 +5,7 @@ import { cleanup } from '@testing-library/react';
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: (query: string) => ({
-    matches: false,
+    matches: query === '(min-width: 768px)',
     media: query,
     onchange: null,
     addListener: () => {},

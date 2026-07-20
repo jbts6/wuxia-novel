@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import {
+  type Column,
   type ColumnDef,
+  type Row,
   type SortingState,
   flexRender,
   getCoreRowModel,
@@ -23,6 +26,8 @@ import {
   Search,
 } from 'lucide-react';
 import { WorkspaceHeader } from '../components/library/WorkspaceHeader';
+import { LibraryCard } from '../components/library/LibraryCard';
+import { ExecuteButton } from '../components/library/ExecuteButton';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
@@ -109,6 +114,7 @@ export default function Library() {
   const [search, setSearch] = useState('');
   const [sorting, setSorting] = useState<SortingState>([{ id: 'lastUpdatedAt', desc: true }]);
   const [copied, setCopied] = useState(false);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   useEffect(() => {
     if (!status && !statusLoading) void refreshStatus();
@@ -134,14 +140,14 @@ export default function Library() {
     });
   }, [authorFilter, books, search, statusFilter]);
 
-  const columns = useMemo<ColumnDef<LibraryBookStatus>[]>(
+  const columns = useMemo<ColumnDef<LibraryBookStatus, unknown>[]>(
     () => [
       {
         id: 'book',
         size: 220,
-        accessorFn: (book) => `${book.author}/${book.name}`,
-        header: ({ column }) => <SortHeader label="书籍" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
-        cell: ({ row }) => (
+        accessorFn: (book: LibraryBookStatus) => `${book.author}/${book.name}`,
+        header: ({ column }: { column: Column<LibraryBookStatus, unknown> }) => <SortHeader label="书籍" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
+        cell: ({ row }: { row: Row<LibraryBookStatus> }) => (
           <div className="min-w-44">
             <div className="font-medium text-foreground">{row.original.name}</div>
             <div className="mt-0.5 text-xs text-muted-foreground">{row.original.author}</div>
@@ -151,14 +157,14 @@ export default function Library() {
       {
         accessorKey: 'generationStage',
         size: 140,
-        header: ({ column }) => <SortHeader label="当前阶段" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
-        cell: ({ row }) => generationBadge(row.original),
+        header: ({ column }: { column: Column<LibraryBookStatus, unknown> }) => <SortHeader label="当前阶段" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
+        cell: ({ row }: { row: Row<LibraryBookStatus> }) => generationBadge(row.original),
       },
       {
         id: 'entityCounts',
         size: 300,
         header: '知识条目',
-        cell: ({ row }) => {
+        cell: ({ row }: { row: Row<LibraryBookStatus> }) => {
           const { characters, skills, items } = row.original.entityCounts;
           if (characters === null && skills === null && items === null) {
             return <span className="text-xs text-muted-foreground">-</span>;
@@ -178,9 +184,9 @@ export default function Library() {
       {
         id: 'dataCompleteness',
         size: 88,
-        accessorFn: (book) => book.dataCompleteness.valid,
-        header: ({ column }) => <SortHeader label="文件" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
-        cell: ({ row }) => (
+        accessorFn: (book: LibraryBookStatus) => book.dataCompleteness.valid,
+        header: ({ column }: { column: Column<LibraryBookStatus, unknown> }) => <SortHeader label="文件" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
+        cell: ({ row }: { row: Row<LibraryBookStatus> }) => (
           <span className={cn('font-mono text-xs tabular-nums', row.original.browseable ? 'text-emerald-700' : 'text-muted-foreground')}>
             {row.original.dataCompleteness.valid}/{row.original.dataCompleteness.required}
           </span>
@@ -189,9 +195,9 @@ export default function Library() {
       {
         id: 'contentCoverage',
         size: 120,
-        accessorFn: (book) => book.contentCoverage.detailed,
-        header: ({ column }) => <SortHeader label="内容" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
-        cell: ({ row }) => contentCoverageBadge(row.original),
+        accessorFn: (book: LibraryBookStatus) => book.contentCoverage.detailed,
+        header: ({ column }: { column: Column<LibraryBookStatus, unknown> }) => <SortHeader label="内容" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
+        cell: ({ row }: { row: Row<LibraryBookStatus> }) => contentCoverageBadge(row.original),
       },
       {
         accessorKey: 'validationStatus',
@@ -202,20 +208,22 @@ export default function Library() {
       {
         id: 'browseable',
         size: 88,
-        accessorFn: (book) => Number(book.browseable),
+        accessorFn: (book: LibraryBookStatus) => Number(book.browseable),
         header: '可浏览',
-        cell: ({ row }) => (
+        cell: ({ row }: { row: Row<LibraryBookStatus> }) => (
           <span className={cn('inline-flex items-center gap-1 text-xs', row.original.browseable ? 'text-emerald-700' : 'text-muted-foreground')}>
             {row.original.browseable ? <CheckCircle2 className="h-3.5 w-3.5" /> : <FileQuestion className="h-3.5 w-3.5" />}
             {row.original.browseable ? '是' : '否'}
           </span>
         ),
+        meta: { className: 'hidden lg:table-cell' },
       },
       {
         accessorKey: 'lastUpdatedAt',
         size: 150,
-        header: ({ column }) => <SortHeader label="更新时间" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
-        cell: ({ row }) => <span className="text-xs text-muted-foreground">{formatDateTime(row.original.lastUpdatedAt)}</span>,
+        header: ({ column }: { column: Column<LibraryBookStatus, unknown> }) => <SortHeader label="更新时间" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')} />,
+        cell: ({ row }: { row: Row<LibraryBookStatus> }) => <span className="text-xs text-muted-foreground">{formatDateTime(row.original.lastUpdatedAt)}</span>,
+        meta: { className: 'hidden lg:table-cell' },
       },
     ],
     [],
@@ -257,7 +265,7 @@ export default function Library() {
   ];
 
   return (
-    <div className="flex min-h-screen min-w-[1180px] flex-col bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
       <WorkspaceHeader
         active="manage"
         actions={
@@ -295,7 +303,7 @@ export default function Library() {
           </div>
         </div>
 
-        <section className="mt-6 grid grid-cols-6 overflow-hidden rounded-lg border bg-card" aria-label="书籍状态统计">
+        <section className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 overflow-hidden rounded-lg border bg-card" aria-label="书籍状态统计">
           {summaryItems.map((item, index) => {
             const Icon = item.icon;
             const active = statusFilter === item.key;
@@ -369,50 +377,66 @@ export default function Library() {
             </div>
           ) : (
             <div className="mt-3 overflow-hidden rounded-lg border bg-card">
-              <Table className="table-fixed">
-                <TableHeader className="bg-muted/40">
-                  {table.getHeaderGroups().map((headerGroup) => (
-                    <TableRow key={headerGroup.id}>
-                      {headerGroup.headers.map((header) => (
-                        <TableHead key={header.id} className="px-3" style={{ width: header.getSize() }}>
-                          {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                        </TableHead>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableHeader>
-                <TableBody>
-                  {table.getRowModel().rows.length > 0 ? (
-                    table.getRowModel().rows.map((row) => (
-                      <TableRow
-                        key={row.id}
-                        tabIndex={0}
-                        aria-label={`查看《${row.original.name}》状态详情`}
-                        className="cursor-pointer focus-visible:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
-                        onClick={() => selectBook(row.original)}
-                        onKeyDown={(event) => {
-                          if (event.key === 'Enter' || event.key === ' ') {
-                            event.preventDefault();
-                            selectBook(row.original);
-                          }
-                        }}
-                      >
-                        {row.getVisibleCells().map((cell) => (
-                          <TableCell key={cell.id} className="h-14 px-3" style={{ width: cell.column.getSize() }}>
-                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                          </TableCell>
+              {isDesktop ? (
+                <Table className="table-fixed">
+                  <TableHeader className="bg-muted/40">
+                    {table.getHeaderGroups().map((headerGroup) => (
+                      <TableRow key={headerGroup.id}>
+                        {headerGroup.headers.map((header) => (
+                          <TableHead key={header.id} className={cn('px-3', header.column.columnDef.meta?.className)} style={{ width: header.getSize() }}>
+                            {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                          </TableHead>
                         ))}
                       </TableRow>
-                    ))
+                    ))}
+                  </TableHeader>
+                  <TableBody>
+                    {table.getRowModel().rows.length > 0 ? (
+                      table.getRowModel().rows.map((row) => (
+                        <TableRow
+                          key={row.id}
+                          tabIndex={0}
+                          aria-label={`查看《${row.original.name}》状态详情`}
+                          className="cursor-pointer focus-visible:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+                          onClick={() => selectBook(row.original)}
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              event.preventDefault();
+                              selectBook(row.original);
+                            }
+                          }}
+                        >
+                          {row.getVisibleCells().map((cell) => (
+                            <TableCell key={cell.id} className={cn('h-14 px-3', cell.column.columnDef.meta?.className)} style={{ width: cell.column.getSize() }}>
+                              {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      ))
+                    ) : (
+                      <TableRow>
+                        <TableCell colSpan={columns.length} className="h-32 text-center text-muted-foreground">
+                          没有符合当前条件的书籍
+                        </TableCell>
+                      </TableRow>
+                    )}
+                  </TableBody>
+                </Table>
+              ) : (
+                <div className="p-3">
+                  {filteredBooks.length > 0 ? (
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      {filteredBooks.map((book) => (
+                        <LibraryCard key={book.path} book={book} onClick={selectBook} />
+                      ))}
+                    </div>
                   ) : (
-                    <TableRow>
-                      <TableCell colSpan={columns.length} className="h-32 text-center text-muted-foreground">
-                        没有符合当前条件的书籍
-                      </TableCell>
-                    </TableRow>
+                    <div className="flex h-32 items-center justify-center text-muted-foreground">
+                      没有符合当前条件的书籍
+                    </div>
                   )}
-                </TableBody>
-              </Table>
+                </div>
+              )}
             </div>
           )}
         </section>
@@ -538,6 +562,15 @@ export default function Library() {
                           </TooltipTrigger>
                           <TooltipContent>{copied ? '已复制' : '复制命令'}</TooltipContent>
                         </Tooltip>
+                      </div>
+                    )}
+                    {selectedBook.suggestedAction.type && (
+                      <div className="mt-3">
+                        <ExecuteButton
+                          bookPath={selectedBook.path}
+                          actionType={selectedBook.suggestedAction.type}
+                          onSuccess={() => void refreshStatus()}
+                        />
                       </div>
                     )}
                   </section>
