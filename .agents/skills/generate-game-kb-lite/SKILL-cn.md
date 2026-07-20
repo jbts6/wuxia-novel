@@ -16,6 +16,23 @@ YAML 只由 controller 序列化。
 - controller 状态、报告、manifest 与收据使用 JSON；最终知识文件使用 YAML。
 - 只执行 `lite-status` 返回的 `next_action` 与 `chapter_jobs`；控制器状态是唯一
   调度和接收依据，不得从文件数量或 worker 文本推断。
+
+### 启动或恢复
+
+在仓库根目录执行命令，并把两个占位符替换为选定的小说目录与 run ID。
+
+- 已有 run：先执行 `lite-status`：
+
+```text
+node .agents/skills/generate-game-kb/scripts/flow.js lite-status "<novel>" --run <run-id> --json
+```
+
+- 新 run：先执行一次 `lite-prepare`，然后立即执行上面的 `lite-status` 命令：
+
+```text
+node .agents/skills/generate-game-kb/scripts/flow.js lite-prepare "<novel>" --run <run-id> --json
+```
+
 - worker 可见 descriptor 只使用 controller 给出的 `run_id`、`batch_id`、`unit`、
   `attempt`、`input_hash` 与 `source_file`。`source_file` 是绝对只读路径，
   `worker_write_paths = []`；worker 可见 payload 不含 `staging_path`、输出目录、

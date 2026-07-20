@@ -21,6 +21,24 @@ Treat controller status from `lite-status` as the only scheduler and acceptance
 authority. Follow only its `next_action` and `chapter_jobs`; never infer state
 from files, file counts, or worker prose.
 
+### Start or resume
+
+Run commands from the repository root and replace both placeholders with the
+selected novel directory and run ID.
+
+- Existing run: run `lite-status` first:
+
+```text
+node .agents/skills/generate-game-kb/scripts/flow.js lite-status "<novel>" --run <run-id> --json
+```
+
+- New run: run `lite-prepare` once, then immediately run the `lite-status`
+  command above:
+
+```text
+node .agents/skills/generate-game-kb/scripts/flow.js lite-prepare "<novel>" --run <run-id> --json
+```
+
 The controller packs ordinary work into a scheduler batch of two or three chapters
 with at most 36,000 CJK characters, then exposes one single-chapter worker
 assignment per descriptor. Each worker-visible descriptor contains the

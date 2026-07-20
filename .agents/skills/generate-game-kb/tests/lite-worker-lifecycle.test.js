@@ -46,6 +46,21 @@ test('English and Chinese Skills declare the exact broker lifecycle in order', (
   ], 'Chinese Skill');
 });
 
+test('Lite Skills expose executable bootstrap and resume commands without examples', () => {
+  const statusCommand = /node \.agents\/skills\/generate-game-kb\/scripts\/flow\.js lite-status "<novel>" --run <run-id> --json/;
+  const prepareCommand = /node \.agents\/skills\/generate-game-kb\/scripts\/flow\.js lite-prepare "<novel>" --run <run-id> --json/;
+  for (const [label, contract] of [['English', read('SKILL.md')], ['Chinese', read('SKILL-cn.md')]]) {
+    assert.match(contract, statusCommand, `${label}: complete lite-status command`);
+    assert.match(contract, prepareCommand, `${label}: complete lite-prepare command`);
+    assert.match(contract, /(?:existing|已有)[^\r\n]*run[^\r\n]*lite-status/iu, `${label}: resume entry`);
+    assert.match(contract, /(?:new|新)[^\r\n]*run[^\r\n]*lite-prepare/iu, `${label}: bootstrap entry`);
+    assert.ok(
+      contract.indexOf('node .agents/skills/generate-game-kb/scripts/flow.js lite-status') < contract.indexOf('examples'),
+      `${label}: status command must not depend on examples`,
+    );
+  }
+});
+
 test('Lite Skills define a cross-batch rolling pool with a guarded serial broker barrier', () => {
   const english = read('SKILL.md');
   const chinese = read('SKILL-cn.md');
