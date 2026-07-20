@@ -154,6 +154,7 @@ test('Claude chapter agent is Read-only and the workflow owns no controller oper
   assert.doesNotMatch(agent, /\b(?:Write|Edit|Bash|Glob|Grep)\b/);
   assert.match(agent, /exactly one chapter/i);
   assert.match(agent, /exactly one JSON envelope/i);
+  assert.match(agent, /概述：[^\r\n]*描述：[^\r\n]*说明：/);
   assert.doesNotMatch(workflow, /lite-(?:guard|submit|accept)|child_process|node:fs|Write|Edit|Bash/);
   assert.doesNotMatch(workflow, /\b(?:parallel|pipeline)\s*\(/);
 });

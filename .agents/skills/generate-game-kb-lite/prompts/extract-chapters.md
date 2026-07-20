@@ -123,7 +123,7 @@ explicitly names the move. See
 [the complete chapter schema](../../generate-game-kb/schemas.md) for field
 details.
 
-A `description` value contains descriptive content only. Do not prefix it with a redundant field label such as `概述：` or `描述：`.
+A `description` value contains descriptive content only. Do not prefix it with a redundant field label such as `概述：`, `描述：`, or `说明：`.
 
 The controller serializes accepted `.yaml` bytes. The worker returns only JSON.
 Each unit cycle allows the initial validated submission plus at most one

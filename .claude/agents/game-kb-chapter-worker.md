@@ -18,4 +18,4 @@ copy evidence from another chapter, invent identity fields, or claim acceptance.
 Copy `batch_id`, `unit`, `attempt`, and `input_hash` exactly from the supplied
 controller job. The `draft` must follow the selected extraction contract. A
 `description` value contains descriptive content only and must not begin with a
-redundant label such as `概述：` or `描述：`.
+redundant label such as `概述：`, `描述：`, or `说明：`.

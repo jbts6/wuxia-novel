@@ -158,7 +158,7 @@ test('Lite extraction prompt requires a zero-write identity-bound JSON envelope'
   assert.match(extraction, /exactly one JSON envelope/i);
   assert.match(extraction, /final[^\r\n]*message/i);
   assert.match(extraction, /(?:without|do not use)[^\r\n]*Markdown fence/i);
-  assert.match(extraction, /description`?\s+value contains descriptive content only[^\r\n]*概述：[^\r\n]*描述：/i);
+  assert.match(extraction, /description`?\s+value contains descriptive content only[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/i);
   assert.doesNotMatch(extraction, /staging_path/i);
   assert.doesNotMatch(extraction, /return YAML, not JSON|Write one chapter\s+YAML|Write the YAML first/i);
 

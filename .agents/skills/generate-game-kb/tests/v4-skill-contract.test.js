@@ -67,7 +67,7 @@ test('V4 chapter workers never write files and use the guarded controller broker
     assert.match(contract, /(?:controller|控制器)[^\n]*(?:序列化|写入)[^\n]*YAML/i);
   }
   assert.match(skill, /guard-open[\s\S]*guard-check[\s\S]*submit-draft/);
-  assert.match(extraction, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：/);
+  assert.match(extraction, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/);
 });
 
 test('V4 domain workers use read-only controller input and return JSON envelopes', () => {
@@ -76,7 +76,7 @@ test('V4 domain workers use read-only controller input and return JSON envelopes
   assert.match(distill, /(?:JSON envelope|JSON 封装|JSON 信封)/i);
   assert.match(distill, /(?:controller|控制器)[^\n]*(?:序列化|写入)[^\n]*YAML/i);
   assert.doesNotMatch(distill, /staging_path|output_path/i);
-  assert.match(distill, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：/);
+  assert.match(distill, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/);
 });
 
 test('V4 Skill documents bounded retry, manual review, and the complete YAML output', () => {

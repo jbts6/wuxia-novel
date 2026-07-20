@@ -377,5 +377,5 @@ test('extraction prompt requires one zero-write JSON envelope per chapter', () =
   assert.match(prompt, /WORKER_WRITE_PATHS\s*=\s*\[\]/);
   assert.match(prompt, /controller 负责验证、序列化并写入 YAML/);
   assert.match(prompt, /不得复制 batch 中其他章节的名称、证据或摘要/);
-  assert.match(prompt, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：/);
+  assert.match(prompt, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/);
 });
