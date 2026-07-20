@@ -421,7 +421,7 @@ export function discoverBooks(rootDirectory: string): DiscoveredBook[] {
 
 function scanBook(book: DiscoveredBook): LibraryBookStatus {
   // Check cache first
-  const cached = getCachedStatus(book.path, book.directory);
+  const cached = getCachedStatus(book.directory);
   if (cached) return cached;
 
   const errors: string[] = [];
@@ -478,7 +478,7 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
   };
 
   const result = { ...status, suggestedAction: buildSuggestedAction(book.path, status) };
-  setCachedStatus(book.path, book.directory, result);
+  setCachedStatus(book.directory, result);
   return result;
 }
 
