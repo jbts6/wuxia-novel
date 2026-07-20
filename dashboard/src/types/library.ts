@@ -61,6 +61,7 @@ export interface SuggestedAction {
   label: string;
   reason: string;
   command: string | null;
+  type?: string;
 }
 
 export interface ArtifactState {

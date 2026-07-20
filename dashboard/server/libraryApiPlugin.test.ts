@@ -1,6 +1,8 @@
 import fs from 'node:fs';
+import type { IncomingMessage } from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
+import { PassThrough } from 'node:stream';
 import yaml from 'js-yaml';
 import { afterEach, describe, expect, it } from 'vitest';
 import { handleLibraryApiRequest } from './libraryApiPlugin';
@@ -70,51 +72,99 @@ afterEach(() => {
 });
 
 describe('handleLibraryApiRequest', () => {
-  it('ignores non-library routes so Vite can continue handling them', () => {
-    expect(handleLibraryApiRequest(createRoot(), 'GET', '/')).toBeNull();
+  it('ignores non-library routes so Vite can continue handling them', async () => {
+    expect(await handleLibraryApiRequest(createRoot(), 'GET', '/')).toBeNull();
   });
 
-  it('returns a fresh read-only status response', () => {
-    const result = handleLibraryApiRequest(createRoot(), 'GET', '/api/library/status');
+  it('returns a fresh read-only status response', async () => {
+    const result = await handleLibraryApiRequest(createRoot(), 'GET', '/api/library/status');
 
     expect(result?.status).toBe(200);
     expect(result?.body).toMatchObject({ summary: { total: 1 }, books: [{ path: '古龙/测试书' }] });
   });
 
-  it('rejects write methods and unsafe book paths', () => {
+  it('rejects write methods for GET-only endpoints', async () => {
     const root = createRoot();
 
-    expect(handleLibraryApiRequest(root, 'POST', '/api/library/status')).toEqual({
-      status: 405,
-      body: { error: '只支持只读 GET 请求' },
+    expect(await handleLibraryApiRequest(root, 'POST', '/api/library/status')).toEqual({
+      status: 404,
+      body: { error: '接口不存在' },
     });
-    expect(handleLibraryApiRequest(root, 'GET', '/api/library/book-data?path=../dashboard')).toMatchObject({ status: 422 });
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/book-data?path=../dashboard')).toMatchObject({ status: 422 });
   });
 
-  it('returns exactly the five parsed YAML arrays from book-data', () => {
+  it('returns exactly the five parsed YAML arrays from book-data', async () => {
     const root = createRoot();
     writeBrowseableData(root);
 
-    expect(handleLibraryApiRequest(root, 'GET', '/api/library/book-data?path=古龙%2F测试书')).toEqual({
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/book-data?path=古龙%2F测试书')).toEqual({
       status: 200,
       body: BROWSEABLE_DATA,
     });
   });
 
-  it('returns optional book extras without changing the core book-data endpoint', () => {
+  it('returns optional book extras without changing the core book-data endpoint', async () => {
     const root = createRoot();
     writeBrowseableData(root);
 
-    expect(handleLibraryApiRequest(root, 'GET', '/api/library/book-extras?path=古龙%2F测试书')).toEqual({
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/book-extras?path=古龙%2F测试书')).toEqual({
       status: 200,
       body: {
         events: { status: 'missing', data: null },
         gameMaterials: { status: 'missing', data: null },
       },
     });
-    expect(handleLibraryApiRequest(root, 'GET', '/api/library/book-extras')).toEqual({
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/book-extras')).toEqual({
       status: 400,
       body: { error: '缺少书籍 path 参数' },
+    });
+  });
+
+  describe('POST /api/library/execute-action', () => {
+    function createMockRequest(body: object): IncomingMessage {
+      const stream = new PassThrough();
+      stream.end(JSON.stringify(body));
+      return stream as unknown as IncomingMessage;
+    }
+
+    it('rejects invalid action types', async () => {
+      const root = createRoot();
+      const request = createMockRequest({ bookPath: '古龙/测试书', actionType: 'invalid-type' });
+
+      const result = await handleLibraryApiRequest(root, 'POST', '/api/library/execute-action', request);
+
+      expect(result?.status).toBe(400);
+      expect(result?.body).toMatchObject({ error: expect.stringContaining('不允许的 action type') });
+    });
+
+    it('rejects missing parameters', async () => {
+      const root = createRoot();
+      const request = createMockRequest({ bookPath: '古龙/测试书' });
+
+      const result = await handleLibraryApiRequest(root, 'POST', '/api/library/execute-action', request);
+
+      expect(result?.status).toBe(400);
+      expect(result?.body).toMatchObject({ error: expect.stringContaining('缺少 bookPath 或 actionType') });
+    });
+
+    it('accepts valid action type from whitelist', async () => {
+      const root = createRoot();
+      const request = createMockRequest({ bookPath: '古龙/测试书', actionType: 'split-chapters' });
+
+      const result = await handleLibraryApiRequest(root, 'POST', '/api/library/execute-action', request);
+
+      // 脚本不存在，应该返回失败
+      expect(result?.status).toBe(200);
+      expect(result?.body).toMatchObject({ success: false });
+    });
+
+    it('returns 404 for unknown POST routes', async () => {
+      const root = createRoot();
+      const request = createMockRequest({});
+
+      const result = await handleLibraryApiRequest(root, 'POST', '/api/library/unknown', request);
+
+      expect(result?.status).toBe(404);
     });
   });
 });

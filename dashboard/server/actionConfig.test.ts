@@ -120,6 +120,7 @@ describe('buildSuggestedAction', () => {
       label: '切分章节',
       reason: '尚未发现有效的 ch_split 产物。',
       command: expect.stringContaining('split-chapters.js'),
+      type: 'split-chapters',
     });
     expect(action?.command).toContain('金庸/射雕英雄传');
   });

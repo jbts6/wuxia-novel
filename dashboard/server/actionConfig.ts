@@ -110,5 +110,6 @@ export function buildSuggestedAction(
     label: config.label,
     reason: config.description,
     command: `node ${script} ${novel}${args}`,
+    type: config.type,
   };
 }
