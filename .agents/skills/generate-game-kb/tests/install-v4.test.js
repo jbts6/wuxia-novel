@@ -125,6 +125,29 @@ test('installed verification binds ID plan and optional chapter migration eviden
   );
 });
 
+test('installed verification prefers the generic migration receipt', () => {
+  const fixture = prepareAssembledRun({ name: '通用迁移凭据试书', runId: 'run-generic-migration' });
+  fs.mkdirSync(path.dirname(fixture.paths.migrationReceipt), { recursive: true });
+  fs.writeFileSync(fixture.paths.migrationReceipt, '{"schema_version":1,"operation":"migrate-legacy"}\n');
+
+  const receipt = pass(runFlow([
+    'install', fixture.novel, '--run', fixture.prepared.run_id, '--json'
+  ]), 'install generic migration');
+  const expectedMigrationHash = `sha256:${crypto.createHash('sha256')
+    .update(fs.readFileSync(fixture.paths.migrationReceipt)).digest('hex')}`;
+
+  assert.equal(receipt.migration_receipt_hash, expectedMigrationHash);
+  assert.equal(verifyInstalled(fixture.novel).passed, true);
+
+  fs.appendFileSync(fixture.paths.migrationReceipt, ' ');
+  const result = verifyInstalled(fixture.novel);
+  assert.equal(result.passed, false);
+  assert.equal(
+    result.blocking_errors.some(error => error.code === 'INSTALL_MIGRATION_RECEIPT_HASH_MISMATCH'),
+    true
+  );
+});
+
 test('installed verification requires its receipt and detects data hash drift', () => {
   const missing = prepareAssembledRun({ name: '缺少安装凭据试书', runId: 'run-missing-receipt' });
   assert.equal(verifyInstalled(missing.novel).blocking_errors[0].code, 'INSTALL_RECEIPT_MISSING');

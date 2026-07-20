@@ -67,6 +67,11 @@ function publishedRunArtifact(novelDir, runId, field) {
   return candidates.map(candidate => candidate[field]).find(file => fs.existsSync(file)) || null;
 }
 
+function publishedMigrationReceipt(novelDir, runId) {
+  return publishedRunArtifact(novelDir, runId, 'migrationReceipt')
+    || publishedRunArtifact(novelDir, runId, 'chapterImportReceipt');
+}
+
 function isInside(parent, child) {
   const relative = path.relative(parent, child);
   return relative !== '' && !relative.startsWith('..') && !path.isAbsolute(relative);
@@ -245,7 +250,7 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
       target: receipt.migration_receipt_hash ?? ''
     });
   } else if (typeof receipt.migration_receipt_hash === 'string') {
-    const migrationFile = publishedRunArtifact(novelDir, receipt.run_id, 'chapterImportReceipt');
+    const migrationFile = publishedMigrationReceipt(novelDir, receipt.run_id);
     if (!migrationFile) {
       receiptErrors.push({
         code: 'INSTALL_MIGRATION_RECEIPT_MISSING',
@@ -588,8 +593,9 @@ function installVerifiedData(novelDir, options = {}) {
       actual: idPlanHash
     });
   }
-  const migrationReceiptHash = fs.existsSync(workPaths.chapterImportReceipt)
-    ? fileHash(workPaths.chapterImportReceipt)
+  const migrationReceipt = publishedMigrationReceipt(novelDir, run.run_id);
+  const migrationReceiptHash = migrationReceipt
+    ? fileHash(migrationReceipt)
     : null;
   const chapters = manifest.chapters.map(chapter => ({
     number: chapter.number,

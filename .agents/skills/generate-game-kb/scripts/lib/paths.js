@@ -14,9 +14,11 @@ function assertRunId(runId) {
   return runId;
 }
 
-function pathsFor(novelDir, runId) {
+function pathsFor(novelDir, runId, options = {}) {
   const novel = path.resolve(novelDir);
-  const work = path.join(novel, '.game-kb-work');
+  const work = options.workRoot
+    ? path.resolve(options.workRoot)
+    : path.join(novel, '.game-kb-work');
   const runs = path.join(work, 'runs');
   const id = assertRunId(runId);
   const run = path.join(runs, id);
@@ -52,6 +54,7 @@ function pathsFor(novelDir, runId) {
     candidateRegistry: path.join(run, 'accepted', 'candidate-registry.json'),
     domainDecisions: path.join(run, 'accepted', 'domain-decisions'),
     reports: path.join(run, 'reports'),
+    migrationReceipt: path.join(run, 'reports', 'migration-receipt.json'),
     chapterImportReceipt: path.join(run, 'reports', 'chapter-import-receipt.json'),
     runMetrics: path.join(run, 'reports', 'run-metrics.json'),
     finalRoot: path.join(run, 'final'),
@@ -116,6 +119,7 @@ function deferredPathsFor(novelDir, runId) {
     manifest: path.join(run, 'manifest.json'),
     artifactManifest: path.join(run, 'artifact-manifest.json'),
     archiveReceipt: path.join(run, 'archive-receipt.json'),
+    migrationReceipt: path.join(run, 'reports', 'migration-receipt.json'),
     chapterImportReceipt: path.join(run, 'reports', 'chapter-import-receipt.json'),
     candidateRegistry: path.join(run, 'accepted', 'candidate-registry.json'),
     sourceOriginal: path.join(run, 'source', 'original.txt'),
