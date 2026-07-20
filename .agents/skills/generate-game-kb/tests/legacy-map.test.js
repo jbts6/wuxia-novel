@@ -100,6 +100,9 @@ test('maps item types and merges only non-placeholder unique legacy text', () =>
   assert.equal(mapLegacyItemType('飞刀暗器'), '暗器');
   assert.equal(mapLegacyItemType('护身软甲'), '防具');
   assert.equal(mapLegacyItemType('青锋宝剑'), '武器');
+  assert.equal(mapLegacyItemType('白马坐骑'), '坐骑');
+  assert.equal(mapLegacyItemType('神雕异兽'), '异兽');
+  assert.equal(mapLegacyItemType('传家玉镯饰品'), '饰品');
   assert.equal(mapLegacyItemType('机关盒'), '其他');
   assert.equal(mapLegacyItemType('未知'), null);
   assert.equal(mapLegacyItemType(null), null);

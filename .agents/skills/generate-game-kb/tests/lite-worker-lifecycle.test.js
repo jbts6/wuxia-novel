@@ -11,6 +11,10 @@ function read(relativePath) {
   return fs.readFileSync(path.join(skillRoot, relativePath), 'utf8');
 }
 
+function readSkill(relativePath) {
+  return fs.readFileSync(path.join(skillRoot, '..', relativePath), 'utf8');
+}
+
 function assertOrdered(text, markers, label) {
   let cursor = -1;
   for (const marker of markers) {
@@ -74,6 +78,23 @@ test('Lite Skills expose controller-owned candidate planning before publication'
       /(?:does not|不得|不自动|不派发)[^\r\n]*(?:domain worker|域 Worker|full-book domain|全书域)/iu,
       `${label}: Lite does not dispatch full-book domain workers`,
     );
+  }
+});
+
+test('chapter and deep-item contracts expose the complete item enum and inclusion boundary', () => {
+  const contracts = [
+    readSkill('generate-game-kb/prompts/extract-chapters.md'),
+    read('prompts/extract-chapters.md'),
+    readSkill('generate-game-kb-deep-items/SKILL.md'),
+    readSkill('generate-game-kb-deep-items/SKILL-cn.md')
+  ];
+  for (const contract of contracts) {
+    for (const type of ['武器', '防具', '秘籍', '丹药', '暗器', '坐骑', '异兽', '饰品', '其他']) {
+      assert.match(contract, new RegExp(type), `${type}: complete item enum`);
+    }
+    assert.match(contract, /(?:named|有名|名称明确|明确命名)/iu, 'named boundary');
+    assert.match(contract, /(?:rare|稀有)/iu, 'rare boundary');
+    assert.match(contract, /(?:plot[- ]relevant|剧情关键)/iu, 'plot boundary');
   }
 });
 

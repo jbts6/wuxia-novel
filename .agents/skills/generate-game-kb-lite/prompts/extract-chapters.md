@@ -125,6 +125,10 @@ details.
 
 A `description` value contains descriptive content only. Do not prefix it with a redundant field label such as `概述：`, `描述：`, or `说明：`.
 
+Use the complete item type enum `武器/防具/秘籍/丹药/暗器/坐骑/异兽/饰品/其他`.
+Keep only source-grounded named, rare, or plot-relevant items; do not promote
+generic tools, scenery, or unnamed background objects.
+
 The controller serializes accepted `.yaml` bytes. The worker returns only JSON.
 Each unit cycle allows the initial validated submission plus at most one
 automatic retry. After a second failure, no scheduler or worker may start an

@@ -113,6 +113,20 @@ test('verifyDataRoot rejects invalid IDs, enums, and nested technique names', ()
   assert.equal(codes.has('TECHNIQUE_NAME_REQUIRED'), true);
 });
 
+test('verifyDataRoot accepts the expanded canonical item types but rejects unknown values', () => {
+  for (const type of ['坐骑', '异兽', '饰品']) {
+    const data = validFinalData();
+    data['items.yaml'][0].type = type;
+    const result = verifyDataRoot(writeData(data), { chapters: [1] });
+    assert.equal(result.passed, true, `${type}: ${JSON.stringify(result.blocking_errors)}`);
+  }
+
+  const invalid = validFinalData();
+  invalid['items.yaml'][0].type = '宝物';
+  const result = verifyDataRoot(writeData(invalid), { chapters: [1] });
+  assert.equal(result.blocking_errors.some(error => error.code === 'ITEM_TYPE_INVALID'), true);
+});
+
 test('verifyDataRoot rejects invalid v6 scalar, array, technique, and reference shapes', () => {
   const data = validFinalData();
   data['characters.yaml'][0].aliases = [7];

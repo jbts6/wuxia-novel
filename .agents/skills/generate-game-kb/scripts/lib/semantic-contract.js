@@ -45,7 +45,7 @@ const POWER_RANK_CONTRACT = Object.freeze({
   scale: POWER_RANK_SCALE
 });
 const CHARACTER_LEVELS = Object.freeze(['核心', '重要', '次要', '龙套', '背景']);
-const ITEM_TYPES = Object.freeze(['武器', '防具', '秘籍', '丹药', '暗器', '其他']);
+const ITEM_TYPES = Object.freeze(['武器', '防具', '秘籍', '丹药', '暗器', '坐骑', '异兽', '饰品', '其他']);
 const ITEM_INCLUSION_REASONS = Object.freeze([
   '秘籍', '剧情关键', '高级药毒', '神兵利器', '其他稀有特殊'
 ]);
