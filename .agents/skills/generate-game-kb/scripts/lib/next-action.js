@@ -109,9 +109,11 @@ function resolveNextAction({ paths, manifest, progress, installed, requiredDomai
   const domainUnits = Array.isArray(requiredDomainUnits) ? requiredDomainUnits : DOMAIN_UNITS;
 
   // Check for unresolved worker-guard violations (highest priority)
+  // Only block on guards with actual violations, not pending guards
   if (paths?.workerGuards) {
     const violations = unresolvedWorkerGuardReports(paths);
-    if (violations.length > 0) {
+    const hasRealViolations = violations.some(v => v.violation_count > 0);
+    if (hasRealViolations) {
       return {
         next_action: 'worker-write-review',
         next_units: [],
