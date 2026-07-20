@@ -8,6 +8,7 @@ const yaml = require('js-yaml');
 
 const root = path.resolve(__dirname, '..');
 const skill = fs.readFileSync(path.join(root, 'SKILL.md'), 'utf8');
+const skillCn = fs.readFileSync(path.join(root, 'SKILL-cn.md'), 'utf8');
 const extraction = fs.readFileSync(path.join(root, 'prompts', 'extract-chapters.md'), 'utf8');
 const distill = fs.readFileSync(path.join(root, 'prompts', 'distill-domain.md'), 'utf8');
 const schemas = fs.readFileSync(path.join(root, 'schemas.md'), 'utf8');
@@ -48,6 +49,17 @@ test('V4 Skill separates scheduler batches from single-chapter zero-write worker
   assert.doesNotMatch(extraction, /staging_path|output_path/i);
 });
 
+test('V4 Skills use the Claude workflow rolling pool without multi-chapter workers', () => {
+  for (const [label, contract] of [['primary', skill], ['Chinese reference', skillCn]]) {
+    assert.match(contract, /game-kb-chapter-extract/iu, `${label}: workflow`);
+    assert.match(contract, /(?:first|前)[^\r\n]*(?:concurrency_limit|并发上限)[^\r\n]*(?:distinct|不同)[^\r\n]*batch/iu, `${label}: bounded window`);
+    assert.match(contract, /(?:5|五)[^\r\n]*(?:3|三)[^\r\n]*(?:429|rate)/iu, `${label}: fallback`);
+    assert.match(contract, /(?:all|全部)[^\r\n]*guard[^\r\n]*(?:before|前)[^\r\n]*(?:submit|提交)/iu, `${label}: barrier`);
+    assert.match(contract, /(?:serial|串行)[^\r\n]*(?:submit|提交)/iu, `${label}: broker`);
+    assert.doesNotMatch(contract, /(?:worker|子代理)[^\r\n]*(?:2|2\s*(?:-|至|到)\s*3)[^\r\n]*(?:chapter|章)/iu);
+  }
+});
+
 test('V4 chapter workers never write files and use the guarded controller broker', () => {
   for (const contract of [skill, extraction]) {
     assert.match(contract, /子代理[^\n]*(?:不得|不能)[^\n]*(?:创建|修改|移动|删除|写)[^\n]*(?:文件|目录)/);
@@ -55,6 +67,7 @@ test('V4 chapter workers never write files and use the guarded controller broker
     assert.match(contract, /(?:controller|控制器)[^\n]*(?:序列化|写入)[^\n]*YAML/i);
   }
   assert.match(skill, /guard-open[\s\S]*guard-check[\s\S]*submit-draft/);
+  assert.match(extraction, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/);
 });
 
 test('V4 domain workers use read-only controller input and return JSON envelopes', () => {
@@ -63,6 +76,7 @@ test('V4 domain workers use read-only controller input and return JSON envelopes
   assert.match(distill, /(?:JSON envelope|JSON 封装|JSON 信封)/i);
   assert.match(distill, /(?:controller|控制器)[^\n]*(?:序列化|写入)[^\n]*YAML/i);
   assert.doesNotMatch(distill, /staging_path|output_path/i);
+  assert.match(distill, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/);
 });
 
 test('V4 Skill documents bounded retry, manual review, and the complete YAML output', () => {

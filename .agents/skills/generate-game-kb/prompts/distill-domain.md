@@ -52,6 +52,7 @@
 - **reject**：使用合同允许的有限 reason，并给出可核验 detail。
 - **pending**：仅在合同允许时使用；未解决 pending 会被 controller 拒绝。
 - 每个 `entry_ref` 必须且只能决策一次，不得创建输入中不存在的实体或引用。
+- 所有 patch 中的 `description` 值只包含描述正文，不得添加“概述：”“描述：”“说明：”等重复字段标签。
 
 ## 各域判断
 

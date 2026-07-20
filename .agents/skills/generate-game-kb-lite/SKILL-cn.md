@@ -31,29 +31,40 @@ YAML 只由 controller 序列化。
 
 ## Guard 与 broker 生命周期
 
-每个 controller 调度 batch 严格按以下顺序执行；同一 `batch_id` 下每个单章
-assignment 派给一个独立子代理：
+每个 controller 有界窗口严格按以下顺序执行。选择前 `concurrency_limit`（并发上限）个不同 `batch_id` 的全部 descriptor；正常最多 15 个，退避最多 9 个，构成一个有界窗口。
+提取前为每个入选 batch 打开一个 guard，并保留 `batch_id` 到 `guard_id` 的映射。
 
 ```text
 lite-status
--> lite-guard-open <novel>
--> worker message
--> lite-guard-check <novel> --guard-id <controller guard_id>
--> lite-submit-draft <novel> ... --guard-id <controller guard_id> via stdin
+-> worker_pool.halted 时停止，不派发
+-> 选择前 concurrency_limit 个不同 batch_id 及其全部 descriptor
+-> 每个入选 batch 执行一次 lite-guard-open <novel>
+-> Claude Code：game-kb-chapter-extract(run_id, prompt_file, descriptors, concurrency_limit)
+-> 其他平台：维持等价的原生滚动池
+-> 等待有界窗口内全部 worker message 返回
+-> 对全部 guard_id 执行 lite-guard-check <novel>
+-> 按映射 guard_id 串行执行 lite-submit-draft <novel> ... via stdin
 -> lite-status
 ```
+
+一个子代理只处理一章并只返回一个 envelope。有排队 descriptor 时，始终维持
+`worker_pool.concurrency_limit` 个活跃 worker；任一 worker 返回后，其槽位释放，立即启动下一条排队 descriptor。等待整个有界窗口完成，检查全部 guard；全部 guard 干净之后才可提交，任一 guard 违规或无法检查时，本窗口不得提交。串行按原始 `chapter_jobs` descriptor 顺序提交，并使用每条 descriptor 对应的 guard。
 
 主代理不得创建临时文件、手写 YAML、猜测路径或修改 envelope。只有取得干净的
 guard 结果之后，主代理才可把每个原样 JSON envelope 经标准输入交给
 `lite-submit-draft`，并使用 descriptor 的 `--unit`、`--batch`、`--attempt` 与
 controller 返回的 `--guard-id`。
 
+`null` 或缺失结果属于传输失败。`null` 或缺失结果不消耗 attempt；跳过该结果，
+其他完整结果可在全部 guard 干净后继续提交。任一 broker 拒绝、身份过期、重放冲突
+或命令失败都必须停止剩余提交并刷新 `lite-status`。只有明确的平台 429 才触发 worker 退避，不得从 `null` 或普通缺失结果推断 429。控制器是唯一接收主体。
+
 身份匹配但非法的 envelope 由 controller 正式拒绝并消耗恰好一次 attempt；过期
 身份或越界文件不消耗 attempt，必须停止并刷新状态。attempt 1 失败后只能派发
 controller 签发的 attempt 2；第三次尝试禁止自动派发，第二次失败进入
 `manual_review`。只有用户明确运行 `retry-unit --confirm` 才能开启新周期。
 
-guard 只清点 Git 仓库根目录内的内容并报告边界内的精确绝对路径；仓库之外不在监控范围。
+每个 guard 只清点 Git 仓库根目录内的内容并报告边界内的精确绝对路径；仓库之外不在监控范围。
 
 ## 恢复与阻断
 

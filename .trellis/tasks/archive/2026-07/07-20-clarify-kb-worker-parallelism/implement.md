@@ -34,8 +34,8 @@
 - Modify `.agents/skills/generate-game-kb/tests/lite-skill-contract.test.js`: assert Lite Workflow discovery, native fallback, one-chapter agent, and prompt content rules.
 - Modify `.agents/skills/generate-game-kb/tests/v4-skill-contract.test.js`: assert full Skill dynamic window and coordinator-only submission.
 - Modify `.agents/skills/generate-game-kb/tests/skill-contract.test.js`: retain the cross-Skill bounded-concurrency contract.
-- Modify `.agents/skills/generate-game-kb/prompts/extract-chapters.md`: forbid redundant labels in Chinese `description` values.
-- Modify `.agents/skills/generate-game-kb-lite/prompts/extract-chapters.md`: forbid redundant labels in English Lite extraction.
+- Modify `.agents/skills/generate-game-kb/prompts/extract-chapters.md`: forbid redundant labels such as `概述：`、`描述：`、`说明：` in Chinese `description` values.
+- Modify `.agents/skills/generate-game-kb-lite/prompts/extract-chapters.md`: forbid redundant labels such as `概述：`、`描述：`、`说明：` in English Lite extraction.
 - Modify `.agents/skills/generate-game-kb/prompts/distill-domain.md`: apply the same rule to domain patches.
 - Modify `.agents/skills/generate-game-kb/tests/chapter-batching.test.js`: assert the full extraction prompt rule.
 
@@ -245,7 +245,7 @@ copy evidence from another chapter, invent identity fields, or claim acceptance.
 Copy `batch_id`, `unit`, `attempt`, and `input_hash` exactly from the supplied
 controller job. The `draft` must follow the selected extraction contract. A
 `description` value contains descriptive content only and must not begin with a
-redundant label such as `概述：` or `描述：`.
+ redundant label such as `概述：`, `描述：`, or `说明：`.
 ```
 
 - [ ] **Step 4: Add the project Workflow with an exact consumer-lane limit**
@@ -542,14 +542,14 @@ Use literal, low-ambiguity assertions:
 
 ```js
 // chapter-batching.test.js
-assert.match(prompt, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：/);
+assert.match(prompt, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/);
 
 // v4-skill-contract.test.js
-assert.match(extraction, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：/);
-assert.match(distill, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：/);
+assert.match(extraction, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/);
+assert.match(distill, /description[^\r\n]*只包含描述正文[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/);
 
 // lite-skill-contract.test.js
-assert.match(extraction, /description`?\s+value contains descriptive content only[^\r\n]*概述：[^\r\n]*描述：/i);
+assert.match(extraction, /description`?\s+value contains descriptive content only[^\r\n]*概述：[^\r\n]*描述：[^\r\n]*说明：/i);
 ```
 
 Do not add a validator test that rejects existing files.
@@ -567,21 +567,21 @@ Expected: FAIL because current prompts do not forbid the redundant labels.
 Append to the full extraction field rules:
 
 ```markdown
-- `description` 值只包含描述正文，不得添加“概述：”“描述：”等重复字段标签。
+- `description` 值只包含描述正文，不得添加“概述：”“描述：”“说明：”等重复字段标签。
 ```
 
 Append to each relevant domain rule in `distill-domain.md`, or once before the
 domain-specific subsections so it applies to all domains:
 
 ```markdown
-- 所有 patch 中的 `description` 值只包含描述正文，不得添加“概述：”“描述：”等重复字段标签。
+- 所有 patch 中的 `description` 值只包含描述正文，不得添加“概述：”“描述：”“说明：”等重复字段标签。
 ```
 
 Add to the Lite extraction prose after the evidence/null rules:
 
 ```markdown
 A `description` value contains descriptive content only. Do not prefix it with
-a redundant field label such as `概述：` or `描述：`.
+ a redundant field label such as `概述：`, `描述：`, or `说明：`.
 ```
 
 - [ ] **Step 4: Run prompt contract tests and verify they pass**

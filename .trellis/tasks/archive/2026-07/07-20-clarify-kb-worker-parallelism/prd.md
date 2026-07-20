@@ -29,8 +29,8 @@ ordering.
   start as capacity becomes available. Its built-in runtime cap is machine
   derived rather than controller derived, so the project workflow must enforce
   the controller's exact five-or-three active-worker limit itself.
-- Historical installed knowledge bases contain 142 `description` values that
-  begin with the redundant field label `概述：`; archived/current run copies
+- Historical installed knowledge bases contain `description` values with
+  redundant field labels such as `概述：`, `描述：`, or `说明：`; archived/current run copies
   raise the repository-wide total to 674. Current prompts neither request nor
   explicitly forbid that prefix.
 - The user assigned historical prefix cleanup to another AI. This task owns
@@ -98,7 +98,7 @@ ordering.
   all represented guards are clean, and parallel broker submission.
 - Chapter extraction, domain distillation, and Claude workflow worker prompts
   must state that `description` contains only descriptive content. It must not
-  begin with a redundant field label such as `概述：` or `描述：`.
+  begin with a redundant field label such as `概述：`, `描述：`, or `说明：`.
 - This task must prevent the redundant prefix in newly generated envelopes but
   must not add a validator hard failure that invalidates existing installed or
   archived knowledge bases.
@@ -136,4 +136,4 @@ ordering.
 - Assigning multiple chapters to one worker.
 - Parallelizing controller broker submissions.
 - Rewriting historical installed data or immutable run artifacts solely to
-  remove existing `概述：` prefixes.
+  remove existing `概述：`、`描述：` or `说明：` prefixes.

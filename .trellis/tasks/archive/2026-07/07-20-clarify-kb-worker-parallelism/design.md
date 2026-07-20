@@ -163,7 +163,7 @@ submission attempt.
 
 Update full/Lite chapter extraction and full domain-distillation prompts to say
 that `description` contains descriptive content only. Values must not repeat a
-field label such as `概述：` or `描述：`.
+ field label such as `概述：`, `描述：`, or `说明：`.
 
 The new Workflow agent inherits the same rule by reading the selected canonical
 prompt. Contract tests enforce the wording. Runtime validators remain backward

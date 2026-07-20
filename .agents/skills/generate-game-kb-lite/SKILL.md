@@ -41,22 +41,42 @@ chapter work. Read [examples.md](examples.md), or
 
 ## Guarded broker lifecycle
 
-Use this exact order for every controller-issued scheduler batch. Dispatch one
-worker per single-chapter assignment under the same `batch_id`:
+Use this exact order for one bounded controller window. Select all descriptors
+from the first `concurrency_limit` distinct `batch_id` values in `chapter_jobs`.
+The 15-descriptor normal maximum and 9-descriptor fallback maximum bound one window.
+Open one guard for every selected batch before starting extraction, and retain
+the `batch_id` to `guard_id` mapping for submission.
 
 ```text
 lite-status
--> lite-guard-open <novel>
--> worker message
--> lite-guard-check <novel> --guard-id <controller guard_id>
--> lite-submit-draft <novel> ... --guard-id <controller guard_id> via stdin
+-> if worker_pool.halted, stop without dispatch
+-> select the first concurrency_limit distinct batch_id values and all their descriptors
+-> lite-guard-open <novel> once per selected batch
+-> Claude Code: game-kb-chapter-extract(run_id, prompt_file, descriptors, concurrency_limit)
+-> other platforms: maintain an equivalent native rolling pool
+-> worker messages finish for the bounded window
+-> lite-guard-check <novel> for every opened guard_id
+-> lite-submit-draft <novel> ... --guard-id <mapped guard_id> via stdin, serially
 -> lite-status
 ```
+
+One sub-agent processes one chapter and returns one envelope. Keep exactly
+`worker_pool.concurrency_limit` workers active while queued descriptors remain:
+when a worker returns, its slot is free and the next queued descriptor starts
+immediately. Wait for the bounded window to finish. Check all guards before submitting any envelope; if any guard is not clean or cannot be checked, submit
+nothing from the window. Submit valid envelopes serially in original descriptor order from `chapter_jobs`, using each descriptor's mapped guard.
 
 The main agent must not create a temporary file, serialize YAML, invent a path,
 or mutate the envelope. After a clean guard result, pass each unchanged JSON
 envelope to `lite-submit-draft` through stdin with the descriptor's exact
 `--unit`, `--batch`, and `--attempt` plus the controller `--guard-id`.
+
+A null or missing workflow result is a transport failure. A null or missing result does not consume an attempt; skip it, while other complete results may
+still be submitted after every guard is clean. Stop remaining submissions on
+any broker rejection, stale identity, replay conflict, or command failure, then
+refresh `lite-status`. Only an explicit platform 429 triggers worker backoff;
+never infer 429 from a null or generic missing result. The controller is the
+only acceptance authority.
 
 An identity-matched invalid envelope consumes exactly one attempt through formal
 controller rejection. A stale identity or rogue file does not consume an
@@ -65,7 +85,7 @@ may advance only to controller-issued attempt 2. Attempt 3 is forbidden; a
 second rejection enters `manual_review` until the user explicitly runs
 `retry-unit --confirm` to start a new bounded cycle.
 
-The guard inventories the Git repository root only and reports exact absolute
+Each guard inventories the Git repository root only and reports exact absolute
 paths inside that boundary. Paths outside the repository are not monitored.
 
 ## Recovery and blocking state

@@ -16,6 +16,7 @@ const examples = fs.existsSync(path.join(skillRoot, 'examples.md'))
   : '';
 const skillCn = fs.readFileSync(path.join(skillRoot, 'SKILL-cn.md'), 'utf8');
 const examplesCn = fs.readFileSync(path.join(skillRoot, 'examples-cn.md'), 'utf8');
+const chapterWorkflow = fs.readFileSync(path.resolve(skillRoot, '../../../.claude/workflows/game-kb-chapter-extract.js'), 'utf8');
 const backendSpec = fs.readFileSync(path.resolve(skillRoot, '../../../.trellis/spec/backend/quality-guidelines.md'), 'utf8');
 const fastProfile = backendSpec.slice(backendSpec.indexOf('## Scenario: Fast Game-Material Knowledge Base Profile'));
 
@@ -164,6 +165,11 @@ test('source grounding, bounded concurrency, and main-model-only acceptance rema
   assert.match(skill, /主模型.*串行.*submit-draft/);
   assert.match(skill, /429.*5.*3|5\s*→\s*3/);
   assert.match(skill, /(?:第二|再次|持续).*429[^\r\n]*(?:停止|停机|halt)/i);
+});
+
+test('chapter Workflow cannot run domain workers or controller broker operations', () => {
+  assert.doesNotMatch(chapterWorkflow, /domain_jobs|distill:(?:factions|characters|skills|items)/i);
+  assert.doesNotMatch(chapterWorkflow, /guard-(?:open|check)|submit-draft|worker-backoff/i);
 });
 
 test('legacy domain inputs remain independent and canonical order is presentation only', () => {

@@ -28,7 +28,16 @@ Dashboard 直接读取这五个 YAML。完成前还必须看到 `assembly-report
 - controller 将 2 至 3 个相邻章节组成调度 batch，总长度不超过 36,000 个中日韩字符；超长单章或尾章可以独立成 batch。
 - status 把 batch 展开为单章 assignment：每个子代理只处理一章、只返回一个 JSON envelope。
 - Worker 只读取绝对 `source_file`，`worker_write_paths = []`；不得创建、修改、移动或删除任何文件或目录。
-- Worker 看不到 `staging_path` 或输出位置。主代理经 guard 检查后把 envelope 原样通过 stdin 交给 controller，由 controller 序列化并写入 YAML。
+- Worker 看不到 `staging_path` 或输出位置。每个窗口选择前 `concurrency_limit`（并发上限）个不同 `batch_id` 的全部 descriptor；正常最多 15 章，降级最多 9 章。
+- 提取前为全部入选 batch 打开 guard 并保存映射。Claude Code 使用 `game-kb-chapter-extract`；其他平台使用等价的原生滚动子代理池。任一 Worker 返回后槽位释放，立即派发下一章。
+- 等待窗口全部 Worker 返回；全部 guard 检查完成以前不得提交任何 envelope。主代理按原始 `chapter_jobs` 顺序串行提交，通过 stdin 把 envelope 原样交给 controller，由 controller 序列化并写入 YAML。
+- 并发上限正常为 5、降级为 3；只有明确 429 才执行 `worker-backoff`。空或缺失结果是传输失败，不消耗 attempt，也不得推断为 429。`worker_pool.halted` 时不派发。
+
+```text
+章节提取：game-kb-chapter-extract 滚动池，每个 agent 只处理一章
+领域蒸馏：四个只读领域 Worker 可以并发生成
+所有 controller submit-draft：仅主会话串行执行
+```
 
 ## 阶段顺序
 
