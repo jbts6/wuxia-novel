@@ -81,12 +81,13 @@ function prepareGroundedRun() {
 }
 
 test('assembles three grounded chapters without domain artifacts when basic-curate is skipped', () => {
-  const { novel, paths, prepared } = prepareGroundedRun();
+  const { novel, prepared } = prepareGroundedRun();
 
   const assembled = runFlow(['lite-publish', novel, '--run', prepared.run_id, '--json']);
+  const archivedRun = path.join(novel, '_archive', 'generate-game-kb', prepared.run_id);
 
   assert.equal(assembled.status, 0, assembled.stderr);
   assert.deepEqual(fs.readdirSync(path.join(novel, 'data')).sort(), Object.values(FINAL_FILES).sort());
-  assert.equal(fs.existsSync(path.join(novel, '_archive', 'generate-game-kb', prepared.run_id)), true);
-  assert.equal(fs.existsSync(paths.domainWorkPlan), false);
+  assert.equal(fs.existsSync(archivedRun), true);
+  assert.equal(fs.existsSync(path.join(archivedRun, 'work', 'domain', 'plan.json')), false);
 });
