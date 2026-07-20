@@ -60,9 +60,10 @@ ordering.
   it should immediately launch the next queued single-chapter descriptor while
   capacity and queued work remain.
 - On Claude Code, this rolling pool must be implemented by a project-scoped
-  named workflow that receives descriptors and `concurrency_limit` through
-  workflow `args`. It must use exactly that many queue-consumer lanes rather
-  than relying on the machine-derived default of `parallel()` or `pipeline()`.
+  named workflow `game-kb-chapter-extract` that receives descriptors and
+  `concurrency_limit` through workflow `args`. It must use exactly that many
+  queue-consumer lanes rather than relying on the machine-derived default of
+  `parallel()` or `pipeline()`.
 - The Claude Code workflow must use a project-local chapter worker agent whose
   tool allowlist contains `Read` only. Each `agent()` call must use a structured
   output schema for exactly one chapter envelope.

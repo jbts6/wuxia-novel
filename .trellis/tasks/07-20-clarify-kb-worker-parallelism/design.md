@@ -36,11 +36,11 @@ workflow. It accepts one object through `args`:
 
 ```json
 {
+  "run_id": "run-id",
   "concurrency_limit": 5,
   "prompt_file": "C:\\...\\prompts\\extract-chapters.md",
   "descriptors": [
     {
-      "run_id": "run-id",
       "batch_id": "chapter-batch-001-003",
       "worker_write_paths": [],
       "chapters": [
@@ -65,6 +65,7 @@ workflow. It accepts one object through `args`:
 
 The workflow validates that:
 
+- `run_id` is a non-empty controller value passed separately from descriptors;
 - `concurrency_limit` is exactly 5 or 3;
 - descriptors are non-empty and preserve caller order;
 - each descriptor has one chapter and one matching submission;
