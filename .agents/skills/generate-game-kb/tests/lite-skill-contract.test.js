@@ -110,6 +110,16 @@ test('Lite skill defines the guard-gated zero-write worker lifecycle', () => {
   assert.match(combined, /(?:attempt\s*3|第三次尝试)[^\r\n]*(?:forbidden|不得|禁止)/i);
 });
 
+test('Lite Skills preserve controller capacity, transport failure, and backoff semantics', () => {
+  for (const [label, contract] of [['English', skill], ['Chinese', skillCn]]) {
+    assert.match(contract, /(?:15|十五)[^\r\n]*(?:9|九)[^\r\n]*(?:window|窗口)/iu, `${label}: bounded window sizes`);
+    assert.match(contract, /(?:explicit|明确)[^\r\n]*429[^\r\n]*(?:backoff|退避)/iu, `${label}: explicit 429 only`);
+    assert.match(contract, /(?:null|missing|空|缺失)[^\r\n]*(?:result|结果)[^\r\n]*(?:transport|传输)[^\r\n]*(?:failure|失败)/iu, `${label}: null transport failure`);
+    assert.match(contract, /(?:null|missing|空|缺失)[^\r\n]*(?:result|结果)[^\r\n]*(?:does not|不)[^\r\n]*(?:consume|消耗)[^\r\n]*(?:attempt|尝试)/iu, `${label}: no attempt consumption`);
+    assert.match(contract, /(?:controller|控制器)[^\r\n]*(?:only|唯一)[^\r\n]*(?:acceptance|接收)/iu, `${label}: controller-only acceptance`);
+  }
+});
+
 test('Lite skill defines YAML final artifacts and publication evidence', () => {
   assert.match(skill, /chapter[^\r\n]*draft[^\r\n]*YAML/i);
   assert.match(skill, /JSON[\s\S]{0,80}(?:controller|metadata)/i);

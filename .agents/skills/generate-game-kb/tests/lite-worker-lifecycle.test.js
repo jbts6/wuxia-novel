@@ -46,6 +46,21 @@ test('English and Chinese Skills declare the exact broker lifecycle in order', (
   ], 'Chinese Skill');
 });
 
+test('Lite Skills define a cross-batch rolling pool with a guarded serial broker barrier', () => {
+  const english = read('SKILL.md');
+  const chinese = read('SKILL-cn.md');
+  for (const [label, contract] of [['English', english], ['Chinese', chinese]]) {
+    assert.match(contract, /game-kb-chapter-extract/iu, `${label}: Claude workflow`);
+    assert.match(contract, /(?:first|前)[^\r\n]*(?:concurrency_limit|并发上限)[^\r\n]*(?:distinct|不同)[^\r\n]*batch/iu, `${label}: window`);
+    assert.match(contract, /(?:one|一个)[^\r\n]*(?:sub-agent|子代理)[^\r\n]*(?:one|一)[^\r\n]*(?:chapter|章)/iu, `${label}: one chapter`);
+    assert.match(contract, /(?:slot|槽位)[^\r\n]*(?:free|释放)[^\r\n]*(?:next|下一)/iu, `${label}: refill`);
+    assert.match(contract, /(?:all|全部)[^\r\n]*guard[^\r\n]*(?:before|之后|以前|前)[^\r\n]*(?:submit|提交)/iu, `${label}: guard barrier`);
+    assert.match(contract, /(?:serial|串行)[^\r\n]*(?:descriptor|描述符|chapter_jobs)[^\r\n]*(?:order|顺序)/iu, `${label}: serial order`);
+    assert.match(contract, /(?:other platforms|其他平台)[^\r\n]*(?:native|原生)[^\r\n]*(?:pool|池)/iu, `${label}: fallback`);
+    assert.doesNotMatch(contract, /(?:one|每个)[^\r\n]*(?:sub-agent|子代理)[^\r\n]*(?:2|2\s*(?:-|至|到)\s*3)[^\r\n]*(?:chapter|章)/iu);
+  }
+});
+
 test('examples submit the unchanged envelope through stdin without a draft path', () => {
   for (const file of ['examples.md', 'examples-cn.md']) {
     const text = read(file);
