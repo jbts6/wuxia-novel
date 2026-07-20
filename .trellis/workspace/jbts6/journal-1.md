@@ -1274,3 +1274,43 @@ Executed the full repair plan for game-kb controller invariants:
 ### Next Steps
 
 - None - task complete
+
+
+## Session 24: Clarify game-KB worker parallelism
+
+**Date**: 2026-07-20
+**Task**: Clarify game-KB worker parallelism
+**Branch**: `feature/clarify-kb-worker-parallelism`
+
+### Summary
+
+Added a project-scoped Claude rolling chapter workflow, read-only single-chapter agents, cross-batch guard and serial submission contracts, strict descriptor field validation, and prompt-only prevention for redundant description labels including 说明：; verified 55 focused and 532 full game-KB tests.
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `6386ebea` | (see git log) |
+| `aedde50c` | (see git log) |
+| `9346e1e0` | (see git log) |
+| `25669235` | (see git log) |
+| `e9af3e07` | (see git log) |
+| `8c767ff3` | (see git log) |
+| `8c8075e3` | (see git log) |
+| `03da478a` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
