@@ -98,10 +98,17 @@ const contentCoverageItems: Array<{ key: ContentEntityKey; label: string }> = en
 
 function SortHeader({ label, onClick }: { label: string; onClick: () => void }) {
   return (
-    <Button variant="ghost" size="sm" className="-ml-2" onClick={onClick}>
-      {label}
-      <ArrowUpDown className="h-3.5 w-3.5 text-muted-foreground" />
-    </Button>
+    <Tooltip>
+      <TooltipTrigger
+        render={
+          <Button variant="ghost" size="sm" className="-ml-2" onClick={onClick}>
+            {label}
+            <ArrowUpDown className="h-3.5 w-3.5 text-muted-foreground" />
+          </Button>
+        }
+      />
+      <TooltipContent>点击排序 · Shift+点击多列排序</TooltipContent>
+    </Tooltip>
   );
 }
 
@@ -246,6 +253,8 @@ export default function Library() {
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    enableMultiSort: true,
+    isMultiSortEvent: (event: React.MouseEvent) => event.shiftKey,
   });
 
   const selectBook = (book: LibraryBookStatus) => {
