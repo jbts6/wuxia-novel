@@ -654,7 +654,7 @@ node --test .agents/skills/generate-game-kb/tests/*.test.js
 
 加载 `trellis-check` 完成 inline quality check；若发现应长期保留的迁移合同，再加载 `trellis-update-spec`。不得在未验证时直接宣称完成。
 
-- [ ] **步骤 5：提交最终报告与规格**
+- [x] **步骤 5：提交最终报告与规格**
 
 ```powershell
 git add .trellis/tasks/07-19-audit-v6-knowledge-bases/reports .trellis/spec .trellis/workspace
@@ -663,7 +663,7 @@ git commit -m "docs(game-kb): finish V6 knowledge base audit"
 
 提交前从 staged set 移除任何与本任务无关的 spec/journal 文件。
 
-- [ ] **步骤 6：按 Trellis finish-work 归档任务**
+- [x] **步骤 6：按 Trellis finish-work 归档任务**
 
 只有代码、数据、报告、测试和 acceptance criteria 全部通过后，加载 `trellis-finish-work`，归档本任务并报告最终合格、迁移成功、失败归档书目。
 
