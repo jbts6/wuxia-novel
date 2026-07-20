@@ -20,6 +20,7 @@ import {
   type ValidationStatus,
 } from '../src/types/library';
 import { buildSuggestedAction } from './actionConfig';
+import { getCachedStatus, setCachedStatus } from './scanCache';
 import {
   createEmptyContentCoverage,
   hasEntityContent,
@@ -419,6 +420,10 @@ export function discoverBooks(rootDirectory: string): DiscoveredBook[] {
 }
 
 function scanBook(book: DiscoveredBook): LibraryBookStatus {
+  // Check cache first
+  const cached = getCachedStatus(book.path, book.directory);
+  if (cached) return cached;
+
   const errors: string[] = [];
   const buildDirectory = path.join(book.directory, 'build');
   const reportPath = path.join(book.directory, 'reports', 'quality_report.json');
@@ -472,7 +477,9 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
     suggestedAction: null,
   };
 
-  return { ...status, suggestedAction: buildSuggestedAction(book.path, status) };
+  const result = { ...status, suggestedAction: buildSuggestedAction(book.path, status) };
+  setCachedStatus(book.path, book.directory, result);
+  return result;
 }
 
 export function scanLibrary(rootDirectory: string): LibraryStatusResponse {

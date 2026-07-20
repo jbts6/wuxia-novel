@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import yaml from 'js-yaml';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import {
   CONTENT_ENTITY_KEYS,
   DATA_FILE_NAMES,
@@ -10,6 +10,7 @@ import {
   SCAN_PASS_NAMES,
 } from '../src/types/library';
 import { readBookData, readBookExtras, scanLibrary } from './libraryScanner';
+import { clearCache } from './scanCache';
 
 const temporaryDirectories: string[] = [];
 const YAML_DATA_FILE_NAMES = {
@@ -123,6 +124,10 @@ function writeIndexOnlyData(directory: string): void {
     writeYaml(path.join(directory, 'data', YAML_DATA_FILE_NAMES[key as keyof typeof records]), value);
   }
 }
+
+beforeEach(() => {
+  clearCache();
+});
 
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {
