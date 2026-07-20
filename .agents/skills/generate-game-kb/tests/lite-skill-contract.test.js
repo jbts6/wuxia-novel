@@ -73,7 +73,13 @@ test('Lite skill exposes the complete lightweight-v4 base workflow', () => {
     assert.match(allExamples, new RegExp('\\b' + command + '\\b'), command);
   }
   assert.doesNotMatch(allExamples, /\blite-accept\b[^\r\n]*--draft/i);
-  assert.doesNotMatch(skill, /\bplan-domains\b/);
+  for (const contract of [skill, skillCn]) {
+    assert.match(
+      contract,
+      /node \.agents\/skills\/generate-game-kb\/scripts\/flow\.js lite-plan-domains "<novel>" --run <run-id> --json/
+    );
+    assert.doesNotMatch(contract, /(?:^|[\s`])plan-domains(?:[\s`]|$)/m);
+  }
   assert.match(skill, explicitUserInvocation);
   assert.match(skill, /(?:non-blocking|does not block|不阻塞)/i);
   assert.match(allExamples, /古龙[\\/]剑神一笑/);

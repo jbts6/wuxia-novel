@@ -152,6 +152,10 @@ dispatch or accept more chapter work in that run; create a fresh V6 Lite run.
    and domain plan; Lite does not dispatch full-book domain workers.
 5. Run `lite-publish` only when status returns that `next_action`.
 
+```text
+node .agents/skills/generate-game-kb/scripts/flow.js lite-plan-domains "<novel>" --run <run-id> --json
+```
+
 Never copy final files manually or bypass a failed controller gate.
 
 ## Published product
