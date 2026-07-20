@@ -76,6 +76,22 @@ controller 返回的 `--guard-id`。
 其他完整结果可在全部 guard 干净后继续提交。任一 broker 拒绝、身份过期、重放冲突
 或命令失败都必须停止剩余提交并刷新 `lite-status`。只有明确的平台 429 才触发 worker 退避，不得从 `null` 或普通缺失结果推断 429。控制器是唯一接收主体。
 
+### Claude Workflow hard gate
+
+即使窗口只有一章，Claude Code 也必须调用 `game-kb-chapter-extract`；禁止替换为通用 Agent/Task，generic Agent/Task is forbidden。
+主代理/主会话不得读取 `source_file`、自行提取章节，或构造、修补、规范化 envelope。
+Workflow 不可用、超时、返回 null、缺失、格式错误或非 JSON 时必须 fail closed：停止本窗口，
+不得修补、重试、提交或创建 run。只有 `lite-status` 返回 `next_action: start-new-run` 时，
+controller 才授权新 run。Workflow result memory 只保留在内存中；不得把 envelope 写入仓库、
+`%TEMP%`、`/tmp` 或任何文件系统路径。Workflow result memory 只能直接经 stdin 交接。
+
+guard 干净后，只能把未修改的 Workflow 结果经标准输入直接交给 controller。`$WORKFLOW_ENVELOPE_JSON`
+是内存值，不是文件路径：
+
+```text
+$WORKFLOW_ENVELOPE_JSON | node .agents/skills/generate-game-kb/scripts/flow.js lite-submit-draft "<novel>" --run <run-id> --batch <batch-id> --unit <unit> --attempt <attempt> --guard-id <guard-id> --json
+```
+
 身份匹配但非法的 envelope 由 controller 正式拒绝并消耗恰好一次 attempt；过期
 身份或越界文件不消耗 attempt，必须停止并刷新状态。attempt 1 失败后只能派发
 controller 签发的 attempt 2；第三次尝试禁止自动派发，第二次失败进入

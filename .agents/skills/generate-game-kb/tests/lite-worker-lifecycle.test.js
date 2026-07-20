@@ -76,6 +76,49 @@ test('Lite Skills define a cross-batch rolling pool with a guarded serial broker
   }
 });
 
+test('Lite Skills fail closed around the mandatory Claude workflow and memory-only handoff', () => {
+  for (const [label, contract] of [['English', read('SKILL.md')], ['Chinese', read('SKILL-cn.md')]]) {
+    assert.match(
+      contract,
+      /(?:even (?:for|when|if)|即使)[\s\S]{0,200}(?:one|single|一)[\s\S]{0,200}(?:chapter|章)[\s\S]{0,200}game-kb-chapter-extract/iu,
+      `${label}: one chapter still requires the Workflow`,
+    );
+    assert.match(contract, /(?:generic|通用)[\s\S]{0,120}Agent\s*\/\s*Task[\s\S]{0,120}(?:forbidden|禁止|不得)/iu, `${label}: generic agent ban`);
+    assert.match(
+      contract,
+      /(?:main\s+(?:agent|session)|主(?:代理|会话))[\s\S]{0,200}(?:must not|不得)[\s\S]{0,200}(?:read|读取)[\s\S]{0,120}source_file/iu,
+      `${label}: main session cannot read chapter source`,
+    );
+    assert.match(
+      contract,
+      /(?:Workflow|工作流)[\s\S]{0,250}(?:unavailable|timeout|malformed|不可用|超时|格式错误|结构错误)[\s\S]{0,180}(?:fail closed|stop|停止|失败关闭)/iu,
+      `${label}: workflow failures stop`,
+    );
+    assert.match(
+      contract,
+      /(?:must not|不得)[\s\S]{0,160}(?:repair|normalize|construct|修补|规范化|构造)[\s\S]{0,160}(?:draft|envelope)/iu,
+      `${label}: main session cannot repair results`,
+    );
+    assert.match(
+      contract,
+      /(?:only|只有)[\s\S]{0,160}next_action[\s\S]{0,160}start-new-run[\s\S]{0,160}(?:new\s+run|新\s*run)/iu,
+      `${label}: controller-authorized replacement run`,
+    );
+    assert.match(contract, /%TEMP%/u, `${label}: Windows temp ban`);
+    assert.match(contract, /\/tmp/u, `${label}: Unix temp ban`);
+    assert.match(
+      contract,
+      /(?:Workflow\s+result\s+memory|Workflow 结果内存)[\s\S]{0,160}(?:stdin|标准输入)/iu,
+      `${label}: in-memory stdin handoff`,
+    );
+    assert.match(
+      contract,
+      /\$WORKFLOW_ENVELOPE_JSON\s*\|\s*node \.agents\/skills\/generate-game-kb\/scripts\/flow\.js lite-submit-draft "<novel>" --run <run-id> --batch <batch-id> --unit <unit> --attempt <attempt> --guard-id <guard-id> --json/iu,
+      `${label}: direct stdin-only submit recipe`,
+    );
+  }
+});
+
 test('examples submit the unchanged envelope through stdin without a draft path', () => {
   for (const file of ['examples.md', 'examples-cn.md']) {
     const text = read(file);

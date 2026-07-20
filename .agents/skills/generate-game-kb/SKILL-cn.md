@@ -33,6 +33,18 @@ Dashboard 直接读取这五个 YAML。完成前还必须看到 `assembly-report
 - 等待窗口全部 Worker 返回；全部 guard 检查完成以前不得提交任何 envelope。主代理按原始 `chapter_jobs` 顺序串行提交，通过 stdin 把 envelope 原样交给 controller，由 controller 序列化并写入 YAML。
 - 并发上限正常为 5、降级为 3；只有明确 429 才执行 `worker-backoff`。空或缺失结果是传输失败，不消耗 attempt，也不得推断为 429。`worker_pool.halted` 时不派发。
 
+### Claude Workflow hard gate
+
+即使窗口只有一章，Claude Code 也必须调用 `game-kb-chapter-extract`；禁止替换为通用 Agent/Task，generic Agent/Task is forbidden。
+主代理/主会话不得读取 `source_file`、自行提取章节，或构造、修补、规范化 envelope。
+Workflow 不可用、超时、返回 null、缺失、格式错误或非 JSON 时必须 fail closed：停止本窗口，
+不得修补、重试、提交或创建 run。只有 `status` 返回 `next_action: start-new-run` 时，controller
+才授权新 run。Workflow result memory 只保留在内存中；不得把 envelope 写入仓库、`%TEMP%`、
+`/tmp` 或任何文件系统路径。Workflow result memory 只能直接经 stdin 交接。
+
+guard 全部干净后，只能把未修改的 Workflow 结果经标准输入直接交给 controller 的 `submit-draft`；
+`$WORKFLOW_ENVELOPE_JSON` 是内存值，不是文件路径。
+
 ```text
 章节提取：game-kb-chapter-extract 滚动池，每个 agent 只处理一章
 领域蒸馏：四个只读领域 Worker 可以并发生成

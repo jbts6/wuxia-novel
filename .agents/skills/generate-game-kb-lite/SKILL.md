@@ -96,6 +96,26 @@ refresh `lite-status`. Only an explicit platform 429 triggers worker backoff;
 never infer 429 from a null or generic missing result. The controller is the
 only acceptance authority.
 
+### Claude Workflow hard gate
+
+Even when the window contains only one chapter, Claude Code must invoke
+`game-kb-chapter-extract`; generic Agent/Task is forbidden, never substitute it. The main
+agent/session must not read `source_file`, perform chapter extraction, or
+construct, repair, or normalize an envelope. If the Workflow is unavailable,
+times out, returns null, missing, malformed, or non-JSON output, fail closed:
+stop the window and do not repair, retry, submit, or create a run. Only when
+`lite-status` returns `next_action: start-new-run` may the controller authorize a
+new run. Keep the Workflow result in memory only; never write an envelope to
+the repository, `%TEMP%`, `/tmp`, or any other filesystem path. The Workflow
+result memory is the only handoff and must go directly to stdin.
+
+After the guard is clean, pass the unchanged Workflow result directly through
+stdin. `$WORKFLOW_ENVELOPE_JSON` is an in-memory value, not a path:
+
+```text
+$WORKFLOW_ENVELOPE_JSON | node .agents/skills/generate-game-kb/scripts/flow.js lite-submit-draft "<novel>" --run <run-id> --batch <batch-id> --unit <unit> --attempt <attempt> --guard-id <guard-id> --json
+```
+
 An identity-matched invalid envelope consumes exactly one attempt through formal
 controller rejection. A stale identity or rogue file does not consume an
 attempt; stop, refresh `lite-status`, and follow the reported action. Attempt 1
