@@ -64,7 +64,7 @@
 - `deferredPathsFor()` 同样返回 `migrationReceipt`。
 - `publishedMigrationReceipt(novelDir, runId)`：内部 helper，优先通用 receipt，缺失时回退 `chapterImportReceipt`。
 
-- [ ] **步骤 1：写 workRoot 和 receipt 路径失败测试**
+- [x] **步骤 1：写 workRoot 和 receipt 路径失败测试**
 
 ```js
 test('pathsFor keeps the real novel identity while placing a run under an isolated work root', () => {
@@ -79,7 +79,7 @@ test('pathsFor keeps the real novel identity while placing a run under an isolat
 });
 ```
 
-- [ ] **步骤 2：运行测试确认失败**
+- [x] **步骤 2：运行测试确认失败**
 
 运行：
 
@@ -89,7 +89,7 @@ node --test .agents/skills/generate-game-kb/tests/legacy-migration.test.js
 
 预期：FAIL，现有 `pathsFor()` 忽略 `workRoot`，且没有 `migrationReceipt`。
 
-- [ ] **步骤 3：实现可选 workRoot，不改变现有调用行为**
+- [x] **步骤 3：实现可选 workRoot，不改变现有调用行为**
 
 核心实现形状：
 
@@ -108,11 +108,11 @@ function pathsFor(novelDir, runId, options = {}) {
 }
 ```
 
-- [ ] **步骤 4：写安装收据通用/兼容回退测试**
+- [x] **步骤 4：写安装收据通用/兼容回退测试**
 
 覆盖三种情况：只有 `migration-receipt.json` 时通过；只有旧 `chapter-import-receipt.json` 时继续通过；receipt hash 不匹配时报现有 `INSTALL_RECEIPT_*` blocking error。
 
-- [ ] **步骤 5：运行安装测试确认新增测试失败**
+- [x] **步骤 5：运行安装测试确认新增测试失败**
 
 运行：
 
@@ -122,7 +122,7 @@ node --test .agents/skills/generate-game-kb/tests/install-v4.test.js
 
 预期：新增通用 receipt 用例 FAIL；原有 chapter import 用例仍 PASS。
 
-- [ ] **步骤 6：实现通用 receipt 查找并运行测试**
+- [x] **步骤 6：实现通用 receipt 查找并运行测试**
 
 ```js
 function publishedMigrationReceipt(novelDir, runId) {
@@ -139,7 +139,7 @@ node --test .agents/skills/generate-game-kb/tests/install-v4.test.js .agents/ski
 
 预期：全部 PASS，0 fail。
 
-- [ ] **步骤 7：提交基础合同**
+- [x] **步骤 7：提交基础合同**
 
 ```powershell
 git add .agents/skills/generate-game-kb/scripts/lib/paths.js .agents/skills/generate-game-kb/scripts/lib/install.js .agents/skills/generate-game-kb/tests/install-v4.test.js .agents/skills/generate-game-kb/tests/legacy-migration.test.js
@@ -170,7 +170,7 @@ mapLegacyItemType(value: unknown): string | null
 mergeLegacyDescription(parts: Array<[label: string, value: unknown]>): string | null
 ```
 
-- [ ] **步骤 1：写完整字段映射失败测试**
+- [x] **步骤 1：写完整字段映射失败测试**
 
 fixture 同时包含 `alias/aliases`、`identity`、`importance`、`biography/bio/description`、人物 `items`、技能 `holders`、物品 `owner`、门派 `members`。断言：
 
@@ -185,7 +185,7 @@ assert.equal('owner' in item, false);
 assert.equal('members' in faction, false);
 ```
 
-- [ ] **步骤 2：运行测试确认模块不存在**
+- [x] **步骤 2：运行测试确认模块不存在**
 
 ```powershell
 node --test .agents/skills/generate-game-kb/tests/legacy-map.test.js
@@ -193,7 +193,7 @@ node --test .agents/skills/generate-game-kb/tests/legacy-map.test.js
 
 预期：FAIL，`legacy-map.js` 不存在。
 
-- [ ] **步骤 3：实现固定映射表与文本合并**
+- [x] **步骤 3：实现固定映射表与文本合并**
 
 ```js
 const ITEM_TYPE_RULES = Object.freeze([
@@ -224,11 +224,11 @@ description: mergeLegacyDescription([
 ])
 ```
 
-- [ ] **步骤 4：实现旧 ID registry 与冲突测试**
+- [x] **步骤 4：实现旧 ID registry 与冲突测试**
 
 测试两个中文名称产生相同拼音基础 ID，以及两个同名但证据不同的实体。调用现有 `assignStableIds()` 后断言 ID 唯一、重复运行字节相同、同名未合并。合法且无冲突的 `char_*` 旧 ID 通过 `priorRegistry` 保留。
 
-- [ ] **步骤 5：验证 mapper 输出能进入现有 final builder**
+- [x] **步骤 5：验证 mapper 输出能进入现有 final builder**
 
 ```js
 const mapped = mapLegacyBook(fixture);
@@ -239,7 +239,7 @@ assert.deepEqual(Object.keys(result.data).sort(), [
 ]);
 ```
 
-- [ ] **步骤 6：运行 mapper 与 semantic contract 测试**
+- [x] **步骤 6：运行 mapper 与 semantic contract 测试**
 
 ```powershell
 node --test .agents/skills/generate-game-kb/tests/legacy-map.test.js .agents/skills/generate-game-kb/tests/semantic-contract.test.js .agents/skills/generate-game-kb/tests/finalize.test.js
@@ -247,7 +247,7 @@ node --test .agents/skills/generate-game-kb/tests/legacy-map.test.js .agents/ski
 
 预期：全部 PASS，0 fail。
 
-- [ ] **步骤 7：提交纯映射器**
+- [x] **步骤 7：提交纯映射器**
 
 ```powershell
 git add .agents/skills/generate-game-kb/scripts/lib/legacy-map.js .agents/skills/generate-game-kb/tests/legacy-map.test.js
@@ -278,11 +278,11 @@ rebuildLegacyEvidence(mapped, chapters): {
 }
 ```
 
-- [ ] **步骤 1：写来源优先级和完整性失败测试**
+- [x] **步骤 1：写来源优先级和完整性失败测试**
 
 构造中文临时目录，分别放置：不完整活动 `data`、完整 `.game-kb-work/runs/migration-run-1/final/data`、完整 archive final。断言选择 retained run；活动数据完整时选择活动数据；`--from` 显式路径只有通过安全边界和解析检查才覆盖自动选择。
 
-- [ ] **步骤 2：运行来源测试确认失败**
+- [x] **步骤 2：运行来源测试确认失败**
 
 ```powershell
 node --test .agents/skills/generate-game-kb/tests/legacy-source.test.js
@@ -290,7 +290,7 @@ node --test .agents/skills/generate-game-kb/tests/legacy-source.test.js
 
 预期：FAIL，来源 resolver 不存在。
 
-- [ ] **步骤 3：实现有界发现与稳定错误码**
+- [x] **步骤 3：实现有界发现与稳定错误码**
 
 只扫描以下位置，不递归遍历整个仓库：
 
@@ -304,11 +304,11 @@ const roots = [
 
 每个候选拒绝符号链接逃逸，逐文件解析 JSON，并返回 `LEGACY_SOURCE_NOT_FOUND`、`LEGACY_JSON_INVALID`、`LEGACY_SOURCE_OUTSIDE_NOVEL` 等稳定错误码。
 
-- [ ] **步骤 4：写证据验证和章节覆盖失败测试**
+- [x] **步骤 4：写证据验证和章节覆盖失败测试**
 
 覆盖 `chapter+text`、`chapter+line_start+line_end+text`、`chapter+anchor+text`；断言可验证引用保留，全部失效的实体进入 `rejected`。章节摘要无 refs 但章节号完整时允许绑定章节 hash；缺失、重复或越界时返回 `LEGACY_SUMMARY_COVERAGE_INVALID`。
 
-- [ ] **步骤 5：实现证据重建**
+- [x] **步骤 5：实现证据重建**
 
 对每条实体引用调用现有：
 
@@ -322,7 +322,7 @@ const result = validateGroundedRecord(record, {
 
 保留 `normalizedRefs`，将实体投影到涉及的 accepted chapter；随后调用 `buildCandidateRegistry(acceptedChapters)`。不得在无证据情况下创建实体。
 
-- [ ] **步骤 6：运行来源、证据、grounding 测试**
+- [x] **步骤 6：运行来源、证据、grounding 测试**
 
 ```powershell
 node --test .agents/skills/generate-game-kb/tests/legacy-source.test.js .agents/skills/generate-game-kb/tests/legacy-evidence.test.js .agents/skills/generate-game-kb/tests/grounding.test.js .agents/skills/generate-game-kb/tests/candidate-registry.test.js
@@ -330,7 +330,7 @@ node --test .agents/skills/generate-game-kb/tests/legacy-source.test.js .agents/
 
 预期：全部 PASS，0 fail。
 
-- [ ] **步骤 7：提交来源与证据层**
+- [x] **步骤 7：提交来源与证据层**
 
 ```powershell
 git add .agents/skills/generate-game-kb/scripts/lib/legacy-source.js .agents/skills/generate-game-kb/scripts/lib/legacy-evidence.js .agents/skills/generate-game-kb/tests/legacy-source.test.js .agents/skills/generate-game-kb/tests/legacy-evidence.test.js
@@ -355,7 +355,7 @@ buildLegacyCandidate(plan, { stagingRoot, runId, faultAt? }): CandidateResult
 writeMigrationReceipt(paths, receipt): string
 ```
 
-- [ ] **步骤 1：写真实旧 JSON fixture 到 V6 candidate 的失败集成测试**
+- [x] **步骤 1：写真实旧 JSON fixture 到 V6 candidate 的失败集成测试**
 
 fixture 包含两个章节、五类旧 JSON、一个无证据人物、一个 unresolved faction。断言候选拥有：
 
@@ -366,7 +366,7 @@ assert.equal(receipt.counts.rejected.characters, 1);
 assert.equal(receipt.unresolved_references.length, 1);
 ```
 
-- [ ] **步骤 2：运行测试确认失败**
+- [x] **步骤 2：运行测试确认失败**
 
 ```powershell
 node --test .agents/skills/generate-game-kb/tests/legacy-migration.test.js
@@ -374,7 +374,7 @@ node --test .agents/skills/generate-game-kb/tests/legacy-migration.test.js
 
 预期：FAIL，候选 builder 不存在。
 
-- [ ] **步骤 3：写完整 staged run 元数据与 accepted artifacts**
+- [x] **步骤 3：写完整 staged run 元数据与 accepted artifacts**
 
 使用 `pathsFor(novelDir, runId, { workRoot })`，写入 `run.json`、`manifest.json`、源快照/章节副本、accepted chapter YAML、candidate registry。`run.json` 使用 `profile: 'v4'`、`semantic_contract_version: 6`，并增加 `operation: 'legacy-json-to-v6'`。
 
@@ -390,11 +390,11 @@ const mapped = mapLegacyBook(legacy);
 const evidence = rebuildLegacyEvidence(mapped, chapters);
 ```
 
-- [ ] **步骤 4：用现有 domain contract 构造四个 accepted decisions**
+- [x] **步骤 4：用现有 domain contract 构造四个 accepted decisions**
 
 对 `factions/characters/skills/items` 分别调用 `createDomainWorkPlan()` 获取 entry refs 与 input hash；每条 retained record 生成 `action: 'accept'` 和仅含该域允许字段的 patch，再调用 `normalizeDomainDecisionDraft()`，不能直接写未经合同校验的 YAML。
 
-- [ ] **步骤 5：用现有 final builder 和 verifier 生成候选**
+- [x] **步骤 5：用现有 final builder 和 verifier 生成候选**
 
 ```js
 const finalResult = buildFinalData(mergedBook, manifest, mapped.priorRegistry);
@@ -404,13 +404,13 @@ const verification = verifyFinal(paths, { profile: 'v4' });
 if (!verification.passed) throw migrationError('MIGRATION_CANDIDATE_INVALID', verification.blocking_errors);
 ```
 
-- [ ] **步骤 6：写 receipt 哈希与可重复性测试**
+- [x] **步骤 6：写 receipt 哈希与可重复性测试**
 
 连续两次以相同 run ID 之外的等价 staging 构建候选，断言五个 YAML、ID plan 和 rejection/unresolved 清单哈希一致；时间字段不进入内容哈希。
 
 候选验证通过后调用 `writeMigrationReceipt(paths, receipt)`；返回值是 receipt 的 SHA-256，后续直接传给 installer，不允许再次手工计算不同规范的哈希。
 
-- [ ] **步骤 7：运行候选相关测试**
+- [x] **步骤 7：运行候选相关测试**
 
 ```powershell
 node --test .agents/skills/generate-game-kb/tests/legacy-migration.test.js .agents/skills/generate-game-kb/tests/domain-contract.test.js .agents/skills/generate-game-kb/tests/domain-assembly.test.js .agents/skills/generate-game-kb/tests/verify-v4.test.js
@@ -418,7 +418,7 @@ node --test .agents/skills/generate-game-kb/tests/legacy-migration.test.js .agen
 
 预期：全部 PASS，0 fail。
 
-- [ ] **步骤 8：提交候选 builder**
+- [x] **步骤 8：提交候选 builder**
 
 ```powershell
 git add .agents/skills/generate-game-kb/scripts/lib/legacy-migration.js .agents/skills/generate-game-kb/tests/legacy-migration.test.js
@@ -451,11 +451,11 @@ auditRepository(repoRoot): RepositoryAudit
 writeAuditReports(audit, outputDir): { jsonPath, markdownPath }
 ```
 
-- [ ] **步骤 1：写只读默认和显式确认失败测试**
+- [x] **步骤 1：写只读默认和显式确认失败测试**
 
 不带 `--confirm` 调用 `migrate-legacy` 时输出 plan，且递归文件哈希前后完全相同；尝试执行 mutation helper 时没有 confirm 返回 `MIGRATION_CONFIRM_REQUIRED`。
 
-- [ ] **步骤 2：写事务故障矩阵测试**
+- [x] **步骤 2：写事务故障矩阵测试**
 
 分别注入：`after-candidate-write`、`after-archive`、`after-run-promote`、`after-install`。每个 confirm 用例断言：
 
@@ -467,7 +467,7 @@ assert.equal(report.status, 'archived_after_migration_failure');
 
 候选完全成功时断言 `verifyInstalled(novel).passed === true`。单独保留 `archiveExisting()` 自身移动失败回滚语义：若归档根本未成功，事务报告必须明确 `archive_failed`，不能谎报已归档。
 
-- [ ] **步骤 3：实现事务状态机**
+- [x] **步骤 3：实现事务状态机**
 
 状态只允许：
 
@@ -480,7 +480,7 @@ const STATES = Object.freeze([
 
 候选构建失败时调用 `archiveExisting()`；归档后失败时删除/再次归档部分活动 V6，保留旧 archive，不恢复旧 JSON。所有 catch 分支写稳定错误码和可重试命令。
 
-- [ ] **步骤 4：写仓库审计测试与实现**
+- [x] **步骤 4：写仓库审计测试与实现**
 
 fixture 包含：合格 V6、旧 JSON、普通书籍目录、损坏 data。断言分类互斥、排序稳定、审计不修改文件。`audit-v6.js` 只接受 repo root 和 output dir；默认 stdout 只输出报告路径与计数。
 
@@ -492,7 +492,7 @@ const written = writeAuditReports(audit, outputDir);
 process.stdout.write(JSON.stringify({ ...written, counts: audit.counts }) + '\n');
 ```
 
-- [ ] **步骤 5：接入 flow CLI**
+- [x] **步骤 5：接入 flow CLI**
 
 ```js
 if (command === 'migrate-legacy') {
@@ -512,11 +512,11 @@ if (command === 'migrate-legacy') {
 
 要求 `--run`；mutation 模式同时要求 `--staging-root` 和 `--confirm`。禁止隐式选择仓库外 staging。
 
-- [ ] **步骤 6：更新中英文命令示例**
+- [x] **步骤 6：更新中英文命令示例**
 
 写入《书剑恩仇录》的 audit、dry-run、confirm 和同命令手动重试示例；写明 unit 不适用于本命令、失败后旧数据只在 `_archive`，以及中文路径无需改名。
 
-- [ ] **步骤 7：运行 CLI、事务、归档和技能合同测试**
+- [x] **步骤 7：运行 CLI、事务、归档和技能合同测试**
 
 ```powershell
 node --test .agents/skills/generate-game-kb/tests/legacy-migration.test.js .agents/skills/generate-game-kb/tests/repository-audit.test.js .agents/skills/generate-game-kb/tests/cli.test.js .agents/skills/generate-game-kb/tests/archive.test.js .agents/skills/generate-game-kb/tests/skill-contract.test.js .agents/skills/generate-game-kb/tests/cn-skill-contract.test.js
@@ -524,7 +524,7 @@ node --test .agents/skills/generate-game-kb/tests/legacy-migration.test.js .agen
 
 预期：全部 PASS，0 fail。
 
-- [ ] **步骤 8：提交迁移事务和命令**
+- [x] **步骤 8：提交迁移事务和命令**
 
 ```powershell
 git add .agents/skills/generate-game-kb/scripts/lib/legacy-migration.js .agents/skills/generate-game-kb/scripts/lib/repository-audit.js .agents/skills/generate-game-kb/scripts/audit-v6.js .agents/skills/generate-game-kb/scripts/flow.js .agents/skills/generate-game-kb/tests/legacy-migration.test.js .agents/skills/generate-game-kb/tests/repository-audit.test.js .agents/skills/generate-game-kb/tests/cli.test.js .agents/skills/generate-game-kb/SKILL.md .agents/skills/generate-game-kb/SKILL-cn.md .agents/skills/generate-game-kb/examples.md .agents/skills/generate-game-kb/examples-cn.md
@@ -541,7 +541,7 @@ git commit -m "feat(game-kb): migrate and audit legacy V6 data"
 - 生成：`.trellis/tasks/07-19-audit-v6-knowledge-bases/reports/initial-audit.md`
 - 生成：`.trellis/tasks/07-19-audit-v6-knowledge-bases/reports/migration-plan.json`
 
-- [ ] **步骤 1：运行 generate-game-kb 全测试集**
+- [x] **步骤 1：运行 generate-game-kb 全测试集**
 
 ```powershell
 node --test .agents/skills/generate-game-kb/tests/*.test.js
@@ -549,11 +549,11 @@ node --test .agents/skills/generate-game-kb/tests/*.test.js
 
 预期：0 fail；任何既有失败必须先分类为本任务回归或独立基线问题，不能跳过。
 
-- [ ] **步骤 2：记录《剑神一笑》保护哈希**
+- [x] **步骤 2：记录《剑神一笑》保护哈希**
 
 对其五个 YAML、安装收据和已发布 run 工件生成保护哈希清单，写入 initial audit。该清单用于实际迁移后的字节不变断言。
 
-- [ ] **步骤 3：执行真实仓库只读审计**
+- [x] **步骤 3：执行真实仓库只读审计**
 
 ```powershell
 node .agents/skills/generate-game-kb/scripts/audit-v6.js "C:\git\wuxia-novel" --output ".trellis\tasks\07-19-audit-v6-knowledge-bases\reports"
@@ -561,15 +561,15 @@ node .agents/skills/generate-game-kb/scripts/audit-v6.js "C:\git\wuxia-novel" --
 
 预期初始分类：18 个活动 data，`古龙/剑神一笑` 合格，其余 17 个进入迁移预检或不可迁移；命令不得产生书籍目录改动。
 
-- [ ] **步骤 4：逐本执行不带 confirm 的 migration plan**
+- [x] **步骤 4：逐本执行不带 confirm 的 migration plan**
 
 使用审计器选择的明确 `--from` 路径和稳定 run ID。收集预计输入/输出/剔除数、unresolved references 和 blocking errors；不创建活动 data 或 archive。
 
-- [ ] **步骤 5：人工/程序化检查计划不变量**
+- [x] **步骤 5：人工/程序化检查计划不变量**
 
 断言：没有提取命令、没有模型字段、所有旧来源路径处于对应书籍目录、所有无证据记录出现在拒绝列表、章节摘要覆盖完整、所有计划使用 semantic contract 6。
 
-- [ ] **步骤 6：提交 dry-run 报告**
+- [x] **步骤 6：提交 dry-run 报告**
 
 ```powershell
 git add .trellis/tasks/07-19-audit-v6-knowledge-bases/reports
@@ -588,11 +588,11 @@ git commit -m "docs(game-kb): record legacy V6 migration audit"
 - 生成：`.trellis/tasks/07-19-audit-v6-knowledge-bases/reports/final-audit.md`
 - 生成：`.trellis/tasks/07-19-audit-v6-knowledge-bases/reports/migration-results.json`
 
-- [ ] **步骤 1：逐本执行已审核计划**
+- [x] **步骤 1：逐本执行已审核计划**
 
 每本使用显式 novel path、`--from`、`--run`、`--staging-root` 和 `--confirm`。一次只处理一本；命令退出后立即读取该书 receipt，再继续下一本。不要把 17 本拼成一个不可恢复的 shell 命令。
 
-- [ ] **步骤 2：每本立即执行 installed verify**
+- [x] **步骤 2：每本立即执行 installed verify**
 
 首本《书剑恩仇录》的即时验证命令为：
 
@@ -604,19 +604,19 @@ node .agents/skills/generate-game-kb/scripts/flow.js verify "C:\git\wuxia-novel\
 
 迁移成功必须 `passed: true`；失败书必须没有活动 `data`，且 migration result 指向有效 archive manifest。
 
-- [ ] **步骤 3：生成最终仓库审计**
+- [x] **步骤 3：生成最终仓库审计**
 
 再次运行 `audit-v6.js`。断言所有剩余活动 `data` 通过 V6 installed verification，不存在旧 JSON 活动文件集。
 
-- [ ] **步骤 4：验证《剑神一笑》字节不变**
+- [x] **步骤 4：验证《剑神一笑》字节不变**
 
 重新计算保护哈希并与 initial audit 比较；任何差异都是 blocking failure，必须先定位，不能提交。
 
-- [ ] **步骤 5：验证小说与用户文件未变**
+- [x] **步骤 5：验证小说与用户文件未变**
 
 比较任务开始时的 git status 和 source hash；本任务不得新增小说文本 diff，不得 stage `.claude/skills/*`、`docs/wuxia-kb-build-priority.md` 或其他用户目录。
 
-- [ ] **步骤 6：提交实际迁移阶段**
+- [x] **步骤 6：提交实际迁移阶段**
 
 只 stage 迁移产生的目标 data、受控 receipts/manifests 和 task reports，先运行 `git diff --cached --check` 与 staged path allowlist，再提交：
 
@@ -634,7 +634,7 @@ git commit -m "data(game-kb): migrate reusable knowledge bases to V6"
 - 更新：`.trellis/tasks/07-19-audit-v6-knowledge-bases/reports/final-audit.md`
 - 更新：开发者 journal
 
-- [ ] **步骤 1：运行全部新旧测试**
+- [x] **步骤 1：运行全部新旧测试**
 
 ```powershell
 node --test .agents/skills/generate-game-kb/tests/*.test.js
@@ -642,11 +642,11 @@ node --test .agents/skills/generate-game-kb/tests/*.test.js
 
 预期：0 fail。
 
-- [ ] **步骤 2：运行 canonical final state check**
+- [x] **步骤 2：运行 canonical final state check**
 
 重新运行仓库审计器；它内部逐本调用 `verifyInstalled()`，最终报告只保留书名、passed 和 blocking error count。预期全部 passed，blocking error count 为 0。
 
-- [ ] **步骤 3：核对 PRD acceptance criteria**
+- [x] **步骤 3：核对 PRD acceptance criteria**
 
 逐条把 initial audit、migration receipt、archive manifest、final audit 和测试证据映射回 `prd.md`；任何未满足项保持任务 in_progress。
 
@@ -669,6 +669,6 @@ git commit -m "docs(game-kb): finish V6 knowledge base audit"
 
 ## 实施前审批门
 
-- [ ] 用户已审阅 `prd.md`、`design.md` 和本 `implement.md`。
-- [ ] 用户明确批准执行 `task.py start`。
-- [ ] 任务状态从 `planning` 变为 `in_progress` 后，才能开始任务 1。
+- [x] 用户已审阅 `prd.md`、`design.md` 和本 `implement.md`。
+- [x] 用户明确批准执行 `task.py start`。
+- [x] 任务状态从 `planning` 变为 `in_progress` 后，才能开始任务 1。

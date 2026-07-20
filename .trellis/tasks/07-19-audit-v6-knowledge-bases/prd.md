@@ -39,19 +39,19 @@ Identify every currently installed novel knowledge base that satisfies the lates
 
 ## Acceptance Criteria
 
-- [ ] The scan scope and canonical V6 qualification command are documented from repository evidence.
-- [ ] Every installed knowledge base has a deterministic classification and evidence.
-- [ ] The user receives the complete initially-qualified, migrated-to-V6, and archived-book lists with reasons.
-- [ ] No migration path re-runs extraction or requires a model to infer missing source evidence.
-- [ ] Migration receipts identify every reused legacy artifact, converted record, rejected record, and source/final hash.
-- [ ] Every generated YAML value is traceable either to a legacy JSON field or to deterministic migration metadata; no value is model-authored during migration.
-- [ ] Every successful migration passes canonical V6 verification and preserves a byte-identical backup of the pre-migration data.
-- [ ] Every remaining unqualified knowledge base is moved to the approved archive location; none remains discoverable as installed data.
-- [ ] A failed migration leaves the original payload recoverable in `_archive`, records a retryable failure report, and exposes no partial or legacy payload to the Dashboard.
-- [ ] Qualified knowledge bases remain byte-for-byte unchanged.
-- [ ] Novel source files and unrelated user files remain unchanged.
-- [ ] Post-archive V6 verification passes for every remaining installed knowledge base.
-- [ ] A manifest maps each archived original path to its archive path and records the validation failure.
+- [x] The scan scope and canonical V6 qualification command are documented from repository evidence.
+- [x] Every installed knowledge base has a deterministic classification and evidence.
+- [x] The user receives the complete initially-qualified, migrated-to-V6, and archived-book lists with reasons.
+- [x] No migration path re-runs extraction or requires a model to infer missing source evidence.
+- [x] Migration receipts identify every reused legacy artifact, converted record, rejected record, and source/final hash.
+- [x] Every generated YAML value is traceable either to a legacy JSON field or to deterministic migration metadata; no value is model-authored during migration.
+- [x] Every successful migration passes canonical V6 verification and preserves a byte-identical backup of the pre-migration data.
+- [x] Every remaining unqualified knowledge base is moved to the approved archive location; none remains discoverable as installed data.
+- [x] A failed migration leaves the original payload recoverable in `_archive`, records a retryable failure report, and exposes no partial or legacy payload to the Dashboard.
+- [x] Qualified knowledge bases remain byte-for-byte unchanged.
+- [x] Novel source files and unrelated user files remain unchanged.
+- [x] Post-archive V6 verification passes for every remaining installed knowledge base.
+- [x] A manifest maps each archived original path to its archive path and records the validation failure.
 
 ## Out of Scope
 
