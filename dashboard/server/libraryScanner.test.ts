@@ -280,7 +280,8 @@ describe('scanLibrary', () => {
       completed: false,
       contentCoverage: { state: 'index-only', detailed: 0, total: 4, indexOnly: 4 },
     });
-    expect(book?.suggestedAction).toMatchObject({ label: '补全实体内容', command: null });
+    // fill-content has no script, so suggestedAction is null
+    expect(book?.suggestedAction).toBeNull();
     expect(result.summary.contentIncomplete).toBe(1);
     expect(result.summary.completed).toBe(0);
   });

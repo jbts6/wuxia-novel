@@ -17,9 +17,9 @@ import {
   type RawNovelData,
   type ScanPassName,
   type ScanPassProgress,
-  type SuggestedAction,
   type ValidationStatus,
 } from '../src/types/library';
+import { buildSuggestedAction } from './actionConfig';
 import {
   createEmptyContentCoverage,
   hasEntityContent,
@@ -42,7 +42,6 @@ const EXCLUDED_ROOT_DIRECTORIES = new Set([
 ]);
 
 const REQUIRED_DATA_ENTRIES = Object.entries(DATA_FILE_NAMES) as [DataFileKey, string][];
-const PIPELINE_SCRIPT_ROOT = '.agents/skills/generate-kb/scripts';
 
 interface DiscoveredBook {
   author: string;
@@ -109,10 +108,6 @@ function readYaml(target: string): unknown {
 
 function toIsoTime(milliseconds: number): string | null {
   return milliseconds > 0 ? new Date(milliseconds).toISOString() : null;
-}
-
-function shellQuote(value: string): string {
-  return `'${value.replaceAll("'", `'\\''`)}'`;
 }
 
 function validateNamedRecords(value: unknown): boolean {
@@ -365,74 +360,7 @@ function deriveGenerationStage(
   return 'not-started';
 }
 
-function suggestedActionFor(
-  bookPath: string,
-  stage: GenerationStage,
-  validationStatus: ValidationStatus,
-  artifacts: ArtifactState,
-  contentCoverage: ContentCoverage,
-): SuggestedAction | null {
-  const novel = shellQuote(bookPath);
-  const script = (name: string) => shellQuote(`${PIPELINE_SCRIPT_ROOT}/${name}`);
-
-  if (stage === 'not-started') {
-    return {
-      label: '切分章节',
-      reason: '尚未发现有效的 ch_split 产物。',
-      command: `node ${script('split-chapters.js')} ${novel}`,
-    };
-  }
-
-  if (stage === 'prepared' && !artifacts.scanManifest) {
-    return {
-      label: '生成来源索引与扫描清单',
-      reason: '切章已存在，但缺少可计数的 scan manifest。',
-      command: `node ${script('prepare-source.js')} ${novel}`,
-    };
-  }
-
-  if (stage === 'scanning' || stage === 'pending-merge') {
-    return {
-      label: '检查候选清单覆盖',
-      reason: '继续 generate-kb 的扫描或归并阶段，并用校验脚本检查剩余窗口和 ledger。',
-      command: `node ${script('validate-inventory.js')} ${novel}`,
-    };
-  }
-
-  if (stage === 'pending-gap') {
-    return {
-      label: '检查独立查漏',
-      reason: 'named-inventory 与 event-dialogue 已完成，仍需完成独立 gap audit。',
-      command: `node ${script('audit-recall.js')} ${novel} --dry-run`,
-    };
-  }
-
-  if (contentCoverage.state === 'index-only' || contentCoverage.state === 'partial') {
-    return {
-      label: '补全实体内容',
-      reason: `实体文件已经存在，但只有 ${contentCoverage.detailed}/${contentCoverage.total} 条包含结构化详情，其余记录目前只有名称和原文定位。`,
-      command: null,
-    };
-  }
-
-  if (validationStatus === 'legacy-unproven') {
-    return {
-      label: '诊断旧版知识库',
-      reason: '消费数据可浏览，但尚未经过新版 G1-G5 证明。',
-      command: `node ${script('audit-recall.js')} ${novel} --legacy --dry-run`,
-    };
-  }
-
-  if (validationStatus !== 'passed') {
-    return {
-      label: '检查质量门禁',
-      reason: '数据已产出，但质量报告尚未证明 G1-G5 全部通过。',
-      command: `node ${script('assess-quality.js')} ${novel} --report-only --dry-run`,
-    };
-  }
-
-  return null;
-}
+// suggestedActionFor moved to actionConfig.ts as buildSuggestedAction
 
 function maxObservedMtime(bookDirectory: string): string | null {
   const targets = [
@@ -519,7 +447,7 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
   if (!artifacts.scanManifest) missingArtifacts.push('build/scan-manifest.json');
   if (!artifacts.qualityReport) missingArtifacts.push('reports/quality_report.json');
 
-  return {
+  const status: LibraryBookStatus = {
     path: book.path,
     author: book.author,
     name: book.name,
@@ -541,14 +469,10 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
     missingArtifacts,
     errors,
     gateFailures: quality.gateFailures,
-    suggestedAction: suggestedActionFor(
-      book.path,
-      generationStage,
-      quality.status,
-      artifacts,
-      dataInspection.contentCoverage,
-    ),
+    suggestedAction: null,
   };
+
+  return { ...status, suggestedAction: buildSuggestedAction(book.path, status) };
 }
 
 export function scanLibrary(rootDirectory: string): LibraryStatusResponse {
