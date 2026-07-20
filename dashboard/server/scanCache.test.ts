@@ -45,39 +45,39 @@ describe('scanCache', () => {
   });
 
   it('returns null for cache miss', () => {
-    const result = getCachedStatus('nonexistent', '/tmp/nonexistent');
+    const result = getCachedStatus('/tmp/nonexistent');
     expect(result).toBeNull();
   });
 
   it('returns cached status on cache hit', () => {
     const status = makeStatus({ path: 'test/book' });
-    // Use a real directory that exists
     const testDir = path.join(process.cwd(), 'dashboard');
-    setCachedStatus('test/book', testDir, status);
+    setCachedStatus(testDir, status);
 
-    const result = getCachedStatus('test/book', testDir);
+    const result = getCachedStatus(testDir);
     expect(result).toEqual(status);
   });
 
-  it('invalidates cache for specific book', () => {
+  it('invalidates cache for specific directory', () => {
     const status = makeStatus({ path: 'test/book' });
     const testDir = path.join(process.cwd(), 'dashboard');
-    setCachedStatus('test/book', testDir, status);
+    setCachedStatus(testDir, status);
 
     invalidateCache('test/book', testDir);
-    const result = getCachedStatus('test/book', testDir);
+    const result = getCachedStatus(testDir);
     expect(result).toBeNull();
   });
 
   it('clears all cache', () => {
     const status1 = makeStatus({ path: 'test/book1' });
     const status2 = makeStatus({ path: 'test/book2' });
-    const testDir = path.join(process.cwd(), 'dashboard');
-    setCachedStatus('test/book1', testDir, status1);
-    setCachedStatus('test/book2', testDir, status2);
+    const testDir1 = path.join(process.cwd(), 'dashboard', 'src');
+    const testDir2 = path.join(process.cwd(), 'dashboard', 'server');
+    setCachedStatus(testDir1, status1);
+    setCachedStatus(testDir2, status2);
 
     clearCache();
-    expect(getCachedStatus('test/book1', testDir)).toBeNull();
-    expect(getCachedStatus('test/book2', testDir)).toBeNull();
+    expect(getCachedStatus(testDir1)).toBeNull();
+    expect(getCachedStatus(testDir2)).toBeNull();
   });
 });

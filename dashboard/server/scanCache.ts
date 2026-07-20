@@ -11,7 +11,7 @@ interface BookScanCache {
 // Key by full directory path to avoid collisions between test roots
 const cache = new Map<string, BookScanCache>();
 
-const CACHE_TTL_MS = 5000; // 5 seconds TTL for mtime checks
+const CACHE_TTL_MS = 15_000; // 15 seconds TTL for mtime checks
 
 function getMaxMtime(filePath: string): number {
   try {
@@ -75,8 +75,8 @@ function mtimesChanged(cached: BookScanCache, current: Map<string, number>): boo
   return false;
 }
 
-export function getCachedStatus(_bookPath: string, bookDirectory: string): LibraryBookStatus | null {
-  const cacheKey = bookDirectory; // Use full directory path as key
+export function getCachedStatus(bookDirectory: string): LibraryBookStatus | null {
+  const cacheKey = bookDirectory;
   const cached = cache.get(cacheKey);
   if (!cached) return null;
 
@@ -94,8 +94,8 @@ export function getCachedStatus(_bookPath: string, bookDirectory: string): Libra
   return cached.status;
 }
 
-export function setCachedStatus(_bookPath: string, bookDirectory: string, status: LibraryBookStatus): void {
-  const cacheKey = bookDirectory; // Use full directory path as key
+export function setCachedStatus(bookDirectory: string, status: LibraryBookStatus): void {
+  const cacheKey = bookDirectory;
   cache.set(cacheKey, {
     status,
     mtimes: collectMtimes(bookDirectory),

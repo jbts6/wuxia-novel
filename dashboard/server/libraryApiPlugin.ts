@@ -45,7 +45,7 @@ function executeAction(
   const args = [bookPath, ...(actionConfig.extraArgs ?? [])];
 
   return new Promise((resolve) => {
-    execFile('node', [scriptPath, ...args], { cwd: rootDirectory, timeout: 30000 }, (error, stdout, stderr) => {
+    execFile('node', [scriptPath, ...args], { cwd: rootDirectory, timeout: 60_000 }, (error, stdout, stderr) => {
       if (error) {
         resolve({ success: false, output: stderr || stdout, error: errorMessage(error) });
       } else {
@@ -98,7 +98,14 @@ export async function handleLibraryApiRequest(
 
       try {
         const body = await readRequestBody(request);
-        const { bookPath, actionType } = JSON.parse(body) as { bookPath?: string; actionType?: string };
+        const parsed: unknown = JSON.parse(body);
+        if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+          return { status: 400, body: { error: '请求体必须是 JSON 对象' } };
+        }
+        const { bookPath, actionType } = parsed as Record<string, unknown>;
+        if (typeof bookPath !== 'string' || typeof actionType !== 'string') {
+          return { status: 400, body: { error: '缺少 bookPath 或 actionType 参数' } };
+        }
 
         if (!bookPath || !actionType) {
           return { status: 400, body: { error: '缺少 bookPath 或 actionType 参数' } };
