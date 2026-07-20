@@ -121,7 +121,7 @@ export default function Library() {
   const [search, setSearch] = useState('');
   const [sorting, setSorting] = useState<SortingState>([
     { id: 'validationStatus', desc: false },
-    { id: 'contentCoverage', desc: true },
+    { id: 'contentCoverage', desc: false },
   ]);
   const [copied, setCopied] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
